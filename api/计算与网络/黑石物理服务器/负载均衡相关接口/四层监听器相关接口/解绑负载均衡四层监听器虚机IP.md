@@ -37,10 +37,10 @@ vmList描述待解绑的虚机信息，n为下标，vmList包含字段如下
 ### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "requestId" : <异步任务ID>
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "requestId": "<异步任务ID>"
 }
 ```
 

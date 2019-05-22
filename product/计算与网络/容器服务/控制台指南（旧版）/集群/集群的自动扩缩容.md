@@ -1,0 +1,137 @@
+## 集群的自动扩缩容
+
+## 1.简介
+集群自动扩缩容，又称 Cluster Autoscaler（CA），是一个独立的程序，它可以动态地调整集群的节点数量来满足需求。当集群中出现由于资源不足而无法调度的 Pod 时自动触发扩容，从而减少人力成本。当满足节点空闲等缩容条件时自动触发缩容，为您节约资源成本。
+
+## 2.使用方法
+### 2.1 开启集群自动伸缩
+1.创建集群开启自动扩缩容，自动创建伸缩组
+![创建伸缩组][1]
+2.为集群添加多个伸缩组
+![创建伸缩组2][2]
+
+使用自动扩缩容需要创建弹性伸缩组，可以指定最小最大值，以及 label。
+
+ - 最小最大值---限制了伸缩组内节点的数量范围。
+ - label---为伸缩组设置 label，会在自动扩容出的节点上设置 label，从而实现服务的灵活调度策略。
+
+>**注意事项：**
+1. 需要配置服务下容器的 request 值：自动扩容的触发条件是集群中存在由于资源不足而无法调度的 Pod，而判断资源是否充足正是基于 Pod 的 request 来进行的。
+2. 不要直接修改属于伸缩组内的节点。
+3. 同一伸缩组内的所有节点应该具有相同的配置（机型和label等）。
+4. 可以使用 PodDisruptionBudget 来防止 Pod 在缩容时被删除。
+5. 在指定伸缩组的最小/最大值节点数量设置之前，检查所在可用区的配额是否足够大。
+6. 不建议启用基于监控指标的节点弹性伸缩
+7. 删除伸缩组会同时销毁伸缩组内的 CVM，请谨慎操作
+
+### 2.2 扩容缩容触发条件
+#### 扩容条件
+集群中出现因为缺少可用资源而无法调度的容器实例时，将触发自动扩容策略，尝试扩容节点来运行这些实例。
+每当 kubernetes 调度程序找不到一个运行 Pod 的地方时，它会将 Pod 的 PodCondition 设置为 false，并将原因设置为 “不可调度的”。集群自动扩缩容程序正是每隔一段时间扫描一次是否有不可调度的 pod 来进行扩容的，如果有就尝试扩容节点来运行这些 pod。
+
+#### 缩容条件
+当节点上所有 Pod（实例）的 CPU 和内存 request 占比同时小于50%时，作为备选缩容节点尝试缩容，如果满足如下描述的所有缩容条件，此节点上的所有 Pod 都可调度到其他节点上，才会进行缩容。
+节点上有以下类型的 Pod（实例）时不会被缩容：
+
+- 设置了严格的 PodDisruptionBudget的 Pod，不满足 PDB 则不会缩容
+- Kube-system 下的 Pod
+- 节点上有非 deployment, replica set, job, stateful set 等等控制器创建的 Pod
+- Pod 有本地存储
+- 不能被调度到其他节点上的 Pod
+
+## 3.扩容缩容常见问题
+### 3.1. Cluster Autoscaler 与基于监控指标的弹性伸缩的节点扩缩容有什么不同？
+
+Cluster Autoscaler 确保集群中的所有 Pod 都可调度，而不管具体的负载。而且它试图确保集群中没有不需要的节点。
+基于监控指标的节点弹性伸缩在自动扩缩时不关心 Pod。因此可能会添加一个没有任何 Pod 的节点，或者删除一个有一些系统关键 Pod 的节点，比如 kube-dns。这种自动缩容机制是 Kubernetes 不鼓励的。因此他们是冲突的，请不要同时启用。
+
+### 3.2.CA 和伸缩组的对应关系
+启用 CA 的集群，会根据选择的节点配置创建一个启动配置和绑定此启动配置的伸缩组。绑定后会在此伸缩组内进行扩缩容，扩容后的 CVM 自动加入集群。自动扩缩容的节点都是按量计费的。伸缩组的相关文档请参见 [弹性伸缩文档](https://cloud.tencent.com/document/product/377)。
+
+### 3.3.CA 会不会缩容我在容器服务控制台手动添加的节点
+不会，CA 缩容的节点只限于伸缩组内的节点。在 [容器服务控制台](https://console.cloud.tencent.com/ccs) 添加的节点不会加入伸缩组，只有在伸缩组内的节点才可能缩容。
+
+### 3.4.可以在弹性伸缩控制台添加或者移出云主机吗？
+不可以，不建议您在 [弹性伸缩控制台](https://console.cloud.tencent.com/autoscaling) 进行任何修改操作。
+
+### 3.5.会继承所选节点的哪些配置
+创建伸缩组时，需要选择集群内的一个节点作为参考来创建 [启动配置](https://cloud.tencent.com/document/product/377/8543)，参考的节点配置包括：
+
+ - vCPU
+ - 内存
+ - 系统盘大小
+ - 数据盘大小
+ - 磁盘类型
+ - 带宽
+ - 带宽计费模式
+ - 是否分配公网 IP
+ - 安全组
+ - 私有网络
+ - 子网
+
+### 3.6.如何使用多个伸缩组？
+根据服务的重要级别、类型等特点，可以通过创建多个伸缩组，为伸缩组设置不同的 label， 从而指定伸缩组扩容出节点的 label，来对服务进行分类。
+ 
+### 3.7.最大值可以设置为多大？
+目前腾讯云用户每个可用区均有30个按量计费类型 CVM 配额，如果希望伸缩组有超过30台按量计费的 CVM，请提交工单申请。
+请参见您当前可用区的云服务器 [实例数及配额](https://console.cloud.tencent.com/cvm/overview)。另外弹性伸缩也有最大值的限制, 最大是200, 如果超过此值请提交工单申请。
+
+### 3.8.我的集群启用缩容安全吗？
+由于在缩容节点时会发生 Pod 重新调度的情况，所以服务必须可以容忍重新调度和短时的中断时再启用缩容。建议为您的服务设置 [PDB](https://kubernetes.io/docs/tasks/run-application/configure-pdb/)。PDB 能指定一个 Pod 集合在任何时候处于运行状态的副本的最小数量或者最小百分比。有了 PodDisruptionBudget，应用部署者可以保证那些会主动移除 Pod 的集群操作永远不会同一时间销毁太多 Pod，从而导致数据丢失，服务中断或者无法接受的服务降级等后果。
+
+### 3.9.节点上有哪些类型的 Pod 时不会被缩容
+
+ - 设置了严格的 PodDisruptionBudget 的 Pod，不满足 PDB 则不会缩容
+ - Kube-system 下的 Pod
+ - 节点上有非 deployment, replica set, job, stateful set 等等控制器创建的 Pod
+ - Pod 有本地存储
+ - Pod 不能被调度到其他节点上
+
+### 3.10.节点满足缩容条件后多长时间会触发缩容
+10分钟
+
+### 3.11.节点 Not Ready 后多长时间会触发缩容
+20分钟
+
+### 3.12.多长时间扫描一次是否需要扩缩容
+10秒
+
+### 3.13.需要扩容时多长时间可以扩容出 CVM？
+一般在10分钟内，相关弹性伸缩的说明文档请参见 [弹性伸缩](https://cloud.tencent.com/document/product/377)
+
+
+### 3.14.为什么有 Unschedulable 的 Pod，却未进行扩容？
+请确认 Pod 的请求资源是否过大，是否设置了 node selector，伸缩组的最大值是否已经达到，账号余额是否充足（账号余额不足，弹性伸缩无法扩容），以及配额不足等[其他原因](https://cloud.tencent.com/document/product/377/7862)
+
+
+### 3.15.如何防止 Cluster Autoscaler 缩容特定节点？
+
+``` sh
+# 可以在节点的annotations中设置如下信息
+kubectl annotate node <nodename> cluster-autoscaler.kubernetes.io/scale-down-disabled=true
+```
+
+ 
+### 3.16.扩缩容事件如何反馈给用户 
+
+用户可在弹性伸缩控制台查询伸缩组的伸缩活动，也可查看 k8s 的事件。在下面三种资源上都会有对应的事件
+1.kube-system/cluster-autoscaler-status
+2.pod
+3.node
+
+* kube-system/cluster-autoscaler-status config map：
+    * **ScaledUpGroup** - CA 触发扩容。
+    * **ScaleDownEmpty** - CA删除了一个没有运行pod的节点。
+    * **ScaleDown** - CA缩容。
+* node：
+    * **ScaleDown** - CA缩容。
+    * **ScaleDownFailed** - CA 缩容失败。
+* pod：
+    * **TriggeredScaleUp** - CA 由于此pod触发扩容。
+    * **NotTriggerScaleUp** - CA 无法找到可扩容的伸缩组使得此 Pod 可调度。
+    * **ScaleDown** - CA 尝试驱逐此 Pod 来缩容节点。
+
+
+
+[1]: https://mc.qcloudimg.com/static/img/7c43dbefbf8d793b5785c370b76e1bef/image.png
+[2]: https://mc.qcloudimg.com/static/img/fe1304edd0dd8632a04b540945795a34/image.png

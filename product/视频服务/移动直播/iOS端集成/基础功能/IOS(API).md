@@ -1,4 +1,4 @@
-下面是腾讯视频云iOS SDK的主要接口列表，分为TXLivePush和TXLivePlayer两个类及相应的回调接口，详细接口请查看[API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_ios_doc/index.html)。
+下面是腾讯视频云 iOS SDK 的主要接口列表，分为 TXLivePush 和 TXLivePlayer 两个类及相应的回调接口，详细接口请查看 [API 接口文档](http://imgcache.qq.com/open/qcloud/video/act/liteav_ios_doc/index.html)。
 
 ## 接口概览
 
@@ -6,49 +6,49 @@
 
 | 名称                                                 | 描述                         |
 | ---------------------------------------------------- | --------------------------- |
-| (id)initWithConfig:(TXLivePushConfig *)config;       | 设置推流配置信息              |
-| (int)startPush:(NSString *)rtmpURL;                  | 启动到指定URL推流             |
+| (id)initWithConfig:(TXLivePushConfig \*)config;       | 设置推流配置信息              |
+| (int)startPush:(NSString \*)rtmpURL;                  | 启动到指定URL推流             |
 | (void)stopPush;                                      | 停止推流                     |
 | (void)pausePush;                                     | 暂停推流                     |
 | (void)resumePush;                                    | 恢复推流                     |
 | (bool)isPublishing;                                  | 是否正在推流中                |
-| (int) startRecord:(NSString *)videoPath;             | 开始录制短视频                |
+| (int) startRecord:(NSString \*)videoPath;             | 开始录制短视频                |
 | (int) stopRecord                                     | 结束录制短视频                |
-| (int)startPreview:(UIView *)view;                    | 开始推流画面的预览            |
+| (int)startPreview:(UIView \*)view;                    | 开始推流画面的预览            |
 | (void)stopPreview;                                   | 停止预览                     |
 | (int)switchCamera;                                   | 切换前后摄像头                |
 | (void)setMirror:(BOOL)isMirror                       | 设置是否为镜像画面            |
-| (void)setBeautyStyle                                 | 设置美颜 和 美白 效果级别      |
+| (void)setBeautyStyle                                 | 设置美颜和美白效果级别      |
 | (void)setEyeScaleLevel:(float)eyeScaleLevel;         | 设置大眼级别                  |
 | (void)setFaceScaleLevel:(float)faceScaleLevel;       | 设置瘦脸级别                  |
-| (void)setFilter:(UIImage *)image;                    | 设置滤镜                      |
+| (void)setFilter:(UIImage \*)image;                    | 设置滤镜                      |
 | (void)setSpecialRatio:(float)specialValue            |  设置滤镜效果程度             |
-| (void)setFaceVLevel:(float)faceVLevel;               | 设置V脸                      |
+| (void)setFaceVLevel:(float)faceVLevel;               | 设置 V 脸                      |
 | (void)setChinLevel:(float)chinLevel;                 | 设置下巴拉伸或收缩            |
 | (void)setFaceShortLevel:(float)faceShortlevel;       | 设置瘦脸                     |
 | (void)setNoseSlimLevel:(float)noseSlimLevel;         | 设置瘦鼻                     |
 | (BOOL)toggleTorch:(BOOL)bEnable;                     | 打开或关闭闪光灯              |
 | (void)setRenderRotation:(int)rotation;               | 设置本地视频方向              |
 | (void)setMute:(BOOL)bEnable;                         | 设置静音                     |
-| (void)sendCustomPCMData                              | 发送客户自定义的音频PCM数据    |
-| (void)sendVideoSampleBuffer                          | 发送自定义的SampleBuffer      |
+| (void)sendCustomPCMData                              | 发送客户自定义的音频 PCM 数据    |
+| (void)sendVideoSampleBuffer                          | 发送自定义的 SampleBuffer      |
 | (void)sendAudioSampleBuffer                          | 发送自定义音频包              |
-| (void)setSendAudioSampleBufferMuted:(BOOL)muted;     | Replaykit发送静音包           |
+| (void)setSendAudioSampleBufferMuted:(BOOL)muted;     | Replaykit 发送静音包           |
 | (void)setFocusPosition:(CGPoint)touchPoint;          |  调用手动对焦功能              |
 | (void)setZoom:(CGFloat)distance;                     | 推送自定义视频数据             |
-| (BOOL)playBGM:(NSString *)path;                      | 播放背景音乐                  |
+| (BOOL)playBGM:(NSString \*)path;                      | 播放背景音乐                  |
 | (BOOL)stopBGM;                                       | 停止播放背景音乐               |
 | (BOOL)resumeBGM;                                     | 继续播放背景音乐               |
-| (int)getMusicDuration:(NSString *)path;              | 获取音乐文件总时长，单位毫秒    |
+| (int)getMusicDuration:(NSString \*)path;              | 获取音乐文件总时长，单位毫秒    |
 | (BOOL)setMicVolume:(float)volume;                    | 设置麦克风的音量大小            |
 | (BOOL)setBGMVolume:(float)volume;                    | 设置背景音乐的音量大小          |
 | (BOOL)setBgmPitch:(float)pitch;                      | 设置背景音的变声类型            |
 | (BOOL)setReverbType:(TXReverbType)reverbType;        | 设置混响效果, 详见 TXReverbType |
 | (BOOL)setVoiceChangerType                            | 设置变声类型                   |
-| (void)setGreenScreenFile:(NSURL *)file;              | 设置绿幕文件。仅增值版有效      |
+| (void)setGreenScreenFile:(NSURL \*)file;              | 设置绿幕文件。仅增值版有效      |
 | (void)selectMotionTmpl                               | 选择动效                       |
-| (void)setLogViewMargin                               | 设置状态浮层view在渲染view上的边距 |
-| (void)showVideoDebugLog                              | 是否显示播放状态统计及事件消息浮层view|
+| (void)setLogViewMargin                               | 设置状态浮层 view 在渲染 view 上的边距 |
+| (void)showVideoDebugLog                              | 是否显示播放状态统计及事件消息浮层 view|
 | (void)snapshot                                       | 推流截图.仅对硬编起效           |
 | (BOOL)sendMessageEx                                  | 发送消息                       |
 
@@ -56,9 +56,9 @@
 
 | 名称                                       | 描述                  |
 | ---------------------------------------- | ---------------------- |
-| setupVideoWidget                         | 创建Video渲染Widget     |
-| removeVideoWidget                        | 移除Video渲染Widget     |
-| setPlayListener                          | 设置TXLivePlayer 的回调 |
+| setupVideoWidget                         | 创建 Video 渲染 Widget     |
+| removeVideoWidget                        | 移除 Video 渲染 Widget     |
+| setPlayListener                          | 设置 TXLivePlayer 的回调 |
 | startPlay                                | 开始播放                |
 | stopPlay                                 | 停止播放                |
 | pause                                    | 暂停播放                |
@@ -75,47 +75,47 @@
 | stopRecord                               | 结束录制短视频           |
 | snapshot                                 | 通过回调返回当前图像     |
 | setRate                                  | 设置播放速率。点播有效    |
-| setLogViewMargin                         | 设置状态浮层view在渲染view上的边距    |
-| showVideoDebugLog                        | 是否显示播放状态统计及事件消息浮层view |
-| setAudioRoute                            | 设置声音播放模式(切换扬声器，听筒)     |
-| switchStream                             | flv直播无缝切换           |
+| setLogViewMargin                         | 设置状态浮层 view 在渲染 view 上的边距    |
+| showVideoDebugLog                        | 是否显示播放状态统计及事件消息浮层 view |
+| setAudioRoute                            | 设置声音播放模式（切换扬声器，听筒）    |
+| switchStream                             | flv 直播无缝切换           |
 
 ### TXLivePushConfig
 
 | 属性名              | 类型                      | 说明                                           |
 | --------           | ------------------------- | ---------------------------------------------  |
 | customModeType          | int                     | 客户自定义模式 |
-| beautyFilterDepth | float                    | 美颜强度 0 ~ 9, 默认值为0 |
-| whiteningFilterDepth | float                 | 播美白强度:0 ~ 9, 默认值为0 |
-| enableHWAcceleration | BOOL                  | 开启硬件加速, iOS系统版本>8.0 默认开启 |
-| homeOrientation      | int                      |  home键所在方向，用来切换横竖屏推流（tips：此参数的设置可能会改变推流端本地视频流方向，此参数设置后，请调用TXLivePush 里的setRenderRotation 来修正推流端本地视频流方向，具体请参考demo设置 ）,默认值为HOME_ORIENTATION_DOWN |
-| videoFPS             | int                        | 视频采集帧率, 默认值为 15 |
+| beautyFilterDepth | float                    | 美颜强度0 - 9, 默认值为0 |
+| whiteningFilterDepth | float                 | 播美白强度0 - 9, 默认值为0 |
+| enableHWAcceleration | BOOL                  | 开启硬件加速, iOS 系统版本 > 8.0 默认开启 |
+| homeOrientation      | int                      |  home 键所在方向，用来切换横竖屏推流（tips：此参数的设置可能会改变推流端本地视频流方向，此参数设置后，请调用 TXLivePush 里的 setRenderRotation 来修正推流端本地视频流方向，具体请参考demo设置 ）,默认值为 HOME_ORIENTATION_DOWN |
+| videoFPS             | int                        | 视频采集帧率, 默认值为15 |
 | enableAEC        | BOOL                        | 是否开启回声消除， 默认值为 NO                   |
-| videoResolution    | int                        | 视频分辨率, 默认值为VIDEO_RESOLUTION_TYPE_360_640  |
+| videoResolution    | int                        | 视频分辨率, 默认值为 VIDEO_RESOLUTION_TYPE_360_640  |
 | videoBitratePIN | int                          | 视频固定码率，默认值为700 |
 | videoEncodeGop | int                          | 视频编码 GOP，单位 second 秒， 默认值为3 |
 | audioSampleRate | int                          | 音频采样率 , 取值设置为 枚举值 TX_Enum_Type_AudioSampleRate，也可直接设置为对应的采样率 ，比如 audioSampleRate = AUDIO_SAMPLE_RATE_48000 或  audioSampleRate = 48000, 默认值为AUDIO_SAMPLE_RATE_48000 |
 | audioChannels | int                          | 音频声道数, 默认值为1 |
-| enableAutoBitrate | BOOL                          | 码率自适应: SDK会根据网络情况自动调节视频码率, 调节范围在 (videoBitrateMin - videoBitrateMax)， 默认值为NO |
-| autoAdjustStrategy | int                          | 码率自适应: SDK会根据网络情况自动调节视频码率，同时自动调整分辨率, 默认值为AUTO_ADJUST_BITRATE_STRATEGY_1 |
-| videoBitrateMax | int                          | 视频最大码率，仅当enableAutoBitrate = YES 时有效， 默认值为 1000 |
-| videoBitrateMin | int                          | 视频最小码率，仅当enableAutoBitrate = YES时有效， 默认值为 400 |
+| enableAutoBitrate | BOOL                          | 码率自适应: SDK 会根据网络情况自动调节视频码率, 调节范围在 (videoBitrateMin - videoBitrateMax)， 默认值为NO |
+| autoAdjustStrategy | int                          | 码率自适应: SDK 会根据网络情况自动调节视频码率，同时自动调整分辨率, 默认值为AUTO_ADJUST_BITRATE_STRATEGY_1 |
+| videoBitrateMax | int                          | 视频最大码率，仅当 enableAutoBitrate = YES 时有效， 默认值为1000 |
+| videoBitrateMin | int                          | 视频最小码率，仅当 enableAutoBitrate = YES 时有效， 默认值为400 |
 | enableNAS | BOOL                          | 噪音抑制, 默认值为 YES |
 | frontCamera | BOOL                          | 是否前置 camera, 默认值为 YES |
 | touchFocus | BOOL                          | 是否允许点击曝光聚焦, 默认为 YES |
 | enableZoom | BOOL                          | 是否允许双指手势放大预览画面，默认为 NO |
-| connectRetryCount | int                          | 推流器连接重试次数 : 最小值为 1， 最大值为 10, 默认值为 3 |
-| connectRetryInterval | int                          | 推流器连接重试间隔 : 单位秒，最小值为 3, 最大值为 30， 默认值为 3 |
+| connectRetryCount | int                          | 推流器连接重试次数 : 最小值为1， 最大值为10, 默认值为3 |
+| connectRetryInterval | int                          | 推流器连接重试间隔 : 单位秒，最小值为3, 最大值为30， 默认值为3 |
 | watermark     | UIImage *                          | 设置水印图片. 设为nil等同于关闭水印 |
 | watermarkPos | CGPoint                          | 设置水印图片位置，水印大小为图片实际大小 |
-| watermarkNormalization | CGRect                          | 水印相对于推流分辨率的归一化坐标，x,y,width,height 取值范围 0~1；height不用设置，sdk内部会根据水印宽高比自动计算height |
-| pVideoFuncPtr | PVideoProcessHookFunc        | 视频预处理Hook       |
-| pAudioFuncPtr | PAudioProcessHookFunc        | 音频预处理Hook       |
-| sampleBufferSize | CGSize                    | 发送自定义 CMSampleBuffer 的输出分辨率。当设置此属性时，videoResolution 自动失效。此值设置需与源 SampleBuffer 的画面比例一致，否则会引起画面变形。调用 sendVideoSampleBuffer 必须设置此值，或者设置autoSampleBufferSize=YES |
+| watermarkNormalization | CGRect                          | 水印相对于推流分辨率的归一化坐标，x,y,width,height 取值范围0 - 1；height 不用设置，sdk内部会根据水印宽高比自动计算height |
+| pVideoFuncPtr | PVideoProcessHookFunc        | 视频预处理 Hook       |
+| pAudioFuncPtr | PAudioProcessHookFunc        | 音频预处理 Hook       |
+| sampleBufferSize | CGSize                    | 发送自定义 CMSampleBuffer 的输出分辨率。当设置此属性时，videoResolution 自动失效。此值设置需与源 SampleBuffer 的画面比例一致，否则会引起画面变形。调用 sendVideoSampleBuffer 必须设置此值，或者设置 autoSampleBufferSize = YES |
 | autoSampleBufferSize | BOOL                  | 设置 YES 时，调用 sendVideoSampleBuffer 输出分辨率等于输入分辨率, 默认值为 NO |
 | enableAudioAcceleration | BOOL               | 开启音频硬件加速， 默认值为 YES |
-| pauseTime               | int                | 后台推流时长，单位秒，默认 300 秒 |
-| pauseFps | UIImage *                         | 后台推流图片, 图片最大尺寸不能超过 1920*1920 |
+| pauseTime               | int                | 后台推流时长，单位秒，默认300秒 |
+| pauseFps | UIImage *                         | 后台推流图片, 图片最大尺寸不能超过1920 \* 1920 |
 | enableAEC | BOOL                            |  是否开启回声消除, 默认值为 YES |
 | enableAudioPreview | BOOL                   | 是否开启耳返, 默认值为 NO |
 | enablePureAudioPush | BOOL                  | 是否纯音频推流, 默认值为 NO |
@@ -127,16 +127,16 @@
 | 属性名              | 类型                      | 说明                                           |
 | --------           | ------------------------- | ---------------------------------------------  |
 | cacheTime          | float                     | 播放器缓存时间 : 单位秒，取值需要大于0, 默认值为5 |
-| bAutoAdjustCacheTime | BOOL                    | 播放器缓存时间 : 单位秒，取值需要大于0, 默认值为5 |
+| bAutoAdjustCacheTime | BOOL                    | 是否自动调整播放器缓存时间，默认值为 YES</br>YES：表示启用自动调整，自动调整的最大值和最小值可以分别通过修改 maxCacheTime 和 minCacheTime 来设置</br>NO：表示关闭自动调整，采用默认的指定缓存时间(1s)，可以通过修改 cacheTime 来调整缓存时间 |
 | maxAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最大时间 : 单位秒，取值需要大于0, 默认值为5 |
 | minAutoAdjustCacheTime | float                 | 播放器缓存自动调整的最小时间 : 单位秒，取值需要大于0, 默认值为5 |
-| videoBlockThreshold | int                      | 播放器视频卡顿报警阈值，只有渲染间隔超过这个阈值的卡顿才会有PLAY_WARNING_VIDEO_PLAY_LAG通知 |
-| connectRetryCount | int                        | 播放器连接重试次数 : 最小值为 1， 最大值为 10, 默认值为 3 |
+| videoBlockThreshold | int                      | 播放器视频卡顿报警阈值，只有渲染间隔超过这个阈值的卡顿才会有 PLAY_WARNING_VIDEO_PLAY_LAG 通知 |
+| connectRetryCount | int                        | 播放器连接重试次数 : 最小值为1， 最大值为10, 默认值为3 |
 | enableAEC        | BOOL                        | 是否开启回声消除， 默认值为 NO                   |
 | enableMessage    | BOOL                        | 是否开启消息通道， 默认值为 NO                   |
-| playerPixelFormatType | OSType                 | 视频渲染对象回调的视频格式. 仅支持 kCVPixelFormatType_420YpCbCr8Planar和kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, 默认值为kCVPixelFormatType_420YpCbCr8Planar |
+| playerPixelFormatType | OSType                 | 视频渲染对象回调的视频格式. 仅支持 kCVPixelFormatType_420YpCbCr8Planar 和 kCVPixelFormatType_420YpCbCr8BiPlanarFullRange, 默认值为 kCVPixelFormatType_420YpCbCr8Planar |
 | enableNearestIP | BOOL                         | 只对加速拉流生效，用于指定加速拉流是否开启就近选路 (当前版本不启用) |
-| rtmpChannelType | int                          | RTMP传输通道的类型，取值为枚举值：TX_Enum_Type_RTMPChannel, 默认值为RTMP_CHANNEL_TYPE_AUTO |
+| rtmpChannelType | int                          | RTMP传输通道的类型，取值为枚举值：TX_Enum_Type_RTMPChannel, 默认值为 RTMP_CHANNEL_TYPE_AUTO |
 
 ## 接口详情
 
@@ -160,13 +160,13 @@ init 时候初始化 config.
 
 接口详情：`(int)startPush:(NSString *)rtmpURL`
 
-启动到指定URL推流（rtmpURL 腾讯云的推流地址）
+启动到指定 URL 推流（rtmpURL 腾讯云的推流地址）
 
 - **参数说明**
 
 | 参数   | 类型                | 说明          |
 | ------ | ------------------ | ------------ |
-| url    | NSString *         | RTMP完整的URL |
+| url    | NSString *         | RTMP 完整的 URL |
 
 
 - **返回值**
@@ -184,12 +184,12 @@ init 时候初始化 config.
 
 暂停推流，后台视频发送 TXLivePushConfig 里面设置的图像，音频会继续录制声音发送, 如果不需要录制声音，需要再调下 `setMute` 接口。
 
- * 当从前台切到后台的时候，调用 pausePush 会推配置里设置的图片(TXLivePushConfig.pauseImg)
+ * 当从前台切到后台的时候，调用 pausePush 会推配置里设置的图片（TXLivePushConfig.pauseImg）
  * 当从后台回到前台的时候，调用 resumePush 恢复推送 camera 采集的数据
  * 相关属性设置请参考 TXLivePushConfig：
  * pauseImg  设置后台推流的默认图片，不设置为默认黑色背景
- * pauseFps  设置后台推流帧率，最小值为 5，最大值为 20 ，默认 10
- * pauseTime 设置后台推流持续时长，单位秒，默认 300 秒
+ * pauseFps  设置后台推流帧率，最小值为5，最大值为20 ，默认10
+ * pauseTime 设置后台推流持续时长，单位秒，默认300秒
 
 #### 5. isPublishing 
 
@@ -204,9 +204,9 @@ init 时候初始化 config.
 开始录制短视频，开始推流后才能启动录制
 注意：
 1. 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常
-2. 目前仅支持 Enterprise 和 Professional SDK版本，其他版本调用无效
+2. 目前仅支持 Enterprise 和 Professional SDK 版本，其他版本调用无效
 
-注意：关闭摄像头是同步操作，正常会耗时100~200ms，在某些手机上耗时会多一些，如果觉得耗时有影响可以抛到异步线程调用该接口
+注意：关闭摄像头是同步操作，正常会耗时100ms - 200ms，在某些手机上耗时会多一些，如果觉得耗时有影响可以抛到异步线程调用该接口
 
 - **参数说明**
 
@@ -215,10 +215,10 @@ init 时候初始化 config.
 | videoPath          | NSString * | 视频录制后存储路径                          |
 
 - **返回值**
-*  0 成功；
-* -1 videoPath 为nil；
-* -2 上次录制未结束，请先stopRecord
-* -3 推流未开始
+ - 0表示成功
+ - -1表示 videoPath 为nil
+ - -2表示上次录制未结束，请先 stopRecord
+ - -3表示推流未开始
 
 #### 7. stopRecord
 
@@ -226,9 +226,9 @@ init 时候初始化 config.
 
 结束录制短视频，停止推流后，如果视频还在录制中，SDK内部会自动结束录制
 
-- **返回值**
-*  0 成功；
-* -1 不存在录制任务；
+**返回值**
+-  0表示成功
+- -1表示不存在录制任务
 
 #### 8.stopPreview
 
@@ -260,9 +260,9 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 | 参数                 | 类型      | 说明                                      |
 | ------------------ | ---------- | ----------------------------------------  |
 | beautyStyle        |TX_Enum_Type_BeautyStyle |                              |
-| beautyLevel        | float |美颜级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。|
-| whitenessLevel     | float |美白级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。|
-| ruddinessLevel     | float |红润级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。|
+| beautyLevel        | float |美颜级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显|
+| whitenessLevel     | float |美白级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显|
+| ruddinessLevel     | float |红润级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显|
 
 其中，TX_Enum_Type_BeautyStyle 如下
 
@@ -280,7 +280,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数              | 类型     | 说明                                     |
 | ----------------- | ------- | ---------------------------------------- |
-| eyeScaleLevel     | float | 大眼级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。|
+| eyeScaleLevel     | float | 大眼级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显|
 
 
 
@@ -292,7 +292,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数              | 类型     | 说明                                     |
 | ----------------- | ------- | ---------------------------------------- |
-| faceScaleLevel    | float | 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。|
+| faceScaleLevel    | float | 瘦脸级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显|
 
 
 
@@ -317,7 +317,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数            | 类型     | 说明                                           |
 | --------------- | -------- | --------------------------------------------- |
-| specialValue    | float    | 从 0 到 1，越大滤镜效果越明显，默认取值 0.5      |
+| specialValue    | float    | 从0 - 1，越大滤镜效果越明显，默认取值0.5      |
 
 
 #### 16.setFaceVLevel
@@ -328,7 +328,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数            | 类型     | 说明                                               |
 | --------------- | -------- | ------------------------------------------------- |
-| faceVLevel      | float    | 取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显   |
+| faceVLevel      | float    | 取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显   |
 
 
 #### 17.setFaceShortLevel
@@ -339,7 +339,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数      | 类型   | 说明                                                      |
 | --------- | ----- | --------------------------------------------------------- |
-| chinLevel | float | 下巴拉伸或收缩级别取值范围 -9 ~ 9； 0 表示关闭 -9收缩 ~ 9拉伸 |
+| chinLevel | float | 下巴拉伸或收缩级别取值范围-9 - 9，0表示关闭，-9收缩 - 9拉伸 |
 
 #### 18.setFaceShortLevel
 
@@ -349,7 +349,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数      | 类型   | 说明                                                      |
 | --------- | ----- | --------------------------------------------------------- |
-| faceShortlevel | float | 短脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。  |
+| faceShortlevel | float | 短脸级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显  |
 
 
 
@@ -361,7 +361,7 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 | 参数      | 类型   | 说明                                                      |
 | --------- | ----- | --------------------------------------------------------- |
-| noseSlimLevel | float | 瘦鼻级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。  |
+| noseSlimLevel | float | 瘦鼻级别取值范围0 - 9，0表示关闭，1 - 9值越大效果越明显  |
 
 #### 20.toggleTorch
 
@@ -375,8 +375,8 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 返回值
 
- * YES，打开成功。
- * NO，打开失败。
+- YES 表示打开成功。
+- NO 表示打开失败。
 
 #### 21.setRenderRotation
 
@@ -398,9 +398,9 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 接口详情：`(void)sendCustomPCMData:(unsigned char *)data len:(unsigned int)len`
 
-发送客户自定义的音频PCM数据。
+发送客户自定义的音频 PCM 数据。
 
-说明：目前SDK只支持16位采样的PCM编码；如果是单声道，请保证传入的PCM长度为2048；如果是双声道，请保证传入的PCM长度为4096。
+说明：目前 SDK 只支持16位采样的 PCM 编码，如果是单声道，请保证传入的 PCM 长度为2048；如果是双声道，请保证传入的 PCM 长度为4096。
 
 | 参数      | 类型   | 说明                                                      |
 | --------- | ----- | --------------------------------------------------------- |
@@ -411,9 +411,9 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 接口详情：`(void)sendVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer`
 
-发送自定义的SampleBuffer，代替sendCustomVideoData。内部有简单的帧率控制，发太快会自动丢帧；超时则会重发最后一帧。
+发送自定义的 SampleBuffer，代替 sendCustomVideoData。内部有简单的帧率控制，发太快会自动丢帧；超时则会重发最后一帧。
 
-相关属性设置请参考TXLivePushConfig，autoSampleBufferSize优先级高于sampleBufferSize。
+相关属性设置请参考 TXLivePushConfig，autoSampleBufferSize 优先级高于 sampleBufferSize。
 
 #### 25.sendAudioSampleBuffer
 
@@ -421,19 +421,19 @@ tips：推流端前置摄像头默认看到的是镜像画面，后置摄像头�
 
 Replaykit发送自定义音频包。
 
-- **参数说明**
+**参数说明**
 
 | 参数           | 类型               | 说明                                         |
 | ------------- | ------------------ | ---------------------------------------------- |
 | sampleBuffer  | CMSampleBufferRef  | 声音                                           |
-| sampleBufferType | RPSampleBufferType | RPSampleBufferTypeAudioApp or RPSampleBufferTypeAudioMic, 当两种声音都发送时，内部做混音；否则只发送一路声音 |
+| sampleBufferType | RPSampleBufferType | RPSampleBufferTypeAudioApp or RPSampleBufferTypeAudioMic，当两种声音都发送时，内部做混音；否则只发送一路声音 |
 
 
 #### 26.setSendAudioSampleBufferMuted
 
 接口详情： `(void)setSendAudioSampleBufferMuted:(BOOL)muted`
 
-Replaykit发送静音包。
+Replaykit 发送静音包。
 
 
 #### 27.setFocusPosition
@@ -442,7 +442,7 @@ Replaykit发送静音包。
 
 调用手动对焦功能。
 
-说明: 早期SDK版本手动对焦功能是由SDK内部触发，现在把手动对焦的接口开放出来，客户可以根据自己需求触发, 如果客户调用这个接口，SDK内部触发对焦的逻辑将会停止，避免重复触发对焦逻辑。
+说明: 早期 SDK 版本手动对焦功能是由 SDK 内部触发，现在把手动对焦的接口开放出来，客户可以根据自己需求触发, 如果客户调用这个接口，SDK 内部触发对焦的逻辑将会停止，避免重复触发对焦逻辑。
 
 | 参数       | 类型     | 说明           |
 | --------- | -------  | ---------       |
@@ -454,11 +454,11 @@ Replaykit发送静音包。
 
 调整焦距。
 
-- **参数说明**
+**参数说明**
 
 | 参数       | 类型   | 说明                                                      |
 | -------- | -----   | -------------------------------------------------------   |
-| distance | CGFloat | distance取值范围 1~5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清 |
+| distance | CGFloat | distance取值范围1 - 5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清 |
 
 
 
@@ -470,11 +470,11 @@ Replaykit发送静音包。
 
 播放背景音乐。
 
-- **参数说明**
+**参数说明**
 
 | 参数       | 类型                  | 说明       |
 | -------- | ---------------------- | ---------- |
-| path     | NSString *             | 音乐文件路径，一定要是 app 对应的 document 目录下面的路径，否则文件会读取失败 |
+| path     | NSString *             | 音乐文件路径，一定要是 App 对应的 document 目录下面的路径，否则文件会读取失败 |
 
 
 #### 30. playBGM
@@ -490,7 +490,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数        | 类型                    | 说明       |
 | --------    | ---------------------- | ---------- |
-| path        | NSString *             | 音乐文件路径，一定要是 app 对应的 document 目录下面的路径，否则文件会读取失败 |
+| path        | NSString *             | 音乐文件路径，一定要是 App 对应的 document 目录下面的路径，否则文件会读取失败 |
 | beginNotify | void (^)(NSInteger errCode))beginNotify | 音乐播放开始的回调通知 |
 | withProgressNotify |  void (^)(NSInteger progressMS, NSInteger durationMS))progressNotify   | 音乐播放的进度通知，单位毫秒 |
 | completeNotify | (void (^)(NSInteger errCode))completeNotify | 音乐播放结束的回调通知 |
@@ -523,7 +523,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------    |
-| path      | NSString * | 音乐文件路径，如果path为空，那么返回当前正在播放的music时长 |
+| path      | NSString * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长 |
 
 返回值：音乐文件总时长，单位为毫秒。
 
@@ -536,7 +536,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------    |
-| volume      | float    |  音量大小，1为正常音量，建议值为0~2，如果需要调大音量可以设置更大的值 |
+| volume      | float    |  音量大小，1为正常音量，建议值为0 - 2，如果需要调大音量可以设置更大的值 |
 
 
 #### 36.setBGMVolume
@@ -548,7 +548,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------    |
-| volume     | float   | 音量大小，1为正常音量，建议值为0~2，如果需要调大背景音量可以设置更大的值 |
+| volume     | float   | 音量大小，1为正常音量，建议值为0 - 2，如果需要调大背景音量可以设置更大的值 |
 
 
 #### 37.setBGMPitch
@@ -560,7 +560,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------    |
-| pitch     | float     | 默认值是0.f;范围是 [-1,1]                                 |
+| pitch     | float     | 默认值是0.f，范围是 [-1,1]                                 |
 
 
 #### 38.setVideoQuality
@@ -578,7 +578,7 @@ withProgressNotify:(void (^)(NSInteger progressMS, NSInteger durationMS))progres
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------     |
-| quality   | TX_Enum_Type_VideoQuality  | 画质类型(标清，高清，超高清)              |
+| quality   | TX_Enum_Type_VideoQuality  | 画质类型（标清，高清，超高清）           |
 | adjustBitrate   | BOOL                 | 动态码率开关                             |
 | adjustResolution | BOOL                | 动态切分辨率开关                         |
 
@@ -645,7 +645,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------     |
-| file      | NSURL *   |  绿幕文件路径。支持mp4; nil 关闭绿幕                        |
+| file      | NSURL *   |  绿幕文件路径。支持 mp4，nil 关闭绿幕                        |
 
 
 
@@ -670,7 +670,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------     |
-| margin  | UIEdgeInsets  |  状态浮层view在渲染view上的边距                          |
+| margin  | UIEdgeInsets  |  状态浮层 view 在渲染 view 上的边距                          |
 
 #### 44.showVideoDebugLog
 
@@ -687,16 +687,16 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------     |
-| snapshotCompletionBlock  | void (^)(UIImage *)  |  截图完成回调                   |
+| snapshotCompletionBlock  | void (^)(UIImage \*)  |  截图完成回调                   |
 
 
 #### 46.sendMessageEx
 
 接口详情：`(void)sendMessageEx:(NSData *) data`
 
-发送消息(消息大小不允许超过2K），播放端通过 onPlayEvent(PLAY_EVT_GET_MESSAGE)接收。
+发送消息(消息大小不允许超过2K），播放端通过 onPlayEvent(PLAY_EVT_GET_MESSAGE) 接收。
 
-该接口发送消息，能够解决旧的sendMessage接口会导致在iOS上无法播放对应的HLS流的问题。
+该接口发送消息，能够解决旧的 sendMessage 接口会导致在 iOS 上无法播放对应的 HLS 流的问题。
 
 | 参数       | 类型      | 说明                                                     |
 | --------- | --------- | ----------------------------------------------------     |
@@ -709,15 +709,15 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 接口详情：`(void)setupVideoWidget:(CGRect)frame containView:(UIView *)view insertIndex:(unsigned int)idx`
 
-创建Video渲染Widget,该控件承载着视频内容的展示。
+创建 Video 渲染 Widget，该控件承载着视频内容的展示。
 
 - **参数说明**
 
 | 参数     | 类型             | 说明                |
 | ------  | ---------------- | -------------       |
-| frame   | CGRect           | Widget在父view中的rc |
-| view    | UIView *         | 父view              |
-| idx     | unsigned int     | Widget在父view上的层级位置 |
+| frame   | CGRect           | Widget 在父 view 中的 rc |
+| view    | UIView *         | 父 view              |
+| idx     | unsigned int     | Widget 在父 view 上的层级位置 |
 
 
 #### 2. removeVideoWidget
@@ -734,7 +734,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 | 参数     | 类型             | 说明                |
 | ------  | ---------------- | -------------       |
-| url         | NSString *       | 完整的URL(如果播放的是本地视频文件，这里传本地视频文件的完整路径) |
+| url         | NSString *       | 完整的 URL（如果播放的是本地视频文件，这里传本地视频文件的完整路径） |
 | playType    | TX_Enum_PlayType | 播放类型   |
 
 返回值：0 = OK
@@ -778,11 +778,11 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 直播时移准备，拉取该直播流的起始播放时间。
 
-使用时移功能需在播放开始后调用此方法，否者时移失败。时移的使用请参考文档 https://cloud.tencent.com/document/product/266/9237
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请 [参考文档](https://cloud.tencent.com/document/product/266/9237) 。
 
 非腾讯云直播地址不能时移。
 
-* 返回值
+**返回值**
 
 | 返回值 | 含义        |
 | ------ | ----------- |
@@ -806,7 +806,7 @@ typedef NS_ENUM(NSInteger, TXVoiceChangerType) {
 
 点播流播放跳转到音视频流某个时间；直播流则时移到该位置。
 
-- **参数说明**
+**参数说明**
 
 | 参数   | 类型   | 说明                                       |
 | ----  | ----   | ----------------------------------------   |
@@ -833,7 +833,7 @@ typedef NS_ENUM(NSInteger, TX_Enum_Type_HomeOrientation) {
 
 接口详情：`(void)setRenderMode:(TX_Enum_Type_RenderMode)renderMode`
 
-- **参数说明**
+**参数说明**
 
 | 参数         | 类型                    | 说明                                |
 | ---------- | ------------------------- | ---------------------------------  |
@@ -873,7 +873,7 @@ typedef NS_ENUM(NSInteger, TXRecordType)
 };
 ```
 
-* 返回值
+- 返回值
 
 | 返回值 | 含义        |
 | ------ | ----------- |
@@ -919,7 +919,7 @@ typedef NS_ENUM(NSInteger, TXRecordType)
 
 接口详情：`(void)setLogViewMargin:(UIEdgeInsets)margin`
 
-设置状态浮层view在渲染view上的边距。
+设置状态浮层 view 在渲染 view 上的边距。
 
 
 
@@ -927,14 +927,14 @@ typedef NS_ENUM(NSInteger, TXRecordType)
 
 接口详情：`(void)showVideoDebugLog:(BOOL)isShow`
 
-是否显示播放状态统计及事件消息浮层view。
+是否显示播放状态统计及事件消息浮层 view。
 
 
 #### 20. setAudioRoute
 
 接口详情：`(void)setAudioRoute:(TXAudioRouteType)audioRoute`
 
-设置声音播放模式(切换扬声器，听筒)。
+设置声音播放模式（切换扬声器，听筒）。
 
 其中，TXAudioRouteType 定义如下：
 ```
@@ -954,4 +954,4 @@ flv 直播无缝切换。
 | --------  | ----------------------------------- | ------------------- |
 | playUrl   | NSString *                          | 播放地址             |
 
-返回值：0 为 ok
+返回值：0为 ok

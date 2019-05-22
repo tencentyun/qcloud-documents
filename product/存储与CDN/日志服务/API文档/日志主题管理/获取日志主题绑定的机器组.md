@@ -1,0 +1,69 @@
+## 功能描述
+
+本接口用于获取日志主题绑定的机器组信息。
+
+## 请求
+
+### 请求示例
+
+```
+GET /topic/machinegroup?topic_id=xxxx-xx-xx-xx-xxxxxxxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <Authorization String>
+```
+
+### 请求行
+
+```
+GET /topic/machinegroup
+```
+
+### 请求头
+
+除公共头部外，无特殊请求头部。 
+
+### 请求参数
+
+| 字段名   | 类型   | 位置  | 是否必须 | 含义             |
+| -------- | ------ | ----- | -------- | ---------------- |
+| topic_id | string | query | 是       | 查询的日志主题 ID |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 123
+{
+	"machine_groups": [
+	{
+		"group_id": "xxxx-xx-xx-xx-yyyyyyyy",
+		"group_name": "testname"},    
+		{"group_id": "xxxx-xx-xx-xx-zzzzzzzz", 
+		"group_name": "testname1"}
+	]
+}
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。 
+
+### 响应参数
+
+| 字段名         | 类型      | 是否必须 | 含义                     |
+| -------------- | --------- | -------- | ------------------------ |
+| machine_groups | JsonArray | 是       | 日志主题绑定的机器组数组 |
+
+machine_groups 格式如下：
+
+| 字段名     | 类型   | 是否必须 | 含义         |
+| ---------- | ------ | -------- | ------------ |
+| group_id   | string | 是       | 机器组的 ID   |
+| group_name | string | 是       | 机器组的名字 |
+
+### 错误码
+
+请查看 [错误码](https://cloud.tencent.com/document/product/614/12402) 文档。

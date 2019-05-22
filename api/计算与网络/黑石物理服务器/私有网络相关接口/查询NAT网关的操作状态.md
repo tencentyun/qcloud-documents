@@ -23,11 +23,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=QueryBmNatGatewayProductio
 ### 响应示例
 ```
 {
-    "code": "0",
-    "message": "",
-    "data": {
-        "status": <任务执行状态>
-    }
+ "code": "0",
+ "message": "",
+ "data": {
+  "status": "<任务执行状态>"
+ }
 }
 ```
 

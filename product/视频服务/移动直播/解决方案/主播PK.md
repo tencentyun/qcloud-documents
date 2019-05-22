@@ -4,7 +4,7 @@
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/9985984163972441ebbe3ad79b265136.jpg" />
 
 ## LiveRoom
-主播 PK 是 **LiveRoom** 组件的一向基本功能（LiveRoom 还支持观众同主播连麦），它分成 Client 和 Server 两个部分：
+主播 PK 是 **LiveRoom** 组件的一项基本功能（LiveRoom 还支持观众同主播连麦），它分成 Client 和 Server 两个部分：
 
 - **终端部分（Client）**
 LiveRoom 组件的终端部分是对腾讯视频云 LiteAVSDK（主要用于音视频，包括 TXLivePusher、TXLivePlayer 等接口） 和 LiteIMSDK （主要用于收发消息，包括 TIMManager 和 TIMConversation 等接口）的封装。直接使用 LiteAVSDK 和 LiteIMSDK 实现直播 + 主播PK功能是非常耗时耗力的，但通过 LiveRoom 组件，您可以直接调用 createRoom，enterRoom 和 leaveRoom 等接口就可以完成您想要的直播 + 主播PK功能。

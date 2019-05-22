@@ -1,1 +1,2 @@
-云联网 API 文档请参见 [云联网相关接口](https://cloud.tencent.com/document/product/215/15755?lang=cn#.E4.BA.91.E8.81.94.E7.BD.91.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3)。
+云联网为您提供了关联实例、创建实例、删除实例、查询关联实例列表、查询各地域云联网出带宽上限、查询云联网路由策略等接口，您可以通过调用相应接口，满足您的业务需求。
+详细 API 文档，请参见 [云联网相关接口](https://cloud.tencent.com/document/product/215/15755#.E4.BA.91.E8.81.94.E7.BD.91.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3)。

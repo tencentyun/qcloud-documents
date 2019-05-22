@@ -1,11 +1,17 @@
 #### SDK 历史版本及更新日志
 
+### 版本号：WNS SDK V 3.1.1
+[下载](https://main.qcloudimg.com/raw/a56a64276112378ef26816f5dac82185/cloudwns_sdk_ios_v3.1.1.zip)
+发布时间：2018.12.03
+版本说明：
+1.修复某些运营商分配给终端 同时有 IPV4 与 IPV6 地址时，无法网络连接的 BUG。
+
  -----
 ### 版本号：WNS SDK V 3.1.0
 [下载](https://mc.qcloudimg.com/static/archive/09c89cba2d1417407e7db86c9148fe5f/cloudwns_sdk_ios_v3.1.0.zip)
 发布时间：2016.12.19
 版本说明：
-1.提升 sdk 稳定性
+1.提升 sdk 稳定性。
 
  -----
 ### 版本号：WNS SDK V 3.0.9

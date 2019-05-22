@@ -1,37 +1,42 @@
-## 查看监控折线图
+## 简介
+该指南指导您如何查看 Dashboard 图表数据。
+
+## 操作步骤
+
+1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
+2. 在左侧导航栏中，单击【Dashboard】，进入管理页面。
+3. 查看折线图、实例排行列表等请参阅本文以下章节。
+
+### 查看监控折线图
 
 1. 鼠标移至折线图上，面板中所有图表将联动展示相同时刻的视图详情。
    - 明细视图中：详情中不包含当前点的具体监控数值，用户需单击图表在排序列表中查看具体监控数值。
    - 汇聚视图中：详情中包含当前点的具体监控数值，通过不同图表之间联动的功能，方便用户进行图表间的数据对比。
-   ![](http://mc.qcloudimg.com/static/img/b79f92232891fa8051ad277c41142389/image.png)
-
+![](https://main.qcloudimg.com/raw/742762e9377931bc9e7cb0492648426b.png)
 2. 在折线图内部拖拽选中一段时间，可放大视图以查看细节数据。当用户拖拽放大视图时，视图所展示的监控数据粒度也自动变细。
-   ![](http://mc.qcloudimg.com/static/img/e49e4c77263efaac3c26e7e1e2a24c1f/image.png)
-   ![](http://mc.qcloudimg.com/static/img/db0ea7a595af1c9f6aaf4dc288d304cb/image.png)
-   
+ - 选中时间拖拽：
+![](https://main.qcloudimg.com/raw/38a7e822409a9b5dc238c417857a28b0.png)
+ - 拖拽之后如下图所示：
+![](https://main.qcloudimg.com/raw/24ef40c362ad93ca4bfaebf5452fc816.png)   
 3. 通过折线图右下角的滑块，可拖动调节折线图大小。支持用户自定义图表在面板中的位置与面积占比。
-   ![](http://mc.qcloudimg.com/static/img/f60bd38352e9fb968a7dfbb8f1f707ed/image.png)
+![](https://main.qcloudimg.com/raw/daba10af1ccdc07de07a935ab347104d.png)
+4. 单击图表的<img src="https://main.qcloudimg.com/raw/852c70c6c52868a83fb2136ec8a463ec.png"  style="margin:0;">，将通过弹窗提供监控视图的大图展示功能。
+![](https://main.qcloudimg.com/raw/2a91e875eb08e4709222be6bb34052b6.png)
 
-4. 单击图表的![6](http://mc.qcloudimg.com/static/img/68e7b4bfa5775b1b4c53157f0a85eb79/image.png)按钮，将通过弹窗提供监控视图的大图展示功能。
-   ![](http://mc.qcloudimg.com/static/img/7022003837295e1f3088ad974dc1c331/image.png)
-   ![](http://mc.qcloudimg.com/static/img/fb21e2d6d3110daefa9a1a7abf064263/image.png)
 
-## 查看实例排序列表
+
+### 查看实例排序列表
 
 1. 单击曲线图中一点，可展开该时间点对应实例监控数据的性能排序列表。排序列表支持用户切换排序顺序以及排序指标，亦可通过单击曲线图不同位置，修改列表中展示的数据。
-   ![](http://mc.qcloudimg.com/static/img/b79f92232891fa8051ad277c41142389/image.png)
-
+![](https://main.qcloudimg.com/raw/742762e9377931bc9e7cb0492648426b.png)
 2. 单击列表中的【导出】，可将排序列表导出至本地。单击列表中的【收起】，可收起排序列表，恢复至单折线图展示。
-
 3. 当鼠标悬浮于列表中不同实例时，上方曲线图将高亮该实例对应的监控数据曲线图。若其他图表中也包含此实例，此实例的曲线也将在其他图表中高亮展示。
-
 4. 单击列表中目标对象的名称，页面将跳转至目标对象的监控详情页面，可进行进一步的排查。
 
-## 调整视图时间跨度&刷新频率
+### 调整视图时间跨度和刷新频率
 
 监控面板默认展示近1小时的数据，面板中监控数据实时刷新。
-
-通过面板右上角的时间选择控件，可调整面板中所有图表展示的数据区间和粒度。用户可回顾历史监控数据、进行排障定位问题。
-
-通过面板右上角的刷新按钮与下拉框，用户可自行调整刷新频率或进行视图刷新。
-![4](http://mc.qcloudimg.com/static/img/66e2cb98a8916f48468a79673179e822/image.png)
+- 通过面板右上角的时间选择控件，可调整面板中所有图表展示的数据区间和粒度。用户可回顾历史监控数据、进行排障定位问题。
+![](https://main.qcloudimg.com/raw/5ef9f2b30b14739db6e4727fe556c3ee.png)
+- 通过面板右上角的刷新按钮与`...`，用户可自行调整刷新频率或进行视图刷新。
+![](https://main.qcloudimg.com/raw/209b63583c7b047c04cd1718a44af41b.png)

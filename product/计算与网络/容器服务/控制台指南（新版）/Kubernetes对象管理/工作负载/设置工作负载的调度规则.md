@@ -1,0 +1,40 @@
+## 简介
+
+通过设置工作负载中高级设置的调度规则，指定该工作负载下的 Pod 在集群内进行调度。 存在以下应用场景：
+- 将 Pod  运行在指定的节点上。
+- 将 Pod  运行在某一作用域（作用域可以是可用区、机型等属性）的节点上。
+- 将 Pod  强制打散到节点上（每个节点一个，不符合条件的 Pod 停止调度）。
+
+## 使用方法
+
+### 前置条件
+
+- 设置工作负载高级设置中的调度规则，且集群的 Kubernetes 版本必须是1.7以上的版本。
+- 为确保您的 Pod 能够调度成功，请确保您设置的调度规则完成后，节点有空余的资源用于容器的调度。
+- 使用自定义调度功能时，需要为节点设置对应 Label。详情请参见 [设置节点 Label](https://cloud.tencent.com/document/product/457/32768)。
+
+### 设置调度规则
+
+如果您的集群是1.7或更高的版本，则可以在创建工作负载中设置调度规则。
+您可以根据实际需求，选择以下两种调度类型：
+- **指定节点调度**：可设置实例（ Pod ）调度到指定规则的节点上，匹配节点标签。
+![](https://main.qcloudimg.com/raw/87819e2735fa53456760504f5ca449b3.png)
+- **自定义调度规则**：可自定义实例（ Pod ）调度规则，匹配实例标签。
+![](https://main.qcloudimg.com/raw/bfad5148d1f4ef680848bdd34a619c68.png)
+
+自定义调度规则包含以下两种模式：
+- 强制满足要求条件：调度期间如果满足亲和性条件，则调度到对应 node。如果没有节点满足条件，则调度失败。
+- 尽量满足要求条件：调度期间如果满足亲和性条件，则调度到对应 node。如果没有节点满足条件，则随机调度到任意节点。
+
+自定义调度规则均可以添加多条调度规则， 各规则操作符的含义如下：
+- In：Label 的 value 在列表中。
+- NotIn：Label 的 value 不在列表中。
+- Exists：Label 的 key 存在。
+- DoesNotExits：Label 的 key 不存在。
+- Gt：Label 的值大于列表值 （字符串匹配）。
+- Lt：Label 的值小于列表值 （字符串匹配）。
+
+## 原理介绍
+
+服务的调度规则主要通过下发 Yaml 到 Kubernetes 集群， Kubernetes 的 Affinity and anti-affinity 机制会使得 Pod 按一定规则进行调度。更多 Kubernetes 的 Affinity and anti-affinity 机制介绍可 [查看详情](https://kubernetes.io/docs/concepts/configuration/assign-Pod-node/)。
+

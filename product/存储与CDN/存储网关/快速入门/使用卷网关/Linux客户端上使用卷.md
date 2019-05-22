@@ -15,13 +15,13 @@ sudo /etc/init.d/iscsi status    //适用于RHEL 5 或 RHEL 6
 sudo service iscsid status    //适用于RHEL 7
 ```
 
-如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。
+如果使用上述命令检查未返回 running 状态，请使用以下命令运行程序。
 ```
 sudo /etc/init.d/iscsi start    
 ```
 
 ### 发现卷
-请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用一下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP。
+请使用下列命令发现网关上的卷，如果使用上述命令检查未返回 running 状态，请使用以下命令运行程序。其中 GATEWAY_IP 需要替换为您的网关的 IP 变量。 网关 IP 可以到 CSG 控制台中的卷的 iSCSI Target Info (iSCSI 目标信息) 属性中找到网关 IP。
 ```
 sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal <GATEWAY_IP>:3260  
  
@@ -30,11 +30,11 @@ sudo /sbin/iscsiadm --mode discovery --type sendtargets --portal 192.168.190.11:
 ```
 
 ### 挂载卷
-请使用如下命令挂载发现的卷。其中 TargetName 替换为需要挂载的卷的 TargetName, 该信息可以到卷的详细信息页面获取； GATEWAY_IP 需要替换为您的网关的 IP 变量。
-<p style="color: red;"> 注意： 由于 iSCSI 协议限制，请勿将一个卷挂载到多个客户端上。<p>
+请使用如下命令挂载发现的卷。其中 TargetName 替换为需要挂载的卷的 TargetName，该信息可以到卷的详细信息页面获取； GATEWAY_IP 需要替换为您的网关的 IP 变量。
+>!由于 iSCSI 协议限制，请勿将一个卷挂载到多个客户端上。
+
 ```
 sudo /sbin/iscsiadm --mode node --targetname <TargetName> --portal <GATEWAY_IP> -l 
- 
 例如：
 sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --portal 192.168.190.11:3260 -l
 ```
@@ -58,11 +58,12 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	
 - **格式化分区**
 	分区后需要对分好的区进行格式化，您可自行决定文件系统的格式，如 xfs、ext4 等，本例以“ext3”为例。请使用以下命令对新分区进行格式化。
-	**注意： xfs 文件系统格式的稳定性相对较弱，但格式化速度快； ext 文件系统格式稳定性强，但是存储量越大格式化时间越长。请根据需要设置文件格式。**
+	>!xfs 文件系统格式的稳定性相对较弱，但格式化速度快； ext 文件系统格式稳定性强，但是存储量越大格式化时间越长。请根据需要设置文件格式。
+	
 	```
 	mkfs.ext3 /dev/vdb1
 	```
-	
+	执行命令如下图所示：
 	![](https://mccdn.qcloud.com/img56a6053fb5aa0.png)
 
 - **挂载及查看分区**
@@ -106,7 +107,7 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 
 ### 优化配置
 
-<p style="color: red;"> 为了保证您使用存储网关读写数据的稳定性，我们强烈建议您按照下列步骤进行优化配置。<p>
+为了保证您使用存储网关读写数据的稳定性，我们强烈建议您按照下列步骤进行优化配置。
 
 - 修改读写请求超时配置
   通过提高 IO request 的 deadline timeout 配置，来保证卷的连接。其中，超时时间单位为秒，建议时间设置的较长一些，例如1个小时以上或者更多，有利于突发网络故障，保证业务不中断。
@@ -120,15 +121,16 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	RUN+="/bin/sh -c 'echo 7200 > /sys$$DEVPATH/timeout'"  // RedHat 6 和 RedHat 7
 	```
 	
-  **注意：卸载卷会导致此项配置失效，因此，每次挂载完卷以后都要执行一次操作。**
+  >!卸载卷会导致此项配置失效，因此，每次挂载完卷以后都要执行一次操作。
   
   查看上述配置的规则是否能够应用于当前系统，请输入以下命令，其中 "设备名" 需要替换成设备名称。
-  	```
+  	
+	```
 	udevadm test 设备名
 	例如：udevadm test /dev/sda
 	```
 	使用如下命令验证是否已经应用生效，
-  	```
+  ```
 	udevadm control --reload-rules && udevadm trigger 
 	```
   
@@ -139,13 +141,13 @@ sudo /sbin/iscsiadm --mode node --targetname iqn.2003-07.com.qcloud:vol-10098 --
 	node.session.timeo.replacement_timeout = 3600  //原值为 120 秒
 	```
 	
-	*说明：修改此数值后，当 Initiator 和 Csg 之间的网络连接异常断开时，Initiator 会尝试修复网络连接直到 replacement_timeout，然后再设置卷的状态为错误，对发下的每一个 IO 请求返回 -EIO*
+	说明：修改此数值后，当 Initiator 和 Csg 之间的网络连接异常断开时，Initiator 会尝试修复网络连接直到 replacement_timeout，然后再设置卷的状态为错误，对发下的每一个 IO 请求返回 -EIO。
 	```
 	node.conn[0].timeo.noop_out_interval = 60  //原值为5秒
 	node.conn[0].timeo.noop_out_timeout = 600  //原值为5秒
 	```
 	
-	*修改此数值后，Initiator 会延长向 Csg 发送 HA 请求（ping）的间隔和超时判定，这样 Initiator 会尽可能的容忍和 Csg 的网络连接错误，不会轻易的判定和 Csg 之间发生不可恢复的网络故障*
+	修改此数值后，Initiator 会延长向 Csg 发送 HA 请求（ping）的间隔和超时判定，这样 Initiator 会尽可能的容忍和 Csg 的网络连接错误，不会轻易的判定和 Csg 之间发生不可恢复的网络故障
 	
 	在进行如上修改后，请执行如下命令重启 iSCSI 服务，来使配置生效。
 	```

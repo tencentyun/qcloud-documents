@@ -1,0 +1,41 @@
+EMR 提供了5种节点类型，您可以根据自身需求进行选择：
+<table>
+   <tr>
+      <th style="width: 80px;">节点类型</th>
+      <th style="width: 100px;">说明</th>
+      <th style="width: 80px;">HA（高可用）数量</th>
+      <th style="width: 110px;">非 HA 数量</th>
+   </tr>
+   <tr>
+      <td>主节点（Master）</td>
+      <td>部署 NameNode、ResourceManager、HMaster 等进程。</td>
+      <td>2</td>
+      <td>1</td>
+   </tr>
+   <tr>
+      <td>核心节点（Core）</td>
+      <td>部署 DataNode、NodeManager、RegionServer 等进程。</td>
+      <td>≥ 3</td>
+      <td>≥ 2</td>
+   </tr>
+   <tr>
+      <td>计算节点（Task）</td>
+      <td>部署 NodeManger、PrestoWork 等进程。</td>
+      <td colspan="2">可随时更改 Task 节点数，实现集群弹性伸缩，最小值为0。</td>
+   </tr>
+   <tr>
+      <td>通用节点（Common）</td>
+      <td>部署分布式协调器组件，如 ZooKeeper、JournalNode 等节点。</td>
+      <td>≥ 3</td>
+      <td>0</td>
+   </tr>
+   <tr>
+      <td>路由节点（Router）</td>
+      <td>部署 Hadoop 软件包，可选择部署 Hive、Hue、Spark 等软件和进程。</td>
+      <td colspan="2">可随时更改 Router 节点数，最小值为0。</td>
+</table>
+
+- Master 节点为管理节点，保证集群的调度正常进行。
+- Core 节点为计算及存储节点，您在 HDFS 中的数据全部存储于 Core 节点中，因此为了保证数据安全，扩容 Core 节点后不允许缩容。
+- Task 节点为纯计算节点，不存储数据，被计算的数据来自 Core 节点及 COS 中，因此 Task 节点往往被作为弹性节点，可随时扩容和缩容。
+- Router 节点用以分担 Master 节点的负载或者作为集群的任务提交机，可以随时扩容和缩容。

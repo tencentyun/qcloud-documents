@@ -1,7 +1,7 @@
 
 ## 接口描述
 
-本接口（ModifyApi）用于修改 API 接口，可调用此接口对已经配置的 API 接口进行编辑修改。修改后的 API 需要重新发布 API 所在的服务到对应环境方能生效。​
+本接口（ModifyApi）用于修改 API 接口，可调用此接口对已经配置的 API 接口进行编辑修改。修改后的 API 需要重新发布 API 所在的服务到对应环境方能生效。
 
 ## 输入参数
 
@@ -95,7 +95,7 @@ https://apigateway.api.qcloud.com/v2/index.php?
 {
     "code":"0",
     "message":"",
-    "codeDesc":"Success",      
+    "codeDesc":"Success"
 }
 ```
 
@@ -119,14 +119,14 @@ https://apigateway.api.qcloud.com/v2/index.php?
 &requestParameters.0.description=年龄
 &serviceType=MOCK
 &serviceTimeout=60
-&serviceMockReturnMessage=MOCK的返回信息
+&serviceMockReturnMessage=MOCK 的返回信息
 ```
 返回示例如下：
 ```
 {
     "code":"0",
     "message":"",
-    "codeDesc":"Success",      
+    "codeDesc":"Success"    
 }
 ```
 
@@ -157,14 +157,6 @@ https://apigateway.api.qcloud.com/v2/index.php?
 {
     "code":"0",
     "message":"",
-    "codeDesc":"Success",      
+    "codeDesc":"Success"   
 }
-```
-
-
-
-```
-
-
-
 ```

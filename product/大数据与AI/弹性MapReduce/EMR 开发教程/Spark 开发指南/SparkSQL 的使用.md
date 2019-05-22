@@ -187,9 +187,9 @@ simple
     </build>
 </project>
 ```
->**注意：**修改其中的 $yourgroupID 和 $yourartifactID 为您自己的设置。
+>!修改其中的 $yourgroupID 和 $yourartifactID 为您自己的设置。
 
-接下来添加样例代码，在 main>Java 文件夹下新建一个 Java Class 取名为 Demo.java，并将一下代码加入其中：
+接下来添加样例代码，在 main>Java 文件夹下新建一个 Java Class 取名为 Demo.java，并将以下代码加入其中：
 ```
 import org.apache.spark.rdd.RDD;
 import org.apache.spark.sql.Dataset;

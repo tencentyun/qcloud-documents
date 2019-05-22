@@ -1,27 +1,25 @@
 ## 功能描述
-PUT Bucket replication 用于向已启用多版本的存储桶中配置跨区域复制规则。如果存储桶已经配置了跨区域复制规则，那么该请求会替换现有配置。
+PUT Bucket replication 用于向已启用版本控制的存储桶中配置跨区域复制规则。如果存储桶已经配置了跨区域复制规则，那么该请求会替换现有配置。
 
->**注意：**
->使用该接口时，需确保存储桶已经开启多版本，开启多版本的 API 文档请参见 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/436/19889)。
+>!使用该接口时，需确保存储桶已经开启版本控制，开启版本控制的 API 文档请参阅 [PUT Bucket versioning 接口文档](https://cloud.tencent.com/document/product/436/19889)。
 
 ## 请求
 ### 请求示例
 
 ```
 PUT /?replication HTTP/1.1
-Host: <BucketName>-<APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Content-MD5: MD5
 Authorization: Auth String
-
 request body
 ```
 
->Authorization: Auth String (详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节)
+>Authorization: Auth String （详细参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 章节。
 
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
@@ -55,13 +53,13 @@ request body
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
 |Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs::cos:[region]::[bucketname-AppId] |String    |是|
-|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA；默认值：原存储桶级别   |String    |否|
+|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD, STANDARD_IA；默认值：原存储桶级别<br>**注意：** 目前跨区域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作可查阅 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280)|String    |否|
 
 ## 响应
 
 ### 响应头
 #### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 章节。
 #### 特有响应头
 该请求的响应无特殊的响应头。
 
@@ -69,7 +67,7 @@ request body
 该响应体为空。
 
 ### 错误分析
-该请求可能会发生的一些常见的特殊错误如下，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
+该请求可能会发生的一些常见的特殊错误如下，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 章节。
 
 |错误代码|    描述|    状态码|
 |---|---|---|

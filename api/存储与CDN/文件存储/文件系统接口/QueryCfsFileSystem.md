@@ -1,13 +1,15 @@
 ## 接口描述
 本接口（QueryCfsFileSystem）用于查询文件系统。
-接口请求域名：**cfs.api.qcloud.com**
+接口请求域名：`cfs.api.qcloud.com`
 ## 输入参数
 |       参数      |  必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
 | CreationToken   |   否   | string | 用户自定义文件系统名称，如有该值则查询自定义名称为该值的文进系统										     |
 | FileSystemId  |否 |string| 文件系统 ID   |
-| Region          |是   | string | 园区，请参考"概览"文档中的园区与可用区列表                   |
+| Region          |是   | string | 园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225#.E5.9C.B0.E5.9F.9F.E5.92.8C.E5.8F.AF.E7.94.A8.E5.8C.BA) 文档中的园区与可用区列表                   |
 | UniqVpcId | 否 | string | 用户私有网络 ID，如指定该值，则查询在该私有网络下的文件系统 |
+
+
 ## 输出参数
 | 参数名称 | 子参数 |  子参数 | 类型 | 描述 |
 |----------|------  |-------- |----- | ---- |
@@ -29,9 +31,7 @@
 ## 示例 
 
 ### 输入
-
-
-```
+```shell
 <pre>
   https://cfs.test.api.qcloud.com/v2/index.php?Action=QueryCfsFileSystem
   &Region=gz
@@ -43,31 +43,28 @@
 
 ### 输出
 
-```
+```shell
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "FileSystems": [
-            {
-                "CreationTime": "2017-08-03 16:07:09",
-                "CreationToken": "hello-world",
-                "FileSystemId": "cfs-8xbtlopj",
-                "IpList": [
-                    "1.2.3.4",
-                    "2.3.4.5",
-                    "192.168.0.1",
-                    "10.54.72.196"
-                ],
-                "Protocol": "CIFS"
-                }
-                ]   
-        "UserStatus": 0,
-        "StartTime": "2017-10-16 16:50:12"
-        
-    }
-}
+	"code": 0,
+	"message": "",
+	"codeDesc": "Success",
+	"data": {
+		"FileSystems": [{
+			"CreationTime": "2017-08-03 16:07:09",
+			"CreationToken": "hello-world",
+			"FileSystemId": "cfs-8xbtlopj",
+			"IpList": [
+				"1.2.3.4",
+				"2.3.4.5",
+				"192.168.0.1",
+				"10.54.72.196"
+			],
+			"Protocol": "CIFS"
+		}],
+		"UserStatus": 0,
+		"StartTime": "2017-10-16 16:50:12"
 
+	}
+}
 ```
 

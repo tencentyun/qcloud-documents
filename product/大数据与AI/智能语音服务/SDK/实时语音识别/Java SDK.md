@@ -3,18 +3,18 @@
 实时语音识别 [Java SDK 下载地址>>](https://main.qcloudimg.com/raw/870ef507ac3ffc62c34e28670015ba98/RASRjavasdk.zip)
 
 ### 环境依赖
-Jdk 1.8 及以上。
+JDK1.8 及以上。
 
 ### 安装 SDK
 **源码安装**
 根据下载地址下载源码，解压获得的压缩包得到如下图的文件和文件夹。
 ![](https://main.qcloudimg.com/raw/f3ae2e90e822e0abda0b401456074a79.png)
-本 SDK 源码放在 src 文件夹中：RASRsdk.java，用户可将本文件即其相关依赖放在项目中即可使用本 SDK。
-若想使用本 SDK 直接测试，可使用 RASRtest.java 文件进行测试，用户可以直接修改 RASRtest.java。
-test.wav 为测试音频，8k16bit。
+本 SDK 源码放在 src 文件夹中：RASRsdk.java，您只需将本文件及其相关依赖放在项目中即可使用本 SDK。
+您可以直接使用 RASRtest.java 文件，对本 SDK 进行测试，也可以直接修改 RASRtest.java。
+test.wav 为测试音频，大小为8k16bit。
 
 ### 卸载 SDK
-卸载方式即删除相关文件与依赖文件即可。
+删除相关文件与依赖文件即可卸载本 SDK。
 
 ## 快速入门
 ```

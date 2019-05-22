@@ -61,20 +61,20 @@ Range:ByteRangeToRetrieve
 
 ```JSON
 {
- "VaultQCS": String,
- "InventoryDate": String,
- "ArchiveList": [
-      {"ArchiveId": String,
-       "ArchiveDescription": String,
-       "CreationDate": String,
-       "Size": Number,
-       "SHA256TreeHash":String
-      },
-      ...
-    ]
+	"VaultQCS": "String",
+	"InventoryDate": "String",
+	"ArchiveList": [{
+			"ArchiveId": "String",
+			"ArchiveDescription": "String",
+			"CreationDate": "String",
+			"Size": "Number",
+			"SHA256TreeHash": "String"
+		},
+		...
+	]
 }
 ```
 
-**取回Archive**
+**取回 Archive**
 
-下载对应Archive
+下载对应 Archive。

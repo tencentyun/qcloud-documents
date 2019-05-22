@@ -1,19 +1,10 @@
-## 接口概述
+## 接口描述
+接口请求域名：`https://recognition.image.myqcloud.com/detection/porn_detect`
+本接口（porn_detect）用于对用户上传的图片进行鉴黄处理。
 
-### 服务简介
-本接口用于对用户上传的图片进行鉴黄处理。
-
-开发者无需注册账号，即可在 [用户体验平台](http://cloud.tencent.com/event/pd) 体验智能鉴黄效果。
-
-### 计费说明
-本接口按实际使用量计费，具体定价请查看 [产品价格](/document/product/864/17616) 。
-
-### url 说明
-支持 HTTP 和 HTTPS 两种协议：
-
-`http://recognition.image.myqcloud.com/detection/porn_detect`
-
-`https://recognition.image.myqcloud.com/detection/porn_detect`
+>?
+- 本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+- 开发者无需注册账号，即可在 [用户体验平台](http://cloud.tencent.com/event/pd) 体验智能鉴黄效果。
 
 ## 请求头 header
 所有请求都要求含有以下头部信息：
@@ -25,46 +16,49 @@
 | content-type   | 是|application/json 或  multipart/form-data  | 根据不同接口选择，每个请求最多支持 20 张 url 或图片：<br/>1. 使用图片 url，选择 application/json；<br/>2. 使用图片文件，选择 multipart/form-data。 |
 | authorization  | 是|鉴权签名                    | 用于 [**鉴权**](/document/product/864/17712) 的签名 |
 
-><font color="#0000cc">**注意：** </font> 如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+>!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 contenttype，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ## 使用图片 url
-### 请求参数
+### 输入参数
 使用 application/json 格式：
 
 | 参数       | 必选 | 类型        | 说明        |
 | -------- | ---- | --------- | --------- |
-| appid    | 是   | string    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。     |
-| url_list | 是   | string 数组 | 图片 url 列表 |
+| appid    | 是   | String    | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。     |
+| url_list | 是   | String 数组 | 图片 url 列表 |
 
-### 返回内容
-接口返回的 result_list 为 json 数组，数组的每个元素如下：
+### 输出参数
+接口返回的 result_list 为 JSON 数组，数组的每个元素如下：
 
 | 字段      | 类型     | 说明           |
 | ------- | ------ | ------------ |
-| code    | int    | 错误码，0 为成功    |
-| message | string | 服务器返回的信息    |
-| url     | string | 当前图片的 url    |
-| data    | object | 具体查询数据，具体见下表 |
+| code    | Int    | 错误码，0为成功。    |
+| message | String | 服务器返回的信息。    |
+| url     | String | 当前图片的 url。    |
+| data    | Object | 具体查询数据，具体见下表。 |
 
 data 字段具体内容：
 
 | 字段            | 类型     | 说明                                       |
 | ------------- | ------ | ---------------------------------------- |
-| result        | int    | 供参考的识别结果：0 正常，1 黄图，2 疑似图片                |
-| confidence    | double | 识别为黄图的置信度，分值 0-100；是 normal_score , hot_score , porn_score的综合评分 |
-| normal_score  | double | 图片为正常图片的评分                               |
-| hot_score     | double | 图片为性感图片的评分                               |
-| porn_score    | double | 图片为色情图片的评分                               |
-| forbid_status | int    | 封禁状态，0 表示正常，1 表示图片已被封禁（只有存储在腾讯云的图片才会被封禁） |
+| result        | Int    | 供参考的识别结果：0为正常，1为黄图，2为疑似图片。                |
+| confidence    | Double | 识别为黄图的置信度，分值 0-100；是 normal_score、hot_score、porn_score 的综合评分。 |
+| normal_score  | Double | 图片为正常图片的评分。                               |
+| hot_score     | Double | 图片为性感图片的评分。                               |
+| porn_score    | Double | 图片为色情图片的评分。                               |
+| forbid_status | Int    | 封禁状态，0表示正常，1表示图片已被封禁（只有存储在腾讯云的图片才会被封禁）。 |
 
-><font color="#0000cc">**注意：** </font></br> 1. 当 result=0 时，表明图片为正常图片；</br>2. 当 result=1 时，表明该图片是系统判定为违禁涉黄的图片，如果存储在腾讯云则会直接被封禁掉；</br>3. 当 result=2 时，表明该图片是疑似图片(83 ≤ confidence < 91)，即为黄图的可能性很大。
+>?
+- 当 result=0时，表明图片为正常图片。
+- 当 result=1时，表明该图片是系统判定为违禁涉黄的图片，如果存储在腾讯云则会直接被封禁掉。
+- 当 result=2 时，表明该图片是疑似图片(83 ≤ confidence < 91)，即为黄图的可能性很大。
 
-### 请求示例
-
+### 示例
+输入示例：
 ```
 POST /detection/porn_detect HTTP/1.1
 Authorization: FCHXddYbhZEBfTeZ0j8mn9Og16JhPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJiUkp3Sk5zbTN3V1lEeHN1JnQ9MTQ2ODQ3NDY2MiZyPTU3MiZ1PTAmYj10ZXN0YnVja2V0JmU9MTQ3MTA2NjY2Mg==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 238
 Content-Type: "application/json"
 
@@ -77,8 +71,7 @@ Content-Type: "application/json"
 }
 ```
 
-### 返回示例
-
+输出示例：
 ```
 {
     "result_list": [
@@ -113,43 +106,46 @@ Content-Type: "application/json"
 ```
 ## 使用图片文件
 
-### 请求参数
+### 输入参数
 使用 multipart/form-data 格式：
 
 | 参数    | 必选 | 类型         | 说明                                       |
 | ----- | ---- | ---------- | ---------------------------------------- |
-| appid | 是   | uint       | 业务 id                                    |
+| appid | 是   | uint       | 业务 ID。                                    |
 | image | 是   | image/jpeg | 图片文件，每个请求最多支持20个。参数名须为 “image[0]”、“image[1]”等，每张图片需指定 filename。 |
 
-### 返回内容
+### 输出参数
 接口返回的 result_list 为 json 数组，数组的每个元素如下：
 
 | 字段       | 类型     | 说明                               |
 | -------- | ------ | -------------------------------- |
-| code     | int    | 服务器错误码，0 为成功                     |
-| message  | string | 服务器返回的信息                         |
-| filename | string | 当前图片的 filename，与请求包中 filename 一致 |
-| data     | object | 具体查询数据，内容见下表                     |
+| code     | Int    | 服务器错误码，0为成功。                     |
+| message  | String | 服务器返回的信息。                         |
+| filename | String | 当前图片的 filename，与请求包中 filename 一致。 |
+| data     | Object | 具体查询数据，内容见下表。                     |
 
 data 字段具体内容：
 
 | 字段            | 类型     | 说明                                       |
 | ------------- | ------ | ---------------------------------------- |
-| result        | int    | 供参考的识别结果：0 正常，1 黄图，2 疑似图片                |
-| confidence    | double | 识别为黄图的置信度，分值 0-100 ；是 normal_score ,  hot_score ,  porn_score 的综合评分 |
-| normal_score  | double | 图片为正常图片的评分                               |
-| hot_score     | double | 图片为性感图片的评分                               |
-| porn_score    | double | 图片为色情图片的评分                               |
-| forbid_status | int    | 封禁状态，0 表示正常，1 表示图片已被封禁（只有存储在腾讯云的图片才会被封禁） |
-><font color="#0000cc">**注意：** </font></br>1. 当 result=0 时，表明图片为正常图片；</br>2. 当 result=1 时，表明该图片是系统判定的涉黄违禁的图片，如果存储在腾讯云则会直接被封禁掉；</br>3. 当 result=2 时，表明该图片是疑似图片(83 ≤ confidence < 91)，即为黄图的可能性很大。
+| result        | Int    | 供参考的识别结果：0为正常，1为黄图，2为疑似图片。                |
+| confidence    | Double | 识别为黄图的置信度，分值 0-100 ；是 normal_score、hot_score、porn_score 的综合评分。 |
+| normal_score  | Double | 图片为正常图片的评分。                               |
+| hot_score     | Double | 图片为性感图片的评分。                               |
+| porn_score    | Double | 图片为色情图片的评分。                               |
+| forbid_status | Int    | 封禁状态，0表示正常，1表示图片已被封禁（只有存储在腾讯云的图片才会被封禁）。 |
+>?
+- 当 result=0时，表示该图片为正常图片。</br>
+- 当 result=1时，表示该图片是系统判定的涉黄违禁的图片，如果存储在腾讯云则会直接被封禁掉。</br>
+- 当 result=2时，表示该图片是疑似图片(83 ≤ confidence < 91)，即为黄图的可能性很大。
 
-### 请求示例
-
+### 示例
+输入示例：
 ```
 POST /detection/porn_detect HTTP/1.1
 Content-Type:multipart/form-data;boundary=-------------------------acebdf13572468
 Authorization:FCHXddYbhZEBfTeZ0j8mn9Og16JhPTEwMDAwMzc5Jms9QUtJRGVRZDBrRU1yM2J4ZjhRckJiUkp3Sk5zbTN3V1lEeHN1JnQ9MTQ2ODQ3NDY2MiZyPTU3MiZ1PTAmYj10ZXN0YnVja2V0JmU9MTQ3MTA2NjY2Mg==
-Host: service.image.myqcloud.com
+Host: recognition.image.myqcloud.com
 Content-Length: 61478
 
 ---------------------------acebdf13572468
@@ -169,7 +165,7 @@ Content-Type: image/jpeg
 ---------------------------acebdf13572468
 ```
 
-### 返回示例
+输出示例：
 ```
 {
     "result_list": [
@@ -209,13 +205,13 @@ Content-Type: image/jpeg
 | 3       | 错误的请求；其中 message:account abnormal,errorno is:2 为账号欠费停服                                |
 | 4       | 签名为空                                 |
 | 5       | 签名串错误                                |
-| 6       | appid /存储桶/ url 不匹配                  |
+| 6       | APPID/存储桶/ url 不匹配                  |
 | 7       | 签名编码失败（内部错误）                         |
 | 8       | 签名解码失败（内部错误）                         |
 | 9       | 签名过期                                 |
-| 10      | appid 不存在                            |
-| 11      | secretid 不存在                         |
-| 12      | appid 不匹配                            |
+| 10      | APPID 不存在                            |
+| 11      | SecretId 不存在                         |
+| 12      | APPID 不匹配                            |
 | 13      | 重放攻击                                 |
 | 14      | 签名失败                                 |
 | 15      | 操作太频繁，触发频控                           |
@@ -235,7 +231,7 @@ Content-Type: image/jpeg
 | -1507   | 无法访问 url 对应的图片服务器                    |
 | -5062   | url 对应的图片已被标注为不良图片，无法访问（专指存储于腾讯云的图片） |
 
-更多其他 API 错误码请看 [**错误码说明**](/document/product/864/17713) 。
+更多其他 API 错误码请查看 [**错误码说明**](/document/product/864/17713) 。
 
 
 
