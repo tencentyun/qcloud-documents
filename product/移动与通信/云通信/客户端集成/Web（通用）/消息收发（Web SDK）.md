@@ -1083,7 +1083,10 @@ webim.getRecentContactList({},function(resp){
 
 ## 删除最近联系人
 
-删除最近联系人中的一条会话。详情参考 Demo 代码 `switch_chat_obj.js`。**示例：** 
+删除最近联系人中的一条会话。详情参考 Demo 代码 `switch_chat_obj.js`。
+>?服务器同步有一定时延， 调用该接口删除会话后可能不会马上生效，具体生效时间视实际网络环境而定。
+
+**示例：** 
 
 ```javascript
 sess_type == 'C2C' ? 1 : 2;
