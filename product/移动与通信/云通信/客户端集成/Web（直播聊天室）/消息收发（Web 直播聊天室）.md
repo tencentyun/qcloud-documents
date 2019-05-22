@@ -436,7 +436,7 @@ function onSendMsg() {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1 表示 SDK 自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 IM SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     var subType;//消息子类型
@@ -519,7 +519,7 @@ function sendGroupLoveMsg() {
         selSess = new webim.Session(selType, selToID, selToID, selSessHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1表示 SDK 自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 IM SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     //群消息子类型如下：
