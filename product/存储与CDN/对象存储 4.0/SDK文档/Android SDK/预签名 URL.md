@@ -82,7 +82,7 @@ try
 	//使用永久密钥初始化QCloudCredentialProvider
 	QCloudCredentialProvider  qCloudCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, durationSecond); 
 	//初始化CosXmlService
-	CosXmlServer cosXmlService = new CosXmlServer(context, serviceConfig, qCloudCredentialProvider);
+	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "PUT"; //请求 HTTP 方法.
@@ -136,7 +136,7 @@ try
 	//使用永久密钥初始化 QCloudCredentialProvider
 	QCloudCredentialProvider  qCloudCredentialProvider = new ShortTimeCredentialProvider(secretId, secretKey, durationSecond); 
 	//初始化CosXmlService
-	CosXmlServer cosXmlService = new CosXmlServer(context, serviceConfig, qCloudCredentialProvider);
+	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "GET"; //请求 HTTP 方法.
@@ -194,9 +194,14 @@ try
 		.setDebuggable(true)
 		.builder();
 	//使用临时密钥初始化QCloudCredentialProvider
-	QCloudCredentialProvider  qCloudCredentialProvider = new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime); 
+	QCloudCredentialProvider  qCloudCredentialProvider = = new BasicLifecycleCredentialProvider() {
+          @Override
+          protected QCloudLifecycleCredentials fetchNewCredentials() throws QCloudClientException {
+              return new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime);
+          }
+      };
 	//初始化CosXmlService
-	CosXmlServer cosXmlService = new CosXmlServer(context, serviceConfig, qCloudCredentialProvider);
+	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "PUT"; //请求HTTP方法.
@@ -249,9 +254,14 @@ try
 		.setDebuggable(true)
 		.builder();
 	//使用临时密钥初始化QCloudCredentialProvider
-	QCloudCredentialProvider  qCloudCredentialProvider = new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime); 
+	QCloudCredentialProvider  qCloudCredentialProvider = = new BasicLifecycleCredentialProvider() {
+          @Override
+          protected QCloudLifecycleCredentials fetchNewCredentials() throws QCloudClientException {
+              return new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime);
+          }
+      };
 	//初始化CosXmlService
-	CosXmlServer cosXmlService = new CosXmlServer(context, serviceConfig, qCloudCredentialProvider);
+	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "GET"; //请求 HTTP 方法.
