@@ -160,7 +160,7 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
  */
 @interface TIMUGCElem : TIMElem
 /**
- *  UGC 视频 id
+ *  UGC 视频 ID
  */
 @property(nonatomic,strong) NSString * videoId;
 /**
