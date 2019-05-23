@@ -1,24 +1,29 @@
 ## 功能说明
 HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储（COS）上。
+
 ## 使用环境
 ### 系统环境
 Linux 或 Windows 系统
+
 ### 软件依赖
-JDK 1.7 或1.8 
+JDK 1.7或1.8。 
+
 #### 安装与配置
 具体环境安装与配置请参考 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+
 ## 配置及使用方法
 ### 配置方法
-1. 安装 Hadoop-2.7.2 及以上版本，具体安装步骤请参考 [Hadoop 安装与测试](/doc/product/436/10867)。
-2. 通过 [GitHub 地址](https://github.com/tencentyun/hdfs_to_cos_tools) 下载 HDFS TO COS 工具并解压缩。
+1. 安装 Hadoop-2.7.2 及以上版本，具体安装步骤请参见 [Hadoop 安装与测试](https://cloud.tencent.com/document/product/436/10867)。
+2. 在 [GitHub](https://github.com/tencentyun/hdfs_to_cos_tools) 下载 HDFS TO COS 工具并解压缩。
 3. 将要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 文件夹中，其中 core-site.xml 中包含 NameNode 的配置信息。
 4. 编辑配置文件`cos_info.conf`， 存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中存储桶的名字，由用户自定义字符串和系统生成appid数字串由中划线连接而成，如：examplebucket-1250000000。
 5. 在命令行参数中指定配置文件位置， 默认位置 `conf/cos_info.conf`。
-> <font color="#0000cc">**注意：** </font>
-当命令行参数中的参数与配置文件重合时，以命令行为准。
+>!当命令行参数中的参数与配置文件重合时，以命令行为准。
 
 ### 使用方法
-（以 Linux 为例）
+
+使用方法以 Linux 为例，如下。
+
 #### 查看帮助
 ```
 ./hdfs_to_cos_cmd -h
@@ -41,10 +46,10 @@ JDK 1.7 或1.8
 ```
 ./hdfs_to_cos_cmd --decompress_har --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 ```
-若未指定--decompress_har参数，默认按照普通的HDFS目录进行拷贝，即.har目录下的_index和_masterindex等文件原样拷贝。
+若未指定`--decompress_har`参数，默认按照普通的 HDFS 目录进行拷贝，即`.har`目录下的`index`和`masterindex`等文件原样拷贝。
 
 #### 目录信息
-```
+```shell
 conf : 配置文件, 用于存放 core-site.xml 和 cos_info.conf
 log  : 日志目录
 src  : Java 源程序
