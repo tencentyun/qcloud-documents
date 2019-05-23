@@ -1,3 +1,5 @@
+EMR 2.1.0 版本开始支持创建安全类型的集群，即集群中的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
+
 ## 重要概念
 - **KDC**
 全称：key distributed center
