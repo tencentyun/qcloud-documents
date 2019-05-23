@@ -1,7 +1,7 @@
 ## 功能说明
 Hadoop-COS 基于腾讯云 COS 对象存储实现了标准的 Hadoop 文件系统，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持，使其能够像访问 HDFS 文件系统一样读写存储在 COS 上的数据。
 
-Hadoop-COS 使用`cosn`作为 URI 的 scheme，因此也经常称 Hadoop-COS 为 CosN 文件系统。
+Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也经常称 Hadoop-COS 为 CosN 文件系统。
 
 ## 使用环境
 ### 系统环境
@@ -20,9 +20,8 @@ Hadoop-2.6.0及以上版本。
 
 1. 将 dep 目录下的 cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 >?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
-
-2. 修改 hadoop_env.sh
-在 `$HADOOP_HOME/etc/hadoop`目录下，进入 hadoop_env.sh，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
+2. 修改 hadoop_env.sh 文件。
+在`$HADOOP_HOME/etc/hadoop`目录下，编辑 hadoop_env.sh，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   if [ "$HADOOP_CLASSPATH" ]; then
@@ -59,8 +58,7 @@ done
 
 ### Hadoop 配置
 
-修改 $HADOOP_HOME/etc/hadoop/core-site.xml，增加 COS 相关用户和实现类信息，例如：
-
+修改`$HADOOP_HOME/etc/hadoop/core-site.xml`，增加 COS 相关用户和实现类信息，例如：
 ```xml
 <configuration>
     <property>
@@ -176,7 +174,7 @@ done
 
 ### 使用示例
 
-命令格式为：`hadoop fs -ls -R cosn://<BucketName-APPID>/<路径>` 或 `hadoop fs -ls -R /<路径>`（需要配置 fs.defaultFS 选项为 cosn://BucketName-APPID），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
+命令格式为：`hadoop fs -ls -R cosn://<BucketName-APPID>/<路径>`或`hadoop fs -ls -R /<路径>`（需要配置`fs.defaultFS`选项为`cosn://BucketName-APPID`），下例中以名称为 examplebucket-1250000000 的 bucket 为例，可在其后面加上具体路径。
 
 ```shell
 hadoop fs -ls -R cosn://examplebucket-1250000000/
