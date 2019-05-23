@@ -76,8 +76,8 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 初始化
 通常情况下 TUIKit 的初始化非常简单，只需调用下面接口初始化默认配置即可。
 ```
-NSInteger sdkAppid = 1400173143; //填入自己 app 的 SDKAppID
-NSString *accountType = @"36862"; //填入自己 app 的 accountType
+NSInteger sdkAppid = 1400173143; //填入自己 App 的 SDKAppID
+NSString *accountType = @"36862"; //填入自己 App 的 accountType
 TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认 TUIKit 配置，这个您可以根据自己的需求在 TUIKitConfig 里面自行配置
 [[TUIKit sharedInstance] initKit:sdkAppid accountType:sdkAccountType withConfig:[TUIKitConfig defaultConfig]];
 ```
@@ -204,7 +204,7 @@ tbc.tabBarItems = items;
     data.convId = user;
 	//会话类型
     data.convType = TConv_Type_C2C;
-	//会话title
+	//会话 title
     data.title = user;
 }
 ```
