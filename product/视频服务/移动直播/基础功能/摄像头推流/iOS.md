@@ -16,7 +16,7 @@
 - **获取开发包**
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [工程配置](https://cloud.tencent.com/document/product/454/7876) 指引将 SDK 嵌入您的 App 开发工程。
 
-- **获取测试URL**
+- **获取测试 URL**
 [开通](https://console.cloud.tencent.com/live) 直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://mc.qcloudimg.com/static/img/64342b926e05da462a54b8ce4f8c526f/image.png)
 
@@ -172,7 +172,7 @@ SDK 的iOS版本内部有默认的手动对焦逻辑，虽然功能没什么问�
 - (void)setFocusPosition:(CGPoint)touchPoint;
 ```
 
-### step 7: 设置Logo水印
+### step 7: 设置 Logo 水印
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在SDK内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
@@ -210,10 +210,10 @@ _config.watermarkPos = (CGPoint){10, 10};
 从 **SDK 1.6.1** 开始，我们引入了一种解决方案，如下是从观众端的视角看去，该方案可以达到的效果： 
 ![](https://mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
 
-- **9.1) 调整XCode设置**
+- **9.1) 调整 XCode 设置**
 ![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
 
-- **9.2) 设置pauseImg**
+- **9.2) 设置 pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 
 ```objectivec
@@ -226,7 +226,7 @@ _config.watermarkPos = (CGPoint){10, 10};
     [_txLivePublisher setConfig:_config];
 ```
 
-- **9.3) 设置App后台（短暂）运行**
+- **9.3) 设置 App 后台（短暂）运行**
 App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推流了，观众端就会看到直播间进入黑屏或者冻屏状态。我们可以使用下面的代码让 App 在切到后台后还可再跑几分钟，至少足够主播接听一个短暂的私人电话。
 
 ```objectivec
@@ -301,7 +301,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 | setMicVolume|设置混音时麦克风的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 
-### step 13: 耳返&混响
+### step 13: 耳返和混响
 - **耳返**
 指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音，这是由于主播自己的声音是通过头部骨骼（固体）传入耳朵，而观众听到声音最终是通过空气介质传入耳朵，这两种方式听的声音是有很大差异的，因此主播有需求直接听到观众端的效果。
 ![](//mc.qcloudimg.com/static/img/fca1094c93126ad5b61d962ec22ad0d5/image.png)
