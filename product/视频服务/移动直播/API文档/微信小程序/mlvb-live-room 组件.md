@@ -32,7 +32,7 @@
 | sendTextMsg(text:String)             | 发送文本消息。 |
 
 ```
-var liveroom = this.selectComponent("#id_liveroom")
+var liveroom = this.selectComponent("#id_liveroom");
 liveroom.pause();
 ```
 
