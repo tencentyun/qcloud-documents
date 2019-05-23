@@ -418,7 +418,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
  请将 "<>" 中的参数替换为您需要打印文件列表的 COS 上文件的路径（cospath）。
  - 使用`-d day`设置临时副本的过期时间；默认值：7。
- - 使用`-t tier`具体复原过程类型，枚举值： Expedited （快速） ，Standard （标准），Bulk（大量）；默认值：Standard。
+ - 使用`-t tier`具体复原过程类型，枚举值： Expedited （快速） ，Standard （标准），Bulk（批量）；默认值：Standard。
 
 ### Debug 模式执行命令
 在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
@@ -427,7 +427,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 coscmd -d upload <localpath> <cospath>
 
 #操作示例
-coscmd -d upload /home/aaa/123.txt bbb/123.txt  
+coscmd -d upload exampleobject exampleobject
 ```
 
 ## 常见问题
