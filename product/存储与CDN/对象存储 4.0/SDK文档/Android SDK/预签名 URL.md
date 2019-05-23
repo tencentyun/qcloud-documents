@@ -52,8 +52,8 @@ Log.d("TEST", ex.getMessage());
 
 方法二： 直接使用对应的请求，如 PutObjectRequest, GetObjectRequest等
 try{
-PutObjectRequest putObjectResutl;
-String urlWithSign = cosXmlService.getPresignedURL(putObjectResutl);
+PutObjectRequest putObjectRequest;
+String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest);
 }catch(Exception ex){
 Log.d("TEST", ex.getMessage());
 }
@@ -91,10 +91,10 @@ try
 	
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	//String urlWithSign = cosXmlService.getPresignedURL(putObjectResutl)； //直接使用 PutObjectRequest
+	//String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用 PutObjectRequest
 
 	string srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
-	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
+	PutObjectRequest putObjectRequest = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 URL
 	putObjectRequest.setRequestURL(urlWithSign);
 	//设置进度回调
@@ -145,7 +145,7 @@ try
 	
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	//String urlWithSign = cosXmlService.getPresignedURL(getObjectResutl)； //直接使用 GetObjectRequest
+	//String urlWithSign = cosXmlService.getPresignedURL(getObjectRequest)； //直接使用 GetObjectRequest
 
 	string savePath = Environment.getExternalStorageDirectory().getPath()；//本地路径
 	String saveFileName = "exampleobject"; //本地文件名
@@ -210,10 +210,10 @@ try
 	
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	//String urlWithSign = cosXmlService.getPresignedURL(putObjectResutl)； //直接使用PutObjectRequest
+	//String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
 
 	string srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
-	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
+	PutObjectRequest putObjectRequest = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 URL
 	putObjectRequest.setRequestURL(urlWithSign);
 	//设置进度回调
@@ -270,7 +270,7 @@ try
 	
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	//String urlWithSign = cosXmlService.getPresignedURL(getObjectResutl)； //直接使用GetObjectRequest
+	//String urlWithSign = cosXmlService.getPresignedURL(getObjectRequest)； //直接使用GetObjectRequest
 
 	string savePath = Environment.getExternalStorageDirectory().getPath()；//本地路径
 	String saveFileName = "exampleobject"; //本地文件名
