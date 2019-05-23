@@ -133,7 +133,7 @@ tbc.tabBarItems = items;
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];
-		//初始化 TUIKit 的会话列表UI类
+		//初始化 TUIKit 的会话列表 UI 类
     TConversationController *conv = [[TConversationController alloc] init];
     conv.delegate = self;
     [self addChildViewController:conv];
