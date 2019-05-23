@@ -40,13 +40,13 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 ### step 2: 渲染 View
 接下来我们要给摄像头的影像画面找个地方来显示，iOS系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 传给 LivePush 对象的 **startPreview** 接口函数就可以了。
 
-- **推荐的布局！**
+- **推荐的布局**
 > 实际上，SDK 的内部并不是直接把画面渲染在您提供的 view 上，而是在这个 view 之上创建一个用于OpenGL渲染的子视图（subView），但是，这个渲染用的subView的大小会跟随您提供的view大小变化而自动调整。
 >![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 >
 > 不过即如此，如果您想要在渲染画面之上实现弹幕、献花之类的 UI 控件，我们也推荐您”另起炉灶“（再创建一个平级的 view），这样可以避免很多前后画面覆盖的问题。
 
-- **如何做动画？**
+- **如何做动画**
 > 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
 >
 ```objectivec
@@ -60,12 +60,12 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 
 ```objectivec 
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";    
-[_txLivePush startPreview:_myView];  //_myView 就是step2中需要您指定的view    
+[_txLivePush startPreview:_myView];  //_myView 就是 step2 中需要您指定的 view    
 [_txLivePush startPush:rtmpUrl];
 ```
 
-- **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
-- **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面 view 控件和 LivePush 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
+- **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流 URL 上去。
+- **startPreview** 的参数就是 step2 中需要您指定的 view，startPreview 的作用就是将界面 view 控件和 LivePush 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 3+: 纯音频推流
 如果您的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
@@ -128,7 +128,7 @@ setBeautyStyle 接口可以设置美颜风格、磨皮程度、美白级别和�
 ```
 
 - **滤镜**
-setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
+setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了 Demo 中，您可以随意使用，不用担心版权问题。
 
  setSpecialRatio 接口则可以设置滤镜的程度，从0到1，越大滤镜效果越明显，默认取值0.5。
 ```objectivec
@@ -144,7 +144,7 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
 
 ### step 6: 控制摄像头
 - **切换前置或后置摄像头** 
-默认是使用**前置**摄像头（可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值），调用一次switchCamera 切换一次，注意切换摄像头前必须保证 LivePushConfig 和 LivePush 对象都已经初始化。  
+默认是使用**前置**摄像头（可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值），调用一次 switchCamera 切换一次，注意切换摄像头前必须保证 LivePushConfig 和 LivePush 对象都已经初始化。  
   
 ```objectivec
 // 默认是前置摄像头，可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值   
@@ -152,7 +152,7 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
 ```
 
 - **打开或关闭闪光灯** 
-只有后置摄像头才可以打开闪光灯（您可以通过"TXLivePush.h"里面的frontCamera成员来确认当前摄像头是前置还是后置）
+只有后置摄像头才可以打开闪光灯（您可以通过"TXLivePush.h"里面的frontCamera成员来确认当前摄像头是前置还是后置）。
 
 ```objectivec
 if(!frontCamera) {
@@ -191,7 +191,7 @@ _config.watermarkPos = (CGPoint){10, 10};
 
 ### step 8: 本地录制
 使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoPath 可以指定 MP4 文件的存放路径。
-- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常
+- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
 - 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参见 [云端录制](https://cloud.tencent.com/document/product/454/7917)。
 - stopRecord 调用之后，录制出来的文件会通过 TXLiveRecordListener 通知出来。
 
@@ -267,11 +267,10 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推�
 
 ### step 10: 卡顿预警提示
 
-- 如果主播网络质量不好，我们应该怎么做？ 
+- 如果主播网络质量不好，我们应该怎么做。
 - 主动降低清晰度来确保流畅性？ 这样观众端的感受就是模糊和马赛克。
 - 主动丢掉一部分视频帧，以确保画面还能持续有一定的清晰度？这样观众端的感受就是持续卡顿。
-- 以上都是我们不想要的？那怎么办？
-- “既然马儿跑得快，又让马儿不吃草。”  我们都知道，这是不可能的事情。
+- 以上都是我们不想要的？那怎么办。
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
@@ -342,7 +341,7 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 SDK 通过 TXLivePushListener 代理来监听推流相关的事件，**注意 TXLivePushListener 只能监听得到 PUSH_ 前缀的推流事件**。
 
 ### 2. 常规事件 
-一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了
+一次成功的推流都会通知的事件，例如收到1003就意味着摄像头的画面会开始渲染了。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
@@ -377,7 +376,7 @@ SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP -DNS 解析失败（会触发重试流程）        |
+|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）  |
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP 服务器握手失败（会触发重试流程）  |
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）  |
