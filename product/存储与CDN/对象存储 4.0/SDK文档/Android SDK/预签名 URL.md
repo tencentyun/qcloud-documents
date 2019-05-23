@@ -108,7 +108,7 @@ try {
 	e.printStackTrace();
 	} catch (CosXmlServiceException e) {
 	e.printStackTrace();
-	}
+}
 ```
 
 ### 下载请求示例
