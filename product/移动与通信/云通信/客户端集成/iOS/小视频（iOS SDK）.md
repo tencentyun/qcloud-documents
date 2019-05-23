@@ -192,7 +192,7 @@ video | 发送时需要设置 type、duration 属性
 coverPath | 录制小视频成功后，本地封面图片文件的路径
 cover | 发送时需要设置 type、width、height 属性
 
-**小视频消息发送示例： **
+**小视频消息发送示例：**
 
 ```
 /**
@@ -234,7 +234,7 @@ ugc_elem.cover.height = 88;
 
 接收方收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMUGCElem` 的是小视频消息节点。然后通过 `video` 和 `cover` 对象获取该小视频的视频和封面图片文件。
 
-** `TIMUGCElem` 原型：**
+**`TIMUGCElem`原型：**
 
 ```
 /**
