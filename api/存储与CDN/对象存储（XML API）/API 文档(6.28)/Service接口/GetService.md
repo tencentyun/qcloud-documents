@@ -35,21 +35,26 @@ Authorization: Auth String
 该请求操作无特殊的响应头部信息。
 
 ### 响应体
-查询成功，返回 application/xml 数据，包含 Bucket 中的对象信息。
+查询成功，返回 application/xml 数据，包含所有或特定地域下的存储桶列表。
 ```bash
 <ListAllMyBucketsResult>
-  <Owner>
-    <ID>string</ID>
-    <DisplayName>string</DisplayName>
-  </Owner>
-  <Buckets>
-    <Bucket>
-      <Name>string</Name>
-      <Location>string</Location>
-      <CreateDate>date</CreateDate>
-    </Bucket>
-    <DisplayName>string</DisplayName>
-  </Buckets>
+	<Owner>
+		<ID>string</ID>
+		<DisplayName>string</DisplayName>
+	</Owner>
+	<Buckets>
+		<Bucket>
+			<Name>string</Name>
+			<Location>string</Location>
+			<CreationDate>date</CreationDate>
+		</Bucket>
+		<Bucket>
+			<Name>string</Name>
+			<Location>string</Location>
+			<CreationDate>date</CreationDate>
+		</Bucket>
+		...
+	</Buckets>
 </ListAllMyBucketsResult>
 ```
 
@@ -63,30 +68,29 @@ Container 节点 ListAllMyBucketsResult 的内容：
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-Owner|ListAllMyBucketsResult|说明 Bucket 持有者的信息|Container
-Buckets|ListAllMyBucketsResult|说明本次响应的所有 Bucket 列表信息|Container
+Owner|ListAllMyBucketsResult|说明存储桶持有者的信息|Container
+Buckets|ListAllMyBucketsResult|说明本次响应的所有存储桶列表信息|Container
 
 Container 节点 Owner 的内容：
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-ID|ListAllMyBucketsResult.Owner|Bucket 所有者的 ID|string
-DisplayName|ListAllMyBucketsResult.Owner|Bucket 所有者的名字信息|string
+ID|ListAllMyBucketsResult.Owner|存储桶所有者的 ID|string
+DisplayName|ListAllMyBucketsResult.Owner|存储桶所有者的名字信息|string
 
 Container 节点 Buckets 的内容：
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-Bucket|ListAllMyBucketsResult.Buckets|单个 Bucket 的信息|Container
-DisplayName|ListAllMyBucketsResult.Buckets|Bucket 所有者的名字信息|string
+Bucket|ListAllMyBucketsResult.Buckets|单个存储桶的信息|Container
 
 Container 节点 Bucket 的内容：
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-Name|ListAllMyBucketsResult.Buckets.Bucket|Bucket 的名称|string
-Location|ListAllMyBucketsResult.Buckets.Bucket|Bucket 所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等|string
-CreateDate|ListAllMyBucketsResult.Buckets.Bucket|Bucket 创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z|date
+Name|ListAllMyBucketsResult.Buckets.Bucket|存储桶的名称|string
+Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等|string
+CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z|date
 
 
 ### 错误码
@@ -188,6 +192,3 @@ x-cos-request-id: NWNkOTMzMGJfNmNhYjM1MGFfMWMzYjRfYWY5****
 	</Buckets>
 </ListAllMyBucketsResult>
 ```
-
-
-
