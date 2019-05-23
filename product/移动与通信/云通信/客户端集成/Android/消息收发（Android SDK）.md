@@ -919,13 +919,17 @@ public String getSender()
  * 获取发送者资料（发送者为本人时可能为空）
  * @return 发送者资料，null 表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
  */
-public TIMUserProfile getSenderProfile()
+public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 
 /**
- * 获取发送者群内资料（发送者为本人时可能为空）
- * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user，其他的字段获取建议通过 TIMGroupManagerExt > getGroupMembers 获取
+ * 获取发送者资料。如果本地有发送者资料，这里会直接通过返回值 TIMUserProfile 返回发送者资料;
+ * 如果本地没有发送者资料，这里会直接返回 null，SDK 内部会向服务器拉取发送者资料，并在 callBack 回调里面
+ * 返回发送者资料
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
+/**
+* 目前只有字段：user、nameCard、role、customInfo
+*/
 ```
 
 **对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 可以得到正在聊天的用户。
