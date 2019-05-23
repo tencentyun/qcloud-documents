@@ -50,6 +50,108 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
 
 <span id="2TBLinux"></span>
 ### 初始化云硬盘（Linux）
+
+请根据您实际使用场景选择初始化方式：
+- 若整块硬盘只呈现为一个独立的分区（即不存在多个逻辑盘如 vdb1 和 vdb2 ），强烈推荐您不使用分区，直接 [在裸设备上构建文件系统](#CreateFileSystemOnBareDevice)。
+- 若整块硬盘需要呈现为多个逻辑分区（即存在多个逻辑盘），则您需要先进行分区操作，再 [在分区上构建文件系统](#CreateFileSystemOnPartition)。
+
+<span id="CreateFileSystemOnBareDevice"></span>
+#### 在裸设备上构建文件系统
+
+1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
+2. 以 root 用户执行以下命令，查看磁盘名称。
+ ```
+fdisk -l
+```
+ 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+ ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
+3. 执行以下命令，对 “/dev/vdb” 裸设备直接创建文件系统格式。
+```
+mkfs -t <文件系统格式> /dev/vdb
+```
+不同文件系统支持的分区大小不同，请根据实际需求合理选择文件系统。以设置文件系统为 `EXT4` 为例：
+```
+mkfs -t ext4 /dev/vdb
+```
+>! 格式化需要等待一段时间，请观察系统运行状态，不要退出。
+4. 执行以下命令，新建挂载点。
+```
+mkdir <挂载点>
+```
+以新建挂载点 `/data` 为例：
+```
+mkdir /data
+```
+5. 执行以下命令，将新建分区挂载至新建的挂载点。
+```
+mount /dev/vdb <挂载点>
+```
+以新建挂载点 `/data` 为例：
+```
+mount /dev/vdb /data
+```
+6. 执行以下命令，查看挂载结果。
+```
+df -TH
+```
+>? 若无需设置开机自动挂载磁盘，则跳过后续步骤。
+7. 确认挂载方式并获取对应信息。
+您可以根据业务需求选择使用弹性云硬盘的软链接、文件系统的 UUID（universally unique identifier）或设备名称自动挂载磁盘，相关说明和信息获取方式如下：
+<table>
+ <tr>
+     <th>挂载方式</th>
+		 <th>优缺点</th>
+		 <th>	信息获取方式</th>
+ </tr>
+ <tr>
+     <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>
+		 <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。</br><b>缺点：</b>只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
+		 <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
+ </tr>
+ <tr>
+     <td nowrap="nowrap">使用文件系统的 UUID</td>
+		 <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+		 <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb</pre></td>
+ </tr>
+ <tr>
+     <td nowrap="nowrap">使用设备名称</td>
+		 <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
+		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
+	</tr>
+</table>
+8. 备份 `/etc/fstab` 文件。
+9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
+```
+vi /etc/fstab
+```
+10. 按 **i**，进入编辑模式。
+11. 将光标移至文件末尾，按 **Enter**，添加如下内容。
+```
+<设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
+```
+ - **（推荐）**以使用弹性云硬盘的软链接自动挂载为例，结合前文示例则添加：
+```
+/dev/disk/by-id/virtio-disk-drkhklpe /data ext4 defaults 0 0
+```
+ - 以使用磁盘分区的 UUID 自动挂载为例，结合前文示例则添加：
+```
+UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data  ext4 defaults     0   0
+```
+ - 以使用设备名称自动挂载为例，结合前文示例则添加：
+```
+/dev/vdb /data   ext4 defaults     0   0
+```
+12. 按 **Esc**，输入 **:wq**，按 **Enter**。
+保存设置并退出编辑器。
+13. 执行以下命令，检查 **/etc/fstab** 文件是否写入成功。
+```
+mount -a 
+```
+如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
+
+<span id="CreateFileSystemOnPartition"></span>
+#### 在分区上构建文件系统
+
 >?本文将以在 CentOS 7.5 操作系统中使用 parted 分区工具将数据盘 `/dev/vdc`设置为主分区，分区形式默认设置为 GPT，文件系统设置为 EXT4 格式，挂载在`/data/newpart2`下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)
@@ -59,7 +161,7 @@ lsblk
 ```
 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdc”是新增数据盘。
 	![](https://main.qcloudimg.com/raw/72a7a48c59c13a44958a6b1aa0407ac2.png)
-3. 执行以下命令，进入 fdisk 分区工具，开始对新增数据盘执行分区操作。
+3. 执行以下命令，进入 parted 分区工具，开始对新增数据盘执行分区操作。
 ```
 parted <新增数据盘>
 ```
@@ -147,42 +249,26 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用弹性云硬盘的软链接<b>（推荐）</b></td>   
 	       <td><b>优点</b>：每个弹性云硬盘的软链接固定且唯一，不会随卸载挂载、格式化分区等操作而改变。<br><b>缺点</b>：只有弹性云硬盘才有软链接。无法感知分区的格式化操作。</td>
-	       <td nowrap="nowrap">请参考 <a href="#Stepbyid">查看弹性云硬盘的软链接</a>。</td>
+	       <td nowrap="nowrap">执行以下命令，查看弹性云硬盘的软链接。</br><pre>ls -l /dev/disk/by-id</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
-	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">请参考 <a href="#StepUUID">查看文件系统的 UUID</a>。</td>
+	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。</br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre> blkid /dev/vdc1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
-	       <td>可能会因设备名称变化而导致自动挂载设置失效。<br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
-	       <td>请参考 <a href="#Stepfdisk">查看设备名称</a>。</td>
+	       <td>可能会因设备名称变化而导致自动挂载设置失效。</br>例如，迁移数据时将云服务器上的弹性云硬盘卸载后再次挂载，操作系统再次识别到该文件系统时，名称可能会变化。</td>
+	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-
- <span id="Stepbyid"></span>
- a. 执行以下命令，查看弹性云硬盘的软链接。
-  ```
-  ls -l /dev/disk/by-id
-  ```	
- <span id="StepUUID"></span>
- b. 执行以下命令，查看文件系统的 UUID。
-  ```
-  blkid /dev/vdc1
-  ```
- <span id="Stepfdisk"></span>
-c. 执行以下命令，查看设备名称。
- ```
-fdisk -l
-```
 17. 备份`/etc/fstab`文件。
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab
 ```
-19. 按`i`，进入编辑模式。 
-20. 将光标移至文件末尾，按 Enter，添加如下内容。
+19. 按 **i**，进入编辑模式。 
+20. 将光标移至文件末尾，按 **Enter**，添加如下内容。
  ```
 <设备信息> <挂载点> <文件系统格式> <文件系统安装选项> <文件系统转储频率> <启动时的文件系统检查顺序>
 ```
@@ -198,7 +284,7 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 ```
 /dev/vdc1 /data/newpart2   ext4 defaults     0   2
 ```
-20. 按 Esc，输入`:wq`，按 Enter。
+20. 按 **Esc**，输入 **:wq**，按 **Enter**。
  保存设置并退出编辑器。
 21. 执行以下命令，检查`/etc/fstab`文件是否写入成功。
 ```

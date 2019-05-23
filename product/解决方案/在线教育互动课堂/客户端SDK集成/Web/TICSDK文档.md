@@ -106,7 +106,7 @@ userHeadImg | String | 否 | IM 头像
 
 该方法需传入 identifier（即 uid ）和 userSig 参数，uid 为用户 ID，userSig 为腾讯云后台用来鉴权的用户签名，相当于登录 TICSDK 的用户密码，需要在开发者服务器依照腾讯云生成 userSig 的规则来生成，并下发给 Web 端。
 
->?开发调试阶段，用户可在腾讯云控制台使用开发辅助工具，生成临时的 uid 和 userSig 用于开发测试，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+>?开发调试阶段，用户可在腾讯云控制台使用开发辅助工具，生成临时的 uid 和 userSig 用于开发测试，生成方式请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 ### 4. 创建课堂
 

@@ -1,5 +1,5 @@
 
-## 腾讯云短视频SDK各版本下载
+## 腾讯云短视频 SDK 各版本下载
 <table>
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
@@ -8,12 +8,12 @@
       <th width="92px" style="text-align:center">精简版</td>
       <th width="92px" style="text-align:center">基础版</td>
       <th width="92px" style="text-align:center">商业版</td>
-      <th width="92px" style="text-align:center">商业版Pro</td>
+      <th width="92px" style="text-align:center">商业版 Pro</td>
    </tr>
    <tr>
       <td>界面</td>
-      <td>自定义UI</td>
-	    <td>开发者自定义UI；小视频APP提供了一套完整的UI交互源码，可复用或自定义</td>
+      <td>自定义 UI</td>
+	    <td>开发者自定义 UI；小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
 	    <td style="text-align:center">✔</td>
@@ -102,7 +102,7 @@
    </tr>
    <tr>
       <td>背景音乐</td>
-      <td>拍摄前可以选择本地的mp3作为背景音</td>
+      <td>拍摄前可以选择本地的 mp3 作为背景音</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
@@ -110,7 +110,7 @@
    </tr>
    <tr>
       <td>变声和混响</td>
-      <td>拍摄前对录制的声音变声（如萝莉、大叔）和混响效果（如KTV、会堂）</td>
+      <td>拍摄前对录制的声音变声（如萝莉、大叔）和混响效果（如 KTV、会堂）</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
@@ -151,8 +151,8 @@
       <td style="text-align:center">✔</td>
    </tr>
    <tr>
-      <td>AI抠图</td>
-      <td>识别出人的轮廓，把背景抠除，替换成其他的元素，比如动态背景/PPT等</td>
+      <td>AI 抠图</td>
+      <td>识别出人的轮廓，把背景抠除，替换成其他的元素，比如动态背景/PPT 等</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✖</td>
@@ -160,7 +160,7 @@
    </tr>
    <tr>
       <td>绿幕抠像</td>
-      <td>将画面中的绿色元素(比如纯绿背景)抠除，替换成其他的元素，比如动态背景/PPT等</td>
+      <td>将画面中的绿色元素(比如纯绿背景)抠除，替换成其他的元素，比如动态背景/PPT 等</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✖</td>
@@ -170,7 +170,7 @@
    <tr>
       <td rowspan='12'>特效编辑</td>
       <td>快速导入</td>
-      <td>Android支持快速导入视频</td>
+      <td>Android 支持快速导入视频</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
@@ -234,7 +234,7 @@
    </tr>
    <tr>
       <td>背景音乐</td>
-      <td>选择自带声音文件或用户手机本地的mp3作为背景音，支持背景音乐的裁剪和设置音量大小</td>
+      <td>选择自带声音文件或用户手机本地的 mp3 作为背景音，支持背景音乐的裁剪和设置音量大小</td>
       <td style="text-align:center">✖</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
@@ -302,23 +302,23 @@
       <td style="text-align:center">✔</td>
    </tr>
    <tr>
-      <td rowspan='2'>SDK下载</td>
+      <td rowspan='2'>SDK 下载</td>
       <td>Android</td>
-	  <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_UGC_Android_5.4.6097.zip">DOWNLOAD</a> </td>
-	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/LiteAVSDK_Enterprise_Android_5.4.6097.zip">DOWNLOAD</a> </td>
+	  <td>短视频 SDK(LiteAVSDK) + 基础功能 Demo 的源代码</td>
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_UGC_Android_6.3.7089.zip">DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Enterprise_Android_6.3.7089.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
-      <td>短视频SDK(LiteAVSDK) + 基础功能Demo的源代码</td>
-     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_UGC_iOS_5.4.6097.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/5.4/TXLiteAVSDK_Enterprise_iOS_5.4.6097.zip">DOWNLOAD</a> </td>
+      <td>短视频 SDK(LiteAVSDK) + 基础功能 Demo 的源代码</td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_UGC_iOS_6.3.7088.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
       <td rowspan='2'>License</td>
-      <td>License申请</td>
-      <td>不同版本SDK需要搭配不同版本的License才能使用</td>
+      <td>License 申请</td>
+      <td>不同版本 SDK 需要搭配不同版本的 License 才能使用</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">精简版</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">基础版</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版</a></td>
@@ -326,7 +326,7 @@
    </tr>
    <tr>
       <td>套餐价格</td>
-      <td>包含SDK的一年使用权和腾讯云点播流量套餐</td>
+      <td>包含 SDK 的一年使用权和腾讯云点播流量套餐</td>
       <td style="text-align:center">￥2345/年</td>
       <td style="text-align:center">￥10050/年</td>
       <td style="text-align:center">￥35W/年 </td>
@@ -334,10 +334,10 @@
    </tr>
 </table>
 
-#### 1. 如果您对SDK支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
-#### 2. 如果您想了解SDK版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
+#### 1. 如果您对 SDK 支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
+#### 2. 如果您想了解 SDK 版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
 
-## 全功能APP("小视频")源代码
+## 全功能小视频 App（Demo）源代码
 
 <table width="850px">
   <tr align="center">
@@ -347,12 +347,12 @@
   </tr>
   <tr align="center">
     <td>iOS 端源代码</td>
-    <td>5.2.5539 @ 2018-09-14</td>
+    <td>6.3.7090 @ 2019-04-04</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 端源代码</td>
-    <td>5.2.5539 @ 2018-09-14</td>
+    <td>6.3.7090 @ 2019-04-04</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">

@@ -18,6 +18,7 @@
 ```
 fdisk -l
 ```
+ - 若结果展示的 device 无分区（如仅展示/dev/vdb），请您参考 [扩容文件系统](#ExpandTheFileSystem)。
  - 若结果如下两图所示（根据操作系统不同略有不同），则说明使用 GPT 分区形式。
 ![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
 ![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
@@ -31,6 +32,11 @@ fdisk -l
          <th nowrap="nowrap">分区形式</th>  
          <th>操作指引</th>  
          <th>说明</th>  
+     </tr>
+		 	 <tr>      
+         <td>-</td>   
+	     <td nowrap="nowrap"><a href="#ExpandTheFileSystem">扩容文件系统</a></td>
+	     <td>适用于没有创建分区、直接在裸设备上创建了文件系统的场景。</td>
      </tr>
 	 <tr>      
          <td rowspan="2">GPT</td>   
@@ -51,6 +57,26 @@ fdisk -l
 	     <td>可保持原有分区不变。</td>
      </tr> 
 </table>
+
+<span id="ExpandTheFileSystem"></span>
+### 扩容文件系统
+
+1. 根据文件系统的类型，执行不同的命令进行扩容。
+ - 对于 EXT 文件系统，请执行 `resize2fs` 命令扩容文件系统。
+ - 对于 XFS 文件系统，请执行`xfs_growfs`命令扩容文件系统。
+
+ 以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
+```
+resize2fs /dev/vdb
+```
+以 `/dev/vdb` 为例， XFS 文件系统执行以下命令：
+```
+xfs_growfs /dev/vdb
+```
+2. 执行以下命令，查看新分区。
+```
+df -h
+```
 
 <span id="AddToTheExistingGPTPart"></span>
 ### 将扩容部分的容量划分至原有分区（GPT）

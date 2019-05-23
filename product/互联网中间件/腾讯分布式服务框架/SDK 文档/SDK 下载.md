@@ -7,7 +7,7 @@
 ```
 java -version
 ```
-如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请[下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
 
 
 #### 1.2 设置 Java 环境
@@ -28,7 +28,7 @@ java -version
 | Linux    | export PATH=PATH:JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
-使用上面提到的**java -version**命令验证 Java 安装。
+使用上面提到的 **java -version** 命令验证 Java 安装。
 
 ### 2. 安装 Maven 
 #### 2.1 下载  安装 Maven 
@@ -48,7 +48,7 @@ java -version
 ```
 
 #### 2.3 验证 Maven 安装
-验证 Maven 安 当 Maven 安装完成后， 通过执行如下命令验证 Maven 是否安装成功。
+当 Maven 安装完成后， 通过执行如下命令验证 Maven 是否安装成功。
 ```
    mvn --version
 ```
@@ -128,18 +128,16 @@ java -version
 [setting.xml 样例文件下载>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml) （鼠标右键另存为链接）
 
 #### 3.2 验证配置是否成功
-在命令行执行如下命令 `mvn help:effective-settings` 。
-   - 查看执行结果，没有错误表明 setting.xml 格式正确。
-   - Profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中。
-   - ActiveProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。
-
->?执行正确的 Maven 命令，无法现在 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+在命令行执行如下命令`mvn help:effective-settings` 。
+- 查看执行结果，没有错误表明 setting.xml 格式正确。
+- profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中；activeProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。可以通过`mvn help:effective-settings | grep 'qcloud-repo'`命令检查。
+![](https://main.qcloudimg.com/raw/43645276539f8a85703f137ae2bb65fc.png)
+>?执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
 ## 安装 SDK
 通过 Maven 获取 TSF SDK。在 [Demo 工程](https://cloud.tencent.com/document/product/649/20261)  中，`pom.xml`所在目录执行`mvn clean package`即可下载 TSF SDK。
 
 最新 SDK 版本请参考 [SDK 更新日志]( https://cloud.tencent.com/document/product/649/20230)。
-![](https://main.qcloudimg.com/raw/d6d4c2e76bd308671472682999eb78d3.png)
-
+![](https://main.qcloudimg.com/raw/ec948e772d06debb5b84c01c8921e351.png)
 >!如果无法下载相关依赖，请检查网络是否有防火墙限制。
 
