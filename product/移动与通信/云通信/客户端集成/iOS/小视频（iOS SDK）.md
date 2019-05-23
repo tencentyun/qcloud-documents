@@ -122,7 +122,7 @@ config.frontCamera    = YES;                     //是否前置摄像头，使�
 
 小视频消息由 `TIMUGCElem` 定义。它是 `TIMElem` 的一个子类，也就是说小视频也是消息的一种内容。 发送小视频的过程，就是将 `TIMUGCElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。可以通过 `TIMUploadProcessListener` 监听器得到当前上传进度。
 
-**`TIMUGCElem` 原型：**
+**`TIMUGCElem`原型：**
 
 ```
 /**
