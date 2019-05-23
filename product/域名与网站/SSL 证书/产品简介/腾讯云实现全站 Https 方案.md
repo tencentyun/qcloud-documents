@@ -38,12 +38,15 @@
 ### 选择证书
 首先成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)），或者选择上传的证书，展开【更多】操作，选择【部署到负载均衡】。
 ![](https://main.qcloudimg.com/raw/e59be48a8f0db68680611e4a9e40159f.png)
+
 ### 选择LB实例
 根据项目和地区筛选 LB 实例（目前不支持华南地区-深圳金融），且只能选择一个实例。
 ![](https://main.qcloudimg.com/raw/ef50fc5201e6e863dd409f101836dde9.png)
+
 ### 创建监听器
 跳转到负载均衡控制台，打开创建监听器弹窗，并且监听协议端口已切换到 Https，服务器证书为已选中的证书，然后完成剩余的基本配置。
 ![](https://main.qcloudimg.com/raw/1816b8b07d1cfac0a603fbb2229b6873.png)
+
 ### 继续完成配置
 继续完成创建监听器的其他配置，即可实现负载均衡的 Https。
 
@@ -54,29 +57,23 @@
 + 域名需要已经接入 CDN，且状态为 **部署中** 或 **已启动**，关闭状态的域名无法部署证书；
 + COS 或 数据万象开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书；
 + SVN 托管源暂时无法配置证书。
-
-![](https://mc.qcloudimg.com/static/img/973e75c6a0b1672f1a1f11f9667bf6f0/image.png)
+![](https://main.qcloudimg.com/raw/e56a5c8afd69ced54b177fa904f08bcb.png)
 
 ### 使用腾讯云托管证书
 可以在 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 页面申请证书成功颁发后，选择【腾讯云托管证书】，即可看到 SSL 证书管理中对该域名可用的证书列表：
-
-![](https://mc.qcloudimg.com/static/img/8e6c6afcfa701fa4cdd3dc0711780c2b/image.png)
-
-+ 从证书列表中选择要使用的证书；
-+ 证书列表中展示格式为 证书 ID（备注），可前往 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 查看更多证书详情。
+![](https://main.qcloudimg.com/raw/8c5a9bbb0c7970f29c1608c308e1855f.png)
+- 从证书列表中选择要使用的证书；
+- 证书列表中展示格式为 证书 ID（备注），可前往 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 查看更多证书详情。
 
 ### 回源方式
 配置证书后，您可以选择 CDN 节点回源站获取资源时的回源方式：
-
-![](https://mc.qcloudimg.com/static/img/ba856a03ab0709f6befaafc7840e1cc9/image.png)
-
-+ 选择 HTTP 回源配置成功后，用户至CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP；
-+ 选择 HTTPS 回源，要求源站已经配置证书，否则可能导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP；用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS；
-+ COS 源或 FTP 源域名暂时不支持 HTTPS 回源；
-+ 配置 HTTPS 回源，您的源站配置需要无端口约束，或配置为 443 端口，否则会导致配置失败。
+![](https://main.qcloudimg.com/raw/12c923e7d396fe7a73ba783620d41ec0.png)
+- 选择 HTTP 回源配置成功后，用户至CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP；
+- 选择 HTTPS 回源，要求源站已经配置证书，否则可能导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP；用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS；
+- COS 源或 FTP 源域名暂时不支持 HTTPS 回源；
+- 配置 HTTPS 回源，您的源站配置需要无端口约束，或配置为 443 端口，否则会导致配置失败。
 
 ### 配置成功
-
 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名及证书情况：
+![](https://main.qcloudimg.com/raw/bf34c54c90d096b12fe06b9bcfe0aae1.png)
 
-![](https://mc.qcloudimg.com/static/img/ec3d8d968918cd3e190c4f01194a6236/2.png)
