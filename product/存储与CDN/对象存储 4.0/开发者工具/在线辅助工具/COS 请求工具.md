@@ -10,7 +10,7 @@ COS 请求工具是腾讯云对象存储（ COS） 为您提供的 Web 端调试
 
 ## 工具地址
 
-[COS 请求工具](https://console.cloud.tencent.com/api/explorer?Product=cos)
+登录腾讯云控制台，开始使用 [COS 请求工具](https://console.cloud.tencent.com/api/explorer?Product=cos)。
 
 ## 使用方法
 
