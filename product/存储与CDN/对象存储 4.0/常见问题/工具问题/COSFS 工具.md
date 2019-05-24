@@ -165,7 +165,7 @@ rsync 命令会在挂载目录中，创建一个临时文件，进度显示100%�
 
 ### COSFS 将磁盘空间写满了，该如何处理？
 COSFS 的上传下载都会使用磁盘文件缓存，当上传下载大文件时，若不指定 -oensure_diskfree=[size] 参数，会写满缓存文件所在的磁盘。您可以通过 -oensure_diskfree 参数指定，当缓存文件所在磁盘剩余空间不足 [size] MB 大小时，COSFS 尽量少的使用磁盘空间（单位： MB）。 如果指定 -ouse_cache=[path] 参数，缓存文件位于 path 目录下，否则，在 /tmp 目录下。指定剩余磁盘空间少于10GB时，COSFS 的运行尽量少的使用磁盘空间：
-```
+```shell
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oensure_diskfree=10240
 ```
 
