@@ -23,12 +23,12 @@ Authorization: Auth String
 
 | 名称                         | 描述                                      | 类型   | 必选 |
 | ---------------------------- | ------ | ---- | -------------------------------- |
-| response-content-type        | 设置响应头部中的 Content-Type 参数        |string | 否   | 
-| response-content-language    |设置响应头部中的 Content-Language 参数    | string | 否   | 
-| response-expires             |设置响应头部中的 Content-Expires 参数     | string | 否   | 
-| response-cache-control       |设置响应头部中的 Cache-Control 参数       | string | 否   | 
-| response-content-disposition |设置响应头部中的 Content-Disposition 参数 | string | 否   | 
-| response-content-encoding    |设置响应头部中的 Content-Encoding 参数    | string | 否   | 
+| response-content-type        | 设置响应头部中的 Content-Type 参数        |String | 否   | 
+| response-content-language    |设置响应头部中的 Content-Language 参数    | String | 否   | 
+| response-expires             |设置响应头部中的 Content-Expires 参数     | String | 否   | 
+| response-cache-control       |设置响应头部中的 Cache-Control 参数       | String | 否   | 
+| response-content-disposition |设置响应头部中的 Content-Disposition 参数 | String | 否   | 
+| response-content-encoding    |设置响应头部中的 Content-Encoding 参数    | String | 否   | 
 
 ### 请求头
 
@@ -40,11 +40,11 @@ Authorization: Auth String
 
 | 名称                |  描述                                                         |类型   | 必选 |
 | ------------------- | ------ | ---- | ------------------------------------------------------------ |
-| Range               | RFC 2616 中定义的指定文件下载范围，以字节（bytes）为单位     |string | 否   | 
-| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回412（precondition failed） |string | 否   | 
-| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回304（not modified） |string | 否   | 
-| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回412（precondition failed） | string | 否   | 
-| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回304（not modified） |string | 否   | 
+| Range               | 对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示您希望拷贝源对象的开头10个字节的数据。如果不指定，则表示读取整个对象     |String | 否   | 
+| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回412（precondition failed） |String | 否   | 
+| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回304（not modified） |String | 否   | 
+| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回412（precondition failed） | String | 否   | 
+| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回304（not modified） |String | 否   | 
 
 ### 请求体
 
@@ -64,11 +64,11 @@ Authorization: Auth String
 
 |名称|描述|类型|
 |---|---|---|
-|x-cos-meta- \*|用户自定义的元数据|string|
-|x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|string|
-|x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|string|
-|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID|string|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|string|
+|x-cos-meta- \*|用户自定义的元数据|String|
+|x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|String|
+|x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|String|
+|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID|String|
+|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|String|
 
 
 ### 响应体

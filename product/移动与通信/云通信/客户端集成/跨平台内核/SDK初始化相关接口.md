@@ -13,8 +13,8 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdk_app_id | uint64_t | 官网申请的 SDKAppid  |
-| json_sdk_config | const char\* | SDK 配置选项 JSON 字符串，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33553#sdkconfig)  |
+| sdk_app_id | uint64_t | 官网申请的 SDKAppID  |
+| json_sdk_config | const char\* | IM SDK 配置选项 JSON 字符串，详情请参考 [SdkConfig](https://cloud.tencent.com/document/product/269/33553#sdkconfig)  |
 
 **返回值**
 

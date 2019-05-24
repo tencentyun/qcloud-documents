@@ -80,7 +80,7 @@ try
 	//设置进度回调
 	request.SetCosProgressCallback(delegate(long completed, long total)
 	{
-		Console.WriteLine(String.Format("progress = {1:##.##}%", completed * 100.0 / total));
+		Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 	});
 	//执行请求
 	PutObjectResult result = cosXml.PutObject(request);
@@ -139,7 +139,7 @@ try
 	//设置进度回调
 	request.SetCosProgressCallback(delegate(long completed, long total)
 	{
-		Console.WriteLine(String.Format("progress = {1:##.##}%", completed * 100.0 / total));
+		Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 	});
 	//执行请求
 	GetObjectResult result = cosXml.GetObject(request);
@@ -201,7 +201,7 @@ try
 	//设置进度回调
 	request.SetCosProgressCallback(delegate(long completed, long total)
 	{
-		Console.WriteLine(String.Format("progress = {1:##.##}%", completed * 100.0 / total));
+		Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 	});
 	//执行请求
 	PutObjectResult result = cosXml.PutObject(request);
@@ -261,7 +261,7 @@ try
 	//设置进度回调
 	request.SetCosProgressCallback(delegate(long completed, long total)
 	{
-		Console.WriteLine(String.Format("progress = {1:##.##}%", completed * 100.0 / total));
+		Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 	});
 	//执行请求
 	GetObjectResult result = cosXml.GetObject(request);

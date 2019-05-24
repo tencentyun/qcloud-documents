@@ -36,7 +36,7 @@ iOS建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中添�
 
 Android建议在 application 中添加:
 ```
-TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
+TXUGCBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
 ### 4. License信息的查看
@@ -49,7 +49,7 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
 
 Android:
 ```
-TXLiveBase.getInstance().getLicenceInfo();
+TXUGCBase.getInstance().getLicenceInfo(context);
 ```
 
 ### 5.  License的有效期与续费

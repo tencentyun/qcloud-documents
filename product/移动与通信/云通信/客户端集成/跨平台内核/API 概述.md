@@ -1,11 +1,11 @@
-腾讯云通信的跨平台`C`接口（API）。
+腾讯云通信 IM 的跨平台`C`接口（API）。
 
 **各个平台的下载链接**
 
-- Windows 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)，Windows 快速开始 [集成 SDK](https://cloud.tencent.com/document/product/269/33489) 和 [跑通 demo](https://cloud.tencent.com/document/product/269/33488)。暂不支持64位编译。
-- iOS 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
-- Mac 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
-- Android 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
+- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)，Windows 快速开始 [集成 IM SDK](https://cloud.tencent.com/document/product/269/33489) 和 [跑通 demo](https://cloud.tencent.com/document/product/269/33488)。暂不支持64位编译。
+- iOS 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
+- Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
+- Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
 
 
 **关于回调的说明**
@@ -32,7 +32,7 @@
 | [TIMSetMsgUpdateCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgupdatecallback) | 设置消息在云端被修改后回传回来的消息更新通知回调 |
 
 
-### SDK 初始化相关接口
+### IM SDK 初始化相关接口
 
 | API | 描述 |
 |-----|-----|
