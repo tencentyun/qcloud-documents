@@ -30,7 +30,7 @@
 ![](https://main.qcloudimg.com/raw/bcecf5b50a67e67e282b9a0f7c8232bc.jpg)
 
 **可添加的策略有**：
-1. 添加系统预设策略：通过左侧边栏进入策略页面，可查询当前所有的策略信息。云直播系统预设策略为[QcloudLIVEFullAccess](https://console.cloud.tencent.com/cam/policy/detail/9545933&QcloudLIVEFullAccess&2)（全读写策略）和 [QcloudLIVEReadOnlyAccess](https://console.cloud.tencent.com/cam/policy/detail/13346800&QcloudLIVEReadOnlyAccess&2)（只读策略）。
+1. 添加系统预设策略：通过左侧边栏进入策略页面，可查询当前所有的策略信息。云直播系统预设策略为 [QcloudLIVEFullAccess](https://console.cloud.tencent.com/cam/policy/detail/9545933&QcloudLIVEFullAccess&2)（全读写策略）和 [QcloudLIVEReadOnlyAccess](https://console.cloud.tencent.com/cam/policy/detail/13346800&QcloudLIVEReadOnlyAccess&2)（只读策略）。
 2. 添加自定义策略：进入策略页面，单击【新建自定义策略】，选择【按策略生成器创建】，详细请参考 [自定义策略](https://cloud.tencent.com/document/product/598/10601#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.AD.96.E7.95.A5)。
 
 **例如**：

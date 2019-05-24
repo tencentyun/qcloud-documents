@@ -4,7 +4,7 @@
 
 ## 操作步骤
 1. 在 game.js 文件中，将启动页改为 MainView，
-2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家的 openId 使用 Util.js 中的 mockOpenId 方法生成。
+2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家的 playerId 使用 Util.js 中的 mockPlayerId 方法生成。
 
 game.js 最终代码如下所示：
 ```
@@ -26,7 +26,7 @@ const gameInfo = {
   // 替换 为控制台上的“游戏ID”
   gameId: 91000000,
   // 随机生成 玩家 ID
-  openId: Util.mockOpenId(),
+  playerId: Util.mockPlayerId(),
   wxAppid: 'wx43c6c5xxxxxxxxx',
   // 替换 为控制台上的“密钥”
   secretKey: 'kJm9RZWL7xxxxxxxxxxxxxxxxxxx',

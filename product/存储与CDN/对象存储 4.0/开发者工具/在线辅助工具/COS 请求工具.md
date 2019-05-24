@@ -8,9 +8,13 @@ COS 请求工具是腾讯云对象存储（ COS） 为您提供的 Web 端调试
 - JSON API 是腾讯云 COS 服务在推出 XML API 前为用户提供接入使用 COS 的 API 接口，接口与标准 XML 的 API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容。
 - XML API 具有更加丰富的功能和特性，腾讯云对象存储强烈建议您升级使用 XML API 版本。
 
+## 工具地址
+
+单击进入 [COS 请求工具](https://console.cloud.tencent.com/api/explorer?Product=cos)。
+
 ## 使用方法
 
-单击 [COS 请求工具](https://console.cloud.tencent.com/api/explorer?Product=cos) 页面，选择“对象存储”产品，选择所需的 API 接口，填写该接口下相应的参数，单击发送请求后获取相应的请求响应结果。
+选择“对象存储”产品，选择所需的 API 接口，填写该接口下相应的参数，单击发送请求后获取相应的请求响应结果。
 
 COS 请求工具的整体页面，从左至右依次是产品栏，接口栏，参数栏和结果栏；您可以在不同的栏目执行相应的操作，最终在结果栏发送请求并获取响应结果和相关的过程参数信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6329b432ed56516ca311bcbe5720d13f.png)

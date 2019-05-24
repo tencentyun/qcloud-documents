@@ -16,7 +16,7 @@
 ![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
 
 ## 4. 下载私钥文件
-单击**下载公私钥**的链接，即可获得一个名为 **keys.zip** 的压缩包，解压后可以得到两个文件，即 public_key 和 private_key，用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步**生成Demo配置文件内容**的文本输入框中。
+单击**下载公私钥**的链接，即可获得一个名为 **keys.zip** 的压缩包，解压后可以得到两个文件，即 public_key 和 private_key，用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步**生成 Demo 配置文件内容**的文本输入框中。
 ![](https://main.qcloudimg.com/raw/75edc5d22563c32aace232543915bbff.png)
 
 ## 5. 获得配置文件
@@ -24,17 +24,17 @@
 
 ![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
 
-复制上面的 json 内容，打开文件 `js/config.js` ，并按代码注释指引替换对应的内容。
+复制上面的 JSON 内容，打开文件 `js/config.js` ，并按代码注释指引替换对应的内容。
 
 >?此处方案仅用于快速跑通 Demo 示例。
-真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ## 6. 运行 Demo
 - step1：使用最新版本的 Chrome 浏览器打开 index.html
 
 >!
-> - 一般情况下体验 demo 需要部署至服务器，通过 [https://域名/xxx] 访问，或者直接在本地搭建服务器，通过 [localhost：端口] 访问，避免浏览器限制在 file 协议下进行 WebRTC 通信。
-> - 目前 Chrome 浏览器较完整支持 WebRTC 的特性，因此建议使用 Chrome 浏览器进行体验。
+> - 一般情况下体验 Demo 需要部署至服务器，通过 [https://域名/xxx] 访问，或者直接在本地搭建服务器，通过 [localhost：端口] 访问，避免浏览器限制在 file 协议下进行 WebRTC 通信。
+> - 目前桌面端 Chrome 浏览器较完整支持 WebRTC 的特性，因此建议使用 Chrome 浏览器进行体验。
 
 - setp2：进入页面后，选择一个体验用户名，并输入相应的房间号，单击**我要视频通话**。	
 - step3：浏览器会提示是否允许当前页面使用摄像头和麦克风，请单击允许，然后就可以看到视频画面了。
@@ -43,7 +43,7 @@
 
 ### 1. 防火墙限制
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下域名和端口加入防火墙的安全白名单中。
-域名：qcloud.rtc.qq.com
+域名：`qcloud.rtc.qq.com`
 
 | 协议 | 端口号 |
 |:--------|:--------|

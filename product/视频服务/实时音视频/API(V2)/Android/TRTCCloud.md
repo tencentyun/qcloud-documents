@@ -6,6 +6,9 @@ TRTCCloud @ TXLiteAVSDK。
 
 ## 基础方法
 ### sharedInstance
+
+创建 TRTCCloud 单例。
+
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -18,14 +21,14 @@ __参数__
 
 __返回__
 
-TRTCCloud 实例。
+[TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 实例。
 
 >?可以调用 destroySharedInstance 销毁单例对象。
 
 
 ### destroySharedInstance
 
-销毁 TRTCCloud 单例。
+销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 单例。
 ```
 void destroySharedInstance()
 ```
@@ -33,26 +36,26 @@ void destroySharedInstance()
 
 ### setListener
 
-设置回调接口 TRTCCloudListener，用户获得来自 TRTCCloud 的各种状态通知。
+设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 的各种状态通知。
 ```
 abstract void setListener(TRTCCloudListener listener)
 ```
 
 __介绍__
 
-您可以通过 TRTCCloudListener 获得来自 SDK 的各种状态通知，详见 TRTCCloudListener 中的定义。
+您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的定义。
 
 
 ### setListenerHandler
 
-设置驱动 TRTCCloudListener 回调的队列。
+设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调的队列。
 ```
 abstract void setListenerHandler(Handler listenerHandler)
 ```
 
 __介绍__
 
-SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 TRTCCloudListener 回调都将由 Main Thread 来调用。此时您在 TRTCCloudListener 的回调函数里操作 UI 是线程安全的。
+SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 的回调函数里操作 UI 是线程安全的。
 
 
 
@@ -68,7 +71,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCParams | 进房参数，请参考 TRTCParams。 |
+| param | [TRTCCloudDef.TRTCParams](https://cloud.tencent.com/document/product/647/32266#trtcparams) | 进房参数，请参考 TRTCParams。 |
 | appScene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
 >?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
@@ -224,7 +227,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCVideoEncParam | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义。 |
+| param | [TRTCCloudDef.TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32266#trtcvideoencparam) | 视频编码参数，详情请参考 TRTCCloudDef.java 中的 TRTCVideoEncParam 定义。 |
 
 __介绍__
 
@@ -242,7 +245,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCNetworkQosParam | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义。 |
+| param | [TRTCCloudDef.TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32266#trtcnetworkqosparam) | 网络流控参数，详情请参考 TRTCCloudDef.java 中的 TRTCNetworkQosParam 定义。 |
 
 __介绍__
 
@@ -325,6 +328,38 @@ __介绍__
 当用户的手机或者 Android Pad 做了一个180度旋转时，由于摄像头的采集方向没有变，所以另一边的用户看到的画面是上下颠倒的， 在这种情况下，您可以通过该接口将 SDK 输出到对方的画面旋转180度，这样可以可以确保对方看到的画面依然正常。
 
 
+### setLocalViewMirror
+
+设置本地预览画面镜像方式。
+```
+abstract void setLocalViewMirror(int mirrorType)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像； TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像； TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 |
+
+
+### setVideoEncoderMirror
+
+设置编码器输出的画面镜像模式。
+```
+abstract void setVideoEncoderMirror(boolean mirror)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirror | boolean | mirror true:镜像；false:不镜像；默认是false。 |
+
+__介绍__
+
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+
+
 ### setGSensorMode
 
 设置重力感应的适应模式。
@@ -351,7 +386,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | enable | boolean | 是否开启小画面编码。 |
-| smallVideoEncParam | TRTCCloudDef.TRTCVideoEncParam | 小流的视频参数。 |
+| smallVideoEncParam | [TRTCCloudDef.TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32266#trtcvideoencparam) | 小流的视频参数。 |
 
 __返回__
 
@@ -450,7 +485,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录指出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
 
 
 ### setAudioRoute
@@ -504,15 +539,14 @@ __参数__
 
 启用音量大小提示。
 ```
-abstract void enableAudioVolumeEvaluation(int intervalMs, int smoothLevel)
+abstract void enableAudioVolumeEvaluation(int intervalMs)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| intervalMs | int | 报告间隔单位为 ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
-| smoothLevel | int | 灵敏度，[0,10]，数字越大，波动越灵敏。 |
+| intervalMs | int | 决定了 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；详细的回调规则请参考 onUserVoiceVolume 的注释说明。 |
 
 __介绍__
 
@@ -691,6 +725,140 @@ __介绍__
 举例：如果当前编码分辨率是540 × 960，(x， y， width) 设置为（0.1， 0.1， 0.2） 那么：水印的左上坐标点就是 (540 × 0.1， 960 × 0.1)，也就是 (54， 96)，水印的宽度是 540 × 0.2 = 108px，高度自动计算。
 
 
+### setEyeScaleLevel
+
+setEyeScaleLevel 设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setEyeScaleLevel(int eyeScaleLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| eyeScaleLevel | int | 大眼级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceSlimLevel
+
+设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceSlimLevel(int faceScaleLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceScaleLevel | int | 瘦脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceVLevel
+
+设置V脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceVLevel(int faceVLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceVLevel | int | V脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setFaceShortLevel
+
+设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setFaceShortLevel(int faceShortlevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| faceShortlevel | int | 短脸级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setChinLevel
+
+设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setChinLevel(int chinLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| chinLevel | int | 下巴拉伸或收缩级别取值范围0 - 9；0表示关闭，<0表示收缩，>0表示拉伸。 |
+
+
+### setNoseSlimLevel
+
+设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setNoseSlimLevel(int noseSlimLevel)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| noseSlimLevel | int | 瘦鼻级别取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+
+
+### setGreenScreenFile
+
+设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract boolean setGreenScreenFile(String file)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| file | String | 视频文件路径。支持 MP4；null：表示关闭特效。 |
+
+__介绍__
+
+此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
+
+
+### selectMotionTmpl
+
+选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void selectMotionTmpl(String motionPath)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| motionPath | String | 动效完整路径。 |
+
+
+### setMotionMute
+
+设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+```
+abstract void setMotionMute(boolean motionMute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| motionMute | boolean | true：静音；false：不静音。 |
+
+__介绍__
+
+有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
+
+
 
 ## 辅流相关接口函数
 ### startRemoteSubStreamView
@@ -709,7 +877,7 @@ __参数__
 
 __介绍__
 
-对应于 startRemoteView() 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
+对应于 [startRemoteView()](https://cloud.tencent.com/document/product/647/32264#startremoteview) 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
 
 >?请在 onUserSubStreamAvailable 回调后再调用这个接口。
 
@@ -745,7 +913,7 @@ __参数__
 
 __介绍__
 
-对应于 setRemoteViewFillMode() 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
 
 
 
@@ -765,7 +933,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 sendCustomVideoData() 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 [sendCustomVideoData()](https://cloud.tencent.com/document/product/647/32264#sendcustomvideodata) 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomVideoData
@@ -779,7 +947,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCVideoFrame | 视频数据，如果是 buffer 方案，请设置 data 字段；如果是 texture 方案，请设置 TRTCTexture 对象。 |
+| frame | [TRTCCloudDef.TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32266#trtcvideoframe) | 视频数据，如果是 buffer 方案，请设置 data 字段；如果是 texture 方案，请设置 TRTCTexture 对象。 |
 
 __介绍__
 
@@ -806,9 +974,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_NV21。 |
-| bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
+| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
+| bufferType | int | 指定视频帧的数据结构，TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_I420；TRTC_VIDEO_BUFFER_TYPE_TEXTURE 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
+| listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
@@ -817,8 +985,8 @@ __返回__
 __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
-- pixelFormat 指定回调的数据格式，目前暂时只支持 NV21 和 I420 两种格式，纹理方案我们稍后提供。
-- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 java 层的直接操作。
+- pixelFormat 指定回调的数据格式，目前支持 Texture2D 和 I420 两种格式。
+- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 Java 层的直接操作。
 
 
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
@@ -836,9 +1004,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 对方的用户标识。 |
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
+| pixelFormat | int | 指定视频帧的像素格式，目前仅支持 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
-| listener | TRTCCloudListener.TRTCVideoRenderListener | 自定义视频渲染回调，每一帧视频数据回调一次。 |
+| listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
 
@@ -868,7 +1036,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 sendCustomAudioData() 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32264#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomAudioData
@@ -882,7 +1050,18 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCCloudDef.TRTCAudioFrame | 音频数据。 |
+| frame | [TRTCCloudDef.TRTCAudioFrame](https://cloud.tencent.com/document/product/647/32266#trtcaudioframe) | 音频帧。目前只支持单声道，仅支持48K采样率。 |
+
+__介绍__
+
+TRTCAudioFrame 推荐如下填写方式：
+- data：音频帧 buffer。音频帧数据必须是 PCM 格式，推荐每帧20ms采样数。【48000采样率、单声道的帧长度：48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+- sampleRate：采样率，仅支持48000。
+- channel：频道数量（如果是立体声，数据是交叉的），单声道：1； 双声道：2。
+- timestamp：如果 timestamp 间隔不均匀，会严重影响音画同步和录制出的 MP4 质量。
+
+
+参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 >?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 
@@ -899,7 +1078,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | TRTCCloudListener.TRTCAudioFrameListener | 音频数据回调，listener = null 则停止回调数据。 |
+| listener | [TRTCCloudListener.TRTCAudioFrameListener](https://cloud.tencent.com/document/product/647/32265#trtcaudioframelistener) | 音频数据回调，listener = null 则停止回调数据。 |
 
 __介绍__
 
@@ -989,7 +1168,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | path | String | 音乐文件路径。 |
-| notify | BGMNotify | 播放背景音乐的回调。 |
+| notify | [BGMNotify](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 播放背景音乐的回调。 |
 
 
 ### stopBGM
@@ -1033,8 +1212,10 @@ __返回__
 
 成功返回时长，失败返回-1。
 
-
 ### setBGMPosition
+
+设置 BGM 播放进度。
+
 ```
 abstract int setBGMPosition(int pos)
 ```
@@ -1125,7 +1306,7 @@ __参数__
 
 __介绍__
 
-测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。 测试结果通过 TRTCCloudListener.onSpeedTest 回调出来。
+测速结果将会用于优化 SDK 接下来的服务器选择策略，因此推荐您在用户首次通话前先进行一次测速，这将有助于我们选择最佳的服务器。 同时，如果测试结果非常不理想，您可以通过醒目的 UI 提示用户选择更好的网络。 测试结果通过 [TRTCCloudListener.onSpeedTest](https://cloud.tencent.com/document/product/647/32265#onspeedtest) 回调出来。
 
 >?测速本身会消耗一定的流量，所以也会产生少量额外的流量费用。
 
@@ -1152,7 +1333,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | TRTCCloudDef.TRTCTranscodingConfig | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍。如果传入 null 则取消云端混流转码。 |
+| config | [TRTCCloudDef.TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32266#trtctranscodingconfig) | 请参考 TRTCCloudDef.java 中关于 TRTCTranscodingConfig 的介绍。如果传入 null 则取消云端混流转码。 |
 
 __介绍__
 
@@ -1186,7 +1367,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | TRTCCloudDef.TRTCPublishCDNParam | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍。 |
+| param | [TRTCCloudDef.TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32266#trtcpublishcdnparam) | 请参考 TRTCCloudDef.java 中关于 TRTCPublishCDNParam 的介绍。 |
 
 __介绍__
 
@@ -1319,7 +1500,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| margin | TRTCViewMargin | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
+| margin | [TRTCViewMargin](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
 
 __介绍__
 

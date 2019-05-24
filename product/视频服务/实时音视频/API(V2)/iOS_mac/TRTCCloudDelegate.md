@@ -178,7 +178,7 @@ __参数__
 
 ### onUserVoiceVolume
 
-userId 对应的成员语音音量。
+用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
 - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume 
 ```
@@ -187,19 +187,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围0 - 100。 |
-| totalVolume | NSInteger | 总的语音音量, 取值范围0 - 100。 |
+| userVolumes | NSArray< [TRTCVolumeInfo](https://cloud.tencent.com/document/product/647/32261#trtcvolumeinfo) * > * | 所有正在说话的房间成员的音量（取值范围0 - 100）。即 userVolumes 内仅包含音量不为0（正在说话）的用户音量信息。其中 userId 为 null 表示 local 的音量，也就是自己的音量。 |
+| totalVolume | NSInteger | 所有远端成员的总音量, 取值范围0 - 100。 |
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调;如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 
 
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 - (void)onNetworkQuality:(TRTCQualityInfo *)localQuality remoteQuality:(NSArray< TRTCQualityInfo * > *)remoteQuality 
 ```
@@ -208,8 +208,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | TRTCQualityInfo * | 上行网络质量。 |
-| remoteQuality | NSArray< TRTCQualityInfo * > * | 下行网络质量。 |
+| localQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32261#trtcqualityinfo) * | 上行网络质量。 |
+| remoteQuality | NSArray< [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32261#trtcqualityinfo) * > * | 下行网络质量。 |
 
 >?userId == nil 代表自己当前的视频质量。
 
@@ -225,7 +225,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statistics | TRTCStatistics * | 统计数据，包括本地和远程的。 |
+| statistics | [TRTCStatistics](https://cloud.tencent.com/document/product/647/32261#trtcstatistics) * | 统计数据，包括本地和远程的。 |
 
 __介绍__
 
@@ -321,8 +321,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | TRTCAudioRoute | 当前音频路由。 |
-| fromRoute | TRTCAudioRoute | 变更前的音频路由。 |
+| route | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 当前音频路由。 |
+| fromRoute | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 变更前的音频路由。 |
 
 
 ### onDevice
@@ -337,7 +337,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | deviceId | NSString * | 设备 ID。 |
-| deviceType | TRTCMediaDeviceType | 设备类型。 |
+| deviceType | [TRTCMediaDeviceType](https://cloud.tencent.com/document/product/647/32261#trtcmediadevicetype) | 设备类型。 |
 | state | NSInteger | 0：设备断开；1：设备连接。 |
 
 
@@ -467,7 +467,7 @@ __参数__
 
 __介绍__
 
-对应于 TRTCCloud 中的 startPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 startPublishCDNStream() 接口。
 
 >?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
 
@@ -482,7 +482,22 @@ __介绍__
 
 __介绍__
 
-对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 setMixTranscodingConfig() 接口。
+```
+- (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| err | int | 0表示成功，其余值表示失败。 |
+| errMsg | NSString * | 具体错误原因。 |
 
 
 
@@ -505,9 +520,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息。 |
+| frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
 | userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会。 |
-| streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，比如是摄像头画面还是屏幕分享画面等等。 |
 
 
 
@@ -542,7 +557,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频数据。 |
+| frame | [TRTCAudioFrame](https://cloud.tencent.com/document/product/647/32261#trtcaudioframe) * | 音频数据。 |
 | userId | NSString * | 用户标识。 |
 
 >?
@@ -587,7 +602,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | log | nullable NSString * | 日志内容。 |
-| level | TRTCLogLevel | 日志等级 参见 TRTCLogLevel。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
 | module | nullable NSString * | 值暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 

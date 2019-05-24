@@ -27,7 +27,7 @@
 |ERR_SCREEN_CAPTURE_START_FAIL|-1308|开始录屏失败，如果在移动设备出现，可能是权限被用户拒绝了，如果在 Windows 或 Mac 系统的设备出现，请检查录屏接口的参数是否符合要求|
 |ERR_SCREEN_CAPTURE_UNSURPORT|-1309|录屏失败，在 Android 平台，需要5.0以上的系统|
 |ERR_RTMP_PUSH_INVALID_ADDRESS|-1313|直播，推流地址非法，例如不是 RTMP 协议的地址|
-|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，IP 全部失败） |
+|ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，IP 全部失败）|
 |ERR_RTMP_PUSH_NO_NETWORK|-1325|直播，网络不可用，请确认 WiFi、移动数据或者有线网络是否正常|
 |ERR_RTMP_PUSH_SERVER_REFUSE|-1326|直播，服务器拒绝连接请求，可能是该推流地址已经被占用，或者 TXSecret 校验失败，或者是过期了，或者是欠费了|
 |ERR_PIXEL_FORMAT_UNSUPPORTED|-1327|设置的 pixel format 不支持|
@@ -41,7 +41,7 @@
 |ERR_PLAY_LIVE_STREAM_SWITCH_FAIL|-2307|直播，切流失败（切流可以播放不同画面大小的视频）|
 |ERR_PLAY_LIVE_STREAM_SERVER_REFUSE|-2308|直播，服务器拒绝连接请求|
 |ERR_RTMP_ACC_FETCH_STREAM_FAIL|-2309|直播，RTMPACC 低延时拉流失败，且经过多次重试无法恢复|
-|ERR_ROOM_ENTER_FAIL|-3301|进入房间失败（例如token过期等原因）|
+|ERR_ROOM_ENTER_FAIL|-3301|进入房间失败（例如 token 过期等原因）|
 |ERR_ROOM_HEARTBEAT_FAIL|-3302|心跳失败，客户端定时向服务器发送数据包，告诉服务器自己活着，这个错误通常是发包超时|
 |ERR_ROOM_REQUEST_IP_FAIL|-3303|拉取接口机服务器地址失败|
 |ERR_ROOM_CONNECT_FAIL|-3304|连接接口机服务器失败|
@@ -57,7 +57,7 @@
 |ERR_ROOM_REQUEST_SET_RECEIVE_TIMEOUT|-3314|请求接收视频项超时|
 |ERR_ROOM_REQUEST_TOKEN_INVALID_PARAMETER|-3315|请求 token 无效参数|
 |ERR_ENTER_ROOM_PARAM_NULL|-3316|进房参数为空|
-|ERR_SDK_APPID_INVALID|-3317|进房参数 sdkappid 错误|
+|ERR_SDK_APPID_INVALID|-3317|进房参数 sdkAppId 错误|
 |ERR_ROOM_ID_INVALID|-3318|进房参数 roomId 错误|
 |ERR_USER_ID_INVALID|-3319|进房参数 userID 不正确|
 |ERR_USER_SIG_INVALID|-3320|进房参数 userSig 不正确|
@@ -75,7 +75,7 @@
 |ERR_SERVER_INFO_GENERATE_SIGN_FAILED|-100003|生成签名错误|
 |ERR_SERVER_INFO_TOKEN_TIMEOUT|-100004|token 超时|
 |ERR_SERVER_INFO_INVALID_COMMAND|-100005|无效的命令字|
-|ERR_SERVER_INFO_PRIVILEGE_FLAG_ERROR|-100006|加密权限错误，包含：解密错误、过期和内容不符合|
+|ERR_SERVER_INFO_PRIVILEGE_FLAG_ERROR|-100006|权限位校验失败|
 |ERR_SERVER_INFO_GENERATE_KEN_ERROR|-100007|https 请求时，生成加密 key 错误|
 |ERR_SERVER_INFO_GENERATE_TOKEN_ERROR|-100008|https 请求时，生成 token 错误|
 |ERR_SERVER_ACC_TOKEN_TIMEOUT|-101000|token 超时|
@@ -83,7 +83,7 @@
 |ERR_SERVER_ACC_SIGN_TIMEOUT|-101002|签名超时|
 |ERR_SERVER_ACC_ROOM_NOT_EXIST|-101003|房间不存在|
 |ERR_SERVER_CENTER_SYSTEM_ERROR|-102000|后台错误|
-|ERR_SERVER_CENTER_INVALID_ROOMID|-102001|无效的房间 ID|
+|ERR_SERVER_CENTER_INVALID_ROOMID|-102001|无效的房间 Id|
 |ERR_SERVER_CENTER_CREATE_ROOM_FAILED|-102002|创建房间失败|
 |ERR_SERVER_CENTER_SIGN_ERROR|-102003|签名错误|
 |ERR_SERVER_CENTER_SIGN_TIMEOUT|-102004|签名过期|
@@ -108,20 +108,20 @@
 |ERR_SERVER_CENTER_I_FRAME_DEST_USER_NOT_EXIST|-102026|请求 I 帧目标用户不存在|
 |ERR_SERVER_CENTER_I_FRAME_ROOM_TOO_BIG|-102027|请求 I 帧房间用户太多|
 |ERR_SERVER_CENTER_I_FRAME_RPS_INVALID_PARAMETER|-102028|请求 I 帧参数错误|
-|ERR_SERVER_SSO_SIG_EXPIRED|-70001|sig 过期，请尝试重新生成。如果是刚生成，就过期，请检查有效期填写的是否过小，或者填的0|
+|ERR_SERVER_SSO_SIG_EXPIRED|-70001|sig 过期，请尝试重新生成。如果是刚生成，就过期，请检查有效期填写的是否过小，或者填的 0|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_1|-70003|sig 校验失败，请确认下 sig 内容是否被截断，如缓冲区长度不够导致的内容截断|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_2|-70004|sig 校验失败，请确认下 sig 内容是否被截断，如缓冲区长度不够导致的内容截断|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_3|-70005|sig 校验失败，可用工具自行验证生成的 sig 是否正确|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_4|-70006|sig 校验失败，可用工具自行验证生成的 sig 是否正确|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_5|-70007|sig 校验失败，可用工具自行验证生成的 sig 是否正确|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_6|-70008|sig 校验失败，可用工具自行验证生成的 sig 是否正确|
-|ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_7|-70009|用业务公钥验证 sig 失败，请确认生成的 usersig 使用的私钥和 sdkappid 是否对应|
+|ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_7|-70009|用业务公钥验证 sig 失败，请确认生成的 usersig 使用的私钥和 sdkAppId 是否对应|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_8|-70010|sig 校验失败，可用工具自行验证生成的 sig 是否正确|
 |ERR_SERVER_SSO_SIG_VERIFICATION_ID_NOT_MATCH|-70013|sig 中 identifier 与请求时的 identifier 不匹配，请检查登录时填写的 identifier 与 sig 中的是否一致|
-|ERR_SERVER_SSO_APPID_NOT_MATCH|-70014|sig 中 sdkappid 与请求时的 sdkappid 不匹配，请检查登录时填写的 sdkappid 与 sig 中的是否一致|
-|ERR_SERVER_SSO_VERIFICATION_EXPIRED|-70017|内部第三方票据验证超时，请重试，如多次重试不成功，请@TLS帐号支持，QQ 3268519604|
-|ERR_SERVER_SSO_VERIFICATION_FAILED|-70018|内部第三方票据验证超时，请重试，如多次重试不成功，请@TLS帐号支持，QQ 3268519604|
-|ERR_SERVER_SSO_APPID_NOT_FOUND|-70020|sdkappid 未找到，请确认是否已经在腾讯云上配置|
+|ERR_SERVER_SSO_APPID_NOT_MATCH|-70014|sig 中 sdkAppId 与请求时的 sdkAppId 不匹配，请检查登录时填写的 sdkAppId 与 sig 中的是否一致|
+|ERR_SERVER_SSO_VERIFICATION_EXPIRED|-70017|内部第三方票据验证超时，请重试，如多次重试不成功，请@TLS 帐号支持，QQ 3268519604|
+|ERR_SERVER_SSO_VERIFICATION_FAILED|-70018|内部第三方票据验证超时，请重试，如多次重试不成功，请@TLS 帐号支持，QQ 3268519604|
+|ERR_SERVER_SSO_APPID_NOT_FOUND|-70020|sdkAppId 未找到，请确认是否已经在腾讯云上配置|
 |ERR_SERVER_SSO_SIG_INVALID|-70052|usersig 已经失效，请重新生成，再次尝试|
 |ERR_SERVER_SSO_LIMITED_BY_SECURITY|-70114|安全原因被限制|
 |ERR_SERVER_SSO_INVALID_LOGIN_STATUS|-70221|登录状态无效，请使用 usersig 重新鉴权|
@@ -129,6 +129,7 @@
 |ERR_SERVER_SSO_TICKET_EXPIRED|-70347|票据因过期原因校验失败|
 |ERR_SERVER_SSO_ACCOUNT_IN_BLACKLIST|-70051|帐号已被拉入黑名单，请联系 TLS 帐号支持 QQ 3268519604|
 |ERR_SERVER_SSO_ACCOUNT_EXCEED_PURCHASES|-70398|创建账号数量超过已购买预付费数量限制|
+|ERR_SERVER_SSO_APPID_ERROR|-70252|sdkAppId 填写错误|
 
 
 ## （二）错误码（警告）
@@ -138,14 +139,15 @@
 | 符号 | 值 | 含义 |
 |---|---|---|
 |WARNING_NET_BUSY|1101|网络状况不佳：上行带宽太小，上传数据受阻|
-|WARNING_RTMP_SERVER_RECONNECT|1102|直播，网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）|
+|WARNING_RTMP_SERVER_RECONNECT|1102|直播，网络断连, 已启动自动重连（自动重连连续失败超过三次会放弃）|
 |WARNING_HW_ENCODER_START_FAIL|1103|硬编码启动失败，采用软编码|
 |WARNING_VIDEO_ENCODER_SW_TO_HW|1107|视频编码器从软编码自动切换到硬编码，一般是由于 CPU 使用率过高触发的|
 |WARNING_INSUFFICIENT_CAPTURE_FPS|1108|摄像头采集帧率不足，部分自带美颜算法的 Android 手机上会出现|
 |WARNING_SW_ENCODER_START_FAIL|1109|软编码启动失败|
+|WARNING_REDUCE_CAPTURE_RESOLUTION|1110|摄像头采集分辨率被降低，以满足当前帧率和性能最优解。|
 |WARNING_VIDEO_FRAME_DECODE_FAIL|2101|当前视频帧解码失败|
 |WARNING_AUDIO_FRAME_DECODE_FAIL|2102|当前音频帧解码失败|
-|WARNING_LIVE_STREAM_SERVER_RECONNECT|2103|直播，网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）|
+|WARNING_LIVE_STREAM_SERVER_RECONNECT|2103|直播，网络断连, 已启动自动重连（自动重连连续失败超过三次会放弃）|
 |WARNING_VIDEO_PLAY_LAG|2105|当前视频播放出现卡顿（用户直观感受）|
 |WARNING_HW_DECODER_START_FAIL|2106|硬解启动失败，采用软解码|
 |WARNING_VIDEO_DECODER_HW_TO_SW|2108|当前流硬解第一个 I 帧失败，SDK 自动切软解|
@@ -157,7 +159,7 @@
 |WARNING_RTMP_READ_WRITE_FAIL|3005|直播，RTMP 读/写失败，将会断开连接|
 |WARNING_RTMP_WRITE_FAIL|3006|直播，RTMP 写失败（SDK 内部错误码，不会对外抛出）|
 |WARNING_RTMP_READ_FAIL|3007|直播，RTMP 读失败（SDK 内部错误码，不会对外抛出）|
-|WARNING_RTMP_NO_DATA|3008|直播，超过30s没有数据发送，主动断开连接|
+|WARNING_RTMP_NO_DATA|3008|直播，超过30s 没有数据发送，主动断开连接|
 |WARNING_PLAY_LIVE_STREAM_INFO_CONNECT_FAIL|3009|直播，connect 服务器调用失败（SDK 内部错误码，不会对外抛出）|
 |WARNING_NO_STEAM_SOURCE_FAIL|3010|直播，连接失败，该流地址无视频（SDK 内部错误码，不会对外抛出）|
 |WARNING_ROOM_DISCONNECT|5101|网络断开连接|
@@ -205,18 +207,18 @@
 |EVT_VOD_PLAY_FIRST_VIDEO_PACKET|2017|点播，收到首帧数据（SDK 内部事件，不会对外抛出）|
 |EVT_VOD_PLAY_DNS_RESOLVED|2018|点播，DNS 解析完成（SDK 内部事件，不会对外抛出）|
 |EVT_VOD_PLAY_SEEK_COMPLETE|2019|点播，视频播放 Seek 完成（SDK 内部事件，不会对外抛出）|
-|EVT_VIDEO_DECODER_CACHE_TOO_MANY_FRAMES|2020|视频解码器缓存帧数过多，超过40帧 (SDK 内部事件，不会对外抛出)|
-|EVT_HW_DECODER_START_SUCC|2021|硬解码器启动成功 (SDK 内部事件，不会对外抛出)|
-|EVT_SW_DECODER_START_SUCC|2022|软解码器启动成功 (SDK 内部事件，不会对外抛出)|
-|EVT_AUDIO_JITTER_STATE_FIRST_LOADING|2023|音频首次加载 (SDK 内部事件，不会对外抛出)|
-|EVT_AUDIO_JITTER_STATE_LOADING|2024|音频正在加载 (SDK 内部事件，不会对外抛出)|
-|EVT_AUDIO_JITTER_STATE_PLAYING|2025|音频正在播放 (SDK 内部事件，不会对外抛出)|
-|EVT_AUDIO_JITTER_STATE_FIRST_PLAY|2026|音频首次播放 (SDK 内部事件，不会对外抛出)|
+|EVT_VIDEO_DECODER_CACHE_TOO_MANY_FRAMES|2020|视频解码器缓存帧数过多，超过40帧（SDK 内部事件，不会对外抛出）|
+|EVT_HW_DECODER_START_SUCC|2021|硬解码器启动成功（SDK 内部事件，不会对外抛出）|
+|EVT_SW_DECODER_START_SUCC|2022|软解码器启动成功（SDK 内部事件，不会对外抛出）|
+|EVT_AUDIO_JITTER_STATE_FIRST_LOADING|2023|音频首次加载（SDK 内部事件，不会对外抛出）|
+|EVT_AUDIO_JITTER_STATE_LOADING|2024|音频正在加载（SDK 内部事件，不会对外抛出）|
+|EVT_AUDIO_JITTER_STATE_PLAYING|2025|音频正在播放（SDK 内部事件，不会对外抛出）|
+|EVT_AUDIO_JITTER_STATE_FIRST_PLAY|2026|音频首次播放（SDK 内部事件，不会对外抛出）|
 |EVT_MIC_START_SUCC|2027|麦克风启动成功|
 |EVT_ROOM_ENTER|1018|进入房间成功|
 |EVT_ROOM_EXIT|1019|退出房间|
 |EVT_ROOM_USERLIST|1020|下发房间成员列表（不包括自己）|
-|EVT_ROOM_NEED_REENTER|1021|WiFi 切换到 4G 会触发断线重连，此时需要重新进入房间(拉取最优的服务器地址)|
+|EVT_ROOM_NEED_REENTER|1021|WiFi 切换到4G 会触发断线重连，此时需要重新进入房间（拉取最优的服务器地址）|
 |EVT_ROOM_REQUEST_IP_SUCC|8001|拉取接口机服务器地址成功|
 |EVT_ROOM_CONNECT_SUCC|8002|连接接口机服务器成功|
 |EVT_ROOM_REQUEST_AVSEAT_SUCC|8003|请求视频位成功|
