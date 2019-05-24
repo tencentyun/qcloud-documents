@@ -3,7 +3,6 @@ TSF 为其他应用提供服务注册中心，Dubbo 应用可通过依赖 jar �
 
 ## 操作步骤
 #### 1. 安装依赖
-[下载依赖 >>](https://main.qcloudimg.com/raw/d075de11daa5d1427346e19880cd5492/dubbo-registry-consul-1.1.4-SNAPSHOT.zip)
 ```
 mvn install:install-file -Dfile=dubbo-registry-consul-1.1.4-SNAPSHOT.jar -DpomFile=dubbo-
 registry-consul-1.1.4-SNAPSHOT.pom
