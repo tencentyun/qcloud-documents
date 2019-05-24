@@ -9,7 +9,7 @@ registry-consul-1.1.4-SNAPSHOT.pom
 ```
 
 #### 2. 注册中心配置
-文件路径： `src/main/resources/META-INF/spring/dubbo-demo-provider.xml`
+文件路径：`src/main/resources/META-INF/spring/dubbo-demo-provider.xml`
 Dubbo 官网 Demo：
 ```
 <dubbo:registry address="multicast://224.5.6.7:1234"/>
@@ -33,7 +33,7 @@ TSF Demo (**注册中心地址使用注册中心IP和端口替换**)：
 ```
 
 #### 4. 打包 FATJAR
-您可以通过**maven-shade-plugin**构建一个包含所有依赖的 jar 包（FatJar）。执行命令 `mvn clean package`。
+您可以通过**maven-shade-plugin**构建一个包含所有依赖的 jar 包（FatJar）。执行命令`mvn clean package`。
 
 >!您需要根据实际情况，修改以下 mainClass 标签内容。
 
