@@ -382,8 +382,8 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述desc，可用于定位请求失败原因
-        //错误码code含义请参见错误码表
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
 
@@ -553,7 +553,7 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
@@ -931,9 +931,6 @@ public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > call
  * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user、nameCard、role、customInfo，其他的字段获取建议通过 TIMGroupManagerExt -> getGroupMembers 获取
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
-/**
-* 目前只有字段：user、nameCard、role、customInfo
-*/
 ```
 
 **对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 可以得到正在聊天的用户。
