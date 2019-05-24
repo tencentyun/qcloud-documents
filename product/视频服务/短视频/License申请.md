@@ -37,7 +37,7 @@ Android 建议在 application 中添加:
 TXUGCBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
-### 4. License信息的查看
+### 4. License 信息的查看
 在 License 设置成功后稍等一段时间(依据网络情况而定), 可以通过调用以下方法查看 License 信息
 
 iOS:
@@ -50,7 +50,7 @@ Android:
 TXUGCBase.getInstance().getLicenceInfo(context);
 ```
 
-### 5.  License的有效期与续费
+### 5.  License 的有效期与续费
 
 可以在 [云点播控制台](https://console.cloud.tencent.com/video/license)查看 License 的有效期，正式版本的 License 有效期一般为一年，到期后进入 [云点播控制台](https://console.cloud.tencent.com/video/license) 单击购买链接即可。
 
@@ -62,7 +62,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 
 单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)。
 
-### 7. License常见问题QA
+### 7. License 常见问题 FQA
 
 1. 测试 License 到期后是否可以延期？
 
