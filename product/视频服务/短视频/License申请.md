@@ -20,7 +20,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [商业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366) | 参考目录6申请商业版本 License | 
 | [商业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366) | 参考目录6申请商业版本 License | 
 
-**注意: 购买点播套餐包后，在 [云点播控制台](https://console.cloud.tencent.com/video/license) 测试 License 信息下面会有一键切换正式 License 按钮，当点击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License 信息不能再做修改。**
+**注意: 购买点播套餐包后，在 [云点播控制台](https://console.cloud.tencent.com/video/license) 测试 License 信息下面会有一键切换正式 License 按钮，当单击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License 信息不能再做修改。**
 
 ### 3. License 的使用方法
 在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置
@@ -70,7 +70,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 
 2. 测试License能否更改Android的PackageName和iOS的BundleID?
 
-   测试 License 是可以的，在控制台测试 License 信息右边有编辑按钮，可以点击编辑修改。
+   测试 License 是可以的，在控制台测试 License 信息右边有编辑按钮，可以单击编辑修改。
 
 3. 正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
 
