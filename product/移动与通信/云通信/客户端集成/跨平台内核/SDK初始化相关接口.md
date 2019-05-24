@@ -34,7 +34,6 @@ TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
 Json::Value json_value_init;
 json_value_init[kTIMSdkConfigLogFilePath] = "D:\\";
 json_value_init[kTIMSdkConfigConfigFilePath] = "D:\\";
-json_value_init[kTIMSdkConfigAccountType] = "107";
 
 uint64_t sdk_app_id = 1234567890;
 if (TIM_SUCC != TIMInit(sdk_app_id, json_value_init.toStyledString().c_str())) {
@@ -43,7 +42,6 @@ if (TIM_SUCC != TIMInit(sdk_app_id, json_value_init.toStyledString().c_str())) {
 
 // json_value_init.toStyledString() 得到 json_sdk_config JSON 字符串如下
 {
-   "sdk_config_account_type" : "107",
    "sdk_config_config_file_path" : "D:\\",
    "sdk_config_log_file_path" : "D:\\"
 }
@@ -118,10 +116,10 @@ TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const voi
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
 
->?目前支持设置的配置有代理的 IP 和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。每项配置可以单独设置、也可以一起配置，详情请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig)。
+>?目前支持设置的配置有 HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口建议调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 之前配置。每项配置可以单独设置，也可以一起配置，详情请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig)。
 
 
-**示例**
+**示例一、**
 
 ```c
 Json::Value json_user_config;
@@ -140,6 +138,78 @@ if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t co
    "set_config_user_config" : {
       "user_config_is_read_receipt" : true
    }
+}
+```
+
+
+**示例二、设置 HTTP 代理**
+
+```c
+Json::Value json_http_proxy;
+json_http_proxy[kTIMHttpProxyInfoIp] = "http://http-proxy.xxxxx.com ";
+json_http_proxy[kTIMHttpProxyInfoPort] = 8888;
+Json::Value json_config;
+json_config[kTIMSetConfigHttpProxyInfo] = json_http_proxy;
+
+if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    // 回调内部
+}, this)) {
+    // TIMSetConfig 接口调用失败
+}
+```
+
+
+**示例三、取消 HTTP 代理**
+
+```c
+Json::Value json_http_proxy;
+json_http_proxy[kTIMHttpProxyInfoIp] = "";
+json_http_proxy[kTIMHttpProxyInfoPort] = 0;
+Json::Value json_config;
+json_config[kTIMSetConfigHttpProxyInfo] = json_http_proxy;
+
+if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    // 回调内部
+}, this)) {
+    // TIMSetConfig 接口调用失败
+}
+```
+
+
+**示例四、设置 SOCKS5 代理**
+
+```c
+Json::Value json_socks5_value;
+json_socks5_value[kTIMSocks5ProxyInfoIp] = "111.222.333.444";
+json_socks5_value[kTIMSocks5ProxyInfoPort] = 8888;
+json_socks5_value[kTIMSocks5ProxyInfoUserName] = "";
+json_socks5_value[kTIMSocks5ProxyInfoPassword] = "";
+Json::Value json_config;
+json_config[kTIMSetConfigSocks5ProxyInfo] = json_socks5_value;
+
+if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    // 回调内部
+}, this)) {
+    //TIMSetConfig 接口调用失败
+}
+```
+
+
+**示例五、取消 SOCKS5 代理**
+
+```c
+Json::Value json_socks5_value;
+json_socks5_value[kTIMSocks5ProxyInfoIp] = "";
+json_socks5_value[kTIMSocks5ProxyInfoPort] = 0;
+json_socks5_value[kTIMSocks5ProxyInfoUserName] = "";
+json_socks5_value[kTIMSocks5ProxyInfoPassword] = "";
+Json::Value json_config;
+json_config[kTIMSetConfigSocks5ProxyInfo] = json_socks5_value;
+
+if (TIM_SUCC != TIMSetConfig(json_config.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    // 回调内部
+}, this)) {
+    //TIMSetConfig 接口调用失败
 }
 ```
 
