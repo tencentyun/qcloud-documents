@@ -70,7 +70,6 @@
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSdkConfigAccountType | string | 只写（选填） | 账号类型，默认为0 |
 | kTIMSdkConfigConfigFilePath | string | 只写（选填） | 配置文件路径，默认路径为"/" |
 | kTIMSdkConfigLogFilePath | string | 只写（选填） | 日志文件路径，默认路径为"/" |
 
@@ -158,18 +157,37 @@
 | kTIMUserConfigGroupGetInfoOption |  object [GroupGetInfoOption](https://cloud.tencent.com/document/product/269/33553#groupgetinfooption)  | 只写（选填） | 获取群组信息默认选项 |
 | kTIMUserConfigGroupMemberGetInfoOption |  object [GroupMemberGetInfoOption](https://cloud.tencent.com/document/product/269/33553#groupmembergetinfooption)  | 只写（选填） | 获取群组成员信息默认选项 |
 
-### ProxyInfo
+### HttpProxyInfo
 
-代理信息。
+HTTP 代理信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMProxyInfoIp | string | 只写（必填） | 代理的 IP |
-| kTIMProxyInfoPort | int | 只写（必填） | 代理的端口 |
+| kTIMHttpProxyInfoIp | string | 只写（必填） | 代理的 IP |
+| kTIMHttpProxyInfoPort | int | 只写（必填） | 代理的端口 |
+
+### Socks5ProxyInfo
+
+SOCKS5 代理信息。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMSocks5ProxyInfoIp | string | 只写（必填） | SOCKS5 代理的 IP |
+| kTIMSocks5ProxyInfoPort | int | 只写（必填） | SOCKS5 代理的端口 |
+| kTIMSocks5ProxyInfoUserName | string | 只写（选填） | 认证的用户名 |
+| kTIMSocks5ProxyInfoPassword | string | 只写（选填） | 认证的密码 |
 
 ### SetConfig
 
-更新配置。
+**更新配置**
+
+- 自定义数据。
+开发者可以自定义的数据（长度限制为64个字节），IM SDK 只负责透传给云通信 IM 后台后，可以通过第三方回调 [状态变更回调](https://cloud.tencent.com/document/product/269/2570) 告知开发者业务后台。
+- HTTP 代理。
+HTTP 代理主要用在发送图片、语音、文件、微视频等消息时，将相关文件上传到 COS，以及接收到图片、语音、文件、微视频等消息，将相关文件下载到本地时用到。设置时，设置的 IP 不能为空，端口不能为0。如果需要取消 HTTP 代理，只需将代理的 IP 设置为空字符串，端口设置为0。
+- SOCKS5 代理。
+SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所有协议会通过 SOCKS5 代理服务器发送的云通信 IM 后台。
+
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
@@ -177,7 +195,9 @@
 | kTIMSetConfigCackBackLogLevel |  uint [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  | 只写（选填） | 日子回调的日志级别 |
 | kTIMSetConfigIsLogOutputConsole | bool | 只写（选填） | 是否输出到控制台 |
 | kTIMSetConfigUserConfig |  object [UserConfig](https://cloud.tencent.com/document/product/269/33553#userconfig)  | 只写（选填） | 用户配置 |
-| kTIMSetConfigProxyInfo |  object [ProxyInfo](https://cloud.tencent.com/document/product/269/33553#proxyinfo)  | 只写（选填） | 设置代理 |
+| kTIMSetConfigUserDefineData | string | 只写（选填） | 自定义数据，如果需要，初始化前设置 |
+| kTIMSetConfigHttpProxyInfo |  object [HttpProxyInfo](https://cloud.tencent.com/document/product/269/33553#httpproxyinfo)  | 只写（选填） | 设置 HTTP 代理，如果需要，在发送图片、文件、语音、视频前设置 |
+| kTIMSetConfigSocks5ProxyInfo |  object [Socks5ProxyInfo](https://cloud.tencent.com/document/product/269/33553#socks5proxyinfo)  | 只写（选填） | 设置 SOCKS5 代理，如果需要，初始化前设置 |
 
 ## 消息关键类型
 
@@ -222,19 +242,28 @@
 | kTIMMsgServerTime | uint64 | 读写（选填） | 服务端时间 |
 | kTIMMsgIsFormSelf | bool | 读写（选填） | 消息是否来自自己 |
 | kTIMMsgIsRead | bool | 读写（选填） | 消息是否已读 |
+| kTIMMsgIsOnlineMsg | bool | 读写（选填） | 消息是否是在线消息，默认为 false 表示普通消息，true 表示阅后即焚消息 |
 | kTIMMsgIsPeerRead | bool | 只读 | 消息是否被会话对方已读 |
-| kTIMMsgStatus |  uint [TIMMsgStatus](https://cloud.tencent.com/document/product/269/33553#timmsgstatus)  | 只读 | 消息当前状态 |
+| kTIMMsgStatus |  uint [TIMMsgStatus](https://cloud.tencent.com/document/product/269/33553#timmsgstatus)  | 读写（选填） | 消息当前状态 |
 | kTIMMsgRand | uint64 | 只读 | 唯一标识 |
 | kTIMMsgSeq | uint64 | 只读 | 消息序列 |
-| kTIMMsgCustom | string | 读写（选填） | 用于自定义字段（与后台协商） |
+| kTIMMsgCustomInt | uint32_t | 读写（选填） | 自定义整数值字段 |
+| kTIMMsgCustomStr | string | 读写（选填） | 自定义数据字段 |
 
 >?
 - 对应 Elem 的顺序。
 目前文件和语音 Elem 不一定会按照添加顺序传输，其他 Elem 按照顺序，不过建议不要过于依赖 Elem 顺序进行处理，应该逐个按照 Elem 类型处理，防止异常情况下进程 Crash。
 - 针对群组的红包和点赞消息。
-对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 TIMCustomElem 进行定义，发送消息时，可使用不同接口定义消息优先级。
+对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用自定义消息 [CustomElem](https://cloud.tencent.com/document/product/269/33553#customelem) 进行定义，发送消息时，可通过`kTIMMsgPriority`定义消息优先级。
+- 阅后即焚消息。
+开发者通过设置`kTIMMsgIsOnlineMsg`字段为 true 时，表示发送阅后即焚消息，该消息有如下特性。
+ - C2C 会话，当此消息发送时，只有对方在线，对方才会收到。如果当时离线，后续再登录也收不到此消息。
+ - 群会话，当此消息发送时，只有群里在线的成员才会收到。如果当时离线，后续再登录也收不到此消息。
+ - 此消息服务器不会保存。
+ - 此消息不计入未读计数。
+ - 此消息在本地不会存储。
 - 消息自定义字段。
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据（必须转换成 String，JSON 不支持二进制传输），可以根据这两个字段做出各种不通效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
+开发者可以对消息增加自定义字段，如自定义整数（通过`kTIMMsgCustomInt`指定）、自定义二进制数据（通过`kTIMMsgCustomStr`指定，必须转换成 String，JSON 不支持二进制传输），可以根据这两个字段做出各种不同效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
 
 
 ### MessageReceipt
@@ -355,7 +384,7 @@
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSoundElemFilePath | string | 读写（必填） | 语音文件路径，需要客户自己先保存语言然后指定路径 |
+| kTIMSoundElemFilePath | string | 读写（必填） | 语音文件路径，需要开发者自己先保存语言然后指定路径 |
 | kTIMSoundElemFileSize | int | 读写（必填） | 语言数据文件大小，以秒为单位 |
 | kTIMSoundElemFileTime | int | 读写（必填） | 语音时长 |
 | kTIMSoundElemFileId | string | 只读 | 下载声音文件时的 ID |
@@ -561,6 +590,7 @@
 | kTIMMsgBatchSendResultIdentifier | string | 只读 | 群发的单个 ID |
 | kTIMMsgBatchSendResultCode |  int [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 消息发送结果 |
 | kTIMMsgBatchSendResultDesc | string | 只读 | 消息发送的描述 |
+| kTIMMsgBatchSendResultMsg |  object [Message](https://cloud.tencent.com/document/product/269/33553#message)  | 只读 | 发送的消息 |
 
 ### MsgLocator
 
