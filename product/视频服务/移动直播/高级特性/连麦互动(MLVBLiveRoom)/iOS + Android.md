@@ -54,41 +54,13 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
-## Step3. 购买连麦套餐包
+### Step3. 购买连麦套餐包
+由于连麦功能会使用到骨干网专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用腾讯云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-使用互动连麦功能和低延时播放（RTMP_ACC）功能 ，涉及终端包括：微信小程序端、Windows 端、Web 端、iOS 端以及 Android 端，需要按照移动直播连麦服务计费。
+- [购买1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)
+- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)
+- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)
 
->!
->- 移动直播中的 CDN 线路依然按照带宽或者流量计费，连麦服务仅对连麦通话和低延时播放链路进行计费。
->- 正式计费时间：2018年07月01日（凌晨）00:00。
-
-移动直播连麦资源包规格及价格如下：
-
-| 资源包类型  | 资源包规格（分钟数）| 有效期（月）| 原价（元） | 折扣 | 价格（元）  | 技术支持方式 |
-|:-------:|:-------:| :-------:|:-------:|:-------:|:-------:|:-------:|
-|1元测试  | 10000 |  1 | 250 | 0.40% |1 |文档  |
-|入门级   | 50000 |  1 | 2750 | 98% |2688 |文档&工单  |
-|标准级   | 250000 | 3 | 10750 | 90% | 9688 | 技术人员邀您加入技术群  |
-|企业级   | 1000000 | 6 | 34000 | 85% | 28988 | 技术人员邀您加入技术群  |
-|尊享级   | 3000000 | 12 | 93000  |80% | 73888  |单独拉群专人支持  |
-
-购买地址：
-- [1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)
-- [连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)
-
-**计费说明：**
-
-- 连麦资源包在您支付购买后立即生效，到期资源包若有余量则一次性扣除。
-- 资源包使用完当月若未及时续费，超出部分按照标准后付费价收费。
-- 连麦分钟数按全部连麦人员叠加计算，例如3人一起通话50分钟，则扣减套餐剩余时间150分钟。
-- 以上套餐价格涵盖范围为视频分辨率小于等于720P的场景，高于720P的需求需单独联系客服评估报价。
-
-> **注意：**
-> 移动直播连麦服务依赖直播服务，除直播流量已折算为通话时长收取外，其他计费组成及计费规则与直播产品的计费策略保持一致，详细价格请参考  [直播价格总览](https://cloud.tencent.com/document/product/267/2818)。
-
-
-
-<span id="Step3"></span>
 ### Step4. 在应用管理中添加一个新的应用
 进入【直播控制台】>【直播SDK】>【[应用管理](https://console.cloud.tencent.com/live/license/appmanage)】，单击【创建应用】。
 ![](https://main.qcloudimg.com/raw/ccc83c93aa7d85aa1f84ca620ee8f5cb/AppMgr.png)
@@ -176,8 +148,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 ## 常见问题
 
 #### 移动直播是不是使用 RTMP 协议进行连麦？
-不是。
-腾讯云采用了两种传输通道才实现了直播 + 连麦功能：
+不是。腾讯云采用了两种传输通道才实现了直播 + 连麦功能：
 - 直播采用标准的 HTTP-FLV 协议，使用标准 CDN 线路，没有并发观看人数的限制，且带宽成本很低，但延迟一般在3s以上。
 - 连麦采用 UDP 协议，使用专用加速线路，延迟一般在500ms以内，但由于线路成本较高，因此采用连麦时长进行计费。
 
@@ -192,3 +163,4 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | TXLivePusher |                setVideoQuality 为 SD、HD、FHD                |       setVideoQuality 为 MAIN_PUBLISHER、SUB_PUBLISHER       |
 | TXLivePlayer |                      PLAY_TYPE_LIVE_FLV                      |                   PLAY_TYPE_LIVE_RTMP_ACC                    |
 |   播放URL    |                       普通的 FLV 地址                        |                 带防盗链签名的 RTMP-ACC 地址                 |
+
