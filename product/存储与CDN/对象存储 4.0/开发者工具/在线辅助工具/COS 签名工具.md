@@ -7,7 +7,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 
 ## 工具地址
 
-[COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)
+单击进入 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)。
 
 ## 使用方法
 
