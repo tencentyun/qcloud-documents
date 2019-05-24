@@ -1,5 +1,5 @@
 ## 接口描述
-本接口 (SetQueueAttributes) 用于修改消息队列的属性。
+本接口（SetQueueAttributes）用于修改消息队列的属性。
 - 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
@@ -12,16 +12,16 @@
 
 ## 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279) 页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/628/18814) 页面。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | queueName| 是| String| 队列名字，在单个地域同一帐号下唯一。队列名称是一个不超过64个字符的字符串，必须以字母为首字符，剩余部分可以包含字母、数字和横划线(-)。|
-| maxMsgHeapNum| 否| Int| 最大堆积消息数。取值范围在公测期间为 `1,000,000 - 10,000,000`，正式上线后范围可达到 `1000,000-1000,000,000`。默认取值在公测期间为 `10,000,000`，正式上线后为 `100,000,000`。|
+| maxMsgHeapNum| 否| Int| 最大堆积消息数。取值范围在公测期间为`1,000,000 - 10,000,000`，正式上线后范围可达到`1000,000-1000,000,000`。默认取值在公测期间为`10,000,000`，正式上线后为 `100,000,000`。|
 | pollingWaitSeconds| 否| Int| 消息接收长轮询等待时间。取值范围0 - 30秒，默认值0。|
 | visibilityTimeout| 否| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
-| maxMsgSize| 否| Int| 消息最大长度。取值范围1024-65536 Byte（即1 - 64K），默认值65536。|
-| msgRetentionSeconds| 否| Int| 消息保留周期。取值范围60 - 1296000秒（1min - 15天），默认值345600 (4天)。|
+| maxMsgSize| 否| Int| 消息最大长度。取值范围1024 - 1048576Byte（即1K - 1024K），默认值65536。|
+| msgRetentionSeconds| 否| Int| 消息保留周期。取值范围60 - 1296000秒（1min - 15天），默认值345600（4天）。|
 | rewindSeconds | 否|Int|消息最长回溯时间，取值范围0 - msgRetentionSeconds，消息的最大回溯之间为消息在队列中的保存周期，0表示不开启消息回溯。|
 
 
@@ -36,14 +36,12 @@
 | pollingWaitSeconds| Int| 更改后的消息接收长轮询等待时间。|
 | visibilityTimeout| Int| 更改后的消息可见性超时。|
 | maxMsgSize| Int| 更改后的消息最大长度。|
-| msgRetentionSeconds| Int| 更改后的消息保留周期。|
+| msgRetentionSeconds| Int| 更改后的消息生命周期。|
 | rewindSeconds |Int|更改后的最长消息回溯时间。|
 
 
 ## 示例
-
 输入：
-
 <pre>
  https://domain/v2/index.php?Action=SetQueueAttributes
  &queueName=test-queue-123
@@ -52,7 +50,6 @@
 </pre>
 
 输出：
-
 ```
 {
 "code" : 0,
