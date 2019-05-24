@@ -17,7 +17,9 @@ COS Android SDK 更新日志请参阅 [COS Android SDK 更新日志](https://git
 3. 手机存储空间不足会使部分功能无法正常工作，请预留一定的手机存储空间。
 4. 从访问管理控制台中的 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取 SecretId、SecretKey，以及在 [账号中心](https://console.cloud.tencent.com/developer) 中获取 APPID 信息。
 
->?关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参阅 [COS 术语信息](https://cloud.tencent.com/document/product/436/7751#.E6.9C.AF.E8.AF.AD.E4.BF.A1.E6.81.AF)。
+>? 
+>- 关于文章中出现的 SecretId、SecretKey、Bucket 等名称的含义和获取方式请参阅 [COS 术语信息](https://cloud.tencent.com/document/product/436/7751#.E6.9C.AF.E8.AF.AD.E4.BF.A1.E6.81.AF)。
+>- SDK 中常用的包有：`com.tencent.cos.xml.*; com.tencent.cos.xml.exception.*; com.tencent.cos.xml.model.*; com.tencent.cos.xml.model.bucket.*; com.tencent.cos.xml.model.object.*; com.tencent.cos.xml.transfer.*; com.tencent.cos.xml.listener.*;com.tencent.qcloud.core.auth.*.`
 
 ### 安装 SDK
 

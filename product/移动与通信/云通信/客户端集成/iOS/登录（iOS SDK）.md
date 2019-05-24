@@ -28,7 +28,7 @@
 @end
 ```
 
-在自有帐号情况下，`appidAt3rd` 字段与 `sdkAppId` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
+在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
 
 ```
 /**
@@ -60,7 +60,7 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 login_param.identifier = @"iOS_001";
 //userSig 为用户登录凭证
 login_param.userSig = @"usersig";
-//appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+//appidAt3rd 在私有帐号情况下，填写与 SDKAppID 一样
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
     NSLog(@"Login Succ");
@@ -136,7 +136,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init]; 
 // identifier 为用户名
-// appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+// appidAt3rd 在私有帐号情况下，填写与 SDKAppID 一样
 login_param.identifier = @"iOS_001";
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] initStorage: login_param succ:^(){
@@ -165,9 +165,9 @@ login_param.appidAt3rd = @"123456";
 @end
 ```
 
-## ImSDK 同步离线消息
+## IM SDK 同步离线消息
 
-ImSDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
+IM SDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
 
 ```
 @interface TIMUserConfig : NSObject

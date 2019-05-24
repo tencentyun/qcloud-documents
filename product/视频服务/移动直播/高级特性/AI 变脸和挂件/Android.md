@@ -4,28 +4,28 @@
 
 ## 接入准备
 
-### 1. 申请企业版 License
+### 1. 申请商业版 License
 
 登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
 ![](https://main.qcloudimg.com/raw/66660d7082f1615b71b37f6fcea57642.png)
 
-### 2. 下载企业版 SDK
+### 2. 下载商业版 SDK
 
-下载并解压 [企业版 SDK](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
+下载并解压 [商业版 SDK](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) ，解压时需要解压密码，解压密码在申请 License 成功后即可获取，解压后的目录结构如下：
 
 | 文件名称                     | 文件内容                                      |
 | ---------------------------- | --------------------------------------------- |
-| LiteAVSDK_Enterprise_xxx.aar | 企业版 SDK aar 文件，用于 aar 集成方式。      |
-| LiteAVSDK_Enterprise_xxx.zip | 企业版 SDK zip 文件，用于 jar+so 的集成方式。 |
+| LiteAVSDK_Enterprise_xxx.aar | 商业版 SDK aar 文件，用于 aar 集成方式。      |
+| LiteAVSDK_Enterprise_xxx.zip | 商业版 SDK zip 文件，用于 jar+so 的集成方式。 |
 
 其中 LiteAVSDK_Enterprise_xxx.zip 解压后文件目录结构如下：
 
 | 文件名称 | 文件内容                    |
 | -------- | --------------------------- |
-| assets   | 企业版 SDK 所需要的特效资源 |
-| armeabi  | 企业版 SDK so 库            |
-| \*.jar   | 企业版 SDK 所有的 jar 文件  |
+| assets   | 商业版 SDK 所需要的特效资源 |
+| armeabi  | 商业版 SDK so 库            |
+| \*.jar   | 商业版 SDK 所有的 jar 文件  |
 
 ### 3. 将 SDK 导入您的工程
 
@@ -38,7 +38,7 @@
  3.添加 LiteAVSDK 依赖：  
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/1511152637686ab9e6f46388ff879c76.png)
- 4.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 企业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 4.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
@@ -62,7 +62,7 @@
   ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)			
  5.在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
- 6.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 企业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 6.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
@@ -74,7 +74,7 @@
 7.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 ### 4. 给 SDK 配置 License 授权
-申请企业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用企业版 SDK 相关功能前需进行如下设置：
+申请商业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用商业版 SDK 相关功能前需进行如下设置：
 >?建议配置在 Application 类中。
 
 ```java
@@ -143,12 +143,12 @@ public void setNoseSlimLevel(int noseSlimLevel);
 
 ### AI 贴纸
 
-购买企业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
+购买商业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
 在 App 启动后，下载并解压素材包到手机任意目录（推荐下载并解压在 App 的 data 目录）。完成解压后，即可通过以下接口开启动效效果：
 ```java
 /**
- * 选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）
+ * 选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）
  *
  * @param motionPath 动效所在路径
  */
@@ -163,7 +163,7 @@ public void setMotionTmpl(String motionPath);
 
 ```java
 /**
- * 设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）
+ * 设置绿幕背景视频（商业版有效，其它版本设置此参数无效）
  *
  * 此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
  *
@@ -177,9 +177,9 @@ public boolean setGreenScreenFile(String file) {
 
 ## 常见问题
 
-### LiteAVSDK 企业版是否支持 arm64 ？
+### LiteAVSDK 商业版是否支持 arm64 ？
 
-目前企业版 SDK 由于特效处理库尚不支持 arm64 下的一些汇编指令，所以暂时还不支持 arm64 架构，请注意指定 App 的架构配置。
+目前商业版 SDK 由于特效处理库尚不支持 arm64 下的一些汇编指令，所以暂时还不支持 arm64 架构，请注意指定 App 的架构配置。
 >?x64 架构还在开发中。
 	
 ### Licence 是否正常使用中？

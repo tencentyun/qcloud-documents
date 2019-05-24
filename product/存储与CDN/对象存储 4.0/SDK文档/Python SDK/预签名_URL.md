@@ -1,5 +1,5 @@
 ## 简介
-Python SDK 提供计算签名，获取对象下载预签名 URL 接口和获取请求预签名 URL 接口。
+Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久秘钥或临时秘钥获取预签名URL的调用方法相同，使用临时秘钥时需要在header或query_string中加上x-cos-security-token。
 
 
 ### 签名获取
@@ -12,7 +12,28 @@ Python SDK 提供计算签名，获取对象下载预签名 URL 接口和获取�
 ```
 get_auth(Method, Bucket, Key, Expired=300, Headers={}, Params={})
 ```
-#### 请求示例
+
+#### 上传请求示例
+
+```python
+response = client.get_auth(
+    Method='PUT',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+
+#### 下载请求示例
+
+```python
+response = client.get_auth(
+    Method='GET',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+
+#### 全部参数请求示例
 
 ```python
 response = client.get_auth(
@@ -49,6 +70,27 @@ response = client.get_auth(
 #### 功能说明
 获取预签名链接用于分发。
 
+#### 上传请求示例
+
+```python
+response = client.get_presigned_url(
+    Method='PUT',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+
+#### 下载请求示例
+
+```python
+response = client.get_presigned_url(
+    Method='GET',
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+
+
 #### 方法原型
 
 ```
@@ -60,7 +102,16 @@ get_presigned_url(Bucket, Key, Method, Expired=300, Params={}, Headers={})
 response = client.get_presigned_url(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    Method='PUT'|'POST'|'GET'|'DELETE'|'HEAD'
+    Method='PUT'|'POST'|'GET'|'DELETE'|'HEAD',
+    Expired=300,
+    Headers={
+        'Content-Length': 'string',
+        'Content-MD5': 'string'
+    },
+    Params={
+        'param1': 'string',
+        'param2': 'string'
+    }
 )
 ```
 #### 参数说明

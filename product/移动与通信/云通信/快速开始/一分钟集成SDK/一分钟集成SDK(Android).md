@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云云通信 IM SDK 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 ## 开发环境要求
 - JDK 1.6。
 - Android 4.0（SDK API 14）及以上系统。
@@ -12,7 +12,7 @@ IM SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载�
 
 - **第一步：添加 SDK 依赖**
 
- 找到 tuikit lib 工程的 build.gradle，在 dependencies 中添加 IMSDK 的依赖。
+ 找到 tuikit lib 工程的 build.gradle，在 dependencies 中添加 IM SDK 的依赖。
 ```
 dependencies {
 		api 'com.tencent.imsdk:imsdk:版本号'

@@ -1,10 +1,10 @@
-负载均衡支持用户存储请求日志的能力，您可以将请求日志存储到 COS 中，并下载分析。当前七层（HTTP/HTTPS）的日志功能已经全量发布，支持广州、上海、北京、香港、和金融区，欢迎开通使用。CLB 暂不支持四层（TCP/UDP）日志的存储和下载。
+负载均衡支持用户存储请求日志的能力，您可以将请求日志存储到 COS 中，并下载分析。当前七层（HTTP/HTTPS）的日志功能已经全量发布，支持广州、上海、北京、香港、上海金融和北京金融，欢迎开通使用。CLB 暂不支持四层（TCP/UDP）日志的存储和下载。
 
 ## 开启日志功能
 1. 在**负载均衡实例详情**页面，开启日志访问功能。
 ![](https://main.qcloudimg.com/raw/ba562dd3a3d461794fffc4e592f46dac.png)
 2. 选取相应的 COS 中 bucket，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。选取完成后，单击 bucket 地址可以直接跳转到日志下载页面。
-如您没有创建对象存储的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
+>!如您没有创建对象存储的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 
 ## 产品限制和费用计算
 - 当前日志聚合粒度为1小时。

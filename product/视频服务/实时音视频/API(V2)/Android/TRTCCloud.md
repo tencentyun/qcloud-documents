@@ -6,6 +6,9 @@ TRTCCloud @ TXLiteAVSDK。
 
 ## 基础方法
 ### sharedInstance
+
+创建 TRTCCloud 单例。
+
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -482,7 +485,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录指出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
 
 
 ### setAudioRoute
@@ -1209,8 +1212,10 @@ __返回__
 
 成功返回时长，失败返回-1。
 
-
 ### setBGMPosition
+
+设置 BGM 播放进度。
+
 ```
 abstract int setBGMPosition(int pos)
 ```

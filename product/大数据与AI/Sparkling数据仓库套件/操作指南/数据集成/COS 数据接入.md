@@ -1,10 +1,10 @@
 ## 操作场景
 云数据仓库套件 Sparkling 支持多样化的数据接入方式：
-- 腾讯云数据库 MySQL（TencentDB for MySQL）数据接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL 中的数据接入到 Sparkling 中。
+- 腾讯云云数据库 MySQL（TencentDB for MySQL）数据接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL 中的数据接入到 Sparkling 中。
 - 腾讯云对象存储（COS）数据接入：可以通过生成账户密钥，建立存储桶（bucket）的方式进行 COS 数据接入。
 - 腾讯云消息队列（CKafka）数据接入：可以通过 Kafka 数据接入方式将腾讯云 CKafka 中的数据接入 Sparkling 中。
 
-本节将为您介绍 COS 数据接入方法。更多关于 COS 的信息请参见 [COS 产品介绍](https://cloud.tencent.com/document/product/436) 。
+本节将为您介绍 COS 数据接入方法。更多关于 COS 的信息请参见 [COS 产品介绍](https://cloud.tencent.com/document/product/436)。
 
 ## 操作步骤
 登录 [Sparkling 控制台](https://sparkling.cloud.tencent.com)，在左侧导航单击【数据】进入数据接入页面，按以下操作步骤完成 COS 数据接入：
