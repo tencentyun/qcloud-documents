@@ -752,7 +752,7 @@ function uploadFileLowIE() {
 sendMsg: function(msg, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```javascript
 //发送图片
@@ -801,8 +801,7 @@ function sendPic(images) {
 
 目前 Web 端只支持显示并播放 Android 或 iOS IM Demo发的语音消息，暂不支持上传并发送语音消息。使用 audio 控件来播放语音。详情参考 [解析语音消息](#.E8.A7.A3.E6.9E.90.E8.AF.AD.E9.9F.B3.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)。
 
-> **注意：**
-> 确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
+>!确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
 ## 发送消息（文件 ）
 
@@ -858,7 +857,7 @@ function sendFile(file,fileName) {
 
 ![](//mccdn.qcloud.com/static/img/6ad98f6243363ced652f46a9fed727ba/image.png)
 
-**示例： **
+**示例：**
 
 ```javascript
 //弹出发自定义消息对话框
@@ -1049,7 +1048,7 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
 
 `webim.Session` 对象，简单理解为最近会话列表的一个条目。`webim.MsgStore` 是消息数据的 Model 对象，它提供接口访问当前存储的会话和消息数据。 
 
-**示例： **
+**示例：**
 
 ```javascript
 var sessMap = webim.MsgStore.sessMap();
