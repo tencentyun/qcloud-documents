@@ -25,7 +25,7 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，用�
 
 1. 证书续费无需再次填写信息，由于证书续费后会生成一个新证书，因此要为新证书设置 CSR 文件。用户可通过系统自动生成 CSR 文件，也可以自己上传 CSR 文件。
 2. 用户在确认信息后，选择续费年限，单击【快速支付】进入证书支付流程。
-![](https://main.qcloudimg.com/raw/0a6fb2aa6ac0f5d5f84ad07e01dd8e85.png)
+![](https://main.qcloudimg.com/raw/9e2b448eb4ffc3b7feaedf9c5ffe72f9.png)
 3. 确认证书信息后，单击【确认购买】进行付款。   
 
 ### 完成域名身份验证
