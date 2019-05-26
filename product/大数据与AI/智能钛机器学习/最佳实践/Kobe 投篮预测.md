@@ -2,8 +2,8 @@
 
 ## 场景背景
 
-2016年4月12日，科比在他的最后一场比赛中为洛杉矶湖人队夺得60分，标志着他从 NBA 退役。从17岁入选 NBA，科比在他的职业生涯中获得了无数的赞誉。
-使用科比职业生涯中投篮命中和投失的历史数据，您能预测哪些投篮能命中篮筐吗？通过本案例中，您可以训练一个模型去准确预测科比的某次投篮是否会投进。本案例非常适合实践分类知识、特征工程和时间序列分析。
+2016年4月12日，科比结束了他传奇的职业生涯。他在最后一场比赛中，独得60分，帮助湖人队取得了胜利。从17岁入选 NBA开始到此刻光荣退役，科比在他的职业生涯中获得了无数的荣誉。
+通过使用科比职业生涯中投中和投失的数据，您能预测他的哪些投篮能命中篮筐吗？通过本案例，您可以训练一个分类模型预测科比的某次投篮是否会投进。本案例非常适合实践特征工程和分类的知识。
 
 ## 数据集介绍
 
@@ -15,7 +15,7 @@
 | ------------------ | ------------ | ------------------------------------------------------------ |
 | action_type        | 枚举         | Jump Shot/Running Jump Shot/Layup Shot/Reverse Dunk Shot/Slam Dunk Shot |
 | combined_shot_type | 枚举         | Jump Shot/Layup/Dunk                                         |
-| game_event_id      | 数值         | 1/2//3/……                                                    |
+| game_event_id      | 数值         | 1/2/3/……                                                    |
 | game_id            | 数值         | 20000012/20000047/……                                         |
 | lat                | 数值         | 33.9343/34.0163/……                                           |
 | loc_x              | 数值         | -157/138/0/……                                                |
@@ -27,7 +27,7 @@
 | season             | 字符串       | 2004-5-1/2007-8-1/2015-16/……                                 |
 | seconds_remaining  | 数值         | 0\~59                                                        |
 | shot_distance      | 数值         | 0/45/79/……                                                   |
-| target             | label        | 0/1                                                          |
+| target             | 枚举        | 0/1                                                          |
 | shot_type          | 枚举         | 2PT Field Goal/3PT Field Goal                                |
 | shot_zone_area     | 枚举         | Right Side(R)/Left Side(L)/Left Side Center(LC)/Right Side Center(RC)/Center©/Back Court(BC) |
 | shot_zone_basic    | 枚举         | Mid-Range/Restricted Area/In The Paint (Non-RA)/Above the Break 3/…… |
@@ -48,10 +48,10 @@
 相关材料下载链接：[Kobe 投篮预测 Demo 材料](https://main.qcloudimg.com/raw/c16f2f3c736e434b63341db6026d7425/kobe.zip)。
 该材料包含以下文件：
 
-- classifier.py：分类模型的自定义分类器文件，用于模型分类
-- data_cleaning.py：数据预处理阶段的自定义数据清洗代码
-- data_transformation.py：自定义数据特征转换代码
-- feature_selection.py：自定义数据特征选择代码
+- classifier.py：分类模型的分类器文件，用于模型分类
+- data_cleaning.py：数据预处理阶段的数据清洗代码
+- data_transformation.py：数据特征转换代码
+- feature_selection.py：数据特征选择代码
 - kobe.csv：kobe投篮具体特征信息的数据集文件
 
 请用户下载该案例所需全部材料，并保存到本地以便后面搭建工作流需要。
@@ -69,11 +69,11 @@
 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中
 
-2. 在【案例相关材料】中提前下载好的数据文件里找到kobe.csv文件，通过【 本地数据】上传 kobe.csv
+2. 选中【本地数据】，右侧栏会出现节点信息，点击算法IO参数中的【数据文件】 上传【案例相关材料】的**kobe.csv**
 
 ![](https://main.qcloudimg.com/raw/90c8c9604556eb39a0d8a9bc2329c2c6.png)
 
-  **![](https://main.qcloudimg.com/raw/0827e9fe277120afd80a5a6aa32b9526.png)**
+**![](https://main.qcloudimg.com/raw/0827e9fe277120afd80a5a6aa32b9526.png)**
 
 3. 修改 COS 路径
     目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`
@@ -89,7 +89,7 @@
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】
 2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”
 3. 填写参数：
- - 【组件参数】中的“程序脚本”：上传文件 data_cleaning.py
+ - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`（详见【案例相关材料】）
 
  - Python 版本：选择 Python 3.5
 
@@ -101,12 +101,10 @@
 
 #### **三. 特征转换**
 
-此特征转换功能亦由【案例相关材料】中的相关代码`data_transformation.py`提供：
-
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】
 2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”
 3. 填写参数：
- - 程序脚本：上传文件 `data_transformation.py`
+ - 程序脚本：上传文件 `data_transformation.py`（详见【案例相关材料】）
 
  - Python版本：选择 `Python 3.5`
 
@@ -123,7 +121,7 @@
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】
 2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”
 3. 填写参数：
- - 程序脚本：上传文件 feature_selection.py
+ - 程序脚本：上传文件 `feature_selection.py`（详见【案例相关材料】）
 
  - Python版本：选择 Python 3.5
 
@@ -138,7 +136,7 @@
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】
 2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”
 3. 填写参数：
- - 程序脚本：上传文件 `classifier.py`
+ - 程序脚本：上传文件 `classifier.py`（详见【案例相关材料】）
 
  - Python版本：选择 `Python 3.5`
 
@@ -177,4 +175,8 @@
 
 #### **七. 运行调度及训练进度查看**
 
-详情请参考 [运行工作流](链接需要更改)。
+详情请参考 [运行工作流](/blob/1.2/tione/操作指南/基础操作说明/工作流运行.md)。
+
+运行成功后，将光标放置于“BinaryEvaluator”，画布中将展示工作流评估结果：
+
+**![](https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png)**
