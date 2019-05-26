@@ -1,5 +1,5 @@
-# 服务开通
-在开始使用本平台服务之前，您需要开通 COS 服务，COS 服务已接入本产品。
+# Step1 服务开通
+在开始使用本平台服务之前，您需要开通 COS 服务并完成一键授权，COS 服务已接入本产品。
 
 
 
@@ -46,6 +46,6 @@
 
 ![https://main.qcloudimg.com/raw/86b065c6918e6dc59d5e87feae76557e.png](https://main.qcloudimg.com/raw/86b065c6918e6dc59d5e87feae76557e.png)
 
-如果对COS一键授权失败，更多解决方法可查看常见问题文档。
+如果对COS一键授权失败，更多解决方法可查看 [常见问题](/blob/1.2/tione/FAQ/常见问题.md) 文档。
 
 

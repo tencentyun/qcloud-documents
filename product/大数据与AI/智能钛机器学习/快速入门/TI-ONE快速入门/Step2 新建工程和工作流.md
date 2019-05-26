@@ -1,13 +1,14 @@
-# 新建工程和工作流
+# Step2 新建工程和工作流
 
 
 ## 操作场景
-该任务指导您通过智能钛机器学习平台控制台**新建工程**和**工作流**，以进行后续的模型数据训练。
+该任务指导您通过智能钛机器学习平台控制台**新建工程**和**工作流**，以进行后续的模型搭建及训练。
 
 ## 操作步骤
 ### 新建工程
 1. 登录 [智能钛机器学习平台控制台](https://tio.cloud.tencent.com) ，进入智能钛机器学习平台项目列表页，单击【+新建工程】。
-  ![](https://main.qcloudimg.com/raw/37ef5183ba7d19bfcff468ef63666165.png)
+ 
+ ![https://main.qcloudimg.com/raw/daed5445263a5e9fc019ce7fc8fbba02.png](https://main.qcloudimg.com/raw/daed5445263a5e9fc019ce7fc8fbba02.png)
 
   
 
