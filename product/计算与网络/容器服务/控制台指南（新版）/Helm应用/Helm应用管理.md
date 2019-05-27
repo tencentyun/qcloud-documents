@@ -6,6 +6,8 @@
 
 - 已有腾讯云 TKE 集群，且拥有0.28核 CPU，180MiB内存的资源。
 - 已在集群内开通 Helm 应用管理功能。
+- 仅支持 kubernetes 1.8 以上版本的集群。
+
 >? 
 > - 若未开通 Helm 应用管理功能，请在 [Helm 应用](https://console.cloud.tencent.com/tke2/helm) 中，申请开通。
 > - 开通 Helm 应用管理功能后，将在集群内安装 Helm tiller 相关组件。

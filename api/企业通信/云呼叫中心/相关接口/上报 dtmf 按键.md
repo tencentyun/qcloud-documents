@@ -2,7 +2,7 @@
 
 ### 请求方式
 
-Post 请求
+POST 请求
 
 ### 请求包体
 
@@ -28,20 +28,19 @@ Post 请求
 ### JSON 请求示例
 ```
 {
-    "event":"ivrreportdtmf",
-    "callId":"88-2018031000182918181271218-108bc381ca0f42d8-out",
-    "appId":"247e35ff320a4142a105024055c367cf",
-    "dtmfCode":"0",
-    "data":""，
-    "timeStamp":"20160131170852107"
-
+    "event": "ivrreportdtmf", 
+    "callId": "88-2018031000182918181271218-108bc381ca0f42d8-out", 
+    "appId": "247e35ff320a4142a105024055c367cf", 
+    "dtmfCode": "0", 
+    "data": "", 
+    "timeStamp": "20160131170852107"
 }
 ```
 
 ### JSON 响应示例
 ```
 {
-    "code": "0",
+    "code": "0", 
     "msg": "0"
 }
 ```

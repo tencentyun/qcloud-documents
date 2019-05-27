@@ -74,15 +74,18 @@
 成功：
 ```
 {
-	"errorCode":"0",
-	"virtualNum":"01012345678",
-	"requestId":"vultureli123456",
-	"bindId":"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    "errorCode": "0", 
+    "virtualNum": "01012345678", 
+    "requestId": "vultureli123456", 
+    "bindId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
 
 失败：
 ```
-{"errorCode":"-1","msg":"version not supported"}
+{
+    "errorCode": "-1", 
+    "msg": "version not supported"
+}
 ```
