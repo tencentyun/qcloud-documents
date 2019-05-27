@@ -1429,18 +1429,6 @@ public boolean checkEquals(@NonNull TIMMessageLocator locator)
 
 ```
 
-**原型：**
-
-```
-/**
- * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
- * @param cb 回调
- * @since 3.1.0
- */
-public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
-
-```
-
 ## 系统消息
 
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
