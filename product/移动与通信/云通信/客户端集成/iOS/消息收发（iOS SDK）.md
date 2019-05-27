@@ -1714,7 +1714,7 @@ fail | 失败回调
 
 ### 撤回消息
 
-ImSDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversation+MsgExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
+IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversation+MsgExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
 
 >!
 > - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
