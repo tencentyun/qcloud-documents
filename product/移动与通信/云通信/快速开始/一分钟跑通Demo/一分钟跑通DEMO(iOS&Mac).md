@@ -31,8 +31,11 @@ iOS:
 ![](https://main.qcloudimg.com/raw/bc64631a3aacad7fa67c0820c92d552c.png)
 TUIKitDemo.xcworkspace 为一个 pod 创建的工程，执行以下代码更新依赖库：
 ```
-cd iOS/TUIKitDemo
-pod update
+cd iOS
+mv TXIMSDK_iOS.podspec ../
+mv TXIMSDK_TUIKit_iOS.podspec ../
+cd  TUIKitDemo
+pod install
 ```
 Mac:
 ![](https://main.qcloudimg.com/raw/7fef1d44f93872111a4498601d4dd61b.png)
