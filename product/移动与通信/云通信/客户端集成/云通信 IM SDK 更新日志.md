@@ -1,6 +1,6 @@
 ## 最新版本 4.3.135 @2019.05.24
 
-**iOS平台**
+**iOS 平台**
 
 - 增加校验好友接口 checkFriends
 - 增加 queryGroupInfo 接口获取本地数据
@@ -23,7 +23,7 @@
 - 优化iOS切换WIFI时网络重连慢的问题
 
 
-**Android平台**
+**Android 平台**
 
 - 增加校验好友接口 checkFriends
 - 增加 queryGroupInfo 接口获取本地数据
@@ -45,7 +45,7 @@
 
 
 
-**Windows平台**
+**Windows 平台**
 
 - 新增自定义字段数据上报
 - 新增阅后即焚消息
@@ -58,7 +58,7 @@
 - 修复重启程序后有概率再次收到同一条消息的问题
 - 修复会话的 lastMsg 被删除引发的偶现异常问题
 - 修复初始化和同步消息偶现异常问题
-- 发送消息，在发送成功的回调里面返回消息的json字符串
+- 发送消息，在发送成功的回调里面返回消息的 JSON 字符串
 - TIMSetRecvNewMsgCallback 接口改为 TIMAddRecvNewMsgCallback 和 TIMRemoveRecvNewMsgCallback 接口
 - 新增socks5代理服务器配置
 - 优化重连时连接请求
