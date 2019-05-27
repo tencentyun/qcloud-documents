@@ -6,7 +6,7 @@
 - 增加 queryGroupInfo 接口获取本地数据
 - 废弃 getGroupPublicInfo 接口，统一用 getGroupInfo 接口
 - 修复消息列表包含已删除消息的问题
-- 修复未登陆获取不了本地消息问题
+- 修复未登录获取不了本地消息问题
 - 修复最近联系人拉取数量及排序问题
 - 修复群消息断网重连后的消息同步问题
 - 修复短时间内接收大量消息时判重失效问题
@@ -30,7 +30,7 @@
 - 废弃 getGroupDetailInfo 和 getGroupPublicInfo 接口，统一用 getGroupInfo 接口
 - 修复消息列表包含已删除消息的问题
 - 优化 modifyGroupOwner 和 getGroupMembersByFilter 回调问题
-- 修复未登陆获取不了本地消息问题
+- 修复未登录获取不了本地消息问题
 - 修复最近联系人拉取数量及排序问题
 - 修复群消息断网重连后的消息同步问题
 - 修复短时间内接收大量消息时判重失效问题
