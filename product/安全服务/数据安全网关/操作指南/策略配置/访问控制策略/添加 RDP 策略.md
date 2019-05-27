@@ -14,3 +14,4 @@
  - **允许控制台**：勾选此功能，则允许用户使用 Windows 控制台。
 ![](https://main.qcloudimg.com/raw/9ca4a1012fced3d6942fe175eab37212.png)
 4. 确认配置信息无误后，单击【保存】，即可完成 RDP 访问策略添加。
+5. 策略保存后可在“岗位管理”处 [设置岗位资源策略](https://cloud.tencent.com/document/product/1025/32514) 使策略生效。

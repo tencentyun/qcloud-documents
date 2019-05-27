@@ -4,9 +4,9 @@
 ## 用户资料
 ### 获取自己的资料 
 
-可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取服务器保存的用户自己的资料。
+- 可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取服务器保存的用户自己的资料。
+- 可通过  `TIMFriendshipManager` 的 `querySelfProfile` 方法获取本地保存的用户自己的资料。
 
-可通过  `TIMFriendshipManager` 的 `querySelfProfile` 方法获取本地保存的用户自己的资料。
 
 **原型：**
 
@@ -545,7 +545,7 @@ TIMFriendshipManager.getInstance().deleteFriends(identifiers, TIMDelFriendType.T
 });
 ```
 
-### 同意/拒绝 好友申请
+### 同意/拒绝好友申请
 
 可通过 `TIMFriendshipManager` 的 `doResponse` 方法同意/拒绝好友申请
 
@@ -620,7 +620,7 @@ public class TIMFriendStatus {
 };
 ```
 
-## 校验好友关系
+### 校验好友关系
 
 可通过 `TIMFriendshipManager` 的 `checkFriends` 方法校验好友关系。
 
