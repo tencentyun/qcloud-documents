@@ -1,16 +1,17 @@
-腾讯云通信的跨平台`C`接口（API），暂不支持`64`位编译。
+腾讯云通信 IM 的跨平台 C 接口（API）。
 
 **各个平台的下载链接**
-- Windows 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)，Windows 快速开始 [集成 SDK](https://cloud.tencent.com/document/product/269/33489) 和 [跑通 demo](https://cloud.tencent.com/document/product/269/33488)。
-- iOS 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
-- Mac 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
-- Android 平台 [ImSDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
+
+- Windows 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows)，Windows 快速开始 [集成 IM SDK](https://cloud.tencent.com/document/product/269/33489) 和 [跑通 demo](https://cloud.tencent.com/document/product/269/33488)。暂不支持64位编译。
+- iOS 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/iOS)。
+- Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
+- Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
 
 
-**关于接口回调和事件回调说明**
+**关于回调的说明**
 
-- iOS、Mac、Android 三个平台的回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程不是同一线程。
-- Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调放到主 UI 线程调用。
+- 回调分两种，一种是指调用接口的异步返回，另外一种指后台推送的通知。回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程可能不是同一线程。
+- 在 Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调抛到主 UI 线程调用。
 
 
 
@@ -18,7 +19,8 @@
 
 | API | 描述 |
 |-----|-----|
-| [TIMSetRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timsetrecvnewmsgcallback) | 设置接收新消息回调 |
+| [TIMAddRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timaddrecvnewmsgcallback) | 增加接收新消息回调 |
+| [TIMRemoveRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timremoverecvnewmsgcallback) | 删除接收新消息回调 |
 | [TIMSetMsgReadedReceiptCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgreadedreceiptcallback) | 设置消息已读回执回调 |
 | [TIMSetMsgRevokeCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgrevokecallback) | 设置接收的消息被撤回回调 |
 | [TIMSetMsgElemUploadProgressCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgelemuploadprogresscallback) | 设置消息内元素相关文件上传进度回调 |
@@ -31,7 +33,7 @@
 | [TIMSetMsgUpdateCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgupdatecallback) | 设置消息在云端被修改后回传回来的消息更新通知回调 |
 
 
-### SDK 初始化相关接口
+### IM SDK 初始化相关接口
 
 | API | 描述 |
 |-----|-----|
@@ -57,7 +59,7 @@
 | [TIMConvDelete](https://cloud.tencent.com/document/product/269/33548#timconvdelete) | 删除会话 |
 | [TIMConvGetConvList](https://cloud.tencent.com/document/product/269/33548#timconvgetconvlist) | 获取本地缓存的会话列表 |
 | [TIMConvSetDraft](https://cloud.tencent.com/document/product/269/33548#timconvsetdraft) | 设置指定会话的草稿 |
-| [TIMConvCancelDraft](https://cloud.tencent.com/document/product/269/33548#timconvcanceldraft) | 取消指定会话的草稿（删除） |
+| [TIMConvCancelDraft](https://cloud.tencent.com/document/product/269/33548#timconvcanceldraft) | 删除指定会话的草稿 |
 
 
 ### 消息相关接口

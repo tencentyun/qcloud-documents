@@ -1,4 +1,4 @@
-## IMLVBLiveRoomListener
+
 
 __功能__
 
@@ -6,12 +6,12 @@ __功能__
 
 __介绍__
 
-包括房间关闭、Debug 事件信息、出错说明等。
+包括房间关闭、Debug 事件信息和出错说明等。
 
 
 
-### 通用事件回调
-#### onError
+## 通用事件回调
+### onError
 
 错误回调。
 ```
@@ -32,7 +32,7 @@ SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界�
 
 ***
 
-#### onWarning
+### onWarning
 
 警告回调。
 ```
@@ -49,7 +49,7 @@ __参数__
 
 ***
 
-#### onDebugLog
+### onDebugLog
 ```
 void onDebugLog(String log)
 ```
@@ -57,8 +57,8 @@ void onDebugLog(String log)
 ***
 
 
-### 房间事件回调
-#### onRoomDestroy
+## 房间事件回调
+### onRoomDestroy
 
 房间被销毁的回调。
 ```
@@ -69,7 +69,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | String | 房间ID。 |
+| roomID | String | 房间 ID。 |
 
 __介绍__
 
@@ -77,7 +77,7 @@ __介绍__
 
 ***
 
-#### onAnchorEnter
+### onAnchorEnter
 
 收到新主播进房通知。
 ```
@@ -99,7 +99,7 @@ __介绍__
 
 ***
 
-#### onAnchorExit
+### onAnchorExit
 
 收到主播退房通知。
 ```
@@ -121,7 +121,7 @@ __介绍__
 
 ***
 
-#### onAudienceEnter
+### onAudienceEnter
 
 收到观众进房通知。
 ```
@@ -136,7 +136,7 @@ __参数__
 
 ***
 
-#### onAudienceExit
+### onAudienceExit
 
 收到观众退房通知。
 ```
@@ -151,7 +151,7 @@ __参数__
 
 ***
 
-#### onRequestJoinAnchor
+### onRequestJoinAnchor
 
 主播收到观众连麦请求时的回调。
 ```
@@ -167,7 +167,7 @@ __参数__
 
 ***
 
-#### onKickoutJoinAnchor
+### onKickoutJoinAnchor
 
 连麦观众收到被踢出连麦的通知。
 ```
@@ -180,7 +180,7 @@ __介绍__
 
 ***
 
-#### onRequestRoomPK
+### onRequestRoomPK
 
 收到请求跨房 PK 通知。
 ```
@@ -199,7 +199,7 @@ __介绍__
 
 ***
 
-#### onQuitRoomPK
+### onQuitRoomPK
 
 收到断开跨房 PK 通知。
 ```
@@ -209,8 +209,8 @@ void onQuitRoomPK(AnchorInfo anchorInfo)
 ***
 
 
-### 消息事件回调
-#### onRecvRoomTextMsg
+## 消息事件回调
+### onRecvRoomTextMsg
 
 收到文本消息。
 ```
@@ -221,15 +221,15 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | String | 房间ID。 |
-| userID | String | 发送者ID。 |
+| roomID | String | 房间 ID。 |
+| userID | String | 发送者 ID。 |
 | userName | String | 发送者昵称。 |
 | userAvatar | String | 发送者头像。 |
 | message | String | 文本消息。 |
 
 ***
 
-#### onRecvRoomCustomMsg
+### onRecvRoomCustomMsg
 
 收到自定义消息。
 ```
@@ -240,11 +240,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | String | 房间ID。 |
-| userID | String | 发送者ID。 |
+| roomID | String | 房间 ID。 |
+| userID | String | 发送者 ID。 |
 | userName | String | 发送者昵称。 |
 | userAvatar | String | 发送者头像。 |
-| cmd | String | 自定义cmd。 |
+| cmd | String | 自定义 cmd。 |
 | message | String | 自定义消息内容。 |
 
 ***
@@ -553,7 +553,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | int | 错误码RequestRoomPKCallback。 |
+| errCode | int | 错误码 RequestRoomPKCallback。 |
 | errInfo | String | 错误信息。 |
 
 ***
@@ -606,7 +606,7 @@ void onSuccess()
 
 __功能__
 
-请求跨房PK的结果回调接口。
+请求跨房 PK 的结果回调接口。
 
 
 
@@ -627,7 +627,7 @@ __参数__
 
 ### onReject
 
-拒绝PK。
+拒绝 PK。
 ```
 void onReject(String reason)
 ```

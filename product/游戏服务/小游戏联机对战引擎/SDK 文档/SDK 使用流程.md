@@ -11,17 +11,24 @@
 
 ### 设置请求域名
 
->!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置 socket 合法域名。
+>!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要在开发者的微信公众平台配置三条 socket 合法域名。
 
 1. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
 2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。如下图所示：
 ![控制台游戏信息](https://main.qcloudimg.com/raw/d9148b71fbc9d377d440e645fa7e2a1e.png)
+
 3. 进入开发设置详情页，在 “服务器域名” 中添加一条 “socket合法域名” 记录。如下图所示：
 ![微信公共平台](https://main.qcloudimg.com/raw/40e50b0457f1928efe98e2665d396c32.png)
 
+4. 除小游戏联机对战引擎控制台上的域名外，还需要配以下socket域名：
+```
+rfea83709.wxlagame.com
+rcf8b0c3b.wxlagame.com
+```
+
 ### 导入 SDK
 
-SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 或 global 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
+SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
 #### 微信小游戏原生环境
 
 在微信原生环境中，您只需将 MGOBE.js 放到项目下任意位置，在 game.js 中 import SDK 文件后即可使用 MGOBE 的方法。导入示例代码如下：
@@ -33,6 +40,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 ```
 界面示例如下图所示：
 ![微信原生环境](https://main.qcloudimg.com/raw/db99a5a7a6103aec2219fc8df5c7c202.png)
+
 您也可以使用 import/from、require 语法显式导入 MGOBE 模块。
 import/from 代码示例如下：
 ```
@@ -111,6 +119,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
  egret create_lib MGOBE_Module
 ```
 ![create_lib](https://main.qcloudimg.com/raw/9ed359de06b5368fa3000adca0426422.png)
+
 2. 在 MGOBE_Module 文件夹下创建 src、typings、bin 三个文件夹。并将 MGOBE.js 拷贝到 src 文件夹，将 MGOBE.d.ts 拷贝到 typings 文件夹。
  - 修改 tsconfig.json 文件，示例代码如下：
 ```
@@ -141,6 +150,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 	egret build MGOBE_Module
 ```
 ![create_lib](https://main.qcloudimg.com/raw/e2a87706c4abb50a43b7e054796c35a4.png)
+
 4. 将 MGOBE 文件夹拷贝到 Egret 项目的 libs 文件夹下。
 5. 使用 Egret Wing 打开项目，编辑 egretProperties.json 文件，在 modules 数组中新增 MGOBE 库的描述，完成 MGOBE SDK 的导入工作。在项目代码中可以直接使用 MGOBE 对象。
 ```
@@ -161,7 +171,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 const gameInfo = {
 	version: 'v1.0',
 	gameId: 1234567890,// 替换为控制台上的“游戏ID”
-	openId: 'xxxxxx',
+	playerId: 'xxxxxx',
 	wxAppid: 'xxxxxx',
 	secretKey: 'xxxxxx',// 替换为控制台上的“密钥”
 };
@@ -179,7 +189,7 @@ Listener.init(gameInfo, config);
 
 调用 Listener.init 时，需要传入游戏信息 gameInfo 和游戏配置 config 两个参数。
 - gameInfo.gameId、gameInfo.secretKey 和 config.url 都需要根据控制台上的信息传入。
-- gameInfo.openId 为玩家唯一 ID，比如微信小游戏平台上的 OpenID。
+- gameInfo.playerId 为玩家唯一 ID，比如微信小游戏平台上的 OpenID。
 - 其它字段由开发者自定义。
 
 每个字段的具体含义可以参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
@@ -195,17 +205,17 @@ const room = new Room();
 实例化 Room 后，可以调用 getRoomDetail 接口来检查玩家是否已经加房，适用于应用重启后需要恢复玩家状态的场景。
 
 ```
+// 初始化房间信息
+room.initRoom();
 // 查询玩家自己的房间
 room.getRoomDetail(event => {
-	if (event.code !== 0) {
-		return;
-	}
-	if (event.data.userLocate === 0) {
-		console.log("玩家不在房间内");
-	} else {
-		// 玩家已在房间内
-		console.log("房间名", event.data.roomInfo.roomName);
-	}
+  if (event.code === 0) {
+    return console.log("玩家已在房间内：", event.data.roomInfo.roomName);
+  }
+  if (event.code === 20011) {
+    return console.log("玩家不在房间内");
+  }
+  return console.log("调用失败");
 });
 ```
 
@@ -228,11 +238,11 @@ Listener.add(room);
 
 ```
 // 广播：房间有新玩家加入
-room.joinRoomBroadcast = event => console.log("新玩家加入", event.joinOpenId);
+room.onJoinRoom = event => console.log("新玩家加入", event.joinPlayerId);
 // 广播：房间有玩家退出
-room.leaveRoomBroadcast = event => console.log("玩家退出", event.leaveOpenId);
+room.onLeaveRoom = event => console.log("玩家退出", event.leavePlayerId);
 // 广播：房间被解散
-room.dismissRoomBroadcast = event => console.log("房间被解散");
+room.onDismissRoom = event => console.log("房间被解散");
 // 其他广播
 // ...
 ```
@@ -262,7 +272,7 @@ room.startFrameSync({}, event => {
 	}
 });
 // 广播：开始帧同步
-room.startGameBroadcast = event => console.log("开始帧同步");
+room.onStartFrameSync = event => console.log("开始帧同步");
 ```
 
 #### 发送帧消息
@@ -270,7 +280,7 @@ room.startGameBroadcast = event => console.log("开始帧同步");
 
 ```
 const frame = {x: 100, y: 100, dir: 30, id: "xxxxxxxx"};
-room.sendFrame(frame, event => {
+room.sendFrame({data: frame}, event => {
 	if (event.code === ErrCode.EC_OK) {
 		console.log("发送成功");
 	}
@@ -278,11 +288,11 @@ room.sendFrame(frame, event => {
 ```
 
 #### 接收帧广播
-开发者可设置 room.frameBroadcast 广播回调函数获得帧广播数据。
+开发者可设置 room.onFrame 广播回调函数获得帧广播数据。
 
 ```
 // 广播：收到帧消息
-room.frameBroadcast = event => {
+room.onFrame = event => {
 	console.log("帧广播", event.data);
 };
 ```
@@ -297,5 +307,5 @@ room.stopFrameSync({}, event => {
 	}
 });
 // 广播：停止帧同步
-room.stopGameBroadcast = event => console.log("停止帧同步");
+room.onStopFrameSync = event => console.log("停止帧同步");
 ```

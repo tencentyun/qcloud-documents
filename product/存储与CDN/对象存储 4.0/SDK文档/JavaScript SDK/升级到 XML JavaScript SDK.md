@@ -6,9 +6,9 @@
 | -------------- | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | 文件上传       | 支持本地文件、字符串内容<br>默认覆盖上传<br/>分片上传支持批量上传<br>智能判断上传模式：简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br/>小于等于20MB 使用简单上传、大于20MB 自动分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件删除       |                         支持批量删除                         |                       只支持单文件删除                       |
-| 存储桶基本操作 |            创建存储桶<br>获取存储桶<br>删除存储桶            |                            不支持                            |
+| 存储桶基本操作 |            创建存储桶<br>查询存储桶<br>删除存储桶            |                            不支持                            |
 | 存储桶ACL操作  |   设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL    |                            不支持                            |
-| 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 |                            不支持                            |
+| 存储桶生命周期 | 创建存储桶生命周期<br>查询存储桶生命周期<br>删除存储桶生命周期 |                            不支持                            |
 | 目录操作       |                        不单独提供接口                        |               创建目录<br>查询目录<br>删除目录               |
 | 使用临时密钥   |                     支持并推荐用临时密钥                     |                        不支持临时密钥                        |
 
@@ -117,7 +117,7 @@ var cos = new COS({
         xhr.onload = function (e) {
             try {
                 var data = JSON.parse(e.target.responseText);
-                var credentials = date.credentials;
+                var credentials = data.credentials;
             } catch (e) {
             }
             callback({
@@ -152,7 +152,7 @@ cos.putObject({
 ```js
 cos.putObject({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing-1',
+    Region: 'ap-beijing',
     Key: '1.txt',
 }, function (err, data) {
     console.log(err || data);
