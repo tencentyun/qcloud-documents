@@ -1312,23 +1312,6 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 @end
 ```
 
-### 群组消息会话的接收消息选项
-
-对于群组会话消息，可以通过消息属性判断本群组设置的接收消息选项，可参阅 [群组管理](/doc/product/269/群组管理（iOS%20SDK）#.E4.BF.AE.E6.94.B9.E6.8E.A5.E6.94.B6.E7.BE.A4.E6.B6.88.E6.81.AF.E9.80.89.E9.A1.B9)。
-
->!只针对群聊消息有效。
-
-```
-@interface TIMMessage : NSObject
-/**
- *  获取消息所属会话的接收消息选项（仅对群组消息有效）
- *
- *  @return 接收消息选项
- */
-- (TIMGroupReceiveMessageOpt) getRecvOpt;
-@end
-```
-
 ### 已读回执
 
 对于单聊消息，用户开启已读回执功能后，对方调用 `setReadMessage` 时会同步已读信息到本客户端。
@@ -1728,6 +1711,62 @@ IM SDK 2.5.3 版本提供获取本地指定 ID 消息的接口。
 locators | 消息定位符 TIMMessageLocator 列表
 succ | 成功回调，返回消息列表
 fail | 失败回调
+
+### 撤回消息
+
+ImSDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversation+MsgExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
+
+>!
+> - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
+> - 默认只能撤回 2 分钟内的消息。
+
+**原型：**
+
+```
+/**
+ * 消息撤回（仅 C2C 和 GROUP 会话有效，其中 onlineMessage、AVChatRoom 和 BChatRoom 无效）
+ *  @param msg   被撤回的消息
+ *  @param succ  成功时回调
+ *  @param fail  失败时回调
+ *
+ *  @return 0：本次操作成功；1：本次操作失败
+ */
+- (int)revokeMessage:(TIMMessage*)msg succ:(TIMSucc)succ fail:(TIMFail)fail;
+```
+
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfig` 的 `messageRevokeListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9148)。
+
+**原型：**
+
+```
+@protocol TIMMessageRevokeListener <NSObject>
+@optional
+/**
+ *  消息撤回通知
+ *
+ *  @param locator 被撤回消息的标识
+ */
+- (void)onRevokeMessage:(TIMMessageLocator*)locator;
+
+@end
+
+```
+
+收到一条消息撤回通知后，通过 `TIMMessage+MsgExt` 中的 `respondsToLocator` 方法判断当前消息是否是被对方撤回了，然后根据需要对 UI 进行刷新。
+
+**原型：**
+
+```
+/**
+ *  是否为 locator 对应的消息
+ *
+ *  @param locator 消息定位符
+ *
+ *  @return YES：是对应的消息；NO：不是对应的消息
+ */
+- (BOOL)respondsToLocator:(TIMMessageLocator*)locator;
+
+```
 
 ## 系统消息
 
