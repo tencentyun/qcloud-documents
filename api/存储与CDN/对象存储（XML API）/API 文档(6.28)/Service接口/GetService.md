@@ -89,7 +89,7 @@ Container 节点 Bucket 的内容：
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
 Name|ListAllMyBucketsResult.Buckets.Bucket|存储桶的名称|string
-Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing, ap-hongkong, eu-frankfurt 等|string
+Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值参见 [可用地域](https://cloud.tencent.com/document/product/436/6224) 文档，如：ap-beijing，ap-hongkong，eu-frankfurt 等|string
 CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶创建时间。ISO8601 格式，例如 2016-11-09T08:46:32.000Z|date
 
 
