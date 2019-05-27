@@ -670,7 +670,7 @@ TIMManager.getInstance().setUserConfig(config);
 
 **说明：**
 
-默认拉取基本资料,如果想要拉取自定义字段，首先要通过 [IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在 `TIMGroupSettings` 中 `groupInfoOptions` 里面的 `customTags` 字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
+默认拉取基本资料,如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在 `TIMGroupSettings` 中 `groupInfoOptions` 里面的 `customTags` 字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
 
 **原型：**
 
