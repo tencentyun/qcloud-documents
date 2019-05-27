@@ -4,9 +4,9 @@
 ## 用户资料
 ### 获取自己的资料 
 
-可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取服务器保存的用户自己的资料。
+- 可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取服务器保存的用户自己的资料。
+- 可通过  `TIMFriendshipManager` 的 `querySelfProfile` 方法获取本地保存的用户自己的资料。
 
-可通过  `TIMFriendshipManager` 的 `querySelfProfile` 方法获取本地保存的用户自己的资料。
 
 **原型：**
 
