@@ -22,15 +22,15 @@
   </tr>
   <tr>
     <td>地域</td>
-    <td>选择所需要创建 CFS 文件系统的地域</td>
+    <td>选择所需要创建 CFS 文件系统的地域。</td>
   </tr>
   <tr>
     <td>可用区</td>
-    <td>选择所需要创建 CFS 文件系统的可用区</td>
+    <td>选择所需要创建 CFS 文件系统的可用区。</td>
   </tr>
   <tr>
     <td>文件服务协议</td>
-    <td>选择文件系统的协议类型, NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知）。</td>
+    <td>选择文件系统的协议类型，NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知）。</td>
   </tr>
   <tr>
     <td>客户端类型</td>
@@ -80,7 +80,7 @@
 
 文件系统协议 | 客户端开放端口 | 确认网络联通性
 ------- | ------- | ---------
-NFS 3.0 | 111，892， 2049 |  telnet 111 或者 892 或者 2049
+NFS 3.0 | 111，892， 2049 |  telnet 111或者892或者2049
 NFS 4.0 | 2049 |  telnet 2049
 CIFS/SMB | 445 |  telnet 445 
 
@@ -121,7 +121,7 @@ sudo mount -t nfs -o vers=4,noresvport <挂载点IP>:/ <待挂载目录>
 ```
 
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
-- 目前默认挂载的是文件系统的根目录 "/"。 在文件系统中创建子目录后，可以挂载该子目录。
+- 目前默认挂载的是文件系统的根目录`/`。 在文件系统中创建子目录后，可以挂载该子目录。
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
 >! `<挂载点IP>:/`与`<待挂载目标目录>`之间有一个空格。
@@ -148,8 +148,7 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <�
 
 >! `<挂载点IP>:/<FSID>` 与 `<待挂载目标目录>`之间有一个空格。
 
-示例：
-- 挂载 CFS 子目录：
+挂载 CFS 子目录示例如下：
 ```shell
 sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 10.0.24.4:/z3r6k95r /localfolder 
 ```
@@ -166,7 +165,7 @@ df -h
 
 
 #### 挂载 CIFS/SMB 文件系统
->！ CIFS/SMB 协议文件系统公测中，更多信息请参阅 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
+>!CIFS/SMB 协议文件系统公测中，更多信息请参阅 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
 
 #### 1. 启动 CIFS 客户端
 挂载前，请确保系统中已经安装了`cifs-utils`，安装方法如下：
