@@ -30,7 +30,7 @@
   </tr>
   <tr>
     <td>文件服务协议</td>
-    <td>选择文件系统的协议类型, NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知）。</td>
+    <td>选择文件系统的协议类型，NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知）。</td>
   </tr>
   <tr>
     <td>客户端类型</td>
@@ -40,9 +40,9 @@
     <td>网络类型</td>
     <td> 
     <p>私有网络（VPC）或者是基础网络。请根据您的 CVM 实例所在网络来创建并挂载文件系统，否则可能因为网络不通导致无法访问。</p>
-    <p>- 若您要实现私有网络（VPC） 下 CVM 对文件系统的共享，您需要在创建文件系统时选择私有网络。当文件系统属于私有网络时，如果未进行特殊网络设置，则只有同一私有网络内的 CVM 实例能够挂载。</p>
-    <p>- 若您要实现基础网络下 CVM 对文件系统的共享，您需要在创建文件系统时选择基础网络。当文件系统属于基础网络时，如果未进行特殊网络设置，则只有同在基础网路内的 CVM 实例能够挂载。</p>
-    <p>- 如果有多网络共享文件系统需求，请查看 [跨网络访问文件系统](https://cloud.tencent.com/document/product/582/9764) 文档</p>
+    <li>若您要实现私有网络（VPC） 下 CVM 对文件系统的共享，您需要在创建文件系统时选择私有网络。当文件系统属于私有网络时，如果未进行特殊网络设置，则只有同一私有网络内的 CVM 实例能够挂载。</p>
+    <li>若您要实现基础网络下 CVM 对文件系统的共享，您需要在创建文件系统时选择基础网络。当文件系统属于基础网络时，如果未进行特殊网络设置，则只有同在基础网路内的 CVM 实例能够挂载。</p>
+    <li>如果有多网络共享文件系统需求，请查见 <a href="https://cloud.tencent.com/document/product/582/9764">跨网络访问文件系统</a> 文档</p>
     </td>
   </tr>  
   <tr>
@@ -64,69 +64,68 @@
 ### 连接实例
 本部分操作介绍登录 Windows 云服务器的常用方法，不同情况下可以使用不同的登录方式，此处介绍控制台登录，更多登录方式请见 [登录 Windows 实例](/doc/product/213/5435) 。
 
-**前提条件**
+#### 前提条件
 登录到云服务器时，需要使用管理员帐号和对应的密码。
 - 管理员账号：对于 Windows 类型的实例，管理员帐号统一为 Administrator。
 - 密码：密码为购买云服务器时设置的密码。
   
-
-**控制台登录云服务器**
-1. 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Windows 云服务器。
+#### 控制台登录云服务器
+1. 在云服务器列表的操作列，单击【登录】即可通过 VNC 连接至 Windows 云服务器。
 2. 通过单击左上角发送【Ctrl-Alt-Delete】命令进入系统登录界面。
 3. 输入帐号（Administrator）和密码即可登录。
 
->**注意：**
->该终端为独享，即同一时间只有一个用户可以使用控制台登录。
+>!该终端为独享，即同一时间只有一个用户可以使用控制台登录。
 
-
-**验证网络通信**
+#### 验证网络通信
 挂载前，需要确认客户端与文件系统的网络可达性（需要在 Windows 客户端启用 Telnet服务）。可以通过 telnet 命令验证，具体各个协议及客户端要求开放端口信息如下：
 
 文件系统协议 | 客户端开放端口 | 确认网络联通性
 ------- | ------- | ---------
-NFS 3.0 | 111，892， 2049 |  telnet 111 或者 892 或者 2049
+NFS 3.0 | 111，892，2049 |  telnet 111或者892或者2049
 NFS 4.0 | 2049 |  telnet 2049
 CIFS/SMB | 445 |  telnet 445 
 
 >!CFS 暂不支持 ping。
 
+
 ### 挂载文件系统
+
 #### 挂载 NFS 文件系统
-##### 1. 开启 NFS 服务
+
+#### 1. 开启 NFS 服务
 挂载前，请确保系统已经启动 NFS 服务。
-1.1 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
+1.1 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
 ![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
-1.2 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
+1.2 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
 ![](https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png)
 
-##### 2. 验证 NFS 服务是否启动
+#### 2. 验证 NFS 服务是否启动
 打开 Windows 下的命令行工具，在面板中执行如下命令，若返回 NFS 相关信息则表示 NFS 客户端正常运行中。
-```
+```bash
 mount -h
 ```
 ![](https://mc.qcloudimg.com/static/img/4e4f9db217874ccec91ac1f888c8e451/image.png)
 
-##### 3. 添加匿名访问用户和用户组
+#### 3. 添加匿名访问用户和用户组
 3.1 打开注册表
 在命令行窗口输入 regedit 命令，回车即可打开注册表窗口。
 ![](https://mc.qcloudimg.com/static/img/c9fca9a1b123a5b2dbc69b0ce66d539f/image.png)
 
 3.2 添加配置项 AnonymousUid 和 AnonymousGid
 在打开的注册表中找到如下路径并选中。 
-
-```
+```bash
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
-在右边空白处右键单击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
+在右边空白处右键单击，弹出【new】, 在菜单中选择【DWORD(32-bit) Value】 或者【QWORD(64-bit) Value】（根据您的操作系统位数选择）。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的0。
 ![](https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png)
 ![](https://mc.qcloudimg.com/static/img/80bb0cfbffbed939522459a830df3eac/image.png)
 
 3.3 重启使配置生效
 关闭注册表并重启 Windows 系统，完成注册表修改。
 
-##### 4. 挂载文件系统
+#### 4. 挂载文件系统
 挂载文件系统有两种方式：通过图形界面挂载和通过 CMD 命令行挂载。
-1）通过图形界面挂载
+- 通过图形界面挂载
 a. 打开 "映射网路驱动器"
 登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://main.qcloudimg.com/raw/515b5b21a19e3f3518c75441326e1800.png)
@@ -139,53 +138,47 @@ c. 验证读写
 确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
-2）通过 CMD 命令行挂载
+- 通过 CMD 命令行挂载
 在 Windows 的命令行工具中输入如下命令，挂载文件系统。其中，系统缺省子目录为 FSID。
-
 ```
 mount  <挂载点IP>:/<FSID> <共享目录名称>:
 ```
-
 示例：
 ```
 mount 10.10.0.12:/z3r6k95r X:
 ```
-
-> **注意：**
-> FSID 挂载命令可以到【文件存储控制台】>【文件系统详情】>【挂载点信息】中获取。
+>! FSID 挂载命令可以到【文件存储控制台】>【文件系统详情】>【挂载点信息】中获取。
 
 
 #### 挂载 CIFS/SMB 文件系统
-##### 通过图形界面挂载文件系统
->！ CIFS/SMB 协议文件系统公测中，更多信息请参阅 [CIFS/SMB公测说明](/价格说明/CIFS/SMB公测说明)。
+#### 通过图形界面挂载文件系统
+>!CIFS/SMB 协议文件系统公测中，更多信息请参阅 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
 
-a.打开 "映射网路驱动器"
+1. 打开 "映射网路驱动器"
 登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
 ![](https://main.qcloudimg.com/raw/515b5b21a19e3f3518c75441326e1800.png)
 ![](https://main.qcloudimg.com/raw/b0396ce0f8f108f3e89a2f2bfb3d7f71.png)
 
-b.输入访问路径
+2. 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 CIFS/SMB 文件系统中看到的挂载目录）。
 ![](https://main.qcloudimg.com/raw/8d58ee713b9e072156caf8019b4242d5.png)
 ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
 s
 
-c.验证读写
+3. 验证读写
 确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
 
 #### 通过命令行挂载文件系统
 请使用 FSID 进行挂载文件系统，挂载命令如下。
-```
+```bash
 net use <共享目录名称>: \\10.10.11.12\FSID 
 ```
 示例：
-```
+```bash
 net use X: \\10.10.11.12\fjie120
 ```
-
-> **注意：**
-> FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
+>! FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
 ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
 
 
@@ -198,11 +191,11 @@ net use X: \\10.10.11.12\fjie120
 #### 通过 CMD 命令卸载 NFS 共享目录 
 
 当某些情况下需要卸载共享目录，请打开命令行终端后使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
-```
+```bash
 umount <目录名称>：
 ```
 示例：
-```
+```bash
 umount X：
 ```
 
