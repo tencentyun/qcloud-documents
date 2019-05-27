@@ -117,7 +117,7 @@ var cos = new COS({
         xhr.onload = function (e) {
             try {
                 var data = JSON.parse(e.target.responseText);
-                var credentials = date.credentials;
+                var credentials = data.credentials;
             } catch (e) {
             }
             callback({
