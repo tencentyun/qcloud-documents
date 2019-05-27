@@ -1429,8 +1429,6 @@ public boolean checkEquals(@NonNull TIMMessageLocator locator)
 
 ```
 
-另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
-
 **原型：**
 
 ```
