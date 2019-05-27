@@ -597,7 +597,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
  */
 @interface TIMFriendCheckInfo : NSObject
 /**
- *  检查用户的id列表（NSString*）
+ *  检查用户的 ID 列表（NSString*）
  */
 @property(nonatomic,strong) NSArray* users;
 
@@ -632,7 +632,7 @@ typedef NS_ENUM(NSInteger,TIMFriendCheckType) {
 ```
 @interface TIMCheckFriendResult : NSObject
 /**
- *  用户id
+ *  用户 ID
  */
 @property NSString* identifier;
 
