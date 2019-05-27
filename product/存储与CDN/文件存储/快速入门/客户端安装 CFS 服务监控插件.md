@@ -86,7 +86,5 @@ Windows 客户端暂未支持。
 
 ## 监控来访客户端
 
-在 [CFS 控制台](https://console.cloud.tencent.com/cfs) , 单击文件系统名称进入文件系统详情，选择 "已挂载客户端"， 可以查看到已挂载该文件系统的客户端信息，若客户端未安装插件则无法获取信息。
+在 [CFS 控制台](https://console.cloud.tencent.com/cfs) , 单击文件系统名称进入文件系统详情，选择 【已挂载客户端】， 可以查看到已挂载该文件系统的客户端信息，若客户端未安装插件则无法获取信息。
 >!客户端信息展示会有1 - 3分钟的延迟。
-
-![](https://main.qcloudimg.com/raw/3e1fa0fdee7aa5b4ddf7e14e5d2d0472.png)

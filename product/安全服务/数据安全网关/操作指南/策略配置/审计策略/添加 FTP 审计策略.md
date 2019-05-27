@@ -14,3 +14,4 @@
     - 保留下载文件：开启时，用户通过 FTP 访问远程资源时，下载的文件将会保留一份在数据安全网关。
 ![1](https://main.qcloudimg.com/raw/eea1d8cf10c5b870c5013fc846f549cc.png)
 4. 确认配置信息无误后，单击【保存】，即可添加 FTP 行为审计策略。
+5. 策略保存后可在“岗位管理”处 [设置岗位资源策略](https://cloud.tencent.com/document/product/1025/32514) 使策略生效。

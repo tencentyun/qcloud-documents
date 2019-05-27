@@ -6,6 +6,9 @@ TRTCCloud @ TXLiteAVSDK。
 
 ## 基础方法
 ### sharedInstance
+
+创建 TRTCCloud 单例。
+
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -1209,8 +1212,10 @@ __返回__
 
 成功返回时长，失败返回-1。
 
-
 ### setBGMPosition
+
+设置 BGM 播放进度。
+
 ```
 abstract int setBGMPosition(int pos)
 ```

@@ -17,7 +17,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 | 参数               | 说明                                 |
 | ------------------ | ------------------------------------ |
 | v4/group_open_http_svc/get_appid_group_list  | 请求接口                             |
-| sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
+| sdkappid           | 创建应用时云通信 IM 控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) |
 | random             | 请输入随机的32位无符号整数                 |
@@ -70,7 +70,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 | 字段 | 类型 |属性 |说明 |
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000 |
-| Next | Integer | 选填 | 群太多时分页拉取标志，第一次填 0，以后填上一次返回的值，返回的 Next 为 0 代表拉完了 |
+| Next | Integer | 选填 | 群太多时分页拉取标志，第一次填0，以后填上一次返回的值，返回的 Next 为0代表拉完了 |
 | GroupType | String | 选填 |如果仅需要返回特定群组形态的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组形态的群组总数。不填为获取所有类型的群组。<br>群组形态包括 Public（公开群），Private（私密群），ChatRoom（聊天室），AVChatRoom（音视频聊天室）和 BChatRoom（在线成员广播大群）|
 
 ### 应答包体示例
@@ -121,4 +121,4 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 通过 [REST API 在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
 
 ## 参考
-获取用户所加入的群组  ([v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625))。
+获取用户所加入的群组（[v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625)）。

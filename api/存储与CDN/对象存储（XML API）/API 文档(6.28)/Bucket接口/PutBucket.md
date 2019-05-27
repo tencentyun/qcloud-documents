@@ -27,8 +27,8 @@ Authorization: Auth String
 | x-cos-acl | 定义 bucket 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
 | x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
-|x-grant-read-acp   |  赋予被授权者读 ACL 和 Policy 的权限。格式：x-cos-grant-read: id="[OwnerUin]"|
-|x-grant-write-acp  |  赋予被授权者写 ACL 和 Policy 的权限。格式：x-cos-grant-read: id="[OwnerUin]"|
+|x-cos-grant-read-acp |赋予被授权者读 ACL 和 Policy 的权限。格式：x-cos-grant-read-acp: id="[OwnerUin]"|String |  否 |
+|x-cos-grant-write-acp |赋予被授权者写 ACL 和 Policy 的权限。格式：x-cos-grant-write-acp: id="[OwnerUin]"|String |  否 |
 | x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
 
 ### 请求体

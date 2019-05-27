@@ -662,7 +662,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商用企业版有效，普通版本设置此选项无效）。 |
+| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商业版有效，普通版本设置此选项无效）。 |
 | beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
@@ -704,7 +704,7 @@ __参数__
 
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，普通版本设置此参数无效）。
+设置大眼级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setEyeScaleLevel:(float)eyeScaleLevel 
 ```
@@ -719,7 +719,7 @@ __参数__
 
 ### setFaceScaleLevel
 
-设置瘦脸级别（商用企业版有效，普通版本设置此参数无效）。
+设置瘦脸级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setFaceScaleLevel:(float)faceScaleLevel 
 ```
@@ -734,7 +734,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)faceVLevel 
 ```
@@ -749,7 +749,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setChinLevel:(float)chinLevel 
 ```
@@ -764,7 +764,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceShortLevel:(float)faceShortlevel 
 ```
@@ -779,7 +779,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setNoseSlimLevel:(float)noseSlimLevel 
 ```
@@ -794,7 +794,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setGreenScreenFile:(NSURL *)file 
 ```
@@ -812,7 +812,7 @@ __参数__
 
 ### selectMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
 ```

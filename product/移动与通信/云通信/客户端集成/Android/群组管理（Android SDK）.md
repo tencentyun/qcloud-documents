@@ -1,6 +1,6 @@
 ## 群组综述
 
-IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
@@ -26,7 +26,7 @@ public static TIMGroupManagerExt getInstance()
 
 ### 创建群组
 
-云通信中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
@@ -376,7 +376,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-ImSDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
+IM SDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
 
 **权限说明：**
 
@@ -664,24 +664,30 @@ TIMManager.getInstance().setUserConfig(config);
 ```
 
 
-### 群成员获取群组资料
+### 获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupDetailInfo` 方法可以获取群组资料，默认拉取基本资料。
+`TIMGroupManagerExt` 提供的 `getGroupInfo` 方法可以获取服务器存储的群组资料，`queryGroupInfo` 方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
 
-**权限说明：**
+**说明：**
 
-**此接口只能由群成员调用**，非群成员获取群组资料请参考 [非群成员获取群组资料](#.E9.9D.9E.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.99)。
+默认拉取基本资料,如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在 `TIMGroupSettings` 中 `groupInfoOptions` 里面的 `customTags` 字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
 
-**原型：    **
+**原型：**
 
 ```
 /**
- * 获取群组详细信息（只有群组成员可以调用）
+ * 获取服务器存储的群组信息
  * @param groupIdList 需要拉取详细信息的群组 ID 列表，一次最多 50 个
  * @param cb 回调，OnSuccess 函数的参数中返回群组信息{@see TIMGroupDetailInfo}列表
  */
-public void getGroupDetailInfo(@NonNull List<String> groupIdList,
+public void getGroupInfo(@NonNull List<String> groupIdList,
 							   @NonNull TIMValueCallBack<List<TIMGroupDetailInfo>> cb)
+/**
+ * 获取本地存储的群组信息
+ * @param groupId 需要拉取详细信息的群组Id
+ * @return 群组信息，本地没有返回 null
+ */
+ public TIMGroupDetailInfo queryGroupInfo(@NonNull String groupId)
 ```
 
 **`TIMGroupDetailInfo` 的接口定义如下：**
@@ -822,52 +828,13 @@ TIMValueCallBack<List<TIMGroupDetailInfo>> cb = new TIMValueCallBack<List<TIMGro
 String groupId = "TGID1EDABEAEO";
 groupList.add(groupId);
 
-//获取群组详细信息
-TIMGroupManagerExt.getInstance().getGroupDetailInfo(
+//获取服务器群组信息
+TIMGroupManagerExt.getInstance().getGroupInfo(
         groupList, //需要获取信息的群组 ID 列表
         cb);       //回调
-```
 
-
-### 非群成员获取群组资料
-
-当用户不在群组时，可以通过 `TIMGroupManagerExt` 提供的接口 `getGroupPublicInfo` 获取群的公开资料。获取结果为 `TIMGroupDetailInfo` 结构，此时该结构只含有公开资料，其余字段为空，默认拉取基本资料。
-
-**原型：**
-
-```
-/**
- * 获取群组公开信息（非群组成员也可以调用）
- * @param groupIdList 需要拉取详细信息的群组Id列表
- * @param cb 回调，OnSuccess 函数的参数中返回群组公开信息列表
- */
-public void getGroupPublicInfo(@NonNull List<String> groupIdList,
-							   @NonNull TIMValueCallBack<List<TIMGroupDetailInfo>> cb)
-```
-
-**示例：**
-
-```
-//创建待获取公开信息的群组列表
-List<String> groupList = new ArrayList<String>();
-
-groupList.add(groupId);
-
-//获取群组公开信息
-TIMGroupManagerExt.getInstance().getGroupPublicInfo(groupList, new TIMValueCallBack<List<TIMGroupDetailInfo>>() {
-    @Override
-    public void onError(int code, String desc) {
-        //错误码 code 和错误描述 desc，可用于定位请求失败原因
-        //错误码 code 列表请参见错误码表
-        Log.e(tag, "get gruop list failed: " + code + " desc" + desc);
-
-    }
-
-    @Override
-    public void onSuccess(List<TIMGroupDetailInfo> timGroupDetailInfos) {
-        //此时TIMGroupDetailInfo只含有群公开资料，其余字段为空
-    }
-});
+//获取本地缓存的群组信息
+TIMGroupDetailInfo timGroupDetailInfo = TIMGroupManagerExt.getInstance().queryGroupInfo(groupId);
 ```
 
 ### 获取本人在群里的资料

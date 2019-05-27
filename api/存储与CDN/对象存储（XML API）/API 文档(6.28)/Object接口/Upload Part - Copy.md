@@ -24,7 +24,7 @@ x-cos-copy-source-if-unmodified-since: time_stamp
 x-cos-copy-source-if-modified-since: time_stamp
 ```
 
->Authorization： Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 ### 请求头
@@ -59,8 +59,8 @@ x-cos-copy-source-if-modified-since: time_stamp
 
  名称|描述|类型|必选
 ---|---|---|---
-partNumber|分块拷贝的块号|string|是
-uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID|string|是
+partNumber|分块拷贝的块号|String|是
+uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID|String|是
 
 ### 请求体
 该请求的请求体为空。
@@ -75,7 +75,7 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 
 名称|描述|类型
 ---|---|---
-x-cos-copy-source-version-id|如果已在源存储桶上启用版本控制，则复制源对象的版本|string
+x-cos-copy-source-version-id|如果已在源存储桶上启用版本控制，则复制源对象的版本|String
 x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256 | String
 
 ### 响应体

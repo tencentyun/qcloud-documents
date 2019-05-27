@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云WEBIM Demo(Web) 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速地将腾讯云 WEBIM Demo(Web) 工程运行起来，您只需参考如下步骤依次执行即可。
 
 ## 创建应用
 1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
@@ -23,14 +23,14 @@
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
 2. 解压 **keys.zip**文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
-3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信应用指定用户名的 UserSig。
+3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信 IM 应用指定用户名的 UserSig。
  ![](https://main.qcloudimg.com/raw/4f49cbf64dc287cb55711ee02d6d78dd.png)
 
 >! 可以多生成4组以上的 userid 和 usersig，方便在 Demo 中调试使用。
 
 
 ## 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IMSDK H5 开发包。
+从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IM SDK H5 开发包。
 
 ## 修改源码配置
 使用编辑器打开 index.html ，修改以下参数配置。  

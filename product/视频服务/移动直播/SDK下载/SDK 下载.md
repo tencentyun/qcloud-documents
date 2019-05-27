@@ -1,6 +1,6 @@
-<h2 id="Smart">直播精简版（Smart）</h2>
+<h2 id="Smart">直播基础版（Smart）</h2>
 
-精简版体积最小，适合仅集成移动直播相关功能的客户。
+直播基础版体积最小，适合仅集成移动直播相关功能的客户。
 
 | 所属平台 | SDK 下载 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :--------:| :--------:| :--------:| :--------:|
@@ -21,9 +21,9 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 | iOS | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
 | Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/454/34927) |
 
-<h2 id="Enterprise">企业版（Enterprise）</h2>
+<h2 id="Enterprise">商业版（Enterprise）</h2>
 
-LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、收敛、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+LiteAVSDK 的商业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 
 | 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
@@ -38,12 +38,12 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
   <tr>
 	  <th width="100px" style="text-align:center">功能模块</th>
     <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center">直播精简版<br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center">直播基础版<br>LiteAV_Smart</th>
     <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
-    <th width="100px" style="text-align:center">TRTC版<br>LiteAV_TRTC</th>
+    <th width="100px" style="text-align:center">TRTC 版<br>LiteAV_TRTC</th>
 		<th width="100px" style="text-align:center">播放器版<br>LiteAV_Player</th>
 		<th width="100px" style="text-align:center">专业版<br>Professional</th>
-		<th width="100px" style="text-align:center">企业版<br>Enterprise</th>
+		<th width="100px" style="text-align:center">商业版<br>Enterprise</th>
   </tr>
   <tr>
 	  <td rowspan='2' style="text-align:center">直播推流</td>
@@ -85,7 +85,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
   </tr>
   <tr>
     <td style="text-align:center">HLS(m3u8)</td>
-    <td></td>
+    <td style="text-align:center">✔</td>
     <td></td>
     <td></td>
 		<td style="text-align:center">✔</td>

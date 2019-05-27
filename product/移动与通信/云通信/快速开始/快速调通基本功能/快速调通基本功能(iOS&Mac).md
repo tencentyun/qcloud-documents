@@ -1,7 +1,7 @@
-本文主要介绍腾讯云 ImSDK(iOS&Mac) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK(iOS&Mac) 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
 ## 初始化
-- ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
-- SdkAppId 和 accountType 可以在云通信 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
+- IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
+- SDKAppID 和 accountType 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 ```
 //初始化 SDK 基本配置
@@ -63,7 +63,7 @@ TIMConversation * grp_conversation = [[TIMManager sharedInstance] getConversatio
 ```
 
 ### 消息发送
-ImSDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
+IM SDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
 ![](//mccdn.qcloud.com/static/img/7226ab79d4294cc53980c888892f5c6d/image.png)
 
 ```
@@ -99,7 +99,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 **更多消息接收操作请参考 SDK 文档： [消息收发](https://cloud.tencent.com/document/product/269/9150)**。
 
 ## 群组管理
-IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
+云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 | 类型 | 说明 |
 |:---------:|:---------|
