@@ -7,7 +7,7 @@ Thrift server 是 HBase 中的一种服务，主要用于对多语言 API 的支
 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。创建 EMR 集群时需要在软件配置界面选择 Hbase 组件。
 
 ## 2. 通过 Python API 使用 Hbase
-EMR 集群中 Hbase 默认集成了 Thrift，并在 Master1 节点上启动了 Thrift Server。
+EMR 集群中 Hbase 默认集成了 Thrift，并在 Master 节点上启动了 Thrift Server。
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户并进入Hbase文件夹：
