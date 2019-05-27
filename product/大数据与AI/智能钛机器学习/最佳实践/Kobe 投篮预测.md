@@ -84,6 +84,7 @@
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详情请见上文【案例相关材料】
  - Python 版本：选择 Python 3.5
  - 其余参数均可默认
+ 
 ![](https://main.qcloudimg.com/raw/b732149cb72acb244643860ca10f40b7.png)
 ![](https://main.qcloudimg.com/raw/c0b243f5d30e4d7f57203a72baf19105.png)
 
