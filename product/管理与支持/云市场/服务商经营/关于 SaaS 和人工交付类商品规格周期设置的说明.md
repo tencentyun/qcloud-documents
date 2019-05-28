@@ -12,12 +12,12 @@
 
 ## 人工交付类商品规格设置说明
 可以分别按照周期或次数设置商品。
-按周期设置
+1. 按周期设置
  - 每个商品可以输入多个规格。
  - 规格提交后不可删除，但可以将 “是否售卖” 置为 “否”。
  - 针对单个规格，可以设置多个新购价格，单位可以是 “日”、“月”、“年”。
 
-![](https://main.qcloudimg.com/raw/db9fad12e76a3aaa19950e69a300eefd.png)
+![](https://main.qcloudimg.com/raw/df3f97e3912c2a59885ad4f2ac4f5476.png)
 
 
 2. 按次（单次）设置：
@@ -25,5 +25,5 @@
  - 规格提交后不可删除，但可以将 “是否售卖” 置为 “否”。
  - 针对单个规格，可以设置一个服务售价。
 
- ![](https://main.qcloudimg.com/raw/c7f09ac478abe6bfff3c0ccc5140e6af.png)
+ ![](https://main.qcloudimg.com/raw/dc5f6fb3640dc17020f3c31711efc4b4.png)
 
