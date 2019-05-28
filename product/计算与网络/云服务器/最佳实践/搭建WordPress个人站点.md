@@ -43,7 +43,7 @@ yum -y install nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-3. 按“**i**”或 “**Insert**” 切换至编辑模式，将已有内容全部清除，将以下内容复制粘贴至 `nginx.conf`文件中。 
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将已有内容全部清除，将以下内容复制粘贴至 `nginx.conf`文件中。 
 ```
 server {
 	listen       80;
@@ -109,13 +109,13 @@ server {
 ```
 # vim /usr/share/nginx/html/index.php
 ```
-2. 按“**i**”或 “**Insert**” 键切换至编辑模式，写入如下内容。
+2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
 <?php
 	echo "hello world!";
 ?>
 ```
-3. 按“**Esc**”键，输入 “**:wq**”，保存文件并返回。
+3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 4. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功。
 ```
 http://云服务器实例的公网 IP/index.php 
@@ -143,7 +143,7 @@ http://云服务器实例的公网 IP/index.php
 # systemctl start mariadb
 # systemctl enable mariadb
 ```
-5. <span id="login">执行以下命令，设置root帐户登录密码及基础配置。</span>
+5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
 >- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
@@ -152,7 +152,7 @@ http://云服务器实例的公网 IP/index.php
 # mysql_secure_installation
 ```
 
-6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下回车键。
+6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下 “**Enter**”。
 ```
 # mysql -uroot -pXXXXXX
 ```
@@ -194,7 +194,7 @@ CREATE DATABASE wordpress;
 ```
 CREATE USER user@localhost;
 ```
-5. 执行以下命令，为此用户设置密码“wordpresspassword”。
+5. 执行以下命令，为此用户设置密码 “wordpresspassword”。
 ```
 SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
 ```
@@ -225,7 +225,7 @@ cp wp-config-sample.php wp-config.php
 ```
 vim wp-config.php
 ```
-3. 按“**i**”或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，将 [配置数据库](#database) 中已配置好的数据库相关信息写入。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，将 [配置数据库](#database) 中已配置好的数据库相关信息写入。
 
 	```
 	// ** MySQL settings - You can get this info from your web host ** //
@@ -244,9 +244,14 @@ vim wp-config.php
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
 #### 验证 WordPress 安装
-1. 在浏览器地址栏输入 `http://云服务器实例的公网 IP`或`http://云服务器实例的公网 IP/wordpress`，转至 WordPress 安装页，开始配置 WordPress。
+1. 在浏览器地址栏输入云服务器实例的公网 IP 或在 IP 后加上 wordperss 文件夹，例如：
+ ```
+ http://192.xxx.xxx.xx 
+ http://192.xxx.xxx.xx /wordpress
+ ```
+ 转至 WordPress 安装页，开始配置 WordPress。
 ![配置WP1](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)
-2. 根据以下表格和 WordPress 安装向导提示输入安装信息后，单击 “安装 WordPress” 完成安装。
+2. 根据 WordPress 安装向导提示输入以下安装信息后，单击 “安装 WordPress” 完成安装。
 
 	<table>
 	<th style="width: 18%;">所需信息</th>
