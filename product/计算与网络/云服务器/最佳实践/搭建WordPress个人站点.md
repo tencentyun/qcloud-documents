@@ -35,7 +35,7 @@ LNMP 组成及使用版本说明：
 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
 
 #### 安装配置 Nginx 
-1. 执行以下命令，安装 nginx。  
+1. 执行以下命令，安装 Nginx。  
 ```
 yum -y install nginx 
 ```
