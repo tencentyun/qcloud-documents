@@ -1,5 +1,5 @@
 
-## 腾讯短信服务
+## SDK 功能简介
 目前腾讯云短信为客户提供**国内短信、国际短信**和**国内语音**三大服务，腾讯云短信 SDK 支持以下操作：
 
 ### 国内短信
@@ -28,9 +28,18 @@
 - [发送语音通知](#发送语音通知)
 - [指定模板发送语音通知](#指定模板发送语音通知)
 
-## 开发
+## SDK 使用指南
 ### 相关资料
-各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js)和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+各个接口及其参数的详情介绍请参考 [API 指南](https://cloud.tencent.com/document/product/382/13297) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js) 和 [错误码](https://cloud.tencent.com/document/product/382/3771)。
+
+### 准备工作
+在使用 SDK 前，您需要准备以下信息：
+- **获取 SDKAppID 和 AppKey**
+云短信应用 **SDKAppID** 和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取，如您尚未添加应用，请到 [短信控制台](https://console.cloud.tencent.com/sms) 中添加应用。
+- **申请签名**
+一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。
+- **申请模板**
+短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参考 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
 
 ### 配置 SDK
 
@@ -120,7 +129,7 @@ msender.send(smsType, "86", phoneNumbers,
   "【腾讯云】您的验证码是: 5678", "", "", callback);
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 <a id="指定模板群发短信" ></a>
@@ -133,7 +142,7 @@ msender.sendWithParam("86", phoneNumbers, templateId,
   params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
 ```
 
->?一次群发请求最多支持200个号码，如有对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
+>?一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：3012203387）。
 >无论单发/群发短信还是指定模板 ID 单发/群发短信都需要从控制台中申请模板并且模板已经审核通过，才可能下发成功，否则返回失败。
 
 

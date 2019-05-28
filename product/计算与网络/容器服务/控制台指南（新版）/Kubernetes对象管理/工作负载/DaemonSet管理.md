@@ -17,7 +17,7 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
 ![DaemonSet](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
 5. 单击【新建】，进入 “新建Workload” 页面。如下图所示：
 ![新建DaemonSet](https://main.qcloudimg.com/raw/525bb7049cd0a8435bff6afe7a7f1e93.png)
-6. 根据实际需求，设置 Deployment 参数。关键参数信息如下：
+6. 根据实际需求，设置 DaemonSet 参数。关键参数信息如下：
  - 工作负载名：自定义。
  - 命名空间：根据实际需求进行选择。
  - 类型：选择 “DaemonSet（在每个主机上运行Pod）”。
@@ -181,4 +181,3 @@ kubectl rollout undo daemonset /[name] --to-revision=[REVISION]
 ```
 kubectl delete  DaemonSet [NAME]
 ```
-

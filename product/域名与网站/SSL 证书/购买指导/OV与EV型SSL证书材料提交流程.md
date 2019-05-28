@@ -4,14 +4,14 @@ CA 认证审核通过后，会正式颁发证书，用户可下载付费证书�
 ### 1. 证书材料提交入口
 
 1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)。
-2. 在“证书列表”页面，选择已购买到的证书行，单击【提交资料】。如下图所示：
+2. 在 “证书列表” 页面，选择已购买到的证书行，单击【提交资料】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d440dc0710e5d5219be5892e3766c539.png)
 
 ### 2. 填写域名
 
 根据实际需求，选择 CSR 生成方式。
-- 选择“在线生成CSR”方式，执行 [在线生成 CSR 的操作](#SitemapCSR)。
-- 选择“粘贴CSR”方式，执行 [粘贴 CSR 的操作](#PasteCSR)。
+- 选择 “在线生成CSR” 方式，执行 [在线生成 CSR 的操作](#SitemapCSR)。
+- 选择 “粘贴CSR” 方式，执行 [粘贴 CSR 的操作](#PasteCSR)。
 
 <span id="SitemapCSR"></span>
 #### 在线生成 CSR
@@ -40,10 +40,10 @@ CA 认证审核通过后，会正式颁发证书，用户可下载付费证书�
 <span id="AdditionalInformation"></span>
 ### 3. 补充信息
 
-1. 填写管理人信息与联系人信息。如果两者信息一致，可勾选“与管理人相同”。如下图所示：
+1. 填写管理人信息与联系人信息。如果两者信息一致，可勾选 “与管理人相同”。如下图所示：
 ![](https://main.qcloudimg.com/raw/beb2eb64e7163005cbf22bec356827d2.png)
 2. 单击【下一步】。
-3. 在弹出的“提交CSR”窗口中，单击【确定】，进行 CSR 提交。   
+3. 在弹出的 “提交CSR” 窗口中，单击【确定】，进行 CSR 提交。   
 ![](https://main.qcloudimg.com/raw/e73c64688de642b0ca333f518c9973d1.png)
 
 ### 4. 上传审核
@@ -54,5 +54,5 @@ CA 认证审核通过后，会正式颁发证书，用户可下载付费证书�
 ![](https://main.qcloudimg.com/raw/d9e1b51451e4ca51e6ac2f9a85162c11.png)
 2. 完成确认函填写后，加盖公章，并进行文件扫描。
 3. 单击【上传审核】，确认函上传。
-4. 在弹出的“已提交”窗口中，确认信息，单击【确定】，并等待线下亚洲诚信工作人员与 CA 机对提交材料进行确认与审核。如下图所示：
-![](https://main.qcloudimg.com/raw/3ee1ffec85e874bb5c8ae545ffc9c7c4.png)
+4. 在弹出的“已提交”窗口中，确认信息，单击【确定】，并等待线下亚洲诚信工作人员与 CA 机构对提交材料进行确认与审核。如下图所示：
+![](https://main.qcloudimg.com/raw/ca877a9432947956a78d6f65893c8dbb.png)

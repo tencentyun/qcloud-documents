@@ -5,13 +5,11 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 - 有关 XML 版本的签名介绍文档，可参阅 XML 版本 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
 - 有关 JSON 版本的签名介绍文档，可参阅 JSON 版本 [请求签名](https://cloud.tencent.com/document/product/436/6054)。
 
+## 工具地址
+
+单击进入 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)。
+
 ## 使用方法
-
-### XML 版本签名工具
-
-#### 打开 COS 签名工具
-
-单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
 
 #### 输入基础配置信息
 

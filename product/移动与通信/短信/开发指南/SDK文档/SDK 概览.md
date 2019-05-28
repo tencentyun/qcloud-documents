@@ -12,3 +12,5 @@
 |Python SDK |短信 [Python SDK 文档](https://cloud.tencent.com/document/product/382/11672)   | [短信 Python SDK](https://github.com/qcloudsms/qcloudsms_py)|
 |JavaScript SDK |短信 [Node.js SDK 文档](https://cloud.tencent.com/document/product/382/3772)   | [短信 Node.js SDK](https://github.com/qcloudsms/qcloudsms_js)|
 |C# SDK |短信 [C# SDK 文档](https://cloud.tencent.com/document/product/382/3785)  | [短信 C# SDK](https://github.com/qcloudsms/qcloudsms_csharp)|
+|小程序 |短信 [小程序开发指南](https://cloud.tencent.com/document/product/382/34874)  |[云短信体验版 Demo](https://github.com/qcloudsms/qcloudsms_weapp)|
+

@@ -155,7 +155,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶名称 格式：BucketName-APPID
     $key = "exampleobject";
-    $srcPath = "F:/exampleobject"；//本地文件绝对路径
+    $srcPath = "F:/exampleobject";//本地文件绝对路径
     $result = $cosClient->putObject(array(
         'Bucket' => $bucket,
         'Key' => $key,
@@ -169,7 +169,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶名称 格式：BucketName-APPID
     $key = "exampleobject";
-    $srcPath = "F:/exampleobject"；//本地文件绝对路径
+    $srcPath = "F:/exampleobject";//本地文件绝对路径
     $result = $cosClient->putObject(array(
         'Bucket' => $bucket,
         'Key' => $key,
@@ -212,7 +212,7 @@ try {
 try {    
     $bucket = "examplebucket-1250000000"; //存储桶名称 格式：BucketName-APPID
     $key = "exampleobject";
-    $srcPath = "F:/exampleobject"；//本地文件绝对路径
+    $srcPath = "F:/exampleobject";//本地文件绝对路径
     $result = $cosClient->Upload(
         $bucket = $bucket,
         $key = $key,
@@ -226,7 +226,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶名称 格式：BucketName-APPID
     $key = "exampleobject";
-    $srcPath = "F:/exampleobject"；//本地文件绝对路径
+    $srcPath = "F:/exampleobject";//本地文件绝对路径
     $result = $cosClient->Upload(
         $bucket= $bucket,
         $key = $key,
@@ -273,21 +273,21 @@ try {
 ```php
 try {
     $bucket = "examplebucket-1250000000"; //存储桶名称 格式：BucketName-APPID
-    $prefix = ''; // 列出对象的前缀
-    $marker = ''; // 上次列出对象的断点
+    $prefix = ''; //列出对象的前缀
+    $marker = ''; //上次列出对象的断点
     while (true) {
         $result = $cosClient->listObjects(array(
             'Bucket' => $bucket,
             'Marker' => $marker,
-            'MaxKeys' => 1000 // 设置单次查询打印的最大数量，最大为1000
+            'MaxKeys' => 1000 //设置单次查询打印的最大数量，最大为1000
         ));
         foreach ($result['Contents'] as $rt) {
             // 打印key
             echo($rt['Key'] . "\n");
         }
-        $marker = $result['NextMarker']; // 设置新的断点
+        $marker = $result['NextMarker']; //设置新的断点
         if (!$result['IsTruncated']) {
-            break; // 判断是否已经查询完
+            break; //判断是否已经查询完
         }
     }
 } catch (\Exception $e) {
@@ -320,7 +320,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
     $key = "exampleobject"; //对象在存储桶中的位置，即称对象键
-    $localPath = @"F:/exampleobject"；//下载到本地指定路径
+    $localPath = @"F:/exampleobject";//下载到本地指定路径
     $result = $cosClient->getObject(array(
         'Bucket' => $bucket,
         'Key' => $key,
@@ -337,7 +337,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
     $key = "exampleobject"; //对象在存储桶中的位置，即称对象键
-    $localPath = @"F:/exampleobject"；//下载到本地指定路径
+    $localPath = @"F:/exampleobject";//下载到本地指定路径
     $result = $cosClient->getObject(array(
         'Bucket' => $bucket,
         'Key' => $key,
@@ -352,7 +352,7 @@ try {
 try {
     $bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
     $key = "exampleobject"; //对象在存储桶中的位置，即称对象键
-    $localPath = @"F:/exampleobject"；//下载到本地指定路径
+    $localPath = @"F:/exampleobject";//下载到本地指定路径
     $result = $cosClient->getObject(array(
         'Bucket' => $bucket,
         'Key' => $key,

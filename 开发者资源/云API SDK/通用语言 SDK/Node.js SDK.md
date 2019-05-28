@@ -133,7 +133,7 @@ client.DescribeZones(req, function(errMsg, response) {
 
 ## 更多示例
 
-您可以在 GitHub 仓库中 examples 目录下找到更详细的示例。
+您可以在 GitHub 仓库中 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/tree/master/examples) 下找到更详细的示例。
 
 ## 旧版 SDK
 我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往 [GitHub 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。

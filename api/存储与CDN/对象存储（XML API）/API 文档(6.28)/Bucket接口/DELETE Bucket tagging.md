@@ -61,7 +61,7 @@ Authorization: Auth String
 
 ### 请求
 
-如下请求申请删除存储桶`examplebucket-1250000000`中下已有的标签信息。COS 解析该请求后删除该存储桶下所有标签。
+如下请求申请删除存储桶`examplebucket-1250000000`下已有的标签信息。COS 解析该请求后删除该存储桶下所有标签。
 
 ```shell
 DELETE /?tagging HTTP/1.1
