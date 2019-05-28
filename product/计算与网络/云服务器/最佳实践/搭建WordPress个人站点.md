@@ -113,11 +113,11 @@ server {
 ```
 
 #### 验证 PHP- Nginx 环境配置
-1.执行以下命令，在 Web 目录下创建`index.php`文件。
+1. 执行以下命令，在 Web 目录下创建`index.php`文件。
 ```
 # vim /usr/share/nginx/html/index.php
 ```
-2.按“**i**”或 “**Insert**” 键切换至编辑模式，写入如下内容。
+2. 按“**i**”或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
 <?php
 	echo "hello world!";
