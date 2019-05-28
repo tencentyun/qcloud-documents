@@ -5,7 +5,8 @@
 寻找到您所需要的商品后，选择您所需的商品规格以及周期，单击【立即购买】。
 ![](https://main.qcloudimg.com/raw/f8e44fc8b6cfa20b924231b585f67cb1.png)  
 
-## 核对信息并支付   
+## 核对信息并支付 
+核对订单信息，单击【确认购买】后进行支付。
 ![](https://main.qcloudimg.com/raw/896ed9348be80711e7ed30d5826a2bad.png)
 ![](https://main.qcloudimg.com/raw/ca02d32d22de8515b10ad034df5fb9b8.png)
 
