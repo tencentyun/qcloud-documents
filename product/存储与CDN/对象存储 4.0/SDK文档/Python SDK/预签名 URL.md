@@ -1,5 +1,5 @@
 ## 简介
-Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久秘钥或临时秘钥获取预签名 URL 的调用方法相同，使用临时秘钥时需要在 header 或 query_string 中加上 x-cos-security-token。
+Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
 
 
 ## 获取签名
