@@ -1,8 +1,5 @@
-数字版权管理（Digital Rights Management，DRM），对于在线教育和行业培训等领域都是十分重要的。视频文件的泄露，有可能造成十分严重的经济损失。
 
-针对视频行业对于版权保护的需求，云点播提出了一套基础级别的 DRM 方案，使用 HLS 的普通 AES 加密技术对视频内容加密，保障您的内容安全。
-
-您可以通过 [点播文件加密 DEMO](http://demo.vod.qcloud.com/encryption/index.html) 了解该 DRM 方案，登录用户名：test，密码：111111。
+针对视频行业对于版权保护的需求，云点播提出了一套基础级别的 DRM（数字版权管理） 方案，使用 HLS 的普通 AES 加密技术对视频内容加密，保障您的内容安全。您可以通过 [点播文件加密 DEMO](http://demo.vod.qcloud.com/encryption/index.html) 了解该 DRM 方案，登录用户名：test，密码：111111。
 
 ## 点播 HLS 普通加密方案
 

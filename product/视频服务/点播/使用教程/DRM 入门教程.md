@@ -1,12 +1,12 @@
 本教程将详细地指导您如何使用云点播的 DRM 功能，包括视频上传、视频加密、部署鉴权服务及播放器解密播放的全部流程。
 
+>! 点播商业级 DRM 尚在推广阶段，需要您 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请特殊配置后方可体验。
 ## 前提条件
 
 - 准备工具：
 	* Python 2.7 运行环境。
 	* Chrome 浏览器。
 - [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
-- 点播商业级 DRM 尚在推广阶段，需要您 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请特殊配置后方可体验。
 
 登录 [腾讯云控制台](https://console.cloud.tencent.com)，选择左上角【云产品】>【视频服务】>【云点播】，进入云点播控制台。
 
