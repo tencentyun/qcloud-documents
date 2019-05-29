@@ -526,5 +526,6 @@
     <td class="tg-s268">✓</td>
   </tr>
 </table>
+
 >!  
 各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
