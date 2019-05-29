@@ -147,7 +147,7 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
       <td>String</td>
    </tr>
    <tr>
-      <td>x-cos-server-side-encryption</td>
+      <td nowrap="nowrap">x-cos-server-side-encryption</td>
       <td>如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256</td>
       <td>String</td>
    </tr>
