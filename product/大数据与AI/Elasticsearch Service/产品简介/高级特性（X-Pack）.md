@@ -34,7 +34,7 @@
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
 
 >!  
-监控、SQL，**白金版、基础版** 包含，开源版不包含。
+监控、SQL，**白金版、基础版** 包含，开源版不包含。 不过，SQL支持方面，开源版是集成了其他的 SQL 插件，详细了解和使用，可查看：[elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)
 
 - **监控**  
 集群、节点、索引多个维度，全方位监控，实时了解集群运行情况，辅助应用开发及运维。  
@@ -46,7 +46,7 @@
 ![](https://main.qcloudimg.com/raw/ca19a8665919a85b9a08b5d9451ec3de.png)
 
 >!  
-目前开源版也集成了其他的 SQL 插件，详细使用，可查看：[elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)
+目前开源版也
 
 更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
