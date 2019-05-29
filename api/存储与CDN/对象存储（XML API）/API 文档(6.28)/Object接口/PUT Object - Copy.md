@@ -135,10 +135,24 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 
 #### 特有响应头
 
-| 名称         | 描述          | 类型     |
-| --------- | ---------- | ------ |
-|x-cos-version-id|目标存储桶中复制对象的版本。只有开启或开启后暂停的存储桶，才会响应此参数|String|
-| x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256。 | String |
+<table>
+   <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>类型</th>
+   </tr>
+   <tr>
+      <td>x-cos-version-id</td>
+      <td>目标存储桶中复制对象的版本，只有开启或开启后暂停的存储桶，才会响应此参数</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>x-cos-server-side-encryption</td>
+      <td>如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256</td>
+      <td>String</td>
+   </tr>
+</table>
+
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
