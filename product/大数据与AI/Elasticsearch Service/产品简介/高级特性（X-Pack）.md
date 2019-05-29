@@ -83,25 +83,25 @@
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-s268">管理和工具</td>
+    <td class="tg-s268"><a href="#manage_tool">管理和工具</a></td>
     <td class="tg-s6z2">◑</td>
     <td class="tg-s6z2">◑</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-s268">Security</td>
+    <td class="tg-s268"><a href="#2">Security</a></td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-s268">Alerting</td>
+    <td class="tg-s268"><a href="#3">Alerting</a></td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-s268">Machine Learning</td>
+    <td class="tg-s268"><a href="#3">Machine Learning</a></td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">○</td>
     <td class="tg-s6z2">⚫</td>
@@ -313,5 +313,218 @@
   </tr>
 </table>
 
+>图例说明：  
+下表中✓用于表示是否拥有对应特性的功能，✓：表示具备；空白：表示不具备。
+<table class="tg">
+  <tr>
+    <th class="tg-s268">Elasticsearch功能模块</th>
+    <th class="tg-s268">细项</th>
+    <th class="tg-s268">开源版</th>
+    <th class="tg-s268">基础版</th>
+    <th class="tg-s268">白金版</th>
+  </tr>
+  <tr>
+    <td class="tg-s268" rowspan="11"><a name="manage_tool">管理和工具</a></td>
+    <td class="tg-s268">REST API</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">语言客户端</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">快照/恢复</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">_仅源快照</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">SQL 解释器 CLI</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">数据汇总</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">索引生命周期管理</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">冻结索引</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">升级助手 API</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">JDBC 客户端</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">ODBC 客户端</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268" rowspan="14">Security</td>
+    <td class="tg-s268">加密通信</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">基于角色的访问控制</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">文件和原生身份验证</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">审核日志</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">IP 筛选</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">LDAP、PKI*和活动目录身份验证</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">Elasticsearch 令牌服务</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">单点登录身份验证（SAML、Kerberos*）</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">基于属性的权限控制</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">字段和文档级别安全性</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">第三方整合（自定义身份验证和授权 Realm）</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">授权 Realm</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">静态数据加密支持</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">FIPS 140-2 模式</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268" rowspan="2">警报提醒</td>
+    <td class="tg-s268">高可用性、可扩展警报</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">通过电子邮件、Slack、PagerDuty、Jira 或 Webhook<br>&nbsp;&nbsp;发送通知</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268" rowspan="6">机器学习</td>
+    <td class="tg-s268">时序型异常监测</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">输入/实体分析</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">日志消息分类</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">根本原因指示</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">异常情况警报</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">时序型预测</td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268"></td>
+    <td class="tg-s268">✓</td>
+  </tr>
+</table>
 >!  
 各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
