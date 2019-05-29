@@ -192,13 +192,14 @@ _config.watermarkPos = (CGPoint){10, 10};
 ### step 8: 本地录制
 使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoPath 可以指定 MP4 文件的存放路径。
 - 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
-- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参见 [云端录制](https://cloud.tencent.com/document/product/454/7917)。
 - stopRecord 调用之后，录制出来的文件会通过 TXLiveRecordListener 通知出来。
 
 ```objectivec
 -(int) startRecord:(NSString *)videoPath;
 -(int) stopRecord;
 ```
+
+>? 云直播提供云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### step 9: 后台推流
 常规模式下，App 一旦切到后台，摄像头的采集能力就会被 iOS 暂时停止掉，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
