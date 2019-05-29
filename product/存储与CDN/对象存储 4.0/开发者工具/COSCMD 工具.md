@@ -48,18 +48,18 @@ python setup.py install
 >!Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
 ### 离线安装
+>! 请确保两台机器的 Python 版本保持一致，否则会出现安装失败的情况。
+
 ```sh
 # 在有外网的机器下运行如下命令
 mkdir coscmd-packages
 pip download coscmd -d coscmd-packages
 tar -czvf coscmd-packages.tar.gz coscmd-packages
+
+# 将安装包拷贝到没有外网的机器后运行如下命令
+tar -xzvf coscmd-packages.tar.gz
+pip install coscmd --no-index -f coscmd-packages
 ```
->! 请确保两台机器的 Python 版本保持一致，否则会出现安装失败的情况。
->```sh
-># 将安装包拷贝到没有外网的机器后运行如下命令
->tar -xzvf coscmd-packages.tar.gz
->pip install coscmd --no-index -f coscmd-packages
->```
 
 ## 使用方法
 
@@ -140,15 +140,15 @@ coscmd config [-h] -a SECRET_ID -s SECRET_KEY [-t TOKEN] -b BUCKET
 
 | 名称             | 描述                                                         | 有效值 |
 | :--------------- | :----------------------------------------------------------- | :----- |
-| SECRET_ID        | 必选参数，APPID 对应的密钥 ID 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
-| SECRET_KEY       | 必选参数，APPID 对应的密钥 Key 可从 COS 控制台左侧栏【密钥管理】或 [云 API 密钥控制台]( https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
+| SECRET_ID        | 必选参数，密钥 ID 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
+| SECRET_KEY       | 必选参数，密钥 Key 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
 | BUCKET           | 必选参数，指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，可参阅 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | 字符串 |
 | REGION           | 必选参数，存储桶所在地域，参考 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 字符串 |
 | MAX_THREAD       | 可选参数，多线程操作时的最大线程数（默认为5）                | 数字   |
 | PART_SIZE        | 可选参数，分块上传的单块大小（单位为 MB，默认为1MB）         | 数字   |
-| ENDPOINT         | 可选参数，设置请求的 endpoint，设置 ENDPOINT 参数后 REGION 参数会失效 | 字符串 |
+| ENDPOINT         | 可选参数，设置请求的 ENDPOINT，设置 ENDPOINT 参数后 REGION 参数会失效 | 字符串 |
 | TOKEN            | 可选参数，临时密钥 token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 字符串 |
-| --do-not-use-ssl | 使用 http 协议，而不使用 https                                  |        |
+| --do-not-use-ssl | 使用 HTTP 协议，而不使用 HTTPS                                  |    字符串    |
 
 
 >!
@@ -246,9 +246,9 @@ coscmd upload -rs /data/examplefolder data/examplefolder --ignore *.txt,*.doc
  >- COSCMD 分块上传时会对每一块进行 MD5 校验。
  >- COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 md5 值。
  >- 使用 -s 参数可以使用同步上传，跳过上传 md5 一致的文件（COS 上的原文件必须是由 1.8.3.2 之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header）。
- >- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，示例：`coscmd upload -H '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部可参考 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。
+ >- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd upload -H '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部可参考 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。
  >- 在上传文件夹时，使用 --ignore 参数可以忽略某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
- >- 目前只支持上传最大40TB 的单一文件。
+ >- 目前只支持上传最大40TB的单一文件。
 
 ### 下载文件或文件夹
 - 下载文件命令如下：
@@ -336,7 +336,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 >!
 >- sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 >- 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
->- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 json，示例：`coscmd copy -H -d Replaced '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部可参考 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
+>- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部可参考 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
 
 
 ### 打印文件列表
