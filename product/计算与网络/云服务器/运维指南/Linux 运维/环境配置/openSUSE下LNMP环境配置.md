@@ -42,7 +42,7 @@ yum install mysql mysql-server mysql-devel
 ```
 2. 执行以下命令，启动 MySQL 服务。
 ```
-service mysqld start
+service mysql start
 ```
 3. 执行以下命令，登录 MySQL。
 ```
