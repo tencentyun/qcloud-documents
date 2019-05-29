@@ -4,12 +4,11 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)。
 2. 注册设备，并获取设备密钥。
 3. 按照物联网通信约束生成 username 字段， username 字段格式如下：
-```
+ ```
  productid;devicename;sdkappid;connid;过期时间
-```
+ ```
  
- 
-其中各字段含义如下：
+ 其中各字段含义如下：
 
 | 字段          | 含义                                       |
 | ----------- | ---------------------------------------- |
@@ -30,49 +29,50 @@ token;hmac签名方法
  例如，用户生成签名，其 Python 代码示例如下：
  ```
  #!/bin/env python
-    
-    import base64
-    import hashlib
-    import hmac
-    import random
-    import string
-    import time
-    
-    # 生成指定长度的随机字符串
-    def RandomConnid(length):
-            return  ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(length))
-    
-    # 生成接入物联云需要的各参数
-    def IotHmac(productid, devicename, devicekey):
-    
-            # 1. 生成connid为一个随机字符串,方便后台定位问题
-            connid   = RandomConnid(5)
-    
-            # 2. 生成过期时间,表示签名的过期时间,从纪元1970年1月1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串
-            expiry   = int(time.time()) + 60 * 60 
-    
-            # 3. 生成MQTT的clientid部分
-            clientid = "{}{}".format(pid, dname):
-    
-            # 4. 生成mqtt的username部分
-            username = "{};12010126;{};{}".format(clientid, connid, expiry)
-    
-            # 5. 对username进行签名,生成token
-            token = hmac.new(devicekey.decode("base64"), username, digestmod=hashlib.sha256).hexdigest()
-    
-            # 6. 根据物联云通信平台规则生成password字段
-            password = "{};{}".format(token, "hmacsha256")
-    
-            return {
-                "clientid" : clientid,
-                "username" : username,
-                "password" : password
-            }
+# -*- coding: utf-8 -*-
+
+import base64
+import hashlib
+import hmac
+import random
+import string
+import time
+
+# 生成指定长度的随机字符串
+def RandomConnid(length):
+        return  ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(length))
+
+# 生成接入物联网通信需要的各参数;输入参数: 产品ID,设备名称,设备密钥
+def IotHmac(productID, devicename, devicePsk):
+
+        # 1. 生成connid为一个随机字符串,方便后台定位问题
+        connid   = RandomConnid(5)
+
+        # 2. 生成过期时间,表示签名的过期时间,从纪元1970年1月1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串
+        expire   = int(time.time()) + 60 * 60 
+
+        # 3. 生成MQTT的clientid部分
+        clientid = "{}{}".format(productID, devicename)
+
+        # 4. 生成mqtt的username部分
+        username = "{};12010126;{};{}".format(clientid, connid, expire)
+
+        # 5. 对username进行签名,生成token
+        token = hmac.new(devicePsk.decode("base64"), username, digestmod=hashlib.sha256).hexdigest()
+
+        # 6. 根据物联云通信平台规则生成password字段
+        password = "{};{}".format(token, "hmacsha256")
+
+        return {
+            "clientid" : clientid,
+            "username" : username,
+            "password" : password
+        }
+
+print (IotHmac("YOUR_PRODUCT_ID","YOUR_DEVICE_NAME","YOUR_PSK"))
   ```
 
    
-
-
 7. 将步骤六将上面生成的 possword 字段填入 mqtt connect 报文中，即可完成接入。
  - 将 clientid 填入到 mqtt 的 clientid 字段；
  - 将 username 填入到 mqtt 的 username 字段；
