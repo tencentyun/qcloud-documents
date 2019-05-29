@@ -1,29 +1,29 @@
 ## 简介
-高级特性，Elasticsearch 官方商业特性（原X-Pack 商业版插件），包含了安全-权限管理（Security）、SQL、JDBC、告警（Alerting）、机器学习（Machine Learning）、监控等能力，可以为集群多用户权限管理，JDBC开发，以及日志分析等业务应用场景提供有力帮助，腾讯云 ES 提供了包含商业特性的版本，可以在创建购买集群时选择。
+高级特性，是指Elasticsearch 官方商业特性（原X-Pack 商业版插件包含的特性），包含了安全(Security)、SQL、告警(Alerting)、机器学习(Machine Learning)、监控(monitor)等高级功能，可以为 Elasticsearch 服务的的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，以下为各版本详细功能介绍。
 
-## 高级特性说明
-![](https://main.qcloudimg.com/raw/de50a8ca3ee5ae61ca140e4ce5aa497c.png)
 
-上图为 腾讯云 ES 创建购买页高级特性版本选项的说明。腾讯云 ES 提供了 3 种可选的高级特性版本，其中基础版和白金版均集成了官方的商业特性（原X-Pack插件），开源版不包含；白金版包含了全部商业特性，基础版只包含了部分。为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择白金版，各版本具体功能介绍及区别如下。
+## 选购指引
 
-### 基础版高级特性
-以下为基础版部分能力说明，基础版和白金版都具备，开源版没有。
-- **监控**
+![](https://main.qcloudimg.com/raw/2a4012362412758e950aff249bf4e4a3.png)
 
-![](https://main.qcloudimg.com/raw/012416b4755bed7e6cf8b57d0d0fa23a.png)
+如上图所示，在腾讯云 ES 创建购买页，有高级特性版本选项。腾讯云 ES 提供了 3 种可选的高级特性版本，其中基础版和白金版均集成了官方的商业特性（原X-Pack插件），开源版不包含；白金版包含了全部商业特性，基础版只包含了部分。
 
-- **SQL**
-提供了同传统数据库相同的 SQL 语句，对 Elasticsearch 数据进行全文搜索和分析，以及 JDBC 连接等。可以实现同原有业务系统的无缝对接，降低新技术学习成本。
+| 对比项 | 基础版 | 白金版 | 开源版 |
+|---------|---------|---------|---------|
+| 是否包含 X-Pack |✓ | ✓ |✕ |
+| X-Pack 功能完整度 |部分 | 全部 |无 |
 
-![](https://main.qcloudimg.com/raw/ca19a8665919a85b9a08b5d9451ec3de.png)
+**购买推荐**  
+为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择 **白金版**，各版本具体功能介绍及区别如下，产品的定价信息详见 [定价](https://cloud.tencent.com/document/product/845/18376)。
 
-目前开源版也集成了其他的 SQL 插件，详细使用，可查看：[elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)
+## 高级特性
 
 ### 白金版高级特性
-部以下为白金版部分能力说明，，只有白金版拥有，基础版和开源版都没有。
+>!  
+安全、告警、机器学习白金版特有，开源和基础版不包含。
 
-- **安全-权限管理**
-多用户、分角色、权限控制能力，通过该项功能，可以向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
+- **安全(Security)**
+支持索引和字段级别，读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
 
 ![](https://main.qcloudimg.com/raw/e5106097fd4976e8e666061d619f16f3.png)
 
@@ -35,170 +35,282 @@
 - **机器学习（Machine Learning）**
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
 
+### 基础版高级特性
+以下为基础版部分能力说明，基础版和白金版都具备，开源版没有。 
+
+- **监控**  
+集群、节点、索引多个维度，全方位监控，实时了解集群运行情况，辅助应用开发及运维。  
+![](https://main.qcloudimg.com/raw/012416b4755bed7e6cf8b57d0d0fa23a.png)
+
+- **SQL**  
+提供了通过传统数据库 SQL 工具 ，实现对 Elasticsearch 数据进行全文本检索、数据统计分析功能，支持CLI、 REST等接入方式，**白金版还支持 JDBC 连接**。可以实现同原有业务系统的无缝对接，降低新技术学习成本。
+
+![](https://main.qcloudimg.com/raw/ca19a8665919a85b9a08b5d9451ec3de.png)
+
+>!  
+目前开源版也集成了其他的 SQL 插件，详细使用，可查看：[elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)
+
 更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 ### 高级特性版本功能详细对比
+
+<table class="tg">
+  <tr>
+    <th class="tg-s268">模块</th>
+    <th class="tg-s268">特性</th>
+    <th class="tg-s268">开源版</th>
+    <th class="tg-s268">基础版</th>
+    <th class="tg-s268">白金版</th>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="7">Elasticsearch</td>
+    <td class="tg-s268">可扩展性和弹性</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">查询和分析</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">数据扩充</td>
+    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">管理和工具</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">◑</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">Security</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">Alerting</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-s268">Machine Learning</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">○</td>
+    <td class="tg-s6z2">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="8">Kibana</td>
+    <td class="tg-0lax">探索和可视化</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">堆栈管理和工具</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">堆栈监测</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">分享与合作</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">本地化 UI</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Security</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Alerting</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Machine Learning</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="4">Beats</td>
+    <td class="tg-0lax">数据收集</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">数据传输</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">模块</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">监测和管理</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="5">Logstash</td>
+    <td class="tg-0lax">数据收集</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">数据扩充</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">数据传输</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">模块</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">监测和管理</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">◑</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="7">ELASTIC APM</td>
+    <td class="tg-0lax">APM 服务器</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">APM 代理</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Kibana 中的 APM 仪表板</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">APM UI</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">分布式追踪</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Alerting  整合</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Machine  Learning 整合</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="3">ELASTIC 日志</td>
+    <td class="tg-0lax">日志采集器（Filebeat）</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">常用数据源的仪表板</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Logs UI</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="3">ELASTIC 基础设施</td>
+    <td class="tg-0lax">指标采集器（Metricbeat）</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">常用数据源的仪表板</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Infrastructure  UI</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax" rowspan="3">ELASTIC 运行状态监控</td>
+    <td class="tg-0lax">运行状态监测（Heartbeat）</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Kibana 里的运行状态仪表板</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">运行状态监测 UI</td>
+    <td class="tg-baqh">○</td>
+    <td class="tg-baqh">⚫</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+</table>
+
+>!  
 各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
-
-<table>
-<thead>
-<tr>
-<th colspan="2"align="center"width="30%">Elastic Stack</th>
-<th align="center">开源版</th>
-<th align="center">基础版</th>
-<th align="center">白金版</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-    <td rowspan="7">Elasticsearch</td>
-<td align="center">可扩展性和弹性</td>
-<td align="center">****</td>
-<td align="center">****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">查询和分析</td>
-<td align="center">****</td>
-<td align="center">****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">数据扩充</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">管理和工具</td>
-<td align="center">*</td>
-<td align="center">****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Security</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Alerting</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Machine Learning</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td rowspan="8">Kibana</td>
-<td align="center">探索和可视化</td>
-<td align="center">**</td>
-<td align="center">***</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">堆栈管理和工具</td>
-<td align="center">*</td>
-<td align="center">***</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">堆栈监测</td>
-<td align="center">-</td>
-<td align="center">*</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">分享与合作</td>
-<td align="center">*</td>
-<td align="center">***</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">本地化 UI</td>
-<td align="center">***</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Security</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Alerting</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">Machine Learning</td>
-<td align="center">-</td>
-<td align="center">-</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td rowspan="4">Beats</td>
-<td align="center">数据收集</td>
-<td align="center">****</td>
-<td align="center">****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">数据传输</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">模块</td>
-<td align="center">**</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">监测和管理</td>
-<td align="center">-</td>
-<td align="center">***</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td rowspan="5">Logstash</td>
-<td align="center">数据收集</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">数据扩充</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">数据传输</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">模块</td>
-<td align="center">*</td>
-<td align="center">*****</td>
-<td align="center">*****</td>
-</tr>
-<tr>
-<td align="center">监测和管理</td>
-<td align="center">-</td>
-<td align="center">**</td>
-<td align="center">*****</td>
-</tr>
-</tbody></table>
-
-
-
