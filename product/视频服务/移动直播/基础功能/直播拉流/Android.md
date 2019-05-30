@@ -268,7 +268,13 @@ mLivePlayer.setConfig(mPlayConfig);
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发 URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法见 [直播播放（播放防盗链）](https://cloud.tencent.com/document/product/267/32733#.E6.92.AD.E6.94.BE.E9.98.B2.E7.9B.97.E9.93.BE)。
+bizid 的获取需要进入[域名管理](https://console.cloud.tencent.com/live/domainmanage)页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
+![](https://main.qcloudimg.com/raw/521bdb80c4fedfe8c140d47793dd9013/bizid.png)
+如果您的防盗链地址为:
+rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34
+则加速流地址为：
+rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
