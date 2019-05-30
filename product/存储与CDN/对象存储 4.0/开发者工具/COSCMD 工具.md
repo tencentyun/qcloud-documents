@@ -131,7 +131,7 @@ coscmd upload -h  //查看 upload 命令使用方法
 ### 配置参数
 
 COSCMD 工具在使用前需要进行参数配置，用户可以通过如下命令来配置：
-```
+```shell
 coscmd config [OPTION]...<FILE>...
 			  [-h] --help
 			  [-a] <SECRET_ID>
