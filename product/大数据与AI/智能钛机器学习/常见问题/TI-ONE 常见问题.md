@@ -33,7 +33,7 @@
 
 ### COS 上传数据太慢怎么办？
 
-建议使用 COS 客户端，具体操作可参考：[COSBrowser 工具使用说明](ttps://cloud.tencent.com/document/product/436/11366)。
+建议使用 COS 客户端，具体操作可参考：[COSBrowser 工具使用说明](https://cloud.tencent.com/document/product/436/11366)。
 
 
 ### 每个账号创建工作流的数量是否有限制？
