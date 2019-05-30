@@ -21,11 +21,10 @@ DiskInternals Linux Reader 软件的获取方式：`http://www.diskinternals.com
 4. 在弹出的窗口中，选择重装后的 Windows 云服务器，单击【确定】。
 
 ### 查看数据盘信息 
-1. 运行 DiskInternals Linux Reader 软件，即可查看刚挂载的数据盘信息。如下图所示：
+1. 运行 DiskInternals Linux Reader 软件，即可查看刚挂载的数据盘信息。`/root/mnt`和`/root/mnt1`分别为重装前 Linux 云服务器数据盘的 vdb1 和 vdb2 两个分区。如下图所示：
 >! 此时 Linux 数据盘为只读。若需要将此数据盘作为 Windows 数据盘进行读写操作，请先将需要的文件备份，重新格式化成 Windows 操作系统支持的标准类型，具体操作见 [Windows 云服务器数据盘分区和格式化](/doc/product/213/2158)。
 >
 ![](//mccdn.qcloud.com/static/img/de1d02ddf0793da5911e0bece70a4993/image.png)
-`/root/mnt`和`/root/mnt1`分别为重装前 Linux 云服务器数据盘的 vdb1 和 vdb2 两个分区。
 2. 双击进入`/root/mnt`目录内，右键单击要拷贝的文件，选择【Save】，保存文件。如下图所示：
 ![](//mc.qcloudimg.com/static/img/b8b520159cf23b8450bc38de377a4e0f/image.png)
 
