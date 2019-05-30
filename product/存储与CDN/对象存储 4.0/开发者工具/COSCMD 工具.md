@@ -20,12 +20,13 @@
 
 #### 安装及配置
 
-环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
+- 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
+- pip 环境安装与配置详细操作请参考 [官网 pip 安装说明](https://pip.pypa.io/en/stable/installing/)。
 
 ## 下载与安装
 
 ### pip 安装
-  执行`pip`命令进行安装：
+执行`pip`命令进行安装：
 ```shell
 pip install coscmd
 ```
@@ -36,7 +37,7 @@ pip install coscmd
 ```sh
 pip install coscmd -U
 ```
->! 当 pip 版本大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
+>! 当 pip 版本号大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
 ### 源码安装（不推荐）
 源码下载地址：[单击此处](https://github.com/tencentyun/coscmd.git)。
@@ -131,29 +132,43 @@ coscmd upload -h  //查看 upload 命令使用方法
 
 COSCMD 工具在使用前需要进行参数配置，用户可以通过如下命令来配置：
 ```
-coscmd config [-h] -a SECRET_ID -s SECRET_KEY [-t TOKEN] -b BUCKET
-                     (-r REGION | -e ENDPOINT) [-m MAX_THREAD] [-p PART_SIZE]
-                     [-u APPID] [--verify VERIFY] [--do-not-use-ssl]
-                     [--anonymous ANONYMOUS]    
+coscmd config [OPTION]...<FILE>...
+			  [-h] --help
+			  [-a] <SECRET_ID>
+			  [-s] <SECRET_KEY>
+			  [-t] <TOKEN>
+			  [-b] <BucketName-APPID>
+              [-r] <REGION> | [-e] <ENDPOINT>
+              [-m] <MAX_THREAD>
+              [-p] <PART_SIZE>
+              [--do-not-use-ssl]
+              [--anonymous]   
 ```
-上述示例中使用 "<>" 的字段为必选参数，使用 "[]" 的字段为可选参数，其中：
 
-| 名称             | 描述                                                         | 有效值 |
-| :--------------- | :----------------------------------------------------------- | :----- |
-| SECRET_ID        | 必选参数，密钥 ID 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
-| SECRET_KEY       | 必选参数，密钥 Key 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 |
-| BUCKET           | 必选参数，指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，可参阅 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | 字符串 |
-| REGION           | 必选参数，存储桶所在地域，参考 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 字符串 |
-| MAX_THREAD       | 可选参数，多线程操作时的最大线程数（默认为5）                | 数字   |
-| PART_SIZE        | 可选参数，分块上传的单块大小（单位为 MB，默认为1MB）         | 数字   |
-| ENDPOINT         | 可选参数，设置请求的 ENDPOINT，设置 ENDPOINT 参数后 REGION 参数会失效 | 字符串 |
-| TOKEN            | 可选参数，临时密钥 token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 字符串 |
-| --do-not-use-ssl | 使用 HTTP 协议，而不使用 HTTPS                                  |    字符串    |
+>?其中 "[]" 中的字段为选项， "<>" 的字段为需要填写的参数。
+
+一般情况下，如果你只需要进行简单的配置，则配置以下四个参数即可，如下图所示：
+![](https://main.qcloudimg.com/raw/fcb18c4999121af5d11ca7a3fd854a45.png)
+
+参数配置说明如下：
+
+| 选项             | 参数说明                                                     | 是否必选 | 有效值 |
+| :--------------- | :----------------------------------------------------------- | ------- | ------ |
+| -a               | 密钥 ID 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 是       | 字符串 |
+| -s               | 密钥 Key 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 是       | 字符串 |
+| -t               | 临时密钥 token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 否       | 字符串 |
+| -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，可参阅 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | 是       | 字符串 |
+| -r               | 存储桶所在地域，参考 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 是       | 字符串 |
+| -e               | 设置请求的 ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效  | 否       | 字符串 |
+| -m               | 多线程操作（默认为5，范围为1-30）                            | 否       | 数字   |
+| -p               | 分块上传的单块大小（单位MB，默认为1MB，范围为1-1000）        | 否       | 数字   |
+| --do-not-use-ssl | 使用 HTTP 协议，而不使用 HTTPS                               | 否       | 字符串 |
+| --anonymous      | 匿名操作(不携带签名)                                         | 否       | 字符串 |
 
 
 >!
-1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于`我的文档`下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
-  配置完成之后的`.cos.conf`文件内容示例如下所示：
+1. 可以直接编辑 `~/.cos.conf` 文件 （在 Windows 环境下，该文件是位于 `我的文档` 下的一个隐藏文件），该文件初始时不存在，是通过 `coscmd config` 命令生成，用户也可以手动创建。
+  配置完成之后的 `.cos.conf` 文件内容示例如下所示：
 ```shell
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbp****
@@ -164,9 +179,9 @@ max_thread = 5
 part_size = 1
 schema = https
 ```
-2. 可以在配置文件中增加`schema`项来选择 `http/https`，默认为 `https`。
-3. 可以在`anonymous`项中选择`True/False`，来使用匿名模式，即签名保持为空。
-4. 存储桶的命名格式为 BucketName-APPID。
+2. 可以在配置文件中增加 `schema` 项来选择 `http/https`，默认为 `https`。
+3. 可以在 `anonymous` 项中选择 `True/False`，来使用匿名模式，即签名保持为空。
+
 
 
 
