@@ -17,8 +17,10 @@
 为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择 **白金版**，各版本具体功能介绍及区别如下，产品的定价信息详见 [定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本章节介绍了部分常用高级特性，完整的高级特性 list ，可通过文末的链接进行详细了解。
+本章节对部分常用高级特性进行了说明介绍，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+
 >!  
+部分功能在不同的高级特性版本（基础、白金、开源）间有区别，请注意查看本文的说明。
 安全、告警、机器学习 **白金版** 特有，开源和基础版不包含。
 
 - **安全(Security)**  
@@ -51,9 +53,9 @@
 
 ![](https://main.qcloudimg.com/raw/ca19a8665919a85b9a08b5d9451ec3de.png)
 
-更多功能，请参考官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
-
 ### 高级特性版本功能详细对比
+
+本章节对各版本的部分重点功能进行了对比说明，完整的功能对比，可查看官方介绍 [Elastic各版本功能说明](https://www.elastic.co/cn/subscriptions)。
 
 >图例说明：  
 下表中⚫、◑、○用于表示对应特性的功能完整度，⚫：包含全部功能；◑：包含部分功能；○：不包含。
@@ -531,5 +533,4 @@
   </tr>
 </table>
 
->!  
-各版本支持的具体功能详情请参见 [官方 Elastic Stack 介绍](https://www.elastic.co/cn/subscriptions)。
+
