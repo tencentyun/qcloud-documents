@@ -1,6 +1,6 @@
 完成磁带网关及磁带的创建之后，您可以通过 Symantec NetBackup 备份软件将数据备份到虚拟磁带、对磁带进行存档以及管理虚拟磁带库 （VTL） 设备。下面将以 NetBackup 8 为例介绍如何通过 NBU 程序配置存储、将数据写入磁带、存档磁带以及还原数据。
 
-有关如何使用 NetBackup 的详细信息，请参考 Veritas 网站上的 [使用帮助](https://www.veritas.com/content/support/zh_CN/DocumentBrowsing.html?product=NetBackup)。
+有关如何使用 NetBackup 的详细信息，请参考 Veritas 网站上的 [使用帮助](https://www.veritas.com/content/support/zh_CN/search-results.html?q=*&fq=((document_type%3A%22document%22)%20AND%20(product_name%3A%22NetBackup%22)%20AND%20(locale%3A%22zh_CN%22))%20AND%20version%3A(%228.1.2%22)&docRepo=true&requestedRecords=20)。
 
 ## 连接 VTL 设备
 

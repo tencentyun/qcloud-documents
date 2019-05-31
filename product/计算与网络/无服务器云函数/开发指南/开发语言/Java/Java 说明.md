@@ -1,7 +1,6 @@
 SCF 云函数在 Java 运行时环境中提供了 Java8 的运行环境。
 
 Java 语言由于需要编译后才可以在 JVM 虚拟中运行，因此在 SCF 中的使用方式，和 Python、Node.js 这类脚本型语言不太一样，有如下限制：
-
 * 不支持上传代码：使用 Java 语言，仅支持上传已经开发完成，编译打包后的 zip/jar 包。SCF 云函数环境不提供 Java 的编译能力。
 * 不支持在线编辑：不能上传代码，所以不支持在线编辑代码。Java 运行时的函数，在代码页面仅能看到再次通过页面上传或 COS 提交代码的方法。
 
@@ -34,11 +33,11 @@ public class Hello {
 * 事件入参及返回参数类型支持
 	* Java 基础类型，包括 byte，int，short，long，float，double，char，boolen 这八种基本类型和包装类，也包含 String 类型。
 	* POJO 类型，Plain Old Java Object，您应使用可变 POJO 及公有 getter 和 setter，在代码中提供相应类型的实现。
-
 * Context 入参
 	* 使用 Context 需要在代码中使用 `com.qcloud.scf.runtime.Context;` 引入包，并在打包时带入 jar 包。
 	* 如不使用此对象，可在函数入参中忽略，可写为`public String mainHandler(String name)`
 
+>! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-java-libs)获取 java 的库并使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-java-libs/issues/new) 或提交工单说明。
 
 ## 日志
 

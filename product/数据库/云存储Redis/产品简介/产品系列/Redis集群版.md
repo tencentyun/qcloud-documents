@@ -1,4 +1,4 @@
-Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采用分布式架构，支持垂直和水平的扩缩容，拥有高度的灵活性、可用性和高达千万级 QPS 的高性能。Redis 集群版支持水平方向3分片 - 128分片的扩展，垂直方向1个 - 5个副本集的扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
+Redis 集群版（社区）是腾讯云基于社区版 Redis 4.0 打造的全新版本，采用分布式架构，支持垂直和水平的扩缩容，拥有高度的灵活性、可用性和高达千万级 QPS 的高性能。Redis 集群版支持水平方向3分片 - 128分片的扩展，垂直方向1个 - 5个副本集的扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
 
 ## 集群规格
 - 分片规格（GB）：4、8、12、16、20、24、28、32
@@ -8,7 +8,7 @@ Redis 集群版是腾讯云基于社区版 Redis 4.0 打造的全新版本，采
 ## 集群模式
 - Redis集群模式数据将会自动分片，系统将提供数据均衡，数据迁移功能。
 - 集群模式支持的分片规格为4GB - 32GB。
-- 集群模式的命令相对与非集群模式有一定的兼容性，主要体现在跨 Slot 数据访问，详细说明请参见 [使用限制](https://cloud.tencent.com/document/product/239/18336?!preview&!editLang=zh#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
+- 集群模式的命令相对与非集群模式有一定的兼容性，主要体现在跨 Slot（槽位）数据访问，详细说明请参见 [使用限制](https://cloud.tencent.com/document/product/239/18336?!preview&!editLang=zh#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)。
 
 ## 副本说明
 - 副本数等于1时，Redis 提供数据主从实时热备，提供数据高可靠和高可用，HA 系统监测到节点故障后，会将请求切换到从节点，并且新增一个从节点加入到系统。
@@ -55,12 +55,6 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - SLAVEOF
 - SYNC / PSYNC
 
-集群版暂时不支持事务相关的命令，相关命令包括如下：
-- MULTI
-- EXEC
-- DISCARD
-- UNWATCH
-
 其他不支持的命令：
 - DEBUG 
 - PFDEBUG
@@ -86,12 +80,12 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 集群版目前支持跨 Slot 访问的命令包括：
 - MGET
 - MSET
+- DEL
 
 目前不支持跨 Slot 执行的命令，系统会返回如下错误：
  `(error) CROSSSLOT Keys in request don't hash to the same slot`
  
 不支持跨 Slot 访问的命令如下：
-- DEL
 - UNLINK
 - EXISTS
 - BRPOP
@@ -104,6 +98,14 @@ Redis 集群版自动启动分片模式，通过将不同的 Key 分配到多个
 - MSETNX
 - PFCOUNT
 - PFMERGE
+
+**事务支持**
+集群版支持事务相关的命令，但是事务必须以WATCH命令开始，事务中的KEY要求存储在相同的SLOT中，WATCH的KEY需要和事务相关的KEY保持在同一SLOT，集群模式下的事务使用建议使用HashTag。支持的相关命令包括如下：
+- WATCH
+- MULTI
+- EXEC
+- DISCARD
+- UNWATCH
      
 **自定义命令：**
 Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用体验，对业务的使用带来的极大的便利，但是对运维不够透明，因此通过自定义命令来弥补这块空缺，支持集群中每个节点的访问，支持方式为在原有命令的参数列表最右边新增一个参数【节点ID】，COMMAND arg1 arg2 ... [节点ID]，节点 ID 可通过`cluster nodes`命令，或者在控制台中获取：
@@ -133,6 +135,8 @@ Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用
 - INFO	 
 - MEMORY
 - SLOWLOG
+- FLUSHDB
+- PING
 - KEYS （支持 hashtag，优先匹配 hashtag）
 - SCAN（支持 hashtag，优先匹配 hashtag）
 

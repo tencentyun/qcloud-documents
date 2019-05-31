@@ -1,25 +1,33 @@
-## 概述
-在本 Demo 中，我们用到了无服务器云函数 SCF，对象存储 COS，云数据库 MySQL。其中，对象存储 COS 用来存储需要分析的日志文件，无服务器云函数 SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
+## 操作场景
+在本文档示例中，我们用到了无服务器云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
 
+## 操作步骤
+<span id="step01"></span>
+### 创建 COS Bucket
+1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)。
+2. 创建一个 Bucket，命名为 loganalysis，并选择北京地域，权限选择“公有读-私有写”。
 
-## 步骤 1. 创建 COS Bucket
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos) 创建一个 Bucket，我们命名为 loganalysis，并选择北京地域，权限选择“公有读-私有写”。
+<span id="step02"></span>
+### 创建 MySQL 云数据库
+创建一个 MySQL 云数据库。
+由于数据库需要付费购买，您可以选择在北京地域购买 [云数据库 MySQL 入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)。
 
-## 步骤 2. 创建 MySQL 云数据库
-由于数据库需要花钱购买，您可以选择在北京地域购买最便宜的 [云数据库MySQL入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)，价格为 12 元/月。
-
-## 步骤 3. 创建云函数 SCF
-### 创建准备
-1. 首先确保在您的系统中已经安装好了 Python 运行环境和 pip 工具，然后在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，直接执行命令安装数据库操作相关的库：
+<span id="step03"></span>
+### 创建云函数 SCF
+#### 创建准备
+1. 确保在您的系统中已经安装好了 Python 运行环境和 pip 工具。
+2. 在本地创建需要放置函数代码的文件夹，并通过命令行进入该目录下，直接执行命令安装数据库操作相关的库：
 ```
 pip install cos-python-sdk-v5 -t .
 pip install pymysql -t .
 pip install cryptography -t .
 ```
-2. 在函数代码文件夹的根目录下，使用下面的示例代码创建 Python 文件，可以命名为：LogAnalysis.py。
-3. Python 文件保存后，回到根目录下，对所有文件进行打包（**请注意不是对外层的文件夹打包**）；另外还需要保证：**LogAnalysis.py 存在于根目录下，压缩包需要为 zip 格式**。
+3. 在函数代码文件夹的根目录下，使用 [示例代码](#SampleCode) 创建 Python 文件，可以命名为：LogAnalysis.py。
+4. Python 文件保存后，返回根目录，并在根目录下对所有文件进行打包。
+>! 请在在根目录下打包，而不是对外层的文件夹打包。另外，还需要保证：**LogAnalysis.py 存在于根目录下，压缩包需要为 zip 格式**。
 
-#### 示例代码
+<span id="SampleCode"></span>
+##### 示例代码
 ```
 # -*- coding: utf-8 -*-
 from qcloud_cos import CosConfig
@@ -194,23 +202,25 @@ def main_handler(event, context):
         print("Write to database successfully {}", datetime.fromtimestamp(time()).strftime('%Y-%m-%d %H:%M:%S'))
         return "LogAnalysis Success"
 ```
-> **注意：**
-在使用本段代码的时候，需要把 appid、secret_id 和 secret_key 替换为您自己的 APPID、SecretId 和 SecretKey 方能使用，您可以在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 中查看对应信息。
+>! 在使用本段代码时，您需要将 appid、secret_id 和 secret_key 替换为您自己的 APPID、SecretId 和 SecretKey，您可以在 [云 API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 中查看对应信息。
 
-### 创建步骤
-打包完成后，我们就可以前往 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list/1) 进行部署。
-1. 选择北京地域，单击【新建】，命名函数为 Demo3_LogAnalysis，函数超时时间修改为 10 秒，内存默认 128MB 即可，单击【下一步】。
-2. 选择 **本地上传 zip 包**，执行方法填写：LogAnalysis.main_handler，保存后单击【下一步】。
-3. 添加触发方式为 COS 触发，选择之前创建好的 Bucket：loganalysis，事件类型为文件上传，单击【保存】>【完成】，完成函数部署。
+#### 创建步骤
+1. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list/1)。
+2. 选择北京地域，单击【新建】。
+3. 将函数名称命名为 Demo3_LogAnalysis，函数超时时间修改为10秒，内存默认128MB，单击【下一步】。
+3. 选择**本地上传 zip 包**，执行方法填写：LogAnalysis.main_handler，保存后单击【下一步】。
+4. 添加触发方式为 COS 触发，选择之前创建好的 Bucket：loganalysis，事件类型为文件上传，单击【保存】>【完成】，完成函数部署。
 
-在这里，您也可以直接从 [GitHub 下载](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis) 项目文件，并打成 zip 包，通过控制台创建函数并完成部署，请注意：
-1. 在打包 zip 文件时，请不要包含“demo-scf1.txt”和“demo-scf2.txt”，否则 zip 包有可能会超过 5MB；
-2. 在函数代码中需修改 appid、secret_id 和secret_key 并保存。
+您也可以直接从 [GitHub 下载](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis) 项目文件，并打成 zip 包，通过控制台创建函数并完成部署。
+>! 
+> 1. 在打包 zip 文件时，请不要包含“demo-scf1.txt”和“demo-scf2.txt”，否则 zip 包有可能会超过 5MB。
+> 2. 在函数代码中需修改 appid、secret_id 和secret_key 并保存。
 
-## 步骤 4. 测试函数功能
-1. 进入对象存储控制台，选择创建好的 Bucket：loganalysis，单击【上传文件】，选择 [GitHub](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis) 中提供的样例日志文件 demo-scf1.txt，然后上传。
-2. 进入无服务器云函数控制台查看执行结果，在 **日志** 中可以看到打印出来的日志信息。
-3. 前往 MySQL 管理界面，查看分析结果。
-4. 依照前面的三个步骤上传 demo-scf2.txt，然后查看 SCF 的执行结果和 MySQL 中的分析结果。
+### 测试函数功能
+1. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的 Bucket：loganalysis，单击【上传文件】。
+2. 在弹出的“上传文件”窗口中，选择 [GitHub](https://github.com/Masonlu/SCF-Demo/tree/master/Demo3_LogAnalysis) 中提供的样例日志文件 demo-scf1.txt，单击【确定上传】。
+3. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**日志**中可以看到打印出来的日志信息。
+4. 切换至 MySQL 管理界面，查看分析结果。
+5. 依照 [创建 COS Bucket](#step01)、[创建 MySQL 云数据库](#step02) 和 [创建云函数 SCF](#step03) 步骤上传 demo-scf2.txt，以及查看 SCF 的执行结果和 MySQL 中的分析结果。
 
 这里可以根据您自身的日志格式编写具体的处理方法，数据库的写方法也可以改成增量写。

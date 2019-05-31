@@ -3,7 +3,7 @@
 
 ## 初始化 SDK
 
-使用 TRTC SDK 的第一步，是先创建一个 `TRTCCloud` 的实例对象，并注册监听 SDK 事件的回调。
+使用 TRTC SDK 的第一步，是先通过`getTRTCShareInstance`导出接口获取一个 `TRTCCloud` 单实例对象的指针`ITRTCCloud*`，并注册监听 SDK 事件的回调。
 
 - 继承`ITRTCCloudCallback`事件回调接口类，重写关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件、警告事件等。
 - 调用`addCallback`接口注册监听 SDK 事件。
@@ -13,7 +13,7 @@
 ```c++
 // TRTCMainViewController.h
 
-// 继承 TRTCCloudListener 事件回调接口类
+// 继承 ITRTCCloudCallback 事件回调接口类
 class TRTCMainViewController : public ITRTCCloudCallback
 {
 public:
@@ -28,7 +28,7 @@ public:
     virtual void onUserExit(const char* userId, int reason);
 ...
 private:
-	TRTCCloud * m_pTRTCSDK = NULL；
+	ITRTCCloud * m_pTRTCSDK = NULL；
 ...
 }
 
@@ -37,7 +37,7 @@ private:
 TRTCMainViewController::TRTCMainViewController()
 {
     // 创建 TRTCCloud 实例
-    m_pTRTCSDK = new TRTCCloud;
+    m_pTRTCSDK = getTRTCShareInstance();
     
     // 注册 SDK 回调事件
     m_pTRTCSDK->addCallback(this);
@@ -52,7 +52,7 @@ TRTCMainViewController::~TRTCMainViewController()
     
     // 释放 TRTCCloud 实例
 	  if(m_pTRTCSDK != NULL) {
-        delete m_pTRTCSDK;
+       destroyTRTCShareInstance();
         m_pTRTCSDK = null;
     }
 }
@@ -69,17 +69,17 @@ virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* 
 
 ## 组装 TRTCParams
 
-TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 SDKAppid，userId，userSig 和 roomId。
+TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
 
-- **SDKAppid**
-  进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppid。
- ![](https://main.qcloudimg.com/raw/af782656b5042abce3dd8dc1f164791e.png)
+- **sdkAppId**
+  进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
+  ![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
 
 - **userId**
   您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-  基于 SDKAppid 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+  基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
   房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
@@ -89,7 +89,7 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 调用 `enterRoom` 函数进入房间时，除了需要 TRTCParams 参数，还需要一个叫做 **appScene** 的参数，该参数是指定应用场景用的。
 
 - **VideoCall** 对应视频通话场景，即绝大多数时间都是两人或两人以上视频通话的场景，内部编码器和网络协议优化侧重流畅性，降低通话延迟和卡顿率。
-- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。		
+- **LIVE** 对应直播场景，即绝大多数时间都是一人直播，偶尔有多人视频互动的场景，内部编码器和网络协议优化侧重性能和兼容性，性能和清晰度表现更佳。						
 - 如进入房间，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed`代表进入耗时，单位ms。
 - 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码`ERR_ROOM_ENTER_FAIL`，错误码可参考`TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 - 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 

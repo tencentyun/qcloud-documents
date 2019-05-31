@@ -28,10 +28,10 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "codeDesc": "Success",
     "data": {
         "authInfo": {
-            "vpnGwAddr": <带外vpn地址>,
-            "userName": <带外vpn用户名>,
-            "userGroup": <带外vpn用户域信息>,
-            "be_first": <true or false>
+            "vpnGwAddr": "<带外vpn地址>",
+            "userName": "<带外vpn用户名>",
+            "userGroup": "<带外vpn用户域信息>",
+            "be_first": "<true or false>"
         }
     }
 }

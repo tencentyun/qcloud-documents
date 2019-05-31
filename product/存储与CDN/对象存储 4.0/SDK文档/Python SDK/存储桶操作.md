@@ -1,0 +1,280 @@
+## 简介
+
+本文档提供关于存储桶的基本操作和访问控制列表（ACL）的相关 API 概览以及 SDK 示例代码。
+
+**基本操作**
+
+| API                                                          | 操作名             | 操作描述                           |
+| ------------------------------------------------------------ | ------------------ | ---------------------------------- |
+| [GET Service](https://cloud.tencent.com/document/product/436/8291) | 查询存储桶列表	|查询指定账号下所有的存储桶列表|
+| [PUT Bucket](https://cloud.tencent.com/document/product/436/7738) | 创建存储桶         | 在指定账号下创建一个存储桶         |
+| [HEAD Bucket](https://cloud.tencent.com/document/product/436/7735) | 检索存储桶及其权限 | 检索存储桶是否存在且是否有权限访问 |
+| [DELETE Bucket](https://cloud.tencent.com/document/product/436/7732) | 删除存储桶         | 删除指定账号下的空存储桶           |
+
+**访问控制列表**
+
+| API                                                          | 操作名         | 操作描述              |
+| ------------------------------------------------------------ | -------------- | --------------------- |
+| [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) | 设置存储桶 ACL | 设置指定存储桶访问权限控制列表 |
+| [GET Bucket acl](https://cloud.tencent.com/document/product/436/7733) | 查询存储桶 ACL	|查询存储桶的访问控制列表|
+
+## 基本操作
+
+### 查询存储桶列表
+
+#### 功能说明
+
+用于查询指定账号下所有存储桶列表（GET Service）。
+
+#### 方法原型
+
+```
+list_buckets()
+```
+
+#### 请求示例
+
+```python
+response = client.list_buckets()
+```
+
+#### 返回结果说明
+
+查询存储桶列表，类型为 dict。
+
+```python
+{
+    'Buckets': {
+        'Bucket': [
+            {
+                'Name': 'string',
+                'Location': 'string',
+                'CreationDate': 'string'
+            },
+        ],
+    },
+    'Owner': {
+        'DisplayName': 'string',
+        'ID': 'string'
+    }
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+| Buckets   | 存储量列表  | Dict |
+| Bucket   | 存储量列表 | List |
+| Name   |  存储桶名称  | String|
+| Location   |  存储桶所在的地域名  | String|
+| CreationDate   |  存储桶创建的时间  | String|
+| Owner   |  存储桶所有者信息  | Dict|
+| DisplayName   |  存储桶所有者的名字信息  | String|
+| ID   | 存储桶所有者 ID | String|
+
+
+### 创建存储桶
+
+#### 功能说明
+
+在指定账号下创建一个存储桶（PUT Bucket）。
+
+#### 方法原型
+
+```
+create_bucket(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.create_bucket(
+    Bucket='examplebucket-1250000000',
+    ACL='private'|'public-read'|'public-read-write',
+    GrantFullControl='string',
+    GrantRead='string',
+    GrantWrite='string'	
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|待创建的存储桶名称，由 BucketName-APPID 构成|String| 是|
+| ACL |设置存储桶的 ACL，如 'private'，'public-read'，'public-read-write' |String| 否|
+| GrantFullControl |赋予指定账户对存储桶的读写权限。格式为`id="[OwnerUin]"`|String|否|
+|GrantRead |赋予指定账户对存储桶的读权限。格式为`id="[OwnerUin]"`|String|否|
+| GrantWrite|赋予指定账户对存储桶的写权限。格式为`id="[OwnerUin]"`|String|否|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+
+### 检索存储桶及其权限
+
+#### 功能说明
+
+检索存储桶是否存在且是否有权限访问（HEAD Bucket）。
+
+#### 方法原型
+
+```
+head_bucket(Bucket)
+```
+#### 请求示例
+
+```python
+response = client.head_bucket(
+    Bucket='examplebucket-1250000000'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket |待查询的存储桶名称，由 BucketName-APPID 构成|String|是|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+
+### 删除存储桶
+
+#### 功能说明
+
+删除指定账号下的空存储桶（DELETE Bucket）。
+
+#### 方法原型
+
+```
+delete_bucket(Bucket)
+```
+#### 请求示例
+
+```python
+response = client.delete_bucket(
+    Bucket='examplebucket-1250000000'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket |待删除的存储桶名称，由 BucketName-APPID 构成|String|是|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+
+## 访问控制列表
+
+### 设置存储桶 ACL
+
+#### 功能说明
+
+设置指定存储桶的访问权限控制列表（PUT Bucket acl）。
+
+#### 方法原型
+
+```
+put_bucket_acl(Bucket, AccessControlPolicy={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.put_bucket_acl(
+    Bucket='examplebucket-1250000000',
+    ACL='private'|'public-read'|'public-read-write',
+    GrantFullControl='string',
+    GrantRead='string',
+    GrantWrite='string',
+    AccessControlPolicy={
+        'Grant': [
+            {
+                'Grantee': {
+                    'DisplayName': 'string',
+                    'Type': 'CanonicalUser'|'Group',
+                    'ID': 'string',
+                    'URI': 'string'
+                },
+                'Permission': 'FULL_CONTROL'|'WRITE'|'READ'
+            },
+        ],
+        'Owner': {
+            'DisplayName': 'string',
+            'ID': 'string'
+        }
+    }
+)
+```
+
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String|是|
+| ACL |设置存储桶的 ACL，如 'private'，'public-read'，'public-read-write' |String| 否|
+| GrantFullControl |赋予指定账户对存储桶的读写权限。格式为`id="[OwnerUin]"`|String|否|
+|GrantRead |赋予指定账户对存储桶的读权限。格式为`id="[OwnerUin]"`|String|否|
+| GrantWrite|赋予指定账户对存储桶的写权限。格式为`id="[OwnerUin]"`|String|否|
+| AccessControlPolicy| 赋予指定账户对存储桶的访问权限，具体格式见 get bucket acl 返回结果说明|Dict|否 |
+
+#### 返回结果说明
+该方法返回值为 None。
+
+### 查询存储桶 ACL
+
+#### 功能说明
+
+查询指定存储桶的访问权限控制列表（GET Bucket acl）。
+
+#### 方法原型
+
+```
+get_bucket_acl(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_bucket_acl(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket |Bucket 名称，由 BucketName-APPID 构成|String|是|
+
+
+#### 返回结果说明
+
+Bucket ACL 信息，类型为 dict。
+```python
+{
+    'Owner': {
+        'DisplayName': 'string',
+        'ID': 'string'
+    },
+    'Grant': [
+        {
+            'Grantee': {
+                'DisplayName': 'string',
+                'Type': 'CanonicalUser'|'Group',
+                'ID': 'string',
+                'URI': 'string'
+            },
+            'Permission': 'FULL_CONTROL'|'WRITE'|'READ'
+        },
+    ]
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| Owner |存储桶拥有者的信息，包括 DisplayName 和 ID|Dict|
+| Grant |存储桶权限授予者的信息，包括 Grantee 和 Permission|List|
+| Grantee |权限授予者的信息，包括 DisplayName，Type，ID 和 URI|Dict|
+| DisplayName |权限授予者的名字|String|
+| Type |权限授予者的类型，类型为 CanonicalUser 或者 Group|String|
+| ID |Type 为 CanonicalUser 时，对应权限授予者的 ID|String|
+| URI |Type 为 Group 时，对应权限授予者的 URI|String|
+| Permission |授予者所拥有的存储桶的权限，可选值有 FULL_CONTROL，WRITE，READ，分别对应读写权限、写权限、读权限|String|

@@ -11,7 +11,7 @@
 
 ### 1. 下载  SDK
 
-[下载 SDK](https://github.com/TencentVideoCloudTRTC/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80.md)，解压并打开，包含以下几个部分：
+[下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下几个部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
@@ -20,7 +20,7 @@
 
 ### 2. 新建工程
 
-打开Visual Studio，新建一个名字叫 TRTCDemo 的 MFC 应用程序，如下图所示：
+打开 Visual Studio，新建一个名字叫 TRTCDemo 的 MFC 应用程序，如下图所示：
 ![](https://main.qcloudimg.com/raw/645623e01a65858e23123af52ec15bc2.png)
 
 为了便于介绍如何快速集成，在向导的**应用程序类型**页面，我们选择比较简单的**基于对话框**类型，如下图所示：
@@ -38,28 +38,28 @@
 打开 TRTCDemo 属性页，在【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，请按照以下步骤进行配置：
 
 - **添加包含目录**
-在【C/C++】>【常规】>【附件包含目录】，添加 SDK 头文件目录 $(ProjectDir)LiteAVSDK\include，如下图所示：
-![](https://main.qcloudimg.com/raw/ca5fcb65bad66a57b6b7446e6c92c986.png)
+在【C/C++】>【常规】>【附件包含目录】，添加 SDK 头文件目录 $(ProjectDir)LiteAVSDK\include 和 $(ProjectDir)LiteAVSDK\include\TRTC，如下图所示：
+![](https://main.qcloudimg.com/raw/b4bf2ccdfcc498c96c7eb28a4429bda2.png)
 
 - **添加库目录**
 在【链接器】>【常规】>【附加库目录】，添加 SDK 库目录 $(ProjectDir)LiteAVSDK\lib，如下图所示：
-![](https://main.qcloudimg.com/raw/55ec832996c5355acc9215f67351fed2.png)
+  ![](https://main.qcloudimg.com/raw/55ec832996c5355acc9215f67351fed2.png)
 
 - **添加库文件**
 在【链接器】>【输入】>【附加依赖项】，添加 SDK 库文件 liteav.lib，如下图所示：
-![](https://main.qcloudimg.com/raw/2d78d5e833668ac009f5d2c04f9ec7aa.png)
+  ![](https://main.qcloudimg.com/raw/2d78d5e833668ac009f5d2c04f9ec7aa.png)
 
 - **添加 copy 命令**
 在【生成事件】>【后期生成事件】>【命令行】，添加拷贝命令 copy /Y "$(ProjectDir)LiteAVSDK\lib\\\*.dll" "\$(OutDir)"，能够在编译完成后，自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
-![](https://main.qcloudimg.com/raw/f6d626301b74d85dd6e7eb8577648988.png)
+  ![](https://main.qcloudimg.com/raw/f6d626301b74d85dd6e7eb8577648988.png)
 
 ### 5. 打印 SDK 版本号
 
-- 在 CTRTCDemoDlg::OnInitDialog 函数中，添加下面的测试代码：
+- 在 CTRTCDemoDlg::OnInitDialog 函数中，添加下面的测试代码
 
 ```c++
-TXString version = TRTCCloud::getSDKVersion();
-
+ITRTCCloud * pTRTCCloud = getTRTCShareInstance();
+std::string version(pTRTCCloud->getSDKVersion());
 CString szText;
 szText.Format(L"SDK version: %hs", version.c_str());
 

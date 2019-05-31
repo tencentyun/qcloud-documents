@@ -1,4 +1,4 @@
-Kibana 页面访问及使用，具体可查看 [访问 Kibana 页面](https://cloud.tencent.com/document/product/845/17146)。
+Kibana 页面访问及使用，具体可查看 [访问 Kibana 页面](https://cloud.tencent.com/document/product/845/19541)。
 
 由于 Kibana 页面通过公网访问，需要进行一定的安全限制，包括密码和IP黑白名单，可在详情页，访问控制部分设置相应的策略，详情如下：
 ![密码重置](https://main.qcloudimg.com/raw/3fa85f997895ed2e21b1abe9f7c1f9ee.png)

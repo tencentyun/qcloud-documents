@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT Bucket Referer 接口用于为存储桶设置 Referer 白名单或者黑名单。
+PUT Bucket referer 接口用于为存储桶设置 Referer 白名单或者黑名单。
 
 ## 请求
 
@@ -36,13 +36,13 @@ Content-MD5:MD5
    </tr>
    <tr>
       <td nowrap="nowrap">Content-Length</td>
-      <td>RFC 2616中定义的 HTTP 请求内容长度（字节）。</td>
+      <td>RFC 2616中定义的 HTTP 请求内容长度（字节）</td>
       <td>String</td>
       <td>是</td>
    </tr>
    <tr>
       <td>Content-MD5</td>
-      <td>RFC 1864中定义的经过 Base64 编码的128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。</td>
+      <td>RFC 1864中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值，此头部用来校验文件内容是否发生变化</td>
       <td>String</td>
       <td>是</td>
    </tr>
@@ -56,13 +56,13 @@ Content-MD5:MD5
 
 ```shell
 <RefererConfiguration>
-  <Status></Status>
-  <RefererType></RefererType>
+  <Status>Enabled</Status>
+  <RefererType>White-List</RefererType>
   <DomainList>
-    <Domain></Domain>
-    <Domain></Domain>
+    <Domain>*.qq.com</Domain>
+    <Domain>*.qcloud.com</Domain>
   </DomainList>
-  <EmptyReferConfiguration></EmptyReferConfiguration>
+  <EmptyReferConfiguration>Allow</EmptyReferConfiguration>
 </RefererConfiguration>
 ```
 

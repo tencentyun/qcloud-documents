@@ -43,8 +43,12 @@ public class SASRtest {
         }
 
         //调用sendVoice函数获得音频识别结果
-        SASRsdk.sendVoice();
-    }
-}
-```
+       try{ 
+            SASRsdk.sendVoice(); 
+       }catch (Exception e){ 
+          e.printStackTrace(); 
+       } 
+       }
+       }
+  ```
 

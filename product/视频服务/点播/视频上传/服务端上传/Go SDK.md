@@ -83,7 +83,7 @@ func main() {
 ```
 
 ### 指定任务流
-传入任务流参数，具体的任务流介绍参考 [参数模板与任务流](https://cloud.tencent.com/document/product/266/11700)，上传成功后会自动执行任务流。
+传入任务流参数，具体的任务流介绍参考 [参数模板与任务流](https://cloud.tencent.com/document/product/266/33475#.E5.8F.82.E6.95.B0.E6.A8.A1.E6.9D.BF)，上传成功后会自动执行任务流。
 ```
 package main
 
@@ -159,7 +159,7 @@ func main() {
 | MediaName   | 媒体名称，若不填默认采用 MediaFilePath 的文件名。      | string 指针 | 否    |
 | CoverFilePath   | 封面文件路径。        | string 指针 | 否    |
 | CoverType   | 媒体文件类型，可选类型参考 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | string 指针 | 否    |
-| Procedure   | 任务流，具体的任务流介绍参考[任务流综述](/document/product/266/11700)。        | string 指针 | 否    |
+| Procedure   | 任务流，具体的任务流介绍参考[任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。        | string 指针 | 否    |
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | string 指针 | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](https://cloud.tencent.com/document/product/266/31772) 接口，创建分类，获得分类 ID。        | int64 指针 | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长 250 个字符。        | string 指针 | 否    |

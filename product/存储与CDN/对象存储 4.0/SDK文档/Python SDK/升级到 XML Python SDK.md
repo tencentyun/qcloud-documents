@@ -7,7 +7,6 @@
 | 功能       | XML Python SDK         | JSON Python SDK                         |
 | -------- | :------------: | :------------------:    |
 | 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式，支持断点续传<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB）| 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB|
-| 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
 | 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
@@ -35,10 +34,10 @@ XML Python SDK 新增 CosConfig 对象来管理您访问 COS 的配置，您可�
 JSON Python SDK 的初始化方式如下：
 
 ```
-secret_id = u'xxxxxxxx'      # 替换为用户的 secretId
-secret_key = u'xxxxxxx'      # 替换为用户的 secretKey
+secret_id = u'COS_SECRETID'      # 替换为用户的 secretId
+secret_key = u'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'sh'                # 替换为用户的 Region
-appid = 100000               # 替换为用户的appid
+appid = 100000               # 替换为用户的 appid
 cos_client = CosClient(appid, secret_id, secret_key, region=region)
 ```
 
@@ -55,8 +54,8 @@ import logging
 
 logging.basicConfig(level=logging.INFO, stream=sys.stdout)
 
-secret_id = 'xxxxxxxx'      # 替换为用户的 secretId
-secret_key = 'xxxxxxx'      # 替换为用户的 secretKey
+secret_id = 'COS_SECRETID'      # 替换为用户的 secretId
+secret_key = 'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'ap-shanghai'      # 替换为用户的 Region
 token = None                # 使用临时密钥需要传入 Token，默认为空，可不填
 scheme = 'https'            # 指定使用 http/https 协议来访问 COS，默认为 https，可不填
@@ -77,7 +76,7 @@ XML Python SDK 存储桶名称由两部分组成：用户自定义字符串 和 
 
 设置 Bucket ，请参考以下示例代码：
 ```
-bucket = "mybucket1-1250000000"
+bucket = "examplebucket-1250000000"
 file_name = "test.txt"
 local_path = 'local.txt'
 response = client.upload_file(
@@ -134,7 +133,7 @@ API 变化有以下四点：
 
 ```
 response = client.upload_file(
-    Bucket='test04-123456789',
+    Bucket='examplebucket-1250000000',
     LocalFilePath='local.txt',
     Key=file_name,
     PartSize=10,

@@ -13,7 +13,7 @@ TICSDK 虽然有登录/登出接口，但是登录时使用的是`userId`和`use
 
 开发者需要做的就是图片`开发者服务器`上标注的，调用工具生成 userSig，并返回给终端的逻辑（通常做法为在业务侧登录接口回包中返回`userSig`）。
 
->?开发调试阶段，也可以使用实时音视频控制台生成`userId`和`userSig`用于测试开发，详情请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
+>?开发调试阶段，也可以使用实时音视频控制台生成`userId`和`userSig`用于测试开发，生成方式请参考 [生成签名](https://cloud.tencent.com/document/product/647/17275)。
 
 #### 界面布局
 

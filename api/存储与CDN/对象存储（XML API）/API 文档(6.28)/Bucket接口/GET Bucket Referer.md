@@ -1,6 +1,6 @@
 ## 功能描述
 
-GET Bucket Referer 接口用于读取存储桶 Referer 白名单或者黑名单。
+GET Bucket referer 接口用于读取存储桶 Referer 白名单或者黑名单。
 
 ## 请求
 
@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization：Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization：Auth String （详请请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
@@ -35,7 +35,7 @@ Authorization: Auth String
 
 #### 公共响应头
 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -47,13 +47,13 @@ Authorization: Auth String
 
 ```shell
 <RefererConfiguration>
-  <Status></Status>
-  <RefererType></RefererType>
-  <DomainList>
-    <Domain></Domain>
-    <Domain></Domain>
-  </DomainList>
-  <EmptyReferConfiguration></EmptyReferConfiguration>
+	<Status>Enabled</Status>
+	<RefererType>White-List</RefererType>
+	<DomainList>
+		<Domain>*.qq.com</Domain>
+		<Domain>*.qcloud.com</Domain>
+	</DomainList>
+	<EmptyReferConfiguration>Allow</EmptyReferConfiguration>
 </RefererConfiguration>
 ```
 

@@ -45,37 +45,11 @@
 输出
 ```
 {
-    "code" : 0,
-    "message" : "ok",
-    "data" : [
-		"configFileInfo" : "ike keychain keychain1\r 
-                 pre-shared-key address 65.0.0.21 key simple key123\r  
-                 quit\rike proposal 1\r 
-                 encryption-algorithm aes-cbc-128\r 
-                 authentication-algorithm md5\r 
-                 dh group14\r sa Lifetime 60\r 
-                 quit\rike profile profile1\r 
-                 keychain keychain1\r 
-                 local-identity fqdn remote1\r 
-                 match remote identity fqdn local1\r 
-                 exchange-mode aggressive\r 
-                 quit\rike invalid-spi-recovery enable\ripsec transform-set transform-set1\r 
-                 esp authentication-algorithm sha1\r 
-                 esp encryption-algorithm aes-cbc-128\r 
-                 pfs dh-group1\r 
-                 quit\racl advanced 3001\r 
-                 rule permit ip source 55.55.55.55 0.0.0.255 destination 11.11.11.11 0.0.0.255\r
-                 ipsec policy policy1 1 isakmp\r 
-                 transform-set transform-set1\r 
-                 security acl 3001\r 
-                 remote-address 65.0.0.21\r 
-                 ike-profile profile1\r 
-                 sa Lifetime time-based 180\r 
-                 sa Lifetime traffic-based 2560\r 
-                 quit\rip unreachables enable\rinterface GigabitEthernet0/0\r 
-                 port link-mode route\r 
-                 ipsec apply policy policy1\r quit"
-	],
+	"code": 0,
+	"message": "ok",
+	"data": [{
+		"configFileInfo": "ike keychain keychain1\r \n                 pre-shared-key address 65.0.0.21 key simple key123\r  \n                 quit\rike proposal 1\r \n                 encryption-algorithm aes-cbc-128\r \n                 authentication-algorithm md5\r \n                 dh group14\r sa Lifetime 60\r \n                 quit\rike profile profile1\r \n                 keychain keychain1\r \n                 local-identity fqdn remote1\r \n                 match remote identity fqdn local1\r \n                 exchange-mode aggressive\r \n                 quit\rike invalid-spi-recovery enable\ripsec transform-set transform-set1\r \n                 esp authentication-algorithm sha1\r \n                 esp encryption-algorithm aes-cbc-128\r \n                 pfs dh-group1\r \n                 quit\racl advanced 3001\r \n                 rule permit ip source 55.55.55.55 0.0.0.255 destination 11.11.11.11 0.0.0.255\r\n                 ipsec policy policy1 1 isakmp\r \n                 transform-set transform-set1\r \n                 security acl 3001\r \n                 remote-address 65.0.0.21\r \n                 ike-profile profile1\r \n                 sa Lifetime time-based 180\r \n                 sa Lifetime traffic-based 2560\r \n                 quit\rip unreachables enable\rinterface GigabitEthernet0/0\r \n                 port link-mode route\r \n                 ipsec apply policy policy1\r quit"
+	}]
 }
 
 ```

@@ -45,4 +45,4 @@
     0: jdbc:phoenix:>CREATE INDEX my_index ON my_table (v1) INCLUDE (v2)；
     ```
     
-    更多二级索引操作说明，可查看 [Phoenix 二级索引社区文档](http://phoenix.apache.org/secondary_indexing.html), 有关使用二级索引后的性能，可查看 [二级索引性能](http://phoenix-bin.github.io/client/performance/latest.htm)。
+更多二级索引操作说明，可查看 [Phoenix 二级索引社区文档](http://phoenix.apache.org/secondary_indexing.html)。

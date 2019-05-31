@@ -30,7 +30,7 @@
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg" />
 
-**Window** 
+**Windows** 
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg" />
 

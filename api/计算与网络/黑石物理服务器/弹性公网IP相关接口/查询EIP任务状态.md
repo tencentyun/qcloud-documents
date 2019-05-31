@@ -29,7 +29,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "status": <当前任务状态码>
+        "status": "<当前任务状态码>"
     }
 }
 ```

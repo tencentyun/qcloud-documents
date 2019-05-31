@@ -1,0 +1,6 @@
+### SSL 证书  
+即安全套接层（SSL）数字证书，数字证书是一种用于电脑的身份识别机制。数字证书可以从 CA 机构获得。  
+### 超文本传输安全协议  
+超文本传输安全协议（Hypertext Transfer Protocol Secure，HTTPS)也被称为 HTTP over TLS、HTTP over SSL 或 HTTP Secure，是一种网络安全传输协议。在计算机网络上，HTTPS 经由超文本传输协议进行通信，但利用 SSL/TLS 来对数据包进行加密。  
+### CA 机构  
+数字证书认证机构（Certificate Authority，CA）是负责发放和管理数字证书的权威机构，并作为电子商务交易中受信任的第三方，承担公钥体系中公钥的合法性检验的责任。

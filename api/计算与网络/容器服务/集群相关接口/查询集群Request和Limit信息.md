@@ -56,7 +56,6 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 ### 输出
 ```
 {
-{
     "data":{
         "code":0,
         "message":"",
@@ -87,6 +86,5 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
     },
     "message":"",
     "code":0
-}
 }
 ```
