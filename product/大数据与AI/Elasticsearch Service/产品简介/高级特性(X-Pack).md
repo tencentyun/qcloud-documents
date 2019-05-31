@@ -41,7 +41,7 @@
 ### 高级特性版本功能详细对比
 本章节对各版本的部分重点功能进行了对比说明，完整的功能对比，可查看官方介绍 [Elastic 各版本功能说明](https://www.elastic.co/cn/subscriptions)。
 
->?下表中 ⚫、◑、〇 用于表示对应特性的功能完整度，⚫：包含全部功能；◑：包含部分功能；〇：不包含。
+>?下表中 ⚫、◑、- 用于表示对应特性的功能完整度，⚫：包含全部功能；◑：包含部分功能；-：不包含。
 
 <table class="tg">
   <tr>
@@ -78,20 +78,20 @@
   </tr>
   <tr>
     <td class="tg-s268"><a href="#Security">Security</a></td>
-    <td class="tg-s6z2">〇</td>
-    <td class="tg-s6z2">〇</td>
+    <td class="tg-s6z2">-</td>
+    <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#Alerting">Alerting</a></td>
-    <td class="tg-s6z2">〇</td>
-    <td class="tg-s6z2">〇</td>
+    <td class="tg-s6z2">-</td>
+    <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
-    <td class="tg-s6z2">〇</td>
-    <td class="tg-s6z2">〇</td>
+    <td class="tg-s6z2">-</td>
+    <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
@@ -109,7 +109,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">堆栈监测</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">⚫</td>
   </tr>
@@ -127,20 +127,20 @@
   </tr>
   <tr>
     <td class="tg-0lax">Security</td>
-    <td class="tg-baqh">〇</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
     <td class="tg-0lax">Alerting</td>
-    <td class="tg-baqh">〇</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine Learning</td>
-    <td class="tg-baqh">〇</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
@@ -164,7 +164,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">⚫</td>
   </tr>
@@ -195,7 +195,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">⚫</td>
   </tr>
@@ -220,26 +220,26 @@
   </tr>
   <tr>
     <td class="tg-0lax">APM UI</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
     <td class="tg-0lax">分布式追踪</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
     <td class="tg-0lax">Alerting  整合</td>
-    <td class="tg-baqh">〇</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine  Learning 整合</td>
-    <td class="tg-baqh">〇</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
@@ -257,7 +257,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">Logs UI</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
   </tr>
@@ -276,7 +276,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">Infrastructure  UI</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
   </tr>
@@ -295,7 +295,7 @@
   </tr>
   <tr>
     <td class="tg-0lax">运行状态监测 UI</td>
-    <td class="tg-baqh">〇</td>
+    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
   </tr>
