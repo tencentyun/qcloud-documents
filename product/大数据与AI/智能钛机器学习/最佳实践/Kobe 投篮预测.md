@@ -136,6 +136,6 @@
 
 **七. 运行调度及训练进度查看**
 
-详情请参考 [运行工作流](/tione/操作指南/基础操作说明/工作流运行.md)。
+详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。
 运行成功后，将光标放置于【BinaryEvaluator】，画布中将展示工作流评估结果：
  ![](https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png)
