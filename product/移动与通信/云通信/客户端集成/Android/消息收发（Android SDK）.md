@@ -1256,19 +1256,6 @@ public TIMMessage getLastMsg()
 public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
-### 禁用会话本地存储
-
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。IM SDK 提供了针对单个会话禁用本地存储的功能，开发者可以根据需要调用 `TIMConversationExt` 中的 `disableStorage` 接口禁用相应的会话本地存储。
- 
-**原型：**
-
-```
-/**
- * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
- * 需要初始后调用
- */
-public void disableStorage()
-```
 
 ### 设置会话草稿
 

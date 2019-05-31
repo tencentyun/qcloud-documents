@@ -38,8 +38,8 @@
 | opponent           | 字符串       | SAC/PHX/……                                                   |
 | shot_id            | 数值         | 1/2/3/4/5/……                                                 |
 
-**数据集具体内容抽样展示如下：**
-![](https://main.qcloudimg.com/raw/f5229a880452b74fcc49aeb1e7049a12.png)
+**数据集具体内容抽样展示如下（前八列）：**
+![](https://main.qcloudimg.com/raw/839e2d3e9b8bb72618302a470df46ad6.png)
 
 ## 案例相关材料
 

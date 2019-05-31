@@ -101,7 +101,7 @@ gameServer.onInitGameData = args => {
 |:---|---|---|
 |args|ActionArgs&lt;UserDefinedData&gt;|回调参数|
 
-ActionArgs 定义请参考 [ActionArgs 对象](ActionArgs对象)。
+ActionArgs 定义请参考 [ActionArgs 对象](https://cloud.tencent.com/document/product/1038/34992)。
 
 UserDefinedData 即玩家的消息类型，类型为 object。开发者可以根据需要进行自定义。
 
