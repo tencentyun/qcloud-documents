@@ -7,7 +7,7 @@ BGP 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超过
 用户可根据业务特点和防护需求，自定义防护策略实现更精准的 CC 攻击拦截。
 
 ## 操作步骤
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】，在【CC 攻击防护】页签，选择目标地域和高防包实例，。
+1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】，在【CC 攻击防护】页签，选择目标地域和高防包实例，进行 CC 防护配置。
 ![](https://main.qcloudimg.com/raw/ec16ed5e0a454ed99be648fc901054f5.png)
 1. 单击【CC 防护】右侧的<img src="https://main.qcloudimg.com/raw/cd0f9c22bb255091a244938a6bfbefaa.png"  style="margin:0;">开启 CC 防护。
 >?
@@ -32,4 +32,4 @@ BGP 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超过
 		-    当选择【限速模式】时，对每个源 IP 访问进行限速处理。只允许设置1个策略条件。
 ![](https://main.qcloudimg.com/raw/4722af1ff5b4eed7da5448d09a18f1f0.png)
 
- 5.单击【URL 白名单】、【IP 白名单】或【IP 黑名单】页签，进行黑白名单配置，支持添加、删除。
+1. 单击【URL 白名单】、【IP 白名单】或【IP 黑名单】页签，进行黑白名单配置，支持添加、删除。
