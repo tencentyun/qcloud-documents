@@ -107,12 +107,12 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 ![](https://main.qcloudimg.com/raw/9c1b6532351fc4c0d1daf9fba724a55e.png)
 4. 如果您还没有为您的自定义域名添加解析，请按照以下步骤添加您的自定义域名。
 a. 登录 [域名服务控制台](https://console.cloud.tencent.com/cns/domains)，单击左侧菜单栏【域名解析列表】，进入全部域名页面。单击【添加解析】，弹出添加解析对话框。
-![添加解析入口](https://main.qcloudimg.com/raw/5b72430b810e4a02d066018b082e7424.png)
+![](https://main.qcloudimg.com/raw/77a68240b2ebcaf47352e7e8038a382c.png)
 b. 输入自定义域名，项目选项选择默认项目，单击【确定】保存即可。注意：如无特殊需求，项目选项选择默认项目即可。
 ![添加解析弹窗](https://main.qcloudimg.com/raw/3c12489c4b45f223afd7f7cb43598e9c.png)
 c. 域名添加成功后，单击域名，进入解析记录管理页面。单击【添加记录】，弹出添加记录对话框。
 d. 主机记录按提示选填，记录类型选择 CNAME，线路类型选择默认，记录值请填写您的存储桶域名，TTL 保持默认，单击【确定】保存即可。添加解析完成后，15分钟左右生效，生效后您即可按照步骤3进行配置。
-![](https://main.qcloudimg.com/raw/206a967df2d970ca2c5dd6b90200ae5e.png)
+![](https://main.qcloudimg.com/raw/ef12eca13884d5e70438c51afab39d29.png)
 
 ### 新旧版本控制台差异
 当前新旧版本控制台的存储桶域名有所差别，以广州地域为例，新版本控制台的存储桶地域简称为 `ap-guangzhou`，旧版本存储桶则是 `cosgz`。有关域名详情请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
