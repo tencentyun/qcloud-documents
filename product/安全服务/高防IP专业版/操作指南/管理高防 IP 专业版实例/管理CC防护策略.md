@@ -7,7 +7,7 @@
 ## 开启 CC 防护
 **HTTP CC 防护**
 1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】，在【防护策略】页签下，选择目标实例。
-1. 在【HTTP CC】防护区域，单击【防护状态】右侧的<img src="https://main.qcloudimg.com/raw/cecd307c728bd0a11f3f1a217ca9b609.png"  style="margin:0;">开启 HTTP CC 防护，单击【http 请求数阈值】右侧的下拉框选择合适的阈值即可。
+1. 在【HTTP CC 防护】区域，单击【防护状态】右侧的<img src="https://main.qcloudimg.com/raw/cecd307c728bd0a11f3f1a217ca9b609.png"  style="margin:0;">开启 HTTP CC 防护，单击【http 请求数阈值】右侧的下拉框选择合适的阈值即可。
 ![](https://main.qcloudimg.com/raw/1103f838f668a545e9d72d7c5df8cd1c.png)
 >?CC 防护状态默认关闭。防护状态开启后，才可设置 HTTP 请求数阈值。
 
