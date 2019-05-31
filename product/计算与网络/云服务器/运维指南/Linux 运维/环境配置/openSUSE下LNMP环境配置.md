@@ -4,7 +4,7 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 
 ## 操作步骤
 ### 配置镜像源
-1. 执行以下命令，添加 Ysta 镜像源。
+1. 执行以下命令，添加镜像源。
 ```
 # zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/oss suseOss
 # zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/non-oss suseNonOss
