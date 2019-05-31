@@ -11,6 +11,8 @@ BGP 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 1. 在【HTTP CC】区域，单击【防护状态】右侧的<img src="https://main.qcloudimg.com/raw/9d7bb2c60a2b375acb45614f39e4986f.png"  style="margin:0;"> 开启 HTTP CC 防护，单击【http 请求数阈值】右侧的下拉框选择合适的阈值即可。
 ![](https://main.qcloudimg.com/raw/07e3226e2766c50e59f4b831335ed2e2.png)
 >?CC 防护状态默认关闭。防护状态开启后，才可设置 HTTP 请求数阈值。
+
+
 ## 自定义 CC 防护策略
 >? 
 - 需要开启 HTTP CC 防护，才可设置自定义 CC 防护策略，最多可添加5条。
