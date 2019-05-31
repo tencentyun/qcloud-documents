@@ -22,10 +22,10 @@
 
 - **安全（Security）**  
 支持索引和字段级别，读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
-![](https://main.qcloudimg.com/raw/e5106097fd4976e8e666061d619f16f3.png)
+![](https://main.qcloudimg.com/raw/ec7529df345ebbf27db0453292eafe8d.png)
 - **告警（Alerting）**  
 提供了针对数据变化的告警能力，并通过电子邮件等方式通知用户。如在日志分析场景中，结合 Elasticsearch 查询统计能力，监测到某类错误日志量突然增大，超过某个阈值时，触发告警。
-![](https://main.qcloudimg.com/raw/b6e782614017d54bc89222c72a35bda0.png)
+![](https://main.qcloudimg.com/raw/aece0801646fce642856f0b349b79379.png)
 - **机器学习（Machine Learning）**  
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
 
