@@ -18,7 +18,7 @@ MultiPullVodFile
 ## 事件通知
 文件上传成功可触发 [事件通知 - URL 转拉完成](/document/product/266/7831)。App 后台可据此监听点播系统中的 URL 拉取行为。
 
-更多请参见 [服务端事件通知简介](/document/product/266/7829)。
+更多请参见 [服务端事件通知简介](https://cloud.tencent.com/document/product/266/33779)。
 
 ## 请求方式
 
