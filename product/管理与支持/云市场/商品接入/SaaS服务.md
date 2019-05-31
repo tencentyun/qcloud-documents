@@ -15,7 +15,7 @@
 4. 进入商品管理页面，单击【新建】。  
 5. 选择“SaaS 交付”。   
 6. 填写商品信息。   
-![](https://main.qcloudimg.com/raw/4facac5cbf4ff29ed57d10d9c333b52b.png)   
+![](https://main.qcloudimg.com/raw/3043f8ddc80becde5b5cb0c48546b092.png)   
 **【填写说明】**   
 **商品名称**：必填，输入商品名称，80字内。   
 **商品分类**：必填，选择发布商品对应的分类。   
