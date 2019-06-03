@@ -6,6 +6,9 @@ TRTCCloud @ TXLiteAVSDK。
 
 ## 基础方法
 ### sharedInstance
+
+创建 TRTCCloud 单例。
+
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -482,7 +485,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录指出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
 
 
 ### setAudioRoute
@@ -971,8 +974,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_NV21。 |
-| bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
+| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420 或 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
+| bufferType | int | 指定视频帧的数据结构，TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER 或 TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_I420；TRTC_VIDEO_BUFFER_TYPE_TEXTURE 对应 pixelFormat 为 TRTC_VIDEO_PIXEL_FORMAT_Texture_2D。 |
 | listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
 __返回__
@@ -982,8 +985,8 @@ __返回__
 __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
-- pixelFormat 指定回调的数据格式，目前暂时只支持 NV21 和 I420 两种格式，纹理方案我们稍后提供。
-- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 java 层的直接操作。
+- pixelFormat 指定回调的数据格式，目前支持 Texture2D 和 I420 两种格式。
+- bufferType 指定 buffer 的类型，BYTE_BUFFER 适合在 jni 层使用，BYTE_ARRAY 则可用于 Java 层的直接操作。
 
 
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
@@ -1001,7 +1004,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 对方的用户标识。 |
-| pixelFormat | int | 指定视频帧的像素格式，如 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
+| pixelFormat | int | 指定视频帧的像素格式，目前仅支持 TRTC_VIDEO_PIXEL_FORMAT_I420。 |
 | bufferType | int | 指定视频帧的数据结构，如 TRTC_VIDEO_BUFFER_TYPE_BYTE_BUFFER， TRTC_VIDEO_BUFFER_TYPE_BYTE_ARRAY。 |
 | listener | [TRTCCloudListener.TRTCVideoRenderListener](https://cloud.tencent.com/document/product/647/32265#trtcvideorenderlistener) | 自定义视频渲染回调，每一帧视频数据回调一次。 |
 
@@ -1209,8 +1212,10 @@ __返回__
 
 成功返回时长，失败返回-1。
 
-
 ### setBGMPosition
+
+设置 BGM 播放进度。
+
 ```
 abstract int setBGMPosition(int pos)
 ```

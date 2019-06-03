@@ -1,4 +1,3 @@
-## TXLivePlayer
 
 __功能__
 
@@ -13,59 +12,59 @@ __介绍__
 
 
 
-### SDK 基础函数
-#### delegate
+## SDK 基础函数
+### delegate
 
-设置播放回调，见 “TXLivePlayListener.h” 文件中的详细定义。
+设置播放回调，见“TXLivePlayListener.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXLivePlayListener > delegate;
+@property (nonatomic, weak) id< TXLivePlayListener > delegate
 ```
 ***
-#### videoProcessDelegate
+### videoProcessDelegate
 
-设置视频处理回调，见 “TXVideoCustomProcessDelegate.h” 文件中的详细定义。
+设置视频处理回调，见“TXVideoCustomProcessDelegate.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate;
+@property (nonatomic, weak) id< TXVideoCustomProcessDelegate > videoProcessDelegate
 ```
 ***
-#### audioRawDataDelegate
+### audioRawDataDelegate
 
-设置音频处理回调，见 “TXAudioRawDataDelegate.h” 文件中的详细定义。
+设置音频处理回调，见“TXAudioRawDataDelegate.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate;
+@property (nonatomic, weak) id< TXAudioRawDataDelegate > audioRawDataDelegate
 ```
 ***
-#### enableHWAcceleration
+### enableHWAcceleration
 
 是否开启硬件加速，默认值：NO。
 ```
-@property (nonatomic, assign) BOOL enableHWAcceleration;
+@property (nonatomic, assign) BOOL enableHWAcceleration
 ```
 ***
-#### config
+### config
 
-设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见 “TXLivePlayConfig.h” 文件中的详细定义。
+设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见“TXLivePlayConfig.h”文件中的详细定义。
 ```
-@property (nonatomic, copy) TXLivePlayConfig * config;
+@property (nonatomic, copy) TXLivePlayConfig * config
 ```
 ***
-#### recordDelegate
+### recordDelegate
 
-设置短视频录制回调，见 “TXLiveRecordListener.h” 文件中的详细定义。
+设置短视频录制回调，见“TXLiveRecordListener.h”文件中的详细定义。
 ```
-@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate;
+@property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
 ***
-#### isAutoPlay
+### isAutoPlay
 
 startPlay 后是否立即播放，默认 YES，只有点播有效。
 ```
-@property (nonatomic, ) BOOL isAutoPlay;
+@property (nonatomic, ) BOOL isAutoPlay
 ```
 ***
 
-### 播放基础接口
-#### setupVideoWidget
+## 播放基础接口
+### setupVideoWidget
 
 创建 Video 渲染 View，该控件承载着视频内容的展示。
 ```
@@ -78,7 +77,7 @@ __参数__
 |-----|-----|-----|
 | frame | CGRect | Widget 在父 view 中的 frame。 |
 | view | TXView * | 父 view。 |
-| idx | unsigned int | Widget 在父 view 上 的层级位置。 |
+| idx | unsigned int | Widget 在父 view 上的层级位置。 |
 
 __介绍__
 
@@ -86,7 +85,7 @@ __介绍__
 
 ***
 
-#### removeVideoWidget
+### removeVideoWidget
 
 移除 Video 渲染 Widget。
 ```
@@ -95,7 +94,7 @@ __介绍__
 
 ***
 
-#### startPlay
+### startPlay
 
 启动从指定 URL 播放 RTMP 音视频流。
 ```
@@ -115,7 +114,7 @@ __返回__
 
 ***
 
-#### stopPlay
+### stopPlay
 
 停止播放音视频流。
 ```
@@ -128,7 +127,7 @@ __返回__
 
 ***
 
-#### isPlaying
+### isPlaying
 
 是否正在播放。
 ```
@@ -141,7 +140,7 @@ YES 拉流中，NO 没有拉流。
 
 ***
 
-#### pause
+### pause
 
 暂停播放。
 ```
@@ -154,7 +153,7 @@ __介绍__
 
 ***
 
-#### resume
+### resume
 
 继续播放，适用于点播，直播。
 ```
@@ -164,8 +163,8 @@ __介绍__
 ***
 
 
-### 视频相关接口
-#### setRenderRotation
+## 视频相关接口
+### setRenderRotation
 
 设置画面的方向。
 ```
@@ -180,7 +179,7 @@ __参数__
 
 ***
 
-#### setRenderMode
+### setRenderMode
 
 设置画面的裁剪模式。
 ```
@@ -195,7 +194,7 @@ __参数__
 
 ***
 
-#### snapshot
+### snapshot
 
 截屏。
 ```
@@ -211,8 +210,8 @@ __参数__
 ***
 
 
-### 音频相关接口
-#### setMute
+## 音频相关接口
+### setMute
 
 设置静音。
 ```
@@ -221,7 +220,7 @@ __参数__
 
 ***
 
-#### setAudioRoute
+### setAudioRoute
 
 设置声音播放模式（切换扬声器，听筒）。
 ```
@@ -237,8 +236,8 @@ __参数__
 ***
 
 
-### 直播时移相关接口
-#### prepareLiveSeek
+## 直播时移相关接口
+### prepareLiveSeek
 
 直播时移准备，拉取该直播流的起始播放时间。
 ```
@@ -264,7 +263,7 @@ __介绍__
 
 ***
 
-#### resumeLive
+### resumeLive
 
 停止时移播放，返回直播。
 ```
@@ -277,7 +276,7 @@ __返回__
 
 ***
 
-#### seek
+### seek
 ```
 - (int)seek:(float)time 
 ```
@@ -295,8 +294,8 @@ __返回__
 ***
 
 
-### 视频录制相关接口
-#### startRecord
+## 视频录制相关接口
+### startRecord
 
 开始录制短视频。
 ```
@@ -315,7 +314,7 @@ __返回__
 
 ***
 
-#### stopRecord
+### stopRecord
 
 结束录制短视频。
 ```
@@ -328,7 +327,7 @@ __返回__
 
 ***
 
-#### setRate
+### setRate
 
 设置播放速率。
 ```
@@ -344,8 +343,8 @@ __参数__
 ***
 
 
-### 更多实用接口
-#### setLogViewMargin
+## 更多实用接口
+### setLogViewMargin
 
 设置状态浮层 view 在渲染 view 上的边距。
 ```
@@ -360,7 +359,7 @@ __参数__
 
 ***
 
-#### showVideoDebugLog
+### showVideoDebugLog
 
 是否显示播放状态统计及事件消息浮层 view。
 ```
@@ -375,7 +374,7 @@ __参数__
 
 ***
 
-#### switchStream
+### switchStream
 
 FLV 直播无缝切换。
 ```

@@ -11,10 +11,10 @@
 1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)。
 2. 运维用户登录数据安全网关系统。
 3. 在“单点登录”选项卡下，单击相应的授权岗位，进入运维类岗位列表，您可查看有权限访问的资源，如下图所示。
-    ![1](https://main.qcloudimg.com/raw/2056b1eabe9700caa4ba2aee23eb4bea.png)
+![](https://main.qcloudimg.com/raw/6aa90e7497ab4c65cdfab32ab29dc9e1.png)
 4. 找到您需要登录的 Windows 资源，单击【配置登录】，在弹出的窗口中，配置如下信息。
  - **登录方式**：选择“XFTP 登录”。
  - **协议**：FTP 和 SMB 两种协议，请根据实际环境选择。
  - **端口**：选择访问协议对应的访问端口。
-![2](https://main.qcloudimg.com/raw/becfc588be119444c9dc6ff6ce8cae5d.png)
+![](https://main.qcloudimg.com/raw/e78aca2fbecbe06fd311fcc1198d61a0.png)
 5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用相关的工具连接到目标资源，目标资源连接成功后即可上传、下载文件。

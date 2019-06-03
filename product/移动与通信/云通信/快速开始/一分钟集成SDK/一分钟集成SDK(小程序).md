@@ -3,7 +3,7 @@
 
 ## 准备工作
 在集成小程序 SDK 前，请确保您已完成以下骤，详见 [跑通Demo(小程序)](https://cloud.tencent.com/document/product/269/32941)。
-- 创建了腾讯云通信应用，并获取到 SDKAppId。
+- 创建了腾讯云云通信 IM 应用，并获取到 SDKAppId。
 
 - 获取私钥文件。
 - 小程序服务器域名配置。

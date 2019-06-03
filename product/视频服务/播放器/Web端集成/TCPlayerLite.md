@@ -261,7 +261,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | pausePosterEnabled| Boolean | true    | 暂停时显示封面[v2.3.0+]。|
 | preload           | String | 'auto'   | 配置 video 标签的 preload 属性，只有部分浏览器生效[v2.3.0+]。|
 | hlsConfig         | Object | 无       | hls.js 初始化配置项[v2.3.0+]。|
-| fivConfig         | Object | 无       | flv.js 初始化配置项[v2.3.1+]。|
+| flvConfig         | Object | 无       | flv.js 初始化配置项[v2.3.1+]。|
 
 ## 实例方法列表
 下面列出了播放器实例支持的方法：

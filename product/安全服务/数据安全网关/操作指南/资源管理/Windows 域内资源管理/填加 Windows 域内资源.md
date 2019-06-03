@@ -18,6 +18,6 @@
     其中添加归属域操作如下图所示：
     第1步：选择归属域。
     第2步：选择 AD 域服务器。
- - ![1](https://main.qcloudimg.com/raw/c293180c4b16f47a03fbbf47de3827f5.png)
+![](https://main.qcloudimg.com/raw/beb41c593691a63e15b086e12c839889.png)
 4. 单击【确定】，添加 Windows域。
 5. 在确认配置信息无误，单击【保存】，即可完成添加 Windows 域内资源操作。
