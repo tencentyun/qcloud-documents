@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍在 Linux 云服务器上搭建 FTP 服务的操作。本例使用 CentOS 7.2 64 位系统进行示例，使用 vsftpd 作为 FTP 服务端，FileZilla 作为客户端。
+本文以 CentOS 7.2 64位系统为例，使用vsftpd 作为 FTP 服务端，FileZilla 作为客户端。指导您如何在 Linux 云服务器上搭建 FTP 服务。
 
 ## 操作步骤
 ### 安装 vsftpd
@@ -18,7 +18,7 @@ systemctl start vsftpd
 ```
 netstat -tunlp
 ```
-如下图所示，vsftpd 服务已经启动成功。
+返回类似如下信息，则表示 vsftpd 服务已经启动成功。
 ![](//mc.qcloudimg.com/static/img/6cc74de5689106ce763be98bfe7f5d24/image.png)
 3. 执行以下命令，安装 telnet 服务。
 ```
@@ -28,7 +28,7 @@ yum -y install  telnet
 ```
 telnet + 云服务器公网 IP + 21
 ```
-如下图所示，即表示已经启动成功。
+返回类似如下信息，即表示已经启动成功。
 ![](https://main.qcloudimg.com/raw/47ad66d7be133b6d69d60c3e5b719dbd.png)
 
 <span id = "jump">  </span>
@@ -51,8 +51,8 @@ useradd -m -d /home/ftpuser1 -s /sbin/nologin ftpuser1
 ```
 passwd ftpuser1
 ```
-创建用户、用户密码设置成功如下图所示：
-![](//mc.qcloudimg.com/static/img/f8912544914d11dfc1dd7e0a6db16f11/image.png)
+创建用户、用户密码设置成功。如下图所示：
+![](https://main.qcloudimg.com/raw/eec9ba9d188bf8b82a846fed73e02b52.png)
 
 ## 常见问题
 ### 问题描述
