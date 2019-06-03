@@ -10,8 +10,8 @@
 
 1. 登录云服务器。
 2. 下载并安装开源软件 FileZilla。
->? 使用 3.5.3 版本的 FileZilla 进行 FTP 上传将会出现上传失败等问题，建议您使用 FileZilla 的 3.5.1 或 3.5.2 版本。
-[单此可获取](http://www.oldapps.com/filezilla.php?old_filezilla=6350)  3.5.1 版本的 FileZilla下载地址。
+>? 使用 3.5.3 版本的 FileZilla 进行 FTP 上传将会出现上传失败等问题，建议您从官方网站获取与使用 FileZilla 的 3.5.1 或 3.5.2 版本。
+>
 3. 打开 FileZilla。
 4. 在 FileZilla 窗口中，填写主机、用户名、密码和端口等信息，单击【快速链接】。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/dc603f912adf94a33749155c69ddddd2/24.png)
@@ -28,6 +28,3 @@
 ![](https://main.qcloudimg.com/raw/12548024e1a1be95ae3cf3a1cb2b0d5f.jpg)
 
 
-
-
-​		   
