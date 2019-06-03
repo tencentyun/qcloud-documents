@@ -381,7 +381,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="14"><a name="Security">Security</a></td>
+    <td class="tg-0lax" rowspan="14"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>
