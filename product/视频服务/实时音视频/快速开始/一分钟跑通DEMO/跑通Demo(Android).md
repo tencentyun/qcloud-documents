@@ -57,7 +57,7 @@
 
 ## 常见问题
 ### 1. 开发环境有什么要求？
-- Android SDK API Level Level ≥ 16
+- 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
 - Android Studio 2.0 或以上版本
 - App 要求 Android 4.1 或以上设备
 
