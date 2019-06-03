@@ -89,7 +89,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | 参数名称         | 类型   | 描述                                                         |
 | ---------------- | ------ | ------------------------------------------------------------ |
 | backup_origin    | Object | 备用源站设置。                                                 |
-| https_switch     | Object | https 强制跳转设置：<br/>"on"：表示开启 https 强制跳转，默认跳转方式为302。<br/>"off"：表示未开启。 |
+| https_switch     | Object | HTTPS 强制跳转设置：<br/>"on"：表示开启 HTTPS 强制跳转，默认跳转方式为302。<br/>"off"：表示未开启。 |
 | follow302_switch | Object | 302跟随配置：<br/>"on"：表示开启302跳转跟随。<br/>"off"：表示关闭302跳转跟随。 |
 | ip_cc            | Object | IP 黑白名单配置：<br/>"type"：2表示白名单，1表示黑名单。<br/>"list"：具体的 IP/IP 段清单。 |
 | ip_freq_limit    | Object | IP 访问限频配置：<br/> "type"：1表示开启，0表示关闭。<br/>"limit_count"：设置的 QPS 阈值。 |
