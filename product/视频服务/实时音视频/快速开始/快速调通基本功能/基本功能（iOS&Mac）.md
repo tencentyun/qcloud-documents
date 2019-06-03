@@ -51,14 +51,16 @@
 TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段 sdkAppId，userId，userSig 和 roomId。
 
 - **sdkAppId**
-进入腾讯云实时音视频[控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
-![](https://main.qcloudimg.com/raw/832b48f444e86c00097d3f9f322a3439.png)
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
+![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
+>!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
+
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
 房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
