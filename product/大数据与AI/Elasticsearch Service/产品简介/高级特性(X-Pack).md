@@ -314,7 +314,7 @@
     <th class="tg-s268">白金版</th>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="11"><a name="manage_tool">管理和工具</a></td>
+    <td class="tg-0lax" rowspan="11"><a id="manage_tool">管理和工具</a></td>
     <td class="tg-s268">REST API</td>
     <td class="tg-s268">✓</td>
     <td class="tg-s268">✓</td>
@@ -466,7 +466,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="2"><a name="Alerting">警报提醒</a></td>
+    <td class="tg-0lax" rowspan="2"><a id="Alerting">警报提醒</a></td>
     <td class="tg-s268">高可用性、可扩展警报</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
@@ -479,7 +479,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="6"><a name="machine_learning">机器学习</a></td>
+    <td class="tg-0lax" rowspan="6"><a id="machine_learning">机器学习</a></td>
     <td class="tg-s268">时序型异常监测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
