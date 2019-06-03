@@ -3083,7 +3083,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>已废弃，请使用OrderContent下的coupon_infos字段<br><s>代金券信息，详见 WxpayCouponInfo</s></td>
+      <td>已废弃，请使用 OrderContent 下的 coupon_infos 字段<br>代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>product_id</td>
@@ -3555,7 +3555,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_refund_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>已废弃，请使用RefundOrderContent下的coupon_infos字段<br><s>退款代金券信息，详见 WxpayCouponInfo</s></td>
+      <td>已废弃，请使用 RefundOrderContent 下的 coupon_infos 字段<br>退款代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>refund_account</td>
