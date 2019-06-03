@@ -154,7 +154,7 @@ recorder.reset({
 
 ### 示例 Demo
 您可以通过单击 [示例](https://soe.cloud.tencent.com)，体验在线使用智聆口语测评（英文版）的 Web 版本。
-sdk调试可单击[这里](https://soe.cloud.tencent.com/demo)
+sdk调试可单击 [这里](https://soe.cloud.tencent.com/demo)
 
 
 ### 微信端说明
