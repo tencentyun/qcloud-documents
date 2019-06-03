@@ -95,7 +95,7 @@ void enterRoom() {
 	trtcParams.sdkAppId = sdkappid;
 	trtcParams.userId   = userid;
 	trtcParams.userSig  = usersig;
-	trtcParams.roomId   = 908; //输入你想进入的房间
+	trtcParams.roomId   = 908; //输入您想进入的房间
 	trtcCloud.enterRoom(trtcParams, TRTC_APP_SCENE_VIDEOCALL);
 }
 
