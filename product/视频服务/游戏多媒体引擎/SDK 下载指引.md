@@ -19,7 +19,7 @@
 |	 		Mac	 		|2019/1/11 |[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.2/GME_mac_audio_sdk_2.2.0.3900.zip)			|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.2/GME_mac_audio_demo_2.2.0.3900.zip)		|[快速入门](https://cloud.tencent.com/document/product/607/18738) [接口文档](https://cloud.tencent.com/document/product/607/18739)|
 
 
-## SDK 2.3.5 beta 版本下载
+## SDK v2.3.5 beta 版本下载
 
 |平台/引擎  | 更新时间        |SDK 下载|Demo下载|文档|
 |-------------| ------------- | ------------- |------------- |------------- |
