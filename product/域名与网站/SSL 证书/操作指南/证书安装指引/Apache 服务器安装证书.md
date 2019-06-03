@@ -14,9 +14,9 @@
 >? 若无 `/etc/httpd/ssl` 目录，可通过`mkdir /etc/httpd/ssl`命令行创建。
 3. 关闭 WinSCP 界面。
 4. 使用远程登录工具，登录 Apache 服务器。例如 “PuTTY” 工具。
-5. 找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）和 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并检验是否被注释。
- - 是，请去掉首行的注释符号（`#`），并保存配置文件。
- - 否，请执行下一步。
+5. 找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）和 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并确认该配置语句是否被注释。
+ - 若已注释，请去掉首行的注释符号（`#`），并保存配置文件。
+ - 若未注释，请执行下一步。
 >? 由于操作系统的版本不同，目录结构也不同，请根据实际操作系统版本进行查找。`LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句可能配置在以下配置文件中：
 > - `conf.modules.d` 目录下的 00-ssl.conf 配置文件。
 > - httpd.conf 配置文件。
@@ -25,7 +25,7 @@
 > 若以上配置文件中均未找到 `LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句，请确认是否已经安装 mod_ssl.so 模块。若未安装 mod_ssl.so 模块，您可通过执行`yum install mod_ssl` 命令进行安装。
 > 
 6. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
->？首次安装的 Apache 服务器，`conf.d`目录默认在`/etc/httpd`下。
+>?首次安装的 Apache 服务器，`conf.d`目录默认在`/etc/httpd`下。
 >
 ```
 <VirtualHost 0.0.0.0:443>
