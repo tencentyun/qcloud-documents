@@ -34,7 +34,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
-| data     | Object  | 结果数据，详细说明见下文<br/>详见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) 。|
+| data     | Object  | 结果数据，详细说明见下文。<br/>详见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) 。|
 
 ### 详细说明
 
@@ -55,7 +55,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | project_id        | Int    | 域名所属项目 ID。                                              |
 | host              | String | 域名。                                                         |
 | cname             | String | CDN 分配的 .cdn.dnsv1.com 后缀加速域名 。                      |
-| host_type         | String | 接入方式：<br/>"cos"：表示域名接入时使用的托管源为COS源。<br/>"cname"：表示域名接入时使用的是自有源站。<br/>"ftp"：表示该域名接入时使用了 CDN 提供的 FTP 托管源。 |
+| host_type         | String | 接入方式：<br/>"cos"：表示域名接入时使用的托管源为 COS 源。<br/>"cname"：表示域名接入时使用的是自有源站。<br/>"ftp"：表示该域名接入时使用了 CDN 提供的 FTP 托管源。 |
 | service_type      | String | 域名业务类型：<br/>"web"：静态内容加速。<br/>"download"：文件下载加速。<br/>"media"：流媒体点播加速。<br/>"live"：流媒体直播加速。 |
 | origin            | String | 域名源站配置。                                                 |
 | fwd_host_type     | String | 回源设置类型：<br/>"default"：表示接入的域名即回源地址。<br/>"custom"：该域名使用了自定义的回源 host。|
@@ -74,8 +74,8 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | furl_cache        | String | 过滤参数：<br/>"on"：开启全路径缓存，关闭过滤参数。<br/>"off"：关闭全路径缓存，开启过滤参数。 |
 | http2             | Int    | 是否开启 HTTP2.0：<br/>"1"：表示已开启 http2.0  。                 |
 | ssl_type          | Int    | 是否开通 HTTPS：<br/>"0"：未开通 HTTPS 配置。<br/>若为其他，则表示已开通 HTTPS 配置。 |
-| ssl_deploy_time   | String | SSL部署时间。                                                  |
-| ssl_expire_time   | String | SSL过期时间。                                                  |
+| ssl_deploy_time   | String | SSL 部署时间。                                                  |
+| ssl_expire_time   | String | SSL 过期时间。                                                  |
 | ssl_cert_name     | String | 证书备注名。                                                   |
 | ssl_cert_id       | String | 托管证书 ID。                                                   |
 | seo               | String | 是否开启 SEO 优化：<br/>"off"：表示未开启。<br/>"on"：表示开启。     |
@@ -115,7 +115,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | list      | Array | 配置的防盗链名单。                                             |
 
 >!
-- 未在上述文档中说明的字段为 **无效字段** 或 **内部标识字段**，可直接忽略。
+- 未在上述文档中说明的字段为**无效字段**或**内部标识字段**，可直接忽略。
 
 
 
