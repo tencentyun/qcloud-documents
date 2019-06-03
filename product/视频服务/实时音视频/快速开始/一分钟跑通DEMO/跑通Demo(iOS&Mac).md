@@ -45,7 +45,7 @@
 ![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
 
 ## 4. 下载私钥文件
-单击**下载公私钥**，下载并保存压缩包 **keys.zip** ，解压后可以得到 public_key 和 private_key 两个文件。用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步**生成Demo配置文件内容**的文本输入框中。
+单击**下载公私钥**，下载并保存压缩包 **keys.zip** ，解压后可以得到 public_key 和 private_key 两个文件。用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的【生成Demo配置文件内容】的文本输入框中。
 ![](https://main.qcloudimg.com/raw/688b415f15fc0568d520af55dbb930fd.png)
 
 ## 5. 获得配置文件
