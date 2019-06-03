@@ -1,5 +1,5 @@
 ## 操作场景
-本文以 CentOS 7.2 64位系统为例，使用vsftpd 作为 FTP 服务端，FileZilla 作为客户端。指导您如何在 Linux 云服务器上搭建 FTP 服务。
+本文以 CentOS 7.2 64位系统为例，使用 vsftpd 作为 FTP 服务端，FileZilla 作为客户端。指导您如何在 Linux 云服务器上搭建 FTP 服务。
 
 ## 操作步骤
 ### 安装 vsftpd
