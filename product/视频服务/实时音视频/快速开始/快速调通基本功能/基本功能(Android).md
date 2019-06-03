@@ -5,7 +5,7 @@
 
 使用 TRTC SDK 的第一步，是先获取 `TRTCCloud` 的单例对象，并注册监听 SDK 事件的回调。
 
-- 先继承`TRTCCloudListener`抽象类并重写你需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
+- 先继承`TRTCCloudListener`抽象类并重写您需要监听的事件（eg：用户加入房间、用户退出房间、警告信息、错误信息等）。
 - 获取`TRTCCloud`单例对象，调用setListener方法设置`TRTCCloudListener `回调。
 
 ```java
