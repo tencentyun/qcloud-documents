@@ -11,7 +11,7 @@
 ### 证书安装
 1. 使用“WinSCP”，即本地与远程计算机间的复制文件工具，登录 Nginx 服务器。
 2. 将已获取到的`1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录下。
->? 若无 `/usr/local/nginx/conf` 目录，可通过`mkdir /usr/local/nginx/conf`命令行新建。
+>? 若无 `/usr/local/nginx/conf` 目录，可通过`mkdir /usr/local/nginx/conf`命令行创建。
 3. 关闭 WinSCP 界面。
 4. 使用远程登录工具，登录 Nginx 服务器。例如 “PuTTY” 工具。
 <span id="step5"></span>
@@ -40,7 +40,7 @@ server {
  - ssl_certificate_key：私钥文件
  - ssl_protocols：使用的协议
  - ssl_ciphers：配置加密套件，写法遵循 openssl 标准
-6. 在`/usr/local/nginx`目录下，通过执行以下命令确认配置文件是否存在问题。
+6. 在 Nginx 根目录下，通过执行以下命令确认配置文件是否存在问题。
 ```
 ./sbin/nginx -t
 ```
