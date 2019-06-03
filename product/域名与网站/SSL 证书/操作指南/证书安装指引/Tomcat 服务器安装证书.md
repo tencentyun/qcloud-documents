@@ -2,10 +2,11 @@
 本文档指导您如何在 Tomcat 服务器中安装 SSL 证书。
 
 ## 前提条件
-由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅作为例子说明：
+由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
 - 当前服务器的操作系统为 CentOS 7。
 - 已在当前服务器中安装配置 Tomcat 服务器。
- >!当前 Tomcat 服务器安装在`/usr`目录下，例如`apache-tomcat-9.0.20`。则`/usr/*/conf`实际为`/usr/apache-tomcat-9.0.20/conf`。
+
+>!当前 Tomcat 服务器安装在`/usr`目录下，例如`apache-tomcat-9.0.20`。则`/usr/*/conf`实际为`/usr/apache-tomcat-9.0.20/conf`。
  
 ## 操作步骤
 
@@ -107,3 +108,5 @@
  - 若存在，请修改配置。
  - 若不存在，启动 tomcat 即可正常访问。
 5. 执行启动命令`./startup.sh`启动 Tomcat 服务器，即可使用`http://www.domain.com`进行访问。
+
+>!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
