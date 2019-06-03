@@ -3,9 +3,9 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 本文介绍手动部署 WordPress 的方法，如果您网站的可扩展性需求要求不高，腾讯云还提供镜像的方式部署  WordPress，具体可参考 [使用镜像部署WordPress](https://cloud.tencent.com/document/product/213/9740)。
 
-
 本教程以 Linux 系统 CentOS 7.5 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
 ![步骤流程](https://main.qcloudimg.com/raw/350c12570478973b9ecd293760c5fde6.png)
+
 ## 相关简介
 以下是本教程中，将会使用的服务或工具：
 - **云服务器**：本教程使用腾讯云云服务器（Cloud Virtual Machine，CVM）创建云服务器实例，来完成 WordPress 搭建工作。
@@ -21,7 +21,6 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
-
 
 ### 搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可以开始进行 LNMP 环境搭建。
@@ -43,7 +42,8 @@ yum -y install nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将已有内容全部清除，将以下内容复制粘贴至 `nginx.conf`文件中。 
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，清除已有的全部内容，并将以下内容复制粘贴至 `nginx.conf`文件中。
+用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
 	listen       80;
@@ -79,8 +79,7 @@ server {
 # systemctl start nginx
 # systemctl enable nginx 
 ```
-6. 
-在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+6. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![ 测试Nginx2](https://main.qcloudimg.com/raw/dc7ccc6220299225de75c521620423b4.png)
 
@@ -151,14 +150,12 @@ http://云服务器实例的公网 IP/index.php
 ```
 # mysql_secure_installation
 ```
-
 6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下 “**Enter**”。
 ```
 # mysql -uroot -pXXXXXX
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/0cfea29c0fa72075137a3dda0825c7a4.png)
-
 
 ### 安装和配置 WordPress
 #### 下载 
@@ -174,7 +171,6 @@ http://云服务器实例的公网 IP/index.php
 # wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
 # tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
-
 
 #### <span id="database">配置数据库</span>
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
@@ -226,8 +222,7 @@ cp wp-config-sample.php wp-config.php
 vim wp-config.php
 ```
 3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，将 [配置数据库](#database) 中已配置好的数据库相关信息写入。
-
-	```
+```
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'wordpress');
@@ -240,20 +235,19 @@ vim wp-config.php
 	
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
-	```
+```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
 #### 验证 WordPress 安装
 1. 在浏览器地址栏输入云服务器实例的公网 IP 或在 IP 后加上 wordperss 文件夹，例如：
- ```
- http://192.xxx.xxx.xx 
- http://192.xxx.xxx.xx /wordpress
- ```
- 转至 WordPress 安装页，开始配置 WordPress。
+```
+http://192.xxx.xxx.xx 
+http://192.xxx.xxx.xx /wordpress
+```
+转至 WordPress 安装页，开始配置 WordPress。
 ![配置WP1](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)
 2. 根据 WordPress 安装向导提示输入以下安装信息后，单击 “安装 WordPress” 完成安装。
-
-	<table>
+<table>
 	<th style="width: 18%;">所需信息</th>
 	<th style="width: 25%;">说明</th>
 					<tr>
@@ -291,7 +285,7 @@ vim wp-config.php
 	</table>
 现在可以用登录 WordPress 博客，并开始发布博客文章了。
 
-### 后续步骤
+## 后续操作
 1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
 您可以通过 [腾讯云购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)。 
 2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，审核时间约为20天。
