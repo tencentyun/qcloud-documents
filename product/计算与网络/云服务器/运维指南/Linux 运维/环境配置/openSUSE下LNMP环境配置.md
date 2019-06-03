@@ -19,13 +19,11 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 ``` 
 # zypper in nginx
 ```
-
 2. 执行以下命令，启动 Nginx 服务，并设置为开机自启动。
 ```
 # systemctl start nginx
 # systemctl enable nginx
 ```
-
 3. 执行以下命令，修改 Nginx 配置文件。
 ```
 # vim /etc/nginx/nginx.conf
@@ -33,7 +31,6 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 4. 按 “**i**” 或 “**Insert**” 键切换至编辑模式。
 5. 去掉`error_log  /var/log/nginx/error.log;`前的`#`号。
 6. 找到 server{...} 并其替换成以下内容。
-
 ```
 server {
 	listen       80;
@@ -66,7 +63,6 @@ server {
 ```
 # systemctl restart nginx
 ```
-
 8. 执行以下命令，新建`index.html`首页。
 ```
 # vi /srv/www/htdocs/index.html
@@ -85,7 +81,6 @@ server {
 ```
 # zypper install mysql-community-server mysql-community-server-tools
 ```
-
 2. 执行以下命令，启动 MySQL 服务并设置为开机自启动。
 ```
 # systemctl start mysql 
@@ -110,7 +105,7 @@ mysql>flush privileges;
 ```
 
 ### 安装配置 PHP
-1. 执行以下命令，安装 PHP 。
+执行以下命令，安装 PHP 。
 ```
 # zypper install php5 php5-fpm php5-mysql
 ```
