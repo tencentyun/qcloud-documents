@@ -1,20 +1,19 @@
 ## 操作场景
 本文档指导您如何在 Tomcat 服务器中安装 SSL 证书。
->?本文档以证书名称 `www.domain.com` 为例。
->
+>?
+>- 本文档以证书名称 `www.domain.com` 为例。
+>- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 ## 前提条件
 - 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
 解压缩后，可获得 Tomcat 文件夹和 CSR 文件：
- - 文件夹名称：Tomcat。
- - 文件夹内容：
-    - `www.domain.com.jks` 密钥库。
-    - `keystorePass.txt` 密码文件。
-  - CSR 文件内容：	`www.domain.com.csr` 文件。
+ - **文件夹名称**：Tomcat
+ - **文件夹内容**：
+    - `www.domain.com.jks` 密钥库
+    - `keystorePass.txt` 密码文件
+  - **CSR 文件内容**：	`www.domain.com.csr` 文件
 - 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
-- 由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
- - 当前服务器的操作系统为 CentOS 7。
- - 已在当前服务器中安装配置 Tomcat 服务器（版本号 tomcat7.0.94）。
+- 已在当前服务器中安装配置 Tomcat 服务器（版本号 tomcat7.0.94）。
 
 >!
 - 当您申请 SSL 证书时选择了“粘贴 CSR” 方式，则不提供 Tomcat 证书文件的下载，需要您通过手动转换格式的方式生成密钥库。其操作方法如下： 
@@ -35,7 +34,7 @@
 ## 操作步骤
 
 ### 证书安装
-1. 使用 “WinSCP” 工具，登录 Tomcat 服务器。
+1. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Tomcat 服务器。
 2. 将已获取到的 `www.domain.com.jks` 密钥库文件从本地目录拷贝至 `/usr/*/conf` 目录下。
 3. 关闭 “WinSCP” 界面。
 4. 使用远程登录工具，登录 Tomcat 服务器。例如 “PuTTY” 工具。
@@ -88,11 +87,14 @@
 </Server>
 ```
 配置文件的主要参数说明如下：
- - keystoreFile：密钥库文件的存放位置，可以指定绝对路径，也可以指定相对于 &lt;CATALINA_HOME&gt; （Tomcat安装目录）环境变量的相对路径。如果此项没有设定，默认情况下，Tomcat 将从当前操作系统用户的用户目录下读取名为 “.keystore” 的文件。
- - keystorePass：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
- - clientAuth：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
- - sslProtocol：指定套接字（Socket）使用的加密/解密协议，默认值为 TLS。
-6. 若 Tomcat 服务器没有启动，在 `/usr/*/bin` 目录下执行启动命令 `./startup.sh` 启动 Tomcat 服务器。
+ - **keystoreFile**：密钥库文件的存放位置，可以指定绝对路径，也可以指定相对于 &lt;CATALINA_HOME&gt; （Tomcat安装目录）环境变量的相对路径。如果此项没有设定，默认情况下，Tomcat 将从当前操作系统用户的用户目录下读取名为 “.keystore” 的文件。
+ - **keystorePass**：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
+ - **clientAuth**：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
+ - **sslProtocol**：指定套接字（Socket）使用的加密/解密协议，默认值为 TLS。
+6. 若 Tomcat 服务器没有启动，在 `/usr/*/bin` 目录下执行命令启动 Tomcat 服务器。
+```
+./startup.sh
+```
 7. 若启动成功，即可使用 `https://www.domain.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
@@ -125,12 +127,19 @@
 ```
 >? 此修改操作可将非 SSL 的 connector 可以跳转到 SSL 的 connector 中。
 >
-4. 在` /usr/*/bin` 目录下执行关闭命令`./shutdown.sh`之后，执行下列命令，确认配置是否存在问题。
+4. 在` /usr/*/bin` 目录下执行关闭命令。
 ```
-./configtest.sh（需要在关闭tomcat下检验）
+./shutdown.sh
+```
+5. 执行命令，确认配置是否存在问题。
+```
+./configtest.sh
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
- - 若不存在，启动 tomcat 即可正常访问。
-5. 执行启动命令`./startup.sh`启动 Tomcat 服务器，即可使用`http://www.domain.com`进行访问。
+ - 若不存在，请执行下一步。
+5. 执行命令启动 Tomcat 服务器，即可使用`http://www.domain.com`进行访问。
+```
+./startup.sh
+```
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
