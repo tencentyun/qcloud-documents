@@ -13,7 +13,7 @@
 
 1. 登录 [黑石私有网络控制台](https://console.cloud.tencent.com/vpcbm/vpc)。
 2. 在私有网络管理页面中，记录需要建立黑石 VPC 的 **CIDR**。如下图所示：
-![](https://upload-images.jianshu.io/upload_images/13878457-9d7ab72b55bab74e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://main.qcloudimg.com/raw/5ae8641abe14861597d01ebbe9a2bac3.png)
 3. 切换至 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 4. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入集群管理页面。
 5. 单击需要设置互通的集群 ID/名称，进入该集群的管理页面。如下图所示：
@@ -35,6 +35,6 @@
 
 容器与黑石机器之间可以互通，公有云集群容器的登录方法请参考  [远程终端基本操作](https://cloud.tencent.com/document/product/457/9120)。
 1. 登录公有云集群容器，并在公有云集群容器中访问黑石机器。如下图所示：
-![容器 to 黑石物理机](https://main.qcloudimg.com/raw/473e522adffdd20550762c597b61f0ba.png)
+![容器 to 黑石物理机](https://main.qcloudimg.com/raw/6d2633c88facb28a451293b852d81950.png)
 2. 登录黑石机器，并在黑石机器中访问公有云集群容器。如下图所示：
 ![黑石物理机 to 容器](https://upload-images.jianshu.io/upload_images/13878457-3c050d5c47b569ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
