@@ -13,9 +13,9 @@ Service 支持以下类型：
 - 使用已有的 CLB 时：
   - 只能使用通过 CLB 控制台创建的负载均衡器，不支持复用由 TKE 自动创建的 CLB。
   - 复用 CLB 的 Service 端口不能冲突
-  . 不支持跨集群 Service 复用 CLB
-  . 复用 CLB 的 Service 不支持开启 local 访问。
-  . 删除 Service , 复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx 需自行清理
+  - 不支持跨集群 Service 复用 CLB
+  - 复用 CLB 的 Service 不支持开启 local 访问。
+  - 删除 Service , 复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx 需自行清理
 - TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
 
 ### 创建 Service
