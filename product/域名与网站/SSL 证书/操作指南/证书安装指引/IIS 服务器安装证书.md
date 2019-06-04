@@ -2,9 +2,18 @@
 本文档指导您如何在 IIS 服务器中安装 SSL 证书。
 
 ## 前提条件
-由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
-- 当前服务器的操作系统 Windows10。
-- 已进入 IIS 服务管理器。
+- 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+解压缩后，可获得 IIS 文件夹和 CSR 文件：
+ - 文件夹名称：IIS。
+ - 文件夹内容：
+    - `www.domain.com.pfx` 证书文件。
+    - `keystorePass.txt` 密码文件
+  - CSR 文件内容：	`www.domain.com.csr` 文件。
+- 由于操作系统的版本不同，详细操作步骤略有区别：
+ - 操作系统 Windows10。
+ - 已进入 IIS 服务管理器。
+ 
+>!若您在申请 SSL 证书时已设置私钥密码，该文件夹下则无 keystorePass.txt 文件。
 
 ## 操作步骤
 
@@ -29,11 +38,26 @@
 ### HTTP 自动跳转 HTTPS 的安全配置（不推荐）
 
 下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
+>?正常跳转可按照下列编辑规则。若您有其他需求可以自己设置。
+>
 1. 选择网站下的站点名称，单击 “URL 重写”，并单击右侧 “操作” 栏的【打开功能】。
 2. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。
 3. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。
 4. 进入 “编辑入站规则” 页面。
-![](https://main.qcloudimg.com/raw/adab7ac787fa1cef7e093ebe58445a78.png)
-![](https://main.qcloudimg.com/raw/2d2e989eac6e7cd59d4416e5e3ad1c59.png)
+  - 名称：填写强制 HTTPS。如下图所示：
+  ![](https://main.qcloudimg.com/raw/7d76a675f51ce23c8e090fa59923e980.png)
+  - 匹配URL：在 “模式” 中手动输入`(.*)`。如下图所示：
+  ![](https://main.qcloudimg.com/raw/712ae5173175b07d7ec78a2a850b1dc2.png)
+  - 条件：
+    - 单击 <img src="https://main.qcloudimg.com/raw/b55f713d199b5077dfa66fa960b08363.png" style="margin-bottom: -5px;"></img>展开，如下图所示：
+    ![](https://main.qcloudimg.com/raw/3757992316f7cca69e68bd8c8e2abf5a.png)
+    - 单击添加，弹出 “添加条件” 窗口。如下图所示：
+    ![](https://main.qcloudimg.com/raw/033c4aa19ca6571a390ba691e2ae9f1f.png)
+  - 服务器变量：无。
+  - 操作：填写以下参数。如下图所示：
+  ![](https://main.qcloudimg.com/raw/0e2d981173aec70e7aa6c74ac7586738.png)
+	  - 操作类型：选择重定向。
+	  - 重定向 URL：`https://{HTTP_HOST}.{R:1}`。
+	  - 重定向类型：选择参阅其他（303）。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
