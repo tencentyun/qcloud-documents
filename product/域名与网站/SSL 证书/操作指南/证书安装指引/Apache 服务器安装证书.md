@@ -1,16 +1,16 @@
 ## 操作场景
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
->?本文档以证书名称 www.domain.com 为例。
+>?本文档以证书名称 `www.domain.com` 为例。
 
 ## 前提条件
-- 已在 SSL 证书管理控制台 中下载并解压缩 www.domain.com 证书文件包到本地目录。
+- 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
 解压缩后，可获得 Apache 文件夹和 CSR 文件：
  - 文件夹名称：Apache。
  - 文件夹内容：
-    - 1_root_bundle.crt 证书文件。
-    - 2_www.domain.com.crt 证书文件。
-    - 3_www.domain.com.key 私钥文件。
-  - CSR 文件内容：	www.domain.com.csr 文件。
+    - `1_root_bundle.crt` 证书文件。
+    - `2_www.domain.com.crt` 证书文件。
+    - `3_www.domain.com.key` 私钥文件。
+  - CSR 文件内容：	`www.domain.com.csr` 文件。
 - 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
@@ -47,7 +47,7 @@
 >
 <span id="step6"></span>
 6. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
->?首次安装的 Apache 服务器，`conf.d`目录默认在`/etc/httpd`下。
+>?首次安装的 Apache 服务器，`conf.d` 目录默认在 `/etc/httpd` 目录下。
 >
 ```
 <VirtualHost 0.0.0.0:443>
@@ -67,9 +67,9 @@
 7. 重新启动 Apache 服务器，即可使用 `https://www.domain.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
-若您不了解可以通过 HTTPS 方式访问网站，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件。
->!httpd.conf 配置文件所在目录不唯一，您可以根据`/etc/httpd/*`逐一查找。
+>!httpd.conf 配置文件所在目录不唯一，您可以根据 `/etc/httpd/*` 逐一查找。
 2. 请确认该配置文件是否存在`LoadModule rewrite_module modules/mod_rewrite.so`。
  - 若存在，去掉`LoadModule rewrite_module modules/mod_rewrite.so`前面的 # 号。
  - 若不存在，需在`/etc/httpd/conf.modules.d`中新建一个 \*.conf 文件，例如 00-rewrite.conf。在新建文件中添加以下内容：
