@@ -32,7 +32,7 @@ new TencentSOE
 | error         | function | 创建失败回调 | 否 | 无 |
 > 必须同时提供 SecretId 和 SecretKey 或者 TransInitUrl
 
-- 方式一（推荐）：自行替换后台接口地址（可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)），提供TransInitUrl
+- 方式一（推荐）：自行替换后台接口地址 TransInitUrl
 ```
 let recorder = new TencentSOE({
   TransInitUrl: 'https://soe.cloud.tencent.com/cgi/transInit',
