@@ -372,7 +372,7 @@ Flash 模式下特有的事件：netStatus
 | type      | 事件类型。                                                                               |
 | src       | 事件源对象，即播放器实例，HTML5 或者 flash。                                               |
 | ts        | 事件触发时的 UTC 时间戳。                                                                |
-| timeStamp | (Event)[https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp] 实例的时间戳。 |
+| timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
