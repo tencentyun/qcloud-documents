@@ -10,7 +10,7 @@
 
 云函数的运行环境是 Node.js，因此我们可以使用 npm 安装第三方依赖。您只能对每个云函数分别安装依赖。具体操作如下：
 
-1. 在云函数的根目录下，单击右键要安装依赖的云函数，单击 【在终端中打开】。 
+1. 在云函数的根目录下，单击右键需要安装依赖的云函数，单击 【在终端中打开】。 
 ![](https://main.qcloudimg.com/raw/fd5aad2eec439e3b4f78daa42a147862.png)
 2. 在弹出的 cmd 窗口中输入指令，安装所需依赖。如  [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-server-api/) 依赖或 [tcb-admin-node](https://github.com/TencentCloudBase/tcb-admin-node) 依赖。示例代码如下：
 ```text
