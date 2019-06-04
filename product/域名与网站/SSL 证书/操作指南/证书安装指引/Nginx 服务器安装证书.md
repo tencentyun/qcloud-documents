@@ -63,14 +63,18 @@ server {
 ./sbin/nginx -t
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
- - 若不存在，请执行下一步。
+ - 若不存在，请执行 [步骤7](#step7)。
+<span id="step6"></span>
 7. 重启 Nginx，即可使用 `https://www.domain.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
-若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下方式设置：
-- 您可以在页面中添加 JS 脚本，也可以在后端程序中添加重定向，还可以通过 Web 服务器实现跳转。
-- 若您在编译时没有去掉 pcre，Nginx 支持 rewrite 功能。您可在 HTTP 的 server 中增加 `rewrite ^(.*) https://$host$1 permanent;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
+若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+1. 根据实际需求，选择以下配置方式：
+ - 在页面中添加 JS 脚本。
+ - 在后端程序中添加重定向。
+ - 通过 Web 服务器实现跳转。
+ - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `rewrite ^(.*) https://$host$1 permanent;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 ```
 server {
     listen 443;
@@ -94,7 +98,7 @@ server {
     rewrite ^(.*)$ https://$host$1 permanent; #把http的域名请求转成https
 }
 ``` 
-若修改完成，重启 Nginx。即可使用 `http://www.domain.com` 进行访问。
+2. 若修改完成，重启 Nginx。即可使用 `http://www.domain.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
