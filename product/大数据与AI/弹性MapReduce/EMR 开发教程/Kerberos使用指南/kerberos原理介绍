@@ -56,7 +56,7 @@
 
 ## 认证流程
 
-![](https://main.qcloudimg.com/raw/81f3089dd5c29a947098c660be71b8f5.png)
+![](https://main.qcloudimg.com/raw/f9ee684d2aeb1c2ece1fd36507ee9c0c.png)
 
 client访问server的过程中，想确保client和server都是可靠的，必然要引入第三方公证平台，因此有了AS和TGS这个两个服务，AS与TGS通常位于同一个服务进程中，对于mit的kerberos实现，均由kdc提供。
 
