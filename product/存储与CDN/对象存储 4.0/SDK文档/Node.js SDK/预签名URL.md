@@ -116,46 +116,48 @@ function(err, data) { ... }
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - Url  | 计算得到的 Url                                               | String |
 
-### 浏览器下载文件
 
-浏览器下载文件需要先通过 cos.getObjectUrl 获取 url 之后再自行调用下载，以下几个下载例子可供参考。
+## 签名方法
 
-浏览器下载过程实际上是浏览器直接发起的 Get Object 请求，具体参数可以参考 cos.getObject 方法。
+COS XML API 的请求里，私有资源操作都需要鉴权凭证 Authorization，用于判断当前请求是否合法。
 
-### 使用示例
+鉴权凭证使用方式有两种：
 
-示例一：获取文件 url 并下载文件。
+1. 放在 header 参数里使用，字段名：authorization
+2. 放在 url 参数里使用，字段名：sign
+
+COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以验证请求合法性的签名信息。
+
+> !该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
+
+#### 使用示例
+
+获取文件下载的鉴权凭证：
 
 ```js
-cos.getObjectUrl({
-    Key: '1.jpg',
-    Sign: true
-}, function (err, data) {
-    if (!err) {
-        var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
-        window.open(downloadUrl); // 这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
-    }
+var Authorization = COS.getAuthorization({
+    SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    Method: 'get',
+    Key: 'a.jpg',
+    Expires: 60,
+    Query: {},
+    Headers: {}
 });
 ```
 
-示例二：通过隐藏 iframe 下载。
+#### 参数说明
 
-```html
-<iframe id="downloadTarget" style="width:0;height:0;" frameborder="0"></iframe>
-<a id="downloadLink" href="javascript:void(0)">下载</a>
-<script>
-document.getElementById('downloadLink').onclick = function () {
-    document.getElementById('downloadTarget').src = downloadUrl; // 示例一里获取的下载 url
-};
-</script>
-```
+| 参数名    | 参数描述                                                     | 类型   | 必填 |
+| --------- | ------------------------------------------------------------ | ------ | ---- |
+| SecretId  | 用户的 SecretId                                              | String | 是   |
+| SecretKey | 用户的 SecretKey                                             | String | 是   |
+| Method    | 操作方法，如 get，post，delete， head 等 HTTP 方法           | String | 是   |
+| Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于 Bucket，则为空 | String | 否   |
+| Query     | 请求的 query 参数对象                                        | Object | 否   |
+| Headers   | 请求的 header 参数对象                                       | Object | 否   |
+| Expires   | 签名几秒后失效，默认900                                       | Number  | 否   |
 
-示例三：通过隐藏 a 标签的 download 属性。
+#### 返回值说明
 
-> !download 属性不兼容低版本浏览器。
-
-```html
-<iframe id="downloadTarget" style="width:0;height:0;" frameborder="0"></iframe>
-<!-- 把示例一里的 downloadUrl 放在以下 a 标签的 href 参数里 -->
-<a id="downloadLink" href="{downloadUrl}" download="1.jpg">下载</a>
-```
+返回值是计算得到的鉴权凭证字符串 authorization。
