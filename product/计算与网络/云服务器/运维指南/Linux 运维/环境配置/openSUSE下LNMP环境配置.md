@@ -1,64 +1,121 @@
-LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE 下的 LNMP 环境搭建。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 YaST 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
+## 操作场景
+LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE 42.3 下的 LNMP 环境搭建。
+本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
 
-## 安装配置 Nginx
-1. 自动安装 Nginx。输入命令：
+## 操作步骤
+### 配置镜像源
+1. 执行以下命令，添加镜像源。
+```
+# zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/oss suseOss
+# zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/non-oss suseNonOss
+```
+2. 执行以下命令，更新镜像源。
+```
+# zypper ref
+```
+
+### 安装配置 Nginx
+1. 执行以下命令，安装 Nginx。
 ``` 
-yum install nginx
-service nginx start
-chkconfig --levels 235 nginx on
+# zypper in nginx
 ```
-
-2. 启动 Nginx 服务。输入命令：`service nginx restart `。
-
-3. 命令行测试 Nginx 服务是否正常运行。输入命令：`wget http://127.0.0.1` 。
-若服务正常，显示结果如下。
+2. 执行以下命令，启动 Nginx 服务，并设置为开机自启动。
 ```
---2013-02-20 17:07:26-- http://127.0.0.1/
-Connecting to 127.0.0.1:80... connected.
-HTTP request sent, awaiting response... 200 OK
-Length: 151 [text/html]
-Saving to: `index.html'
-100%[===================================>] 151 --.-K/s in 0s 
-2013-02-20 17:07:26 (37.9 MB/s) - `index.html' saved [151/151]
+# systemctl start nginx
+# systemctl enable nginx
 ```
+3. 执行以下命令，修改 Nginx 配置文件。
+```
+# vim /etc/nginx/nginx.conf
+```
+4. 按 “**i**” 或 “**Insert**” 键切换至编辑模式。
+5. 去掉`error_log  /var/log/nginx/error.log;`前的`#`号。
+6. 找到 server{...} 并其替换成以下内容。
+```
+server {
+	listen       80;
+	server_name  localhost;
 
-3. 浏览器中测试 Nginx 服务是否正常运行。访问 CentOS 云服务器公网 IP。
-若服务正常，显示结果如下。
-![](//mc.qcloudimg.com/static/img/fce31b900d308c4a5d57b1d316574a58/image.png)
+	#access_log  /var/log/nginx/host.access.log  main;
+	location / {
+			root   /srv/www/htdocs/;
+			index  index.php index.html index.htm;
+	}
 
-## 安装配置 MySQL
-1. 安装 MySQL。输入命令：`yum install mysql mysql-server mysql-devel` 。
+	#error_page  404              /404.html;
+	# redirect server error pages to the static page /50x.html
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+			root   /srv/www/htdocs/;
+	}
 
-2. 启动 MySQL 服务。输入命令：`service mysqld start` 。
+	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    location ~ \.php$ {
+			root           /srv/www/htdocs/;
+			fastcgi_pass   127.0.0.1:9000;
+			fastcgi_index  index.php;
+			fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;
+			include        fastcgi_params;
+	}
+}
+```
+7. 执行以下命令，重启 Nginx 服务。
+```
+# systemctl restart nginx
+```
+8. 执行以下命令，新建`index.html`首页。
+```
+# vi /srv/www/htdocs/index.html
+```
+9. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，输入以下内容：
+```html
+<p> hello world!</p>
+```
+10. 输入完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+11. 在浏览器中，访问 openSUSE 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+如下图所示，则说明 Nginx 安装配置成功。
+![](https://main.qcloudimg.com/raw/df09d1fe6baed50cebd89ef7402db4b2.png)
 
-3. 登录 MySQL ，删除空用户。输入命令：
+### 安装配置 MySQL
+1. 执行以下命令，安装 MySQL。
+```
+# zypper install mysql-community-server mysql-community-server-tools
+```
+2. 执行以下命令，启动 MySQL 服务并设置为开机自启动。
+```
+# systemctl start mysql 
+# systemctl enable mysql
+```
+>? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
+3. 执行以下命令，首次登录 MySQL 。
+```
+# mysql -u root -p
+```
+成功进入 MySQL，如下图所示。
+![](https://main.qcloudimg.com/raw/1e9daf876fb08c70674789865688f695.png)
+4. 执行以下命令，删除空用户。
 ```
 mysql>select user,host,password from mysql.user;
 mysql>drop user ''@localhost;
-``` 
-
-4. 修改 root 密码。输入命令：
+```
+5. 执行以下命令，修改 root 密码。
 ```
 mysql>update mysql.user set password = PASSWORD('此处输入您新设密码') where user='root';
 mysql>flush privileges;
 ```
 
-## 安装配置PHP
-1. 安装 PHP 。输入命令进行安装：
+### 安装配置 PHP
+执行以下命令，安装 PHP 。
 ```
-yum install php lighttpd-fastcgi php-cli php-mysql php-gd php-imap php-ldap
-php-odbc php-pear php-xml php-xmlrpc php-mbstring php-mcrypt php-mssql php-snmp php-soap
-```
-2. 安装所需组件使 PHP 支持 MySQL、FastCGI 模式。
-```
-yum install  php-tidy php-common php-devel php-fpm php-mysql
+# zypper install php5 php5-fpm php5-mysql
 ```
 
-## Nginx 与 PHP-FPM 集成
-1. 新建配置文件 php-fpm.conf，输入命令：`vim /etc/php5/fpm/php-fpm.conf` 。
-
-2. 写入以下内容：
+### Nginx 与 PHP-FPM 集成
+1. 执行以下命令，新建配置文件 php-fpm.conf。
+```
+# vim /etc/php5/fpm/php-fpm.conf
+``` 
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入以下内容：
 ```
 [global]
 error_log = /var/log/php-fpm.log
@@ -72,27 +129,27 @@ pm.start_servers = 2
 pm.min_spare_servers = 1
 pm.max_spare_servers = 3
 ```
-
-3. 启动服务。输入命令：
+3. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+4. 执行以下命令，启动服务并设置为开机自启动。
 ```
-/etc/init.d/mysql start 
-/etc/init.d/php-fpm start 
-/etc/init.d/nginx start
+# systemctl start php-fpm
+# systemctl enable php-fpm
 ```
-如图所示：
-![](//mccdn.qcloud.com/img56b01d2fa2d5c.png)
-
 
 ## 环境配置验证
-用以下命令在 web 目录下创建 index.php：
+1. 执行以下命令，在 web 目录下创建 index.php：
 ```
-vim /usr/share/nginx/html/index.php
+# vim /usr/share/nginx/html/index.php
 ```
-写入如下内容：
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入如下内容：
 ```
 <?php
-echo "<title>Test Page</title>";
-echo "hello world";
+	echo "<title>Test Page</title>";
+	echo "hello new world!";
 ?>
 ```
-在浏览器中，访问 SUSE 云服务器公网 IP ，查看环境配置是否成功，如果页面可以显示“hello world”，说明配置成功。
+3. 按 “**Esc**” 键，输入 “**:wq**”，保存文件并返回。
+4. 在浏览器中，访问 openSUSE 云服务器公网 IP 。
+如下图所示，则 LNMP 环境搭建成功。
+![](https://main.qcloudimg.com/raw/0adc6168e7407931c597228520b35413.png)
+

@@ -365,6 +365,16 @@ Flash 模式下特有的事件：netStatus
 
 >?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
+事件监听函数返回的 msg 对象介绍：
+
+| 名称      | 说明                                                                                    |
+|-----------|---------------------------------------------------------------------------------------|
+| type      | 事件类型。                                                                               |
+| src       | 事件源对象，即播放器实例，HTML5 或者 flash。                                               |
+| ts        | 事件触发时的 UTC 时间戳。                                                                |
+| timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
+
+
 应用案例：通过事件监听，可以进行播放失败重连，[在线例子链接](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
 
 ## 更新日志

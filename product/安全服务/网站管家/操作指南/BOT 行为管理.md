@@ -7,7 +7,7 @@
  - 未知类型 BOT：   是指未公开的 BOT 类型。
  - 自定义类型 BOT： 是指用户自己配置的 BOT 类型。
 
- ![1](https://main.qcloudimg.com/raw/80f75e08b94456a5b966d4b2e3e64cfa.png)
+ ![1](https://main.qcloudimg.com/raw/406c2c9e6cd3c8de23b17aced264ccb2.png)
 2. 单击【BOT 设置】，此页面有【已知类型预设】和【自定义策略】两个选项卡。
 ### 已知类型预设
 单击选项卡，进入已知类型预设界面，展示的信息有 BOT 类型、BOT 种类数、动作以及操作，操作选项有【监控】和【拦截】。
@@ -15,15 +15,15 @@
  - 监控动作：监控正常请求中是否存在恶意的 BOT 行为，但不进行拦截。
  - 拦截动作：对检测到的恶意 BOT 行为，进行拦截，拦截结果在域名的 “防护设置” 将自动生成自定义策略。
 
- ![2](https://main.qcloudimg.com/raw/939a830742eff05b7562025742bce9ae.png)
+ ![2](https://main.qcloudimg.com/raw/c9be08f907c467c39c7e905762e6bb34.png)
 ### 自定义策略
-单击选项卡，进入自定义策略界面，单击【添加策略】；
- ![3](https://main.qcloudimg.com/raw/0d579157a429b1ae1eea676866ed7db6.png)
+单击选项卡，进入自定义策略界面，单击【添加策略】。
+ ![3](https://main.qcloudimg.com/raw/933650a9da4756288eb5309f3b434cd7.png)
 填写 “策略名称” 和 “策略描述”，选择一个 “匹配字段”，此处以 “请求路径” 为例，逻辑符号选择【包含】，填写路径内容为 “/admin” 执行动作选择【监控】，策略开关选择【开启】，单击【确定】后即添加成功。
 >**注意：**
 >每条自定义策略最多可添加 10 个条件，条件之间是 **“与”** 的关系，即满足全部条件才会生效。
  
- ![4](https://main.qcloudimg.com/raw/6d963c5f67cbaf521421482093f3a6d8.png)
+![4](https://main.qcloudimg.com/raw/a59cfbf7c923f54640a59e18342717cd.png)
  #### 温馨提示：  
  - 监控动作：监控正常请求中，是否存在恶意的 BOT 行为，但不进行拦截。
  - 拦截动作：对检测到的恶意 BOT 行为，进行拦截，拦截结果在域名的【防护设置】将自动生成自定义策略。
@@ -31,9 +31,10 @@
 配置说明请参见表格 [自定义策略配置说明](#peizhi)
 
 3. 单击【BOT 详情】，此页面共有【未知类型】、【已知类型】和【自定义类型】三个选项卡，此处以【未知类型】为例。
- ![5](https://main.qcloudimg.com/raw/755687bf21ccf4ff6d92e84a17c8dbfc.png)
+ ![5](https://main.qcloudimg.com/raw/9cf1b4f3a4ef4e30fc0b23f3ad816a20.png)
 如需了解某 BOT 详情，可单击该条数据后的【查看详情】：
  ![6](https://main.qcloudimg.com/raw/3c8c880b17fb94def64e4c2616ae6644.png)
+ 
 #### 温馨提示：
  - IP 类型：idc 为互联网数据中心，bs 为基站。
  - 行为信息熵：0.5 为参考值，值越小说明行为越异常。

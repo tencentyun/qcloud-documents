@@ -1,6 +1,6 @@
 ## 操作场景
 
-对等连接（Peering Connection）是一种大带宽、高质量的云上资源互通服务，可以打通腾讯云上的资源通信链路。您可以通过对等链接实现同地域不同 VPC 下的间的集群互通。本文主要介绍黑石私有网络与公有云私有网络之间建立对等连接，黑石物理机与容器间的互通。
+对等连接（Peering Connection）是一种大带宽、高质量的云上资源互通服务，可以打通腾讯云上的资源通信链路。您可以通过对等连接实现同地域不同 VPC 下的间的集群互通。本文主要介绍黑石私有网络与公有云私有网络之间建立对等连接，黑石物理机与容器间的互通。
 
 >! 
 > - 本文档以已在公有云创建集群并已添加节点为例。关于如何创建集群，您可以参考 [创建集群](https://cloud.tencent.com/document/product/457/11741) 进行创建。
@@ -13,7 +13,7 @@
 
 1. 登录 [黑石私有网络控制台](https://console.cloud.tencent.com/vpcbm/vpc)。
 2. 在私有网络管理页面中，记录需要建立黑石 VPC 的 **CIDR**。如下图所示：
-![](https://upload-images.jianshu.io/upload_images/13878457-9d7ab72b55bab74e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://main.qcloudimg.com/raw/5ae8641abe14861597d01ebbe9a2bac3.png)
 3. 切换至 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 4. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入集群管理页面。
 5. 单击需要设置互通的集群 ID/名称，进入该集群的管理页面。如下图所示：
@@ -35,6 +35,6 @@
 
 容器与黑石机器之间可以互通，公有云集群容器的登录方法请参考  [远程终端基本操作](https://cloud.tencent.com/document/product/457/9120)。
 1. 登录公有云集群容器，并在公有云集群容器中访问黑石机器。如下图所示：
-![容器 to 黑石物理机](https://main.qcloudimg.com/raw/473e522adffdd20550762c597b61f0ba.png)
+![容器 to 黑石物理机](https://main.qcloudimg.com/raw/6d2633c88facb28a451293b852d81950.png)
 2. 登录黑石机器，并在黑石机器中访问公有云集群容器。如下图所示：
-![黑石物理机 to 容器](https://upload-images.jianshu.io/upload_images/13878457-3c050d5c47b569ce.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![黑石物理机 to 容器](https://main.qcloudimg.com/raw/6e5587efe6c24dfb5dc0bdfe58364368.png)

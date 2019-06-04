@@ -775,13 +775,14 @@ fail | 失败回调
 @end
 ```
 
-### 群成员获取群组资料
+### 获取群组资料
 
-`getGroupInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。群资料信息由 `TIMGroupInfo` 定义。通过 `TIMGroupManager` 的方法 `getGroupInfo` 可获取群组资料。
+通过 `TIMGroupManager` 的方法 `getGroupInfo` 方法可以获取服务器存储的群组资料，`queryGroupInfo`  方法可以获取本地存储的群组资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。群资料信息由 `TIMGroupInfo` 定义。  
 
 **权限说明：**
 
-- 获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用。
+- 无论是公开群还是私有群，群成员均可以拉到群组资料。
+- 如果是公开群，非群组成员可以拉到 group、groupName、owner、groupType、createTime、maxMemberNum、memberNum、introduction、faceURL、addOpt、onlineMemberNum、customInfo 这些资料字段。如果是私有群，非群组成员拉取不到群组资料。
 
 **原型：**
 
@@ -871,16 +872,26 @@ fail | 失败回调
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
+
 @interface TIMGroupManager (Ext)
 /**
- *  获取群信息
+ *  获取服务器存储的群资料
  *
+ *  @param groups 群组 ID 列表
  *  @param succ 成功回调，不包含 selfInfo 信息
  *  @param fail 失败回调
  *
  *  @return 0 成功
  */
 - (int)getGroupInfo:(NSArray*)groups succ:(TIMGroupListSucc)succ fail:(TIMFail)fail;
+/**
+ *  获取本地存储的群资料
+ *
+ *  @param group 群组 ID
+ *
+ *  @return 群组资料
+ */
+- (TIMGroupInfo *)queryGroupInfo:(NSString *)group;
 @end
 ```
 
@@ -898,52 +909,6 @@ fail | 失败回调
 NSMutableArray * groupList = [[NSMutableArray alloc] init];
 [groupList addObject:@"TGID1JYSZEAEQ"];
 [[TIMGroupManager sharedInstance] getGroupInfo:groupList succ:^(NSArray * groups) {
-	for (TIMGroupInfo * info in groups) {
-		NSLog(@"get group succ, infos=%@", info);
-	}
-} fail:^(int code, NSString* err) {
-	NSLog(@"failed code: %d %@", code, err);
-}];
-```
-
-### 非群成员获取群组资料
-
-`getGroupInfo` 方法只对群成员有效，非成员需要调用 `getGroupPublicInfo` 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
-**权限说明：**
-
-- 任意用户可以获取群公开资料。
-
-**原型：**
-
-```
-@interface TIMGroupManager (Ext)
-/**
- *  获取群公开信息
- *  @param groups 群组 ID
- *  @param succ 成功回调
- *  @param fail 失败回调
- *
- *  @return 0 成功
- */
-- (int)getGroupPublicInfo:(NSArray*)groups succ:(TIMGroupListSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数|说明
----|---
-groups |NSString 数组，需要获取资料的群组列表
-succ | 成功回调，返回群组资料列表，TIMGroupInfo 数组
-fail | 失败回调
-
-以下示例中获取群组『TGID1JYSZEAEQ』的公开信息。**示例：**
-
-```
-NSMutableArray * groupList = [[NSMutableArray alloc] init];
-[groupList addObject:@"TGID1JYSZEAEQ"];
-[[TIMGroupManager sharedInstance] getGroupPublicInfo:groupList succ:^(NSArray * groups) {
 	for (TIMGroupInfo * info in groups) {
 		NSLog(@"get group succ, infos=%@", info);
 	}

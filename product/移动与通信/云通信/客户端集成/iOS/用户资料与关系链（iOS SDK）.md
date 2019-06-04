@@ -397,13 +397,9 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_ADD_FRIEND_STATUS_FRIEND_SIDE_FORBID_ADD            = 30516,
     /**
-     *  加好友时有效：好友数量已满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30519,    
-    /**
-     *  加好友时有效：已经是好友
-     */
-    TIM_ADD_FRIEND_STATUS_ALREADY_FRIEND                    = 30520,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,     
     /**
      *  加好友时有效：已被被添加好友设置为黑名单
      */
@@ -558,17 +554,13 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_RESPONSE_FRIEND_STATUS_NO_REQ                       = 30614,   
     /**
-     *  响应好友申请时有效：自己的好友满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_SELF_FRIEND_FULL             = 30615,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,      
     /**
-     *  响应好友申请时有效：好友已经存在
+     *  加好友、响应好友时有效：对方的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_FRIEND_EXIST                 = 30617,    
-    /**
-     *  响应好友申请时有效：对方好友满
-     */
-    TIM_RESPONSE_FRIEND_STATUS_OTHER_SIDE_FRIEND_FULL       = 30630,
+    TIM_ADD_FRIEND_STATUS_THEIR_FRIEND_FULL                 = 30014,
 };
 ```
 
