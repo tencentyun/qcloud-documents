@@ -91,8 +91,17 @@
  - **keystorePass**：密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
  - **clientAuth**：如果设为 true，表示 Tomcat 要求所有的 SSL 客户出示安全证书，对 SSL 客户进行身份验证。
  - **sslProtocol**：指定套接字（Socket）使用的加密/解密协议，默认值为 TLS。
-6. 若 Tomcat 服务器没有启动，在 `/usr/*/bin` 目录下执行命令启动 Tomcat 服务器。
+6. 确认 Tomcat 服务器是否启动。
+   - 若已启动，您需要在 `/usr/*/bin` 目录下执行以下命令，关闭 Tomcat 服务器。
 ```
+./shutdown.sh
+```
+  再执行以下命令，启动 Tomcat 服务器。
+	 ```
+./startup.sh
+```
+ - 若未启动，您需要在 `/usr/*/bin` 目录下执行以下命令，启动 Tomcat 服务器。
+ ```
 ./startup.sh
 ```
 7. 若启动成功，即可使用 `https://www.domain.com` 进行访问。
@@ -127,17 +136,17 @@
 ```
 >? 此修改操作可将非 SSL 的 connector 可以跳转到 SSL 的 connector 中。
 >
-4. 在` /usr/*/bin` 目录下执行关闭命令。
+4. 在` /usr/*/bin` 目录下执行以下命令，关闭 Tomcat 服务器。
 ```
 ./shutdown.sh
 ```
-5. 执行命令，确认配置是否存在问题。
+5. 执行以下命令，确认配置是否存在问题。
 ```
 ./configtest.sh
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
  - 若不存在，请执行下一步。
-5. 执行命令启动 Tomcat 服务器，即可使用`http://www.domain.com`进行访问。
+5. 执行以下命令，启动 Tomcat 服务器，即可使用`http://www.domain.com`进行访问。
 ```
 ./startup.sh
 ```
