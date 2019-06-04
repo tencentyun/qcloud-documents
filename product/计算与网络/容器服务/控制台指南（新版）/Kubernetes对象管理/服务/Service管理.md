@@ -105,7 +105,7 @@ metadata:
 > ? 如果您使用的是带宽上移账号，在创建公网访问方式的服务时需要指定以下两个 annotations 项：
 > - `service.kubernetes.io/qcloud-loadbalancer-internet-charge-type` 公网带宽计费方式，可选值有：TRAFFIC_POSTPAID_BY_HOUR（按使用流量计费），BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）
 > - `service.kubernetes.io/qcloud-loadbalancer-internet-max-bandwidth-out` 带宽上限，范围：[1,2000] Mbps。
->例如：
+> 例如：
 >```Yaml
 >metadata:
 >annotations:
