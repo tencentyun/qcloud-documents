@@ -35,7 +35,7 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
 ```
 //已正常接入灯塔的业务无需关注以下代码，未接入灯塔的业务调用以下代码注册灯塔
 //******************************
-NSString * appkey = @"业务的灯塔appkey，由腾讯云官网注册获取";
+NSString * appkey = @"业务的灯塔appkey（即申请时获取到 appid），由腾讯云官网注册获取";
 [BeaconBaseInterface setAppKey:appkey];
 [BeaconBaseInterface enableAnalytics:@"" gatewayIP:nil];
 //******************************
