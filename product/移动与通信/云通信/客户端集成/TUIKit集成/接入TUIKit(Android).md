@@ -58,7 +58,7 @@ TUIKit 会自动加载所需的 IM SDK。
  * TUIKit 的初始化函数
  *
  * @param context  应用的上下文，一般为对应应用的 ApplicationContext
- * @param sdkAppID 您在腾讯云注册应用时分配的 sdkAppID
+ * @param sdkAppID 您在腾讯云注册应用时分配的 SDKAppID
  * @param configs  TUIKit 的相关配置项，一般使用默认即可，需特殊配置参考 API 文档
  * @param customFaceGroupConfigs 聊天自定义表情相关配置，可以参考 PojoApplication.java 文件，传 null 表示无聊天自定义表情相关配置
  */

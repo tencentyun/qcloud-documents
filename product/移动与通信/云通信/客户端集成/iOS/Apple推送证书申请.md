@@ -18,7 +18,7 @@
 再选择 Identifiers 进行到 Identifiers 管理页：
 <img src="//mccdn.qcloud.com/static/img/441c328294ddca6e9906e3f35d989ea2/image.png" width=640 />
 生成 App ID：
-Identifiers 的右侧列表中，如果您已经配置您的应用，跳到第3步，否则单击“+”号添加 Appid。
+Identifiers 的右侧列表中，如果您已经配置您的应用，跳到第3步，否则单击“+”号添加 App ID。
 <img src="//mccdn.qcloud.com/static/img/b1c257146018480e246be45f3889d5c4/image.png" width=640 />
 输入您的 App ID 描述信息，可以输入工程名；Bunble ID（在工程的 General 信息中），一般格式为 com.youcompany.youprojname，选择需要支持 Push Notification，Continue：
 <img src="//mccdn.qcloud.com/static/img/1b403cd5e1dcccf0153eb23b3e87d8c6/image.png" width=640 />
@@ -27,7 +27,7 @@ Submit 提交：
 
 ## 创建 App 的 APS 证书
 
-回到 App IDs 选择您需要推送的 app。展开单击“Edit”：
+回到 App IDs 选择您需要推送的 App。展开单击“Edit”：
 <img src="//mccdn.qcloud.com/static/img/1d4b185be699bda3f1bb87b8232e7907/image.png" width=640 />
 找到最底部的 Push Notifications，单击“Create Cerifcate…”创建 push 证书，这里**开发环境的证书和发布环境的证书需要分别创建，也就是相同的流程要走两遍**：
 <img src="//mccdn.qcloud.com/static/img/17f9f4648c333306abc307777557075e/image.png" width=640 />

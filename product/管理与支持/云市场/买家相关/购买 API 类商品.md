@@ -6,6 +6,7 @@
 ![](https://main.qcloudimg.com/raw/fe30641ef619abee9f1454310abe1bca.png)  
 
 ## 核对订单信息并支付 
+核对订单信息，单击【确认购买】后进行支付。
 ![](https://main.qcloudimg.com/raw/df74eec9b5a30c62fbdede34fea6fe75.png)
 ![](https://main.qcloudimg.com/raw/a230689886bc3b8b7326bd5c437706d6.png)
 

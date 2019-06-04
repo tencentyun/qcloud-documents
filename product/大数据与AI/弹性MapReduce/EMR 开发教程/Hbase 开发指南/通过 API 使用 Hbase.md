@@ -207,7 +207,7 @@ public class PutExample {
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
 `mvn package`
 
-在显示 build success 表示操作成功，在工程目录下的 arget 文件夹中能够看到打包好的文件。
+在显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
 使用 scp 或者 sftp 工具来把把打包好的文件上传到 EMR 集群。注意这里一定要上传把依赖一起进行打包的 jar 包。在本地命令行模式下运行：
 `scp $localfile root@公网IP地址:$remotefolder`
 

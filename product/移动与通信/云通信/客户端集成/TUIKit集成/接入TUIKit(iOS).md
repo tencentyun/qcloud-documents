@@ -59,7 +59,7 @@ pod update
 ```
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
-## TUIkit API调用
+## TUIkit API 调用
 ### 目录结构
 ![](https://main.qcloudimg.com/raw/6f5b7c7c8bc0d228840d4dd4da457387.png)
 
@@ -76,16 +76,16 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 初始化
 通常情况下 TUIKit 的初始化非常简单，只需调用下面接口初始化默认配置即可。
 ```
-NSInteger sdkAppid = 1400173143; //填入自己app的sdkAppid
-NSString *accountType = @"36862"; //填入自己app的accountType
-TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认TUIKit配置，这个您可以根据自己的需求在 TUIKitConfig 里面自行配置
-[[TUIKit sharedInstance] initKit:sdkAppid accountType:sdkAccountType withConfig:[TUIKitConfig defaultConfig]];
+NSInteger sdkAppid = 1400173143; //填入自己 App 的 SDKAppID
+NSString *accountType = @"36862"; //填入自己 App 的 accountType
+TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认 TUIKit 配置，这个您可以根据自己的需求在 TUIKitConfig 里面自行配置
+[[TUIKit sharedInstance] initKit:sdkAppid accountType:accountType withConfig:[TUIKitConfig defaultConfig]];
 ```
 ### 登录
 在获取了用户的 identifier 和 userSig 后可以调用 TUIKit 接口直接登录。
 ```
 NSString *identifier = @"user1" //填入登录用户名
-NSString *userSig = @"";        //填入签名userSig
+NSString *userSig = @"";        //填入签名 userSig
 [[TUIKit sharedInstance] loginKit:identifier userSig:userSig succ:^{
       //登录成功
 } fail:^(int code, NSString *msg) {
@@ -95,7 +95,7 @@ NSString *userSig = @"";        //填入签名userSig
 ### UI 主界面
 当您登录成功后，可以直接创建主界面管理类 TabBarController，在 TabBarController 添加会话列表类和信息设置类，在具体方式如下：
 ```
-//1，创建TabBarController
+//1，创建 TabBarController
 TTabBarController *tbc = [[TTabBarController alloc] init];
 NSMutableArray *items = [NSMutableArray array];
 
@@ -133,7 +133,7 @@ tbc.tabBarItems = items;
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];
-		//初始化 TUIKit 的会话列表UI类
+		//初始化 TUIKit 的会话列表 UI 类
     TConversationController *conv = [[TConversationController alloc] init];
     conv.delegate = self;
     [self addChildViewController:conv];
@@ -189,7 +189,7 @@ tbc.tabBarItems = items;
 {
     //获取群聊信息
     TConversationCellData *data = [[TConversationCellData alloc] init];
-	//群聊ID
+	//群聊 ID
     data.convId = groupId;
 	//群聊类型
     data.convType = TConv_Type_Group;
@@ -200,16 +200,16 @@ tbc.tabBarItems = items;
 - (void)addC2CController:(TAddC2CController *)controller didCreateChat:(NSString *)user
 {
     TConversationCellData *data = [[TConversationCellData alloc] init];
-	//会话ID
+	//会话 ID
     data.convId = user;
 	//会话类型
     data.convType = TConv_Type_C2C;
-	//会话title
+	//会话 title
     data.title = user;
 }
 ```
 
-**第5步**：当点击会话列表的某一个会话的时候，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的Id，消息类型，消息内容等信息）。
+**第5步**：单击会话列表的某一个会话时，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的 Id，消息类型，消息内容等信息）。
 ```
 - (void)conversationController:(TConversationController *)conversationController didSelectConversation:(TConversationCellData *)conversation
 {
@@ -297,7 +297,7 @@ tbc.tabBarItems = items;
 ```
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url
 {
-   //获取文件url并发送
+   //获取文件 url 并发送
     [_chat sendFileMessage:url];
     [controller dismissViewControllerAnimated:YES completion:nil];
 }

@@ -292,17 +292,3 @@ IM SDK 内部日志级别可通过配置 `TIMSdkConfig` 进行修改，控制 I
 @property(nonatomic,assign) BOOL disableLogPrint;
 @end
 ```
-
-## 禁用存储 （4.X 版本暂未实现）
-默认情况 IM SDK 会进行消息的存储，如无需存储，可选择关闭存储来提升处理性能。
-
-**原型:**
-
-```
-@interface TIMUserConfig : NSObject
-/**
- *  禁用本地存储（加载消息扩展包有效）
- */
-@property(nonatomic,assign) BOOL disableStorage;
-@end
-```

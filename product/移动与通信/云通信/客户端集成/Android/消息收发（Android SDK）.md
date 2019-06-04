@@ -382,8 +382,8 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述desc，可用于定位请求失败原因
-        //错误码code含义请参见错误码表
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
 
@@ -553,7 +553,7 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
@@ -916,14 +916,19 @@ public boolean isSelf()
 public String getSender()
 
 /**
- * 获取发送者资料（发送者为本人时可能为空）
- * @return 发送者资料，null 表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
+ * 获取发送者资料
+ *
+ * 如果本地有发送者资料，这里会直接通过 return 值 TIMUserProfile 返回发送者资料，如果本地没有发送者资料，这里会直接 return null，IM SDK 内部会向服务器拉取发送者资料，并在 callBack 回调里面返回发送者资料。
+ *
+ * @param callBack 回调
+ * @return 发送者本地缓存资料，如果本地没有可以通过回调获取
  */
-public TIMUserProfile getSenderProfile()
+public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 
 /**
- * 获取发送者群内资料（发送者为本人时可能为空）
- * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user，其他的字段获取建议通过 TIMGroupManagerExt > getGroupMembers 获取
+ * 获取发送者群内资料，只有接收到的群消息才能获取到资料（发送者为自己时可能为空）
+ *
+ * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user、nameCard、role、customInfo，其他的字段获取建议通过 TIMGroupManagerExt -> getGroupMembers 获取
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
@@ -1251,19 +1256,6 @@ public TIMMessage getLastMsg()
 public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
-### 禁用会话本地存储
-
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。IM SDK 提供了针对单个会话禁用本地存储的功能，开发者可以根据需要调用 `TIMConversationExt` 中的 `disableStorage` 接口禁用相应的会话本地存储。
- 
-**原型：**
-
-```
-/**
- * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
- * 需要初始后调用
- */
-public void disableStorage()
-```
 
 ### 设置会话草稿
 
@@ -1421,20 +1413,6 @@ public interface TIMMessageRevokedListener extends IMBaseListener {
  * @since 3.1.0
  */
 public boolean checkEquals(@NonNull TIMMessageLocator locator)
-
-```
-
-另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
-
-**原型：**
-
-```
-/**
- * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
- * @param cb 回调
- * @since 3.1.0
- */
-public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
 
 ```
 

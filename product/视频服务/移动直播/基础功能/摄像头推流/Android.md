@@ -1,26 +1,26 @@
 ## 基础知识
-**推流** 是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
+**推流**是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
 
 腾讯视频云 SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流 URL 就能驱动：
 ![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
 
 ## 特别说明
-- **<font color='red'>不绑定腾讯云</font>**
+- **不绑定腾讯云**
 > SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 false。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 true，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
 
 ## 准备工作
 
 - **获取开发包**
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7877)指引将 SDK 嵌入您的 App 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [工程配置](https://cloud.tencent.com/document/product/454/7877) 指引将 SDK 嵌入您的 App 开发工程。
 
 - **获取测试 URL**
-[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息可以参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+[开通](https://console.cloud.tencent.com/live) 直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 
 ## 代码对接
 本篇攻略主要是面向**摄像头直播**的解决方案，该方案主要用于美女秀场直播、个人直播以及活动直播等场景。
 
 ### step 1: 添加界面元素
-为了能够展示摄像头预览的影像，您需要在您的布局 xml 文件里加入如下一段代码，他会在您的UI上安插一个 TXCloudVideoView 控件，这是我们用来显示摄像头影像的专用控件：
+为了能够展示摄像头预览的影像，您需要在您的布局 xml 文件里加入如下一段代码，他会在您的 UI 上安插一个 TXCloudVideoView 控件，这是我们用来显示摄像头影像的专用控件：
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
             android:id="@+id/video_view"
@@ -52,7 +52,7 @@ mLivePusher.startPusher(rtmpUrl);
 TXCloudVideoView mCaptureView = (TXCloudVideoView) view.findViewById(R.id.video_view);
 mLivePusher.startCameraPreview(mCaptureView);
 ```
-- **startPusher** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
+- **startPusher** 的作用是告诉 SDK 音视频流要推到哪个推流 URL 上去。
 - **startCameraPreview** 则是将界面元素和 Pusher 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 
@@ -67,7 +67,7 @@ mLivePusher.setConfig(mLivePushConfig);      // 重新设置 config
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
 ```
-如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流。请提工单联系我们。
+如果您启动纯音频推流，但是 RTMP、FLV 和 HLS 格式的播放地址拉不到流。请提工单联系我们。
 
 
 ### step 4: 设定清晰度
@@ -109,9 +109,9 @@ mLivePusher.startPusher(rtmpUrl);
 setBeautyFilter 接口可以设置美颜风格、磨皮程度、美白级别和红润级别，配合 540 \* 960 分辨率（setVideoQuality - VIDEO_QUALITY_HIGH_DEFINITION），可以达到最佳的画质效果：
 ```java
  //style             磨皮风格：  0：光滑  1：自然  2：朦胧
- //beautyLevel       磨皮等级： 取值为 0-9.取值为 0 时代表关闭美颜效果.默认值: 0,即关闭美颜效果.
- //whiteningLevel    美白等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果.
- //ruddyLevel        红润等级： 取值为 0-9.取值为 0 时代表关闭美白效果.默认值: 0,即关闭美白效果. 
+ //beautyLevel       磨皮等级： 取值为0 - 9.取值为0时代表关闭美颜效果，默认值:0，即关闭美颜效果。
+ //whiteningLevel    美白等级： 取值为0 - 9.取值为0时代表关闭美白效果，默认值:0，即关闭美白效果。
+ //ruddyLevel        红润等级： 取值为0 - 9.取值为0时代表关闭美白效果，默认值:0，即关闭美白效果。
  //
  public boolean setBeautyFilter(int style, int beautyLevel, int whiteningLevel, int ruddyLevel);
 ```
@@ -127,11 +127,11 @@ if (mLivePusher != null) {
        mLivePusher.setFilter(bmp);
 }
 ```
->?如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG</font>。
+>?如果要自定义滤镜，一定要用 PNG 格式的图片，**不要用 JPG**。
 
 - **曝光**
 setExposureCompensation 可以调节曝光值，这个调整项在 iOS 端是没有的（我们使用了系统的自动曝光）。但是 Android 机型差异太大，很多千元机的自动曝光效果实在一般，所以我们推荐在您的 UI 界面上提供一个自动曝光的操作滑竿，让主播可以自己调节曝光值大小。
->?setExposureCompensation 的参数为-1到1的浮点数： 0表示不调整， -1是将曝光降到最低， 1表示是将曝光加强到最高。
+>?setExposureCompensation 的参数为-1 - 1的浮点数： 0表示不调整， -1是将曝光降到最低， 1表示是将曝光加强到最高。
 
 ### step 6: 控制摄像头
 - **切换前置或后置摄像头** 
@@ -170,12 +170,12 @@ mLivePusher.setMirror(true);
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
-这里我们特别建议您使用 <font color='red'>SDK 添加水印</font>，因为在云端打水印有三个明显的问题：
+这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
  （1）这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本；
  （2）在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  （3）在云端打水印会引入额外的 3s 以上的视频延迟，这是转码服务所引入的。
 
-SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您可千万别把 jpg 图片在 Windows 下改个后缀名就塞进去了，专业的png图标都是需要由专业的美工设计师处理的）
+SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题。（您不可以把 jpg 图片在 Windows 下改个后缀名就塞进去了，专业的 png 图标都是需要由专业的美工设计师处理的）
 
 ```java
 //设置视频水印
@@ -236,7 +236,6 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
 ### step 9: 本地录制
 使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoFilePath 可以指定 MP4 文件的存放路径。
 - 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
-- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参考 [云端录制](https://cloud.tencent.com/document/product/454/7917)。
 - 通过 setVideoRecordListener 接口，可以设置 TXRecordCommon.ITXVideoRecordListener 监听器给 TXLivePusher ，从而获取录制相关的事件通知。
 
 ```java
@@ -252,6 +251,8 @@ public interface ITXVideoRecordListener {
         void onRecordComplete(TXRecordResult result);
 }
 ```
+
+>? 云直播提供云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### step 10: 后台推流
 常规模式下，App 一旦切到后台，摄像头的采集能力就被 Android 系统停掉了，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -310,18 +311,17 @@ public void onResume() {
 2、在 step 10.3 中，注释 mLivePusher.pausePusher() 该方法。
 3、在 step 10.4 中，注释 mLivePusher.resumePusher() 该方法。
 
-**<font color='red'>注意</font>**：使用该功能注意保护主播隐私。
+>! 使用该功能注意保护主播隐私。
 
 ### step 11: 网络质量提示
-- 如果主播网络质量不好，我们应该怎么做？ 
+- 如果主播网络质量不好，我们应该怎么做。
 - 主动降低清晰度来确保流畅性？ 这样观众端的感受就是模糊和马赛克。
 - 主动丢掉一部分视频帧，以确保画面还能持续有一定的清晰度？这样观众端的感受就是持续卡顿。
-- 以上都是我们不想要的？那怎么办？
-- “既然马儿跑得快，又让马儿不吃草。”  我们都知道，这是不可能的事情。
+- 以上都是我们不想要的？那怎么办。
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
-此时可以提示主播 **“您当前的网络状况不佳，推荐您离 Wi-Fi 近一点，尽量不要让 Wi-Fi 穿墙”**。
+此时可以提示主播**“您当前的网络状况不佳，推荐您离 Wi-Fi 近一点，尽量不要让 Wi-Fi 穿墙”**。
 
 ### step 12: 横屏推流
 有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果：
@@ -347,7 +347,7 @@ mLivePusher.setRenderRotation(90);
 
 
 - **Activity自动旋转**
-Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://cloud.tencent.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
+Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)演示了如何做到下面这种重力感应效果：
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
 
@@ -392,7 +392,7 @@ mTXLivePusher.sendMessage(questionInfo.getBytes("UTF-8"));
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件，注意 TXLivePushListener 只能监听得到 PUSH_ 前缀的推流事件。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件，比如收到 1003 就意味着摄像头的画面会开始渲染了
@@ -419,12 +419,12 @@ SDK发现了一些严重问题，推流无法继续了，比如用户禁用了 A
 |PUSH_ERR_NET_DISCONNECT          | -1307| 网络断连,且经三次抢救无效,可以放弃治疗,更多重试请自行重启推流|
 
 ### 4. 警告事件 
-SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”哦。
+SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 - **WARNING_NET_BUSY**
 主播网络不给力。如果您需要 UI 提示，这个 warning 相对比较有用（step10）。
 
-- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
+- **WARNING_SERVER_DISCONNECT**
 推流请求被后台拒绝了。出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流 URL 同时只能有一个端推流）。
 
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -432,7 +432,7 @@ SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING �
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP -DNS 解析失败（会触发重试流程）        |
+|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）  |
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP 服务器握手失败（会触发重试流程）  |
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）  |
