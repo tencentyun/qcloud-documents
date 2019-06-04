@@ -42,8 +42,8 @@
 > 
 > 若以上配置文件中均未找到 `LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句，请确认是否已经安装 mod_ssl.so 模块。若未安装 mod_ssl.so 模块，您可通过执行`yum install mod_ssl` 命令进行安装。
 > 
- - 若已注释，请去掉首行的注释符号（`#`），保存配置文件，并执行 [下一步](#step6)。
- - 若未注释，请执行 [下一步](#step6)。
+ - 若已注释，请去掉首行的注释符号（`#`），保存配置文件，并执行 [步骤6](#step6)。
+ - 若未注释，请执行 [步骤6](#step6)。
 <span id="step6"></span>
 6. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
 >?首次安装的 Apache 服务器，`conf.d` 目录默认在 `/etc/httpd` 目录下。
@@ -69,10 +69,10 @@
 若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件。
 >!
->- Apache 的版本不同，目录结构也会有所区别。具体请您参阅 [Apache 官方 rewrite 的文档](http://httpd.apache.org/docs/2.4/mod/mod_rewrite.html) 。
+>- Apache 的版本不同，目录结构也会有所区别。具体请您参阅 [Apache 官方 rewrite 的文档](http://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)。
 >- httpd.conf 配置文件所在目录不唯一，您可以根据 `/etc/httpd/*` 逐一查找。
 2. 请确认该配置文件是否存在`LoadModule rewrite_module modules/mod_rewrite.so`。
- - 若存在，去掉`LoadModule rewrite_module modules/mod_rewrite.so`前面的 `#` 号。并执行 [步骤4](#step4)。
+ - 若存在，请去掉`LoadModule rewrite_module modules/mod_rewrite.so`前面的注释符号（`#`）号。并执行 [步骤4](#step4)。
  - 若不存在，请执行 [步骤3](#step3)。
  <span id="step3"></span>
 3. 请您在`/etc/httpd/conf.modules.d`中新建一个 \*.conf 文件，例如 00-rewrite.conf。在新建文件中添加以下内容：
