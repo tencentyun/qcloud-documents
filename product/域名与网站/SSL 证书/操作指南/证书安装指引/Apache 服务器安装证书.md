@@ -46,7 +46,8 @@
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 如果您不知道网站可以通过 HTTPS 方式访问的情况，我们可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
-1. 编辑 `/etc/httpd/conf.d` 目录下的 httpd.conf 配置文件。
+1. 编辑 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件。
+>!httpd.conf 配置文件所在目录不唯一，您可以根据`/etc/httpd/*`逐一查找。
 2. 请确认该配置文件是否存在`LoadModule rewrite_module modules/mod_rewrite.so`这一行。
  - 若存在，去掉`LoadModule rewrite_module modules/mod_rewrite.so`前面的 # 号。
  - 若不存在，可在`/etc/httpd/conf.modules.d`中新建一个 \*.conf 文件，例如 00-rewrite.conf。在新建文件中添加以下内容：
@@ -54,9 +55,9 @@
  LoadModule rewrite_module modules/mod_rewrite.so
 ```
  >?Apache 的版本不同，目录结构也会有所区别。具体请您参阅 Apache 官方的 rewrite 的文档 http://httpd.apache.org/docs/2.4/mod/mod_rewrite.html。
-3. 修改如下内容：
+3. 在 httpd.conf 配置文件中添加如下内容：
 ```
-<Directory "/var/www/html/app/src/htdocs_www"> 
+<Directory "/var/www/html"> 
 # 新增
 RewriteEngine on
 RewriteCond %{SERVER_PORT} !^443$
