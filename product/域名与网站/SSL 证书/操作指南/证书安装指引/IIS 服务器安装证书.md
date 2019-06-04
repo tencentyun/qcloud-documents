@@ -1,17 +1,18 @@
 ## 操作场景
-本文档指导您如何在 IIS 服务器中安装 SSL 证书。
-
+本文档指导您如何在 IIS 中安装 SSL 证书。
+>?
+>- 本文档以证书名称 `www.domain.com` 为例。
+>- 本文档以操作系统 Windows10 为例。由于操作系统的版本不同，详细操作步骤略有区别。
+>
 ## 前提条件
 - 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
 解压缩后，可获得 IIS 文件夹和 CSR 文件：
- - 文件夹名称：IIS。
+ - 文件夹名称：IIS
  - 文件夹内容：
-    - `www.domain.com.pfx` 证书文件。
+    - `www.domain.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件
-  - CSR 文件内容：	`www.domain.com.csr` 文件。
-- 由于操作系统的版本不同，详细操作步骤略有区别：
- - 操作系统 Windows10。
- - 已进入 IIS 服务管理器。
+  - CSR 文件内容：	`www.domain.com.csr` 文件
+- 已进入 IIS。
  
 >!若您在申请 SSL 证书时已设置私钥密码，该文件夹下则无 keystorePass.txt 文件。
 
@@ -40,7 +41,7 @@
 执行下列步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
 >?正常跳转可按照下列编辑规则。若您有其他需求可以自己设置。
 >
-1. 进入 IIS 服务管理器。
+1. 进入 IIS。
 2. 选择网站下的站点名称，单击 “URL 重写”，并单击右侧 “操作” 栏的【打开功能】。
 3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。
 4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。
