@@ -6,7 +6,7 @@
 ## Flume 架构
 
  一个 Flume 事件被定义为一个数据流单元。Flume agent 其实是一个 JVM 进程，该进程中包含完成任务所需要的各个组件，其中最核心的三个组件是 Source、Chanel 以及 Slink。
-![](https://main.qcloudimg.com/raw/8f03694ba4c91c24175c19c994bf4574.png)
+![](https://main.qcloudimg.com/raw/c81b721d6abb55948db55f45c2110f6f.png)
 
 ### Source
 
