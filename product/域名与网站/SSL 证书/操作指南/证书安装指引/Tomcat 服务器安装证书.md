@@ -46,7 +46,7 @@
   keystorePass="******"#密钥库密码
   clientAuth="false" sslProtocol="TLS" />
 ```
-详细 server.xml 请参考如下内容：
+详细 `server.xml` 文件请参考如下内容：
 ```
  <?xml version="1.0" encoding="UTF-8"?>
   <Server port="8005" shutdown="SHUTDOWN">
