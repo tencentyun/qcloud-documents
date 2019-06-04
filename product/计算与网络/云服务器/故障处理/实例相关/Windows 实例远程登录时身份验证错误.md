@@ -17,7 +17,7 @@
 
 ## 解决方案
 
-### 方案一：安装安全更新（推荐）
+### 方案一：通过 VNC 登录云服务器并安装安全更新（推荐）
 
 安装安全更新，更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。
 >! 各操作系统进入【Windows 更新】的方法有所不同。本方案以 Windows server 2016 为例。
@@ -30,7 +30,7 @@
 >? 客户端本地的升级操作，请直接执行 [步骤5](#step5)。
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在 “云主机” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
+2. 在 “云服务器” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
 ![云服务器列表页](https://main.qcloudimg.com/raw/56596196a93181ac4c9467abe19c383a.png)
 3. 在弹出的 “登录Windows云服务器” 窗口中，选择 “浏览器 VNC 方式登录”，单击【立即登录】。如下图所示：
 ![VNC登录入口](https://main.qcloudimg.com/raw/80b613a90328bb34a006d5988dcff18b.png)

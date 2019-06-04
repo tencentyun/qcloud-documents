@@ -1,0 +1,70 @@
+## 操作场景
+
+在创建多台实例过程中，如果您希望实例名称具有一定的规则性，我们提供批量创建实例后缀数字自动升序功能以及指定模式串功能，您可以通过购买页和云 API 两种方式实现。
+
+- 当您需要购买 n 个实例并希望生成类似为 “CVM+序号” 的实例名称时（即实例名称为 CVM1、CVM2、CVM3 等实例），您可通过 [后缀数字自动升序](#AutoAscending) 实现。
+- 当您需要创建 n 个实例且指定实例的序号从 x 开始递增时，您可通过 [指定单个模式串](#SpecifySingleString) 实现。
+- 当您希望创建 n 个有多个前缀且每个前缀均指定序号的实例时，您可通过 [指定多个模式串](#SpecifyMultipleStrings) 实现。
+
+
+## 操作步骤
+
+<span id="AutoAscending"></span>
+### 后缀数字自动升序
+
+可将批量购买的实例设置为前缀相同，仅序号递增的实例名称。
+>! 创建成功的实例默认序号从1开始递增，且不能指定开始的序号。
+>
+以下操作以您购买了3个实例，并希望生成的实例名称为 “CVM+序号”（即实例名称为 CVM1、CVM2 和 CVM3）为例。
+
+#### 购买页操作
+
+1. 参考 [创建实例](https://cloud.tencent.com/document/product/213/4855) 购买实例，并在“4.设置安全组和主机”中以**“前缀+序号”**的命名规则填写实例名称，即将实例名称填写为 `CVM`。如下图所示：
+![](https://main.qcloudimg.com/raw/77af62dc210dfdfffe7ea3251f110ae5.png)
+2. 在“5.确认配置信息”中，选择【购买数量】，单击【开通】，完成支付。
+3. 返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看新创建实例，即可发现批量购买的实例前缀相同，序号递增。如下图所示：
+![](https://main.qcloudimg.com/raw/5c75a776c9f48c66c277f16e03504f3a.png)
+
+#### API 操作
+
+在云 API [RunInstances](https://cloud.tencent.com/document/api/213/15730) 中，将 InstanceName 字段指定为 `CVM`。
+
+### 指定模式串
+
+可将批量购买的实例设置为复杂且指定序号的实例名称。实例名称支持指定单个或者多个模式串，在设置实例名称时，请根据实际需求进行设置。
+
+指定模式串的命名：**{R:x}**，x 表示生成实例名称的初始序号。
+
+<span id="SpecifySingleString"></span>
+#### 指定单个模式串
+
+以下操作以您需要创建3个实例，且指定实例的序号从3开始递增为例。
+
+##### 购买页操作
+
+1. 参考 [创建实例](https://cloud.tencent.com/document/product/213/4855) 购买实例，并在“4.设置安全组和主机”中以**“前缀+指定模式串{R:x}”**的命名规则填写实例名称，即将实例名称填写为 `CVM{R:3}`。如下图所示：
+![](https://main.qcloudimg.com/raw/33dfc2285ba284d4425e1da8e2a82736.png)
+2. 在“5.确认配置信息”中，选择【购买数量】，单击【开通】，完成支付。
+3. 返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看新创建实例，即可发现批量购买的实例前缀相同，序号从3开始递增。如下图所示：
+![](https://main.qcloudimg.com/raw/81744383aafa43541918f2c48f1d7474.png)
+
+##### API 操作
+
+在云 API [RunInstances](https://cloud.tencent.com/document/api/213/15730) 中，将 InstanceName 字段指定为 `CVM{R:3}`。
+
+<span id="SpecifyMultipleStrings"></span>
+#### 指定多个模式串
+
+以下操作以您需要创建3个实例，并希望生成实例名称含有 cvm、 Big 和 test 前缀，且 cvm 和 Big 前缀后面带序号，序号分别从13和2开始递增（即实例名称为 cvm13-Big2-test、cvm14-Big3-test、cvm15-Big4-test）为例。
+
+##### 购买页操作
+
+1. 参考 [创建实例](https://cloud.tencent.com/document/product/213/4855) 购买实例，并在“4.设置安全组和主机”中以**“前缀+指定模式串{R:x}-前缀+指定模式串{R:x}-前缀”**的命名规则填写实例名称，即将实例名称填写为 `cvm{R:13}-Big{R:2}-test` 。如下图所示：
+![](https://main.qcloudimg.com/raw/c5fc88dddb26764ba367c89d7e5d8f93.png)
+2. 在“5.确认配置信息”中，选择【购买数量】，单击【开通】，完成支付。
+3. 返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看新创建实例，即可发现批量购买的实例会根据每个前缀指定的序号递增。如下图所示：
+![](https://main.qcloudimg.com/raw/1287bf0df3280fc890fd621752640f37.png)
+
+##### API 操作
+
+在云 API  [RunInstances](https://cloud.tencent.com/document/api/213/15730) 中，将 InstanceName 字段指定为 ` cvm{R:13}-Big{R:2}-test`。

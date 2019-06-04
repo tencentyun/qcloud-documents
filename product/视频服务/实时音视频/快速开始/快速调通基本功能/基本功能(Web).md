@@ -1,13 +1,13 @@
 本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 ## 准备工作
-在使用基本功能前，请确保您已完成以下骤，详见 [跑通Demo(Web)](https://cloud.tencent.com/document/product/647/32398)，[快速集成(Web)](https://cloud.tencent.com/document/product/647/16863)。
+在使用基本功能前，请确保您已完成以下骤，详见 [跑通 Demo（Web）](https://cloud.tencent.com/document/product/647/32398)，[快速集成（Web）](https://cloud.tencent.com/document/product/647/16863)。
 - 创建了腾讯云实时音视频应用，购买了相应的套餐，并获取到SDKAppid。
 - 获取私钥文件。
-- 在 WEB 项目里集成了 WebRTCAPI.min.js
+- 在 Web 项目里集成了 WebRTCAPI.min.js
 
 ## 部署签名服务
-在初始化组件时需要签名服务进行签发 userSig，详情可以参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+在初始化组件时需要签名服务进行签发 userSig，详情请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ## 检测环境
 检测当前浏览器环境是否支持 WebRTC 相关特性，在支持 WebRTC 的情况下才可以进行初始化等操作。
@@ -32,23 +32,26 @@ WebRTCAPI.fn.detectRTC({
 | screenshare      | 是否支持屏幕分享 |必须安装插件 |
 
 ## 组装参数
-使用基本功能必须的参数有:
+使用基本功能必须的参数有：
 
 - **sdkAppId**
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
-![](https://main.qcloudimg.com/raw/79bfa75cea7faec26d91226a5fb23f10.png)
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
+![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
+>!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
+
 
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
-- **userSig**
-基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
+- **
+- **
+基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomid**
 房间号是数字类型，是进入房间时的必要参数，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomid**。
 
 - **role**
-画面设定的配置集名称，在【控制台】-【实时音视频】-【画面设定】进行配置。
+画面设定的配置集名称，在【控制台】>【实时音视频】>【画面设定】进行配置。
 ![](https://main.qcloudimg.com/raw/1b828be9923df6a67d335b23d12309bb.png)
 
 ## 初始化 SDK
@@ -57,11 +60,7 @@ WebRTCAPI.fn.detectRTC({
 var RTC = new WebRTCAPI({
     sdkAppId: sdkappid, // [必选]开通实时音视频服务创建应用后分配的 sdkappid
     userId: userId, // [必选]用户 ID，可以由您的服务指定
-    userSig: userSig, // [必选]身份签名，需要从自行搭建的签名服务获取
-}, function () {
-    // 初始化成功的回调，可以开始创建或进入房间
-}, function (error) {
-    console.warn("init error", error)
+    userSig: userSig // [必选]身份签名，需要从自行搭建的签名服务获取
 });
 ```
 
@@ -127,10 +126,10 @@ RTC.on( 'onRemoteStreamUpdate' , function(data){
 
 | 参数                   | 类型       | 描述            |
 | -------------------- | --------  | ---- |
-| userId     | String  | 视频流所属用户的userId    |
+| userId     | String  | 视频流所属用户的 userId    |
 | stream     | Stream  | 视频流 Stream，可能为 null( 每一个用户进来 不管是否推流，都会触发这个回调)  |
-| videoId    | String  | 视频流Stream的唯一id ,由 tinyid + "_" + 由随机字符串 组成      |
-| videoType: | Integer | 0 : NONE , 1:AUDIO 音频,   2：主路 MAIN   7：辅路 AID |
+| videoId    | String  | 视频流 Stream 的唯一 ID ,由 tinyid + "_" + 由随机字符串组成      |
+| videoType: | Integer | 0 : NONE , 1：AUDIO 音频,   2：主路 MAIN   7：辅路 AID |
 
 
 远端视频流断开通知。

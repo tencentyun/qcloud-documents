@@ -14,7 +14,7 @@
 <activity android:name="com.example.verifydemo.VerifyFullScreenActivity"></activity> 
 <activity android:name="com.example.verifydemo.VerifyPopupActivity" android:theme="@style/dialog"></activity> 
 ```
-4. 需要下发验证码前从后台获取 jsurl（参考服务端开发获取验证码 JSURL 的接口）。
+4. 需要下发验证码前从后台获取 jsurl（参考[服务端开发获取验证码 JSURL 的接口](https://cloud.tencent.com/document/product/283/33222)）。
 5. 据业务需要实现全屏验证码界面 VerifyFullScreenActivity 或弹框验证码界面 VerifyPopupActivity。
 ```
 //VerifyPopupActivity onCreate实现实例： @Override protected void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); this.requestWindowFeature(Window.FEATURE_NO_TITLE);

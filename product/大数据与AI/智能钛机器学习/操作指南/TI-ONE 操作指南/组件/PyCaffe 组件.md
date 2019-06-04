@@ -4,8 +4,8 @@ Caffe（Convolutional Architecture for Fast Embedding）是一种清晰且高效
 Pycaffe 组件内核是 Caffe 1.0 版本。
 Pycaffe 组件中使用的 Python 版本和支持的第三方模块信息如下：
 - Python 2.7.12
-- scipy 0.17.0
-- numpy 1.11.0
+- SciPy 0.17.0
+- NumPy 1.11.0
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
@@ -35,12 +35,12 @@ pip.main(['install', "package_name"])
 在 PyCaffe 节点上单击右键，可查看任务状态和详细日志。
 ![](https://main.qcloudimg.com/raw/e59b70aa550f2bc571f6c9238358e711.png)
 详细日志如下：
-![](https://main.qcloudimg.com/raw/4eb6a08b1ab47025901a205013eb48fd.png)
+![](https://main.qcloudimg.com/raw/cccec2ede364c78096352d4f27a6a53e.png)
 >?stdout.log 为全部日志，stderr.log 为错误日志。
 
 
 ## 示例
-以下代码展示了在 PyCaffe 框架中，构建一个卷积神经网络（Lenet）的方法。[示例代码下载 >>](https://tio.cloud.tencent.com/gitbook/doc/manual/attachments/PyCaffe_LenetTrain.py)
+以下代码展示了在 PyCaffe 框架中，构建一个卷积神经网络（Lenet）的方法。
 ```
 import os
 import sys

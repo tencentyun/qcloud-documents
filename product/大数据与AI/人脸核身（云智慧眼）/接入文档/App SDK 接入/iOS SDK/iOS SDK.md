@@ -1,4 +1,4 @@
-人脸核身-云智慧眼针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
+腾讯云人脸核身针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
 ![](https://main.qcloudimg.com/raw/5afc0c1af3405bf9aa78a4905b1c0ea5.png)
 
 ## 业务流程
@@ -37,7 +37,7 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 ![](https://main.qcloudimg.com/raw/0634a472dbee443542d89b9364f75515.png)
 
 ### 3. 添加权限声明
-在工程 info.plist 中，增加如下字串：
+在工程 info.plist 中，增加如下字符串：
 ``` xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>需要您的同意才能读取照片库</string>

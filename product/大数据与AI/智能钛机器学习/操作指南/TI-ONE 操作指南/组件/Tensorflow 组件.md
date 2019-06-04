@@ -3,8 +3,8 @@ Tensorflow 组件为用户提供了基于 Python API 的 Tensorflow 运行环境
 ## 版本说明
 Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
    - Python 2.7.12
-   - scipy 1.0.0
-   - numpy 1.14.0
+   - SciPy 1.0.0
+   - NumPy 1.14.0
    
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```
@@ -27,7 +27,7 @@ pip.main(['install', "package_name"])
   指定运行任务脚本的参数。
  - TensorBoard 目录 :
   指定 Tensorboard 保存路径。
- - Python 版本：指定 Tensorflow 运行的 Python 版本，支持 Python 2.7 和 Python 3.4 两个版本。
+ - Python 版本：指定 Tensorflow 运行的 Python 版本，支持 Python 2.7 和 Python 3.5 两个版本。
 ![](https://main.qcloudimg.com/raw/1012cc3a97a1167ef922d291fa9c080a.png)
 3. **配置资源**
   在【资源参数】列表框配置任务的资源参数。

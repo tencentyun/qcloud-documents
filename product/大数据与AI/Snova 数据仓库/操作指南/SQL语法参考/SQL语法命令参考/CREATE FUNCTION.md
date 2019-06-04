@@ -45,7 +45,7 @@ SELECT foo();
 SELECT * FROM foo();
 ```
 
-此规则的一个例外就是返回表引用（rangeFuncs）或使用 refCursor 数据类型的函数。请注意用户不能从数据库中的任何类型函数返回refcursor 。
+此规则的一个例外就是返回表引用（rangeFuncs）或使用 refCursor 数据类型的函数。请注意用户不能从数据库中的任何类型函数返回refcursor。
 
 ## 参数
 

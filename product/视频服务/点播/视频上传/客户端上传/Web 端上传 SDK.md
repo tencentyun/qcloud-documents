@@ -49,9 +49,9 @@ const tcVod = new TcVod.default({
 })
 
 const uploader = tcVod.upload({
-  videoFile: videoFile, // 视频，类型为 File
+  mediaFile: mediaFile, // 媒体文件（视频或音频或图片），类型为 File
 })
-uploader.on('video_progress', function(info) {
+uploader.on('media_progress', function(info) {
   console.log(info.percent) // 进度
 })
 
@@ -77,7 +77,7 @@ uploader.done().then(function (doneResult) {
 
 ```js
 const uploader = tcVod.upload({
-  videoFile: videoFile,
+  mediaFile: mediaFile,
   coverFile: coverFile,
 })
 
@@ -92,15 +92,15 @@ SDK 支持以回调的形式展示当前的上传进度，如下：
 
 ```js
 const uploader = tcVod.upload({
-  videoFile: videoFile,
+  mediaFile: mediaFile,
   coverFile: coverFile,
 })
 // 视频上传完成时
-uploader.on('video_upload', function(info) {
+uploader.on('media_upload', function(info) {
   uploaderInfo.isVideoUploadSuccess = true;
 })
 // 视频上传进度
-uploader.on('video_progress', function(info) {
+uploader.on('media_progress', function(info) {
   uploaderInfo.progress = info.percent;
 })
 // 封面上传完成时
@@ -117,13 +117,15 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
+`xxx_upload` 与 `xxx_progress` 的回调值请参考 [分块上传/复制任务操作](https://cloud.tencent.com/document/product/436/12260#slice-upload-file)。
+
 ### 取消上传
 
 SDK 支持取消正在上传的视频或封面：
 
 ```js
 const uploader = tcVod.upload({
-  videoFile: videoFile,
+  mediaFile: mediaFile,
   coverFile: coverFile,
 })
 
@@ -146,18 +148,18 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 
 | 参数名称         | 必填   | 类型       | 参数描述      |
 | ------------ | ---- | -------- | --------- |
-| videoFile    | 否    | File     | 视频文件  |
+| mediaFile    | 否    | File     | 媒体文件（视频或音频或图片）  |
 | coverFile    | 否    | File     | 封面文件  |
-| videoName    | 否    | string     | 覆盖视频文件元信息中的文件名  |
+| mediaName    | 否    | string     | 覆盖媒体文件元信息中的文件名  |
 | fileId    | 否    | string     | 当修改封面时传入  |
 
 ### 事件
 
 | 事件名称         | 必填   |  事件描述      |
 | ------------ | ---- |  --------- |
-| video_upload    | 否    |  视频文件上传成功时  |
+| media_upload    | 否    |  媒体文件上传成功时  |
 | cover_upload    | 否    |  封面上传成功时  |
-| video_progress    | 否    |  视频文件上传进度  |
+| media_progress    | 否    |  媒体文件上传进度  |
 | cover_progress    | 否    |  封面文件上传进度  |
 
 ## 常见问题

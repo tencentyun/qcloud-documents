@@ -65,7 +65,7 @@ Authorization: Auth String
    <tr>
       <td>Tier</td>
       <td>无</td>
-      <td>恢复数据时，Tier 可以指定为 CAS 支持的三种恢复模式，分别为 Standard（标准模式，恢复任务在35小时内完成）、Expedited（极速模式，恢复任务在15分钟内可完成）以及 Bulk（批量模式，恢复任务在5-12小时内完成）</td>
+      <td>恢复数据时，Tier 可以指定为 CAS 支持的三种恢复模式，分别为 Standard（标准模式，恢复任务在3 - 5小时内完成）、Expedited（极速模式，恢复任务在15分钟内可完成）以及 Bulk（批量模式，恢复任务在5 - 12小时内完成）</td>
       <td>Enum</td>
       <td>是</td>
    </tr>

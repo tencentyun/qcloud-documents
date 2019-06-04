@@ -8,7 +8,6 @@
 + 证书&私钥传递：选择自上传证书，请将证书、私钥内容按照 Base64 编码后传输。
 + 选择托管证书，使用接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取对应的证书 ID。
 + httpsType 与 forceSwith 不可同时为空。
-+ 接口调用频次限制为100次/分钟。
 + 接口暂不支持子账号调用。
 
 详情请查看 [调用示例](https://cloud.tencent.com/document/product/228/1734)。
@@ -88,8 +87,6 @@ array (
 
 ```
 {
-	"retcode": 0,
-	"errmsg": "ok",
 	"data": [],
 	"code": 0,
 	"message": ""

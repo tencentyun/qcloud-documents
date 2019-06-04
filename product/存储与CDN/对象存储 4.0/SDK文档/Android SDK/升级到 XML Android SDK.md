@@ -66,7 +66,7 @@ dependencies {
 ```
 //创建COSClientConfig对象，根据需要修改默认的配置参数
 COSClientConfig config = new COSClientConfig();
-//设置园区
+//设置地域
 config.setEndPoint(COSEndPoint.COS_GZ);
 
 Context context = getApplicationContext()；
@@ -246,7 +246,7 @@ cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
 /**
 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
- putObjectRequest.setRegion(region); //设置存储桶所在的园区
+ putObjectRequest.setRegion(region); //设置存储桶所在的地域
  putObjectRequest.setSign(600); //设置签名sign有效期
  putObjectRequest.setNeedMD5(true); //是否启用Md5校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);

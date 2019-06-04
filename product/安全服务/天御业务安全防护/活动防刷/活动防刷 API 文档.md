@@ -7,9 +7,9 @@
 
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
-| accountType        | 是      | Uint     | 用户账号类型<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号 （暂仅支持国内手机号）</li><li>10004：</li><li>手机号 MD5</li>|
+| accountType        | 是      | Uint     | 用户账号类型<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号 （暂仅支持国内手机号）</li><li>0：其他</li><li>10004：手机号 MD5</li>|
 | uid                | 是      | String   | 用户 ID 值，如微信/QQ OpenID，或手机号等（如15912345687）。     |
-| userIP             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
+| userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
 | postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
 | appId              | 否      | String   | accountType 是QQ或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
 | nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
@@ -100,7 +100,7 @@
 </table>
 
 ## 示例代码
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。公共参数传参中不需要添加 SignatureMethod 参数，签名计算默认使用 HmacSHA1 的签名算法，示例代码中有具体实现。
 - **请求示例** 
 ```
 <https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush

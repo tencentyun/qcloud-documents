@@ -19,7 +19,7 @@
     * 检查系统所用的管理端口（SSH、FTP、MySQL、Redis 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行爆破成功。
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将 22 修改为非默认端口，修改之后需要重启 ssh 服务；
-        2. 运行`/etc/init.d/sshd restart`命令重启是配置生效；
+        2. 运行`/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian / Ubuntu）`命令重启是配置生效；
                 3. 修改 FTP、MySQL、Redis 等的程序配置文件的默认监听端口 21、3306、6379 为其他端口；
                 4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
     * 风险性：高
@@ -98,7 +98,7 @@ find data -type d -exec chmod 770 {} \;
 
 2. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将 22 修改为其他非默认端口，修改之后重启 SSH 服务。可使用命令重启
 ```
-/etc/init.d/sshd restart
+/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian/Ubuntu）
 ```
 
 3. 如果必须使用 SSH 密码进行管理，选择一个好密码。

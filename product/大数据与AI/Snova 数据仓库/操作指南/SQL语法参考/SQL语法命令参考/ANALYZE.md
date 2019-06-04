@@ -9,7 +9,7 @@ ANALYZE [VERBOSE] [ROOTPARTITION [ALL] ]
 
 ## 描述
 
-ANALYZE收集一个数据库中的表的内容的统计信息，并且将结果存储在*pg_statistic*系统目录中。接下来，查询规划器会使用这些统计信息来帮助确定查询最有效的执行计划。
+ANALYZE收集一个数据库中的表的内容的统计信息，并且将结果存储在 pg_statistic 系统目录中。接下来，查询规划器会使用这些统计信息来帮助确定查询最有效的执行计划。
 
 如果不带参数，ANALYZE会检查当前数据库中的所有表。用户可以指定表名来收集单个表的统计信息。用户可以指定一组列名称，在这种情况下，仅收集这些列的统计信息。
 
@@ -32,7 +32,7 @@ ROOTPARTITION子句对VACUUM ANALYZE不合法。命令VACUUM ANALYZE ROOTPARTITI
 
 运行ANALYZE ROOTPARTITION所需的时间类似于分析一个有着相同数据的非分区表所需的时间，因为ANALYZE ROOTPARTITION仅采样叶子子分区数据。
 
-对于分区表*sales_curr_yr*，这个命令例子只在分区表的根分区上收集统计信息。
+对于分区表sales_curr_yr，这个命令例子只在分区表的根分区上收集统计信息。
 
 ANALYZE ROOTPARTITION sales_curr_yr
 这个ANALYZE命令的例子在数据库中所有分区表的根分区上收集统计信息。

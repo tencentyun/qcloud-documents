@@ -1,5 +1,5 @@
 
-## 腾讯云短视频SDK各版本下载
+## 腾讯云短视频 SDK 各版本下载
 <table>
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
@@ -13,7 +13,7 @@
    <tr>
       <td>界面</td>
       <td>自定义 UI</td>
-	    <td>开发者自定义 UI；小视频 APP 提供了一套完整的 UI 交互源码，可复用或自定义</td>
+	    <td>开发者自定义 UI；小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义</td>
       <td style="text-align:center">✔</td>
       <td style="text-align:center">✔</td>
 	    <td style="text-align:center">✔</td>
@@ -312,7 +312,7 @@
       <td>iOS</td>
       <td>短视频 SDK(LiteAVSDK) + 基础功能 Demo 的源代码</td>
      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_UGC_iOS_6.3.7088.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7091.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
@@ -337,7 +337,7 @@
 #### 1. 如果您对 SDK 支持的功能还有什么疑问，请参考 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
 #### 2. 如果您想了解 SDK 版本更新历史，请参考 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
 
-## 全功能 APP("小视频")源代码
+## 全功能小视频 App（Demo）源代码
 
 <table width="850px">
   <tr align="center">

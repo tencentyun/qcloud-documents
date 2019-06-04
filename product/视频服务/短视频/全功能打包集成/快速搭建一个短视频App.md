@@ -12,11 +12,11 @@
 请参考 [申请License](https://cloud.tencent.com/document/product/584/20333)
 
 ### step3. 准备调试环境
-**iOS 平台 ** 
+**iOS 平台** 
 - XCode 9 或更高版本
 - OS X 10.10 或更高版本
 
-**Android 平台 **
+**Android 平台**
 - Android NDK: android-ndk-r12b
 - Android SDK Tools: android-sdk_26.0.2
   - minSdkVersion: 15
@@ -77,9 +77,9 @@
 - **3.5： 修改云服务器配置信息**
 
 - 将如下脚本中的 `appId`、 `SecretId` 和 `SecretKey` 配置 2.3 中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
+>! 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
 
-    <font color='red'>注意：请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行</font>。
-   ```
+	```
   echo '{
       "dbconfig":{
           "host":"127.0.0.1",
@@ -128,5 +128,5 @@
 - **Android** 
 源码包解压后在 app/src/main/java/com/tencent/qcloud/xiaoshipin/common/utils/ 目录下有一个 **TCConstants.java** 文件，将文件里的 `APP_SVR_URL` 改成您的云服务器公网 IP 地址。
 
-> 注意：如果服务器没有配置证书，这里的云服务器地址需要用 http，而不能用 https。
+>! 如果服务器没有配置证书，这里的云服务器地址需要用 HTTP，而不能用 HTTPS。
 

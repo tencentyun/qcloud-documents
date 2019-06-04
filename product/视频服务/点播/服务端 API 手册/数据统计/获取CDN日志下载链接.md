@@ -9,7 +9,7 @@ GetCdnLogList
 3. CDN 日志下载链接的有效期为24小时。
 
 ### 请求域名
-vod.api.qcloud.com
+`vod.api.qcloud.com`
 
 ### 最高调用频率
 100次/分钟
@@ -20,7 +20,7 @@ vod.api.qcloud.com
 | startTime     | 是   | Integer | 起始时间，Unix 时间戳，如北京时间2018-03-01 00:00:00的 Unix 时间戳为1519833600                                                      |
 | endTime       | 是   | Integer | 结束时间，Unix 时间戳，如北京时间2018-03-02 00:00:00的 Unix 时间戳为1519920000                                                      |
 | hosts         | 否   | Array   | 域名列表，查询指定域名的 CDN 日志下载链接，如果请求不带 hosts 参数，返回所有域名的 CDN 日志下载链接，最多返回20个域名的数据 |
-| COMMON_PARAMS | 是   |         | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                     |
+| COMMON_PARAMS | 是   |         | 参见 [公共参数](https://cloud.tencent.com/document/api/213/6976)                                                     |
 
 ## 接口应答
 
@@ -34,17 +34,17 @@ vod.api.qcloud.com
 | data.domesticLogList | Array   | 国内 CDN 节点产生的 CDN 日志下载链接列表，字段信息参见 LogInfo                                           |
 | data.overseaLogList  | Array   | 海外 CDN 节点产生的 CDN 日志下载链接列表，字段信息参见 LogInfo，如果域名没有开通海外加速，不会返回该数据 |
 
-#### LogInfo日志下载链接信息
+#### LogInfo 日志下载链接信息
 | 参数名称 | 类型   | 说明                                                                                     |
 | -------- | ------ | ---------------------------------------------------------------------------------------- |
 | date     | String | 日志所属日期， 格式为：yyyy-MM-dd ，如2018-03-01                                         |
 | name     | String | 日志名称，格式为：yyyyMMddHH-host ， 即日期小时-域名，如2018030112-123.vod2.myqcloud.com |
-| link     | String | 日志下载链接，24小时内下载有效，日志文件内容参见[日志文件说明](#logfile)                 |
+| link     | String | 日志下载链接，24小时内下载有效，日志文件内容参见 [日志文件说明](#logfile)                 |
 
 ### 错误码说明
 | 错误码    | 含义说明                                     |
 | --------- | -------------------------------------------- |
-| 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
+| 4000 - 7000 | 参见 [公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
 | 17010     | hosts 参数错误                               |
 | 17011     | 域名列表数据超过20个                         |
@@ -87,8 +87,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=GetCdnLogList
 | 3        | 被访问的域名                                |
 | 4        | 文件请求路径                                |
 | 5        | 本次访问字节数大小                          |
-| 6        | 省份编号，见下文[省份编号映射](#provdef)    |
-| 7        | 运营商编号，见下文[运营商编号映射](#ispdef) |
+| 6        | 省份编号，见下文 [省份编号映射](#provdef)    |
+| 7        | 运营商编号，见下文 [运营商编号映射](#ispdef) |
 | 8        | HTTP 状态码                                 |
 | 9        | Referer 信息                                |
 | 10       | 响应时间（毫秒）                            |

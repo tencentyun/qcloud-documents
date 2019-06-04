@@ -1,6 +1,6 @@
 目前是通过定义资料系统消息监听事件来处理通知。**示例：**
 
-```
+```javascript
 //监听资料系统通知函数对象，方法都定义在 receive_profile_system_msg.js 文件中
 var onProfileSystemNotifys = {
     "1": onProfileModifyNotify//资料修改  
@@ -13,7 +13,7 @@ var onProfileSystemNotifys = {
 
 **示例：** 
 
-```
+```javascript
 //监听 资料变化（自己或好友） 系统通知
 /*notify对数示例：
 {

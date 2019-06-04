@@ -1,10 +1,10 @@
 Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序直播流媒体内容制作软件，为用户提供免费使用，它可支持 OS X、Windows、Linux 操作系统，适用多种直播场景，满足大部分直播行为的操作需求，可到 [OBS官网下载](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 最新版本软件。
 
-## OBS推流使用方法
+## OBS 推流使用方法
 ### 1. 设置推流地址
 ![](https://main.qcloudimg.com/raw/23f7994c383d60b00eb63e8bedae7190.jpg)
 打开 OBS，可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
-![](https://main.qcloudimg.com/raw/e7cc6b8ca41fcaef1de58f420b598d16.jpg)
+![](https://main.qcloudimg.com/raw/ff5eeaa4044a20bd0a93eed523d305ff.png)
 在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入 URL 和流名称中， URL 部分填写包含 Path 前的地址信息，流名称填写包含 StreamName 后的地址信息，所以参数设置为：
 ```
 URL：rtmp://push.livetest.myqcloud.com/live/

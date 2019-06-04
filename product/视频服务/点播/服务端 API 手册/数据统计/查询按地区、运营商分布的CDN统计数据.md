@@ -2,10 +2,10 @@
 DescribeCdnRegionIspDetailStat
 
 ## 功能说明
-查询指定域名指定日期按地区、运营商统计的国内 CDN 节点统计数据（流量、带宽、请求数）
+查询指定域名指定日期按地区、运营商统计的国内 CDN 节点统计数据（流量、带宽和请求数）
 
 1. 返回的数据为每5分钟一个统计数据。
-2. 由于地区、运营商数据需要从日志中分析，数据延迟大概为20-30分钟。
+2. 由于地区、运营商数据需要从日志中分析，数据延迟大概为20分钟 - 30分钟。
 3. 只能查询最近60天内的数据。
 4. 仅指定运营商，返回该运营商所有地区的统计数据。
 5. 仅指定地区，返回该地区所有运营商的统计数据。
@@ -16,7 +16,7 @@ DescribeCdnRegionIspDetailStat
 ## 请求方式
 
 ### 请求域名
-vod.api.qcloud.com
+`vod.api.qcloud.com`
 
 ### 最高调用频率
 100次/分钟
@@ -27,9 +27,9 @@ vod.api.qcloud.com
 | hosts         | 否   | Array  | 域名列表，如果为空，查询所有点播域名的统计数据，如果域名超过2个，返回错误                                                                                                           |
 | date          | 是   | String | 查询日期，格式为 yyyy-MM-dd ，如2018-03-01                                                                                                                                          |
 | statType      | 是   | String | CDN 统计数据类型<ul><li> flux：流量，单位是字节（byte）</li><li>bandwidth：带宽，单位是比特每秒（bps）</li><li>requests：请求数</li></ul>                                           |
-| regionNames   | 否   | Array  | 要查询的[地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                              |
-| ispNames      | 否   | Array  | 要查询的[运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                        |
-| COMMON_PARAMS | 是   |        | 参见[公共参数](/document/product/266/7782#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)                                                                                                     |
+| regionNames   | 否   | Array  | 要查询的 [地区英文名称列表](#regionNameList)，如 Beijing ，如果为空，查询所有地区的数据                                                                                              |
+| ispNames      | 否   | Array  | 要查询的 [运营商英文名称列表](#ispNameList)，如 China Mobile ，如果为空，查询所有运营商的数据                                                                                        |
+| COMMON_PARAMS | 是   |        | 参见 [公共参数](https://cloud.tencent.com/document/api/213/6976)                                                                                                     |
 
 ## 接口应答
 
@@ -42,7 +42,7 @@ vod.api.qcloud.com
 | data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致      |
 | data.hostData | Array   | 每个域名的统计数据，见 HostRegionIspStatData 说明 |
 
-#### HostRegionIspData数据说明
+#### HostRegionIspData 数据说明
 | 参数名称                    | 类型   | 说明                                               |
 | --------------------------- | ------ | -------------------------------------------------- |
 | host                        | String | 域名                                               |
@@ -115,7 +115,7 @@ vod.api.qcloud.com
 ### 错误码说明
 | 错误码    | 含义说明                                     |
 | --------- | -------------------------------------------- |
-| 4000-7000 | 参见[公共错误码](/document/product/266/7783) |
+| 4000 - 7000 | 参见 [公共错误码](/document/product/266/7783) |
 | 1000      | 无效参数                                     |
 | 17010     | hosts 参数错误                               |
 | 17011     | 域名列表数据超过5个                          |
