@@ -12,7 +12,7 @@ hadoop fs -mkdir <paths>
 #本地文件发送到HDFS上
 hadoop fs -put <localsrc> ... <dst>
 #拷贝本地文件到HDFS上
-hadoop fs -cp URI [URI …] <dest>
+hadoop fs -copyFromLocal <localsrc> URI
 #查看文件或者目录的存储使用量
 hadoop fs -du URI [URI …]
 #删除文件
