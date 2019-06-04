@@ -1,19 +1,20 @@
 ## 操作场景
 本文档指导您如何在 Nginx 服务器中安装 SSL 证书。
-
+>?
+>- 本文档以证书名称 `www.domain.com` 为例。
+>- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>
 ## 前提条件
 - 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
 解压缩后，可获得 Nginx 文件夹和 CSR 文件：
- - 文件夹名称：Nginx。
- - 文件夹内容：
-    - `1_www.domain.com_bundle.crt` 证书文件。
-    - `2_www.domain.com.key` 私钥文件。
-  - CSR 文件内容：	`www.domain.com.csr` 文件。
+ - **文件夹名称**：Nginx
+ - **文件夹内容**：
+    - `1_www.domain.com_bundle.crt` 证书文件
+    - `2_www.domain.com.key` 私钥文件
+  - **CSR 文件内容**：	`www.domain.com.csr` 文件
 - 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
-- 由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
- - 当前服务器的操作系统为 CentOS 7。
- - 已在当前服务器中安装配置 Nginx 服务器。
+- 已在当前服务器中安装配置 Nginx 服务器。
  
 ## 数据
 安装 SSL 证书前需准备的数据如下：
@@ -27,7 +28,7 @@
 ## 操作步骤
 
 ### 证书安装
-1. 使用 “WinSCP”，即本地与远程计算机间的复制文件工具，登录 Nginx 服务器。
+1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
 2. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录下。
 >? 若无 `/usr/local/nginx/conf` 目录，可通过 `mkdir /usr/local/nginx/conf` 命令行创建。
 3. 关闭 WinSCP 界面。
@@ -51,19 +52,19 @@ server {
     }
 ```
 配置文件的主要参数说明如下：
- - listen 443：SSL 访问端口号为 443
- - ssl on：启用 SSL 功能
- - ssl_certificate：证书文件
- - ssl_certificate_key：私钥文件
- - ssl_protocols：使用的协议
- - ssl_ciphers：配置加密套件，写法遵循 openssl 标准
+ - **listen 443**：SSL 访问端口号为 443
+ - **ssl on**：启用 SSL 功能
+ - **ssl_certificate**：证书文件
+ - **ssl_certificate_key**：私钥文件
+ - **ssl_protocols**：使用的协议
+ - **ssl_ciphers**：配置加密套件，写法遵循 openssl 标准
 6. 在 Nginx 根目录下，通过执行以下命令确认配置文件是否存在问题。
 ```
 ./sbin/nginx -t
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
- - 若不存在，重启 Nginx。
-7. 若启动成功，即可使用 `https://www.domain.com` 进行访问。
+ - 若不存在，请执行下一步。
+7. 重启 Nginx，即可使用 `https://www.domain.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
