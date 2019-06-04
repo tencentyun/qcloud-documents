@@ -12,7 +12,7 @@
 | ZoneId          |   是   |int    | 可用区 ID，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表              |
 | NetInterface    | 是   |string | 网络类型，值为 vpc，basic。 其中 vpc为私有网络，basic 为基础网络                      |
 | CreationToken   |  是   |string | 用户自定义文件系统名称                                                  |
-| PGroupId   |       是   |  string |  权限组 ID，目前仅支持 pgroupbasic                                |
+| PGroupId   |       是   |  string |  权限组 ID                                |
 | Region          |  是   |string |园区，请参考 [概览](https://cloud.tencent.com/document/product/582/13225) 文档中的园区与可用区列表                   |
 | VpcId           |  否   |int   |  VPC ID，如使用基础网络，请传 0                                 |
 | UnVpcId           |  是   |string    | 系统分配的VPC统一ID，由vpcId升级而来，为了兼容这两种ID系统都支持，推荐使用统一ID，示例：vpc-2ari9m7h。可以到私有网络控制台获取VPCID。如使用基础网络，请传 0。                                 |
