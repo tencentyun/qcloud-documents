@@ -4,9 +4,9 @@
 ## 前提条件
 由于操作系统的版本不同，详细操作步骤略有区别。以下条件仅针对当前服务器说明：
 - 当前服务器的操作系统为 CentOS 7。
-- 已在当前服务器中安装配置 Tomcat 服务器。
+- 已在当前服务器中安装配置 Tomcat 服务器（版本号 tomcat7.0.94）。
 
->!当前 Tomcat 服务器安装在`/usr`目录下，例如`apache-tomcat-9.0.20`。则`/usr/*/conf`实际为`/usr/apache-tomcat-9.0.20/conf`。
+>!当前 Tomcat 服务器安装在`/usr`目录下，例如，Tomcat 文件夹名称为`tomcat7.0.94`。则`/usr/*/conf`实际为`/usr/tomcat7.0.94/conf`。
  
 ## 操作步骤
 
