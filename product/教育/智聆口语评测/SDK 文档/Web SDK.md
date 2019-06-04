@@ -44,6 +44,7 @@ let recorder = new TencentSOE({
   }
 });
 ```
+
 **TransInitUrl 接口说明**
 接口方法为 POST，需要对前端传来的参数进行签名，再调用云 API 的 TransmitOralProcessWithInit（发音数据传输接口附带初始化过程）接口，
 返回的数据格式不必再做封装，透传云 API 返回的数据即可，成功返回`{"Response":{"RequestId": "xxx"...}}`，
