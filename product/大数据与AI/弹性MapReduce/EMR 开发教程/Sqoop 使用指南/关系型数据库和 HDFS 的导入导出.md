@@ -13,8 +13,8 @@ Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(My
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Sqoop 文件夹：
 ```
-[root@172 ~]# su Hadoop
-[hadoop@172 ~]# cd /usr/local/service/Sqoop
+[root@172 ~]# su hadoop
+[hadoop@172 ~]# cd /usr/local/service/sqoop
 ```
 连接 MySQL 数据库：
 ```
@@ -32,13 +32,13 @@ Query ok , 0 rows affected(0.00 sec)
 ```
 该指令创建了一个 MySQL 表，它的主键为 ID，然后还有三列分别为 title、time 和 content。向该表中插入一些数据如下：
 ```
-mysql> insert into sqoop_test values(null, ‘first’, now(), 'hdfs');
+mysql> insert into sqoop_test values(null, 'first', now(), 'hdfs');
 Query ok, 1 row affected(0.00 sec)
 
 mysql> insert into sqoop_test values(null, 'second', now(), 'mr');
 Query ok, 1 row affected (0.00 sec)
 
-mysql> insert into sqoop_test values(null, ‘third’, now(), 'yarn');
+mysql> insert into sqoop_test values(null, 'third', now(), 'yarn');
 Query ok, 1 row affected(0.00 sec)
 ```
 使用如下指令可以查看表中的数据：
@@ -82,8 +82,8 @@ Enter password:
 mysql> use test;
 Database changed
 
-mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, content varchar(255);
-Query ok , 0 rows affected(0.00 sec)
+mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, （content varchar(255)）;
+Query ok , 0 rows affected(0.00 sec）
 ```
 查看表是否创建成功之后退出MySQL：
 ```
