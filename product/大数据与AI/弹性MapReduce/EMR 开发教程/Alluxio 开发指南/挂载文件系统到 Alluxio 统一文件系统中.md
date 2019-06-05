@@ -1,9 +1,9 @@
-### 背景
+## 背景
 
 Alluxio 提供了统一命名空间机制，允许将其他文件系统挂载到 Alluxio 的文件系统中。
 该机制允许上层应用使用统一的命名空间，访问分散在不同系统中的数据。
 
-### 操作
+## 操作
 
 命令`bin/alluxio fs mount <alluxio-path> <source-path>`
 
