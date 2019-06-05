@@ -22,9 +22,9 @@
 >? 云服务器实例状态处于运行中时，即可测试 WordPress 网站。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在云服务器实例的**主 IP 地址**下，复制云服务器实例的**公网 IP**。如下图所示，公网 IP 为119.29.135.128，则需复制该云服务器实例的公网 IP。
+2. 在云服务器实例的**主 IP 地址**下，复制云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为119.29.135.128，则只需复制该实例的公网 IP 即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/83b1a4cb7d0b72aae5542a41d213e21f.png)
-3. 将该**公网 IP** 粘贴到您本地浏览器的地址栏中访问，可以看到【获取权限】引导页面。 如下图所示：
+3. 将**公网 IP** 粘贴到您本地浏览器的地址栏中访问，即可看到【获取权限】引导页面。 如下图所示：
 <img src="//mc.qcloudimg.com/static/img/f7ea8180f0c49be0f422e88140bbafee/image.png" style="width: 65%;">
 
 ### 启动 WordPress 网站
