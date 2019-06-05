@@ -45,7 +45,7 @@ Alluxio 使用两种不同的存储类型：Alluxio 管理存储和底层存储�
 |Read Type |	Behavior |
 |--|--|
 |CACHE_PROMOTE |	如果读取的数据在 Worker 上时，该数据被移动到 Worker 的最高层。如果该数据不在本地 Worker 的 Alluxio 存储中，那么就将一个副本添加到本地 Alluxio Worker 中。 如果`alluxio.user.file.cache.partially.read.block`设置为 true，没有完全读取的数据块也会被`全部`存到 Alluxio 内。相反，一个数据块只有完全被读取时，才能被缓存。
-| CACHE	| 如果该数据不在本地 Worker 的 Alluxio 存储中，那么就将一个副本添加到本地 Alluxio Worker 中。如果`alluxio.user.file.cache.partially.read.block`设置为 true，没有完全读取的数据块也会被`全部`存到 Alluxio 内。 相反，一个数据块只有完全被读取时，才能被缓存。
+| CACHE	| 如果该数据不在本地 Worker 的 Alluxio 存储中，那么就将一个副本添加到本地 Alluxio Worker 中。如果`alluxio.user.file.cache.partially.read.block`设置为 true，没有完全读取的数据块也会被`全部`存到 Alluxio 内。相反，一个数据块只有完全被读取时，才能被缓存。
 | NO_CACHE |	仅读取数据，不在 Alluxio 中存储副本。
 
 下面是 WriteType 的预期行为表。
