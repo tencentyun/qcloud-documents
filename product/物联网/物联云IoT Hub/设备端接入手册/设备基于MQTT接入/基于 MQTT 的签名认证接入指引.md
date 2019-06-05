@@ -9,7 +9,7 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 ```
 username字段的格式为：
     ${productid}${devicename};${sdkappid};${connid};${expiry}
-注意：${}表示变量，并非特定的拼接符号
+注意：${}表示变量，并非特定的拼接符号。
 ```
 其中各字段含义如下：
  - productid：产品 ID。
@@ -23,7 +23,7 @@ username字段的格式为：
 ```
 password字段格式为： 
     ${token};hmac签名方法
-其中hmac签名方法字段填写第三步用到的摘要算法，可选的值有 hmacsha256 和 hmacsha1
+其中hmac签名方法字段填写第三步用到的摘要算法，可选的值有 hmacsha256 和 hmacsha1。
 ```
 作为对照，用户生成签名的 Python 代码为：
 ```
@@ -64,7 +64,7 @@ if __name__ == '__main__':
 6. 最终将上面生成的参数填入对应的 mqtt connect 报文中。
  1. 将 clientid 填入到 MQTT 协议的 clientid 字段。
  2. 将 username 填入到 mqtt 的 username 字段。
- 3. 将 password 填入到 mqtt 的 password 字段,即可接入到物联云通信平台。
+ 3. 将 password 填入到 mqtt 的 password 字段，即可接入到物联云通信平台。
 
 
 >!通过 psk 方式接入端口默认为`1883`。若客户端支持 ca 证书，您也可以使用`8883`端口接入。
