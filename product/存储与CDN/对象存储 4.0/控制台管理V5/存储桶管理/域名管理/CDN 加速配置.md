@@ -114,14 +114,3 @@ c. 域名添加成功后，单击域名，进入解析记录管理页面。单�
 d. 主机记录按提示选填，记录类型选择 CNAME，线路类型选择默认，记录值请填写您的存储桶域名，TTL 保持默认，单击【确定】保存即可。添加解析完成后，15分钟左右生效，生效后您即可按照步骤3进行配置。
 ![](https://main.qcloudimg.com/raw/ef12eca13884d5e70438c51afab39d29.png)
 
-### 新旧版本控制台差异
-当前新旧版本控制台的存储桶域名有所差别，以广州地域为例，新版本控制台的存储桶地域简称为 `ap-guangzhou`，旧版本存储桶则是 `cosgz`。有关域名详情请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
-
-由于域名的差异，您在使用自定义源站域名时需要注意 CNAME 的配置。我们**推荐**您使用新版本的存储桶域名作为 CNAME，相较于旧版本的存储桶域名，使用新版本域名作为 CNAME 可以进行更丰富的操作。
-
-您可以到您的 DNS 厂商处修改您的 CNAME 信息：
-- 如果您的 DNS 厂商是腾讯云，可以前往 [腾讯云域名解析控制台](https://console.cloud.tencent.com/domain) 配置。
-- 如果您的 DNS 厂商是阿里云，可以前往 [阿里云域名解析控制台](https://dns.console.aliyun.com/?spm=5176.100251.111252.1.72014f15lWTwr6#/dns/domainList) 配置。
-- 如果您的 DNS 厂商是亚马逊云，可以前往 [亚马逊云域名解析控制台](https://console.aws.amazon.com/route53/home?#DomainListing:) 配置。
-
->!除了域名差异外，新旧版本控制台所调用的 API 也存在差异，我们**推荐**您使用新版本控制台以及使用新版本 API、工具、SDK，因为这能够让您体验更加丰富和稳定的功能。COS 新版本控制台所调用的操作对象或存储桶的 API 是 XML API，旧版本控制台上调用的则是 JSON API，有关新旧两个版本 API 的差异，可参阅 [API 常见问题](https://cloud.tencent.com/document/product/436/6281)。
