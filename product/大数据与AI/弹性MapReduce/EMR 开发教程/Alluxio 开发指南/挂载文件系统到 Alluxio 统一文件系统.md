@@ -17,7 +17,7 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
     /cos cos://<COS_BUCKET>/<COS_DATA>/
 ```
 
-其中， --options 中配置 COS 的配置。
+其中，--options 中配置 COS 的配置。
 
 | 配置名称          | 解释                                   |
 | ----------------- | -------------------------------------- |
