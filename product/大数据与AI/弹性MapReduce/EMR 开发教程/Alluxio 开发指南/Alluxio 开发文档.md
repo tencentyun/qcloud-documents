@@ -1,16 +1,16 @@
-### 1. 背景
+## 1. 背景
 
 Alluxio 通过文件系统接口提供对数据的访问。Alluxio 中的文件提供一次写入语义：它们在被完整写下之后不可变，在完成之前不可读。Alluxio 提供了两种不同的文件系统 API，Alluxio API 和 Hadoop 兼容的 API。Alluxio API 提供了额外的功能，而 Hadoop 兼容的 API 为用户提供了无需修改现有代码使用 Hadoop 的 API 灵活性。
 
 所有使用 Alluxio Java API 的资源都是通过 AlluxioURI 指定的路径实现。
 
-### 2. 获取文件系统客户端
+## 2. 获取文件系统客户端
 
 要使用 Java 代码获取 Alluxio 文件系统客户端，请使用：
 
 `FileSystem fs = FileSystem.Factory.get();`
 
-### 3. 创建一个文件
+## 3. 创建一个文件
 所有的元数据操作，以及打开一个文件读取或创建一个文件写入都通过 FileSystem 对象执行。由于 Alluxio 文件一旦写入就不可改变， 创建文件的惯用方法是使用 FileSystem#createFile(AlluxioURI)，它返回一个可用于写入文件的流对象。例如：
 
 ```
@@ -24,7 +24,7 @@ out.write(...);
 out.close();
 ```
 
-### 4. 指定操作选项
+## 4. 指定操作选项
 
 对于所有的文件系统操作，可以指定一个额外的 options 字段，它允许用户可以指定操作的非默认设置。例如：
 
@@ -36,7 +36,7 @@ CreateFileOptions options = CreateFileOptions.defaults().setBlockSize(128 * Cons
 FileOutStream out = fs.createFile(path, options);
 ```
 
-### 5. IO 选项
+## 5. IO 选项
 
 Alluxio 使用两种不同的存储类型：Alluxio 管理存储和底层存储。 Alluxio 管理存储是分配给 Alluxio worker 的内存，SSD 或 HDD。底层存储是由在最下层的存储系统（如 S3，Swift 或 HDFS）管理的资源。用户可以指定通过 ReadType 和 WriteType 与 Alluxio 管理的存储交互。ReadType 指定读取文件时的数据读取行为。WriteType 指定数据编写新文件时写入行为，例如数据是否应该写入 Alluxio Storage。
 
@@ -57,7 +57,7 @@ Alluxio 使用两种不同的存储类型：Alluxio 管理存储和底层存储�
 |THROUGH |	数据被同步地写入到底层存储系统。但不会被写入到 Alluxio 的 Worker。
 |ASYNC_THROUGH |	数据被同步地写入到 Alluxio 的 Worker，并异步地写入到底层存储系统。处于实验阶段。
 
-### 6. 位置策略
+## 6. 位置策略
 
 Alluxio 提供了位置策略来选择要存储文件块到哪一个 worker。
 
