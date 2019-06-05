@@ -1,6 +1,6 @@
 ## 接口描述
 本接口（CreateCfsPGroup）用于创建权限组。
-接口请求域名：**cfs.api.cloud.tencent.com**
+接口请求域名：`cfs.api.cloud.tencent.com`
 ## 输入参数
 |       参数      | 必填 |  类型  |                               描述                           |
 |-----------------|------|--------|--------------------------------------------------------------|
@@ -20,17 +20,15 @@
 
 ### 输入
 
-
-```
 <pre>
-  https://cfs.test.api.cloud.tencent.com/v2/index.php?Action=CreateCfsPGroup&SecretId=1
-  &Uin=277000000
-  &AppId=1250000000
-  &Name=helloworld1112
-  &DescInfo=justfortest11
-  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
+https://cfs.test.api.cloud.tencent.com/v2/index.php?Action=CreateCfsPGroup&SecretId=1
+&Uin=277000000
+&AppId=1250000000
+&Name=helloworld1112
+&DescInfo=justfortest11
+&<<a href="https://www.cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
 </pre>
-```
+
 
 ### 输出
 
