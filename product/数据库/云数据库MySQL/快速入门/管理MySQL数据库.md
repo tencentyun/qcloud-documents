@@ -1,10 +1,10 @@
 云数据库 MySQL 初始化完成后，在实例列表单击实例名，或在【操作】列单击【管理】，可以进入实例管理页面。
-![](https://main.qcloudimg.com/raw/1c7822f6543b9cf0c98925f7c576c003.png)
+![](https://main.qcloudimg.com/raw/6b5ce84ac2728e387d79703267efdbb8.png)
 云数据库 MySQL 实例管理页内，您可以对数据库的实例详情查看及修改、实例监控告警管理、数据库管理、参数设置、安全组管理、备份管理以及数据库操作日志下载等。
 
 ## 实例详情
 【实例详情】页可查看和操作数据库的各种信息，如下图所示，单击<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
-![](https://main.qcloudimg.com/raw/59b9a3838164e1b304c38ae77e4a4ae2.png)
+![](https://main.qcloudimg.com/raw/553029f34aa0ca698104103365512a08.png)
 
 ## 实例监控
 【实例监控】页提供了对当前数据库运行的众多核心指标的监控，分为访问、负载、查询缓存、表、InnoDB、MyISAM 等六个维度的监控。
@@ -60,4 +60,5 @@
 > - 请确保在业务低峰期重启，保证重启成功率，降低对业务的影响。
 
 ![](https://main.qcloudimg.com/raw/f5f034a963843b54d6f40c9bb99e73da.png)
+
 
