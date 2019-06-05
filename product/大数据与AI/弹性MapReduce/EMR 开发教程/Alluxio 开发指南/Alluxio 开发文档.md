@@ -81,7 +81,7 @@ Alluxio 提供了位置策略来选择要存储文件块到哪一个 worker。
 
 返回具有指定主机名的 worker。此策略不能设置为默认策略。
 
-Alluxio 支持自定义策略，所以你也可以通过实现接口 alluxio.client.file.policyFileWriteLocationPolicy 制定适合自己的策略。注意 默认策略必须有一个空的构造函数。并使用 ASYNC_THROUGH 写入类型，所有块的文件必须写入同一个 worker。
+Alluxio 支持自定义策略，所以您也可以通过实现接口 alluxio.client.file.policyFileWriteLocationPolicy 制定适合自己的策略。注意 默认策略必须有一个空的构造函数。并使用 ASYNC_THROUGH 写入类型，所有块的文件必须写入同一个 worker。
 
 Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏好。目前这种策略偏好只适用于本地 worker 而不是远程 worker；远程 worker 会写到最高层。
 
