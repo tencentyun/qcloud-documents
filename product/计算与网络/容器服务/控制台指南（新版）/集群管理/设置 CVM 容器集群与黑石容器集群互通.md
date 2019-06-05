@@ -3,7 +3,7 @@
 >! 
 > - 本文档以已在公有云创建集群并已添加节点为例。关于如何创建集群，您可以参考 [创建集群](https://cloud.tencent.com/document/product/457/11741) 进行创建。
 > - 请先确保对黑石公有云对等连接成功建立，子机与黑石间能互通。若对等连接建立有问题，请排查**控制台路由表项、安全组、子网 ACL** 的设置是否有问题。
-> - 原理上，黑石容器集群使用 bgp 协议，确认 CVM 的容器集群能与黑石物理机互通，就可与黑石容器集群互通。
+> - 原理上，黑石容器集群用的 bgp 协议，确认 CVM 的容器集群能和黑石物理机互通， 即可与黑石容器集群互通。
 
 ## 操作步骤
 
@@ -32,6 +32,6 @@
 
 容器与黑石机器之间可以互通，公有云集群容器的登录方法请参考  [远程终端基本操作](https://cloud.tencent.com/document/product/457/9120)。
 1. 登录公有云集群容器，并在公有云集群容器中访问黑石机器。如下图所示：
-![容器 to 黑石物理机](https://main.qcloudimg.com/raw/6d2633c88facb28a451293b852d81950.png)
+![容器 to 黑石物理机](https://main.qcloudimg.com/raw/108c2b400d84a7880c59645200348a1e.png)
 2. 登录黑石机器，并在黑石机器中访问公有云集群容器。如下图所示：
-![黑石物理机 to 容器](https://main.qcloudimg.com/raw/6e5587efe6c24dfb5dc0bdfe58364368.png)
+![黑石物理机 to 容器](https://main.qcloudimg.com/raw/2dfad41e746e6affbd76664f39a0f465.png)
