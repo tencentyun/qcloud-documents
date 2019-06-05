@@ -34,7 +34,7 @@
 7. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。如下图所示：
 ![3.2.7](//mccdn.qcloud.com/static/img/0748888723acf5671ba9a1ed7ef9ebd2/image.png)
 
-### HTTP 自动跳转 HTTPS 的安全配置（不推荐）
+### HTTP 自动跳转（建议非强制） HTTPS 的安全配置（可选）
 
 执行下列步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
 >?正常跳转可按照下列编辑规则。若您有其他需求可以自己设置。
@@ -43,7 +43,8 @@
 2. 选择网站下的站点名称，单击 “URL 重写”，并单击右侧 “操作” 栏的【打开功能】。
 3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。
 4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。
-5. 进入 “编辑入站规则” 页面。
+5. 进入 “编辑入站规则” 页面。如下图所示：
+![](https://main.qcloudimg.com/raw/13ee58091b5b006f00dbe004f2740564.png)
   - 名称：填写强制 HTTPS。如下图所示：
   - 匹配URL：在 “模式” 中手动输入`(.*)`。如下图所示：
   - 条件：展开 <img src="https://main.qcloudimg.com/raw/b55f713d199b5077dfa66fa960b08363.png" style="margin-bottom: -5px;"></img>，单击添加，弹出 “添加条件” 窗口。
