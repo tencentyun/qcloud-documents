@@ -1,7 +1,7 @@
 ## License 申请
 
 ### 1. 申请测试 License
-您可以免费申请测试 License（基础版，有效期28天）体验测试，具体步骤如下:
+**您可以免费申请测试 License（基础版，有效期14天，可申请两次）体验测试，具体步骤如下**：
 1. 登录腾讯云官网，进入 [云点播控制台](https://console.cloud.tencent.com/video/license)，填写相应的信息，在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 bundleId。
 ![](https://main.qcloudimg.com/raw/148ea8cee25d6faea2d90bac30685d1c.png)
 2. 创建成功后页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
