@@ -1,4 +1,7 @@
+# COSFS 工具suse安装模板
+
 ## 功能说明 
+
 COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统一样直接操作腾讯云对象存储中的对象， COSFS 提供的主要功能包括：
 - 支持 POSIX 文件系统的大部分功能，如：文件读写、目录操作、链接操作、权限管理、uid/gid 管理等功能。
 - 大文件分块传输功能。
@@ -17,7 +20,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 ## 安装和使用 
 ### 适用操作系统版本 
-主流的 Ubuntu、CentOS、macOS 系统。
+主流的 Ubuntu、CentOS、SUSE、macOS 系统。
 
 ### 安装步骤
 
@@ -28,7 +31,7 @@ git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
 
 #### 2. 安装依赖软件 
-COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS 和 macOS 的依赖软件安装过程如下：
+COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS、SUSE 和 macOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
 
@@ -42,13 +45,18 @@ sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel fuse
 ```
 
+- SUSE 系统下安装依赖软件：
+
+```
+sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-devel pkg-config
+```
+
 - macOS 系统下安装依赖软件：
 
 ```shell
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
 ```
-<a id="compile"> </a>
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
 ```sh
@@ -61,7 +69,7 @@ cosfs --version  #查看 cosfs 版本号
 ```
 
 根据操作系统的不同，进行 configure 操作时会出现不同的提示，主要分为以下方面：
-- 在 fuse 版本低于 2.8.4 的操作系统上，进行 configure 操作时会出现如下的报错提示：：
+- 在 fuse 版本低于 2.8.4 的操作系统上，进行 configure 操作时会出现如下的报错提示：
 ```shell
 checking for common_lib_checking... configure: error: Package requirements (fuse >= 2.8.4 libcurl >= 7.0 libxml-2.0 >= 2.6) were not met:
   Requested 'fuse >= 2.8.4' but version of fuse is 2.8.3 
@@ -74,6 +82,24 @@ tar -zxvf fuse-2.9.4.tar.gz
 cd fuse-2.9.4
 ./configure
 make
+make install
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
+modprobe fuse #挂载 fuse 内核模块
+echo "/usr/local/lib" >> /etc/ld.so.conf
+ldconfig #更新动态链接库
+pkg-config --modversion fuse #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
+```
+SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
+>!
+>安装时，需要注释掉 example/fusexmp.c 文件下第 222 行内容，否则 make 会报错。注释方法为 `/*content*/` 。
+
+```
+zypper remove fuse libfuse2
+wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
+tar -zxvf fuse-2.9.4.tar.gz
+cd fuse-2.9.4
+./configure
+make 
 make install
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
 modprobe fuse #挂载 fuse 内核模块
@@ -96,12 +122,12 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称 &lt;Name&gt;-&lt;Appid&gt;，以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。且为防止密钥泄露，COSFS 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
->!您需要将 &lt;Name&gt;、&lt;Appid&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
+>!您需要将 &lt;BucketName-APPID&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
 >Bucket 命名规范，请参阅 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
 
 **示例：**
@@ -159,7 +185,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 ###  -onoxattr
 禁用 getattr/setxattr 功能，在1.0.9之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载时使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
- 
+
 ### -ouse_cache=[path]
 使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
