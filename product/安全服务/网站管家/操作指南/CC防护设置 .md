@@ -50,7 +50,7 @@ CC 防护对网站特定的 URL 进行访问保护，腾讯云 WAF 可根据用�
 根据步骤1中添加的信息，设置内容为 security = 0123456789……。
 ![](https://main.qcloudimg.com/raw/4cf3e563d464dfe01e9ed535162f8ffb.png)
 后继腾讯云 WAF 将把 security 后面10位字符串作为 SESSION 标识。SESSION 信息也可以删除重新配置。
-3.设置基于 SESION 的 CC 防护策略，配置过程和示例一保持一致，识别模式选择 SEESION 即可。
+3.设置基于 SESSION 的 CC 防护策略，配置过程和示例一保持一致，识别模式选择 SESSION 即可。
 ![](https://main.qcloudimg.com/raw/b992e8fa576196401b4a9af79438e310.png)
 配置完成，基于 SESSION 的防护 CC 防护策略生效。
 >!使用 SESSION CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
