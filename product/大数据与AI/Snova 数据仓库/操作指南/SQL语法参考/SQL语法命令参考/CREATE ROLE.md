@@ -55,7 +55,7 @@ NOCREATEROLE
 
 CREATEEXTTABLE
 NOCREATEEXTTABLE
-如果指定了 CREATEEXTTABLE，被定义的角色将被允许创建外部表。该默认的类型是readable，如果没有指定，则默认的协议是 gpfdist。NOCREATEEXTTABLE（默认值）禁止掉了角色创建外部表的能力。注意使用 file 或 execute 协议的外部表只能由超级用户创建。
+如果指定了 CREATEEXTTABLE，被定义的角色将被允许创建外部表。该默认的类型是 readable，如果没有指定，则默认的协议是 gpfdist。NOCREATEEXTTABLE（默认值）禁止掉了角色创建外部表的能力。注意使用 file 或 execute 协议的外部表只能由超级用户创建。
 
 INHERIT
 NOINHERIT
@@ -81,7 +81,7 @@ VALID UNTIL 'timestamp'
 该 VALID UNTIL 子句设置了日期和时间，在此时间日期之后角色的密码不再有效。如果省略了该子句，则密码将永远不会过期。
 
 IN ROLE rolename
-将新角色添加为命令角色们的成员。请注意无法添加管理员新角色；使用单独的 GRANT的命令可以做到。
+将新角色添加为命令角色们的成员。请注意无法添加管理员新角色；使用单独的 GRANT 的命令可以做到。
 
 ROLE rolename
 将命名的角色添加为该角色的成员，将该角色变成一个组。
@@ -95,7 +95,7 @@ RESOURCE QUEUE queue_name
 
 DENY deny_point
 DENY BETWEEN deny_point AND deny_point
-The DENY 和 DENY BETWEEN 关键字设置了基于时间的限制，该限制在登录的时候被强制。DENY设置了天或天和时间来拒绝访问。DENY BETWEEN 设置了访问拒绝后的间隔。两个都用参数 deny_point ，该参数有以下格式：
+DENY 和 DENY BETWEEN 关键字设置了基于时间的限制，该限制在登录的时候被强制。DENY 设置了天或天和时间来拒绝访问。DENY BETWEEN 设置了访问拒绝后的间隔。两个都用参数 deny_point ，该参数有以下格式：
 
 ```sql
 DAY day [ TIME 'time' ]
