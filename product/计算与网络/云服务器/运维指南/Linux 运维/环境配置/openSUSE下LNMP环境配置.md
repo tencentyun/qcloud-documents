@@ -6,27 +6,27 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 ### 配置镜像源
 1. 执行以下命令，添加镜像源。
 ```
-# zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/oss suseOss
-# zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/non-oss suseNonOss
+zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/oss suseOss
+zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/non-oss suseNonOss
 ```
 2. 执行以下命令，更新镜像源。
 ```
-# zypper ref
+zypper ref
 ```
 
 ### 安装配置 Nginx
 1. 执行以下命令，安装 Nginx。
 ``` 
-# zypper in nginx
+zypper in nginx
 ```
 2. 执行以下命令，启动 Nginx 服务，并设置为开机自启动。
 ```
-# systemctl start nginx
-# systemctl enable nginx
+systemctl start nginx
+systemctl enable nginx
 ```
 3. 执行以下命令，修改 Nginx 配置文件。
 ```
-# vim /etc/nginx/nginx.conf
+vim /etc/nginx/nginx.conf
 ```
 4. 按 “**i**” 或 “**Insert**” 键切换至编辑模式。
 5. 去掉`error_log  /var/log/nginx/error.log;`前的`#`号。
@@ -61,11 +61,11 @@ server {
 ```
 7. 执行以下命令，重启 Nginx 服务。
 ```
-# systemctl restart nginx
+systemctl restart nginx
 ```
 8. 执行以下命令，新建`index.html`首页。
 ```
-# vi /srv/www/htdocs/index.html
+vi /srv/www/htdocs/index.html
 ```
 9. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，输入以下内容：
 ```html
@@ -79,41 +79,41 @@ server {
 ### 安装配置 MySQL
 1. 执行以下命令，安装 MySQL。
 ```
-# zypper install mysql-community-server mysql-community-server-tools
+zypper install mysql-community-server mysql-community-server-tools
 ```
 2. 执行以下命令，启动 MySQL 服务并设置为开机自启动。
 ```
-# systemctl start mysql 
-# systemctl enable mysql
+systemctl start mysql 
+systemctl enable mysql
 ```
 >? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
 3. 执行以下命令，首次登录 MySQL 。
 ```
-# mysql -u root -p
+mysql -u root -p
 ```
 成功进入 MySQL，如下图所示。
 ![](https://main.qcloudimg.com/raw/1e9daf876fb08c70674789865688f695.png)
 4. 执行以下命令，删除空用户。
 ```
-mysql>select user,host,password from mysql.user;
-mysql>drop user ''@localhost;
+select user,host,password from mysql.user;
+drop user ''@localhost;
 ```
 5. 执行以下命令，修改 root 密码。
 ```
-mysql>update mysql.user set password = PASSWORD('此处输入您新设密码') where user='root';
-mysql>flush privileges;
+update mysql.user set password = PASSWORD('此处输入您新设密码') where user='root';
+flush privileges;
 ```
 
 ### 安装配置 PHP
 执行以下命令，安装 PHP 。
 ```
-# zypper install php5 php5-fpm php5-mysql
+zypper install php5 php5-fpm php5-mysql
 ```
 
 ### Nginx 与 PHP-FPM 集成
 1. 执行以下命令，新建配置文件 php-fpm.conf。
 ```
-# vim /etc/php5/fpm/php-fpm.conf
+vim /etc/php5/fpm/php-fpm.conf
 ``` 
 2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入以下内容：
 ```
@@ -132,14 +132,14 @@ pm.max_spare_servers = 3
 3. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
 4. 执行以下命令，启动服务并设置为开机自启动。
 ```
-# systemctl start php-fpm
-# systemctl enable php-fpm
+systemctl start php-fpm
+systemctl enable php-fpm
 ```
 
 ## 环境配置验证
 1. 执行以下命令，在 web 目录下创建 index.php：
 ```
-# vim /usr/share/nginx/html/index.php
+vim /usr/share/nginx/html/index.php
 ```
 2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入如下内容：
 ```
