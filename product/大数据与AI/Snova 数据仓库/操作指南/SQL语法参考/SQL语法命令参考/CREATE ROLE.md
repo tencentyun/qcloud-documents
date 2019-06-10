@@ -130,7 +130,7 @@ DENY BETWEEN deny_point AND deny_point
 
 VALID UNTIL 子句仅对密码定义了一个期限时间，而不是对角色。当使用非基于密码授权方式登录时，该期限时间是不生效的。
 
-该 INHERIT 属性控制可授权权限的继承（数据库对象和角色成员资格的访问权限）。它不适用与由 CREATE ROLE 和 ALTER ROLE 设置的特殊角色属性。例如成为具有 CREATEDB 权限的角色的成员，即使设置了 INHERIT，也不会授予创建数据库的功能。这些权限/属性从不继承。SUPERUSER、CREATEDB、CREATEROLE、CREATEEXTTABLE、 LOGIN 和 RESOURCE QUEUE。必须在每个用户级角色上设置属性。
+该 INHERIT 属性控制可授权权限的继承（数据库对象和角色成员资格的访问权限）。它不适用与由 CREATE ROLE 和 ALTER ROLE 设置的特殊角色属性。例如拥有 CREATEDB 权限的角色，即使设置了 INHERIT，也不会授予 CREATEDB 的权限。以下权限不会继承，必须在每个角色上设置属性，包括：SUPERUSER、CREATEDB、CREATEROLE、CREATEEXTTABLE、LOGIN 和 RESOURCE QUEUE。
 
 该 INHERIT 属性是默认的为了向后兼容。在先前数据库的发行版中，用户通常访问他们所属组的所有权限。但是，NOINHERIT 提供了一个与 SQL 标准中指定语义更合适的匹配。
 
