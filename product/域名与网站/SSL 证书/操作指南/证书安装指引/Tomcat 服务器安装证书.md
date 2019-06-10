@@ -40,7 +40,7 @@
 4. 使用远程登录工具，登录 Tomcat 服务器。例如 “PuTTY” 工具。
 5. 编辑在 `/usr/*/conf` 目录下的 `server.xml` 文件。添加如下内容：
 ```
-<Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
+<Connector port="443" protocol="org.apache.coyote.http11.Http11Protocol" SSLEnabled="true"
   maxThreads="150" scheme="https" secure="true"
   keystoreFile="/usr/*/conf/www.domain.com.jks" #证书保存的路径
   keystorePass="******"#密钥库密码
@@ -63,7 +63,7 @@
               pathname="conf/tomcat-users.xml" />
   </GlobalNamingResources>
   <Service name="Catalina">
-        <Connector port="80" protocol="HTTP/1.1" connectionTimeout="20000"  redirectPort="8443" />
+        <Connector port="80" protocol="org.apache.coyote.http11.Http11Protocol" connectionTimeout="20000"  redirectPort="8443" />
         <Connector port="443" protocol="org.apache.coyote.http11.Http11Protocol"
                maxThreads="150" SSLEnabled="true" scheme="https" secure="true"
                clientAuth="false"
@@ -126,7 +126,7 @@
 ```
 3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即8443端口修改为443端口。如下所示：
 ```
-<Connector port="80" protocol="HTTP/1.1"
+<Connector port="80" protocol="org.apache.coyote.http11.Http11Protocol"
   connectionTimeout="20000"
   redirectPort="443" />
 ```
