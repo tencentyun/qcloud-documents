@@ -51,7 +51,7 @@
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 查询境外域名信息     | [DescribeOverseaCdnHosts](https://cloud.tencent.com/document/api/228/8653) | 查询所有域名的详细信息，包括配置信息，支持分页查询。           |
 | 查询境外域名详细信息 | [GetCdnOvHostInfo](https://cloud.tencent.com/document/api/228/10947) | 查询某个境外 CDN 域名的详细信息。                              |
-| 查询境外域名接入情况 | [CheckOvHost](https://cloud.tencent.com/document/api/228/10948) | 查询某个域名是否已经接入腾讯云 CDN 服务。如果未接入，返回该域名的顶级域名。 |
+| 查询境外域名接入情况 | [CheckOvHost](https://cloud.tencent.com/document/api/228/10948) | 查询某个域名是否已经接入腾讯云 CDN 服务。如果未接入，返回该域名的一级域名。 |
 | 查询域名历史操作清单 | [GetOverseaOpList](https://cloud.tencent.com/document/api/228/10949) | 查询用户对某个域名的历史操作记录清单。                         |
 
 ### 7. 境外日志下载
