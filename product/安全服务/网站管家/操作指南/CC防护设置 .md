@@ -26,7 +26,7 @@ CC 防护对网站特定的 URL 进行访问保护，腾讯云 WAF 可根据用�
 ![](https://main.qcloudimg.com/raw/110cf884df693968db2c5be271816fc5.png)
 
 - **示例二 基于 SESSION 的 CC 防护设置**
-基于 SESSION 访问速率 CC 防护，能有有效防止因为办公网、商超、公共 WIFI 因为 IP 封堵导致的五杀问题。
+基于 SESSION 访问速率 CC 防护，能有效防止因为办公网、商超、公共 WIFI 因为 IP 封堵导致的五杀问题。
 1.设置 SESSION 维度信息。单击【防护设置】>【域名列表】，选择对应域名单击【防护配置】>【CC 防护设置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/5c49844f0029ef5156ff74adafbc5087.png)
 单击【设置】进行 SESSION 设置，此示例中，选择 COOKIE 作为测试内容,标识为：security，开始位置为0，结束位置为9。
