@@ -10,8 +10,8 @@ CA 认证审核通过后，会正式颁发证书，用户可下载付费证书�
 ### 2. 填写域名
 
 根据实际需求，选择 CSR 生成方式。
-- 选择 “在线生成CSR” 方式，执行 [在线生成 CSR 的操作](#SitemapCSR)。
-- 选择 “粘贴CSR” 方式，执行 [粘贴 CSR 的操作](#PasteCSR)。
+- 选择 “在线生成 CSR” 方式，执行 [在线生成 CSR 的操作](#SitemapCSR)。
+- 选择 “粘贴 CSR” 方式，执行 [粘贴 CSR 的操作](#PasteCSR)。
 
 <span id="SitemapCSR"></span>
 #### 在线生成 CSR
