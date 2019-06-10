@@ -36,7 +36,7 @@
 ### 选择证书
 1. 首先成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 2. 选择您需要部署的证书，展开【更多】操作，选择【部署到负载均衡】。如下图所示：
-![](https://main.qcloudimg.com/raw/e59be48a8f0db68680611e4a9e40159f.png)
+![](https://main.qcloudimg.com/raw/5ac9cc91417679d460aefadbdcc4b1fb.png)
 
 ### 选择LB实例
 根据项目和地区筛选 LB 实例，且只能选择一个实例。如下图所示：
