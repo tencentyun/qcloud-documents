@@ -5,7 +5,7 @@ CA 认证审核通过后，会正式颁发证书，用户可下载付费证书�
 
 1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)。
 2. 在 “证书列表” 页面，选择已购买到的证书行，单击【提交资料】。如下图所示：
-![](https://main.qcloudimg.com/raw/d440dc0710e5d5219be5892e3766c539.png)
+![](https://main.qcloudimg.com/raw/ad1cb45659066c0835ec44179eb77bfc.png)
 
 ### 2. 填写域名
 
