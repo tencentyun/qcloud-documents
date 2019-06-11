@@ -61,7 +61,7 @@ Mysql> select * from sqoop_test;
 使用 sqoop-import 把上一步中创建的 sqoop_test 表中数据导入到 HDFS 中：
 ```
 [hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/test --username root 
--P --table sqoop_test --target-dir /sqoop
+-P --table sqoop_test --target-dir /sqoopTest
 ```
 其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。注意`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在会出错。
 回车之后需要您输入密码，密码为您创建 EMR 时设置的密码。
