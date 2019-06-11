@@ -30,7 +30,7 @@ UserID 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快速�
 ### 生成原理
 
 - 将生成代码部署在您的服务器上，并提供面向 App 的服务端接口。
-- 使用上文提到的 private_key 对 SdkAppid、Identifier 和 Expire（签名过期时间）进行非对称加密运算，并将计算结果返回给 App。
+- 使用上文提到的 private_key 对 SDKAppID、Identifier 和 Expire（签名过期时间）进行非对称加密运算，并将计算结果返回给 App。
 - 如果出现 private_key 泄露的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=40&source=0&data_title=%E4%BA%91%E9%80%9A%E4%BF%A1%20%20IM&step=1) 申请更换。
 
 ```
