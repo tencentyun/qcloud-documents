@@ -21,11 +21,11 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
   - BeaconAPI_Base.framework
   - MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
 2. 引入系统库：
-  - libz.tdb
-  - libsqlite3.tdb
-  - libstdc++.tdb
-  - libstdc++.6.0.9.tdb
-  - libc++.tdb
+  - libz.tbd
+  - libsqlite3.tbd
+  - libstdc++.tbd
+  - libstdc++.6.0.9.tbd
+  - libc++.tbd
   - Foundation.framework
   - CoreTelephony.framework
   - SystemConfiguration.framework
