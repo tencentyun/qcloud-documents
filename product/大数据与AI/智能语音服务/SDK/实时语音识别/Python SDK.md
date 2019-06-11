@@ -1,5 +1,5 @@
 
-实时语音识别Python SDK [下载地址](https://main.qcloudimg.com/raw/7f86583e3e6ec2a75b30287290125e72/python_realtime_asr_sdk.tar.gz)。
+实时语音识别 Python SDK [下载地址](https://main.qcloudimg.com/raw/7f86583e3e6ec2a75b30287290125e72/python_realtime_asr_sdk.tar.gz)。
 
 ## 功能简介
 语音识别（ASR）可以把音频数据转换为文本，对于需要持续的把获得的音频数据进行识别的场景推荐使用实时语音识别，例如视频录制时候的实时字幕，语音对话机器人需要同步获取用户说话对应的文本等。  
@@ -37,7 +37,7 @@
 - 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理
 
 ### 2. 配置用户信息
-**将Appid、SecretId、SecretKey 配置到 sdk 中。**
+**将 Appid、SecretId、SecretKey 配置到 sdk 中。**
 
 ```
 #需要配置成用户账号信息 python_realtime_asr_sdk/Config.py
@@ -68,7 +68,7 @@ APPID = '1259********'
 | timeout | 是 | Int | 设置超时时间单位为毫秒。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长 10 位。|
 
-### 请求url参数例子
+### 请求 url 参数例子
 
 ```
 https://aai.qcloud.com/asr/v1/125000001?
