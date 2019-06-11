@@ -1256,19 +1256,6 @@ public TIMMessage getLastMsg()
 public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
-### 禁用会话本地存储
-
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。IM SDK 提供了针对单个会话禁用本地存储的功能，开发者可以根据需要调用 `TIMConversationExt` 中的 `disableStorage` 接口禁用相应的会话本地存储。
- 
-**原型：**
-
-```
-/**
- * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
- * 需要初始后调用
- */
-public void disableStorage()
-```
 
 ### 设置会话草稿
 
@@ -1426,20 +1413,6 @@ public interface TIMMessageRevokedListener extends IMBaseListener {
  * @since 3.1.0
  */
 public boolean checkEquals(@NonNull TIMMessageLocator locator)
-
-```
-
-另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
-
-**原型：**
-
-```
-/**
- * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
- * @param cb 回调
- * @since 3.1.0
- */
-public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
 
 ```
 

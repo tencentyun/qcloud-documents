@@ -88,41 +88,6 @@ mSuperPlayerView.playWithMode(model);
 
 ![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
 
-## 播放 DRM 加密的视频
-
-数字版权管理解决方案（Digital Rights Management，DRM），通过技术手段加密内容，用来控制带版权作品的使用、更改和分发，保护带版权内容的安全。适用于音乐、电影等带版权的多媒体内容。
-
-Android 播放器可以播放两种方式加密的输出：
-
-1. 基于 Widevine 加密的 Dash 格式
-2. 基于 SimpleAES 加密的 HLS 格式
-
-关于 DRM 的更多详情，您可以参考 [如何对内容做版权保护](<https://cloud.tencent.com/document/product/266/34105#.E5.95.86.E4.B8.9A.E7.BA.A7-drm>) 方案文档。
-
-### 使用方法
-
-首先，App 需要从您的**业务后台**获取 Token，Token 的生成方式请参考 [这里](<https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90>) 。然后，通过 FileId + Token 方式进行播放，播放代码如下：
-
-```java
-SuperPlayerModel model = new SuperPlayerModel();
-String fileId = "15517827183920333646";
-model.appId = 1253039488;
-model.videoId = new SuperPlayerVideoId();
-model.videoId.fileId = fileId;
-model.videoId.playDefinition = "20";  // 播放模板
-model.videoId.version = SuperPlayerVideoId.FILE_ID_V3; // DRM需要使用V3协议
-try {
-    // Token需要进行URLEncoder
-    String encodedToken = URLEncoder.encode("业务下发的Token", "UTF-8");
-    model.token = encodedToken;
-} catch (UnsupportedEncodingException e) {
-    e.printStackTrace();
-}
-mSuperPlayerView.playWithModel(model);
-```
-
-代码中的`playDefinition`是 [播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF) ID，播放器会根据播放模板指定的行为播放。例如当模板 ID 为20时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
-
 ## 小窗播放
 
 小窗播放可以悬浮在所有 Activity 之上播放。使用小窗播放非常简单，只需要在开始播放前调用下面代码即可：

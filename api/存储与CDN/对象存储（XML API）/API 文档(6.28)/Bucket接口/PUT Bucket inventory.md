@@ -50,7 +50,7 @@ Content-MD5: MD5
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
-            <AccountId>1250000000</AccountId>
+            <AccountId>100000000001</AccountId>
             <Bucket>qcs::cos:ap-guangzhou::examplebucket-1250000000</Bucket>
             <Prefix>list1</Prefix>
             <Encryption>
@@ -93,7 +93,7 @@ Content-MD5: MD5
 | Destination            | InventoryConfiguration | 描述存放清单结果的信息                                     | Container | 是       |
 | COSBucketDestination   | Destination            | 清单结果导出后存放的存储桶信息                             | Container | 是       |
 | Bucket                 | COSBucketDestination   | 清单分析结果的存储桶名                                    | String    | 是       |
-| AccountId              | COSBucketDestination   | 存储桶的所有者 ID                                            | String    | 否       |
+| AccountId              | COSBucketDestination   | 存储桶的所有者 ID，例如 100000000001                                            | String    | 否       |
 | Prefix                 | COSBucketDestination   | 清单分析结果的前缀                                         | String    | 否       |
 | Format                 | COSBucketDestination   | 清单分析结果的文件形式，可选项为 CSV 格式                  | String    | 是       |
 | Encryption             | COSBucketDestination   | 为清单结果提供服务端加密的选项                             | Container | 否       |
@@ -150,7 +150,7 @@ Content-Length: 1024
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
-            <AccountId>1250000000</AccountId>
+            <AccountId>100000000001</AccountId>
             <Bucket>qcs::cos:ap-guangzhou::examplebucket-1250000000</Bucket>
             <Prefix>list1</Prefix>
             <Encryption>

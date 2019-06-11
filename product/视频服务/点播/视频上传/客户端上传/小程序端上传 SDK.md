@@ -4,7 +4,7 @@
 ## Demo 体验
 
 请打开微信，扫一扫下方二维码体验 Demo：
-> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/61a308e78a46fb4c7ec21a6e90836c3b.zip)。
+> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/1635d518ce6112f265917de25fa70f55/demo.zip)。
 
 ![](https://main.qcloudimg.com/raw/16143ffa52c1e94d05d68202de273ef3.jpg)
 

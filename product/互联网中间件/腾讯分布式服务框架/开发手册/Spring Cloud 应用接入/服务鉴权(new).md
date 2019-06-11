@@ -20,10 +20,10 @@ import org.springframework.tsf.auth.annotation.EnableTsfAuth;
 @SpringBootApplication
 @EnableTsfAuth
 public class ProviderApplication {
-	}
-}
 	public static void main(String[] args) {
 		SpringApplication.run(ProviderApplication.class, args);
+  }
+}
 ```
 
 此时您已经对 provider 微服务开启了鉴权功能，任何到达 provider 的请求都会被鉴权，鉴权不通过时会返回 HTTP 403 Forbidden。

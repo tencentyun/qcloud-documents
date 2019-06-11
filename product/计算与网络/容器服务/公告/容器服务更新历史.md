@@ -1,19 +1,70 @@
 ## 容器服务更新历史（Release Notes）
-|时间| 更新内容  |
-| ------| ------- |
-| 2019.05.20 | 伸缩组节点自动缩容时容忍驱逐失败情况  |
-| 2019.05.17 | <ul><li>[tke 容器网络支持注册到云联网](https://cloud.tencent.com/document/product/457/35087)</li><li> tke 支持 gpu 虚拟化能力</li></ul> |
-| 2019.04.24 | <ul><li>kubelet 默认采用 cni 模式</li></ul>|
-| 2019.04.22 | <ul><li>灰度上线 docker 18.06</li><li>新版 [告警](https://cloud.tencent.com/document/product/457/34180) 上线并支持全地域</li></ul> |
-| 2019.03.28 | <ul><li>tke 支持裸金属（黑石2.0）节点</li><li>[支持使用已购买 cvm 创建集群](https://cloud.tencent.com/document/product/457/32189#UseExistingCVMCreateCluster)</li></ul>|
-| 2019.03.16 | [CA 支持关闭驱逐 Pod](https://cloud.tencent.com/document/product/457/32205)  |
-| 2019.03.12 | [集群伸缩组支持扩容 gpu 节点](https://cloud.tencent.com/document/product/457/32190)   |
-| 2019.02.18 | 新版 [监控](https://cloud.tencent.com/document/product/457/34180) 上线  |
-| 2019.02.15 | 独立集群支持1.12版本  |
-| 2019.02.13 | [修复 runc 漏洞 CVE-2019-5736](https://cloud.tencent.com/announce/detail/457)   |
-| 2019.01.24 | <ul><li>[创建 Service 支持使用已有 LB](https://cloud.tencent.com/document/product/457/31710#yaml-.E7.A4.BA.E4.BE.8B)</li><li>[创建集群支持使用自定义镜像（可提工单申请）](https://console.qcloud.com/workorder)</li><li>[创建工作负载支持设置亲和性调度](https://cloud.tencent.com/document/product/457/32814)</li></ul> |
-| 2019.01.10 | tke service 支持集群内多 service 复用已有 lb |
+<table style="width:100%;">
+<th style="width:13.25%;">时间</th>
+<th>更新内容</th>
 
+<tr>
+	 <td>2019.05.20</td>
+	 <td>修复伸缩组节点自动缩容时容忍驱逐失败情况</td>
+</tr>
+
+<tr>
+	 <td>2019.05.17</td>
+	 <td><ul><li><a href="https://cloud.tencent.com/document/product/457/35087">tke 容器网络支持注册到云联网</a></li><li>tke 支持 gpu 虚拟化能力</li></ul></td>
+</tr>
+
+<tr>
+	 <td>2019.04.24</td>
+	 <td>kubelet 默认采用 cni 模式</td>
+</tr>
+
+<tr>
+	 <td>2019.04.22</td>
+	 <td><ul><li>灰度上线 docker 18.06</li><li>新版<a href="https://cloud.tencent.com/document/product/457/34180"> 告警</a> 上线并支持全地域</li></ul></td>
+</tr>
+
+<tr>
+	 <td>2019.03.28</td>
+	 <td><ul><li>tke 支持裸金属（黑石2.0）节点</li><li><a href="https://cloud.tencent.com/document/product/457/32189#UseExistingCVMCreateCluster">支持使用已购买 cvm 创建集群</a></li></ul></td>
+</tr>
+
+<tr>
+	 <td>2019.03.16</td>
+	 <td><a href="https://cloud.tencent.com/document/product/457/32190">TKE集群伸缩</a>支持设置缩容阈值</td>
+</tr>
+
+
+<tr>
+	 <td>2019.03.12</td>
+	 <td><a href="https://cloud.tencent.com/document/product/457/32190">集群伸缩组支持扩容 gpu 节点</a></td>
+</tr>
+
+<tr>
+	 <td>2019.02.18</td>
+	 <td>新版<a href="https://cloud.tencent.com/document/product/457/34180"> 监控</a> 上线</td>
+</tr>
+
+<tr>
+	 <td>2019.02.15</td>
+	 <td>独立集群支持1.12版本</td>
+</tr>
+
+<tr>
+	 <td>2019.02.13</td>
+	 <td><a href="https://cloud.tencent.com/announce/detail/457">修复 runc 漏洞 CVE-2019-5736</a></td>
+</tr>
+
+<tr>
+	 <td>2019.01.24</td>
+	 <td><ul><li><a href="https://cloud.tencent.com/document/product/457/31710#yaml-.E7.A4.BA.E4.BE.8B">创建 Service 支持使用已有 LB</a></li><li><a href="https://console.qcloud.com/workorder">创建集群支持使用自定义镜像（可提工单申请）</a></li><li><a href="https://cloud.tencent.com/document/product/457/32814">创建工作负载支持设置亲和性调度</a></li></ul></td>
+</tr>
+
+<tr>
+	 <td> 2019.01.10</td>
+	 <td>tke service 支持集群内多 service 复用已有 lb</td>
+</tr>
+
+</table>
 
 | 时间         | 更新内容  |
 | ---------- | ------- |

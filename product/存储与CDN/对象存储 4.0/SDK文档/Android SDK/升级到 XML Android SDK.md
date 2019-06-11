@@ -167,7 +167,7 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
 
 **5. 更改 API**
 
-升级到 XML SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/11238)。
+升级到 XML SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/12159) 文档。
 
 API 变化有以下三点：
 
@@ -176,7 +176,7 @@ API 变化有以下三点：
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象 project/a.txt 而创建一个 project 文件夹。
 为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「 文件夹」或「 目录」的展示方式，具体实现是通过创建一个键值为 project/，内容为空的对象，展示方式上模拟了传统文件夹。
 
-例如：上传对象 project/doc/a.txt ，分隔符 / 会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
+例如：上传对象 project/doc/a.txt ，分隔符`/`会模拟「 文件夹」的展示方式，于是可以看到控制台上出现「 文件夹」project 和 doc，其中 doc 是 project 下一级「 文件夹」，并包含了 a.txt 。
 
 因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。
 
@@ -271,4 +271,4 @@ XML Android SDK 新增 API，您可根据需求进行调用。包括：
 * 存储桶 ACL 的操作，如 PutBucketACLRequest、GetBucketACLRequest 等。
 * 存储桶生命周期的操作，如 PutBucketLifecycleRequest、GetBucketLifecycleRequest 等。
 
-具体请参考我们的 [Android SDK 接口文档](https://cloud.tencent.com/document/product/436/11238)。
+具体请参考我们的 [Android SDK 快速入门](https://cloud.tencent.com/document/product/436/12159) 文档。

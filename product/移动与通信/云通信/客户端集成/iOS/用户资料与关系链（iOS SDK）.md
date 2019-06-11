@@ -397,13 +397,9 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_ADD_FRIEND_STATUS_FRIEND_SIDE_FORBID_ADD            = 30516,
     /**
-     *  加好友时有效：好友数量已满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30519,    
-    /**
-     *  加好友时有效：已经是好友
-     */
-    TIM_ADD_FRIEND_STATUS_ALREADY_FRIEND                    = 30520,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,     
     /**
      *  加好友时有效：已被被添加好友设置为黑名单
      */
@@ -558,17 +554,121 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_RESPONSE_FRIEND_STATUS_NO_REQ                       = 30614,   
     /**
-     *  响应好友申请时有效：自己的好友满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_SELF_FRIEND_FULL             = 30615,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,      
     /**
-     *  响应好友申请时有效：好友已经存在
+     *  加好友、响应好友时有效：对方的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_FRIEND_EXIST                 = 30617,    
+    TIM_ADD_FRIEND_STATUS_THEIR_FRIEND_FULL                 = 30014,
+};
+```
+
+### 校验好友关系
+
+可通过 `TIMFriendshipManager` 的 `checkFriends` 方法校验好友关系。
+
+```
+/**
+ *  检查指定用户的好友关系
+ *
+ *  @param checkInfo 好友检查信息
+ *  @param succ  成功回调，返回检查结果
+ *  @param fail  失败回调
+ *
+ *  @return 0 发送成功
+ */
+- (int)checkFriends:(TIMFriendCheckInfo *)checkInfo succ:(TIMCheckFriendResultArraySucc)succ fail:(TIMFail)fail;
+```
+
+参数 `checkInfo` 定义如下：
+
+```
+/**
+ *  好友关系检查
+ */
+@interface TIMFriendCheckInfo : NSObject
+/**
+ *  检查用户的 ID 列表（NSString*）
+ */
+@property(nonatomic,strong) NSArray* users;
+
+/**
+ *  检查类型
+ */
+@property(nonatomic,assign) TIMFriendCheckType checkType;
+
+@end
+```
+
+参数 `TIMFriendCheckType` 定义如下：
+
+```
+/**
+ *  好友检查类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendCheckType) {
     /**
-     *  响应好友申请时有效：对方好友满
+     *  单向好友
      */
-    TIM_RESPONSE_FRIEND_STATUS_OTHER_SIDE_FRIEND_FULL       = 30630,
+    TIM_FRIEND_CHECK_TYPE_UNIDIRECTION     = 0x1,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_CHECK_TYPE_BIDIRECTION      = 0x2,
+};
+```
+
+成功回调会返回操作用户的 `TIMCheckFriendResult` 列表数据，定义如下。
+
+```
+@interface TIMCheckFriendResult : NSObject
+/**
+ *  用户 ID
+ */
+@property NSString* identifier;
+
+/**
+ * 返回码
+ */
+@property NSInteger result_code;
+
+/**
+ * 返回信息
+ */
+@property NSString *result_info;
+
+/**
+ *  检查结果
+ */
+@property(nonatomic,assign) TIMFriendRelationType resultType;
+
+@end
+```
+
+参数 `TIMFriendRelationType` 定义如下：
+
+```
+/**
+ *  好友关系类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendRelationType) {
+    /**
+     *  不是好友
+     */
+    TIM_FRIEND_RELATION_TYPE_NONE           = 0x0,
+    /**
+     *  对方在我的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_MY_UNI         = 0x1,
+    /**
+     *  我在对方的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_OTHER_UNI      = 0x2,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_RELATION_TYPE_BOTHWAY        = 0x3,
 };
 ```
 

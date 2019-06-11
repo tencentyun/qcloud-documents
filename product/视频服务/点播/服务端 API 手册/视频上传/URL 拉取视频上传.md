@@ -11,13 +11,14 @@ MultiPullVodFile
 ## 功能说明
 1. 通过传递视频 URL，把已经存在于网络上的视频批量拉取到腾讯云。
 2. 支持批量拉取多个视频文件（最多50个），通过输入参数中的n值区分是第几个视频。
+3. 视频拉取格式，请参见 [音视频上传](https://cloud.tencent.com/document/product/266/2834#.E9.9F.B3.E8.A7.86.E9.A2.91.E4.B8.8A.E4.BC.A0)。
 
 >! 请务必确保 URL 为视频文件，而不是包含视频文件的网页地址。
 
 ## 事件通知
 文件上传成功可触发 [事件通知 - URL 转拉完成](/document/product/266/7831)。App 后台可据此监听点播系统中的 URL 拉取行为。
 
-更多请参见 [服务端事件通知简介](/document/product/266/7829)。
+更多请参见 [服务端事件通知简介](https://cloud.tencent.com/document/product/266/33779)。
 
 ## 请求方式
 
@@ -38,7 +39,7 @@ MultiPullVodFile
 |pullset.n.isWatermark | 否 | Integer | 是否打水印，0：否，1：是，默认为0；如果选择打水印，请务必在管理控制台提前完成水印文件选择和位置设定，否则可能导致上传失败。|
 |pullset.n.classId | 否 | Integer | 视频的分类 ID。 |
 |pullset.n.tags | 否 | String | 视频的标签，有多个标签的话采用英文逗号分隔。 |
-|pullset.n.priority | 否 | Integer | 优先级：0:中 1：高 2：低。 |
+|pullset.n.priority | 否 | Integer | 优先级：0：中；1：高；2：低。 |
 | COMMON_PARAMS | 是 |  | 请参见 [公共参数](/document/api/213/6976)。 |
 
 ### 请求示例
@@ -71,7 +72,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
 ### 错误码说明
 | 错误码 | 含义说明|
 |---------|---------|
-| 4000-7000 | 参见 [公共错误码](/document/product/266/7783)。  |
+| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/10146)。  |
 | 1 | 内部错误。  |
 | 1000 | 无效参数。  |
 | 1001 | 用户信息错误。 |

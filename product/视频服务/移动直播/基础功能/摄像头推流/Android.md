@@ -1,5 +1,5 @@
 ## 基础知识
-**推流** 是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
+**推流**是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
 
 腾讯视频云 SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流 URL 就能驱动：
 ![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
@@ -236,7 +236,6 @@ Android 手机目前对硬件加速的支持已较前两年有明显的进步，
 ### step 9: 本地录制
 使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoFilePath 可以指定 MP4 文件的存放路径。
 - 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
-- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参考 [云端录制](https://cloud.tencent.com/document/product/454/7917)。
 - 通过 setVideoRecordListener 接口，可以设置 TXRecordCommon.ITXVideoRecordListener 监听器给 TXLivePusher ，从而获取录制相关的事件通知。
 
 ```java
@@ -252,6 +251,8 @@ public interface ITXVideoRecordListener {
         void onRecordComplete(TXRecordResult result);
 }
 ```
+
+>? 云直播提供云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### step 10: 后台推流
 常规模式下，App 一旦切到后台，摄像头的采集能力就被 Android 系统停掉了，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -346,7 +347,7 @@ mLivePusher.setRenderRotation(90);
 
 
 - **Activity自动旋转**
-Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://cloud.tencent.com/document/product/454/9876)演示了如何做到下面这种重力感应效果：
+Android 系统的 Activity 本身支持跟随手机的重力感应进行旋转（设置 android:configChanges），[CODE](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)演示了如何做到下面这种重力感应效果：
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
 

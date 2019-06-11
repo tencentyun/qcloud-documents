@@ -38,7 +38,7 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 
 ### 如何获取 Python SDK 下载文件的临时链接？
 
-详情请查阅 [获取预签名下载链接](https://cloud.tencent.com/document/product/436/12270#.E8.8E.B7.E5.8F.96.E9.A2.84.E7.AD.BE.E5.90.8D.E4.B8.8B.E8.BD.BD.E9.93.BE.E6.8E.A5) 文档。
+详情请查阅 [预签名 URL](https://cloud.tencent.com/document/product/436/35153) 文档。
 
 ### SDK 能否使用 CDN 加速域名进行访问？
 
