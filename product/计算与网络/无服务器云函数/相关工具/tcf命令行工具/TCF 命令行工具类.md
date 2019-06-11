@@ -30,6 +30,6 @@ pip install -I PyYAML==x.x.x(在requirements.txt中查看具体版本)
 
 表现：使用 deploy 时，部署函数失败，报`[SSL: CERTIFICATE_VERIFY_FAILED]` 证书验证错误，
 
-问题原因：mac 10.12 + python 3.6及以上环境中，python 不再读取系统路径证书，导致读取证书失败，调用腾讯云 云 API 部署时 SSL 验证失败。
+问题原因：mac 10.12 + python 3.6 及以上环境中，python 不再读取系统路径证书，导致读取证书失败，调用腾讯云 云 API 部署时 SSL 验证失败。
 
 解决方法：在 python 安装目录下，执行 `Install Certificates.command` 脚本，会自动安装 certifi 包，解决证书问题。
