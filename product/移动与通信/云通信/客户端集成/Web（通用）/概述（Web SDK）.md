@@ -130,11 +130,11 @@ IM SDK 函数使用顺序，如下：
 
 IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
-<table width="890">
+<table>
      <tr>
          <th>对象</th>  
          <th>介绍</th>  
-         <th nowrap="nowrap">功能</th>  
+         <th width="30%">功能</th>  
      </tr>
 	 <tr>      
          <td>webim.SESSION_TYPE</td>   
