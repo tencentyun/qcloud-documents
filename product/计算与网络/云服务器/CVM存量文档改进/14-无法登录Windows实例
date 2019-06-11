@@ -91,9 +91,9 @@
 通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 进行检查。
 >! 远程登录的 Windows 实例需要放通 3389 端口。
 > 
-![](https://main.qcloudimg.com/raw/c90a6b24338daaf1e092657c0e40260a.png)
+![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 如果确定为安全组端口设置问题，可通过工具中的【一键放通】功能放通端口。
-![](https://main.qcloudimg.com/raw/d8c43bf2df7e893e0ded86862432fb3a.png)
+![](https://main.qcloudimg.com/raw/c6a26565610a1360f187ee10db12a634.png)
 如果您需要自定义设置安全组规则，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 重新配置安全组规则。
 
 
