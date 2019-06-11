@@ -25,7 +25,7 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
   - libsqlite3.tdb
   - libstdc++.tdb
   - libstdc++.6.0.9.tdb
-  - libc++.tbd
+  - libc++.tdb
   - Foundation.framework
   - CoreTelephony.framework
   - SystemConfiguration.framework
