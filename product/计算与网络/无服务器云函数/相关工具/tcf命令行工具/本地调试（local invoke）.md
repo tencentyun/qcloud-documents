@@ -30,7 +30,7 @@ scf cli 通过 `local invoke` 子命令完成本地触发运行。scf 命令行�
 
 
 ### 测试模拟事件
-用于在本地触发云函数的模拟事件，可以通过linux 的命令管道传递，也可以通过文件传递。
+用于在本地触发云函数的模拟事件，可以通过 Linux 的命令管道传递，也可以通过文件传递。
 - **通过命令管道传递：** `scf local invoke` 命令支持从命令行管道中接收事件。我们可以通过执行 `scf local generate-event` 命令生成事件并传递，形成例如 `scf local generate-event cos post | scf local invoke --template template.yaml` 的调试命令。我们也可以自行构造输出 JSON 格式内容并传递给 `scf local invoke` 命令，形成例如 `echo '{"test":"value"}' | scf local invoke --template template.yaml ` 的调试命令。
 - **通过文件传递：**通过使用 `scf local invoke` 命令的 `--event` 参数，指定包含有测试模拟事件内容的文件。文件内容必须为 JSON 数据结构，形成例如 `scf local invoke --template template.yaml --event event.json ` 的调试命令。 
 
