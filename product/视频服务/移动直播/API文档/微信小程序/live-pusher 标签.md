@@ -25,12 +25,11 @@
 |工具	|视频客服	|不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等|
 
 
+- 符合类目要求的小程序，需要在小程序管理后台的【开发】-【接口设置】中自助开通推拉流标签的使用权限，如下图所示：
 
-- 符合类目要求的小程序，需要在小程序管理后台的<font color='red'> “设置 - 接口设置” </font>中自助开通该组件权限，如下图所示：
+![](https://main.qcloudimg.com/raw/cabb6b98121754b7956bd02029714616.jpg)
 
-![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
-
-注意：如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
+>! 如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
 ## 属性定义
 | 属性名 | 类型 | 默认值 | 说明 |
@@ -179,7 +178,7 @@ pusher.start({
 - **PUSH_WARNING_NET_BUSY**
 上行网速不给力，建议提示用户改善当前的网络环境，比如让用户离家里的路由器近一点，或者切到 Wi-Fi 环境下再使用。
 
-- <font color='red'>**PUSH_WARNING_SERVER_DISCONNECT**</font>
+- **PUSH_WARNING_SERVER_DISCONNECT**
 请求被后台拒绝了，出现这个问题一般是由于 URL 里的 txSecret 计算错了，或者是 URL 被其他人占用了（跟播放不同，一个推流 URL 同时只能有一个用户使用）。
 
 - **PUSH_WARNING_HANDUP_STOP**

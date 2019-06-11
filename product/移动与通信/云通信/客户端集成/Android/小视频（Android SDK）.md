@@ -1,7 +1,7 @@
 ## 集成小视频功能扩展包
 
 
-从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 ImSDK 开发包，小视频功能扩展包。ImSDK 包的功能见 [概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下。
+从 [官网](https://cloud.tencent.com/product/im.html#sdk) 下载 IM SDK 开发包，小视频功能扩展包。IM SDK 包的功能见 [概述](https://cloud.tencent.com/document/product/269/9227)， 小视频功能扩展包各个文件功能如下。
 
 ```
 ugc_ext_libs
@@ -23,15 +23,15 @@ ugc_ext_libs
 
 | 包名 | 描述 | 
 |---------|---------|
-| imsdk_ugc_ext.jar | ImSDK 小视频功能扩展 Java 封装，提供小视频上传、小视频消息收发功能 |
-| txrtmpsdk.jar | 小视频功能 SDK 库 Java 封装，提供小视频录制、编辑、预览等功能<br>具体功能可以参考 [短视频SDK功能列表](/document/product/584/9457) |
+| imsdk_ugc_ext.jar | IM SDK 小视频功能扩展 Java 封装，提供小视频上传、小视频消息收发功能 |
+| txrtmpsdk.jar | 小视频功能 SDK 库 Java 封装，提供小视频录制、编辑、预览等功能<br>具体功能可以参考 [短视频 SDK 功能列表](/document/product/584/9457) |
 | cos-sdk-android.1.4.3.6.jar | 对象存储 COS 相关的 jar 包 |
 | okhttp-3.2.0.jar | 网络请求库 |
 | okio-1.6.0.jar | 网络操作 I/O 库 |
-| lib_imcore_ugc_ext_gyp.so | ImSDK 小视频功能扩展核心组件 |
+| lib_imcore_ugc_ext_gyp.so | IM SDK 小视频功能扩展核心组件 |
 | libtxrtmpsdk.so | 直播 SDK 核心组件 |
 
-因为小视频扩展功能包只提供了 `armeabi`、`armeabi-v7a` 和 `arm64-v8a` 这三种CPU架构的 so 库，所以在编译的时候，最好通过 `abiFilters` 把 `x86` 架构排除掉。
+因为小视频扩展功能包只提供了 `armeabi`、`armeabi-v7a` 和 `arm64-v8a` 这三种 CPU 架构的 so 库，所以在编译的时候，最好通过 `abiFilters` 把 `x86` 架构排除掉。
 
 ```sh
 # build.gradle文件
@@ -102,7 +102,7 @@ mTXCameraRecord.toggleTorch(mFlashOn);
 
 //////////////////////////////////////////////////////////////////////////
 //                       以下为仅特权版才支持的特效
-// （由于采用优图团队的知识产权，我们无法对外免费提供，需要使用特权版 SDK 才能支持）
+// （由于采用优图团队的知识产权，我们无法对外免费提供，需要使用特权版 IM SDK 才能支持）
 //////////////////////////////////////////////////////////////////////////
 
 // 设置动效贴纸 motionTmplPath 动效文件路径： 空 String "" 则取消动效
@@ -434,7 +434,7 @@ con.sendMessage(message, new TIMValueCallBack<TIMMessage>() {
 
 接收方收到消息后，可通过 `TIMMessage` 中的 `getElement` 从 `TIMMessage` 中获取所有的消息节点，其中类型为 `TIMUGCElem` 的是小视频消息节点。然后通过节点中的 `TIMUGCCover` 和 `TIMUGCVideo` 对象获取该小视频的视频和封面图片文件信息及相应文件下载。
 
-以下示例从会话中取出 10 条消息，获取小视频消息并下载相应数据。**小视频解析示例：**
+以下示例从会话中取出10条消息，获取小视频消息并下载相应数据。**小视频解析示例：**
 
 ```java
 //获取一个群组会话实例

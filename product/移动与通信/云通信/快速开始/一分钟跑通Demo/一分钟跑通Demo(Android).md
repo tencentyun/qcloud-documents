@@ -1,15 +1,15 @@
 
-本文主要介绍如何快速地将腾讯云云通信 Demo(Android) 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速地将腾讯云通信 IM Demo(Android) 工程运行起来，您只需参考如下步骤依次执行即可。
 
 ## 1. 创建应用
 登录腾讯云通信（IM）[控制台](https://console.cloud.tencent.com/avc)，在**应用列表**页，单击【创建应用接入】，在**创建新应用**弹框中，填写新建应用的信息，单击【确认】：
 ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
 
-应用创建完成后，自动生成一个应用标识：SdkAppId，如下图：
+应用创建完成后，自动生成一个应用标识：SDKAppID，如下图：
 ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
 
 ## 2. 配置应用
-完成创建应用之后返回应用列表，单击对应 SdkAppId 的**应用配置**链接，在应用详情页，找到当前页面的**帐号体系集成**部分，单击**编辑**链接，配置**账号管理员**信息，然后单击【保存】：
+完成创建应用之后返回应用列表，单击对应 SDKAppID 的**应用配置**链接，在应用详情页，找到当前页面的**帐号体系集成**部分，单击**编辑**链接，配置**账号管理员**信息，然后单击【保存】：
 
 >?账号管理员可以随便填写，在使用云通信后台的 REST API 发送消息时才会用到。
 
@@ -26,12 +26,12 @@
 
 
 ## 4. 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载 ImSDK Android 开发包，打开 tuikit 工程。
+从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载 IM SDK Android 开发包，打开 tuikit 工程。
 
 ## 5. 修改源码配置
 - 使用 Android Studio （3.0 以上的版本）  打开源码工程。
-- 工程中默认配置了测试的 SdkAppId 以及在控制台生成的四个测试账号，由于每个账号同时只能有一个端登录，所以您需要按照 step 3 中指引拿到自己的四组测试账号配置进去。
-- 在 com.tencent.qcloud.uipojo.utils.Constants 中替换您的 SdkAppId。
+- 工程中默认配置了测试的 SDKAppID 以及在控制台生成的四个测试账号，由于每个账号同时只能有一个端登录，所以您需要按照 step 3 中指引拿到自己的四组测试账号配置进去。
+- 在 com.tencent.qcloud.uipojo.utils.Constants 中替换您的 SDKAppID。
 ![](https://main.qcloudimg.com/raw/b6cec2fd99c8350f4781304d96d28653.png)
 
 - 在 com.tencent.qcloud.uipojo.login.view.LoginActivity 中替换以上第三步在 IM 控制台中获得的 userId 和 userSig 。

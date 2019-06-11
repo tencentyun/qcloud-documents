@@ -1,7 +1,7 @@
 
 ## 群组综述
 
-IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
@@ -21,7 +21,7 @@ IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组
 
 ### 创建内置类型群组
 
-云通信中内置了私有群、公开群、聊天室、音视频聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 `Conversation` 收发消息等。
+云通信 IM 中内置了私有群、公开群、聊天室、音视频聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 `Conversation` 收发消息等。
 
 **创建群组说明：**
 
@@ -216,7 +216,7 @@ groupInfo.membersInfo = membersInfo;
 
 ### 自定义群组 ID 创建群组
 
-默认创建群组时，IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，另外，如果用户需要自定义群组 ID，在创建时可指定 ID，通过 [创建指定属性群组](#.E5.88.9B.E5.BB.BA.E6.8C.87.E5.AE.9A.E5.B1.9E.E6.80.A7.E7.BE.A4.E7.BB.84) 也可以实现自定义群组 ID 的功能。
+默认创建群组时，通讯云 IM 服务器会生成一个唯一的 ID，以便后续操作，另外，如果用户需要自定义群组 ID，在创建时可指定 ID，通过 [创建指定属性群组](#.E5.88.9B.E5.BB.BA.E6.8C.87.E5.AE.9A.E5.B1.9E.E6.80.A7.E7.BE.A4.E7.BB.84) 也可以实现自定义群组 ID 的功能。
 
 ```
 @interface TIMGroupManager : NSObject
@@ -775,13 +775,14 @@ fail | 失败回调
 @end
 ```
 
-### 群成员获取群组资料
+### 获取群组资料
 
-`getGroupInfo` 方法可以获取群组资料。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。群资料信息由 `TIMGroupInfo` 定义。通过 `TIMGroupManager` 的方法 `getGroupInfo` 可获取群组资料。
+通过 `TIMGroupManager` 的方法 `getGroupInfo` 方法可以获取服务器存储的群组资料，`queryGroupInfo`  方法可以获取本地存储的群组资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。群资料信息由 `TIMGroupInfo` 定义。  
 
 **权限说明：**
 
-- 获取群组资料接口只能由群成员调用，非群成员无法通过此方法获取资料，需要调用。
+- 无论是公开群还是私有群，群成员均可以拉到群组资料。
+- 如果是公开群，非群组成员可以拉到 group、groupName、owner、groupType、createTime、maxMemberNum、memberNum、introduction、faceURL、addOpt、onlineMemberNum、customInfo 这些资料字段。如果是私有群，非群组成员拉取不到群组资料。
 
 **原型：**
 
@@ -871,16 +872,26 @@ fail | 失败回调
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
+
 @interface TIMGroupManager (Ext)
 /**
- *  获取群信息
+ *  获取服务器存储的群资料
  *
+ *  @param groups 群组 ID 列表
  *  @param succ 成功回调，不包含 selfInfo 信息
  *  @param fail 失败回调
  *
  *  @return 0 成功
  */
 - (int)getGroupInfo:(NSArray*)groups succ:(TIMGroupListSucc)succ fail:(TIMFail)fail;
+/**
+ *  获取本地存储的群资料
+ *
+ *  @param group 群组 ID
+ *
+ *  @return 群组资料
+ */
+- (TIMGroupInfo *)queryGroupInfo:(NSString *)group;
 @end
 ```
 
@@ -898,52 +909,6 @@ fail | 失败回调
 NSMutableArray * groupList = [[NSMutableArray alloc] init];
 [groupList addObject:@"TGID1JYSZEAEQ"];
 [[TIMGroupManager sharedInstance] getGroupInfo:groupList succ:^(NSArray * groups) {
-	for (TIMGroupInfo * info in groups) {
-		NSLog(@"get group succ, infos=%@", info);
-	}
-} fail:^(int code, NSString* err) {
-	NSLog(@"failed code: %d %@", code, err);
-}];
-```
-
-### 非群成员获取群组资料
-
-`getGroupInfo` 方法只对群成员有效，非成员需要调用 `getGroupPublicInfo` 实现，只能获取公开信息。默认拉取基本资料，如果想拉取自定义资料，可通过 [设置拉取字段](#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 进行设置。
-
-**权限说明：**
-
-- 任意用户可以获取群公开资料。
-
-**原型：**
-
-```
-@interface TIMGroupManager (Ext)
-/**
- *  获取群公开信息
- *  @param groups 群组 ID
- *  @param succ 成功回调
- *  @param fail 失败回调
- *
- *  @return 0 成功
- */
-- (int)getGroupPublicInfo:(NSArray*)groups succ:(TIMGroupListSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数|说明
----|---
-groups |NSString 数组，需要获取资料的群组列表
-succ | 成功回调，返回群组资料列表，TIMGroupInfo 数组
-fail | 失败回调
-
-以下示例中获取群组『TGID1JYSZEAEQ』的公开信息。**示例：**
-
-```
-NSMutableArray * groupList = [[NSMutableArray alloc] init];
-[groupList addObject:@"TGID1JYSZEAEQ"];
-[[TIMGroupManager sharedInstance] getGroupPublicInfo:groupList succ:^(NSArray * groups) {
 	for (TIMGroupInfo * info in groups) {
 		NSLog(@"get group succ, infos=%@", info);
 	}
@@ -1503,7 +1468,7 @@ fail|失败回调
 
 | 参数 | 说明 |
 | --- | --- |
-| timestamp | 拉取的开始时戳。若从最新的未决条目开始拉取，则填 0 或不填。若分页，则回调中返回下一个分页的拉取起始时戳 |
+| timestamp | 拉取的开始时戳。若从最新的未决条目开始拉取，则填0或不填。若分页，则回调中返回下一个分页的拉取起始时戳 |
 | numPerPage | 一次拉取的最多条目数，用于分页 |
 
 **回调原型：**
@@ -1627,7 +1592,7 @@ requestMsg/handleMsg|申请、审批时的留言信息
 
 ### 上报群未决已读
 
-对于未决信息，SDK 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
+对于未决信息，IM SDK 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
 
 **原型：**
 
@@ -1666,7 +1631,7 @@ fail|失败回调
 
 ### 处理群未决信息
 
-对于群的未决信息，SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。
+对于群的未决信息，IM SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。
 
 **原型：**
 
@@ -2122,7 +2087,7 @@ type | 消息类型
 group | 群组 ID
 user | 操作人
 msg | 操作理由
-msgKey & authKey | 消息的标识，客户端无需关心，调用 accept 和 refuse 时由 SDK 读取
+msgKey & authKey | 消息的标识，客户端无需关心，调用 accept 和 refuse 时由 IM SDK 读取
 
 以下示例中处理收到群系统消息，如果是入群申请则默认同意，如果是群解散通知则打印信息。其他类型消息解析方式相同。 **示例： **
 

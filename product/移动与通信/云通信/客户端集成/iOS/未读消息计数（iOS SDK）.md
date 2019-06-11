@@ -34,7 +34,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 ## 已读上报 
 
-当用户阅读某个会话的数据后，需要进行会话消息的已读上报，SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。 
+当用户阅读某个会话的数据后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。 
 
 **原型： **
 
@@ -58,7 +58,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 参数|说明
 ---|---
-readed | 为当前会话中最后一条读过的消息，ImSDK 会把比 readed 时间更早的消息标记为已读消息
+readed | 为当前会话中最后一条读过的消息，IM SDK 会把比 readed 时间更早的消息标记为已读消息
 succ | 成功回调
 fail | 失败回调
 
@@ -73,7 +73,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 ## 禁用自动上报
 
-在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，IM 通讯云不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
+在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，云通信 IM 不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
 
 ```
 @interface TIMUserConfig: NSObject
@@ -86,7 +86,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 ## 多终端已读同步
 
-在 2.0 以上版本中引入的功能，在多终端情况下，未读消息计数由 Server 下发同步通知，SDK 在本地更新未读计数后，通知用户更新会话。此功能需要在 **TIMManager 登录之前**设置。
+在2.0以上版本中引入的功能，在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。此功能需要在 **TIMManager 登录之前**设置。
 
 **原型：**
 

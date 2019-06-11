@@ -1,23 +1,23 @@
 ## 基础知识
-**推流** 是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
+**推流**是指将音视频数据采集编码之后，推送到您指定的视频云平台上，这里涉及大量的音视频基础知识，而且需要长时间的打磨和优化才能达到符合预期的效果。
 
-腾讯视频云 SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流URL就能驱动：
+腾讯视频云 SDK 主要帮您解决在智能手机上的推流问题，它的接口非常简单易用，只需要一个推流 URL 就能驱动：
 ![](//mc.qcloudimg.com/static/img/ca7f200c31a9323c032e9e000831ea63/image.jpg)
 
 ## 特别说明
-- **<font color='red'>不绑定腾讯云</font>**
+- **不绑定腾讯云**
  SDK 不绑定腾讯云，如果要推流到非腾讯云地址，请在推流前设置 TXLivePushConfig 中的 enableNearestIP 设置为 NO。但如果您要推流的地址为腾讯云地址，请务必在推流前将其设置为 YES，否则推流质量可能会因为运营商 DNS 不准确而受到影响。
 
 - **x86 模拟器调试**
- 由于 SDK 大量使用 iOS 系统的高级特性，我们不能保证所有特性在x86环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
+由于 SDK 大量使用 iOS 系统的高级特性，我们不能保证所有特性在 x86 环境的模拟器下都能正常运行，而且音视频是性能敏感的功能，模拟器下的表现跟真机会有很大的不同。所以，如果条件允许，推荐您尽量使用真机调试。
 
 ## 准备工作
 
 - **获取开发包**
-[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照[工程配置](https://cloud.tencent.com/document/product/454/7876)指引将 SDK 嵌入您的 App 开发工程。
+[下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [工程配置](https://cloud.tencent.com/document/product/454/7876) 指引将 SDK 嵌入您的 App 开发工程。
 
-- **获取测试URL**
-[开通](https://console.cloud.tencent.com/live)直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息可以参考 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+- **获取测试 URL**
+[开通](https://console.cloud.tencent.com/live) 直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 ![](https://mc.qcloudimg.com/static/img/64342b926e05da462a54b8ce4f8c526f/image.png)
 
 ## 代码对接
@@ -40,14 +40,14 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 ### step 2: 渲染 View
 接下来我们要给摄像头的影像画面找个地方来显示，iOS系统中使用 view 作为基本的界面渲染单位，所以您只需要准备一个 view 传给 LivePush 对象的 **startPreview** 接口函数就可以了。
 
-- **推荐的布局！**
+- **推荐的布局**
 > 实际上，SDK 的内部并不是直接把画面渲染在您提供的 view 上，而是在这个 view 之上创建一个用于OpenGL渲染的子视图（subView），但是，这个渲染用的subView的大小会跟随您提供的view大小变化而自动调整。
 >![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
 >
-> 不过即如此，如果您想要在渲染画面之上实现弹幕、献花之类的UI控件，我们也推荐您”另起炉灶“（再创建一个平级的view），这样可以避免很多前后画面覆盖的问题。
+> 不过即如此，如果您想要在渲染画面之上实现弹幕、献花之类的 UI 控件，我们也推荐您”另起炉灶“（再创建一个平级的 view），这样可以避免很多前后画面覆盖的问题。
 
-- **如何做动画？**
-> 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是<font color='red'>transform</font>属性而不是 frame 属性。
+- **如何做动画**
+> 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
 >
 ```objectivec
   [UIView animateWithDuration:0.5 animations:^{
@@ -60,12 +60,12 @@ LivePushConfig 在alloc之后便已经装配了一些我们反复调过的参数
 
 ```objectivec 
 NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";    
-[_txLivePush startPreview:_myView];  //_myView 就是step2中需要您指定的view    
+[_txLivePush startPreview:_myView];  //_myView 就是 step2 中需要您指定的 view    
 [_txLivePush startPush:rtmpUrl];
 ```
 
-- **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流URL上去。
-- **startPreview** 的参数就是step2中需要您指定的view，startPreview 的作用就是将界面 view 控件和 LivePush 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
+- **startPush** 的作用是告诉 SDK 音视频流要推到哪个推流 URL 上去。
+- **startPreview** 的参数就是 step2 中需要您指定的 view，startPreview 的作用就是将界面 view 控件和 LivePush 对象关联起来，从而能够将手机摄像头采集到的画面渲染到屏幕上。
 
 ### step 3+: 纯音频推流
 如果您的直播场景是声音直播，那么需要更新下推流的配置信息。前面 step1 和 step2 准备步骤不变，使用以下代码设置纯音频推流并启动推流。
@@ -82,7 +82,7 @@ NSString* rtmpUrl = @"rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 
 ### step 4: 设定清晰度
 
-如果您是第一次接触音视频，<font color='red'>**不推荐**</font> 您自行设置分辨率、码率等视频参数，参数配置不当可能影响最终的画质表现，推荐您使用 TXLivePusher::setVideoQuality 接口的可以设定推流的画面清晰度：
+如果您是第一次接触音视频，**不推荐**您自行设置分辨率、码率等视频参数，参数配置不当可能影响最终的画质表现，推荐您使用 TXLivePusher::setVideoQuality 接口的可以设定推流的画面清晰度：
 
 ![](https://main.qcloudimg.com/raw/6e66be90ff14bb8f0603c70668a27ec8.png)
 
@@ -128,7 +128,7 @@ setBeautyStyle 接口可以设置美颜风格、磨皮程度、美白级别和�
 ```
 
 - **滤镜**
-setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了Demo中，您可以随意使用，不用担心版权问题。
+setFilter 接口可以设置滤镜效果，滤镜本身是一张直方图文件，我们设计师团队提供了八种素材，默认打包在了 Demo 中，您可以随意使用，不用担心版权问题。
 
  setSpecialRatio 接口则可以设置滤镜的程度，从0到1，越大滤镜效果越明显，默认取值0.5。
 ```objectivec
@@ -139,12 +139,12 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
         [_txLivePublisher setFilter:image];
 } 
 ```
-> 如果要自定义滤镜，一定要用 PNG 格式的图片，<font color='red'>不要用 JPG，不要用 JPG，不要用 JPG...</font>
+> 如果要自定义滤镜，**一定要用 PNG 格式的图片，不要用 JPG**。
 
 
 ### step 6: 控制摄像头
 - **切换前置或后置摄像头** 
-默认是使用**前置**摄像头（可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值），调用一次switchCamera 切换一次，注意切换摄像头前必须保证 LivePushConfig 和 LivePush 对象都已经初始化。  
+默认是使用**前置**摄像头（可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值），调用一次 switchCamera 切换一次，注意切换摄像头前必须保证 LivePushConfig 和 LivePush 对象都已经初始化。  
   
 ```objectivec
 // 默认是前置摄像头，可以通过修改 LivePushConfig 的配置项 frontCamera 来修改这个默认值   
@@ -152,7 +152,7 @@ if (path != nil && index != FilterType_None && _txLivePublisher != nil) {
 ```
 
 - **打开或关闭闪光灯** 
-只有后置摄像头才可以打开闪光灯（您可以通过"TXLivePush.h"里面的frontCamera成员来确认当前摄像头是前置还是后置）
+只有后置摄像头才可以打开闪光灯（您可以通过"TXLivePush.h"里面的frontCamera成员来确认当前摄像头是前置还是后置）。
 
 ```objectivec
 if(!frontCamera) {
@@ -172,11 +172,11 @@ SDK 的iOS版本内部有默认的手动对焦逻辑，虽然功能没什么问�
 - (void)setFocusPosition:(CGPoint)touchPoint;
 ```
 
-### step 7: 设置Logo水印
+### step 7: 设置 Logo 水印
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在SDK内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
-这里我们特别建议您使用<font color='red'>SDK 添加水印</font>，因为在云端打水印有三个明显的问题：
+这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
  （1）这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本。
  （2）在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  （3）在云端打水印会引入额外的3s以上的视频延迟，这是转码服务所引入的。
@@ -191,14 +191,15 @@ _config.watermarkPos = (CGPoint){10, 10};
 
 ### step 8: 本地录制
 使用 startRecord 接口可以启动本地录制，录制格式为 MP4，通过 videoPath 可以指定 MP4 文件的存放路径。
-- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常
-- 如果是云端录制，只需要在推流 URL 后面拼接 &record=mp4 即可，详情请参考[云端录制](https://cloud.tencent.com/document/product/454/7917)。
+- 录制过程中请勿动态切换分辨率和软硬编，可能导致生成的视频异常。
 - stopRecord 调用之后，录制出来的文件会通过 TXLiveRecordListener 通知出来。
 
 ```objectivec
 -(int) startRecord:(NSString *)videoPath;
 -(int) stopRecord;
 ```
+
+>? 云直播提供云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### step 9: 后台推流
 常规模式下，App 一旦切到后台，摄像头的采集能力就会被 iOS 暂时停止掉，这就意味着 SDK 不能再继续采集并编码出音视频数据。如果我们什么都不做，那么故事将按照如下的剧本发展下去：
@@ -210,10 +211,10 @@ _config.watermarkPos = (CGPoint){10, 10};
 从 **SDK 1.6.1** 开始，我们引入了一种解决方案，如下是从观众端的视角看去，该方案可以达到的效果： 
 ![](https://mc.qcloudimg.com/static/img/6325a9f7918602bd8db15228e6ffe189/image.png)
 
-- **9.1) 调整XCode设置**
+- **9.1) 调整 XCode 设置**
 ![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
 
-- **9.2) 设置pauseImg**
+- **9.2) 设置 pauseImg**
 在开始推流前，使用 LivePushConfig 的 pauseImg 接口设置一张等待图片，图片含义推荐为“主播暂时离开一下下，稍后回来”。
 
 ```objectivec
@@ -226,7 +227,7 @@ _config.watermarkPos = (CGPoint){10, 10};
     [_txLivePublisher setConfig:_config];
 ```
 
-- **9.3) 设置App后台（短暂）运行**
+- **9.3) 设置 App 后台（短暂）运行**
 App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推流了，观众端就会看到直播间进入黑屏或者冻屏状态。我们可以使用下面的代码让 App 在切到后台后还可再跑几分钟，至少足够主播接听一个短暂的私人电话。
 
 ```objectivec
@@ -255,7 +256,7 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推�
 ```
 
 - **9.5) 切前台处理**
- 等待 App 切回前台之后 （在 handleEnterForeground 里），调用 TXLivePush 的 resumePush 接口函数，SDK 会恢复对摄像头画面的采集。要注意的是：由于 pausePush 和 resumePush 跟 SDK 内部状态息息相关，必须要 <font color='red'> 配对使用 </font>，否则会引入很多不必要的 BUG。
+ 等待 App 切回前台之后 （在 handleEnterForeground 里），调用 TXLivePush 的 resumePush 接口函数，SDK 会恢复对摄像头画面的采集。要注意的是：由于 pausePush 和 resumePush 跟 SDK 内部状态息息相关，必须要**配对使用**，否则会引入很多不必要的 BUG。
  
 ```objectivec
 //切前台处理
@@ -267,11 +268,10 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推�
 
 ### step 10: 卡顿预警提示
 
-- 如果主播网络质量不好，我们应该怎么做？ 
+- 如果主播网络质量不好，我们应该怎么做。
 - 主动降低清晰度来确保流畅性？ 这样观众端的感受就是模糊和马赛克。
 - 主动丢掉一部分视频帧，以确保画面还能持续有一定的清晰度？这样观众端的感受就是持续卡顿。
-- 以上都是我们不想要的？那怎么办？
-- “既然马儿跑得快，又让马儿不吃草。”  我们都知道，这是不可能的事情。
+- 以上都是我们不想要的？那怎么办。
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。
 
@@ -280,28 +280,28 @@ App 如果切后台后就彻底被休眠掉，那么 SDK 也就无法继续推�
 ### step 11: 横屏推流
 大多数情况下，用户习惯以“竖屏持握”进行直播拍摄，观看端看到的也是竖屏样式；有时候用户在直播的时候需要更广的视角，则拍摄的时候需要“横屏持握”，这个时候其实是期望观看端能看到横屏画面，就需要做横屏推流，下面两幅示意图分别描述了横竖屏持握进行横竖屏推流在观众端看到的效果。
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
-> <font color='red'>**注意：**</font> 横屏推流和竖屏推流，观众端看到的图像的宽高比是不同的，竖屏9:16，横屏16：9。
+>! 横屏推流和竖屏推流，观众端看到的图像的宽高比是不同的，竖屏9:16，横屏16:9。
 
 要实现横屏推流，需要在两处进行设置：
 - **调整观众端表现**
-通过对 LivePushConfig 中的 **homeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是 **16:9** 还是 **6:19**，调整后的结果可以用播放器查看以确认是否符合预期。
+通过对 LivePushConfig 中的 **homeOrientation** 设置项进行配置，它控制的是观众端看到的视频宽高比是**16:9**还是**6:19**，调整后的结果可以用播放器查看以确认是否符合预期。
 
 - **调整主播端表现**
-接下来就看主播本地渲染是否正常，这里可以通过 TXLivePush 中的 setRenderRotation 接口来设置主播看到的画面的旋转方向。此接口提供了** 0，90，180，270** 四个参数供设置旋转角度。
+接下来就看主播本地渲染是否正常，这里可以通过 TXLivePush 中的 setRenderRotation 接口来设置主播看到的画面的旋转方向。此接口提供了**0、90、180和270**四个参数供设置旋转角度。
 
 ### step 12: 背景混音
 SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种场景，您可以通过 TXLivePush 中的如下这组接口实现背景混音功能：
 
 | 接口 | 说明 |
 |:-------:|---------|
-| playBGM | 通过path传入一首歌曲，[小直播Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从iOS的本地媒体库中获取音乐文件 |
+| playBGM | 通过 path 传入一首歌曲，[小直播 Demo](https://cloud.tencent.com/doc/api/258/6164)中我们是从 iOS 的本地媒体库中获取音乐文件 |
 | stopBGM|停止播放背景音乐|
 | pauseBGM|暂停播放背景音乐|
 | resumeBGM|继续播放背景音乐|
 | setMicVolume|设置混音时麦克风的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 | setBGMVolume|设置混音时背景音乐的音量大小，推荐在 UI 上实现相应的一个滑动条，由主播自己设置|
 
-### step 13: 耳返&混响
+### step 13: 耳返和混响
 - **耳返**
 指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音，这是由于主播自己的声音是通过头部骨骼（固体）传入耳朵，而观众听到声音最终是通过空气介质传入耳朵，这两种方式听的声音是有很大差异的，因此主播有需求直接听到观众端的效果。
 ![](//mc.qcloudimg.com/static/img/fca1094c93126ad5b61d962ec22ad0d5/image.png)
@@ -309,9 +309,9 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
  在 TXLivePushConfig中 enableAudioPreview 接口可以打开耳返（如果是连麦，推荐大主播开，小主播就不要开了，实时音视频通话时开耳返会很奇怪。）
 
 - **混响**
-指的是耳返的时候，声音要加入一些特效，比如KTV、会堂、磁性、金属 等等，这个效果最终也会作用到观众端，让主播的歌声更加有味道。通过 TXLivePush 的成员函数 setReverbType (1.9.2 开始支持) 可以设置混响特效。
+指的是耳返的时候，声音要加入一些特效，例如 KTV、会堂、磁性、金属 等等，这个效果最终也会作用到观众端，让主播的歌声更加有味道。通过 TXLivePush 的成员函数 setReverbType (1.9.2 开始支持) 可以设置混响特效。
 
- 目前可以支持的混响特效有：KTV、小房间、大会堂、低沉、洪亮、金属声 以及 磁性 等 6 种。
+ 目前可以支持的混响特效有：KTV、小房间、大会堂、低沉、洪亮、金属声以及磁性等6种。
 
 ### step 14: 结束推流
 结束推流很简单，不过要做好清理工作，因为用于推流的 TXLivePush 对象同一时刻只能有一个在运行，所以清理工作不当会导致下次直播遭受不良的影响。
@@ -339,16 +339,16 @@ SDK 1.6.1 开始支持背景混音，支持主播带耳机和不带耳机两种�
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件，**注意 TXLivePushListener 只能监听得到 PUSH_ 前缀的推流事件**。
 
 ### 2. 常规事件 
-一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了
+一次成功的推流都会通知的事件，例如收到1003就意味着摄像头的画面会开始渲染了。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
 |PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
-|PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（部分 Android 手机这个过程需要1-2秒）| 
+|PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（部分 Android 手机这个过程需要1秒 - 2秒）| 
 
 ### 3. 错误通知 
 SDK 发现了一些严重问题，推流无法继续了，比如用户禁用了 App 的 Camera 权限导致摄像头打不开。
@@ -364,20 +364,20 @@ SDK 发现了一些严重问题，推流无法继续了，比如用户禁用了 
 |PUSH_ERR_NET_DISCONNECT          | -1307| 网络断连,且经三次抢救无效,可以放弃治疗,更多重试请自行重启推流|
 
 ### 4. 警告事件 
-SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”哦。
+SDK 发现了一些问题，但这并不意味着无可救药，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复。
 
 - **WARNING_NET_BUSY**
-主播网络不给力，如果您需要UI提示，这个 warning 相对比较有用（step10）。
+主播网络不给力，如果您需要 UI 提示，这个 warning 相对比较有用（step10）。
 
-- <font color='red'>**WARNING_SERVER_DISCONNECT**</font>
-推流请求被后台拒绝了，出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流URL同时只能有一个端推流）。
+- **WARNING_SERVER_DISCONNECT**
+推流请求被后台拒绝了，出现这个问题一般是由于推流地址里的 txSecret 计算错了，或者是推流地址被其他人占用了（一个推流 URL 同时只能有一个端推流）。
 
 | 事件ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻|
 |PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码|
-|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP -DNS解析失败（会触发重试流程）        |
-|PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP服务器连接失败（会触发重试流程）  |
-|PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP服务器握手失败（会触发重试流程）  |
-|PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP服务器主动断开连接（会触发重试流程）  |
+|PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）        |
+|PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）  |
+|PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP 服务器握手失败（会触发重试流程）  |
+|PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）  |

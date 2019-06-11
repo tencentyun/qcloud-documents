@@ -3,7 +3,7 @@
 会话的未读记数存储在 `sessMap` 对象中，其结构描述 如下：
 ```javascript
 {
-  // 私聊会话，会话ID skey 为'C2C[toAccount]'，其中'[toAccount]'表示对方的帐号
+  // 私聊会话，会话 ID skey 为'C2C[toAccount]'，其中'[toAccount]'表示对方的帐号
   // 比如您正在和 identifier 为 'zhangsan' 的帐号聊天，而 [toAccout]取值为'zhangsan'。
   // 而'C2C[toAccount]'取值为'C2Czhangsan'
   'C2C[toAccount]': {
@@ -38,7 +38,7 @@
 
 ```javascript
 var skey= 'C2Czhangsan';	// 拼装 skey
-var sessMap = webim.MsgStore.sessMap();	// 获取sessMap
+var sessMap = webim.MsgStore.sessMap();	// 获取 sessMap
 sessMap[skey].unread();	// 获取未读消息记数
 ```
 
@@ -54,13 +54,13 @@ sessMap[skey].unread();	// 获取未读消息记数
 
 ## 设置会话自动已读标记 
 
-当用户阅读某个会话的数据后，需要进行会话消息的已读上报，SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。 函数原型如下：
+当用户阅读某个会话的数据后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。 函数原型如下：
 
 ```javascript
 /**
  * 设置会设置会话自动已读标记话自动已读上报标志
- * @param {Object} selSess - 会话对象，必须为webim.Session的实例。
- * @param {boolean} isOn - 是否上报当前会话已读消息，同时将selSess的自动已读消息标志改为isOn
+ * @param {Object} selSess - 会话对象，必须为 webim.Session 的实例。
+ * @param {boolean} isOn - 是否上报当前会话已读消息，同时将 selSess 的自动已读消息标志改为 isOn
  * @param {boolean} isResetAll - 是否重置所有会话的自动已读标志
  */
 setAutoRead: function(selSess, isOn, isResetAll) {}

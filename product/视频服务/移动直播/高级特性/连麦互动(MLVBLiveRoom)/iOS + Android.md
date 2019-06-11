@@ -54,15 +54,21 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
-<span id="Step3"></span>
-### Step3. 在应用管理中添加一个新的应用
+### Step3. 购买连麦套餐包
+由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用腾讯云直播的普通服务（推流和拉流），并不能开启连麦功能。
+
+- [购买1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)。
+- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)。
+- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)。
+
+### Step4. 在应用管理中添加一个新的应用
 进入【直播控制台】>【直播SDK】>【[应用管理](https://console.cloud.tencent.com/live/license/appmanage)】，单击【创建应用】。
 ![](https://main.qcloudimg.com/raw/ccc83c93aa7d85aa1f84ca620ee8f5cb/AppMgr.png)
 待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个云通信应用，并将当前直播账号和该云通信应用绑定起来。云通信应用能为小直播 App 提供聊天室和连麦互动的能力。
 
-### Step4. 登录房间服务
+### Step5. 登录房间服务
 
 MLVBLiveRoom 单靠一个终端的组件无法独自运行，它依赖一个后台服务为其实现房间管理和状态协调，这个后台服务我们称之为**房间服务**（RoomService）。而要使用这个房间服务，MLVBLiveRoom 就需要先进行**登录**（login）。
 
@@ -78,17 +84,17 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 >?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
 
-### Step5. 获取房间列表（非必需）
-> 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step6](#Step6) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
+### Step6. 获取房间列表（非必需）
+>? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step6](#Step6) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
 不管是主播还是观众都需要有一个房间间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
 - 当主播通过 `createRoom` 创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
 - 当主播通过 `exitRoom` 退出房间时，房间列表中会移除该房间。
 
-列表中每个房间都有对应的 roomInfo，由主播通过 `createRoom` 创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 json 格式。
+列表中每个房间都有对应的 roomInfo，由主播通过 `createRoom` 创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 JSON 格式。
 
 <span id="Step6"></span>
-### Step6. 主播开播
+### Step7. 主播开播
 
 主播开播前，需要先调用 MLVBLiveRoom 中的 **startLocalPreview** 接口开启本地摄像头预览，该函数需要传入 view 对象用于显示摄像头的视频影像，这期间 MLVBLiveRoom 会申请摄像头使用权限。同时，主播也可以对着摄像头调整美颜和美白的具体效果。
 然后调用 **createRoom** 接口，MLVBLiveRoom 会在后台的房间列表中新建一个直播间，同时主播端会进入直播状态。
@@ -96,19 +102,19 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 >?为避免房间号重复，建议使用主播的 userID 作为 roomID。如果您不手动设置 roomID，后台将会自动为您分配一个 roomID。
 >如果您想要管理房间列表，可以先由您的服务器确定 roomID，再通过 createRoom、enterRoom 和 exitRoom 接口使用 MLVBLiveRoom 的连麦能力。
 
-### Step7. 观看直播
+### Step8. 观看直播
 
 观众通过 MLVBLiveRoom 中的 **enterRoom** 接口可以进入直播间观看视频直播，enterRoom 函数需要传入 view 对象用于显示直播流的视频影像。
 
 进入房间后，通过调用 **getAudienceList** 接口可以获取观众列表。如果少于30名观众，列表会展示全部观众信息。如果多于30名观众，列表仅展示新进入房间的30名观众的信息。
 
-### Step8. 弹幕消息
+### Step9. 弹幕消息
 
 MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用来弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
 
->!腾讯云 IM 的直播聊天室，每秒钟最多可以收取40条的消息。如果您以高于40次/次的速度刷新 UI 上的弹幕界面，很容易导致 CPU 100%，请注意控制刷新频率，避免高频刷新。
+>!腾讯云 IM 的直播聊天室，每秒钟最多可以收取40条的消息。如果您以高于40条/次的速度刷新 UI 上的弹幕界面，很容易导致 CPU 100%，请注意控制刷新频率，避免高频刷新。
 
-### Step9. 观众与主播连麦
+### Step10. 观众与主播连麦
 
 |  步骤  |    角色    | 详情                                                         |
 | :----: | :--------: | :----------------------------------------------------------- |
@@ -125,9 +131,9 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 
 >?MLVBLiveRoom 在设计上最多支持10人同时连麦，但出于兼容低端 Android 终端和实际体验效果的考虑，建议将同时连麦人数控制在6人以下。
 
-### Step10. 主播间跨房间 PK
+### Step11. 主播间跨房间 PK
 
-主播间跨房 PK 常被用于活跃直播平台的氛围，提升打赏频率，对平台的主播人数有一定要求。目前常见的主播 PK 方式是将所有愿意 PK 的主播“圈”在一起，再后台进行随机配对，每次 PK 都有一定时间要求，比如5分钟，超过后即结束 PK 状态。
+主播间跨房 PK 常被用于活跃直播平台的氛围，提升打赏频率，对平台的主播人数有一定要求。目前常见的主播 PK 方式是将所有愿意 PK 的主播“圈”在一起，再后台进行随机配对，每次 PK 都有一定时间要求，例如5分钟，超过后即结束 PK 状态。
 由于我们暂时未在 MLVBLiveRoom 的房间服务里加入配对逻辑，因此目前仅提供了基于客户端 API 接口的简单 PK 流程，您可以通过腾讯云通讯 IM 服务的消息下发 [REST API](https://cloud.tencent.com/document/product/269/2282) 接口，由您的配对服务器，将配对开始、配对结束等指令发送给指定的主播，从而实现服务器控制的目的。如果采用此种控制方式，下述步骤中的第三步实现为默认接受即可。
 
 |  步骤  |   角色    | 详情                                                         |
@@ -142,8 +148,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 ## 常见问题
 
 #### 移动直播是不是使用 RTMP 协议进行连麦？
-不是。
-腾讯云采用了两种传输通道才实现了直播 + 连麦功能：
+不是。腾讯云采用了两种传输通道才实现了直播 + 连麦功能：
 - 直播采用标准的 HTTP-FLV 协议，使用标准 CDN 线路，没有并发观看人数的限制，且带宽成本很低，但延迟一般在3s以上。
 - 连麦采用 UDP 协议，使用专用加速线路，延迟一般在500ms以内，但由于线路成本较高，因此采用连麦时长进行计费。
 
@@ -158,3 +163,4 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | TXLivePusher |                setVideoQuality 为 SD、HD、FHD                |       setVideoQuality 为 MAIN_PUBLISHER、SUB_PUBLISHER       |
 | TXLivePlayer |                      PLAY_TYPE_LIVE_FLV                      |                   PLAY_TYPE_LIVE_RTMP_ACC                    |
 |   播放URL    |                       普通的 FLV 地址                        |                 带防盗链签名的 RTMP-ACC 地址                 |
+

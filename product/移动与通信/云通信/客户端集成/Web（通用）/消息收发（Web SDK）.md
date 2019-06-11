@@ -4,7 +4,7 @@
 
 >!
 >- 现调用过设置用户资料的接口设置过用户资料的，群消息里面是会下发设置的资料的。
->- 其中参数 newMsgList 为由 webim.Msg对象组成的数组，即 \[webim.Msg]。
+>- 其中参数 newMsgList 为由 webim.Msg 对象组成的数组，即 \[webim.Msg]。
 
 ```javascript
 //监听新消息事件
@@ -212,9 +212,9 @@ function convertImageMsgToHtml(content) {
 /**
  * @uses amr音频信息转使用amr.js播放
  * @param {Object.<{uuid:string,downUrl:string}>} content - 消息内容对象
- * @property {string} uuid - 文件的UUID
+ * @property {string} uuid - 文件的 UUID
  * @property {string} downUrl - 文件的下载地址
- * @returns {string||null} aElmentString - AMR播放控件的HTML代码
+ * @returns {string||null} aElmentString - AMR播放控件的 HTML 代码
  */
 function convertSoundMsgToAMRPlayer(content) {
     var iconStartChar= '&nbsp;&nbsp;&#9658;&nbsp;&nbsp;';
@@ -413,7 +413,7 @@ function convertGroupTipMsgToHtml(content) {
 
 ## 发送消息（文本+表情）
 
-**SDK 发消息 sendMsg API 函数名：**
+**IM SDK 发消息 sendMsg API 函数名：**
 
 ```javascript
 webim.sendMsg
@@ -467,7 +467,7 @@ function onSendMsg() {
       var  selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var isSend = true;//是否为自己发送
-    var seq = -1;//消息序列，-1表示 SDK 自动生成，用于去重
+    var seq = -1;//消息序列，-1表示 IM SDK 自动生成，用于去重
     var random = Math.round(Math.random() * 4294967296);//消息随机数，用于去重
     var msgTime = Math.round(new Date().getTime() / 1000);//消息时间戳
     var subType;//消息子类型
@@ -535,7 +535,7 @@ function onSendMsg() {
  *   上传图片
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -607,8 +607,8 @@ function uploadPicLowIE() {
     }
     //封装上传图片请求
     var opt = {
-        'formId': 'updli_form', //上传图片表单id
-        'fileId': 'updli_file', //file控件id
+        'formId': 'updli_form', //上传图片表单 id
+        'fileId': 'updli_file', //file 控件 id
         'To_Account': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType//图片的使用业务类型
     };
@@ -633,7 +633,7 @@ function uploadPicLowIE() {
 
 ## 上传文件 （高版本浏览器）
 
-目前demo采用了H5 FileAPI读取文件，并将文件二进制数据转换成base64编码进行分片上传，理论上没有大小限制。
+目前 demo 采用了 H5 FileAPI 读取文件，并将文件二进制数据转换成 base64 编码进行分片上传，理论上没有大小限制。
 >?当前版本仅支持上传图片文件。
 
 ```javascript
@@ -641,7 +641,7 @@ function uploadPicLowIE() {
  *   上传文件
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -651,7 +651,7 @@ uploadPicByBase64: function(options, cbOk, cbErr) {},
 **示例：**
 
 ```javascript
-//上传文件(通过base64编码)
+//上传文件(通过 base64 编码)
 function uploadFileByBase64() {
     var businessType;//业务类型，1-发群文件，2-向好友发文件
     if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
@@ -666,7 +666,7 @@ function uploadFileByBase64() {
         'fileType':webim.UPLOAD_RES_TYPE.FILE,//表示文件
         'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件md5
         'totalSize': 56805, //文件大小,Byte
-        'base64Str': 'xxxxxxxxxxx' //文件base64编码
+        'base64Str': 'xxxxxxxxxxx' //文件 base64 编码
            
     };
     webim.uploadPicByBase64(opt,
@@ -682,18 +682,18 @@ function uploadFileByBase64() {
 }
 ```
 
-## 上传文件 （低版本浏览器IE8、9）
+## 上传文件 （低版本浏览器 IE8、9）
 
-在低版本浏览器（IE8、9）中，demo采用了表单来上传文件，最大支持10M文件的上传。
+在低版本浏览器（IE8、9）中，demo 采用了表单来上传文件，最大支持 10M 文件的上传。
 >?当前版本仅支持上传图片文件。
 
 
 ```javascript
 /* function submitUploadFileForm  
- *   上传文件(低版本ie)
+ *   上传文件(低版本 ie)
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -703,7 +703,7 @@ submitUploadFileForm: function(options, cbOk, cbErr) {},
 **示例：**
 
 ```javascript
-//上传文件(用于低版本IE)
+//上传文件(用于低版本 IE)
 function uploadFileLowIE() {
     var businessType;//业务类型，1-发群文件，2-向好友发文件
     if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
@@ -713,8 +713,8 @@ function uploadFileLowIE() {
     }
     //封装上传文件请求
     var opt = {
-        'formId': 'updli_file_form', //上传文件表单id
-        'fileId': 'upload_low_ie_file', //file控件id
+        'formId': 'updli_file_form', //上传文件表单 id
+        'fileId': 'upload_low_ie_file', //file 控件 id
         'To_Account': selToID, // 接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType,//文件的使用业务类型
         'fileType': webim.UPLOAD_RES_TYPE.FILE//表示上传文件
@@ -737,7 +737,7 @@ function uploadFileLowIE() {
 
 ## 发送消息（图片） 
 
-在 IE9（含）以下浏览器，SDK 采用了 jsonp 方法解决 ajax 跨域问题，由于 jsonp 是采用 GET 方法传递数据的，且 GET 存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。**函数名：**
+在 IE9（含）以下浏览器，IM SDK 采用了 jsonp 方法解决 ajax 跨域问题，由于 jsonp 是采用 GET 方法传递数据的，且 GET 存在数据大小限制（不同浏览器不一样），所以暂不支持异步发送图片。**函数名：**
 
 ```javascript
 /* function sendMsg
@@ -745,14 +745,14 @@ function uploadFileLowIE() {
  * params:
  *   msg	- webim.Msg类型, 要发送的消息对象
  *   cbOk	- function()类型, 当发送消息成功时的回调函数
- *   cbErr	- function(err)类型, 当发送消息失败时的回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 当发送消息失败时的回调函数, err 为错误对象
  * return:
  *   (无)
  */
 sendMsg: function(msg, cbOk, cbErr) {},
 ```
 
-**示例： **
+**示例：**
 
 ```javascript
 //发送图片
@@ -801,8 +801,7 @@ function sendPic(images) {
 
 目前 Web 端只支持显示并播放 Android 或 iOS IM Demo发的语音消息，暂不支持上传并发送语音消息。使用 audio 控件来播放语音。详情参考 [解析语音消息](#.E8.A7.A3.E6.9E.90.E8.AF.AD.E9.9F.B3.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)。
 
-> **注意：**
-> 确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
+>!确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
 ## 发送消息（文件 ）
 
@@ -817,7 +816,7 @@ function sendFile(file,fileName) {
         selSess = new webim.Session(selType, selToID, selToID, friendHeadUrl, Math.round(new Date().getTime() / 1000));
     }
     var msg = new webim.Msg(selSess, true, -1, -1, -1, loginInfo.identifier, 0, loginInfo.identifierNick);
-    var uuid=file.File_UUID;//文件UUID
+    var uuid=file.File_UUID;//文件 UUID
     var fileSize=file.File_Size;//文件大小
     var senderId=loginInfo.identifier;
     var downloadFlag=file.Download_Flag;
@@ -858,7 +857,7 @@ function sendFile(file,fileName) {
 
 ![](//mccdn.qcloud.com/static/img/6ad98f6243363ced652f46a9fed727ba/image.png)
 
-**示例： **
+**示例：**
 
 ```javascript
 //弹出发自定义消息对话框
@@ -915,12 +914,12 @@ function sendCustomMsg() {
 ```javascript
 /* function syncMsgs
  *   拉取最新 C2C 消息
- *   一般不需要使用方直接调用, SDK 底层会自动同步最新消息并通知使用方,
+ *   一般不需要使用方直接调用, IM SDK 底层会自动同步最新消息并通知使用方,
  *   一种有用的调用场景是用户手动触发刷新消息
  * params:
  *   cbOk	- function(notifyInfo)类型, 当同步消息成功时的回调函数, 
 *     notifyInfo 同上面 cbNotify 中的说明,
- *    如果此参数为null或undefined则同步消息成功后会像自动同步那样回调 cbNotify
+ *    如果此参数为 null 或 undefined 则同步消息成功后会像自动同步那样回调 cbNotify
  *   cbErr	- function(err)类型, 当同步消息失败时的回调函数, err 为错误对象
  * return:
  *   (无)
@@ -958,7 +957,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
         alert('当前的聊天类型为群聊天，不能进行拉取好友历史消息操作');
         return;
     }
-    var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传 0
+    var lastMsgTime = 0;//第一次拉取好友历史消息时，必须传0
     var msgKey = '';
     var options = {
         'Peer_Account': selToID, //好友帐号，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
@@ -975,7 +974,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
                     webim.Log.error("没有历史消息了:data=" + JSON.stringify(options));
                     return;
                 }
-                getPrePageC2CHistroyMsgInfoMap[selToID] = {//保留服务器返回的最近消息时间和消息Key,用于下次向前拉取历史消息
+                getPrePageC2CHistroyMsgInfoMap[selToID] = {//保留服务器返回的最近消息时间和消息 Key,用于下次向前拉取历史消息
                     'LastMsgTime': resp.LastMsgTime,
                     'MsgKey': resp.MsgKey
                 };
@@ -1049,7 +1048,7 @@ var getLastGroupHistoryMsgs = function (cbOk, cbError) {
 
 `webim.Session` 对象，简单理解为最近会话列表的一个条目。`webim.MsgStore` 是消息数据的 Model 对象，它提供接口访问当前存储的会话和消息数据。 
 
-**示例： **
+**示例：**
 
 ```javascript
 var sessMap = webim.MsgStore.sessMap();
@@ -1083,7 +1082,10 @@ webim.getRecentContactList({},function(resp){
 
 ## 删除最近联系人
 
-删除最近联系人中的一条会话。详情参考 Demo 代码 `switch_chat_obj.js`。**示例：** 
+删除最近联系人中的一条会话。详情参考 Demo 代码 `switch_chat_obj.js`。
+>?服务器同步有一定时延， 调用该接口删除会话后可能不会马上生效，具体生效时间视实际网络环境而定。
+
+**示例：** 
 
 ```javascript
 sess_type == 'C2C' ? 1 : 2;

@@ -48,7 +48,7 @@ java -version
 ```
 
 #### 2.3 验证 Maven 安装
-验证 Maven 安 当 Maven 安装完成后， 通过执行如下命令验证 Maven 是否安装成功。
+当 Maven 安装完成后， 通过执行如下命令验证 Maven 是否安装成功。
 ```
    mvn --version
 ```
