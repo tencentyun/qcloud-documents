@@ -70,7 +70,8 @@ Xcode9以上版本需要添加如下字符串：
 ``` objc
 @interface ViewController ()<AuthSDKDelegate>
 @property (nonatomic) AuthSDK * sdk;
-@end_sdk = [[AuthSDK alloc] initWithServerURL:@"https://faceid.qq.com"];
+@end
+_sdk = [[AuthSDK alloc] initWithServerURL:@"https://faceid.qq.com"];
 [_sdk startAuthWithToken:@"E88D8388-54C3-4D11-96B8-C1EB5AD446FD" parent:self delegate:self];
 ```
 
