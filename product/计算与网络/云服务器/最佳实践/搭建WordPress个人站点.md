@@ -13,14 +13,17 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 - **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云 [网站备案](https://cloud.tencent.com/product/ba) 产品为您的域名备案。
 - **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
 
+## 前提条件
+
+已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+
 ## 操作步骤 
 ### 创建并登录云服务器
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
-
-1. 登录 [腾讯云管理控制台](https://console.cloud.tencent.com/)，在【云产品】下找到【云服务器】，单击【新建】。具体操作请参考 [快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/4da026b1a7db16019effb5eec1c216f2.png)
-
-2. 服务器创建成功后，登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看和获取实例的以下信息。如下图所示：
+>
+1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+2. 云服务器创建成功后，即可在 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看和获取实例的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
@@ -303,4 +306,4 @@ http://192.xxx.xxx.xx /wordpress
 - 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
-- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。``
+- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
