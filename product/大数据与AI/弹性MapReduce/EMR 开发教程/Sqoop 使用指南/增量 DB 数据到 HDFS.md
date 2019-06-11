@@ -14,8 +14,8 @@ Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(My
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Sqoop 文件夹：
 ```
-[root@172 ~]# su Hadoop
-[hadoop@172 ~]# cd /usr/local/service/Sqoop
+[root@172 ~]# su hadoop
+[hadoop@172 ~]# cd /usr/local/service/sqoop
 ```
 连接 MySQL 数据库：
 ```
@@ -28,7 +28,7 @@ Enter password:
 mysql> use test;
 Database changed
 
-mysql> insert into sqoop_test values(null, ‘forth’, now(), 'hbase');
+mysql> insert into sqoop_test values(null, 'forth', now(), 'hbase');
 Query ok, 1 row affected(0.00 sec)
 ```
 查看表中的数据：
@@ -46,7 +46,7 @@ Mysql> select * from sqoop_test;
 ```
 使用 append 模式将新增的数据同步到上一节中储存数据的 HDFS 路径中：
 ```
-[hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/mysql --username 
+[hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/test --username 
 root -P --table sqoop_test --check-column id  --incremental append --last-value 3 --target-dir 
 /sqoop
 ```
@@ -72,21 +72,21 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
   <value>ture</value>
 </property>
 ```
-然后启动 sqoop-metastore 服务：
+然后在bin目录下启动 sqoop-metastore 服务：
 
 `./sqoop-metastore &`
 
 使用如下指令创建 Sqoop job：
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --create job1 -- import --connect
-jdbc:mysql://$mysqlIP/mysql --username root -P --table sqoop_test --check-column id 
+jdbc:mysql://$mysqlIP/test --username root -P --table sqoop_test --check-column id 
 --incremental append --last-value 4 --target-dir /sqoop
 ```
 其中 $mysqlIP 为您的 MySQL 的内网地址。使用该命令就成功创建了一个 Sqoop job，每一次执行，会自动从上次更新的 last-value 值自动更新。
 
 为 MySQL 中的 sqoop_test 表格新增一条记录：
 ```
-mysql> insert into sqoop_test values(null, ‘fifth’, now(), 'hive');
+mysql> insert into sqoop_test values(null, 'fifth', now(), 'hive');
 Query ok, 1 row affected(0.00 sec)
 
 Mysql> select * from sqoop_test;
