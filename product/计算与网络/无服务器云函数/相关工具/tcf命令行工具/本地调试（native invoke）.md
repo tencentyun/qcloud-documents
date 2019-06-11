@@ -25,7 +25,7 @@ scf cli 通过 `native invoke` 子命令完成本地触发运行。scf 命令行
 | FUNCTION_IDENTIFIER | 否 | 指明函数的标识、名称；在项目描述配置文件中如果有多个函数描述，可以通过此参数指定需要调试的函数 | hello_world |
 
 ### 测试模拟事件
-用于在本地触发云函数的模拟事件，可以通过 linux 的命令管道传递，也可以通过文件传递。
+用于在本地触发云函数的模拟事件，可以通过 Linux 的命令管道传递，也可以通过文件传递。
 - **通过命令管道传递：** `scf native invoke` 命令支持从命令行管道中接收事件。我们可以通过执行 `scf native generate-event` 命令生成事件并传递，形成例如 `scf native generate-event cos post | scf native invoke --template template.yaml` 的调试命令。我们也可以自行构造输出 JSON 格式内容并传递给 `scf native invoke` 命令，形成例如 `echo '{"test":"value"}' | scf native invoke --template template.yaml ` 的调试命令。
 - **通过文件传递：**通过使用 `scf native invoke` 命令的 `--event` 参数，指定包含有测试模拟事件内容的文件。文件内容必须为 JSON 数据结构，形成例如 `scf native invoke --template template.yaml --event event.json ` 的调试命令。 
 
