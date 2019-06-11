@@ -24,18 +24,19 @@
  ![](https://main.qcloudimg.com/raw/88e11b73bdd2bfb1c30997dea17e9c8c.jpg) 
 4. 保持默认配置，单击【完成】，完成函数的创建。
 5. 在使用本模板函数时，您需要按照提示在函数配置中，添加环境变量。切换到【函数配置】页面，单击【编辑】，新增环境变量： dbhost、dbport、dbuser、dbpwd、dbname 和 cosregion。
-> 如果数据库使用的是内网地址，则函数也需要在【函数配置】页面中，选择和数据库相同的 VPC 和子网，如下图所示：
+>? 如果数据库使用的是内网地址，则函数也需要在【函数配置】页面中，选择和数据库相同的 VPC 和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/7fbca3ed985c75064e55d4faaced2669.jpg) 
 
 <span id="step04"></span>
 #### 配置 COS 触发器
+>! “触发方式” 选择 “COS 触发”，COS Bucket 选择“loganalysis” ，事件类型选择“全部创建”，其它保持默认参数。
+>
 选择【触发方式】页面，单击【添加触发方式】，为云函数添加 COS 触发器。如下图所示：
 ![](https://main.qcloudimg.com/raw/3fe73ce4a109a7d8e682f42f834cdf82.jpg) 
-> “触发方式” 选择 “COS 触发”，COS Bucket 选择“loganalysis” ，事件类型选择“全部创建”，其它保持默认参数。
 
 <span id="step05"></span>
 ### 测试函数功能
-1. 下载[测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
+1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
 2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的 Bucket：loganalysis，单击【上传文件】。
 3. 在弹出的“上传文件”窗口中，选择下载好的 demo-scf1.txt，单击【确定上传】。
 4. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**运行日志**中可以看到打印出来的日志信息，如下图所示：
