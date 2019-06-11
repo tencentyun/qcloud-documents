@@ -12,7 +12,7 @@
 
 ## 特别说明
 - **是否有限制？**
-视频云 SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+视频云 SDK **不会对**播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 - **历史因素**
 SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
@@ -40,7 +40,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 ![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
  
 > **如何做动画？**
-> 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 <font color='red'>transform</font> 属性而不是 frame 属性。
+> 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
 ```objectivec
   [UIView animateWithDuration:0.5 animations:^{
             _myView.transform = CGAffineTransformMakeScale(0.3, 0.3); //缩小1/3
@@ -97,7 +97,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ```
 
 ### step 6: 结束播放
-结束播放时，如果要退出当前的 UI 界面，要记得用 <font color='red'>** removeVideoWidget **</font> 销毁 view 控件，否则会产生内存泄露或闪屏问题。
+结束播放时，如果要退出当前的 UI 界面，要记得用 **removeVideoWidget** 销毁 view 控件，否则会产生内存泄露或闪屏问题。
 
 ```objectivec
 // 停止播放
@@ -230,19 +230,27 @@ _config.maxAutoAdjustCacheTime = 5;
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 
-支持 <font color='red'>**400ms**</font> 左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对延时要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
+支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对延时要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **该功能是不需要开通的**
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [直播播放（播放防盗链）](https://cloud.tencent.com/document/product/267/32733#.E6.92.AD.E6.94.BE.E9.98.B2.E7.9B.97.E9.93.BE)。
+bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
+![](https://main.qcloudimg.com/raw/521bdb80c4fedfe8c140d47793dd9013/bizid.png)
+如果您的防盗链地址为：
+`rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34`。
+则加速流地址为：
+`rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`。
+
+
 
 - **播放类型需要指定 ACC**
-在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
+在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
-目前最多同时<font color="red"> 10 路 </font>并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
+目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
 
 - **Obs 的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
@@ -273,7 +281,7 @@ _config.maxAutoAdjustCacheTime = 5;
 | PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，可以忽略|  
 | PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
->**<font color='red'>不要在收到 PLAY_LOADING 后隐藏播放画面</font>**
+>**不要在收到 PLAY_LOADING 后隐藏播放画面**
 >
 >因为PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
@@ -284,7 +292,7 @@ _config.maxAutoAdjustCacheTime = 5;
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放 | 
 
-> **<font color='red'>如何判断直播已结束？</font>**
+> **如何判断直播已结束？**
 > RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
 > 所以 2006 和  -2301 都要监听，用来作为直播结束的判定事件。
 

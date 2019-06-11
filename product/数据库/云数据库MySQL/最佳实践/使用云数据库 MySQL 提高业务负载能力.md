@@ -16,11 +16,11 @@ MySQL 5.7 是云数据库 MySQL目前提供的最新版本，具有被普遍认�
 ```
  SELECT feature->"$.properties.STREET" AS property_street FROM features WHERE id = 121254;
 ```
-使用 MySQL 5.7，您现在可以在一个工具中无缝地混合最好的关系和文档范例，在不同的应用和使用案例中应用关系型范例或文档性范例当中最适合的范例。这为 MySQL 用户大大扩大了应用范围。
+使用 MySQL 5.7，您现在可以在一个工具中无缝地混合最好的关系和文档范例，在不同的应用和使用案例中应用关系型范例或文档型范例当中最适合的范例。这为 MySQL 用户大大扩大了应用范围。
 
 
 #### Sys Schema
-MySQL SYS Schema 是一个由一系列对象（视图、存储过程、存储方法、表和触发器）组成的 database schema，使主要存储在 Performance Schema 和 INFORMATION_SCHEMA 中诸多的表中监测数据资源可以以方便、可读、对 DBA 和开发者的友好的方式进行访问。
+MySQL SYS Schema 是一个由一系列对象（视图、存储过程、存储方法、表和触发器）组成的 database schema，使存储在 Performance Schema 和 INFORMATION_SCHEMA 的各类表中的监测数据资源可以通过方便、可读、对 DBA 和开发者的友好的方式进行访问。
 
 MySQL SYS Schema 默认包含在 MySQL 5.7 中，并提供摘要视图以回答诸如下面所列的常见问题：
 • “谁占了数据库服务的所有资源?” 	
