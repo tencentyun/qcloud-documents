@@ -6,7 +6,7 @@
 | 参数名     | 默认值 | 参数范围  |说明|
 | :-------- | :--------| :------ |:------ |
 |cleanup.policy|delete|delete/compact|支持日志按保存时间删除，或者日志按 key 压缩（Kafka Connect 时需要使用 compact 模式）。|
-|min.insync.replicas|1|-|当 producer 设置 request.required.acks 为 -1 时，min.insync.replicas 指定 replicas 的最小数目。|
+|min.insync.replicas|1|-|当 producer 设置 request.required.acks 为 1 时，min.insync.replicas 指定 replicas 的最小数目。|
 |unclean.leader.election.enable|true|true/false|指定是否能够设置不在 ISR 中 replicas 作为 leader。|
 |segment.ms|-|1day - 30days|Segment 分片滚动的时长，单位为 ms，最小值为 86400000ms。 |
 |retention.ms|默认为实例的消息保留时间|60000ms - 30days|Topic 维度的消息保留时间。|
