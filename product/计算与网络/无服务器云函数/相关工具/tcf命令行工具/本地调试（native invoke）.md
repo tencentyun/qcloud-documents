@@ -1,14 +1,14 @@
 
-通过本地调试能力，scf CLI 可以在本地的模拟环境中运行代码，发送模拟测试事件，并获取到函数代码的运行日志及耗时、内存占用等信息。
+通过本地调试能力，scf cli 可以在本地的模拟环境中运行代码，发送模拟测试事件，并获取到函数代码的运行日志及耗时、内存占用等信息。
 
 ## 依赖组件
 本地调试 native 不需要依赖 Docker，并且确保系统中已经安装好 Node.js 环境。当前 native 命令仅支持 Node.js 和 Python runtime。为保证部署云端和本地运行的结果一致，建议本地安装的 runtime 版本和云端版本保持一致。例如，如在云端使用 Node.js 6.10，则本机建议也安装 Node.js 6.x 版本。
 
 ## 调试命令
-scf cli 通过 `native invoke` 子命令完成本地触发运行。scf 命令行工具将依据指定的函数模板配置文件，在本机的指定目录中运行相应代码，并通过指定的触发事件，实现在本地的云函数模拟运行。
+scf cli 通过`native invoke`子命令完成本地触发运行。scf 命令行工具将依据指定的函数模板配置文件，在本机的指定目录中运行相应代码，并通过指定的触发事件，实现在本地的云函数模拟运行。
 
 ### 参数说明
-`scf native invoke` 命令支持的参数如下：
+`scf native invoke`命令支持的参数如下：
 
 | 参数 | 必填 | 描述 | 示例 |
 | --- | --- | --- | --- |
@@ -39,7 +39,7 @@ exports.main_handler = async (event, context, callback) => {
     return "hello world"
 };
 ```
-1. 通过执行 `scf native generate-event cos post | scf native invoke --template template.yaml` 命令，启动函数在本地运行：
+1. 通过执行`scf native generate-event cos post | scf native invoke --template template.yaml`命令，启动函数在本地运行：
 ```bash
 Enter a event: [0m
 START RequestId: 3e3e71c9-dc56-1967-c0a3-3a454e2ce634
@@ -57,7 +57,7 @@ Billed Duration: 100 ms Memory Size: 128 MB     Max Memory Used: 20 MB
 "key2":"value2"
 }
 ```
-3. 通过执行 `scf native invoke --template template.yaml --event event.json` 命令，启动函数在本地运行，并通过文件输出测试事件：
+3. 通过执行`scf native invoke --template template.yaml --event event.json`命令，启动函数在本地运行，并通过文件输出测试事件：
 ```bash
 Enter a event: [0m
 START RequestId: 6d06b0cf-4cc9-1f76-5f92-1f5871ff110a
