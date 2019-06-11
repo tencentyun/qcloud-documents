@@ -21,6 +21,10 @@
 | [onWebSocketClose](https://cloud.tencent.com/document/product/647/17248#onwebsocketclose)     |  websocket 断开 |
 | [onRelayTimeout](https://cloud.tencent.com/document/product/647/17248#onrelaytimeout)     | 视频流 server 超时断开 |
 | [onKickout](https://cloud.tencent.com/document/product/647/17248#onkickout)     | 被踢下线（同一个用户重复登录） |
+| [onMuteAudio](https://cloud.tencent.com/document/product/647/17248#onMuteAudio)     | 远端用户关闭麦克风 |
+| [onUnmuteAudio](https://cloud.tencent.com/document/product/647/17248#onUnmuteAudio)     | 远端用户打开麦克风 |
+| [onMuteVideo](https://cloud.tencent.com/document/product/647/17248#onMuteVideo)     | 远端用户关闭摄像头|
+| [onUnmuteVideo](https://cloud.tencent.com/document/product/647/17248#onUnmuteVideo)     | 远端用户打开摄像头 |
 
 
 
