@@ -10,8 +10,10 @@
  - 模板搜索：选择 “语言” 为 “Python2.7” 的 “API 网关返回自定义html页面” 模板。
 ![](https://main.qcloudimg.com/raw/ac4f11bc4af0a945410b470ce3ac592e.jpg) 
 4. 保持默认配置，单击【完成】，完成函数的创建。
+5. 选择【触发方式】页签
 >! “触发方式” 选择 “API网关触发器”，并勾选“启用集成响应”功能，其它参数保持默认参数。
-5. 选择【触发方式】页签，单击【添加触发方式】，为云函数添加 API 网关触发器。如下图所示：
+>
+单击【添加触发方式】，为云函数添加 API 网关触发器。如下图所示：
 ![](https://main.qcloudimg.com/raw/93777d431d3edaf4b4eaad449b957d3c.jpg) 
 6. 单击 API网关触发器的 “访问路径”，查看自定义的 HTML 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4f0b9e29419f69aef24e922a9c016faf.png) 
