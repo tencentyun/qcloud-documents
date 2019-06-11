@@ -153,12 +153,12 @@ IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表�
      </tr> 
 	 <tr>      
          <td>webim.GROUP_TIP_TYPE</td>   
-	     <td>群提示消息类型，取值范围：<br>1.webim. GROUP_TIP_TYPE.JOIN，进群<br>2.webim. GROUP_TIP_TYPE.QUIT，退群<br>3.webim. GROUP_TIP_TYPE.KICK，被踢出群<br>4.webim. GROUP_TIP_TYPE.SET_ADMIN，被设置成管理员<br>5.webim. GROUP_TIP_TYPE.CANCEL_ADMIN，被取消管理员角色<br>6.webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO，修改群资料<br>7.webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO，修改群成员信息</td>   
+	     <td>群提示消息类型，取值范围：<br>1.webim.GROUP_TIP_TYPE.JOIN，进群<br>2.webim.GROUP_TIP_TYPE.QUIT，退群<br>3.webim.GROUP_TIP_TYPE.KICK，被踢出群<br>4.webim.GROUP_TIP_TYPE.SET_ADMIN，被设置成管理员<br>5.webim.GROUP_TIP_TYPE.CANCEL_ADMIN，被取消管理员角色<br>6.webim.GROUP_TIP_TYPE.MODIFY_GROUP_INFO，修改群资料<br>7.webim.GROUP_TIP_TYPE.MODIFY_MEMBER_INFO，修改群成员信息</td>   
 	     <td>区分群提示消息类型</td>   
      </tr> 
 	 <tr>      
          <td>webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE</td>   
-	     <td>群资料变更类型，取值范围：<br>1.webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL，群头像发生变更<br>2.webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME，群名称发生变更<br>3.webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER，群主发生变更<br>4.webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION，群公告发生变更<br>5.webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION，群简介发生变更</td>   
+	     <td>群资料变更类型，取值范围：<br>1.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL，群头像发生变更<br>2.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME，群名称发生变更<br>3.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER，群主发生变更<br>4.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION，群公告发生变更<br>5.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION，群简介发生变更</td>   
 	     <td>区分群资料变更类型</td>   
      </tr> 
 	 <tr>      
