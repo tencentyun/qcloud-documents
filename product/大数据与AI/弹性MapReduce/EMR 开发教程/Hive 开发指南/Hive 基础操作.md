@@ -21,7 +21,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 
@@ -38,6 +38,7 @@ done
 并按如下方式执行：
 
 ```
+[hadoop@172 hive]$ chmod +x 脚本名称
 [hadoop@172 hive]$ ./gen_data.sh > hive_test.data
 ```
 
@@ -60,7 +61,7 @@ done
 ```
 [hadoop@172 hive]$ su hadoop
 [hadoop@172 hive]$ cd /usr/local/service/hive/bin
-[hadoop@172 hive]$ bin/hive
+[hadoop@172 bin]$ hive
 ```
 用户也可以使用`-h`参数来获取 Hive 指令的基本信息。
 也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中, 获得 hive server2 的连接端口 $port 和 host 地址 $hos：
@@ -111,8 +112,8 @@ Time taken: 0.176 seconds
 
 ```
 hive> create table hive_test (a int, b string)
-hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’;
-#创建数据表hive_test, 并指定列分割符为’,’
+hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+#创建数据表hive_test, 并指定列分割符为','
 OK
 Time taken: 0.204 seconds
 ```
