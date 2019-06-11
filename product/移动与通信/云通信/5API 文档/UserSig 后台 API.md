@@ -19,10 +19,10 @@
 <span id="step2"></span>
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
  ![](https://main.qcloudimg.com/raw/13e78d26c8b813e8d54f257f31384668.png)
-3. 选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信应用指定用户名的 UserSig。
- ![](https://main.qcloudimg.com/raw/4f49cbf64dc287cb55711ee02d6d78dd.png)
+3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该云通信应用指定用户名的 UserSig。
+ ![](https://main.qcloudimg.com/raw/f491ffbd8dc3c0e8659288d27152c847.png)
 
-Identifier 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快速测试和调试。
+UserID 和 UserSig 可以直接用在我们提供的 Demo 中，便于您快速测试和调试。
 
 >!真正需要线上使用时，不能采用控制台手动生成 UserSig 方案，会有极大的安全隐患，建议使用下文介绍的服务器生成 UserSig 方案。
 
