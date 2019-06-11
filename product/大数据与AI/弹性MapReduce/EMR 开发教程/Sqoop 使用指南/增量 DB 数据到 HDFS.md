@@ -78,6 +78,7 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
 
 使用如下指令创建 Sqoop job：
 >?此命令适用于 Sqoop 1.4.6 版本。
+
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --create job1 -- import --connect
 jdbc:mysql://$mysqlIP/test --username root -P --table sqoop_test --check-column id 
