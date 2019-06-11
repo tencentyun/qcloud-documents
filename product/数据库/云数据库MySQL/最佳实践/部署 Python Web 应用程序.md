@@ -60,7 +60,7 @@ yum install -y mod_wsgi
 ```
 3. 在 httpd.conf 文件中添加以下内容，httpd.conf 的路径为`/etc/httpd/conf/httpd.conf`。
 ```
-LoadModule  wsgi_module modules/mod_wsgi.so
+LoadModule wsgi_module modules/mod_wsgi.so
 ```
 
 ### 创建项目测试 Django 环境
