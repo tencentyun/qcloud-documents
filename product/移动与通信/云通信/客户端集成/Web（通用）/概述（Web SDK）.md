@@ -134,7 +134,7 @@ IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表�
      <tr>
          <th>对象</th>  
          <th>介绍</th>  
-         <th width="30%">功能</th>  
+         <th>功能</th>  
      </tr>
 	 <tr>      
          <td>webim.SESSION_TYPE</td>   
