@@ -16,7 +16,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | int | 错误码 TRTCErrorCode。 |
+| errCode | int | 错误码 TXLiteAVError。 |
 | errMsg | String | 错误信息。 |
 | extraInfo | Bundle | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
 
@@ -32,7 +32,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| warningCode | int | 错误码 TRTCWarningCode。 |
+| warningCode | int | 错误码 TXLiteAVWarning。 |
 | warningMsg | String | 警告信息。 |
 | extraInfo | Bundle | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
 

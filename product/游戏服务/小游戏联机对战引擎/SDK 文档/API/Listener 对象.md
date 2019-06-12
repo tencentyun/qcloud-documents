@@ -29,7 +29,7 @@ MGOBE.types.ConfigPara 定义如下：
 |字段名|类型|描述|默认值|
 |:---|---|---|---|
 |reconnectMaxTimes|number|重连接次数|15|
-|reconnectInterval|number|重连接时间隔，毫秒|500|
+|reconnectInterval|number|重连时间间隔，毫秒|500|
 |resendInterval|number|消息重发时间间隔，毫秒|1000|
 |resendTimeout|number|消息重发超时时间，毫秒|20000|
 |url|string|服务地址|无|

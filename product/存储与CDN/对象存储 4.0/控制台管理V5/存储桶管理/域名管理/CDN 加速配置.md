@@ -37,14 +37,14 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 ## 开启默认加速域名
 ### 操作步骤
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 。在左侧导航栏中，单击【存储桶列表】，进入存储桶列表页面。
-3. 单击需要配置域名的存储桶，进入存储配置页面，如下图所示：
-![](https://main.qcloudimg.com/raw/75ad083eb5a747d4094e47925ec85905.png)
-4. 单击上方的【域名管理】，在“默认加速域名”模块下，单击【编辑】，把默认加速域名的当前状态设置为开启，配置如下选项。
+2. 单击需要配置域名的存储桶，进入存储配置页面，如下图所示：
+![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
+3. 单击上方的【域名管理】，在“默认加速域名”模块下，单击【编辑】，把默认加速域名的当前状态设置为开启，配置如下选项。
  - **源站类型**：通常默认为**默认源站**，如果作为源站的存储桶开启了静态网站，并且希望为静态网站加速，则选择为**静态网站源站**。
 ![](https://main.qcloudimg.com/raw/c2a680b936c033d0ad00b058c7112bb1.png)
  - **回源鉴权**：当存储桶为公有读时，则不需要开启回源鉴权。当存储桶为私有读时，需要 [开启回源鉴权](#step1)（在已添加 CDN 服务授权前提下）。
  >!如果用户在之前从未使用过腾讯云 CDN 服务，则无法进入【域名管理】，需先进入 CDN 控制台开启 CDN 服务。
-5. 单击【保存】，即可开启 CDN 加速。
+4. 单击【保存】，即可开启 CDN 加速。
 >!对于私有读存储桶，同时开启回源鉴权和 CDN 服务授权会导致通过 CDN 访问源站时无需携带签名，CDN 缓存资源会进行公网分发，导致数据的安全性受到影响，建议开启 CDN 鉴权。
 
 <span id="step1"></span>
@@ -72,7 +72,7 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 。 在左侧导航栏中，单击【存储桶列表】，进入存储桶列表页面。
 2. 单击需要配置域名的存储桶，进入存储配置页面，如下图所示：
-![](https://main.qcloudimg.com/raw/75ad083eb5a747d4094e47925ec85905.png)
+![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
 3. 单击上方的【域名管理】，找到**自定义加速域名**栏后，单击【添加域名】，配置如下选项。
  - **域名**：输入待绑定的自定义域名（如 ` www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参阅 [CNAME 配置 ](https://cloud.tencent.com/document/product/228/3121)。
  - **回源鉴权**：开启回源鉴权。对于私有读存储桶，请开启**回源鉴权**以保护源站。
@@ -102,7 +102,7 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) 。 在左侧导航栏中，单击【存储桶列表】，进入存储桶列表页面。
 2. 单击需要配置域名的存储桶，进入存储配置页面，如下图所示：
-![自定义源站域名入口](https://main.qcloudimg.com/raw/75ad083eb5a747d4094e47925ec85905.png)
+![自定义源站域名入口](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
 3. 单击上方的【域名管理】，找到**自定义源站域名**栏后，单击【添加域名】。如果您的自定义域名已经在在工信部 [备案](https://cloud.tencent.com/product/ba) 且在 [域名服务控制台](https://console.cloud.tencent.com/cns/domains) 添加解析，您可以直接将您的自定义域名填写至【域名】输入框后，然后单击【保存】即可。
 ![](https://main.qcloudimg.com/raw/9c1b6532351fc4c0d1daf9fba724a55e.png)
 4. 如果您还没有为您的自定义域名添加解析，请按照以下步骤添加您的自定义域名。
@@ -114,14 +114,14 @@ c. 域名添加成功后，单击域名，进入解析记录管理页面。单�
 d. 主机记录按提示选填，记录类型选择 CNAME，线路类型选择默认，记录值请填写您的存储桶域名，TTL 保持默认，单击【确定】保存即可。添加解析完成后，15分钟左右生效，生效后您即可按照步骤3进行配置。
 ![](https://main.qcloudimg.com/raw/ef12eca13884d5e70438c51afab39d29.png)
 
-### 新旧版本控制台差异
-当前新旧版本控制台的存储桶域名有所差别，以广州地域为例，新版本控制台的存储桶地域简称为 `ap-guangzhou`，旧版本存储桶则是 `cosgz`。有关域名详情请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
+### 新旧版本控制台差异	
+当前新旧版本控制台的存储桶域名有所差别，以广州地域为例，新版本控制台的存储桶地域简称为 `ap-guangzhou`，旧版本存储桶则是 `cosgz`。有关域名详情请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。	
 
-由于域名的差异，您在使用自定义源站域名时需要注意 CNAME 的配置。我们**推荐**您使用新版本的存储桶域名作为 CNAME，相较于旧版本的存储桶域名，使用新版本域名作为 CNAME 可以进行更丰富的操作。
+ 由于域名的差异，您在使用自定义源站域名时需要注意 CNAME 的配置。我们**推荐**您使用新版本的存储桶域名作为 CNAME，相较于旧版本的存储桶域名，使用新版本域名作为 CNAME 可以进行更丰富的操作。	
 
-您可以到您的 DNS 厂商处修改您的 CNAME 信息：
-- 如果您的 DNS 厂商是腾讯云，可以前往 [腾讯云域名解析控制台](https://console.cloud.tencent.com/domain) 配置。
-- 如果您的 DNS 厂商是阿里云，可以前往 [阿里云域名解析控制台](https://dns.console.aliyun.com/?spm=5176.100251.111252.1.72014f15lWTwr6#/dns/domainList) 配置。
-- 如果您的 DNS 厂商是亚马逊云，可以前往 [亚马逊云域名解析控制台](https://console.aws.amazon.com/route53/home?#DomainListing:) 配置。
+ 您可以到您的 DNS 厂商处修改您的 CNAME 信息：	
+- 如果您的 DNS 厂商是腾讯云，可以前往 [腾讯云域名解析控制台](https://console.cloud.tencent.com/domain) 配置。	
+- 如果您的 DNS 厂商是阿里云，可以前往 [阿里云域名解析控制台](https://dns.console.aliyun.com/?spm=5176.100251.111252.1.72014f15lWTwr6#/dns/domainList) 配置。	
+- 如果您的 DNS 厂商是亚马逊云，可以前往 [亚马逊云域名解析控制台](https://console.aws.amazon.com/route53/home?#DomainListing:) 配置。	
 
->!除了域名差异外，新旧版本控制台所调用的 API 也存在差异，我们**推荐**您使用新版本控制台以及使用新版本 API、工具、SDK，因为这能够让您体验更加丰富和稳定的功能。COS 新版本控制台所调用的操作对象或存储桶的 API 是 XML API，旧版本控制台上调用的则是 JSON API，有关新旧两个版本 API 的差异，可参阅 [API 常见问题](https://cloud.tencent.com/document/product/436/6281)。
+>!除了域名差异外，新旧版本控制台所调用的 API 也存在差异，我们**推荐**您使用新版本控制台以及使用新版本 API、工具、SDK，因为这能够让您体验更加丰富和稳定的功能。COS 新版本控制台所调用的操作对象或存储桶的 API 是 XML API，旧版本控制台上调用的则是 JSON API，有关新旧两个版本 API 的差异，可参阅 [API 常见问题](https://cloud.tencent.com/document/product/436/30746)。
