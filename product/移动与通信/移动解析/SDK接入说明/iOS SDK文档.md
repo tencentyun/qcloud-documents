@@ -21,11 +21,11 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
   - BeaconAPI_Base.framework
   - MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
 2. 引入系统库：
-  - libz.tdb
-  - libsqlite3.tdb
-  - libstdc++.tdb
-  - libstdc++.6.0.9.tdb
-  - libc++.tdb
+  - libz.tbd
+  - libsqlite3.tbd
+  - libstdc++.tbd
+  - libstdc++.6.0.9.tbd
+  - libc++.tbd
   - Foundation.framework
   - CoreTelephony.framework
   - SystemConfiguration.framework
@@ -35,7 +35,7 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
 ```
 //已正常接入灯塔的业务无需关注以下代码，未接入灯塔的业务调用以下代码注册灯塔
 //******************************
-NSString * appkey = @"业务的灯塔appkey，由腾讯云官网注册获取";
+NSString * appkey = @"业务的灯塔appkey（即申请时获取到 appid），由腾讯云官网注册获取";
 [BeaconBaseInterface setAppKey:appkey];
 [BeaconBaseInterface enableAnalytics:@"" gatewayIP:nil];
 //******************************
@@ -44,7 +44,7 @@ NSString * appkey = @"业务的灯塔appkey，由腾讯云官网注册获取";
 请在 Other linker flag 里加入 -ObjC 标志。
 
 ## API 及使用示例
-获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口**WGGetHostByNameAsync**，引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。返回格式的详细说明如下：
+获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。返回格式的详细说明如下：
 - [IPv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在 IPv6 地址，仅返回 IPv4 地址给业务；
 - [IPv4, IPv6]：发生在 IPv6 环境下，IPv6 及 IPv4 地址均会返回给业务；
 - [0, 0]：在极其少数的情况下，会返回该格式给业务，此时 HttpDNS 与 LocalDNS 请求均超时，业务重新调用 WGGetHostByName 接口即可。

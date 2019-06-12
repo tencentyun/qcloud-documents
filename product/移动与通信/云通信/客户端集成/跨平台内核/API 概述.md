@@ -1,4 +1,4 @@
-腾讯云通信 IM 的跨平台`C`接口（API）。
+腾讯云通信 IM 的跨平台 C 接口（API）。
 
 **各个平台的下载链接**
 
@@ -19,7 +19,8 @@
 
 | API | 描述 |
 |-----|-----|
-| [TIMSetRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timsetrecvnewmsgcallback) | 设置接收新消息回调 |
+| [TIMAddRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timaddrecvnewmsgcallback) | 增加接收新消息回调 |
+| [TIMRemoveRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33551#timremoverecvnewmsgcallback) | 删除接收新消息回调 |
 | [TIMSetMsgReadedReceiptCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgreadedreceiptcallback) | 设置消息已读回执回调 |
 | [TIMSetMsgRevokeCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgrevokecallback) | 设置接收的消息被撤回回调 |
 | [TIMSetMsgElemUploadProgressCallback](https://cloud.tencent.com/document/product/269/33551#timsetmsgelemuploadprogresscallback) | 设置消息内元素相关文件上传进度回调 |

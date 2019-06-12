@@ -120,7 +120,7 @@ pkg_resources.DistributionNotFound: pyyaml
 - 问题分析：
 安装 Cloud-Init 时，Python 解释默认使用 Python2（即 `/usr/bin/python` 与 `/bin/python` 这两个软连链向 Python2）。当用户业务有需要时，可能会在实例内部把 Python 的默认解释器改为 Python3（即修改 `/usr/bin/python` 与 `/bin/python` 这两个软连，使其指向 Python3）。由于兼容性问题，导致在开机启动执行 Cloud-Init 时报错。
 - 解决方案：
- 1. 修改 `/usr/bin/cloud-init` 文件中指定的 Python 解释器，将 `#/usr/bin/python`或`#/bin/python` 修改为 `#/usr/bin/python2.7`。
+ 1. 修改 `/usr/bin/cloud-init` 文件中指定的 Python 解释器，将 `#/usr/bin/python`或`#/bin/python` 修改为 `#! user/bin/python`。
 >! 不要使用软连接，直接指向具体的解释器。
 >
  2. 根据 [Cloud-Init 服务运行排查方案](#checkcloud-init) 执行操作，直至全部执行完无错误为止。

@@ -1,13 +1,7 @@
 小程序端上传视频的 Web SDK。
 新增 V5.1 版本，主要是收敛白名单，具体可参考文档 [其他](https://cloud.tencent.com/document/product/266/18177#.E5.85.B6.E4.BB.96) 说明。
 
-## Demo 体验
-
-请打开微信，扫一扫下方二维码体验 Demo：
-> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/61a308e78a46fb4c7ec21a6e90836c3b.zip)。
-
-![](https://main.qcloudimg.com/raw/16143ffa52c1e94d05d68202de273ef3.jpg)
-
+> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/1635d518ce6112f265917de25fa70f55/demo.zip)。
 
 ## 上传视频步骤
 
@@ -78,4 +72,4 @@ getSignature: function(callback) {
 
 1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
 1. 不支持断点续传和分片上传。
-1. request 和 uploadFile 合法域名，只需加上 vod2.qcloud.com 即可（必须是 V5.1 版本的 SDK）。
+1. request 和 uploadFile 合法域名，只需加上 `vod2.qcloud.com` 即可（必须是 V5.1 版本的 SDK）。

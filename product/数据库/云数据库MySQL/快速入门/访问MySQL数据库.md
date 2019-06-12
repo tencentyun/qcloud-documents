@@ -47,7 +47,7 @@ mysql -h hostname -u username -p
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 ## 外网访问
-<font color="red">**安全提示：**</font>外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
+**安全提示：**外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
 请根据外网中主机的操作系统选择对应的登录方式。
 ### 从 Windows 系统登录
 1. 在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的【实例列表】，选择状态为运行中的目标实例，单击【登录】。

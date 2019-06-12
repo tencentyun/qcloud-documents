@@ -17,7 +17,7 @@
 - **新建数据源方式**
    a. 接入方式选择【新建数据源】。
 	 b. 数据源部署方式选择腾讯云 CKafka。
-	 c. 填写腾讯云 CKafka 实例 ID（可在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 获取 CKafka 实例 ID）及  CKafka 创建者 UIN（实例创建者在 [账号信息](https://console.cloud.tencent.com/developer) 中的账号 ID）。
+	 c. 填写腾讯云 CKafka 实例 ID（可在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 获取）及  CKafka 创建者 UIN（实例创建者在 [账号信息](https://console.cloud.tencent.com/developer) 中的账号 ID）。
 	 d. 单击角色服务授权，授权 Sparkling 服务访问其他相应服务。
 	 ![](https://main.qcloudimg.com/raw/87ec4e2aeddf3ec47597a9dabb006039.png)
    e. 填写要接入的 Topic 。
