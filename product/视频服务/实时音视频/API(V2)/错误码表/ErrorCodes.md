@@ -1,5 +1,3 @@
-
-
 ## （一）错误码（严重）
 
 枚举名：TXLiteAVError
@@ -28,7 +26,7 @@
 |ERR_SCREEN_CAPTURE_UNSURPORT|-1309|录屏失败，在 Android 平台，需要5.0以上的系统|
 |ERR_RTMP_PUSH_INVALID_ADDRESS|-1313|直播，推流地址非法，例如不是 RTMP 协议的地址|
 |ERR_RTMP_PUSH_NET_ALLADDRESS_FAIL|-1324|直播，连接推流服务器失败（若支持智能选路，IP 全部失败）|
-|ERR_RTMP_PUSH_NO_NETWORK|-1325|直播，网络不可用，请确认 WiFi、移动数据或者有线网络是否正常|
+|ERR_RTMP_PUSH_NO_NETWORK|-1325|直播，网络不可用，请确认 Wi-Fi、移动数据或者有线网络是否正常|
 |ERR_RTMP_PUSH_SERVER_REFUSE|-1326|直播，服务器拒绝连接请求，可能是该推流地址已经被占用，或者 TXSecret 校验失败，或者是过期了，或者是欠费了|
 |ERR_PIXEL_FORMAT_UNSUPPORTED|-1327|设置的 pixel format 不支持|
 |ERR_BUFFER_TYPE_UNSUPPORTED|-1328|设置的 buffer type 不支持|
@@ -46,7 +44,7 @@
 |ERR_ROOM_REQUEST_IP_FAIL|-3303|拉取接口机服务器地址失败|
 |ERR_ROOM_CONNECT_FAIL|-3304|连接接口机服务器失败|
 |ERR_ROOM_REQUEST_AVSEAT_FAIL|-3305|请求视频位失败|
-|ERR_ROOM_REQUEST_TOKEN_HTTPS_TIMEOUT|-3306|请求 token https 超时，请检查网络是否正常，或网络防火墙是否放行 HTTPS 访问 official.opensso.tencent-cloud.com:443|
+|ERR_ROOM_REQUEST_TOKEN_HTTPS_TIMEOUT|-3306|请求 token HTTPS 超时，请检查网络是否正常，或网络防火墙是否放行 HTTPS 访问 official.opensso.tencent-cloud.com:443|
 |ERR_ROOM_REQUEST_IP_TIMEOUT|-3307|请求 IP 和 sig 超时，请检查网络是否正常，或网络防火墙是否放行 UDP 访问下列 IP 和域名 query.tencent-cloud.com:8000，162.14.23.140:8000，162.14.7.49:8000|
 |ERR_ROOM_REQUEST_ENTER_ROOM_TIMEOUT|-3308|请求进房超时，请检查网络|
 |ERR_ROOM_REQUEST_VIDEO_FLAG_TIMEOUT|-3309|请求视频位超时|
