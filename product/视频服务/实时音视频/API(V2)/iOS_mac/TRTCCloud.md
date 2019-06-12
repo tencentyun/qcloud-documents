@@ -37,7 +37,7 @@ __参数__
 | param | [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) * | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32261#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
 
 
 ### exitRoom
