@@ -1,5 +1,3 @@
-﻿#录音文件识别C++ SDK使用指南
-
 
 录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/70a3ef049cc92d4b3fe36600f8f59449/c++_record_asr_sdk.tar.gz)。
 
