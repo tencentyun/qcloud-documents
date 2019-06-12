@@ -97,7 +97,7 @@ sudo make install
 ### 1. 获取用户鉴权信息及申请使用
 - 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。  
 - 关于云 API 账号中的 APPID，SecretId 与 SecretKey 查询方法，可参考：  [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
-- 具体路径为：点击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 秘钥管理。
+- 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理。
 - 在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。这一步相当于注册，否则无法使用。
 
 ### 2. 配置用户信息
@@ -110,7 +110,7 @@ sudo make install
 appid=1256******* 
 #用户SecretId
 secretid=AKID****************************
-#用户SecretKey，此处若担心存在秘钥泄露风险，可在调用接口中传入，参考接口文档
+#用户SecretKey，此处若担心存在密钥泄露风险，可在调用接口中传入，参考接口文档
 secretkey=670m***************************
 ```
 
@@ -170,8 +170,8 @@ int Init(TCloudRealtimeASRConfig config);
 **2.2 TCloudRealtimeASR::SetSecretKey**
 ```
 /* 
-** 设置用户秘钥
-** strSecretKey 用户秘钥
+** 设置用户密钥
+** strSecretKey 用户密钥
 ** Output int 返回结果
 */
 int SetSecretKey(string strSecretKey);
@@ -220,8 +220,8 @@ make
 **4.1 初始化请求参数** 
 调用 Init 接口初始化请求参数  
 请参考接口2.1
-**4.2 设置用户秘钥**  
-调用 SetSecretKey 接口设置秘钥  
+**4.2 设置用户密钥**  
+调用 SetSecretKey 接口设置密钥  
 请参考接口2.2
 **4.3 (可选）Speex 压缩**
 调用 TSpeexEncoder::Encode 接口对 pcm 格式音频压缩  
