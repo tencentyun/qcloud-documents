@@ -85,6 +85,24 @@ abstract void exitRoom()
 ```
 
 
+### switchRole
+
+切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。
+```
+abstract void switchRole(int role)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| role | int | 目标角色。 |
+
+__介绍__
+
+在直播场景下，一个用户可能需要在“观众”和“主播”之间来回切换。 您可以在进房前通过 TRTCParams 中的 role 字段确定角色，也可以通过 switchRole 在进房后切换角色。
+
+
 ### ConnectOtherRoom
 
 开启跨房连麦。

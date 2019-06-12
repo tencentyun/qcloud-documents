@@ -48,6 +48,24 @@ __参数__
 ```
 
 
+### switchRole
+
+切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。
+```
+- (void)switchRole:(TRTCRoleType)role 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32261#trtcroletype) | 目标角色。 |
+
+__介绍__
+
+在直播场景下，一个用户可能需要在“观众”和“主播”之间来回切换。 您可以在进房前通过 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) 中的 role 字段确定角色，也可以通过 switchRole 在进房后切换角色。
+
+
 ### connectOtherRoom
 
 请求跨房通话。
@@ -671,7 +689,7 @@ Mac 主机本身自带一个质量很好的摄像头，但它也允许插入 USB
 
 ### getCurrentCameraDevice
 
-获取当前要使用的摄像头。
+获取当前使用的摄像头。
 ```
 - (TRTCMediaDeviceInfo *)getCurrentCameraDevice
 ```
