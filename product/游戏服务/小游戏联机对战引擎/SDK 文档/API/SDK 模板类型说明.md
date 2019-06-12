@@ -2,8 +2,8 @@ SDK 在使用过程中会收到两类消息，即响应消息和广播消息。
 - 响应消息指由客户端主动发起请求后，服务器返回的响应，消息类型为 ResponseEvent。
 - 广播消息指服务器主动向客户端发起的消息，消息类型为 BroadcastEvent。
 
-每种响应、广播的数据由下文“[响应消息](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E6.B6.88.E6.81.AF-responseevent)”、“[广播消息](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-broadcastevent)”定义。
-客户端向服务器发起请求后，可以设置响应回调函数，回调函数类型由下文“[响应回调函数](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0)”定义。
+每种响应、广播的数据由下文“[响应消息](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E6.B6.88.E6.81.AF-mgobe.types.responseevent)”、“[广播消息](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)”定义。
+客户端向服务器发起请求后，可以设置响应回调函数，回调函数类型由下文“[响应回调函数](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)”定义。
 
 ### 响应消息 MGOBE.types.ResponseEvent
 #### MGOBE.types.ResponseEvent 的 TypeScript  定义如下：

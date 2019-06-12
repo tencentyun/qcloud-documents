@@ -13,14 +13,17 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 - **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云 [网站备案](https://cloud.tencent.com/product/ba) 产品为您的域名备案。
 - **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
 
+## 前提条件
+
+已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+
 ## 操作步骤 
 ### 创建并登录云服务器
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
-
-1. 登录 [腾讯云管理控制台](https://console.cloud.tencent.com/)，在【云产品】下找到【云服务器】，单击【新建】。具体操作请参考 [快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/4da026b1a7db16019effb5eec1c216f2.png)
-
-2. 服务器创建成功后，登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看和获取实例的以下信息。如下图所示：
+>
+1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+2. 云服务器创建成功后，即可在 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看和获取实例的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
@@ -39,15 +42,15 @@ LNMP 组成及使用版本说明：
 #### 安装配置 Nginx 
 1. 执行以下命令，安装 Nginx。  
 ```
-# yum -y install nginx 
+yum -y install nginx 
 ```
 2. 执行以下命令，清空 `nginx.conf`文件。
 ```
-# > /etc/nginx/nginx.conf
+> /etc/nginx/nginx.conf
 ```
 3. 执行以下命令，打开`nginx.conf`文件。
 ```
-# vim /etc/nginx/nginx.conf
+vim /etc/nginx/nginx.conf
 ```
 4. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容复制粘贴至 `nginx.conf`文件中。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
@@ -83,8 +86,8 @@ server {
 4. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
 5. 执行以下命令，启动 Nginx ，设置为开机自启动。
 ```
-# systemctl start nginx
-# systemctl enable nginx 
+systemctl start nginx
+systemctl enable nginx 
 ```
 6. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
@@ -93,27 +96,27 @@ server {
 #### 安装配置 PHP
 1. 执行以下命令，更新 yum 中 PHP 的镜像源。
 ```
-# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
-# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
 ```
-# yum search php72w 
+yum search php72w 
 ```
 3. 执行以下命令，安装需要的包。
 ```
-# yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
+yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
 4. 执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
 ```
-# systemctl start php-fpm
-# systemctl enable php-fpm
+systemctl start php-fpm
+systemctl enable php-fpm
 ```
 
 #### 验证 PHP-Nginx 环境配置
 1. 执行以下命令，在 Web 目录下创建`index.php`文件。
 ```
-# vim /usr/share/nginx/html/index.php
+vim /usr/share/nginx/html/index.php
 ```
 2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
@@ -132,22 +135,22 @@ http://云服务器实例的公网 IP/index.php
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
 ```
-# rpm -qa | grep -i mariadb
+rpm -qa | grep -i mariadb
 ```
 返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 2. <span id="step2">执行以下命令，删除 MariaDB 现有包。</span>
 ```
-# yum remove 包名
+yum remove 包名
 ```
 3. 执行以下命令，安装 MariaDB。
 ```
-# yum -y install mariadb mariadb-server
+yum -y install mariadb mariadb-server
 ```
 4. 执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
-# systemctl start mariadb
-# systemctl enable mariadb
+systemctl start mariadb
+systemctl enable mariadb
 ```
 5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
@@ -155,11 +158,11 @@ http://云服务器实例的公网 IP/index.php
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
 >
 ```
-# mysql_secure_installation
+mysql_secure_installation
 ```
 6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下 “**Enter**”。
 ```
-# mysql -uroot -pXXXXXX
+mysql -uroot -pXXXXXX
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/0cfea29c0fa72075137a3dda0825c7a4.png)
@@ -170,20 +173,20 @@ http://云服务器实例的公网 IP/index.php
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
-# rm -rf /usr/share/nginx/html/index.php
+rm -rf /usr/share/nginx/html/index.php
 ```
 2. 依次执行以下命令，进入`/usr/share/nginx/html/`目录，并下载与解压 WordPress。
 ```
-# cd /usr/share/nginx/html
-# wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
-# tar zxvf wordpress-4.7.4-zh_CN.tar.gz
+cd /usr/share/nginx/html
+wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
+tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
 
 #### <span id="database">配置数据库</span>
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
 ```
-# mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
+mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
 ```
 2. 执行以下命令，登录成功后切换为 MySQL 数据库。
 ```
@@ -303,4 +306,4 @@ http://192.xxx.xxx.xx /wordpress
 - 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
-- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。``
+- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。

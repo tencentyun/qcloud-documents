@@ -16,7 +16,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | int | 错误码 TRTCErrorCode。 |
+| errCode | int | 错误码 TXLiteAVError。 |
 | errMsg | String | 错误信息。 |
 | extraInfo | Bundle | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
 
@@ -32,7 +32,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| warningCode | int | 错误码 TRTCWarningCode。 |
+| warningCode | int | 错误码 TXLiteAVWarning。 |
 | warningMsg | String | 警告信息。 |
 | extraInfo | Bundle | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
 
@@ -65,6 +65,21 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | reason | int | 离开房间原因。 |
+
+
+### onSwitchRole
+
+切换角色结果回调。
+```
+void onSwitchRole(final int errCode, final String errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | final int | 错误码。 |
+| errMsg | final String | 错误信息。 |
 
 
 ### onConnectOtherRoom
@@ -240,7 +255,7 @@ __介绍__
 
 首帧视频画面到达，界面此时可以结束 Loading，并开始显示视频画面。
 ```
-void onFirstVideoFrame(String userId, int width, int height)
+void onFirstVideoFrame(String userId, int streamType, int width, int height)
 ```
 
 __参数__
@@ -248,6 +263,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
+| streamType | int | 视频流类型。 |
 | width | int | 画面宽度。 |
 | height | int | 画面高度。 |
 
@@ -443,7 +459,7 @@ __参数__
 
 __功能__
 
-视频数据帧的自定义处理回调。
+视频数据帧的自定义渲染回调。
 
 
 

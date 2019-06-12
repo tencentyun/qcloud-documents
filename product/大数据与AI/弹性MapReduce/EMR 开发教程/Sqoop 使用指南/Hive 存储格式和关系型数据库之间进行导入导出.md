@@ -10,13 +10,13 @@
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 新建一个 Hive 数据库：
 ```
 [hadoop@172 hive]$ hive
-hive> creat database hive_from_sqoop;
+hive> create database hive_from_sqoop;
 OK
 Time taken: 0.167 seconds
 ```
@@ -24,7 +24,7 @@ Time taken: 0.167 seconds
 ```
 [hadoop@172 hive]# cd /usr/local/service/sqoop
 [hadoop@172 sqoop]$ bin/sqoop-import --connect  jdbc:mysql://$mysqlIP/test --username 
-root -P --table sqoop_test_back --hive-database test --hive-import --hive-table hive_from_sqoop
+root -P --table sqoop_test_back --hive-database hive_from_sqoop --hive-import --hive-table hive_from_sqoop
 ```
 其中 $mysqlIP 为您的腾讯云关系型数据库（CDB）的内网地址。test 为您 MySQL 数据库的名字，--table 为要导出的 MySQL 表名，--hive-database 为您的 Hive 数据库名，--hive-table 为您要导入的 Hive 表名。
 执行指令需要输入您的 MySQL 密码，默认为您创建 EMR 集群时设置的密码。
@@ -46,7 +46,7 @@ Sqoop 支持将 Hive 表中的数据导入到关系型数据库中。先在 Hive
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。在 EMR 命令行先使用以下指令切换到 Hadoop用户，并进入 Hive 文件夹：
 
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 新建一个 bash 脚本文件 gen_data.sh，在其中添加以下代码：
@@ -80,7 +80,7 @@ hive> use hive_to_sqoop;                            #切换数据库
 OK
 Time taken: 0.176 seconds
 hive> create table hive_test (a int, b string)
-hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’;
+hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 　　　　　　　　　　　　　　　　#创建数据表hive_test, 并指定列分割符为’,’
 OK
 Time taken: 0.204 seconds
@@ -163,7 +163,7 @@ orc 是按列存储的一种文件存储格式，使用该格式能够极大的�
 本节将继续使用上一节的用例。
 登录 EMR 集群的 Master 节点之后，在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 在上一节中创建的 hive_from_sqoop 数据库中创建一个新表格：
