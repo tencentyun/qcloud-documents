@@ -31,7 +31,7 @@
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 。
 >
 
-## 常见故障原因
+## 故障排查思路
 
 <span id="CryptographicProblem"></span>
 ### 密码问题导致无法登录
