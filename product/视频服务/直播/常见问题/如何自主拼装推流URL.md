@@ -5,7 +5,7 @@
 - **Domain**
 推流域名，可使用腾讯云直播提供的默认推流域名，亦可使用自有推流域名。
 - **AppName**
-直播的应用名称，默认为 live，若需要自定义 ppName，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 配置。
+直播的应用名称，默认为 live，若需要自定义 AppName，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 配置。
 - **StreamName（流 ID）**
 自定义的流名称，用以标识直播流，推荐用随机数字或数字与字母组合鉴权Key：包含 txSecret 和 txTime 两部分，开启推流鉴权后需使用包含鉴权Key 的 URL 进行推流；若未开启推流鉴权，则推流地址中无需 “?” 及其后内容。
 - **txTime（地址有效期）** 
