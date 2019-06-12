@@ -46,7 +46,7 @@
 |ERR_ROOM_REQUEST_IP_FAIL|-3303|拉取接口机服务器地址失败|
 |ERR_ROOM_CONNECT_FAIL|-3304|连接接口机服务器失败|
 |ERR_ROOM_REQUEST_AVSEAT_FAIL|-3305|请求视频位失败|
-|ERR_ROOM_REQUEST_TOKEN_HTTPS_TIMEOUT|-3306|请求 token https 超时，请检查网络是否正常，或网络防火墙是否放行 https 访问 official.opensso.tencent-cloud.com:443|
+|ERR_ROOM_REQUEST_TOKEN_HTTPS_TIMEOUT|-3306|请求 token https 超时，请检查网络是否正常，或网络防火墙是否放行 HTTPS 访问 official.opensso.tencent-cloud.com:443|
 |ERR_ROOM_REQUEST_IP_TIMEOUT|-3307|请求 IP 和 sig 超时，请检查网络是否正常，或网络防火墙是否放行 UDP 访问下列 IP 和域名 query.tencent-cloud.com:8000，162.14.23.140:8000，162.14.7.49:8000|
 |ERR_ROOM_REQUEST_ENTER_ROOM_TIMEOUT|-3308|请求进房超时，请检查网络|
 |ERR_ROOM_REQUEST_VIDEO_FLAG_TIMEOUT|-3309|请求视频位超时|
@@ -143,12 +143,12 @@
 |ERR_SERVER_CENTER_CONN_ROOM_CONNED_USER_FULL|-102050|被连麦用户达到资源上限|
 |ERR_SERVER_CENTER_CONN_ROOM_INVALID_SEQ|-102051|连麦请求序号错乱|
 |ERR_SERVER_CENTER_ROOM_FULL|-102052|房间满员|
-|ERR_SERVER_CENTER_DECODE_JSON_FAIL|-102053|json串解析失败|
+|ERR_SERVER_CENTER_DECODE_JSON_FAIL|-102053|JSON 串解析失败|
 |ERR_SERVER_CENTER_UNKNOWN_SUB_CMD|-102054|未定义命令字|
 |ERR_SERVER_CENTER_INVALID_ROLE|-102055|未定义角色|
 |ERR_SERVER_CENTER_REACH_PROXY_MAX|-102056|代理机超出限制|
-|ERR_SERVER_CENTER_RECORDID_STORE|-102057|无法保存用户自定义recordId|
-|ERR_SERVER_CENTER_PB_SERIALIZE|-102058|Protobuf序列化错误|
+|ERR_SERVER_CENTER_RECORDID_STORE|-102057|无法保存用户自定义 recordId|
+|ERR_SERVER_CENTER_PB_SERIALIZE|-102058|Protobuf 序列化错误|
 |ERR_SERVER_SSO_SIG_EXPIRED|-70001|sig 过期，请尝试重新生成。如果是刚生成，就过期，请检查有效期填写的是否过小，或者填的 0|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_1|-70003|sig 校验失败，请确认下 sig 内容是否被截断，如缓冲区长度不够导致的内容截断|
 |ERR_SERVER_SSO_SIG_VERIFICATION_FAILED_2|-70004|sig 校验失败，请确认下 sig 内容是否被截断，如缓冲区长度不够导致的内容截断|
@@ -259,11 +259,11 @@
 |EVT_AUDIO_JITTER_STATE_PLAYING|2025|音频正在播放（SDK 内部事件，不会对外抛出）|
 |EVT_AUDIO_JITTER_STATE_FIRST_PLAY|2026|音频首次播放（SDK 内部事件，不会对外抛出）|
 |EVT_MIC_START_SUCC|2027|麦克风启动成功|
-|EVT_PLAY_GET_METADATA|2028|视频流MetaData事件|
+|EVT_PLAY_GET_METADATA|2028|视频流 MetaData 事件|
 |EVT_ROOM_ENTER|1018|进入房间成功|
 |EVT_ROOM_EXIT|1019|退出房间|
 |EVT_ROOM_USERLIST|1020|下发房间成员列表（不包括自己）|
-|EVT_ROOM_NEED_REENTER|1021|WiFi 切换到4G 会触发断线重连，此时需要重新进入房间（拉取最优的服务器地址）|
+|EVT_ROOM_NEED_REENTER|1021|Wi-Fi 切换到4G 会触发断线重连，此时需要重新进入房间（拉取最优的服务器地址）|
 |EVT_ROOM_REQUEST_IP_SUCC|8001|拉取接口机服务器地址成功|
 |EVT_ROOM_CONNECT_SUCC|8002|连接接口机服务器成功|
 |EVT_ROOM_REQUEST_AVSEAT_SUCC|8003|请求视频位成功|
