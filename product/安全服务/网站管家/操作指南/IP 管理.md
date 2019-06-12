@@ -12,8 +12,8 @@
 **类别：**黑名单、白名单。
 **来源：**CC 防护、自定义规则。
 **高级筛选：**利用创建时间和有效截止时间进行 IP 信息筛选。
-![](https://main.qcloudimg.com/raw/d70f15d68748b23e2985f559d4d98dfd.png)
-2.添加黑白名单。黑白名单支持导入和筛选结果导出，导入 IP 信息，请求参考导出格式。
+![](https://main.qcloudimg.com/raw/66b1d6bdf659d55da21969da7528958d.png)
+2.添加黑白名单。黑白名单支持导入和筛选结果导出，导入 IP 信息时，请参考导出格式。
 ![](https://main.qcloudimg.com/raw/1cb1a2a169f996f6f70cbf52e7d0925e.png)
 - **示例三 IP 封堵状态查询**
 1.进入 [腾讯云 Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，单击【IP 管理】>【IP 封堵状态】进入查询页面，可以查询自定义规则、CC 防护模块拦截的 IP 信息。可对查询结果进行导出，对单个 IP 进行加黑加白操作。
