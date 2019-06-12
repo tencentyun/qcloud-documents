@@ -79,7 +79,7 @@ sudo make install
 ## 获取用户信息
 ### 1.获取 APPID，SecretId 与 SecretKey
 - 关于云 API 账号中的 APPID，SecretId 与 SecretKey 查询方法，可参考：[鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
-- 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问秘钥-->API 秘钥管理。
+- 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理。
  
 ### 2.更改用户信息配置文件
 
@@ -92,7 +92,7 @@ SecretId=AKIDo***************************
 SecretKey=kFpw***************************
 ```
 
-## 开发相关##
+## 开发相关
 ### 1.请求参数 
 
 | 参数名称 | 必选 | 类型 | 描述 |  
@@ -145,7 +145,7 @@ int InitAuth(string configPath, int time = 60 * 60);
 */
 int InitAuth(TCloudTTSAuth stAuth, int time = 60 * 60);
 ```
-此接口用来初始化用户信息，参数参考配置文件说明。信息获取参考章节 二。  
+此接口用来初始化用户信息，参数参考配置文件说明。信息获取参考获取用户信息。  
 路径为: conf/tcloud_auth.ini
 
 **2.3 TCloudTTS::CreateRequest**
