@@ -22,11 +22,11 @@ dependencies {
 ```
 
 - **第二步：指定 App 使用架构**
-在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
@@ -55,11 +55,11 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/98b4806ed2484e96d47eb1ad165e900d.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
@@ -78,7 +78,7 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/d90ef03851b93079a6863e7530ac89ca.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
-将解压得到的 jar文件和 armeabi， armeabi-v7a 文件夹拷贝到 app/libs 目录下。
+将解压得到的 jar文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/2b093d87ebaa3650e16523f26866b16c.png)
 
 - **第三步：引用 jar 库**
@@ -90,11 +90,11 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/10003cdc49d4856ee4feb840f24680a7.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a) 。 
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a) 。 
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
@@ -130,6 +130,4 @@ dependencies {
 
 ## 常见问题
 
-### 1. TRTC SDK 是否支持 arm64
-目前 TRTC SDK 由于 3A 声学处理库尚不支持 arm64 下的一些汇编指令， 所以暂时还不支持 arm64 架构，请注意指定 App 的架构配置。
 
