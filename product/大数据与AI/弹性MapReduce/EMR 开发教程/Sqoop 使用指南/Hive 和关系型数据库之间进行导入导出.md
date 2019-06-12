@@ -46,7 +46,7 @@ Sqoop 支持将 Hive 表中的数据导入到关系型数据库中。先在 Hive
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。在 EMR 命令行先使用以下指令切换到 Hadoop用户，并进入 Hive 文件夹：
 
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 新建一个 bash 脚本文件 gen_data.sh，在其中添加以下代码：
