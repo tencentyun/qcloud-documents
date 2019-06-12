@@ -176,7 +176,7 @@ string RequestToJson(TCloudTTSReq stReq);
 ```
 此接口将请求转换成json body,在post时作body传到服务端。
 
-**2.4 TCloudTTS::Process**
+**2.5 TCloudTTS::Process**
 ```
 /* 执行请求
 ** strRsp 请求的json body
@@ -186,7 +186,7 @@ int Process(string &strRsp);
 ```
 此接口将执行一次请求。
 
-### 2.5 SplitString（可选功能）
+**2.6 SplitString（可选功能）**
 ```
 /* 将文本根据标点符号切割
 ** strText 需要切割的原始文本
