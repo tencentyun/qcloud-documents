@@ -17,14 +17,14 @@
 - SecretID/SecretKey：填写您已生成的密钥，可在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 中生成并查看。
 - 存储桶：填写您在 COS 中已生成的存储桶名称和您的 APPID，单击【浏览存储桶】查看当前存储桶下的数据并选择要导入的数据文件。数据文件导入方式支持【文件夹导入】和【文件导入】两种方式。
 >?存储桶名称需要按<目标存储桶名称-APPID>格式填写，例如：sparkling-12334513，桶名和 APPID 可在账户信息中查看。
->
-	 - **文件夹导入方式**：单击所选文件夹，左下角显示所选文件夹所包含文件个数及大小，确认信息无误后单击【确认】。
-	 ![](https://main.qcloudimg.com/raw/0f0dfbfbc88d0da774a57eb5449a7e15.png)
-	 - **文件导入方式** ：单击所选文件，左下角显示所选文件名称及大小，确认信息无误后单击【确认】。
-	![](https://main.qcloudimg.com/raw/e564c24bc3f03e88fcd2cdef613606c2.png)
+
+ - **文件夹导入方式**：单击所选文件夹，左下角显示所选文件夹所包含文件个数及大小，确认信息无误后单击【确认】。
+![](https://main.qcloudimg.com/raw/0f0dfbfbc88d0da774a57eb5449a7e15.png)
+ - **文件导入方式** ：单击所选文件，左下角显示所选文件名称及大小，确认信息无误后单击【确认】。
+![](https://main.qcloudimg.com/raw/e564c24bc3f03e88fcd2cdef613606c2.png)
 
 - 文件格式：支持 CSV、TSV、 PARQUET、ORC、AVRO、JSON及其他自定义分隔符日志的文件。
->?  COS导入JSON文件时要求将JSON文件格式化为一行，且每条记录必须用换行符分割
+>?  COS导入JSON文件时要求将JSON文件的每条记录必须用换行符分割
 
 - 字段分隔符：选择是否将第一行作为表头字段名。
  
