@@ -43,8 +43,7 @@ WebRTCAPI.fn.detectRTC({
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
-- **
-- **
+- **userSig**
 基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomid**
