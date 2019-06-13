@@ -10,6 +10,7 @@
 ## 操作步骤
 1. 将安装包修改为一个统一的名字，存放 CDN 上，获取到 CDN 的链接。
 2. 需要 macOS 的客户端将 App 唤起，如果 App 不存在，则下载：
+
 ```
 if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tencent.wecast" options:NSWorkspaceLaunchWithoutActivation additionalEventParamDescriptor:NULL launchIdentifier:nil]) {
 
