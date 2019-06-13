@@ -55,7 +55,7 @@
 >
 1. 在实例列表，选择需要设置只读实例 RO 组的云数据库主实例，在【操作】列单击【管理】。
 2. 在【只读实例】 RO 组管理页，单击【配置】，进入只读实例 RO 组配置页。
-![](https://main.qcloudimg.com/raw/eb95248241c4d49627965b1313026205.png)
+![](https://main.qcloudimg.com/raw/89c689053c575d878dd9716d959f7929.png)
 3. 在只读实例 RO 组配置页，可以对只读实例 RO 组进行详细配置。
 ![](https://main.qcloudimg.com/raw/0ce8acd91cd420cc174d02ca420d79ac.png)
    - RO 组名称：RO 组名称不要求唯一。支持长度小于60的中文、英文、数字、`-`、`_`、`.`。
