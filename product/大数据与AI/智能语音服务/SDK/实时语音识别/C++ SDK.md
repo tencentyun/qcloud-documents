@@ -94,12 +94,12 @@ sudo make install
 ## 获取用户信息
 **获取用户鉴权信息及申请使用**
 - 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。  
-- 关于云 API 账号中的 APPID，SecretId 与 SecretKey 查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
--  具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 APPID 和 key。
+- 关于云 API 账号中的 AppID，SecretId 与 SecretKey 查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
+-  具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 - 在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。这一步相当于注册，否则无法使用。
 
 **配置用户信息**
-**将 AppID、SecretId、SecretKey 配置到 sdk 中。**
+**将 AppID、SecretId、SecretKey 配置到 SDK 中。**
 
 ```
 #需要配置成用户账号信息 c++_realtime_asr_sdk/config/TCloudRealtimeASRConfig.ini
@@ -121,10 +121,10 @@ secretkey=670m***************************
 | appid |  是 | Int | 用户在腾讯云注册账号的 AppID，具体可以参考  [获取用户信息](https://cloud.tencent.com/document/product/441/19635?!editLang=zh&!preview#.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppID 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。1：实时流式识别。|
-| engine\_model\_type | 否 | String | 引擎类型引擎模型类型。8k_0:8k 通用，16k_0:16k 通用，16k_en:16k英文。|
+| engine\_model\_type | 否 | String | 引擎类型引擎模型类型。8k_0:8k 通用，16k_0:16k 通用，16k_en：16k英文。|
 | result\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
 | res_type | 否 | Int | 结果返回方式。1：同步返回；0：尾包返回。|
-| voice_format | 否 | Int | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3(仅16k_0模型支持)。|
+| voice_format | 否 | Int | 语音编码方式，可选，默认值为 4。1：wav（pcm）；4：speex（sp）；6：silk；8：mp3（仅16k_0模型支持）。|
 | seq | 是 | Int | 	语音分片的序号从0开始。|
 | end | 是 | Int | 是否为最后一片，最后一片语音片为1，其余为0。 |
 | source | 是 | Int | 设置为0。 |
@@ -226,7 +226,7 @@ make
 建议选择压缩，减少带宽
 **传入音频数据**
 调用 SetData 接口获取结果  
-**sdk 已提供各个接口源码，用户可根据自身需要进行更改。**
+**SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 ## C++ 快速入门示例
 参考 c++_realtime_asr_sdk/src/demo.cpp  
 此例子为 speex 压缩请求，建议使用 speex 压缩方式，减少带宽。
