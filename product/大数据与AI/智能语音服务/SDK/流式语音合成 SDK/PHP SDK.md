@@ -48,7 +48,7 @@ static $APPID = 1255*********;
 | VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>3：活力男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000：16k（默认）<br>8000：8k |
-| Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
+| Codec | 否 | String | 返回音频格式：pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
 | ProjectId | 否 | Int | 项目ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID：0。 |
 | Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
 | Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置 1 h。|
