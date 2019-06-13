@@ -98,7 +98,7 @@ sudo make install
 -  具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 APPID 和 key。
 - 在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。这一步相当于注册，否则无法使用。
 
-### 2. 配置用户信息
+**配置用户信息**
 **将 AppID、SecretId、SecretKey 配置到 sdk 中。**
 
 ```
