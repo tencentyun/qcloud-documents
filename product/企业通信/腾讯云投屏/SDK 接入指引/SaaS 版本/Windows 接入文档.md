@@ -13,4 +13,4 @@
 HKEY_CURRENT_USER\Software\Tencent\TencentCloudDisplay\launcher
 // 取到的文件路径类似： C:\Users\test\AppData\Local\Tencent\TencentCloudDisplay\TencentCloudDisplay-100001-1.0.0.1\TencentCloudDisplay.exe
 ```
-3. 在需要调起无线投屏的地方，使用步骤二获取到的进程路径，启动无线投屏进程即可。
+3. 在需要调起无线投屏的地方，使用步骤2获取到的进程路径，启动无线投屏进程即可。
