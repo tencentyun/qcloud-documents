@@ -1,5 +1,5 @@
 ﻿
-流式语音合成 Java SDK [下载地址](https://main.qcloudimg.com/raw/71bed47d419af2e427a90ff9324fbad7/java_tts_sdk.tar.gz)。
+流式语音合成 Java SDK [下载地址](https://main.qcloudimg.com/raw/bffdfc820c26aaad41b94b493fd653b2/java_record_asr_sdk.tar.gz)。
 
 接口请求域名：aai.cloud.tencent.com/tts。  
 接口请求频率限制：50次/每秒。  
