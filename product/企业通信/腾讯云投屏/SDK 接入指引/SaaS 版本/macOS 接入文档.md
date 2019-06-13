@@ -3,13 +3,13 @@
 
 ## 前提条件
 - 请从线下销售经理获得无线投屏独立安装包，格式如：TencentCloudDisplay_corpid_version.dmg。
-- 请确保系统版本最低支持：macOS 10.10。
+- 请确保 macOS 系统为10.10或以上版本。
 
 
 
 ## 操作步骤
-1. 将安装包修改为一个统一的名字，存放 CDN 上，获取到 CDN 的链接。
-2. 需要 macOS 的客户端将 App 唤起，如果 App 不存在，则下载：
+1. 请客户自行部署内网并配置服务器。
+2.需要 macOS 客户端将无线投屏 App 唤起，如果无线投屏 App 不存在，跳转客户公司内网下载。下面附上下载无线投屏 App 和唤起无线投屏 App 的代码。
 
 ```
 if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tencent.wecast" options:NSWorkspaceLaunchWithoutActivation additionalEventParamDescriptor:NULL launchIdentifier:nil]) {
