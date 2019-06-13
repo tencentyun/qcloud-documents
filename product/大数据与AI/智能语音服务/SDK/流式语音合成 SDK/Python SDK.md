@@ -1,5 +1,5 @@
 ﻿
-流式语音合成 Python SDK [下载地址](https://main.qcloudimg.com/raw/d09e48b4b981e098e5563b0e9d74843e/python_tts_sdk.tar.gz).
+流式语音合成 Python SDK [下载地址](https://main.qcloudimg.com/raw/ba697da2b398c405b3159a13e386188a/python_tts_sdk.tar.gz)。
 
 
 接口请求域名：aai.cloud.tencent.com/tts  
