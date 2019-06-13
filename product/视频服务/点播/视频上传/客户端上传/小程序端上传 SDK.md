@@ -1,7 +1,7 @@
 小程序端上传视频的 Web SDK。
 新增 V5.1 版本，主要是收敛白名单，具体可参考文档 [其他](https://cloud.tencent.com/document/product/266/18177#.E5.85.B6.E4.BB.96) 说明。
 
-> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/1635d518ce6112f265917de25fa70f55/demo.zip)。
+> 如果您需要 Demo 代码，可单击 [Demo 下载代码](https://main.qcloudimg.com/raw/4320979c9451e77c0cbb14d6f264b0d0/demo.zip)。
 
 ## 上传视频步骤
 
