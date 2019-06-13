@@ -19,7 +19,7 @@
 卸载方式即删除 * .php 即可。
 
 ## 获取用户信息
-### 1.获取 APPID，SecretId 与 SecretKey###
+### 1.获取 APPID，SecretId 与 SecretKey
 - 关于云 API 账号中的 APPID，SecretId 与 SecretKey 查询方法，可参考： [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。  
 - 具体路径为：  单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理
 ### 2.更改用户信息配置文件
