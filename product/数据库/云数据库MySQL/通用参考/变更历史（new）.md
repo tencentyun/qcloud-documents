@@ -1,5 +1,6 @@
 
 ### 2018
+* 从云数据库 MySQL（CDB for MySQL）更名为云数据库 MySQL（TencentDB for MySQL  ）。
 * 支持数据库审计。
 * 支持数据加密。
 * 支持基础版实例购买。
