@@ -9,7 +9,7 @@
 
 ## 操作步骤
 1. 请客户自行部署内网并配置服务器。
-2.需要 macOS 客户端将无线投屏 App 唤起，如果无线投屏 App 不存在，跳转客户公司内网下载。下面附上下载无线投屏 App 和唤起无线投屏 App 的代码。
+2. 需要 macOS 客户端将无线投屏 App 唤起，如果无线投屏 App 不存在，跳转客户公司内网下载。下面附上下载无线投屏 App 和唤起无线投屏 App 的代码。
 
 ```
 if (![[NSWorkspace sharedWorkspace] launchAppWithBundleIdentifier:@"com.tencent.wecast" options:NSWorkspaceLaunchWithoutActivation additionalEventParamDescriptor:NULL launchIdentifier:nil]) {
