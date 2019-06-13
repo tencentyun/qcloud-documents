@@ -59,7 +59,7 @@ CDN 鉴权配置和 CDN 回源鉴权的使用情况不冲突，但是两者配�
 3. 单击【保存】，即可开启 CDN 加速。
 4. 保存之后，可以看到默认加速域名在部署中了。同时下方会出现 **CDN 鉴权**的状态提示，单击【鉴权配置】开始配置 CDN 鉴权，如下图所示：
 ![](https://main.qcloudimg.com/raw/996b8f07d0c026e314b8207a2ccbc5c5.png)
-5. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) ，进入 CDN 鉴权配置页面的路径为【域名管理】> 对应域名的【管理】>【安全配置】。具体配置步骤详见 [鉴权配置](https://cloud.tencent.com/document/product/228/33115) 。
+5. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) ，进入 CDN 鉴权配置页面的路径为【域名管理】> 对应域名的【管理】>【安全配置】。具体配置步骤详见 [鉴权配置](https://cloud.tencent.com/document/product/228/33115)。
 
 ## 开启自定义加速域名
 
