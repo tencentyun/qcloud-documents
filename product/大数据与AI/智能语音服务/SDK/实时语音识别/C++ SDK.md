@@ -1,4 +1,4 @@
-实时语音识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/c6cb1f6bc4de2971959760e39d5199cf/c++_realtime_asr_sdk.tar.gz)。
+实时语音识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/8635c3a453298b5a3fa47cb291c01e9d/c++_realtime_asr_sdk_v1.0.tar.gz )。
 
 ## 功能简介
 语音识别（ASR）可以把音频数据转换为文本，需要持续对音频进行识别的场景，推荐使用实时语音识别，例如视频录制时候的实时字幕，语音对话机器人等。  
