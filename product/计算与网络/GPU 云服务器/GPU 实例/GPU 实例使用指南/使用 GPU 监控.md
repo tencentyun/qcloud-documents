@@ -7,19 +7,43 @@ GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://c
 - 使用导入镜像：需手动安装云服务器监控组件和 GPU 驱动。
 
 ## 查看 GPU 工作参数
-1. [购买 GPU 云服务器](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fbuy.cloud.tencent.com%2F%3Ftab%3Dcustom%26regionId%3D1%26zoneId%3D100003%26instanceType%3DGN10.2XLARGE40)，并安装驱动。
+1. 完成 [购买 GPU 云服务器](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fbuy.cloud.tencent.com%2F%3Ftab%3Dcustom%26regionId%3D1%26zoneId%3D100003%26instanceType%3DGN10.2XLARGE40)，并安装驱动。
 2. 访问控制台 GPU 实例的监控页面，查看 GPU 监控，移动鼠标到指标曲线上将显示对应 GPU 设备的 BDF 和监控数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ae6f53519093601fbeba86971ec7a0.jpg)
 参数说明：
+	<table>
+		<tr>
+			<th>指标名称</th>
+			<th>含义</th>
+			<th>单位</th>
+			<th>维度</th>
+		</tr>
+		<tr>
+			<td>GPU 使用率</td>
+			<td>评估负载所消耗的计算能力，非空闲状态百分比</td>
+			<td>%</td>
+			<td>per-GPU</td>
+		</tr>
+		<tr>
+			<td>GPU 显存使用量</td>
+			<td>评估负载对显存占用</td>
+			<td>MBytes</td>
+			<td>per-GPU</td>
+		</tr>
+		<tr>
+			<td>GPU 功耗</td>
+			<td>评估 GPU 耗电情况</td>
+			<td>W</td>
+			<td>per-GPU</td>
+		</tr>
+		<tr>
+			<td>GPU 温度</td>
+			<td>评估 GPU 散热状态</td>
+			<td>摄氏度</td>
+			<td>per-GPU</td>
+		</tr>
+	</table>
 
-|  指标名称      | 含义                                       | 单位   | 维度    |
-| ------------- | ------------------------------------------ | ------ | ------- |
-| GPU 使用率     | 评估负载所消耗的计算能力，非空闲状态百分比 | %      | per-GPU |
-| GPU 显存使用量 | 评估负载对显存占用                         | MBytes | per-GPU |
-| GPU 功耗       | 评估 GPU 耗电情况                            | W      | per-GPU |
-| GPU 温度       | 评估 GPU 散热状态                            | 摄氏度 | per-GPU |
-
-    
 
 ## 无监控数据原因
 - 只支持 NVIDIA GPU 实例。
