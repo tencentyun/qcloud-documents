@@ -1,4 +1,5 @@
 ## 功能咨询
+
 ### 如何使用临时密钥挂载存储桶？
 
 使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤：
@@ -21,7 +22,7 @@ COSAccessTokenExpire=2017-08-29T20:30:00  #临时token过期时间，为GMT时�
 步骤二：执行 COSFS 命令，使用命令选项 -ocam_role=[role] 指定角色为 sts、-opasswd_file=[path] 指定密钥文件路径，示例如下：
 
 ```shell
-cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oallow_other -ocam_role=sts -opasswd_file=/tmp/passwd-sts
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oallow_other -ocam_role=sts -opasswd_file=/tmp/passwd-sts
 ```
 
 ### 如何查看 COSFS 提供的挂载参数选项和版本号？
@@ -37,7 +38,7 @@ cosfs example-1253972369 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 
 ```shell
-cosfs example-1253972369:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
+cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 >!my-dir 必须以 `/` 开头。
@@ -45,7 +46,7 @@ cosfs example-1253972369:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqclo
 如使用 v1.0.5之前版本，则挂载命令为：
 
 ```shell
-cosfs 1253972369:example:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
+cosfs 1250000000:examplebucket:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 ### 非 root 用户如何挂载 COSFS？
@@ -73,7 +74,7 @@ source ~/.bashrc
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
-cosfs#example-1253972369 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
+cosfs#examplebucket-1250000000 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
 ### 如何挂载多个存储桶？
@@ -81,8 +82,8 @@ cosfs#example-1253972369 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-g
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
 ```shell
-echo example-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
-echo log-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
+echo examplebucket-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
+echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
 ```
 
 ### 挂载后，如何能让机器上其他账户来访问已挂载的目录？
@@ -102,7 +103,7 @@ echo log-123456789:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYY
 
 ```shell
 umount -l /path/to/mnt_dir
-cosfs example-1253972369:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
+cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](https://cloud.tencent.com/document/product/436/6883#compile) 部分更新 fuse 版本或安装最新版本的 COSFS。
@@ -163,5 +164,36 @@ COSFS 内部逻辑中，会 Head 请求去判断父目录和文件是否存在�
 rsync 命令会在挂载目录中，创建一个临时文件，进度显示100%只表示该临时文件在本地写入100%，临时文件写入完毕后，还会将其上传到 COS 中，并进行重命名拷贝操作。
 通常，往 COSFS 挂载目录中拷贝数据，使用 rsync 命令会比 cp 命令耗费更多时间。
 
+### COSFS 将磁盘空间写满了，该如何处理？
+COSFS 的上传下载都会使用磁盘文件缓存，当上传下载大文件时，若不指定 -oensure_diskfree=[size] 参数，会写满缓存文件所在的磁盘。您可以通过 -oensure_diskfree 参数指定，当缓存文件所在磁盘剩余空间不足 [size] MB 大小时，COSFS 将尽量减少使用磁盘空间（单位： MB）。 如果指定 -ouse_cache=[path] 参数，缓存文件位于 path 目录下，否则，在 /tmp 目录下。
+
+示例：指定剩余磁盘空间少于10GB时，COSFS 运行减少使用磁盘空间，命令如下。
+```shell
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oensure_diskfree=10240
+```
+
 ### 使用 docker 挂载 COSFS 时，报错显示：fuse: failed to open /dev/fuse: Operation not permitted，该如何处理？
 启动 docker 镜像时，您需要添加参数 --privileged。
+
+### 是否可以使用某一个目录，作为多个挂载点的共用缓存目录？
+不建议多个挂载点共用缓存目录，缓存目录中包含 COSFS 使用的元信息，共用可能会导致 COSFS 使用的元信息混乱。
+
+### 使用 COSFS 挂载时出现报错 /bin/mount:unrecognized option --no-canonicalize，该如何处理？
+
+较低版本的 mount 不支持 `--no-canonicalize` 选项，请更新 mount 工具（推荐版本为 v2.17，[前往下载](https://cdn.kernel.org/pub//linux/utils/util-linux/v2.17/)），更新后重新挂载。安装命令如下。
+
+```shell
+tar -jxvf util-linux-ng-2.17.tar.bz2
+cd util-linux-ng-2.17
+./configure --prefix=/usr/local/util-linux-ng
+make && make install
+mv /bin/mount{,.off}
+ln -s /usr/local/util-linux-ng/bin/mount /bin
+```
+
+### 挂载失败该如何处理？
+
+步骤一：根据日志文件和提示信息，检查挂载命令、密钥配置文件内容是否正确，以及网络是否可以访问 COS 服务。
+
+步骤二：使用 date 命令，检查机器时间是否正确，如果不正确 ，用 date 命令修正时间后，重新挂载。例如：`date -s '2014-12-25 12:34:56'`。
+

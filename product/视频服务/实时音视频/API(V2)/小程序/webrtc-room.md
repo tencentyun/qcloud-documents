@@ -233,7 +233,7 @@ Page({
 | sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的 openid  |
 | userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器 [签发](https://cloud.tencent.com/document/product/647/17275)|
-| roomID | 12345  | 房间号 | 可以由您的服务器指定 |
+| roomID | 12345  | 房间号 | 可以由您的服务器指定，数据类型为 uint32 |
 | privateMapKey | 加密字符串  | 当开启权限密钥时需要传。进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器 [签发](https://cloud.tencent.com/document/product/647/32240)|
 
 

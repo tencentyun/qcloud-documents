@@ -76,10 +76,10 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 初始化
 通常情况下 TUIKit 的初始化非常简单，只需调用下面接口初始化默认配置即可。
 ```
-NSInteger sdkAppid = 1400173143; //填入自己 app 的 SDKAppID
-NSString *accountType = @"36862"; //填入自己 app 的 accountType
+NSInteger sdkAppid = 1400173143; //填入自己 App 的 SDKAppID
+NSString *accountType = @"36862"; //填入自己 App 的 accountType
 TUIKitConfig *config = [TUIKitConfig defaultConfig];//默认 TUIKit 配置，这个您可以根据自己的需求在 TUIKitConfig 里面自行配置
-[[TUIKit sharedInstance] initKit:sdkAppid accountType:sdkAccountType withConfig:[TUIKitConfig defaultConfig]];
+[[TUIKit sharedInstance] initKit:sdkAppid accountType:accountType withConfig:[TUIKitConfig defaultConfig]];
 ```
 ### 登录
 在获取了用户的 identifier 和 userSig 后可以调用 TUIKit 接口直接登录。
@@ -133,7 +133,7 @@ tbc.tabBarItems = items;
 ```
 - (void)viewDidLoad {
     [super viewDidLoad];
-		//初始化 TUIKit 的会话列表UI类
+		//初始化 TUIKit 的会话列表 UI 类
     TConversationController *conv = [[TConversationController alloc] init];
     conv.delegate = self;
     [self addChildViewController:conv];
@@ -204,12 +204,12 @@ tbc.tabBarItems = items;
     data.convId = user;
 	//会话类型
     data.convType = TConv_Type_C2C;
-	//会话title
+	//会话 title
     data.title = user;
 }
 ```
 
-**第5步**：当点击会话列表的某一个会话的时候，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的 Id，消息类型，消息内容等信息）。
+**第5步**：单击会话列表的某一个会话时，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的 Id，消息类型，消息内容等信息）。
 ```
 - (void)conversationController:(TConversationController *)conversationController didSelectConversation:(TConversationCellData *)conversation
 {

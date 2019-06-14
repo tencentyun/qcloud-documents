@@ -23,10 +23,10 @@ var WEB_IM_GROUP_TIP_TYPE = {
 // class Msg.Elem.GroupTip 群提示消息对象
 Msg.Elem.GroupTip = function (opType, opUserId, groupId, groupName, userIdList) {
     this.opType = opType;//操作类型
-    this.opUserId = opUserId;//操作者 id
-    this.groupId = groupId;//群 id
+    this.opUserId = opUserId;//操作者 ID
+    this.groupId = groupId;//群 ID
     this.groupName = groupName;//群名称
-    this.userIdList = userIdList ? userIdList : [];//被操作的用户 id 列表
+    this.userIdList = userIdList ? userIdList : [];//被操作的用户 ID 列表
     this.groupInfoList = [];//新的群资料信息，群资料变更时才有值
     this.memberInfoList = [];//新的群成员资料信息，群成员资料变更时才有值
     this.groupMemberNum = null;//群成员数，操作类型为加群或者退群时才有值
@@ -327,7 +327,7 @@ case WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO://群资料变更
 ```javascript
 // class Msg.Elem.GroupTip.MemberInfo，变更的群成员资料信息对象
 Msg.Elem.GroupTip.MemberInfo = function (userId, shutupTime) {
-    this.userId = userId;//群成员id
+    this.userId = userId;//群成员 ID
     this.shutupTime = shutupTime;//群成员被禁言时间，0 表示取消禁言，大于 0 表示被禁言时长，单位：秒
 };
 Msg.Elem.GroupTip.MemberInfo.prototype.getUserId = function () {

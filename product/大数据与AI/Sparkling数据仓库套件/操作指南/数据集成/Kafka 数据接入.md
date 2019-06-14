@@ -1,7 +1,6 @@
-## 操作场景
-云数据仓库套件 Sparkling 支持多样化的数据接入方式：
-
-- 腾讯云云数据库 MySQL（TencentDB for MySQL）数据接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL 中的数据接入到 Sparkling 中。
+﻿## 操作场景
+云数据仓库套件 Sparkling 支持多样化的数据接入方式和数据源管理。数据接入方式包括：
+- 关系型数据库（RDBMS）接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL 、分布式数据库 TDSQL 中的数据接入到 Sparkling 中。
 - 腾讯云对象存储（COS）数据接入：可以通过生成账户密钥，建立存储桶（bucket）的方式进行 COS 数据接入。
 - 腾讯云消息队列（CKafka）数据接入：可以通过 Kafka 数据接入方式将腾讯云 CKafka 中的数据接入 Sparkling 中。
 
@@ -17,7 +16,7 @@
 - **新建数据源方式**
    a. 接入方式选择【新建数据源】。
 	 b. 数据源部署方式选择腾讯云 CKafka。
-	 c. 填写腾讯云 CKafka 实例 ID（可在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 获取 CKafka 实例 ID）及  CKafka 创建者 UIN（实例创建者在 [账号信息](https://console.cloud.tencent.com/developer) 中的账号 ID）。
+	 c. 填写腾讯云 CKafka 实例 ID（可在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 获取）及  CKafka 创建者 UIN（实例创建者在 [账号信息](https://console.cloud.tencent.com/developer) 中的账号 ID）。
 	 d. 单击角色服务授权，授权 Sparkling 服务访问其他相应服务。
 	 ![](https://main.qcloudimg.com/raw/87ec4e2aeddf3ec47597a9dabb006039.png)
    e. 填写要接入的 Topic 。
