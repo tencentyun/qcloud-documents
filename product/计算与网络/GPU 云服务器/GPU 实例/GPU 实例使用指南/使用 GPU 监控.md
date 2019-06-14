@@ -1,7 +1,7 @@
 NVIDIA GPU 系列实例提供了监控 GPU 使用率，显存使用量，功耗以及温度等参数的能力。
 ## GPU 监控工作条件
 
-GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://cloud.tencent.com/document/product/560/8048) 和 [云服务器监控组件](https://cloud.tencent.com/document/product/248/6211)来实现的，使用不同的镜像需要不同的处理方式：
+GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://cloud.tencent.com/document/product/560/8048) 和 [云服务器监控组件](https://cloud.tencent.com/document/product/248/6211) 来实现的，使用不同的镜像需要不同的处理方式：
 - 使用公共镜像：公共镜像默认包含云服务器监控组件，只需安装 GPU 驱动。
 - [使用镜像市场GPU驱动预装镜像](https://cloud.tencent.com/document/product/560/30129)：无需任何安装。
 - 使用导入镜像：需手动安装云服务器监控组件和 GPU 驱动。
