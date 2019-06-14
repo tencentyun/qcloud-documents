@@ -30,7 +30,7 @@
 		</thead>
 		<tbody>
 			<tr>
-				<td>GA2.2XLARGE16</td>
+				<td>GA2.LARGE12</td>
 				<td>&nbsp;1/4 颗</td> 
 				<td>&nbsp;6 核</td>
 				<td>&nbsp;12 GB</td>
