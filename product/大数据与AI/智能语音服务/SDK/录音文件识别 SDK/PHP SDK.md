@@ -12,7 +12,7 @@
 **环境依赖**
 此版本 SDK 适用于 PHP5.4.16 及以上版本。
 **下载 SDK**
-录音文件识别 PHP SDK [下载地址 ](https://main.qcloudimg.com/raw/b8003f8b5d35abda9d4aafcf13cc145a/php_record_asr_sdk.tar.gz)。
+录音文件识别 PHP SDK [下载地址 ](https://main.qcloudimg.com/raw/f6f94691d81e947b3bb4fbe3cd317d54/php_record_asr_sdk_v1.0.tar.gz )。
 **安装 SDK**
 源码安装。
 根据下载地址下载源码，将源码中的 * .php 复制到项目中即可使用。
