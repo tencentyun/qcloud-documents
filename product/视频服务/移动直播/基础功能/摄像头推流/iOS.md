@@ -282,7 +282,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 ### 18. 主播端弱网提醒
 
-手机 WiFi 信号差或者出口带宽很有限，网速可能会不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，让主播切换网络。
+手机 Wi-Fi 信号差或者出口带宽很有限，网速可能会不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，让主播切换网络。
 
 ![](https://main.qcloudimg.com/raw/0d0ccb1fca6cc847d51499a4f9e37e18.jpg)
 
