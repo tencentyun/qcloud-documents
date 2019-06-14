@@ -67,14 +67,14 @@ client.upload("ap-guangzhou", req, function (err, data) {
 ```
 
 ### 指定任务流
-传入任务流参数，具体的任务流介绍参考 [参数模版与任务流](https://cloud.tencent.com/document/product/266/33475#.E5.8F.82.E6.95.B0.E6.A8.A1.E6.9D.BF)，上传成功后会自动执行任务流。
+首先 [创建任务流模板](https://cloud.tencent.com/document/product/266/33819) 并为模板命名，发起任务流时，可以用任务流模板名字设置 `Procedure` 参数，上传成功后会自动执行任务流。
 ```
 const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
 
 client = new VodUploadClient("your secretId", "your secretKey");
 let req = new VodUploadRequest();
 req.MediaFilePath = "/data/file/Wildlife.mp4";
-req.Procedure = "QCVB_SimpleProcessFile(1, 1)";
+req.Procedure = "Your Procedure Name";
 client.upload("ap-guangzhou", req, function (err, data) {
     if (err) {
         // 处理业务异常
