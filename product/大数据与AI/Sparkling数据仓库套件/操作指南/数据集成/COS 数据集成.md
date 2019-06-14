@@ -23,8 +23,8 @@
  - **文件导入方式** ：单击所选文件，左下角显示所选文件名称及大小，确认信息无误后单击【确认】。
 ![](https://main.qcloudimg.com/raw/e564c24bc3f03e88fcd2cdef613606c2.png)
 
-- 文件格式：支持 CSV、TSV、 PARQUET、ORC、AVRO、JSON及其他自定义分隔符日志的文件。
->?  COS导入JSON文件时要求将JSON文件的每条记录必须用换行符分割
+- 文件格式：支持 CSV、TSV、PARQUET、ORC、AVRO、JSON及其他自定义分隔符日志的文件。
+>?  COS 导入 JSON 文件时要求将 JSON 文件的每条记录必须用换行符分割。
 
 - 字段分隔符：选择是否将第一行作为表头字段名。
  
