@@ -70,7 +70,7 @@ except Exception as err:
 ```
 
 ### 指定任务流
-传入任务流参数，具体的任务流介绍参考 [参数模板与任务流](https://cloud.tencent.com/document/product/266/33475#.E5.8F.82.E6.95.B0.E6.A8.A1.E6.9D.BF)，上传成功后会自动执行任务流。
+首先 [创建任务流模板](https://cloud.tencent.com/document/product/266/33819) 并为模板命名，发起任务流时，可以用任务流模板名字设置 `Procedure` 参数，上传成功后会自动执行任务流。
 ```
 from qcloud_vod.vod_upload_client import VodUploadClient
 from qcloud_vod.model import VodUploadRequest
@@ -78,7 +78,7 @@ from qcloud_vod.model import VodUploadRequest
 client = VodUploadClient("your secretId", "your secretKey")
 request = VodUploadRequest()
 request.MediaFilePath = "/data/file/Wildlife.mp4"
-request.Procedure = "QCVB_SimpleProcessFile(1, 1)"
+request.Procedure = "Your Procedure Name"
 try:
     response = client.upload("ap-guangzhou", request)
     print(response.FileId)
