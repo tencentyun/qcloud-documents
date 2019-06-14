@@ -1,5 +1,5 @@
 
-录音文件识别 Python SDK [下载地址](https://main.qcloudimg.com/raw/e6e348302613182d05ee296e74a7ad31/python_record_asr_sdk.tar.gz)。
+录音文件识别 Python SDK [下载地址](https://main.qcloudimg.com/raw/e0d0d05c182b3aad00c801980e946d2a/python_record_asr_sdk_v1.0.tar.gz)。
 
 ## 功能简介
 - 离线语音识别适用于多种标准语音格式的长段语音文件，通常应用于对识别结果返回时延要求不高的场景。目前支持的采样率为 8K 和 16K，仅支持中文。可以应用于客服语音记录质检、UGC 音频审核、会议语音记录转写和医生就诊录音转写等场景。 
