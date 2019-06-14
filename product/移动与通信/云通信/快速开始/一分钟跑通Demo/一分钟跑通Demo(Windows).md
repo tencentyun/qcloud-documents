@@ -9,15 +9,14 @@
 ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
 
 ## 2. 配置应用
-完成创建应用之后返回应用列表，单击对应 SDKAppID 的【应用配置】，进入应用详情页面。单击帐号体系集成右侧的【编辑】，配置帐号管理员信息，单击【保存】。。
-
->?帐号管理员可以随便填写，在使用云通信后台的 REST API 发送消息时才会用到。
+完成创建应用之后返回应用列表，单击对应 SDKAppID 的【应用配置】，进入应用详情页面。单击帐号体系集成右侧的【编辑】，配置帐号管理员信息，单击【保存】。
+>?帐号管理员可以自定义填写，在使用云通信后台的 REST API 发送消息时才会用到。
 
 ![](https://main.qcloudimg.com/raw/e3ce0ef527d2d4f8d0b3a0f69cefa78e.png)
 
 
 ## 3. 下载公私钥
-完成帐号管理员配置后，单击【下载公私钥】，保存 keys.zip 压缩文件。解压 keys.zip 文件 ，获得 private_key.txt 和 public_key.txt 文件，其中 private_key.txt 即为私钥文件。
+完成帐号管理员配置后，单击【下载公私钥】，保存 keys.zip 压缩文件。解压 keys.zip 文件 ，即可获得 private_key.txt 和 public_key.txt 文件，其中 private_key.txt 即为私钥文件。
 
 
 ## 4. 下载 Demo 源码
@@ -33,7 +32,7 @@
 4. 在文件 main.cpp 中查看您测试的 UserID。
   ![](https://main.qcloudimg.com/raw/33834ecf83cf6e1976df2418afe826f1.png)
 
->! 这里提到的获取 UserID 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 文档。
+>! 这里提到的获取 UserID 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参见 [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 。
 
 ## 6. 编译运行
-程序启动后，在不同的客户端上登录不同的帐号，搜索对方的 UserID 创建会话，即可体验发消息。
+程序启动后，在不同的客户端上登录不同的帐号，搜索对方的 UserID 创建会话，即可体验发送消息。
