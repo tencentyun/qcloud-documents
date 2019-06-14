@@ -66,7 +66,7 @@ mysql -h hostname -u username -p
 ![](https://main.qcloudimg.com/raw/daba9621274e7ec1e06065a86c3cd4cd.png)
 2. 在【实例详情】单击外网地址后的【开启】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fa7034bf01bdebbaa21d35b86cbc52b9.png)
-3. 实例详情页会显示开通后的外网地址，随后的步骤里会用到此地址。
+3. 【实例详情】会显示开通后的外网地址，随后的步骤里会用到此地址。
 ![](https://main.qcloudimg.com/raw/86557c48a6f7d492b33ac85196c6b5ea.png)
 4. 以 CentOS 7.2 64 位系统为例，利用 CentOS 自带的包管理软件 Yum 去下载安装 MySQL 客户端。
 	相关命令为：
