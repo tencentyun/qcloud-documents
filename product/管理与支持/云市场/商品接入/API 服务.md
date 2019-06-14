@@ -17,7 +17,7 @@
 3. 选择【API 交付】 。   
 ![](https://main.qcloudimg.com/raw/cfeb4857cc0c35317845b46c69437320.png)  
 4. 填写商品信息。   
-![](https://main.qcloudimg.com/raw/ae7af3fd3584892acea7da981a5b6e61.png)   
+![](https://main.qcloudimg.com/raw/0b570ad0b5325e4a9867546a67b80fec.png)   
 **【填写说明】**   
  - **商品名称**：必填，输入商品名称，30字内。   
  - **商品分类**：必填，选择发布商品对应的分类。  
