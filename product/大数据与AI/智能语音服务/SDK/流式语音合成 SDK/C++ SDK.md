@@ -1,5 +1,5 @@
 
-流式语音合成 C++ SDK [下载地址 ](https://main.qcloudimg.com/raw/7b1a3092cdb0c9266df6b44dfcdf0d22/c++_tts_sdk.tar.gz)。
+流式语音合成 C++ SDK [下载地址 ](https://main.qcloudimg.com/raw/5949aa675abd1d2970a1229b99de015a/c++_stream_tts_sdk_v1.0.tar.gz )。
 
 
 **此 SDK 目前仅支持在 Linux 平台上使用。**  
