@@ -7,7 +7,7 @@
 
 2. 跳转到指定域名的域名解析页面，单击【添加记录】。
 ![](https://main.qcloudimg.com/raw/edc2202d3906cae23163e1ca62e89dfe.png)
-3. 在【主机记录】处选填写域名前缀（如：www），将【记录类型】设置为 CNAME，在【记录值】处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
+3. 在【主机记录】处选填写域名前缀（如：www，若需直接解析主域名，则输入@；若需要解析泛域名，则输入\*），将【记录类型】设置为 CNAME，在【记录值】处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/8a4a3fc6179c1b09fef2d69b1a673356.png)
 
 ## 阿里云设置方法
