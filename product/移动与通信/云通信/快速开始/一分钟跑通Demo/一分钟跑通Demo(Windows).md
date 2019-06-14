@@ -1,8 +1,8 @@
 
-本文主要介绍如何快速地将腾讯云云通信 IM Demo(Windows) 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速地将腾讯云云通信 IM Demo（Windows）工程运行起来，您只需参考如下步骤依次执行即可。
 
 ## 1. 创建应用
-登录腾讯云通信（IM）[控制台](https://console.cloud.tencent.com/avc)，在**应用列表**页，单击【创建应用接入】，在**创建新应用**弹框中，填写新建应用的信息，单击【确认】。
+登录腾讯 [云通信 IM 控制台](https://console.cloud.tencent.com/avc)，在**应用列表**页，单击【创建应用接入】，在**创建新应用**弹框中，填写新建应用的信息，单击【确认】。
 ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
 
 应用创建完成后，自动生成一个应用标识：SDKAppID，如下图：
@@ -28,7 +28,7 @@
 ## 5. 修改源码配置
 - 使用 Visual Stuido（建议 VS2015）双击源码目录下的 ImApp.sln 工程文件，打开 IMApp 工程后，打开 TestUserSigGenerator.h 文件。
 
-- 在工程中配置测试的 SDKAppId 。
+- 在工程中配置测试的 SDKAppID 。
 
   ![](https://main.qcloudimg.com/raw/d806d77c00b146371c3142d11ae123a1.png)
 
@@ -36,11 +36,11 @@
 
   ![](https://main.qcloudimg.com/raw/115e1d17d5e773394aefd08b973b43de.png)
 
-- 在文件 main.cpp 中查看您测试的 userId。
+- 在文件 main.cpp 中查看您测试的 UserID。
 
   ![](https://main.qcloudimg.com/raw/33834ecf83cf6e1976df2418afe826f1.png)
 
->! 这里提到的获取 userid 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参考  [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 文档。
+>! 这里提到的获取 UserID 和 usersig 的方案仅适合本地跑通 Demo 和功能调试，userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 文档。
 
 ## 6. 编译运行
-程序启动后，在不同的客户端上登录不同的帐号，搜索对方的 userId 创建会话，就可以体验发消息了。
+程序启动后，在不同的客户端上登录不同的帐号，搜索对方的 UserID 创建会话，就可以体验发消息了。
