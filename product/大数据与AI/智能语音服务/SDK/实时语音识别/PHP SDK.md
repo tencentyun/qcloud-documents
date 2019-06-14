@@ -24,7 +24,7 @@
 此版本 SDK 适用于 PHP5.4.16 及以上版本。
 
 **下载：SDK**
-实时语音识别 PHP SDK [下载地址](https://main.qcloudimg.com/raw/a4c791c4ee4a9585070ca52cce091833/php_realtime_asr_sdk.tar.gz)。
+实时语音识别 PHP SDK [下载地址](https://main.qcloudimg.com/raw/0c995ee5727ed2faaebc04278795e56d/php_realtime_asr_sdk_v1.0.tar.gz)。
 **安装 SDK**
 **源码安装**。
 根据下载地址下载源码，将源码中的 * .php 复制到项目中即可使用。
