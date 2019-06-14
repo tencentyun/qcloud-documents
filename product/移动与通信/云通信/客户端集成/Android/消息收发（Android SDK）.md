@@ -901,13 +901,11 @@ public boolean isSelf()
 
 ### 消息发送者及其相关资料
 
-通过 `TIMMessage` 的方法 `getSender` 可获取发送用户的 ID。
-**对于群消息**，可以通过方法 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。
- - `getSenderProfile`：目前 IM SDK 在获取群组资料时，默认会获取所有基本字段，且不会拉取自定义字段。如果只需要拉取部分字段，或者需要拉取自定义字段，需要在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 。
- - `getSenderGroupMemberProfile`：目前仅能获取字段 user、nameCard、role、customInfo，如需获取其他的字段建议使用 TIMGroupManagerExt > getGroupMembers。
-
->!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
->只有接收到的群消息才能获取到相应的资料。
+消息发送者：可以通过 `TIMMessage` 的方法 `getSender` 获取发送用户的 ID。
+**对于单聊消息**，可以通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 即可得到正在聊天的用户及其相关资料。
+**对于群消息**，可以通过 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。如需要拉取自定义字段，需在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 。
+ >!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
+ >只有接收到的群消息才能获取到相应的资料。
 
 ```
 /**
@@ -934,7 +932,6 @@ public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > call
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
 
-**对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 可以得到正在聊天的用户。
 
 ### 消息时间
 
