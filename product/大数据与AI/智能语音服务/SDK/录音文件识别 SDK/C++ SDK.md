@@ -1,5 +1,5 @@
 
-录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/70a3ef049cc92d4b3fe36600f8f59449/c++_record_asr_sdk.tar.gz)。
+录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/d138ccce115b3821a86dbe3768ac1a85/c++_record_asr_sdk_v1.0.tar.gz)。
 
 ## 功能简介
 - 离线语音识别适用于多种标准语音格式的长段语音文件，通常应用于对识别结果返回时延要求不高的场景。目前支持的采样率为 8K 和 16K，仅支持中文。可以应用于客服语音记录质检、UGC 音频审核、会议语音记录转写和医生就诊录音转写等场景。 
