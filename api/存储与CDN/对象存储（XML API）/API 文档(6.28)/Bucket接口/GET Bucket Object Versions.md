@@ -8,14 +8,14 @@ GET Bucket Object Versions 接口用于拉取存储桶内的所有对象及其�
 
 ### 请求示例
 
-```
+```http
 GET /?versions HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求参数
 
@@ -23,10 +23,10 @@ Authorization: Auth String
 | ----------------- | ------------------------------------------------------------ | ------ | -------- |
 | prefix            | 前缀匹配，用来规定返回的文件前缀地址                         | string | 否       |
 | delimiter         | 定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 | string | 否       |
-| KeyMarker         | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker开始   | string | 否       |
+| KeyMarker         | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始   | string | 否       |
 | encoding-type     | 规定返回值的编码方式，可选值：url                            | string | 否       |
-| max-keys          | 单次返回最大的条目数量，默认为最大值 1000                    | string | 否       |
-| version-id-marker | 指定您需要从 version-id-marker 这个版本ID号开始列出对象的所有历史版本，可选值为 Valid version ID、Default。 | string | 否       |
+| max-keys          | 单次返回最大的条目数量，默认为最大值1000                    | string | 否       |
+| version-id-marker | 指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default | string | 否       |
 
 ### 请求头
 
@@ -44,7 +44,7 @@ Authorization: Auth String
 
 ### 响应体
 
-```
+```http
 <ListVersionsResult>
     <Name>exampleBucket-1250000000</Name>
     <Prefix/></Prefix>
@@ -93,31 +93,77 @@ Authorization: Auth String
 | MaxKeys            | ListVersionsResult | 单次响应请求内返回结果的最大的条目数量                       | string    |
 | IsTruncated        | ListVersionsResult | 响应请求条目是否被截断，布尔值：true，false                  | boolean   |
 | NextMarker         | ListVersionsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点   | string    |
-| DeleteMarker       | ListVersionsResult | 如果对象被删除过，则会带有删除标记。                         | Container |
-| Version            | ListVersionsResult | 如果对象为被删除，存在于存储桶中，该容器记录对象元数据信息。 | Container |
+| DeleteMarker       | ListVersionsResult | 如果对象被删除过，则会带有删除标记                         | Container |
+| Version            | ListVersionsResult | 如果对象为被删除，存在于存储桶中，该容器记录对象元数据信息 | Container |
 
 **Container 节点 DeleteMarker 的内容**：
 
 | 节点名称（关键字） | 父节点                          | 描述                     | 类型      |
 | ------------------ | ------------------------------- | ------------------------ | --------- |
 | Key                | ListVersionsResult.DeleteMarker | 被删除对象的索引         | string    |
-| VersionId          | ListVersionsResult.DeleteMarker | 对象版本ID               | string    |
+| VersionId          | ListVersionsResult.DeleteMarker | 对象版本 ID               | string    |
 | IsLatest           | ListVersionsResult.DeleteMarker | 被删除对象是否为最新版本 | string    |
 | LastModified       | ListVersionsResult.DeleteMarker | 对象最后被修改时间       | string    |
 | Owner              | ListVersionsResult.DeleteMarker | 存储桶所有者信息         | Container |
 
 **Container 节点 Version 的内容**：
 
-| 节点名称（关键字） | 父节点                     | 描述                                                   | 类型      |
-| ------------------ | -------------------------- | ------------------------------------------------------ | --------- |
-| Key                | ListVersionsResult.Version | 被删除对象的索引                                       | string    |
-| VersionId          | ListVersionsResult.Version | 对象版本 ID                                            | string    |
-| IsLatest           | ListVersionsResult.Version | 被删除对象是否为最新版本                               | string    |
-| LastModified       | ListVersionsResult.Version | 对象最后被修改时间                                     | string    |
-| ETag               | ListVersionsResult.Version | 对象的 MD-5 算法校验值                                 | string    |
-| Size               | ListVersionsResult.Version | 说明对象大小，单位是 Byte                              | string    |
-| StorageClass       | ListVersionsResult.Version | 对象的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE | string    |
-| Owner              | ListVersionsResult.Version | 存储桶所有者信息                                       | Container |
+<table>
+   <tr>
+      <th nowrap="nowrap">节点名称（关键字）</th>
+      <th>父节点</th>
+      <th>描述</th>
+      <th>类型</th>
+   </tr>
+   <tr>
+      <td>Key</td>
+      <td>ListVersionsResult.Version</td>
+      <td>被删除对象的索引</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>VersionId</td>
+      <td>ListVersionsResult.Version</td>
+      <td>对象版本 ID</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>IsLatest</td>
+      <td>ListVersionsResult.Version</td>
+      <td>被删除对象是否为最新版本</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>LastModified</td>
+      <td>ListVersionsResult.Version</td>
+      <td>对象最后被修改时间</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>ETag</td>
+      <td>ListVersionsResult.Version</td>
+      <td>对象的 MD-5 算法校验值</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>Size</td>
+      <td>ListVersionsResult.Version</td>
+      <td>说明对象大小，单位是 Byte</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>StorageClass</td>
+      <td>ListVersionsResult.Version</td>
+      <td>对象的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>Owner</td>
+      <td>ListVersionsResult.Version</td>
+      <td>存储桶所有者信息</td>
+      <td>Container</td>
+   </tr>
+</table>
 
 **Container 节点 Owner 的内容**：		
 		
@@ -130,7 +176,7 @@ Authorization: Auth String
 
 ### 请求
 
-```
+```shell
 GET /?versions HTTP/1.1
 Host: exampleBucket-1250000000.cos.ap-chengdu.myqcloud.com
 Connection: keep-alive
@@ -141,7 +187,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9Sm****&q
 
 ### 响应
 
-```
+```shell
 Content-Type: application/xml
 Content-Length: 35524
 Connection: keep-alive
