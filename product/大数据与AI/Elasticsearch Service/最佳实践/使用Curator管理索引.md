@@ -1,4 +1,4 @@
-Curator是Elastic官方发布的一个管理Elasticsearch索引的工具，可以完成许多索引生命周期的管理工作，如清理创建时间超过7天的索引，每天定时备份指定的索引，定时将索引从热节点迁移至冷节点等等。更多支持的操作，可查看官方文档的[Action](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/actions.html)列表。
+Curator是Elastic官方发布的一个管理Elasticsearch索引的工具，可以完成许多索引生命周期的管理工作，如清理创建时间超过7天的索引，每天定时备份指定的索引，定时将索引从热节点迁移至冷节点等等。更多Curator支持的操作，可查看官方文档的[Action](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/actions.html)列表。
 
 Curator提供了一个命令行CLI工具，可以通过参数配置要执行的任务。Curator还提供了完善的Python API，这样就可以和腾讯云无服务云函数做结合，例如，[使用Curator在腾讯云Elasticsearch中自动删除过期数据](https://cloud.tencent.com/developer/article/1361207)，腾讯云无服务函数配置了Curator的模板，用户应用模板后进行简单的参数配置即可运行。更多的腾讯云无服务器函数的使用方法可以参考官网[文档](https://cloud.tencent.com/document/product/583)。
 
