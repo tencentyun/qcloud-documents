@@ -47,8 +47,8 @@ pod install
  ![](https://main.qcloudimg.com/raw/7fef1d44f93872111a4498601d4dd61b.png)
 
 ## 配置工程
-根据 [创建应用]<#step1> 中获取的 SDKAppID 以及 [获取测试 UserSig]<#step3> 中获取的4对 UserID 和 UserSig，在 Demo 工程中配置 AppDelegate.h 文件。
+根据 [创建应用]<#step1> 中获取的 SDKAppID 以及 [获取测试 UserSig]<#step3> 中获取的4对 UserID 和 UserSig，配置 Demo 工程中的 AppDelegate.h 文件。
 ![](https://main.qcloudimg.com/raw/099d4241c099e1e6e81b9d9f93fd6fa4.png)
 
 ## 编译运行
-程序启动后，在不同的设备上登录不同的帐号，搜索对方的 UserID 体验发送消息。
+程序启动后，在不同的设备上登录不同的帐号，搜索对方的 UserID 体验发送消息等功能。
