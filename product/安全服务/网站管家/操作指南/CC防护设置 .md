@@ -12,7 +12,7 @@ CC 防护功能支持对公网用户访问特定 URL 的行为进行频率控制
 	- 访问频次：10次，10秒。
 	- 执行动作：封禁访问，也可以选择【人机识别】，人机识别将采用相应算法进行验证，如果验证失败后，将自动封禁访问。
 	- 惩罚时长：30分钟。
-	 ![2](https://main.qcloudimg.com/raw/d1a2eed1540c78f7fb56d862481ed3d8.png)
+	 ![](https://main.qcloudimg.com/raw/f9b86d95102edb60f6b2ee73f26b9dd2.png)
 3. 保存规则后，此时规则将会生效，惩罚恶意访问行为。
 
 [上一步：DNS 劫持检测](/document/product/627/11708)
