@@ -1,4 +1,4 @@
-腾讯云Elasticsearch支持使用SQL代替DSL查询语言。对于从事产品运营分析、数据分析等工作以及初次接触Elasticsearch的人，使用SQL语言进行查询，将会降低他们使用Elasticsearch的学习成本。
+腾讯云Elasticsearch支持使用SQL代替DSL查询语言。对于从事产品运营、数据分析等工作以及初次接触Elasticsearch的人，使用SQL语言进行查询，将会降低他们使用Elasticsearch的学习成本。
 
 腾讯云Elasticsearch提供两种SQL解析器供选择。腾讯云Elasticsearch所有的开源版本，均预装了开源社区提供的SQL解析插件。6.4.3及以上版本，包括基础版和白金版，支持使用Elasticsearch原生的SQL解析器。
 
