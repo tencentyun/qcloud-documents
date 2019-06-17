@@ -18,7 +18,7 @@
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
 
 <span id="step3"></span>
-## 获取测试 userSig
+## 获取测试 UserSig
 1. 在控制台应用详情页面，单击【下载公私钥】，保存 **keys.zip** 压缩文件。
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
 2. 解压 **keys.zip**文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
@@ -26,7 +26,7 @@
 3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该云通信应用指定用户名的 UserSig。
  ![](https://main.qcloudimg.com/raw/f491ffbd8dc3c0e8659288d27152c847.png)
 
->! 可以多生成4组以上的 userid 和 usersig，方便在 Demo 中调试使用。
+>! 可以多生成4组以上的 UserID 和 UserSig，方便在 Demo 中调试使用。
 
 
 ## 下载 Demo 源码
