@@ -4,10 +4,10 @@
 ## 操作步骤
 ### 1. 进入文件列表
  登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)，单击【存储桶列表】，进入存储桶列表。选择需要存储对象的存储桶，进入存储桶的文件列表页面。在文件列表中，单击【上传文件】，弹出上传文件界面，如下图所示。
-![](https://main.qcloudimg.com/raw/dee140e775d5e3a598c831e9864e5c70.png)
+![](https://main.qcloudimg.com/raw/d30d290974b0a198a919b6cd5452b1c6.png)
 
 ### 2. 选择上传对象
-在上传文件界面中，单击【选择文件】或【选择文件夹】，可上传单个或多个本地文件/文件夹，选择本地需要上传的对象。此时您可直接单击【上传】按钮上传对象，或单击【下一步】设置对象属性后再上传（见第3步）。
+在上传文件界面中，单击【选择文件】或【选择文件夹】，可上传单个或多个本地文件/文件夹，选择本地需要上传的对象。此时您可直接单击【上传】上传对象，或单击【下一步】设置对象属性后再上传（见第3步）。
 ![](https://main.qcloudimg.com/raw/e4ffc8164d1f65b6875b4cf036ba37d2.png)
 
 ### 3. 设置对象属性（可选）
@@ -19,13 +19,12 @@
 - 服务端加密
 您在上传对象的同时，配置对象的服务器加密属性。腾讯云 COS 将为上传的对象应用数据加密的保护策略，帮助您在数据写入前自动加密，并在您访问该数据时自动解密。目前腾讯云 COS 支持使用主密钥对数据进行 AES-256 加密。详情请参阅 [服务端加密概述](https://cloud.tencent.com/document/product/436/18145)。
 - 对象元数据
-对象元数据是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字串，又称为 HTTP Header。通过修改 HTTP Header，可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间。修改对象的 HTTP Header 不会修改对象本身。具体信息请参阅 [自定义对象 Headers](https://cloud.tencent.com/document/product/436/13361)。
-
+对象元数据是服务器以 HTTP 协议传 HTML 资料到浏览器前所送出的字符串，又称为 HTTP Header。通过修改 HTTP Header，可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间。修改对象的 HTTP Header 不会修改对象本身。具体信息请参阅 [自定义对象 Headers](https://cloud.tencent.com/document/product/436/13361)。
 对象上传成功后，系统会自动刷新列表，获取最新对象信息。如下图所示。
-![](https://main.qcloudimg.com/raw/f217e5761970534b3e49f8eac7b6da0d.png)
+![](https://main.qcloudimg.com/raw/327ea51fb150636b271ae8dd0b4b222a.png)
 
 >!部分浏览器不支持多文件上传，建议使用 IE10以上、Firefox、Chrome 等主流浏览器。
 
 ### 4. 确认上传完成
-单击【上传】后，您可以在右上方的【上传完成】中查看当前的上传进度，上传完成后，您将可以在【文件列表】里查看到刚才已上传的对象。
-![](https://main.qcloudimg.com/raw/20fc5006af1a99774abd6e0a0a98d33f.png)
+单击【上传】后，您可以在页面右上方的“上传完成”中查看当前的上传进度，上传完成后，您将可以在存储桶“文件列表“页查看到刚才已上传的对象。
+![](https://main.qcloudimg.com/raw/02472053ff13f246f37dcdaf6b00a4c3.png)

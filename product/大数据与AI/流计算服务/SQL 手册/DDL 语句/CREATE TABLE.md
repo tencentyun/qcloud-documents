@@ -13,7 +13,7 @@ CREATE TABLE `表名` (
 	[, `参数名` = '参数值' ]*
 )
 ```
-其中 BOUNDED 和 ROWS 属于 Event Time 时间模式，即数据源中自带时间戳字段）、ROWS 两种 WATERMARK 互斥，只可最多选择一项。
+其中 BOUNDED 和 ROWS 属于 Event Time 时间模式（即数据源中自带时间戳字段）、ROWS 两种 WATERMARK 互斥，只可最多选择一项。
 最大容忍乱序时间只在 Event Time 模式下有意义；而 Processing Time 模式不严格保证处理顺序，因为源数据没有时间戳定义。
 
 **示例：**

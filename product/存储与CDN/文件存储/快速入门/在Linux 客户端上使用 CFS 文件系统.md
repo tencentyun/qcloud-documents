@@ -30,7 +30,7 @@
   </tr>
   <tr>
     <td>文件服务协议</td>
-    <td>选择文件系统的协议类型，NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知）。</td>
+    <td>选择文件系统的协议类型，NFS 或 CIFS/SMB 。其中，NFS 协议更适合于 Linux/Unix 客户端，CIFS/SMB 协议更适合于 Windows 客户端（CIFS/SMB 协议近期公测已结束，后续开放时间敬待通知，更多信息请参见 <a href="https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E">CIFS/SMB 公测说明</a>）。</td>
   </tr>
   <tr>
     <td>客户端类型</td>
@@ -57,7 +57,6 @@
 获取挂载点信息。当文件系统及挂载点创建完毕后，单击实例 ID 进入到文件系统详情，单击【挂载点信息】，获取 Linux 客户端上使用文件系统的挂载命令。请按照推荐的挂载命令执行挂载操作。
 **数量**指挂载源数量，即可以挂载的方式数量，目前只支持通过 IP 挂载，故该值为1。
 
-> !由于协议兼容问题，若使用 Docker 或者 Kubernetes 等客户端挂载 CFS， 推荐使用 NFS v3 协议。（使用 NFS v4 协议可能会出现部分客户端无法正常挂载的问题）。
 
 
 ### 连接实例

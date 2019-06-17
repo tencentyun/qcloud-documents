@@ -5,8 +5,43 @@
 ![基本配置](https://main.qcloudimg.com/raw/3fa85f997895ed2e21b1abe9f7c1f9ee.png)  
 
 >!不同高级特性版本（原X-Pack插件）的访问方式不同，开源版和基础版不需要用户名密码鉴权，白金版需要用户名密码鉴权。 
->具体规则为 curl action -u user:password host ...，请注意将 user、password 替换为自己实际的用户名密码。
->下文以创建单个文档为例进行说明，其他命令类似。
+>具体规则为 curl action -u user:password host ...，请注意将 user、password 替换为自己实际的用户名密码。下文以部分操作为例进行说明，其他命令类似。
+
+## 测试访问
+
+>! 可以通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
+
+### 测试服务是否可访问
+输入命令：
+```
+curl -XGET http://10.0.17.2:9200
+
+白金版，开启了账号密码认证，请注意输入用户名密码
+
+curl -XGET -u user:password http://10.0.17.2:9200
+
+```
+
+返回如下，表示集群访问正常，具体参数的值会根据集群的版本有所不同：
+```
+{
+  "name": "15589826570000*****",
+  "cluster_name": "es-******",
+  "cluster_uuid": "NGIm1M_zRw-L3o_gH****",
+  "version": {
+    "number": "6.4.3",
+    "build_flavor": "default",
+    "build_type": "zip",
+    "build_hash": "fe40335",
+    "build_date": "2019-05-17T14:22:47.286024Z",
+    "build_snapshot": false,
+    "lucene_version": "7.4.0",
+    "minimum_wire_compatibility_version": "5.6.0",
+    "minimum_index_compatibility_version": "5.0.0"
+  },
+  "tagline": "You Know, for Search"
+}
+```
 
 ## 创建文档
 ### 创建单个文档

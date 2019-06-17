@@ -28,7 +28,7 @@ dependencies {
 >
  ![](https://main.qcloudimg.com/raw/211945758a897f53299951d415209ea6.png)
 - **第二步：指定 App 使用架构**
-在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 IM SDK 支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
+在 defaultConfig 中，指定 App 使用的 CPU 架构（从 IM SDK 4.3.118 版本开始支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
 ```
    defaultConfig {
         ndk {
@@ -60,7 +60,7 @@ dependencies {
  ![](https://main.qcloudimg.com/raw/53d530fd5ce0b66c88e678250b3d9386.png)
  ![](https://main.qcloudimg.com/raw/5175545f0e583fba7b7099ee94c721fa.png)
 - **第五步：指定App使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构（目前 IM SDK 支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构（从 IM SDK 4.3.118 版本开始支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
 ```
 defaultConfig {
             ndk {
@@ -99,7 +99,7 @@ defaultConfig {
 ![](https://main.qcloudimg.com/raw/e48d628afa3f97e663f8e6c810badb01.png)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 IM SDK 支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
+在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（从 IM SDK 4.3.118 版本开始支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
 ```
    defaultConfig {
         ndk {

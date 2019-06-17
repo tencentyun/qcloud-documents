@@ -11,7 +11,7 @@ iOS 播放器 SDK 完全免费开源，不对播放地址来源做限制，可�
 
 ### 接入准备
 
-请将下面代码加入到您的Podfile中：
+请将下面代码加入到您的 Podfile 中：
 ```
 pod 'SuperPlayer'
 ```
@@ -26,7 +26,7 @@ pod 'SuperPlayer'
 _playerView = [[SuperPlayerView alloc] init];
 // 设置代理，用于接受事件
 _playerView.delegate = self;
-// 设置父View，_playerView会被自动添加到holderView下面
+// 设置父 View，_playerView 会被自动添加到 holderView 下面
 _playerView.fatherView = self.holderView;
 
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
@@ -97,7 +97,7 @@ playerModel.appId = 1252463788;
 playerModel.fileId = @"4564972819219071679";
 [_playerView playWithModel:self.playerModel];
 ```
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl))。转码完成后，播放器会自动显示多个清晰度。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl)）。转码完成后，播放器会自动显示多个清晰度。
 
 ## 视频缩略图&打点信息
 在播放长视频时，雪碧图和打点信息有助于观众找到感兴趣的点。使用腾讯云服务 API，能快速对视频处理。
@@ -132,10 +132,10 @@ SuperPlayerVideoId *video = [[SuperPlayerVideoId alloc] init];
 video.appId = 1253039488;
 video.fileId = @"15517827183850370616";
 video.playDefinition = @"20"; // 播放模板
-video.version = FileIdV3; // DRM需要使用V3协议
+video.version = FileIdV3; // DRM 需要使用 V3 协议
 model.videoId = video;
-model.token = token; // 服务端下发的token
-model.certificate = fairplay_cer; // FairPlay的certificate，一般是从本地文件读取
+model.token = token; // 服务端下发的 token
+model.certificate = fairplay_cer; // FairPlay 的 certificate，一般是从本地文件读取
 ```
 
 - 关于 FileId 的内容，您可以参考此篇文档：[超级播放器 - FileId 播放](<https://cloud.tencent.com/document/product/881/20213#667643674>)。

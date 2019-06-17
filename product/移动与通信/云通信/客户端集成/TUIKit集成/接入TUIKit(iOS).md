@@ -209,7 +209,7 @@ tbc.tabBarItems = items;
 }
 ```
 
-**第5步**：当点击会话列表的某一个会话的时候，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的 Id，消息类型，消息内容等信息）。
+**第5步**：单击会话列表的某一个会话时，会收到以下回调，这时候创建会话界面类 ChatViewController ，透传 TConversationCellData （包含了消息的 Id，消息类型，消息内容等信息）。
 ```
 - (void)conversationController:(TConversationController *)conversationController didSelectConversation:(TConversationCellData *)conversation
 {
