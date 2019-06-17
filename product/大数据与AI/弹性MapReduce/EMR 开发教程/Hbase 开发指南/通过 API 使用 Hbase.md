@@ -19,7 +19,7 @@ HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录 `/usr/local/service/hbase`：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@10root]$ cd /usr/local/service/hbase
 ```
 

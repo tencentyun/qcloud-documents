@@ -1,3 +1,5 @@
+>!当前小程序版本 Demo 仅提供直播聊天室场景。
+
 ## 1. 创建应用
 
 1. 登录腾讯云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
