@@ -1,6 +1,7 @@
 
 本文主要介绍如何快速地运行云通信 IM Demo（iOS & Mac）工程。
 
+<span id="step1"></span>
 ## 创建应用
 1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请直接 [配置应用](#step2)。
@@ -47,7 +48,7 @@ pod install
  ![](https://main.qcloudimg.com/raw/7fef1d44f93872111a4498601d4dd61b.png)
 
 ## 配置工程
-根据 [创建应用]<#step1> 中获取的 SDKAppID 以及 [获取测试 UserSig]<#step3> 中获取的4对 UserID 和 UserSig，配置 Demo 工程中的 AppDelegate.h 文件。
+根据 [创建应用](#step1) 中获取的 SDKAppID 以及 [获取测试 UserSig](#step3) 中获取的4对 UserID 和 UserSig，配置 Demo 工程中的 AppDelegate.h 文件。
 ![](https://main.qcloudimg.com/raw/099d4241c099e1e6e81b9d9f93fd6fa4.png)
 
 ## 编译运行
