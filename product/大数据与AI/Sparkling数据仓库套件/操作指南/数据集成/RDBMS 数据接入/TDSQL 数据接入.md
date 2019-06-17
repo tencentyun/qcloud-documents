@@ -70,5 +70,5 @@ e. 确认无误后，单击【下一步】完成例行抽取任务配置操作�
 ![](https://main.qcloudimg.com/raw/e2ad8e695db93a442512cc8ed76858a4.png)
 ### 5. 预览
 在【预览】页可以查看当前设置的数据源信息、数据预览信息、目标表信息及任务调度信息。
-![](https://main.qcloudimg.com/raw/6063d3bdf9ad5eff505edf2dfe7a687a.png)
 确认无误后单击【完成】即可完成 TDSQL  数据接入任务设置。
+<img src="https://main.qcloudimg.com/raw/6063d3bdf9ad5eff505edf2dfe7a687a.png" style="zoom:70%">
