@@ -1,6 +1,6 @@
-## 腾讯云ES自研熔断器及常见问题
+# 腾讯云ES自研熔断器及常见问题
 
-Elasticsearch提供了多种官方的熔断器，用于防止不当的操作导致ES集群因为OutOfMemoryError而出现问题。Elasticsearch设置有各种类型的子熔断器，负责特定请求处理的内存限制。此外，还有一个父熔断器，用于指定可在所有子熔断器上使用的内存总量。
+Elasticsearch提供了多种官方的熔断器（circuit breaker），用于防止内存使用过高导致ES集群因为OutOfMemoryError而出现问题。Elasticsearch设置有各种类型的子熔断器，负责特定请求处理的内存限制。此外，还有一个父熔断器，用于限制所有子熔断器上使用的内存总量。
 
 ## 腾讯云ES自研熔断器
 
