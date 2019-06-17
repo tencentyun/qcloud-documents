@@ -4,9 +4,8 @@
 
 [购买指南](./购买指南.md)
 
-## PaaS
+## SDK文档
 [快速开始](./PaaS/快速开始.md)
-#### SDK文档
 - 互动课堂接入文档
     - [Android接入文档](./PaaS/SDK文档/Android/互动课堂接入文档.md)
     - [iOS接入文档](./PaaS/SDK文档/iOS/互动课堂接入文档.md)
