@@ -30,7 +30,7 @@
 >! 可以多生成4组以上的 UserID 和 UserSig，方便在 Demo 中调试使用。
 
 
-## 下载 Demo 源码
+## 下载 DEMO 源码
 从 [Github](https://github.com/tencentyun/TIMSDK) 下载 IM SDK H5 开发包。
 
 ## 修改源码配置
@@ -39,9 +39,9 @@
 var sdkAppID = '', // 填写 <a href="https://cloud.tencent.com/document/product/269/32940#step1">步骤一</a> 中获取的 SDKAppID
 </pre>
 
-## 运行 Demo
+## 运行 DEMO
 1. 浏览器打开 index.html。
-2. 输入 [获取测试 userSig 步骤](#step3) 获取到 identifier 和 userSig，单击【确定】。
+2. 输入 [获取测试 userSig 步骤](#step3) 获取到 UserID 和 userSig，单击【确定】。
  ![](https://main.qcloudimg.com/raw/77bfeddae0703b84d12fa51f38508adf.png)
 3. 登录成功后，可以进行查找好友，建群，聊天等操作：
  ![](https://main.qcloudimg.com/raw/87e6f5eae834907cab89f50d5ce49b49.png)
