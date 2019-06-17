@@ -24,7 +24,7 @@
 
 1. 在控制台应用详情页面，单击【下载公私钥】，保存 **keys.zip** 压缩文件。
  ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
-2. 解压 **keys.zip**文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
+2. 解压 **keys.zip** 文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 
 ## 下载 Demo 源码
