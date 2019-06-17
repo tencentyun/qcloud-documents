@@ -87,11 +87,11 @@ mLivePusher.stopPusher();
 mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，请在结束推流时将其关闭。
 ```
 
-- **如何获取可用的推流 URL ?**
+- **如何获取可用的推流 URL**
 >开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 >![](https://main.qcloudimg.com/raw/7bc0eed15c9886c049862e8ba2324d19.png)
 
-- **返回 -5 的原因 ?**
+- **返回 -5 的原因**
 >如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。
 
 
