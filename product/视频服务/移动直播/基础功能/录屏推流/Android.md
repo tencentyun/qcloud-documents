@@ -80,7 +80,7 @@ public void triggerPrivateMode() {
 最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
 腾讯视频云目前支持两种水印设置方式：一种是在推流SDK进行设置，原理是在SDK内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印Logo。
 
-这里我们特别建议您使用<font color='red'>SDK添加水印</font>，因为在云端打水印有三个明显的问题：
+这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
  （1）这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本；
  （2）在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  （3）在云端打水印会引入额外的3s以上的视频延迟，这是转码服务所引入的。
@@ -135,7 +135,7 @@ _config.audioChannels   = 1;
 
 ### step 10: 事件处理
 ####  事件监听
-RTMP SDK 通过 TXLive<font color='red'>Push</font>Listener 代理来监听推流相关的事件，注意 TXLive<font color='red'>Push</font>Listener 只能监听得到 <font color='red'>PUSH_</font> 前缀的推流事件。
+RTMP SDK 通过 TXLivePushListener 代理来监听推流相关的事件，注意 TXLivePushListener 只能监听得到 PUSH_ 前缀的推流事件。
 
 ####  常规事件 
 一次成功的推流都会通知的事件，比如收到1003就意味着摄像头的画面会开始渲染了
