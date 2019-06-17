@@ -1,4 +1,4 @@
-# Release Notes
+# Release Notes - Web
 
 ## 2.1.0 @ 2019.05.29
 新增功能
