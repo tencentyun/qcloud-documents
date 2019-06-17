@@ -25,7 +25,7 @@
 
 
 ### 2. 给 SDK 配置 License 授权
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 license，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 
@@ -89,15 +89,15 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 ```
 
 -  **如何获取可用的推流 URL**
->开通直播服务后，可以使用 [直播控制台>>辅助工具>>地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+>开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
 >![](https://main.qcloudimg.com/raw/7bc0eed15c9886c049862e8ba2324d19.png)
 
 - **返回 -5 的原因**
->如果 `startPush` 接口返回 -5，则代表您的 license 校验失败了，请检查第2步“给 SDK 配置 license 授权”中的工作是否有问题。
+>如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置License 授权”中的工作是否有问题。
 
 
 ### 6. 纯音频推流
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行第 4 步中的操作，取而代之的是开启 TXLivePushConfig 中的 `enablePureAudioPush` 配置。
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行第4步中的操作，取而代之的是开启 TXLivePushConfig 中的 `enablePureAudioPush` 配置。
 
 ```objectivec
 //通过修改 enablePureAudioPush 开关，开启纯音频推流
@@ -157,10 +157,10 @@ TXLivePush 提供了一组 API 用户控制摄像头的行为：
 
 | API 函数 | 功能说明 | 备注说明 |
 |---------|---------|---------|
-| `switchCamera` | 切换前后摄像头 | Mac 平台对应的函数为 `selectCamera`。 |
-| `toggleTorch` | 打开或关闭闪光灯 | 仅在当前是后置摄像头时有效。|
-| `setZoom` | 调整摄像头的焦距 | 焦距大小，取值范围：1 - 5，默认值建议设置为1即可。|
-| `setFocusPosition` | 设置手动对焦位置 | 需要将 TXLivePushConfig 中的 `touchFocus` 选项设置为 YES 后才能使用。|
+| switchCamera | 切换前后摄像头 | Mac 平台对应的函数为 `selectCamera`。 |
+| toggleTorch | 打开或关闭闪光灯 | 仅在当前是后置摄像头时有效。|
+| setZoom | 调整摄像头的焦距 | 焦距大小，取值范围：1 - 5，默认值建议设置为1即可。|
+| setFocusPosition | 设置手动对焦位置 | 需要将 TXLivePushConfig 中的 `touchFocus` 选项设置为 YES 后才能使用。|
 
 ### 11. 观众端的镜像效果
 调用 TXLivePush 中的 `setMirror` 接口可以设置观众端的镜像效果。之所以说是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，自己看到的画面会被 SDK 默认反转，这时主播的体验跟自己照镜子时的体验是保持一致的。`setMirror` 所影响的是观众端观看到的画面情况，如下图所示：
@@ -168,7 +168,7 @@ TXLivePush 提供了一组 API 用户控制摄像头的行为：
 ![](https://main.qcloudimg.com/raw/7448f422eb7db068e9fbdf990feb30e8.jpg)
 
 ### 12. 横屏推流
-大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（比如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（比如 960 x 540 这样的分辨率），如下图所示：
+大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 x 540 这样的分辨率），如下图所示：
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
 
 TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
@@ -284,7 +284,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 ### 18. 主播端弱网提醒
 
-手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如 4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
+手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
 
 
 ![](https://main.qcloudimg.com/raw/0d0ccb1fca6cc847d51499a4f9e37e18.jpg)
@@ -305,8 +305,8 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 }
 ```
 
-<h3 id="Message"> 19. 发送 SEI 消息 </h3>
-调用 TXLivePush 中的 `sendMessageEx` 接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
+### 19. 发送 SEI 消息 
+调用 TXLivePush 中的 `sendMessageEx`接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
 
 1. 答题直播：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。
 2. 秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。
@@ -325,7 +325,7 @@ NSString* msg = @"test";
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档“[错误码表](https://cloud.tencent.com/document/product/454/17246)”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件有（例如，收到1003就意味着摄像头的画面开始渲染）：
