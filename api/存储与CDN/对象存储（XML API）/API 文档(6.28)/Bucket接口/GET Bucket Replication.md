@@ -32,7 +32,7 @@ Authorization: Auth String
 
 |参数项|类型|描述|
 |---|---|---|
-|x-cos-replication-rule-creation-time|UTC 时间戳格式|跨地域复制规则创建时间。|
+|x-cos-replication-rule-creation-time|UTC 时间戳格式|跨地域复制规则创建时间|
 
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
