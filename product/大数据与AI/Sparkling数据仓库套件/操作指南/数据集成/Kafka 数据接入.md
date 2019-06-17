@@ -1,4 +1,4 @@
-本节将介绍 CKafka 数据接入方法。更多关于 CKafka 的信息请参见 [CKafka 产品介绍](https://cloud.tencent.com/document/product/597)。
+本节将介绍 CKafka 数据接入方法。更多关于 CKafka 的信息请参见 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
 
 ## 操作步骤
 登录 [Sparkling 控制台](https://sparkling.cloud.tencent.com)，在左侧导航单击【数据】进入数据接入页面，按以下操作步骤完成 Kafka 数据接入：
