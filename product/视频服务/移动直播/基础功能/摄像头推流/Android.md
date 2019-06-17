@@ -25,7 +25,7 @@
 
 
 ### 2. 给 SDK 配置 License 授权
-点击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 license，您会获得两个字符串：其中一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 license，您会获得两个字符串：其中一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 
@@ -307,7 +307,7 @@ public interface ITXVideoRecordListener {
 >2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，腾讯云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 17. 主播端弱网提醒
-手机连接 WiFi 网络不一定就非常好，如果 WiFi 信号差或者出口带宽很有限，可能网速不如 4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
+手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如 4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
 
 ![](https://main.qcloudimg.com/raw/0d0ccb1fca6cc847d51499a4f9e37e18.jpg)
 
