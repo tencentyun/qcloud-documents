@@ -71,5 +71,5 @@ e. 确认无误后，单击【下一步】完成例行抽取任务配置操作�
 
 ### 5. 预览
 在【预览】页可以查看当前设置的数据源信息、数据预览信息、目标表信息及任务调度信息。确认无误后单击【完成】即可完成 MySQL 数据接入任务设置。
-![](https://main.qcloudimg.com/raw/ae95104d3cc04f265a6269bcf3c459ee.png)
+<img src="https://main.qcloudimg.com/raw/ae95104d3cc04f265a6269bcf3c459ee.png" style="zoom:70%">
 
