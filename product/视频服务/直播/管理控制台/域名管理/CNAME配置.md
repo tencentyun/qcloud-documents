@@ -25,7 +25,7 @@
 ![](https://main.qcloudimg.com/raw/2f3b789874c7c7968679e6282c14f260.png)
 
  - 记录类型：选 CNAME
- - 主机记录：填写三级域名信息，即域名前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名 myqloud.com，则输入@；若需要解析泛域名，则输入\*
+ - 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名 myqloud.com，则输入@；若需要解析泛域名，则输入\*
  - 解析路线：建议选择“默认”
  - 记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为 domain.livecdn.liveplay.myqcloud.com
  - TTL：建议填写10分钟
