@@ -2,7 +2,7 @@
 
 GET Bucket Object Versions 接口用于拉取存储桶内的所有对象及其历史版本信息，您可以通过指定参数筛选出存储桶内部分对象及其历史版本信息。
 
-> !使用子账号发起该请求，您需要主账号授予您`GET Bucket Object Versions`的权限，如果您以主账号身份发起，则默认拥有该权限。
+> !使用子账号发起该请求，需要主账号授予您`GET Bucket Object Versions`的权限，如果您以主账号身份发起，则默认拥有该权限。
 
 ## 请求
 
@@ -90,9 +90,9 @@ Authorization: Auth String
 | Encoding-Type      | ListVersionsResult | 编码格式                                                     | string    |
 | Prefix             | ListVersionsResult | 前缀匹配，用来规定响应请求返回的文件前缀地址                 | string    |
 | KeyMarker          | ListVersionsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始  | string    |
-| MaxKeys            | ListVersionsResult | 单次响应请求内返回结果的最大的条目数量                       | string    |
+| MaxKeys            | ListVersionsResult | 单次响应请求内返回结果的最大条目数量                       | string    |
 | IsTruncated        | ListVersionsResult | 响应请求条目是否被截断，布尔值：true，false                  | boolean   |
-| NextMarker         | ListVersionsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点   | string    |
+| NextMarker         | ListVersionsResult | 假如返回条目被截断，则返回 NextMarker，即下一个条目的起点   | string    |
 | DeleteMarker       | ListVersionsResult | 如果对象被删除过，则会带有删除标记                         | Container |
 | Version            | ListVersionsResult | 如果对象为被删除，存在于存储桶中，该容器记录对象元数据信息 | Container |
 
