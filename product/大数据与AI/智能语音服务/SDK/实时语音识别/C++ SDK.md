@@ -128,7 +128,7 @@ secretkey=670m***************************
 | needvad | 否 | Int | 0为不需要vad，1代表需要vad |
 | seq | 是 | Int | 	语音分片的序号从0开始。|
 | end | 是 | Int | 是否为最后一片，最后一片语音片为1，其余为0。 |
-| source | 是 | Int | 设置为0。 |
+| source | 是 | Int | 设置为0 |
 | voice_id | 是 | String | 16位 String 串作为每个音频的唯一标识，用户自己生成。|
 | timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
 | expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
