@@ -31,4 +31,4 @@ c. 后面的操作同“文件夹导入方式”的步骤g、h。
 
 ### 4.  预览
 任务预览无误后单击【完成】即可。
-![](https://main.qcloudimg.com/raw/a0bb70b8b250c3bf0403ef451a2a9c72.png)
+<img src="https://main.qcloudimg.com/raw/c7ae4a9d04b4590012c37d718fd2e3cc.png" style="zoom:70%">
