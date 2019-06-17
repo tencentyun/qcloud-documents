@@ -46,5 +46,5 @@ d. 设置单次数据条目。设置任务单次导入的数据条目，选择�
 
 ### 4. 预览
 在【预览】页可以查看当前设置的数据源配置、目标表配置、抽取规则、订阅任务配置等信息。确认无误后单击【完成】即可完成 Kafka 数据接入任务设置。
-![](https://main.qcloudimg.com/raw/52e1035d3ec397b7acd83e6ccccff558.png)
+<img src="https://main.qcloudimg.com/raw/a974f8b545cc2130af91b53b13e33f71.png" style="zoom:70%">
 
