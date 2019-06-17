@@ -44,7 +44,7 @@
 ```
 
 ### 3. 初始化 TXLivePush 组件
-首先创建一个 `TXLivePushConfig` 对象。该对象可以指定一些高级配置参数，但一般情况下我们不建议您操作该对象，因为我们已经在其内部配置好了所有的需要校调的参数。之后再创建一个 `TXLivePush` 对象，该对象负责完成推流的主要工作。
+首先创建一个 `TXLivePushConfig` 对象。该对象可以指定一些高级配置参数，但一般情况下我们不建议您操作该对象，因为我们已经在其内部配置好了所有需要校调的参数。之后再创建一个 `TXLivePush` 对象，该对象负责完成推流的主要工作。
 
 ```objectivec   
  TXLivePushConfig *_config = [[TXLivePushConfig alloc] init];  // 一般情况下不需要修改默认 config   
