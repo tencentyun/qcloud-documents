@@ -1,8 +1,9 @@
 本文主要介绍如何快速地将腾讯云 WEBIM Demo(Web) 工程运行起来，您只需参考如下步骤依次执行即可。
 
+<span id="step1"></span>
 ## 创建应用
 1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
- >?如果您已有应用，请直接 [配置应用](#step2)。
+ >?如果您已有应用，请记录其 SDKAppID 直接 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
  ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
@@ -34,9 +35,9 @@
 
 ## 修改源码配置
 使用编辑器打开 index.html ，修改以下参数配置。  
-``` 
-var sdkAppID = '', // 填写第一步获取到的 SDKAppID
-```
+<pre>
+var sdkAppID = '', // 填写 <a href="https://cloud.tencent.com/document/product/269/32940#step1">步骤一</a> 中获取的 SDKAppID
+</pre>
 
 ## 运行 Demo
 1. 浏览器打开 index.html。
@@ -50,11 +51,3 @@ var sdkAppID = '', // 填写第一步获取到的 SDKAppID
   ![](https://main.qcloudimg.com/raw/ff8c787aa814edefd96468de2da59f26.png)
  - 给好友发消息。
   ![](https://main.qcloudimg.com/raw/d55732975bb5d3e8e44a283e1a26ba4b.png)
-
-
-
-
-
-
-
-
