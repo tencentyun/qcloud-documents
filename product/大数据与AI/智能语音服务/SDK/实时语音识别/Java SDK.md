@@ -1,4 +1,4 @@
-实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/5143495a82d9d1a082c56440a8680178/java_realtime_asr_sdk.tar.gz)。
+实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/b9df057b0bdddf30e3a2b3bc404ccb22/java_realtime_asr_sdk_v1.0.tar.gz)。
 
 
 ## 功能简介
@@ -75,6 +75,7 @@ public class AsrBaseConfig {
 | result\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
 | res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回。|
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3(仅16k_0模型支持)。|
+| needvad | 否 | Int | 0为不需要vad，1代表需要vad |
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 | seq | 是 | Int | 	语音分片的序号从0开始。|
 | end | 是 | Int | 是否为最后一片，最后一片语音片为1，其余为0。 |
@@ -85,10 +86,23 @@ public class AsrBaseConfig {
 | expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
 | timeout | 是 | Int | 设置超时时间单位为毫秒。|
 
+**返回参数**
+
+| 参数名称 |  描述 |  
+| --- | --- |
+| code |  0：正常，其他，发生错误。 |
+| message | 如果是0就是 success，不是0就是错误的原因信息。 |
+| voice_id | 表示这通音频的标记，同一个音频流这个标记一样。 |
+| seq | 语音分片的信号。<br> 如果请求参数 needvad为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 |
+| text |  如果请求参数 needvad 为0的，表示不需要后台做 vad，text 的值是分片的识别结果<br>如果请求参数needvad为1的话，表示需要后台做 vad，因为后台做 vad 的话，vad会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，text 为"" |
+| result_number | 表示后面的result\_list里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示result\_list有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
+| result_list | slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  这个分片在整个音频流中的开始时间<br>end\_time 这个分片在整个音频流中的结束时间<br>voice\_text_str 识别结果 |
+| final | 0 表示还在整个音频流的中间部分<br>1 表示是整个音频流的最后一个包。<br>在电信场景中，客户端发送完之后，是否返回的是最后一个包。 |
+
 **请求 url 参数示例**
 
 ```
-https://aai.qcloud.com/asr/v1/125000001?
+http://asr.cloud.tencent.com/asr/v1/125000001?
 end=0&
 engine_model_type=16k_0&
 expired=1558016577&
@@ -96,6 +110,7 @@ nonce=434303218&
 res_type=0&
 result_text_format=0&
 secretid=XXXXXXXXXXXXXXXXXXXXXXX&
+needvad=1&
 seq=0&
 source=0&
 sub_service_type=1&
@@ -104,8 +119,11 @@ timestamp=1558010577&
 voice_format=1&
 voice_id=82510017d7deb33e
 ```
+
 其中v1表示 API 的版本，v1.0，后面125000001是 AppID，各个参数的说明参考上表。
+
 **接口说明**
+
 核心接口方法解释如下：  
 
 **start**

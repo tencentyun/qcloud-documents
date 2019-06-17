@@ -1,5 +1,5 @@
 
-录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/70a3ef049cc92d4b3fe36600f8f59449/c++_record_asr_sdk.tar.gz)。
+录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/d138ccce115b3821a86dbe3768ac1a85/c++_record_asr_sdk_v1.0.tar.gz)。
 
 ## 功能简介
 - 离线语音识别适用于多种标准语音格式的长段语音文件，通常应用于对识别结果返回时延要求不高的场景。目前支持的采样率为 8K 和 16K，仅支持中文。可以应用于客服语音记录质检、UGC 音频审核、会议语音记录转写和医生就诊录音转写等场景。 
@@ -69,7 +69,7 @@ sudo make install
 ```
 ## <span id="result">获取用户信息</span>
 **获取用户鉴权信息及申请使用**
-- 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
+- 使用本接口之前需要先 [注册腾讯云账号](https://cloud.tencent.com/register) ，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
 - 关于云 API 账号中的AppID，SecretId 与 SecretKey查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。    
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 

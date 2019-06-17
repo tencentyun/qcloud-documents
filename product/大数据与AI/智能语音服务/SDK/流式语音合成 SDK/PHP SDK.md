@@ -8,7 +8,7 @@
 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 此版本 SDK 适用于 PHP5.4.16 及以上版本。
 **下载 SDK**
-流式语音合成 PHP SDK [下载地址](https://main.qcloudimg.com/raw/ab5d31ed79ad9bd78273c94e563c8101/php_tts_sdk.tar.gz)。
+流式语音合成 PHP SDK [下载地址](https://main.qcloudimg.com/raw/b526f7fee9af49c2d8c251d494c232f0/php_stream_tts_sdk_v1.0.tar.gz )。
 
 **安装 SDK**
 源码安装。
