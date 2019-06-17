@@ -33,11 +33,11 @@ getSignature: function(callback) {
 }
 ```
 
-> url 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
-> signature 计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+> `url`是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
+> `signature`计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 **3. 上传视频**
-上传视频是通过调用 VodUploader.start 来实现的。实例如下：
+上传视频是通过调用 VodUploader.start 来实现的。示例如下：
 
 ```
  VodUploader.start({
@@ -77,4 +77,4 @@ getSignature: function(callback) {
 
 1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
 1. 不支持断点续传和分片上传。
-1. 小程序域名信息中，request 和 uploadFile 合法域名，只需加上 `vod2.qcloud.com` 即可
+1. 小程序域名信息中，request 和 uploadFile 合法域名，只需加上`vod2.qcloud.com`即可。
