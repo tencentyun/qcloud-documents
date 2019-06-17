@@ -19,14 +19,50 @@ Authorization: Auth String
 
 ### 请求参数
 
-| 名称              | 描述                                                         | 类型   | 是否必选 |
-| ----------------- | ------------------------------------------------------------ | ------ | -------- |
-| prefix            | 前缀匹配，用来规定返回的文件前缀地址                         | string | 否       |
-| delimiter         | 定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始 | string | 否       |
-| KeyMarker         | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始   | string | 否       |
-| encoding-type     | 规定返回值的编码方式，可选值：url                            | string | 否       |
-| max-keys          | 单次返回最大的条目数量，默认为最大值1000                    | string | 否       |
-| version-id-marker | 指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default | string | 否       |
+<table>
+   <tr>
+      <th>名称</th>
+      <th>描述</th>
+      <th>类型</th>
+      <th>是否必选</th>
+   </tr>
+   <tr>
+      <td>prefix</td>
+      <td>前缀匹配，用来规定返回的文件前缀地址</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>delimiter</td>
+      <td>定界符为一个符号，如果有 Prefix，则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>KeyMarker</td>
+      <td>默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">encoding-type</td>
+      <td>规定返回值的编码方式，可选值：url</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td>max-keys</td>
+      <td>单次返回最大的条目数量，默认为最大值1000</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">version-id-marker</td>
+      <td>指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default</td>
+      <td>string</td>
+      <td>否</td>
+   </tr>
+</table>
 
 ### 请求头
 
