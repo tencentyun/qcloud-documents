@@ -39,8 +39,10 @@
 ```
 mysql -h hostname -u username -p
 ```
-请将 hostname 替换为目标 MySQL 数据库实例的内网 IP 地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 账户对应的密码。
-本例中 hostname 为10.66.238.24。
+>?
+>- 请将 hostname 替换为目标 MySQL 数据库实例的内网 IP 地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 账户对应的密码。
+>- 本例中 hostname 为10.66.238.24。
+>
 ![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
 3. 在 MySQL > 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参考 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
@@ -51,7 +53,7 @@ mysql -h hostname -u username -p
 请根据外网中主机的操作系统选择对应的登录方式。
 ### 从 Windows 系统登录
 1. 在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的【实例列表】，选择状态为运行中的目标实例，单击【登录】。
-![](https://main.qcloudimg.com/raw/83aa6617c88de729527c5c4f63303263.png) 
+![](https://main.qcloudimg.com/raw/807212252e237e04ab62560fdda54795.jpg)
 2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在初始化选项中配置的 root 帐户的密码，单击【登录】。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
 3. 在数据管理页面可以查看实例的状态和基本信息，单击【前往PMA】访问数据库。
@@ -62,10 +64,10 @@ mysql -h hostname -u username -p
 ### 从 Linux 系统登录
 1. 在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的【实例列表】，单击目标实例的 ID 进入实例详情页。
 ![](https://main.qcloudimg.com/raw/daba9621274e7ec1e06065a86c3cd4cd.png)
-2. 在实例详情页单击外网地址后的【开启】，单击【确定】。
-![](https://main.qcloudimg.com/raw/d699e1501ba593e7f6402e3f735e33f7.png)
-3. 实例详情页会显示开通后的外网地址，随后的步骤里会用到此地址。
- ![](https://main.qcloudimg.com/raw/e274855db2e11cb3c368cbfa769579a8.png)
+2. 在【实例详情】单击外网地址后的【开启】，单击【确定】。
+![](https://main.qcloudimg.com/raw/fa7034bf01bdebbaa21d35b86cbc52b9.png)
+3. 【实例详情】会显示开通后的外网地址，随后的步骤里会用到此地址。
+![](https://main.qcloudimg.com/raw/86557c48a6f7d492b33ac85196c6b5ea.png)
 4. 以 CentOS 7.2 64 位系统为例，利用 CentOS 自带的包管理软件 Yum 去下载安装 MySQL 客户端。
 	相关命令为：
 ```

@@ -11,7 +11,7 @@ SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云度武器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 新建文件 cos.txt，并且添加数据如下所示：

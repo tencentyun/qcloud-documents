@@ -15,8 +15,8 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 ### aar 集成
 
 1. 下载 SDK + Demo 开发包，下载地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
-3. 在 `app/build.gralde` 中添加依赖：
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
+3. 在`app/build.gralde`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
 compile(name: 'lib_tcsuperplayer', ext: 'aar')
@@ -49,7 +49,7 @@ allprojects {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
->! `lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+>! `lib_tcsuperplayer.aar`以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
 
 ### 使用播放器
 
@@ -108,7 +108,7 @@ rect.height = 540;
 
 ## 退出播放
 
-当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
+当不需要播放器时，调用`resetPlayer`清理播放器内部状态，释放内存。
 ```java
 mSuperPlayerView.resetPlayer();
 ```

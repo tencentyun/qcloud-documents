@@ -83,13 +83,13 @@ server {
 	 }
 }
 ```
-4. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
-5. 执行以下命令，启动 Nginx ，设置为开机自启动。
+5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 执行以下命令，启动 Nginx ，设置为开机自启动。
 ```
 systemctl start nginx
 systemctl enable nginx 
 ```
-6. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+7. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![ 测试Nginx2](https://main.qcloudimg.com/raw/dc7ccc6220299225de75c521620423b4.png)
 
@@ -137,7 +137,7 @@ http://云服务器实例的公网 IP/index.php
 ```
 rpm -qa | grep -i mariadb
 ```
-返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 。
+返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2)。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 2. <span id="step2">执行以下命令，删除 MariaDB 现有包。</span>
 ```
@@ -154,13 +154,13 @@ systemctl enable mariadb
 ```
 5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
->- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
->- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
+> - 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
+> - 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
 >
 ```
 mysql_secure_installation
 ```
-6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下 “**Enter**”。
+6. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
 ```
 mysql -uroot -pXXXXXX
 ```
@@ -169,7 +169,7 @@ mysql -uroot -pXXXXXX
 
 ### 安装和配置 WordPress
 #### 下载 
->? WordPress可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程正是采用的 WordPress 中文版本。
+>? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程正是采用的 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
@@ -212,7 +212,7 @@ GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspa
 ```
 FLUSH PRIVILEGES;
 ```
-8. 执行以下命令，退出 MariaDB 。
+8. 执行以下命令，退出 MariaDB。
 ```
 exit
 ```
