@@ -1,5 +1,5 @@
 
-录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/70a3ef049cc92d4b3fe36600f8f59449/c++_record_asr_sdk.tar.gz)。
+录音文件识别 C++ SDK [下载地址](https://main.qcloudimg.com/raw/d138ccce115b3821a86dbe3768ac1a85/c++_record_asr_sdk_v1.0.tar.gz)。
 
 ## 功能简介
 - 离线语音识别适用于多种标准语音格式的长段语音文件，通常应用于对识别结果返回时延要求不高的场景。目前支持的采样率为 8K 和 16K，仅支持中文。可以应用于客服语音记录质检、UGC 音频审核、会议语音记录转写和医生就诊录音转写等场景。 
@@ -19,7 +19,7 @@ make clean
 make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ```
-### 1.基础编译环境
+**基础编译环境**
 安装 gcc g++   
 
 ```
@@ -31,7 +31,7 @@ yum install -y wget
 2.Debian系列系统：
 apt-get install gcc g++
 ```
-### 2.安装 CMake 工具
+**安装 CMake 工具**
 ```
 // cmake 版本要大于3.5
 wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
@@ -41,29 +41,25 @@ sudo ./bootstrap --prefix=/usr
 sudo make
 sudo make install
 ```
-### 3.依赖库安装及编译
-**3.1 curl**
-```
+**依赖库安装及编译**
+**curl**
 客户需自行安装版本大于7.44.0：
-下载地址：https://curl.haxx.se/download.html
-解压进入源码目录
+下载 [curl 文件](https://curl.haxx.se/download.html) 解压进入源码目录。
+```
 sudo ./configure
 sudo cmake ./
 sudo make
 sudo make install
 ```
-**3.2 openssl**
-```
-本sdk提供，目录为
-c++_record_asr_sdk/lib
-
+**openssl**
+本 SDK 提供，目录为：c++_record_asr_sdk/lib
 如果不适合客户系统，自行安装方法，版本1.0.2f:
-1.下载
-wget http://www.openssl.org/source/openssl-1.0.2f.tar.gz
-2.更新zlib
+下载 [wget 源码](http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 。
+```
+1.更新zlib
 RedHat系列:yum install -y zlib
 Debian系列:sudo apt-get install zlib1g zlib1g.dev
-3.安装
+2.安装
 tar zxf openssl-1.0.2f.tar.gz
 cd openssl-1.0.2f
 sudo ./config shared zlib
@@ -71,14 +67,14 @@ sudo make
 sudo make install
 自行替换 c++_record_asr_sdk/lib 下面的库文件
 ```
-## 获取用户信息
-### 1. 获取用户鉴权信息及申请使用
-- 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
-- 关于云API账号中的APPID，SecretId 与 SecretKey查询方法，可参考：[鉴名签权](https://cloud.tencent.com/document/product/441/6203)。    
-- 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理
+## <span id="result">获取用户信息</span>
+**获取用户鉴权信息及申请使用**
+- 使用本接口之前需要先 [注册腾讯云账号](https://cloud.tencent.com/register) ，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
+- 关于云 API 账号中的AppID，SecretId 与 SecretKey查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。    
+- 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
-### 2. 配置用户信息
-**将 Appid、SecretId、SecretKey配置到 sdk 中**。
+**配置用户信息**
+**将 AppID、SecretId、SecretKey配置到 SDK 中**。
 
 ```
 #需要配置成用户账号信息 c++_record_asr_sdk/config/TCloudRecordASRConfig.ini
@@ -93,26 +89,26 @@ secretkey=670m***************************
 
 
 ## 开发相关
-### 1.参数说明 
-**1.1 请求参数**
+**参数说明**
+**请求参数**
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考第二条获取此参数。 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型。 |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
 | res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回。|
-| callback_url | 是 | String | 回调 URL，用户接受结果，长度大于 0，小于 2048。 |
+| callback_url | 是 | String | 回调 URL，用户接受结果，长度大于0，小于2048。 |
 | channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1。 |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body）。 |
-| url | 否 | String | 语音 URL，公网可下载。当 source_type 值为 0 时须填写该字段，为 1 时不填；URL 的长度大于 0，小于 2048。 |
+| url | 否 | String | 语音 URL，公网可下载。当 source_type 值为0时须填写该字段，为1时不填；URL 的长度大于0，小于2048。 |
 | timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
-| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置 1 h。|
-| nonce | 是 | Int | 随机正整数。用户需自行生成，最长 10 位。|
+| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置1小时。|
+| nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 
-### 请求 url 参数例子
+**请求 url 参数示例**
 ```
 https://aai.qcloud.com/asr/v1/125000001?engine_model_type=0
 &expired=1473752807
@@ -135,17 +131,17 @@ headers:
 }
 ```
 其中v1表示 API 的版本，v1.0，后面125000001是 AppID，各个参数的说明参考上表。
-**1.2 返回参数**
+**返回参数**
 离线语音识别的 RESTful API 请求返回结果如下表所示：
 
 | 参数名称 | 类型 | 描述 |  
 | --- | --- | --- |
-| code |  Int | 服务器错误码，0 为成功 |
+| code |  Int | 服务器错误码，0为成功 |
 | message |  String | 服务器返回的信息 |
 | requestId |  Int | 如果成功，返回任务 ID |
 
-### 2.接口说明
-**2.1 TCloudRecordASR::Init**
+**接口说明**
+**<span id="init"></span>TCloudRecordASR::Init**
 ```
 /* 
 ** 初始化公共请求参数，此类参数较稳定不变
@@ -161,7 +157,7 @@ int Init(TCloudRecordASRConfig config);
 */
 int Init(TCloudRecordASRConfig strPath);
 ```
-**2.2 TCloudRecordASR::SetSecretKey**
+**<span id="SetSecretKey">TCloudRecordASR::SetSecretKey</span>**
 ```
 /* 
 ** 设置用户密钥
@@ -170,7 +166,7 @@ int Init(TCloudRecordASRConfig strPath);
 */
 int SetSecretKey(string strSecretKey);
 ```
-**2.4 TCloudRecordASR::BuildRequest**
+**TCloudRecordASR::BuildRequest**
 ```
 /* 
 ** 构造一个完整的请求
@@ -178,7 +174,7 @@ int SetSecretKey(string strSecretKey);
 */
 int BuildRequest();
 ```
-**2.5 TCloudRecordASR::SetData**
+**<span id="setdata">TCloudRecordASR::SetData</span>**
 ```
 /* 
 ** 传入语音数据
@@ -188,7 +184,7 @@ int BuildRequest();
 */
 int SetData(char* pPCMData, int length);
 ```
-**2.6 TCloudRecordASR::SetUrl**
+**<span id="seturl">TCloudRecordASR::SetUrl</span>**
 ```
 /* 
 ** 设置可以获取音频的URL
@@ -197,7 +193,7 @@ int SetData(char* pPCMData, int length);
 */
 int SetUrl(string strAudioURL);
 ```
-**2.7 TCloudRecordASR::SetFile**
+**<span id="setfile">TCloudRecordASR::SetFile</span>**
 ```
 /* 
 ** 添加音频文件
@@ -206,7 +202,7 @@ int SetUrl(string strAudioURL);
 */
 int SetFile(string strFile);
 ```
-**2.8 CServerConf::ParseFile()**
+**CServerConf::ParseFile()**
 ```
 /* 
 ** 初始化配置文件
@@ -215,7 +211,7 @@ int SetFile(string strFile);
 */
 int ParseFile(const char* szConfigFile);
 ```
-**2.9 TSpeexEncoder::Encode**
+**TSpeexEncoder::Encode**
 ```
 /* 
 ** pcm格式音频speex压缩
@@ -226,31 +222,31 @@ int ParseFile(const char* szConfigFile);
 */
 bool Encode(const char* inputBuffer, int inputSize, string& strRsp);
 ```
-**3.请求 demo**
+**请求 demo**
 ```
 make
 ./run.sh
 ```
 
-### 4. 简单开发流程介绍
-**4.1 初始化请求参数**  
-调用 Init 接口初始化请求参数  
-接口参考2.1
-**4.2 设置用户密钥**
-调用 SetSecretKey 接口设置密钥  
-参考接口2.2
-**4.3 传入音频获取结果**
+**简单开发流程介绍**
+**初始化请求参数**  
+调用 Init 接口初始化请求参数。  
+参考接口 [TCloudRecordASR::Init](init)。
+**设置用户密钥**
+调用 SetSecretKey 接口设置密钥。  
+参考接口 [TCloudRecordASR::SetSecretKey](SetSecretKey)。
+**传入音频获取结果**
 方法一：传入音频 URL 建议使用  
-调用 SetUrl 接口获取结果，对应参数设置为 url 模式
-参考接口2.6
+调用 SetUrl 接口获取结果，对应参数设置为 url 模式。
+参考接口 [TCloudRecordASR::SetUrl](setdata)。
 方法二：音频数据  
-调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频  
-参考接口2.5和2.7
-**4.4 sdk 已提供各个接口源码，用户可根据自身需要进行更改。**
+调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频。  
+参考接口 [TCloudRecordASR::SetData](seturl) 与 [TCloudRecordASR::SetFile](setfile)。
+**SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
 
 
-## 快速入门例子
+## C ++ 快速入门示例
 参考 c++_record_asr_sdk/src/demo.cpp  
 ```
 int RunReacordASR()
