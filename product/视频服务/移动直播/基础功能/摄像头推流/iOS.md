@@ -27,7 +27,7 @@
 ### 2. 给 SDK 配置 License 授权
 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
-在您的 App 调用 LiteAVSDK 的相关功能之前，建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中进行如下设置：
+在您的 App 调用 LiteAVSDK 的相关功能之前，建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中进行如下设置：
 
 ```objc
 @import TXLiteAVSDK_Professional;
@@ -44,7 +44,7 @@
 ```
 
 ### 3. 初始化 TXLivePush 组件
-首先创建一个 `TXLivePushConfig` 对象。该对象可以指定一些高级配置参数，但一般情况下我们不建议您操作该对象，我们已经在其内部配置好了所有需要校调的参数。之后再创建一个 `TXLivePush` 对象，该对象负责完成推流的主要工作。
+首先创建一个`TXLivePushConfig`对象。该对象可以指定一些高级配置参数，但一般情况下我们不建议您操作该对象，我们已经在其内部配置好了所有需要校调的参数。之后再创建一个`TXLivePush`对象，该对象负责完成推流的主要工作。
 
 ```objectivec   
  TXLivePushConfig *_config = [[TXLivePushConfig alloc] init];  // 一般情况下不需要修改默认 config   
@@ -53,7 +53,7 @@
 ```
 
 ### 4. 开启摄像头预览
-调用 TXLivePush 中的 `startPreview` 接口可以开启当前手机的摄像头预览。您需要为 `startPreview`  接口提供一个用于显示视频画面的 view 对象。
+调用 TXLivePush 中的`startPreview`接口可以开启当前手机的摄像头预览。您需要为`startPreview` 接口提供一个用于显示视频画面的 view 对象。
 
 ```objectivec   
  //创建一个 view 对象，并将其嵌入到当前界面中
@@ -73,7 +73,7 @@
 ```
 
 ### 5. 启动和结束推流
-如果已经通过 `startPreview` 接口启动了摄像头预览，则可以调用 TXLivePush 中的 `startPush` 接口开始推流。
+如果已经通过`startPreview`接口启动了摄像头预览，则可以调用 TXLivePush 中的`startPush`接口开始推流。
 
 ```objectivec 
 //启动推流
@@ -81,7 +81,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 [_pusher startPush:rtmpUrl];
 ```
 
-推流结束后，可以调用 TXLivePush 中的 `stopPush` 接口结束推流。请注意，如果已经启动了摄像头预览，请在结束推流时将其关闭，否则会导致 SDK 的表现异常。
+推流结束后，可以调用 TXLivePush 中的`stopPush`接口结束推流。请注意，如果已经启动了摄像头预览，请在结束推流时将其关闭，否则会导致 SDK 的表现异常。
 ```objectivec
 //结束推流
 [_pusher stopPreview]; //如果已经启动了摄像头预览，请在结束推流时将其关闭。
@@ -94,11 +94,11 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 	![](https://main.qcloudimg.com/raw/7bc0eed15c9886c049862e8ba2324d19.png)
 
 - **返回`-5`的原因**：
-如果 `startPush` 接口返回`-5`，则代表您的 License 校验失败，请检查第2步即“**给 SDK 配置 License 授权**”是否出现问题。
+如果`startPush`接口返回`-5`，则代表您的 License 校验失败，请检查第2步即“**给 SDK 配置 License 授权**”是否出现问题。
 
 
 ### 6. 纯音频推流
-如果您的直播场景是纯音频直播即不需要视频画面，那么您可以不执行第4步的操作，而是开启 TXLivePushConfig 中的 `enablePureAudioPush` 配置。
+如果您的直播场景是纯音频直播即不需要视频画面，那么您可以不执行第4步的操作，而是开启 TXLivePushConfig 中的`enablePureAudioPush`配置。
 
 ```objectivec
 //通过修改 enablePureAudioPush 开关，开启纯音频推流
@@ -112,12 +112,12 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 如果您启动纯音频推流，但是 rtmp、flv 和 hls 格式的播放地址拉不到流，那是因为线路配置问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮忙修改配置。
 
 ### 7. 设定画面清晰度
-调用 TXLivePush 中的 `setVideoQuality` 接口，可以设定观众端的画面清晰度。之所以是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而 `setVideoQuality` 是设定视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
+调用 TXLivePush 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`是设定视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
 
 ![](https://main.qcloudimg.com/raw/082b8cedd8d9f50afe23dbce723fc6d7.png)
 
 ### 8. 美颜美白和红润特效
-调用 TXLivePush 中的 `setBeautyStyle` 接口可以设置美颜效果，SDK 中提供了两种磨皮算法（beautyStyle）：
+调用 TXLivePush 中的`setBeautyStyle`接口可以设置美颜效果，SDK 中提供了两种磨皮算法（beautyStyle）：
 
 | 美颜风格 | 效果说明 | 
 |---------|---------|
@@ -138,10 +138,10 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 ### 9. 色彩滤镜效果
 色彩滤镜是指一种将整个画面色调进行区域性调整的技术，例如，将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖，让视频的效果更加清新和温和。
 
-- 调用 TXLivePush 中的 `setFilter` 接口可以设置色彩滤镜效果。
-- 调用 TXLivePush 中的 `setSpecialRatio` 接口可以设定滤镜的浓度，浓度越高，滤镜效果越明显。
+- 调用 TXLivePush 中的`setFilter`接口可以设置色彩滤镜效果。
+- 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，浓度越高，滤镜效果越明显。
 
-从手机 QQ 和 Now 直播的经验来看，单纯通过 `setBeautyStyle` 调整磨皮效果是不够的，只有将美颜效果和 `setFilter` 配合使用才能达到更加多变的美颜效果，所以我们提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
+从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果，所以我们提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
 
 ![](https://main.qcloudimg.com/raw/850bb60b66c487029e197b0b5dab9e2d.jpg)
 
@@ -159,13 +159,13 @@ TXLivePush 提供了一组 API 用于控制摄像头的行为：
 
 | API 函数 | 功能说明 | 备注说明 |
 |---------|---------|---------|
-| `switchCamera` | 切换前后摄像头 | Mac 平台对应的函数为 `selectCamera`。 |
+| `switchCamera` | 切换前后摄像头 | Mac 平台对应的函数为`selectCamera`。 |
 | `toggleTorch` | 打开或关闭闪光灯 | 仅在当前是后置摄像头时有效。|
 | `setZoom` | 调整摄像头的焦距 | 焦距大小，取值范围：1 - 5，默认值建议设置为1即可。|
-| `setFocusPosition` | 设置手动对焦位置 | 需要将 TXLivePushConfig 中的 `touchFocus` 选项设置为 YES 后才能使用。|
+| `setFocusPosition` | 设置手动对焦位置 | 需要将 TXLivePushConfig 中的`touchFocus`选项设置为 YES 后才能使用。|
 
 ### 11. 观众端的镜像效果
-调用 TXLivePush 中的 `setMirror` 接口可以设置观众端的镜像效果。之所以是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，自己看到的画面会被 SDK 默认反转，这时主播的体验跟自己照镜子时的体验是保持一致的。`setMirror` 所影响的是观众端观看到的画面情况，如下图所示：
+调用 TXLivePush 中的`setMirror`接口可以设置观众端的镜像效果。之所以是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，自己看到的画面会被 SDK 默认反转，这时主播的体验跟自己照镜子时的体验是保持一致的。`setMirror`所影响的是观众端观看到的画面情况，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/7448f422eb7db068e9fbdf990feb30e8.jpg)
 
@@ -174,8 +174,8 @@ TXLivePush 提供了一组 API 用于控制摄像头的行为：
 ![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
 
 TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
-1. 设置 TXLivePushConfig 中的 `homeOrientation` 改变观众端看到的视频画面的宽高比方向。
-2. 调用 TXLivePush 中的 `setRenderRotation` 接口改变主播端的视频画面的渲染方向。
+1. 设置 TXLivePushConfig 中的`homeOrientation`改变观众端看到的视频画面的宽高比方向。
+2. 调用 TXLivePush 中的`setRenderRotation`接口改变主播端的视频画面的渲染方向。
 
 ```objectivec
 // 如果希望竖屏推流（HOME 键在下），这是 SDK 的默认行为
@@ -191,15 +191,15 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 ### 13. 隐私模式（垫片推流）
 
-调用 TXLivePush 中的 `pausePush` 接口可以进入隐私模式。在隐私模式下，SDK 会暂停摄像头采集，并使用 TXLivePushConfig 中 `pauseImg` 属性所指定的图片作为替代图像进行推流，也就是所谓的“垫片”。
+调用 TXLivePush 中的`pausePush`接口可以进入隐私模式。在隐私模式下，SDK 会暂停摄像头采集，并使用 TXLivePushConfig 中`pauseImg`属性所指定的图片作为替代图像进行推流，也就是所谓的“垫片”。
 
-这项功能常用于 App 被切到后台运行的场景，在 iOS 系统中，当 App 切到后台以后，操作系统不会再允许该 App 继续使用摄像头。 此时就可以通过调用 `pausePush` 进入垫片状态。对于大多数推流服务器，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
+这项功能常用于 App 被切到后台运行的场景，在 iOS 系统中，当 App 切到后台以后，操作系统不会再允许该 App 继续使用摄像头。 此时就可以通过调用`pausePush`进入垫片状态。对于大多数推流服务器，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
 
 - **step1. 开启 XCode 中的 Background 模式**
 ![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
 
 - **step2. 设置 TXLivePushConfig 中的相关参数**
-在开始推流前，使用 LivePushConfig 的 `pauseImg`、`pauseFps` 和 `pauseTime` 接口可以设置垫片推流的详细参数：
+在开始推流前，使用 LivePushConfig 的`pauseImg`、`pauseFps`和`pauseTime`接口可以设置垫片推流的详细参数：
 ```objectivec
     TXLivePushConfig *_config = [[TXLivePushConfig alloc] init];
     // 设置后台推流持续时长，单位秒，默认300秒。
@@ -252,16 +252,16 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 | setBgmPitch|调整背景音乐的音调高低。|
 
 ### 15. 耳返和混响
-- 调用 TXLivePushConfig 中的 `enableAudioPreview` 选项可以开启耳返功能，“耳返”是指当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音。
-- 调用 TXLivePush 中的 `setReverbType` 接口可以设置混响效果，例如 KTV、会堂、磁性、金属等，这些效果也会作用到观众端。
-- 调用 TXLivePush 中的 `setVoiceChangerType` 接口可以设置变调效果，例如“萝莉音”和“大叔音”等，用来增加直播和观众互动的趣味性，这些效果也会作用到观众端。
+- 调用 TXLivePushConfig 中的`enableAudioPreview`选项可以开启耳返功能，“耳返”是指当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音。
+- 调用 TXLivePush 中的`setReverbType`接口可以设置混响效果，例如 KTV、会堂、磁性、金属等，这些效果也会作用到观众端。
+- 调用 TXLivePush 中的`setVoiceChangerType`接口可以设置变调效果，例如“萝莉音”和“大叔音”等，用来增加直播和观众互动的趣味性，这些效果也会作用到观众端。
 ![](//mc.qcloudimg.com/static/img/fca1094c93126ad5b61d962ec22ad0d5/image.png)
 
 ### 16. 设置 Logo 水印
-设置 TXLivePushConfig 中的 `watermark` 可以让 SDK 在推出的视频流中增加一个水印，水印的位置由 `watermarkNormalization` 选项决定。
+设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置由`watermarkNormalization`选项决定。
 
 - SDK 要求的水印图片格式为 png 而不是 jpg，因为 png 格式有透明度信息，所以能够更好地处理锯齿等问题（**将 jpg 图片在 Windows 下修改后缀名是不起作用的**）。
-- `watermarkNormalization` 是设置水印图片相对于推流分辨率的归一化坐标。例如，推流分辨率为540 x 960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为：(540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
+- `watermarkNormalization`是设置水印图片相对于推流分辨率的归一化坐标。例如，推流分辨率为540 x 960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为：(540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```objectivec
 //设置视频水印
@@ -270,8 +270,8 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 ```
 
 ### 17. 本地录制
-- 调用 TXLivePush 中的 `startRecord` 接口可以启动本地录制，录制格式为 MP4，通过参数 `videoPath` 可以指定 MP4 文件的存放路径。
-- 调用 TXLivePush 中的 `stopRecord` 接口可以结束录制，录制出来的文件会通过 `TXLiveRecordListener` 回调进行通知。
+- 调用 TXLivePush 中的`startRecord`接口可以启动本地录制，录制格式为 MP4，通过参数`videoPath`可以指定 MP4 文件的存放路径。
+- 调用 TXLivePush 中的`stopRecord`接口可以结束录制，录制出来的文件会通过`TXLiveRecordListener`回调进行通知。
 
 ```objectivec
 -(int) startRecord:(NSString *)videoPath;
@@ -302,8 +302,8 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 }
 ```
 
-<h3 id="Message"> 19. 发送 SEI 消息 </h3>
-调用 TXLivePush 中的 `sendMessageEx` 接口可以发送 SEI 消息。SEI 是视频编码数据中规定的一种附加增强信息，一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
+### 19. 发送 SEI 消息 
+调用 TXLivePush 中的`sendMessageEx`接口可以发送 SEI 消息。SEI 是视频编码数据中规定的一种附加增强信息，一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：
 
 - 答题直播：推流端将**题目**下发到观众端，可以做到“音 - 画 - 题”完美同步。
 - 秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，从而不受视频编码的降质影响。
@@ -317,7 +317,7 @@ NSString* msg = @"test";
 ```
 
 常规开源播放器或者网页播放器是不能解析 SEI 消息的，必须使用 LiteAVSDK 中自带的 TXLivePlayer 才能解析这些消息：
-1. 设置 TXLivePlayConfig 中的 `enableMessage` 选项为 YES。
+1. 设置 TXLivePlayConfig 中的`enableMessage`选项为 YES。
 2. 当 TXLivePlayer 所播放的视频流中有 SEI 消息时，会通过 TXLivePlayListener 中的 onPlayEvent(PLAY_EVT_GET_MESSAGE) 通知到您。
 
 ## 事件处理
