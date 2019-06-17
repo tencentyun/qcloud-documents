@@ -1,5 +1,5 @@
 
-本文主要介绍如何快速地运行云通信 IM Demo（iOS & Mac） 工程。
+本文主要介绍如何快速地运行云通信 IM Demo（iOS & Mac）工程。
 
 ## 创建应用
 1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
