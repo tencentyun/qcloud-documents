@@ -124,7 +124,7 @@ http://云服务器的公网 IP/test.php
 ### 下载和安装 Discuz!  
 
 #### 下载 Discuz! 
-执行以下命令，访问 [Discuz! 官网](http://www.comsenz.com/downloads/install/discuzx)，下载安装包。
+执行以下命令，下载安装包。
 ```
 wget http://download.comsenz.com/DiscuzX/3.2/Discuz_X3.2_SC_UTF8.zip
 ```
