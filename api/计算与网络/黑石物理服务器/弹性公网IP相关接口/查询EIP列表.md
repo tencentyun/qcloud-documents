@@ -24,7 +24,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 [公共请求参数页面](/document/product/386/6718)。其中，此接口的 Action 字段为 DescribeEipBm。
 
 
-| 标题1 | 标题2 | 标题3 | 标题3 |
+| 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
 | eipIds.n | 否 | String | EIP 实例 ID 列表，数组下标从0开始 |
 | eips.n | 否 | String | EIP 列表，数组下标从0开始 |
