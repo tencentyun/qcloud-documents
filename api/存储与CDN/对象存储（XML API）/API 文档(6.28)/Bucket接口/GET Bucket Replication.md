@@ -4,14 +4,14 @@ GET Bucket replication 接口用于查询存储桶中用户跨地域复制配置
 ## 请求
 ### 请求示例
 
-```
+```shell
 GET /?replication HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
 
->Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+>Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
@@ -37,7 +37,7 @@ Authorization: Auth String
 ### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <ReplicationConfiguration>
 	<Role>qcs::cam::uin/[UIN]:uin/[Subaccount]</Role>
 	<Rule>
@@ -56,27 +56,30 @@ Authorization: Auth String
 |节点名称（关键字）|    父节点|    描述    |类型|    必选|
 |---|---|---|---|---|
 |ReplicationConfiguration    |无    |说明所有跨地域配置信息    |Container    |是|
-|Role|ReplicationConfiguration    |发起者身份标示：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>  |String    |是|
+|Role|ReplicationConfiguration    |发起者身份标示：<br>`qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>`  |String    |是|
 |Rule    |ReplicationConfiguration    |具体配置信息，最多支持 1000 个，所有策略只能指向一个目标存储桶    |Container    |是|
 |ID    |ReplicationConfiguration.Rule    |用来标注具体 Rule 的名称    |String    |否|
 |Status    |ReplicationConfiguration.Rule    |标识 Rule 是否生效，枚举值：Enabled, Disabled    |String    |是|
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
-|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs::cos:[region]::[bucketname-Appid]    |String    |是|
-|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：Standard, Standard_IA；默认值：原存储桶级别    |String    |否|
+|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：<br>`qcs::cos:[region]::[bucketname-Appid]`   |String    |是|
+|StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：Standard，Standard_IA；默认值：原存储桶级别    |String    |否|
+
+
 ## 错误分析
 该请求可能会发生的一些常见的特殊错误如下，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-|错误代码|   描述 | 状态码 |
-|---|---|---|---|
-|ReplicationConfigurationNotFoundError|无查询的跨地域复制规则|404 Not Found||
+
+| 错误代码                              | 描述                   | 状态码        |
+| ------------------------------------- | ---------------------- | ------------- |
+| ReplicationConfigurationNotFoundError | 无查询的跨地域复制规则 | 404 Not Found |
 
 ## 实际案例
 
 ### 请求
 
 下述请求示例展示了从存储桶`originBucket-1250000000`中获取跨区域配置信息。
-```
+```shell
 GET /?replication HTTP/1.1
 Date: Fri, 14 Apr 2019 07:17:19 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503895278;1503895638&q-key-time=1503895278;1503895638&q-header-list=host&q-url-param-list=replication&q-signature=f77900be432072b16afd8222b4b349aabd837cb9
@@ -87,7 +90,7 @@ Content-Length: 0
 ### 响应
 
 上述请求后，COS 返回以下响应，表明当前该存储桶内的跨区域复制配置处于启用状态。该规则配置信息中，复制的内容为存储桶`originBucket-1250000000`内包含`testPrefix`前缀的所有对象。对象副本的存储类型默认跟随源存储桶内对象的存储类型。
-```
+```shell
 Content-Type: application/xml
 Content-Length: 309
 Connection: keep-alive
