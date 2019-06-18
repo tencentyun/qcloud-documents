@@ -110,10 +110,13 @@ cos.getObjectUrl({
 }, function (err, data) {
     if (!err) return console.log(err);
     wx.downloadFile({
-      url: data.Url, // 需要加 url 的域名作为下载白名单
-      success (res) {
-        console.log(res.statusCode, res.tempFilePath);
-      }
+        url: data.Url, // 需要加 url 的域名作为下载白名单
+        success (res) {
+            console.log(res.statusCode, res.tempFilePath);
+        },
+        fail: function (err) {
+            console.log(err);
+        },
     });
 });
 ```
