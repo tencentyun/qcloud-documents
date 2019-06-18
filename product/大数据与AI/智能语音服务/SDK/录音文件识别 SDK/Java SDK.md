@@ -42,10 +42,10 @@ JAR 包使用步骤如下：
 | --- | --- | --- | --- |
 | appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](https://cloud.tencent.com/document/product/441/19635?!editLang=zh&!preview#.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
-| sub\_service\_type | 否 | Int | 子服务类型。1：实时流式识别。|
+| sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型. |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
-| res_type | 否 | Int | 结果返回方式。1：同步返回；0：尾包返回。|
+| res_type | 否 | Int | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 | callback_url | 是 | String | 回调 URL，用户接受结果，长度大于 0，小于 2048。 |
 | channel_num | 否 | Int | 语音声道数，仅在电话8k通用模型下，支持1和2，其他模型仅支持1。 |
