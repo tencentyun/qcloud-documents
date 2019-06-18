@@ -1,7 +1,7 @@
-Player 对象为 MGOBE 的子属性，用户访问玩家的基本信息，如玩家 ID、openId 等。
+Player 对象为 MGOBE 的子属性，用来访问玩家的基本信息，如玩家 ID、openId 等。
+
 
 ### Player
-
 #### 对象描述
 玩家信息。
 
@@ -9,17 +9,17 @@ Player 对象为 MGOBE 的子属性，用户访问玩家的基本信息，如玩
 
 |属性名|类型/值|描述|
 |:---|---|---|
-|id|string|玩家ID|
-|openId|string|玩家openId|
+|id|string|玩家 ID|
+|openId|string|玩家 openId|
 |name|string|玩家昵称|
-|teamId|string|队伍ID|
+|teamId|string|队伍 ID|
 |customPlayerStatus|number|自定义玩家状态|
 |customProfile|string|自定义玩家属性|
 |commonNetworkState|[MGOBE.types.NetworkState](https://cloud.tencent.com/document/product/1038/35534#networkstate)|房间网络状态|
 |relayNetworkState|[MGOBE.types.NetworkState](https://cloud.tencent.com/document/product/1038/35534#networkstate)|帧同步网络状态|
 
 >?
-- 该对象记录了玩家的基本信息，默认全部为空。初始化Listener成功之后，id、openId 属性将生效。
+- 该对象记录了玩家的基本信息，默认全部为空。初始化Listener成功之后，ID、openId 属性将生效。
 - 玩家进入房间后，该对象的其他属性与 roomInfo.playerList 中当前玩家信息保持一致。
 - 玩家 ID 是 MGOBE 后台生成的 ID，openId 是开发者初始化时候使用的 ID。openId 只有初始化 Listener 的时候使用，其它接口的“玩家 ID”均指后台生成的 ID。
 
