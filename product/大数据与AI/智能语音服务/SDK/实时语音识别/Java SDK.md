@@ -95,8 +95,8 @@ public class AsrBaseConfig {
 | voice_id | 表示这通音频的标记，同一个音频流这个标记一样。 |
 | seq | 语音分片的信号。<br> 如果请求参数 needvad为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 。|
 | text |  如果请求参数 needvad 为0的，表示不需要后台做 vad，text 的值是分片的识别结果。<br>如果请求参数 needvad 为1的话，表示需要后台做 vad，因为后台做 vad 的话，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，text 为"" 。|
-| result_number | 请求参数needvad=1, 此字段有效，后面的 result\_list 里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示 result\_list 有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
-| result_list | 请求参数needvad=1, 此字段有效 slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  当前分片所在小段的开始时间（相对整个音频流）。<br>end\_time 当前分片在整个音频流中的结束时间。<br>voice\_text_str 识别结果。 |
+| result_number | 请求参数needvad=1， 此字段有效，后面的 result\_list 里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示 result\_list 有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
+| result_list | 请求参数needvad=1， 此字段有效 slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  当前分片所在小段的开始时间（相对整个音频流）。<br>end\_time 当前分片在整个音频流中的结束时间。<br>voice\_text_str 识别结果。 |
 | final | 0 表示还在整个音频流的中间部分。<br>1 表示是整个音频流的最后一个包。<br>例如在电信电话场景中，是否是客户端发送的最后一个包的识别结果。 |
 
 **请求 url 参数示例**
