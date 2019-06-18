@@ -17,10 +17,10 @@
 ![](https://mc.qcloudimg.com/static/img/dc603f912adf94a33749155c69ddddd2/24.png)
 **配置信息说明：**
  - 主机：云服务器的公网 IP。在 [云服务器控制台](https://console.cloud.tencent.com/cvm) 的“实例列表”页面可查看对应云服务器的公网 IP。
- - 用户名：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户的账号。图中以 “ftpuser1” 为例。
- - 密码：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户账号对应的密码。
+ - 用户名：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户的帐号。图中以 “ftpuser1” 为例。
+ - 密码：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户帐号对应的密码。
  - 端口：FTP 监听端口，默认为**21**。
-5. 在左下方的“本地站点”窗口中，右键单击选中的本地文件，单击【上传】选项，即可将文件上传到 Linux 云服务器。如下图所示：
+5. 在左下方的“本地站点”窗口中，右键单击待上传的本地文件，选择【上传】，即可将文件上传到 Linux 云服务器。如下图所示：
 >! 
 >- 云服务器 FTP 通道不支持上传 tar 压缩包后自动解压，以及删除 tar 包功能。
 >- 远程站点路径为上传文件至 Linux 云服务器的默认路径。
