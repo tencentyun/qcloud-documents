@@ -125,7 +125,7 @@ secretkey=670m***************************
 | result\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
 | res_type | 否 | Int | 结果返回方式。1：同步返回；0：尾包返回。|
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为 4。1：wav（pcm）；4：speex（sp）；6：silk；8：mp3（仅16k_0模型支持）。|
-| needvad | 否 | Int | 0为不需要vad，1代表需要vad |
+| needvad | 否 | Int | 0为后台不做 vad 分段，1为后台做自动 vad 分段。 |
 | seq | 是 | Int | 	语音分片的序号从0开始。|
 | end | 是 | Int | 是否为最后一片，最后一片语音片为1，其余为0。 |
 | source | 是 | Int | 设置为0 |
