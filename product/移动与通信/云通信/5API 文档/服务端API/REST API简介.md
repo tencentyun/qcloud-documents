@@ -1,9 +1,9 @@
-REST API 是云通信 IM 给提供 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信 IM 支持的 REST API 参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
+REST API 是云通信 IM 提供给 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信 IM 支持的 REST API 请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
 除了 REST API，App 控制台也可实现简单的数据管理、单发/群发消息，开发者可以在控制台进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
 
 ## 前提条件
-要调用 REST API，您必须首先
+要调用 REST API，您必须已完成：
 1. 在云通信 IM 控制台创建 App，具体方法参见 [应用接入指引](https://cloud.tencent.com/document/product/269/32577)。
 2. 为您的 App 指定管理员帐号，具体方法参见 [基础配置](https://cloud.tencent.com/document/product/269/32578#.E5.9F.BA.E7.A1.80.E9.85.8D.E7.BD.AE) 的帐号体系集成。
 
