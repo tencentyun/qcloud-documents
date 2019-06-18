@@ -100,7 +100,7 @@ secretkey=670m***************************
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型。 |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
-| res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回。|
+| res_type | 否 | Int | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回。|
 | callback_url | 是 | String | 回调 URL，用户接受结果，长度大于0，小于2048。 |
 | channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1。 |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body）。 |
