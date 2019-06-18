@@ -3,11 +3,11 @@
 ## 1. 功能简介
 
 腾讯云PPT动画转码服务为您提供 `.ppt`、`.pptx` 文件转码为 `HTML5`
-页面的能力，转码得到HTML5页面可高度还原PPT动画特效，结合[腾讯云白板服务](白板2.0接口参考文档.md)，为您提供和线下教育体验高度一致的在线教育服务。
+页面的能力，转码得到HTML5页面可高度还原PPT动画特效，结合[互动白板接口文档](SDK文档/互动白板接口文档.md)，为您提供和线下教育体验高度一致的在线教育服务。
 
 ## 2. 服务开通
 
-若您能还没开通PPT动画转码服务，请按照[服务开通指南](../开通服务/服务开通指南.md)发送邮件，并在申请功能里保留`PPT动画转码`
+若您能还没开通PPT动画转码服务，请按照[购买指南](../购买指南.md)发送邮件申请开通。
 
 ## 3. 服务接入
 
@@ -17,11 +17,11 @@ PPT动画转码服务接入有两种方式，一种为主动轮询（较适用�
 
 #### 主动轮询
 
-![主动轮询](https://test-1257240443.cos.ap-shanghai.myqcloud.com/picgo/PPT动画转码流程(主动轮询).png)
+![主动轮询](https://main.qcloudimg.com/raw/4b41ebe8b5fcabc14a1a037ebb3ae87d/PPT%E5%8A%A8%E7%94%BB%E8%BD%AC%E7%A0%81%E6%B5%81%E7%A8%8B(%E4%B8%BB%E5%8A%A8%E8%BD%AE%E8%AF%A2).png)
 
 #### 注册CGI接口回调
 
-![注册CGI接口回调](https://test-1257240443.cos.ap-shanghai.myqcloud.com/picgo/PPT动画转码流程(注册CGI接口回调).png)
+![注册CGI接口回调](https://main.qcloudimg.com/raw/00f084aa67f783cfce6f0acea77c09f3/PPT%E5%8A%A8%E7%94%BB%E8%BD%AC%E7%A0%81%E6%B5%81%E7%A8%8B(%E6%B3%A8%E5%86%8CCGI%E6%8E%A5%E5%8F%A3%E5%9B%9E%E8%B0%83).png)
 
 ### 3.2 鉴权签名算法
 
@@ -65,11 +65,6 @@ func GetMD5Hash(data []byte) string {
 }
 ```
 
-> 注意
->
-> 测试体验用户没有提供TicKey，而是直接提供了指定过期时间的签名字符串，请直接使用邮件中的`过期时间`填充请求包体中的`expire_time`，使用`签名`替换请求URL中的`sign`
-
-
 ## 4. 接口说明
 
 ### 4.1 上传PPT并获取链接
@@ -89,11 +84,11 @@ func GetMD5Hash(data []byte) string {
 
 发布一个PPT转码任务
 
-| 请求基本信息 | 描述                                           |
-|:-------------|:-----------------------------------------------|
-| 方法         | POST                                           |
-| 请求URL      | https://iclass.api.qcloud.com/ppt2h5/v1/create |
-| 请求Header   | Content-Type:application/json                  |
+| 请求基本信息 | 描述                                            |
+|:-----------|:-----------------------------------------------|
+| 方法        | POST                                           |
+| 请求URL     | https://iclass.api.qcloud.com/ppt2h5/v1/create |
+| 请求Header  | Content-Type:application/json                  |
 
 ##### 请求参数
 
@@ -107,13 +102,13 @@ URL参数
 
 Body参数（json格式）
 
-| 参数名      | 类型   | 描述                                                                              |
-|:------------|:-------|:----------------------------------------------------------------------------------|
-| expire_time | int    | 签名的过期时间                                                                    |
-| url         | string | 4.1中获取的PPT下载URL，需要以`.ppt`或`.pptx`为文件名后缀，同时请检查URL的访问权限 |
+| 参数名       | 类型    | 描述                                                                       |
+|:------------|:-------|:--------------------------------------------------------------------------|
+| expire_time | int    | 签名的过期时间                                                              |
+| url         | string | 4.1中获取的PPT下载URL，需要以`.ppt`或`.pptx`为文件名后缀，同时请检查URL的访问权限  |
 
 请求示例：
-> 请将random/sdkappid/sign/expire_time/url字段替换为实际的值
+> 请将参数替换为实际值
 
 ```
 请求URL：https://iclass.api.qcloud.com/ppt2h5/v1/create?random=526919&sdkappid=1400127115&sign=d33bfea49d7f2795a4829c0d80047a7d
@@ -176,9 +171,9 @@ Body参数（json格式）
 | task_id     | string | PPT转码任务的唯一标识 |
 
 请求示例：
-> 请将random/sdkappid/sign/expire_time/task_id字段替换为实际的值
+> 请将参数替换为实际值
 
-```shell
+```
 请求URL：https://iclass.api.qcloud.com/ppt2h5/v1/query?random=526919&sdkappid=1400127115&sign=d33bfea49d7f2795a4829c0d80047a7d
 请求Header："Content-Type:application/json"
 请求包体：
@@ -234,10 +229,6 @@ Body参数（json格式）
 
 ##### 接口说明
 
-- 调用设置回调接口时，会往回调地址发送测试请求，**回调URL地址需要回复`{"error_code":
-  0}`才能设置成功**
-
-
 | 请求基本信息 | 描述                                             |
 |:-------------|:-------------------------------------------------|
 | 方法         | POST                                             |
@@ -257,15 +248,15 @@ URL参数
 
 Body参数（json格式）
 
-| 参数名      | 类型   | 描述                                                     |
-|:------------|:-------|:---------------------------------------------------------|
-| expire_time | int    | 签名的过期时间                                           |
-| callback    | string | 转码进度回调地址，如果传空字符串会删除原来的回调地址配置 |
+| 参数名       | 类型    | 描述                                                                                                           |
+|:------------|:-------|:--------------------------------------------------------------------------------------------------------------|
+| expire_time | int    | 签名的过期时间                                                                                                  |
+| callback    | string | PPT转码进度回调地址，如果传空字符串会删除原来的回调地址配置，回调地址仅支持http或https协议，即回调地址以`http://`或`https://`开头 |
 
 请求示例：
-> 请将random/sdkappid/sign/expire_time/callback字段替换为实际的值
+> 请将参数替换为实际值
 
-```shell
+```
 请求URL：https://iclass.api.qcloud.com/ppt2h5/v1/callback?random=526919&sdkappid=1400127115&sign=d33bfea49d7f2795a4829c0d80047a7d
 请求Header："Content-Type:application/json"
 请求包体：
@@ -319,6 +310,7 @@ URL参数
 |:-------|:------------------------------------------------------------------------|
 | sign   | 用于鉴权的签名，需对该签名做校验，判断是否为有效请求                    |
 | random | 随机int32正整数，每次请求都需要带上，定位问题时需要提供该次请求的random |
+| sdkappid | 客户的sdkappid                                                 |
 
 Body参数（json格式）
 
@@ -327,7 +319,6 @@ Body参数（json格式）
 | expire_time | int    | 签名的过期时间            |
 | error_code  | int    | 错误码                  |
 | error_msg   | string | 错误信息                 |
-| sdkappid    | int    | 客户的sdkappid          |
 | timestamp   | int    | 回调发送的时间戳           |
 | task_id     | string | 任务的唯一标识ID          |
 | status      | string | 任务状态                 |
@@ -339,13 +330,12 @@ Body参数（json格式）
 
 回调示例：
 
-```shell
-回调URL：https://业务后台URL?random=526919&sign=d33bfea49d7f2795a4829c0d80047a7d
+```
+回调URL：https://业务后台URL?random=526919&sign=d33bfea49d7f2795a4829c0d80047a7d&sdkappid=1400127140
 回调Body：
 {
     "error_code":0,
     "error_msg":"",
-    "sdkappid":1400127140,
     "expire_time":1554246423,
     "timestamp": 1553245423,
     "task_id": "9m4e2mr0ui3e8a215n4g",
@@ -402,15 +392,15 @@ Body参数（json格式）
 
 #### 请求错误码
 
-| 错误码 | 错误描述             | 解决方法                                                                  |
-|:-------|:---------------------|:--------------------------------------------------------------------------|
-| 20000  | 客户未开通服务       | 请参考`2. 服务开通`中流程发送邮件申请开通PPT转码服务                      |
-| 20001  | 签名已过期           | 检查请求JSON中的expire_time签名时间，更新过期时间后重新生成签名字符串     |
-| 20002  | 签名校验失败         | 检查TicKey与签名算法是否正确                                              |
-| 20003  | 参数解析失败         | 根据error_msg查询具体的请求参数异常信息，更正参数缺失/类型错误等          |
-| 20004  | 设置回调地址请求失败 | 检查回调地址所在服务器是否网络可达，接收回调后是否返回`{"error_code": 0}` |
-| 20005  | 数据读取失败         | 请检查请求中的TaskId或联系客服人员                                          |
-| 20099  | 转码服务内部错误     | 请联系客服人员                                                            |
+| 错误码 | 错误描述              | 解决方法                                                       |
+|:------|:---------------------|:-------------------------------------------------------------|
+| 20000 | 客户未开通服务         | 请参考`2. 服务开通`中流程发送邮件申请开通PPT转码服务                 |
+| 20001 | 签名已过期             | 检查请求JSON中的expire_time签名时间，更新过期时间后重新生成签名字符串 |
+| 20002 | 签名校验失败           | 检查TicKey与签名算法是否正确                                     |
+| 20003 | 参数解析失败           | 根据error_msg查询具体的请求参数异常信息，更正参数缺失/类型错误等      |
+| 20004 | 设置回调地址格式错误    | 检查回调地址是否正确                                             |
+| 20005 | 数据读取失败           | 请检查请求中的TaskId或联系客服人员                                |
+| 20099 | 转码服务内部错误        | 请联系客服人员                                                  |
 
 
 ## 6. ppt演示文稿课件格式建议
@@ -438,7 +428,7 @@ ppt保存时，将字体库一起打包进ppt</br>
 打开ppt-->选择“文件”-->"选项"-->"保存"-->勾选"将字体嵌入文件"-->
 选择"仅嵌入演示文稿中使用的字符(适于减小文件大小)"-->点击“确定”
 -->保存ppt，看到PowerPoint的底部状态栏，显示“正在嵌入字体”就可以了
-![保存字体](https://test-1257240443.cos.ap-shanghai.myqcloud.com/picgo/powerpoint%E4%BF%9D%E5%AD%98%E5%AD%97%E4%BD%93-%E8%8C%83%E4%BE%8B.png)
+![保存字体](https://main.qcloudimg.com/raw/749786466e29a0afb8db26af51aded6e/powerpoint%E4%BF%9D%E5%AD%98%E5%AD%97%E4%BD%93-%E8%8C%83%E4%BE%8B.png)
 
 2. 为什么有些ppt动效，转换为h5后，丢失了呢？</br>
 问题原因：ppt中使用了不支持转换的动效；包括：1:"Bold Flash" 2:"Underline 3:"Grow With Color" 4:"Bold Reveal"</br>
