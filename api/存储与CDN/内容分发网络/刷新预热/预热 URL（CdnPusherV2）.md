@@ -19,7 +19,7 @@
 | 参数名称      | 是否必选 | 类型    | 描述                           |
 | --------- | ---- | ----- | ---------------------------- |
 | urls.n    | 是    | Array | 需要进行预热的资源 URL 列表               |
-| limitRate | 否    | Int   | 预热限速（单位为 Mbps）<br/>最小限速为1Mbps |
+| limitRate | 否    | Int   | 预热限速（单位为Mbps）<br/>最小限速为1Mbps |
 
 #### 详细说明
 + 限速是针对域名维度进行，若设置了限速为1Mbps，假设预热资源 `http://www.abc.com/1.mkv` 时，向域名 `www.abc.com` 配置的源站拉取资源时，全网节点总回源速度会控制在1Mbps左右。
@@ -28,9 +28,9 @@
 ## 出参说明
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败<br/>详情请参见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详情请参见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
-| codeDesc | String | 英文错误信息，或业务侧错误码<br/>详情请参见错误码页面 [业务错误码。](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
+| codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详情请参见错误码页面 [业务错误码。](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
 | data     | Object | 返回结果数据。                                   |
 
 #### data 详细说明
