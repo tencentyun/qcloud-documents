@@ -95,7 +95,7 @@ secretkey=670m***************************
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](result)。 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型。 |
