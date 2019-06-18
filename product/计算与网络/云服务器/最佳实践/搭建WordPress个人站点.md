@@ -44,15 +44,11 @@ LNMP 组成及使用版本说明：
 ```
 yum -y install nginx 
 ```
-2. 执行以下命令，清空 `nginx.conf`文件。
-```
-> /etc/nginx/nginx.conf
-```
-3. 执行以下命令，打开`nginx.conf`文件。
+2. 执行以下命令，打开`nginx.conf`文件。
 ```
 vim /etc/nginx/nginx.conf
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容复制粘贴至 `nginx.conf`文件中。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容复制粘贴至 `nginx.conf`文件的 server{...} 中。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
@@ -188,31 +184,27 @@ tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
 mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
 ```
-2. 执行以下命令，登录成功后切换为 MySQL 数据库。
-```
-use mysql;
-```
-3. 执行以下命令，为 WordPress 创建 MariaDB 数据库 “wordpress”。
+2. 执行以下命令，为 WordPress 创建 MariaDB 数据库 “wordpress”。
 ```
 CREATE DATABASE wordpress;
 ```
-4. 执行以下命令，为已创建好的 MariaDB 数据库创建一个新用户 “user@localhost”。
+3. 执行以下命令，为已创建好的 MariaDB 数据库创建一个新用户 “user@localhost”。
 ```
 CREATE USER user@localhost;
 ```
-5. 执行以下命令，为此用户设置密码 “wordpresspassword”。
+4. 执行以下命令，为此用户设置密码 “wordpresspassword”。
 ```
 SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
 ```
-6. 执行以下命令，为创建的用户开通数据库 “wordpress” 的完全访问权限。
+5. 执行以下命令，为创建的用户开通数据库 “wordpress” 的完全访问权限。
 ```
 GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspassword';
 ```
-7. 执行以下命令，使所有配置生效。
+6. 执行以下命令，使所有配置生效。
 ```
 FLUSH PRIVILEGES;
 ```
-8. 执行以下命令，退出 MariaDB。
+7. 执行以下命令，退出 MariaDB。
 ```
 exit
 ```
