@@ -2,7 +2,6 @@
 流式语音合成 Java SDK [下载地址](https://main.qcloudimg.com/raw/4ac072510ae1fa09afb50a6277fc547b/java_stream_tts_sdk_v1.0.tar.gz )。
 
 接口请求域名：aai.cloud.tencent.com/tts。  
-接口请求频率限制：50次/每秒。  
 
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
