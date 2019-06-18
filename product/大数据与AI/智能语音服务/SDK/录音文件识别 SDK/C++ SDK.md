@@ -232,17 +232,17 @@ make
 **简单开发流程介绍**
 **初始化请求参数**  
 调用 Init 接口初始化请求参数。  
-参考接口 [TCloudRecordASR::Init](init)。
+参考接口 [TCloudRecordASR::Init](#init)。
 **设置用户密钥**
 调用 SetSecretKey 接口设置密钥。  
-参考接口 [TCloudRecordASR::SetSecretKey](SetSecretKey)。
+参考接口 [TCloudRecordASR::SetSecretKey](#SetSecretKey)。
 **传入音频获取结果**
 方法一：传入音频 URL 建议使用  
 调用 SetUrl 接口获取结果，对应参数设置为 url 模式。
-参考接口 [TCloudRecordASR::SetUrl](setdata)。
+参考接口 [TCloudRecordASR::SetUrl](#setdata)。
 方法二：音频数据  
 调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频。  
-参考接口 [TCloudRecordASR::SetData](seturl) 与 [TCloudRecordASR::SetFile](setfile)。
+参考接口 [TCloudRecordASR::SetData](#seturl) 与 [TCloudRecordASR::SetFile](#setfile)。
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
 

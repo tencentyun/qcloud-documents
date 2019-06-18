@@ -91,7 +91,7 @@ SecretKey=kFpw***************************
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
 | Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改 |
-| AppId  |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](result)。 |
+| AppId  |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](#result)。 |
 | SecretId | 是 | String | 用户在腾讯云注册账号AppId对应的SecretId，获取方法同上。 |
 | Text | 是 | String | 合成语音的源文本，最大支持800字符。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
@@ -212,7 +212,7 @@ make
 
 方法二:  
 调用 InitAuth 通过 TCloudTTSAuth 结构体初始化   
-参考 [TCloudTTS::InitAuth](InitAuth) 接口。
+参考 [TCloudTTS::InitAuth](#InitAuth) 接口。
 
 
 初始化请求参数  
@@ -226,7 +226,7 @@ make
 方法二:  
 通过完整的请求结构体来初始化请求   
 调用InitCommonParam通过TCloudTTSReq请求体来初始化。  
-参考 [TCloudTTS::InitCommonParam](Param) 接口。
+参考 [TCloudTTS::InitCommonParam](#Param) 接口。
 
 
 **分片（可选功能）**
@@ -234,7 +234,7 @@ make
 
 本sdk提供根据标点符号将整个文本进行分片的方法：  
 通过调用SplitString（Text）获取整个文本分片的结果，每片单独调用获取音频再合并。  
-[SplitString](Split) 接口。
+[SplitString](#Split) 接口。
 
 
 **执行任务**
