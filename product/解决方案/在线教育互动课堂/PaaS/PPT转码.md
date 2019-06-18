@@ -448,3 +448,9 @@ ppt保存时，将字体库一起打包进ppt
 2. 为什么有些ppt动效，转换为h5后，丢失了呢？
 问题原因：ppt中使用了不支持转换的动效；包括：1:"Bold Flash" 2:"Underline 3:"Grow With Color" 4:"Bold Reveal"
 解决方法：去掉不支持的特效 或者 使用其他特效替换
+
+3. 为什么有写ppt/pptx，本地 PowerPoint 预览正常；但是转码时，服务器返回错误“ppt may contain unsupported elements”？
+问题原因：ppt的内容中含有一些不支持转码h5的元素，所以导致转码失败
+解决方法：
+如果是 pptx 格式文件，可以用 powerpoint 另存为 ppt 格式，然后重新尝试转码
+如果是 ppt 格式文件，可以用 powerpoint 另存为 pptx 格式，然后重新尝试转码
