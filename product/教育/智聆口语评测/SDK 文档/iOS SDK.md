@@ -87,7 +87,24 @@ __weak typeof(self) ws = self;
 
 
 ### 4. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13895) 或者 SDK 外部签名返回到客户端。
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
+临时签名policy示例如下：
+```json
+{
+    "version": "2.0",
+    "statement": {
+        "effect": "allow",
+        "action": [
+            "soe:InitOralProcess",
+            "soe:ExtraOralProcess",
+            "soe:TransmitOralProcess",
+            "soe:TransmitOralProcessWithInit"
+        ],
+        "resource": "*"
+    }
+}
+```
+
 - 内部签名：SDK 内部通过用户提供的 SecretKey 和 SecretId 计算签名，用户无需关心签名细节
 - 外部签名：SDK 外部调用 getStringToSign 获取签名字符串，然后根据 [签名规则-计算签名](https://cloud.tencent.com/document/product/884/30657#3.-.E8.AE.A1.E7.AE.97.E7.AD.BE.E5.90.8D) 进行签名。口语评测时需提供 SecretId、timestamp 和 signature 参数。
 
