@@ -235,7 +235,7 @@ make
 
 本sdk提供根据标点符号将整个文本进行分片的方法：  
 通过调用SplitString（Text）获取整个文本分片的结果，每片单独调用获取音频再合并。  
-接口 [SplitString](Split) 接口。
+[SplitString](Split) 接口。
 
 
 **执行任务**
