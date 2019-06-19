@@ -314,19 +314,20 @@ URL参数
 
 Body参数（json格式）
 
-| 参数名       | 类型    | 描述                    |
-|:------------|:-------|:-----------------------|
-| expire_time | int    | 签名的过期时间            |
-| error_code  | int    | 错误码                  |
-| error_msg   | string | 错误信息                 |
-| timestamp   | int    | 回调发送的时间戳           |
-| task_id     | string | 任务的唯一标识ID          |
-| status      | string | 任务状态                 |
-| progress    | int    | 0-100的整数表示转码当前进度 |
-| h5_url      | string | 转码完成后H5的URL         |
-| resolution  | string | PPT的分辨率              |
-| title       | string | PPT的文件名              |
-| pages       | int    | PPT的总页数              |
+| 参数名       | 类型    | 描述                             |
+|:------------|:-------|:--------------------------------|
+| expire_time | int    | 签名的过期时间                    |
+| error_code  | int    | 错误码                           |
+| error_msg   | string | 错误信息                         |
+| timestamp   | int    | 回调发送的时间戳                   |
+| task_id     | string | 任务的唯一标识ID                  |
+| task_type   | string | PPT动画转码任务类型固定为`"ppt2h5"` |
+| status      | string | 任务状态                         |
+| progress    | int    | 0-100的整数表示转码当前进度         |
+| h5_url      | string | 转码完成后H5的URL                 |
+| resolution  | string | PPT的分辨率                      |
+| title       | string | PPT的文件名                      |
+| pages       | int    | PPT的总页数                      |
 
 回调示例：
 
@@ -339,6 +340,7 @@ Body参数（json格式）
     "expire_time":1554246423,
     "timestamp": 1553245423,
     "task_id": "9m4e2mr0ui3e8a215n4g",
+    "task_type": "ppt2h5",
     "status":"processing",
     "progress": 10,
     "h5_url":"http://xxxxx/index.html",
