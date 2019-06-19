@@ -37,7 +37,7 @@ static $APPID = 1255*********;
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
 | Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改。 |
-| AppId  |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](result)。 |
+| AppId  |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | SecretId | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | Text | 是 | String | 合成语音的源文本，最大支持800字符。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|

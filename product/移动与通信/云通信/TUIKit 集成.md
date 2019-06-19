@@ -121,6 +121,6 @@ UserSig（用户签名）用于对一个用户进行鉴权认证，确认用户�
 
 ## 快速体验
 
-欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
+欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/tencentyun/TIMSDK)。
 
 ![](https://main.qcloudimg.com/raw/fe3ef4a58c3efa5388e57a653133f392.png)

@@ -26,7 +26,7 @@ public static TIMGroupManagerExt getInstance()
 
 ### 创建群组
 
-云通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+云通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
@@ -422,7 +422,7 @@ TIMGroupManagerExt.getInstance().getGroupMembers(
 
 ### 获取加入的群组列表
 
-获取当前用户加入的所有群组的接口由 `TIMGroupManagerExt` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](#.E7.BE.A4.E6.88.90.E5.91.98.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.99) 进行获取。
+获取当前用户加入的所有群组的接口由 `TIMGroupManagerExt` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](https://cloud.tencent.com/document/product/269/9236#.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.992) 进行获取。
 
 **权限说明：**
 
@@ -503,7 +503,7 @@ TIMGroupManagerExt.getInstance().getGroupList(cb);
 
 ### 解散群组
 
- 解散群组的接口由 `TIMGroupManager` 提供。
+ 解散群组的接口由`TIMGroupManager`提供。
 
 **权限说明：**
 
@@ -543,7 +543,7 @@ TIMGroupManager.getInstance().deleteGroup(groupId, new TIMCallBack() {
 
 ### 转让群组
 
-转让群组的接口由 `TIMGroupManagerExt` 提供。
+转让群组的接口由`TIMGroupManagerExt`提供。
 
 **权限说明：**
 
@@ -572,7 +572,7 @@ public void modifyGroupOwner(@NonNull String groupId, @NonNull String identifier
  * @param flags 拉取资料标志， 如{@see TIMGroupManager#TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD}等标志的或组合位图
  * @param filter 角色过滤类型，详见{@see TIMGroupMemberRoleFilter}
  * @param custom 要获取的自定义 key 列表
- * @param nextSeq 分页拉取标志，第一次拉取填 0，回调成功如果不为零，需要分页，传入再次拉取，直至为 0
+ * @param nextSeq 分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，传入再次拉取，直至为0
  * @param cb 回调
  */
 public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNull TIMGroupMemberRoleFilter filter,
@@ -584,7 +584,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 <span id="TIMGroupSettings"></span>
 ### 设置拉取字段
 
-目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 IM SDK 之前**，通过 `TIMGroupSettings` 进行相应的设置，并通过 `TIMManager` 的 `setUserConfig` 将其也当前通信管理器进行关联（请参见 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
+目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 IM SDK 之前**，通过`TIMGroupSettings`进行相应的设置，并通过`TIMManager`的`setUserConfig`将其也当前通信管理器进行关联（请参见 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
 
 **`TIMGroupSettings` 的接口定义如下：**
 
@@ -666,11 +666,11 @@ TIMManager.getInstance().setUserConfig(config);
 
 ### 获取群组资料
 
-`TIMGroupManagerExt` 提供的 `getGroupInfo` 方法可以获取服务器存储的群组资料，`queryGroupInfo` 方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
+`TIMGroupManagerExt`提供的`getGroupInfo`方法可以获取服务器存储的群组资料，`queryGroupInfo`方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
 
 **说明：**
 
-默认拉取基本资料,如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在 `TIMGroupSettings` 中 `groupInfoOptions` 里面的 `customTags` 字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
+默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
 
 **原型：**
 
@@ -684,7 +684,7 @@ public void getGroupInfo(@NonNull List<String> groupIdList,
 							   @NonNull TIMValueCallBack<List<TIMGroupDetailInfo>> cb)
 /**
  * 获取本地存储的群组信息
- * @param groupId 需要拉取详细信息的群组Id
+ * @param groupId 需要拉取详细信息的群组 ID
  * @return 群组信息，本地没有返回 null
  */
  public TIMGroupDetailInfo queryGroupInfo(@NonNull String groupId)

@@ -7,6 +7,7 @@
 | API                                                          | 操作名         | 操作描述                                  |
 | ------------------------------------------------------------ | -------------- | ----------------------------------------- |
 | [GET Bucket（List Object）](https://cloud.tencent.com/document/product/436/7734) | 查询对象列表   | 查询存储桶下的部分或者全部对象                  |
+| [GET Bucket Object Versions](https://cloud.tencent.com/document/product/436/35521) | 查询对象及其历史版本列表 |   查询存储桶下的部分或者全部对象及其历史版本信息|
 | [PUT Object](https://cloud.tencent.com/document/product/436/7749) | 简单上传对象       | 上传一个 Object（文件/对象）至 Bucket     |
 | [POST Object](https://cloud.tencent.com/document/product/436/14690) | 表单上传对象   | 使用表单请求上传对象                      |
 | [HEAD Object](https://cloud.tencent.com/document/product/436/7745) | 查询对象元数据 | 查询 Object 的 Meta 信息                  |
@@ -74,14 +75,14 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Delimiter | String | 默认为空，设置分隔符，比如设置`/`来模拟文件夹    | 无 |
-| EncodingType | String | 默认不编码，规定返回值的编码方式，可选值：url    | 无 |
-| Marker | String |	默认以 UTF-8 二进制顺序列出条目，标记返回 objects 的 list 的起点位置                     | 无 |
-| Prefix | String | 默认为空，对 object 的 key 进行筛选，匹配指定前缀（prefix）的 objects        | 无  |
-| MaxKeys | Int | 最多返回的 objects 数量，默认为最大的1000 | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Delimiter | String | 默认为空，设置分隔符，比如设置`/`来模拟文件夹    | 否 |
+| EncodingType | String | 默认不编码，规定返回值的编码方式，可选值：url    | 否 |
+| Marker | String |	默认以 UTF-8 二进制顺序列出条目，标记返回 objects 的 list 的起点位置                     | 否 |
+| Prefix | String | 默认为空，对 object 的 key 进行筛选，匹配指定前缀（prefix）的 objects        | 否 |
+| MaxKeys | Int | 最多返回的 objects 数量，默认为最大的1000 | 否|
 
 #### 返回结果示例
 
@@ -149,6 +150,120 @@ Guzzle\Service\Resource\Model Object
 | Content | Array | 返回的对象属性，包含所有 objects 元信息的 list，包括 'ETag'，'StorageClass'，'Key'，'Owner'，'LastModified'，'Size' 等信息 | Contents |
 
 
+### 查询对象及其历史版本列表 
+
+#### 功能说明
+
+查询存储桶下的部分或者全部对象及其历史版本信息。
+
+#### 方法原型
+
+```
+public Guzzle\Service\Resource\Model listObjectVersions(array $args = array());
+```
+#### 请求示例
+
+```php
+try {
+    $result = $cosClient->listObjectVersions(array(
+        'Bucket' => 'examplebucket-1250000000', //格式：BucketName-APPID
+        'Delimiter' => '/',
+        'EncodingType' => 'url',
+        'KeyMarker' => 'string',
+        'VersionIdMarker' => 'string',
+        'Prefix' => 'doc',
+        'MaxKeys' => 1000,
+    )); 
+    print_r($result);
+} catch (\Exception $e) {
+    echo($e);
+}
+```
+
+#### 参数说明
+
+| 参数名称     | 类型      | 描述                            | 必填 |
+| ------------- | -------------------------- | ------ | ---- |
+| Bucket   | String |    存储桶名称，由 BucketName-APPID 构成     |                    是   |
+| Prefix    | String  | 默认为空，对对象的对象键进行筛选，匹配 prefix 为前缀的对象 | 否   |
+| Delimiter  | String   | 默认为空，设置分隔符，比如设置`/`来模拟文件夹          | 否   |
+| KeyMarker | String      | 默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 Key 的起点位置  | 否   |
+| VersionIdMarker | String  | 默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 VersionId 的起点位置| 否   |
+| MaxKeys        | Int   | 最多返回的对象数量，默认为最大的1000          | 否   |
+| EncodingType      | String    | 默认不编码，规定返回值的编码方式，可选值：url         | 否   |
+
+#### 返回结果示例
+
+```php
+Guzzle\Service\Resource\Model Object
+(
+    [structure:protected] => 
+    [data:protected] => Array
+        (
+            [Name] => examplebucket-1250000000
+            [Prefix] => doc
+            [KeyMarker] => string
+            [VersionIdMarker] => string
+            [MaxKeys] => 10
+            [IsTruncated] => 1
+            [NextKeyMarker] => string
+            [NextVersionIdMarker] => string
+            [Versions] => Array
+                (
+                    [0] => Array
+                        (
+                            [Key] => doc/exampleobject1
+                            [VersionId] => null
+                            [IsLatest] => 1
+                            [LastModified] => 2019-06-13T09:24:52.000Z
+                            [ETag] => "96e79218965eb72c92a549dd5a330112"
+                            [Size] => 6
+                            [StorageClass] => STANDARD
+                            [Owner] => Array
+                                (
+                                    [UID] => 1251668577
+                                )
+                        )
+
+                    [1] => Array
+                        (
+                            [Key] => doc/exampleobject2
+                            [VersionId] => MTg0NDUxODMyMTE2ODY0OTExOTk
+                            [IsLatest] => 1
+                            [LastModified] => 2019-06-18T12:47:03.000Z
+                            [ETag] => "698d51a19d8a121ce581499d7b701668"
+                            [Size] => 3
+                            [StorageClass] => STANDARD
+                            [Owner] => Array
+                                (
+                                    [UID] => 1251668577
+                                )
+                        )
+                    )
+            [RequestId] => NWQwOGVkZGRfMjViMjU4NjRfODNjN18xMTE5YWI4
+        )
+
+)
+```
+#### 返回结果说明
+
+| 参数名称            | 类型 | 描述                               | 父节点          |
+| ------------------- | -------- | ---------------------------------- | ------------- |
+| Name | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
+| Delimiter | String | 设置分隔符，比如设置`/`来模拟文件夹    | 无 |
+| EncodingType | String | 规定返回值的编码方式    | 无 |
+| KeyMarker | String |默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 Key 的起点位置    | 无 |
+| VersionIdMarker | String |	 默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 VersionId 的起点位置          | 无 |
+| NextKeyMarker | String |	当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 Key 的起点位置        | 无 |
+| NextVersionIdMarker | String | 当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 VersionId 的起点位置    | 无 |
+| Prefix | String | 对 object 的 key 进行筛选，匹配指定前缀（prefix）的 objects        | 无  |
+| MaxKeys | Int | 最多返回的 objects 数量，默认为最大的1000 | 无 |
+| IsTruncated | Int | 表示返回的 objects 否被截断 | 无 |
+| Versions | Array | 包含所有多个版本对象元数据的 list | 无 |
+| Version | Array | 包含所有多个版本对象元数据的 list，包括 'ETag'，'StorageClass'，'Key'，'VersionId'，'IsLatest'，'Owner'，'LastModified'，'Size' 等信息 | Versions |
+| CommonPrefixes | Array | 所有以 Prefix 开头，以 Delimiter 结尾的对象被归到同一类 | 无 |
+
+
 
 
 ### 简单上传对象
@@ -202,23 +317,47 @@ try {
 
 #### 参数说明
 
+| 参数名称            | 类型 | 描述                               | 必填          |
+| ------------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 否 |
+| ACL | String | 设置对象的 ACL，如 private、public-read| 否 |
+| Body | File/String | 上传的内容 | 是 |
+| CacheControl | String |	缓存策略，设置 Cache-Control | 否 |
+| ContentDisposition | String | 文件名称，设置 Content-Disposition  | 否  |
+| ContentEncoding | String | 编码格式，设置 Content-Encoding | 否 |
+| ContentLanguage | String | 语言类型，设置 Content-Language | 否 |
+| ContentLength | Int | 设置传输长度 | 否 |
+| ContentType | String | 	内容类型，设置 Content-Type | 否 |
+| Expires | String | 设置 Content-Expires | 否 |
+| Metadata | Array | 用户自定义的文件元信息 | 否 |
+| StorageClass | String | 文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | 否 |
+| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 否 |
+| ServerSideEncryption | String | 服务端加密方法 | 否 |
+
+#### 返回结果示例
+
+```php
+Guzzle\Service\Resource\Model Object
+(
+    [structure:protected] => 
+    [data:protected] => Array
+        (
+            [ETag] => "698d51a19d8a121ce581499d7b701668"
+            [VersionId] => MTg0NDUxODMyMTE2ODY0OTExOTk
+            [RequestId] => NWQwOGRkNDdfMjJiMjU4NjRfNzVjXzEwNmVjY2M=
+            [ObjectURL] => http://lewzylucd2-1251668577.cos.ap-chengdu.myqcloud.com/123
+        )
+
+)
+```
+#### 返回结果说明
+
 | 参数名称            | 类型 | 描述                               | 父节点          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
-| ACL | String | 设置对象的 ACL，如 private、public-read| 无 |
-| Body | File/String | 上传的内容 | 无 |
-| CacheControl | String |	缓存策略，设置 Cache-Control | 无 |
-| ContentDisposition | String | 文件名称，设置 Content-Disposition  | 无  |
-| ContentEncoding | String | 编码格式，设置 Content-Encoding | 无 |
-| ContentLanguage | String | 语言类型，设置 Content-Language | 无 |
-| ContentLength | Int | 设置传输长度 | 无 |
-| ContentType | String | 	内容类型，设置 Content-Type | 无 |
-| Expires | String | 设置 Content-Expires | 无 |
-| Metadata | Array | 用户自定义的文件元信息 | 无 |
-| StorageClass | String | 文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | 无 |
-| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 无 |
-| ServerSideEncryption | String | 服务端加密方法 | 无 |
+| ETag | String |	上传文件的 MD5 值 | 无 |
+| VersionId | String | 开启多版本后，文件的版本号  | 无  |
+
 
 ### 查询对象元数据
 
@@ -257,10 +396,11 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填     |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 是 |
+| VersionId | String | 开启多版本后，指定文件的具体版本                        | 否 |
 
 #### 返回结果示例
 
@@ -285,7 +425,6 @@ Guzzle\Service\Resource\Model Object
             [ContentLanguage] => 
             [ContentType] => text/plain; charset=utf-8
             [Expires] => 
-            [WebsiteRedirectLocation] => 
             [ServerSideEncryption] => 
             [Metadata] => Array
                 (
@@ -341,6 +480,7 @@ try {
         'SaveAs' => '/data/exampleobject',
         /*
         'Range' => 'bytes=0-10',
+        'VersionId' => 'string',
         'ResponseCacheControl' => 'string',
         'ResponseContentDisposition' => 'string',
         'ResponseContentEncoding' => 'string',
@@ -359,18 +499,19 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
-| SaveAs | String | 保存到本地的本地文件路径 | 无 |
-| Range | String | 设置下载文件的范围，格式为 bytes=first-last   | 无 |
-| ResponseCacheControl | String | 	设置响应头部 Cache-Control | 无 |
-| ResponseContentDisposition | String | 设置响应头部 Content-Disposition  | 无 |
-| ResponseContentEncoding | String | 	设置响应头部 Content-Encoding | 无 |
-| ResponseContentLanguage | String | 设置响应头部 Content-Language  | 无 |
-| ResponseContentType | String | 	设置响应头部 Content-Type | 无 |
-| ResponseExpires | String | 设置响应头部 Content-Expires  | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 是 |
+| SaveAs | String | 保存到本地的本地文件路径 | 否 |
+| VersionId   | String |  开启多版本后，指定文件的具体版本  | 否 |
+| Range | String | 设置下载文件的范围，格式为 bytes=first-last   | 否|
+| ResponseCacheControl | String | 	设置响应头部 Cache-Control | 否 |
+| ResponseContentDisposition | String | 设置响应头部 Content-Disposition  | 否 |
+| ResponseContentEncoding | String | 	设置响应头部 Content-Encoding | 否 |
+| ResponseContentLanguage | String | 设置响应头部 Content-Language  | 否 |
+| ResponseContentType | String | 	设置响应头部 Content-Type | 否 |
+| ResponseExpires | String | 设置响应头部 Content-Expires  | 否 |
 
 
 #### 返回结果示例
@@ -485,12 +626,12 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
-| CopySource | String | 描述拷贝源文件的路径，包含 Appid、Bucket、Key、Region，<br>例如 examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg | 无 |
-| MetadataDirective | String | 可选值为 Copy、Replaced。设置为 Copy 时，忽略设置的用户元数据信息直接复制，设置为 Replaced 时，按设置的元信息修改元数据，当目标路径和源路径一样时，必须设置为 Replaced   | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 是 |
+| CopySource | String | 描述拷贝源文件的路径，包含 Appid、Bucket、Key、Region，<br>例如 examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg | 是 |
+| MetadataDirective | String | 可选值为 Copy、Replaced。设置为 Copy 时，忽略设置的用户元数据信息直接复制，设置为 Replaced 时，按设置的元信息修改元数据，当目标路径和源路径一样时，必须设置为 Replaced   | 否 |
 
 ### 删除单个对象
 
@@ -511,6 +652,7 @@ try {
     $result = $cosClient->deleteObject(array(
         'Bucket' => 'examplebucket-1250000000', //格式：BucketName-APPID
         'Key' => 'exampleobject',
+        'VersionId' => 'string'
     )); 
     // 请求成功
     print_r($result);
@@ -522,10 +664,11 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是|
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 是 |
+| VersionId | String | 删除文件的版本号 |  否  |
 
 
 ### 删除多个对象
@@ -549,6 +692,7 @@ try {
         'Objects' => array(
             array(
                 'Key' => 'exampleobject',
+        		'VersionId' => 'string'
             ),  
             // ... repeated
         ),  
@@ -564,12 +708,13 @@ try {
 
 #### 参数说明
 
-| 参数名称 | 类型   | 描述                                                         | 父节点 |
+| 参数名称 | 类型   | 描述                                                         | 必填 |
 | -------- | ------ | ------------------------------------------------------------ | ------ |
-| Bucket   | String | 存储桶名称，格式：BucketName-APPID                           | 无     |
-| Objects   | Array | 删除对象列表     | 无     |
-| Object   | Array | 删除的对象     | Objects     |
-| Key      | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg |    Object    |
+| Bucket   | String | 存储桶名称，格式：BucketName-APPID                           | 是     |
+| Objects   | Array | 删除对象列表     | 是     |
+| Object   | Array | 删除的对象     | 是     |
+| Key      | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg |    是    |
+| VersionId | String | 删除文件的版本号 |  否  |
 
 #### 返回结果示例
 
@@ -647,15 +792,15 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Delimiter | String | 默认为空，设置分隔符，比如设置`/`来模拟文件夹    | 无 |
-| EncodingType | String | 默认不编码，规定返回值的编码方式，可选值：url    | 无 |
-| KeyMarker | String |	标记返回 parts 的 list 的起点位置        | 无 |
-| UploadIdMarker | String |	标记返回 parts 的 list 的起点位置     | 无 |
-| Prefix | String | 默认为空，对 parts 的 key 进行筛选，匹配指定前缀（prefix）的 objects        | 无  |
-| MaxUploads | Int | 最多返回的 parts 数量，默认为最大的1000 | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Delimiter | String | 默认为空，设置分隔符，比如设置`/`来模拟文件夹    | 否 |
+| EncodingType | String | 默认不编码，规定返回值的编码方式，可选值：url    | 否 |
+| KeyMarker | String |	标记返回 parts 的 list 的起点位置        | 否 |
+| UploadIdMarker | String |	标记返回 parts 的 list 的起点位置     | 否 |
+| Prefix | String | 默认为空，对 parts 的 key 进行筛选，匹配指定前缀（prefix）的 objects        | 否  |
+| MaxUploads | Int | 最多返回的 parts 数量，默认为最大的1000 | 否 |
 
 #### 返回结果示例
 
@@ -788,21 +933,21 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 无 |
-| CacheControl | String |	缓存策略，设置 Cache-Control | 无 |
-| ContentDisposition | String | 文件名称，设置 Content-Disposition  | 无  |
-| ContentEncoding | String | 编码格式，设置 Content-Encoding | 无 |
-| ContentLanguage | String | 语言类型，设置 Content-Language | 无 |
-| ContentLength | Int | 设置传输长度 | 无 |
-| ContentType | String | 	内容类型，设置 Content-Type | 无 |
-| Expires | String | 设置 Content-Expires | 无 |
-| Metadata | Array | 用户自定义的文件元信息 | 无 |
-| StorageClass | String | 文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | 无 |
-| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 无 |
-| ServerSideEncryption | String | 服务端加密方法 | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名<br>examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg 中，对象键为 doc/pic.jpg    | 是 |
+| CacheControl | String |	缓存策略，设置 Cache-Control | 否 |
+| ContentDisposition | String | 文件名称，设置 Content-Disposition  | 否  |
+| ContentEncoding | String | 编码格式，设置 Content-Encoding | 否 |
+| ContentLanguage | String | 语言类型，设置 Content-Language | 否 |
+| ContentLength | Int | 设置传输长度 | 否 |
+| ContentType | String | 	内容类型，设置 Content-Type | 否 |
+| Expires | String | 设置 Content-Expires | 否 |
+| Metadata | Array | 用户自定义的文件元信息 | 否 |
+| StorageClass | String | 文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | 否 |
+| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 否 |
+| ServerSideEncryption | String | 服务端加密方法 | 否 |
 
 #### 返回结果示例
 
@@ -861,13 +1006,13 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键 | 无 |
-| UploadId | String | 对象分块上传的 ID | 无 |
-| PartNumberMarker | Int | 标记返回 parts 的 list 的起点位置 | 无 |
-| MaxParts | Int | 最多返回的 parts 数量，默认最大值为1000 | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键 | 是 |
+| UploadId | String | 对象分块上传的 ID | 是 |
+| PartNumberMarker | Int | 标记返回 parts 的 list 的起点位置 | 否 |
+| MaxParts | Int | 最多返回的 parts 数量，默认最大值为1000 | 否 |
 
 #### 返回结果示例
 
@@ -970,15 +1115,15 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键 | 无 |
-| UploadId | String | 对象分块上传的 ID | 无 |
-| Body | File/String | 上传的内容 | 无 |
-| PartNumber | Int | 上传分块的编号 | 无 |
-| ContentLength | Int | 设置传输长度 | 无 |
-| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键 | 是 |
+| UploadId | String | 对象分块上传的 ID | 是 |
+| Body | File/String | 上传的内容 | 是 |
+| PartNumber | Int | 上传分块的编号 | 是 |
+| ContentLength | Int | 设置传输长度 | 否 |
+| ContentMD5 | String | 设置上传文件的 MD5 值用于校验 | 否 |
 
 #### 返回结果示例
 
@@ -1041,15 +1186,15 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键 | 无 |
-| UploadId | String | 对象分块上传的 ID | 无 |
-| Parts | Array | 分块信息列表 | 无 |
-| Part | Array | 上传分块的内容信息 | Parts |
-| ETag | String | 分块内容的 MD5 | Part |
-| PartNumber | Int | 分块编号 | Part|
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键 | 是 |
+| UploadId | String | 对象分块上传的 ID | 是 |
+| Parts | Array | 分块信息列表 | 是 |
+| Part | Array | 上传分块的内容信息 | 是 |
+| ETag | String | 分块内容的 MD5 | 是 |
+| PartNumber | Int | 分块编号 | 是 |
 
 
 ### <span id = "ABORT_MULIT_UPLOAD"> 终止分块上传 </span>
@@ -1083,11 +1228,11 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填    |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键 | 无 |
-| UploadId | String | 对象分块上传的 ID | 无 |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID              | 是 |
+| Key | String | 对象键 | 是 |
+| UploadId | String | 对象分块上传的 ID | 是 |
 
 
 ## 其他操作
@@ -1126,13 +1271,13 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
+| 参数名称            | 类型 | 描述                               | 必填          |
 | ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Key | String | 对象键 | 无 |
-| Days | String | 设置临时副本的过期时间，单位(天) | 无 |
-| CASJobParameters | Array | 恢复信息 | 无 |
-| Tier | String | 恢复数据时，Tier 可以指定为 CAS 支持的三种恢复类型，分别为 Expedited、Standard、Bulk | CASJobParameters |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 是 |
+| Key | String | 对象键 | 是 |
+| Days | String | 设置临时副本的过期时间，单位(天) | 是 |
+| CASJobParameters | Array | 恢复信息 | 是 |
+| Tier | String | 恢复数据时，Tier 可以指定为 CAS 支持的三种恢复类型，分别为 Expedited、Standard、Bulk | 是 |
 
 ### 设置对象 ACL
 
@@ -1179,19 +1324,19 @@ try {
 
 #### 参数说明
 
-| 参数名称    | 类型   | 描述                                                         | 父节点          |
+| 参数名称    | 类型   | 描述                                                         | 必填          |
 | ----------- | ------ | ------------------------------------------------------------ | --------------- |
-| Bucket      | String | 存储桶名称，格式：BucketName-APPID                           | 无              |
-| Key | String | 对象键 | 无 |
-| Grants      | Array  | ACL权限列表                                                  | 无              |
-| Grant       | Array  | ACL权限信息                                                  | Grants          |
-| Grantee     | Array  | ACL权限信息                                                  | Grant           |
-| Type        | String | 所有者权限类型                                               | Grantee         |
-| Permission  | String | 权限类型，可选值: FULL_CONTROL 、WRITE 、READ          | Grant           |
-| ACL         | String | 整体权限类型，可选值: private 、 public-read | 无              |
-| Owner       | String | 存储桶所有者信息                                             | 无              |
-| DisplayName | String | 权限所有者的名字信息                                         | Grantee / Owner |
-| ID          | String | 权限所有者 ID                                                 | Grantee / Owner |
+| Bucket      | String | 存储桶名称，格式：BucketName-APPID                           | 是              |
+| Key | String | 对象键 | 是 |
+| Grants      | Array  | ACL权限列表                                                  | 否              |
+| Grant       | Array  | ACL权限信息                                                  | 否          |
+| Grantee     | Array  | ACL权限信息                                                  | 否           |
+| Type        | String | 所有者权限类型                                               | 否         |
+| Permission  | String | 权限类型，可选值: FULL_CONTROL 、WRITE 、READ          | 否           |
+| ACL         | String | 整体权限类型，可选值: private 、 public-read | 否              |
+| Owner       | String | 存储桶所有者信息                                             | 否              |
+| DisplayName | String | 权限所有者的名字信息                                         | 否 |
+| ID          | String | 权限所有者 ID                                                 | 否 |
 
 
 ### 获取对象 ACL

@@ -21,6 +21,13 @@ dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
 }
 ```
+ 或
+ 
+ ```
+dependencies {
+     implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
+}
+ ```
 - **第二步：指定 App 使用架构**
   在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)   。
 ```

@@ -1,18 +1,19 @@
 ## 操作场景
 
 Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之一，被200多万网站用户使用。本教程介绍在 LAMP（Linux + Apache + MariaDB + PHP）环境下搭建 Discuz! 论坛网站的步骤，以 Discuz! X3.2 为例。
+具体操作方法如下：
+![流程图2](https://main.qcloudimg.com/raw/f26817fd2a6719ccb43cbe744b0af2ed.png)
 
 >? 本文主要介绍自主安装 LAMP 环境并搭建 Discuz! 论坛的方法，推荐具备相关论坛搭建经验和一定的命令操作基础的用户使用。如果您第一次搭建 Discuz! 论坛且不熟悉 Linux 命令，您可以参考 [使用镜像搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/9753)。
+>
 
 ## 相关简介
 以下是本教程中，将会使用的服务或工具：
-- **云服务器**：本教程使用腾讯云云服务器（以下简称 CVM ）创建云服务器实例，来完成 Discuz! 搭建工作。
+- **云服务器**：本教程使用腾讯云云服务器（Cloud Virtual Machine，CVM）创建云服务器实例，用来完成 Discuz! 搭建工作。
 - **域名注册**：如果想要使用易记的域名访问您的 Discuz! 站点，可以使用腾讯云域名注册服务来购买域名。
 - **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云 [网站备案](https://cloud.tencent.com/product/ba) 产品为您的域名备案。
-- **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
+- **云解析**：配置域名解析后，用户可通过域名访问您的网站，不需要使用复杂的 IP 地址才可访问您的网站。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
 
-自主安装流程图如下：
-![流程图2](https://main.qcloudimg.com/raw/f26817fd2a6719ccb43cbe744b0af2ed.png)
 
 ## 前提条件
 
@@ -22,18 +23,18 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 
 ### 创建云服务器
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
-> 本教程中云服务器实例的操作系统版本为 CentOS 7.5。
+> 本教程中以操作系统版本为 CentOS 7.5 的云服务器实例为例。
 > 
 1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 ![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
-2. 云服务器创建成功后，即可在 [云服务器控制台](https://console.cloud.tencent.com/cvm)  查看和获取实例的以下信息。如下图所示：
+2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
 ![实例1](https://main.qcloudimg.com/raw/891c29de005bb213fed0a7b68cfb21ff.png)
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
 ### 搭建 LAMP 环境 
 
-对于 CentOS 系统，腾讯云提供与 CentOS 官方同步的软件安装源，包涵的软件都是当前最稳定的版本，可以直接通过 Yum 快速安装。
+对于 CentOS 系统，腾讯云提供与 CentOS 官方同步的软件安装源，包含的软件均为当前最稳定的版本，可直接通过 Yum 快速安装。
 
 #### 运行 PuTTY 连接 Linux 云服务器
 1. [下载 PuTTY ](https://www.putty.org/) 到您的电脑，并解压该文件。
@@ -93,7 +94,7 @@ exit
 ```
 vim /var/www/html/test.php
 ```
-2. 按 “**i**”切换至编辑模式，写入如下内容：
+2. 按 “**i**” 切换至编辑模式，写入如下内容：
 ```
 <?php
 echo "<title>Test Page</title>";
@@ -154,7 +155,7 @@ chmod -R 777 /var/www/html
 ![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
 5. 根据页面提示，填写信息，为 Discuz! 创建一个数据库。
 >!  
->- 请使用 [安装必要软件](#InstallNecessarySoftware) 设置的 root 账号和密码连接数据库，并设置好系统信箱、管理员账号、密码和 Email。
+>- 请使用 [安装必要软件](#InstallNecessarySoftware) 设置的 root 帐号和密码连接数据库，并设置好系统信箱、管理员帐号、密码和 Email。
 >- 请记住自己的管理员用户和密码。
 >
 6. 单击【下一步】，开始安装。
