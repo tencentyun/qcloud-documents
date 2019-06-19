@@ -74,7 +74,7 @@ type=migrateLocal
 | migrateType | 描述 |
 | ------| ------ |
 | migrateLocal| 从本地迁移至 COS |
-| migrateAws| 从 AWS S3 本地迁移至 COS |
+| migrateAws| 从 AWS S3 迁移至 COS |
 | migrateAli| 从阿里  OSS  迁移至 COS |
 | migrateQiniu| 从七牛迁移至 COS |
 | migrateUrl| 下载 URL 迁移到 COS |
@@ -83,7 +83,7 @@ type=migrateLocal
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 <pre>
-# 迁移工具的公共配置分节，包含了要迁移到得目标 COS 的账户信息。
+# 迁移工具的公共配置分节，包含了需要迁移到目标 COS 的账户信息。
 [common]
 secretId=COS_SECRETID
 secretKey=COS_SECRETKEY
@@ -97,8 +97,8 @@ smallFileThreshold=5242880
 smallFileExecutorNum=64
 bigFileExecutorNum=8
 entireFileMd5Attached=on
-damonMode=off
-damonModeInterVal=60
+daemonMode=off
+daemonModeInterVal=60
 executeTimeWindow=00:00,24:00
 encryptionType=sse-cos
 </pre>
@@ -117,8 +117,8 @@ encryptionType=sse-cos
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
-| damonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
-| damonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
+| daemonMode|是否启用 daemon 模式：on 表示开启，off 表示关闭。daemon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 daemonModeInterVal 参数设置|off|
+| daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
 | encryptionType  |  表示使用 sse-cos 服务端加密    |     默认不填，需要服务端加密时填写       |
 
@@ -129,7 +129,7 @@ encryptionType=sse-cos
 
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
-# 从本地迁移到COS配置分节
+# 从本地迁移到 COS 配置分节
 [migrateLocal]
 localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
 exeludes=
