@@ -1,4 +1,4 @@
-本文主要介绍如何快速地运行云通信 WEBIM Demo（小程序）工程。
+本文主要介绍如何快速地运行云通信 WebIM Demo（小程序）工程。
 >!当前小程序版本 Demo 仅提供直播聊天室场景。
 
 <span id="step1"></span>
@@ -47,8 +47,8 @@
 
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
-|`https://webim.tim.qq.com` | WebIM 业务域名 | 必须|
-|`https://sxb.qcloud.com` | 测试 Demo 域名 | 非必须，使用测试 Demo 时配置|
+|`https://webim.tim.qq.com` | WebIM 业务域名 | 是|
+|`https://sxb.qcloud.com` | 测试 Demo 域名 | 否，使用测试 Demo 时配置|
 
 <span id="step6"></span>
 ## 下载 Demo 源码
