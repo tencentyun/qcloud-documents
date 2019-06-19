@@ -248,7 +248,7 @@ srcCosPath=/
 |srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
 |srcBucketName|源 Bucket 的名称，命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000|
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
-|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝|
+|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
 |srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
 
 
