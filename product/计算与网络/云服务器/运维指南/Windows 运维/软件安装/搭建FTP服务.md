@@ -10,14 +10,13 @@
 1. 下载 FileZilla Server 后启动安装程序，阅读许可协议，单击【I Agree】进入下一步安装；选择安装内容，默认安装标准即可，单击【Next】（其中 Source Code 是源代码，不需要勾选）。
 ![](http://mc.qcloudimg.com/static/img/1575622f1b1366c8bcff8d71c777b561/image.jpg)
 2. 选择安装路径、选择 FileZilla Server 启动方式以及管理端口。
-   3 种 FileZilla Server 安装启动方式：
+ 3 种 FileZilla Server 安装启动方式：
   - 作为服务安装，随 Windows 系统启动。
   - 作为服务安装，手动启动。
   - 不作为服务安装，随 Windows 系统启动。
 
  一般情况选择第一种，管理端口选择未被占用的端口即可。
 ![](http://mc.qcloudimg.com/static/img/7091c25ad8381f3702dfc37b3d9d56fd/image.jpg)
-
 3. 配置控制台启动方式。
  3 种控制台启动方式：
   - 所有用户适用，自动启动。
