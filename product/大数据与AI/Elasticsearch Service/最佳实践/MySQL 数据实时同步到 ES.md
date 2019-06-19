@@ -6,9 +6,9 @@ MySQL 的 binlog 日志主要用于数据库的主从复制和数据恢复。bin
 mysql binlog 日志有三种模式，分别为：
 
 ```
-ROW: 记录每一行数据被修改的情况，但是日志量太大
-STATEMENT: 记录每一条修改数据的 SQL 语句，减少了日志量，但是 SQL 语句使用函数或触发器时容易出现主从不一致
-MIXED: 结合了 ROW 和 STATEMENT 的优点，根据具体执行数据操作的 SQL 语句选择使用 ROW 或者 STATEMENT 记录日志
+ROW: 记录每一行数据被修改的情况，但是日志量太大。
+STATEMENT: 记录每一条修改数据的 SQL 语句，减少了日志量，但是 SQL 语句使用函数或触发器时容易出现主从不一致。
+MIXED: 结合了 ROW 和 STATEMENT 的优点，根据具体执行数据操作的 SQL 语句选择使用 ROW 或者 STATEMENT 记录日志。
 ```
 	
 要通过 mysql binlog 将数据同步到 ES 集群，只能使用 ROW 模式，因为只有 ROW 模式才能知道 mysql 中的数据的修改内容。
@@ -66,13 +66,11 @@ COMMIT/*!*/;
 ## mysqldump 工具
 mysqldump 是一个对 MySQL 数据库中的数据进行全量导出的一个工具。
 mysqldump 的使用方式如下：
-
 ```
 mysqldump -uelastic -p'Elastic_123' --host=172.16.32.5 -F webservice > dump.sql
 ```
 上述命令表示从远程数据库172.16.32.5:3306中导出 database:webservice 的所有数据，写入到 dump.sql 文件中，指定 -F 参数表示在导出数据后重新生成一个新的 binlog 日志文件以记录后续的所有数据操作。
 dump.sql 中的文件内容如下：
-
 ```
 -- MySQL dump 10.13  Distrib 5.6.40, for Linux (x86_64)
 --
@@ -159,8 +157,7 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 
 1. 执行命令`git clone https://github.com/siddontang/go-mysql-elasticsearch`。
 2. 执行命令`cd go-mysql-elasticsearch/src/github.com/siddontang/go-mysql-elasticsearch`。
-3. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。
-		
+3. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
 	```
 	# MySQL address, user and password
 	# user must have replication privilege in MySQL.
@@ -218,11 +215,9 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 	index = "building"
 	type = "buildingtype"
 	```
-	
 4. 在 ES 集群中创建 building index, 因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
 5. 执行命令`./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
 6. 在控制台输出结果。
-	
 	```
 	2018/06/02 16:13:21 INFO  create BinlogSyncer with config {1001 mariadb 172.16.0.101 3306 bellen   utf8 false false <nil> false false 0 0s 0s 0}
 	2018/06/02 16:13:21 INFO  run status http server 127.0.0.1:12800
@@ -258,7 +253,6 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 1. 执行命令`git clone https://github.com/mardambey/mypipe.git`。
 2. 执行命令`./sbt package`。
 3. 配置 `mypipe-runner/src/main/resources/application.conf`。
-
 	```
 	mypipe {
 	
@@ -305,18 +299,14 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 	  }
 	}
 	``` 
-
 4. 配置 mypipe-api/src/main/resources/reference.conf，修改 include-event-condition 选项，指定需要同步的 database 及 table。
-	
 	```
 	include-event-condition = """ db == "webservice" && table =="building" """
 	```
 5. 在 kafka broker 端创建 topic: webservice_building_generic，默认情况下 mypipe 以`${db}_${table}_generic`为 topic 名，向该 topic 发送数据。
-	
 6. 执行命令`./sbt "project runner" "runMain mypipe.runner.PipeRunner"`。
 7. 测试：向 mysql building 表中插入数据，写一个简单的 consumer 消费 mypipe 推送到 kafka 中的消息。
 8. 消费到没有经过解析的数据如下：
-
 	```
 	ConsumerRecord(topic=u'webservice_building_generic', partition=0, offset=2, timestamp=None, timestamp_type=None, key=None, value='\x00\x01\x00\x00\x14webservice\x10building\xcc\x01\x02\x91,\xae\xa3fc\x11\xe8\xa1\xaaRT\x00Z\xf9\xab\x00\x00\x04\x18BuildingName\x06xxx\x14BuildingId\nId-10\x00\x02\x04Id\xd4%\x00', checksum=128384379, serialized_key_size=-1, serialized_value_size=88)
 	```
