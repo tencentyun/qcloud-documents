@@ -18,7 +18,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **Android**
   下载 [apk](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) 安装包，安装“小直播”，注册一个账号即可开始体验。
 - **微信小程序**
-  打开“微信 > 发现 > 小程序”，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
+  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/aacdf8cdfa825f64f34af9c3c3e4154e.jpg" />
 

@@ -4,7 +4,6 @@ Spark 组件是面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应
 ## 操作步骤
 1. **添加组件**
 从左侧菜单栏中，选择【组件】>【机器学习】列表下的 Spark 节点，并将其拖拽至画布中。
-![](https://main.qcloudimg.com/raw/bb66d7c90816da1ecc7010920ded2371.png)
 2. **配置参数**
  - 作业 Jar 包：通过该配置框上传您的 Spark 应用程序 Jar 包，必填项。
  - 主类名：指定您的 Spark 应用程序的入口类，即 main 函数所在的类，必填项。

@@ -2,7 +2,7 @@
 
 ## 访问 Kibana 页面
 
-###入口
+### 入口
 Kibana 页面有两个入口，分别位于集群列表页和集群详情页，详情如下图。单击对应的入口，会跳转到 Kibana 登录页面。
 
 ![列表页入口](https://main.qcloudimg.com/raw/49ac415dda4184125677f3d04f84cfe3.png)
@@ -10,7 +10,7 @@ Kibana 页面有两个入口，分别位于集群列表页和集群详情页，�
 ![详情页入口](https://main.qcloudimg.com/raw/4c31ad620af4977f92ee1e28cbda48db.png)
 
 ### 登录
-Kibana 页面访问需要登录，帐号为：elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。
+Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集群时设置的 Kibana 密码。如果忘记密码，可以在集群详情页重置密码。
 出于安全考虑，用户可以配置 Kibana 页面访问黑白名单，来进行限制，详见 [Kibana 访问设置](https://cloud.tencent.com/document/product/845/16992)。
 
 #### 开源版和基础版集群的登录页如下图所示：
@@ -28,7 +28,7 @@ Kibana 页面访问需要登录，帐号为：elastic，密码为用户创建集
 ![初始化页面](https://main.qcloudimg.com/raw/22db76fe961cb5aa118465d4947707c0.png)
 
 ## 索引添加及访问（存储数据） 
-在 Kibana 页面左侧菜单，单击 Dev Tools 进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。接下来，我们将通过一个城市信息的数据存储操作示例，来演示如何通过控制台操作集群、存储数据。
+在 Kibana 页面左侧菜单，单击【Dev Tools】进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。下面将通过城市信息的数据存储操作的示例，演示如何通过控制台操作集群和存储数据。
 
 ### 添加索引
 
@@ -106,21 +106,27 @@ GET /china/city/_search
 
 #### 配置 Kibana 访问索引
 
-为了使用 Kibana，需要配置至少一个可以匹配到的索引。 输入上文创建的索引 china，单击 create。
+为了使用 Kibana，需要配置至少一个可以匹配到的索引。 输入上文创建的索引 china，单击【Next step】进入下一步：
 
 ![配置访问索引](https://main.qcloudimg.com/raw/0b471a536fef9d45ac04ba7d837447bf.png)
-查看索引对应的字段:
+
+配置时间过滤字段用于通过时间过滤索引中的数据，如果索引中没有表示时间的字段可以选择不使用时间过滤功能，单击【Create index pattern】创建索引模式：
+
+![配置时间过滤字段](https://main.qcloudimg.com/raw/82ed7b6622cb8583a800c7aa4e107d67.png)
+
+
+查看索引对应的字段：
 
 ![查看索引字段](https://main.qcloudimg.com/raw/aae26c9bbd4f745cbf22cd1a17f49a30.png)
 
-单击 Discover 菜单，查看该索引下已经添加的文档：
+单击左侧菜单【Discover】，查看该索引下已经添加的文档：
 
 ![访问详细数据](https://main.qcloudimg.com/raw/54291ceed6f6863dc62428664d8c7eac.png)
 
-##可视化查询分析
+## 可视化查询分析
 
-Kibana 拥有可视化统计分析数据的能力，单击左侧菜单 Visualize, 可以配置各种可视化的图表进行数据的分析。
-如：要统计上文中，china 索引下，不同等级。
+Kibana 拥有可视化统计分析数据的能力，单击左侧菜单【Visualize】， 可以配置各种可视化的图表进行数据的分析。
+例如：要统计上文中，china 索引下的不同等级。
 
 ![选择饼图](https://main.qcloudimg.com/raw/86c8bb60ea6e6c9b253e6d6bef3a20a1.png)
 
@@ -129,9 +135,6 @@ Kibana 拥有可视化统计分析数据的能力，单击左侧菜单 Visualize
 配置指标是 count，按字段 level.level 进行分组聚合统计。
 
 ![配置聚合统计](https://main.qcloudimg.com/raw/fb99da54b85611504f715b73df6d0eef.png)
-
-
-
 
 Kibana 其他使用方式，可以进一步了解 [Kibana 官方文档](https://www.elastic.co/guide/en/kibana/6.4/getting-started.html)。
 

@@ -178,7 +178,7 @@ Authorization: Auth String
    <tr>
       <td>ETag</td>
       <td>ListVersionsResult.Version</td>
-      <td>对象的 MD-5 算法校验值</td>
+      <td>实体标签（Entity Tag）是根据对象的内容而非元数据生成的哈希值，不同的对象拥有不同的 ETag，可以根据 ETag 判断指定对象是否有修改。</td>
       <td>string</td>
    </tr>
    <tr>
@@ -206,7 +206,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                             | 描述                  | 类型   |
 | ------------------ | ---------------------------------- | --------------------- | ------ |
-| ID                 | ListVersionsResul t.Contents.Owner | Bucket 拥有者的 APPID | string |
+| UID                 | ListVersionsResul t.Contents.Owner | 存储桶拥有者的 APPID | string |
 
 ## 实际案例
 
@@ -218,7 +218,7 @@ Host: exampleBucket-1250000000.cos.ap-chengdu.myqcloud.com
 Connection: keep-alive
 Accept: */*
 User-Agent: python-requests/2.12.4
-Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9Sm****&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=versioning&q-header-list=host&q-signature=5118a936049f9d44482bbb61309235cf4abe****
+Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9Sm****&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=versions&q-header-list=host&q-signature=5118a936049f9d44482bbb61309235cf4abe****
 ```
 
 ### 响应

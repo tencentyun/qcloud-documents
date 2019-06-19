@@ -136,7 +136,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 ![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
 
 ### step 9: 截流录制
-截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如云点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
 
 ![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
 
@@ -200,7 +200,7 @@ _txLivePlayer.recordDelegate = recordListener;
 | 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
 |---------|---------|---------| ------ | ----- |
 | 极速模式 | 较流畅偏高 | 2s- 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如绝地求生）非常适合，卡顿率最低|
+| 流畅模式 | 卡顿率最低 | >= 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低|
 | 自动模式 | 网络自适应 | 2s-8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
 
 
@@ -226,11 +226,11 @@ _config.maxAutoAdjustCacheTime = 5;
 //设置完成之后再启动播放
 ```
 
-> 更多关于卡顿和延迟优化的技术知识，可以阅读[视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
+> 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 
-支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对延时要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
+支持**400ms**左右的超低延迟播放是云直播播放器的一个特点，它可以用于一些对延时要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **该功能是不需要开通的**
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
@@ -250,13 +250,13 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
-目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
+目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要高于 CDN 线路的价格）。
 
 - **Obs 的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 
 - **该功能按播放时长收费**
-本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考**[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
+本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
 
 ## SDK 事件监听
 您可以为 TXLivePlayer 对象绑定一个 **TXLivePlayListener**，之后 SDK 的内部状态信息均会通过 onPlayEvent（事件通知） 和 onNetStatus（状态反馈）通知给您。
@@ -315,7 +315,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
 
 ## 获取视频分辨率
-通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的 100ms - 200ms 左右就能得到。
+通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的100ms - 200ms左右就能得到。
 
 视频的宽高信息位于 TXLivePlayListener 的 `onPlayEvent:(int)EvtID withParam:(NSDictionary*)param;` 通知中的 **param** 参数中。
 
@@ -336,7 +336,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 |	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
 |	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
 |	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位kbps|
+|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 
