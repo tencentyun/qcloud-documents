@@ -6,7 +6,8 @@
 - 语言和方言：语音识别服务目前主语言仅支持中文普通话，可以识别有一定方言口音的普通话，支持在普通话中掺杂少量英文字母和单词。   
 - 音频格式支持：支持16bit、8k或者16k采样率的单声道或双声道的中文音频识别；支持音频格式为 wav、pcm、mp3、silk、speex、amr。  
 - 音频数据长度支持：若采用直接上传音频数据方式，则音频数据不能大于5M，若采用上传 url 方式，则音频时长不能大于1小时。
->!如超出当天免费策略上限，您可以 提交工单 联系我们处理。
+
+>!如超出当天免费策略上限，您可以提交工单 [联系我们](https://cloud.tencent.com/about/connect) 处理。
 　　
 
 ## 开发环境
@@ -94,12 +95,12 @@ secretkey=670m***************************
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](result)。 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型。 |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
-| res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回。|
+| res_type | 否 | Int | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回。|
 | callback_url | 是 | String | 回调 URL，用户接受结果，长度大于0，小于2048。 |
 | channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持 1 和 2，其他模型仅支持 1。 |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body）。 |
@@ -231,17 +232,17 @@ make
 **简单开发流程介绍**
 **初始化请求参数**  
 调用 Init 接口初始化请求参数。  
-参考接口 [TCloudRecordASR::Init](init)。
+参考接口 [TCloudRecordASR::Init](#init)。
 **设置用户密钥**
 调用 SetSecretKey 接口设置密钥。  
-参考接口 [TCloudRecordASR::SetSecretKey](SetSecretKey)。
+参考接口 [TCloudRecordASR::SetSecretKey](#SetSecretKey)。
 **传入音频获取结果**
 方法一：传入音频 URL 建议使用  
 调用 SetUrl 接口获取结果，对应参数设置为 url 模式。
-参考接口 [TCloudRecordASR::SetUrl](setdata)。
+参考接口 [TCloudRecordASR::SetUrl](#setdata)。
 方法二：音频数据  
 调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频。  
-参考接口 [TCloudRecordASR::SetData](seturl) 与 [TCloudRecordASR::SetFile](setfile)。
+参考接口 [TCloudRecordASR::SetData](#seturl) 与 [TCloudRecordASR::SetFile](#setfile)。
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
 

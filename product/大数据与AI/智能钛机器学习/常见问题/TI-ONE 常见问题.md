@@ -49,7 +49,7 @@
 
 支持，操作步骤如下：
 右键【模型图标】，单击【模型操作】>【导出模型】即可。
-![](https://main.qcloudimg.com/raw/d6f7d14804a1c7204c4d9e3196630304.png)
+![](https://main.qcloudimg.com/raw/3403d2222e9cbdececc7f91995235414/%E6%A8%A1%E5%9E%8B%E6%93%8D%E4%BD%9C5.png)
 
 
 ### 智能钛机器学习平台是否支持从外部导入模型？

@@ -24,8 +24,8 @@ JAR 包使用步骤如下：
 
 添加完成后，用户就可以在工程中使用实时语音 SDK 了。
 
-## 获取用户信息
- [获取用户信息](https://cloud.tencent.com/document/product/441/19635?!editLang=zh&!preview#.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF)。
+## <span id="result">获取用户信息</span>
+ 获取用户鉴权信息及申请使用。
 - 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
 - 关于云 API 账号中的 AppID，SecretId 与 SecretKey 查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。  
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
@@ -35,17 +35,17 @@ JAR 包使用步骤如下：
 
 
 ## 开发相关
-**参数说明 **
+**参数说明**
 **请求参数**
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](https://cloud.tencent.com/document/product/441/19635?!editLang=zh&!preview#.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF)。 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
-| sub\_service\_type | 否 | Int | 子服务类型。1：实时流式识别。|
+| sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
 | engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型. |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
-| res_type | 否 | Int | 结果返回方式。1：同步返回；0：尾包返回。|
+| res_type | 否 | Int | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 | callback_url | 是 | String | 回调 URL，用户接受结果，长度大于 0，小于 2048。 |
 | channel_num | 否 | Int | 语音声道数，仅在电话8k通用模型下，支持1和2，其他模型仅支持1。 |

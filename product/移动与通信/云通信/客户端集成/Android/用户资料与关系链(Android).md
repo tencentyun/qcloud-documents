@@ -869,17 +869,17 @@ public int getType()
 ```
 public class TIMPendencyType {
     /**
-     * 别人发给我的
+     * 别人发给我的未决请求
      */
     public static final int TIM_PENDENCY_COME_IN    = 1;
 
     /**
-     * 我发给别人的
+     * 我发给别人的未决请求
      */
     public static final int TIM_PENDENCY_SEND_OUT   = 2;
 
     /**
-     * 别人发给我的 和 我发给别人的。仅在拉取时有效。
+     * 别人发给我的以及我发给别人的所有未决请求，仅在拉取时有效。
      */
     public static final int TIM_PENDENCY_BOTH       = 3;
 

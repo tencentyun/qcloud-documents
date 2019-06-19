@@ -1,9 +1,3 @@
-## 操作场景
-云数据仓库套件 Sparkling 支持多样化的数据接入方式和数据源管理。数据接入方式包括：
-- 关系型数据库（RDBMS）接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL、分布式数据库 TDSQL 中的数据接入到 Sparkling 中。
-- 腾讯云对象存储（COS）数据接入：可以通过生成账户密钥，建立存储桶（bucket）的方式进行 COS 数据接入。
-- 腾讯云消息队列（CKafka）数据接入：可以通过 Kafka 数据接入方式将腾讯云 CKafka 中的数据接入 Sparkling 中。
-
 本节将介绍 CKafka 数据接入方法。更多关于 CKafka 的信息请参见 [CKafka 产品介绍](https://cloud.tencent.com/document/product/597)。
 
 ## 操作步骤
@@ -20,7 +14,7 @@
 	 d. 单击【角色服务授权】，授权 Sparkling 服务访问其他相应服务。
 	 ![](https://main.qcloudimg.com/raw/87ec4e2aeddf3ec47597a9dabb006039.png)
    e. 填写要接入的 Topic 。
-   f. 单击【测试连通性】确认是否可以连接到要接入的 Topic 所在的 CKafka。
+   f. 选择【连通测试】>【测试连通性】确认是否可以连接到要接入的 Topic 所在的 CKafka。
    g. 待显示【数据连通正常】后，可以选择【保存数据源】选项将该数据源保存为已有数据源，待下次接入该数据源时可采用【接入已有数据源】方式。
 	 ![](https://main.qcloudimg.com/raw/411c8491b23786dafcf50c20bfcb41b8.png)
    h. 单击高级配置开关按钮可以配置读取开始 OFFset，可以根据需求选择数据订阅是否忽略历史消息。
@@ -51,6 +45,6 @@ d. 设置单次数据条目。设置任务单次导入的数据条目，选择�
 ![](https://main.qcloudimg.com/raw/9d30754a9c9eb82c858dd5ac578d5e3a.png)
 
 ### 4. 预览
-在【预览】页可以查看当前设置的数据源配置、目标表配置、抽取规则、订阅任务配置等信息。
-![](https://main.qcloudimg.com/raw/de92830243973747b9c2bc101abf238b.png)
-确认无误后单击【完成】即可完成 Kafka 数据接入任务设置。
+在【预览】页可以查看当前设置的数据源配置、目标表配置、抽取规则、订阅任务配置等信息。确认无误后单击【完成】即可完成 Kafka 数据接入任务设置。
+<img src="https://main.qcloudimg.com/raw/a974f8b545cc2130af91b53b13e33f71.png" style="zoom:70%">
+

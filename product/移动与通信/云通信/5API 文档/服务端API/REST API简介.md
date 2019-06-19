@@ -1,9 +1,9 @@
-REST API 是云通信 IM 给提供 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信 IM 支持的 REST API 参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
+REST API 是云通信 IM 提供给 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前云通信 IM 支持的 REST API 请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
 除了 REST API，App 控制台也可实现简单的数据管理、单发/群发消息，开发者可以在控制台进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
 
 ## 前提条件
-要调用 REST API，您必须首先
+要调用 REST API，您必须已完成：
 1. 在云通信 IM 控制台创建 App，具体方法参见 [应用接入指引](https://cloud.tencent.com/document/product/269/32577)。
 2. 为您的 App 指定管理员帐号，具体方法参见 [基础配置](https://cloud.tencent.com/document/product/269/32578#.E5.9F.BA.E7.A1.80.E9.85.8D.E7.BD.AE) 的帐号体系集成。
 
@@ -27,7 +27,7 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$SDKAppID&identif
 | command  | 命令字，与 servicename 组合用来标识具体的业务功能 |示例：`v4/im_open_login_svc/account_import`，其中`account_import`为`command`<br/>更多详情请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520) |
 | sdkappid  | App 在云通信 IM 控制台获取的应用标识 |在申请接入时获得 |
 | identifier  | 用户名，调用 REST API 时必须为 App 管理员帐号 |参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)  |
-| usersig  | 用户名对应的密码 |参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/32688) |
+| usersig  | 用户名对应的密码 |参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688) |
 | random  | 标识当前请求的随机数参数 |32位无符号整数随机数 |
 | contenttype   |请求格式     | 固定值为`JSON`                   |
 
