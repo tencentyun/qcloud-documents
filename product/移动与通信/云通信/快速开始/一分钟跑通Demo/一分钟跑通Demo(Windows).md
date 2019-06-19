@@ -40,6 +40,5 @@
 4. 在文件 main.cpp 中查看您测试的 UserID。
  ![](https://main.qcloudimg.com/raw/33834ecf83cf6e1976df2418afe826f1.png)
 
-
-## 6. 编译运行
+## 编译运行
 程序启动后，在不同的客户端上登录不同的帐号，搜索对方的 UserID 创建会话，即可体验发送消息等功能。
