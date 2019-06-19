@@ -305,14 +305,14 @@
       <td rowspan='2'>SDK 下载</td>
       <td>Android</td>
 	  <td>短视频 SDK(LiteAVSDK) + 基础功能 Demo 的源代码</td>
-          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_UGC_Android_6.3.7089.zip">DOWNLOAD</a> </td>
-	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/LiteAVSDK_Enterprise_Android_6.3.7089.zip">DOWNLOAD</a> </td>
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/LiteAVSDK_UGC_Android_6.5.7272.zip">DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/LiteAVSDK_Enterprise_6.5.7272.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频 SDK(LiteAVSDK) + 基础功能 Demo 的源代码</td>
-     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.3/TXLiteAVSDK_UGC_iOS_6.3.7088.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Enterprise_iOS_6.3.7095.zip">DOWNLOAD</a> </td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/TXLiteAVSDK_UGC_iOS_6.5.7271.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/TXLiteAVSDK_Enterprise_iOS_6.5.7272.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>
@@ -347,12 +347,12 @@
   </tr>
   <tr align="center">
     <td>iOS 端源代码</td>
-    <td>6.3.7090 @ 2019-04-04</td>
+    <td>6.5.7271 @ 2019-06-19</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 端源代码</td>
-    <td>6.3.7090 @ 2019-04-04</td>
+    <td>6.5.7272 @ 2019-06-19</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
