@@ -1,0 +1,93 @@
+# Dubbo 应用接入TSF
+
+## 操作场景
+
+TSF 为其他应用提供服务注册中心，Dubbo 应用可通过依赖 jar 包的方式接入该项服务。本文档介绍 Dubbo 应用从接入TSF 到部署应用的操作方法及相关注意事项。
+
+
+
+## 操作步骤
+
+1.  Maven 环境安装
+
+   参考 [Spring Cloud 应用接入]() 时的 Maven 配置
+
+2. 注册中心配置
+
+   Dubbo 官网 Demo：
+
+   ```xml
+   <dubbo:registry address="multicast://224.5.6.7:1234"/>
+   ```
+
+   TSF Demo (**注册中心地址使用注册中心IP和端口替换**)：
+
+   ```xml
+   <dubbo:registry address="tsfconsul://注册中心地址:端口"/>
+   ```
+
+3. 添加依赖
+
+   根据业务使用的对应的 TSF Dubbo 版本 SDK。 
+
+   TSF Alibaba Dubbo 版本的 SDK 
+
+   ```xml
+   <dependency>
+     <groupId>com.tencent.tsf</groupId>
+     <artifactId>dubbo-registry-consul</artifactId>
+     <!-- 修改为对应的版本号 -->
+     <version>1.1.6-alibaba-RELEASE</version>
+   </dependency>
+   ```
+
+   TSF Apache Dubbo 版本的 SDK 
+
+   ```xml
+   <dependency>
+     <groupId>com.tencent.tsf</groupId>
+     <artifactId>dubbo-registry-consul</artifactId>
+     <!-- 修改为对应的版本号 -->
+     <version>1.1.6-apache-RELEASE</version>
+   </dependency>
+   ```
+
+   > 注意：当当网的 Dubbox 的部分功能可能不支持
+
+4. 打包 FATJAR
+
+   和 Spring Boot 结合的时候，您可以通过**spring-boot-maven-plugin**构建一个包含所有依赖的 jar 包（FatJar）。执行命令`mvn clean package`。详细请参考 [Dubbo Demo 工程概述]()
+
+
+
+## 关于 Dubbo 兼容的说明
+
+- TSF 提供服务注册中心，Dubbo 应用通过依赖 jar 包的方式使用。
+- TSF 支持 Dubbo 应用的部署和日志采集、展示。
+- TSF 支持 Dubbo 应用使用分布式配置功能。
+- Dubbo 应用的其他能力（如 filter 机制等），可以继续使用。
+- TSF 平台提供的服务限流、鉴权、路由功能目前只支持基于 Spring Cloud 和 Service Mesh 框架开发的应用。
+
+
+
+## 常见错误
+
+- 包冲突
+
+  部分包对版本有要求，如果发生包冲突，尝试主动依赖以下版本
+
+  ```xml
+  <dependency>
+    <groupId>com.ecwid.consul</groupId>
+    <artifactId>consul-api</artifactId>
+    <version>1.4.2</version>
+  </dependency>
+  
+  <dependency>
+    <groupId>io.zipkin.brave</groupId>
+    <artifactId>brave</artifactId>
+    <version>5.4.3</version>
+  </dependency>
+  ```
+
+  
