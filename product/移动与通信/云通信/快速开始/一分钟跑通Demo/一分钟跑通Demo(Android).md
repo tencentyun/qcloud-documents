@@ -42,7 +42,7 @@
 >**正确的 UserSig 签发方式是将 UserSig 的计算代码放在您的业务服务器上，并提供面向 App 的服务端接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。**更多详情请参见 [服务器生成 UserSig](https://cloud.tencent.com/document/product/269/32688#.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.94.9F.E6.88.90-usersig)。
 
 ## 编译运行
-App 启动后，在不同的手机上登录不同的帐号，搜索对方的 UserID 体验发送消息等功能。
+App 启动后，在不同的手机上登录不同的帐号，搜索对方的 UserID 创建会话，即可体验发送消息等功能。
 会话列表以及通讯录相关界面演示：
 <div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/367185/1560518740493-e5a89223-4cb4-44df-a9a5-665e78b67983.gif#align=left&display=inline&height=674&name=%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8.gif&originHeight=674&originWidth=380&size=319844&status=done&width=380" width="300" height="535">
