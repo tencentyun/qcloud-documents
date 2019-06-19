@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.3.7088） @ 2019-03-29</td>
-        <td style="text-align:center">SDK（6.3.7089） @ 2019-03-29</td>
+        <td style="text-align:center">SDK（6.5.7271） @ 2019-06-19</td>
+        <td style="text-align:center">SDK（6.5.7272） @ 2019-06-19</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -88,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Player_iOS_6.3.7088.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/LiteAVSDK_Player_Android_6.3.7089.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/TXLiteAVSDK_Player_iOS_6.5.7271.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/LiteAVSDK_Player_Android_6.5.7272.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
