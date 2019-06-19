@@ -62,7 +62,7 @@
 | [动态加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | ✔  |  - | ✔   | -  |
 | [内容分发网络](https://cloud.tencent.com/document/product/228/12722)<sup>①</sup>| 操作级 | ✔   |  -   | ✔  | - |
 
->?内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，点击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
+>?内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
 
  ## 互联网中间件	
  | 服务                                                       | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务相关角色 |	
