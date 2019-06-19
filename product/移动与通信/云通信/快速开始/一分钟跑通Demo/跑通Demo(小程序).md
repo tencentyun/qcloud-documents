@@ -16,13 +16,18 @@
 ![](https://main.qcloudimg.com/raw/e3ce0ef527d2d4f8d0b3a0f69cefa78e.png)
 
 
-## 3. 获取测试 userSig
+## 3. 获取测试 userSig 和创建互动直播聊天室
 完成账号管理员配置后，单击**下载公私钥**的链接，即可获得一个名为 **keys.zip** 的压缩包。解压后可以得到两个文件，即 public_key 和 private_key，用记事本打开 **private_key** 文件，并将其中的内容拷贝到**开发辅助工具**的私钥文本输入框中。
 
 其中：**identifier** 即为您的测试账号（也就是 userId），私钥为 private_key 文件里的文本内容，生成的签名就是**userSig**。identifier 和 userSig 是一一对应的关系。
 >! 可以多生成4组以上的 userid 和 usersig，方便在 Demo 中调试使用。
 
 ![](https://main.qcloudimg.com/raw/a1b9bb35760e1e52825c754bd3ef9a52.png)
+
+切换到**群组管理**页面，单击**添加群组**，按照弹框的提示，创建互动直播聊天室，并记下创建的群 ID。
+>! 群类型必须为互动直播聊天室。
+
+![](https://main.qcloudimg.com/raw/c51a8d491c723670b382cf5de04e4f61.png)
 
 
 ## 4. 小程序服务器域名配置
@@ -40,7 +45,7 @@ SDK 内部需要访问如下地址，请将以下域名在 【微信公众平台
 - step1：安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序项目】按钮。
 
 - step2：输入您申请到的微信小程序 AppID（注意：不是上面的 SDKAppID），项目目录选择上一步下载到的代码目录（ **注意：** 目录请选择**根目录**，根目录包含有 `project.config.json`文件），单击【确定】创建小程序项目。
-- step3：修改 `pages/config.js`，将上文获取到的 SDKAppID、accountType、identifier 和 userSig 填入 `pages/config.js` 的相应位置。
+- step3：修改 `pages/config.js`，将上文获取到的 SDKAppID、identifier、userSig、群 ID 填入 `pages/config.js` 的相应位置。
 - step4：使用手机进行测试，直接扫描开发者工具预览生成的二维码进入。
 - step5：选择体验帐号然后登录聊天室，即可进行收发消息。
 ![](https://main.qcloudimg.com/raw/65952c55ee5102973b6e5383ddc5ba7e.png)
