@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/3f766e03c8b7bbd6e4a2679e2186d523.png)
 5. 密码设置。勾选“密码”，为新增的用户设置密码后，单击【确定】。
 ![](https://main.qcloudimg.com/raw/4d0b34e03796e5e1aca0c9ac97d60c14.png)
-6. 弹出提示框告知添加用户目录，单击【确定】进入设置界面。单击【Add】新增用户目录。
+6. 弹出提示框告知添加用户目录，单击【确定】进入设置界面。单击【添加】新增用户目录。
 ![](https://main.qcloudimg.com/raw/e5b0accf2129a6f54278487a6aa2a8ba.png)
 7. 选择 FTP 资源目录。本例使用已新建的 Tencent-Qcloud 目录，单击【确定】。在该目录下放置文件`欢迎使用腾讯云服务器.txt`以便后续测试。
 ![](//mc.qcloudimg.com/static/img/abfe5bdfd1011f723b4e5d75e4b3de36/image.jpg)
