@@ -1,6 +1,5 @@
+>!gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 控制台 [小游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe) 获取。
 1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。
->!gameInfo.gameId、gameInfo.secretKey、config.url 都需要从控制台上获取。
-
 ```
 const gameInfo = {
 	// 替换 为控制台上的“游戏ID”
@@ -32,8 +31,7 @@ MGOBE.Listener.init(gameInfo, config, event => {
 // 实例化 Room 对象
 const room = new MGOBE.Room();
 ```
-2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
- 
+2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示： 
 ```
 // 初始化 Listener
 MGOBE.Listener.init(gameInfo, config, event => {
