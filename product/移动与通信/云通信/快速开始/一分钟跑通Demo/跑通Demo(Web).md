@@ -1,4 +1,4 @@
-本文主要介绍如何快速地运行云通信 IM Demo（Web）工程。
+本文主要介绍如何快速地运行云通信 WebIM Demo 工程。
 
 <span id="step1"></span>
 ## 创建应用
