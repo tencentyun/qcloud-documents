@@ -52,4 +52,4 @@ pod install
 ![](https://main.qcloudimg.com/raw/099d4241c099e1e6e81b9d9f93fd6fa4.png)
 
 ## 编译运行
-程序启动后，在不同的设备上登录不同的帐号，搜索对方的 UserID 体验发送消息等功能。
+程序启动后，在不同的设备上登录不同的帐号，搜索对方的 UserID 创建会话，即可体验发送消息等功能。
