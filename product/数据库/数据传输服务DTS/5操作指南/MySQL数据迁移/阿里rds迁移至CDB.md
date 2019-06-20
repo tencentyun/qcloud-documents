@@ -6,10 +6,6 @@
 - 腾讯云云数据库 MySQL 5.6 实例。
 >!数据传输过程中，腾讯云数据库的数据复制方式必须为异步复制，如需修改数据复制方式，在数据传输完成后升级即可。
 
-## 前提条件
-- 保证业务侧对阿里云 RDS 不再进行写入，可通过更改业务连接的账号密码或调整授权，但需确保用于 DTS 同步的账号可正常读写。
-- 断开阿里云 RDS 的业务连接，通过`show processlist`命令验证没有业务连接。
-
 ## 操作步骤
 
 ### 1. 获取源数据库基本信息和 AccessKey 
@@ -74,18 +70,21 @@
 在迁移过程中，如果您需要撤销迁移，可以单击【撤销】。
 ![](https://main.qcloudimg.com/raw/d57e495a06627c9d10274c3e3ea9beba.png)
 
-### 5. 完成迁移
->?
->- 通过`show master status`获取阿里云 RDS 最新 gtid，然后与 TencentDB 同步的 gtid（通过`show slave status`获取）进行对比，保证 TencentDB 与阿里云 RDS 同步没有延迟。
->- 用户通过 DTS 控制台（见下图）或自行抽取核心表内容检查数据一致性。
->![](https://main.qcloudimg.com/raw/bb535aba27effc701d14544b3a5ba09a.png)
->- 通过`show slave status`记录 TencentDB 的同步位点。
->
+### 5. 迁移任务割接
+- 保证业务侧对阿里云 RDS 不再进行写入，可通过更改业务连接的账号密码或调整授权，但需确保用于 DTS 同步的账号可正常读写。
+- 断开阿里云 RDS 的业务连接，通过`show processlist`命令验证没有业务连接。
+- 通过`show master status`获取阿里云 RDS 最新 gtid，然后与 TencentDB 同步的 gtid（通过`show slave status`获取）进行对比，保证 TencentDB 与阿里云 RDS 同步没有延迟。
+- 用户通过 DTS 控制台（见下图）或自行抽取核心表内容检查数据一致性。
+![](https://main.qcloudimg.com/raw/bb535aba27effc701d14544b3a5ba09a.png)
+- 通过`show slave status`记录 TencentDB 的同步位点。
+
+
+### 6. 完成迁移
 当迁移进度达到100%时，可单击右侧【完成】，完成迁移任务，或调用 DTS 云 [API](https://cloud.tencent.com/document/product/571/18122) 断开同步，完成迁移任务。。
 ![](https://main.qcloudimg.com/raw/30dbf7018d72cee1daef076323dd5377.png)
 >!当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
 
-### 6. 业务重连
+### 7. 业务重连
 1. 关闭 TencentDB 的只读功能，验证 TencentDB 是否可读写，若读写正常则启动应用程序。
 2. 持续观察 TencentDB 状态，确保应用可正常运行。    
 
