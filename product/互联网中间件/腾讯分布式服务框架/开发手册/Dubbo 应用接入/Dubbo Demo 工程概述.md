@@ -2,9 +2,9 @@
 
 ## 获取 Demo
 
-基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/60e173e21bed083dc6ba824816b3201b/tsf-dubbo-alibaba-demo-20190617.zip)
+基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/2445763c24416d02aee231776f0e2402/tsf-dubbo-alibaba-demo.zip)
 
-基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/b83a57cdba4d75ea4bc3a1833bad23a1/tsf-dubbo-apache-demo-20190617.zip)
+基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/594e172ee0b2d4b9d6edc03b57f915f2/tsf-dubbo-apache-demo.zip)
 
 ## 工程目录
 
@@ -19,7 +19,7 @@
 其中 consumer-demo 表示服务消费者， provider-demo 表示服务提供者。
 pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版本 SDK 举例说明）：
 
-``` xml
+```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
@@ -31,7 +31,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版
     </parent>
 
     <artifactId>provider-demo</artifactId>
-    <version>1.1.6-alibaba-SNAPSHOT</version>
+    <version>1.1.6-alibaba-RELEASE</version>
     <packaging>jar</packaging>
     <name>provider-demo</name>
 
@@ -50,7 +50,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版
             <groupId>com.tencent.tsf</groupId>
             <artifactId>dubbo-registry-consul</artifactId>
             <!-- 调整为 SDK 最新版本号 -->
-            <version>1.1.6-alibaba-SNAPSHOT</version>
+            <version>1.1.6-alibaba-RELEASE</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -71,4 +71,3 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版
 ```
 
 关于 Maven 环境安装，请参考 [Spring Cloud SDK 下载](<https://cloud.tencent.com/document/product/649/20231>) 时的 Maven 配置。
-
