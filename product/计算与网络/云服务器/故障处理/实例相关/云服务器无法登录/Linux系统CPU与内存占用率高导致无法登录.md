@@ -62,6 +62,8 @@ Linux 系统通过分页机制管理内存的同时，将磁盘的一部分划�
 top
 ```
 2. 观察 kswapd0 进程状态。
-若持续处于非睡眠状态，且运行时间较长并持续占用较高 CPU 资源，可参考 [CPU 使用率过高（Linux 系统）](https://cloud.tencent.com/document/product/213/14634) 进行排查。
-3. 执行 `free`，`ps` 等指令，查询系统内进程的内存占用情况。
+若持续处于非睡眠状态，且运行时间较长并持续占用较高 CPU 资源，请执行 [步骤3](#kswapd0_step3)，查看内存的占用情况。
+3. <span id="kswapd0_step3">执行 `free`，`ps` 等指令，查询系统内进程的内存占用情况。</span>
 根据内存占用情况，重启系统或终止不需要且安全的进程。
+
+若问题仍存在，可参考 [CPU 使用率过高（Linux 系统）](https://cloud.tencent.com/document/product/213/14634) 进行排查。
