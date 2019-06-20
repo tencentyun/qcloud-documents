@@ -66,4 +66,4 @@ top
 3. <span id="kswapd0_step3">执行 `free`，`ps` 等指令，查询系统内进程的内存占用情况。</span>
 根据内存占用情况，重启系统或终止不需要且安全的进程。
 
-若问题仍存在，可参考 [CPU 使用率过高（Linux 系统）](https://cloud.tencent.com/document/product/213/14634) 进行排查。
+若 kswapd0 进程的问题仍存在，可参考 [CPU 使用率过高（Linux 系统）](https://cloud.tencent.com/document/product/213/14634) 进行排查。
