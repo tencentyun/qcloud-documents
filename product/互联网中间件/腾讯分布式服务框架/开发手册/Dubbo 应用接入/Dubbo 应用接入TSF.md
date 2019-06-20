@@ -35,7 +35,7 @@ TSF 为其他应用提供服务注册中心，Dubbo 应用可通过依赖 jar �
    ```xml
    <dependency>
      <groupId>com.tencent.tsf</groupId>
-     <artifactId>dubbo-registry-consul</artifactId>
+     <artifactId>tsf-dubbo</artifactId>
      <!-- 修改为对应的版本号 -->
      <version>1.1.6-alibaba-RELEASE</version>
    </dependency>
@@ -46,7 +46,7 @@ TSF 为其他应用提供服务注册中心，Dubbo 应用可通过依赖 jar �
    ```xml
    <dependency>
      <groupId>com.tencent.tsf</groupId>
-     <artifactId>dubbo-registry-consul</artifactId>
+     <artifactId>tsf-dubbo</artifactId>
      <!-- 修改为对应的版本号 -->
      <version>1.1.6-apache-RELEASE</version>
    </dependency>
