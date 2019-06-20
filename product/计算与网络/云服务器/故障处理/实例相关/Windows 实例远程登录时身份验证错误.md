@@ -28,6 +28,7 @@
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
+<span id="step4"></span>
 ### 方案一：安装安全更新（推荐）
 
 安装安全更新，可更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
@@ -38,7 +39,7 @@
 - Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统与安全】>【Windows Update】
 
 
-1. <span id="step4">在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img>，选择【设置】。如下图所示：</span>
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img>，选择【设置】。如下图所示：
 ![开始设置](https://main.qcloudimg.com/raw/c5add12cacd642aad479bc356cec04f1.png)
 2. 在打开的 “设置” 窗口中，选择【更新与安全】。如下图所示：
 ![更新与安全](https://main.qcloudimg.com/raw/59c7b0c52eee2c5572b73b062edd3ce9.png)
