@@ -64,8 +64,7 @@
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中
 2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。
 <img src="https://main.qcloudimg.com/raw/ceb05e582ff60400a94cb875542ec9fa/%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B.png" width="78%" />
-![](https://main.qcloudimg.com/raw/0827e9fe277120afd80a5a6aa32b9526.png)
-
+<img src="https://main.qcloudimg.com/raw/0827e9fe277120afd80a5a6aa32b9526.png" width="78%" />
 3. 修改 COS 路径：
 目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。
 
