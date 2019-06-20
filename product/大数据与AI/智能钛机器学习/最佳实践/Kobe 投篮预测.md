@@ -69,9 +69,8 @@
 目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。
 
  >!请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
-
- ![](https://main.qcloudimg.com/raw/d66e2b4764ca4a6363516358e317eaba.png)
-
+ 
+<img src="https://main.qcloudimg.com/raw/d66e2b4764ca4a6363516358e317eaba.png" width="78%" />
 **二. 数据清洗**
 
 此数据清洗功能由【案例相关材料】中的清洗代码`data_cleaning.py`提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中：
@@ -81,9 +80,8 @@
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。
  - Python 版本：选择 Python 3.5。
  - 其余参数均可默认。
-![](https://main.qcloudimg.com/raw/b732149cb72acb244643860ca10f40b7.png)
-![](https://main.qcloudimg.com/raw/c0b243f5d30e4d7f57203a72baf19105.png)
-
+<img src="https://main.qcloudimg.com/raw/b732149cb72acb244643860ca10f40b7.png" width="78%" /> 
+<img src="https://main.qcloudimg.com/raw/c0b243f5d30e4d7f57203a72baf19105.png" width="78%" />
 **三. 特征转换**
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。
 2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。
