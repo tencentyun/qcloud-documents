@@ -132,7 +132,7 @@ Kibana 拥有可视化统计分析数据的能力，单击左侧菜单【Visuali
 
 ![选择索引](https://main.qcloudimg.com/raw/5351e277f60483b019212079bf2fd561.png)
 
-配置指标是 count，按字段 level.level 进行分组聚合统计。
+配置指标是 count，按字段 level.level 进行分组聚合统计，单击【Save】保存。
 
 ![配置聚合统计](https://main.qcloudimg.com/raw/fb99da54b85611504f715b73df6d0eef.png)
 
