@@ -2,9 +2,9 @@
 
 ## 获取 Demo
 
-基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/2445763c24416d02aee231776f0e2402/tsf-dubbo-alibaba-demo.zip)
+基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/def3599d1c8812d0404bafd11a72cf51.zip)
 
-基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/594e172ee0b2d4b9d6edc03b57f915f2/tsf-dubbo-apache-demo.zip)
+基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/5c3106fa41e5515c0b1ef91a72d80d29.zip)
 
 ## 工程目录
 
@@ -48,7 +48,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版
         </dependency>
         <dependency>
             <groupId>com.tencent.tsf</groupId>
-            <artifactId>dubbo-registry-consul</artifactId>
+            <artifactId>tsf-dubbo</artifactId>
             <!-- 调整为 SDK 最新版本号 -->
             <version>1.1.6-alibaba-RELEASE</version>
         </dependency>
