@@ -98,10 +98,10 @@
   </tr>
 </table>
 
-详细介绍可参考 [此文档](https://github.com/tencentyun/SuperPlayer)。
+详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流
-关注公众号"腾讯云视频"，在聊天窗口发送关键字"技术支持"，将有专人和您联系。
+关注公众号“腾讯云视频”，在聊天窗口发送“技术支持”，将有专人和您联系。
 
 ![公众号二维码](https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg)
