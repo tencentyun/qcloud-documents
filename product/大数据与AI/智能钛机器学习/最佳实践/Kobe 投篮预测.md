@@ -47,7 +47,6 @@ TFRecord 数据文件是一种将图像数据和图像标签统一存储的二�
 4. 两个输出桩分别代表训练集和验证集的 TFRecord 文件， 供后面的分类网络使用。
  
 <img src="https://main.qcloudimg.com/raw/acd4eb5a26ac2f1deee8803b3e39b926/%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2.png" width="78%" /> 
-
 **四. 分类网络**
 选择合适的 CNN 网络处理分类任务，这里以 Inception 网络为例。 Inception 网络的详情可以参考 [相关论文](https://arxiv.org/abs/1409.4842)。 
 1. 在控制台的左侧导航栏，选择【算法】>【深度学习算法】>【计算机视觉】>【 Inception 】，并拖入画布中
