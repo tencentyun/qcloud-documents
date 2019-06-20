@@ -9,11 +9,12 @@
 ## 操作步骤
 
 ### 1. 获取源数据库基本信息和 AccessKey 
- 1. 登录 [RDS 管理控制台](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Frdsnew.console.aliyun.com%2F%3Fspm%3Da2c4g.11186623.2.5.cdjgiR)，选择目标实例。
- 2. 在目标实例的基础信息页即可获取我们所需的信息，具体如图所示：
+1.1 登录 [RDS 管理控制台](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Frdsnew.console.aliyun.com%2F%3Fspm%3Da2c4g.11186623.2.5.cdjgiR)，选择目标实例。
+1.2 在目标实例的基础信息页即可获取我们所需的信息，具体如图所示：
 ![](https://main.qcloudimg.com/raw/e55af45a5c36a99097418808cc542389.png)
 >!阿里云提供的外网地址需要将其转化成 IP 格式。此处列举一个 [IP/服务器地址查询 ](http://ip.chinaz.com) 的网址。
- 3. 将鼠标悬停于右上方头像处，在出现的下拉菜单中选择【accesskeys】，进入页面后即可获取所需的 Accesskey。
+>
+1.3 将鼠标悬停于右上方头像处，在出现的下拉菜单中选择【accesskeys】，进入页面后即可获取所需的 Accesskey。
 ![](https://main.qcloudimg.com/raw/2d67bd05558d5762c322d0c33d344332.png)
 	
 ### 2. 创建腾讯云云数据库的 DTS 任务
@@ -85,6 +86,6 @@
 >!当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
 
 ### 7. 业务重连
-1. 关闭 TencentDB 的只读功能，验证 TencentDB 是否可读写，若读写正常则启动应用程序。
-2. 持续观察 TencentDB 状态，确保应用可正常运行。    
+7.1 关闭 TencentDB 的只读功能，验证 TencentDB 是否可读写，若读写正常则启动应用程序。
+7.2 持续观察 TencentDB 状态，确保应用可正常运行。    
 
