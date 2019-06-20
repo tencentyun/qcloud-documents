@@ -114,7 +114,7 @@ http://云服务器的公网 IP/test.php
 ### 配置域名（可选）
 
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
-如果您使用 IP 直接安装，请跳过此步骤，直接 [安装 Discuz! ](#InstallDiscuz)。
+如果您使用 IP 直接安装，请跳过此步骤，直接 [安装 Discuz!](#InstallDiscuz)。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤：
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
 2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
