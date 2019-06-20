@@ -11,14 +11,14 @@ PUT Bucket versioning 接口实现启用或者暂停存储桶的版本控制功�
 ## 请求
 ### 请求示例
 
-```
+```shell
 PUT /?versioning HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
@@ -30,7 +30,7 @@ Authorization: Auth String
 
 ### 请求体
 
-```
+```shell
 <VersioningConfiguration>
   <Status></Status>
 </VersioningConfiguration>
@@ -65,7 +65,7 @@ Authorization: Auth String
 
 
 ## 实际案例
-```
+```shell
 PUT /?versioning HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
 Connection: keep-alive
@@ -82,7 +82,7 @@ Content-Length: 83
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
