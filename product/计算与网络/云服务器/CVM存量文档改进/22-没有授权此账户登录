@@ -4,10 +4,11 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “连接被拒绝�
 
 ## 故障原因
 
-该 Windows 实例设置了白名单用户才能远程访问，但现尝试登录的用户不在此 Windows 实例允许远程桌面连接的用户白名单之内。
+该 Windows 实例设置了允许通过远程桌面服务登录的权限，但现尝试登录的用户没有此 Windows 实例设置的允许通过远程桌面服务登录的权限。
 
 ## 解决方案
-需要将现尝试登录的用户加入到被访问的 Windows 实例允许远程访问的白名单中。
+
+将尝试登录的用户添加至 Windows 实例设置的允许通过远程桌面服务登录的权限列表中。
 
 ## 处理步骤
 
@@ -16,8 +17,10 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “连接被拒绝�
 2. 在 “实例” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
 ![云服务器列表页](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
 3. 在弹出的“登录Windows实例”窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
+![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
-### 将登录用户添加到白名单
+### 配置远程登录权限
 
 >? 以下操作以 Windows Server 2016 为例。
 >
@@ -26,8 +29,8 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “连接被拒绝�
 ![](https://main.qcloudimg.com/raw/0a9f64957539a37d3c930932e24213c0.png)
 3. 在打开的【允许通过远程桌面服务登录 属性】窗口中，检查允许通过远程桌面服务登录的用户列表是否存在需要登录的帐户。如下图所示：
 ![允许通过远程桌面服务登录](https://main.qcloudimg.com/raw/acd4d3cb6204a34c612b32c777308f9f.png)
- - 如果该用户不在允许远程连接的白名单中，请执行 [步骤4](#step04)。
- - 如果该用户已经在允许远程连接的白名单中，则此问题不能通过添加白名单来解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+ - 如果该用户不在允许通过远程桌面服务登录的列表中，请执行 [步骤4](#step04)。
+ - 如果该用户已经在允许通过远程桌面服务登录的列表中，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
 4. <span id="step04">单击【添加用户或组】，打开 “选择用户或组” 窗口。</span>
 5. 输入需要进行远程登录的帐户，单击【确定】。
 6. 单击【确定】，并关闭本地组策略略编辑器。
