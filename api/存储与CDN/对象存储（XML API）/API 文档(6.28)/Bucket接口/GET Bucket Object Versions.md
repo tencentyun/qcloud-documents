@@ -39,7 +39,7 @@ Authorization: Auth String
       <td>否</td>
    </tr>
    <tr>
-      <td>KeyMarker</td>
+      <td>key-marker</td>
       <td>默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始</td>
       <td>string</td>
       <td>否</td>
