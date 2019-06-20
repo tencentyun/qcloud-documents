@@ -71,8 +71,8 @@
  >!请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
  
 <img src="https://main.qcloudimg.com/raw/d66e2b4764ca4a6363516358e317eaba.png" width="78%" />
-**二. 数据清洗**
 
+**二. 数据清洗**
 此数据清洗功能由【案例相关材料】中的清洗代码`data_cleaning.py`提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中：
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。
 2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。
@@ -89,11 +89,11 @@
  - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。
  - Python版本：选择 `Python 3.5`。
  - 其余参数均可默认。
-![](https://main.qcloudimg.com/raw/93e0b8004897f12611f4e16094fe0ab0.png)
-![](https://main.qcloudimg.com/raw/c83d8495afaf7f153fe0cf2d9931ee8c.png)
+ 
+ <img src="https://main.qcloudimg.com/raw/93e0b8004897f12611f4e16094fe0ab0.png" width="78%" />
+ <img src="https://main.qcloudimg.com/raw/c83d8495afaf7f153fe0cf2d9931ee8c.png" width="78%" />
 
 **四. 特征选择**
-
 此特征选择功能亦由【案例相关材料】中的相关代码data_selection.py提供：
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。
 2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。
@@ -135,4 +135,4 @@
 
 详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。
 运行成功后，将光标放置于【BinaryEvaluator】，画布中将展示工作流评估结果：
- ![](https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png)
+![](https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png)
