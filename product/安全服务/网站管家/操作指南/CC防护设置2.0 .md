@@ -28,7 +28,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://main.qcloudimg.com/raw/fa3f56e2511f96dff04c4dc374588a5f.png)
 
 **示例二： 基于 SESSION 的 CC 防护设置**
-基于 SESSION 访问速率 CC 防护，能有效防止因为办公网、商超、公共 WIFI 因为 IP 封堵导致的误杀问题。
+基于 SESSION 访问速率 CC 防护，能够有效地解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
 1. 设置 SESSION 维度信息。单击【防护设置】>【域名列表】，选择对应域名单击【防护配置】>【CC 防护设置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/5c49844f0029ef5156ff74adafbc5087.png)
 2. 单击【设置】进行 SESSION 设置，此示例中，选择 COOKIE 作为测试内容,标识为：security，开始位置为0，结束位置为9。
