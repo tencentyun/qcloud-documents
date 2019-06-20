@@ -86,7 +86,7 @@
 ![](https://main.qcloudimg.com/raw/30dbf7018d72cee1daef076323dd5377.png)
 >!当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
 
-### 7. 业务重连
+### 7. 业务验证
 7.1 关闭 TencentDB 的只读功能，验证 TencentDB 是否可读写，若读写正常则启动应用程序。
 7.2 持续观察 TencentDB 状态，确保应用可正常运行。    
 
