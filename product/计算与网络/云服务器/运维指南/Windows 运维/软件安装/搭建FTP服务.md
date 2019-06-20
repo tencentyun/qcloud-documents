@@ -14,13 +14,8 @@
 ![](https://main.qcloudimg.com/raw/8d17fe17de20eb21f7cc8bc58d821037.png)
 5. 选择安装位置，单击【下一步】。
 6. <span id="step2">选择 FileZilla Server 的启动模式，设置 FileZilla Server的端口，单击【下一步】。如下图所示：</span>
+一般情况下，选择默认的启动模式，管理端口选择未被占用的端口即可。
  ![](https://main.qcloudimg.com/raw/c97294110f187db619e50097bb614f0e.png)
- FileZilla Server 安装启动模式分为以下三种：
-  - 安装到系统服务，随 Windows 系统启动（默认）
-  - 安装到系统服务，手动启动
-  - 不安装到系统服务，自动启动服务器（不推荐）
-
- 一般情况下，选择默认的启动模式，管理端口选择未被占用的端口即可。
 7. 单击【安装】，启动 FileZilla Server。
 8. 在打开的 “连接到服务器” 窗口中，填写以下信息，单击【确定】，连接 FileZilla 服务器。如下图所示：
 ![](https://main.qcloudimg.com/raw/05393c6c6519c9d052dc87f6ff09af4c.png)
