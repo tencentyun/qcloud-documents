@@ -1,21 +1,20 @@
 ## 功能描述
 GET Bucket versioning 接口实现获得存储桶的版本控制信息。
 ### 细节分析
-1. 获取存储桶版本控制的状态，需要有该存储桶的读权限；
+1. 获取存储桶版本控制的状态，需要有该存储桶的读权限。
 2. 有三种版本控制状态：未启用版本控制、启用版本控制和暂停版本控制。
-- 如果您从未在存储桶上启用（或暂停）版本控制，则响应为：
-```
+	- 如果您从未在存储桶上启用（或暂停）版本控制，则响应为：
+```shell
 <VersioningConfiguration/>
 ```
-
-- 如果您启用了存储桶的版本控制功能，则响应为：
-```
+	- 如果您启用了存储桶的版本控制功能，则响应为：
+```shell
 <VersioningConfiguration>
     <Status>Enabled</Status>
 </VersioningConfiguration>
 ```
-- 如果您暂停了存储桶的版本控制功能，则响应为：
-```
+	- 如果您暂停了存储桶的版本控制功能，则响应为：
+```shell
 <VersioningConfiguration>
     <Status>Suspended</Status>
 </VersioningConfiguration>
@@ -32,7 +31,7 @@ Date: GMT date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String (详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 
@@ -55,7 +54,7 @@ Authorization: Auth String
 
 ### 响应体
 
-```
+```shell
 <VersioningConfiguration>
     <Status></Status>
 </VersioningConfiguration>
@@ -70,7 +69,7 @@ Authorization: Auth String
 
 
 ## 实际案例
-```
+```shell
 GET /?versioning HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
 Connection: keep-alive
@@ -81,7 +80,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9Sm****&q
 ```
 
 ### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 120
