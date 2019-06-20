@@ -1,138 +1,69 @@
 
 ## 场景背景
 
-2016年4月12日，科比结束了他传奇的职业生涯。他在最后一场比赛中，独得60分，帮助湖人队取得了胜利。从17岁入选 NBA开始到此刻光荣退役，科比在他的职业生涯中获得了无数的荣誉。
-通过使用科比职业生涯中投中和投失的数据，您能预测他的哪些投篮能命中篮筐吗？通过本案例，您可以训练一个分类模型预测科比的某次投篮是否会投进。本案例非常适合实践特征工程和分类的知识。
+随着信息时代的发展，伴随着照相装备和图片采集设备的普及，越来越多的图片数据广泛存在于生产生活的各个角落，如何对海量图片数据进行高效的分类和检索成为了一项新的挑战。
+智能钛机器学习平台为用户提供一种深度学习快速搭建图像分类模型，用户无须编写代码，只要拖动相应的算法组件，便可以在短时间内快速上手，解决自己的实际问题。
+本场景中，将通过搭建 CNN 网络训练分类模型，识别五种花朵；训练完成后部署模型，通过 HTTP 调用返回预测结果，共包含4个环节，预计完成需要30分钟。
 
 ## 数据集介绍
 
-该案例的训练数据包含科比在20年职业生涯中所尝试的每个投篮的具体特征信息：动作、位置、日期等。
+本案例使用的 [公开数据集](https://www.tensorflow.org/hub/tutorials/image_retraining) 共包含五类花朵数据：Daisy（菊花）、Dandelion（蒲公英）、Rose（玫瑰）、Sunflower（向日葵）和Tulip（郁金香），共218MB大小。
 
-**数据集字段信息如下：**
-
-| **字段名**         | **取值类型** | **取值举例**                                                 |
-| ------------------ | ------------ | ------------------------------------------------------------ |
-| action_type        | 枚举         | Jump Shot/Running Jump Shot/Layup Shot/Reverse Dunk Shot/Slam Dunk Shot |
-| combined_shot_type | 枚举         | Jump Shot/Layup/Dunk                                         |
-| game_event_id      | 数值         | 1/2/3/……                                                    |
-| game_id            | 数值         | 20000012/20000047/……                                         |
-| lat                | 数值         | 33.9343/34.0163/……                                           |
-| loc_x              | 数值         | -157/138/0/……                                                |
-| loc_y              | 数值         | 175/-11/0/……                                                 |
-| lon                | 数值         | -118.1028/-118.2938/……                                       |
-| minutes_remaining  | 数值         | 0/1/2/3/4/5/6/7/8/9/10/11                                    |
-| period             | 数值         | 1/2/3/4/5/6/7                                                |
-| playoffs           | 数值         | 0/1                                                          |
-| season             | 字符串       | 2004-5-1/2007-8-1/2015-16/……                                 |
-| seconds_remaining  | 数值         | 0\~59                                                        |
-| shot_distance      | 数值         | 0/45/79/……                                                   |
-| target             | 枚举        | 0/1                                                          |
-| shot_type          | 枚举         | 2PT Field Goal/3PT Field Goal                                |
-| shot_zone_area     | 枚举         | Right Side(R)/Left Side(L)/Left Side Center(LC)/Right Side Center(RC)/Center©/Back Court(BC) |
-| shot_zone_basic    | 枚举         | Mid-Range/Restricted Area/In The Paint (Non-RA)/Above the Break 3/…… |
-| shot_zone_range    | 枚举         | 16-24 ft./8-16 ft./Less Than 8 ft./24+ ft./……                |
-| team_id            | 数值         | 1610612747                                                   |
-| team_name          | 字符串       | Los Angeles Lakers                                           |
-| game_date          | 日期         | 2000-10-31/2014-12-21/……                                     |
-| matchup            | 字符串       | LAL vs. IND/LAL vs. SAC/LAL vs. UTA/LAL vs. SAC/……           |
-| opponent           | 字符串       | SAC/PHX/……                                                   |
-| shot_id            | 数值         | 1/2/3/4/5/……                                                 |
-
-**数据集具体内容抽样展示如下（前八列）：**
-![](https://main.qcloudimg.com/raw/839e2d3e9b8bb72618302a470df46ad6.png)
-
-## 案例相关材料
-
-相关材料下载链接：[Kobe 投篮预测 Demo 材料](https://main.qcloudimg.com/raw/c16f2f3c736e434b63341db6026d7425/kobe.zip)。
-该材料包含以下文件：
-- classifier.py：分类模型的分类器文件，用于模型分类。
-- data_cleaning.py：数据预处理阶段的数据清洗代码。
-- data_transformation.py：数据特征转换代码。
-- feature_selection.py：数据特征选择代码。
-- kobe.csv：kobe投篮具体特征信息的数据集文件。
-请用户下载该案例所需全部材料，并保存到本地以便后面搭建工作流需要。
+**数据集抽样展示如下：**（各类别下花朵照片示例）。
+![https://main.qcloudimg.com/raw/cb16186fcf4cf98a6764face437a59ca.png](https://main.qcloudimg.com/raw/cb16186fcf4cf98a6764face437a59ca.png)
 
 ## 整体流程
-该 Demo 的整体流程如下：
-![](https://main.qcloudimg.com/raw/8b95ebd269c35ae066aa9f523e87ece8/1558602795896.png)
 
+工作流整体流程如下：
+![](https://main.qcloudimg.com/raw/57de9b76fb3b307f73959b6b24fe9f5e.png)
 ## 详细流程
 
-**一. 上传数据**
+**一. 数据准备**
+1. 在智能钛机器学习平控制台的左侧导航栏，选择【输入】>【数据源】>【 COS 数据集】，拖入画布中
+2. 填写 COS 路径地址：`${COS}为地址前缀`，请直接复制输入`${ai_dataset_lib}/image_classification/flower_photos`，并关闭【是否检查数据】
 
-本案例通过本地数据节点上传所需数据：
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中
-2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。
-<img src="https://main.qcloudimg.com/raw/ceb05e582ff60400a94cb875542ec9fa/%E8%AF%A6%E7%BB%86%E6%B5%81%E7%A8%8B.png" width="78%" />
-<img src="https://main.qcloudimg.com/raw/0827e9fe277120afd80a5a6aa32b9526.png" width="78%" />
-3. 修改 COS 路径：
-目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。
+<img src="https://main.qcloudimg.com/raw/2f34647bfef5d304995715cea94b4075/%E6%98%AF%E5%90%A6%E6%A3%80%E6%9F%A5%E6%95%B0%E6%8D%AE.png" width="78%" />
 
- >!请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
+**二. 切分数据**
+在模型训练的时候通常会将所有的数据分成三部分， 分别是训练集 training set、验证集 validation set 和测试集 test set。训练集用来训练模型，验证集用于调节超参数，测试集用来整体评估模型的性能。 
+
+本文的实验较简单，可以只将数据切割成训练集和测试集，比例为8:2， 80%用于训练，20%用于测试。
+1. 在控制台的左侧导航栏，选择【输入】>【数据转换】>【图像数据切分】。
+2. 将【图像数据切分】拖入画布，并右键重命名为“切分数据”。
+3. 填写参数， 其余参数均可默认：
+   - 图像存储路径：自动生成 。
+   - 输出路径：自动生成。
+   - 分类 or 检测任务：Classification。
+   - 验证集比例：0.2。
+   
+<img src="https://main.qcloudimg.com/raw/175a35ca86d0019d26265cc721d252a2.png" width="78%" /> 
+**三. 数据格式转换**
+TFRecord 数据文件是一种将图像数据和图像标签统一存储的二进制文件，能更好地利用内存，在 TensorFlow 中快速的复制、移动、读取、存储等。在这一步中，我们将原始 JPG 文件转换成高效的 TFRecord。
+1. 在控制台的左侧导航栏，选择【输入】>【数据转换】>【图片格式转换（分类）】，并拖入画布中。
+2. 将【切分数据】的输出桩连到【图片格式转换】左边的输入桩上，将【COS 数据集】输出桩连接到【图片格式转换】右侧的输入桩。
+3. 填写参数， 其余参数均可默认：
+   - 路径自动生成。
+   - images/split：1000。
+4. 两个输出桩分别代表训练集和验证集的 TFRecord 文件， 供后面的分类网络使用。
  
-<img src="https://main.qcloudimg.com/raw/d66e2b4764ca4a6363516358e317eaba.png" width="78%" />
+<img src="https://main.qcloudimg.com/raw/acd4eb5a26ac2f1deee8803b3e39b926/%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2.png" width="78%" /> 
 
-**二. 数据清洗**
-此数据清洗功能由【案例相关材料】中的清洗代码`data_cleaning.py`提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中：
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。
-2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。
+**四. 分类网络**
+选择合适的 CNN 网络处理分类任务，这里以 Inception 网络为例。 Inception 网络的详情可以参考 [相关论文](https://arxiv.org/abs/1409.4842)。 
+1. 在控制台的左侧导航栏，选择【算法】>【深度学习算法】>【计算机视觉】>【 Inception 】，并拖入画布中
+2. 将【图片格式转换】的两个输出桩，分别连接到【 Inception 】 的前两个输入桩，代表了训练集和验证集数据文件，同时将【切分数据】的输出桩连接到【 Inception 】 最右侧的输入桩，代表“label_map文件所在目录”。
+
+<img src="https://main.qcloudimg.com/raw/0bf5dd553a78b9e1ebfa3d18cd14feb1/%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90.png" width="78%" /> 
 3. 填写参数：
- - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。
- - Python 版本：选择 Python 3.5。
- - 其余参数均可默认。
-<img src="https://main.qcloudimg.com/raw/b732149cb72acb244643860ca10f40b7.png" width="78%" /> 
-<img src="https://main.qcloudimg.com/raw/c0b243f5d30e4d7f57203a72baf19105.png" width="78%" />
-**三. 特征转换**
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。
-2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。
-3. 填写参数：
- - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。
- - Python版本：选择 `Python 3.5`。
- - 其余参数均可默认。
- 
- <img src="https://main.qcloudimg.com/raw/93e0b8004897f12611f4e16094fe0ab0.png" width="78%" />
- <img src="https://main.qcloudimg.com/raw/c83d8495afaf7f153fe0cf2d9931ee8c.png" width="78%" />
+   - batch_size: 16。
+   - 学习率：0.0025。
+   - 训练步数：6000。
+   - 是否模型微调：true。
+   - 优化器：sgd。
+   - 微调模型路径：复制填写`${ai_dataset_lib}/checkpoints/inception/inception_v1.ckpt`。
+   - GPUs：深度学习网络用到了 GPU 资源， 可以极大地提高训练速度。 单击该选项，在对话框中选择合适的显卡型号和数量，此处1张显卡即可。
 
-**四. 特征选择**
-此特征选择功能亦由【案例相关材料】中的相关代码data_selection.py提供：
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。
-2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。
-3. 填写参数：
- - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。
- - Python版本：选择 Python 3.5。
- - 其余参数均可默认。
-![](https://main.qcloudimg.com/raw/ecf79a181e533d9db7baf0519097688f.png)
+<img src="https://main.qcloudimg.com/raw/ba9c86fe56c37aad0b263fc6504f9a2b/%E5%A1%AB%E5%86%99%E5%8F%82%E6%95%B011.png" width="78%" /> 
 
-**五. 分类器**
-此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供：
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。
-2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”。
-3. 填写参数：
- - 程序脚本：上传文件 `classifier.py`详见【案例相关材料】。
- - Python版本：选择 `Python 3.5`。
- - 其余参数均可默认。
-![](https://main.qcloudimg.com/raw/09fd804263c4b3a7c6c6af4cc73f0c88.png)
-
-**六. 模型评估**
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输出】>【模型评估】>【BinaryEvaluator】。
-2. 将【BinaryEvaluator】拖入画布中。
-3. 填写参数：
-算法 IO 参数配置：
- - 输入数据：`${cos}/kobe_predict/result.csv`。
- - 标签列：0。
- - 得分列：1。
- - 抽样率：1.0。
- - 并行数：10。
-![](https://main.qcloudimg.com/raw/12064128bd813d55faf4222a2c9ed83e.png)
-
-**算法参数和资源参数配置**
-
- - 预测阈值：0.5。
- - 其余参数均可默认。
-![](https://main.qcloudimg.com/raw/af5bb95443f51a43584b7e576e4b9a60.png)
-
-**七. 运行调度及训练进度查看**
-
+**五. 运行调度及训练进度查看**
 详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。
-运行成功后，将光标放置于【BinaryEvaluator】，画布中将展示工作流评估结果：
-![](https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png)
