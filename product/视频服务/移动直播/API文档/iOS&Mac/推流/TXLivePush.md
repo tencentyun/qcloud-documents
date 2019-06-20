@@ -374,10 +374,10 @@ __介绍__
 ***
 
 
-## 商用企业版美颜和动效挂件
+## 商业版美颜和动效挂件
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+设置大眼级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setEyeScaleLevel:(float)eyeScaleLevel 
 ```
@@ -392,7 +392,7 @@ __参数__
 
 ### setFaceScaleLevel
 
-设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceScaleLevel:(float)faceScaleLevel 
 ```
@@ -407,7 +407,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)faceVLevel 
 ```
@@ -422,7 +422,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setChinLevel:(float)chinLevel 
 ```
@@ -437,7 +437,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceShortLevel:(float)faceShortlevel 
 ```
@@ -452,7 +452,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setNoseSlimLevel:(float)noseSlimLevel 
 ```
@@ -467,7 +467,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setGreenScreenFile:(NSURL *)file 
 ```
@@ -486,7 +486,7 @@ __介绍__
 
 ### selectMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
 ```
@@ -502,7 +502,7 @@ __参数__
 
 ### setMotionMute
 
-设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+设置动效静音（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setMotionMute:(BOOL)motionMute 
 ```
@@ -751,7 +751,7 @@ __返回__
 
 >?
 >1.&nbsp;只有启动推流后才能开始录制，非推流状态下启动录制无效。
->1.&nbsp;出于安装包体积的考虑，仅专业版和商用企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>1.&nbsp;出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
 >2.&nbsp;录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
 
 ***

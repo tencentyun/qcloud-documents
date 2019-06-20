@@ -1,5 +1,5 @@
 ## 子用户密钥
-使用子账号登录访问管理控制台的【[云API密钥](https://console.cloud.tencent.com/capi)】，找到**子用户的密钥**。密钥用于生成签名，认证通过后可访问相关腾讯云资源。
+使用子账号登录访问管理控制台的【[云 API 密钥](https://console.cloud.tencent.com/capi)】，找到**子用户的密钥**。密钥用于生成签名，认证通过后可访问相关腾讯云资源。
 
 **签名的作用**：
 - 验证请求用户身份：通过用户密钥来确认。
@@ -53,7 +53,7 @@
 
 ### 调用示例
 #### 新增策略（CreateCamStrategy）
-策略示例：设置某个子用户（Uin 为 3232）具有 list 账户下所有 queue 的权限，且对北京 region 的 horacetest1 有消费消息、批量删除消息的权限。
+策略示例：设置某个子用户（Uin 为“3232”）具有 list 账户下所有 queue 的权限，且对北京 region 的 horacetest1 有消费消息、批量删除消息的权限。
 
 - 字段解析
 
@@ -62,7 +62,7 @@
 | strategyName | 策略名称。 | strategy1 |
 | strategyInfo | 策略描述的内容（这里要传一个 **JSON 字符串**）。 | 见 [示例代码](#示例代码1) |
 | remark | 策略的备注。 | hello test |
-| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`，第一段为固定格式 qcs；第二段为空；第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic；第四段为地域信息，例如 gz,bj,sh,若为全地域，则设置为空；第五段为主账号 ID；第六段为资源的描述，注意 **uin/**后的值为创建者 ID，如果资源是主账号创建的，那么该 ID 为主账号 ID，如果为协作者或者子帐号创建的，该 uin 为相应子帐号或者协作者帐号的 ID。 |* |
+| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`，第一段为固定格式 qcs；第二段为空；第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic；第四段为地域信息，例如 gz、bj、sh 若为全地域，则设置为空；第五段为主账号 ID；第六段为资源的描述，`uin/`后的值为创建者 ID，如果资源是主账号创建的，那么该 ID 为主账号 ID，如果为协作者或者子帐号创建的，该 uin 为相应子帐号或者协作者帐号的 ID。 |* |
 
 - 示例代码：<span id="示例代码1"></span>
 ```
@@ -72,12 +72,14 @@
 "remark":"horace test"
 }
 ```
+>?在第六段的资源的描述中，`uin/`后的创建者 ID 可以在创建策略时查看。
 
+ ![](https://main.qcloudimg.com/raw/c6d7be9b98c8021d1ffc2fac6e4d2522.png)
 
-#### 子账户关联/移除策略（OperateCamStrategy）
+#### 子账户关联/移除策略（OperateCamStrategy
 此接口可给用户或者用户组联/移除策略。
 
-- 策略示例：将 UIN 为 123456 的用户关联到策略 ID 为666的策略。
+- 策略示例：将 UIN 为“123456”的用户关联到策略 ID 为“666”的策略。
 
 - 字段解析：
 

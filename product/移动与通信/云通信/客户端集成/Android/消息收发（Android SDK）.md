@@ -32,7 +32,7 @@ conversation = TIMManager.getInstance().getConversation(
         groupId);                       //群组 ID
 ```
 
-**消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。ImSDK 中消息的解释可参阅 [ImSDK对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。ImSDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
+**消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
 
 ![](//avc.qcloud.com/wiki2.0/im/imgs/20151013075817_75666.png)
 
@@ -103,7 +103,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ```
 /**
- * 从 SDK 取出 elem 时可以调用，获取 elem 包含的图片列表
+ * 从 IM SDK 取出 elem 时可以调用，获取 elem 包含的图片列表
  * @return elem 包含的图片列表
  */
 public ArrayList<TIMImage> getImageList()
@@ -235,7 +235,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 ### 表情消息发送
 
-表情消息由 `TIMFaceElem` 定义，SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，SDK 内部只做透传。
+表情消息由 `TIMFaceElem` 定义，IM SDK 并不提供表情包，如果开发者有表情包，可使用 `index` 存储表情在表情包中的索引，由用户自定义，或者直接使用data存储表情二进制信息以及字符串 key，都由用户自定义，IM SDK 内部只做透传。
 
 **`TIMFaceElem` 成员方法如下：**
 
@@ -382,8 +382,8 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述desc，可用于定位请求失败原因
-        //错误码code含义请参见错误码表
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
 
@@ -478,6 +478,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 > - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 > - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
+> - 文件大小限制 28MB。
 
 **`TIMFileElem` 成员方法如下：**
 
@@ -552,7 +553,7 @@ if(msg.addElement(elem) != 0) {
 conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
     @Override
     public void onError(int code, String desc) {//发送消息失败
-        //错误码code和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
         //错误码 code 含义请参见错误码表
         Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
@@ -566,7 +567,7 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ### 自定义消息发送
 
-自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，ImSDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
+自定义消息是指当内置的消息类型无法满足特殊需求，开发者可以自定义消息格式，内容全部由开发者定义，IM SDK 只负责透传。另外如果需要 iOS APNs 推送，还需要提供一段推送文本描述，方便展示。自定义消息由 `TIMCustomElem` 定义，其中 `data` 存储消息的二进制数据，其数据格式由开发者定义，`desc` 存储描述文本。一条消息内可以有多个自定义 `Elem`，并且可以跟其他 `Elem` 混合排列，离线 Push 时叠加每个 `Elem` 的 `desc` 描述信息进行下发。
 
 **`TIMCustomElem` 成员方法如下：**
 
@@ -688,9 +689,9 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，ImSDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
+在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
 
->!通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，ImSDK 会拉取 C2C 离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
+>!通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，IM SDK 会拉取 C2C 离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
 
 ### 消息解析
 
@@ -730,7 +731,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 ```
 /**
- * 从 SDK 取出 Elem 时可以调用，获取 Elem 包含的图片列表
+ * 从 IM SDK 取出 Elem 时可以调用，获取 Elem 包含的图片列表
  * @return elem 包含的图片列表
  */
 public ArrayList<TIMImage> getImageList()
@@ -740,7 +741,7 @@ public ArrayList<TIMImage> getImageList()
 
 获取到消息时通过imageList得到所有的图片规格，为 `TIMImage` 数据，得到 `TIMImage` 后可通过图片大小进行占位，通过接口 `getImage` 下载不同规格的图片进行展示。
 
->!下载的数据需要由开发者缓存，ImSDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。
+>!下载的数据需要由开发者缓存，IM SDK 每次调用 `getImage` 都会从服务端重新下载数据。建议通过图片的 `uuid` 作为 `key` 进行图片文件的存储。
 
 **图片规格说明：**每幅图片有三种规格，分别是 Original(原图)、Large(大图)、Thumb(缩略图)。
 
@@ -791,7 +792,7 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 
 ### 接收语音消息
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Sound` 的为语音消息节点。获取到消息时可通过时长占位，通过接口 `getSoundToFile` 下载语音资源，`getSoundToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
+收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点，其中类型为 `TIMElemType.Sound` 的为语音消息节点。获取到消息时可通过时长占位，通过接口 `getSoundToFile` 下载语音资源，`getSoundToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，IM SDK 并不会存储资源文件。
 
 **原型：**
 
@@ -835,7 +836,7 @@ java.lang.String    getUuid()
 void    setFileName(java.lang.String fileName)
 ```
 
-获取到消息时可只展示文件大小和显示名，通过接口 `getToFile` 下载文件资源。`getToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，ImSDK 并不会存储资源文件。
+获取到消息时可只展示文件大小和显示名，通过接口 `getToFile` 下载文件资源。`getToFile` 接口每次都会从服务端下载，如需缓存或者存储，开发者可根据 `uuid` 作为 `key` 进行外部存储，IM SDK 并不会存储资源文件。
 
 **原型：**
 
@@ -900,12 +901,11 @@ public boolean isSelf()
 
 ### 消息发送者及其相关资料
 
-通过 `TIMMessage` 的方法 `getSender` 得到发送用户的用户ID。
-
-**对于群消息**，可以通过方法 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。
-
->!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
->只有接收到的群消息才能获取到相应的资料。
+可以通过 `TIMMessage` 的方法 `getSender` 获取发送用户的 ID。
+**对于单聊消息**，可以通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 即可得到正在聊天的用户及其相关资料。
+**对于群消息**，可以通过 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。如需拉取自定义字段，需在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 。
+ >!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
+ >只有接收到的群消息才能获取到相应的资料。
 
 ```
 /**
@@ -915,19 +915,23 @@ public boolean isSelf()
 public String getSender()
 
 /**
- * 获取发送者资料（发送者为本人时可能为空）
- * @return 发送者资料，null 表示没有获取到资料，目前只有字段：identifier、nickname、faceURL、customInfo
+ * 获取发送者资料
+ *
+ * 如果本地有发送者资料，这里会直接通过 return 值 TIMUserProfile 返回发送者资料，如果本地没有发送者资料，这里会直接 return null，IM SDK 内部会向服务器拉取发送者资料，并在 callBack 回调里面返回发送者资料。
+ *
+ * @param callBack 回调
+ * @return 发送者本地缓存资料，如果本地没有可以通过回调获取
  */
-public TIMUserProfile getSenderProfile()
+public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 
 /**
- * 获取发送者群内资料（发送者为本人时可能为空）
- * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前只有字段：user、nameCard、role、customInfo
+ * 获取发送者群内资料，只有接收到的群消息才能获取到资料（发送者为自己时可能为空）
+ *
+ * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user、nameCard、role、customInfo，其他的字段获取建议通过 TIMGroupManagerExt -> getGroupMembers 获取
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
 
-**对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 可以得到正在聊天的用户。
 
 ### 消息时间
 
@@ -982,8 +986,7 @@ public String getCustomStr()
 
 ### 消息优先级
 
-对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 `TIMCustomElem` 进行定义，发送消息时，可使用不同接口定义消息优先级。具体消息优先级的策略，可参阅 [互动直播集成多人聊天方案](/doc/product/269/互动直播集成多人聊天方案)。
-
+对于直播场景，会有点赞和发红包功能，点赞相对优先级较低，红包消息优先级较高，具体消息内容可以使用 `TIMCustomElem` 进行定义，发送消息时，可使用不同接口定义消息优先级。
 >!只针对群聊消息有效。
 
 ```
@@ -995,21 +998,9 @@ public TIMMessagePriority getPriority()
 ```
 
 
-
-### 群组消息会话的接收消息选项
-
-对于群组会话消息，可以通过消息属性判断本群组设置的接收消息选项，可参阅 [群组管理](/doc/product/269/群组管理（Android SDK）)。
-
->!只针对群聊消息有效。
-
-```
-//获取消息通知类型
-public TIMGroupReceiveMessageOpt getRecvFlag()
-```
-
 ### 已读回执
 
-ImSDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1060,7 +1051,7 @@ public long getRand()
 
 ### 消息查找参数
 
-ImSDK 中的消息需要通过`{seq, rand, timestamp, isSelf}` 四元组来唯一确定一条具体的消息，我们把这个四元组称为消息的查找参数。通过 `TIMMessageExt` 中的 `getMessageLocator` 接口可以从当前消息中获取到当前消息的查找参数。
+IM SDK 中的消息需要通过`{seq, rand, timestamp, isSelf}` 四元组来唯一确定一条具体的消息，我们把这个四元组称为消息的查找参数。通过 `TIMMessageExt` 中的 `getMessageLocator` 接口可以从当前消息中获取到当前消息的查找参数。
 
 ```
 /**
@@ -1094,7 +1085,7 @@ List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
 
 ### 最近联系人漫游
 
-ImSDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。如果不需要此功能，可以在登录之前，通过 `TIMUserConfigMsgExt` 中的 `enableRecentContact` 方法修改用户配置来关闭这个功能。
+IM SDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。如果不需要此功能，可以在登录之前，通过 `TIMUserConfigMsgExt` 中的 `enableRecentContact` 方法修改用户配置来关闭这个功能。
 
 **原型：**
 ```
@@ -1107,7 +1098,7 @@ public TIMUserConfigMsgExt enableRecentContact(boolean recentContactEnabled)
 
 ### 获取会话本地消息
 
-ImSDK 会在本地进行消息存储，可通过 `TIMConversationExt` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过`getMessage`获取漫游消息**。
+IM SDK 会在本地进行消息存储，可通过 `TIMConversationExt` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过`getMessage`获取漫游消息**。
 
  > 注意：
  > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
@@ -1208,7 +1199,7 @@ conExt.getMessage(10, //获取此会话最近的 10 条消息
 
 ### 删除会话
 
-ImSDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
+IM SDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
 
 >!
 > - 删除本地消息的情况下，C2C 会话将无法获取到删除会话前的历史消息。
@@ -1243,7 +1234,7 @@ TIMManagerExt.getInstance().deleteConversation(TIMConversationType.C2C, "hello")
 
 ### 同步获取会话最后的消息
 
-UI 展示最近联系人列表时，时常会展示用户的最后一条消息，ImSDK 在 `TIMConverstionExt` 中提供了同步获取会话最近消息的接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
+UI 展示最近联系人列表时，时常会展示用户的最后一条消息，IM SDK 在 `TIMConverstionExt` 中提供了同步获取会话最近消息的接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
  
 **原型：**
 
@@ -1263,23 +1254,10 @@ public TIMMessage getLastMsg()
 public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
-### 禁用会话本地存储
-
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。ImSDK 提供了针对单个会话禁用本地存储的功能，开发者可以根据需要调用 `TIMConversationExt` 中的 `disableStorage` 接口禁用相应的会话本地存储。
- 
-**原型：**
-
-```
-/**
- * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
- * 需要初始后调用
- */
-public void disableStorage()
-```
 
 ### 设置会话草稿
 
-ImSDK 提供了会话草稿功能，开发者可以通过 `TIMConversationExt` 中的相关接口进行草稿操作。
+IM SDK 提供了会话草稿功能，开发者可以通过 `TIMConversationExt` 中的相关接口进行草稿操作。
 
 >!
 > - 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
@@ -1342,7 +1320,7 @@ public long getTimestamp()
 ```
 ### 删除会话本地消息
 
-ImSDK 提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用 `TIMConversationExt` 的 `deleteLocalMessage` 接口实现。
+IM SDK 提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用 `TIMConversationExt` 的 `deleteLocalMessage` 接口实现。
 
 >!群组会话在清空本地聊天记录后，仍然会通过漫游拉取到本地删除了的历史消息。
 
@@ -1358,7 +1336,7 @@ public void deleteLocalMessage(@NonNull TIMCallBack callback)
 
 ### 查找本地消息
 
-ImSDK 提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用 `TIMConversationExt` 中的 `findMessages` 方法进行消息查找。
+IM SDK 提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用 `TIMConversationExt` 中的 `findMessages` 方法进行消息查找。
 
 
 ```
@@ -1384,7 +1362,7 @@ public TIMMessageLocator getMessageLocator()
 
 ### 撤回消息
 
-ImSDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversationExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
+IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversationExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
 
 >!
 > - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
@@ -1436,20 +1414,6 @@ public boolean checkEquals(@NonNull TIMMessageLocator locator)
 
 ```
 
-另外，需要注意的是，**掉线重连的时候，如果用户处于群组聊天界面，需要业务端主动同步该群组会话的消息撤回通知**。其他场景不需要主动同步消息撤回通知。
-
-**原型：**
-
-```
-/**
- * 同步本会话的消息撤回通知（仅 GROUP 会话有效，同步回来的通知会通过 TIMMessageRevokedListener 抛出）
- * @param cb 回调
- * @since 3.1.0
- */
-public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
-
-```
-
 ## 系统消息
 
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
@@ -1461,7 +1425,7 @@ public void syncMsgRevokedNotification(@NonNull TIMCallBack cb)
 
 ## 设置后台消息通知栏提醒
 
-ImSDK 后台在线时可以持续接收消息通知，如果此时程序在后台运行，可以以系统通知栏提醒的形式给用户呈现新的消息。新消息可以显示在顶部通知栏，通知中心或锁屏上。具体的实现方式可参见 Demo 中 `PushUtil.java`。
+IM SDK 后台在线时可以持续接收消息通知，如果此时程序在后台运行，可以以系统通知栏提醒的形式给用户呈现新的消息。新消息可以显示在顶部通知栏，通知中心或锁屏上。具体的实现方式可参考下面的示例：
 
 **示例：**
 

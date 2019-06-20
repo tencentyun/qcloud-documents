@@ -19,7 +19,7 @@
 - (int)getSelfProfile:(TIMGetProfileSucc)succ fail:(TIMFail)fail;
 ```
 
-如果获取成功，succ回调会返回获取到的`TIMUserProfile`对象。`TIMUserProfile`的定义如下：
+如果获取成功，succ 回调会返回获取到的`TIMUserProfile`对象。`TIMUserProfile`的定义如下：
 
 ```
 /**
@@ -83,8 +83,8 @@
 @property(nonatomic,assign) uint32_t role;
 
 /**
- *  自定义字段集合,key是NSString类型,value是NSData类型或者NSNumber类型
- *  (key值按照后台配置的字符串传入)
+ *  自定义字段集合,key 是 NSString 类型,value 是 NSData 类型或者 NSNumber 类型
+ *  (key 值按照后台配置的字符串传入)
  */
 @property(nonatomic,strong) NSDictionary* customInfo;
 
@@ -95,7 +95,7 @@
 
 ### 获取指定用户的资料
 
-可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取指定用户的资料。该方法支持从缓存和后台两种方式获取，当forceUpdate = YES时，会强制从后台拉取数据，并把返回的数据缓存下来；当forceUpdate = NO时，则先在本地查找，如果没有再向后台请求数据。建议只在显示资料的时候强制拉取，以减少等待时间。
+可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取指定用户的资料。该方法支持从缓存和后台两种方式获取，当 forceUpdate = YES 时，会强制从后台拉取数据，并把返回的数据缓存下来；当 forceUpdate = NO 时，则先在本地查找，如果没有再向后台请求数据。建议只在显示资料的时候强制拉取，以减少等待时间。
 
 
 ```
@@ -128,7 +128,7 @@ NSMutableArray * arr = [[NSMutableArray alloc] init];
 }];
 ```
 
-该示例关闭了强制后台拉取，优先从缓存中查找用户资料，可减少等待时间。缓存的时间可通过TIMFriendProfileOption设置，默认缓存时间一天。
+该示例关闭了强制后台拉取，优先从缓存中查找用户资料，可减少等待时间。缓存的时间可通过 TIMFriendProfileOption 设置，默认缓存时间一天。
 ```
 /**
  * 资料与关系链
@@ -169,7 +169,7 @@ config.friendProfileOpt = option;
 - (int)modifySelfProfile:(NSDictionary<NSString *, id> *)values succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
-通过values字典，可以一次设置多个字段。举例来说，设置昵称的代码如下：
+通过 values 字典，可以一次设置多个字段。举例来说，设置昵称的代码如下：
 ```
 [[TIMFriendshipManager sharedInstance] modifySelfProfile:@{TIMProfileTypeKey_Nick:@"我的昵称"} succ:nil fail:nil];
 ```
@@ -217,7 +217,7 @@ NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood
 @end
 ```
 
-如果获取成功，succ回调返回好友列表。好友对象用`TIMFriend`存储，`TIMFriend`的定义如下
+如果获取成功，succ 回调返回好友列表。好友对象用`TIMFriend`存储，`TIMFriend`的定义如下
 
 ```
 @interface TIMFriend : TIMCodingModel
@@ -343,7 +343,7 @@ TIMFriendTypeKey_Custom_Prefix | NSNumber、NSData | 自定义字段前缀
 @end
 ```
 
-加好友需要传入request参数，该参数类型定义如下：
+加好友需要传入 request 参数，该参数类型定义如下：
 ```
 /**
  *  加好友请求
@@ -397,13 +397,9 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_ADD_FRIEND_STATUS_FRIEND_SIDE_FORBID_ADD            = 30516,
     /**
-     *  加好友时有效：好友数量已满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30519,    
-    /**
-     *  加好友时有效：已经是好友
-     */
-    TIM_ADD_FRIEND_STATUS_ALREADY_FRIEND                    = 30520,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,     
     /**
      *  加好友时有效：已被被添加好友设置为黑名单
      */
@@ -419,7 +415,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 
 ```
 TIMFriendRequest *q = [TIMFriendRequest new];
-q.identifier = @"abc"; // 加好友abc
+q.identifier = @"abc"; // 加好友 abc
 q.addWording = @"求通过";
 q.addSource = @"AddSource_Type_iOS";
 q.remark = @"你是abc";
@@ -507,7 +503,7 @@ NSMutableArray * del_users = [[NSMutableArray alloc] init];
 - (int)doResponse:(TIMFriendResponse *)response succ:(TIMFriendResultSucc)succ fail:(TIMFail)fail;
 @end
 ```
-参数response的定义如下：
+参数 response 的定义如下：
 ```
 typedef NS_ENUM(NSInteger, TIMFriendResponseType) {
     /**
@@ -558,17 +554,121 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_RESPONSE_FRIEND_STATUS_NO_REQ                       = 30614,   
     /**
-     *  响应好友申请时有效：自己的好友满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_SELF_FRIEND_FULL             = 30615,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,      
     /**
-     *  响应好友申请时有效：好友已经存在
+     *  加好友、响应好友时有效：对方的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_FRIEND_EXIST                 = 30617,    
+    TIM_ADD_FRIEND_STATUS_THEIR_FRIEND_FULL                 = 30014,
+};
+```
+
+### 校验好友关系
+
+可通过 `TIMFriendshipManager` 的 `checkFriends` 方法校验好友关系。
+
+```
+/**
+ *  检查指定用户的好友关系
+ *
+ *  @param checkInfo 好友检查信息
+ *  @param succ  成功回调，返回检查结果
+ *  @param fail  失败回调
+ *
+ *  @return 0 发送成功
+ */
+- (int)checkFriends:(TIMFriendCheckInfo *)checkInfo succ:(TIMCheckFriendResultArraySucc)succ fail:(TIMFail)fail;
+```
+
+参数 `checkInfo` 定义如下：
+
+```
+/**
+ *  好友关系检查
+ */
+@interface TIMFriendCheckInfo : NSObject
+/**
+ *  检查用户的 ID 列表（NSString*）
+ */
+@property(nonatomic,strong) NSArray* users;
+
+/**
+ *  检查类型
+ */
+@property(nonatomic,assign) TIMFriendCheckType checkType;
+
+@end
+```
+
+参数 `TIMFriendCheckType` 定义如下：
+
+```
+/**
+ *  好友检查类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendCheckType) {
     /**
-     *  响应好友申请时有效：对方好友满
+     *  单向好友
      */
-    TIM_RESPONSE_FRIEND_STATUS_OTHER_SIDE_FRIEND_FULL       = 30630,
+    TIM_FRIEND_CHECK_TYPE_UNIDIRECTION     = 0x1,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_CHECK_TYPE_BIDIRECTION      = 0x2,
+};
+```
+
+成功回调会返回操作用户的 `TIMCheckFriendResult` 列表数据，定义如下。
+
+```
+@interface TIMCheckFriendResult : NSObject
+/**
+ *  用户 ID
+ */
+@property NSString* identifier;
+
+/**
+ * 返回码
+ */
+@property NSInteger result_code;
+
+/**
+ * 返回信息
+ */
+@property NSString *result_info;
+
+/**
+ *  检查结果
+ */
+@property(nonatomic,assign) TIMFriendRelationType resultType;
+
+@end
+```
+
+参数 `TIMFriendRelationType` 定义如下：
+
+```
+/**
+ *  好友关系类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendRelationType) {
+    /**
+     *  不是好友
+     */
+    TIM_FRIEND_RELATION_TYPE_NONE           = 0x0,
+    /**
+     *  对方在我的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_MY_UNI         = 0x1,
+    /**
+     *  我在对方的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_OTHER_UNI      = 0x2,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_RELATION_TYPE_BOTHWAY        = 0x3,
 };
 ```
 
@@ -582,7 +682,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 /**
  *  获取未决列表
  *
- *  @param pendencyRequest  请求信息，详细参考TIMFriendPendencyRequest
+ *  @param pendencyRequest  请求信息，详细参考 TIMFriendPendencyRequest
  *  @param succ 成功回调
  *  @param fail 失败回调
  *
@@ -591,7 +691,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 - (int)getPendencyList:(TIMFriendPendencyRequest *)pendencyRequest succ:(TIMGetFriendPendencyListSucc)succ fail:(TIMFail)fail;
 @end
 ```
-由于后台可能存储多条好未决，超出界面显示范围，所以此接口支持翻页操作。需要传入参数pendencyRequest定义如下
+由于后台可能存储多条好未决，超出界面显示范围，所以此接口支持翻页操作。需要传入参数 pendencyRequest 定义如下
 ```
 /**
  * 未决请求信息
@@ -600,14 +700,14 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 
 /**
  * 序列号，未决列表序列号
- *    建议客户端保存seq和未决列表，请求时填入server返回的seq
- *    如果seq是server最新的，则不返回数据
+ *    建议客户端保存 seq 和未决列表，请求时填入 server 返回的 seq
+ *    如果 seq 是 server 最新的，则不返回数据
  */
 @property(nonatomic,assign) uint64_t seq;
 
 /**
- * 翻页时间戳，只用来翻页，server返回0时表示没有更多数据，第一次请求填0
- *    特别注意的是，如果server返回的seq跟填入的seq不同，翻页过程中，需要使用客户端原始seq请求，直到数据请求完毕，才能更新本地seq
+ * 翻页时间戳，只用来翻页，server 返回0时表示没有更多数据，第一次请求填0
+ *    特别注意的是，如果 server 返回的 seq 跟填入 seq 不同，翻页过程中，需要使用客户端原始 seq 请求，直到数据请求完毕，才能更新本地 seq
  */
 @property(nonatomic,assign) uint64_t timestamp;
 
@@ -623,7 +723,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 
 @end
 ```
-操作成功后，succ回调返回分页信息和未决记录
+操作成功后，succ 回调返回分页信息和未决记录
 ```
 /**
  * 未决返回信息
@@ -768,7 +868,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 /**
  *  获取黑名单列表
  *
- *  @param succ 成功回调，返回NSString*列表
+ *  @param succ 成功回调，返回 NSString* 列表
  *  @param fail 失败回调
  *
  *  @return 0 发送请求成功
@@ -882,7 +982,7 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 /**
  *  获取指定的好友分组信息
  *
- *  @param groupNames      要获取信息的好友分组名称列表,传入nil获得所有分组信息
+ *  @param groupNames      要获取信息的好友分组名称列表,传入 nil 获得所有分组信息
  *  @param succ  成功回调，返回 TIMFriendGroup* 列表
  *  @param fail  失败回调
  *

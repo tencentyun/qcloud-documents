@@ -4,16 +4,25 @@
 ## 用户资料
 ### 获取自己的资料 
 
-可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取用户自己的资料。
+- 可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取服务器保存的用户自己的资料。
+- 可通过  `TIMFriendshipManager` 的 `querySelfProfile` 方法获取本地保存的用户自己的资料。
+
 
 **原型：**
 
 ```   
 /**
- * 获取自己的基本资料
+ * 获取服务器保存的自己的资料
  * @param cb 回调，OnSuccess 函数的参数中返回包含相应自己的{@see TIMUserProfile}
  */
 public void getSelfProfile(final @NonNull TIMValueCallBack<TIMUserProfile> cb)
+
+/**
+ * 获取本地保存的自己的资料，没有则返回 null
+ *
+ * @return TIMUserProfile
+ */
+public TIMUserProfile querySelfProfile()
 ```
 
 **`TIMUserProfile` 提供的接口如下：**
@@ -101,7 +110,7 @@ public String getLocation()
 **示例：**
 
 ```
-//获取自己的资料
+//获取服务器保存的自己的资料
 TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserProfile>(){
 	@Override
 	public void onError(int code, String desc){
@@ -117,14 +126,19 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 					+ " remark: " + result.getRemark() + " allow: " + result.getAllowType());
 	}
 });
+
+//获取本地保存的自己的资料
+TIMUserProfile selfProfile = TIMFriendshipManager.getInstance().querySelfProfile();
 ```
 
 ### 获取指定用户的资料
 
 可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取好友的资料。该方法支持从缓存和后台两种方式获取：
 - 当 `forceUpdate = true` 时，会强制从后台拉取数据，并把返回的数据缓存下来。
-- 当 `forceUpdate = NO` 时，则先在本地查找，如果本地没有数据则再向后台请求数据。
- 建议只在显示资料时强制拉取，以减少等待时间。
+- 当 `forceUpdate = false` 时，则先在本地查找，如果本地没有数据则再向后台请求数据。
+   建议只在显示资料时强制拉取，以减少等待时间。
+
+可通过  `TIMFriendshipManager` 的 `queryUserProfile` 方法通过返回值获取本地缓存的好友资料，没有则返回 `null`。
 
 **原型：**
 
@@ -136,6 +150,13 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
  * @param cb 回调，OnSuccess 函数的参数中返回包含相应用户的{@see TIMUserProfile}列表
  */
 public void getUsersProfile(@NonNull List<String> users, boolean forceUpdate, @NonNull TIMValueCallBack<List<TIMUserProfile>> cb) 
+
+/**
+ * 获取本地好友资料（不包括：备注，好友分组），没有则返回 null
+ * @param identifier
+ * @return TIMUserProfile
+ */
+public TIMUserProfile queryUserProfile(String identifier)
 ```
 
 **示例：**
@@ -164,9 +185,12 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, true, new TIMValueCall
 		}
 	}
 });
+
+//获取本地缓存的用户资料
+TIMUserProfile userProfile = TIMFriendshipManager.getInstance().queryUserProfile("sample_user_1");
 ```
 
-缓存的时间可通过 `TIMFriendProfileOption` 的 `setExpiredSeconds` 接口设置，默认缓存时间一天。
+`getUsersProfile` 接口缓存的时间可通过 `TIMFriendProfileOption` 的 `setExpiredSeconds` 接口设置，默认缓存时间一天。
 
 ```
 TIMUserConfig config = new TIMUserConfig();
@@ -521,7 +545,7 @@ TIMFriendshipManager.getInstance().deleteFriends(identifiers, TIMDelFriendType.T
 });
 ```
 
-### 同意/拒绝 好友申请
+### 同意/拒绝好友申请
 
 可通过 `TIMFriendshipManager` 的 `doResponse` 方法同意/拒绝好友申请
 
@@ -534,7 +558,7 @@ TIMFriendshipManager.getInstance().deleteFriends(identifiers, TIMDelFriendType.T
 public void doResponse(TIMFriendResponse response, @NonNull TIMValueCallBack<TIMFriendResult> cb)
 ```
 
-参数response的定义如下：
+参数 `response` 定义如下：
 ```
 public class TIMFriendResponse {
     /**
@@ -566,6 +590,9 @@ public class TIMFriendResponse {
      * 备注好友（可选，如果要加对方为好友）。备注最大96字节
      */
     private String remark = "";
+    
+    .......省略 get set 方法
+}
 ```
 
 成功回调会返回操作用户的 `TIMFriendResult` 结果数据，处理用户请求的错误码如下。
@@ -592,6 +619,129 @@ public class TIMFriendStatus {
     public static final int TIM_RESPONSE_FRIEND_STATUS_NO_REQ         = 30614;
 };
 ```
+
+### 校验好友关系
+
+可通过 `TIMFriendshipManager` 的 `checkFriends` 方法校验好友关系。
+
+```
+/**
+ * 校验好友
+ * @param checkInfo 校验好友参数
+ * @param cb 回调
+ */
+public void checkFriends(@NonNull TIMFriendCheckInfo checkInfo, @NonNull TIMValueCallBack<List<TIMCheckFriendResult>> cb)
+```
+
+参数 `checkInfo` 定义如下：
+
+```
+public class TIMFriendCheckInfo {
+	private List<String> users = new ArrayList<>();
+    private int checkType = TIMFriendCheckType.TIM_FRIEND_CHECK_TYPE_UNIDIRECTION;
+    
+    /**
+     * 设置需要检查的好友 id
+     *
+     * @param users
+     */
+    public void setUsers(List<String> users);
+    
+    /**
+     * 设置需要检查的关系类型，见 TIMFriendCheckType 定义的常量
+     *
+     * @param type
+     */
+    public void setCheckType(int type);
+}
+```
+
+参数 `TIMFriendCheckType` 定义如下：
+
+```
+public class TIMFriendCheckType {
+    /**
+     * 单向好友
+     */
+    public static final int TIM_FRIEND_CHECK_TYPE_UNIDIRECTION     = 1;
+
+    /**
+     * 互为好友
+     */
+    public static final int TIM_FRIEND_CHECK_TYPE_BIDIRECTION      = 2;
+}
+```
+
+成功回调会返回操作用户的 `TIMCheckFriendResult` 列表数据，定义如下。
+
+```
+public class TIMCheckFriendResult {
+    private String identifier = "";
+    private int resultCode;
+    private String resultInfo = "";
+    private int resultType;
+
+    /**
+     * 获取好友 id
+     *
+     * @return 好友 id
+     */
+    public String getIdentifier();
+
+    /**
+     * 获取返回码
+     *
+     * @return 返回码
+     */
+    public int getResultCode();
+
+    /**
+     * 获取返回结果描述
+     *
+     * @return 结果描述
+     */
+    public String getResultInfo();
+
+    /**
+     * 获取检查好友类型，常量见 TIMFriendRelationType 中定义
+     *
+     * @return 好友关系类型
+     */
+    public int getResultType();
+}
+```
+
+参数 `TIMFriendRelationType` 定义如下：
+
+```
+public class TIMFriendRelationType {
+    /**
+     *  不是好友
+     */
+    public static final int TIM_FRIEND_RELATION_TYPE_NONE           = 0;
+
+    /**
+     *  对方在我的好友列表中
+     */
+    public static final int TIM_FRIEND_RELATION_TYPE_MY_UNI         = 1;
+
+    /**
+     *  我在对方的好友列表中
+     */
+    public static final int TIM_FRIEND_RELATION_TYPE_OTHER_UNI      = 2;
+
+    /**
+     *  互为好友
+     */
+    public static final int TIM_FRIEND_RELATION_TYPE_BOTH_WAY       = 3;
+
+}
+```
+
+
+
+
+
 
 ## 好友未决
 
@@ -632,11 +782,11 @@ public void setTimestamp(long timestamp)
 public void setNumPerPage(int numPerPage)
 
 /**
- * 未决请求拉取类型，见 TIMPendencyGetType 中的常量定义
+ * 未决请求拉取类型，见 TIMPendencyType 中的常量定义
  * 
- * @param timPendencyGetType 未决请求拉取类型
+ * @param timPendencyType 未决请求拉取类型
  */
-public void setTimPendencyGetType(int timPendencyGetType)
+public void setTimPendencyGetType(int timPendencyType)
 ```
 
 操作成功后，回调返回分页信息和未决记录 `TIMFriendPendencyResponse`
@@ -708,12 +858,34 @@ public String getAddWording()
 public String getNickname()
 
 /**
- * 获取未决请求类型，见 TIMPendencyGetType 常量定义
+ * 获取未决请求类型，见 TIMPendencyType 常量定义
  * 
  * @return 未决请求类型
  */
 public int getType()
 ```
+
+未决类型 `TIMPendencyType` 定义如下：
+```
+public class TIMPendencyType {
+    /**
+     * 别人发给我的未决请求
+     */
+    public static final int TIM_PENDENCY_COME_IN    = 1;
+
+    /**
+     * 我发给别人的未决请求
+     */
+    public static final int TIM_PENDENCY_SEND_OUT   = 2;
+
+    /**
+     * 别人发给我的以及我发给别人的所有未决请求，仅在拉取时有效。
+     */
+    public static final int TIM_PENDENCY_BOTH       = 3;
+
+}
+```
+
 
 ### 未决删除
 ```

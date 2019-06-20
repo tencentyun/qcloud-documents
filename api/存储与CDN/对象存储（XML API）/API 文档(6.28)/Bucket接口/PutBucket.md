@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Bucket 接口请求可以在指定账号下创建一个存储桶。该 API 接口不支持匿名请求，您需要使用带 Authorization 签名认证的请求才能创建新的 Bucket 。创建  存储桶的用户默认成为存储桶的持有者。
+PUT Bucket 接口请求可以在指定账号下创建一个存储桶。该 API 接口不支持匿名请求，您需要使用带 Authorization 签名认证的请求才能创建新的 Bucket 。创建存储桶的用户默认成为存储桶的持有者。
 
 >?创建存储桶时，如果没有指定访问权限，则默认使用私有读写（private）权限。
 
@@ -27,6 +27,8 @@ Authorization: Auth String
 | x-cos-acl | 定义 bucket 的 acl 属性。有效值：private，public-read-write，public-read；默认值：private | String|  否 |
 | x-cos-grant-read |赋予被授权者读的权限。格式：x-cos-grant-read: id="[OwnerUin]" | String |  否 |
 | x-cos-grant-write| 赋予被授权者写的权限。格式：x-cos-grant-write: id="[OwnerUin]" |String |  否 |
+|x-cos-grant-read-acp |赋予被授权者读 ACL 和 Policy 的权限。格式：x-cos-grant-read-acp: id="[OwnerUin]"|String |  否 |
+|x-cos-grant-write-acp |赋予被授权者写 ACL 和 Policy 的权限。格式：x-cos-grant-write-acp: id="[OwnerUin]"|String |  否 |
 | x-cos-grant-full-control | 赋予被授权者所有的权限。格式：x-cos-grant-full-control: id="[OwnerUin]" | String|  否 |
 
 ### 请求体
@@ -47,10 +49,10 @@ Authorization: Auth String
 |错误码|HTTP 状态码|描述|
 |--------|--------|--------------|
 | BucketAlreadyExists |409 Conflict|当请求创建的 Bucket 已经存在，并且请求创建的用户就是拥有者| 
-| InvalidBucketName | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述|
-| InvalidRequest | 400 Bad Request|Bucket 的命名不规范 具体原因可参考 message 的描述| 
+| InvalidBucketName | 400 Bad Request|Bucket 的命名不规范，具体原因可参考 message 的描述|
+| InvalidRequest | 400 Bad Request|Bucket 的命名不规范，具体原因可参考 message 的描述| 
 
-如果 Bucket 设置的 ACL 不正确，也会导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [Put Bucket ACL](https://cloud.tencent.com/document/product/436/7737) 相关的文档。
+如果 Bucket 设置的 ACL 不正确，也将导致创建 Bucket 失败，同时会返回 “Failed to set access control authority for the bucket” 的错误信息。具体错误原因，可根据返回的错误码参考 [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) 相关的文档。
 
 
 

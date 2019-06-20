@@ -1,6 +1,6 @@
 ## 登录
 
-用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `accountType`、`identifier`、`userSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `6206` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
+用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `6206` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 
 > **注意：**
 >- 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）。开发者必须进行登录错误码 `ERR_IMSDK_KICKED_BY_OTHERS` 的判断。关于被踢的详细描述，参见 [用户状态变更](/doc/product/269/9148#5.-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
@@ -28,7 +28,7 @@
 @end
 ```
 
-在自有帐号情况下，`appidAt3rd` 字段与 `sdkAppId` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
+在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
 
 ```
 /**
@@ -60,7 +60,7 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 login_param.identifier = @"iOS_001";
 //userSig 为用户登录凭证
 login_param.userSig = @"usersig";
-//appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+//appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
     NSLog(@"Login Succ");
@@ -102,7 +102,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 }];
 ```
 
-## 无网络情况下查看消息（4.X版本暂未实现）
+## 无网络情况下查看消息
 
 如用当前网络异常，或者想在不调用 `login` 的时候查看用户消息，可调用 `initStorage` 方法初始化存储，完成后可获取会话列表和消息。
 
@@ -136,7 +136,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init]; 
 // identifier 为用户名
-// appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+// appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.identifier = @"iOS_001";
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] initStorage: login_param succ:^(){
@@ -165,9 +165,9 @@ login_param.appidAt3rd = @"123456";
 @end
 ```
 
-## ImSDK 同步离线消息
+## IM SDK 同步离线消息
 
-ImSDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
+IM SDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
 
 ```
 @interface TIMUserConfig : NSObject

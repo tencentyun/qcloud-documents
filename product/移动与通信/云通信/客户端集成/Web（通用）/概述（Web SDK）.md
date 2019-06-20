@@ -1,8 +1,7 @@
 ## IM SDK 集成
 
-- 官网体验 Demo 请直接访问：[云通信 Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
-
-- Demo运行指引请访问：[Demo 指引](https://cloud.tencent.com/doc/product/269/DEMO%E6%8C%87%E5%BC%95)
+- 官网体验 Demo 请直接访问：[云通信 IM Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
+- Demo 运行指引请访问：[Demo 指引](https://cloud.tencent.com/document/product/269/4196)
 
 ### 下载 IM SDK
 
@@ -23,50 +22,50 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 <!--用于获取文件 MD5 js api （发送图片时用到）-->
 <script type="text/javascript" src="js/lib/md5/spark-md5.js"></script>
-<!--web im sdk-->
+<!--Web IM SDK-->
 <script type="text/javascript" src="sdk/ webim.js"></script>
 <script type="text/javascript" src="sdk/json2.js"></script>
-<!--web im sdk 登录 示例代码-->
+<!--Web IM SDK 登录 示例代码-->
 <script type="text/javascript" src="js/login/login.js"></script>
-<!--web im sdk 登出 示例代码-->
+<!--Web IM SDK 登出 示例代码-->
 <script type="text/javascript" src="js/logout/logout.js"></script>
-<!--web im 解析一条消息 示例代码-->
+<!--Web IM  解析一条消息 示例代码-->
 <script type="text/javascript" src="js/common/show_one_msg.js"></script>
-<!--web im demo 基本逻辑-->
+<!--Web IM demo 基本逻辑-->
 <script type="text/javascript" src="js/base.js"></script>
-<!--web im sdk 资料管理 api 示例代码-->
+<!--Web IM SDK 资料管理 api 示例代码-->
 <script type="text/javascript" src="js/profile/profile_manager.js"></script>
-<!--web im sdk 好友管理 api 示例代码-->
+<!--Web IM SDK 好友管理 api 示例代码-->
 <script type="text/javascript" src="js/friend/friend_manager.js"></script>
-<!--web im sdk 好友申请管理 api 示例代码-->
+<!--Web IM SDK 好友申请管理 api 示例代码-->
 <script type="text/javascript" src="js/friend/friend_pendency_manager.js"></script>
-<!--web im sdk 好友黑名单管理 api 示例代码-->
+<!--Web IM SDK 好友黑名单管理 api 示例代码-->
 <script type="text/javascript" src="js/friend/friend_black_list_manager.js"></script>
-<!--web im sdk 群组管理 api 示例代码-->
+<!--Web IM SDK 群组管理 api 示例代码-->
 <script type="text/javascript" src="js/group/group_manager.js"></script>
-<!--web im sdk 群成员管理 api 示例代码-->
+<!--Web IM SDK 群成员管理 api 示例代码-->
 <script type="text/javascript" src="js/group/group_member_manager.js"></script>
-<!--web im sdk 加群申请管理 api 示例代码-->
+<!--Web IM SDK 加群申请管理 api 示例代码-->
 <script type="text/javascript" src="js/group/group_pendency_manager.js"></script>
-<!--web im 切换聊天好友或群组 示例代码-->
+<!--Web IM 切换聊天好友或群组 示例代码-->
 <script type="text/javascript" src="js/switch_chat_obj.js"></script>
-<!--web im sdk 获取 c2c 获取群组历史消息 示例代码-->
+<!--Web IM SDK 获取 c2c 获取群组历史消息 示例代码-->
 <script type="text/javascript" src="js/msg/get_history_msg.js"></script>
-<!--web im sdk 发送普通消息（文本和表情） api 示例代码-->
+<!--Web IM SDK 发送普通消息（文本和表情） api 示例代码-->
 <script type="text/javascript" src="js/msg/send_common_msg.js"></script>
-<!--web im sdk 上传和发送图片消息 api 示例代码-->
+<!--Web IM SDK 上传和发送图片消息 api 示例代码-->
 <script type="text/javascript" src="js/msg/upload_and_send_pic_msg.js"></script>
-<!--web im sdk 切换播放语音消息 示例代码-->
+<!--Web IM SDK 切换播放语音消息 示例代码-->
 <script type="text/javascript" src="js/msg/switch_play_sound_msg.js"></script>
-<!--web im sdk 发送自定义消息 api 示例代码-->
+<!--Web IM SDK 发送自定义消息 api 示例代码-->
 <script type="text/javascript" src="js/msg/send_custom_msg.js"></script>
-<!--web im 监听新消息（c2c 或群） 示例代码-->
+<!--Web IM 监听新消息（c2c 或群） 示例代码-->
 <script type="text/javascript" src="js/msg/receive_new_msg.js"></script>
-<!--web im 监听群系统通知消息 示例代码-->
+<!--Web IM 监听群系统通知消息 示例代码-->
 <script type="text/javascript" src="js/msg/receive_group_system_msg.js"></script>
-<!--web im 监听好友系统通知消息 示例代码-->
+<!--Web IM 监听好友系统通知消息 示例代码-->
 <script type="text/javascript" src="js/msg/receive_friend_system_msg.js"></script>
-<!--web im 监听资料系统通知消息 示例代码-->
+<!--Web IM 监听资料系统通知消息 示例代码-->
 <script type="text/javascript" src="js/msg/receive_profile_system_msg.js"></script>
 ```
 
@@ -90,15 +89,15 @@ Demo 主要 JavaScript 文件功能说明如下：
 
 >?如果帐号采用的是独立模式，开发者需要在自己的服务器调用 TLS API 生成用户票据，然后调用 IM SDK 提供的接口进行相关操作。
 
-### SDK 函数调用顺序
+### IM SDK 函数调用顺序
 
 
-SDK 函数使用顺序，如下：
+IM SDK 函数使用顺序，如下：
 
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
-| SDK 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 SDK，需要传入当前用户信息，新消息通知回调函数等，注意，为了版本向下兼容，仍保留了老版本的初始化init接口，它和 login 是一样的，开发者调用其中一个即可。|
-|监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息））|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 SDK |
+|IM SDK 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 IM SDK，需要传入当前用户信息，新消息通知回调函数等，注意，为了版本向下兼容，仍保留了老版本的初始化init接口，它和 login 是一样的，开发者调用其中一个即可。|
+|监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息））|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 IM SDK |
 |上报已读消息|webim.setAutoRead(selSess, isOn, isResetAll);|设置聊天会话自动已读标识|
 |发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息(私聊和群聊) |
 |获取消息 |webim.getC2CHistoryMsgs (options,cbOk, cbErr);|获取好友历史消息 |
@@ -109,12 +108,13 @@ SDK 函数使用顺序，如下：
 |好友管理|webim.getAllFriend(options,cbOk, cbErr);等|获取我的好友等|
 |群组管理|webim.createGroup(options,cbOk, cbErr);|创建群|
 |群组管理|webim.applyJoinGroup(options,cbOk,cbErr);等|申请加群等|
-|sdk登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
+|IM SDK 登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
 
 ### 支持版本
 
 - IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 - Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+
 ## IM SDK 基本概念
 
 **会话：**IM SDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
@@ -129,22 +129,76 @@ SDK 函数使用顺序，如下：
 
 ### IM SDK 对象简介
 
-SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
+IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
-|对象 | 介绍 | 功能 |
-|---------|---------|---------|
-|webim.SESSION_TYPE  |会话类型，取值范围：<br/>1) webim.SESSION_TYPE.C2C-私聊<br/>2) webim.SESSION_TYPE.GROUP-群聊| 区分消息属于哪种聊天类型 |
-|webim.C2C_MSG_SUB_TYPE  | C2C 消息子类型，取值范围：<br/>1) webim.C2C_MSG_SUB_TYPE.COMMON-普通消息 | 区分 C2C 消息类型|
-| webim.GROUP_MSG_SUB_TYPE |群消息子类型，取值范围：<br/>1)	webim.GROUP_MSG_SUB_TYPE.COMMON-普通消息<br/>2)	webim.GROUP_MSG_SUB_TYPE.LOVEMSG –点赞消息<br/>3)	webim.GROUP_MSG_SUB_TYPE.TIP –提示消息<br/>4)	webim.GROUP_MSG_SUB_TYPE.REDPACKET –红包消息(优先级最高)|  区分群消息类型，业务可针对不同的消息作出不同的操作。|
-| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>7)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
-|webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE  | 群资料变更类型，取值范围：<br/>1)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL-群头像发生变更<br/>2)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME -群名称发生变更<br/>3)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER-群主发生变更<br/>4)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION -群公告发生变更<br/>5)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION-群简介发生变更| 区分群资料变更类型 |
-| webim.GROUP_SYSTEM_TYPE | 群系统消息类型，取值范围：<br/>1)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST-申请加群请求（只有管理员会收到）<br/>2)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT -申请加群被同意（只有申请人能够收到）<br/>3)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE -申请加群被拒绝（只有申请人能够收到）<br/>4)	webim.GROUP_SYSTEM_TYPE.KICK-被管理员踢出群(只有被踢者接收到)<br/>5)	webim.GROUP_SYSTEM_TYPE.DESTORY -群被解散(全员接收)<br/>6)	webim.GROUP_SYSTEM_TYPE.CREATE -创建群(创建者接收, 不展示)<br/>7)	webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST -邀请加群(被邀请者接收)<br/>8)	webim.GROUP_SYSTEM_TYPE.QUIT-主动退群(主动退出者接收, 不展示)<br/>9)	webim.GROUP_SYSTEM_TYPE.SET_ADMIN -设置管理员(被设置者接收)<br/>10)	webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN -取消管理员(被取消者接收)<br/>11)	webim.GROUP_SYSTEM_TYPE.REVOKE -群已被回收(全员接收, 不展示)<br/>12)	webim.GROUP_SYSTEM_TYPE.CUSTOM -用户自定义通知(默认全员接收)| 区分群系统消息类型 |
-|webim.MSG_ELEMENT_TYPE  | 消息元素类型，取值范围：<br/>1)	webim.MSG_ELEMENT_TYPE.TEXT-文本消息<br/>2)	webim.MSG_ELEMENT_TYPE.FACE表情消息<br/>3)	webim.MSG_ELEMENT_TYPE.IMAGE-图片消息<br/>4)	webim.MSG_ELEMENT_TYPE.SOUND-语音消息<br/>5)	webim.MSG_ELEMENT_TYPE.FILE-文件消息<br/>6)	webim.MSG_ELEMENT_TYPE.LOCATION-位置消息<br/>7)	webim.MSG_ELEMENT_TYPE.CUSTOM-自定义消息<br/>8)	webim.MSG_ELEMENT_TYPE.GROUP_TIP-群提示消息（只有群聊天才会出现）|区分消息元素类型  |
-|webim.IMAGE_TYPE  | webim.IMAGE_TYPE	图片大小类型，取值范围：<br/>1)	webim.IMAGE_TYPE.SMALL-小图<br/>2)	webim.IMAGE_TYPE.LARGE-大图<br/>3)	webim.IMAGE_TYPE.ORIGIN-原图| 区分图片大小类型 |
-| webim.Emotions |表情对象  | 键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码 |
-| webim.EmotionDataIndexs | 表情标识字符串和 index 的 Map | 键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息。 |
-| webim.BROWSER_INFO | 当前浏览器信息<br/>1)	webim.BROWSER_INFO.type-浏览器类型( 包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’)<br/>2)	webim.BROWSER_INFO.ver-版本号| 区分浏览器版本 |
-| webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息<br/>3)	webim.CONNECTION_STATUS.RECONNECT-连接重新建立| 用于区分用户的当前连接状态 |
+<table>
+     <tr>
+         <th>对象</th>  
+         <th>介绍</th>  
+         <th>功能</th>  
+     </tr>
+	 <tr>      
+         <td>webim.SESSION_TYPE</td>   
+	     <td>会话类型，取值范围：<br>1.webim.SESSION_TYPE.C2C，私聊<br>2.webim.SESSION_TYPE.GROUP，群聊</td>   
+	     <td>区分消息属于哪种聊天类型</td>   
+     </tr> 
+	 <tr>
+	     <td>webim.C2C_MSG_SUB_TYPE</td>   
+	     <td>C2C 消息子类型，取值：webim.C2C_MSG_SUB_TYPE.COMMON，普通消息</td>   
+	     <td>区分 C2C 消息类型</td>
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_MSG_SUB_TYPE</td>   
+	     <td>群消息子类型，取值范围：<br>1.webim.GROUP_MSG_SUB_TYPE.COMMON，普通消息<br>2.webim.GROUP_MSG_SUB_TYPE.LOVEMSG，点赞消息<br>3.webim.GROUP_MSG_SUB_TYPE.TIP，提示消息<br>4.webim.GROUP_MSG_SUB_TYPE.REDPACKET，红包消息（优先级最高）</td>   
+	     <td>区分群消息类型，业务可针对不同的消息作出不同的操作</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_TIP_TYPE</td>   
+	     <td>群提示消息类型，取值范围：<br>1.webim.GROUP_TIP_TYPE.JOIN，进群<br>2.webim.GROUP_TIP_TYPE.QUIT，退群<br>3.webim.GROUP_TIP_TYPE.KICK，被踢出群<br>4.webim.GROUP_TIP_TYPE.SET_ADMIN，被设置成管理员<br>5.webim.GROUP_TIP_TYPE.CANCEL_ADMIN，被取消管理员角色<br>6.webim.GROUP_TIP_TYPE.MODIFY_GROUP_INFO，修改群资料<br>7.webim.GROUP_TIP_TYPE.MODIFY_MEMBER_INFO，修改群成员信息</td>   
+	     <td>区分群提示消息类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE</td>   
+	     <td>群资料变更类型，取值范围：<br>1.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL，群头像发生变更<br>2.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME，群名称发生变更<br>3.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER，群主发生变更<br>4.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION，群公告发生变更<br>5.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION，群简介发生变更</td>   
+	     <td>区分群资料变更类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_SYSTEM_TYPE</td>   
+	     <td>群系统消息类型，取值范围：<br>1.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST，申请加群请求（只有管理员会收到）<br>2.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT，申请加群被同意（只有申请人能够收到）<br>3.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE，申请加群被拒绝（只有申请人能够收到）<br>4.webim.GROUP_SYSTEM_TYPE.KICK，被管理员踢出群（只有被踢者接收到）<br>5.webim.GROUP_SYSTEM_TYPE.DESTORY，群被解散(全员接收)<br>6.webim.GROUP_SYSTEM_TYPE.CREATE，创建群（创建者接收, 不展示）<br>7.webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST，邀请加群（被邀请者接收）<br>8.webim.GROUP_SYSTEM_TYPE.QUIT，主动退群（主动退出者接收, 不展示）<br>9.webim.GROUP_SYSTEM_TYPE.SET_ADMIN，设置管理员（被设置者接收）<br>10.webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN，取消管理员（被取消者接收）<br>11.webim.GROUP_SYSTEM_TYPE.REVOKE，群已被回收（全员接收, 不展示）<br>12.webim.GROUP_SYSTEM_TYPE.CUSTOM，用户自定义通知（默认全员接收）</td>   
+	     <td>区分群系统消息类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.MSG_ELEMENT_TYPE</td>   
+	     <td>消息元素类型，取值范围：<br>1.webim.MSG_ELEMENT_TYPE.TEXT，文本消息<br>2.webim.MSG_ELEMENT_TYPE.FACE，表情消息<br>3.webim.MSG_ELEMENT_TYPE.IMAGE，图片消息<br>4.webim.MSG_ELEMENT_TYPE.SOUND，语音消息<br>5.webim.MSG_ELEMENT_TYPE.FILE，文件消息<br>6.webim.MSG_ELEMENT_TYPE.LOCATION，位置消息<br>7.webim.MSG_ELEMENT_TYPE.CUSTOM，自定义消息<br>8.webim.MSG_ELEMENT_TYPE.GROUP_TIP，群提示消息（只有群聊天才会出现）</td>   
+	     <td>区分消息元素类型 </td>   
+     </tr> 
+	 <tr>      
+         <td>webim.IMAGE_TYPE</td>   
+	     <td>图片大小类型，取值范围：<br>1.webim.IMAGE_TYPE.SMALL，小图<br>2.webim.IMAGE_TYPE.LARGE，大图<br>3.webim.IMAGE_TYPE.ORIGIN，原图</td>   
+	     <td>区分图片大小类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.Emotions</td>   
+	     <td>表情对象</td>   
+	     <td>键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.EmotionDataIndexs</td>   
+	     <td>表情标识字符串和 index 的 Map</td>   
+	     <td>键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.BROWSER_INFO</td>   
+	     <td>当前浏览器信息<br>1.webim.BROWSER_INFO.type，浏览器类型（包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’）<br>2.webim.BROWSER_INFO.ver，版本号</td>   
+	     <td>区分浏览器版本</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.CONNECTION_STATUS</td>   
+	     <td>连接状态<br>1.webim.CONNECTION_STATUS.ON，连接状态正常，可正常收发消息<br>2.webim.CONNECTION_STATUS.OFF，连接已断开，当前用户已离线，无法收信息<br>3.webim.CONNECTION_STATUS.RECONNECT，连接重新建立</td>   
+	     <td>用于区分用户的当前连接状态</td>   
+     </tr> 
+</table>
+
 
 **类对象：**
 
@@ -153,7 +207,7 @@ SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 |webim.Session|一个会话对象|即聊天对象，包括获取会话类型（私聊还是群聊），对方帐号，未读消息数，总消息数等|
 |webim.Msg|一条消息对象|消息发送、接收的 API 中都会涉及此类型的对象|
 |webim.Tool|工具对象|提供了一些公用的函数。比如格式化时间戳函数 formatTimeStamp()，获取字符串（UTF-8 编码）所占字节数 getStrBytes() 等|
-|webim.Log|控制台打印日志对象|方便查看接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
+|webim.Log|控制台打印日志对象|方便查看接口的请求 URL，请求 data 和响应 data，在初始化 IM SDK 时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
 
 ### 会话对象 Session
 
@@ -177,7 +231,7 @@ webim.Session (
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 | type | 会话类型， 包括群聊和私聊，具体参考 webim. SESSION_TYPE 常量对象，必填|	string |
-| id | 对方 ID，群聊时，为群ID；私聊时，对方帐号，必填 |String|
+| id | 对方 ID，群聊时，为群 ID；私聊时，对方帐号，必填 |String|
 |name  |对方名称，群聊时，为群名称；私聊时，为对方昵称，暂未使用，选填  |String  |
 |icon  | 对方头像 URL，暂未使用，选填 | String |
 | time |当前会话中的最新消息的时间戳，UNIX timestamp 格式，暂未使用，选填  | Integer |
@@ -257,13 +311,13 @@ webim.Msg(
 |getFromAccountNick()|获取消息发送者昵称，用户没有设置昵称时，则为发送者帐号|	无|	String|
 |getSeq()	|获取消息序列号|	无|	Integer|
 |getRandom()	|获取消息随机数|	无|	Integer|
-|getTime()	|获取消息时间戳，UNIX timestamp格式	|无|	Integer|
+|getTime()	|获取消息时间戳，UNIX timestamp 格式	|无|	Integer|
 |getElems()	|获取描述消息内容的元素数组|	无|	\[webim.Msg.Elem]
-|addText(text)	|向elems中添加一个 Text 元素|	text : Msg.Elem.Text|无|
-|addFace(face)|	向elems中添加一个 Face 元素|	face : Msg.Elem.Face|	无|
+|addText(text)	|向 elems 中添加一个 Text 元素|	text : Msg.Elem.Text|无|
+|addFace(face)|	向 elems 中添加一个 Face 元素|	face : Msg.Elem.Face|	无|
 |addImage(image)	|向 Elems 中添加一个 Images 元素|	image: Msg.Elem.Images	|无|
 |addSound(sound)|	向 Elems 中添加一个 Sound 元素|	sound: Msg.Elem.Sound	|无|
-|addFile(file)|	向elems中添加一个 File 元素|	file: Msg.Elem.File	|无|
+|addFile(file)|	向 elems 中添加一个 File 元素|	file: Msg.Elem.File	|无|
 |addLocation(location)|	向 Elems 中添加一个 Location 元素|	location: sg.Elem.Location|	无|
 |addCustom(custom)|	向 Elems 中添加一个 Custom 元素|	custom：Msg.Elem.Custom	|无|
 |addGroupTip(groupTip)|	向 Elems 中添加一个 GroupTip 元素	|groupTip: Msg.Elem.GroupTip|	无|
@@ -703,7 +757,7 @@ webim.Tool
 
 ### 控制台打印日志对象 Log
 
-主要作用是方便查看 SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 SDK 时，可以传递一个布尔类型的变量来控制 SDK 是否在控制台打印日志。
+主要作用是方便查看 IM SDK 调用后台接口的请求 URL，请求 data 和响应 data，在初始化 IM SDK 时，可以传递一个布尔类型的变量来控制 IM SDK 是否在控制台打印日志。
 **对象名：**
 
 ```javascript

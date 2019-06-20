@@ -5,24 +5,60 @@
 - Android 4.1（SDK API 16）及以上系统。
 
 ## 集成 SDK（aar）
-通过导入 aar 库的方式集成 LiteAVSDK：
+您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。
+
+### 方法一：自动加载（aar）
+LiteAVSDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
+
+只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改 `app/build.gradle` 文件，就可以完成 SDK 集成：
+
+![](https://main.qcloudimg.com/raw/eb6bcb3cb1dff43f459245ed9045e685.png)
+
+- **第一步：添加 SDK 依赖**   
+  在 dependencies 中添加 LiteAVSDK 的依赖。
+```
+dependencies {
+     implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
+}
+```
+ 或
+ 
+ ```
+dependencies {
+     implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
+}
+ ```
+- **第二步：指定 App 使用架构**
+  在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)   。
+```
+defaultConfig {
+     ndk {
+         abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+     }
+}
+```
+- **第三步：同步 SDK**
+  单击 Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
+
+### 方法二：手动下载（aar）
+如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 
 - **第一步：下载 LiteAVSDK**
-单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 SDK：
-  ![](https://main.qcloudimg.com/raw/bf07b11e65a4bc550a807e2c7e844910.png)
-	
+   单击 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) 下载最新版本的 SDK：
+    ![](https://main.qcloudimg.com/raw/bf07b11e65a4bc550a807e2c7e844910.png)
+  
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
   将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
-	
+  
 - **第三步：指定本地仓库路径**
   在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
   ![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)
-	
+  
 - **第四步：添加 LiteAVSDK 依赖**   
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/2333ec86f332907e7bf45b6cf83ee7b3.png)
-	
+  
 - **第五步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
 ```
@@ -43,7 +79,7 @@ defaultConfig {
   单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 jar 压缩包，文件名一般为 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
   ![](https://main.qcloudimg.com/raw/25045f7cad24fcf9f7ec2cb4516fe57b.png)
   解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
-  ![](/Users/hans/Library/Application Support/typora-user-images/image-20190509122235784.png)
+  ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
   将解压得到的 jar文件和 armeabi、armeabi-v7a、arm64-v8a 文件夹拷贝到 app/libs 目录下。
@@ -69,7 +105,6 @@ defaultConfig {
 
 - **第六步：同步 SDK**
   单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
-
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：

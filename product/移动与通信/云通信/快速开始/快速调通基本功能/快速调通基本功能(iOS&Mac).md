@@ -1,26 +1,25 @@
-本文主要介绍腾讯云 ImSDK(iOS&Mac) 的几个最基本功能的使用方法，阅读此文档有助于您对 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK(iOS&Mac) 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
 ## 初始化
-- ImSDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
-- SdkAppId 和 accountType 可以在云通信 [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
+- IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
+- SDKAppID 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 ```
 //初始化 SDK 基本配置
 TIMSdkConfig *sdkConfig = [[TIMSdkConfig alloc] init];
 sdkConfig.sdkAppId = 123456789;
-sdkConfig.accountType = @"123";
-sdkConfig.disableLogPrint = NO; // 是否允许log打印
-sdkConfig.logLevel = TIM_LOG_DEBUG; //Log输出级别（debug级别会很多）
-sdkConfig.logPath =  logPath; //Log文件存放在哪里？
+sdkConfig.disableLogPrint = NO; // 是否允许 log 打印
+sdkConfig.logLevel = TIM_LOG_DEBUG; //Log 输出级别（debug 级别会很多）
+sdkConfig.logPath =  logPath; //Log 文件存放在哪里？
 [[TIMManager sharedInstance] initSdk:sdkConfig];
 ```
 
 ## 登录
-- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig` 详细请参阅 [登录鉴权简介](https://cloud.tencent.com/document/product/269/31999)。
+- 用户登录腾讯 IM 后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`UserSig` 详细请参阅 [登录鉴权简介](https://cloud.tencent.com/document/product/269/31999)。
 - 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
-// identifier 为用户名，userSig 为用户登录凭证
-// appidAt3rd 在私有帐号情况下，填写与 sdkAppId 一样
+// identifier 为用户名，UserSig 为用户登录凭证
+// appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.identifier = @"iOS_001";
 login_param.userSig = @"usersig";
 login_param.appidAt3rd = @"123456";
@@ -35,7 +34,7 @@ login_param.appidAt3rd = @"123456";
 ![](https://main.qcloudimg.com/raw/e31ae59752f736b78be3dcf1578ff64b.png)
 
 - **onUserSigExpired**
-每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+每一个 UserSig 都有一个过期时间，如果 UserSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
 ## 登出
 如用户主动注销或需要进行用户的切换，则需要调用注销操作。
@@ -63,7 +62,7 @@ TIMConversation * grp_conversation = [[TIMManager sharedInstance] getConversatio
 ```
 
 ### 消息发送
-ImSDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
+IM SDK 中的每一条消息都是一个 `TIMMessage` 对象， 一条完整的 `TIMMessage` 消息可以包含多个 `TIMElem` 单元，每个 `TIMElem` 单元可以是文本，也可以是图片，即每一条消息可包含多个文本、多张图片、以及其他类型的单元。
 ![](//mccdn.qcloud.com/static/img/7226ab79d4294cc53980c888892f5c6d/image.png)
 
 ```
@@ -99,7 +98,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 **更多消息接收操作请参考 SDK 文档： [消息收发](https://cloud.tencent.com/document/product/269/9150)**。
 
 ## 群组管理
-IM 云通讯有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
+云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 | 类型 | 说明 |
 |:---------:|:---------|

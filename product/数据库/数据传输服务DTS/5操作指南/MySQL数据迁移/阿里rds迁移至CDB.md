@@ -9,15 +9,15 @@
 ## 操作步骤
 
 ### 1. 获取源数据库基本信息和 AccessKey 
- 1. 登录 [RDS 管理控制台][1]，选择目标实例。
+ 1. 登录 [RDS 管理控制台](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Frdsnew.console.aliyun.com%2F%3Fspm%3Da2c4g.11186623.2.5.cdjgiR)，选择目标实例。
  2. 在目标实例的基础信息页即可获取我们所需的信息，具体如图所示：
 ![](https://main.qcloudimg.com/raw/e55af45a5c36a99097418808cc542389.png)
->!阿里云提供的外网地址需要将其转化成 IP 格式。此处列举一个 [IP/服务器地址查询 ][2] 的网址。
+>!阿里云提供的外网地址需要将其转化成 IP 格式。此处列举一个 [IP/服务器地址查询 ](http://ip.chinaz.com) 的网址。
  3. 将鼠标悬停于右上方头像处，在出现的下拉菜单中选择【accesskeys】，进入页面后即可获取所需的 Accesskey。
 ![](https://main.qcloudimg.com/raw/2d67bd05558d5762c322d0c33d344332.png)
 	
 ### 2. 创建腾讯云云数据库的 DTS 任务
-登录控制台，进入数据迁移页面，单击【新建任务】，跳转页面后，填写任务设置、源库设置和目标库设置。
+登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页面，单击【新建任务】，跳转页面后，填写任务设置、源库设置和目标库设置。
 ![](https://mc.qcloudimg.com/static/img/2ad6200dc53556f2c03f45e7a1af8320/image.png)
 
 #### 2.1 任务设置
@@ -27,8 +27,7 @@
 
 #### 2.2 源库信息
 根据需要选择接入类型，依次填写对应的源库连接信息。
->!您需要在阿里云开通 TencentDB 对外映射出去的 IP 的白名单。否则在测试连通性时将不通过。
->例如：
+>!您需要在阿里云开通 TencentDB 对外映射出去的 IP 的白名单。否则在测试连通性时将不通过。例如，
 >1. 有公网 IP 的 MySQL 腾讯云的映射，您需要将相对应的地区外网 IP 添加到阿里云的白名单中。
 >2. DTS 配置时源库类型为“专线”或者“VPN”会在任务生成后出现对外映射的 IP，需将此 IP 添加到阿里云白名单中。
 >
@@ -58,7 +57,6 @@
 ### 3. 启动迁移
 在校验通过后，您可以单击【启动迁移】立即开始迁移数据。需要注意的是，如果您设定了迁移任务的定时时间，则迁移任务会在设定的时间开始排队并执行，如果没有设置定时任务，则迁移任务会立即执行。
 迁移启动后，您可以在迁移任务下看到对应的迁移进度信息。在鼠标指向步骤后的感叹号提示符时，可显示迁移所需流程和当前所处阶段。
-
 >!由于系统设计限制，一次性提交或排队多个迁移任务将按排队时间串行执行。
 
 ### 4. 撤销迁移
@@ -70,7 +68,20 @@
 ![](https://main.qcloudimg.com/raw/30dbf7018d72cee1daef076323dd5377.png)
 >!当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
 
-
-[1]:    https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Frdsnew.console.aliyun.com%2F%3Fspm%3Da2c4g.11186623.2.5.cdjgiR
-[2]:   http://ip.chinaz.com
-[3]:   https://console.cloud.tencent.com/dtsnew
+## 割接注意
+- 确保源数据库阿里云 RDS 到目标数据库 TencentDB 的连通性（如连通性检测未通过，请检查阿里云 RDS 账号密码或权限）。
+![](https://main.qcloudimg.com/raw/e8228aeb43e25e47f85c34d2fab3a8b8.png)
+2. 保证业务侧对阿里云 RDS 不再进行写入，可通过更改业务连接的账号密码或调整授权，但需确保用于 DTS 同步的账号可正常读写。
+3. 断开阿里云 RDS 的业务连接，通过`show processlist`命令验证没有业务连接。
+4. 通过`show master status`获取阿里云 RDS 最新 gtid，然后与 TencentDB 同步的 gtid（通过`show slave status`获取）进行对比，保证 TencentDB 与阿里云 RDS 同步没有延迟。
+5. 用户通过 DTS 控制台（见下图）或自行抽取核心表内容检查数据一致性。
+![](https://main.qcloudimg.com/raw/bb535aba27effc701d14544b3a5ba09a.png)
+6. 通过`show slave status`记录 TencentDB 的同步位点。
+7. 通过 DTS 控制台，单击【完成】或调用 DTS 云 [API](https://cloud.tencent.com/document/product/571/18122) 断开同步，完成迁移任务。
+8. 关闭 TencentDB 的只读功能，验证 TencentDB 是否可读写，若读写正常则启动应用程序。
+9. 持续观察 TencentDB 状态，确保应用可正常运行。    
+>?出现错误："errMsg": "发起备份任务失败SDK.ServerUnreachable Unable to connect server:HTTP Error 403: Forbidden"
+>可以从以下方面进行排查：
+>1. 检查阿里云的密钥是否有对源 RDS 实例发起冷备的权限。若使用阿里云主帐号，即拥有所有权限，可排除该原因。
+>2. 登录阿里云控制台，检查该 RDS 实例是否已经存在冷备或者升级等互斥任务，若设置了自动备份，则需要关闭自动备份选项。
+>3. 如经过以上两步，问题仍然存在，请向阿里云咨询使用 [云 API](https://help.aliyun.com/document_detail/26272.html?spm=a2c4g.11186623.6.916.voEDSM) 发起冷备任务失败的原因。  

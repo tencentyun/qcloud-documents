@@ -17,7 +17,6 @@ pip.main(['install', "package_name"])
 ## 操作步骤
 1. **添加组件**
 从左侧菜单栏中，选择【组件】>【机器学习】 列表下的 PySpark 节点，并将其拖拽至画布中。
-![](https://main.qcloudimg.com/raw/a03a4058eb8eb15883248cfc0a9bb5bd.png)
 2. **配置参数**
  - 脚本及依赖包文件上传：
   将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过依赖包文件框上传。

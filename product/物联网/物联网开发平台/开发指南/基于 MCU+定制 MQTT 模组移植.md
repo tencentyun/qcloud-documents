@@ -409,4 +409,4 @@ INF|..\Middlewares\Third_Party\qcloud-iot-sdk-tencent-at-based\sample\light_data
 
 ## SDK接口说明
 
-关于 AT-SDK 的更多使用方式及接口说明，请参阅 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)。
+关于 AT-SDK 的更多使用方式及接口说明，请参阅 [腾讯 AT_SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git)。

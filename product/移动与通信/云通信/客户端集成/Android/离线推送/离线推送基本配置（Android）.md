@@ -1,6 +1,6 @@
 ## 概述
 
-IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，云通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级推送通道的相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
+云通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，云通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级推送通道的相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
 云通信 IM 目前已经支持了 APNs、小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送等厂商推送，具体如下：
 
@@ -11,13 +11,13 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
      <th>条件说明</th> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/9154" target="_blank"> APNs </a></td> 
+     <td><a href="https://cloud.tencent.com/document/product/269/9154" target="_blank">APNs</a></td> 
      <td>iOS</td> 
      <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
-     <td>FuntouchOS</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
+     <td nowrap="nowrap">FuntouchOS</td> 
      <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
    </tr> 
    <tr> 
@@ -36,14 +36,14 @@ IM 的终端用户需要随时都能够得知最新的消息，而由于移动�
      <td>使用魅族推送 push-internal:3.6.+</td> 
    </tr> 
    <tr> 
-     <td>OPPO 推送</td> 
+     <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
      <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。</td> 
    </tr> 
 </table>
 
 
-这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成云通信离线推送。
+这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成云通信 IM 离线推送。
 
 >!
 > - 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。

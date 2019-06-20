@@ -11,7 +11,7 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 安装文件夹：
 
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/hive/
 [hadoop@172 hive]$
 
