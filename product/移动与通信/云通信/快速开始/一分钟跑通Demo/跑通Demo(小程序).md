@@ -24,7 +24,7 @@
 >!本文提到的获取 UserID 和 UserSig 的方案仅适合本地跑通 Demo 和功能调试，正确的 UserSig 签发方式请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
 
 1. 在控制台应用详情页面，单击【下载公私钥】，保存 **keys.zip** 压缩文件。
- ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
+ ![](https://main.qcloudimg.com/raw/e11d958bc43b09fb41c7064ee2b09722.png)
 2. 解压 **keys.zip** 文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该云通信应用指定用户名的 UserSig。
