@@ -1,6 +1,18 @@
 # Release Notes - iOS & macOS
 
 
+## 2019.06.20
+修复bug
+- 修复多次发送课后录制对时信息的问题
+增加接口
+- 增加课后录制对时信息接口`sendOfflineRecordInfo`
+- 进房参数`TICClassroomOption`增加白板初始化参数`boardInitParam`和白板回调`boardDelegate`
+
+| | TRTC版本 | TIM版本 | TEduBoard版本 |
+| :-: | :-: | :-: | :-: |
+| **iOS** | 6.5.7272 | 4.4.479 | 2.2.0 |
+| **macOS** | 4.0.0 | 4.3.145 | 2.2.0 |
+
 ## 2019.06.05
 
 修复bug
