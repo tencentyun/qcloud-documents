@@ -13,13 +13,13 @@ GET Bucket versioning 接口实现获得存储桶的版本控制信息。
 	- 如果您启用了存储桶的版本控制功能，则响应为：
 ```shell
 <VersioningConfiguration>
-			<Status>Enabled</Status>
+		<Status>Enabled</Status>
 </VersioningConfiguration>
 ```
 	- 如果您暂停了存储桶的版本控制功能，则响应为：
 	```shell
 	<VersioningConfiguration>
-			<Status>Suspended</Status>
+		<Status>Suspended</Status>
 	</VersioningConfiguration>
 	```
 
