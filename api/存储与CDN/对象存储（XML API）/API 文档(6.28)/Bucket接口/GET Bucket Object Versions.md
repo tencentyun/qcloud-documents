@@ -95,7 +95,7 @@ Authorization: Auth String
     	<LastModified>Date</LastModified>
     	<Owner>
     		<UID>OwnerUin</UID>
-   		</Owner>
+		</Owner>
     </DeleteMarker>
     <Version>
     	<Key>exampleObject.txt</Key>
@@ -245,7 +245,7 @@ x-cos-request-id: NWQwMzFmMjJfN2QyZjIyMDlfY2M2MV85MGE5****
     	<LastModified>2019-06-13T13:09:23.000Z</LastModified>
     	<Owner>
     		<UID>1250000000</UID>
-   		</Owner>
+        </Owner>
     </DeleteMarker>
     <Version>
     	<Key>100K.txt</Key>
