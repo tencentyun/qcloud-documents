@@ -60,7 +60,6 @@
 3. 修改 COS 路径： 
 目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。 
 >!请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。 
-
 <img src="https://main.qcloudimg.com/raw/dd205a5d0d471adf1a62604e86e775e0.png" width="78%" />
 **二. 数据清洗** 
 此数据清洗功能由【案例相关材料】中的清洗代码`data_cleaning.py`提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
@@ -81,7 +80,6 @@
 - 其余参数均可默认。 
 <img src="https://main.qcloudimg.com/raw/2ed1378ddf492e1b85300e55d93d80b2.png" width="78%" />
 <img src="https://main.qcloudimg.com/raw/fe1145d5af74cc69ae15a3bdf4a9d17a.png" width="78%" />
-
 **四. 特征选择** 
 此特征选择功能亦由【案例相关材料】中的相关代码data_selection.py提供： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。 
