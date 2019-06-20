@@ -1,15 +1,23 @@
+# Dubbo Demo 工程概述
+
 ## 获取 Demo
-- 基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/def3599d1c8812d0404bafd11a72cf51.zip)
-- 基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/5c3106fa41e5515c0b1ef91a72d80d29.zip)
+
+基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/abe7f56420e98dd58cf0ef60705d7e19/tsf-dubbo-alibaba-demo.zip)
+
+基于 Apache Dubbo 版本 SDK 的 [Demo 下载](https://main.qcloudimg.com/raw/2bc8fac2528b0faf58e5a614bbf73d8f/tsf-dubbo-apache-demo.zip)
 
 ## 工程目录
-tsf-dubbo-xxx-demo 的工程目录如下：
+
+`tsf-dubbo-xxx-demo`的工程目录如下：
+
 ```
 |- consumer-demo
 |- provider-demo
 |- pom.xml
 ```
-consumer-demo 表示服务消费者， provider-demo 表示服务提供者，pom.xml 中定义了工程需要的依赖包（以下为基于 Alibaba Dubbo 版本 SDK 示例说明）：
+
+其中 consumer-demo 表示服务消费者， provider-demo 表示服务提供者。
+pom.xml 中定义了工程需要的依赖包（以下以基于 Alibaba Dubbo 版本 SDK 举例说明）：
 
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -62,4 +70,4 @@ consumer-demo 表示服务消费者， provider-demo 表示服务提供者，pom
 </project>
 ```
 
-关于 Maven 环境安装的说明，请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) 中的 Maven 配置。
+关于 Maven 环境安装，请参考 [Spring Cloud SDK 下载](<https://cloud.tencent.com/document/product/649/20231>) 时的 Maven 配置。
