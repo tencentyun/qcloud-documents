@@ -27,12 +27,12 @@ Authorization: Auth String
 
 名称|描述|类型|是否必选
 ---|---|---|---
-x-cos-acl|定义存储桶的访问控制列表（ACL）属性。枚举值请参阅 [ACL 概述 - 存储桶的预设 ACL](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档，如 `private`, `public-read` 等，默认为 `private`|Enum|否
-x-cos-grant-read|赋予被授权者读取存储桶的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-write|赋予被授权者写入存储桶的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-read-acp|赋予被授权者读取存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-write-acp|赋予被授权者写入存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-full-control|赋予被授权者操作存储桶的所有权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-acl|定义存储桶的访问控制列表（ACL）属性。枚举值请参阅 [存储桶预设 ACL](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档，如 private， public-read 等，默认为 private|Enum|否
+x-cos-grant-read|赋予被授权者读取存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如：`id="100000000001",id="100000000002"`|string|否
+x-cos-grant-write|赋予被授权者写入存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-read-acp|赋予被授权者读取存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-write-acp|赋予被授权者写入存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-full-control|赋予被授权者操作存储桶的所有权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
 
 ### 请求体
 
@@ -59,7 +59,7 @@ BucketAlreadyOwnedByYou|指定的存储桶已存在且由当前帐户创建|409 
 
 ## 实际案例
 
-### 简单案例
+#### 案例1：简单案例
 
 #### 请求
 
@@ -83,7 +83,7 @@ Server: tencent-cos
 x-cos-request-id: NWNlYWE3ZjlfZDQyNzVkNjRfMzg1N18yNzFh****
 ```
 
-### 指定公有读并授权特定用户读取权限和写入对象
+#### 案例2：指定公有读并授权特定用户读取权限和写入对象
 
 #### 请求
 
