@@ -74,7 +74,7 @@
 - 保证业务侧对阿里云 RDS 不再进行写入，可通过更改业务连接的账号密码或调整授权，但需确保用于 DTS 同步的账号可正常读写。
 - 断开阿里云 RDS 的业务连接，通过`show processlist`命令验证没有业务连接。
 - 通过`show master status`获取阿里云 RDS 最新 gtid，然后与 TencentDB 同步的 gtid（通过`show slave status`获取）进行对比，保证 TencentDB 与阿里云 RDS 同步没有延迟。
--  验证原阿里云 RDS 账号是否可以登录，如无法登录可尝试把原阿里云 RDS 账号权限提至最高权限。具体操作为：
+-  验证原阿里云 RDS 账号是否可以登录 TencentDB，如无法登录可尝试把原阿里云 RDS 账号权限提至最高权限。具体操作为：
    保持 DTS 任务继续同步，在阿里云 RDS 上添加高权限账号（可改变账号密码的加密方式为通用加密方式），然后通过 DTS 同步到 TencentDB。
 - 用户通过 DTS 控制台（见下图）或自行抽取核心表内容检查数据一致性。
 ![](https://main.qcloudimg.com/raw/bb535aba27effc701d14544b3a5ba09a.png)
