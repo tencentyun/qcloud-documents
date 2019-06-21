@@ -5,7 +5,7 @@
 
 #### 新特性
 
-支持 MySQL JDBC，Redis，MongoDB，CMQ 组件调用链。	
+支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
 
 #### 版本建议
 
@@ -66,7 +66,7 @@
 
 #### 新特性
 
-支持 MySQL JDBC，Redis，MongoDB，CMQ 组件调用链。	
+支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
 
 #### 版本建议
 
