@@ -31,7 +31,7 @@ Authorization: Auth String
 [Request Body]
 ```
 
-> Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求参数
 
@@ -43,18 +43,18 @@ Authorization: Auth String
 
 名称|描述|类型|是否必选
 ---|---|---|---
-x-cos-acl|定义存储桶的访问控制列表（ACL）属性。枚举值请参阅 [ACL 概述 - 存储桶的预设 ACL](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档，如 `private`, `public-read` 等，默认为 `private`|Enum|否
-x-cos-grant-read|赋予被授权者读取存储桶的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-write|赋予被授权者写入存储桶的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-read-acp|赋予被授权者读取存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-write-acp|赋予被授权者写入存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
-x-cos-grant-full-control|赋予被授权者操作存储桶的所有权限，格式为 `id="[OwnerUin]"`，如 `id="100000000001"`，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-acl|定义存储桶的访问控制列表（ACL）属性。枚举值请参阅 [存储桶的预设 ACL](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档，如 private， public-read 等，默认为 private|Enum|否
+x-cos-grant-read|赋予被授权者读取存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-write|赋予被授权者写入存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-read-acp|赋予被授权者读取存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-write-acp|赋予被授权者写入存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 `id="[OwnerUin]"`，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
+x-cos-grant-full-control|赋予被授权者操作存储桶的所有权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"`|string|否
 
 ### 请求体
 
 提交 **application/xml** 请求数据，包含存储桶所有者和完整的授权信息。
 
-```xml
+```shell
 <AccessControlPolicy>
 	<Owner>
 		<ID>string</ID>
@@ -99,14 +99,14 @@ ID|AccessControlPolicy.Owner|存储桶持有者的完整 ID，格式为 `qcs::ca
 
 节点名称（关键字）|父节点|描述|类型|是否必选
 ---|---|---|---|---
-Grant|AccessControlPolicy.AccessControlList|单个授权信息，一个 `AccessControlList` 最多只能拥有 100 条 `Grant`|Container|是
+Grant|AccessControlPolicy.AccessControlList|单个授权信息，一个 AccessControlList 最多只能拥有100条 Grant|Container|是
 
 **Container 节点 AccessControlList.Grant 的内容：**
 
 节点名称（关键字）|父节点|描述|类型|是否必选
 ---|---|---|---|---
-Grantee|AccessControlPolicy.AccessControlList.Grant|被授权者信息，`xsi:type` 可指定为 `Group` 或 `CanonicalUser`，当指定为 `Group` 时子节点包括且仅允许包括 `URI`，当指定为 `CanonicalUser` 时子节点包括且仅允许包括 `ID`|Container|是
-Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [ACL 概述 - 存储桶的操作](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档，如 `WRITE`, `FULL_CONTROL` 等|Enum|是
+Grantee|AccessControlPolicy.AccessControlList.Grant|被授权者信息，`xsi:type` 可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID|Container|是
+Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [存储桶的操作](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档，如 WRITE， FULL_CONTROL 等|Enum|是
 
 **Container 节点 AccessControlList.Grant.Grantee 的内容：**
 
