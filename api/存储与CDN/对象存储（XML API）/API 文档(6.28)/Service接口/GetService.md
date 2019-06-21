@@ -46,7 +46,7 @@ Authorization: Auth String
 
 查询成功，返回 **application/xml** 数据，包含所有或特定地域下的存储桶列表。
 
-```xml
+```shell
 <ListAllMyBucketsResult>
 	<Owner>
 		<ID>string</ID>
@@ -98,8 +98,8 @@ Bucket|ListAllMyBucketsResult.Buckets|存储桶信息|Container
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
 Name|ListAllMyBucketsResult.Buckets.Bucket|存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000`|string
-Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 `ap-beijing`, `ap-hongkong`, `eu-frankfurt` 等|Enum
-CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶的创建时间，为 ISO8601 格式，如 `2019-05-24T10:56:40Z`|date
+Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等|Enum
+CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶的创建时间，为 ISO8601 格式，如2019-05-24T10:56:40Z|date
 
 ### 错误码
 
