@@ -24,7 +24,7 @@ xxx.wxlagame.com:5443
 ![控制台游戏信息](https://main.qcloudimg.com/raw/d9148b71fbc9d377d440e645fa7e2a1e.png)
 3. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
 4. 进入开发设置详情页，在 “服务器域名” 中添加合法域名记录。如下图所示：
-![微信公共平台](https://main.qcloudimg.com/raw/529bdf683e8af274b17cee675a4b1a61.png)
+![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
 
 ### 导入 SDK
 SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
