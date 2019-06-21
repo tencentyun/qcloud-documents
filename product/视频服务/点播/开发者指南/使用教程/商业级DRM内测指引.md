@@ -38,13 +38,13 @@
 如果您需要对云点播中的视频进行加密，请参见 [视频加密](https://cloud.tencent.com/document/product/266/34072)。
 - **播放**
 加密后的视频，**必须使用 V3 版本超级播放器播放**：
-	* [iOS V3 超级播放器](链接到<超级播放器_iOS_V3.md>)
-	* [Android V3 超级播放器](链接到<超级播放器_Android_V3.md>)
-	* [Web V3 超级播放器](链接到<超级播放器_Web_V3.md>)
+	* [iOS V3 超级播放器](https://cloud.tencent.com/document/product/266/35585)
+	* [Android V3 超级播放器](https://cloud.tencent.com/document/product/266/35584)
+	* [Web V3 超级播放器](https://cloud.tencent.com/document/product/266/35586)
 	
 - **入门教程**
 我们建议您在接入时使用 SimpleAES 方式加密（该加密方式的门槛远低于 FairPlay 和 PlayReady，且能适配大部分终端与播放器）。
-请您阅读并实践 [DRM 入门教程](链接到<DRM入门教程-SimpleAES.md>)，完整学习接入与使用流程。
+请您阅读并实践 [DRM 入门教程-SimpleAES](https://cloud.tencent.com/document/product/266/35578)，完整学习接入与使用流程。
 
 ## 商业级 DRM 收费说明
 
