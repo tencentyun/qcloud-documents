@@ -14,10 +14,8 @@
 
 - 若域名 ```www.test.com```， Range 回源配置如下：
 ![](https://main.qcloudimg.com/raw/dd3ff1bec32816141114a7a3bfaadc08.png)
-
 用户 A 请求资源： ```http://www.test.com/test.apk```，节点收到请求后，发现缓存的```test.apk```文件已过期，此时发起回源请求，节点回源使用 Range 请求，分片获取资源并缓存。若此时用户乙发起的也为 Range 请求，当节点上存储的分片已满足 Range 中指定的字节段，则会直接返回给用户，无需等所有分片获取完毕。 
 
 - 若域名 ```www.test.com``` ，Range 回源配置如下：
 ![](https://main.qcloudimg.com/raw/b5d6e11c564cb77d7dca60d0767189c5.png)
-
 用户 A 请求资源： ```http://www.test.com/test.apk```，节点收到请求后，发现缓存的```test.apk```文件已过期，此时发起回源请求，节点会直接向源站获取整个资源，待完整获取资源后再返回给用户。
