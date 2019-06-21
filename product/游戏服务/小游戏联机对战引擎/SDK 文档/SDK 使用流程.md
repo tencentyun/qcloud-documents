@@ -15,7 +15,7 @@
 1. 需要配置的域名包含两条 socket 域名和一条 request 域名记录。开发者在 MGOBE 控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
 ```
 // request 域名
-record.wxlagame.com
+report.wxlagame.com
 // socket 域名
 xxx.wxlagame.com
 xxx.wxlagame.com:5443
