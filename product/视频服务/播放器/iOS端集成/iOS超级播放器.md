@@ -70,7 +70,9 @@ playerModel.videoURL = url1.url; // 设置默认播放的清晰度
 播放器开启时移非常简单，您只需要在播放前配置好 appId
 
 ```objc
-playerModel.appId = 1252463788;
+SuperPlayerVideoId *videoId = [SuperPlayerVideoId new];
+videoId.appId = 1252463788;
+playerModel.videoId = videoId;
 ```
 >? appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查到。
 
@@ -93,8 +95,10 @@ playerModel.appId = 1252463788;
 播放 fileId 的代码如下：
 ```
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
-playerModel.appId = 1252463788;
-playerModel.fileId = @"4564972819219071679";
+SuperPlayerVideoId *videoId = [SuperPlayerVideoId new];
+videoId.appId = 1252463788;
+videoId.fileId = @"4564972819219071679";
+playerModel.videoId = videoId;
 [_playerView playWithModel:self.playerModel];
 ```
 视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl)）。转码完成后，播放器会自动显示多个清晰度。
