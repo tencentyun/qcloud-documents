@@ -1,6 +1,16 @@
 ## Spring Cloud Finchley
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.14.0-Finchley-RELEASE（2019-06-21）
+
+#### 新特性
+
+支持 MySQL JDBC，Redis，MongoDB，CMQ 组件调用链。	
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ### 1.12.3-Finchley-RELEASE（2019-05-17）
 
 #### Bug 修复
@@ -51,6 +61,18 @@
 
 ## Spring Cloud Edgware
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+
+### 1.14.0-Edgware-RELEASE（2019-06-21）
+
+#### 新特性
+
+支持 MySQL JDBC，Redis，MongoDB，CMQ 组件调用链。	
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
+
 
 ### 1.12.2-Edgware-RELEASE（2019-04-22）
 
