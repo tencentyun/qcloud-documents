@@ -12,12 +12,13 @@
 ### 设置请求域名
 >!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入小游戏联机对战引擎 SDK 前，需要开发者在微信公众平台配置合法域名。
 
-1. 需要配置的域名包含两条 socket 域名记录。开发者在 MGOBE 控制台上获取域名后，需要配置该域名的默认端口、 446端口两条记录。
-例如，开发者 MGOBE 控制台上的域名为 xxx.wxlagame.com，则需要配置的域名为：
+1. 需要配置的域名包含两条 socket 域名和一条 request 域名记录。开发者在 MGOBE 控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
 ```
+// request 域名
+record.wxlagame.com
 // socket 域名
-	xxx.wxlagame.com
-	xxx.wxlagame.com:446
+xxx.wxlagame.com
+xxx.wxlagame.com:5443
 ```	
 2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。如下图所示：
 ![控制台游戏信息](https://main.qcloudimg.com/raw/d9148b71fbc9d377d440e645fa7e2a1e.png)
