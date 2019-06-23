@@ -31,7 +31,7 @@ int cos_gen_presigned_url(const cos_request_options_t *options,
 | bucket        | 存储桶名称，存储桶的命名格式为 BucketName-APPID ，此处填写的存储桶名称必须为此格式 | String |
 | object        | Object 名称                                                  | String |
 | expire        | 签名有效时间，单位为秒                                       | Int    |
-| method        | HTTP请求方法枚举类型，分别为 HTTP_GET、HTTP_HEAD、HTTP_PUT、HTTP_POST、HTTP_DELETE | Enum   |
+| method        | HTTP 请求方法枚举类型，分别为 HTTP_GET、HTTP_HEAD、HTTP_PUT、HTTP_POST、HTTP_DELETE | Enum   |
 | presigned_url | 生成的请求预签名 URL                                         | String |
 
 #### 返回结果说明
@@ -42,7 +42,7 @@ int cos_gen_presigned_url(const cos_request_options_t *options,
 
 ## 预签名请求示例
 
-可在 options 参数中设置永久密钥或临时密钥来获取预签名URL。
+可在 options 参数中设置永久密钥或临时密钥来获取预签名 URL。
 
 ```cpp
 cos_pool_t *p = NULL;
@@ -62,7 +62,7 @@ init_test_config(options->config, is_cname);
 cos_str_set(&options->config->endpoint, TEST_COS_ENDPOINT);
 cos_str_set(&options->config->access_key_id, TEST_ACCESS_KEY_ID);
 cos_str_set(&options->config->access_key_secret, TEST_ACCESS_KEY_SECRET);
-/* 可以通过设置 sts_token 来使用临时密钥，当使用临时密钥时，access_key_id 和 access_key_secret 均需要设置为对应临时密钥所配套的SecretId和SecretKey */
+/* 可以通过设置 sts_token 来使用临时密钥，当使用临时密钥时，access_key_id 和 access_key_secret 均需要设置为对应临时密钥所配套的 SecretId 和 SecretKey */
 //cos_str_set(&options->config->sts_token, "MyTokenString");
 cos_str_set(&options->config->appid, TEST_APPID);
 options->config->is_cname = is_cname;
