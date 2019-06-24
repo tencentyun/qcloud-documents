@@ -14,7 +14,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -135,7 +135,7 @@ DisplayName|ListBucketResult.Contents.Owner|对象持有者的名称|string
 
 ## 实际案例
 
-#### 简单案例
+#### 案例一：简单案例
 
 #### 请求
 
@@ -213,7 +213,7 @@ x-cos-request-id: NWNlYmM5NTdfZjI4NWQ2NF81ZmMwX2Q5N2E1****
 </ListBucketResult>
 ```
 
-#### 带 delimiter 参数（列出根目录下的对象和子目录）
+#### 案例二：带 delimiter 参数（列出根目录下的对象和子目录）
 
 #### 请求
 
@@ -276,7 +276,7 @@ x-cos-request-id: NWNlYmM5NTdfNzViMDJhMDlfNDkzNF9kMTQ3****
 </ListBucketResult>
 ```
 
-#### 带 prefix 和 delimiter 参数（列出指定子目录下的对象和子目录）
+#### 案例三：带 prefix 和 delimiter 参数（列出指定子目录下的对象和子目录）
 
 #### 请求
 
@@ -339,7 +339,7 @@ x-cos-request-id: NWNlYmM5NTdfNDQyODVkNjRfNTIwYl82ZGQy****
 </ListBucketResult>
 ```
 
-#### 需分页时获取第一页
+#### 案例四：需分页时获取第一页
 
 #### 请求
 
@@ -408,7 +408,7 @@ x-cos-request-id: NWNlYmM0ZjJfZDcyNzVkNjRfNjQ5OV9lNzdk****
 </ListBucketResult>
 ```
 
-#### 需分页时获取后续页
+#### 案例五：需分页时获取后续页
 
 #### 请求
 
