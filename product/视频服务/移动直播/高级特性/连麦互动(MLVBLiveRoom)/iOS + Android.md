@@ -74,7 +74,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 | 参数       | 类型   | 填写方案                                                     |
 | ---------- | ------ | ------------------------------------------------------------ |
-| sdkAppID   | 数字   | 当前应用的 AppID，在 [Step3](#Step3) 中可以获取到                      |
+| sdkAppID   | 数字   | 当前应用的 AppID，在 Step4 中可以获取到                      |
 | userID     | 字符串 | 当前用户在您的账号系统中的 ID                                |
 | userName   | 字符串 | 用户名（昵称）                                               |
 | userAvatar | 字符串 | 用户头像的 URL 地址                                          |
@@ -83,7 +83,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 >?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
 
 ### Step6. 获取房间列表（非必需）
->? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step6](#Step6) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
+>? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
 不管是主播还是观众都需要有一个房间间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
 - 当主播通过 `createRoom` 创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
@@ -91,7 +91,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 列表中每个房间都有对应的 roomInfo，由主播通过 `createRoom` 创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 JSON 格式。
 
-<span id="Step6"></span>
+<span id="Step7"></span>
 ### Step7. 主播开播
 
 主播开播前，需要先调用 MLVBLiveRoom 中的 **startLocalPreview** 接口开启本地摄像头预览，该函数需要传入 view 对象用于显示摄像头的视频影像，这期间 MLVBLiveRoom 会申请摄像头使用权限。同时，主播也可以对着摄像头调整美颜和美白的具体效果。
