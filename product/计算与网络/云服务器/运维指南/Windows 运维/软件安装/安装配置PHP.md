@@ -43,7 +43,7 @@ PHP 7.0 之后的版本通过 zip 文件和 debug pack 两种方式进行安装�
 1. 在云服务器中，访问 [PHP 官网](http://windows.php.net/download/)，下载 PHP zip 安装包。如下图所示：
 >! 在 IIS 下运行 PHP 时，必须选择 Non Thread Safe 版本的 x86 安装包。若您需要在 Windows Server 32bit (x64) 的操作系统上安装 PHP，则需要将 IIS 替换成 Apache，并选择 Non Thread Safe 版本的 x64 安装包。
 >
-![](https://main.qcloudimg.com/raw/d017a4064baedcbb67a41220ffc555c3.png)
+![](https://main.qcloudimg.com/raw/b54dcb237ae24673cd592561ffc91bc0.png)
 2.  根据下载的 PHP 安装包名称，下载并安装 Visual C++ Redistributable 安装包。
 PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如下表所示：
 <table>
