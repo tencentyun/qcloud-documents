@@ -142,7 +142,7 @@ String getAudioRecognizeSign(String source);
 ```
 **计算最终签名算法：**
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行 Base64 编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source,secretKey))。
-为了方便用户测试，SDK 已有一个实现类 LocalCredentialProvider，但为了保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本下请在第三方服务器上获取签名。
+为了方便用户测试，SDK提供一个实现类 LocalCredentialProvider，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现```AbsCredentialProvider```接口提供签名值。
 
 ### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
