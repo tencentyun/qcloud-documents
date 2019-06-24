@@ -17,7 +17,7 @@
 
 腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
 #### 本地构建
-可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 三个库也集成到 App 中。
+可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。
 在 build.gradle 文件中添加：
 ```
 implementation(name: 'aai-2.1.4', ext: 'aar')
@@ -26,6 +26,10 @@ implementation(name: 'aai-2.1.4', ext: 'aar')
 在 build.gradle 文件中添加：
 ```
 implementation 'com.tencent.aai:aai:2.1.4:@aar'
+```
+#### okhttp3、okio、gson 和 slf4j依赖添加
+在build.gradle文件中添加:
+```
 implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 implementation 'com.squareup.okio:okio:1.11.0'
 implementation 'com.google.code.gson:gson:2.8.5'
