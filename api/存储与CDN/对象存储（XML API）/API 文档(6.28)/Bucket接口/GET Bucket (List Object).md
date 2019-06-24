@@ -5,7 +5,7 @@ GET Bucket 请求等同于 List Object 请求，可以列出该存储桶内的�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```shell
 GET / HTTP/1.1
@@ -16,7 +16,7 @@ Authorization: Auth String
 
 > Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求参数
+#### 请求参数
 
 名称|描述|类型|是否必选
 ---|---|---|---
@@ -26,21 +26,21 @@ encoding-type|规定返回值的编码方式，可选值：`url`，代表返回�
 marker|默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始|string|否
 max-keys|单次返回最大的条目数量，默认值为1000，最大为1000|integer|否
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 
 此接口无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-### 响应体
+#### 响应体
 
 查询成功，返回 **application/xml** 数据，包含存储桶中的对象信息。不同场景下的响应体请参阅下方的实际案例。
 
@@ -129,13 +129,13 @@ StorageClass|ListBucketResult.Contents|对象存储类型。枚举值请参阅 [
 ID|ListBucketResult.Contents.Owner|存储桶的 APPID|string
 DisplayName|ListBucketResult.Contents.Owner|对象持有者的名称|string
 
-### 错误码
+#### 错误码
 
 此接口无特殊错误信息，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 简单案例
+#### 简单案例
 
 #### 请求
 
@@ -213,7 +213,7 @@ x-cos-request-id: NWNlYmM5NTdfZjI4NWQ2NF81ZmMwX2Q5N2E1****
 </ListBucketResult>
 ```
 
-### 带 delimiter 参数（列出根目录下的对象和子目录）
+#### 带 delimiter 参数（列出根目录下的对象和子目录）
 
 #### 请求
 
@@ -276,7 +276,7 @@ x-cos-request-id: NWNlYmM5NTdfNzViMDJhMDlfNDkzNF9kMTQ3****
 </ListBucketResult>
 ```
 
-### 带 prefix 和 delimiter 参数（列出指定子目录下的对象和子目录）
+#### 带 prefix 和 delimiter 参数（列出指定子目录下的对象和子目录）
 
 #### 请求
 
@@ -339,7 +339,7 @@ x-cos-request-id: NWNlYmM5NTdfNDQyODVkNjRfNTIwYl82ZGQy****
 </ListBucketResult>
 ```
 
-### 需分页时获取第一页
+#### 需分页时获取第一页
 
 #### 请求
 
@@ -408,7 +408,7 @@ x-cos-request-id: NWNlYmM0ZjJfZDcyNzVkNjRfNjQ5OV9lNzdk****
 </ListBucketResult>
 ```
 
-### 需分页时获取后续页
+#### 需分页时获取后续页
 
 #### 请求
 
