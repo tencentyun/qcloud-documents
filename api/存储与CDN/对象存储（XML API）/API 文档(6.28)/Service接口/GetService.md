@@ -4,7 +4,7 @@ GET Service 接口是用来查询请求者名下的所有存储桶列表或特�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 **示例一**
 ```shell
@@ -24,25 +24,25 @@ Authorization: Auth String
 >- Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 >- Host: 查询全部存储桶列表指定为 `service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 `cos.<Region>.myqcloud.com`。
 
-### 请求参数
+#### 请求参数
 
 此接口无请求参数。
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 
 此接口无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-### 响应体
+#### 响应体
 
 查询成功，返回 **application/xml** 数据，包含所有或特定地域下的存储桶列表。
 
@@ -101,13 +101,13 @@ Name|ListAllMyBucketsResult.Buckets.Bucket|存储桶的名称，格式为 `<Buck
 Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等|Enum
 CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶的创建时间，为 ISO8601 格式，如2019-05-24T10:56:40Z|date
 
-### 错误码
+#### 错误码
 
 此接口无特殊错误信息，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 查询所有存储桶列表
+#### 案例一：查询所有存储桶列表
 
 #### 请求
 
@@ -160,7 +160,7 @@ x-cos-request-id: NWNlN2RjYjdfOGFiMjM1MGFfNTVjMl8zMmI1****
 </ListAllMyBucketsResult>
 ```
 
-### 查询特定地域下的存储桶列表
+#### 案例二：查询特定地域下的存储桶列表
 
 #### 请求
 
