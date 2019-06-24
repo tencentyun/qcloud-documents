@@ -12,7 +12,7 @@ EMR 集群中 Hbase 默认集成了 Thrift，并在 Master1（外网 IP 节点�
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户并进入Hbase文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/hbase/
 [hadoop@172 hbase]$
 ```

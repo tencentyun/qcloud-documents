@@ -8,7 +8,7 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用WebShell登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 安装文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/hive/
 [hadoop@172 hive]$
 ```
@@ -82,7 +82,7 @@ for i in cur.fetch():
 
 该程序连接 HiveServer2 之后，首先输出所有的数据库，然后显示“default”数据库中的表。创建一个名叫“hivebypython”的表，在表中插入两个数据并输出。运行该程序：
 ```
-[hadoop@172 hive]$ ./hivetest.py
+[hadoop@172 hive]$ python hivetest.py
 show the databases: 
 [['default', ''], ['hue_test', ''], ['test', '']]
 

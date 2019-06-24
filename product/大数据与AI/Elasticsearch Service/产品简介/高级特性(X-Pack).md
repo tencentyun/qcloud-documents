@@ -14,7 +14,7 @@
 为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本文对部分常用高级特性进行了说明介绍，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 >!  
 >- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别，请注意查看本文的说明。
@@ -381,7 +381,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="14"><a id="Security">Security</a></td>
+    <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>
@@ -404,31 +404,7 @@
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">IP 筛选</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">LDAP、PKI* 和活动目录身份验证</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">Elasticsearch 令牌服务</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">单点登录身份验证（SAML、Kerberos*）</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
+  </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
     <td class="tg-s268">-</td>
@@ -442,38 +418,8 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-s268">第三方整合（自定义身份验证和授权 Realm）</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">授权 Realm</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">静态数据加密支持</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">FIPS 140-2 模式</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2"><a id="Alerting">警报提醒</a></td>
+    <td class="tg-0lax" rowspan="1"><a id="Alerting">警报提醒（Alerting）</a></td>
     <td class="tg-s268">高可用性、可扩展警报</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">通过电子邮件、Slack、PagerDuty、Jira 或 Webhook 发送通知</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>

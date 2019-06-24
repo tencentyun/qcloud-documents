@@ -2,25 +2,24 @@
 数据库基准性能测试为 sysbench 0.5。
 
 工具修改说明：
-对 sysbench 自带的 otlp 脚本做了修改，读写比例修改为 1:1，并通过执行测试命令参数 oltp_point_selects 和 oltp_index_updates 来控制读写比例，本文测试用例的均采用4个 select 点，1个 update 点，读写比例保持 4:1。
+对 sysbench 自带的 otlp 脚本做了修改，读写比例修改为1:1，并通过执行测试命令参数 oltp_point_selects 和 oltp_index_updates 来控制读写比例，本文测试用例的均采用4个 select 点，1个 update 点，读写比例保持4:1。
 
 ## 测试环境
 
 |类型|说明|
 |:--:|:--:|
-|实例物理机器|高 IO 版-单机器最高可支撑488GB内存、6TB硬盘数据库|
+|实例物理机器|高可用版-单机器最高可支撑488GB内存、6TB硬盘数据库|
 |实例规格|当前售卖主流配置规格（详见下文测试用例）|
 |客户端配置| 4核8GB内存|
 |客户端数量|1 - 6个（配置的提升，客户端数量也需要相应提升）|
 |网络环境|万兆网络机房，网络延时 < 0.05ms|
-|环境负载|安装 mysql 机器负载 > 70% (针对非独占实例)|
+|环境负载|安装 mysql 机器负载 > 70%（针对非独占实例）|
 
-* 客户端规格说明：机器采用了较高配置的客户机器，保证单客户端可以压测出数据库实例的性能，如果客户端配置规格较小，建议采用多个客户并行压测实例来求取数据总和。
-* 网络延时说明：测试环境保证客户端机器与数据库实例在同一可用区，测试结果不受网络环境影响。
+- 客户端规格说明：机器采用了较高配置的客户机器，保证单客户端可以压测出数据库实例的性能，如果客户端配置规格较小，建议采用多个客户并行压测实例来求取数据总和。
+- 网络延时说明：测试环境保证客户端机器与数据库实例在同一可用区，测试结果不受网络环境影响。
 
 ## 测试方法
 ### 1. 测试库表结构
-
 ```
 CREATE TABLE `sbtest1` ( 
 `id` int(10) unsigned NOT NULL AUTO_INCREMENT, 
@@ -32,7 +31,6 @@ CREATE TABLE `sbtest1` (
 ```
 
 ### 2. 测试数据行格式
-
 ```
 id: 1
 k: 20106885
@@ -42,7 +40,6 @@ pad: 63188288836-92351140030-06390587585-66802097351-4928296184
 
 
 ### 3. 数据准备
-
 ```
 /root//sysbench/sysbench --mysql-host=xxxx --mysql-port=xxxx --mysql-user=xxx --mysql-password=xxx --mysql-db=test --mysql-table-engine=innodb --test=tests/db/oltp.lua --oltp_tables_count=20 --oltp-table-size=10000000  --rand-init=on prepare
 ```
@@ -59,7 +56,7 @@ pad: 63188288836-92351140030-06390587585-66802097351-4928296184
 /root//sysbench/sysbench --mysql-host=xxxx --mysql-port=xxx --mysql-user=xxx --mysql-password=xxx --mysql-db=test --test=/root/sysbench_for_z3/sysbench/tests/db/oltp.lua --oltp_tables_count=xx --oltp-table-size=xxxx --num-threads=xxx --oltp-read-only=off --rand-type=special --max-time=600 --max-requests=0 --percentile=99 --oltp-point-selects=4 run
 ```
 
- 性能压测参数说明：
+性能压测参数说明：
 - `--test=/root/sysbench_for_z3/sysbench/tests/db/oltp.lua`，表示调用 /root/sysbench_for_z3/sysbench/tests/db/oltp.lua 脚本进行 oltp 模式测试。
 - `--oltp_tables_count=20`，表示本次用于测试的表数量为20张。
 - `--oltp-table-size=10000000`，表示本次测试使用的表行数均为1000万行。
@@ -72,7 +69,6 @@ pad: 63188288836-92351140030-06390587585-66802097351-4928296184
 - `--oltp-point-selects=4`，表示 oltp 脚本中 sql 测试命令，select 操作次数为4，默认值为1。
 
 ### 5. 场景模型
-
 本文用例均使用场景脚本 our_oltp.lua，修改为4个 select 点查询，1个 update （索引列），读写比为4:1。
 针对最大配置类型，对数据场景增加了参数调优模型，测试结果见下文 [测试结果](#document_test_result)。
 

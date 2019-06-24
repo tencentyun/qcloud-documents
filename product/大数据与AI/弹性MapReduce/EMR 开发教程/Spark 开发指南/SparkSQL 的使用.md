@@ -7,7 +7,7 @@ Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录`/usr/local/service/spark`：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/spark
 ```
 通过如下命令您可以进入 SparkSQL 的交互式控制台：

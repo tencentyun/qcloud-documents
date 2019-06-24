@@ -8,16 +8,15 @@
 2. 在【高级配置】中找到【HTTP Header 配置】模块，可自助添加头部：
 ![](https://main.qcloudimg.com/raw/2e3a6dc676de2f0e853cba2ae8aa7dfc.png)
 3. 单击【添加 HTTP header】可添加头部：
-![](https://main.qcloudimg.com/raw/f6d6761eeeeb271deae17dd66632b4ee.png)
-
+![](https://main.qcloudimg.com/raw/90ee35e63fe41798261b89b7215b163c.png)
 CDN 提供以下常见的 6类头部设置，也可支持自定义头部设置：
-+ Content-Disposition：激活客户端下载资源及设置默认的文件名。
-+ Content-Language：用于定义页面所使用的语言代码。
-+ Access-Control-Allow-Origin：指定跨域请求时，允许访问资源的请求来源。
-+ Access-Control-Allow-Methods： 指定跨域请求时，允许的跨域请求方法。
-+ Access-Control-Max-Age：指定跨域请求时，对特定资源的预请求返回结果的缓存时间。
-+ Access-Control-Expose-Headers：指定跨域请求时，客户端可见的头部集合。
-+ 自定义：自定义头部。
+ + Access-Control-Allow-Origin：指定跨域请求时，允许访问资源的请求来源。
+ + Access-Control-Allow-Methods： 指定跨域请求时，允许的跨域请求方法。
+ + Access-Control-Max-Age：指定跨域请求时，对特定资源的预请求返回结果的缓存时间。
+ + Access-Control-Expose-Headers：指定跨域请求时，客户端可见的头部集合。
+ + Content-Disposition：激活客户端下载资源及设置默认的文件名。
+ + Content-Language：用于定义页面所使用的语言代码。
+ + 自定义：自定义头部。
 
 ### 通用配置
 #### Content-Disposition
@@ -82,9 +81,9 @@ Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一�
 
 ### 自定义头部
 
-支持添加自定义 header，自定义 key-value 设置：![](https://mc.qcloudimg.com/static/img/8fad908143b81e3d2c21c9ff5ddf2ce0/header-config-3.png)
-
-![](https://mc.qcloudimg.com/static/img/70c010f9dcbbaff8ead411527a0de796/header-config-4.png)
+支持添加自定义 header，自定义 key-value 设置：
+![](https://main.qcloudimg.com/raw/0244a12b66f7328ca19f949e761ae98e.png)
+![](https://main.qcloudimg.com/raw/272d59193c3825c882fdb085d2129ceb.png)
 
 暂不支持以下 header 添加：
 

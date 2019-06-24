@@ -14,25 +14,27 @@
   - CSR 文件内容：	`www.domain.com.csr` 文件
 - 若您在申请 SSL 证书时已设置私钥密码，该文件夹下则无 keystorePass.txt 文件。
 
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+
 ## 操作步骤
 
 ### 证书安装
 1. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
-![3.2.1](https://main.qcloudimg.com/raw/7ad2099ee6123b2dc4c4dd507d26914c.png)
+![](https://main.qcloudimg.com/raw/6a9f8ec94639eb1258d05d08b4a74871.png)
 2. 在服务器证书窗口的右侧 “操作” 栏中，单击【导入】。如下图所示：
-![3.2.2](https://main.qcloudimg.com/raw/b1b249dc14579a1e23e74d92489cdbad.png)
+![](https://main.qcloudimg.com/raw/fa246e41fc93a6039854ac1f55c8bbbb.png)
 3. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击【确定】。如下图所示：
 >? 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。具体操作请参考 [私钥密码指引](https://cloud.tencent.com/doc/product/400/4461)。
 >
-![3.2.3](https://main.qcloudimg.com/raw/f05019f0d64429f8059941ea95c0b265.png)
+![](https://main.qcloudimg.com/raw/39eb6694ce8b85659e66001bbb5317e4.png)
 4. 选择网站下的站点名称，并单击右侧 “操作” 栏的【绑定】。如下图所示：
-![3.2.4](https://main.qcloudimg.com/raw/fd844653ac645c9d57fff9a7a5d02b44.png)
+![](https://main.qcloudimg.com/raw/1ecd7c8d77ba107df4b9862b9246e81d.png)
 5. 在弹出的 “网站绑定” 窗口中，单击【添加】。如下图所示：
-![3.2.5](https://main.qcloudimg.com/raw/527b7e808e8e8f7ca45e9debaac066fc.png)
+![](https://main.qcloudimg.com/raw/84020faaf7c2899ff6290372acc4c608.png)
 6. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，并指定对应的 SSL 证书，单击【确定】。如下图所示：
-![3.2.6](https://main.qcloudimg.com/raw/c19a3a6b3cc8315b1f1cb70fc8ac8ce7.png)
+![](https://main.qcloudimg.com/raw/88d92423869fd72104f6d29c4fe18649.png)
 7. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。如下图所示：
-![3.2.7](//mccdn.qcloud.com/static/img/0748888723acf5671ba9a1ed7ef9ebd2/image.png)
+![](https://main.qcloudimg.com/raw/db2ab433f6868e775535bb20febf63db.png)
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
@@ -42,9 +44,12 @@
 >- HTTP 跳转 HTTPS 过程中，如果您的网站元素中存在外部链接或者使用的 http 协议，导致整个页面不完全是 https 协议。部分浏览器会因为这些因素报不安全的提示，例如链接不安全。您可以单击不安全页面中的 “详细信息” 查看报错原因。
 >
 1. 打开 IIS 服务管理器。
-2. 选择网站下的站点名称，单击 “URL 重写”，并单击右侧 “操作” 栏的【打开功能】。
-3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。
-4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。
+2. 选择网站下的站点名称，双击打开 “URL 重写”。如下图所示：
+![](https://main.qcloudimg.com/raw/9f7acbeaf855a017a2af207e4f342cc3.png)
+3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。如下图所示：
+![](https://main.qcloudimg.com/raw/44bd6ad7bbaac642b1e5dd1dee226d82.png)
+4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/7cbd21bda514331f55a1eaeab86b4328.png)
 5. 进入 “编辑入站规则” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ee58091b5b006f00dbe004f2740564.png)
   - 名称：填写强制 HTTPS。如下图所示：

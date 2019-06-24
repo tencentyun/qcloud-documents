@@ -34,10 +34,10 @@
 
 ## 安全组
 在【安全组】页面，您可以对您的数据库进行安全组的配置操作，如下图所示，详细的安全组操作可参见 [云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。
-![](https://main.qcloudimg.com/raw/f4871e14e3e08e91feb7dcb83bbe6f0d.png)
+![](https://main.qcloudimg.com/raw/b873054664910f292c3e09ffaff342ae.png)
 
-## 备份管理
-在【备份管理】页面，您可以进行下载 binlog 和冷备操作，如下图所示，详细的备份介绍可参见 [备份方式](https://cloud.tencent.com/document/product/236/7513)。
+## 备份恢复
+在【备份恢复】页面，您可以进行下载 binlog 和冷备操作，如下图所示，详细的备份介绍可参见 [备份方式](https://cloud.tencent.com/document/product/236/7513)。
 ![](https://main.qcloudimg.com/raw/b48b16c9b451c67dfe8e8657bbd65754.png)
 
 ## 操作日志

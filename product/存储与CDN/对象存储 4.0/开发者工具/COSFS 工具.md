@@ -87,10 +87,10 @@ export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/p
 modprobe fuse   #挂载 fuse 内核模块
 echo "/usr/local/lib" >> /etc/ld.so.conf
 ldconfig   #更新动态链接库
-pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
+pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse 2.9.4 安装成功 
 ```
 SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
->!安装时，需要注释掉 example/fusexmp.c 文件下第 222 行内容，否则 make 会报错。注释方法为 `/*content*/` 。
+>!安装时，需要注释掉 example/fusexmp.c 文件下第222行内容，否则 make 会报错。注释方法为 `/*content*/` 。
 
 	```shell
 	zypper remove fuse libfuse2
@@ -121,7 +121,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成 640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
+在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
@@ -174,7 +174,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 ## 常用挂载选项
 
 #### -omultipart_size=[size]
-用来指定分块上传时单个分块的大小（单位： MB），默认是10MB。 由于分块上传对单个文件块的数目有最大限制（10000块），所以对于超出100GB（10MB\*10000）大小的文件，需要根据具体情况调整该参数。
+用来指定分块上传时单个分块的大小（单位： MB），默认是10MB。 由于分块上传对单个文件块的数目有最大限制（10000块），所以对于超出100GB（10MB \* 10000）大小的文件，需要根据具体情况调整该参数。
 
 #### -oallow_other
 如果要允许其他用户访问挂载文件夹，可以在运行 COSFS 的时候指定该参数。
@@ -197,7 +197,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 #### -oumask=[perm]
 
-该选项可以去除给定类型用户，对挂载目录内文件的操作权限。例如，-oumask=007，可以去除其他用户对文件的读写执行权限。
+该选项可以去除给定类型用户，对挂载目录内文件的操作权限。例如，-oumask=755，对应挂载目录的权限变为022。
 
 #### -ouid=[uid]
 该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。

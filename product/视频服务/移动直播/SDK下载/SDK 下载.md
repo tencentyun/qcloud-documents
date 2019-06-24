@@ -5,7 +5,7 @@
 | 所属平台 | SDK 下载 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :--------:| :--------:| :--------:| :--------:|
 | iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M；<br> so(armeabi)：4.4M；<br>so(armeabi-v7a)：4.1M；<br>so(arm64-v8a)：4.9M|
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
 | 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
 
 <h2 id="Professional">专业版（Professional）</h2>
