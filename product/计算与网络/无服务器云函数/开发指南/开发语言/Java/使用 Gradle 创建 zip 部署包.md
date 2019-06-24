@@ -74,7 +74,7 @@ repositories {
 
 dependencies {
     compile (
-        'com.qcloud:qcloud-java-sdk:2.0.1'
+        'com.tencentcloudapi:scf-java-events:0.0.1'
     )
 }
 
