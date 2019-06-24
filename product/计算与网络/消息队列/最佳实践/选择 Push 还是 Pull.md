@@ -2,8 +2,7 @@
 - Push 模型：当 Producer 发出的消息到达后，服务端马上将这条消息投递给 Consumer。
 - Pull 模型：当服务端收到这条消息后什么也不做，只是等着 Consumer 主动到自己这里来读，即 Consumer 这里有一个“拉取”的动作。
 
-![](https://main.qcloudimg.com/raw/28a31e44cc6f501713a3990535069d86.jpg)
-
+![](https://main.qcloudimg.com/raw/adc8d5e8276fffcecfaad30f2473e90a.jpg)
 本文将结合不同场景，简要分析 Push 模型和 Pull 模型各自存在的利弊。
 
 
@@ -31,7 +30,7 @@ CMQ 提供了**长轮询**的优化方法，用以平衡 Pull/Push 模型各自�
 
 
 ## 场景4：部分或全部 Consumer 不在线
-在消息系统中，Producer 和 Consumer 是完全解耦的，Producer 发送消息时，并不要求Consumer 一定要在线，对于 Consumer 也是同样的道理，这也是消息通信区别于 RPC 通信的主要特点；但是对于 Consumer不在线的情况，却有很多值得讨论的场景。
+在消息系统中，Producer 和 Consumer 是完全解耦的，Producer 发送消息时，并不要求Consumer 一定要在线，对于 Consumer 也是同样的道理，这也是消息通信区别于 RPC 通信的主要特点；但是对于 Consumer 不在线的情况，却有很多值得讨论的场景。
 
 首先，在 Consumer 偶然宕机或下线时，Producer 的生产是可以不受影响的，Consumer 上线后，可以继续之前的消费，此时消息数据不会丢失；但是如果 Consumer 长期宕机或是由于机器故障无法再次启动，就会出现问题，即服务端是否需要为 Consumer 保留数据，以及保留多久的数据等等。
 
