@@ -53,7 +53,7 @@ proxy_set_header Host $http_host;
 ```
 #### 配置 refer 防盗链
 若存储桶（Bucket）是公有的，会有被盗链的风险。用户可以通过防盗链设置，开启 Referer 白名单，防止被恶意盗链。具体操作步骤如下：
-1. 在[COS 控制台](https://console.cloud.tencent.com/cos5) 开启防盗链设置功能，选择白名单。操作指引请参考 [设置防盗链](https://cloud.tencent.com/document/product/436/13319) 文档。
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)， 开启防盗链设置功能，选择白名单。操作指引请参考 [设置防盗链](https://cloud.tencent.com/document/product/436/13319) 文档。
 2. 在 Nginx 配置中增加一行信息，再重启 Nginx，刷新浏览器缓存。
 ```
 proxy_set_header   Referer www.test.com;
