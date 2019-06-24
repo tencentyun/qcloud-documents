@@ -136,8 +136,8 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
 | message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
-###5.3 回调示例
-服务端返回json示例： 
+### 回调示例
+服务端返回 json 示例： 
 
 ``` 
 { "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"你好", audioTime:2.5 }
