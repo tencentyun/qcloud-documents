@@ -12,27 +12,23 @@
 ##### 引入 .so 文件
 **libWXVoice.so：**腾讯语音检测 so 库。
 
-##### 引入 jar 包
-- okhttp-3.2.0.jar
-- okio-1.6.0.jar
-- slf4j-android-1.6.1-RC1.jar
-
 ##### 引入 aar 包
-**aai-2.1.3.aar：**腾讯云智能语音 SDK。
+**aai-2.1.3.aar：** 腾讯云智能语音 SDK。
 
 腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
 #### 本地构建
 可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio 和 slf4j 三个库也集成到 App 中。
 在 build.gradle 文件中添加：
 ```
-implementation(name: 'aai-2.1.3', ext: 'aar')
+implementation(name: 'aai-2.1.4', ext: 'aar')
 ```
 #### 远程构建
 在 build.gradle 文件中添加：
 ```
-compile 'com.tencent.aai:aai:2.1.3:@aar'
-compile 'com.squareup.okhttp3:okhttp:3.6.0'
-compile 'org.slf4j:slf4j-android:1.6.1-RC1'
+implementation 'com.tencent.aai:aai:2.1.4:@aar'
+implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+implementation 'org.slf4j:slf4j-api:1.7.25'
+implementation 'com.google.code.gson:gson:2.8.5'
 ```
 如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 
@@ -44,6 +40,7 @@ compile 'org.slf4j:slf4j-android:1.6.1-RC1'
 < uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 < uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 ## 快速入门
 
