@@ -27,8 +27,8 @@ implementation(name: 'aai-2.1.4', ext: 'aar')
 ```
 implementation 'com.tencent.aai:aai:2.1.4:@aar'
 ```
-#### okhttp3、okio、gson 和 slf4j依赖添加
-在build.gradle文件中添加:
+#### 添加相关依赖
+okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
 ```
 implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 implementation 'com.squareup.okio:okio:1.11.0'
