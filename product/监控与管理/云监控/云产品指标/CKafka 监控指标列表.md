@@ -24,7 +24,7 @@
 | 当前分区最大offset    | max_offset     | 消费分组对应当前 Topic 最大offset                                 | 条    | consumer group |
 | 当前消费 offset       | offset         | 消费分组当前消费 offset                                          | 条    | consumer group |
 | 未消费的消息条数      | unconsume      |消费分组未消费消息数                                              | 条    | consumer group |
-| 未消费消息堆积量 (MB) | unconsume_size | 消费分组对应 partition 未被消费的消息总大小，按粒度（1分钟、5分钟）取最新值 | MB | consumer group |
+| 未消费消息堆积量 | unconsume_size | 消费分组对应 partition 未被消费的消息总大小，按粒度（1分钟、5分钟）取最新值 | MB | consumer group |
 
 
 关于如何使用消息队列 CKafka 的监控指标内容，请查看云监控 API 中的 [读取监控数据接口](https://cloud.tencent.com/document/api/248/4667)。
