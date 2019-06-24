@@ -17,7 +17,7 @@
 
 腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
 #### 本地构建
-可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio 和 slf4j 三个库也集成到 App 中。
+可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 三个库也集成到 App 中。
 在 build.gradle 文件中添加：
 ```
 implementation(name: 'aai-2.1.4', ext: 'aar')
@@ -27,11 +27,12 @@ implementation(name: 'aai-2.1.4', ext: 'aar')
 ```
 implementation 'com.tencent.aai:aai:2.1.4:@aar'
 implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
-implementation 'org.slf4j:slf4j-api:1.7.25'
+implementation 'com.squareup.okio:okio:1.11.0'
 implementation 'com.google.code.gson:gson:2.8.5'
+implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
-如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 
+如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 #### 在 AndroidManifest.xml 添加如下权限：
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
