@@ -91,11 +91,13 @@ public class Hello {
   <version>1.0-SNAPSHOT</version>
   <name>java-example</name>
   
-  <dependency>
-    <groupId>com.tencentcloudapi</groupId>
-    <artifactId>scf-java-events</artifactId>
-    <version>0.0.1</version>
-  </dependency>
+  <dependencies>
+    <dependency>
+      <groupId>com.tencentcloudapi</groupId>
+      <artifactId>scf-java-events</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+  </dependencies>
 
 
   <build>
