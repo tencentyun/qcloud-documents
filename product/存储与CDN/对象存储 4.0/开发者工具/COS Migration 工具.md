@@ -74,7 +74,7 @@ type=migrateLocal
 | migrateType | 描述 |
 | ------| ------ |
 | migrateLocal| 从本地迁移至 COS |
-| migrateAws| 从 AWS S3 本地迁移至 COS |
+| migrateAws| 从 AWS S3 迁移至 COS |
 | migrateAli| 从阿里  OSS  迁移至 COS |
 | migrateQiniu| 从七牛迁移至 COS |
 | migrateUrl| 下载 URL 迁移到 COS |
@@ -83,7 +83,7 @@ type=migrateLocal
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
 <pre>
-# 迁移工具的公共配置分节，包含了要迁移到得目标 COS 的账户信息。
+# 迁移工具的公共配置分节，包含了需要迁移到目标 COS 的账户信息。
 [common]
 secretId=COS_SECRETID
 secretKey=COS_SECRETKEY
@@ -97,9 +97,10 @@ smallFileThreshold=5242880
 smallFileExecutorNum=64
 bigFileExecutorNum=8
 entireFileMd5Attached=on
-damonMode=off
-damonModeInterVal=60
+daemonMode=off
+daemonModeInterVal=60
 executeTimeWindow=00:00,24:00
+encryptionType=sse-cos
 </pre>
 
 | 名称 | 描述 |默认值|
@@ -108,7 +109,7 @@ executeTimeWindow=00:00,24:00
 | secretKey| 用户密钥 SecretKey，请将`COS_SECRETKEY`替换为您的真实密钥信息。可前往 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 中的云 API 密钥页面查看获取|-|
 | bucketName| 目的 Bucket 的名称, 命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000 |-|
 | region| 目的 Bucket 的 Region 信息。COS 的地域简称请参照 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) |-|
-| storageClass|存储类型：Standard - 标准存储，Standard_IA - 低频存储 |Standard|
+| storageClass|存储类型：Standard（标准存储），Standard_IA（低频存储），Archive（归档存储） |Standard|
 | cosPath|要迁移到的 COS 路径。`/`表示迁移到 Bucket 的根路径下，`/folder/doc/` 表示要迁移到 Bucket的`/folder/doc/` 下，若 `/folder/doc/` 不存在，则会自动创建路径|/|
 | https| 是否使用 HTTPS 传输：on 表示开启，off 表示关闭。开启传输速度较慢，适用于对传输安全要求高的场景|off|
 | tmpFolder|从其他云存储迁移至 COS 的过程中，用于存储临时文件的目录，迁移完成后会删除。要求格式为绝对路径：<br>Linux 下分隔符为单斜杠，如`/a/b/c` <br>Windows 下分隔符为两个反斜杠，如`E:\\a\\b\\c`<br>默认为工具所在路径下的 tmp 目录|./tmp|
@@ -116,9 +117,10 @@ executeTimeWindow=00:00,24:00
 | smallFileExecutorNum|小文件（文件小于 smallFileThreshold）的并发度，使用简单上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|64|
 | bigFileExecutorNum| 大文件（文件大于等于 smallFileThreshold）的并发度，使用分块上传。如果是通过外网来连接 COS，且带宽较小，请减小该并发度|8|
 | entireFileMd5Attached|表示迁移工具将全文的 MD5 计算后，存入文件的自定义头部 x-cos-meta-md5 中，用于后续的校验，因为 COS 的分块上传的大文件的 etag 不是全文的 MD5|on|
-| damonMode|是否启用 damon 模式：on 表示开启，off 表示关闭。damon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 damonModeInterVal 参数设置|off|
-| damonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
+| daemonMode|是否启用 daemon 模式：on 表示开启，off 表示关闭。daemon 表示程序会循环不停的去执行同步，每一轮同步的间隔由 daemonModeInterVal 参数设置|off|
+| daemonModeInterVal|表示每一轮同步结束后，多久进行下一轮同步，单位为秒 |60|
 | executeTimeWindow|执行时间窗口，时刻粒度为分钟，该参数定义迁移工具每天执行的时间段。例如：<br>参数 03:30,21:00，表示在凌晨 03:30 到晚上 21:00 之间执行任务，其他时间则会进入休眠状态，休眠态暂停迁移并会保留迁移进度, 直到下一个时间窗口自动继续执行|00:00,24:00|
+| encryptionType  |  表示使用 sse-cos 服务端加密    |     默认不填，需要服务端加密时填写       |
 
 #### 3.3 配置数据源信息
 根据`[migrateType]`的迁移类型配置相应的分节。例如`[migrateType]`的配置内容是`type=migrateLocal`, 则用户只需配置`[migrateLocal]`分节即可。
@@ -127,7 +129,7 @@ executeTimeWindow=00:00,24:00
 
 若从本地迁移至 COS，则进行该部分配置，具体配置项及说明如下：
 <pre>
-# 从本地迁移到COS配置分节
+# 从本地迁移到 COS 配置分节
 [migrateLocal]
 localPath=E:\\code\\java\\workspace\\cos_migrate_tool\\test_data
 exeludes=
@@ -246,7 +248,7 @@ srcCosPath=/
 |srcRegion|源 Bucket 的 Region 信息，请参照 [可用地域](https://cloud.tencent.com/document/product/436/6224)|
 |srcBucketName|源 Bucket 的名称，命名格式为 `<BucketName-APPID>`，即 Bucket 名必须包含 APPID，例如 examplebucket-1250000000|
 |srcSecretId|源 Bucket 隶属的用户的密钥 SecretId，可在[云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 SecretId 相同，否则是跨账号 Bucket 拷贝|
-|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretId 和 common 中的 secretId 相同，否则是跨账号 Bucket 拷贝|
+|srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
 |srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
 
 
@@ -279,7 +281,7 @@ COS 迁移工具是有状态的，已经迁移成功的会记录在 db 目录下
 2. 根据指定的迁移类型，扫描对比 db 下对所要迁移文件的标识，判断是否允许上传。
 3. 迁移执行过程中会打印执行结果，其中 inprogress 表示迁移中，skip 表示跳过，fail 表示失败，ok 表示成功， condition_not_match 表示因为表示因不满足迁移条件而跳过的文件（如 lastmodifed 和 excludes）。失败的详细信息可以在 log 的 error 日志中查看。执行过程示意图如下图所示：
  ![](https://main.qcloudimg.com/raw/7561d07ea315c9bacbb228b36d6ad6d6.png)
-4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会跳过。运行完成结果示意图如下图所示：
+4. 整个迁移结束后会打印统计信息，包括累积的迁移成功量，失败量，跳过量，耗时。对于失败的情况，请查看 error 日志，或重新运行，因为迁移工具会跳过已迁移成功的，对未成功的会重新迁移。运行完成结果示意图如下图所示：
 ![](https://main.qcloudimg.com/raw/2534fd390218db29bb03f301ed2620c8.png)
 
 ## 常见问题

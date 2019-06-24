@@ -319,7 +319,7 @@ IM 相关的接口封装于腾讯云通信 SDK`IMSDK`，同样，TICSDK 中也�
 
 这3个接口，分别对应了前面3个消息发送的方法，对应类型的消息会在对应类型的代理方法中回调，收到回调后可将消息展示在界面上。
 
-TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他高级功能，可直接调用`IMSDK`的接口，详情请参考 [IMSDK 接口文档](https://cloud.tencent.com/document/product/269/1566)。
+TICSDK 只是对`IMSDK`一些基础接口进行了封装，如果开发者需要用到`IMSDK`的其他高级功能，可直接调用`IMSDK`的接口，详情请参考 [IMSDK 接口文档](https://cloud.tencent.com/document/product/269/9148)。
 
 ### 2.10 课堂内其他事件监听
 

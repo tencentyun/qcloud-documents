@@ -1,5 +1,3 @@
-使用 Maven 创建 jar 部署包
-===
 
 本节内容提供了通过使用 Maven 工具来创建 Java 类型 SCF 云函数部署 jar 包的方式。
 
@@ -95,9 +93,9 @@ public class Hello {
   
   <dependencies>
     <dependency>
-      <groupId>com.qcloud</groupId>
-      <artifactId>qcloud-java-sdk</artifactId>
-      <version>2.0.1</version>
+      <groupId>com.tencentcloudapi</groupId>
+      <artifactId>scf-java-events</artifactId>
+      <version>0.0.1</version>
     </dependency>
   </dependencies>
 

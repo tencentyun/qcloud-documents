@@ -49,7 +49,7 @@ HAVING SUM(amount) > 50
 ```
 
 ## GROUP BY
-在 SCS 中，GROUP BY 用于对结果进行分组聚合。目前有基于时间窗口（Window）类型的  GROUP BY，以及不含窗口的 GROUP BY（也叫做持续查询）。其中前者不会更新之前的结果，因而会产生 Append 类型的数据流，只允许写入 Tuple 类型的 CDP 数据目的（Sink）或 CKafka；而后者会更新之前发出的记录，因而会产生 Upsert 类型的数据流，只允许写入 Upsert 类型的 CDP 数据目的（Sink）。
+在流计算 Oceanus 中，GROUP BY 用于对结果进行分组聚合。目前有含时间窗口（Window）类型的  GROUP BY，以及不含窗口的 GROUP BY（也叫做持续查询）。其中前者不会更新之前的结果，因而会产生 Append 类型的数据流，只允许写入 Tuple 类型的 CDP 数据目的（Sink）或 CKafka；而后者会更新之前发出的记录，因而会产生 Upsert 类型的数据流，只允许写入 Upsert 类型的 CDP 数据目的（Sink）。
 
 #### 含时间窗口的 GROUP BY
 本示例定义了一个包含时间窗口的 GROUP BY 查询语句。关于时间窗口函数的使用方法，请参见 [时间相关函数](/document/product/849/18075)。
@@ -70,7 +70,7 @@ GROUP BY a
 >!这种方式可能会因为 key 的数量过大或数据过多而发生内存溢出。因而请谨慎设置对象超时时间，不要过长。
 
 ## JOIN
-目前 SCS 系统只支持等值连接（Equi-JOIN，即 JOIN 条件内包含至少一条令左右表某字段相等的过滤条件），且只支持 Inner JOIN. 对于 Outer JOIN 的支持将在后续的版本陆续添加。 
+目前流计算 Oceanus 系统只支持等值连接（Equi-JOIN，即 JOIN 条件内包含至少一条令左右表某字段相等的过滤条件），且只支持 Inner JOIN. 对于 Outer JOIN 的支持将在后续的版本陆续添加。 
 
 ### 流和流的 Inner Equi-JOIN
 目前流和流的连接也分为两种：含时间范围的与不含时间范围的；前者会生成 Append 类型的流，而后者会生成 Upsert 类型的流。
@@ -102,7 +102,7 @@ FROM Orders INNER JOIN Product ON Orders.productId = Product.id
 ```
 
 ### 流与 TencentDB 表的 JOIN
-SCS 也支持流与 TencentDB for MySQL 数据表的 JOIN，语法同上面介绍的完全一致，只是要求 TencentDB 表必须放在 JOIN 条件的右表。
+流计算 Oceanus 也支持流与 TencentDB for MySQL 数据表的 JOIN，语法同上面介绍的完全一致，只是要求 TencentDB 表必须放在 JOIN 条件的右表。
 需要注意的是，目前要求 JOIN 查询条件需要包括表的所有定义的键，否则会导致查询结果过多、内存占用过大等问题而导致任务失败。
 
 **示例：**
@@ -113,7 +113,7 @@ WHERE s.client_ip = d.client_ip AND d.`month` LIKE  '20180%' AND ABS(d.numbers) 
 ```
 
 ### 与数组进行 JOIN
-如果有一个已定义的数组对象（可以使用 [值构造函数](https://cloud.tencent.com/document/product/849/18074#.E5.80.BC.E6.9E.84.E9.80.A0.E5.87.BD.E6.95.B0) 来构造数组对象ARRAY），希望与这个数组对象做 JOIN 操作，SCS 系统也支持这种用法。
+如果有一个已定义的数组对象（可以使用 [值构造函数](https://cloud.tencent.com/document/product/849/18074#.E5.80.BC.E6.9E.84.E9.80.A0.E5.87.BD.E6.95.B0) 来构造数组对象ARRAY），希望与这个数组对象做 JOIN 操作，流计算 Oceanus 系统也支持这种用法。
 
 **示例：**（若 tags 是一个已定义的数组）
 
@@ -135,7 +135,7 @@ FROM (
 )
 ```
 
->!目前 SCS 只支持 UNION ALL 而暂不支持 UNION，即不会对相同的行进行去重操作。如果需要实现去重以达到 UNION 的效果，请配合 DISTINCT 使用。但需要注意 DISTINCT 会让结果由 Append 流变为 Upsert 流，因而相应的数据目的（Sink）类型也只能为 CDP 的 Upsert。
+>!目前流计算 Oceanus 只支持 UNION ALL 而暂不支持 UNION，即不会对相同的行进行去重操作。如果需要实现去重以达到 UNION 的效果，请配合 DISTINCT 使用。但需要注意 DISTINCT 会让结果由 Append 流变为 Upsert 流，因而相应的数据目的（Sink）类型也只能为 CDP 的 Upsert。
 
 ## OVER Window 聚合
 如果需要对数据流做基于滑动窗口的聚合（不使用 GROUP BY的聚合），那么可以使用 OVER 来进行滑动窗口的聚合操作。在 OVER 中可以指定 PARTITION、ORDER、窗口范围等。

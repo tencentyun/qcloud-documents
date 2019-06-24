@@ -1,34 +1,264 @@
+<h2 id="TRTC">精简版（TRTC）</h2>
 
-## SDK下载
+精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
 
-TRTC SDK 以及附带的 Demo 源代码已经都托管到了 [Github](https://github.com/tencentyun/TRTCSDK) 上，您可以直接通过 Clone 获取之。
+| 所属平台 | SDK 下载 | Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
+|:---------:| :--------:| :--------:| :--------:| :--------:|:--------:|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)|[DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
+| Windows| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |支持| 23.8M（x86）<br>27.8M（x64）|
+| Mac| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |支持| 2.05M（arm64）|
+| Web | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/H5)| [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) | N/A | N/A|
+| 微信小程序| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |  N/A | N/A|
 
-| 所属平台 | Github 地址 | Demo运行说明 | SDK集成指引 
-|:---------:| :--------:| :--------:| :--------:|
-| iOS | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |
-| Android | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/Android)| [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |
-| Windows| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/Windows)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |
-| Mac| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/Mac)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |
-| Web | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/H5)| [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) |
-| 微信小程序| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |
+>? 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
 
-## LiteAVSDK
+<h2 id="Professional">专业版（Professional）</h2>
 
-![](https://main.qcloudimg.com/raw/9bcce79e250441f9aeb93756196e1a2e.png)
+TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我们基于 LiteAV 框架还研发了 [超级播放器 SDK](https://cloud.tencent.com/product/player)、[移动直播 SDK](https://cloud.tencent.com/product/mlvb) 和 [短视频 SDK](https://cloud.tencent.com/product/ugsv) 等其他终端产品。
 
-TRTC SDK 隶属于腾讯视频云 LiteAV 体系，LiteAV_TRTC 擅长于低延时视频通话解决方案，与此同时，LiteAV 体系还提供了其它应用场景的解决方案：
+如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，这是由于 LiteAV 体系的 SDK 都使用了相同的基础模块。
 
-| SDK压缩包名称 | 主要用途 | 包含功能 |
-|:-------:|:-------:|:-------:|
-| LiteAV_TRTC | [实时音视频](https://cloud.tencent.com/product/trtc) | 视频通话 |
-| LiteAV_Smart | [移动直播](https://cloud.tencent.com/product/mlvb) | 直播推流和直播播放 |
-| LiteAV_Player | [超级播放器](https://cloud.tencent.com/product/player) | 直播播放器和点播播放器 |
-| LiteAV_UGC | [短视频](https://cloud.tencent.com/product/ugsv) | 视频录制、视频特效、视频上传等 |
+要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
 
-## SDK符号冲突
+| 所属平台 | 下载地址 | 64位支持 | 安装包增量 |
+|:---------:| :--------:| :--------:|:--------:|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/647/34400) |
 
-如果您的项目中已经使用过腾讯视频云 LiteAV 体系的相关产品，可能会出现符号冲突的问题（symbol duplicate）的问题，这是由于它们共同复用了相同的采集模块、编解码器、降噪模块、前处理等底层基础模块，所以才会出现符号重复。
+>? Windows 和 Mac 版本的 SDK 暂时只有一个版本，没有做精简版、专业版和企业版的区分。
 
-您可以下载腾讯视频 LiteAV_Professional 版本，该版本集成了以上 SDK 的全部功能，而且由于 60% 以上的底层模块是复用的，所以产生的安装包体积增量远远小于集成两个独立的 SDK（音视频 SDK 中的主要体积增量源于编解码等各种基础模块）。
 
-- [**专业版下载地址**](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%93%E4%B8%9A%E7%89%88.md#%E4%B8%93%E4%B8%9A%E7%89%88%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)
+<h2 id="Enterprise">企业版（Enterprise）</h2>
+
+LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+
+| 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
+|:---------:| :--------:| :--------:|:--------:|:--------:|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) |支持|4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)|支持|  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/647/34400) |
+
+>? Windows 和 Mac 版的 SDK 暂无 AI 特效组件，没有做精简版、专业版和企业版的区分。
+
+## 各版本差异对照表
+
+![](https://main.qcloudimg.com/raw/76d9d6f854ba4cc8cf3b3c18ed230a35.png)
+
+<table>
+  <tr>
+	  <th width="100px" style="text-align:center">功能模块</th>
+    <th width="100px" style="text-align:center">功能项</th>
+    <th width="100px" style="text-align:center">直播精简版<br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
+    <th width="100px" style="text-align:center">TRTC版<br>LiteAV_TRTC</th>
+		<th width="100px" style="text-align:center">播放器版<br>LiteAV_Player</th>
+		<th width="100px" style="text-align:center">专业版<br>Professional</th>
+		<th width="100px" style="text-align:center">企业版<br>Enterprise</th>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">直播推流</td>
+    <td style="text-align:center">摄像头推流</td>
+		<td style="text-align:center">✔</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	 <tr>
+    <td style="text-align:center">录屏推流</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='3' style="text-align:center">直播播放</td>
+    <td style="text-align:center">RTMP 协议</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">HTTP - FLV</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">HLS(m3u8)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='3' style="text-align:center">点播播放</td>
+    <td style="text-align:center">MP4 格式</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	 <tr>
+    <td style="text-align:center">HLS(m3u8)</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	 <tr>
+    <td style="text-align:center">DRM 加密</td>
+    <td></td>
+    <td></td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">美颜滤镜</td>
+    <td style="text-align:center">基础美颜</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">基础滤镜</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='2' style="text-align:center">直播连麦</td>
+    <td style="text-align:center">连麦互动</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">跨房 PK</td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+	  <td rowspan='2' style="text-align:center">视频通话</td>
+    <td style="text-align:center">双人通话</td>
+    <td></td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+		<td style="text-align:center"></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">视频会议</td>
+    <td style="text-align:center"></td>
+    <td style="text-align:center"></td>
+    <td style="text-align:center">✔</td>
+		<td style="text-align:center"></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='4' style="text-align:center">短视频</td>
+    <td style="text-align:center">录制和拍摄</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">裁剪拼接</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">“抖音”特效</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">视频上传</td>
+    <td></td>
+    <td style="text-align:center">✔</td>
+    <td></td>
+		<td></td>
+		<td style="text-align:center">✔</td>
+		<td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+	  <td rowspan='4' style="text-align:center">AI 特效</td>
+    <td style="text-align:center">大眼瘦脸</td>
+    <td></td>
+    <td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">V 脸隆鼻</td>
+    <td></td>
+    <td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+	<tr>
+    <td style="text-align:center">动效贴纸</td>
+    <td></td>
+    <td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+  <tr>
+    <td style="text-align:center">绿幕抠图</td>
+    <td></td>
+    <td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+    <td style="text-align:center">✔</td>
+  </tr>
+</table>

@@ -12,8 +12,8 @@
 ## 授权给云直播截图存储
 1. 为腾讯云截图存储开通数据写入权限，授权的根账号 ID：3508645126。
 	1. 在存储桶的【权限管理】-【存储桶访问权限】添加用户，用户类型选择根账号，**并输入根账号 ID：3508645126**
-	>! **此处需填入根账号 ID：3508645126 进行授权**。
-	![](https://main.qcloudimg.com/raw/5b34ac022488d04d7a3d88ae1381aacb.jpg)
+	>! **此处需填入根账号 ID：3508645126 进行授权。（根账号 ID：3508645126 即为腾讯云直播服务，直接输入 3508645126 即可）**。
+	![](https://main.qcloudimg.com/raw/e355595166fcdbbde4a1ae50001777d2.png)
 	2. 存储桶访问权限设置 API 可参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
 
 2. 获取已授权 COS Bucket 信息。

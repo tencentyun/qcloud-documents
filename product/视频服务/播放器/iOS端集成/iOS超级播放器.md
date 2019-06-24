@@ -11,7 +11,7 @@ iOS 播放器 SDK 完全免费开源，不对播放地址来源做限制，可�
 
 ### 接入准备
 
-请将下面代码加入到您的Podfile中：
+请将下面代码加入到您的 Podfile 中：
 ```
 pod 'SuperPlayer'
 ```
@@ -26,7 +26,7 @@ pod 'SuperPlayer'
 _playerView = [[SuperPlayerView alloc] init];
 // 设置代理，用于接受事件
 _playerView.delegate = self;
-// 设置父View，_playerView会被自动添加到holderView下面
+// 设置父 View，_playerView 会被自动添加到 holderView 下面
 _playerView.fatherView = self.holderView;
 
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
@@ -81,7 +81,7 @@ playerModel.appId = 1252463788;
 >! 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
 
 ## FileId 播放
-设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
+设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 一般是在视频上传后，由服务器返回：
 1. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C) 到客户端。
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
@@ -97,10 +97,10 @@ playerModel.appId = 1252463788;
 playerModel.fileId = @"4564972819219071679";
 [_playerView playWithModel:self.playerModel];
 ```
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl))。转码完成后，播放器会自动显示多个清晰度。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/video/transcodetmpl)）。转码完成后，播放器会自动显示多个清晰度。
 
-### 视频缩略图&打点信息
-在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
+## 视频缩略图&打点信息
+在播放长视频时，雪碧图和打点信息有助于观众找到感兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
 - [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
@@ -108,8 +108,8 @@ playerModel.fileId = @"4564972819219071679";
 任务执行成功后，播放器的界面会增加新的元素。
 ![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
 
-### 数字版权管理
-数字版权管理解决方案（Digital Rights Management, DRM），通过技术手段加密内容，用来控制带版权作品的使用、更改和分发，保护带版权内容的安全。适用于音乐、电影等带版权的多媒体内容。
+## 数字版权管理
+数字版权管理解决方案（Digital Rights Management，DRM），通过技术手段加密内容，用来控制带版权作品的使用、更改和分发，保护带版权内容的安全。适用于音乐和电影等带版权的多媒体内容。
 
 
 iOS SDK 可以播放云点播两种方式加密的输出：
@@ -119,7 +119,7 @@ iOS SDK 可以播放云点播两种方式加密的输出：
 关于 DRM 的更多详情，您可以参考此篇文档：[如何对内容做版权保护](<https://cloud.tencent.com/document/product/266/34105#.E5.95.86.E4.B8.9A.E7.BA.A7-drm>)。
 
 
-#### 如何在 iOS 平台使用腾讯云 DRM 服务
+### 如何在 iOS 平台使用腾讯云 DRM 服务
 
 - 步骤1：集成 [超级播放器 Library ](<https://cloud.tencent.com/document/product/881/20208>)到您的工程中。
 - 步骤2：从您的**业务后台**获取 Token，关于 Token 的内容，您可以参考此篇文档：[播放加密视频 - Token 生成](<https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90>)。
@@ -132,15 +132,15 @@ SuperPlayerVideoId *video = [[SuperPlayerVideoId alloc] init];
 video.appId = 1253039488;
 video.fileId = @"15517827183850370616";
 video.playDefinition = @"20"; // 播放模板
-video.version = FileIdV3; // DRM需要使用V3协议
+video.version = FileIdV3; // DRM 需要使用 V3 协议
 model.videoId = video;
-model.token = token; // 服务端下发的token
-model.certificate = fairplay_cer; // FairPlay的certificate，一般是从本地文件读取
+model.token = token; // 服务端下发的 token
+model.certificate = fairplay_cer; // FairPlay 的 certificate，一般是从本地文件读取
 ```
 
 - 关于 FileId 的内容，您可以参考此篇文档：[超级播放器 - FileId 播放](<https://cloud.tencent.com/document/product/881/20213#667643674>)。
 - 关于播放模板的内容，您可以参考此篇文档：[使用播放器播放视频 - 播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF)。
-- 播放器会根据播放模板 ID 指定的行为播放，例如当模板 ID 为 20 时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
+- 播放器会根据播放模板 ID 指定的行为播放，例如当模板 ID 为20时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
 - 关于使用 DRM 防盗链内容，您可以参考此篇文档：[使用播放器播放视频](https://cloud.tencent.com/document/product/266/34101)。
 
 

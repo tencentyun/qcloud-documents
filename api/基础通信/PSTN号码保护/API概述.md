@@ -27,4 +27,4 @@
 | [直拨 PSTN 虚拟中间号录音 URL 推送接口](https://cloud.tencent.com/document/product/610/12010) | 用于直拨 PSTN 虚拟中间号录音 URL 推送 |
 | [直拨 PSTN 虚拟中间号通话状态推送接口](https://cloud.tencent.com/document/product/610/12067) | 用于直拨 PSTN 虚拟中间号通话状态推送 |
 | [直拨 PSTN 虚拟中间号话单获取](https://cloud.tencent.com/document/product/610/12066) | 用于直拨 PSTN 虚拟中间号话单获取 |
-| [腾讯 PSTN 通讯平台服务状态实时推送接口](https://cloud.tencent.com/document/product/610/12084) | 用于腾讯 PSTN 通讯平台服务状态实时推送 |
+

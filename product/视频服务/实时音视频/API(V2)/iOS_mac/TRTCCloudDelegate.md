@@ -1,7 +1,13 @@
+
+TRTCCloudDelegate @ TXLiteAVSDK。
+
+腾讯云视频通话功能的事件回调接口。
+
+
 ## 通用事件回调
 ### onError
 
-错误回调: SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
+错误回调：SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 ```
 - (void)onError:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg extInfo:(nullable NSDictionary *)extInfo 
 ```
@@ -10,9 +16,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码 |
-| errMsg | nullable NSString * | 错误信息 |
-| extInfo | nullable NSDictionary * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题 |
+| errCode | TXLiteAVError | 错误码。 |
+| errMsg | nullable NSString * | 错误信息。 |
+| extInfo | nullable NSDictionary * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
 
 
 ### onWarning
@@ -26,9 +32,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| warningCode | TXLiteAVWarning | 警告码 |
-| warningMsg | nullable NSString * | 警告信息 |
-| extInfo | nullable NSDictionary * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题 |
+| warningCode | TXLiteAVWarning | 警告码。 |
+| warningMsg | nullable NSString * | 警告信息。 |
+| extInfo | nullable NSDictionary * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
 
 
 
@@ -44,7 +50,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| elapsed | NSInteger | 加入房间耗时 |
+| elapsed | NSInteger | 加入房间耗时。 |
 
 
 ### onExitRoom
@@ -58,7 +64,22 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | NSInteger | 离开房间原因 |
+| reason | NSInteger | 离开房间原因。 |
+
+
+### onSwitchRole
+
+切换角色结果回调。
+```
+- (void)onSwitchRole:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | TXLiteAVError | 错误码。 |
+| errMsg | nullable NSString * | 错误信息。 |
 
 
 ### onConnectOtherRoom
@@ -90,7 +111,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
+| userId | NSString * | 用户标识。 |
 
 __介绍__
 
@@ -101,7 +122,6 @@ __介绍__
 >!
 >- 并不是所有用户加入房间都会触发此通知，只有开启音频或者视频上行的用户才会触发此通知。
 >- 收到该通知后，并不推荐立刻 startRemoteView，因为可能该用户只开启了音频而没有开启视频。
-
 
 
 ### onUserExit
@@ -115,8 +135,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| reason | NSInteger | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开 |
+| userId | NSString * | 用户标识。 |
+| reason | NSInteger | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
 
 
 ### onUserVideoAvailable
@@ -130,8 +150,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| available | BOOL | 画面是否开启 |
+| userId | NSString * | 用户标识。 |
+| available | BOOL | 画面是否开启。 |
 
 __介绍__
 
@@ -149,8 +169,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| available | BOOL | 屏幕分享是否开启 |
+| userId | NSString * | 用户标识。 |
+| available | BOOL | 屏幕分享是否开启。 |
 
 >?显示辅路画面使用的函数不是 startRemoteView 而是 startRemoteSubStreamView。
 
@@ -167,13 +187,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| available | BOOL | 声音是否开启 |
+| userId | NSString * | 用户标识。 |
+| available | BOOL | 声音是否开启。 |
 
 
 ### onUserVoiceVolume
 
-userId 对应的成员语音音量。
+用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
 - (void)onUserVoiceVolume:(NSArray< TRTCVolumeInfo * > *)userVolumes totalVolume:(NSInteger)totalVolume 
 ```
@@ -182,19 +202,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | NSArray< TRTCVolumeInfo * > * | 每位发言者的语音音量，取值范围0 - 100 |
-| totalVolume | NSInteger | 总的语音音量, 取值范围0 - 100 |
+| userVolumes | NSArray< [TRTCVolumeInfo](https://cloud.tencent.com/document/product/647/32261#trtcvolumeinfo) * > * | 所有正在说话的房间成员的音量（取值范围0 - 100）。即 userVolumes 内仅包含音量不为0（正在说话）的用户音量信息。其中 userId 为 null 表示 local 的音量，也就是自己的音量。 |
+| totalVolume | NSInteger | 所有远端成员的总音量, 取值范围0 - 100。 |
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调;如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 
 
 ## 统计和质量回调
 ### onNetworkQuality
 
-网络质量: 该回调每2秒触发一次，统计当前网络的上行和下行质量。
+网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
 - (void)onNetworkQuality:(TRTCQualityInfo *)localQuality remoteQuality:(NSArray< TRTCQualityInfo * > *)remoteQuality 
 ```
@@ -203,8 +223,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | TRTCQualityInfo * | 上行网络质量 |
-| remoteQuality | NSArray< TRTCQualityInfo * > * | 下行网络质量 |
+| localQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32261#trtcqualityinfo) * | 上行网络质量。 |
+| remoteQuality | NSArray< [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32261#trtcqualityinfo) * > * | 下行网络质量。 |
 
 >?userId == nil 代表自己当前的视频质量。
 
@@ -220,7 +240,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statistics | TRTCStatistics * | 统计数据，包括本地和远程的 |
+| statistics | [TRTCStatistics](https://cloud.tencent.com/document/product/647/32261#trtcstatistics) * | 统计数据，包括本地和远程的。 |
 
 __介绍__
 
@@ -235,16 +255,17 @@ __介绍__
 
 首帧视频画面已到达，界面此时可以结束 Loading，并开始显示视频画面。
 ```
-- (void)onFirstVideoFrame:(NSString *)userId width:(int)width height:(int)height 
+- (void)onFirstVideoFrame:(NSString *)userId streamType:(TRTCVideoStreamType)streamType width:(int)width height:(int)height 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户 ID |
-| width | int | 画面宽度 |
-| height | int | 画面高度 |
+| userId | NSString * | 用户 ID。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| width | int | 画面宽度。 |
+| height | int | 画面高度。 |
 
 
 ### onFirstAudioFrame
@@ -258,7 +279,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户 ID |
+| userId | NSString * | 用户 ID。 |
 
 
 
@@ -316,8 +337,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | TRTCAudioRoute | 当前音频路由 |
-| fromRoute | TRTCAudioRoute | 变更前的音频路由 |
+| route | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 当前音频路由。 |
+| fromRoute | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 变更前的音频路由。 |
 
 
 ### onDevice
@@ -331,9 +352,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| deviceId | NSString * | 设备 ID |
-| deviceType | TRTCMediaDeviceType | 设备类型 |
-| state | NSInteger | 0: 设备断开 1: 设备连接 |
+| deviceId | NSString * | 设备 ID。 |
+| deviceType | [TRTCMediaDeviceType](https://cloud.tencent.com/document/product/647/32261#trtcmediadevicetype) | 设备类型。 |
+| state | NSInteger | 0：设备断开；1：设备连接。 |
 
 
 
@@ -349,10 +370,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| cmdID | NSInteger | 命令 ID |
-| seq | UInt32 | 消息序号 |
-| message | NSData * | 消息数据 |
+| userId | NSString * | 用户标识。 |
+| cmdID | NSInteger | 命令 ID。 |
+| seq | UInt32 | 消息序号。 |
+| message | NSData * | 消息数据。 |
 
 __介绍__
 
@@ -370,10 +391,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| cmdID | NSInteger | 命令 ID |
-| errCode | NSInteger | 错误码 |
-| missed | NSInteger | 丢失的消息数量 |
+| userId | NSString * | 用户标识。 |
+| cmdID | NSInteger | 命令 ID。 |
+| errCode | NSInteger | 错误码。 |
+| missed | NSInteger | 丢失的消息数量。 |
 
 __介绍__
 
@@ -393,8 +414,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | NSString * | 用户标识 |
-| message | NSData * | 数据 |
+| userId | NSString * | 用户标识。 |
+| message | NSData * | 数据。 |
 
 __介绍__
 
@@ -420,7 +441,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | int | 原因，0：用户主动暂停；1：屏幕窗口不可见暂停 |
+| reason | int | 原因，0：用户主动暂停；1：屏幕窗口不可见暂停。 |
 
 
 ### onScreenCaptureResumed
@@ -434,7 +455,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | int | 恢复原因，0：用户主动恢复；1：屏幕窗口恢复可见导致恢复分享 |
+| reason | int | 恢复原因，0：用户主动恢复；1：屏幕窗口恢复可见导致恢复分享。 |
 
 
 ### onScreenCaptureStoped
@@ -448,7 +469,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | int | 停止原因，0：用户主动停止；1：屏幕窗口关闭导致停止 |
+| reason | int | 停止原因，0：用户主动停止；1：屏幕窗口关闭导致停止。 |
 
 
 
@@ -462,7 +483,7 @@ __参数__
 
 __介绍__
 
-对应于 TRTCCloud 中的 startPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 startPublishCDNStream() 接口。
 
 >?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
 
@@ -477,7 +498,22 @@ __介绍__
 
 __介绍__
 
-对应于 TRTCCloud 中的 stopPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 setMixTranscodingConfig() 接口。
+```
+- (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| err | int | 0表示成功，其余值表示失败。 |
+| errMsg | NSString * | 具体错误原因。 |
 
 
 
@@ -485,7 +521,7 @@ __介绍__
 
 __功能__
 
-自定义视频渲染回调。
+视频数据帧的自定义处理回调。
 
 
 
@@ -500,9 +536,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame *_Nonnull | 待渲染的视频帧信息 |
-| userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会 |
-| streamType | TRTCVideoStreamType | 视频源类型，比如是摄像头画面还是屏幕分享画面等等 |
+| frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
+| userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，比如是摄像头画面还是屏幕分享画面等等。 |
 
 
 
@@ -510,7 +546,7 @@ __参数__
 
 __功能__
 
-音频数据回调。
+声音数据帧的自定义处理回调（只读）。
 
 
 
@@ -537,8 +573,8 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频数据 |
-| userId | NSString * | 用户标识 |
+| frame | [TRTCAudioFrame](https://cloud.tencent.com/document/product/647/32261#trtcaudioframe) * | 音频数据。 |
+| userId | NSString * | 用户标识。 |
 
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
@@ -562,7 +598,7 @@ __参数__
 
 __功能__
 
-日志事件回调对象。
+日志相关回调。
 
 __介绍__
 
@@ -581,9 +617,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| log | nullable NSString * | 日志内容 |
-| level | TRTCLogLevel | 日志等级，参见 TRTCLogLevel |
-| module | nullable NSString * | 值暂无具体意义，目前为固定值 TXLiteAVSDK |
+| log | nullable NSString * | 日志内容。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
+| module | nullable NSString * | 值暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 
 

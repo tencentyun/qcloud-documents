@@ -38,7 +38,7 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 
 ### 如何获取 Python SDK 下载文件的临时链接？
 
-详情请查阅 [获取预签名下载链接](https://cloud.tencent.com/document/product/436/12270#.E8.8E.B7.E5.8F.96.E9.A2.84.E7.AD.BE.E5.90.8D.E4.B8.8B.E8.BD.BD.E9.93.BE.E6.8E.A5) 文档。
+详情请查阅 [预签名 URL](https://cloud.tencent.com/document/product/436/35153) 文档。
 
 ### SDK 能否使用 CDN 加速域名进行访问？
 
@@ -65,7 +65,7 @@ SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要�
 ### SDK 上传速度慢，日志频繁打印 IOException？
 
 原因与解决办法：
- a. 首先确认下是否是通过公网访问 COS，目前同园区 CVM 访问 COS 走内网(内网域名解析出的 IP 是10, 100, 169网段, 有关 COS 域名请参考 [COS 可用地域](https://cloud.tencent.com/document/product/436/6224)，如果是通过公网确认出口带宽是否较小或者是否有其他程序占用带宽资源。
+ a. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网(内网域名解析出的 IP 是10, 100, 169网段, 有关 COS 域名请参考 [COS 可用地域](https://cloud.tencent.com/document/product/436/6224)，如果是通过公网确认出口带宽是否较小或者是否有其他程序占用带宽资源。
  b. 确保在生产环境中的日志级别不是 debug，推荐使用 INFO 日志, log4j 的日志配置可参考 [log4j 日志配置模板](https://github.com/tencentyun/cos-java-sdk-v5/blob/master/src/main/resources/log4j.properties)。
  c. 目前简单上传速度可达10MB，高级 API，在32并发的情况下速度可达60MB,如果速度远低于此两个值, 请参考 a 和 b。
  d. 如果 warn 日志打印 IOException 可以忽略，SDK 会进行重试，多次重试后如果还是失败, 会打印在 IOException. IOException 的原因及是网速过慢，原因可参考 a 和 b。

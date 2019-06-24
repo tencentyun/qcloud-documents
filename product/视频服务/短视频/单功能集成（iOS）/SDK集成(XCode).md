@@ -196,7 +196,7 @@
                 };
                 
                 UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:previewController];
-                [nav presentViewController:nav animated:YES completion:nil];
+                [weakConfigVC.navigationController presentViewController:nav animated:YES completion:nil];
             };
             [weakConfigVC.navigationController pushViewController:recordVC animated:YES];
         };

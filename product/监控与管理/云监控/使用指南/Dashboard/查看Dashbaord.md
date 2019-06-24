@@ -1,10 +1,10 @@
 ## 简介
-该指南指导您如何查看 Dashborad 图表数据。
+该指南指导您如何查看 Dashboard 图表数据。
 
 ## 操作步骤
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中，单击【Dashborad】，进入管理页面。
+2. 在左侧导航栏中，单击【Dashboard】，进入管理页面。
 3. 查看折线图、实例排行列表等请参阅本文以下章节。
 
 ### 查看监控折线图

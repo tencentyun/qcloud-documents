@@ -1,4 +1,4 @@
-人脸核身-云智慧眼针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
+腾讯云人脸核身针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
 ![](https://main.qcloudimg.com/raw/5afc0c1af3405bf9aa78a4905b1c0ea5.png)
 
 ## 业务流程
@@ -26,6 +26,7 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 1.2 在 TARGETS-Build Phases-Link Binary with Libraries，单击“+”，弹出添加列表后，单击“Add Other…“
 1.3 在 Framework 文件夹中，添加 AuthSDK.framework 到工程中。同理，添加 SDK 中的所有文件添加到工程中。
 ![](https://main.qcloudimg.com/raw/4b84912737da80a6c6cf10e100280704.png)
+![](https://main.qcloudimg.com/raw/c35ba913d3c4ba1d4d2fdfd808a4c32a/20190604043849.png)
 保证下图中的内部 framework 都添加到工程中。
 ![](https://main.qcloudimg.com/raw/24a1005a94b091559cf364d9176691a6.png)
 
@@ -33,11 +34,12 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 在 TARGETS-Build Settings-Other Linker Flags 中添加`-ObjC` 。
 - C++ Language Dialect 设置为 C++11 [-std=c++11]
 - C++ Standard Library 设置为 libc++
+- bitCode 设置为NO
 
 ![](https://main.qcloudimg.com/raw/0634a472dbee443542d89b9364f75515.png)
 
 ### 3. 添加权限声明
-在工程 info.plist 中，增加如下字串：
+在工程 info.plist 中，增加如下字符串：
 ``` xml
 <key>NSPhotoLibraryUsageDescription</key>
 <string>需要您的同意才能读取照片库</string>
@@ -66,8 +68,10 @@ Xcode9以上版本需要添加如下字符串：
 ```
 调用 startAuthWithToken 函数， 传入 BizToken 即可开始人脸核身，每次调用都需要从 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口生成新的 BizToken。
 ``` objc
-@property (nonatomic) AuthSDK * sdk;
-_sdk = [[AuthSDK alloc] initWithServerURL:@"https://faceid.qq.com"];
-[_sdk startAuthWithToken:@"E88D8388-54C3-4D11-96B8-C1EB5AD446FD" parent:self delegate:self];
+@interface ViewController ()<AuthSDKDelegate>
+@property (nonatomic) AuthSDK * sdk;
+@end
+_sdk = [[AuthSDK alloc] initWithServerURL:@"https://faceid.qq.com"];
+[_sdk startAuthWithToken:@"E88D8388-54C3-4D11-96B8-C1EB5AD446FD" parent:self delegate:self];
 ```
 

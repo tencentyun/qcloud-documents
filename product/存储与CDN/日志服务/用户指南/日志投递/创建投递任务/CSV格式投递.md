@@ -14,11 +14,11 @@
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航栏中，单击【日志集管理】。
 3. 单击需要设置投递任务的日志集 ID/名称，进入日志集详情页。
-   ![img](https://main.qcloudimg.com/raw/b4560b57c179e20441fa56bd65803971.png)
+![](https://main.qcloudimg.com/raw/637f191003d50812d117bd32b84b4b0d.png)
 4. 找到需要投递的日志主题，在其操作栏中，单击【管理配置】>【投递对象存储配置】，进入投递配置页面。
-   ![img](https://main.qcloudimg.com/raw/df645d270b696a380253435e079a8949.png)
+![](https://main.qcloudimg.com/raw/f2ae55d386797b52d2fca31eae783df1.png)
 5. 单击【添加投递配置】，进入**投递至 COS** 配置页面，依次填写配置信息。
-   ![img](https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png)
+![](https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png)
 **配置项说明如下：**
 
 <table>
@@ -130,4 +130,4 @@
 如下图所示，指定 action 字段，该字段为 write 时，日志进行投递。投递过滤规则最多支持5条。
 ![img](https://main.qcloudimg.com/raw/fa774d5a865c2129f707465c55e416c7.png)
 7. 单击【确定】，即可看到投递状态已开启。
-![img](https://main.qcloudimg.com/raw/14e70eec382e5dab3803a71752ffd62c.png)
+![](https://main.qcloudimg.com/raw/f3b59a24524ba51f6bc6c14f9fdfbdba.png)

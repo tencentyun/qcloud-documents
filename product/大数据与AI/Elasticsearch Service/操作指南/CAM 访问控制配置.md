@@ -23,7 +23,7 @@ ES 可授权的资源类型如下：
 
 | 接口名 | 描述 | 是否关联资源 | 资源描述 |
 | ---|---|---|--- |
-| 获取集群列表、单个集群信息 | DescribeInstances| 否 |  `*` |
+| 获取集群列表、单个集群信息 | DescribeInstances| 是 |  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 创建集群 | CreateInstance| 否 |  `*` |
 | 更新集群 | UpdateInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 重启集群 | RestartInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
@@ -60,7 +60,6 @@ ES 目前支持除了 DescribeInstances 接口之外的其他操作接口来访�
 
 #### 自定义权限示例
 授予某账号指定集群更新操作权限，策略语法如下：
-获取集群列表的接口`DescribeInstances`目前不支持关联资源，需要将该接口中的`resource`配置为`*`。
 ```
 {
     "version": "2.0",
@@ -70,7 +69,7 @@ ES 目前支持除了 DescribeInstances 接口之外的其他操作接口来访�
                 "es:Describe*"
             ],
             "resource": [
-                "*"
+               "qcs::es:ap-guangzhou:uin/$uin:instance/$instanceID"
             ],
             "effect": "allow"
         },

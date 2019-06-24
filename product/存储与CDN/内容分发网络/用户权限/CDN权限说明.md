@@ -1,4 +1,4 @@
-CDN 已经接入了腾讯云云资源访问管理（Cloud Access Management）系统，您可以在 [访问管理](https://console.cloud.tencent.com/cam/overview) 控制台进行用户组、用户、角色、策略等一系列相关管理操作。
+CDN 已经接入了腾讯云云资源访问管理（Cloud Access Management）系统，您可以在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 进行用户组、用户、角色、策略等一系列相关管理操作。
 
 由于 CDN 目前处于权限系统升级过渡阶段，您可以通过以下几种方式为您的子用户和角色分配 CDN 管理权限。
 
