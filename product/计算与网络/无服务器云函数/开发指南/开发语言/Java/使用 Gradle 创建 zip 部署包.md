@@ -13,7 +13,7 @@
 1. 下载 Gradle 的 [二进制包](https://services.gradle.org/distributions/gradle-4.1-bin.zip) 或 [带文档和源码的完整包](https://services.gradle.org/distributions/gradle-4.1-all.zip)。
 2. 解压包到自己所期望的目录，例如 `C:\Gradle` （Windows） 或 `/opt/gradle/gradle-4.1` （Linux）。
 3. 将解压目录下 bin 目录的路径添加到系统 PATH 环境变量中，Linxu 通过 `export PATH=$PATH:/opt/gradle/gradle-4.1/bin` 完成添加，Windows 通过 `计算机-右键-属性-高级系统设置-高级-环境变量` 进入到环境变量设置页面，选择 `Path` 变量编辑，在变量值最后添加`;C:\Gradle\bin;`。
-4. 通过在命令行下执行 `gradle -v`，确认有如下类似输出，证明 Gradle 已正确安装。如有问题，请查询 Gradle 的[官方文档](https://gradle.org/docs/)。
+4. 通过在命令行下执行 `gradle -v`，确认有如下类似输出，证明 Gradle 已正确安装。如有问题，请查询 Gradle 的 [官方文档](https://gradle.org/docs/)。
 	```
 	------------------------------------------------------------
 	Gradle 4.1
