@@ -1,12 +1,12 @@
 
-在 [TBaaS购买页](https://buy.cloud.tencent.com/tbaas_blockchain) 使用该证书请先阅读并同意 [《CFCA 数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html)和 [《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。
+在 [TBaaS购买页](https://buy.cloud.tencent.com/tbaas_blockchain) 使用该证书请先阅读并同意[《CFCA 数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html)和[《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。
 
 ### 证书服务简介
 中金金融认证中心有限公司（即中国金融认证中心，简称 “CFCA”）是经国家有关管理机关审批设立的电子认证服务机构，是权威的第三方安全认证机构，CFCA 通过数字证书注册机构向 TBaaS 用户（以下简称“用户”）发放数字证书，为用户网上交易提供信息安全保障。
 腾讯云区块链 TBaaS 提供 CFCA 权威数字证书服务，可以帮助企业用户使用合规的区块链证书、构建稳固的信任体系。
 
 ### 使用须知
-用户通过 TBaaS 控制台所申请的 CFCA 数字证书，仅限在数字证书所属区块链网络中使用。在 [TBaaS 购买页](https://buy.cloud.tencent.com/tbaas_blockchain) 使用该证书请先阅读并同意 [《CFCA 数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html)和 [《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。
+用户通过 TBaaS 控制台所申请的 CFCA 数字证书，仅限在数字证书所属区块链网络中使用。在 [TBaaS 购买页](https://buy.cloud.tencent.com/tbaas_blockchain) 使用该证书请先阅读并同意[《CFCA 数字证书服务协议》](http://www.cfca.com.cn/20150811/101230094.html)和[《数字证书使用安全提示说明》](http://www.cfca.com.cn/20150811/101230100.html)。
 
 ### 使用方式
 用户所购买的 TBaaS 区块链网络中，对 CFCA 数字证书包含如下使用方式：
