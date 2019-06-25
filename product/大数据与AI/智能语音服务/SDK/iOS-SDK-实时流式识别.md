@@ -54,7 +54,8 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
    + CoreTelephony.framework
    + libWXVoiceSpeex.a
    
-   添加完如图所示。![](https://main.qcloudimg.com/raw/6b5686f2805b999f2a117f84271155d1.png)
+   添加完如图所示。
+![](https://main.qcloudimg.com/raw/6b5686f2805b999f2a117f84271155d1.png)
 
 ### 类说明
 **QCloudRealTimeRecognizer 初始化说明**
