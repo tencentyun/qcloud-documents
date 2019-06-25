@@ -21,7 +21,7 @@ Window，Linux 或者 Mac OS
    对于不同类型的 Linux 实例，管理员帐号不同。如下表所示：
 <table>
 <tr><th>实例操作系统</th><th>管理员帐号</th><th>密码/密钥</th></tr>
-<tr><td>SUSE/CentOS/Debian</td><td>root</td><td rowspan="2"><ul><li>如果您在购买实例时设置了自动生成密码，可登录腾讯云控制台，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img> ，进入站内消息页面，获取云服务器登录管理员帐号及初始密码。</li><li>如果您选择了自定义密码，则密码为您在购买云服务器实例时指定的密码。</li><li>如果您在购买实例时选择密钥登录，请牢记密钥存放在本地的绝对路径。</li><li>如果您忘记登录云服务器的密码或密钥，请参考 <a href="https://cloud.tencent.com/document/product/213/16566">重置实例密码</a> 或者 <a href="https://cloud.tencent.com/document/product/213/16691#.E5.88.9B.E5.BB.BA-ssh-.E5.AF.86.E9.92.A5">创建 SSH 密钥</a> 进行重置。</li></ul></td></tr>
+<tr><td><ul><li>SUSE</li><li>CentOS</li><li>Debian</li></ul></td><td>root</td><td rowspan="2"><ul><li>如果您在购买实例时选择自动生成密码，则可登录腾讯云控制台，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img> ，进入站内消息页面，获取云服务器登录管理员帐号及初始密码。</li><li>如果您在购买实例时选择自定义密码，则登录密码为您在购买云服务器实例时指定的密码。</li><li>如果您在购买实例时选择密钥登录，请牢记密钥存放在本地的绝对路径。</li><li>如果您忘记登录云服务器的密码或密钥，请参考 <a href="https://cloud.tencent.com/document/product/213/16566">重置实例密码</a> 或者 <a href="https://cloud.tencent.com/document/product/213/16691#.E5.88.9B.E5.BB.BA-ssh-.E5.AF.86.E9.92.A5">创建 SSH 密钥</a> 进行重置。</li></ul></td></tr>
 <tr><td>Ubuntu</td><td>ubuntu</td></tr>
 </table>
 - 已打开云服务器实例的22号端口。
