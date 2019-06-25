@@ -1,14 +1,14 @@
-Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工管理内外部资源。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider，IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 Azure Active Directory 与腾讯云进行集成，从而实现 Azure AD 账户自动登录腾讯云控制台（单一登录）管理腾讯云的资源，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
+Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工管理内外部资源。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 Azure Active Directory 与腾讯云进行集成，从而实现 Azure AD 账户自动登录腾讯云控制台（单一登录）管理腾讯云的资源，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
 
 ## 创建 Azure AD 企业应用程序
 您可以通过本步骤创建 Azure AD 企业应用程序，如您已经有正在使用的应用程序，可忽略本操作，进行配置 CAM（跳转至目录 “配置 CAM”）。
 1. 进入 [Azure AD门户页](https://portal.azure.com/#home)，点击左侧导航面板中，单击【Azure Active Directory】。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bac51131949b7c9e471b5e1afdab86.png)
-2. 导航到【企业应用程序】，单击【所有应用程序】。如下图所示：
+2. 单击【企业应用程序】>【所有应用程序】。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c757580dd69950b7ce6352aaadcafc.png)
-3. 点击对话框顶部的【新建应用程序】，选择【非库应用程序】。如下图所示：
+3. 单击对话框顶部的【新建应用程序】，选择【非库应用程序】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2612274fc991eaebaec4e102048b29fe.png)
-4. 填写【名称】，点击下方【添加】，Azure AD 应用程序创建完成。如下图所示：
+4. 填写【名称】，单击下方【添加】，Azure AD 应用程序创建完成。如下图所示：
 ![](https://main.qcloudimg.com/raw/94c765a2f385e47e641f9befbcb538bf.png)
 
 ## 配置 CAM
