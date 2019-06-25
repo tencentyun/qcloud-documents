@@ -13,7 +13,7 @@
 -  **[Kerberos 安全集群](https://cloud.tencent.com/document/product/589/35064)**：是否开启集群的 Kerberos 认证功能。一般的个人用户集群无需该功能，默认关闭。
 -  **访问外部集群**：配置外部集群 HDFS 的访问地址信息后，可以读写外部集群的数据。
 
-![](https://main.qcloudimg.com/raw/f3227d18af26add31c63c43ccd0379cc.png)
+![](https://main.qcloudimg.com/raw/00abeac58bf4150fcc280eef642a4846.png)
 
 ### 2. 硬件配置
 - **节点高可用（HA）**：选择【启动高可用】后，将会默认开启2个 Master 节点，至少3个 Core 节点，以及3个 Common 节点，节点类型介绍请参见 [节点类型说明](https://cloud.tencent.com/document/product/589/14624)。
