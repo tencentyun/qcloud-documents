@@ -1,6 +1,6 @@
 本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 Docker镜像](/doc/product/457/9115) 。
 
-## 第一步、编写代码制作镜像
+## 第一步：编写代码制作镜像
 ### 编写应用程序
 1. 创建一个 hellonode 的文件夹，加入 server.js 文件。
 ```shell
@@ -75,7 +75,7 @@ The push refers to a repository [ccr.ccs.tencentyun.com/test/helloworld]
 v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107be9 size: 1772
 ```
 
-## 第二步、通过该镜像创建 Hello World 服务
+## 第二步：通过该镜像创建 Hello World 服务
 >!在创建使用 Hello World 服务之前，您必须拥有：
 > - 一个腾讯云账户。有关如何创建腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
 > -  一个创建好的集群。有关如何创建集群的详细信息，参见 [新建集群](https://cloud.tencent.com/document/product/457/9091) 。
