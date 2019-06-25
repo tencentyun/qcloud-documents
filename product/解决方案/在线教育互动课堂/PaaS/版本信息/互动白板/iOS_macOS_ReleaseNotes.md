@@ -1,5 +1,10 @@
 # Release Notes - iOS & macOS
 
+## 2.2.1 @ 2019.06.21
+回调接口修改
+- onTEBAddBoard回调boardId数组
+- onTEBDeleteBoard回调boardId数组
+
 ## 2.2.0 @ 2019.06.20
 新增接口
 - 支持白板上下页跳转是否重置步数

@@ -1,5 +1,13 @@
 # Release Notes - Android
 
+## 2.2.0 @ 2019.06.20
+1. 白板
+    - 支持白板上下页跳转是否重置步数
+    - 支持获取指定文件id的文件信息
+    - TEduBoardErrorCode增加错误码
+    - TEDU_BOARD_ERROR_TIM_HISTORYDATA 同步历史数据失败
+    - TEDU_BOARD_ERROR_RUNTIME 白板运行错误
+
 ## 2.1.0 @ 2019.05.29
 1. 白板
     - 支持图片预加载功能；

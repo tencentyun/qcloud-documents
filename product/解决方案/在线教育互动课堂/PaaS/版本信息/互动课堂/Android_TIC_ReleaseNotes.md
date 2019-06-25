@@ -1,5 +1,14 @@
 # Release Notes - Android
 
+## 2019.06.20
+1. TIC变更
+    - 进房参数TICClassroomOption增加白板初始化参数boardInitParam和白板回调boardCallback;
+    - 将白板的init()函数调整到Tic内部，简化用户使用流程；
+
+| TRTC版本 | TIM版本 | TEduBoard版本 |
+| :-: | :-: | :-: |
+|6.4.7108|4.3.145|2.2.0
+
 ## 2019.05.29
 
 修复bug
