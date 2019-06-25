@@ -15,7 +15,7 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_Wi-Fi_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
@@ -29,7 +29,7 @@
 接入步骤注意事项：见附录1。
 
 ## 3 API 介绍
-API接口由`com.tencent.mna`包下的`GSDKPlatform`类提供，该类将所有方法都设计为静态函数，开发者可用类名直接进行调用。
+API 接口由`com.tencent.mna`包下的`GSDKPlatform`类提供，该类将所有方法都设计为静态函数，开发者可用类名直接进行调用。
 
 ### 3.1 初始化
 #### 3.1.1 初始化 SDK
@@ -45,7 +45,7 @@ public static void GSDKInit(Context context, string qqappid, bool debug, int zon
 | zoneid | 玩家大区 ID | 
 | env | 云控正式环境，默认直接填 true 即可 | 
 | useBattery | 电量统计信息，默认直接填 false 即可 | 
-| tCloudKey | 腾讯云申请的 key 值,即“密钥KEY” | 
+| tCloudKey | 腾讯云申请的 key 值,即“密钥 KEY” | 
 
 #### 3.1.2 设置用户信息
 ```
@@ -102,7 +102,7 @@ public class StartSpeedRet {
 ```
 public static void GSDKStartSpeed(string vip, int vport, int htype, string hookModules, int zoneid, int stopMNA, int timeout, String pvpid)
 ```
-功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。  
+功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要5 - 6秒。完成后会回调`GSDKObserver`函数。  
 
 |参数 | 含义 | 
 |---------|---------|
@@ -199,7 +199,7 @@ public class KartinRet {
 	public string tag; // 游戏传入的Tag
 	public int flag; // 查询成功标识，若为0则成功
 	public string desc; // 查询flag的具体描述
-	// 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
+	// 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: Wi-Fi
 	public int jump_network;
 	public int jump_signal; // 信号强度
 	// 0表示绿色，信号强；1表示黄色，信号弱；2表示红色，信号极弱
