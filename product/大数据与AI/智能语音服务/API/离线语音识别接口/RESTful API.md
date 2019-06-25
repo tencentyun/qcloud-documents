@@ -2,26 +2,26 @@
 ## 接口描述
 本接口服务对一小时之内的录音文件进行识别，异步返回识别全部结果，支持语音 URL 和本地语音文件两种请求方式。接口是 HTTP RESTful 形式，在使用该接口前，需要在[ 语音识别控制台 ](https://console.cloud.tencent.com/asr)开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey ，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
-## 接口要求
+## 输入参数
 集成实时语音识别 API 时，需按照以下要求。
 
 | 内容 | 说明 | 
 | --- | --- |
 | 请求协议 | http |
-| 请求地址 | https://aai.qcloud.com/asr/v1/<appid>? {请求参数} |
+| 请求地址 | https://aai.qcloud.com/asr/v1/? {请求参数} |
 | 接口鉴权 | 签名机制，详见 [签名生成](#sign) |
-| 响应格式 | 统一采用JSON格式 |
-| 开发语言 | 任意，只要可以向腾讯云服务发起HTTP请求的均可 |
+| 响应格式 | 统一采用 JSON 格式 |
+| 开发语言 | 任意，只要可以向腾讯云服务发起 HTTP 请求的均可 |
 | 音频属性 | 采样率16k或8k（英文仅支持16k）、位长16bits、单声道 |
 | 音频格式 | 支持wav、pcm、mp3、silk、speex、amr等主流音频格式 |
-| 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于1MB；若采用上传音频url方式，本地上传限制大小为5MB。 |
+| 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于1MB；若采用上传音频 url 方式，本地上传限制大小为5MB。 |
 | 语言种类 | 中文普通话、英文和带有一定方言口音的普通话 |
 
-## 请求结构
+**请求结构**
 请求结构主要由**请求方法、请求 URL、请求头部、请求正文**组成。
-### 请求方法
+**请求方法**
 HTTPS 请求方法，录音文件识别的请求方法为 **POST**。
-### 请求URL
+**请求 URL**
 RESTful 形式的 URL 结构示例如下：
 
 ```
@@ -43,8 +43,8 @@ URL中各字段含义如下：
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [ API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
-| secretid | 是 | String | 用户在腾讯云注册账号AppId对应的SecretId，获取方法同上 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [ API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
+| secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上 |
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别 |
 | engine\_model\_type | 否 | String | 引擎类型。8k\_0：电话 8k 通用模型；16k\_0：16k 通用模型；8k\_6: 电话场景下单声道话者分离模型 |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
@@ -57,8 +57,8 @@ URL中各字段含义如下：
 | expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位 |
 
-### 请求头部
-请求头部，包括 Host、Authorization、Content-Type、Content-Length四个参数。  
+**请求头部**
+请求头部，包括 Host、Authorization、Content-Type、Content-Length 四个参数。  
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
@@ -67,17 +67,28 @@ URL中各字段含义如下：
 | Content-Type | 是 | String | application/octet-stream|
 | Content-Length | 是 | Int | 请求长度，此处对应语音数据字节数，单位：字节|
 
-### 请求正文
+**请求正文**
 请求正文主要包含音频数据，音频数据不能大于1MB。
-###  请求示例
-请求示例如下，示例生成请参考下面 PHP 代码
+
+## 输入参数
+**返回结果**
+离线语音识别的 RESTful API 请求返回结果如下表所示：
+
+| 参数名称 | 类型 | 描述 |  
+| --- | --- | --- |
+| code |  Int | 服务器错误码，0 为成功 |
+| message |  String | 服务器返回的信息 |
+| requestId |  Int | 如果成功，返回任务 ID |
+
+## 请求示例
+请求示例如下，示例生成请参考下面 PHP 代码。
 
 ```
 curl -sv -H 'Authorization:UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=' 'https://aai.qcloud.com/asr/v1/YOUR_APPID?callback_url=http://aai.qcloud.com/cb&channel_num=1&engine_model_type=1&expired=1560842782&nonce=199546&projectid=0&res_text_format=0&res_type=1&secretid=YOUR_SECRET_ID&source_type=0&sub_service_type=0&timestamp=1560839182&url=http://aai.qcloud.com/test.mp3' -d ''
 ```
 说明：其中YOUR\_APPID和YOUR\_SECRET\_ID对应的是AppID、SecretID。
 <span id="sign"></span>
-###3.6  签名生成
+**签名生成**
 这里以 Appid = 200001, SecretId = AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv为例拼接签名原文，则拼接的签名原文为：
 
 ```
@@ -93,17 +104,8 @@ POSTaai.qcloud.com/asr/v1/2000001?callback_url=http://test.qq.com/rec_callback&e
 ```
 UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 ```
-## 返回结构
-### 返回结果
-离线语音识别的 RESTful API 请求返回结果如下表所示：
 
-| 参数名称 | 类型 | 描述 |  
-| --- | --- | --- |
-| code |  Int | 服务器错误码，0 为成功 |
-| message |  String | 服务器返回的信息 |
-| requestId |  Int | 如果成功，返回任务 ID |
-
-### 返回示例
+**返回示例**
 返回消息示例如下：
 
 ```
@@ -111,7 +113,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 ```
 ## 结果回调
 当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。
-###  服务端返回结果
+**服务端返回结果**
 语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
 
 | 字段 | 类型 | 描述 |  
@@ -128,7 +130,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 >!为了防止某些字段中，出现诸如 “&” 等特殊字符，导致解包失败，所有字段的 value 值都将进行 url\_encode 之后发送给用户业务服务器，在获取 value 之后，需要先对 value 进行 url\_decode 以获取原始 value 值。
 
 
-### 客户端确认返回
+**客户端确认返回**
 用户业务服务器在接收到语音识别系统发起的 HTTP POST 回调请求后，需要按照如下约定，返回结果：
 
 | 参数名称 | 类型 | 描述 |  
@@ -136,7 +138,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
 | message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
-### 回调示例
+**回调示例**
 服务端返回 json 示例： 
 
 ``` 
@@ -196,72 +198,6 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | 10005 | 其他失败 |
 | 10006 | 音轨个数不匹配 |
 
-## PHP 代码示例
-```
-//filepath 音频文件路径
-//callBackUrl 回调地址
-//sourceUrl 语音 URL,只有filepath为空时生效
-function sendvoice($filepath, $callBackUrl, $sourceUrl) {
-	if (empty ($filepath) && empty ($sourceUrl)) {
-		echo "filepath and sourceUrl can not be empty at the same time";
-		return -1;
-	}
-	$reqArr = array ();
-	$reqArr['appid'] = Config :: $APPID;
-	$reqArr['secretid'] = Config :: $SECRET_ID;
-	$reqArr['projectid'] = 0;
-	$reqArr['sub_service_type'] = 0; //表示为离线识别
-	$reqArr['engine_model_type'] = Config :: $ENGINE_MODEL_TYPE;
-	$reqArr['callback_url'] = $callBackUrl;
-	$reqArr['channel_num'] = Config :: $CHANNEL_NUM;
-	$reqArr['res_text_format'] = Config :: $RESULT_TEXT_FORMAT;
-	$reqArr['res_type'] = Config :: $RES_TYPE;
-	$voicedata = '';
-	if (empty ($filepath)) {
-		$reqArr['source_type'] = 0; // 语音 URL；
-		$reqArr['url'] = $sourceUrl;
-	} else {
-		$reqArr['source_type'] = 1; // 语音数据（post body）
-		$voicedata = file_get_contents($filepath);
-	}
-	$reqArr['timestamp'] = time();
-	$reqArr['expired'] = time() + 24 * 60 * 60;
-	$reqArr['nonce'] = rand(1, 10000);
 
-	$serverUrl = "http://aai.qcloud.com/asr/v1/";
-	$serverUrl .= $reqArr['appid'] . "?";
-	$serverUrl .= "secretid=" . $reqArr['secretid'] . "&";
-	$serverUrl .= "projectid=" . $reqArr['projectid'] . "&";
-	$serverUrl .= "sub_service_type=" . $reqArr['sub_service_type'] . "&";
-	$serverUrl .= "engine_model_type=" . $reqArr['engine_model_type'] . "&";
-	$serverUrl .= "callback_url=" . urlencode($reqArr['callback_url']) . "&";
-	$serverUrl .= "channel_num=" . $reqArr['channel_num'] . "&";
-	$serverUrl .= "res_text_format=" . $reqArr['res_text_format'] . "&";
-	$serverUrl .= "res_type=" . $reqArr['res_type'] . "&";
-	$serverUrl .= "source_type=" . $reqArr['source_type'] . "&";
-	if ($reqArr['source_type'] == 0) {
-		$serverUrl .= "url=" . urlencode($reqArr['url']) . "&";
-	}
-	$serverUrl .= "timestamp=" . $reqArr['timestamp'] . "&";
-	$serverUrl .= "expired=" . $reqArr['expired'] . "&";
-	$serverUrl .= "nonce=" . $reqArr['nonce'];
-
-	$autho = createSign($reqArr, "POST", "aai.qcloud.com", "/asr/v1/", Config :: $SECRET_KEY);
-
-	$header = array (
-		'Authorization: ' . $autho,
-		'Content-Length: ' . strlen($voicedata),
-	);
-
-	$rsp_str = "";
-	$http_code = -1;
-	
-	$ret = http_curl_exec($serverUrl, $voicedata, $rsp_str, $http_code, 'POST', 10, array (), $header);
-	if ($ret != 0) {
-		echo "http_curl_exec failed \n";
-		return false;
-	}
-	return $rsp_str;
-}```
 
 
