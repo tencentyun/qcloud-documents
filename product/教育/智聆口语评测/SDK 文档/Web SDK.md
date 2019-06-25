@@ -56,6 +56,7 @@ let recorder = new TencentSOE({
 });
 ```
 ##### getAuthorization 回调函数说明
+
 |   参数名     |  参数描述                   | 类型      |
 |   :---:     | :---:                     | :----    |
 |   callback  |  临时密钥获取完成后的回传方法   | Function |
