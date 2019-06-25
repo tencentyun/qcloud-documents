@@ -81,9 +81,7 @@ import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     SmsSingleSenderResult result = ssender.send(0, "86", phoneNumbers[0],
@@ -108,9 +106,7 @@ import com.github.qcloudsms.SmsSingleSender;
 import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     String[] params = {"5678"};
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
@@ -136,9 +132,7 @@ import com.github.qcloudsms.SmsMultiSender;
 import com.github.qcloudsms.SmsMultiSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     SmsMultiSenderResult result =  msender.send(0, "86", phoneNumbers,
@@ -164,9 +158,7 @@ import com.github.qcloudsms.SmsMultiSender;
 import com.github.qcloudsms.SmsMultiSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     String[] params = {"5678"};
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
@@ -185,7 +177,6 @@ try {
 }
 ```
 
-
 <a id="拉取短信回执" > </a>
 - **拉取短信回执以及回复**
 ```java
@@ -194,9 +185,7 @@ import com.github.qcloudsms.SmsStatusPullCallbackResult;
 import com.github.qcloudsms.SmsStatusPullReplyResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     // Note: 短信拉取功能需要联系腾讯云短信技术支持（QQ：3012203387）开通权限
     int maxNum = 10;  // 单次拉取最大量
@@ -228,9 +217,7 @@ import com.github.qcloudsms.SmsStatusPullCallbackResult;
 import com.github.qcloudsms.SmsStatusPullReplyResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     int beginTime = 1511125600;  // 开始时间（UNIX timestamp）
     int endTime = 1511841600;    // 结束时间（UNIX timestamp）
@@ -258,7 +245,6 @@ try {
 }
 ```
 
-
 <a id="发送语音验证码" ></a>
 - **发送语音验证码**
 ```java
@@ -266,9 +252,7 @@ import com.github.qcloudsms.SmsVoiceVerifyCodeSender;
 import com.github.qcloudsms.SmsVoiceVerifyCodeSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     SmsVoiceVerifyCodeSender vvcsender = new SmsVoiceVerifyCodeSender(appid,appkey);
     SmsVoiceVerifyCodeSenderResult result = vvcsender.send("86", phoneNumbers[0],
@@ -293,9 +277,7 @@ import com.github.qcloudsms.SmsVoicePromptSender;
 import com.github.qcloudsms.SmsVoicePromptSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     SmsVoicePromptSender vpsender = new SmsVoicePromptSender(appid, appkey);
     SmsVoicePromptSenderResult result = vpsender.send("86", phoneNumbers[0],
@@ -315,15 +297,12 @@ try {
 
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
-
 ```java
 import com.github.qcloudsms.TtsVoiceSender;
 import com.github.qcloudsms.TtsVoiceSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
     int templateId = 45221;
     String[] params = {"5678"};
@@ -360,9 +339,7 @@ import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import com.github.qcloudsms.httpclient.ProxyHTTPClient;
 import org.json.JSONException;
-
 import java.io.IOException;
-
 try {
    // 创建一个代理 httpclient
     ProxyHTTPClient httpclient = new ProxyHTTPClient("127.0.0.1", 8080, "http");
@@ -392,10 +369,7 @@ import com.github.qcloudsms.SmsSingleSenderResult;
 import com.github.qcloudsms.httpclient.HTTPException;
 import com.github.qcloudsms.httpclient.PoolingHTTPClient;
 import org.json.JSONException;
-
 import java.io.IOException;
-
-
 class SmsThread extends Thread {
 
     private final SmsSingleSender sender;
@@ -427,7 +401,6 @@ class SmsThread extends Thread {
         }
     }
 }
-
 public class SmsTest {
 
     public static void main(String[] args) {
@@ -476,15 +449,11 @@ public class SmsTest {
 import com.github.qcloudsms.httpclient.HTTPClient;
 import com.github.qcloudsms.httpclient.HTTPRequest;
 import com.github.qcloudsms.httpclient.HTTPResponse;
-
 import java.io.IOException;
 import java.net.URISyntaxException;
-
 // import com.example.httpclient.MyHTTPClient
 // import com.exmaple.httpclient.MyHTTPRequest
 // import com.example.httpclient.MyHTTPresponse
-
-
 public class CustomHTTPClient implements HTTPClient {
 
     public HTTPResponse fetch(HTTPRequest request) throws IOException, URISyntaxException {
@@ -508,11 +477,8 @@ public class CustomHTTPClient implements HTTPClient {
         // 如果需要关闭必要资源
     }
 }
-
 // 创建自定义 HTTP client
 CustomHTTPClient httpclient = new CustomHTTPClient();
 // 构造 API 对象时传入自定义 HTTP client
 SmsSingleSender ssender = new SmsSingleSender(appid, appkey, httpclient);
 ```
-
-
