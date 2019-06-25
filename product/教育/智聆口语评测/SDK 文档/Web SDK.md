@@ -6,7 +6,7 @@
 
 ### 使用说明
 
-#### SDK引入
+#### SDK 引入
 只需要在您的 Web 页面中添加如下代码即可：
 ```html
 <script src="https://imgcache.qq.com/open/qcloud/soe/TencentSOE-0.1.0.js"></script>
@@ -17,15 +17,15 @@ new TencentSOE
 
 |      参数         |  类型     |  说明    |  是否必填 | 默认值 |
 |     :---:        | :---:    | :---    | :----: | :----  |
-| SecretId         | String   | 用户SecretId | 否| 无 |
-| SecretKey        | String   | 用户SecretKey | 否 | 无 |
+| SecretId         | String   | 用户 SecretId | 否| 无 |
+| SecretKey        | String   | 用户 SecretKey | 否 | 无 |
 | getAuthorization | function | 获取临时密钥接口 | 否 | 无 |
 | TransInitUrl     | String   | 发音数据传输附带初始化接口地址 | 否 | 无 |
 | WorkMode         | Integer  | 上传方式：语音输入模式，0流式分片（微信端无效），1非流式一次性评估 | 否 | 0 |
 | EvalMode         | Integer  | 0：词模式（中文评测模式下为文字模式），1：句子模式，2：段落模式，3：自由说模式 | 否 | 0 |
 | ScoreCoeff       | Float    | 评价苛刻指数，取值为[1.0 - 4.0]范围内的浮点数<br>用于平滑不同年龄段的分数，1.0为小年龄段，4.0为最高年龄段 | 否 | 3.5 |
-| SoeAppId         | String   | 业务应用ID，与账号应用APPID无关，是用来方便客户管理服务的参数 | 否 | 无 |
-| StorageMode      | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
+| SoeAppId         | String   | 业务应用 ID，与账号应用 APPID 无关，是用来方便客户管理服务的参数 | 否 | 无 |
+| StorageMode      | Integer  | 音频存储模式，0：不存储，1：存储到公共对象存储，<br>输出结果为该会话最后一个分片 TransmitOralProcess 返回结果 AudioUrl 字段 | 否 | 无 |
 | ServerType       | Integer  | 评估语言，0：英文，1：中文 | 否 | 0 |
 | TextMode         | Integer  | 输入文本模式，0: 普通文本，1: 音素结构文本 | 否 | 0 |
 | MediaUrl         | String   | 获取高清语音素材获取接口（微信端） | 是 | 0 |
@@ -33,7 +33,7 @@ new TencentSOE
 | error            | function | 创建失败回调 | 否 | 无 |
 > 必须同时提供getAuthorization 或者 SecretId和SecretKey 或者 TransInitUrl
 
-- 方式一（推荐）：提供获取[临时密钥](https://cloud.tencent.com/document/api/598/13896)回调函数
+- 方式一（推荐）：提供获取 [临时密钥](https://cloud.tencent.com/document/api/598/13896) 回调函数
 ```js
 let recorder = new TencentSOE({
   getAuthorization(callback) {
@@ -55,7 +55,7 @@ let recorder = new TencentSOE({
   }
 });
 ```
-##### getAuthorization回调函数说明
+##### getAuthorization 回调函数说明
 |   参数名     |  参数描述                   | 类型      |
 |   :---:     | :---:                     | :----    |
 |   callback  |  临时密钥获取完成后的回传方法   | Function |
@@ -64,12 +64,12 @@ let recorder = new TencentSOE({
 
 | 属性名        |  参数描述                                     | 类型    | 必填 |
 | :---        | :---                                        | :----  | :--- |
-| Token        |  获取回来的临时密钥的Token           | String | 是   |
-| TmpSecretId  |  获取回来的临时密钥的TmpSecretId，用于前端计算签名  | String | 是   |
-| TmpSecretKey |  获取回来的临时密钥的TmpSecretKey，用于前端计算签名 | String | 是   |
-| ExpiredTime  |  获取回来的临时密钥的ExpiredTime，过期时间        | String | 是   |
+| Token        |  获取回来的临时密钥的 Token           | String | 是   |
+| TmpSecretId  |  获取回来的临时密钥的 TmpSecretId，用于前端计算签名  | String | 是   |
+| TmpSecretKey |  获取回来的临时密钥的 TmpSecretKey，用于前端计算签名 | String | 是   |
+| ExpiredTime  |  获取回来的临时密钥的 ExpiredTime，过期时间        | String | 是   |
 
-临时签名policy示例如下：
+临时签名 policy 示例如下：
 ```json
 {
   "version": "2.0",
@@ -98,8 +98,8 @@ let recorder = new TencentSOE({
   }
 });
 ```
-##### TransInitUrl接口说明：
-接口方法为POST，需要对前端传来的参数进行签名，再调用云API的TransmitOralProcessWithInit（发音数据传输接口附带初始化过程）接口，返回的数据格式不必再做封装，透传云API返回的数据即可，成功返回{"Response":{"RequestId": "xxx"...}}，
+##### TransInitUrl 接口说明：
+接口方法为 POST，需要对前端传来的参数进行签名，再调用云 API 的 TransmitOralProcessWithInit （发音数据传输接口附带初始化过程）接口，返回的数据格式不必再做封装，透传云 API 返回的数据即可，成功返回{"Response":{"RequestId": "xxx"...}}，
 失败返回{"Response":{"RequestId":"xxx","Error":{"xxx":"xxx"}...}}，用户可自行实现签名逻辑，
 也可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)）
 
@@ -217,8 +217,8 @@ sdk调试可单击[这里](https://soe.cloud.tencent.com/demo)
 
 
 ### 微信端说明
-只支持一次性测评，录音最长时长为一分钟，超过一分钟会自动触发停止录音。使用前必须引入[微信js-sdk](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)，
-wx接口列表jsApiList需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE对象的创建需在wx成功验证后，如下：
+只支持一次性测评，录音最长时长为一分钟，超过一分钟会自动触发停止录音。使用前必须引入 [微信js-sdk](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)，
+wx 接口列表 jsApiList 需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE对象的创建需在wx成功验证后，如下：
 ```js
 wx.ready(function() {
   var recorder = new TencentSOE({
@@ -233,9 +233,9 @@ wx.ready(function() {
   });
 });
 ```
-用户需提供MediaUrl接口用于获取高清语音素材，接受mediaId作为传入参数，通过mediaId和token调用微信高清语音素材获取接口，返回文件流。
-接口实现参考微信[获取临时素材](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1444738727)中的"附录：高清语音素材获取接口"部分。
-下面提供nodejs版的示例：
+用户需提供 MediaUrl 接口用于获取高清语音素材，接受mediaId作为传入参数，通过 mediaId 和 token 调用微信高清语音素材获取接口，返回文件流。
+接口实现参考微信 [获取临时素材](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1444738727) 中的"附录：高清语音素材获取接口"部分。
+下面提供 nodejs 版的示例：
 ```js
 module.exports = async function(req, res, next) {
   var id = req.query.mediaId; // 获取请求的参数mediaId
@@ -254,13 +254,13 @@ module.exports = async function(req, res, next) {
 | 10003    | 未提供发音评估初始化接口     |
 | 10004    | 未提供发音数据传输接口接口   |
 | 10005    | 未提供测评文本             |
-| 10006    | 上传文件必须是mp3类型       |
-| 10007    | 未引入微信JS-SDK          |
+| 10006    | 上传文件必须是 mp3 类型       |
+| 10007    | 未引入微信 JS-SDK          |
 | 10008    | 用户拒绝用户拒绝授权录音     |
 | 10009    | 上传文件必须是mp3类型       |
 | 10010    | 网络异常                  |
-| 10011    | TransInitUrl接口不正确     |
-| 10012    | MediaUrl接口不正确         |
+| 10011    | TransInitUrl 接口不正确     |
+| 10012    | MediaUrl 接口不正确         |
 | 10013    | 录音失败，请重新录音         |
 | 10020    | 接口错误，具体看返回信息      |
 
@@ -269,13 +269,13 @@ module.exports = async function(req, res, next) {
 | 操作系统平台	  | 浏览器/webview                  | 版本要求 | 备注|
 |  :---:      | :---                           | :---   | :--- |
 | iOS         | Safari ( 只支持Safari )         | 11.1.2 | |
-| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机QQ默认内置的浏览器内核为TBS。[TBS介绍](https://x5.tencent.com/) |
+| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为TBS。[TBS 介绍](https://x5.tencent.com/) |
 | Android     | Chrome                         | 60+    | |
 | Mac         | Chrome                         | 47+    | |
 | Mac         | Safari                         | 11+    | |
 | Windows(PC) | Chrome                         | 52+    | |
 | Windows(PC) | QQ浏览器                        | 10.2   | |
-| 微信端       | 微信默认webview                  | 无     | 需引入微信JS-SDK|
+| 微信端       | 微信默认webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
-非本地环境必须使用https协议
+非本地环境必须使用 https 协议
