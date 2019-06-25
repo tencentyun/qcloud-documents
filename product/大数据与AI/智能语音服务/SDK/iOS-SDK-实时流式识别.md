@@ -23,11 +23,23 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 
 ```objective-c
-   <key>NSAppTransportSecurity</key>
-   <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/> 
-   </dict>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>qcloud.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.2</string>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSRequiresCertificateTransparency</key>
+			<false/>
+		</dict>
+	</dict>
+    </dict>
 ```
 2. **申请系统麦克风权限，添加如下内容：**
 
@@ -42,7 +54,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
    + CoreTelephony.framework
    + libWXVoiceSpeex.a
    
-4. **添加完如图所示：**
+   添加完如图所示。
 ![](https://main.qcloudimg.com/raw/6b5686f2805b999f2a117f84271155d1.png)
 
 ### 类说明
