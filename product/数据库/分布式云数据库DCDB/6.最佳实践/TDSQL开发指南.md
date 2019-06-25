@@ -665,9 +665,9 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 	| status_name                 | value                                                                        |
 	+-----------------------------+------------------------------------------------------------------------------+
 	| cluster                     | group_1499858910_79548                                                       |
-	| set_1499859173_1:ip         | 10.49.118.165:5025;10.175.98.109:5025@1@IDC_4@0,10.231.23.241:5025@1@IDC_2@0 |
+	| set_1499859173_1:ip         | xxx.xxx.xxx.xxx:xxxx;xxx.xxx.xxx.xxx:xxxx@1@IDC_4@0,xxx.xxx.xxx.xxx:xxxx@1@IDC_2@0 |
 	| set_1499859173_1:hash_range | 0---31                                                                       |
-	| set_1499911640_3:ip         | 10.49.118.165:5026;10.175.98.109:5026@1@IDC_4@0,10.231.23.241:5026@1@IDC_2@0 |
+	| set_1499911640_3:ip         | xxx.xxx.xxx.xxx:xxxx;xxx.xxx.xxx.xxx:xxxx@1@IDC_4@0,xxx.xxx.xxx.xxx:xxxx@1@IDC_2@0 |
 	| set_1499911640_3:hash_range | 32---63                                                                      |
 	| set                         | set_1499859173_1,set_1499911640_3                                            |
 ```
@@ -691,9 +691,10 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 导出前设置`net_write_timeout`参数：`set global net_write_timeout=28800`
 ```
 	mysqldump --compact --single-transaction --no-create-info -c
-                     shard sbtest1  -utest -h10.231.136.34 -P3336  -ptest123
+                     shard sbtest1  -uxxx -hxxx.xxx.xxx.xxx -Pxxxx -pxxx
 ```
-    具体参数根据实际情况选择，如果导出的数据要导入到另外一套TDSQL环境的话，必须加上-c选项
+
+具体参数根据实际情况选择，如果导出的数据要导入到另外一套TDSQL环境的话，必须加上-c选项
 
 如果要导入数据的话，提供专门的导入工具，完成load data outfile对应数据的导入：
 ```
@@ -701,7 +702,7 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 	
 	format:./load_data mode0/mode1 proxy_host proxy_port user password db_table shardkey_index file field_terminate filed_enclosed
 	
-	    example:./load_data mode1 10.231.136.34 3336 test test123 shard.table  1 '/tmp/datafile'  ' ' ''
+	    example:./load_data mode1 1x.231.136.34 3336 test test123 shard.table  1 '/tmp/datafile'  ' ' ''
 	
 	
 	
@@ -1119,6 +1120,6 @@ proxy增加如下错误编码
 	
 	};
 ```
-其中900以上为系统错误，会通过监控平台进行告警
+其中900以上为系统错误，会通过监控平台进行告警。
 
 
