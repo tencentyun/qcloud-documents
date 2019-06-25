@@ -1,4 +1,4 @@
-Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工管理内外部资源。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider, IdP）使用的一种开放标准。您可以通过基于 SAML 2.0联合身份验证将 Azure Active Directory 与腾讯云进行集成，从而实现 Azure AD 账户自动登录腾讯云控制台（单一登录）管理腾讯云的资源，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
+Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工管理内外部资源。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider, IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 Azure Active Directory 与腾讯云进行集成，从而实现 Azure AD 账户自动登录腾讯云控制台（单一登录）管理腾讯云的资源，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
 
 ## 创建 Azure AD 企业应用程序
 您可以通过本步骤创建 Azure AD 企业应用程序，如您已经有正在使用的应用程序，可忽略本操作，进行配置 CAM（跳转至目录 “配置 CAM”）。
