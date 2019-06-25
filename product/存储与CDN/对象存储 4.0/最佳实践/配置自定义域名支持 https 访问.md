@@ -1,19 +1,21 @@
 用户可通过自有域名（自定义域名，如`test.cos.com`）访问存储桶（Bucket）下的对象（Object）。具体操作指引如下：
-- [开启 CDN 加速时配置自定义域名支持 HTTPS 访问](#开启 CDN 加速)
-- [关闭 CDN 加速时配置自定义域名支持 HTTPS 访问](#关闭 CDN 加速)
+- [开启 CDN 加速时配置自定义域名支持 HTTPS 访问](#开启CDN加速)
+- [关闭 CDN 加速时配置自定义域名支持 HTTPS 访问](#关闭CDN加速)
 
-<span id="开启 CDN 加速"></span>
+
+
+<span id="开启CDN加速"></span>
 ## 开启 CDN 加速
 ### 一、绑定自定义域名
 将存储桶绑定到您的自有域名，开启 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#开启 CDN 加速)。
 ### 二、配置 HTTPS 访问
 在 CDN 控制台进行 HTTPS 配置，操作指引参考 [HTTPS 配置](/doc/product/228/6295)。
-<span id="关闭 CDN 加速"></span>
+<span id="关闭CDN加速"></span>
 ## 关闭 CDN 加速
 本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 https 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问所属地域为华南、名称为 testhttps-12345678 的存储桶，具体操作步骤如下：
 
 ### 一、绑定自定义域名
-将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#关闭 CDN 加速)。
+将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速。操作指引参考 [域名管理--自定义域名](/doc/product/436/6252#关闭CDN加速)。
 ### 二、为域名配置反向代理
 在服务器上为域名`https://test.cos.com` 配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
 ```
