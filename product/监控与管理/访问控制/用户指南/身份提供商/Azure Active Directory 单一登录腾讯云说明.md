@@ -14,7 +14,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ## 配置 CAM
 您可以通过本步骤配置 Azure AD 和腾讯云之间的信任关系使之相互信任。您可以通过在 Azure AD 下载【联合元数据 XML】文件，上传至腾讯云完成验证。
 1. 访问您已创建的 Azure AD 应用程序概览页（或通过单击左侧导航【Azure Active Directory】>【企业应用程序】>【所有应用程序】> 选择您已创建的应用程序）。
-2. 单击【单一登录】打开单一登录方法页面，单击【SAML】。如下图所示：
+2. 单击【单一登录】打开选择单一登录方法页面，单击【SAML】。如下图所示：
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
 3. 在 SAML 单一登录 - 预览版页界面，下载【SAML签名证书】中的【联合元数据 XML】文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/e2b9ed5ca753af40f8a3501d88168cec.png)
