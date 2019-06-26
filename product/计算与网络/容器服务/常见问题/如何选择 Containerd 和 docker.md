@@ -2,7 +2,7 @@
 容器运行时（Container Runtime）是 Kubernetes 最重要的组件之一，负责真正管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
 
 TKE 支持用户选择 containerd 和 docker 作为运行时组件：
-containerd 调用链更短，组件更少,  更稳定，占用节点资源更少。 建议选择 containerd， 除以下情况需要选择 docker 作为运行时组件。
+containerd 调用链更短，组件更少,  更稳定，占用节点资源更少。 建议选择 containerd， 除以下情况需要选择 docker 作为运行时组件：
 - 如需使用 docker in docker，请选择 docker。
 - 如需在 TKE 节点使用 docker build/push/save/load 等命令， 请选择 docker。
 - 如需调用 docker API， 请选择 docker。
@@ -21,7 +21,7 @@ containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 实
 | 删除本地镜像   | docker rmi     | crictl rmi      |
 | 查看镜像详情   | docker inspect | crictl inspecti |
 
----
+
 
 | 容器相关功能 | docker         | containerd     |
 |:------ |:-------------- |:-------------- |
@@ -36,7 +36,6 @@ containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 实
 | logs   | docker logs    | crictl logs    |
 | stats  | docker stats   | crictl stats   |
 
----
 
 | POD 相关功能 | docker | containerd      |
 |:------- |:------ |:--------------- |
@@ -55,11 +54,37 @@ containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 实
 ## 其他差异
 ### 容器日志及相关参数
 
-| 对比项         | docker         | containerd       |
-|:----------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 存储路径        | docker 作为 k8s 容器运行时的情况下，容器日志的落盘由 docker 来完成， 保存在类似 `/var/lib/docker/containers/$CONTAINERID` 目录下。kubelet 会在 `/var/log/pods` 和 `/var/log/containers` 下面建立软链接，指向 `/var/lib/docker/containers/$CONTAINERID` 目录下的容器日志文件。 | containerd 作为 k8s 容器运行时的情况下， 容器日志的落盘由 kubelet 来完成，保存到 `/var/log/pods/$CONTAINER_NAME` 目录下，同时在 `/var/log/containers` 目录下创建软链接，指向日志文件。                                                                      |
-| 配置参数        | 在 docker 配置文件中指定：<br>    "log-driver": "json-file", <br>    "log-opts": {"max-size": "100m","max-file": "5"}                                                                                            | 方法一：在 kubelet 参数中指定： <br> --container-log-max-files=5 --container-log-max-size="100Mi" <br>方法二：在 KubeletConfiguration 中指定：<br>    "containerLogMaxSize": "100Mi",<br>    "containerLogMaxFiles": 5, |
-| 把容器日志保存到数据盘 | 把数据盘挂载到“data-root”（缺省是 /var/lib/docker）即可                                                                                                                                                              | 创建一个软链接 /var/log/pods 指向数据盘挂载点下的某个目录 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 /var/log/pods                                                                                                              |
+<table>
+	<tr>
+	<th style="width:10%;">对比项</th>
+	<th>docker</th>
+	<th>containerd</th>
+	</tr>
+	<tr>
+		<td>存储路径</td>
+		<td>
+		docker 作为 k8s 容器运行时的情况下，容器日志的落盘由 docker 来完成， 保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 目录下的容器日志文件。
+		</td>
+		<td>
+		containerd 作为 k8s 容器运行时的情况下， 容器日志的落盘由 kubelet 来完成，保存到 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
+		</td>
+	</tr>
+	<tr>
+		<td>配置参数 </td>
+		<td>
+		 在 docker 配置文件中指定：<br>    "log-driver": "json-file", <br>    "log-opts": {"max-size": "100m","max-file": "5"}    
+		</td>
+		<td>
+		方法一：在 kubelet 参数中指定： <br> --container-log-max-files=5 --container-log-max-size="100Mi" <br>方法二：在 KubeletConfiguration 中指定：<br>    "containerLogMaxSize": "100Mi",<br>    "containerLogMaxFiles": 5, 
+		</td>
+	</tr>
+	<tr>
+	<td>把容器日志保存到数据盘</td>
+	<td>把数据盘挂载到“data-root”（缺省是 <code>/var/lib/docker</code>）即可</td>
+	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>
+	</td>
+	</tr>
+</table>
 
 ### stream server
 kubectl exec/logs 等命令需要在 apiserver 跟容器运行时之间建立流转发通道。
