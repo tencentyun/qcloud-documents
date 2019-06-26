@@ -63,7 +63,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/511cc41e3da391d05ae1cf69daef4994.png)
 >?用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】。您可以复制保存用户名、密码留用。
 >
-3. 单击左侧导航栏【Azure Active Directory】，选择【企业应用程序】，选择您之前创建的应用程序概览页面，单击【用户和组】。如下图所示：
+3. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】> 选择您之前创建的应用程序，进入应用程序概览页面，单击【用户和组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fbc968bbdcdc1b1378e79a5e116d28a.png)
 4. 单击【添加用户】，打开【用户和组】，选择 [步骤2](#step2) 您创建的用户，单击【选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd12f9c49ef1fd01bafc1d88566798e7.png)
