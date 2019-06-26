@@ -12,7 +12,7 @@
 
 ## 开发环境
 **基本编译环境**
-python 2.7版本
+Python 2.7版本
 **requests**
 ```
 安装方法：pip install requests  
