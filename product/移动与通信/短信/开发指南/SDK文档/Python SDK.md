@@ -39,7 +39,7 @@ pip install qcloudsms_py
 - **手动配置：**
  1.手动下载或 clone 最新版本 qcloudsms_py 代码。
  2.在 qcloudsms_py 目录运行 `python setup.py install`或直接把 qcloudsms_py 所在目录加入`sys.path`。
- >?python2/python3 都支持。
+ >?Python 2/Python 3都支持。
 
 ### 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
