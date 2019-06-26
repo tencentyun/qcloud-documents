@@ -63,14 +63,15 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/511cc41e3da391d05ae1cf69daef4994.png)
 >?用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】。您可以复制保存用户名、密码留用。
 >
-3. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】> 选择您之前创建的应用程序概览页面 >【用户和组】。如下图所示：
+3. 单击左侧导航栏【Azure Active Directory】，选择【企业应用程序】，选择您之前创建的应用程序概览页面，单击【用户和组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fbc968bbdcdc1b1378e79a5e116d28a.png)
 4. 单击【添加用户】，打开【用户和组】，选择 [步骤2](#step2) 您创建的用户，单击【选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd12f9c49ef1fd01bafc1d88566798e7.png)
 5. 跳转到“添加分配”页面，确认后单击【分配】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e463c38b9bd16bb36b053f41550727d.png)
-6. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】> 选择您之前创建的应用程序 >【单一登录】，打开 “SAML 单一登录”概览界面，单击【测试】。如下图所示：
+6. 单击左侧导航栏【Azure Active Directory】，选择【企业应用程序】， 选择您之前创建的应用程序 ，进入应用程序概览页面。
+7. 单击【单一登录】，打开 “SAML 单一登录”概览界面，单击【测试】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3be1fec2ce529715a56f5a18ff6c20ce.png)
-7. 在“测试单一登录”界面，选择【以其他用户的身份登录】。
-8. 输入 [步骤2](#step2) 保存的用户名、密码，登录腾讯云控制台。如下图所示：
+8. 在“测试单一登录”界面，选择【以其他用户的身份登录】。
+9. 输入 [步骤2](#step2) 保存的用户名、密码，登录腾讯云控制台。如下图所示：
 ![](https://main.qcloudimg.com/raw/d0abae59eb22d5fc515fbabbcc48df3f.png)
