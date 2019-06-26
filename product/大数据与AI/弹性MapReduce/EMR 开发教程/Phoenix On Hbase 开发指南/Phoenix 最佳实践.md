@@ -1,6 +1,6 @@
 - 使用 Phoenix salted 表
 
-    Hbase 的 Row Key 假如没有经过精心设计，如果它又是自增长的，那么顺序写很可能会导致热点问题。PHoenix 提供了一种透明的方法，关联 salt 和 RowKey 到一张指定表的方案。只需要在创建表的时候添加 SALT_BUCKETS 关键字，这个值的范围是 1 到 256。比如：
+    Hbase 的 Row Key 假如没有经过精心设计，如果它又是自增长的，那么顺序写很可能会导致热点问题。PHoenix 提供了一种透明的方法，关联 salt 和 RowKey 到一张指定表的方案。只需要在创建表的时候添加 SALT_BUCKETS 关键字，这个值的范围是1到256。比如：
 
     ``` sql
     0: jdbc:phoenix:>CREATE TABLE table (a_key VARCHAR PRIMARY KEY, a_col VARCHAR) SALT_BUCKETS = 20;
@@ -18,7 +18,7 @@
 
 - Phoenix 二级索引配置
 
-    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的, 可变的索引只需按照以下步骤配置即可。打开 EMR 控制台详情页面，单击进入组件配置详情切页。单击参数配置，增加 hbase-site.xml 的 "hbase.regionserver.wal.codec"，"hbase.region.server.rpc.scheduler.factory.class"和"hbase.rpc.controllerfactory.class"三个配置项即可, 详细配置如下：
+    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的, 可变的索引只需按照以下步骤配置即可。打开 EMR 组件管理页面，选择【Hbase】，单击【配置】，进入配置管理页，增加 hbase-site.xml 的 "hbase.regionserver.wal.codec"，"hbase.region.server.rpc.scheduler.factory.class"和"hbase.rpc.controllerfactory.class"三个配置项即可, 详细配置如下：
 
     ``` xml
     <property>
