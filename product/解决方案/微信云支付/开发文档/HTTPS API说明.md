@@ -2346,7 +2346,7 @@ content_type：application/json
       <td>machine_info</td>
       <td>是</td>
       <td>String</td>
-      <td>CPU 使用率，内存使用率，磁盘使用情况等，json 结构</td>
+      <td>cpu 使用率，内存使用率，磁盘使用情况等，json 结构</td>
    </tr>
 </table>
 
