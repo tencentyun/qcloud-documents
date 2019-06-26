@@ -6,7 +6,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 >?您可以通过本步骤创建 Azure AD 企业应用程序，如您已经有正在使用的应用程序，可忽略本操作，进行 [配置 CAM](#stepCAM)。
 
 
-1. 进入 [Azure AD 门户页](https://portal.azure.com/#home)，单击左侧导航面板中【Azure Active Directory】。如下图所示：
+1. 进入 [Azure AD 门户页](https://portal.azure.com/#home)，单击左侧导航栏中【Azure Active Directory】。如下图所示：
 ![](https://main.qcloudimg.com/raw/69bac51131949b7c9e471b5e1afdab86.png)
 2. 单击【企业应用程序】，选择【所有应用程序】。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c757580dd69950b7ce6352aaadcafc.png)
