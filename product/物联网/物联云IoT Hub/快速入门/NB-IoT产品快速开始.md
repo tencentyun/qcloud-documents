@@ -9,23 +9,25 @@
 
 ## 操作步骤
 ### 创建 NB-IoT 产品和设备
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。
-2. 进入产品列表页面，单击【创建新产品】，即可创建 NB-IoT 产品。  
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。
+2. 进入产品列表页面，单击【创建新产品】，即可开始创建 NB-IoT 产品。  
 3. 在弹出添加新产品页面中，根据实际情况填写相关信息，认证方式选择密钥认证。
 ![](https://main.qcloudimg.com/raw/1b9ba5e7e77e6af33d96ac2db5d66427.png)
-4. 创建成功后，即可查看产品的基本信息。  
-5. 在【设备列表】下创建设备（NB001），运营商选择电信 NB-IoT。 
+4. 单击【确定】，即创建成功。
+5. 创建成功后，即可查看产品的基本信息。  
+6. 选择产品列表 > 设备列表，在设备列表页面创建设备（NB001），运营商选择电信 NB-IoT。 
 ![](https://main.qcloudimg.com/raw/b4ad2d17973e47e419b41528c82331d4.png)
-6. 单击【管理】可查询设备详情。  
+7. 单击【确认添加】，即可完成设备创建。
+8. 单击【管理】，可查询设备详情。  
 
 
 ### 创建规则引擎
-本示例是将上报的数据转发到用户的应用平台，采用 http post 请求推送，包体为 json。规则引擎同时还支持转发腾讯云存储组件，消息队列等。 
+本示例是将上报的数据转发到用户的应用平台，采用 HTTP POST 请求推送，包体为 JSON。规则引擎同时还支持转发腾讯云存储组件，消息队列等。 
 ![](https://main.qcloudimg.com/raw/ff7f0c70c574d37d5c27d712c14c5062.png)  
 具体步骤请参见 [规则引擎详情](https://cloud.tencent.com/document/product/634/14446)。
 
 ### 下载 NB-IoT SDK
-SDK 下载地址请参考：[SDK 下载](https://cloud.tencent.com/document/product/634/11928)。
+下载地址请参见：[SDK 下载](https://cloud.tencent.com/document/product/634/11928)。
 
 ### 配置 C-SDK 示例程序
 samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例代码。  
@@ -34,7 +36,7 @@ samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例
 
 #### 上传数据编码
 接口介绍  
-`int IOT_NB_setMessage(unsigned char* msg, unsigned int* length, NBIoTSetMessage* nbiotMsg);`  
+```int IOT_NB_setMessage(unsigned char* msg, unsigned int* length, NBIoTSetMessage* nbiotMsg);```  
 
 | 参数名称 | 描述 | 
 |---------|---------|
@@ -43,10 +45,10 @@ samples/nbiot/nbiot_sample.c 是上传数据编码和下发数据解码的示例
 | nbiotMsg | nbiot 终端发送消息的结构体，包括 address、 version、签名类型、过期时间、传输质量、topic、payload、key 等信息  | 
 
 
- 
 #### 下发数据解码
 接口介绍  
-`int IOT_NB_getMessage(NBIoTGetMessage* nbiotMsg, unsigned char* msg);` 
+
+```int IOT_NB_getMessage(NBIoTGetMessage* nbiotMsg, unsigned char* msg);``` 
 
 | 参数名称| 描述 | 
 |---------|---------|
@@ -83,7 +85,7 @@ len，data 由 [以上步骤](https://cloud.tencent.com/document/product/634/183
 执行 AT+NMGS 命令后，NB-IoT 模组发送完数据后，回复 OK，此时数据已经发给基站，但基站不一定接收成功。  
 收到确认上报数据消息 AAAA0000，表示电信平台收到数据。（用户可以根据需要，设置重新上报数据次数，超时等待建议3秒）。  
 4. 应用平台接收数据  
-应用平台收到 http post 推送数据，body 内容示例如下：
+应用平台收到 HTTP POST 推送数据，BODY 内容示例如下：
 ```
 {"payload":xxxx, "seq":12345, "timestamp":140000245, "topic":"/xx/xx/xx", "devicename":"xx", "productid":"xx"}
 ```  
