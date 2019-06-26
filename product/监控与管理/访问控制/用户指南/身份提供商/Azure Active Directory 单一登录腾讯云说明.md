@@ -10,7 +10,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/69bac51131949b7c9e471b5e1afdab86.png)
 2. 单击【企业应用程序】，选择【所有应用程序】。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c757580dd69950b7ce6352aaadcafc.png)
-3. 单击对话框顶部的【新建应用程序】打开“添加应用程序”窗口，选择【非库应用程序】。如下图所示：
+3. 单击【新建应用程序】打开“添加应用程序”窗口，选择【非库应用程序】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2612274fc991eaebaec4e102048b29fe.png)
 4. 填写【名称】，单击【添加】，即可完成 Azure AD 应用程序的创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/94c765a2f385e47e641f9befbcb538bf.png)
@@ -31,11 +31,11 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 >
 1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标。如下图所示：
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
-2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击左上角【保存】。如下图所示：
+2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】，完成后关闭“基本 SAML 配置”编辑页面。如下图所示：
  - 标识符（实体 ID）：http://cloud.tencent.com
  - 回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/d13c71c27fe913bc2d9c21949f731a02.png)
-3. 关闭“基本 SAML 配置”编辑页面，单击右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标，打开“用户属性声明”编辑页面。如下图所示：
+3. 单击“用户属性和声明”右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标，打开“用户属性声明”编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/a22fe80458fd6867cc8595f7404145e2.png)
 4. 在“用户属性和声明”编辑页面，单击【添加新的声明】，进入“管理用户声明”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4116fdd96ea5815f79db7c4aef508289.png)
@@ -61,11 +61,11 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/7ca36c24562a867451312e003c4afd25.png)
 2. <span id="step2"></span>单击左上角【新建用户】，在“用户”页面填写【姓名】、【用户名】<sup>1</sup>，勾选【显示密码】，信息无误后单击下方【创建】完成创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/511cc41e3da391d05ae1cf69daef4994.png)
->?<sup>1</sup>用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】，您可以复制保存用户名、密码留用。
+>?<sup>1</sup>用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】。您可以复制保存用户名、密码留用。
 >
-3. <span id="step3"></span>单击左侧导航栏【Azure Active Directory】，单击【企业应用程序】，打开您之前创建的应用程序概览页面，单击【用户和组】。如下图所示：
+3. 单击左侧导航栏【Azure Active Directory】，单击【企业应用程序】，打开您之前创建的应用程序概览页面，单击【用户和组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fbc968bbdcdc1b1378e79a5e116d28a.png)
-4. 单击【添加用户】，打开【用户和组】，选择 [步骤3](#step3) 您创建的用户，单击【选择】。如下图所示：
+4. 单击【添加用户】，打开【用户和组】，选择 [步骤2](#step2) 您创建的用户，单击【选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd12f9c49ef1fd01bafc1d88566798e7.png)
 5. 跳转到“添加分配”页面，确认后单击【分配】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e463c38b9bd16bb36b053f41550727d.png)
