@@ -3,10 +3,10 @@
 
 TKE 支持用户选择 contaierd 和 docker 作为运行时组件：
 containerd 调用链更短，组件更少,  更稳定，占用节点资源更少。 建议选择 containerd， 除以下情况需要选择 docker 作为运行时组件。
-1. 如需使用 docker in docker，请选择 docker。
-2. 如需在 TKE 节点使用 docker build/push/save/load 等命令， 请选择 docker。
-3. 如需调用 docker API， 请选择 docker。
-4. 如需 docker compose 或 docker swarm，请选择 docker。
+- 如需使用 docker in docker，请选择 docker。
+- 如需在 TKE 节点使用 docker build/push/save/load 等命令， 请选择 docker。
+- 如需调用 docker API， 请选择 docker。
+- 如需 docker compose 或 docker swarm，请选择 docker。
 
 更多详细对比见下文：
 
