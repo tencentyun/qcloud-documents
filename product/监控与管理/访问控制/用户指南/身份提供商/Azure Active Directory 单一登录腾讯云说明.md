@@ -24,32 +24,32 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
 4. 在 “SAML 单一登录”的预览页面，下载【SAML签名证书】中的【联合元数据 XML】文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/e2b9ed5ca753af40f8a3501d88168cec.png)
-4. 在腾讯云创建 SAML 身份提供商及角色，详细请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
+4. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
 ### 配置 Azure AD 的单一登录
 >?您可以通过本步骤将 Azure AD 应用程序属性映射到腾讯云的属性，建立 Azure AD 应用程序和腾讯云的互信关系。
 >
-1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标。如下图所示：
+1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
-2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】，完成后关闭“基本 SAML 配置”编辑页面。如下图所示：
+2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】。如下图所示：
  - 标识符（实体 ID）：http://cloud.tencent.com
  - 回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/d13c71c27fe913bc2d9c21949f731a02.png)
-3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明”右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标，打开“用户属性声明”编辑页面。如下图所示：
+3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/a22fe80458fd6867cc8595f7404145e2.png)
 4. 在“用户属性和声明”编辑页面，单击【添加新的声明】，进入“管理用户声明”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4116fdd96ea5815f79db7c4aef508289.png)
-5. 在“管理用户声明”页面，增加以下两条声明，并单击【保存】按钮。如下图所示：
+5. 在“管理用户声明”页面，增加以下两条声明，并单击【保存】。如下图所示：
 
 | 名称 | 命名空间 | 源 | 源属性 |
 |---------|---------|---------|---------|
-|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}<sup>1</sup>|
+|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
 |RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Test |
 
->?<sup>1</sup>在 Role 源属性中：
->- {AccountID} 替换为您的腾讯云帐户 ID，可前往腾讯云账号中心 > [账号信息](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName} 替换您的 CAM 角色名称，可前往腾讯云 CAM 控制台 > [角色管理](https://console.cloud.tencent.com/cam/role) 查看。
->- {ProviderName} 替换您在腾讯云填写的 SAML 身份提供商名称，可前往腾讯云 CAM 控制台 > [身份提供商](https://console.cloud.tencent.com/cam/idp) 查看。
+>?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
+>- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息](https://console.cloud.tencent.com/developer) 查看。
+>- {RoleName} 替换您的 CAM 角色名称，可前往 [角色管理](https://console.cloud.tencent.com/cam/role) 查看。
+>- {ProviderName} 替换您在腾讯云填写的 SAML 身份提供商名称，可前往  [身份提供商](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
 
@@ -59,17 +59,17 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 >
 1.	单击左侧导航栏【Azure Active Directory】，单击【用户】，打开【所有用户】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ca36c24562a867451312e003c4afd25.png)
-2. <span id="step2"></span>单击左上角【新建用户】，在“用户”页面填写【姓名】、【用户名】<sup>1</sup>，勾选【显示密码】，信息无误后单击下方【创建】完成创建。如下图所示：
+2. <span id="step2"></span>单击左上角【新建用户】，在“用户”页面填写【姓名】、【用户名】，勾选【显示密码】，信息无误后单击下方【创建】完成创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/511cc41e3da391d05ae1cf69daef4994.png)
->?<sup>1</sup>用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】。您可以复制保存用户名、密码留用。
+>?用户名格式为：用户名@域名。您可以自定义用户名，域名可以单击左侧导航栏【Azure Active Directory】，打开概述页，查看您之前设置的【初始域名】。您可以复制保存用户名、密码留用。
 >
-3. 单击左侧导航栏【Azure Active Directory】，单击【企业应用程序】，打开您之前创建的应用程序概览页面，单击【用户和组】。如下图所示：
+3. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】> 选择您之前创建的应用程序概览页面 >【用户和组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fbc968bbdcdc1b1378e79a5e116d28a.png)
 4. 单击【添加用户】，打开【用户和组】，选择 [步骤2](#step2) 您创建的用户，单击【选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd12f9c49ef1fd01bafc1d88566798e7.png)
 5. 跳转到“添加分配”页面，确认后单击【分配】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e463c38b9bd16bb36b053f41550727d.png)
-6. 单击左侧导航栏【Azure Active Directory】，单击【企业应用程序】打开您之前创建的应用程序，单击【单一登录】，打开 “SAML 单一登录”概览界面，单击【测试】。如下图所示：
+6. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】> 选择您之前创建的应用程序 >【单一登录】，打开 “SAML 单一登录”概览界面，单击【测试】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3be1fec2ce529715a56f5a18ff6c20ce.png)
 7. 在“测试单一登录”界面，选择【以其他用户的身份登录】。
 8. 输入 [步骤2](#step2) 保存的用户名、密码，登录腾讯云控制台。如下图所示：
