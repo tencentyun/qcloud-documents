@@ -26,7 +26,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/e2b9ed5ca753af40f8a3501d88168cec.png)
 4. 在腾讯云创建 SAML 身份提供商及角色，详细请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
-## 配置 Azure AD 的单一登录
+### 配置 Azure AD 的单一登录
 >?您可以通过本步骤将 Azure AD 应用程序属性映射到腾讯云的属性，建立 Azure AD 应用程序和腾讯云的互信关系。
 >
 1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">”图标。如下图所示：
@@ -54,7 +54,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
 
 
-## 配置 Azure AD 用户
+### 配置 Azure AD 用户
 >?您可以通过本步骤分配用户访问权限，向 Azure AD 用户分配腾讯云的 SSO 访问权限。
 >
 1.	单击左侧导航栏【Azure Active Directory】，单击【用户】，打开【所有用户】。如下图所示：
