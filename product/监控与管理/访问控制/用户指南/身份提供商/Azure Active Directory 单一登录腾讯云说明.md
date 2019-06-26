@@ -23,7 +23,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 3. 在打开的“选择单一登录方法”页面，选择【SAML】。如下图所示：
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
 4. 在 “SAML 单一登录”的预览页面，下载【SAML签名证书】中的【联合元数据 XML】文件。如下图所示：
-![](https://main.qcloudimg.com/raw/e2b9ed5ca753af40f8a3501d88168cec.png)
+![](https://main.qcloudimg.com/raw/d5c7a2ab2a5d7406cd6c5b549e9799a1.png)
 4. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
 ### 配置 Azure AD 的单一登录
@@ -36,7 +36,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
  - 回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/d13c71c27fe913bc2d9c21949f731a02.png)
 3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明右上角的“<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
-![](https://main.qcloudimg.com/raw/a22fe80458fd6867cc8595f7404145e2.png)
+![](https://main.qcloudimg.com/raw/012441d7e961f9f784e05cc347c66294.png)
 4. 在“用户属性和声明”编辑页面，单击【添加新的声明】，进入“管理用户声明”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4116fdd96ea5815f79db7c4aef508289.png)
 5. 在“管理用户声明”页面，增加以下两条声明，并单击【保存】。如下图所示：
@@ -47,9 +47,9 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 |RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Test |
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
->- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName} 替换您的 CAM 角色名称，可前往 [角色管理](https://console.cloud.tencent.com/cam/role) 查看。
->- {ProviderName} 替换您在腾讯云填写的 SAML 身份提供商名称，可前往  [身份提供商](https://console.cloud.tencent.com/cam/idp) 查看。
+>- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+>- {RoleName} 替换您的 CAM 角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
+>- {ProviderName} 替换您在腾讯云填写的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
 
