@@ -8,8 +8,8 @@ COS XML API 的请求里，私有资源操作都需要鉴权凭证 Authorization
 
 鉴权凭证使用方式有两种：
 
-1. 放在 header 参数里使用，字段名：authorization
-2. 放在 url 参数里使用，字段名：sign
+1. 放在 header 参数里使用，字段名：authorization。
+2. 放在 url 参数里使用，字段名：sign。
 
 COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以验证请求合法性的签名信息。
 
