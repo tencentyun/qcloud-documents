@@ -99,9 +99,8 @@ containerd 的 stream 服务需要单独配置：
 在 k8s 1.11 之前，kubelet 并不会做 stream proxy，只会做 redirect。也就是把 containerd 暴露的 stream server 地址告诉 apiserver，让 apiserver 直接来访问 containerd 的 stream server。这种情况下，需要给 stream server 使能 tle 认证来做安全防护。
 从 k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 从而使得 containerd stream server 只需要监听本地地址即可。
 
-#### CNI网络
-
+### CNI网络
 | 对比项      | docker            | containerd                                                                                                       |
 |:-------- |:---------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |
-| 谁负责调用 CNI | kubelet 内部的 docker-shim                    | containerd 内置的 cri-plugin（containerd 1.1以后）                                                                        |
+| 谁负责调用 CNI | kubelet 内部的 docker-shim                    | containerd 内置的 cri-plugin（containerd 1.1 以后）                                                                        |
 | 如何配置 CNI  | kubele t参数 --cni-bin-dir 和 --cni-conf-dir | containerd 配置文件（toml）：<br> [plugins.cri.cni]<br>    bin\_dir = "/opt/cni/bin"<br>    conf\_dir = "/etc/cni/net.d" |
