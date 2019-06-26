@@ -18,7 +18,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ### <span id="stepCAM"></span>配置 CAM
 >?您可以通过本步骤配置 Azure AD 和腾讯云之间的信任关系使之相互信任。
 >
-1. 单击左侧导航栏【Azure Active Directory】>【企业应用程序】>【所有应用程序】，选择您已创建的应用程序，打开应用程序概览页。
+1. 在左侧导航栏中，选择【Azure Active Directory】>【企业应用程序】> 您创建的应用程序 ，进入应用程序概览页面。
 2. 单击【单一登录】，打开“选择单一登录方法”页面。
 3. 在打开的“选择单一登录方法”页面，选择【SAML】。如下图所示：
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
