@@ -53,7 +53,7 @@ static $APPID = 1255*********;
 | channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持1和2，其他模型仅支持1。 |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body）。 |
 | url | 否 | String | 语音 URL，公网可下载。当 source_type 值为0时须填写该字段，为1时不填；URL 的长度大于0，小于 2048 。|
-| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
+| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
 | expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 
