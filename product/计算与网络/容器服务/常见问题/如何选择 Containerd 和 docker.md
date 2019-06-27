@@ -56,7 +56,7 @@ containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 实
 
 <table>
 	<tr>
-	<th style="width:10%;">对比项</th>
+	<th style="width:8%;">对比项</th>
 	<th>docker</th>
 	<th>containerd</th>
 	</tr>
