@@ -40,7 +40,7 @@ Window，Linux 或者 Mac OS
 如果登录成功，WebShell 界面会出现 Socket connection established 提示。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/31b25c56a1e6afdd39533436589ceb04/Snipaste_2018-02-02_18-21-02.png)
 
-## 登录后续操作
+## 后续操作
 
 当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作，相关操作可参考：
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
