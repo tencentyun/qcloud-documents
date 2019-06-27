@@ -32,7 +32,7 @@
 ## <span id="result">获取用户信息</span>
 **获取用户鉴权信息及申请使用**
 - 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
-- 关于云 API 账号中的AppID，SecretId 与 SecretKey查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。 
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，并获取 AppID、SecretId 与 SecretKey。 
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **配置用户信息**
@@ -75,9 +75,9 @@ APPID = '1259********'
 | code |  0：正常，其他，发生错误。 |
 | message | 如果是0就是 success，不是0就是错误的原因信息。 |
 | voice_id | 表示这通音频的标记，同一个音频流这个标记一样。 |
-| seq | 语音分片的信号。<br> 如果请求参数 needvad为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 。|
+| seq | 语音分片的信号。<br> 如果请求参数 needvad 为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 。|
 | text |  如果请求参数 needvad 为0的，表示不需要后台做 vad，text 的值是分片的识别结果。<br>如果请求参数 needvad 为1的话，表示需要后台做 vad，因为后台做 vad 的话，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，text 为"" 。|
-| result_number | 请求参数needvad=1， 此字段有效<br>result_number表示后面的 result_list 里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示 result\_list 有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
+| result_number | 请求参数needvad=1， 此字段有效<br>result_number 表示后面的 result_list 里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示 result\_list 有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
 | result_list | 请求参数needvad=1， 此字段有效 <br>slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  当前分片所在小段的开始时间（相对整个音频流）。<br>end\_time 当前分片在整个音频流中的结束时间。<br>voice\_text_str 识别结果。 |
 | final | 0 表示还在整个音频流的中间部分。<br>1 表示是整个音频流的最后一个包。<br>例如在电信电话场景中，是否是客户端发送的最后一个包的识别结果。 |
 
