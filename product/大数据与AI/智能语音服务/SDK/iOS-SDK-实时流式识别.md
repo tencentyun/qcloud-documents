@@ -10,7 +10,7 @@
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 从控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，并获取AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
