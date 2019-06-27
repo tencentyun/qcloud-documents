@@ -1,37 +1,33 @@
-## 1. 应用场景和功能
-- 用户有 LoRa 芯片，实现终端到应用平台的上报数据和下发数据，以及转发到腾讯云组件存储、分发、分析使用等。  
-- 用户只需要在腾讯物联网通信配置，获取 LoRa 通信相关信息配置到 LoRa 终端，即可在深圳地区连接上腾讯铺设的   LoRa 网关。  
+## 应用场景
+主要应用在智能楼宇、智能工业、农业和环境等场景。
 ![数据流程](https://main.qcloudimg.com/raw/e8fd5d1c2bc162c9d0dd618553fb570a/LoRa_freamwork.png)
+本文档主要指导您如何创建 LoRa 产品。
 
-## 2. 操作步骤
-### 2.1 创建 LoRa 产品和设备
-1. 进入 [控制台](https://console.cloud.tencent.com/iotcloud)  创建 LoRa 产品。  
-![](https://main.qcloudimg.com/raw/f6e66177d91dad72cd423cdd714e0197/LoRa_product.png)
-2. 创建成功后，可以查看产品的基本信息。  
-![](https://main.qcloudimg.com/raw/28d192fec91cf730402391393c154318/LoRa_product_info.png)
-3. 在【设备列表】下创建设备（testLoRa1），返回通信相关信息。  
-![](https://main.qcloudimg.com/raw/d54cba5ea51a16a508f3c47c6f5de3c3/LoRa_device.png)
-![](https://main.qcloudimg.com/raw/33bd588f15bd7dd2f0fffa929bb16b81/LoRa_device_info.png)
-4. 单击【管理】可查询设备详情。  
-![](https://main.qcloudimg.com/raw/0aa423f1542beaa415e549fb233e5a6e/LoRa_device_info_m.png)
+## 操作步骤
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。  
+2. 进入产品列表页面，单击【创建新产品】。
+3. 按界面提示填写相关信息。然后单击【确定】。
+ - 所属地区：广州。
+ - 节点类型：物联网通信只能添加 LoRa 设备，LoRa 网关产品在 LPWA 物联网络控制台添加管理。
+ - 产品类型：选择 LoRa 产品。
+ - 产品名称：为产品命名，产品名称在账号内具有唯一性。
+ - 数据格式：
+ - 产品描述：自定义，0 - 2048个字。
+![](https://main.qcloudimg.com/raw/8c21bed315b09d4b1ac84ca6513a7303.png)
+4. 信息填写完成后，单击【确定】。即可完成创建产品。
+5. 创建成功后，在产品列表中，单击【管理】，即可查看产品的基本信息 ，单击【编辑】可修改产品名称和产品描述。
+6. 选择产品列表 > 设备列表，单击【添加新设备】。
+ - 设备名称：设备名称在同一个产品下，设备名称需要保证唯一性。
+ - 设备备注：选填，给设备增加备注。
+ - AppEUI：应用 ID。
+ - DevEUI：设备在入网前就产生了，请找设备厂家提供，入网时设备将 DevEUI 上传，然后服务器会将此 DevEUI 注册并返回一个 DevAddr，入网后 DevAddr 为设备的唯一身份标识。
+ - AuthKey：设备认证密钥。
+ - 设备类型：支持 Class A/B/C 。
+ - AppKey：设备在入网前即可获取，请找设备厂家提供，用于通讯密钥的参数加密。
+![](https://main.qcloudimg.com/raw/6e8dd46ab543ee92d23c54b949a7cf4e.png)
+设备添加成功后，显示 DevEUI、AppEUI。
+7. 信息填写完成后，单击【确认添加】，即可完成添加设备。
+7. 终端上电激活，上电后设备发送入网请求，服务器侧响应入网请求，下发通讯密钥参数，终端接收并解密通讯密钥，终端入网成功。
+8. 选择产品列表 > 设备列表，入网成功之后设备的状态变为已激活，单击【管理】可查询设备详情。
 
-### 2.2 创建规则引擎
-本示例是将上报的数据转发到用户的应用平台，采用 http post 请求推送，包体为 json。  
-规则引擎同时还支持转发腾讯云存储组件，消息队列等。  
-![](https://main.qcloudimg.com/raw/26acf7aa274fe686e857fda1e70b98d2/NB-IoT_forward_app.png)  
-具体步骤详见 [规则引擎详情](https://cloud.tencent.com/document/product/634/14446)。
-### 2.3 创建网关产品和设备
-创建网关产品和设备跟创建 LoRa 产品和设备类似，请参考 [创建 LoRa 产品和设备](https://cloud.tencent.com/document/product/634/30210#2.1-.E5.88.9B.E5.BB.BA-lora-.E4.BA.A7.E5.93.81.E5.92.8C.E8.AE.BE.E5.A4.87)。
-### 2.4 网关与 LoRa 建立绑定关系
-1. 进入 【控制台】-【产品列表】 下网关产品，单击【子产品】。  
-![](https://main.qcloudimg.com/raw/f9bb294a9e4b83b78b14aef60f54a8db/Gateway_sub_product.png)
-2. 单击【添加子产品】选择刚创建的 LoRa 产品添加。  
-![](https://main.qcloudimg.com/raw/0b660fb0d3e8e1233426a6fc878b2301/Gateway_add_lora_product.png)
-3. 在【设备列表】下网关设备，单击【子设备】-【添加子设备】选择刚创建的 LoRa 设备添加。  
-![](https://main.qcloudimg.com/raw/7a52e633c5d3510637c1ff2e5bb5d329/Gateway_device_add_lora_device.png)
-### 2.5 网关添加发布订阅权限
-网关和 LoRa 建立绑定关系之后，网关要代发 LoRa 的消息，还需设置网关权限列表。
-添加 Plora/+/+/event 发布权限，Plora/+/+/control 订阅权限。
-![](https://main.qcloudimg.com/raw/5e4bf8b2d4ad502a7bee7705eca85688/Gateway_topic_policy.png)
-### 2.6 设备接入
-通过以上配置，用户获取到 DevEUI、AppKey、NwkKey、AppEUI 等 LoRaWAN 通信的基本信息，就可以连接上腾讯在深圳地区铺设的 LoRa 网络。
+通过如上配置，即可使用客户在腾讯云 LPWA 物联网络产品中自建的 LoRa 网络或其它网络运营商搭建的 LoRa 网络。

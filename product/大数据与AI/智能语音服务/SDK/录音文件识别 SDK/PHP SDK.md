@@ -22,7 +22,7 @@
 ## <span id="result">获取用户信息</span>
 **获取用户鉴权信息及申请使用**
 - 使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。 并在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。
-- 关于云 API 账号中的 AppID，SecretId 与 SecretKey 查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。  
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。  
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **配置用户信息**
@@ -53,7 +53,7 @@ static $APPID = 1255*********;
 | channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持1和2，其他模型仅支持1。 |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body）。 |
 | url | 否 | String | 语音 URL，公网可下载。当 source_type 值为0时须填写该字段，为1时不填；URL 的长度大于0，小于 2048 。|
-| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
+| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
 | expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 

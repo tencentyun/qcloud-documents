@@ -39,7 +39,7 @@ Authorization: Auth String
       <td>否</td>
    </tr>
    <tr>
-      <td>KeyMarker</td>
+      <td>key-marker</td>
       <td>默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始</td>
       <td>string</td>
       <td>否</td>
@@ -95,7 +95,7 @@ Authorization: Auth String
     	<LastModified>Date</LastModified>
     	<Owner>
     		<UID>OwnerUin</UID>
-   		</Owner>
+		</Owner>
     </DeleteMarker>
     <Version>
     	<Key>exampleObject.txt</Key>
@@ -245,7 +245,7 @@ x-cos-request-id: NWQwMzFmMjJfN2QyZjIyMDlfY2M2MV85MGE5****
     	<LastModified>2019-06-13T13:09:23.000Z</LastModified>
     	<Owner>
     		<UID>1250000000</UID>
-   		</Owner>
+        </Owner>
     </DeleteMarker>
     <Version>
     	<Key>100K.txt</Key>
