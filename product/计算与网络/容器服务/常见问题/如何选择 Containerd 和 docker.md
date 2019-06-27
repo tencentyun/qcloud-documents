@@ -94,14 +94,12 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 	</tr>
 </table>
 
-### Stream Server 配置
+### Stream 服务
 >?Kubectl exec/logs 等命令需要在 apiserver 跟容器运行时之间建立流转发通道。
 >
-#### 在 Docker 和 Containerd 下运行 
-Stream server 在 Docker 和 Containerd 两种运行时场景下配置不同。
-- 在 Docker 下运行时：
-Docker API 本身提供 stream 服务，Kubelet 内部的 docker - shim 会通过 docker API 做流转发。
-- 在 Containerd 下运行时：
+
+#### Stream 服务在 Containered 中的使用及配置
+Docker API 本身提供 stream 服务，kubelet 内部的 docker-shim 会通过 docker API 做流转发。
 Containerd 的 stream 服务需要单独配置：
 ```
 [plugins.cri]
