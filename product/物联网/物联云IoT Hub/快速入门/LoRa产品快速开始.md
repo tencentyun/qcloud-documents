@@ -1,6 +1,7 @@
 ## 应用场景
 主要应用在智能楼宇、智能工业、农业和环境等场景。
 ![数据流程](https://main.qcloudimg.com/raw/e8fd5d1c2bc162c9d0dd618553fb570a/LoRa_freamwork.png)
+本文档主要指导您如何创建 LoRa 产品。
 
 ## 操作步骤
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。  
