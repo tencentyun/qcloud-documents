@@ -22,7 +22,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 
 
 
-| 容器相关功能 | docker         | containerd     |
+| 容器相关功能 | Docker         | Containerd     |
 |:------ |:-------------- |:-------------- |
 | 显示容器列表 | docker ps      | crictl ps      |
 | 创建容器   | docker create  | crtctl create  |
@@ -36,7 +36,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 | stats  | docker stats   | crictl stats   |
 
 
-| POD 相关功能 | docker | containerd      |
+| POD 相关功能 | Docker | Containerd      |
 |:------- |:------ |:--------------- |
 | 显示 POD 列表 | 无      | crictl pods     |
 | 查看 POD 详情 | 无      | crictl inspectp |
