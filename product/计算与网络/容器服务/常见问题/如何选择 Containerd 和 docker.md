@@ -10,7 +10,7 @@ TKE 支持用户选择 containerd 和 docker 作为运行时组件：
  - 如需 docker compose 或 docker swarm。
 
 ## Containerd 和 Docker 组件常用命令
-Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool 实现类似的功能。
+Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命令实现类似的功能。
 
 | 镜像相关功能   | Docker         | Containerd      |
 |:-------- |:-------------- |:--------------- |
@@ -44,11 +44,12 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 | 停止 POD   | 无      | crictl stopp    |
 
 ## 调用链说明
+- Docker 作为 k8s 容器运行时，调用关系如下：
 `kubelet --> docker shim （在 kubelet 进程中） --> dockerd --> containerd`
-
+- Containerd 作为 k8s 容器运行时，调用关系如下：
 `kubelet --> cri plugin（在 containerd 进程中） --> containerd`
 
-其中 dockerd 增加了 swarm cluster、 docker build 、 docker API 等功能，同时也会引入而外的问题，多了一层调用。
+其中 dockerd 虽增加了 swarm cluster、 docker build 、 docker API 等功能，但也会引入一些 bug（例如XXXXX）。与 containerd 相比，多了一层调用。
 
 ## 其他差异
 ### 容器日志及相关参数
@@ -62,10 +63,10 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 	<tr>
 		<td>存储路径</td>
 		<td>
-		Docker 作为 k8s 容器运行时的情况下，容器日志的落盘由 docker 来完成。 保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
+	如果 Docker 作为 k8s 容器运行时，容器日志的落盘将由 docker 来完成，保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
 		</td>
 		<td>
-		Containerd 作为 k8s 容器运行时的情况下， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
+		如果 Containerd 作为 k8s 容器运行时， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
 		</td>
 	</tr>
 	<tr>
@@ -76,7 +77,13 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 		<br>    <code>"log-opts": {"max-size": "100m","max-file": "5"}</code>
 		</td>
 		<td>
-		方法一：在 kubelet 参数中指定： <br> <code>--container-log-max-files=5<br> --container-log-max-size="100Mi"</code> <br>方法二：在 KubeletConfiguration 中指定：<br>    <code>"containerLogMaxSize": "100Mi",</code><br>    <code>"containerLogMaxFiles": 5, </code>
+		<ul>
+		<li>
+		方法一：在 kubelet 参数中指定： <br> <code>--container-log-max-files=5<br> --container-log-max-size="100Mi"</code> <br>
+		</li>
+		<li>方法二：在 KubeletConfiguration 中指定：<br>    <code>"containerLogMaxSize": "100Mi",</code><br>    <code>"containerLogMaxFiles": 5, </code>
+		</li>
+		</ul>
 		</td>
 	</tr>
 	<tr>
@@ -97,8 +104,9 @@ Containerd 的 stream 服务需要单独配置：
   stream_server_port = "0"
   enable_tls_streaming = false
 ```
-在 k8s 1.11 之前，Kubelet 并不会做 stream proxy，只会做重定向。也就是把 containerd 暴露的 stream server 地址告诉 apiserver，让 apiserver 直接来访问 containerd 的 stream server。这种情况下，需要给 stream server 使能转发器认证来做安全防护。
-从 k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 从而使得 containerd stream server 只需要监听本地地址即可。
+在 k8s 1.11 之前，Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 containerd 暴露的 stream server 地址发送给 apiserver，并让 apiserver 直接访问 containerd 的 stream server。此时，您需要给 stream server 使能转发器认证，用于安全防护。
+在 k8s 1.11 之后， k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 从而使得 containerd stream server 只需要监听本地地址即可。
+
 
 ### CNI 网络
 | 对比项      | Docker            | Containerd                                                                                                       |
