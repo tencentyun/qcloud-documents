@@ -14,8 +14,7 @@
 
 ### SDK导入
 
-iOS SDK 压缩包名称为： QCloudSDK.zip。
-压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含Sample Code和QCloudSDK。
 
 ### 工程配置
 
