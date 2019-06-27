@@ -1,5 +1,5 @@
 ## 操作场景
-云数据库 SQL Server 支持数据源是云服务器自建的 SQL Server 数据库进行数据迁移，本文将指导您如何配置迁移任务，帮助您完成将云服务器上自建的 SQL Server 数据库迁移至云数据库 SQL Server。
+云数据库 SQL Server 支持数据源是云服务器 CVM 自建的 SQL Server 数据库进行数据迁移，本文将指导您如何配置迁移任务，帮助您完成将 CVM 上自建的 SQL Server 数据库迁移至云数据库 SQL Server。
 >!
 >- 迁移前需保证目的实例的 SQL Server 版本不低于源实例的版本。
 >- 迁移的 bak 文件需保证每个 bak 文件只包含一个库。
@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 创建迁移任务
-1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据传输】。
+1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据传输】页。
 2. 单击【创建任务】，填写任务名称、源库信息、目标库信息，源实例类型选择【云服务器自建SQL Server数据库】。
 ![](https://main.qcloudimg.com/raw/da77fa7fe6ed5dc4c493861d1850ee3d.png)
 3. 单击【下一步】后，需先对 [源 SQL Server 实例进行相关配置](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E6.BA.90-sql-server-.E5.AE.9E.E4.BE.8B) 再继续 [配置迁移任务](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
