@@ -373,11 +373,12 @@ new Thread(new Runnable() {
 #### AudioRecognizeRequest
 templateName 和 customTemplate 都设置时，优先使用 templateName 的设置。
 
-参数名称|类型|是否必填|参数描述|默认值
---|--|--|--
-pcmAudioDataSource|PcmAudioDataSource|是|音频数据源|无
-templateName| String | 否 | 用户控制台设置的模板名称|无
-customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)
+|参数名称|类型|是否必填|参数描述|默认值|
+|--|--|--|--|
+|pcmAudioDataSource|PcmAudioDataSource|是|音频数据源|无|
+|templateName| String | 否 | 用户控制台设置的模板名称|无|
+|customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)|
+
 #### AudioRecognizeResult
 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
 
