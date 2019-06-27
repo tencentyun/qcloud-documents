@@ -20,7 +20,7 @@
 1.5.2版本将参数frame废弃，**设置此参数无效**，控件大小与参数 view 的大小保持一致；
 
 - ** (void) resetVideoWidgetFrame:(CGRect)frame;**
-1.5.2版本将此方法废弃，**调用此方法无效**，如需修改控件的大小及位置，请调整父 view （方法 setupVideoWidget 中参数 view）的大小及位置；具体参考 [渲染控制](https://cloud.tencent.com/doc/api/258/4734#step-2.3A-.E5.90.AF.E5.8A.A8.E6.8E.A8.E6.B5.81)
+1.5.2版本将此方法废弃，**调用此方法无效**，如需修改控件的大小及位置，请调整父 view （方法 setupVideoWidget 中参数 view）的大小及位置；具体参考 [渲染控制](https://cloud.tencent.com/doc/api/258/4734#step-2.3A-.E5.90.AF.E5.8A.A8.E6.8E.A8.E6.B5.81)。
 
 - **(NSArray*) getSDKVersion;**
 1.5.2版本将此接口由实例方法变更为TXLivePush 和 TXLivePlayer的类方法；
