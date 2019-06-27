@@ -80,8 +80,8 @@ containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 实
 	</tr>
 	<tr>
 	<td>把容器日志保存到数据盘</td>
-	<td>把数据盘挂载到 “data-root”（缺省是 <code>/var/lib/docker</code>）即可</td>
-	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>
+	<td>把数据盘挂载到 “data-root”（缺省是 <code>/var/lib/docker</code>）即可。</td>
+	<td>创建一个软链接 <code>/var/log/pods</code> 指向数据盘挂载点下的某个目录。 <br>在 TKE 中选择“将容器和镜像存储在数据盘”，会自动创建软链接 <code>/var/log/pods</code>。
 	</td>
 	</tr>
 </table>
