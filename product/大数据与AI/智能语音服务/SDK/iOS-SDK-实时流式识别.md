@@ -2,15 +2,15 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/8fa2a14b469f0b63bc02a91f91a942e2/QCloudSDK_v2.0.2.zip) 。
+实时流式语音识别的 iOS SDK以及Demo的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/1c9c509882fdec4e8cd0b5c673b8ce1b.zip) 。
 
-详细示例可参考 Demo：[QCloud SDK Demo](https://main.qcloudimg.com/raw/b3a8e1e84100f24a9a05d2d9ba6385b1/QCloudSDKDemo_v2.0.2.zip) 。
 
 ### 使用须知
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 从控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 从控制台获取 AppID、SecretID、SecretKey、ProjectId详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 运行Demo 必须设置 AppID、SecretID、SecretKey、ProjectId
 
 ### SDK导入
 
