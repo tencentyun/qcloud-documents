@@ -341,7 +341,3 @@ self.setData({
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
 
-
-## Chrome端对接
- 了解腾讯云官网的 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) ，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。
-
