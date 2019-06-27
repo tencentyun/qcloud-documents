@@ -62,8 +62,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 	<tr>
 		<td>存储路径</td>
 		<td>
-		Docker 作为 k8s 容器运行时的情况下，容器日志的落盘由 docker 来完成。 保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。
-		<br>Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
+		Docker 作为 k8s 容器运行时的情况下，容器日志的落盘由 docker 来完成。 保存在类似<code>/var/lib/docker/containers/$CONTAINERID</code> 目录下。Kubelet 会在 <code>/var/log/pods</code> 和 <code>/var/log/containers</code> 下面建立软链接，指向 <code>/var/lib/docker/containers/$CONTAINERID</code> 该目录下的容器日志文件。
 		</td>
 		<td>
 		Containerd 作为 k8s 容器运行时的情况下， 容器日志的落盘由 Kubelet 来完成，保存至 <code>/var/log/pods/$CONTAINER_NAME</code> 目录下，同时在 <code>/var/log/containers</code> 目录下创建软链接，指向日志文件。            
