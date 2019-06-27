@@ -31,7 +31,7 @@ MultiPullVodFile
 |---------|---------|---------|---------|
 |pullset.n.url | 是 | String | 需要拉取的第 n 个视频的 URL。n 从0开始，依次递增，下同。 |
 |pullset.n.fileName | 是 | String | 视频文件的名称。 |
-|pullset.n.fileMd5 | 否 | string | 视频文件的 MD5。 |
+|pullset.n.fileMd5 | 否 | String | 视频文件的 MD5。 |
 |pullset.n.isTranscode | 否 | Integer | 是否转码，0：否，1：是，默认为0；如果不执行转码，上传后可以在控制台的视频文件管理中进行转码。|
 |pullset.n.isScreenshot | 否 | Integer | 是否截图，0：否，1：是，默认为0。 |
 |pullset.n.isWatermark | 否 | Integer | 是否打水印，0：否，1：是，默认为0；如果选择打水印，请务必在控制台提前完成水印文件选择和位置设定，否则可能导致上传失败。|
