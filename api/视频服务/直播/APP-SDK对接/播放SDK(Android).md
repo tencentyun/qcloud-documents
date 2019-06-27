@@ -54,7 +54,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐FLV
 
 | 可选值 | 含义  |
 |:------:|---------|
-| 0 | 正常播放（Hom 键在画面正下方） | 
+| 0 | 正常播放（Home 键在画面正下方） | 
 | 90 | 画面逆时针旋转90度 | 
 | 180 | 画面逆时针旋转180度 | 
 | 270 | 画面逆时针旋转270度 | 
