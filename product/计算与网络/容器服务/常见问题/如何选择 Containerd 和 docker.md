@@ -76,7 +76,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri - tool �
 		<br>    <code>"log-opts": {"max-size": "100m","max-file": "5"}</code>
 		</td>
 		<td>
-		方法一：在 kubelet 参数中指定： <br> <code>--container-log-max-files=5 --container-log-max-size="100Mi"</code> <br>方法二：在 KubeletConfiguration 中指定：<br>    <code>"containerLogMaxSize": "100Mi",</code><br>    <code>"containerLogMaxFiles": 5, </code>
+		方法一：在 kubelet 参数中指定： <br> <code>--container-log-max-files=5<br> --container-log-max-size="100Mi"</code> <br>方法二：在 KubeletConfiguration 中指定：<br>    <code>"containerLogMaxSize": "100Mi",</code><br>    <code>"containerLogMaxFiles": 5, </code>
 		</td>
 	</tr>
 	<tr>
