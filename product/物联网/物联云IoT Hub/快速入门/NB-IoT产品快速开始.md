@@ -21,7 +21,7 @@
 ![](https://main.qcloudimg.com/raw/1b9ba5e7e77e6af33d96ac2db5d66427.png)
 4. 单击【确定】，即创建成功。
 5. 创建成功后，即可查看产品的基本信息。  
-6. 选择产品列表 > 设备列表，在设备列表页面，单击【创建设备】（NB001）。
+6. 选择产品列表 > 设备列表，在设备列表页面，单击【创建设备】。
 7. 进入新建设备页面，填写相关信息。
  - 设备名称：自定义，支持字母、数字、下划线、“-”的组合，1 - 48位。
  - 设备备注：自定义，支持中文、字母、数字、下划线、“-”的组合，长度不超过16位。
@@ -93,11 +93,11 @@ AT+CGPADDR //查询分配的ip 地址，可以以此判断是否连接到网络
 AT+NMGS=len,data //发送len 字节数据，如果发送成功，会回复 OK，否则 ERROR
 +NNMI:4, AAAA0000 //收到4 回复数据
 ```
-len，data 由 [以上步骤](https://cloud.tencent.com/document/product/634/18349#.E9.85.8D.E7.BD.AE-c-sdk-.E7.A4.BA.E4.BE.8B.E7.A8.8B.E5.BA.8F) 中的 SDK 生成，详细数据格式见 C-SDK 示例程序 nbiot_sample.c 中的代码说明。  
+len，data 由 [配置 C-SDK 示例程序](https://cloud.tencent.com/document/product/634/18349#.E9.85.8D.E7.BD.AE-c-sdk-.E7.A4.BA.E4.BE.8B.E7.A8.8B.E5.BA.8F) 中的 SDK 生成，详细数据格式见 C-SDK 示例程序 nbiot_sample.c 中的代码说明。  
 执行 AT+NMGS 命令后，NB-IoT 模组发送完数据后，回复 OK，此时数据已经发给基站，但基站不一定接收成功。  
 收到确认上报数据消息 AAAA0000，表示电信平台收到数据。（用户可以根据需要，设置重新上报数据次数，超时等待建议3秒）。  
 4. 应用平台接收数据  
-应用平台收到 HTTP POST 推送数据，BODY 内容示例如下：
+应用平台收到 HTTP POST 推送数据，body 内容示例如下：
 ```
 {"payload":xxxx, "seq":12345, "timestamp":140000245, "topic":"/xx/xx/xx", "devicename":"xx", "productid":"xx"}
 ```  
