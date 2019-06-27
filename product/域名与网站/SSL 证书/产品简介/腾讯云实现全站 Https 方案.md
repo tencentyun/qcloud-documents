@@ -21,10 +21,10 @@
 ![](https://main.qcloudimg.com/raw/98753e63341655f8391629922ec8f552.png)
 
 4. 单击【确认申请】。
- - 若提交申请成功，需要单击【证书详情页】获取 TXT 记录尽快添加解析，方可通过 CA 机构审核。如下图所示：
+ - 若提交申请成功，需要单击【查看证书详情】获取 TXT 记录尽快添加解析，方可通过 CA 机构审核。如下图所示：
  ![](https://main.qcloudimg.com/raw/17d8498c9607da699d6d8645699299a0.png)
  - 若提交申请失败，提交域名未通过 CA 机构安全审核，具体原因参考 [安全审核失败原因](https://cloud.tencent.com/doc/product/400/5439)。如下图所示：
-![](https://mc.qcloudimg.com/static/img/25451d24cf3c717454830a44925642ec/1.png)
+![](https://main.qcloudimg.com/raw/929470e3de37273d8cd3c4e31dda72b1.png)
 
 ## 部署证书到负载均衡
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
@@ -57,10 +57,10 @@
  - 证书列表中展示格式为**证书 ID（备注）**，可前往 [SSL 证书管理](https://console.cloud.tencent.com/ssl) 查看更多证书详情。
 5. 配置证书后，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
 ![](https://main.qcloudimg.com/raw/12c923e7d396fe7a73ba783620d41ec0.png)
- - 选择 HTTP 回源配置成功后，用户至 CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP。
- - 选择 HTTPS 回源，要求源站已经配置证书，否则可能导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP；用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS。
- - COS 源或 FTP 源域名暂时不支持 HTTPS 回源。
- - 配置 HTTPS 回源，您的源站配置需要无端口约束，或配置为 443 端口，否则会导致配置失败。
+ - 选择 **HTTP** 回源配置成功后，用户至 CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP。
+ - 选择 **协议跟随** 回源配置，您的源站需要部署有效证书，否则将导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP。用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS。
+ - 若域名源站修改 HTTPS 端口为非 443 端口，会导致配置失败。
+ - COS 源或 FTP 源域名仅支持 HTTP 回源。
 6. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/f7b25ffdbe6ec31d38077a5574f73e2b.png)
 

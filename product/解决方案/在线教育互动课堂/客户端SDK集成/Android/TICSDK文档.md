@@ -43,7 +43,7 @@ defaultConfig {
 ```
 
 - 混淆配置
-如果您的 APK 最终会经过代码混淆，请在 proguard 配置文件中加入以下代码：
+如果您的 APK 最终会经过代码混淆，请在 proguard 配置文件中加入以下代码。
  ```
  -keep class com.tencent.**{*;}
  -dontwarn com.tencent.**
@@ -141,12 +141,12 @@ joinClassroom | 根据参数配置和 roomID 加入互动课堂中 | TICClassroo
 
 ```java
     TICClassroomOption classroomOption = new TICClassroomOption()
-        .setRoomId(roomId)			// 为createClassroom中的roomId
+        .setRoomId(roomId)			// 为 createClassroom 中的 roomId
         .controlRole("user") 		// 默认的实时音视频角色的配置“user”，开发者需要根据自身的业务需求配置实时音视频的角色。
-        .autoSpeaker(false)		// 此处为demo的配置，开发者需要根据自身的业务需求配置
+        .autoSpeaker(false)		// 此处为 demo 的配置，开发者需要根据自身的业务需求配置
         .autoCamera(true)   // 开发者需要根据自身的业务需求配置
         .autoMic(true)      // 开发者需要根据自身的业务需求配置
-        .setClassroomIMListener(this) // 设置课堂IM消息监听
+        .setClassroomIMListener(this) // 设置课堂 IM 消息监听
         .setClassEventListener(this); // 设置课堂事件监听
 
     TICManager.getInstance().joinClassroom(classroomOption, new ILiveCallBack(){...});
@@ -257,7 +257,7 @@ AvRootView 和 WhiteboardView 都是继承 SurfaceView 的，SurfaceView 叠加�
 
 ### 3.2 定制视频画面展示
 
-关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/17433)。
+关于 AVRootView 的高阶使用，请参考实时音视频中的 [定制视频画面展示](https://cloud.tencent.com/document/product/647/32237)。
 
 ### 3.3 视频画面支持的渲染方式
 

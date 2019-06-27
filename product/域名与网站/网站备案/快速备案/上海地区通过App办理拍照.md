@@ -33,7 +33,8 @@
     - 若图片清晰，确认信息无误，并单击【确认上报】。
 9. 请复制或记录核验完成后自动生成的图片验证码。如下图所示：
 ![](https://main.qcloudimg.com/raw/91a4409d62c6b7c4e8c68e4e4b6deaff.png)
-10. 登录 [腾讯云备案系统](https://console.cloud.tencent.com/beian) ，进入填写备案信息页面，选择【上传材料】。
+10. 登录 [腾讯云备案系统](https://console.cloud.tencent.com/beian) ，进入【填写备案信息】，请在【上传材料】模块单击【继续上传】。如下图所示：
+![](https://main.qcloudimg.com/raw/66b6cc887ac8d7768c240b8aca69fd57.png)
 11. 在上传材料页面，填写图片验证码，并单击【提交】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c40e9be84c53ee76461525ee16031f6.png)
 12. 等待系统自动获取核验图片，单击【提交照片】，腾讯云将在1个工作日内完成复审。

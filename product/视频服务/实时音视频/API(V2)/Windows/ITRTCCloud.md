@@ -1,22 +1,27 @@
 
 ITRTCCloud @ TXLiteAVSDK。
 
-## 创建与销毁
+## 创建与销毁 ITRTCCloud 单例
 
 ### getTRTCShareInstance
 
-创建 TRTCCloud 单例。
+用于动态加载 dll 时，获取 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 对象指针。
+```
+LITEAV_API ITRTCCloud * getTRTCShareInstance()
+```
 
-```
-ITRTCCloud* getTRTCShareInstance()
-```
+__返回__
+
+返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+
 
 ### destroyTRTCShareInstance
-释放 ITRTCCloud 单例对象。
 
+释放 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象。
 ```
-void destroyTRTCShareInstance()
+LITEAV_API void destroyTRTCShareInstance()
 ```
+
 
 
 ## 设置 TRTCCloudCallback 回调
@@ -64,7 +69,7 @@ __参数__
 | params | const [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams) & | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32271#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
 
 
 ### exitRoom
@@ -73,6 +78,24 @@ __参数__
 ```
 void exitRoom()
 ```
+
+
+### switchRole
+
+切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。
+```
+void switchRole(TRTCRoleType role)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32271#trtcroletype) | 目标角色。 |
+
+__介绍__
+
+在直播场景下，一个用户可能需要在“观众”和“主播”之间来回切换。 您可以在进房前通过 [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams) 中的 role 字段确定角色，也可以通过 switchRole 在进房后切换角色。
 
 
 ### connectOtherRoom
@@ -527,12 +550,12 @@ __参数__
 
 获取当前使用的摄像头。
 ```
-const char * getCurrentCameraDevice()
+ITRTCDeviceInfo * getCurrentCameraDevice()
 ```
 
 __返回__
 
-摄像头名称，字符编码格式是 UTF-8。
+ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 
@@ -574,12 +597,12 @@ __介绍__
 
 获取当前选择的麦克风。
 ```
-const char * getCurrentMicDevice()
+ITRTCDeviceInfo * getCurrentMicDevice()
 ```
 
 __返回__
 
-麦克风名称，字符编码格式是 UTF-8。
+ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 ### getCurrentMicDeviceVolume
@@ -641,12 +664,12 @@ __参数__
 
 获取当前的扬声器设备。
 ```
-const char * getCurrentSpeakerDevice()
+ITRTCDeviceInfo * getCurrentSpeakerDevice()
 ```
 
 __返回__
 
-扬声器名称，字符编码格式是 UTF-8。
+ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 ### getCurrentSpeakerVolume

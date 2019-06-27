@@ -16,7 +16,6 @@ pip.main(['install', "package_name"])
 ## 操作步骤
 1. **添加组件**
  从左侧菜单栏中，选择【组件】>【深度学习】列表下的 Tensorflow 节点，并将其拖拽至画布中。
-![](https://main.qcloudimg.com/raw/f6e8b5cf89c663d6ad9508c85d0e03ca.png)
 2. **配置参数**
  - 脚本及依赖包文件上传 ：
   将任务脚本上传至 程序脚本 框。如果需要依赖文件，则压缩为zip文件后通过 依赖包文件 框上传。

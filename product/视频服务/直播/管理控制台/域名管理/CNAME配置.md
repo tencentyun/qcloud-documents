@@ -7,7 +7,7 @@
 
 2. 跳转到指定域名的域名解析页面，单击【添加记录】。
 ![](https://main.qcloudimg.com/raw/edc2202d3906cae23163e1ca62e89dfe.png)
-3. 在【主机记录】处选填写域名前缀（如：www），将【记录类型】设置为 CNAME，在【记录值】处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
+3. 在【主机记录】处选填写域名前缀（如：www，若需要直接解析主域名，则输入@；若需要解析泛域名，则输入\*），将【记录类型】设置为 CNAME，在【记录值】处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/8a4a3fc6179c1b09fef2d69b1a673356.png)
 
 ## 阿里云设置方法
@@ -25,7 +25,7 @@
 ![](https://main.qcloudimg.com/raw/2f3b789874c7c7968679e6282c14f260.png)
 
  - 记录类型：选 CNAME
- - 主机记录：填写三级域名信息，即域名前缀。若播放域名为 play.myqcloud.com，则添加 play；若需直接解析主域名 myqloud.com，则输入@；若需解析泛域名，则输入\*
+ - 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名 myqloud.com，则输入@；若需要解析泛域名，则输入\*
  - 解析路线：建议选择“默认”
  - 记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为 domain.livecdn.liveplay.myqcloud.com
  - TTL：建议填写10分钟
@@ -48,7 +48,7 @@
 
 4. 添加解析记录，如下图所示：
 ![](https://main.qcloudimg.com/raw/e7c11bc00e33e59676eb2945f1a4f963.png)
- - 主机记录：填写二级域名，即域名前缀。若播放域名为 play.myqcloud.com，则添加 play；若需直接解析主域名myqloud.com，则输入@；若需解析泛域名，则输入\*
+ - 主机记录：填写二级域名，即域名前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名myqloud.com，则输入@；若需要解析泛域名，则输入\*
  - 记录类型：CNAME 记录
  - 解析路线：建议选择“默认”
  - 记录值：云直播控制台域名管理页域名对应的 CNAME 值，格式为 domain.livecdn.liveplay.myqcloud.com

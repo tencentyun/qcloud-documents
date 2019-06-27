@@ -114,6 +114,7 @@ IM SDK 函数使用顺序，如下：
 
 - IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 - Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+
 ## IM SDK 基本概念
 
 **会话：**IM SDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：

@@ -15,7 +15,7 @@
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Spark 安装目录`/usr/local/service/spark`：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/spark
 ```
 新建一个 Python 文件 wordcount.py，并添加如下代码：

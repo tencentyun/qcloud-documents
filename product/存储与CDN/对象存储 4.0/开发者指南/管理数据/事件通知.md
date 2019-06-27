@@ -1,0 +1,70 @@
+## 概述
+
+当 COS 资源发生变动（例如新文件上传、文件删除），您可以及时收到通知消息。事件通知可以结合 [无服务器云函数 SCF](https://cloud.tencent.com/product/scf)（Serverless Cloud Function）实现更丰富的应用场景：
+
+- **产品间联动**：例如，当新文件上传到 COS 后，[自动刷新 CDN 缓存](https://cloud.tencent.com/document/product/436/30434)。新文件上传到 COS 后，自动更新数据库。
+- **系统集成**：当 COS 上的文件发生变更（新建、删除、覆盖），自动调用您自己的服务接口。在 UGC（User Generated Content）场景下，您就可以基于事件通知功能，完成移动端和服务端的联动。
+- **数据处理**：对 COS 上的文件进行自动处理，例如，自动解压缩、AI 识别等。
+  ![cos 事件通知](https://main.qcloudimg.com/raw/08d68084e87ea910a2c2cf26c21b40c1.png)
+
+COS 事件通知具有以下特点：
+
+- 异步处理：发送通知不会影响正常的 COS 操作。
+- 通知目标：仅支持通知发送至同地域的 SCF 函数。
+
+目前支持以下 COS 事件：
+
+<table>
+   <tr>
+      <th>事件类型</th>
+      <th>描述</th>
+   </tr>
+   <tr>
+      <td>cos: ObjectCreated:*</td>
+      <td>以下提到的所有上传事件均可触发云函数</td>
+   </tr>
+   <tr>
+      <td>cos: ObjectCreated:Put</td>
+      <td>使用 Put Object 接口创建文件时触发云函数</td>
+   </tr>
+   <tr>
+      <td>cos: ObjectCreated:Post</td>
+      <td>使用 Post Object 接口创建文件时触发云函数</td>
+   </tr>
+   <tr>
+      <td>cos: ObjectCreated:Copy</td>
+      <td>使用 Put Object - Copy 接口创建文件时触发云函数</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">cos: ObjectCreated:CompleteMultipartUpload</td>
+      <td>使用 CompleteMultipartUploadt 接口创建文件</td>
+   </tr>
+   <tr>
+      <td>cos: ObjectRemove:*</td>
+      <td>以下提到的所有删除事件均可触发云函数</td>
+   </tr>
+   <tr>
+      <td>cos: ObjectRemove:Delete</td>
+      <td>在未开启版本管理的 Bucket 下，使用 Delete Object 接口删除 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">cos: ObjectRemove:DeleteMarkerCreated</td>
+      <td>在开启或者暂停版本管理的 Bucket 下，使用 Delete Object 接口删除 Object 时触发云函数</td>
+   </tr>
+</table>
+
+## 如何使用 COS 事件通知
+
+使用 COS 事件通知包含以下步骤：
+
+1. 创建 SCF 函数
+   - 您可以通过 [SCF 控制台](https://console.cloud.tencent.com/scf?rid=1) 或 CLI 创建函数。创建函数过程中需要选择运行环境（根据您后续编写函数所使用的语言选择）、提交函数代码（支持在线编辑或本地上传代码包）。
+   - 您也可以使用 SCF 预置的模板简化创建流程，详情请参阅 [创建函数](https://cloud.tencent.com/document/product/583/19806)。不同编程语言的函数写法有所区别，详情请参阅 [无服务器云函数](https://cloud.tencent.com/document/product/583/31317) 文档。
+2. 测试函数
+   函数创建完成后，您可以使用测试模板功能进行初步测试。测试模板可以模拟 COS 事件，并触发函数执行，详情请参阅 [测试函数](https://cloud.tencent.com/document/product/583/14572)。
+3. 添加触发器
+   初步测试完成后，您可以通过创建 COS 触发器来实现绑定 SCF 函数和存储桶。您可以通过控制台或命令行添加触发器，详情请参阅 [创建触发器](https://cloud.tencent.com/document/product/583/30230) 文档。
+4. 实际验证
+   完成以上步骤后，您可以操作 COS 中的存储桶，并验证整体流程是否正常。例如，您可以通过控制台、COS Browser 等工具上传、删除文件，并前往 **[SCF 控制台](https://console.cloud.tencent.com/scf?rid=1)** > **函数详情** >  **运行日志**，验证是否正常工作。
+
+关于 SCF COS 触发器的更多详情，可参阅 [COS 触发器](https://cloud.tencent.com/document/product/583/9707) 文档。

@@ -1,22 +1,22 @@
 ## 适用场景
-通过配置跨区域复制规则，可以将用户的对象数据从源存储桶中复制到另一区域的指定目标存储桶中。跨区域复制的适用场景包括异地容灾、满足行业合规性要求、数据迁移和备份、减少客户访问延迟、方便不同区域的集群访问数据等原因。
+通过配置跨地域复制规则，可以将用户的对象数据从源存储桶中复制到另一区域的指定目标存储桶中。跨地域复制的适用场景包括异地容灾、满足行业合规性要求、数据迁移和备份、减少客户访问延迟、方便不同区域的集群访问数据等原因。
 ## 使用方法
 ### 使用对象存储控制台
-通过对象存储控制台设置跨区域复制规则，请查阅 [跨区域复制设置]() 控制台指南文档。
+通过对象存储控制台设置跨地域复制规则，请参见 [设置跨地域复制](https://cloud.tencent.com/document/product/436/19235) 控制台指南文档。
 ### 使用 REST API
-您可以直接使用 REST API 配置和管理存储桶的跨区域复制规则，具体可参考以下 API 文档：
-- [PUT Bucket replication]() 
-- [GET Bucket replication]() 
-- [DELETE Bucket replication]() 
+您可以直接使用 REST API 配置和管理存储桶的跨地域复制规则，具体可参考以下 API 文档：
+- [PUT Bucket replication](https://cloud.tencent.com/document/product/436/19223) 
+- [GET Bucket replication](https://cloud.tencent.com/document/product/436/19222) 
+- [DELETE Bucket replication](https://cloud.tencent.com/document/product/436/19221) 
 
 ### 使用 C++ SDK
-对象存储 COS 的 C++ SDK 中提供了该方法，可参考 [C++ SDK 接口文档](https://cloud.tencent.com/document/product/436/12302) 进行设置。
+对象存储 COS 的 C++ SDK 中提供了该方法，请参见 C++ [存储桶管理](https://cloud.tencent.com/document/product/436/35162) 文档进行设置。
 
 步骤说明：
 1. 初始化客户端 cosClient。
-2. 执行 PutBucketReplication、GetBucketReplication 和 DeleteBucketReplication 分别实现配置跨区域复制规则、获取跨区域复制规则和删除跨区域复制规则三种操作。
+2. 执行 PutBucketReplication、GetBucketReplication 和 DeleteBucketReplication 分别实现配置跨地域复制规则、获取跨地域复制规则和删除跨地域复制规则三种操作。
 
-#### 配置跨区域复制规则 ####
+#### 配置跨地域复制规则 
 代码示例：
 
 ```
@@ -38,11 +38,11 @@ qcloud_cos::CosResult result = cos.PutBucketReplication(req, &resp);
 if (result.IsSucc()) {
     // ...
 } else {
-    // 设置跨区域复制失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
+    // 设置跨地域复制失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
 }
 ```
 
-#### 获取跨区域复制规则 ####
+#### 获取跨地域复制规则 
 代码示例：
 
 ```
@@ -60,11 +60,11 @@ qcloud_cos::CosResult result = cos.GetBucketReplication(req, &resp);
 if (result.IsSucc()) {
     // ...
 } else {
-    // 获取跨区域复制配置失败，可以调用 CosResult 的成员函数输出错误信息，如 requestI 等
+    // 获取跨地域复制配置失败，可以调用 CosResult 的成员函数输出错误信息，如 requestI 等
 }
 ```
 
-#### 删除跨区域复制规则 ####
+#### 删除跨地域复制规则 
 代码示例：
 
 ```
@@ -82,17 +82,17 @@ qcloud_cos::CosResult result = cos.DeleteBucketReplication(req, &resp);
 if (result.IsSucc()) {
     // ...
 } else {
-    // 删除跨区域复制配置失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
+    // 删除跨地域复制配置失败，可以调用 CosResult 的成员函数输出错误信息，如 requestID 等
 }
 ```
 ### 使用 C SDK
-对象存储 COS 的 C SDK 中提供了该方法，可参考 [Python SDK 接口文档](https://cloud.tencent.com/document/product/436/12297) 进行设置。
+对象存储 COS 的 C SDK 中提供了该方法，请参见 C SDK [存储桶管理](https://cloud.tencent.com/document/product/436/35559) 进行设置。
 
 步骤说明：
 1. 初始化客户端 cosClient
-2. 执行 PutBucketReplication、GetBucketReplication 和 DeleteBucketReplication 分别实现配置跨区域复制规则、获取跨区域复制规则和删除跨区域复制规则三种操作。
+2. 执行 PutBucketReplication、GetBucketReplication 和 DeleteBucketReplication 分别实现配置跨地域复制规则、获取跨地域复制规则和删除跨地域复制规则三种操作。
 
-#### 配置跨区域复制规则 ####
+#### 配置跨地域复制规则
 代码示例：
 
 ```
@@ -157,7 +157,7 @@ printf("put bucket replication failed\n");
 //destroy memory pool
 cos_pool_destroy(p);
 ```
-#### 获取跨区域复制规则 ####
+#### 获取跨地域复制规则
 代码示例：
 
 ```
@@ -203,8 +203,7 @@ printf("get bucket replication failed\n");
 //destroy memory pool
 cos_pool_destroy(p);
 ```
-#### 删除跨区域复制规则 ####
-代码示例：
+#### 删除跨地域复制规则
 
 ```
 cos_pool_t *p = NULL;
