@@ -67,7 +67,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 ### 配置 OneLogin 用户
 1. 登录并访问 [OneLogin 用户管理控制台](https://xiaoyu.onelogin.com/users)。
 2. 单击【NEW USER】，跳转至新建用户页。
-3. <span id="step3"></span>输入 “First Name” 、“Last Name”、“Email”、“Username”，单击【SAVE USER】保存。如下如所示：
+3. <span id="step3"></span>输入 “First Name” 、“Last Name”、“Email”、“Username”，单击【SAVE USER】保存。如下图所示：
 >?此帐户密码可查看 Email，或单击【MORE ACTIONS】选择【change password】修改密码。
 
 ![](https://main.qcloudimg.com/raw/ef4f738c88f3c97fe5980286ad383ffa.png)
