@@ -75,7 +75,7 @@ sudo make install
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **配置用户信息**
-**将 AppID、SecretId、SecretKey配置到 SDK 中**。
+**将 AppID、SecretId、SecretKey 配置到 SDK 中**。
 
 ```
 #需要配置成用户账号信息 c++_record_asr_sdk/config/TCloudRecordASRConfig.ini
@@ -142,7 +142,7 @@ headers:
 | requestId |  Int | 如果成功，返回任务 ID |
 
 **结果回调**  
-当语音识别系统完成识别后，会将结果通过HTTP POST请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
+当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
 
 | 字段 | 类型 | 描述 |  
 | --- | --- | --- |
