@@ -51,7 +51,7 @@ String queue = “创建的队列名”
  ![](https://main.qcloudimg.com/raw/151a28f513b8eebe78eea9e47fe2b732.png)
  ProducerDemo支持普通消息、延时消息、异步消息的发送。
 ![](https://main.qcloudimg.com/raw/75fae413af9db02c612f0e9f49230c98.png)
- 3. 执行文件ConsumerDemo，可接收消息。
+ 3. 执行文件 ConsumerDemo，可接收消息。
 - **使用主题模型收发消息**
  1. 运行 PublishDemo 类以主题模型进行消息发送。
  2. 运行 SubscriberDemo 类以主题模式进行消息接收。
@@ -59,7 +59,7 @@ String queue = “创建的队列名”
  1. 运行 ProducerTransactionDemo 类进行事务消息发送。
  2. 运行 SubscriberTransactionDemo 类进行事务消息接收。
 
-## Nameserver 对照表<span id="NameServer 对照表"></span>
+## Nameserver 对照表
 | 地区     | 公网地址   | VPC 地址       |    
 | -------- | ------------ | -------------------------- | 
 | 印度     | [http://cmq-nameserver-in.tencentcloudapi.com](http://cmq-nameserver-in.tencentcloudapi.com/) | [http://cmq-nameserver-vpc-in.api.tencentyun.com](http://cmq-nameserver-vpc-in.api.tencentyun.com/) | 
