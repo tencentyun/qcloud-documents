@@ -25,13 +25,11 @@ TCP 支持 CMQ 最新的分布式消息事务。
 1. **创建资源**
 您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
 具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
-
 2. **导入 Demo 工程文件**
 在 IDEA 的开机界面打开文件夹。
 ![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
 打开文件夹后，文件层级关系如下，Demo 工程文件存于 Demo 文件夹下。
 ![](https://main.qcloudimg.com/raw/1fc9235f7ae621fec4105fb173725d89.png)
-
 3. **配置 Demo 参数**<span id="peizhi"></span>
 修改文件 NameServer 地址、密钥对及消息队列名，NameServer 地址请参考 [NameServer 对照表](#Nameserver)。
 以 ProducerDemo 为例，配置如下：
