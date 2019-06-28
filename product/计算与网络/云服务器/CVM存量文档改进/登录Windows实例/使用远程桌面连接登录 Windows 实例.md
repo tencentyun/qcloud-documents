@@ -16,7 +16,7 @@ Windows
 - 已打开云服务器实例的3389号端口。
 您可以通过 [检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7) 检查3389号端口是否放通。如果端口不通，您可以在 [配置安全组](https://cloud.tencent.com/document/product/213/15377) 时设置端口的入站/出站规则。
 - 云服务器实例已购买公网 IP 并获取到公网 IP。
-实例的公网 IP可登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 进行查看。
+实例的公网 IP 可登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 进行查看。
 
 ## 操作步骤
 >? 以下操作步骤以 Windows 7 操作系统为例。
