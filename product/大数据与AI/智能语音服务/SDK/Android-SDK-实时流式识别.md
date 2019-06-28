@@ -10,32 +10,33 @@
 ### 运行环境配置
 
 ##### 引入 .so 文件
-**libWXVoice.so：**腾讯语音检测 so 库。
-
-##### 引入 jar 包
-- okhttp-3.2.0.jar
-- okio-1.6.0.jar
-- slf4j-android-1.6.1-RC1.jar
+**libWXVoice.so：** 腾讯语音检测 so 库。
 
 ##### 引入 aar 包
-**aai-2.1.3.aar：**腾讯云智能语音 SDK。
+**aai-2.1.3.aar：** 腾讯云智能语音 SDK。
 
 腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
 #### 本地构建
-可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio 和 slf4j 三个库也集成到 App 中。
+可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。
 在 build.gradle 文件中添加：
 ```
-implementation(name: 'aai-2.1.3', ext: 'aar')
+implementation(name: 'aai-2.1.4', ext: 'aar')
 ```
 #### 远程构建
 在 build.gradle 文件中添加：
 ```
-compile 'com.tencent.aai:aai:2.1.3:@aar'
-compile 'com.squareup.okhttp3:okhttp:3.6.0'
-compile 'org.slf4j:slf4j-android:1.6.1-RC1'
+implementation 'com.tencent.aai:aai:2.1.4:@aar'
 ```
-如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
+#### 添加相关依赖
+okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
+```
+implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+implementation 'com.squareup.okio:okio:1.11.0'
+implementation 'com.google.code.gson:gson:2.8.5'
+implementation 'org.slf4j:slf4j-api:1.7.25'
+```
 
+如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 #### 在 AndroidManifest.xml 添加如下权限：
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
@@ -44,6 +45,7 @@ compile 'org.slf4j:slf4j-android:1.6.1-RC1'
 < uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 < uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 ## 快速入门
 
@@ -134,13 +136,19 @@ new Thread(new Runnable() {
 
 ## SDK 详细介绍
 ### 签名
-用户需要自己使用 AbsCredentialProvider 接口来计算签名，计算签名函数：
+调用者需要自己实现AbsCredentialProvider接口来计算签名，此方法为SDK内部调用上层不用关心source来源
+计算签名函数如下：
 ```
+/**
+ * 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
+ * @param source 原文字符串
+ * @return 加密后返回的密文
+ */
 String getAudioRecognizeSign(String source);
 ```
 **计算最终签名算法：**
-先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行 Base64 编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source,secretKey))。
-为了方便用户测试，SDK 已有一个实现类 LocalCredentialProvider，但为了保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本下请在第三方服务器上获取签名。
+先以SecretKey对source进行HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source,secretKey))。
+为方便用户测试，SDK已提供一个实现类**LocalCredentialProvider**，但为保证SecretKey的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider**中的方法。
 
 ### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
@@ -152,7 +160,7 @@ public AAIClient(Context context, int appid, int projectId, String secreteId, Ab
 | 参数名称 | 类型 | 是否必填 | 参数描述 |
 |---------|---------|---------|---------|
 | context | Context | 是 | 上下文 |
-| AppID | Int | 是 | 腾讯云注册的 AppID |
+| appid | Int | 是 | 腾讯云注册的 AppID |
 | projectId | Int | 否 | 用户的 projectId |
 | secreteId | String | 是 | 用户的 SecreteId |
 | credentialProvider | AbsCredentialProvider | 是 | 鉴权类 |

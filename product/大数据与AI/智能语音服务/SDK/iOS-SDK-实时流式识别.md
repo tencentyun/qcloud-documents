@@ -2,20 +2,20 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/8fa2a14b469f0b63bc02a91f91a942e2/QCloudSDK_v2.0.2.zip) 。
+实时流式语音识别的 iOS SDK以及Demo的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
 
-详细示例可参考 Demo：[QCloud SDK Demo](https://main.qcloudimg.com/raw/b3a8e1e84100f24a9a05d2d9ba6385b1/QCloudSDKDemo_v2.0.2.zip) 。
 
 ### 使用须知
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
++ 从控制台获取 AppID、SecretID、SecretKey、ProjectId详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 运行Demo 必须设置 AppID、SecretID、SecretKey、ProjectId
++ 进入[API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
-iOS SDK 压缩包名称为： QCloudSDK.zip。
-压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含Sample Code和QCloudSDK。
 
 ### 工程配置
 
@@ -23,11 +23,23 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 
 ```objective-c
-   <key>NSAppTransportSecurity</key>
-   <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/> 
-   </dict>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>qcloud.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.2</string>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSRequiresCertificateTransparency</key>
+			<false/>
+		</dict>
+	</dict>
+    </dict>
 ```
 2. **申请系统麦克风权限，添加如下内容：**
 
@@ -39,10 +51,11 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
+   + CoreTelephony.framework
    + libWXVoiceSpeex.a
    
-4. **添加完如图所示：**
-![](https://main.qcloudimg.com/raw/5e8684e61118f82bd1ade27bd0a7df9e/framework.png)
+添加完如图所示。
+![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 ### 类说明
 **QCloudRealTimeRecognizer 初始化说明**
