@@ -19,7 +19,7 @@ jdk1.8及以上
 JAR 包使用步骤如下：
 1. 找到：out 和 lib 文件夹中的 jar 文件，一共14个(包括4个 source jar）。
 2. 将 jar 复制到您的工程文件夹中。如果第三方 Jar 和您已使用的 Jar 有重复，可选择其一。
-3. 在 Eclipse 右键“您的项目 -> Properties -> Java Build Path -> Add JARs”。
+3. 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。
 4. 将 jar 文件 include 到您的项目中。包括：out 文件夹中的：off_asr_sdk_1.0.jar 和 lib 中的9个依赖工具包。
 
 添加完成后，用户就可以在工程中使用实时语音 SDK 了。
@@ -43,7 +43,7 @@ JAR 包使用步骤如下：
 | appid |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别。|
-| engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型. |
+| engine\_model\_type | 否 | String | 引擎类型。8k_0：电话 8k 通用模型；16k_0：16k 通用模型；8k_6: 电话场景下单声道话者分离模型。 |
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5。|
 | res_type | 否 | Int | 结果返回方式。0：同步返回；1：异步返回。目前只支持异步返回。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
@@ -88,7 +88,7 @@ headers:
 | requestId |  Int | 如果成功，返回任务 ID |
 
 **结果回调**  
-当语音识别系统完成识别后，会将结果通过HTTP POST请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
+当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
 
 | 字段 | 类型 | 描述 |  
 | --- | --- | --- |
@@ -111,7 +111,7 @@ headers:
 
 
 **接口说明**
-**2.1 initBaseParameters**
+**initBaseParameters**
 ```
 /*
 ** 初始化基础参数, 请将下面的参数值配置成您自己的值。
