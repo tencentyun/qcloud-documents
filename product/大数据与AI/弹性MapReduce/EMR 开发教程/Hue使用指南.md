@@ -49,25 +49,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 | select * from hive_sample;|
 ```
 将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。
-具体路径：`/usr/local/service/hive/conf/hive-site.xml`，复制一个 hive-site.xml 文件，将其中对应配置修改为如下值：
-```
-<property>``  
-	<name>hive.exec.local.scratchdir</name>``  
-	<value>/tmp/hive</value>``
-</property>``
-<property>``  
-	 <name>hive.downloaded.resources.dir</name>`` 
-	 <value>/tmp/hive/${hive.session.id}_resources</value>``
-</property>``
-<property>``  
-	 <name>hive.querylog.location</name>``  
-	 <value>/tmp/hive</value>``
-</property>``
-<property>``  
-	 <name>hive.server2.logging.operation.log.location</name>``  
-	 <value>/tmp/hive/tmp/operation_logs</value>``
-</property>
-```
+具体路径：`/usr/local/service/hive/conf/hive-site.xml`，复制一个 hive-site.xml 文件。
 上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如`/user/hadoop`。
 2. **创建工作流**
  1. 切换到 hadoop 用户，在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
