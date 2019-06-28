@@ -18,7 +18,7 @@
 | 语言种类 | 中文普通话、英文和带有一定方言口音的普通话 |
 
 ## 请求结构
-请求结构主要由**请求方法、请求URL、请求头部、请求正文**组成。
+请求结构主要由**请求方法、请求 URL、请求头部、请求正文**组成。
 **请求方法**
 HTTPS 请求方法，录音文件识别的请求方法为 **POST**。
 **请求 URL**
@@ -39,7 +39,7 @@ timestamp=xxx&
 expired=xxx& 
 nonce=xxx
 ```
-URL中各字段含义如下：  
+URL 中各字段含义如下：  
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
@@ -70,10 +70,10 @@ URL中各字段含义如下：
 **请求正文**
 语音数据，当 SourceType 值为1（语音数据上传）时必须填写，当 SourceType 值为0（语音 URL 上传）可不写。要使用base64编码(采用 Python 语言时注意读取文件应该为 string 而不是 byte，以 byte 格式读取后要 decode()。编码后的数据不可带有回车换行符)。音频数据要小于5MB。
 **请求示例**
-请求示例如下，示例生成请参考下面 PHP 代码
+请求示例如下，示例生成请参考下面 [PHP 代码](#PHP) 。
 示例1 
 用户通过语音 url 地址方式请求。
-用户通过 [签名生成](#sign) 的签名 5Zb1hKd8uo4H+AgpMbktZhHqqjY=，通过语音url（https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav） 的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。
+用户通过 [签名生成](#sign) 的签名 5Zb1hKd8uo4H+AgpMbktZhHqqjY=，通过语音 url（https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav） 的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。
 
 ```
 curl -sv -H 'Authorization:5Zb1hKd8uo4H+AgpMbktZhHqqjY=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav'
@@ -87,7 +87,7 @@ curl -sv -H 'Authorization:j8AY1RkedGSoDxCjAEtT2pq/r1w=' 'https://aai.qcloud.com
 ``` 
 <span id="sign"></span>
 **签名生成**
-这里以 Appid = 1259228442, SecretId = AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r为例拼接签名原文，则拼接的签名原文为：
+这里以 Appid = 1259228442, SecretId = AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
 
 ```
 POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav
@@ -146,12 +146,12 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
 **回调示例**
-服务端返回 json 示例： 
+服务端返回 JSON 示例： 
 
 ``` 
 { "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", audioTime:2.5 }
 ```
-语音识别系统发起请求，收到请求后，用户侧需要以 json 格式回以响应：
+语音识别系统发起请求，收到请求后，用户侧需要以 JSON 格式回以响应：
 
 ```
 { "code" : 0, "message" : "成功" }
@@ -205,7 +205,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | 10005 | 其他失败 |
 | 10006 | 音轨个数不匹配 |
 
-
+<span id="PHP"></span>
 ## PHP 代码示例
 ```
 //filepath 音频文件路径
