@@ -8,7 +8,7 @@
 
 ## 操作步骤
 ### 创建 NB-IoT 产品和设备
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。
+1. 登录物联网通信控制台，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。
 2. 进入产品列表页面，单击【创建新产品】，即可开始创建 NB-IoT 产品。  
 3. 在弹出添加新产品页面中，根据实际情况填写相关信息。
  - 所属地区：广州。
