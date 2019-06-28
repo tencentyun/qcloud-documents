@@ -72,8 +72,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 >?此帐户密码可查看 Email，或单击【MORE ACTIONS】选择【change password】修改密码。
 
 ![](https://main.qcloudimg.com/raw/ef4f738c88f3c97fe5980286ad383ffa.png)
-
-4. 单击用户编辑页【 Applications 】，选择右侧的<image style="margin:0;" src="https://main.qcloudimg.com/raw/d2bc77a3b604b1c3ab4e67500b0d52b8.png">。如下图所示：
+4. 单击用户编辑页【 Applications 】，选择右侧的<image style="margin:0;" src="https://main.qcloudimg.com/raw/98a24d12696834b52f559d0abe490fd2.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/d8e9053d445b3af6d9aaecd74a0952b7.png)
 5. 在弹出对话框选择您已创建的 SAML 应用 “test”，单击【CONITINUE】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f7d3ecad4803cff72c62d665d4a2ec96.png)
