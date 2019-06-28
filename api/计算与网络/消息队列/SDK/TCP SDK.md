@@ -33,7 +33,7 @@ TCP 支持 CMQ 最新的分布式消息事务。
 ![](https://main.qcloudimg.com/raw/1fc9235f7ae621fec4105fb173725d89.png)
 
 3. **配置 Demo 参数**
-修改文件 NameServer 地址、密钥对及消息队列名，NameServer 地址请参考 [NameServer 对照表](#NameServer 对照表)。
+修改文件 NameServer 地址、密钥对及消息队列名，NameServer 地址请参考 [NameServer 对照表](https://cloud.tencent.com/document/product/406/35818#nameserver-.E5.AF.B9.E7.85.A7.E8.A1.A8.3Cspan-id.3D.22nameserver-.E5.AF.B9.E7.85.A7.E8.A1.A8.22.3E.3C.2Fspan.3E)。
 以 ProducerDemo 为例，配置如下：
 ```
 producer.setNameServerAddress(“对应的NameSever”)；
