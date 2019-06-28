@@ -36,7 +36,7 @@ Windows，Linux 和 Mac OS
 rdesktop
 ```
  - 若已安装 rdesktop，请执行 [步骤4](#step04)。
- - 若未安装，请执行 [步骤2](#step02)。
+ - 若未安装 rdesktop，请执行 [步骤2](#step02)。
 2. <span id="step02">[切换至 GitHub 下载最新安装包](https://github.com/rdesktop/rdesktop/releases)。</span>
 您也可以通过单击以下链接，下载 v1.8.3 版本的 rdesktop。
  - [rdesktop-1.8.3.tar.gz](https://mc.qcloudimg.com/static/archive/06483121ce067b537342687dd6a909d8/rdesktop-1.8.3.tar.gz)
@@ -63,7 +63,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 
 >? 以下操作以 Microsoft Remote Desktop for Mac 为例。
 >
-1. 下载 [Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) 。
+1. 下载 [Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/)。
 >! Remote Desktop 客户端为测试版客户端，由微软官方维护，推荐您优先使用此版本客户端。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您也可以从 [Mac App Store](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417) 下载 Microsoft Remote Desktop 客户端。但该客户端不面向中国地区用户开放，您需要拥有其他地区 AppleID 账号才可下载。
 >
 2. 打开客户端工具，单击【Add Deskop】。如下图所示：
