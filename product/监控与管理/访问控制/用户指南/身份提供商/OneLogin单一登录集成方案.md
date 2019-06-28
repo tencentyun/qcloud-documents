@@ -59,9 +59,10 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 </table>
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
-> - {AccountID}：替换为您的腾讯云账户 ID，可前往腾讯云账号中心 - [账号信息](https://console.cloud.tencent.com/developer) 查看。
-> - {RoleName}：替换您在腾讯云创建的角色名称，可前往腾讯云 CAM 控制台 - [角色管理](https://console.cloud.tencent.com/cam/role) 查看。
-> - {ProviderName}：替换您在腾讯云创建的 SAML 身份提供商名称，可前往腾讯云 CAM 控制台 - [身份提供商](https://console.cloud.tencent.com/cam/idp) 查看。
+>- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+>- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
+>- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
+>
 
 4. 单击右上角【SAVE】保存配置。
 
@@ -78,5 +79,5 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 ![](https://main.qcloudimg.com/raw/f7d3ecad4803cff72c62d665d4a2ec96.png)
 6. 在编辑页面，单击【 SAVE 】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9d9389fbe5b821f23519524b30827c23.png)
-7. 使用 [步骤3](#step3) 创建的帐户登录 OneLogin ，访问上述创建的 SAML 应用 “test”，即可跳转至腾讯云控制台。如下图所示：
+7. 使用 [步骤3](#step3) 创建的帐户登录 OneLogin ，访问上述创建的 SAML 应用 “test”。即可跳转至腾讯云控制台。如下图所示：
 ![](https://main.qcloudimg.com/raw/0245bd15e08651b6d7e641ed8e843aad.png)
