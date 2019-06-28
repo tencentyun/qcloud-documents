@@ -54,7 +54,7 @@ APPID = '1259********'
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body） |
 | url | 否 | String | 语音 URL，公网可下载。当 source_type 值为 0 时须填写该字段，为 1 时不填；URL 的长度大于0，小于2048。 |
 | timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
-| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
+| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置1小时。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 
 **请求 url 参数示例**
@@ -90,7 +90,7 @@ headers:
 | requestId |  Int | 如果成功，返回任务 ID |
 
 **结果回调**  
-当语音识别系统完成识别后，会将结果通过HTTP POST请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
+当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
 
 | 字段 | 类型 | 描述 |  
 | --- | --- | --- |
