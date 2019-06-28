@@ -25,10 +25,10 @@
 ### 1. 创建 SCF 函数
 >!您创建的函数所属地域需与 COS 存储桶的地域保持一致。
 
-1）登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，单击函数服务，选择与静态内容相同的地域并创建函数。如下图所示：
-![](https://main.qcloudimg.com/raw/332edc2828575a4c802a9af9cb233b08.png)
-2）在 “新建函数” 页面，选择 “空白函数”，输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为  Nodejs 6.10）。确认配置无误后单击【完成】即可。如下图所示：
-![](https://main.qcloudimg.com/raw/70e9dbae0471dd8cd50ffa724eb089f4.png)
+1）登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，在左侧导航菜单中，单击【函数服务】。
+2）选择与静态内容相同的地域，单击【新建】创建函数。
+3）在 “新建函数” 页面，选择 “空白函数”，输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为  Nodejs 8.9）。确认配置无误后单击【完成】即可。如下图所示：
+![](https://main.qcloudimg.com/raw/589b6a6f4e48d85333ae36f34c738b1b.png)
 
 ### 2. 配置函数
 
@@ -45,7 +45,7 @@
 #### 2.2 上传函数代码
 
 1）将修改好的代码和其他文件重新压缩打包为 zip 格式。
-2）在 SCF 控制台中，选择 "函数代码" 页签，将 "提交方法" 设置为 "本地上传 zip 包"，并选择刚压缩的 zip 格式文件，单击【上传】。如下图所示：
+2）在 SCF 控制台中，选择 【函数代码】 页签，将 "提交方法" 设置为 "本地上传 zip 包"，并选择刚压缩的 zip 格式文件，单击【上传】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9672da05b98748a5ef06da393ec64d04.png)
 
 #### 2.3 添加触发方式
