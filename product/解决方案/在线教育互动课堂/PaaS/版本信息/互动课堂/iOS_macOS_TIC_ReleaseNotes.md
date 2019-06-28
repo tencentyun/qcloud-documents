@@ -1,6 +1,18 @@
 # Release Notes - iOS & macOS
 
 
+## 2019.06.25
+
+macOS
+- macOS Demo重构
+
+| | TRTC版本 | TIM版本 | TEduBoard版本 |
+| :-: | :-: | :-: | :-: |
+| **iOS** | 6.5.7272 | 4.4.479 | 2.2.1 |
+| **macOS** | 4.0.0 | 4.4.479 | 2.2.1 |
+
+
+
 ## 2019.06.21
 
 | | TRTC版本 | TIM版本 | TEduBoard版本 |

@@ -17,11 +17,11 @@ PPT动画转码服务接入有两种方式，一种为主动轮询（较适用�
 
 #### 主动轮询
 
-![主动轮询](https://main.qcloudimg.com/raw/4b41ebe8b5fcabc14a1a037ebb3ae87d/PPT%E5%8A%A8%E7%94%BB%E8%BD%AC%E7%A0%81%E6%B5%81%E7%A8%8B(%E4%B8%BB%E5%8A%A8%E8%BD%AE%E8%AF%A2).png)
+![主动轮询](https://main.qcloudimg.com/raw/2aec841a20d1f729bae2040659091dd8/PPT%E8%BD%AC%E7%A0%81%E4%B8%BB%E5%8A%A8.png)
 
 #### 注册CGI接口回调
 
-![注册CGI接口回调](https://main.qcloudimg.com/raw/00f084aa67f783cfce6f0acea77c09f3/PPT%E5%8A%A8%E7%94%BB%E8%BD%AC%E7%A0%81%E6%B5%81%E7%A8%8B(%E6%B3%A8%E5%86%8CCGI%E6%8E%A5%E5%8F%A3%E5%9B%9E%E8%B0%83).png)
+![注册CGI回调](https://main.qcloudimg.com/raw/35b6b5b8654a0af6ea1834c6789de965/PPT%E8%BD%AC%E7%A0%81CGI.png)
 
 ### 3.2 鉴权签名算法
 
