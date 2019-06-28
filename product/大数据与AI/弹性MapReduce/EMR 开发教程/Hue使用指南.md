@@ -70,7 +70,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 ```
 上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如`/user/hadoop`。
 2. **创建工作流**
- 1. 在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
+ 1. 切换到 hadoop 用户，在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
 ![](https://main.qcloudimg.com/raw/17e2c9e91bef6c67d7f6721eeb1a490e.png)
  2. 在工作流编辑页面中拖一个 Hive Script。
 ![](https://main.qcloudimg.com/raw/128170644bbef8f40743ea0f72a35a0e.png)
