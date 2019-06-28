@@ -11,11 +11,11 @@
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
 + 从控制台获取 AppID、SecretID、SecretKey、ProjectId详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 + 运行Demo 必须设置 AppID、SecretID、SecretKey、ProjectId
-+ 进入[API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
-iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含Sample Code和QCloudSDK。
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
 
@@ -59,7 +59,7 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含Sample Co
 
 ### 类说明
 **QCloudRealTimeRecognizer 初始化说明**
-**QCloudRealTimeRecognizer**是实时语音识别类，提供两种初始化方法。
+**QCloudRealTimeRecognizer** 是实时语音识别类，提供两种初始化方法。
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -143,23 +143,31 @@ recognizer.delegate = self;
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-3.**自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource)协议**
+3.**自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
 ```objective-c
  QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
 ```
- 4.**创建 QCloudRealTimeRecognizer 实例**
+
+4.**创建 QCloudRealTimeRecognizer 实例**
+
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
- 5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+
+5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+
 ```objective-c
  recognizer.delegate = self;
 ```
- 6. **开始识别** 
+
+6. **开始识别** 
+
 ```objective-c
  [recognizer start];
 ```
- 7.**结束识别**
+
+7.**结束识别**
+
 ```objective-c
  [recognizer stop];
 ```
