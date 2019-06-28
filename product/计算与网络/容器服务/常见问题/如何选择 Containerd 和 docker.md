@@ -51,6 +51,28 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 
 其中 dockerd 虽增加了 swarm cluster、 docker build 、 docker API 等功能，但也会引入一些 bug（例如XXXXX）。与 containerd 相比，多了一层调用。
 
+
+## Stream 服务
+>?Kubectl exec/logs 等命令需要在 apiserver 跟容器运行时之间建立流转发通道。
+>
+
+### Stream 服务在 Containered 中的使用及配置
+Docker API 本身提供 stream 服务，kubelet 内部的 docker-shim 会通过 docker API 做流转发。
+Containerd 的 stream 服务需要单独配置：
+```
+[plugins.cri]
+  stream_server_address = "127.0.0.1"
+  stream_server_port = "0"
+  enable_tls_streaming = false
+```
+
+### k8s 1.11 前后版本配置区别
+Containerd 的 stream 服务在 k8s 不同版本运行时场景下配置不同。
+- 在 k8s 1.11 之前：
+Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 containerd 暴露的 stream server 地址发送给 apiserver，并让 apiserver 直接访问 containerd 的 stream 服务。此时，您需要给 stream 服务转发器认证，用于安全防护。
+- 在 k8s 1.11 之后：
+ k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 从而使得 containerd stream 服务只需要监听本地地址即可。
+
 ## 其他差异
 ### 容器日志及相关参数
 
@@ -93,27 +115,6 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 	</td>
 	</tr>
 </table>
-
-### Stream 服务
->?Kubectl exec/logs 等命令需要在 apiserver 跟容器运行时之间建立流转发通道。
->
-
-#### Stream 服务在 Containered 中的使用及配置
-Docker API 本身提供 stream 服务，kubelet 内部的 docker-shim 会通过 docker API 做流转发。
-Containerd 的 stream 服务需要单独配置：
-```
-[plugins.cri]
-  stream_server_address = "127.0.0.1"
-  stream_server_port = "0"
-  enable_tls_streaming = false
-```
-
-#### k8s 1.11 前后版本配置区别
-Stream server 在 k8s 不同版本运行时场景下配置不同。
-- 在 k8s 1.11 之前：
-Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 containerd 暴露的 stream server 地址发送给 apiserver，并让 apiserver 直接访问 containerd 的 stream server。此时，您需要给 stream server 使能转发器认证，用于安全防护。
-- 在 k8s 1.11 之后：
- k8s1.11 引入了 [kubelet stream proxy](https://github.com/kubernetes/kubernetes/pull/64006)， 从而使得 containerd stream server 只需要监听本地地址即可。
 
 
 ### CNI 网络
