@@ -53,7 +53,7 @@
 
 `[hadoop@172 hadoop]$ hadoop fs –mkdir /user`
 
-更多 Hadoop 指令见 HDFS 常见操作。
+更多 hadoop 指令见 HDFS 常见操作。
 
 
 ### 数据存放在 COS

@@ -40,12 +40,9 @@ function webimLogin() {
 | sdkAppID       | 用户标识接入 IM SDK 的应用 ID，必填              | String |
 | appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String |
 | identifier     | 用户帐号，必填                                | String |
-| identifierNick | 用户昵称，选填                                | String |
 | userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
->!
-> - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
-> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信 IM 控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
+>!Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信 IM 控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
 
 
 ## 事件回调对象 listeners

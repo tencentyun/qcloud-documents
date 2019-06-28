@@ -20,7 +20,7 @@
 
 #### 购买6.6元测试体验套餐包（新用户专享）
 针对实时音视频新用户，我们为您提供专属测试体验套餐包，您只需支付6.6元即可体验300分钟实时音视频通话时长。
-实时音视频测试体验套餐包只能通过 [专属页面](https://cloud.tencent.com/product/trtc) 购买：
+实时音视频测试体验套餐包只能通过 [专属页面](https://buy.cloud.tencent.com/trtc_activity) 购买：
 ![](https://main.qcloudimg.com/raw/9214c35fbc89837047a150c741e0a670.png)
 选择您需要激活的实时音视频服务 SDKAPPID（应用标识），单击【立即购买】，并根据页面提示完成付款操作即可购买成功。**购买成功后将会自动激活实时音视频服务状态。**
 
@@ -57,7 +57,7 @@
 
 ## 常见问题
 ### 1. 开发环境有什么要求？
-- Android SDK API Level Level ≥ 16
+- 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
 - Android Studio 2.0 或以上版本
 - App 要求 Android 4.1 或以上设备
 

@@ -22,7 +22,7 @@ DO 执行了一个匿名代码块，或换而言之为一个程序化语言的�
 
 ## 参数
 code
-需要执行的程序化语言代码。这必须指定为字符串文本。正如使用 CREATE FUNCTION 命令。建议使用美元引用文字。可选关键字无效。支持这些程序语言：PL/pgSQL（plpgsql）、PL/Python（plpythonu）和 PL/Perl（plperl 和plperlu）。
+需要执行的程序化语言代码。这必须指定为字符串文本。正如使用 CREATE FUNCTION 命令。建议使用$引用文字。可选关键字无效。支持这些程序语言：PL/pgSQL（plpgsql）、PL/Python（plpythonu）和 PL/Perl（plperl 和plperlu）。
 
 lang_name
 代码所用程序语言的名字。该语言默认是 plpgsql。该语言必须在数据库中安装并且在用户数据库中注册。

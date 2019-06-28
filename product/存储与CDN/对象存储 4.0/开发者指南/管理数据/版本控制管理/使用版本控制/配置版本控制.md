@@ -1,9 +1,8 @@
 ## 使用场景
 利用版本控制功能，您可以在存储桶中存放对象的多个版本，并且实现检索、删除和还原指定版本对象。
-了解版本控制详情信息，请参考 [版本控制概述](/document/product/436/19883) 文档。
+了解版本控制详情信息，请参考 [版本控制概述](https://cloud.tencent.com/document/product/436/19883) 文档。
 
->**注意：**
->只有根账号和被授权的子账号可以配置存储桶的版本控制状态。
+>!只有根账号和被授权的子账号可以配置存储桶的版本控制状态。
 
 ## 使用方法
 
@@ -18,12 +17,12 @@
 
 ### 使用 Android SDK
 
-对象存储 COS 的 Android SDK 中提供了此方法，可参考 Android SDK 接口文档 [设置版本控制部分](https://cloud.tencent.com/document/product/436/11238#.E8.AE.BE.E7.BD.AE.E5.A4.9A.E7.89.88.E6.9C.AC)。
+对象存储 COS 的 Android SDK 中提供了此方法，可参考 Android SDK [存储桶管理](https://cloud.tencent.com/document/product/436/34537) 文档。
 
 #### 设置版本控制
 
 步骤说明：
-1. 通过调用 PutBucketVersioningRequest 构造方法，实例化 PutBucketVersioningRequest 对象；
+1. 通过调用 PutBucketVersioningRequest 构造方法，实例化 PutBucketVersioningRequest 对象。
 2. 通过调用 CosXmlService 的 putBucketVersioning(PutBucketVersioningRequest) 同步方法，传入 PutBucketVersioningRequest，返回 PutBucketVersioningResult 对象（或者调用 putBucketVersionAsync 方法，传入 PutBucketVersioningRequest 和 CosXmlResultListener 进行异步回调操作）。
 
 代码示例：
@@ -60,8 +59,8 @@ Log.w("TEST",errorMsg);
 #### 检索版本控制
 
 步骤说明：
-1. 通过调用 GetBucketVersioningRequest 构造方法，GetBucketVersioningRequest 对象;
-2. 通过调用 CosXmlService 的 getBucketVersioning(GetBucketVersioningRequest) 同步方法，传入 GetBucketVersioningRequest，返回 GetBucketVersioningResult 对象.（或者调用 getBucketVersioningAsync 方法，传入 GetBucketVersioningRequest 和 CosXmlResultListener 进行异步回调操作）。
+1. 通过调用 GetBucketVersioningRequest 构造方法，GetBucketVersioningRequest 对象。
+2. 通过调用 CosXmlService 的 getBucketVersioning(GetBucketVersioningRequest) 同步方法，传入 GetBucketVersioningRequest，返回 GetBucketVersioningResult 对象（或者调用 getBucketVersioningAsync 方法，传入 GetBucketVersioningRequest 和 CosXmlResultListener 进行异步回调操作）。
 
 代码示例：
 ```java
@@ -95,7 +94,7 @@ Log.w("TEST",errorMsg);
 
 ### 使用 iOS SDK
 
-对象存储 COS 的 iOS SDK 中提供了此方法，可参考 iOS SDK 接口文档 [PUT Bucket versioning 部分](https://cloud.tencent.com/document/product/436/12258#put-bucket-versioning)。
+对象存储 COS 的 iOS SDK 中提供了此方法，可参考 iOS SDK [存储桶管理](https://cloud.tencent.com/document/product/436/34108) 文档。
 
 #### 设置版本控制
 
@@ -189,8 +188,8 @@ request.versionID = @"12345678910";
 
 步骤说明：
 
-1. 生成一个 QCloudDeleteObjectRequest 实例，并且设置好对应的 Bucket, object 等属性。
-2. 设置其相对应的 versionID，或者 deleteMarker
+1. 生成一个 QCloudDeleteObjectRequest 实例，并且设置好对应的 Bucket，object 等属性。
+2. 设置其相对应的 versionID，或者 deleteMarker。
 3. 调用 QCloudCOSXMLService 的 DeleteObject 方法发出请求。
 
 代码示例：

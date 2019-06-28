@@ -37,7 +37,7 @@ __参数__
 | param | [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) * | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32261#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
 
 
 ### exitRoom
@@ -46,6 +46,24 @@ __参数__
 ```
 - (void)exitRoom
 ```
+
+
+### switchRole
+
+切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。
+```
+- (void)switchRole:(TRTCRoleType)role 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32261#trtcroletype) | 目标角色。 |
+
+__介绍__
+
+在直播场景下，一个用户可能需要在“观众”和“主播”之间来回切换。 您可以在进房前通过 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) 中的 role 字段确定角色，也可以通过 switchRole 在进房后切换角色。
 
 
 ### connectOtherRoom
@@ -671,7 +689,7 @@ Mac 主机本身自带一个质量很好的摄像头，但它也允许插入 USB
 
 ### getCurrentCameraDevice
 
-获取当前要使用的摄像头。
+获取当前使用的摄像头。
 ```
 - (TRTCMediaDeviceInfo *)getCurrentCameraDevice
 ```

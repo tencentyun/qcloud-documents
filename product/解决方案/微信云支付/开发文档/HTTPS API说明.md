@@ -2346,7 +2346,7 @@ content_type：application/json
       <td>machine_info</td>
       <td>是</td>
       <td>String</td>
-      <td>cpu 使用率，内存使用率，磁盘使用情况等，json 结构</td>
+      <td>CPU 使用率，内存使用率，磁盘使用情况等，json 结构</td>
    </tr>
 </table>
 
@@ -2976,6 +2976,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>商品详细列表，详见 Detail</td>
    </tr>
    <tr>
+      <td>coupon_infos</td>
+      <td>否</td>
+      <td>CouponInfo</td>
+      <td>代金券信息，详见 CouponInfo</td>
+   </tr>
+   <tr>
       <td>wxpay_order_content_ext</td>
       <td>否</td>
       <td>WxpayOrderContentExt</td>
@@ -2992,6 +2998,40 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>CardOrderContentExt</td>
       <td>会员卡扩展信息，详见 CardOrderContentExt</td>
+   </tr>
+</table>
+
+#### CouponInfo 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>coupon_id</td>
+      <td>否</td>
+      <td>String(20)</td>
+      <td>代金券或立减优惠 id<br>使用微信支付代金券时有返回</td>
+   </tr>
+   <tr>
+      <td>coupon_fee</td>
+      <td>否</td>
+      <td>Number(64)</td>
+      <td>单个代金券或立减优惠支付金额</td>
+   </tr>
+   <tr>
+      <td>coupon_type</td>
+      <td>否</td>
+      <td>String(8)</td>
+      <td>代金券类型，CASH--充值代金券<br>NO_CASH---非充值代金券<br>使用代金券时有返回</td>
+   </tr>
+   <tr>
+      <td>contribute_type</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>资金来源，1：商户 2：平台 3：其他</td>
    </tr>
 </table>
 
@@ -3043,7 +3083,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>代金券信息，详见 WxpayCouponInfo</td>
+      <td>已废弃，请使用 OrderContent 下的 coupon_infos 字段<br>代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>product_id</td>
@@ -3448,6 +3488,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>退款原因</td>
    </tr>
    <tr>
+      <td>coupon_infos</td>
+      <td>否</td>
+      <td>CouponInfo</td>
+      <td>退款代金券信息，详见 CouponInfo</td>
+   </tr>
+   <tr>
       <td>wxpay_refund_order_content_ext</td>
       <td>是</td>
       <td>WxpayRefundOrderContentExt</td>
@@ -3509,7 +3555,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_refund_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>退款代金券信息，详见 WxpayCouponInfo</td>
+      <td>已废弃，请使用 RefundOrderContent 下的 coupon_infos 字段<br>退款代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>refund_account</td>

@@ -16,7 +16,7 @@
 
 | 参数名称    | 是否必选 | 类型     | 描述                     |
 | ------- | ---- | ------ | ---------------------- |
-| hosts.n | 是    | String | 查询的 host，支持查询一个或多个 host |
+| hosts.n | 是    | String | 查询的 host，支持查询一个或多个 host。 |
 
 ### 详细说明 
 
@@ -70,7 +70,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | deleted           | String | 是否删除：<br/>"no"：表示域名未删除。<br/>"yes"：表示域名已删除。  |
 | middle_resource   | Int    | 中间源开关：<br/>-1：表示该域名关闭了中间源服务。<br/>0：表示该域名开启了中间源服务。 |
 | refer             | Object | 防盗链设置，详细说明见下文。                                   |
-| cache_mode        | String | 缓存规则类型：<br/>"simple"：表示缓存完全依赖控制台设置。<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的max-age的最小值。 |
+| cache_mode        | String | 缓存规则类型：<br/>"simple"：表示缓存完全依赖控制台设置。<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的 max-age 的最小值。 |
 | furl_cache        | String | 过滤参数：<br/>"on"：开启全路径缓存，关闭过滤参数。<br/>"off"：关闭全路径缓存，开启过滤参数。 |
 | http2             | Int    | 是否开启 HTTP2.0：<br/>"1"：表示已开启 http2.0  。                 |
 | ssl_type          | Int    | 是否开通 HTTPS：<br/>"0"：未开通 HTTPS 配置。<br/>若为其他，则表示已开通 HTTPS 配置。 |

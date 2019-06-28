@@ -3,7 +3,7 @@ Apache Flume 是可以收集例如日志，事件等数据资源，并将这些�
 
 ### Flume 架构
 一个 Flume 事件被定义为一个数据流单元。Flume agent 其实是一个 JVM 进程，该进程中包含完成任务所需要的各个组件，其中最核心的三个组件是 Source、Chanel 以及 Slink。
-![](https://main.qcloudimg.com/raw/bcc6e41302c8e48b6291fd33df9c2ba9.png)
+![](https://main.qcloudimg.com/raw/886ecba4612fa557b9316b4ff74bd4e3.png)
 
 - **Source**
 消费外部源（例如 Web 服务器或者其他 Source）传递给它的事件，并将其保存到 Channel（一个或多个）中。

@@ -1,4 +1,4 @@
-腾讯云 EMR 的 Hadoop 集成了腾讯云对象存储，如果您在购买的时候勾选了支持 COS，那么您也可以通过常见的 hadoop 命令操作 COS 上的数据，您可以通过如下命令操作集群里的数据
+腾讯云 EMR 的 Hadoop 集成了腾讯云对象存储，如果您在购买的时候勾选了支持 COS，那么您也可以通过常见的 hadoop 命令操作 COS 上的数据，您可以通过如下命令操作集群里的数据。
 
 ``` shell
 #cat数据
@@ -12,7 +12,7 @@ hadoop fs -mkdir <paths>
 #本地文件发送到HDFS上
 hadoop fs -put <localsrc> ... <dst>
 #拷贝本地文件到HDFS上
-hadoop fs -cp URI [URI …] <dest>
+hadoop fs -copyFromLocal <localsrc> URI
 #查看文件或者目录的存储使用量
 hadoop fs -du URI [URI …]
 #删除文件
@@ -23,7 +23,7 @@ hadoop fs–setrep [-R] [-w] REP PATH [PATH …]
 hadoop fsck <path> [-move | -delete | -openforwrite] [-files [-blocks [-locations | -racks]]]
 ```
 
-更多 HDFS 命令请参考[社区文档](http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html), 此外如果您的集群是高 HA 集群（双 namenode），您可以通过如下命名查看哪个 namenode 是 active 的
+更多 HDFS 命令请参考 [社区文档](http://hadoop.apache.org/docs/r2.7.3/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)，此外如果您的集群是高 HA 集群（双 namenode），您可以通过如下命名查看哪个 namenode 是 active 的。
 
 ``` shell
 #nn1 是namenode的ID，一般为nn1和nn2

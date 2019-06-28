@@ -59,4 +59,3 @@
 |Symantec 企业型 OV SSL 证书| 150万美元|
 |GeoTrust 增强型 EV SSL 证书| 150万美元|
 |GeoTrust 企业型 OV SSL 证书| 125万美元|
-|GeoTrust 域名型 OV SSL 证书| 50万美元|

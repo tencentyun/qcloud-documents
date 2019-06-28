@@ -1,10 +1,10 @@
 ## 简介
-本文档提供关于跨域名访问和生命周期相关的 API 概览以及 SDK 示例代码。
+本文档提供关于跨域访问、生命周期、版本控制、跨地域复制相关的 API 概览以及 SDK 示例代码。
 
-**跨域名访问**
+**跨域访问**
 
-| API                                                          | 操作名       | 操作描述                       |
-| ------------------------------------------------------------ | ------------ | ------------------------------ |
+| API                                                          | 操作名       | 操作描述                         |
+| ------------------------------------------------------------ | ------------ | -------------------------------- |
 | [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) | 设置跨域配置 | 设置 Bucket 的跨域名访问权限     |
 | [GET Bucket cors](https://cloud.tencent.com/document/product/436/8274) | 查询跨域配置 | 查询 Bucket 的跨域名访问配置信息 |
 | [DELETE Bucket cors](https://cloud.tencent.com/document/product/436/8283) | 删除跨域配置 | 删除 Bucket 的跨域名访问配置信息 |
@@ -16,6 +16,22 @@
 | [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | 设置生命周期 | 设置 Bucket 的生命周期管理的配置 |
 | [GET Bucket lifecycle](https://cloud.tencent.com/document/product/436/8278) | 查询生命周期 | 查询 Bucket 生命周期管理的配置   |
 | [DELETE Bucket lifecycle](https://cloud.tencent.com/document/product/436/8284) | 删除生命周期 | 删除 Bucket 生命周期管理的配置   |
+
+**版本控制**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket versioning](https://cloud.tencent.com/document/product/436/19889) | 设置版本控制   | 设置存储桶的版本控制功能 |
+| [GET Bucket versioning](https://cloud.tencent.com/document/product/436/19888) | 查询版本控制 | 查询存储桶的版本控制信息 |
+
+**跨地域复制**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket replication](https://cloud.tencent.com/document/product/436/19223) | 设置跨地域复制   | 设置存储桶的跨地域复制规则 |
+| [GET Bucket replication](https://cloud.tencent.com/document/product/436/19222) | 查询跨地域复制 | 查询存储桶的跨地域复制规则 |
+| [DELETE Bucket replication](https://cloud.tencent.com/document/product/436/19221) | 删除跨地域复制 | 删除存储桶的跨地域复制规则 |
+
 
 ## 跨域访问
 ### 设置跨域配置
@@ -55,17 +71,17 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| CORSRules | Array | 跨域信息列表                         | 无 |
-| CORSRule | Array | 跨域信息         | CORSRules |
-| AllowedMethods | String | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE                     | CORSRule |
-| AllowedOrigins | String | 允许的访问来源，支持通配符 `*`， 格式为：协议://域名[:端口]如：`http://www.qq.com`        | CORSRule  |
-| AllowedHeaders | String | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` | CORSRule  |
-| ExposeHeaders | String |设置浏览器可以接收到的来自服务器端的自定义头部信息 | CORSRule |
-| MaxAgeSeconds | Int | 设置 OPTIONS 请求得到结果的有效期        | CORSRule|
-| ID | String | 配置规则的 ID              | CORSRule |
+| 参数名称       | 类型   | 描述                                   | 必填    |
+| -------------- | ------ | ------------------------------------------------------------ | --------- |
+| Bucket         | String | 存储桶名称，格式：BucketName-APPID                           | 是        |
+| CORSRules      | Array  | 跨域信息列表                                                 | 是        |
+| CORSRule       | Array  | 跨域信息                                                     | 是 |
+| AllowedMethods | String | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE       | 是  |
+| AllowedOrigins | String | 允许的访问来源，支持通配符 `*`， 格式为：协议://域名[:端口]如：`http://www.qq.com` | 是  |
+| AllowedHeaders | String | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` | 否  |
+| ExposeHeaders  | String | 设置浏览器可以接收到的来自服务器端的自定义头部信息           | 否  |
+| MaxAgeSeconds  | Int    | 设置 OPTIONS 请求得到结果的有效期                            | 否  |
+| ID             | String | 配置规则的 ID                                                | 是  |
 
 
 ### 查询跨域配置
@@ -95,13 +111,13 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
+| 参数名称 | 类型   | 描述                               | 必填 |
+| -------- | ------ | ---------------------------------- | ------ |
+| Bucket   | String | 存储桶名称，格式：BucketName-APPID | 是     |
 
 #### 返回结果示例
 ```php
-Array
+Guzzle\Service\Resource\Model Object
 (
     [data:protected] => Array
         (
@@ -131,16 +147,16 @@ Array
 #### 返回结果说明
 
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| CORSRules | Array | 跨域信息列表                         | 无 |
-| CORSRule | Array | 跨域信息         | CORSRules |
-| AllowedMethods | String | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE                     | CORSRule |
-| AllowedOrigins | String | 允许的访问来源，支持通配符`*`， 格式为：协议://域名[:端口]。例如：`http://www.qq.com`        | CORSRule  |
+| 参数名称       | 类型   | 描述                                                         | 父节点    |
+| -------------- | ------ | ------------------------------------------------------------ | --------- |
+| CORSRules      | Array  | 跨域信息列表                                                 | 无        |
+| CORSRule       | Array  | 跨域信息                                                     | CORSRules |
+| AllowedMethods | String | 允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE       | CORSRule  |
+| AllowedOrigins | String | 允许的访问来源，支持通配符`*`， 格式为：协议://域名[:端口]。例如：`http://www.qq.com` | CORSRule  |
 | AllowedHeaders | String | 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` | CORSRule  |
-| ExposeHeaders | String |设置浏览器可以接收到的来自服务器端的自定义头部信息 | CORSRule |
-| MaxAgeSeconds | Int | 设置 OPTIONS 请求得到结果的有效期        | CORSRule|
-| ID | String | 配置规则的 ID              | CORSRule |
+| ExposeHeaders  | String | 设置浏览器可以接收到的来自服务器端的自定义头部信息           | CORSRule  |
+| MaxAgeSeconds  | Int    | 设置 OPTIONS 请求得到结果的有效期                            | CORSRule  |
+| ID             | String | 配置规则的 ID                                                | CORSRule  |
 
 
 ### 删除跨域配置
@@ -170,9 +186,9 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
+| 参数名称 | 类型   | 描述                               | 必填 |
+| -------- | ------ | ---------------------------------- | ------ |
+| Bucket   | String | 存储桶名称，格式：BucketName-APPID | 是     |
 
 
 ## 生命周期
@@ -186,7 +202,7 @@ try {
 ```php
 public Guzzle\Service\Resource\Model putBucketLifecycle(array $args = array());
 ```
- 
+
 #### 请求示例
 ```php
 try {
@@ -223,20 +239,20 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
-| Rules | Array | 生命周期信息列表                         | 无 |
-| Rule | Array | 生命周期信息         | Rules |
-| Expiration | Array | 设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date | Rule |
-| Transition | Array | 设置 Object 转换存储类型规则 | Rule  |
-| Filter | Array | 用于描述规则影响的 Object 集合 | Rule  |
-| Prefix | String | 过滤的对象的前缀 | Filter  |
-| Status | String |设置 Rule 是否启用，可选值为 Enabled 、 Disabled | Rule |
-| ID | String | 配置规则的 ID              | Rule |
-| Days | Int | 设置生效的天数     | Expiration / Transition |
-| Date | Int / String | 设置生效的日期     | Expiration / Transition |
-| StorageClass | String | 转换的文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD     | Transition |
+| 参数名称     | 类型         | 描述                                                         | 必填                  |
+| ------------ | ------------ | ------------------------------------------------------------ | ----------------------- |
+| Bucket       | String       | 存储桶名称，格式：BucketName-APPID                           | 是                      |
+| Rules        | Array        | 生命周期信息列表                                             | 是                      |
+| Rule         | Array        | 生命周期信息                                                 | 是                   |
+| Expiration   | Array        | 设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date    | 否                    |
+| Transition   | Array        | 设置 Object 转换存储类型规则                                 | 否                    |
+| Filter       | Array        | 用于描述规则影响的 Object 集合                               | 是                    |
+| Prefix       | String       | 过滤的对象的前缀                                             | 是                  |
+| Status       | String       | 设置 Rule 是否启用，可选值为 Enabled 、 Disabled             | 是                    |
+| ID           | String       | 配置规则的 ID                                                | 是                    |
+| Days         | Int          | 设置生效的天数                                               | 否 |
+| Date         | Int / String | 设置生效的日期                                               | 否 |
+| StorageClass | String       | 转换的文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | 是              |
 
 ### 查询生命周期
 
@@ -265,13 +281,13 @@ try {
 
 #### 参数说明
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
+| 参数名称 | 类型   | 描述                               | 必填 |
+| -------- | ------ | ---------------------------------- | ------ |
+| Bucket   | String | 存储桶名称，格式：BucketName-APPID | 是     |
 
 #### 返回结果示例
 ```php
-Array
+Guzzle\Service\Resource\Model Object
 (
     [data:protected] => Array
         (
@@ -303,19 +319,19 @@ Array
 #### 返回结果说明
 
 
-| 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Rules | Array | 生命周期信息列表                         | 无 |
-| Rule | Array | 生命周期信息         | Rules |
-| Expiration | Array | 设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date | Rule |
-| Transition | Array | 设置 Object 转换存储类型规则 | Rule  |
-| Filter | Array | 用于描述规则影响的 Object 集合 | Rule  |
-| Prefix | String | 过滤的对象的前缀 | Filter  |
-| Status | String |设置 Rule 是否启用，可选值为 Enabled 、 Disabled | Rule |
-| ID | String | 配置规则的 ID              | Rule |
-| Days | Int | 设置生效的天数     | Expiration / Transition |
-| Date | Int / String | 设置生效的日期     | Expiration / Transition |
-| StorageClass | String | 转换的文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD     | Transition |
+| 参数名称     | 类型         | 描述                                                         | 父节点                  |
+| ------------ | ------------ | ------------------------------------------------------------ | ----------------------- |
+| Rules        | Array        | 生命周期信息列表                                             | 无                      |
+| Rule         | Array        | 生命周期信息                                                 | Rules                   |
+| Expiration   | Array        | 设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date    | Rule                    |
+| Transition   | Array        | 设置 Object 转换存储类型规则                                 | Rule                    |
+| Filter       | Array        | 用于描述规则影响的 Object 集合                               | Rule                    |
+| Prefix       | String       | 过滤的对象的前缀                                             | Filter                  |
+| Status       | String       | 设置 Rule 是否启用，可选值为 Enabled 、 Disabled             | Rule                    |
+| ID           | String       | 配置规则的 ID                                                | Rule                    |
+| Days         | Int          | 设置生效的天数                                               | Expiration / Transition |
+| Date         | Int / String | 设置生效的日期                                               | Expiration / Transition |
+| StorageClass | String       | 转换的文件的存储类型，STANDARD 、 STANDARD_IA 、 ARCHIVE，默认值：STANDARD | Transition              |
 
 
 
@@ -346,6 +362,250 @@ try {
 
 #### 参数说明
 
+| 参数名称 | 类型   | 描述                               | 必填 |
+| -------- | ------ | ---------------------------------- | ------ |
+| Bucket   | String | 存储桶名称，格式：BucketName-APPID | 是     |
+
+## 版本控制
+### 设置版本控制
+
+#### 功能说明
+
+设置指定存储桶的版本控制功能（PUT Bucket versioning）。
+
+#### 方法原型
+```
+public Guzzle\Service\Resource\Model putBucketVersioning(array $args = array());
+```
+
+#### 请求示例
+
+**开启版本控制**
+
+```php
+try {
+    $result = $cosClient->putBucketVersioning(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+        'Status' => 'Enabled'
+    )); 
+    // 请求成功
+    print_r($result);
+} catch (\Exception $e) {
+    // 请求失败
+    echo "$e\n";
+}
+```
+
+**暂停版本控制**
+
+```php
+try {
+    $result = $cosClient->putBucketVersioning(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+        'Status' => 'Suspended'
+    )); 
+    // 请求成功
+    print_r($result);
+} catch (\Exception $e) {
+    // 请求失败
+    echo "$e\n";
+}
+```
+
+#### 参数说明
+
+| 参数名称            | 类型 | 描述                               | 必填          |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID            | 是 |
+| Status |  String | 版本控制策略，可选值为Suspended/Enabled  | 是 |
+
+
+### 查询版本控制
+
+#### 功能说明
+
+查询指定存储桶的版本控制信息（GET Bucket versioning）。
+
+#### 方法原型
+```
+public Guzzle\Service\Resource\Model getBucketVersioning(array $args = array());
+```
+
+#### 请求示例
+```
+try {
+    $result = $cosClient->getBucketVersioning(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+    )); 
+    // 请求成功
+    print_r($result);
+} catch (\Exception $e) {
+    // 请求失败
+    echo "$e\n";
+}
+```
+
+#### 参数说明
+
+| 参数名称            | 类型 | 描述                               | 必填       |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID           | 是 |
+
+
+#### 返回结果说明
 | 参数名称            | 类型 | 描述                               | 父节点          |
-| ------------------- | -------- | ---------------------------------- | ------------- |
-| Bucket | String | 存储桶名称，格式：BucketName-APPID                         | 无 |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Status | String | 版本控制策略,可选值为Suspended/Enabled或空 | 无 |
+
+
+## 跨地域复制
+### 设置跨地域复制
+
+#### 功能说明
+
+设置指定存储桶的跨地域复制规则（PUT Bucket replication）。
+
+#### 方法原型
+```
+public Guzzle\Service\Resource\Model putBucketReplication(array $args = array());
+```
+
+#### 请求示例
+```
+try {
+    $result = $cosClient->putBucketReplication(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+        'Role' => 'qcs::cam::uin/100000000001:uin/100000000001',
+        'Rules'=>array(
+            array(
+                'Status' => 'Enabled',
+                'ID' => 'string',
+                'Prefix' => 'string',
+                'Destination' => array(                    'Bucket' => 'qcs::cos:ap-guangzhou::examplebucket2-125000000',
+                    'StorageClass' => 'standard',                ),  
+                // ...repeated            ),  
+        ),      )); 
+    // 请求成功    print_r($result);
+} catch (\Exception $e) {    // 请求失败
+    echo "$e\n";
+}
+```
+
+#### 参数说明
+| 参数名称            | 类型 | 描述                               | 必填       |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 源存储桶名称，格式：BucketName-APPID       | 是 |
+| Role | String | 	发起者身份标示, 格式为 qcs::cam::uin/:uin/ | 是 |
+| Rules | Array | 	设置对应的规则，包括 ID，Status，Prefix，Destination | 是 |
+| ID | String | 		设置规则的 ID | 是 |
+| Status | String | 	设置 Rule 是否启用，可选值为 Enabled 或者 Disabled | 是 |
+| Prefix | String | 	设置 Rule 的前缀匹配规则，为空时表示作用存储桶中的所有 objects | 是 |
+| Destination | String |   描述目的资源, 包括 Bucket 和 StorageClass | 是 |
+| Bucket | String | 	设置跨区域复制的目的 bucket，格式为 qcs::cos:[region]::[BucketName-APPID] | 是 |
+| StorageClass | String | 	设置目的文件的存储类型，可选值为'STANDARD'，'STANDARD_IA' | 否 |
+
+
+
+### 查询跨地域复制
+
+#### 功能说明
+
+查询指定存储桶的跨地域复制规则（GET Bucket replication）。
+
+#### 方法原型
+```
+public Guzzle\Service\Resource\Model getBucketReplication(array $args = array());
+```
+
+#### 请求示例
+```
+try {
+    $result = $cosClient->getBucketReplication(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+    )); 
+    // 请求成功
+    print_r($result);
+} catch (\Exception $e) {
+    // 请求失败
+    echo "$e\n";
+}
+```
+
+#### 参数说明
+
+| 参数名称            | 类型 | 描述                               | 必填       |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID         | 是 |
+
+#### 返回结果示例
+```php
+Guzzle\Service\Resource\Model Object
+(
+    [data:protected] => Array
+        (
+            [Role] => qcs::cam::uin/100000000001:uin/100000000001
+            [Rules] => Array
+                (
+                    [0] => Array
+                        (
+                            [ID] => string
+                            [Status] => Enabled
+                            [Prefix] => string
+                            [Destination] => Array
+                                (
+                                    [Bucket] => qcs::cos:ap-guangzhou::examplebucket2-125000000
+                                    [StorageClass] => 
+                                )
+                        )
+                )
+            [RequestId] => NWQwOGI5MGVfNWFiMjU4NjRfNDUzY19mNzRhMTU=
+        )
+)
+```
+
+
+#### 返回结果说明
+
+| 参数名称            | 类型 | 描述                               | 父节点     |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Role | String | 	发起者身份标示, 格式为 qcs::cam::uin/:uin/ | 无 |
+| Rules | Array | 	设置对应的规则，包括 ID，Status，Prefix，Destination | 无 |
+| Rule | Array | 	设置对应的规则，包括 ID，Status，Prefix，Destination | Rules |
+| ID | String | 		设置规则的 ID | Rule |
+| Status | String | 	设置 Rule 是否启用，可选值为 Enabled 或者 Disabled | Rule |
+| Prefix | String | 	设置 Rule 的前缀匹配规则，为空时表示作用存储桶中的所有 objects | Rule |
+| Destination | String |   描述目的资源, 包括 Bucket 和 StorageClass | Rule |
+| Bucket | String | 	设置跨区域复制的目的 bucket，格式为 qcs::cos:[region]::[BucketName-APPID] | Destination |
+| StorageClass | String | 	设置目的文件的存储类型，可选值为'STANDARD'，'STANDARD_IA' | Destination |
+
+
+### 删除跨地域复制
+
+#### 功能说明
+
+删除指定存储桶的跨地域复制规则（DELETE Bucket replication）。
+
+#### 方法原型
+```
+public Guzzle\Service\Resource\Model deleteBucketReplication(array $args = array());
+```
+
+#### 请求示例
+```
+try {
+    $result = $cosClient->deleteBucketReplication(array(
+        'Bucket' => 'examplebucket-125000000', //格式：BucketName-APPID
+    )); 
+    // 请求成功
+    print_r($result);
+} catch (\Exception $e) {
+    // 请求失败
+    echo "$e\n";
+}
+```
+
+#### 参数说明
+| 参数名称            | 类型 | 描述                               | 必填       |
+| -------------- | -------- | ---------------------------------- | ------------- |
+| Bucket | String | 存储桶名称，格式：BucketName-APPID   | 是 |
+

@@ -1,0 +1,287 @@
+
+## 操作场景
+
+通过断流诊断，可以快速查看直播推流断流的记录与断流原因。
+
+## 前提条件
+
+当前腾讯云账号下，有直播流推流出现中断。
+
+## 操作步骤
+
+在直播推流中断后，选择左侧菜单栏中的【辅助工具】>【断流诊断】，进入断流诊断。
+
+![](https://main.qcloudimg.com/raw/58ca7fe1bef19c53d79f21b9c92b4680.png)
+
+>其中，**路径**即为推流地址中的 AppName，**流名称**为推流地址中的 StreamName。
+
+**断流错误码及对应的错误原因见下表**：
+
+<table border='0' >
+ <col >
+ <col >
+ <tr >
+<th colspan='2' >错误码</td>
+<th >错误原因</td>
+ </tr>
+ <tr >
+<td colspan='2' >0</td>
+<td >未知错误。</td>
+ </tr>
+ <tr >
+<td colspan='2' >1</td>
+<td >推流客户端主动断流。</td>
+ </tr>
+ <tr >
+<td colspan='2' >2</td>
+<td >推流客户端主动断流。</td>
+ </tr>
+ <tr >
+<td colspan='2' >3</td>
+<td>推流客户端主动断流。</td>
+ </tr>
+ <tr >
+<td colspan='2' >4</td>
+<td >推流客户端主动断流。</td>
+ </tr>
+ <tr>
+<td colspan='2' >5</td>
+<td >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td colspan='2' >6</td>
+<td >RTMP 协议内容异常。</td>
+ </tr>
+ <tr >
+<td colspan='2' >7</td>
+<td >RTMP 单个帧大小超过配置允许的最大值。</td>
+ </tr>
+ <tr >
+<td colspan='2' >8</td>
+<td >系统主动断开长时间无数据的推流。</td>
+ </tr>
+ <tr>
+<td colspan='2' >9</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >10</td>
+<td  >代理层收到断流命令。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >11</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >12</td>
+<td  >推流链路网络异常。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >13</td>
+<td  >推流链路网络异常。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >14</td>
+<td  >推流链路网络异常。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >15</td>
+<td  >推流链路网络异常。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >16</td>
+<td  >直播系统内部错误</td>
+ </tr>
+ <tr >
+<td colspan='2'  >17</td>
+<td  >推流链路网络异常。</td>
+ </tr>
+ <tr  >
+<td rowspan='27'>18</td>
+<td>100</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td >101</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr  >
+<td >102</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr  >
+<td >103</td>
+<td  >直播系统内部错误</td>
+ </tr>
+ <tr >
+<td >104</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td >200</td>
+<td  >获取推流链接对应的客户信息失败。</td>
+ </tr>
+ <tr >
+<td >201</td>
+<td  >您的直播服务已被关停。</td>
+ </tr>
+ <tr  >
+<td>202</td>
+<td  >账号欠费，您的直播服务已被暂时关停，请及时充值。</td>
+ </tr>
+ <tr>
+<td >203</td>
+<td  >您的直播服务已被强制关停。</td>
+ </tr>
+ <tr>
+<td >300</td>
+<td  >不允许直接使用IP地址推流。</td>
+ </tr>
+ <tr >
+<td >301</td>
+<td  >无法识别推流域名。</td>
+ </tr>
+ <tr >
+<td >302</td>
+<td  >推流域名不合法。</td>
+ </tr>
+ <tr >
+<td >303</td>
+<td  >推流域名被禁用。</td>
+ </tr>
+ <tr >
+<td >304</td>
+<td  >推流应用名被禁用。</td>
+ </tr>
+ <tr>
+<td >305</td>
+<td  >推流流名称处于禁播状态。</td>
+ </tr>
+ <tr >
+<td>306</td>
+<td  >接入模式为频道模式，但尚未创建相应的推流频道。</td>
+ </tr>
+ <tr >
+<td >307</td>
+<td  >接入模式为频道模式，但当前推流频道已关闭。</td>
+ </tr>
+ <tr >
+<td >308</td>
+<td  >推流流名称中含有非法字符。</td>
+ </tr>
+ <tr >
+<td>309</td>
+<td  >推流应用名中含有非法字符。</td>
+ </tr>
+ <tr  >
+<td >400</td>
+<td  >推流客户端 IP 在黑名单中。</td>
+ </tr>
+ <tr >
+<td >401</td>
+<td  >推流客户端 IP 不在白名单中。</td>
+ </tr>
+ <tr  >
+<td>500</td>
+<td  >推流未携带过期时间参数。</td>
+ </tr>
+ <tr >
+<td >501</td>
+<td  >过期时间参数值已过期。</td>
+ </tr>
+ <tr  >
+<td>502</td>
+<td  >推流未携带鉴权参数。</td>
+ </tr>
+ <tr  >
+<td >503</td>
+<td  >校验鉴权参数不通过。</td>
+ </tr>
+ <tr  >
+<td>600</td>
+<td  >当前推流条数超过配置允许的最大值。</td>
+ </tr>
+ <tr >
+<td >601</td>
+<td  >当前流名称对应的推流条数超过配置允许的最大值。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >19</td>
+<td  >第三方鉴权失败。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >20</td>
+<td  >系统主动断开长时间无数据的推流。</td>
+ </tr>
+ <tr >
+<td rowspan='3'>21</td>
+<td >100</td>
+<td  >收到客户调用的断流请求。</td>
+ </tr>
+ <tr >
+<td>101</td>
+<td  >收到客户调用的禁播请求。</td>
+ </tr>
+ <tr >
+<td >102</td>
+<td  >收到新的推流链接顶替当前推流。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >22</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >23</td>
+<td  >RTMP 协议内容异常。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >24</td>
+<td  >直播系统内部错误。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >25</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >26</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >27</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >28</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >29</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >30</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr>
+<td colspan='2'  >31</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr>
+<td colspan='2'  >32</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr  >
+<td colspan='2'  >33</td>
+<td  >RTMP AMF 数据异常。</td>
+ </tr>
+ <tr>
+<td colspan='2'  >34</td>
+<td  >未知原因。</td>
+ </tr>
+ <tr >
+<td colspan='2'  >35</td>
+<td  >推流客户端主动断流。</td>
+ </tr>
+</table>
+
+云直播还提供了 API 接口进行查询，详细请参见 [查询推断流事件](https://cloud.tencent.com/document/product/267/33186)。

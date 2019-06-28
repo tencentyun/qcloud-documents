@@ -12,7 +12,7 @@ EMR 集群中 Hbase 默认集成了 Thrift，并在 Master1（外网 IP 节点�
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户并进入Hbase文件夹：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/hbase/
 [hadoop@172 hbase]$
 ```
@@ -59,7 +59,7 @@ Password: ********
 [root@172 hbase]# yum install python-pip
 [root@172 hbase]# pip install hbase-thrift
 ```
-然后切换回 Hadoop 用户并新建一个 Python 文件 Hbase_Client.py，在其中加入以下代码：
+然后切换回 Hadoop 用户并新建一个 Python 文件 Hbase_client.py，在其中加入以下代码：
 ```
 #! /usr/bin/env python
 #coding=utf-8
@@ -79,11 +79,11 @@ transport.open()
 
 print client.getTableNames()
 ```
->!其中 $thriftIP 为 Master 节点在内网的 IP 地址，$port 为 ThriftService的端口号，下同。
+>!其中 $thriftIP 为 Master 节点在内网的 IP 地址，$port 为 ThriftService 的端口号，下同。
 
 保存之后直接运行程序，会直接在控制台输出 Hbase 中的存在的表：
 ```
-[hadoop@172 hbase]$ ./Hbase_client.py 
+[hadoop@172 hbase]$ python Hbase_client.py
 ['thrift_test']
 ```
 
@@ -119,7 +119,7 @@ print tables
 ```
 该程序会在 Hbase 中添加一个名为 thrift_test_1的新表，并且输出所有存在的表，运行效果如下：
 ```
-[hadoop@172 hbase]$ ./Create_table.py
+[hadoop@172 hbase]$ python Create_table.py
 ['thrift_test', 'thrift_test_1']
 ```
 
@@ -208,7 +208,7 @@ socket.close()
 ```
 其中使用 GetRow 来取得一行的数据，使用 scannerGetList 来得到整个表格中的数据，运行该程序后输出如下：
 ```
-[hadoop@172 hbase]$ ./ Scan_table.py
+[hadoop@172 hbase]$ python Scan_table.py
 [TRowResult(columns={'cf:a': TCell(timestamp=1530697238581, value='value1'), 'cf:b': TCell(timestamp=1530697238587, value='value2')}, row='row1')]
 the rowname is  row1
 the frist value is  value1
@@ -245,7 +245,7 @@ socket.close()
 ```
 该程序会删除测试表中的第二行数据，运行后可以在 Hbase Shell 中查看该表中的内容：
 ```
-[hadoop@172 hbase]$ ./ Delete_row.py
+[hadoop@172 hbase]$ python Delete_row.py
 [hadoop@172 hbase]$ hbase shell
 
 hbase(main):004:0> scan 'thrift_test_1'

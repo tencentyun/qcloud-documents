@@ -54,9 +54,9 @@ Hello world, how are you?
 
 如果 Hadoop 下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 
-`[hadoop@172 hadoop]$ hadoop fs –mkdir /user`
+`[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop`
 
-更多 Hadoop 指令见 HDFS 常见操作。
+更多 hadoop 指令见 HDFS 常见操作。
 
 ### 数据存放在 COS
 数据存放在 COS 中有两种方式：**从本地直接通过 COS 的控制台上传** 和 **通过 Hadoop 命令上传**。

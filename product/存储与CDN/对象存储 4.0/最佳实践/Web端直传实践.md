@@ -6,10 +6,11 @@
 ## 实践步骤
 <span id="前期准备"></span>
 ### 1. 前期准备
-1）登录  [COS 控制台](https://console.cloud.tencent.com/cos4) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
+1）登录  [COS 控制台](https://console.cloud.tencent.com/cos5) 并创建存储桶，得到 Bucket（存储桶名称） 和 Region（地域名称）。
 2）登录 [密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取您的项目 SecretId 和 SecretKey。
-3）在 COS 控制台，进入新建的存储桶，单击【基础配置】，配置 CORS 规则，配置示例如下图：
-![cors](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
+3）在 COS 控制台，进入新建的存储桶，单击【基础配置】页签。
+4）下拉页面找到“跨域访问 CORS 设置”配置项，单击【添加规则】，配置示例如下图：
+![](https://main.qcloudimg.com/raw/13bd2f5ad9d927b4a6f1f4f4d9605880.png)
 
 >! 正式部署时服务端请加一层您的网站本身的权限检验。
 

@@ -11,6 +11,7 @@
  - **名称**：请输入自定义的存储桶名称。设置后不可修改。命名说明请参阅存储桶的 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
  - **所属地域**：请选择与您业务（或用户数量）相对集中的物理区域所对应的 COS 地域，设置后不可修改。地域的更多信息请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
  - **访问权限**：存储桶默认提供三种访问权限：私有读写、公有读私有写和公有读写，设置后仍可修改。详细信息请参阅 [存储桶访问权限](https://cloud.tencent.com/document/product/436/13315)。
-![创建存储桶](https://main.qcloudimg.com/raw/4bdc218ce75cc3b2b3438b6663b9b294.png)
+ - **存储桶标签**：存储桶标签作为管理存储桶的一个标识，您可以为存储桶设置标签，便于分组管理存储桶，详情请参阅 [设置存储桶标签](https://cloud.tencent.com/document/product/436/34830)。
+![](https://main.qcloudimg.com/raw/65489af6bf2c72747670118a10388c79.png)
 4. 确认信息无误后，单击【确定】，即可创建存储桶。在存储桶列表界面中，您可以看到刚才已创建的存储桶。
-![](https://main.qcloudimg.com/raw/a3bc31108e96ba5dc6752af0f3c0c9d4.png)
+![](https://main.qcloudimg.com/raw/5279c05463ca765fb70eb9539f630743.png)

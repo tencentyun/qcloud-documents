@@ -1,5 +1,5 @@
 ## 标签说明
-**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [DOC](https://cloud.tencent.com/document/product/454/16915)。
+**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [&lt;live-pusher&gt; 标签](https://cloud.tencent.com/document/product/454/12518)。
 
 ## 标签详解
 ### 属性定义
@@ -340,8 +340,4 @@ self.setData({
 //为 <webrtc-room> 组件中的 webrtcroom.wxss 文件添加自定义样式
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
-
-
-## Chrome端对接
- 了解腾讯云官网的 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) ，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。
 

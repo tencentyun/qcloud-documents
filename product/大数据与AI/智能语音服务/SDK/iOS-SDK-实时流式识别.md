@@ -2,15 +2,15 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/1d9e989097327800de236591fcfda753/QCloudSDK_v2.0.1.zip) 。
+实时流式语音识别的 iOS SDK 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/8fa2a14b469f0b63bc02a91f91a942e2/QCloudSDK_v2.0.2.zip) 。
 
-详细示例可参考 Demo：[QCloud SDK Demo](https://main.qcloudimg.com/raw/d9fdebb697f652e0708c74cc590801de/QCloudSDKDemo_v2.0.1.zip) 。
+详细示例可参考 Demo：[QCloud SDK Demo](https://main.qcloudimg.com/raw/b3a8e1e84100f24a9a05d2d9ba6385b1/QCloudSDKDemo_v2.0.2.zip) 。
 
 ### 使用须知
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 从控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
@@ -63,7 +63,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 ```
 
 **QCloudConfig 初始化方法说明**
-腾讯云 appId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取，[基本概念](https://cloud.tencent.com/document/product/441/6194) 。
+腾讯云 AppId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取，[基本概念](https://cloud.tencent.com/document/product/441/6194) 。
 ```objective-c
 /**
  * 初始化方法
@@ -237,7 +237,7 @@ recognizer.delegate = self;
 @end
 ```
 **<div id="QCloudAudioDataSource">QCloudAudioDataSource协议说明</div>**
-调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的QDAudioDataSource 实现
+调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的 QDAudioDataSource 实现
 ```objective-c
 /**
  * 语音数据数据源，如果调用者需要自己提供语音数据, 调用者实现此协议中所有方法
