@@ -7,21 +7,21 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 - Hive SQL 查询。
 - Hbase 数据查询和修改、数据展示。
 - 访问 HDFS 和文件浏览。
-- Oozie 任务的开发、监控、和工作流协调调度 。
+- Oozie 任务的开发、监控和工作流协调调度 。
 
 ## 登录 Hue 控制台
-为了使用 Hue 组件管理工作流，请先登录 Hue 控制台页面，具体步骤如下：
+使用 Hue 组件管理工作流时，请先登录 Hue 控制台页面，具体步骤如下：
 1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在左侧导航选择【组件管理】页面。
-2. 在列表页找到 Hue 组件，单击“原生WebUI访问地址”进入 Hue 页面。
-3. 首次登录 Hue 控制台页面，请使用 root 帐号，密码为创建集群时候提供的密码。
+2. 在列表页找到 Hue 组件，单击【原生WebUI访问地址】进入 Hue 页面。
+3. 首次登录 Hue 控制台页面，请使用 root 帐号，密码为创建集群时提供的密码。
 ![](https://main.qcloudimg.com/raw/ae62e428871fd46c2ce6509fd31cde63.png)
->!由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 帐号。后续所有作业通过 hadoop 帐号来提交。
+>!由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 帐号。后续所有作业需通过 hadoop 帐号来提交。
 
 ## Hive SQL 查询
-Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。 
+Hue 的 beeswax app 提供了友好方便的 Hive 查询功能，可以选择不同的 Hive 数据库、编写 HQL 语句、提交查询任务、查看结果。 
 1. 在 Hue 控制台上方，选择【Query】>【Editor】>【Hive】。
 ![](https://main.qcloudimg.com/raw/bfcd6944a8a8dd70065218885b55f82d.png)
-2. 在语句输入框中输入要执行语句，然后单击“执行”按钮执行语句。
+2. 在语句输入框中输入要执行语句，然后单击【执行】执行语句。
 ![](https://main.qcloudimg.com/raw/202878b0b90b42da7317b026e9f2f603.png)
 
 ## Hbase 数据查询
@@ -29,10 +29,10 @@ Hue 的 beeswax app 提供友好方便的 Hive 查询功能，能够选择不同
 ![](https://main.qcloudimg.com/raw/705ade35d5fe86c27be6aff46235dc02.png)
 
 ## HDFS 文件浏览
-通过 Hue 的 Web 页面可方便查看 HDFS 中的文件及文件夹，以及对其进行创建、下载、上传、复制、修改及删除等操作。
+通过 Hue 的 Web 页面可方便查看 HDFS 中的文件和文件夹，并对其进行创建、下载、上传、复制、修改和删除等操作。
 1. 在 Hue 控制台左侧，选择【Browsers】>【Files】进入 HDFS 文件浏览。
 ![](https://main.qcloudimg.com/raw/b2e05c0c8f05464f0ef1ffe671be1cc3.png)
-2. 进入 File Browser 后，可以执行下图中所示的操作。
+2. 进入【File Browser】后，可执行如下图所示的操作。
 ![](https://main.qcloudimg.com/raw/0dc7e232a81e8900c06adb277b8eaf93.png)
 
 ## Oozie 任务调度
@@ -49,11 +49,26 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 | select * from hive_sample;|
 ```
 将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。
-具体的路径在：/usr/local/service/hive/conf/hive-site.xml，复制一个 hive-site.xml 文件，将其中对应配置修改为如下值：
+具体路径：`/usr/local/service/hive/conf/hive-site.xml`，复制一个 hive-site.xml 文件，将其中对应配置修改为如下值：
 ```
-<property>``  <name>hive.exec.local.scratchdir</name>``  <value>/tmp/hive</value>``</property>``<property>``  <name>hive.downloaded.resources.dir</name>``  <value>/tmp/hive/${hive.session.id}_resources</value>``</property>``<property>``  <name>hive.querylog.location</name>``  <value>/tmp/hive</value>``</property>``<property>``  <name>hive.server2.logging.operation.log.location</name>``  <value>/tmp/hive/tmp/operation_logs</value>``</property>
+<property>``  
+	<name>hive.exec.local.scratchdir</name>``  
+	<value>/tmp/hive</value>``
+</property>``
+<property>``  
+	 <name>hive.downloaded.resources.dir</name>`` 
+	 <value>/tmp/hive/${hive.session.id}_resources</value>``
+</property>``
+<property>``  
+	 <name>hive.querylog.location</name>``  
+	 <value>/tmp/hive</value>``
+</property>``
+<property>``  
+	 <name>hive.server2.logging.operation.log.location</name>``  
+	 <value>/tmp/hive/tmp/operation_logs</value>``
+</property>
 ```
-上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如 /user/hadoop。
+上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如`/user/hadoop`。
 2. **创建工作流**
  1. 在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
 ![](https://main.qcloudimg.com/raw/17e2c9e91bef6c67d7f6721eeb1a490e.png)
@@ -63,7 +78,7 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 ![](https://main.qcloudimg.com/raw/1bdf334d89fa1be9fcee003d8328ff4d.png)
  4. 单击【Add】之后，还需在 FILES 中指定 hive script 文件。
 ![](https://main.qcloudimg.com/raw/f36e5b22f40b2832f018d0091c8a382c.png)
- 5. 单击右上角“保存”按钮，然后单击“执行”按钮，运行 workflow。
+ 5. 单击右上角【保存】，然后单击【执行】，运行 workflow。
 ![](https://main.qcloudimg.com/raw/418083ee1956ea3d2faea6afcd520834.png)
 3. **创建定时调度任务**
 Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。
@@ -74,7 +89,7 @@ Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的�
  3. 选择需要调度的时间点和时间间隔、时区、调度任务的开始时间和结束时间，然后单击【Save】保存。
 ![](https://main.qcloudimg.com/raw/097fcba6a4c5c6e27efe342079beae46.png)
 4. **执行定时调度任务**
- 1. 单击右上角的“提交”按钮提交该调度任务。
+ 1. 单击右上角的【提交】提交调度任务。
 ![](https://main.qcloudimg.com/raw/d42cc1d0d4e2cbe3bdfa77065e5bd8c1.png)
  2. 在 schedulers 的监控页面可以查看任务调度情况。
 ![](https://main.qcloudimg.com/raw/03eca980d7e0cf72b81af89da25f09f2.png)
