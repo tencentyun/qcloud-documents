@@ -20,7 +20,8 @@ Linux 或 Mac OS
 </table>
 - 已打开云服务器实例的22号端口。
 您可以通过 [检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7) 检查22号端口是否放通。如果端口不通，您可以在 [配置安全组](https://cloud.tencent.com/document/product/213/15377) 时设置端口的入站/出站规则。
-- 云服务器实例已购买公网 IP。
+- 云服务器实例已购买公网 IP 并获取到公网 IP。
+实例的公网 IP 可登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 进行查看。
 - 如果您 [使用密钥登录](#LoginWithKey) 云服务器，需完成密钥的创建，并已将密钥绑定至该云服务器中。  
 您可登录 [腾讯云云服务器控制台](https://console.cloud.tencent.com/cvm/)，单击左侧导航栏【SSH 密钥】，查看和管理已创建的密钥信息。更多详情请参阅 [SSH 密钥操作](/doc/product/213/6092)。
 	
