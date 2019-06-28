@@ -1,11 +1,11 @@
 ## 操作前景
-OneLogin 是一家云身份访问管理解决方案提供商，可以通过其身份认证系统一键登陆企业内部所有需要的系统平台。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是 OneLogin 等许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。使用身份提供商可实现联合单点登录（Federated Single Sign-on，SSO），管理者可以授权通过联合身份验证的用户登录腾讯云管理控制台或调用腾讯云 API 操作，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。本教程为 OneLogin 单点登录至腾讯云的配置指南。
+OneLogin 是一家云身份访问管理解决方案提供商，可以通过其身份认证系统一键登录企业内部所有需要的系统平台。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是 OneLogin 等许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。使用身份提供商可实现联合单点登录（Federated Single Sign-on，SSO），管理者可以授权通过联合身份验证的用户登录腾讯云管理控制台或调用腾讯云 API 操作，而不必为企业或组织中的每一个成员都创建一个 CAM 子用户。本教程为 OneLogin 单点登录至腾讯云的配置指南。
 
 ## 操作步骤
 ### 创建 OneLogin 企业应用程序
 >?您可以通过本步骤创建 OneLogin 企业应用程序。如您已经有正在使用的应用程序，请忽略本操作，进行[配置 CAM](#cam)。
 
-1. 登录并访问 [OneLogin 应用管理页](https://xiaoyu.onelogin.com/apps)，单击右上角【 ADD APP 】。
+1. 登录并访问 [OneLogin 应用管理页](https://xiaoyu.onelogin.com/apps)，单击右上角【ADD APP】。
 2. 在搜索框中输入 “SAML”，按“Enter”。在结果列表中单击【 Pilot Catastrophe SAML( IdP )】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f80d98e0a6f05a589bd6a87323e56f7.png)
 3. 输入 “ Display Name ” ，并单击右上角【SAVE】，即可完成应用程序的创建，（本文以 “test” 为示例）。如下图所示：
