@@ -1,17 +1,17 @@
-# 设备端 SDK 的使用
 
-对设备端 SDK 的使用分以下两种情况:
 
+对设备端 SDK 的使用分以下两种情况：   
 - 若 App 与 IoT-SDK 在同一进程中运行，则 App 只需依赖 iot_core 模块即可。
 - 若 App 与 IoT-SDK 需运行在不同进程，则 App 只需依赖 iot_service 模块即可。
 
-**注：**
+>!
 - iot_service 模块依赖 iot_core 模块。
-- iot_core 依赖开源社区实现的 mqtt 协议**eclipse.paho**。
+- iot_core 依赖开源社区实现的 mqtt 协议 **eclipse.paho**。
 
-## SDK API说明
+## SDK API 说明
 
-###  MQTT接口 - TXMqttConnection
+###  MQTT 接口  
+#### TXMqttConnection
 
 | 序号  | 方法名                        | 说明                                |
 | ---- | ---------------------------- | -----------------------------------|
@@ -22,12 +22,37 @@
 | 5    | subscribe                    |  订阅 MQTT 主题                      |
 | 6    | unSubscribe                  |  取消订阅 MQTT 主题                   |
 | 7    | getConnectStatus             |  获取 MQTT 连接状态                   |
-| 8    | setBufferOpts                |  设置断连状态buffer缓冲区              |
-| 9    | initOTA                      |  初始化OTA功能                        |
+| 8    | setBufferOpts                |  设置断连状态 buffer 缓冲区              |
+| 9    | initOTA                      |  初始化 OTA 功能                        |
 | 10   | reportCurrentFirmwareVersion |  上报设备当前版本信息到后台服务器        |
 | 11   | reportOTAState               |  上报设备升级状态到后台服务器            |
 
-###  设备影子接口 - TXShadowConnection
+
+### MQTT 网关接口 
+#### TXGatewayConnection
+
+| 序号  | 方法名                        | 说明                                |
+| ---- | ---------------------------- | -----------------------------------|
+| 1    | connect                      |  网关 连接                          |
+| 2    | reconnect                    |  网关 重连                          |
+| 3    | disConnect                   |  断开 网关MQTT连接                       |
+| 4    | publish                      |  发布 MQTT 消息                      |
+| 5    | subscribe                    |  订阅 MQTT 主题                      |
+| 6    | unSubscribe                  |  取消订阅 MQTT 主题                   |
+| 7    | getConnectStatus             |  获取 MQTT 连接状态                   |
+| 8    | setBufferOpts                |  设置断连状态 buffer 缓冲区              |
+| 9    | initOTA                      |  初始化 OTA 功能                        |
+| 10   | reportCurrentFirmwareVersion |  上报设备当前版本信息到后台服务器        |
+| 11   | reportOTAState               |  上报设备升级状态到后台服务器            |
+| 12   | addSubDev                    |  添加子设备                            |
+| 13   | removeSubdev                 |  移除子设备                            |
+| 14   | findSubdev                   |  查找子设备                            |
+| 15   | gatewaySubdevOffline         |  子设备下线                           |
+| 16   | gatewaySubdevOnline          |  子设备上线                           |
+
+
+###  设备影子接口 
+#### TXShadowConnection
 
 | 序号  | 方法名                              | 说明                                 |
 | ---- | -----------------------------------| ----------------------------------  |
@@ -42,7 +67,8 @@
 | 9    | setBufferOpts                      | 设置断连状态 buffer 缓冲区              |
 | 10   | getMqttConnection                  | 获取 TXMqttConnection 实例            |
 
-### MQTT远程服务客户端 - TXMqttClient
+### MQTT 远程服务客户端 
+#### TXMqttClient
 
 | 序号  | 方法名                              | 说明                             |
 | ---- | -----------------------------------| -------------------------------- |
@@ -59,7 +85,8 @@
 | 11   | setBufferOpts                      | 设置断连状态 buffer 缓冲区          |
 | 12   | clear                              | 释放资源                          |
 
-### Shadow远程服务客户端 - TXShadowClient
+### Shadow 远程服务客户端 
+#### TXShadowClient
 
 | 序号  | 方法名                              | 说明                                  |
 | ---- | -----------------------------------| -----------------------------------   |
@@ -79,7 +106,8 @@
 | 14   | setBufferOpts                      | 设置断连状态 buffer 缓冲区               |
 | 15   | clear                              | 释放资源                               |
 
-### MQTT通道固件升级 - TXMqttClient
+### MQTT 通道固件升级 
+#### TXMqttClient
 
 | 序号  | 方法名                              | 说明                             |
 | ---- | -----------------------------------| -------------------------------- |
