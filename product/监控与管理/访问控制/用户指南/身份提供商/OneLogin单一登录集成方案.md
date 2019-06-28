@@ -35,7 +35,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
  - SAML Consumer URL：https://cloud.tencent.com/login/saml
  - SAML Audience：https://cloud.tencent.com
  - SAML Recipient：https://cloud.tencent.com/login/saml
-3. 单击【Parameters】，选择【Add parameter】，在弹出的编辑页添加以下两条配置信息。
+3. 单击【Parameters】，选择【Add parameter】，添加以下两条配置信息。
 
 <table>
 	<tr>
