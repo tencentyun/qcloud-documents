@@ -1,8 +1,8 @@
 ## 运行时组件说明
-容器运行时（Container Runtime）是 Kubernetes（k8s） 最重要的组件之一，负责真正管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
+容器运行时（Container Runtime）是 Kubernetes（k8s） 最重要的组件之一，负责管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
 
 TKE 支持用户选择 containerd 和 docker 作为运行时组件：
-- Containerd 调用链更短，组件更少,  更稳定，占用节点资源更少。 建议选择 containerd。
+- Containerd 调用链更短，组件更少，更稳定，占用节点资源更少。 建议选择 containerd。
 - 当您遇到以下情况时，请选择 docker 作为运行时组件：
  - 如需使用 docker in docker。
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
