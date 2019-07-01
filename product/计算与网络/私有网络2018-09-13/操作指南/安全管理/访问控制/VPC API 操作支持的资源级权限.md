@@ -178,8 +178,7 @@ none'>tworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
@@ -218,8 +217,7 @@ none'>dAttachNetworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:subnet 表示开发商下的子网<br>
     vpc:region 表示 vpc 所在地域。</td>
 
@@ -620,8 +618,7 @@ none'>tworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
@@ -722,8 +719,7 @@ none'>nConn</span></td>
     vpc:vpngw<br>
     vpc:usergw<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:vpngw 表示开发商下的网关。<br>
     vpc:usergw 表示开发商下的对端网关。<br>
     vpc:region 表示 vpc 所在地域。</td>
@@ -767,9 +763,8 @@ none'>tworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
-    vpc:subnet 表示开发商下的子网<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
+    vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
  </tr>
@@ -878,9 +873,8 @@ none'>etworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
-    vpc:subnet 表示开发商下的子网<br>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
+    vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
  </tr>
@@ -903,8 +897,7 @@ none'>rivateIpAddress</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的VPC。<br>
     vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
@@ -1039,8 +1032,7 @@ none'>tworkInterface</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
 
@@ -1159,8 +1151,7 @@ none'>nConnEx</span></td>
     vpc:vpngw<br>
     vpc:usergw<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:vpngw 表示开发商下的网关。<br>
     vpc:usergw 表示开发商下的对端网关。<br>
     vpc:region 表示 vpc 所在地域。</td>
@@ -1235,8 +1226,7 @@ none'>ConnSA</span></td>
     vpc:vpngw<br>
     vpc:usergw<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:vpngw 表示开发商下的网关。<br>
     vpc:usergw 表示开发商下的对端网关。<br>
     vpc:region 表示 vpc 所在地域。</td>
@@ -1287,8 +1277,7 @@ none'>PrivateIpAddresses</span></td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
     vpc:subnet<br>
     vpc:region</td>
-  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<b=
-r>
+  <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc 表示开发商的 VPC。<br>
     vpc:subnet 表示开发商下的子网。<br>
     vpc:region 表示 vpc 所在地域。</td>
  </tr>
