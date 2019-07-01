@@ -1,5 +1,12 @@
 # Release Notes - Windows
 
+## 2.2.2.33 @2019.06.28
+- 监测Render进程Crash并打印日志
+- AddFile和AddH5PPTFile接口同步返回文件ID
+- 文件上传进度回调和文件上传结果回调返回文件ID参数
+- 修复某些接口参数传nullptr会Crash的问题
+- 修复白板延迟显示会导致文本工具无法切换中文输入法问题
+
 ## 2.2.1.29 @2019.06.27
 - 修复偶现接口调用返回nullptr问题
 
