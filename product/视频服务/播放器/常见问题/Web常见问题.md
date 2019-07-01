@@ -28,7 +28,7 @@
 
 ### 跨域问题
 **问题表现：**在 PC 端无法播放视频，浏览器控制台报跨域相关的错误。
-**问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的`corssdomain.xml`文件。
+**问题背景：**在 PC 端使用 Flash 播放视频需要检查视频服务器的`crossdomain.xml`文件。
 
 **crossdomain.xml 的作用**
 - 位于`www.a.com`域中的 SWF 文件要访问`www.b.com`的文件时，SWF 首先会检查`www.b.com`服务器根目录下是否有`crossdomain.xml`文件，如果没有，则访问不成功；如果`crossdomain.xml`文件存在，且文件内设置了允许`www.a.com`域访问，则通信正常。
