@@ -9,7 +9,7 @@
 ## 集成上传库和源代码
 
 1. 拷贝上传源代码目录 TXUGCUploadDemo/upload 到您的工程中。
-2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`和静态库`libmtasdk.a`（在TXUGCUploadDemo/upload/COSSDK/ 目录下）到您的工程中。并添加以下依赖库：
+2. 导入动态库 `QCloudCore.framework`、`QCloudCOSXML.framework` 和静态库 `libmtasdk.a`（在 TXUGCUploadDemo/upload/COSSDK/ 目录下）到您的工程中。并添加以下依赖库：
 
     ```
     1、CoreTelephony.framework
@@ -175,6 +175,12 @@ publishParam.mediaPath = @"图片文件路径";
 | videoURL | 视频存储地址    | NSString |
 | coverURL | 封面存储地址    | NSString |
 
+预上传 `TXUGCPublishOptCenter.prepareUpload`
+    
+| 参数名称  | 参数描述                                     | 类型   | 必填 |
+| --------- | -------------------------------------------- | ------ | ---- |
+| signature | [客户端上传签名](/document/product/266/9221) | NSString | 是   |
+
 
 ### 错误码
 
@@ -251,6 +257,12 @@ SDK 通过 `TXVideoPublishListener` 接口来监听视频上传相关的状态�
 | descMsg  | 上传失败的错误描述 | NSString |
 | mediaId  | 图片/媒体文件Id  | NSString |
 | mediaURL | 图片/媒体存储地址    | NSString |
+
+预上传 `TXUGCPublishOptCenter.prepareUpload`
+    
+| 参数名称  | 参数描述                                     | 类型   | 必填 |
+| --------- | -------------------------------------------- | ------ | ---- |
+| signature | [客户端上传签名](/document/product/266/9221) | NSString | 是   |
 
 
 ### 错误码
