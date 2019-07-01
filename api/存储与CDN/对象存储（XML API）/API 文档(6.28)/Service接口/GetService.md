@@ -25,7 +25,6 @@ Authorization: Auth String
 ```
 
 > ?
->
 > - Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - Host: 查询全部存储桶列表指定为 `service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 `cos.<Region>.myqcloud.com`。
 
