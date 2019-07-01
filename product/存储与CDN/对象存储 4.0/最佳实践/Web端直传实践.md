@@ -168,7 +168,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 ![Ajax 上传](https://main.qcloudimg.com/raw/4bfc2883d71deddccc76b250ebb6a051.png)
 
 #### 方案 B：使用 Form 表单上传
-Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用 [XML API 的 PostObject 接口](/doc/product/436/7751)。操作指引：
+Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方案使用 [Post Object ](https://cloud.tencent.com/document/product/436/14690) 接口。操作指引：
 1. 按照 [前提条件](#前期准备) 的步骤，准备存储桶。
 2. 创建`test.html`文件，修改下方代码的 Bucket 和 Region，并复制到`test.html`文件。
 3. 部署后端的签名服务，并修改`test.html`里的签名服务地址。
