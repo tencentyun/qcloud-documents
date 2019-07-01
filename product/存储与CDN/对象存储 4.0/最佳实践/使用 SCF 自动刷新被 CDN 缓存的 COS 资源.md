@@ -65,7 +65,7 @@
 >!由于 CDN 是异步操作，查询操作时，请稍等片刻。
 
 完成配置后，可在对应存储桶中上传一个相同对象键的新文件进行验证。
-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，上传一个同名的更新文件。如下图所示：
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，上传一个同名的更新文件。
 具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 文档。
 2. 完成上传后，登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，选择【函数服务】>【函数名称】> 【运行日志】，查询到调用成功的日志。
 3. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择【缓存刷新】>【操作记录】，可查询到自动调用刷新的记录。
