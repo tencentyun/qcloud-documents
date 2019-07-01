@@ -13,7 +13,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 5. 填写 User Credentials 信息。
 ![](https://main.qcloudimg.com/raw/d8c9e225e48f2ae7ef23df34c8b1e07b.png)
  >?
- - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + sdkappid + connid。如："QICJYEM1T4Demo1;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
+ - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。如："QICJYEM1T4Demo1;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
  - **Password**	：Password 必须填写，由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
 6. 选择开启 SSL/TLS，勾选 Self signed Certificates，上传相关内容。
 ![](https://main.qcloudimg.com/raw/e68e018aed4f9088d4be0180ec9b3cf3.png)

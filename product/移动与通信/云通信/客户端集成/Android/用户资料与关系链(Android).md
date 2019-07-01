@@ -582,7 +582,7 @@ public class TIMFriendResponse {
     private int responseType = TIM_FRIEND_RESPONSE_AGREE;
 
     /**
-     * 响应的好友id
+     * 响应的好友 ID
      */
     private String identifier = ""; // 回应好友的 ID
 
@@ -641,7 +641,7 @@ public class TIMFriendCheckInfo {
     private int checkType = TIMFriendCheckType.TIM_FRIEND_CHECK_TYPE_UNIDIRECTION;
     
     /**
-     * 设置需要检查的好友 id
+     * 设置需要检查的好友 ID
      *
      * @param users
      */
@@ -682,9 +682,9 @@ public class TIMCheckFriendResult {
     private int resultType;
 
     /**
-     * 获取好友 id
+     * 获取好友 ID
      *
-     * @return 好友 id
+     * @return 好友 ID
      */
     public String getIdentifier();
 

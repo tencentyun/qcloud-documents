@@ -1,27 +1,27 @@
 
 ## 接口描述
-本接口服务对一小时之内的录音文件进行识别，异步返回识别全部结果，支持语音 URL 和本地语音文件两种请求方式。接口是 HTTP RESTful 形式，在使用该接口前，需要在[ 语音识别控制台 ](https://console.cloud.tencent.com/asr)开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey ，用于 API 调用时生成签名，签名将用来进行接口鉴权。
+本接口服务对一小时之内的录音文件进行识别，异步返回识别全部结果，支持语音 URL 和本地语音文件两种请求方式。接口是 HTTP RESTful 形式，在使用该接口前，需要在[ 语音识别控制台 ](https://console.cloud.tencent.com/aai)开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey ，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
 ## 接口要求
 集成实时语音识别 API 时，需按照以下要求。
 
 | 内容 | 说明 | 
 | --- | --- |
-| 请求协议 | http |
+| 请求协议 | HTTP |
 | 请求地址 | https://aai.qcloud.com/asr/v1/<appid>? {请求参数} |
 | 接口鉴权 | 签名机制，详见 [签名生成](#sign) |
-| 响应格式 | 统一采用JSON格式 |
+| 响应格式 | 统一采用 JSON 格式 |
 | 开发语言 | 任意，只要可以向腾讯云服务发起HTTP请求的均可 |
 | 音频属性 | 采样率16k或8k（英文仅支持16k）、位长16bits、单声道 |
-| 音频格式 | 支持wav、pcm、mp3、silk、speex、amr等主流音频格式 |
-| 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于1MB；若采用上传音频url方式，本地上传限制大小为5MB。 |
+| 音频格式 | 支持 wav、pcm、mp3、silk、speex、amr 等主流音频格式 |
+| 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于5MB；若采用上传音频 url 方式，建议音频时长不能大于1小时。 |
 | 语言种类 | 中文普通话、英文和带有一定方言口音的普通话 |
 
 ## 请求结构
 请求结构主要由**请求方法、请求 URL、请求头部、请求正文**组成。
-### 请求方法
+**请求方法**
 HTTPS 请求方法，录音文件识别的请求方法为 **POST**。
-### 请求URL
+**请求 URL**
 RESTful 形式的 URL 结构示例如下：
 
 ```
@@ -39,26 +39,26 @@ timestamp=xxx&
 expired=xxx& 
 nonce=xxx
 ```
-URL中各字段含义如下：  
+URL 中各字段含义如下：  
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [ API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
-| secretid | 是 | String | 用户在腾讯云注册账号AppId对应的SecretId，获取方法同上 |
-| sub\_service\_type | 否 | Int | 子服务类型。0：离线语音识别 |
-| engine\_model\_type | 否 | String | 引擎类型。8k\_0：电话 8k 通用模型；16k\_0：16k 通用模型；8k\_6: 电话场景下单声道话者分离模型 |
+| appid |  是 | Int | 用户在腾讯云注册账号的 AppId，可以进入[ API密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 |
+| secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，可以进入 [ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 |
+| sub\_service\_type | 否 | Int | 子服务类型。0：录音文件识别|
+| engine\_model\_type | 否 | String | 引擎类型。8k\_0：电话 8k 通用模型；16k\_0：16k 通用模型；8k\_6: 电话场景下单声道话者分离模型|
 | res\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
 | res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回|
-| callback_url | 是 | String | 回调 URL，用户接受结果，长度大于 0，小于 2048, 接入方需自行实现回调服务 |
-| channel_num | 否 | Int | 语音声道数，仅在电话 8k 通用模型下，支持1和2，其他模型仅支持1 |
+| callback_url | 是 | String | 回调 URL，用户自行搭建的用于接收识别结果的服务器地址， 长度小于2048字节 |
+| channel_num | 否 | Int | 语音声道数，1：单声道；2：双声道（仅在电话 8k 通用模型下支持）  |
 | source_type | 是 | Int | 语音数据来源。0：语音 URL；1：语音数据（post body） |
-| url | 否 | String | 语音 URL，公网可下载。当 source_type 值为0时须填写该字段，为1时不填；URL 的长度大于 0，小于 2048 |
-| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳|
-| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时|
-| nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位 |
+| url | 否 | String | 语音的URL地址，需要公网可下载。长度小于2048字节，当 source_type 值为 0 时须填写该字段，为 1 时不需要填写 |
+| timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。可以取值为当前请求的系统时间戳即可|
+| expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired - Timestamp 小于90天。|
+| nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 
-### 请求头部
-请求头部，包括 Host、Authorization、Content-Type、Content-Length四个参数。  
+**请求头部**
+请求头部，包括 Host，Authorization，Content-Type，Content-Length 四个参数。  
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
@@ -67,23 +67,32 @@ URL中各字段含义如下：
 | Content-Type | 是 | String | application/octet-stream|
 | Content-Length | 是 | Int | 请求长度，此处对应语音数据字节数，单位：字节|
 
-### 请求正文
-请求正文主要包含音频数据，音频数据不能大于1MB。
-###  请求示例
-请求示例如下，示例生成请参考下面 PHP 代码
+**请求正文**
+语音数据，当 SourceType 值为1（语音数据上传）时必须填写，当 SourceType 值为0（语音 URL 上传）可不写。要使用base64编码(采用 Python 语言时注意读取文件应该为 string 而不是 byte，以 byte 格式读取后要 decode()。编码后的数据不可带有回车换行符)。音频数据要小于5MB。
+**请求示例**
+请求示例如下，示例生成请参考下面 [PHP 代码](#PHP) 。
+示例1 
+用户通过语音 url 地址方式请求。
+用户通过 [签名生成](#sign) 的签名 5Zb1hKd8uo4H+AgpMbktZhHqqjY=，通过语音 url（https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav） 的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。
 
 ```
-curl -sv -H 'Authorization:UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=' 'https://aai.qcloud.com/asr/v1/YOUR_APPID?callback_url=http://aai.qcloud.com/cb&channel_num=1&engine_model_type=1&expired=1560842782&nonce=199546&projectid=0&res_text_format=0&res_type=1&secretid=YOUR_SECRET_ID&source_type=0&sub_service_type=0&timestamp=1560839182&url=http://aai.qcloud.com/test.mp3' -d ''
+curl -sv -H 'Authorization:5Zb1hKd8uo4H+AgpMbktZhHqqjY=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav'
 ```
-说明：其中YOUR\_APPID和YOUR\_SECRET\_ID对应的是AppID、SecretID。
+示例2 
+用户通过本地语音上传方式请求。
+用户通过 [签名生成](#sign) 的签名 j8AY1RkedGSoDxCjAEtT2pq/r1w=，通过本地上传语音（voicedata 为用户实际上传的从音频文件读取的音频数据）的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。 
+
+```
+curl -sv -H 'Authorization:j8AY1RkedGSoDxCjAEtT2pq/r1w=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561465286&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=1&sub_service_type=0&timestamp=1561461686' -d 'voicedata'
+``` 
 <span id="sign"></span>
-###3.6  签名生成
-这里以 Appid = 200001, SecretId = AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv为例拼接签名原文，则拼接的签名原文为：
+**签名生成**
+这里以 Appid = 1259228442, SecretId = AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
 
 ```
-POSTaai.qcloud.com/asr/v1/2000001?callback_url=http://test.qq.com/rec_callback&engine_model_type=1&expired=1473752807&nonce=44925&projectid=0&res_text_format=0&res_type=1&secretid=AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv&source_type=0&sub_service_type=0&timestamp=1473752207&url=http://test.qq.com/voice_url 
+POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav
 ```
-对签名原文和SecretKey= bLcPnl88WU30VY57ipRhSePfPdOfSruK,使用**HmacSha1**算法进行加密处理：
+对签名原文和 SecretKey= kFpwoX5RYQ2SkqpeHgqmSzHK7h3A2fni，使用 **HmacSha1** 算法进行加密处理：
 
 ```
 签名串=Base64Encode(HmacSha1(签名原文,SecretKey))
@@ -91,11 +100,11 @@ POSTaai.qcloud.com/asr/v1/2000001?callback_url=http://test.qq.com/rec_callback&e
 最终得到签名串为：
 
 ```
-UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
+5Zb1hKd8uo4H+AgpMbktZhHqqjY=
 ```
 ## 返回结构
-### 返回结果
-离线语音识别的 RESTful API 请求返回结果如下表所示：
+**返回结果**
+录音文件识别的 RESTful API 请求返回结果如下表所示：
 
 | 参数名称 | 类型 | 描述 |  
 | --- | --- | --- |
@@ -103,15 +112,15 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | message |  String | 服务器返回的信息 |
 | requestId |  Int | 如果成功，返回任务 ID |
 
-### 返回示例
+**返回示例**
 返回消息示例如下：
 
 ```
  { "code":0, "message":"success", "requestId":500 }
 ```
-## 结果回调
+**结果回调**
 当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。
-###  服务端返回结果
+**服务端返回结果**
 语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
 
 | 字段 | 类型 | 描述 |  
@@ -128,7 +137,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 >!为了防止某些字段中，出现诸如 “&” 等特殊字符，导致解包失败，所有字段的 value 值都将进行 url\_encode 之后发送给用户业务服务器，在获取 value 之后，需要先对 value 进行 url\_decode 以获取原始 value 值。
 
 
-### 客户端确认返回
+**客户端确认返回**
 用户业务服务器在接收到语音识别系统发起的 HTTP POST 回调请求后，需要按照如下约定，返回结果：
 
 | 参数名称 | 类型 | 描述 |  
@@ -136,18 +145,17 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
 | message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
-### 回调示例
-服务端返回 json 示例： 
+**回调示例**
+服务端返回 JSON 示例： 
 
 ``` 
-{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"你好", audioTime:2.5 }
+{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", audioTime:2.5 }
 ```
-语音识别系统发起请求，收到请求后，用户侧需要以 json 格式回以响应：
+语音识别系统发起请求，收到请求后，用户侧需要以 JSON 格式回以响应：
 
 ```
 { "code" : 0, "message" : "成功" }
 ```
-
 ## 请求错误码
 
 |数值	|返回码 |	说明|
@@ -185,7 +193,8 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 |1032	|ERROR\_AUDIO\_TOO\_LARGE	|发送的语音数据过大（大于 5M）|
 |1034	|ERROR\_UNKNOWN	|其他未知错误|
 
-## 回调错误码
+**回调错误码**
+
 | 数值 |  说明 |  
 | --- | --- |
 | 10000 | 语音非标准格式，转码失败 |
@@ -196,6 +205,7 @@ UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 | 10005 | 其他失败 |
 | 10006 | 音轨个数不匹配 |
 
+<span id="PHP"></span>
 ## PHP 代码示例
 ```
 //filepath 音频文件路径
@@ -210,7 +220,7 @@ function sendvoice($filepath, $callBackUrl, $sourceUrl) {
 	$reqArr['appid'] = Config :: $APPID;
 	$reqArr['secretid'] = Config :: $SECRET_ID;
 	$reqArr['projectid'] = 0;
-	$reqArr['sub_service_type'] = 0; //表示为离线识别
+	$reqArr['sub_service_type'] = 0; //表示为录音文件识别
 	$reqArr['engine_model_type'] = Config :: $ENGINE_MODEL_TYPE;
 	$reqArr['callback_url'] = $callBackUrl;
 	$reqArr['channel_num'] = Config :: $CHANNEL_NUM;
@@ -262,6 +272,7 @@ function sendvoice($filepath, $callBackUrl, $sourceUrl) {
 		return false;
 	}
 	return $rsp_str;
-}```
+}
+```
 
 

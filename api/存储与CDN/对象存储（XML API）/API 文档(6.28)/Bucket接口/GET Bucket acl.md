@@ -92,7 +92,7 @@ Grant|AccessControlPolicy.AccessControlList|单个授权信息|Container
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
 Grantee|AccessControlPolicy.AccessControlList.Grant|被授权者信息，`xsi:type` 为 Group 或 CanonicalUser，当为 Group 时子节点包括且仅包括 URI，当指定为 CanonicalUser 时子节点包括且仅包括 ID 和 DisplayName|Container
-Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [存储桶的操作](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档，如 WRITE， FULL_CONTROL 等|Enum
+Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中存储桶操作部分，如 WRITE， FULL_CONTROL 等|Enum
 
 **Container 节点 AccessControlList.Grant.Grantee 的内容：**
 
