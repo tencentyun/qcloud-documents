@@ -2,7 +2,7 @@
 
 GET Bucket 请求等同于 List Object 请求，可以列出该存储桶内的部分或者全部对象。该 API 的请求者需要对存储桶有读取权限。
 
-> ! 如果您往存储桶中上传了一个对象，并立即调用 GET Bucket 接口，由于该接口的最终一致性特性，返回的结果中可能不会包含您刚刚上传的对象。
+>! 如果您往存储桶中上传了一个对象，并立即调用 GET Bucket 接口，由于该接口的最终一致性特性，返回的结果中可能不会包含您刚刚上传的对象。
 
 ## 请求
 
@@ -15,7 +15,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> ? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
