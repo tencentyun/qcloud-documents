@@ -59,7 +59,7 @@
 **后缀过滤**：后缀过滤通常用于过滤指定类型或后缀的文件事件，例如后缀过滤为`.jpg`，则仅`.jpg`结尾的文件的事件才可以触发函数，`.png`结尾的文件不应该触发函数。
 ![](https://main.qcloudimg.com/raw/e0bd1dcfd41d0102b0eb4207c9517057.png)
  3. 勾选立即启用。
- 4. 最后确认配置信息无误后，单击【保存】。
+ 4. 确认配置信息无误后，单击【保存】。
 
 
 <span id="step3"></span>
@@ -67,7 +67,7 @@
 >!由于 CDN 是异步操作，查询操作时，请稍等片刻。
 
 完成配置后，可在对应存储桶中上传一个相同对象键的新文件进行验证。
-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，上传一个同名的更新文件。具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 文档。
-2. 完成上传后，登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，选择【函数服务】>【函数名称】> 【运行日志】，查询到调用成功的日志。
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，上传一个相同对象键的新文件，具体操作请参见 [上传对象](https://cloud.tencent.com/document/product/436/13321) 文档。
+2. 完成上传后，登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，选择【函数服务】>【函数名称】> 【运行日志】，可查询到调用成功的日志。
 3. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择【缓存刷新】>【操作记录】，可查询到自动调用刷新的记录。
 4. 以上测试通过后，即可访问 CDN 加速后的 URL 获取到最新的资源。
