@@ -70,7 +70,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=MultiPullVodFile
 #### 错误码说明
 | 错误码 | 含义说明|
 |---------|---------|
-| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/10146)。  |
+| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/6982)。  |
 | 1 | 内部错误。  |
 | 1000 | 无效参数。  |
 | 1001 | 用户信息错误。 |
