@@ -7,13 +7,13 @@
 
 ## 故障处理思路
 
-### 确认云服务器实例类型
+### 确认实例类型
 
 首先，您需要了解您购买的实例类型是 Windows 系统实例还是 Linux 系统实例。针对不同的实例类型，可能导致无法登录云服务器的原因不同。您可以根据购买的实例类型，参考以下文档定位及解决问题：
 - [无法登录 Windows 实例](https://cloud.tencent.com/document/product/213/10339)
 - [无法登录 Linux 实例](https://cloud.tencent.com/document/product/213/35574)
 
-### 通过检查工具判断问题原因
+### 通过检查工具诊断原因
 腾讯云提供了 [自助诊断工具](https://console.cloud.tencent.com/workorder/check) 和 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 帮助您判断可能导致无法登录的原因。70%左右的登录问题可以通过工具检查并定位。
 
 #### 自助诊断工具
