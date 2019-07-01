@@ -1,4 +1,4 @@
-对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/product/视频服务/点播/视频上传/客户端上传/客户端上传指引.md)。
+对于在 iOS 平台上传视频的场景，腾讯云点播提供了 iOS 上传 DEMO 来实现。上传的流程可以参见[客户端上传指引](/document/product/266/9219)。
 
 ## 源代码下载
 您可以在腾讯云官网更新 [ iOS 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip)。
@@ -57,7 +57,7 @@ TXPublishParam *publishParam = [[TXPublishParam alloc] init];
 publishParam.signature  = @"由您业务后台产生的签名";
 publishParam.videoPath  = @"视频文件路径";
 ```
->signature 计算规则可参考[客户端上传签名](/product/视频服务/点播/视频上传/客户端上传/客户端上传签名.md)。
+>signature 计算规则可参考[客户端上传签名](/document/product/266/9221)。
 
 ### 调用上传
 
@@ -131,7 +131,7 @@ publishParam.mediaPath = @"图片文件路径";
 
 | 参数名称         | 参数描述                               | 类型        | 必填   |
 | ------------ | ---------------------------------- | --------- | ---- |
-| signature    | [客户端上传签名](/product/视频服务/点播/视频上传/客户端上传/客户端上传签名.md) | NSString* | 是    |
+| signature    | [客户端上传签名](/document/product/266/9221) | NSString* | 是    |
 | videoPath    | 本地视频文件路径                           | NSString* | 是    |
 | coverPath    | 封面图片本地路径，可不设置。                 | NSString*  | 否    |
 | fileName     | 上传到腾讯云的视频文件名称，不填默认用本地文件名  | NSString*  | 否    |
