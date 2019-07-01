@@ -79,7 +79,7 @@ publishParam.videoPath  = @"视频文件路径";
 
 ### 取消、恢复上传
 
-取消上传，调用`canclePublish`接口。
+取消上传，调用 `canclePublish` 接口。
 
 ```objc
 [_videoPublish canclePublish];
