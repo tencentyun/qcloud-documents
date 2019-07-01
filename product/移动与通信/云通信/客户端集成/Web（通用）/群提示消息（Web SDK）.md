@@ -2,7 +2,7 @@
 
 ![](//mccdn.qcloud.com/static/img/26477a470aaa4149480fad643efea12d/image.png)
 
-**群提示消息类型定义如下： **
+**群提示消息类型定义如下：**
 
 ```javascript
 //群提示消息类型
@@ -17,7 +17,7 @@ var WEB_IM_GROUP_TIP_TYPE = {
 };
 ```
 
-**群提示消息对象定义如下： **
+**群提示消息对象定义如下：**
 
 ```javascript
 // class Msg.Elem.GroupTip 群提示消息对象
@@ -68,7 +68,7 @@ Msg.Elem.GroupTip.prototype.toHtml = function () {
     var text = "[群提示消息]";
     var maxIndex = WEB_IM_GROUP_TIP_MAX_USER_COUNT - 1;
     switch (this.opType) {
-        case WEB_IM_GROUP_TIP_TYPE.JOIN://退出群
+        case WEB_IM_GROUP_TIP_TYPE.JOIN://加入群
             //代码省略
             break;
         case WEB_IM_GROUP_TIP_TYPE.QUIT://退出群
@@ -101,7 +101,7 @@ Msg.Elem.GroupTip.prototype.toHtml = function () {
 
 **触发时机：**当有用户被邀请加入群组时，群组内会由系统发出通知，开发者可选择展示样式。可以更新群成员列表。 收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.JOIN`。 
 
-**`Msg.Elem.GroupTip` 成员方法： **
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
@@ -111,7 +111,7 @@ Msg.Elem.GroupTip.prototype.toHtml = function () {
 | getUserIdList()| 被邀请入群的用户 ID 列表  | 
 | getGroupMemberNum()| 获取当前群成员数  | 
 
-**示例： **
+**示例：**
 
 ```javascript
 case WEB_IM_GROUP_TIP_TYPE.JOIN://加入群
@@ -131,7 +131,7 @@ case WEB_IM_GROUP_TIP_TYPE.JOIN://加入群
 
 **触发时机：**当有用户主动退群时，群组内会由系统发出通知。可以选择更新群成员列表。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.QUIT`。 
 
-**`Msg.Elem.GroupTip` 成员方法： **
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
@@ -152,7 +152,7 @@ case WEB_IM_GROUP_TIP_TYPE.QUIT://退出群
 
 **触发时机：**当有用户被踢出群组时，群组内会由系统发出通知。可以更新群成员列表。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.KICK`。 
 
-**`Msg.Elem.GroupTip` 成员方法： **
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
@@ -181,7 +181,7 @@ case WEB_IM_GROUP_TIP_TYPE.KICK://踢出群
 
 **触发时机：**当有用户被设置为管理员时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.SET_ADMIN`。 
 
-**`Msg.Elem.GroupTip` 成员方法： **
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
@@ -239,7 +239,7 @@ case WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN://取消管理员
 
 **触发时机：**当群资料变更，如群名、群简介等，会有系统消息发出，可更新相关展示字段。或者选择性把消息展示给用户。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO`。 
 
-**`Msg.Elem.GroupTip` 成员方法： **
+**`Msg.Elem.GroupTip` 成员方法：**
 
 | 方法 | 说明 | 
 |---------|---------|
@@ -248,7 +248,7 @@ case WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN://取消管理员
 | getGroupName()| 群名  | 
 | getUserIdList()| 群变更的具体资料信息，为 Msg.Elem.GroupTip.GroupInfo 对象列表   | 
 
-**变更的群资料信息对象定义如下： **
+**变更的群资料信息对象定义如下：**
 
 ```javascript
 // class Msg.Elem.GroupTip.GroupInfo，变更的群资料信息对象
@@ -264,7 +264,7 @@ Msg.Elem.GroupTip.GroupInfo.prototype.getValue = function () {
 };
 ```
 
-**群提示消息-群资料变更类型定义如下： **
+**群提示消息-群资料变更类型定义如下：**
 
 ```javascript
 //群提示消息-群资料变更类型
@@ -322,7 +322,7 @@ case WEB_IM_GROUP_TIP_TYPE.MODIFY_GROUP_INFO://群资料变更
 | getGroupName()| 群名  | 
 | getUserIdList()| 变更的群成员的具体资料信息，为 Msg.Elem.GroupTip.MemberInfo 对象列表    | 
 
-**变更的群成员资料信息对象定义如下： **
+**变更的群成员资料信息对象定义如下：**
 
 ```javascript
 // class Msg.Elem.GroupTip.MemberInfo，变更的群成员资料信息对象
@@ -338,7 +338,7 @@ Msg.Elem.GroupTip.MemberInfo.prototype.getShutupTime = function () {
 };
 ```
 
-**示例： **
+**示例：**
 
 ```javascript
 case WEB_IM_GROUP_TIP_TYPE.MODIFY_MEMBER_INFO://群成员资料变更(禁言时间)

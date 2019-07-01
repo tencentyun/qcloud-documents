@@ -10,6 +10,7 @@
 - 扩容文件系统需要 [重启实例](https://cloud.tencent.com/document/product/213/4928) 或重新扫描磁盘，将导致一定时间的业务中断，建议您选择合适的时间谨慎操作。
 
 ## 前提条件
+>?本文使用 Windows 云服务器操作系统版本为 Windows Server 2008。
 
 - 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Windows 云服务器且已创建文件系统。
@@ -17,7 +18,7 @@
 
 ## 操作步骤
 >?
->- 如果[扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩展卷](#Extending)。
+>- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩展卷](#Extending)。
 >- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩展卷](#Extending) 即可。
 
 <span id="Scaning"></span>
@@ -27,7 +28,7 @@
 2. 在左侧导航栏中，选择【存储】>【磁盘管理】。
 3. 右键单击 【磁盘管理】，选择 【重新扫描磁盘】。如下图所示：
 ![](https://main.qcloudimg.com/raw/08bc972c1461a316300ab5b21ffb452b.png)
-4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的 10GB 扩容到了 50GB）。如下图所示：
+4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的10GB扩容到了50GB）。如下图所示：
 ![](https://main.qcloudimg.com/raw/f1846bb0f53f025bc781eacc2706d7ed.png)
 
 <span id="Extending"></span>

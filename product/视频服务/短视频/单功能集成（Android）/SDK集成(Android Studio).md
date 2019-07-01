@@ -141,7 +141,7 @@ public class DemoApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
+        TXUGCBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
     }
 }
 ```

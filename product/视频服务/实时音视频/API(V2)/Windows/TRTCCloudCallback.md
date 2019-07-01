@@ -70,6 +70,21 @@ __参数__
 | reason | int | 离开房间原因。 |
 
 
+### onSwitchRole
+
+切换角色结果回调。
+```
+void onSwitchRole(TXLiteAVError errCode, const char * errMsg)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | TXLiteAVError | 错误码。 |
+| errMsg | const char * | 错误信息。 |
+
+
 ### onConnectOtherRoom
 
 请求跨房通话的结果回调。
@@ -258,7 +273,7 @@ __介绍__
 
 首帧视频画面到达，界面此时可以结束 Loading，并开始显示视频画面。
 ```
-void onFirstVideoFrame(const char * userId, uint32_t width, uint32_t height)
+void onFirstVideoFrame(const char * userId, TRTCVideoStreamType streamType, uint32_t width, uint32_t height)
 ```
 
 __参数__

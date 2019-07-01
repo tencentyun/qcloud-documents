@@ -20,7 +20,9 @@
  - 访问 [转换工具](https://myssl.com/cert_convert.html)。
  - 将 Nginx 文件夹中的证书文件和私钥文件上传至转换工具中，并填写密钥库密码，单击【提交】，转换为 jks 格式证书。
 - 若您在申请 SSL 证书时已设置私钥密码，该文件夹下则无 keystorePass.txt 文件。
+- CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 - 当前 Tomcat 服务器安装在`/usr`目录下，例如，Tomcat 文件夹名称为`tomcat7.0.94`。则`/usr/*/conf`实际为`/usr/tomcat7.0.94/conf`。
+
 
 ## 数据
 安装 SSL 证书前需准备的数据如下：

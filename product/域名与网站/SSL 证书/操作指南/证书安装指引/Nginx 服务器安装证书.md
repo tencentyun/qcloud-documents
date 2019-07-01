@@ -15,6 +15,8 @@
 - 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
 - 已在当前服务器中安装配置 Nginx 服务器。
+
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
  
 ## 数据
 安装 SSL 证书前需准备的数据如下：
@@ -81,8 +83,8 @@ server {
     server_name www.domain.com; #填写绑定证书的域名
     ssl on;
     root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
-    index index.html index.htm;   #上面配置的文件夹里面的index.html
-    ssl_certificate  1_www.domain.com_bundle.crt; #证书文件名称
+    index index.html index.htm;   
+		ssl_certificate  1_www.domain.com_bundle.crt; #证书文件名称
     ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
@@ -98,6 +100,7 @@ server {
     rewrite ^(.*)$ https://$host$1 permanent; #把http的域名请求转成https
 }
 ``` 
+>?未添加注释的配置语句，您按照上述配置即可。
 2. 若修改完成，重启 Nginx。即可使用 `http://www.domain.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。

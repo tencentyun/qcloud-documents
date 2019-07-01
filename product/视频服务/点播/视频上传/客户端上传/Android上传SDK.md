@@ -2,24 +2,13 @@
 
 ## 源代码下载
 
-您可以在腾讯云官网更新 [Android 上传 demo + 源代码](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip)。
-下载完的 zip 包解压后可以看到 Demo 目录，上传相关源代码在Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 目录下。
+您可以在腾讯云官网更新 [Android 上传 demo + 源代码](http://ugc-upload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android_1.1.0.0.zip)。
+下载完的 zip 包解压后可以看到 Demo 目录，上传相关源代码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload` 目录下。
 
 ##  集成上传库和源代码
 
-1.拷贝上传源代码目录 Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload 到您的工程目录中，需要手动修改一下 package 名。
-2.将 Demo/app/libs/upload 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
-
-依赖库说明：
-
-| jar 文件                       | 说明                                       |
-| --------------------------- | ---------------------------------------- |
-| cosxml-5.4.10.jar           | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| qcloud-foundation-1.5.1.jar | 腾讯云对象存储服务（COS）的文件上传包， 此组件用于视频上传（TXUGCPublish）功能 |
-| okhttp-3.8.1.jar            | 开源 HTTP 组件                          |
-| okio-1.13.0.jar             | 开源网络 I/O 组件                         |
-| xstream-1.4.7.jar           | 开源序列化组件                             |
-| bolts-tasks-1.4.0.jar       | 开源 多线程 组件                            |
+1.拷贝上传源代码目录 `Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload` 到您的工程目录中，需要手动修改一下 package 名。
+2.将 `Demo/app/libs/upload` 目录下的所有 jar 包集成到您的项目中，建议您保留 upload 目录结构，方便以后对库进行更新。
 
 3.使用视频上传需要网络、存储等相关的一些访问权限，可在 AndroidManifest.xml 中增加如下权限声明：
 
@@ -79,7 +68,48 @@ param.videoPath = "xxx";
 int publishCode = mVideoPublish.publishVideo(param);
 ```
 
+## 简单图片上传
+
+### 初始化一个上传对象
+
+```java
+TXUGCPublish mVideoPublish = new TXUGCPublish(this.getApplicationContext(), "independence_android")
+```
+
+### 设置上传对象的回调
+
+```java
+mVideoPublish.setListener(new TXUGCPublishTypeDef.ITXMediaPublishListener() {
+    @Override
+    public void onMediaPublishProgress(long uploadBytes, long totalBytes) {
+        mProgress.setProgress((int) (100*uploadBytes/totalBytes));
+    }
+    @Override
+    public void onMediaPublishComplete(TXUGCPublishTypeDef.TXMediaPublishResult mediaResult) {
+        mResultMsg.setText(result.retCode + " Msg:" + (result.retCode == 0 ? result.videoURL : result.descMsg));
+    }
+});
+```
+
+### 构造上传参数
+
+```java
+TXUGCPublishTypeDef.TXMediaPublishParam param = new TXUGCPublishTypeDef.TXMediaPublishParam();
+
+param.signature = "xxx";
+param.mediaPath = "xxx";
+```
+
+> signature 计算规则可参考 [客户端上传签名](/document/product/266/9221)。
+
+### 调用上传
+
+```java
+int publishCode = mVideoPublish.publishMedia(param);
+```
+
 ## 高级功能
+
 ### 携带封面
 
 在上传参数中带上封面路径即可。
@@ -128,7 +158,7 @@ mVideoPublish.canclePublish();
 > 参数`signature`计算规则可参考 [客户端上传签名](/document/product/266/9221)。
 
 
-## 接口描述
+## 视频上传接口描述
 
 初始化上传对象 `TXUGCPublish`
 
@@ -144,7 +174,7 @@ mVideoPublish.canclePublish();
 | appId   | 点播appId        | int | 是    |
 
 
-上传 `TXUGCPublish.publishVideo`
+上传视频 `TXUGCPublish.publishVideo`
 
 | 参数名称  | 参数描述 | 类型                                 | 必填   |
 | ----- | ---- | ---------------------------------- | ---- |
@@ -197,9 +227,74 @@ mVideoPublish.canclePublish();
 | --------- | ---------------------- | ------- | ---- |
 | signature   | [客户端上传签名](/document/product/266/9221)        | String | 是    |
 
+## 图片上传接口描述
+
+初始化上传对象 `TXUGCPublish`
+
+| 参数名称  | 参数描述                                                  | 类型    | 必填 |
+| --------- | --------------------------------------------------------- | ------- | ---- |
+| context   | application 上下文                                        | Context | 是   |
+| customKey | 用于区分不同的用户，建议使用app的账号id，方便后续定位问题 | String  | 否   |
+
+设置点播appId `TXUGCPublish.setAppId`
+
+| 参数名称 | 参数描述  | 类型 | 必填 |
+| -------- | --------- | ---- | ---- |
+| appId    | 点播appId | int  | 是   |
+
+上传图片 `TXUGCPublish.publishMedia`
+
+| 参数名称 | 参数描述 | 类型                                    | 必填 |
+| -------- | -------- | --------------------------------------- | ---- |
+| param    | 上传参数 | TXUGCPublishTypeDef.TXMediaPublishParam | 是   |
+
+上传参数 `TXUGCPublishTypeDef.TXMediaPublishParam`
+
+| 参数名称     | 参数描述                                           | 类型    | 必填 |
+| ------------ | -------------------------------------------------- | ------- | ---- |
+| signature    | [客户端上传签名](/document/product/266/9221)       | String  | 是   |
+| mediaPath    | 本地图片文件路径                                   | String  | 是   |
+| enableResume | 是否启动断点续传，默认开启                         | boolean | 否   |
+| enableHttps  | 是否启动 HTTPS，默认关闭                           | boolean | 否   |
+| fileName     | 上传到点播系统的图片文件名称，不填默认用本地文件名 | String  | 否   |
+
+设置上传回调 `TXUGCPublish.setListener`
+
+| 参数名称 | 参数描述               | 类型                                        | 必填 |
+| -------- | ---------------------- | ------------------------------------------- | ---- |
+| listener | 上传进度和结果回调监听 | TXUGCPublishTypeDef.ITXMediaPublishListener | 是   |
+
+进度回调 `TXUGCPublishTypeDef.ITXMediaPublishListener.onPublishProgress`
+
+| 变量名称    | 变量描述         | 类型 |
+| ----------- | ---------------- | ---- |
+| uploadBytes | 已经上传的字节数 | long |
+| totalBytes  | 总字节数         | long |
+
+结果回调 `TXUGCPublishTypeDef.ITXMediaPublishListener.onPublishComplete`
+
+| 变量名称 | 变量描述 | 类型                                |
+| -------- | -------- | ----------------------------------- |
+| result   | 上传结果 | TXUGCPublishTypeDef.TXPublishResult |
+
+上传结果 `TXUGCPublishTypeDef.TXMediaPublishResult`
+
+| 成员变量名称 | 变量说明           | 类型   |
+| ------------ | ------------------ | ------ |
+| retCode      | 结果码             | int    |
+| descMsg      | 上传失败的错误描述 | String |
+| mediaId      | 点播媒体文件文件Id | String |
+| mediaURL     | 媒体资源存储地址   | String |
+
+预上传 `TXUGCPublishOptCenter.prepareUpload`
+
+| 参数名称  | 参数描述                                     | 类型   | 必填 |
+| --------- | -------------------------------------------- | ------ | ---- |
+| signature | [客户端上传签名](/document/product/266/9221) | String | 是   |
+
 ## 错误码
 
-SDK 通过 `TXUGCPublishTypeDef.TXVideoPublishListener` 接口来监听视频上传相关的状态。因此，可以利用 `TXUGCPublishTypeDef.TXPublishResult` 中的 `retCode` 来确认视频上传的情况。
+SDK 通过 `TXUGCPublishTypeDef.ITXVideoPublishListene\ITXMediaPublishListener` 接口来监听视频上传相关的状态。因此，可以利用 `TXUGCPublishTypeDef.TXPublishResult\TXMediaPublishResult` 中的 `retCode` 来确认视频上传的情况。
 
 | 状态码  | 在 TVCConstants 中所对应的常量         | 含义                     |
 | :--: | :----------------------------- | :--------------------- |

@@ -1,7 +1,6 @@
 ## 1. 什么是 Linux 服务器 Load Average？
 
 Load 是用来度量服务器工作量的大小，即计算机 CPU 任务执行队列的长度，值越大，表明包括正在运行和待运行的进程数越多。
-参考文档：[点此获取](http://en.wikipedia.org/wiki/Load_average)。
 
 ## 2. 如何查看 Linux 服务器负载？
 
@@ -98,7 +97,6 @@ ps -A -o comm |sort -k1 |uniq -c|sort -k1 -rn|head，列出运行实例最多的
 </td></tr></tbody></table>
 
 其他常用的命令和文件，free -m，du，uptime，w，/proc/stat，/proc/cpuinfo，/proc/meminfo。 
-参考文档：[点此获取](http://en.wikipedia.org/wiki/Template:Unix_commands)。
 
 ## 12. Cron 不生效怎么办？
 排查步骤如下：

@@ -21,7 +21,7 @@
     您首先需要在 Hive 中选择一个数据库或者创建一个数据库，然后通过如下语句实现单表存储在 COS 上
 
     ``` sql
-    create table record(id int, name string) row format delimited fields terminated by ',' stored as textfile location ’cosn://huadong/hive/cos’;
+    create table record(id int, name string) row format delimited fields terminated by ',' stored as textfile location 'cosn://huadong/hive/cos';
     ```
 
     然后向表中 load 数据即可，单个表在 COS 上即设定表的存储位置在对象存储之上。

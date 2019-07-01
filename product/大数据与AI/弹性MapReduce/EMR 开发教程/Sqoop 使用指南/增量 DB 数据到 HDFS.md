@@ -1,4 +1,4 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(MySQL、PostgreSQL 等)之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库（MySQL、PostgreSQL 等）之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了 Sqoop 的增量导入操作，即在数据库中的数据更改或者增加了之后，把数据库的改动同步到导入 HDFS 的数据中。其中分为 append 模式和 lastmodified 模式，append 模式只能用在数据库的数据只增加但是没有更新的场景，lastmodified 模式用在数据不仅有增加而且有更新的场景。
 

@@ -582,7 +582,7 @@ public class TIMFriendResponse {
     private int responseType = TIM_FRIEND_RESPONSE_AGREE;
 
     /**
-     * 响应的好友id
+     * 响应的好友 ID
      */
     private String identifier = ""; // 回应好友的 ID
 
@@ -641,7 +641,7 @@ public class TIMFriendCheckInfo {
     private int checkType = TIMFriendCheckType.TIM_FRIEND_CHECK_TYPE_UNIDIRECTION;
     
     /**
-     * 设置需要检查的好友 id
+     * 设置需要检查的好友 ID
      *
      * @param users
      */
@@ -682,9 +682,9 @@ public class TIMCheckFriendResult {
     private int resultType;
 
     /**
-     * 获取好友 id
+     * 获取好友 ID
      *
-     * @return 好友 id
+     * @return 好友 ID
      */
     public String getIdentifier();
 
@@ -782,11 +782,11 @@ public void setTimestamp(long timestamp)
 public void setNumPerPage(int numPerPage)
 
 /**
- * 未决请求拉取类型，见 TIMPendencyGetType 中的常量定义
+ * 未决请求拉取类型，见 TIMPendencyType 中的常量定义
  * 
- * @param timPendencyGetType 未决请求拉取类型
+ * @param timPendencyType 未决请求拉取类型
  */
-public void setTimPendencyGetType(int timPendencyGetType)
+public void setTimPendencyGetType(int timPendencyType)
 ```
 
 操作成功后，回调返回分页信息和未决记录 `TIMFriendPendencyResponse`
@@ -858,12 +858,34 @@ public String getAddWording()
 public String getNickname()
 
 /**
- * 获取未决请求类型，见 TIMPendencyGetType 常量定义
+ * 获取未决请求类型，见 TIMPendencyType 常量定义
  * 
  * @return 未决请求类型
  */
 public int getType()
 ```
+
+未决类型 `TIMPendencyType` 定义如下：
+```
+public class TIMPendencyType {
+    /**
+     * 别人发给我的未决请求
+     */
+    public static final int TIM_PENDENCY_COME_IN    = 1;
+
+    /**
+     * 我发给别人的未决请求
+     */
+    public static final int TIM_PENDENCY_SEND_OUT   = 2;
+
+    /**
+     * 别人发给我的以及我发给别人的所有未决请求，仅在拉取时有效。
+     */
+    public static final int TIM_PENDENCY_BOTH       = 3;
+
+}
+```
+
 
 ### 未决删除
 ```

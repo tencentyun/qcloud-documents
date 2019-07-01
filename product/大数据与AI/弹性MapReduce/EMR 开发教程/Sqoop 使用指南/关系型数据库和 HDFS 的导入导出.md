@@ -1,4 +1,4 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(MySQL、PostgreSQL 等)之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库（MySQL、PostgreSQL 等）之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 HDFS 之间导入/导出的使用方法。
 
@@ -61,14 +61,14 @@ Mysql> select * from sqoop_test;
 使用 sqoop-import 把上一步中创建的 sqoop_test 表中数据导入到 HDFS 中：
 ```
 [hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/test --username root 
--P --table sqoop_test --target-dir /sqoopTest
+-P --table sqoop_test --target-dir /sqoop
 ```
 其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。注意`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在会出错。
 回车之后需要您输入密码，密码为您创建 EMR 时设置的密码。
 
 执行成功之后，可以在 HDFS 的相应路径下查看导入的数据：
 ```
-[hadoop@172 sqoop]$ hadoop fs -cat /sqoopTest/*
+[hadoop@172 sqoop]$ hadoop fs -cat /sqoop/*
 1, first, 2018-07-03 15:29:37.0,hdfs
 2, second, 2018-07-03 15:30:57.0,mr
 3, third, 2018-07-03 15:31:07.0,yarn
