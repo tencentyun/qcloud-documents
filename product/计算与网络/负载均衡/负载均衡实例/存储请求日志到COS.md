@@ -3,8 +3,8 @@
 ## 开启日志功能
 1. 在**负载均衡实例详情**页面，开启日志访问功能。
 ![](https://main.qcloudimg.com/raw/8e00f8590d3fdf64278389cd019864a8.png)
-![](https://main.qcloudimg.com/raw/f1f6d287dba415df1c832223cbdac11b.png)
 2. 选取相应的 COS 中 bucket，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。选取完成后，单击 bucket 地址可以直接跳转到日志下载页面。
+![](https://main.qcloudimg.com/raw/f1f6d287dba415df1c832223cbdac11b.png)
 >!如您没有创建对象存储的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 
 ## 产品限制和费用计算
