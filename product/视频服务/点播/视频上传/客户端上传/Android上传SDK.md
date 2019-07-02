@@ -20,7 +20,7 @@
 	
 	<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
 		<intent-filter>
-			//检测网络变化的acton
+			//检测网络变化的 acton
 			<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 			<category android:name="android.intent.category.DEFAULT" />
 		</intent-filter>
@@ -140,9 +140,7 @@ mVideoPublish.canclePublish();
 
 #### 预上传
 
-在实际上传过程中，很大部分的错误是由于网络连接失败或超时导致的，为优化此类问题，我们增加了预上传优化逻辑。
-
-预上传包含：HTTPDNS 解析、获取建议上传园区、探测最优上传园区。
+在实际上传过程中，很大部分的错误是由于网络连接失败或超时导致的，为优化此类问题，我们增加了预上传优化逻辑。预上传包含：HTTPDNS 解析、获取建议上传园区、探测最优上传园区。
 
 建议您在 App 启动的时候调用`TXUGCPublishOptCenter.getInstance().prepareUpload(signature)`，预上传模块会把`<域名，IP>`映射表和最优上传园区缓存在本地，监听到网络切换时，清空缓存并自动刷新。
 
