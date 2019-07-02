@@ -94,7 +94,7 @@ publishParam.videoPath  = @"视频文件路径";
 上传参数中的`enableResume`为断点续传开关，默认是开启的。
 
 
-## 图片或媒体文件上传
+## 图片或媒体上传
 
 ```objc
 // 创建对象
@@ -108,7 +108,7 @@ TXMediaPublishParam *publishParam = [[TXMediaPublishParam alloc] init];
 publishParam.signature  = @"由您业务后台产生的签名";
 publishParam.mediaPath = @"图片文件路径";
 
-// 上传图片或则媒体文件
+// 上传图片或媒体文件
 [_imagePublish publishMedia:publishParam];
 
 ```
