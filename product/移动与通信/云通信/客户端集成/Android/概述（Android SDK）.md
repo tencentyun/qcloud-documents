@@ -24,17 +24,17 @@ IM SDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录�
 
 <table style="width:100%;">
 		<tbody>
-			<th>
-				<td style="text-align:center;">
+			<tr>
+				<th style="text-align:center;">
 					步骤<br>
-				</td>
-				<td style="text-align:center;">
+				</th>
+				<th style="text-align:center;">
 					对应函数<br>
-				</td>
-				<td style="text-align:center;">
+				</th>
+				<th style="text-align:center;">
 					说明<br>
-				</td>
-			</th>
+				</th>
+			</tr>
 			<tr>
 				<td rowspan="5">
 					初始化<br>
