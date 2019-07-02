@@ -24,7 +24,7 @@ IM SDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录�
 
 <table style="width:100%;">
 		<tbody>
-			<tr>
+			<th>
 				<td style="text-align:center;">
 					步骤<br>
 				</td>
@@ -34,7 +34,7 @@ IM SDK 调用 API 需要遵循以下顺序，其余辅助方法需要在登录�
 				<td style="text-align:center;">
 					说明<br>
 				</td>
-			</tr>
+			</th>
 			<tr>
 				<td rowspan="5">
 					初始化<br>
