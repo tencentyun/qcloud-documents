@@ -46,20 +46,37 @@ void onPublishProgress(long uploadBytes, long totalBytes);
 - onPublishComplete 用于反馈发布结果。
 ```java
 void onPublishComplete(TXPublishResult result);
-``` 
+```
 参数 TXPublishResult 中的字段及含义如下表所示：
-
-字段|含义
--|-
-errCode|错误码
-descMsg|错误描述信息
-videoURL|短视频的点播地址
-coverURL|视频封面的云存储地址
-videoId|视频文件云存储 ID，您可以通过这个Id调用点播 [服务端 API 接口](https://cloud.tencent.com/document/product/266/1965)。
-
+<table border=0 cellpadding="0" cellspacing="0">
+<thead>
+<tr>
+<th>字段</th>
+<th align="center">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>errCode</td>
+<td >错误码。</td>
+</tr>
+ <tr>
+<td>descMsg</td>
+<td >错误描述信息。</td>
+</tr>
+ <tr>
+<td>videoURL</td>
+<td >短视频的点播地址。</td>
+</tr>
+ <tr>
+<td>coverURL</td>
+<td >视频封面的云存储地址。</td>
+</tr>
+ <tr>
+<td>videoId</td>
+<td >视频文件云存储 ID，您可以通过这个 ID 调用云点播 [服务端 API 接口](https://cloud.tencent.com/document/product/266/7788)。</td>
+</tr>
+</tbody></table> 
 - 通过 [错误码表](https://cloud.tencent.com/document/product/584/10176) 来确认短视频的发布结果。
-
-
 
 #### 4. 播放视频
 
