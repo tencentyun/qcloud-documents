@@ -9,9 +9,9 @@
 示例：提取 URL1 的 Json 格式 Body 中的内容，赋值给 URL2 中的 Header。
 1. 在 URL1 中设置上下文变量 jsonv1，因为需要的值在返回的 Json 文件中，所以选择提取方式为'JSON'，提取规则中输入具体需要的字段。  
  ![](https://main.qcloudimg.com/raw/698c6414386cb3aa706d41fb70b235a5.png)
-2. 在 URL2 中设置 Header 中的 testheader 字段的值来源于上文准备好的{{jasonv1}}变量，务必记得变量都需要用{{}}来识别
+2. 在 URL2 中设置 Header 中的 testheader 字段的值来源于上文准备好的{{jasonv1}}变量，务必记得变量都需要用{{}}来识别。
  ![](https://main.qcloudimg.com/raw/22a6fed6a7b4620e2903b677c7ed3994.png)
-若 URL1 中 JSON 文件内，projectinfo 的值为'p123'，则下文的 Header 中，hh 被赋值'p123'，testheader 被赋值'p123aa'
+若 URL1 中 JSON 文件内，projectinfo 的值为'p123'，则下文的 Header 中，hh 被赋值'p123'，testheader 被赋值'p123aa'。
 3. 在测试模型配置栏为场景命名，选择“上下文”模式。
  ![](https://main.qcloudimg.com/raw/bf98aa4ac57deaae05359a96ff46724d.png)
 4. 将 URL1 和 URL2 按顺序排列，该场景就会按照配置的顺序进行，即完成本次配置。
