@@ -29,10 +29,10 @@
 同一参数在一个客户端请求中只能填写一次，当填写两个及以上的时候服务器会返回错误。
 
 4. Body 中的四种选项各是什么意思？
-**form-data：**默认 Web 表单提交方式，模拟输入表单中的字段和值，如 Key 为 number，value 为100。
-**x-www-form-urlencoded：**常见的提交表单数据方式，key和value会在URL中进行转码，如 test&sub%5B%5D=1。
-**raw：**纯文本，如“This is sample text body”。
-**二进制文件：**允许您插入图像、音频或视频文件（因请求数较大，暂只支持 80KB 以下的文件）。
+ - form-data：默认 Web 表单提交方式，模拟输入表单中的字段和值，如 Key 为 number，value 为100。
+ - x-www-form-urlencoded：常见的提交表单数据方式，key和value会在URL中进行转码，如 test&sub%5B%5D=1。
+ - raw：纯文本，如“This is sample text body”。
+ - 二进制文件：允许您插入图像、音频或视频文件（因请求数较大，暂只支持 80KB 以下的文件）。
 
 5. 当 Body 为 x-www-form-urlencoded 数据提交方式时，某个字段对应的值为空，那么不添加这个字段对测试会有影响吗?
 会有影响，我们在 Body 中填写参数的时候即使该参数对应的参数值为 NULL，也需要将该参数输入，参数值可以不填写。
