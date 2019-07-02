@@ -1,6 +1,6 @@
 SCF 默认是部署在公共网络中，如果您想让 SCF 可以访问到内网中的资源，如 CDB、CVM 等，在创建或编辑云函数时，您可以通过更改网络配置，来为云函数的运行环境增加至 VPC 网络的访问能力。需要注意的是：
 
-* 部署在 VPC 中的云函数默认是和外网隔离开的，如果您想让云函数同时具备内网访问和外网访问能力，您可以参考另外一篇文章 [《函数在 VPC 网络中访问外网》](https://cloud.tencent.com/document/product/583/19703)，给 VPC 添加 NAT 网关。
+* 部署在 VPC 中的云函数默认是和外网隔离开的，如果您想让云函数同时具备内网访问和外网访问能力，您可以参考另外一篇文章 [《函数在 VPC 网络中访问外网》](https://cloud.tencent.com/document/product/583/19704)，给 VPC 添加 NAT 网关。
 * 云函数当前不支持对接到基础网络里的资源，如果您确实需要访问到基础网络，可以[提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 联系我们。
 
 ## 使用场景
@@ -38,7 +38,7 @@ def main_handler(event,context):
     return r.get('foo')
 ```
 
-云函数切换至 VPC 网络环境后，将失去原有独立网络环境中的外网访问能力，如需继续访问外网，在 VPC 上通过 [配置公网网关](https://cloud.tencent.com/document/product/215/20078)、[配置 NAT 网关](https://cloud.tencent.com/document/product/552) 等方式，打通 VPC 访问外网的能力，具体可以参考另外一篇文章 [《函数在 VPC 网络中访问外网》](https://cloud.tencent.com/document/product/583/19703)，给 VPC 添加 NAT 网关。
+云函数切换至 VPC 网络环境后，将失去原有独立网络环境中的外网访问能力，如需继续访问外网，在 VPC 上通过 [配置公网网关](https://cloud.tencent.com/document/product/215/20078)、[配置 NAT 网关](https://cloud.tencent.com/document/product/552) 等方式，打通 VPC 访问外网的能力，具体可以参考另外一篇文章 [《函数在 VPC 网络中访问外网》](https://cloud.tencent.com/document/product/583/19704)，给 VPC 添加 NAT 网关。
 
 ### VPC 网络中的 Name server 配置
 
