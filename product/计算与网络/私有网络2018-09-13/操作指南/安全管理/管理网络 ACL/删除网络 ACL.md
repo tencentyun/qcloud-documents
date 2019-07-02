@@ -3,5 +3,5 @@
 3. 选择地域和私有网络。
 4. 在列表中，找到需要删除的网络 ACL，单击其 ID，进入详情页。
 5. 单击【删除】并确认操作，即可删除该网络 ACL 及该网络 ACL 的所有规则。
-![](https://main.qcloudimg.com/raw/94c873b7aee32eee60f9b116e771363b.png)
+![](https://main.qcloudimg.com/raw/52d13aac33e609dc59d132ffa4c71171.png)
 >!若【删除】按钮置灰，如上图中的网络 ACL`testEg`，表示该网络 ACL 正与子网相关联，您需要先解除子网关联后，才能进行删除操作。
