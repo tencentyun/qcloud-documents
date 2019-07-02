@@ -15,7 +15,7 @@ python 2.7版本
 
 ##  <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**
-- 关于云 API 账号中的 AppID，SecretId 与 SecretKey 查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 -  具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **更改用户信息配置文件**

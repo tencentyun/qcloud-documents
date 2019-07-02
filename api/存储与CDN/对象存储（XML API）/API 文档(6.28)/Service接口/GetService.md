@@ -7,13 +7,16 @@ GET Service 接口是用来查询请求者名下的所有存储桶列表或特�
 #### 请求示例
 
 **示例一**
+
 ```shell
 GET / HTTP/1.1
 Host: service.cos.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
+
 **示例二**
+
 ```shell
 GET / HTTP/1.1
 Host: cos.<Region>.myqcloud.com
@@ -21,9 +24,9 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?
->- Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
->- Host：查询全部存储桶列表指定为`service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为`cos.<Region>.myqcloud.com`。
+> ?
+> - Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - Host: 查询全部存储桶列表指定为 `service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 `cos.<Region>.myqcloud.com`。
 
 #### 请求参数
 
@@ -70,37 +73,37 @@ Authorization: Auth String
 
 具体的节点描述如下：
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-ListAllMyBucketsResult|无|保存 GET Service 结果的所有信息|Container
+| 节点名称（关键字）     | 父节点 | 描述                            | 类型      |
+| ---------------------- | ------ | ------------------------------- | --------- |
+| ListAllMyBucketsResult | 无     | 保存 GET Service 结果的所有信息 | Container |
 
 **Container 节点 ListAllMyBucketsResult 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Owner|ListAllMyBucketsResult|存储桶持有者信息|Container
-Buckets|ListAllMyBucketsResult|存储桶列表|Container
+| 节点名称（关键字） | 父节点                 | 描述             | 类型      |
+| ------------------ | ---------------------- | ---------------- | --------- |
+| Owner              | ListAllMyBucketsResult | 存储桶持有者信息 | Container |
+| Buckets            | ListAllMyBucketsResult | 存储桶列表       | Container |
 
 **Container 节点 Owner 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-ID|ListAllMyBucketsResult.Owner|存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001`|string
-DisplayName|ListAllMyBucketsResult.Owner|存储桶持有者的名字|string
+| 节点名称（关键字） | 父节点                       | 描述                                                         | 类型   |
+| ------------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
+| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001` | string |
+| DisplayName        | ListAllMyBucketsResult.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 Buckets 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Bucket|ListAllMyBucketsResult.Buckets|存储桶信息|Container
+| 节点名称（关键字） | 父节点                         | 描述       | 类型      |
+| ------------------ | ------------------------------ | ---------- | --------- |
+| Bucket             | ListAllMyBucketsResult.Buckets | 存储桶信息 | Container |
 
 **Container 节点 Buckets.Bucket 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Name|ListAllMyBucketsResult.Buckets.Bucket|存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000`|string
-Location|ListAllMyBucketsResult.Buckets.Bucket|存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等|Enum
-CreationDate|ListAllMyBucketsResult.Buckets.Bucket|存储桶的创建时间，为 ISO8601 格式，如2019-05-24T10:56:40Z|date
+| 节点名称（关键字） | 父节点                                | 描述                                                         | 类型   |
+| ------------------ | ------------------------------------- | ------------------------------------------------------------ | ------ |
+| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000` | string |
+| Location           | ListAllMyBucketsResult.Buckets.Bucket | 存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum   |
+| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，如2019-05-24T10:56:40Z    | date   |
 
 #### 错误码
 
