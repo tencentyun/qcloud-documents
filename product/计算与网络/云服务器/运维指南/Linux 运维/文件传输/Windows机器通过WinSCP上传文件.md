@@ -2,7 +2,7 @@
 WinSCP 是一个在 Windows 环境下使用 SSH 的开源图形化 SFTP 客户端，同时支持 SCP 协议。它的主要功能是在本地与远程计算机之间安全地复制文件。与使用 FTP 上传代码相比，通过 WinSCP 可以直接使用服务器账户密码访问服务器，无需在服务器端做任何配置。
 
 ## 前提条件
-已下载并安装 WinSCP 客户端（获取途径：建议从 [官方网站](http://winscp.net/eng/docs/lang:chs) 获取最新版本）。
+本地计算机已下载并安装 WinSCP 客户端（获取途径：建议从 [官方网站](http://winscp.net/eng/docs/lang:chs) 获取最新版本）。
 
 ## 操作步骤
 

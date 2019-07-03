@@ -21,10 +21,10 @@
 ![](https://main.qcloudimg.com/raw/98753e63341655f8391629922ec8f552.png)
 
 4. 单击【确认申请】。
- - 若提交申请成功，需要单击【证书详情页】获取 TXT 记录尽快添加解析，方可通过 CA 机构审核。如下图所示：
+ - 若提交申请成功，需要单击【查看证书详情】获取 TXT 记录尽快添加解析，方可通过 CA 机构审核。如下图所示：
  ![](https://main.qcloudimg.com/raw/17d8498c9607da699d6d8645699299a0.png)
  - 若提交申请失败，提交域名未通过 CA 机构安全审核，具体原因参考 [安全审核失败原因](https://cloud.tencent.com/doc/product/400/5439)。如下图所示：
-![](https://mc.qcloudimg.com/static/img/25451d24cf3c717454830a44925642ec/1.png)
+![](https://main.qcloudimg.com/raw/929470e3de37273d8cd3c4e31dda72b1.png)
 
 ## 部署证书到负载均衡
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
