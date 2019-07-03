@@ -24,11 +24,11 @@
 4. 选择需要配置的域名，选择右上角【添加记录】，如下图所示：
 ![](https://main.qcloudimg.com/raw/2f3b789874c7c7968679e6282c14f260.png)
 
- - 记录类型：选 CNAME
- - 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名 myqloud.com，则输入@；若需要解析泛域名，则输入\*
- - 解析路线：建议选择“默认”
- - 记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为 domain.livecdn.liveplay.myqcloud.com
- - TTL：建议填写10分钟
+ - 记录类型：选 CNAME。
+ - 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名 myqloud.com，则输入@；若需要解析泛域名，则输入\*。
+ - 解析路线：建议选择“默认”。
+ - 记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为 domain.livecdn.liveplay.myqcloud.com。
+ - TTL：建议填写10分钟。
 单击【确定】提交即可。
 
 5. 验证 CNAME 生效。CNAME 设置完成后约15分钟生效，当云直播域名管理中域名对应 CNAME 值显示<img src="https://main.qcloudimg.com/raw/8283d3a1d6e6993df5b81f5034b3bbb9.png"  style="margin:0;">则 CNAME 成功。若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
