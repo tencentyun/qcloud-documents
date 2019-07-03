@@ -11,14 +11,14 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 |支持平台|下载地址|
 |:---|:---|
-|Windows PC端|[Windows ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
-|macOS PC端|[macOS ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
+|Windows PC 端|[Windows ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
+|macOS PC 端|[macOS ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
 |Android 移动端|[Android ](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
 
 >?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
 #### 登录
-安装工具完毕后，单击 COSBrowser 图标进入登录页面。
+安装工具完毕后，双击 COSBrowser 图标进入登录页面。
 
 **PC 端（Windows/macOS）**
 填写如下登录信息：
@@ -36,7 +36,7 @@ COSBrowser 移动端支持以下两种登录方式：
 
 ## 使用方法
 
-客户端工具操作步骤类似，此次以 Windows 客户端为例。
+客户端工具操作步骤类似，此处以 Windows PC 端为例。
 
 ### 管理文件/文件夹
 #### 创建文件夹
@@ -83,7 +83,7 @@ COSBrowser 移动端支持以下两种登录方式：
 #### 通用设置
 选择 【设置】>【通用】，进入 COSBrowser 的设置界面修改通用配置，如语言、服务端域名、是否使用 HTTPS 等。
 
-#### 上传/下载参数配置。
+#### 上传/下载参数配置
 - 文件并发数：设置文件上传或下载的并发任务数，超过最大并发数量的任务会进入等待队列，待前序任务完成后执行。
 - 分片并发数：设置文件上传或下载的分片数量。
 - 失败重试次数：设置文件上传或下载的重试失败次数。
