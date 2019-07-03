@@ -94,7 +94,7 @@ bootmenupolicy          Standard
 [点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
 3. 选择需要导出的镜像存放路径，勾选需要复制的卷，单击【Create】。如下图所示：
 >! 
-> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务） 功能后才能运行。
+> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。
 > - 请勿勾选 “Use Vhdx”，目前系统不支持 vhdx 格式的镜像。
 > - 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
 > 
