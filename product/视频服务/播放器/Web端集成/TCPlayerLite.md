@@ -351,7 +351,11 @@ seeked
 resize
 volumechange
 ```
->! 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
+
+>! 
+>- 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
+>- Web 播放器的事件依赖浏览器内置的解码器和Flash插件来触发，Web 播放器仅透传事件。
+>- Web 播放器监听不到直播停止推流的事件，需要通过额外的接口来确认推流状态，参考[查询流状态](https://cloud.tencent.com/document/product/267/20470)
 
 Flash 模式下特有的事件：netStatus
 
