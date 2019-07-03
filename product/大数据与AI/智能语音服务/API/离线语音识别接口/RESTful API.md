@@ -3,7 +3,7 @@
 本接口服务对一小时之内的录音文件进行识别，异步返回识别全部结果，支持语音 URL 和本地语音文件两种请求方式。接口是 HTTP RESTful 形式，在使用该接口前，需要在[ 语音识别控制台 ](https://console.cloud.tencent.com/aai)开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey ，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
 ## 接口要求
-集成实时语音识别 API 时，需按照以下要求。
+集成录音文件识别 API 时，需按照以下要求。
 
 | 内容 | 说明 | 
 | --- | --- |
