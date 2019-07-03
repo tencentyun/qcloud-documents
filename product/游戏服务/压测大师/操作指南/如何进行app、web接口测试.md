@@ -33,7 +33,7 @@ WeTest 的 URL 测试主要有以下几个特点：
  ![](https://main.qcloudimg.com/raw/980aa6f77cb1b1b5593f2231625b7458.png)
 
 ## 如何进行参数化变量的配置和使用
-除了以上简单的接口测试，URL 测试还全面支持 app、网站上下文场景压测以及 https 协议测试。
+除了以上简单的接口测试，URL 测试还全面支持 app、网站上下文场景压测以及 HTTPS 协议测试。
 关于上下文场景测试，简单点来说就是我需要测试一个 URL，但是需要另外一个 URL 的返回值作为输入参数。
 数据的来源可以来自上文的 Header 以及 Body 中。提取方式可以按照键值对、全部提取、正则表达式提取以及 json 格式的提取。
  
@@ -93,8 +93,8 @@ POST 表单时，希望每次填写的用户名是变化的，以模拟正常并
 
 #### Header 参数
 Header 参数化示例:
-请求中 Cookie 具有校验功能，需要输入真实的用户 id 和 token。
-以用户 id 为例，需要 Cookie 中包含一个键值对为 o_cookie=用户 id。
+请求中 Cookie 具有校验功能，需要输入真实的用户 ID 和 token。
+以用户 ID 为例，需要 Cookie 中包含一个键值对为 o_cookie=用户 ID。
 则首先定义一个 userid 参数，然后在 Header 体中添加一个 Cookie 键，输入值为 o_cookie={{userid}}。
  ![](https://main.qcloudimg.com/raw/e3a139ffd105e355f38315ec160545c2.png)
 
