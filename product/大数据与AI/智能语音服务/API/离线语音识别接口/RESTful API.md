@@ -71,14 +71,14 @@ URL 中各字段含义如下：
 语音数据，当 SourceType 值为1（语音数据上传）时必须填写，当 SourceType 值为0（语音 URL 上传）可不写。要使用base64编码(采用 Python 语言时注意读取文件应该为 string 而不是 byte，以 byte 格式读取后要 decode()。编码后的数据不可带有回车换行符)。音频数据要小于5MB。
 **请求示例**
 请求示例如下，示例生成请参考下面 [PHP 代码](#PHP) 。
-示例1 
+**示例1** 
 用户通过语音 url 地址方式请求。
 用户通过 [签名生成](#sign) 的签名 5Zb1hKd8uo4H+AgpMbktZhHqqjY=，通过语音 url（https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav） 的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。
 
 ```
 curl -sv -H 'Authorization:5Zb1hKd8uo4H+AgpMbktZhHqqjY=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav'
 ```
-示例2 
+**示例2** 
 用户通过本地语音上传方式请求。
 用户通过 [签名生成](#sign) 的签名 j8AY1RkedGSoDxCjAEtT2pq/r1w=，通过本地上传语音（voicedata 为用户实际上传的从音频文件读取的音频数据）的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。 
 
