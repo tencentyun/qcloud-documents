@@ -58,7 +58,7 @@ Authorization: Auth String
    </tr>
    <tr>
       <td nowrap="nowrap">version-id-marker</td>
-      <td>指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default</td>
+      <td>指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default。如果不指定版本 ID，默认为最新版本对象</td>
       <td>string</td>
       <td>否</td>
    </tr>
