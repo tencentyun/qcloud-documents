@@ -66,9 +66,9 @@
 | ------------------------------------------------------------| ------ | -------- | -------- | ------- | ---- |	
 | [全球应用加速](https://cloud.tencent.com/document/product/608)  | 资源级 | ✔  |  -   | ✔ | -  |
 | [动态加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | ✔  |  - | ✔   | -  |
-| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>2</sup> | ✔   |  -   | ✔  | - |
+| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>1</sup> | ✔   |  -   | ✔  | - |
 
-> ?<sup>2</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
+> ?<sup>1</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
 
 ## 互联网中间件	
 
