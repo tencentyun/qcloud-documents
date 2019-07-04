@@ -30,7 +30,7 @@ Jenkins 插件有两种安装方式：应用市场与手动安装。
 
 ## 流水线常见问题
 ### 为什么我无法看到流水线构建对象？
-首先可以检查流水线配置环节，是否完成了源码关联配置。若已关联，请确认代码提交时，Commit Message 中是否插入了 TAPD 源码提交关键字。若未插入，请参考 [代码关联](https://cloud.tencent.com/document/product/624/35779?!editLang=zh&!preview#stapsix) 第6步完成相关操作，再进行构建。
+首先可以检查流水线配置环节，是否完成了源码关联配置。若已关联，请确认代码提交时，Commit Message 中是否插入了 TAPD 源码提交关键字。若未插入，请参考 [代码关联](https://cloud.tencent.com/document/product/624/35779?!preview&!editLang=zh#stepsix) 第6步完成相关操作，再进行构建。
 ### 怎样查看流水线构建日志？
 进入构建详情页，在结束栏找到【构建日志（Console Output）】项，鼠标单击即可查看。
  ![](https://main.qcloudimg.com/raw/56f7b2dd5f0ea7a6e53eb88d9e997d05.png)
