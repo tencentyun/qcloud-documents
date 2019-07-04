@@ -1,3 +1,7 @@
+>! 
+- 通用印刷体识别全面升级接口，算法更强、性能更优，欢迎立即体验 [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526 )。
+- 新老版本的接口计费模式相同，且共享计费阶梯，您可以在【文字识别控制台】>【[通用印刷体识别](https://console.cloud.tencent.com/ai/ocr/general)】中查看调用情况。
+- 老版本接口我们仍继续维护，但建议您使用  [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526 )，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/general`
 本接口（general）用于提供图片整体文字的检测和识别服务，返回文字框位置与文字内容。支持多场景、任意版面下整图文字的识别，以及中英文、字母、数字的识别。应用场景：印刷文档识别、广告图文字识别、街景店招识别、菜单识别、视频标题识别、互联网头像文字识别等。
@@ -162,5 +166,6 @@ Content-Type: application/json
 | -1304 | 参数过长                       |
 | -1308 | 图片下载失败                     |
 | -9003 | OCR 识别失败                   |
+| -9021 | 未检测到文本 |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733) 。

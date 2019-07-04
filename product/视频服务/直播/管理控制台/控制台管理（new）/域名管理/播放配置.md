@@ -1,0 +1,29 @@
+## 操作场景
+您在生成推流域名的推流地址后，如需查看往该推流地址进行推流的直播内容，需要您在播放配置中，查看播放域名生成的播放地址并加上 StreamName 来关联该推流地址，即可获取可以查看直播的播放地址。
+
+## 前提条件
+ 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
+
+## 操作步骤
+1. 选择左侧菜单栏【域名管理】，单击【管理】按钮或需配置的播放域名进入域名管理。
+ ![](https://main.qcloudimg.com/raw/dfe209c12ea1bf98090afad283f2b8e7.png)
+
+2. 在【播放配置】菜单栏下，您可以查看该域名下 RTMP、FLV、HLS 这三种播放地址。替换播放地址中的 StreamName（流名称）关联推流地址，关联后即可通过播放地址播放直播，生成推流地址请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833)。
+ ![](https://main.qcloudimg.com/raw/25c219edc9d2713072f83f37da81a3cd.png)
+
+3. 播放地址生成规则如下：
+        RTMP格式：rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+        FLV格式：http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+        M3U8格式：http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)
+	>?
+>- domain：自有已备案播放域名。
+>- AppName：应用名称，默认 live，若需自定义需提交工单配置。
+>- StreamName：流名称，用户自定义，用以标识直播流。
+>- txSecret：开启播放鉴权后生成的鉴权串。
+>- txTime：播放地址设置的时间戳，用以控制台播放地址的有效时间。
+
+4. 若播放域名配置了转码模板，同时需播放转码后的直播流，转码的播放地址拼接方式为：在原始播放地址中的 StreamName 后增加`_转码模板名称`。
+例如，原始播放地址为 `http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)` ，关联的转码模板名称为 `hd`，则转码播放地址为 `http://domain/AppName/StreamName_hd.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`。
+
+5. 若采用 H.265 推流，同时播放 H.265 的直播流，则需要在播放地址后增加`_265`。若不增加`_265`，则播放 H.264 直播流会产生转码费用。
+例如，原始播放地址为 `http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`，采用 H.265 推流，则原始流的播放地址为`http://domain/AppName/StreamName_265.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`。

@@ -4,7 +4,7 @@
 
 <font style="color:red">本接口实现的功能已经用弹性网卡功能代替，不推荐使用该接口。</font>
 
-新接口调用方式及使用场景详见 [VPC内通过 keepalived 搭建高可用主备集群 >>](https://cloud.tencent.com/document/product/215/5850)
+新接口调用方式及使用场景详见 [VPC内通过 keepalived 搭建高可用主备集群 >>](https://cloud.tencent.com/document/product/215/20186)
 
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 

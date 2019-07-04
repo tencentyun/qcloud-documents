@@ -1,0 +1,149 @@
+## 什么是清单
+
+清单是一种帮助用户管理存储桶中对象的功能，可以有计划地取代对象存储同步 List API 操作。对象存储 COS 可根据用户的清单任务配置，每天或者每周定时扫描用户存储桶内指定的对象或拥有相同对象前缀的对象，并输出一份清单报告，以 CSV 格式的文件存储到用户指定的存储桶中。文件中会列出存储的对象及其对应的元数据，并根据用户的配置信息，记录用户所需的对象属性信息。
+
+您可以使用清单功能实现包括但不限于以下基本用途：
+
+- 审核并报告对象的复制和加密状态。
+- 简化并加快业务工作流和大数据作业。
+
+> !
+>- 用户可以在一个存储桶中配置多个清单任务，清单任务执行过程中并不会直接读取对象内容，仅扫描对象元数据等属性信息。
+>- 目前暂不支持 COS 金融云地域的存储桶使用清单功能。
+
+## 清单参数
+
+用户配置一项清单任务后，COS 将根据配置定时扫描用户存储桶内指定的对象，并输出一份清单报告，清单报告支持 CSV 格式文件。目前 COS 清单报告中支持记录以下信息：
+
+| 清单信息            | 描述                                                         |
+| ------------------- | ------------------------------------------------------------ |
+| AppID               | 账号的 ID                                                |
+| Bucket              | 执行清单任务的存储桶的名称                                 |
+| Key                 | 存储桶中的对象文件名称。使用 CSV 文件格式时，对象文件名称采用 URL 编码形式，必须解码然后才能使用|
+| VersionId           | 对象版本 ID。在存储桶上启用版本控制后，COS 会为添加到存储桶的对象指定版本号。如果列表仅针对对象的当前版本，则不包含此字段 |
+| IsLatest            | 如果对象的版本为最新，则设置为 True。如果列表仅针对对象的当前版本，则不包含此字段 |
+| IsDeleteMarker      | 如果对象是删除标记，则设置为 True。如果列表仅针对对象的当前版本，则不包含此字段 |
+| Size                | 对象大小（以字节为单位）                                   |
+| LastModifiedDate    | 对象的最近修改日期（以日期较晚者为准）                     |
+| ETag                | 实体标签是对象的哈希。ETag 仅反映对对象的内容的更改，而不反映对对象的元数据的更改。ETag 可能是也可能不是对象数据的 MD5 摘要。是与不是取决于对象的创建方式和加密方式 |
+| StorageClass        | 用于存储对象的存储类。有关更多信息，请参阅 [存储类型](https://cloud.tencent.com/document/product/436/33417) |
+| IsMultipartUploaded | 如果对象以分段上传形式上传，则设置为 True。有关更多信息，请参阅 [分段上传概述](https://cloud.tencent.com/document/product/436/14112) |
+| Replicationstatus   | 设置为 PENDING、COMPLETED、FAILED 或 REPLICA 有关更多信息，请参阅 [跨区域复制行为说明](https://cloud.tencent.com/document/product/436/19923)|
+
+## 如何配置清单
+
+在配置清单前，您需要了解两个概念：
+
+- 源存储桶：想要开通清单功能的存储桶
+  - 包含清单中所列出的对象
+  - 包含清单的配置
+- 目标存储桶：存储清单的存储桶
+
+  - 包含清单列表文件
+  - 包含 Manifest 文件，描述清单列表文件的位置
+
+配置清单主要分为以下几个步骤：
+
+1. [指定源存储桶中待分析的对象信息](#step1)。
+2. [配置清单报告的存储信息](#step2)。
+
+
+<span id="step1"></span>
+
+### 指定源存储桶中待分析的对象信息
+
+您需要告知 COS 您需要分析哪一些对象信息。因此，在配置清单功能时，需要在源存储桶中配置以下信息：
+
+- 选择对象版本：列出所有对象版本或者仅列出当前版本。若您选择了列出所有对象版本，则 COS 将会把您同名对象的所有历史版本均列入清单报告中，仅选择当前版本，则 COS 仅会记录您的最新版本对象。
+- 配置所需分析的对象属性：您需要告知 COS 需要将对象属性中的哪些信息记录到清单报告中，目前支持的对象属性包括账号 ID，源存储桶名称，对象文件名称，对象版本 ID、是否最新版本、是否删除标记，对象大小，对象最新修改日期，ETag，对象的存储类，跨区域复制标记以及是否属于分块上传文件。
+
+
+<span id="step2"></span>
+### 配置清单报告的存储信息
+
+您需要告知 COS 按照何种频率导出清单报告，清单报告要存储至哪个存储桶中，并决定是否需要对清单报告进行加密，需要配置信息如下：
+
+- 选择清单导出频率：每日或者每周。您可以通过此配置告知 COS 应该按照何种频率执行清单功能。
+- 选择清单加密：不加密或者 SSE-COS。如您选择了 SSE-COS 加密，我们将会对生成的清单报告进行加密。
+- 配置清单的输出位置：您需要指定清单报告需要存储的存储桶。
+
+> !目标存储桶必须和源存储桶位于同一地域，两者可以是同一存储桶。
+
+
+## 使用方法
+
+### 通过控制台配置清单
+
+您可以参阅 [开通清单功能](https://cloud.tencent.com/document/product/436/33702) 控制台文档，了解如何通过控制台配置清单功能。
+
+### 通过 API 配置清单
+
+您可以查阅以下 API 文档了解如何通过 API 配置清单功能：
+
+- [PUT Bucket inventory](https://cloud.tencent.com/document/product/436/33707) 
+- [GET Bucket inventory](https://cloud.tencent.com/document/product/436/33705) 
+- [DELETE Bucket inventory](https://cloud.tencent.com/document/product/436/33704) 
+- [List Bucket Inventory Configurations](https://cloud.tencent.com/document/product/436/33706) 
+
+## 清单报告存储路径
+
+清单报告及相关的 Manifest 相关文件会发布在目标存储桶中，其中清单报告会发布在以下路径：
+
+```shell
+destination-prefix/source-bucket/config-ID/data/
+```
+
+Manifest 相关文件会发布在目标存储桶以下文件夹：
+
+```shell
+destination-prefix/source-bucket/config-ID/YYYY-MM-DD-HH-MM/manifest.json
+destination-prefix/source-bucket/config-ID/YYYY-MM-DD-HH-MM/manifest.checksum
+```
+
+路径中所代表的含义如下：
+
+- **desitination-prefix**：是用户在配置清单时设置的“目标前缀”，可用于对目标存储桶中的公共位置的所有清单报告进行分组。
+- **source-bucket**：是清单报告对应的源存储桶名称，加入这个文件夹是为了避免在多个源存储桶将各自清单报告发送至同一目标存储桶时可能造成的冲突。
+- **config-ID**：是用户在配置清单时设置的“清单名称”，当同一源存储桶设置多个清单报告并将其发送至同一目标存储桶时，可以用 config-ID 区分不同的清单报告。
+- **YYYY-MM-DD-HH-MM**：时间戳，包含生成清单报告时开始存储桶扫描的时间和日期。
+- **manifest.json**：指 Manifest 文件。
+- **manifest.checksum**：指 manifest.json 文件内容的 MD5。
+
+其中，Manifest 相关文件总共包含两份文件 manifest.json 和 manifest.checksum。
+
+> 有关 Mainfest 文件的介绍如下：
+> - manifest.json 和 manifest.chenksum 都属于 Manifest 文件，manifest.json 描述清单报告的位置，manifest.checksum 是作为 manifest.json 文件内容的 MD5。每次交付新的清单报告时，均会带有一组新的 Manifest 文件。
+> - manifest.json 包含的每个 Manifest 均提供了有关清单的元数据和其他基本信息，这些信息包括：
+>   - 源存储桶名称。
+>   - 目标存储桶名称。
+>   - 清单版本。
+>   - 时间戳，包含生成清单报告时开始扫描存储桶的日期与时间。
+>   - 清单文件的格式与架构。
+>   - 目标存储桶中清单报告的对象键，大小及 MD5checksum。
+
+以下是 CSV 格式清单的 manifest.json 文件中的 Manifest 示例：
+
+```
+{
+    "sourceBucket": "Example-source-bucket",
+    "destinationBucket": "Example-inventory-destination-bucket",
+    "version": "2016-11-30",
+    "creationTimestamp" : "1514944800000",
+    "fileFormat": "CSV",
+    "fileSchema": "Bucket, Key, Size, StorageClass, ETag, ReplicationStatus, MultipartUploaded, LastModifiedDate, VersionId, IsLatest, IsDeleteMarker",
+    "files": [
+        {
+            "key": "destination-prefix/Example-source-bucket/config-ID/data/939c6d46-85a9-4ba8-87bd-9db705a579ce.csv.gz",
+            "size": 2147483647,
+            "MD5checksum": "f11166069f1990abeb9c97ace9cdfabc",
+            "inventoriedRecord": 58050695
+        }
+    ]
+}
+```
+
+### 清单一致性
+
+COS 的清单报告提供了新对象和覆盖的 PUT 的最终一致性，并提供了 DELETE 的最终一致性，因此清单报告中可能不包含最近添加或删除的对象。比如，COS 在执行用户配置的清单任务的过程中时，用户执行了上传或删除对象的操作，则这些操作的结果可能不被反映在清单报告中。
+
+如果您需要在对象执行操作之前验证对象的状态，建议用 HEAD Object API 来检索对象元数据，或在对象存储控制台中检查对象属性。

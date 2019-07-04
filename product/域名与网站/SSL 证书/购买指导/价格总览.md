@@ -1,0 +1,185 @@
+需要注意的是：
+- **单个域名**即只支持绑定1个域名，可以是二级域名 example.domain.com，也可以是三级域名 example.example.domain.com，或者是一级域名 domain.com，均可以支持，但不支持一级域名下的所有子域名。域名级数最多可以支持100级。
+- **多个域名**即单个证书可以绑定多个域名，最多可以支持域名数量以官网售卖为准。
+- **泛域名**即支持绑定一个且只有一个泛域名，泛域名只允许添加一个通配符，例如 \*.domain.com，\*.example.domain.com , 最多支持100级；\*.\*.domain.com 多个通配符的泛域名是不支持的。
+- **多个泛域名**即支持绑定多个泛域名，泛域名只允许添加一个通配符，例如 \*.domain.com，\*.example.domain.com , 最多支持100级；\*.\*.domain.com 多个通配符的泛域名是不支持的。
+
+>? 以下价格均为购买一年证书单价，腾讯云官网售卖目前享受两年85折。
+
+<table>
+<tr>
+	<th>证书品牌</th>
+	<th>支持域名</th>
+	<th>证书型号</th>
+	<th>单价（均指首年价格，其他年限价格优惠以官网售卖为准）</th>
+	<th>备注</th>
+</tr>
+<tr>
+	<td rowspan="9">Symantec</td>
+	<td>单个域名</td>
+	<td>企业型（OV）SSL 证书</td>
+	<td>5000元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>企业型专业版（OV Pro）SSL 证书</td>
+	<td>8000元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>增强型（EV）SSL 证书</td>
+	<td>8000元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>增强型专业版（EV Pro）SSL 证书</td>
+	<td>12800元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>企业型（OV） SSL 证书 多域名</td>
+	<td>5000元/年</td>
+	<td>总价为单价乘以域名个数</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>企业型专业版（OV Pro） SSL 证书 多域名</td>
+	<td>8000元/年</td>
+	<td>总价为单价乘以域名个数</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>增强型（EV） SSL 证书 多域名</td>
+	<td>8000元/年</td>
+	<td>总价为单价乘以域名个数</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>增强型专业版（EV Pro） SSL 证书 多域名</td>
+	<td>12800元/年</td>
+	<td>总价为单价乘以域名个数</td>
+</tr>
+<tr>
+	<td>泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书</td>
+	<td>40000元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td rowspan="5">GeoTrust</td>
+	<td>单个域名</td>
+	<td>企业型（OV） SSL 证书</td>
+	<td>2850元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>增强型（EV） SSL 证书</td>
+	<td>4850元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书</td>
+	<td>6850元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>企业型（OV）SSL 证书 多域名</td>
+	<td>5580元/年，附加域名650元/年</td>
+	<td>默认支持5个域名，附加域名单个650元</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>增强型（EV）SSL 证书 多域名</td>
+	<td>9650元/年，附加域名1450元/年</td>
+	<td>默认支持5个域名，附加域名单个1450元</td>
+</tr>
+<tr>
+	<td rowspan="7">TrustAsia</td>
+	<td>单个域名</td>
+	<td>企业型（OV）SSL 证书</td>
+	<td>4500元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>增强型（EV）SSL 证书</td>
+	<td>9500/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>企业型（OV）SSL 证书 多域名</td>
+	<td>6500/年</td>
+	<td>默认支持2个域名，附加域名单个2000元</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>增强型（EV）SSL 证书 多域名</td>
+	<td>13000元/年</td>
+	<td>默认支持2个域名，附加域名单个3500元</td>
+</tr>
+<tr>
+	<td>泛域名</td>
+	<td>域名型（DV）通配符 SSL证书</td>
+	<td>1999元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书</td>
+	<td>13500元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书 多域名</td>
+	<td>27000元/年</td>
+	<td>	默认支持2个域名，附加域名单个13500元</td>
+</tr>
+<tr>
+	<td rowspan="6">GlobalSign</td>
+	<td>单个域名</td>
+	<td>企业型（OV）SSL 证书</td>
+	<td>3728元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>单个域名</td>
+	<td>增强型（EV）SSL 证书</td>
+	<td>9880元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>企业型（OV）SSL 证书 多域名</td>
+	<td>5708元/年</td>
+	<td>默认支持2个域名，附加域名单个1980元</td>
+</tr>
+<tr>
+	<td>多个域名</td>
+	<td>增强型（EV）SSL 证书 多域名</td>
+	<td>12860元/年</td>
+	<td>默认支持2个域名，附加域名单个2980元</td>
+</tr>
+<tr>
+	<td>泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书</td>
+	<td>13048元/年</td>
+	<td>-</td>
+</tr>
+<tr>
+	<td>多个泛域名</td>
+	<td>企业型（OV）通配符 SSL 证书 多域名</td>
+	<td>26096元/年</td>
+	<td>默认支持2个域名，附加域名单个13048元</td>
+</tr>
+</table>
+
+

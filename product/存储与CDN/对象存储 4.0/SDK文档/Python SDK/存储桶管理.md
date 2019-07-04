@@ -1,0 +1,602 @@
+## 简介
+本文档提供关于跨域访问、生命周期、版本控制和跨地域复制相关的 API 概览以及 SDK 示例代码。
+
+**跨域访问**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) | 设置跨域配置 | 设置存储桶的跨域访问权限     |
+| [GET Bucket cors](https://cloud.tencent.com/document/product/436/8274) | 查询跨域配置 | 查询存储桶的跨域访问配置信息 |
+| [DELETE Bucket cors](https://cloud.tencent.com/document/product/436/8283) | 删除跨域配置 | 删除存储桶的跨域访问配置信息 |
+
+**生命周期**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | 设置生命周期   | 设置存储桶的生命周期管理的配置 |
+| [GET Bucket lifecycle](https://cloud.tencent.com/document/product/436/8278) | 查询生命周期 | 查询存储桶生命周期管理的配置 |
+| [DELETE Bucket lifecycle](https://cloud.tencent.com/document/product/436/8284) | 删除生命周期 | 删除存储桶的生命周期管理的配置 |
+
+**版本控制**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket versioning](https://cloud.tencent.com/document/product/436/19889) | 设置版本控制   | 设置存储桶的版本控制功能 |
+| [GET Bucket versioning](https://cloud.tencent.com/document/product/436/19888) | 查询版本控制 | 查询存储桶的版本控制信息 |
+
+**跨地域复制**
+
+| API | 操作名 | 操作描述 |
+| ------------------- | ------------ | ------------------ |
+| [PUT Bucket replication](https://cloud.tencent.com/document/product/436/19223) | 设置跨地域复制   | 设置存储桶的跨地域复制规则 |
+| [GET Bucket replication](https://cloud.tencent.com/document/product/436/19222) | 查询跨地域复制 | 查询存储桶的跨地域复制规则 |
+| [DELETE Bucket replication](https://cloud.tencent.com/document/product/436/19221) | 删除跨地域复制 | 删除存储桶的跨地域复制规则 |
+
+
+## 跨域访问
+### 设置跨域配置
+
+#### 功能说明
+
+设置指定存储桶的跨域访问配置信息（PUT Bucket cors）。
+
+#### 方法原型
+
+```
+put_bucket_cors(Bucket, CORSConfiguration={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.put_bucket_cors(
+    Bucket='examplebucket-1250000000',
+    CORSConfiguration={
+        'CORSRule': [
+            {
+                'ID': 'string',
+                'MaxAgeSeconds': 100,
+                'AllowedOrigin': [
+                    'string',
+                ],
+                'AllowedMethod': [
+                    'string',
+                ],
+                'AllowedHeader': [
+                    'string',
+                ],
+                'ExposeHeader': [
+                    'string',
+                ]
+            }
+        ]
+    },
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket |存储桶名称，由 BucketName-APPID 构成|String| 是|
+| CORSRule |设置对应的跨域规则，包括 ID，MaxAgeSeconds，AllowedOrigin，AllowedMethod，AllowedHeader，ExposeHeader|List| 是|
+| ID |设置规则的 ID|String|否|
+| MaxAgeSeconds |设置 OPTIONS 请求得到结果的有效期|Int|否|
+| AllowedOrigin |设置允许的访问来源，如 `"http://cloud.tencent.com"`，支持通配符`*` |Dict|是|
+| AllowedMethod |设置允许的方法，如 GET，PUT，HEAD，POST，DELETE|Dict|是|
+| AllowedHeader |设置请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` |Dict|否|
+| ExposeHeader |设置浏览器可以接收到的来自服务器端的自定义头部信息|Dict|否|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+### 查询跨域配置
+
+#### 功能说明
+
+查询指定存储桶的跨域访问配置信息（GET Bucket cors）。
+
+#### 方法原型
+
+```
+get_bucket_cors(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_bucket_cors(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是|
+
+#### 返回结果说明
+
+存储桶跨域配置，类型为 dict。
+```python
+{
+    'CORSRule': [
+        {
+            'ID': 'string',
+            'MaxAgeSeconds': 100,
+            'AllowedOrigin': [
+                'string',
+            ],
+            'AllowedMethod': [
+                'string',
+            ],
+            'AllowedHeader': [
+                'string',
+            ],
+            'ExposeHeader': [
+                'string',
+            ],
+        }
+    ]
+}
+```
+
+| 参数名称   | 参数描述   |类型 |
+| -------------- | -------------- |---------- |
+| CORSRule  | 跨域规则，包括 ID，MaxAgeSeconds，AllowedOrigin，AllowedMethod，AllowedHeader，ExposeHeader |  List | 
+| ID  | 规则的 ID | String | 
+| MaxAgeSeconds  |  OPTIONS 请求得到结果的有效期 | String |
+| AllowedOrigin  | 允许的访问来源，如 `"http://cloud.tencent.com"`，支持通配符`*`  | Dict | 
+| AllowedMethod  |  允许的方法，如 GET，PUT，HEAD，POST，DELETE | Dict |
+| AllowedHeader  |请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*` |  Dict | 
+| ExposeHeader  | 浏览器可以接收到的来自服务器端的自定义头部信息 | Dict | 
+
+
+### 删除跨域配置
+
+#### 功能说明
+
+删除指定存储桶的跨域访问配置（DELETE Bucket cors）。
+
+#### 方法原型
+
+```
+delete_bucket_cors(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.delete_bucket_cors(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+
+## 生命周期
+### 设置生命周期
+
+#### 功能说明
+
+设置指定存储桶的生命周期配置信息（PUT Bucket lifecycle）。
+
+#### 方法原型
+
+```
+put_bucket_lifecycle(Bucket, LifecycleConfiguration={}, **kwargs)
+```
+#### 请求示例
+
+```python
+from qcloud_cos import get_date
+response = client.put_bucket_lifecycle(
+    Bucket='examplebucket-1250000000',
+    LifecycleConfiguration={
+        'Rule': [
+            {
+                'ID': 'string',
+                'Filter': {
+                    'Prefix': 'string',
+                    'Tag': [
+                        {
+                            'Key': 'string',
+                            'Value': 'string'
+                        }
+                    ]
+                },
+                'Status': 'Enabled'|'Disabled',
+                'Expiration': {
+                    'Days': 100,
+                    'Date': get_date(2018, 4, 20)
+                },
+                'Transition': [
+                    {
+                        'Days': 100,
+                        'Date': get_date(2018, 4, 20),
+                        'StorageClass': 'Standard_IA'|'Archive'
+                    },
+                ],
+                'NoncurrentVersionExpiration': {
+                    'NoncurrentDays': 100
+                },
+                'NoncurrentVersionTransition': [
+                    {
+                        'NoncurrentDays': 100,
+                        'StorageClass': 'Standard_IA'
+                    },
+                ],
+                'AbortIncompleteMultipartUpload': {
+                    'DaysAfterInitiation': 100
+                }
+            }
+        ]   
+    }
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String |   是 | 
+ |  Rule  |  设置对应的规则，包括 ID，Filter，Status，Expiration，Transition，NoncurrentVersionExpiration，NoncurrentVersionTransition，AbortIncompleteMultipartUpload | List |   是 |
+ |  ID  |  设置规则的 ID | String |  否 |
+ |  Filter  | 用于描述规则影响的 Object 集合，如需设置 Bucket 中的所有 objects，请设置 Prefix 为空''| Dict |  是 | 
+ |  Status  | 设置 Rule 是否启用，可选值为 Enabled 或者 Disabled | Dict |  是 | 
+ |  Expiration  |  设置 Object 过期规则，可以指定天数 Days 或者指定日期 Date，Date 的格式必须是 GMT ISO 8601，建议使用 get_date 方法来指定具体的日期| Dict |  否 |
+ |  Transition  | 设置 Object 转换存储类型规则，可以指定天数 Days 或者指定日期 Date，Date 的格式必须是 GMT ISO 8601，建议使用 get_date 方法来指定具体的日期。StorageClass 可选 Standard_IA，Archive，可以同时设置多条此类规则| List |  否 | 
+ |  NoncurrentVersionExpiration  | 设置非当前版本 Object 过期规则，可以指定天数 NoncurrentDays |  Dict |  否 |
+ |  NoncurrentVersionTransition  | 设置非当前版本 Object 转换存储类型规则，可以指定天数 NoncurrentDays，StorageClass 可选 Standard_IA，可以同时设置多条此类规则| List |  否 | 
+ |  AbortIncompleteMultipartUpload  |指明分块上传开始后多少天内必须完成上传 |  Dict |  否 | 
+
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+
+### 查询生命周期
+
+#### 功能说明
+
+查询指定存储桶的的生命周期（GET Bucket lifecycle）。
+
+#### 请求示例
+
+```python
+response = client.get_bucket_lifecycle(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket |存储桶名称，由 BucketName-APPID 构成|String|是 |
+
+#### 返回结果说明
+
+Bucket 生命周期配置，类型为 dict。
+```python
+{
+    'Rule': [
+        {
+            'ID': 'string',
+            'Filter': {
+                'Prefix': 'string',
+                'Tag': [
+                        {
+                            'Key': 'string',
+                            'Value': 'string'
+                        }
+                ]
+            },
+            'Status': 'string',
+            'Expiration': {
+                'Days': 100,
+                'Date': 'string'
+            },
+            'Transition': [
+                {
+                    'Days': 100,
+                    'Date': 'string',
+                    'StorageClass': 'STANDARD_IA'|'Archive'
+                },
+            ],
+            'NoncurrentVersionExpiration': {
+                'NoncurrentDays': 100
+            },
+            'NoncurrentVersionTransition': [
+                {
+                    'NoncurrentDays': 100,
+                    'StorageClass': 'STANDARD_IA'
+                },
+            ],
+            'AbortIncompleteMultipartUpload': {
+                'DaysAfterInitiation': 100
+            }
+        }
+    ]   
+}
+```
+
+| 参数名称   | 参数描述   |类型 |
+| -------------- | -------------- |---------- | 
+|  Rule  |  对应的规则，包括 ID，Filter，Status，Expiration，Transition，NoncurrentVersionExpiration，NoncurrentVersionTransition，AbortIncompleteMultipartUpload | List | 
+|  ID  | 规则的 ID | String | 
+|  Filter  |  必用于描述规则影响的 Object 集合 | Dict |
+|  Status  |  Rule 是否启用，可选值为 Enabled 或者 Disabled | Dict |
+|  Expiration  |Object 过期规则，可以指定天数 Days 或者指定日期 Date |  Dict | 
+|  Transition  | Object 转换存储类型规则，可以指定天数 Days 或者指定日期 Date，StorageClass 可选 STANDARD_IA，Archive| List | 
+|  NoncurrentVersionExpiration  | 非当前版本 Object 过期规则，可以指定天数 NoncurrentDays |  Dict |
+|  NoncurrentVersionTransition  | 非当前版本 Object 转换存储类型规则，可以指定天数 NoncurrentDays，StorageClass 可选 STANDARD_IA| List | 
+|  AbortIncompleteMultipartUpload  |  分块上传开始后多少天内必须完成上传 | Dict |
+
+
+### 删除生命周期
+
+#### 功能说明
+
+删除指定存储桶的的生命周期（DELETE Bucket lifecycle）。
+
+#### 方法原型
+
+```
+delete_bucket_lifecycle(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.delete_bucket_lifecycle(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket |存储桶名称，由 BucketName-APPID 构成|String|是 |
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+
+## 版本控制
+### 设置版本控制
+
+#### 功能说明
+
+设置指定存储桶的版本控制功能（PUT Bucket versioning）。
+
+#### 方法原型
+```
+put_bucket_versioning(Bucket, Status, **kwargs)
+```
+
+#### 请求示例
+
+##### 开启版本控制
+```python
+response = client.put_bucket_versioning(
+    Bucket='examplebucket-1250000000',
+    Status='Enabled'
+)
+```
+
+##### 暂停版本控制
+```python
+response = client.put_bucket_versioning(
+    Bucket='examplebucket-1250000000',
+    Status='Suspended'
+)
+```
+
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String |   是 | 
+|  Status  | 设置存储桶版本控制的状态，可选值为 'Enabled'， 'Suspended' | String |   是 |
+
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+### 查询版本控制
+
+#### 功能说明
+
+查询指定存储桶的版本控制信息（GET Bucket versioning）。
+
+#### 方法原型
+
+```
+get_bucket_versioning(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_bucket_versioning(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket |存储桶名称，由 BucketName-APPID 构成|String|是 |
+
+#### 返回结果说明
+
+Bucket 版本控制配置，类型为 dict。
+```python
+{
+    'Status': 'Enabled'|'Suspended'
+}
+```
+
+| 参数名称   | 参数描述   |类型 |
+| -------------- | -------------- |---------- | 
+|  Status  |  存储桶版本控制的状态，可选值为 'Enabled'，Suspended' | String | 
+
+
+## 跨地域复制
+### 设置跨地域复制
+
+#### 功能说明
+
+设置指定存储桶的跨地域复制规则（PUT Bucket replication）。
+
+#### 方法原型
+
+```
+put_bucket_replication(Bucket, ReplicationConfiguration={}, **kwargs)
+```
+
+#### 请求示例
+
+```python
+response = client.put_bucket_replication(
+    Bucket='examplebucket-1250000000',
+    ReplicationConfiguration={
+        'Role': 'qcs::cam::uin/100000000001:uin/100000000001',
+        'Rule': [
+            {
+                'ID': 'string',
+                'Status': 'Enabled'|'Disabled',
+                'Prefix': 'string',
+                'Destination': {
+                    'Bucket': 'qcs::cos:ap-shanghai::examplebucket1-1250000000',
+                    'StorageClass': 'STANDARD'|'STANDARD_IA'
+                }
+            },
+            {
+                'ID': 'string',
+                'Status': 'Enabled'|'Disabled',
+                'Prefix': 'string',
+                'Destination': {
+                    'Bucket': 'qcs::cos:ap-guangzhou::examplebucket2-1250000000',
+                    'StorageClass': 'STANDARD'|'STANDARD_IA'
+                }
+            },
+        ]   
+    }
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | 源存储桶名称，由 BucketName-APPID 构成 | String |   是 | 
+|  Role  |  发起者身份标示, 格式为`qcs::cam::uin/<OwnerUin>:uin/<SubUin>` | String |  否 |
+|  Rule  |  设置对应的规则，包括 ID，Status，Prefix，Destination | List |   是 |
+|  ID  |  设置规则的 ID | String |  否 |
+|  Status  | 设置 Rule 是否启用，可选值为 Enabled 或者 Disabled | String |  是 |
+|  Prefix  | 设置 Rule 的前缀匹配规则，为空时表示作用存储桶中的所有对象 | String |  是 |
+|  Destination  | 描述目的资源，包括 Bucket 和StorageClass| Dict |  是 | 
+|  Bucket  | 设置跨区域复制的目标存储桶，格式为`qcs::cos:[region]::[BucketName-APPID]` | String |  是 |
+|  StorageClass  | 设置目的文件的存储类型，可选值为 'STANDARD'，'STANDARD_IA' | String |  否 |
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+### 查询跨地域复制
+
+#### 功能说明
+
+查询指定存储桶的跨地域复制规则（GET Bucket replication）。
+
+#### 方法原型
+
+```
+get_bucket_replication(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_bucket_replication(
+    Bucket='examplebucket-1250000000'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String |   是 | 
+
+#### 返回结果说明
+
+Bucket 跨区域复制配置，类型为 dict。
+```python
+{
+    'Role': 'qcs::cam::uin/100000000001:uin/100000000001',
+    'Rule': [
+        {
+            'ID': 'string',
+            'Status': 'Enabled'|'Disabled',
+            'Prefix': 'string',
+            'Destination': {
+                'Bucket': 'qcs::cos:ap-shanghai::examplebucket1-1250000000',
+                'StorageClass': 'STANDARD'|'STANDARD_IA'
+            }
+        },
+        {
+            'ID': 'string',
+            'Status': 'Enabled'|'Disabled',
+            'Prefix': 'string',
+            'Destination': {
+                'Bucket': 'qcs::cos:ap-guangzhou::examplebucket2-1250000000',
+                'StorageClass': 'STANDARD'|'STANDARD_IA'
+            }
+        },
+    ]  
+}
+```
+
+| 参数名称   | 参数描述   |类型 |
+| -------------- | -------------- |---------- | 
+|  Role  |  发起者身份标示, 格式为`qcs::cam::uin/<OwnerUin>:uin/<SubUin>` | String |  否 |
+|  Rule  |  跨区域复制对应的规则，包括 ID，Status，Prefix，Destination | List |   是 |
+|  ID  |  跨区域复制规则的 ID | String |  否 |
+|  Status  | 跨区域复制 Rule 是否启用，可选值为 Enabled 或者 Disabled | String |  是 |
+|  Prefix  | 跨区域复制 Rule 的前缀匹配规则，为空时表示作用存储桶中的所有对象 | String |  是 |
+|  Destination  | 描述目的资源，包括 Bucket 和 StorageClass| Dict |  是 | 
+|  Bucket  | 跨区域复制的目标存储桶，格式为`qcs::cos:[region]::[BucketName-APPID]` | String |  是 |
+|  StorageClass  | 目的文件的存储类型，可选值为 'STANDARD'，'STANDARD_IA' | String |  否 |
+
+
+### 删除跨地域复制
+
+#### 功能说明
+
+删除指定存储桶的跨地域复制规则（DELETE Bucket replication）。
+
+#### 方法原型
+
+```
+delete_bucket_replication(Bucket, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.delete_bucket_replication(
+    Bucket='examplebucket-1250000000',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket |存储桶名称，由 BucketName-APPID 构成|String|是 |
+
+#### 返回结果说明
+
+该方法返回值为 None。
+

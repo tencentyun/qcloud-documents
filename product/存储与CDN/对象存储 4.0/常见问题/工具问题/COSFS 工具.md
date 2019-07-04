@@ -1,5 +1,30 @@
 ## 功能咨询
 
+### 如何使用临时密钥挂载存储桶？
+
+使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤：
+
+步骤一：创建临时密钥配置文件，例如为 /tmp/passwd-sts，用于 COSFS 命令选项 -opasswd-file=\[path\] 指定密钥配置文件。临时密钥相关概念可参考  [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 文档。临时密钥配置文件示例如下：
+
+```shell
+COSAccessKeyId=AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX  #以下为临时密钥的Id、Key和Token字段
+COSSecretKey=GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY
+COSAccessToken=109dbb14ca0c30ef4b7e2fc9612f26788cadbfac3
+COSAccessTokenExpire=2017-08-29T20:30:00  #临时token过期时间，为GMT时间，格式需和例子中一致
+```
+其中，COSFS 会根据 COSAccessTokenExpire 中配置的时间，来判断是否需要重新从密钥文件中加载配置。
+
+>!为防止密钥泄露，COSFS 要求您将密钥文件的权限设置成600，执行命令如下：
+>```shell
+>chmod 600 /tmp/passwd-sts
+>```
+
+步骤二：执行 COSFS 命令，使用命令选项 -ocam_role=[role] 指定角色为 sts、-opasswd_file=[path] 指定密钥文件路径，示例如下：
+
+```shell
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oallow_other -ocam_role=sts -opasswd_file=/tmp/passwd-sts
+```
+
 ### 如何查看 COSFS 提供的挂载参数选项和版本号？
 
 使用`cosfs --help`命令，可以查看 COSFS 提供的参数选项；使用`cosfs --version` 命令，可以查看 COSFS 版本号。
@@ -13,7 +38,7 @@
 您在执行挂载命令的时候，可以指定 Bucket 下的一个目录，命令如下：
 
 ```shell
-cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 >!my-dir 必须以 `/` 开头。
@@ -21,12 +46,12 @@ cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.
 如使用 v1.0.5之前版本，则挂载命令为：
 
 ```shell
-cosfs 1253972369:test:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs 1250000000:examplebucket:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 ### 非 root 用户如何挂载 COSFS？
 
-非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径。
+非 root 用户建议在个人 Home 目录下建立 .passwd-cosfs 文件，并且设置权限为600，按照正常命令挂载即可。此外，可以通过 -opasswd_file=path 选项指定密钥文件的路径，并将权限设置为600。
 
 ### COSFS 是否支持 HTTPS 进行挂载？
 
@@ -49,7 +74,7 @@ source ~/.bashrc
 在 /etc/fstab 文件中添加如下的内容，其中，_netdev 选项使得网络准备好后再执行当前命令：
 
 ```shell
-cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
+cosfs#examplebucket-1250000000 /mnt/cosfs fuse _netdev,allow_other,url=http://cos.ap-guangzhou.myqcloud.com,dbglevel=info
 ```
 
 ### 如何挂载多个存储桶？
@@ -57,13 +82,18 @@ cosfs#test-1253972369 /mnt/cosfs-remote fuse _netdev,allow_other,url=http://cos.
 您如有多个 Bucket 需要同时挂载，可以在 /etc/passwd-cosfs 配置文件中，为每一个需要挂载的 Bucket 写一行。每一行的内容形式，与单个 Bucket 挂载信息相同，例如：
 
 ```shell
-echo data-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
-echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5DLI3dCYi >> /etc/passwd-cosfs
+echo examplebucket-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
+echo log-1250000000:AKIDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX:GYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY >> /etc/passwd-cosfs
 ```
 
 ### 挂载后，如何能让机器上其他账户来访问已挂载的目录？
 
 如果要开放权限，需要在挂载的时候，指定`-oallow_other`。
+
+### 在 COSFS 挂载目录中，对创建的文件名称有什么限制吗？
+
+在 COSFS 挂载目录中，您能创建除`/`字符以外名称的文件。在类 Unix 系统上，`/`字符为目录分隔符，因此您无法在 COSFS 挂载目录中，创建包含`/`字符的文件。此外在创建包含特殊字符的文件时，您还需要避免特殊字符被 shell 使用，而导致创建文件失败。
+
 
 ## 故障排查
 
@@ -73,7 +103,7 @@ echo log-123456789:AKID8ILGzYjHMG8zhGtnlX7Vi4KOGxRqg1aa:LWVJqIagbFm8IG4sNlrkeSn5
 
 ```shell
 umount -l /path/to/mnt_dir
-cosfs test-1253972369:/my-dir /tmp/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -ouse_cache=/path/to/local_cache
+cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
 如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](https://cloud.tencent.com/document/product/436/6883#compile) 部分更新 fuse 版本或安装最新版本的 COSFS。
@@ -105,17 +135,72 @@ image/jpx                                       jpx jpf
 请先按照以下步骤依次检查，确认问题。
 
 1. 请检查机器是否能正常访问 COS 的域名。
-2. 检查账号是否配置正确。
+2. 检查账号是否配置正确。 
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
 
 ### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
-由于您的机器上缺乏 fuse 库，导致报此错误。建议您执行下列命令安装 fuse 库：
+该错误通常是由于您的机器上缺乏 fuse 库所致，建议您执行下列命令安装 fuse 库：
 - CentOS
 ```shell
 sudo yum install fuse
 ```
-- Ubuntn
+- Ubuntu
 ```shell
 sudo apt-get install fuse
 ```
+
+### 在系统日志 /var/log/messages 中，看到大量404错误码，正常吗？
+COSFS 内部逻辑中，会 Head 请求去判断父目录和文件是否存在，出现404并不意味着程序运行出错。
+
+### 为什么在 COS 上看到的文件大小为0？
+一般情况下，往 COSFS 中写入数据时，会首先在 COS 上创建一个0大小的文件，并将数据写入本地缓存文件。
+在写入的过程中，该挂载点 ls 命令的结果会显示文件大小的变化。当关闭文件时，COSFS 会把写入到本地缓存文件中的数据上传到 COS 中。如果上传失败，您可能只能看到一个0大小的文件，该情况下可尝试重新拷贝失败的文件。
+
+### COSFS 缓存目录中的文件和 COS 上的文件是否一致，可以直接使用吗？
+不可以直接使用，缓存目录中的文件为 COSFS 内部加速读写所用，可能只存在 COS 上文件的一部分。
+
+### 使用 rsync 命令拷贝一个文件到 COSFS 中，进度已经显示100%，但是服务器上只看到一个临时文件，这是怎么回事？
+rsync 命令会在挂载目录中，创建一个临时文件，进度显示100%只表示该临时文件在本地写入100%，临时文件写入完毕后，还会将其上传到 COS 中，并进行重命名拷贝操作。
+通常，往 COSFS 挂载目录中拷贝数据，使用 rsync 命令会比 cp 命令耗费更多时间。
+
+### COSFS 将磁盘空间写满了，该如何处理？
+COSFS 的上传下载都会使用磁盘文件缓存，当上传下载大文件时，若不指定 -oensure_diskfree=[size] 参数，会写满缓存文件所在的磁盘。您可以通过 -oensure_diskfree 参数指定，当缓存文件所在磁盘剩余空间不足 [size] MB 大小时，COSFS 将尽量减少使用磁盘空间（单位： MB）。 如果指定 -ouse_cache=[path] 参数，缓存文件位于 path 目录下，否则，在 /tmp 目录下。
+
+示例：指定剩余磁盘空间少于10GB时，COSFS 运行减少使用磁盘空间，命令如下。
+```shell
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -oensure_diskfree=10240
+```
+
+### 使用 docker 挂载 COSFS 时，报错显示：fuse: failed to open /dev/fuse: Operation not permitted，该如何处理？
+启动 docker 镜像时，您需要添加参数 --privileged。
+
+### 是否可以使用某一个目录，作为多个挂载点的共用缓存目录？
+不建议多个挂载点共用缓存目录，缓存目录中包含 COSFS 使用的元信息，共用可能会导致 COSFS 使用的元信息混乱。
+
+### 使用 COSFS 挂载时出现报错 /bin/mount:unrecognized option --no-canonicalize，该如何处理？
+
+较低版本的 mount 不支持 `--no-canonicalize` 选项，请更新 mount 工具（推荐版本为 v2.17，[前往下载](https://cdn.kernel.org/pub//linux/utils/util-linux/v2.17/)），更新后重新挂载。安装命令如下。
+
+```shell
+tar -jxvf util-linux-ng-2.17.tar.bz2
+cd util-linux-ng-2.17
+./configure --prefix=/usr/local/util-linux-ng
+make && make install
+mv /bin/mount{,.off}
+ln -s /usr/local/util-linux-ng/bin/mount /bin
+```
+
+### 挂载失败该如何处理？
+
+步骤一：根据日志文件和提示信息，检查挂载命令、密钥配置文件内容是否正确，以及网络是否可以访问 COS 服务。
+
+步骤二：使用 date 命令，检查机器时间是否正确，如果不正确 ，用 date 命令修正时间后，重新挂载。例如：`date -s '2014-12-25 12:34:56'`。
+
+### 使用 `ls -l --time-style=long-iso` 命令，挂载目录的时间变为1970-01-01 08:00，是否正常？
+
+挂载目录时间变为1970-01-01 08:00是正常的，当您卸载挂载点后，挂载目录的时间会恢复为挂载前的时间。
+
+ ### 挂载目录能否为非空？
+ 
+可以使用 -ononempty 参数挂载到非空目录，但不建议您挂载到非空目录，当挂载点中和原目录中存在相同路径的文件时，可能出现问题。

@@ -40,8 +40,8 @@ Authorization: Auth
 
 ```JSON
 {
-   "CallBackUrl": String,
-   "Events":[String, ...] 
+	"CallBackUrl": "String",
+	"Events": ["String", ...]
 }
 ```
 

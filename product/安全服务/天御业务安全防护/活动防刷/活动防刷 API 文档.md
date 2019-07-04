@@ -1,310 +1,131 @@
-## 1. 接口描述
-活动防刷接口提供抢券、红包分发、游戏道具、刷榜等活动中用户恶意行为判断能力，可根据当前用户的账号、信用、行为判断用户当前操作的恶意等级。
-协议：HTTPS
-域名：csec.api.qcloud.com
+## 接口描述
+协议：HTTPS Post
+域名：`csec.api.qcloud.com`
 接口名：ActivityAntiRush
 
-## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279 ) 页面。其中，此接口的 Action 字段为 ActivityAntiRush。
+## 请求参数
+
+| 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
+| ------------------ | --------- | -------- | ------------------------------------------------------------ |
+| accountType        | 是      | Uint     | 用户账号类型<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号 （暂仅支持国内手机号）</li><li>0：其他</li><li>10004：手机号 MD5</li>|
+| uid                | 是      | String   | 用户 ID 值，如微信/QQ OpenID，或手机号等（如15912345687）。     |
+| userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
+| postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
+| appId              | 否      | String   | accountType 是QQ或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
+| nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
+| phoneNumber        | 否      | String   | 手机号。若 accountType 选4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如15912345687）。 |
+| emailAddress       | 否      | String   | 用户邮箱地址（非系统自动生成）。                               |
+| registerTime       | 否      | Uint     | 注册时间戳，单位：秒。                                         |
+| registerIp         | 否      | Uint     | 注册来源的外网 IP。                                             |
+| cookieHash         | 否      | String   | 用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可。 |
+| address            | 否      | String   | 地址。                                                         |
+| loginSource        | 否      | UInt     | 登录来源<li>0：其他</li><li>1：PC 网页</li><li>2：移动页面</li><li>3：App</li><li>4：微信公众号</li> |
+| loginType          | 否      | UInt     | 登录方式：<li>0：其他</li><li>1：手动账号密码输入</li><li>2：动态短信密码登录</li><li>3：二维码扫描登录。 |
+| loginSpend         | 否      | Uint     | 登录耗时，单位：秒。                                           |
+| rootId             | 否      | String   | 用户操作的目的 ID，如点赞等，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID。 |
+| referer            | 否      | String   | 用户 HTTP 请求的 referer 值。                                  |
+| jumpUrl            | 否      | String   | 登录成功后跳转页面。                                           |
+| userAgent          | 否      | String   | 用户 HTTP 请求的 userAgent。                                   |
+| xForwardedFor      | 否      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
+| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标点击次数。                                   |
+| keyboardClickCount | 否      | Uint     | 用户操作过程中键盘单击次数。                                   |
+| macAddress         | 否      | String   | MAC 地址或设备唯一标识。                                        |
+| vendorId           | 否      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |
+| imei               | 否      | String   | 手机设备号。                                                   |
+| appVersion         | 否      | String   | App 客户端版本。                                                |
+| businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
+| wxAccountType  | 否      | int      |<li>1：微信公众号</li><li>2：微信小程序</li>                                |
+| randNum        | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
+| wxToken       | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key为key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| checkDevice  | 否      | Int      | 是否识别设备异常：<li>0：不识别</li><li>1：识别</li>                             |
+
+## 响应参数
+
+| 参数         | 类型   | 描述                                                         |
+| ---------------- | ------ | ------------------------------------------------------------ |
+| code             | Int    | 调用接口返回码，0为正常调用。 |
+| message          | String |UTF-8 编码，出错消息。                                 |
+| Nonce            | UInt   | 随机正整数，与 Timestamp 联合起来，用于防止重放攻击（公共参数）。 |
+| associateAccount | String | accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
+| postTime     | String | 操作时间戳，单位：秒。                                         |
+| uid              | String | 用户 ID accountType 不同对应不同的用户 ID。如是 QQ 或微信用户则填入对应的 OpenID。 |
+| rootId       | String | 用户操作的目的 ID，如点赞等，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID。                                            |
+| userIp       | String | 用户操作的真实外网 IP。                                            |
+| level            | Int    | <li>0：表示无恶意。</li><li>1 - 4：恶意等级由低到高。</li>                     |
+| riskType         | Array  | 风险类型，详情请参见下文 **riskType 详细说明**。                                                     |
+
+**riskType 详细说明：**
 <table>
-<tbody><tr>
-<th> <b>参数名称</b>
-</th><th> <b>是否必选</b>
-</th><th> <b>类型</b>
-</th><th> <b>描述</b>
-</th></tr>
+<tr><th>风险类型</th><th>风险详情</th><th>风险码</th><th>说明</th</tr>
 <tr>
-<td> accountType
-</td><td>是
-</td><td> UInt
-</td><td> 用户账号类型（QQ 开放帐号、微信开放账号需要提交 <a href='https://console.cloud.tencent.com/workorder/category'>工单</a> 由腾讯云进行资格审核） 
-<br> 1：QQ 开放帐号
-<br> 2：微信开放账号
-<br> 4：手机号
-<br> 0：其他
-<br> 10004： 手机号 MD5
-</td></tr>
-<tr>
-<td> uid
-</td><td>是
-</td><td> String
-</td><td> 用户 ID
-<br>不同 accountType 对应不同的用户 ID。如果是 QQ 或微信用户，则填入对应的 openid；若是手机号，则填入对应的手机号（如 15912345687）
-</td></tr>
-<tr>
-<td> userIp
-</td><td>是
-</td><td> String
-</td><td> 用户的外网 IP
-</td></tr>
-<tr>
-<td> postTime
-</td><td>是
-</td><td> UInt
-</td><td> 用户操作时间戳，单位：秒（格林威治时间精确到秒，如1501590972）
-</td></tr>
-<tr>
-<td> appId
-</td><td> 否
-</td><td> String
-</td><td> accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 appId，用来唯一标识网站或应用
-</td></tr>
-<tr>
-<td> associateAccount
-</td><td> 否
-</td><td> String
-</td><td> accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID
-</td></tr>
-<tr>
-<tr>
-<td> nickName
-</td><td> 否
-</td><td> String
-</td><td> 昵称，UTF-8 编码
-</td></tr>
-<td> phoneNumber
-</td><td> 否
-</td><td> String
-</td><td> 手机号。若 accoutType 选 4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如 15912345687）
-</td></tr>
-<tr>
-<td> emailAddress
-</td><td> 否
-</td><td> String
-</td><td> 用户邮箱地址（非系统自动生成）
-</td></tr>
-<tr>
-<td> registerTime
-</td><td> 否
-</td><td> UInt
-</td><td> 注册时间戳，单位：秒
-</td></tr>
-<tr>
-<td> registerIp
-</td><td> 否
-</td><td> String
-</td><td> 注册来源的外网 IP
-</td></tr>
-<tr>
-<td> cookieHash
-</td><td> 否
-</td><td> String
-</td><td> 用户 Http 请求中的 cookie 进行 2 次 hash 的值，只要保证相同 cookie 的 hash 值一致即可
-</td></tr>
-<td> passwordHash
-</td><td> 否
-</td><td> String
-</td><td> 用户密码进行 2 次 hash 的值，只要保证相同密码 hash 值一致即可
-</td></tr>
-<tr>
-<td> loginSource
-</td><td> 否
-</td><td> UInt
-</td><td> 登录来源
-<br> 0：其他
-<br> 1：PC 网页
-<br> 2：移动页面
-<br> 3：App
-<br> 4：微信公众号
-</td></tr>
-<tr>
-<td> loginType
-</td><td> 否
-</td><td> UInt
-</td><td> 登录方式
-<br> 0：其他
-<br> 1：手动帐号密码输入
-<br> 2：动态短信密码登录
-<br> 3：二维码扫描登录
-</td></tr>
-<tr>
-<td> loginSpend
-</td><td> 否
-</td><td> UInt
-</td><td> 登录耗时，单位：秒
-</td></tr>
-<td> rootId
-</td><td> 否
-</td><td> String
-</td><td> 用户操作的目的 ID
-<br> 比如：点赞，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID
-</td></tr>
-<td> referer
-</td><td> 否
-</td><td> String
-</td><td> 用户 Http 请求的 referer 值
-</td></tr>
-<td> jumpUrl
-</td><td> 否
-</td><td> String
-</td><td> 登录成功后跳转页面
-</td></tr>
-<td> userAgent
-</td><td> 否
-</td><td> String
-</td><td> 用户 Http 请求的 userAgent
-</td></tr>
-<td> xForwardedFor
-</td><td> 否
-</td><td> String
-</td><td> 用户 Http 请求中的 x_forward_for
-</td></tr>
-<td> mouseClickCount
-</td><td> 否
-</td><td> UInt
-</td><td> 用户操作过程中鼠标单击次数
-</td></tr>
-<td> keyboardClickCount
-</td><td> 否
-</td><td> UInt
-</td><td> 用户操作过程中键盘单击次数
-</td></tr>
-<tr>
-<td> macAddress
-</td><td> 否
-</td><td> String
-</td><td> mac地址或设备唯一标识
-</td></tr>
-<tr>
-<td> vendorId
-</td><td> 否
-</td><td> String
-</td><td> 手机制造商 ID，如果手机注册，请带上此信息
-</td></tr>
-<td> imei
-</td><td> 否
-</td><td> String
-</td><td> 手机设备号
-</td></tr>
-<tr>
-<td> appVersion
-</td><td> 否
-</td><td> String
-</td><td> APP客户端版本
-</td></tr>
-<tr>
-<td> businessId
-</td><td> 否
-</td><td> UInt
-</td><td> 业务 ID
-<br> 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据
-</td></tr>
-</td></tr></tbody></table>
-
-## 3. 输出参数
-<table>
-<tbody><tr>
-<th> <b>参数名称</b>
-</th><th> <b>类型</b>
-</th><th> <b>描述</b>
-</th></tr>
-<tr>
-<td> code
-</td><td> Int
-</td><td> 返回码
-</td></tr>
-<tr><td> codeDesc
-</td><td> String
-</td><td> 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因
-</td></tr>
-<tr>
-<td> message
-</td><td> String
-</td><td> UTF-8 编码，出错消息
-</td></tr>
-<tr>
-<td> Nonce
-</td><td> UInt
-</td><td> 随机正整数，与 Timestamp 联合起来, 用于防止重放攻击（公共参数）
-</td></tr>
-<tr>
-<td> associateAccount
-</td><td> String
-</td><td> accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID
-</td></tr>
-<tr>
-<td> postTime
-</td><td> String
-</td><td> 操作时间戳，单位：秒
-</td></tr>
-<td> uid
-</td><td> String
-</td><td> 用户 ID
-<br> accountType 不同对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId
-</td></tr>
-<td> rootId
-</td><td> String
-</td><td> 用户操作的目的 ID
-<br> 比如：点赞，该字段就是被点 赞的消息 ID，如果是投票，就是被投号码的 ID
-</td></tr>
-<tr>
-<td> userIp
-</td><td> String
-</td><td> 操作来源的外网 IP
-</td></tr>
-<tr>
-<td> level
-</td><td> Int
-</td><td> 0：表示无恶意<br>1 - 4：恶意等级由低到高
-<tr>
-<td> riskType
-</td><td> Array
-</td><td> 风险类型
-</td></tr></tbody></table>
-
-riskType 详细说明
-<table >
-<tbody><tr>
-<th height="23"> <b>风险类型</b>
-</th><th> <b>风险详情</b>
-</th><th> <b>风险码</b>
-</th></tr>
-<tr>
-<td rowspan="4">账号风险 </td>
-<td>帐号信用低<br></td><td>1</td></tr><tr>
-<td>垃圾帐号<br></td><td>2</td></tr><tr>
-<td>无效帐号<br></td><td>3</td></tr><tr>
-<td>黑名单<br></td><td>4</td></tr><tr>
+<td rowspan=5>账号风险</td>
+<td>账号信用低</td><td>1</td><td>账号近期存在因恶意被处罚历史，网络低活跃，被举报等因素。</td>
 </tr>
-<td rowspan="2">行为风险</td>
-<td>批量操作<br></td><td>101</td></tr><tr>
-<td>自动机<br></td><td>102</td></tr><tr>
+<tr>
+<td>垃圾账号</td><td>2</td><td>疑似批量注册小号，近期存在严重违规或大量举报。</td>
 </tr>
-<td rowspan="3">环境风险</td>
-<td>环境异常<br></td><td>201</td></tr><tr>
-<td>js 上报异常<br></td><td>202</td></tr><tr>
-<td>撞库<br></td><td>203</td></tr><tr>
+<tr>
+<td>无效账号</td><td>3</td><td>送检账号参数无法成功解析，请检查微信 OpenID 是否有误 。</td>
 </tr>
-</td></tr></tbody></table>
+<tr>
+<td>黑名单</td><td>4</td><td>该账号在业务侧有过拉黑记录。</td>
+</tr>
+<tr>
+<td>白名单</td><td>5</td><td>业务自行有添加过白名单记录。</td>
+</tr>
+<tr>
+<td rowspan=3>行为风险</td><td>批量操作</td><td>101</td><td>存在 IP/设备/环境等因素的聚集性异常。</td>
+</tr>
+<tr>
+<td>自动机</td><td>102</td><td>疑似自动机批量请求。</td>
+</tr>
+<tr>
+<td>微信登录态无效</td><td>104</td><td>检查 wxtoken 参数，是否已经失效。</td>
+</tr>
+<tr>
+<td rowspan=5>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
+</tr>
+<tr>
+<td>JS 上报异常</td><td>202</td><td>需要用户在前端部署 JS 方有效。</td>
+</tr>
+<tr>
+<td>撞库</td><td>203</td><td>该账号有过“撞库”的历史行为。</td>
+</tr>
+<tr>
+<td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>
+</tr>
+<tr>
+<td>设备异常</td><td>206</td><td>该设备存在异常的使用行为。</td>
+</tr>
+</table>
 
-## 4. 示例代码
-代码下载：  [Python 示例](https://mc.qcloudimg.com/static/archive/b449f0f6b49fc1c93c274971e4d300a0/ActivityAntiRush.py.zip)、 [PHP 示例](https://mc.qcloudimg.com/static/archive/218a8a04da2a2da7186116a0a820ecdd/ActivityAntiRush.php.zip)、 [Java 示例](https://mc.qcloudimg.com/static/archive/2fc1d9734ee03527df2777417b226882/ActivityAntiRush.java.zip)、 [.Net 示例](https://mc.qcloudimg.com/static/archive/c3a9c8b4f310117e2caa4c644f15a00f/ActivityAntiRush.cs.zip)。
-一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。
+## 示例代码
+一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。公共参数传参中不需要添加 SignatureMethod 参数，签名计算默认使用 HmacSHA1 的签名算法，示例代码中有具体实现。
+- **请求示例** 
 ```
-请求示例 ：
 <https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush
 &<公共请求参数>
 &secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
-&userIp=127.0.0.1
-&postTime=11254
+&userIp=127.0.0.1（调用时必须是外网有效 IP 地址）
+&postTime=1553484280（uinx 时间戳，仅需要精确到秒）
 ```
-
-## 5. 响应示例
+- **响应示例**
 ```
 {
-"Nonce":516529719,
-"associateAccount":"373909726",
-"code":0,"
-level":1,
-"message":"NoError",
-"postTime":"11254",
-"rootId":"sdsds234sd",
-"uid":"D692D87319F2098C3877C3904B304706",
-"userIp":"10.23.23.20"
-"riskType":[1]
+    "Nonce": 516529719,
+    "code": 0,
+    "level ": 1,
+    "message": "NoError",
+    "postTime": "1553484280",
+    "uid": "D692D87319F2098C3877C3904B304706",
+    "userIp": "127.0.0.1",
+    "riskType": [1]
 }
 ```
-## 6. 错误码说明
-参考返回的 message 字段描述。
+- **代码下载** 
+ - [Python 示例](https://mc.qcloudimg.com/static/archive/b449f0f6b49fc1c93c274971e4d300a0/ActivityAntiRush.py.zip)
+ -  [PHP 示例](https://mc.qcloudimg.com/static/archive/218a8a04da2a2da7186116a0a820ecdd/ActivityAntiRush.php.zip)
+ -  [Java 示例](https://mc.qcloudimg.com/static/archive/2fc1d9734ee03527df2777417b226882/ActivityAntiRush.java.zip)
+ -  [.Net 示例](https://mc.qcloudimg.com/static/archive/c3a9c8b4f310117e2caa4c644f15a00f/ActivityAntiRush.cs.zip)

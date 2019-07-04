@@ -1,25 +1,58 @@
 ## 申请增加好友 
 
-```
+```javascript
 /* function applyAddFriend 
  *   申请添加好友
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *   options - Object 类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 applyAddFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例： **
+### 请求参数说明
 
-```
+| 字段                     | 类型   | 属性 | 说明                                                         |
+| ------------------------ | ------ | ---- | ------------------------------------------------------------ |
+| AddFriendItem            | Array  | 必填 | 好友结构体对象                                               |
+| AddFriendItem.To_Account | String | 必填 | 好友的 Identifier                                            |
+| AddFriendItem.Remark     | String | 选填 | To_Account 的好友备注，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| AddFriendItem.GroupName  | String | 选填 | To_Account 的分组信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| AddFriendItem.AddSource  | String | 必填 | 加好友来源字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| AddFriendItem.AddWording | String | 选填 | To_Account 形成好友关系时的附言信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| AddType                 | String | 选填 | 加好友方式（默认双向加好友方式），“Add_Type_Single” 表示单向加好友 “Add_Type_Both” 表示双向加好友|
+| ForceAddFlags            | Number | 选填 | 管理员强制加好友标记，1表示强制加好友，0表示常规加好友方式 |
+
+### 响应参数说明
+
+| 字段                  | 类型   | 说明                                                      |
+| --------------------- | ------ | --------------------------------------------------------- |
+| ResultItem            | Array  | 批量加好友的结果对象数组                                  |
+| ResultItem.To_Account | String | 请求添加的好友的 Identifier                               |
+| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示成功，非0表示失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空               |
+| Fail_Account          | Array  | 返回处理失败的用户列表。成功时响应体无该字段              |
+| Invalid_Account       | Array  | 返回请求包中的非法用户列表。成功时响应体无该字段          |
+| ActionStatus          | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败        |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                            |
+| ErrorInfo             | String | 详细错误信息                                              |
+| ErrorDisplay          | String | 详细的客户端展示信息                                      |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1643#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //申请加好友
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
     if (len > 120) {
-        alert('您输入的附言超过字数限制(最长 40 个汉字)');
+        alert('您输入的附言超过字数限制(最长40个汉字)');
         return;
     }
     var add_friend_item = [
@@ -30,7 +63,6 @@ var applyAddFriend = function () {
         }
     ];
     var options = {
-        'From_Account': loginInfo.identifier,
         'AddFriendItem': add_friend_item
     };
     webim.applyAddFriend(
@@ -61,7 +93,8 @@ var applyAddFriend = function () {
 
 ## 拉取好友申请 
 
-```
+
+```javascript
 /* function getPendency 
  *   拉取好友申请
  * params:
@@ -73,14 +106,13 @@ var applyAddFriend = function () {
 getPendency: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 示例代码
 
-```
+```javascript
 //读取好友申请列表
 var getPendency = function () {
     initGetPendencyTable([]);
     var options = {
-        'From_Account': loginInfo.identifier,
         'PendencyType': 'Pendency_Type_ComeIn',
         'StartTime': 0,
         'MaxLimited': totalCount,
@@ -121,7 +153,7 @@ var getPendency = function () {
 
 ## 响应好友申请 
 
-```
+```javascript
 /* function responseFriend 
  *   响应好友申请
  * params:
@@ -133,9 +165,9 @@ var getPendency = function () {
 responseFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 示例代码
 
-```
+```javascript
 //处理好友申请
 var responseFriend = function () {
     var response_friend_item = [
@@ -146,7 +178,6 @@ var responseFriend = function () {
         }
     ];
     var options = {
-        'From_Account': loginInfo.identifier,
         'ResponseFriendItem': response_friend_item
     };
     webim.responseFriend(
@@ -173,7 +204,7 @@ var responseFriend = function () {
 
 ## 删除好友申请 
 
-```
+```javascript
 /* function deletePendency 
  *   删除好友申请
  * params:
@@ -185,13 +216,12 @@ var responseFriend = function () {
 deletePendency: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 示例代码
 
-```
+```javascript
 //删除申请列表
 var deletePendency = function (del_account) {
     var options = {
-        'From_Account': loginInfo.identifier,
         'PendencyType': 'Pendency_Type_ComeIn',
         'To_Account': [del_account]
     };
@@ -214,25 +244,58 @@ var deletePendency = function (del_account) {
 
 ## 我的好友列表 
 
-```
+```javascript
 /* function getAllFriend
  *   拉取我的好友
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *	 options - Object类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 getAllFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 请求参数说明
 
-```
+| 字段                 | 类型   | 属性 | 说明                                                         |
+| -------------------- | ------ | ---- | ------------------------------------------------------------ |
+| TimeStamp            | Number | 选填 | 上次拉取的时间戳，不填或为0时表示全量拉取                  |
+| StartIndex           | Number | 必填 | 拉取的起始位置                                               |
+| TagList              | Array  | 选填 | 指定要拉取的字段 Tag，支持拉取的字段有：<li>1. 标配资料字段，详情可参见 [标配资料字段](https://cloud.tencent.com/document/product/269/1500#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)<li>2. 自定义资料字段，详情可参见 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)<li>3. 标配好友字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5)<li>4. 自定义好友字段，详情可参见 [自定义好友字段](https://cloud.tencent.com/document/product/269/1501#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
+| LastStandardSequence | Number | 选填 | 上次拉取标配关系链的 Sequence，仅在只拉取标配关系链字段时有用 |
+| GetCount             | Number | 选填 | 每页需要拉取的好友数量：<li>1. 默认每页返回100个好友<li>2. 每页最多返回100个好友的数据<li>3. 如果拉取好友超时，请适量减少每页拉取的好友数 |
+
+### 响应参数说明
+
+| 字段                          | 类型                | 说明                                                         |
+| ----------------------------- | ------------------- | ------------------------------------------------------------ |
+| NeedUpdateAll                 | String              | 是否需要全量更新： "GetAll_Type_YES" 表示需要全量更新， "GetAll_Type_NO"表示不需要全量更新 |
+| TimeStampNow                  | Number              | 本次拉取的时间戳，客户端需要保存该时间，下次请求时通过 TimeStamp 字段返回给后台 |
+| StartIndex                    | Number              | 下页拉取的起始位置                                           |
+| InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem，若无该字段返回则表示没有好友 |
+| InfoItem.Info_Account         | String              | 好友的 Identifier                                            |
+| InfoItem.SnsProfileItem       | Array               | 好友的详细信息数组，数组每一个元素都包括 Tag 和 Value        |
+| InfoItem.SnsProfileItem.Tag   | String              | 好友的资料字段或好友字段的名称                               |
+| InfoItem.SnsProfileItem.Value | String/Number/Array | 好友的资料字段或好友字段的值，详情可参见 [关系链字段](https://cloud.tencent.com/document/product/269/1501#.E5.85.B3.E7.B3.BB.E9.93.BE.E5.AD.97.E6.AE.B5) 及 [资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) |
+| CurrentStandardSequence       | Number              | 本次拉取标配关系链的 Sequence，客户端需要保存该 Sequence，下次请求时通过 LastStandardSequence 字段返回给后台 |
+| FriendNum                     | Number              | 好友总数                                                     |
+| ActionStatus                  | String              | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败           |
+| ErrorCode                     | Number              | 错误码，0表示成功，非0表示失败                               |
+| ErrorInfo                     | String              | 详细错误信息                                                 |
+| ErrorDisplay                  | String              | 详细的客户端展示信息                                         |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1647#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //初始化聊天界面左侧好友列表框
 var getAllFriend = function (cbOK, cbErr) {
     var options = {
-        'From_Account': loginInfo.identifier,
         'TimeStamp': 0,
         'StartIndex': 0,
         'GetCount': totalCount,
@@ -272,9 +335,9 @@ var getAllFriend = function (cbOK, cbErr) {
                     if (selType == SessionType.C2C) {
                         //清空聊天界面
                         document.getElementsByClassName("msgflow")[0].innerHTML = "";
-                        //默认选中当前聊天对象
+                        //默认选中当前聊天对象，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
                         selToID = friends[0].Info_Account;
-                        //设置当前选中用户的样式为选中样式
+                        //设置当前选中用户的样式为选中样式 
                         var selSessDiv = $("#sessDiv_" + selToID)[0];
                         selSessDiv.className = "sessinfo-sel";
                         var selBadgeDiv = $("#badgeDiv_" + selToID)[0];
@@ -293,21 +356,48 @@ var getAllFriend = function (cbOK, cbErr) {
 
 ## 删除好友 
 
-```
+```javascript
 /* function deleteFriend
  *   删除好友
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *	 options - Object类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 deleteFriend: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 请求参数说明
 
-```
+| 字段       | 类型   | 属性 | 说明                                                         |
+| ---------- | ------ | ---- | ------------------------------------------------------------ |
+| To_Account | Array  | 必填 | 待删除的好友的 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
+| DeleteType | String | 选填 | 删除模式，详情请参考 [删除好友](https://cloud.tencent.com/document/product/269/1501#.E5.88.A0.E9.99.A4.E5.A5.BD.E5.8F.8B) |
+
+### 响应参数说明
+
+| 字段                  | 类型   | 说明                                                     |
+| --------------------- | ------ | -------------------------------------------------------- |
+| ResultItem            | Array  | 批量删除好友的结果对象数组                               |
+| ResultItem.To_Account | String | 请求删除的好友的 Identifier                              |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
+| Fail_Account          | Array  | 返回处理失败的 To_Account列表，成功时响应体无该字段      |
+| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表，成功时响应体无该字段 |
+| ActionStatus          | String | 请求包的处理结果，“OK”表示处理成功，“FAIL”表示失败       |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                           |
+| ErrorInfo             | String | 详细错误信息                                             |
+| ErrorDisplay          | String | 详细的客户端展示信息                                     |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/1644#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //删除好友
 var deleteFriend = function () {
     if (!confirm("确定删除该好友吗？")) {
@@ -321,9 +411,8 @@ var deleteFriend = function () {
         return;
     }
     var options = {
-        'From_Account': loginInfo.identifier,
         'To_Account': to_account,
-        //Delete_Type_Both'//单向删除："Delete_Type_Single", 双向删除："Delete_Type_Both".
+         //单向删除："Delete_Type_Single", 双向删除："Delete_Type_Both".
         'DeleteType': $('input[name="df_type_radio"]:checked').val()
     };
     webim.deleteFriend(
@@ -347,22 +436,53 @@ var deleteFriend = function () {
 ```
 
 ## 增加黑名单 
+>!
+>- 如果用户 A 与用户 B 之间存在好友关系，拉黑时会解除双向好友关系。
+>- 如果用户 A 与用户 B 之间存在黑名单关系，二者之间无法发起会话。
+>- 如果用户 A 与用户 B 之间存在黑名单关系，二者之间无法发起加好友请求。
 
-```
+
+```javascript
 /* function addBlackList 
  *   增加黑名单
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *	 options - Object类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 addBlackList: function(options, cbOk, cbErr) {},
 ```
 
-**示例：** 
+### 请求参数说明
 
-```
+| 字段       | 类型  | 属性 | 说明                                                         |
+| ---------- | ----- | ---- | ------------------------------------------------------------ |
+| To_Account | Array | 必填 | 待添加为黑名单的用户 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
+
+### 响应参数说明
+
+| 字段                  | 类型   | 说明                                                     |
+| --------------------- | ------ | -------------------------------------------------------- |
+| ResultItem            | Array  | 批量添加黑名单的结果对象数组                             |
+| ResultItem.To_Account | String | 请求添加为黑名单的用户 Identifier                        |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
+| Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
+| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
+| ActionStatus          | String | 请求包的处理结果，“OK” 表示处理成功，“FAIL” 表示失败     |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                           |
+| ErrorInfo             | String | 详细错误信息                                             |
+| ErrorDisplay          | String | 详细的客户端展示信息                                     |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3718#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //添加黑名单
 var addBlackList = function (add_account) {
     var to_account = [];
@@ -374,7 +494,6 @@ var addBlackList = function (add_account) {
         return;
     }
     var options = {
-        'From_Account': loginInfo.identifier,
         'To_Account': to_account
     };
     webim.addBlackList(
@@ -396,28 +515,54 @@ var addBlackList = function (add_account) {
 };
 ```
 
-## 我的黑名单 
+## 我的黑名单
 
-```
+```javascript
 /* function getBlackList  
  *   删除黑名单
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *	 options - Object类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 getBlackList: function(options, cbOk, cbErr) {},
 ```
 
-**示例：**
+### 请求参数说明
 
-```
+| 字段         | 类型   | 属性 | 说明                                                   |
+| ------------ | ------ | ---- | ------------------------------------------------------ |
+| StartIndex   | Number | 必填 | 拉取的起始位置                                         |
+| MaxLimited   | Number | 必填 | 每页最多拉取的黑名单数                                 |
+| LastSequence | Number | 必填 | 上一次拉黑名单时后台返回给客户端的 Seq，初次拉取时为 0 |
+
+### 响应参数说明
+
+| 字段                            | 类型   | 说明                                                         |
+| ------------------------------- | ------ | ------------------------------------------------------------ |
+| BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp。若无该字段返回则表示没有用户在黑名单中 |
+| BlackListItem.To_Account        | String | 黑名单的 Identifier                                          |
+| BlackListItem.AddBlackTimeStamp | Number | 添加黑名单的时间                                             |
+| StartIndex                      | Number | 下页拉取的起始位置，0表示已拉完                             |
+| CurruentSequence                | Number | 黑名单最新的 Seq                                             |
+| ActionStatus                    | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败           |
+| ErrorCode                       | Number | 错误码，0表示成功，非0表示失败                               |
+| ErrorInfo                       | String | 详细错误信息                                                 |
+| ErrorDisplay                    | String | 详细的客户端展示信息                                         |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3722#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //我的黑名单
 var getBlackList = function (cbOK, cbErr) {
     initGetBlackListTable([]);
     var options = {
-        'From_Account': loginInfo.identifier,
         'StartIndex': 0,
         'MaxLimited': totalCount,
         'LastSequence': 0
@@ -448,28 +593,53 @@ var getBlackList = function (cbOK, cbErr) {
 
 ## 删除黑名单 
 
-```
+```javascript
 /* function deleteBlackList  
  *   我的黑名单
  * params:
- *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
+ *	 options - Object类型，参考下方请求参数说明
+ *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
  *   (无)
  */
 deleteBlackList: function(options, cbOk, cbErr) {},
 ```
 
-**示例：**
+### 请求参数说明
 
-```
+| 字段       | 类型  | 属性 | 说明                                                         |
+| ---------- | ----- | ---- | ------------------------------------------------------------ |
+| To_Account | Array | 必填 | 待删除的黑名单的 Identifier 列表，单次请求的 To_Account 数不得超过1000 |
+
+### 响应参数说明
+
+| 字段                  | 类型   | 说明                                                     |
+| --------------------- | ------ | -------------------------------------------------------- |
+| ResultItem            | Array  | 批量删除黑名单的结果对象数组                             |
+| ResultItem.To_Account | String | 请求删除的黑名单的 Identifier                            |
+| ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
+| Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
+| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
+| ActionStatus          | String | 请求包的处理结果，“OK” 表示处理成功，“FAIL” 表示失败     |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                           |
+| ErrorInfo             | String | 详细错误信息                                             |
+| ErrorDisplay          | String | 详细的客户端展示信息                                     |
+
+### 错误码说明
+
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3719#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+
+### 示例代码
+
+```javascript
 //删除黑名单
 var deleteBlackList = function (del_account) {
     var to_account = [
         del_account
     ];
     var options = {
-        'From_Account': loginInfo.identifier,
         'To_Account': to_account
     };
     webim.deleteBlackList(

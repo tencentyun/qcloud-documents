@@ -43,12 +43,12 @@ Authorization: Auth
 示例如下：
 ```json
 {
-  "Type": "archive-retrieval",
-  "ArchiveId": String,
-  "CallBackUrl":String,
-  "Description": String,
-  "RetrievalByteRange": String,
-  "Tier": String 
+	"Type": "archive-retrieval",
+	"ArchiveId": "String",
+	"CallBackUrl": "String",
+	"Description": "String",
+	"RetrievalByteRange": "String",
+	"Tier": "String"
 }
 ```
 
@@ -67,16 +67,16 @@ Authorization: Auth
 示例如下：
 ```json
 {
-  "Type":"inventory-retrieval",
-  "CallBackUrl":String,
-  "Description": String,
-  "Format": String,  
-  "InventoryRetrievalParameters": { 
-      "StartDate": String,
-      "EndDate": String,
-      "Limit": String,
-      "Marker": String
-   }   
+	"Type": "inventory-retrieval",
+	"CallBackUrl": "String",
+	"Description": "String",
+	"Format": "String",
+	"InventoryRetrievalParameters": {
+		"StartDate": "String",
+		"EndDate": "String",
+		"Limit": "String",
+		"Marker": "String"
+	}
 }
 ```
 
@@ -100,14 +100,14 @@ Authorization: Auth
 示例如下：
 ```json
 {
-  "Type": "push-to-cos",
-  "Description": String,
-  "ArchiveId": String,
-  "CallBackUrl":String,
-  "RetrievalByteRange":String,
-  "Tier":String,
-  "Bucket":String,
-  "Object":String
+	"Type": "push-to-cos",
+	"Description": "String",
+	"ArchiveId": "String",
+	"CallBackUrl": "String",
+	"RetrievalByteRange": "String",
+	"Tier": "String",
+	"Bucket": "String",
+	"Object": "String"
 }
 ```
 
@@ -130,19 +130,19 @@ Authorization: Auth
 示例如下：
 ```json
 {
-  "Type": "pull-from-cos",
-  "CallBackUrl":String,
-  "Description":String,
-  "Bucket":String,
-  "Object":String,
-  "Range":String,
-  "Condition":{
-    "If-Modified-Since":String,
-    "If-Umodified-Since":String,
-    "If-Match":String,
-    "If-None-Match":String
-  },
-  "ArchiveDescription":String
+	"Type": "pull-from-cos",
+	"CallBackUrl": "String",
+	"Description": "String",
+	"Bucket": "String",
+	"Object": "String",
+	"Range": "String",
+	"Condition": {
+		"If-Modified-Since": "String",
+		"If-Umodified-Since": "String",
+		"If-Match": "String",
+		"If-None-Match": "String"
+	},
+	"ArchiveDescription": "String"
 }
 ```
 

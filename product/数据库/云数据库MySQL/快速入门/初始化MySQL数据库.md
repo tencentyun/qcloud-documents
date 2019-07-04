@@ -1,24 +1,20 @@
- 在此步骤中，我们将对已经购买的 MySQL 数据库执行初始化操作。
- - 如果您还没有购买 MySQL 数据库，请参阅 [购买指引](https://cloud.tencent.com/document/product/236/5160) 文档购买 MySQL 数据库。
- - 如果您已购买 MySQL 数据库请直接进入下一步操作。
+## 操作场景
+本文为您介绍对已经购买的 MySQL 数据库执行初始化操作。
 
-### 登录 MySQL 控制台
+## 前提条件
+已购买 MySQL 数据库，请参见 [购买指引](https://cloud.tencent.com/document/product/236/5160)。
 
-登录腾讯云官网，单击顶部菜单栏右侧【控制台】，在腾讯云 [控制台](https://console.cloud.tencent.com/) 的左上角，单击【云产品】菜单下的【关系型数据库】，进入 MySQL 数据库产品页面。
-
-### 初始化实例
-在关系型数据库页面中，单击左侧菜单栏【MySQL】下的【实例列表】，找到目标地域（此例中以广州为例）中要操作的状态为“**未初始化**” MySQL 数据库实例。单击【初始化】对要操作的 MySQL 实例执行初始化。
-![初始化实例](https://main.qcloudimg.com/raw/3ba6c10823bab48dc5e118bda972e5d4.png)
-
-### 配置初始化参数
-在【初始化】弹框中，配置初始化相关参数，然后单击【确定】开始初始化。
-- **支持的字符集**：选择 MySQL 数据库支持的字符集。
-- **表名大小写敏感**：表名是否大小写敏感，默认为是。
-- **自定义端口**：数据库的访问端口，默认为 3306。
-- **root 账户密码**：新创建的 MySQL 数据库的用户名默认为 root，此处用来设置此 root 账户的密码。
-- **确认密码**：再次输入密码。
-![初始化实例](https://main.qcloudimg.com/raw/b9e2635a5e83618bb5bb48a6e40fcd5f.png)
-
-### 实例初始化完成
-目标 MySQL 实例的状态变为“**运行中**”，说明已初始化成功。
-![初始化实例3](https://main.qcloudimg.com/raw/3ff4de7fadd2950826c67e33dfee3682.png)
+## 操作步骤
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
+2. 在左侧导航选择【实例列表】页签。
+3. 选择状态为【未初始化】的 MySQL 实例，在操作列单击【初始化】。
+![](https://main.qcloudimg.com/raw/5161cf5c35bf952ba6b1f0ba77cc6f07.png)
+4. 在弹出的初始化对话框中，配置初始化相关参数，单击【确定】开始初始化。
+ - **支持字符集**：选择 MySQL 数据库支持的字符集。
+ - **表名大小写敏感**：表名是否大小写敏感，默认为是。
+ - **自定义端口**：数据库的访问端口，默认为3306。
+ - **设置root帐号密码**：新创建的 MySQL 数据库的用户名默认为 root，此处用来设置此 root 帐号的密码。
+ - **确认密码**：再次输入密码。
+ ![初始化实例](https://main.qcloudimg.com/raw/b9e2635a5e83618bb5bb48a6e40fcd5f.png)
+5. 返回实例列表，目标 MySQL 实例的状态变为【运行中】，说明已初始化成功。
+![](https://main.qcloudimg.com/raw/67bc351b68283f9b9c0b163f95d8d783.png)

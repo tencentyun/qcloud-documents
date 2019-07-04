@@ -1,6 +1,6 @@
 ## 概述
-腾讯云消息队列 CMQ 目前支持 Java、Python、PHP 及 C++ SDK，后续会支持更多语言。也欢迎广大开发者根据 API 说明开发更多语言的 SDK 版本。
-由于分配资源和释放资源需要1s 左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
+腾讯云消息队列 CMQ 目前支持 Java、Python、PHP、C++ 及 C# SDK ，后续会支持更多语言。欢迎广大开发者根据 API 说明开发更多语言版本的 SDK。
+由于分配资源和释放资源需要1s左右的时间，当前消息队列 SDK 在创建及删除队列/主题时会有1s 延迟，建议在程序中增加创建和删除的时间间隔保障调用成功。
 
 >!
 - 为了保障数据传输的安全，为您提供更加可靠的服务，腾讯云团队将在2019年1月31日23:59:59停止对主题及队列的公网 HTTP 方式的访问，建议您将公网接口请求域名改为 HTTPS。
@@ -18,7 +18,7 @@
 
 #### GitHub 地址
 - [Java SDK](https://github.com/tencentyun/cmq-java-sdk)
-- [Python SDK](https://github.com/tencentyun/cmq-python-sdk)
+- [Python SDK](https://github.com/tencentyun/cmq-python-sdk)（默认为 Python2 SDK，您可切换至 Python3 分支中查看 Python3 SDK ）
 - [PHP SDK](https://github.com/tencentyun/cmq-php-sdk)
 - [C++ SDK](https://github.com/tencentyun/cmq-cpp-sdk)
 

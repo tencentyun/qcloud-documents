@@ -2,116 +2,292 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[iOS SDK](https://main.qcloudimg.com/raw/08dc7d8975ede33ecba181d38b1075ae/QCloudAAIClientSDK.zip)
-
-更多示例可参考 Demo：[iOS Demo](https://main.qcloudimg.com/raw/522db7adc9be319ea591d15e5cbec49c/iOSDemo.zip)
-
-### 开发准备
-
--  只支持 iOS 8.0 及以上版本，不支持 bitcode 版本；
--  实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）；
--  从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
+实时流式语音识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
 
 
-### SDK 配置
+### 使用须知
 
-#### SDK 导入
++ QCloudSDK 支持 **iOS 9.0** 及以上版本。
++ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
++ 从控制台获取 AppID、SecretID、SecretKey、ProjectId 详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
-iOS SDK 压缩包名称为： QCloudAAIClientSDK.zip。压缩包中包含了一个` .a` 静态库和一个头文件文件夹 include。
+### SDK导入
 
-#### 工程配置
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
-在 Build Settings 中设置 Other Linker Flags，加入参数 `-ObjC`。
+### 工程配置
 
-![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
-
-在工程` info.plist` 文件中设置：
-
-1. App Transport Security Settings 类型，然后在 App Transport Security Settings 下添加 Allow Arbitrary Loads 类型 Boolean，值设为 `YES`；
-
-2. 在程序中初始化 QCloudAAIClient 的实例对象 myClient ，` [myClient openHTTPSrequset:YES]`；（程序可以支持 https）
-
-3. 在工程 `info.plist `文件中添加 Privacy - Microphone Usage Description，获取系统的麦克风的权限；
-在工程中添加依赖库，在 build Phases  Link Binary Whith Libraries 中添加以下库：
-	- libstdc++.6.0.9.tbd
-	- libc++.tbd
-
-## 签名获取
-
-移动端 SDK 中用到的签名，建议由业务服务器来生成，并由移动端向业务服务器请求。业务侧服务器需要进行签名的生成，具体生成和使用请参照 [签名鉴权](https://cloud.tencent.com/document/product/441/6203) 。识别 SDK 签名必须实现 QCloudAAIClient 的 QCloudAAIGetSignDelegate 的协议，对由 SDK 提供(NSString*)param，进行加密处理；
-
+在工程` info.plist` 添加以下设置：
+1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
-// 获取请求的签名
-- (NSString *)getRequestSign:(NSString*)param;
+  <key>NSAppTransportSecurity</key>
+  <dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>qcloud.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.2</string>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSRequiresCertificateTransparency</key>
+			<false/>
+		</dict>
+	</dict>
+    </dict>
 ```
-
-
-## 初始化
-
-引入上传 SDK 的头文件 *QCloudAAIClient .h*，使用目录操作时，需要先实例化 QCloudAAIClient  对象。
-
-#### 方法原型
-
+2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
--(id)initWithAppid:(NSString *)appid secretid:(NSString *)sid  projectId:(NSString *)pid ;
+   <key>NSMicrophoneUsageDescription</key>
+   <string>需要使用了的麦克风采集音频</string>
 ```
+3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
+   + AVFoundation.framework
+   + AudioToolbox.framework
+   + QCloudSDK.framework
+   + CoreTelephony.framework
+   + libWXVoiceSpeex.a
+   
+添加完如图所示。
+![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
-#### 参数说明
-
-| 参数名称          | 类型           | 是否必填 | 说明                                       |
-| ------------- | ------------ | ---- | ---------------------------------------- |
-| appId         | NSString *   | 是    | 项目 ID，即 APPID  |
-| sid         | NSString *   | 是    | 项目的 SecretID |
-| pid         | NSString *   | 是    | 项目的 ProjectID  |
-
-
-### STEP1：初始化 QCloudAAIClient
-
-#### 示例
-
+### 类说明
+**QCloudRealTimeRecognizer 初始化说明**
+**QCloudRealTimeRecognizer** 是实时语音识别类，提供两种初始化方法。
 ```objective-c
-QCloudAAIClient *client= [[QCloudAAIClient alloc] initWithAppid:appid secretid:sid projectId:projectId]];
-```
-### STEP2：开始语音识别
+/**
+ * 初始化方法，调用者使用内置录音器采集音频
+ * @param config 配置参数，详见QCloudConfig定义
+ */
+- (instancetype)initWithConfig:(QCloudConfig *)config;
 
-```
--(BOOL)startDetectionWihtCompletionHandle:(QCloudAAICompletionHandler)handler stateChange:(QCloudAAIChangeHandler)stateChange；
+/**
+ * 初始化方法，调用者传递语音数据调用此初始化方法
+ * @param config 配置参数，详见QCloudConfig定义
+ * @param dataSource 语音数据数据源，必须实现QCloudAudioDataSource协议
+ */
+- (instancetype)initWithConfig:(QCloudConfig *)config dataSource:(id<QCloudAudioDataSource>)dataSource;
 ```
 
-#### 示例
-
+**QCloudConfig 初始化方法说明**
+腾讯云 AppId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取，[基本概念](https://cloud.tencent.com/document/product/441/6194) 。
 ```objective-c
-
- client = [[QCloudAAIClient alloc] initWithAppid:appid secretid:sid projectId:projectId];
-  client.delegate = self;
- [client startDetectionWihtCompletionHandle:^(QCloudAAIRsp *rsp) {
-        if (rsp.retCode == 0) {
-            UITextView *strong = temp;
-            if (![t isEqualToString:rsp.voiceId]) {
-                t = rsp.voiceId;
-                previous = strong.text;
-            }
-            strong.text= [NSString stringWithFormat:@"%@%@",previous,rsp.text];
-        }else{
-            NSLog(@"语音识别失败code= %dmsg:%@",rsp.retCode,rsp.descMsg);
-        }
-       
-    }
-    stateChange:^(QCloudAAIState state) {
-        UITextView *strong = dTemp;
-        if (state == QCloudAAIStateOpen) {
-            strong.text = [NSString stringWithFormat:@"状态：%@",@"识别中"] ;
-        }else if(state == QCloudAAIStateClose){
-             strong.text = [NSString stringWithFormat:@"状态：%@",@"识别停止"] ;
-        }else if(state == QCloudAAIStateFail){
-            strong.text = @"麦克风权限未开，识别失败";
-        }
-    }];
-
+/**
+ * 初始化方法
+ * @param appid     腾讯云appId 
+ * @param secretId  腾讯云secretId
+ * @param secretKey 腾讯云secretKey
+ * @param projectId 腾讯云projectId
+ */
+- (instancetype)initWithAppId:(NSString *)appid
+                     secretId:(NSString *)secretId
+                    secretKey:(NSString *)secretKey
+                    projectId:(NSString *)projectId;
 ```
-### STEP3：停止语音识别
 
+## 示例
+### 使用内置录音器采集语音识别示例
+1. **引入 QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
 ```objective-c
- [client stop];
+#import<QCloudSDK/QCloudSDK.h>
+```
+
+2. **创建 QCloudConfig 实例**
+```objective-c
+ //1.创建QCloudConfig实例
+ QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
+  						   secretId:kQDSecretId 
+					          secretKey:kQDSecretKey 
+					          projectId:kQDProjectId];
+ config.sliceTime = 600;                        //语音分片时常600ms
+ config.enableDetectVolume = YES;               //是否检测音量
+ config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
+```
+
+3. **创建 QCloudRealTimeRecognizer 实例** 
+```objective-c
+ QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
+```
+
+4. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+```objective-c
+recognizer.delegate = self;
+```
+
+5. **开始识别**
+```objective-c
+ [recognizer start];
+```
+
+6. **结束识别**
+```objective-c
+ [recognizer stop];
+```
+
+### 调用者提供语音数据示例
+1. **引入  QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
+```objective-c
+#import<QCloudSDK/QCloudSDK.h>
+```
+2. **创建 QCloudConfig 实例** 
+```objective-c
+ //1.创建QCloudConfig实例
+ QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
+  						  secretId:kQDSecretId 
+					         secretKey:kQDSecretKey 
+					         projectId:kQDProjectId];
+ config.sliceTime = 600;                        //语音分片时常600ms
+ config.enableDetectVolume = YES;               //是否检测音量
+ config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
+```
+
+3. **自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
+```objective-c
+ QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
+```
+
+4. **创建 QCloudRealTimeRecognizer 实例**
+```objective-c
+ QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
+```
+
+5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+```objective-c
+ recognizer.delegate = self;
+```
+
+6. **开始识别** 
+```objective-c
+ [recognizer start];
+```
+
+7. **结束识别**
+```objective-c
+ [recognizer stop];
+```
+
+**<div id="QCloudRealTimeRecognizerDelegate">QCloudRealTimeRecognizerDelegate方法说明</div>**
+```objective-c
+/**
+ * 一次实时录音识别，分为多个flow，每个flow可形象的理解为一句话，一次识别中可以包括多句话。
+  * 每个flow包含多个seq语音数据包，每个flow的seq从0开始
+ */
+@protocol QCloudRealTimeRecognizerDelegate <NSObject>
+
+@required
+/**
+ * 每个语音包分片识别结果
+ * @param response 语音分片的识别结果
+ */
+- (void)realTimeRecognizerOnSliceRecognize:(QCloudRealTimeRecognizer *)recognizer response:(QCloudRealTimeResponse *)response;
+
+@optional
+/**
+ * 一次识别成功回调
+ @param recognizer 实时语音识别实例
+ @param result 一次识别出的总文本
+ */
+- (void)realTimeRecognizerDidFinish:(QCloudRealTimeRecognizer *)recognizer result:(NSString *)result;
+/**
+ * 一次识别失败回调
+ * @param recognizer 实时语音识别实例
+ * @param error 错误信息
+ */
+- (void)realTimeRecognizerDidError:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * 开始录音回调
+ * @param recognizer 实时语音识别实例
+ * @param error 开启录音失败，错误信息
+ */
+- (void)realTimeRecognizerDidStartRecord:(QCloudRealTimeRecognizer *)recognizer error:(NSError *)error;
+/**
+ * 结束录音回调
+ * @param recognizer 实时语音识别实例
+ */
+- (void)realTimeRecognizerDidStopRecord:(QCloudRealTimeRecognizer *)recognizer;
+/**
+ * 录音音量实时回调用
+ * @param recognizer 实时语音识别实例
+ * @param volume 声音音量，取值范围（-40-0)
+ */
+- (void)realTimeRecognizerDidUpdateVolume:(QCloudRealTimeRecognizer *)recognizer volume:(float)volume;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * 语音流的开始识别
+ * @param recognizer 实时语音识别实例
+ * @param voiceId 语音流对应的voiceId，唯一标识
+ * @param seq flow的序列号
+ */
+- (void)realTimeRecognizerOnFlowRecognizeStart:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
+/**
+ * 语音流的结束识别
+ * @param recognizer 实时语音识别实例
+ * @param voiceId 语音流对应的voiceId，唯一标识
+ * @param seq flow的序列号
+ */
+- (void)realTimeRecognizerOnFlowRecognizeEnd:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ * 语音流开始识别
+ * @param recognizer 实时语音识别实例
+ * @param voiceId 语音流对应的voiceId，唯一标识
+ * @param seq flow的序列号
+ */
+- (void)realTimeRecognizerOnFlowStart:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
+/**
+ * 语音流结束识别
+ * @param recognizer 实时语音识别实例
+ * @param voiceId 语音流对应的voiceId，唯一标识
+ * @param seq flow的序列号
+ */
+- (void)realTimeRecognizerOnFlowEnd:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
+
+@end
+```
+**<div id="QCloudAudioDataSource">QCloudAudioDataSource协议说明</div>**
+调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的 QDAudioDataSource 实现
+```objective-c
+/**
+ * 语音数据数据源，如果调用者需要自己提供语音数据, 调用者实现此协议中所有方法
+ * 提供符合以下要求的语音数据:
+ * 采样率：16k
+ * 音频格式：pcm
+ * 编码：16bit位深的单声道
+ */
+@protocol QCloudAudioDataSource <NSObject>
+
+@required
+
+/**
+ * 标识data source是否开始工作，执行完start后需要设置成YES， 执行完stop后需要设置成NO
+ */
+@property (nonatomic, assign) BOOL running;
+
+/**
+ * SDK会调用start方法，实现此协议的类需要初始化数据源。
+ */
+- (void)start:(void(^)(BOOL didStart, NSError *error))completion;
+/**
+ * SDK会调用stop方法，实现此协议的类需要停止提供数据
+ */
+- (void)stop;
+/**
+ * SDK会调用实现此协议的对象的此方法读取语音数据, 如果语音数据不足expectLength，则直接返回nil。
+ * @param expectLength 期望读取的字节数，如果返回的NSData不足expectLength个字节，SDK会抛出异常。
+ */
+- (nullable NSData *)readData:(NSInteger)expectLength;
+
+@end
 
 ```

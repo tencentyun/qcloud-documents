@@ -84,12 +84,10 @@ array (
 	"code": 0,
 	"message": "",
 	"codeDesc": "Success",
-	"data":[
- {
-		"task_id": 7
-        "date":"2016-06-21 20:24:47"
-	}
-]
+	"data": [{
+		"task_id": 7,
+		"date": "2016-06-21 20:24:47"
+	}]
 
 }
 

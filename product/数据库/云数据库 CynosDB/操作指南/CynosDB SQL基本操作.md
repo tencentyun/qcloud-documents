@@ -1,4 +1,5 @@
 CynosDB（兼容 PostgreSQL 版 10）SQL 基本操作如下：
+
 ### 查询版本
 ```
 postgres=# select cynosdb_version();
@@ -45,16 +46,6 @@ postgres=# select * from x;
 (1 row)
 ```
 
-### 查询 cynosdb 元数据 IP
-```
-postgres=# show cynosdb_filesystem_endpoint ;
-
- cynosdb_filesystem_endpoint
-——————————————
- 100.121.151.14:2379
-(1 row)
-```
-
 ### 系统表
 CynosDB 完全支持 PG10 系统表，例如：pg_class, pg_proc 等。
 
@@ -86,8 +77,9 @@ CREATE INDEX
 ```
 
 ### 表达式索引
-与 PG10 兼容，CynosDB 支持表达式索引
+与 PG10 兼容，CynosDB 支持表达式索引。
 ```
 postgres=# CREATE INDEX test2_expr ON test2 ((major + minor));
-```
 CREATE INDEX
+```
+

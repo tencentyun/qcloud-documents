@@ -13,7 +13,7 @@ CMQ Topic 主题队列触发器具有以下特点：
  
 由于 CMQ Topic 主题队列，在单个 Topic 下最多支持 100 个订阅者。因此在 SCF 云函数触发器绑定时，如果达到此限制，可能绑定失败。在未达到此限制前，一个 Topic 下可以绑定多个 SCF 云函数。
 
-同时，目前 CMQ Topic 触发器仅支持同地域 CMQ Topic 消息发，即广州区创建的 SCF 函数，在配置 CMQ Topic 触发器时，仅支持选择广州区（华南）的 CMQ Topic。如果您想要使用特定地域的 CMQ Topic 消息来触发 SCF 函数，可以通过在对应地域下创建函数来实现。
+同时，目前 CMQ Topic 触发器仅支持同地域 CMQ Topic 消息触发，即广州区创建的 SCF 函数，在配置 CMQ Topic 触发器时，仅支持选择广州区（华南）的 CMQ Topic。如果您想要使用特定地域的 CMQ Topic 消息来触发 SCF 函数，可以通过在对应地域下创建函数来实现。
 
 ## CMQ Topic 触发器的事件消息结构
 在指定的 CMQ Topic 主题队列接受到消息时，会将类似以下的 JSON 格式事件数据发送给绑定的 SCF 函数。

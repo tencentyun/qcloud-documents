@@ -288,7 +288,7 @@ $result = $cosApi->prefixSearch($bucketName, $prefix, 20, 'eListBoth',0);
 
 ``` php
 public function upload($bucketName, $srcPath, $dstPath, 
-               $bizAttr = null, $slicesize = null, $insertOnly = null);
+               $bizAttr = null, $slicesize = null);
 ```
 
 #### 参数说明
@@ -300,7 +300,6 @@ public function upload($bucketName, $srcPath, $dstPath,
 | dstPath    | 文件在 COS 服务端的全路径，不包括`/appid/bucketname`      |String | 是      | 
 | bizAttr    | 文件属性，业务端维护                               |String | 否      | 
 | slicesize  |文件分片大小，当文件大于 20M 时，SDK 内部会通过多次分片的方式进行上传；<br>默认分片大小为 1M，支持的最大分片大小为 3M | int    | 否      | 
-| insertOnly | 同名文件是否进行覆盖。0：覆盖；1：不覆盖                    | int    | 否      |
 
 #### 返回值说明(json)
 
@@ -315,7 +314,6 @@ public function upload($bucketName, $srcPath, $dstPath,
 ``` php
 $dstPath = "/myFolder/test.mp4";
 $bizAttr = "";
-$insertOnly = 0;
 $sliceSize = 3 * 1024 * 1024;
 $result = $cosApi->upload($bucketName, $srcPath, $dstPath ,"biz_attr");
 ```

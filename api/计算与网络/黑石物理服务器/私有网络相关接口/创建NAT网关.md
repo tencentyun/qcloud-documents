@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 CreateBmNatGateway 接口用于创建黑石NAT网关，可针对CIDR方式、子网全部IP、子网部分IP创建NAT网关
 
@@ -52,7 +55,7 @@ ips包含字段如下：
 	"code": 0,
 	"message": "",
 	"data": {
-		"taskId": <NAT异步任务ID>
+		"taskId": "<NAT异步任务ID>"
 	}
 }
 ```

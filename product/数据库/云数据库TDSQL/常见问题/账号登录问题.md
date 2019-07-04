@@ -1,0 +1,25 @@
+
+### MariaDB 如何创建帐号？
+详细操作请参见 [创建帐号](https://cloud.tencent.com/document/product/237/7054)。
+
+### 内网如何访问 MariaDB 数据库？
+内网访问：使用腾讯云中与 MariaDB 数据库网络相通的 CVM，来访问 MariaDB 数据库的内网地址。
+详细操作请参见 [内网访问](https://cloud.tencent.com/document/product/237/7056#.E5.86.85.E7.BD.91.E8.AE.BF.E9.97.AE)。
+
+### 外网如何访问 MariaDB 数据库？
+外网访问：在外网的 Windows 或者 Linux 主机中，安装数据库客户端来访问腾讯云数据库 MariaDB 的外网地址。
+详细操作请参见 [外网访问](https://cloud.tencent.com/document/product/237/7056#.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE)。
+
+### MariaDB 数据库登录帐号密码忘记了，怎么办?
+可通过 [MariaDB控制台](https://console.cloud.tencent.com/tdsql) 实例详情页的“帐号管理”页，在“操作”列，选择【更多】>【重置密码】进行重置密码。
+
+### MariaDB 中的帐号权限，可以针对某个表的某个字段设置，设置成只写不读吗？
+MariaDB 权限设置最小粒度为表，不是字段；此处与 MySQL 完全兼容。
+
+### MariaDB 读写分离，只读帐号方案，需要在程序上专门设置吗？
+需要设置。在可以访问从库的位置，设置通过只读账号访问从库。
+
+### MariaDB 的读写分离，使用只读帐号发现没有函数的权限，也就是只读帐号没有调用自定义函数或存储过程，怎么更改？
+只读帐号是没有执行存储过程和自定义函数的权限的，不支持进行更改。
+
+

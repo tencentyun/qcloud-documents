@@ -1,14 +1,14 @@
 ## SDK 准备
-下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5ef28eba111891591f576dbbbaed601c.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
+下载相关 [Demo 及 SDK](https://main.qcloudimg.com/raw/5066e0eda60b0e00c9e78e0acfa7ec55/%E6%B0%B4%E5%8D%B0SDK.zip)。本文主要包括 Android、iOS 和 Windows 三个版本的接入指南。
 
 ## Android 接入
 ### 预备工作
 - 接入 SDK 需要完成以下步骤：
  1. 根据运行平台选择相应的 so 文件，将 so 文件和 jar 文件拷贝到工程目录下，并添加依赖。
  2. 调用 SDK 接口函数，生成水印信息。
- 3. 发送报文时，将 20 字节水印信息放在消息体前面。
+ 3. 发送报文时，将20字节水印信息放在消息体前面。
 - SDK 文件包含 so 文件和 jar 文件，目录结构如下：
-![](https://i.imgur.com/mPPkCxA.png)
+![](https://main.qcloudimg.com/raw/3936cbb5a6ec5a9e21ad75a12f0ad8e4.png)
 - SDK API 说明：
  - 程序包：com.gamesec
  - 类：Mark
@@ -24,7 +24,7 @@
 
 ### 接入步骤（Android Studio）
 1. 将 sdk/android 文件夹下的内容拷贝到工程目录的 libs 文件夹下：
- ![](https://i.imgur.com/GnO0TF2.png)
+ ![](https://main.qcloudimg.com/raw/0ca7cbe946a4d8eee2b2ca0cd4e3c808.png)
 2. 修改项目的 build.gradle 文件，设置 jni 文件目录，添加 jar 依赖：
 ```
 android {
@@ -89,7 +89,7 @@ byte [ ] CreateSDKBuffFromStr (String pSDKinfo, String buffer, String uDesIp, in
 </tr>
 <tr>
 <td>byte[]</td>
-<td>计算的水印信息，取 20 字节</td>
+<td>计算的水印信息，取20字节</td>
 </tr>
 </table>
  - **调用示例：**
@@ -114,16 +114,15 @@ s.close();
 ```
 
 ## iOS 接入
-
 ### 预备工作
 - 接入 SDK 需要完成以下步骤：
 	1. 将 SDK 文件拷贝到工程目录，Swift 工程需要添加桥文件。
 	2. 调用 SDK 接口函数，生成水印信息。
 	3. 发送报文时，将 20 字节水印信息放在消息体前面。
 - SDK 文件包含 a 文件和 h 文件，目录结构如下：
- ![](https://i.imgur.com/Q8Xz8J5.png)
+ ![](https://main.qcloudimg.com/raw/11c1012406344128256a363e593bb2ec.png)
 - 接口说明：
-<table>
+<table>![](https://main.qcloudimg.com/raw/4ecce64e8d49226ad683a594f4aa3cf2.png)
 <tbody>
 <tr>
 <th>接口名称</th>
@@ -134,20 +133,19 @@ s.close();
 
 ### 接入步骤（Xcode）
 1. 将 sdk/ios 文件夹下的内容拷贝到工程目录：
-![](https://i.imgur.com/1RHDRpP.png)
+![](https://main.qcloudimg.com/raw/4ab142c35d9d85b6365e9eecce5f66d8.png)
 2. 将 SDK 文件添加到 Xcode。右键工程名，单击 “Add Files to”。
-![](https://i.imgur.com/ZOeSU5b.png)
+![](https://main.qcloudimg.com/raw/babb1d9440fc75f8f79eca4efa007dfe.png)
 3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击 Add。
-![](https://i.imgur.com/T7ls8Cu.png)
+![](https://main.qcloudimg.com/raw/f1138f885e75dd176ec82a59dabc9f96.png)
 4. 左键工程名，选择 General，将 a 文件添加到 “Linked Framews and Libraries”：
-![](https://i.imgur.com/B1M5boV.png)
+![](https://main.qcloudimg.com/raw/286f35e15a6e269b62f489fd9c838904.png)
 5. 如果是 Swift 项目，需要创建桥文件，Object-C 项目可以跳过此步骤。创建一个 Header File，命名为 bridge.h。并在文件中添加以下代码：
 			# import "gamesec.h";
 6. 左键工程名，选择 Build Settings，将 bridge.h 添加到 Object-C Bridging Header 中：
-![](https://i.imgur.com/tt4w0Lg.png)
+![](https://main.qcloudimg.com/raw/d5c8dec743f6743fafae2e932c44163f.png)
 
 ### 接口调用
-
 1. Swift 项目可以直接调用生成水印函数，Object-C 项目需要在使用的文件里面添加头文件：
 ```
 # import "gamesec.h";
@@ -185,8 +183,7 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 </tr>
 </table>
  
- >**注意：**
- >水印结果保存在参数 buffer 中，取 20 字节。
+ >!水印结果保存在参数 buffer 中，取20字节。
 3. 调用示例。
 **Swift 调用：**
 ```
@@ -257,12 +254,10 @@ uint32_t CreateSDKBuffFromStr(char *pSDKinfo, uint8_t *buffer, char* uDstIp, uin
 </tr>
 </table>
 
- >**注意：**
->水印结果保存在参数 buffer 中，取 20 字节。
+ >!水印结果保存在参数 buffer 中，取20字节。
 
 
 ### 接口调用
-
 在使用水印函数时，需先导入 dll 文件，可以使用 LoadLibrary 函数（需要添加 Windows.h ）：
 ```
  // 定义函数指针

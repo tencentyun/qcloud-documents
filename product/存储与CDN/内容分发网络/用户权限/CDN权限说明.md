@@ -1,4 +1,4 @@
-CDN 已经接入了腾讯云云资源访问管理（Cloud Access Management）系统，您可以在 [访问管理](https://console.cloud.tencent.com/cam/overview) 控制台进行用户组、用户、角色、策略等一系列相关管理操作。
+CDN 已经接入了腾讯云云资源访问管理（Cloud Access Management）系统，您可以在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 进行用户组、用户、角色、策略等一系列相关管理操作。
 
 由于 CDN 目前处于权限系统升级过渡阶段，您可以通过以下几种方式为您的子用户和角色分配 CDN 管理权限。
 
@@ -152,11 +152,9 @@ CDN 目前对外提供的接口大部分为 API2.0 接口，进行项目级别�
 - effect：授权允许，即允许对 resource 调用 action，可配置为 deny，即禁止对 resource 调用 action。
 - statement 允许配置多条，当域名存在重复配置 deny 与 allow 时，deny 优先。
 
-**注意事项**
+>!
 - 策略语法仅支持上述 DescribeCdnData、DescribeOriginData、ListTopData、DescribeIpVisit 这4个 Action 授权，详情请参见 [域名权限](#ymqx)。因此若配置为 * ，则表示对这几个 Action 均做授权。
-- 允许同时按照项目授权，以及写策略语法进行域名级别授权，当二者存在冲突时，项目权限优先于域名权限，即授权了项目 A 的数据访问权限，在策略语法中又 deny 了项目 A 中 a 域名的数据查询权限，仍可查询项目 A 的数据及域名 a 的数据。
-
-
+- 允许同时按照项目授权、策略语法进行域名级别授权。若授权了项目 A 的数据访问权限，在策略语法中又拒绝了项目 A 中 a 域名的数据查询权限，则没有项目 A 的权限，但是有项目 A 下其他域名权限。
 
 
 

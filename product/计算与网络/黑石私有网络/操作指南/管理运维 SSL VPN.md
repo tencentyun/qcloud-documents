@@ -1,0 +1,70 @@
+## 操作场景
+本文档主要指导您如何进行黑石 SSL VPN 网关侧配置、客户端配置，以及黑石 SSL VPN 规则和业务约束相关说明。
+
+## 前提条件
+已登录腾讯云 [控制台](https://console.cloud.tencent.com/)。
+
+
+## 操作步骤
+### 网关侧配置指引
+1. 选择 【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【对等连接】。
+![](https://mc.qcloudimg.com/static/img/1575d6284717ee9626975a8eab5fca2e/image.png)
+2. 进入黑石对等连接控制台后，选择黑石服务区域，单击【新建】即可新建 SSL VPN 网关。
+![](https://mc.qcloudimg.com/static/img/81aa737bc1091378baa3e1571794c00c/image.png)
+![](https://mc.qcloudimg.com/static/img/25dbd4693b1542f8f491d992c1b95115/image.png)
+
+ 参数设置说明如下：
+ - 名称：设置 SSL VPN 网关的名称。创建后可以更改。
+ - 私有网络：选择 SSL VPN 网关所在的 VPC。选定 VPC 后，该 SSL VPN 网关只能用于接入本 VPC。
+ - 带宽：选择该 SSL VPN 的带宽上限。SSL VPN 按实际发生的公网流量计费，此处带宽选择为计费保护，防止在用户未知情况下产生超出阈值的突发计费流量。公测期间不收费。
+
+3. 完成参数设置后，单击【创建】按钮，控制台将自动跳转到 SSL VPN 控制台，并且在 VPN 网关列表中可以看到刚刚创建的这个 SSL VPN。
+![](https://mc.qcloudimg.com/static/img/b62b13ad1b5e565ee40d242fcf658d0c/image.png)
+4. 单击 VPN 网关，即可查看该 SSL VPN 网关的基本信息。
+![](https://mc.qcloudimg.com/static/img/d0a3cd3a8263876919ab2a4c58031dab/image.png)
+5. 单击【ACL 安全策略】标签页，查看本 SSL VPN 的安全策略。 
+![](https://mc.qcloudimg.com/static/img/84bf76c8a6aab29247576d60892268ff/image.png)
+
+ 新建的 SSL VPN 系统会自动生成两条安全策略：
+ - 最底下一条为全部拒绝，此规则不可以修改或者删除。
+ - 其上为全部允许，此规则用于保证 SSL VPN 创建时，所有拨号 client 端都可以访问本 VPC 内网。如果用户需要更严格的安全策略，可以删除此规则，然后添加自定义的规则。
+
+6. 如果需要修改 SSL VPN 的访问策略，单击上图中的【修改】，进入下图所示编辑模式。
+![](https://mc.qcloudimg.com/static/img/9b16bbd008d0d3734095f7c46a482319/image.png)
+7. 安全策略编辑完成后，需要单击上图的【保存】，安全策略才能生效。
+8. 安全策略设置完成后，单击【SSL VPN 账号】编辑 SSL VPN 客户端账号信息。
+![](https://mc.qcloudimg.com/static/img/c96b364e803ae6c5a8341a15202283c9/image.png)
+9. 单击上图中【新建】按钮，即可添加新账号。
+![](https://mc.qcloudimg.com/static/img/dca907e21219eb56670041b5c11556d4/image.png)
+10. 至此，黑石 VPC 的 SSL VPN 创建和配置完毕。用户从客户端发起拨号即可接入。
+
+### 客户端配置指引
+>!在 SSL VPN 拨号之前，用户需要先安装 SSL VPN 客户端软件。
+
+1. 在【物理计算与网络】>【[黑石私有网络](https://console.cloud.tencent.com/vpcbm)】>【SSL VPN】>【SSL VPN 客户端】页面选择对应的 OS 版本，下载安装即可。如下图所示。
+![](https://mc.qcloudimg.com/static/img/c6bd5bf6eb1d9df80d25009414c3bc99/image.png)
+2. 用户也可以使用第三方的 SSL VPN 客户端软件，原理是一样的。下面会继续以腾讯云官网推荐的 Windows 客户端软件为例，说明 SSL VPN 客户端的配置和拨号流程。在进入 SSL VPN 拨号之前，先回到 SSL VPN 控制台【物理计算与网络】>【黑石私有网络】>【SSL VPN】>【SSL VPN 网关】查看并记录好 SSL VPN 的相关配置信息，如下图所示。本示例中，SSL VPN 网关地址为 139.x.x.x，VPN 域为 2xxxx。
+![](https://mc.qcloudimg.com/static/img/1fcbae9062ec7995cff0720388d680b1/image.png)
+3. 安装完成后，在【开始菜单】中找到【欢迎使用腾讯智能客户端】的快捷方式，单击运行 SSL VPN 客户端软件。安装完成后的首次运行界面如下图示：
+![](https://mc.qcloudimg.com/static/img/51a4abb0f2acea9ee41f40894977417a/image.png)
+4. 在上图“网关”输入框处输入 SSL VPN 网关的 IP 地址。
+![](https://mc.qcloudimg.com/static/img/5d9aad0d5bed32da87c6c5bbe66f0536/image.png)
+5. 回车或者单击输入框右边的刷新按钮，客户端会自动向 server 端发起 VPN 域信息查询。Internet 网络连接状态正常的情况下，客户端软件会跳转到下面的视图：
+![](https://mc.qcloudimg.com/static/img/dcc728e5956e1481145ea9cec8ee0736/image.png)
+6. 此处 20xxx2 的 VPN 域由 server 侧自动返回，用户选择自己 SSL VPN 网关对应的 VPN 域，输入用户名和密码后，单击【连接】按钮，即可发起拨号连接。连接成功后客户端界面显示如下图示。
+![](https://mc.qcloudimg.com/static/img/d6786004a7f1a3f124ebee032ffe968a/image.png)
+7. 登录成功后，客户端软件会自动设置客户端操作系统的网卡 IP 地址和系统路由表信息。如果是第三方客户端软件，如果未自动设置，则需要用户手工设置。设置完成后，用户即可以使用 ssh 登录软件登录位于黑石 VPC 内的黑石服务器。
+
+## 规格说明
+黑石 SSL VPN 规格上限如下：
+1. 每个 VPC 最多只能创建一个 SSL VPN 网关；
+2. 每个 SSL VPN 网关的带宽上限为100Mbps；
+3. 每个 SSL VPN 网关的安全策略规则条数上限为50条，不包括不可以删除的缺省规则；
+4. 每个 SSL VPN 网关的账号数量上限为50个。
+
+
+## 业务约束说明
+黑石 SSL VPN 存在以下业务约束，使用时请注意：
+1. SSL VPN 网关负责为 SSL VPN client 分配 local IP 地址。Local IP 地址池为 169.254.0.0/16，local IP 地址池不可以更改。
+2. SSL VPN 按实际传输的有效载荷统计流量，SSL VPN 头部不计入流量统计。
+3. 创建 VPN 网关时，需要选择 VPN 带宽上限，此带宽上限的作用为计费保护。即当 VPN 突发流量超过此带宽阈值时，超出部分会被丢弃，避免产生超出预设阈值的流量费用。标准规格的 SSL VPN 网关的带宽上限最大为100Mbps。超出此带宽规格的 SSL VPN 网关需求请与商务洽谈。

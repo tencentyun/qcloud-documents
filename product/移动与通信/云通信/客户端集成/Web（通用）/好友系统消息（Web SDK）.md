@@ -1,6 +1,6 @@
 目前是通过定义好友系统消息监听事件来处理好友系统消息的。**示例：**
 
-```
+```javascript
 //监听好友系统通知函数对象，方法都定义在 receive_friend_system_msg.js 文件中
 var onFriendSystemNotifys = {
     "1": onFriendAddNotify, //好友表增加
@@ -18,7 +18,7 @@ var onFriendSystemNotifys = {
 
 **示例：** 
 
-```
+```javascript
 //监听 好友表添加 系统通知
 /*notify对数示例：
  {
@@ -42,7 +42,7 @@ function onFriendAddNotify(notify) {
 
 **示例：** 
 
-```
+```javascript
 //监听 好友表删除 系统通知
 /*notify对数示例：
  {
@@ -66,7 +66,7 @@ function onFriendDeleteNotify(notify) {
 
 **示例： **
 
-```
+```javascript
 //监听 未决添加 系统通知
 /*notify对象示例：
 {
@@ -104,7 +104,7 @@ function onPendencyAddNotify(notify) {
 
 **示例：** 
 
-```
+```javascript
 //监听 未决删除 系统通知
 /*notify对数示例：
  {
@@ -126,7 +126,7 @@ function onPendencyDeleteNotify(notify) {
 
 **示例： **
 
-```
+```javascript
 //监听 好友黑名单添加 系统通知
 /*notify对数示例：
  {
@@ -148,7 +148,7 @@ function onBlackListAddNotify(notify) {
 
 **示例： **
 
-```
+```javascript
 //监听 好友黑名单删除 系统通知
 /*notify对数示例：
  {

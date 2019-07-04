@@ -1,0 +1,1694 @@
+## 简介
+
+本文档提供关于对象的简单操作、分块操作等其他操作相关的 API 概览以及 SDK 示例代码。
+
+**简单操作**
+
+| API                                                          | 操作名         | 操作描述                                  |
+| ------------------------------------------------------------ | -------------- | ----------------------------------------- |
+| [GET Bucket（List Object）](https://cloud.tencent.com/document/product/436/7734) | 查询对象列表   | 查询存储桶下的部分或者全部对象     |
+| [PUT Object](https://cloud.tencent.com/document/product/436/7749) | 简单上传对象       | 上传一个 Object（文件/对象）至 Bucket     |
+| [POST Object](https://cloud.tencent.com/document/product/436/14690) | 表单上传对象   | 使用表单请求上传对象                      |
+| [HEAD Object](https://cloud.tencent.com/document/product/436/7745) | 查询对象元数据 | 获得 Object 的 Meta 信息                  |
+| [GET Object](https://cloud.tencent.com/document/product/436/7753) | 下载对象       | 下载一个 Object（文件/对象）至本地        |
+| [Options Object](https://cloud.tencent.com/document/product/436/8288) | 预请求跨域配置 | 用预请求来确认是否可以发送真正的跨域请求  |
+| [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) | 设置对象复制   | 复制文件到目标路径                        |
+| [DELETE Object](https://cloud.tencent.com/document/product/436/7743) | 删除单个对象   | 在 Bucket 中删除指定 Object （文件/对象） |
+|[DELETE Multiple Object](https://cloud.tencent.com/document/product/436/8289)	 | 删除多个对象	|在 Bucket 中批量删除 Object （文件/对象）  |
+
+
+**分块操作**
+
+| API                                                          | 操作名         | 操作描述                             |
+| ------------------------------------------------------------ | -------------- | ------------------------------------ |
+| [List Multipart Uploads](https://cloud.tencent.com/document/product/436/7736) | 查询分块上传   | 查询正在进行中的分块上传信息         |
+| [Initiate Multipart Upload](https://cloud.tencent.com/document/product/436/7746) | 初始化分块上传 | 初始化 Multipart Upload 上传操作     |
+| [Upload Part](https://cloud.tencent.com/document/product/436/7750) | 上传分块       | 分块上传对象                        |
+| [Upload Part - Copy](https://cloud.tencent.com/document/product/436/8287) | 复制分块       | 将其他对象复制为一个分块             |
+| [List Parts](https://cloud.tencent.com/document/product/436/7747) | 查询已上传块   | 查询特定分块上传操作中的已上传的块   |
+| [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742) | 完成分块上传   | 完成整个文件的分块上传               |
+| [Abort Multipart Upload](https://cloud.tencent.com/document/product/436/7740) | 终止分块上传   | 终止一个分块上传操作并删除已上传的块 |
+
+**其他操作**
+
+| API                                                          | 操作名       | 操作描述                                      |
+| ------------------------------------------------------------ | ------------ | --------------------------------------------- |
+| [POST Object restore](https://cloud.tencent.com/document/product/436/12633) | 恢复归档对象 | 将归档类型的对象取回访问                      |
+| [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) | 设置对象 ACL | 设置 Bucket 中某个 Object （文件/对象）的 ACL |
+| [GET Object acl](https://cloud.tencent.com/document/product/436/7744) | 获取对象 ACL | 获取 Object（文件/对象）的 ACL                |
+
+## 简单操作
+
+### 查询对象列表
+
+#### 功能说明
+
+查询存储桶下的部分或者全部对象。
+
+#### 方法原型
+
+```java
+GetBucketResult getBucket(GetBucketRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void getBucketAsync(GetBucketRequest request, CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID;  
+GetBucketRequest getBucketRequest = new GetBucketRequest(bucket);
+
+//前缀匹配，用来规定返回的对象前缀地址
+getBucketRequest.setPrefix("prefix");
+
+//单次返回最大的条目数量，默认 1000
+getBucketRequest.setMaxKeys(100);
+
+//定界符为一个符号，如果有 Prefix，
+//则将 Prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix，
+//然后列出所有 Common Prefix。如果没有 Prefix，则从路径起点开始
+getBucketRequest.setDelimiter('/');
+
+// 使用同步方法
+try {
+    GetBucketResult getBucketResult = cosXmlService.getBucket(getBucketRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.getBucketAsync(getBucketRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Get Bucket success
+		GetBucketResult getBucketResult = (GetBucketResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Get Bucket failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `getBucketRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法 | 描述                               | 类型           |
+| ------------------- | -------- | ---------------------------------- | -------------- |
+| bucket              | 构造方法 | 存储桶名称，格式：BucketName-APPID | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getBucketAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 GetBucketResult 返回请求结果。
+
+| 成员变量   | 类型                                                         | 描述                                                      |
+| ---------- | ------------------------------------------------------------ | --------------------------------------------------------- |
+| httpCode   | int                                                          | HTTP Code， [200， 300)之间表示操作成功，否则表示操作失败 |
+| listBucket | [ListBucket](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/normal/java/com/tencent/cos/xml/model/tag/ListBucket.java) | 返回 Bucket 对象列表信息                                  |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 简单上传对象
+
+#### 功能说明
+
+上传一个 Object（文件/对象）至 Bucket。
+
+#### 方法原型
+
+```java
+PutObjectResult putObject(PutObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void putObjectAsync(PutObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。如 cosPath = "text.txt";
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";//"本地文件的绝对路径"; 
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
+
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        // todo Do something to update progress...
+    }
+});
+
+// 使用同步方法上传
+try {
+    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调上传
+cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Put object success...
+		PutObjectResult putObjectResult = (PutObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Put object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+
+
+//上传字节数组
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。如 cosPath = "text.txt";
+byte[] data = "this is a test".getBytes(Charset.forName("UTF-8"));
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, data);
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        // todo Do something to update progress...
+    }
+});
+try {
+    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+
+//上传字节流
+String bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。如 cosPath = "text.txt";
+InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, inputStream);
+putObjectRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        // todo Do something to update progress...
+    }
+});
+try {
+    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `putObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型                        |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | --------------------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String                      |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                      |
+| srcPath             | 构造方法               | 用于上传到 COS 的本地文件的绝对路径                          | String                      |
+| data                | 构造方法               | 用于上传到 COS 的 byte 数组                                  | byte[]                      |
+|inputStream          | 构造方法               | 用于上传到 COS 的 字节流                                     | InputStream                 |
+| progressCallback    | setProgressListener | 设置上传进度回调                                             | CosXmlProgressListener |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | putObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 PutObjectResult 返回请求结果。
+
+| 成员变量 | 类型   | 描述                                                       |
+| -------- | ------ | ---------------------------------------------------------- |
+| httpCode | int    | HTTP Code， [200， 300)之间表示操作成功，否则表示操作失败 |
+| eTag     | String | 返回对象的 eTag                                          |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 表单上传对象
+
+#### 功能说明
+
+使用表单请求上传对象。
+
+#### 方法原型
+
+```java
+PostObjectResult postObject(PostObjectRequest request) throws CosXmlClientException, CosXmlServiceException；
+
+void postObjectAsync(PostObjectRequest request, CosXmlResultListener cosXmlResultListener)；
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键。如 cosPath = "text.txt";
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";//"本地文件的绝对路径"; 
+
+PostObjectRequest postObjectRequest = new PostObjectRequest(bucket, cosPath, srcPath);
+
+postObjectRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        // todo Do something to update progress...
+    }
+});
+
+// 使用同步方法上传
+try {
+    PostObjectResult postObjectResult = cosXmlService.postObject(postObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调上传
+cosXmlService.postObjectAsync(postObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Put object success...
+		PutObjectResult putObjectResult = (PutObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Put object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型                        |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | --------------------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String                      |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                      |
+| srcPath             | 构造方法               | 用于上传到 COS 的本地文件的绝对路径                          | String                      |
+| data                | 构造方法               | 用于上传到 COS 的 byte 数组                                  | byte[]                      |
+| inputStream          | 构造方法               | 用于上传到 COS 的 字节流                                     | InputStream                 |
+| progressCallback    | setProgressListener | 设置上传进度回调                                             | CosXmlProgressListener |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | postObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 PostObjectResult 返回请求结果。
+
+| 成员变量 | 类型   | 描述                                                       |
+| -------- | ------ | ---------------------------------------------------------- |
+| httpCode | int    | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| eTag     | String | 返回对象的 eTag                                          |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 查询对象元数据
+
+#### 功能说明
+
+查询 Object 的 Meta 信息。
+
+#### 方法原型
+
+```java
+HeadObjectResult headObject(HeadObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void headObjectAsync(HeadObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键
+HeadObjectRequest headObjectRequest = new HeadObjectRequest(bucket, cosPath);
+
+//使用同步方法
+try {
+    HeadObjectResult headObjectResult = cosXmlService.headObject(headObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.headObjectAsync(headObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Head Bucket success
+		HeadObjectResult headObjectResult  = (HeadObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Head Bucket failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `headObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法              | 描述                                                         | 类型           |
+| ------------------- | --------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法              | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | headObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 HeadObjectResult 返回请求结果。
+
+| 成员变量 | 类型   | 描述                                                       |
+| -------- | ------ | ---------------------------------------------------------- |
+| httpCode | int    | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| eTag     | String | 返回对象的 eTag                                          |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 下载对象
+
+#### 功能说明
+
+下载一个 Object（文件/对象）至本地（GET Object）。
+
+#### 方法原型
+
+```java
+GetObjectResult getObject(GetObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void getObjectAsync(GetObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键
+String savePath = Environment.getExternalStorageDirectory().getPath()；//本地路径
+
+GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, cosPath, savePath);
+getObjectRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        // todo Do something to update progress...
+    }
+});
+
+//使用同步方法下载
+try {
+    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Get Object success
+		GetObjectResult getObjectResult  = (GetObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Get Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `getObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型                        |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | --------------------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String                      |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                      |
+| localDir            | 构造方法               | 下载对象到本地保存的绝对文件夹路径                           | String                      |
+| localFileName       | 构造方法               | 下载对象到本地保存的文件名                                   | String                      |
+| progressCallback    | setProgressListener | 设置上传进度回调                                             | CosXmlProgressListener |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 GetObjectResult 返回请求结果。
+
+| 成员变量 | 类型   | 描述                                                       |
+| -------- | ------ | ---------------------------------------------------------- |
+| httpCode | int    | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| eTag     | String | 返回对象的 eTag                                            |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 预请求跨域配置
+
+#### 功能说明
+获取预请求跨域配置（Options Object）。
+
+#### 方法原型
+
+```java
+OptionObjectResult optionObject(OptionObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void optionObjectAsync(OptionObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象位于存储桶中的位置标识符，即对象键
+String origin = "http://cloud.tencent.com";
+String accessMthod = "PUT";
+OptionObjectRequest optionObjectRequest = new OptionObjectRequest(bucket, cosPath, origin, accessMthod);
+
+// 使用同步方法
+try {
+   OptionObjectResult result = cosXmlService.optionObject(optionObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求 
+cosXmlService.optionObjectAsync(deleteObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo OptionOb Object success...
+		OptionObjectResult optionObjectResult  = (OptionObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo OptionOb Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `optionObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法                           | 描述                                                         | 类型           |
+| ------------------- | ---------------------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法                           | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath             | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| origin              | 构造方法 或 SetOrigin              | 模拟跨域访问的请求来源域名                                   | String         |
+| accessMthod         | 构造方法 或 SetAccessControlMethod | 模拟跨域访问的请求 HTTP 方法                                 | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | optionObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 DeleteObjectResult 返回请求结果。
+
+| 成员变量                        | 类型           | 描述                                                       |
+| ------------------------------- | -------------- | ---------------------------------------------------------- |
+| httpCode                        | int            | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| accessControlAllowHeaders       | `List<String>` | 跨域访问的允许请求头部                                     |
+| accessControlAllowMethods       | `List<String>` | 跨域访问的允许请求 HTTP 方法                               |
+| accessControlAllowExposeHeaders | `List<String>` | 跨域访问的允许请求自定义头部                               |
+| accessControlMaxAge             | long           | OPTIONS 请求得到结果的有效期                               |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 设置对象复制
+
+复制文件到目标路径（PUT Object-Copy）。
+
+#### 方法原型
+
+```java
+CopyObjectResult copyObject(CopyObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void copyObjectAsync(CopyObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String sourceAppid = "1250000000"; //账号 appid
+String sourceBucket = "sourcebucket-1250000000"; //"源对象所在的存储桶
+String sourceRegion = "ap-beijing"; //源对象的存储桶所在的地域
+String sourceCosPath = "source-exampleobject"; //源对象键
+//构造源对象属性
+CopyObjectRequest.CopySourceStruct copySourceStruct = new CopyObjectRequest.CopySourceStruct(sourceAppid, sourceBucket, sourceRegion, sourceCosPath);
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键
+
+CopyObjectRequest copyObjectRequest = new CopyObjectRequest(bucket, cosPath, copySourceStruct);
+
+// 使用同步方法
+try {
+    CopyObjectResult copyObjectResult = cosXmlService.copyObject(copyObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.copyObjectAsync(copyObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Copy Object success
+		CopyObjectResult copyObjectResult  = (CopyObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Copy Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `copyObjectRequest.setSign(“已计算好的签名串”)` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法                 | 描述                                                         | 类型                 |
+| ------------------- | ------------------------ | ------------------------------------------------------------ | -------------------- |
+| bucket              | 构造方法                 | 存储桶名称，格式：BucketName-APPID                           | String               |
+| cosPath                 | 构造方法 | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String               |
+| copySourceStruct          | 构造方法            | 复制的数据源路径描述                                         | CopySourceStruct     |
+| metaDataDirective   | setCopyMetaDataDirective | 是否拷贝源对象的元数据或者更新源对象的元数据                 | MetaDataDirective |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | copyObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 CopyObjectResult 返回请求结果。
+
+| 成员变量   | 类型                                                         | 描述                                                       |
+| ---------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode   | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| copyObject | [CopyObject](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/main/java/com/tencent/cos/xml/model/tag/CopyObject.java) | 返回成功复制的对象信息                                     |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+
+### 删除单个对象
+
+#### 功能说明
+
+删除指定的对象（DELETE Object）。
+
+#### 方法原型
+
+```java
+DeleteObjectResult deleteObject(DeleteObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void deleteObjectAsync(DeleteObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶名称，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键
+
+DeleteObjectRequest deleteObjectRequest = new DeleteObjectRequest(bucket, cosPath);
+
+// 使用同步方法删除
+try {
+    DeleteObjectResult deleteObjectResult = cosXmlService.deleteObject(deleteObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求 
+cosXmlService.deleteObjectAsync(deleteObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Delete Object success...
+		DeleteObjectResult deleteObjectResult  = (DeleteObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Delete Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `deleteObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型           |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getBucketLocationAsync                                                | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 DeleteObjectResult 返回请求结果。
+
+| 成员变量 | 类型 | 描述                                                       |
+| -------- | ---- | ---------------------------------------------------------- |
+| httpCode | int  | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 删除多个对象
+
+#### 功能说明
+
+批量删除多个对象（Delete Multi Objects）。
+
+#### 方法原型
+
+```java
+DeleteMultiObjectResult deleteMultiObject(DeleteMultiObjectRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void deleteMultiObjectAsync(DeleteMultiObjectRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+List<String> objectList = new ArrayList<String>();
+objectList.add("/exampleobject");//对象在存储桶中的位置标识符，即对象键 
+
+DeleteMultiObjectRequest deleteMultiObjectRequest = new DeleteMultiObjectRequest(bucket, objectList);
+deleteMultiObjectRequest.setQuiet(true);
+
+// 使用同步方法删除
+try {
+     DeleteMultiObjectResult deleteMultiObjectResult =cosXmlService.deleteMultiObject(deleteMultiObjectRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求 
+cosXmlService.deleteMultiObjectAsync(deleteMultiObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // Delete Multi Object success...
+		DeleteMultiObjectResult deleteMultiObjectResult  = (DeleteMultiObjectResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        //  Delete Multi Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `deleteMultiObjectRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型           |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String         |
+| quiet                     | true：只返回删除报错的文件信息； false：返回每个对象的删除结果 | Boolean              | 是   |
+| objectList                | 需要删除的 [对象键](https://cloud.tencent.com/document/product/436/13324) 列表 | `List<String>`      | 是   |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getBucketLocationAsync                                                | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 DeleteMultiObjectResult 返回请求结果。
+
+| 成员变量 | 类型 | 描述                                                       |
+| -------- | ---- | ---------------------------------------------------------- |
+| httpCode | int  | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+
+## 分块操作
+
+### 查询分片上传
+
+#### 功能说明
+
+查询指定存储桶中正在进行的分片上传（List Multipart Uploads）。
+
+#### 方法原型
+
+```java
+ListMultiUploadsResult listMultiUploads(ListMultiUploadsRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void listMultiUploadsAsync(ListMultiUploadsRequest request, CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+ListMultiUploadsRequest listMultiUploadsRequest = new ListMultiUploadsRequest(bucket);
+try
+{
+	// 使用同步方法
+	ListMultiUploadsResult listMultiUploadsResult = cosXmlService.listMultiUploads(request);
+}
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求 
+cosXmlService.listMultiUploadsAsync(listMultiUploadsResult, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // Delete Multi Object success...
+		ListMultiUploadsResult listMultiUploadsResult  = (ListMultiUploadsResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        //  Delete Multi Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+#### 参数说明
+
+| 参数名称            | 设置方法 | 描述                               | 类型           |
+| ------------------- | -------- | ---------------------------------- | -------------- |
+| bucket              | 构造方法 | 存储桶名称，格式：BucketName-APPID | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getBucketLocationAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 ListMultiUploadsResult 返回请求结果。
+
+| 成员变量             | 类型                                                         | 描述                                                       |
+| -------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode             | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| listMultipartUploads | [ListMultipartUploads](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/normal/java/com/tencent/cos/xml/model/tag/ListMultipartUploads.java) | 返回 Bucket 中所有正在进行分块上传的信息                   |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 分片上传对象
+分片上传对象可包括的操作：
+
+- 分片上传对象： 初始化分片上传，上传分片块，完成分块上传。
+- 分片续传：查询已上传块， 上传分片块，完成分块上传。
+- 删除已上传分片块。
+
+### <span id = "INIT_MULIT_UPLOAD"> 初始化分片上传 </span>
+
+#### 功能说明
+
+初始化 Multipart Upload 上传操作，获取对应的 uploadId（Initiate Multipart Upload）。
+
+#### 方法原型
+
+```java
+InitMultipartUploadResult initMultipartUpload(InitMultipartUploadRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void initMultipartUploadAsync(InitMultipartUploadRequest request, CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+
+InitMultipartUploadRequest initMultipartUploadRequest = new InitMultipartUploadRequest(bucket, cosPath);
+
+// 使用同步方法请求
+try {
+    InitMultipartUploadResult initMultipartUploadResult = cosXmlService.initMultipartUpload(initMultipartUploadRequest);
+    String uploadId =initMultipartUploadResult.initMultipartUpload.uploadId;
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+    
+// 使用异步方法请求
+cosXmlService.initMultipartUploadAsync(initMultipartUploadRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        String uploadId = ((InitMultipartUploadResult)cosXmlResult).initMultipartUpload.uploadId;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Init Multipart Upload failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `initMultipartUploadRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型           |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getBucketLocationAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 InitMultipartUploadResult 返回请求结果。
+
+| 成员变量            | 类型                                                         | 描述                                                       |
+| ------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode            | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| initMultipartUpload | [InitiateMultipartUpload](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/main/java/com/tencent/cos/xml/model/tag/InitiateMultipartUpload.java) | 返回 对象 初始化分片上传的 uploadId                        |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### <span id = "LIST_MULIT_UPLOAD"> 查询已上传块 </span>
+
+#### 功能说明
+
+查询特定分块上传操作中的已上传的块（List Parts）。
+
+#### 方法原型
+
+```java
+ListPartsResult listParts(ListPartsRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void listPartsAsync(ListPartsRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+String uploadId = "初始化分片返回的 uploadId";
+
+ListPartsRequest listPartsRequest = new ListPartsRequest(bucket, cosPath, uploadId);
+
+// 使用同步方法请求
+try {
+    ListPartsResult listPartsResult = cosXmlService.listParts(listPartsRequest);
+    ListParts listParts = listPartsResult.listParts;
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求 
+cosXmlService.listPartsAsync(listPartsRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        ListParts listParts = ((ListPartsResult)cosXmlResult).listParts;
+    }
+
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo List Part failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `listPartsRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法                | 描述                                                         | 类型           |
+| ------------------- | ----------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法                | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath  | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| uploadId            | 构造方法 或 SetUploadId | 标识指定分片上传的 uploadId                                  | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | listPartsAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 ListPartsResult 返回请求结果。
+
+| 成员变量  | 类型                                                         | 描述                                                       |
+| --------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode  | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| listParts | [ListParts](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/main/java/com/tencent/cos/xml/model/tag/ListParts.java) | 返回指定 uploadId 分块上传中的已上传的块信息               |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### <span id = "MULIT_UPLOAD_PART"> 上传分块 </span>
+
+分块上传对象（Upload Part）。
+
+#### 方法原型
+
+```java
+UploadPartResult uploadPart(UploadPartRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void uploadPartAsync(UploadPartRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
+String uploadId ="xxxxxxxx"; //初始化分片上传返回的 uploadId
+int partNumber = 1; //分片块编号，必须从1开始递增
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject"; //本地文件绝对路径
+UploadPartRequest uploadPartRequest = new UploadPartRequest(bucket, cosPath, partNumber, srcPath, uploadId);
+
+uploadPartRequest.setProgressListener(new CosXmlProgressListener() {
+    @Override
+    public void onProgress(long progress, long max) {
+        float result = (float) (progress * 100.0/max);
+        Log.w("TEST","progress =" + (long)result + "%");
+    }
+});
+
+//使用同步方法上传
+try {
+    UploadPartResult uploadPartResult = cosXmlService.uploadPart(uploadPartRequest);
+    String eTag = uploadPartResult.eTag; // 获取分片块的 eTag
+    
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+    
+// 使用异步回调请求
+cosXmlService.uploadPartAsync(uploadPartRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        String eTag =((UploadPartResult)cosXmlResult).eTag;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Upload Part failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+
+#### 参数说明
+
+| 参数名称            | 设置方法                  | 描述                                                         | 类型                        |
+| ------------------- | ------------------------- | ------------------------------------------------------------ | --------------------------- |
+| bucket              | 构造方法                  | 存储桶名称，格式：BucketName-APPID                           | String                      |
+| cosPath                 | 构造方法 或 SetCosPath    | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                      |
+| uploadId            | 构造方法 或 SetUploadId   | 标识指定分片上传的 uploadId                                  | String                      |
+| partNumber          | 构造方法 或 SetPartNumber | 标识指定分片的编号，必须 >= 1                                | int                         |
+| srcPath             | 构造方法                  | 用于上传到 COS 的本地文件的绝对路径                          | String                      |
+| data                | 构造方法                  | 用于上传到 COS 的 byte 数组                                  | byte[]                      |
+| progressCallback    | SetCosProgressCallback    | 设置上传进度回调                                             | Callback.OnProgressCallback |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | uploadPartAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 UploadPartResult 返回请求结果。
+
+| 成员变量 | 类型   | 描述                                                       |
+| -------- | ------ | ---------------------------------------------------------- |
+| httpCode | int    | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| eTag     | String | 返回对象的分片块的 eTag                                   |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 复制分块
+
+#### 功能说明
+
+将其他对象复制为一个分块 （Upload Part-Copy）。
+
+#### 方法原型
+
+```java
+UploadPartCopyResult copyObject(UploadPartCopyRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void copyObjectAsync(UploadPartCopyRequest request,final CosXmlResultListener cosXmlResultListener);
+```
+#### 请求示例
+
+```java
+//具体步骤：
+// 1. 调用 cosXmlService.initMultipartUpload(InitMultipartUploadRequest) 初始化分片,请参考 [InitMultipartUploadRequest 初始化分片](#InitMultipartUploadRequest)。
+// 2. 调用 cosXmlService.copyObject(UploadPartCopyRequest) 完成分片复制。
+// 3. 调用 cosXmlService.completeMultiUpload(CompleteMultiUploadRequest) 完成分片复制,请参考 [CompleteMultiUploadRequest 完成分片复制](#CompleteMultiUploadRequest)。
+
+String sourceAppid = "1250000000"; //账号 appid
+String sourceBucket = "sourcebucket-1250000000"; //"源对象所在的存储桶
+String sourceRegion = "ap-beijing"; //源对象的存储桶所在的地域
+String sourceCosPath = "source-exampleobject"; //源对象键
+//构造源对象属性
+CopyObjectRequest.CopySourceStruct copySourceStruct = new CopyObjectRequest.CopySourceStruct(sourceAppid, sourceBucket, sourceRegion, sourceCosPath);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
+
+String uploadId = "初始化分片的uploadId";
+int partNumber = 1; //分片编号
+long start = 0;//复制源对象的开始位置
+long end = 100; //复制源对象的结束位置
+
+UploadPartCopyRequest uploadPartCopyRequest = new UploadPartCopyRequest(bucket, cosPath, partNumber,  uploadId, copySourceStruct， start, end);
+
+// 使用同步方法
+try {
+    UploadPartCopyResult uploadPartCopyResult = cosXmlService.copyObject(uploadPartCopyRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.copyObjectAsync(uploadPartCopyRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Copy Object success
+		UploadPartCopyResult uploadPartCopyResult  = (UploadPartCopyResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Copy Object failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `uploadPartCopyRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法                 | 描述                                                         | 类型                 |
+| ------------------- | ------------------------ | ------------------------------------------------------------ | -------------------- |
+| bucket              | 构造方法                 | 存储桶名称，格式：BucketName-APPID                           | String               |
+| cosPath                 | 构造方法 | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String               |
+| copySourceStruct          | 构造方法            | 复制的数据源路径描述                                         | CopySourceStruct     |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | copyObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 CopyObjectResult 返回请求结果。
+
+| 成员变量   | 类型                                                         | 描述                                                       |
+| ---------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode   | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| copyObject | [CopyObject](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/main/java/com/tencent/cos/xml/model/tag/CopyObject.java) | 返回成功复制的对象信息                                     |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### <span id = "COMPLETE_MULIT_UPLOAD"> 完成分块上传 </span>
+
+#### 功能说明
+
+完成整个文件的分块上传（Complete Multipart Upload）。
+
+#### 方法原型
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+String uploadId = "初始化分片返回的 uploadId";
+int partNumber = 1;
+String etag = "编号为 partNumber 对应分片上传结束返回的 etag ";
+Map<Integer, String> partNumberAndETag = new HashMap<>();
+partNumberAndETag.put(partNumber, etag);
+
+CompleteMultiUploadRequest completeMultiUploadRequest = new CompleteMultiUploadRequest(bucket, cosPath, uploadId, partNumberAndETag);
+
+// 使用同步方法请求
+try {
+    CompleteMultiUploadResult completeMultiUploadResult = cosXmlService.completeMultiUpload(completeMultiUploadRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+
+// 使用异步回调请求
+cosXmlService.completeMultiUploadAsync(completeMultiUploadRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Complete Multi Upload success...
+		CompleteMultiUploadResult completeMultiUploadResult = (CompleteMultiUploadResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Complete Multi Upload failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `completeMultiUploadRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法                | 描述                                                         | 类型                       |
+| ------------------- | ----------------------- | ------------------------------------------------------------ | -------------------------- |
+| bucket              | 构造方法                | 存储桶名称，格式：BucketName-APPID                           | String                     |
+| cosPath                 | 构造方法 或 SetCosPath  | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                     |
+| uploadId            | 构造方法 或 SetUploadId | 标识指定分片上传的 uploadId                                  | String                     |
+| partNumber          | SetPartNumberAndETag    | 标识指定分片块的编号，必须 >= 1                              | int                        |
+| eTag                | SetPartNumberAndETag    | 标识指定分片块的上传返回的 eTag                              | String                     |
+| partNumberAndETags  | SetPartNumberAndETag    | 标识分片块的编号和上传返回的 eTag                            | `Dictionary<int, String> ` |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | completeMultiUploadAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 CompleteMultipartUploadResult 返回请求结果。
+
+| 成员变量       | 类型                                                         | 描述                                                       |
+| -------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode       | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| CompleteResult | [CompleteMultipartUploadResult](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/main/java/com/tencent/cos/xml/model/tag/CompleteMultipartUploadResult.java) | 返回所有分片块上传成功信息                                 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### <span id = "ABORT_MULIT_UPLOAD"> 终止分块上传 </span>
+
+#### 功能说明
+
+终止一个分块上传操作并删除已上传的块（Abort Multipart Upload）。
+
+#### 方法原型
+
+```java
+AbortMultiUploadResult abortMultiUpload(AbortMultiUploadRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void abortMultiUploadAsync(AbortMultiUploadRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+String uploadId = "初始化分片返回的 uploadId";
+
+AbortMultiUploadRequest abortMultiUploadRequest = new AbortMultiUploadRequest(bucket, cosPath, uploadId);
+
+// 使用同步方法请求
+try {
+    AbortMultiUploadResult abortMultiUploadResult = cosXmlService.abortMultiUpload(abortMultiUploadRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+    
+// 使用异步回调请求
+cosXmlService.abortMultiUploadAsync(abortMultiUploadRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest cosXmlRequest, CosXmlResult cosXmlResult) {
+        // todo Abort Multi Upload success...
+		AbortMultiUploadResult abortMultiUploadResult = (AbortMultiUploadResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Abort Multi Upload failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `abortMultiUploadRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+#### 参数说明
+
+| 参数名称            | 设置方法                | 描述                                                         | 类型           |
+| ------------------- | ----------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法                | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath  | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| uploadId            | 构造方法 或 SetUploadId | 标识指定分片上传的 uploadId                                  | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | abortMultiUploadAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 AbortMultipartUploadResult 返回请求结果。
+
+| 成员变量 | 类型 | 描述                                                       |
+| -------- | ---- | ---------------------------------------------------------- |
+| httpCode | int  | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+
+## 其他操作
+
+### 恢复归档对象 
+
+#### 功能说明
+
+将归档类型的对象取回访问（POST Object restore）。
+
+#### 方法原型
+
+```java
+RestoreResult restoreObject(RestoreRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void restoreObjectAsync(RestoreRequest request,  CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+RestoreRequest restoreRequest = new RestoreRequest(bucket, cosPath);
+restoreRequest.setExpireDays(5); // 保留 5天
+restoreRequest.setTier(RestoreConfigure.Tier.Standard); // 标准恢复模式
+// 使用同步方法
+try {
+    RestoreResult restoreResult = cosXmlService.restoreObject(restoreRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+    
+// 使用异步回调请求
+cosXmlService.restoreObjectAsync(restoreRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Get Bucket ACL success
+		RestoreResult restoreResult = (RestoreResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Get Bucket ACL failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `restoreRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型                  |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | --------------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String                |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String                |
+| days                | SetExpireDays          | 设置临时副本的过期时间                                       | int                   |
+| tier                | SetTier                | 恢复数据时，Tier 可以指定为 CAS 支持的三种恢复类型，分别为 Expedited、Standard、Bulk | RestoreConfigure.Tier |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | restoreObjectAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 RestoreObjectResult 返回请求结果。
+
+| 成员变量 | 类型 | 描述                                                       |
+| -------- | ---- | ---------------------------------------------------------- |
+| httpCode | int  | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 设置对象 ACL
+
+#### 功能说明
+
+设置 Bucket 中某个 Object （文件/对象）的 ACL（PUT Object acl）。
+
+#### 方法原型
+
+```java
+PutObjectACLResult putObjectACL(PutObjectACLRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void putObjectACLAsync(PutObjectACLRequest request, final CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+PutObjectACLRequest putObjectACLRequest = new PutObjectACLRequest(bucket, cosPath);
+
+//设置 bucket 访问权限
+putObjectACLRequest.setXCOSACL("public-read");
+
+//赋予被授权者读的权限
+ACLAccount readACLS = new ACLAccount();
+readACLS.addAccount("OwnerUin", "OwnerUin");
+putObjectACLRequest.setXCOSGrantRead(readACLS);
+
+//赋予被授权者读写的权限
+ACLAccount writeandReadACLS = new ACLAccount();
+writeandReadACLS.addAccount("OwnerUin", "OwnerUin");
+putObjectACLRequest.setXCOSGrantRead(writeandReadACLS);
+
+// 使用同步方法
+try {
+    PutObjectACLResult putObjectACLResult = cosXmlService.putObjectACL(putObjectACLRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+    
+// 使用异步回调请求
+cosXmlService.putObjectACLAsync(putObjectACLRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Put Bucket ACL success
+		PutObjectACLResult putObjectACLResult = (PutObjectACLResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Put Bucket ACL failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `putObjectACLRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法                                                  | 描述                                                         | 类型           |
+| ------------------- | --------------------------------------------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法                                                  | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath                                    | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| cosAcl              | SetCosAcl                                                 | 设置存储桶的acl权限                                          | String         |
+| grandtAccout        | SetXCosGrantRead 或 SetXCosReadWrite | 授予用户读写权限                                             | GrantAccount   |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | putObjectACLAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 PutObjectACLResult 返回请求结果。
+
+| 成员变量 | 类型 | 描述                                                       |
+| -------- | ---- | ---------------------------------------------------------- |
+| httpCode | int  | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+### 查询对象 ACL
+
+#### 功能说明
+
+查询 Object（文件/对象）的 ACL（GET Object acl）。
+
+#### 方法原型
+
+```java
+GetObjectACLResult getObjectACL(GetObjectACLRequest request) throws CosXmlClientException, CosXmlServiceException;
+
+void getObjectACLAsync(GetObjectACLRequest request, CosXmlResultListener cosXmlResultListener);
+```
+
+#### 请求示例
+
+```java
+String bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。 如 cosPath = "text.txt";
+GetObjectACLRequest getBucketACLRequest = new GetObjectACLRequest(bucket, cosPath);
+
+// 使用同步方法
+try {
+    GetObjectACLResult getObjectACLResult = cosXmlService.getObjectACL(getBucketACLRequest);
+} catch (CosXmlClientException e) {
+    e.printStackTrace();
+} catch (CosXmlServiceException e) {
+    e.printStackTrace();
+}
+    
+// 使用异步回调请求
+cosXmlService.getObjectACLAsync(getBucketACLRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        // todo Get Bucket ACL success
+		GetObjectACLResult getObjectACLResult = (GetObjectACLResult)result;
+    }
+    
+    @Override
+    public void onFail(CosXmlRequest cosXmlRequest, CosXmlClientException clientException, CosXmlServiceException serviceException)  {
+        // todo Get Bucket ACL failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
+```
+> ?请求时，如需直接设置已计算好的签名串，则可通过调用 `getBucketACLRequest.setSign("已计算好的签名串")` 方法设置，默认由 SDK 计算签名串。
+
+
+#### 参数说明
+
+| 参数名称            | 设置方法               | 描述                                                         | 类型           |
+| ------------------- | ---------------------- | ------------------------------------------------------------ | -------------- |
+| bucket              | 构造方法               | 存储桶名称，格式：BucketName-APPID                           | String         |
+| cosPath                 | 构造方法 或 SetCosPath | 对象位于存储桶中的位置标识符，即 [对象键](https://cloud.tencent.com/document/product/436/13324) | String         |
+| headerKeys          | setSign  | 签名是否校验 header                | `Set<String>` |
+| queryParameterKeys  | setSign  | 签名是否校验请求 url 中查询参数    | `Set<String>` |
+| cosXmlResultListener      | getObjectACLAsync                                                 | 结果回调        | CosXmlResultListener   |
+
+#### 返回结果说明
+
+通过 GetObjectACLResult 返回请求结果。
+
+| 成员变量            | 类型                                                         | 描述                                                       |
+| ------------------- | ------------------------------------------------------------ | ---------------------------------------------------------- |
+| httpCode            | int                                                          | HTTP Code，  [200， 300)之间表示操作成功，否则表示操作失败 |
+| accessControlPolicy | [AccessControlPolicy](https://github.com/tencentyun/qcloud-sdk-android/blob/master/QCloudCosXml/cosxml/src/normal/java/com/tencent/cos/xml/model/tag/AccessControlPolicy.java) | 返回对象的访问权限列表信息                               |
+
+> ?操作失败时，SDK 将抛出 [CosXmlClientException](https://cloud.tencent.com/document/product/436/34539#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.BC.82.E5.B8.B8) 或 [CosXmlServiceException](https://cloud.tencent.com/document/product/436/34539#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.BC.82.E5.B8.B8) 异常。
+
+## 高级接口（推荐）
+
+### 上传对象
+
+**TransferManager**、**COSXMLUploadTask** 封装了简单上传、分片上传接口的异步请求，并支持暂停、恢复以及取消上传请求，同时支持续传功能。我们推荐使用这种方式来上传对象，示例代码如下：
+
+```java
+// 初始化 TransferConfig
+TransferConfig transferConfig = new TransferConfig.Builder().build();
+
+/*若有特殊要求，则可以如下进行初始化定制。如限定当对象 >= 2M 时，启用分片上传，且分片上传的分片大小为 1M, 当源对象大于 5M 时启用分片复制，且分片复制的大小为 5M。*/
+TransferConfig transferConfig = new TransferConfig.Builder()
+        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分片复制的最小对象大小
+        .setSliceSizeForCopy(5 * 1024 * 1024) //分片复制时的分片大小
+        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分片上传的最小对象大小
+        .setSliceSizeForUpload(1024 * 1024) //分片上传时的分片大小
+        .build();
+
+
+//初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXmlService, transferConfig);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";//"本地文件的绝对路径";
+String uploadId = null; //若存在初始化分片上传的 UploadId，则赋值对应的uploadId值用于续传;否则，赋值null。
+//上传对象
+COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
+
+/**
+* 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
+* byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
+* cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
+*/
+
+/**
+* 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
+* InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
+* cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
+*/
+
+//设置上传进度回调
+cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
+            @Override
+            public void onProgress(long complete, long target) {
+                float progress = 1.0f * complete / target * 100;
+                Log.d("TEST",  String.format("progress = %d%%", (int)progress));
+            }
+        });
+//设置返回结果回调
+cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
+            @Override
+            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+				COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTaskResult)result;
+                Log.d("TEST",  "Success: " + cOSXMLUploadTaskResult.printResult());
+            }
+
+            @Override
+            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
+                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
+            }
+        });
+//设置任务状态回调, 可以查看任务过程
+cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
+            @Override
+            public void onStateChanged(TransferState state) {
+                Log.d("TEST", "Task state:" + state.name());
+            }
+        });
+
+/**
+若有特殊要求，则可以如下操作：
+ PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
+ putObjectRequest.setRegion(region); //设置存储桶所在的地域
+ putObjectRequest.setNeedMD5(true); //是否启用Md5校验
+ COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
+*/
+
+//取消上传
+cosxmlUploadTask.cancel();
+
+
+//暂停上传
+cosxmlUploadTask.pause();
+
+//恢复上传
+cosxmlUploadTask.resume();
+
+```
+
+### 下载对象
+
+**TransferManager**、**COSXMLDownloadTask** 封装了下载接口的异步请求，并支持暂停、恢复以及取消下载请求，同时支断点下载功能。示例代码如下：
+
+```java
+Context applicationContext = getApplicationContext()； // application context
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+String savePathDir = Environment.getExternalStorageDirectory().getPath()；//本地目录路径
+String savedFileName = "exampleobject"；//本地保存的文件名，若不填（null）,则与cos上的文件名一样
+//下载对象
+COSXMLDownloadTask cosxmlDownloadTask = transferManager.download(applicationContext, bucket, cosPath, savedDirPath, savedFileName);
+//设置下载进度回调
+cosxmlDownloadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
+            @Override
+            public void onProgress(long complete, long target) {
+                float progress = 1.0f * complete / target * 100;
+                Log.d("TEST",  String.format("progress = %d%%", (int)progress));
+            }
+        });
+//设置返回结果回调
+cosxmlDownloadTask.setCosXmlResultListener(new CosXmlResultListener() {
+            @Override
+            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+				COSXMLDownloadTaskResult cOSXMLDownloadTaskResult = (COSXMLDownloadTaskResult)result;
+                Log.d("TEST",  "Success: " + cOSXMLDownloadTaskResult.printResult());
+            }
+
+            @Override
+            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
+                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
+            }
+        });
+//设置任务状态回调, 可以查看任务过程
+cosxmlDownloadTask.setTransferStateListener(new TransferStateListener() {
+            @Override
+            public void onStateChanged(TransferState state) {
+                Log.d("TEST", "Task state:" + state.name());
+            }
+        });
+
+/**
+若有特殊要求，则可以如下操作：
+GetObjectRequest getObjectRequest = new GetObjectRequest(bucket, cosPath, localDir, localFileName);
+getObjectRequest.setRegion(region); //设置存储桶所在的地域
+COSXMLDownloadTask cosxmlDownloadTask = transferManager.download(context, getObjectRequest);
+*/
+
+//取消下载
+cosxmlDownloadTask.cancel();
+
+//暂停下载
+cosxmlDownloadTask.pause();
+
+//恢复下载
+cosxmlDownloadTask.resume();
+
+```
+
+### 复制对象
+
+**TransferManager**、**COSXMLCopyTask** 封装了简单复制、分片复制接口的异步请求，并支持暂停、恢复以及取消复制请求。示例代码如下：
+
+```java
+String sourceAppid = "1250000000"; //账号 appid
+String sourceBucket = "sourcebucket-1250000000"; //"源对象所在的存储桶
+String sourceRegion = "ap-beijing"; //源对象的存储桶所在的地域
+String sourceCosPath = "source-exampleobject"; //源对象的对象键
+//构造源对象属性
+CopyObjectRequest.CopySourceStruct copySourceStruct = new CopyObjectRequest.CopySourceStruct(sourceAppid, sourceBucket, sourceRegion, sourceCosPath);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即对象键。
+//复制对象
+COSXMLCopyTask cosxmlCopyTask = transferManager.copy(bucket, cosPath, copySourceStruct);
+//设置返回结果回调
+cosxmlCopyTask.setCosXmlResultListener(new CosXmlResultListener() {
+            @Override
+            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+				COSXMLCopyTaskResult cOSXMLCopyTaskResult = (COSXMLCopyTaskResult)result;
+                Log.d("TEST",  "Success: " + cOSXMLCopyTaskResult.printResult());
+            }
+
+            @Override
+            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
+                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
+            }
+        });
+//设置任务状态回调, 可以查看任务过程
+cosxmlCopyTask.setTransferStateListener(new TransferStateListener() {
+            @Override
+            public void onStateChanged(TransferState state) {
+                Log.d("TEST", "Task state:" + state.name());
+            }
+        });
+/**
+若有特殊要求，则可以如下操作：
+CopyObjectRequest copyObjectRequest = new CopyObjectRequest(bucket, cosPath, copySourceStruct);
+copyObjectRequest.setRegion(region); //设置存储桶所在的地域
+COSXMLCopyTask cosxmlCopyTask = transferManager.copy(copyObjectRequest);
+*/
+
+//取消复制
+cosxmlCopyTask.cancel();
+
+
+//暂停复制
+cosxmlCopyTask.pause();
+
+//恢复复制
+cosxmlCopyTask.resume();
+```

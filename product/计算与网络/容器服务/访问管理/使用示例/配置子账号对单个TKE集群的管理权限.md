@@ -51,7 +51,8 @@
                 "monitor:*",
                 "cam:ListUsersForGroup",
                 "cam:ListGroups",
-                "cam:GetGroup"
+                "cam:GetGroup",
+                "cam:GetRole"
             ],
             "resource": "*",
             "effect": "allow"
@@ -114,7 +115,8 @@
                 "monitor:*",
                 "cam:ListUsersForGroup",
                 "cam:ListGroups",
-                "cam:GetGroup"
+                "cam:GetGroup",
+                "cam:GetRole"
             ],
             "resource": "*"
         }
@@ -122,11 +124,7 @@
 }
 ```
 6. 在 “编辑策略内容” 中，将 `qcs::ccs:gz::cluster/cls-1xxxxxx` 修改为您想赋予权限的指定地域下的集群。如下图所示：
-例如，您需要为北京地域的 cls-19a7dz9c 集群赋予全读写的权限，将 `qcs::ccs:gz::cluster/cls-1xxxxxx` 修改为 `qcs::ccs:bj::cluster/cls-19a7dz9c`。
+例如，您需要为北京地域的 cls-19a7dz9c 集群赋予只读的权限，将 `qcs::ccs:gz::cluster/cls-1xxxxxx` 修改为 `qcs::ccs:bj::cluster/cls-19a7dz9c`。
 ![编辑策略内容2](https://main.qcloudimg.com/raw/0689ed1ad85aa4d8fc8960e258b9bd1b.png)
 >! 请替换成您想赋予权限的指定地域下的集群 ID。
 7. 单击【创建策略】，即可完成对单个集群只读权限的配置。
-
-
-
-

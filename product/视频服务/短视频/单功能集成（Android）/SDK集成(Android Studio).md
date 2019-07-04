@@ -9,7 +9,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 - Android SDK Tools: android-sdk_25.0.2
 - minSdkVersion: 15
 - targetSdkVersion: 21
-- Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse+ADT）
+- Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse + ADT）
 
 ### 3、集成攻略
 #### 3.1 集成攻略（aar）
@@ -24,7 +24,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // 导入短视频SDK aar
+    // 导入短视频SDK aar，LiteAVSDK_UGC_x.x.xxxx 请自行修改为最新版本号
     compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
 }
 ```
@@ -41,7 +41,7 @@ allprojects {
 }
 ```
 
-- 在工程目录下的build.gradle的defaultConfig里面，指定ndk兼容的架构：
+- 在工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
 ```
 defaultConfig {
     applicationId "com.tencent.liteav.demo"
@@ -79,7 +79,7 @@ defaultConfig {
 ##### 3.2.2. 拷贝文件
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 android studio 默认的 jni 加载目录。
 
-如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，参考 [动效变脸->工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
+如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，参考 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
 
 ##### 3.2.3. 工程配置
 
@@ -97,7 +97,7 @@ dependencies {
 
  **1. 上传 SO 文件**
 
- 将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，比如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
+ 将 SDK 压缩包中的 so 文件上传到 COS，并记录下载地址，例如 `http://xxx-appid.cossh.myqcloud.com/so_files.zip`。
 
  **2. 启动准备**
 
@@ -105,7 +105,7 @@ dependencies {
 
  **3. 下载 SO 文件**
 
- 在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（比如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
+ 在用户等待过程中，App 就可以到 `http://xxx-appid.cossh.myqcloud.com/so_files.zip` 下载 so 文件，并存入应用目录下（例如应用根目录下的 files 文件夹），为了确保这个过程不受运营商 DNS 拦截的影响，请在文件下载完成后校验 so 文件的完整性。
 
  **4. 加载 SO 文件**
 
@@ -129,24 +129,24 @@ dependencies {
 <uses-feature android:name="android.hardware.Camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
-#### 3.4、License设置
-请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+#### 3.4、License 设置
+请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```
 public class DemoApplication extends Application {
-    String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的licence url
-    String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";                                                                 //您从控制台申请的licence key
+    String ugcLicenceUrl = "http://xxxxxxxx.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的 licence url
+    String ugcKey = "xxxxxxxxxxxxxxx";                                                                 //您从控制台申请的 licence key
 
     @Override
     public void onCreate() {
         super.onCreate();
-        TXLiveBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
+        TXUGCBase.getInstance().setLicence(instance, ugcLicenceUrl, ugcKey);
     }
 }
 ```
 
-对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
+对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版 License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
 
 #### 3.5、LOG 打印
@@ -155,7 +155,7 @@ public class DemoApplication extends Application {
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
 设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上的  **log / tencent / liteav** 文件夹下。
-如果您需要我们的技术支持，建议将次开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
+如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 ```
@@ -219,18 +219,18 @@ defaultConfig {
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。
-文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中SDK的压缩包中提供。
+文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中提供。
 
 ### 接入步骤
 1、创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 license。 如果没有 license 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2、拷贝 SDK 开发包中的 lib_tccommon、lib_tcvideoediter、lib_tcvideorecord、lib_tcvideojoiner 四个 Android Studio module 放入新建的工程 UGC/ 下：
+2、拷贝 SDK 开发包中的 lib_tccommon、lib_tcvideoediter、lib_tcvideorecord 及 lib_tcvideojoiner 四个 Android Studio module 放入新建的工程 UGC/ 下：
 
 - lib_tccommon ： 资源公共库
-- lib_tcvideoediter：SDK开发包中短视频编辑UI组件
-- lib_tcvideorecord：SDK开发包中短视频录制UI组件
-- lib_tcvideojoiner：SDK开发包中短视频合成UI组件
+- lib_tcvideoediter：SDK开发包中短视频编辑 UI 组件
+- lib_tcvideorecord：SDK开发包中短视频录制 UI 组件
+- lib_tcvideojoiner：SDK开发包中短视频合成 UI 组件
 
 在新建的工程 UGC/settings.gradle 下指明引入这四个 module：
 

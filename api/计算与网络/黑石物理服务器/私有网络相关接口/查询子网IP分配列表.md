@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述 
  
 本接口（DescribeBmSubnetIps）用于查询黑石VPC子网IP分配列表。
@@ -32,20 +35,14 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 ```
 
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "cpmSet": [
-            <物理机IP>,
-        ],
-        "vmSet": [
-            <云服务器IP>,
-        ],
-        "tgSet": [
-            <托管机器IP>,
-        ]
-    }
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "data": {
+  "cpmSet": ["< 物理机IP >"],
+  "vmSet": ["<云服务器IP >"],
+  "tgSet": ["<托管机器IP >"]
+ }
 }
 
 ```

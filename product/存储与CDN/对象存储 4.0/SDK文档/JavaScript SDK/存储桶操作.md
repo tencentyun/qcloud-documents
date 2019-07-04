@@ -1,0 +1,286 @@
+## 简介
+
+本文档提供关于存储桶的基本操作和访问控制列表（ACL）的相关 API 概览以及 SDK 示例代码。
+
+**基本操作**
+
+| API                                                          | 操作名             | 操作描述                           |
+| ------------------------------------------------------------ | ------------------ | ---------------------------------- |
+| [HEAD Bucket](https://cloud.tencent.com/document/product/436/7735) | 检索存储桶及其权限 | 检索存储桶是否存在且是否有权限访问 |
+| [DELETE Bucket](https://cloud.tencent.com/document/product/436/7732) | 删除存储桶         | 删除指定账号下的空存储桶           |
+
+**访问控制列表**
+
+| API                                                          | 操作名         | 操作描述                         |
+| ------------------------------------------------------------ | -------------- | -------------------------------- |
+| [PUT Bucket acl](https://cloud.tencent.com/document/product/436/7737) | 设置存储桶 ACL | 设置指定存储桶的访问权限控制列表 |
+| [GET Bucket acl](https://cloud.tencent.com/document/product/436/7733) | 查询存储桶 ACL | 查询指定存储桶的访问权限控制列表 |
+
+## 基本操作
+
+### 检索存储桶及其权限
+
+#### 功能说明
+
+HEAD Bucket 请求可以确认该 Bucket 是否存在，是否有权限访问。Head 的权限与 Read 一致。当该 Bucket 存在时，返回 HTTP 状态码200。当该 Bucket 无访问权限时，返回 HTTP 状态码403。当该 Bucket 不存在时，返回 HTTP 状态码404。
+
+#### 使用示例
+
+```js
+cos.headBucket({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing',     /* 必须 */
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+#### 参数说明
+
+| 参数名 | 参数描述                                                     | 类型   | 必填 |
+| ------ | ------------------------------------------------------------ | ------ | ---- |
+| Bucket | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String | 是   |
+| Region | Bucket 所在地域，枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String | 是   |
+
+#### 回调函数说明
+
+```
+function(err, data) { ... }
+```
+
+| 参数名       | 参数描述                                                     | 类型   |
+| ------------ | ------------------------------------------------------------ | ------ |
+| err          | 请求发生错误时返回的对象，包括网络错误和业务错误，如果请求成功则为空，更多详情请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档 | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+| data         | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+
+### 删除存储桶
+
+#### 功能说明
+
+删除指定账号下的空存储桶。注意，如果删除成功，则返回的 HTTP 状态码为200或204。
+
+#### 使用示例
+
+```js
+cos.deleteBucket({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing'     /* 必须 */
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+#### 参数说明
+
+| 参数名 | 参数描述                                                     | 类型   | 必填 |
+| ------ | ------------------------------------------------------------ | ------ | ---- |
+| Bucket | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String | 是   |
+| Region | Bucket 所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String | 是   |
+
+#### 回调函数说明
+
+```
+function(err, data) { ... }
+```
+
+| 参数名       | 参数描述                                                     | 类型   |
+| ------------ | ------------------------------------------------------------ | ------ |
+| err          | 请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功则为空，更多详情请参阅 [错误码文档](https://cloud.tencent.com/document/product/436/7730) | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+| data         | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+
+## 访问控制列表
+
+### 设置存储桶 ACL
+
+#### 功能说明
+
+设置指定存储桶访问权限控制列表。
+
+#### 使用示例
+
+设置 Bucket 公有读：
+
+```js
+cos.putBucketAcl({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing',    /* 必须 */
+    ACL: 'public-read'
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+为某个用户赋予 Bucket 读写权限：
+
+```js
+cos.putBucketAcl({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing',    /* 必须 */
+    GrantFullControl: 'id="qcs::cam::uin/100000000001:uin/100000000001",id="qcs::cam::uin/100000000011:uin/100000000011"' // 100000000001是 uin
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+为某个用户赋予 Bucket 读写权限：
+
+```js
+cos.putBucketAcl({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing',    /* 必须 */
+    GrantFullControl: 'id="qcs::cam::uin/100000000001:uin/100000000001",id="qcs::cam::uin/100000000011:uin/100000000011"' // 100000000001是 uin
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+通过 AccessControlPolicy 修改 Bucket 权限：
+
+```js
+cos.putBucketAcl({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing',    /* 必须 */
+    AccessControlPolicy: {
+        "Owner": { // AccessControlPolicy 里必须有 owner
+            "ID": 'qcs::cam::uin/100000000001:uin/100000000001' // 100000000001 是 Bucket 所属用户的 Uin
+        },
+        "Grants": [{
+            "Grantee": {
+                "ID": "qcs::cam::uin/100000000011:uin/100000000011", // 100000000011 是 Uin
+            },
+            "Permission": "WRITE"
+        }]
+    }
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+#### 参数说明
+
+| 参数名              | 参数描述                                                     | 类型        | 必填 |
+| ------------------- | ------------------------------------------------------------ | ----------- | ---- |
+| Bucket              | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String      | 是   |
+| Region              | Bucket 所在地域，枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String      | 是   |
+| ACL                 | 定义 Object 的 ACL 属性。有效值：private、public-read；默认值：private | String      | 否   |
+| GrantRead           | 赋予被授权者读的权限，格式：id="[OwnerUin]"                  | String      | 否   |
+| GrantWrite          | 赋予被授权者写的权限，格式：id="[OwnerUin]"                  | String      | 否   |
+| GrantReadAcp        | 赋予被授权者读取 Acl 和 Policy 的权限。格式：id=" ",id=" "<br>当需要给子账号授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，<br>当需要给主账号授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，<br>例如：'id="qcs::cam::uin/100000000001:uin/100000000001", id="qcs::cam::uin/100000000001:uin/100000000011"' | String      | 否   |
+| GrantWriteAcp       | 赋予被授权者写Acl和Policy的权限，格式：id=" ",id=" "<br>当需要给子账号授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>"，<br>当需要给主账号授权时，id="qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin>"，<br>例如：'id="qcs::cam::uin/100000000001:uin/100000000001", id="qcs::cam::uin/100000000001:uin/100000000011"' | String      | 否   |
+| GrantFullControl    | 赋予被授权者所有的权限，格式：id="[OwnerUin]"                | String      | 否   |
+| AccessControlPolicy | 说明跨域资源共享配置的所有信息列表                           | Object      | 否   |
+| - Owner             | 代表存储桶所有者的对象                                       | Object      | 否   |
+| - - ID              | 代表用户 ID 的字符串，格式如 qcs::cam::uin/100000000001:uin/100000000001，其中100000000001为 uin | Object      | 否   |
+| - Grants            | 说明跨域资源共享配置的所有信息列表                           | Object      | 否   |
+| - - Permission      | 说明跨域资源共享配置的所有信息列表，可选项 READ、WRITE、READ_ACP、WRITE_ACP、FULL_CONTROL | String      | 否   |
+| - - Grantee         | 说明跨域资源共享配置的所有信息列表                           | ObjectArray | 否   |
+| - - - ID            | 代表用户 ID 的字符串，格式如 qcs::cam::uin/100000000001:uin/100000000001，其中100000000001为 uin | String      | 否   |
+| - - - DisplayName   | 代表用户名称的字符串，一般填写成和 ID 一致的字符串           | String      | 否   |
+
+#### 回调函数说明
+
+```
+function(err, data) { ... }
+
+```
+
+| 参数名       | 参数描述                                                     | 类型   |
+| ------------ | ------------------------------------------------------------ | ------ |
+| err          | 请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功则为空，更多详情请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档 | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+| data         | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
+| - statusCode | 请求返回的 HTTP 状态码，如200、403、404等                    | Number |
+| - headers    | 请求返回的头部信息                                           | Object |
+
+### 查询存储桶 ACL
+
+#### 功能说明
+
+查询存储桶的访问控制列表。
+
+#### 使用示例
+
+```js
+cos.getBucketAcl({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'ap-beijing'     /* 必须 */
+}, function(err, data) {
+    console.log(err || data);
+});
+
+
+```
+
+#### 返回示例
+
+```json
+{
+    "GrantFullControl": "",
+    "GrantWrite": "",
+    "GrantRead": "",
+    "GrantReadAcp": "id=\"qcs::cam::uin/100000000011:uin/100000000011\"",
+    "GrantWriteAcp": "id=\"qcs::cam::uin/100000000011:uin/100000000011\"",
+    "ACL": "private",
+    "Owner": {
+        "ID": "qcs::cam::uin/100000000001:uin/100000000001",
+        "DisplayName": "qcs::cam::uin/100000000001:uin/100000000001"
+    },
+    "Grants": [{
+        "Grantee": {
+            "ID": "qcs::cam::uin/100000000011:uin/100000000011",
+            "DisplayName": "qcs::cam::uin/100000000011:uin/100000000011"
+        },
+        "Permission": "READ"
+    }],
+    "statusCode": 200,
+    "headers": {}
+}
+
+```
+
+#### 参数说明
+
+| 参数名 | 参数描述                                                     | 类型   | 必填 |
+| ------ | ------------------------------------------------------------ | ------ | ---- |
+| Bucket | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String | 是   |
+| Region | Bucket 所在地域，枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String | 是   |
+
+#### 回调函数说明
+
+```
+function(err, data) { ... }
+
+
+```
+
+| 参数名             | 参数描述                                                     | 类型        |
+| ------------------ | ------------------------------------------------------------ | ----------- |
+| err                | 请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功则为空，更多详情请参阅 [错误码文档](https://cloud.tencent.com/document/product/436/7730) | Object      |
+| - statusCode       | 请求返回的 HTTP 状态码，如200、403、404等                    | Number      |
+| - headers          | 请求返回的头部信息                                           | Object      |
+| data               | 请求成功时返回的对象，如果请求发生错误则为空                 | Object      |
+| - statusCode       | 请求返回的 HTTP 状态码，如200、403、404等                    | Number      |
+| - headers          | 请求返回的头部信息                                           | Object      |
+| - ACL              | Bucket 持有者信息                                            | Object      |
+| - GrantRead        | 赋予被授权者读的权限                                         | String      |
+| - GrantWrite       | 赋予被授权者写的权限                                         | String      |
+| - GrantReadAcp     | 赋予被授权者读取 Acl 和 Policy 的权限                        | String      |
+| - GrantWriteAcp    | 赋予被授权者写 Acl 和 Policy 的权限                          | String      |
+| - GrantFullControl | 赋予被授权者读写权限                                         | String      |
+| - Owner            | Bucket 持有者信息                                            | Object      |
+| - - DisplayName    | Bucket 持有者的名称                                          | String      |
+| - - ID             | Bucket 持有者 ID，<br>格式：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> <br>如果是主账号，&lt;OwnerUin> 和 &lt;SubUin> 是同一个值 | String      |
+| - Grants           | 被授权者信息与权限信息列表                                   | ObjectArray |
+| - - Permission     | 指明授予被授权者的权限信息，枚举值：READ、WRITE、READ_ACP、WRITE_ACP、FULL_CONTROL | String      |
+| - - Grantee        | 说明被授权者的信息，type 类型可以为 RootAccount， Subaccount；<br>当 type 类型为 RootAccount 时，ID 中指定的是主账号<br>当 type 类型为 Subaccount 时，ID 中指定的是子帐号 | Object      |
+| - - - DisplayName  | 用户的名称                                                   | String      |
+| - - - ID           | 用户的 ID，<br>如果是主账号，格式为：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;OwnerUin> <br>或 qcs::cam::anyone:anyone （指代所有用户）<br>如果是子帐号，格式为： qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin> | String      |

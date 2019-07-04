@@ -1,7 +1,7 @@
 ## 说明
 ### 通讯说明
 - 所有接口均使用 HTTPS 通信，数据包格式为 json（HTTP 请求的 content-type 字段必须使用 application/json）。
-- 请求必须传认证或签名信息。其中退款请求，传签名和签名算法，其他请求传认证码和认证算法。
+- 请求必须传认证或签名信息。其中退款请求，可以传签名和签名算法，也可以传认证码和认证算法，二选一，其他请求传认证码和认证算法。
 - 对响应要验证认证码。
 - 所有接口参数名使用的字母均为小写。
 
@@ -86,7 +86,7 @@ bool calc_HMAC_SHA256(const std::string &key, const std::string &input, std::str
     HMAC_CTX_cleanup(&ctx);
 
     for (int i = 0; i < 32; i++) {
-        snprintf(&format_md[i * 2], 3, "%02x", md[i]);
+        snprintf(&format_md[i * 2], 3, "%02x", md[i]); //二进制转为十六进制大写
     }
     hmac->assign(format_md);
 
@@ -884,7 +884,7 @@ std::string gen_cloud_pay_refund(
     Json::Value request_content;
     request_content["nonce_str"] = generate_random_nonce_str();
 
-    Json::Value pay_mch_key, pay_content, order_client;
+    Json::Value pay_mch_key, refund_content, order_client;
 
     pay_mch_key["pay_platform"]    = pay_platform;
     pay_mch_key["out_mch_id"]      = out_mch_id;
@@ -892,12 +892,12 @@ std::string gen_cloud_pay_refund(
     pay_mch_key["out_shop_id"]     = out_shop_id;
     request_content["pay_mch_key"] = pay_mch_key;
 
-    pay_content["out_trade_no"]    = out_trade_no;
-    pay_content["out_refund_no"]   = out_refund_no;
-    pay_content["total_fee"]       = total_fee;
-    pay_content["refund_fee"]      = refund_fee;
-    pay_content["refund_fee_type"] = refund_fee_type;
-    request_content["pay_content"] = pay_content;
+    refund_content["out_trade_no"]    = out_trade_no;
+    refund_content["out_refund_no"]   = out_refund_no;
+    refund_content["total_fee"]       = total_fee;
+    refund_content["refund_fee"]      = refund_fee;
+    refund_content["refund_fee_type"] = refund_fee_type;
+    request_content["refund_content"] = refund_content;
 
     order_client["device_id"]        = device_id;
     order_client["staff_id"]         = staff_id;
@@ -910,6 +910,7 @@ std::string gen_cloud_pay_refund(
     Json::FastWriter w;
     const std::string &rc = w.write(request_content);
 
+    //方式一：计算签名
     Json::Value authen_info, s;
     s["sign_type"] = 1;
     // 使用计算签名举例（使用OpenSSL实现）中的函数计算签名
@@ -924,8 +925,24 @@ std::string gen_cloud_pay_refund(
     Json::Value request;
     request["request_content"] = rc;
     request["authen_info"] = authen_info;
-
     return w.write(request);
+    
+/** 方式二：计算认证码，退款也可以按如下计算认证码打包，签名和认证码二选一即可。    
+    Json::Value authen_info, a;
+    a["authen_type"] = 1;
+
+    std::string authen_code;
+    if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
+        return "";
+    }
+    a["authen_code"] = authen_code;
+    authen_info["a"] = a;
+
+    Json::Value request;
+    request["request_content"] = rc;
+    request["authen_info"] = authen_info;
+    return w.write(request);
+*/    
 }
 /*
 构造请求完毕之后，将请求通过 POST 方法发送到云支付接口对应的 URL
@@ -1602,7 +1619,7 @@ post(request, "https://pay.qcloud.com/cpay/query_refund_order", &response);
 ```
 ### 支付成功回调
 #### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
+服务商在云支付管理后台配置的回调地址（HTTPS），即“交易完成回调 URL”。
 content_type：application/json
 #### 输入参数
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -1683,106 +1700,6 @@ content_type：application/json
 </table>
 
 #### ResponseContent结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>status</td>
-      <td>是</td>
-      <td>Number(32)</td>
-      <td>错误码。0 ：成功；非0：失败或者需要重试，具体见实际返回的错误码</td>
-   </tr>
-   <tr>
-      <td>description</td>
-      <td>否</td>
-      <td>String(255)</td>
-      <td>错误描述</td>
-   </tr>
-</table>
-
-
-
-### 退款成功回调
-#### 接口地址
-服务商在云支付管理后台配置的回调地址（HTTPS）
-content_type：application/json
-#### 输入参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>request_content</td>
-      <td>是</td>
-      <td>RequestContent</td>
-      <td>请求内容，详见<b>本节 RequestContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>是</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见 AuthenInfo</td>
-   </tr>
-</table>
-
-#### RequestContent 结构
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>nonce_str</td>
-      <td>是</td>
-      <td>String(32)</td>
-      <td>随机字符串</td>
-   </tr>
-   <tr>
-      <td>pay_mch_key</td>
-      <td>是</td>
-      <td>PayMchKey</td>
-      <td>支付商户信息。详见 PayMchKey</td>
-   </tr>
-   <tr>
-      <td>refund_order_content</td>
-      <td>是</td>
-      <td>RefundOrderContent[]</td>
-      <td>订单信息。详见 RefundOrderContent</td>
-   </tr>
-</table>
-
-#### 返回参数
-<table  border="0" cellspacing="0" cellpadding="0">
-   <tr>
-      <td>参数名</td>
-      <td>必填</td>
-      <td>类型</td>
-      <td>说明</td>
-   </tr>
-   <tr>
-      <td>response_content</td>
-      <td>是</td>
-      <td>ResponseContent</td>
-      <td>请求内容，详见<b>本节 ResponseContent</b></td>
-   </tr>
-   <tr>
-      <td>authen_info</td>
-      <td>否</td>
-      <td>AuthenInfo</td>
-      <td>认证信息，详见 AuthenInfo</td>
-   </tr>
-</table>
-
-#### ResponseContent 结构
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>参数名</td>
@@ -2429,7 +2346,7 @@ content_type：application/json
       <td>machine_info</td>
       <td>是</td>
       <td>String</td>
-      <td>cpu 使用率，内存使用率，磁盘使用情况等，json 结构</td>
+      <td>CPU 使用率，内存使用率，磁盘使用情况等，json 结构</td>
    </tr>
 </table>
 
@@ -3059,6 +2976,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>商品详细列表，详见 Detail</td>
    </tr>
    <tr>
+      <td>coupon_infos</td>
+      <td>否</td>
+      <td>CouponInfo</td>
+      <td>代金券信息，详见 CouponInfo</td>
+   </tr>
+   <tr>
       <td>wxpay_order_content_ext</td>
       <td>否</td>
       <td>WxpayOrderContentExt</td>
@@ -3069,6 +2992,46 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>否</td>
       <td>AlipayOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayOrderContentExt</td>
+   </tr>
+   <tr>
+      <td>card_order_content_ext</td>
+      <td>否</td>
+      <td>CardOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardOrderContentExt</td>
+   </tr>
+</table>
+
+#### CouponInfo 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>coupon_id</td>
+      <td>否</td>
+      <td>String(20)</td>
+      <td>代金券或立减优惠 id<br>使用微信支付代金券时有返回</td>
+   </tr>
+   <tr>
+      <td>coupon_fee</td>
+      <td>否</td>
+      <td>Number(64)</td>
+      <td>单个代金券或立减优惠支付金额</td>
+   </tr>
+   <tr>
+      <td>coupon_type</td>
+      <td>否</td>
+      <td>String(8)</td>
+      <td>代金券类型，CASH--充值代金券<br>NO_CASH---非充值代金券<br>使用代金券时有返回</td>
+   </tr>
+   <tr>
+      <td>contribute_type</td>
+      <td>否</td>
+      <td>Number(32)</td>
+      <td>资金来源，1：商户 2：平台 3：其他</td>
    </tr>
 </table>
 
@@ -3120,7 +3083,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>代金券信息，详见 WxpayCouponInfo</td>
+      <td>已废弃，请使用 OrderContent 下的 coupon_infos 字段<br>代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>product_id</td>
@@ -3421,6 +3384,28 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>current_trade_state</td>
+      <td>是</td>
+      <td>Number(32)</td>
+      <td>订单当前状态，详见 CardOrderState</td>
+   </tr>
+   <tr>
+      <td>membership_number</td>
+      <td>是</td>
+      <td>String(32)</td>
+      <td>会员卡号</td>
+   </tr>
+</table>
+
 ### 退款单信息
 #### RefundOrderContent 结构（仅作为返回参数）
 <table  border="0" cellspacing="0" cellpadding="0">
@@ -3503,6 +3488,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>退款原因</td>
    </tr>
    <tr>
+      <td>coupon_infos</td>
+      <td>否</td>
+      <td>CouponInfo</td>
+      <td>退款代金券信息，详见 CouponInfo</td>
+   </tr>
+   <tr>
       <td>wxpay_refund_order_content_ext</td>
       <td>是</td>
       <td>WxpayRefundOrderContentExt</td>
@@ -3513,6 +3504,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderContentExt</td>
       <td>支付宝扩展信息，详见 AlipayRefundOrderContentExt</td>
+   </tr>
+   <tr>
+      <td>card_refund_order_content_ext</td>
+      <td>是</td>
+      <td>CardRefundOrderContentExt</td>
+      <td>会员卡扩展信息，详见 CardRefundOrderContentExt</td>
    </tr>
 </table>
 
@@ -3558,7 +3555,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>coupon_refund_infos</td>
       <td>否</td>
       <td>WxpayCouponInfo</td>
-      <td>退款代金券信息，详见 WxpayCouponInfo</td>
+      <td>已废弃，请使用 RefundOrderContent 下的 coupon_infos 字段<br>退款代金券信息，详见 WxpayCouponInfo</td>
    </tr>
    <tr>
       <td>refund_account</td>
@@ -3611,6 +3608,22 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>AlipayRefundOrderState(枚举类型)</td>
       <td>退款状态，详见 AlipayRefundOrderState</td>
+   </tr>
+</table>
+
+#### CardRefundOrderContentExt 结构
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>参数名</td>
+      <td>必填</td>
+      <td>类型</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>state</td>
+      <td>是</td>
+      <td>CardRefundOrderState(枚举类型)</td>
+      <td>退款状态，详见 CardRefundOrderState</td>
    </tr>
 </table>
 
@@ -3767,7 +3780,7 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>author_code</td>
       <td>否</td>
       <td>String(128)</td>
-      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）</td>
+      <td>刷卡支付时的授权码（刷卡支付必填，其他不填）；可以使用授权码前缀判断支付平台：微信支付为10~15开头，支付宝为25~30开头，会员卡为99开头</td>
    </tr>
    <tr>
       <td>time_expire</td>
@@ -4156,6 +4169,12 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>是</td>
       <td>String(16)</td>
       <td>调用云支付 API 的机器 IP</td>
+   </tr>
+   <tr>
+      <td>sn_code</td>
+      <td>否</td>
+      <td>String(64)</td>
+      <td>使用云支付机具配置方式的，刷卡支付、查询订单、申请退款、退款查询四个接口需要填机具的sn号</td>
    </tr>
 </table>
 
@@ -4640,6 +4659,10 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>2</td>
       <td>支付宝</td>
    </tr>
+   <tr>
+      <td>3</td>
+      <td>会员卡</td>
+   </tr>
 </table>
 
 #### TradeType 枚举变量
@@ -4762,6 +4785,34 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
    </tr>
 </table>
 
+#### CardOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>订单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>成功</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>等待用户支付</td>
+   </tr>
+   <tr>
+      <td>4</td>
+      <td>已退款</td>
+   </tr>
+   <tr>
+      <td>5</td>
+      <td>已关单</td>
+   </tr>
+</table>
+
 #### WxpayRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
@@ -4795,6 +4846,26 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
 </table>
 
 #### AlipayRefundOrderState 枚举变量
+<table  border="0" cellspacing="0" cellpadding="0">
+   <tr>
+      <td>枚举值</td>
+      <td>说明</td>
+   </tr>
+   <tr>
+      <td>1</td>
+      <td>退款单初始态</td>
+   </tr>
+   <tr>
+      <td>2</td>
+      <td>退款单成功态</td>
+   </tr>
+   <tr>
+      <td>3</td>
+      <td>申请退款失败</td>
+   </tr>
+</table>
+
+#### CardRefundOrderState 枚举变量
 <table  border="0" cellspacing="0" cellpadding="0">
    <tr>
       <td>枚举值</td>

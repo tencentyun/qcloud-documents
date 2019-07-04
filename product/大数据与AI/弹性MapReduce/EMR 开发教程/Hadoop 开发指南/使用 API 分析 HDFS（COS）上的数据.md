@@ -54,9 +54,9 @@ Hello world, how are you?
 
 如果 Hadoop 下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 
-`[hadoop@172 hadoop]$ hadoop fs –mkdir /user`
+`[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop`
 
-更多 Hadoop 指令见 HDFS 常见操作。
+更多 hadoop 指令见 HDFS 常见操作。
 
 ### 数据存放在 COS
 数据存放在 COS 中有两种方式：**从本地直接通过 COS 的控制台上传** 和 **通过 Hadoop 命令上传**。
@@ -149,7 +149,7 @@ simple
         </plugins>
 </build>
 ```
-在 src>main>java 下右键新建一个 Java Class，输入 Class 名，这里使用 MRWordCount，在 Class 添加样例代码：
+在 src>main>java 下右键新建一个 Java Class，输入 Class 名，这里使用 WordCount，在 Class 添加样例代码：
 ```
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -247,16 +247,16 @@ public class WordCount {
 
 ```
 [hadoop@10              hadoop]$                  bin/hadoop                   jar 
-/usr/local/service/hadoop/MRWordCount-1.0-SNAPSHOT-jar-with-dependencies.jar
-WordCount /user/hadoop/test.txt /user/hadoop/MRWordCount_output
+/usr/local/service/hadoop/WordCount-1.0-SNAPSHOT-jar-with-dependencies.jar
+WordCount /user/hadoop/test.txt /user/hadoop/WordCount_output
 ```
 >**注意:**
->以上整个命令为一条完整的指令，`/user/hadoop/ test.txt` 为输入的待处理文件，`/user/hadoop/ MRWordCount_output` 为输出文件夹，在提交命令之前要保证`MRWordCount_output` 文件夹尚未创建，否则提交会出错。
+>以上整个命令为一条完整的指令，`/user/hadoop/ test.txt` 为输入的待处理文件，`/user/hadoop/ WordCount_output` 为输出文件夹，在提交命令之前要保证`WordCount_output` 文件夹尚未创建，否则提交会出错。
 
 执行完成后，通过如下命令查看执行输出文件：
 
 ```
-[hadoop@172 hadoop]$ hadoop fs -ls /user/hadoop/MRWordCount_output
+[hadoop@172 hadoop]$ hadoop fs -ls /user/hadoop/WordCount_output
 Found 2 items
 -rw-r--r-- 3 hadoop supergroup 0 2018-07-06 11:35 /user/hadoop/MEWordCount_output/_SUCCESS
 -rw-r--r-- 3 hadoop supergroup 82 2018-07-06 11:35 /user/hadoop/MEWordCount_output/part-r-00000
@@ -281,19 +281,19 @@ you?	1……
 进入 `/usr/local/service/hadoop` 目录。通过如下命令来提交任务：
 ```
 [hadoop@10                 hadoop]$                  hadoop                  jar
-/usr/local/service/hadoop/MRWordCount-1.0-SNAPSHOT-jar-with-dependencies.jar
-WordCount cosn://$bucketname/test.txt cosn://$bucketname /MRWordCount_output
+/usr/local/service/hadoop/WordCount-1.0-SNAPSHOT-jar-with-dependencies.jar
+WordCount cosn://$bucketname/test.txt cosn://$bucketname /WordCount_output
 ```
 命令的输入文件改为了 `cosn:// $bucketname/ test.txt`，其中 $bucketname 为您的存储桶名字加路径。处理结果同样也输出到 COS 中。使用如下指令查看输出文件：
 ```
-[hadoop@10 hadoop]$ hadoop fs -ls cosn:// $bucketname /MRWordCount_output
+[hadoop@10 hadoop]$ hadoop fs -ls cosn:// $bucketname /WordCount_output
 Found 2 items
--rw-rw-rw- 1 hadoop Hadoop 0 2018-07-06 10:34 cosn://$bucketname /MRWordCount_output/_SUCCESS
--rw-rw-rw- 1 hadoop Hadoop 1306 2018-07-06 10:34 cosn://$bucketname /MRWordCount_output/part-r-00000
+-rw-rw-rw- 1 hadoop Hadoop 0 2018-07-06 10:34 cosn://$bucketname /WordCount_output/_SUCCESS
+-rw-rw-rw- 1 hadoop Hadoop 1306 2018-07-06 10:34 cosn://$bucketname /WordCount_output/part-r-00000
 ```
 查看最后输出的结果：
 ```
-[hadoop@10 hadoop]$ hadoop fs -cat cosn:// $bucketname /MRWordCount_output1/part-r-00000
+[hadoop@10 hadoop]$ hadoop fs -cat cosn:// $bucketname /WordCount_output1/part-r-00000
 Hello	2
 World.	1
 a	1
@@ -306,7 +306,4 @@ this	2
 world,	1
 you?	1
 ```
-
-
-
 

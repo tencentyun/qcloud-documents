@@ -17,7 +17,7 @@
 
 **1.1 下载 JDK**
 可以通过`wget`命令获取，如果需要其他不同版本也可以在官网进行下载。
-建议使用 1.7 以上版本的 JDK，本教程的版本为 jdk1.7.0_79。
+建议使用1.7以上版本的 JDK，本教程的版本为 jdk1.7.0_79。
 
 **1.2 移动到固定文件夹并解压缩**
 ```
@@ -51,6 +51,9 @@ cd  $JAVA_HOME/bin
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
 ### 2. 下载 Kafka 工具包
+>!
+> - 以下操作过程中提到的 $ip $port 变量，均指 CKafka 的接入 IP 和 port。
+> - CKafka 实例可提供多个接入点（接入点指 $ip $port，最多支持6个接入点），满足多种网络环境下客户端的访问请求。在进行测试时，客户选择对应网络环境的接入点即可，例如客户端云服务器是私有网络环境，则选择私有网络下的 CKafka 接入点 $ip $port 进行测试即可。 接入点信息可以在实例详情页查看。
 
 下载并解压 Kafka 安装包。（[Kafka 安装包官网下载地址>>](http://kafka.apache.org/downloads)）
 当前 CKafka 100%兼容 Kafka 0.9 0.10版本，推荐0.10.2版本的安装包。建议您下载相应版本的安装包。
@@ -62,7 +65,7 @@ tar -C /opt -xzvf kafka_2.10-0.10.2.0.tgz    //解压到相应的目录中
 下载解压完成后，无需配置其他环境，直接可用。
 可以通过 telnet 指令测试本机是否连通到 CKafka 实例：
 ```
-telnet IP 9092
+telnet $ip $port
 ```
 ![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
@@ -70,7 +73,7 @@ telnet IP 9092
 
 **发送消息：**
 ```
-./kafka-console-producer.sh --broker-list xxx.xxx.xxx.xxx:9092 --topic topicName
+./kafka-console-producer.sh --broker-list $ip $port --topic topicName
 This is a message
 This is another message
 ```
@@ -78,7 +81,7 @@ This is another message
 
 **接收消息(CKafka 默认隐藏 Zookeeper 集群)：**
 ```
-./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName
+./kafka-console-consumer.sh --bootstrap-server $ip $port --from-beginning --new-consumer --topic topicName
 This is a message
 This is another message
 ```
@@ -87,10 +90,10 @@ This is another message
 
 配置完成后，指定 consumer group 的命令如下所示：
 ```
-./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
+./kafka-console-consumer.sh --bootstrap-server $ip $port --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
-> ?ConsumerConfig 参数配置中，建议将 auto.offset.reset 配置为 earliest，防止新的消费者分组不存在时，漏消费消息的情况发生。 
+> ?ConsumerConfig 参数配置中，建议将 auto.offset.reset 配置为 earliest，防止新的消费者分组不存在时，遗漏消费消息的情况发生。 
 原因：当创建一个新分组的消费者时，auto.offset.reset 值为 latest 时，表示消费最新的数据，即从 consumer 创建后生产的数据。这样会导致之前产生的数据不消费。
 
 查看对应的 CKafka 监控：
-![](https://mc.qcloudimg.com/static/img/12d49f97cc2562be26c16c193cb4297c/6.png)
+![](https://main.qcloudimg.com/raw/0f958700c2ce2fa1654269f918660584.png)

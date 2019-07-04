@@ -14,7 +14,7 @@
 ![图片](https://main.qcloudimg.com/raw/db44c1a56a56f066fc6148fb9055dcfb.png)
 
 ### 通用 HTML5
-微信公众号是使用人脸核身·云智慧眼产品的主要场景之一，人脸核身·云智慧眼产品为您提供用于微信公众号的 HTML5接口。
+微信公众号是使用腾讯云人脸核身产品的主要场景之一，腾讯云人脸核身产品为您提供用于微信公众号的 HTML5接口。
 使用流程：
 ![图片](https://main.qcloudimg.com/raw/7a2cc25e7e5cbfc7bab3c815d7d53838.png)
 
@@ -23,10 +23,10 @@
 1. 前置流程：
    - [创建 API 密钥](https://console.cloud.tencent.com/cam/capi)（SecretId 和 SecretKey）
    - 审批发起的核身请求
-2. 客户后端调用实名核身鉴权 API DetectAuth 接口进行核身流程开启前鉴权，获取业务流水号（BizToken）与微信跳转 URL。
-3. 根据客户自身需求，按照不同的方式跳转进入人脸核身·云智慧眼流程。
+2. 客户后端调用实名核身鉴权 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口进行核身流程开启前鉴权，获取业务流水号（BizToken）与微信跳转 URL。
+3. 根据客户自身需求，按照不同的方式跳转进入腾讯云人脸核身流程。
    - 微信原生 HTML5模式（浮层模式）：客户后端将步骤2中得到的 URL 返回给客户前端，让前端跳转至此 URL 即可。
    - 微信公众号通用 HTML5模式：客户后端将步骤2中得到的 URL 返回给客户前端，让前端跳转至此 URL 即可。
-4. 人脸核身完成后，流程会回调至客户侧（HTML5类型以回调地址形式返回），此时客户后端即可凭借回调中提供的 BizToken 调用获取实名核身结果信息 GetDetectInfo 接口去获取本次核身的详细信息。
+4. 人脸核身完成后，流程会回调至客户侧（HTML5类型以回调地址形式返回），此时客户后端即可凭借回调中提供的 BizToken 调用获取实名核身结果信息  [GetDetectInfo](https://cloud.tencent.com/document/api/1007/31331) 接口去获取本次核身的详细信息。
 
 

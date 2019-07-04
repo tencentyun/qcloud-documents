@@ -1,18 +1,16 @@
-当您已经拥有所要调用 API 的 secret_id 和 secret_key，并且了解相关API 的 URL 及所需参数等，即可进行调用。
-当您在调用时，无论使用 http 还是 https，都需要在请求头中包含签名信息，有关签名的计算详见 [密钥对计算](https://cloud.tencent.com/document/product/628/11819)。
+当您已经拥有所要调用 API 的 secret_id 和 secret_key，并且了解相关 API 的 URL 及所需参数等，即可进行调用。
+当您在调用 API 时，无论使用 HTTP 还是 HTTPS，都需要在请求头中包含签名信息，有关签名的计算详见 [密钥对计算](https://cloud.tencent.com/document/product/628/11819)。
 
 具体步骤如下：
-
 ## 请求
-
+>!发起请求不是在 API 网关控制台上进行。用户可以通过浏览器、浏览器插件、postman、客户端等来源发起请求。
 #### 地址
-
 <pre><code>http://service-kuy3rwbs-1251762227.ap-guangzhou.apigateway.myqcloud.com/release
-//请填入您所要调用的API服务URL
+//请填入您所要调用的 API 服务 URL
 </code></pre>
+URL 拼接规则为：服务路径 + 环境参数 + API path
 
 #### 方法
-
 <pre><code>POST
 </code></pre>
 
@@ -44,7 +42,7 @@ Authorization: hmac id="AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN", algorithm="hmac-s
 #### 响应码
 
 <pre><code>200
-//响应状态码，大于等于 200 小于 300 表示成功；大于等于 400 小于 500 为客户端错误；大于 500 为服务端错误。
+//响应状态码（n），200 ≤ n ＜ 300表示成功；300 ≤ n ＜ 400表示重定向，需要进一步的操作以完成请求；400 ≤ n ＜500为客户端错误；n ＞ 500 为服务端错误。
 </code></pre>
 
 #### 响应头
@@ -56,11 +54,13 @@ Server: squid/3.5.20
 Connection: close
 Set-Cookie:1P_JAR=2017-09-18-06; expires=Mon, 25-Sep-2017 06:46:04 GMT; path=/; domain=.qq.com
 X-Secret-ID:AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN
-//密钥对中的secret_id
+//密钥对中的 secret_id
 X-UsagePlan-ID:Q6BAxvHtyckhWABJVYSBj
-//密钥对绑定的使用计划id
+//密钥对绑定的使用计划 ID
 X-RateLimit-Limit:500
 //使用计划中的限流配置
 X-RateLimit-Used:100/125
 //使用计划中的限流使用情况
 </code></pre>
+
+

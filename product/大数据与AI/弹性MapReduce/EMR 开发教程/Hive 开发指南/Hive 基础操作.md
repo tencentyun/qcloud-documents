@@ -1,8 +1,8 @@
-Hive 是一个建立在 Hadoop 文件系统上的数据仓库架构，它为数据仓库的管理提供了许多功能：如数据 ETL（抽取、转换和加载）工具、数据存储管理和大型数据集的查询和分析能力。同时 Hive 还定义了类 SQL的语言Hive-SQL。Hive-SQL 允许用户进行和 SQL 相似的操作，它可以将结构化的数据文件映射为一张数据库表，并提供简单的 SQL 查询功能。还允许开发人员方便地使用 Mapper 和 Reducer 操作，可以将 SQL 语句转换为 MapReduce 任务运行，这对 MapReduce 框架来说是一个强有力的支持。其优点是学习成本低，可以通过类SQL语句快速实现简单的MapReduce统计，不必开发专门的MapReduce应用，十分适合数据仓库的统计分析。
+Hive 是一个建立在 Hadoop 文件系统上的数据仓库架构，它为数据仓库的管理提供了许多功能：如数据 ETL（抽取、转换和加载）工具、数据存储管理和大型数据集的查询和分析能力。同时 Hive 还定义了类 SQL 的语言 Hive-SQL。Hive-SQL 允许用户进行和 SQL 相似的操作，它可以将结构化的数据文件映射为一张数据库表，并提供简单的 SQL 查询功能。还允许开发人员方便地使用 Mapper 和 Reducer 操作，可以将 SQL 语句转换为 MapReduce 任务运行，这对 MapReduce 框架来说是一个强有力的支持。其优点是学习成本低，可以通过类 SQL 语句快速实现简单的 MapReduce 统计，不必开发专门的 MapReduce 应用，十分适合数据仓库的统计分析。
 
-Hive使用Hadoop的HDFS作为文件的存储系统，很容易扩展自己的存储能力和计算能力，可以达到hadoop所能达到的横向扩展能力，数千台服务器的集群已不难做到，是为海量数据做数据挖掘而设计，不过实时性比较差。
+Hive 使用 Hadoop 的 HDFS 作为文件的存储系统，很容易扩展自己的存储能力和计算能力，可以达到 Hadoop 所能达到的横向扩展能力，数千台服务器的集群已不难做到，是为海量数据做数据挖掘而设计，不过实时性比较差。
 
-这里主要介绍Hive的内部表和外部表。内部表实际上是将hdfs的文件映射成table，然后hive的数据仓库会生成对应的目录，EMR中默认的仓库路径为：usr/hive/warehouse/$tablename，注意这个路径在hdfs上面，其中$tablename是您创建的表名。这时只要将符合table定义的文件加载到该目录便可通过Hql（Hive-SQL）对整个目录的文件进行查询了。
+这里主要介绍 Hive 的内部表和外部表。内部表实际上是将 hdfs 的文件映射成 table，然后 Hive 的数据仓库会生成对应的目录，EMR 中默认的仓库路径为：usr/hive/warehouse/$tablename，注意这个路径在 hdfs 上面，其中 $tablename 是您创建的表名。这时只要将符合 table 定义的文件加载到该目录便可通过 Hql（Hive-SQL）对整个目录的文件进行查询了。
 
 Hive 中的外部表和表很类似，但是其数据不是放在自己表所属的目录中，而是存放到别处，这样的好处是如果您要删除这个外部表，该外部表所指向的数据是不会被删除的，它只会删除外部表对应的元数据；而如果您要删除内部表，该表对应的所有数据包括元数据都会被删除。
 
@@ -21,7 +21,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
 
@@ -32,16 +32,17 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 MAXROW=1000000 #指定生成数据行数
 for((i = 0; i < $MAXROW; i++))
 do
-　　　echo $RANDOM, \"$RANDOM\"
+    echo $RANDOM, \"$RANDOM\"
 done
 ```
 并按如下方式执行：
 
 ```
+[hadoop@172 hive]$ chmod +x 脚本名称
 [hadoop@172 hive]$ ./gen_data.sh > hive_test.data
 ```
 
-这个脚本文件会生成 1000000 个随机数对，并且保存到文件 hive_test.data 中。
+这个脚本文件会生成1000000个随机数对，并且保存到文件 hive_test.data 中。
 使用如下指令把生成的测试数据先上传到 HDFS 中：
 
 `[hadoop@172 hive]$ hdfs dfs -put ./hive_test.data /$hdfspath`
@@ -60,7 +61,7 @@ done
 ```
 [hadoop@172 hive]$ su hadoop
 [hadoop@172 hive]$ cd /usr/local/service/hive/bin
-[hadoop@172 hive]$ bin/hive
+[hadoop@172 bin]$ hive
 ```
 用户也可以使用`-h`参数来获取 Hive 指令的基本信息。
 也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中, 获得 hive server2 的连接端口 $port 和 host 地址 $hos：
@@ -96,7 +97,7 @@ Time taken: 0.26 seconds, Fetched: 1 row(s)
 使用`create`指令创建一个数据库：
 
 ```
-hive> create database test;                  #创建数据库test
+hive> create database test;                  #创建数据库 test
 OK
 Time taken: 0.176 seconds
 ```
@@ -111,8 +112,8 @@ Time taken: 0.176 seconds
 
 ```
 hive> create table hive_test (a int, b string)
-hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ‘,’;
-#创建数据表hive_test, 并指定列分割符为’,’
+hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+#创建数据表 hive_test, 并指定列分割符为','
 OK
 Time taken: 0.204 seconds
 ```

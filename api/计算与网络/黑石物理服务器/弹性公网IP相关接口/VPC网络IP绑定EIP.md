@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 EipBmBindVpcIp接口用于绑定黑石弹性公网IP到黑石VPC的IP上（非黑石物理机IP）。区别于[EipBmBindRs](/document/product/386/6673)，该接口主要适用于客户使用黑石的半托管服务或者在黑石物理集群中创建自己的云服务器，同时又需要这些半托管的设备或者云服务器出公网的场景。
 
@@ -33,12 +36,12 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "requestId": <EIP异步任务ID>
-    }
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "data": {
+  "requestId": "<EIP异步任务ID>"
+ }
 }
 ```
 ### 响应参数

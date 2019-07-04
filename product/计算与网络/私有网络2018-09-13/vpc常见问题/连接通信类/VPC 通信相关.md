@@ -1,17 +1,24 @@
-### 同一 VPC 不同子网的云服务器、云数据库等可以实现内网互通吗？
-同一 VPC 下的所有资源（云服务器、云数据库等），无论是否在一个子网中，都默认内网互通。您可在每个路由表中都看到一条 [Local，Local，Local] 的路由规则，即表示该 VPC 内所有子网资源内网互通。且一个私有网络下，不同子网所在可用区的不同（如广州一区、广州二区），也不会影响此特性。
-例如，您的一个 VPC 属于广州地域，包含三个子网，分别是广州一区、广州二区、广州三区，每个子网内都有云服务器或云数据库等资源默认内网互通。
+### 云服务器/数据库如何内网通信？
+VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通信，因此无差异。内网 IP 不同场景的通信方式如下：
 
-### 如何实现不同 VPC 间云服务器、云数据库等资源内网互通？
-每个 VPC，无论属于同一账号还是不同账号，都是一个逻辑隔离的网络空间，默认无法互通。
-您可以使用 [对等连接](https://cloud.tencent.com/document/product/553) 或 [云联网](https://cloud.tencent.com/document/product/877) 来实现 VPC 间的通信，但需要互通的 VPC 网段（即 CIDR ）不能重叠。
-对等连接和云联网的收费方式，详情请参考 [对等连接计费详情](https://cloud.tencent.com/document/product/553/18833)、[云联网计费详情](https://cloud.tencent.com/document/product/877/18676)。
-- 同账号互通示例：您有两个 VPC，分别包含云服务器或云数据库等资源，需要这些资源实现内网互通，可以建立 [同账号对等连接](https://cloud.tencent.com/document/product/553/18836)。
-- 跨账号互通示例：您有一个 VPC A，需要与另一个账号的 VPC B 中的资源（云服务器、云数据库等）实现内网互通，无论两个 VPC 是否在同一个地域，您都可以建立 [跨账号对等连接](https://cloud.tencent.com/document/product/553/18837)。
-- 错误示例：不同 VPC 下的资源，即使内网 IP 在同一网段内甚至完全相同，都无法实现互通。
+| 通信场景 | 通信方案 |
+|---------------|------------|
+| 不同地域 | 不同地域的云服务器或数据库属于不同 VPC，通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 不同可用区 | 同 VPC： 默认互通<br>不同 VPC： 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 不同VPC | 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 不同子网 | 同 VPC：默认互通<br>不同 VPC： 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
+| 跨账号 | 跨账号 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨地域均支持）通信 |
+ 
+>! 同 VPC 下不同子网间（不论是否在同一可用区），**内网默认互通**，如果不通，请优先排查 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 等防火墙策略。
 
->**注意：**
-如果您的两个 VPC 网段已经重叠，您可以参考 [网段重叠解决方法](https://cloud.tencent.com/document/product/215/30101#.E5.A6.82.E4.BD.95.E5.A4.84.E7.90.86.E5.9B.A0-vpc-.E7.BD.91.E6.AE.B5.E5.86.B2.E7.AA.81.E8.80.8C.E6.97.A0.E6.B3.95.E5.BB.BA.E7.AB.8B.E5.AF.B9.E7.AD.89.E8.BF.9E.E6.8E.A5.E7.9A.84.E9.97.AE.E9.A2.98.EF.BC.9F)。
+### VPC 如何与基础网络、公网、其他 VPC、数据中心等通信？
+| 通信类型 | 通信方法 |
+|---------------|------------|
+| VPC 与基础网络内云服务器通信 | [基础网络互通](https://cloud.tencent.com/document/product/215/20083)|
+| 访问公网 | [NAT 网关](https://cloud.tencent.com/document/product/552) / [弹性 IP](https://cloud.tencent.com/document/product/215/20080) / [公网网关](https://cloud.tencent.com/document/product/215/20078) |
+| 与其他 VPC 通信 | [对等连接](https://cloud.tencent.com/document/product/553) / [云联网](https://cloud.tencent.com/document/product/877) （同/跨账号均支持）|
+| 连接数据中心 | [VPN 连接](https://cloud.tencent.com/document/product/554) / [专线接入](https://cloud.tencent.com/document/product/216) / [云联网](https://cloud.tencent.com/document/product/877) |
+
 
 ### 如何处理因 VPC 网段冲突而无法建立对等连接的问题？
 建立对等连接时，要求两端 VPC 的 CIDR 不可以重叠，否则无法建立对等连接。

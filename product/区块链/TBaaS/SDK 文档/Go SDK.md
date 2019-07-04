@@ -1,11 +1,11 @@
 ## 简介
 
-欢迎使用腾讯云 TBaas 产品开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。为方便 Go 开发者调试和接入腾讯云 TBaas 产品 API，这里向您介绍适用于 Go 的腾讯云 TBaas 产品开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 TBaas 产品 Go SDK 并开始调用。
+欢迎使用腾讯云 TBaaS 产品开发者工具套件（SDK）3.0，SDK3.0 是云 API3.0 平台的配套工具。为方便 Go 开发者调试和接入腾讯云 TBaaS 产品 API，这里向您介绍适用于 Go 的腾讯云 TBaaS 产品开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 TBaaS 产品 Go SDK 并开始调用。
 
 ## 依赖环境
 
 1.	依赖环境：Go 1.9版本及以上，并设置好 GOPATH 等必须的环境变量。
-2.	通过腾讯云控制台开通 TBaas 产品。
+2.	通过腾讯云控制台开通 TBaaS 产品。
 3.	获取 [SecretID、SecretKey](https://console.cloud.tencent.com/cam/capi) 以及调用地址（tbaas.tencentcloudapi.com）。
 
 ## 获取安装
@@ -45,48 +45,42 @@ import (
 
 func main() {
 	// 必要步骤：
-	// 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId，secretKey。
+	// 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
 	credential := common.NewCredential("secretId", "secretKey")
-	// 非必要步骤
 	// 实例化一个客户端配置对象，可以指定超时时间等配置
 	cpf := profile.NewClientProfile()
-	// SDK 有默认的超时时间，非必要请不要进行调整。
+	// SDK有默认的超时时间，非必要请不要进行调整。
 	// 如有需要请在代码中查阅以获取最新的默认值。
 	cpf.HttpProfile.ReqTimeout = 10
+     // 设置访问域名
 	// SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务，
 	// 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
 	cpf.HttpProfile.Endpoint = "tbaas.tencentcloudapi.com"
-	// SDK 默认用 HmacSHA256 进行签名，它更安全但是会轻微降低性能。
-	// 非必要请不要修改这个字段。
-	cpf.SignMethod = "HmacSHA1"
-	// 实例化要请求产品的 client 对象
-	// 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量
+	// 实例化Tbaas的client对象
+	// 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
 	client, _ := tbaas.NewClient(credential, regions.Guangzhou, cpf)
 	// 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	// 您可以直接查询 SDK 源码确定 NewInvokeRequest 有哪些属性可以设置。
-	// 属性可能是基本类型，也可能引用了另一个数据结构。
-	// 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明。
 	request := tbaas.NewInvokeRequest()
-	// 使用 json 字符串设置一个 request
 	params := `{"Module" : "transaction","Operation" : "invoke","ClusterId" : "251005746ctestenv", "Peers" : [{"PeerName": "peer0.pettycorg.ctestenv","OrgName": "pettycOrg"},{"PeerName": "peer0.youtucorg.ctestenv","OrgName": "youtucOrg"},], "ChannelName" : "pettyc1","ChaincodeName" : "pettycc1","FuncName" : "invoke","Args" : ["b","a","25"],"AsyncFlag" : 0}`
 	err := request.FromJsonString(params)
 	if err != nil {
 		panic(err)
 	}
-	// 通过 client 对象调用想要访问的接口，需要传入请求对象
+	// 通过client对象调用想要访问的接口，需要传入请求对象
 	response, err := client.Invoke(request)
 	// 处理异常
 	if _, ok := err.(*errors.TencentCloudSDKError); ok {
 		fmt.Printf("An API error has returned: %s", err)
 		return
 	}
-	// 非 SDK 异常，直接失败。实际代码中可以加入其他的处理。
+	// 非SDK异常，直接失败。实际代码中可以加入其他的处理。
 	if err != nil {
 		panic(err)
 	}
-	// 打印返回的 json 字符串
+	// 打印返回的json字符串
 	fmt.Printf("%s", response.ToJsonString())
 }
+
 
 ```
 

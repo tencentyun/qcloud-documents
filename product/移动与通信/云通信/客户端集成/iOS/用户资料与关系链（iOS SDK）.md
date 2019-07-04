@@ -1,452 +1,13 @@
-IM 通讯云提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
+云通信 IM 提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
 
-## 关系链资料介绍
 
-用户关系链是指好友关系，通过接口可以实现加好友、解除好友、获取好友列表等操作。用户资料保存用户的信息，比如昵称、头像等，另外，还有一种好友资料，只跟好友相关比如备注，分组等。
-
-## 设置自己的资料
-
-### 设置自己的昵称
- 
-可通过 `TIMFriendshipManager` 的 `SetNickname` 方法设置用户自己的昵称，昵称最大为 64 字节。 
-
-**原型： **
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置自己的昵称
- *
- *  @param nick 昵称
- *  @param succ 成功回调
- *  @param fail 失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetNickname:(NSString*)nick succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数  | 说明
---- | ---
-nick | 要设置的昵称 
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0  | 表示发送数据成功 
-非 0 |  表示发送数据失败 
-
-此示例设置自己的昵称为 `nickname`。**示例：**
-
-```
-NSString * nick = @"nickname";
-
-[[TIMFriendshipManager sharedInstance] SetNickname:nick succ:^() {
-	NSLog(@"SetNickname Succ");
-} fail:^(int code, NSString * err) {
-	NSLog(@"SetNickname fail: code=%d err=%@", code, err);
-}];
-```
-
-### 设置好友验证方式 
-
-可通过 `TIMFriendshipManager` 的 `SetAllowType` 方法设置好友验证方式，用户可根据需要设置其中一种，**目前没有方法设置默认的好友验证方式，默认都是任何人可加好友**。有以下几种验证方式：
-
-- 同意任何用户加好友
-- 拒绝任何人加好友
-- 需要验证
-
-**原型： **
-
-```
-typedef NS_ENUM(NSInteger, TIMFriendAllowType) {
-    /**
-     *  同意任何用户加好友
-     */
-    TIM_FRIEND_ALLOW_ANY                    = 0,
-    /**
-     *  拒绝任何人加好友
-     */
-    TIM_FRIEND_DENY_ANY                     = 1,    
-    /**
-     *  需要验证
-     */
-    TIM_FRIEND_NEED_CONFIRM                 = 2,
-};
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置好友验证方式
- *
- *  @param allowType 好友验证方式，详见 TIMFriendAllowType
- *  @param succ 成功回调
- *  @param fail 失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetAllowType:(TIMFriendAllowType)allowType succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数  | 说明
---- | ---
-allowType | 好友验证方式，详见 TIMFriendAllowType<br>TIM_FRIEND_ALLOW_ANY：同意任何用户加好友<br>TIM_FRIEND_DENY_ANY：拒绝任何人加好友<br>TIM_FRIEND_NEED_CONFIRM：需要验证 
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
- 
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非0 | 表示发送数据失败 
-
-此示例中设置了自己的好友验证方式为需要验证，此时如果有用户申请加好友，会收到加好友的系统通知（详见 [关系链变更系统通知](#.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)）。**示例：**
-
-```
-TIMFriendAllowType allowType = TIM_FRIEND_NEED_CONFIRM;
-[[TIMFriendshipManager sharedInstance] SetAllowType:allowType succ:^() {
-	NSLog(@"SetAllowType Succ");
-} fail:^(int code, NSString * err) {
-	NSLog(@"SetAllowType fail: code=%d err=%@", code, err);
-}];
-```
-
-### 设置自己的头像
- 
-`TIMFriendshipManager` 的 `SetFaceURL` 方法设置用户自己的头像，当前 ImSDK 不会保存用户图片资源，需要用户上传图片到其他存储平台，通过 ImSDK 设置图片 URL。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置自己的头像
- *
- *  @param faceURL 头像
- *  @param succ 成功回调
- *  @param fail 失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetFaceURL:(NSString*)faceURL succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-faceURL | 要设置的头像 
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败 
-
-**示例：**
-
-```
-NSString * faceUrl = @"http://faceurl";
-
-[[TIMFriendshipManager sharedInstance] SetFaceURL:faceUrl succ:^() {
-	NSLog(@"SetFaceURL Succ");
-} fail:^(int code, NSString * err) {
-	NSLog(@"SetFaceURL fail: code=%d err=%@", code, err);
-}];
-```
-
-### 设置自己的自定义字段
-
-通过 Server 配置（内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能，如用户性别、地址等字段。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置自定义属性
- *
- *  @param custom 自定义属性（NSString*,NSData*）
- *  @param succ   成功回调
- *  @param fail   失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetCustom:(NSDictionary*)custom succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-custom | 自定义属性，字典类型 key 为 `NSString*`， value 为 `NSData*`
-succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-### 设置个性签名
-
-云通信支持个性签名，用户设置后所有人可见。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置签名
- *
- *  @param signature 签名
- *  @param succ      成功回调
- *  @param fail      失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetSelfSignature:(NSData*)signature succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-signature | 个性签名，二进制数据
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-### 设置自己的性别
-
-云通信支持设置自己的性别，设置后所有人可见。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置用户性别
- *
- *  @param gender 用户性别
- *  @param succ   成功回调
- *  @param fail   失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetGender:(TIMGender)gender succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-gender | 用户性别
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-### 设置自己的生日
-
-云通信支持设置自己的生日，设置后所有人可见。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置用户生日
- *
- *  @param birthday 用户生日
- *  @param succ     成功回调
- *  @param fail     失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetBirthday:(uint32_t)birthday succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-birthday | 用户生日
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-### 设置自己的语言
-
-云通信支持设置自己的语言，设置后所有人可见。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置用户语言
- *
- *  @param language 语言编号
- *  @param succ     成功回调
- *  @param fail     失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetLanguage:(uint32_t)language succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-language | 用户语言
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-### 设置自己的地域
-
-云通信支持设置自己的地域，设置后所有人可见。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置用户地域
- *
- *  @param location 地域
- *  @param succ     成功回调
- *  @param fail     失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) SetLocation:(NSData*)location succ:(TIMSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
- 
-参数 | 说明
---- | ---
-location | 用户地域
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
-
-## 获取资料
+## 用户资料
 
 ### 获取自己的资料 
 
-可通过 `TIMFriendshipManager` 的 `GetSelfProfile` 方法获取用户自己的资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
-
-**原型：**
+可通过 `TIMFriendshipManager` 的 `getSelfProfile` 方法获取用户自己的资料。
 
 ```
-/**
- *  好友资料
- */
-@interface TIMUserProfile : TIMCodingModel
-/**
- *  用户 identifier
- */
-@property(nonatomic,strong) NSString* identifier;
-/**
- *  用户昵称
- */
-@property(nonatomic,strong) NSString* nickname;
-/**
- *  用户备注（最大 96 字节，获取自己资料时，该字段为空）
- */
-@property(nonatomic,strong) NSString* remark;
-/**
- *  好友验证方式
- */
-@property(nonatomic,assign) TIMFriendAllowType allowType;
-/**
- * 用户头像
- */
-@property(nonatomic,strong) NSString* faceURL;
-/**
- *  用户签名
- */
-@property(nonatomic,strong) NSData* selfSignature;
-/**
- *  好友性别
- */
-@property(nonatomic,assign) TIMGender gender;
-/**
- *  好友生日
- */
-@property(nonatomic,assign) uint32_t birthday;
-/**
- *  好友区域
- */
-@property(nonatomic,strong) NSData* location;
-/**
- *  好友语言
- */
-@property(nonatomic,assign) uint32_t language;
-/**
- *  好友分组名称 NSString* 列表
- */
-@property(nonatomic,strong) NSArray* friendGroups;
-/**
- *  自定义字段集合,key 是 NSString* 类型,value 是 NSData* 类型
- *  (key 值按照后台配置的字符串传入)
- */
-@property(nonatomic,strong) NSDictionary* customInfo;
-@end
-@interface TIMFriendshipManager : NSObject
 /**
  *  获取自己的资料
  *
@@ -455,365 +16,371 @@ fail | 失败回调，会返回错误码和错误信息，详见错误码表
  *
  *  @return 0 发送请求成功
  */
--(int) GetSelfProfile:(TIMGetProfileSucc)succ fail:(TIMFail)fail;
+- (int)getSelfProfile:(TIMGetProfileSucc)succ fail:(TIMFail)fail;
+```
+
+如果获取成功，succ 回调会返回获取到的`TIMUserProfile`对象。`TIMUserProfile`的定义如下：
+
+```
+/**
+ *  用户资料
+ */
+@interface TIMUserProfile : TIMCodingModel
+
+/**
+ *  用户 identifier
+ */
+@property(nonatomic,strong) NSString* identifier;
+
+/**
+ *  用户昵称
+ */
+@property(nonatomic,strong) NSString* nickname;
+
+/**
+ *  好友验证方式
+ */
+@property(nonatomic,assign) TIMFriendAllowType allowType;
+
+/**
+ * 用户头像
+ */
+@property(nonatomic,strong) NSString* faceURL;
+
+/**
+ *  用户签名
+ */
+@property(nonatomic,strong) NSData* selfSignature;
+
+/**
+ *  用户性别
+ */
+@property(nonatomic,assign) TIMGender gender;
+
+/**
+ *  用户生日
+ */
+@property(nonatomic,assign) uint32_t birthday;
+
+/**
+ *  用户区域
+ */
+@property(nonatomic,strong) NSData* location;
+
+/**
+ *  用户语言
+ */
+@property(nonatomic,assign) uint32_t language;
+
+/**
+ *  等级
+ */
+@property(nonatomic,assign) uint32_t level;
+
+/**
+ *  角色
+ */
+@property(nonatomic,assign) uint32_t role;
+
+/**
+ *  自定义字段集合,key 是 NSString 类型,value 是 NSData 类型或者 NSNumber 类型
+ *  (key 值按照后台配置的字符串传入)
+ */
+@property(nonatomic,strong) NSDictionary* customInfo;
+
 @end
 ```
 
-**参数说明：**
- 
-参数 | 说明
---- | ---
-succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
 
-**返回值：**
 
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
+### 获取指定用户的资料
 
-**`TIMUserProfile` 属性说明：**
+可通过 `TIMFriendshipManager` 的 `getUsersProfile` 方法获取指定用户的资料。该方法支持从缓存和后台两种方式获取，当 forceUpdate = YES 时，会强制从后台拉取数据，并把返回的数据缓存下来；当 forceUpdate = NO 时，则先在本地查找，如果没有再向后台请求数据。建议只在显示资料的时候强制拉取，以减少等待时间。
 
-属性 | 说明
---- | ---
-identifier | 自己的用户标识 
-nickname | 自己的昵称 
-remark | 为空，获取好友资料时有效 
-allowType | 好友验证方式 
-location | 最长 16 字节
-friendGroups | 为空，获取好友资料时有效
-customInfo | 个人资料的自定义属性
-
-**示例：**
 
 ```
-[[TIMFriendshipManager sharedInstance] GetSelfProfile:^(TIMUserProfile * profile) {
-	NSLog(@"GetSelfProfile identifier=%@ nickname=%@ allowType=%d", profile.identifier, profile.nickname, profile.allowType);
-} fail:^(int code, NSString * err) {
-	NSLog(@"GetSelfProfile fail: code=%d err=%@", code, err);
-}];
-```
-
-### 获取好友的资料
- 
-可通过 `TIMFriendshipManager` 的 `GetFriendsProfile` 方法获取好友的资料（1.9 版本之前可以获取任何人资料，1.9 版本之后调用 `GetUsersProfile` 获取），默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用  [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。此接口从网路获取数据。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
 /**
- *  获取好友资料
+ *  获取指定好友资料
  *
- *  @param users 要获取的好友列表 NSString* 列表
- *  @param succ  成功回调，返回 TIMUserProfile* 列表
- *  @param fail  失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) GetFriendsProfile:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数 | 说明
---- | ---
-users | 用户列表，NSString\* 数组 
-succ | 成功回调，返回 TIMUserProfile 数组，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
-
-**`TIMUserProfile` 参数说明：** 
-
-字段 | 说明
---- | ---
-identifier | 好友的 identifier 
-nickname | 好友昵称 
-remark | 好友备注 
-allowType | 好友验证方式 
-
-示例中获取『iOS_002』和『iOS_003』两个用户的资料。 **示例：** 
-
-```
-NSMutableArray * arr = [[NSMutableArray alloc] init];
-[arr addObject:@"iOS_002"];
-[arr addObject:@"iOS_003"];
-[[TIMFriendshipManager sharedInstance] GetFriendsProfile:arr succ:^(NSArray * arr) {
-	for (TIMUserProfile * profile in arr) {
-		NSLog(@"user=%@", profile);
-	}
-}fail:^(int code, NSString * err) {
-	NSLog(@"GetFriendsProfile fail: code=%d err=%@", code, err);
-}];
-```
-
-### 获取任何人的资料
-
-1.9 以后版本可通过 `TIMFriendshipManager` 的 `GetUsersProfile` 方法获取任何用户公开资料，1.9 版本之前可以使用 `GetFriendsProfile` 获取所有人资料，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  获取指定用户资料
- *
- *  @param users 要获取的用户列表 NSString* 列表
- *  @param succ  成功回调，返回 TIMUserProfile* 列表
- *  @param fail  失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) GetUsersProfile:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数 | 说明
---- | ---
-users | 用户列表，NSString\* 数组 
-succ | 成功回调，返回 TIMUserProfile 数组，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
-
-**`TIMUserProfile` 参数说明：** 
-
-字段 | 说明
---- | ---
-identifier | 好友的 identifier 
-nickname | 好友昵称 
-remark | 好友备注 
-allowType | 好友验证方式 
-
-示例中获取『iOS_002』和『iOS_003』两个用户的资料。 **示例：** 
-
-```
-NSMutableArray * arr = [[NSMutableArray alloc] init];
-[arr addObject:@"iOS_002"];
-[arr addObject:@"iOS_003"];
-[[TIMFriendshipManager sharedInstance] GetUsersProfile:arr succ:^(NSArray * arr) {
-	for (TIMUserProfile * profile in arr) {
-		NSLog(@"user=%@", profile);
-	}
-}fail:^(int code, NSString * err) {
-	NSLog(@"GetFriendsProfile fail: code=%d err=%@", code, err);
-}];
-```
-
-### 按照字段获取用户资料
-
-1.9 以后版本可以设置所需要拉取的资料字段，方便更灵活的获取资料。
-
-**原型：**
-```
-@interface TIMFriendshipSetting : NSObject
-/**
- *  需要获取的好友信息标志（TIMProfileFlag）
- */
-@property(nonatomic,assign) uint64_t friendFlags;
-/**
- *  需要获取的好友自定义信息（NSString*）列表
- */
-@property(nonatomic,retain) NSArray * friendCustom;
-/**
- *  需要获取的用户自定义信息（NSString*）列表
- */
-@property(nonatomic,retain) NSArray * userCustom;
-@end
-@interface TIMManager : NSObject
-/**
- *  设置 TIMFriendshipManager 和 TIMFriendshipProxy 默认拉取的字段（不设置：默认拉取所有基本字段，不拉取自定义字段）
- *
- *  @param setting 设置参数
- *
- *  @return 0 成功
- */
--(int) initFriendshipSetting:(TIMFriendshipSetting*)setting;
-@end
-```
-
-**参数说明：**
-
-参数|说明
----|---
-setting|需要设置的配置：TIMFriendshipSetting<br>friendFlags 要拉取的基本字段，按位设置，说明详见 friendFlags<br>friendCustom 好友的自定义字段 key 列表<br>userCustom 用户自定义字段 key 列表
-
-## 关系链相关资料
-
-### 好友备注
- 
-可通过 `TIMFriendshipManager` 的 `SetFriendRemark` 方法设置好友备注，**需要注意好友备注必须先加为好友才可设置备注**。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  设置好友备注
- *
- *  @param identifier 用户标识
- *  @param nick 备注
+ *  @param users 用户 ID
+ *  @prarm forceUpdate 强制从后台拉取
  *  @param succ 成功回调
  *  @param fail 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) SetFriendRemark:(NSString*)identifier remark:(NSString*)remark succ:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)getUsersProfile:(NSArray<NSString *> *)users forceUpdate:(BOOL)forceUpdate succ:(TIMGetProfileArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
- 
-参数 | 说明
---- | ---
-identifier | 要设置备注的好友标识 
-remark | 要设置的备注 
-succ | 成功回调 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败 
-
-示例中设置好友『iOS_002』的备注为『002 remark』。 **示例：** 
+示例：获取『iOS_002』和『iOS_003』两个用户的资料
 
 ```
-NSString * remark= @"002 remark";
-NSString * identifier = @"iOS_002";
-[[TIMFriendshipManager sharedInstance] SetFriendRemark:identifier remark:remark succ:^() {
-	NSLog(@"SetFriendRemark Succ");
-} fail:^(int code, NSString * err) {
-	NSLog(@"SetFriendRemark fail: code=%d err=%@", code, err);
+NSMutableArray * arr = [[NSMutableArray alloc] init];
+[arr addObject:@"iOS_002"];
+[arr addObject:@"iOS_003"];
+[[TIMFriendshipManager sharedInstance] getUsersProfile:arr forceUpdate:NO succ:^(NSArray * arr) {
+	for (TIMUserProfile * profile in arr) {
+		NSLog(@"user=%@", profile);
+	}
+}fail:^(int code, NSString * err) {
+	NSLog(@"GetFriendsProfile fail: code=%d err=%@", code, err);
 }];
 ```
 
-### 设置好友自定义资料
+该示例关闭了强制后台拉取，优先从缓存中查找用户资料，可减少等待时间。缓存的时间可通过 TIMFriendProfileOption 设置，默认缓存时间一天。
+```
+/**
+ * 资料与关系链
+ */
+@interface TIMFriendProfileOption : NSObject
 
-通过 Server 配置（内测功能）可以设置自己的自定义字段，通过自定义字段可以做到很多非内置功能。**需要注意好友备注必须先加为好友才可设置备注**。 
+/**
+ * 关系链最大缓存时间
+ * 默认缓存一天；获取资料和关系链超过缓存时间，将自动向服务器发起请求
+ */
+@property NSInteger expiredSeconds;
 
-**原型：**
+@end
+```
+设置的过期时间方法是 `-[TIMManager setUserConfig:]`，示例代码：
+```
+TIMUserConfig *config = ...;
+TIMFriendProfileOption *option = [TIMFriendProfileOption new];
+option.expiredSeconds = 60*60; //1小时
+config.friendProfileOpt = option;
+[[TIMManager sharedInstance] setUserConfig:config];
+```
 
+### 修改自己的资料
+
+修改自己的资料通过`modifySelfProfile`方法完成
 ```
 @interface TIMFriendshipManager : NSObject
 /**
- *  设置好友自定义属性
+ *  设置自己的资料
  *
- *  @param identifier 用户标识
- *  @param custom     自定义属性（NSString*,NSData*）
- *  @param succ       成功回调
- *  @param fail       失败回调
+ *  @param values    需要更新的属性，可一次更新多个字段
+ *  @param succ 成功回调
+ *  @param fail 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) SetFriendCustom:(NSString*)identifier custom:(NSDictionary*)custom succ:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)modifySelfProfile:(NSDictionary<NSString *, id> *)values succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
+通过 values 字典，可以一次设置多个字段。举例来说，设置昵称的代码如下：
+```
+[[TIMFriendshipManager sharedInstance] modifySelfProfile:@{TIMProfileTypeKey_Nick:@"我的昵称"} succ:nil fail:nil];
+```
 
-**参数说明：**
- 
-参数 | 说明
---- | ---
-identifier | 好设置的好友 identifier
-custom | 自定义属性，字典类型 key 为`NSString*`， value 为 `NSData*`
-succ | 成功回调，返回 TIMUserProfile 结构，包含用户资料 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
+设置不存在的键值可能会导致失败，后台定义了一些常用的键值
 
-**返回值：**
+Key | Value  | 说明
+--- | --- | --
+TIMProfileTypeKey_Nick | NSString | 昵称 
+TIMProfileTypeKey_FaceUrl | NSString | 头像 
+TIMProfileTypeKey_AllowType | NSNumber | 好友申请
+TIMProfileTypeKey_Gender | NSNumber | 性别 
+TIMProfileTypeKey_Birthday | NSNumber | 生日 
+TIMProfileTypeKey_Location | NSString | 位置 
+TIMProfileTypeKey_Language | NSNumber | 语言
+TIMProfileTypeKey_Level | NSNumber | 等级 
+TIMProfileTypeKey_Role | NSNumber | 角色 
+TIMProfileTypeKey_SelfSignature | NSString | 签名 
+TIMProfileTypeKey_Custom_Prefix | NSString、NSData 或 NSNumber | 自定义字段前缀
 
-返回 | 说明
---- | ---
-0 | 表示发送数据成功
-非 0 | 表示发送数据失败
+自定义字段需要您加上我们的前缀。比如后台有一个自定义字段`Blood`，类型为整数，设置代码是
+```
+NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood"];
+[[TIMFriendshipManager sharedInstance] modifySelfProfile:@{key:@1} succ:nil fail:nil];
+```
+>?当设置自定义字段值是 NSString 对象时，后台会将其转为 UTF8 保存在数据库中。由于部分用户迁移资料时可能不是 UTF8 类型，所以在获取资料时，统一返回 NSData 类型。
 
 ## 好友关系
 
-### 添加好友
- 
-通过 `TIMFriendshipManager` 的 `AddFriend` 方法可以批量添加好友，目前所能支持的最大好友列表为 1000 个。 
+### 获取所有好友
 
-**原型：**
+可通过 `TIMFriendshipManager` 的 `getFriendList` 方法获取所有好友列表
 
 ```
-/**
- *  加好友请求
- */
-@interface TIMAddFriendRequest : NSObject
-/**
- *  用户 identifier
- */
-@property(nonatomic,retain) NSString* identifier;
-/**
- *  用户备注，用户备注最大 96 字节
- */
-@property(nonatomic,retain) NSString* remark;
-/**
- *  请求说明（最大 120 字节）
- */
-@property(nonatomic,retain) NSString* addWording;
-/**
- *  添加来源
- */
-@property(nonatomic,retain) NSString* addSource;
-@end
 @interface TIMFriendshipManager : NSObject
+/**
+ *  获取好友列表
+ *
+ *  @param succ 成功回调，返回好友(TIMFriend)列表 
+ *  @param fail 失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+-(int)getFriendList:(TIMFriendArraySucc)succ fail:(TIMFail)fail;
+@end
+```
+
+如果获取成功，succ 回调返回好友列表。好友对象用`TIMFriend`存储，`TIMFriend`的定义如下
+
+```
+@interface TIMFriend : TIMCodingModel
+
+/**
+ *  好友 identifier
+ */
+@property(nonatomic,strong) NSString *identifier;
+
+/**
+ *  好友备注
+ */
+@property(nonatomic,strong) NSString *remark;
+
+/**
+ *  分组名称 NSString* 列表
+ */
+@property(nonatomic,strong) NSArray *groups;
+
+/**
+ *  申请理由
+ */
+@property(nonatomic,strong) NSString * addWording;
+
+/**
+ *  申请来源
+ */
+@property(nonatomic,strong) NSString * addSource;
+
+/**
+ * 添加时间
+ */
+@property(nonatomic,assign) uint64_t addTime;
+
+/**
+ * 自定义字段集合,key 是 NSString 类型,value 是 NSData 类型或者 NSNumber 类型(key 值按照后台配置的字符串传入)
+ */
+@property(nonatomic,strong) NSDictionary* customInfo;
+
+/**
+ * 好友资料
+ */
+@property(nonatomic,strong) TIMUserProfile *profile;
+
+@end
+```
+
+示例代码
+```
+[[TIMFriendshipManager sharedInstance] getFriendList:^(NSArray<TIMFriend *> *friends) {
+    NSMutableString *msg = [NSMutableString new];
+    [msg appendString:@"好友列表: "];
+    for (TIMFriend *friend in friends) {
+        [msg appendFormat:@"[%@,%@,%d,%@,%@,%@]", friend.identifier, friend.remark, friend.addTime, friend.addSource, friend.addWording, friend.groups];
+    }
+    self.msgLabel.text = msg;
+} fail:^(int code, NSString *msg) {
+    self.msgLabel.text = [NSString stringWithFormat:@"失败：%d, %@", code, msg];
+}];
+```
+
+### 修改好友
+
+修改好友调用`modifyFriend`方法进行。与修改自己资料方法类似，该方法通过传入字典方式修改，可一次更新多个字段。
+
+
+```
+@interface TIMFriendshipManager : NSObject
+/**
+ *  修改好友
+ *
+ *  @param identifier 好友的 identifier
+ *  @param values  需要更新的属性，可一次更新多个字段. 参见 TIMFriendshipDefine.h 的 TIMFriendTypeKey_XXX
+ *  @param succ 成功回调
+ *  @param fail 失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+- (int)modifyFriend:(NSString *)identifier values:(NSDictionary<NSString *, id> *)values succ:(TIMSucc)succ fail:(TIMFail)fail;
+@end
+```
+
+设置不存在的键值可能会导致失败，后台定义了一些常用的键值
+
+Key | Value  | 说明
+--- | --- | --
+TIMFriendTypeKey_Remark | NSString | 备注 
+TIMFriendTypeKey_Group | NSArray | 分组 
+TIMFriendTypeKey_Custom_Prefix | NSNumber、NSData | 自定义字段前缀
+
+
+示例：设置好友『iOS_002』的备注为『002 remark』 
+
+```
+[[TIMFriendshipManager sharedInstance] modifyFriend:@"iOS_002" values:@{ TIMFriendTypeKey_Remark: @"002 remark"} succ:^{
+    self.msgLabel.text = @"OK";
+} fail:^(int code, NSString *msg) {
+    self.msgLabel.text = [NSString stringWithFormat:@"失败：%d, %@", code, msg];
+}];
+```
+
+> 修改好友自定义资料，需先通过 Server 配置关系链自定义字段，才能修改成功。
+
+
+### 添加好友
+
+通过 `TIMFriendshipManager` 的 `addFriend` 方法可以添加好友。 
+
+```
+@interface TIMFriendshipManager : NSObject
+
 /**
  *  添加好友
  *
- *  @param users 要添加的用户列表 TIMAddFriendRequest* 列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param request 添加好友请求
+ *  @param succ  成功回调(TIMFriendResult)
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) AddFriend:(NSArray*) users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)addFriend:(TIMFriendRequest *)request succ:(TIMFriendResultSucc)succ fail:(TIMFail)fail;
+
 @end
 ```
 
-**参数说明：**
+加好友需要传入 request 参数，该参数类型定义如下：
+```
+/**
+ *  加好友请求
+ */
+@interface TIMFriendRequest : TIMCodingModel
 
-参数 | 说明
---- | ---
-users | 用户列表，TIMAddFriendRequest\* 数组 
-succ | 成功回调，返回 TIMFriendResult\* 数组，包含用户添加结果 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
+/**
+ *  用户 identifier
+ */
+@property(nonatomic,strong) NSString* identifier;
 
-**返回值：**
+/**
+ *  用户备注（备注最大96字节）
+ */
+@property(nonatomic,strong) NSString* remark;
 
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
+/**
+ *  请求说明（最大120字节）
+ */
+@property(nonatomic,strong) NSString* addWording;
 
-**`TIMAddFriendRequest` 参数说明：**
+/**
+ *  添加来源
+ *  来源不能超过8个字节，并且需要添加“AddSource_Type_”前缀
+ */
+@property(nonatomic,strong) NSString* addSource;
 
-字段 | 说明
---- | ---
-identifier | 用户标识 
-remark | 添加成功后给用户的备注信息，最大 96 字节 
-addWording | 添加请求说明，最大 120 字节，如果用户设置为添加好友需要审核，对方会收到此信息并决定是否通过。 
-addSource | 添加来源，固定字串，在页面上申请，留空表示未知来源 
+/**
+ *  分组名
+ */
+@property(nonatomic,strong) NSString* group;
 
-**返回码说明：**
- 
-成功回调会返回操作用户的 `TIMFriendResult` 结果数据，开发者可根据对应情况提示用户。 添加好友的错误码如下。
+@end
+```
+
+
+成功回调会返回操作用户的 `TIMFriendResult` 结果数据，开发者可根据对应情况提示用户。添加好友的返回码如下。
 
 ```
 typedef NS_ENUM(NSInteger, TIMFriendStatus) {
@@ -830,13 +397,9 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_ADD_FRIEND_STATUS_FRIEND_SIDE_FORBID_ADD            = 30516,
     /**
-     *  加好友时有效：好友数量已满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30519,    
-    /**
-     *  加好友时有效：已经是好友
-     */
-    TIM_ADD_FRIEND_STATUS_ALREADY_FRIEND                    = 30520,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,     
     /**
      *  加好友时有效：已被被添加好友设置为黑名单
      */
@@ -848,72 +411,44 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 };
 ```
 
-**示例：**
+示例代码
 
 ```
-NSMutableArray * users = [[NSMutableArray alloc] init];
-TIMAddFriendRequest* req = [[TIMAddFriendRequestalloc] init];
-// 添加好友 iOS_002
-req.identifier = [NSString stringWithUTF8String:"iOS_002"];
-// 添加备注 002Remark
-req.remark = [NSString stringWithUTF8String:"002Remark"];
-// 添加理由
-req.addWording = [NSString stringWithUTF8String:"i am 002"];
-[users addObject:req];
-[[TIMFriendshipManager sharedInstance] AddFriend:users succ:^(NSArray * arr) {
-	for (TIMFriendResult * res in arr) {
-		if (res.status != TIM_FRIEND_STATUS_SUCC) {
-			NSLog(@"AddFriend failed: user=%@ status=%d", res.identifier, res.status);
-		}
-		else {
-			NSLog(@"AddFriend succ: user=%@ status=%d", res.identifier, res.status);
-		}
-	}
-} fail:^(int code, NSString * err) {
-	NSLog(@"add friend fail: code=%d err=%@", code, err);
+TIMFriendRequest *q = [TIMFriendRequest new];
+q.identifier = @"abc"; // 加好友 abc
+q.addWording = @"求通过";
+q.addSource = @"AddSource_Type_iOS";
+q.remark = @"你是abc";
+[[TIMFriendshipManager sharedInstance] addFriend:q succ:^(TIMFriendResult *result) {
+    if (result.result_code == 0)
+        self.msgLabel.text = @"添加成功";
+    else
+        self.msgLabel.text = [NSString stringWithFormat:@"异常：%ld, %@", (long)result.result_code, result.result_info];
+} fail:^(int code, NSString *msg) {
+    self.msgLabel.text = [NSString stringWithFormat:@"失败：%d, %@", code, msg];
 }];
 ```
 
 ### 删除好友
- 
-可通过 `TIMFriendshipManager` 的 `DelFriend` 方法可以批量删除好友。 
 
-**原型：**
+可通过 `TIMFriendshipManager` 的 `deleteFriends` 方法批量删除好友。 
 
 ```
 @interface TIMFriendshipManager : NSObject
 /**
  *  删除好友
  *
+ *  @param user 要删除的好友的 identifier
  *  @param delType 删除类型（单向好友、双向好友）
- *  @param users 要删除的用户列表 NSString* 列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param succ  成功回调([TIMFriendResult])
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) DelFriend:(TIMDelFriendType)delType users:(NSArray*) users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)delFriend:(NSString *)user delType:(TIMDelFriendType)delType succ:(TIMHandleFriendArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-delType | 删除类型，可选择删除双向好友或者单向好友 
-users | 要删除的用户列表 NSString\* 列表 
-succ | 成功回调，返回 TIMFriendResult\* 数组，包含用户添加结果 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
-
-**返回码说明**：
- 
 成功回调会返回操作用户的 `TIMFriendResult` 结果数据，开发者可根据情况提示用户。 删除好友的错误码如下。
 
 ```
@@ -929,89 +464,46 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
 };
 ```
 
-**示例：**
+示例代码
 
 ```
 NSMutableArray * del_users = [[NSMutableArray alloc] init];
 // 删除好友 iOS_002
 [del_users addObject:@"iOS_002"];
 // TIM_FRIEND_DEL_BOTH 指定删除双向好友
-[[TIMFriendshipManager sharedInstance] DelFriend: TIM_FRIEND_DEL_BOTH users:del_users succ:^(NSArray* arr) {
-	for (TIMFriendResult * res in arr) {
+[[TIMFriendshipManager sharedInstance] deleteFriends:del_users delType:TIM_FRIEND_DEL_BOTH succ:^(NSArray<TIMFriendResult *> *results) {
+	for (TIMFriendResult * res in results) {
 		if (res.status != TIM_FRIEND_STATUS_SUCC) {
-			NSLog(@"DelFriend failed: user=%@ status=%d", res.identifier, res.status);
+			NSLog(@"deleteFriends failed: user=%@ status=%d", res.identifier, res.status);
 		}
 		else {
-			NSLog(@"DelFriend succ: user=%@ status=%d", res.identifier, res.status);
+			NSLog(@"deleteFriends succ: user=%@ status=%d", res.identifier, res.status);
 		}
 	}
 } fail:^(int code, NSString * err) {
-	NSLog(@"DelFriend failed: code=%d err=%@", code, err);
-}];
-```
-
-### 获取所有好友
- 
-可通过 `TIMFriendshipManager` 的 `GetFriendList` 方法可以获取所有好友，默认只拉取基本资料，如果只需要个别字段或者自定义字段，可以使用 [按照字段获取用户资料](#.E6.8C.89.E7.85.A7.E5.AD.97.E6.AE.B5.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E8.B5.84.E6.96.99) 方法设置，此方法全局有效。
-
-**原型：**
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  获取好友列表
- *
- *  @param succ 成功回调，返回好友列表，TIMUserProfile* 列表，只包含 identifier，nickname，remark 三个字段
- *  @param fail 失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) GetFriendList:(TIMFriendSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数 | 说明
---- | ---
-succ | 成功回调，返回好友列表，TIMUserProfile\* 列表，只包含 identifier，nickname，remark 三个字段 
-fail | 失败回调，会返回错误码和错误信息，详见错误码表 
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 表示发送数据成功 
-非 0 | 表示发送数据失败
-
-**`TIMUserProfile` 参数说明：**
-
->注：其他字段需要通过拉取好友的详细资料获得。 
-
-字段 | 说明
---- | ---
-identifier | 自己的用户标识 
-nickname | 自己的昵称 
-remark | 用户备注 
-
-**示例：**
-
-```
-[[TIMFriendshipManager sharedInstance] GetFriendList:^(NSArray * arr) {
-	for (TIMUserProfile * profile in arr) {
-		NSLog(@"friend: %@", profile.identifier);
-	}
-}fail:^(int code, NSString * err) {
-	NSLog(@"GetFriendList fail: code=%d err=%@", code, err);;
+	NSLog(@"deleteFriends failed: code=%d err=%@", code, err);
 }];
 ```
 
 ### 同意/拒绝 好友申请
- 
-可通过 `TIMFriendshipManager` 的 `DoResponse` 方法可以获取所有好友。 
 
-**原型：**
+可通过 `TIMFriendshipManager` 的 `doResponse` 方法同意/拒绝好友申请
 
+```
+@interface TIMFriendshipManager : NSObject
+/**
+ *  响应对方好友邀请
+ *
+ *  @param response  响应请求
+ *  @param succ      成功回调
+ *  @param fail      失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+- (int)doResponse:(TIMFriendResponse *)response succ:(TIMFriendResultSucc)succ fail:(TIMFail)fail;
+@end
+```
+参数 response 的定义如下：
 ```
 typedef NS_ENUM(NSInteger, TIMFriendResponseType) {
     /**
@@ -1027,51 +519,29 @@ typedef NS_ENUM(NSInteger, TIMFriendResponseType) {
      */
     TIM_FRIEND_RESPONSE_REJECT                      = 2,
 };
+/**
+ * 响应好友请求
+ */
 @interface TIMFriendResponse : NSObject
+
 /**
  *  响应类型
  */
 @property(nonatomic,assign) TIMFriendResponseType responseType;
+
 /**
  *  用户 identifier
  */
-@property(nonatomic,retain) NSString* identifier;
+@property(nonatomic,strong) NSString* identifier;
+
 /**
- *  （可选）如果要加对方为好友，表示备注，其他 type 无效
+ *  备注好友（可选，如果要加对方为好友）。备注最大96字节
  */
-@property(nonatomic,retain) NSString* remark;
-@end
-@interface TIMFriendshipManager : NSObject
-/**
- *  响应对方好友邀请
- *
- *  @param users     响应的用户列表，TIMFriendResponse 列表
- *  @param succ      成功回调，返回 TIMFriendResult* 列表
- *  @param fail      失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) DoResponse:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+@property(nonatomic,strong) NSString* remark;
+
 @end
 ```
 
-**参数说明：**
-
-| 参数 | 说明 |
-| --- | --- |
-| users | 响应的用户列表，TIMFriendResponse 列表  |
-| succ | 成功回调，返回 TIMFriendResult\* 列表  |
-| fail | 失败回调，会返回错误码和错误信息，详见错误码表  |
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
-
-**返回码说明：**
- 
 成功回调会返回操作用户的 `TIMFriendResult` 结果数据，处理用户请求的错误码如下。
 ```
 typedef NS_ENUM(NSInteger, TIMFriendStatus) {
@@ -1084,91 +554,314 @@ typedef NS_ENUM(NSInteger, TIMFriendStatus) {
      */
     TIM_RESPONSE_FRIEND_STATUS_NO_REQ                       = 30614,   
     /**
-     *  响应好友申请时有效：自己的好友满
+     *  加好友、响应好友时有效：自己的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_SELF_FRIEND_FULL             = 30615,    
+    TIM_ADD_FRIEND_STATUS_SELF_FRIEND_FULL                  = 30010,      
     /**
-     *  响应好友申请时有效：好友已经存在
+     *  加好友、响应好友时有效：对方的好友数已达系统上限
      */
-    TIM_RESPONSE_FRIEND_STATUS_FRIEND_EXIST                 = 30617,    
-    /**
-     *  响应好友申请时有效：对方好友满
-     */
-    TIM_RESPONSE_FRIEND_STATUS_OTHER_SIDE_FRIEND_FULL       = 30630,
+    TIM_ADD_FRIEND_STATUS_THEIR_FRIEND_FULL                 = 30014,
 };
 ```
+
+### 校验好友关系
+
+可通过 `TIMFriendshipManager` 的 `checkFriends` 方法校验好友关系。
+
+```
+/**
+ *  检查指定用户的好友关系
+ *
+ *  @param checkInfo 好友检查信息
+ *  @param succ  成功回调，返回检查结果
+ *  @param fail  失败回调
+ *
+ *  @return 0 发送成功
+ */
+- (int)checkFriends:(TIMFriendCheckInfo *)checkInfo succ:(TIMCheckFriendResultArraySucc)succ fail:(TIMFail)fail;
+```
+
+参数 `checkInfo` 定义如下：
+
+```
+/**
+ *  好友关系检查
+ */
+@interface TIMFriendCheckInfo : NSObject
+/**
+ *  检查用户的 ID 列表（NSString*）
+ */
+@property(nonatomic,strong) NSArray* users;
+
+/**
+ *  检查类型
+ */
+@property(nonatomic,assign) TIMFriendCheckType checkType;
+
+@end
+```
+
+参数 `TIMFriendCheckType` 定义如下：
+
+```
+/**
+ *  好友检查类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendCheckType) {
+    /**
+     *  单向好友
+     */
+    TIM_FRIEND_CHECK_TYPE_UNIDIRECTION     = 0x1,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_CHECK_TYPE_BIDIRECTION      = 0x2,
+};
+```
+
+成功回调会返回操作用户的 `TIMCheckFriendResult` 列表数据，定义如下。
+
+```
+@interface TIMCheckFriendResult : NSObject
+/**
+ *  用户 ID
+ */
+@property NSString* identifier;
+
+/**
+ * 返回码
+ */
+@property NSInteger result_code;
+
+/**
+ * 返回信息
+ */
+@property NSString *result_info;
+
+/**
+ *  检查结果
+ */
+@property(nonatomic,assign) TIMFriendRelationType resultType;
+
+@end
+```
+
+参数 `TIMFriendRelationType` 定义如下：
+
+```
+/**
+ *  好友关系类型
+ */
+typedef NS_ENUM(NSInteger,TIMFriendRelationType) {
+    /**
+     *  不是好友
+     */
+    TIM_FRIEND_RELATION_TYPE_NONE           = 0x0,
+    /**
+     *  对方在我的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_MY_UNI         = 0x1,
+    /**
+     *  我在对方的好友列表中
+     */
+    TIM_FRIEND_RELATION_TYPE_OTHER_UNI      = 0x2,
+    /**
+     *  互为好友
+     */
+    TIM_FRIEND_RELATION_TYPE_BOTHWAY        = 0x3,
+};
+```
+
+## 好友未决
+
+### 获取未决列表
+其它用户通过`addFriend`方法添加自己为好友，此时会在后台增加一条未决记录。当自己向其它用户请求好友时，后台也会记录一条未决信息。可通过`getPendencyList`方法获取未决列表
+```
+@interface TIMFriendshipManager : NSObject
+
+/**
+ *  获取未决列表
+ *
+ *  @param pendencyRequest  请求信息，详细参考 TIMFriendPendencyRequest
+ *  @param succ 成功回调
+ *  @param fail 失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+- (int)getPendencyList:(TIMFriendPendencyRequest *)pendencyRequest succ:(TIMGetFriendPendencyListSucc)succ fail:(TIMFail)fail;
+@end
+```
+由于后台可能存储多条好未决，超出界面显示范围，所以此接口支持翻页操作。需要传入参数 pendencyRequest 定义如下
+```
+/**
+ * 未决请求信息
+ */
+@interface TIMFriendPendencyRequest : TIMCodingModel
+
+/**
+ * 序列号，未决列表序列号
+ *    建议客户端保存 seq 和未决列表，请求时填入 server 返回的 seq
+ *    如果 seq 是 server 最新的，则不返回数据
+ */
+@property(nonatomic,assign) uint64_t seq;
+
+/**
+ * 翻页时间戳，只用来翻页，server 返回0时表示没有更多数据，第一次请求填0
+ *    特别注意的是，如果 server 返回的 seq 跟填入 seq 不同，翻页过程中，需要使用客户端原始 seq 请求，直到数据请求完毕，才能更新本地 seq
+ */
+@property(nonatomic,assign) uint64_t timestamp;
+
+/**
+ * 每页的数量，即本次请求最多返回都个数据
+ */
+@property(nonatomic,assign) uint64_t numPerPage;
+
+/**
+ * 未决请求拉取类型
+ */
+@property(nonatomic,assign) TIMPendencyGetType type;
+
+@end
+```
+操作成功后，succ 回调返回分页信息和未决记录
+```
+/**
+ * 未决返回信息
+ */
+@interface TIMFriendPendencyResponse : TIMCodingModel
+
+/**
+ * 本次请求的未决列表序列号
+ */
+@property(nonatomic,assign) uint64_t seq;
+
+/**
+ * 本次请求的翻页时间戳
+ */
+@property(nonatomic,assign) uint64_t timestamp;
+
+/**
+ * 未决请求未读数量
+ */
+@property(nonatomic,assign) uint64_t unreadCnt;
+
+@end
+```
+
+```
+/**
+ * 未决请求
+ */
+@interface TIMFriendPendencyItem : TIMCodingModel
+
+/**
+ * 用户标识
+ */
+@property(nonatomic,strong) NSString* identifier;
+/**
+ * 增加时间
+ */
+@property(nonatomic,assign) uint64_t addTime;
+/**
+ * 来源
+ */
+@property(nonatomic,strong) NSString* addSource;
+/**
+ * 加好友附言
+ */
+@property(nonatomic,strong) NSString* addWording;
+
+/**
+ * 加好友昵称
+ */
+@property(nonatomic,strong) NSString* nickname;
+
+/**
+ * 未决请求类型
+ */
+@property(nonatomic,assign) TIMPendencyGetType type;
+
+@end
+```
+
+### 未决删除
+```
+@interface TIMFriendshipManager : NSObject
+/**
+ *  未决删除
+ *
+ *  @param type  未决好友类型
+ *  @param identifiers 要删除的未决列表
+ *  @param succ  成功回调
+ *  @param fail  失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+- (int)deletePendency:(TIMPendencyGetType)type users:(NSArray *)identifiers succ:(TIMSucc)succ fail:(TIMFail)fail;
+@end 
+```
+
+### 未决已读上报
+当用户拉取到未决记录，可以将本次拉取的未决在后台标记为已读。
+```
+@interface TIMFriendshipManager : NSObject
+/**
+ *  未决已读上报
+ *
+ *  @param timestamp 已读时间戳，此时间戳以前的消息都将置为已读
+ *  @param succ  成功回调
+ *  @param fail  失败回调
+ *
+ *  @return 0 发送请求成功
+ */
+- (int)pendencyReport:(uint64_t)timestamp succ:(TIMSucc)succ fail:(TIMFail)fail;
+@end
+```
+上报后，下次调用`getPendencyList`返回的未读计数将会改变。
+
+
+
+## 黑名单
 
 ### 添加用户到黑名单
 
 可以把任意用户拉黑，如果此前是好友关系，拉黑后自动解除好友，拉黑后对方发消息无法收到。
 
-**原型：**
 ```
 @interface TIMFriendshipManager : NSObject
 /**
  *  添加用户到黑名单
  *
- *  @param users 用户列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param identifiers 用户列表
+ *  @param succ  成功回调
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) AddBlackList:(NSArray*) users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)addBlackList:(NSArray *)identifiers succ:(TIMFriendResultArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-users | 要拉黑的用户 identifier 列表
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
 
 ### 把用户从黑名单删除
 
-**原型：**
 ```
 @interface TIMFriendshipManager : NSObject
 /**
  *  把用户从黑名单中删除
  *
- *  @param users 用户列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param identifiers 用户列表
+ *  @param succ  成功回调
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) DelBlackList:(NSArray*) users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)deleteBlackList:(NSArray *)identifiers succ:(TIMFriendResultArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-users | 要从黑名单删除的用户 identifier 列表
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
 
 ### 获取黑名单列表
-
-**原型：**
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1180,67 +873,33 @@ fail | 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) GetBlackList:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)getBlackList:(TIMFriendArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-succ | 成功回调，返回 `NSString*` 类型，为黑名单列表
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
 
 ## 好友分组
 
 ### 创建好友分组
 
-创建分组时，可以同时指定添加的用户，同一用户可以添加到多个分组。
-
-**原型：**
+创建分组时，可以同时指定添加的用户。同一用户可以添加到多个分组。
 
 ```
-@interface TIMFriendshipManager : NSObject
 /**
  *  新建好友分组
  *
  *  @param groupNames  分组名称列表,必须是当前不存在的分组
- *  @param users       要添加到分组中的好友列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param identifiers 要添加到分组中的好友
+ *  @param succ  成功回调
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) CreateFriendGroup:(NSArray*)groupNames users:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)createFriendGroup:(NSArray *)groupNames users:(NSArray *)identifiers succ:(TIMFriendResultArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-groupNames | 分组名称，必须是不存在的分组
-users | 要添加分组中的用户列表
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
-
 ### 删除好友分组
-
-**原型：**
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1253,28 +912,12 @@ fail | 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) DeleteFriendGroup:(NSArray*)groupNames succ:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)deleteFriendGroup:(NSArray *)groupNames succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-groupNames | 要删除的分组名称
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
 
 ### 添加好友到某分组
-
-**原型：**
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1282,35 +925,19 @@ fail | 失败回调
  *  添加好友到一个好友分组
  *
  *  @param groupName   好友分组名称
- *  @param users       要添加到分组中的好友列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param identifiers  要添加到分组中的好友
+ *  @param succ  成功回调
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) AddFriendsToFriendGroup:(NSString*)groupName users:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)addFriendsToFriendGroup:(NSString *)groupName users:(NSArray *)identifiers succ:(TIMFriendResultArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-groupName | 分组名称
-users |  要添加到分组中的好友列表
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求成功
 
 ### 从某分组删除好友
 
-**原型：**
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1318,35 +945,18 @@ fail | 失败回调
  *  从好友分组中删除好友
  *
  *  @param groupName   好友分组名称
- *  @param users       要移出分组的好友列表
- *  @param succ  成功回调，返回 TIMFriendResult* 列表
+ *  @param identifiers  要移出分组的好友
+ *  @param succ  成功回调
  *  @param fail  失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) DelFriendsFromFriendGroup:(NSString*)groupName users:(NSArray*)users succ:(TIMFriendSucc)succ fail:(TIMFail)fail;
+- (int)delFriendsFromFriendGroup:(NSString *)groupName users:(NSArray *)identifiers succ:(TIMFriendResultArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-groupName | 分组名称
-users |  要从分组删除的好友列表
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
 
 ### 重命名好友分组
-
-**原型：**
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1360,29 +970,12 @@ fail | 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) RenameFriendGroup:(NSString*)oldName newName:(NSString*)newName succ:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)renameFriendGroup:(NSString*)oldName newName:(NSString*)newName succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
 
-参数 | 说明
---- | ---
-oldName | 旧分组名称
-newName |  新分组名称
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
-
-### 获取指定的好友分组信息
-
-**原型：**
+### 获取指定的好友分组
 
 ```
 @interface TIMFriendshipManager : NSObject
@@ -1395,177 +988,13 @@ fail | 失败回调
  *
  *  @return 0 发送请求成功
  */
--(int) GetFriendGroups:(NSArray*)groupNames succ:(TIMFriendGroupSucc)succ fail:(TIMFail)fail;
+- (int)getFriendGroups:(NSArray *)groupNames succ:(TIMFriendGroupArraySucc)succ fail:(TIMFail)fail;
 @end
 ```
 
-**参数说明：**
-
-参数 | 说明
---- | ---
-groupNames | 要获取的分组好友名称，传入 nil 获取所有分组信息
-succ | 成功回调
-fail | 失败回调
-
-**返回值：**
-
-返回 | 说明
---- | ---
-0 | 发送请求成功
-非 0 | 发送请求失败
-
-### 获取所有好友分组
-
-通过 [获取指定的好友分组信息](#.E8.8E.B7.E5.8F.96.E6.8C.87.E5.AE.9A.E7.9A.84.E5.A5.BD.E5.8F.8B.E5.88.86.E7.BB.84.E4.BF.A1.E6.81.AF) 可以获取所有分组信息，另外，通过 [获取所有好友](#.E8.8E.B7.E5.8F.96.E6.89.80.E6.9C.89.E5.A5.BD.E5.8F.8B)，也可以获取分组信息。
-
-## 关系链资料存储
-
-在 1.9 版本之前，ImSDK 不会对关系链和消息进行存储和缓存，调用异步接口每次都会从 Server 拉取，1.9 版本之后，新增存储模块，用户可以不对资料和关系链进行存储，并且提供了内存同步访问接口，减少开发者调用负担。
-
-### 开启存储
-
-为了兼容老版本，避免老版本开发者和 ImSDK 都存储数据，默认情况下行为跟 1.9 版本一致，不会进行存储，需要用户显示调用开启存储。
-
-**原型：**
-
-```
-@interface TIMManager : NSObject
-/**
- *  开启好友代理功能
- *
- *  @return 0 成功
- */
--(int) enableFriendshipProxy;
-@end
-```
-
-### 内存中同步获取关系链资料数据
-
-**原型：**
-
-```
-/**
- *  好友代理
- */
-@interface TIMFriendshipProxy : NSObject
-/**
- *  获取好友代理实例
- *
- *  @return 好友代理实例
- */
-+(TIMFriendshipProxy*) sharedInstance;
-/**
- *  获取好友列表
- *
- *  @return 好友资料（TIMUserProfile*）列表，proxy 未同步时返回 nil
- */
--(NSArray*) GetFriendList;
-/**
- *  获取指定好友资料
- *
- *  @param users 好友id（NSString*）列表
- *
- *  @return 好友资料（TIMUserProfile*）列表，proxy 未同步时返回 nil
- */
--(NSArray*) GetFriendsProfile:(NSArray*)users;
-/**
- *  获取好友分组列表
- *
- *  @return 好友分组（TIMFriendGroupWithProfiles*）列表，proxy 未同步时返回 nil
- */
--(NSArray*) GetFriendGroupList;
-/**
- *  获取指定好友分组
- *
- *  @param groups 好友分组名称（NSString*）列表
- *
- *  @return 好友分组（TIMFriendGroupWithProfiles*）列表，proxy 未同步时返回 nil
- */
--(NSArray*) GetFriendGroup:(NSArray*)groups;
-/**
- *  获取好友代理的状态
- *
- *  @return 好友代理的状态
- */
--(TIMFriendStatus) GetStaus;
-@end
-```
-
-### 好友、资料变更回调
-
-1.9 版本之前，必须通过系统消息来感知变更，这种方式需要用户解析消息内容，层次结构较深，在 1.9 版本之后，如果开启了存储的功能，可以用更加明显易用的回调感知变更。通过设置 `TIMFriendshipProxyListener` 变更回调，可以在发生不同事件的时候感知不同的事件，之后可通过同步接口获取信息并更新 UI 操作。
-
-**设置变更回调：**
-
-```
-/**
- *  好友代理事件回调
- */
-@protocol TIMFriendshipProxyListener <NSObject>
-@optional
-/**
- *  收到代理状态变更通知
- *
- *  @param status 当前状态
- */
--(void) OnProxyStatusChange:(TIM_FRIENDSHIP_PROSY_STATUS)status;
-/**
- *  添加好友通知
- *
- *  @param users 好友列表（TIMUserProfile*）
- */
--(void) OnAddFriends:(NSArray*)users;
-/**
- *  删除好友通知
- *
- *  @param identifiers 用户 id 列表（NSString*）
- */
--(void) OnDelFriends:(NSArray*)identifiers;
-/**
- *  好友资料更新通知
- *
- *  @param profiles 资料列表（TIMUserProfile*）
- */
--(void) OnFriendProfileUpdate:(NSArray*)profiles;
-/**
- *  好友申请通知
- *
- *  @param reqs 好友申请者id列表（TIMSNSChangeInfo*）
- */
--(void) OnAddFriendReqs:(NSArray*)reqs;
-/**
- *  添加好友分组通知
- *
- *  @param friendgroups 好友分组列表（TIMFriendGroup*）
- */
--(void) OnAddFriendGroups:(NSArray*)friendgroups;
-/**
- *  删除好友分组通知
- *
- *  @param names 好友分组名称列表（NSString*）
- */
--(void) OnDelFriendGroups:(NSArray*)names;
-/**
- *  好友分组更新通知
- *
- *  @param friendgroups 好友分组列表（TIMFriendGroup*）
- */
--(void) OnFriendGroupUpdate:(NSArray*)friendgroups;
-@end
-@interface TIMManager : NSObject
-/**
- *  设置好友代理回调
- *
- *  @param listener 回调
- *
- *  @return 0 成功
- */
--(int) setFriendshipProxyListener:(id<TIMFriendshipProxyListener>)listener;
-@end
-```
 
 ## 关系链变更系统通知
- 
+
 `TIMMessage` 中 `Elem` 类型 `TIMSNSSystemElem` 为关系链变更系统消息。
 
 **原型：**
@@ -1632,7 +1061,8 @@ users | 变更的用户列表
 示例中，当成为好友或者解除好友关系时，打印日志，当有用户申请成为好友时，打印申请理由。 **示例：**
 
 ```
-@interface TIMMessageListenerImpl : NSObject- (void)onNewMessage:(NSArray*) msgs;
+@interface TIMMessageListenerImpl : NSObject
+- (void)onNewMessage:(NSArray*) msgs;
 @end
 @implementation TIMMessageListenerImpl
 - (void)onNewMessage:(NSArray*) msgs {
@@ -1683,32 +1113,32 @@ login_param.sdkAppId = 123456;
 ```
 
 ### 添加好友系统通知
- 
+
 当两个用户成为好友时，两个用户均可收到添加好友系统消息。
 
 **触发时机：**
- 
+
 当自己的关系链变更，增加好友时，收到消息（如果已经是单向好友，关系链没有变更的一方不会收到）。
 
 **参数说明：**
- 
+
 参数 | 说明
 --- | ---
 type | TIM_SNS_SYSTEM_ADD_FRIEND 
 users | 成为好友的用户列表 
 
 **`TIMSNSChangeInfo` 参数说明：**
- 
+
 成员 | 说明
 --- | ---
 identifier | 用户 identifier 
 
 ### 删除好友系统通知
- 
+
 当两个用户解除好友关系时，会收到删除好友系统消息： 
 
 **触发时机：**
- 
+
 当自己的关系链变更，删除好友时，收到消息（如果删除的是单向好友，关系链没有变更的一方不会收到）。
 
 **参数说明：**
@@ -1718,21 +1148,21 @@ type | TIM_SNS_SYSTEM_DEL_FRIEND
 users | 删除好友的用户列表 
 
 **`TIMSNSChangeInfo` 参数说明：**
- 
+
 成员 | 说明
 --- | ---
 identifier |  用户 identifier 
 
 ### 好友申请系统通知
- 
+
 当申请好友时对方需要验证，自己和对方会收到好友申请系统通知。
 
 **触发时机：**
- 
+
 当申请好友时对方需要验证，自己和对方会收到好友申请系统通知，对方可选择同意或者拒绝，自己不能操作，只做信息同步之用。 
 
 **参数说明：**
- 
+
 参数 | 说明
 --- | ---
 type | TIM_SNS_SYSTEM_ADD_FRIEND_REQ 
@@ -1744,98 +1174,10 @@ users | 申请的好友列表
 --- | ---
 identifier |  用户 identifier 
 wording |  申请理由 
-source | 申请来源，申请时填写，由系统页面分配的固定字串 
+source | 申请来源
 
 ### 删除未决请求通知
- 
+
 **触发时机：**
- 
+
 当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。 
-
-**参数说明：**
- 
-参数|说明
----|---
-type | TIM_SNS_SYSTEM_DEL_FRIEND_REQ 
-users | 删除未决请求的好友列表 
-
-**`TIMSNSChangeInfo` 参数说明：**
- 
-参数 | 说明
---- | ---
-identifier |  用户 identifier 
-
-## 好友资料变更系统通知
- 
-`TIMMessage` 中 `Elem` 类型 `TIMProfileSystemElem` 为关系链变更系统消息。
-
-**原型：**
-
-```
-typedef NS_ENUM(NSInteger, TIM_PROFILE_SYSTEM_TYPE){
-    /**
-     *  好友资料变更
-     */
-    TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE        = 0x01,
-};
-/**
- *  资料变更系统消息
- */
-@interface TIMProfileSystemElem : NSObject
-/**
- *  变更类型
- */
-@property(nonatomic,assign) TIM_PROFILE_SYSTEM_TYPE type;
-/**
- *  资料变更的用户
- */
-@property(nonatomic,retain) NSString * fromUser;
-/**
- *  资料变更的昵称（如果昵称没有变更，该值为nil）
- */
-@property(nonatomic,retain) NSString * nickName;
-@end
-```
-
-**成员说明：**
-
-成员  | 说明
---- | ---
-type | 资料变更类型 
-fromUser|  资料变更的用户 
-nickName | 昵称变更，注意，如果昵称没有变更，为 nil 
-
-## 未决请求
-
-未决请求即为等待处理的请求，比如设置了需要验证好友，对方申请时会有未决请求，如果同意或者拒绝这个申请，未决请求会变为已决。通过 `TIMFriendshipManager` 的 `GetFutureFriends` 方法可以从 Server 获取未决请求列表。
-
-**原型：***
-
-```
-@interface TIMFriendshipManager : NSObject
-/**
- *  未决请求和好友推荐拉取
- *
- *  @param flags        获取的资料标识
- *  @param futureFlag   获取的类型，按位设置
- *  @param custom       自定义字段，（尚未实现，填 nil）
- *  @param meta         请求信息，参见TIMFriendFutureMeta
- *  @param succ  成功回调
- *  @param fail  失败回调
- *
- *  @return 0 发送请求成功
- */
--(int) GetFutureFriends:(TIMProfileFlag)flags futureFlag:(TIMFutureFriendType)futureFlag custom:(NSArray*)custom meta:(TIMFriendFutureMeta*)meta succ:(TIMGetFriendFutureListSucc)succ fail:(TIMFail)fail;
-@end
-```
-
-**参数说明：**
-
-参数|说明
----|---
-flags | 获取的资料标志，详见 TIMProfileFlag
-futureFlag | 获取的未决标记，如未决，已决，推荐等类型
-custom | 自定义字段，如要获取填写
-meta | 请求信息，参见 TIMFriendFutureMeta 定义
-succ | 成功回调
-fail | 失败回调

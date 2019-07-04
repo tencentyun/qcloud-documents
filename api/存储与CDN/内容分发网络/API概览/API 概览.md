@@ -34,7 +34,7 @@
 
 | 接口名              | Action Name                                                  | 功能描述                                                     | 鉴权配置       |
 | ------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- |
-| 汇总统计查询        | [DescribeCdnHostInfo](https://cloud.tencent.com/document/product/228/3941) | 域名指定时间区间以下总统计项查询：<br/>峰值带宽<br/>总流量<br/>总请求数<br/>平均请求数命中率 | 支持子账号     |
+| 汇总统计查询        | [DescribeCdnHostInfo](https://cloud.tencent.com/document/product/228/13022) | 域名指定时间区间以下总统计项查询：<br/>峰值带宽<br/>总流量<br/>总请求数<br/>平均请求数命中率 | 支持子账号     |
 | 消耗明细查询        | [GetCdnHostsDetailStatistics](https://cloud.tencent.com/document/product/228/13026) | 域名指定时间区间以下统计项明细查询：<br/>带宽明细<br/>流量明细<br/>请求数明细<br/>命中流量明细<br/>命中请求数明细<br/>状态码明细 | 支持子账号     |
 | 回源统计明细查询    | [GetCdnOriginStat](https://cloud.tencent.com/document/product/228/13211) | 域名指定时间区间以下统计项回源明细查询：<br/>回源带宽明细<br/>回源流量明细<br/>回源请求数明细<br/>回源失败请求数明细 | 暂不支持子账号 |
 | TOP URL查询         | [GetCdnStatTop](https://cloud.tencent.com/doc/api/231/3944)  | 指定流量/请求数排序以下维度统计：<br/>TOP 1000 URL统计<br/>省份排序<br/>运营商排序 | 支持子账号     |

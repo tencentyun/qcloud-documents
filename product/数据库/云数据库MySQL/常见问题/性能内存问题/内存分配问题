@@ -1,0 +1,78 @@
+云数据库 MySQL 的内存是重要的性能参数，常出现由异常 SQL 请求以及待优化的数据库导致的内存利用率升高的情况，严重时还会出现由于 OOM 导致实例发生 HA 切换，影响业务的稳定及可用性。
+
+MySQL 的内存大体可以分为 global 级的共享内存和 session 级的私有内存两部分，共享内存是实例创建时即分配的内存空间，并且是所有连接共享的。私有内存用于每个连接到 MySQL 服务器时才分配各自的缓存，一些特殊的 SQL 或字段类型会导致单个线程可能分配多次缓存，因此当出现 OOM 异常，都是由各个连接私有内存造成的。下面将详细介绍各部分的构成。
+
+## 共享内存
+执行以下命令，查询示例的共享内存分配情况：
+```
+show variables where variable_name in ('innodb_buffer_pool_size','innodb_log_buffer_size','innodb_additional_mem_pool_size','key_buffer_size','query_cache_size');
+```
+	
+>?5.7版本不支持 innodb_additional_mem_pool_size。
+
+以下参数是内存规格为1000MB实例的共享内存分配情况的查询结果（以下为测试实例配置）：
+	1.  +---------------------------------+-----------+
+	2.  | Variable_name                   | Value     |
+	3.  +---------------------------------+-----------+
+	4.  | innodb_additional_mem_pool_size | 8388608   |
+	5.  | innodb_buffer_pool_size         | 524288000 |
+	6.  | innodb_log_buffer_size          | 67108864  |
+	7.  | key_buffer_size                 | 16777216  |
+	9.  | query_cache_size                | 0         |
+	10. +---------------------------------+-----------+
+	11. 5 rows in set (0.01 sec)
+
+**参数说明**：
+- **innodb_buffer_pool_size**
+ 该部分缓存是 Innodb 引擎最重要的缓存区域，是通过内存来弥补物理数据文件的重要手段，在云数据库 MySQL 上会采用实例规格配置的50% - 80%作为该部分大小（上图为1000MB * 0.5 = 500MB）。其中主要包含数据页、索引页、undo 页、insert buffer、自适应哈希索引、锁信息以及数据字典等信息。在进行 SQL 读和写的操作时，首先并不是对物理数据文件操作，而是先对 buffer_pool 进行操作，再通过 checkpoint 等机制写回数据文件。该空间的优点是可以提升数据库的性能、加快 SQL 运行速度，缺点是故障恢复速度较慢。
+
+- **innodb_log_buffer_size**
+ 该部分主要存放 redo log 的信息，在云数据库 MySQL 上会设置64MB的大小。InnoDB 会首先将 redo log 写在这里，然后按照一定频率将其刷新回重做日志文件中。该空间不需要太大，因为一般情况下该部分缓存会以较快频率刷新至 redo log（Master Thread 会每秒刷新、事务提交时会刷新、其空间少于1/2时同样会刷新）。
+
+- **innodb_additional_mem_pool_size**
+ 该部分主要存放 InnoDB 内的一些数据结构，在云数据库 MySQL 中统一设置为8MB。通常是在 buffer_pool 中申请内存的时候还需要在额外内存中申请空间存储该对象的结构信息。该大小主要与表数量有关，表数量越大需要更大的空间。
+
+- **key_buffer_size**
+ 该部分是 MyISAM 表的重要缓存区域，所有实例统一为16M。该部分主要存放 MyISAM 表的键。MyISAM 表不同于 InnoDB 表，其缓存的索引缓存是放在 key_buffer 中的，而数据缓存则存储于操作系统的内存中。云数据库 MySQL 的系统是 MyISAM 引擎的，因此需给予该部分一定量的空间的。
+
+- **query_cache_size**
+ 该部分是对查询结果做缓存，以减少解析 SQL 和执行 SQL 的开销，在云数据库 MySQL 上关闭了该部分的缓存。主要适合于读多写少的应用场景，因为它是按照 SQL 语句的 hash 值进行缓存的，当表数据发生变化后即失效。
+
+## 私有内存
+执行以下命令，查询示例的 session 私有内存分配情况：
+```
+show variables where variable_name in ('read_buffer_size','read_rnd_buffer_size','sort_buffer_size','join_buffer_size','binlog_cache_size','tmp_table_size');
+```
+
+查询结果如下（以下为测试实例配置）：
+		1.  +----------------------+-----------+
+		2.  | Variable_name        | Value     |
+		3. +----------------------+-----------+
+		4.  | binlog_cache_size    | 32768     |
+		5.  | join_buffer_size     | 262144    |
+		6.  | read_buffer_size     | 262144    |
+		7.  | read_rnd_buffer_size | 524288    |
+		8.  | sort_buffer_size     | 524288    |
+		9.  | tmp_table_size       | 209715200 |
+		10.  +----------------------+-----------+
+		11.  6 rows in set (0.00 sec)
+
+**参数说明：**
+
+- **read_buffer_size**
+	分别存放了对顺序扫描的缓存，当 thread 进行顺序扫描数据时会首先扫描该 buffer 空间以避免更多的物理读。
+
+- **read_rnd_buffer_size**
+	分别存放了对随机扫描的缓存，当 thread 进行随机扫描数据时会首先扫描该 buffer 空间以避免更多的物理读。
+	
+- **sort_buffer_size**
+	需要执行 order by 和 group by 的 SQL 都会分配 sort_buffer，用于存储排序的中间结果。在排序过程中，若存储量大于 sort_buffer_size，则会在磁盘生成临时表以完成操作。
+
+- **join_buffer_size**
+	MySQL 仅支持 nest loop 的 join 算法，处理逻辑是驱动表的一行和非驱动表联合查找，这时就可以将非驱动表放入 join_buffer，不需要访问拥有并发保护机制的 buffer_pool。
+
+- **binlog_cache_size**
+	该区域用来缓存该 thread 的 binlog 日志，在一个事务还没有 commit 之前会先将其日志存储于 binlog_cache 中，等到事务 commit 后会将其 binlog 刷回磁盘上的 binlog 文件以持久化。
+
+- **tmp_table_size**
+	不同于上面各个 session 级的 buffer，这个参数可以在控制台上修改。该参数是指用户内存临时表的大小，如果该 thread 创建的临时表超过它设置的大小会把临时表转换为磁盘上的一张 MyISAM 临时表。

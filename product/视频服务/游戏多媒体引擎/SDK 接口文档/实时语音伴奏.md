@@ -1,0 +1,217 @@
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍游戏多媒体引擎实时语音伴奏的接入技术文档。
+
+## 实时语音伴奏相关接口
+|接口     | 接口含义   |
+| ------------- |:-------------:|
+|StartAccompany    				       |开始播放伴奏。|
+|StopAccompany    				   	|停止播放伴奏。|
+|IsAccompanyPlayEnd				|伴奏是否播放完毕。|
+|PauseAccompany    					|暂停播放伴奏。|
+|ResumeAccompany					|重新播放伴奏。|
+|SetAccompanyVolume 				|设置伴奏音量。|
+|GetAccompanyVolume				|获取播放伴奏的音量。|
+|SetAccompanyFileCurrentPlayedTimeByMs 				|设置播放进度。|
+
+
+>?如需使用实时语音伴奏，需要在接入 GME SDK 且能在进行实时语音通话的情况下，才可以使用实时语音伴奏。
+
+### 流程图
+社交类型 App 调用流程参考图如下：
+![](https://main.qcloudimg.com/raw/53598680491501ab5a144e87ba932ccc.png)
+
+
+### 开始播放伴奏
+调用 StartAccompany 接口开始播放伴奏。支持 m4a、wav、mp3 一共三种格式。调用此 API，音量会重置。
+
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int StartAccompany(const char* filePath, bool loopBack, int loopCount, int msTime) 
+```
+
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------
+| filePath    	|char\* 	|播放伴奏的路径。						|
+| loopBack  	|bool	|是否混音发送，一般都设置为 true，即其他人也能听到伴奏。	|
+| loopCount	|int    		|循环次数，数值为-1表示无限循环。	|
+| msTime	|int   	|延迟时间。						|
+
+####  示例代码  
+```
+//Windows端代码
+ITMGContextGetInstance()->GetAudioEffectCtrl()->StartAccompany(filePath,true,-1,0);
+//Android端代码
+ITMGContext.GetInstance(this).GetAudioEffectCtrl().StartAccompany(filePath,true,loopCount,0);
+//iOS端代码
+[[[ITMGContext GetInstance] GetAudioEffectCtrl] StartAccompany:path loopBack:isLoopBack loopCount:loopCount msTime:0];
+```
+
+### 播放伴奏的回调
+开始播放伴奏完成后，回调函数调用 OnEvent，事件消息为 ITMG_MAIN_EVENT_TYPE_ACCOMPANY_FINISH，在 OnEvent 函数中对事件消息进行判断。
+传递的参数 data 包含两个信息，一个是 result，另一个是 file_path。
+####  示例代码  
+```
+void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
+	switch (eventType) {
+		case ITMG_MAIN_EVENT_TYPE_ENTER_ROOM:
+		{
+		//进行处理
+		break;
+	   	}
+		...
+        case ITMG_MAIN_EVENT_TYPE_ACCOMPANY_FINISH:
+		{
+		//进行处理
+		break;
+		}
+	}
+}
+```
+
+### 停止播放伴奏
+调用 StopAccompany 接口停止播放伴奏。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int StopAccompany(int duckerTime)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| duckerTime	|int             |淡出时间。|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAccompany(0);
+```
+
+### 伴奏是否播放完毕
+如果播放完毕，返回值为 true，如果没播放完，返回值为 false。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual bool IsAccompanyPlayEnd()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->IsAccompanyPlayEnd();
+```
+
+
+### 暂停播放伴奏
+调用 PauseAccompany 接口暂停播放伴奏。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int PauseAccompany()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->PauseAccompany();
+```
+
+
+### 重新播放伴奏
+ResumeAccompany 接口用于重新播放伴奏。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int ResumeAccompany()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeAccompany();
+```
+
+### 设置自己是否可以听到伴奏
+此接口用于设置自己是否可以听到伴奏。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int EnableAccompanyPlay(bool enable)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|--------------|
+| enable    |bool             |是否能听到。|
+
+#### 示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyPlay(false);
+```
+
+### 设置他人是否也可以听到伴奏
+设置他人是否也可以听到伴奏。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int EnableAccompanyLoopBack(bool enable)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|--------------|
+| enable    |bool             |是否能听到。|
+
+#### 示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->EnableAccompanyLoopBack(false);
+```
+
+### 设置伴奏音量
+调用 SetAccompanyVolume 接口设置伴奏音量，默认值为100，数值大于100音量增益，数值小于100音量减益，值域为 0-200。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int SetAccompanyVolume(int vol)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| vol    |int             |音量数值。|
+
+####  示例代码  
+```
+int vol=100;
+ITMGContextGetInstance()->GetAudioEffectCtrl()->SetAccompanyVolume(vol);
+```
+
+### 获取播放伴奏的音量
+GetAccompanyVolume 接口用于获取伴奏音量。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int GetAccompanyVolume()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->GetAccompanyVolume();
+```
+
+### 获得伴奏播放进度
+以下两个接口用于获得伴奏播放进度。需要注意：Current / Total = 当前循环次数，Current % Total = 当前循环播放位置。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int GetAccompanyFileTotalTimeByMs()
+ITMGAudioEffectCtrl virtual int GetAccompanyFileCurrentPlayedTimeByMs()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->GetAccompanyFileTotalTimeByMs();
+ITMGContextGetInstance()->GetAudioEffectCtrl()->GetAccompanyFileCurrentPlayedTimeByMs();
+```
+
+
+### 设置播放进度
+SetAccompanyFileCurrentPlayedTimeByMs 接口用于设置播放进度。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int SetAccompanyFileCurrentPlayedTimeByMs(unsigned int time)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| time    |int                |播放进度，以毫秒为单位。|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->SetAccompanyFileCurrentPlayedTimeByMs(time);
+```
+
+
+## 错误码列表
+
+|错误码名称|错误码值|错误码含义|解决方法|
+|------|------|------|-----|
+|QAV_ERR_ACC_OPENFILE_FAILED        |4001|打开文件失败	|检查文件路径及文件是否存在，检查是否有访问文件的权限。|
+|QAV_ERR_ACC_FILE_FORAMT_NOTSUPPORT |4002|不支持的文件格式	|检查文件格式是否正确。|
+|QAV_ERR_ACC_DECODER_FAILED         |4003|解码失败		|检查文件格式是否正确。|
+|QAV_ERR_ACC_BAD_PARAM              |4004|参数错误		|检查代码中所填参数是否正确。|
+|QAV_ERR_ACC_MEMORY_ALLOC_FAILED    |4005|内存分配失败	|系统资源耗尽，如果一直存在此错误码，请联系开发人员。|
+|QAV_ERR_ACC_CREATE_THREAD_FAILED   |4006|创建线程失败	|系统资源耗尽，如果一直存在此错误码，请联系开发人员。|
+|QAV_ERR_ACC_STATE_ILLIGAL          |4007|状态非法		|未处于某种状态，去调用需要处于这个状态才允许调用的接口时，则会产生这个错误。|

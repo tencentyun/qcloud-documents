@@ -59,7 +59,7 @@ ccr.api.qcloud.com
     "message": "", 
     "codeDesc": "Success",
     "data": {
-		"totalCount": 1
+		"totalCount": 1,
 	    "privilegeFiltered": false,
 	    "repoInfo": [
 	      {
@@ -75,7 +75,7 @@ ccr.api.qcloud.com
 	        "creationTime": "2017-09-12 13:02:58",
 	        "updateTime": "2018-02-28 14:26:06"
 	      }
-	   ],
+	   ]
 	}
 }
 

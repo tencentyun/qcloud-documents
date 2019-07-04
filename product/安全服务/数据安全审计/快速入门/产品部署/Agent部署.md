@@ -1,7 +1,12 @@
-CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器中，并且确保数据库服务器与 CDS-Audit 审计实例能实现网络连通，实现该目标需要进行 [VPC 配置](https://cloud.tencent.com/document/product/856/17384) 和 Agent 部署。
+CDS-Audit 部署的核心目标是把 Agent 安装到数据库服务器或访问数据库的应用服务器中，并且确保数据库服务器或访问数据库的应用服务器与 CDS-Audit 审计实例能实现网络连通，实现该目标需要进行 Agent 部署。
 Agent 部署流程如下图所示，其中前五步为参数配置操作：
 ![0](https://main.qcloudimg.com/raw/a8ad2c956f3d8f53b55df06b56749e9c.png)
 下面将为您详细介绍。
+## Agent程序部署位置
+根据所添加的数据库在云环境中的实际部署方式，您需要将 Agent 程序部署在以下位置：
+- 云服务器自建数据库：Agent 程序需要部署在数据库所在的云服务器上。
+- 云数据库 TencentDB：Agent 程序需要部署在对应的应用服务器上，通常为访问数据库的应用系统所在服务器。
+
 ## 设置审计服务 IP
 1. 通过 sysadmin 账号登录数据安全审计管理页面后，单击【Agent 配置】>【部署 Agent】进入 编辑 Agent 配置页面。
  ![1](https://main.qcloudimg.com/raw/18d171dd3d89c9deb04c8c0af53c6328.png)

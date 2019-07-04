@@ -3,15 +3,14 @@
 请求域名：`cdn.api.qcloud.com`
 接口名：`SetHttpsInfo`
 
->**注意：**
+>!
 + COS 源、FTP 源域名暂时无法将回源方式设置为协议跟随。
-+ 证书 & 私钥传递：选择自上传证书，请将证书、私钥内容按照 Base64 编码后传输。
++ 证书&私钥传递：选择自上传证书，请将证书、私钥内容按照 Base64 编码后传输。
 + 选择托管证书，使用接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取对应的证书 ID。
 + httpsType 与 forceSwith 不可同时为空。
-+ 接口调用频次限制为 100 次 / 分钟。
 + 接口暂不支持子账号调用。
 
-查看[调用示例](https://cloud.tencent.com/document/product/228/1734)
+详情请查看 [调用示例](https://cloud.tencent.com/document/product/228/1734)。
 
 
 ## 输入参数
@@ -20,10 +19,10 @@
 | 参数    | 是否必选 | 类型   | 描述                                                         |
 | ----------- | -------- | ------ | ------------------------------------------------------------ |
 | host        | 是       | String | 需要配置证书的域名                                           |
-| httpsType   | 否       | Int    | 配置类型设置<br/>"0" ：清除https配置，无需填写证书及私钥参数<br/>"1"：上传自有证书，并 http 回源<br/>"2"：上传自有证书，并协议跟随回源<br/>"3"：使用托管证书，并 http 回源<br/>"4"：使用托管证书，并 协议跟随回源<br/>1&2 域名未配置证书或配置的是自有证书，则 必须上传 cert 及 privateKey<br/>3&4 域名未配置证书或配置的是托管证书，则必须传递 certId |
+| httpsType   | 否       | Int    | 配置类型设置<br/>"0" ：清除 HTTPS 配置，无需填写证书及私钥参数<br/>"1"：上传自有证书，并 HTTP 回源<br/>"2"：上传自有证书，并协议跟随回源<br/>"3"：使用托管证书，并 HTTP 回源<br/>"4"：使用托管证书，并 协议跟随回源<br/>1&2 域名未配置证书或配置的是自有证书，则 必须上传 cert 及 privateKey<br/>3&4 域名未配置证书或配置的是托管证书，则必须传递 certId |
 | cert        | 否       | String | PEM格式证书                                                  |
 | privateKey  | 否       | String | PEM格式私钥                                                  |
-| forceSwitch | 否       | Int    | 强制跳转开关<br/>"1"：http强制跳转<br/>"-1"：关闭 HTTP 强制跳转<br/>"2"：开启 https 强制跳转（302）<br/>"-2"：关闭 https 强制跳转（302）<br/>"3"：开启 HTTPS 强制跳转（301）<br/>"-3"：关闭 HTTPS 强制跳转（301） |
+| forceSwitch | 否       | Int    | 强制跳转开关<br/>"1"：HTTP 强制跳转<br/>"-1"：关闭 HTTP 强制跳转<br/>"2"：开启 HTTPS 强制跳转（302）<br/>"-2"：关闭 HTTPS 强制跳转（302）<br/>"3"：开启 HTTPS 强制跳转（301）<br/>"-3"：关闭 HTTPS 强制跳转（301） |
 | http2       | 否       | String | HTTP2.0 开关<br/>"on"：开启 HTTP2.0<br/>"off"：关闭 HTTP2.0  |
 | certId      | 否       | String | 证书 ID，可通过接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取 |
 
@@ -39,8 +38,7 @@
 ## 代码示例
 ### 示例参数
 
->**注意：**
-示例中证书私钥仅供参考。
+>!示例中证书私钥仅供参考。
 
 ```
 host：www.test.com
@@ -89,11 +87,9 @@ array (
 
 ```
 {
-  "retcode":0,
-  "errmsg":'ok",
-  "data":[],
-  "code":0,
-  "message":""
+	"data": [],
+	"code": 0,
+	"message": ""
 }
 ```
 
