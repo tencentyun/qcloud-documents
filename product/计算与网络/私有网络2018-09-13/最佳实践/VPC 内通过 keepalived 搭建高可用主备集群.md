@@ -25,10 +25,10 @@
 4.  验证主备倒换时 VIP 是否正常切换。
         
 ## 详细步骤
-### 步骤 1. 申请 VIP
+### 步骤1：申请 VIP
  申请 VIP 的详细操作步骤，请参见文档 [高可用虚拟 IP](https://cloud.tencent.com/document/product/215/18025)。
 
-### 步骤 2. 主备子机安装 keepalived（1.2.24 版本及以上）
+### 步骤2：主备子机安装 keepalived（1.2.24 版本及以上）
 以 CentOS 为例：
 - yum安装方式
   `yum list keepalived` 查看版本号是否符合要求。若是，下一步；若否，用源码包安装方式`yum –y install keepalived`。
@@ -41,14 +41,14 @@ tar zxvf keepalived-1.2.24.tar.gz
 	chmod +x /etc/init.d/keepalived 【防止出现 env: /etc/init.d/keepalived: Permission denied】
 ```
 
-### 步骤 3. 确定主备需求
+### 步骤3：确定主备需求
 本文并行介绍两种使用模式：
 - 无常主模式，即双机选举主设备的优先级相同。
 - 常主常备模式，即需要让其中一台设备在无故障时尽量当主的场景。  
 
 >!常主常备模式较无常主模式增加了主备倒换次数，推荐使用无常主模式（非常主常备模式，又叫双备模式）。
 
-### 步骤 4. 修改配置 keepalived.conf
+### 步骤4：修改配置 keepalived.conf
 配置文件修改：
 - 常主常备模式步骤，以主设备为例，修改 keepalived.conf：
 
@@ -134,7 +134,7 @@ state BACKUP           #备
 }
 ```
 
-### 步骤 5. 使用 notify_action.sh 进行简单的日志记录
+### 步骤5：使用 notify_action.sh 进行简单的日志记录
 ```
     常主常备模式步骤. 修改 notify_action.sh:
         1) 无
@@ -181,10 +181,10 @@ case "$1" in
 esac
 ```
 
-### 步骤 6.主备云服务器本机主 IP 没有外网IP的场景
+### 步骤6：主备云服务器本机主 IP 没有外网IP的场景
 云服务器或其网卡不需要外网 IP。
 
-### 步骤 7. 验证主备倒换时 VIP 及外网 IP 是否正常切换
+### 步骤7：验证主备倒换时 VIP 及外网 IP 是否正常切换
 1. 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`。
 2. 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。/var/log/keepalived.log 中会同时留下相应的日志。通过 ping VIP 的方式，可以查看网络中断到恢复的时间间隔。
 >!
