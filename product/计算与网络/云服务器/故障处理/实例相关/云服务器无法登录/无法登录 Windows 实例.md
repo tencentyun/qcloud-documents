@@ -48,7 +48,7 @@
 **故障现象**：通过自助诊断工具诊断，提示问题为带宽利用率过高。
 **处理步骤**：
 1. 通过 [VNC 登录](#VNC) 登录实例。
-2. 参考 [Windows 下查看进程的带宽使用情况](https://cloud.tencent.com/document/product/213/14637#windows.E4.B8.8B.E6.9F.A5.E7.9C.8B.E8.BF.9B.E7.A8.8B.E7.9A.84.E5.B8.A6.E5.AE.BD.E4.BD.BF.E7.94.A8.E6.83.85.E5.86.B5)，查看实例的带宽使用情况和处理故障。
+2. 参考 [带宽占用高导致无法登录](https://cloud.tencent.com/document/product/213/10334#.E9.92.88.E5.AF.B9-windows-.E6.9C.8D.E5.8A.A1.E5.99.A8)，查看实例的带宽使用情况和处理故障。
 
 <span id="HighServerLoad"></span>
 ### 服务器高负载
