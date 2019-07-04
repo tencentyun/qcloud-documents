@@ -6,14 +6,22 @@
 对接前需要了解如下基础知识：
 
 - **直播和点播**
-直播是指视频源是实时的，一旦主播停播，这个直播地址就失去意义，而且由于是实时直播，所以播放器在播直播视频的时候是没有进度条的。
-点播是指视频源是某个服务器上的文件，只要文件没有被提供方删除，就可以随时播放， 而且由于整个视频都在服务器上，所以播放器在播点播视频的时候是有进度条的。
+直播视频源是实时的，一旦主播停播，直播地址就失去意义，而且由于是实时直播，所以播放器在播直播视频的时候是没有进度条的。
+点播视频源是某个服务器上的文件，只要文件没有被提供方删除，就可以随时播放， 而且由于整个视频都在服务器上，所以播放器在播点播视频的时候是有进度条的。
 
 - **协议支持**
 TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠浏览器支持，所以其兼容性不像我们想象的那么好，因此，**不是所有的手机浏览器都能有符合预期的表现**。一般用于网页直播的视频源地址是以 M3U8 结尾的地址，我们称其为 HLS (HTTP Live Streaming)，这是苹果推出的标准，目前各种手机浏览器产品对这种格式的兼容性也最好，但它有个问题：延迟比较大，一般是20s - 30s左右的延迟。
 
 对于 PC 浏览器，因为其目前还没有抛弃 Flash 控件，而 Flash 控件支持的视频源格式较多，并且浏览器上的 Flash 控件都是 Adobe 自己研发，所以兼容性很好。
-![](//mc.qcloudimg.com/static/img/ea4a95c7a0c8d88c7b6557277510efea/image.png)
+
+视频协议|用途|URL 地址格式|PC 浏览器|移动浏览器
+-----------|-----|-------------|-------------|----------------
+HLS（M3U8）|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.m3u8`|支持|支持
+HLS（M3U8）|可用于点播|`http://xxx.vod.myqcloud.com/xxx.m3u8`|支持|支持
+FLV|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.flv`|支持|不支持
+FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
+RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
+MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
 ## 对接攻略
 
@@ -37,7 +45,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 编写 Javascript 代码，作用是去指定的 URL 地址拉取音视频流，并将视频画面呈现到添加的容器内。
 
 #### 3.1 简单播放
-下面是一个直播 URL 地址，使用 HLS（M3U8）协议，如果主播在直播中，则用 VLC 等播放器是可以直接打开该 URL 进行观看的：
+如下是一个直播格式的 URL 地址，使用 HLS（M3U8）协议，如果主播在直播中，则用 VLC 等播放器是可以直接打开该 URL 进行观看的：
 
 ```
 http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8 播放地址
@@ -61,8 +69,8 @@ PC 浏览器支持 Flash，其 Javascript 代码如下：
 ```javascript
 var player =  new TcPlayer('id_test_video', {
 "m3u8": "http://2157.liveplay.myqcloud.com/2157_358535a.m3u8",
-"flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个flv的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
-"autoplay" : true,      //iOS下safari浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
+"flv": "http://2157.liveplay.myqcloud.com/live/2157_358535a.flv", //增加了一个 flv 的播放地址，用于PC平台的播放 请替换成实际可用的播放地址
+"autoplay" : true,      //iOS 下 safari 浏览器，以及大部分移动端浏览器是不开放视频自动播放这个能力的
 "poster" : "http://www.test.com/myimage.jpg",
 "width" :  '480',//视频的显示宽度，请尽量使用视频分辨率宽度
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
@@ -113,7 +121,7 @@ style 支持的样式如下：
 ```
 #### 4.3 实现用例
 
-使用 cover 方式显示封面，示例如下，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
+使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 ```
@@ -121,19 +129,19 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
 
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
-同腾讯视频，支持多清晰度，如下图所示：
+同腾讯视频，Web 播放器支持多清晰度，如下图所示：
 ![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
 **播放器本身是没有能力去改变视频清晰度的**，视频源只有一种清晰度，称之为原画，而原画视频的编码格式和封装格式多种，Web 端无法支持播放所有的视频格式，如点播支持以 H.264 为视频编码，MP4 和 FLV 为封装格式的视频。
 
-多清晰度的实现依赖于视频云：
-- 对于直播，来自主播端的原始视频会在腾讯云进行实时转码，分出多路转码后的视频，例如“高清-HD”和“标清-SD”，每一路视频都有其对应的地址：
+**多清晰度的实现依赖于视频云**：
+- 对于直播，来自主播端的原始视频会在腾讯云进行实时转码，分出多路转码后的视频，每一路视频都有其对应的地址，例如“高清-HD”和“标清-SD”，地址格式如下：
 ```
 http://2157.liveplay.myqcloud.com/2157_358535a.m3u8          // 原画
 http://2157.liveplay.myqcloud.com/2157_358535a_900.m3u8      // 高清
 http://2157.liveplay.myqcloud.com/2157_358535a_550.m3u8      // 标清
 ```
 
-- 对于点播，一个视频文件上传到腾讯云后，您可以对该视频文件进行转码，产生另外几种清晰度的视频，例如“高清-HD”和“标清-SD”。
+- 对于点播，一个视频文件上传到腾讯云后，您可以对该视频文件进行转码，产生其它几种清晰度的视频，例如“高清-HD”和“标清-SD”，地址格式如下：
 ```
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8         // 原画，用转码后的超清替换
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
@@ -155,7 +163,7 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能，示例如下，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true
@@ -182,7 +190,7 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 6.2 实现用例
-视频播放失败，同时使用自定义提示文案的功能，示例如下，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
+视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http://2527.vod.myqcloud.com/2527_b393eb1.f230.av.m3u8
@@ -210,7 +218,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 >- **由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
 
 ## 源码参考
-如下是一个线上的示例代码，在 PC 浏览器中右键【查看页面源码】即可查看页面的代码实现：
+如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true
 ```
@@ -281,38 +289,13 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+]。 | player.switchClarity('od')  |
 |load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频。<br>（**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 RTMP、FLV、HLS 和 MP4 ，H5 模式支持 MP4、HLS 和 FLV（HLS、FLV 取决于浏览器是否支持）** [v2.2.2+]） | player.load(`http://xxx.mp4`)  |
 
->!**以上方法必须是 Tcplayer 的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
+>!**以上方法必须是`TcPlayer`的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
 
 ## 进阶攻略
 下面介绍播放器 SDK 的进阶使用方法。
 
-### 广告 SDK
-TCPlayerLite 提供集成了 IMA SDK 的版本，若需使用广告功能，需在页面中引入以下代码：
-
-```
-<!-- Google IMA SDK  -->
-<script type="text/javascript" src="//imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
-<!-- 使用集成 IMA SDK 的版本 -->
-<script type="text/javascript" src="//restcplayer.qcloud.com/sdk/tcplayer-web-1.0.1.js"></script>
-```
-
-通过 adTagUrl 和 auth 参数使用广告功能。 <!---，请登录 https://tcplayer.qcloud.com 注册申请帐号及 License 信息，或联系 tcplayer@tencent.com 咨询反--->
-
-```
-var player = new TcPlayer('id_test_video', {
-  /* Advertisement-related parameter */
-  "adTagUrl": "http://ad_tag_url",	//VAST,VMAP,VAPID 视频广告 Tag
-  "auth": {
-    "user_id": "your_user_id",		//广告帐户 ID 
-    "app_id": "your_app_id",		//应用 ID 
-    "license": "your_license"		//应用 license
-  }
-});
-```
->! TcPlayer 2.2.0 之后的文档描述不适用于集成 IMA SDK 的版本，tcplayer-web-1.0.1 为独立的分支。
-
 ### ES Module
-TCPlayerLite 提供了 ES Module 版本，module name 为 TcPlayer，下载地址：
+TCPlayerLite 提供了 ES Module 版本，module name 为`TcPlayer`，下载地址：
 ```
 http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.3.1.js
 ```
@@ -326,7 +309,7 @@ TCPlayerLite 采用 H5`<video>`和 Flash 相结合的方式来进行视频播放
 **从2.2.0版本开始，提供了可以设置播放模式优先级的属性**，如果想优先采用 H5`<video>`播放模式，则需要把 Flash 属性设置为 False；如果 H5`<video>`不可用，则采用 Flash 播放；如果没有检测到 Flash 插件，则会提示“当前系统环境不支持播放该视频格式”。
 
 ### 监听事件
-TCPlayerLite 是采用 H5`<video>` 和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5`<video>`的规范，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，TcPlayer 对这两种播放方式所触发的原生事件进行了捕获和透传。
+TCPlayerLite 是采用 H5`<video>` 和 Flash 相结合的方式来进行视频播放，由于两种方式播放视频时触发的事件不尽相同，所以我们以 H5`<video>`的规范，对 Flash 的播放事件做了一定程度的转换，以实现播放事件命名的统一，`TcPlayer`对这两种播放方式所触发的原生事件进行了捕获和透传。
 
 - [H5 事件参考列表](https://www.w3.org/wiki/HTML/Elements/video#Media_Events)
 - [Flash 事件参考列表](http://help.adobe.com/en_US/FlashPlatform/reference/actionscript/3/flash/events/NetStatusEvent.html)
@@ -372,7 +355,7 @@ volumechange
 | timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
-应用案例：通过事件监听，可以进行播放失败重连，[在线案例](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html)。
+应用案例：通过事件监听，可以进行播放失败重连，[单击访问](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html) 在线案例。
 
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
