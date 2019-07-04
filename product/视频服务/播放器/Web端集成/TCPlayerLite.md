@@ -234,18 +234,18 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
-| m3u8            | String   | 无       |  原画 M3U8 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535a.m3u8 |
-| m3u8_hd         | String   | 无       |  高清 M3U8 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8 |
-| m3u8_sd         | String   | 无       |  标清 M3U8 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8  |
-| flv             | String   | 无       |  原画 FLV 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535a.flv  |
-| flv_hd          | String   | 无       |  高清 FLV 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535ahd.flv  |
-| flv_sd          | String   | 无       |  标清 FLV 播放 URL。  <br> 示例：http://2157.liveplay.myqcloud.com/2157_358535asd.flv |
-| mp4             | String   | 无       |  原画 MP4 播放 URL。  <br> 示例：http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4 |
-| mp4_hd          | String   | 无       |  高清 MP4 播放 URL。  <br> 示例：http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4|
-| mp4_sd          | String   | 无       |  标清 MP4 播放 URL。  <br> 示例：http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4|
-| rtmp            | String   | 无       |  原画 RTMP 播放 URL。  <br> 示例：rtmp://2157.liveplay.myqcloud.com/live/2157_280d88|
-| rtmp_hd         | String   | 无       |  高清 RTMP 播放 URL。  <br> 示例：rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd|
-| rtmp_sd         | String   | 无       |  标清 RTMP 播放 URL。   <br> 示例：rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd|
+| m3u8            | String   | 无       |  原画 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
+| m3u8_hd         | String   | 无       |  高清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
+| m3u8_sd         | String   | 无       |  标清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8`  |
+| flv             | String   | 无       |  原画 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.flv`  |
+| flv_hd          | String   | 无       |  高清 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.flv`  |
+| flv_sd          | String   | 无       |  标清 FLV 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.flv` |
+| mp4             | String   | 无       |  原画 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f0.mp4` |
+| mp4_hd          | String   | 无       |  高清 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f40.mp4`|
+| mp4_sd          | String   | 无       |  标清 MP4 播放 URL。  <br> 示例：`http://200002949.vod.myqcloud.com/200002949_b6ffc.f20.mp4`|
+| rtmp            | String   | 无       |  原画 RTMP 播放 URL。  <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88`|
+| rtmp_hd         | String   | 无       |  高清 RTMP 播放 URL。  <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88hd`|
+| rtmp_sd         | String   | 无       |  标清 RTMP 播放 URL。   <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd`|
 | width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素。   <br> 示例：640   |
 | height          | Number   | 无       | **必选**，设置播放器高度，单位为像素。   <br> 示例：480 |
 | volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]。    <br> 示例：0.6   |
@@ -273,7 +273,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ## 实例方法列表
 播放器实例支持的方法，如下所示：
 
-| 方法             | 参数                   | 返回值                       | 说明                                    |  示例
+| 方法             | 参数&nbsp;                    | 返回值&nbsp; &nbsp;                        | 说明                                    |  示例
 |-----------------|------------------------|----------------------------- |----------------------------------------|---------------------|
 |play()           | 无                     | 无                           | 开始播放视频。                             | player.play() |
 |pause()          | 无                     | 无                           | 暂停播放视频。                             | player.pause() |
