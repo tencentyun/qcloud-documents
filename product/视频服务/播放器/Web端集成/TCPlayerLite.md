@@ -91,7 +91,7 @@ var player =  new TcPlayer('id_test_video', {
 普通的手机浏览器只支持 HLS（M3U8) 协议的播放，不支持 FLV 和 RTMP 协议，最新版本的 QQ 浏览器支持 FLV 协议的播放。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放基于 Flash 控件实现，但**Flash 控件会做跨域访问检查**，如果播放视频所存放的服务器没有部署跨域策略，则会出现问题，解决方法是：在服务器根域名下的跨域配置文件`crossdomain.xml`中添加`qq.com`域名。
+PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做跨域访问检查**，如果播放视频所存放的服务器没有部署跨域策略，则会出现问题，解决方法是：在服务器根域名下的跨域配置文件`crossdomain.xml`中添加`qq.com`域名。
 ```xml
 <cross-domain-policy>
 <allow-access-from domain="*.qq.com" secure="false"/>
@@ -252,7 +252,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>- default 居中1：1显示。 <br>- stretch 拉伸铺满播放器区域，图片可能会变形。 <br>- cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[例子](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)）  <br> 示例："system"|
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)）  <br> 示例："system"|
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
