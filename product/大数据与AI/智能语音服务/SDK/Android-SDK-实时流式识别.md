@@ -136,7 +136,7 @@ new Thread(new Runnable() {
 
 ## SDK 详细介绍
 ### 签名
-调用者需要自己实现AbsCredentialProvider接口来计算签名，此方法为SDK内部调用上层不用关心source来源
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为SDK内部调用上层不用关心 source 来源
 计算签名函数如下：
 ```
 /**
@@ -147,8 +147,8 @@ new Thread(new Runnable() {
 String getAudioRecognizeSign(String source);
 ```
 **计算最终签名算法：**
-先以SecretKey对source进行HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source,secretKey))。
-为方便用户测试，SDK已提供一个实现类**LocalCredentialProvider**，但为保证SecretKey的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider**中的方法。
+先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
+为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider** 中的方法。
 
 ### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
