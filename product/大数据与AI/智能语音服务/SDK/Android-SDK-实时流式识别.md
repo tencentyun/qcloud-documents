@@ -47,6 +47,7 @@ implementation 'org.slf4j:slf4j-api:1.7.25'
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
+<span id="documen"></span>
 ## 快速入门
 
 ### 启动语音识别
@@ -252,7 +253,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | clientException | ClientException | 客户端异常 |
 | serverException | ServerException | 服务端异常 |
 
-示例代码见【快速入门】。
+示例代码见【[快速入门](#documen) 】。
 
 ### 设置语音识别参数
 通过构建 AudioRecognizeConfiguration 类，可以设置语音识别时的配置：
