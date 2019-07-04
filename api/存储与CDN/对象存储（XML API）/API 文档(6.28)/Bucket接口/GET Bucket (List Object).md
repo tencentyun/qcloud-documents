@@ -1,8 +1,7 @@
 ## 功能描述
 
 GET Bucket 请求等同于 List Object 请求，可以列出该存储桶内的部分或者全部对象。该 API 的请求者需要对存储桶有读取权限。
-
->! 如果您往存储桶中上传了一个对象，并立即调用 GET Bucket 接口，由于该接口的最终一致性特性，返回的结果中可能不会包含您刚刚上传的对象。
+>! 如果您往存储桶中上传了一个对象，并立即调用 GET Bucket 接口，由于此接口的最终一致性特性，返回的结果中可能不会包含您刚刚上传的对象。
 
 ## 请求
 
@@ -19,13 +18,13 @@ Authorization: Auth String
 
 #### 请求参数
 
-| 名称          | 描述                                                         | 类型    | 是否必选 |
-| ------------- | ------------------------------------------------------------ | ------- | -------- |
-| prefix        | 对象键匹配前缀，限定响应中只包含指定前缀的对象键             | string  | 否       |
-| delimiter     | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string  | 否       |
-| encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，如“腾讯云”将被编码为 `%E8%85%BE%E8%AE%AF%E4%BA%91` | string  | 否       |
-| marker        | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始  | string  | 否       |
-| max-keys      | 单次返回最大的条目数量，默认值为1000，最大为1000             | integer | 否       |
+名称|描述|类型|是否必选
+---|---|---|---
+prefix|对象键匹配前缀，限定响应中只包含指定前缀的对象键|string|否
+delimiter|一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例|string|否
+encoding-type|规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，如“腾讯云”将被编码为 `%E8%85%BE%E8%AE%AF%E4%BA%91`|string|否
+marker|起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目|string|否
+max-keys|单次返回最大的条目数量，默认值为1000，最大为1000|integer|否
 
 #### 请求头
 
@@ -87,48 +86,48 @@ Authorization: Auth String
 
 具体的节点描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述                           | 类型      |
-| ------------------ | ------ | ------------------------------ | --------- |
-| ListBucketResult   | 无     | 保存 GET Bucket 结果的所有信息 | Container |
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+ListBucketResult|无|保存 GET Bucket 结果的所有信息|Container
 
 **Container 节点 ListBucketResult 的内容：**
 
-| 节点名称（关键字） | 父节点           | 描述                                                         | 类型      |
-| ------------------ | ---------------- | ------------------------------------------------------------ | --------- |
-| Name               | ListBucketResult | 存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000` | string    |
-| EncodingType       | ListBucketResult | 编码格式，对应请求中的 encoding-type 参数，且仅当请求中指定了 encoding-type 参数才会返回该节点 | string    |
-| Prefix             | ListBucketResult | 对象键匹配前缀，对应请求中的 prefix 参数                     | string    |
-| Marker             | ListBucketResult | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目，对应请求中的 marker 参数 | string    |
-| MaxKeys            | ListBucketResult | 单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数   | integer   |
-| Delimiter          | ListBucketResult | 分隔符，对应请求中的 delimiter 参数，且仅当请求中指定了 delimiter 参数才会返回该节点 | string    |
-| IsTruncated        | ListBucketResult | 响应条目是否被截断，布尔值，如 true 或 false                 | boolean   |
-| NextMarker         | ListBucketResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 marker 参数传入 | string    |
-| CommonPrefixes     | ListBucketResult | 从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点 | Container |
-| Contents           | ListBucketResult | 对象条目                                                     | Container |
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+Name|ListBucketResult|存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000`|string
+EncodingType|ListBucketResult|编码格式，对应请求中的 encoding-type 参数，且仅当请求中指定了 encoding-type 参数才会返回该节点|string
+Prefix|ListBucketResult|对象键匹配前缀，对应请求中的 prefix 参数|string
+Marker|ListBucketResult|起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目，对应请求中的 marker 参数|string
+MaxKeys|ListBucketResult|单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数|integer
+Delimiter|ListBucketResult|分隔符，对应请求中的 delimiter 参数，且仅当请求中指定了 delimiter 参数才会返回该节点|string
+IsTruncated|ListBucketResult|响应条目是否被截断，布尔值，如 true 或 false|boolean
+NextMarker|ListBucketResult|仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 marker 参数传入|string
+CommonPrefixes|ListBucketResult|从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点|Container
+Contents|ListBucketResult|对象条目|Container
 
 **Container 节点 CommonPrefixes 的内容：**
 
-| 节点名称（关键字） | 父节点                          | 描述                      | 类型   |
-| ------------------ | ------------------------------- | ------------------------- | ------ |
-| Prefix             | ListBucketResult.CommonPrefixes | 单条 Common Prefix 的前缀 | string |
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+Prefix|ListBucketResult.CommonPrefixes|单条 Common Prefix 的前缀|string
 
 **Container 节点 Contents 的内容：**
 
-| 节点名称（关键字） | 父节点                    | 描述                                                         | 类型      |
-| ------------------ | ------------------------- | ------------------------------------------------------------ | --------- |
-| Key                | ListBucketResult.Contents | 对象键                                                       | string    |
-| LastModified       | ListBucketResult.Contents | 对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z    | date      |
-| ETag               | ListBucketResult.Contents | 根据文件内容计算出的哈希值                                   | string    |
-| Size               | ListBucketResult.Contents | 对象大小，单位为 Byte                                        | integer   |
-| Owner              | ListBucketResult.Contents | 对象持有者信息                                               | Container |
-| StorageClass       | ListBucketResult.Contents | 对象存储类型。枚举值请参阅 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD，STANDARD_IA，ARCHIVE | Enum      |
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+Key|ListBucketResult.Contents|对象键|string
+LastModified|ListBucketResult.Contents|对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z|date
+ETag|ListBucketResult.Contents|根据文件内容计算出的哈希值|string
+Size|ListBucketResult.Contents|对象大小，单位为 Byte|integer
+Owner|ListBucketResult.Contents|对象持有者信息|Container
+StorageClass|ListBucketResult.Contents|对象存储类型。枚举值请参阅 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD，STANDARD_IA，ARCHIVE|Enum
 
 **Container 节点 Contents.Owner 的内容：**
 
-| 节点名称（关键字） | 父节点                          | 描述             | 类型   |
-| ------------------ | ------------------------------- | ---------------- | ------ |
-| ID                 | ListBucketResult.Contents.Owner | 存储桶的 APPID   | string |
-| DisplayName        | ListBucketResult.Contents.Owner | 对象持有者的名称 | string |
+节点名称（关键字）|父节点|描述|类型
+---|---|---|---
+ID|ListBucketResult.Contents.Owner|存储桶的 APPID|string
+DisplayName|ListBucketResult.Contents.Owner|对象持有者的名称|string
 
 #### 错误码
 
@@ -350,7 +349,6 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Mon, 27 May 2019 11:07:30 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1558955250;1558962450&q-key-time=1558955250;1558962450&q-header-list=date;host&q-url-param-list=&q-signature=4d515ac9853b6e341cf5432c0d57faebe165****
 Connection: close
-
 ```
 
 #### 响应
