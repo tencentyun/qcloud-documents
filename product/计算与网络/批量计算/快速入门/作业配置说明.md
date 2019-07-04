@@ -130,8 +130,8 @@ EnvData | EnvData object | 是 | 计算环境具体参数 |
 #### EnvData
 名称 | 类型  | 是否必选 | 描述 | 示例
 -----|------|-----|------|------
-InstanceType | String | 是 | CVM实例类型，托管类型必填 | img-m4q71qnf
-ImageId | String | 是 | CVM镜像 ID，托管类型必填 | S1.SMALL1
+InstanceType | String | 是 | CVM实例类型，托管类型必填 | S1.SMALL1
+ImageId | String | 是 | CVM镜像 ID，托管类型必填 | img-m4q71qnf
 others | others | 否 | 参考 CVM API文档 [创建实例](https://cloud.tencent.com/document/api/213/9384) 提供的参数 | 支持 SystemDisk、DataDisks、VirtualPrivateCloud 等）
 
 #### RedirectInfo
