@@ -3,7 +3,7 @@
 智能语音服务实时流式识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/37b2c7d433e9ace64296c016393debdd/aai-android-sdk-v2.x-master.zip)
 
 ### 开发前
-1. 开发者使用实时流式识别功能前，需要先在腾讯云- [控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 等。
+1. 开发者使用实时流式识别功能前，需要先在[腾讯云 - 控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 等。
 2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
 3. 支持 Android 4.0 及其以上版本。
 
