@@ -1,14 +1,13 @@
 ## 简介
 
-对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK 来实现。上传的流程请参见 [客户端上传指引](/document/product/266/9219)。
+对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。上传流程请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
 
-源码：[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
+[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
 
 ## Demo
 
-Demo：[单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
-
-Demo 源码：[单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
+- [单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
+- [单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
 
 ## 简单视频上传
 
@@ -66,6 +65,8 @@ uploader.on('media_progress', function(info) {
 // }
 uploader.done().then(function (doneResult) {
   // deal with doneResult
+}).catch(function (err) {
+  // deal with error
 })
 
 
@@ -117,7 +118,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作](https://cloud.tencent.com/document/product/436/12260#slice-upload-file)。
+`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E7.89.87.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
 
 #### 取消上传
 

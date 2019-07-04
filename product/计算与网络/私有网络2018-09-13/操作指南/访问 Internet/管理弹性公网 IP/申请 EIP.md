@@ -1,4 +1,4 @@
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【云计算与网络】>【云服务器】，进入云服务器控制台。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【计算】>【云服务器】，进入云服务器控制台。
 2. 单击左侧目录中的【弹性公网 IP】，进入管理页面。
 3. 在列表上方，选择地域，单击【申请】。
  ![1](https://main.qcloudimg.com/raw/a003ffd037a580d941fc79267708b08e.png)

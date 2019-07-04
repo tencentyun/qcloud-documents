@@ -37,7 +37,7 @@ getSignature: function(callback) {
 > `signature`计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 **3. 上传视频**
-上传视频是通过调用 VodUploader.start 来实现的。示例如下：
+上传视频是通过调用`VodUploader.start`来实现的，选择视频则通过微信小程序 API 中的`wx.chooseVideo`方法实现。示例如下：
 
 ```
  VodUploader.start({

@@ -45,9 +45,10 @@
 
  | 服务                                                       | 授权粒度 | 控制台 | 根据标签进行授权  | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- | -------- | ---- |	
-| [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |    -  |	
-| [私有网络](https://cloud.tencent.com/document/product/215/20171) | 资源级 | ✔        | -     | ✔        | - |	
+| [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |   ✔  |	
+| [私有网络 VPC ](https://cloud.tencent.com/document/product/215/20171)<sup>1</sup>  | 资源级 | ✔        | -     | ✔        | - |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 资源级   | ✔       | -       | ✔        | -  |	
+> ?<sup>1</sup> 以下产品您可以通过私有网络 VPC 策略进行 [授权管理](https://cloud.tencent.com/document/product/598/10602)：[弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682)。
 
 ## 数据库	
 
@@ -65,9 +66,9 @@
 | ------------------------------------------------------------| ------ | -------- | -------- | ------- | ---- |	
 | [全球应用加速](https://cloud.tencent.com/document/product/608)  | 资源级 | ✔  |  -   | ✔ | -  |
 | [动态加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | ✔  |  - | ✔   | -  |
-| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>1</sup> | ✔   |  -   | ✔  | - |
+| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>2</sup> | ✔   |  -   | ✔  | - |
 
-> ?<sup>1</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
+> ?<sup>2</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
 
 ## 互联网中间件	
 
@@ -91,7 +92,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- |-------- | ---- |	
 | [DDoS 防护（大禹）](https://cloud.tencent.com/document/product#network-security) | 服务级 | ✔   | -  | - |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012)  |资源级 | -   |  ✔   | -   |
-| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  ✔    |
+| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  ✔    |✔    |
 
 ## 主机安全	
 
@@ -199,6 +200,7 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | -------------------------------------------------------- | ------ | -------- | ------- |-------- | ---- |	
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | ✔   | -  | ✔  | ✔ |
+| [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | ✔   | -  | ✔  | - |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | ✔  | -  | ✔  | -  |
 | [加速物联网套件](https://cloud.tencent.com/document/product/568)| 操作级 | ✔   | -  | ✔ |✔| 
 
@@ -206,7 +208,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权  | 临时密钥 | 服务角色 |	
 | ----------------------------------------------------------- | ------ | -------- | ------ | -------- | ---- |	
-| [TBaaS](https://cloud.tencent.com/document/product/663) | 操作级   | ✔ | -  | ✔  | - |	
+| [腾讯云区块链服务 TBaaS](https://cloud.tencent.com/document/product/663) | 操作级   | ✔ | -  | ✔  | - |	
 
 ## 云资源管理
 
