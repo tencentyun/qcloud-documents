@@ -2,7 +2,7 @@
 PullComplete
 
 ## 事件说明
-当 App 配置了事件通知，并且在拉取视频上传完成后，App 后台即可通过“普通回调”或“可靠回调”的方式获取该事件通知。事件通知内容为 [PullFileTask 结构](https://cloud.tencent.com/document/api/266/31773#PullFileTask)。
+当 App 配置了事件通知，并且在拉取视频上传完成后，App 后台即可通过“普通回调”或“可靠回调”的方式获取该事件通知。事件通知内容为 [PullComplete 结构](https://cloud.tencent.com/document/api/266/31773#EventContent)。
 
 
 ## 普通回调
