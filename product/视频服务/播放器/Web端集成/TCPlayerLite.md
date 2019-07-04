@@ -248,7 +248,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | rtmp_sd         | String   | 无       |  标清 RTMP 播放 URL。   <br> 示例：`rtmp://2157.liveplay.myqcloud.com/live/2157_280d88sd`|
 | width           | Number   | 无       | **必选**，设置播放器宽度，单位为像素。   <br> 示例：640   |
 | height          | Number   | 无       | **必选**，设置播放器高度，单位为像素。   <br> 示例：480 |
-| volume          | Number   | 0.5      | 设置初始音量，范围：0~1 [v2.2.0+]。    <br> 示例：0.6   |
+| volume          | Number   | 0.5      | 设置初始音量，范围：0到1 [v2.2.0+]。    <br> 示例：0.6   |
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>- default 居中1：1显示。 <br>- stretch 拉伸铺满播放器区域，图片可能会变形。 <br>- cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
