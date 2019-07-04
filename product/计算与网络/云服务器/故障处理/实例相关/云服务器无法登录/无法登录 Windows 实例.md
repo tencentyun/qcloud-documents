@@ -29,7 +29,7 @@
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例列表中，选择您需要登录的实例，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
-3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】。
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 Ctrl-Alt-Delete 进入系统登录界面。如下图所示：
