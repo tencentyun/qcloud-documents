@@ -118,7 +118,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 ```
  { "code":0, "message":"success", "requestId":500 }
 ```
-**结果回调**
+## 结果回调
 当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。
 **服务端返回结果**
 语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
