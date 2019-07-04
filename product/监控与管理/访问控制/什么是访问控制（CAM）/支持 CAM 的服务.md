@@ -46,7 +46,7 @@
  | 服务                                                       | 授权粒度 | 控制台 | 根据标签进行授权  | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- | -------- | ---- |	
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |   ✔  |	
-| [私有网络 VPC ](https://cloud.tencent.com/document/product/215/20171)<sup>1</sup>  | 资源级 | ✔        | -     | ✔        | - |	
+| [私有网络 VPC ](https://cloud.tencent.com/document/product/215/20172)<sup>1</sup>  | 资源级 | ✔        | -     | ✔        | - |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 资源级   | ✔       | -       | ✔        | -  |	
 > ?<sup>1</sup> 私有网络 VPC 中 [弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT 网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682) 均已支持使用 CAM。
 
