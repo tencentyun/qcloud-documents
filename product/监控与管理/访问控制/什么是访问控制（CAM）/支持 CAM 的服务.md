@@ -48,8 +48,7 @@
 | [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |   ✔  |	
 | [私有网络 VPC ](https://cloud.tencent.com/document/product/215/20171)<sup>1</sup>  | 资源级 | ✔        | -     | ✔        | - |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 资源级   | ✔       | -       | ✔        | -  |	
-> ?<sup>1</sup> 以下产品您可以通过私有网络 VPC 策略进行 [授权管理](https://cloud.tencent.com/document/product/598/10602)：
->[弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682)。
+> ?<sup>1</sup> 以下产品您可以通过私有网络 VPC 策略进行 [授权管理](https://cloud.tencent.com/document/product/598/10602)：[弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682)。
 
 ## 数据库	
 
