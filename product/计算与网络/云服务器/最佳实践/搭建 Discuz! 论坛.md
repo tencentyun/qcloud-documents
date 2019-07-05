@@ -63,9 +63,9 @@ yum install httpd php php-fpm php-mysql mariadb mariadb-server -y
  - PHP：5.4.16
 2. 执行以下命令，启动服务。
 ```
-service httpd start
-service mariadb start
-service php-fpm start
+systemctl start httpd
+systemctl start mariadb
+systemctl start php-fpm
 ```
 3. <span id="step3"></span>执行以下命令，设定 root 账户密码及基础配置，使 root 用户可以访问数据库。
 >!
