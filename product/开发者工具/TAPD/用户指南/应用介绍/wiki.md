@@ -7,7 +7,7 @@
  
 
 ## 前提条件
-TAPD 专业版默认隐藏 Wiki 应用，需要由管理员在应用设置中启用。具体步骤请参见 [项目管理配置](https://cloud.tencent.com/document/product/624/11402?!editLang=zh&!preview#.E8.BF.9B.E8.A1.8C.E5.BA.94.E7.94.A8.E8.AE.BE.E7.BD.AE) 中的进行应用设置。
+TAPD 专业版默认隐藏 Wiki 应用，需要由管理员在应用设置中启用。具体步骤请参见 [项目管理配置](https://cloud.tencent.com/document/product/624/11402?!editLang=zh&!preview#.E8.BF.9B.E8.A1.8C.E5.BA.94.E7.94.A8.E8.AE.BE.E7.BD.AE) 中的“进行应用设置”。
 
 ## 操作步骤
 ### 新建 Wiki 页面
