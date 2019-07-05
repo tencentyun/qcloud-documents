@@ -55,17 +55,17 @@ server {
 ### CLB 强制 HTTP 跳转方案
 #### 方案说明
 假定开发者需要配置网站`https://example.com` 。开发者希望用户在浏览器中输入网址时，直接键入`www.example.com`即可通过 HTTPS 协议安全访问。`www.example.com` 下，不仅仅是一个地址，后端关联的 URL 可能有数百的（用正则匹配），总的 real server 数量会有几百个，逐一配置难度太大。腾讯云支持一键式的，强制 HTTPS 跳转。
-1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 LB 的 HTTPS 监听器的配置，将`https://example.com`的 Web 环境搭建好。
+1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 LB 的 HTTPS 监听器的配置，搭建`https://example.com`的 Web 环境。
 ![](https://main.qcloudimg.com/raw/634b11258bfdfee45568062f8c3bf651.png)
-完成配置后的结果如下图所示：
+2. 完成配置后的结果如下图所示。
 ![](https://main.qcloudimg.com/raw/f11a1c39ea720f8476b29e97a57c3999.png)
-2. 在 CLB 实例详情的“重定向配置”标签页中，单击【新建重定向配置】。
+3. 在 CLB 实例详情的“重定向配置”标签页中，单击【新建重定向配置】。
 ![](https://main.qcloudimg.com/raw/32adf5abcf5569e6986f2af645ae2eac.png)
-3. 选择【自动重定向配置】，单击【下一步：配置路径】。
+4. 选择【自动重定向配置】，单击【下一步：配置路径】。
 ![](https://main.qcloudimg.com/raw/9430331e893a5305c2d2ee930e215c97.png)
-4. 单击【提交】即可完成配置。
+5. 单击【提交】即可完成配置。
 ![](https://main.qcloudimg.com/raw/ba728da9f4e0ecd9070f2f7a23763bd8.png)
-5. 完成配置后的结果如下图所示，可以看到已为 `HTTP:443` 监听器自动配置了 `HTTP:80` 监听器，且 HTTP 的流量均会被自动重定向到 HTTPS。
+6. 完成配置后的结果如下图所示，可以看到已为 `HTTP:443` 监听器自动配置了 `HTTP:80` 监听器，且 HTTP 的流量均会被自动重定向到 HTTPS。
 ![](https://main.qcloudimg.com/raw/ece6f28f16456b72c73256e4de5335bc.png)
 
 #### 方案优势
