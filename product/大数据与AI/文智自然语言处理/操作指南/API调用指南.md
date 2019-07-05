@@ -1,1 +1,1 @@
-[参见《API文档/文智自然语言处理》](http://cloud.tencent.com/doc/api/307/%E7%AE%80%E4%BB%8B)
+[参见《API文档/腾讯云自然语言处理》](https://cloud.tencent.com/document/product/271/35484)
