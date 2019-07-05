@@ -3,13 +3,13 @@
 智能语音服务实时流式识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
 
 ### 开发前
-1. 开发者使用实时流式识别功能前，需要先在腾讯云- [控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 等。
+1. 开发者使用实时流式识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/)  注册账号，并获得 APPID、SecretId 和 SecretKey 等。
 2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
 3. 支持 Android 4.0 及其以上版本。
 
 ### 运行环境配置
 
-##### 引入 .so 文件
+**引入 .so 文件**
 **libWXVoice.so：** 腾讯语音检测 so 库。
 
 ##### 引入 aar 包
@@ -47,6 +47,7 @@ implementation 'org.slf4j:slf4j-api:1.7.25'
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 < uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
+<span id="documen"></span>
 ## 快速入门
 
 ### 启动语音识别
@@ -136,7 +137,7 @@ new Thread(new Runnable() {
 
 ## SDK 详细介绍
 ### 签名
-调用者需要自己实现AbsCredentialProvider接口来计算签名，此方法为SDK内部调用上层不用关心source来源
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为SDK内部调用上层不用关心 source 来源
 计算签名函数如下：
 ```
 /**
@@ -147,8 +148,8 @@ new Thread(new Runnable() {
 String getAudioRecognizeSign(String source);
 ```
 **计算最终签名算法：**
-先以SecretKey对source进行HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source,secretKey))。
-为方便用户测试，SDK已提供一个实现类**LocalCredentialProvider**，但为保证SecretKey的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider**中的方法。
+先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
+为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider** 中的方法。
 
 ### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
@@ -252,7 +253,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | clientException | ClientException | 客户端异常 |
 | serverException | ServerException | 服务端异常 |
 
-示例代码见【快速入门】。
+示例代码见 [快速入门](#documen)。
 
 ### 设置语音识别参数
 通过构建 AudioRecognizeConfiguration 类，可以设置语音识别时的配置：
@@ -312,7 +313,7 @@ AudioRecognizeTimeoutListener 可以用来监听语音识别的的超时，一�
 | onFirstVoiceFlowTimeout | 检测第一个语音流超时 |
 | onNextVoiceFlowTimeout | 检测下一个语音流超时 |
 
-示例：
+**示例：**
 ```
 AudioRecognizeStateListener audioRecognizeStateListener = new AudioRecognizeStateListener() {
     @Override
@@ -378,7 +379,7 @@ new Thread(new Runnable() {
 
 ### 其他重要类说明
 
-#### AudioRecognizeRequest
+**AudioRecognizeRequest**
 templateName 和 customTemplate 都设置时，优先使用 templateName 的设置。
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 | 默认值 |
@@ -387,7 +388,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 | templateName | String | 否 | 用户控制台设置的模板名称 | 无 |
 |customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)|
 
-#### AudioRecognizeResult
+**AudioRecognizeResult**
 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
 
 | 参数名称 | 类型 | 参数描述 |
@@ -399,7 +400,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 | voiceId | String | 该语音分片所在语音流的 ID |
 | cookie | String | cookie 值 |
 
-### AudioRecognizeTemplate
+**AudioRecognizeTemplate**
 自定义的语音模板，需要设置的参数包括：
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 |
@@ -412,7 +413,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 ```
 AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1);
 ```
-### PcmAudioDataSource
+**PcmAudioDataSource**
 用户可以实现这个接口来识别单通道、采样率 16k 的 PCM 音频数据。主要包括如下几个接口：
 
 - 向语音识别器添加数据，将长度为 length 的数据从下标 0 开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
@@ -435,13 +436,13 @@ void stop();
 ```
 int maxLengthOnceRead();
 ```
-### AudioRecordDataSource
+**AudioRecordDataSource**
 PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音频数据，用于实时识别。
-### AudioFileDataSource
+**AudioFileDataSource**
 PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率 16k 的 PCM 音频数据的文件。
 >**注意：**其他格式的数据无法正确识别。
 
-### AAILogger
+**AAILogger**
 用户可以利用 AAILogger 来控制日志的输出，可以选择性的输出 debug、info、warn 以及 error 级别的日志信息。
 ```
 public static void disableDebug();

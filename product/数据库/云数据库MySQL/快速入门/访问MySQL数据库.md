@@ -52,10 +52,10 @@ mysql -h hostname -u username -p
 **安全提示：**外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
 请根据外网中主机的操作系统选择对应的登录方式。
 ### 从 Windows 系统登录
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)。
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
 2. 在左侧导航选择【实例列表】页签。
 3. 选择状态为运行中的目标实例，单击【登录】。
-![](https://main.qcloudimg.com/raw/807212252e237e04ab62560fdda54795.jpg)
+![](https://main.qcloudimg.com/raw/3a642dee2f7402a37f6f123438df50b6.png)
 4. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在初始化选项中配置的 root 帐户的密码，单击【登录】。
 ![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
 5. 在数据管理页面可以查看实例的状态和基本信息，单击【前往PMA】访问数据库。
@@ -64,14 +64,13 @@ mysql -h hostname -u username -p
 ![](https://main.qcloudimg.com/raw/2a502f89d6a3e05bc16487802c4da042.png)
 
 ### 从 Linux 系统登录
-1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)。
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
 2. 在左侧导航选择【实例列表】页签。
-3. 单击目标实例的 ID 进入实例详情页。
-![](https://main.qcloudimg.com/raw/daba9621274e7ec1e06065a86c3cd4cd.png)
-4. 在【实例详情】页签下的【基本信息】中，单击外网地址后的【开启】，单击【确定】。
-![](https://main.qcloudimg.com/raw/fa7034bf01bdebbaa21d35b86cbc52b9.png)
+3. 单击实例名或操作列的【管理】，进入实例详情页。
+![](https://main.qcloudimg.com/raw/9073997440e22307d05fb4d9a50da5e3.png)
+4. 在实例详情页签下的【基本信息】中，单击外网地址后的【开启】，单击【确定】。
+![](https://main.qcloudimg.com/raw/755ef55ad549d73230948def2c0ba828.png)
 5. 完成后会显示开通后的外网地址，随后的步骤里会用到此地址。
-![](https://main.qcloudimg.com/raw/86557c48a6f7d492b33ac85196c6b5ea.png)
 6. 以 CentOS 7.2 64 位系统为例，利用 CentOS 自带的包管理软件 Yum 去下载安装 MySQL 客户端。
 	相关命令为：
 ```
@@ -83,7 +82,7 @@ mysql -h hostname -u username -p
 mysql -h hostname -P port -u username -p
 ```
 >?
->- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如：cdb_outerroot；并在提示 **Enter password：**后输入 cdb_outerroot 帐户对应的密码。
+>- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 **Enter password：**后输入 cdb_outerroot 帐户对应的密码。
 >- 外网访问用户名用于外网访问，建议用户单独创建便于访问控制管理。
 >- 本例中 hostname 为 59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为 15311。
 >

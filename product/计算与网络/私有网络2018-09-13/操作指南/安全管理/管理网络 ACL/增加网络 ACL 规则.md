@@ -2,5 +2,5 @@
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要修改的网络 ACL，单击其 ID，进入详情页。
 4. 新增出/入站规则，单击【出站规则】或【入站规则】>【编辑】>【新增一行】，选择协议类型并输入端口、源 IP，以及选择策略。
-![](https://main.qcloudimg.com/raw/1d13beacdda5972fd74d44ae554fd9bf.png)
+![](https://main.qcloudimg.com/raw/e24739da05d191661024a92d3738a3d4.png)
 5. 单击【保存】即可。

@@ -1,10 +1,10 @@
-## 应用场景
-主要应用在智能楼宇、智能工业、农业和环境等场景。
+## 操作场景
+LoRa 设备广泛应用于智慧城市、智慧园区、智能建筑、智慧农业等场景。您只需要在腾讯物联网通信中进行简单的操作，并将 LoRa 通信相关信息配置到 LoRa 终端，即可在云平台中管理您的设备。本文档主要指导您如何创建 LoRa 产品。
 ![数据流程](https://main.qcloudimg.com/raw/e8fd5d1c2bc162c9d0dd618553fb570a/LoRa_freamwork.png)
-本文档主要指导您如何创建 LoRa 产品。
+
 
 ## 操作步骤
-1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。  
+1. 登录物联网通信控制台，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。  
 2. 进入产品列表页面，单击【创建新产品】。
 3. 按界面提示填写相关信息。
  - 所属地区：广州。
@@ -20,7 +20,7 @@
  - 设备名称：设备名称在同一个产品下，设备名称需要保证唯一性。
  - 设备备注：选填，给设备增加备注。
  - AppEUI：应用 ID。
- - DevEUI：设备在入网前就产生了，请找设备厂家提供，入网时设备将 DevEUI 上传，然后服务器会将此 DevEUI 注册并返回一个 DevAddr，入网后 DevAddr 为设备的唯一身份标识。
+ - DevEUI：设备在入网前就产生了，请找设备厂家提供，入网时设备将 DevEUI 上传，且服务器会将此 DevEUI 注册并返回一个 DevAddr，入网后 DevAddr 为设备的唯一身份标识。
  - AuthKey：设备认证密钥。
  - 设备类型：支持 Class A/B/C 。
  - AppKey：设备在入网前即可获取，请找设备厂家提供，用于通讯密钥的参数加密。

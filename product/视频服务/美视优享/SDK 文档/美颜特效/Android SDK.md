@@ -1,8 +1,8 @@
 ## 功能说明
-动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天P图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和P图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
+动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和天天 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 文件可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
+可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & Licence 文件可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
 
 ## 工程设置
 
@@ -14,19 +14,19 @@
 将 zip 包中的 `camera` 文件夹拷贝到工程的 assets 目录下。
 >!camera 目录包含了切换动效需要的资源等文件，必须正确放到 assets 目录下，否则会发生异常。
 
-### 3. 导入 licence 文件
-特权版需要 licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试用 licence。获得 licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
+### 3. 导入 Licence 文件
+特权版需要 Licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试用 Licence。获得 Licence 后，将其命名为 **YTFaceSDK.licence** ，并添加到工程的 assets 目录下。
 
 >?
-> - 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+> - 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
-> - iOS 和 Android 不需要重复申请 license，一个 license 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+> - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 ## 功能调用
 
 ### 动效功能
 
-一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
+一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
 
 ```

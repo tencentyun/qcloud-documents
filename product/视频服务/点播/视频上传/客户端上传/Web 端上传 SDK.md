@@ -65,6 +65,8 @@ uploader.on('media_progress', function(info) {
 // }
 uploader.done().then(function (doneResult) {
   // deal with doneResult
+}).catch(function (err) {
+  // deal with error
 })
 
 
