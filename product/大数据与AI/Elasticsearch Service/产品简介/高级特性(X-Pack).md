@@ -90,7 +90,7 @@
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Kibana</td>
+    <td class="tg-0lax" rowspan="8">Kibana</td>
     <td class="tg-0lax">探索和可视化</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">◑</td>
@@ -122,6 +122,12 @@
   </tr>
   <tr>
     <td class="tg-0lax">Security</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">-</td>
+    <td class="tg-baqh">⚫</td>
+  </tr>
+  <tr>
+    <td class="tg-0lax">Alerting</td>
     <td class="tg-baqh">-</td>
     <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
