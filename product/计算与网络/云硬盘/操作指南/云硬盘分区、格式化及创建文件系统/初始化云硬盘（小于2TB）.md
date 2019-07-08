@@ -26,6 +26,7 @@
 <span id="online"></span>
 5. 在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。
  ![](https://main.qcloudimg.com/raw/a6b5296ab23c0c361440b7d5b97bc493.png)
+ 
 <span id="initialize"></span>
 6. 右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。
  ![](https://main.qcloudimg.com/raw/b38f04f488ff40b26e12d33aa1f83ee1.png)
