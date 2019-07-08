@@ -208,7 +208,6 @@
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | ✔   | -  | ✔  | ✔ |
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | ✔   | -  | ✔  | - |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | ✔  | -  | ✔  | -  |
-| [加速物联网套件](https://cloud.tencent.com/document/product/568)| 操作级 | ✔   | -  | ✔ |✔| 
 
 ## 区块链	
 
