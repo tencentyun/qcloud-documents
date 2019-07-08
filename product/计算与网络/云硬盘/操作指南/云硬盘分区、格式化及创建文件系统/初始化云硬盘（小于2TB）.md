@@ -62,7 +62,7 @@
  ```
 fdisk -l
 ```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+ 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
  ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，对 “/dev/vdb” 裸设备直接创建文件系统格式。
 ```
@@ -118,7 +118,10 @@ df -TH
 		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
  </tr>
 </table>
-8. 备份 `/etc/fstab` 文件。
+8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
 vi /etc/fstab
@@ -260,7 +263,7 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
 	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdc1</pre></td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
@@ -268,7 +271,10 @@ df -TH
 	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-17. 备份`/etc/fstab`文件。
+17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab
