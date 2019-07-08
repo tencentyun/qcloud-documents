@@ -37,7 +37,8 @@ License 设置成功后（需稍等一段时间，具体时间长短依据网络
 
 - iOS
 ```
-NSLog(@"%@", [TXLiveBase getLicenceInfo]);
+extern NSString *TXLiveGetLicenceInfo(void);
+NSLog(@"%@", TXLiveGetLicenceInfo());
 ```
 - Android
 ```

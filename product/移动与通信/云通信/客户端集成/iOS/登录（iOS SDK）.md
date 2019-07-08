@@ -60,7 +60,7 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 login_param.identifier = @"iOS_001";
 //userSig 为用户登录凭证
 login_param.userSig = @"usersig";
-//appidAt3rd 在私有帐号情况下，填写与 SDKAppID 一样
+//appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
     NSLog(@"Login Succ");
@@ -136,7 +136,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init]; 
 // identifier 为用户名
-// appidAt3rd 在私有帐号情况下，填写与 SDKAppID 一样
+// appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.identifier = @"iOS_001";
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] initStorage: login_param succ:^(){

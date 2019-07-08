@@ -1,14 +1,13 @@
-﻿
-流式语音合成 C++ SDK [下载地址 ](https://main.qcloudimg.com/raw/7b1a3092cdb0c9266df6b44dfcdf0d22/c++_tts_sdk.tar.gz)。
+
+流式语音合成C++ SDK [下载地址](https://main.qcloudimg.com/raw/5949aa675abd1d2970a1229b99de015a/c++_stream_tts_sdk_v1.0.tar.gz )。
 
 
 **此 SDK 目前仅支持在 Linux 平台上使用。**  
 接口请求域名：aai.cloud.tencent.com/tts  
-接口请求频率限制：50次/每秒。  
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
-## 一、开发环境
-### 1.基础编译环境
+## 开发环境
+**基础编译环境**
 安装gcc g++   
 
 ```
@@ -16,7 +15,7 @@ yum install -y gcc gcc-c++ make automake
 //安装 gcc 等必备程序包（已安装则略过此步）
 yum install -y wget
 ```
-### 2.安装 CMake 工具
+**安装 CMake 工具**
 ```
 // cmake 版本要大于3.5
 wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
@@ -26,29 +25,26 @@ cd cmake-3.5.2
 gmake
 gmake install
 ```
-### 3.依赖库安装及编译
-**3.1 curl**
-```
+**依赖库安装及编译**
+**curl**
 客户需自行安装版本大于7.44.0：
-下载地址：https://curl.haxx.se/download.html
-解压进入源码目录
+下载 [curl 文件](https://curl.haxx.se/download.html) 解压进入源码目录。
+```
 sudo ./configure
 sudo cmake ./
 sudo make
 sudo make install
 ```
-**3.2 openssl**
-```
-本sdk提供，目录为
-c++_tts_sdk/lib
-
+**openssl**
+本 SDK 提供，目录为：c++_tts_sdk/lib
 如果不适合客户系统，自行安装方法，版本1.0.2f:
-1.下载
-wget http://www.openssl.org/source/openssl-1.0.2f.tar.gz
-2.更新zlib
+下载 [wget 源码](http://www.openssl.org/source/openssl-1.0.2f.tar.gz)。
+ 
+```
+1.更新zlib
 RedHat系列:yum install -y zlib
 Debian系列:sudo apt-get install zlib1g zlib1g.dev
-3.安装
+2.安装
 tar zxf openssl-1.0.2f.tar.gz
 cd openssl-1.0.2f
 sudo ./config shared zlib
@@ -56,33 +52,30 @@ sudo make
 sudo make install
 自行替换 c++_tts_sdk/extern/openssl_1.0.2f/lib下面的库文件
 ```
-**3.3 jsoncpp**
-```
-本sdk提供，目录为:
-extern/json/lib
+**jsoncpp**
+
+本SDK提供，目录为：extern/json/lib
 存在64位版本和32位版本，客户可自行根据自身操作系统更换链接
-```
-**3.4 opus**
-```
+
+**opus**
 本sdk提供，目录为:
 extern/opus
 
 如果不适合客户系统，自行安装方法:
-下载地址：https://www.opus-codec.org/downloads/
-解压进入源码目录
+下载 [opus 源码](https://www.opus-codec.org/downloads/)  解压进入源码目录。
+```
 sudo ./configure --prefix=/usr
 sudo make
 sudo make install
 自行替换 c++_tts_sdk/extern/opus/lib下面的库文件
 ```
 
-## 获取用户信息
-### 1.获取 APPID，SecretId 与 SecretKey
-- 关于云 API 账号中的 APPID，SecretId 与 SecretKey 查询方法，可参考：[鉴名签权](https://cloud.tencent.com/document/product/441/6203)。
-- 具体路径为：单击控制台右上角您的账号-->选：访问管理-->单击左边菜单的：访问密钥-->API 密钥管理。
- 
-### 2.更改用户信息配置文件
+## <span id="result">获取用户信息</span>
+**获取 AppID，SecretId 与 SecretKey**
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。 
+- 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
+**更改用户信息配置文件**
 将查询到的用户信息更改到 conf/tcloud_auth.ini 配置文件中。
 
 ```
@@ -93,12 +86,12 @@ SecretKey=kFpw***************************
 ```
 
 ## 开发相关
-### 1.请求参数 
+**请求参数 **
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改 。|
-| AppId  |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考第二条获取此参数。 |
+| Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改 |
+| AppId  |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](#result)。 |
 | SecretId | 是 | String | 用户在腾讯云注册账号AppId对应的SecretId，获取方法同上。 |
 | Text | 是 | String | 合成语音的源文本，最大支持800字符。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
@@ -106,17 +99,17 @@ SecretKey=kFpw***************************
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>3：活力男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
-| PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）。<br>2：英文 。|
-| SampleRate | 否 | Int | 音频采样率：<br>16000：16k（默认）。<br>8000：8k。 |
+| PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
+| SampleRate | 否 | Int | 音频采样率：<br>16000：16k（默认）<br>8000：8k |
 | Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
-| ProjectId | 否 | Int | 项目ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID：0 。|
+| ProjectId | 否 | Int | 项目ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID:0。 |
 | Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
-| Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置 1 h。|
+| Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
 
 **具体参数配置可以参考：conf/request_parameter.ini 的默认配置**
 
-### 2.请求接口
-**2.1 TCloudTTS::InitCommonParam**
+**请求接口**
+<span id="Param">TCloudTTS::InitCommonParam</span>
 ```
 /* 初始化公共请求参数，此类参数较稳定不变
 ** configPath 参数文件路径
@@ -126,10 +119,11 @@ SecretKey=kFpw***************************
 int InitCommonParam(string configPath);
 ```
 此接口用来初始化请求的公共请求参数，参数参考配置文件说明。  
-路径为: conf/request_parameter.ini
-**2.2 TCloudTTS::InitAuth**
+路径为：conf/request_parameter.ini
+
+**<span id="InitAuth">TCloudTTS::InitAuth</span>**
 ```
-通过配置文件初始化，建议选择此接口，方便
+通过配置文件初始化，建议选择此接口
 /* 初始化用户信息
 ** configPath 参数文件路径
 ** time 鉴权的有效时间
@@ -145,10 +139,10 @@ int InitAuth(string configPath, int time = 60 * 60);
 */
 int InitAuth(TCloudTTSAuth stAuth, int time = 60 * 60);
 ```
-此接口用来初始化用户信息，参数参考配置文件说明。信息获取参考获取用户信息。  
+此接口用来初始化用户信息，参数参考配置文件说明。信息获取参考章节 二。  
 路径为: conf/tcloud_auth.ini
 
-**2.3 TCloudTTS::CreateRequest**
+**TCloudTTS::CreateRequest**
 ```
 初始化公共参数后不需要更改则只需要通过text来创建请求，建议使用此接口：
 /* 创建请求
@@ -166,7 +160,7 @@ int CreateRequest(TCloudTTSReq stReq);
 ```
 此接口用来创建一个完整的请求信息。  
 
-**2.4 TCloudTTS::RequestToJson**
+**TCloudTTS::RequestToJson**
 ```
 /* 请求转换成json
 ** stReq 请求结构体
@@ -176,7 +170,7 @@ string RequestToJson(TCloudTTSReq stReq);
 ```
 此接口将请求转换成json body,在post时作body传到服务端。
 
-**2.5 TCloudTTS::Process**
+**TCloudTTS::Process**
 ```
 /* 执行请求
 ** strRsp 请求的json body
@@ -186,7 +180,7 @@ int Process(string &strRsp);
 ```
 此接口将执行一次请求。
 
-**2.6 SplitString（可选功能）**
+<span id="Split">SplitString（可选功能）</span>
 ```
 /* 将文本根据标点符号切割
 ** strText 需要切割的原始文本
@@ -195,10 +189,10 @@ int Process(string &strRsp);
 */
 vector<string> SplitString(string strText, string model);
 ```
-此接口提供对文本进行标点切割功能。用户可选择使用，建议参考 demo 的思路。
+此接口提供对文本进行标点切割功能。用户可选择使用，建议参考demo的思路。
 
-### 3.请求 Demo
-**前提已经更改用户正确的 AppId 信息**
+**请求Demo**
+**前提已经更改用户正确的AppId信息**
 
 ```
 cmake ./
@@ -206,23 +200,24 @@ make
 ./tts_test
 ```
 
-### 4.简单开发流程介绍  
+**简单开发流程介绍**  
 **以下存在多种方法的建议选择方法一，较优，其他方法供接入用户多选**
-**4.1 创建请求 TCloudTTS ttsReq：**
-1. 初始化用户信息  
+创建请求 TCloudTTS ttsReq:  
 
-```
+初始化用户信息  
+
+
 方法一（推荐此方法）:  
 调用InitAuth 通过配置文件初始化，默认路径 conf/tcloud_auth.ini  
 
 方法二:  
-调用InitAuth 通过TCloudTTSAuth结构体初始化   
-参考 2.2 接口   
-```
+调用 InitAuth 通过 TCloudTTSAuth 结构体初始化   
+参考 [TCloudTTS::InitAuth](#InitAuth) 接口。
 
-2. 初始化请求参数  
 
-```
+初始化请求参数  
+
+
 公共请求参数大多只需要设置一次，除了Text，SessionId参数
 方法一（推荐此方法）: 
 调用InitCommonParam通过配置文件 conf/request_parameter.ini  
@@ -231,25 +226,25 @@ make
 方法二:  
 通过完整的请求结构体来初始化请求   
 调用InitCommonParam通过TCloudTTSReq请求体来初始化。  
-参考 2.1 接口
-```
+参考 [TCloudTTS::InitCommonParam](#Param) 接口。
 
-**4.2 分片（可选功能），初次接入不建议选择**。
-```
+
+**分片（可选功能）**
+初次接入不建议选择。
+
 本sdk提供根据标点符号将整个文本进行分片的方法：  
 通过调用SplitString（Text）获取整个文本分片的结果，每片单独调用获取音频再合并。  
-接口 2.6 接口
-```
+[SplitString](#Split) 接口。
 
-**4.3 执行任务**
+
+**执行任务**
 ```
 调用Process函数获取音频结果，结果为pcm格式的音频串。  
 结果存储在 TCloudTTS::m_strRsp;
 ```
+SDK 已提供各个接口源码，用户可根据自身需要进行更改。
 
-**4.4 sdk 已提供各个接口源码，用户可根据自身需要进行更改。**
-
-## 快速入门例子
+## C++ 快速入门示例
 参考 Demo/demo.cpp
 
 ```

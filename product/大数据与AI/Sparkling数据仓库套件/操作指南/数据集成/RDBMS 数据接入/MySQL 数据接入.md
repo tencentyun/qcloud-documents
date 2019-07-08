@@ -1,9 +1,3 @@
-﻿## 操作场景
-云数据仓库套件 Sparkling 支持多样化的数据接入方式和数据源管理。数据接入方式包括：
-- 关系型数据库（RDBMS）接入：可以通过 RDBMS 数据接入方式将云数据库 MySQL 、分布式数据库TDSQL中的数据接入到 Sparkling 中。
-- 腾讯云对象存储（COS）数据接入：可以通过生成账户密钥，建立存储桶（bucket）的方式进行 COS 数据接入。
-- 腾讯云消息队列（CKafka）数据接入：可以通过 Kafka 数据接入方式将腾讯云 CKafka 中的数据接入 Sparkling 中。
-
 本节为您介绍云数据库 MySQL 数据接入方法。通过 RDBMS 数据接入功能可以实现将云数据库 MySQL 中的数据以全量或增量的方式导入 Sparkling 中。用户可以通过时间戳增量追加方式实现增量同步，通过自定义调度周期实现定时数据接入功能。
 更多关于云数据库 MySQL 的信息请参见 [云数据库 MySQL 产品介绍](https://cloud.tencent.com/document/product/236)。
 
@@ -17,10 +11,10 @@
    a. 接入方式选择【新建数据源】。
 	 b. 选择数据库所在的地域，对于跨地域数据库访问其稳定性和速率将会受到地域制约。
 	 c. 填写云数据库实例 ID（可在 [云数据库控制台](https://console.cloud.tencent.com/cdb) 获取数据库实例 ID）及数据库购买者 UIN（实例购买者在 [账号信息](https://console.cloud.tencent.com/developer) 中的账号 ID）。
-	 d. 单击角色服务授权，授权 Sparkling 服务访问其他相应服务。
+	 d. 单击【角色服务授权】，授权 Sparkling 服务访问其他相应服务。
 	 ![](https://main.qcloudimg.com/raw/87ec4e2aeddf3ec47597a9dabb006039.png)
    e. 填写要接入的数据表所在的【用户名】、【密码】、【数据库名】、【表名】。
-   f. 单击【测试连通性】确认是否可以连接到要接入数据表所在的数据库。
+   f. 选择【数据连通性】>【测试连通性】确认是否可以连接到要接入数据表所在的数据库。
    g. 待显示【数据连通正常】后，单击【下一步】完成数据源配置操作，同时可以选择【保存数据源】选项将该数据源保存为已有数据源，待下次接入该数据源时可采用【接入已有数据源】方式。
 ![](https://main.qcloudimg.com/raw/e367ad5e69d77584a37689b9a4410233.png)
 
@@ -76,6 +70,6 @@ e. 确认无误后，单击【下一步】完成例行抽取任务配置操作�
 ![](https://main.qcloudimg.com/raw/f784fddee044a7ce9c014581a4518b7c.png)
 
 ### 5. 预览
-在【预览】页可以查看当前设置的数据源信息、数据预览信息、目标表信息及任务调度信息。
-![](https://main.qcloudimg.com/raw/ae95104d3cc04f265a6269bcf3c459ee.png)
-确认无误后单击【完成】即可完成 RDBMS 数据接入任务设置。
+在【预览】页可以查看当前设置的数据源信息、数据预览信息、目标表信息及任务调度信息。确认无误后单击【完成】即可完成 MySQL 数据接入任务设置。
+<img src="https://main.qcloudimg.com/raw/ae95104d3cc04f265a6269bcf3c459ee.png" style="zoom:70%">
+

@@ -55,17 +55,55 @@ passwd ftpuser1
 ![](https://main.qcloudimg.com/raw/eec9ba9d188bf8b82a846fed73e02b52.png)
 
 ## 常见问题
-### 问题描述
+### FTP 客户端连接超时或者读取目录列表失败
+#### 问题描述
 部分用户在本地使用 FTP 客户端连接时可能遇到连接超时和读取目录列表失败的问题。如下图所示：
 ![](//mc.qcloudimg.com/static/img/eb7beaf8c5a6e683257e94dd754e3f25/image.jpg)
 问题出现在 PASV 命令处。原因在于 FTP 协议在腾讯云网络架构上的不适。FTP 客户端默认被动模式传输，因此在通信过程中会去寻找服务器端的 IP 地址进行连接，但是由于腾讯云的公网 IP 不是直接配在网卡上，因此在被动模式下客户端无法找到有效 IP （只能找到云服务器内网 IP ，内网 IP 无法直接和公网通信），故无法建立连接。
 
-### 解决途径
+#### 解决方法
 1. 将客户端传输模式改为主动即可。
 2. 如果客户端网络环境要求被动模式，那么需要在服务端 [配置 vsftpd](#jump) 中的配置文件中新增这些语句：
- ```
- pasv_address=XXX.XXX.XXX.XXX     //(公网 IP)
- pasv_enable=YES
- pasv_min_port=1024
- pasv_max_port=2048
- ```
+```
+pasv_address=XXX.XXX.XXX.XXX     //(公网 IP)
+pasv_enable=YES
+pasv_min_port=1024
+pasv_max_port=2048
+```
+
+### FTP 客户端上传文件失败
+#### 问题描述
+
+Linux 系统环境下，通过 vsftp 上传文件时，提示如下报错信息。
+```
+553 Could not create file
+```
+
+#### 解决方法
+1. 执行以下命令，检查服务器磁盘空间的使用率。
+```
+df -h
+```
+ - 如果磁盘空间不足，将会导致文件无法上传，建议删除磁盘容量较大的文件。
+ - 如果磁盘空间正常，请执行下一步。
+2. 执行以下命令，检查 FTP 目录是否有写的权限。
+```
+ls -l /home/test      
+# /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
+```
+ - 若返回结果中没有 `w`，则表示该用户没有写的权限，请执行下一步。
+ - 若返回结果中已有 `w`，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
+3. 执行以下命令，对 FTP 目录加上写的权限。
+```
+chmod +w /home/test 
+# /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
+```
+4. 执行以下命令，重新检查写的权限是否设置成功。
+```
+ls -l /home/test   
+# /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
+``` 
+
+
+
+

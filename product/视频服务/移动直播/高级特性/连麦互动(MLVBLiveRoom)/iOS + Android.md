@@ -18,7 +18,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **Android**
   下载 [apk](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) 安装包，安装“小直播”，注册一个账号即可开始体验。
 - **微信小程序**
-  打开“微信 > 发现 > 小程序”，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
+  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/aacdf8cdfa825f64f34af9c3c3e4154e.jpg" />
 
@@ -44,7 +44,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 下载 LiteAVSDK 后需要 License 授权才能使用，请阅读 [License 申请](https://cloud.tencent.com/document/product/454/34750) 了解 License 的申请方法和使用方法。
 
 - iOS
- 建议在 `[AppDelegate application:didFinishLaunchingWithOptions:]` 中添加：
+ 建议在`[AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
 ```
 [TXLiveBase setLicenceURL:LicenceUrl key:Key];
 ```
@@ -57,12 +57,12 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step3. 购买连麦套餐包
 由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用腾讯云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- [购买1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)。
-- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)。
-- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)。
+- [购买1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)
+- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)
+- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)
 
 ### Step4. 在应用管理中添加一个新的应用
-进入【直播控制台】>【直播SDK】>【[房间管理](https://console.cloud.tencent.com/live/license/appmanage)】，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
+进入【直播控制台】>【直播SDK】>[【房间管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个云通信应用，并将当前直播账号和该云通信应用绑定起来。云通信应用能为小直播 App 提供聊天室和连麦互动的能力。
 
@@ -74,24 +74,24 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 | 参数       | 类型   | 填写方案                                                     |
 | ---------- | ------ | ------------------------------------------------------------ |
-| sdkAppID   | 数字   | 当前应用的 AppID，在 [Step3](#Step3) 中可以获取到                      |
-| userID     | 字符串 | 当前用户在您的账号系统中的 ID                                |
-| userName   | 字符串 | 用户名（昵称）                                               |
+| sdkAppID   | 数字   | 当前应用的 AppID，在 Step4 中可以获取到。                      |
+| userID     | 字符串 | 当前用户在您的帐号系统中的 ID。                               |
+| userName   | 字符串 | 用户名（昵称）。                                               |
 | userAvatar | 字符串 | 用户头像的 URL 地址                                          |
-| userSig    | 字符串 | 登录签名，计算方法请参考 [计算 UserSig](https://cloud.tencent.com/document/product/454/14548)。 |
+| userSig    | 字符串 | 登录签名，计算方法请参见 [计算 UserSig](https://cloud.tencent.com/document/product/454/14548)。 |
 
 >?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
 
 ### Step6. 获取房间列表（非必需）
->? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step6](#Step6) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
+>? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
 不管是主播还是观众都需要有一个房间间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
-- 当主播通过 `createRoom` 创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
-- 当主播通过 `exitRoom` 退出房间时，房间列表中会移除该房间。
+- 当主播通过`createRoom`创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
+- 当主播通过`exitRoom`退出房间时，房间列表中会移除该房间。
 
-列表中每个房间都有对应的 roomInfo，由主播通过 `createRoom` 创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 JSON 格式。
+列表中每个房间都有对应的 roomInfo，由主播通过`createRoom`创建房间时传入，为提高扩展性，建议将 roomInfo 定义为 JSON 格式。
 
-<span id="Step6"></span>
+<span id="Step7"></span>
 ### Step7. 主播开播
 
 主播开播前，需要先调用 MLVBLiveRoom 中的 **startLocalPreview** 接口开启本地摄像头预览，该函数需要传入 view 对象用于显示摄像头的视频影像，这期间 MLVBLiveRoom 会申请摄像头使用权限。同时，主播也可以对着摄像头调整美颜和美白的具体效果。
@@ -116,16 +116,16 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 
 |  步骤  |    角色    | 详情                                                         |
 | :----: | :--------: | :----------------------------------------------------------- |
-| 第一步 |    观众    | 观众调用 `requestJoinAnchor()` 向主播发起连麦请求。            |
-| 第二步 |    主播    | 主播会收到 `MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)` 通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。 |
-| 第三步 |    主播    | 主播调用 `reponseJoinAnchor()` 确定是否接受观众的连麦请求。  |
-| 第四步 |    观众    | 观众会收到 `MLVBLiveRoomDelegate.RequestJoinAnchorCallback` 回调通知，得知请求是否被同意。 |
+| 第一步 |    观众    | 观众调用`requestJoinAnchor()`向主播发起连麦请求。            |
+| 第二步 |    主播    | 主播会收到`MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)`通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。 |
+| 第三步 |    主播    | 主播调用`reponseJoinAnchor()`确定是否接受观众的连麦请求。  |
+| 第四步 |    观众    | 观众会收到`MLVBLiveRoomDelegate.RequestJoinAnchorCallback`回调通知，得知请求是否被同意。 |
 | 第五步 |    观众    | 观众如果请求被同意，则调用 startLocalPreview() 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示用户授权摄像头和麦克风的使用权限。 |
-| 第六步 |    观众    | 观众调用 `joinAnchor()` 正式进入连麦状态。               |
-| 第七步 |    主播    | 当观众进入连麦状态后，主播就会收到 `MLVBLiveRoomDelegate#onAnchorEnter(AnchorInfo)` 通知。 |
-| 第八步 |    主播    | 主播调用 `startRemoteView()` 就可以看到连麦观众的视频画面。  |
-| 第九步 |    观众    | 如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 `onAnchorJoin()` 通知，用于展示（`startRemoteView()`）其他连麦者的视频画面。 |
-| 第九步 | 主播或观众 | 主播或观众随时都可以通过 `quitJoinAnchor()` 接口退出连麦状态，同时，主播还可以通过 `kickoutJoinAnchor()` 接口移除连麦观众。 |
+| 第六步 |    观众    | 观众调用`joinAnchor()`正式进入连麦状态。               |
+| 第七步 |    主播    | 当观众进入连麦状态后，主播就会收到`MLVBLiveRoomDelegate#onAnchorEnter(AnchorInfo)`通知。 |
+| 第八步 |    主播    | 主播调用`startRemoteView()`就可以看到连麦观众的视频画面。  |
+| 第九步 |    观众    | 如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到`onAnchorJoin()`通知，用于展示（`startRemoteView()`）其他连麦者的视频画面。 |
+| 第九步 | 主播或观众 | 主播或观众随时都可以通过`quitJoinAnchor()`接口退出连麦状态，同时，主播还可以通过`kickoutJoinAnchor()`接口移除连麦观众。 |
 
 >?MLVBLiveRoom 在设计上最多支持10人同时连麦，但出于兼容低端 Android 终端和实际体验效果的考虑，建议将同时连麦人数控制在6人以下。
 
@@ -136,12 +136,12 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 
 |  步骤  |   角色    | 详情                                                         |
 | :----: | :-------: | :----------------------------------------------------------- |
-| 第一步 |  主播 A   | 主播 A 调用 `requestRoomPK()` 向主播 B 发起连麦请求。        |
-| 第二步 |  主播 B   | 主播 B 会收到 `MLVBLiveRoomDelegate#onRequestRoomPK(AnchorInfo)` 回调通知。 |
-| 第三步 |  主播 B   | 主播 B 调用 `responseRoomPK()` 确定是否接受主播 A 的 PK 请求。如果采用服务器配对的 PK 方案，此处可以默认接受，不需要由主播 B 来决策。 |
-| 第四步 |  主播 B   | 主播 B 在接受主播 A 的请求后，即可调用 `startRemoteView()` 来显示主播 A 的视频画面。 |
-| 第五步 |  主播 A   | 主播 A 会收到 `MLVBLiveRoomDelegate.RequestRoomPKCallback` 回调通知，可以得知请求是否被同意，如果请求被同意，则可以调用 `startRemoteView()` 显示主播 B 的视频画面。 |
-| 第六步 | 主播 A或 B | 主播 A 或 B 均可以通过调用 `quitRoomPK()` 接口结束 PK 状态。 |
+| 第一步 |  主播 A   | 主播 A 调用`requestRoomPK()`向主播 B 发起连麦请求。        |
+| 第二步 |  主播 B   | 主播 B 会收到`MLVBLiveRoomDelegate#onRequestRoomPK(AnchorInfo)`回调通知。 |
+| 第三步 |  主播 B   | 主播 B 调用`responseRoomPK()`确定是否接受主播 A 的 PK 请求。如果采用服务器配对的 PK 方案，此处可以默认接受，不需要由主播 B 来决策。 |
+| 第四步 |  主播 B   | 主播 B 在接受主播 A 的请求后，即可调用`startRemoteView()`来显示主播 A 的视频画面。 |
+| 第五步 |  主播 A   | 主播 A 会收到`MLVBLiveRoomDelegate.RequestRoomPKCallback`回调通知，可以得知请求是否被同意，如果请求被同意，则可以调用`startRemoteView()`显示主播 B 的视频画面。 |
+| 第六步 | 主播 A或 B | 主播 A 或 B 均可以通过调用`quitRoomPK()`接口结束 PK 状态。 |
 
 ## 常见问题
 
@@ -155,7 +155,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 |     通道     |                           直播通道                           |                           连麦通道                           |
 | :----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |   通讯延迟   |                             ≥ 3s                             |                           ≤ 500ms                            |
-|   底层协议   |                        HTTP-FLV 协议                         |                           UDP协议                            |
+|   底层协议   |                        HTTP-FLV 协议                         |                           UDP 协议                            |
 |  价格/费用   | [按带宽计费](https://cloud.tencent.com/document/product/454/8008#LVB) | [按时长计费](https://cloud.tencent.com/document/product/454/8008#ACC) |
 |   最高并发   |                            无上限                            |                            ≤ 10人                            |
 | TXLivePusher |                setVideoQuality 为 SD、HD、FHD                |       setVideoQuality 为 MAIN_PUBLISHER、SUB_PUBLISHER       |

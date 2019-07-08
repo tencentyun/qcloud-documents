@@ -84,7 +84,7 @@ go-mysql-elasticsearch 是一款开源的高性能的 Mysql 数据同步 Elastic
 	# we must use this to support breakpoint resume syncing. 
 	# TODO: support other storage, like etcd. 
 	data_dir = "./var"  # 存储的是binlog的名字及位置
-	# Inner Http status address
+	# Inner http status address
 	stat_addr = "127.0.0.1:12800"
 	# pseudo server id like a slave 
 	server_id = 1001

@@ -1,4 +1,4 @@
-## 什么是高可用虚拟 IP？
+## 什么是高可用虚拟 IP
 高可用虚拟 IP（HAVIP）是一个浮动的内网 IP，支持机器通过 ARP 宣告进行绑定，更新 IP 和 MAC 地址的映射关系。在高可用部署（如 keepalived）场景下，该 IP 可从 主服务器切换至备服务器，从而完成业务容灾。
 ### 特点介绍
 1. HAVIP 是一个浮动的内网 IP，不会固定在指定机器上。后端云服务器通过 ARP 宣告可更改与 HAVIP 的绑定关系。
@@ -64,7 +64,7 @@ virtual_ipaddress {
 
 针对以上问题，腾讯云创新性推出 HAVIP，满足客户对高可用的需求。
 >**注意：**
-1. 每个 VPC 的 HAVIP 默认配额为 10 个。
+1. 每个 VPC 的 HAVIP 默认配额为10个。
 2. 由后端云服务器宣告占有该 HAVIP，不支持手动在控制台把 HAVIP 绑定指定机器（体验与传统物理机保持一致）。
 3. 是否发生迁移由后端 RS 根据配置文件协商决定，不是由 HAVIP 决定。
 4. 只支持 VPC 网络，不支持基础网络。
@@ -84,4 +84,4 @@ HAVIP 目前处于灰度阶段，如有需要，请提交 [内测申请](https:/
 两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
 
 ## 操作指南
-控制台操作详情，请参见 [操作总览](https://cloud.tencent.com/document/product/215/20133)。
+控制台操作，详情请参见 [操作概述](https://cloud.tencent.com/document/product/215/20133)。
