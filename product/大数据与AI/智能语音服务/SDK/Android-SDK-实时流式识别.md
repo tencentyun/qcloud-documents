@@ -1,6 +1,6 @@
 ## 开发准备
 ### SDK 下载
-智能语音服务实时流式识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/37b2c7d433e9ace64296c016393debdd/aai-android-sdk-v2.x-master.zip)
+智能语音服务实时流式识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
 
 ### 开发前
 1. 开发者使用实时流式识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/)  注册账号，并获得 APPID、SecretId 和 SecretKey 等。
@@ -12,20 +12,20 @@
 **引入 .so 文件**
 **libWXVoice.so：** 腾讯语音检测 so 库。
 
-**引入 aar 包**
-**aai-2.1.3.aar：** 腾讯云智能语音 SDK。
+##### 引入 aar 包
+**aai-2.1.5.aar：** 腾讯云智能语音 SDK。
 
 腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
 #### 本地构建
 可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。
 在 build.gradle 文件中添加：
 ```
-implementation(name: 'aai-2.1.4', ext: 'aar')
+implementation(name: 'aai-2.1.5', ext: 'aar')
 ```
 #### 远程构建
 在 build.gradle 文件中添加：
 ```
-implementation 'com.tencent.aai:aai:2.1.4:@aar'
+implementation 'com.tencent.aai:aai:2.1.5:@aar'
 ```
 #### 添加相关依赖
 okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
