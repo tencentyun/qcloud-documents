@@ -1,14 +1,17 @@
 ## 功能描述
-GET Object 接口请求可以在 COS 的存储桶中将一个文件（对象）下载至本地。该操作需要请求者对目标对象具有读权限或目标对象对所有人都开放了读权限（公有读）。
 
-### 版本
-当启用版本控制，该 GET 操作返回对象的当前版本。要返回不同的版本，请使用 versionId 参数。
+GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至本地。该 API 的请求者需要对目标对象有读取权限，或者目标对象向所有人开放了读取权限（公有读）。
 
->!如果该对象的当前版本是删除标记，则 COS 的行为表现为该对象不存在，并返回响应 x-cos-delete-marker: true。
+>? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
+
+#### 版本控制
+
+当启用版本控制时，该 GET 操作返回对象的当前版本。要返回不同的版本，请使用 versionId 参数。
 
 ## 请求
 
-### 请求示例
+#### 请求示例
+
 ```shell
 GET /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -16,132 +19,257 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
+| 名称 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- |
+| response-cache-control | 设置响应中的 Cache-Control 头部的值 | string | 否 |
+| response-content-disposition | 设置响应中的 Content-Disposition 头部的值 | string | 否 |
+| response-content-encoding | 设置响应中的 Content-Encoding 头部的值 | string | 否 |
+| response-content-language | 设置响应中的 Content-Language 头部的值 | string | 否 |
+| response-content-type | 设置响应中的 Content-Type 头部的值 | string | 否 |
+| response-expires | 设置响应中的 Expires 头部的值 | string | 否 |
+| versionId | 指定要下载的对象的版本 ID | string | 否 |
 
-| 名称                         | 描述                                      | 类型   | 必选 |
-| ---------------------------- | ------ | ---- | -------------------------------- |
-| response-content-type        | 设置响应头部中的 Content-Type 参数        |String | 否   | 
-| response-content-language    |设置响应头部中的 Content-Language 参数    | String | 否   | 
-| response-expires             |设置响应头部中的 Content-Expires 参数     | String | 否   | 
-| response-cache-control       |设置响应头部中的 Cache-Control 参数       | String | 否   | 
-| response-content-disposition |设置响应头部中的 Content-Disposition 参数 | String | 否   | 
-| response-content-encoding    |设置响应头部中的 Content-Encoding 参数    | String | 否   | 
+#### 请求头
 
-### 请求头
+此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-#### 公共头部
+| 名称 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- |
+| Range | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据。如果不指定，则表示下载整个对象 | string | 否 |
+| If-Modified-Since | 当对象在指定时间后被修改，则返回对象，否则返回304（Not Modified） | string | 否 |
+| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回412（Precondition Failed） | string | 否 |
+| If-Match | 当对象的 ETag 与指定的值一致，则返回对象，否则返回412（Precondition Failed） | string | 否 |
+| If-None-Match | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回304（Not Modified） | string | 否 |
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+**服务端加密相关头部**
 
-#### 非公共头部
+如果指定的对象使用了服务端加密且加密方式为 SSE-C 时，则需要指定服务端加密的相关头部来解密对象，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7728#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)
 
-| 名称                |  描述                                                         |类型   | 必选 |
-| ------------------- | ------ | ---- | ------------------------------------------------------------ |
-| Range               | 对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示您希望拷贝源对象的开头10个字节的数据。如果不指定，则表示读取整个对象     |String | 否   | 
-| If-Unmodified-Since | 如果文件修改时间早于或等于指定时间，才返回文件内容。否则返回412（precondition failed） |String | 否   | 
-| If-Modified-Since   | 当 Object 在指定时间后被修改，则返回对应 Object meta 信息，否则返回304（not modified） |String | 否   | 
-| If-Match            |当 ETag 与指定的内容一致，才返回文件。否则返回412（precondition failed） | String | 否   | 
-| If-None-Match       | 当 ETag 与指定的内容不一致，才返回文件。否则返回304（not modified） |String | 否   | 
+#### 请求体
 
-### 请求体
-
-该请求体为空。
+此接口无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
-#### 公共响应头
+此接口除返回公共响应头部外，还返回以下响应头部，了解公共响应头部详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
+| 名称 | 描述 | 类型 |
+| --- | --- | --- |
+| Cache-Control | RFC 2616 中定义的缓存指令，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Content-Disposition | RFC 2616 中定义的文件名称，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Content-Encoding | RFC 2616 中定义的编码格式，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Expires | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息 | string |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
 
-#### 特有响应头
+**版本控制相关头部**
 
-该请求操作的响应头具体数据为：
+使用版本控制的对象将返回下列响应头部：
 
-|名称|描述|类型|
-|---|---|---|
-|x-cos-meta- \*|用户自定义的元数据|String|
-|x-cos-object-type|用来表示 Object 是否可以被追加上传，枚举值：normal 或者 appendable|String|
-|x-cos-storage-class|Object 的存储级别，枚举值：STANDARD，STANDARD_IA|String|
-|x-cos-version-id|如果检索到的对象具有唯一的版本ID，则返回版本ID|String|
-|x-cos-server-side-encryption|如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256|String|
+| 名称 | 描述 | 类型 |
+| --- | --- | --- |
+| x-cos-version-id | 对象的版本 ID | string |
 
+**服务端加密相关头部**
 
-### 响应体
+如果指定的对象使用了服务端加密，则此接口将返回服务端加密专用头部，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7729#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)
 
-下载成功，文件内容在响应体中。
+#### 响应体
 
-### 错误码
+此接口请求的响应体为对象（文件）内容。
 
-| 错误码                | 描述                               | HHTP 状态码                                                  |
-| --------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| InvalidArgument       | 提供的参数错误                     | 400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码 | 403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
-| NoSuchKey             | 如果下载的文件不存在，返回该错误码 | 404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
+#### 错误码
+
+此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 请求一
+#### 案例一：简单案例（未启用版本控制）
+
+#### 请求
 
 ```shell
 GET /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 28 Oct 2014 22:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
+Date: Thu, 04 Jul 2019 11:33:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562239980;1562247180&q-key-time=1562239980;1562247180&q-header-list=date;host&q-url-param-list=&q-signature=fa5552e4c84ab474e9b66bcecbefcb5c15d9****
+Connection: close
 ```
 
-### 响应一
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
-Date: Wed, 28 Oct 2014 22:32:00 GMT
-Content-Type: application/octet-stream
-Content-Length: 16087
-Connection: keep-alive
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
 Accept-Ranges: bytes
-Content-Disposition: attachment; filename=\"exampleobject\"
-Content-Range: bytes 0-16086/16087
-ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"
-Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT
-x-cos-object-type: normal
-x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==
-x-cos-storage-class: STANDARD
+Date: Thu, 04 Jul 2019 11:33:00 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Thu, 04 Jul 2019 11:32:55 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZGUzZWNfN2RiZTBiMDlfM2EzZF8yMGYx****
 
-[Object]
+[Object Content]
 ```
 
-### 请求二
+#### 案例二：通过请求参数指定响应头部
 
-**携带 response-xxx 参数**
+#### 请求
 
 ```shell
-GET /exampleobject?response-content-type=application%2fxml HTTP/1.1
+GET /exampleobject?response-content-type=application%2Foctet-stream&response-cache-control=max-age%3D86400&response-content-disposition=attachment%3B%20filename%3Dexample.jpg HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 28 Oct 2014 22:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484212200;32557108200&q-key-time=1484212200;32557108200&q-header-list=host&q-url-param-list=&q-signature=11522aa3346819b7e5e841507d5b7f156f34e639
-
+Date: Thu, 04 Jul 2019 11:33:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562239980;1562247180&q-key-time=1562239980;1562247180&q-header-list=date;host&q-url-param-list=response-cache-control;response-content-disposition;response-content-type&q-signature=a079419b6f0cd4ac1bc55bcdf14b54a4a9a3****
+Connection: close
 ```
 
-### 响应二
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
-Date: Wed, 28 Oct 2014 22:32:00 GMT
-Content-Type: application/xml
-Content-Length: 16087
-Connection: keep-alive
+Content-Type: application/octet-stream
+Content-Length: 13
+Connection: close
 Accept-Ranges: bytes
-Content-Disposition: attachment; filename=\"exampleobject\"
-Content-Range: bytes 0-16086/16087
-ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"
-Last-Modified: Wed, 28 Oct 2014 20:30:00 GMT
-x-cos-object-type: normal
-x-cos-request-id: NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ==
-x-cos-storage-class: STANDARD
+Cache-Control: max-age=86400
+Content-Disposition: attachment; filename=example.jpg
+Date: Thu, 04 Jul 2019 11:33:00 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Thu, 04 Jul 2019 11:32:55 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZGUzZWNfNjI4NWQ2NF9lMWYyXzk1NjFj****
 
-[Object]
+[Object Content]
+```
+
+#### 案例三：使用服务端加密 SSE-COS
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 04 Jul 2019 11:33:05 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562239985;1562247185&q-key-time=1562239985;1562247185&q-header-list=date;host&q-url-param-list=&q-signature=c2f7fbaba0ad534483078eebef3ca4a829ae****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Accept-Ranges: bytes
+Date: Thu, 04 Jul 2019 11:33:06 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Thu, 04 Jul 2019 11:33:00 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZGUzZjJfZGQyOTVkNjRfMjU0NF80MGVj****
+x-cos-server-side-encryption: AES256
+
+[Object Content]
+```
+
+#### 案例四：使用服务端加密 SSE-C
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 04 Jul 2019 11:33:11 GMT
+x-cos-server-side-encryption-customer-algorithm: AES256
+x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562239991;1562247191&q-key-time=1562239991;1562247191&q-header-list=date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=6e50f8adca0fb8040868ab05891abf6df2a8****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Accept-Ranges: bytes
+Date: Thu, 04 Jul 2019 11:33:11 GMT
+ETag: "492b458ec33eaf0a824e7dd1bdd403b3"
+Last-Modified: Thu, 04 Jul 2019 11:33:06 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZGUzZjdfZDkyNzVkNjRfZDA0Y185OGJj****
+x-cos-server-side-encryption-customer-algorithm: AES256
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+
+[Object Content]
+```
+
+#### 案例五：使用版本控制，下载对象最新版本
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 05 Jul 2019 03:30:31 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562297431;1562304631&q-key-time=1562297431;1562304631&q-header-list=date;host&q-url-param-list=&q-signature=5bb216e0260589dc6a9986bf6caa3df18db4****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 15
+Connection: close
+Accept-Ranges: bytes
+Date: Fri, 05 Jul 2019 03:30:31 GMT
+ETag: "60c7644eb1ae8918a7fe7e13a352712c"
+Last-Modified: Fri, 05 Jul 2019 03:30:26 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZWM0NTdfZGEyNzVkNjRfMjJhOV9hMWVk****
+x-cos-version-id: MTg0NDUxODE3NzYyODMxOTg0OTg
+
+[Object Content]
+```
+
+#### 案例六：使用版本控制，下载对象指定版本
+
+#### 请求
+
+```shell
+GET /exampleobject?versionId=MTg0NDUxODE3NzYyODg0ODI2MjA HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 05 Jul 2019 03:30:31 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1562297431;1562304631&q-key-time=1562297431;1562304631&q-header-list=date;host&q-url-param-list=versionid&q-signature=3ea1162e56d0b43f7398a39b99b72bbf58ad****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Accept-Ranges: bytes
+Date: Fri, 05 Jul 2019 03:30:31 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Fri, 05 Jul 2019 03:30:21 GMT
+Server: tencent-cos
+x-cos-request-id: NWQxZWM0NTdfOTNjMjJhMDlfZDBjNV85ZTBh****
+x-cos-version-id: MTg0NDUxODE3NzYyODg0ODI2MjA
+
+[Object Content]
 ```
