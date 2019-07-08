@@ -40,7 +40,7 @@
 | 1003 | 上报错误         |
 
 
-## 示例
+## 示例代码
 
 ```
 curl -i -d 'deviceName=devpublish_test1&productId=W9GMG550YD&topicName=topic-59pw61lo&message={"c":66666666}&nonce=5577006791947779410&timestamp=1561465061&qos=1&signature=2ZV6sRmert0M7Dy%2BTaBYWObs4JCpfblP29B0HMscC3E%3D' http://device-iot.tencentcloudapi.com/pub
