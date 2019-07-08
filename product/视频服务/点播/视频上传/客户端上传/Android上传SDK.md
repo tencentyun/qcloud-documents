@@ -242,7 +242,7 @@ mVideoPublish.canclePublish();
 | -------- | --------- | ---- | ---- |
 | appId    | 点播 appId。 | int  | 是   |
 
-上传图片 `TXUGCPublish.publishMedia`
+上传图片：`TXUGCPublish.publishMedia`
 
 | 参数名称 | 参数描述 | 类型                                    | 必填 |
 | -------- | -------- | --------------------------------------- | ---- |

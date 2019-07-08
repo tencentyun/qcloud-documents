@@ -31,7 +31,7 @@ new TencentSOE
 | MediaUrl         | String   | 获取高清语音素材获取接口（微信端） | 是 | 0 |
 | success          | function | 创建成功回调 | 否 | 无 |
 | error            | function | 创建失败回调 | 否 | 无 |
-> 必须同时提供getAuthorization 或者 SecretId和SecretKey 或者 TransInitUrl
+> 必须同时提供 getAuthorization 或者 SecretId 和 SecretKey 或者 TransInitUrl
 
 - 方式一（推荐）：提供获取 [临时密钥](https://cloud.tencent.com/document/api/598/13896) 回调函数
 ```js
@@ -219,7 +219,7 @@ sdk 调试可单击 [这里](https://soe.cloud.tencent.com/demo)
 
 ### 微信端说明
 只支持一次性测评，录音最长时长为一分钟，超过一分钟会自动触发停止录音。使用前必须引入 [微信js-sdk](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421141115)，
-wx 接口列表 jsApiList 需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE对象的创建需在wx成功验证后，如下：
+wx 接口列表 jsApiList 需要加入['startRecord','stopRecord','playVoice','stopVoice','onVoicePlayEnd','uploadVoice']，TencentSOE 对象的创建需在wx成功验证后，如下：
 ```js
 wx.ready(function() {
   var recorder = new TencentSOE({

@@ -52,7 +52,7 @@
     <th class="tg-s268">白金版</th>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Elasticsearch</td>
+    <td class="tg-0lax" rowspan="6">Elasticsearch</td>
     <td class="tg-s268">可扩展性和弹性</td>
     <td class="tg-s6z2">◑</td>
     <td class="tg-s6z2">◑</td>
@@ -82,12 +82,7 @@
     <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
-  <tr>
-    <td class="tg-s268"><a href="#Alerting">Alerting</a></td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">⚫</td>
-  </tr>
+
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
     <td class="tg-s6z2">-</td>
@@ -413,13 +408,6 @@
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="1"><a id="Alerting">警报提醒（Alerting）</a></td>
-    <td class="tg-s268">高可用性、可扩展警报</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>

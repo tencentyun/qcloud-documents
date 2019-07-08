@@ -2,11 +2,11 @@
 
 GET Bucket Object Versions 接口用于拉取存储桶内的所有对象及其历史版本信息，您可以通过指定参数筛选出存储桶内部分对象及其历史版本信息。
 
-> !使用子账号发起该请求，需要主账号授予您`GET Bucket Object Versions`的权限，如果您以主账号身份发起，则默认拥有该权限。
+> !使用子账号发起该请求，需要主账号授予您 GET Bucket Object Versions 的权限，如果您以主账号身份发起，则默认拥有该权限。
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```http
 GET /?versions HTTP 1.1
@@ -15,9 +15,9 @@ Date: GMT date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求参数
+#### 请求参数
 
 <table>
    <tr>
@@ -58,27 +58,27 @@ Authorization: Auth String
    </tr>
    <tr>
       <td nowrap="nowrap">version-id-marker</td>
-      <td>指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default</td>
+      <td>指定您需要从 version-id-marker 这个版本 ID 号开始列出对象的所有历史版本，可选值为 Valid version ID、Default。如果不指定版本 ID，默认为最新版本对象</td>
       <td>string</td>
       <td>否</td>
    </tr>
 </table>
 
-### 请求头
+#### 请求头
 
-此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 
 此接口无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-### 响应体
+#### 响应体
 
 ```http
 <ListVersionsResult>
@@ -178,13 +178,13 @@ Authorization: Auth String
    <tr>
       <td>ETag</td>
       <td>ListVersionsResult.Version</td>
-      <td>实体标签（Entity Tag）是根据对象的内容而非元数据生成的哈希值，不同的对象拥有不同的 ETag，可以根据 ETag 判断指定对象是否有修改。</td>
+      <td>实体标签（Entity Tag）是根据对象的内容而非元数据生成的哈希值，不同的对象拥有不同的 ETag，可以根据 ETag 判断指定对象是否有修改</td>
       <td>string</td>
    </tr>
    <tr>
       <td>Size</td>
       <td>ListVersionsResult.Version</td>
-      <td>说明对象大小，单位是 Byte</td>
+      <td>说明对象大小，单位为 Byte</td>
       <td>string</td>
    </tr>
    <tr>
@@ -210,7 +210,7 @@ Authorization: Auth String
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 GET /?versions HTTP/1.1
@@ -221,7 +221,7 @@ User-Agent: python-requests/2.12.4
 Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9Sm****&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=versions&q-header-list=host&q-signature=5118a936049f9d44482bbb61309235cf4abe****
 ```
 
-### 响应
+#### 响应
 
 ```shell
 Content-Type: application/xml

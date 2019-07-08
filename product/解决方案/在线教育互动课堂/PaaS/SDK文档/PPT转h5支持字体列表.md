@@ -1,4 +1,4 @@
-#### PPT转h5支持字体列表
+#### PPT 转 h5 支持字体列表
 ```shell
  1.  Agency FB
  2.  Agency FB Bold
@@ -404,7 +404,7 @@
 402.  Yu Gothic UI Sermibold
 403.  Yu Gothic UI Sermilight
 404.  等线
-405.  等线Light
+405.  等线 Light
 406.  方正舒体
 407.  方正姚体
 408.  仿宋
@@ -423,7 +423,7 @@
 421.  隶书
 422.  宋体
 423.  微软雅黑
-424.  微软雅黑Light
+424.  微软雅黑 Light
 425.  新宋体
 426.  幼圆
 ```
