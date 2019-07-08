@@ -3,9 +3,11 @@
 Redis 标准版是指支持0个或者多个副本的版本（副本是指非主节点的节点），最通用的 Redis 版本，兼容 Redis 2.8，Redis 4.0 版本的协议和命令，提供数据持久化和备份，适用于对数据可靠性、可用性都有要求的场景。主节点提供日常服务访问，从节点提供 HA 高可用，当主节点发生故障，系统会自动切换至从节点，保证业务平稳运行。
 
 - Redis标准版（1-5副本）
+
 ![](https://main.qcloudimg.com/raw/37626b6980e25a1ddf4fd3efcf4bbd4a.png)
 
 - Redis标准版（0副本）
+
 ![](https://main.qcloudimg.com/raw/dba336b5ffa8b277bc2c36f3a8cd030d.svg)
 
 ## 功能特性
@@ -48,7 +50,7 @@ Redis 标准版是指支持0个或者多个副本的版本（副本是指非主�
 - 由于0副本版本不能提供数据可靠性，节点故障后需要业务进行预热，如果是对数据可靠性要求较高的敏感性业务，不建议使用0副本版本，可选用单副本或者多副本。
 
 
-**标准版 Redis 支持的命令:**
+#### 命令支持说明
 - 参考文档[兼容性说明](https://console.cloud.tencent.com/workorder/category)
 
     
