@@ -10,8 +10,8 @@
 3. 在 **主机记录** 处填写域名前缀（如：www），将 **记录类型** 设置为 CNAME，在 **记录值** 处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/24ee35e7bba9d181abbdaf65fe7fc3cb.png)
 
-## DNSPod设置方法
-若您的 DNS 服务商为DNSPod，您可通过如下步骤添加 CNAME 记录。
+## DNSPod 设置方法
+若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
 ![](https://mccdn.qcloud.com/static/img/5104d2605864556a130cac06b87e8187/image.png)
 
 ## 万网设置方法
