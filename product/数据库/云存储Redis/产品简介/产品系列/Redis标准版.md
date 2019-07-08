@@ -6,9 +6,6 @@ Redis 标准版是指支持0个或者多个副本的版本（副本是指非主�
 
 ![](https://main.qcloudimg.com/raw/37626b6980e25a1ddf4fd3efcf4bbd4a.png)
 
-- Redis标准版（0副本）
-
-![](https://main.qcloudimg.com/raw/dba336b5ffa8b277bc2c36f3a8cd030d.svg)
 
 ## 功能特性
 -   **服务可靠性（1-5副本）**
