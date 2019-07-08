@@ -4,7 +4,7 @@
 1. 登录 [腾讯云云解析控制台](https://console.cloud.tencent.com/cns)。
 2. 在“域名解析列表”中，选择需要进行 A 记录转发的域名，进入域名详情页面。
 3. 单击【添加记录】，填写以下记录信息。
- ![](https://main.qcloudimg.com/raw/ee3446be9962eec2202c16734904791b.png)
+ ![](https://main.qcloudimg.com/raw/9b5acfbd4ff2e64e3d48bdd7d863e848.png)
  - 主机记录：选择子域名。例如添加  www.123.com  的解析时，您在“主机记录”处选择 www 即可。若是想添加 123.com 的解析，您在“主机记录”处选择“@”即可。
  - 记录类型：选择“A”。
  - 线路类型：选择“默认”类型，否则会导致部分用户无法解析。
