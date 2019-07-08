@@ -1,6 +1,6 @@
 ## 简介
 
-提供获取对象 URL、获取请求预签名 URL 接口。
+Node.js SDK 提供获取对象 URL、获取请求预签名 URL 接口。
 
 ## 计算签名
 
@@ -21,8 +21,8 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 ```js
 var Authorization = COS.getAuthorization({
-    SecretId: 'AKIDxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-    SecretKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+    SecretId: 'COS_SECRETID',
+    SecretKey: 'COS_SECRETKEY',
     Method: 'get',
     Key: 'a.jpg',
     Expires: 60,
@@ -41,7 +41,7 @@ var Authorization = COS.getAuthorization({
 | Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于 Bucket，则为空 | String | 否   |
 | Query     | 请求的 query 参数对象                                        | Object | 否   |
 | Headers   | 请求的 header 参数对象                                       | Object | 否   |
-| Expires   | 签名几秒后失效，默认900                                       | Number  | 否   |
+| Expires   | 签名几秒后失效，默认900                                      | Number | 否   |
 
 #### 返回值说明
 
