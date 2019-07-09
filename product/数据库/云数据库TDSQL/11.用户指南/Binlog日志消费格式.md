@@ -16,7 +16,7 @@ cdb for mariadb、cdb for dcdb
     "logtype":"mysqlbinlog",          //日志类型，取值唯一，为 mysqlbinlog
     "eventtype":23,                   //事件类型码，对应 mysql 中 binlog 事件类型码
   
-    "eventtypestr":"insert",          /*事件类型字串，包括 insert、update、delete、gtid、xid、query 事件。
+    "eventtypestr":"insert",          /*事件类型字符串，包括 insert、update、delete、gtid、xid、query 事件。
 		                                其中insert、update、delete 事件对应 DML 语句；tid 事件标识事务开始；
                                         xid 事件标识事务结束；query 事件标识 DDL 语句 */
     "db":"testdb",                    //库名
