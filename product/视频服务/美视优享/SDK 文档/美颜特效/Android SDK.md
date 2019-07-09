@@ -2,13 +2,13 @@
 动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和天天 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 版本下载
-您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 文件可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
+您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 文件可以联系商务获取）, 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
 
 ## <span id="jump">工程设置</span>
 
 ### 1. 添加 SDK
 拷贝 SDK 里的`txrtmpsdk.jar`和`libtxrtmpsdk.so`等文件到工程对应位置，如 libs 下。
->! 特权版只支持 armeabi 架构的 so 文件，请删除 app 里面的其余架构 so 文件，避免 so 文件加载失败。
+>! 特权版只支持 armeabi 架构的 so 文件，请删除 App 里面的其余架构 so 文件，避免 so 文件加载失败。
 
 ### 2. 添加资源
 将 zip 包中的`camera`文件夹拷贝到工程的 assets 目录下。
