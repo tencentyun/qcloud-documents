@@ -22,7 +22,7 @@ cdb for mariadb、cdb for dcdb
     "db":"testdb",                    //库名
     "table":"testtable",              //表名
     "localip":"000.00.000.000",       //实例所在机器 IP
-    "localport":"0000",               //实例端口
+    "localport":0000,                 //实例端口
     "begintime":1511350073,           //事务开始时间，当前事件所在的事务的开始时间
     "gtid":"0-2670193178-726233561",  //GTID，当前事件所在事务的 gtid
     "event_index":"4",                //表征该事件在该事务中的序号  
@@ -45,7 +45,7 @@ cdb for mariadb、cdb for dcdb
     "db":"sysdb",
     "table":"statustableforhb",
     "localip":"10.231.23.241",
-    "localport":"8810",
+    "localport":8810,
     "begintime":1511419963,
     "gtid":"35be190b-d019-11e7-ab7a-a0423f32c225:469",
     "event_index":"1",
@@ -61,7 +61,7 @@ cdb for mariadb、cdb for dcdb
     "db":"testsummer",
     "table":"test_table1",
     "localip":"10.231.23.241",
-    "localport":"8810",
+    "localport":8810,
     "begintime":1511419963,
     "gtid":"35be190b-d019-11e7-ab7a-a0423f32c225:469",
     "event_index":"5",
@@ -78,7 +78,7 @@ cdb for mariadb、cdb for dcdb
     "db":"testsummer",
     "table":"statustableforhb",
     "localip":"10.231.23.241",
-    "localport":"8810",
+    "localport":8810,
     "begintime":1511419941,
     "gtid":"35be190b-d019-11e7-ab7a-a0423f32c225:452",
     "event_index":"2",
