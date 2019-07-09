@@ -155,9 +155,11 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 
 ### 使用方式
 
-1. 执行命令`git clone https://github.com/siddontang/go-mysql-elasticsearch`。
-2. 执行命令`cd go-mysql-elasticsearch/src/github.com/siddontang/go-mysql-elasticsearch`。
-3. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
+1. 安装Go1.10+版本，可以直接安装最新版的Go，然后设置GOPATH环境变量。
+2. go get github.com/siddontang/go-mysql-elasticsearch
+3. cd $GOPATH/src/github.com/siddontang/go-mysql-elasticsearch
+4. 执行make进行编译,编译成功后go-mysql-elasticsearch/bin目录下会生成名为go-mysql-elasticsearch的可执行文件
+5. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
 	```
 	# MySQL address, user and password
 	# user must have replication privilege in MySQL.
@@ -215,9 +217,9 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 	index = "building"
 	type = "buildingtype"
 	```
-4. 在 ES 集群中创建 building index, 因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
-5. 执行命令`./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
-6. 在控制台输出结果。
+6. 在 ES 集群中创建 building index, 因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
+7. 执行命令`./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
+8. 在控制台输出结果。
 	```
 	2018/06/02 16:13:21 INFO  create BinlogSyncer with config {1001 mariadb 172.16.0.101 3306 bellen   utf8 false false <nil> false false 0 0s 0s 0}
 	2018/06/02 16:13:21 INFO  run status http server 127.0.0.1:12800
@@ -229,7 +231,7 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 	2018/06/02 16:13:21 INFO  rotate binlog to (mysql-bin.000001, 120)
 	2018/06/02 16:13:21 INFO  save position (mysql-bin.000001, 120)
 	```
-7. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
+9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
 
 ### 使用体验
 * go-mysql-elasticsearch 完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
