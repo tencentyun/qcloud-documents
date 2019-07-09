@@ -35,24 +35,27 @@
 ![](https://mc.qcloudimg.com/static/img/b7fac6b5e08b0ff245b17d29f7296b18/AAE85661-7601-4473-A338-747FB9A6981C.png)
 
 ### 5. 导入 License 文件
-特权版需要 License 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试 License。
+特权版需要 License 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期30天的调试 License。
 获得 License 后，将其命名为 **YTFaceSDK.license**，并添加到工程的 assets 目录下。
 
 >?
 > - 每个 License 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
-> - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+> - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 Bundle ID 和一个 Android 的 packageName。
 
 ## 功能调用
 
 ### 动效贴纸
 
-一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
+一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
 小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
-- `https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip`
-- `https://st1.xiangji.qq.com/yunmaterials/{动效名}.png`
 
-强烈建议客户将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
+```
+https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip
+https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
+```
+
+强烈建议您将动效资源放在自己的服务器上，以防小直播变动造成不必要的影响。
 当解压完成后，即可通过以下接口开启动效效果。
 
 ```objective-c
