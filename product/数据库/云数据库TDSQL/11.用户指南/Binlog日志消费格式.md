@@ -8,7 +8,7 @@
 cdb for mariadb、cdb for dcdb
 
 ## 消息格式
-数据订阅功能对实例的 binlog（row 格式）进行解析，并将 binlog 事件封装成 json 格式的消息上传至 Kafka 集群。消息类型包括 DML 事件、GTID 事件、XID 事件、QUERY 事件。其中 DML 事件包括 insert、update、delete 事件，表征对数据行的更改；GTID 事件表征事务的开始；XID 事件表征事务的提交；QUERY 事件表征 DDL 语句。
+数据订阅功能对实例的 Binlog（row 格式）进行解析，并将 Binlog 事件封装成 json 格式的消息上传至 Kafka 集群。消息类型包括 DML 事件、GTID 事件、XID 事件、QUERY 事件。其中 DML 事件包括 insert、update、delete 事件，表征对数据行的更改；GTID 事件表征事务的开始；XID 事件表征事务的提交；QUERY 事件表征 DDL 语句。
 
 **DML 消息格式如下：**
 ```
