@@ -51,7 +51,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 > - 您可以在我们的 demo 里找到 vivo 推送的实现示例，请注意： vivo 推送版本更新时有可能会有功能调整，若您发现本节内容存在差异，烦请您及时查阅 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/155)，并将文档信息差异反馈给我们，我们会及时跟进修改。
 
 #### Step3.1 下载 vivo 推送 SDK 并添加引用
-1. 访问 [vivo 推送运营平台](https://dev.vivo.com.cn/documentCenter/doc/158) 下载 vivo 推送 SDK。
+1. 访问 [vivo 推送运营平台](https://dev.vivo.com.cn/documentCenter/doc/232) 下载 vivo 推送 SDK。
 2. 解压 vivo 推送 SDK，获取`vivo_pushsdk_xxx.jar`库文件。
 3. 将`vivo_pushsdk_xxx.jar`库文件添加到您项目的`libs`目录下，并且在项目中添加引用。
 
