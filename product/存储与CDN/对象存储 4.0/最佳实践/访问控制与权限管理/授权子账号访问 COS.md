@@ -53,10 +53,11 @@
 COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 当使用子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey，您可以在访问管理控制台生成子账号的 SecretId 和 SecretKey。
 
-1. 子账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  时，需切换对应的主账号（开发商账号）。
-![](https://main.qcloudimg.com/raw/0470d3941e878fbb6e6ff794a2c9391d.png)
-2. 登录后，单击【新建密钥】，即可创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
-![11](https://main.qcloudimg.com/raw/79a7ec6f2a3f083a152b841f679edb76.png)
+1. 子账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  。
+2. 在控制台右上方，将鼠标移至账号处，在下拉列表中，单击【切换用户身份】，切换对应的主账号（开发商账号）。
+3. 登录后，选择【访问密钥】>【API 密钥管理】，按照提示进入 API 密钥管理页面。
+4. 单击【新建密钥】，创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
+
 
 >!
 - 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
