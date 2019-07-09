@@ -2,21 +2,20 @@
 大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和天天 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 版本下载
-可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & License 可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so，替换工程中的非特权版 jar 和 so 即可。
+您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 可以联系商务获取）， 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换工程中的非特权版 jar 和 so 文件即可。
 
-> **说明：**
-> 区分特权版与非特权版，可以查看 SDK 的 bundler id。
+>? 区分特权版与非特权版，可以查看 SDK 的 bundler id。
 > - bundler id 为 com.tencent.TXRTMPSDK 表示非特权版。
 > - bundler id 为 com.tencent.TXRTMPSDK.pitu 表示特权版。
 
-## Xcode 工程设置
+## <span id="jump">Xcode 工程设置</span>
 
 ### 1. 添加 framework
 
 特权版需要额外链接一些系统 framework：
-> AssetsLibrary.framwork
-> CoreMedia.framework
-> Accelerate.framework
+- AssetsLibrary.framwork
+- CoreMedia.framework
+- Accelerate.framework
 
 ### 2. 添加链接参数
 
@@ -25,23 +24,22 @@
 ### 3. 添加资源 bundle
 
 将 zip 包中下列文件添加到工程中。
-
-> FilterEngine.bundle
-> PE.dat
-> ufa.bundle
-> youtubeauty.bundle
+-  FilterEngine.bundle
+- PE.dat
+- ufa.bundle
+- youtubeauty.bundle
 
 ### 4. 添加动效资源
 
 将 zip 包中 Resource 目录以 folder refrence 形式添加到工程中。这些资源非常重要，如果没有添加切换到换脸类素材时会发生 crash。
 ![](https://mc.qcloudimg.com/static/img/b7fac6b5e08b0ff245b17d29f7296b18/AAE85661-7601-4473-A338-747FB9A6981C.png)
 
-### 5. 导入 Licence 文件
-特权版需要 Licence 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试 License。
-获得 Licence 后，将其命名为 **YTFaceSDK.licence**，并添加到工程的 assets 目录下。
+### 5. 导入 License 文件
+特权版需要 License 验证通过后，相应功能才能生效。您可以联系商务申请一个免费的为期 30 天的调试 License。
+获得 License 后，将其命名为 **YTFaceSDK.license**，并添加到工程的 assets 目录下。
 
-> **说明：**
-> - 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+>?
+> - 每个 License 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
 > - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
