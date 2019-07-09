@@ -63,9 +63,9 @@
 - 业务代码中事务及时提交，避免产生没必要的锁等待。
 - 少用多表 join，大表禁止 join，两张表 join 必须让小表做驱动表，join 列必须字符集一致并且都建有索引。
 - LIMIT 分页优化，LIMIT 80000，10这种操作是取出80010条记录，再返回后10条，数据库压力很大，推荐先确认首记录的位置再分页，例如`SELECT * FROM test WHERE id = ( SELECT sql_no_cache id FROM test order by id LIMIT 80000,1 ) LIMIT 10 ;`。
-- 避免多层子查询嵌套的 SQL 语句，MySQL 5.5 之前的查询优化器把会把 in 改成 exists，走不到索引性，若外表很大则性能会很差。
+- 避免多层子查询嵌套的 SQL 语句，MySQL 5.5 之前的查询优化器把会把 in 改成 exists，会导致索引失效，若外表很大则性能会很差。
 - SQL 语句中最常见的导致索引失效的情况需注意：
- - 隐式类型转换，如索引 a 的类型是 varchar，SQL 语句写成 where a = 1;; varchar 变成了int。
+ - 隐式类型转换，如索引 a 的类型是 varchar，SQL 语句写成 where a = 1; varchar 变成了int。
  - 对索引列进行数学计算和函数等操作，例如，使用函数对日期列进行格式化处理。
  -  join 列字符集不统一。
  -  多列排序顺序不一致问题，如索引是 (a,b)，SQL 语句是 order by a b desclike。
