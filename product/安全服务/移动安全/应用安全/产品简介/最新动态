@@ -3,5 +3,5 @@
 - **更新内容：**
 	- 适配小米 Android Q。
 	- 适配 Android 9.0 Apache 框架。
-	- 增加 ucl 压缩算法，减小加固包 size。
+	- 增加 ucl 压缩算法，减小加固包尺寸。
 	- fix bug。
