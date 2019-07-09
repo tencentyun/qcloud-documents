@@ -151,8 +151,8 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 ### 使用方式
 
 1. 安装 Go1.10+ 版本，可以直接安装最新版的 Go，然后设置 GOPATH 环境变量。
-2. `go get github.com/siddontang/go-mysql-elasticsearch`。
-3. `cd $GOPATH/src/github.com/siddontang/go-mysql-elasticsearch`。
+2. 执行命令`go get github.com/siddontang/go-mysql-elasticsearch`。
+3. 执行命令`cd $GOPATH/src/github.com/siddontang/go-mysql-elasticsearch`。
 4. 执行 make 进行编译，编译成功后`go-mysql-elasticsearch/bin`目录下会生成名为`go-mysql-elasticsearch`的可执行文件。
 5. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
 	```
