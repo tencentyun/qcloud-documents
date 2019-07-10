@@ -74,7 +74,7 @@ cdb for mariadb、cdb for dcdb
 {
     "logtype":"mysqlbinlog",                          
     "eventtype":2,
-    "eventtypestr":"query",         //QUERY 事件对应 DDL语句
+    "eventtypestr":"query",         //QUERY 事件对应 DDL 语句
     "db":"testsummer",
     "table":"statustableforhb",
     "localip":"10.231.23.241",
