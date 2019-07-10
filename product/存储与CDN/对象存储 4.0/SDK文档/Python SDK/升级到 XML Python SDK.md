@@ -72,7 +72,7 @@ XML Python SDK 的存储桶名称和可用区域简称与 JSON Python SDK 的不
 **存储桶 Bucket**
 XML Python SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。
 例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可登录腾讯云控制台后，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket ，请参考以下示例代码：
 ```
@@ -112,16 +112,16 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 
 
 **4. 更改 API**
-升级到 XML Python SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12270)。
+升级到 XML Python SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档。
 API 变化有以下四点：
 
 **1）没有单独的目录接口**
 
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
-例如：上传对象`project/doc/a.txt`，分隔符` / `会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
+例如：上传对象`project/doc/a.txt`，分隔符`/`会模拟「文件夹」的展示方式，于是可以看到控制台上出现「文件夹」project 和 doc，其中 doc 是 project 下一级「文件夹」，并包含 a.txt 文件。
 
-因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以` / `结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
+因此，如果您的应用场景只是上传文件，可以直接上传即可，不需要先创建文件夹。使用场景里面有文件夹的概念，则需要提供创建文件夹的功能，您可以上传一个路径以`/`结尾的0KB 文件。这样在您调用 GetBucket 接口时，就可以将该文件当做文件夹。
 
 
 
@@ -153,4 +153,4 @@ XML Python SDK 新增 API，您可根据需求进行调用。包括：
 * 存储桶 ACL 的操作，如 put_bucket_acl、get_bucket_acl 等。
 * 存储桶生命周期的操作，如 put_bucket_lifecycle、get_bucket_lifecycle 等。
 
-阅读更多请参考我们的 Python SDK [接口文档](https://cloud.tencent.com/document/product/436/12270)。
+阅读更多请参考我们的 Python SDK [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档。

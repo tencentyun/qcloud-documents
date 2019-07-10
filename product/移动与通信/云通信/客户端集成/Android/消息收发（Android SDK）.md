@@ -901,12 +901,11 @@ public boolean isSelf()
 
 ### 消息发送者及其相关资料
 
-通过 `TIMMessage` 的方法 `getSender` 得到发送用户的用户ID。
-
-**对于群消息**，可以通过方法 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。
-
->!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称）。
->只有接收到的群消息才能获取到相应的资料。
+可以通过 `TIMMessage` 的方法 `getSender` 获取发送用户的 ID。
+**对于单聊消息**，可以通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 即可得到正在聊天的用户及其相关资料。
+**对于群消息**，可以通过 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。如需拉取自定义字段，需在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 。
+ >!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
+ >只有接收到的群消息才能获取到相应的资料。
 
 ```
 /**
@@ -933,7 +932,6 @@ public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > call
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
 
-**对于单聊消息**，通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 可以得到正在聊天的用户。
 
 ### 消息时间
 
@@ -1256,19 +1254,6 @@ public TIMMessage getLastMsg()
 public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack< List<TIMMessage> > callback)
 ```
 
-### 禁用会话本地存储
-
-直播场景下，群组类型会话的消息量很大，为了提升效率时常需要禁用直播群的本地消息存储功能。IM SDK 提供了针对单个会话禁用本地存储的功能，开发者可以根据需要调用 `TIMConversationExt` 中的 `disableStorage` 接口禁用相应的会话本地存储。
- 
-**原型：**
-
-```
-/**
- * 禁止当前会话的存储，只对当前初始化有效，重启后需要重新设置。
- * 需要初始后调用
- */
-public void disableStorage()
-```
 
 ### 设置会话草稿
 

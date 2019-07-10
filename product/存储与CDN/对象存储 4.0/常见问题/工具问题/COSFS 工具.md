@@ -1,4 +1,5 @@
 ## 功能咨询
+
 ### 如何使用临时密钥挂载存储桶？
 
 使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤：
@@ -173,3 +174,33 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 
 ### 使用 docker 挂载 COSFS 时，报错显示：fuse: failed to open /dev/fuse: Operation not permitted，该如何处理？
 启动 docker 镜像时，您需要添加参数 --privileged。
+
+### 是否可以使用某一个目录，作为多个挂载点的共用缓存目录？
+不建议多个挂载点共用缓存目录，缓存目录中包含 COSFS 使用的元信息，共用可能会导致 COSFS 使用的元信息混乱。
+
+### 使用 COSFS 挂载时出现报错 /bin/mount:unrecognized option --no-canonicalize，该如何处理？
+
+较低版本的 mount 不支持 `--no-canonicalize` 选项，请更新 mount 工具（推荐版本为 v2.17，[前往下载](https://cdn.kernel.org/pub//linux/utils/util-linux/v2.17/)），更新后重新挂载。安装命令如下。
+
+```shell
+tar -jxvf util-linux-ng-2.17.tar.bz2
+cd util-linux-ng-2.17
+./configure --prefix=/usr/local/util-linux-ng
+make && make install
+mv /bin/mount{,.off}
+ln -s /usr/local/util-linux-ng/bin/mount /bin
+```
+
+### 挂载失败该如何处理？
+
+步骤一：根据日志文件和提示信息，检查挂载命令、密钥配置文件内容是否正确，以及网络是否可以访问 COS 服务。
+
+步骤二：使用 date 命令，检查机器时间是否正确，如果不正确 ，用 date 命令修正时间后，重新挂载。例如：`date -s '2014-12-25 12:34:56'`。
+
+### 使用 `ls -l --time-style=long-iso` 命令，挂载目录的时间变为1970-01-01 08:00，是否正常？
+
+挂载目录时间变为1970-01-01 08:00是正常的，当您卸载挂载点后，挂载目录的时间会恢复为挂载前的时间。
+
+ ### 挂载目录能否为非空？
+ 
+可以使用 -ononempty 参数挂载到非空目录，但不建议您挂载到非空目录，当挂载点中和原目录中存在相同路径的文件时，可能出现问题。

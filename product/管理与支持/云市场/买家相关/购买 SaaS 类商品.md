@@ -14,7 +14,7 @@
 支付成功后，您选购的 SaaS 商品购买流程结束。          
 - 单击【进入管理中心】可进入 [已购产品与服务](https://console.cloud.tencent.com/servicemarket/services) 页面，可查看资源实例相关信息。       
 - 单击【查看我的订单】可进入 [我的订单](https://console.cloud.tencent.com/deal) 页面，可查看订单相关信息。
-![](https://main.qcloudimg.com/raw/22409c6b01c8e76785d1c56ca178cb81.png)
+![](https://main.qcloudimg.com/raw/7000e45a8649a55ab72e4695d7380fd5.png)
 
 ## 使用资源实例
 进入 [已购产品与服务](https://console.cloud.tencent.com/servicemarket/services) 页面后，单击【管理】或资源实例 ID，在应用信息中获取账号信息和登录网址等。     

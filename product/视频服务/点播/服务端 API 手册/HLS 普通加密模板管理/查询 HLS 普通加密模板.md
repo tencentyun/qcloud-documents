@@ -15,7 +15,7 @@ QuerySimpleAesTemplate
 ### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
-| COMMON_PARAMS | 是 |  | 参见 [公共参数](/document/api/213/6976) |
+| COMMON_PARAMS | 是 |  | 请参见 [公共参数](/document/api/213/6976)。 |
 
 ### 请求示例
 <pre>
@@ -28,18 +28,18 @@ https://vod.api.qcloud.com/v2/index.php?Action=QuerySimpleAesTemplate
 ### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
-| code | Integer | 错误码, 0: 成功, 其他值: 失败 |
-| message | String | 错误信息 |
-| data | Array | HLS 普通加密模板列表 |
-| data.definition | Integer | HLS 普通加密模板的模板 ID |
-| data.get_key_url | String | HLS 普通加密模板的 GetKeyURL |
+| code | Integer | 错误码，0：成功；其他值：失败。 |
+| message | String | 错误信息。 |
+| data | Array | HLS 普通加密模板列表。 |
+| data.definition | Integer | HLS 普通加密模板的模板 ID。 |
+| data.get_key_url | String | HLS 普通加密模板的 GetKeyURL。 |
 
 ### 错误码说明
 | 错误码 | 含义说明|
 |---------|---------|
-| 4000 - 7000 | 参见 [公共错误码](/document/product/266/7783)  |
-| 1000 | 无效参数  |
-| 10702 | 内部错误  |
+| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/10146)。  |
+| 1000 | 无效参数。  |
+| 10702 | 内部错误。  |
 
 ### 应答示例
 

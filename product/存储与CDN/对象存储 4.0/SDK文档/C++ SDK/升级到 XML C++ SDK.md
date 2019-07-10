@@ -44,7 +44,7 @@ XML C++ SDK 的存储桶名称和可用区域简称与 JSON C++ SDK 的不同，
 
 XML C++ SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `mybucket1-1250000000`，其中 `mybucket1` 为用户自定义字符串，`1250000000` 为 APPID。
 
->?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 【账号信息】查看 APPID。
+>?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可登录腾讯云控制台后，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket，请参考下面的示例代码：
 
@@ -83,7 +83,7 @@ XML C++ SDK 的存储桶可用区域简称发生了变化，在初始化时，�
 
 **4. 更改 API**
 
-升级到 XML C++ SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [接口文档](https://cloud.tencent.com/document/product/436/12302)。
+升级到 XML C++ SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。我们同时做了封装让 SDK 更加易用，具体请参考我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/12301) 文档。
 
 API 主要有以下变化：
 
@@ -162,4 +162,4 @@ XML C++ SDK 新增 API，您可根据需求进行调用。包括：
 - 存储桶 ACL 的操作，如 PutBucketACLReq、GetBucketACLReq 等。
 - 存储桶生命周期的操作，如 PutBucketLifecycleReq、GetBucketLifecycleReq 等。
 
-具体请参考我们的 C++ SDK [接口文档](https://cloud.tencent.com/document/product/436/12302)。
+具体请参考我们的 C++ SDK [快速入门](https://cloud.tencent.com/document/product/436/12301) 文档。

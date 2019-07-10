@@ -1,11 +1,12 @@
 ## 操作场景
 本文以云硬盘容量小于2TB为例，提供云硬盘的初始化操作指导。关于磁盘初始化场景的更多介绍，请参考 [初始化场景介绍](https://cloud.tencent.com/document/product/362/33065)。
 
-## 注意事项
-- 格式化数据盘会将数据将被全部清空。请确保数据盘中没有数据或已备份重要数据。
-- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
 
 ## 前提条件
+>! 
+>- 格式化数据盘会将数据将被全部清空，请确保数据盘中没有数据或已备份重要数据。
+>- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
+>
 已 [挂载云硬盘](/doc/product/362/5745) 至云服务器。
 
 ## 操作步骤
@@ -25,6 +26,7 @@
 <span id="online"></span>
 5. 在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。
  ![](https://main.qcloudimg.com/raw/a6b5296ab23c0c361440b7d5b97bc493.png)
+ 
 <span id="initialize"></span>
 6. 右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。
  ![](https://main.qcloudimg.com/raw/b38f04f488ff40b26e12d33aa1f83ee1.png)
@@ -61,7 +63,7 @@
  ```
 fdisk -l
 ```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+ 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
  ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，对 “/dev/vdb” 裸设备直接创建文件系统格式。
 ```
@@ -117,7 +119,10 @@ df -TH
 		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
  </tr>
 </table>
-8. 备份 `/etc/fstab` 文件。
+8. 执行以下命令，备份 `/etc/fstab`  文件。以备份到  /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
 vi /etc/fstab
@@ -259,7 +264,7 @@ df -TH
 	   <tr>      
          <td nowrap="nowrap">使用文件系统的 UUID</td>   
 	       <td>可能会因文件系统的 UUID 变化而导致自动挂载设置失效。<br>例如，重新格式化文件系统后，文件系统的 UUID 将会发生变化。</td>
-	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdc1</pre></td>
+	       <td nowrap="nowrap">执行以下命令，查看文件系统的 UUID。</br><pre>blkid /dev/vdb1</pre></td>
      </tr> 
 	   <tr>      
          <td nowrap="nowrap">使用设备名称</td>   
@@ -267,7 +272,10 @@ df -TH
 	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-17. 备份`/etc/fstab`文件。
+17. 执行以下命令，备份 `/etc/fstab 文件`。以备份到 /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab

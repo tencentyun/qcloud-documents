@@ -2,8 +2,9 @@
 
 ## 开启日志功能
 1. 在**负载均衡实例详情**页面，开启日志访问功能。
-![](https://main.qcloudimg.com/raw/ba562dd3a3d461794fffc4e592f46dac.png)
+![](https://main.qcloudimg.com/raw/8e00f8590d3fdf64278389cd019864a8.png)
 2. 选取相应的 COS 中 bucket，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。选取完成后，单击 bucket 地址可以直接跳转到日志下载页面。
+![](https://main.qcloudimg.com/raw/f1f6d287dba415df1c832223cbdac11b.png)
 >!如您没有创建对象存储的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 
 ## 产品限制和费用计算
@@ -24,10 +25,10 @@
 
 | 序号 | 变量名 | 说明 |
 | :-------- | :-------- | :------ |
-| 1 | time_local	|  时间戳。 |
+| 1 | time_local	|  访问的时间与时区，例如“01/Jul/2019:11:11:00 +0800”，最后的“+0800”表示所处时区为 UTC 之后的8小时，即为北京时间。 |
 | 2 | protocol_type |  协议类型（HTTP/HTTPS/SPDY/HTTP2/WS/WSS）。 |
 | 3 | server_addr:server_port  | 请求的目的 IP 和目的端口。 |
-| 4 | server_name | 规则的 server_name。 |
+| 4 | server_name | 规则的 server_name，即服务器名称。 |
 | 5 | remote_addr:remote_port	| client IP：port。 |
 | 6 | status | LB 返回给 client 的状态码。 |
 | 7 | upstream_status | RS 返回给 LB 的状态码。 |

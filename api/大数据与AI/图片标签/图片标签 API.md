@@ -10,7 +10,7 @@
 
 | 参数名            | 必选|值                          | 描述                       |
 | -------------- | -----|--------------------- | ------------------------ |
-| host           | 是|recognition.image.myqcloud.com | 腾讯云图片标签服务器域名。           |
+| host           | 是|recognition.image.myqcloud.com | 腾讯云图片分析服务器域名。           |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（Byte）。 |
 | content-type   | 是|application/json 或  multipart/form-data   | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json。<br/>2. 使用图片文件，选择 multipart/form-data。  |
 | authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/865/17723)。     |
@@ -36,8 +36,8 @@
 
 | 字段             | 类型     | 说明                            |
 | -------------- | ------ | ----------------------------- |
-| tag_name       | String | 返回的图像标签名字。                     |
-| tag_confidence | Int    | 图像标签的置信度，取值范围[0， 100]，数值越大置信度越高。 |
+| tag_name       | String | 返回的图像分析名字。                     |
+| tag_confidence | Int    | 图像分析的置信度，取值范围[0， 100]，数值越大置信度越高。 |
 
 
 ## 示例

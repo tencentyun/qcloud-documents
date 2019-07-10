@@ -1,10 +1,10 @@
 云数据库 MySQL 初始化完成后，在实例列表单击实例名，或在【操作】列单击【管理】，可以进入实例管理页面。
-![](https://main.qcloudimg.com/raw/1c7822f6543b9cf0c98925f7c576c003.png)
+![](https://main.qcloudimg.com/raw/6b5ce84ac2728e387d79703267efdbb8.png)
 云数据库 MySQL 实例管理页内，您可以对数据库的实例详情查看及修改、实例监控告警管理、数据库管理、参数设置、安全组管理、备份管理以及数据库操作日志下载等。
 
 ## 实例详情
 【实例详情】页可查看和操作数据库的各种信息，如下图所示，单击<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
-![](https://main.qcloudimg.com/raw/59b9a3838164e1b304c38ae77e4a4ae2.png)
+![](https://main.qcloudimg.com/raw/553029f34aa0ca698104103365512a08.png)
 
 ## 实例监控
 【实例监控】页提供了对当前数据库运行的众多核心指标的监控，分为访问、负载、查询缓存、表、InnoDB、MyISAM 等六个维度的监控。
@@ -20,29 +20,29 @@
 ### 数据库列表
 在【数据库管理】>【数据库列表】页面，您可以将 SQL 文件导入到指定的数据库。
 1. 单击【数据导入】进入数据导入页面。
-![](https://main.qcloudimg.com/raw/5d80ccaf5f9b754a877fd2d3974b2306.png)
+![](https://main.qcloudimg.com/raw/bb8c82bec533459fa13923964f0cb363.png)
 2. 单击【新增文件】，选择本地 SQL 文件，确认上传即可。
-![](https://main.qcloudimg.com/raw/e58f8bdc0649828d2a94e959a701703f.png)
+![](https://main.qcloudimg.com/raw/4f02597436ab9f2cbb32db7129f4118b.png)
 
 ### 参数设置
 在【数据库管理】>【参数设置】页面，您可以对数据库的众多可修改参数进行设置和查看修改历史，如下表所示，单击【参数运行值】旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改。更多关于参数模板的操作可参见 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
-![](https://main.qcloudimg.com/raw/5b94692893ed91d414fa1f11c814f315.png)
+![](https://main.qcloudimg.com/raw/05244ea4f056e01e49cceed6d23076bc.png)
 
 ### 帐号管理
 在【数据库管理】>【帐号管理】页面，您可以对系统默认的 root 帐户进行管理，如修改权限，重置密码等，也可以创建帐号，删除帐号。如下图所示：
-![](https://main.qcloudimg.com/raw/543cba38f37cb794491e1db0418a0898.png)
+![](https://main.qcloudimg.com/raw/cf8b5965d294f57222db5d69f81a1cc8.png)
 
 ## 安全组
 在【安全组】页面，您可以对您的数据库进行安全组的配置操作，如下图所示，详细的安全组操作可参见 [云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。
-![](https://main.qcloudimg.com/raw/f4871e14e3e08e91feb7dcb83bbe6f0d.png)
+![](https://main.qcloudimg.com/raw/b873054664910f292c3e09ffaff342ae.png)
 
-## 备份管理
-在【备份管理】页面，您可以进行下载 binlog 和冷备操作，如下图所示，详细的备份介绍可参见 [备份方式](https://cloud.tencent.com/document/product/236/7513)。
-![](https://main.qcloudimg.com/raw/285cb5b2c2b97536c07080fd3ee20cc6.png)
+## 备份恢复
+在【备份恢复】页面，您可以进行下载 binlog 和冷备操作，如下图所示，详细的备份介绍可参见 [备份方式](https://cloud.tencent.com/document/product/236/7513)。
+![](https://main.qcloudimg.com/raw/b48b16c9b451c67dfe8e8657bbd65754.png)
 
 ## 操作日志
 在【操作日志】页面，您可以对慢查询及回档日志进行下载。
-![](https://main.qcloudimg.com/raw/1cab6f341dd4c6c4c8df00d7464038a9.png)
+![](https://main.qcloudimg.com/raw/dfb6bd7807ee80292f7a3892df790dd6.png)
 
 ## 调整配置
 在【实例列表】页面，您可以对数据库实例进行配置调整（扩缩容），支持实例升级与降级。详细操作可参见 [调整数据库实例规格](https://cloud.tencent.com/document/product/236/19707)。

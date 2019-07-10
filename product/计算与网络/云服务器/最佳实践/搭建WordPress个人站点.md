@@ -1,27 +1,32 @@
 ## 操作场景
 WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言开发。您可通过在腾讯云服务器的简单操作部署 WordPress，发布个人博客。
 
-本文介绍手动部署 WordPress 的方法，如果您网站的可扩展性需求要求不高，腾讯云还提供镜像的方式部署  WordPress，具体可参考 [使用镜像部署WordPress](https://cloud.tencent.com/document/product/213/9740)。
-
+本文介绍手动部署 WordPress 的方法，如果您的网站对可扩展性需求要求不高，腾讯云还提供镜像的方式部署  WordPress，具体可参考 [使用镜像部署 WordPress](https://cloud.tencent.com/document/product/213/9740)。
 
 本教程以 Linux 系统 CentOS 7.5 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
 ![步骤流程](https://main.qcloudimg.com/raw/350c12570478973b9ecd293760c5fde6.png)
+
 ## 相关简介
 以下是本教程中，将会使用的服务或工具：
-- **云服务器**：本教程使用腾讯云云服务器（Cloud Virtual Machine，CVM）创建云服务器实例，来完成 WordPress 搭建工作。
-- **域名注册**：如果想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
+- **云服务器**：本教程使用腾讯云云服务器（Cloud Virtual Machine，CVM）创建云服务器实例，用来完成 WordPress 搭建工作。
+- **域名注册**：如果您想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
 - **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云 [网站备案](https://cloud.tencent.com/product/ba) 产品为您的域名备案。
-- **云解析**：在配置域名解析之后，用户才能通过域名访问您的网站，而不需要使用复杂的 IP 地址。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
+- **云解析**：配置域名解析后，用户可通过域名访问您的网站，不需要使用复杂的 IP 地址才可访问您的网站。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
+
+## 前提条件
+
+已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 
 ## 操作步骤 
 ### 创建并登录云服务器
-1. 请根据实际需求 [购买云服务器](https://buy.cloud.tencent.com/cvm?regionId=8&projectId=8)。
-具体操作请参考 [快速配置Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 服务器创建成功后，登录 [腾讯云管理控制台](https://console.cloud.tencent.com/cvm)  查看和获取实例的以下信息。如下图所示：
+>! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
+>
+1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
-
 
 ### 搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可以开始进行 LNMP 环境搭建。
@@ -43,7 +48,8 @@ yum -y install nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将已有内容全部清除，将以下内容复制粘贴至 `nginx.conf`文件中。 
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `nginx.conf` 文件中 server{...} 的内容替换成以下内容。
+用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
 	listen       80;
@@ -73,41 +79,40 @@ server {
 	 }
 }
 ```
-4. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
-5. 执行以下命令，启动 Nginx ，设置为开机自启动。
+5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 执行以下命令，启动 Nginx ，设置为开机自启动。
 ```
-# systemctl start nginx
-# systemctl enable nginx 
+systemctl start nginx
+systemctl enable nginx 
 ```
-6. 
-在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+7. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![ 测试Nginx2](https://main.qcloudimg.com/raw/dc7ccc6220299225de75c521620423b4.png)
 
 #### 安装配置 PHP
 1. 执行以下命令，更新 yum 中 PHP 的镜像源。
 ```
-# rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
-# rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
 ```
-# yum search php72w 
+yum search php72w 
 ```
 3. 执行以下命令，安装需要的包。
 ```
-# yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
+yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
 4. 执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
 ```
-# systemctl start php-fpm
-# systemctl enable php-fpm
+systemctl start php-fpm
+systemctl enable php-fpm
 ```
 
 #### 验证 PHP-Nginx 环境配置
 1. 执行以下命令，在 Web 目录下创建`index.php`文件。
 ```
-# vim /usr/share/nginx/html/index.php
+vim /usr/share/nginx/html/index.php
 ```
 2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
@@ -126,97 +131,88 @@ http://云服务器实例的公网 IP/index.php
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
 ```
-# rpm -qa | grep -i mariadb
+rpm -qa | grep -i mariadb
 ```
-返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 。
+返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2)。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 2. <span id="step2">执行以下命令，删除 MariaDB 现有包。</span>
 ```
-# yum remove 包名
+yum remove 包名
 ```
 3. 执行以下命令，安装 MariaDB。
 ```
-# yum -y install mariadb mariadb-server
+yum -y install mariadb mariadb-server
 ```
 4. 执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
-# systemctl start mariadb
-# systemctl enable mariadb
+systemctl start mariadb
+systemctl enable mariadb
 ```
 5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
->- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
->- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
+> - 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
+> - 首次输入 root 帐户密码后，需按 **Enter**（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
 >
 ```
-# mysql_secure_installation
+mysql_secure_installation
 ```
-
-6. 执行以下命令，登录 MariaDB，输入 [步骤5](#login) 设置的密码后按下 “**Enter**”。
+6. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
 ```
-# mysql -uroot -pXXXXXX
+mysql -uroot -pXXXXXX
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/0cfea29c0fa72075137a3dda0825c7a4.png)
 
-
 ### 安装和配置 WordPress
 #### 下载 
->? WordPress可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程正是采用的 WordPress 中文版本。
+>? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程正是采用的 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
-# rm -rf /usr/share/nginx/html/index.php
+rm -rf /usr/share/nginx/html/index.php
 ```
 2. 依次执行以下命令，进入`/usr/share/nginx/html/`目录，并下载与解压 WordPress。
 ```
-# cd /usr/share/nginx/html
-# wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
-# tar zxvf wordpress-4.7.4-zh_CN.tar.gz
+cd /usr/share/nginx/html
+wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
+tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
-
 
 #### <span id="database">配置数据库</span>
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
 ```
-# mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
+mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
 ```
-2. 执行以下命令，登录成功后切换为 MySQL 数据库。
-```
-use mysql;
-```
-3. 执行以下命令，为 WordPress 创建 MariaDB 数据库 “wordpress”。
+2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
 ```
 CREATE DATABASE wordpress;
 ```
-4. 执行以下命令，为已创建好的 MariaDB 数据库创建一个新用户 “user@localhost”。
+3. 执行以下命令，创建一个新用户。例如 “user@localhost”。
 ```
 CREATE USER user@localhost;
 ```
-5. 执行以下命令，为此用户设置密码 “wordpresspassword”。
+4. 执行以下命令，为 “user@localhost” 用户设置密码。例如 “wordpresspassword”。
 ```
 SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
 ```
-6. 执行以下命令，为创建的用户开通数据库 “wordpress” 的完全访问权限。
+5. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
 ```
 GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspassword';
 ```
-7. 执行以下命令，使所有配置生效。
+6. 执行以下命令，使所有配置生效。
 ```
 FLUSH PRIVILEGES;
 ```
-8. 执行以下命令，退出 MariaDB 。
+7. 执行以下命令，退出 MariaDB。
 ```
 exit
 ```
 
 ####  写入数据库信息
->?
->- 完成数据库配置后，还需要将数据库信息写入 WordPress 的配置文件。
->- WordPress 安装文件夹包含名为 wp-config->sample.php 的示例配置文件，本步骤为创建并编辑 WordPress 的配置文件。
+>? WordPress 安装文件夹包含名为 wp-config->sample.php 的示例配置文件，本步骤为创建并编辑 WordPress 的配置文件。
 > 
-1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到名为`wp-config.php`的文件，并将原先的示例配置文件保留作为备份。
+1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
 ```
 cd /usr/share/nginx/html/wordpress
 cp wp-config-sample.php wp-config.php
@@ -226,8 +222,7 @@ cp wp-config-sample.php wp-config.php
 vim wp-config.php
 ```
 3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，将 [配置数据库](#database) 中已配置好的数据库相关信息写入。
-
-	```
+```
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
 	define('DB_NAME', 'wordpress');
@@ -240,20 +235,19 @@ vim wp-config.php
 	
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
-	```
+```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
 #### 验证 WordPress 安装
 1. 在浏览器地址栏输入云服务器实例的公网 IP 或在 IP 后加上 wordperss 文件夹，例如：
- ```
- http://192.xxx.xxx.xx 
- http://192.xxx.xxx.xx /wordpress
- ```
- 转至 WordPress 安装页，开始配置 WordPress。
+```
+http://192.xxx.xxx.xx 
+http://192.xxx.xxx.xx /wordpress
+```
+转至 WordPress 安装页，开始配置 WordPress。
 ![配置WP1](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)
-2. 根据 WordPress 安装向导提示输入以下安装信息后，单击 “安装 WordPress” 完成安装。
-
-	<table>
+2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
+<table>
 	<th style="width: 18%;">所需信息</th>
 	<th style="width: 25%;">说明</th>
 					<tr>
@@ -291,7 +285,7 @@ vim wp-config.php
 	</table>
 现在可以用登录 WordPress 博客，并开始发布博客文章了。
 
-### 后续步骤
+## 后续操作
 1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
 您可以通过 [腾讯云购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)。 
 2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，审核时间约为20天。
@@ -302,4 +296,4 @@ vim wp-config.php
 - 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
-- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。``
+- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。

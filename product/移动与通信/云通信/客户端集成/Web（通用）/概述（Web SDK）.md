@@ -114,6 +114,7 @@ IM SDK 函数使用顺序，如下：
 
 - IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 - Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+
 ## IM SDK 基本概念
 
 **会话：**IM SDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
@@ -130,20 +131,74 @@ IM SDK 函数使用顺序，如下：
 
 IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表：
 
-|对象 | 介绍 | 功能 |
-|---------|---------|---------|
-|webim.SESSION_TYPE  |会话类型，取值范围：<br/>1) webim.SESSION_TYPE.C2C-私聊<br/>2) webim.SESSION_TYPE.GROUP-群聊| 区分消息属于哪种聊天类型 |
-|webim.C2C_MSG_SUB_TYPE  | C2C 消息子类型，取值范围：<br/>1) webim.C2C_MSG_SUB_TYPE.COMMON-普通消息 | 区分 C2C 消息类型|
-| webim.GROUP_MSG_SUB_TYPE |群消息子类型，取值范围：<br/>1)	webim.GROUP_MSG_SUB_TYPE.COMMON-普通消息<br/>2)	webim.GROUP_MSG_SUB_TYPE.LOVEMSG –点赞消息<br/>3)	webim.GROUP_MSG_SUB_TYPE.TIP –提示消息<br/>4)	webim.GROUP_MSG_SUB_TYPE.REDPACKET –红包消息(优先级最高)|  区分群消息类型，业务可针对不同的消息作出不同的操作。|
-| webim.GROUP_TIP_TYPE |群提示消息类型，取值范围：<br/>1)	webim. GROUP_TIP_TYPE.JOIN-进群<br/>2)	webim. GROUP_TIP_TYPE.QUIT-退群<br/>3)	webim. GROUP_TIP_TYPE.KICK-被踢出群<br/>4)	webim. GROUP_TIP_TYPE.SET_ADMIN-被设置成管理员<br/>5)	webim. GROUP_TIP_TYPE.CANCEL_ADMIN-被取消管理员角色<br/>6)	webim. GROUP_TIP_TYPE.MODIFY_GROUP_INFO-修改群资料 <br/>7)	webim. GROUP_TIP_TYPE.MODIFY_MEMBER_INFO-修改群成员信息 |  区分群提示消息类型
-|webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE  | 群资料变更类型，取值范围：<br/>1)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL-群头像发生变更<br/>2)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME -群名称发生变更<br/>3)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER-群主发生变更<br/>4)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION -群公告发生变更<br/>5)	webim. GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION-群简介发生变更| 区分群资料变更类型 |
-| webim.GROUP_SYSTEM_TYPE | 群系统消息类型，取值范围：<br/>1)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST-申请加群请求（只有管理员会收到）<br/>2)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT -申请加群被同意（只有申请人能够收到）<br/>3)	webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE -申请加群被拒绝（只有申请人能够收到）<br/>4)	webim.GROUP_SYSTEM_TYPE.KICK-被管理员踢出群(只有被踢者接收到)<br/>5)	webim.GROUP_SYSTEM_TYPE.DESTORY -群被解散(全员接收)<br/>6)	webim.GROUP_SYSTEM_TYPE.CREATE -创建群(创建者接收, 不展示)<br/>7)	webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST -邀请加群(被邀请者接收)<br/>8)	webim.GROUP_SYSTEM_TYPE.QUIT-主动退群(主动退出者接收, 不展示)<br/>9)	webim.GROUP_SYSTEM_TYPE.SET_ADMIN -设置管理员(被设置者接收)<br/>10)	webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN -取消管理员(被取消者接收)<br/>11)	webim.GROUP_SYSTEM_TYPE.REVOKE -群已被回收(全员接收, 不展示)<br/>12)	webim.GROUP_SYSTEM_TYPE.CUSTOM -用户自定义通知(默认全员接收)| 区分群系统消息类型 |
-|webim.MSG_ELEMENT_TYPE  | 消息元素类型，取值范围：<br/>1)	webim.MSG_ELEMENT_TYPE.TEXT-文本消息<br/>2)	webim.MSG_ELEMENT_TYPE.FACE表情消息<br/>3)	webim.MSG_ELEMENT_TYPE.IMAGE-图片消息<br/>4)	webim.MSG_ELEMENT_TYPE.SOUND-语音消息<br/>5)	webim.MSG_ELEMENT_TYPE.FILE-文件消息<br/>6)	webim.MSG_ELEMENT_TYPE.LOCATION-位置消息<br/>7)	webim.MSG_ELEMENT_TYPE.CUSTOM-自定义消息<br/>8)	webim.MSG_ELEMENT_TYPE.GROUP_TIP-群提示消息（只有群聊天才会出现）|区分消息元素类型  |
-|webim.IMAGE_TYPE  | webim.IMAGE_TYPE	图片大小类型，取值范围：<br/>1)	webim.IMAGE_TYPE.SMALL-小图<br/>2)	webim.IMAGE_TYPE.LARGE-大图<br/>3)	webim.IMAGE_TYPE.ORIGIN-原图| 区分图片大小类型 |
-| webim.Emotions |表情对象  | 键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码 |
-| webim.EmotionDataIndexs | 表情标识字符串和 index 的 Map | 键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息。 |
-| webim.BROWSER_INFO | 当前浏览器信息<br/>1)	webim.BROWSER_INFO.type-浏览器类型( 包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’)<br/>2)	webim.BROWSER_INFO.ver-版本号| 区分浏览器版本 |
-| webim.CONNECTION_STATUS | 连接状态<br/>1)	webim.CONNECTION_STATUS.ON-连接状态正常，可正常收发消息<br/>2)	webim.CONNECTION_STATUS.OFF-连接已断开，当前用户已离线，无法收信息<br/>3)	webim.CONNECTION_STATUS.RECONNECT-连接重新建立| 用于区分用户的当前连接状态 |
+<table>
+     <tr>
+         <th>对象</th>  
+         <th>介绍</th>  
+         <th>功能</th>  
+     </tr>
+	 <tr>      
+         <td>webim.SESSION_TYPE</td>   
+	     <td>会话类型，取值范围：<br>1.webim.SESSION_TYPE.C2C，私聊<br>2.webim.SESSION_TYPE.GROUP，群聊</td>   
+	     <td>区分消息属于哪种聊天类型</td>   
+     </tr> 
+	 <tr>
+	     <td>webim.C2C_MSG_SUB_TYPE</td>   
+	     <td>C2C 消息子类型，取值：webim.C2C_MSG_SUB_TYPE.COMMON，普通消息</td>   
+	     <td>区分 C2C 消息类型</td>
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_MSG_SUB_TYPE</td>   
+	     <td>群消息子类型，取值范围：<br>1.webim.GROUP_MSG_SUB_TYPE.COMMON，普通消息<br>2.webim.GROUP_MSG_SUB_TYPE.LOVEMSG，点赞消息<br>3.webim.GROUP_MSG_SUB_TYPE.TIP，提示消息<br>4.webim.GROUP_MSG_SUB_TYPE.REDPACKET，红包消息（优先级最高）</td>   
+	     <td>区分群消息类型，业务可针对不同的消息作出不同的操作</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_TIP_TYPE</td>   
+	     <td>群提示消息类型，取值范围：<br>1.webim.GROUP_TIP_TYPE.JOIN，进群<br>2.webim.GROUP_TIP_TYPE.QUIT，退群<br>3.webim.GROUP_TIP_TYPE.KICK，被踢出群<br>4.webim.GROUP_TIP_TYPE.SET_ADMIN，被设置成管理员<br>5.webim.GROUP_TIP_TYPE.CANCEL_ADMIN，被取消管理员角色<br>6.webim.GROUP_TIP_TYPE.MODIFY_GROUP_INFO，修改群资料<br>7.webim.GROUP_TIP_TYPE.MODIFY_MEMBER_INFO，修改群成员信息</td>   
+	     <td>区分群提示消息类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE</td>   
+	     <td>群资料变更类型，取值范围：<br>1.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.FACE_URL，群头像发生变更<br>2.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NAME，群名称发生变更<br>3.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.OWNER，群主发生变更<br>4.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.NOTIFICATION，群公告发生变更<br>5.webim.GROUP_TIP_MODIFY_GROUP_INFO_TYPE.INTRODUCTION，群简介发生变更</td>   
+	     <td>区分群资料变更类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.GROUP_SYSTEM_TYPE</td>   
+	     <td>群系统消息类型，取值范围：<br>1.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST，申请加群请求（只有管理员会收到）<br>2.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT，申请加群被同意（只有申请人能够收到）<br>3.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE，申请加群被拒绝（只有申请人能够收到）<br>4.webim.GROUP_SYSTEM_TYPE.KICK，被管理员踢出群（只有被踢者接收到）<br>5.webim.GROUP_SYSTEM_TYPE.DESTORY，群被解散(全员接收)<br>6.webim.GROUP_SYSTEM_TYPE.CREATE，创建群（创建者接收, 不展示）<br>7.webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST，邀请加群（被邀请者接收）<br>8.webim.GROUP_SYSTEM_TYPE.QUIT，主动退群（主动退出者接收, 不展示）<br>9.webim.GROUP_SYSTEM_TYPE.SET_ADMIN，设置管理员（被设置者接收）<br>10.webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN，取消管理员（被取消者接收）<br>11.webim.GROUP_SYSTEM_TYPE.REVOKE，群已被回收（全员接收, 不展示）<br>12.webim.GROUP_SYSTEM_TYPE.CUSTOM，用户自定义通知（默认全员接收）</td>   
+	     <td>区分群系统消息类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.MSG_ELEMENT_TYPE</td>   
+	     <td>消息元素类型，取值范围：<br>1.webim.MSG_ELEMENT_TYPE.TEXT，文本消息<br>2.webim.MSG_ELEMENT_TYPE.FACE，表情消息<br>3.webim.MSG_ELEMENT_TYPE.IMAGE，图片消息<br>4.webim.MSG_ELEMENT_TYPE.SOUND，语音消息<br>5.webim.MSG_ELEMENT_TYPE.FILE，文件消息<br>6.webim.MSG_ELEMENT_TYPE.LOCATION，位置消息<br>7.webim.MSG_ELEMENT_TYPE.CUSTOM，自定义消息<br>8.webim.MSG_ELEMENT_TYPE.GROUP_TIP，群提示消息（只有群聊天才会出现）</td>   
+	     <td>区分消息元素类型 </td>   
+     </tr> 
+	 <tr>      
+         <td>webim.IMAGE_TYPE</td>   
+	     <td>图片大小类型，取值范围：<br>1.webim.IMAGE_TYPE.SMALL，小图<br>2.webim.IMAGE_TYPE.LARGE，大图<br>3.webim.IMAGE_TYPE.ORIGIN，原图</td>   
+	     <td>区分图片大小类型</td>   
+     </tr> 
+	 <tr>      
+         <td>webim.Emotions</td>   
+	     <td>表情对象</td>   
+	     <td>键值对形式，key 是表情 index，value 包括了表情标识字符串和表情图片的 BASE64 编码</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.EmotionDataIndexs</td>   
+	     <td>表情标识字符串和 index 的 Map</td>   
+	     <td>键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.BROWSER_INFO</td>   
+	     <td>当前浏览器信息<br>1.webim.BROWSER_INFO.type，浏览器类型（包括 ‘ie’，’safari’，’chrome’，’firefox’，’opera’，’unknow’）<br>2.webim.BROWSER_INFO.ver，版本号</td>   
+	     <td>区分浏览器版本</td>   
+     </tr>  
+	 <tr>      
+         <td>webim.CONNECTION_STATUS</td>   
+	     <td>连接状态<br>1.webim.CONNECTION_STATUS.ON，连接状态正常，可正常收发消息<br>2.webim.CONNECTION_STATUS.OFF，连接已断开，当前用户已离线，无法收信息<br>3.webim.CONNECTION_STATUS.RECONNECT，连接重新建立</td>   
+	     <td>用于区分用户的当前连接状态</td>   
+     </tr> 
+</table>
+
 
 **类对象：**
 

@@ -41,7 +41,7 @@ Daemonset yaml 文件：[#kube-router-firewall-daemonset.yaml.zip#](https://ask.
 ```
 wget https://ask.qcloudimg.com/draft/982360/90i1a7pucf.zip
 unzip 90i1a7pucf.zip
-kuebectl create -f kube-router-firewall-daemonset.yaml
+kubectl create -f kube-router-firewall-daemonset.yaml
 ```
 
 ### yaml 文件内容和参数说明
