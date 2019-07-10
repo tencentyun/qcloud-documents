@@ -11,7 +11,8 @@
 
 #### 局限性
 
-需要使用 2017 版接口 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密，新版接口 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 不支持。
+仅支持 2017 版接口：使用 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密任务， [GetTaskInfo](https://cloud.tencent.com/document/product/266/11724) 查询加密结果。
+新版接口 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 和 [DescribeTaskDetail](https://cloud.tencent.com/document/product/266/33431) 不支持 HLS 普通加密。
 
 ### 术语介绍
 
@@ -105,7 +106,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
 该 URL 也是客户端最终在视频播放过程中获取解密密钥时访问的 URL。
 
 ##### 4. 点播平台发起加密完成回调
-包含加密操作的任务流状态发生变化（或者执行完毕）之后，点播平台将发起 [任务流状态变更通知](/document/product/266/9636) 文档。
+包含加密操作的任务流状态发生变化（或者执行完毕）之后，点播平台将发起 [任务流状态变更通知](/document/product/266/9636)。
 
 ### 媒资管理
 视频加密操作完成之后，可以通过 [GetVideoInfo](/document/product/266/8586) 接口获取视频的加密信息。
