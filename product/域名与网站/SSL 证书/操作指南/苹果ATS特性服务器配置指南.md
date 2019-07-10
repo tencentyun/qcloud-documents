@@ -1,4 +1,4 @@
-**配置指南**：
+>!
 - 需要配置符合 PFS 规范的加密套餐，目前推荐配置：
 `ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4`
 - 需要在服务端 TLS 协议中启用 TLS1.2，目前推荐配置：
