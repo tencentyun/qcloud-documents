@@ -51,7 +51,7 @@
 
 ### 4. 添加动效资源示例
 
-将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，你可以找到直接添加，具体操作如图所示：
+将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，您可以找到直接添加，具体操作如图所示：
 ![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
 ![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
 
