@@ -44,15 +44,15 @@ Windows 2008及更早的版本不支持 TLS1_2 协议，因此无法调整 2008R
 - 如果检查到 PFS 不支持，在加密套件中选中带 ECDHE 和 DHE 就可以了。
 
 #### 方法二
-1. 开始——运行，输入 regedit。
-2. 找到 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols 右键->新建->项->新建 TLS 1.1,TLS 1.2。
-3. TLS 1.1 和 TLS 1.2 右键->新建->项->新建 Server, Client。
+1. 开始——运行，输入 `regedit`。
+2. 找到 HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols 右键->新建->项->新建 TLS 1.1，TLS 1.2。
+3. TLS 1.1 和 TLS 1.2 右键->新建->项->新建 Server，Client。
 4. 在新建的 Server 和 Client 中新建如下的项（DWORD 32位值）, 总共4个。如下图所示：
  - DisabledByDefault [Value = 0]
  - Enabled [Value = 1]
 ![2](https://mc.qcloudimg.com/static/img/a6d5d5103f41996d2297e897f3b15b8f/2.png)
 5. 完成后重启系统。
-6. 加密套件调整。开始菜单——运行，输入 gpedit.msc 进行加密套件调整，在此操作之前需要先开启 TLS1_2 协议。如下图所示：
+6. 加密套件调整。开始菜单——运行，输入 `gpedit.msc` 进行加密套件调整，在此操作之前需要先开启 TLS1_2 协议。如下图所示：
 >!对于前向保密加密套件不支持的话可通过组策略编辑器进行调整。
 >
 ![3](https://mc.qcloudimg.com/static/img/edbf53965efe2fc929347479bbfa3ffc/3.png)
