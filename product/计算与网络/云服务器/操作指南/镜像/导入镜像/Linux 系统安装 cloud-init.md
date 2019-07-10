@@ -26,6 +26,8 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 
 #### 安装 cloud-init
 1. 执行以下命令，解压 cloud-init 安装包。
+>? 如果您使用的操作系统为Ubuntu，请切换至 root 帐号。
+>
 ```
 tar -zxvf cloud-init-17.1.tar.gz 
 ```
