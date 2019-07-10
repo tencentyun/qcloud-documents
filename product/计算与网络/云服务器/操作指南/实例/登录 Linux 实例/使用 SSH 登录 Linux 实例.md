@@ -23,7 +23,7 @@ Linux 或 Mac OS
 - 云服务器实例已购买公网 IP 并获取到公网 IP。
 实例的公网 IP 可登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 进行查看。
 - 如果您 [使用密钥登录](#LoginWithKey) 云服务器，需完成密钥的创建，并已将密钥绑定至该云服务器中。  
-您可登录 [腾讯云云服务器控制台](https://console.cloud.tencent.com/cvm/)，单击左侧导航栏【SSH 密钥】，查看和管理已创建的密钥信息。更多详情请参阅 [SSH 密钥操作](/doc/product/213/6092)。
+您可登录 [腾讯云云服务器控制台](https://console.cloud.tencent.com/cvm/)，单击左侧导航栏【SSH 密钥】，查看和管理已创建的密钥信息。更多详情请参阅 [SSH 密钥操作](https://cloud.tencent.com/document/product/213/6092)。
 	
 ## 操作步骤
 
@@ -40,6 +40,7 @@ ssh <username>@<hostname or IP address>
  - `hostname or IP address` 为您的 Linux 实例公网 IP 或自定义域名。
 2. 输入已获取的密码，按 **Enter**，即可完成登录。
 
+<span id="LoginWithKey"></span>
 ### 使用密钥登录
 
 1. 执行以下命令，赋予私钥文件仅本人可读权限。
