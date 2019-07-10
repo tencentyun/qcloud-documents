@@ -14,7 +14,7 @@
 为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本文对部分常用高级特性进行了说明介绍，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 >!  
 >- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别，请注意查看本文的说明。
@@ -52,7 +52,7 @@
     <th class="tg-s268">白金版</th>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Elasticsearch</td>
+    <td class="tg-0lax" rowspan="6">Elasticsearch</td>
     <td class="tg-s268">可扩展性和弹性</td>
     <td class="tg-s6z2">◑</td>
     <td class="tg-s6z2">◑</td>
@@ -82,12 +82,7 @@
     <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
-  <tr>
-    <td class="tg-s268"><a href="#Alerting">Alerting</a></td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">⚫</td>
-  </tr>
+
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
     <td class="tg-s6z2">-</td>
@@ -413,13 +408,6 @@
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="1"><a id="Alerting">警报提醒（Alerting）</a></td>
-    <td class="tg-s268">高可用性、可扩展警报</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>

@@ -17,7 +17,7 @@
   // 群聊会话，会话 ID skey 为'GROUP[groupId]'，其中'[groupId]'表示群组 ID
   // 比如您在群组 ID 为 'developergroup' 的群中聊天，此时[groupId]取值为'developergroup'。
   // 而'GROUP[groupId]'取值为'GROPdevelopergroup'
-  'GROUP[groupId]': {developergdevelopergrouproup
+  'GROUP[groupId]': {
     	// ...省略
       id: '[groupId]',
       name: '[groupId]',

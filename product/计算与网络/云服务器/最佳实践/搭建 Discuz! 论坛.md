@@ -63,11 +63,11 @@ yum install httpd php php-fpm php-mysql mariadb mariadb-server -y
  - PHP：5.4.16
 2. 执行以下命令，启动服务。
 ```
-service httpd start
-service mariadb start
-service php-fpm start
+systemctl start httpd
+systemctl start mariadb
+systemctl start php-fpm
 ```
-3. <span id="step3"></span>执行以下命令，设定 root 账户密码及基础配置，使 root 用户可以访问数据库。
+3. <span id="step3"></span>执行以下命令，设定 root 帐户密码及基础配置，使 root 用户可以访问数据库。
 >!
 >- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
@@ -114,7 +114,7 @@ http://云服务器的公网 IP/test.php
 ### 配置域名（可选）
 
 您可以给自己的 Discuz! 论坛网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建论坛仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
-如果您使用 IP 直接安装，请跳过此步骤，直接 [安装 Discuz! ](#InstallDiscuz)。
+如果您使用 IP 直接安装，请跳过此步骤，直接 [安装 Discuz!](#InstallDiscuz)。
 如果您已有域名或者想要通过域名来访问您的论坛，请参考以下步骤：
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
 2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
