@@ -48,7 +48,7 @@ cdb for mariadb、cdb for dcdb
     "localport":8810,
     "begintime":1511419963,
     "gtid":"35be190b-d019-11e7-ab7a-a0423f32c225:469",
-    "event_index":"1",
+    "event_index":"1"
 }
 ```
 
