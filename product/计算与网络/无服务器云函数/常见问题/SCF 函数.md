@@ -12,7 +12,7 @@
 
 ### 如何使用 CLI 创建 SCF 函数？
 
-您可以将代码（以及任何依赖库）打包为 zip 并使用 CLI 从您的本地环境上传 zip 文件，或将 zip 文件上传 COS Bucket 后，在创建函数时指定拉取代码 zip 包的 Bucket 名和文件名。CLI 详情可以参考 [TCF 命令行工具](https://cloud.tencent.com/document/product/583/33446)。
+您可以将代码（以及任何依赖库）打包为 zip 并使用 CLI 从您的本地环境上传 zip 文件，或将 zip 文件上传 COS Bucket 后，在创建函数时指定拉取代码 zip 包的 Bucket 名和文件名。CLI 详情可以参考 [SCF 命令行工具](https://cloud.tencent.com/document/product/583/33446)。
 
 ### 如何进行故障排除？
 
