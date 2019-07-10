@@ -11,7 +11,7 @@
 
 #### 局限性
 
-仅支持 2017 版接口：使用 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密任务， [GetTaskInfo](https://cloud.tencent.com/document/product/266/11724) 查询加密结果。
+仅支持 2017 版接口：使用 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密任务，[GetTaskInfo](https://cloud.tencent.com/document/product/266/11724) 查询加密结果。
 新版接口 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 和 [DescribeTaskDetail](https://cloud.tencent.com/document/product/266/33431) 不支持 HLS 普通加密。
 
 ### 术语介绍
