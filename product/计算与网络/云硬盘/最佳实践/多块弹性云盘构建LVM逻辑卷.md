@@ -7,7 +7,7 @@
 当 LVM 卷组的空间无法满足您的需求时，您可以单独购买弹性云硬盘并挂载到相应的云服务器上，然后将其添加到 LVM 卷组中进行扩容操作。
 
 ## 构建 LVM
->?本文以使用3块弹性云硬盘通过 LVM 创建可动态调整大小的文件系统为例。
+>?本文以使用3块弹性云硬盘通过 LVM 创建可动态调整大小的文件系统为例。如下图所示：
 ![](//mccdn.qcloud.com/static/img/a22b0e07c2430684faedc44a9bf3f2c2/image.png)
 
 ### 步骤 1  创建物理卷 PV
@@ -20,6 +20,7 @@ pvcreate <磁盘路径1> ... <磁盘路径N>
 ```
 pvcreate /dev/vdc /dev/vdd /dev/vde
 ```
+创建成功则如下图所示：
 ![](//mccdn.qcloud.com/static/img/6bda1d27a97c2bc4a2f6ecc12d5ce407/image.png)
 3. 执行以下命令，查看现在系统中的物理卷。
 ```
