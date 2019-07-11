@@ -21,10 +21,10 @@
 
 | API       | 功能描述                          |
 | -------- | ----------------------------- |
-| [直拨 PSTN 获取虚拟中间号](https://cloud.tencent.com/document/product/610/12009) | 用于直拨 PSTN 获取虚拟中间号（App 使用方发起） |
-| [直拨 PSTN 解绑虚拟中间号](https://cloud.tencent.com/document/product/610/12068) | 用于直拨 PSTN 解绑虚拟中间号（App 使用方发起） |
-| [直拨 PSTN 虚拟中间号话单推送接口](https://cloud.tencent.com/document/product/610/12011) | 用于直拨 PSTN 虚拟中间号话单推送 |
-| [直拨 PSTN 虚拟中间号录音 URL 推送接口](https://cloud.tencent.com/document/product/610/12010) | 用于直拨 PSTN 虚拟中间号录音 URL 推送 |
-| [直拨 PSTN 虚拟中间号通话状态推送接口](https://cloud.tencent.com/document/product/610/12067) | 用于直拨 PSTN 虚拟中间号通话状态推送 |
-| [直拨 PSTN 虚拟中间号话单获取](https://cloud.tencent.com/document/product/610/12066) | 用于直拨 PSTN 虚拟中间号话单获取 |
+| [直拨获取虚拟中间号](https://cloud.tencent.com/document/product/610/12009) | 用于直拨获取虚拟中间号（App 使用方发起） |
+| [直拨解绑虚拟中间号](https://cloud.tencent.com/document/product/610/12068) | 用于直拨解绑虚拟中间号（App 使用方发起） |
+| [直拨虚拟中间号话单推送接口](https://cloud.tencent.com/document/product/610/12011) | 用于直拨虚拟中间号话单推送 |
+| [直拨虚拟中间号录音 URL 推送接口](https://cloud.tencent.com/document/product/610/12010) | 用于直拨虚拟中间号录音 URL 推送 |
+| [直拨虚拟中间号通话状态推送接口](https://cloud.tencent.com/document/product/610/12067) | 用于直拨虚拟中间号通话状态推送 |
+| [直拨虚拟中间号话单获取](https://cloud.tencent.com/document/product/610/12066) | 用于直拨虚拟中间号话单获取 |
 
