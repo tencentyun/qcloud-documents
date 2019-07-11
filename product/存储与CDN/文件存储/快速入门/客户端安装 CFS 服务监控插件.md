@@ -57,7 +57,7 @@ CFS 服务监控插件目前支持在以下平台上运行，其他 Linux 内核
 
 ```sh
 ## 下载 CFS 服务监控插件
-wget http://mirrors.tencentyun.com/install/cfs/cfs_barad_plugin_installer_release_v10
+wget http://mirrors.tencentyun.com/install/cfs/cfs_barad_plugin_installer_release_v11
 ```
 
 <span id="step2"></span>
@@ -66,7 +66,7 @@ wget http://mirrors.tencentyun.com/install/cfs/cfs_barad_plugin_installer_releas
 
 ```sh
 ## 修改文件类型
-chmod +x cfs_barad_plugin_installer_release_v10
+chmod +x cfs_barad_plugin_installer_release_v11
 ```
 
 <span id="step3"></span>
@@ -75,10 +75,16 @@ chmod +x cfs_barad_plugin_installer_release_v10
 
 ```sh
 ## 安装插件
-./cfs_barad_plugin_installer_release_v10
+./cfs_barad_plugin_installer_release_v11
 ```
 安装成功将显示“cfs barad plugin install success”，如下图所示：
 ![](https://main.qcloudimg.com/raw/b128641f40f28228f4f9288a38b9c3b3.png)
+
+
+
+*说明： Ubuntu 客户端需要 root 权限才可执行上述操作，可在命令前加上 sudo。*
+
+
 
 ## Windows 安装指引
 Windows 客户端暂未支持。
