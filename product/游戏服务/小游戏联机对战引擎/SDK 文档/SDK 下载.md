@@ -4,4 +4,4 @@
 
 | 平台 | 更新时间 | 版本 | SDK下载|文档|
 |---------|---------|---------|---------|---------|
-| 微信小程序（JavaScript） | 2019/6/21 |V1.0.3 | [下载](https://main.qcloudimg.com/raw/954c7fe7d17f135658d90a397ab542a9.zip) |[快速入门](https://cloud.tencent.com/document/product/1038/33299) [接口文档](https://cloud.tencent.com/document/product/1038/33315) |
+| 微信小程序（JavaScript） | 2019/7/11 |V1.0.4 | [下载](https://main.qcloudimg.com/raw/954c7fe7d17f135658d90a397ab542a9.zip) |[快速入门](https://cloud.tencent.com/document/product/1038/33299) [接口文档](https://cloud.tencent.com/document/product/1038/33315) |
