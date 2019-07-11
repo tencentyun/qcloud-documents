@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 PHP SDK 来实现。上传的流程可以参见 [服务端上传指引](/document/product/266/9759)。
+对于在服务端上传视频的场景，腾讯云点播提供了 PHP SDK 来实现。上传流程请参见 [服务端上传指引](/document/product/266/9759)。
 
 ## 集成方式
 
@@ -12,10 +12,10 @@
 ```
 
 ### 通过源码包安装
-如果项目当中没有使用 composer 工具进行依赖管理的，可以直接下载源码导入项目中使用：
+如果项目中没有使用 composer 工具进行依赖管理，可以直接下载源码，导入项目中使用：
 
-* [从 Github 访问 >>](https://github.com/tencentyun/vod-php-sdk-v5)
-* [单击下载 PHP SDK >>](https://github.com/tencentyun/vod-php-sdk-v5/raw/master/packages/vod-sdk.zip)
+* [从 Github 访问](https://github.com/tencentyun/vod-php-sdk-v5)。
+* [单击下载 PHP SDK](https://github.com/tencentyun/vod-php-sdk-v5/raw/master/packages/vod-sdk.zip)。
 
 解压 vod-sdk.zip 文件到项目中，引入 autoload.php 文件即可使用。
 
@@ -23,7 +23,7 @@
 ### 初始化上传对象
 使用云 API 密钥初始化 VodUploadClient 实例。
 
-**对于使用 composer 导入的**
+**使用 composer 导入**
 ```
 <?php
 require 'vendor/autoload.php';
@@ -33,7 +33,7 @@ use Vod\VodUploadClient;
 $client = new VodUploadClient("your secretId", "your secretKey");
 ```
 
-**对于使用源码导入的**
+**使用源码导入**
 ```php
 <?php
 require 'vod-sdk-v5/autoload.php';
@@ -89,7 +89,7 @@ try {
 ```
 
 ### 指定任务流
-首先 [创建任务流模板](https://cloud.tencent.com/document/product/266/33819) 并为模板命名，发起任务流时，可以用任务流模板名字设置 `Procedure` 参数，上传成功后会自动执行任务流。
+首先 [创建任务流模板](https://cloud.tencent.com/document/product/266/33819) 并为模板命名，发起任务流时，可以用任务流模板名设置`Procedure`参数，上传成功后会自动执行任务流。
 ```
 <?php
 require 'vendor/autoload.php';
@@ -135,29 +135,29 @@ try {
 ```
 
 ## 接口描述
-上传客户端类 `VodUploadClient`
+上传客户端类`VodUploadClient`：
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| secretId   | 云API密钥 ID        | String | 是    |
-| secretKey | 云API密钥 Key | String  | 是    |
+| secretId   | 云 API 密钥 ID。        | String | 是    |
+| secretKey | 云 API 密钥 Key。 | String  | 是    |
 
-上传请求类 `VodUploadRequest`
+上传请求类`VodUploadRequest`：
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | MediaFilePath   | 媒体文件路径。        | String | 是    |
-| MediaType   | 媒体文件类型，可选类型参考 [视频上传综述](/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String | 否    |
+| MediaType   | 媒体文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String | 否    |
 | MediaName   | 媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String | 否    |
 | CoverFilePath   | 封面文件路径。        | String | 否    |
-| CoverType   | 媒体文件类型，可选类型参考 [视频上传综述](/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String | 否    |
-| Procedure   | 任务流，具体的任务流介绍参考 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。        | String | 否    |
+| CoverType   | 媒体文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String | 否    |
+| Procedure   | 任务流，具体的任务流介绍请参见 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。        | String | 否    |
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String | 否    |
-| ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772)接口，创建分类，获得分类 ID。        | Integer | 否    |
-| SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长 250 个字符。        | String | 否    |
+| ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
+| SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
 | SubAppId   | 点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。        | Integer | 否    |
 
-上传响应类 `VodUploadResponse`
+上传响应类`VodUploadResponse`：
 
 | 属性名称      | 属性描述                   | 类型      |
 | --------- | ---------------------- | ------- |
@@ -166,12 +166,12 @@ try {
 | CoverUrl | 媒体封面地址。 | String  |
 | RequestId | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 | String  |
 
-上传方法 `VodUploadClient.upload(String region, VodUploadRequest request)`
+上传方法`VodUploadClient.upload(String region, VodUploadRequest request)`：
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| region   | 上传地域，具体参考支持的 [地域列表](/document/api/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)        | String | 是    |
-| request   | 上传请求        | VodUploadRequest | 是    |
+| region   | 上传地域，具体参考支持的 [地域列表](/document/api/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。        | String | 是    |
+| request   | 上传请求。        | VodUploadRequest | 是    |
 
 ## 错误码列表
 | 状态码         | 含义               |

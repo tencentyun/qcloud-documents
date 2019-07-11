@@ -41,7 +41,7 @@
 
 #### 3. SDK License 设置与基本信息获取
 请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
-  ![](https://main.qcloudimg.com/raw/59ccde1fa75b2903aeb7147f6538089c.png)
+![](https://main.qcloudimg.com/raw/1124501484177029a7c0e084dfe16ed6.png)
   在您的应用中使用短视频功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置
 
 ```objc
@@ -57,7 +57,7 @@
 ```
 
 - 对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
-  ![](https://main.qcloudimg.com/raw/71ab2d47c9a01b2f514210e54f2b82fc.png)
+ ![](https://main.qcloudimg.com/raw/2da38ac76074377702ff383aeba50f0a.png)
 
 - 商业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
@@ -196,7 +196,7 @@
                 };
                 
                 UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:previewController];
-                [nav presentViewController:nav animated:YES completion:nil];
+                [weakConfigVC.navigationController presentViewController:nav animated:YES completion:nil];
             };
             [weakConfigVC.navigationController pushViewController:recordVC animated:YES];
         };

@@ -32,7 +32,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 MAXROW=1000000 #指定生成数据行数
 for((i = 0; i < $MAXROW; i++))
 do
-　　　echo $RANDOM, \"$RANDOM\"
+    echo $RANDOM, \"$RANDOM\"
 done
 ```
 并按如下方式执行：

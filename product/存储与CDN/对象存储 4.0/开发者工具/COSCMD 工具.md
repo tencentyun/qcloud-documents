@@ -145,6 +145,12 @@ coscmd config [OPTION]...<FILE>...
               [--anonymous]   
 ```
 
+通常情况下，如您只需要进行简单的配置，可参照如下操作示例配置即可：
+
+```shell
+coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b examplebucket-1250000000 -r ap-beijing
+```
+
 >?其中 "[]" 中的字段为选项， "<>" 的字段为需要填写的参数。
 
 

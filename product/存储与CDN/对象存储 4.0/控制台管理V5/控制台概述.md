@@ -3,18 +3,21 @@
 
 <table>
    <tr>
-      <td >控制台菜单</td>
-      <td>功能</td>
+      <th>控制台菜单</th>
+      <th>功能</th>
    </tr>
    <tr>
-      <td rowspan="13">存储桶管理</td>
+      <td rowspan="16">存储桶管理</td>
 			<td><a href="https://cloud.tencent.com/document/product/436/13309">创建存储桶</a></td>
-			   <tr>
-      <td><a href="https://cloud.tencent.com/document/product/436/32433">删除存储桶</a></td>
-   </tr>
+	 </tr>
+	 <tr>
+     <td><a href="https://cloud.tencent.com/document/product/436/32433">删除存储桶</a></td>
    </tr>
    <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/13313">查询存储桶</a></td>
+   </tr>
+   <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/35247">清空存储桶</a></td>
    </tr>
    <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/13315">设置访问权限</a></td>
@@ -37,17 +40,23 @@
    <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/17061">子账号访问存储桶列表</a></td>
    </tr>
-	  <tr>
+	 <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/33369">添加存储桶策略</a></td>
+   </tr>
+	 <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/33702">开通清单功能</a></td>
    </tr>
 	 <tr>
       <td><a href="https://cloud.tencent.com/document/product/436/17313">删除碎片文件</a></td>
    </tr>
-	 	 <tr>
-      <td><a href="https://cloud.tencent.com/document/product/436/18424">设置 CDN 加速</a></td>
+	 	<tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/18424">域名管理</a></td>
+   </tr>
+	 <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/34830">设置存储桶标签</a></td>
    </tr>
    <tr>
-      <td rowspan="12">对象管理</td>
+      <td rowspan="13">对象管理</td>
       <td><a href="https://cloud.tencent.com/document/product/436/13321">上传对象</a></td>
    </tr>
    <tr>
@@ -84,8 +93,10 @@
       <td><a href="https://cloud.tencent.com/document/product/436/13330">删除文件夹</a></td>
    </tr>
    <tr>
+      <td><a href="https://cloud.tencent.com/document/product/436/35185">查看文件夹详情</a></td>
+   </tr>
+   <tr>
       <td>监控报表</td>
       <td><a href="https://cloud.tencent.com/document/product/436/13332">查询监控报表</a></td>
-   </tr>
    </tr>
 </table>

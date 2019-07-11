@@ -22,22 +22,22 @@ interface ActionArgs<T> {
 }
 ```
 
-因此，模板类型指定了 actionData 的类型。例如，在 gameServer.onClientData 接口中，入参是 ActionArgs&lt;UserDefinedData&gt; 类型，表明 actionData 类型为 UserDefinedData。
+因此，模板类型指定了 actionData 的类型。例如，在 gameServer.onRecvFromClient 接口中，入参是 ActionArgs&lt;UserDefinedData&gt; 类型，表明 actionData 类型为 UserDefinedData。
 
 ### sender 属性
 
 **描述**
-该属性在 gameServer.onClientData 中有效，其类型为 string，表示消息发送者的玩家 ID。
+该属性在 gameServer.onRecvFromClient 中有效，其类型为 string，表示消息发送者的玩家 ID。
 
 
 ### actionData 属性
 **描述**
-该属性在 gameServer 不同回调中的类型不同，表示该回调的响应数据。比如在 gameServer.onClientData 中表示玩家发送给游戏 Server 的数据；在 onJoinRoom 表示加房广播数据；在 onLeaveRoom 中表示玩家退房广播数据。
+该属性在 gameServer 不同回调中的类型不同，表示该回调的响应数据。比如在 gameServer.onRecvFromClient 中表示玩家发送给游戏 Server 的数据；在 onJoinRoom 表示加房广播数据；在 onLeaveRoom 中表示玩家退房广播数据。
 
 ### gameData 属性
 
 **描述**
-该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onClientData 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
+该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onRecvFromClient 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
 
 ### room 属性
 
@@ -102,7 +102,7 @@ SDK.sendData(data);
 
 无。
 
->? 使用该方法后，下次 gameServer.onClientData 接口回调将处理该方法发送的消息。
+>? 使用该方法后，下次 gameServer.onRecvFromClient 接口回调将处理该方法发送的消息。
 
 **使用示例**
 
@@ -115,7 +115,7 @@ SDK.dispatchAction(actionData);
 
 **描述**
 
-清空 onClientData 队列。
+清空 onRecvFromClient 队列。
 
 **参数说明**
 
@@ -125,7 +125,7 @@ SDK.dispatchAction(actionData);
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，gameServer.onClientData 广播会保存在一个队列里面，在 gameServer.onClientData 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onClientData 广播。SDK.clearAction 作用就是清空 gameServer.onClientData 队列，可用于游戏结束后游戏 Server 忽略客户端消息的场景。
+>?当 gameServer.mode 为 "sync" 时，gameServer.onRecvFromClient 广播会保存在一个队列里面，在 gameServer.onRecvFromClient 回调函数中通过调用 SDK.exitAction 才能处理下一条 gameServer.onRecvFromClient 广播。SDK.clearAction 作用就是清空 gameServer.onRecvFromClient 队列，可用于游戏结束后游戏 Server 忽略客户端消息的场景。
 
 **使用示例**
 
@@ -137,7 +137,7 @@ SDK.clearAction();
 
 **描述**
 
-结束 gameServer.onClientData 方法。
+结束 gameServer.onRecvFromClient 方法。
 
 **参数说明**
 
@@ -147,7 +147,7 @@ SDK.clearAction();
 
 无。
 
->?当 gameServer.mode 为 "sync" 时，需要在 gameServer.onClientData 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onClientData 广播消息。
+>?当 gameServer.mode 为 "sync" 时，需要在 gameServer.onRecvFromClient 回调里面显式调用 SDK.exitAction 方法才能继续处理下一条 gameServer.onRecvFromClient 广播消息。
 
 **使用示例**
 

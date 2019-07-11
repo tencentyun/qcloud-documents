@@ -61,6 +61,8 @@ server {
  - **ssl_protocols**：使用的协议
  - **ssl_ciphers**：配置加密套件，写法遵循 openssl 标准
 6. 在 Nginx 根目录下，通过执行以下命令确认配置文件是否存在问题。
+>?由于版本问题，配置文件可能存在不同的写法。例如：使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>
 ```
 ./sbin/nginx -t
 ```
@@ -83,8 +85,8 @@ server {
     server_name www.domain.com; #填写绑定证书的域名
     ssl on;
     root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
-    index index.html index.htm;   #上面配置的文件夹里面的index.html
-    ssl_certificate  1_www.domain.com_bundle.crt; #证书文件名称
+    index index.html index.htm;   
+		ssl_certificate  1_www.domain.com_bundle.crt; #证书文件名称
     ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
@@ -100,6 +102,7 @@ server {
     rewrite ^(.*)$ https://$host$1 permanent; #把http的域名请求转成https
 }
 ``` 
+>?未添加注释的配置语句，您按照上述配置即可。
 2. 若修改完成，重启 Nginx。即可使用 `http://www.domain.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。

@@ -1,7 +1,7 @@
 本文主要介绍腾讯云 TRTC SDK 的几个最基本功能的使用方法，阅读此文档有助于您对 TRTC 的基本使用流程有一个简单的认识。
 
 ## 准备工作
-在使用基本功能前，请确保您已完成以下骤，详见 [跑通 Demo（Web）](https://cloud.tencent.com/document/product/647/32398)，[快速集成（Web）](https://cloud.tencent.com/document/product/647/16863)。
+在使用基本功能前，请确保您已完成以下步骤，详见 [跑通 Demo（Web）](https://cloud.tencent.com/document/product/647/32398)，[快速集成（Web）](https://cloud.tencent.com/document/product/647/16863)。
 - 创建了腾讯云实时音视频应用，购买了相应的套餐，并获取到SDKAppid。
 - 获取私钥文件。
 - 在 Web 项目里集成了 WebRTCAPI.min.js
@@ -43,8 +43,7 @@ WebRTCAPI.fn.detectRTC({
 - **userId**
 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
-- **
-- **
+- **userSig**
 基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomid**
