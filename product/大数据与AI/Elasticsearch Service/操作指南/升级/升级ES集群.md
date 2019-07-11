@@ -26,7 +26,26 @@
 ## 版本功能及兼容性说明
 
 - Elasticsearch 版本兼容说明
-  Elasticsearch 从 6.x 开始，不再支持一个索引多个 type。因此请注意从5.6.4升级到6.4.3时，创建多个 type 的索引将会报错。但升级时，旧的索引不受影响，集群从5.6.4升级到6.4.3，原有的多 type 索引可以继续使用。更多请参考 [ES 6.4.3 Release Notes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/release-notes-6.4.3.html)。
+  1. Elasticsearch 从 6.x 开始，不再支持一个索引多个 type。 从5.6.4升级到6.4.3后，新建多 type 的索引将会报错，原有在 5.6.4 创建的多type索引，不受影响，可以正常写入。
+  2. 用curl 访问集群时，需要增加请求 header  -H 'Content-Type: application/json'
+  ```
+	  curl -XPUT http://10.0.0.2:9200/china/city/beijing -H 'Content-Type: application/json' -d'
+	{
+	"name":"北京市",
+	"province":"北京市",
+	"lat":39.9031324643,
+	"lon":116.4010433787,
+	"x":6763,
+	"level.range":4,
+	"level.level":1,
+	"level.name":"一线城市",
+	"y":6381,
+	"cityNo":1
+	}
+	'
+```
+  
+  更多请参考 [ES 6.4.3 Release Notes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/release-notes-6.4.3.html)。
 
 - 高级特性版本
   基础版和白金版集成了官方高级商业特性插件（原 X-Pack），包含安全（Security）、SQL、告警（Alerting）、机器学习（Machine Learning）、监控（Monitor）等高级功能，其中基础版只包含 SQL 的一部分和监控，白金版则包含所有高级特性，详细介绍可查看 [高级特性(X-Pack)](https://cloud.tencent.com/document/product/845/34926)。
