@@ -84,7 +84,7 @@ public enum VoiceLanguage {
 }
 ```
 
-### 示例
+**示例**
 
 ```
 //设置语速
@@ -163,7 +163,7 @@ private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsCo
 
 
 
-**暂停、恢复或停止语音播放** 
+### 暂停、恢复或停止语音播放 
 
 ```
 mTtsController.pause();
@@ -173,6 +173,6 @@ mTtsController.resume();
 mTtsController.stop();
 ```
 
-**错误码**
+### 错误码
 
 请参考 [API 文档](https://cloud.tencent.com/document/api/441/18086)。
