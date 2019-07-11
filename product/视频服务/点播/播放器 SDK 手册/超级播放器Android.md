@@ -4,7 +4,7 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 
 ## SDK 下载
 
-点播 Android 超级播放器的下载地址是 [SuperPlayer_Android](https://github.com/tencentyun/SuperPlayer_Android)。
+点播 Android 超级播放器的项目地址是 [SuperPlayer_Android](https://github.com/tencentyun/SuperPlayer_Android)。
 
 ## 阅读对象
 
@@ -14,7 +14,7 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 
 ### aar 集成
 
-1. 下载 SDK + Demo 开发包，下载地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
+1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
 2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
 3. 在`app/build.gralde`中添加依赖：
 ```java
