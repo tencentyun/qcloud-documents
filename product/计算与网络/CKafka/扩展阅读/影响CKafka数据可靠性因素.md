@@ -38,6 +38,9 @@
 - 消息队列 CKafka 服务配置了更合理的参数 log.flush.interval.messages 和 log.flush.interval.ms，对数据进行刷盘。
 - 消息队列 CKafka 对磁盘做了特殊处理，保证部分磁盘损坏时也不会影响数据的可靠性。
 
+### 建议配置的参数值
+非同步状态的副本可以选举为 leader：`unclean.leader.election.enable=false // 关闭`
+
 ## 消费端
 ### 数据丢失原因
 - 还未真正消费到数据就提交 commit 了 offset，若过程中消费者挂掉，但 offset 已经刷新，消费者错过了一条数据，需要消费分组重新设置 offset 才能找回数据。
