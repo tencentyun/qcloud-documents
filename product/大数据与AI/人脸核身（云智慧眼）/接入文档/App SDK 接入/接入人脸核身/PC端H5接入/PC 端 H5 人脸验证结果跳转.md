@@ -14,6 +14,7 @@
 |code	|人脸验证结果的返回码，0表示人脸验证成功，其他错误码标识失败。	|String	|-|
 |orderNo	|订单号 ，由合作方上送，每次唯一，此信息为本次人脸验证上送的信息。|	String|	32|
 |h5faceId	|本次请求返回的唯一标识，此信息为本次人脸验证上送的信息。|	String|	32|
-|newSignature|	对 URL 参数 AppID、orderNo 和 SIGN ticket、code 的签名
+|newSignature|	对 URL 参数 AppID、orderNo 和 SIGN ticket、code 的签名|String|	40|
 
-详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/655/31969)。	|String|	40|
+
+详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/655/31969)。	
