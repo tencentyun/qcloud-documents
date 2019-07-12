@@ -17,7 +17,7 @@
  - **文件夹名称**：Tomcat
  - **文件夹内容**：
     - `www.domain.com.jks` 密钥库
-    - `keystorePass.txt` 密码文件
+    - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
   - **CSR 文件内容**：	`www.domain.com.csr` 文件
 - 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
 - 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
