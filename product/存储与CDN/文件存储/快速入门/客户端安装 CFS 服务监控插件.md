@@ -77,8 +77,7 @@ chmod +x cfs_barad_plugin_installer_release_v11
 ./cfs_barad_plugin_installer_release_v11
 ```
 安装成功将显示“cfs barad plugin install success”，如下图所示：
-![](https://main.qcloudimg.com/raw/b128641f40f28228f4f9288a38b9c3b3.png)
-
+![](https://main.qcloudimg.com/raw/d4138a9caa55d3b2ef030f658b3e86e9.png)
 
 >? Ubuntu 客户端需要 root 权限才可执行上述操作，需在命令前加上 sudo。
 
