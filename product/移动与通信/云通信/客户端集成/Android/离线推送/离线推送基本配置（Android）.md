@@ -257,7 +257,7 @@ public NotifyMode getNotifyMode()
 
 /**
  * 设置当前消息在对方收到离线推送时候的通知模式（可选，发送消息时设置）。
- * NotifyMode 只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
+ * NotifyMode 只是针对第三方离线推送进行设置的，例如小米、华为的离线推送。
  * @param mode 通知模式，默认为普通通知栏消息模式
  */
 public void setNotifyMode(NotifyMode mode)
