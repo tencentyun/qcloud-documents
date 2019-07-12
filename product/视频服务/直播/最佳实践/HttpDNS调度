@@ -9,25 +9,25 @@
 
 ## 上行推流使用 HttpDNS 进行调度
 
-### step 1：请求上行接入点 IP
+### 1. 请求上行接入点 IP
 `http://119.29.29.29/d?dn=$push_domain.&ip=$ip` ，HTTP Get 请求，参数的含义如下：
 - push_domain 代表推流域名。
 - IP 字段代表请求端的外网出口 IP，这个 IP 代表最终会调度到的接入点 IP 所在的地区和运营商。
 
 
-### step 2：拼接上行推流 URL
+### 2. 拼接上行推流 URL
 这里的 server_ip 为**请求上行接入点 IP** 中获取到的 IP，那么拼接的推流 URL 如下：
 `rtmp://server_ip/live/streamname?txTime=xxx&txSecret=xxx&txHost=domain`，最重要的是在原有的推流参数中新增代表业务推流域名的字段 txHost。
 
 ## 下行播放使用 HttpDNS 进行调度
 
-### step 1：请求下行接入点 IP
+### 1. 请求下行接入点 IP
 `http://119.29.29.29/d?dn=$domain.&ip=$ip`，HTTP Get 请求，参数的含义如下：
 - domain 代表播放域名。
 - IP 字段代表请求端的外网出口 IP，这个 IP 代表最终会调度到的接入点 IP 所在的地区和运营商。
 
 
-### step 2：拼接下行播放 URL
+### 2. 拼接下行播放 URL
 - HTTP：包含 FLV 以及 HLS 的播放协议，这里的 server_ip 为**请求下行接入点 IP** 中获取到的 IP，play_domain 代表播放域名，则 HTTP 的播放 URL 拼接如下：
 
 ```
