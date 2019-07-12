@@ -664,9 +664,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 
 ```
 /**
- * 获取微视频上传任务id, 调用sendMessage后此接口的返回值有效
+ * 获取微视频上传任务 ID, 调用 sendMessage 后此接口的返回值有效
  *
- * @return 微视频上传任务id
+ * @return 微视频上传任务 ID
  */
 public long getTaskId() {
     return this.taskId;
