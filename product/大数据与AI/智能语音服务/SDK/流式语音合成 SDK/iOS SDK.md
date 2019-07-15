@@ -70,8 +70,8 @@ SpeedTypeVeryFast     = 2,    // 1.5 倍
 **TTS主语言类型**
 ```
 typedef NS_ENUM(NSUInteger, PrimaryLanguage) {
-PrimaryChinese    = 1,   // 1：中文，最大支持 100 字符（默认）
-PrimaryEnglish    = 2,   // 2：英文，最大支持 400 字符
+PrimaryChinese    = 1,   // 1：中文（默认）
+PrimaryEnglish    = 2,   // 2：英文
 };
 ```
 **示例**
