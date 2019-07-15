@@ -31,7 +31,7 @@
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
 
-#### 主题模型
+#### 主题模型<span id="Topic"></span>
 **请参照下面说明将域名中的 {$region} 替换成相应地域：**
 - 外网接口请求域名：`https://cmq-topic-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-topic-{$region}.api.tencentyun.com`
@@ -43,3 +43,55 @@
 #### 说明
 {$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
+
+## Demo工程使用
+### 准备 Demo 环境
+1. **安装 IDE**
+您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
+请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
+2. **下载 Demo 工程**
+请在 [下载 CMQ-HTTP 的 Demo 工程](暂无) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
+### 配置 Demo 工程
+1. **创建资源**
+您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
+具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
+### 配置 Demo 工程
+1. **创建资源**
+您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
+具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
+2. **导入 Demo 工程文件**
+在 IDEA 的开机界面打开文件夹。
+![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
+打开文件夹后，Demo 工程文件存于 example 文件夹下。
+3. **配置 Demo 参数**
+修改文件请求地址、密钥对等。
+以 Producer 为例，配置如下：
+```java
+String secretId="获取的SecretID";
+String secretKey="获取的SecretKey";
+String endpoint = "https://cmq-topic-{$region}.api.qcloud.com";
+```
+选择"新建队列"和"使用已有队列"
+```java
+//创建新队列并设置属性
+String queueName = "name";
+QueueMeta meta = new QueueMeta();
+meta.pollingWaitSeconds = 10;
+meta.visibilityTimeout = 10;
+meta.maxMsgSize = 1048576;
+meta.msgRetentionSeconds = 345600;
+account.createQueue(queueName,meta);
+```
+```java
+//使用控制台已有队列
+String queueName = "name";
+Queue queue = account.getQueue(queueName);
+```
+本Demo使用的是已有队列，如需选择新建队列，要将选择已有队列模块注释或删除，然后找到新建队列相关代码取消注释。
+注释代码均为常用操作，在本demo中注意要谨慎使用“删除”操作。
+其他类中的配置参考Producer类
+### 运行 Demo
+#### 使用队列模型收发消息
+先运行 Producer 类发送消息，再运行 Consumer 类接受消息
+#### 使用主题模型收发消息
+运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#Topic)
