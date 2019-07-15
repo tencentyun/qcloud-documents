@@ -46,32 +46,32 @@ apiObj.ttsDelegate = self;
 **TTS音色类型**
 ```
 typedef NS_ENUM(NSUInteger, VoiceType) {
-VoiceTypeAffinityFemale   = 0,   // 0：亲和女声（默认）
-VoiceTypeAffinityMale     = 1,   // 1：亲和男声
-VoiceTypeMatureMale       = 2,   // 2：成熟男声
-VoiceTypeVibrantMale      = 3,   // 3：活力男声
-VoiceTypeWarmFemale       = 4,   // 4：温暖女声
-VoiceTypeEmotionalFemale  = 5,   // 5：情感女声
-VoiceTypeEmotionalMale    = 6,   // 6：情感男声
+VoiceTypeAffinityFemale   = 0,   //0：亲和女声（默认）
+VoiceTypeAffinityMale     = 1,   //1：亲和男声
+VoiceTypeMatureMale       = 2,   //2：成熟男声
+VoiceTypeVibrantMale      = 3,   //3：活力男声
+VoiceTypeWarmFemale       = 4,   //4：温暖女声
+VoiceTypeEmotionalFemale  = 5,   //5：情感女声
+VoiceTypeEmotionalMale    = 6,   //6：情感男声
 };
 ```
 
 **TTS语速**
 ```
 typedef NS_ENUM(NSInteger, SpeedType) {
-SpeedTypeVerySlow     = -2,   // 0.6 倍
-SpeedTypeSlowDown     = -1,   // 0.8 倍
-SpeedTypeNormal       = 0,    // 1.0 倍(默认)
-SpeedTypeAccelerate   = 1,    // 1.2 倍
-SpeedTypeVeryFast     = 2,    // 1.5 倍
+SpeedTypeVerySlow     = -2,   //0.6 倍
+SpeedTypeSlowDown     = -1,   //0.8 倍
+SpeedTypeNormal       = 0,    //1.0 倍(默认)
+SpeedTypeAccelerate   = 1,    //1.2 倍
+SpeedTypeVeryFast     = 2,    //1.5 倍
 };
 ```
  
 **TTS主语言类型**
 ```
 typedef NS_ENUM(NSUInteger, PrimaryLanguage) {
-PrimaryChinese    = 1,   // 1：中文，最大支持 100 字符(默认)
-PrimaryEnglish    = 2,   // 2：英文，最大支持 400 字符
+PrimaryChinese    = 1,   //1：中文，最大支持 100 字符(默认)
+PrimaryEnglish    = 2,   //2：英文，最大支持 400 字符
 };
 ```
 **示例**
