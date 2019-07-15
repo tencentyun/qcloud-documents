@@ -51,7 +51,7 @@
 
 本文介绍 Windows 实例的购买及登录，请选择 Windows 提供镜像。 
 ![](https://main.qcloudimg.com/raw/f26a5d9f1b0d2c8f1f04975c19c2aff4.png)
->! Windows 云服务器无法作为 [公网网关](https://cloud.tencent.com/document/product/215/20078) 使用，需要公网网关的用户请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+>! Windows 云服务器无法作为 [公网网关](https://cloud.tencent.com/document/product/215/20078) 使用，需要公网网关的用户请选择 Linux 系统，具体操作可参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936) 文档。
 
 
 ### 配置网络
