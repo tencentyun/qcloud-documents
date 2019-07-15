@@ -402,7 +402,7 @@ coscmd signurl exampleobject -t 100
 请将 "<>" 中的参数替换为您需要获取下载 URL 的 COS 上文件的路径（cospath）。
 使用 `-t time` 设置打印签名的有效时间（单位为秒）。
 
-### 开启关闭版本控制
+### 开启/暂停版本控制
 命令如下：
 ```shell
 #命令格式
@@ -411,12 +411,12 @@ coscmd putbucketversioning <status>
 #开启版本控制
 coscmd putbucketversioning Enabled
 
-#关闭版本控制
+#暂停版本控制
 coscmd putbucketversioning Suspended
 ```
 
 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
->!开启版本控制为不可逆过程，之后该 bucket 将无法使用 JSON API 接口（包括所有 JSON SDK），请慎重选择。
+>!一旦您对存储桶启用了版本控制，它将无法返回到未启用版本控制状态（初始状态）。但是，您可以对该存储桶暂停版本控制，这样后续上传的对象将不会产生多个版本。
 
 ### 恢复归档文件
 - 恢复归档文件命令如下：
