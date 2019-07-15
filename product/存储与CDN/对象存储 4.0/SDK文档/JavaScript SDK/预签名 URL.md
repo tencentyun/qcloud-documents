@@ -145,7 +145,7 @@ cos.getObjectUrl({
 | 参数名  | 参数描述                                                     | 类型    | 必填 |
 | ------- | ------------------------------------------------------------ | ------- | ---- |
 | Bucket  | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
-| Region  | Bucket 所在地域，枚举值请见：[Bucket 地域信息](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
+| Region  | Bucket 所在地域，枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识<br>**如果请求操作是对文件的，则为文件名，且为必须参数**<br>如果操作是对于 Bucket，则为空 | String  | 是   |
 | Sign    | 是否返回带有签名的 Url                                       | Boolean | 否   |
 | Method  | 操作方法，如 get，post，delete， head 等 HTTP 方法，默认为 get | String  | 否   |

@@ -6,8 +6,6 @@ Hbase 主要由 Zookeeper、HMaster 和 HRegionServer 组成。
 Hmaster 管理用户对表的增删改查操作，管理 HRegionServer 的负载均衡。并可调整 Region 的分布，在 HRegionServer 退出时迁移其内的 HRegion 到其他 HRegionServer 上。
 HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I/O 请求，向 HDFS 文件系统中读写数据。HRegionServer 内部管理了一系列 HRegion 对象，每个 HRegion 对应一个 Region，HRegion 中由多个 Store 组成。每个 Store 对应了 Column Family 的存储。
 
-关于 Hbase 的数据模型，可以参考 [理解 Hbase 和 BigTable](http://jimbojw.com/) 。
-
 本开发指南将从技术人员的角度帮助用户使用 EMR 集群开发。
 考虑用户数据安全，EMR 中当前只支持 VPC 网络访问。
 
