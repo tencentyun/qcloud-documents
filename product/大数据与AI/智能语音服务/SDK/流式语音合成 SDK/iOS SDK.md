@@ -87,7 +87,7 @@ config.language = PrimaryChinese;
 
 ```
 //开始播放
-\- (void) onTTSPlayStart{
+- (void) onTTSPlayStart{
 
 NSLog(@"onTTSPlayStart");
 
@@ -95,7 +95,7 @@ NSLog(@"onTTSPlayStart");
 
 //音频缓冲中
 
-\- (void) onTTSPlayWait{
+- (void) onTTSPlayWait{
 
 NSLog(@"onTTSPlayWait");
 
@@ -103,7 +103,7 @@ NSLog(@"onTTSPlayWait");
 
 //缓冲完成，继续播放
 
-\- (void) onTTSPlayContinue{
+- (void) onTTSPlayContinue{
 
 NSLog(@"onTTSPlayContinue");
 
@@ -111,7 +111,7 @@ NSLog(@"onTTSPlayContinue");
 
 //播放中止
 
-\- (void) onTTSPlayStop{
+- (void) onTTSPlayStop{
 
  NSLog(@"onTTSPlayStop");
 
@@ -119,7 +119,7 @@ NSLog(@"onTTSPlayContinue");
 
 //播放结束
 
-\- (void) onTTSPlayEnd{
+- (void) onTTSPlayEnd{
 
 NSLog(@"onTTSPlayEnd");
 
@@ -141,9 +141,9 @@ SecretKey 用于加密签名字符串和服务器端验证签名字符串的密�
 >!这里只是示例，请根据用户实际申请的 SecretId 和 SecretKey 进行后续操作。
 
 ```
-NSInteger appId = 1257709062;
-NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;
-NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;
+NSInteger appId = 1257709062;   //腾讯云 appId
+NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;   //腾讯云 secretId
+NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;   //腾讯云 secretKey
 
 QCloudTTS* _apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];_
 
