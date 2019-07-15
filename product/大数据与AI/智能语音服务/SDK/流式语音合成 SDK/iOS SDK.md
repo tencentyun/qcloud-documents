@@ -141,7 +141,7 @@ SecretKey 用于加密签名字符串和服务器端验证签名字符串的密�
 >!这里只是示例，请根据用户实际申请的 SecretId 和 SecretKey 进行后续操作。
 
 ```
-NSInteger appId = 1257709062;                                   //腾讯云 appId
+NSInteger appId = 1257709062;                                   //腾讯云 
 NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;   //腾讯云 secretId
 NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;      //腾讯云 secretKey
 
