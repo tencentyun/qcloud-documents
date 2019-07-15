@@ -41,7 +41,7 @@
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
 2. 选择【策略】>【新建自定义策略】>【按策略语法创建】，进入策略创建页面。
 3. 可供选择的模版有**空白模板**和与 COS 相关联的**预设策略模板**，选择您需要授予子账号的策略模板，单击【下一步】。
-![](https://main.qcloudimg.com/raw/f086c895e1e2408c204cdb0c90cd4021.png)
+![](https://main.qcloudimg.com/raw/9c60306242955be93fa0bfbd5cea2bda.jpg)
 4. 输入便于您记忆的策略名称，若您选择**空白模板**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【编辑策略内容】输入框内，单击【创建策略】。
 ![](https://main.qcloudimg.com/raw/880f49ec0df3199c2e301fd86b108580.png)
 5. 创建完成后，将刚才已创建的策略关联到子账号。
