@@ -61,7 +61,7 @@ VoiceTypeEmotionalMale    = 6,   // 6：情感男声
 typedef NS_ENUM(NSInteger, SpeedType) {
 SpeedTypeVerySlow     = -2,   // 0.6 倍
 SpeedTypeSlowDown     = -1,   // 0.8 倍
-SpeedTypeNormal       = 0,    // 1.0 倍(默认)
+SpeedTypeNormal       = 0,    // 1.0 倍（默认）
 SpeedTypeAccelerate   = 1,    // 1.2 倍
 SpeedTypeVeryFast     = 2,    // 1.5 倍
 };
