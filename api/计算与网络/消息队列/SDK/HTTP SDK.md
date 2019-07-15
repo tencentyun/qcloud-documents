@@ -50,7 +50,7 @@
 您可以安装 IntelliJ IDEA 或者 Eclipse，本文以 IntelliJ IDEA 为例进行说明。
 请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
 2. **下载 Demo 工程**
-请在 [下载 CMQ-HTTP 的 Demo 工程](暂无) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
+请在 [下载 CMQ-HTTP 的 Demo 工程](https://github.com/tencentyun/cmq-java-sdk) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
 ### 配置 Demo 工程
 1. **创建资源**
 您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
@@ -62,7 +62,7 @@
 2. **导入 Demo 工程文件**
 在 IDEA 的开机界面打开文件夹。
 ![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
-打开文件夹后，Demo 工程文件存于 example 文件夹下。
+打开文件夹后，Demo 工程文件存于 /src/main/java/com/qcloud/cmq/example 文件夹下。
 3. **配置 Demo 参数**
 修改文件请求地址、密钥对等。
 以 Producer 为例，配置如下：
