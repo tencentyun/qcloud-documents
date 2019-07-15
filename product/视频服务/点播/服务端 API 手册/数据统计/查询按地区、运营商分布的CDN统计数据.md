@@ -127,7 +127,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnRegionIspDetailStat
 #### 错误码说明
 | 错误码    | 含义说明                                     |
 | --------- | -------------------------------------------- |
-| 4000 - 7000 | 请参见 [公共错误码](/document/product/266/7783)。 |
+| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/6982)。 |
 | 1000      | 无效参数。                                     |
 | 17010     | HOSTS 参数错误。                               |
 | 17011     | 域名列表数据超过5个。                          |
