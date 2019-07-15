@@ -7,7 +7,7 @@
 ![](https://main.qcloudimg.com/raw/be514fc857e5a757b6c5ac5a05eadb5c/HTTP%20Header1.png)
 2. 在【高级配置】中找到【HTTP Header 配置】模块，可自助添加头部。
 ![](https://main.qcloudimg.com/raw/1472d9529532cabbcb1e1c1b9db09440/HTTP%20Header2.png)
-3. 单击【添加 HTTP Header】可添加头部：
+3. 单击【添加 HTTP Header】可添加头部。
 ![](https://main.qcloudimg.com/raw/e820a23420c19dd98659f490f166c314/HTTP%20Header3.png)
 CDN 提供以下常见的6类头部设置，也可支持自定义头部设置：
  + Access-Control-Allow-Origin：指定跨域请求时，允许访问资源的请求来源。
