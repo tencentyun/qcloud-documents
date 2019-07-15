@@ -4,10 +4,9 @@
 ![](https://main.qcloudimg.com/raw/b43e93adeb2a69668af877df410ac8c5.jpg)
 
 ## 可能原因
-1. GPU 实例安装了图形驱动。
-VNC 通过访问 QEMU 模拟的 VGA 设备来获取操作系统的 Framebuffer，从而实现访问操作系统。在安装了 GPU 图形驱动后，系统 Framebuffer 不再交由 VGA 处理，VNC 无法访问操作系统。
+1. GPU 实例安装了图形驱动。VNC 方式登录 GPU 实例时，默认访问 QEMU 模拟的 VGA 设备，获取操作系统的 Framebuffer，实现访问操作系统。安装了 GPU 图形驱动之后，Framebuffer 不再交由 VGA 处理，VNC 无法访问操作系统。
 2. 由于其他原因导致操作系统启动失败，例如安装了和系统冲突的第三方软件等。
 
 ## 解决方式
-1. GPU 实例安装图形驱动后，如果还是需要通过 VNC 方式访问系统，则需要在操作系统内手工安装部署 VNC Server，用户通过本地 VNC Client 访问来实现。
-2. 例如通过卸载已安装的第三方软件分析排查可能导致系统启动失败的软件冲突方面的原因，或选择重装系统。
+1. 针对安装图形驱动的 GPU 实例，可在该实例中手动安装 VNC Server，用户即可在本地通过 VNC Client 进行登录。请自行获取 VNC Server/Client 安装包。
+2. 检查已安装的第三方软件，分析其可能导致无法通过 VNC 方式登录实例的原因。建议卸载该第三方软件，或重装系统。
