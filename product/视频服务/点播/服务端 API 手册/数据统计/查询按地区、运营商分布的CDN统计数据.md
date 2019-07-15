@@ -24,7 +24,7 @@ DescribeCdnRegionIspDetailStat
 #### 参数说明
 | 参数名称      | 必填 | 类型   | 说明                                                                                                                                                                                |
 | ------------- | ---- | ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| hosts         | 否   | Array  | 域名列表，如果为空，则查询所有云点播域名的统计数据；如果域名超过5个，返回错误信息。                                                                                                           |
+| hosts         | 否   | Array  | 域名列表，如果为空，则查询所有云点播域名的统计数据；如果域名超过20个，返回错误信息。                                                                                                           |
 | date          | 是   | String | 查询日期，格式为 yyyy-MM-dd，如2018-03-01。                                                                                                                                          |
 | statType      | 是   | String | CDN 统计数据类型：<li> flux：流量，单位是字节（byte）。</li><li>bandwidth：带宽，单位是比特每秒（bps）。</li><li>requests：请求数。</li>                                       |
 | regionNames   | 否   | Array  | 要查询的 [地区英文名称列表](#regionNameList)，如 Beijing。如果为空，则查询所有地区的数据。                                                                                              |
@@ -130,7 +130,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnRegionIspDetailStat
 | 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/6982)。 |
 | 1000      | 无效参数。                                     |
 | 17010     | HOSTS 参数错误。                               |
-| 17011     | 域名列表数据超过5个。                          |
+| 17011     | 域名列表数据超过20个。                          |
 | 17012     | statType 参数错误。                            |
 | 17015     | date 参数错误。                                |
 
