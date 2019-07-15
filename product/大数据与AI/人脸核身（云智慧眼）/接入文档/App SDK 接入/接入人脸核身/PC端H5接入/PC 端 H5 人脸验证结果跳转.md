@@ -4,7 +4,7 @@
 **请求方法：**GET
 >!
 >- `xxxx.com`为合作方上送的 URL。
-- 合作方根据[ 方式一：前端获取结果验证签名 ](https://cloud.tencent.com/document/product/655/32051)或者 [方式二：服务端查询结果](https://cloud.tencent.com/document/product/655/32052) 说明进行签名校验，确保返回结果的安全性。
+- 合作方根据[ 方式一：前端获取结果验证签名 ](https://cloud.tencent.com/document/product/1007/35897)或者 [方式二：服务端查询结果](https://cloud.tencent.com/document/product/1007/35898) 说明进行签名校验，确保返回结果的安全性。
 
 ## 响应
 **响应参数：**
