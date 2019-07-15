@@ -145,7 +145,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | 参数名称 | 类型 | 描述 |  
 | --- | --- | --- |
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
-| message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
+| message |  String | 失败原因说明，例如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
 **回调示例**
 服务端返回 JSON 示例： 
