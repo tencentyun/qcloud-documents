@@ -1,6 +1,6 @@
 ## 现象描述
 通过 [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704) 或 [使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701) 登录实例时，登录界面无法显示登陆提示信息，例如**黑屏**或**仅显示 Windows Logo**。如下图所示：
-![](https://main.qcloudimg.com/raw/c84898879adf7f45a1af06b3562d9f3e.jpg)
+![](https://main.qcloudimg.com/raw/c443b5f91207367aeb5f976d42a868dd.jpg)
 
 ## 可能原因
 1. GPU 实例安装了图形驱动。
