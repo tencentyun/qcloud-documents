@@ -66,23 +66,23 @@
 
 **存储桶的预设 ACL**
 
-| 预设名称           | 描述                                                         |
-| ------------------ | ------------------------------------------------------------ |
-| private            | 创建者（根账号）具备 FULL_CONTROL 权限，其他人没有权限。（默认） |
-| public-read        | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限。     |
+| 预设名称           | 描述                                                               |
+| ------------------ | ------------------------------------------------------------------ |
+| private            | 创建者（根账号）具备 FULL_CONTROL 权限，其他人没有权限。（默认）   |
+| public-read        | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限。           |
 | public-read-write  | 创建者和匿名用户组都具备 FULL_CONTROL 权限，通常不建议授予此权限。 |
-| authenticated-read | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限。     |
+| authenticated-read | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限。           |
 
 **对象的预设 ACL**
 
-| 预设名称                  | 描述                                                         |
-| ------------------------- | ------------------------------------------------------------ |
-| default                   | 空描述，此时请求遵循显示许可的存储桶或子用户策略，无声明则拒绝。 |
-| private                   | 创建者（根账号）具备 FULL_CONTROL 权限，其他人没有权限。     |
-| public-read               | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限。     |
-| authenticated-read        | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限。     |
-| bucket-owner-read         | 创建者具备 FULL_CONTROL 权限，存储桶拥有者具备 READ 权限。   |
-| bucket-owner-full-control | 创建者和和存储桶拥有者都具备 FULL_CONTROL 权限。             |
+| 预设名称                  | 描述                                                                         |
+| ------------------------- | ---------------------------------------------------------------------------- |
+| default                   | 空描述，此时根据各级目录的显式设置及存储桶的设置来确定是否允许请求。（默认） |
+| private                   | 创建者（根账号）具备 FULL_CONTROL 权限，其他人没有权限。                     |
+| public-read               | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限。                     |
+| authenticated-read        | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限。                     |
+| bucket-owner-read         | 创建者具备 FULL_CONTROL 权限，存储桶拥有者具备 READ 权限。                   |
+| bucket-owner-full-control | 创建者和和存储桶拥有者都具备 FULL_CONTROL 权限。                             |
 
 >!对象不支持授予 public-read-write 权限。
 
