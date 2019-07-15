@@ -5,41 +5,41 @@
 
 ## 使用环境
 
-### 系统环境
+#### 系统环境
 
 支持 Windows、Linux 和 macOS 系统。
 
 >?
-- 请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常。
-- 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
+>- 请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常。
+>- 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
 
-### 软件依赖
+#### 软件依赖
 
 - Python 2.7/3.5/3.6。
 - 最新版本的 pip。
 
 #### 安装及配置
 
-- 环境安装与配置详细操作请参考 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
-- pip 环境安装与配置详细操作请参考 [官网 pip 安装说明](https://pip.pypa.io/en/stable/installing/)。
+- 环境安装与配置详细操作请参见 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866)。
+- pip 环境安装与配置详细操作请参见 [官网 pip 安装说明](https://pip.pypa.io/en/stable/installing/)。
 
 ## 下载与安装
 
-### pip 安装
+#### pip 安装
 执行`pip`命令进行安装：
 ```shell
 pip install coscmd
 ```
 
  安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
-### pip 更新
-  执行`pip`命令进行更新：
+#### pip 更新
+执行`pip`命令进行更新：
 ```sh
 pip install coscmd -U
 ```
 >! 当 pip 版本号大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
 
-### 源码安装（不推荐）
+#### 源码安装（不推荐）
 源码下载地址：[单击此处](https://github.com/tencentyun/coscmd.git)。
 ```shell
 git clone https://github.com/tencentyun/coscmd.git
@@ -48,7 +48,7 @@ python setup.py install
 ```
 >!Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。
 
-### 离线安装
+#### 离线安装
 >! 请确保两台机器的 Python 版本保持一致，否则会出现安装失败的情况。
 
 ```sh
@@ -170,9 +170,9 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 | --anonymous      | 匿名操作(不携带签名)                                         | 否       | 字符串 |
 
 
->!
-1. 可以直接编辑 `~/.cos.conf` 文件 （在 Windows 环境下，该文件是位于 `我的文档` 下的一个隐藏文件），该文件初始时不存在，是通过 `coscmd config` 命令生成，用户也可以手动创建。
-  配置完成之后的 `.cos.conf` 文件内容示例如下所示：
+>?
+1. 可以直接编辑 `~/.cos.conf` 文件 （在 Windows 环境下，该文件是位于“我的文档”下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
+  配置完成之后的`.cos.conf`文件内容示例如下所示：
 ```shell
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbp****
@@ -183,16 +183,15 @@ max_thread = 5
 part_size = 1
 schema = https
 ```
-2. 可以在配置文件中增加 `schema` 项来选择 `http/https`，默认为 `https`。
-3. 可以在 `anonymous` 项中选择 `True/False`，来使用匿名模式，即签名保持为空。
-
+2. 可以在配置文件中增加`schema` 项来选择`http/https`，默认为`https`。
+3. 可以在 `anonymous` 项中选择`True/False`，来使用匿名模式，即签名保持为空。
 
 
 
 ### 指定 Bucket 和 Region 的命令
--  通过`-b <BucketName-APPID> 指定 Bucket`， 可以指定特定的 Bucket。
+-  通过`-b <BucketName-APPID>` 指定 Bucket， 可以指定特定的 Bucket。
 -  存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
--  通过`-r <region> 指定 Region`， 可以指定特定的 Region。
+-  通过`-r <region>` 指定 Region， 可以指定特定的 Region。
 ```shell
 #命令格式
 coscmd -b <BucketName-APPID> -r <region> method ...
@@ -203,7 +202,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing upload exampleobject exampleobj
 ```
 
 ### 创建存储桶
--  建议配合`-b <BucketName-APPID> 指定 Bucket` 和 `-r <region> 指定 Region` 使用。
+-  建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
 ```shell
 #命令格式
 coscmd -b <BucketName-APPID> createbucket
@@ -213,7 +212,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
 ```
 
 ### 删除存储桶
--  建议配合`-b <BucketName-APPID> 指定 Bucket` 和 `-r <region> 指定 Region` 使用。
+-  建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
 ```shell
 #命令格式
 coscmd -b <BucketName-APPID> deletebucket
@@ -223,7 +222,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
 
-- 使用 -f 参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
+- 使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
 
 ### 上传文件或文件夹
 - 上传文件命令如下：
@@ -318,7 +317,7 @@ coscmd delete -r /
 
  请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
 
- >!批量删除需要输 `y` 入确定，使用 `-f` 参数则可以跳过确认直接删除。
+ >!批量删除需要输`y`入确定，使用`-f`参数则可以跳过确认直接删除。
 
 ### 清除分块上传文件碎片
 - 命令如下：
@@ -352,10 +351,10 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 
 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。
 
->!
+>?
 >- sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 >- 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
->- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部可参考 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
+>- 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced '{"x-cos-storage-class":"Archive","Content-Language":"zh-CN"}' <localpath> <cospath>`。更多头部请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
 
 
 ### 打印文件列表
@@ -449,4 +448,4 @@ coscmd -d upload exampleobject exampleobject
 ```
 
 ## 常见问题
-如您在使用 COSCMD 工具过程中，有相关的疑问，请参阅 [COSCMD 工具类常见问题](https://cloud.tencent.com/document/product/436/30744)。
+如您在使用 COSCMD 工具过程中，有相关的疑问，请参见 [COSCMD 工具类常见问题](https://cloud.tencent.com/document/product/436/30744)。
