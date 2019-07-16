@@ -4,7 +4,7 @@
 
 ## 配置指引
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
-![](https://main.qcloudimg.com/raw/be514fc857e5a757b6c5ac5a05eadb5c/HTTP%20Header1.png)
+![](https://main.qcloudimg.com/raw/b6d8bae9b2ed90c37d4555f627d42ca4/HTTP%20Header1.png)
 2. 在【高级配置】中找到【HTTP Header 配置】模块，可自助添加头部。
 ![](https://main.qcloudimg.com/raw/1472d9529532cabbcb1e1c1b9db09440/HTTP%20Header2.png)
 3. 单击【添加 HTTP Header】可添加头部。
