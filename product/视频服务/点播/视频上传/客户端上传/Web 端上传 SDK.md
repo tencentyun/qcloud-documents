@@ -1,14 +1,13 @@
 ## 简介
 
-对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK 来实现。上传的流程请参见 [客户端上传指引](/document/product/266/9219)。
+对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。上传流程请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
 
-源码：[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
+[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
 
 ## Demo
 
-Demo：[单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
-
-Demo 源码：[单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
+- [单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
+- [单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
 
 ## 简单视频上传
 
@@ -55,6 +54,7 @@ uploader.on('media_progress', function(info) {
   console.log(info.percent) // 进度
 })
 
+// 回调结果说明
 // type doneResult = {
 //   fileId: string,
 //   video: {
@@ -66,6 +66,8 @@ uploader.on('media_progress', function(info) {
 // }
 uploader.done().then(function (doneResult) {
   // deal with doneResult
+}).catch(function (err) {
+  // deal with error
 })
 
 
@@ -117,7 +119,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作](https://cloud.tencent.com/document/product/436/12260#slice-upload-file)。
+`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E7.89.87.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
 
 #### 取消上传
 
@@ -134,7 +136,7 @@ uploader.cancel()
 
 #### 断点续传
 
-SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时，您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
+SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时（如浏览器关闭、网络中断等），您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 ## 接口描述
 

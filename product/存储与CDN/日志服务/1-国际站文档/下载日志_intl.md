@@ -41,7 +41,7 @@ Content-Length: 23
 x-cls-cursor: xxxxxx
 x-cls-count:10
 
-<LogGroupList content packaged as a pd file>
+<LogGroupList content packaged as a pb file>
 ```
 
 ### Response header

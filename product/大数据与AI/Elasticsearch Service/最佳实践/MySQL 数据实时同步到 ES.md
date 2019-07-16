@@ -1,20 +1,17 @@
-当需要把 MySQL 的数据实时同步到 ES时，为了实现低延迟的检索到 ES 中的数据或者进行其它数据分析处理。本文给出以同步 mysql binlog 的方式实时同步数据到 ES 的思路，实践并验证该方式的可行性，以供参考。
+当需要把 MySQL 的数据实时同步到 ES 时，为了实现低延迟的检索到 ES 中的数据或者进行其它数据分析处理。本文给出以同步 mysql binlog 的方式实时同步数据到 ES 的思路，实践并验证该方式的可行性，以供参考。
 
 ## mysql binlog 日志
 
 MySQL 的 binlog 日志主要用于数据库的主从复制和数据恢复。binlog 中记录了数据的增删改查操作，主从复制过程中，主库向从库同步 binlog 日志，从库对 binlog 日志中的事件进行重放，从而实现主从同步。
 mysql binlog 日志有三种模式，分别为：
-
 ```
 ROW: 记录每一行数据被修改的情况，但是日志量太大。
 STATEMENT: 记录每一条修改数据的 SQL 语句，减少了日志量，但是 SQL 语句使用函数或触发器时容易出现主从不一致。
 MIXED: 结合了 ROW 和 STATEMENT 的优点，根据具体执行数据操作的 SQL 语句选择使用 ROW 或者 STATEMENT 记录日志。
 ```
-	
 要通过 mysql binlog 将数据同步到 ES 集群，只能使用 ROW 模式，因为只有 ROW 模式才能知道 mysql 中的数据的修改内容。
 
 以 UPDATE 操作为例，ROW 模式的 binlog 日志内容示例如下：
-
 ```
 SET TIMESTAMP=1527917394/*!*/;
 BEGIN
@@ -51,7 +48,6 @@ WTdqNVsPrhZbD64Whe2oWQ==
 COMMIT/*!*/;
 ```
 STATEMENT 模式下 binlog 日志内容示例为：
-
 ```
 SET TIMESTAMP=1527919329/*!*/;
 update building set Status=1 where Id=2000
@@ -60,7 +56,6 @@ update building set Status=1 where Id=2000
 #180602 14:02:09 server id 1  end_log_pos 719 CRC32 0x4c550a7d 	Xid = 200
 COMMIT/*!*/;
 ```
-
 从 ROW 模式和 STATEMENT 模式下 UPDATE 操作的日志内容可以看出，ROW 模式完整地记录了要修改的某行数据更新前以及更改后所有字段的值，而 STATEMENT 模式只记录了 UPDATE 操作的 SQL 语句。我们要将 MySQL 的数据实时同步到 ES，只能选择 ROW 模式的 binlog，获取并解析 binlog 日志的数据内容，执行 ES document api，将数据同步到 ES 集群中。
 
 ## mysqldump 工具
@@ -130,14 +125,14 @@ UNLOCK TABLES;
 
 -- Dump completed on 2018-06-02 14:23:51
 ```
-从以上内容可以看出，mysqldump导出的sql文件包含create table, drop table以及插入数据的sql语句，但是不包含create database建库语句。
+从以上内容可以看出，mysqldump 导出的 sql 文件包含 create table、drop table 以及插入数据的 sql 语句，但是不包含 create database 建库语句。
 
 ## 使用 go-mysql-elasticsearch 开源工具同步数据到 ES
 
 go-mysql-elasticsearch 是用于同步 MySQL 数据到 ES 集群的一个开源工具，项目 github 地址：
 [https://github.com/siddontang/go-mysql-elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch)
 
-go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，首先使用 mysqldump 工具对源 MySQL 数据库进行一次全量同步，通过 elasticsearch client 执行操作写入数据到 ES；然后实现了一个 mysql client，作为 slave 连接到源 MySQL，源 MySQL 作为 master 会将所有数据的更新操作通过 binlog event 同步给 slave， 通过解析 binlog event 就可以获取到数据的更新内容，之后写入到 ES。
+go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，首先使用 mysqldump 工具对源 MySQL 数据库进行一次全量同步，通过 elasticsearch client 执行操作写入数据到 ES；然后实现了一个 mysql client，作为 slave 连接到源 MySQL，源 MySQL 作为 master 会将所有数据的更新操作通过 binlog event 同步给 slave，通过解析 binlog event 就可以获取到数据的更新内容，之后写入到 ES。
 
 另外，该工具还提供了操作统计的功能，每当有数据增删改操作时，会将对应操作的计数加1，程序启动时会开启一个 http 服务，通过调用 http 接口可以查看增删改操作的次数。
 
@@ -155,9 +150,11 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 
 ### 使用方式
 
-1. 执行命令`git clone https://github.com/siddontang/go-mysql-elasticsearch`。
-2. 执行命令`cd go-mysql-elasticsearch/src/github.com/siddontang/go-mysql-elasticsearch`。
-3. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
+1. 安装 Go1.10+ 版本，可以直接安装最新版的 Go，然后设置 GOPATH 环境变量。
+2. 执行命令`go get github.com/siddontang/go-mysql-elasticsearch`。
+3. 执行命令`cd $GOPATH/src/github.com/siddontang/go-mysql-elasticsearch`。
+4. 执行 make 进行编译，编译成功后`go-mysql-elasticsearch/bin`目录下会生成名为`go-mysql-elasticsearch`的可执行文件。
+5. 执行命令`vi etc/river.toml` 修改配置文件，同步172.16.0.101:3306数据库中的 webservice.building 表到 ES 集群172.16.32.64:9200的 building index（更详细的配置文件说明请参考 [项目文档](https://github.com/siddontang/go-mysql-elasticsearch)）。	
 	```
 	# MySQL address, user and password
 	# user must have replication privilege in MySQL.
@@ -215,9 +212,9 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 	index = "building"
 	type = "buildingtype"
 	```
-4. 在 ES 集群中创建 building index, 因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
-5. 执行命令`./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
-6. 在控制台输出结果。
+6. 在 ES 集群中创建 building index，因为该工具并没有使用 ES 的 auto create index 功能，如果 index 不存在会报错 。
+7. 执行命令`./bin/go-mysql-elasticsearch -config=./etc/river.toml`。
+8. 在控制台输出结果。
 	```
 	2018/06/02 16:13:21 INFO  create BinlogSyncer with config {1001 mariadb 172.16.0.101 3306 bellen   utf8 false false <nil> false false 0 0s 0s 0}
 	2018/06/02 16:13:21 INFO  run status http server 127.0.0.1:12800
@@ -229,7 +226,7 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 	2018/06/02 16:13:21 INFO  rotate binlog to (mysql-bin.000001, 120)
 	2018/06/02 16:13:21 INFO  save position (mysql-bin.000001, 120)
 	```
-7. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
+9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
 
 ### 使用体验
 * go-mysql-elasticsearch 完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
@@ -242,10 +239,12 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 ### 使用限制
 
 1. mysql binlog 必须是 ROW 模式。
-2. 要赋予用于连接 MySQL 的账户 REPLICATION 权限
-   `GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'elastic'@'%' IDENTIFIED BY 'Elastic_123'`。
+2. 要赋予用于连接 MySQL 的账户 REPLICATION 权限。
+```
+ GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'elastic'@'%' IDENTIFIED BY 'Elastic_123'
+```
 3. mypipe 只是将 binlog 日志内容解析后编码成 Avro 格式推送到 kafka broker，并不是将数据推送到 kafka。如果需要同步到 ES 集群，可以从 kafka 消费数据后，再写入 ES。
-4. 消费 kafka 中的消息（MySQL的操作日志），需要对消息内容进行 Avro 解析，获取到对应的数据操作内容，进行下一步处理；mypipe 封装了一个 KafkaGenericMutationAvroConsumer 类，可以直接继承该类使用，或者自行解析。
+4. 消费 kafka 中的消息（MySQL 的操作日志），需要对消息内容进行 Avro 解析，获取到对应的数据操作内容，进行下一步处理；mypipe 封装了一个 KafkaGenericMutationAvroConsumer 类，可以直接继承该类使用，或者自行解析。
 5. mypipe 只支持 binlog 同步，不支持存量数据同步，即 mypipe 程序启动后无法对 MySQL 中已经存在的数据进行同步。
 		
 ### 使用方式
@@ -315,4 +314,4 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 
 * mypipe 相比 go-mysql-elasticsearch 更成熟，支持运行时 ALTER TABLE，同时解析 binlog 异常发生时，可通过配置不同的策略处理异常。
 * mypipe 不能同步存量数据，如果需要同步存量数据可通过其它方式先全量同步后，再使用 mypipe 进行增量同步。
-* mypipe 只同步 binlog， 需要同步数据到 ES 需要另行开发。
+* mypipe 只同步 binlog，需要同步数据到 ES 需要另行开发。

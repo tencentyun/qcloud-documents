@@ -52,8 +52,8 @@
 ![](https://main.qcloudimg.com/raw/7cbd21bda514331f55a1eaeab86b4328.png)
 5. 进入 “编辑入站规则” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ee58091b5b006f00dbe004f2740564.png)
-  - 名称：填写强制 HTTPS。如下图所示：
-  - 匹配URL：在 “模式” 中手动输入`(.*)`。如下图所示：
+  - 名称：填写强制 HTTPS。
+  - 匹配URL：在 “模式” 中手动输入`(.*)`。
   - 条件：展开 <img src="https://main.qcloudimg.com/raw/b55f713d199b5077dfa66fa960b08363.png" style="margin-bottom: -5px;"></img>，单击添加，弹出 “添加条件” 窗口。
     - 条件输入：`{HTTPS}`。
     - 检查输入字符串是否：默认选择与模式匹配。

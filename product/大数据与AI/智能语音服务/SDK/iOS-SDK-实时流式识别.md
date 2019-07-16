@@ -2,35 +2,45 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/8fa2a14b469f0b63bc02a91f91a942e2/QCloudSDK_v2.0.2.zip) 。
+实时流式语音识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
 
-详细示例可参考 Demo：[QCloud SDK Demo](https://main.qcloudimg.com/raw/b3a8e1e84100f24a9a05d2d9ba6385b1/QCloudSDKDemo_v2.0.2.zip) 。
 
 ### 使用须知
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
 + 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
++ 从控制台获取 AppID、SecretID、SecretKey、ProjectId 详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
 + 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
-iOS SDK 压缩包名称为： QCloudSDK.zip。
-压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
 
 在工程` info.plist` 添加以下设置：
 1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
-
 ```objective-c
-   <key>NSAppTransportSecurity</key>
-   <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/> 
-   </dict>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>qcloud.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.2</string>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSRequiresCertificateTransparency</key>
+			<false/>
+		</dict>
+	</dict>
+    </dict>
 ```
 2. **申请系统麦克风权限，添加如下内容：**
-
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
@@ -39,14 +49,15 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
+   + CoreTelephony.framework
    + libWXVoiceSpeex.a
    
-4. **添加完如图所示：**
-![](https://main.qcloudimg.com/raw/5e8684e61118f82bd1ade27bd0a7df9e/framework.png)
+添加完如图所示。
+![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 ### 类说明
 **QCloudRealTimeRecognizer 初始化说明**
-**QCloudRealTimeRecognizer**是实时语音识别类，提供两种初始化方法。
+**QCloudRealTimeRecognizer** 是实时语音识别类，提供两种初始化方法。
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -84,6 +95,7 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
+
 2. **创建 QCloudConfig 实例**
 ```objective-c
  //1.创建QCloudConfig实例
@@ -95,27 +107,29 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
+
 3. **创建 QCloudRealTimeRecognizer 实例** 
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
-4.**设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+
+4. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
 recognizer.delegate = self;
 ```
-5.**开始识别**
 
+5. **开始识别**
 ```objective-c
  [recognizer start];
 ```
-6.**结束识别**
+
+6. **结束识别**
 ```objective-c
  [recognizer stop];
 ```
 
 ### 调用者提供语音数据示例
 1. **引入  QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
-
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
@@ -130,23 +144,28 @@ recognizer.delegate = self;
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-3.**自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource)协议**
+
+3. **自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
 ```objective-c
  QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
 ```
- 4.**创建 QCloudRealTimeRecognizer 实例**
+
+4. **创建 QCloudRealTimeRecognizer 实例**
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
- 5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
+
+5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
  recognizer.delegate = self;
 ```
- 6. **开始识别** 
+
+6. **开始识别** 
 ```objective-c
  [recognizer start];
 ```
- 7.**结束识别**
+
+7. **结束识别**
 ```objective-c
  [recognizer stop];
 ```

@@ -117,7 +117,7 @@ catch (Exception e){
 
 ### 4. 签名
 SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
-临时签名policy示例如下：
+临时签名 policy 示例如下：
 ```json
 {
     "version": "2.0",

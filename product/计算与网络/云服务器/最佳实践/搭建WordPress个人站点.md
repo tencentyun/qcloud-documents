@@ -80,7 +80,7 @@ server {
 }
 ```
 5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 执行以下命令，启动 Nginx ，设置为开机自启动。
+6. 依次执行以下命令，启动 Nginx ，设置为开机自启动。
 ```
 systemctl start nginx
 systemctl enable nginx 
@@ -103,7 +103,7 @@ yum search php72w
 ```
 yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
-4. 执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
+4. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
 ```
 systemctl start php-fpm
 systemctl enable php-fpm
@@ -143,7 +143,7 @@ yum remove 包名
 ```
 yum -y install mariadb mariadb-server
 ```
-4. 执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
+4. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
 systemctl start mariadb
 systemctl enable mariadb
@@ -151,21 +151,21 @@ systemctl enable mariadb
 5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
 > - 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
-> - 首次输入 root 帐户密码后，需按 **Enter**（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
+> - 首次输入 root 帐户密码后，需按 “**Enter**”（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
 >
 ```
 mysql_secure_installation
 ```
 6. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
 ```
-mysql -uroot -pXXXXXX
+mysql -uroot -p
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/0cfea29c0fa72075137a3dda0825c7a4.png)
 
 ### 安装和配置 WordPress
 #### 下载 
->? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程正是采用的 WordPress 中文版本。
+>? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
@@ -178,7 +178,8 @@ wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
 tar zxvf wordpress-4.7.4-zh_CN.tar.gz
 ```
 
-#### <span id="database">配置数据库</span>
+<span id="database"></span>
+#### 配置数据库
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
 ```
@@ -210,8 +211,7 @@ exit
 ```
 
 ####  写入数据库信息
->? WordPress 安装文件夹包含名为 wp-config->sample.php 的示例配置文件，本步骤为创建并编辑 WordPress 的配置文件。
-> 
+
 1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
 ```
 cd /usr/share/nginx/html/wordpress
@@ -287,7 +287,7 @@ http://192.xxx.xxx.xx /wordpress
 
 ## 后续操作
 1. 您可以给自己的 WordPress 博客网站设定一个单独的域名。您的用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。
-您可以通过 [腾讯云购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)。 
+您可以通过 [腾讯云购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)。 
 2. 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。备案免费，审核时间约为20天。
 3. 您需要在腾讯云 [云解析](https://console.cloud.tencent.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://cloud.tencent.com/document/product/302/3446)。
 

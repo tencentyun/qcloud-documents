@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -21,7 +21,7 @@ Authorization: Auth String
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 
@@ -31,7 +31,7 @@ Authorization: Auth String
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -92,19 +92,19 @@ Grant|AccessControlPolicy.AccessControlList|单个授权信息|Container
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
 Grantee|AccessControlPolicy.AccessControlList.Grant|被授权者信息，`xsi:type` 为 Group 或 CanonicalUser，当为 Group 时子节点包括且仅包括 URI，当指定为 CanonicalUser 时子节点包括且仅包括 ID 和 DisplayName|Container
-Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [存储桶的操作](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档，如 WRITE， FULL_CONTROL 等|Enum
+Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中存储桶的操作部分，如 WRITE，FULL_CONTROL 等|Enum
 
 **Container 节点 AccessControlList.Grant.Grantee 的内容：**
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|---
-URI|AccessControlPolicy.AccessControlList.Grant.Grantee|取值为 `http://cam.qcloud.com/groups/global/AllUsers`，代表该条授权信息是针对所有用户|string
+URI|AccessControlPolicy.AccessControlList.Grant.Grantee|预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分，如 `http://cam.qcloud.com/groups/global/AllUsers` 或 `http://cam.qcloud.com/groups/global/AuthenticatedUsers`|string
 ID|AccessControlPolicy.AccessControlList.Grant.Grantee|被授权者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001`|string
 DisplayName|AccessControlPolicy.AccessControlList.Grant.Grantee|被授权者的名字|string
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
