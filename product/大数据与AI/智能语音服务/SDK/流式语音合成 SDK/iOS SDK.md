@@ -61,7 +61,7 @@ VoiceTypeEmotionalMale    = 6,   // 6：情感男声
 typedef NS_ENUM(NSInteger, SpeedType) {
 SpeedTypeVerySlow     = -2,   // 0.6 倍
 SpeedTypeSlowDown     = -1,   // 0.8 倍
-SpeedTypeNormal       = 0,    // 1.0 倍(默认)
+SpeedTypeNormal       = 0,    // 1.0 倍（默认）
 SpeedTypeAccelerate   = 1,    // 1.2 倍
 SpeedTypeVeryFast     = 2,    // 1.5 倍
 };
@@ -70,8 +70,8 @@ SpeedTypeVeryFast     = 2,    // 1.5 倍
 **TTS主语言类型**
 ```
 typedef NS_ENUM(NSUInteger, PrimaryLanguage) {
-PrimaryChinese    = 1,   // 1：中文，最大支持 100 字符(默认)
-PrimaryEnglish    = 2,   // 2：英文，最大支持 400 字符
+PrimaryChinese    = 1,   // 1：中文（默认）
+PrimaryEnglish    = 2,   // 2：英文
 };
 ```
 **示例**
@@ -87,7 +87,7 @@ config.language = PrimaryChinese;
 
 ```
 //开始播放
-\- (void) onTTSPlayStart{
+- (void) onTTSPlayStart{
 
 NSLog(@"onTTSPlayStart");
 
@@ -95,7 +95,7 @@ NSLog(@"onTTSPlayStart");
 
 //音频缓冲中
 
-\- (void) onTTSPlayWait{
+- (void) onTTSPlayWait{
 
 NSLog(@"onTTSPlayWait");
 
@@ -103,7 +103,7 @@ NSLog(@"onTTSPlayWait");
 
 //缓冲完成，继续播放
 
-\- (void) onTTSPlayContinue{
+- (void) onTTSPlayContinue{
 
 NSLog(@"onTTSPlayContinue");
 
@@ -111,7 +111,7 @@ NSLog(@"onTTSPlayContinue");
 
 //播放中止
 
-\- (void) onTTSPlayStop{
+- (void) onTTSPlayStop{
 
  NSLog(@"onTTSPlayStop");
 
@@ -119,7 +119,7 @@ NSLog(@"onTTSPlayContinue");
 
 //播放结束
 
-\- (void) onTTSPlayEnd{
+- (void) onTTSPlayEnd{
 
 NSLog(@"onTTSPlayEnd");
 
@@ -141,9 +141,9 @@ SecretKey 用于加密签名字符串和服务器端验证签名字符串的密�
 >!这里只是示例，请根据用户实际申请的 SecretId 和 SecretKey 进行后续操作。
 
 ```
-NSInteger appId = 1257709062;
-NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;
-NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;
+NSInteger appId = 1257709062;                                   //腾讯云 appId
+NSString *secretId = @“AKIDzlIbgVXMPC*****QaT6TZOwDF1WktQr4”;   //腾讯云 secretId
+NSString *secretKey = @“6xYsxngLo45sT*****ORFuMZZLs9BzXt”;      //腾讯云 secretKey
 
 QCloudTTS* _apiObj = [[QCloudTTS alloc] initWithAppId:appId secretId:secretId secretKey:secretKey];_
 
@@ -162,5 +162,8 @@ apiObj.ttsDelegate = self;
 [apiObj stopTTS];
 ```
 
+
 ### 错误码
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/api/441/18086)。
+
+
