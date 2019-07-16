@@ -4,7 +4,7 @@
 
 ## 配置指引
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，选择左侧菜单栏的【域名管理】，单击您所要编辑的域名右侧的【管理】。
-![](https://main.qcloudimg.com/raw/d1909dd417746faea3506d30dcf6fddc/SEO1.png)
+![](https://main.qcloudimg.com/raw/b6d8bae9b2ed90c37d4555f627d42ca4/HTTP%20Header1.png)
 单击【高级配置】，您可以看到**SEO 优化配置**模块。默认情况下，搜索引擎自动回源为关闭状态。
 >!SEO 优化配置功能只在域名接入方式为**自有源**时可使用。开启 SEO 优化配置功能后，若域名有多个源站地址，则默认回源地址为添加的第一个源站地址。
 
