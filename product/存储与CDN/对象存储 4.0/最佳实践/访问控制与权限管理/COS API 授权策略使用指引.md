@@ -58,7 +58,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 
 ### 查询存储桶列表
 
-API 接口为：GET Service，若授予其操作权限，则策略的 action 为 name/cos:GetService，resource为`*` 。
+API 接口为 GET Service，若授予其操作权限，则策略的 action 为 name/cos:GetService，resource为`*` 。
 
 #### 示例 
 
@@ -93,7 +93,7 @@ Bucket API 策略的 action 则因操作不同而取值不同，以下列举所�
 
 ### 创建存储桶 
 
-API 接口为：PUT Bucket，若授予其操作权限，则策略的 action 为 name/cos:PutBucket。
+API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 name/cos:PutBucket。
 
 #### 示例 
 
@@ -118,7 +118,7 @@ API 接口为：PUT Bucket，若授予其操作权限，则策略的 action 为 
 
 ### 检索存储桶及其权限  
 
-API 接口为：HEAD Bucket，若授予其操作权限，则策略的 action 为 name/cos:HeadBucket。
+API 接口为 HEAD Bucket，若授予其操作权限，则策略的 action 为 name/cos:HeadBucket。
 
 #### 示例 
 
@@ -144,7 +144,7 @@ API 接口为：HEAD Bucket，若授予其操作权限，则策略的 action 为
 
 ### 查询对象列表
 
-API 接口为：GET Bucket，若授予其操作权限，则策略的 action 为 name/cos:GetBucket。
+API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 name/cos:GetBucket。
 
 #### 示例 
 
@@ -169,7 +169,7 @@ API 接口为：GET Bucket，若授予其操作权限，则策略的 action 为 
 
 ### 删除存储桶
 
-API 接口为：Delete Bucket，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucket。
+API 接口为 Delete Bucket，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucket。
 
 #### 示例 
 
@@ -194,7 +194,7 @@ API 接口为：Delete Bucket，若授予其操作权限，则策略的 action �
 
 ### 设置存储桶 ACL 
 
-API 接口为：Put Bucket ACL，若授予其操作权限，则策略的 action 为 name/cos:PutBucketACL。
+API 接口为 Put Bucket ACL，若授予其操作权限，则策略的 action 为 name/cos:PutBucketACL。
 
 #### 示例 
 
@@ -219,7 +219,7 @@ API 接口为：Put Bucket ACL，若授予其操作权限，则策略的 action 
 
 ### 查询存储桶 ACL
 
-API 接口为：GET Bucket acl，若授予其操作权限，则策略的 action 为 name/cos:GetBucketACL。
+API 接口为 GET Bucket acl，若授予其操作权限，则策略的 action 为 name/cos:GetBucketACL。
 
 #### 示例 
 
@@ -244,7 +244,7 @@ API 接口为：GET Bucket acl，若授予其操作权限，则策略的 action 
 
 ### 设置跨域配置
 
-API 接口为：PUT Bucket cors，若授予其操作权限，则策略的 action 为 name/cos:PutBucketCORS。
+API 接口为 PUT Bucket cors，若授予其操作权限，则策略的 action 为 name/cos:PutBucketCORS。
 
 #### 示例 
 
@@ -269,7 +269,7 @@ API 接口为：PUT Bucket cors，若授予其操作权限，则策略的 action
 
 ### 查询跨域配置
 
-API 接口为：GET Bucket cors，若授予其权限，则策略的 action 为 name/cos:GetBucketCORS。
+API 接口为 GET Bucket cors，若授予其权限，则策略的 action 为 name/cos:GetBucketCORS。
 
 #### 示例 
 
@@ -294,7 +294,7 @@ API 接口为：GET Bucket cors，若授予其权限，则策略的 action 为 n
 
 ### 删除跨域配置
 
-API 接口为：DELETE Bucket cors，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucketCORS。
+API 接口为 DELETE Bucket cors，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucketCORS。
 
 #### 示例 
 
@@ -319,7 +319,7 @@ API 接口为：DELETE Bucket cors，若授予其操作权限，则策略的 act
 
 ### 设置生命周期
 
-API 接口为：PUT Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:PutBucketLifecycle 。
+API 接口为 PUT Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:PutBucketLifecycle 。
 
 #### 示例 
 
@@ -344,7 +344,7 @@ API 接口为：PUT Bucket lifecycle，若授予其操作权限，则策略的 a
 
 ### 查询生命周期
 
-API 接口为：GET Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:GetBucketLifecycle。
+API 接口为 GET Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:GetBucketLifecycle。
 
 #### 示例 
 
@@ -369,7 +369,7 @@ API 接口为：GET Bucket lifecycle，若授予其操作权限，则策略的 a
 
 ### 删除生命周期
 
-API 接口为：DELETE Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucketLifecycle。
+API 接口为 DELETE Bucket lifecycle，若授予其操作权限，则策略的 action 为 name/cos:DeleteBucketLifecycle。
 
 #### 示例 
 
@@ -433,7 +433,7 @@ Object API 策略的 action 则因操作不同而取值不同，以下列举所�
 
 ### 简单上传对象
 
-API 接口为：PUT Object，若授予其操作权限，则策略的 action为 name/cos:PutObject。
+API 接口为 PUT Object，若授予其操作权限，则策略的 action为 name/cos:PutObject。
 
 #### 示例 
 
@@ -458,7 +458,7 @@ API 接口为：PUT Object，若授予其操作权限，则策略的 action为 n
 
 ### 分片上传 
 
-分片上传包含：Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
+分片上传包含 Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
 
 #### 示例 
 
@@ -487,7 +487,7 @@ API 接口为：PUT Object，若授予其操作权限，则策略的 action为 n
 
 ### 表单上传对象
 
-API 接口为：POST Object，若授予其操作权限，则策略的 action 为 name/cos:PostObject。
+API 接口为 POST Object，若授予其操作权限，则策略的 action 为 name/cos:PostObject。
 
 #### 示例 
 
@@ -512,7 +512,7 @@ API 接口为：POST Object，若授予其操作权限，则策略的 action 为
 
 ### 查询对象元数据
 
-API 接口为：HEAD Object，若授予其操作权限，则策略的 action 为 name/cos:HeadObject。
+API 接口为 HEAD Object，若授予其操作权限，则策略的 action 为 name/cos:HeadObject。
 
 #### 示例 
 
@@ -537,7 +537,7 @@ API 接口为：HEAD Object，若授予其操作权限，则策略的 action 为
 
 ### 下载对象
 
-API 接口为：GET Object，若授予其操作权限，则策略的 action 为 name/cos:GetObject。
+API 接口为 GET Object，若授予其操作权限，则策略的 action 为 name/cos:GetObject。
 
 #### 示例 
 
@@ -562,11 +562,11 @@ API 接口为：GET Object，若授予其操作权限，则策略的 action 为 
 
 ### 复制对象
 
-API 接口为：Put Object Copy，若授予其操作权限，则策略的目标对象的 action 为 name/cos:PutObject，和源对象的 action 为 name/cos:GetObject。
+API 接口为 Put Object Copy，若授予其操作权限，则策略的目标对象的 action 为 name/cos:PutObject，和源对象的 action 为 name/cos:GetObject。
 
 #### 示例 
 
-授予在APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分片复制的操作权限，其策略详细内容如下：
+授予在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分片复制的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -598,7 +598,7 @@ API 接口为：Put Object Copy，若授予其操作权限，则策略的目标�
 
 ### 复制分片
 
-API 接口为：Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
+API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
 
 #### 示例 
 
@@ -638,7 +638,7 @@ API 接口为：Upload Part - Copy，若授予其操作权限，则策略的目�
 
 ### 设置对象 ACL
 
-API 接口为：Put Object ACL，若授予其操作权限，则策略的 action 为 name/cos:PutObjectACL 。
+API 接口为 Put Object ACL，若授予其操作权限，则策略的 action 为 name/cos:PutObjectACL 。
 
 #### 示例 
 
@@ -663,7 +663,7 @@ API 接口为：Put Object ACL，若授予其操作权限，则策略的 action 
 
 ### 查询对象 ACL
 
-API 接口为：Get Object ACL，若授予其操作权限，则策略的 action 为 name/cos:GetObjectACL。
+API 接口为 Get Object ACL，若授予其操作权限，则策略的 action 为 name/cos:GetObjectACL。
 
 #### 示例 
 
@@ -688,7 +688,7 @@ API 接口为：Get Object ACL，若授予其操作权限，则策略的 action 
 
 ### 预请求跨域配置
 
-API 接口为：OPTIONS Object，若授予其操作权限，则策略的 action 为 name/cos:OptionsObject。
+API 接口为 OPTIONS Object，若授予其操作权限，则策略的 action 为 name/cos:OptionsObject。
 
 #### 示例 
 
@@ -713,7 +713,7 @@ API 接口为：OPTIONS Object，若授予其操作权限，则策略的 action 
 
 ### 恢复归档对象
 
-API 接口为：Post Object Restore，若其作权限，则策略的 action 为 name/cos:PostObjectRestore。
+API 接口为 Post Object Restore，若其作权限，则策略的 action 为 name/cos:PostObjectRestore。
 
 #### 示例 
 
@@ -738,7 +738,7 @@ API 接口为：Post Object Restore，若其作权限，则策略的 action 为 
 
 ### 删除单个对象
 
-API 接口为：DELETE Object，若授予其操作权限，则策略的 action 为 name/cos:DeleteObject。
+API 接口为 DELETE Object，若授予其操作权限，则策略的 action 为 name/cos:DeleteObject。
 
 #### 示例 
 
@@ -763,7 +763,7 @@ API 接口为：DELETE Object，若授予其操作权限，则策略的 action �
 
 ### 删除多个对象
 
-API 接口为：DELETE Multiple Objects，若授予其操作权限，则策略的`action`为`name/cos:DeleteObject`。
+API 接口为 DELETE Multiple Objects，若授予其操作权限，则策略的`action`为`name/cos:DeleteObject`。
 
 #### 示例 
 
