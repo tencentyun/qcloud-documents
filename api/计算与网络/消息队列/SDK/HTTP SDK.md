@@ -31,7 +31,7 @@
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
 
-#### 主题模型<span id="Topic"></span>
+#### 主题模型 <span id="topic"></span>
 **请参照下面说明将域名中的 {$region} 替换成相应地域：**
 - 外网接口请求域名：`https://cmq-topic-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-topic-{$region}.api.tencentyun.com`
@@ -53,7 +53,7 @@
 请在 [下载 CMQ-HTTP 的 Demo 工程](https://github.com/tencentyun/cmq-java-sdk) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
 ### 配置 Demo 工程
 1. **创建资源**
-您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
+您需要在控制台创建所需消息队列资源，包括请求地址、SecretID、SecretKey。
 具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
 ### 配置 Demo 工程
 1. **创建资源**
@@ -94,4 +94,4 @@ Queue queue = account.getQueue(queueName);
 #### 使用队列模型收发消息
 先运行 Producer 类发送消息，再运行 Consumer 类接受消息
 #### 使用主题模型收发消息
-运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#Topic)
+运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)
