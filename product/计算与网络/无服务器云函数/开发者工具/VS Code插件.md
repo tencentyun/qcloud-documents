@@ -28,8 +28,7 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
 
 ### 配置插件
->!如果您已经在 SCF CLI 中配置了账户信息，请跳过此步骤。
->插件可自动获取本机存储的账户信息，无需再次配置。
+>!如果您已经在 SCF CLI 中配置了账户信息，无需再次配置。插件可自动获取本机存储的账户信息，请跳过此步骤。
 > 
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：
@@ -62,7 +61,7 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 1. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/c78e264a6c0c0ffda53541095bc56c8d.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：
 ![](https://main.qcloudimg.com/raw/3d791d61fd6d88c982e762a2ac3a8be0.png)
 2. 单击左侧列表中的本地函数，打开函数基本信息页面。
-3. 勾选【开启调试模式】，后选择【本地调用】。如下图所示：
+3. 勾选【开启调试模式】，并选择【本地调用】。如下图所示：
 ![](https://main.qcloudimg.com/raw/177deb2525eb3c3410872757509c20dc.png)
 
 4. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/082978e83344b2921a42958f644ceec7.png" style="margin:-3px 0;">（或 ctrl+shift+D），新建调试配置文件，并选择**`SCF Debugger：Python`本地调试**。
@@ -93,7 +92,7 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 >
 1. **右键单击**目标远端函数，选择【导入到本地】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d1ae279963082390687f204df0309f47.png)
-2. 单击右下角弹出框中的【Yes】即可。如下图所示：
+2. 单击右下角弹出框中的【Yes】。如下图所示：
 ![](https://main.qcloudimg.com/raw/94060a2e19b78a5cfea86caade0730db.png)
 3. 单击左侧列表右上角<img src="https://main.qcloudimg.com/raw/5748699ec0cca81456a3f5d1cca86c92.png" style="margin:-3px 0;">刷新列表，即可看到导入到本地的函数。
 4. **右键单击**目标函数，选择【编辑代码】，即可打开对于函数代码编辑视图。如下图所示： 
