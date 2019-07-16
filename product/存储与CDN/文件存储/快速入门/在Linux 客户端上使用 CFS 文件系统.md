@@ -116,7 +116,7 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```shell
-sudo mount -t nfs -o vers=4,noresvport <挂载点IP>:/ <待挂载目录>
+sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目录>
 ```
 
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
@@ -129,17 +129,17 @@ sudo mount -t nfs -o vers=4,noresvport <挂载点IP>:/ <待挂载目录>
 示例：
 - 挂载 CFS 根目录：
 ```shell
-sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/ /localfolder
+sudo mount -t nfs -o vers=4 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录：
 ```shell
-sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/subfolder /localfolder 
+sudo mount -t nfs -o vers=4 10.0.24.4:/subfolder /localfolder 
 ```
 
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
 ```shell
-sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <待挂载目录>
+sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/<fsid> <待挂载目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - NFS v3.0 仅支持子目录挂载，缺省文件系统子目录为 FSID。
@@ -149,7 +149,7 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <�
 
 挂载 CFS 子目录示例如下：
 ```shell
-sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 10.0.24.4:/z3r6k95r /localfolder 
+sudo mount -t nfs -o vers=3,nolock,proto=tcp 10.0.24.4:/z3r6k95r /localfolder 
 ```
 
 #### 4. 查看挂载点信息
