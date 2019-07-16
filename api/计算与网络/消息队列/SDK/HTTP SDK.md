@@ -70,11 +70,11 @@
 String secretId="获取的SecretID";
 String secretKey="获取的SecretKey";
 String endpoint = "https://cmq-topic-{$region}.api.qcloud.com";
+String queueName = "test";
 ```
 选择"新建队列"和"使用已有队列"
 ```java
 //创建新队列并设置属性
-String queueName = "name";
 QueueMeta meta = new QueueMeta();
 meta.pollingWaitSeconds = 10;
 meta.visibilityTimeout = 10;
@@ -84,14 +84,37 @@ Queue queue = account.createQueue(queueName,meta);
 ```
 ```java
 //使用控制台已有队列
-String queueName = "name";
 Queue queue = account.getQueue(queueName);
 ```
-本Demo使用的是已有队列，如需选择新建队列，要将选择已有队列模块注释或删除，然后找到新建队列相关代码取消注释。
-注释代码均为常用操作，在本demo中注意要谨慎使用“删除”操作。
+本Demo使用的是当前账号已有队列，如需选择新建队列，修改queueName为将要创建的队列名，然后找到新建队列相关代码取消注释。
+注释代码均为常用操作，注意要谨慎使用“删除”操作。
 其他类中的配置参考Producer类
 ### 运行 Demo
 #### 使用队列模型收发消息
 先运行 Producer 类发送消息，再运行 Consumer 类接受消息
+发送消息代码示例：
+```java
+String msg = "hello!";
+String msgId = queue.sendMessage(msg);
+System.out.println("==> send success! msg_id:" + msgId);
+```
+接收消息代码示例：
+```java
+Message msg = queue.receiveMessage(10);
+```
 #### 使用主题模型收发消息
 运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)
+发布消息示例：
+```java
+String msg = "hello!";
+String msgId = topic.publishMessage(msg);
+```
+处理消息示例：
+```java
+String queueName = "test";
+String subscriptionName = "sub-test";
+String Endpoint = queueName;
+String Protocol = "queue";
+account.createSubscribe(topicName,subscriptionName, Endpoint, Protocol);
+```
+创建订阅者时填写一个队列，用队列处理消息
