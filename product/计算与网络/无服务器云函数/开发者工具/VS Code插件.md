@@ -28,7 +28,7 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
 
 ### 配置插件
->!如果您已经在 SCF CLI 中配置了账户信息，无需再次配置。插件可自动获取本机存储的账户信息，请跳过此步骤。
+>!如果您已经在 SCF CLI 中配置了账户信息，无需再次配置，请跳过此步骤。
 > 
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：
