@@ -202,12 +202,11 @@ TIMUserConfig userConfig = new TIMUserConfig()
 			}
 		});
 
-//消息扩展用户配置
-userConfig = new TIMUserConfigMsgExt(userConfig)
-		//禁用消息存储
-		.enableStorage(false)
-		//开启消息已读回执
-		.enableReadReceipt(true);
+//禁用本地所有存储
+userConfig.disableStorage();
+//开启消息已读回执
+userConfig.enableReadReceipt(true);
+		
 //将用户配置与通讯管理器进行绑定
 TIMManager.getInstance().setUserConfig(userConfig);
 ```
@@ -293,17 +292,16 @@ public interface TIMUserStatusListener {
 
 
 ### 禁用存储
-默认情况 IM SDK 会进行消息的存储，如无需存储，可选择通过 `TIMUserConfigMsgExt` 关闭存储来提升处理性能。
+默认情况 IM SDK 会进行消息、资料、会话等存储，如无需存储，可选择通过 `TIMUserConfig` 关闭存储来提升处理性能。
 
->! 禁用消息存储，**需要在登录之前调用**。
+>! 禁用本地存储，**需要在登录之前调用**。
 
 **原型：**
 ```
 /**
- * 设置是否开启消息本地储存
- * @param storageEnabled true - 开启， false - 不开启
+ * 禁用本地存储
  */
-public TIMUserConfigMsgExt enableStorage(boolean storageEnabled) 
+public TIMUserConfig disableStorage() 
 ```
 
 ### 会话刷新监听
@@ -311,7 +309,6 @@ public TIMUserConfigMsgExt enableStorage(boolean storageEnabled)
 默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 IM SDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
 
 >!
-> * 如果不需要最近联系人可通过接口禁用： [最近联系人漫游](/doc/product/269/9232#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。
 > * 如果不需要离线消息，可以再发消息时使用：[发送在线消息](/doc/product/269/9232#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。
 
 在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。所以建议在登录之前，通过 `TIMUserConfig` 中的 `setRefreshListener` 接口来设置会话刷新监听。
