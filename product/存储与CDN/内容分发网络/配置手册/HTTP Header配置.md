@@ -61,9 +61,9 @@ Access-Control-Max-Age 用于指定预请求的有效时间。
 + 使用自定义请求头。
 
 Access-Control-Max-Age 的单位为秒，设置示例如下：
-Access-Control-Max-Age:` 1728000`
+Access-Control-Max-Age:`1728000`
 
-表明在 1728000 秒（20 天）内，对该资源的跨域访问不再发送另外一条预请求。
+表明在1728000秒（20天）内，对该资源的跨域访问不再发送另外一条预请求。
 
 #### Access-Control-Expose-Headers
 Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一部分暴露给客户端。默认情况下，只有6种头部可以暴露给客户端：
@@ -75,7 +75,8 @@ Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一�
 - Pragma
 
 如果想让客户端访问到其他的头部信息，可以进行如下设置，当输入多个头部时，需用“,”隔开。
-```Access-Control-Expose-Headers: Content-Length,X-My-Header```
+```
+Access-Control-Expose-Headers: Content-Length,X-My-Header```
 
 表明客户端可以访问到 Content-Length 和 X-My-Header 这两个头部信息。
 
