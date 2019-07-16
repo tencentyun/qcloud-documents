@@ -325,7 +325,7 @@ public TIMUserConfig setRefreshListener(TIMRefreshListener listener)
 
 ### 消息撤回通知监听
 
-IM SDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
+IM SDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfig` 的 `setMessageRevokedListener` 可以设置消息撤回通知监听器。
 
 **原型：**
 ```
@@ -334,7 +334,7 @@ IM SDK 3.1.0 开始提供了消息撤回功能。通过 `TIMUserConfigMsgExt` �
  * @param listener 消息撤回通知监听器
  * @since 3.1.0
  */
-public TIMUserConfigMsgExt setMessageRevokedListener(@NonNull TIMMessageRevokedListener listener)
+public TIMUserConfig setMessageRevokedListener(@NonNull TIMMessageRevokedListener listener)
 ```
 
 ## 新消息通知
