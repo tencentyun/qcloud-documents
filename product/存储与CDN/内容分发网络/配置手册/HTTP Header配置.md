@@ -75,7 +75,7 @@ Access-Control-Expose-Headers 用于指定哪些头部可以作为响应的一�
 - Pragma
 
 如果想让客户端访问到其他的头部信息，可以进行如下设置，当输入多个头部时，需用“,”隔开。
-> Access-Control-Expose-Headers: Content-Length,X-My-Header
+```Access-Control-Expose-Headers: Content-Length,X-My-Header```
 
 表明客户端可以访问到 Content-Length 和 X-My-Header 这两个头部信息。
 
