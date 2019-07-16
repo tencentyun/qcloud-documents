@@ -7,6 +7,7 @@ GetCdnLogList
 2. 只能查询到最近30天内的 CDN 日志下载链接。
 3. CDN 日志下载链接的有效期为24小时。
 
+## 请求方式
 #### 请求域名
 `vod.api.qcloud.com`
 
