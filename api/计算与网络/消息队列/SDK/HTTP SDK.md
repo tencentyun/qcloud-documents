@@ -61,7 +61,7 @@
 具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
 2. **导入 Demo 工程文件**
 在 IDEA 的开机界面打开文件夹。
-![](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
+[](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
 打开文件夹后，Demo 工程文件存于 /src/main/java/com/qcloud/cmq/example 文件夹下。
 3. **配置 Demo 参数**
 修改文件请求地址、密钥对等。
@@ -80,7 +80,7 @@ meta.pollingWaitSeconds = 10;
 meta.visibilityTimeout = 10;
 meta.maxMsgSize = 1048576;
 meta.msgRetentionSeconds = 345600;
-account.createQueue(queueName,meta);
+Queue queue = account.createQueue(queueName,meta);
 ```
 ```java
 //使用控制台已有队列
