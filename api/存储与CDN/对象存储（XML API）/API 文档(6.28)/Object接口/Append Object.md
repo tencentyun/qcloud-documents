@@ -57,9 +57,9 @@ Authorization: Auth String
 | 名称                     | 描述                                                         | 类型   | 必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
 | x-cos-acl                | 定义 Object 的 ACL 属性，有效值为 private，public-read-write，public-read<br>默认值为 private | String | 否   |
-| x-cos-grant-read         | 赋予被授权者读的权限，格式：`x-cos-grant-read: id=" ",id=" "`<br><li>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
-| x-cos-grant-write        | 赋予被授权者写的权限，格式：`x-cos-grant-write: id=" ",id=" "` <br><li>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
-| x-cos-grant-full-control | 赋予被授权者读写权限，格式：`x-cos-grant-full-control: id=" ",id=" "`<br><li> 当需要给子账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br> <li>当需要给根账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
+| x-cos-grant-read         | 赋予被授权者读的权限，格式：`x-cos-grant-read: id=" ",id=" "`<br><li>当需要给子账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给主账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
+| x-cos-grant-write        | 赋予被授权者写的权限，格式：`x-cos-grant-write: id=" ",id=" "` <br><li>当需要给子账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给主账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
+| x-cos-grant-full-control | 赋予被授权者读写权限，格式：`x-cos-grant-full-control: id=" ",id=" "`<br><li> 当需要给子账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br> <li>当需要给主账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
 
 #### 请求参数
 
