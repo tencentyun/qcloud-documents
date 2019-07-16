@@ -1062,12 +1062,11 @@ public String getSender()
 /**
  * 获取发送者资料
  *
- * 如果本地有发送者资料，这里会直接通过 return 值 TIMUserProfile 返回发送者资料，如果本地没有发送者资料，这里会直接 return null，IM SDK 内部会向服务器拉取发送者资料，并在 callBack 回调里面返回发送者资料。
+ * 4.4.716 版本统一通过回调返回
  *
  * @param callBack 回调
- * @return 发送者本地缓存资料，如果本地没有可以通过回调获取
  */
-public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
+public void getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 
 /**
  * 获取发送者群内资料，只有接收到的群消息才能获取到资料（发送者为自己时可能为空）
