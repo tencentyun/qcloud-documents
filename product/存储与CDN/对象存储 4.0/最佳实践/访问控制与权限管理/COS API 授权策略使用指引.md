@@ -1,7 +1,7 @@
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
-COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID 为1250000000，地域为 ap-beijing，存储桶为examplebucket-1250000000 ，路径前缀为 doc 的上传操作（包括简单上传、表单上传、分片上传等操作）的权限，路径前缀为 doc2 的下载操作权限的策略内容如下所示：
+COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID 为1250000000，地域为 ap-beijing，存储桶为examplebucket-1250000000 ，路径前缀为 doc 的上传操作（包括简单上传、表单上传、分块上传等操作）的权限，路径前缀为 doc2 的下载操作权限的策略内容如下所示：
 ```shell
 {
 	"version": "2.0",
@@ -11,15 +11,15 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 				"name/cos:PutObject",
 				//表单上传对象 
 				"name/cos:PostObject",
-				//分片上传：初始化分片操作 
+				//分块上传：初始化分块操作 
 				"name/cos:InitiateMultipartUpload",
-				//分片上传：List 已上传分片操作 
+				//分块上传：List 已上传分块操作 
 				"name/cos:ListParts",
-				//分片上传：上传分片块操作 
+				//分块上传：上传分块块操作 
 				"name/cos:UploadPart",
-				//分片上传：完成所有分片上传操作 
+				//分块上传：完成所有分块上传操作 
 				"name/cos:CompleteMultipartUpload",
-				//取消分片上传操作 
+				//取消分块上传操作 
 				"name/cos:AbortMultipartUpload"
 			],
 			"effect": "allow",
@@ -394,11 +394,11 @@ API 接口为 DELETE Bucket lifecycle，若授予其操作权限，则策略的 
 
 ### 查询分块上传
 
-查询存储桶中正在分片上传信息，若授予其操作权限，则策略的 action 为 name/cos:ListMultipartUploads。
+查询存储桶中正在分块上传信息，若授予其操作权限，则策略的 action 为 name/cos:ListMultipartUploads。
 
 #### 示例 
 
-授予只能查询 APPID 为1250000000 ，地域为 ap-beijing  ，存储桶为 examplebucket-1250000000 中的正在分片上传信息的操作权限，其策略详细内容如下：
+授予只能查询 APPID 为1250000000 ，地域为 ap-beijing  ，存储桶为 examplebucket-1250000000 中的正在分块上传信息的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -456,13 +456,13 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
 }
 ```
 
-### 分片上传 
+### 分块上传 
 
-分片上传包含 Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
+分块上传包含 Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
 
 #### 示例 
 
-授予只能在 APPID 为1250000000 ，地域为 ap-beijing ，存储桶为 examplebucket-1250000000，路径前缀为 doc 下进行分片上传的操作权限，其策略详细内容如下：
+授予只能在 APPID 为1250000000 ，地域为 ap-beijing ，存储桶为 examplebucket-1250000000，路径前缀为 doc 下进行分块上传的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -566,7 +566,7 @@ API 接口为 Put Object Copy，若授予其操作权限，则策略的目标对
 
 #### 示例 
 
-授予在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分片复制的操作权限，其策略详细内容如下：
+授予在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分块复制的操作权限，其策略详细内容如下：
 
 ```shell
 {
@@ -596,13 +596,13 @@ API 接口为 Put Object Copy，若授予其操作权限，则策略的目标对
 
 其中`"qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/doc2/*"`为源对象。
 
-### 复制分片
+### 复制分块
 
 API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
 
 #### 示例 
 
-授予在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分片复制的操作权限，其策略详细内容如下：
+授予在 APPID 为1250000000 ，地域为 ap-beijing，存储桶为 examplebucket-1250000000 的路径前缀为 doc 和路径前缀为 doc2 间进行分块复制的操作权限，其策略详细内容如下：
 
 ```shell
 {
