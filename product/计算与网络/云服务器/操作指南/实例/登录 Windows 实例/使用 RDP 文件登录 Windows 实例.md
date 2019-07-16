@@ -16,9 +16,9 @@ Windows，Linux 和 Mac OS
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例列表中，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bc452fce3b682d24933e73f4d15c0d7b.png)
-3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载 RDP 文件】到本地。
+3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载RDP文件】，将RDP文件下载到本地。
 ![](https://main.qcloudimg.com/raw/bfbdf813684e34b236b90b9e1a19009b.png)
-4. 双击下载到本地的 RDP 文件，远程连接到 Windows 云服务器。
+4. 双击已下载到本地的 RDP 文件，即可远程连接到 Windows 云服务器。
 
 ### Linux 系统使用 RDP 登录
 
