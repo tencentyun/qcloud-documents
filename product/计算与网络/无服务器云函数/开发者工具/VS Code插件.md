@@ -40,7 +40,7 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 
 
 ### 初始化函数项目
-1. 配置插件成功后，可以看到配置账户对应地域下的云端函数列表。单击创建一个函数，可以在本地初始化新的函数项目。如下图所示：
+1. 配置插件成功后，可以看到配置账户对应地域下的云端函数列表。单击【创建一个函数】，可以在本地初始化新的函数项目。如下图所示：
 ![](https://main.qcloudimg.com/raw/2bfe26b670ba259477c607da98c216b8.png)
 
 >!**暂不支持不同的命名空间（无论是否在同一区域）下创建同名的本地函数**。
@@ -61,10 +61,11 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 ![](https://main.qcloudimg.com/raw/3d791d61fd6d88c982e762a2ac3a8be0.png)
 2. 单击左侧列表中的本地函数，勾选“开启调试模式”，并选择【本地调用】。如下图所示：
 ![](https://main.qcloudimg.com/raw/177deb2525eb3c3410872757509c20dc.png)
+
+3. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/082978e83344b2921a42958f644ceec7.png" style="margin:-3px 0;">（或 ctrl+shift+D），新建调试配置文件。
 >!**不同的 runtime 须选择对应的调试模板，即根据当前的调试文件类型，区分选择 Python 和 Node.js。**针对 Python 函数的选择如下图所示：
 >![](https://main.qcloudimg.com/raw/1921d14f860df8c4895fff47a6c1ff7f.png)
-3. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/082978e83344b2921a42958f644ceec7.png" style="margin:-3px 0;">（或 ctrl+shift+D），新建调试配置文件。
-4. **选择`SCF LocalFuncDebugger`本地调试的模板**。单击执行按钮，即可看到调试信息。如下图所示：
+4. **选择`SCF Debugger：Python`本地调试**，单击执行按钮，即可看到调试信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/a41fbefae0657c1d793c26ac12732436.png)
 
 ### 函数部署
@@ -78,16 +79,16 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 #### 远端调用
 >?针对远端的函数，可以通过 VS Code 插件进行云端的触发，更改事件模板等操作。
 >
-单击左侧列表中的云端函数名称，在右侧页面中点击【云端调用】，即可在页面中查看到函数在云端运行的相关信息。如下图所示：
+单击左侧列表中的远端函数名称，在右侧页面中点击【云端调用】，即可在页面中查看到函数在云端运行的相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/ccaeda9238e27fb2cc3fc25a9c0961db.png)
 
 
 #### 导入本地
 >?如果您已经在 [腾讯云云函数控制台](<https://console.cloud.tencent.com/scf/list?rid=1&ns=default>) 创建了函数，则可以在 VS Code 插件里直接将云端函数导入到本地。  
 >
-1. **右键单击**目标云端函数，选择【导入到本地】后，在右下角弹出框选择【Yes】即可。如下图所示：
+1. **右键单击**目标远端函数，选择【导入到本地】后，在右下角弹出框选择【Yes】即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/d1ae279963082390687f204df0309f47.png)
-2. 单击左侧列表右上角<img src="https://main.qcloudimg.com/raw/5748699ec0cca81456a3f5d1cca86c92.png" style="margin:-3px 0;">，刷新列表，即可看到导入到本地的函数。
+2. 单击左侧列表右上角<img src="https://main.qcloudimg.com/raw/5748699ec0cca81456a3f5d1cca86c92.png" style="margin:-3px 0;">刷新列表，即可看到导入到本地的函数。
 3. **右键单击**目标函数，选择【编辑代码】，即可打开对于函数代码编辑视图。如下图所示： 
 ![](https://main.qcloudimg.com/raw/136fb3fdaf6dfb3354926b024a69213c.png)
 
