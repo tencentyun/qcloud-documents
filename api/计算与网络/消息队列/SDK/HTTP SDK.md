@@ -91,7 +91,7 @@ Queue queue = account.getQueue(queueName);
 其他类中的配置参考Producer类
 ### 运行 Demo
 #### 使用队列模型收发消息
-先运行 Producer 类发送消息，再运行 Consumer 类接受消息
+先运行 Producer 类发送消息，再运行 Consumer 类接受消息  
 发送消息代码示例：
 ```java
 String msg = "hello!";
@@ -103,7 +103,7 @@ System.out.println("==> send success! msg_id:" + msgId);
 Message msg = queue.receiveMessage(10);
 ```
 #### 使用主题模型收发消息
-运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)
+运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)  
 发布消息示例：
 ```java
 String msg = "hello!";
