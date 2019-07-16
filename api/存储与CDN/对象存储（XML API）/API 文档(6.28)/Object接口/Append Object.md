@@ -56,10 +56,10 @@ Authorization: Auth String
 
 | 名称                     | 描述                                                         | 类型   | 必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| x-cos-acl                | 定义 Object 的 ACL 属性。有效值：private，public-read-write，public-read；默认值：private | String | 否   |
-| x-cos-grant-read         | 赋予被授权者读的权限。格式：x-cos-grant-read: id=" ",id=" "； 当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"， 当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" | String | 否   |
-| x-cos-grant-write        | 赋予被授权者写的权限。格式：x-cos-grant-write: id=" ",id=" "； 当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"， 当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" | String | 否   |
-| x-cos-grant-full-control | 赋予被授权者读写权限。格式：x-cos-grant-full-control: id=" ",id=" "； 当需要给子账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"， 当需要给根账户授权时，id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>" | String | 否   |
+| x-cos-acl                | 定义 Object 的 ACL 属性，有效值为 private，public-read-write，public-read<br>默认值为 private | String | 否   |
+| x-cos-grant-read         | 赋予被授权者读的权限，格式：`x-cos-grant-read: id=" ",id=" "`<br><li>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
+| x-cos-grant-write        | 赋予被授权者写的权限，格式：`x-cos-grant-write: id=" ",id=" "` <br><li>当需要给子账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br><li>当需要给根账户授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
+| x-cos-grant-full-control | 赋予被授权者读写权限，格式：`x-cos-grant-full-control: id=" ",id=" "`<br><li> 当需要给子账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<SubUin>"`<br> <li>当需要给根账号授权时，`id="qcs::cam::uin/<OwnerUin>:uin/<OwnerUin>"` | String | 否   |
 
 #### 请求参数
 
@@ -67,7 +67,7 @@ Authorization: Auth String
 
 | 参数名称 | 描述                                                         | 类型    | 必选 |
 | -------- | ------------------------------------------------------------ | ------- | ---- |
-| position | 追加操作的起始点，单位：字节； 首次追加 position=0，后续追加 position= 当前 Object 的 content-length | Integer | 是   |
+| position | 追加操作的起始点，单位为字节<br>首次追加 position=0，后续追加 position= 当前 Object 的 content-length | Integer | 是   |
 
 #### 请求体
 
