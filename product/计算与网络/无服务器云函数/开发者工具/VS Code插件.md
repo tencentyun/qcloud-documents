@@ -62,10 +62,10 @@ Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Ten
 2. 单击左侧列表中的本地函数，勾选“开启调试模式”，并选择【本地调用】。如下图所示：
 ![](https://main.qcloudimg.com/raw/177deb2525eb3c3410872757509c20dc.png)
 
-3. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/082978e83344b2921a42958f644ceec7.png" style="margin:-3px 0;">（或 ctrl+shift+D），新建调试配置文件。
+3. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/082978e83344b2921a42958f644ceec7.png" style="margin:-3px 0;">（或 ctrl+shift+D），新建调试配置文件，并选择**`SCF Debugger：Python`本地调试**。
 >!**不同的 runtime 须选择对应的调试模板，即根据当前的调试文件类型，区分选择 Python 和 Node.js。**针对 Python 函数的选择如下图所示：
 >![](https://main.qcloudimg.com/raw/1921d14f860df8c4895fff47a6c1ff7f.png)
-4. **选择`SCF Debugger：Python`本地调试**，单击执行按钮，即可看到调试信息。如下图所示：
+4. 单击执行按钮，即可看到调试信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/a41fbefae0657c1d793c26ac12732436.png)
 
 ### 函数部署
