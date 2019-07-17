@@ -109,17 +109,17 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 **原型：**
 
 ```
-@interface TIMManager (MsgExt)
+@interface TIMManager : NSObject
 /**
  *  初始化存储，仅查看历史消息时使用，如果要收发消息等操作，如 login 成功，不需要调用此函数
  *
- *  @param param 登录参数（userSig 不用填写）
+ *  @param userID 用户名
  *  @param succ  成功回调，收到回调时，可以获取会话列表和消息
  *  @param fail  失败回调
  *
  *  @return 0 请求成功
  */
-- (int)initStorage:(TIMLoginParam*)param succ:(TIMLoginSucc)succ fail:(TIMFail)fail; 
+- (int)initStorage:(NSString*)userID succ:(TIMLoginSucc)succ fail:(TIMFail)fail; 
 @end
 ```
 
@@ -127,7 +127,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 
 | 参数 | 说明 |
 | --- | --- |
-| param | 与登录参数相同，userSig 可不填 |
+| userID | 用户名 |
 | succ | 成功回调，成功后可获取会话列表，以及进一步登录 |
 | fail | 失败回调 |
 
@@ -135,11 +135,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init]; 
-// identifier 为用户名
-// appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
-login_param.identifier = @"iOS_001";
-login_param.appidAt3rd = @"123456";
-[[TIMManager sharedInstance] initStorage: login_param succ:^(){
+[[TIMManager sharedInstance] initStorage: @"iOS_001" succ:^(){
     NSLog(@"Init Succ");
 } fail:^(int code, NSString * err) {
     NSLog(@"Init Failed: %d->%@", code, err);

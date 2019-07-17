@@ -35,7 +35,7 @@
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  创建私有群
  *
@@ -163,7 +163,8 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSArray* membersInfo;
 @end
-@interface TIMGroupManager (Ext)
+
+@interface TIMGroupManager : NSObject
 /**
  *  创建群组
  *
@@ -259,7 +260,7 @@ fail|失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  邀请好友入群
  *
@@ -431,7 +432,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  删除群成员
  *
@@ -514,7 +515,8 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
-@interface TIMGroupManager (Ext)
+
+@interface TIMGroupManager : NSObject
 /**
  *  获取群成员列表
  *
@@ -552,7 +554,7 @@ fail | 失败回调
 如果群组人数过多，建议使用**分页接口**。**原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取指定类型的成员列表（支持按字段拉取，分页）
  *
@@ -580,7 +582,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取群列表
  *
@@ -670,7 +672,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  转让群给新群主
  *
@@ -716,7 +718,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群组全员禁言属性
  *
@@ -873,7 +875,7 @@ fail | 失败回调
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
 
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取服务器存储的群资料
  *
@@ -928,7 +930,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取本人在群组内的成员信息
  *
@@ -982,7 +984,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群名
  *
@@ -1028,7 +1030,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 
 /**
  *  修改群简介
@@ -1076,7 +1078,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群公告
  *
@@ -1122,7 +1124,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群头像
  *
@@ -1168,7 +1170,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 
 /**
  *  修改加群选项
@@ -1214,7 +1216,7 @@ fail | 失败回调
 **原型： **
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群自定义字段集合
  *
@@ -1265,7 +1267,7 @@ NSData *data = [NSData dataWithBytes:"custom value" length:13];
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetRole:(NSString*)group user:(NSString*)identifier role:(TIMGroupMemberRole)role succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1303,7 +1305,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetSilence:(NSString*)group user:(NSString*)identifier stime:(uint32_t)stime succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1335,7 +1337,7 @@ fail | 失败回调
 **原型： **
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetNameCard:(NSString*)group user:(NSString*)identifier nameCard:(NSString*)nameCard succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1369,7 +1371,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetCustomInfo:(NSString*)group user:(NSString*)identifier customInfo:(NSDictionary<NSString*,NSData*> *)customInfo succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1396,13 +1398,13 @@ fail | 失败回调
 
 ### 修改接收群消息选项
 
-通过 `modifyReciveMessageOpt` 可以设置群消息的接收选项。默认情况下，公开群和私有群是接收并离线推送群消息，聊天室和直播大群是接收但不离线推送群消息。
+通过 `modifyReceiveMessageOpt` 可以设置群消息的接收选项。默认情况下，公开群和私有群是接收并离线推送群消息，聊天室和直播大群是接收但不离线推送群消息。
 
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
-- (int)modifyReciveMessageOpt:(NSString*)group opt:(TIMGroupReceiveMessageOpt)opt succ:(TIMSucc)succ fail:(TIMFail)fail;
+@interface TIMGroupManager : NSObject
+- (int)modifyReceiveMessageOpt:(NSString*)group opt:(TIMGroupReceiveMessageOpt)opt succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -1442,7 +1444,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取群组未决列表
  *
@@ -1597,7 +1599,7 @@ requestMsg/handleMsg|申请、审批时的留言信息
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  群未决已读上报
  *
