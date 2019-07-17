@@ -35,7 +35,8 @@
   - TIMConversation 增加 TIMConversationExt 中的所有接口
   - TIMGroupManager 增加 TIMGroupManagerExt 中的所有接口
   - TIMMessage 增加 TIMMessageExt 中的所有接口
-  - 当前保留 TIMManagerExt、TIMMessageExt、TIMConversationExt、TIMGroupManagerExt 类原有接口以做兼容，后续这些类将下线
+  - TIMUserConfig 增加 TIMUserConfigMsgExt 中的所有接口
+  - 当前保留 TIMManagerExt、TIMMessageExt、TIMConversationExt、TIMGroupManagerExt 和 TIMUserConfigMsgExt 类原有接口以做兼容，后续这些类将下线
 - 加好友增加单向和双向的选项 
 - 新增 disableStorage 接口，禁用所有本地存储
 - 文件、视频、语音消息增加获取下载 URL 的接口
