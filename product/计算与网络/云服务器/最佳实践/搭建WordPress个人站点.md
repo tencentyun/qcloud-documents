@@ -128,7 +128,7 @@ vim /usr/share/nginx/html/index.php
 http://云服务器实例的公网 IP/index.php 
 ```
 页面显示如下，则说明 PHP-Nginx 环境配置成功。
-![](https://main.qcloudimg.com/raw/053e4ffd06679c54f2b05b85a0e2880b.png)
+![](https://main.qcloudimg.com/raw/023e93730ca2876c35bfbe4000ff7635.png)
 
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
@@ -178,7 +178,7 @@ mysql_secure_installation
 mysql -uroot -p
 ```
  显示结果如下，则已成功进入 MariaDB。
-![](https://main.qcloudimg.com/raw/0cfea29c0fa72075137a3dda0825c7a4.png)
+![](https://main.qcloudimg.com/raw/cd3996d219c989911dbc3eb397047ce4.png)
 
 ### 安装和配置 WordPress
 #### 下载 
