@@ -33,8 +33,8 @@ LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的
 LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 CentOS7.5
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.12.2
-- MariaDB：一个数据库管理系统，本文使用 MariaDB10.2.4
-- PHP：Web 服务器生成网页的程序，本文使用 PHP7.2.17
+- MariaDB：一个数据库管理系统，本文使用 MariaDB10.4.6
+- PHP：Web 服务器生成网页的程序，本文使用 PHP7.3.7
 
 #### 使用 yum 安装软件和配置
 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
@@ -255,7 +255,7 @@ vim wp-config.php
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
-### 验证 WordPress 安装
+#### 验证 WordPress 安装
 1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 worspress 文件夹，例如：
 ```
 http://192.xxx.xxx.xx /wordpress
