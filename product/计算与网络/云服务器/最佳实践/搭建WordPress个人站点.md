@@ -90,23 +90,25 @@ systemctl enable nginx
 ![ 测试Nginx2](https://main.qcloudimg.com/raw/dc7ccc6220299225de75c521620423b4.png)
 
 #### 安装配置 PHP
-1. 执行以下命令，更新 yum 中 PHP 的镜像源。
+>?请参照 [PHP官网](https://www.php.net/) 最新版本，根据您的需要进行 PHP 版本升级。
+>
+1. 执行以下命令，更新 yum 中 PHP 的软件源。
 ```
-rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm 
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+yum install epel-release 
+yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm  
 ```
-2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
+2. 执行以下命令，查看可安装的 PHP 7.3 的所有包。
 ```
-yum search php72w 
+yum search php73
 ```
 3. 执行以下命令，安装需要的包。
 ```
-yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
+yum -y install php73.x86_64 php73-php-cli.x86_64 php73-php-common.x86_64 php73-php-fpm.x86_64 php73-php-mysqlnd.x86_64
 ```
 4. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
 ```
-systemctl start php-fpm
-systemctl enable php-fpm
+systemctl start php73-php-fpm
+systemctl enable php73-php-fpm
 ```
 
 #### 验证 PHP-Nginx 环境配置
@@ -117,7 +119,7 @@ vim /usr/share/nginx/html/index.php
 2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
 <?php
-	echo "hello world!";
+	Hello World!();
 ?>
 ```
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
@@ -125,8 +127,8 @@ vim /usr/share/nginx/html/index.php
 ```
 http://云服务器实例的公网 IP/index.php 
 ```
-页面显示如下，则说明 LNMP 环境配置成功。
-![验证环境1](https://main.qcloudimg.com/raw/7a61a5dcc24ca00b9a50036a0ba1aa12.png)
+页面显示如下，则说明 PHP-Nginx 环境配置成功。
+![](https://main.qcloudimg.com/raw/053e4ffd06679c54f2b05b85a0e2880b.png)
 
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
@@ -139,16 +141,31 @@ rpm -qa | grep -i mariadb
 ```
 yum remove 包名
 ```
-3. 执行以下命令，安装 MariaDB。
+3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
 ```
-yum -y install mariadb mariadb-server
+vi /etc/yum.repos.d/MariaDB.repo
 ```
-4. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
+>?请参照 [MariaDB 镜像源](http://mirrors.cloud.tencent.com/mariadb/yum/) 最新版本，根据您的需要自行替换源。
+>
+4. 按 **i** 切换至编辑模式，写入并保存以下内容。
+```
+# MariaDB 10.4 CentOS7-amd64
+[mariadb]  
+name = MariaDB  
+baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
+gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
+gpgcheck=1  
+```
+5. 执行以下命令，安装 MariaDB。
+```
+yum -y install MariaDB-client MariaDB-server
+```
+6. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
 systemctl start mariadb
 systemctl enable mariadb
 ```
-5. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
+7. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
 > - 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
 > - 首次输入 root 帐户密码后，需按 “**Enter**”（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
@@ -156,7 +173,7 @@ systemctl enable mariadb
 ```
 mysql_secure_installation
 ```
-6. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
+8. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
 ```
 mysql -uroot -p
 ```
@@ -174,8 +191,8 @@ rm -rf /usr/share/nginx/html/index.php
 2. 依次执行以下命令，进入`/usr/share/nginx/html/`目录，并下载与解压 WordPress。
 ```
 cd /usr/share/nginx/html
-wget https://cn.wordpress.org/wordpress-4.7.4-zh_CN.tar.gz
-tar zxvf wordpress-4.7.4-zh_CN.tar.gz
+wget https://cn.wordpress.org/wordpress-5.0.4-zh_CN.tar.gz
+tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 ```
 
 <span id="database"></span>
@@ -238,10 +255,9 @@ vim wp-config.php
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
-#### 验证 WordPress 安装
-1. 在浏览器地址栏输入云服务器实例的公网 IP 或在 IP 后加上 wordperss 文件夹，例如：
+### 验证 WordPress 安装
+1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 worspress 文件夹，例如：
 ```
-http://192.xxx.xxx.xx 
 http://192.xxx.xxx.xx /wordpress
 ```
 转至 WordPress 安装页，开始配置 WordPress。
