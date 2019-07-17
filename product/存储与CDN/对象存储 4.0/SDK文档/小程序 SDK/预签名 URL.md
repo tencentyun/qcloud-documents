@@ -37,11 +37,11 @@ var Authorization = COS.getAuthorization({
 | --------- | ------------------------------------------------------------ | ------ | ---- |
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
-| Method    | 操作方法，如 get，post，delete， head 等 HTTP 方法           | String | 是   |
+| Method    | 操作方法，例如 GET，POST，DELETE， HEAD 等 HTTP 方法           | String | 是   |
 | Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String | 否   |
 | Query     | 请求的 query 参数对象                                        | Object | 否   |
 | Headers   | 请求的 header 参数对象                                       | Object | 否   |
-| Expires   | 签名几秒后失效，默认900                                      | Number | 否   |
+| Expires   | 签名几秒后失效，默认为900s                                      | Number | 否   |
 
 #### 返回值说明
 
@@ -137,7 +137,7 @@ cos.getObjectUrl({
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String  | 是   |
 | Sign    | 是否返回带有签名的 Url                                       | Boolean | 否   |
-| Method  | 操作方法，如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
+| Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
 | Expires | 签名几秒后失效，默认为900s                                      | Number  | 否   |
@@ -146,7 +146,7 @@ cos.getObjectUrl({
 
 返回值是一个字符串，有以下两种情况：
 
-1. 如果签名计算可以同步计算（如：实例化传入了 SecretId 和 SecretKey），则默认返回带签名的 url。
+1. 如果签名计算可以同步计算（例如，实例化传入了 SecretId 和 SecretKey），则默认返回带签名的 url。
 2. 否则返回不带签名的 url。
 
 #### 回调函数说明
