@@ -1,4 +1,4 @@
-实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/b9df057b0bdddf30e3a2b3bc404ccb22/java_realtime_asr_sdk_v1.0.tar.gz)。
+实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/c5a6e92b2d0f3fb1615158bd90de1c96/java_realtime_asr_sdk_v1.1.tar.gz)。
 
 
 ## 功能简介
@@ -36,9 +36,9 @@ JAR 包使用步骤举例如下：
 
 添加完成后，用户可在工程中使用实时语音 SDK 。
 
-## 获取用户信息
+## <span id="result">获取用户信息</span>
 -  使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。  
-- 关于云 API 账号中的 AppID，SecretId 与 SecretKey查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。 
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。 
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 - 在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。这一步相当于注册，否则无法使用。
 
@@ -68,14 +68,14 @@ public class AsrBaseConfig {
 
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
-| appid |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](https://cloud.tencent.com/document/product/441/19635?!editLang=zh&!preview#.E8.8E.B7.E5.8F.96.E7.94.A8.E6.88.B7.E4.BF.A1.E6.81.AF)。 |
+| appid |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](#result)。 |
 | secretid | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | sub\_service\_type | 否 | Int | 子服务类型。1：实时流式识别。|
 | engine\_model\_type | 否 | String | 引擎类型引擎模型类型。8k_0:8k 通用，16k_0:16k 通用，16k_en:16k英文。|
 | result\_text\_format | 否 | Int | 识别结果文本编码方式。0：UTF-8；1：GB2312；2：GBK；3：BIG5|
 | res_type | 否 | Int | 结果返回方式。 1：同步返回；0：尾包返回。|
 | voice_format | 否 | Int | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3(仅16k_0模型支持)。|
-| needvad | 否 | Int | 0为不需要vad，1代表需要vad |
+| needvad | 否 | Int | 0为后台不做 vad 分段，1为后台做自动 vad 分段。|
 | nonce | 是 | Int | 随机正整数。用户需自行生成，最长10位。|
 | seq | 是 | Int | 	语音分片的序号从0开始。|
 | end | 是 | Int | 是否为最后一片，最后一片语音片为1，其余为0。 |
@@ -93,11 +93,11 @@ public class AsrBaseConfig {
 | code |  0：正常，其他，发生错误。 |
 | message | 如果是0就是 success，不是0就是错误的原因信息。 |
 | voice_id | 表示这通音频的标记，同一个音频流这个标记一样。 |
-| seq | 语音分片的信号。<br> 如果请求参数 needvad为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 |
-| text |  如果请求参数 needvad 为0的，表示不需要后台做 vad，text 的值是分片的识别结果<br>如果请求参数needvad为1的话，表示需要后台做 vad，因为后台做 vad 的话，vad会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，text 为"" |
-| result_number | 表示后面的result\_list里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示result\_list有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
-| result_list | slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  这个分片在整个音频流中的开始时间<br>end\_time 这个分片在整个音频流中的结束时间<br>voice\_text_str 识别结果 |
-| final | 0 表示还在整个音频流的中间部分<br>1 表示是整个音频流的最后一个包。<br>在电信场景中，客户端发送完之后，是否返回的是最后一个包。 |
+| seq | 语音分片的信号。<br> 如果请求参数 needvad为0的话，表示不需要后台做 vad，这里的 seq 就是发送过来的 seq 的序号。<br>如果请求参数 needvad 为1，则表示需要后台做 vad，因后台做 vad ，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，这里返回的 seq 就为0 。|
+| text |  如果请求参数 needvad 为0的，表示不需要后台做 vad，text 的值是分片的识别结果。<br>如果请求参数 needvad 为1的话，表示需要后台做 vad，因为后台做 vad 的话，vad 会重新分片，送入识别的 seq 会和发送过来的 seq 不一样，text 为"" 。|
+| result_number | 请求参数 needvad=1， 此字段有效<br>result_number 表示后面的 result_list 里面有几段结果，如果是0表示没有结果，可能是遇到中间是静音了。<br>如果是1表示 result\_list 有一个结果， 在发给服务器分片很大的情况下可能会出现多个结果，正常情况下都是1个结果。 |
+| result_list | 请求参数 needvad=1， 此字段有效 <br>slice\_type: 返回分片类型标记， 0表示一小段话开始，1表示在小段话的进行中，2表示小段话的结束<br>index 表示第几段话<br>start\_time  当前分片所在小段的开始时间（相对整个音频流）。<br>end\_time 当前分片在整个音频流中的结束时间。<br>voice\_text_str 识别结果。 |
+| final | 0 表示还在整个音频流的中间部分。<br>1 表示是整个音频流的最后一个包。<br>例如在电信电话场景中，是否是客户端发送的最后一个包的识别结果。 |
 
 **请求 url 参数示例**
 

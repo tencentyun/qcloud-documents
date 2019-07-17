@@ -1,11 +1,11 @@
-﻿## 简介
-#### 腾讯云 TUIKit
+## 简介
+### 腾讯云 TUIKit
 
-TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，里面提供了一些通用的 UI 组件，开发者可通过该组件库选取自己所需要的组件快速的搭建一个 IM 应用。
-IM 软件都具备一些通用的 UI 界面，如会话列表，聊天界面等。TUIKit 提供了这一类的组件，并提供了灵活的 UI 和交互扩展接口，方便用户做个性化开发。
+TUIKit 是基于腾讯云 IM SDK 的一款 UI 组件库，它提供了一类通用的 UI 组件，开发者可通过该组件库选取自己所需的组件快速搭建一个 IM 应用。
+IM 应用都具备一些通用的 UI 界面，如会话列表，聊天界面等。TUIKit 提供了这一类的组件，并提供了灵活的 UI 和交互扩展接口，方便用户做个性化开发。
 
-#### IM SDK 与 TUIKit 的结合
-腾讯云 IM SDK 提供了 IM 通信所需的各种基础能力，如通信网络，消息收发、存储，好友关系链，用户资料等。 TUIKit 中的组件在实现 UI 功能的同时调用 IM SDK 相应的接口实现了 IM 相关逻辑和数据的处理，因而开发者在使用 TUIKit 时只需关注自身业务或做一些个性化的扩展即可。
+### IM SDK 与 TUIKit 的结合
+腾讯云 IM SDK 提供了 IM 通信所需的各种基础能力，例如通信网络，消息收发、存储，好友关系链以及用户资料等。 TUIKit 中的组件在实现 UI 功能的同时，调用 IM SDK 相应的接口实现 IM 相关逻辑和数据的处理，因而开发者在使用 TUIKit 时只需关注自身业务或做一些个性化的扩展即可。
 
 ### 帐号相关概念
 - **用户标识（UserID）**：
@@ -24,25 +24,24 @@ UserSig（用户签名）用于对一个用户进行鉴权认证，确认用户�
 4. IM 服务器返回登录结果。
 
 ## TUIKit 效果图
-
-<div align="center">
+会话列表，通讯录相关界面演示：
+<div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/367185/1560518740493-e5a89223-4cb4-44df-a9a5-665e78b67983.gif#align=left&display=inline&height=674&name=%E4%BC%9A%E8%AF%9D%E5%88%97%E8%A1%A8.gif&originHeight=674&originWidth=380&size=319844&status=done&width=380" width="300" height="535">
 </div>
-
-<div align="center">
+聊天界面收发消息演示：
+<div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/367185/1560519391978-f7dbd5fa-8ee7-4b4c-9e71-c7e8d6c5b01b.gif#align=left&display=inline&height=674&name=%E8%81%8A%E5%A4%A9%E6%BC%94%E7%A4%BA.gif&originHeight=674&originWidth=380&size=918355&status=done&width=380" width="300" height="535">
 </div>
-
-<div align="center">
+输入区域自定义部分功能演示：
+<div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/366128/1559825875054-fdfb0919-1f59-4382-924a-b2197f813ab4.gif#align=left&display=inline&height=533&name=add.gif&originHeight=1920&originWidth=1080&size=547272&status=done&width=300" width="300" height="535">
 </div>
-
-
-<div align="center">
+输入区域自定义按钮事件演示：
+<div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/366128/1559825509248-ebb52b9b-8fee-421f-ad32-f2a12192167c.gif#align=left&display=inline&height=533&name=replace%2B.gif&originHeight=1920&originWidth=1080&size=177751&status=done&width=300" width="300">
 </div>
-
-<div align="center">
+输入区域自定义全部功能演示：
+<div>
 <img src="https://cdn.nlark.com/yuque/0/2019/gif/366128/1559826601807-394ea189-6188-47e7-bfe8-bb19c67b9dbb.gif#align=left&display=inline&height=587&name=new.gif&originHeight=1920&originWidth=1080&size=508813&status=done&width=330" width="300" height="535">
 </div>
 
@@ -122,6 +121,6 @@ UserSig（用户签名）用于对一个用户进行鉴权认证，确认用户�
 
 ## 快速体验
 
-欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/zhaoyang21cn/IMTUIkit_android)。
+欢迎扫码体验我们的 DEMO，后续会继续完善。更多最新资讯请关注 [这里](https://github.com/tencentyun/TIMSDK)。
 
 ![](https://main.qcloudimg.com/raw/fe3ef4a58c3efa5388e57a653133f392.png)

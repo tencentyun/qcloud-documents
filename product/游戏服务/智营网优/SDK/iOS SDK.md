@@ -2,7 +2,7 @@
 
 ### 1.1 SDK 获取
 登录腾讯云控制台,在智营网优管理后台下载 SDK。  
-*** 注意：本产品需要申请通过后才能访问管理后台 ***
+>!本产品需要申请通过后才能访问管理后台。
 
 ### 1.2 SDK 配置
 #### 1.2.1 安装包结构
@@ -41,8 +41,8 @@
 	<true/>
 </dict>
 ```
-> **注意:**
-> 在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+
+>!在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
 
 5) 完成，按照所需调用相应接口即可。
 
@@ -66,7 +66,7 @@
 
 |参数 | 含义 | 
 |---------|---------|
-| appid | 惟一标识该应用,即腾讯云控制台加速服务的游戏ID | 
+| appid | 惟一标识该应用,即腾讯云控制台加速服务的游戏 ID | 
 | isDebug | 控制 log 的输出方便联调 | 
 | zoneid | 玩家大区 ID | 
 | isReleaseEnv | 云控正式环境，默认直接填 YES 即可 | 
@@ -156,7 +156,7 @@
 NSString * tag; // 游戏传入的Tag
 int flag; // 查询成功标识，若为0则成功
 NSString * desc; // 查询flag的具体描述
-int jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
+int jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: Wi-Fi
 int jump_signal; // 信号强度
 int signal_status = -1; // 0表示绿色，信号强；1表示黄色，信号弱；2表示红色，信号极弱
 NSString * signal_desc = ""; // 3、信号强度描述
@@ -169,11 +169,11 @@ int export_status = -1; // 宽带出口和基站出口状态
 NSString * export_desc = ""; //宽带出口和基站出口描述
 int jump_proxy; // ping代理时延
 int jump_edge; // ping边缘时延
-int jump_terminal; // wifi终端数 
+int jump_terminal; // Wi-Fi终端数 
 // terminal状态,0表示绿色终端数少；2表示红色，时延高   
-int terminal_status = -1; //wifi终端数状态
-NSString * terminal_desc = ""; //wifi终端数描述
-int jump_terminal; // wifi终端数
+int terminal_status = -1; //Wi-Fi终端数状态
+NSString * terminal_desc = ""; //Wi-Fi终端数描述
+int jump_terminal; // Wi-Fi终端数
 int jump_direct; // 直连测速时延
 // 直连状态,0表示绿色时延低；2表示红色，时延高
 int direct_status; // 直连测速时延状态
@@ -243,7 +243,7 @@ int netinfo_desc; // 网卡情况具体描述
 
 具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
 
-WIFI 直连环境下图示如下：
+Wi-Fi 直连环境下图示如下：
 ![](https://mc.qcloudimg.com/static/img/8be2ccf30041db352caed1d98b524bab/wifi-android.png)
 
 4G 直连环境下图示如下：

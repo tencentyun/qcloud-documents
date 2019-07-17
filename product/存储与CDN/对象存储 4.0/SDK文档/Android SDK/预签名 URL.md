@@ -190,7 +190,7 @@ try
 		.setDebuggable(true)
 		.builder();
 	//使用临时密钥初始化QCloudCredentialProvider
-	QCloudCredentialProvider  qCloudCredentialProvider = = new BasicLifecycleCredentialProvider() {
+	QCloudCredentialProvider  qCloudCredentialProvider = new BasicLifecycleCredentialProvider() {
           @Override
           protected QCloudLifecycleCredentials fetchNewCredentials() throws QCloudClientException {
               return new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime);
