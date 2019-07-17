@@ -1,15 +1,15 @@
 ## 最新版本 4.4.716 @2019.07.16
 
 
-**iOS & Mac平台**
+**iOS & Mac 平台**
 
 - API 整理合并
-- 文件、视频、语音消息增加获取下载url的接口
+- 文件、视频、语音消息增加获取下载 URL 的接口
 - 新增 disableStorage 接口，禁用所有本地存储
 - 修复发送在线消息后，发送端 conversation 获取 lastMsg 还能获取到的问题
 - getSenderProfile 接口去掉返回值，统一通过回调返回
 - 群组的函数 modifyReciveMessageOpt 修改为 modifyReceiveMessageOpt
-- 修复 2.X/3.X 版本给 iOS 4.X 版本发视频消息，视频截图拿不到的问题
+- 修复 2.X/3.X 版本给 iOS 4.X 版本发视频消息，视频截图无法获取的问题
 - 修复退出时数据上报偶现崩溃问题
 - 优化登录模块（重复登录/频繁登录/频繁切换账号/自动上线/离线被踢）
 - 修复退群/群解散后无法清除未读数问题
@@ -20,7 +20,7 @@
 - initStorage 传参  TIMLoginParam 修改为 userID
 - 去掉多账号同时登陆接口（newManager，getManager，deleteManager）
 - 修复 respondsToLocator 偶现崩溃的问题 
-- 修复 TIMGroupInfo -> lastMsg 调用相关函数偶现 crash 的问题
+- 修复 TIMGroupInfo > lastMsg 调用相关函数偶现 crash 的问题
 - TUIKit
   - 优化最近联系人列表更新算法，减少刷新频率
   - 解决黑名单内存泄漏
@@ -28,17 +28,17 @@
   - 解决最近联系人与聊天窗口没有显示最新头像问题
   - 优化文档注释
 
-**Android平台**
+**Android 平台**
 
 - 整理与合并 API 接口
   - TIMManager 增加 TIMManagerExt 中的所有接口
   - TIMConversation 增加 TIMConversationExt 中的所有接口
   - TIMGroupManager 增加 TIMGroupManagerExt 中的所有接口
   - TIMMessage 增加 TIMMessageExt 中的所有接口
-  - 当前保留 TIMManagerExt、TIMMessageExt、TIMConversationExt、TIMGroupManagerExt 类原有接口以做兼容，后续这些类将废弃
+  - 当前保留 TIMManagerExt、TIMMessageExt、TIMConversationExt、TIMGroupManagerExt 类原有接口以做兼容，后续这些类将下线
 - 加好友增加单向和双向的选项 
 - 新增 disableStorage 接口，禁用所有本地存储
-- 文件、视频、语音消息增加获取下载 url 的接口
+- 文件、视频、语音消息增加获取下载 URL 的接口
 - 修复部分 android 手机，queryUserProfile 为 null 的问题
 - 修复发送在线消息后，发送端 conversation 获取 lastMsg 还能获取到的问题
 - getSenderProfile 接口去掉返回值，统一通过回调返回
@@ -60,7 +60,7 @@
   - 修复本地发送的语音消息，换一台手机后通过漫游的方式无法下载成功问题
   - 修复群主设置群名称为空时提示修改成功，实际上是修改失败的问题
 
-**Windows平台**
+**Windows 平台**
 
 - 修复发送图片、文件、音频、视频等消息包含中文路径，不同终端发送中文问题
 - 修复 TIMMsgReportReaded 已读上报无效问题
@@ -77,7 +77,7 @@
 
 **Android平台**
 
-- 修复离线推送问题及崩溃问题
+ 修复离线推送问题及崩溃问题
 
 
 ## 4.4.627 @2019.06.27
