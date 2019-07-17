@@ -35,7 +35,7 @@
 其它操作系统可参考以下操作进入【Windows 更新】：
 - Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;width: 22px;"></img> >【控制面板】>【系统与安全】>【Windows 更新】
 - Windows Server 2008：【开始】>【控制面板】>【系统与安全】>【Windows Update】
-- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新与安全】
+- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新和安全】
 - Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统与安全】>【Windows Update】
 
 
