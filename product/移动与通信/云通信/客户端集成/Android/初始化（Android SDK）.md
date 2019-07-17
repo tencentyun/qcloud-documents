@@ -132,10 +132,7 @@ if (SessionWrapper.isMainProcess(getApplicationContext())) {
 ```
 ## 用户配置
 
-在初始化 IM SDK 后，登录 IM SDK 之前，需要设置用户配置。IM SDK 的用户配置分四部分，分别如下：
-+ 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
-+ 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
-
+在初始化 IM SDK 后，登录 IM SDK 之前，可以通过 TIMUserConfig 进行用户配置，从4.4.716版本开始将不再使用 TIMUserConfigMsgExt。
 配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
 
 **原型：**
