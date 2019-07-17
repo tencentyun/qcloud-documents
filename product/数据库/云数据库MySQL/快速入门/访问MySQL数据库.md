@@ -1,4 +1,4 @@
-连接到 MySQL 数据库的方式有两种：
+连接到 MySQL 数据库的方式有三种：
 - **内网访问**：CVM访问自动分配给数据库的内网地址，这种访问方式使用内网高速网络，延迟低。
 > !
 > - 使用内网访问CVM和数据库要在同一地域、同一账号且同一网络类型（都是基础网络或者在同一个 [私有网路 VPC](https://cloud.tencent.com/document/product/215/20046) 下）
@@ -18,6 +18,7 @@
 
  步骤：
 具体使用方式，请参见 [从外网访问数据库](https://cloud.tencent.com/document/product/236/9038)。
+- **对等连接**：对于不同地域或不同账号或不同网络类型的CVM与数据库的内网连接方式，请参见 [对等连接](https://cloud.tencent.com/document/product/553)，收费标准请参见 [对等连接计费概述](https://cloud.tencent.com/document/product/553/18833)。
 
 
 ### 从 Windows 系统登录
@@ -28,8 +29,8 @@
 3. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
 4. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网地址和用户名，密码，单击【OK】进行登录。
-  - Hostname：输入内网（或外网）地址。在控制台中的 MySQL 数据库实例详情页可以查看到目标数据库实例的内网地址，此处以 10.66.238.24 为例。
- - Port：3306，保持为默认端口即可。
+  - Hostname：输入内网（或外网）地址。在控制台中的 MySQL 数据库实例详情页可以查看到目标数据库实例的内网地址，此处以  **.**.***.** 为例。
+ - Port：****  ，保持为默认端口即可。
  - Username：默认为 root。
  - Password：输入您在初始化数据库实例时设置的密码。
 ![](https://main.qcloudimg.com/raw/c480e5db0d2fa40c059af8963a4ff404.png)
@@ -50,7 +51,8 @@ mysql -h hostname -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的内网(或外网) 地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 账户对应的密码。
->- 本例中 hostname 为10.66.238.24。
+>- 本例中 hostname 为**.**.***.**。
+
 >- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
 ![](https://main.qcloudimg.com/raw/cf1d6c76d8a30dea49745699a22c9f7a.png)
