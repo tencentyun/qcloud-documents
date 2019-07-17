@@ -132,8 +132,7 @@
 - 修复 getMessage 获取不到群Tips消息的 MemberChangeList 内容的问题
 - 修复创建一个会话 saveMessage 后，最近会话拉取不到的问题
 - 修复设置日志路径后，盘符的根目录下也有会一个 log 文件问题
-- TUIKit
-  - 已知问题修复
+- 修复 TUIKit 已知问题
 
 **Windows 平台**
 
