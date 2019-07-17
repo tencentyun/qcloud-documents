@@ -15,7 +15,7 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 > !该方法推荐只在前端调试时使用，项目上线不推荐使用前端计算签名的方法，有暴露密钥的风险。
 
-### 使用示例
+#### 使用示例
 
 获取对象下载的鉴权凭证：
 
@@ -49,11 +49,11 @@ var Authorization = COS.getAuthorization({
 
 ## 获取请求预签名 URL
 
-### 上传请求说明
+#### 上传请求说明
 
 在小程序里上传只能通过 POST Object 接口上传文件。这里获取预签名 URL 不适合用在 POST Object 接口。如果需要自行上传文件，请参见 [小程序直传实践](https://cloud.tencent.com/document/product/436/34929) 指引进行操作。
 
-### 下载请求示例
+#### 下载请求示例
 
 示例一：获取不带签名的对象 Url。
 
