@@ -119,7 +119,7 @@ vim /usr/share/nginx/html/index.php
 2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
 ```
 <?php
-	Hello World!();
+	echo "Hello World!";
 ?>
 ```
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
