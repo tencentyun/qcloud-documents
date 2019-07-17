@@ -7,10 +7,10 @@
 //初始化 SDK 基本配置
 TIMSdkConfig config = new TIMSdkConfig(sdkAppId)
 	// .setAccoutType(accountType)     // 该接口已废弃
-        .enableLogPrint(true)              // 是否在控制台打印Log?
-        .setLogLevel(TIMLogLevel.DEBUG)    // Log输出级别（debug级别会很多）
+        .enableLogPrint(true)              // 是否在控制台打印 Log?
+        .setLogLevel(TIMLogLevel.DEBUG)    // Log 输出级别（debug 级别会很多）
         .setLogPath(Environment.getExternalStorageDirectory().getPath() + "/justfortest/")
-				// Log文件存放在哪里？
+				// Log 文件存放在哪里？
 
 //初始化 SDK
 TIMManager.getInstance().init(getApplicationContext(), config);
@@ -36,11 +36,11 @@ TIMManager.getInstance().login(identifier, userSig, new TIMCallBack() {
 });
 ```
 - **onForceOffline**
-如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`），如果用户被踢了，请务必用 Alert 等提示窗提示用户，关于被踢的详细描述，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`），如果用户被踢了，请务必用 Alert 等提示窗提示用户，关于被踢的详细描述，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 ![](https://main.qcloudimg.com/raw/8138b665071522c29ade9de9424ebd51.png)
 
 - **onUserSigExpired**
-每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
 
 ## 登出
 如用户主动注销或需要进行用户的切换，则需要调用注销操作。
@@ -133,7 +133,7 @@ TIMManager.getInstance().addMessageListener(new TIMMessageListener() {//消息�
 });
 ```
 
-**更多消息接收操作请参考 SDK 文档： [消息收发](https://cloud.tencent.com/document/product/269/9150)**。
+**更多消息接收操作请参考 SDK 文档： [消息收发](https://cloud.tencent.com/document/product/269/9232)**。
 
 ## 群组管理
 云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
@@ -181,8 +181,8 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 });
 ```
 
-**更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/9152)**。
+**更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/9236)**。
 
 
 ### 群组消息
-群组消息与 C2C （单聊）消息相同，仅在获取 `Conversation` 时需要将会话类型改为 `TIMConversationType.Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/9150#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
+群组消息与 C2C （单聊）消息相同，仅在获取 `Conversation` 时需要将会话类型改为 `TIMConversationType.Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
