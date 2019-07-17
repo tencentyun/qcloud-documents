@@ -28,7 +28,7 @@
 @end
 ```
 
-在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
+在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `UserID`、`UserSig` 填写相应内容。
 
 ```
 /**
@@ -144,7 +144,7 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 
 ## 获取当前登录用户
 
-通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方帐号，如微信登录，QQ 登录等，登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
+通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `UserID` 相同，如果是第三方帐号，如微信登录，QQ 登录等，登录后会有内部转换过的 `UserID`，后续搜索好友，入群等，都需要使用转换后的 `UserID` 操作。
 
 **原型：**
 
