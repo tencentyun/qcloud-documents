@@ -17,7 +17,7 @@
 
 TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我们基于 LiteAV 框架还研发了 [超级播放器 SDK](https://cloud.tencent.com/product/player)、[移动直播 SDK](https://cloud.tencent.com/product/mlvb) 和 [短视频 SDK](https://cloud.tencent.com/product/ugsv) 等其他终端产品。
 
-如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，这是由于 LiteAV 体系的 SDK 都使用了相同的基础模块。
+由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题。
 
 要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
 
@@ -174,16 +174,16 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td></td>
     <td></td>
     <td style="text-align:center">✔</td>
-		<td style="text-align:center"></td>
+		<td style="text-align:center">-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
 	<tr>
     <td style="text-align:center">视频会议</td>
-    <td style="text-align:center"></td>
-    <td style="text-align:center"></td>
+    <td style="text-align:center">-</td>
+    <td style="text-align:center">-</td>
     <td style="text-align:center">✔</td>
-		<td style="text-align:center"></td>
+		<td style="text-align:center">-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
@@ -193,7 +193,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td></td>
     <td style="text-align:center">✔</td>
     <td></td>
-		<td></td>
+		<td>-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
@@ -202,7 +202,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td></td>
     <td style="text-align:center">✔</td>
     <td></td>
-		<td></td>
+		<td>-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
@@ -211,7 +211,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td></td>
     <td style="text-align:center">✔</td>
     <td></td>
-		<td></td>
+		<td>-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
@@ -220,7 +220,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td></td>
     <td style="text-align:center">✔</td>
     <td></td>
-		<td></td>
+		<td>-</td>
 		<td style="text-align:center">✔</td>
 		<td style="text-align:center">✔</td>
   </tr>
@@ -229,36 +229,36 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">大眼瘦脸</td>
     <td></td>
     <td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
     <td style="text-align:center">V 脸隆鼻</td>
     <td></td>
     <td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
     <td style="text-align:center">✔</td>
   </tr>
 	<tr>
     <td style="text-align:center">动效贴纸</td>
     <td></td>
     <td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr>
     <td style="text-align:center">绿幕抠图</td>
     <td></td>
     <td></td>
-		<td></td>
-		<td></td>
-		<td></td>
+		<td>-</td>
+		<td>-</td>
+		<td>-</td>
     <td style="text-align:center">✔</td>
   </tr>
 </table>
