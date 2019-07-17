@@ -45,15 +45,8 @@ COS 提供以下工具，您可按照自身需求使用：
 
 - **COS 本地同步工具**
  - 其他用户建议通过 COS 本地同步工具上传。
+ - 点击下载 [本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")，使用指引参考 [本地同步工具使用说明](https://cloud.tencent.com/document/product/436/15392)。
 
- - 点击下载 [本地同步工具](https://github.com/tencentyun/cos_sync_tools_v5 "COS同步工具")，使用指引参考 [本地同步工具使用说明](https://cloud.tencent.com/document/product/436/15392)。其中重点配置信息说明如下：
-![同步工具配置信息](https://mc.qcloudimg.com/static/img/fcafb9aa397b49c39b720430d27f2350/image.png)
-     1. **secret_id** 和 **secret_key**
-指用户的云 API 密钥，可从云 API 密钥控制台的 API 密钥菜单中获取。若还没有云 API 密钥，用户可在控制台上新建。点此进入 [云 API 密钥控制台](https://console.cloud.tencent.com/capi)。
-     2. **Bucket**
-指对象存储的存储桶名称，此处使用系统分配的项目关联 Bucket，获取方式见步骤 1.2。
-     3. **Region**
-指文件所属地域，此处固定为 ap-guangzhou。
 
 ## 二、分析计算 ##
 开通双螺旋 WGS FPGA 内测权限后，请在** 作业管理** 菜单中新建 FPGA 作业进行分析计算，操作指引如下：
