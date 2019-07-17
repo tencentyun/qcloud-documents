@@ -18,7 +18,7 @@
 - 优化单聊未读计数问题
 - autoLogin 传参 TIMLoginParam 修改为 userID
 - initStorage 传参  TIMLoginParam 修改为 userID
-- 去掉多账号同时登陆接口（newManager，getManager，deleteManager）
+- 去掉多账号同时登录接口（newManager，getManager，deleteManager）
 - 修复 respondsToLocator 偶现崩溃的问题 
 - 修复 TIMGroupInfo > lastMsg 调用相关函数偶现 crash 的问题
 - TUIKit
@@ -39,7 +39,7 @@
 - 加好友增加单向和双向的选项 
 - 新增 disableStorage 接口，禁用所有本地存储
 - 文件、视频、语音消息增加获取下载 URL 的接口
-- 修复部分 android 手机，queryUserProfile 为 null 的问题
+- 修复部分 Android 手机，queryUserProfile 为 null 的问题
 - 修复发送在线消息后，发送端 conversation 获取 lastMsg 还能获取到的问题
 - getSenderProfile 接口去掉返回值，统一通过回调返回
 - 修复退出时数据上报偶现崩溃问题
@@ -109,7 +109,7 @@
   - 解决 iOS 13 兼容性问题
   - 已知问题修复
 
-**Android平台**
+**Android 平台**
 
 - 修复无网络时发消息超时长的问题
 - 修复消息发送后 ID 值变化的问题
@@ -135,7 +135,7 @@
 - TUIKit
   - 已知问题修复
 
-**Windows平台**
+**Windows 平台**
 
 - 修复无网络时发消息超时长的问题
 - 修复消息发送后 ID 值变化的问题
