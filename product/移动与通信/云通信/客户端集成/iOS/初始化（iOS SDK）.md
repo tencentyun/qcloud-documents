@@ -30,7 +30,7 @@ TIMManager * manager = [TIMManager sharedInstance];
  *
  *  @return 0 成功
  */
-- (int)initSdk:(TIMSdkConfig*)config;
+- (int)initSdk:(TIMSdkConfig*)globalConfig;
 
 /**
  *  初始化当前manager，在initSdk:后调用，login:前调用
@@ -51,7 +51,7 @@ TIMManager * manager = [TIMManager sharedInstance];
 
 ```
 /**
- *  消息回调
+ *  新消息接收回调
  */
 @protocol TIMMessageListener <NSObject>
 @optional
