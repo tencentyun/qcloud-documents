@@ -56,7 +56,7 @@
 1. **系统确认被入侵后，往往系统文件会被更改和替换，此时系统已经变得不可信，最好的方法就是重新安装系统，同时给新系统安装所有补丁**。
 1. 改变所有系统账号的密码为 **复杂密码**（至少与入侵前不一致）。
 1. **修改默认远程桌面端口**，操作如下：
- 1. 单击【开始】>【运行】，然后输入 regedit。
+ 1. 选择【开始】>【运行】，然后输入 regedit。
  2. 打开注册表，进入如下路径： HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server\Wds\rdpwd\Tds\tcp
  3. KEY_LOCAL_MACHINE\SYSTEM\CurrentContro1Set\Control\Tenninal Server\WinStations\RDP-Tcp
  4. 修改下右侧的 PortNamber 值。
