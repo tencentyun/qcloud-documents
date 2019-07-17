@@ -90,7 +90,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 		<td>查询状态数据库，需要支持富查询功能的状态数据库</td>
 	</tr>
 	<tr>
-		<td>ueryResultsIteratorWithMetadata<KeyValue> getQueryResultWithPagination(String query, int pageSize, String bookmark)</td>
+		<td>QueryResultsIteratorWithMetadata<KeyValue> getQueryResultWithPagination(String query, int pageSize, String bookmark)</td>
 		<td>分页查询状态数据库，需要支持富查询功能的状态数据库</td>
 	</tr>
 	<tr>
