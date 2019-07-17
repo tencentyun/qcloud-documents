@@ -151,7 +151,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 服务端返回 JSON 示例： 
 
 ``` 
-{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", audioTime:2.5 }
+{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", "audioTime":2.5 }
 ```
 语音识别系统发起请求，收到请求后，用户侧需要以 JSON 格式回以响应：
 
