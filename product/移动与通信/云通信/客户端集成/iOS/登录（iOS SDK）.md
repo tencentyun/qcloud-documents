@@ -68,7 +68,7 @@ login_param.appidAt3rd = @"123456";
     NSLog(@"Login Failed: %d->%@", code, err);
 }];
 ```
-userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
+UserID 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
 ## 登出
 
 如用户主动注销或需要进行用户的切换，则需要调用注销操作。
