@@ -41,7 +41,7 @@
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img>，选择【设置】。如下图所示：
 ![开始设置](https://main.qcloudimg.com/raw/c5add12cacd642aad479bc356cec04f1.png)
-2. 在打开的 “设置” 窗口中，选择【更新与安全】。如下图所示：
+2. 在打开的 “设置” 窗口中，选择【更新和安全】。如下图所示：
 ![更新与安全](https://main.qcloudimg.com/raw/59c7b0c52eee2c5572b73b062edd3ce9.png)
 3. 在 “更新和安全” 中，选择 【Windows 更新】，单击【检查更新】。如下图所示：
 ![检查更新](https://main.qcloudimg.com/raw/0aefedca7c90bcad7b39de781e9521df.png)
