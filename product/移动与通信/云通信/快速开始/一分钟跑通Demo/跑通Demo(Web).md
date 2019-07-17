@@ -36,7 +36,7 @@
 ## 修改源码配置
 使用编辑器打开 index.html ，修改以下参数配置。  
 <pre>
-var sdkAppID = '', // 填写 <a href="https://cloud.tencent.com/document/product/269/32940#step1">创建应用</a> 中获取的 SDKAppID
+var sdkAppID = '', // 填写 <a href="#step1">创建应用</a> 中获取的 SDKAppID
 </pre>
 
 ## 运行 Demo
