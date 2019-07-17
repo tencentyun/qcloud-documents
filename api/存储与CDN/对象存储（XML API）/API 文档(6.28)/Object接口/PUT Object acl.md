@@ -92,7 +92,7 @@ Container 节点 Owner 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|必选|
 |:---|:-- |:--|:--|:---|
-| ID | AccessControlPolicy.Owner |  Object 持有者 ID，</br>格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; <br>如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
+| ID | AccessControlPolicy.Owner |  Object 持有者 ID</br>格式为：qcs::cam::uin/&lt;OwnerUin&gt;:uin/&lt;SubUin&gt; <br>如果是主帐号，&lt;OwnerUin&gt; 和 &lt;SubUin&gt; 是同一个值 |  String |是|
 | DisplayName | AccessControlPolicy.Owner |  Object 持有者的名称 |  String |是|
 
 Container 节点 AccessControlList 的内容：
@@ -130,7 +130,7 @@ Container 节点 Grantee 的内容：
 #### 响应体
 该请求响应体为空。
 
-### 错误码
+#### 错误码
 该响应可能会出现如下错误码信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 <table>
@@ -156,7 +156,7 @@ Container 节点 Grantee 的内容：
    </tr>
    <tr>
       <td>InvalidRequest</td>
-      <td>请求不合法，如果错误描述中显示"header acl and body acl conflict"，表示不能头部和 body 都有 acl 参数</td>
+      <td>请求不合法，如果错误描述中显示"header acl and body acl conflict"，表示头部和 body 不能同时设置 acl 参数</td>
 			<td nowrap="nowrap">400 <a href="https://tools.ietf.org/html/rfc7231#section-6.5.1">Bad Request</a></td>
    </tr>
 </table>
