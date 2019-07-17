@@ -53,7 +53,7 @@
 在已安装安全更新的机器中，将【加密 Oracle 修正】策略设置为 “易受攻击” 。本方案以 Windows Server 2016 为例，其操作步骤如下：
 >! Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修改注册表来实现。操作步骤请参见 [方案三：修改注册表](#Plan3)。
 >
-1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略略编辑器”。
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略编辑器”。
 >? 您也可使用 “Win+R” 快捷键打开运行界面。
 >
 3. 在左侧导航树中，选择【计算机配置】>【管理模板】>【系统】>【凭据分配】，双击【加密 Oracle 修正】。如下图所示：
