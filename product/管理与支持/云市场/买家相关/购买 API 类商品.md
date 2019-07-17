@@ -1,9 +1,9 @@
 ## 浏览商品
 您可在 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=api) 选购 API 类商品。
 
-## 选择商品
+## 选购商品
 寻找到您所需要的商品后，选择您所需的商品规格以及使用期限，单击【立即购买】。
-![](https://main.qcloudimg.com/raw/fe30641ef619abee9f1454310abe1bca.png)  
+![](https://main.qcloudimg.com/raw/62914a44d876ae9ac23bd188268dbdd5.png)  
 
 ## 核对订单信息并支付 
 核对订单信息，单击【确认购买】后进行支付。
