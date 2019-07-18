@@ -226,7 +226,7 @@ public TIMUserConfig setConnectionListener(TIMConnListener listener)
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 ### 用户状态变更
 
@@ -265,7 +265,7 @@ public interface TIMUserStatusListener {
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 
 ### 用户被踢下线通知
