@@ -3,7 +3,7 @@
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
->- Nginx 版本以 nginx/1.6.2 为例。
+>- Nginx 版本以 nginx/1.16.0 为例。
 >
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -42,8 +42,8 @@
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
  - **文件夹名称**：Nginx
  - **文件夹内容**：
-    - `1_www.domain.com_bundle.crt` 证书文件
-    - `2_www.domain.com.key` 私钥文件
+     - `1_www.domain.com_bundle.crt` 证书文件
+     - `2_www.domain.com.key` 私钥文件
   - **CSR 文件内容**：	`www.domain.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
@@ -56,11 +56,11 @@ server {
         listen 443; #SSL 访问端口号为 443
         server_name www.domain.com; #填写绑定证书的域名
         ssl on; #启用 SSL 功能
-        ssl_certificate 1_www.domain.com_bundle.crt;#证书文件名称
-        ssl_certificate_key 2_www.domain.com.key;#私钥文件名称
+        ssl_certificate 1_www.domain.com_bundle.crt; #证书文件名称
+        ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
         ssl_session_timeout 5m;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #请按照这个协议配置
-        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; #请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_prefer_server_ciphers on;
         location / {
             root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
