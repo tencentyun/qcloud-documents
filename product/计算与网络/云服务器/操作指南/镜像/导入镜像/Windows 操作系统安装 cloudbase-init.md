@@ -2,6 +2,7 @@
 
 本文档以 Windows Server 2012 R2 64位 操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
 
+<span id="PreparationSoftware"></span>
 ## 准备软件
 安装 Cloudbase-Init 需准备以下软件：
 
@@ -9,7 +10,7 @@
 |---------|---------|---------|
 | CloudbaseInitSetup_X_X_XX_xXX.msi | 请根据实际使用的操作系统位数，下载对应的 Cloudbase-Init 安装包：<ul style="margin: 0;"><li>稳定版本：推荐使用该版本安装包<ul style="margin: 0;"><li>Windows 64位 操作系统：[点此获取](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi)</li><li>Windows 32位 操作系统：[点此获取](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x86.msi)</li></ul></li><li>Beta 版本</li></ul>更多详情请参见 [Cloudbase-Init 官网](http://www.cloudbase.it/cloud-init-for-windows-instances/)。 | 用于安装 Cloudbase-Init。  |
 | TencentCloudRun.ps1 | [点此获取](http://cloudinit-1251783334.cosgz.myqcloud.com/TencentCloudRun.ps1) | - |
-| centos-cloud.cfg | [点此获取](http://cloudinit-1251783334.file.myqcloud.com/centos-cloud.cfg) | 用于保证 Cloudbase-Init 可以正常启动。 |
+| localscripts.py | [点此获取](http://cloudinit-1251783334.file.myqcloud.com/localscripts.py) | 用于保证 Cloudbase-Init 可以正常启动。 |
 
 ## 操作步骤
 
@@ -32,7 +33,7 @@
 
 1. 打开 `cloudbase-init.conf` 配置文件。
 `cloudbase-init.conf` 配置文件的默认路径为：`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf` 
-2. 将 cloudbase-init 配置文件替换为以下内容：
+2. 将 `cloudbase-init.conf` 配置文件替换为以下内容：
 ```
 [DEFAULT]
 username=Administrator
@@ -63,4 +64,4 @@ C:\powershell
 PS C:\Set-ExecutionPolicy Unrestricted
 ```
 3. 将 `TencentCloudRun.ps1` 脚本拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts` 路径下。
-4. 将 `centos-cloud.cfg` 文件拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下。
+4. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。
