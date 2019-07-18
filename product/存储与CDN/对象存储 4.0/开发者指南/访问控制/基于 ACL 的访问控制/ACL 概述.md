@@ -62,7 +62,7 @@
 
 ### 预设的 ACL
 
-腾讯云对象存储 COS 支持一系列预设的 ACL 进行授权，这将方便描述简单的权限。使用预设 ACL 描述时，需要在 PUT Bucket/Object 或 PUT Bucket/Object acl 中携带 x-cos-acl 头部并描述所需权限，如果同时在请求正文中携带了 XML 的描述内容，我们将优先选择头部中的描述并忽略请求正文中的 XML 描述。
+对象存储 COS 支持一系列预设的 ACL 进行授权，方便简单权限的描述。使用预设 ACL 描述时，需要在 PUT Bucket/Object 或 PUT Bucket/Object acl 中携带 x-cos-acl 头部并描述所需权限，如果同时在请求正文中携带了 XML 的描述内容，我们将优先选择头部中的描述并忽略请求正文中的 XML 描述。
 
 **存储桶的预设 ACL**
 
