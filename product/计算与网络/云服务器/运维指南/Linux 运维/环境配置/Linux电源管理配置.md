@@ -2,6 +2,7 @@
 
 在 x86 机器中，存在 **APM**（Advanced Power Management，高级电源管理）和 **ACPI**（Advanced Configuration and Power Interface，高级配置和电源接口）两种电源管理方法。ACPI 是 Intel、Microsoft 和东芝共同开发的一种电源管理标准，提供了管理电脑和设备更为灵活的接口，而 APM 是电源管理的老标准。
 Linux 支持 APM 和 ACPI，但这两个标准不能同时运行。在缺省情况下，Linux 默认运行 ACPI 。同时，腾讯云也推荐您使用 ACPI 电源管理方法。
+Linux 系统在没有安装 ACPI 管理程序时，会导致软关机失败。本文档介绍检查 ACPI 安装情况与安装操作。
 
 ## 安装说明
 
