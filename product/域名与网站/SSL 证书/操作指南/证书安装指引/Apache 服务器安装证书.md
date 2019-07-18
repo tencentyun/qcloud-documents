@@ -3,11 +3,12 @@
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>- Apache 版本以 Apache/2.4.6 为例。
 
 ## 前提条件
-- 已准备远程文件拷贝软件，例如 [WinSCP]()。
+- 已准备远程文件拷贝软件，例如 WinSCP。
 - 已准备远程登录工具，例如 PuTTY 或者 Xshell。
-- 已在当前服务器中安装配置 Apache 服务器。
+- 已在当前服务器中安装配置 Apache 服务。
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
@@ -32,40 +33,32 @@
 </tr>
 </table>
 
-
->?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
-
 ## 操作步骤
 
 ### 证书安装
 1. 已在 [SSL 证书管理控制台]() 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。 其中包括 Apache 文件夹和 CSR 文件：
+解压缩后，可获得相关类型的证书文件。 其中包含 Apache 文件夹和 CSR 文件：
  - **文件夹名称**：Apache
  - **文件夹内容**：
     - `1_root_bundle.crt` 证书文件
     - `2_www.domain.com.crt` 证书文件
     - `3_www.domain.com.key` 私钥文件
-  - **CSR 文件内容**：	`www.domain.com.csr` 文件。
+  - **CSR 文件内容**：	`www.domain.com.csr` 文件
+  >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
 3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_www.domain.com.crt` 证书文件以及 `3_www.domain.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
->? 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
-4. 关闭 WinSCP 界面。
-5. 使用远程登录工具。例如，使用 [“PuTTY” 工具]() 登录 Apache 服务器。
-6. 在 `conf.modules.d` 目录下的 00-ssl.conf 配置文件找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）配置语句，并确认该配置语句未被注释，若被注释，请去掉首行的注释符号（`#`），保存配置文件。
-7. 在 httpd.conf 配置文件找到 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并确认该配置语句未被注释。若被注释，请去掉首行的注释符号（`#`），保存配置文件。
- >? 由于操作系统的版本不同，目录结构也不同，请根据实际操作系统版本进行查找。`LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句可能配置在以下配置文件中：
-> - `conf.modules.d` 目录下的 00-ssl.conf 配置文件。
-> - httpd.conf 配置文件。
-> - http-ssl.conf 配置文件。
-> 
+>? 
+>- 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
+5. 使用远程登录工具。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录 Apache 服务器。
+>?首次安装的 Apache 服务器，`conf.d`、`conf`、`conf.modules.d` 等目录默认在 `/etc/httpd` 目录下。
+6. 在 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件找到 `Include conf.modules.d/*.conf`（用于加载配置 SSL 的配置目录）配置语句，并确认该配置语句未被注释。若已注释，请去掉首行的注释符号（`#`），保存配置文件。
+7. 在 `/etc/httpd/conf.modules.d` 目录下的 00-ssl.conf 配置文件找到 `LoadModule ssl_module modules/mod_ssl.so`（用于加载 SSL 模块）配置语句，并确认该配置语句未被注释，若已注释，请去掉首行的注释符号（`#`），保存配置文件。
+ >! 由于操作系统的版本不同，目录结构也不同，请根据实际操作系统版本进行查找。
 > 若以上配置文件中均未找到 `LoadModule ssl_module modules/mod_ssl.so` 和 `Include conf.modules.d/*.conf` 配置语句，请确认是否已经安装 mod_ssl.so 模块。若未安装 mod_ssl.so 模块，您可通过执行`yum install mod_ssl` 命令进行安装。
-> 
 8. 编辑 `/etc/httpd/conf.d` 目录下的 ssl.conf 配置文件。修改如下内容：
->?首次安装的 Apache 服务器，`conf.d` 目录默认在 `/etc/httpd` 目录下。
->
 ```
 <VirtualHost 0.0.0.0:443>
-		DocumentRoot "/var/www/html"
+		DocumentRoot "/var/www/html" 
 		ServerName www.domain.com #填写证书名称
 		SSLEngine on #启用 SSL 功能
 		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com_cert.crt #证书文件的路径
