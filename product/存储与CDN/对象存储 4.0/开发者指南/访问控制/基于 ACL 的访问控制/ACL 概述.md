@@ -84,7 +84,7 @@
 | bucket-owner-read         | 创建者具备 FULL_CONTROL 权限，存储桶拥有者具备 READ 权限                   |
 | bucket-owner-full-control | 创建者和和存储桶拥有者都具备 FULL_CONTROL 权限                             |
 
->!对象不支持授予 public-read-write 权限。
+>?对象不支持授予 public-read-write 权限。
 
 ## 示例
 ### 存储桶的 ACL
