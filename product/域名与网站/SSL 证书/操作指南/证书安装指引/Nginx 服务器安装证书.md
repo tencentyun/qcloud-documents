@@ -3,7 +3,7 @@
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
->- Nginx 版本以 nginx/1.16.0 为例。
+>- Nginx 版本以 `nginx/1.16.0` 为例。
 >
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -50,7 +50,7 @@
 3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录下。
 >? 若无 `/usr/local/nginx/conf` 目录，可通过 `mkdir /usr/local/nginx/conf` 命令行创建。
 4. 使用远程登录工具。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录 Nginx 服务器。
-5. 编辑 Nginx 根目录下的 conf/nginx.conf 文件。修改内容如下：
+5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 ```
 server {
         listen 443; #SSL 访问端口号为 443
