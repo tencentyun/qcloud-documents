@@ -994,6 +994,148 @@ void    setFileName(java.lang.String fileName)
 public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
+### 接收短视频消息
+收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
+
+**`TIMVideo` 成员方法如下：**
+
+```
+
+/**
+ * 获取视频
+ *
+ * @param path 视频保存路径
+ * @param cb   回调
+ * @deprecated
+ */
+getVideo(@NonNull final String path, @NonNull final TIMCallBack cb);
+
+/**
+ * 获取视频
+ *
+ * @param path       视频保存路径
+ * @param progressCb 下载进度回调
+ * @param cb         回调
+ */
+void getVideo(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb)
+
+/**
+ * 获取视频文件大小
+ *
+ * @return 返回视频文件大小
+ */
+long getSize();
+
+/**
+* 获取视频文件uuid
+*
+* @return uuid，可作为唯一标示用于缓存的key
+*/
+String getUuid();
+
+/**
+ * 获取视频时长
+ *
+ * @return 返回视频时长
+ */
+long getDuaration();
+
+/**
+ * 获取视频文件类型
+ *
+ * @return 返回视频文件类型
+ */
+String getType(); 
+```
+
+**`TIMSnapshot` 成员方法如下：**
+```
+/**
+ * 获取截图
+ *
+ * @param path       保存截图的路径
+ * @param progressCb 下载进度回调
+ * @param cb         回调
+ */
+void getImage(final String path, final TIMValueCallBack<ProgressInfo> progressCb, final TIMCallBack cb);
+
+/**
+ * 获取截图
+ *
+ * @param path 保存截图的路径
+ * @param cb   回调
+ * @deprecated
+ */
+void getImage(final String path, final TIMCallBack cb);
+
+/**
+ * 获取截图宽度
+ *
+ * @return 截图宽度
+ */
+long getWidth();
+
+/**
+ * 获取截图高度
+ *
+ * @return 截图高度
+ */
+long getHeight();
+
+/**
+ * 获取截图文件大小
+ *
+ * @return 返回截图文件大小
+ */
+long getSize();
+
+/**
+ * 获取截图文件类型
+ *
+ * @return 返回视频文件类型
+ */
+String getType();
+
+/**
+ * 获取截图文件uuid
+ *
+ * @return uuid，可作为唯一标示用于缓存的key
+ */
+String getUuid(); 
+```
+以收到新消息回调为例，介绍下短视频消息的解析过程，需要先通过element的type判断是TIMVideoElem后
+
+```
+TIMMessage timMsg = msg.getTIMMessage();
+final TIMVideoElem videoEle = (TIMVideoElem) timMsg.getElement(0);
+final TIMVideo video = videoEle.getVideoInfo();
+final TIMSnapshot shotInfo = videoEle.getSnapshotInfo();
+final String path = ”/xxx/“ + videoEle.getSnapshotInfo().getUuid(); //接收到的快照图片保存的路径
+final String videoPath = ”/xxx/“ + video.getUuid(); //接收到的视频保存的路径
+videoEle.getSnapshotInfo().getImage(path, new TIMCallBack() {
+    @Override
+    public void onError(int code, String desc) {
+        Log.e(tag, "下载快照图片失败，code = " + code + ", errorinfo = " + desc);
+    }
+
+    @Override
+    public void onSuccess() {
+        Log.d(tag, "下载快照图片成功");
+    }
+});
+
+video.getVideo(videoPath, new TIMCallBack() {
+    @Override
+    public void onError(int code, String desc) {
+	Log.e(tag, "下载短视频失败，code = " + code + ", errorinfo = " + desc);
+    }
+
+    @Override
+    public void onSuccess() {
+        Log.d(tag, "下载短视频成功");
+    }
+});
+```
 
 ## 消息属性
 
