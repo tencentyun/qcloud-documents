@@ -1008,7 +1008,7 @@ TIMMessageExt msgExt = new TIMMessageExt(msg);
 
 ### 消息是否已读
 
-通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
+通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -1144,7 +1144,7 @@ public TIMMessagePriority getPriority()
 
 ### 已读回执
 
-IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1524,7 +1524,7 @@ IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `T
 public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
 ```
 
-成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229)。
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
 
 **原型：**
 
@@ -1562,9 +1562,9 @@ public boolean checkEquals(@NonNull TIMMessageLocator locator)
 
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
 
-- 关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
-- 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](/doc/product/269/9236#9.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
-- 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/9236#10.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+- 关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](https://cloud.tencent.com/document/product/269/33926#.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
+- 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](https://cloud.tencent.com/document/product/269/9236#.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
+- 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](https://cloud.tencent.com/document/product/269/9236#.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
 
 
 ## 设置后台消息通知栏提醒
