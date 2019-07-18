@@ -1,11 +1,11 @@
 ## 基本概念
 
-访问控制列表（ACL）使用 XML 语言描述，是与资源关联的一个指定被授权者和授予权限的列表，每个存储桶和对象都有与之关联的 ACL，支持向匿名用户或其他腾讯云的根账户授予基本的读写权限。
+访问控制列表（ACL）使用 XML 语言描述，是与资源关联的一个指定被授权者和授予权限的列表，每个存储桶和对象都有与之关联的 ACL，支持向匿名用户或其他腾讯云的主账号授予基本的读写权限。
 
 >!使用与资源关联的 ACL 管理有一些限制：
 >- 资源的拥有者始终对资源具备 FULL_CONTROL 权限，无法撤销或修改。
->- 匿名用户无法成为资源拥有者，此时对象资源的拥有者属于存储桶的创建者（腾讯云根账号）。
->- 仅可对腾讯云 CAM 根账户或匿名用户授予权限，无法授予子用户或用户组权限。
+>- 匿名用户无法成为资源拥有者，此时对象资源的拥有者属于存储桶的创建者（腾讯云主账号）。
+>- 仅可对腾讯云 CAM 主账号或匿名用户授予权限，无法授予子用户或用户组权限。
 >- 不支持对权限附加条件。
 >- 不支持显示拒绝的权限。
 >- 一个资源最多可以拥有100条 ACL 策略。
@@ -14,19 +14,19 @@
 
 ### 身份 Grantee
 
-支持的被授权身份可以是某个 CAM 根账号，或者是某个预设的 CAM 用户组。
+支持的被授权身份可以是某个 CAM 主账号，或者是某个预设的 CAM 用户组。
 
 >!
->- 当您授予了其他腾讯云根账号访问权限时，这个被授权的根账号可以授权其名下的子用户、用户组或角色的访问权限。
+>- 当您授予了其他腾讯云主账号访问权限时，这个被授权的根账号可以授权其名下的子用户、用户组或角色的访问权限。
 >- COS 完全不建议您对匿名用户或 CAM 用户组授予 WRITE、WRITE_ACP 或 FULL_CONTROL 权限。一旦授权许可后，用户组可以对您的资源进行上传、下载、删除等行为，这将会给您带来数据丢失、扣费等风险。
 
 
 在存储桶或对象的 ACL 中支持授予的身份包括：
 
-- 跨账号：请使用根账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得「账号 ID」，例如 `398626565`。
+- 跨账号：请使用主账号的 ID，通过【账号中心】的 [账号信息](https://console.cloud.tencent.com/developer) 获得账号 ID，例如398620000。
 - 预设用户组：请使用 URI 标签标记预设的用户组，支持的用户组包括：
-  - 匿名用户组 -`http://cam.qcloud.com/groups/global/AllUsers` 该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
-  - 认证用户组 -`http://cam.qcloud.com/groups/global/AuthenticatedUsers` 该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
+  - 匿名用户组 -`http://cam.qcloud.com/groups/global/AllUsers`该组代表了世界上任何人都可以无需授权而访问资源，无论请求已签名或者未签名。
+  - 认证用户组 -`http://cam.qcloud.com/groups/global/AuthenticatedUsers`该组代表所有经过腾讯云 CAM 账户认证的用户都可以访问资源。
 
 
 ### 操作 Permission
@@ -39,8 +39,8 @@
 
 | 操作集       | 描述                 | 许可的行为                                                   |
 | ------------ | -------------------- | ------------------------------------------------------------ |
-| READ         | 列出对象             | GetBucket, HeadBucket, GetBucketObjectVersions, ListMultipartUploads |
-| WRITE        | 上传、覆盖和删除对象 | PutObject, PutObjectCopy, PostObject, InitiateMultipartUpload, UploadPart, UploadPartCopy, CompleteMultipartUpload, DeleteObject |
+| READ         | 列出对象             | GetBucket，HeadBucket，GetBucketObjectVersions，ListMultipartUploads |
+| WRITE        | 上传、覆盖和删除对象 | PutObject，PutObjectCopy，PostObject，InitiateMultipartUpload， UploadPart，UploadPartCopy，CompleteMultipartUpload， DeleteObject |
 | READ_ACP     | 读取存储桶的 ACL     | GetBucketAcl                                                 |
 | WRITE_ACP    | 写入存储桶的 ACL     | PutBucketAcl                                                 |
 | FULL_CONTROL | 以上四种权限的集合   | 以上所有行为的集合                                           |
