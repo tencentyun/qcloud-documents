@@ -14,25 +14,22 @@
 <tr>
 <td>名称</td>
 <td>说明</td>
-<td>取值样例</td>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>
 <td>服务器的 IP 地址，用于 PC 连接到服务器。</td>
-<td>192.168.22.10</td>
 </tr>
 <tr>
 <td>用户名</td>
 <td>登录服务器的用户名。</td>
-<td>root</td>
 </tr>
 <tr>
 <td>密码</td>
 <td> 登录服务器的密码。</td>
-<td>abc</td>
 </tr>
 </table>
 
+>?在腾讯云官网购买的云服务器，您可以登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)  获取服务器 IP 地址、用户名及密码。
 
 
 ## 操作步骤
