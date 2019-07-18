@@ -138,7 +138,7 @@ try {
 ```php
 use Qcloud\Sms\SmsStatusPuller;
 try {
-    $sspuller = new SmsStatusPuller($appid, $appkey);
+    $spuller = new SmsStatusPuller($appid, $appkey);
 
     // 拉取短信回执
     $callbackResult = $spuller->pullCallback(10);
