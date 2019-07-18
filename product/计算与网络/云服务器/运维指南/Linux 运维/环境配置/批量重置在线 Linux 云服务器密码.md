@@ -2,9 +2,9 @@
 
 本文档介绍在非关机状态下，多个 Linux 系统云服务器进行批量重置密码的操作。
 
-## 脚本下载
-腾讯云已为您编写好重置操作的脚本，下载该重置脚本，可方便的批量在线重置。
-获取途径：[点此下载](http://batchchpasswd-10016717.file.myqcloud.com/batch-chpasswd.tgz)
+## 下载脚本
+腾讯云已为您编写好重置操作的脚本，下载并解压缩该重置脚本至云服务器中，可方便的批量在线重置。
+获取路径：`http://batchchpasswd-10016717.file.myqcloud.com/batch-chpasswd.tgz`
 
 ## 操作步骤
 
