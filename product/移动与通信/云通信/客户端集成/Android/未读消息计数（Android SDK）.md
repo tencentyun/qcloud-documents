@@ -29,7 +29,7 @@ Log.d(tag, "msg isReaded: " + isReaded);
 
 可通过 `TIMConversationExt` 的 `getUnReadMessageNum` 方法获取当前会话中未读消息的数量。
 
-> **注意：**
+>!
 > 对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
 
 **原型：**
@@ -116,7 +116,7 @@ conExt.setReadMessage(lastMsg, new TIMCallBack() {
 
 ## 多终端已读上报同步
 
-在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。请参考 [会话刷新](/doc/product/269/9229#.E4.BC.9A.E8.AF.9D.E5.88.B7.E6.96.B0.E7.9B.91.E5.90.AC15) 。
+在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。请参考 [会话刷新](https://cloud.tencent.com/document/product/269/9229#.E4.BC.9A.E8.AF.9D.E5.88.B7.E6.96.B0.E7.9B.91.E5.90.AC) 。
 
 **原型：**
 
