@@ -25,7 +25,7 @@
 1. 登录到与数据库实例属于同一个地域且网络可达的 Windows 系统 CVM。
 登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门 </a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
 1. 下载一个标准的 SQL 客户端。推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
-![](//mc.qcloudimg.com/static/img/4d7e6c56f02aad86f232e5cdd8c0bb17/image.png)
+![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
 2. 界面上将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 请选择【No thanks, just start my download.】来快速下载。
 ![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
 3. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
@@ -33,7 +33,7 @@
 4. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
  - Hostname：输入内网（或外网）地址。在 MySQL 控制台中的实例详情页可以查看到目标数据库实例的内网（或外网）地址。
  - Port：内网（或外网）对应端口。
- - Username：默认为 root，建议您单独创建外网访问帐号便于访问控制管理。
+ - Username：默认为 root，外网访问时建议您单独创建帐号便于访问控制管理。
  - Password：Username 对应的密码。
 ![](https://main.qcloudimg.com/raw/c480e5db0d2fa40c059af8963a4ff404.png)
 5. 登录成功的页面如图所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
