@@ -32,9 +32,9 @@
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
 4. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
  - Hostname：输入内网（或外网）地址。在 MySQL 控制台中的实例详情页可以查看到目标数据库实例的内网（或外网）地址。
- - Port：3306，保持为默认端口即可。
- - Username：默认为 root。
- - Password：输入您在初始化数据库实例时设置的密码。
+ - Port：内网（或外网）对应端口。
+ - Username：默认为 root，建议您单独创建外网访问帐号便于访问控制管理。
+ - Password：Username 对应的密码。
 ![](https://main.qcloudimg.com/raw/c480e5db0d2fa40c059af8963a4ff404.png)
 5. 登录成功的页面如图所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)	
@@ -55,7 +55,7 @@ yum install mysql
 mysql -h hostname -u username -p
 ```
 >?
->- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐户对应的密码。
+>- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐号对应的密码。
 >- 本例中 hostname 为10.66.238.24。
 >- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
@@ -65,8 +65,8 @@ mysql -h hostname -u username -p
 mysql -h hostname -P port -u username -p
 ```
 >?
->- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 Enter password：后输入 cdb_outerroot 帐户对应的密码。
->- 外网访问用户名用于外网访问，建议用户单独创建便于访问控制管理。
+>- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 Enter password：后输入 cdb_outerroot 帐号对应的密码。
+>- 外网访问用户名用于外网访问，建议您单独创建便于访问控制管理。
 >- 本例中 hostname 为 59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为15311。
 >
 ![](//mc.qcloudimg.com/static/img/48df6390ccf7669d04403cd84b8b6fad/image.png)
