@@ -17,8 +17,8 @@
 ![](//mccdn.qcloud.com/static/img/b5eb2ee933723e3171d48377f354bc95/image.jpg)
 
 证书规则为：
-- [——-BEGIN CERTIFICATE——-, ——-END CERTIFICATE——-] 开头和结尾；请将这些内容一并上传；
-- 每行64字符，最后一行不超过64字符；
+- [——-BEGIN CERTIFICATE——-, ——-END CERTIFICATE——-] 开头和结尾；请将这些内容一并上传。
+- 每行64字符，最后一行不超过64字符。
 
 2. 中级机构颁发的证书链：
 ——-BEGIN CERTIFICATE——-
@@ -29,8 +29,8 @@
 ——-END CERTIFICATE——-
 
 证书链规则：
-- 证书之间不能有空行；
-- 每一份证书遵守第一点关于证书的格式说明；
+- 证书之间不能有空行。
+- 每一份证书遵守第一点关于证书的格式说明。
 
 ## 2. RSA 私钥格式要求
 
@@ -70,7 +70,7 @@ P7B 格式一般出现在 Windows Server 和 tomcat 中。
 
 获取 outcertificat.cer 里面 [——-BEGIN CERTIFICATE——-， ——-END CERTIFICATE——-] 的内容作为证书上传。
 
-私钥转换：私钥一般在 IIS 服务器里可导出
+私钥转换：私钥一般在 IIS 服务器里可导出。
 
 ### 3.3 PFX 格式证书转换为 PEM 格式
 
