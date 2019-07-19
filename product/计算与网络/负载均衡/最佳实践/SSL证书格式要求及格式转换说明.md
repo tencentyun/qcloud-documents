@@ -56,7 +56,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 ### 3.1 DER 格式证书转换为 PEM 格式
 
-DER 格式一般出现在 JAVA 平台中。
+DER 格式一般出现在 Java 平台中。
 
 证书转换：```openssl x509 -inform der -in certificate.cer -out certificate.pem```
 
