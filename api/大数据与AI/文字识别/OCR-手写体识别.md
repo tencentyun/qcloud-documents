@@ -6,7 +6,7 @@
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/handwriting`
 本接口（handwriting）用于手写体识别。根据用户上传的图像，返回识别出的字段信息。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 
