@@ -15,7 +15,7 @@ CNAME 加速功能是腾讯云 DNSPod 自主研发，旨在解决用户在设置
 这样就极大地减少了请求和应答中网络通信消耗的时间，让解析变得更快，特别是在设置多跳 CNAME 解析记录的情况下，加速效果更明显。
 
 ## 功能开启
-1. 登录腾讯云 [云解析控制台]()，进入 “域名解析列表” 管理页面。
+1. 登录腾讯云 [云解析控制台](https://console.cloud.tencent.com/cns)，进入 “域名解析列表” 管理页面。
 2. 选择您需要开启 CNAME 加速功能的域名行，进入该域名的管理页面。
 3. 单击【域名设置】页签，选择【功能设置】>【CNAME 加速】，并单击<span><img src="https://main.qcloudimg.com/raw/340e01340ee9908b99b80b2f3fb95c79.png" style="margin-bottom:-5px"></span>开启 CNAME 加速功能。如下图所示：
 ![](https://main.qcloudimg.com/raw/449adbec2fa4a51cc3dfd0697f69c553.png)
