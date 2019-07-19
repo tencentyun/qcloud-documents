@@ -87,7 +87,7 @@ systemctl enable nginx
 ```
 7. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
-![ 测试Nginx2](https://main.qcloudimg.com/raw/dc7ccc6220299225de75c521620423b4.png)
+![](https://main.qcloudimg.com/raw/c23831d2579d747625e96afbf45766bb.png)
 
 #### 安装配置 PHP
 >?请参照 [PHP官网](https://www.php.net/) 最新版本，根据您的需要进行 PHP 版本升级。
@@ -104,7 +104,7 @@ cd php-7.3.7
 ```
 3. 执行以下命令，安装编译 PHP 所需依赖库。
 ```
-yum -y install libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel openssl openssl-devel libzip libzip-devel
+yum -y install libxml2 libxml2-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel openssl openssl-devel libzip libzip-devel
 ```
 4. 执行以下命令，进行编译。
 ```
@@ -129,7 +129,7 @@ cp /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
 ```
 vi /usr/local/etc/php-fpm.conf
 ```
-按 “**i**” 进入编辑模式，将该配置文件末尾 `include=NONE/etc/php-fpm.d/*.conf` 修改为 `include=etc/php-fpm.d/*.conf`，按 “**Esc**” 并输入 “**:wq**” 保存并退出。
+按 “**i**” 进入编辑模式，将该配置文件末尾 `include=NONE/etc/php-fpm.d/*.conf` 修改为 `include=etc/php-fpm.d/*.conf` 后，按 “**Esc**” 并输入 “**:wq**” 保存并退出。
 8. 执行以下命令，启动服务。
 ```
 /usr/local/bin/php-fpm
@@ -226,7 +226,7 @@ mysql -uroot -p
 
 ### 安装和配置 WordPress
 #### 下载 
->? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
+>? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
@@ -253,7 +253,7 @@ CREATE DATABASE wordpress;
 ```
 3. 执行以下命令，创建一个新用户。例如 “user”。
 ```
-CREATE USER user@localhost;
+CREATE USER user;
 ```
 4. 执行以下命令，为 “user” 用户设置密码。例如 “wordpresspassword”。
 ```
