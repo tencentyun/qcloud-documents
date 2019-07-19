@@ -34,6 +34,8 @@
 9. 请复制或记录核验完成后自动生成的图片验证码。如下图所示：
 ![](https://main.qcloudimg.com/raw/91a4409d62c6b7c4e8c68e4e4b6deaff.png)
 10. 登录 [腾讯云备案系统](https://console.cloud.tencent.com/beian) ，进入【填写备案信息】，请在【上传材料】模块单击【继续上传】。如下图所示：
+>?具体备案过程请参考 [验证备案信息](https://cloud.tencent.com/document/product/243/18958#.E4.BA.8C.-.E9.AA.8C.E8.AF.81.E5.A4.87.E6.A1.88.E4.BF.A1.E6.81.AF)。
+>
 ![](https://main.qcloudimg.com/raw/66b6cc887ac8d7768c240b8aca69fd57.png)
 11. 在上传材料页面，填写图片验证码，并单击【提交】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c40e9be84c53ee76461525ee16031f6.png)
