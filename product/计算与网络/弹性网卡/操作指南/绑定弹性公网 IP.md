@@ -1,7 +1,7 @@
 本文将为您详细介绍如何绑定弹性公网 IP。
 1. 进入 [私有网络控制台](https://console.cloud.tencent.com/vpc) 。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。
-![](https://main.qcloudimg.com/raw/a27be4768a4fd454621f6ca22feecdcb.png)
+![1](https://main.qcloudimg.com/raw/83ae572bca78f36e30008989cfc5e069.png)
 3. 单击需要绑定的实例 ID，进入详情页。
 4. 单击选项卡中的【IPv4 管理】，查看已绑定的内网 IP。
 ![](https://main.qcloudimg.com/raw/90464144cc1d6d86f763c1c465f47cd3.png)
