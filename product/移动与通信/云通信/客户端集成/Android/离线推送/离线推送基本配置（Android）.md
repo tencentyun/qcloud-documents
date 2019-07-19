@@ -38,7 +38,7 @@
    <tr> 
      <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。</td> 
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例</td> 
    </tr> 
 </table>
 
