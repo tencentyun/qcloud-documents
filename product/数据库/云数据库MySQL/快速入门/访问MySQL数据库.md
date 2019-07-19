@@ -35,9 +35,9 @@
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独创建帐号便于访问控制管理。
  - Password：Username 对应的密码。
-![](https://main.qcloudimg.com/raw/c480e5db0d2fa40c059af8963a4ff404.png)
+![](https://main.qcloudimg.com/raw/9c9e5dcc8a2bb9fa15fa4d98a18308f1.png)
 5. 登录成功的页面如图所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)	
+![](https://main.qcloudimg.com/raw/8f02e50fcc9c5c8dff33bcd2a83e3522.png)
 
 ### 从 Linux 系统登录 
 1. 登录到与数据库实例属于同一个地域且网络可达的 Linux 系统 CVM。
@@ -56,10 +56,9 @@ mysql -h hostname -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐号对应的密码。
->- 本例中 hostname 为10.66.238.24。
 >- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
-![](https://main.qcloudimg.com/raw/cf1d6c76d8a30dea49745699a22c9f7a.png)
+![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
  - 外网访问时，执行以下命令登录到 MySQL 数据库实例。
 ```
 mysql -h hostname -P port -u username -p
@@ -67,9 +66,9 @@ mysql -h hostname -P port -u username -p
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 Enter password：后输入 cdb_outerroot 帐号对应的密码。
 >- 外网访问用户名用于外网访问，建议您单独创建便于访问控制管理。
->- 本例中 hostname 为 59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为15311。
+>- 本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 >
-![](//mc.qcloudimg.com/static/img/48df6390ccf7669d04403cd84b8b6fad/image.png)
+![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
 3. 在 MySQL > 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
