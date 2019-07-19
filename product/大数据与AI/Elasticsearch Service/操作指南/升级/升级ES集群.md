@@ -5,7 +5,7 @@
 
 ES 支持以下两种类型的升级。
 1. Elasticsearch 版本升级
-<table style="width:450px !important;">
+<table style="width:350px !important;">
   <tr>
     <th>源 Elasticsearch 版本</th>
     <th>目标 Elasticsearch 版本</th>
@@ -17,7 +17,7 @@ ES 支持以下两种类型的升级。
 </table>
 
 2. 高级特性升级
-<table style="width:450px !important;">
+<table style="width:350px !important;">
   <tr>
     <th>源高级特性版本</th>
     <th>目标高级特性版本</th>
