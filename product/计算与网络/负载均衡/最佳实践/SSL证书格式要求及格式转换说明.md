@@ -31,7 +31,7 @@
 rsa 私钥可以包括所有私钥（RSA 和 DSA）、公钥（RSA 和 DSA）和 (x509) 证书。它存储用 Base64 编码的 DER 格式数据，用 ascii 报头包围，因此适合系统之间的文本模式传输。
 
 rsa私钥规则：
-- [——-BEGIN RSA PRIVATE KEY——-, ——-END RSA PRIVATE KEY——-] 开头结尾；请将这些内容一并上传；
+- [——-BEGIN RSA PRIVATE KEY——-, ——-END RSA PRIVATE KEY——-] 开头结尾，请将这些内容一并上传。
 - 每行64字符，最后一行长度可以不足64字符。
 
 如果您不是按照上述方案生成私钥，得到[——-BEGIN PRIVATE KEY——-, ——-END PRIVATE KEY——-] 这种样式的私钥，您可以按照如下方式转换：
