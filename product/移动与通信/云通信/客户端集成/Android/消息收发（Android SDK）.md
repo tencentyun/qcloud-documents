@@ -995,9 +995,9 @@ public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
 ### 接收短视频消息
-收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或者存储，开发者可根据 uuid 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
+收到消息后，可用过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或存储，开发者可根据 UUID 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
 
-**`TIMVideo` 成员方法如下：**
+**`TIMVideo`成员方法如下：**
 
 ```
 
@@ -1027,9 +1027,9 @@ void getVideo(@NonNull final String path, final TIMValueCallBack<ProgressInfo> p
 long getSize();
 
 /**
-* 获取视频文件uuid
+* 获取视频文件 UUID
 *
-* @return uuid，可作为唯一标示用于缓存的key
+* @return uuid，可作为唯一标示用于缓存的 key
 */
 String getUuid();
 
@@ -1048,7 +1048,7 @@ long getDuaration();
 String getType(); 
 ```
 
-**`TIMSnapshot` 成员方法如下：**
+**`TIMSnapshot`成员方法如下：**
 ```
 /**
  * 获取截图
@@ -1103,7 +1103,9 @@ String getType();
  */
 String getUuid(); 
 ```
-以收到新消息回调为例，介绍下短视频消息的解析过程，需要先通过element的type判断是TIMVideoElem后
+
+**短视频消息的解析过程：**
+以收到新消息回调为例，需要先通过 element 的 type 判断是否为 TIMVideoElem，若是则表示该消息为短视频消息，需执行以下代码进行解析。
 
 ```
 TIMMessage timMsg = msg.getTIMMessage();
