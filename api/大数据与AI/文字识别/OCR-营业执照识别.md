@@ -5,7 +5,7 @@
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/bizlicense`
 本接口（bizlicense）用于识别用户上传的营业执照图像，返回注册号、法定代表人、公司名字、地址、营业期限这5个字段信息。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 
