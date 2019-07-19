@@ -7,13 +7,11 @@
 >!一般情况下，机构在颁发证书的时候会有对应说明，请注意规则说明。
 
 以下为证书格式和证书链格式范例，请确认格式正确后上传：
-
 1. root CA 机构颁发的证书：证书格式为linux环境下pem格式。样例如下：
 ![](//mccdn.qcloud.com/static/img/b5eb2ee933723e3171d48377f354bc95/image.jpg)
 证书规则为：
  - [——-BEGIN CERTIFICATE——-, ——-END CERTIFICATE——-] 开头和结尾；请将这些内容一并上传。
  - 每行64字符，最后一行不超过64字符。
-
 2. 中级机构颁发的证书链：
 ——-BEGIN CERTIFICATE——-
 ——-END CERTIFICATE——-
@@ -29,9 +27,7 @@
 ## 2. RSA 私钥格式要求
 
 样例如下：
-
 ![](//mccdn.qcloud.com/static/img/6fd4309a24b9f969cd76950712fe8868/image.jpg)
-
 rsa 私钥可以包括所有私钥（RSA 和 DSA）、公钥（RSA 和 DSA）和 (x509) 证书。它存储用 Base64 编码的 DER 格式数据，用 ascii 报头包围，因此适合系统之间的文本模式传输。
 
 rsa私钥规则：
