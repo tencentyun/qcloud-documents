@@ -5,20 +5,34 @@
 
 ES 支持以下两种类型的升级。
 1. Elasticsearch 版本升级
-
-| 源 Elasticsearch 版本 | 目标 Elasticsearch 版本|
-|---------|---------|
-| 5.6.4 | 6.4.3| 
+<table>
+  <tr>
+    <th>源 Elasticsearch 版本</th>
+    <th>目标 Elasticsearch 版本</th>
+  </tr>
+  <tr>
+    <td>5.6.4</td>
+    <td>6.4.3</td>
+  </tr>
+</table>
 
 2. 高级特性升级
-
-| 源高级特性版本 | 目标高级特性版本 |
-|---------|---------|
-| 开源版 |基础版、白金版 |
-|基础版| 白金版|
-
-3. 高级特性版本说明
-基础版和白金版集成了官方高级商业特性插件（原 X-Pack），包含安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，其中基础版只包含 SQL 的一部分和监控，白金版则包含所有高级特性，详细介绍可查看 [高级特性(X-Pack)](https://cloud.tencent.com/document/product/845/34926)。
+<table>
+  <tr>
+    <th>源高级特性版本</th>
+    <th>目标高级特性版本</th>
+  </tr>
+  <tr>
+    <td>开源版</td>
+    <td>基础版、白金版</td>
+  </tr>
+	 <tr>
+    <td>基础版</td>
+    <td>白金版</td>
+  </tr>
+</table>
+ <b>高级特性版本说明：</b></br>
+ 基础版和白金版集成了官方高级商业特性插件（原 X-Pack），包含安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，其中基础版只包含 SQL 的一部分和监控，白金版则包含所有高级特性，详细介绍可查看 [高级特性(X-Pack)](https://cloud.tencent.com/document/product/845/34926)。
 
 >?
 1. 以上两种类型的升级，一次只能操作一种，不能同时操作。特别地，当5.6.4版本升级到6.4.3版本时，可以同时选择升级到基础版。基础版会有 ES 官方高级特性插件 X-Pack 提供的监控和 SQL 等能力，我们建议您在从5.6.4版本升级到6.4.3版本时，也选择升级到基础版。
