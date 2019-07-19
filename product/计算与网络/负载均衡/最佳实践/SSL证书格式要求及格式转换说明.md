@@ -56,7 +56,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 ### 3.1 DER 格式证书转换为 PEM 格式
 
-DER 格式一般出现在 java 平台中。
+DER 格式一般出现在 JAVA 平台中。
 
 证书转换：```openssl x509 -inform der -in certificate.cer -out certificate.pem```
 
@@ -64,7 +64,7 @@ DER 格式一般出现在 java 平台中。
  
 ### 3.2 P7B 格式证书转换为 PEM 格式
 
-P7B 格式一般出现在 windows server 和 tomcat 中。
+P7B 格式一般出现在 Windows Server 和 tomcat 中。
 
 证书转换：```openssl pkcs7 -print_certs -in incertificat.p7b -out outcertificate.cer```
 
@@ -74,7 +74,7 @@ P7B 格式一般出现在 windows server 和 tomcat 中。
 
 ### 3.3 PFX 格式证书转换为 PEM 格式
 
-PFX 格式一般出现在 windows server 中。
+PFX 格式一般出现在 Windows Server 中。
 
 证书转换：```openssl pkcs12 -in certname.pfx -nokeys -out cert.pem```
 
