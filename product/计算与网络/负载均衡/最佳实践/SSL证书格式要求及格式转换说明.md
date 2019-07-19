@@ -8,7 +8,7 @@
 
 以下为证书格式和证书链格式范例，请确认格式正确后上传：
 
-1. root CA 机构颁发的证书：证书格式为 linux 环境下 pem 格式。样例如下：
+1. root CA 机构颁发的证书：证书格式为 Linux 环境下 pem 格式。样例如下：
 
 ![](//mccdn.qcloud.com/static/img/b5eb2ee933723e3171d48377f354bc95/image.jpg)
 
