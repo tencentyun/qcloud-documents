@@ -92,43 +92,83 @@ systemctl enable nginx
 #### 安装配置 PHP
 >?请参照 [PHP官网](https://www.php.net/) 最新版本，根据您的需要进行 PHP 版本升级。
 >
+##### 使用源码编译安装
+1. 依次执行以下命令，下载并解压 PHP 源码包。
+```
+wget https://www.php.net/distributions/php-7.3.7.tar.gz
+tar -xvf php-7.3.7.tar.gz
+```
+2. 执行以下命令，进入 PHP 解压目录。
+```
+cd php-7.3.7
+```
+3. 执行以下命令，安装编译 PHP 所需依赖库。
+```
+yum -y install libxml2 libxml2-devel openssl openssl-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel openssl openssl-devel libzip libzip-devel
+```
+4. 执行以下命令，进行编译。
+```
+./configure --enable-fpm --with-mysqli --disable-fileinfo
+```
+编译成功。如下图所示：
+![](https://main.qcloudimg.com/raw/985e4c0e64bad162b7ef1172100c0dc9.png)
+5. 执行以下命令，构建 PHP。
+```
+make && make install
+```
+构建成功。如下图所示：
+![](https://main.qcloudimg.com/raw/26459747e341f9668cf7e46a7e4fc6cc.png)
+6. 依次执行以下命令，根据构建成功结果图片提示信息进行配置。
+```
+cp php.ini-development /usr/local/php/php.ini
+cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
+cp sapi/fpm/php-fpm /usr/local/bin
+cp /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
+```
+7. 执行以下命令，打开配置文件。
+```
+vi /usr/local/etc/php-fpm.conf
+```
+按 “**i**” 进入编辑模式，将该配置文件末尾 `include=NONE/etc/php-fpm.d/*.conf` 修改为 `include=etc/php-fpm.d/*.conf`，按 “**Esc**” 并输入 “**:wq**” 保存并退出。
+8. 执行以下命令，启动服务。
+```
+/usr/local/bin/php-fpm
+```
+
+##### 使用镜像源安装
+>?使用镜像源安装 PHP 版本为 7.2.19。
+>
 1. 执行以下命令，更新 yum 中 PHP 的软件源。
 ```
-yum install epel-release 
-yum install http://rpms.remirepo.net/enterprise/remi-release-7.rpm  
+rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 执行以下命令，查看可安装的 PHP 7.3 的所有包。
+2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
 ```
-yum search php73
+yum search php72w
 ```
 3. 执行以下命令，安装需要的包。
 ```
-yum -y install php73.x86_64 php73-php-cli.x86_64 php73-php-common.x86_64 php73-php-fpm.x86_64 php73-php-mysqlnd.x86_64
+yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
 4. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
 ```
-systemctl start php73-php-fpm
-systemctl enable php73-php-fpm
+systemctl start php-fpm
+systemctl enable php-fpm
 ```
 
+
 #### 验证 PHP-Nginx 环境配置
-1. 执行以下命令，在 Web 目录下创建`index.php`文件。
+1. 执行以下命令，创建测试文件。
 ```
-vim /usr/share/nginx/html/index.php
+echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
-2. 按 “**i**” 或 “**Insert**” 键切换至编辑模式，写入如下内容。
-```
-<?php
-	echo "Hello World!";
-?>
-```
-3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-4. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功。
+2. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功。
 ```
 http://云服务器实例的公网 IP/index.php 
 ```
 页面显示如下，则说明 PHP-Nginx 环境配置成功。
-![](https://main.qcloudimg.com/raw/023e93730ca2876c35bfbe4000ff7635.png)
+![](https://main.qcloudimg.com/raw/ac7a3da01e026ae0db537bcc26bb97c0.png)
 
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
@@ -139,7 +179,7 @@ rpm -qa | grep -i mariadb
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
 2. <span id="step2">执行以下命令，删除 MariaDB 现有包。</span>
 ```
-yum remove 包名
+yum -y remove 包名
 ```
 3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
 ```
@@ -156,24 +196,28 @@ baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
 gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1  
 ```
-5. 执行以下命令，安装 MariaDB。
+5. 执行以下命令，清楚 yum 缓存。
+```
+yum clean all
+```
+6. 执行以下命令，安装 MariaDB。
 ```
 yum -y install MariaDB-client MariaDB-server
 ```
-6. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
+7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
 systemctl start mariadb
 systemctl enable mariadb
 ```
-7. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
+8. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
 >! 
-> - 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
-> - 首次输入 root 帐户密码后，需按 “**Enter**”（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
+>- 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
+>- 首次输入 root 帐户密码后，需按 “**Enter**”（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
 >
 ```
 mysql_secure_installation
 ```
-8. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
+9. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
 ```
 mysql -uroot -p
 ```
@@ -182,7 +226,7 @@ mysql -uroot -p
 
 ### 安装和配置 WordPress
 #### 下载 
->? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 中文版本并安装，本教程采用 WordPress 中文版本。
+>? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
@@ -196,6 +240,7 @@ tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 ```
 
 <span id="database"></span>
+
 #### 配置数据库
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
@@ -206,17 +251,17 @@ mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
 ```
 CREATE DATABASE wordpress;
 ```
-3. 执行以下命令，创建一个新用户。例如 “user@localhost”。
+3. 执行以下命令，创建一个新用户。例如 “user”。
 ```
 CREATE USER user@localhost;
 ```
-4. 执行以下命令，为 “user@localhost” 用户设置密码。例如 “wordpresspassword”。
+4. 执行以下命令，为 “user” 用户设置密码。例如 “wordpresspassword”。
 ```
-SET PASSWORD FOR user@localhost=PASSWORD("wordpresspassword");
+SET PASSWORD FOR user=PASSWORD("wordpresspassword");
 ```
 5. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
 ```
-GRANT ALL PRIVILEGES ON wordpress.* TO user@localhost IDENTIFIED BY 'wordpresspassword';
+GRANT ALL PRIVILEGES ON wordpress.* TO user IDENTIFIED BY 'wordpresspassword';
 ```
 6. 执行以下命令，使所有配置生效。
 ```
@@ -228,7 +273,6 @@ exit
 ```
 
 ####  写入数据库信息
-
 1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
 ```
 cd /usr/share/nginx/html/wordpress
@@ -251,7 +295,7 @@ vim wp-config.php
 	define('DB_PASSWORD', 'wordpresspassword');
 	
 	/** MySQL hostname */
-	define('DB_HOST', 'localhost');
+	define('DB_HOST', '127.0.0.1');
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
