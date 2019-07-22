@@ -216,7 +216,7 @@ TIMManager.getInstance().setUserConfig(config);
 public void modifySelfProfile(@NonNull HashMap<String, Object> profileMap, @NonNull TIMCallBack cb)
 ```
 
-通过 `profileMap` 可以一次设置多个字段，比如同时设置昵称和性别的代码如下：
+通过 `profileMap` 可以一次设置多个字段，例如同时设置昵称和性别的代码如下：
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
@@ -252,7 +252,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 | `TIM_PROFILE_TYPE_KEY_SELFSIGNATURE` | String      | 签名           |
 | `TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX` | String, int | 自定义字段前缀 |
 
-自定义字段需要您加上我们的前缀。比如后台有一个自定义字段`Blood`，类型为整数，设置代码如下：
+自定义字段需要您加上我们的前缀。例如后台有一个自定义字段`Blood`，类型为整数，设置代码如下：
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
@@ -1240,5 +1240,5 @@ public class TIMProfileSystemType {
 
 ```
 
-当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。比如好友修改了头像，那么 `TIMProfileSystemElem` 中的 `itemMap` 的 `key` 为`Tag_Profile_IM_Image` ， `value` 值为头像的 `url` 地址，其中 `key` 常量值定义在 `TIMUserProfile` 中。
+当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。例如好友修改了头像，那么 `TIMProfileSystemElem` 中的 `itemMap` 的 `key` 为`Tag_Profile_IM_Image` ， `value` 值为头像的 `url` 地址，其中 `key` 常量值定义在 `TIMUserProfile` 中。
 
