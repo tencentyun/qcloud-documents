@@ -34,7 +34,7 @@ LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 CentOS7.5
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.12.2
 - MariaDB：一个数据库管理系统，本文使用 MariaDB10.4.6
-- PHP：Web 服务器生成网页的程序，本文使用 PHP7.3.7
+- PHP：Web 服务器生成网页的程序，本文使用 PHP7.2.19
 
 #### 使用 yum 安装软件和配置
 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
@@ -90,14 +90,14 @@ systemctl enable nginx
 ![](https://main.qcloudimg.com/raw/c23831d2579d747625e96afbf45766bb.png)
 
 #### 安装配置 PHP
->? 以下操作以 PHP 7.2.19 版本为例。
+>? 以下操作以 PHP7.2.19 版本为例。
 >
 1. 执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
+2. 执行以下命令，查看可安装的 PHP7.2.19 的所有包。
 ```
 yum search php72w
 ```
