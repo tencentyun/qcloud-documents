@@ -15,6 +15,6 @@
 ![](https://main.qcloudimg.com/raw/b3db412a49930a0a38a3f8a6c1ab1867.png)
  -  **公网域名接入**
 操作场景：当您的消费者或者生产者处于自建机房或其他云服务时，可以通过提公网访问方式对消息队列 CKafka 内的数据进行生成和消费。
-操作建议：为了保证安全性，Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类。其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。消息队列 CKafka 支持SASL_PLAINTEXT 认证。请您在选择公网域名接入时酌情配置接入鉴权方式。
+操作建议：为了保证安全性，Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类。其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。消息队列 CKafka 支持SASL_PLAINTEXT 认证，请您在选择公网域名接入时酌情配置接入鉴权方式。
 ![](https://main.qcloudimg.com/raw/e61a8b9acfe3d1e5fa71c8cabdbe9965.png)
 3. 单击【提交】，完成路由策略添加。
