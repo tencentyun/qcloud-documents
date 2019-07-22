@@ -1208,7 +1208,7 @@ public void getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 /**
  * 获取发送者群内资料，只有接收到的群消息才能获取到资料（发送者为自己时可能为空）
  *
- * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user、nameCard、role、customInfo，其他的字段获取建议通过 TIMGroupManagerExt -> getGroupMembers 获取
+ * @return 发送者群内资料，null 表示没有获取到资料或者不是群消息，目前仅能获取字段：user、nameCard、role、customInfo，其他的字段获取建议通过 TIMGroupManager -> getGroupMembers 获取
  */
 public TIMGroupMemberInfo getSenderGroupMemberProfile()
 ```
@@ -1618,7 +1618,7 @@ IM SDK 提供了根据提供参数查找相应消息的功能，只能精准查�
 public void findMessages(@NonNull List<TIMMessageLocator> locators, TIMValueCallBack<List<TIMMessage>> cb)
 ```
 
-其中参数中的 `TIMMessageLocator` 可以通过 `TIMMessageExt` 中的 `getMessageLocator` 方法来获取。
+其中参数中的 `TIMMessageLocator` 可以通过 `TIMMessage` 中的 `getMessageLocator` 方法来获取。
 
 **原型：**
 
