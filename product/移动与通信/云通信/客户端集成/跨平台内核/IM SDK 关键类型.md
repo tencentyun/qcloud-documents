@@ -245,7 +245,8 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMMsgIsOnlineMsg | bool | 读写（选填） | 消息是否是在线消息，默认为 false 表示普通消息，true 表示阅后即焚消息 |
 | kTIMMsgIsPeerRead | bool | 只读 | 消息是否被会话对方已读 |
 | kTIMMsgStatus |  uint [TIMMsgStatus](https://cloud.tencent.com/document/product/269/33553#timmsgstatus)  | 读写（选填） | 消息当前状态 |
-| kTIMMsgRand | uint64 | 只读 | 唯一标识 |
+| kTIMMsgUniqueId | uint64 | 只读 | 消息的唯一标识 |
+| kTIMMsgRand | uint64 | 只读 | 消息的随机码 |
 | kTIMMsgSeq | uint64 | 只读 | 消息序列 |
 | kTIMMsgCustomInt | uint32_t | 读写（选填） | 自定义整数值字段 |
 | kTIMMsgCustomStr | string | 读写（选填） | 自定义数据字段 |

@@ -656,6 +656,151 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 });
 ```
 
+### 短视频消息发送
+
+短视频消息由 `TIMVideoElem` 定义。它是 `TIMElem` 的一个子类，也就是说视频截图和视频内容也是消息的一种内容。发送短视频的过程，就是将 `TIMVideoElem` 加入到 `TIMMessage` 中，然后随消息一起发送出去。
+
+**`TIMVideoElem` 原型：**
+
+```
+/**
+ * 获取微视频上传任务 ID, 调用 sendMessage 后此接口的返回值有效
+ *
+ * @return 微视频上传任务 ID
+ */
+public long getTaskId() {
+    return this.taskId;
+}
+
+/**
+ * 设置微视频信息，在发送消息时进行设置
+ *
+ * @param video 微视频信息，详见{@link TIMVideo}
+ */
+public void setVideo(TIMVideo video) {
+    this.video = video;
+}
+
+/**
+ * 获取视频信息
+ *
+ * @return 视频信息，详见{@link TIMVideo}
+ */
+public TIMVideo getVideoInfo() {
+    return this.video;
+}
+
+/**
+ * 设置视频文件路径，在发送消息时进行设置
+ *
+ * @param path 视频文件路径
+ */
+public void setVideoPath(String path) {
+    this.videoPath = path;
+}
+
+/**
+ * 获取视频文件路径
+ *
+ * @return 视频文件路径
+ */
+public String getVideoPath() {
+    return this.videoPath;
+}
+
+/**
+ * 设置微视频截图信息，在发送消息时进行设置
+ *
+ * @param snapshot 微视频截图信息，详见{@link TIMSnapshot}
+ */
+public void setSnapshot(TIMSnapshot snapshot) {
+    this.snapshot = snapshot;
+}
+
+/**
+ * 获取视频截图信息
+ *
+ * @return 视频截图信息，详见{@link TIMSnapshot}
+ */
+public TIMSnapshot getSnapshotInfo() {
+    return this.snapshot;
+}
+
+/**
+ * 设置微视频截图文件路径，在发送消息时进行设置
+ *
+ * @param path 微视频截图文件路径
+ */
+public void setSnapshotPath(String path) {
+    this.snapshotPath = path;
+}
+
+/**
+ * 获取微视频截图文件路径
+ *
+ * @return 微视频截图文件路径
+ */
+public String getSnapshotPath() {
+    return this.snapshotPath;
+}
+```
+
+**参数说明：**
+
+参数 | 说明
+---|---
+taskId | 上传时任务 ID，可用来查询上传进度（已废弃，请在 TIMUploadProgressListener 监听上传进度）
+videoPath | 发送短视频时，本地视频文件的路径
+video | 视频信息，发送消息时设置 type、duration 参数
+snapshotPath | 发送短视频时，本地截图文件的路径
+snapshot | 截图信息，发送消息时设置 type、width、height 参数
+
+以下示例中发送了一个短视频消息。**示例：**
+
+```
+//构造一条消息
+TIMMessage msg = new TIMMessage();
+
+//构造一个短视频对象
+TIMVideoElem ele = new TIMVideoElem();
+
+TIMVideo video = new TIMVideo();
+video.setDuaration(duration / 1000); //设置视频时长
+video.setType("mp4"); // 设置视频文件类型
+
+TIMSnapshot snapshot = new TIMSnapshot(); 
+snapshot.setWidth(width); // 设置视频快照图宽度
+snapshot.setHeight(height); // 设置视频快照图高度
+
+ele.setSnapshot(snapshot);
+ele.setVideo(video);
+ele.setSnapshotPath(imgPath);
+ele.setVideoPath(videoPath);
+
+ 
+//将 elem 添加到消息
+if(msg.addElement(elem) != 0) {
+    Log.d(tag, "addElement failed");
+    return;
+}
+
+//发送消息
+conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+    @Override
+    public void onError(int code, String desc) {//发送消息失败
+        //错误码 code 和错误描述 desc，可用于定位请求失败原因
+        //错误码 code 含义请参见错误码表
+        Log.d(tag, "send message failed. code: " + code + " errmsg: " + desc);
+    }
+
+    @Override
+    public void onSuccess(TIMMessage msg) {//发送消息成功
+        Log.e(tag, "SendMsg ok");
+    }
+});
+```
+
+
 ### Elem 顺序 
 
 目前文件和语音 `Elem` 不一定会按照添加顺序传输，其他 `Elem` 按照顺序，不过建议不要过于依赖 `Elem` 顺序进行处理，应该逐个按照 `Elem` 类型处理，防止异常情况下进程 Crash。
@@ -917,12 +1062,11 @@ public String getSender()
 /**
  * 获取发送者资料
  *
- * 如果本地有发送者资料，这里会直接通过 return 值 TIMUserProfile 返回发送者资料，如果本地没有发送者资料，这里会直接 return null，IM SDK 内部会向服务器拉取发送者资料，并在 callBack 回调里面返回发送者资料。
+ * 4.4.716 版本统一通过回调返回
  *
  * @param callBack 回调
- * @return 发送者本地缓存资料，如果本地没有可以通过回调获取
  */
-public TIMUserProfile getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
+public void getSenderProfile( TIMValueCallBack < TIMUserProfile > callBack )
 
 /**
  * 获取发送者群内资料，只有接收到的群消息才能获取到资料（发送者为自己时可能为空）
@@ -968,7 +1112,7 @@ public long getMsgUniqueId()
 
 ### 消息自定义字段
 
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
+开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，例如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
 
 ```
 //设置自定义整数， 默认为 0

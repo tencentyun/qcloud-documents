@@ -119,9 +119,3 @@ Accelerate.framework
 ### 1. LiteAV SDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)
-
-### 2. LiteAV SDK 是否支持开启 BitCode？
-支持 Bitcode， App 项目可根据具体需要，在 **Build Settings** 下启用或禁用 Bitcode，如下图所示：
-![](https://main.qcloudimg.com/raw/74326dbed0f09ce016101bb7396986bd.jpg)
-
-

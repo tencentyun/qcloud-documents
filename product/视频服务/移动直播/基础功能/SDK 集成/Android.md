@@ -21,6 +21,13 @@ dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
 }
 ```
+ 或
+ 
+ ```
+dependencies {
+     implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
+}
+ ```
 - **第二步：指定 App 使用架构**
   在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)   。
 ```
@@ -37,7 +44,7 @@ defaultConfig {
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 
 - **第一步：下载 LiteAVSDK**
-   单击 [Github](https://github.com/tencentyun/MVLBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 SDK：
+   单击 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) 下载最新版本的 SDK：
     ![](https://main.qcloudimg.com/raw/bf07b11e65a4bc550a807e2c7e844910.png)
   
 - **第二步：拷贝 LiteAVSDK 到工程目录**  

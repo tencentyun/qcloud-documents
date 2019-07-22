@@ -29,13 +29,13 @@ request body
 
 ```http
 <ReplicationConfiguration>
-	<Role>qcs::cam::uin/[UIN]:uin/[Subaccount]</Role>
+	<Role>qcs::cam::uin/<OwnerUin>:uin/<SubUin></Role>
 	<Rule>
 		<Status></Status>
 		<ID></ID>
 		<Prefix></Prefix>
 		<Destination>
-			<Bucket>qcs::cos:[Region]::[BucketName-APPID]</Bucket>
+			<Bucket>qcs::cos:<Region>::<BucketName-APPID></Bucket>
 		</Destination>
 	</Rule>
 </ReplicationConfiguration>
@@ -46,13 +46,13 @@ request body
 |节点名称（关键字）|    父节点|    描述    |类型|    必选|
 |---|---|---|---|---|
 |ReplicationConfiguration    |无    |说明所有跨区域配置信息    |Container    |是|
-|Role|ReplicationConfiguration    |发起者身份标示：qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>      |String    |是|
+|Role|ReplicationConfiguration    |发起者身份标示：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>`      |String    |是|
 |Rule    |ReplicationConfiguration    |具体配置信息，最多支持 1000 个，所有策略只能指向一个目标存储桶    |Container    |是|
 |ID    |ReplicationConfiguration.Rule    |用来标注具体 Rule 的名称    |String    |否|
 |Status    |ReplicationConfiguration.Rule    |标识 Rule 是否生效，枚举值：Enabled, Disabled    |String    |是|
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
 |Destination    |ReplicationConfiguration.Rule    |目标存储桶信息    |Container    |是|
-|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：qcs::cos:[region]::[bucketname-AppId] |String    |是|
+|Bucket    |ReplicationConfiguration.Rule.Destination    |资源标识符：`qcs::cos:<Region>::<BucketName-APPID>`|String    |是|
 |StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：STANDARD，STANDARD_IA；默认值：原存储桶级别<br>**注意：** 目前跨地域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作可查阅 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280)|String    |否|
 
 ## 响应
@@ -76,13 +76,13 @@ request body
 
 ## 实际案例
 ### 请求
-以下 PUT Bucket replication 请求向存储桶`originBucet-1250000000`中添加一条跨地域复制配置。该跨地域复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationBucet-1250000000`。
+以下 PUT Bucket replication 请求向存储桶`originBucket-1250000000`中添加一条跨地域复制配置。该跨地域复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationBucket-1250000000`。
 ```shell
 PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f63f9
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f****
 Content-MD5: AAq9nzrpsz5LJ4UEe1f6Q==
-Host: originBucet-1250000000.cos.ap-guangzhou.myqcloud.com
+Host: originBucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 312
 
 <ReplicationConfiguration>
@@ -92,7 +92,7 @@ Content-Length: 312
 		<ID>RuleId_01</ID>
 		<Prefix>testPrefix</Prefix>
 		<Destination>
-			<Bucket>qcs::cos:ap-guangzhou::destinationBucet-1250000000</Bucket>
+			<Bucket>qcs::cos:ap-guangzhou::destinationBucket-1250000000</Bucket>
 		</Destination>
 	</Rule>
 </ReplicationConfiguration>
@@ -108,7 +108,7 @@ Content-Length: 0
 Connection: keep-alive
 Date: Fri, 14 Apr 2019 07:06:19 GMT
 Server: tencent-cos
-x-cos-bucket-region: ap-chengdu
-x-cos-request-id: NWQwMzQ3NmJfMjRiMjU4NjRfOTM4NV82ZDU1ZGE=
+x-cos-bucket-region: ap-guangzhou
+x-cos-request-id: NWQwMzQ3NmJfMjRiMjU4NjRfOTM4NV82ZDU1****
 x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4MzUyZTg1NGRhNWY0NTJiOGUyNTViYzgyNzgxZTEwOTY=
 ```

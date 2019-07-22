@@ -61,6 +61,8 @@ server {
  - **ssl_protocols**：使用的协议
  - **ssl_ciphers**：配置加密套件，写法遵循 openssl 标准
 6. 在 Nginx 根目录下，通过执行以下命令确认配置文件是否存在问题。
+>?由于版本问题，配置文件可能存在不同的写法。例如：使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>
 ```
 ./sbin/nginx -t
 ```

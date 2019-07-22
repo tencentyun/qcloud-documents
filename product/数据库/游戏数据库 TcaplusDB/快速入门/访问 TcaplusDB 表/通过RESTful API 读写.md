@@ -17,7 +17,7 @@
 HTTP Method: POST
 req_url:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_online/records
-Http header:
+HTTP header:
 [
  "x-tcaplus-target:Tcaplus.SetRecord", 
  "x-tcaplus-version:Tcaplus3.32.0", 
@@ -101,7 +101,7 @@ Response
 HTTP Method: GET
 req_url:
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_online/records?keys=%7B%22region%22%3A%2010%2C%20%22name%22%3A%20%22tcaplus_user%22%2C%20%22uin%22%3A%201024%7D
-Http 请求Header:
+HTTP 请求Header:
 [
  "x-tcaplus-target:Tcaplus.GetRecord", 
  "x-tcaplus-version:Tcaplus3.32.0", 
@@ -155,7 +155,7 @@ Response:
 ##########################
 import sys
 import time
-import os
+import OS
 import json
 import pycurl
 import StringIO
@@ -172,7 +172,7 @@ TABLE_NAME_STR = "tb_online"
 ############################################
 
 def op_get(url, header):
-    '''发送Http Get请求'''
+    '''发送HTTP Get请求'''
     ret = None
     curl_fp = None
 
@@ -230,7 +230,7 @@ def test_GetRecord():
            "name":"tcaplus_user",
            "region":10}
 
-    #填充 http header
+    #填充 HTTP header
     header = []
     header.append("x-tcaplus-target:Tcaplus.GetRecord")
     header.append("x-tcaplus-version:Tcaplus3.32.0")
@@ -243,7 +243,7 @@ def test_GetRecord():
                     %(CGI_URL, APP_ID_INT, ZONE_ID_INT, TABLE_NAME_STR, quote(json.dumps(keys)))
 
     print "req_url:\n%s" %req
-    print "Http header:"
+    print "HTTP header:"
     print header
     #发送get请求
     ret = op_get(req, header)
@@ -251,7 +251,7 @@ def test_GetRecord():
     print ret
 
 def test_SetRecord():
-    #填充 http header
+    #填充 HTTP header
     header = []
     header.append("x-tcaplus-target:Tcaplus.SetRecord")
     header.append("x-tcaplus-version:Tcaplus3.32.0")

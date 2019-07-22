@@ -5,12 +5,12 @@
 | 所属平台 | SDK 下载 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :--------:| :--------:| :--------:| :--------:|
 | iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M；<br> so(armeabi)：4.4M；<br>so(armeabi-v7a)：4.1M；<br>so(arm64-v8a)：4.9M|
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
 | 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
 
 <h2 id="Professional">专业版（Professional）</h2>
 
-TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我们基于 LiteAV 框架还研发了 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、 [超级播放器 SDK](https://cloud.tencent.com/product/player) 和 [短视频 SDK](https://cloud.tencent.com/product/ugsv) 等其他终端产品。
+移动直播 SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我们基于 LiteAV 框架还研发了 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、 [超级播放器 SDK](https://cloud.tencent.com/product/player) 和 [短视频 SDK](https://cloud.tencent.com/product/ugsv) 等其他终端产品。
 
 如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，这是由于 LiteAV 体系的 SDK 都使用了相同的基础模块。
 
@@ -23,7 +23,7 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 <h2 id="Enterprise">商业版（Enterprise）</h2>
 
-LiteAVSDK 的商业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+LiteAV SDK 的商业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请联系腾讯云商务获取。
 
 | 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|

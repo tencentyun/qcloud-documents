@@ -4,8 +4,8 @@
 
 #### 会话获取
 
-会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。获取会话由 `getConversation` 实现。
-需要注意的是，getConversation 返回的会话的对象 TIMConversation  不为 nil，但是如果本地没有这个会话，调用会话的 API 会失败，这里建议在收到 TIMUserConfig -> TIMRefreshListener 回调后再去操作 TIMConversation 对象。
+会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。获取会话由`getConversation`实现。
+>!如果本地没有这个会话，调用会话 TIMConversation 的 API 会失败。建议在收到 TIMUserConfig > TIMRefreshListener 回调后再去操作 TIMConversation 对象。
 
 **原型：**
 

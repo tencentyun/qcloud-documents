@@ -65,7 +65,7 @@ dependencies {
 ```
 
 - **第六步：同步 SDK**
-单击 Sync Now 按钮，完成 TRTC SDK 的集成工作。
+单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 集成 SDK（jar）

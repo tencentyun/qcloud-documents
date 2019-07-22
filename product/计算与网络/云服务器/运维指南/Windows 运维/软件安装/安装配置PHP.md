@@ -1,104 +1,101 @@
-本文档介绍 Windows 云服务器的 PHP 配置。介绍 [PHP 5.3之后版本安装](#jump) 与 [PHP 5.3 及之前版本安装](#jump1) ，您可以根据需求查看相关内容。
+## 操作场景
+
+本文档介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
+
+
 ## 前提条件
-在Windows 云服务器中进行 PHP 配置，需要完成 IIS 角色的添加和安装，详细请见文档 [安装配置 IIS](
-/doc/product/213/2755) 。
 
-## PHP 5.3 之后版本安装
-<span id="jump">  </span>
-PHP 5.3 版本后取消了安装包模式，仅通过 zip 文件和 debug pack 两种方式进行安装。本例使用 Windows Server 2012 R2 环境下 zip 安装进行示例。
+- 已登录 Windows 云服务器，并已在该云服务器中完成 IIS 角色的添加和安装。详情请参见 [安装配置 IIS](https://cloud.tencent.com/document/product/213/2755)。
+- 已获取 Windows 云服务器的公网 IP。详情请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 
-### 软件下载
+## 操作步骤
 
- 1. 在云服务器中下载 PHP zip 安装包（下载地址： http://windows.php.net/download/ ）。
->注意:
->在 IIS 下运行时必须选择 Non Thread Safe(NTS) 的 x86 包。若一定要在 Windows Server 32bit (x64) 下，PHP 选择 x64，则不能选择 IIS，此时可使用 Apache 作为代替选项。
+<span id="jump1"></span>
+### PHP 7.0 及之前版本安装
 
-	选择类似如下的安装包：
-  ![](//mc.qcloudimg.com/static/img/d02eb264ae4d5fbaaf8fd01a08433c61/image.png)
-  ![](//mc.qcloudimg.com/static/img/f719e6893f1addd0b260d0c740e4e0ba/image.png)
-  ![](//mc.qcloudimg.com/static/img/24ca3df57de6195ad45adabad1c5dc13/image.png)
+>! 
+> [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。
+> 
+1. 在云服务器中打开 PHP 安装包。
+2. 选择【Web Server Setup】时，选择【IIS FastCGI】。如下图所示：
+![](//mc.qcloudimg.com/static/img/ef2f5959779cd733934d11ecbcb4a7f5/image.png)
+3. 按照安装界面的指引，完成 PHP 的安装。
+4. 在 `C:/inetpub/wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `hello.php` 文件，如下图所示：
+![](https://main.qcloudimg.com/raw/bd064531274bf38dc1ddaa1ec3f27a61.png)
+5. 在新创建的 `hello.php` 文件中，填写以下内容并保存。
+```
+	<?php
+	echo "<title>Test Page</title>";
+	echo "hello world";
+	?>
+```
+6. 在操作系统界面，打开浏览器并访问 `http://Windows云服务器的公网IP/hello.php`，查看环境配置是否成功。
+如果打开的页面如下所示，则表示配置成功：
+![](https://main.qcloudimg.com/raw/0cdefc8707c4402e9ae5f9e6fa523ae1.png)
 
- 2. PHP 5.3 以上版本的安装依赖于 Visual C++ Redistributable Update 。请根据下载的 PHP 安装包名，参考如下表格所示的对应关系下载并安装 VC Update 安装程序：
+<span id="jump"></span>
+### PHP 7.0 之后版本安装
 
-| PHP安装包名 | Visual C++ Redistributable安装包下载地址 |
-|---------|---------|---------|
-| php-x.x.x-nts-Win32-VC14-x86.zip | [Visual C++ Redistributable for Visual Studio 2015](https://www.microsoft.com/zh-cn/download/details.aspx?id=48145) |
-| php-x.x.x-nts-Win32-VC11-x86.zip | [Visual C++ Redistributable for Visual Studio 2012 Update 4](https://www.microsoft.com/zh-cn/download/details.aspx?id=30679) |
-| php-x.x.x-nts-Win32-VC9-x86.zip | [Microsoft Visual C++ 2008 SP1 Redistributable Package (x86)](https://www.microsoft.com/zh-cn/download/details.aspx?id=5582) |
+PHP 7.0 之后的版本通过 zip 文件和 debug pack 两种方式进行安装。以下操作以使用 zip 文件方式在 Windows Server 2012 R2 环境下安装 PHP 为例。
 
-  若下载的 PHP 安装包如下图所示：
-![](//mccdn.qcloud.com/static/img/974ac7192d8f10236fcc27bfd54b8aed/image.png)
+#### 软件下载
 
-则按表格第一行对应关系下载 VS 2015 版本的安装包，下载并安装如下两个`.exe`格式文件：
-![](//mc.qcloudimg.com/static/img/7128c0b621f2534cecddd23b6f3efdb9/image.png)
+1. 在云服务器中，访问 [PHP 官网](http://windows.php.net/download/)，下载 PHP zip 安装包。如下图所示：
+>! 在 IIS 下运行 PHP 时，必须选择 Non Thread Safe 版本的 x86 安装包。若您需要在 Windows Server 32bit (x64) 的操作系统上安装 PHP，则需要将 IIS 替换成 Apache，并选择 Non Thread Safe 版本的 x64 安装包。
+>
+![](https://main.qcloudimg.com/raw/b54dcb237ae24673cd592561ffc91bc0.png)
+2.  根据下载的 PHP 安装包名称，下载并安装 Visual C++ Redistributable 安装包。
+PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如下表所示：
+<table>
+<tr><th>PHP 安装包名</th><th>Visual C++ Redistributable 安装包下载地址</th></tr>
+<tr><td>php-x.x.x-nts-Win32-VC16-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2019</a></td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2017</a></td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC14-x86.zip</td><td><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145">Microsoft Visual C++ Redistributable for Visual Studio 2015</a></td></tr>
+</table>
+ 例如，下载的 PHP 安装包名称为 <code>PHP-7.0.6-nts-Win32-VC14-x86.zip</code>，则需下载和安装 Microsoft Visual C++ Redistributable for Visual Studio 2015 的安装包。
 
-
-### 安装配置
- 1. 将 PHP zip 安装包解压（本例解压至 `C:\PHP`），复制`php.ini-production`并改名为`php.ini`，如下图所示：
-![](//mc.qcloudimg.com/static/img/1be9b1771a93852aff909b08159a5b79/image.png)
-
- 2. 单击【服务器管理器】-【IIS】，在本地 IIS 上右键单击选择 IIS 管理器：
-![](//mc.qcloudimg.com/static/img/f0387eeb456b7d60e8a5b601cbd3c6b0/image.png)
-
-	单击左侧 主机名(IP) 来到主页，双击【处理程序映射】：
-![](//mc.qcloudimg.com/static/img/898aa0d2f61c467d333601b75c57704c/image.png)
-
-	单击右侧【添加模块映射】按钮，在弹出框中填写如下信息并单击【确定】按钮保存：
-![](//mc.qcloudimg.com/static/img/6f0fd95475a7c00a5779592d15a7753e/image.png)
-
-	>**注意：**
-	>若可执行文件选择不了 `php-cgi.exe` ，请文件后缀变为.exe：![](//mc.qcloudimg.com/static/img/d749a9fe4c77f6ea7b55afd8fd37e808/image.png)
-
- 3. 单击左侧 主机名(IP) 回到主页，双击【默认文档】：
-![](//mc.qcloudimg.com/static/img/b5861a95bf6aafd8f4bcaf1c12e9f9be/image.png)
-
-	单击右侧【添加】按钮，添加名称为`index.php`的默认文档：
-![](//mc.qcloudimg.com/static/img/6b2543227fec95d1b9bed5f4260a86bb/image.png)
-
- 4. 单击左侧主机名(IP)回到主页，双击【 FastCGI 设置】：
-![](//mc.qcloudimg.com/static/img/aa23422c038b1024354f01ed0cb3ab73/image.png)
-
-	单击右侧【编辑】按钮，在【监视对文件所做的更改】中选择 `php.ini` 路径：
-![](//mc.qcloudimg.com/static/img/b4f1ec7d39519dc7d2e89d52ed8a1a87/image.png)
-![](//mc.qcloudimg.com/static/img/a2acbed50587552c6ef7ed796b82eb36/image.png)
-
- 5. 在 `C:\inetpub\wwwroot` 目录下创建一个PHP文件 `index.php` ，写入如下内容：
+#### 安装配置
+1. 将已下载的 PHP zip 安装包解压缩。例如，解压缩至 `C:\PHP` 目录下。
+2. 复制 `C:\PHP` 目录下的 `php.ini-production` 文件，并重命名为 `php.ini` 文件。如下图所示：
+![](https://main.qcloudimg.com/raw/ba62cb859993ee25f372bc4ea969b4cf.png)
+3. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
+4. 在服务器管理器的左侧导航栏中，单击【IIS】。
+5. 在右侧 IIS 管理窗口中，右键单击【服务器】栏中的服务器名称，选择【Internet Information Sevices (IIS)管理器】。如下图所示：
+![](https://main.qcloudimg.com/raw/e10681a1bee2850f0f9e31832cc9be65.png)
+6. 在打开的 “Internet Information Sevices (IIS)管理器” 窗口中，单击左侧导航栏的服务器名称，进入服务器的主页。如下图所示：
+例如，单击 10_141_9_72 服务器名称，进入 10_141_9_72 主页。
+![](https://main.qcloudimg.com/raw/249468f27268512b8766df5f00d4ae24.png)
+7. 在【10_141_9_72 主页】中，双击【处理程序映射】，进入 “处理程序映射” 管理界面。如下图所示：
+![](https://main.qcloudimg.com/raw/9daf2155892a72526ecada93b03018a7.png)
+8. 在右侧的【操作】栏中，单击【添加模块映射】，打开 “添加模块映射” 窗口。
+9. 在打开的 “添加模块映射” 窗口中，填写以下信息，并单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/ec6ded20a961ff3acaf955221a1a68a4.png)
+主要的参数信息如下：
+ - 请求路径：填写 `\*.php`。
+ - 模块：选择 “FastCgiModule”。
+ - 可执行文件：选择 PHP zip 安装包中的 php-cgi.exe 文件，即 `C:\PHP\php-cgi.exe`。
+ - 名称：自定义，例如输入 FastCGI。
+10.  在弹出的提示框中，单击【是】。 
+11.  单击左侧导航栏的 10_141_9_72 服务器名称，返回 10_141_9_72 主页。
+12.  在【10_141_9_72 主页】中，双击【默认文档】，进入 “默认文档” 管理界面。如下图所示：
+![](https://main.qcloudimg.com/raw/bb5924fa455f89bb83f66a115dcd2f7b.png)
+13.  在右侧的【操作】栏中，单击【添加】，打开 “添加默认文档” 窗口。
+14.  在打开的 “添加默认文档” 窗口中，将【名称】填写为 `index.php`，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/e8f4aeea428c8adee1573b2df30c5355.png)
+15.  单击左侧导航栏的 10_141_9_72 服务器名称，返回 10_141_9_72 主页。
+16.  在【10_141_9_72 主页】中，双击【FastCGI 设置】，进入 “FastCGI 设置” 管理界面。如下图所示：
+![](https://main.qcloudimg.com/raw/82a739a387fd82fb392b56595316c299.png)
+17.  在 “FastCGI 设置” 管理界面，选择 FastCGI 应用程序，单击【编辑】。如下图所示：
+![](https://main.qcloudimg.com/raw/9c1382da5600121741ecfa4560623997.png)
+18.  在打开的 “编辑  FastCGI 应用程序” 窗口中，将【监视对文件所做的更改】设置为 `php.ini` 文件的路径。如下图所示：
+![](https://main.qcloudimg.com/raw/c167f15bb6cabe35cce2650133ac63e2.png)
+19. 在 `C:\inetpub\wwwroot` 目录下，创建一个名称为 `index.php` 的 PHP 文件，并写入如下内容：
 ```
 <?php
 phpinfo();
 ?>
 ```
-
- 6. 在云服务器打开浏览器内访问 `http://localhost/index.php`  ，查看环境配置是否成功。如果页面可以显示如下，说明配置成功：
-![](//mc.qcloudimg.com/static/img/46eec848975e77e770569eb5d8849d37/image.png)
-
-
-
-## PHP 5.3 及之前版本安装
-<span id="jump1">  </span>
->注意：
-> http://windows.php.net/download/ 官方下载地址已不再提供 PHP 5.3 及之前版本的下载，若仍需使用 PHP 5.3 及之前版本，请在本地下载后上传文件至云服务器或在云服务器网络上搜索。上传文件详见 [这里](https://cloud.tencent.com/document/product/213/2761) 。
-
- 1. 在云服务器中打开 PHP 安装包。
-
- 2. 选择 Web 服务 (Web Server Setup) 时，选择 “IIS FastCGI” ，如下图所示：
-![](//mc.qcloudimg.com/static/img/ef2f5959779cd733934d11ecbcb4a7f5/image.png)
-
- 3. 按照安装界面的指引，完成PHP的安装。
-
- 4. 在`C:/inetpub/wwwroot`目录下创建一个 PHP 文件 `hello.php` ，如下图所示：
-![](//mc.qcloudimg.com/static/img/31d992849b04c1bc76c0d4ca61ab8a4b/image.png)
-
-	`hello.php` 文件写入如下的内容：
-
-	```
-	<?php
-	echo "<title>Test Page</title>";
-	echo "hello world";
-	?>
-	```
-
- 5. 在浏览器中访问 Windows 云服务器公网 IP ，查看环境配置是否成功。如果页面可以显示如下，说明配置成功：
-![](//mc.qcloudimg.com/static/img/89cebc1127f5c76790c2a9bf3be9fd1f/image.png)
-
+20. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php` ，查看环境配置是否成功。
+如果打开的页面如下显示，则表示配置成功：
+![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
 

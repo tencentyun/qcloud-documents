@@ -1,18 +1,16 @@
-HBase 是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，是 Google BigTable 的开源实现， HBase 利用 Hadoop HDFS 作为其文件存储系统； Hadoop MapReduce 来处理 HBase 中的海量数据；Zookeeper 来做协同服务。
+HBase 是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，是 Google BigTable 的开源实现，HBase 利用 Hadoop HDFS 作为其文件存储系统；Hadoop MapReduce 来处理 HBase 中的海量数据；Zookeeper 来做协同服务。
 
 Hbase 主要由 Zookeeper、HMaster 和 HRegionServer 组成。
-其中 ZooKeeper 可避免 Hmaster 的单点故障，其 Master 选举机制可保证一个  Master 提供服务。
+其中 ZooKeeper 可避免 Hmaster 的单点故障，其 Master 选举机制可保证一个 Master 提供服务。
 
 Hmaster 管理用户对表的增删改查操作，管理 HRegionServer 的负载均衡。并可调整 Region 的分布，在 HRegionServer 退出时迁移其内的 HRegion 到其他 HRegionServer 上。
 HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I/O 请求，向 HDFS 文件系统中读写数据。HRegionServer 内部管理了一系列 HRegion 对象，每个 HRegion 对应一个 Region，HRegion 中由多个 Store 组成。每个 Store 对应了 Column Family 的存储。
-
-关于 Hbase 的数据模型，可以参考 [理解 Hbase 和 BigTable](http://jimbojw.com/) 。
 
 本开发指南将从技术人员的角度帮助用户使用 EMR 集群开发。
 考虑用户数据安全，EMR 中当前只支持 VPC 网络访问。
 
 ## 1. 开发准备
-确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置见面选择了 Hbase 组件和 Zookeeper 组件。
+确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择了 Hbase 组件和 Zookeeper 组件。
 
 ## 2. 使用 Hbase Shell
 在使用 Hbase Shell 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式可参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
@@ -80,7 +78,7 @@ hbase(main):011:0> drop 'test'
 更多的 Hbase shell 指令请查看 [官方文档](http://hbase.apache.org/book.html)。
 
 ## 3. 通过 API 使用 Hbase
-首先 [下载并安装 Maven](http://maven.apache.org/download.cgi)，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
+首先 [下载并安装 Maven](http://maven.apache.org/download.cgi)，配置 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置 Maven 相关配置。
 
 ### 新建一个 Maven 工程
 
@@ -117,7 +115,7 @@ simple
 </dependencies>
 ```
 
-继续在 pom.xml 文件中添加打包和编译插件：
+然后在 pom.xml 文件中添加打包和编译插件：
 ```
 <build>
 <plugins>
@@ -150,9 +148,9 @@ simple
 </plugins>
 </build>
 ```
-在添加样例代码之前，需要用户获取 Hbase 集群的 zookeeper 地址。登录 EMR 任意一台 Master 节点或者 Core 节点，进入 `/usr/local/service/hbase/conf` 目录，查看 base-site.xml 的 hbase.zookeeper.quorum 配置获得 zookeeper 的 IP地址$quorum，hbase.zookeeper.property.clientPort 配置获得 zookeeper 的端口号$clientPort。
+在添加样例代码之前，需要用户获取 Hbase 集群的 zookeeper 地址。登录 EMR 任意一台 Master 节点或者 Core 节点，进入 `/usr/local/service/hbase/conf` 目录，查看 base-site.xml 的 hbase.zookeeper.quorum 配置获得 zookeeper 的 IP 地址 $quorum，hbase.zookeeper.property.clientPort 配置获得 zookeeper 的端口号 $clientPort。
 
-接下来添加样例代码，在 main>java 文件夹下新建一个 Java Class 取名为 PutExample.java，并将以下代码加入其中：
+接下来添加样例代码，在 【main】>【java】文件夹下新建一个 Java Class 取名为 PutExample.java，并将以下代码加入其中：
 ```
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
