@@ -101,7 +101,7 @@
 
 ### <span id="step1">开通云导播台</span>
 单击 [开通云导播台](https://console.cloud.tencent.com/live/productionstudios)，在开通页面勾选“同意[《腾讯云服务协议》](https://cloud.tencent.com/document/product/301/1967)”，并单击 【立即申请】申请开通云导播台。
-![申请开通](https://main.qcloudimg.com/raw/e20d6c115d70d0f6309636eee30b50f5.png)
+![申请开通](https://main.qcloudimg.com/raw/89c3c91580aa26a494c026066fe7f02c.png)
 
 >?云导播台目前处于内测阶段，请首先 [申请使用云导播台](https://console.cloud.tencent.com/live/productionstudios) ，我们将在收到您的申请后为您开通云导播功能。
 
@@ -129,7 +129,7 @@
 在弹出框中单击【确定】，即可释放导播台。
 ![释放确认](https://main.qcloudimg.com/raw/d0bca3a7898f99e16885da8f37254535.png)
 释放成功后，可以看到导播台状态将由“**活跃**”变为“**空闲**”。
-![](https://main.qcloudimg.com/raw/31a026821f29bd73ff35462e689859a5.png)
+![状态变化](https://main.qcloudimg.com/raw/cfe7df772ae5c9b4e90da6bc7d2dc599.png)
 4. 删除导播台
 如果您不希望保留某个指定的导播台，可将其进行删除。删除导播台后，该导播台所有的配置都将被删除，预监、输出、录制及转推也将结束。
 在您想删除的导播台中的【操作】列中单击【删除】，即可进行删除导播台操作。
