@@ -9,6 +9,30 @@ Redis 4.0标准版介绍请参见 [Redis 标准版](https://cloud.tencent.com/do
 
 >?Redis 旧版本实例通过腾讯云数据传输服务（Data Transmission Service，DTS）以热迁移的方式进行版本升级，升级过程中，保证 Redis 实例的业务不停服，实时增量更新数据。
 
+#### 支持版本
+在云数据库 Redis 实例版本升级时，通过 DTS 进行版本升级功能支持的具体实例版本如下：
+    <table>
+    <tr>
+    <td colspan=2 align=center>旧版本实例</td>
+    <td rowspan=2 align=cente>新版本实例</td>
+    </tr>
+    <tr>
+    <td>2.8标准版</td>
+    <td>4.0标准版</td>
+    </tr>
+    <tr>
+    <td>✓</td>
+    <td></td>
+    <td>4.0标准版</td>
+    </tr>
+    <tr>
+    <td>✓</td>
+    <td>✓</td>
+    <td>4.0集群版</td>
+    </tr>
+    </table>
+>?  Redis 4.0 标准版的数据库实例，可以通过 DTS 热迁移到另一个 Redis 4.0 标准版的数据库实例，但相同版本数据库实例间的迁移不便称作版本升级。
+
 ## 前提条件
 - 正常运行状态下的 Redis 旧版本实例；
 - 购买的Redis 4.0标准版或Redis 4.0集群版实例。
