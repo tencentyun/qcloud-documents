@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文档介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
+本文档以 Windows Server 2012 R2 操作系统云服务器为例，介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
 
 
 ## 前提条件
@@ -13,13 +13,13 @@
 <span id="jump1"></span>
 ### PHP 7.0 及之前版本安装
 
->! 
-> [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。
+>! [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。以下操作步骤以 PHP 5.2.13 版本为例。
 > 
 1. 在云服务器中打开 PHP 安装包。
-2. 选择【Web Server Setup】时，选择【IIS FastCGI】。如下图所示：
-![](//mc.qcloudimg.com/static/img/ef2f5959779cd733934d11ecbcb4a7f5/image.png)
-3. 按照安装界面的指引，完成 PHP 的安装。
+2. 按照安装界面的指引，单击【Next】。
+3. 在 “Web Server Setup” 界面，选择【IIS FastCGI】，单击【Next】。如下图所示：
+![](https://main.qcloudimg.com/raw/c5fc89547b020e6ec943732d16186a7b.png)
+4. 按照安装界面的指引，完成 PHP 的安装。
 4. 在 `C:/inetpub/wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `hello.php` 文件，如下图所示：
 ![](https://main.qcloudimg.com/raw/bd064531274bf38dc1ddaa1ec3f27a61.png)
 5. 在新创建的 `hello.php` 文件中，填写以下内容并保存。

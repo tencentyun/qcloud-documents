@@ -132,10 +132,7 @@ if (SessionWrapper.isMainProcess(getApplicationContext())) {
 ```
 ## 用户配置
 
-在初始化 IM SDK 后，登录 IM SDK 之前，需要设置用户配置。IM SDK 的用户配置分四部分，分别如下：
-+ 基本用户配置 —— 通过 `TIMUserConfig` 进行配置。
-+ 消息扩展用户配置 —— 通过 `TIMUserConfigMsgExt` 进行配置。
-
+在初始化 IM SDK 后，登录 IM SDK 之前，可以通过 TIMUserConfig 进行用户配置，从4.4.716版本开始将不再使用 TIMUserConfigMsgExt。
 配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
 
 **原型：**
@@ -229,7 +226,7 @@ public TIMUserConfig setConnectionListener(TIMConnListener listener)
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 ### 用户状态变更
 
@@ -268,7 +265,7 @@ public interface TIMUserStatusListener {
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 
 ### 用户被踢下线通知
@@ -306,7 +303,7 @@ public TIMUserConfig disableStorage()
 
 ### 会话刷新监听
 
-默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 IM SDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
+默认登录后会异步获取 C2C 离线消息、最近联系人以及同步资料数据（如果有开启 IM SDK 存储，可参见 [关系链资料存储](/doc/product/269/9231#7.-.E5.85.B3.E7.B3.BB.E9.93.BE.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A8) 及 [群资料存储](/doc/product/269/9236#8.-.E7.BE.A4.E8.B5.84.E6.96.99.E5.AD.98.E5.82.A837)），同步完成后会通过会话刷新监听器 `TIMRefreshListener` 中的 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，例如会话列表的未读等。
 
 >!
 > * 如果不需要离线消息，可以再发消息时使用：[发送在线消息](/doc/product/269/9232#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。

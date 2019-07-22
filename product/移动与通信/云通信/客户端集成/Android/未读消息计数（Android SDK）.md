@@ -3,8 +3,7 @@
 
 这里的未读消息是指用户没有进行已读上报的消息（而非对方是否已经阅读，这种情况需要开启已读回执才能实现，请参考 [已读回执](https://cloud.tencent.com/document/product/269/9232#.E5.B7.B2.E8.AF.BB.E5.9B.9E.E6.89.A7)）。`TIMMessageExt` 方法 `isRead` 标识消息是否已读，要想显示正确的未读计数，需要开发者显式调用已读上报，告诉 IM SDK 某条消息是否已读，例如，当用户进入聊天界面，可以设置整个会话的消息已读。
 
-> **注意：**
-> 对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
+>!对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
 
 **原型：**
 
@@ -29,8 +28,7 @@ Log.d(tag, "msg isReaded: " + isReaded);
 
 可通过 `TIMConversationExt` 的 `getUnReadMessageNum` 方法获取当前会话中未读消息的数量。
 
-> **注意：**
-> 对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
+>!对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
 
 **原型：**
 
@@ -112,11 +110,11 @@ conExt.setReadMessage(lastMsg, new TIMCallBack() {
 });
 ```
 
->注：单聊和群聊设置已读用法相同，区别在于会话类型。
+>?单聊和群聊设置已读用法相同，区别在于会话类型。
 
 ## 多终端已读上报同步
 
-在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。请参考 [会话刷新](/doc/product/269/9229#.E4.BC.9A.E8.AF.9D.E5.88.B7.E6.96.B0.E7.9B.91.E5.90.AC15) 。
+在多终端情况下，未读消息计数由 Server 下发同步通知，IM SDK 在本地更新未读计数后，通知用户更新会话。通知会通过 `TIMRefreshListener` 中的 `onRefreshConversation` 接口来进行回调，对于关注多终端同步的用户，可以在这个接口中进行相关的同步处理。请参考 [会话刷新](https://cloud.tencent.com/document/product/269/9229#.E4.BC.9A.E8.AF.9D.E5.88.B7.E6.96.B0.E7.9B.91.E5.90.AC) 。
 
 **原型：**
 
@@ -132,7 +130,7 @@ public void onRefreshConversation(List<TIMConversation> conversations);
 
 出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，即使没有主动进行已读上报。如果仅在一个终端，未读计数没有问题，如果需要多终端情况下仍然会有未读，可以通过 `TIMUserConfigMsgExt` 中的 `enableAutoReport` 方法禁用自动上报，禁用后 IM 通讯云不会代替用户已读上报。
 
-> **注意：**
+>!
 > - 一旦禁用自动上报，需要开发者显式调用 `setReadMessage` 进行已读上报。
 > - 需要在登录前设置，登录后设置无效。
 

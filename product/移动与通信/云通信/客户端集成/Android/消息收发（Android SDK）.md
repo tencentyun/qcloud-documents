@@ -994,6 +994,150 @@ void    setFileName(java.lang.String fileName)
 public void getToFile(@NonNull final String path, @NonNull TIMCallBack callback)
 ```
 
+### 接收短视频消息
+收到消息后，可通过 getElem 从 TIMMessage 中获取所有的 Elem 节点，其中 TIMVideoElem 为文件消息节点，通过 TIMVideo 和 TIMSnapshot 对象获取视频和截图内容。接收到 TIMVideoElem 后，通过 video 属性和 snapshot 属性中定义的接口下载视频文件和截图文件。如需缓存或存储，开发者可根据 UUID 作为 key 进行外部存储，IM SDK 并不会存储资源文件。
+
+**`TIMVideo`成员方法如下：**
+
+```
+
+/**
+ * 获取视频
+ *
+ * @param path 视频保存路径
+ * @param cb   回调
+ * @deprecated
+ */
+getVideo(@NonNull final String path, @NonNull final TIMCallBack cb);
+
+/**
+ * 获取视频
+ *
+ * @param path       视频保存路径
+ * @param progressCb 下载进度回调
+ * @param cb         回调
+ */
+void getVideo(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb)
+
+/**
+ * 获取视频文件大小
+ *
+ * @return 返回视频文件大小
+ */
+long getSize();
+
+/**
+* 获取视频文件 UUID
+*
+* @return uuid，可作为唯一标示用于缓存的 key
+*/
+String getUuid();
+
+/**
+ * 获取视频时长
+ *
+ * @return 返回视频时长
+ */
+long getDuaration();
+
+/**
+ * 获取视频文件类型
+ *
+ * @return 返回视频文件类型
+ */
+String getType(); 
+```
+
+**`TIMSnapshot`成员方法如下：**
+```
+/**
+ * 获取截图
+ *
+ * @param path       保存截图的路径
+ * @param progressCb 下载进度回调
+ * @param cb         回调
+ */
+void getImage(final String path, final TIMValueCallBack<ProgressInfo> progressCb, final TIMCallBack cb);
+
+/**
+ * 获取截图
+ *
+ * @param path 保存截图的路径
+ * @param cb   回调
+ * @deprecated
+ */
+void getImage(final String path, final TIMCallBack cb);
+
+/**
+ * 获取截图宽度
+ *
+ * @return 截图宽度
+ */
+long getWidth();
+
+/**
+ * 获取截图高度
+ *
+ * @return 截图高度
+ */
+long getHeight();
+
+/**
+ * 获取截图文件大小
+ *
+ * @return 返回截图文件大小
+ */
+long getSize();
+
+/**
+ * 获取截图文件类型
+ *
+ * @return 返回视频文件类型
+ */
+String getType();
+
+/**
+ * 获取截图文件uuid
+ *
+ * @return uuid，可作为唯一标示用于缓存的key
+ */
+String getUuid(); 
+```
+
+**短视频消息的解析过程：**
+以收到新消息回调为例，需要先通过 element 的 type 判断是否为 TIMVideoElem，若是则表示该消息为短视频消息，需执行以下代码进行解析。
+
+```
+TIMMessage timMsg = msg.getTIMMessage();
+final TIMVideoElem videoEle = (TIMVideoElem) timMsg.getElement(0);
+final TIMVideo video = videoEle.getVideoInfo();
+final TIMSnapshot shotInfo = videoEle.getSnapshotInfo();
+final String path = ”/xxx/“ + videoEle.getSnapshotInfo().getUuid(); //接收到的快照图片保存的路径
+final String videoPath = ”/xxx/“ + video.getUuid(); //接收到的视频保存的路径
+videoEle.getSnapshotInfo().getImage(path, new TIMCallBack() {
+    @Override
+    public void onError(int code, String desc) {
+        Log.e(tag, "下载快照图片失败，code = " + code + ", errorinfo = " + desc);
+    }
+
+    @Override
+    public void onSuccess() {
+        Log.d(tag, "下载快照图片成功");
+    }
+});
+
+video.getVideo(videoPath, new TIMCallBack() {
+    @Override
+    public void onError(int code, String desc) {
+	Log.e(tag, "下载短视频失败，code = " + code + ", errorinfo = " + desc);
+    }
+
+    @Override
+    public void onSuccess() {
+        Log.d(tag, "下载短视频成功");
+    }
+});
+```
 
 ## 消息属性
 
@@ -1008,7 +1152,7 @@ TIMMessageExt msgExt = new TIMMessageExt(msg);
 
 ### 消息是否已读
 
-通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53)。消息是否已读的原型如下。
+通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -1144,7 +1288,7 @@ public TIMMessagePriority getPriority()
 
 ### 已读回执
 
-IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](/doc/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A53) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
 
 通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1524,7 +1668,7 @@ IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `T
 public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
 ```
 
-成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229)。
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
 
 **原型：**
 
@@ -1562,9 +1706,9 @@ public boolean checkEquals(@NonNull TIMMessageLocator locator)
 
 会话类型（TIMConversationType）除了 C2C 单聊和 Group 群聊以外，还有一种系统消息，系统消息不能由用户主动发送，是系统后台在相应的事件发生时产生的通知消息。系统消息目前分为两种，一种是关系链系统消息，一种是群系统消息。
 
-- 关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](/doc/product/269/9231#8.-.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
-- 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](/doc/product/269/9236#9.-.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
-- 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](/doc/product/269/9236#10.-.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+- 关系链变更系统消息，当有用户加自己为好友，或者有用户删除自己好友的情况下，系统会发出变更通知，开发者可更新好友列表。相关细节可参阅 [关系链变更系统通知](https://cloud.tencent.com/document/product/269/33926#.E5.85.B3.E7.B3.BB.E9.93.BE.E5.8F.98.E6.9B.B4.E7.B3.BB.E7.BB.9F.E9.80.9A.E7.9F.A5)。
+- 当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅 [群事件消息](https://cloud.tencent.com/document/product/269/9236#.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
+- 当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群系统消息](https://cloud.tencent.com/document/product/269/9236#.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
 
 
 ## 设置后台消息通知栏提醒

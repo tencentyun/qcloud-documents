@@ -1,4 +1,4 @@
-Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实现可以参考 [API接口代码实现](https://github.com/hyperledger/fabric-chaincode-java/blob/release-1.4/fabric-chaincode-shim/src/main/java/org/hyperledger/fabric/shim/impl/ChaincodeStubImpl.java)。以下按照逻辑分类并对 API 功能做简单说明。
+Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实现可以参考 [API接口代码实现](https://github.com/hyperledger/fabric-chaincode-java/blob/release-1.4/fabric-chaincode-shim/src/main/java/org/hyperledger/fabric/shim/impl/ChaincodeStubImpl.java)。
 从逻辑上划分，可将 API 接口分为以下类型：
 - [交易信息提取](#information)
 - [账本交互](#count)
@@ -90,7 +90,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 		<td>查询状态数据库，需要支持富查询功能的状态数据库</td>
 	</tr>
 	<tr>
-		<td>ueryResultsIteratorWithMetadata<KeyValue> getQueryResultWithPagination(String query, int pageSize, String bookmark)</td>
+		<td>QueryResultsIteratorWithMetadata<KeyValue> getQueryResultWithPagination(String query, int pageSize, String bookmark)</td>
 		<td>分页查询状态数据库，需要支持富查询功能的状态数据库</td>
 	</tr>
 	<tr>

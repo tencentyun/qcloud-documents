@@ -45,7 +45,7 @@ dependencies {
 ### 方法二：手动下载（aar）
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 - **第一步：下载 IM SDK**
-在 Github 上可以下载到最新版本的 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs)：
+在 Github 上可以下载到最新版本的 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/tuikit/libs)。
 
 - **第二步：拷贝 IM SDK 到工程目录**
 将下载到的 aar 文件拷贝到 tuikit lib工程的 **/libs** 目录下：

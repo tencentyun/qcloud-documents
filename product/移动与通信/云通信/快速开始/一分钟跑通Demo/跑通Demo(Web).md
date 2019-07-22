@@ -6,10 +6,8 @@
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
- ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
 3. 在【创建新应用】对话框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
- ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
 
 <span id="step2"></span>
 ## 配置应用
@@ -36,7 +34,7 @@
 ## 修改源码配置
 使用编辑器打开 index.html ，修改以下参数配置。  
 <pre>
-var sdkAppID = '', // 填写 <a href="https://cloud.tencent.com/document/product/269/32940#step1">创建应用</a> 中获取的 SDKAppID
+var sdkAppID = '', // 填写 <a href="#step1">创建应用</a> 中获取的 SDKAppID
 </pre>
 
 ## 运行 Demo
