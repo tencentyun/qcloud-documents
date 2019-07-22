@@ -12,7 +12,7 @@
 默认情况下，用户的BGP 高防 IP 实例所防护的网站域名采用正常等级的 CC 防护策略，用户可以根据实际情况自由调整防护模式。
 1. 登录 [DDoS 防护（大禹）控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航栏中，选择【BGP 高防 IP】> 【防护配置】，在防护策略页面下，选择目的高防 IP 实例。
 2. 定位到页面下方 HTTP CC 防护和 HTTPS CC 防护区域，选择对应协议下需要开启 CC 防护的域名，设置 CC 防护等级。
-![](https://main.qcloudimg.com/raw/e84b3a74d5bdb7abd52930a1e72c0192.png)
+![](https://main.qcloudimg.com/raw/aeb4f6b6ba6f270727d4266f708f4db1.png)
 >!
 	- CC 防护等级策略仅对接入配置为网站业务（七层接入）的域名生效。
 	- 如果用户还未将需要配置的网站域名接入高防 IP 实例，请参考 [接入网站业务](https://cloud.tencent.com/document/product/1014/31106#.E9.85.8D.E7.BD.AE.E8.BD.AC.E5.8F.91.E8.A7.84.E5.88.99) 将域名添加至已购买的高防 IP 实例。
