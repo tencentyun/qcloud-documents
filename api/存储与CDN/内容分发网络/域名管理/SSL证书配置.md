@@ -1,7 +1,7 @@
 ## 接口描述
 本接口用于配置/删除域名的 HTTPS 配置。
 请求域名：<font style="color:red">cdn.api.qcloud.com</font>
-接口名：`SetHttpsInfo`
+接口名：<font style="color:red">SetHttpsInfo</font>
 
 >!
 + COS 源、FTP 源域名暂时无法将回源方式设置为协议跟随。
