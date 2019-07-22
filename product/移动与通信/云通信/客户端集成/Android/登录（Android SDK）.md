@@ -74,7 +74,7 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 
 ## 无网络情况下查看消息
 
-如用当前网络异常，或者想在不调用 `login` 的时候查看用户消息，可调用 `TIMManagerExt` 中的 `initStorage` 方法初始化存储，完成后可获取会话列表和消息。
+如用当前网络异常，或者想在不调用 `login` 的时候查看用户消息，可调用 `TIMManager` 中的 `initStorage` 方法初始化存储，完成后可获取会话列表和消息。
 
 > **注意：**
 > * 这个方法仅供登录失败或者没有网络的情况下查看历史消息使用，**如需要收发消息，请务必调用登录接口 `login`**。
@@ -96,7 +96,7 @@ public int initStorage(@NonNull String identifier, @NonNull TIMCallBack cb)
 
 ```
 //初始化本地存储
-TIMManagerExt.getInstance().initStorage(identifier, new TIMCallBack() {
+TIMManager.getInstance().initStorage(identifier, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "initStorage failed, code: " + code + "|descr: " + desc);
@@ -110,10 +110,8 @@ TIMManagerExt.getInstance().initStorage(identifier, new TIMCallBack() {
 
 //获取会话实例
 TIMConversation conversation = TIMManager.getInstance().getConversation(TIMConversationType.C2C, peer);
-//获取会话扩展实例
-TIMConversationExt ext = new TIMConversationExt(conversation);
 //获取本地消息
-ext.getLocalMessage(5, null, new TIMValueCallBack<List<TIMMessage>>() {
+conversation.getLocalMessage(5, null, new TIMValueCallBack<List<TIMMessage>>() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "get msgs failed, code: " + code + "|msg: " + desc);
