@@ -136,7 +136,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 接口详情：TPGStatusCode  TPGGetAdditionalInfo(void\* hDec, const unsigned char\* pInData, int nInDatalen, int nIdentity, const unsigned char\*\* pOutData, int\* pOutDataLen) ;
 
-功能描述：获取用户自定义的辅助数据，比如 EXIF 信息等。
+功能描述：获取用户自定义的辅助数据，例如 EXIF 信息等。
 
 参数说明：
 
