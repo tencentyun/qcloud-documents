@@ -7,7 +7,7 @@
 Filebeat 是一个轻量级开源日志文件数据搜集器，作为 agent 安装到服务器上，Filebeat 读取文件内容，发送到 Logstash 进行解析后进入 CTSDB，或直接发送到 CTSDB 进行集中式存储和分析。
 #### Filebeat 的使用流程 
 1. **安装** 
-Filebeat 安装很简单，见 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html
+Filebeat 安装很简单，参见 https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html
 2. **配置** 
 Filebeat 的配置采用 yaml 格式文件，主要配置为全局配置、输入配置、输出配置，下节会给出使用样例。
 3. **启动 **
