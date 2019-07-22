@@ -12,7 +12,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 | TPGDecDestroy        | 销毁 TPG 解码器对象                  |
 | TPGGetDelayTime      | 获取动态图片的显示延迟时间         |
 | TPGCanDecode         | 检测第 index 帧图像是否能解码        |
-| TPGGetAdditionalInfo | 获取用户自定义数据，比如 EXIF 信息等 |
+| TPGGetAdditionalInfo | 获取用户自定义数据，例如 EXIF 信息等 |
 | TPGDecGetVersion     | 获取解码器版本号                   |
 
 
