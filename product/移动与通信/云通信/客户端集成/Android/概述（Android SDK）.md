@@ -13,10 +13,10 @@ IM SDK 对象主要分为通讯管理器，会话、消息，群管理，具体�
 
 | 对象 | 介绍 | 功能 |
 | --- | --- | --- |
-| TIMManager | 管理器类，负责 IM SDK 基本操作 | 初始化、登录、注销、创建会话等，可以通过扩展类 `TIMManagerExt` 使用更多管理器相关高级功能 |
-| TIMConversation | 会话，负责会话相关操作 | 如发送消息，获取会话消息缓存，获取未读计数等，可以通过扩展类 `TIMConversationExt` 使用更多会话相关高级功能 |
-| TIMMessage | 消息 | 包括文本、图片等不同类型消息。可以通过扩展类 `TIMMessageExt` 使用更多消息相关高级功能 |
-| TIMGroupManager | 群组管理器 | 负责创建群组、加群、退群等，可以通过扩展类 `TIMGroupManagerExt` 使用更多群组相关高级功能 |
+| TIMManager | 管理器类，负责 IM SDK 基本操作 | 初始化、登录、注销、创建会话等。 |
+| TIMConversation | 会话，负责会话相关操作 | 如发送消息，获取会话消息缓存，获取未读计数等。 |
+| TIMMessage | 消息 | 包括文本、图片等不同类型消息。 |
+| TIMGroupManager | 群组管理器 | 负责创建群组、加群、退群等。 |
 | TIMFriendshipManager | 资料和关系链管理器 | 负责资料获取、修改以及关系链等相关功能。 |
 
 ### 调用顺序介绍

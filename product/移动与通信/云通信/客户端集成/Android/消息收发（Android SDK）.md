@@ -1141,18 +1141,11 @@ video.getVideo(videoPath, new TIMCallBack() {
 
 ## 消息属性
 
-可通过 `TIMMessage` 或者 `TIMMessageExt` 的成员方法获取消息属性。
-
-** `TIMMessageExt` 实例获取方法如下：**
-
-```
-//获取消息扩展实例， 其中参数 msg 是 TIMMessage 的一个对象
-TIMMessageExt msgExt = new TIMMessageExt(msg);
-```
+可通过 `TIMMessage` 的成员方法获取消息属性。
 
 ### 消息是否已读
 
-通过 `TIMMessageExt` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
+通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -1232,7 +1225,7 @@ public long timestamp()
 
 ### 消息删除
 
-目前暂不支持 Server 消息删除，只能在本地删除。通过 `TIMMessageExt` 中的 `remove` 接口可以删除消息，删除后使用 `getMessage` 拉取消息，不会返回被删除的消息。
+目前暂不支持 Server 消息删除，只能在本地删除。通过 `TIMMessage` 中的 `remove` 接口可以删除消息，删除后使用 `getMessage` 拉取消息，不会返回被删除的消息。
 
 ```
 /**
@@ -1256,7 +1249,7 @@ public long getMsgUniqueId()
 
 ### 消息自定义字段
 
-开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，例如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。相关接口由 `TIMMessageExt` 类提供。
+开发者可以对消息增加自定义字段，如自定义整数、自定义二进制数据，可以根据这两个字段做出各种不同效果，例如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
 
 ```
 //设置自定义整数， 默认为 0
@@ -1288,9 +1281,9 @@ public TIMMessagePriority getPriority()
 
 ### 已读回执
 
-IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfigMsgExt` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfig` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
 
-通过 `TIMUserConfigMsgExt` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessageExt` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
+通过 `TIMUserConfig` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
 **原型：**
 
@@ -1339,7 +1332,7 @@ public long getRand()
 
 ### 消息查找参数
 
-IM SDK 中的消息需要通过`{seq, rand, timestamp, isSelf}` 四元组来唯一确定一条具体的消息，我们把这个四元组称为消息的查找参数。通过 `TIMMessageExt` 中的 `getMessageLocator` 接口可以从当前消息中获取到当前消息的查找参数。
+IM SDK 中的消息需要通过`{seq, rand, timestamp, isSelf}` 四元组来唯一确定一条具体的消息，我们把这个四元组称为消息的查找参数。通过 `TIMMessage` 中的 `getMessageLocator` 接口可以从当前消息中获取到当前消息的查找参数。
 
 ```
 /**
@@ -1353,7 +1346,7 @@ public TIMMessageLocator getMessageLocator()
 
 ### 获取所有会话
 
-通过 `TIMManagerExt` 的 `getConversationList` 获取当前会话数量，从而得到所有本地会话。
+通过 `TIMManager` 的 `getConversationList` 获取当前会话数量，从而得到所有本地会话。
 
 **原型：**
 
@@ -1368,25 +1361,16 @@ public List<TIMConversation> getConversationList()
 **示例：**
 
 ```
-List<TIMConversation> list = TIMManagerExt.getInstance().getConversationList();
+List<TIMConversation> list = TIMManager.getInstance().getConversationList();
 ```
 
 ### 最近联系人漫游
 
-IM SDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。如果不需要此功能，可以在登录之前，通过 `TIMUserConfigMsgExt` 中的 `enableRecentContact` 方法修改用户配置来关闭这个功能。
-
-**原型：**
-```
-/**
- * 设置是否开启最近联系人功能（默认开启），登录前设置
- * @param recentContactEnabled true - 开启， false - 关闭
- */
-public TIMUserConfigMsgExt enableRecentContact(boolean recentContactEnabled)
-```
+IM SDK 登录以后默认会获取最近联系人漫游，同时每个会话会获取到最近的一条消息。
 
 ### 获取会话本地消息
 
-IM SDK 会在本地进行消息存储，可通过 `TIMConversationExt` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过`getMessage`获取漫游消息**。
+IM SDK 会在本地进行消息存储，可通过 `TIMConversation` 方法的 `getLocalMessage` 获取，此方法为异步方法，需要通过设置回调得到消息数据，**对于单聊，登录后会自动获取离线消息，对于群聊，开启最近联系人漫游的情况下，登录后只能获取最近一条消息，可通过`getMessage`获取漫游消息**。
 
  > 注意：
  > 对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
@@ -1409,10 +1393,9 @@ public void getLocalMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCall
 ```
 //获取会话扩展实例
 TIMConversation con = TIMManager.getInstance().getConversation(TIMConversationType.Group, groupId);
-TIMConversationExt conExt = new TIMConversationExt(con);
 
 //获取此会话的消息
-conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
+con.getLocalMessage(10, //获取此会话最近的 10 条消息
         null, //不指定从哪条消息开始获取 - 等同于从最新的消息开始往前
         new TIMValueCallBack<List<TIMMessage>>() {//回调接口
     @Override
@@ -1437,7 +1420,7 @@ conExt.getLocalMessage(10, //获取此会话最近的 10 条消息
 
 ### 获取会话漫游消息
 
-对于群组，登录后可以获取漫游消息，对于C2C，开通漫游服务后可以获取漫游消息，通过 `TIMConversationExt` 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。
+对于群组，登录后可以获取漫游消息，对于C2C，开通漫游服务后可以获取漫游消息，通过 `TIMConversation` 的 `getMessage` 接口可以获取漫游消息，如果本地消息全部都是连续的，则不会通过网络获取，如果本地消息不连续，会通过网络获取断层消息。
 
  >!对于图片、语音等资源类消息，消息体只会包含描述信息，需要通过额外的接口下载数据，可参与消息解析部分，下载后的真实数据不会缓存，需要调用方进行缓存。
 
@@ -1458,10 +1441,9 @@ public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack<
 ```
 //获取会话扩展实例
 TIMConversation con = TIMManager.getInstance().getConversation(TIMConversationType.Group, groupId);
-TIMConversationExt conExt = new TIMConversationExt(con);
 
 //获取此会话的消息
-conExt.getMessage(10, //获取此会话最近的 10 条消息
+con.getMessage(10, //获取此会话最近的 10 条消息
         null, //不指定从哪条消息开始获取 - 等同于从最新的消息开始往前
         new TIMValueCallBack<List<TIMMessage>>() {//回调接口
     @Override
@@ -1487,7 +1469,7 @@ conExt.getMessage(10, //获取此会话最近的 10 条消息
 
 ### 删除会话
 
-IM SDK 的 `TIMManagerExt` 中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
+IM SDK 的 `TIMManager` 中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
 
 >!
 > - 删除本地消息的情况下，C2C 会话将无法获取到删除会话前的历史消息。
@@ -1517,12 +1499,12 @@ public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String p
 以下示例中删除了与用户 hello 的 C2C 会话。**示例：**
 
 ```
-TIMManagerExt.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
+TIMManager.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
 ```
 
 ### 同步获取会话最后的消息
 
-UI 展示最近联系人列表时，时常会展示用户的最后一条消息，IM SDK 在 `TIMConverstionExt` 中提供了同步获取会话最近消息的接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
+UI 展示最近联系人列表时，时常会展示用户的最后一条消息，IM SDK 在 `TIMConverstion` 中提供了同步获取会话最近消息的接口 `getLastMsg`，用户可以通过此接口方便获取最后一条消息进行展示。**目前没有网络无法获取，另外如果禁用了最近联系人，登录后在有新消息过来之前无法获取**。此接口获取并不会过滤删除状态消息，需要 App 层进行屏蔽。获取最近的多条消息，可以通过 `getMessage` 来获取。
  
 **原型：**
 
@@ -1545,7 +1527,7 @@ public void getMessage(int count, TIMMessage lastMsg, @NonNull TIMValueCallBack<
 
 ### 设置会话草稿
 
-IM SDK 提供了会话草稿功能，开发者可以通过 `TIMConversationExt` 中的相关接口进行草稿操作。
+IM SDK 提供了会话草稿功能，开发者可以通过 `TIMConversation` 中的相关接口进行草稿操作。
 
 >!
 > - 草稿只能本地有效，更换终端或者清除数据后将看不到草稿。
@@ -1608,7 +1590,7 @@ public long getTimestamp()
 ```
 ### 删除会话本地消息
 
-IM SDK 提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用 `TIMConversationExt` 的 `deleteLocalMessage` 接口实现。
+IM SDK 提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用 `TIMConversation` 的 `deleteLocalMessage` 接口实现。
 
 >!群组会话在清空本地聊天记录后，仍然会通过漫游拉取到本地删除了的历史消息。
 
@@ -1624,7 +1606,7 @@ public void deleteLocalMessage(@NonNull TIMCallBack callback)
 
 ### 查找本地消息
 
-IM SDK 提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用 `TIMConversationExt` 中的 `findMessages` 方法进行消息查找。
+IM SDK 提供了根据提供参数查找相应消息的功能，只能精准查找，暂时不支持模糊查找。开发者可以通过调用 `TIMConversation` 中的 `findMessages` 方法进行消息查找。
 
 
 ```
@@ -1650,7 +1632,7 @@ public TIMMessageLocator getMessageLocator()
 
 ### 撤回消息
 
-IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversationExt` 的 `revokeMessage` 接口来撤回自己发送的消息。
+IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `TIMConversation` 的 `revokeMessage` 接口来撤回自己发送的消息。
 
 >!
 > - 仅 C2C 和 GROUP 会话有效、onlineMessage 无效、AVChatRoom 和 BChatRoom 无效。
@@ -1668,7 +1650,7 @@ IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `T
 public void revokeMessage(@NonNull TIMMessage msg, @NonNull TIMCallBack cb)
 ```
 
-成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfigMsgExt` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
+成功撤回消息后，群组内其他用户和 C2C 会话对端用户会收到一条消息撤回通知，并通过消息撤回通知监听器 `TIMMessageRevokeListener` 通知到上层应用。消息撤回通知监听器可以在登录前，通过 `TIMUserConfig` 的 `setMessageRevokedListener` 来进行配置。具体可以参考 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)。
 
 **原型：**
 
@@ -1687,7 +1669,7 @@ public interface TIMMessageRevokedListener extends IMBaseListener {
 
 ```
 
-收到一条消息撤回通知后，通过 `TIMMessageExt` 中的 `checkEquals` 方法判断当前消息是否是被对方撤回了，然后根据需要对 UI 进行刷新。
+收到一条消息撤回通知后，通过 `TIMMessage` 中的 `checkEquals` 方法判断当前消息是否是被对方撤回了，然后根据需要对 UI 进行刷新。
 
 **原型：**
 
