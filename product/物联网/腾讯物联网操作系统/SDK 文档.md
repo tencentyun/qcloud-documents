@@ -666,7 +666,7 @@ k_err_t tos_queue_create(k_queue_t *queue);
 
 **返回值**
 -   K_ERR_NONE 队列创建成功。
--   K_ERR_OBJ_PTR_NULL queue指针为空。
+-   K_ERR_OBJ_PTR_NULL queue 指针为空。
 
 #### tos_queue_destroy
 
@@ -685,8 +685,8 @@ k_err_t tos_queue_destroy(k_queue_t *queue);
 
  **返回值**
 -  K_ERR_NONE 队列销毁成功。
--  K_ERR_OBJ_PTR_NULL queue指针为空。
--  K_ERR_OBJ_INVALID queue指向的不是一个合法的队列。
+-  K_ERR_OBJ_PTR_NULL queue 指针为空。
+-  K_ERR_OBJ_INVALID queue 指向的不是一个合法的队列。
 
 #### tos_queue_flush
 
@@ -705,8 +705,8 @@ k_err_t tos_queue_flush(k_queue_t *queue);
 
 **返回值**
 -  K_ERR_NONE 队列冲洗成功。
--  K_ERR_OBJ_PTR_NULL queue指针为空。
--  K_ERR_OBJ_INVALID queue指向的不是一个合法的队列。
+-  K_ERR_OBJ_PTR_NULL queue 指针为空。
+-  K_ERR_OBJ_INVALID queue 指向的不是一个合法的队列。
 
 #### tos_queue_pend
 
@@ -727,10 +727,10 @@ k_err_t tos_queue_pend(k_queue_t *queue, void **msg_addr, size_t *msg_size, k_ti
   | [in]   | timeout  | 等待超时参数     |
 
 **返回值**
--   K_ERR_NONE 从队列获取消息成功，msg_addr和msg_size分别是获取到的消息地址和消息长度。
--   K_ERR_PEND_NOWAIT 未能从队列中获取到消息，并且timeout参数为TOS_TIME_NOWAIT（表示获取不到消息时立即返回）。
+-   K_ERR_NONE 从队列获取消息成功，msg_addr 和 msg_size 分别是获取到的消息地址和消息长度。
+-   K_ERR_PEND_NOWAIT 未能从队列中获取到消息，并且 timeout  参数为 TOS_TIME_NOWAIT（表示获取不到消息时立即返回）。
 -   K_ERR_PEND_SCHED_LOCKED 未能从队列中获取到消息，并且系统调度处于锁定状态。
--   K_ERR_PEND_TIMEOUT 在timeout超时范围内未能从队列中获取到消息。
+-   K_ERR_PEND_TIMEOUT 在 timeout 超时范围内未能从队列中获取到消息。
 -   K_ERR_PEND_DESTROY 尝试获取消息的队列被销毁了（tos_queue_destroy）。
 
 #### tos_queue_post
@@ -795,7 +795,7 @@ k_err_t tos_event_create(k_event_t *event, k_event_flag_t init_flag);
 
 **返回值**
 - K_ERR_NONE 事件创建成功。
-- K_ERR_OBJ_PTR_NULL event指针为空。
+- K_ERR_OBJ_PTR_NULL event 指针为空。
 
 #### tos_event_destroy
 
@@ -814,8 +814,8 @@ k_err_t tos_event_destroy(k_event_t *event);
 
 **返回值**
 - K_ERR_NONE 事件销毁成功。
-- K_ERR_OBJ_PTR_NULL event指针为空。
-- K_ERR_OBJ_INVALID event指向的不是一个合法的事件。
+- K_ERR_OBJ_PTR_NULL event 指针为空。
+- K_ERR_OBJ_INVALID event 指向的不是一个合法的事件。
 
 #### tos_event_pend
 
@@ -848,10 +848,10 @@ k_err_t tos_event_pend(k_event_t *event, k_event_flag_t flag_expect, k_event_fla
 
 **返回值**
 -   K_ERR_NONE 读取特定的事件成功。
--   K_ERR_EVENT_PEND_OPT_INVALID opt参数非法。
--   K_ERR_PEND_NOWAIT 未能从event中获取到期望的旗标，并且timeout参数为TOS_TIME_NOWAIT（表示未获取到期望旗标时立即返回）。
--   K_ERR_PEND_SCHED_LOCKED 未能从event中获取到期望的旗标，并且系统调度处于锁定的状态。
--   K_ERR_PEND_TIMEOUT 在超时范围内未能从event中获取到期望的旗标。
+-   K_ERR_EVENT_PEND_OPT_INVALID opt 参数非法。
+-   K_ERR_PEND_NOWAIT 未能从 event 中获取到期望的旗标，并且 timeout 参数为TOS_TIME_NOWAIT（表示未获取到期望旗标时立即返回）。
+-   K_ERR_PEND_SCHED_LOCKED 未能从 event 中获取到期望的旗标，并且系统调度处于锁定的状态。
+-   K_ERR_PEND_TIMEOUT 在超时范围内未能从 event 中获取到期望的旗标。
 -   K_ERR_PEND_DESTROY 尝试获取旗标的事件被销毁了（tos_event_destroy）。
 
 #### tos_event_post
@@ -861,7 +861,7 @@ k_err_t tos_event_post(k_event_t *event, k_event_flag_t flag);
 ```
 
 **功能描述**
-向事件中放置一组旗标
+向事件中放置一组旗标。
 
 **参数解释**
 
@@ -1057,8 +1057,8 @@ k_err_t tos_fifo_destroy(k_fifo_t *fifo);
 **返回值**
 
 -  K_ERR_NONE 队列创建成功。
--  K_ERR_OBJ_PTR_NULL fifo是空指针。
--  K_ERR_OBJ_INVALID fifo指向的不是一个合法的先入先出队列。
+-  K_ERR_OBJ_PTR_NULL fifo 是空指针。
+-  K_ERR_OBJ_INVALID fifo 指向的不是一个合法的先入先出队列。
 
 #### tos_fifo_push
 
@@ -1219,7 +1219,7 @@ k_err_t tos_timer_create(k_timer_t *tmr,
 | ------ | -------- | -------------------- |
   | [in]   | tmr      | 定时器句柄           |
   | [in]   | delay    | 定时器延迟多久后执行 |
-  | [in]   | period   | 周期性timer的周期    |
+  | [in]   | period   | 周期性 timer 的周期    |
   | [in]   | callback | 定时器回调           |
   | [in]   | cb_arg   | 定时器回调参数       |
   | [in]   | opt      | 选项                 |
@@ -1262,7 +1262,7 @@ k_err_t tos_timer_start(k_timer_t *tmr);
 ```
 
 **功能描述**
-启动一个定时器
+启动一个定时器。
 
 **参数解释**
 
@@ -1282,7 +1282,7 @@ k_err_t tos_timer_stop(k_timer_t *tmr);
 ```
 
 **功能描述**
-停止一个定时器.
+停止一个定时器。
 
 **参数解释**
 
