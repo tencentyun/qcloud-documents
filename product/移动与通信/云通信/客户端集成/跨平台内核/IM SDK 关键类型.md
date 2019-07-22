@@ -49,8 +49,8 @@
 
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
-| kTIMConvEvent_Add | 0 | 会话新增，比如收到一条新消息，产生一个新的会话是事件触发 |
-| kTIMConvEvent_Del | 1 | 会话删除，比如自己删除某会话时会触发 |
+| kTIMConvEvent_Add | 0 | 会话新增，例如收到一条新消息，产生一个新的会话是事件触发 |
+| kTIMConvEvent_Del | 1 | 会话删除，例如自己删除某会话时会触发 |
 | kTIMConvEvent_Update | 2 | 会话更新，会话内消息的未读计数变化和收到新消息时触发 |
 
 ### TIMConvType
@@ -264,7 +264,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
  - 此消息不计入未读计数。
  - 此消息在本地不会存储。
 - 消息自定义字段。
-开发者可以对消息增加自定义字段，如自定义整数（通过`kTIMMsgCustomInt`指定）、自定义二进制数据（通过`kTIMMsgCustomStr`指定，必须转换成 String，JSON 不支持二进制传输），可以根据这两个字段做出各种不同效果，比如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
+开发者可以对消息增加自定义字段，如自定义整数（通过`kTIMMsgCustomInt`指定）、自定义二进制数据（通过`kTIMMsgCustomStr`指定，必须转换成 String，JSON 不支持二进制传输），可以根据这两个字段做出各种不同效果，例如语音消息是否已经播放等等。另外需要注意，此自定义字段仅存储于本地，不会同步到 Server，更换终端获取不到。
 
 
 ### MessageReceipt
@@ -1019,7 +1019,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
-| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID，比如：请求加群：请求者，邀请加群：邀请人。 |
+| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID。例如，请求加群：请求者，邀请加群：邀请人。 |
 | kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，请求加群：""，邀请加群：被邀请人。 |
 | kTIMGroupPendencyAddTime | uint64 | 只读 | 未决信息添加时间 |
 | kTIMGroupPendencyPendencyType |  uint [TIMGroupPendencyType](#timgrouppendencytype)  | 只读 | 未决请求类型 |
