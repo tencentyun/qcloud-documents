@@ -1,8 +1,8 @@
 ### 请求地址 
-地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
+地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200
 
 ### 请求路径和方法 
-路径：`/_metric/${metric_name}/update`，`${metric_name}`为metric的名称
+路径：`/_metric/${metric_name}/update`，`${metric_name}`为 metric 的名称
 方法：PUT
 
 ### 请求参数 
