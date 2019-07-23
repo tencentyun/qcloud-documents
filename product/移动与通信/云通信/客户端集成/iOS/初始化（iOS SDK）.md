@@ -17,7 +17,7 @@ IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第
 ```
 TIMManager * manager = [TIMManager sharedInstance];
 ```
-在使用 SDK 进一步操作之前，需要初始 SDK。
+在使用 SDK 进一步操作之前，需要初始化 SDK。
 
 **原型:**
 ```
@@ -33,9 +33,9 @@ TIMManager * manager = [TIMManager sharedInstance];
 - (int)initSdk:(TIMSdkConfig*)globalConfig;
 
 /**
- *  初始化当前manager，在initSdk:后调用，login:前调用
+ *  初始化当前 manager，在 initSdk:后调用，login:前调用
  *
- *  @param config    配置信息，对当前TIMManager有效
+ *  @param config    配置信息，对当前 TIMManager 有效
  *
  *  @return 0 成功
  */
@@ -67,18 +67,18 @@ TIMManager * manager = [TIMManager sharedInstance];
 //消息数据库路径，不设置时为默认路径
 @property(nonatomic,strong) NSString * dbPath;
 
-//网络监听器,监听网络连接成功失败的状态
+//网络监听器，监听网络连接成功失败的状态
 @property(nonatomic,strong) id<TIMConnListener> connListener;
 
 @end
 
-// 用户配置信息
+//用户配置信息
 @interface TIMUserConfig : NSObject
 
 //禁用本地存储
 @property(nonatomic,assign) BOOL disableStorage;
 
-//是否开启多终端同步未读提醒，这个选项主要影响多终端登录时的未读消息提醒逻辑。YES：只有当一个终端调用 setReadMessage() 将消息标记为已读，另一个终端再登录时才不会收到未读提醒；NO：消息一旦被一个终端接收，另一个终端都不会再次提醒。同理，卸载 APP 再安装也无法再次收到这些未读消息。
+//是否开启多终端同步未读提醒，这个选项主要影响多终端登录时的未读消息提醒逻辑。YES：只有当一个终端调用 setReadMessage() 将消息标记为已读，另一个终端再登录时才不会收到未读提醒；NO：消息一旦被一个终端接收，另一个终端都不会再次提醒。同理，卸载 App 再安装也无法再次收到这些未读消息。
 @property(nonatomic,assign) BOOL disableAutoReport;
 
 //是否开启被阅回执。YES：接收者查看消息（setReadMessage）后，消息的发送者会收到 TIMMessageReceiptListener 的回调提醒；NO: 不开启被阅回执，默认不开启。
@@ -93,7 +93,7 @@ TIMManager * manager = [TIMManager sharedInstance];
 //关系链参数
 @property(nonatomic,strong) TIMFriendProfileOption * friendProfileOpt;
 
-//用户登录状态监听器,用于监听用户被踢，断网重连失败，userSig 过期的通知
+//用户登录状态监听器,用于监听用户被踢，断网重连失败，UserSig 过期的通知
 @property(nonatomic,weak) id<TIMUserStatusListener> userStatusListener;
 
 //会话刷新监听器，用于监听会话的刷新
