@@ -8,7 +8,7 @@
 | 内容 | 说明 | 
 | --- | --- |
 | 请求协议 | HTTP |
-| 请求地址 | https://aai.qcloud.com/asr/v1/<appid>? {请求参数} |
+| 请求地址 | https://aai.qcloud.com/asr/v1/\<appid>? {请求参数} |
 | 接口鉴权 | 签名机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
 | 开发语言 | 任意，只要可以向腾讯云服务发起HTTP请求的均可 |
