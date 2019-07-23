@@ -38,6 +38,6 @@
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg" />
 
-**Chrome浏览器**
+**Chrome 浏览器**
 
 <img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg" />

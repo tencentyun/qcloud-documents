@@ -30,7 +30,7 @@
 | CreatePrivateGroup | 创建私有群 |
 | CreatePublicGroup | 创建公开群 |
 | CreateChatRoomGroup | 创建聊天室 |
-| CreateAVChatRoomGroup | 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104) |
+| CreateAVChatRoomGroup | 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人，不能查询总人数等 |
 
 **原型：**
 

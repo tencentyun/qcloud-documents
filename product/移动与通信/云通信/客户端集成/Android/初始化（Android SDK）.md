@@ -132,8 +132,7 @@ if (SessionWrapper.isMainProcess(getApplicationContext())) {
 ```
 ## 用户配置
 
-在初始化 IM SDK 后，登录 IM SDK 之前，可以通过 TIMUserConfig 进行用户配置，从4.4.716版本开始将不再使用 TIMUserConfigMsgExt。
-配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
+在初始化 IM SDK 后，登录 IM SDK 之前，可以通过 TIMUserConfig 进行用户配置。配置完成后，**在登录前**，通过通讯管理器 `TIMManager` 的接口 `setUserConfig` 将用户配置与当前通讯管理器进行绑定。
 
 **原型：**
 ```
@@ -226,7 +225,7 @@ public TIMUserConfig setConnectionListener(TIMConnListener listener)
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 ### 用户状态变更
 
@@ -265,7 +264,7 @@ public interface TIMUserStatusListener {
 
 **示例：**
 
-请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE9) 中的示例。
+请参考 [用户配置](#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE) 中的示例。
 
 
 ### 用户被踢下线通知
