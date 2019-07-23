@@ -11,9 +11,9 @@
 
 <table>
   <tr>
-    <td "width:20%;">保护类型 </td>
+    <td "width:30%;">保护类型 </td>
 		<td>保护设备</td>
-		<td "width:40%;">作用</td>
+		<td "width:35%;">作用</td>
   </tr>
   <tr>
     <td rowspan="2" > 登录保护</td>
