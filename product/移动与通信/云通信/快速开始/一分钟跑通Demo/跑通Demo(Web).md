@@ -39,7 +39,7 @@ var sdkAppID = '', // 填写 <a href="#step1">创建应用</a> 中获取的 SDKA
 
 ## 运行 Demo
 1. 使用浏览器打开 index.html。
-2. 输入 [获取测试 userSig](#step3) 中获取到 UserID 和 userSig，单击【确定】。
+2. 输入 [获取测试 UserSig](#step3) 中获取到 UserID 和 UserSig，单击【确定】。
  ![](https://main.qcloudimg.com/raw/77bfeddae0703b84d12fa51f38508adf.png)
 3. 登录成功后，可以进行查找好友，建群，聊天等操作：
  ![](https://main.qcloudimg.com/raw/87e6f5eae834907cab89f50d5ce49b49.png)
