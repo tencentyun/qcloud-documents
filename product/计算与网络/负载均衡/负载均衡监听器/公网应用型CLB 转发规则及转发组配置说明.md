@@ -59,7 +59,7 @@
  1. `example.qloud.com/test1/image/index1.html` 由于精确匹配转发组1设置的 URL 规则，则该请求将被转发到转发组1所关联的后端云服务器中，即图中 RS1 和 RS2 的80端口。
  2. `example.qloud.com/test1/image/hello.html` 由于此请求无法精确匹配第一条规则，因此将继续匹配转发组2中的规则，发现模糊匹配成功。因此该请求将被转发到转发组2所关联的后端云服务器中，图中即 RS2 和 RS3 的81端口。
  3. `example.qloud.com/test2/video/mp4/` 由于此请求无法精确匹配到前两条规则，因此将继续向下匹配，直至发现可以模糊匹配转发组 3 中的规则。因此该请求将被转发到转发组3所关联的后端云服务器中，图中即 RS4 的90端口。
- 4. `example.qloud.com/test3/hello/index.html` 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则 `default URL`。这个时候应该是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），tomcat（jsp），Nginx 作为反向代理服务器存在。
+ 4. `example.qloud.com/test3/hello/index.html` 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则 `default URL`。这时应该是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），tomcat（jsp），Nginx 作为反向代理服务器存在。
  5. `example.qloud.com/test2/` 由于请求无法精确匹配到前三个转发组中的规则，因此将匹配用户配置的通用规则 `default URL`。
 2. 如果用户设置的 URL 规则中，服务不能正常运行，则匹配成功后，不会重定向到其他页面。
 例如，客户端请求 `example.qloud.com/test1/image/index1.html` 匹配了转发组1的 URL 规则，但此时转发组1的后端服务器运行异常，出现404的页面时，用户进行访问时页面则会显示404，不会跳转到其他页面。
