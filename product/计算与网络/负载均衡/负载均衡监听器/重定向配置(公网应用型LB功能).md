@@ -55,7 +55,7 @@ server {
 ### CLB 强制 HTTP 跳转方案
 #### 方案说明
 假定开发者需要配置网站`https://example.com` 。开发者希望用户在浏览器中输入网址时，直接键入`www.example.com`即可通过 HTTPS 协议安全访问。`www.example.com` 下，不仅仅是一个地址，后端关联的 URL 可能有数百的（用正则匹配），总的 real server 数量会有几百个，逐一配置难度太大。腾讯云支持一键式的，强制 HTTPS 跳转。
-1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 LB 的 HTTPS 监听器的配置，搭建`https://example.com`的 Web 环境。
+1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 CLB 的 HTTPS 监听器的配置，搭建`https://example.com`的 Web 环境。
 ![](https://main.qcloudimg.com/raw/634b11258bfdfee45568062f8c3bf651.png)
 2. 完成 HTTPS 配置后的结果如下图所示。
 ![](https://main.qcloudimg.com/raw/f11a1c39ea720f8476b29e97a57c3999.png)
