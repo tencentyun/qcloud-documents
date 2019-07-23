@@ -10,21 +10,14 @@
 ## 操作步骤
 
 ###  创建实例
-单击实例列表页的【新建】按钮，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
+单击实例列表页的【新建】，创建并购买实例。详情请参见 [创建实例](https://cloud.tencent.com/document/product/597/30931) 文档。
 
-###  添加路由
->!一个实例最多可创建5条路由。选择 SASL_PLAINTEXT 接入方式的路由有且仅可以有1条。例如，路由类型为公网域名接入选择了 SASL_PLAINTEXT，则其他方式的路由不可以再创建接入方式为 SASL_PLAINTEXT 的项目。
-
-1. 在实例基本信息页面，单击接入方式模块中的【添加路由策略】。
-2. 在弹窗中，选择路由类型和接入方式。
- - 路由类型：公网域名接入
- - 接入方式：SASL_PLAINTEXT
 
 ### 配置用户信息
 您可以通过 Client 端或 CKafka 实例两种方式配置用户信息。
 
 ####  Client 端配置
-1. 在 CKafka 实例的用户管理页面，单击【新建】按钮，创建用户。
+1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
 ![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)

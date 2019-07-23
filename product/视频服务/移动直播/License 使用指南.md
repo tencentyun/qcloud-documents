@@ -1,11 +1,11 @@
 ## 申请测试 License
 您可以免费申请测试 License（基础版，有效期28天）体验测试，具体步骤如下：
 1. 登录腾讯云官网，进入 [移动直播 License](https://console.cloud.tencent.com/live/license)。
-2. 填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 bundleId。
- ![](https://main.qcloudimg.com/raw/edd99f145276ad5250f0ca5d0f5d4980.png)
+2. 填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
+![](https://main.qcloudimg.com/raw/cb1d13cbdd1dd661a3147172ff163fa0.jpg)
 3. 单击【免费创建】。
  创建成功后，页面会显示生成的 License 信息。请记录 Key 和 LicenseUrl，便于在 SDK 初始化时使用。
-![](https://main.qcloudimg.com/raw/ce722e4038a86b85d96b2cb9f5a058e8.png)
+![](https://main.qcloudimg.com/raw/b923c8f3c4e586a3977b6c8fe023e16f.jpg)
 
 <span id="buy"></span>
 ## 购买正式 License
@@ -51,8 +51,8 @@ TXLiveBase.getInstance().getLicenceInfo();
 正式版 License 有效期一般为一年。License 到期后您可以在 [移动直播 License](https://console.cloud.tencent.com/live/license)  页面再次购买。
 
 ## 商业版 License
-相比于专业版，商业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用商业版 License 可以开启优图实验室的 AI 功能，更多详情请参考 [美颜特效](https://cloud.tencent.com/product/x-magic)。
-使用商业版本 License 时，License 设置方法同 [配置 License](#config)，但工程需要额外进行配置，具体操作请参考：
+相比于专业版，商业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用商业版 License 可以开启优图实验室的 AI 功能，更多详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
+使用商业版本 License 时，License 设置方法同 [配置 License](#config)，但工程需要额外进行配置，具体操作请参见：
 - [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
 - [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
 
@@ -61,11 +61,11 @@ TXLiveBase.getInstance().getLicenceInfo();
 ### 测试 License 到期后是否可以延期？
 测试 License 试用期最多28天，不支持延期，到期后请尽快 [购买正式 License](#buy)。
 
-### 测试 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
-测试 License 能更改 Android 的 PackageName 和 iOS 的 BundleID。具体操作：登录控制台，单击测试 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 PackageName 和 iOS 的 BundleID。
+### 测试 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
+测试 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。具体操作：登录控制台，单击测试 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
 
-### 正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
-当前版本，正式 License 不能更改 PackageName 和 BundleID。后续版本将会新增相关功能。
+### 正式 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
+当前版本，正式 License 不能更改 Package Name 和 Bundle ID。后续版本将会新增相关功能。
 
 ### License 可以同时支持多个 App 吗？
-一个 License 只能对应一个 PackageName 和一个 BundleID，暂不支持多个 App。
+一个 License 只能对应一个 Package Name 和一个 Bundle ID，暂不支持多个 App。

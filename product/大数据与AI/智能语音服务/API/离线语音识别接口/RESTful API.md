@@ -8,14 +8,14 @@
 | 内容 | 说明 | 
 | --- | --- |
 | 请求协议 | HTTP |
-| 请求地址 | https://aai.qcloud.com/asr/v1/<appid>? {请求参数} |
+| 请求地址 | https://aai.qcloud.com/asr/v1/<appid\>? {请求参数} |
 | 接口鉴权 | 签名机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
 | 开发语言 | 任意，只要可以向腾讯云服务发起HTTP请求的均可 |
-| 音频属性 | 采样率16k或8k（英文仅支持16k）、位长16bits、单声道 |
+| 音频属性 | 采样率16k或8k、位长16bits、单声道 |
 | 音频格式 | 支持 wav、pcm、mp3、silk、speex、amr 等主流音频格式 |
 | 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于5MB；若采用上传音频 url 方式，建议音频时长不能大于1小时。 |
-| 语言种类 | 中文普通话、英文和带有一定方言口音的普通话 |
+| 语言种类 | 中文普通话、带有一定方言口音的普通话 |
 
 ## 请求结构
 请求结构主要由**请求方法、请求 URL、请求头部、请求正文**组成。
@@ -151,7 +151,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 服务端返回 JSON 示例： 
 
 ``` 
-{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", audioTime:2.5 }
+{ "code":0, "message":"success", "requestId":500, "appid": 12000001, "projectid": 0, "audioUrl":"http://test.qq.com/voice_url", "text":"您好", "audioTime":2.5 }
 ```
 语音识别系统发起请求，收到请求后，用户侧需要以 JSON 格式回以响应：
 
