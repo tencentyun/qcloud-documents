@@ -11,8 +11,8 @@
 
 <table>
   <tr>
-    <td "width:30%;">保护类型 </td>
-		<td "width:30%;">保护设备</td>
+    <td "width:25%;">保护类型 </td>
+		<td "width:25%;">保护设备</td>
 		<td >作用</td>
   </tr>
   <tr>
