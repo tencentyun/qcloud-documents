@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您在使用消息队列 CKafka 时，通过控制台配置接入规则，增强对公网/内网传输中的用户网络访问控制。关于公网的访问请参考 [公网路由接入（SASL 鉴权与 ACL 策略）](https://cloud.tencent.com/document/product/597/31528)。
+该任务指导您在使用消息队列 CKafka 时，通过控制台配置接入规则，增强对公网/内网传输中的用户网络访问控制。关于公网的访问请参考 [用户访问控制（ACL 与用户管理）](https://cloud.tencent.com/document/product/597/31528)。
 
 ## 前提条件
 该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
