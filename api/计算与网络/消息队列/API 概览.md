@@ -15,7 +15,7 @@
 | 接口功能 | Action ID | 功能描述|
 |---------|---------|---------|
 | [发送消息](https://cloud.tencent.com/document/product/406/5837) | SendMessage| 用于发送一条消息到指定的队列。|
-| [批量发送消息](https://cloud.tencent.com/document/product/406/58388) | BatchSendMessage | 用于发送批量消息到指定的队列。|
+| [批量发送消息](https://cloud.tencent.com/document/product/406/5838) | BatchSendMessage | 用于发送批量消息到指定的队列。|
 | [消费消息](https://cloud.tencent.com/document/product/406/5839)  | ReceiveMessage| 用于消费队列中的一条消息。|
 | [批量消费消息](https://cloud.tencent.com/document/product/406/5924) | BatchReceiveMessage | 用于消费队列中的多条消息。|
 | [删除消息](https://cloud.tencent.com/document/product/406/5840) | DeleteMessage | 用于删除已经被消费过的消息。|
