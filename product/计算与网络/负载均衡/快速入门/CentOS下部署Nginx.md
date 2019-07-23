@@ -25,7 +25,7 @@ vim /usr/share/nginx/html/index.html
 Hello nginx , This is rs-1!
 URL is index.html
 ```
-4. 应用型负载均衡可以根据后端服务器的路径来进行请求转发，在`/image`路径下部署静态页面，相关命令如下：
+4. 负载均衡（原“应用型负载均衡”）可以根据后端服务器的路径来进行请求转发，在`/image`路径下部署静态页面，相关命令如下：
 ```
 # 新建目录 image
 mkdir /usr/share/nginx/html/image

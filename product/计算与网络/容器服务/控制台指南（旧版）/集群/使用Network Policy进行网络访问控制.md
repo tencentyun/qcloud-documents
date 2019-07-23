@@ -256,14 +256,12 @@ spec:
 |:----|:----|
 | 不同 namespace 的 pod 互相隔离，同一 namespace 的 pod 互通 | 通过 |
 | 不同 namespace 的 pod 互相隔离，同一 namespace 的 pod 隔离 | 通过 |
-| 不同 namespace 的 pod 互相隔离，白名单指定 B 可以访问 A | 通过 |
+| 不同 namespace 的 pod 互相隔离，白名单指定 namespace B 可以访问 namespace A | 通过 |
 | 允许某个 namespace 访问集群外某个 CIDR，其他外部 IP 全部隔离 | 通过 |
-| 不同 namespace 的 pod 互相隔离，白名单指定 B可以访问 A 中对应的 pod 以及端口 | 通过 |
-| 以上用例，当 source pod 和 destination pod 在一个 node 上时，隔离是否生效 | 不通过 |
+| 不同 namespace 的 pod 互相隔离，白名单指定 namespace B 可以访问 namespace A 中对应的 pod 以及端口 | 通过 |
+| 以上用例，当 source pod 和 destination pod 在一个 node 上时，隔离生效 | 不通过 |
 
-
-功能测试用例：
-> [#kube-router 测试用例.xlsx.zip#](https://ask.qcloudimg.com/draft/982360/dgs7x4hcly.zip)
+功能测试用例请参见 [#kube-router 测试用例.xlsx.zip#](https://ask.qcloudimg.com/draft/982360/dgs7x4hcly.zip)。
 
 
 

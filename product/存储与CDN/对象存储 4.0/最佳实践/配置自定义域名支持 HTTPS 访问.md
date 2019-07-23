@@ -63,5 +63,10 @@ proxy_set_header Host $http_host;
 ```bash
 proxy_set_header   Referer www.test.com;
 ```
-3. 设置完成后，直接打开文件会报错`errorcode：-46616`。错误提示：未命中 refer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
-![](https://main.qcloudimg.com/raw/3ea54846117d2a37020392d9cf93fb94.jpg)
+3. 设置完成后，直接打开文件将提示报错`errorcode：-46616`。错误提示：未命中 refer 白名单，但是通过代理访问自定义域名，可以正常打开网页。
+```json
+{
+	errorcode: -46616,
+	errormsg: "not hit white refer, retcode:-46616"
+}
+```

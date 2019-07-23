@@ -2,50 +2,62 @@
 本文档指导您如何在 Nginx 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
+>- Nginx 版本以 `nginx/1.16.0` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >
 ## 前提条件
-- 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
-解压缩后，可获得 Nginx 文件夹和 CSR 文件：
- - **文件夹名称**：Nginx
- - **文件夹内容**：
-    - `1_www.domain.com_bundle.crt` 证书文件
-    - `2_www.domain.com.key` 私钥文件
-  - **CSR 文件内容**：	`www.domain.com.csr` 文件
-- 已准备远程拷贝软件 WinSCP（建议从官方网站获取最新版本）。
-- 已准备远程登录工具 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
-- 已在当前服务器中安装配置 Nginx 服务器。
+- 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
+- 已准备远程登录工具，例如 PuTTY 或者 Xshell（建议从官方网站获取最新版本）。
+- 已在当前服务器中安装配置 Nginx 服务。
+- 安装 SSL 证书前需准备的数据如下：
+<table>
+<tr>
+<td>名称</td>
+<td>说明</td>
+</tr>
+<tr>
+<td>服务器的 IP 地址</td>
+<td>服务器的 IP 地址，用于 PC 连接到服务器。</td>
+</tr>
+<tr>
+<td>用户名</td>
+<td>登录服务器的用户名。</td>
+</tr>
+<tr>
+<td>密码</td>
+<td> 登录服务器的密码。</td>
+</tr>
+</table>
 
->?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
- 
-## 数据
-安装 SSL 证书前需准备的数据如下：
+>?在腾讯云官网购买的云服务器，您可以登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)  获取服务器 IP 地址、用户名及密码。
 
-| 名称 | 说明 | 取值样例 |
-|---------|---------|---------|
-| 服务器的 IP 地址 | 服务器的 IP 地址，用于 PC 连接到服务器。 | 192.168.22.10 |
-| 用户名 | 登录服务器的用户名。 | root |
-| 密码 | 登录服务器的密码。 | abc |
 
 ## 操作步骤
 
 ### 证书安装
-1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
-2. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录下。
+1.  已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
+ - **文件夹名称**：Nginx
+ - **文件夹内容**：
+     - `1_www.domain.com_bundle.crt` 证书文件
+     - `2_www.domain.com.key` 私钥文件
+  - **CSR 文件内容**：	`www.domain.com.csr` 文件
+>?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
+2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
+3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录下。
 >? 若无 `/usr/local/nginx/conf` 目录，可通过 `mkdir /usr/local/nginx/conf` 命令行创建。
-3. 关闭 WinSCP 界面。
-4. 使用远程登录工具，登录 Nginx 服务器。例如 “PuTTY” 工具。
-5. 编辑 Nginx 根目录下的 conf/nginx.conf 文件。修改内容如下：
+4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
+5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 ```
 server {
-        listen 443;
+        listen 443; #SSL 访问端口号为 443
         server_name www.domain.com; #填写绑定证书的域名
-        ssl on;
-        ssl_certificate 1_www.domain.com_bundle.crt;#证书文件名称
-        ssl_certificate_key 2_www.domain.com.key;#私钥文件名称
+        ssl on; #启用 SSL 功能
+        ssl_certificate 1_www.domain.com_bundle.crt; #证书文件名称
+        ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
         ssl_session_timeout 5m;
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #请按照这个协议配置
-        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;#请按照这个套件配置
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; #请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_prefer_server_ciphers on;
         location / {
             root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
@@ -53,16 +65,9 @@ server {
         }
     }
 ```
-配置文件的主要参数说明如下：
- - **listen 443**：SSL 访问端口号为 443
- - **ssl on**：启用 SSL 功能
- - **ssl_certificate**：证书文件
- - **ssl_certificate_key**：私钥文件
- - **ssl_protocols**：使用的协议
- - **ssl_ciphers**：配置加密套件，写法遵循 openssl 标准
-6. 在 Nginx 根目录下，通过执行以下命令确认配置文件是否存在问题。
 >?由于版本问题，配置文件可能存在不同的写法。例如：使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >
+6. 在 Nginx 根目录下，通过执行以下命令验证配置文件问题。
 ```
 ./sbin/nginx -t
 ```

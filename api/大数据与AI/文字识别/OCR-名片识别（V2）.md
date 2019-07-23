@@ -1,10 +1,14 @@
+>!
+- 名片识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[名片识别](https://console.cloud.tencent.com/ai/ocr/namecard)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/businesscard`
 本接口（businesscard）用于根据用户上传的名片图片，返回识别出的20多个字段信息，详细字段包括：姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
->!
+>?
 - 本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
-- 如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
+- 如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)。
 
 ## 请求头 header
 

@@ -14,11 +14,12 @@
 |-----|------| 
 |[发送语音验证码](https://cloud.tencent.com/document/product/382/5812)	|给国内用户发语音验证码，支持英文字母、数字及组合| 
 |[发送语音通知](https://cloud.tencent.com/document/product/382/5813)	|给国内用户发语音通知，支持中文、英文字母、数字及组合，内容长度不超过100字| 
+|[指定模板发送语音通知](https://cloud.tencent.com/document/product/382/18155)	|给国内用户发送指定模板的语音通知| 
 |[语音验证码状态通知](https://cloud.tencent.com/document/product/382/5814)	|通过回调业务 URL 的方式，通知业务方语音验证码下发的状态| 
 |[语音通知状态通知](https://cloud.tencent.com/document/product/382/5816)	|通过回调业务 URL 的方式，通知业务方语音通知下发的状态| 
 |[语音通知按键通知](https://cloud.tencent.com/document/product/382/5815)	|可以通过回调业务 URL 的方式，通知业务方用户按下的键| 
 |[语音送达失败原因推送](https://cloud.tencent.com/document/product/382/6532)	|对语音验证码、语音通知下发失败的号码推送下发失败的原因| 
-|[指定模板发送语音](https://cloud.tencent.com/document/product/382/18155)	|给国内用户发送指定模板的语音通知| 
+
 
 
 
@@ -43,3 +44,4 @@
 |-----|------|
 |[发送数据统计](https://cloud.tencent.com/document/product/382/7755)	|获取一段时间内短信发送状态，包括发送量、成功量以及计费条数 |
 |[回执数据统计](https://cloud.tencent.com/document/product/382/7756)	|获取一段时间内短信回执状态，包括提交成功量、回执量、回执成功量、回执失败量及失败分布 |
+|[查询短信套餐包信息](https://cloud.tencent.com/document/product/382/18324)	|查询短信套餐包信息，包括套餐包个数、套餐包生效时间、套餐包过期时间以及当前使用量等 |

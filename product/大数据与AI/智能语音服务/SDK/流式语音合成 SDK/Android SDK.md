@@ -49,9 +49,9 @@ SecretKey 用于加密签名字符串和服务器端验证签名字符串的密�
 
 ```
 mTtsController.init(
-	1257709062L, 
-	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”, 
-	“6xYsxngLo45sT**ORFuMZZLs9BzXt”
+	1257709062L,                           //腾讯云 appId
+	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”,   //腾讯云 secretId 
+	“6xYsxngLo45sT**ORFuMZZLs9BzXt”        //腾讯云 secretKey
 );
 ```
 

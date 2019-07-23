@@ -22,7 +22,7 @@ UserSig 是腾讯云 MLVBLiveRoom 组件和云通信 TIMSDK 会用到的一种�
   >?如果您还没有应用，请先创建应用，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
 2. 单击目标应用所在行的【管理】，进入【应用管理】页面。
-![](https://main.qcloudimg.com/raw/fa021e482fa0e89cc0030913057fb714.png)
+![](https://main.qcloudimg.com/raw/ae78e63cf40bfc16cd59cf08f6299c7c.png)
 3. 单击【下载公私钥】，保存 `authkeys.txt` 文件。
 文本中 `-----BEGIN PRIVATE KEY-----` 开始的内容即为**私钥**，私钥可以配合 SHA256withECDSA 算法计算出合法的 UserSig。
 ![](https://main.qcloudimg.com/raw/398091b0beb19a9e13c0b6d9af518c08.png)
@@ -43,5 +43,5 @@ UserSig 的计算过程就是对 SDKAppID、UserID、过期时间等几个关键
 | Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
 
 >!您也可以在客户端计算 UserSig，但在客户端计算 UserSig 意味着要在客户端的代码里写明 PrivateKey，很容易引起 PrivateKey 泄露。
->为了您的账号安全，建议将 UserSig 计算代码放在您的服务器上，降低客户端被破解导致的 PrivateKey 泄露风险。
+>为了您的账号安全，建议将 UserSig 计算代码放在您的服务器上，降低客户端被破解导致 PrivateKey 泄露的风险。
 
