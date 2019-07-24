@@ -22,7 +22,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  vivo 推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。
 <span id="Step1_3"></span>
 3. 记录**`应用包名`**、**`APP ID`**、**`APP secret`**信息。
- ![](https://main.qcloudimg.com/raw/bf297b7089f20c43c09d55b624631981.png)
+ ![](https://main.qcloudimg.com/raw/4bee78a25cadae911d56ca0b6adbac3a.png)
 
 <span id="Step2"></span>
 ### Step2. 托管证书信息到云通信 IM
@@ -80,7 +80,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <!--这里的 com.vivo.push.app_id ，com.vivo.push.api_key 由 vivo 开放平台生成 -->
 ```
 
-#### 3.3 自定义一个 BroadcastReceiver 类
+#### Step3.3 自定义一个 BroadcastReceiver 类
 
 为了接收消息，您需要自定义一个继承自 `OpenClientPushMessageReceiver` 类的 BroadcastReceiver，并实现其中的 `onReceiveRegId`，`onNotificationMessageClicked` 方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
 
@@ -115,7 +115,7 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 </receiver>
 ```
 
-#### 3.4 在 App 中注册 vivo 推送服务
+#### Step3.4 在 App 中注册 vivo 推送服务
 
 如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()` 可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的 `onCreate` 中调用。
 
@@ -193,8 +193,7 @@ if (IMFunc.isBrandVivo()) {
 <span id="Step4"></span>
 ### Step4. 上报推送信息至云通信 IM 服务端
 若您需要通过 vivo 推送进行云通信 IM 消息的推送通知，必须在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到云通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到云通信 IM 服务端。
->!
-> 正确上报 regId 与证书 ID 后，云通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
+>!正确上报 regId 与证书 ID 后，云通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
 
 以下为 Demo 中的示例代码：
 
