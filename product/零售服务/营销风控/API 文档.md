@@ -26,7 +26,7 @@
       <td>用户 ID 值，如微信或QQ openid，或手机号等（如15912345687）。</td>
    </tr>
    <tr>
-      <td>userIP</td>
+      <td>userIp</td>
       <td>必须</td>
       <td>String</td>
       <td>用户领取奖励时的真实外网 IP。</td>
