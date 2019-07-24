@@ -1,6 +1,16 @@
 ## Spring Cloud Finchley
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.14.1-Finchley-RELEASE（2019-07-24）
+
+#### Bug 修复
+- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
+- 修复spring-cloud-tsf-route 包路由不生效的问题
+- 修复spring-cloud-tsf-ratelimit包限流不准确问题
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
 ### 1.14.0-Finchley-RELEASE（2019-06-21）
 
 #### 新特性
@@ -61,6 +71,17 @@
 
 ## Spring Cloud Edgware
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+
+### 1.14.1-Edgware-RELEASE（2019-07-24）
+
+#### Bug 修复
+- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
+- 修复spring-cloud-tsf-ratelimit包限流不准确问题
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
+
 
 ### 1.14.0-Edgware-RELEASE（2019-06-21）
 
