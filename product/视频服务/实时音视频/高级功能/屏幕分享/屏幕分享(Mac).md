@@ -24,9 +24,7 @@ Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 t
 | icon | NSImage | 窗口图标 |
 
 有了上面这些信息，您就可以实现一个简单的列表页面，将可以分享的目标罗列出来供用户选择，如下图：
-
-![](https://main.qcloudimg.com/raw/c7b5a938135b78d50f26e7f1180164f7.jpg)
-
+![](https://main.qcloudimg.com/raw/df5f57d37e499b1a0860edf4b533d873.jpg)
 
 ## 选择分享目标
 TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 来指定：
@@ -109,7 +107,3 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
 不会跟着变化，当窗口大小变化时，窗口画面会被等比例缩放到目标分辨率上。
-
-
-
-
