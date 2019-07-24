@@ -17,7 +17,7 @@
 | phoneNumber        | 否      | String   | 手机号。若 accountType 选4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如15912345687）。 |
 | emailAddress       | 否      | String   | 用户邮箱地址（非系统自动生成）。                               |
 | registerTime       | 否      | Uint     | 注册时间戳，单位：秒。                                         |
-| registerIp         | 否      | Uint     | 注册来源的外网 IP。                                             |
+| registerIp         | 否      | String     | 注册来源的外网 IP。                                             |
 | cookieHash         | 否      | String   | 用户 HTTP 请求中的 cookie 进行2次 hash 的值，只要保证相同 cookie 的 hash 值一致即可。 |
 | address            | 否      | String   | 地址。                                                         |
 | loginSource        | 否      | UInt     | 登录来源：<li>0：其他。</li><li>1：PC 网页。</li><li>2：移动页面。</li><li>3：App。</li><li>4：微信公众号。</li> |
