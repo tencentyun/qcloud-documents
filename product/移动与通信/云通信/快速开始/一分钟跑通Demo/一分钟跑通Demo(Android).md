@@ -31,7 +31,7 @@
 ## 修改源码配置
 1. 使用 Android Studio （3.0以上的版本）打开源码工程。
 2. 打开 /TIMSDK/Android/app/src/main/java/com/tencent/qcloud/tim/demo/utils/Constants.java 文件，将工程中默认的 SDKAppID 替换成 [创建应用](#step1) 中获取的 SDKAppID。
- ![](https://main.qcloudimg.com/raw/260d0bea33a644b519fd11d612df770b.png)
+ ![](https://main.qcloudimg.com/raw/e0c1cff0eabdb5493b1970b1e93a619a.png)
 3. 打开 /TIMSDK/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java 文件 ，将常量 **PRIVATEKEY** 的值设置为 [下载公私钥](#step3) 中获得的私钥文件内容。
  ![](https://main.qcloudimg.com/raw/d9e6f60bbe4b6c23fa3886ab16a4afd3.png)
 4. 通过 **GenerateTestUserSig** 中的 **genTestUserSig** 方法，自动帮您获取测试 **UserSig** 。
