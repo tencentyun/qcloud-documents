@@ -184,7 +184,7 @@ for (Json::ArrayIndex i = 0; i < json_value_msgs.size(); i++) {  // 遍历 Messa
 
 ### TIMMsgReadedReceiptCallback
 
-新消息回调。
+消息已读回执回调。
 
 **原型：**
 
@@ -225,7 +225,7 @@ void MsgReadedReceiptCallback(const char* json_msg_readed_receipt_array, const v
 
 ### TIMMsgRevokeCallback
 
-新消息回调。
+接收的消息被撤回回调。
 
 **原型：**
 
@@ -269,7 +269,7 @@ void MsgRevokeCallback(const char* json_msg_locator_array, const void* user_data
 
 ### TIMMsgElemUploadProgressCallback
 
-新消息回调。
+消息内元素相关文件上传进度回调。
 
 **原型：**
 

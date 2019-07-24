@@ -15,7 +15,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在 “实例” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
 ![登录](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
-3. 在弹出的“登录Windows实例”窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
@@ -29,4 +29,5 @@
 3. 在打开的 “远程（RDP）连接要求使用指定的安全层” 窗口中，选择【已启用】，并将【安全层】设置为【RDP】。如下图所示：
 ![](https://main.qcloudimg.com/raw/25245ed985e5317078c80fa82d375a59.png)
 4. 单击【确定】，完成设置。
-5. 重启实例，重新尝试连接是否成功。如果还是无法成功，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 进行反馈。
+5. 重启实例，重新尝试连接是否成功。
+如果还是无法成功，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 进行反馈。

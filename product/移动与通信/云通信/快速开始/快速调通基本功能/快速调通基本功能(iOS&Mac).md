@@ -31,7 +31,7 @@ login_param.appidAt3rd = @"123456";
 ```
 - **onForceOffline**
 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`），如果用户被踢了，请务必用 Alert 等提示窗提示用户，关于被踢的详细描述，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
-![](https://main.qcloudimg.com/raw/e31ae59752f736b78be3dcf1578ff64b.png)
+![](https://main.qcloudimg.com/raw/16835774aea9154beb0e5dddd7166d15.png)
 
 - **onUserSigExpired**
 每一个 UserSig 都有一个过期时间，如果 UserSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 SDK 文档：[用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。

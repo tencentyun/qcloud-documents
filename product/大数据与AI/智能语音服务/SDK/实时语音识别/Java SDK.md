@@ -1,4 +1,4 @@
-实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/b9df057b0bdddf30e3a2b3bc404ccb22/java_realtime_asr_sdk_v1.0.tar.gz)。
+实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/c5a6e92b2d0f3fb1615158bd90de1c96/java_realtime_asr_sdk_v1.1.tar.gz)。
 
 
 ## 功能简介
@@ -38,7 +38,7 @@ JAR 包使用步骤举例如下：
 
 ## <span id="result">获取用户信息</span>
 -  使用本接口之前需要先 [注册](https://cloud.tencent.com/register) 腾讯云账号，获得 AppID，SecretID 及 SecretKey。  
-- 关于云 API 账号中的 AppID，SecretId 与 SecretKey查询方法，可参考 [鉴名签权](https://cloud.tencent.com/document/product/441/6203)。 
+- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。 
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 - 在 [语音识别](https://cloud.tencent.com/product/asr) 页面单击【立即使用】。这一步相当于注册，否则无法使用。
 

@@ -96,4 +96,4 @@ service httpd restart
 10. 完成 Drupal 的安装。
 ![](//mc.qcloudimg.com/static/img/ed4795e8c6cb3183c56aeb8e18ef5d4a/image.png)
 11. 后续可以访问 `http://115.xxx.xxx.xxx/`（其中 `115.xxx.xxx.xxx`为您的云服务器公网 IP 地址）对网站进行个性化设置。
-![](//mc.qcloudimg.com/static/img/1c27ddd5419452fb92b8348d03586101/image.png)
+![](https://main.qcloudimg.com/raw/6e73b18ffe3be7936e220d005b252719.png)
