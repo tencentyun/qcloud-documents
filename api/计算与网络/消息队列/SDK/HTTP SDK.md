@@ -51,10 +51,8 @@
 请在 [下载 IntelliJ IDEA Ultimate 版本](https://www.jetbrains.com/idea/)，并参考 IntelliJ IDEA 说明进行安装。
 2. **下载 Demo 工程**
 请在 [下载 CMQ-HTTP 的 Demo 工程](https://github.com/tencentyun/cmq-java-sdk) 到本地，解压后即可看到本地新增的 cmq-java-sdk-master 文件夹。
-### 配置 Demo 工程
-1. **创建资源**
-您需要在控制台创建所需消息队列资源，包括请求地址、SecretID、SecretKey。
-具体创建过程请参考 [队列模型快速入门](https://cloud.tencent.com/document/product/406/8436) 和 [主题模型快速入门](https://cloud.tencent.com/document/product/406/8437)。
+
+
 ### 配置 Demo 工程
 1. **创建资源**
 您需要在控制台创建所需消息队列资源，包括 CMQ 队列名、SecretID、SecretKey。
@@ -62,17 +60,16 @@
 2. **导入 Demo 工程文件**
 在 IDEA 的开机界面打开文件夹。
 [](https://main.qcloudimg.com/raw/8a3ba96ef290ad50f6f0d20c01594f5d.png)
-打开文件夹后，Demo 工程文件存于 /src/main/java/com/qcloud/cmq/example 文件夹下。
+打开文件夹后，Demo 工程文件存于`/src/main/java/com/qcloud/cmq/example`文件夹下。
 3. **配置 Demo 参数**
-修改文件请求地址、密钥对等。
-以 Producer 为例，配置如下：
+修改文件请求地址、密钥对等。以 Producer 为例，配置如下：
 ```java
 String secretId="获取的SecretID";
 String secretKey="获取的SecretKey";
 String endpoint = "https://cmq-topic-{$region}.api.qcloud.com";
 String queueName = "test";
 ```
-选择"新建队列"和"使用已有队列"
+选择“新建队列”和“使用已有队列”：
 ```java
 //创建新队列并设置属性
 QueueMeta meta = new QueueMeta();
@@ -86,12 +83,12 @@ Queue queue = account.createQueue(queueName,meta);
 //使用控制台已有队列
 Queue queue = account.getQueue(queueName);
 ```
-本Demo使用的是当前账号已有队列，如需选择新建队列，修改queueName为将要创建的队列名，然后找到新建队列相关代码取消注释。
-注释代码均为常用操作，注意要谨慎使用“删除”操作。
-其他类中的配置参考Producer类
+本 Demo 使用的是当前账号已有队列，如需选择新建队列，修改 queueName 为将要创建的队列名，然后找到新建队列相关代码取消注释。
+注释代码均为常用操作，“删除”操作需谨慎使用，其他类中的配置参考 Producer 类。
+
 ### 运行 Demo
 #### 使用队列模型收发消息
-先运行 Producer 类发送消息，再运行 Consumer 类接受消息  
+先运行 Producer 类发送消息，再运行 Consumer 类接受消息。  
 发送消息代码示例：
 ```java
 String msg = "hello!";
@@ -103,7 +100,7 @@ System.out.println("==> send success! msg_id:" + msgId);
 Message msg = queue.receiveMessage(10);
 ```
 #### 使用主题模型收发消息
-运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)  
+运行 TopicDemo 类，主题模型请求域名参考 [主题模型请求域名](#topic)。  
 发布消息示例：
 ```java
 String msg = "hello!";
@@ -117,4 +114,4 @@ String Endpoint = queueName;
 String Protocol = "queue";
 account.createSubscribe(topicName,subscriptionName, Endpoint, Protocol);
 ```
-创建订阅者时填写一个队列，用队列处理消息
+创建订阅者时填写一个队列，用队列处理消息。
