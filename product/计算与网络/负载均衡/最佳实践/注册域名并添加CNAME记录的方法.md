@@ -1,4 +1,4 @@
-目前负载均衡支持 A 记录和 CNAME 的绑定，用户可通过注册域名并添加 A 记录和 CNAME 记录进行访问。
+目前负载均衡支持 A 记录和 CNAME 的绑定，用户可通过注册域名并添加 A 记录和 CNAME 记录进行访问。详情请参见 [云解析 A 记录操作指南](https://cloud.tencent.com/document/product/302/3449)，[云解析 CNAME 记录操作指南](https://cloud.tencent.com/document/product/302/3450)。
 
 ## 1. 域名注册
 
@@ -10,7 +10,7 @@
 
 ### 2.1. 进入域名解析页面
 
-登录腾讯云 [云解析控制台](https://console.cloud.tencent.com/cns)，在操作拦中单击【解析】，示例的主域名为 `qcloudtest.com`。
+登录腾讯云 [云解析控制台](https://console.cloud.tencent.com/cns)，在操作拦中单击【解析】。
 ![](https://main.qcloudimg.com/raw/5dc41cf2166a9db13516e021204e1316.png)
 
 ### 2.2. 添加 CNAME 记录
@@ -51,16 +51,12 @@ d. CNAME 记录值主要填写空间商给您提供的域名。
 - 显性 URL 记录：填写要跳转到的网址，例如`http://cloud.tencent.com` 。
 - 隐性 URL 记录：填写要引用内容的网址，例如`http://cloud.tencent.com` 。
 - AAAA：不常用。解析到 IPv6 的地址。
-- NS 记录：不常用。系统默认添加的两个 NS 记录请不要修改。NS向下授权，填写dns域名，例如`f1g1ns1.dnspod.net`。
+- NS 记录：不常用。系统默认添加的两个 NS 记录请不要修改。NS 向下授权，填写 dns 域名，例如`f1g1ns1.dnspod.net`。
 - SRV 记录：不常用。格式为：优先级、空格、权重、空格、端口、空格、主机名，记录生成后会自动在域名后面补一个“.”，这是正常现象。例如 `5 0 5269 xmpp-server.l.google.com`。
-
-其余值可以按照默认进行操作。添加完毕后，单击【确定】。
-
-![](//mccdn.qcloud.com/static/img/3d952308d0e576fa3a2be640b3238074/image.png)
 
 ### 2.3. 查看 CNAME 记录
 
-添加记录完毕后，可以在【解析】页面查看所添加的 CNAME 记录，并对其进行修改、管理等操作。
+添加记录完毕后，可以在“解析”页面查看所添加的 CNAME 记录，并对其进行修改、管理等操作。
 
 ### 2.4. 测试解析结果
 用户为测试域名是否解析正常，可以直接访问绑定后的 CNAME 域名（如例子中的`www.qcloudtest.com` ）。
