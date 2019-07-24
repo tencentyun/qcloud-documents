@@ -47,7 +47,7 @@
 | 不健康阈值 | <li>如果连续 n 次（n 为填写的数值）收到的健康检查结果失败，则识别为不健康，控制台显示为**异常**。</li><li>可配置范围：2 - 10次，默认值3次。</li> | 3次 |
 | 健康阈值 |<li>如果连续 n 次（n 为填写的数值）收到的健康检查结果为成功，则识别为健康，控制台显示为**健康**。</li><li>可配置范围：2 - 10次，默认值3次。</li>  | 3次 |
 | HTTP 请求方式 | 健康检查的 HTTP 请求方式，可选：GET 或 HEAD，默认为 GET。<li>若使用 HEAD 方法，服务器仅返回 HTTP 头部信息，可降低后端开销，提升请求效率，对应的后端服务需支持 HEAD。</li><li>若使用 GET 方法，则后端服务支持 GET 即可。</li> | GET |
-| HTTP 状态码检测 | 当状态码为所选状态码时，认为后端服务器存活，即健康检查正常，可选：http_1xx，http_2xx， http_3xx，http_4xx，http_5xx | 多选：http_1xx，http_2xx，http_3xx，http_4xx |
+| HTTP 状态码检测 | 当状态码为所选状态码时，认为后端服务器存活，即健康检查正常，可选：http_1xx，http_2xx， http_3xx，http_4xx，http_5xx。 | 多选：http_1xx，http_2xx，http_3xx，http_4xx |
 
 具体配置如下图所示：
 ![](https://main.qcloudimg.com/raw/ccd992ae2cf18c20e3f6050980e6f4c4.png)
