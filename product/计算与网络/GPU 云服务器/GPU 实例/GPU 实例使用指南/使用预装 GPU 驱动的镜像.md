@@ -22,6 +22,6 @@
 - [CentOS 7.6 NVIDIA GPU 基础镜像（预装驱动和 CUDA 10）](http://market.qcloud.com/detail.php?productId=6637&_ga=1.93543700.805765411.1545285819)
 - [Ubuntu 18.04 NVIDIA GPU 基础镜像（预装驱动和 CUDA 10）](http://market.qcloud.com/detail.php?productId=6639&_ga=1.194663588.805765411.1545285819)
 
-以上镜像为计算型 GPU 实例 GN2/GN6/GN6S/GN8/GN10/GN10S/GN10X 专用，预装了 NVIDIA Tesla GPU 驱动程序 418.67，以及 CUDA 9.2/10.0。
+以上镜像为计算型 GPU 实例 GN2/GN6/GN6S/GN8/GN10/GN10S/GN10X 专用，预装了 NVIDIA Tesla GPU 驱动程序418.67，以及 CUDA 9.2/10.0。
 
-> 预装镜像的驱动和 CUDA 版本是固定的，选择有限。如需自定义安装驱动和 CUDA，请参考 [安装 NVIDIA Tesla 驱动](https://cloud.tencent.com/document/product/560/8048)
+>?预装镜像的驱动和 CUDA 版本是固定的，选择有限。如需自定义安装驱动和 CUDA，请参考 [安装 NVIDIA Tesla 驱动](https://cloud.tencent.com/document/product/560/8048)
