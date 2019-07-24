@@ -6,11 +6,11 @@ TSF 支持原生 Spring Cloud 微服务框架，开发者只需要添加依赖�
 
 TSF 目前支持 Spring Cloud Finchley、Spring Cloud Edgware 两个版本，Spring Cloud Greenwich 版本将于近期推出。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
 
-| Spring Cloud | Spring Boot | 最新 TSF SDK 版本       |
-| ------------ | ----------- | ----------------------- |
-| Edgware      | 1.5.x       | 1.14.0-Edgware-RELEASE  |
-| Finchley     | 2.0.x       | 1.14.0-Finchley-RELEASE |
-| Greenwich    | 2.1.x       | 近期发布                |
+| Spring Cloud | Spring Boot | 最新 TSF SDK 版本                                            |
+| ------------ | ----------- | ------------------------------------------------------------ |
+| Edgware      | 1.5.x       | [1.14.0-Edgware-RELEASE](https://cloud.tencent.com/document/product/649/20230) |
+| Finchley     | 2.0.x       | [1.14.0-Finchley-RELEASE](https://cloud.tencent.com/document/product/649/20230) |
+| Greenwich    | 2.1.x       | 近期发布                                                     |
 
 
 
