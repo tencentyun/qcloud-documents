@@ -190,7 +190,7 @@ TIMProfileTypeKey_Role | NSNumber | 角色
 TIMProfileTypeKey_SelfSignature | NSString | 签名 
 TIMProfileTypeKey_Custom_Prefix | NSString、NSData 或 NSNumber | 自定义字段前缀
 
-自定义字段需要您加上我们的前缀。比如后台有一个自定义字段`Blood`，类型为整数，设置代码是
+自定义字段需要您加上我们的前缀。例如后台有一个自定义字段`Blood`，类型为整数，设置代码是
 ```
 NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood"];
 [[TIMFriendshipManager sharedInstance] modifySelfProfile:@{key:@1} succ:nil fail:nil];
