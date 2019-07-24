@@ -1,12 +1,12 @@
 
-本文档以 Python 2.7 版本为例，详细介绍 Windows 和 Linux 系统下 Python 的安装与环境配置过程。
+本文档以 Python 2.7 版本为例，详细介绍 Windows 和 Linux 系统下， Python 的安装与环境配置过程。
 
 ## Windows 
 #### 1. 下载
 进入 [ Python 官网](https://www.python.org/downloads/) 选择合适的版本下载，本示例中我们选择下载 [Python 2.7.13](https://www.python.org/ftp/python/2.7.13/python-2.7.13.amd64.msi) 版本。
 
 #### 2. 安装
-下载好 Python 安装包后双击 Python 安装包，按照默认提示，一步步进行安装。
+下载好 Python 安装包后，双击 Python 安装包，按照默认提示，一步步进行安装。
 
 #### 3. 环境变量配置
 安装完成后，右键单击【计算机】>【属性】>【高级系统设置】>【环境变量】>【系统变量(S)】 找到 “Path” （若无该变量，则新建），并在“变量值”末尾添加 Python 的安装路径：`;C:\Python27`（请更改为您实际的安装路径），单击【确定】保存。
