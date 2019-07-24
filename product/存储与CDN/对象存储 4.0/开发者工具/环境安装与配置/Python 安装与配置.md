@@ -1,5 +1,5 @@
 
-本文档以 Python 2.7 版本为例，详细介绍 Windows 和 Linux 系统下， Python 的安装与环境配置过程。
+本文档以 Python 2.7 版本为例，详细介绍在 Windows 和 Linux 系统下， Python 的安装与环境配置过程。
 
 ## Windows 
 #### 1. 下载
