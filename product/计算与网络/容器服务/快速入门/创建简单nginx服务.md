@@ -1,5 +1,5 @@
 ## 操作场景
-本文以 [原TKE控制台](https://console.cloud.tencent.com/tke) 为例，快速创建一个容器集群内的 nginx 服务。
+本文以 [原TKE控制台](https://console.cloud.tencent.com/tke) 为例进行操作，快速创建一个容器集群内的 nginx 服务。
 
 ## 前提条件
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
@@ -24,11 +24,11 @@
 ![](https://main.qcloudimg.com/raw/8248aa5497093d1b8744f5ea5526c0b5.png)
 在弹出对话框中，选择【DockerHub 镜像】> **nginx** ，单击 【确定】。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/0cec90a9a793d8769d586376935bf361/image.png)
-版本（Tag）： latest 。容器服务会默认使用最新版本。如下图所示：
-![](https://mc.qcloudimg.com/static/img/247064bd27464737d06d02d846c2c227/image.png)
-5. 设置端口映射。将容器端口和服务端口都设置为80 。如下图所示：
+**版本（Tag）**： latest 。容器服务会默认使用最新版本。如下图所示：
+![](https://main.qcloudimg.com/raw/76d962e9b89d64bd4fc9ad6662f46ee6.png)
+5. 设置端口映射，将容器端口和服务端口都设置为80 。如下图所示：
 >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
-
+>
 ![](https://mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
 6. 单击【创建服务】，即可完成 nginx 服务的创建。
 
@@ -44,7 +44,7 @@
 1. 进入服务信息详情页，单击服务的负载均衡 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7c9497dc573613d963a6c8b097c9e6c.png)
 2. 进入负载均衡详情页，找到域名即可通过该域名访问服务。如下图所示：
-![](https://main.qcloudimg.com/raw/b9ec2f70ba04ff578a980a65bac5acbf.png)
+![](https://main.qcloudimg.com/raw/20cf06e2cbf2a2d12e3e318c59031020.png)
 
 #### 通过服务名称访问服务
 集群内的其他服务或容器可以直接通过服务名称访问。
