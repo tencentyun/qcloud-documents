@@ -63,7 +63,6 @@ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d
 ```
 
 >! 上述实例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
-![](https://main.qcloudimg.com/raw/5dd6df3b7420e0fed2bb347d4ff9dd5a.png)
 
 ### step3: 混合画面
 
