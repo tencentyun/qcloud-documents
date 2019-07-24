@@ -10,15 +10,17 @@
 - [防火墙或者安全软件导致登录异常](#LoginSecuritySoftware)
 - [远程桌面连接出现身份验证错误](#AuthenticationError)
 
-## 故障处理
+## 使用自助诊断工具
 
-### 使用自助诊断工具
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题导致无法连接 Windows 实例。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
 1. 单击 [自助诊断](https://console.cloud.tencent.com/workorder/check)，打开自助诊断工具。
 2. 输入需要诊断的云服务器 instance-id，单击【开始诊断】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
 
-如果您的问题无法通过故障排查工具检查，建议您 [通过 VNC 的方式登录](#VNC) 云服务器，并根据 [故障排查思路](#TroubleshootingIdeas) 进行排除故障。
+如果您的问题无法通过故障排查工具检查，建议您 [通过 VNC 的方式登录](#VNC) 云服务器逐步排查故障。
+
+<span id="TroubleshootingIdeas"></span>
+## 故障处理
 
 <span id="VNC"></span>
 ### 通过 VNC 方式登录
@@ -27,12 +29,11 @@
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例列表中，选择您需要登录的实例，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
-2. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
+3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】。
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >
-
-<span id="TroubleshootingIdeas"></span>
-## 故障排查思路
+4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 Ctrl-Alt-Delete 进入系统登录界面。如下图所示：
+![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
 <span id="CryptographicProblem"></span>
 ### 密码问题导致无法登录
@@ -44,11 +45,10 @@
 <span id="BandwidthUtilization"></span>
 ### 带宽利用率过高
 
-**故障现象**：
-通过自助诊断工具诊断，提示问题为带宽利用率过高。
+**故障现象**：通过自助诊断工具诊断，提示问题为带宽利用率过高。
 **处理步骤**：
 1. 通过 [VNC 登录](#VNC) 登录实例。
-2. 参考 [Windows 下查看进程的带宽使用情况](https://cloud.tencent.com/document/product/213/14637#windows.E4.B8.8B.E6.9F.A5.E7.9C.8B.E8.BF.9B.E7.A8.8B.E7.9A.84.E5.B8.A6.E5.AE.BD.E4.BD.BF.E7.94.A8.E6.83.85.E5.86.B5)，查看实例的带宽使用情况和处理故障。
+2. 参考 [带宽占用高导致无法登录](https://cloud.tencent.com/document/product/213/10334#.E9.92.88.E5.AF.B9-windows-.E6.9C.8D.E5.8A.A1.E5.99.A8)，查看实例的带宽使用情况和处理故障。
 
 <span id="HighServerLoad"></span>
 ### 服务器高负载

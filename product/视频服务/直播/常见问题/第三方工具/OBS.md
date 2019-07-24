@@ -3,9 +3,9 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ## OBS 推流使用方法
 ### 1. 设置推流地址
 ![](https://main.qcloudimg.com/raw/23f7994c383d60b00eb63e8bedae7190.jpg)
-打开 OBS，可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
-![](https://main.qcloudimg.com/raw/ff5eeaa4044a20bd0a93eed523d305ff.png)
-在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入 URL 和流名称中， URL 部分填写包含 Path 前的地址信息，流名称填写包含 StreamName 后的地址信息，所以参数设置为：
+打开 OBS，您可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
+![](https://main.qcloudimg.com/raw/8c7108d332d6afd0ec568e240b1edbac.png)
+在流设置页签，选择流类型为自定义流媒体服务器，以上图的推流地址为例，将推流地址分两部分输入 URL 和流名称， URL 部分填写包含 Path 前的地址信息，流名称填写包含 StreamName 后的地址信息，所以参数设置为：
 ```
 URL：rtmp://push.livetest.myqcloud.com/live/
 流名称：StreamName?txSecret=xxxxx&txTime=5C1E5F7F
@@ -22,17 +22,17 @@ URL：rtmp://push.livetest.myqcloud.com/live/
 ### 3. 其他推流相关配置
 #### 影响直播延迟相关设置
 我们可以通过【控件】>【设置】>【输出】，选择【输出模式】为【高级】，即可对【关键帧间隔】等进行配置，设置方法如下图：
-![](https://main.qcloudimg.com/raw/2b5b930e1200e7fe3a4a14f45d6bbf8a.jpg)
-同时在左侧导航栏，选择高级，即可对【流延迟】进行设置：
-![](https://main.qcloudimg.com/raw/a5ba96e578415c58d151eaa0da6399a1.jpg)
+![](https://main.qcloudimg.com/raw/db740cb6108b6d75ec6a6aaaa67a96f1.png)
+同时在左侧导航栏，选择【高级】，即可对【串流延迟】进行设置：
+![](https://main.qcloudimg.com/raw/1e65d41e275d6e17c3efb39822d2c6b8.png)
 
  #### 本地直播录制相关设置
  如果您有直播时进行本地录制的需求，可以选择直播时在本地进行录制备份，设置方法如下图：
-![](https://main.qcloudimg.com/raw/9edd48f7c1ab7da4b71d1786865f774b.jpg)
+![](https://main.qcloudimg.com/raw/41e684e50750d48fa6b0b86a9fa8bc81.png)
 录制文件的本地保存地址设置如下：
-![](https://main.qcloudimg.com/raw/5d39d3a9a0f9b80cadef5bda3db33a0e.jpg)
+![](https://main.qcloudimg.com/raw/5a88542e15b03d47ce207030cc0b2a52.png)
 分辨率决定了观众看到的画面清晰程度，分辨率越高画面越清晰。FPS 是视频帧率，它控制观看视频的流畅，普通视频帧率有24帧 - 30帧，低于16帧画面看起来有卡顿感，而游戏对帧率要求比较高，一般小于30帧游戏会显得不连贯。分辨率与帧率设置如下图：
-![](https://main.qcloudimg.com/raw/6ce3af2a487579f131ed484de33b4ad0.jpg)
+![](https://main.qcloudimg.com/raw/2c9cad978826ee092e13d425f5f8e6bb.png)
 
 	
 ## 更多常见操作介绍
@@ -54,9 +54,3 @@ URL：rtmp://push.livetest.myqcloud.com/live/
 用户在工作室模式下可以对当前直播的内容进行实时编辑，并在编辑过程中进行过度动画的场景切换，从而实现在对用户体验影响最低的程度下进行直播内容的编辑。
 单击【控件】>【工作室模式】进入下图界面，设置好过渡场景|来源、过渡动画，即可在直播过程中，直接在左侧素材编辑窗口进行直播界面的编辑，并通过过渡动画按钮进行直播窗口的切换操作。
 ![](https://main.qcloudimg.com/raw/215386a30d78e7772f6daf62230b21c5.jpg)
-
-
-
-
-
-

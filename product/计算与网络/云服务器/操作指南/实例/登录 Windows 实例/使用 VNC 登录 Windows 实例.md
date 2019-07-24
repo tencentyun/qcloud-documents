@@ -14,12 +14,7 @@ Windows，Linux 和 Mac OS
 
 ## 前提条件
 
-已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
-- Windows 实例的管理员帐号统一为 **Administrator**。
-- 如果您在购买实例时选择**自动生成密码**，则可登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img>，进入“【腾讯云】请查收您新购买的云服务器”页面，查看初始密码。
-- 如果您在购买实例时选择**自定义密码**，则登录密码为您在购买云服务器实例时指定的密码。
-- 如果您忘记登录云服务器的密码，请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 进行重置。
-
+已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 
 ## 操作步骤
 

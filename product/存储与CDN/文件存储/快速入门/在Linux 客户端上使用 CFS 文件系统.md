@@ -39,10 +39,10 @@
   <tr>
     <td>网络类型</td>
     <td> 
-    <p>私有网络（VPC）或者是基础网络。请根据您的 CVM 实例所在网络来创建并挂载文件系统，否则可能因为网络不通导致无法访问。</p>
+私有网络（VPC）或者是基础网络。请根据您的 CVM 实例所在网络来创建并挂载文件系统，否则可能因为网络不通导致无法访问。
     <li>若您要实现私有网络（VPC） 下 CVM 对文件系统的共享，您需要在创建文件系统时选择私有网络。当文件系统属于私有网络时，如果未进行特殊网络设置，则只有同一私有网络内的 CVM 实例能够挂载。</li>
     <li>若您要实现基础网络下 CVM 对文件系统的共享，您需要在创建文件系统时选择基础网络。当文件系统属于基础网络时，如果未进行特殊网络设置，则只有同在基础网路内的 CVM 实例能够挂载。</li>
-    <li>如果有多网络共享文件系统需求，请查见 <a href="https://cloud.tencent.com/document/product/582/9764">跨网络访问文件系统</a> 文档</li>
+    <li>如果有多网络共享文件系统需求，请参见 <a href="https://cloud.tencent.com/document/product/582/9764">跨网络访问文件系统</a> 文档</li>
     </td>
   </tr>  
   <tr>
@@ -71,7 +71,7 @@
 - 在云服务器列表的操作列，单击【登录】按钮即可通过 VNC 连接至 Linux 云服务器。
 - 输入帐号（root ，Ubuntu 系统用户为 ubuntu）和密码即可登录。
 
->!该终端为独享，即同一时间只有一个用户可以使用控制台登录。
+>?该终端为独享，即同一时间只有一个用户可以使用控制台登录。
 
 
 #### 验证网络通信
@@ -79,11 +79,11 @@
 
 文件系统协议 | 客户端开放端口 | 确认网络联通性
 ------- | ------- | ---------
-NFS 3.0 | 111，892， 2049 |  telnet 111或者892或者2049
+NFS 3.0 | 111，892，2049 |  telnet 111或者892或者2049
 NFS 4.0 | 2049 |  telnet 2049
 CIFS/SMB | 445 |  telnet 445 
 
->!CFS 暂不支持 ping。
+>?CFS 暂不支持 ping。
 
 
 ### 挂载文件系统
@@ -116,30 +116,30 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```shell
-sudo mount -t nfs -o vers=4,noresvport <挂载点IP>:/ <待挂载目录>
+sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目录>
 ```
 
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - 目前默认挂载的是文件系统的根目录`/`。 在文件系统中创建子目录后，可以挂载该子目录。
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
->! `<挂载点IP>:/`与`<待挂载目标目录>`之间有一个空格。
+>!`<挂载点IP>:/`与`<待挂载目标目录>`之间有一个空格。
 
 
 示例：
 - 挂载 CFS 根目录：
 ```shell
-sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/ /localfolder
+sudo mount -t nfs -o vers=4 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录：
 ```shell
-sudo mount -t nfs -o vers=4,noresvport 10.0.24.4:/subfolder /localfolder 
+sudo mount -t nfs -o vers=4 10.0.24.4:/subfolder /localfolder 
 ```
 
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
 ```shell
-sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <待挂载目录>
+sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/<fsid> <待挂载目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - NFS v3.0 仅支持子目录挂载，缺省文件系统子目录为 FSID。
@@ -149,7 +149,7 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport <挂载点IP>:/<fsid> <�
 
 挂载 CFS 子目录示例如下：
 ```shell
-sudo mount -t nfs -o vers=3,nolock,proto=tcp,noresvport 10.0.24.4:/z3r6k95r /localfolder 
+sudo mount -t nfs -o vers=3,nolock,proto=tcp 10.0.24.4:/z3r6k95r /localfolder 
 ```
 
 #### 4. 查看挂载点信息
@@ -164,7 +164,7 @@ df -h
 
 
 #### 挂载 CIFS/SMB 文件系统
->!CIFS/SMB 协议文件系统公测中，更多信息请参阅 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
+>!CIFS/SMB 协议文件系统公测中，更多信息请参见 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
 
 #### 1. 启动 CIFS 客户端
 挂载前，请确保系统中已经安装了`cifs-utils`，安装方法如下：
@@ -224,6 +224,6 @@ umount /local/test
 >!强烈建议您在重启或关闭客户端前先执行卸载文件系统的操作，以避免引起系统异常。
 
 ### 终止资源
-您可以从腾讯云控制台终止文件系统。进入腾讯云文件存储 [控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
+您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 
 

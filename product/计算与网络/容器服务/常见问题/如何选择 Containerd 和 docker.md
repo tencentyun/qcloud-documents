@@ -16,7 +16,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 |:-------- |:-------------- |:--------------- |
 | 显示本地镜像列表 | docker images  | crictl ps       |
 | 下载镜像     | docker pull    | crictl pull     |
-| 上传镜像     | docke push     | 无               |
+| 上传镜像     | docker push     | 无               |
 | 删除本地镜像   | docker rmi     | crictl rmi      |
 | 查看镜像详情   | docker inspect | crictl inspecti |
 
@@ -25,8 +25,8 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 容器相关功能 | Docker         | Containerd     |
 |:------ |:-------------- |:-------------- |
 | 显示容器列表 | docker ps      | crictl ps      |
-| 创建容器   | docker create  | crtctl create  |
-| 启动容器   | docker start   | crtctl start   |
+| 创建容器   | docker create  | crictl create  |
+| 启动容器   | docker start   | crictl start   |
 | 停止容器   | docker stop    | crictl stop    |
 | 删除容器   | docker rm      | crictl rm      |
 | 查看容器详情 | docker inspect | crictl inspect |

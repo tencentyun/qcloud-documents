@@ -1,7 +1,11 @@
+>!
+- 增值税发票识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版增值税发票识别](https://cloud.tencent.com/document/product/866/36210)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[增值税发票识别](https://console.cloud.tencent.com/ai/ocr/invoice)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版增值税发票识别](https://cloud.tencent.com/document/product/866/36210)，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/invoice`
 本接口（invoice）用于识别增值税发票，根据用户上传的图像，返回识别出的发票代码、开票日期等字段。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 

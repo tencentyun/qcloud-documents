@@ -1,4 +1,4 @@
-GPU 云服务器必须具备相应的 GPU 驱动才可正常运用，对于AMD GPU 云服务器必须针对您的编译环境安装合适的 AMD GPU 驱动程序。
+GPU 云服务器必须具备相应的 GPU 驱动才可正常运用，对于AMD GPU 云服务器必须安装腾讯云定制的 AMD GPU 驱动程序。
 ## GA2 实例驱动安装
 ### Windows 安装驱动
 1. 请从您购买的 GPU 云服务器内访问该链接下载 AMD GPU 驱动 ：http://mirrors.tencentyun.com/install/gpu/win2016_GA2_dri_17.30.3201.1005.zip

@@ -11,7 +11,8 @@
 
 #### 局限性
 
-需要使用 2017 版接口 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密，新版接口 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 不支持。
+仅支持 2017 版接口：使用 [ProcessFile](https://cloud.tencent.com/document/product/266/9642) 发起加密任务，[GetTaskInfo](https://cloud.tencent.com/document/product/266/11724) 查询加密结果。
+新版接口 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 和 [DescribeTaskDetail](https://cloud.tencent.com/document/product/266/33431) 不支持 HLS 普通加密。
 
 ### 术语介绍
 
@@ -69,7 +70,7 @@
 
 如下示例的含义是：
 
-1. 对视频文件进行转码，转码目标输出模板为 210、220、230、240；禁止从较低码率转为较高码率。
+- 对视频文件进行转码，转码目标输出模板为 210、220、230、240；禁止从较低码率转为较高码率。
 2. 转码过程使用加密模板10进行加密。
 3. 事件通知模式为：待整个事件执行完毕之后发起一次事件通知。
 
@@ -91,7 +92,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ProcessFile
 
 点播转码平台在进行视频加密时，不仅会依照指定的加密算法和密钥对目标输出文件进行加密，而且会将获取解密密钥的 URL 写入视频文件中。例如，对于 HLS，该 URL 会被写入到 m3u8 文件的 EXT-X-KEY 标签中。但在写入之前，转码平台会在该 URL 的 QueryString 中增加三个参数：
 
-1. fileId：被加密文件的 ID。
+- fileId：被加密文件的 ID。
 2. keySource：固定为 VodBuildInKMS，表示腾讯云点播内置 KMS。
 3. edk：即 DK 对应的 EDK。
 
@@ -105,7 +106,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
 该 URL 也是客户端最终在视频播放过程中获取解密密钥时访问的 URL。
 
 ##### 4. 点播平台发起加密完成回调
-包含加密操作的任务流状态发生变化（或者执行完毕）之后，点播平台将发起 [任务流状态变更通知](/document/product/266/9636) 文档。
+包含加密操作的任务流状态发生变化（或者执行完毕）之后，点播平台将发起 [任务流状态变更通知](/document/product/266/9636)。
 
 ### 媒资管理
 视频加密操作完成之后，可以通过 [GetVideoInfo](/document/product/266/8586) 接口获取视频的加密信息。

@@ -1,4 +1,4 @@
-实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/b9df057b0bdddf30e3a2b3bc404ccb22/java_realtime_asr_sdk_v1.0.tar.gz)。
+实时语音识别 Java SDK [下载地址](https://main.qcloudimg.com/raw/c5a6e92b2d0f3fb1615158bd90de1c96/java_realtime_asr_sdk_v1.1.tar.gz)。
 
 
 ## 功能简介
