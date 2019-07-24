@@ -4,9 +4,9 @@
 ### 1.14.1-Finchley-RELEASE（2019-07-24）
 
 #### Bug 修复
-- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
-- 修复spring-cloud-tsf-route 包路由不生效的问题
-- 修复spring-cloud-tsf-ratelimit包限流不准确问题
+- 修复 TSF SDK 依赖的 scheduler 和业务自身的 scheduler 相互影响的问题。
+- 修复 spring-cloud-tsf-route 包路由不生效的问题。
+- 修复 spring-cloud-tsf-ratelimit 包限流不准确问题。
 
 #### 版本建议
 支持向后兼容，建议全量升级。
@@ -75,8 +75,8 @@
 ### 1.14.1-Edgware-RELEASE（2019-07-24）
 
 #### Bug 修复
-- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
-- 修复spring-cloud-tsf-ratelimit包限流不准确问题
+- 修复 TSF SDK 依赖的 scheduler 和业务自身的 scheduler 相互影响的问题。
+- 修复 spring-cloud-tsf-ratelimit 包限流不准确问题。
 
 #### 版本建议
 支持向后兼容，建议全量升级。
