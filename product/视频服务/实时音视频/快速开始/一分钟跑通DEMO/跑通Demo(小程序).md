@@ -87,10 +87,9 @@
 
 1. 安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序】。
 2. 设置以下参数信息，单击【确定】创建小程序项目。
- - AppID：申请到的微信小程序 AppID，而非上面的 SDKAppID。
- - 项目目录：选择上一步下载到的代码目录，请选择**根目录**，根目录包含有 `project.config.json`文件。
- 
- ![](https://main.qcloudimg.com/raw/62d821ab972b8d65c5ea9d623b4f3ff5.png)
+ - 项目目录：请选择上一步下载到的代码目录，需要选择**根目录**，根目录包含有 `project.config.json`文件。
+ - AppID：请输入申请到的微信小程序 AppID，而非上面的 SDKAppID。
+ - 项目名称：请输入项目名称。
 3. 按照上文第5步中的步骤修改 `pages/webrtc-room/account.js` 。
 4. 使用手机进行测试，直接扫描开发者工具预览生成的二维码进入。
 5. **开启调试模式**，体验和调试内部功能。开启调试可以跳过把这些域名加入小程序白名单的工作。
