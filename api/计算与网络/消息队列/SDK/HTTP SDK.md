@@ -10,7 +10,7 @@
 
 ## 下载地址
 不同语言版本的 SDK 下载地址如下：
-- [Java SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_java_sdk_V1.0.4.zip)
+- [Java SDK](https://main.qcloudimg.com/raw/71de95fdb5e7f080b1ae648ab573b9cb/cmq-java-sdk_V1.0.4.zip)
 - [Python SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
 - [PHP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
 - [C++ SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
