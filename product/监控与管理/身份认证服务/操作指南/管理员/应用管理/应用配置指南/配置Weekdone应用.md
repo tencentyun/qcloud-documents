@@ -17,7 +17,6 @@
 ### 配置 Weekdone 单点登录设置
 1. 新开页前往 [Weekdone官网](https://weekdone.com/)，登录您的管理员账号。
 2. 顶部导航右上角个人头像处，单击设置一栏。
-![](https://main.qcloudimg.com/raw/ae217888becf90547165e9f378231a6e.png)
 3. 单击【Single-sign-on (SAML2)】。
 ![](https://main.qcloudimg.com/raw/67dee18e8dc00eb325e1d9c45043e4a2.png)
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
