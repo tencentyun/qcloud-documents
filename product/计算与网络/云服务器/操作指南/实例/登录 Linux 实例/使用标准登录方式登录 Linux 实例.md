@@ -24,11 +24,11 @@ Window，Linux 或者 Mac OS
 
 ## 操作步骤
 
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 。
-2. 在实例列表中，选择需要登录的 Linux 云服务器，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/48ce59bad25e08f349dea442eee7b634.png)
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+2. 在实例的管理页面，选择需要登录的 Linux 云服务器，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/3106cebfdeae7762d656ffc68732e130.png)
 3. 在弹出的【登录Linux实例】窗口，选择【标准登录方式】，单击【立即登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/673f427fca54c4ca115cf9dab707f3c2.png)
+![](https://main.qcloudimg.com/raw/75e9c0a87910d6ad7d517668f4e82459.png)
 4. 在打开的 WebShell 登录页面，根据实际需求，选择【密码登录】或者【密钥登录】方式进行登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/22e2e003bf407076596f615c4b92ff53.png)
 如果登录成功，WebShell 界面会出现 Socket connection established 提示。如下图所示：
