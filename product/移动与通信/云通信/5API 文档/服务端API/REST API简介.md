@@ -29,7 +29,7 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$SDKAppID&identif
 | identifier  | 用户名，调用 REST API 时必须为 App 管理员帐号 |参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)  |
 | usersig  | 用户名对应的密码 |参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688) |
 | random  | 标识当前请求的随机数参数 |32位无符号整数随机数 |
-| contenttype   |请求格式     | 固定值为`JSON`                   |
+| contenttype   |请求格式     | 固定值为`json`                   |
 
 >!
 >1. App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号。
