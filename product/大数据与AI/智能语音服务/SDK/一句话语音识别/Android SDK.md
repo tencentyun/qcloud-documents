@@ -108,3 +108,23 @@ public void recognize(QCloudOneSentenceRecognitionParams params) throws Exceptio
  */
 public void recognizeWithRecorder() throws Exception;
 ```
+
+**QCloudOneSentenceRecognizerListener**开始录音、结束录音以及识别结果回调
+```
+public interface QCloudOneSentenceRecognizerListener {
+ /**
+  * 开始录音回调
+  */
+ public abstract void didStartRecord();
+
+ /**
+  * 结束录音回调
+  */
+ public abstract void didStopRecord();
+
+ /**
+  * 识别记过回调
+  */
+ public abstract void recognizeResult(QCloudOneSentenceRecognizer recognizer, String result, Exception exception);
+}
+```
