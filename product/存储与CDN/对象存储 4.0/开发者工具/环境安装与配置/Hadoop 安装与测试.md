@@ -78,7 +78,7 @@ scp ~/.ssh/slave1.id_rsa.pub master:~/.ssh
 在 slave2 上：
 ```
 cp ~/.ssh/id_rsa.pub ~/.ssh/slave2.id_rsa.pub
-scp ~/.ssh/slave2.id_rsa.pubmaster:~/.ssh
+scp ~/.ssh/slave2.id_rsa.pub master:~/.ssh
 ```
 依此类推...
 在 master 上：
