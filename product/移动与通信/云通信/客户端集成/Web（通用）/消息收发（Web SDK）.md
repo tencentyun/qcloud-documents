@@ -80,7 +80,7 @@ function addMsg(msg) {
             msgPre.innerHTML = "[群红包消息]" + convertMsgtoHtml(msg);
             break;
         case webim.GROUP_MSG_SUB_TYPE.LOVEMSG://群点赞消息
-            //业务自己可以增加逻辑，比如展示点赞动画效果
+            //业务自己可以增加逻辑，例如展示点赞动画效果
             msgPre.innerHTML = "[群点赞消息]" + convertMsgtoHtml(msg);
             //展示点赞动画
             //showLoveMsgAnimation();
