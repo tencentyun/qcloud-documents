@@ -135,7 +135,7 @@ _config.audioChannels   = 1;
 
 ### 步骤 10：事件处理
 ####  事件监听
-RTMP SDK 通过 TXLivePushListener 代理来监听推流相关的事件，注意 TXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
+RTMP SDK 通过 ITXLivePushListener 代理来监听推流相关的事件，注意 ITXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
 
 ####  常规事件 
 一次成功的推流都会通知的事件，例如收到1003就意味着摄像头的画面会开始渲染了。
