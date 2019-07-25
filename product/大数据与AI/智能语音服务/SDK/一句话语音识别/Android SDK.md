@@ -67,3 +67,44 @@ recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAu
 ```
 recognizer.recognizeWithRecorder();
 ```
+
+### 关键类说明
+**QCloudOneSentenceRecognizer**一句话识别入口类
+```
+/**
+ * 初始化方法，关于AppId, SecretId, SecretKey 见https://cloud.tencent.com/document/product/441/6194
+ * @param activity app activity
+ * @param appId 腾讯云appid
+ * @param secretId 腾讯云secretId
+ * @param secretKey 腾讯云secretKey
+ */
+public QCloudOneSentenceRecognizer(AppCompatActivity activity, String appId, String secretId, String secretKey);
+
+ /**
+  * 通过语音url进行一句话识别的快捷入口, 本地参数校验不通过抛出异常
+  * @param audioUrl 资源url 如http://www.qq.music/hello.mp3
+  * @param audioFormat 语音数据格式，QCloudAudioFormat
+  * @param frequence 语音数据采样率，QCloudAudioFrequence
+  */
+ public void recognize(String audioUrl, QCloudAudioFormat audioFormat, QCloudAudioFrequence frequence) throws Exception;
+ 
+/**
+  * 通过语音数据进行一句话识别的快捷入口, 本地参数校验不通过抛出异常
+  * @param audioData 语音数据
+  * @param audioFormat 语音数据格式，QCloudAudioFormat
+  * @param frequence 语音数据采样率，QCloudAudioFrequence
+  */
+ public void recognize(byte[] audioData, QCloudAudioFormat audioFormat, QCloudAudioFrequence frequence) throws Exception;
+
+/**
+ * 通过QCloudOneSentenceRecognitionParams调用一句话识别, 调用[QCloudCommonParams defaultRequestParams]方法获取默认参数，
+ * 然后根据需求设置参数
+ * @param params请求参数
+ */
+public void recognize(QCloudOneSentenceRecognitionParams params) throws Exception;
+
+/**
+ * 通过sdk内置录音器开启一句话识别
+ */
+public void recognizeWithRecorder() throws Exception;
+```
