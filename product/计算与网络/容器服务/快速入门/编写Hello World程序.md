@@ -132,7 +132,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 ![](https://main.qcloudimg.com/raw/09b369258510f6c2eb0f573a40735a14.png)
 2. 进入负载均衡详情页，查看域名。如下图所示：
 ![](https://main.qcloudimg.com/raw/19421ac01769cb5158aecbb92bd3d0aa.png)
-3. 在浏览器地址栏输入该域名，即可访问服务。
+3. 在浏览器地址栏输入该域名，按 “**Enter**” 即可访问服务。
 
 #### 通过服务名称访问服务
 集群内的其他服务或容器可以直接通过服务名称访问。
