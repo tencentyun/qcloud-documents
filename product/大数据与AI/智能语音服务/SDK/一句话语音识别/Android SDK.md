@@ -3,8 +3,8 @@
 一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/12d8f3ebe1ed16190b874c910db1369c/QCloudOneSentenceSDK_v1.0.0.zip)
 
 ### 开发前
-1. 开发者使用实时流式识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/)  注册账号，
-   并获得 APPID、SecretId 和 SecretKey 等。
+1. 开发者使用一句话识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/) 注册账号，
+   并获得APPID、SecretId 和 SecretKey信息。
 2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
 3. 支持 Android 4.0 及其以上版本。
 
