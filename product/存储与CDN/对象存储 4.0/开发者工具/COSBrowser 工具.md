@@ -25,7 +25,7 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 填写如下登录信息：
   - **云 API 密钥（SecretId/SecretKey）**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，成功登录后密钥会保存在**历史密钥**中。
   - **历史密钥**：单击**历史密钥**，可查看并使用已在该电脑成功登录过的云 API 密钥。
-![](https://main.qcloudimg.com/raw/9a9195b5b560b329668754b981afe5ae.jpg)
+![COSBrowser PC 端](https://main.qcloudimg.com/raw/6b36f6090281ac7925544ac42bbef55c.png)
 
 **移动端（Android）**
 
@@ -34,6 +34,9 @@ COSBrowser 移动端支持以下两种登录方式：
   - **永久密钥登录**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，登录后将永久保持该账号的登录状态。
 
 >?若用户的腾讯云账号为 QQ 账号所创建的，同样可使用微信快捷登录方式登录，只需在跳转的微信小程序界面选择 QQ 登录即可。
+
+![COSBrowser移动端登录界面](https://main.qcloudimg.com/raw/67a93158f2af38cca29328ed5c413799.png)
+![COSBrowser移动端文件列表](https://main.qcloudimg.com/raw/23cfa7444ae5b6c75f08f2d795c04699.png)
 
 ## 使用方法
 
@@ -58,7 +61,7 @@ COSBrowser 移动端支持以下两种登录方式：
 1. 在指定的存储桶或目录内，选中要下载的文件或文件夹。
 2. 单击【下载】，即可以默认下载方式进行下载。
 3. 用户还可以选择【高级下载】，进行下载选项的配置。
-![](https://main.qcloudimg.com/raw/e57f4a12cfce6c97ddc5c27d8f25cf4b.jpg)
+![下载文件夹](https://main.qcloudimg.com/raw/e57f4a12cfce6c97ddc5c27d8f25cf4b.jpg)
 >?COSBrowser 移动端没有**高级下载**模式，不支持下载文件夹。
 
 #### 复制、粘贴文件/文件夹
