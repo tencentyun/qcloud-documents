@@ -7,6 +7,11 @@
 
 ## 全量备份迁移
 ### 准备备份文件
+>?
+>- 备份文件名称不可自定义，需要按照脚本中的命名规范。
+>- 全量备份执行完恢复后，需继续执行增量备份恢复，至源实例和目的实例数据一致。
+>- 文件名中包含 1full1 则为全量备份。
+
 准备全量备份文件的方式有如下两种：
 
 #### 停机全量备份
@@ -25,10 +30,7 @@ set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname +
 exec(@str)
 go
 ```
->?
->- 备份文件名称不可自定义，需要按照脚本中的命名规范。
->- 全量备份执行完恢复后，需继续执行增量备份恢复，至源实例和目的实例数据一致。
->- 文件名中包含 1full1 则为全量备份。
+
 
 <span id = "shangchuan_beifen"></span>
 ### 上传备份至 COS
@@ -61,8 +63,6 @@ go
  - 任务状态变为【任务失败】时，表示数据迁移失败，请查看失败信息，并根据失败信息修正后重新迁移。
 7. 全量备份迁移结束后，目的实例的数据库状态为只读（Read-Only），继续进行增量迁移。
  
->- 文件名中包含 1noreconvery1 的备份导入后，目标云数据库状态为只读。文件名中包含 1reconvery1 为最终的增量备份。导入最终增量备份后，目标云数据库状态由只读变为可使用。
-
 
 ## 增量备份迁移
 ### 准备备份文件
@@ -78,15 +78,24 @@ set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname +
 exec(@str)
 go
 ```
-- 用户服务器不停机，进行增量备份，并导出备份文件。此方式需多次重复执行增量备份迁移步骤，直至源实例和目的实例数据一致。
->!
->- 备份文件名称不可自定义，需要按照脚本中的命名规范。
+- 用户服务器不停机，进行增量备份，并导出备份文件。此方式需多次执行准备增量备份文件、上传备份和迁移数据步骤。
+```
+declare @dbname varchar(100)
+declare @localtime varchar(20)
+declare @str varchar(max)
+set @dbname='db'
+set @localtime =replace(replace(replace(CONVERT(varchar, getdate(), 120 ),'-',''),' ',''),':','')
+set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname + '_' + @localtime + '_1diff1_1noreconvery1.bak'' WITH DIFFERENTIAL, NOFORMAT, INIT'
+exec(@str)
+go
+```
+>?
+>- 在最后一次执行增量备份时，需将以上代码中的`_1diff1_1noreconvery1.bak`更改为`_1diff1_1reconvery1.bak`。
 >- 文件名中包含 1diff1 为增量备份。
 
 ### 上传备份和迁移数据
 1. 准备好备份文件后，请参见 [上传备份至 COS](#shangchuan_beifen) 和 [通过 COS 源文件迁移数据](#qianyi_shuju) 执行后续上传备份和迁移数据操作。
 2. 导入最终增量备份后，目的实例状态由只读变为可使用，用户可切换业务到腾讯云数据库 SQL Server 实例。
->?文件名中包含 1noreconvery1 的备份导入后，目标云数据库状态为只读。文件名中包含 1reconvery1 为最终的增量备份。
 
 
 
