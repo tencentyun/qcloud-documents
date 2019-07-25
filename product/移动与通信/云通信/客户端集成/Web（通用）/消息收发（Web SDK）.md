@@ -803,7 +803,7 @@ function sendPic(images) {
 
 >!确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
-## 发送消息（文件 ）
+## 发送消息（文件）
 
 ```javascript
 function sendFile(file,fileName) {
@@ -838,7 +838,7 @@ function sendFile(file,fileName) {
 ```
 
 
-## 发送消息(自定义)
+## 发送消息（自定义）
 
 ```javascript
 /* function sendMsg
@@ -927,7 +927,7 @@ function sendCustomMsg() {
 syncMsgs: function(cbOk, cbErr) {},
 ```
 
-**示例: **
+**示例：**
 
 ```javascript
 webim.syncMsgs(onMsgNotify);
@@ -1001,7 +1001,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
 syncGroupMsgs: function(options, cbOk, cbErr) {},
 ```
 
-**示例: **
+**示例：**
 
 ```javascript
 //获取最新的群历史消息，用于切换群组聊天时，重新拉取群组的聊天消息
