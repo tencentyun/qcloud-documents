@@ -75,7 +75,7 @@
 ![](https://main.qcloudimg.com/raw/e0ef33bc1e3de8bd048f22b046dd2d50.png)
 
 完成步骤1到步骤3之后，TCP 监听器规则已配置完毕，配置详情如下：
-![](https://main.qcloudimg.com/raw/09ea7bc67a34ef552c55607dab3391a5.png)
+![](https://main.qcloudimg.com/raw/c70a8b5b30a7e801b32009b0845c8c0f.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
