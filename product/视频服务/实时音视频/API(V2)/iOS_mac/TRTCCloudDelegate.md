@@ -23,7 +23,7 @@ __参数__
 
 ### onWarning
 
-警告回调：用于告知您一些非严重性问题，比如出现了卡顿或者可恢复的解码失败。
+警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。
 ```
 - (void)onWarning:(TXLiteAVWarning)warningCode warningMsg:(nullable NSString *)warningMsg extInfo:(nullable NSDictionary *)extInfo 
 ```
@@ -538,7 +538,7 @@ __参数__
 |-----|-----|-----|
 | frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
 | userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，比如是摄像头画面还是屏幕分享画面等等。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，例如是摄像头画面还是屏幕分享画面等等。 |
 
 
 
@@ -564,7 +564,7 @@ __功能__
 
 ### onPlayAudioFrame
 
-混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
+混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
 ```
 - (void)onPlayAudioFrame:(TRTCAudioFrame *)frame userId:(NSString *)userId 
 ```
