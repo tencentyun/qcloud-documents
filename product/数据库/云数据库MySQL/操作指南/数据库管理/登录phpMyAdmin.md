@@ -4,7 +4,7 @@
 ## 操作步骤
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
 2. 在左侧导航选择【实例列表】页签。
-3. 选择状态为运行中的目标实例，在操作列单击【登录】。
+3. 选择状态为运行中的实例，在操作列单击【登录】。
 ![](https://main.qcloudimg.com/raw/e1916da2acae06f24880bbe448f8c09f.png)
 4. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在初始化选项中配置的 root 帐户的密码，单击【登录】。
 ![](https://main.qcloudimg.com/raw/63bf64090d18e4b8936f1873d487a068.png)
