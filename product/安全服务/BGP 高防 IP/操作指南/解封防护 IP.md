@@ -20,5 +20,5 @@ BGP 高防 IP 对进入封堵状态的防护 IP 提供解封的功能，您可�
 
 ## 解封操作记录
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【自助解封】>【解封操作记录】，根据时间范围筛选，可查看解封操作记录。
+登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【自助解封】>【解封操作记录】，根据时间范围筛选，可查看所有解封操作记录，包括自动解封、手工自助解封等操作记录。
 ![](https://main.qcloudimg.com/raw/ea79e6125d0d4a2ad3c2cdad245c2df2.png)
