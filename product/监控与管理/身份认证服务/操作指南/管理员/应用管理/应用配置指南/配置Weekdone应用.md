@@ -21,7 +21,7 @@
 3. 单击【Single-sign-on (SAML2)】。
 ![](https://main.qcloudimg.com/raw/67dee18e8dc00eb325e1d9c45043e4a2.png)
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
-![](https://main.qcloudimg.com/raw/74bf0185a13b0a556721ca335c910428.png)
+![](https://main.qcloudimg.com/raw/a99ff8d65f118f2fd38736212093dd3f.png)
 	- SAML 名称：您可以随意设置您的 SAML 名称，例如 IDaaS。
 	- SAML 登录网址：您在【创建Weekdone应用】第4步里准备的登录URL，如下图所示。
 	- SAML 登出网址：您在【创建Weekdone应用】第4步里准备的注销URL，如下图所示。
@@ -30,9 +30,9 @@
 
 ### 配置 Weekdone 应用信息
 1. 返回 Weekdone 配置页面，配置应用程序 SAML 配置。
-	- 应用程序 ACS URL：您在【配置Weekdone单点登录设置】第4步里填写的SAML名称，本案例即为：`https://weekdone.com/a/idaas`
-	- 应用程序 SAML 受众：您在【配置Weekdone单点登录设置】第4步里填写的SAML名称，本案例即为：`https://weekdone.com/a/idaas`
-![](https://main.qcloudimg.com/raw/6b953449fe21ad9cf7fcc09652f96598.png)
+	- 应用程序 ACS URL：您在【配置Weekdone单点登录设置】第4步里填写的SAML名称，本案例即为：`https://weekdone.com/a/tencent-idaas`
+	- 应用程序 SAML 受众：您在【配置Weekdone单点登录设置】第4步里填写的SAML名称，本案例即为：`https://weekdone.com/a/tencent-idaas`
+![](https://main.qcloudimg.com/raw/46eec05ae0b2133612103df79b31f05a.png)
 
 
 2. 配置应用程序属性值
