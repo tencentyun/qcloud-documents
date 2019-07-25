@@ -130,7 +130,7 @@ v1: digest: sha256:38b194feeee09abf8ee45e7abca82b9fe494b18b953c771ce8ebefa387107
 #### 通过域名来访问 Hello World 服务
 1. 进入服务信息详情页，单击服务的负载均衡 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/09b369258510f6c2eb0f573a40735a14.png)
-2.进入负载均衡详情页，查看域名。如下图所示：
+2. 进入负载均衡详情页，查看域名。如下图所示：
 ![](https://main.qcloudimg.com/raw/19421ac01769cb5158aecbb92bd3d0aa.png)
 3. 在浏览器地址栏输入该域名，即可访问服务。
 
