@@ -7,15 +7,17 @@ Windows，Linux 和 Mac OS
 
 ## 前提条件
 
-- 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+- 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买公网 IP，且该实例已开通云服务器实例的3389号端口（对于通过快速配置购买的云服务器实例已默认开通）。
 
 ## 操作步骤
 
 ### Windows 系统使用 RDP 登录
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例列表中，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/bc452fce3b682d24933e73f4d15c0d7b.png)
+2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/3106cebfdeae7762d656ffc68732e130.png)
 3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载RDP文件】，将 RDP 文件下载到本地。
 ![](https://main.qcloudimg.com/raw/bfbdf813684e34b236b90b9e1a19009b.png)
 4. 双击已下载到本地的 RDP 文件，即可远程连接到 Windows 云服务器。
