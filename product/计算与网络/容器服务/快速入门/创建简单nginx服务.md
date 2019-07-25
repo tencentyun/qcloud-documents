@@ -35,18 +35,20 @@
 
 ### 访问 Nginx 服务
 可通过以下三种方式访问 nginx 服务。
-#### 通过负载均衡 IP 访问服务
+#### 通过负载均衡 IP 访问 Nginx 服务
 1. 进入集群 [服务列表](https://console.cloud.tencent.com/tke/service/detail/container) 页。
 2. 单击【服务信息】进入服务信息详情页，查看负载均衡 IP 和负载均衡 ID。 如下图所示：
 ![](https://main.qcloudimg.com/raw/4700a84b57f61bfc97b5622b743cd6a6.png)
+3. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。
 
-#### 通过域名访问服务
+#### 通过域名访问 Nginx 服务
 1. 进入服务信息详情页，单击服务的负载均衡 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7c9497dc573613d963a6c8b097c9e6c.png)
 2. 进入负载均衡详情页，找到域名即可通过该域名访问服务。如下图所示：
 ![](https://main.qcloudimg.com/raw/20cf06e2cbf2a2d12e3e318c59031020.png)
+3. 在浏览器地址栏输入该域名，即可访问服务。
 
-#### 通过服务名称访问服务
+#### 通过服务名称访问 Nginx 服务
 集群内的其他服务或容器可以直接通过服务名称访问。
 
 ### 验证 Nginx 服务
