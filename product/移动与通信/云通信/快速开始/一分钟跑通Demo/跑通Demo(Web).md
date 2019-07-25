@@ -1,8 +1,8 @@
-本文主要介绍如何快速地运行云通信 WebIM Demo 工程。
+本文主要介绍如何快速地运行即时通信 WebIM Demo 工程。
 
 <span id="step1"></span>
 ## 创建应用
-1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
@@ -24,7 +24,7 @@
  ![](https://main.qcloudimg.com/raw/e11d958bc43b09fb41c7064ee2b09722.png)
 2. 解压 **keys.zip** 文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
-3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该云通信应用指定用户名的 UserSig。
+3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该即时通信应用指定用户名的 UserSig。
  ![](https://main.qcloudimg.com/raw/f491ffbd8dc3c0e8659288d27152c847.png)
 4. 重复上述操作，生成4组或更多组 UserID 和 UserSig。
 
