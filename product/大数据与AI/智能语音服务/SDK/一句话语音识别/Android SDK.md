@@ -11,12 +11,12 @@
 ### 运行环境配置
 ##### 添加一句话识别SDK aar
 
-将**qcloudasrsdk_1.0_release**放在libs目录下，在app的build.gradle 文件中添加：
+将*qcloudasrsdk_1.0_release.aar*放在libs目录下，在app的build.gradle 文件中添加。
 ```
   implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
 ```
 
-##### 添加其他依赖
+##### 添加其他依赖，在app的build.gradle 文件中添加。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
  implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
@@ -38,10 +38,9 @@
 #### 创建QCloudOneSentenceRecognizer示例
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
-recognizer.setCallback(this);
 ```
 
-#### 设置识别结果监听
+#### 设置识别结果回调
 ```
 recognizer.setCallback(this);
 ```
