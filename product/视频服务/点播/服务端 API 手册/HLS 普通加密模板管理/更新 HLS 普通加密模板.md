@@ -21,7 +21,7 @@ ModifySimpleAesTemplate
 
 #### 请求示例
 <pre>
-https://vod.api.qcloud.com/v2/index.php?Action=UpdateTranscodeTemplate
+https://vod.api.qcloud.com/v2/index.php?Action=ModifySimpleAesTemplate
 &definition=12
 &get_key_url=http://xxx.com/getNotificationN.php
 </pre>
