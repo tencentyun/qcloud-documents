@@ -114,7 +114,7 @@ FPS <=10 会明显感觉到卡顿，手机录屏直播推荐设置20FPS - 25FPS 
 | 超清 | VIDEO_RESOLUTION_TYPE_720_1280 | 20 | 1600kbps | 3000kbps|
 
 ### 步骤 7：提醒主播“网络不好”
-<p>步骤 9 中会介绍 RTMP SDK 的推流事件处理，其中 <strong>PUSH_WARNING_NET_BUSY</strong> 这个很有用，它的含义是：<strong>当前主播的上行网络质量很差，观众端已经出现了卡顿。</strong>
+<p>步骤 10 中会介绍 RTMP SDK 的推流事件处理，其中 <strong>PUSH_WARNING_NET_BUSY</strong> 这个很有用，它的含义是：<strong>当前主播的上行网络质量很差，观众端已经出现了卡顿。</strong>
 
 当收到此 WARNING 时，您可以通过 UI 提醒主播换一下网络出口，或者离 Wi-Fi 近一点，或者让他吼一嗓子：“领导，我在直播呢，别上淘宝了行不！什么？没上淘宝？那韩剧也是一样的啊。”</p>
 
@@ -143,7 +143,7 @@ RTMP SDK 通过 ITXLivePushListener 代理来监听推流相关的事件，注�
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器|
-|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流|
+|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕，一切正常，准备开始推流|
 |PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（Android 部分手机这个过程需要1秒 - 2秒）| 
 
 ####  错误通知 
