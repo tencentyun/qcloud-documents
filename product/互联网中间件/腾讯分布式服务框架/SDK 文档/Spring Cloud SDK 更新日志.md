@@ -7,6 +7,7 @@
 - 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
 - 修复spring-cloud-tsf-route 包路由不生效的问题
 - 修复spring-cloud-tsf-ratelimit包限流不准确问题
+- 修复 spring-cloud-tsf-sleuth 包数据源和Mybatis兼容性问题
 
 #### 版本建议
 支持向后兼容，建议全量升级。
@@ -77,6 +78,7 @@
 #### Bug 修复
 - 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
 - 修复spring-cloud-tsf-ratelimit包限流不准确问题
+- 修复 spring-cloud-tsf-sleuth 包数据源和Mybatis兼容性问题
 
 #### 版本建议
 支持向后兼容，建议全量升级。
