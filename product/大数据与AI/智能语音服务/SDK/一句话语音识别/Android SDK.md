@@ -11,7 +11,7 @@
 ### 运行环境配置
 ##### 添加一句话识别SDK aar
 
-将*qcloudasrsdk_1.0_release.aar*放在libs目录下，在app的build.gradle 文件中添加。
+将 **qcloudasrsdk_1.0_release.aar** 放在libs目录下，在app的build.gradle 文件中添加。
 ```
   implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
 ```
