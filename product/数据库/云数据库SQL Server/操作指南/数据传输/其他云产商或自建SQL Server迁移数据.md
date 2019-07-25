@@ -21,7 +21,7 @@
 >- 文件名中包含 1full1 则为全量备份。
 >- 迁移结束后，目的实例的数据库状态为只读（Read-Only），需继续进行增量迁移。
 
-- 用户服务器不停机，在其他云产商或自建 SQL Server 数据库进行完整备份，并导出备份文件。
+用户服务器不停机，在其他云产商或自建 SQL Server 数据库进行完整备份，并导出备份文件。
 ```
 declare @dbname varchar(100)
 declare @localtime varchar(20)
