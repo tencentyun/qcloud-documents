@@ -35,7 +35,7 @@ COSBrowser 移动端支持以下两种登录方式：
 
 >?若用户的腾讯云账号为 QQ 账号所创建的，同样可使用微信快捷登录方式登录，只需在跳转的微信小程序界面选择 QQ 登录即可。
 
-![COSBrowser移动端](https://main.qcloudimg.com/raw/6b36f6090281ac7925544ac42bbef55c.png)
+![COSBrowser移动端](https://main.qcloudimg.com/raw/8cde524816485071348ff3d7aaca863f.png)
 
 ## 使用方法
 
