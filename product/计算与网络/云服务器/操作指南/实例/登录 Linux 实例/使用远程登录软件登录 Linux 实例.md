@@ -12,7 +12,9 @@ Windows
 **密码**或**密钥**
 
 ## 前提条件
-- 已获取登录实例的管理员帐号及密码（或密钥）。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+- 已获取登录实例的管理员帐号及密码（或密钥）。
+ - 如果实例使用系统默认密码，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买及获取公网 IP，且该实例已开通云服务器实例的22号端口（对于通过快速配置购买的云服务器实例已默认开通）。
 
 
