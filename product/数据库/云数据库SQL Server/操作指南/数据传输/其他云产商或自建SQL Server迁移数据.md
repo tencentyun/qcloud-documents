@@ -1,5 +1,5 @@
 ## 操作场景
-腾讯云数据库 SQL Server 支持用户通过 COS 文件来进行同版本 SQL Server 数据库之前的数据迁移，帮助您将其他云产商或自建 SQL Server 数据库迁移至腾讯云数据库 SQL Server。
+腾讯云数据库 SQL Server 支持用户通过 COS 文件来进行数据迁移，本文介绍的迁移方式适用于同版本其他云产商或自建 SQL Server 数据库迁移至腾讯云数据库 SQL Server的场景。
 >!
 >- 迁移之前需保证目的实例的 SQL Server 版本与源实例的版本相同。
 >- 迁移的 bak 文件需保证每个 bak 文件只包含一个库。
