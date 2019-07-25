@@ -1,0 +1,69 @@
+## 开发准备
+### SDK 下载
+一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
+
+### 开发前
+1. 开发者使用实时流式识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/)  注册账号，
+   并获得 APPID、SecretId 和 SecretKey 等。
+2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
+3. 支持 Android 4.0 及其以上版本。
+
+### 运行环境配置
+##### 添加一句话识别SDK aar
+
+将**qcloudasrsdk_1.0_release**放在libs目录下，在app的build.gradle 文件中添加：
+```
+  implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
+```
+
+##### 添加其他依赖
+```
+ implementation 'com.google.code.gson:gson:2.8.5'
+ implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+ implementation 'com.squareup.okio:okio:1.11.0'
+ implementation 'org.slf4j:slf4j-api:1.7.25'
+```
+
+##### 在 AndroidManifest.xml 添加如下权限：
+```
+< uses-permission android:name="android.permission.RECORD_AUDIO"/>
+< uses-permission android:name="android.permission.INTERNET"/>
+< uses-permission android:name="android.permission.WRITE_SETTINGS" />
+< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+```
+
+### 快速开始
+#### 创建QCloudOneSentenceRecognizer示例
+```
+QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
+recognizer.setCallback(this);
+```
+
+#### 设置识别结果监听
+```
+recognizer.setCallback(this);
+```
+
+#### 调用示例
+##### 通过语音url调用
+```
+String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
+recognizer.recognize(audioUrl, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
+```
+
+##### 通过语音数据调用
+```
+AssetManager am = getResources().getAssets();
+InputStream is = am.open("onesentence.mp3");
+int length = is.available();
+byte[] audioData = new byte[length];
+is.read(audioData);
+recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
+```
+
+##### 通过sdk内置录音器
+```
+recognizer.recognizeWithRecorder();
+```
