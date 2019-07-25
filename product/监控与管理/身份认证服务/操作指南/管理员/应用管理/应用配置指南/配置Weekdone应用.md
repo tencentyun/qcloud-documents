@@ -20,7 +20,7 @@
 3. 单击【Single-sign-on (SAML2)】。
 ![](https://main.qcloudimg.com/raw/67dee18e8dc00eb325e1d9c45043e4a2.png)
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
-![](https://main.qcloudimg.com/raw/a99ff8d65f118f2fd38736212093dd3f.png)
+![](https://main.qcloudimg.com/raw/de4dafb67c976a177de2b3f2af189668.png)
 	- SAML 名称：您可以随意设置您的 SAML 名称，例如 IDaaS。
 	- SAML 登录网址：您在【创建Weekdone应用】第4步里准备的登录URL，如下图所示。
 	- SAML 登出网址：您在【创建Weekdone应用】第4步里准备的注销URL，如下图所示。
