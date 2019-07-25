@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 创建 Weekdone 应用
-1. 登录 [IDaaS控制台](https://console.cloud.tencent.com/idaas)。
+1. 管理员登录 [IDaaS控制台](https://console.cloud.tencent.com/idaas)。
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。
 3. 单击【新建应用】，选择【自定义 SAML2.0 应用程序】，并填写应用名称和应用详情。单击【提交】。
 ![](https://main.qcloudimg.com/raw/607f3fb35868524ec2a963518ba77ce5.png)
@@ -16,11 +16,11 @@
 
 ### 配置 Weekdone 单点登录设置
 1. 新开页前往 [Weekdone官网](https://weekdone.com/)，登录您的管理员账号。
-2. 顶部导航右上角个人头像处，单击设置一栏。
+2. 顶部导航右上角个人头像下拉菜单里，单击设置一栏。
 3. 单击【Single-sign-on (SAML2)】。
 ![](https://main.qcloudimg.com/raw/67dee18e8dc00eb325e1d9c45043e4a2.png)
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
-![](https://main.qcloudimg.com/raw/de4dafb67c976a177de2b3f2af189668.png)
+![](https://main.qcloudimg.com/raw/d96835701707f975e42ba24a3cfca598.png)
 	- SAML 名称：您可以随意设置您的 SAML 名称，例如 IDaaS。
 	- SAML 登录网址：您在【创建Weekdone应用】第4步里准备的登录URL，如下图所示。
 	- SAML 登出网址：您在【创建Weekdone应用】第4步里准备的注销URL，如下图所示。
@@ -36,11 +36,6 @@
 
 2. 配置应用程序属性值
 由于 Weekdone 使用邮箱作为用户标识，您需要修改属性 NameID 的值为 ${user:Email}。如下图所示：
-修改前：
-![](https://main.qcloudimg.com/raw/1a4ccb7cbfd3765770557c0b7a505e8d.png)
-点击【编辑】进入“编辑属性”页面进行修改。
-![](https://main.qcloudimg.com/raw/684532b1a9c9f96466b838ac489558f8.png)
-修改后：
 ![](https://main.qcloudimg.com/raw/41e566c9176e4ef0424b0b960d748c46.png)
 
 ### 测试并分配权限
