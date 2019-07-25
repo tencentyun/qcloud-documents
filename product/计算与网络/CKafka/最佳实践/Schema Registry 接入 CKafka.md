@@ -153,9 +153,9 @@ public class SchemaProduce {
     }
 }
 ```
-查看schema 这个消费分组
+查看 schema 这个消费分组。
 ![](https://main.qcloudimg.com/raw/aff0af7032f82e8e547931c405f5f9ca.png)
-启动消费者,消费截图
+启动消费者，消费截图。
 ![](https://main.qcloudimg.com/raw/ff59e6fab31b490b705ca46d378e6df7.png)
 ![](https://main.qcloudimg.com/raw/a55147f38ef884f79a06c009cdbb7ef6.png)
 控制台消费完毕。
