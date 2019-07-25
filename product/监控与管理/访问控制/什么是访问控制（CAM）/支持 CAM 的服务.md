@@ -90,8 +90,8 @@
 
  | 服务                                                          | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ----------------------------------------------------------- | ------ | -------- | ----- |-------- | ---- |	
-| [DDoS 防护（大禹）](https://cloud.tencent.com/document/product#network-security) | 服务级 | ✔   | -  | - |
-| [样本智能分析平台](https://cloud.tencent.com/document/product/1012)  |资源级 | -   |  ✔   | -   |
+| [DDoS 防护（大禹）](https://cloud.tencent.com/document/product#network-security) | 服务级 | ✔   | -  | - | - |
+| [样本智能分析平台](https://cloud.tencent.com/document/product/1012)  |资源级 | -   |  ✔   | -   | - |
 | [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  ✔    |✔    |
 
 ## 主机安全	
@@ -182,6 +182,12 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- | -------- | ---- |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)  | 资源级 | ✔| -   | ✔ | -    |	
 
+## 教育服务	
+
+ | 服务                                                        | 授权粒度  | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
+| ------------------------------------------------------------  | ------ | -------- | ------- | -------- | ---- |	
+| [智聆口语评测](https://cloud.tencent.com/document/product/884)   | 操作级 | ✔  | -   | ✔   | -  |	
+
 ## 移动服务	
 
  | 服务                                                        | 授权粒度  | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
@@ -202,7 +208,6 @@
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | ✔   | -  | ✔  | ✔ |
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | ✔   | -  | ✔  | - |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | ✔  | -  | ✔  | -  |
-| [加速物联网套件](https://cloud.tencent.com/document/product/568)| 操作级 | ✔   | -  | ✔ |✔| 
 
 ## 区块链	
 

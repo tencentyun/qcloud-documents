@@ -1,10 +1,10 @@
 ### 请求地址 
-地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
+地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200
 
 ### 请求路径和方法
-- 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称。
+- 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称
 - 方法：PUT
->!`metric` 命名限制请参考 [系统限制](https://cloud.tencent.com/document/product/652/13611)。
+>?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/13611)。
 
 ### 请求参数 
 无

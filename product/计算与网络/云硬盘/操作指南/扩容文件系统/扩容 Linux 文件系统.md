@@ -1,12 +1,12 @@
 ## 操作场景
 云硬盘是云上可扩展的存储设备，您可以在创建云硬盘后随时扩展其大小，以增加存储空间，同时不失去云硬盘上原有的数据。
-[云硬盘扩容](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
-## 注意事项
+[扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
 
-扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
+
 
 ## 前提条件
-
+>!扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
+>
 - 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。
 - 已 [登录](https://cloud.tencent.com/document/product/213/5436) 待扩展分区及文件系统的 Linux 云服务器。
@@ -18,14 +18,14 @@
 ```
 fdisk -l
 ```
- - 若结果展示的 device 无分区（如仅展示/dev/vdb），请您参考 [扩容文件系统](#ExpandTheFileSystem)。
+ - 若结果展示的设备无分区（如仅展示 /dev/vdb），请您参考 [扩容文件系统](#ExpandTheFileSystem)。
  - 若结果如下两图所示（根据操作系统不同略有不同），则说明使用 GPT 分区形式。
-![](//mccdn.qcloud.com/static/img/972969e3db92b65311211734690fe763/image.png)
-![](//mccdn.qcloud.com/static/img/2c1f4a40279d211a7b81bada7ed38280/image.png)
+![](https://main.qcloudimg.com/raw/5ff70adb58a223d32d334470c5b29e0e.png)
+![](https://main.qcloudimg.com/raw/ce19715fc8494a9735b714d86f0cccfa.png)
  - 若结果如下图所示（根据操作系统不同略有不同），则说明使用 MBR 分区形式。
  >! MBR 分区形式支持的磁盘最大容量为2TB。如果您的硬盘分区为 MBR 格式，且需要扩容到超过 2TB 时，建议您重新创建并挂载一块数据盘，使用 GPT 分区方式后将数据拷贝至新盘上。对于 Linux 操作系统而言，当磁盘分区形式选用 GPT 时，fdisk 分区工具将无法使用，需要采用 parted 工具。
  >
-![](//mccdn.qcloud.com/static/img/4d789ec2865a2895305f47f0513d4e2b/image.png)
+![](https://main.qcloudimg.com/raw/0e336cd3354c098cf5e70d0672e6f625.png)
 2. 根据 [步骤1](#fdisk) 查询到的云硬盘分区形式，选择对应的操作指引。
 <table>
      <tr>
@@ -84,7 +84,7 @@ df -h
  ```
 parted <磁盘路径> print
 ```
-本文以磁盘路径是`/dev/vdb`为例，则执行：
+本文以磁盘路径是 `/dev/vdb`为例，则执行：
 ```
 parted /dev/vdb print
 ```
@@ -115,6 +115,7 @@ umount /data
 ```
 mount | grep '/dev/vdb'
 ```
+云硬盘上所有的分区文件系统均已解挂。如下图所示：
 ![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
 
 <span id="step4"></span>
@@ -183,6 +184,7 @@ resize2fs <分区路径>
 ```
 resize2fs /dev/vdb1
 ```
+扩容成功则如下图所示：
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
 13. 执行以下命令，对新分区上 XFS 文件系统进行扩容操作。
 ```
@@ -244,6 +246,7 @@ umount /data
 ```
 mount | grep '/dev/vdb'
 ```
+云硬盘上所有的分区文件系统均已解挂。如下图所示：
 ![](https://main.qcloudimg.com/raw/d1a9a33f0d4e3725aed677f2403c91ae.png)
 <span id="Step4"></span>
 4. 执行以下命令，进入 parted 分区工具。
@@ -263,7 +266,7 @@ print
 ```
 mkpart primary start end
 ```
-本文以 End 值是10.7GB为例，执行
+本文以 End 值是10.7GB为例，执行以下命令：
 ```
 mkpart primary 10.7GB 100%
 ```
@@ -317,7 +320,7 @@ python /tmp/devresize.py <硬盘路径>
 python /tmp/devresize.py /dev/vdb
 ```
 ![](//mccdn.qcloud.com/static/img/c7617b90578192d64d19f02325f00ffb/image.jpg)
- - 若输出 “The filesystem on /dev/vdb1 is now XXXXX blocks long.”则表示扩容成功，请执行 [步骤4](#step4MBR)。
+ - 若输出 “The filesystem on /dev/vdb1 is now XXXXX blocks long.” 则表示扩容成功，请执行 [步骤4](#step4MBR)。
  - 若输出的是 “[ERROR] - e2fsck failed!!”，请执行以下步骤：
    a. 执行以下命令，修复文件系统所在分区。
 ```
@@ -428,7 +431,7 @@ df -h
 返回如下图所示信息则说明挂载成功，即可以查看到数据盘。
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 
->?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
+>?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
 
 <span id="AddNewPartINFOstep10"></span>
 10. 执行以下命令，添加信息。

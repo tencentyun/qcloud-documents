@@ -134,15 +134,14 @@ COMMIT;
 
 这个命令符合 SQL 标准，不过 FROM 子句是数据库的扩展。
 
-根据标准，列语法应该允许列为从一个单一的行值表达式赋值，如子选择：
-
+根据标准，列可以被一个行值表达式赋值，比如子句嵌套结构：
 ```sql
 UPDATE accounts SET (contact_last_name, contact_first_name) =
     (SELECT last_name, first_name FROM salesmen
      WHERE salesmen.id = accounts.sales_id);
 ```
 
-当前还没有实现，源必须是独立的表达式列表。
+但是该语法目前没有实现，源必须是独立的表达式列表。
 
 有些其他数据库系统提供了一个 FROM 选项，在其中目标表可以在 FROM 中被再次列出。但数据库不是这样解释 FROM 的。在移植使用这种扩展的应用时要小心。
 

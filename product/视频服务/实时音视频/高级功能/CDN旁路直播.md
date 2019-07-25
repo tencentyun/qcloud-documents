@@ -45,7 +45,7 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 其中 `bizid`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
 
 - bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
-![](https://main.qcloudimg.com/raw/4bacb840b1ece10544f1f3414635fe7c.png)
+![](https://main.qcloudimg.com/raw/86cdab23f18d4c8369d2a908320e52aa.png)
 - 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
 - streamid：将“房间号”、“用户名”和“流类型” 用下划线连接在一起，然后计算 MD5，得到的就是 streamId，也就是说，`streamid = MD5 (房间号_用户名_流类型)`。
 
@@ -63,7 +63,6 @@ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d
 ```
 
 >! 上述实例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
-![](https://main.qcloudimg.com/raw/5dd6df3b7420e0fed2bb347d4ff9dd5a.png)
 
 ### step3: 混合画面
 
@@ -79,7 +78,7 @@ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d
 我们推荐以 `http` 为前缀且以 `.flv` 为后缀的 **http - flv** 地址，该地址的播放具有时延低、秒开效果好且稳定可靠的特点。播放器推荐使用已经打包在 TRTC SDK 里的 TXLivePlayer 播放器，该播放器的参考文档为：
 - [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/7880)
 - [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/7886)
-- [TXLivePlayer(Windows)](https://cloud.tencent.com/document/product/454/13676#.E6.92.AD.E6.94.BE.E5.8A.9F.E8.83.BD)
+
 
 ### step5: 优化延时
 
@@ -113,8 +112,3 @@ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d
 ## 常见问题
 **为什么房间里只有一个人的时候画面又卡又模糊?**
 请将 `enterRoom` 中 TRTCAppScene 参数指定为 **TRTCAppSceneLIVE**，VideoCall 模式针对视频通话做了优化，所以在房间中只有一个用户时，画面会保持较低的码率和帧率以节省用户的网络流量，因此看起来会感觉又卡又模糊。
- 
- 
-
-
-

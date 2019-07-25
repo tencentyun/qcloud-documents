@@ -4,7 +4,8 @@
 接口名：LoginProtection
 
 
-## 请求参数
+## 输入参数
+>!以下所有参数在入参时，请正确传参，不能传入空值。
 
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
@@ -12,7 +13,7 @@
 | uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 OpenID。 |
 | loginTime          | 是      | UInt     | 登录时间戳，单位：秒。                                         |
 | accountType        | 是      | UInt     | 用户账号类型（QQ 开放帐号、微信开放账号需要提交 工单 由腾讯云进行资格审核）：<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号</li><li>0：其他</li><li>10004：手机号 MD5</li> |
-| appId              | 否      | Ulnt     | accountType    是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
+| appId              | 否      | String     | accountType    是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
 | associateAccount   | 否      | String   | accountType   是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
 | nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
 | phoneNumber        | 否      | String   | 手机号：国家代码-手机号， 如0086-15912345687（0086前不需要+号）。 |
@@ -41,7 +42,7 @@
 | randNum            | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
 | wxToken            | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数radnNum得到的值（hmac_sha256 签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
 
-## 响应参数
+## 输出参数
 
 | 参数         | 类型   | 描述                                                         |
 | ---------------- | ------ | ------------------------------------------------------------ |
@@ -124,7 +125,7 @@
 }
 ```
 - **代码下载** 
- - [Python 示例](https://mc.qcloudimg.com/static/archive/de08cb326ab99b568664b2bb7c269f4e/LoginProtection.py.zip)
- -  [PHP 示例](https://mc.qcloudimg.com/static/archive/2a728e6e88889ae9082d596288505cfd/LoginProtection.php.zip)
- -  [Java 示例](https://mc.qcloudimg.com/static/archive/db5e010d2ab0070fe8b4f08e3a71238b/LoginProtection.java.zip)
- -  [.Net 示例](https://mc.qcloudimg.com/static/archive/8773908b78df5570f45d3b2a7d25cbfc/LoginProtection.cs.zip)
+ - [Python 示例](https://main.qcloudimg.com/raw/ab88d9d41b620cec6dd73e6f2addb9a5/LoginProtection_py.zip)
+ -  [PHP 示例](https://main.qcloudimg.com/raw/f7de86880b857dfe7d5b97aa0305852b/LoginProtection_php.zip)
+ -  [Java 示例](https://main.qcloudimg.com/raw/840943e3250295ed902a505f445676a9/LoginProtection_java.zip)
+ -  [.Net 示例](https://main.qcloudimg.com/raw/fdc1973614971be8fcca25c6ae7b6117/LoginProtection_cs.zip)

@@ -53,6 +53,11 @@ IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针�
 - **d. 拷贝 DLL 到执行目录**  
   在【生成事件】>【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/3fc1828ee8bc4bab7197092ff1d73c45.png)
+  
+- **e. 指定源文件的编码格式**
+  由于 IM SDK 的头文件采用 UTF-8 编码格式，部分编译器按默认系统编码格式编译源文件，可能导致编译无法通过，设置此参数可指定编译器按照 UTF-8 的编码格式编译源文件。
+  在 【C/C++】>【命令行】>【其他选项】，输入`/source-charset:.65001`，如下图所示：
+  ![](https://main.qcloudimg.com/raw/0c9ab7746d643594fa7cf20e93c60860.png)
 
 **Release 模式**，跟 **Debug 模式**设置大部分相同，不同在于 IM SDK 的库目录，其他的与 **Debug 模式**一样。具体设置如下：
 

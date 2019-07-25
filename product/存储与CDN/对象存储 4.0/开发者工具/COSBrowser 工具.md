@@ -11,9 +11,10 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 |支持平台|下载地址|
 |:---|:---|
-|Windows PC 端|[Windows ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
-|macOS PC 端|[macOS ](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
-|Android 移动端|[Android ](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
+|Windows PC 端|[Windows](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
+|macOS PC 端|[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
+|Linux PC 端|[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
+|Android 移动端|[Android](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
 
 >?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
@@ -58,9 +59,7 @@ COSBrowser 移动端支持以下两种登录方式：
 2. 单击【下载】，即可以默认下载方式进行下载。
 3. 用户还可以选择【高级下载】，进行下载选项的配置。
 ![](https://main.qcloudimg.com/raw/e57f4a12cfce6c97ddc5c27d8f25cf4b.jpg)
->?
->- COSBrowser 移动端没有**高级下载**模式，不支持下载文件夹。
->- COSBrowser 移动端仅支持下载图片格式文件。
+>?COSBrowser 移动端没有**高级下载**模式，不支持下载文件夹。
 
 #### 复制、粘贴文件/文件夹
 1. 在指定的存储桶或目录内，选中要复制的文件或文件夹，单击【复制】。

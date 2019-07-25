@@ -1,6 +1,4 @@
-2016年11月份起，部分 chrome 浏览器用户反馈访问 Https 站点时的 **NET::ERR_CERTIFICATE_TRANSPARENCY_REQUIRED** 错误情况，提示 “您的连接不是私密链接”。
-
-内容如下：
+自2016年11月起，部分 chrome 浏览器用户反馈访问 Https 站点时出现 **NET::ERR_CERTIFICATE_TRANSPARENCY_REQUIRED** 错误情况，提示 “您的连接不是私密链接”。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/0fdf027303e53946698dcb377431597e/0.png)
 
 该 CT 错误经确认是 chrome 浏览器53、54版本的内核问题，该 BUG 导致与 Symantec CA 机构颁发的 SSL 证书出现不兼容问题，Symantec CA 机构所有2016年6月1日之后的证书都会被此问题影响出现 CT 错误的情况，Chrome 方面在第一时间通过自动补丁方式处理了此问题，并在55版本修复此问题。

@@ -1,7 +1,8 @@
 小程序端上传视频的 SDK。
 
-> 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-wx-sdk-v2/)。
-> 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-wx-sdk-v2/tree/master/demo)。
+>?
+- 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-wx-sdk-v2/)。
+- 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-wx-sdk-v2/tree/master/demo)。
 
 ## 上传视频步骤
 
@@ -33,17 +34,20 @@ getSignature: function(callback) {
 }
 ```
 
-> `url`是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
-> `signature`计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+>?
+- `url`是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
+- `signature`计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 **3. 上传视频**
 上传视频是通过调用`VodUploader.start`来实现的，选择视频则通过微信小程序 API 中的`wx.chooseVideo`方法实现。示例如下：
 
 ```
  VodUploader.start({
-    mediaFile: mediaFile, //必填，把chooseVideo回调的参数(file)传进来
-    mediaName: mediaName, //选填，视频名称，强烈推荐填写(如果不填，则默认为“来自微信小程序”)
+    mediaFile: videoFile, //必填，把chooseVideo回调的参数(file)传进来
     getSignature: getSignature, //必填，获取签名的函数
+
+    mediaName: fileName, //选填，视频名称，强烈推荐填写(如果不填，则默认为“来自微信小程序”)
+    coverFile: coverFile, // 选填，视频封面
     success: function(result) {
         console.log('success');
         console.log(result);

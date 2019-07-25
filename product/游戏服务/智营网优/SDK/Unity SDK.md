@@ -1,6 +1,6 @@
 ## 1 接入流程
 登录腾讯云控制台,在智营网优管理后台下载 SDK。  
-*** 注意：本产品需要申请通过后才能访问管理后台 ***
+>!本产品需要申请通过后才能访问管理后台。
 
 ### 1.1 Android
 1) 将下列文件导入到项目中：
@@ -70,8 +70,8 @@ MyMNAObserver *observer = MyMNAObserver::GetInstance();
 </dict>
 ```
 
-> **注意:**
-> 在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+
+>!在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
 
 6) 完成，按照所需在 Unity 调用相应接口即可。
 
@@ -182,7 +182,7 @@ public static void GoFront()
 ```
 public static void GoBack()
 ```
-当游戏切换到后台（比如被其它应用遮挡），必须调用此函数，通知加速引擎。
+当游戏切换到后台（例如被其它应用遮挡），必须调用此函数，通知加速引擎。
 
 #### 3.2.4 强行关闭加速
 ```
