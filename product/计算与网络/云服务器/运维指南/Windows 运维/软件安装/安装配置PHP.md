@@ -89,13 +89,14 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 ![](https://main.qcloudimg.com/raw/9c1382da5600121741ecfa4560623997.png)
 18.  在打开的 “编辑  FastCGI 应用程序” 窗口中，将【监视对文件所做的更改】设置为 `php.ini` 文件的路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/c167f15bb6cabe35cce2650133ac63e2.png)
-19. 在 `C:\inetpub\wwwroot` 目录下，创建一个名称为 `index` 的 PHP 文件（即 `index.php` 文件），并写入如下内容：
+19. 在 `C:\inetpub\wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `index.php` 文件。
+20. 在新创建的 `index.php` 文件中，填写以下内容并保存。
 ```
 <?php
 phpinfo();
 ?>
 ```
-20. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php` ，查看环境配置是否成功。
+21. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php`，查看环境配置是否成功。
 如果打开的页面如下显示，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
 
