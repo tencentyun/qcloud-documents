@@ -72,19 +72,8 @@ go
 >- 备份文件名称不可自定义，需要按照脚本中的命名规范。
 >- 文件名中包含 1diff1 为增量备份。
 >
-不停机全量备份迁移结束后，继续进行的增量备份有以下两种方式：
-- （推荐）用户服务器停机，停机后进行一次增量备份，并导出备份文件。
-```
-declare @dbname varchar(100)
-declare @localtime varchar(20)
-declare @str varchar(max)
-set @dbname='db'
-set @localtime =replace(replace(replace(CONVERT(varchar, getdate(), 120 ),'-',''),' ',''),':','')
-set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname + '_' + @localtime + '_1diff1_1reconvery1.bak'' WITH DIFFERENTIAL, NOFORMAT, INIT'
-exec(@str)
-go
-```
-- 用户服务器不停机，进行增量备份，并导出备份文件。此方式需多次执行准备增量备份文件、上传备份和迁移数据步骤。
+
+- （可选）有多份增量备份文件时，除最后一次以外的增量备份文件生成方式如下，需按照增量备份先后顺序进行“上传备份和迁移数据”，否则会迁移失败。
 ```
 declare @dbname varchar(100)
 declare @localtime varchar(20)
@@ -95,8 +84,17 @@ set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname +
 exec(@str)
 go
 ```
->?在最后一次执行增量备份时，需将以上代码中的`_1diff1_1noreconvery1.bak`更改为`_1diff1_1reconvery1.bak`。
-
+- 用户服务器停机，停机后进行一份增量备份，导出备份文件，并进行“上传备份和迁移数据”。
+```
+declare @dbname varchar(100)
+declare @localtime varchar(20)
+declare @str varchar(max)
+set @dbname='db'
+set @localtime =replace(replace(replace(CONVERT(varchar, getdate(), 120 ),'-',''),' ',''),':','')
+set @str='BACKUP DATABASE [' + @dbname + '] TO  DISK = N''d:\dbbak\' + @dbname + '_' + @localtime + '_1diff1_1reconvery1.bak'' WITH DIFFERENTIAL, NOFORMAT, INIT'
+exec(@str)
+go
+```
 
 ### 上传备份和迁移数据
 1. 准备好备份文件后，请参见 [上传备份至 COS](#shangchuan_beifen) 和 [通过 COS 源文件迁移数据](#qianyi_shuju) 执行后续上传备份和迁移数据操作。
