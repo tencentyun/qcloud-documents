@@ -14,7 +14,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 ## 操作步骤
 ### 创建 WordPress 服务
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke) 。
-2. 单击左侧导航栏中的【服务】，单击服务列表页的【 新建】。如下图所示：
+2. 单击左侧导航栏中的【服务】，选择服务列表页的【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2aad4d77b314aa3bbfc1ecd741203776.png)
 3. 设置服务的基本信息。如下图所示：
    - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成，且由小写字母开头，小写字母或数字结尾。本例中服务名称为 wordpress。
@@ -22,7 +22,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
    - **运行集群**：选择服务所要运行的集群，选择运行中和集群内有可用主机的集群。
    - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
 >!其他选项保持为默认设置。
->
+
 ![](https://main.qcloudimg.com/raw/24cc9024e48e1dc247a0d5531324d54a.png)
 4. 根据以下参数信息进行镜像配置。如下图所示：
    - **名称**：输入运行容器的名称，以 wordpress 为例。
@@ -30,7 +30,8 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
    - **版本（Tag）**：输入 latest。
 ![](https://main.qcloudimg.com/raw/732f3be423585e6a5a9009cdb43d8e95.png)
 5. 设置端口映射，将容器端口和服务端口都设置为80 。如下图所示：
->!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000-32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)
+>!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000-32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
+>
  ![](https://mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
 6. 单击**创建服务**，即可完成 WordPress 服务的创建。
 
@@ -48,7 +49,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 1.进入服务信息详情页，单击服务的负载均衡 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/0c2a9347c4b495d631aa0950b5673453.png)
 2. 进入负载均衡详情页，查看域名。如下图所示：
-![](https://main.qcloudimg.com/raw/747dceb51c7ad4b3f818989dcf902613.png)
+![](https://main.qcloudimg.com/raw/b00fc781aa59c8435bf7d203b602e677.png)
 3. 在浏览器地址栏输入该域名，按 “**Esc**” 即可访问服务
 
 #### 通过服务名称访问服务
