@@ -121,7 +121,7 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 @end
 ```
 ## 示例
-1. **创建 QCloudSentenceRecognizer 实例** 
+### 1. **创建 QCloudSentenceRecognizer 实例** 
 ```objective-c
   QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
   									        secretId:secretId 
@@ -129,9 +129,9 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
   //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
  recognizer.delegate = self;
 ```
-2. **调用方式说明**
+### **调用方式说明**
 
-####通过语音url调用
+#### 通过语音url调用
 ```objective-c
 - (void)recognizeWithUrl {
 //语音数据url
@@ -140,5 +140,44 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
 [_recognizer recoginizeWithUrl:url
  				   voiceFormat:kQCloudVoiceFormatWAV 
 				     frequence:kQCloudEngSerViceType16k];
+}
+```
+
+#### 通过语音数据调用
+```objective-c
+- (void)recognizeWithAudioData {
+//语音数据
+NSString *filePath = [[NSBundle mainBundle] 			
+						     pathForResource:@"recordedFile" 
+								      ofType:@"wav"];
+NSData *audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+//指定语音数据 语音数据格式 采样率
+[_recognizer recoginizeWithData:audioData 	
+				    voiceFormat:kQCloudVoiceFormatWAV 
+					  frequence:kQCloudEngSerViceType16k];
+}
+```
+
+#### 通过指定参数调用
+```objective-c
+- (void)recognizeWithParams {
+    NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+    //获取一个已设置默认参数params
+    QCloudOneSentenceRecognitionParams *params = [_recognizer defaultRecognitionParams];    
+    //通过语音url请求, 此4个参数必须设置
+    params.url = url;                           
+    //设置语音频数据格式，见kQCloudVoiceFormat定义
+    params.voiceFormat = kQCloudVoiceFormatWAV;
+    //设置语音数据来源，见QCloudAudioSourceType定义
+    params.sourceType = QCloudAudioSourceTypeUrl;
+    //设置采样率，见kQCloudEngSerViceType定义
+    params.engSerViceType = kQCloudEngSerViceType16k; 
+    [_recognizer recognizeWithParams:params];
+}
+```
+#### 通过sdk内置录音器调用
+```objective-c
+- (void)recognizeWithRecorder {
+   [_recognizer startRecognizeWithRecorder];
 }
 ```
