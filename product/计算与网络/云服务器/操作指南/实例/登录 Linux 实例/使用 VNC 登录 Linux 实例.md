@@ -14,7 +14,9 @@ Windows，Linux 和 Mac OS 系统
 - VNC 登录为独享终端，即同一时间只有一个用户可以使用 VNC 登录。
 
 ## 前提条件
-已获取登录实例的管理员帐号及密码（或密钥）。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+已获取登录实例的管理员帐号及密码（或密钥）。
+- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+- 如果您 [使用密钥登录](#LoginWithKey) 实例，需完成密钥的创建，并已将密钥绑定至该云服务器中。 具体操作请参看 [SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
 
 ## 操作步骤
 
