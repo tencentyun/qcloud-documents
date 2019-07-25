@@ -2,52 +2,62 @@
 
 ### SDK 获取
 
-实时流式语音识别的 iOS SDK 的下载地址：[QCloudSDK](https://main.qcloudimg.com/raw/a1ccdaebb361cf55493c863a66b43b6e/QCloudSDK.zip)
+实时流式语音识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
 
-详细示例可参考Demo：[QCloudSDKDemo](https://main.qcloudimg.com/raw/b455fc8e8671c7934afc7c19228888d7/QCloudSDKDemo.zip)
 
 ### 使用须知
 
-+ QCloudSDK支持**iOS 9.0**及以上版本
-+ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）
-+ 从控制台获取 APP ID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)
++ QCloudSDK 支持 **iOS 9.0** 及以上版本。
++ 实时流式语音识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
++ 从控制台获取 AppID、SecretID、SecretKey、ProjectId 详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
++ 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
 ### SDK导入
 
-iOS SDK 压缩包名称为： QCloudSDK.zip。
-压缩包中包含了一个` libWXVoiceSpeex.a` 静态库和`QCloudSDK.framework`。
+iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
 
-在工程` info.plist` 添加以下设置:
-
-1. 设置NSAppTransportSecurity策略，添加如下内容:
+在工程` info.plist` 添加以下设置：
+1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
 ```objective-c
-   <key>NSAppTransportSecurity</key>
-   <dict>
-        <key>NSAllowsArbitraryLoads</key>
-        <true/> 
-   </dict>
+  <key>NSAppTransportSecurity</key>
+  <dict>
+	<key>NSExceptionDomains</key>
+	<dict>
+		<key>qcloud.com</key>
+		<dict>
+			<key>NSExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSExceptionMinimumTLSVersion</key>
+			<string>TLSv1.2</string>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSRequiresCertificateTransparency</key>
+			<false/>
+		</dict>
+	</dict>
+    </dict>
 ```
-2. 申请系统麦克风权限，添加如下内容:
+2. **申请系统麦克风权限，添加如下内容：**
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
-3. 在工程中添加依赖库，在build Phases Link Binary With Libraries中添加以下库：
-
+3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
+   + CoreTelephony.framework
    + libWXVoiceSpeex.a
    
-添加完如图所示：
-![](https://main.qcloudimg.com/raw/5e8684e61118f82bd1ade27bd0a7df9e/framework.png)
-
+添加完如图所示。
+![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 ### 类说明
-#### **QCloudRealTimeRecognizer**初始化说明
-***QCloudRealTimeRecognizer***是实时语音识别类，提供两种初始化方法。
+**QCloudRealTimeRecognizer 初始化说明**
+**QCloudRealTimeRecognizer** 是实时语音识别类，提供两种初始化方法。
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -63,8 +73,8 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 - (instancetype)initWithConfig:(QCloudConfig *)config dataSource:(id<QCloudAudioDataSource>)dataSource;
 ```
 
-#### **QCloudConfig**初始化方法说明
-腾讯云appId，腾讯云secretId，腾讯云secretKey，腾讯云projectId从控制台获取。基本概念见(https://cloud.tencent.com/document/product/441/6194)
+**QCloudConfig 初始化方法说明**
+腾讯云 AppId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取，[基本概念](https://cloud.tencent.com/document/product/441/6194) 。
 ```objective-c
 /**
  * 初始化方法
@@ -81,11 +91,12 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
 
 ## 示例
 ### 使用内置录音器采集语音识别示例
-#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->*.mm
+1. **引入 QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
-#### 2.创建***QCloudConfig***实例
+
+2. **创建 QCloudConfig 实例**
 ```objective-c
  //1.创建QCloudConfig实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
@@ -96,29 +107,33 @@ iOS SDK 压缩包名称为： QCloudSDK.zip。
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-#### 3.创建***QCloudRealTimeRecognizer***实例
+
+3. **创建 QCloudRealTimeRecognizer 实例** 
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
-#### 4.设置delegate，实现[***QCloudRealTimeRecognizerDelegate***](#QCloudRealTimeRecognizerDelegate)方法
+
+4. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
 recognizer.delegate = self;
 ```
-#### 5.开始识别
+
+5. **开始识别**
 ```objective-c
  [recognizer start];
 ```
-#### 6.结束识别
+
+6. **结束识别**
 ```objective-c
  [recognizer stop];
 ```
 
 ### 调用者提供语音数据示例
-#### 1.引入***QCloudSDK***的头文件，将使用***QCloudSDK***的文件名后缀有*.m->.mm*
+1. **引入  QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
-#### 2.创建***QCloudConfig***实例
+2. **创建 QCloudConfig 实例** 
 ```objective-c
  //1.创建QCloudConfig实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
@@ -129,28 +144,33 @@ recognizer.delegate = self;
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-#### 3.自定义***QCloudDemoAudioDataSource***，***QCloudDemoAudioDataSource***实现[***QCloudAudioDataSource***](#QCloudAudioDataSource)协议
+
+3. **自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
 ```objective-c
  QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
 ```
-#### 4.创建***QCloudRealTimeRecognizer***实例
+
+4. **创建 QCloudRealTimeRecognizer 实例**
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];;
 ```
-#### 5.设置delegate，实现[***QCloudRealTimeRecognizerDelegate***](#QCloudRealTimeRecognizerDelegate)方法
+
+5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
  recognizer.delegate = self;
 ```
-#### 6.开始识别
+
+6. **开始识别** 
 ```objective-c
  [recognizer start];
 ```
-#### 7.结束识别
+
+7. **结束识别**
 ```objective-c
  [recognizer stop];
 ```
 
-#### <div id="QCloudRealTimeRecognizerDelegate">***QCloudRealTimeRecognizerDelegate***方法说明</div>
+**<div id="QCloudRealTimeRecognizerDelegate">QCloudRealTimeRecognizerDelegate方法说明</div>**
 ```objective-c
 /**
  * 一次实时录音识别，分为多个flow，每个flow可形象的理解为一句话，一次识别中可以包括多句话。
@@ -235,8 +255,8 @@ recognizer.delegate = self;
 
 @end
 ```
-#### <div id="QCloudAudioDataSource">***QCloudAudioDataSource***协议说明</div>
-调用者不适用SDK内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见Demo工程里的QDAudioDataSource实现
+**<div id="QCloudAudioDataSource">QCloudAudioDataSource协议说明</div>**
+调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的 QDAudioDataSource 实现
 ```objective-c
 /**
  * 语音数据数据源，如果调用者需要自己提供语音数据, 调用者实现此协议中所有方法

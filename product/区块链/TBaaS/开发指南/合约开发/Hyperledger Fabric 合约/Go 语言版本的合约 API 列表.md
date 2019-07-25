@@ -51,9 +51,3 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 | SplitCompositeKey(compositeKey string) (string, []string, error) | 拆分复合键成一系列属性 |
 | InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response | 调用其它智能合约 Invoke 方法 |
 | SetEvent(name string, payload []byte) error | 设置发送的事件 |
-
-
-
-
-
-

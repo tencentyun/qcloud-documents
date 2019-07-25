@@ -1,0 +1,1134 @@
+## 简介
+
+本文档提供关于对象的简单操作、分块操作等其他操作相关的 API 概览以及 SDK 示例代码。
+
+**简单操作**
+
+| API                                                          | 操作名         | 操作描述                                  |
+| ------------------------------------------------------------ | -------------- | ----------------------------------------- |
+| [GET Bucket（List Object）](https://cloud.tencent.com/document/product/436/7734) | 查询对象列表   | 查询存储桶下的部分或者全部对象            |
+| [PUT Object](https://cloud.tencent.com/document/product/436/7749) | 简单上传对象   | 上传一个 Object（文件/对象）至 Bucket     |
+| [HEAD Object](https://cloud.tencent.com/document/product/436/7745) | 查询对象元数据 | 查询 Object 的 Meta 信息                  |
+| [GET Object](https://cloud.tencent.com/document/product/436/7753) | 下载对象       | 下载一个 Object（文件/对象）至本地        |
+| [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) | 设置对象复制   | 复制文件到目标路径                        |
+| [DELETE Object](https://cloud.tencent.com/document/product/436/7743) | 删除单个对象   | 在 Bucket 中删除指定 Object （文件/对象） |
+| [DELETE Multiple Object](https://cloud.tencent.com/document/product/436/8289) | 删除多个对象   | 在 Bucket 中批量删除 Object （文件/对象） |
+
+**分块操作**
+
+| API                                                          | 操作名         | 操作描述                             |
+| ------------------------------------------------------------ | -------------- | ------------------------------------ |
+| [List Multipart Uploads](https://cloud.tencent.com/document/product/436/7736) | 查询分块上传   | 查询正在进行中的分块上传信息         |
+| [Initiate Multipart Upload](https://cloud.tencent.com/document/product/436/7746) | 初始化分块上传 | 初始化 Multipart Upload 上传操作     |
+| [Upload Part](https://cloud.tencent.com/document/product/436/7750) | 上传分块       | 分块上传文件                         |
+| [List Parts](https://cloud.tencent.com/document/product/436/7747) | 查询已上传块   | 查询特定分块上传操作中的已上传的块   |
+| [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742) | 完成分块上传   | 完成整个文件的分块上传               |
+| [Abort Multipart Upload](https://cloud.tencent.com/document/product/436/7740) | 终止分块上传   | 终止一个分块上传操作并删除已上传的块 |
+
+**其他操作**
+
+| API                                                          | 操作名       | 操作描述                                      |
+| ------------------------------------------------------------ | ------------ | --------------------------------------------- |
+| [POST Object restore](https://cloud.tencent.com/document/product/436/12633) | 恢复归档对象 | 将归档类型的对象取回访问                      |
+| [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) | 设置对象 ACL | 设置 Bucket 中某个 Object （文件/对象）的 ACL |
+| [GET Object acl](https://cloud.tencent.com/document/product/436/7744) | 查询对象 ACL | 查询 Object（文件/对象）的 ACL                |
+
+## 简单操作
+
+### 查询对象列表
+
+#### 功能说明
+
+查询存储桶下的部分或者全部对象。
+
+#### 方法原型
+
+```go
+func (s *BucketService) Get(ctx context.Context, opt *BucketGetOptions) (*BucketGetResult, *Response, error)
+```
+
+#### 请求示例
+
+```go
+opt := &cos.BucketGetOptions{
+	Prefix: "test",
+	MaxKeys: 100,                                
+}
+v, resp, err := client.Bucket.Get(context.Background(), opt)
+```
+
+#### 参数说明
+
+```go
+type BucketGetOptions struct {
+	Prefix       string 
+	Delimiter    string 
+	EncodingType string 
+	Marker       string 
+	MaxKeys      int    
+}
+```
+
+| 参数名称     | 参数描述                                                     | 类型   | 必填 |
+| ------------ | ------------------------------------------------------------ | ------ | ---- |
+| Prefix       | 默认为空，对对象键进行筛选，匹配前缀 prefix 为相同值的 objects | string | 否   |
+| Delimiter    | 默认为空，如需模拟文件夹，可设置分隔符`/`                    | string | 否   |
+| EncodingType | 默认不编码，规定返回值的编码方式，可选值：url                | string | 否   |
+| Marker       | 默认以 UTF-8 二进制顺序列出条目，标记返回 objects 的 list 的起点位置 | string | 否   |
+| MaxKeys      | 最多返回的 objects 数量，默认为最大的1000                    | int    | 否   |
+
+#### 返回结果说明
+
+```go
+type BucketGetResult struct {
+	Name           string
+	Prefix         string 
+	Marker         string 
+	NextMarker     string 
+	Delimiter      string 
+	MaxKeys        int
+	IsTruncated    bool
+	Contents       []Object 
+	CommonPrefixes []string 
+	EncodingType   string   
+}
+```
+
+| 参数名称       | 参数描述                                                     | 类型     |
+| -------------- | ------------------------------------------------------------ | -------- |
+| Name           | 存储桶名称，格式：BucketName-APPID，例如 examplebucket-1250000000 | string   |
+| Prefix         | 默认为空，对对象键进行筛选，匹配前缀 prefix 为相同值的 objects | string   |
+| Marker         | 默认以 UTF-8 二进制顺序列出条目，标记返回 objects 的 list 的起点位置 | string   |
+| NextMarker     | 当 IsTruncated 为 true 时，标记下一次返回 objects 的 list 的起点位置 | string   |
+| Delimiter      | 默认为空，如需模拟文件夹，可设置分隔符`/ `                   | string   |
+| MaxKeys        | 最多返回的 objects 数量，默认为最大的1000                    | int      |
+| IsTruncated    | 表示返回的 objects 是否被截断                                | bool     |
+| Contents       | 包含所有 object 元信息的 list，每个 Object 类型包括 ETag，StorageClass，Key，Owner，LastModified，Size 等信息 | []Object |
+| CommonPrefixes | 所有以 Prefix 开头，以 Delimiter 结尾的 Key 被归到同一类     | []string |
+| EncodingType   | 默认不编码，规定返回值的编码方式，可选值：url                | string   |
+
+### 简单上传对象
+
+#### 功能说明
+
+上传一个 Object（文件/对象）至存储桶（PUT Object）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) Put(ctx context.Context, key string, r io.Reader, opt *ObjectPutOptions) (*Response, error)
+```
+
+#### 请求示例
+
+```go	
+key := "put_option.go"
+f, err := os.Open("./test")
+opt := &cos.ObjectPutOptions{
+	ObjectPutHeaderOptions: &cos.ObjectPutHeaderOptions{
+		ContentType: "text/html",
+	},
+	ACLHeaderOptions: &cos.ACLHeaderOptions{
+		XCosACL: "private",
+	},
+}
+resp, err = client.Object.Put(context.Background(), key, f, opt)
+```
+
+```go
+type ObjectPutOptions struct {
+	*ACLHeaderOptions       
+	*ObjectPutHeaderOptions 
+}
+type ACLHeaderOptions struct {
+	XCosACL              string                           
+    XCosGrantRead        string
+    XCosGrantWrite       string 
+    XCosGrantFullControl string                                           
+} 
+type ObjectPutHeaderOptions struct {
+	CacheControl       string 
+	ContentDisposition string 
+	ContentEncoding    string 
+	ContentType        string 
+	ContentLength      int   
+	Expires            string 
+	// 自定义的 x-cos-meta-* header
+	XCosMetaXXX        *http.Header 
+	XCosStorageClass   string      
+}
+```
+
+| 参数名称             | 参数描述                                                     | 类型        | 必填 |
+| -------------------- | ------------------------------------------------------------ | ----------- | ---- |
+| r                    | 上传文件的内容，可以为文件流或字节流，当 r 不是`bytes.Buffer/bytes.Reader/strings.Reader`时，必须指定`opt.ObjectPutHeaderOptions.ContentLength` | io.Reader   | 是   |
+| key                  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string      | 是   |
+| XCosACL              | 设置文件的 ACL，如 private，public-read，public-read-write   | string      | 否   |
+| XCosGrantFullControl | 赋予被授权者所有的权限。格式：id="[OwnerUin]"                | string      | 否   |
+| XCosGrantRead        | 赋予被授权者读的权限。格式：id="[OwnerUin]"                  | string      | 否   |
+| XCosStorageClass     | 设置文件的存储类型，STANDARD、STANDARD_IA、ARCHIVE，默认值：STANDARD | string      | 否   |
+| Expires              | 设置 Content-Expires                                         | string      | 否   |
+| CacheControl         | 缓存策略，设置 Cache-Control                                 | string      | 否   |
+| ContentType          | 内容类型，设置 Content-Type                                  | string      | 否   |
+| ContentDisposition   | 文件名称，设置 Content-Disposition                           | string      | 否   |
+| ContentEncoding      | 编码格式，设置 Content-Encoding                              | string      | 否   |
+| ContentLength        | 设置传输长度                                                 | string      | 否   |
+| XCosMetaXXX          | 用户自定义的文件元信息， 必须以 x-cos-meta 开头，否则会被忽略 | http.Header | 否   |
+
+#### 返回结果说明
+
+```go
+{
+    'ETag': 'string',
+    'x-cos-expiration': 'string'
+}
+```
+
+| 参数名称         | 参数描述                         | 类型   |
+| ---------------- | -------------------------------- | ------ |
+| ETag             | 上传文件的 MD5 值                | string |
+| x-cos-expiration | 设置生命周期后，返回文件过期规则 | string |
+
+### 查询对象元数据
+
+#### 功能说明
+
+查询 Object 的 Meta 信息（HEAD Object）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) Head(ctx context.Context, key string, opt *ObjectHeadOptions) (*Response, error)
+```
+
+#### 请求示例
+
+```go
+key := "test/hello.txt"
+resp, err := client.Object.Head(context.Background(), key, nil)
+```
+
+#### 参数说明
+
+```go
+type ObjectHeadOptions struct {
+	IfModifiedSince string 
+}
+```
+
+| 参数名称        | 参数描述                                                     | 类型   | 必填 |
+| --------------- | ------------------------------------------------------------ | ------ | ---- |
+| key             | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string | 是   |
+| IfModifiedSince | 在指定时间后被修改才返回                                     | string | 否   |
+
+#### 返回结果说明
+
+```go
+{
+    'Content-Type': 'application/octet-stream',
+    'Content-Length': '16807',
+    'ETag': '"9a4802d5c99dafe1c04da0a8e7e166bf"',
+    'Last-Modified': 'Wed, 28 Oct 2014 20:30:00 GMT',
+    'X-Cos-Request-Id': 'NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ=='
+}
+```
+
+| 参数名称   | 参数描述                                                     | 类型   |
+| ---------- | ------------------------------------------------------------ | ------ |
+| 文件元信息 | 获取文件的元信息，包括 Etag 和 X-Cos-Request-Id 等信息，也会包含设置的文件元信息 | string |
+
+### 下载对象
+
+#### 功能说明
+
+下载一个 Object（文件/对象）至本地（GET Object）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) Get(ctx context.Context, key string, opt *ObjectGetOptions) (*Response, error)
+
+func (s *ObjectService) GetToFile(ctx context.Context, key, localfile string, opt *ObjectGetOptions) (*Response, error)
+```
+
+#### 请求示例
+
+```go
+key := "test/hello.txt"
+opt := &cos.ObjectGetOptions{
+	ResponseContentType: "text/html",
+	Range:               "bytes=0-3",
+}
+// opt 可选，无特殊设置可设为 nil
+// 1. Get object by resp body.
+resp, err := client.Object.Get(context.Background(), key, opt)
+bs, _ = ioutil.ReadAll(resp.Body)
+resp.Body.Close()
+fmt.Printf("%s\n", string(bs))
+
+// 2.Get object to local file.
+_, err = c.Object.GetToFile(context.Background(), name, "hello_1.txt", nil)
+if err != nil {
+	panic(err)
+}
+```
+
+#### 参数说明
+
+```go
+type ObjectGetOptions struct {
+	ResponseContentType        string 
+	ResponseContentLanguage    string 
+	ResponseExpires            string 
+	ResponseCacheControl       string 
+	ResponseContentDisposition string 
+	ResponseContentEncoding    string 
+	Range                      string 
+	IfModifiedSince            string 
+}
+```
+
+| 参数名称                   | 参数描述                                                     | 类型   | 必填 |
+| -------------------------- | ------------------------------------------------------------ | ------ | ---- |
+| key                        | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string | 是   |
+| localfile                  | 设置响应头部 Content-Type                                    | string | 是   |
+| ResponseContentType        | 设置响应头部 Content-Type                                    | string | 否   |
+| ResponseContentLanguage    | 设置响应头部 Content-Language                                | string | 否   |
+| ResponseExpires            | 设置响应头部 Content-Expires                                 | string | 否   |
+| ResponseCacheControl       | 设置响应头部 Cache-Control                                   | string | 否   |
+| ResponseContentDisposition | 设置响应头部 Content-Disposition                             | string | 否   |
+| ResponseContentEncoding    | 设置响应头部 Content-Encoding                                | string | 否   |
+| Range                      | 设置下载文件的范围，格式为 bytes=first-last                  | string | 否   |
+| IfModifiedSince            | 在指定时间后被修改才返回                                     | string | 否   |
+
+#### 返回结果说明
+
+```go
+{
+    'Body': '',
+    'Accept-Ranges': 'bytes',
+    'Content-Type': 'application/octet-stream',
+    'Content-Length': '16807',
+    'Content-Disposition': 'attachment; filename="filename.jpg"',
+    'Content-Range': 'bytes 0-16086/16087',
+    'ETag': '"9a4802d5c99dafe1c04da0a8e7e166bf"',
+    'Last-Modified': 'Wed, 28 Oct 2014 20:30:00 GMT',
+    'X-Cos-Request-Id': 'NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ=='
+}
+```
+
+| 参数名称   | 参数描述                                                     | 类型       |
+| ---------- | ------------------------------------------------------------ | ---------- |
+| Body       | 下载文件的内容                                               | StreamBody |
+| 文件元信息 | 下载文件的元信息，包括 Etag 和 X-Cos-Request-Id 等信息，也会返回设置的文件元信息 | string     |
+
+### 设置对象复制
+
+复制文件到目标路径（PUT Object-Copy）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) Copy(ctx context.Context, key, sourceURL string, opt *ObjectCopyOptions) (*ObjectCopyResult, *Response, error)
+```
+
+#### 请求示例
+
+```go
+u, _ := url.Parse("http://examplebucket-12500000000.cos.ap-guangzhou.myqcloud.com")
+source := "test/objectMove_src"
+soruceURL := fmt.Sprintf("%s/%s", u.Host, source)
+dest := "test/objectMove_dest"
+//opt := &cos.ObjectCopyOptions{}
+r, resp, err := client.Object.Copy(context.Background(), dest, soruceURL, nil)
+```
+
+#### 参数说明
+
+```go
+type ObjectCopyOptions struct {
+	*ObjectCopyHeaderOptions 
+	*ACLHeaderOptions        
+}
+type ACLHeaderOptions struct {
+	XCosACL              string 
+	XCosGrantRead        string 
+	XCosGrantWrite       string 
+	XCosGrantFullControl string 
+}
+type ObjectCopyHeaderOptions struct {
+	XCosMetadataDirective           string 
+	XCosCopySourceIfModifiedSince   string 
+	XCosCopySourceIfUnmodifiedSince string 
+	XCosCopySourceIfMatch           string 
+	XCosCopySourceIfNoneMatch       string 
+	XCosStorageClass                string 
+	// 自定义的 x-cos-meta-* header
+	XCosMetaXXX    				    *http.Header 
+	XCosCopySource 					string      
+}
+```
+
+| 参数名称                        | 参数描述                                                     | 类型        | 必填 |
+| ------------------------------- | ------------------------------------------------------------ | ----------- | ---- |
+| key                             | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string      | 是   |
+| sourceURL                       | 描述拷贝源文件的 URL                                         | string      | 是   |
+| XCosACL                         | 设置文件的 ACL，如 private，public-read，public-read-write   | string      | 否   |
+| XCosGrantFullControl            | 赋予被授权者所有的权限。格式：id="[OwnerUin]"                | string      | 否   |
+| XCosGrantRead                   | 赋予被授权者读的权限。格式：id="[OwnerUin]"                  | string      | 否   |
+| XCosMetadataDirective           | 可选值为 Copy,Replaced，设置为 Copy 时，忽略设置的用户元数据信息直接复制，设置为 Replaced 时，按设置的元信息修改元数据，当目标路径和源路径一样时，必须设置为 Replaced | string      | 是   |
+| XCosCopySourceIfModifiedSince   | 当 Object 在指定时间后被修改，则执行操作，否则返回412。可与 XCosCopySourceIfNoneMatch 一起使用，与其他条件联合使用返回冲突 | string      | 否   |
+| XCosCopySourceIfUnmodifiedSince | 当 Object 在指定时间后未被修改，则执行操作，否则返回412。可与 XCosCopySourceIfMatch 一起使用，与其他条件联合使用返回冲突 | string      | 否   |
+| XCosCopySourceIfMatch           | 当 Object 的 Etag 和给定一致时，则执行操作，否则返回412。可与 XCosCopySourceIfUnmodifiedSince 一起使用，与其他条件联合使用返回冲突 | string      | 否   |
+| XCosCopySourceIfNoneMatch       | 当 Object 的 Etag 和给定不一致时，则执行操作，否则返回412。可与 XCosCopySourceIfModifiedSince 一起使用，与其他条件联合使用返回冲突 | string      | 否   |
+| XCosStorageClass                | 设置文件的存储类型，STANDARD、STANDARD_IA，默认值：STANDARD  | string      | 否   |
+| XCosMetaXXX                     | 用户自定义的文件元信息                                       | http.Header | 否   |
+| XCosCopySource                  | 源文件 URL 路径，可以通过 versionid 子资源指定历史版本       | string      | 否   |
+
+#### 返回结果说明
+
+上传文件的属性：
+
+```go
+type ObjectCopyResult struct {
+    ETag         string 
+    LastModified string
+}
+
+```
+
+| 参数名称     | 参数描述                   | 类型   |
+| ------------ | -------------------------- | ------ |
+| ETag         | 拷贝文件的 MD5 值          | string |
+| LastModified | 拷贝文件的最后一次修改时间 | string |
+
+### 删除单个对象
+
+#### 功能说明
+
+在 Bucket 中删除指定 Object （文件/对象）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) Delete(ctx context.Context, key string) (*Response, error)
+
+```
+
+#### 请求示例
+
+```go
+key := "test/objectPut.go"
+resp, err := client.Object.Delete(context.Background(), name)
+
+```
+
+#### 参数说明
+
+| 参数名称 | 参数描述                                                     | 类型   | 必填 |
+| -------- | ------------------------------------------------------------ | ------ | ---- |
+| key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string | 是   |
+
+### 删除多个对象
+
+#### 功能说明
+
+在 Bucket 中删除多个 Object （文件/对象）。单次请求最大支持批量删除1000个 Object。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) DeleteMulti(ctx context.Context, opt *ObjectDeleteMultiOptions) (*ObjectDeleteMultiResult, *Response, error)
+
+```
+
+#### 请求示例
+
+```go
+var objects []string
+objects = append(objects, []string{"a", "b", "c"}...)
+obs := []cos.Object{}
+for _, v := range names {
+	obs = append(obs, cos.Object{Key: v})
+}
+opt := &cos.ObjectDeleteMultiOptions{
+	Objects: obs,
+	// 布尔值，这个值决定了是否启动 Quiet 模式。
+	// 值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 False
+	// Quiet: true,
+}                                       
+
+v, _, err := c.Object.DeleteMulti(ctx, opt)
+```
+
+#### 参数说明
+
+```go
+type ObjectDeleteMultiOptions struct {
+	Quiet   bool
+	Objects []Object   
+}
+// Object is the meta info of the object
+type Object struct {
+	Key          string
+    // And other params not relate to this api
+}
+```
+
+| 参数名称 | 参数描述                                                     | 类型      | 必填 |
+| -------- | ------------------------------------------------------------ | --------- | ---- |
+| Quiet    | 布尔值，这个值决定了是否启动 Quiet 模式。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：<br>Verbose 模式将返回每个 Object 的删除结果，Quiet 模式只返回报错的 Object 信息。值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 False | Boolean   | 否   |
+| Objects  | 说明每个将要删除的目标 Object 信息                           | Container | 是   |
+| Key      | 目标 Object 文件名称                                         | String    | 是   |
+
+#### 返回结果说明
+
+上传文件的属性：
+
+```go
+// ObjectDeleteMultiResult is the result of DeleteMulti
+type ObjectDeleteMultiResult struct {	
+	DeletedObjects []Object
+	Errors         []struct {
+		Key     string
+		Code    string
+		Message string
+	}
+}
+```
+
+| 参数名称       | 参数描述                           | 类型      |
+| -------------- | ---------------------------------- | --------- |
+| DeletedObjects | 说明每个将要删除的目标 Object 信息 | Container |
+| Errors         | 说明本次删除的失败 Object 信息     | Container |
+| Key            | 删除失败的 Object 的名称           | string    |
+| Code           | 删除失败的错误代码                 | string    |
+| Message        | 删除失败的错误信息                 | string    |
+
+## 分块操作
+
+### 查询分片上传
+
+#### 功能说明
+
+查询指定存储桶中正在进行的分块上传信息（List Multipart Uploads）。
+
+#### 方法原型
+
+```go
+func (s *BucketService) ListMultipartUploads(ctx context.Context, opt *ListMultipartUploadsOptions) (*ListMultipartUploadsResult, *Response, error)
+```
+
+#### 请求示例
+
+```go
+v, resp, err := c.Bucket.ListMultipartUploads(context.Background(), opt)
+```
+
+#### 参数说明
+
+```go
+type ListMultipartUploadsOptions struct {
+	Delimiter      string
+	EncodingType   string
+	Prefix         string
+	MaxUploads     int
+	KeyMarker      string
+	UploadIDMarker string                                         
+}
+```
+
+| 参数名称       | 参数描述                                                     | 类型   | 必填 |
+| -------------- | ------------------------------------------------------------ | ------ | ---- |
+| Delimiter      | 定界符为一个符号，对 Object 名字包含指定前缀且第一次出现 delimiter 字符之间的 Object 作为一组元素：common prefix。如果没有 prefix，则从路径起点开始 | string | 否   |
+| EncodingType   | 规定返回值的编码格式，合法值：url                            | string | 否   |
+| Prefix         | 限定返回的 Object key 必须以 Prefix 作为前缀。注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | string | 否   |
+| MaxUploads     | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000   | string | 否   |
+| KeyMarker      | 与 upload-id-marker 一起使用当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出 | string | 否   |
+| UploadIDMarker | 与 key-marker 一起使用当 key-marker 未被指定时，upload-id-marker 将被忽略当 key-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出 | string | 否   |
+
+#### 返回结果说明
+
+```go
+// ListMultipartUploadsResult is the result of ListMultipartUploads
+type ListMultipartUploadsResult struct {
+	Bucket             string
+	EncodingType       string
+	KeyMarker          string
+	UploadIDMarker     string
+    NextKeyMarker      string
+    NextUploadIDMarker string
+    MaxUploads         int
+    IsTruncated        bool
+    Uploads            []struct {
+    	Key          string
+    	UploadID     string
+    	StorageClass string
+    	Initiator    *Initiator
+    	Owner        *Owner
+    	Initiated    string
+    }
+    Prefix         string
+    Delimiter      string
+    CommonPrefixes []string 
+}
+// Use the same struct with the Owner
+type Initiator Owner
+// Owner defines Bucket/Object's owner
+type Owner struct {
+	ID          string
+	DisplayName string
+}
+```
+
+| 参数名称           | 参数描述                                                     | 类型      |
+| ------------------ | ------------------------------------------------------------ | --------- |
+| Bucket             | 分块上传的目标 Bucket，格式为 BucketName，如：examplebucket-1250000000 | string    |
+| EncodingType       | 默认不编码，规定返回值的编码方式，可选值：url                | string    |
+| KeyMarker          | 列出条目从该 key 值开始                                      | string    |
+| UploadIDMarker     | 列出条目从该 UploadId 值开始                                 | string    |
+| NextKeyMarker      | 假如返回条目被截断，则返回 NextKeyMarker 就是下一个条目的起点 | string    |
+| NextUploadIDMarker | 假如返回条目被截断，则返回 UploadId 就是下一个条目的起点     | string    |
+| MaxUploads         | 最多返回的分块的数量，默认为最大的1000                       | string    |
+| IsTruncated        | 表示返回的分块是否被截断                                     | bool      |
+| Uploads            | 每个 Upload 的信息                                           | Container |
+| Key                | Object 的名称                                                | string    |
+| UploadID           | 标示本次分块上传的 ID                                        | string    |
+| Key                | 表示返回的分块是否被截断                                     | bool      |
+| StorageClass       | 用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE | string    |
+| Initiator          | 用来表示本次上传发起者的信息                                 | Container |
+| Owner              | 用来表示这些分块所有者的信息                                 | Container |
+| Initiated          | 分块上传的起始时间                                           | string    |
+| Prefix             | 限定返回的 Objectkey 必须以 Prefix 作为前缀，注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix | struct    |
+| Delimiter          | 定界符为一个符号，对 object 名字包含指定前缀且第一次出现 delimiter 字符之间的 object 作为一组元素：common prefix。如果没有prefix，则从路径起点开始 | string    |
+| CommonPrefixes     | 将 prefix 到 delimiter 之间的相同路径归为一类，定义为 Common Prefix | string    |
+| ID                 | 用户唯一的 CAM 身份 ID                                       | string    |
+| DisplayName        | 用户身份 ID 的简称（UIN）                                    | string    |
+
+### 分片上传对象
+
+分片上传对象可包括的操作：
+
+- 分片上传对象： 初始化分片上传，上传分片块，完成分块上传。
+- 删除已上传分片块。
+
+### <span id = "INIT_MULIT_UPLOAD"> 初始化分片上传 </span>
+
+#### 功能说明
+
+初始化 Multipart Upload 上传操作，获取对应的 uploadId（Initiate Multipart Upload）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) InitiateMultipartUpload(ctx context.Context, name string, opt *InitiateMultipartUploadOptions) (*InitiateMultipartUploadResult, *Response, error)
+```
+
+#### 请求示例
+
+```go
+name := "test_multipart"
+//可选opt
+v, resp, err := client.Object.InitiateMultipartUpload(context.Background(), name, nil）
+```
+
+#### 参数说明
+
+```go
+type InitiateMultipartUploadOptions struct {
+	*ACLHeaderOptions       
+	*ObjectPutHeaderOptions 
+}
+type ACLHeaderOptions struct {
+	XCosACL              string                           
+	XCosGrantRead        string
+	XCosGrantWrite       string 
+	XCosGrantFullControl string                                           
+} 
+type ObjectPutHeaderOptions struct {
+	CacheControl       string 
+	ContentDisposition string 
+	ContentEncoding    string 
+	ContentType        string 
+	ContentLength      int   
+	Expires            string 
+	// 自定义的 x-cos-meta-* header
+	XCosMetaXXX        *http.Header 
+	XCosStorageClass   string      
+}
+
+```
+
+| 参数名称             | 参数描述                                                     | 类型        | 必填 |
+| -------------------- | ------------------------------------------------------------ | ----------- | ---- |
+| r                    | 上传文件的内容，可以为文件流或字节流，当 r 不是`bytes.Buffer/bytes.Reader/strings.Reader`时，必须指定`opt.ObjectPutHeaderOptions.ContentLength` | io.Reader   | 是   |
+| key                  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string      | 是   |
+| XCosACL              | 设置文件的ACL，如 private，public-read                       | string      | 否   |
+| XCosGrantFullControl | 赋予被授权者所有的权限。格式：id="[OwnerUin]"                | string      | 否   |
+| XCosGrantRead        | 赋予被授权者读的权限。格式：id="[OwnerUin]"                  | string      | 否   |
+| XCosStorageClass     | 设置文件的存储类型，STANDARD、STANDARD_IA、ARCHIVE，默认值：STANDARD | string      | 否   |
+| Expires              | 设置 Content-Expires                                         | string      | 否   |
+| CacheControl         | 缓存策略，设置 Cache-Control                                 | string      | 否   |
+| ContentType          | 内容类型，设置 Content-Type                                  | string      | 否   |
+| ContentDisposition   | 文件名称，设置 Content-Disposition                           | string      | 否   |
+| ContentEncoding      | 编码格式，设置 Content-Encoding                              | string      | 否   |
+| ContentLength        | 设置传输长度                                                 | string      | 否   |
+| XCosMetaXXX          | 用户自定义的文件元信息， 必须以 x-cos-meta 开头，否则会被忽略 | http.Header | 否   |
+
+#### 返回结果说明
+
+```go
+type InitiateMultipartUploadResult struct {
+	Bucket   string
+	Key      string
+	UploadID string
+} 
+```
+
+| 参数名称 | 参数描述                                                     | 类型   |
+| -------- | ------------------------------------------------------------ | ------ |
+| UploadId | 标识分块上传的 ID                                            | string |
+| Bucket   | Bucket 名称，由 bucket-appid 组成                            | string |
+| Key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string |
+
+### <span id = "MULIT_UPLOAD_PART"> 上传分块 </span>
+
+分块上传对象（Upload Part）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) UploadPart(ctx context.Context, key, uploadID string, partNumber int, r io.Reader, opt *ObjectUploadPartOptions) (*Response, error)
+```
+
+#### 请求示例
+
+```go
+// 注意，上传分块的块数最多10000块
+key := "test/test_multi_upload.go"
+f := strings.NewReader("test heoo")
+// opt可选
+_, err := client.Object.UploadPart(
+    context.Background(), key, uploadID, 1, f, nil,
+)
+```
+
+#### 参数说明
+
+```go
+type ObjectUploadPartOptions struct {
+    ContentLength   int
+}
+```
+
+| 参数名称      | 参数描述                                                     | 类型      | 必填 |
+| ------------- | ------------------------------------------------------------ | --------- | ---- |
+| key           | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string    | 是   |
+| UploadId      | 标识分块上传的 ID，由 InitiateMultipartUpload 生成           | string    | 是   |
+| PartNumber    | 标识上传分块的序号                                           | int       | 是   |
+| r             | 上传分块的内容，可以为本地文件流或输入流。当 r 不是`bytes.Buffer/bytes.Reader/strings.Reader`时，必须指定 opt.ContentLength | io.Reader | 是   |
+| ContentLength | 设置传输长度                                                 | int       | 否   |
+
+#### 返回结果说明
+
+```go
+{
+    'ETag': 'string'
+}
+
+```
+
+| 参数名称 | 参数描述          | 类型   |
+| -------- | ----------------- | ------ |
+| ETag     | 上传分块的 MD5 值 | string |
+
+
+
+### <span id = "LIST_MULIT_UPLOAD"> 查询已上传块 </span>
+
+#### 功能说明
+
+查询特定分块上传操作中的已上传的块（List Parts）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) ListParts(ctx context.Context, name, uploadID string, opt *ObjectListPartsOptions) (*ObjectListPartsResult, *Response, error)
+
+```
+
+#### 请求示例
+
+```go
+key := "test/test_list_parts.go"
+v, resp, err := client.Object.ListParts(context.Background(), key, uploadID, nil) 
+
+```
+
+#### 参数说明
+
+```go
+type ObjectListPartsOptions struct {
+	EncodingType     string
+	MaxParts         string
+	PartNumberMarker string                                      
+}
+```
+
+| 参数名称 | 参数描述                                                     | 类型   | 必填 |
+| -------- | ------------------------------------------------------------ | ------ | ---- |
+| key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string | 是   |
+| UploadId | 标识分块上传的 ID，由 InitiateMultipartUpload 生成           | string | 是   |
+| EncodingType | 规定返回值的编码方式           | string | 否   |
+| MaxParts | 单次返回最大的条目数量，默认1000           | string | 否   |
+| PartNumberMarker | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始           | string | 否   |
+
+#### 返回结果说明
+
+```go
+type ObjectListPartsResult struct {
+	Bucket               string
+	EncodingType         string
+	Key                  string
+	UploadID             string
+	Initiator            *Initiator
+	Owner                *Owner
+	StorageClass         string
+	PartNumberMarker     string
+	NextPartNumberMarker string
+	MaxParts             string
+	IsTruncated          bool
+	Parts                []Object
+}
+type Initiator struct {
+	UIN         string
+	ID          string
+	DisplayName string
+}
+type Owner struct {
+	UIN         string
+	ID          string
+	DisplayName string
+}
+type Object struct {
+	Key          string
+	ETag         string
+	Size         int
+	PartNumber   int
+	LastModified string
+	StorageClass string 
+	Owner        *Owner
+}
+```
+
+| 参数名称             | 参数描述                                                     | 类型   |
+| -------------------- | ------------------------------------------------------------ | ------ |
+| Bucket               | 存储桶名称，格式：BucketName-APPID。例如 examplebucket-1250000000 | string |
+| EncodingType         | 默认不编码，规定返回值的编码方式，可选值：url                | string |
+| Key                  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string |
+| UploadId             | 标识分块上传的 ID，由 InitiateMultipartUpload 生成           | string |
+| Initiator            | 分块上传的创建者，包括 DisplayName，UIN 和 ID                | struct |
+| Owner                | 文件拥有者的信息，包括 DisplayName ，UIN 和 ID               | struct |
+| StorageClass         | 文件的存储类型，STANDARD、STANDARD_IA、ARCHIVE，默认值：STANDARD | string |
+| PartNumberMarker     | 默认为0，从第一块列出分块，从 PartNumberMarker 下一个分块开始列出 | string    |
+| NextPartNumberMarker | 指明下一次列出分块的起始位置                                 | string    |
+| MaxParts             | 最多返回的分块的数量，默认为最大的1000                       | string    |
+| IsTruncated          | 表示返回的分块是否被截断                                     | bool   |
+| Part                 | 上传分块的相关信息，包括 ETag，PartNumber，Size，LastModified | struct |
+
+
+
+### <span id = "COMPLETE_MULIT_UPLOAD"> 完成分块上传 </span>
+
+#### 功能说明
+
+完成整个文件的分块上传（Complete Multipart Upload）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) CompleteMultipartUpload(ctx context.Context, key, uploadID string, opt *CompleteMultipartUploadOptions) (*CompleteMultipartUploadResult, *Response, error)
+
+```
+
+#### 请求示例
+
+```go
+// 封装 UploadPart 接口返回 etag 信息
+func uploadPart(c *cos.Client, name string, uploadID string, blockSize, n int) string {
+	b := make([]byte, blockSize)
+	if _, err := rand.Read(b); err != nil {
+		panic(err)
+	}
+	s := fmt.Sprintf("%X", b)
+	f := strings.NewReader(s)
+
+	// 当传入参数 f 不是 bytes.Buffer/bytes.Reader/strings.Reader 时，必须指定 opt.ContentLength
+	// opt := &cos.ObjectUploadPartOptions{
+	//	 ContentLength: size,
+	// }
+
+	resp, err := c.Object.UploadPart(
+		context.Background(), name, uploadID, n, f, nil,
+	)
+	if err != nil {
+		panic(err)
+	}
+	return resp.Header.Get("Etag")
+}
+
+// Init, UploadPart and Complete process
+key := "test/test_complete_upload.go"
+v, resp, err := client.Object.InitiateMultipartUpload(context.Background(), key, nil)
+uploadID := v.UploadID
+blockSize := 1024 * 1024 * 3
+
+opt := &cos.CompleteMultipartUploadOptions{}
+for i := 1; i < 5; i++ {
+	// 调用上面封装的接口获取 etag 信息
+	etag := uploadPart(c, key, uploadID, blockSize, i)
+	opt.Parts = append(opt.Parts, cos.Object{
+		PartNumber: i, ETag: etag},
+	)
+}
+
+v, resp, err = client.Object.CompleteMultipartUpload(
+	context.Background(), key, uploadID, opt,
+)
+```
+
+#### 参数说明
+
+```go
+type CompleteMultipartUploadOptions struct {
+	Parts   []Object 
+}
+type Object struct { 
+	ETag         string 
+	PartNumber   int     
+}
+```
+
+| 参数名称                       | 参数描述                                                     | 类型   | 必填 |
+| ------------------------------ | ------------------------------------------------------------ | ------ | ---- |
+| key                            | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string | 是   |
+| UploadId                       | 标识分块上传的 ID，由 InitiateMultipartUpload 生成           | string | 是   |
+| CompleteMultipartUploadOptions | 所有分块的 ETag 和 PartNumber 信息                           | struct | 是   |
+
+#### 返回结果说明
+
+```go
+type CompleteMultipartUploadResult struct {
+	Location string
+	Bucket   string
+	Key      string
+	ETag     string
+}
+
+```
+
+| 参数名称 | 参数描述                                                     | 类型   |
+| -------- | ------------------------------------------------------------ | ------ |
+| Location | URL 地址                                                     | string |
+| Bucket   | 存储桶名称，格式：BucketName-APPID。例如 examplebucket-1250000000 | string |
+| Key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string |
+| ETag     | 合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性。如需校验文件内容，可以在上传过程中校验单个分块的 ETag 值 | string |
+
+### <span id = "ABORT_MULIT_UPLOAD"> 终止分块上传 </span>
+
+#### 功能说明
+
+终止一个分块上传操作并删除已上传的块（Abort Multipart Upload）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) AbortMultipartUpload(ctx context.Context, key, uploadID string) (*Response, error)
+```
+
+#### 请求示例
+
+```go
+key := "test_multipart.txt"
+v, _, err := client.Object.InitiateMultipartUpload(context.Background(), key, nil)
+// Abort
+resp, err := client.Object.AbortMultipartUpload(context.Background(), key, v.UploadID)
+```
+
+#### 参数说明
+
+| 参数名称 | 参数描述                                                     | 类型   | 必填 |
+| -------- | ------------------------------------------------------------ | ------ | ---- |
+| key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string | 是   |
+| UploadId | 标识分块上传的 ID                                            | string | 是   |
+
+## 其他操作
+
+### 恢复归档对象 
+
+#### 功能说明
+
+将归档类型的对象取回访问（POST Object restore）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) PutRestore(ctx context.Context, key string, opt *ObjectRestoreOptions) (*Response, error) 
+```
+
+#### 请求示例
+
+```go
+opt := &cos.ObjectRestoreOptions{
+	Days: 2,
+	Tier: &cos.CASJobParameters{
+    		// Standard, Exepdited and Bulk
+    		Tier: "Expedited",
+	},
+}
+key := "archivetest"
+resp, err := c.Object.PutRestore(context.Background(), key, opt)
+```
+
+#### 参数说明
+
+```go
+type ObjectRestoreOptions struct {        
+    Days    int               
+    Tier    *CASJobParameters 
+}
+type CASJobParameters struct {
+    Tier    string 
+}
+```
+
+| 参数名称             | 参数描述                                                     | 类型   | 必填 |
+| -------------------- | ------------------------------------------------------------ | ------ | ---- |
+| key                  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string | 是   |
+| ObjectRestoreOptions | 描述取回的临时文件的规则                                     | struct | 是   |
+| Days                 | 描述临时文件的过期时间                                       | int    | 是   |
+| CASJobParameters     | 描述恢复类型的配置信息                                       | struct | 否   |
+| Tier                 | 描述取回临时文件的模式。可选值为'Expedited'，'Standard'，'Bulk'，分别对应极速模式、标准模式以及批量模式这三种模式 | string | 否   |
+
+### 设置对象 ACL
+
+#### 功能说明
+
+设置对象访问权限控制列表（PUT Object acl）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) PutACL(ctx context.Context, key string, opt *ObjectPutACLOptions) (*Response, error)
+```
+
+#### 请求示例
+
+```go
+// 1.Set by header
+opt := &cos.ObjectPutACLOptions{
+    Header: &cos.ACLHeaderOptions{
+        XCosACL: "private",
+    },
+}
+key := "test/hello.txt"
+resp, err := client.Object.PutACL(context.Background(), key, opt)
+// 2.Set by body
+opt = &cos.ObjectPutACLOptions{
+    Body: &cos.ACLXml{
+        Owner: &cos.Owner{
+            ID: "qcs::cam::uin/100000760461:uin/100000760461",
+        },
+        AccessControlList: []cos.ACLGrant{
+            {
+                Grantee: &cos.ACLGrantee{
+                    Type: "RootAccount",
+                    ID:   "qcs::cam::uin/100000760461:uin/100000760461",
+                },
+
+                Permission: "FULL_CONTROL",
+            },
+        },
+    },
+}
+
+resp, err = client.Object.PutACL(context.Background(), key, opt)
+```
+
+#### 参数说明
+
+```go
+type ACLHeaderOptions struct {
+	XCosACL              string 
+	XCosGrantRead        string 
+	XCosGrantWrite       string 
+	XCosGrantFullControl string 
+}
+```
+
+| 参数名称             | 参数描述                                                     | 类型   | 必填 |
+| -------------------- | ------------------------------------------------------------ | ------ | ---- |
+| key                  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg | string | 是   |
+| XCosACL              | 设置 Object 的 ACL，如 private，public-read                  | string | 否   |
+| XCosGrantFullControl | 赋予被授权者所有的权限。格式：id="[OwnerUin]"                | string | 否   |
+| XCosGrantRead        | 赋予被授权者读的权限。格式：id="[OwnerUin]"                  | string | 否   |
+| ACLXML               | 赋予指定账户对 Bucket 的访问权限，具体格式见 get object acl 返回结果说明 | struct | 否   |
+
+### 查询对象 ACL
+
+#### 功能说明
+
+查询 Object（文件/对象）的 ACL（GET Object acl）。
+
+#### 方法原型
+
+```go
+func (s *ObjectService) GetACL(ctx context.Context, key string) (*ObjectGetACLResult, *Response, error)
+```
+
+#### 请求示例
+
+```go
+key := "test/hello.txt"
+v, resp, err := client.Object.GetACL(context.Background(), key)
+```
+
+#### 参数说明
+
+| 参数名称 | 参数描述                                                     | 类型   | 必填 |
+| -------- | ------------------------------------------------------------ | ------ | ---- |
+| key      | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | string | 是   |
+
+#### 返回结果说明
+
+```go
+type ACLXml struct {
+	Owner             *Owner
+	AccessControlList []ACLGrant 
+}
+type Owner struct { 
+	ID          string 
+	DisplayName string
+}
+type ACLGrant struct {
+	Grantee    *ACLGrantee
+	Permission string
+}
+type ACLGrantee struct {
+	Type        string 
+	ID          string 
+	DisplayName string
+    UIN         string 
+}
+```
+
+| 参数名称          | 参数描述                                                     | 类型   |
+| ----------------- | ------------------------------------------------------------ | ------ |
+| Owner             | Bucket 拥有者的信息，包括 DisplayName 和 ID                  | struct |
+| AccessControlList | Bucket 权限授予者的信息，包括 Grantee 和 Permission          | struct |
+| Grantee           | 权限授予者的信息，包括 DisplayName，Type，ID 和 UIN          | struct |
+| Type              | 权限授予者的类型，类型为 CanonicalUser 或者 Group            | string |
+| ID                | Type 为 CanonicalUser 时，对应权限授予者的 ID                | string |
+| DisplayName       | 权限授予者的名字                                             | string |
+| UIN               | Type 为 Group 时，对应权限授予者的 UIN                       | string |
+| Permission        | 授予者所拥有的 Bucket 的权限，可选值有 FULL_CONTROL，WRITE，READ，分别对应读写权限、写权限、读权限 | string |

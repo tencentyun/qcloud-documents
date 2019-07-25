@@ -1,12 +1,10 @@
 ## 申请增加好友 
 
-### 函数名
-
-```
+```javascript
 /* function applyAddFriend 
  *   申请添加好友
  * params:
- *   options - Object类型，参考下方请求参数说明
+ *   options - Object 类型，参考下方请求参数说明
  *   cbOk	- function()类型, 成功时回调函数，参考下方响应参数说明
  *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象，参考下方错误码说明
  * return:
@@ -25,23 +23,23 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 | AddFriendItem.GroupName  | String | 选填 | To_Account 的分组信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.AddSource  | String | 必填 | 加好友来源字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.AddWording | String | 选填 | To_Account 形成好友关系时的附言信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
-| AddType                  | String | 选填 | 加好友方式（默认双向加好友方式），“Add_Type_Single” 表示单向加好友 “Add_Type_Both” 表示双向加好友 |
+| AddType                 | String | 选填 | 加好友方式（默认双向加好友方式），“Add_Type_Single” 表示单向加好友 “Add_Type_Both” 表示双向加好友|
 | ForceAddFlags            | Number | 选填 | 管理员强制加好友标记，1表示强制加好友，0表示常规加好友方式 |
 
 ### 响应参数说明
 
-| 字段                  | 类型   | 说明                                                         |
-| --------------------- | ------ | ------------------------------------------------------------ |
-| ResultItem            | Array  | 批量加好友的结果对象数组                                     |
-| ResultItem.To_Account | String | 请求添加的好友的 Identifier                                  |
-| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示业务成功，非0表示失败 |
-| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空                  |
-| Fail_Account          | Array  | 返回处理失败的用户列表                                       |
-| Invalid_Account       | Array  | 返回请求包中的非法用户列表                                   |
-| ActionStatus          | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败           |
-| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                               |
-| ErrorInfo             | String | 详细错误信息                                                 |
-| ErrorDisplay          | String | 详细的客户端展示信息                                         |
+| 字段                  | 类型   | 说明                                                      |
+| --------------------- | ------ | --------------------------------------------------------- |
+| ResultItem            | Array  | 批量加好友的结果对象数组                                  |
+| ResultItem.To_Account | String | 请求添加的好友的 Identifier                               |
+| ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示成功，非0表示失败 |
+| ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空               |
+| Fail_Account          | Array  | 返回处理失败的用户列表。成功时响应体无该字段              |
+| Invalid_Account       | Array  | 返回请求包中的非法用户列表。成功时响应体无该字段          |
+| ActionStatus          | String | 请求处理的结果，“OK” 表示处理成功，“FAIL” 表示失败        |
+| ErrorCode             | Number | 错误码，0表示成功，非0表示失败                            |
+| ErrorInfo             | String | 详细错误信息                                              |
+| ErrorDisplay          | String | 详细的客户端展示信息                                      |
 
 ### 错误码说明
 
@@ -49,7 +47,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //申请加好友
 var applyAddFriend = function () {
     var len = webim.Tool.getStrBytes($("#af_add_wording").val());
@@ -94,9 +92,9 @@ var applyAddFriend = function () {
 ```
 
 ## 拉取好友申请 
-### 函数名
 
-```
+
+```javascript
 /* function getPendency 
  *   拉取好友申请
  * params:
@@ -110,7 +108,7 @@ getPendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //读取好友申请列表
 var getPendency = function () {
     initGetPendencyTable([]);
@@ -155,9 +153,7 @@ var getPendency = function () {
 
 ## 响应好友申请 
 
-### 函数名
-
-```
+```javascript
 /* function responseFriend 
  *   响应好友申请
  * params:
@@ -171,7 +167,7 @@ responseFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //处理好友申请
 var responseFriend = function () {
     var response_friend_item = [
@@ -207,9 +203,8 @@ var responseFriend = function () {
 ```
 
 ## 删除好友申请 
-### 函数名
 
-```
+```javascript
 /* function deletePendency 
  *   删除好友申请
  * params:
@@ -223,7 +218,7 @@ deletePendency: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //删除申请列表
 var deletePendency = function (del_account) {
     var options = {
@@ -248,9 +243,8 @@ var deletePendency = function (del_account) {
 ```
 
 ## 我的好友列表 
-### 函数名
 
-```
+```javascript
 /* function getAllFriend
  *   拉取我的好友
  * params:
@@ -280,7 +274,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 | NeedUpdateAll                 | String              | 是否需要全量更新： "GetAll_Type_YES" 表示需要全量更新， "GetAll_Type_NO"表示不需要全量更新 |
 | TimeStampNow                  | Number              | 本次拉取的时间戳，客户端需要保存该时间，下次请求时通过 TimeStamp 字段返回给后台 |
 | StartIndex                    | Number              | 下页拉取的起始位置                                           |
-| InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem |
+| InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem，若无该字段返回则表示没有好友 |
 | InfoItem.Info_Account         | String              | 好友的 Identifier                                            |
 | InfoItem.SnsProfileItem       | Array               | 好友的详细信息数组，数组每一个元素都包括 Tag 和 Value        |
 | InfoItem.SnsProfileItem.Tag   | String              | 好友的资料字段或好友字段的名称                               |
@@ -298,7 +292,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //初始化聊天界面左侧好友列表框
 var getAllFriend = function (cbOK, cbErr) {
     var options = {
@@ -361,9 +355,8 @@ var getAllFriend = function (cbOK, cbErr) {
 ```
 
 ## 删除好友 
-### 函数名
 
-```
+```javascript
 /* function deleteFriend
  *   删除好友
  * params:
@@ -391,8 +384,8 @@ deleteFriend: function(options, cbOk, cbErr) {},
 | ResultItem.To_Account | String | 请求删除的好友的 Identifier                              |
 | ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
-| Fail_Account          | Array  | 返回处理失败的 To_Account列表                            |
-| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表                       |
+| Fail_Account          | Array  | 返回处理失败的 To_Account列表，成功时响应体无该字段      |
+| Invalid_Account       | Array  | 返回请求包中的非法 To_Account 列表，成功时响应体无该字段 |
 | ActionStatus          | String | 请求包的处理结果，“OK”表示处理成功，“FAIL”表示失败       |
 | ErrorCode             | Number | 错误码，0表示成功，非0表示失败                           |
 | ErrorInfo             | String | 详细错误信息                                             |
@@ -404,7 +397,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //删除好友
 var deleteFriend = function () {
     if (!confirm("确定删除该好友吗？")) {
@@ -443,9 +436,13 @@ var deleteFriend = function () {
 ```
 
 ## 增加黑名单 
-### 函数名
+>!
+>- 如果用户 A 与用户 B 之间存在好友关系，拉黑时会解除双向好友关系。
+>- 如果用户 A 与用户 B 之间存在黑名单关系，二者之间无法发起会话。
+>- 如果用户 A 与用户 B 之间存在黑名单关系，二者之间无法发起加好友请求。
 
-```
+
+```javascript
 /* function addBlackList 
  *   增加黑名单
  * params:
@@ -485,7 +482,7 @@ addBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //添加黑名单
 var addBlackList = function (add_account) {
     var to_account = [];
@@ -519,9 +516,8 @@ var addBlackList = function (add_account) {
 ```
 
 ## 我的黑名单
-### 函数名
 
-```
+```javascript
 /* function getBlackList  
  *   删除黑名单
  * params:
@@ -546,7 +542,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 | 字段                            | 类型   | 说明                                                         |
 | ------------------------------- | ------ | ------------------------------------------------------------ |
-| BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp |
+| BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp。若无该字段返回则表示没有用户在黑名单中 |
 | BlackListItem.To_Account        | String | 黑名单的 Identifier                                          |
 | BlackListItem.AddBlackTimeStamp | Number | 添加黑名单的时间                                             |
 | StartIndex                      | Number | 下页拉取的起始位置，0表示已拉完                             |
@@ -562,7 +558,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 
 ### 示例代码
 
-```
+```javascript
 //我的黑名单
 var getBlackList = function (cbOK, cbErr) {
     initGetBlackListTable([]);
@@ -596,9 +592,8 @@ var getBlackList = function (cbOK, cbErr) {
 ```
 
 ## 删除黑名单 
-### 函数名
 
-```
+```javascript
 /* function deleteBlackList  
  *   我的黑名单
  * params:
@@ -634,11 +629,11 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 ### 错误码说明
 
-详情请参考[错误码说明](https://cloud.tencent.com/document/product/269/3719#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
+详情请参考 [错误码说明](https://cloud.tencent.com/document/product/269/3719#.E9.94.99.E8.AF.AF.E7.A0.81.E8.AF.B4.E6.98.8E)。
 
 ### 示例代码
 
-```
+```javascript
 //删除黑名单
 var deleteBlackList = function (del_account) {
     var to_account = [

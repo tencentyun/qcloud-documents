@@ -1,6 +1,6 @@
 ## 设置个人资料 
 
-```
+```javascript
 /* function setProfilePortrait
  *   设置个人资料
  * params:
@@ -15,7 +15,7 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### options 参数示例
 
-```
+```json
 {
     "ProfileItem":
     [
@@ -49,7 +49,7 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### 应答包体示例
 
-```
+```json
 {
     "ActionStatus":"FAIL",
     "ErrorCode":40001,
@@ -70,7 +70,7 @@ setProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### 代码示例 
 
-```
+```javascript
 //设置个人资料
 var setProfilePortrait = function () {
     if ($("#spp_nick").val().length == 0) {
@@ -121,7 +121,7 @@ var setProfilePortrait = function () {
 
 ## 获取个人资料 
 
-```
+```javascript
 /* function getProfilePortrait
  *   拉取资料（搜索用户）
  * params:
@@ -139,7 +139,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读一个用户的一个资料字段
 
-```
+```json
 {
     "To_Account":["id1"], 
     "TagList":
@@ -151,7 +151,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读一个用户的多个资料字段
 
-```
+```json
 {
     "To_Account":["id1"], 
     "TagList":
@@ -166,7 +166,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读多个用户的一个资料字段
 
-```
+```json
 {
     "To_Account":["id1","id2","id3"], 
     "TagList":
@@ -178,7 +178,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读多个用户的多个资料字段
 
-```
+```json
 {
     "To_Account":["id1","id2","id3"], 
     "TagList":
@@ -203,7 +203,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读一个用户的一个资料字段
 
-```
+```json
 {
     "UserProfileItem":
     [
@@ -231,7 +231,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读一个用户的多个资料字段
 
-```
+```json
 {
     "UserProfileItem":
     [
@@ -271,7 +271,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读多个用户的一个资料字段
 
-```
+```json
 {
     "UserProfileItem":
     [
@@ -323,7 +323,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 #### 读多个用户的多个资料字段
 
-```
+```json
 {
     "UserProfileItem":
     [
@@ -430,7 +430,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 ### 代码示例 
 
-```
+```javascript
 //搜索用户
 var searchProfileByUserId = function () {
     if ($("#sp_to_account").val().length == 0) {

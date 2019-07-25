@@ -1,20 +1,22 @@
 ## 控制台迁移数据
-1. 通过 [云数据库数据控制台](https://console.cloud.tencent.com/cdb) 下载备份文件。（详见：下载备份文件）
+1. 通过 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb) 下载备份文件，详细操作请参见 [下载备份文件](https://cloud.tencent.com/document/product/236/7274)。
 2. 还原数据库时，可以通过 MySQL 命令行工具进行还原，方式如下：
 ```
-shell > mysql -h hostname -P port -u username -p < bak_pathname
+shell > mysql -h hostname -P port -u username -p -d dbname < bak_pathname
 ```
-其中，hostname 为还原数据的目标主机，port 为目标主机的端口，username 为目标主机的数据库用户名，bak_pathname 为备份文件的完整路径。  
-3. 还原数据表时，先登录到 MySQL 数据库，再通过 `shell > source bak_pathname` 进行数据表还原。
+其中，hostname 为还原数据的目标主机，port 为目标主机的端口，username 为目标主机的数据库用户名，dbname 为数据库名，bak_pathname 为备份文件的完整路径。  
+3. 还原数据表时，先登录到 MySQL 数据库，再通过`shell > source bak_pathname`进行数据表还原。
 其中，bak_pathname 为备份文件的完整路径名。
 
 ### Windows 迁移数据库
-1. 以 db_blog 这个数据库为例。进入 [云数据库数据控制台](https://console.cloud.tencent.com/cdb) 找到需要导出数据的实例，单击【管理】 > 【备份管理】进入备份管理页面，在【备份列表】中找到需要下载的备份文件，单击【下载】 > 【部分下载】。
-![](//mc.qcloudimg.com/static/img/067a823712584842fc983ab34fa79b55/image.png)
+ 以 db_blog 这个数据库为例：
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb) 。
+2. 在实例列表找到需要导出数据的实例，单击实例名或【操作】列的【管理】，进入实例管理页面。
+3. 选择【备份恢复】>【备份列表】页签，找到需要下载的备份文件，选择【下载】>【部分下载】。
 ![][image-7]
 2. 选中需要导出的数据库，单击【下一步】。
 ![][image-8]
-3. 单击 **本地下载** 中的【下载】按钮，将备份文件下载至本地。
+3. 单击 **本地下载** 中的【下载】，将备份文件下载至本地。
 ![][image-9]
 4. 记录完整的路径名称。
 本例中的完整路径为： F:\download\cdb147691_backup_20170717050142

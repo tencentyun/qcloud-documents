@@ -67,6 +67,21 @@ __参数__
 | reason | NSInteger | 离开房间原因。 |
 
 
+### onSwitchRole
+
+切换角色结果回调。
+```
+- (void)onSwitchRole:(TXLiteAVError)errCode errMsg:(nullable NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| errCode | TXLiteAVError | 错误码。 |
+| errMsg | nullable NSString * | 错误信息。 |
+
+
 ### onConnectOtherRoom
 
 请求跨房通话的结果回调。
@@ -240,7 +255,7 @@ __介绍__
 
 首帧视频画面已到达，界面此时可以结束 Loading，并开始显示视频画面。
 ```
-- (void)onFirstVideoFrame:(NSString *)userId width:(int)width height:(int)height 
+- (void)onFirstVideoFrame:(NSString *)userId streamType:(TRTCVideoStreamType)streamType width:(int)width height:(int)height 
 ```
 
 __参数__
@@ -248,6 +263,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户 ID。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
 | width | int | 画面宽度。 |
 | height | int | 画面高度。 |
 

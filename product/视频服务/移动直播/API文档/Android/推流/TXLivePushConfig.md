@@ -1,4 +1,4 @@
-## TXLivePushConfig
+
 
 __功能__
 
@@ -6,12 +6,12 @@ __功能__
 
 __介绍__
 
-主要负责 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 对应的参数设置，其中绝大多数设置项在推流开始之后再设置是无效的。
+主要负责 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 对应的参数设置，**其中绝大多数设置项在推流开始之后再设置是无效的**。
 
 
 
-### 常用设置项
-#### setHomeOrientation
+## 常用设置项
+### setHomeOrientation
 
 设置采集的视频的旋转角度。
 ```
@@ -22,18 +22,18 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| homeOrientation | int | 采集的视频的旋转角度；取值请参考TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
+| homeOrientation | int | 采集的视频的旋转角度；取值请参考 TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
 
 __介绍__
 
 接口说明：
-- 默认值：HOME_ORIENTATION_DOWN（竖屏推流）
+- 默认值：HOME_ORIENTATION_DOWN（竖屏推流）。
 - 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。
 - 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 setRenderRotation 进行矫正。
 
 ***
 
-#### setTouchFocus
+### setTouchFocus
 
 设置是否开启手动对焦。
 ```
@@ -44,7 +44,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启手动对焦；false:不开启手动对焦。 |
+| enable | boolean | true：开启手动对焦；false：不开启手动对焦。 |
 
 __介绍__
 
@@ -54,7 +54,7 @@ __介绍__
 
 ***
 
-#### setEnableZoom
+### setEnableZoom
 
 设置是否允许双指手势放大预览画面。
 ```
@@ -74,7 +74,7 @@ __介绍__
 
 ***
 
-#### setWatermark
+### setWatermark
 
 设置水印图片及水印图片位置。
 ```
@@ -86,8 +86,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | watermark | Bitmap | 水印图片。 |
-| x | int | 水印位置的X轴坐标。 |
-| y | int | 水印位置的Y轴坐标。 |
+| x | int | 水印位置的 X 轴坐标。 |
+| y | int | 水印位置的 Y 轴坐标。 |
 
 __介绍__
 
@@ -97,7 +97,7 @@ __介绍__
 
 ***
 
-#### setWatermark
+### setWatermark
 
 设置水印图片及水印图片位置.。
 ```
@@ -109,21 +109,21 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | watermark | Bitmap | 水印图片。 |
-| x | float | 归一化水印位置的X轴坐标，取值[0,1]。 |
-| y | float | 归一化水印位置的Y轴坐标，取值[0,1]。 |
+| x | float | 归一化水印位置的 X 轴坐标，取值[0,1]。 |
+| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1]。 |
 | width | float | 归一化水印宽度，取值[0,1]。 |
 
 __介绍__
 
 接口说明：
-- 使用归一化坐标
-- 假设推流分辨率为：540 × 960，x，y，width 分别设置为：(0.1， 0.1， 0.1)，那么水印的实际像素坐标为：(540*0.1， 960*0.1， 水印宽度*0.1， 水印高度会被自动计算)。
+- 使用归一化坐标。
+- 假设推流分辨率为：540 × 960，x，y，width 分别设置为：(0.1， 0.1， 0.1)，那么水印的实际像素坐标为：(540 * 0.1， 960 * 0.1， 水印宽度 * 0.1， 水印高度会被自动计算)。
 
 ***
 
 
-### 垫片推流
-#### setPauseImg
+## 垫片推流
+### setPauseImg
 
 设置垫片推流的图片素材。
 ```
@@ -143,7 +143,7 @@ __介绍__
 
 ***
 
-#### setPauseImg
+### setPauseImg
 
 设置垫片的帧率与最长持续时间。
 ```
@@ -165,7 +165,7 @@ __介绍__
 
 ***
 
-#### setPauseFlag
+### setPauseFlag
 
 设置后台推流的选项。
 ```
@@ -182,15 +182,15 @@ __介绍__
 
 接口说明：
 - 默认值：TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO
-- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用[TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig.23setpauseimg.28bitmap)传入的图片作为画面推流，声音不做暂停，继续录制麦克风或custom音频发送
-- TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或custom视频数据
+- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用 [TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig.23setpauseimg.28bitmap) 传入的图片作为画面推流，声音不做暂停，继续录制麦克风或 custom 音频发送
+- TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或 custom 视频数据
 - TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO|TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推送暂停图片和静音数据。
 
 ***
 
 
-### 音视频编码参数
-#### setVideoResolution
+## 音视频编码参数
+### setVideoResolution
 
 设置采集的视频的分辨率。
 ```
@@ -211,7 +211,7 @@ __介绍__
 
 ***
 
-#### setVideoFPS
+### setVideoFPS
 
 设置视频帧率。
 ```
@@ -231,9 +231,9 @@ __介绍__
 
 ***
 
-#### setVideoEncodeGop
+### setVideoEncodeGop
 
-设置视频编码GOP。
+设置视频编码 GOP。
 ```
 void setVideoEncodeGop(int gop)
 ```
@@ -242,7 +242,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| gop | int | 视频gop。 |
+| gop | int | 视频 GOP。 |
 
 __介绍__
 
@@ -251,7 +251,7 @@ __介绍__
 
 ***
 
-#### setVideoBitrate
+### setVideoBitrate
 
 设置视频编码码率。
 ```
@@ -272,7 +272,7 @@ __介绍__
 
 ***
 
-#### setMaxVideoBitrate
+### setMaxVideoBitrate
 
 设置最大视频码率。
 ```
@@ -293,7 +293,7 @@ __介绍__
 
 ***
 
-#### setMinVideoBitrate
+### setMinVideoBitrate
 
 设置最小视频码率。
 ```
@@ -314,7 +314,7 @@ __介绍__
 
 ***
 
-#### setAutoAdjustBitrate
+### setAutoAdjustBitrate
 
 设置是否开启码率自适应。
 ```
@@ -331,11 +331,11 @@ __介绍__
 
 接口说明：
 - 默认值：false。
-- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在 (videoBitrateMin - videoBitrateMax)。
+- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（videoBitrateMin - videoBitrateMax）。
 
 ***
 
-#### setAutoAdjustStrategy
+### setAutoAdjustStrategy
 
 设置动态调整码率的策略。
 ```
@@ -356,7 +356,7 @@ __介绍__
 
 ***
 
-#### setAudioSampleRate
+### setAudioSampleRate
 
 设置声音采样率。
 ```
@@ -377,7 +377,7 @@ __介绍__
 
 ***
 
-#### setAudioChannels
+### setAudioChannels
 
 设置声道数。
 ```
@@ -398,7 +398,7 @@ __介绍__
 
 ***
 
-#### enablePureAudioPush
+### enablePureAudioPush
 
 开启纯音频推流。
 ```
@@ -409,7 +409,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true:启动纯音频推流; false:关闭纯音频推流。 |
+| enable | boolean | true：启动纯音频推流；false：关闭纯音频推流。 |
 
 __介绍__
 
@@ -419,7 +419,7 @@ __介绍__
 
 ***
 
-#### enableScreenCaptureAutoRotate
+### enableScreenCaptureAutoRotate
 
 设置录屏推流时是否要根据情况自适应旋转（仅用于录屏推流）。
 ```
@@ -439,9 +439,9 @@ __介绍__
 
 ***
 
-#### enableHighResolutionCaptureMode
+### enableHighResolutionCaptureMode
 
-是否固定摄像头的采集分辨率为 720p。
+是否固定摄像头的采集分辨率为720p。
 ```
 void enableHighResolutionCaptureMode(boolean enable)
 ```
@@ -450,16 +450,16 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true:开启； false:关闭。 |
+| enable | boolean | true：开启； false：关闭。 |
 
 __介绍__
 
 接口说明：
-- 默认值：true，采用 1280 × 720 的采集分辨率。
+- 默认值：true，采用1280 × 720的采集分辨率。
 
 ***
 
-#### setVideoEncoderXMirror
+### setVideoEncoderXMirror
 
 设置观众端水平镜像。
 ```
@@ -470,7 +470,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true:镜像 false:不镜像。 |
+| enable | boolean | true：镜像；false：不镜像。 |
 
 __介绍__
 
@@ -480,8 +480,8 @@ __介绍__
 ***
 
 
-### 网络相关参数
-#### setConnectRetryCount
+## 网络相关参数
+### setConnectRetryCount
 
 设置推流端重连次数。
 ```
@@ -496,14 +496,14 @@ __参数__
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK会尝试与服务器重连.通过此函数设置SDK重连次数。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数设置 SDK 重连次数。
 接口说明：
-- 默认值：3
-- 取值范围： 1 - 10。
+- 默认值：3。
+- 取值范围：1 - 10。
 
 ***
 
-#### setConnectRetryInterval
+### setConnectRetryInterval
 
 设置推流端重连间隔。
 ```
@@ -514,11 +514,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | int | SDK重连间隔,单位秒。 |
+| interval | int | SDK 重连间隔,单位秒。 |
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK会尝试与服务器重连.通过此函数来设置两次重连间隔时间。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数来设置两次重连间隔时间。
 接口说明：
 - 默认值：3秒
 - 取值范围：3 - 30 秒。
@@ -526,8 +526,8 @@ __介绍__
 ***
 
 
-### 自定义采集和处理
-#### setCustomModeType
+## 自定义采集和处理
+### setCustomModeType
 
 自定义采集和自定义处理开关。
 ```
@@ -549,8 +549,8 @@ __介绍__
 ***
 
 
-### 专业设置项
-#### enableAEC
+## 专业设置项
+### enableAEC
 
 设置回声消除。
 ```
@@ -571,7 +571,7 @@ __介绍__
 
 ***
 
-#### setHardwareAcceleration
+### setHardwareAcceleration
 
 设置硬件加速选项。
 ```
@@ -587,12 +587,12 @@ __参数__
 __介绍__
 
 接口说明：
-- 默认值：TXLiveConstants#ENCODE_VIDEO_AUTO 自动选择是否启用硬件加速。
-- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE:开启硬件加速、TXLiveConstants#ENCODE_VIDEO_SOFTWARE:禁用硬件加速.默认禁用硬件加速。
+- 默认值：TXLiveConstants#ENCODE_VIDEO_AUTO，自动选择是否启用硬件加速。
+- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速，TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速，默认禁用硬件加速。
 
 ***
 
-#### enableVideoHardEncoderMainProfile
+### enableVideoHardEncoderMainProfile
 
 是否开启 MainProfile 硬编码模式。
 ```
@@ -613,8 +613,8 @@ __介绍__
 ***
 
 
-### 待废弃设置项
-#### setFrontCamera
+## 待废弃设置项
+### setFrontCamera
 
 设置是否使用前置摄像头。
 ```
@@ -633,7 +633,7 @@ __介绍__
 
 ***
 
-#### setBeautyFilter
+### setBeautyFilter
 
 设置美白和美颜效果。
 ```
@@ -644,7 +644,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyLevel | int | 美颜等级.。 |
+| beautyLevel | int | 美颜等级。 |
 | whiteningLevel | int | 美白等级。 |
 | ruddyLevel | int | 红润等级。 |
 
@@ -654,7 +654,7 @@ __介绍__
 
 ***
 
-#### setEyeScaleLevel
+### setEyeScaleLevel
 
 设置大眼效果。
 ```
@@ -673,7 +673,7 @@ __介绍__
 
 ***
 
-#### setFaceSlimLevel
+### setFaceSlimLevel
 
 设置瘦脸效果。
 ```
@@ -692,7 +692,7 @@ __介绍__
 
 ***
 
-#### setRtmpChannelType
+### setRtmpChannelType
 
 设置RTMP传输通道的类型。
 ```
@@ -703,15 +703,15 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 默认值TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO flag = TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO 自动 flag = TXLiveConstants#RTMP_CHANNEL_TYPE_STANDARD 标准的RTMP协议，网络层采用TCP协议 flag = TXLiveConstants#RTMP_CHANNEL_TYPE_PRIVATE 标准的RTMP协议，网络层采用私有通道传输（在UDP上封装的一套可靠快速的传输通道），能够更好地抵抗网络抖动。 |
+| type | int | 默认值 TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO。<br> flag = TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO 自动。 <br>flag = TXLiveConstants#RTMP_CHANNEL_TYPE_STANDARD 标准的 RTMP 协议，网络层采用 TCP 协议。 <br>flag = TXLiveConstants#RTMP_CHANNEL_TYPE_PRIVATE 标准的 RTMP 协议，网络层采用私有通道传输（在 UDP 上封装的一套可靠快速的传输通道），能够更好地抵抗网络抖动。 |
 
 __介绍__
 
-待废弃，RTMP传输通道的类型，默认值为：AUTO。
+待废弃，RTMP 传输通道的类型，默认值为：AUTO。
 
 ***
 
-#### enableNearestIP
+### enableNearestIP
 
 设置就近选路。
 ```
@@ -730,7 +730,7 @@ __介绍__
 
 ***
 
-#### setCustomVideoPreProcessLibrary
+### setCustomVideoPreProcessLibrary
 
 设置用户自定义的视频预处理库。
 ```
@@ -746,7 +746,7 @@ __参数__
 
 ***
 
-#### setCustomAudioPreProcessLibrary
+### setCustomAudioPreProcessLibrary
 
 设置用户自定义的音频预处理库。
 ```

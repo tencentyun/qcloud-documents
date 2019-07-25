@@ -1,4 +1,4 @@
-腾讯云 EMR 提供的 Spark 版本目前支持 2.0.2，软件环境信息如下：
+腾讯云 EMR 提供的 Spark 版本支持 Spark2.0.2、2.2.1、2.3.2，软件环境信息如下：
 - Spark 默认安装在 master 节点
 - 登录机器后使用命令 su hadoop 切换到 Hadoop 用户
 - Spark 软件路径在 /usr/local/service/spark 下

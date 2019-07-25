@@ -11,7 +11,7 @@
 
 - 在 [Github](https://github.com/tencentyun/TIMSDK) 下载 Windows IM SDK，Windows IM SDK 所在目录：
 ![](https://main.qcloudimg.com/raw/e2064273916c99845e16d58c107d078d.png)
-- 下载并打开 ImSDK 文件夹，包含以下几个部分：
+- 下载并打开 IM SDK 文件夹，包含以下几个部分：
 
 | 目录名       | 说明                                             |
 | ------------ | ------------------------------------------------ |
@@ -29,8 +29,8 @@
 
 
 ### 3. 拷贝文件
-将解压后的 ImSDK 文件夹拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
-![](https://main.qcloudimg.com/raw/a139575b723db96334b1226485a3dd3b.png)
+将解压后的 IM SDK 文件夹拷贝到 IMDemo.vcxproj 所在目录下，如下图所示：
+![](https://main.qcloudimg.com/raw/4b13837ffc2662cea6a09f7a6fa5bda4.png)
 
 ### 4. 修改工程配置
 
@@ -53,6 +53,11 @@ IM SDK 提供了 **Debug** 和 **Release** 两种编译生成的静态库，针�
 - **d. 拷贝 DLL 到执行目录**  
   在【生成事件】>【预先生成事件】>【命令行】，输入 `xcopy /E /Y "$(ProjectDir)ImSDK\lib\Debug" "$(OutDir)"`，拷贝 imsdk.dll 动态库文件到程序生成目录，如下图所示：
   ![](https://main.qcloudimg.com/raw/3fc1828ee8bc4bab7197092ff1d73c45.png)
+  
+- **e. 指定源文件的编码格式**
+  由于 IM SDK 的头文件采用 UTF-8 编码格式，部分编译器按默认系统编码格式编译源文件，可能导致编译无法通过，设置此参数可指定编译器按照 UTF-8 的编码格式编译源文件。
+  在 【C/C++】>【命令行】>【其他选项】，输入`/source-charset:.65001`，如下图所示：
+  ![](https://main.qcloudimg.com/raw/0c9ab7746d643594fa7cf20e93c60860.png)
 
 **Release 模式**，跟 **Debug 模式**设置大部分相同，不同在于 IM SDK 的库目录，其他的与 **Debug 模式**一样。具体设置如下：
 

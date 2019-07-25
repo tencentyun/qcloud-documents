@@ -46,27 +46,41 @@ repositories {
 }
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile (name:'AuthSdk', ext:'aar')
+compile (name:'AuthSdk', ext:'aar')
+compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:appcompat-v7:23.4.0'
 }
 ```
 
 #### 3. 初始化 SDK 接口<span id="aar">
 在程序的 Application 中或在调用 SDK 之前初始化 SDK，设置相关配置，具体请参考 AuthDemo。**每次调用都需要从 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口生成新的 BizToken**。
-```java
-AuthConfig.Builder configBuilder = new AuthConfig.Builder(BizToken,R.class.getPackage().getName());
+```
+AuthConfig.Builder configBuilder = new AuthConfig.Builder(editText.getText().toString(), R.class.getPackage().getName());
 ```
 
-#### 4. 调用实名核身
+**4. 调用实名核身**
 ```java
 AuthSDKApi.startMainPage(this, configBuilder.build(), mListener);
 ```
+**5. 验证结果回调**
 
+```java
+private IdentityCallback mListener = new IdentityCallback() {
+        @Override
+        public void onIdentityResult(Intent data) {
+            boolean indexback = data.getBooleanExtra(AuthSDKApi.INDEX_BACK, false);
+            boolean identityStatus = data.getBooleanExtra(AuthSDKApi.EXTRA_IDENTITY_STATUS, false);//验证结果标识 true：通过 false：不通过
+            if (identityStatus) {
+               //实名核身通过
+            }
+        }
+    };
+```
 ### 使用 jar 包和资源接入
 
 详情可参见 authdemo_jar（authdemo_jar 在线下对接时，会由腾讯云侧提供）。
 
-#### 1. 设置权限和 Manifest 配置
+**1. 设置权限和 Manifest 配置**
 在接入方 App 的 AndroidManifest.xml 中进行如下配置，具体可参见 AuthDemo。
 设置权限：
 ``` xml
@@ -140,8 +154,9 @@ AuthSDKApi.startMainPage(this, configBuilder.build(), mListener);
     android:theme="@style/SDKAppTheme" />
 ```
 
-#### 2. 添加 jar 包和资源
+**2. 添加 jar 包和资源**
 参照 AuthDemo，将 AuthSDK.jar 添加到接入方 App 中的 libs 目录下，将 res 目录下的资源文件添加到接入方 App 的 res 下的相应目录下，以及 assets 目录下的文件添加到 APP的assets 下，将libcurl.so、libUlsFunction.so、libulsTracker_native.so 添加到 jniLibs 下。
 
-#### 3. 初始化 SDK 及调用实名核身接口
+**3. 初始化 SDK 及调用实名核身接口**
 具体流程跟上面 [aar 接入方式](#aar) 中的3 - 4步骤一致，此处不再赘述。
+

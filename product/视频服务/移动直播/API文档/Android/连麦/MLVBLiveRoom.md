@@ -1,4 +1,4 @@
-## MLVBLiveRoom
+
 
 __功能__
 
@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和 云通讯（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
 - 两个不同房间的主播 PK 互动。
@@ -14,16 +14,16 @@ __介绍__
 
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
-- LiteAVSDK: 使用了其中的 TXLivePusher 和 TXLivePlayer 两个组件，前者用于推流，后者用于拉流。
-- IM SDK: 使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 TXLivePlayer 两个组件，前者用于推流，后者用于拉流。
+- IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
-参考文档：https://cloud.tencent.com/document/product/454/14606。
+参考文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
 
 
 
-### SDK 基础函数
-#### sharedInstance
+## SDK 基础函数
+### sharedInstance
 
 获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
 ```
@@ -44,7 +44,7 @@ __返回__
 
 ***
 
-#### destroySharedInstance
+### destroySharedInstance
 
 销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
 ```
@@ -55,7 +55,7 @@ void destroySharedInstance()
 
 ***
 
-#### setListener
+### setListener
 
 设置回调接口。
 ```
@@ -72,11 +72,11 @@ __介绍__
 
 您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 的各种状态通知。
 
->?默认是在 Main Thread中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23setlistenerhandler.28handler)。
+>?默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23setlistenerhandler.28handler)。
 
 ***
 
-#### setListenerHandler
+### setListenerHandler
 
 设置驱动回调的线程。
 ```
@@ -91,7 +91,7 @@ __参数__
 
 ***
 
-#### login
+### login
 
 登录。
 ```
@@ -107,7 +107,7 @@ __参数__
 
 ***
 
-#### logout
+### logout
 
 退出登录。
 ```
@@ -116,7 +116,7 @@ abstract void logout()
 
 ***
 
-#### setSelfProfile
+### setSelfProfile
 
 修改个人信息。
 ```
@@ -133,8 +133,8 @@ __参数__
 ***
 
 
-### 房间相关接口函数
-#### getRoomList
+## 房间相关接口函数
+### getRoomList
 
 获取房间列表。
 ```
@@ -157,7 +157,7 @@ __介绍__
 
 ***
 
-#### getAudienceList
+### getAudienceList
 
 获取观众列表。
 ```
@@ -179,7 +179,7 @@ __介绍__
 
 ***
 
-#### createRoom
+### createRoom
 
 创建房间（主播调用）。
 ```
@@ -190,17 +190,19 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | final String | 房间标识，推荐做法是用主播的 userID 作为房间的 roomID，这样省去了后台映射的成本。room ID 可以填空，此时由后台生成。 |
-| roomInfo | final String | 房间信息（非必填），用于房间描述的信息，比如房间名称，允许使用 JSON 格式作为房间信息。 |
+| roomID | final String | 房间标识，推荐做法是用主播的 userID 作为房间的 roomID，这样省去了后台映射的成本。roomID 可以填空，此时由后台生成。 |
+| roomInfo | final String | 房间信息（非必填），用于房间描述的信息，如房间名称，允许使用 JSON 格式作为房间信息。 |
 | callback | [final IMLVBLiveRoomListener.CreateRoomCallback](https://cloud.tencent.com/document/product/454/34777#createroomcallback) | 创建房间的结果回调。 |
 
 __介绍__
 
-主播开播的正常调用流程是： 1.【主播】调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 打开摄像头预览，此时可以调整美颜参数。 2.【主播】调用 createRoom 创建直播间，房间创建成功与否会通过 [IMLVBLiveRoomListener.CreateRoomCallback](https://cloud.tencent.com/document/product/454/34777#createroomcallback) 通知给主播。
+主播开播的正常调用流程是： 
+1. 主播调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 打开摄像头预览，此时可以调整美颜参数。 
+2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 [IMLVBLiveRoomListener.CreateRoomCallback](https://cloud.tencent.com/document/product/454/34777#createroomcallback) 通知给主播。
 
 ***
 
-#### enterRoom
+### enterRoom
 
 进入房间（观众调用）。
 ```
@@ -217,11 +219,13 @@ __参数__
 
 __介绍__
 
-观众观看直播的正常调用流程是： 1.【观众】调用 [getRoomList()](https://cloud.tencent.com/document/product/454/34776#getroomlist) 刷新最新的直播房间列表，并通过 [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777#getroomlistcallback) 回调拿到房间列表。 2.【观众】选择一个直播间以后，调用 [enterRoom()](https://cloud.tencent.com/document/product/454/34776#enterroom) 进入该房间。
+观众观看直播的正常调用流程是： 
+1. 观众调用 [getRoomList()](https://cloud.tencent.com/document/product/454/34776#getroomlist) 刷新最新的直播房间列表，并通过 [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777#getroomlistcallback) 回调拿到房间列表。 
+2. 观众选择一个直播间以后，调用 [enterRoom()](https://cloud.tencent.com/document/product/454/34776#enterroom) 进入该房间。
 
 ***
 
-#### exitRoom
+### exitRoom
 
 离开房间。
 ```
@@ -236,7 +240,7 @@ __参数__
 
 ***
 
-#### setCustomInfo
+### setCustomInfo
 
 设置自定义信息。
 ```
@@ -263,7 +267,7 @@ __介绍__
 
 ***
 
-#### getCustomInfo
+### getCustomInfo
 
 获取自定义信息。
 ```
@@ -279,8 +283,8 @@ __参数__
 ***
 
 
-### 主播和观众连麦
-#### requestJoinAnchor
+## 主播和观众连麦
+### requestJoinAnchor
 
 观众请求连麦。
 ```
@@ -297,19 +301,19 @@ __参数__
 __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
-1. 【观众】调用 [requestJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#requestjoinanchor) 向主播发起连麦请求。
-2. 【主播】会收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestjoinanchor.28anchorinfo.2C+string) 的回调通知。
-3. 【主播】调用 [responseJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#responsejoinanchor) 确定是否接受观众的连麦请求。
-4. 【观众】会收到 [IMLVBLiveRoomListener.RequestJoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777#requestjoinanchorcallback) 回调通知，可以得知请求是否被同意。
-5. 【观众】如果请求被同意，则调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
-6. 【观众】然后调用 [joinAnchor()](https://cloud.tencent.com/document/product/454/34776#joinanchor) 正式进入连麦状态。
-7. 【主播】一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onanchorenter.28anchorinfo) 通知。
-8. 【主播】主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
-9. 【观众】如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
+1. 观众调用 [requestJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#requestjoinanchor) 向主播发起连麦请求。
+2. 主播会收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestjoinanchor.28anchorinfo.2C+string) 的回调通知。
+3. 主播调用 [responseJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#responsejoinanchor) 确定是否接受观众的连麦请求。
+4. 观众会收到 [IMLVBLiveRoomListener.RequestJoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777#requestjoinanchorcallback) 回调通知，可以得知请求是否被同意。
+5. 观众如果请求被同意，则调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
+6. 观众然后调用 [joinAnchor()](https://cloud.tencent.com/document/product/454/34776#joinanchor) 正式进入连麦状态。
+7. 主播一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onanchorenter.28anchorinfo) 通知。
+8. 主播主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
+9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***
 
-#### responseJoinAnchor
+### responseJoinAnchor
 
 主播处理连麦请求。
 ```
@@ -334,7 +338,7 @@ __介绍__
 
 ***
 
-#### joinAnchor
+### joinAnchor
 
 进入连麦状态。
 ```
@@ -353,7 +357,7 @@ __介绍__
 
 ***
 
-#### quitJoinAnchor
+### quitJoinAnchor
 
 观众退出连麦。
 ```
@@ -372,7 +376,7 @@ __介绍__
 
 ***
 
-#### kickoutJoinAnchor
+### kickoutJoinAnchor
 
 主播踢除连麦观众。
 ```
@@ -383,7 +387,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userID | String | 连麦观众ID。 |
+| userID | String | 连麦观众 ID。 |
 
 __介绍__
 
@@ -392,10 +396,10 @@ __介绍__
 ***
 
 
-### 主播跨房间 PK
-#### requestRoomPK
+## 主播跨房间 PK
+### requestRoomPK
 
-请求跨房PK。
+请求跨房 PK。
 ```
 abstract void requestRoomPK(String userID, final IMLVBLiveRoomListener.RequestRoomPKCallback callback)
 ```
@@ -404,22 +408,22 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userID | String | 被邀约主播ID。 |
-| callback | [final IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#requestroompkcallback) | 请求跨房PK的结果回调。 |
+| userID | String | 被邀约主播 ID。 |
+| callback | [final IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#requestroompkcallback) | 请求跨房 PK 的结果回调。 |
 
 __介绍__
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B，他们之间的跨房 PK 流程如下：
-1. 【主播 A】调用 [requestRoomPK()](https://cloud.tencent.com/document/product/454/34776#requestroompk) 向主播 B 发起连麦请求。
-2. 【主播 B】会收到 [IMLVBLiveRoomListener#onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestroompk.28anchorinfo) 回调通知。
-3. 【主播 B】调用 [responseRoomPK()](https://cloud.tencent.com/document/product/454/34776#responseroompk) 确定是否接受主播 A 的 PK 请求。
-4. 【主播 B】如果接受了主播 A 的要求，可以直接调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 来显示主播 A 的视频画面。
-5. 【主播 A】会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#requestroompkcallback) 回调通知，可以得知请求是否被同意。
-6. 【主播 A】如果请求被同意，则可以调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 显示主播 B 的视频画面。
+1. 主播 A 调用 [requestRoomPK()](https://cloud.tencent.com/document/product/454/34776#requestroompk) 向主播 B 发起连麦请求。
+2. 主播 B 会收到 [IMLVBLiveRoomListener#onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestroompk.28anchorinfo) 回调通知。
+3. 主播 B 调用 [responseRoomPK()](https://cloud.tencent.com/document/product/454/34776#responseroompk) 确定是否接受主播 A 的 PK 请求。
+4. 主播 B 如果接受了主播 A 的要求，可以直接调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 来显示主播 A 的视频画面。
+5. 主播 A 会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#requestroompkcallback) 回调通知，可以得知请求是否被同意。
+6. 主播 A 如果请求被同意，则可以调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 显示主播 B 的视频画面。
 
 ***
 
-#### responseRoomPK
+### responseRoomPK
 
 响应跨房 PK 请求。
 ```
@@ -432,7 +436,7 @@ __参数__
 |-----|-----|-----|
 | userID | String | 发起 PK 请求的主播 ID。 |
 | agree | boolean | true：同意；false：拒绝。 |
-| reason | String | 同意/拒绝PK的原因描述。 |
+| reason | String | 同意/拒绝 PK 的原因描述。 |
 
 __返回__
 
@@ -444,7 +448,7 @@ __介绍__
 
 ***
 
-#### quitRoomPK
+### quitRoomPK
 
 退出跨房 PK。
 ```
@@ -464,8 +468,8 @@ __介绍__
 ***
 
 
-### 视频相关接口函数
-#### startLocalPreview
+## 视频相关接口函数
+### startLocalPreview
 
 开启本地视频的预览画面。
 ```
@@ -481,7 +485,7 @@ __参数__
 
 ***
 
-#### stopLocalPreview
+### stopLocalPreview
 
 停止本地视频采集及预览。
 ```
@@ -490,7 +494,7 @@ abstract void stopLocalPreview()
 
 ***
 
-#### startRemoteView
+### startRemoteView
 
 启动渲染远端视频画面。
 ```
@@ -509,7 +513,7 @@ __参数__
 
 ***
 
-#### stopRemoteView
+### stopRemoteView
 
 停止渲染远端视频画面。
 ```
@@ -524,7 +528,7 @@ __参数__
 
 ***
 
-#### startScreenCapture
+### startScreenCapture
 
 启动录屏。
 ```
@@ -533,7 +537,7 @@ abstract void startScreenCapture()
 
 ***
 
-#### stopScreenCapture
+### stopScreenCapture
 
 结束录屏。
 ```
@@ -543,8 +547,8 @@ abstract void stopScreenCapture()
 ***
 
 
-### 音频相关接口函数
-#### muteLocalAudio
+## 音频相关接口函数
+### muteLocalAudio
 
 是否屏蔽本地音频。
 ```
@@ -555,11 +559,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true:屏蔽 false:开启。 |
+| mute | boolean | true：屏蔽；false：开启。 |
 
 ***
 
-#### muteRemoteAudio
+### muteRemoteAudio
 
 设置指定用户是否静音。
 ```
@@ -571,11 +575,11 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userID | String | 对方的用户标识。 |
-| mute | boolean | true:静音 false:非静音。 |
+| mute | boolean | true：静音；false：非静音。 |
 
 ***
 
-#### muteAllRemoteAudio
+### muteAllRemoteAudio
 
 设置所有远端用户是否静音。
 ```
@@ -586,13 +590,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true:静音 false:非静音。 |
+| mute | boolean | true：静音；false：非静音。 |
 
 ***
 
 
-### 摄像头相关接口函数
-#### switchCamera
+## 摄像头相关接口函数
+### switchCamera
 
 切换摄像头。
 ```
@@ -601,7 +605,7 @@ abstract void switchCamera()
 
 ***
 
-#### setZoom
+### setZoom
 
 设置摄像头缩放因子（焦距）。
 ```
@@ -612,11 +616,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| distance | int | 取值范围 1 - 5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清。 |
+| distance | int | 取值范围：1 - 5 ，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清。 |
 
 ***
 
-#### enableTorch
+### enableTorch
 
 开关闪光灯。
 ```
@@ -631,7 +635,7 @@ __参数__
 
 ***
 
-#### setCameraMuteImage
+### setCameraMuteImage
 
 主播屏蔽摄像头期间需要显示的等待图片。
 ```
@@ -650,7 +654,7 @@ __介绍__
 
 ***
 
-#### setCameraMuteImage
+### setCameraMuteImage
 
 主播屏蔽摄像头期间需要显示的等待图片。
 ```
@@ -670,10 +674,10 @@ __介绍__
 ***
 
 
-### 美颜滤镜相关接口函数
-#### setBeautyStyle
+## 美颜滤镜相关接口函数
+### setBeautyStyle
 
-设置美颜、美白、红润效果级别。
+设置美颜、美白及红润效果级别。
 ```
 abstract boolean setBeautyStyle(int beautyStyle, int beautyLevel, int whitenessLevel, int ruddinessLevel)
 ```
@@ -683,13 +687,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | beautyStyle | int | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：朦胧。 |
-| beautyLevel | int | 美颜级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | int | 美白级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | int | 红润级别，取值范围 0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
+| beautyLevel | int | 美颜级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
+| whitenessLevel | int | 美白级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
+| ruddinessLevel | int | 红润级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
 
 ***
 
-#### setFilter
+### setFilter
 
 设置指定素材滤镜特效。
 ```
@@ -700,11 +704,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| image | Bitmap | 指定素材，即颜色查找表图片。注意：一定要用 png 格式！！！。 |
+| image | Bitmap | 指定素材，即颜色查找表图片。注意：**一定要用 png 格式**。 |
 
 ***
 
-#### setFilterConcentration
+### setFilterConcentration
 
 设置滤镜浓度。
 ```
@@ -719,9 +723,9 @@ __参数__
 
 ***
 
-#### setWatermark
+### setWatermark
 
-添加水印，height 不用设置，sdk 内部会根据水印宽高比自动计算 height。
+添加水印，height 不用设置，SDK 内部会根据水印宽高比自动计算 height。
 ```
 abstract void setWatermark(Bitmap image, float x, float y, float width)
 ```
@@ -737,7 +741,7 @@ __参数__
 
 ***
 
-#### setMotionTmpl
+### setMotionTmpl
 
 设置动效贴图。
 ```
@@ -752,7 +756,7 @@ __参数__
 
 ***
 
-#### setGreenScreenFile
+### setGreenScreenFile
 
 设置绿幕文件。
 ```
@@ -763,7 +767,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | String | 绿幕文件位置，支持两种方式： 1.资源文件放在assets目录，path直接取文件名 2.path取文件绝对路径。 |
+| file | String | 绿幕文件位置，支持两种方式： 1.资源文件放在 assets 目录，path 直接取文件名；2.path 取文件绝对路径。 |
 
 __返回__
 
@@ -771,13 +775,13 @@ false：调用失败；true：调用成功。
 
 __介绍__
 
-目前图片支持jpg/png，视频支持mp4/3gp等Android系统支持的格式。
+目前图片支持 jpg/png，视频支持 mp4/3gp 等 Android 系统支持的格式。
 
->?API要求18。
+>?API 要求18。
 
 ***
 
-#### setEyeScaleLevel
+### setEyeScaleLevel
 
 设置大眼效果。
 ```
@@ -788,13 +792,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 大眼等级取值为 0 ~ 9。取值为0时代表关闭美颜效果。默认值：0。 |
+| level | int | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
 
 ***
 
-#### setFaceVLevel
+### setFaceVLevel
 
-设置V脸（特权版本有效，普通版本设置此参数无效）。
+设置 V 脸（特权版本有效，普通版本设置此参数无效）。
 ```
 abstract void setFaceVLevel(int level)
 ```
@@ -803,11 +807,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | V脸级别取值范围 0 ~ 9。数值越大，效果越明显。默认值：0。 |
+| level | int | V 脸级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
 
 ***
 
-#### setFaceSlimLevel
+### setFaceSlimLevel
 
 设置瘦脸效果。
 ```
@@ -818,11 +822,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 瘦脸等级取值为 0 ~ 9。取值为0时代表关闭美颜效果。默认值：0。 |
+| level | int | 瘦脸等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
 
 ***
 
-#### setFaceShortLevel
+### setFaceShortLevel
 
 设置短脸（特权版本有效，普通版本设置此参数无效）。
 ```
@@ -833,11 +837,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 短脸级别取值范围 0 ~ 9。 数值越大，效果越明显。默认值：0。 |
+| level | int | 短脸级别取值范围：0 - 9。 数值越大，效果越明显。默认值：0。 |
 
 ***
 
-#### setChinLevel
+### setChinLevel
 
 设置下巴拉伸或收缩（特权版本有效，普通版本设置此参数无效）。
 ```
@@ -848,11 +852,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| chinLevel | int | 下巴拉伸或收缩级别取值范围 -9 ~ 9。数值越大，拉伸越明显。默认值：0。 |
+| chinLevel | int | 下巴拉伸或收缩级别取值范围：-9 - 9。数值越大，拉伸越明显。默认值：0。 |
 
 ***
 
-#### setNoseSlimLevel
+### setNoseSlimLevel
 
 设置瘦鼻（特权版本有效，普通版本设置此参数无效）。
 ```
@@ -863,11 +867,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| noseSlimLevel | int | 瘦鼻级别取值范围 0 ~ 9。数值越大，效果越明显。默认值：0。 |
+| noseSlimLevel | int | 瘦鼻级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
 
 ***
 
-#### setExposureCompensation
+### setExposureCompensation
 
 调整曝光。
 ```
@@ -878,13 +882,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| value | float | 曝光比例，表示该手机支持最大曝光调整值的比例，取值范围从-1 - 1。 负数表示调低曝光，-1是最小值；正数表示调高曝光，1是最大值；0表示不调整曝光。 |
+| value | float | 曝光比例，表示该手机支持最大曝光调整值的比例，取值范围：-1 - 1。 负数表示调低曝光，-1是最小值；正数表示调高曝光，1是最大值；0表示不调整曝光。 |
 
 ***
 
 
-### 消息发送接口函数
-#### sendRoomTextMsg
+## 消息发送接口函数
+### sendRoomTextMsg
 
 发送文本消息。
 ```
@@ -900,7 +904,7 @@ __参数__
 
 ***
 
-#### sendRoomCustomMsg
+### sendRoomCustomMsg
 
 发送自定义文本消息。
 ```
@@ -918,8 +922,8 @@ __参数__
 ***
 
 
-### 背景混音相关接口函数
-#### playBGM
+## 背景混音相关接口函数
+### playBGM
 
 播放背景音乐。
 ```
@@ -938,7 +942,7 @@ true：播放成功；false：播放失败。
 
 ***
 
-#### stopBGM
+### stopBGM
 
 停止播放背景音乐。
 ```
@@ -947,7 +951,7 @@ abstract void stopBGM()
 
 ***
 
-#### pauseBGM
+### pauseBGM
 
 暂停播放背景音乐。
 ```
@@ -956,7 +960,7 @@ abstract void pauseBGM()
 
 ***
 
-#### resumeBGM
+### resumeBGM
 
 继续播放背景音乐。
 ```
@@ -965,7 +969,7 @@ abstract void resumeBGM()
 
 ***
 
-#### getBGMDuration
+### getBGMDuration
 
 获取音乐文件总时长。
 ```
@@ -984,7 +988,7 @@ __返回__
 
 ***
 
-#### setMicVolumeOnMixing
+### setMicVolumeOnMixing
 
 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。
 ```
@@ -999,7 +1003,7 @@ __参数__
 
 ***
 
-#### setBGMVolume
+### setBGMVolume
 
 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
 ```
@@ -1014,7 +1018,7 @@ __参数__
 
 ***
 
-#### setReverbType
+### setReverbType
 
 设置混响效果。
 ```
@@ -1025,11 +1029,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | int | 混响类型，详见 TXLiveConstants#REVERB_TYPE_0 (关闭混响) TXLiveConstants#REVERB_TYPE_1 (KTV) TXLiveConstants#REVERB_TYPE_2 (小房间) TXLiveConstants#REVERB_TYPE_3 (大会堂) TXLiveConstants#REVERB_TYPE_4 (低沉) TXLiveConstants#REVERB_TYPE_5 (洪亮) TXLiveConstants#REVERB_TYPE_6 (磁性)。 |
+| reverbType | int | 混响类型，详见： <br>TXLiveConstants#REVERB_TYPE_0（关闭混响）。<br> TXLiveConstants#REVERB_TYPE_1（KTV）。 <br>TXLiveConstants#REVERB_TYPE_2（小房间）。<br> TXLiveConstants#REVERB_TYPE_3（大会堂）。<br> TXLiveConstants#REVERB_TYPE_4（低沉）。<br> TXLiveConstants#REVERB_TYPE_5（洪亮）。<br>TXLiveConstants#REVERB_TYPE_6（磁性）。 |
 
 ***
 
-#### setVoiceChangerType
+### setVoiceChangerType
 
 设置变声类型。
 ```
@@ -1044,7 +1048,7 @@ __参数__
 
 ***
 
-#### setBgmPitch
+### setBgmPitch
 
 设置背景音乐的音调。
 ```
@@ -1055,11 +1059,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pitch | float | 音调，0为正常音调，范围是 -1 - 1。 |
+| pitch | float | 音调，0为正常音调，范围：-1 - 1。 |
 
 __介绍__
 
-该接口用于混音处理，比如将背景音乐与麦克风采集到的声音混合后播放。
+该接口用于混音处理，例如将背景音乐与麦克风采集到的声音混合后播放。
 
 ***
 

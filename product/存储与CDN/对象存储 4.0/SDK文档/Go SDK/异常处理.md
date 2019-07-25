@@ -1,0 +1,25 @@
+## 简介
+
+API 返回的 Response 为 Golang HTTP 标准库 [Response](https://golang.org/pkg/net/http/#Response)  类型。用户可通过 err.Error() 获取错误提示，服务端返回的具体信息，请参阅 [COS 错误码](https://cloud.tencent.com/document/product/436/7730)。
+
+## 服务端异常
+
+API 返回的 Response 结构中包含调用结构，如下所示：
+
+<table>
+   <tr>
+      <th nowrap="nowrap">成员</th>
+      <th>描述</th>
+      <th>类型</th>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">X-Cos-Request-Id</td>
+      <td>Response 中响应头，请求 ID，用于表示一个请求，对于排查问题十分重要</td>
+      <td>string</td>
+   </tr>
+   <tr>
+      <td>StatusCode</td>
+      <td>Response 的 status 状态码，4xx 是指请求因客户端而失败，5xx 是服务端异常导致的失败，详情请参阅<a href="https://cloud.tencent.com/document/product/436/7730"> COS 错误码</a></td>
+      <td>string</td>
+   </tr>
+</table>
