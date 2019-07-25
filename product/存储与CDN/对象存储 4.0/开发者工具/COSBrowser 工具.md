@@ -5,37 +5,36 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 >- COSBrowser PC 端（Windows/macOS）会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。Windows 用户可在操作系统的“Internet 选项”中查询，macOS 用户可在“网络偏好设置”中查询。
 - 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
-## 下载与登录
-
-#### 下载地址
+## 下载地址
 
 |支持平台|下载地址|
 |:---|:---|
-|Windows PC 端|[Windows](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
-|macOS PC 端|[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
-|Linux PC 端|[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
+|Windows 桌面端|[Windows](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
+|macOS 桌面端|[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
+|Linux 桌面端|[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
 |Android 移动端|[Android](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
 
 >?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
-#### 登录
-安装工具完毕后，双击 COSBrowser 图标进入登录页面。
+## 桌面端（Windows/macOS）
 
-**PC 端（Windows/macOS）**
+### 软件界面
+
+![COSBrowser PC 端](https://main.qcloudimg.com/raw/6b36f6090281ac7925544ac42bbef55c.png)
+
 填写如下登录信息：
   - **云 API 密钥（SecretId/SecretKey）**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，成功登录后密钥会保存在**历史密钥**中。
   - **历史密钥**：单击**历史密钥**，可查看并使用已在该电脑成功登录过的云 API 密钥。
-![COSBrowser PC 端](https://main.qcloudimg.com/raw/6b36f6090281ac7925544ac42bbef55c.png)
 
-**移动端（Android）**
+## 移动端（Android）
+
+![COSBrowser移动端](https://main.qcloudimg.com/raw/8cde524816485071348ff3d7aaca863f.png)
 
 COSBrowser 移动端支持以下两种登录方式：
   - **微信快捷登录**：通过微信创建的腾讯云账号，可以使用微信快捷登录方式快速登录 COSBrowser 。
   - **永久密钥登录**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，登录后将永久保持该账号的登录状态。
 
 >?若用户的腾讯云账号为 QQ 账号所创建的，同样可使用微信快捷登录方式登录，只需在跳转的微信小程序界面选择 QQ 登录即可。
-
-![COSBrowser移动端](https://main.qcloudimg.com/raw/8cde524816485071348ff3d7aaca863f.png)
 
 ## 使用方法
 
