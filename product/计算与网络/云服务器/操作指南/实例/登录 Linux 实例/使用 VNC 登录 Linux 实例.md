@@ -16,7 +16,6 @@ Windows，Linux 和 Mac OS 系统
 ## 前提条件
 已获取登录实例的管理员帐号及密码（或密钥）。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 
-
 ## 操作步骤
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 。
@@ -24,7 +23,8 @@ Windows，Linux 和 Mac OS 系统
    ![](https://main.qcloudimg.com/raw/48ce59bad25e08f349dea442eee7b634.png)
 3. 在弹出的【登录Linux实例】窗口，选择【其它方式（VNC）】，单击【立即登录】。如下图所示：
    ![](https://main.qcloudimg.com/raw/b73f070779ec3a42f949099fd4ed5d61.png)
-4. 在弹出的对话框中，输入用户名和密码登录，即可完成登录。
+4. 在弹出的对话框中，输入用户名和密码登录，即可完成登录。如下图所示：
+![](https://main.qcloudimg.com/raw/bab14d0f56db2f3bc1ab949e08fcc0f0.png)
 
 ## 后续操作
 
