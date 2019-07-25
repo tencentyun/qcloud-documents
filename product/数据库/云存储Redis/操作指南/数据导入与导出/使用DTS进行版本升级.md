@@ -1,7 +1,7 @@
 ## 操作场景
 云数据库 Redis [4.0 标准版](https://cloud.tencent.com/document/product/239/36151) 和 [4.0 集群版](https://cloud.tencent.com/document/product/239/18336) 提供更灵活的规格配置、更高的性能及更完善的功能。如果您使用的 Redis 版本较低，为保证更好的云数据库服务体验，建议您升级至 Redis 4.0 版本。
 
-云数据库 Redis 实例版本升级通过 [数据传输服务 DTS](https://cloud.tencent.com/document/product/571) 以热迁移的方式进行，保证升级过程中 Redis 实例业务不停服，能实时增量更新数据。
+云数据库 Redis 实例版本升级通过数据传输服务 DTS 以热迁移的方式进行，保证升级过程中 Redis 实例业务不停服，能实时增量更新数据。
 
 | 术语 | 说明 | 
 |---------|---------|
