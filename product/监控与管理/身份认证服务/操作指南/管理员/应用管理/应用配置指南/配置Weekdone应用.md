@@ -18,7 +18,6 @@
 1. 新开页前往 [Weekdone官网](https://weekdone.com/)，登录您的管理员账号。
 2. 顶部导航右上角个人头像下拉菜单里，单击设置一栏。
 3. 单击【Single-sign-on (SAML2)】。
-![](https://main.qcloudimg.com/raw/67dee18e8dc00eb325e1d9c45043e4a2.png)
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
 ![](https://main.qcloudimg.com/raw/d96835701707f975e42ba24a3cfca598.png)
 	- SAML 名称：您可以随意设置您的 SAML 名称，例如 IDaaS。
