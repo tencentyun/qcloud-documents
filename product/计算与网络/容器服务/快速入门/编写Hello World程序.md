@@ -16,7 +16,7 @@
 [root@VM_88_88_centos ~]# cd hellonode/
 [root@VM_88_88_centos hellonode]# vim server.js
 ```
-2. 按 “**i**” 进入编辑模式，并输入以下内容。
+2. 按 “**i**” 进入编辑模式，并向 server.js 文件输入以下内容。
 ```js
 var http = require('http');
 var handleRequest = function(request, response) {
@@ -27,13 +27,13 @@ var handleRequest = function(request, response) {
 var www = http.createServer(handleRequest);
 www.listen(8080);
 ```
-输入完成后，按 “**Esc**” 退出编辑模式，并输入 “**：wq**” 保存 server.js 文件。
+输入完成后，按 “**Esc**” 退出编辑模式，并输入 “**：wq**” 保存并退出。
 3. 通过以下三种方式可测试 Hello World 程序。
  - 执行以下命令，测试程序。
 ```shell
 [root@VM_88_88_centos ~]# node server.js
 ```
- - 打开新终端，执行以下命令使用 curl 测试应用程序。
+ - 打开新终端，执行以下命令使用 curl 测试程序。
 ```shell
 [root@VM_88_88_centos ~]# curl 127.0.0.1:8080
 Hello World!
@@ -54,7 +54,7 @@ EXPOSE 8080
 COPY server.js .
 CMD node server.js
 ```
-按 “**Esc**” 退出编辑模式，并输入 “**：wq**” 保存 Dockerfile 文件。
+按 “**Esc**” 退出编辑模式，并输入 “**：wq**” 保存并退出。
 2. 执行以下命令，构建镜像。
 ```shell
 [root@VM_88_88_centos hellonode]# docker build -t hello-node:v1 .
