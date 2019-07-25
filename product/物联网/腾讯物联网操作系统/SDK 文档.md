@@ -13,8 +13,8 @@ k_err_t tos_knl_init(void);
 - 功能描述：初始化内核。
 - 参数解释：无。
 - 返回值
- - K_ERR_NONE 内核初始化成功。
- - 非 K_ERR_NONE 内核初始化失败。
+ - K_ERR_NONE 内核，初始化成功。
+ - 非 K_ERR_NONE 内核，初始化失败。
 
 #### tos_knl_start
 
@@ -25,8 +25,8 @@ k_err_t tos_knl_start(void);
 - 功能描述：启动内核。
 - 参数解释：无。
 - 返回值
- - K_ERR_NONE 内核启动成功。
- - 非 K_ERR_NONE 内核启动失败。
+ - K_ERR_NONE 内核，启动成功。
+ - 非 K_ERR_NONE 内核，启动失败。
 
 #### tos_knl_is_running
 
@@ -37,8 +37,8 @@ int tos_knl_is_running(void);
 - 功能描述：判断内核是否正在运行。
 - 参数解释：无。
 - 返回值
- - 0内核不在运行。
- - 非0内核正在运行。
+ - 0内核，不在运行。
+ - 非0内核，正在运行。
 
 #### tos_knl_irq_enter
 
@@ -73,8 +73,8 @@ k_err_t tos_knl_sched_lock(void);
 - 功能描述： 锁内核调度。
 - 参数解释：无。
 - 返回值
- - K_ERR_NONE 内核调度锁定成功。
- - K_ERR_KNL_NOT_RUNNING 内核并未处于运行状态。
+ - K_ERR_NONE 内核，调度锁定成功。
+ - K_ERR_KNL_NOT_RUNNING 内核，并未处于运行状态。
  - K_ERR_LOCK_NESTING_OVERFLOW 调度锁溢出。
 
 #### tos_knl_sched_unlock
@@ -86,9 +86,9 @@ k_err_t tos_knl_sched_unlock(void);
 - 功能描述：解锁内核调度。
 - 参数解释：无。
 - 返回值
- - K_ERR_NONE 内核调度解锁成功。
- - K_ERR_KNL_NOT_RUNNING 内核并未处于运行状态。
- - K_ERR_SCHED_NOT_LOCKED 内核调度并未处于锁定状态。
+ - K_ERR_NONE 内核，调度解锁成功。
+ - K_ERR_KNL_NOT_RUNNING 内核，并未处于运行状态。
+ - K_ERR_SCHED_NOT_LOCKED 内核，调度并未处于锁定状态。
 
 ### 任务管理
 
@@ -122,9 +122,9 @@ k_err_t tos_task_create(k_task_t *task,
 | [in]       | timeslice  | 时间片轮转调度侧策略中，时间片的大小设置，0表示设置为系统默认值 |
 
 **返回值**
- - K_ERR_NONE 任务创建成功。
- - K_ERR_TASK_STK_SIZE_INVALID 非法的任务栈大小。
- - K_ERR_TASK_PRIO_INVALID 非法的任务优先级。
+ - K_ERR_NONE ，任务创建成功。
+ - K_ERR_TASK_STK_SIZE_INVALID， 非法的任务栈大小。
+ - K_ERR_TASK_PRIO_INVALID ，非法的任务优先级。
 
 #### tos_task_destroy
 
@@ -161,8 +161,8 @@ k_err_t tos_task_delay(k_tick_t delay);
 | [in]       | delay      | 任务睡眠时间 |
 
 **返回值**
- - K_ERR_NONE 任务延迟成功。
- - K_ERR_DELAY_ZERO delay 值为零（非法）。
+ - K_ERR_NONE，任务延迟成功。
+ - K_ERR_DELAY_ZERO delay， 值为零（非法）。
 
 #### tos_task_delay_abort
 
@@ -180,8 +180,8 @@ k_err_t tos_task_delay_abort(k_task_t *task);
 | [in]       | task       | 任务结构体描述符 |
 
 **返回值**
-  - K_ERR_NONE 取消 delay 成功。
-  - K_ERR_TASK_NOT_DELAY task 并未处于 delay 状态。
+  - K_ERR_NONE， 取消 delay 成功。
+  - K_ERR_TASK_NOT_DELAY task， 并未处于 delay 状态。
   - K_ERR_TASK_SUSPENDED task 被挂起（suspend）。
 
 #### tos_task_suspend
@@ -293,7 +293,7 @@ void tos_task_yield(void);
 | [in]       | pool_start | 待删除的内存池起始地址 |
 
 **返回值**
-  无
+  无。
 
 #### tos_mmheap_alloc
 
@@ -320,7 +320,7 @@ void *tos_mmheap_aligned_alloc(size_t size, size_t align);
 ```
 
 **功能描述**
-从堆内存中分配一块内存，此内存起始地址按align参数对齐。
+从堆内存中分配一块内存，此内存起始地址按 align 参数对齐。
 
 **参数解释**
 
@@ -434,7 +434,7 @@ k_err_t tos_mmblk_free(k_mmblk_pool_t *mbp, void *blk);
 - K_ERR_NONE 块内存释放成功。
 - K_ERR_MMBLK_POOL_FULL 内存池是满的。
 
-### 互斥量mutex
+### 互斥量 mutex
 
 #### tos_mutex_create
 
@@ -518,7 +518,7 @@ k_err_t tos_mutex_pend(k_mutex_t *mutex, k_tick_t timeout);
 -  K_ERR_NONE 获取互斥量成功。
 -  K_ERR_MUTEX_NESTING_OVERFLOW 互斥量拥有者嵌套获取溢出。
 -  K_ERR_MUTEX_NESTING 互斥量拥有者嵌套获取。
--  K_ERR_PEND_NOWAIT 此互斥量被其他任务持有，同时 timeout 参数为 TOS_TIME_NOWAIT（表示获取不到互斥量时立即返回）
+-  K_ERR_PEND_NOWAIT 此互斥量被其他任务持有，同时 timeout 参数为 TOS_TIME_NOWAIT（表示获取不到互斥量时立即返回）。
 -  K_ERR_PEND_SCHED_LOCKED 此互斥量被其他任务持有（获取失败），且系统调度处于锁定状态。
 -  K_ERR_PEND_TIMEOUT 在 timeout 时间范围内未获取到互斥量。
 -  K_ERR_PEND_DESTROY 当前任务试图获取的互斥量被销毁（tos_mutex_destroy）了。
@@ -849,7 +849,7 @@ k_err_t tos_event_pend(k_event_t *event, k_event_flag_t flag_expect, k_event_fla
 **返回值**
 -   K_ERR_NONE 读取特定的事件成功。
 -   K_ERR_EVENT_PEND_OPT_INVALID opt 参数非法。
--   K_ERR_PEND_NOWAIT 未能从 event 中获取到期望的旗标，并且 timeout 参数为TOS_TIME_NOWAIT（表示未获取到期望旗标时立即返回）。
+-   K_ERR_PEND_NOWAIT 未能从 event 中获取到期望的旗标，并且 timeout 参数为 TOS_TIME_NOWAIT（表示未获取到期望旗标时立即返回）。
 -   K_ERR_PEND_SCHED_LOCKED 未能从 event 中获取到期望的旗标，并且系统调度处于锁定的状态。
 -   K_ERR_PEND_TIMEOUT 在超时范围内未能从 event 中获取到期望的旗标。
 -   K_ERR_PEND_DESTROY 尝试获取旗标的事件被销毁了（tos_event_destroy）。
@@ -876,8 +876,8 @@ k_err_t tos_event_post(k_event_t *event, k_event_flag_t flag);
 
  **返回值**
 -   K_ERR_NONE  旗标放置成功。
--   K_ERR_OBJ_PTR_NULL event为空指针。
--   K_ERR_OBJ_INVALID event指向的并不是一个合法的事件。
+-   K_ERR_OBJ_PTR_NULL event 为空指针。
+-   K_ERR_OBJ_INVALID event 指向的并不是一个合法的事件。
 
 #### tos_event_post_keep
 
@@ -900,8 +900,8 @@ k_err_t tos_event_post_keep(k_event_t *event, k_event_flag_t flag);
 **返回值**
 
 - K_ERR_NONE  旗标放置成功。
-- K_ERR_OBJ_PTR_NULL event为空指针。
-- K_ERR_OBJ_INVALID event指向的并不是一个合法的事件。
+- K_ERR_OBJ_PTR_NULL event 为空指针。
+- K_ERR_OBJ_INVALID event 指向的并不是一个合法的事件。
 
 ### 消息队列 msg_queue
 
@@ -1013,7 +1013,7 @@ void tos_msg_queue_flush(k_msg_queue_t *msg_queue);
   | [in]   | msg_queue | 消息队列句柄 |
 
  **返回值**
-  无
+  无。
 
 ### 字符流先入先出队列 fifo
 
@@ -1157,7 +1157,7 @@ void tos_fifo_flush(k_fifo_t *fifo);
   | [in]   | fifo   | 字符流先入先出队列句柄 |
 
 **返回值**
-无
+无。
 
 #### tos_fifo_is_empty
 
@@ -1233,8 +1233,8 @@ k_err_t tos_timer_create(k_timer_t *tmr,
 
 **返回值**
 -   K_ERR_NONE 定时器创建成功。
--   K_ERR_TIMER_INVALID_PERIOD 非法的period参数。
--   K_ERR_TIMER_INVALID_DELAY 非法的delay参数。
+-   K_ERR_TIMER_INVALID_PERIOD 非法的 period 参数。
+-   K_ERR_TIMER_INVALID_DELAY 非法的 delay 参数。
 
 #### tos_timer_destroy
 
@@ -1304,7 +1304,7 @@ k_tick_t tos_systick_get(void);
 ```
 
 **功能描述**：获取系统时钟滴答数。
-**参数解释**： 无
+**参数解释**： 无。
 **返回值**：系统自启动为止到目前为止的时钟滴答数。
 
 
@@ -1325,7 +1325,7 @@ void tos_systick_set(k_tick_t tick);
   | [in]   | tick   | 系统时钟滴答数 |
 
 **返回值**
-无
+无。
 
 #### tos_tick2millisec
 
@@ -1443,7 +1443,7 @@ int tos_pm_device_register(k_pm_device_t *device);
 
 **返回值**
 -   K_ERR_NONE 注册成功。
--   K_ERR_OBJ_PTR_NULL device为空。
+-   K_ERR_OBJ_PTR_NULL device 为空。
 -   K_ERR_PM_DEVICE_ALREADY_REG 设备已注册过。
 -   K_ERR_PM_DEVICE_OVERFLOW 注册设备数量太多。
 
@@ -1464,7 +1464,7 @@ void tos_tickless_wkup_alarm_install(k_cpu_lpwr_mode_t mode, k_tickless_wkup_ala
   | [in]   | wkup_alarm | 唤醒时钟   |
 
 **返回值**
-无
+无。
 
 #### tos_tickless_wkup_alarm_init
 
@@ -1482,8 +1482,8 @@ int tos_tickless_wkup_alarm_init(k_cpu_lpwr_mode_t mode);
   | [in]   | mode   | 低功耗模式 |
 
 **返回值**
--   K_ERR_TICKLESS_WKUP_ALARM_NOT_INSTALLED 对应低功耗模式的唤醒闹钟没有被安装
--   K_ERR_TICKLESS_WKUP_ALARM_NO_INIT 对应低功耗模式的唤醒闹钟没有初始化函数
+-   K_ERR_TICKLESS_WKUP_ALARM_NOT_INSTALLED 对应低功耗模式的唤醒闹钟没有被安装。
+-   K_ERR_TICKLESS_WKUP_ALARM_NO_INIT 对应低功耗模式的唤醒闹钟没有初始化函数。
 
 
 ## 组件 API
@@ -1518,7 +1518,7 @@ int tos_mqtt_publish(int sock, mqtt_pub_param_t *param);
 ```
 
 **功能描述**
-发布 MQTT 消息
+发布 MQTT 消息。
 
 **参数解释**
 
@@ -1538,7 +1538,7 @@ int tos_mqtt_subscribe(int sock, mqtt_sub_param_t *param);
 ```
 
 **功能描述**
-订阅 MQTT 消息
+订阅 MQTT 消息。
 
 **参数解释**
 
@@ -1558,7 +1558,7 @@ int tos_mqtt_receive(char *topic, int topic_len, unsigned char *payload, int pay
 ```
 
 **功能描述**
-收取 MQTT 消息
+收取 MQTT 消息。
 
 **参数解释**
 
@@ -1581,10 +1581,10 @@ osStatus osKernelStart(void);
 ```
 
 **功能描述**
-启动内核
+启动内核。
 
 **参数解释**
-  无
+  无。
 
 **返回值**
 -   osOK，返回成功。
@@ -1597,10 +1597,10 @@ osStatus osKernelInitialize(void);
 ```
 
 **功能描述**
-初始化内核
+初始化内核。
 
 **参数解释**
-无
+无。
 
 **返回值**
 -   osOK，返回成功。
@@ -1613,10 +1613,10 @@ int32_t osKernelRunning(void);
 ```
 
 **功能描述**
-返回内核是否正在运行
+返回内核是否正在运行。
 
 **参数解释**
- 无
+ 无。
 
 **返回值**
 -   0，内核不在运行。
@@ -1629,10 +1629,10 @@ uint32_t osKernelSysTick(void);
 ```
 
 **功能描述**
-获取系统时钟滴答数
+获取系统时钟滴答数。
 
 **参数解释**
-无
+无。
 
 **返回值**
 系统自启动开始到目前的时钟滴答数。
@@ -1642,7 +1642,7 @@ uint32_t osKernelSysTick(void);
 osThreadId osThreadCreate(const osThreadDef_t *thread_def, void *argument);
 ```
 **功能描述**
-创建任务
+创建任务。
 
 **参数解释**
 
@@ -1662,10 +1662,10 @@ osThreadId osThreadGetId(void);
 ```
 
 **功能描述**
-获取当前任务句柄
+获取当前任务句柄。
 
 **参数解释**
-无
+无。
 
 **返回值**
 当前任务句柄。
@@ -1677,7 +1677,7 @@ osStatus osThreadTerminate(osThreadId thread_id);
 ```
 
 **功能描述**
-终止任务运行并删除任务
+终止任务运行并删除任务。
 
 **参数解释**
 
@@ -1696,7 +1696,7 @@ osStatus osThreadSetPriority(osThreadId thread_id, osPriority priority);
 ```
 
 **功能描述**
-设置任务优先级
+设置任务优先级。
 
 **参数解释**
 
@@ -1716,7 +1716,7 @@ osPriority osThreadGetPriority(osThreadId thread_id);
 ```
 
 **功能描述**
-获取任务优先级
+获取任务优先级。
 
 **参数解释**
 
@@ -1995,7 +1995,7 @@ osPoolId osPoolCreate(const osPoolDef_t *pool_def);
 **参数解释**
 
 | IN/OUT | 参数名   | 描述             |
-  | ------ | -------- | ---------------- |
+| ------ | -------- | ---------------- |
   | [in]   | pool_def | 内存池初始化参数 |
 
 **返回值**
@@ -2070,7 +2070,7 @@ osMessageQId osMessageCreate(const osMessageQDef_t *queue_def, osThreadId thread
 ```
 
 **功能描述**
-创建一个队列
+创建一个队列。
 
 **参数解释**
 
@@ -2090,7 +2090,7 @@ osStatus osMessagePut(osMessageQId queue_id, uint32_t info, uint32_t millisec);
 ```
 
 **功能描述**
-向队列中放置一个消息
+向队列中放置一个消息。
 
 **参数解释**
 
@@ -2155,7 +2155,7 @@ int tos_sal_module_init(void);
 初始化模组。
 
 **参数解释**
- 无
+ 无。
 
 **返回值**
 
@@ -2213,7 +2213,7 @@ int tos_sal_module_send(int sock, const void *buf, size_t len);
 
 | IN/OUT | 参数名 | 描述 |
   | ------ | ------ | ---- |
-  | [in]  | sock |socket id(由 tos_sal_module_connect 获取)      |
+  | [in]  | sock |socket id（由 tos_sal_module_connect 获取）    |
   | [in] | buf |发送的数据起始地址 |
   | [in] | len |发送的数据长度 |
 
@@ -2227,7 +2227,7 @@ int tos_sal_module_recv(int sock, void *buf, size_t len);
 ```
 
 **功能描述**
-从远端读取数据（TCP 协议栈）
+从远端读取数据（TCP 协议栈）。
 
 **参数解释**
 
@@ -2247,7 +2247,7 @@ int tos_sal_module_recv_timeout(int sock, void *buf, size_t len, uint32_t timeou
 ```
 
 **功能描述**
-从远端接收数据（TCP 协议栈）
+从远端接收数据（TCP 协议栈）。
 
 **参数解释**
 
@@ -2268,7 +2268,7 @@ int tos_sal_module_sendto(int sock, char *ip, char *port, void *buf, size_t len)
 ```
 
 **功能描述**
-向远端发送数据（UDP 协议栈）
+向远端发送数据（UDP 协议栈）。
 
 **参数解释**
 
@@ -2453,7 +2453,7 @@ int tos_lora_module_close(void);
 关闭 lora 模组
 
 **参数解释**
- 无
+ 无。
 
  **返回值**
 -   0，返回成功。
@@ -2491,7 +2491,7 @@ int tos_tf_module_init(void);
 初始化腾讯定制固件模组。
 
 **参数解释**
-无
+无。
 
 **返回值**
 
@@ -2549,7 +2549,7 @@ int tos_tf_module_mqtt_discon(void);
 断开腾讯定制固件模组的 MQTT 连接。
 
 **参数解释**
-无
+无。
 
 **返回值**
 -   0，返回成功。
@@ -2604,7 +2604,7 @@ int tos_tf_module_mqtt_sub(char *topic, qos_t qos);
 ```
 
 **功能描述**
-订阅主题
+订阅主题。
 
 **参数解释**
 
