@@ -7,7 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 创建与销毁
 ### sharedInstance
 
-创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
+创建 [TRTCCloud](#trtccloud) 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -15,7 +15,7 @@ TRTCCloud @ TXLiteAVSDK。
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
+销毁 [TRTCCloud](#trtccloud) 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -369,7 +369,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 是否开启远端镜像，YES:开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
+| mirror | BOOL | 是否开启远端镜像，YES：开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
 
 __介绍__
 
@@ -524,7 +524,7 @@ __介绍__
 
 ### muteRemoteAudio
 
-静音掉某一个用户的声音。
+静音某一个用户的声音。
 ```
 - (void)muteRemoteAudio:(NSString *)userId mute:(BOOL)mute 
 ```
@@ -539,7 +539,7 @@ __参数__
 
 ### muteAllRemoteAudio
 
-静音掉所有用户的声音。
+静音所有用户的声音。
 ```
 - (void)muteAllRemoteAudio:(BOOL)mute 
 ```
@@ -758,7 +758,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### getCurrentMicDeviceVolume
@@ -826,7 +826,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### getCurrentSpeakerDeviceVolume
@@ -856,7 +856,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 
@@ -1036,7 +1036,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
+| file | NSURL * | 视频文件路径。支持 MP4，nil 表示关闭特效。 |
 
 __介绍__
 
@@ -1202,7 +1202,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### pauseScreenCapture
@@ -1214,7 +1214,7 @@ __返回__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### resumeScreenCapture
@@ -1226,7 +1226,7 @@ __返回__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### setSubStreamEncoderParam
@@ -1335,7 +1335,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：错误。
+0：成功；\<0：错误。
 
 __介绍__
 
@@ -1364,7 +1364,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：错误。
+0：成功；\<0：错误。
 
 __介绍__
 
@@ -1911,7 +1911,7 @@ __参数__
 
 __介绍__
 
-仪表盘是状态统计和事件消息浮层　view，方便调试。 
+仪表盘是状态统计和事件消息浮层 view，方便调试。 
 
 
 
