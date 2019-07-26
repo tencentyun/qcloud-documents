@@ -115,7 +115,7 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 - (void)oneSentenceRecognizerDidEndRecord:(QCloudSentenceRecognizer *)recognizer;
 /**
  * 录音音量实时回调用
- * @param recognizer 实时语音识别实例
+ * @param recognizer 识别器实例
  * @param volume 声音音量，取值范围（-40-0)
  */
 - (void)oneSentenceRecognizerDidUpdateVolume:(QCloudSentenceRecognizer *)recognizer volume:(float)volume;
