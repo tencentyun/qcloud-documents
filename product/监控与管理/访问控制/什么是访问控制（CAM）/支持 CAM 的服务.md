@@ -59,6 +59,7 @@
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| ✔ | -  |✔ | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | ✔ | -   |✔ |✔|
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | -    |
+| [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
 
 ## CDN 与加速	
 
@@ -137,6 +138,7 @@
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | -------- | -------- | ---- |	
 | [图像分析](https://cloud.tencent.com/document/product/865) | 服务级| -| -  | ✔  | - |	
+| [文字识别](https://cloud.tencent.com/document/product/866) | 服务级| -| -  | ✔  | - |	
 
 ## 人脸识别
 
