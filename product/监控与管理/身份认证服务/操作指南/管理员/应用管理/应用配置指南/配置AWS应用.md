@@ -29,6 +29,11 @@
 ![](https://main.qcloudimg.com/raw/7164950e4e522f8e7a9341f18f7b94ac.png)
 2. 填写 AWS 账号 ID 和刚在 IAM 控制台配置的角色名和身份提供商名称。
 
+>?
+替换 `https://aws.amazon.com/SAML/Attributes/Role` 属性的值，替换规则如下：
+- `<AccountID>`替换为 AWS 账号 ID，可前往 [IAM 控制台](https://console.aws.amazon.com/iam/home)  查看。
+- `<RoleName>`替换为您在角色页面创建的角色名，可前往 [角色控制台](https://console.aws.amazon.com/iam/home#/roles) 查看。
+- `<ProviderName>`替换为您在身份提供商页面创建的角色名，可前往 [身份提供商控制台](https://console.aws.amazon.com/iam/home#/providers) 查看。
 ### 测试并分配权限
 1. 为应用添加管理员。
 2. 管理登录 IDaaS 企业门户，测试访问 AWS 应用。
