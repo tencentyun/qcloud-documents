@@ -11,24 +11,26 @@
 #### 支持版本
 <table>
     <tr>
-    <td colspan=2 align=center>源实例版本</td>
-    <td rowspan=2 align=cente>目标实例版本</td>
+    <td rowspan=2 align=center>源实例版本</td>
+    <td colspan=2 align=center>目标实例版本</td>
+    </tr>
+    <tr>
+    <td>4.0标准版</td>
+		<td>4.0集群版</td>
     </tr>
     <tr>
     <td>2.8标准版</td>
-    <td>4.0标准版</td>
+    <td>✓</td>
+    <td>✓</td>
     </tr>
     <tr>
-    <td>✓</td>
+    <td>4.0标准版</td>
     <td>-</td>
-    <td>4.0标准版</td>
-    </tr>
-    <tr>
     <td>✓</td>
-    <td>✓</td>
-    <td>4.0集群版</td>
     </tr>
 </table>
+
+>?4.0标准版之间可通过 DTS 进行数据迁移。
 
 ## 前提条件
 - 需是正常运行状态下的 Redis 源实例。
