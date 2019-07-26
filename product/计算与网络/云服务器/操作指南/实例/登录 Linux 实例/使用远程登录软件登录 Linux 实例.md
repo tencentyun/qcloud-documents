@@ -58,7 +58,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 8. 切换至 Session 配置界面，配置服务器的 IP、端口，以及连接类型。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddfd58429288ce0e195e86a6cb1c9cd6.png)
  - Host Name (IP address)：云服务器的公网 IP。登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，可在列表页及详情页中获取公网 IP。
- - Port：云服务器的端口，必须填 22 。
+ - Port：云服务器的端口，必须填 22。
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
  配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
