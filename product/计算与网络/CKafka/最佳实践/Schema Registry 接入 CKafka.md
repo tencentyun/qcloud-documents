@@ -23,7 +23,7 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 `bin/schema-registry-start etc/schema-registry/schema-registry.properties`
 ![](https://main.qcloudimg.com/raw/289772a734dcf0657e9f540555641598.png)
 	
-## 案例说明
+### 案例说明
 现有 schema 文件，其中内容如下： 
 ```
 {
