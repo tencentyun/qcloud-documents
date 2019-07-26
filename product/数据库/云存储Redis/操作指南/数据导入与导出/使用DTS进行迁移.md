@@ -57,7 +57,36 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <td>4.0集群版</td>
     </tr>
     </table>
-
+    
+	<table>
+    <tr>
+    <td  rowspan=2 align=center>源实例</td>
+    <td  colspan=3 align=cente>目标实例</td>
+    </tr>
+    <tr>
+    <td>2.8标准版</td>
+    <td>4.0标准版</td>
+    <td>4.0集群版</td>
+    </tr>
+    <tr>
+    <td>2.8标准版</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
+    </tr>
+    <tr>
+    <td>4.0标准版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
+    </tr>
+    <tr>
+    <td>4.0集群版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
+    </tr>
+    </table>
 #### 迁移限制
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。
 - 外网实例迁移时，需确保源实例服务在外网环境下可访问。
