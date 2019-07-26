@@ -1,6 +1,6 @@
 
 ## 工具介绍
-[redis-port（linux64位）](https://main.qcloudimg.com/raw/47154504189a8941250f57b60f1e2fcb/redis-port.tgz)
+[下载 redis-port（linux64 位）](https://main.qcloudimg.com/raw/47154504189a8941250f57b60f1e2fcb/redis-port.tgz)
 
 redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据库同步、数据导入、数据导出，支持 Redis 的跨版本数据迁移，工具集中包括以下工具：
 - redis-sync：支持在 Redis 实例之间进行数据迁移。
@@ -9,8 +9,8 @@ redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据�
 - redis-decode：支持将 Redis 备份文件（RDB）解析为可读的文件。
 
 ## 兼容版本
-- 支持源 Redis 2.8，3.0，3.2，4.0 版本。
-- 支持目标实例为 Redis 2.8，3.0，3.2，4.0 版本，以及云数据库的所有版本，包括 Redis 标准版（社区）、集群版（社区）、标准版（CKV）、集群版（CKV）。
+- 支持源 Redis 2.8、3.0、3.2、4.0 版本。
+- 支持目标实例为 Redis 2.8、3.0、3.2、4.0 版本，以及云数据库的所有版本，包括 Redis 标准版（社区）、集群版（社区）、标准版（CKV）、集群版（CKV）。
 
 
 ## 使用 redis-sync 在线迁移
