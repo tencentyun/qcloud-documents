@@ -1,20 +1,22 @@
 ## 操作场景
-[单实例版 WordPress](/doc/product/457/7205) 示例中展示了如何快速创建 WordPress 网站。 通过此方式创建的 WordPress 网站，数据是写到同一个容器运行的 MySQL 数据库中。使用此配置，服务可以快速启动。但如果容器因某种原因停止，数据库和存储类的文件将会丢失。
+[单实例版 WordPress](/doc/product/457/7205) 示例中展示了如何快速创建 WordPress 服务。 通过此方式创建的 WordPress 服务，数据是写到同一个容器运行的 MySQL 数据库中。使用此配置，服务可以快速启动。但如果容器因某种原因停止，数据库和存储类的文件将会丢失。
 
 本文档以 [原 TKE 控制台](https://console.cloud.tencent.com/tke) 为例，通过使用 [云数据库 TencentDB](https://cloud.tencent.com/product/cdb-overview)，数据将在实例/容器重新启动后继续存在，实现数据永久存储。
 
 ## 前提条件
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
 - 已创建集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/9091#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4) 。
+>?本文使用数据库为 [云数据库 MySQL](https://cloud.tencent.com/document/product/236/5147)。
+>
 
 ## 操作步骤
 
 ### 创建 WordPress 服务
-#### 创建云数据库 CDB
+#### 创建云数据库 TencentDB
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击数据库实例列表上方的【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/19726071d60c533349252a5c46caca8b.png)
-2. 选择购买配置，详情请见 [云数据库 MySQL](/doc/product/236/5147)。
->!云数据库所在地域与集群相同，否则无法访问该数据库。
+2. 选择购买配置，详情请见 [云数据库 MySQL](https://cloud.tencent.com/document/product/236/5147)。
+>!云数据库所在地域与集群相同，否则无法连接该数据库。
 
 3. 数据库创建成功后，可在 [MySQL-实例列表](https://console.cloud.tencent.com/cdb) 中查看。
 4. 对数据库进行初始化操作，详情请参见 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128)。
