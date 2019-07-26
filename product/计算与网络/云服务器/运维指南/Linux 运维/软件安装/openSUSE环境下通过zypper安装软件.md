@@ -2,7 +2,7 @@
 为了提升您在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 zypper 下载源。openSUSE 操作系统和部分 SLES 的云服务器用户可通过 zypper 快速安装软件。本文档以 openSUSE 操作系统为例，指导您通过 zypper 快速安装软件。
 
 ## 操作步骤
-### 检查软件源是否添加可用源
+### 查看软件源
 
 1. 使用 root 帐号登录 openSUSE 操作系统的云服务器。
 2. 执行 `zypper service-list` 或 `zypper sl` 命令，列出软件源。
@@ -45,7 +45,7 @@ zypper install MySQL-server-community php5-mysql php5 php5-fpm
 ```
 
 
-### 查看安装的软件信息
+### 查看已安装软件的信息
 
 1. 待软件安装完成后，执行以下命令，查看软件包具体的安装目录。
 ```
