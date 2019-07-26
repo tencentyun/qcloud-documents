@@ -1,4 +1,5 @@
 ## 简介
+
 本文为您详细介绍如何基于 makefile 实现交叉编译。
 
 ## 操作步骤
@@ -6,6 +7,7 @@
 **1. 下载最新版本设备端 [C-SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)**
 **2. 配置编译配置文件 make.settings**
 **2.1 配置交叉编译工具链路径及 OS、TLS 平台适配目录**
+
 ```
 BUILD_TYPE                   = release	#release/debug
 
@@ -22,8 +24,9 @@ PLATFORM_AR                 = /home/shock/openwrt/packages/toolchain/mipsel-linu
 PLATFORM_OS                 = mbedos
 PLATFORM_SSL                = mbedtls
 ```
-	
+
 **2.2 配置期望使能的功能选项及鉴权模式**
+
 ```
 FEATURE_MQTT_COMM_ENABLED               = y     # 是否打开MQTT通道的总开关
 FEATURE_MQTT_DEVICE_SHADOW			  = y	 # 是否打开设备影子的总开关
@@ -43,6 +46,7 @@ FEATURE_MULTITHREAD_TEST_ENABLED        = n     # 是否编译Linux多线程测�
 ```
 
 **3. 执行编译**
+
 ```shell
 cd qcloud-iot-sdk-embedded-c
 make
@@ -52,6 +56,7 @@ make
 编译执行后，将`output\release\bin`目录下的二进制文件，上传到目标硬件平台上，即可运行。或者将生成的 SDK 核心逻辑库 libiot_sdk.a 和平台移植库 libiot_platform.a 链接到目标应用镜像中。
 
 make.settings 具体含义参考下表：
+
 <table>
    <tr>
       <th>配置选项</th>
@@ -118,3 +123,4 @@ make.settings 具体含义参考下表：
       <td>是否编译 Linux 多线程测试例程，默认开启。</td>
    </tr>
 </table>
+

@@ -1,6 +1,7 @@
 ## 简介
 
-在 iot-explorer 平台创建产品和设备后，选择基于 MQTT AT 定制模组开发的方式，会自动生成 MCU 侧的 SDK 代码，代码基于 [腾讯 AT_SDK](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-sdk-tecent-at-based.git)，同时把在平台创建的数据模板和事件生成了对应的配置及初始化代码，SDK 完成实现了 MCU 和模组交互的 AT 框架及上下行数据交互的代码框架，开发者只需要在预留的上下行数据交互函数中实现具体的业务逻辑开发即可。
+在 iot-explorer 平台创建产品和设备后，选择基于 MQTT AT 定制模组开发的方式，会自动生成 MCU 侧的 SDK 代码，代码基于 [腾讯 AT_SDK](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based.git)，同时把在平台创建的数据模板和事件生成了对应的配置及初始化代码，SDK 完成实现了 MCU 和模组交互的 AT 框架及上下行数据交互的代码框架，开发者只需要在预留的上下行数据交互函数中实现具体的业务逻辑开发即可。
+
 移植部分需要实现的 HAL 层适配接口见 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 ### 软件架构
@@ -85,7 +86,7 @@ HAL 层对外的 API 接口及 HAL 层宏开关控制。
 | 3    | at_send_data                   | AT 串口发送接口。                             |
 
 **4. module_api_inf.c**
-配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯定制 AT 固件](http://git.code.oa.com/iotcloud_teamIII/qcloud-iot-at-esp8266-wifi.git) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。
+配网/注网 API 业务适配，该源文件基于腾讯定义的 AT 指令实现了 MQTT 的交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 示例了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（譬如按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑自行实现。
 
 ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参照 module_handshake 应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。 
 
@@ -197,11 +198,9 @@ Smaple 目录一共有3个示例，用户可以参考各示例进行业务逻辑
 | 2    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
 | 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。        |
 
-## 相关文档
+## 相关文档 
 
-- [影子协议说明](https://cloud.tencent.com/document/product/634/11918)  
-- [影子快速入门](https://cloud.tencent.com/document/product/634/11914#c-sdk-.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)  
-- [数据模板说明](https://cloud.tencent.com/document/product/634/)
+- [数据模板介绍](https://cloud.tencent.com/document/product/1081/34916)
 
 ## SDK接口说明
 

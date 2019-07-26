@@ -1,7 +1,7 @@
 ## 背景说明
-- 脏字指云通信为 App 配置的敏感词，如果检查的内容包含脏字，将拒绝请求，并返回 [80001错误](https://cloud.tencent.com/document/product/269/1671#.E5.90.8E.E5.8F.B0.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
-- 脏字检查的内容包括群组消息（只检查文本消息 [TIMTextElem](https://cloud.tencent.com/document/product/269/2720#.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)，不支持对自定义消息 [TIMCustomElem](https://cloud.tencent.com/document/product/269/2720#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0) 的过滤）、群组资料（群名称、群简介、群公告）和群名片。
-- 云通信的脏字集已经涵盖了一批默认脏字（政治、色情等领域）。
+- 脏字指即时通信 IM 为 App 配置的敏感词，如果检查的内容包含脏字将拒绝请求，并返回错误码 [30005](https://cloud.tencent.com/document/product/269/1671#.E5.85.B3.E7.B3.BB.E9.93.BE.E9.94.99.E8.AF.AF.E7.A0.81)、[40005](https://cloud.tencent.com/document/product/269/1671#.E8.B5.84.E6.96.99.E9.94.99.E8.AF.AF.E7.A0.81)、[80001](https://cloud.tencent.com/document/product/269/1671#.E5.90.8E.E5.8F.B0.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81 )。
+- 脏字检查的内容包括单聊和群组消息（只检查文本消息 [TIMTextElem](https://cloud.tencent.com/document/product/269/2720#.E6.96.87.E6.9C.AC.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0)，不支持对自定义消息 [TIMCustomElem](https://cloud.tencent.com/document/product/269/2720#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.B6.88.E6.81.AF.E5.85.83.E7.B4.A0) 的过滤）、群名片、群组资料（群名称、群简介、群公告）用户资料和好友关系链中 bytes 类型的数据（如昵称、好友备注和好友分组等）。
+- 即时通信 IM 的脏字集已经涵盖了一批默认脏字（主要是政治、色情等领域）。
 - 如果 App 有除默认脏字集之外的自定义脏字需求，可以通过脏字管理的 REST API 进行配置。
 
 ## 功能说明
@@ -19,14 +19,14 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?sdkappid=88888888&identifie
 | 参数               | 说明                                 |
 | ------------------ | ------------------------------------ |
 | v4/openim_dirty_words/get | 请求接口                             |
-| sdkappid           | 创建应用时云通信控制台分配的 SDKAppID |
-| identifier         | 必须为 App 管理员帐号                |
-| usersig            | App 管理员帐号生成的签名，参见 [UserSig 后台 API](https://cloud.tencent.com/document/product/269/1519#.E8.AF.B7.E6.B1.82-url)                |
-| random             | 请输入32位无符号整数                 |
+| sdkappid           | 创建应用时即时通信 IM 控制台分配的 SDKAppID |
+| identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
+| usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
+| random             | 请输入随机的32位无符号整数                 |
 
 
 ### 最高调用频率
-100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
+100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api-.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
 ### 请求包示例
 此接口为 GET 请求，不需要请求体。
 
@@ -61,7 +61,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?sdkappid=88888888&identifie
 |---------|---------|
 | 10002 | 服务器内部错误，请重试 |
 | 10003 | 请求命令字非法 |
-| 10007 | 操作权限不足，比如 Public 群组中普通成员尝试执行踢人操作，但只有 App 管理员才有权限 |
+| 10007 | 操作权限不足，该API只有 App 管理员才有权限调用 |
 
 ## 接口调试工具
 通过 [REST API 在线调试工具](https://avc.qcloud.com/im/APITester/APITester.html#v4/openim_dirty_words/get) 调试本接口。

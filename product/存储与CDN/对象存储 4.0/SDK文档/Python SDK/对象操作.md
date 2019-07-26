@@ -1,0 +1,1467 @@
+## 简介
+
+本文档提供关于对象的简单操作、分块操作等其他操作相关的 API 概览以及 SDK 示例代码。
+
+**简单操作**
+
+| API                                                          | 操作名         | 操作描述                                  |
+| ------------------------------------------------------------ | -------------- | ----------------------------------------- |
+| [GET Bucket（List Object）](https://cloud.tencent.com/document/product/436/7734) | 查询对象列表	|   查询存储桶下的部分或者全部对象|
+| [GET Bucket Object Versions](https://cloud.tencent.com/document/product/436/35521) | 查询对象及其历史版本列表 |   查询存储桶下的部分或者全部对象及其历史版本信息|
+| [PUT Object](https://cloud.tencent.com/document/product/436/7749) | 简单上传对象       | 上传一个对象至存储桶    |
+| [HEAD Object](https://cloud.tencent.com/document/product/436/7745) | 	查询对象元数据  | 查询对象的元数据信息                |
+| [GET Object](https://cloud.tencent.com/document/product/436/7753) | 下载对象       | 下载一个对象至本地        |
+| [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) | 设置对象复制   | 复制对象到目标路径                        |
+| [DELETE Object](https://cloud.tencent.com/document/product/436/7743) | 删除单个对象   | 在存储桶中删除指定对象 |
+| [DELETE Multiple Objects](https://cloud.tencent.com/document/product/436/8289) | 删除多个对象   | 在存储桶中批量删除指定对象 |
+
+**分块操作**
+
+| API                                                          | 操作名         | 操作描述                             |
+| ------------------------------------------------------------ | -------------- | ------------------------------------ |
+| [List Multipart Uploads](https://cloud.tencent.com/document/product/436/7736) | 查询分块上传   | 查询正在进行中的分块上传信息         |
+| [Initiate Multipart Upload](https://cloud.tencent.com/document/product/436/7746) | 初始化分块上传 | 	初始化分块上传任务     |
+| [Upload Part](https://cloud.tencent.com/document/product/436/7750) | 上传分块       | 分块上传文件                         |
+| [Upload Part - Copy](https://cloud.tencent.com/document/product/436/8287) | 复制分块       | 将其他对象复制为一个分块             |
+| [List Parts](https://cloud.tencent.com/document/product/436/7747) | 查询已上传块   | 查询特定分块上传操作中的已上传的块   |
+| [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742) | 完成分块上传   | 完成整个文件的分块上传               |
+| [Abort Multipart Upload](https://cloud.tencent.com/document/product/436/7740) | 终止分块上传   | 终止一个分块上传操作并删除已上传的块 |
+
+**其他操作**
+
+| API                                                          | 操作名       | 操作描述                                      |
+| ------------------------------------------------------------ | ------------ | --------------------------------------------- |
+| [POST Object restore](https://cloud.tencent.com/document/product/436/12633) | 恢复归档对象 | 将归档类型的对象取回访问                      |
+| [PUT Object acl](https://cloud.tencent.com/document/product/436/7748) | 设置对象 ACL | 设置存储桶中某个对象的访问控制列表 |
+| [GET Object acl](https://cloud.tencent.com/document/product/436/7744) | 查询对象 ACL | 查询存储桶中某个对象的访问控制列表               |
+
+## 简单操作
+
+### 查询对象列表
+
+#### 功能说明
+
+查询存储桶下的部分或者全部对象。
+
+#### 方法原型
+
+```
+list_objects(Bucket, Delimiter="", Marker="", MaxKeys=1000, Prefix="", EncodingType="", **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.list_objects(
+    Bucket='examplebucket-1250000000',
+    Prefix='string'
+)
+```
+
+#### 全部参数请求示例
+
+```python
+response = client.list_objects(
+    Bucket='examplebucket-1250000000',
+    Prefix='string',
+    Delimiter='/',
+    Marker='string',
+    MaxKeys=100,
+    EncodingType='url'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成  | String  | 是| 
+| Prefix   |  默认为空，对对象的对象键进行筛选，匹配 prefix 为前缀的对象  | String  |  否| 
+| Delimiter   |   默认为空，设置分隔符，比如设置`/`来模拟文件夹  | String|  否|
+| Marker   |  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的起点位置  | String  |  否| 
+| MaxKeys   | 最多返回的对象数量，默认为最大的1000  | Int  |  否| 
+| EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
+
+#### 返回结果说明
+
+获取对象的元信息，类型为 dict：
+
+```python
+{
+    'MaxKeys': '1000', 
+    'Prefix': 'string',
+    'Delimiter': 'string',
+    'Marker': 'string',
+    'NextMarker': 'string',
+    'Name': 'examplebucket-1250000000',  
+    'IsTruncated': 'false'|'true',
+    'EncodingType': 'url',
+    'Contents':[
+        {
+            'ETag': '"a5b2e1cfb08d10f6523f7e6fbf3643d5"', 
+            'StorageClass': 'STANDARD', 
+            'Key': 'exampleobject',
+            'Owner': {
+                'DisplayName': '1250000000',
+                'ID': '1250000000'
+            }, 
+            'LastModified': '2017-08-08T09:43:35.000Z', 
+            'Size': '23'
+        },
+    ],
+    'CommonPrefixes':[
+        {
+            'Prefix': 'string'
+        },
+    ],
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+| MaxKeys   | 最多返回的对象数量，默认为最大的1000  | String |
+| Prefix   |  默认为空，匹配 Prefix 为前缀的对象 | String|
+| Delimiter   |   默认为空，设置分隔符，比如设置`/`来模拟文件夹  | String|
+| Marker   |  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的起点位置  | String  |
+| NextMarker|  当 IsTruncated 为 true 时，标记下一次返回对象的 list 的起点位置  | String  |
+| Name   | 存储桶名称，由 BucketName-APPID 构成  | String  | 
+| IsTruncated   |  表示返回的对象否被截断  | String|
+| EncodingType   | 默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
+|Contents |包含所有对象元数据的 list，包括 'ETag'，'StorageClass'，'Key'，'Owner'，'LastModified'，'Size' 等信息|List|
+|CommonPrefixes |所有以 Prefix 开头，以 Delimiter 结尾的对象被归到同一类|List|
+
+### 查询对象及其历史版本列表 
+
+#### 功能说明
+
+查询存储桶下的部分或者全部对象及其历史版本信息。
+
+#### 方法原型
+
+```
+list_objects_versions(Bucket, Prefix="", Delimiter="", KeyMarker="", VersionIdMarker="", MaxKeys=1000, EncodingType="", **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.list_objects_versions(
+    Bucket='examplebucket-1250000000',
+    Prefix='string'
+)
+```
+
+#### 全部参数请求示例
+
+```python
+response = client.list_objects_versions(
+    Bucket='examplebucket-1250000000',
+    Prefix='string',
+    Delimiter='/',
+    KeyMarker='string',
+    VersionIdMarker='string',
+    MaxKeys=100,
+    EncodingType='url'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成  | String  | 是| 
+| Prefix   |  默认为空，对对象的对象键进行筛选，匹配 prefix 为前缀的对象  | String  |  否| 
+| Delimiter   |   默认为空，设置分隔符，比如设置`/`来模拟文件夹  | String|  否|
+| KeyMarker   |  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 Key 的起点位置  | String  |  否|
+| VersionIdMarker|  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 VersionId 的起点位置  | String  |  否|
+| MaxKeys   | 最多返回的对象数量，默认为最大的1000  | Int  |  否| 
+| EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
+
+#### 返回结果说明
+
+获取对象的元信息，类型为 dict：
+
+```python
+{
+    'MaxKeys': '1000', 
+    'Prefix': 'string',
+    'Delimiter': 'string',
+    'KeyMarker': 'string',
+    'VersionIdMarker': 'string',
+    'NextMarker': 'string',
+    'NextVersionIdMarker': 'string',
+    'Name': 'examplebucket-1250000000',  
+    'IsTruncated': 'false'|'true',
+    'EncodingType': 'url',
+    'Version':[
+        {
+            'ETag': '"a5b2e1cfb08d10f6523f7e6fbf3643d5"', 
+            'StorageClass': 'STANDARD', 
+            'Key': 'exampleobject',
+            'VersionId': 'string',
+            'IsLatest': 'true'|'false',
+            'Owner': {
+                'DisplayName': '1250000000',
+                'ID': '1250000000'
+            }, 
+            'LastModified': '2017-08-08T09:43:35.000Z', 
+            'Size': '23'
+        },
+    ],
+    'DeleteMarker': [
+        {
+            'Key': 'exampleobject',
+            'VersionId': 'string',
+            'IsLatest': 'true'|'false',
+            'Owner': {
+                'DisplayName': '1250000000',
+                'ID': '1250000000'
+            },
+            'LastModified': '2017-08-08T09:43:35.000Z'
+        },
+    ],
+    'CommonPrefixes':[
+        {
+            'Prefix': 'string'
+        },
+    ],
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+| MaxKeys   | 最多返回的对象数量，默认为最大的1000  | String |
+| Prefix   |  默认为空，匹配 Prefix 为前缀的对象 | String|
+| Delimiter   |   默认为空，设置分隔符，比如设置`/`来模拟文件夹  | String|
+| KeyMarker   |  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 Key 的起点位置  | String  |
+| VersionIdMarker|  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的 VersionId 的起点位置  | String  |
+| NextMarker|  当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 Key 的起点位置  | String  |
+| NextVersionIdMarker | 当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 VersionId 的起点位置  | String  |
+| Name   | 存储桶名称，由 BucketName-APPID 构成  | String  | 
+| IsTruncated   |  表示返回的对象否被截断  | String|
+| EncodingType   | 默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
+|Version |包含所有多个版本对象元数据的 list，包括 'ETag'，'StorageClass'，'Key'，'VersionId'，'IsLatest'，'Owner'，'LastModified'，'Size' 等信息|List|
+|DeleteMarker|包含所有delete marker 对象元数据的 list，包括 'Key'，'VersionId'，'IsLatest'，'Owner'，'LastModified' 等信息|List|
+|CommonPrefixes |所有以 Prefix 开头，以 Delimiter 结尾的对象被归到同一类|List|
+
+### 简单上传对象
+
+#### 功能说明
+
+上传一个对象至存储桶（PUT Object）。
+
+#### 方法原型
+
+```
+put_object(Bucket, Body, Key, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.put_object(
+    Bucket='examplebucket-1250000000',
+    Body=b'bytes'|file,
+    Key='exampleobject',
+    EnableMD5=False
+)
+```
+#### 全部参数请求示例
+```python
+response = client.put_object(
+    Bucket='examplebucket-1250000000',
+    Body=b'bytes'|file,
+    Key='exampleobject',
+    EnableMD5=False|True,
+    ACL='private'|'public-read',  # 请慎用此参数,否则会达到1000条 ACL 上限
+    GrantFullControl='string',
+    GrantRead='string',
+    StorageClass='STANDARD'|'STANDARD_IA'|'ARCHIVE',
+    Expires='string',
+    CacheControl='string',
+    ContentType='string',
+    ContentDisposition='string',
+    ContentEncoding='string',
+    ContentLanguage='string',
+    ContentLength='123',
+    ContentMD5='string',
+    Metadata={
+        'x-cos-meta-key1': 'value1',
+        'x-cos-meta-key2': 'value2'
+    }
+)
+```
+#### 参数说明
+
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String |   是 |
+ |  Body  | 上传对象的内容，可以为文件流或字节流 |  file/bytes |  是 |
+ |  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String |  是 | 
+| EnableMD5 | 是否需要 SDK 计算 Content-MD5，默认关闭，打开后会增加上传耗时|Bool | 否| 
+| ACL |设置对象的 ACL，如 'private'，'public-read' |String| 否|
+| GrantFullControl |赋予被授权者所有的权限。格式：id="[OwnerUin]"|String|否|
+|GrantRead |赋予被授权者读的权限。格式：id="[OwnerUin]"  |String|否|
+ |  StorageClass  |  设置对象的存储类型，STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD | String |   否 |
+ |  Expires  | 设置 Expires | String|  否 | 
+ |  CacheControl  |  缓存策略，设置 Cache-Control | String |   否 |
+ |  ContentType  | 内容类型，设置 Content-Type |String |   否 |  
+ |  ContentDisposition  |  对象名称，设置 Content-Disposition | String |   否 |
+ |  ContentEncoding  |  编码格式，设置 Content-Encoding | String |   否 |
+ |  ContentLanguage  |  语言类型，设置 Content-Language | String |   否 |
+ |  ContentLength  | 设置传输长度 | String |   否 | 
+ |  ContentMD5  | 设置上传对象的 MD5 值用于校验 | String |   否 | 
+ |  Metadata | 用户自定义的对象元数据， 必须以 x-cos-meta 开头，否则会被忽略 | Dict |  否 |
+
+#### 返回结果说明
+上传对象的属性，类型为 dict：
+
+```python
+{
+    'ETag': 'string',
+    'x-cos-version-id': 'string'
+}
+```
+
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+|  ETag   |  上传对象的 MD5 值  | String  |
+|  x-cos-version-id   |  开启版本控制后，对象的版本号 | String  |
+
+
+
+### 查询对象元数据
+
+#### 功能说明
+
+查询对象的元数据信息（HEAD Object）。
+
+#### 方法原型
+
+```
+head_object(Bucket, Key, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.head_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    VersionId='string',
+    IfModifiedSince='string',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+  | Bucket   | Bucket 名称，由 BucketName-APPID 构成  | String  |  是 | 
+  | Key   |  对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg  |String  | 是 |
+  | VersionId   | 开启版本控制后，指定对象的具体版本  | String  | 否 | 
+  | IfModifiedSince   | 在指定时间后被修改才返回  | String  | 否 | 
+
+#### 返回结果说明
+
+获取对象的元信息，类型为 dict：
+
+```python
+{
+    'ETag': '"9a4802d5c99dafe1c04da0a8e7e166bf"',
+    'Last-Modified': 'Wed, 28 Oct 2014 20:30:00 GMT',
+    'Cache-Control': 'max-age=1000000',
+    'Content-Type': 'application/octet-stream',
+    'Content-Disposition': 'attachment; filename="filename.jpg"',
+    'Content-Encoding': 'gzip',
+    'Content-Language': 'zh-cn',
+    'Content-Length': '16807',
+    'Expires': 'Wed, 28 Oct 2019 20:30:00 GMT',
+    'x-cos-meta-test': 'test',
+    'x-cos-version-id': 'MTg0NDUxODMzMTMwMDM2Njc1ODA',
+    'x-cos-request-id': 'NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ=='
+}
+```
+
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+ | ETag  |  对象的 MD5 值 |String|
+ | Last-Modified | 对象最后修改时间| String|
+ |  Cache-Control  |  缓存策略， HTTP 标准头部| String |
+ |  Content-Type  | 内容类型，HTTP 标准头部 |String |
+ |  Content-Disposition  |  文件名称，HTTP 标准头部 |String |
+ |  Content-Encoding  |  编码格式，HTTP 标准头部| String |
+ |  Content-Language  |  语言类型，HTTP 标准头部 | String |
+ |  Content-Length  | 对象大小 | String |
+ |  Expires | 缓存过期时间， HTTP 标准头部| String |
+ |  x-cos-meta-* | 用户自定义的对象元数据， 必须以 x-cos-meta 开头，否则会被忽略 | String | 
+ |  x-cos-version-id | 开启版本控制后，对象的版本号 | String | 
+
+
+### 下载对象
+
+#### 功能说明
+
+下载一个对象到本地（GET Object）。
+
+#### 方法原型
+
+```
+ get_object(Bucket, Key, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Range='string',
+    IfMatch='string',
+    IfModifiedSince='string',
+    IfNoneMatch='string',
+    IfUnmodifiedSince='string',
+    ResponseCacheControl='string',
+    ResponseContentDisposition='string',
+    ResponseContentEncoding='string',
+    ResponseContentLanguage='string',
+    ResponseContentType='string',
+    ResponseExpires='string',
+    VersionId='string'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String  |  是 | 
+ |  Key  |  对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String  | 是 | 
+ |  Range  |  设置下载对象的范围，格式为 bytes=first-last  | String  |  否 | 
+ |  IfMatch  |  ETag 与指定的内容一致时才返回 |String  | 否 |  
+ |  IfModifiedSince  |   在指定时间后被修改才返回 | String  | 否 |
+ |  IfNoneMatch  |  ETag 与指定的内容不一致才返回 | String  | 否 | 
+ |  IfUnmodifiedSince  |  对象修改时间早于或等于指定时间才返回 | String  | 否|
+ |  ResponseCacheControl  |  设置响应头部 Cache-Control | String  | 否 | 
+ |  ResponseContentDisposition  |  设置响应头部 Content-Disposition | String  | 否 | 
+ |  ResponseContentEncoding  |   设置响应头部 Content-Encoding | String  | 否 |
+ |  ResponseContentLanguage  |  设置响应头部 Content-Language | String  | 否 | 
+ |  ResponseContentType  |   设置响应头部 Content-Type | String  | 否 |
+ |  ResponseExpires  |设置响应头部 Expires |   String  | 否 | 
+ |  VersionId  | 指定下载对象的版本 |  String  | 否 | 
+
+#### 返回结果说明
+
+下载对象的 Body 和元信息，类型为 dict：
+
+```python
+{
+    'Body': StreamBody(),
+    'ETag': '"9a4802d5c99dafe1c04da0a8e7e166bf"',
+    'Last-Modified': 'Wed, 28 Oct 2014 20:30:00 GMT',
+    'Accept-Ranges': 'bytes',
+    'Content-Range': 'bytes 0-16086/16087',
+    'Cache-Control': 'max-age=1000000',
+    'Content-Type': 'application/octet-stream',
+    'Content-Disposition': 'attachment; filename="filename.jpg"',
+    'Content-Encoding': 'gzip',
+    'Content-Language': 'zh-cn',
+    'Content-Length': '16807',
+    'Expires': 'Wed, 28 Oct 2019 20:30:00 GMT',
+    'x-cos-meta-test': 'test',
+    'x-cos-version-id': 'MTg0NDUxODMzMTMwMDM2Njc1ODA',
+    'x-cos-request-id': 'NTg3NzQ3ZmVfYmRjMzVfMzE5N182NzczMQ=='
+}
+```
+
+<table>
+   <tr>
+      <th>参数名称</th>
+      <th>参数描述</th>
+      <th>类型</th>
+   </tr>
+   <tr>
+      <td>Body</td>
+      <td>下载对象的内容，get_raw_stream 方法可以得到一个文件流，get_stream_to_file 方法可以将对象内容下载到指定本地文件中</td>
+      <td>StreamBody</td>
+   </tr>
+   <tr>
+      <td>ETag</td>
+      <td>对象的 MD5 值</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Last-Modified</td>
+      <td>对象最后修改时间</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">Accept-Ranges</td>
+      <td>范围单位， HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Content-Range</td>
+      <td>内容范围， HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Cache-Control</td>
+      <td>缓存策略， HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Content-Type</td>
+      <td>内容类型，HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td nowrap="nowrap">Content-Disposition</td>
+      <td>文件名称，HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Content-Encoding</td>
+      <td>编码格式，HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Content-Language</td>
+      <td>语言类型，HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Content-Length</td>
+      <td>对象大小</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>Expires</td>
+      <td>缓存过期时间， HTTP 标准头部</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>x-cos-meta-*</td>
+      <td>用户自定义的对象元数据， 必须以 x-cos-meta 开头，否则会被忽略</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>x-cos-version-id</td>
+      <td>开启版本控制后，对象的版本号</td>
+      <td>String</td>
+   </tr>
+</table>
+
+
+
+### 设置对象复制
+
+#### 功能说明
+
+复制文件到目标路径（PUT Object - Copy）。
+
+#### 方法原型
+
+```
+copy_object(Bucket, Key, CopySource, CopyStatus='Copy', **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.copy_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    CopySource={
+        'Bucket': 'examplebucket-1250000000', 
+        'Key': 'exampleobject', 
+        'Region': 'ap-guangzhou',
+        'VesionId': 'string'
+    },
+    CopyStatus='Copy'|'Replaced',
+    ACL='private'|'public-read',
+    GrantFullControl='string',
+    GrantRead='string',
+    StorageClass='STANDARD'|'STANDARD_IA',
+    Expires='string'
+    CacheControl='string',
+    ContentType='string',
+    ContentDisposition='string',
+    ContentEncoding='string',
+    ContentLanguage='string',
+    Metadata={
+        'x-cos-meta-key1': 'value1',
+        'x-cos-meta-key2': 'value2'
+    }
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String|  是 |
+ |  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String| 是 | 
+ |  CopySource  | 描述拷贝源对象的路径，包含 Bucket、Key、Region、VesionId |  Dict | 是 |
+ |  CopyStatus  |  可选值为 'Copy'，'Replaced'，设置为 'Copy' 时，忽略设置的用户元数据信息直接复制，设置为 'Replaced' 时，按设置的元信息修改元数据，当目标路径和源路径一样时，必须设置为 'Replaced' | String| 是 |
+| ACL |设置对象的ACL，如 'private'，'public-read' |String| 否|
+| GrantFullControl |赋予指定账户对对象的所有权限。格式为`id="[OwnerUin]"`|String|否|
+|GrantRead |赋予指定账户对对象的读权限。格式为`id="[OwnerUin]"`|String|否|
+ |  StorageClass  |  设置对象的存储类型，STANDARD，STANDARD_IA，默认值：STANDARD | String|  否 |
+ |  Expires  | 设置 Expires | String| 否 | 
+ |  CacheControl  | 缓存策略，设置 Cache-Control | String|  否 | 
+ |  ContentType  | 内容类型，设置 Content-Type | String|  否 | 
+ |  ContentDisposition  |  文件名称，设置 Content-Disposition | String|  否 |
+ |  ContentEncoding  | 编码格式，设置 Content-Encoding | String|  否 | 
+ |  ContentLanguage  |  语言类型，设置 Content-Language | String|  否 |
+ |  Metadata |用户自定义的对象元数据 | Dict |  否 | 
+ 
+
+#### 返回结果说明
+上传对象的属性，类型为 dict：
+
+```python
+{
+    'ETag': 'string',
+    'LastModified': 'string',
+    'VersionId': 'string',
+    'x-cos-copy-source-version-id': 'string'
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| ETag |拷贝对象的 MD5 值|String|
+| LastModified |拷贝对象的最后一次修改时间|String|
+| VersionId | 开启版本控制后，目的对象的版本号 | String |
+| x-cos-copy-source-version-id | 源对象的版本号 | String | 
+
+
+### 删除单个对象
+
+#### 功能说明
+
+删除指定的对象（DELETE Object）。
+
+#### 方法原型
+
+```
+delete_object(Bucket, Key, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.delete_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    VersionId='string',
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
+ | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 |
+ | VersionId   | 开启版本控制后，指定对象的具体版本  | String  | 否 | 
+
+#### 返回结果说明
+删除对象的信息，类型为dict
+
+```python
+{
+    'x-cos-version-id': 'string',
+    'x-cos-delete-marker': 'true'|'false',
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| x-cos-version-id | 删除对象的版本号 | String |
+| x-cos-delete-marker | 标识删除的对象是否为delete marker | String | 
+
+### 删除多个对象
+
+#### 功能说明
+
+删除多个指定的对象（DELETE Multiple Objects）。
+
+#### 方法原型
+
+```
+delete_objects(Bucket, Delete={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.delete_objects(
+    Bucket='examplebucket-1250000000',
+    Delete={
+        'Object': [
+            {
+                'Key': 'exampleobject1',
+                'VersionId': 'string'
+            },
+            {
+                'Key': 'exampleobject2',
+                'VersionId': 'string'
+            },
+        ],
+        'Quiet': 'true'|'false'
+    }
+)
+```
+
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ | Bucket  | Bucket 名称，由 BucketName-APPID 构成 |  String |  是 | 
+ | Delete  | 说明本次删除的返回结果方式和目标 Object | Dict | 是 | 
+ | Object  | 说明每个将要删除的目标 Object 信息 | List | 是 | 
+ | Key     | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg| String|否|
+ | VersionId | 开启版本控制后，目的对象的版本号 | String |
+ | Quiet   |指明删除的返回结果方式，可选值为 'true'，'false'，默认为 'false'。设置为 'true' 只返回失败的错误信息，设置为 'false' 时返回成功和失败的所有信息。|String|否|
+
+#### 返回结果说明
+批量删除对象的结果，类型为 dict：
+```python
+{
+    'Deleted': [
+        {
+            'Key': 'string',
+            'VersionId': 'string',
+            'DeleteMarker': 'true'|'false',
+            'DeleteMarkerVersionId': 'string'
+        },
+        {
+            'Key': 'string',
+        },
+    ],
+    'Error': [
+        {
+            'Key': 'string',
+            'VersionId': 'string',
+            'Code': 'string',
+            'Message': 'string'
+        },
+    ]
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+ | Deleted  |  删除成功的 Object 信息|  List |
+ | Key     | 删除成功的 Object 的路径| String|
+ | VersionId     | 删除成功的 Object 的版本号| String|
+ | DeleteMarker     | 删除成功的 Object 是否为delete marker| String|
+ | DeleteMarkerVersionId | 删除成功的 Object 的delete marker的版本号| String|
+ | Error  |  删除失败的 Object 信息| List |
+ | Key     | 删除失败的 Object 的路径| String|
+ | VersionId     | 删除失败的 Object 的版本号| String|
+ | Code     | 删除失败的 Object 对应的错误码| String|
+ | Message   |删除失败的 Object 对应的错误信息| String|
+
+## 分块操作
+分块上传对象可包括的操作：
+
+- 分块上传对象：初始化分块上传，上传分块，完成所有分块上传。
+- 分块续传：查询已上传的分块，上传分块，完成所有分块上传。
+- 删除已上传分块。
+
+### 查询分块上传
+
+#### 功能说明
+
+查询指定存储桶正在进行中的分块上传信息（List Multipart Uploads）。
+
+#### 方法原型
+
+```
+list_multipart_uploads(Bucket, Prefix="", Delimiter="", KeyMarker="", UploadIdMarker="", MaxUploads=1000, EncodingType="", **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.list_multipart_uploads(
+    Bucket='examplebucket-1250000000',
+    Prefix='string',
+    Delimiter='string',
+    KeyMarker='string',
+    UploadIdMarker='string'
+    MaxUploads=100,
+    EncodingType='url'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成  | String  | 是|
+| Prefix   |  默认为空，对分块上传的 key 进行筛选，匹配 prefix 为前缀的分块上传  | String  |  否| 
+| Delimiter   |   默认为空，设置分隔符| String|  否|
+| KeyMarker   |  和 UploadIdMarker 一起使用，指明列出分块上传的起始位置  | String  |  否|
+| UploadIdMarker   |  和 KeyMarker 一起使用，指明列出分块上传的起始位置。如果没有指定 KeyMarker，UploadIdMarker 会被忽略| String  |  否|
+| MaxUploads   | 最多返回的分块上传的数量，默认为最大的1000  | Int  |  否| 
+| EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
+
+#### 返回结果说明
+
+获取分块上传的信息，类型为 dict：
+
+```python
+{
+    'Bucket': 'examplebucket-1250000000',
+    'Prefix': 'string',
+    'Delimiter': 'string',
+    'KeyMarker': 'string',
+    'UploadIdMarker': 'string',
+    'NextKeyMarker': 'string',
+    'NextUploadIdMarker': 'string',
+    'MaxUploads': '1000',
+    'IsTruncated': 'true'|'false',,
+    'EncodingType': 'url',
+    'Upload':[
+        {
+            'UploadId': 'string',
+            'Key': 'string',
+            'Initiated': 'string',
+            'StorageClass': 'STANDARD',
+            'Owner': {
+                'DisplayName': 'string',
+                'ID': 'string'
+            },
+            'Initiator': {
+                'ID': 'string',
+                'DisplayName': 'string'
+            }
+        },
+    ],
+    'CommonPrefixes':[
+        {
+            'Prefix': 'string'
+        },
+    ],
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成  | String  | 
+| Prefix   |  默认为空，对分块上传的 key 进行筛选，匹配 prefix 为前缀的分块上传  | String  |
+| Delimiter   |   默认为空，设置分隔符| String|
+| KeyMarker   |  和 UploadIdMarker 一起使用，指明列出分块上传的 key 起始位置  | String  |
+| UploadIdMarker   |  和 KeyMarker 一起使用，指明列出分块上传的 uploadid 起始位置。如果没有指定 KeyMarker，UploadIdMarker 会被忽略| String  |
+| NextKeyMarker   |  当 IsTruncated 为 true 时，指明下一次列出分块上传的 key 的起始位置  | String  |
+| NextUploadIdMarker   |  当 IsTruncated 为 true 时，指明下一次列出分块上传的 uploadid 的起始位置| String  |
+| MaxUploads   | 最多返回的分块上传的数量，默认为最大的1000  | Int  |
+| IsTruncated   |  表示返回的分块上传否被截断  | String|
+| EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  |
+|Upload |包含所有分块上传的 list，包括 'UploadId'，'StorageClass'，'Key'，'Owner'，'Initiator'，'Initiated' 等信息|List|
+|CommonPrefixes |所有以 Prefix 开头，以 Delimiter 结尾的 Key 被归到同一类|List|
+
+
+### 初始化分块上传
+
+#### 功能说明
+
+初始化分块上传，获取对应的 uploadId（Initiate Multipart Upload）。
+
+#### 方法原型
+
+```
+create_multipart_upload(Bucket, Key, **kwargs):
+```
+#### 请求示例
+
+```python
+response = client.create_multipart_upload(
+    Bucket='examplebucket-1250000000',
+    Key='multipart.txt',
+    StorageClass='STANDARD'|'STANDARD_IA'|'ARCHIVE',
+    Expires='string'
+    CacheControl='string',
+    ContentType='string',
+    ContentDisposition='string',
+    ContentEncoding='string',
+    ContentLanguage='string',
+    Metadata={
+        'x-cos-meta-key1': 'value1',
+        'x-cos-meta-key2': 'value2'
+    },
+    ACL='private'|'public-read',
+    GrantFullControl='string',
+    GrantRead='string'
+)
+# 获取UploadId供后续接口使用
+uploadid = response['UploadId']
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ | Bucket  | Bucket 名称，由 BucketName-APPID 构成 |  String |  是 |
+ | Key  |  对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 |
+ | StorageClass  | 设置对象的存储类型，STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD | String |  否 | 
+ | Expires  |  设置 Expires | String| 否 |
+ | CacheControl  | 缓存策略，设置 Cache-Control | String |  否 | 
+ | ContentType  | 内容类型，设置 Content-Type | String |  否 | 
+ | ContentDisposition  | 文件名称，设置 Content-Disposition | String |  否 | 
+ | ContentEncoding  | 编码格式，设置 Content-Encoding | String |  否 | 
+ | ContentLanguage  | 语言类型，设置 Content-Language |  String |  否 |
+ | Metadata |用户自定义的对象元数据 | Dict |  否 |
+ | ACL |设置对象的 ACL，如 'private'，'public-read' |String| 否|
+| GrantFullControl |赋予被授权者所有的权限。格式：id="[OwnerUin]"|String|否|
+|GrantRead |赋予被授权者读的权限。格式：id="[OwnerUin]" |String|否|
+
+#### 返回结果说明
+
+获取分块上传的初始化信息，类型为 dict：
+
+```python
+{
+    'UploadId': '150219101333cecfd6718d0caea1e2738401f93aa531a4be7a2afee0f8828416f3278e5570',
+    'Bucket': 'examplebucket-1250000000', 
+    'Key': 'exampleobject' 
+}
+
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+|UploadId | 标识分块上传的 ID|String|
+|Bucket|存储桶名称，由 BucketName-APPID 组成|String|
+|Key | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 ` examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg ` 中，对象键为 doc/pic.jpg|String|
+
+### 上传分块
+
+分块上传对象（Upload Part）。
+
+#### 方法原型
+
+```
+upload_part(Bucket, Key, Body, PartNumber, UploadId, **kwargs)
+```
+#### 请求示例
+
+```python
+# 注意，上传分块的块数最多10000块
+response = client.upload_part(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Body=b'bytes'|file,
+    PartNumber=1,
+    UploadId='string',
+    EnableMD5=False|True,
+    ContentLength=123,
+    ContentMD5='string'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ | Bucket  | Bucket 名称，由 BucketName-APPID 构成 | String |  是|
+ | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String |  是|
+ | Body  | 上传分块的内容，可以为本地文件流或输入流 | file/bytes |  是|
+ | PartNumber  |标识上传分块的序号 |  Int |  是|
+ | UploadId  | 标识分块上传的 ID | String |  是|
+ | EnableMD5 | 是否需要 SDK 计算 Content-MD5，默认关闭，打开后会增加上传耗时|Bool | 否| 
+ | ContentLength  |设置传输长度 |  Int |  否|
+ | ContentMD5  | 设置上传对象的 MD5 值用于校验 | String |  否|
+ 
+#### 返回结果说明
+
+上传分块的属性，类型为 dict：
+
+```python
+{
+    'ETag': 'string'
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| ETag |上传分块的 MD5 值。|String|
+
+### 复制分块
+
+将其他对象复制为一个分块（Upload Part - Copy）。
+
+#### 方法原型
+
+```
+upload_part_copy(Bucket, Key, PartNumber, UploadId, CopySource, CopySourceRange='', **kwargs)
+```
+
+#### 请求示例
+
+```python
+response = client.upload_part_copy(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    PartNumber=100,
+    UploadId='string',
+    CopySource={
+        'Bucket': 'examplebucket-1250000000', 
+        'Key': 'exampleobject', 
+        'Region': 'ap-guangzhou',
+        'VersionId': 'string'
+    },
+    CopySourceRange='string',
+    CopySourceIfMatch='string',
+    CopySourceIfModifiedSince='string',
+    CopySourceIfNoneMatch='string',
+    CopySourceIfUnmodifiedSince='string'
+)
+```
+
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String|  是 |
+|  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String| 是 |
+| PartNumber  |标识上传分块的序号 |  Int |  是|
+| UploadId  | 标识分块上传的 ID | String |  是|
+|  CopySource  | 描述拷贝源对象的路径，包含 Bucket、Key、Region、VersionId |  Dict | 是 |
+|CopySourceRange| 描述拷贝源对象的范围，格式为 bytes=first-last。不指定时，默认拷贝整个源对象|String|否|
+|CopySourceIfMatch| 源对象的 Etag 与给定的值相同时才拷贝|String|否|
+|CopySourceIfModifiedSince| 源对象在给定的时间后被修改相才拷贝|String|否|
+|CopySourceIfNoneMatch| 源对象的 Etag 与给定的值不相同时才拷贝|String|否|
+|CopySourceIfUnmodifiedSince| 源对象在给定的时间后没有修改相才拷贝|String|否|
+
+#### 返回结果说明
+
+复制分块的属性，类型为 dict：
+```python
+{
+    'ETag': 'string',
+    'LastModified': 'string',
+    'x-cos-copy-source-version-id': 'string',
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| ETag |拷贝分块的 MD5 值|String|
+| LastModified |拷贝分块的最后一次修改时间|String|
+| x-cos-copy-source-version-id | 源对象的版本号 | String | 
+
+### 查询已上传块
+
+#### 功能说明
+
+查询特定分块上传操作中的已上传的块（List Parts）。
+
+#### 方法原型
+
+```
+list_parts(Bucket, Key, UploadId, MaxParts=1000, PartNumberMarker=0, EncodingType='', **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.list_parts(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    UploadId=uploadid,
+    MaxParts=1000,
+    PartNumberMarker=100,
+    EncodingType='url'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是|
+|Key |对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg|String| 是|
+|UploadId |标识分块上传的 ID|String| 是|
+|MaxParts |最多返回的分块的数量，默认为最大的1000|Int| 否|
+|PartNumberMarker |默认为0，从第一块列出分块，从 PartNumberMarker 下一个分块开始列出|Int| 否|
+|EncodingType |默认不编码，规定返回值的编码方式，可选值：url |String|否|
+
+#### 返回结果说明
+
+所有上传分块的信息，类型为 dict：
+
+```python
+{
+    'Bucket': 'examplebucket-1250000000', 
+    'Key': 'exampleobject', 
+    'UploadId': '1502192444bdb382add546a35b2eeab81e06ed84086ca0bb75ea45ca7fa073fa9cf74ec4f2', 
+    'EncodingType': None, 
+    'MaxParts': '1000',
+    'IsTruncated': 'true',
+    'PartNumberMarker': '0', 
+    'NextPartNumberMarker': '1000', 
+    'StorageClass': 'Standard',
+    'Part': [
+        {
+            'LastModified': '2017-08-08T11:40:48.000Z',
+            'PartNumber': '1',
+            'ETag': '"8b8378787c0925f42ccb829f6cc2fb97"',
+            'Size': '10485760'
+        },
+    ], 
+    'Initiator': {
+        'DisplayName': '3333333333', 
+        'ID': 'qcs::cam::uin/3333333333:uin/3333333333'
+    }, 
+    'Owner': {
+        'DisplayName': '124564654654',
+        'ID': '124564654654'
+    }
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成  | String  |
+|  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 
+|  UploadId  |  标识分块上传的 ID | String | 
+| EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  |
+| MaxParts   | 最多返回的分块的数量，默认为最大的1000  | String  |
+| IsTruncated   |  表示返回的分块是否被截断  | String|
+| PartNumberMarker   | 默认为0，从第一块列出分块，从 PartNumberMarker 下一个分块开始列出  | String  |
+| NextPartNumberMarker   |  指明下一次列出分块的起始位置  | String  |
+ |  StorageClass  |  对象的存储类型，STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD | String |
+|  Part |上传分块的相关信息，包括 ETag，PartNumber，Size，LastModified | String |
+ |  Initiator  | 分块上传的创建者，包括 DisplayName 和 ID | Dict | 
+ |  Owner  | 对象拥有者的信息，包括 DisplayName 和 ID | Dict | 
+
+
+
+### 完成分块上传
+
+#### 功能说明
+
+完成整个对象的分块上传（Complete Multipart Upload）。
+
+#### 方法原型
+
+```
+complete_multipart_upload(Bucket, Key, UploadId, MultipartUpload={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.complete_multipart_upload(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    UploadId=uploadid,
+    MultipartUpload={
+        'Part': [
+            {
+                'ETag': 'string',
+                'PartNumber': 1
+            },
+            {
+                'ETag': 'string',
+                'PartNumber': 2
+            },
+        ]
+    },
+)
+
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|  Bucket  | Bucket 名称，由 BucketName-APPID 构成 | String |   是| 
+|  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String  |   是| 
+|  UploadId  | 标识分块上传的 ID | String  |   是| 
+|  MultipartUpload  |所有分块的 ETag 和 PartNumber 信息 |  Dict |   是| 
+
+#### 返回结果说明
+
+组装后的对象的相关信息，类型为 dict：
+
+```python
+{
+    'ETag': '"3f866d0050f044750423e0a4104fa8cf-2"', 
+    'Bucket': 'examplebucket-1250000000', 
+    'Location': 'examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/exampleobject', 
+    'Key': 'exampleobject'
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- | 
+ |  ETag  |	合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性。如需校验对象内容，可以在上传过程中校验单个分块的ETag值。|  String | 
+ |  Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String | 
+ |  Location  | URL 地址 |  String | 
+ |  Key  |  对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String |
+
+
+### 终止分块上传
+
+#### 功能说明
+
+终止一个分块上传操作并删除已上传的块（Abort Multipart Upload）。
+
+#### 方法原型
+
+```
+abort_multipart_upload(Bucket, Key, UploadId, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.abort_multipart_upload(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    UploadId=uploadid
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是|
+|Key |对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg|String| 是|
+|UploadId |标识分块上传的 ID|String| 是|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+## 其他操作
+
+### 恢复归档对象 
+
+#### 功能说明
+
+将归档类型的对象取回访问（POST Object restore）。
+
+#### 方法原型
+
+```
+restore_object(Bucket, Key, RestoreRequest={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.restore_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    RestoreRequest={
+        'Days': 100,
+        'CASJobParameters': {
+            'Tier': 'Expedited'|'Standard'|'Bulk'
+        }
+    }
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是|
+|Key |对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg|String|是|
+|RestoreRequest| 描述取回的临时对象的规则| Dict|是|
+|Days| 描述临时对象的过期时间| Int|是|
+|CASJobParameters| 描述恢复类型的配置信息| Dict|否|
+|Tier| 描述取回临时对象的模式，可选值为'Expedited'，Standard'，'Bulk'，分别对应快速、标准以及慢这三种模式| String|否|
+
+#### 返回结果说明
+该方法返回值为 None。
+
+
+### 设置对象 ACL
+
+#### 功能说明
+
+设置存储桶中某个对象的访问控制列表（PUT Object acl）。
+
+#### 方法原型
+
+```
+put_object_acl(Bucket, Key, AccessControlPolicy={}, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.put_object_acl(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    ACL='private'|'public-read',
+    GrantFullControl='string',
+    GrantRead='string',
+    AccessControlPolicy={
+        'Grant': [
+            {
+                'Grantee': {
+                    'DisplayName': 'string',
+                    'Type': 'CanonicalUser'|'Group',
+                    'ID': 'string',
+                    'URI': 'string'
+                },
+                'Permission': 'FULL_CONTROL'|'WRITE'|'READ'
+            },
+        ],
+        'Owner': {
+            'DisplayName': 'string',
+            'ID': 'string'
+        }
+    }
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+| Bucket   | 存储桶名称，由 BucketName-APPID 构成 | String  |  是  |
+| Key   | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String  |  是  | 
+| ACL |设置对象的 ACL，如 'private'，'public-read' |String| 否| 
+| GrantFullControl |赋予指定账户对对象的所有权限。格式为`id="[OwnerUin]"`|String|否|
+|GrantRead |赋予指定账户对对象的读权限。格式为`id="[OwnerUin]"`|String|否|
+| AccessControlPolicy   | 赋予指定账户对对象的访问权限，具体格式见 get object acl 返回结果说明| Dict  | 否  | 
+
+
+#### 返回结果说明
+
+该方法返回值为 None。
+
+### 查询对象 ACL
+
+#### 功能说明
+
+查询对象的访问控制列表（GET Object acl）。
+
+#### 方法原型
+
+```
+get_object_acl(Bucket, Key, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.get_object_acl(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+#### 参数说明
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+|Bucket|存储桶名称，由 BucketName-APPID 构成|String| 是|
+|Key |对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg|String|是|
+
+
+#### 返回结果说明
+
+Bucket ACL 信息，类型为 Dict：
+```python
+{
+    'Owner': {
+        'DisplayName': 'string',
+        'ID': 'string'
+    },
+    'Grant': [
+        {
+            'Grantee': {
+                'DisplayName': 'string',
+                'Type': 'CanonicalUser'|'Group',
+                'ID': 'string',
+                'URI': 'string'
+            },
+            'Permission': 'FULL_CONTROL'|'WRITE'|'READ'
+        },
+    ]
+}
+```
+
+| 参数名称   | 参数描述   |类型 |
+| -------------- | -------------- |---------- | 
+ |  Owner  | 对象拥有者的信息，包括 DisplayName 和 ID | Dict | 
+ |  Grant  | 对象权限授予者的信息，包括 Grantee 和 Permission | List | 
+ |  Grantee  |对象权限授予者的信息，包括 DisplayName，Type，ID 和 URI |  Dict | 
+ |  DisplayName  |  权限授予者的名字 | String |
+ |  Type  |  权限授予者的类型，类型为 CanonicalUser 或者 Group | String |
+ |  ID  | Type 为 CanonicalUser 时，对应权限授予者的 ID | String | 
+ |  URI  |Type 为 Group 时，对应权限授予者的 URI |  String | 
+ |  Permission  |  授予者所拥有的对象的权限，可选值有 FULL_CONTROL，WRITE，READ，分别对应所有权限、写权限、读权限 | String |
+
+
+ ## 高级接口（推荐）
+
+### 上传对象（断点续传）
+
+#### 功能说明
+该高级接口根据用户文件的长度自动选择简单上传以及分块上传，对于小于等于20M的文件调用简单上传，对于大于20MB的文件调用分块上传，对于分块上传未完成的文件会自动进行断点续传。
+
+#### 方法原型
+
+```
+upload_file(Bucket, Key, LocalFilePath, PartSize=1, MAXThread=5, **kwargs)
+```
+#### 请求示例
+
+```python
+response = client.upload_file(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    LocalFilePath='local.txt',
+    EnableMD5=False
+)
+```
+
+#### 全部参数请求示例
+```python
+response = client.upload_file(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    LocalFilePath='local.txt',
+    PartSize=1,
+    MAXThread=5,
+    EnableMD5=False|True,
+    ACL='private'|'public-read', # 请慎用此参数,否则会达到1000条ACL上限
+    GrantFullControl='string',
+    GrantRead='string',
+    StorageClass='STANDARD'|'STANDARD_IA'|'ARCHIVE',
+    Expires='string',
+    CacheControl='string',
+    ContentType='string',
+    ContentDisposition='string',
+    ContentEncoding='string',
+    ContentLanguage='string',
+    ContentLength='123',
+    ContentMD5='string',
+    Metadata={
+        'x-cos-meta-key1': 'value1',
+        'x-cos-meta-key2': 'value2'
+    }
+)
+```
+#### 参数说明
+
+
+| 参数名称   | 参数描述   |类型 | 必填 | 
+| -------------- | -------------- |---------- | ----------- |
+ |  Bucket  | 存储桶名称，由 BucketName-APPID 构成 | String |   是 |
+ |  Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String |  是 | 
+|  LocalFilePath  | 本地文件的路径名 |  String |  是 |
+|  PartSize  | 分块上传的分块大小，默认为1MB |  Int |  否 |
+|  MAXThread  | 分块上传的并发数量，默认为5个线程上传分块 |  Int |  否 |
+| EnableMD5 | 是否需要 SDK 计算 Content-MD5，默认关闭，打开后会增加上传耗时|Bool | 否| 
+| ACL |设置对象的 ACL，如 'private'，'public-read'|String| 否|
+| GrantFullControl |赋予被授权者所有的权限。格式：id="[OwnerUin]"|String|否|
+|GrantRead |赋予被授权者读的权限。格式：id="[OwnerUin]"  |String|否|
+ |  StorageClass  |  设置对象的存储类型，STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD | String |   否 |
+ |  Expires  | 设置 Expires | String|  否 | 
+ |  CacheControl  |  缓存策略，设置 Cache-Control | String |   否 |
+ |  ContentType  | 内容类型，设置 Content-Type |String |   否 |  
+ |  ContentDisposition  |  文件名称，设置 Content-Disposition | String |   否 |
+ |  ContentEncoding  |  编码格式，设置 Content-Encoding | String |   否 |
+ |  ContentLanguage  |  语言类型，设置 Content-Language | String |   否 |
+ |  ContentLength  | 设置传输长度 | String |   否 | 
+ |  ContentMD5  | 设置上传对象的 MD5 值用于校验 | String |   否 | 
+ |  Metadata | 用户自定义的对象元数据 | Dict |   否 |
+
+#### 返回结果说明
+上传对象的属性，类型为 dict：
+
+```python
+{
+    'ETag': 'string'
+}
+```
+
+| 参数名称   | 参数描述   |类型 | 
+| -------------- | -------------- |---------- |
+|  ETag   |  上传对象的 MD5 值  | String  |

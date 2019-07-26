@@ -111,7 +111,7 @@ __参数__
 
 __返回__
 
-是否成功停止播放. 0：成功；非0：失败。
+是否成功停止播放，0：成功；非0：失败。
 
 ***
 
@@ -400,7 +400,7 @@ __参数__
 
 __返回__
 
-true：设置成功； false：设置失败.。
+true：设置成功； false：设置失败。
 
 ***
 
@@ -441,10 +441,10 @@ __介绍__
 ***
 
 
-## 商用企业版美颜和动效挂件
+## 商业版美颜和动效挂件
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+设置大眼级别（商业版有效，其它版本设置此参数无效）。
 ```
 void setEyeScaleLevel(int eyeScaleLevel)
 ```
@@ -459,7 +459,7 @@ __参数__
 
 ### setFaceSlimLevel
 
-设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 void setFaceSlimLevel(int faceScaleLevel)
 ```
@@ -474,7 +474,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置V脸级别（商用企业版有效，其它版本设置此参数无效。
+设置V脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 void setFaceVLevel(int faceVLevel)
 ```
@@ -489,7 +489,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 void setChinLevel(int chinLevel)
 ```
@@ -504,7 +504,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 void setFaceShortLevel(int faceShortlevel)
 ```
@@ -519,7 +519,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 void setNoseSlimLevel(int noseSlimLevel)
 ```
@@ -534,7 +534,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 boolean setGreenScreenFile(String file)
 ```
@@ -543,7 +543,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | String | 视频文件路径。支持 MP4; null 表示关闭特效。 |
+| file | String | 视频文件路径。支持 MP4；null 表示关闭特效。 |
 
 __介绍__
 
@@ -553,7 +553,7 @@ __介绍__
 
 ### setMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 void setMotionTmpl(String motionPath)
 ```
@@ -568,7 +568,7 @@ __参数__
 
 ### setMotionMute
 
-设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+设置动效静音（商业版有效，其它版本设置此参数无效）。
 ```
 void setMotionMute(boolean motionMute)
 ```
@@ -813,11 +813,11 @@ __参数__
 
 __返回__
 
-0：成功；-1：videoPath为空；-2：上次录制尚未结束，请先调用 stopRecord；-3：推流尚未开始。
+0：成功；-1：videoPath 为空；-2：上次录制尚未结束，请先调用 stopRecord；-3：推流尚未开始。
 
 >?
 >- 只有启动推流后才能开始录制，非推流状态下启动录制无效。
->- 出于安装包体积的考虑，仅专业版和商用企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>- 出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
 >- 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
 
 ***
@@ -874,7 +874,7 @@ __返回__
  -1: 视频分辨率非法；
  -3: 视频格式非法；
  -4: 视频图像长宽不符合要求，画面比要求的小了；
- -1000: SDK内部错误。
+ -1000: SDK 内部错误。
 
 __介绍__
 
@@ -911,10 +911,10 @@ __返回__
 如果返回值大于0，代表发送成功，但发送的帧率过高，超过了 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中设置的帧率， 帧率过高会导致最终编出的码率超过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中设置的码率，返回值表示当前视频帧比预期提前的毫秒数。
  0: 发送成功；
  -1: 视频分辨率非法；
- -2: YUV数据长度与设置的视频分辨率所要求的长度不一致；
+ -2: YUV 数据长度与设置的视频分辨率所要求的长度不一致；
  -3: 视频格式非法；
  -4: 视频图像长宽不符合要求，画面比要求的小了；
- -1000: SDK内部错误。
+ -1000: SDK 内部错误。
 
 __介绍__
 
@@ -940,11 +940,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pcmBuffer | byte [] | pcm音频数据。 |
+| pcmBuffer | byte [] | pcm 音频数据。 |
 
 __介绍__
 
-在自定义音频采集模式下，SDK 不再继续从麦克风采集声音，只保留编码和发送能力，您需要定时地发送自己采集的声音数据（PCM格式）
+在自定义音频采集模式下，SDK 不再继续从麦克风采集声音，只保留编码和发送能力，您需要定时地发送自己采集的声音数据（PCM 格式）
 要开启自定义音频采集，需要完成如下两个步骤：
 - 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_CAPTURE 选项，代表开启自定义音频采集。
 - 设定音频采样率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 audioSampleRate 属性设置为您期望的音频采样率，audioChannels 设置为期望的声道数，默认值：1（单声道）。

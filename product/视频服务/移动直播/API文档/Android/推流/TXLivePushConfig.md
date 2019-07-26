@@ -86,8 +86,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | watermark | Bitmap | 水印图片。 |
-| x | int | 水印位置的X轴坐标。 |
-| y | int | 水印位置的Y轴坐标。 |
+| x | int | 水印位置的 X 轴坐标。 |
+| y | int | 水印位置的 Y 轴坐标。 |
 
 __介绍__
 
@@ -182,7 +182,7 @@ __介绍__
 
 接口说明：
 - 默认值：TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO
-- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用[TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig.23setpauseimg.28bitmap)传入的图片作为画面推流，声音不做暂停，继续录制麦克风或 custom 音频发送
+- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用 [TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig.23setpauseimg.28bitmap) 传入的图片作为画面推流，声音不做暂停，继续录制麦克风或 custom 音频发送
 - TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或 custom 视频数据
 - TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO|TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推送暂停图片和静音数据。
 
@@ -331,7 +331,7 @@ __介绍__
 
 接口说明：
 - 默认值：false。
-- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在 (videoBitrateMin - videoBitrateMax)。
+- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（videoBitrateMin - videoBitrateMax）。
 
 ***
 
@@ -496,9 +496,9 @@ __参数__
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连.通过此函数设置 SDK 重连次数。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数设置 SDK 重连次数。
 接口说明：
-- 默认值：3
+- 默认值：3。
 - 取值范围：1 - 10。
 
 ***
@@ -518,7 +518,7 @@ __参数__
 
 __介绍__
 
-当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连.通过此函数来设置两次重连间隔时间。
+当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数来设置两次重连间隔时间。
 接口说明：
 - 默认值：3秒
 - 取值范围：3 - 30 秒。
@@ -588,7 +588,7 @@ __介绍__
 
 接口说明：
 - 默认值：TXLiveConstants#ENCODE_VIDEO_AUTO，自动选择是否启用硬件加速。
-- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速、TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速.默认禁用硬件加速。
+- 其他值：TXLiveConstants#ENCODE_VIDEO_HARDWARE，开启硬件加速，TXLiveConstants#ENCODE_VIDEO_SOFTWARE，禁用硬件加速，默认禁用硬件加速。
 
 ***
 
@@ -644,7 +644,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyLevel | int | 美颜等级.。 |
+| beautyLevel | int | 美颜等级。 |
 | whiteningLevel | int | 美白等级。 |
 | ruddyLevel | int | 红润等级。 |
 

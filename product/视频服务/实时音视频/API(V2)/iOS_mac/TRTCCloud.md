@@ -7,7 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 创建与销毁
 ### sharedInstance
 
-创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
+创建 [TRTCCloud](#trtccloud) 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -15,7 +15,7 @@ TRTCCloud @ TXLiteAVSDK。
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
+销毁 [TRTCCloud](#trtccloud) 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -37,7 +37,7 @@ __参数__
 | param | [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) * | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32261#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
 
 
 ### exitRoom
@@ -46,6 +46,24 @@ __参数__
 ```
 - (void)exitRoom
 ```
+
+
+### switchRole
+
+切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。
+```
+- (void)switchRole:(TRTCRoleType)role 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32261#trtcroletype) | 目标角色。 |
+
+__介绍__
+
+在直播场景下，一个用户可能需要在“观众”和“主播”之间来回切换。 您可以在进房前通过 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) 中的 role 字段确定角色，也可以通过 switchRole 在进房后切换角色。
 
 
 ### connectOtherRoom
@@ -65,7 +83,7 @@ __介绍__
 
 TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，该功能意义不大。 在直播场景下，该功能可用于实现“主播 PK”的功能，即两个主播在已经有各自音视频房间存在的情况下， 通过跨房通话功能，可以在保留两个音视频房间的情况下把麦上的主播拉通在一起。
 跨房通话的参数采用了 JSON 格式，要求至少包含两个字段：
-- roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
+- roomId：连麦房间号，例如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
 - userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
 
 
@@ -233,7 +251,7 @@ __参数__
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+该设置决定了 SDK 在各种网络环境下的调控策略（例如弱网下是“保清晰”还是“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -351,7 +369,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 是否开启远端镜像，YES:开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
+| mirror | BOOL | 是否开启远端镜像，YES：开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
 
 __介绍__
 
@@ -392,7 +410,7 @@ __返回__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
 - 如果有些人的下行网络很好，可以选择观看【高清】画面
 - 如果有些人的下行网络不好，可以选择观看【低清】画面。
@@ -483,7 +501,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(NO) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录指出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
 
 
 ### setAudioRoute
@@ -506,7 +524,7 @@ __介绍__
 
 ### muteRemoteAudio
 
-静音掉某一个用户的声音。
+静音某一个用户的声音。
 ```
 - (void)muteRemoteAudio:(NSString *)userId mute:(BOOL)mute 
 ```
@@ -521,7 +539,7 @@ __参数__
 
 ### muteAllRemoteAudio
 
-静音掉所有用户的声音。
+静音所有用户的声音。
 ```
 - (void)muteAllRemoteAudio:(BOOL)mute 
 ```
@@ -671,7 +689,7 @@ Mac 主机本身自带一个质量很好的摄像头，但它也允许插入 USB
 
 ### getCurrentCameraDevice
 
-获取当前要使用的摄像头。
+获取当前使用的摄像头。
 ```
 - (TRTCMediaDeviceInfo *)getCurrentCameraDevice
 ```
@@ -740,7 +758,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### getCurrentMicDeviceVolume
@@ -808,7 +826,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### getCurrentSpeakerDeviceVolume
@@ -838,7 +856,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 
@@ -1018,7 +1036,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
+| file | NSURL * | 视频文件路径。支持 MP4，nil 表示关闭特效。 |
 
 __介绍__
 
@@ -1184,7 +1202,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### pauseScreenCapture
@@ -1196,7 +1214,7 @@ __返回__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### resumeScreenCapture
@@ -1208,7 +1226,7 @@ __返回__
 
 __返回__
 
-0：成功；<0：失败。
+0：成功；\<0：失败。
 
 
 ### setSubStreamEncoderParam
@@ -1317,12 +1335,12 @@ __参数__
 
 __返回__
 
-0：成功；<0：错误。
+0：成功；\<0：错误。
 
 __介绍__
 
 设置此方法后，SDK 内部会跳过自己原来的渲染流程，并把采集到的数据回调出来，您需要自己完成画面的渲染。
-- pixelFormat 指定回调的数据格式，比如 NV12、i420 以及 32BGRA。
+- pixelFormat 指定回调的数据格式，例如 NV12、i420 以及 32BGRA。
 - bufferType 指定 buffer 的类型，直接使用 PixelBuffer 效率最高；使用 NSData 相当于让 SDK 在内部做了一次内存转换，因此会有额外的性能损耗。
 
 
@@ -1346,7 +1364,7 @@ __参数__
 
 __返回__
 
-0：成功；<0：错误。
+0：成功；\<0：错误。
 
 __介绍__
 
@@ -1893,7 +1911,7 @@ __参数__
 
 __介绍__
 
-仪表盘是状态统计和事件消息浮层　view，方便调试。 
+仪表盘是状态统计和事件消息浮层 view，方便调试。 
 
 
 

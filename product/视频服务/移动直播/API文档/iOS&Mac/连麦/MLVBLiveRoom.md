@@ -1,12 +1,11 @@
 
-
 __功能__
 
 腾讯云移动直播 - 连麦直播间。
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和 云通讯（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -53,7 +52,7 @@ __返回__
 
 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例。
 
->?可以调用 MLVBLiveRoom::destroySharedInstance() 销毁单例对象。
+>?可以调用 MLVBLiveRoom destroySharedInstance  销毁单例对象。
 
 ***
 
@@ -90,6 +89,22 @@ __参数__
 ```
 - (void)logout
 ```
+
+***
+
+### setSelfProfile
+
+修改个人信息。
+```
+- (void)setSelfProfile:(NSString *)userName avatarURL:(NSString *)avatarURL completion:(void(^)(int code, NSString *msg))completion 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userName | NSString * | 昵称。 |
+| avatarURL | NSString * | 头像地址。 |
 
 ***
 
@@ -159,7 +174,7 @@ __参数__
 __介绍__
 
 主播开播的正常调用流程是： 
-1. 主播调用 startLocalPreview() 打开摄像头预览，此时可以调整美颜参数。 
+1. 主播调用 startLocalPreview  打开摄像头预览，此时可以调整美颜参数。 
 2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 completion 通知主播。
 
 ***
@@ -182,8 +197,8 @@ __参数__
 __介绍__
 
 观众观看直播的正常调用流程是： 
-1. 观众调用 getRoomList() 刷新最新的直播房间列表，并通过 completion 回调拿到房间列表。 
-2. 观众选择一个直播间以后，调用 enterRoom() 进入该房间。
+1. 观众调用 getRoomList  刷新最新的直播房间列表，并通过 completion 回调拿到房间列表。 
+2. 观众选择一个直播间以后，调用 enterRoom  进入该房间。
 
 ***
 
@@ -264,14 +279,14 @@ __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
-2. 主播会收到 MLVBLiveRoomDelegate::onRequestJoinAnchor 的回调通知。
+2. 主播会收到 MLVBLiveRoomDelegate onRequestJoinAnchor 的回调通知。
 3. 主播调用 reponseJoinAnchor 确定是否接受观众的连麦请求。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 joinAnchor 正式进入连麦状态。
-7. 主播一旦观众进入连麦状态，主播就会收到 MLVBLiveRoomDelegate::onAnchorEnter 通知。
+7. 主播一旦观众进入连麦状态，主播就会收到 MLVBLiveRoomDelegate onAnchorEnter 通知。
 8. 主播主播调用 startRemoteView 就可以看到连麦观众的视频画面。
-9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 MLVBLiveRoomDelegate::onAnchorJoin 通知，用于展示（startRemoteView）其他连麦者的视频画面。
+9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 MLVBLiveRoomDelegate onAnchorJoin 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***
 
@@ -292,7 +307,7 @@ __参数__
 
 __介绍__
 
-主播在收到 MLVBLiveRoomDelegate::onRequestJoinAnchor() 回调之后会需要调用此接口来处理观众的连麦请求。
+主播在收到 MLVBLiveRoomDelegate onRequestJoinAnchor  回调之后会需要调用此接口来处理观众的连麦请求。
 
 ***
 
@@ -311,7 +326,7 @@ __参数__
 
 __介绍__
 
-进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate::onAnchorEnter 通知。
+进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorEnter 通知。
 
 ***
 
@@ -330,7 +345,7 @@ __参数__
 
 __介绍__
 
-退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate::onAnchorExit 通知。
+退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorExit 通知。
 
 ***
 
@@ -349,7 +364,7 @@ __参数__
 
 __介绍__
 
-主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate::onKickoutJoinAnchor 回调通知。
+主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate onKickoutJoinAnchor 回调通知。
 
 ***
 
@@ -372,12 +387,12 @@ __参数__
 __介绍__
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B，他们之间的跨房 PK 流程如下：
-1. 主播 A 调用 requestRoomPK() 向主播 B 发起连麦请求。
-2. 主播 B 会收到 MLVBLiveRoomDelegate::onRequestRoomPK(AnchorInfo) 回调通知。
-3. 主播 B 调用 responseRoomPK() 确定是否接受主播 A 的 PK 请求。
-4. 主播 B 如果接受了主播 A 的要求，可以直接调用 startRemoteView() 来显示主播 A 的视频画面。
+1. 主播 A 调用 requestRoomPK  向主播 B 发起连麦请求。
+2. 主播 B 会收到 MLVBLiveRoomDelegate onRequestRoomPK 回调通知。
+3. 主播 B 调用 responseRoomPK  确定是否接受主播 A 的 PK 请求。
+4. 主播 B 如果接受了主播 A 的要求，可以直接调用 startRemoteView  来显示主播 A 的视频画面。
 5. 主播 A 会通过传入的 completion 收到回调通知，可以得知请求是否被同意。
-6. 主播 A 如果请求被同意，则可以调用 startRemoteView() 显示主播 B 的视频画面。
+6. 主播 A 如果请求被同意，则可以调用 startRemoteView  显示主播 B 的视频画面。
 
 ***
 
@@ -417,7 +432,7 @@ __参数__
 
 __介绍__
 
-当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate::onQuitRoomPK 回调通知。
+当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate onQuitRoomPK 回调通知。
 
 ***
 
@@ -647,7 +662,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商用企业版有效，普通版本设置此选项无效）。 |
+| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商业版有效，普通版本设置此选项无效）。 |
 | beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
 | ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
@@ -689,7 +704,7 @@ __参数__
 
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，普通版本设置此参数无效）。
+设置大眼级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setEyeScaleLevel:(float)eyeScaleLevel 
 ```
@@ -704,7 +719,7 @@ __参数__
 
 ### setFaceScaleLevel
 
-设置瘦脸级别（商用企业版有效，普通版本设置此参数无效）。
+设置瘦脸级别（商业版有效，普通版本设置此参数无效）。
 ```
 - (void)setFaceScaleLevel:(float)faceScaleLevel 
 ```
@@ -719,7 +734,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)faceVLevel 
 ```
@@ -734,7 +749,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setChinLevel:(float)chinLevel 
 ```
@@ -749,7 +764,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceShortLevel:(float)faceShortlevel 
 ```
@@ -764,7 +779,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setNoseSlimLevel:(float)noseSlimLevel 
 ```
@@ -779,7 +794,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setGreenScreenFile:(NSURL *)file 
 ```
@@ -797,7 +812,7 @@ __参数__
 
 ### selectMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
 ```

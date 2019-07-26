@@ -1,0 +1,32 @@
+## 简介
+
+COS XML Python SDK 操作成功会返回一个 dict 或者 None。若调用 SDK 接口请求 COS 服务失败，系统将抛出 CosClientError（客户端异常）或者 CosServiceError （服务端异常）。
+- CosClientError 是由于客户端无法和 COS 服务端正常进行交互所引起。如客户端无法连接到服务端，无法解析服务端返回的数据，读取本地文件发生 IO 异常等。
+- CosServiceError 是客户端和 COS 服务端交互正常，但操作 COS 资源失败。如客户端访问一个不存在的存储桶，删除一个不存在的对象，没有权限进行某个操作等。
+
+## 客户端异常
+CosClientError 一般指如 timeout 引起的客户端错误，用户捕获后可以选择重试或其它操作。
+
+## 服务端异常
+CosServiceError 提供服务端返回的具体信息，包含了服务端返回的状态码、requestid 和出错明细等。捕获异常后，建议对整个异常进行打印，异常包含了必须的排查因素。以下是异常成员变量的描述以及异常捕获示例。
+
+| 成员         | 描述             | 类型   |
+| ----------- | ---------------- | ------ |
+| request_id    | 请求 ID，用于唯一标识一个请求，对于排查问题十分重要              | string |
+| status_code   | response 的 status 状态码，更多详情请参阅 [COS 错误码](https://cloud.tencent.com/document/product/436/7730) | string |
+| error_code    | 请求失败时 body 返回的 Error Code，更多详情请参阅 [COS 错误码](https://cloud.tencent.com/document/product/436/7730) | string |
+| error_msg | 请求失败时 body 返回的 Error Message，更多详情请参阅 [COS 错误码](https://cloud.tencent.com/document/product/436/7730) | string |
+
+### 异常捕获示例
+
+```python
+except CosServiceError as e:
+    e.get_origin_msg()  # 获取原始错误信息，格式为XML
+    e.get_digest_msg()  # 获取处理过的错误信息，格式为dict
+    e.get_status_code() # 获取 http 错误码（如4XX，5XX)
+    e.get_error_code()  # 获取 COS 定义的错误码
+    e.get_error_msg()   # 获取 COS 错误码的具体描述
+    e.get_trace_id()    # 获取请求的 trace_id
+    e.get_request_id()  # 获取请求的 request_id
+    e.get_resource_location() # 获取 URL 地址
+```

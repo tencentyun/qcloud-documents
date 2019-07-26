@@ -17,7 +17,6 @@ pip.main(['install', "package_name"])
 ## 操作步骤
 1. **添加组件**
 从左侧菜单栏中，选择【组件】>【机器学习】 列表下的 PySpark 节点，并将其拖拽至画布中。
-![](https://main.qcloudimg.com/raw/a03a4058eb8eb15883248cfc0a9bb5bd.png)
 2. **配置参数**
  - 脚本及依赖包文件上传：
   将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过依赖包文件框上传。
@@ -46,7 +45,7 @@ pip.main(['install', "package_name"])
 使用 PySpark 的目的是更好地借助其分布式计算的优势，以解决单机完成不了的计算。如果您在 PySpark 中仍然是调用常规的 Python 库做单机计算，那就失去了使用 PySpark 的意义。下面举例说明如何编写 PySpark 分布式计算代码。
 
 #### 使用 Spark 的 DataFrame，而不要使用 Pandas 的 DataFrame
-PySpark 本身就具有类似 pandas.DataFrame 的 DataFrame，所以直接使用 PySpark 的 DataFrame 即可，基于 PySpark的DataFrame 的操作都是分布式执行的，而 pandas.DataFrame 是单机执行的，例如：
+PySpark 本身就具有类似 pandas.DataFrame 的 DataFrame，所以直接使用 PySpark 的 DataFrame 即可，基于 PySpark 的 DataFrame 的操作都是分布式执行的，而 pandas.DataFrame 是单机执行的，例如：
 ```
 ...
 df = spark.read.json("examples/src/main/resources/people.json")

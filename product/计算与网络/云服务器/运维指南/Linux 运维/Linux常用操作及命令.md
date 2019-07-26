@@ -1,7 +1,6 @@
 ## 1. 什么是 Linux 服务器 Load Average？
 
 Load 是用来度量服务器工作量的大小，即计算机 CPU 任务执行队列的长度，值越大，表明包括正在运行和待运行的进程数越多。
-参考文档：[点此获取](http://en.wikipedia.org/wiki/Load_average)。
 
 ## 2. 如何查看 Linux 服务器负载？
 
@@ -14,7 +13,7 @@ procinfo 工具安装请参考 Linux 环境下安装软件。
 
 ## 4. 如何查看服务器内存使用率？
 
-您可以通过执行 free，top（执行后可通过shitf+m对内存排序），vmstat，procinfo 命令，或者访问 /proc/meminfo 文件进行查看。 
+您可以通过执行 free，top（执行后可通过 shitf+m 对内存排序），vmstat，procinfo 命令，或者访问 /proc/meminfo 文件进行查看。 
 
 ## 5. 如何查看单个进程占用的内存大小？
 
@@ -41,7 +40,7 @@ procinfo 工具安装请参考 Linux 环境下安装软件。
 
 服务器端口的启动监听，需要从操作系统本身以及应用程序查看。
 Linux 操作系统1024以下的端口只能由 root 用户启动，即需要先运行 `sudo su –` 获取 root 权限后再启用服务端口。
-应用程序问题，建议通过应用程序启动日志来排查失败原因，例如端口冲突（腾讯服务器系统使用端口不能占用，比如36000），配置问题等。 
+应用程序问题，建议通过应用程序启动日志来排查失败原因，例如端口冲突（腾讯服务器系统使用端口36000不能占用），配置问题等。 
 
 ## 11. 常用的 Linux 服务器性能查看命令有哪些？
 <table class="t">
@@ -98,7 +97,6 @@ ps -A -o comm |sort -k1 |uniq -c|sort -k1 -rn|head，列出运行实例最多的
 </td></tr></tbody></table>
 
 其他常用的命令和文件，free -m，du，uptime，w，/proc/stat，/proc/cpuinfo，/proc/meminfo。 
-参考文档：[点此获取](http://en.wikipedia.org/wiki/Template:Unix_commands)。
 
 ## 12. Cron 不生效怎么办？
 排查步骤如下：
@@ -133,7 +131,7 @@ Linux 内核启动顺序为：
 您可以通过执行 df -i 命令进行查看和确认相关的进程。 
 -  硬件故障。
 
-如果 hosting 应用通过上述方式仍无法确认原因，请拨打咨询热线4009-100-100或提交工单协助定位。 
+如果 hosting 应用通过上述方式仍无法确认原因，请拨打咨询热线95716或提交工单协助定位。 
 
 ## 15. 如何查看 Linux 系统日志？
 

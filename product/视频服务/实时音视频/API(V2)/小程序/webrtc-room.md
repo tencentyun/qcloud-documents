@@ -1,5 +1,5 @@
 ## 标签说明
-**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [DOC](https://cloud.tencent.com/document/product/454/16915)。
+**&lt;webrtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 WebRTC 互通的自定义组件。如果您希望直接使用 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签完成对接，或者想要了解 &lt;webrtc-room&gt; 的内部原理，可以参考 [&lt;live-pusher&gt; 标签](https://cloud.tencent.com/document/product/454/12518)。
 
 ## 标签详解
 ### 属性定义
@@ -233,7 +233,7 @@ Page({
 | sdkAppID | 1400087915  | 用于计费和业务区分 |  step1 中获取 |
 | userID   | xiaoming  | 用户名 | 可以由您的服务器指定，或者使用小程序的 openid  |
 | userSig | 加密字符串  | 相当于 userid 对应的登录密码 | 由您的服务器 [签发](https://cloud.tencent.com/document/product/647/17275)|
-| roomID | 12345  | 房间号 | 可以由您的服务器指定 |
+| roomID | 12345  | 房间号 | 可以由您的服务器指定，数据类型为 uint32 |
 | privateMapKey | 加密字符串  | 当开启权限密钥时需要传。进房票据：相当于是进入 roomid 的钥匙 | 由您的服务器 [签发](https://cloud.tencent.com/document/product/647/32240)|
 
 
@@ -340,8 +340,4 @@ self.setData({
 //为 <webrtc-room> 组件中的 webrtcroom.wxss 文件添加自定义样式
 @import "../templates/mytemplate/mytemplate.wxss";
 ```
-
-
-## Chrome端对接
- 了解腾讯云官网的 [WebrtcAPI](https://cloud.tencent.com/document/product/647/16865) ，可以对接 Chrome 端的 H5 视频通话，因为不是本文档的重点，此处不做赘述。
 

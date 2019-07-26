@@ -1,5 +1,4 @@
 
-
 __功能__
 
 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调。
@@ -87,11 +86,11 @@ __介绍__
 
 
 ## 主播和观众的进出事件回调
-### onPusherJoin
+### onAnchorEnter
 
 收到新主播进房通知。
 ```
-- (void)onPusherJoin:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorEnter:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
@@ -102,18 +101,17 @@ __参数__
 
 __介绍__
 
-房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 MLVBLiveRoom::startRemoteView() 显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 MLVBLiveRoom startRemoteView  显示该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
-
 ***
 
-### onPusherQuit
+### onAnchorExit
 
 收到主播退房通知。
 ```
-- (void)onPusherQuit:(MLVBAnchorInfo *)anchorInfo 
+- (void)onAnchorExit:(MLVBAnchorInfo *)anchorInfo 
 ```
 
 __参数__
@@ -124,10 +122,9 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [stopRemoteView: (MLVBLiveRoom)](https://cloud.tencent.com/document/product/454/34763#stopremoteview.3A+.28mlvbliveroom) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763#stopremoteview) 关闭该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
-
 
 ***
 
@@ -188,7 +185,7 @@ __参数__
 
 __介绍__
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [kickoutJoinAnchor: (MLVBLiveRoom)](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor.3A+.28mlvbliveroom) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor) 来退出连麦。
 
 ***
 
@@ -209,7 +206,7 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 MLVBLiveRoom::startRemoteView() 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 MLVBLiveRoom startRemoteView  接口播放邀约主播的流。
 
 ***
 
@@ -262,5 +259,3 @@ __参数__
 | message | NSString * | 自定义消息内容。 |
 
 ***
-
-

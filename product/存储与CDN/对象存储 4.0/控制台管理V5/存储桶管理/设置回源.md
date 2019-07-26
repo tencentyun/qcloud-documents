@@ -1,0 +1,48 @@
+## 简介
+您可以通过对象存储控制台，对存储桶设置回源规则，当您请求的对象在存储桶中不存在或者需要对特定的请求进行重定向时，您可以通过回源规则从 COS 访问到对应的数据。设置回源主要用于数据的热迁移、特定请求的重定向等场景，您可以按照自身实际需要进行设置。
+
+>?回源拉取数据的成功率依赖网络环境，请优先使用电信、移动、联通等 IP 段。
+
+![](https://main.qcloudimg.com/raw/10f9f4a6c04cb95cfe0429fb30d091a3.png)
+## 操作步骤
+1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos5)，选择左侧菜单栏【存储桶列表】，进入存储桶列表页面。单击需要设置回源的存储桶。
+![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
+2. 单击【基础配置】，找到回源设置，修改当前状态为开启，然后输入回源地址，最后单击【保存】即可。配置项说明如下：
+ **回源地址**：只需填入域名或 IP 地址，支持域名或 IP 地址后面添加端口号。无需加上前缀`http://`或`https`（暂不支持）。
+正确示例地址如下：
+```shell
+abc.example.com
+abc.example.com:8080
+10.10.10.10
+10.10.10.10:8080
+```
+
+
+## 示例
+**背景**
+APPID 为 1250000000 的用户创建名为 examplebucket-1250000000 的存储桶，并开启了 CDN 加速访问域名：
+```shell
+examplebucket-1250000000.file.myqcloud.com
+```
+
+设置存储桶回源地址为：
+```shell
+abc.example.com
+```
+在源站 `http://abc.example.com` 存放图片 picture.jpg。
+
+**客户端首次访问**：
+```shell
+http://examplebucket-1250000000.file.myqcloud.com/picture.jpg
+``` 
+COS 发现无法命中对象时，对客户端返回 302 HTTP 状态码并跳转至如下地址：
+```shell
+http://abc.example.com/picture.jpg
+``` 
+此时对象由源站提供给客户端，保证访问。同时 COS 从源站复制 picture.jpg 并保存至存储桶 example 的根目录中。
+
+**第二次访问**：
+```shell
+http://examplebucket-1250000000.file.myqcloud.com/picture.jpg
+``` 
+COS 直接命中根目录下 picture.jpg 对象并返回给客户端。

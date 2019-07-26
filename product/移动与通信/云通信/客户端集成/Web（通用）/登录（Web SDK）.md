@@ -15,7 +15,7 @@ webim.login(loginInfo, listeners, options,cbOk,cbErr)
 **示例：**
 
 ```javascript
-//SDK 登录
+//IM SDK 登录
 function webimLogin() {
     webim.login(
             loginInfo, listeners, options,
@@ -37,15 +37,12 @@ function webimLogin() {
 
 | 名称           | 说明                                          | 类型   |
 | -------------- | --------------------------------------------- | ------ |
-| sdkAppID       | 用户标识接入 SDK 的应用 ID，必填              | String |
+| sdkAppID       | 用户标识接入 IM SDK 的应用 ID，必填              | String |
 | appIDAt3rd     | App 用户使用 OAuth 授权体系分配的 Appid，必填 | String |
 | identifier     | 用户帐号，必填                                | String |
-| identifierNick | 用户昵称，选填                                | String |
 | userSig        | 鉴权 Token，当填写了identifier，则该字段必填  | String |
 
->!
-> - `identifierNick` 的值只在初始化的登录时有效（第一次登录某 `identifier`)，初始化帐号后的昵称修改，需要调用 [setProfilePortrait 接口](https://cloud.tencent.com/document/product/269/1599)。
-> - Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到云通信控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web 端实例同时在线】配置实例个数。配置将在 50 分钟内生效。
+>!Web 端目前只支持单实例登录，如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到即时通信 IM 控制台相应 SDKAppID 【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
 
 
 ## 事件回调对象 listeners
@@ -72,8 +69,8 @@ function webimLogin() {
 ```javascript
 //监听事件
 var listeners = {
-    "onConnNotify": onConnNotify//监听连接状态回调变化事件,必填
-    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数，
+    "onConnNotify": onConnNotify//监听连接状态回调变化事件，选填
+    ,"jsonpCallback": jsonpCallback//IE9（含）以下浏览器用到的 jsonp 回调函数
     ,"onMsgNotify": onMsgNotify//监听新消息（私聊，普通群（非直播聊天室）消息，全员推送消息）事件，必填
     ,"onBigGroupMsgNotify": onBigGroupMsgNotify//监听新消息（直播聊天室）事件，直播场景下必填
     ,"onGroupSystemNotifys": onGroupSystemNotifys//监听（多终端同步）群系统消息事件，如果不需要监听，可不填
@@ -126,7 +123,7 @@ var onConnNotify = function (resp) {
 
 ## 事件回调对象 listeners.jsonpCallback
 
-为了兼容低版本的 IE 浏览器，SDK 使用了 jsonp 技术调用后台接口。**示例：**
+为了兼容低版本的 IE 浏览器，IM SDK 使用了 jsonp 技术调用后台接口。**示例：**
 
 ```javascript
 //位于 js/demo_base.js 中
@@ -186,7 +183,7 @@ function onMsgNotify(newMsgList) {
 ```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 receive_group_system_msg.js 文件中
 //注意每个数字代表的含义，比如，
-//1 表示监听申请加群消息，2 表示监听申请加群被同意消息，3 表示监听申请加群被拒绝消息
+//1表示监听申请加群消息，2表示监听申请加群被同意消息，3表示监听申请加群被拒绝消息
 var groupSystemNotifys = {
     "1": onApplyJoinGroupRequestNotify, //申请加群请求（只有管理员会收到）
     "2": onApplyJoinGroupAcceptNotify, //申请加群被同意（只有申请人能够收到）
@@ -288,10 +285,10 @@ function onGroupInfoChangeNotify(groupInfo) {
 
 ## 回调函数 cbOk & cbErr
 
-SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
+IM SDK 登录时，可以定义成功回调函数和失败回调函数。**示例：**
 
 ```javascript
-//SDK 登录
+//IM SDK 登录
 function webimLogin() {
     webim.login(
             loginInfo, listeners, options,
@@ -305,5 +302,5 @@ function webimLogin() {
     );
 }
 ```
->? 当您集成 SDK 出现错误时，请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) 进行处理。
+>? 当您集成 IM SDK 出现错误时，请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) 进行处理。
 

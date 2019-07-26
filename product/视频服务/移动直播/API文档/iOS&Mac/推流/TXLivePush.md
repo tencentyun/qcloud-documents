@@ -69,7 +69,7 @@ __参数__
 
 __介绍__
 
-启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush() 才能真正开始推流。
+启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush  才能真正开始推流。
 
 ***
 
@@ -97,11 +97,15 @@ __参数__
 
 __返回__
 
-0: 启动成功；-1: 启动失败。
+0：启动成功；-1：启动失败；-5：license 校验失败。
 
 __介绍__
 
 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
+
+>?
+>-5 返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750) 校验通过才能工作。
+
 
 ***
 
@@ -126,8 +130,8 @@ __介绍__
 SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https://cloud.tencent.com/document/product/454/34756#pauseimg) 中指定的图片作为替代图像进行推流，也就是所谓的“垫片”。 这项功能常用于 App 被切到后台运行的场景，尤其是在 iOS 系统中，当 App 切到后台以后，操作系统不会再允许该 App 继续使用摄像头。 此时就可以通过调用 [pausePush](https://cloud.tencent.com/document/product/454/34755#pausepush) 进入垫片状态。
 对于绝大多数推流服务器而言，如果超过一定时间不推视频数据，服务器会断开当前的推流链接。
 在 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 您可以指定：
-- pauseImg 设置后台推流的默认图片，不设置为默认黑色背景。
-- pauseFps 设置后台推流帧率，最小值为5，最大值为20，默认10。
+- pauseImg 设置后台推流的默认图片，默认为黑色背景。
+- pauseFps 设置后台推流帧率，最小值为5，最大值为20，默认为10。
 - pauseTime 设置后台推流持续时长，单位秒，默认300秒。
 
 >?请注意调用顺序：startPush => ( pausePush => resumePush ) => [stopPush](https://cloud.tencent.com/document/product/454/34755#stoppush)，错误的调用顺序会导致 SDK 表现异常。
@@ -183,7 +187,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 TXLivePusher 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
@@ -370,10 +374,10 @@ __介绍__
 ***
 
 
-## 商用企业版美颜和动效挂件
+## 商业版美颜和动效挂件
 ### setEyeScaleLevel
 
-设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+设置大眼级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setEyeScaleLevel:(float)eyeScaleLevel 
 ```
@@ -388,7 +392,7 @@ __参数__
 
 ### setFaceScaleLevel
 
-设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceScaleLevel:(float)faceScaleLevel 
 ```
@@ -403,7 +407,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置 V 脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)faceVLevel 
 ```
@@ -418,7 +422,7 @@ __参数__
 
 ### setChinLevel
 
-设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
+设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setChinLevel:(float)chinLevel 
 ```
@@ -433,7 +437,7 @@ __参数__
 
 ### setFaceShortLevel
 
-设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
+设置短脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceShortLevel:(float)faceShortlevel 
 ```
@@ -448,7 +452,7 @@ __参数__
 
 ### setNoseSlimLevel
 
-设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
+设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setNoseSlimLevel:(float)noseSlimLevel 
 ```
@@ -463,7 +467,7 @@ __参数__
 
 ### setGreenScreenFile
 
-设置绿幕背景视频（商用企业版有效，其它版本设置此参数无效）。
+设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setGreenScreenFile:(NSURL *)file 
 ```
@@ -482,7 +486,7 @@ __介绍__
 
 ### selectMotionTmpl
 
-选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
+选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
 ```
@@ -498,7 +502,7 @@ __参数__
 
 ### setMotionMute
 
-设置动效静音（商用企业版有效，其它版本设置此参数无效）。
+设置动效静音（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setMotionMute:(BOOL)motionMute 
 ```
@@ -630,6 +634,7 @@ __参数__
 - (BOOL)setBGMVolume:(float)volume 
 ```
 
+
 __参数__
 
 | 参数 | 类型 | 含义 |
@@ -746,7 +751,7 @@ __返回__
 
 >?
 >1.&nbsp;只有启动推流后才能开始录制，非推流状态下启动录制无效。
->1.&nbsp;出于安装包体积的考虑，仅专业版和商用企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>1.&nbsp;出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
 >2.&nbsp;录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
 
 ***
@@ -758,7 +763,7 @@ __返回__
 
 __返回__
 
-0：成功； -1：不存在录制任务。
+0：成功；-1：不存在录制任务。
 
 ***
 

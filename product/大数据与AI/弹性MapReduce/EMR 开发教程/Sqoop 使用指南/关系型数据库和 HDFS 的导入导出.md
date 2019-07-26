@@ -1,4 +1,4 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(MySQL、PostgreSQL 等)之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库（MySQL、PostgreSQL 等）之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 HDFS 之间导入/导出的使用方法。
 
@@ -13,8 +13,8 @@ Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库(My
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Sqoop 文件夹：
 ```
-[root@172 ~]# su Hadoop
-[hadoop@172 ~]# cd /usr/local/service/Sqoop
+[root@172 ~]# su hadoop
+[hadoop@172 ~]# cd /usr/local/service/sqoop
 ```
 连接 MySQL 数据库：
 ```
@@ -32,13 +32,13 @@ Query ok , 0 rows affected(0.00 sec)
 ```
 该指令创建了一个 MySQL 表，它的主键为 ID，然后还有三列分别为 title、time 和 content。向该表中插入一些数据如下：
 ```
-mysql> insert into sqoop_test values(null, ‘first’, now(), 'hdfs');
+mysql> insert into sqoop_test values(null, 'first', now(), 'hdfs');
 Query ok, 1 row affected(0.00 sec)
 
 mysql> insert into sqoop_test values(null, 'second', now(), 'mr');
 Query ok, 1 row affected (0.00 sec)
 
-mysql> insert into sqoop_test values(null, ‘third’, now(), 'yarn');
+mysql> insert into sqoop_test values(null, 'third', now(), 'yarn');
 Query ok, 1 row affected(0.00 sec)
 ```
 使用如下指令可以查看表中的数据：
@@ -68,7 +68,7 @@ Mysql> select * from sqoop_test;
 
 执行成功之后，可以在 HDFS 的相应路径下查看导入的数据：
 ```
-[hadoop@172 sqoop]$ hadoop fs -cat /sqoopTest/*
+[hadoop@172 sqoop]$ hadoop fs -cat /sqoop/*
 1, first, 2018-07-03 15:29:37.0,hdfs
 2, second, 2018-07-03 15:30:57.0,mr
 3, third, 2018-07-03 15:31:07.0,yarn
@@ -82,7 +82,7 @@ Enter password:
 mysql> use test;
 Database changed
 
-mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, content varchar(255);
+mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, (content varchar(255));
 Query ok , 0 rows affected(0.00 sec)
 ```
 查看表是否创建成功之后退出MySQL：
