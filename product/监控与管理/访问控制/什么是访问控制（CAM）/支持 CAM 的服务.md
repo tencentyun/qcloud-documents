@@ -45,7 +45,7 @@
 
  | 服务                                                       | 授权粒度 | 控制台 | 根据标签进行授权  | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- | -------- | ---- |	
-| [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |    -  |	
+| [负载均衡](https://cloud.tencent.com/document/product/214/9779)   | 资源级  | ✔      | ✔    | ✔        |   ✔  |	
 | [私有网络](https://cloud.tencent.com/document/product/215/20171) | 资源级 | ✔        | -     | ✔        | - |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 资源级   | ✔       | -       | ✔        | -  |	
 
@@ -91,7 +91,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- |-------- | ---- |	
 | [DDoS 防护（大禹）](https://cloud.tencent.com/document/product#network-security) | 服务级 | ✔   | -  | - |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012)  |资源级 | -   |  ✔   | -   |
-| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  ✔    |
+| [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  ✔    |✔    |
 
 ## 主机安全	
 
@@ -199,6 +199,7 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | -------------------------------------------------------- | ------ | -------- | ------- |-------- | ---- |	
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | ✔   | -  | ✔  | ✔ |
+| [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | ✔   | -  | ✔  | - |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | ✔  | -  | ✔  | -  |
 | [加速物联网套件](https://cloud.tencent.com/document/product/568)| 操作级 | ✔   | -  | ✔ |✔| 
 
@@ -206,7 +207,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权  | 临时密钥 | 服务角色 |	
 | ----------------------------------------------------------- | ------ | -------- | ------ | -------- | ---- |	
-| [TBaaS](https://cloud.tencent.com/document/product/663) | 操作级   | ✔ | -  | ✔  | - |	
+| [腾讯云区块链服务 TBaaS](https://cloud.tencent.com/document/product/663) | 操作级   | ✔ | -  | ✔  | - |	
 
 ## 云资源管理
 

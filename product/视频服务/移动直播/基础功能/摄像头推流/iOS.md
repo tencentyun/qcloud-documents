@@ -321,7 +321,7 @@ NSString* msg = @"test";
 
 常规开源播放器或者网页播放器是不能解析 SEI 消息的，必须使用 LiteAVSDK 中自带的 TXLivePlayer 才能解析这些消息：
 1. 设置 TXLivePlayConfig 中的`enableMessage`选项为 YES。
-2. 当 TXLivePlayer 所播放的视频流中由 SEI 消息时，会通过 TXLivePlayListener 中的 onPlayEvent(PLAY_EVT_GET_MESSAGE) 通知给您。
+2. 当 TXLivePlayer 所播放的视频流中有 SEI 消息时，会通过 TXLivePlayListener 中的 onPlayEvent(PLAY_EVT_GET_MESSAGE) 通知给您。
 
 ## 事件处理
 ### 1. 事件监听

@@ -29,7 +29,7 @@ curator_cli --config PATH
 ```
 ### 定时执行
 
-如需要定时执行，可以将命令配置到 linux 系统的 crontab 中，也可以直接使用上面提到的腾讯云无服务器云函数的定时触发功能。
+如需要定时执行，可以将命令配置到 Linux 系统的 crontab 中，也可以直接使用上面提到的腾讯云无服务器云函数的定时触发功能。
 
 ### 使用 API
 Python API 的使用可参考 [文档](https://curator.readthedocs.io/en/latest/)。

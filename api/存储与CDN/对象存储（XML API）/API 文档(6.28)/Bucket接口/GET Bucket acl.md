@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -63,44 +63,44 @@ Authorization: Auth String
 
 具体的节点描述如下：
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-AccessControlPolicy|无|保存 GET Bucket acl 结果的所有信息|Container
+| 节点名称（关键字）  | 父节点 | 描述                               | 类型      |
+| ------------------- | ------ | ---------------------------------- | --------- |
+| AccessControlPolicy | 无     | 保存 GET Bucket acl 结果的所有信息 | Container |
 
 **Container 节点 AccessControlPolicy 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Owner|AccessControlPolicy|存储桶持有者信息|Container
-AccessControlList|AccessControlPolicy|被授权者信息与权限信息|Container
+| 节点名称（关键字） | 父节点              | 描述                   | 类型      |
+| ------------------ | ------------------- | ---------------------- | --------- |
+| Owner              | AccessControlPolicy | 存储桶持有者信息       | Container |
+| AccessControlList  | AccessControlPolicy | 被授权者信息与权限信息 | Container |
 
 **Container 节点 Owner 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-ID|AccessControlPolicy.Owner|存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001`|string
-DisplayName|AccessControlPolicy.Owner|存储桶持有者的名字|string
+| 节点名称（关键字） | 父节点                    | 描述                                                         | 类型   |
+| ------------------ | ------------------------- | ------------------------------------------------------------ | ------ |
+| ID                 | AccessControlPolicy.Owner | 存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001` | string |
+| DisplayName        | AccessControlPolicy.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 AccessControlList 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Grant|AccessControlPolicy.AccessControlList|单个授权信息|Container
+| 节点名称（关键字） | 父节点                                | 描述         | 类型      |
+| ------------------ | ------------------------------------- | ------------ | --------- |
+| Grant              | AccessControlPolicy.AccessControlList | 单个授权信息 | Container |
 
 **Container 节点 AccessControlList.Grant 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-Grantee|AccessControlPolicy.AccessControlList.Grant|被授权者信息，`xsi:type` 为 Group 或 CanonicalUser，当为 Group 时子节点包括且仅包括 URI，当指定为 CanonicalUser 时子节点包括且仅包括 ID 和 DisplayName|Container
-Permission|AccessControlPolicy.AccessControlList.Grant|授予的权限信息。枚举值请参阅 [存储桶的操作](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档，如 WRITE， FULL_CONTROL 等|Enum
+| 节点名称（关键字） | 父节点                                      | 描述                                                         | 类型      |
+| ------------------ | ------------------------------------------- | ------------------------------------------------------------ | --------- |
+| Grantee            | AccessControlPolicy.AccessControlList.Grant | 被授权者信息，`xsi:type` 为 Group 或 CanonicalUser，当为 Group 时子节点包括且仅包括 URI，当指定为 CanonicalUser 时子节点包括且仅包括 ID 和 DisplayName | Container |
+| Permission         | AccessControlPolicy.AccessControlList.Grant | 授予的权限信息。枚举值请参阅 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中存储桶的操作部分，如 WRITE，FULL_CONTROL 等 | Enum      |
 
 **Container 节点 AccessControlList.Grant.Grantee 的内容：**
 
-节点名称（关键字）|父节点|描述|类型
----|---|---|---
-URI|AccessControlPolicy.AccessControlList.Grant.Grantee|取值为 `http://cam.qcloud.com/groups/global/AllUsers`，代表该条授权信息是针对所有用户|string
-ID|AccessControlPolicy.AccessControlList.Grant.Grantee|被授权者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001`|string
-DisplayName|AccessControlPolicy.AccessControlList.Grant.Grantee|被授权者的名字|string
+| 节点名称（关键字） | 父节点                                              | 描述                                                         | 类型   |
+| ------------------ | --------------------------------------------------- | ------------------------------------------------------------ | ------ |
+| URI                | AccessControlPolicy.AccessControlList.Grant.Grantee | 取值为 `http://cam.qcloud.com/groups/global/AllUsers`，代表该条授权信息是针对所有用户 | string |
+| ID                 | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001` | string |
+| DisplayName        | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的名字                                               | string |
 
 #### 错误码
 
