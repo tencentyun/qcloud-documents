@@ -1,0 +1,32 @@
+# 模型文件准备
+TI-EMS支持五种格式的模型文件：
+
+- TfServing
+- PMML
+- Angel
+- TensorRT
+- OpenVINO
+
+在使用TI-EMS模型服务前，您需要将准备好的模型文件夹存入对象存储COS的存储桶内。
+> 使用COS数据集的前提是必须要开通COS服务，相关详细入门指引请参考 [COS 入门](https://cloud.tencent.com/product/cos/getting-started)。
+
+> COS 服务提供一定的免费额度，超出额度部分将按服务价目表进行收费。详情请参见[COS 免费额度](https://cloud.tencent.com/document/product/436/6240) 和 [COS 定价](https://cloud.tencent.com/product/cos/pricing) 。
+
+## 模型文件夹COS上传
+### 模型文件夹准备
+TI-EMS目前仅支持模型文件夹的COS路径读取，因此您需要创建一个模型文件夹，然后在模型文件夹中存放您的模型文件，最后将准备好的模型文件夹上传到对象存储COS存储桶中。
+### 通过COS控制台上传数据文件
+- 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)。
+- 在左侧导航栏处，单击【存储桶列表】。
+![avatar](/pics1/cos存储桶.png)
+- 在存储桶列表页，单击左上角【创建存储桶】。详情请参见[创建存储桶](https://cloud.tencent.com/document/product/436/6232) 。
+
+
+![avatar](/pics1/创建存储桶.png)
+目前TI-EMS仅支持北京可用区，为了防止跨可用区产生的不必要的费用和延时，需要模型文件数据和模型服务所在region保持一致，因此建议您将存储桶区域设置为北京。
+![avatar](/pics1/选择可用区.png)
+
+- 点击存储桶名称，进入对应的存储桶，上传模型文件夹。详情请参见[上传对象](https://cloud.tencent.com/document/product/436/6233) 。
+ ![avatar](/pics1/上传文件.png)
+ 
+
