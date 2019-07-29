@@ -102,7 +102,7 @@
 
   下面以上述业务为例，详细说明“同义词API”接口的使用方法。
 ### 4.1 接口鉴权
-  示例要调用服务的数据为：{"text":"周杰伦结婚"}
+  示例要调用服务的数据为：{"text":"张三结婚"}
   则上述业务的参数列表如下：
 	
  <div class="code">
@@ -112,7 +112,7 @@
         'Region' : 'sz',
         'SecretId' : 'AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA',
         'Timestamp' : 1408704141,
-        'text': '周杰伦结婚'
+        'text': '张三结婚'
     }</pre>
 </div>
 
@@ -131,10 +131,10 @@
 	&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 	&Timestamp=1408704141
 	&Signature=HgIYOPcx5lN6gz8JsCFBNAWp2oQ
-	&text=周杰伦结婚</pre>
+	&text=张三结婚</pre>
 </div>
 
-  执行上述操作之后，会将数据{"text":"周杰伦结婚"}发送给API接口，进行相应分析。
+  执行上述操作之后，会将数据{"text":"张三结婚"}发送给API接口，进行相应分析。
    <b>注意：</b>在发送请求过程中，不能将参数字符串中包含的“_”改写成“.”。
   上述指令返回的数据结构如下：
 	
@@ -147,7 +147,7 @@
                 "word_ori": {
                     "idx_beg": 0,
                     "idx_end": 2,
-                    "text": "周杰伦"
+                    "text": "张三"
                 },
                 "word_syns": [
                     {
@@ -156,7 +156,7 @@
                     },
                     {
                         "conf": 0.2000000029802322,
-                        "text": "周董"
+                        "text": "张董"
                     }
                 ]
             }
