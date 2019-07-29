@@ -18,22 +18,22 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 ## 桌面端（Windows/macOS/Linux）
 
-### 软件界面
+#### 软件界面
 
 ![COSBrowser PC 端](https://main.qcloudimg.com/raw/6b36f6090281ac7925544ac42bbef55c.png)
 
-### 登录说明
+#### 登录说明
 
   - **云 API 密钥（SecretId/SecretKey）**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，成功登录后密钥会保存在**历史密钥**中。
   - **历史密钥**：单击**历史密钥**，可查看并使用已在该电脑成功登录过的云 API 密钥。
 
 ## 移动端（Android）
 
-### 软件界面
+#### 软件界面
 
 ![COSBrowser移动端](https://main.qcloudimg.com/raw/8cde524816485071348ff3d7aaca863f.png)
 
-### 登录说明
+#### 登录说明
 
 COSBrowser 移动端支持以下两种登录方式：
   - **微信快捷登录**：通过微信创建的腾讯云账号，可以使用微信快捷登录方式快速登录 COSBrowser 。
@@ -86,7 +86,7 @@ COSBrowser 移动端支持以下两种登录方式：
 
 ### 更多操作
 #### 通用设置
-选择 【设置】>【通用】，进入 COSBrowser 的设置界面修改通用配置，如语言、服务端域名、是否使用 HTTPS 等。
+选择【设置】>【通用】，进入 COSBrowser 的设置界面修改通用配置，例如语言、服务端域名、是否使用 HTTPS 等。
 
 #### 上传/下载参数配置
 - 文件并发数：设置文件上传或下载的并发任务数，超过最大并发数量的任务会进入等待队列，待前序任务完成后执行。
