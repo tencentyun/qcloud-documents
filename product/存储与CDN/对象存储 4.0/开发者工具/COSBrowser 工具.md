@@ -16,7 +16,9 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 >?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
-## 桌面端（Windows/macOS/Linux）
+## 桌面端
+
+>?COSBrowser 提供 Windows/macOS/Linux 桌面端。
 
 #### 软件界面
 
@@ -27,7 +29,9 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
   - **云 API 密钥（SecretId/SecretKey）**：用户可使用云 API 密钥 SecretId 和 SecretKey（不支持项目密钥）进行登录，该密钥可在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取，成功登录后密钥会保存在**历史密钥**中。
   - **历史密钥**：单击**历史密钥**，可查看并使用已在该电脑成功登录过的云 API 密钥。
 
-## 移动端（Android）
+## 移动端
+
+>?COSBrowser 暂只提供 Android 移动端。
 
 #### 软件界面
 
