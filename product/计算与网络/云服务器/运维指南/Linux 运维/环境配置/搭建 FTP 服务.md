@@ -30,7 +30,7 @@ netstat -tunlp
 ```
 yum -y install  telnet
 ```
-3. 执行以下命令，在其他联网计算机上测试服务是否启动成功。
+3. 执行以下命令，测试 vsftpd 服务是否启动成功。
 ```
 telnet + 云服务器公网 IP + 21
 ```
