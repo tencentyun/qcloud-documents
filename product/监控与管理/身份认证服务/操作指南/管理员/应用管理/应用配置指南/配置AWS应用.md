@@ -2,7 +2,7 @@
 本文档将介绍 AWS 控制台的配置方法及相关注意事项。配置成功后，您的企业用户即可以角色身份登录 AWS 控制台，管理 AWS 资源。 
 
 ## 前提条件
-- 您的腾讯云账号已开通 IDaaS 服务。
+- 您的腾讯云账号已开通 IDaaS 服务。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1106/36332)。
 - 您已有 AWS 账号，并有权限管理 IAM。
 
 ## 操作步骤
@@ -15,7 +15,7 @@
 
 ### 配置身份提供商和角色
 1. 登录 AWS，前往 [IAM控制台](https://console.aws.amazon.com/iam/home)。在左侧导航栏中，单击【身份提供商】，进入身份提供商页面。
-2. 单击【新建提供商】,填写提供商基本信息，在元数据文档处上传已下载的元数据文件。单击【下一步】，确认信息并单击【完成】。
+2. 单击【新建提供商】，填写提供商基本信息，在元数据文档处上传已下载的元数据文件。单击【下一步】，确认信息并单击【完成】。
 ![](https://main.qcloudimg.com/raw/0ee841f7a6cc6d208b655a1c3c9d71c1.png)
 3. 在左侧导航栏中，单击【角色】，进入角色页面。单击【创建角色】，选择【SAML2.0 身份联合】。
 4. 选择第2步创建的身份提供商，并勾选【允许编程访问和AWS管理控制台访问】。您可以根据实际需要添加使用条件。
@@ -25,9 +25,9 @@
 7. 单击【下一步】，设置角色名称，并完成创建。
 
 ### 配置腾讯云应用属性值
-1. 返回 AWS 应用配置页面，配置属性。腾讯云 IDaaS 已基本预设好属性和属性值，您只需补充如下部分的内容：
+1. 返回 AWS 应用配置页面，配置属性。腾讯云 IDaaS 已基本预设好属性和属性值，您只需补充如下图中红框部分的内容：
 ![](https://main.qcloudimg.com/raw/7164950e4e522f8e7a9341f18f7b94ac.png)
-2. 替换 `https://aws.amazon.com/SAML/Attributes/Role` 属性的值，替换规则如下：
+2. 替换`https://aws.amazon.com/SAML/Attributes/Role`属性的值，替换规则如下：
 	- `<AccountID>`替换为 AWS 账号 ID，可前往 [IAM 控制台](https://console.aws.amazon.com/iam/home)  查看。
 	- `<RoleName>`替换为您在角色页面创建的角色名，可前往 [角色控制台](https://console.aws.amazon.com/iam/home#/roles) 查看。
 	- `<ProviderName>`替换为您在身份提供商页面创建的角色名，可前往 [身份提供商控制台](https://console.aws.amazon.com/iam/home#/providers) 查看。
