@@ -16,7 +16,7 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 >?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
-## 桌面端（Windows/macOS）
+## 桌面端（Windows/macOS/Linux）
 
 ### 软件界面
 
