@@ -78,7 +78,7 @@ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d
 我们推荐以 `http` 为前缀且以 `.flv` 为后缀的 **http - flv** 地址，该地址的播放具有时延低、秒开效果好且稳定可靠的特点。播放器推荐使用已经打包在 TRTC SDK 里的 TXLivePlayer 播放器，该播放器的参考文档为：
 - [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/7880)
 - [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/7886)
-- [TXLivePlayer(Windows)](https://cloud.tencent.com/document/product/454/13676#.E6.92.AD.E6.94.BE.E5.8A.9F.E8.83.BD)
+
 
 ### step5: 优化延时
 

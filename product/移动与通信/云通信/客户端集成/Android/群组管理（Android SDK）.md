@@ -1,6 +1,6 @@
 ## 群组综述
 
-云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
@@ -22,7 +22,7 @@ public static TIMGroupManager getInstance()
 
 ### 创建群组
 
-云通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（例如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
@@ -665,7 +665,7 @@ TIMManager.getInstance().setUserConfig(config);
 
 **说明：**
 
-默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
+默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
 
 **原型：**
 

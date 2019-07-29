@@ -73,7 +73,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 ## 禁用自动上报
 
-在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，云通信 IM 不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
+在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，即时通信 IM 不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
 
 ```
 @interface TIMUserConfig: NSObject

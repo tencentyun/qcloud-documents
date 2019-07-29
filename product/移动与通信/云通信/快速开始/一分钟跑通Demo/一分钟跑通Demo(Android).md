@@ -1,9 +1,9 @@
 
-本文主要介绍如何快速地运行云通信 IM Demo（Android）工程。
+本文主要介绍如何快速地运行即时通信 IM Demo（Android）工程。
 
 <span id="step1"></span>
 ## 创建应用
-1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
@@ -26,7 +26,7 @@
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 
 ## 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载云通信 IM Demo（Android）工程。
+从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载即时通信 IM Demo（Android）工程。
 
 ## 修改源码配置
 1. 使用 Android Studio （3.0以上的版本）打开源码工程。

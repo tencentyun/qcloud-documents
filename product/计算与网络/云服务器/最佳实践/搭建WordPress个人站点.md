@@ -177,6 +177,10 @@ mysql -uroot -p
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/cd3996d219c989911dbc3eb397047ce4.png)
+10. 执行以下命令，退出 MariaDB。
+```
+\q
+```
 
 ### 安装和配置 WordPress
 #### 下载 

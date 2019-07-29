@@ -1,8 +1,8 @@
-本文主要介绍腾讯云 IM SDK 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK 的几个最基本功能的使用方法，阅读此文档有助于您对即时通信 IM 的基本使用流程有一个简单的认识。
 
 ## 初始化
 
-在使用 SDK 进行云通信 IM 操作之前，需要初始 SDK。
+在使用 SDK 进行即时通信 IM 操作之前，需要初始 SDK。
 **示例：**
 ```c
 int sdk_app_id = 12345678;
@@ -21,7 +21,7 @@ json_value_init[kTIMSdkConfigDeviceInfo] = json_value_dev;
 TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 ```
 
-SDKAppID 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
+SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
 
 
 ## 登录/登出
@@ -181,7 +181,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 
 ## 群组管理
 
-云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 |             类型              | 说明                                                         |
 | --------------------------- | ----------------------------------------------------------- |

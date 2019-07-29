@@ -80,7 +80,7 @@ function addMsg(msg) {
             msgPre.innerHTML = "[群红包消息]" + convertMsgtoHtml(msg);
             break;
         case webim.GROUP_MSG_SUB_TYPE.LOVEMSG://群点赞消息
-            //业务自己可以增加逻辑，比如展示点赞动画效果
+            //业务自己可以增加逻辑，例如展示点赞动画效果
             msgPre.innerHTML = "[群点赞消息]" + convertMsgtoHtml(msg);
             //展示点赞动画
             //showLoveMsgAnimation();
@@ -526,7 +526,7 @@ function onSendMsg() {
 }
 ```
 
-## 上传图片 （高版本浏览器）
+## 上传图片（高版本浏览器）
 
 目前 Demo 采用了 H5 FileAPI 读取图片，并将图片二进制数据转换成 BASE64 编码进行分片上传，理论上没有大小限制。**函数名：**
 
@@ -578,7 +578,7 @@ function uploadPic() {
 }
 ```
 
-## 上传图片 （低版本浏览器 IE8、9）
+## 上传图片（低版本浏览器 IE8、9）
 
 在低版本浏览器（IE8、9）中，Demo 采用了表单来上传图片，最大支持 10M 图片的上传。**函数名：**
 
@@ -587,7 +587,7 @@ function uploadPic() {
  *   上传图片(低版本ie)
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -607,8 +607,8 @@ function uploadPicLowIE() {
     }
     //封装上传图片请求
     var opt = {
-        'formId': 'updli_form', //上传图片表单 id
-        'fileId': 'updli_file', //file 控件 id
+        'formId': 'updli_form', //上传图片表单 ID
+        'fileId': 'updli_file', //file 控件 ID
         'To_Account': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType//图片的使用业务类型
     };
@@ -631,7 +631,7 @@ function uploadPicLowIE() {
 
 
 
-## 上传文件 （高版本浏览器）
+## 上传文件（高版本浏览器）
 
 目前 demo 采用了 H5 FileAPI 读取文件，并将文件二进制数据转换成 base64 编码进行分片上传，理论上没有大小限制。
 >?当前版本仅支持上传图片文件。
@@ -681,8 +681,9 @@ function uploadFileByBase64() {
     );
 }
 ```
+>?您可以使用 [spark-md5 工具](https://github.com/satazor/js-spark-md5) 生成文件的 md5。
 
-## 上传文件 （低版本浏览器 IE8、9）
+## 上传文件（低版本浏览器 IE8、9）
 
 在低版本浏览器（IE8、9）中，demo 采用了表单来上传文件，最大支持 10M 文件的上传。
 >?当前版本仅支持上传图片文件。
@@ -803,7 +804,7 @@ function sendPic(images) {
 
 >!确保其他终端上传的语音格式是 MP3 格式（所有主流浏览器下的 audio 控件都兼容 MP3，除了 IE8 下不支持使用 audio 标签播放语音）。
 
-## 发送消息（文件 ）
+## 发送消息（文件）
 
 ```javascript
 function sendFile(file,fileName) {
@@ -838,7 +839,7 @@ function sendFile(file,fileName) {
 ```
 
 
-## 发送消息(自定义)
+## 发送消息（自定义）
 
 ```javascript
 /* function sendMsg
@@ -927,7 +928,7 @@ function sendCustomMsg() {
 syncMsgs: function(cbOk, cbErr) {},
 ```
 
-**示例: **
+**示例：**
 
 ```javascript
 webim.syncMsgs(onMsgNotify);
@@ -1001,7 +1002,7 @@ var getLastC2CHistoryMsgs = function (cbOk, cbError) {
 syncGroupMsgs: function(options, cbOk, cbErr) {},
 ```
 
-**示例: **
+**示例：**
 
 ```javascript
 //获取最新的群历史消息，用于切换群组聊天时，重新拉取群组的聊天消息

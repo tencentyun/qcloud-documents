@@ -1,6 +1,5 @@
 ## TCP 监听器简介
-您可以在负载均衡实例上添加一个 TCP 监听转发来自客户端的 TCP 协议请求。TCP 协议适用于对可靠性和数据准确性要求高、对传输速度要求较低的场景，如文件传输、收发邮件、远程登录等。
-TCP 协议的监听器，后端服务器可直接获取客户端的真实 IP。
+您可以在负载均衡实例上添加一个 TCP 监听转发来自客户端的 TCP 协议请求。TCP 协议适用于对可靠性和数据准确性要求高、对传输速度要求较低的场景，如文件传输、收发邮件、远程登录等。TCP 协议的监听器，后端服务器可直接获取客户端的真实 IP。
 
 ## 前提条件
 您需要 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
@@ -76,7 +75,7 @@ TCP 协议的监听器，后端服务器可直接获取客户端的真实 IP。
 ![](https://main.qcloudimg.com/raw/e0ef33bc1e3de8bd048f22b046dd2d50.png)
 
 完成步骤1到步骤3之后，TCP 监听器规则已配置完毕，配置详情如下：
-![](https://main.qcloudimg.com/raw/60e98a336ea813fd5850d6ecaaea060c.png)
+![](https://main.qcloudimg.com/raw/c70a8b5b30a7e801b32009b0845c8c0f.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
