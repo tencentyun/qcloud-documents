@@ -11,8 +11,8 @@
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。
 3. 单击【新建应用】，选择【自定义 SAML2.0 应用程序】，并填写应用名称和应用详情。单击【提交】。
 ![](https://main.qcloudimg.com/raw/607f3fb35868524ec2a963518ba77ce5.png)
-4. 记录登录URL和注销URL，并单击【下载证书】
-![](https://main.qcloudimg.com/raw/69746e3b040a13f39a3d8b3ab4624d7c.png)
+4. 记录登录 URL 和注销 URL，并单击【下载证书】
+![](https://main.qcloudimg.com/raw/e01b41647de4c750d71ba9e6c8557cd5.png)
 
 ### 配置 Weekdone 单点登录设置
 1. 新开页前往 [Weekdone官网](https://weekdone.com/)，登录您的管理员账号。
@@ -21,8 +21,8 @@
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
 ![](https://main.qcloudimg.com/raw/d96835701707f975e42ba24a3cfca598.png)
 	- SAML 名称：您可以随意设置您的 SAML 名称，例如 IDaaS。
-	- SAML 登录网址：您在【创建Weekdone应用】第4步里准备的登录URL，如下图所示。
-	- SAML 登出网址：您在【创建Weekdone应用】第4步里准备的注销URL，如下图所示。
+	- SAML 登录网址：您在【创建Weekdone应用】第4步里准备的登录 URL，如下图所示。
+	- SAML 登出网址：您在【创建Weekdone应用】第4步里准备的注销 URL，如下图所示。
 	- X509认证：	输入您在【创建 Weekdone 应用】下载的证书，打开证书内容并复制在 X509 认证文本框内。
 ![](https://main.qcloudimg.com/raw/49d4cf5bcf910572778953c47b14fefb.png)
 
