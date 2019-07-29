@@ -96,7 +96,7 @@
 <td> Nonce </td><td> 随机正整数 </td><td> 是 </td><td> 345122
 </td></tr>
 <tr>
-<td> 业务参数 </td><td> text </td><td> 待分析的文本（目前文智统一输入为utf-8） </td><td> 是 </td><td> 周杰伦结婚
+<td> 业务参数 </td><td> text </td><td> 待分析的文本（目前文智统一输入为utf-8） </td><td> 是 </td><td> 张三结婚
 </td></tr></table>
 
 
