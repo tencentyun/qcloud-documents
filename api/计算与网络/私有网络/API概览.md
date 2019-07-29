@@ -49,10 +49,10 @@
 | 接口功能      | Action ID                                | 功能描述                             |
 | --------- | ---------------------------------------- | -------------------------------- |
 | 查询 VPN 网关价格 | [InquiryVpnPrice](http://cloud.tencent.com/doc/api/245/5104) | 查询 VPN 网关价格。                       |
-| 购买 VPN 网关   | [CreateVpn](http://cloud.tencent.com/doc/api/245/5106) | 购买 vpn 网关。                         |
-| 修改 VPN 网关属性 | [ModifyVpnGw](http://cloud.tencent.com/doc/api/245/5107) | 修改指定 vpn 网关信息，例如名称。                |
-| 查询 VPN 网关列表 | [DescribeVpnGw](http://cloud.tencent.com/doc/api/245/5108) | 根据用户信息，如 vpn 网关 ID，名称，查询对应 vpn 网关的信息。 |
-| 续费 VPN 网关   | [RenewVpn](http://cloud.tencent.com/doc/api/245/5109) | 续费 vpn 网关。                         |
+| 购买 VPN 网关   | [CreateVpn](http://cloud.tencent.com/doc/api/245/5106) | 购买 VPN 网关。                         |
+| 修改 VPN 网关属性 | [ModifyVpnGw](http://cloud.tencent.com/doc/api/245/5107) | 修改指定 VPN 网关信息，例如名称。                |
+| 查询 VPN 网关列表 | [DescribeVpnGw](http://cloud.tencent.com/doc/api/245/5108) | 根据用户信息，如 VPN 网关 ID，名称，查询对应 VPN 网关的信息。 |
+| 续费 VPN 网关   | [RenewVpn](http://cloud.tencent.com/doc/api/245/5109) | 续费 VPN 网关。                         |
 
 ## 6. 对端网关相关接口
 | 接口功能           | Action ID                                | 功能描述                           |
@@ -61,17 +61,17 @@
 | 删除对端网关         | [DeleteUserGw](http://cloud.tencent.com/doc/api/245/5117) | 删除指定对端网关。                      |
 | 修改对端网关名称       | [ModifyUserGw](http://cloud.tencent.com/doc/api/245/5118) | 修改对端网关名称。                      |
 | 查询对端网关列表       | [DescribeUserGw](http://cloud.tencent.com/doc/api/245/5119) | 根据用户信息，如对端网关 ID，名称，查询对应对端网关的信息。 |
-| 获取可支持的对端网关厂商信息 | [DescribeUserGwVendor](http://cloud.tencent.com/doc/api/245/5120) | 查询腾讯云 vpn 网关可支持的对端网关厂商信息。        |
+| 获取可支持的对端网关厂商信息 | [DescribeUserGwVendor](http://cloud.tencent.com/doc/api/245/5120) | 查询腾讯云 VPN 网关可支持的对端网关厂商信息。        |
 
 
 ## 7. VPN 通道相关接口
 | 接口功能         | Action ID                                | 功能描述                       |
 | ------------ | ---------------------------------------- | -------------------------- |
-| 创建 VPN 通道      | [AddVpnConnEx](http://cloud.tencent.com/doc/api/245/5110) | 创建 vpn 加密通道，将 vpc 接入其他网络资源。    |
-| 删除 VPN 通道      | [DeleteVpnConn](http://cloud.tencent.com/doc/api/245/5111) | 删除指定 vpn 通道。                 |
-| 修改 VPN 通道      | [ModifyVpnConnEx](http://cloud.tencent.com/doc/api/245/5112) | 修改指定 vpn 通道的信息，如名称。          |
+| 创建 VPN 通道      | [AddVpnConnEx](http://cloud.tencent.com/doc/api/245/5110) | 创建 VPN 加密通道，将 vpc 接入其他网络资源。    |
+| 删除 VPN 通道      | [DeleteVpnConn](http://cloud.tencent.com/doc/api/245/5111) | 删除指定 VPN 通道。                 |
+| 修改 VPN 通道      | [ModifyVpnConnEx](http://cloud.tencent.com/doc/api/245/5112) | 修改指定 VPN 通道的信息，如名称。          |
 | 查询 VPN 通道列表    | [DescribeVpnConn](http://cloud.tencent.com/doc/api/245/5113) | 根据用户信息，如通道 ID，名称，查询对应通道的信息。 |
-| 下载 VPN 通道配置    | [GetVpnConnConfig](http://cloud.tencent.com/doc/api/245/5114) | 下载vpn通道配置，对通道配置做调整。        |
+| 下载 VPN 通道配置    | [GetVpnConnConfig](http://cloud.tencent.com/doc/api/245/5114) | 下载 VPN 通道配置，对通道配置做调整。        |
 | 获取 VPN 通道的监控数据 | [DescribeVpnConnMonitor](http://cloud.tencent.com/doc/api/245/5115) | 获取 VPN 通道的监控数据。              |
 
 ## 8. SSL VPN 相关接口
