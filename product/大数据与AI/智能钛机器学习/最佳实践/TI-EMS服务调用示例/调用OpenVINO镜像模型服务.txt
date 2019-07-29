@@ -81,7 +81,7 @@ pip install -r requirements.txt
 
 - 运行客户端脚本
 
-```shell
+```
 python grpc_client_openvino.py --server IP --TOKEN --data_dir DATA_DIR
 ```
 
