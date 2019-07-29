@@ -2,7 +2,7 @@
 本文档将介绍 Weekdone 的配置方法及相关注意事项。配置成功后，您的企业用户即可以角色身份登录 Weekdone 进行操作。 
 
 ## 前提条件
-- 您的腾讯云账号已开通 IDaaS 服务。
+- 您的腾讯云账号已开通 IDaaS 服务。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1106/36332)。
 - 您已有 Weekdone 管理员，并有权限管理 Weekdone。
 
 ## 操作步骤
