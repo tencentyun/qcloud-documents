@@ -13,7 +13,7 @@
 + 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
 + 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
-### SDK导入
+### SDK 导入
 
 iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
@@ -117,7 +117,7 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 @end
 ```
 ## 示例
-### 1.**创建 QCloudSentenceRecognizer 实例** 
+### **创建 QCloudSentenceRecognizer 实例** 
 ```objective-c
   QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
   									        secretId:secretId 
@@ -125,8 +125,8 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
   //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
  recognizer.delegate = self;
 ```
-### 2.实现此 QCloudSentenceRecognizerDelegate 协议方法
-### 3.调用方式说明
+### 实现此 QCloudSentenceRecognizerDelegate 协议方法
+### 调用方式说明
 ##### a.通过语音 URL 调用
 ```objective-c
 - (void)recognizeWithUrl {
