@@ -681,6 +681,7 @@ function uploadFileByBase64() {
     );
 }
 ```
+>?建议使用 [spark-md5 工具](https://github.com/satazor/js-spark-md5) 生成文件的 md5。
 
 ## 上传文件（低版本浏览器 IE8、9）
 
