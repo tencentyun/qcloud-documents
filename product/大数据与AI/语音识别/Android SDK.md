@@ -1,9 +1,10 @@
-﻿## 开发准备
+
+## 开发准备
 ### SDK 下载
 一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/12d8f3ebe1ed16190b874c910db1369c/QCloudOneSentenceSDK_v1.0.0.zip)
 
 ### 开发前
-1. 开发者使用一句话识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/) 注册账号，
+1. 开发者使用一句话识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，
    并获得 AppID、SecretId 和 SecretKey 信息。
 2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
 3. 支持 Android 4.0 及其以上版本。
@@ -11,12 +12,12 @@
 ### 运行环境配置
 ##### 添加一句话识别 SDK aar
 
-将 **qcloudasrsdk_1.0_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加。
+将 **qcloudasrsdk_1.0_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 ```
   implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
 ```
 
-##### 添加其他依赖，在 App 的 build.gradle 文件中添加。
+##### 添加其他依赖，在 App 的 build.gradle 文件中添加以下代码。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
  implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
@@ -46,13 +47,13 @@ recognizer.setCallback(this);
 ```
 
 #### 调用示例
-##### 1.通过语音 URL 调用
+- **通过语音 URL 调用**
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
 recognizer.recognize(audioUrl, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
 
-##### 2.通过语音数据调用
+- **通过语音数据调用**
 ```
 AssetManager am = getResources().getAssets();
 InputStream is = am.open("onesentence.mp3");
@@ -62,7 +63,7 @@ is.read(audioData);
 recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
 
-##### 3.通过 SDK 内置录音器
+- **通过 SDK 内置录音器**
 ```
 recognizer.recognizeWithRecorder();
 ```
