@@ -2,8 +2,8 @@
 COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方便的进行数据的上传、下载和管理。
 
 >!
->- COSBrowser PC 端（Windows/macOS）会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。Windows 用户可在操作系统的“Internet 选项”中查询，macOS 用户可在“网络偏好设置”中查询。
-- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
+>- COSBrowser 桌面端（Windows/macOS/Linux）会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。Windows 用户可在操作系统的“Internet 选项”中查询，macOS 用户可在“网络偏好设置”中查询，Linux 用户可在系统设置 > 网络 > 网络代理中查询。
+>- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
 ## 下载地址
 
@@ -18,7 +18,7 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 ## 桌面端
 
->?COSBrowser 提供 Windows/macOS/Linux 桌面端。
+>?COSBrowser 客户端支持 Windows/macOS/Linux 桌面端。
 
 #### 软件界面
 
@@ -31,7 +31,7 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 ## 移动端
 
->?COSBrowser 暂只提供 Android 移动端。
+>?COSBrowser 移动端暂只支持 Android 移动端。
 
 #### 软件界面
 
