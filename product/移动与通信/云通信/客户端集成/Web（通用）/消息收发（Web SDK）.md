@@ -587,7 +587,7 @@ function uploadPic() {
  *   上传图片(低版本ie)
  * params:
  *   cbOk	- function()类型, 成功时回调函数
- *   cbErr	- function(err)类型, 失败时回调函数, err为错误对象
+ *   cbErr	- function(err)类型, 失败时回调函数, err 为错误对象
  * return:
  *   (无)
  */
@@ -607,8 +607,8 @@ function uploadPicLowIE() {
     }
     //封装上传图片请求
     var opt = {
-        'formId': 'updli_form', //上传图片表单 id
-        'fileId': 'updli_file', //file 控件 id
+        'formId': 'updli_form', //上传图片表单 ID
+        'fileId': 'updli_file', //file 控件 ID
         'To_Account': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
         'businessType': businessType//图片的使用业务类型
     };
@@ -681,7 +681,7 @@ function uploadFileByBase64() {
     );
 }
 ```
->?建议使用 [spark-md5 工具](https://github.com/satazor/js-spark-md5) 生成文件的 md5。
+>?您可以使用 [spark-md5 工具](https://github.com/satazor/js-spark-md5) 生成文件的 md5。
 
 ## 上传文件（低版本浏览器 IE8、9）
 
