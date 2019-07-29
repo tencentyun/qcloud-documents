@@ -9,7 +9,7 @@
 ### 创建 Weekdone 应用
 1. 管理员登录 [IDaaS控制台](https://console.cloud.tencent.com/idaas)。
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。
-3. 单击【新建应用】，选择【自定义 SAML2.0 应用程序】，并填写应用名称和应用详情。单击【提交】。
+3. 单击【新建应用】，选择【自定义 SAML2.0 应用程序】，并填写应用名称和应用详情。单击【提交】。完成 Weekdone 应用的创建。
 ![](https://main.qcloudimg.com/raw/607f3fb35868524ec2a963518ba77ce5.png)
 4. 记录登录 URL 和注销 URL，并单击【下载证书】
 ![](https://main.qcloudimg.com/raw/e01b41647de4c750d71ba9e6c8557cd5.png)
