@@ -18,7 +18,7 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 ## 桌面端
 
->?COSBrowser 客户端支持 Windows/macOS/Linux 桌面端。
+>?COSBrowser 桌面端支持 Windows/macOS/Linux 桌面端。
 
 #### 软件界面
 
