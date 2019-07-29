@@ -2,7 +2,7 @@
 
 ## 步骤1：创建应用
 
-1. 登录腾讯云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录腾讯即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
 2. 在【应用列表】页面，单击【创建应用接入】。
 3. 在【创建新应用】弹框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识：SDKAppID。
@@ -13,7 +13,7 @@
  ![](https://main.qcloudimg.com/raw/b6655906590c0b9bdcd1e0c21776fa93.png)
 2. 单击【帐号体系集成】右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
- >?在使用云通信 IM 后台的 REST API 发送消息时会用到帐号管理员信息。
+ >?在使用即时通信 IM 后台的 REST API 发送消息时会用到帐号管理员信息。
 
 ## 步骤3：获取测试 UserSig
 >!本文提到的获取 UserID 和 UserSig 的方案仅适合本地跑通 Demo 和功能调试，正确的 UserSig 签发方式请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
@@ -22,7 +22,7 @@
  ![](https://main.qcloudimg.com/raw/e11d958bc43b09fb41c7064ee2b09722.png)
 2. 解压 **keys.zip** 文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
-3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该云通信应用指定用户名的 UserSig。
+3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该即时通信应用指定用户名的 UserSig。
  ![](https://main.qcloudimg.com/raw/f491ffbd8dc3c0e8659288d27152c847.png)
 4. 重复上述操作，生成4组或更多组 UserID 和 UserSig。
 
