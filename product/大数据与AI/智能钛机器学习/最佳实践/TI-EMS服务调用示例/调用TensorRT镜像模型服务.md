@@ -11,21 +11,31 @@
 
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称:demo_tensorrt，点击【运行环境】，在弹出页面的【公共镜像】栏选择tensorrt。
 
-![](/pics2/demort1.png)
-点击【对象存储cos文件】，弹出cos文件选择页面，选择inception_v3模型文件夹所在的路径，单击【确定】
+![](pics2/demort1.png)
+
+点击【对象存储cos文件】，弹出cos文件选择页面，选择inception_v3模型文件夹所在的路径，单击【确定】。
+
 ![](pics2/demort2.png)
+
 选择模型资源配置，单击【GPU配置】，选择 4CPU核8G内存, 2TFLOPS配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
+
 ![](pics2/demort3.png)
+
 ## 启动服务
 
 在模型服务配置页面找到demo_tensorrt配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
+
 ![](pics2/demort4.png)
 
 在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进行模型服务列表页面。
+
 ![](pics2/demort5.png)
+
 ## 获得访问地址和密钥
 找到demo_tensorrt模型服务，在对应的【操作】列单击【调用】，即可获得demo_tensorrt模型服务的访问地址IP和密钥TOKEN。
+
 ![](pics2/demort7.png)
+
 ![](pics2/demort8.png)
 
 
