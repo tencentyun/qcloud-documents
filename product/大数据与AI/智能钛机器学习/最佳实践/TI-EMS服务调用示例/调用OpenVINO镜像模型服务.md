@@ -16,9 +16,9 @@
 
 点击【对象存储cos文件】，弹出cos文件选择页面，选择inception_v4_ir模型文件夹所在的路径，单击【确定】。
 
-![](pics2/demovinio2.png)
+![](pics2/demovino2.png)
 
-选择模型资源配置，单击【GPU配置】，选择 4CPU核8G内存, 2TFLOPS配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
+选择模型资源配置，单击【GPU配置】，选择 2CPU核8G内存, 2TFLOPS配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
 
 ![](pics2/demovino3.png)
 
@@ -47,10 +47,10 @@
 使用如下命令获取模型元数据：
 
 ```shell
-curl -H "X-Auth-Token: TOKEN" ip:80/v1/models/m/metadata
+curl -H "X-Auth-Token: TOKEN" IP:80/v1/models/m/metadata
 ```
 
-调用参数说明：
+**调用参数说明：**
 
 TOKEN：通过点击模型服务页面的【服务调用】获取的密钥地址token
 

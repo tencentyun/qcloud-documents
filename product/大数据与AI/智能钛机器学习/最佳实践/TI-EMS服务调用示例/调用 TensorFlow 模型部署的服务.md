@@ -12,13 +12,13 @@
 
 - base64编码
 
-base 64 命令行工具可以将二进制图片编码为ASCII文本数据，大多数开发环境都包含原生base 64 命令行工具，要对图片文件进行编码，执行以下操作：
+我们将上图测试花朵图片按照inception模型定义的JSON数据格式`{"instances":[{"b64": 图片 base64 编码}]}`进行编码，将jpg转换成base64。`flower.json`为经过编码的测试图片数据。
 
 ```shell
 echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.json
 
 ```
-我们将上图测试花朵图片按照inception模型定义的JSON数据格式`{"instances":[{"b64": 图片 base64 编码}]}`进行编码，将jpg转换成base64。`flower.json`为经过编码的测试图片数据。
+
 
 
 ## 创建模型服务配置
@@ -57,7 +57,7 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 	-X POST IP/v1/models/m:predict -d @flower.json
 ```
 
-- 调用参数说明
+**调用参数说明**
 
 TOKEN：通过点击模型服务页面的【服务调用】获取的密钥地址token
 
