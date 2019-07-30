@@ -45,12 +45,12 @@ Form
    </tr>
    <tr>
       <td>acl</td>
-      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default，默认值：default（继承 Bucket 权限）<br>注意：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default，默认值：default（继承 Bucket 权限）。注意：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
-      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+      <td>Cache-Control，Content-Type，Content-Disposition，Content-Encoding， Expires&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>RFC 2616 中定义的头部，请参见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档</td>
       <td>String</td>
       <td>否</td>
