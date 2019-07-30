@@ -47,8 +47,8 @@ QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, a
 ```
 recognizer.setCallback(this);
 ```
+3. **调用方式说明**
 
-### 调用示例
 - **通过语音 URL 调用**
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
