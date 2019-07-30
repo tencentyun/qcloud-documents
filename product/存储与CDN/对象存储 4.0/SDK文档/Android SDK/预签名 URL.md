@@ -10,7 +10,7 @@ string getAccessUrl(CosXmlRequest cosXmlRequest);
 ```java
 String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException;
 ```
-### 参数说明
+#### 参数说明
 |参数名称|类型|描述|
 |-----|-----|----|
 |cosXmlRequest|CosXmlRequest|请求对象|
@@ -18,13 +18,13 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 |checkParameterListForSing |`Set<String>`|签名中需要验证的请求头|
 |checkHeaderListForSign  |`Set<String>`|签名中需要验证的请求参数|
 
-### PresignedUrlRequest 结构体说明
+#### PresignedUrlRequest 结构体说明
 通过 PresignedUrlRequest 对象获取对应预签名请求 URL，用于发送请求。
 
 |参数名称|类型|描述|
 |-----|-----|----|
 |bucket|string|COS XML API 的存储桶名称，格式为：`<BucketName-APPID>`，如 examplebucket-1250000000 |
-|requestMethod|string|HTTP 请求方法，如 GET（下载）|
+|requestMethod|string|HTTP 请求方法，例如 GET（下载）|
 |cosPath |string|对象键，即对象在存储桶中的位置标识符|
 |checkParameterListForSing |`Set<String>`|签名中需要验证的请求头|
 |checkHeaderListForSign  |`Set<String>`|签名中需要验证的请求参数|
@@ -60,7 +60,7 @@ Log.d("TEST", ex.getMessage());
 ```
 ## 永久密钥预签名请求示例
 
-### 上传请求示例
+#### 上传请求示例
 ```java
 try {
 	//使用永久密钥初始化 CosXmlService
@@ -117,7 +117,7 @@ try {
 }
 ```
 
-### 下载请求示例
+#### 下载请求示例
 ```java
 try
 {
@@ -174,7 +174,7 @@ try
 
 ## 临时密钥预签名请求示例
 
-### 上传请求示例
+#### 上传请求示例
 ```java
 try
 {
@@ -240,7 +240,7 @@ try
 }
 ```
 
-### 下载请求示例
+#### 下载请求示例
 ```java
 try
 {
