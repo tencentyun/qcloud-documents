@@ -36,12 +36,14 @@
 ```
 
 ### 快速开始
-1.**创建 QCloudOneSentenceRecognizer 示例**
+1. **创建 QCloudOneSentenceRecognizer 示例**
+
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
 ```
 
-2.**设置识别结果回调**
+2. **设置识别结果回调**
+
 ```
 recognizer.setCallback(this);
 ```
