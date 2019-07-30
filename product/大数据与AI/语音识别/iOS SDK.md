@@ -130,7 +130,7 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 2. **实现此 QCloudSentenceRecognizerDelegate 协议方法**
 3. **调用方式说明**
 
-**a.通过语音 URL 调用**
+- **通过语音 URL 调用**
 ```objective-c
 - (void)recognizeWithUrl {
 //语音数据url
@@ -139,7 +139,7 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
   [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
 }
 ```
-**b.通过语音数据调用**
+- **通过语音数据调用**
 ```objective-c
 - (void)recognizeWithAudioData {
    //语音数据
@@ -149,7 +149,7 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
    [_recognizer recoginizeWithData:audioData voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
 }
 ```
-**c.通过指定参数调用**
+- **通过指定参数调用**
 ```objective-c
 - (void)recognizeWithParams {
    NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
@@ -166,7 +166,7 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
    [_recognizer recognizeWithParams:params];
 }
 ```
-**d.通过 SDK 内置录音器调用**
+- **通过 SDK 内置录音器调用**
 ```objective-c
 - (void)recognizeWithRecorder {
    [_recognizer startRecognizeWithRecorder];
