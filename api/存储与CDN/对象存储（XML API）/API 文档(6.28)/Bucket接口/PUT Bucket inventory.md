@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT Bucket inventory 用于在存储桶中创建清单任务，您可以对清单任务命名后，使用该请求创建清单任务，详细信息请参阅 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
+PUT Bucket inventory 用于在存储桶中创建清单任务，您可以对清单任务命名后，使用该请求创建清单任务，详细信息请参见 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
 
 > !
 > - COS 支持在每个存储桶中创建最多1000条清单任务。
