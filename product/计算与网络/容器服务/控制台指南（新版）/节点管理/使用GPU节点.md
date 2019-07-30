@@ -1,6 +1,6 @@
 ## 操作场景
 
-如果您的业务需要进行深度学习、高性能计算等场景，您可以使用腾讯云容器服务支持 GPU 功能，通过该功能可以帮助您快速使用 GPU 容器。如需要开通 GPU 功能，您可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=容器服务TKE&step=1) 进行申请。
+如果您的业务需要进行深度学习、高性能计算等场景，您可以使用腾讯云容器服务支持 GPU 功能，通过该功能可以帮助您快速使用 GPU 容器。
 创建 GPU 云服务器有以下两种方式：
 - [新建 GPU 云服务器](#createGPUService)
 - [添加已有 GPU 云服务器](#addGPUService)
@@ -8,7 +8,6 @@
 
 ## 使用限制
 
-- 需要单独开通GPU支持功能，[提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=容器服务TKE&step=1) 申请。
 - 添加的节点需要选择 GPU 机型，选择 GPU 相关镜像。
 - TKE 仅在集群 kubernetes 版本大于**1.8.\***时支持使用 GPU 调度。
 - 容器之间不共享 GPU，每个容器可以请求一个或多个 GPU。无法请求 GPU 的一小部分。
