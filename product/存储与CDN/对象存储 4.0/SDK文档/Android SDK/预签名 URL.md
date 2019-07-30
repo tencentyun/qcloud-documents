@@ -84,7 +84,13 @@ try {
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "PUT"; //请求 HTTP 方法.
-	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
+	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
+	    @Override
+        public RequestBodySerializer getRequestBody() throws CosXmlClientException {
+            //用于计算 put 等需要带上  body 的请求的签名URL
+            return RequestBodySerializer.string("text/plain", "this is test"); 
+         }
+    };
 	presignedUrlRequest.setRequestMethod(method);
 
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
@@ -201,7 +207,13 @@ try
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
 	String method = "PUT"; //请求HTTP方法.
-	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
+	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
+	    @Override
+        public RequestBodySerializer getRequestBody() throws CosXmlClientException {
+            //用于计算 put 等需要带上  body 的请求的签名URL
+            return RequestBodySerializer.string("text/plain", "this is test"); 
+         }
+    };	
 	presignedUrlRequest.setRequestMethod(method);
 	
 	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
