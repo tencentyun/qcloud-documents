@@ -4,7 +4,7 @@
  1. 获取 COS 迁移工具
  [获取迁移工具](https://github.com/tencentyun/hdfs_to_cos_tools)，更多迁移工具请参考 [工具概览](https://cloud.tencent.com/document/product/436/6242)。
  2. 工具配置
- 配置文件统一放在工具目录里的 conf 目录，将需要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 中, 其中包含了 NameNode 的配置信息，编辑配置文件 cos_info.conf, 包括 appid 和 bucket, region 以及密钥信息
+ 配置文件统一放在工具目录里的 conf 目录，将需要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 中，其中包含了 NameNode 的配置信息，编辑配置文件 cos_info.conf，包括 appid、bucket、region 以及密钥信息。
  3. 命令参数说明
 ```
  -ak <ak>                                the cos secret id
