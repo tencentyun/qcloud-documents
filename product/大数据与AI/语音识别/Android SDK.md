@@ -35,27 +35,24 @@
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
 
-### 快速开始
+### 示例
 1. **创建 QCloudOneSentenceRecognizer 示例**
 
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
 ```
-
 2. **设置识别结果回调**
 
 ```
 recognizer.setCallback(this);
 ```
-3. **调用方式说明**
-
-- **通过语音 URL 调用**
+3. **调用示例**
+ - **通过语音 URL 调用**
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
 recognizer.recognize(audioUrl, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
-
-- **通过语音数据调用**
+ - **通过语音数据调用**
 ```
 AssetManager am = getResources().getAssets();
 InputStream is = am.open("onesentence.mp3");
@@ -64,8 +61,7 @@ byte[] audioData = new byte[length];
 is.read(audioData);
 recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
-
-- **通过 SDK 内置录音器**
+ - **通过 SDK 内置录音器**
 ```
 recognizer.recognizeWithRecorder();
 ```
@@ -125,3 +121,5 @@ public interface QCloudOneSentenceRecognizerListener {
  public abstract void recognizeResult(QCloudOneSentenceRecognizer recognizer, String result, Exception exception);
 }
 ```
+
+
