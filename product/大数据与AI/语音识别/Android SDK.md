@@ -10,14 +10,14 @@
 3. 支持 Android 4.0 及其以上版本。
 
 ### 运行环境配置
-##### 添加一句话识别 SDK aar
+**添加一句话识别 SDK aar**
 
 将 **qcloudasrsdk_1.0_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 ```
   implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
 ```
 
-##### 添加其他依赖，在 App 的 build.gradle 文件中添加以下代码。
+**添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
  implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
@@ -25,7 +25,7 @@
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
 
-##### 在 AndroidManifest.xml 添加如下权限：
+**在 AndroidManifest.xml 添加如下权限**：
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
 < uses-permission android:name="android.permission.INTERNET"/>
@@ -36,17 +36,17 @@
 ```
 
 ### 快速开始
-#### 创建 QCloudOneSentenceRecognizer 示例
+1.**创建 QCloudOneSentenceRecognizer 示例**
 ```
 QCloudOneSentenceRecognizer recognizer = new QCloudOneSentenceRecognizer(this, appid, secretId, secretKey);
 ```
 
-#### 设置识别结果回调
+2.**设置识别结果回调**
 ```
 recognizer.setCallback(this);
 ```
 
-#### 调用示例
+### 调用示例
 - **通过语音 URL 调用**
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
