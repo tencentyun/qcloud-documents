@@ -23,7 +23,7 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 
 |参数名称|类型|描述|
 |-----|-----|----|
-|bucket|string|COS XML API 的存储桶名称，格式为：`<BucketName-APPID>`，如 examplebucket-1250000000 |
+|bucket|string|COS XML API 的存储桶名称，格式为：`<BucketName-APPID>`<br>例如 examplebucket-1250000000 |
 |requestMethod|string|HTTP 请求方法，例如 GET（下载）|
 |cosPath |string|对象键，即对象在存储桶中的位置标识符|
 |checkParameterListForSing |`Set<String>`|签名中需要验证的请求头|
@@ -190,7 +190,7 @@ try
 	long expiredTime = 1555055036;//临时密钥有效截止时间戳
 	//初始化 config
 	CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-		.isHttps(true)  //设置 https 请求, 默认http请求
+		.isHttps(true)  //设置 https 请求, 默认 http 请求
 		.setAppid(appid)
 		.setRegion(region)
 		.setDebuggable(true)
@@ -206,7 +206,7 @@ try
 	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
-	String method = "PUT"; //请求HTTP方法.
+	String method = "PUT"; //请求 HTTP 方法.
 	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
 	    @Override
         public RequestBodySerializer getRequestBody() throws CosXmlClientException {
@@ -271,7 +271,7 @@ try
 	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
 	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
-	String method = "PUT"; //请求HTTP方法.
+	String method = "GET"; //请求 HTTP 方法.
 	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
 	presignedUrlRequest.setRequestMethod(method);
 
