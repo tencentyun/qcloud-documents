@@ -43,7 +43,7 @@
 </tr>
 <tr>
 <td>服务器证书</td>
-<td>可以选择 [SSL 证书平台](https://console.cloud.tencent.com/ssl) 中已有的证书，或上传证书</td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或上传证书</td>
 <td>选择已有的证书 cc/UzxFoXsE</td>
 </tr>
 <tr>
