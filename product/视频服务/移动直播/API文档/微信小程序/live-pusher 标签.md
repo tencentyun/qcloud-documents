@@ -50,9 +50,9 @@
 | max-bitrate | Number | 1000 | 最大码率，该数值决定了画面最好的清晰度表现|
 | audio-quality| String| low | low 适合语音通话，high 代表高音质 | 
 | waiting-image | String | - | 当微信切到后台时的垫片图片 |
-| waiting-image-hash | String |  |当微信切到后台时的垫片图片的校验值 |
+| waiting-image-hash | String | - |当微信切到后台时的垫片图片的校验值 |
 | background-mute | Boolean | false | 当微信切到后台时是否禁用声音采集 |
-| bindstatechange | String |  | 用于指定一个 javascript 函数来接收音视频事件 |
+| bindstatechange | String | - | 用于指定一个 javascript 函数来接收音视频事件 |
 | debug | Boolean | false | 是否开启调试模式 |
 
 
