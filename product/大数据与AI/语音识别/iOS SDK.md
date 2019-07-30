@@ -128,8 +128,8 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
  recognizer.delegate = self;
 ```
 2. **实现此 QCloudSentenceRecognizerDelegate 协议方法**
+3. **调用方式说明**
 
-### 调用方式说明
 **a.通过语音 URL 调用**
 ```objective-c
 - (void)recognizeWithUrl {
