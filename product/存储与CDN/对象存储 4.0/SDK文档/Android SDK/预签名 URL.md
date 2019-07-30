@@ -268,33 +268,35 @@ try
 	}
 	};
 	//初始化CosXmlService
-	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
+    CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
 
-	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
-	String method = "GET"; //请求 HTTP 方法.
-	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
-	presignedUrlRequest.setRequestMethod(method);
+    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
+    String method = "GET"; //请求 HTTP 方法.
+    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
+    presignedUrlRequest.setRequestMethod(method);
 
-	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
+    String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	//String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
+    //String urlWithSign = cosXmlService.getPresignedURL(getObjectRequest)； //直接使用 GetObjectRequest
 
-	String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
-	PutObjectRequest putObjectRequest = new PutObjectRequest(null, null, srcPath);
-	//设置上传请求预签名 URL
-	putObjectRequest.setRequestURL(urlWithSign);
-	//设置进度回调
-	putObjectRequest.setProgressListener(new CosXmlProgressListener() {
-			@Override
-			public void onProgress(long progress, long max) {
-					// todo Do something to update progress...
-			}
-	});
-	// 使用同步方法上传
-	PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
-	} catch (CosXmlClientException e) {
-	e.printStackTrace();
-	} catch (CosXmlServiceException e) {
-	e.printStackTrace();
+    String savePath = Environment.getExternalStorageDirectory().getPath()；//本地路径
+    String saveFileName = "exampleobject"; //本地文件名
+    GetObjectRequest getObjectRequest = new GetObjectRequest(null, null, savePath, saveFileName);
+
+    //设置上传请求预签名 URL
+    getObjectRequest.setRequestURL(urlWithSign);
+    //设置进度回调
+    getObjectRequest.setProgressListener(new CosXmlProgressListener() {
+            @Override
+            public void onProgress(long progress, long max) {
+                    // todo Do something to update progress...
+            }
+    });
+    // 使用同步方法下载
+    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
+    } catch (CosXmlClientException e) {
+    e.printStackTrace();
+    } catch (CosXmlServiceException e) {
+    e.printStackTrace();
 }
 ```
