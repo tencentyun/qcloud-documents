@@ -446,7 +446,7 @@ __参数__
 
 ### onScreenCaptureResumed
 
-当屏幕分享开始时，SDK 会通过此回调通知。
+当屏幕分享恢复时，SDK 会通过此回调通知。
 ```
 - (void)onScreenCaptureResumed:(int)reason 
 ```
@@ -460,7 +460,7 @@ __参数__
 
 ### onScreenCaptureStoped
 
-当屏幕分享开始时，SDK 会通过此回调通知。
+当屏幕分享停止时，SDK 会通过此回调通知。
 ```
 - (void)onScreenCaptureStoped:(int)reason 
 ```
