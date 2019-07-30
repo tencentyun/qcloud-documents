@@ -89,7 +89,7 @@ Content-MD5: MD5
 | OptionalFields         | InventoryConfiguration | 设置清单结果中应包含的分析项目                             | Container | 否       |
 | Field                  | OptionalFields         | 清单结果中可选包含的分析项目名称，可选字段包括：Size，LastModifiedDate，StorageClass，ETag，IsMultipartUploaded，ReplicationStatus | String    | 否       |
 | Schedule               | InventoryConfiguration | 配置清单任务周期                                           | Container | 是       |
-| Frequency              | Schedule               | 清单任务周期，可选项为按日或者按周                         | String    | 是       |
+| Frequency              | Schedule               | 清单任务周期，可选项为按日或者按周，枚举值：Daily、Weekly      | String    | 是       |
 | Destination            | InventoryConfiguration | 描述存放清单结果的信息                                     | Container | 是       |
 | COSBucketDestination   | Destination            | 清单结果导出后存放的存储桶信息                             | Container | 是       |
 | Bucket                 | COSBucketDestination   | 清单分析结果的存储桶名                                    | String    | 是       |
