@@ -50,7 +50,7 @@ Form
       <td>否</td>
    </tr>
    <tr>
-      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires</td>
+      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>RFC 2616 中定义的头部，请参见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档</td>
       <td>String</td>
       <td>否</td>
@@ -63,7 +63,7 @@ Form
    </tr>
    <tr>
       <td>key</td>
-      <td>上传后的文件名，使用 ${filename} 则会进行替换，例如<code>a/b/${filename}</code>，上传文件 photo.jpg，那么最终的上传路径就是 a/b/photo.jpg</td>
+      <td>上传后的文件名，使用<code>${filename}</code>则会进行替换，例如<code>a/b/${filename}</code>，上传文件 photo.jpg，那么最终的上传路径就是<code>a/b/photo.jpg</code></td>
       <td>String</td>
       <td>是</td>
    </tr>
