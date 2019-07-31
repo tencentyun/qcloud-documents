@@ -1,6 +1,6 @@
 ## 创建实例
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
-2. 在 CKafka 实例列表页，单击【新建】按钮。
+2. 在 CKafka 实例列表页，单击【新建】。
 3. 在 CKafka 实例购买页，选择购买信息。
 	- 计费模式：包年包月
 	- 地域：选择物理分区相近的地域
