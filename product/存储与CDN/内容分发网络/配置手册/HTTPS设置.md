@@ -9,14 +9,15 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 - 自有证书：将自有证书、私钥内容上传至 CDN 进行部署，全程加密传输，证书不落地，保障您的证书安全。
 - 腾讯云托管证书：您可以通过 [SSL 证书管理](https://console.cloud.tencent.com/ssl)，将已有证书托管至腾讯云，以用于多个云产品，您也可以在该平台申请由亚洲诚信免费提供的第三方证书，将其直接部署至 CDN。
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的【域名管理】进入**域名管理**页面。单击域名右侧【管理】按钮，进入管理页面：
+### 配置 HTTPS 证书
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的【域名管理】进入**域名管理**页面。单击域名右侧【管理】按钮，进入管理页面：
 ![](https://main.qcloudimg.com/raw/8a395bd78a46d6d957efbef3e428ff0c.png)
-单击 【高级配置】，找到 **HTTPS 配置**模块。单击【前往配置】，跳转至**证书管理**页面配置证书。配置流程请参阅 [证书管理](https://cloud.tencent.com/document/product/228/6303)。
+2. 单击 【高级配置】，找到 **HTTPS 配置**模块。单击【前往配置】，跳转至**证书管理**页面配置证书。配置流程请参阅 [证书管理](https://cloud.tencent.com/document/product/228/6303)。
 ![](https://main.qcloudimg.com/raw/57ff3b542eee49cf03d7ccb4cf06cb1a.png)
-证书**配置成功**后，会出现【强制跳转 HTTPS】开关。开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问：
+3. 证书**配置成功**后，会出现【强制跳转 HTTPS】开关。开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问：
 ![](https://main.qcloudimg.com/raw/d29b36ebc42d3d18214bf3eb4aaefa49.png)
 
-## HTTP2.0 配置
+### HTTP2.0 配置
 在成功为域名配置了 HTTPS 证书后，可以开启 HTTP2.0。
 ![](https://main.qcloudimg.com/raw/8c62180a82aa84bfb3c15247e70a0e59.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
