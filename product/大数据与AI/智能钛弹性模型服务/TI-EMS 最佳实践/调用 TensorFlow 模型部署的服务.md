@@ -1,4 +1,5 @@
-﻿### 准备内容
+
+### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)
 >?已为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 
