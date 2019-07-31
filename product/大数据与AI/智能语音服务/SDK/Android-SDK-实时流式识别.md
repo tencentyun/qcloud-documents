@@ -106,7 +106,7 @@ try {
     e.printStackTrace();
 }
 ```
-### 停止语音识别(等待当前任务结束)
+### 停止语音识别
 ```
 // 1、获得请求的 ID
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -121,7 +121,7 @@ new Thread(new Runnable() {
     }
 }).start();
 ```
-### 取消语音识别(丢弃当前任务)
+### 取消语音识别
 ```
 // 1、获得请求的id
 final int requestId = audioRecognizeRequest.getRequestId();
