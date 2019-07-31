@@ -702,7 +702,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 - wsrep_start_position     00000000-0000-0000-0000-000000000000:-1
 - wsrep_sync_wait     0
 
-#### 5.3 仅存在与 mysql5.6 中的变量
+#### 5.3 仅存在于 mysql5.6 中的变量
 
 - avoid_temporal_upgrade     OFF
 - bind_address     *
