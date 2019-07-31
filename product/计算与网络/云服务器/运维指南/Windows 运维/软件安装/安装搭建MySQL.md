@@ -9,7 +9,7 @@
 2. 在云服务器中打开浏览器，并访问 `https://dev.mysql.com/downloads/mysql/5.5.html#downloads`，下载 MySQL 安装包。如下图所示：
 ![](https://main.qcloudimg.com/raw/b96236244404b3e65d3e750dec8ea8c0.png)
 
-### 安装程序
+### 安装 MySQL
 
 1. 双击打开 MySQL 安装包，并在 “MySQL Server 5.5 Setup” 安装界面单击【Next】。
 2. 勾选【I accept the terms in the License Agreement】，单击【Next】。如下图所示：
@@ -77,12 +77,18 @@ Typical 表示典型安装方式。
 ![](https://main.qcloudimg.com/raw/328fa1f3eb39ed00f9492ffcf5b93c46.png)
 12. 单击【Finish】，完成配置。
 
-### 登录 MySQL 测试
+### 验证 MySQL 是否安装成功
 
-1. 在云服务器中，单击【开始】，单击【搜索(图标)】，输入```cmd```，打开管理员命令框：
-![](//mc.qcloudimg.com/static/img/c7920f20daff62d136f6ba7987fb2ac8/image.png)
-2. 输入命令```mysql -u root -p```，回车。
-3. 通过设置的 root 密码登录 MySQL ，显示下图表示安装配置成功。
-![](//mc.qcloudimg.com/static/img/18aef21cabf34db1bca266a8977018f4/image.png)
+1. 在操作系统界面，右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"></img> > 【运行】，打开运行框。
+2. 在运行框中输入 **cmd**，按 **Enter**，打开管理员命令框。
+3. 在管理员命令框中，执行以下命令。
+```
+mysql -u root -p
+```
+4. 输入设置的 root 密码，按 **Enter**，登录 MySQL。
+若显示如下界面信息，则表示安装配置成功。
+![](https://main.qcloudimg.com/raw/c5269c7e1acfedd3038dc60c74a2850f.png)
+
+
 
 
