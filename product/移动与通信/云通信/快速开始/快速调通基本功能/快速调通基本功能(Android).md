@@ -1,7 +1,7 @@
-本文主要介绍腾讯云 IM SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对云通信 IM 的基本使用流程有一个简单的认识。
+本文主要介绍腾讯云 IM SDK(Android) 的几个最基本功能的使用方法，阅读此文档有助于您对即时通信 IM 的基本使用流程有一个简单的认识。
 ## 初始化
 - IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，这是一个单例模块，可以用 getInstance() 方法获取。
-- SDKAppID 可以在云通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
+- SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。
 
 ```
 //初始化 SDK 基本配置
@@ -136,7 +136,7 @@ TIMManager.getInstance().addMessageListener(new TIMMessageListener() {//消息�
 **更多消息接收操作请参考 SDK 文档： [消息收发](https://cloud.tencent.com/document/product/269/9232)**。
 
 ## 群组管理
-云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](https://cloud.tencent.com/document/product/269/1502) 介绍，群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作，其中群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 | 类型 | 说明 |
 |:---------:|:---------|

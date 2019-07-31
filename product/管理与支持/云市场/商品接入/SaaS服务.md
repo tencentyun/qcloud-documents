@@ -11,9 +11,8 @@
 2. 完成 API 开发后，登录 [服务商管理 > 开发 > 在线接口调试](https://console.cloud.tencent.com/serviceprovider/ondebug) 填写测试地址，调试相关接口。
 ![](https://main.qcloudimg.com/raw/4facac5cbf4ff29ed57d10d9c333b52b.png)
 3. 登录 [云市场 > 服务商管理后台](https://console.cloud.tencent.com/serviceprovider/products) 。  
-4. 进入商品管理页面，单击【新建】。  
-5. 选择“SaaS 交付”。   
-6. 填写商品信息。   
+4. 进入商品管理页面，单击【新建】，选择“SaaS 交付”。
+5. 在 [新建 SaaS 交付商品](https://console.cloud.tencent.com/isv/products/create/saas) 页面，填写商品信息。   
 ![](https://main.qcloudimg.com/raw/3043f8ddc80becde5b5cb0c48546b092.png)   
 **【填写说明】**   
 **商品名称**：必填，输入商品名称，80字内。   

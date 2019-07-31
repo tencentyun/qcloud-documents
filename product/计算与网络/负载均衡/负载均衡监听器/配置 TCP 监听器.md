@@ -67,7 +67,7 @@
 ![](https://main.qcloudimg.com/raw/b4ef603e5f99f89f39bb6617c7dbb5a3.png)
 
 ### 步骤3：绑定后端云服务器
-1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `TCP:80` 监听器，即可在监听器右侧查看已绑定的云服务器。
+1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `TCP:80` 监听器，即可在监听器右侧查看已绑定的后端服务。
 ![](https://main.qcloudimg.com/raw/3a4dfa05610d1db6c38f6d591da93b38.png)
 2. 点击【绑定】按钮，在弹出框中选择需绑定的后端服务器，并配置服务端口和权重。
  1. 添加端口功能：在右侧“已选择”云服务器框内，单击【添加端口】，即可添加同一个云服务器的多个端口，如同时添加 CVM 的 80、81、82 三个端口。
@@ -75,7 +75,7 @@
 ![](https://main.qcloudimg.com/raw/e0ef33bc1e3de8bd048f22b046dd2d50.png)
 
 完成步骤1到步骤3之后，TCP 监听器规则已配置完毕，配置详情如下：
-![](https://main.qcloudimg.com/raw/60e98a336ea813fd5850d6ecaaea060c.png)
+![](https://main.qcloudimg.com/raw/c70a8b5b30a7e801b32009b0845c8c0f.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。

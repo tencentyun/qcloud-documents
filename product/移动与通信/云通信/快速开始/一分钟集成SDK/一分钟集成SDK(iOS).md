@@ -62,7 +62,7 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 | --- | --- |
 | ImSDK.framework | IM 功能包 |
 
-- TXLiteAVSDK_UGC.framework 是腾讯云短视频（UGC）SDK，用于实现云通信 IM 中的短视频收发能力，为可选组件。
+- TXLiteAVSDK_UGC.framework 是腾讯云短视频（UGC）SDK，用于实现即时通信 IM 中的短视频收发能力，为可选组件。
 
 | 包名 | 介绍 | 功能 |
 | --- | --- | --- |

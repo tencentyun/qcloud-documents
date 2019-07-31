@@ -1,100 +1,69 @@
-为了提升用户在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 zypper 下载源。操作系统为 openSUSE 及 部分 SLES 的云服务器用户可通过 zypper 快速安装软件。
+## 操作场景
+为了提升您在云服务器上的软件安装效率，减少下载和安装软件的成本，腾讯云提供了 zypper 下载源。openSUSE 操作系统和部分 SLES 的云服务器用户可通过 zypper 快速安装软件。本文档以 openSUSE 操作系统为例，指导您通过 zypper 快速安装软件。
 
-## 1. 安装步骤
-登录操作系统为 openSUSE 的云服务器后，默认已获取root权限，在此权限下，通过以下命令列出软件源：
+## 操作步骤
+### 查看软件源
 
-```
-zypper service-list 
-```
-或
+1. 使用 root 帐号登录 openSUSE 操作系统的云服务器。
+2. 执行 `zypper service-list` 或 `zypper sl` 命令，列出软件源。
+例如，执行 `zypper sl` 命令，返回类似如下信息：
+![](https://main.qcloudimg.com/raw/ee336605784eca333f10777ccb7cf5ed.png)
+ - 如果软件源中已经添加了可用源，请 [安装软件包](#SearchPackage)。
+ - 如果软件源未添加可用源，请 [添加软件源](#AddSoftwareSource)。
 
-```
-zypper sl
-```
+<spam id="AddSoftwareSource"></span>
+### 添加软件源
 
-如果软件源中已经添加了可用源，则可以直接执行步骤3，正常进行软件下载和安装；
-
-如果没有，请根据步骤2的说明添加软件源；
-
-## 2. 添加软件源
-如果上一步骤中没有列出软件源，则需要在root权限下，通过以下命令手动添加软件源：
-
+执行 `zypper service-add` 或 `zypper sa` 命令，手动添加软件源。
+例如，执行 `zypper sa` 命令，其示例如下：
 ```
-zypper service-add
-```
-或
-```
-zypper sa
-```
-示例如下：
-
-```
-zypper sa -t YaST http://mirrors.tencentyun.com/opensuse opensuse 
-zypper sa -t YaST http://mirrors.tencentyun.com/opensuse/update update
+zypper sa -t YaST http://mirrors.cloud.tencent.com/opensuse opensuse
+zypper sa -t YaST http://mirrors.cloud.tencent.com/opensuse/update update
 ```
 
-## 3. 搜索软件包
-通过以下命令搜索软件包：
+<span id="SearchPackage"></span>
+### 安装软件包
 
-```
-zypper search
-```
-或
-
-```
-zypper se
-```
-示例如下：
-
+1. 执行 `zypper search` 或 `zypper se` 命令，搜索软件包。
+例如，搜索 Nginx 软件包，则可执行以下命令：
 ```
 zypper se nginx
 ```
-
-## 4. 安装软件包
-根据搜索到的软件包的名字安装软件。如果要安装多个软件，中间用空格隔开。
-
->注：安装软件的时候，如果需要依赖包，会自动下载安装，用户无需自己安装依赖包。
-
-通过以下命令安装软件包：
-
+返回类似如下结果：
+![](https://main.qcloudimg.com/raw/292106a01b048171007247cb9cdf00c0.png)
+2. 根据搜索到的软件包名，执行 `zypper install` 或 `zypper in` 命令，安装软件。
+>? 如果您需要安装多个软件，软件包名之间用空格隔开。
+> 安装软件时，如果该软件需要依赖包，会自动下载安装，无需自己安装依赖包。
+> 
+例如，安装 Nginx，则可执行以下命令：
 ```
-zypper install
+zypper install nginx
 ```
-或
+例如，安装 PHP 和 PHP-FPM 等软件，则可执行以下命令：
 ```
-zypper in
-```
-示例如下：
-
-```
-zypper in nginx
+zypper install MySQL-server-community php5-mysql php5 php5-fpm
 ```
 
-可以按照相同的方式安装php和php-fpm等软件：
 
+### 查看已安装软件的信息
+
+1. 待软件安装完成后，执行以下命令，查看软件包具体的安装目录。
 ```
-zypper in MySQL-server-community php5-mysql php5 php5-fpm
+rpm -ql
 ```
-
-## 5. 查看安装的软件信息
-软件安装完成后，可通过以下命令查看软件包具体的安装目录：
-
+例如，查看 Nginx 软件包具体的安装目录，则执行以下命令：
 ```
-rpm -ql 
+rpm -ql nginx
 ```
-
-可通过以下命令查看软件包的版本信息：
-
+返回类似如下信息：
+![](https://main.qcloudimg.com/raw/b4ad19a8735041bf78942f5ea351dc2e.png)
+2. 执行以下命令，查看软件包的版本信息。
 ```
 rpm -q
 ```
-
-示例：
-
+例如，查看 Nginx 软件包的版本信息，则执行以下命令：
 ```
-rpm -ql nginx
 rpm -q nginx
 ```
-结果如下（实际的版本可能和此版本不一致，请以实际查询到的版本为准）：
-![](//mccdn.qcloud.com/img56af4cc4d0c52.png)
-![](//mccdn.qcloud.com/img56af4ccb0d033.png)
+返回类似如下信息：
+![](https://main.qcloudimg.com/raw/9950192d2cf51c7ab30c2109b3e52d14.png)
