@@ -73,7 +73,7 @@ try
 	
 	string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	string srcPath = @"F:\exampleobject"；//本地文件绝地路径
+	string srcPath = @"F:\exampleobject";//本地文件绝地路径
 	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 UR L
 	request.RequestURLWithSign = requestSignURL;
@@ -131,7 +131,7 @@ try
 	
 	string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); //载请求预签名 URL (使用永久密钥方式计算的签名 URL )
 	
-	string localDir = @"F:\"；//下载到本地指定文件夹
+	string localDir = @"F:\";//下载到本地指定文件夹
 	string localFileName = "exampleobject"; //指定本地保存的文件名
 	GetObjectRequest request = new GetObjectRequest(null, null, localDir, localFileName);
 	//设置下载请求预签名 UR L
@@ -194,7 +194,7 @@ try
 	
 	string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); //上传预签名 URL (使用临时密钥方式计算的签名 URL )
 
-	string srcPath = @"F:\exampleobject"；//本地文件绝地路径
+	string srcPath = @"F:\exampleobject";//本地文件绝地路径
 	PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
 	//设置上传请求预签名 UR L
 	request.RequestURLWithSign = requestSignURL;
@@ -253,7 +253,7 @@ try
 	
 	string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); //载请求预签名 URL (使用临时密钥方式计算的签名 URL )
 	
-	string localDir = @"F:\"；//下载到本地指定文件夹
+	string localDir = @"F:\";//下载到本地指定文件夹
 	string localFileName = "exampleobject"; //指定本地保存的文件名
 	GetObjectRequest request = new GetObjectRequest(null, null, localDir, localFileName);
 	//设置下载请求预签名 UR L
