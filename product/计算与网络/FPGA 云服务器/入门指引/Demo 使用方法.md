@@ -13,7 +13,7 @@ FPGA 云服务器入门指引 Demo 放置在`/data/fpga_classify_demo`目录下�
 - test
  - script
 
->!FPGA 中做 Alexnet 图片分类的 API 放在 Demo 的`lib/fpga_classify`目录下
+>!FPGA 中做 Alexnet 图片分类的 API 放在 Demo 的`lib/fpga_classify`目录下。
 
 ## 图片目录
 FPGA 云服务器入门指引图片目录放置在 `/data/images` 目录下，保存了10764张测试图片。
