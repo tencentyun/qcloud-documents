@@ -6,7 +6,7 @@
 **2. 测试图片：** [flower.jpg](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.jpg)
 ![](https://main.qcloudimg.com/raw/9e74659a24ec62bc47b0f14160afee98.png)
 **base64 编码**
-将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": 图片 base64 编码}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据。
+将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据。
 ```shell
 echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.json
 ```
@@ -27,9 +27,9 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 ![](https://main.qcloudimg.com/raw/35a25f37773217ab2fdc3a48f0679596.png)
 使用 curl 工具为例，展示如何调用服务接口：
 ```shell
-	curl -H "Content-Type: application/json" \
-	-H "x-Auth-Token: TOKEN" \
-	-X POST IP/v1/models/m:predict -d @flower.json
+curl -H "Content-Type: application/json" \
+-H "x-Auth-Token: TOKEN" \
+-X POST IP/v1/models/m:predict -d @flower.json
 ```
 **调用参数说明**
 TOKEN：通过单击模型服务页面的【服务调用】获取的密钥地址 token。
@@ -37,13 +37,11 @@ IP：通过单击模型服务页面的【服务调用】获取的服务访问地
 **返回结果：**
 ```shell
 {
-    "predictions": [
-        {
-            "class_idx": 2,
-            "probabilities": [0.00685295, 0.00298388, 0.965622, 0.00721011, 0.0173306],
-            "classes": "roses"
-        }
-    ]
-
+ "predictions": [{
+  "class_idx": 2,
+  "probabilities": [0.00685295, 0.00298388, 0.965622, 0.00721011, 0.0173306],
+  "classes": "roses"
+ }]
+}
 ```
 可以看出模型服务运行正常，并且正确的对发送的花朵进行了分类，具体详情可参考 [TensorFlow 模型服务文档](https://www.tensorflow.org/tfx/serving/api_rest)。
