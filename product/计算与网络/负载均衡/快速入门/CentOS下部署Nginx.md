@@ -35,7 +35,7 @@ vim index.html
 Hello nginx , This is rs-1!
 URL is image/index.html
 ```
->!Nginx 的默认端口是 `80`，如果想修改端口请修改配置文件并重启 Nginx。
+>!Nginx 的默认端口是`80`，如果想修改端口请修改配置文件并重启 Nginx。
 
 ## 验证 Nginx 服务
 访问云服务器的公网 IP+路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
