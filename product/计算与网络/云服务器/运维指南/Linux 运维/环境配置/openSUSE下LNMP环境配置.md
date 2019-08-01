@@ -92,7 +92,7 @@ systemctl start mysql
 systemctl enable mysql
 ```
 
-3. 执行以下命令，首次登录 MySQL 。
+3. 执行以下命令，首次登录 MySQL。
 >? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
 >
 ```
@@ -114,18 +114,18 @@ flush privileges;
 ```
 
 ### 安装配置 PHP
-执行以下命令，安装 PHP 。
+执行以下命令，安装 PHP。
 ```
 zypper install -y php7 php7-fpm php7-mysql
 ```
 
 ### Nginx 与 PHP-FPM 集成
-1. 依次执行以下命令，配置文件 php-fpm.conf。
+1. 依次执行以下命令，进入 `/etc/php7/fpm` 目录，将 `php-fpm.conf.default` 文件复制并重命名为 `php-fpm.conf` 文件。
 ```
 cd /etc/php7/fpm
 cp php-fpm.conf.default php-fpm.conf
 ``` 
-2. 依次执行以下命令，配置文件 www.conf。
+2. 依次执行以下命令，进入 `/etc/php7/fpm/php-fpm.d` 目录，将 `www.conf.default` 文件复制并重命名为 `www.conf` 文件。
 ```
 cd /etc/php7/fpm/php-fpm.d
 cp www.conf.default www.conf
@@ -148,7 +148,7 @@ vim /srv/www/htdocs/index.php
 ?>
 ```
 3. 按 “**Esc**” 键，输入 “**:wq**”，保存文件并返回。
-4. 在浏览器中，访问 openSUSE 云服务器公网 IP 。
+4. 在浏览器中，访问 openSUSE 云服务器公网 IP。
 如下图所示，则 LNMP 环境搭建成功。
 ![](https://main.qcloudimg.com/raw/0adc6168e7407931c597228520b35413.png)
 
