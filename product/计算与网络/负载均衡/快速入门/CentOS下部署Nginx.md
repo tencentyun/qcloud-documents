@@ -38,7 +38,7 @@ URL is image/index.html
 >!Nginx 的默认端口是`80`，如果想修改端口请修改配置文件并重启 Nginx。
 
 ## 验证 Nginx 服务
-访问云服务器的公网 IP+路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
+访问云服务器的公网 IP + 路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
 - rs-1 的 index.html 页面：
 ![](https://main.qcloudimg.com/raw/1a6deb1a0ad5b2e4d5d1df2f91c5f54e.png)
 - rs-1 的 /image/index.html 页面：
