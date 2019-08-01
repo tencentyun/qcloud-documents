@@ -46,12 +46,6 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`
 
 
 
-### 集成 SDK 报 duplicate symbol（符号重复）
-
-- 检查 `Build Settings` -> `Linking` -> `Other Linker Flags` 设置，不能有 `-all_load`。
-- 更换 rename 版 SDK。
-
-
 ### 录制短视频时设置背景音乐无效
 
 1. 确定传的 BGM path 下有没有文件，以及是否可以正常播放。
