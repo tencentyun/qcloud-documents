@@ -1,5 +1,5 @@
 ## 操作场景
-本文档将介绍 Weekdone 的配置方法及相关注意事项。配置成功后，您的企业用户即可登录 Weekdone 进行操作。 
+当企业需要管理 Weekdone 资源时，管理员可以在 IDaaS 控制台的“应用管理”模块添加 Weekdone 应用。本文将介绍 Weekdone 的配置方法及相关注意事项。配置成功后，您的企业用户即可登录 Weekdone 进行操作。 
 
 ## 前提条件
 - 您的腾讯云账号已开通 IDaaS 服务。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1106/36332)。
@@ -7,7 +7,7 @@
 
 ## 操作步骤
 ### 创建 Weekdone 应用
-1. 管理员登录 [IDaaS控制台](https://console.cloud.tencent.com/idaas)。
+1. 管理员登录 [IDaaS 控制台](https://console.cloud.tencent.com/idaas)。
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。
 3. 单击【新建应用】，选择【自定义 SAML2.0 应用程序】，并填写应用名称和应用详情。单击【提交】。完成 Weekdone 应用的创建。
 ![](https://main.qcloudimg.com/raw/607f3fb35868524ec2a963518ba77ce5.png)
@@ -15,7 +15,7 @@
 ![](https://main.qcloudimg.com/raw/e01b41647de4c750d71ba9e6c8557cd5.png)
 
 ### 配置 Weekdone 单点登录设置
-1. 新开页前往 [Weekdone官网](https://weekdone.com/)，登录您的管理员账号。
+1. 新开页前往 [Weekdone 官网](https://weekdone.com/)，登录您的管理员账号。
 2. 顶部导航右上角个人头像下拉菜单里，单击设置一栏。
 3. 单击【Single-sign-on (SAML2)】。
 4. 填写在腾讯云 IDaaS 创建的 Weekdone 应用信息：
@@ -38,7 +38,7 @@
 ![](https://main.qcloudimg.com/raw/41e566c9176e4ef0424b0b960d748c46.png)
 
 ### 测试并分配权限
-1. 为应用关联用户进行测试，用户的邮箱需和 Weekdone 应用里用户邮箱匹配。
-2. 该用户可以登录 IDaaS 企业门户，测试访问 Weekdone 应用。
-3. 测试成功后，即可关联其他用户，设置应用访问权限。
+1. 为应用关联一个用于测试的用户，且该用户的邮箱需和 Weekdone 应用里用户邮箱匹配。关联用户步骤可参见 [管理应用权限](https://cloud.tencent.com/document/product/1106/36361)。
+2. 测试用户登录 IDaaS 企业门户，尝试访问 Weekdone 应用。
+3. 若访问成功即可关联其他用户，设置应用访问权限。
 >!IDaaS 门户的用户邮箱必须和 Weekdone 应用的用户邮箱匹配。
