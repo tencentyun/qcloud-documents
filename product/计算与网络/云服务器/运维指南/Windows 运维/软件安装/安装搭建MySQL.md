@@ -14,7 +14,7 @@
 1. 双击打开 MySQL 安装包，并在 “MySQL Server 5.5 Setup” 安装界面单击【Next】。
 2. 勾选【I accept the terms in the License Agreement】，单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/fd10bf4885214fc586940663f37b29bd.png)
-3. 选择【Typical】。如下图所示：
+3. 单击【Typical】。如下图所示：
 Typical 表示典型安装方式。
 ![](https://main.qcloudimg.com/raw/85292c920bafd81c341e23214c01eac7.png)
 4. 单击【Install】，安装 MySQL。如下图所示：
@@ -73,7 +73,7 @@ Typical 表示典型安装方式。
 ![](https://main.qcloudimg.com/raw/4e3f9b7c330a0f59e3ed319ddc8b882d.png)
 10. 设置 root 的密码，单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8c66302686ca7c47eb32583b4722e4f8.png)
-11. 单击【Execute】，进行配置。如下图所示：
+11. 单击【Execute】，配置 MySQL。如下图所示：
 ![](https://main.qcloudimg.com/raw/328fa1f3eb39ed00f9492ffcf5b93c46.png)
 12. 单击【Finish】，完成配置。
 
