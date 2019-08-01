@@ -14,8 +14,6 @@
 5. 根据界面提示，完成实例创建的配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/00ce30ec22c0354188fd2b63fd7e5faa.png)
 
-
-
 ### NVIDIA GPU 驱动预装镜像
 - [CentOS 7.2 NVIDIA GPU 基础镜像（预装驱动和 CUDA 9.2）](http://market.qcloud.com/detail.php?productId=6630&_ga=1.163902902.805765411.1545285819)
 - [CentOS 7.5 NVIDIA GPU 基础镜像（预装驱动和 CUDA 9.2）](http://market.qcloud.com/detail.php?productId=6635&_ga=1.93543700.805765411.1545285819)
