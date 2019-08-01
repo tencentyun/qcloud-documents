@@ -35,6 +35,13 @@
 |rewindSeconds|Int | 回溯队列的消息回溯时间最大值，取值范围0 - 43200秒，0表示不开启消息回溯。|
 |rewindmsgNum|Int|已调用 DelMsg 接口删除，但还在回溯保留时间内的消息数量。|
 |minMsgTime|Int|消息最小未消费时间，单位为秒。|
+|queueName|String|消息队列名字。|
+|queueId|String|消息队列ID。|
+|createUin|Int|创建者Uin。|
+|Bps|Int|带宽限制。|
+|qps|Int|每秒钟生产消息条数的限制，消费消息的大小是该值的1.1倍。|
+|tags|Array|关联的标签。|
+
 
 ## 示例
 输入：
@@ -47,18 +54,29 @@
 输出：
 ```
 {
-"code" : 0,
-"message" : "",
-"requestId":"14534664555",
-"maxMsgHeapNum": 10000000,
-"pollingWaitSeconds": 10,
-"visibilityTimeout": 0,
-"maxMsgSize": 65536,
-"msgRetentionSeconds": 1296000,
-"createTime":1462268960,
-"lastModifyTime": 1462269960,
-"activeMsgNum": 10000,
-"inactiveMsgNum": 1000
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId": "1661914201",
+    "maxMsgHeapNum": 100000000,
+    "pollingWaitSeconds": 3,
+    "visibilityTimeout": 43200,
+    "maxMsgSize": 65536,
+    "msgRetentionSeconds": 86400,
+    "rewindSeconds": 86400,
+    "delayMsgNum": 0,
+    "minMsgTime": 1564626851,
+    "rewindMsgNum": 0,
+    "inactiveMsgNum": 0,
+    "activeMsgNum": 2,
+    "lastModifyTime": 1563877026,
+    "createTime": 1563877026,
+    "queueName": "dns",
+    "queueId": "queue-aiav4lys",
+    "createUin": 100010439978,
+    "Bps": 52428800,
+    "qps": 5000,
+    "tags": []
 }
 ```
 
