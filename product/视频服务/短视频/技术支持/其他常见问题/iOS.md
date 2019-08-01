@@ -52,7 +52,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`
 2. 确定接口的调用顺序：`startCameraSimple:preview:` -> `setBGM:` -> `startRecord`。
 
 > [注意] 很多接口调用有时序要求，不然会无效。一般在注释上会有说明。
-比如短视频录制的 `setVideoResolution:`、`setVideoBitrate:`、`setAspectRatio:` 等接口都需要在 `startRecord` 之前设置才有效。
+例如短视频录制的 `setVideoResolution:`、`setVideoBitrate:`、`setAspectRatio:` 等接口都需要在 `startRecord` 之前设置才有效。
 
 
 ### 录制设置 BGM 不能循环播放
