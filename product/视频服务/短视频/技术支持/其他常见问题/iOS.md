@@ -19,8 +19,7 @@
 ![](https://main.qcloudimg.com/raw/bafe4d2c775330a29b4478be270022fc.jpg)
 
 
-### 连接 Xcode 调试，短视频录制报错
-_此问题在4.9版本已经修复_
+### 连接 Xcode 调试，短视频录制报错（此问题在4.9版本已经修复）
 
 连接 Xcode 调试，短视频录制报错，报错信息：`Main Thread Checker: UI API called on a background thread`
 ![](https://main.qcloudimg.com/raw/04b272c456b0e69239c0867a8e964d7a.jpg)
