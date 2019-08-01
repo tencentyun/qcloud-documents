@@ -7,7 +7,7 @@ GPU 云服务器正常工作需安装正确的基础设施软件，对 NVIDIA �
 为方便用户，用户可以再创建 GPU 云服务器时，在镜像市场里选择预装特定版本驱动和 CUDA 的镜像。
 
 ## Linux 驱动安装
-Linux 驱动安装有 2 种方式：
+Linux 驱动安装有2种方式：
 - Shell 脚本安装， 适用于任何 Linux 发行版，包括 CentOS，Ubuntu 等；
 - 包安装，适用于不同 Linux 发行版，例如 DEB 包安装， RPM 包安装等。
 
