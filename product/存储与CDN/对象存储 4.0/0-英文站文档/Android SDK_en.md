@@ -189,7 +189,7 @@ GetObjectResult getObjectResult = cos.getObject(getObjectRequest);
 
 **Acquiring Signature:**
 
-This is the SIGN used in SDK. It is recommended to use the server-side SDK and send the request to business server from mobile device. For more information on how to generate and use SIGN, refer to [Access Permission](https:///doc/api/435/6054).
+This is the SIGN used in SDK. It is recommended to use the server-side SDK and send the request to business server from mobile device. For more information on how to generate and use SIGN, refer to [Access Permission]
 
 
 ## Directory-related Operations 
