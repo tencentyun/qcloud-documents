@@ -1,5 +1,5 @@
-## 操作场景
-本文档将介绍 AWS 控制台的配置方法及相关注意事项。配置成功后，您的企业用户即可以角色身份登录 AWS 控制台，管理 AWS 资源。 
+
+本文档将介绍 AWS 控制台的配置方法及相关注意事项。配置成功后，您的企业用户即可以角色身份登录 AWS 控制台，管理 AWS 资源。 （AWS 角色描述请参见 [角色术语和概念](https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/id_roles_terms-and-concepts.html)）
 
 ## 前提条件
 - 您的腾讯云账号已开通 IDaaS 服务。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1106/36332)。
