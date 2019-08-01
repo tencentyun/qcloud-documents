@@ -30,7 +30,7 @@
 | MasterVolume | 是 | Uint | 单位 GB，Master 节点数据盘容量 |
 | CoreSpec | 是 | String | Core 节点机器规格，参见 CVM 实例配置|
 | CoreStorageType| 否 | Uint | Core 节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认 1 |
-| CoreRootSize | 否 | Uint | 单位 GB，Core 节点系统盘容量，默认 20G |
+| CoreRootSize | 否 | Uint | 单位 GB，Core 节点系统盘容量，默认20G |
 | CoreMemory | 是 | Uint | 单位 MB，Core 节点内存容量 |
 | CoreCpuCores | 是 | Uint | Core 节点 CPU 核数 |
 | CoreVolume | 是 | Uint | 单位 GB，Core 节点数据盘容量 |
