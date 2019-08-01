@@ -26,9 +26,9 @@ __参数__
 __介绍__
 
 接口说明：
-- 默认值：true
+- 默认值：true。
 - true：启用自动调整， SDK 将根据网络状况在一个范围内调整缓存时间；通过 [setMaxAutoAdjustCacheTime](https://cloud.tencent.com/document/product/454/34774#setmaxautoadjustcachetime) 和 [setMinAutoAdjustCacheTime](https://cloud.tencent.com/document/product/454/34774#setminautoadjustcachetime) 两个接口来进行设置。
-- false：关闭自动调整， SDK 将使用固定缓存时长；通过 [setCacheTime(float)](https://cloud.tencent.com/document/product/454/34774#setcachetime.28float) 来进行设置。
+- false：关闭自动调整， SDK 将使用固定缓存时长；通过 [setCacheTime(float)](https://cloud.tencent.com/document/product/454/34774#setcachetime) 来进行设置。
 
 ***
 
@@ -48,7 +48,7 @@ __参数__
 __介绍__
 
 接口说明：
-- 设置播放器缓存时间，单位秒，默认值为5秒。
+- 设置播放器缓存时间，单位为秒，默认值为5秒。
 - 不建议设置过大，会影响秒开以及直播流播放的实时性。
 
 ***
@@ -112,7 +112,7 @@ __介绍__
 
 接口说明：
 - 默认值：800，单位为毫秒。
-- 当渲染间隔超过此阈值时候，表明产生了卡顿；播放器会通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener.23onplayevent.28int.2C+bundle) 回调 PLAY_WARNING_VIDEO_PLAY_LAG 事件通知。
+- 当渲染间隔超过此阈值时候，表明产生了卡顿；播放器会通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#onplayevent) 回调 PLAY_WARNING_VIDEO_PLAY_LAG 事件通知。
 
 ***
 
@@ -171,7 +171,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false:关闭。 |
+| enable | boolean | true：开启；false：关闭。 |
 
 __介绍__
 
@@ -241,11 +241,11 @@ __参数__
 
 __介绍__
 
-待废弃，默认值：TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO
+待废弃，默认值：TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO。
 通道类型说明：
 - TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO ：自动。
 - TXLiveConstants#RTMP_CHANNEL_TYPE_STANDARD：标准的 RTMP 协议，网络层采用 TCP 协议。
-- TXLiveConstants#RTMP_CHANNEL_TYPE_PRIVATE： 标准的 RTMP 协议，网络层采用私有通道传输（在 UDP 上封装的一套可靠快速的传输通道），能够更好地抵抗网络抖动；对于播放来说，私有传输通道只有在拉取低时延加速流时才可以生效。
+- TXLiveConstants#RTMP_CHANNEL_TYPE_PRIVATE：标准的 RTMP 协议，网络层采用私有通道传输（在 UDP 上封装的一套可靠快速的传输通道），能够更好地抵抗网络抖动；对于播放来说，私有传输通道只有在拉取低时延加速流时才可以生效。
 
 ***
 
@@ -305,7 +305,5 @@ __介绍__
 待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：TXVodPlayer。
 
 ***
-
-
 
 

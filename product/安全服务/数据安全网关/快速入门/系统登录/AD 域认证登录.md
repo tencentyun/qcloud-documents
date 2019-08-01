@@ -5,6 +5,6 @@
 
 
 ## 登录系统
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击【云产品】>【安全】>【数据安全网关（堡垒机）】，进入数据安全网关系统。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击【云产品】>【数据安全】>【数据安全网关】，进入数据安全网关系统。
 2. 在登录界面输入用户名和 AD 口令，完成认证即可登录系统。
 ![1](https://main.qcloudimg.com/raw/3c04f7a22f39d97080537885b587a46c.png)

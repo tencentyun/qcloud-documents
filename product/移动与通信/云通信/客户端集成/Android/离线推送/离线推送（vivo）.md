@@ -1,15 +1,15 @@
 ## 流程说明
-为 App 中 云通信 IM 功能实现消息推送的过程一般如下：
+为 App 中 即时通信 IM 功能实现消息推送的过程一般如下：
 1. 开发者到厂商的平台注册账号，并通过开发者认证后，申请开通推送服务。
 2. 创建推送服务，并绑定应用信息，获取推送证书、密码、密钥等信息。
-3. 登录 [云通信 IM 控制台](https://console.qcloud.com/avc) 填写推送证书及相关信息，云通信 IM 服务端会为每个证书生成不同的证书 ID。
+3. 登录 [即时通信 IM 控制台](https://console.qcloud.com/avc) 填写推送证书及相关信息，即时通信 IM 服务端会为每个证书生成不同的证书 ID。
 4. 将厂商提供的推送 SDK 集成到开发者的项目工程中，并按各厂商的要求进行配置。
-5. 集成云通信 IM SDK 到项目后，将证书 ID、设备信息等上报至云通信 IM 服务端。
-6. 当客户端 App 在 云通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，云通信 IM 服务端将通过消息推送进行提醒。
+5. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
+6. 当客户端 App 在 即时通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，即时通信 IM 服务端将通过消息推送进行提醒。
 
 ## 操作步骤
 
-vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权限管理很严格，默认情况下第三方 App 都不会在系统的自启动白名单内，App 在后台时容易被系统 kill，因此推荐在 vivo 设备上集成 vivo 推送，vivo 推送 是 vivo 设备的系统级服务，推送到达率较高。目前，**云通信 IM 仅支持 vivo 推送的通知栏消息**。
+vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权限管理很严格，默认情况下第三方 App 都不会在系统的自启动白名单内，App 在后台时容易被系统 kill，因此推荐在 vivo 设备上集成 vivo 推送，vivo 推送 是 vivo 设备的系统级服务，推送到达率较高。目前，**即时通信 IM 仅支持 vivo 推送的通知栏消息**。
 
 >!
 >- 此指引文档是直接参考 vivo 推送官方文档所写，若 vivo 推送有变动，请以 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/180) 为准。
@@ -22,11 +22,11 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  vivo 推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。
 <span id="Step1_3"></span>
 3. 记录**`应用包名`**、**`APP ID`**、**`APP secret`**信息。
- ![](https://main.qcloudimg.com/raw/bf297b7089f20c43c09d55b624631981.png)
+ ![](https://main.qcloudimg.com/raw/4bee78a25cadae911d56ca0b6adbac3a.png)
 
 <span id="Step2"></span>
-### Step2. 托管证书信息到云通信 IM
-1. 登录腾讯云 [云通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的云通信 IM 应用，进入应用配置页面。
+### Step2. 托管证书信息到即时通信 IM
+1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
  ![](https://main.qcloudimg.com/raw/bdbbbce31242bd8a917e3ecec9c3be88.jpg)
@@ -46,8 +46,8 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <span id="Step3"></span>
 ### Step3. 集成推送 SDK
 >?
-> - 云通信 IM 默认推送的通知标题为 `a new message`。
-> - 阅读此小节前，请确保您已经正常集成并使用云通信 IM SDK。
+> - 即时通信 IM 默认推送的通知标题为 `a new message`。
+> - 阅读此小节前，请确保您已经正常集成并使用即时通信 IM SDK。
 > - 您可以在我们的 demo 里找到 vivo 推送的实现示例，请注意： vivo 推送版本更新时有可能会有功能调整，若您发现本节内容存在差异，烦请您及时查阅 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/155)，并将文档信息差异反馈给我们，我们会及时跟进修改。
 
 #### Step3.1 下载 vivo 推送 SDK 并添加引用
@@ -80,7 +80,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <!--这里的 com.vivo.push.app_id ，com.vivo.push.api_key 由 vivo 开放平台生成 -->
 ```
 
-#### 3.3 自定义一个 BroadcastReceiver 类
+#### Step3.3 自定义一个 BroadcastReceiver 类
 
 为了接收消息，您需要自定义一个继承自 `OpenClientPushMessageReceiver` 类的 BroadcastReceiver，并实现其中的 `onReceiveRegId`，`onNotificationMessageClicked` 方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
 
@@ -115,7 +115,7 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 </receiver>
 ```
 
-#### 3.4 在 App 中注册 vivo 推送服务
+#### Step3.4 在 App 中注册 vivo 推送服务
 
 如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()` 可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的 `onCreate` 中调用。
 
@@ -191,10 +191,9 @@ if (IMFunc.isBrandVivo()) {
 </pre>
 
 <span id="Step4"></span>
-### Step4. 上报推送信息至云通信 IM 服务端
-若您需要通过 vivo 推送进行云通信 IM 消息的推送通知，必须在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到云通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到云通信 IM 服务端。
->!
-> 正确上报 regId 与证书 ID 后，云通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
+### Step4. 上报推送信息至即时通信 IM 服务端
+若您需要通过 vivo 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
+>!正确上报 regId 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
 
 以下为 Demo 中的示例代码：
 
@@ -290,13 +289,13 @@ public class ThirdPushTokenMgr {
 
 ### Step5. 离线推送
 
-成功上报证书 ID 及 regId 后，云通信 IM 服务端会在该设备上的云通信 IM 用户 logout 之前、App 被 kill 之后，将消息通过 vivo 推送通知到用户端。
+成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后，将消息通过 vivo 推送通知到用户端。
 
 >?
 >- vivo 推送只支持部分 vivo 手机，详情请参见 [vivo 推送常见问题汇总]( https://dev.vivo.com.cn/documentCenter/doc/156)。
 >- vivo 推送并非100%必达。
 >- vivo 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 vivo 推送服务有关。
->- 若云通信 IM 用户已经 logout 或被云通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
+>- 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
 ## 常见问题
 
@@ -320,8 +319,8 @@ public class ThirdPushTokenMgr {
 
 ### 收不到推送时，如何排查问题？
 1. 任何推送都不是100%必达，厂商推送也不例外。因此，若在快速、连续的推送过程中偶现一两条推送未通知提醒，通常是由厂商推送频控的限制引起。
-2. 按照推送的流程，确认 vivo 推送证书信息是否正确配置在 [云通信 IM 控制台](https://console.qcloud.com/avc)中。
+2. 按照推送的流程，确认 vivo 推送证书信息是否正确配置在 [即时通信 IM 控制台](https://console.qcloud.com/avc)中。
 3. 确认您的项目 [集成 vivo 推送 SDK](#Step3) 的配置正确，并正常获取到了 regId。
-4. 确认您已将正确的 [推送信息上报](#Step4) 至云通信 IM 服务端。
+4. 确认您已将正确的 [推送信息上报](#Step4) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
 6. 若通过上述步骤后仍然接收不到推送，可以将您的问题 `时间点`、`SDKAppID`、`证书 ID`、`接收推送的 userid` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。

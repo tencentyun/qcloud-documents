@@ -17,7 +17,7 @@ IM SDK 一切操作都是由通讯管理器 `TIMManager` 开始，SDK 操作第
 ```
 TIMManager * manager = [TIMManager sharedInstance];
 ```
-在使用 SDK 进一步操作之前，需要初始 SDK。
+在使用 SDK 进一步操作之前，需要初始化 SDK。
 
 **原型:**
 ```
@@ -30,17 +30,93 @@ TIMManager * manager = [TIMManager sharedInstance];
  *
  *  @return 0 成功
  */
-- (int)initSdk:(TIMSdkConfig*)config;
+- (int)initSdk:(TIMSdkConfig*)globalConfig;
 
 /**
- *  初始化当前manager，在initSdk:后调用，login:前调用
+ *  初始化当前 manager，在 initSdk:后调用，login:前调用
  *
- *  @param config    配置信息，对当前TIMManager有效
+ *  @param config    配置信息，对当前 TIMManager 有效
  *
  *  @return 0 成功
  */
 - (int)setUserConfig:(TIMUserConfig*)config;
-- 
+ 
+@end
+
+//全局配置信息
+@interface TIMSdkConfig : NSObject
+
+//用户标识接入 SDK 的应用 ID，必填
+@property(nonatomic,assign) int sdkAppId;
+
+//禁止在控制台打印 log
+@property(nonatomic,assign) BOOL disableLogPrint;
+
+//本地写 log 文件的等级，默认 DEBUG 等级
+@property(nonatomic,assign) TIMLogLevel logLevel;
+
+//log 文件路径，不设置时为默认路径，可以通过 TIMManager -> getLogPath 获取 log 路径
+@property(nonatomic,strong) NSString * logPath;
+
+//回调给 logFunc 函数的 log 等级，默认 DEBUG 等级
+@property(nonatomic,assign) TIMLogLevel logFuncLevel;
+
+//log 监听函数
+@property(nonatomic,copy) TIMLogFunc logFunc;
+
+//消息数据库路径，不设置时为默认路径
+@property(nonatomic,strong) NSString * dbPath;
+
+//网络监听器，监听网络连接成功失败的状态
+@property(nonatomic,strong) id<TIMConnListener> connListener;
+
+@end
+
+//用户配置信息
+@interface TIMUserConfig : NSObject
+
+//禁用本地存储
+@property(nonatomic,assign) BOOL disableStorage;
+
+//是否开启多终端同步未读提醒，这个选项主要影响多终端登录时的未读消息提醒逻辑。YES：只有当一个终端调用 setReadMessage() 将消息标记为已读，另一个终端再登录时才不会收到未读提醒；NO：消息一旦被一个终端接收，另一个终端都不会再次提醒。同理，卸载 App 再安装也无法再次收到这些未读消息。
+@property(nonatomic,assign) BOOL disableAutoReport;
+
+//是否开启被阅回执。YES：接收者查看消息（setReadMessage）后，消息的发送者会收到 TIMMessageReceiptListener 的回调提醒；NO: 不开启被阅回执，默认不开启。
+@property(nonatomic,assign) BOOL enableReadReceipt;
+
+//设置默认拉取的群组资料自定义字段
+@property(nonatomic,strong) TIMGroupInfoOption * groupInfoOpt;
+
+//设置默认拉取的群成员资料自定义字段
+@property(nonatomic,strong) TIMGroupMemberInfoOption * groupMemberInfoOpt;
+
+//关系链参数
+@property(nonatomic,strong) TIMFriendProfileOption * friendProfileOpt;
+
+//用户登录状态监听器,用于监听用户被踢，断网重连失败，UserSig 过期的通知
+@property(nonatomic,weak) id<TIMUserStatusListener> userStatusListener;
+
+//会话刷新监听器，用于监听会话的刷新
+@property(nonatomic,weak) id<TIMRefreshListener> refreshListener;
+
+//消息已读回执监听器，用于监听消息已读回执，enableReadReceipt 字段需要设置为 YES
+@property(nonatomic,weak) id<TIMMessageReceiptListener> messageReceiptListener;
+
+//消息修改监听器，用于监听消息状态的变化
+@property(nonatomic,weak) id<TIMMessageUpdateListener> messageUpdateListener;
+
+//消息撤回监听器，用于监听会话中的消息撤回通知
+@property(nonatomic,weak) id<TIMMessageRevokeListener> messageRevokeListener;
+
+//文件上传进度监听器，发送语音，图片，视频，文件消息的时候需要先上传对应文件到服务器，这里可以监听上传进度
+@property(nonatomic,weak) id<TIMUploadProgressListener> uploadProgressListener;
+
+//群组事件通知监听器
+@property(nonatomic,weak) id<TIMGroupEventListener> groupEventListener;
+
+//关系链数据本地缓存监听器
+@property(nonatomic,weak) id<TIMFriendshipListener> friendshipListener;
+
 @end
 ```
 
@@ -51,7 +127,7 @@ TIMManager * manager = [TIMManager sharedInstance];
 
 ```
 /**
- *  消息回调
+ *  新消息接收回调
  */
 @protocol TIMMessageListener <NSObject>
 @optional
@@ -98,7 +174,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 可选设置，如果要用户感知是否已经连接服务器，需要设置此回调，用于通知调用者跟通讯后台链接的连接和断开事件。另外，如果断开网络，等网络恢复后会自动重连，自动拉取消息通知用户，用户无需关心网络状态，仅作通知之用。
 
 > **注意：**
-> 这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与云通信 IM 云 Server 连接状态。只要用户处于登录状态，**IM SDK 内部会进行断网重连，用户无需关心。**
+> 这里的网络事件不表示用户本地网络状态，仅指明 SDK 是否与即时通信 IM 云 Server 连接状态。只要用户处于登录状态，**IM SDK 内部会进行断网重连，用户无需关心。**
 
 **原型：**
 

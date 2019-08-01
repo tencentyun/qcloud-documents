@@ -54,7 +54,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 | 包名 | 介绍 |  ipa增量 |
 | --- | --- | --- |
-| ImSDKForMac.framework |云通信 IM 功能包 | 1.4M|
+| ImSDKForMac.framework |即时通信 IM 功能包 | 1.4M|
 
 #### 2. 创建工程
 **创建一个新的工程**：

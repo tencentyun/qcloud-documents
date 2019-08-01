@@ -1,6 +1,6 @@
 ## 群组综述
 
-云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
@@ -8,7 +8,7 @@
 
 ## 群组管理
 
-群组相关操作都由 `TIMGroupManager` 及 `TIMGroupManagerExt` 实现，需要用户登录成功后操作。
+群组相关操作都由 `TIMGroupManager` 实现，需要用户登录成功后操作。
 
 **获取单例原型：**
 
@@ -18,21 +18,16 @@
  */
 public static TIMGroupManager getInstance()
 
-/** 获取实例
- * @return TIMGroupManagerExt 实例
- */
-public static TIMGroupManagerExt getInstance()
 ```
 
 ### 创建群组
 
-云通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
-- 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（比如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
+- 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（例如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
-> **注意：**
-> 自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](/doc/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84-id)。
+>!自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](/doc/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84-id)。
 
 **原型：**
 
@@ -143,7 +138,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 
 ### 邀请用户入群
 
-`TIMGroupManagerExt` 的接口 `inviteGroupMember` 可以拉（邀请）用户进入群组。
+`TIMGroupManager` 的接口 `inviteGroupMember` 可以拉（邀请）用户进入群组。
 
 **权限说明：**
 
@@ -213,7 +208,7 @@ TIMValueCallBack<List<TIMGroupMemberResult>> cb = new TIMValueCallBack<List<TIMG
 };
 
 //将 list 中的用户加入群组
-TIMGroupManagerExt.getInstance().inviteGroupMember(
+TIMGroupManager.getInstance().inviteGroupMember(
         groupId,   //群组 ID
         list,      //待加入群组的用户列表
         cb);       //回调
@@ -304,7 +299,7 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManagerExt` 提供。
+群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManager` 提供。
 
 **权限说明：**
 
@@ -355,10 +350,10 @@ list.add(user);
 user = "sample_user_3";
 list.add(user);
 
-TIMGroupManagerExt.DeleteMemberParam param = new TIMGroupManagerExt.DeleteMemberParam(groupId, list);
+TIMGroupManager.DeleteMemberParam param = new TIMGroupManager.DeleteMemberParam(groupId, list);
 param.setReason("some reason");
 
-TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<List<TIMGroupMemberResult>>() {
+TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List<TIMGroupMemberResult>>() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "deleteGroupMember onErr. code: " + code + " errmsg: " + desc);
@@ -376,7 +371,7 @@ TIMGroupManagerExt.getInstance().deleteGroupMember(param, new TIMValueCallBack<L
 
 ### 获取群成员列表
 
-IM SDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManagerExt` 提供。
+IM SDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManager` 提供。
 
 **权限说明：**
 
@@ -415,14 +410,14 @@ TIMValueCallBack<List<TIMGroupMemberInfo>> cb = new TIMValueCallBack<List<TIMGro
 };
 
 //获取群组成员信息
-TIMGroupManagerExt.getInstance().getGroupMembers(
+TIMGroupManager.getInstance().getGroupMembers(
         groupId, //群组 ID
         cb);     //回调
 ```
 
 ### 获取加入的群组列表
 
-获取当前用户加入的所有群组的接口由 `TIMGroupManagerExt` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](https://cloud.tencent.com/document/product/269/9236#.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.992) 进行获取。
+获取当前用户加入的所有群组的接口由 `TIMGroupManager` 提供。此接口可以获取自己所加入的群列表，返回的信息只包含部分基本信息，详细群组信息可以根据 [群成员获取群组资料](https://cloud.tencent.com/document/product/269/9236#.E8.8E.B7.E5.8F.96.E7.BE.A4.E7.BB.84.E8.B5.84.E6.96.992) 进行获取。
 
 **权限说明：**
 
@@ -498,7 +493,7 @@ TIMValueCallBack<List<TIMGroupBaseInfo>> cb = new TIMValueCallBack<List<TIMGroup
 };
 
 //获取已加入的群组列表
-TIMGroupManagerExt.getInstance().getGroupList(cb);
+TIMGroupManager.getInstance().getGroupList(cb);
 ```
 
 ### 解散群组
@@ -543,7 +538,7 @@ TIMGroupManager.getInstance().deleteGroup(groupId, new TIMCallBack() {
 
 ### 转让群组
 
-转让群组的接口由`TIMGroupManagerExt`提供。
+转让群组的接口由`TIMGroupManager`提供。
 
 **权限说明：**
 
@@ -666,11 +661,11 @@ TIMManager.getInstance().setUserConfig(config);
 
 ### 获取群组资料
 
-`TIMGroupManagerExt`提供的`getGroupInfo`方法可以获取服务器存储的群组资料，`queryGroupInfo`方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
+`TIMGroupManager`提供的`getGroupInfo`方法可以获取服务器存储的群组资料，`queryGroupInfo`方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
 
 **说明：**
 
-默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [云通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
+默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
 
 **原型：**
 
@@ -829,17 +824,17 @@ String groupId = "TGID1EDABEAEO";
 groupList.add(groupId);
 
 //获取服务器群组信息
-TIMGroupManagerExt.getInstance().getGroupInfo(
+TIMGroupManager.getInstance().getGroupInfo(
         groupList, //需要获取信息的群组 ID 列表
         cb);       //回调
 
 //获取本地缓存的群组信息
-TIMGroupDetailInfo timGroupDetailInfo = TIMGroupManagerExt.getInstance().queryGroupInfo(groupId);
+TIMGroupDetailInfo timGroupDetailInfo = TIMGroupManager.getInstance().queryGroupInfo(groupId);
 ```
 
 ### 获取本人在群里的资料
 
-如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManagerExt` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
+如果需要获取本人在所在群内的资料，可以在通过 [获取群组列表](#.E8.8E.B7.E5.8F.96.E5.8A.A0.E5.85.A5.E7.9A.84.E7.BE.A4.E7.BB.84.E5.88.97.E8.A1.A8)  拉取加入的群列表时得到。另外，如果需要单独获取某个群组，可使用以下 `TIMGroupManager` 提供的 `getSelfInfo` 获取。如果应用需要获取群组列表，建议在获取群组列表的时候获取个人在所在群内的资料，没有必要调用以下接口单独获取。
 
 **权限说明：**
 
@@ -858,7 +853,7 @@ public void getSelfInfo(@NonNull String groupId, @NonNull TIMValueCallBack<TIMGr
 
 ### 获取群内某个人的资料
 
-获取群成员资料的接口由 `TIMGroupManagerExt` 提供，默认拉取基本资料。
+获取群成员资料的接口由 `TIMGroupManager` 提供，默认拉取基本资料。
 
 **权限说明：**
 
@@ -879,7 +874,7 @@ public void getGroupMembersInfo(@NonNull String groupId, @NonNull List<String> i
 
 ## 修改群资料
 
-修改群资料的接口由 `TIMGroupManagerExt` 提供，可以对群名称、群简介、群公告等资料进行修改。
+修改群资料的接口由 `TIMGroupManager` 提供，可以对群名称、群简介、群公告等资料进行修改。
 
 **原型：**
 
@@ -892,7 +887,7 @@ public void getGroupMembersInfo(@NonNull String groupId, @NonNull List<String> i
 public void modifyGroupInfo(@NonNull ModifyGroupInfoParam param, @NonNull TIMCallBack cb)
 ```
 
-**`TIMGroupManagerExt.ModifyGroupInfoParam` 接口定义如下：**
+**`TIMGroupManager.ModifyGroupInfoParam` 接口定义如下：**
 
 ```
 /**
@@ -967,9 +962,9 @@ public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(groupid);
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(groupid);
 param.setGroupName("Great Team")
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -992,9 +987,9 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(getGroupId());
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setIntroduction("this is a introduction");
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1017,9 +1012,9 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(getGroupId());
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setNotification("this is a notification");
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1043,9 +1038,9 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(getGroupId());
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setFaceUrl("http://faceurl");
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1068,9 +1063,9 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(getGroupId());
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setAddOption(TIMGroupAddOpt.TIM_GROUP_ADD_ANY);
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1092,7 +1087,7 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(getGroupId());
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 Map<String, byte[]> customInfo = new HashMap<String, byte[]>();
 try {
 	customInfo.put("Test", "Test_value".getBytes("utf-8"));
@@ -1101,7 +1096,7 @@ try {
 	e.printStackTrace();
 }
 
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1124,9 +1119,9 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyGroupInfoParam param = new TIMGroupManagerExt.ModifyGroupInfoParam(groupId);
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(groupId);
 param.setSilenceAll(true);
-TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modify group info failed, code:" + code +"|desc:" + desc);
@@ -1141,7 +1136,7 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 
 ## 修改群成员资料
 
-修改群成员资料的接口由 `TIMGroupManagerExt` 提供，可以对修改群成员的身份、群名片、对群成员禁言等。
+修改群成员资料的接口由 `TIMGroupManager` 提供，可以对修改群成员的身份、群名片、对群成员禁言等。
 
 **原型：**
 
@@ -1154,7 +1149,7 @@ TIMGroupManagerExt.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 public void modifyMemberInfo(@NonNull ModifyMemberInfoParam param, @NonNull TIMCallBack cb)
 ```
 
-**`TIMGroupManagerExt.ModifyMemberInfoParam` 接口定义如下：**
+**`TIMGroupManager.ModifyMemberInfoParam` 接口定义如下：**
 
 ```
 /**
@@ -1205,10 +1200,10 @@ public ModifyMemberInfoParam setCustomInfo(Map<String, byte[]> customInfo)
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyMemberInfoParam param = new TIMGroupManagerExt.ModifyMemberInfoParam(groupId, identifier);
+TIMGroupManager.ModifyMemberInfoParam param = new TIMGroupManager.ModifyMemberInfoParam(groupId, identifier);
 param.setRoleType(TIMGroupMemberRoleType.Admin);
 
-TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modifyMemberInfo failed, code:" + code + "|msg: " + desc);
@@ -1233,10 +1228,10 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 
 ```
 //禁言 100 秒
-TIMGroupManagerExt.ModifyMemberInfoParam param = new TIMGroupManagerExt.ModifyMemberInfoParam(groupId, identifier);
+TIMGroupManager.ModifyMemberInfoParam param = new TIMGroupManager.ModifyMemberInfoParam(groupId, identifier);
 param.setSilence(100);
 
-TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modifyMemberInfo failed, code:" + code + "|msg: " + desc);
@@ -1255,10 +1250,10 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyMemberInfoParam param = new TIMGroupManagerExt.ModifyMemberInfoParam(groupId, identifier);
+TIMGroupManager.ModifyMemberInfoParam param = new TIMGroupManager.ModifyMemberInfoParam(groupId, identifier);
 param.setNameCard("cat");
 
-TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modifyMemberInfo failed, code:" + code + "|msg: " + desc);
@@ -1276,7 +1271,7 @@ TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyMemberInfoParam param = new TIMGroupManagerExt.ModifyMemberInfoParam(groupId, identifier);
+TIMGroupManager.ModifyMemberInfoParam param = new TIMGroupManager.ModifyMemberInfoParam(groupId, identifier);
 Map<String, byte[]> customInfo = new HashMap<>();
 try {
 	customInfo.put("Test", "Custom".getBytes("utf-8"));
@@ -1285,7 +1280,7 @@ try {
 	e.printStackTrace();
 }
 
-TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modifyMemberInfo failed, code:" + code + "|msg: " + desc);
@@ -1321,10 +1316,10 @@ TIMGroupReceiveMessageOpt.ReceiveAndNotify
 **示例：**
 
 ```
-TIMGroupManagerExt.ModifyMemberInfoParam param = new TIMGroupManagerExt.ModifyMemberInfoParam(groupId, identifier);
+TIMGroupManager.ModifyMemberInfoParam param = new TIMGroupManager.ModifyMemberInfoParam(groupId, identifier);
 param.setReceiveMessageOpt(TIMGroupReceiveMessageOpt.ReceiveAndNotify);
 
-TIMGroupManagerExt.getInstance().modifyMemberInfo(param, new TIMCallBack() {
+TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 	@Override
 	public void onError(int code, String desc) {
 		Log.e(tag, "modifyMemberInfo failed, code:" + code + "|msg: " + desc);
@@ -1428,7 +1423,7 @@ public void refuse(String msg, TIMCallBack cb)
 
 ### 拉取群未决列表
 
-通过 `TIMGroupManagerExt` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
+通过 `TIMGroupManager` 提供的 `getGroupPendencyList` 接口可拉取群未决相关信息。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
 
 **权限说明：**
 
@@ -1473,7 +1468,7 @@ TIMGroupPendencyGetParam param = new TIMGroupPendencyGetParam();
 param.setTimestamp(0);//首次获取填 0
 param.setNumPerPage(10);
 
-TIMGroupManagerExt.getInstance().getGroupPendencyList(param, new TIMValueCallBack<TIMGroupPendencyListGetSucc>() {
+TIMGroupManager.getInstance().getGroupPendencyList(param, new TIMValueCallBack<TIMGroupPendencyListGetSucc>() {
     @Override
     public void onError(int code, String desc) {
 
@@ -1489,7 +1484,7 @@ TIMGroupManagerExt.getInstance().getGroupPendencyList(param, new TIMValueCallBac
 
         List<TIMGroupPendencyItem> pendencyItems = timGroupPendencyListGetSucc.getPendencies();
         for(TIMGroupPendencyItem item : pendencyItems){
-            //对群未决进行相应操作，比如查看/通过/拒绝等
+            //对群未决进行相应操作，例如查看/通过/拒绝等
         }
     }
 });
@@ -1497,7 +1492,7 @@ TIMGroupManagerExt.getInstance().getGroupPendencyList(param, new TIMValueCallBac
 
 ###  上报群未决已读
 
-对于未决信息，通过 `TIMGroupManagerExt` 提供的 `reportGroupPendency` 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
+对于未决信息，通过 `TIMGroupManager` 提供的 `reportGroupPendency` 可对其和之前的所有未决信息上报已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
 
 **原型：**
 
@@ -1688,8 +1683,8 @@ ModifyOwner
 
 **触发时机：**当群成员的群相关资料变更时，包括群内用户被禁言、群内成员角色变更，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。
 
-> **注意：**
->- **这里的资料仅包括群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料**，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
+>!
+>- **这里的资料仅包括群相关资料，例如禁言时间、成员角色变更等，不包括用户昵称等本身资料**，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E5.8F.8A.E5.85.B6.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)。
 >- 如果本地有保存用户资料，可根据消息体内资料判断是否有变更，在收到此用户一条消息后更新资料。
 
 **`TIMGroupTipsElem` 成员方法返回说明：**
@@ -1845,8 +1840,7 @@ getOpReason	| 同意或者拒绝理由（可选）
 
 **触发时机：**当用户被邀请加入群组（**此时用户还没有加入到群组，需要用户审批**）时，该用户会收到邀请消息。
 
->**注意：**
->创建群组时初始成员无需邀请即可入群。
+>!创建群组时初始成员无需邀请即可入群。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
@@ -1914,8 +1908,7 @@ getOpUser	| 创建者，这里也就是用户自己
 
 **触发时机：**当用户被邀请加入到群组（**此时用户已经加入到群组**）时，该用户会收到邀请消息。
 
->**注意：**
->创建群组时初始成员无需邀请即可入群。
+>!创建群组时初始成员无需邀请即可入群。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
 

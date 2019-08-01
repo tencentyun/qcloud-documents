@@ -1,5 +1,5 @@
 
-云通信 IM 提供了**用户资料托管**，App 开发者使用简单的接口就可实现用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料的自定义字段。
+即时通信 IM 提供了**用户资料托管**，App 开发者使用简单的接口就可实现用户资料存储功能。另外，为了方便不同用户定制化资料，也提供用户资料的自定义字段。
 
 ## 用户资料
 ### 获取自己的资料 
@@ -216,7 +216,7 @@ TIMManager.getInstance().setUserConfig(config);
 public void modifySelfProfile(@NonNull HashMap<String, Object> profileMap, @NonNull TIMCallBack cb)
 ```
 
-通过 `profileMap` 可以一次设置多个字段，比如同时设置昵称和性别的代码如下：
+通过 `profileMap` 可以一次设置多个字段，例如同时设置昵称和性别的代码如下：
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
@@ -252,7 +252,7 @@ TIMFriendshipManager.getInstance().modifySelfProfile(profileMap, new TIMCallBack
 | `TIM_PROFILE_TYPE_KEY_SELFSIGNATURE` | String      | 签名           |
 | `TIM_PROFILE_TYPE_KEY_CUSTOM_PREFIX` | String, int | 自定义字段前缀 |
 
-自定义字段需要您加上我们的前缀。比如后台有一个自定义字段`Blood`，类型为整数，设置代码如下：
+自定义字段需要您加上我们的前缀。例如后台有一个自定义字段`Blood`，类型为整数，设置代码如下：
 
 ```
 HashMap<String, Object> profileMap = new HashMap<>();
@@ -1064,7 +1064,7 @@ public class TIMSNSSystemElem extends TIMElem {
     private List<TIMSNSChangeInfo>  changeInfoList = new ArrayList<>();
 		
     public TIMSNSSystemElem() { type = TIMElemType.SNSTips; }
-		
+    public int getSubType();	
     public List<String> getRequestAddFriendUserList();
     public List<String> getDelRequestAddFriendUserList();
     public List<String> getAddBlacklistUserList();
@@ -1205,4 +1205,40 @@ addWording | 添加好友附言
 
 当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。
 
+## 用户资料变更系统通知
+
+`TIMMessage` 中 `Elem` 类型 `TIMProfileSystemElem` 为用户资料变更系统消息。
+
+```
+/**
+ * 自身和好友资料修改，后台 push 下来的消息元素
+ */
+public class TIMProfileSystemElem extends TIMElem {
+    private int subType; //修改资料的类型 TIMProfileSystemType
+    private String fromUser; //修改资料的来源（谁修改了）
+    private Map<String, Object> itemMap; //用户的资料
+  
+    public int getSubType();
+    public String getFromUser();
+    public Map<String, Object> getItemMap();
+}
+
+/**
+ * 用户资料变更系统通知类型
+ */
+public class TIMProfileSystemType {
+    /**
+     * 无效值
+     */
+    public static final int INVALID = 0;
+    
+    /**
+     * 好友资料变更
+     */
+    public static final int TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE = 1;
+}
+
+```
+
+当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。例如好友修改了头像，那么 `TIMProfileSystemElem` 中的 `itemMap` 的 `key` 为`Tag_Profile_IM_Image` ， `value` 值为头像的 `url` 地址，其中 `key` 常量值定义在 `TIMUserProfile` 中。
 

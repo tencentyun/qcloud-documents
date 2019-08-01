@@ -33,5 +33,5 @@ topic.0=test1&topic.1=test2&topic.2=test3，以此类推（以下标0开始）�
 - 如需修改主题配置，可以使用 [修改主题属性接口](https://cloud.tencent.com/document/product/597/10098) API 调整主题的配置。
 
 ## 使用限制 
-* 消息队列 CKafka  API 调用配额为：100 次/分钟，且单一 API 不超过100 次/分钟。
+* 消息队列 CKafka  API 调用配额为：100次/分钟，且单一 API 不超过100次/分钟。
 * 更具体的限制请参考对应 API 接口文档或产品文档。

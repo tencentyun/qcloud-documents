@@ -9,14 +9,9 @@ Windows
 ## 前提条件
 
 - 已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
- - Windows 实例的管理员帐号统一为 **Administrator**。
- - 如果您在购买实例时选择**自动生成密码**，则可登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击右上角的 <img src="https://main.qcloudimg.com/raw/60e7d0de182a973d69fb82b69d01f52a.png" style="margin: 0;"></img>，进入“【腾讯云】请查收您新购买的云服务器”页面，查看初始密码。
- - 如果您在购买实例时选择**自定义密码**，则登录密码为您在购买云服务器实例时指定的密码。
- - 如果您忘记登录云服务器的密码，请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 进行重置。
-- 已打开云服务器实例的3389号端口。
-您可以通过 [检查网络连通性](https://cloud.tencent.com/document/product/213/10232#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E6.A3.80.E6.9F.A5.E7.BD.91.E7.BB.9C.E8.BF.9E.E9.80.9A.E6.80.A7) 检查3389号端口是否放通。如果端口不通，您可以在 [配置安全组](https://cloud.tencent.com/document/product/213/15377) 时设置端口的入站/出站规则。
-- 云服务器实例已购买公网 IP 并获取到公网 IP。
-实例的公网 IP 可登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 进行查看。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+- 您的云服务器实例已购买公网 IP，且该实例已开通云服务器实例的3389号端口（对于通过快速配置购买的云服务器实例已默认开通）。
 
 ## 操作步骤
 >? 以下操作步骤以 Windows 7 操作系统为例。
