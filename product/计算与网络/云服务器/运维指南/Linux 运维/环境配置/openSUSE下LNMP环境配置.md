@@ -137,7 +137,7 @@ systemctl enable php-fpm
 ## 环境配置验证
 1. 执行以下命令，创建测试文件 index.php。
 ```
-vim /usr/share/nginx/html/index.php
+vim /srv/www/htdocs/index.php
 ```
 2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入如下内容：
 ```
