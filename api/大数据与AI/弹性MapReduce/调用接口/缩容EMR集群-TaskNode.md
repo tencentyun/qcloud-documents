@@ -12,7 +12,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| ClusterId | 是 | string | emr 集群 ID，emr-xxxx 格式 |
+| ClusterId | 是 | string | EMR 集群 ID，emr-xxxx 格式 |
 | IPs.n | 是 | array string | 待下线 Task 节点的 IP |
 
 ## 输出参数
