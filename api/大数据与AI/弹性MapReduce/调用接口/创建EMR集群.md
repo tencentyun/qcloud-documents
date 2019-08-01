@@ -38,7 +38,7 @@
 | TaskStorageType| 否 | Uint | 若 TaskNodes 不为0，该字段有效。Task 节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认1 |
 | TaskRootSize | 否 | Uint | 若 TaskNodes 不为0，该字段有效。单位 GB，Task 节点系统盘容量，默认20G |
 | TaskMemory | 否 | Uint | 若 TaskNodes 不为0，该字段有效。单位 MB，Task 节点内存容量 |
-| TaskCpuCores | 否 | Uint | 若 TaskNodes 不为 0，该字段有效。Task 节点 CPU 核数 |
+| TaskCpuCores | 否 | Uint | 若 TaskNodes 不为0，该字段有效。Task 节点 CPU 核数 |
 | TaskVolume | 否 | Uint | 若 TaskNodes 不为0，该字段有效。单位 GB，Task 节点数据盘容量 |
 | Password | 是 | String | 初始密码，用于 CVM，TencentDB 的初始 root 密码。要求8 - 16个字符，且必须同时包含大写字母、小写字母、数字和特殊字符 !@#%^\* 中两种 |
 | VisitCos | 是 | Uint | 是否集成 COS。0：不集成，非0：集成 |
@@ -54,7 +54,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码， 0表示成功，其他值表示失败。详见错误码页面的 <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
+| code | Int | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的 <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。|
 | message | String | 模块错误信息描述，与接口相关。|
 | data.clusterId | String | 集群 ID，emr-xxxx 格式 |
 
