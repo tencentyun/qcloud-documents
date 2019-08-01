@@ -91,8 +91,10 @@ zypper install -y mysql-community-server mysql-community-server-tools
 systemctl start mysql 
 systemctl enable mysql
 ```
->? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
+
 3. 执行以下命令，首次登录 MySQL 。
+>? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
+>
 ```
 mysql -u root -p
 ```
