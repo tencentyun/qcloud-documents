@@ -8,7 +8,9 @@
 获取途径：用户登录 [控制台](https://console.cloud.tencent.com/)，选择【用户中心】栏下的【项目管理】，可查看默认项目，默认项目 ProjectId = 0。单击【新建】即可创建新项目，并获取新的 ProjectId。
 **3. SecretId 和 SecretKey**
 腾讯云安全凭证，其中，SecretId 是用于标识 API 调用者身份的，而 SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。用户应严格保管其 SecretKey，避免泄露。
-获取途径：<br>1) 用户登录 [控制台](https://console.cloud.tencent.com/)，单击【云产品】，选择【管理与审计】栏下的【访问密钥】，进入云 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面。<br>2) 在云 API 密钥管理页面获取，单击【新建】即可以创建一对 SecretId/SecretKey，每个帐号最多可以拥有两对 SecretId/SecretKey。<br>
+获取途径：
+1) 用户登录 [控制台](https://console.cloud.tencent.com/)，单击【云产品】，选择【管理与审计】栏下的【访问密钥】，进入云 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面。
+2) 在云 API 密钥管理页面获取，单击【新建】即可以创建一对 SecretId/SecretKey，每个帐号最多可以拥有两对 SecretId/SecretKey。
 **4. 服务类型**
 智能语音提供的四种服务类型，包括语音识别（Automatic Speech Recognition，ASR）、语音合成（Text to Speech，TTS）、声纹识别（Voiceprint Recognize，VPR）、客服机器人（Customer Service Robot，CSR）。
 **5. 子服务类型**
