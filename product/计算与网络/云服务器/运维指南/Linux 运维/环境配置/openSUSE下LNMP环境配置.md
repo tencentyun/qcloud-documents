@@ -1,7 +1,6 @@
 ## 操作场景
 LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE 42.3 下的 LNMP 环境搭建。
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
-
 LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 openSUSE42.3
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.14.2
@@ -99,20 +98,15 @@ mysql -u root -p
 ```
 成功进入 MySQL，如下图所示。
 ![](https://main.qcloudimg.com/raw/1e9daf876fb08c70674789865688f695.png)
-4. 执行以下命令，删除空用户。
-```
-select user,host,password from mysql.user;
-drop user ''@localhost;
-```
-5. 执行以下命令，修改 root 密码。
+4. 执行以下命令，修改 root 密码。
 ```
 update mysql.user set password = PASSWORD('此处输入您新设密码') where user='root';
 ```
-6. 执行以下命令，使配置生效。
+5. 执行以下命令，使配置生效。
 ```
 flush privileges;
 ```
-7. 执行以下命令，退出 MySQL。
+6. 执行以下命令，退出 MySQL。
 ```
 \q
 ```
