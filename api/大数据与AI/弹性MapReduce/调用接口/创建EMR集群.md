@@ -23,13 +23,13 @@
 | CoreNodes | 是 | Uint | Core 节点个数 |
 | TaskNodes | 否 | Uint | Task 节点个数 |
 | MasterSpec | 是 | String |  Master 节点机器规格，参见 [CVM 实例配置](https://cloud.tencent.com/document/product/213/11518)|
-| MasterStorageType| 否 | Uint |  Master 节点存储类型，1：本地盘，2：云盘，3：SSD 本地盘，默认 1 |
+| MasterStorageType| 否 | Uint |  Master 节点存储类型，1：本地盘，2：云盘，3：SSD 本地盘，默认1 |
 | MasterRootSize | 否 | Uint | 单位 GB，Master 节点系统盘容量，默认20G |
 | MasterMemory | 是 | Uint | 单位 MB，Master 节点内存容量 |
 | MasterCpuCores | 是 | Uint |  Master 节点 CPU 核数 |
 | MasterVolume | 是 | Uint | 单位 GB，Master 节点数据盘容量 |
 | CoreSpec | 是 | String | Core 节点机器规格，参见 CVM 实例配置|
-| CoreStorageType| 否 | Uint | Core 节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认 1 |
+| CoreStorageType| 否 | Uint | Core 节点存储类型，1：本地盘，2：云盘，3：SSD本地盘，默认1 |
 | CoreRootSize | 否 | Uint | 单位 GB，Core 节点系统盘容量，默认20G |
 | CoreMemory | 是 | Uint | 单位 MB，Core 节点内存容量 |
 | CoreCpuCores | 是 | Uint | Core 节点 CPU 核数 |
