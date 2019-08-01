@@ -16,7 +16,7 @@
 在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进行模型服务列表页面。
 ![](https://main.qcloudimg.com/raw/0ca420aeee499ae64fead3ec193485c4.png)
 ### 获得访问地址和密钥
-单击【启动模型服务】页面选择 demo_serving 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_serving 模型服务的访问地址 IP 和密钥 TOKEN。
+单击【启动模型服务】页面选择 demo_tensorrt 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_tensorrt 模型服务的访问地址 IP 和密钥 TOKEN。
 ![](https://main.qcloudimg.com/raw/9bcb03dde4e336194f729ec82e8ccbc2.png)
 
 ### 获得模型元数据
