@@ -1,6 +1,7 @@
 ## 操作场景
 LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE 42.3 下的 LNMP 环境搭建。
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
+
 LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 openSUSE42.3
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.14.2
