@@ -64,7 +64,7 @@ pptpsetup --create test --server 10.100.100.1 --username root --password 123456 
 ```
 4. 执行以下命令，连接 PPTP。
 ```
-pppd call pptp
+pppd call test（为步骤3创建的配置文件名称）
 ```
 5. 依次执行以下命令，设置路由。
 ```
