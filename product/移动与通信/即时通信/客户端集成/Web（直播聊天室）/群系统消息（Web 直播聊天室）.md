@@ -35,7 +35,7 @@ function showGroupSystemMsg(type, typeCh, group_id, group_name, msg_content, msg
 }
 ```
 
-### 监听群被解散消息
+## 监听群被解散消息
 
 **触发时机：**当群被解散时，全员会收到解散群消息。支持全员接收消息。
 
