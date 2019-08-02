@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 Python SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
+对于在服务端上传视频的场景，云点播提供了 Python SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
 
 ## 集成方式
 
@@ -10,8 +10,8 @@ pip install vod-python-sdk
 ### 通过源码包安装
 如果项目中没有使用 pip 工具，可以直接下载源码导入项目中使用：
 
-* [从 Github 访问](https://github.com/tencentyun/vod-python-sdk)。
-* [单击下载 Python SDK](https://github.com/tencentyun/vod-python-sdk/archive/master.zip)。
+* [从 Github 访问](https://github.com/tencentyun/vod-python-sdk)
+* [单击下载 Python SDK](https://github.com/tencentyun/vod-python-sdk/archive/master.zip)
 
 下载最新代码，解压后：
 ```
@@ -128,7 +128,7 @@ except Exception as err:
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。      | String | 否    |
-| SubAppId   | 点播 [子应用](https://cloud.tencent.com/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。        | Integer | 否    |
+| SubAppId   | 点播 [子应用](https://cloud.tencent.com/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
 
 上传响应类`VodUploadResponse`：
 
@@ -144,7 +144,7 @@ except Exception as err:
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | region   | 上传地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。        | String | 是    |
-| request   | 上传请求        | VodUploadRequest | 是    |
+| request   | 上传请求。        | VodUploadRequest | 是    |
 
 ## 错误码列表
 

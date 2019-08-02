@@ -7,10 +7,10 @@
 ## 配置 HTTPS 监听器
 ### 步骤1：打开监听器管理页面
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
-2. 在左侧导航栏，选择【实例】。
-3. 在实例列表页点击需配置的实例 ID，进入实例详情页。
+2. 在左侧导航栏，选择【实例管理】。
+3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/a6519693d11f889c6e5fa9cdb058949a.png)
+![](https://main.qcloudimg.com/raw/576361f9ea3825077c2abf2e5cc59e50.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/43d1a431f8cb19dfe6438f1a7612bca3.png)
 
