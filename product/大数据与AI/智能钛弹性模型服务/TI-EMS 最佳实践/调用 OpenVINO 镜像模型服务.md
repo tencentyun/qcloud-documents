@@ -68,5 +68,4 @@ TOKEN：服务密钥。
 DATA_DIR：测试数据集所在路径。
 >? 具体模型可能会输入数据类型不同，数据 shape 不同，数据需要预处理等，请根据具体模型设计相应访问程序。
 
-TI-EMS 使用过程中遇到的任何问题，欢迎加入 [智能钛 AI 开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。
-更多客户端程序，请访问：`https://github.com/tencentyun/ti-ems-client-examples`。
+TI-EMS 使用过程中遇到的任何问题，欢迎加入 [智能钛 AI 开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。单击了解更多 [客户端程序](https://github.com/tencentyun/ti-ems-client-examples) 。
