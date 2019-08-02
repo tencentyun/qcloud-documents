@@ -57,12 +57,12 @@ iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE
 ```
 yum install -y pptp pptp-setup
 ``` 
-2. 替换以下参数信息并执行命令，创建配置文件并启动连接。
+2. 替换命令中以下参数信息并执行命令，创建配置文件 test，并启动连接。
  - 内网 IP：可在 [腾讯云服务器控制台](https://console.cloud.tencent.com/cvm) 中查看。如下图所示：
 ![](https://main.qcloudimg.com/raw/75db97912ba0170b1543fe6c404a06a9.png)
  - 用户名/密码： 为有公网 IP 的 CVM 配置 [步骤7](#step7) 中设置的用户名及密码。
 ```
-pptpsetup --create pptp --server 内网IP --username 用户名 --password 密码 --encrypt --start
+pptpsetup --create test --server 内网IP --username 用户名 --password 密码 --encrypt --start
 ```
 连接成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/32f142c52fceb5a94b383c080475be87.png)
