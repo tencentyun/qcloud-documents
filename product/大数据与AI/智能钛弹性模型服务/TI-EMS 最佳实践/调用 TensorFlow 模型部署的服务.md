@@ -21,7 +21,7 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 ### 启动服务
 在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
 ![](https://main.qcloudimg.com/raw/af95e25692913e32750c8b0ea1aca410.png)
-在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进行模型服务列表页面。
+在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
 ![](https://main.qcloudimg.com/raw/f8e97a68b4aac1a7b1a0a1075b53d62b.png)
 ### 调用测试
 单击【启动模型服务】页面选择 demo_serving 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_serving 模型服务的访问地址 IP 和密钥 TOKEN。
