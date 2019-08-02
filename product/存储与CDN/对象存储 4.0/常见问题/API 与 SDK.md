@@ -63,7 +63,7 @@ SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要�
 
 ### 引入 SDK 运行后，出现 java.lang.NoSuchMethodError 的异常？
 
-原因一般是发生了 JAR 包冲突，比如用户的工程中的 httpclient 库中 的 JAR 包版本没有 A 方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
+原因一般是发生了 JAR 包冲突，例如，用户的工程中的 httpclient 库中 的 JAR 包版本没有 A 方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
 解决方法：将工程中引起 NoSuchMethodError 包的版本，改成和 SDK 中 pom.xml 里的对应库的版本一致。
 
 ### SDK 上传速度慢，日志频繁打印 IOException？
