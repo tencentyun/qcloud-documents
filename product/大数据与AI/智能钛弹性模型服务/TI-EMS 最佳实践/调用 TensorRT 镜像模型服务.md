@@ -1,7 +1,4 @@
 
-
-
-
  ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_v3.tar](http://inception-v3-1255502019.coscd.myqcloud.com/inception_v3.tar)。
 >?我们已经为您准备好了上述inception模型的cos访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tensorRT/inception_v3/1/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
@@ -17,7 +14,7 @@
 ### 启动服务
 在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
 ![](https://main.qcloudimg.com/raw/0f3e3e3b02da44116e9a95e3739b2e24.png)
-在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进行模型服务列表页面。
+在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
 ![](https://main.qcloudimg.com/raw/495315698f1c4ad508d69df0480c3345.png)
 ### 获得访问地址和密钥
 单击【启动模型服务】页面选择 demo_tensorrt 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_tensorrt 模型服务的访问地址 IP 和密钥 TOKEN。
