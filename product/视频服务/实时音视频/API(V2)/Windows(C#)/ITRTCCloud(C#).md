@@ -7,7 +7,7 @@ ITRTCCloud @ TXLiteAVSDK。
 
 用于动态加载 dll 时，获取 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 对象指针。
 ```
-LITEAV_API ITRTCCloud * getTRTCShareInstance()
+static ITRTCCloud getTRTCShareInstance()
 ```
 
 __返回__
@@ -19,7 +19,7 @@ __返回__
 
 释放 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象。
 ```
-LITEAV_API void destroyTRTCShareInstance()
+static void destroyTRTCShareInstance()
 ```
 
 
@@ -29,14 +29,14 @@ LITEAV_API void destroyTRTCShareInstance()
 
 设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback)。
 ```
-void addCallback(ITRTCCloudCallback * callback)
+void addCallback(ITRTCCloudCallback callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) | 事件回调指针。 |
 
 __介绍__
 
@@ -47,14 +47,14 @@ __介绍__
 
 移除事件回调。
 ```
-void removeCallback(ITRTCCloudCallback * callback)
+void removeCallback(ITRTCCloudCallback callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) | 事件回调指针。 |
 
 
 
@@ -63,14 +63,14 @@ __参数__
 
 进入房间。
 ```
-void enterRoom(const TRTCParams & params, TRTCAppScene scene)
+void enterRoom(ref TRTCParams params, TRTCAppScene scene)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams) & | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams)。 |
+| params | ref [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams) | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32271#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
 __介绍__
@@ -116,14 +116,14 @@ __介绍__
 
 请求跨房通话（主播 PK）。
 ```
-void connectOtherRoom(const char * params)
+void connectOtherRoom(string params)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const char * | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
+| params | string | JSON 字符串连麦参数，roomId 代表目标房间号，userId 代表目标用户 ID。 |
 
 __介绍__
 
@@ -155,15 +155,13 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 
 跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知给您。
 
-
 <pre>
   //此处用到 jsoncpp 库来格式化json字符串
-  Json::Value jsonObj;
+  dynamic jsonObj = new JObject();
   jsonObj["roomId"] = 002;
   jsonObj["userId"] = "userB";
-  Json::FastWriter writer;
-  std::string params = writer.write(jsonObj);
-  trtc.ConnectOtherRoom(params.c_str());
+  string params = JsonConvert.SerializeObject(jsonObj);
+  trtc.connectOtherRoom(params);
 </pre>
 
 
@@ -185,14 +183,14 @@ __介绍__
 
 开启本地视频的预览画面 (Mac 版本)。
 ```
-void startLocalPreview(HWND rendHwnd)
+void startLocalPreview(IntPtr rendHwnd)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rendHwnd | HWND | 承载预览画面的 HWND。 |
+| rendHwnd | Intptr | 承载预览画面的 HWND。 |
 
 __介绍__
 
@@ -229,15 +227,15 @@ __介绍__
 
 开始显示远端视频画面。
 ```
-void startRemoteView(const char * userId, HWND rendHwnd)
+void startRemoteView(string userId, IntPtr rendHwnd)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
-| rendHwnd | HWND | 承载预览画面的窗口句柄。 |
+| userId | string | 对方的用户标识。 |
+| rendHwnd | Intptr | 承载预览画面的窗口句柄。 |
 
 __介绍__
 
@@ -248,14 +246,14 @@ __介绍__
 
 停止显示远端视频画面。
 ```
-void stopRemoteView(const char * userId)
+void stopRemoteView(string userId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
+| userId | string | 对方的用户标识。 |
 
 __介绍__
 
@@ -277,14 +275,14 @@ void stopAllRemoteView()
 
 暂停接收指定的远端视频流。
 ```
-void muteRemoteVideoStream(const char * userId, bool mute)
+void muteRemoteVideoStream(string userId, bool mute)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
+| userId | string | 对方的用户标识。 |
 | mute | bool | 是否停止接收。 |
 
 __介绍__
@@ -310,14 +308,14 @@ __参数__
 
 设置视频编码器相关参数。
 ```
-void setVideoEncoderParam(const TRTCVideoEncParam & params)
+void setVideoEncoderParam(ref TRTCVideoEncParam params)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 定义。 |
+| params | ref [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 定义。 |
 
 __介绍__
 
@@ -328,14 +326,14 @@ __介绍__
 
 设置网络流控相关参数。
 ```
-void setNetworkQosParam(const TRTCNetworkQosParam & params)
+void setNetworkQosParam(ref TRTCNetworkQosParam params)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) & | 网络流控参数，详情请参考 TRTCCloudDef.h 中的 [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) 定义。 |
+| params | ref [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) | 网络流控参数，详情请参考 TRTCCloudDef.h 中的 [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) 定义。 |
 
 __介绍__
 
@@ -360,14 +358,14 @@ __参数__
 
 设置远端图像的渲染模式。
 ```
-void setRemoteViewFillMode(const char * userId, TRTCVideoFillMode mode)
+void setRemoteViewFillMode(string userId, TRTCVideoFillMode mode)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户 ID。 |
+| userId | string | 用户 ID。 |
 | mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
 
 
@@ -389,14 +387,14 @@ __参数__
 
 设置远端图像的顺时针旋转角度。
 ```
-void setRemoteViewRotation(const char * userId, TRTCVideoRotation rotation)
+void setRemoteViewRotation(string userId, TRTCVideoRotation rotation)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户 ID。 |
+| userId | string | 用户 ID。 |
 | rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 、 TRTCVideoRotation270 旋转角度。 |
 
 
@@ -450,7 +448,7 @@ __介绍__
 
 开启大小画面双路编码模式。
 ```
-void enableSmallVideoStream(bool enable, const TRTCVideoEncParam & smallVideoParam)
+void enableSmallVideoStream(bool enable, ref TRTCVideoEncParam smallVideoParam)
 ```
 
 __参数__
@@ -458,12 +456,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | enable | bool | 是否开启小画面编码。 |
-| smallVideoParam | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 小流的视频参数。 |
+| smallVideoParam | ref [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) | 小流的视频参数。 |
 
 __介绍__
 
 如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
+
 - 如果有些人的下行网络很好，可以选择观看【高清】画面
 - 如果有些人的下行网络不好，可以选择观看【低清】画面。
 
@@ -472,14 +471,14 @@ __介绍__
 
 选定观看指定 userId 的大画面还是小画面。
 ```
-void setRemoteVideoStreamType(const char * userId, TRTCVideoStreamType type)
+void setRemoteVideoStreamType(string userId, TRTCVideoStreamType type)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户 ID。 |
+| userId | string | 用户 ID。 |
 | type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 视频流类型，即选择看大画面还是小画面。 |
 
 __介绍__
@@ -556,14 +555,14 @@ __介绍__
 
 静音掉某一个用户的声音。
 ```
-void muteRemoteAudio(const char * userId, bool mute)
+void muteRemoteAudio(string userId, bool mute)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户 ID。 |
+| userId | string | 用户 ID。 |
 | mute | bool | true：静音；false：非静音。 |
 
 
@@ -585,14 +584,14 @@ __参数__
 
 启用或关闭音量大小提示。
 ```
-void enableAudioVolumeEvaluation(uint32_t interval)
+void enableAudioVolumeEvaluation(uint interval)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；。 |
+| interval | uint | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms。 |
 
 __介绍__
 
@@ -603,14 +602,14 @@ __介绍__
 
 开始录音。
 ```
-int startAudioRecording(const TRTCAudioRecordingParams & audioRecordingParams)
+int startAudioRecording(ref TRTCAudioRecordingParams audioRecordingParams)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| audioRecordingParams | const [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32271#trtcaudiorecordingparams) & | 录音参数，请参考TRTCAudioRecordingParams。 |
+| audioRecordingParams | ref [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32271#trtcaudiorecordingparams) | 录音参数，请参考TRTCAudioRecordingParams。 |
 
 __返回__
 
@@ -639,28 +638,28 @@ __介绍__
 
 获取摄像头设备列表。
 ```
-ITRTCDeviceCollection * getCameraDevicesList()
+ITRTCDeviceCollection getCameraDevicesList()
 ```
 
 __返回__
 
-摄像头管理器对象指针 ITRTCDeviceCollection*。
+摄像头管理器对象 ITRTCDeviceCollection。
 
 __介绍__
 
 示例代码： 
 
 <pre>
- ITRTCDeviceCollection * pDevice = m_pCloud->getCameraDevicesList();
- for (int i = 0; i < pDevice->getCount(); i++)
- {
-     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
- }
- pDevice->release();
- pDevice = null;
+ITRTCDeviceCollection pDevice = m_pCloud.getCameraDevicesList();
+for (int i = 0; i &lt; pDevice.getCount(); i++)
+{
+	string name = pDevice.getDeviceName(i));
+}
+pDevice.release();
+pDevice = null;
 </pre>
 
->?如果 delete ITRTCDeviceCollection*指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
+>?SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
 
 
@@ -668,21 +667,21 @@ __介绍__
 
 设置要使用的摄像头。
 ```
-void setCurrentCameraDevice(const char * deviceId)
+void setCurrentCameraDevice(string deviceId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| deviceId | const char * | 从 getCameraDevicesList 中得到的设备 ID。 |
+| deviceId | string | 从 getCameraDevicesList 中得到的设备 ID。 |
 
 
 ### getCurrentCameraDevice
 
 获取当前使用的摄像头。
 ```
-ITRTCDeviceInfo * getCurrentCameraDevice()
+ITRTCDeviceInfo getCurrentCameraDevice()
 ```
 
 __返回__
@@ -696,28 +695,28 @@ ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 获取麦克风设备列表。
 ```
-ITRTCDeviceCollection * getMicDevicesList()
+ITRTCDeviceCollection getMicDevicesList()
 ```
 
 __返回__
 
-麦克风管理器对象指针 ITRTCDeviceCollection*。
+麦克风管理器对象 ITRTCDeviceCollection。
 
 __介绍__
 
 示例代码： 
 
 <pre>
- ITRTCDeviceCollection * pDevice = m_pCloud->getMicDevicesList();
- for (int i = 0; i < pDevice->getCount(); i++)
- {
-     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
- }
- pDevice->release();
- pDevice = null;
+ITRTCDeviceCollection pDevice = m_pCloud.getMicDevicesList();
+for (int i = 0; i &lt; pDevice.getCount(); i++)
+{
+	string name = pDevice.getDeviceName(i));
+}
+pDevice.release();
+pDevice = null;
 </pre>
 
->?如果 delete ITRTCDeviceCollection* 指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
+>?SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
 
 
@@ -725,7 +724,7 @@ __介绍__
 
 获取当前选择的麦克风。
 ```
-ITRTCDeviceInfo * getCurrentMicDevice()
+ITRTCDeviceInfo getCurrentMicDevice()
 ```
 
 __返回__
@@ -737,14 +736,14 @@ ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 设置要使用的麦克风。
 ```
-void setCurrentMicDevice(const char * micId)
+void setCurrentMicDevice(string micId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| micId | const char * | 从 getMicDevicesList 中得到的设备 ID。 |
+| micId | string | 从 getMicDevicesList 中得到的设备 ID。 |
 
 __介绍__
 
@@ -755,7 +754,7 @@ __介绍__
 
 获取当前麦克风设备音量。
 ```
-uint32_t getCurrentMicDeviceVolume()
+uint getCurrentMicDeviceVolume()
 ```
 
 __返回__
@@ -767,42 +766,42 @@ __返回__
 
 设置麦克风设备的音量。
 ```
-void setCurrentMicDeviceVolume(uint32_t volume)
+void setCurrentMicDeviceVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 麦克风音量值，范围0 - 100。 |
+| volume | uint | 麦克风音量值，范围0 - 100。 |
 
 
 ### getSpeakerDevicesList
 
 获取扬声器设备列表。
 ```
-ITRTCDeviceCollection * getSpeakerDevicesList()
+ITRTCDeviceCollection getSpeakerDevicesList()
 ```
 
 __返回__
 
-扬声器管理器对象指针 ITRTCDeviceCollection*。
+扬声器管理器对象 ITRTCDeviceCollection。
 
 __介绍__
 
 示例代码： 
 
 <pre>
- ITRTCDeviceCollection * pDevice = m_pCloud->getSpeakerDevicesList();
- for (int i = 0; i < pDevice->getCount(); i++)
- {
-     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
- }
- pDevice->release();
- pDevice = null;
+ITRTCDeviceCollection pDevice = m_pCloud.getSpeakerDevicesList();
+for (int i = 0; i &lt; pDevice.getCount(); i++)
+{
+	string name = pDevice.getDeviceName(i));
+}
+pDevice.release();
+pDevice = null;
 </pre>
 
->?如果 delete ITRTCDeviceCollection* 指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
+>?SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
 
 
@@ -810,7 +809,7 @@ __介绍__
 
 获取当前的扬声器设备。
 ```
-ITRTCDeviceInfo * getCurrentSpeakerDevice()
+ITRTCDeviceInfo getCurrentSpeakerDevice()
 ```
 
 __返回__
@@ -822,21 +821,21 @@ ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 设置要使用的扬声器。
 ```
-void setCurrentSpeakerDevice(const char * speakerId)
+void setCurrentSpeakerDevice(string speakerId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| speakerId | const char * | 从 getSpeakerDevicesList 中得到的设备 ID。 |
+| speakerId | string | 从 getSpeakerDevicesList 中得到的设备 ID。 |
 
 
 ### getCurrentSpeakerVolume
 
 当前扬声器设备音量。
 ```
-uint32_t getCurrentSpeakerVolume()
+uint getCurrentSpeakerVolume()
 ```
 
 __返回__
@@ -851,14 +850,14 @@ __返回__
 
 设置当前扬声器音量。
 ```
-void setCurrentSpeakerVolume(uint32_t volume)
+void setCurrentSpeakerVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 设置的扬声器音量，范围0 - 100。 |
+| volume | uint | 设置的扬声器音量，范围0 - 100。 |
 
 >?设置的不是系统扬声器的音量大小。
 
@@ -869,7 +868,7 @@ __参数__
 
 设置美颜、美白、红润效果级别。
 ```
-void setBeautyStyle(TRTCBeautyStyle style, uint32_t beauty, uint32_t white, uint32_t ruddiness)
+void setBeautyStyle(TRTCBeautyStyle style, uint beauty, uint white, uint ruddiness)
 ```
 
 __参数__
@@ -877,9 +876,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | style | [TRTCBeautyStyle](https://cloud.tencent.com/document/product/647/32271#trtcbeautystyle) | 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。 |
-| beauty | uint32_t | 美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。 |
-| white | uint32_t | 美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。 |
-| ruddiness | uint32_t | 红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效。 |
+| beauty | uint | 美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。 |
+| white | uint | 美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显。 |
+| ruddiness | uint | 红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数暂未生效。 |
 
 __介绍__
 
@@ -890,7 +889,7 @@ SDK 内部集成了两套风格不同的磨皮算法，一套我们取名叫“�
 
 设置水印。
 ```
-void setWaterMark(TRTCVideoStreamType streamType, const char * srcData, TRTCWaterMarkSrcType srcType, uint32_t nWidth, uint32_t nHeight, float xOffset, float yOffset, float fWidthRatio)
+void setWaterMark(TRTCVideoStreamType streamType, string srcData, TRTCWaterMarkSrcType srcType, uint nWidth, uint nHeight, float xOffset, float yOffset, float fWidthRatio)
 ```
 
 __参数__
@@ -898,10 +897,10 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 要设置水印的流类型(TRTCVideoStreamTypeBig、TRTCVideoStreamTypeSub)。 |
-| srcData | const char * | 水印图片源数据（传 NULL 表示去掉水印）。 |
+| srcData | string | 水印图片源数据（传 NULL 表示去掉水印）。 |
 | srcType | [TRTCWaterMarkSrcType](https://cloud.tencent.com/document/product/647/32271#trtcwatermarksrctype) | 水印图片源数据类型（传 NULL 时忽略该参数）。 |
-| nWidth | uint32_t | 水印图片像素宽度（源数据为文件路径时忽略该参数）。 |
-| nHeight | uint32_t | 水印图片像素高度（源数据为文件路径时忽略该参数）。 |
+| nWidth | uint | 水印图片像素宽度（源数据为文件路径时忽略该参数）。 |
+| nHeight | uint | 水印图片像素高度（源数据为文件路径时忽略该参数）。 |
 | xOffset | float | 水印显示的左上角 x 轴偏移。 |
 | yOffset | float | 水印显示的左上角 y 轴偏移。 |
 | fWidthRatio | float | 水印显示的宽度占画面宽度比例（水印按该参数等比例缩放显示）。 |
@@ -922,15 +921,15 @@ __介绍__
 
 开始渲染远端用户辅流画面。
 ```
-void startRemoteSubStreamView(const char * userId, HWND rendHwnd)
+void startRemoteSubStreamView(string userId, IntPtr rendHwnd)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
-| rendHwnd | HWND | 渲染画面的 HWND。 |
+| userId | string | 对方的用户标识。 |
+| rendHwnd | Intptr | 渲染画面的 HWND。 |
 
 __介绍__
 
@@ -944,28 +943,28 @@ __介绍__
 
 停止显示远端用户的屏幕分享画面。
 ```
-void stopRemoteSubStreamView(const char * userId)
+void stopRemoteSubStreamView(string userId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
+| userId | string | 对方的用户标识。 |
 
 
 ### setRemoteSubStreamViewFillMode
 
 设置辅流画面的渲染模式。
 ```
-void setRemoteSubStreamViewFillMode(const char * userId, TRTCVideoFillMode mode)
+void setRemoteSubStreamViewFillMode(string userId, TRTCVideoFillMode mode)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户的 ID。 |
+| userId | string | 用户的 ID。 |
 | mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
 
 __介绍__
@@ -975,17 +974,17 @@ __介绍__
 
 ### getScreenCaptureSources
 
-枚举可共享的窗口列表，。
+枚举可共享的窗口列表。
 ```
-ITRTCScreenCaptureSourceList * getScreenCaptureSources(const SIZE & thumbSize, const SIZE & iconSize)
+ITRTCScreenCaptureSourceList getScreenCaptureSources(ref SIZE thumbSize, ref SIZE iconSize)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| thumbSize | const SIZE & | 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上。 |
-| iconSize | const SIZE & | 指定要获取的窗口图标大小。 |
+| thumbSize | ref SIZE | 指定要获取的窗口缩略图大小，缩略图可用于绘制在窗口选择界面上。 |
+| iconSize | ref SIZE | 指定要获取的窗口图标大小。 |
 
 __返回__
 
@@ -996,22 +995,22 @@ __介绍__
 如果您要给您的 App 增加屏幕分享功能，一般需要先显示一个窗口选择界面，这样用户可以选择希望分享的窗口。 通过如下函数，您可以获得可分享窗口的 ID、类型、窗口名称以及缩略图。 拿到这些信息后，您就可以实现一个窗口选择界面，当然，您也可以使用我们在 Demo 源码中已经实现好的一个界面。
 
 >?返回的列表中包括屏幕和应用窗口，屏幕会在列表的前面几个元素中。
->如果 delete ITRTCScreenCaptureSourceList*指针会编译错误，SDK 维护 ITRTCScreenCaptureSourceList 对象的生命周期。
+>SDK 维护 ITRTCScreenCaptureSourceList 对象的生命周期。
 
 
 ### selectScreenCaptureTarget
 
 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。
 ```
-void selectScreenCaptureTarget(const TRTCScreenCaptureSourceInfo & source, const RECT & captureRect, bool captureMouse, bool highlightWindow)
+void selectScreenCaptureTarget(ref TRTCScreenCaptureSourceInfo source, ref RECT captureRect, bool captureMouse, bool highlightWindow)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| source | const TRTCScreenCaptureSourceInfo & | 指定分享源。 |
-| captureRect | const RECT & | 指定捕获的区域。 |
+| source | ref TRTCScreenCaptureSourceInfo | 指定分享源。 |
+| captureRect | ref RECT | 指定捕获的区域。 |
 | captureMouse | bool | 指定是否捕获鼠标指针。 |
 | highlightWindow | bool | 指定是否高亮正在共享的窗口，以及当捕获图像被遮挡时高亮遮挡窗口提示用户移走遮挡。 |
 
@@ -1029,14 +1028,14 @@ __介绍__
 
 启动屏幕分享。
 ```
-void startScreenCapture(HWND rendHwnd)
+void startScreenCapture(IntPtr rendHwnd)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rendHwnd | HWND | 承载预览画面的 HWND。 |
+| rendHwnd | Intptr | 承载预览画面的 HWND。 |
 
 
 ### pauseScreenCapture
@@ -1067,14 +1066,14 @@ void stopScreenCapture()
 
 设置屏幕分享的编码器参数。
 ```
-void setSubStreamEncoderParam(const TRTCVideoEncParam & params)
+void setSubStreamEncoderParam(ref TRTCVideoEncParam params)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 辅流编码参数，详情请参考 TRTCCloudDef.h 中的 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 定义。 |
+| params | ref [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) | 辅流编码参数，详情请参考 TRTCCloudDef.h 中的 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 定义。 |
 
 __介绍__
 
@@ -1085,14 +1084,14 @@ __介绍__
 
 设置辅流的混音音量大小。
 ```
-void setSubStreamMixVolume(uint32_t volume)
+void setSubStreamMixVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 设置的混音音量大小，范围0 - 100。 |
+| volume | uint | 设置的混音音量大小，范围0 - 100。 |
 
 __介绍__
 
@@ -1123,14 +1122,14 @@ __介绍__
 
 向 SDK 投送自己采集的视频数据。
 ```
-void sendCustomVideoData(TRTCVideoFrame * frame)
+void sendCustomVideoData(TRTCVideoFrame frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCVideoFrame * | 视频数据，支持 I420 格式数据。 |
+| frame | TRTCVideoFrame | 视频数据，支持 I420 格式数据。 |
 
 __介绍__
 
@@ -1169,14 +1168,14 @@ __参数__
 
 向 SDK 投送自己采集的音频数据。
 ```
-void sendCustomAudioData(TRTCAudioFrame * frame)
+void sendCustomAudioData(TRTCAudioFrame frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频帧，仅支持 LiteAVAudioFrameFormatPCM 格式。目前只支持单声道，仅支持48K采样率，LiteAVAudioFrameFormatPCM 格式。 |
+| frame | TRTCAudioFrame | 音频帧，仅支持 LiteAVAudioFrameFormatPCM 格式。目前只支持单声道，仅支持48K采样率，LiteAVAudioFrameFormatPCM 格式。 |
 
 __介绍__
 
@@ -1199,7 +1198,7 @@ TRTCAudioFrame 推荐如下填写方式（其他字段不需要填写）：
 
 设置本地视频自定义渲染。
 ```
-int setLocalVideoRenderCallback(TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback * callback)
+int setLocalVideoRenderCallback(TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback callback)
 ```
 
 __参数__
@@ -1208,30 +1207,30 @@ __参数__
 |-----|-----|-----|
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。 |
 | bufferType | TRTCVideoBufferType | 指定视频数据结构类型。 |
-| callback | [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/32270#itrtcvideorendercallback) * | 自定义渲染回调。 |
+| callback | [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/32270#itrtcvideorendercallback) | 自定义渲染回调。 |
 
 __返回__
 
 0：成功；<0：错误。
 
->?设置此方法，SDK 内部会把采集到的数据回调出来，SDK 跳过 HWND 渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown， TRTCVideoBufferType_Unknown， nullptr) 停止回调。
+>?设置此方法，SDK 内部会把采集到的数据回调出来，SDK 跳过 IntPtr 渲染逻辑 调用 setLocalVideoRenderCallback(TRTCVideoPixelFormat_Unknown， TRTCVideoBufferType_Unknown， null) 停止回调。
 
 
 ### setRemoteVideoRenderCallback
 
 设置远端视频自定义渲染。
 ```
-int setRemoteVideoRenderCallback(const char * userId, TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback * callback)
+int setRemoteVideoRenderCallback(string userId, TRTCVideoPixelFormat pixelFormat, TRTCVideoBufferType bufferType, ITRTCVideoRenderCallback callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 | pixelFormat | TRTCVideoPixelFormat | 指定回调的像素格式。 |
 | bufferType | TRTCVideoBufferType | 指定视频数据结构类型。 |
-| callback | [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/32270#itrtcvideorendercallback) * | 自定义渲染回调。 |
+| callback | [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/32270#itrtcvideorendercallback) | 自定义渲染回调。 |
 
 __返回__
 
@@ -1241,7 +1240,7 @@ __介绍__
 
 此方法同 setLocalVideoRenderDelegate，区别在于一个是本地画面的渲染回调， 一个是远程画面的渲染回调。
 
->?设置此方法，SDK 内部会把远端的数据解码后回调出来，SDK 跳过 HWND 渲染逻辑 调用 setRemoteVideoRenderCallback(userId， TRTCVideoPixelFormat_Unknown，  TRTCVideoBufferType_Unknown， nullptr) 停止回调。
+>?设置此方法，SDK 内部会把远端的数据解码后回调出来，SDK 跳过 IntPtr 渲染逻辑 调用 setRemoteVideoRenderCallback(userId， TRTCVideoPixelFormat_Unknown，  TRTCVideoBufferType_Unknown， null) 停止回调。
 
 
 
@@ -1249,14 +1248,14 @@ __介绍__
 
 设置音频数据回调。
 ```
-int setAudioFrameCallback(ITRTCAudioFrameCallback * callback)
+int setAudioFrameCallback(ITRTCAudioFrameCallback callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCAudioFrameCallback](https://cloud.tencent.com/document/product/647/32270#itrtcaudioframecallback) * | 声音帧数据（PCM 格式）的回调，callback = nullptr 则停止回调数据。 |
+| callback | [ITRTCAudioFrameCallback](https://cloud.tencent.com/document/product/647/32270#itrtcaudioframecallback) | 声音帧数据（PCM 格式）的回调，callback = null 则停止回调数据。 |
 
 __返回__
 
@@ -1276,16 +1275,16 @@ __介绍__
 
 发送自定义消息给房间内所有用户。
 ```
-bool sendCustomCmdMsg(uint32_t cmdId, const uint8_t * data, uint32_t dataSize, bool reliable, bool ordered)
+bool sendCustomCmdMsg(uint cmdId, byte[] data, uint dataSize, bool reliable, bool ordered)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| cmdId | uint32_t | 消息 ID，取值范围为1 - 10。 |
-| data | const uint8_t * | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
-| dataSize | uint32_t | 待发送的数据大小。 |
+| cmdId | uint | 消息 ID，取值范围为1 - 10。 |
+| data | byte[] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
+| dataSize | uint | 待发送的数据大小。 |
 | reliable | bool | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传。 |
 | ordered | bool | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
 
@@ -1309,16 +1308,16 @@ __介绍__
 
 将小数据量的自定义数据嵌入视频帧中。
 ```
-bool sendSEIMsg(const uint8_t * data, uint32_t dataSize, int32_t repeatCount)
+bool sendSEIMsg(byte[] data, uint dataSize, int repeatCount)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| data | const uint8_t * | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
-| dataSize | uint32_t | 待发送的数据大小。 |
-| repeatCount | int32_t | 发送数据次数。 |
+| data | byte[] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
+| dataSize | uint | 待发送的数据大小。 |
+| repeatCount | int | 发送数据次数。 |
 
 __返回__
 
@@ -1344,14 +1343,14 @@ __介绍__
 
 启动播放背景音乐。
 ```
-void playBGM(const char * path)
+void playBGM(string path)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | const char * | 音乐文件路径。 |
+| path | string | 音乐文件路径。 |
 
 
 ### stopBGM
@@ -1382,14 +1381,14 @@ void resumeBGM()
 
 获取音乐文件总时长，单位毫秒。
 ```
-uint32_t getBGMDuration(const char * path)
+uint getBGMDuration(string path)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | const char * | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长。 |
+| path | string | 音乐文件路径，如果 path 为空，那么返回当前正在播放的 music 时长。 |
 
 __返回__
 
@@ -1400,56 +1399,56 @@ __返回__
 
 设置 BGM 播放进度。
 ```
-void setBGMPosition(uint32_t pos)
+void setBGMPosition(uint pos)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pos | uint32_t | 单位毫秒。 |
+| pos | uint | 单位毫秒。 |
 
 
 ### setMicVolumeOnMixing
 
 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。
 ```
-void setMicVolumeOnMixing(uint32_t volume)
+void setMicVolumeOnMixing(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | uint | 音量大小，100为正常音量，取值范围为0 - 200。 |
 
 
 ### setBGMVolume
 
 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
 ```
-void setBGMVolume(uint32_t volume)
+void setBGMVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | uint | 音量大小，100为正常音量，取值范围为0 - 200。 |
 
 
 ### startSystemAudioLoopback
 
 打开系统声音采集。
 ```
-void startSystemAudioLoopback(const char * path)
+void startSystemAudioLoopback(string path)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | const char * | - path 为空，代表采集整个操作系统的声音。<br>- path 填写 exe 程序（如 QQ音乐）所在的路径，将会启动此程序并只采集此程序的声音。 |
+| path | string | - path 为空，代表采集整个操作系统的声音。<br>- path 填写 exe 程序（如 QQ音乐）所在的路径，将会启动此程序并只采集此程序的声音。 |
 
 __介绍__
 
@@ -1468,14 +1467,14 @@ void stopSystemAudioLoopback()
 
 设置系统声音采集的音量。
 ```
-void setSystemAudioLoopbackVolume(uint32_t volume)
+void setSystemAudioLoopbackVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 音量大小，取值范围为0 - 100。 |
+| volume | uint | 音量大小，取值范围为0 - 100。 |
 
 
 
@@ -1484,16 +1483,16 @@ __参数__
 
 开始进行网络测速（视频通话期间请勿测试，以免影响通话质量）。
 ```
-void startSpeedTest(uint32_t sdkAppId, const char * userId, const char * userSig)
+void startSpeedTest(uint sdkAppId, string userId, string userSig)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdkAppId | uint32_t | 应用标识。 |
-| userId | const char * | 用户标识。 |
-| userSig | const char * | 用户签名。 |
+| sdkAppId | uint | 应用标识。 |
+| userId | string | 用户标识。 |
+| userSig | string | 用户签名。 |
 
 __介绍__
 
@@ -1515,14 +1514,14 @@ void stopSpeedTest()
 
 开始进行摄像头测试。
 ```
-void startCameraDeviceTest(HWND rendHwnd)
+void startCameraDeviceTest(IntPtr rendHwnd)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rendHwnd | HWND | 承载预览画面的 HWND。 |
+| rendHwnd | Intptr | 承载预览画面的 HWND。 |
 
 __介绍__
 
@@ -1544,14 +1543,14 @@ void stopCameraDeviceTest()
 
 开启麦克风测试。
 ```
-void startMicDeviceTest(uint32_t interval)
+void startMicDeviceTest(uint interval)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 反馈音量提示的时间间隔（ms），建议设置到大于 200 毫秒。 |
+| interval | uint | 反馈音量提示的时间间隔（ms），建议设置到大于 200 毫秒。 |
 
 __介绍__
 
@@ -1571,14 +1570,14 @@ void stopMicDeviceTest()
 
 开启扬声器测试。
 ```
-void startSpeakerDeviceTest(const char * testAudioFilePath)
+void startSpeakerDeviceTest(string testAudioFilePath)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| testAudioFilePath | const char * | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式：WAV、MP3。 |
+| testAudioFilePath | string | 音频文件的绝对路径，路径字符串使用 UTF-8 编码格式，支持文件格式：WAV、MP3。 |
 
 __介绍__
 
@@ -1600,14 +1599,14 @@ void stopSpeakerDeviceTest()
 
 启动(更新)云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。
 ```
-void setMixTranscodingConfig(TRTCTranscodingConfig * config)
+void setMixTranscodingConfig(TRTCTranscodingConfig config)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfig) * | 请参考 TRTCCloudDef.h 中关于 [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfig) 的介绍。如果传入 NULL 取消云端混流转码。 |
+| config | [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfig) | 请参考 TRTCCloudDef.h 中关于 [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfig) 的介绍。如果传入 NULL 取消云端混流转码。 |
 
 __介绍__
 
@@ -1625,7 +1624,6 @@ __介绍__
 【画面3】=> 解码 => =>
 </pre>
 
-
 >?关于云端混流的注意事项：
 >- 云端转码会引入一定的 CDN 观看延时，大概会增加1 - 2秒。
 >- 调用该函数的用户，会将多路画面混合到自己这一路的 [CDN 地址](https://cloud.tencent.com/document/product/647/16826) 上。
@@ -1635,14 +1633,14 @@ __介绍__
 
 旁路转推到指定的推流地址。
 ```
-void startPublishCDNStream(const TRTCPublishCDNParam & param)
+void startPublishCDNStream(ref TRTCPublishCDNParam param)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | const [TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32271#trtcpublishcdnparam) & | 请参考 TRTCCloudDef.h 中关于 [TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32271#trtcpublishcdnparam) 的介绍。 |
+| param | ref [TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32271#trtcpublishcdnparam) | 请参考 TRTCCloudDef.h 中关于 [TRTCPublishCDNParam](https://cloud.tencent.com/document/product/647/32271#trtcpublishcdnparam) 的介绍。 |
 
 __介绍__
 
@@ -1670,7 +1668,7 @@ void stopPublishCDNStream()
 
 获取 SDK 版本信息。
 ```
-const char * getSDKVersion()
+string getSDKVersion()
 ```
 
 __返回__
@@ -1728,14 +1726,14 @@ __介绍__
 
 设置日志保存路径。
 ```
-void setLogDirPath(const char * path)
+void setLogDirPath(string path)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| path | const char * | 存储日志的文件夹，例如 "D:\\Log"，UTF-8 编码。 |
+| path | string | 存储日志的文件夹，例如 "D:\\Log"，UTF-8 编码。 |
 
 >?日志文件默认保存在 C:/Users/[系统用户名]/AppData/Roaming/Tencent/liteav/log，即 appdata%/Tencent/liteav/log 下，如需修改，必须在所有方法前调用。
 
@@ -1745,14 +1743,14 @@ __参数__
 
 设置日志回调。
 ```
-void setLogCallback(ITRTCLogCallback * callback)
+void setLogCallback(ITRTCLogCallback callback)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCLogCallback](https://cloud.tencent.com/document/product/647/32270#itrtclogcallback) * | 日志回调。 |
+| callback | [ITRTCLogCallback](https://cloud.tencent.com/document/product/647/32270#itrtclogcallback) | 日志回调。 |
 
 
 ### showDebugView
@@ -1777,16 +1775,13 @@ __介绍__
 
 调用实验性 API 接口。
 ```
-void callExperimentalAPI(const char * jsonStr)
+void callExperimentalAPI(string jsonStr)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| jsonStr | const char * | 接口及参数描述的 JSON 字符串。 |
+| jsonStr | string | 接口及参数描述的 JSON 字符串。 |
 
 >?该接口用于调用一些实验性功能。
-
-
-
