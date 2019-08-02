@@ -7,7 +7,7 @@
 
 如果出现 6013 SDK 未初始化错误，您可以尝试以下方式排查：
 1. 查看是否没有登录成功就进行收发消息等其他操作；
-2. 查看是否登录时被其它终端踢掉，IM SDK 默认一个帐号仅能在一个终端上登录。处理方式请参考 [多终端同时登录](https://cloud.tencent.com/document/product/269/3602) 文档；
+2. 查看是否登录时被其它终端踢掉，IM SDK 默认一个帐号仅能在一个终端上登录。处理方式请参考 [多终端同时登录](https://cloud.tencent.com/document/product/269/3665#.E5.A4.9A.E7.AB.AF.E7.99.BB.E5.BD.95) 文档；
 3. Android 请关注库文件是否未能全部加载，或是使用过程中被系统回收。
 
 ### code: 6205 desc: QALSERVICE not ready？
