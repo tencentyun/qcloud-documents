@@ -204,7 +204,7 @@ function handlderMsg(msg) {
 
 ```javascript
 //监听（多终端同步）群系统消息方法，方法都定义在 demo_group_notice.js 文件中
-//注意每个数字代表的含义，比如，
+//注意每个数字代表的含义，例如，
 //1表示监听申请加群消息，2表示监听申请加群被同意消息，3表示监听申请加群被拒绝消息等
 var onGroupSystemNotifys = {
     //"1": onApplyJoinGroupRequestNotify, //申请加群请求（只有管理员会收到,暂不支持）

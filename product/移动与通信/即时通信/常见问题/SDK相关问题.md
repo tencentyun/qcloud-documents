@@ -18,8 +18,8 @@
 
 即时通信 IM 不提供表情包，具体的解析需要自己对齐。
 表情使用方式有两种方式：
-- 一种是使用 TIMFaceElem 中的 index，标识表情的索引，比如 Android 和 iOS 两端都有同一套表情图，索引2为笑脸，index=2 就表示笑脸，两端发送和接收都显示同一张索引表情图片即可。
-- 另一种是使用 TIMFaceElem 中的 data，比如表情图片是由字符串命名，smile 表示笑脸，可在 data 中存储 smile，iOS 和 Android 两端都通过 data 作为 key 找到对应表情图片进行显示。
+- 一种是使用 TIMFaceElem 中的 index，标识表情的索引，例如 Android 和 iOS 两端都有同一套表情图，索引2为笑脸，index=2 就表示笑脸，两端发送和接收都显示同一张索引表情图片即可。
+- 另一种是使用 TIMFaceElem 中的 data，例如表情图片是由字符串命名，smile 表示笑脸，可在 data 中存储 smile，iOS 和 Android 两端都通过 data 作为 key 找到对应表情图片进行显示。
 
 另外也可以两个字段都使用，如 data 表示哪一套表情，index 表示这套表情的哪个索引，可以实现类似 QQ 的多种不同表情效果。甚至可以在 data 数据中存储更为复杂的数据结构，只要多端解析规则一致即可。
 

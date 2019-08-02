@@ -4,7 +4,7 @@
 ```javascript
 {
   // 私聊会话，会话 ID skey 为'C2C[toAccount]'，其中'[toAccount]'表示对方的帐号
-  // 比如您正在和 identifier 为 'zhangsan' 的帐号聊天，而 [toAccout]取值为'zhangsan'。
+  // 例如您正在和 identifier 为 'zhangsan' 的帐号聊天，而 [toAccout]取值为'zhangsan'。
   // 而'C2C[toAccount]'取值为'C2Czhangsan'
   'C2C[toAccount]': {
      	// ...省略
@@ -15,7 +15,7 @@
   },
   
   // 群聊会话，会话 ID skey 为'GROUP[groupId]'，其中'[groupId]'表示群组 ID
-  // 比如您在群组 ID 为 'developergroup' 的群中聊天，此时[groupId]取值为'developergroup'。
+  // 例如您在群组 ID 为 'developergroup' 的群中聊天，此时[groupId]取值为'developergroup'。
   // 而'GROUP[groupId]'取值为'GROPdevelopergroup'
   'GROUP[groupId]': {
     	// ...省略
