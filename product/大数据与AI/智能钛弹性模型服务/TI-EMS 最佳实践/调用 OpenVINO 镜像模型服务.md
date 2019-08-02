@@ -4,6 +4,7 @@
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_v4_ir.tar](http://inception-v4-ir-1255502019.file.myqcloud.com/inception_v4_ir.tar)。
 >?我们已经为您准备好了上述 inception 模型的 cos访 问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/OpenVINO/inception_v4_ir/1/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
+
 **2. 测试图片：** [imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label为230的图片）
 ### 创建模型服务配置
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_vino，单击【运行环境】，在弹出页面的【公共镜像】栏选择 openvino。
