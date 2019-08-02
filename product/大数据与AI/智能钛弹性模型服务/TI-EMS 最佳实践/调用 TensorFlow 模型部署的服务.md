@@ -17,7 +17,7 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/750a166db95a17801d4443960e9ec82f.png)
 选择模型资源配置，单击【普通配置】，选择2核 CPU，2048MB内存配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
-![](https://main.qcloudimg.com/raw/684bc9d86efde93555db4453c907a12d.png)
+![](https://main.qcloudimg.com/raw/7790d7a1be72ee4ce4e6124dbc7730bd.png)
 ### 启动服务
 在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
 ![](https://main.qcloudimg.com/raw/af95e25692913e32750c8b0ea1aca410.png)
