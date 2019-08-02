@@ -1,48 +1,43 @@
 ## 操作场景
-在选购云服务器（CVM）时若选择了0Mbps带宽上限，该 CVM 将无法访问公网。本文以 CentOS7.5 为例，使用无公网 IP 的 CVM 通过 PPTP VPN 及有公网 IP 的 CVM 访问公网。
+在选购云服务器时，若您选择了0Mbps带宽上限，则该云服务器将无法访问公网。本文以 CentOS7.5 为例，介绍如何在无公网 IP 的云服务器上通过 PPTP VPN 连接有公网 IP 的云服务器访问公网。
 
 
 ## 前提条件
-- 已创建无公网 IP CVM 及有公网 IP CVM，详情请见 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 已创建的 CVM 均在同一私有网络下，详情请见 [私有网络](https://cloud.tencent.com/document/product/215/20046)。
+- 已在同一个私有网络下创建两台云服务器（一台**无公网 IP 的云服务器**和一台**有公网 IP 的云服务器**）。
+- 已获取有公网 IP 的云服务器的内网 IP。
 
 ## 操作步骤
-### 对有公网 IP 的 CVM 进行配置
-1.  执行以下命令，安装 PPTP。
+### 在有公网 IP 的云服务器上配置 PPTP
+
+1. 登录有公网 IP 的云服务器。
+2. 执行以下命令，安装 PPTP。
 ```
 yum install -y pptpd
 ```
-2. 执行以下命令，修改 PPTP 配置文件`pptpd.conf`。
+2. 执行以下命令，打开 `pptpd.conf`  配置文件。
 ```
 vim /etc/pptpd.conf
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
-4. 在文件尾部匹配下列配置，并删除配置前的“**#**”。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，并在文件尾部添加以下内容。
 ```
-#localip 192.168.0.1
-#remoteip 192.168.0.234-238,192.168.0.245
+localip 192.168.0.1
+remoteip 192.168.0.234-238,192.168.0.245
 ```
-修改完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
-修改结果如下图所示：
-![](https://main.qcloudimg.com/raw/fa81cf84881b63465866f3ecd753b445.png)
-5. 执行以下命令，修改 PPTP 配置文件`/etc/ppp/chap-secrets`。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，打开 `/etc/ppp/chap-secrets` 配置文件。
 ```
 vim /etc/ppp/chap-secrets
 ```
-6. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
-7. 在文件尾部按以下格式添加用户名和信息。
-<span id="step7"></span>
+6. <span id="step7">按 “**i**” 或 “**Insert**” 切换至编辑模式，并按以下格式，在文件尾部添加连接 PPTP 的用户名和密码。</span>
 ```
 用户名    pptpd    密码    *
 ```
-例如，用户名为 user，密码为 123456，则需要添加信息为：
+例如，连接 PPTP 的用户名为 root，登录密码为123456，则需要添加的信息如下：
 ```
-user    pptpd    123456    *
+root    pptpd    123456    *
 ```
-添加完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
-添加信息成功后如下图所示：
-![](https://main.qcloudimg.com/raw/28fc413cdd9d3234613806256dc34168.png)
-8. 执行以下命令，启动服务。
+7. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+8. 执行以下命令，启动 PPTP 服务。
 ```
 systemctl start pptpd
 ```
@@ -52,21 +47,26 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE
 ```
 
-### 对无公网 IP 的 CVM 进行配置
-1. 执行以下命令，安装客户端。
+### 在无公网 IP 的云服务器上配置 PPTP
+
+1. 登录无公网 IP 的云服务器。
+2. 执行以下命令，安装 PPTP 客户端。
 ```
 yum install -y pptp pptp-setup
 ``` 
-2. 替换命令中以下参数信息并执行命令，创建配置文件 test，并启动连接。
- - 内网 IP：可在 [腾讯云服务器控制台](https://console.cloud.tencent.com/cvm) 中查看。如下图所示：
-![](https://main.qcloudimg.com/raw/75db97912ba0170b1543fe6c404a06a9.png)
- - 用户名/密码： 为有公网 IP 的 CVM 配置 [步骤7](#step7) 中设置的用户名及密码。
+3. 执行以下命令，创建配置文件。
 ```
-pptpsetup --create test --server 内网IP --username 用户名 --password 密码 --encrypt --start
+pptpsetup --create 配置文件的名称 --server 有公网 IP 的云服务器的内网 IP --username 连接 PPTP 的用户名 --password 连接 PPTP 的密码 --encrypt
 ```
-连接成功。如下图所示：
-![](https://main.qcloudimg.com/raw/32f142c52fceb5a94b383c080475be87.png)
-3. 依次执行以下命令，设置路由。
+例如，创建一个 test 配置文件，有公网 IP 的云服务器的内网 IP 为10.100.100.1，则执行以下命令：
+```
+pptpsetup --create test --server 10.100.100.1 --username root --password 123456 --encrypt
+```
+4. 执行以下命令，连接 PPTP。
+```
+pppd call pptp
+```
+5. 依次执行以下命令，设置路由。
 ```
 route add -net 10.0.0.0/8 dev eth0
 route add -net 172.16.0.0/12 dev eth0
@@ -77,12 +77,12 @@ route add -net 100.64.0.0/10 dev eth0
 route add -net 0.0.0.0 dev ppp0
 ```
 
-### 测试是否可访问公网
-完成上述步骤之后，执行以下命令进行测试。
+### 检查配置是否成功
+在无公网 IP 的云服务器上，执行以下命令，PING 任意一个外网地址，检查是否可以 PING 通。
 ```
-ping -c 4 www.cloud.tencent.com
+ping -c 4 外网地址
 ```
-测试成功。如下图所示：
+若返回类似如下结果，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/c841782ce0976982d1f289d3437ec0ed.png)
 
 
