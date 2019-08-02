@@ -30,8 +30,8 @@ vim /etc/pptpd.conf
 vim /etc/ppp/chap-secrets
 ```
 6. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
-<span id="step7"></span>
 7. 在文件尾部按以下格式添加用户名和信息。
+<span id="step7"></span>
 ```
 用户名    pptpd    密码    *
 ```
@@ -39,6 +39,7 @@ vim /etc/ppp/chap-secrets
 ```
 user    pptpd    123456    *
 ```
+添加完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
 添加信息成功后如下图所示：
 ![](https://main.qcloudimg.com/raw/28fc413cdd9d3234613806256dc34168.png)
 8. 执行以下命令，启动服务。
