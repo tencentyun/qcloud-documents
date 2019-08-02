@@ -206,7 +206,7 @@ IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表�
 |---------|---------|---------|
 |webim.Session|一个会话对象|即聊天对象，包括获取会话类型（私聊还是群聊），对方帐号，未读消息数，总消息数等|
 |webim.Msg|一条消息对象|消息发送、接收的 API 中都会涉及此类型的对象|
-|webim.Tool|工具对象|提供了一些公用的函数。比如格式化时间戳函数 formatTimeStamp()，获取字符串（UTF-8 编码）所占字节数 getStrBytes() 等|
+|webim.Tool|工具对象|提供了一些公用的函数。例如格式化时间戳函数 formatTimeStamp()，获取字符串（UTF-8 编码）所占字节数 getStrBytes() 等|
 |webim.Log|控制台打印日志对象|方便查看接口的请求 URL，请求 data 和响应 data，在初始化 IM SDK 时，可以传递一个布尔类型的变量来控制是否在控制台打印日志|
 
 ### 会话对象 Session
@@ -594,7 +594,7 @@ webim.Msg.Elem.File(uuid,name,size,senderId,downUrl)
 
 ### 消息元素对象（自定义）
 
-Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，比如使用 BASE64 编解码。
+Web 端和后台接口采用了 JSON 格式的数据协议，要实现 Android，iOS 和 Web 的自定义消息互通，需要对消息进行编解码，例如使用 BASE64 编解码。
 **对象名：**
 
 ```javascript
@@ -741,7 +741,7 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 
 ### 工具对象 Tool
 
-`webim.Tool` 提供了一些通用的函数。比如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。
+`webim.Tool` 提供了一些通用的函数。例如格式化时间戳函数 `formatTimeStamp()`，获取字符串所占字节数 `getStrBytes()`。
 **对象名：**
 
 ```javascript
