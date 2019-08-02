@@ -58,7 +58,7 @@ yum install -y pptp pptp-setup
 ```
 pptpsetup --create 配置文件的名称 --server 有公网 IP 的云服务器的内网 IP --username 连接 PPTP 的用户名 --password 连接 PPTP 的密码 --encrypt
 ```
-例如，创建一个 test 配置文件，有公网 IP 的云服务器的内网 IP 为10.100.100.1，则执行以下命令：
+例如，创建一个 test 配置文件，已获取有公网 IP 的云服务器的内网 IP 为10.100.100.1，则执行以下命令：
 ```
 pptpsetup --create test --server 10.100.100.1 --username root --password 123456 --encrypt
 ```
