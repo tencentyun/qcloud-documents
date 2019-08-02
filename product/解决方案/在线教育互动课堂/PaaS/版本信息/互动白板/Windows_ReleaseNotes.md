@@ -1,5 +1,19 @@
 # Release Notes - Windows
 
+## 2.3.0.40 @2019.07.27
+- 白板消息优先级调整到最高
+- 修复初始化参数实验性字段为空时crash问题
+
+## 2.3.0.36 @2019.07.12
+- 更新Windows&Linux的Chromium版本到75.0.3770.100
+- Windows&Linux适配新版CEF接口
+- Windows&Linux离屏渲染模式下禁用JS弹窗
+- Windows&Linux增加白板HTML加载失败自动重试选项
+- Windows&Linux白板HTML文件上云
+
+## 2.2.2.34 @2019.07.03
+- 修复设置白板背景图接口功能异常
+
 ## 2.2.2.33 @2019.06.28
 - 监测Render进程Crash并打印日志
 - AddFile和AddH5PPTFile接口同步返回文件ID
@@ -75,3 +89,5 @@
 - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
 
         
+
+
