@@ -15,7 +15,7 @@
 ### 启动服务
 在模型服务配置页面找到 demo_openvino 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
 ![](https://main.qcloudimg.com/raw/112933f2cd4a97f4e09dc699e6d035bc.png)
-在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进行模型服务列表页面。
+在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
 ![](https://main.qcloudimg.com/raw/0ca420aeee499ae64fead3ec193485c4.png)
 ### 获得访问地址和密钥
 单击【启动模型服务】页面选择 demo_openvino 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_openvino 模型服务的访问地址 IP 和密钥 TOKEN。
