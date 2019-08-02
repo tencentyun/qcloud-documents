@@ -1,5 +1,5 @@
-## 群组管理
-### 进群
+
+## 进群
 
 **`applyJoinBigGroup` 函数名：**
 
@@ -52,7 +52,7 @@ function applyJoinBigGroup(groupId) {
 }
 ```
 
-### 退群
+## 退群
 
 **`quitBigGroup` 函数名：**
 
