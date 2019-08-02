@@ -216,19 +216,19 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将就无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
 ```objectivec
     // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackGround:)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
 		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
     // 注册 App 被切回前台的处理函数 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
 		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
     // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackGround:(NSNotification *)notification {
+    -(void)onAppDidEnterBackground:(NSNotification *)notification {
         [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
         _appIsBackground = YES;
         [_pusher pausePush];
     }
     // App 被切回前台的处理函数																			 
-    -(void)onAppDidEnterBackGround:(NSNotification *)notification {
+    -(void)onAppWillEnterForeground:(NSNotification *)notification {
         if (_appIsBackground ){
             [_pusher resumePush];
         }
