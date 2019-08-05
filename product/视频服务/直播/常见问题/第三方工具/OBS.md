@@ -3,7 +3,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 该任务指导您在安装 OBS 工具后，如何在 PC 端进行推流配置操作。
 
 ## 前提条件
-- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，并生成推流地址，详情可参加 [推流配置](https://cloud.tencent.com/document/product/267/32833)。
+- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，并生成推流地址，详情可参见 [推流配置](https://cloud.tencent.com/document/product/267/32833)。
 - 安装 [OBS](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 工具。
 
 ## 操作步骤
