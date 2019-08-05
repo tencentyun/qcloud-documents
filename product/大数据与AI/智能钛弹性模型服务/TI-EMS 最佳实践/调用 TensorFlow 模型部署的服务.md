@@ -6,11 +6,11 @@
 **2. 测试图片：** [flower.jpg](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.jpg)
 ![](https://main.qcloudimg.com/raw/9e74659a24ec62bc47b0f14160afee98.png)
 **base64 编码**
-将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据。
+将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据，或者您可以直接下载已经编码完成的 json 文件 [flower.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.json)，跳过该图片编码步骤，直接进行下一步。
 ```shell
 echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.json
 ```
-或者您可以直接下载已经编码完成的 json 文件 [flower.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.json)，跳过该图片编码步骤，直接进行下一步。
+
 
 ### 创建模型服务配置
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_tfserving，单击【运行环境】，在弹出页面的【公共镜像】栏选择 tfserving。
