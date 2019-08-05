@@ -1,8 +1,6 @@
 ## 操作场景
-### Cloud-Init 简介
-在2018年3月1号之后，腾讯云官网提供的 Linux 公有镜像预安装了纯开源的工具 Cloud-Init，并通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明，详情请参见 [Cloud-Init](https://cloud.tencent.com/document/product/213/19670#cloud-init)。
 
-### 问题描述
+在2018年3月1号之后，腾讯云官网提供的 Linux 公有镜像预安装了纯开源的工具 Cloud-Init，并通过 Cloud-Init 实现了实例的所有初始化操作，使得整个实例内部的操作更加的透明，详情请参见 [Cloud-Init](https://cloud.tencent.com/document/product/213/19670#cloud-init)。
 Cloud-Init 在**每次启动**时会根据 `/etc/cloud/templates/hosts.${os_type}.tmpl` 模板生成一份新的 `/etc/hosts` 文件覆盖实例原有的 `/etc/hosts` 文件，导致用户在实例内部手动修改 `/etc/hosts` 配置并重启实例后， `/etc/hosts` 配置又变为原始默认配置。
 
 ## 前提条件
@@ -32,4 +30,30 @@ cat /etc/hosts
 >
 hosts 模版文件如下图所示。
 ![](https://main.qcloudimg.com/raw/f51f9c53004574f72d32f5ed790c8563.png)
-2. 同时修改 hosts 模版文件及 `/etc/hosts` 文件并保存。
+3. 按照以下步骤，同时修改 hosts 模版文件与 /etc/hosts 文件。
+>?以添加 127.0.0.1 test test 为例，您可按需修改 hosts 模版文件与 /etc/hosts 文件。
+
+
+#### 修改 hosts 模版文件
+1. 执行以下命令，修改 hosts 模版文件。
+```
+vim /etc/cloud/templates/hosts.redhat.tmpl
+```
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+3. 在文件末尾输入以下内容。
+```
+127.0.0.1 test test
+```
+4. 输入完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+
+#### 修改 /etc/hosts 文件
+1. 执行以下命令，修改 `/etc/hosts` 文件。
+```
+vim /etc/hosts
+```
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+3. 在文件末尾输入以下内容。
+```
+127.0.0.1 test test
+```
+4. 输入完成后，按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
