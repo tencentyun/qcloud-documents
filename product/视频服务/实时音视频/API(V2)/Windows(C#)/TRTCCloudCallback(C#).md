@@ -12,7 +12,7 @@ __功能__
 
 错误回调：SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。
 ```
-void onError(TXLiteAVError errCode, const char * errMsg, void * extraInfo)
+void onError(TXLiteAVError errCode, string errMsg, Intptr extraInfo)
 ```
 
 __参数__
@@ -20,15 +20,15 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | errCode | TXLiteAVError | 错误码。 |
-| errMsg | const char * | 错误信息。 |
-| extraInfo | void * | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
+| errMsg | string | 错误信息。 |
+| extraInfo | Intptr | 扩展信息字段，个别错误码可能会带额外的信息帮助定位问题。 |
 
 
 ### onWarning
 
 警告回调：用于告知您一些非严重性问题，比如出现了卡顿或者可恢复的解码失败。
 ```
-void onWarning(TXLiteAVWarning warningCode, const char * warningMsg, void * extraInfo)
+void onWarning(TXLiteAVWarning warningCode, string warningMsg, Intptr extraInfo)
 ```
 
 __参数__
@@ -36,8 +36,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | warningCode | TXLiteAVWarning | 警告码。 |
-| warningMsg | const char * | 警告信息。 |
-| extraInfo | void * | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
+| warningMsg | string | 警告信息。 |
+| extraInfo | Intptr | 扩展信息字段，个别警告码可能会带额外的信息帮助定位问题。 |
 
 
 
@@ -59,7 +59,7 @@ __介绍__
 
 调用 TRTCCloud 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
 
->?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/32270#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/32270#onerror) 回调抛出。
+>?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。
 
 
 
@@ -78,15 +78,15 @@ __参数__
 
 __介绍__
 
-调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调通知到您。
-如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
+调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/36779#onexitroom) 回调通知到您。
+如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/36779#onexitroom) 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
 
 
 ### onSwitchRole
 
 切换角色的事件回调。
 ```
-void onSwitchRole(TXLiteAVError errCode, const char * errMsg)
+void onSwitchRole(TXLiteAVError errCode, string errMsg)
 ```
 
 __参数__
@@ -94,38 +94,38 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
-| errMsg | const char * | 错误信息。 |
+| errMsg | string | 错误信息。 |
 
 __介绍__
 
-调用 TRTCCloud 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/32270#onswitchrole) 事件回调。
+调用 TRTCCloud 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/36779#onswitchrole) 事件回调。
 
 
 ### onConnectOtherRoom
 
 请求跨房通话（主播 PK）的结果回调。
 ```
-void onConnectOtherRoom(const char * userId, TXLiteAVError errCode, const char * errMsg)
+void onConnectOtherRoom(string userId, TXLiteAVError errCode, string errMsg)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 要 PK 的目标主播 userId。 |
+| userId | string | 要 PK 的目标主播 userId。 |
 | errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
-| errMsg | const char * | 错误信息。 |
+| errMsg | string | 错误信息。 |
 
 __介绍__
 
-调用 TRTCCloud 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32270#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 回调。
+调用 TRTCCloud 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/36779#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 回调。
 
 
 ### onDisconnectOtherRoom
 
 结束跨房通话（主播 PK）的结果回调。
 ```
-void onDisconnectOtherRoom(TXLiteAVError errCode, const char * errMsg)
+void onDisconnectOtherRoom(TXLiteAVError errCode, string errMsg)
 ```
 
 
@@ -135,33 +135,33 @@ void onDisconnectOtherRoom(TXLiteAVError errCode, const char * errMsg)
 
 有用户（主播）加入当前房间。
 ```
-void onUserEnter(const char * userId)
+void onUserEnter(string userId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 
 __介绍__
 
 没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。 通知参数中的 userId 也不一定都是开启视频的，可能只开启了声音的上行。
-如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 事件回调。
+如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 事件回调。
 
 
 ### onUserExit
 
 有用户（主播）离开当前房间。
 ```
-void onUserExit(const char * userId, int reason)
+void onUserExit(string userId, int reason)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 | reason | int | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
 
 
@@ -169,14 +169,14 @@ __参数__
 
 用户是否开启摄像头视频。
 ```
-void onUserVideoAvailable(const char * userId, bool available)
+void onUserVideoAvailable(string userId, bool available)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 | available | bool | 画面是否开启。 |
 
 __介绍__
@@ -189,14 +189,14 @@ __介绍__
 
 用户是否开启屏幕分享。
 ```
-void onUserSubStreamAvailable(const char * userId, bool available)
+void onUserSubStreamAvailable(string userId, bool available)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 | available | bool | 屏幕分享是否开启。 |
 
 >?显示辅路画面使用的函数不是 startRemoteView() 而是 startRemoteSubStreamView()。
@@ -207,14 +207,14 @@ __参数__
 
 用户是否开启音频上行。
 ```
-void onUserAudioAvailable(const char * userId, bool available)
+void onUserAudioAvailable(string userId, bool available)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
+| userId | string | 用户标识。 |
 | available | bool | 声音是否开启。 |
 
 
@@ -222,17 +222,17 @@ __参数__
 
 开始渲染本地或远程用户的首帧画面。
 ```
-void onFirstVideoFrame(const char * userId, const TRTCVideoStreamType streamType, const int width, const int height)
+void onFirstVideoFrame(string userId, TRTCVideoStreamType streamType, int width, int height)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 本地或远程用户 ID，如果 userId == null 代表本地，userId != null 代表远程。 |
-| streamType | const TRTCVideoStreamType | 视频流类型：摄像头或屏幕分享。 |
-| width | const int | 画面宽度。 |
-| height | const int | 画面高度。 |
+| userId | string | 本地或远程用户 ID，如果 userId == null 代表本地，userId != null 代表远程。 |
+| streamType | TRTCVideoStreamType | 视频流类型：摄像头或屏幕分享。 |
+| width | int | 画面宽度。 |
+| height | int | 画面高度。 |
 
 __介绍__
 
@@ -246,28 +246,28 @@ __介绍__
 
 开始播放远程用户的首帧音频（本地声音暂不通知）。
 ```
-void onFirstAudioFrame(const char * userId)
+void onFirstAudioFrame(string userId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 远程用户 ID。 |
+| userId | string | 远程用户 ID。 |
 
 
 ### onSendFirstLocalVideoFrame
 
 首帧本地视频数据已经被送出。
 ```
-void onSendFirstLocalVideoFrame(const TRTCVideoStreamType streamType)
+void onSendFirstLocalVideoFrame(TRTCVideoStreamType streamType)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | const TRTCVideoStreamType | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | TRTCVideoStreamType | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
@@ -292,16 +292,16 @@ SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，�
 
 网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。
 ```
-void onNetworkQuality(TRTCQualityInfo localQuality, TRTCQualityInfo * remoteQuality, uint32_t remoteQualityCount)
+void onNetworkQuality(TRTCQualityInfo localQuality, TRTCQualityInfo[] remoteQuality, uint remoteQualityCount)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| localQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32271#trtcqualityinfo) | 上行网络质量。 |
-| remoteQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/32271#trtcqualityinfo) * | 下行网络质量。 |
-| remoteQualityCount | uint32_t | 下行网络质量的数组大小。 |
+| localQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/36780#trtcqualityinfo) | 上行网络质量。 |
+| remoteQuality | [TRTCQualityInfo[]](https://cloud.tencent.com/document/product/647/36780#trtcqualityinfo) | 下行网络质量。 |
+| remoteQualityCount | uint | 下行网络质量的数组大小。 |
 
 >?userId == null 代表自己当前的视频质量。
 
@@ -310,14 +310,14 @@ __参数__
 
 技术指标统计回调。
 ```
-void onStatistics(const TRTCStatistics & statis)
+void onStatistics(TRTCStatistics statis)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| statis | const [TRTCStatistics](https://cloud.tencent.com/document/product/647/32271#trtcstatistics) & | 统计数据，包括本地和远程的。 |
+| statis | [TRTCStatistics](https://cloud.tencent.com/document/product/647/36780#trtcstatistics) | 统计数据，包括本地和远程的。 |
 
 __介绍__
 
@@ -356,16 +356,16 @@ void onConnectionRecovery()
 
 服务器测速的回调，SDK 对多个服务器 IP 做测速，每个 IP 的测速结果通过这个回调通知。
 ```
-void onSpeedTest(const TRTCSpeedTestResult & currentResult, uint32_t finishedCount, uint32_t totalCount)
+void onSpeedTest(TRTCSpeedTestResult currentResult, uint finishedCount, uint totalCount)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| currentResult | const [TRTCSpeedTestResult](https://cloud.tencent.com/document/product/647/32271#trtcspeedtestresult) & | 当前完成的测速结果。 |
-| finishedCount | uint32_t | 已完成测速的服务器数量。 |
-| totalCount | uint32_t | 需要测速的服务器总数量。 |
+| currentResult | [TRTCSpeedTestResult](https://cloud.tencent.com/document/product/647/36780#trtcspeedtestresult) | 当前完成的测速结果。 |
+| finishedCount | uint | 已完成测速的服务器数量。 |
+| totalCount | uint | 需要测速的服务器总数量。 |
 
 
 
@@ -390,16 +390,16 @@ void onMicDidReady()
 
 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
-void onUserVoiceVolume(TRTCVolumeInfo * userVolumes, uint32_t userVolumesCount, uint32_t totalVolume)
+void onUserVoiceVolume(TRTCVolumeInfo[] userVolumes, uint userVolumesCount, uint totalVolume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userVolumes | [TRTCVolumeInfo](https://cloud.tencent.com/document/product/647/32271#trtcvolumeinfo) * | 所有正在说话的房间成员的音量，取值范围0 - 100。 |
-| userVolumesCount | uint32_t | 房间成员数量。 |
-| totalVolume | uint32_t | 所有远端成员的总音量, 取值范围0 - 100。 |
+| userVolumes | [TRTCVolumeInfo[]](https://cloud.tencent.com/document/product/647/36780#trtcvolumeinfo) | 所有正在说话的房间成员的音量，取值范围0 - 100。 |
+| userVolumesCount | uint | 数量。 |
+| totalVolume | uint | 所有远端成员的总音量, 取值范围0 - 100。 |
 
 __介绍__
 
@@ -413,30 +413,30 @@ __介绍__
 
 本地设备通断回调。
 ```
-void onDeviceChange(const char * deviceId, TRTCDeviceType type, TRTCDeviceState state)
+void onDeviceChange(string deviceId, TRTCDeviceType type, TRTCDeviceState state)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| deviceId | const char * | 设备 ID。 |
-| type | [TRTCDeviceType](https://cloud.tencent.com/document/product/647/32271#trtcdevicetype) | 设备类型。 |
-| state | [TRTCDeviceState](https://cloud.tencent.com/document/product/647/32271#trtcdevicestate) | 事件类型。 |
+| deviceId | string | 设备 ID。 |
+| type | [TRTCDeviceType](https://cloud.tencent.com/document/product/647/36780#trtcdevicetype) | 设备类型。 |
+| state | [TRTCDeviceState](https://cloud.tencent.com/document/product/647/36780#trtcdevicestate) | 事件类型。 |
 
 
 ### onTestMicVolume
 
 麦克风测试音量回调。
 ```
-void onTestMicVolume(uint32_t volume)
+void onTestMicVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 音量值，取值范围0 - 100。 |
+| volume | uint | 音量值，取值范围0 - 100。 |
 
 __介绍__
 
@@ -447,14 +447,14 @@ __介绍__
 
 扬声器测试音量回调。
 ```
-void onTestSpeakerVolume(uint32_t volume)
+void onTestSpeakerVolume(uint volume)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | uint32_t | 音量值，取值范围0 - 100。 |
+| volume | uint | 音量值，取值范围0 - 100。 |
 
 __介绍__
 
@@ -467,18 +467,18 @@ __介绍__
 
 收到自定义消息回调。
 ```
-void onRecvCustomCmdMsg(const char * userId, int32_t cmdID, uint32_t seq, const uint8_t * message, uint32_t messageSize)
+void onRecvCustomCmdMsg(string userId, int cmdID, uint seq, byte[] message, uint messageSize)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
-| cmdID | int32_t | 命令 ID。 |
-| seq | uint32_t | 消息序号。 |
-| message | const uint8_t * | 消息数据。 |
-| messageSize | uint32_t | 消息数据大小。 |
+| userId | string | 用户标识。 |
+| cmdID | int | 命令 ID。 |
+| seq | uint | 消息序号。 |
+| message | byte[] | 消息数据。 |
+| messageSize | uint | 消息数据大小。 |
 
 __介绍__
 
@@ -489,17 +489,17 @@ __介绍__
 
 自定义消息丢失回调。
 ```
-void onMissCustomCmdMsg(const char * userId, int32_t cmdID, int32_t errCode, int32_t missed)
+void onMissCustomCmdMsg(string userId, int cmdID, int errCode, int missed)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
-| cmdID | int32_t | 命令 ID。 |
-| errCode | int32_t | 错误码。 |
-| missed | int32_t | 丢失的消息数量。 |
+| userId | string | 用户标识。 |
+| cmdID | int | 命令 ID。 |
+| errCode | int | 错误码。 |
+| missed | int | 丢失的消息数量。 |
 
 __介绍__
 
@@ -512,16 +512,16 @@ TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，�
 
 收到 SEI 消息的回调。
 ```
-void onRecvSEIMsg(const char * userId, const uint8_t * message, uint32_t messageSize)
+void onRecvSEIMsg(string userId, byte[] message, uint messageSize)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
-| message | const uint8_t * | 数据。 |
-| messageSize | uint32_t | 数据大小。 |
+| userId | string | 用户标识。 |
+| message | byte[] | 数据。 |
+| messageSize | uint | 数据大小。 |
 
 __介绍__
 
@@ -534,7 +534,7 @@ __介绍__
 
 启动旁路推流到 CDN 完成的回调。
 ```
-void onStartPublishCDNStream(int errCode, const char * errMsg)
+void onStartPublishCDNStream(int errCode, string errMsg)
 ```
 
 __介绍__
@@ -549,7 +549,7 @@ __介绍__
 
 停止旁路推流到 CDN 完成的回调。
 ```
-void onStopPublishCDNStream(int errCode, const char * errMsg)
+void onStopPublishCDNStream(int errCode, string errMsg)
 ```
 
 __介绍__
@@ -561,7 +561,7 @@ __介绍__
 
 设置云端的混流转码参数的回调，对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。
 ```
-void onSetMixTranscodingConfig(int errCode, const char * errMsg)
+void onSetMixTranscodingConfig(int errCode, string errMsg)
 ```
 
 __参数__
@@ -569,7 +569,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | errCode | int | 0表示成功，其余值表示失败。 |
-| errMsg | const char * | 具体错误原因。 |
+| errMsg | string | 具体错误原因。 |
 
 
 
@@ -652,15 +652,15 @@ __参数__
 
 播放背景音乐的进度。
 ```
-void onPlayBGMProgress(uint32_t progressMS, uint32_t durationMS)
+void onPlayBGMProgress(uint progressMS, uint durationMS)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| progressMS | uint32_t | 已播放时间。 |
-| durationMS | uint32_t | 总时间。 |
+| progressMS | uint | 已播放时间。 |
+| durationMS | uint | 总时间。 |
 
 
 ### onPlayBGMComplete
@@ -691,16 +691,16 @@ __功能__
 
 自定义视频渲染回调。
 ```
-void onRenderVideoFrame(const char * userId, TRTCVideoStreamType streamType, TRTCVideoFrame * frame)
+void onRenderVideoFrame(string userId, TRTCVideoStreamType streamType, TRTCVideoFrame frame)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 流类型：即摄像头还是屏幕分享。 |
-| frame | TRTCVideoFrame * | 视频帧数据。 |
+| userId | string | 用户标识。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型：即摄像头还是屏幕分享。 |
+| frame | TRTCVideoFrame | 视频帧数据。 |
 
 __介绍__
 
@@ -712,13 +712,16 @@ __介绍__
 
 __功能__
 
-音频数据回调。
+声音数据帧的自定义处理回调（只读）。
+>!回调函数是在 SDK 内部线程同步抛出来的，请不要做耗时操作。 提示：请按需定义相关函数实现，减少不必要的性能损耗。
 
 
 
 ### onCapturedAudioFrame
+
+本地麦克风采集到的音频数据回调。
 ```
-void onCapturedAudioFrame(TRTCAudioFrame * frame)
+void onCapturedAudioFrame(TRTCAudioFrame frame)
 ```
 
 >?
@@ -730,15 +733,15 @@ void onCapturedAudioFrame(TRTCAudioFrame * frame)
 
 混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
 ```
-void onPlayAudioFrame(TRTCAudioFrame * frame, const char * userId)
+void onPlayAudioFrame(TRTCAudioFrame frame, string userId)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame * | 音频数据。 |
-| userId | const char * | 用户标识。 |
+| frame | TRTCAudioFrame | 音频数据。 |
+| userId | string | 用户标识。 |
 
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
@@ -746,8 +749,10 @@ __参数__
 
 
 ### onMixedPlayAudioFrame
+
+各路音频数据混合后送入喇叭播放的音频数据。
 ```
-void onMixedPlayAudioFrame(TRTCAudioFrame * frame)
+void onMixedPlayAudioFrame(TRTCAudioFrame frame)
 ```
 
 >?
@@ -768,16 +773,15 @@ __功能__
 
 有日志打印时的回调。
 ```
-void onLog(const char * log, TRTCLogLevel level, const char * module)
+void onLog(string log, TRTCLogLevel level, string module)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| log | const char * | 日志内容。 |
-| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32271#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
-| module | const char * | 暂无具体意义，目前为固定值 TXLiteAVSDK。 |
-
+| log | string | 日志内容。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/36780#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
+| module | string | 暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 

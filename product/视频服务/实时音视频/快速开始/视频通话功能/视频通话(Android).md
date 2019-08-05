@@ -98,9 +98,9 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 **appScene** 参数指定 SDK 的应用场景，本文档中我们使用 `TRTCAppSceneVideoCall`（视频通话），该场景下 SDK 内部的编解码器和网络组件会更加侧重视频流畅性，降低通话延迟和卡顿率。
 
-- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed` 代表进入耗时，单位：ms。
-- 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
-- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。
+- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：当 `result` 大于0时，进房成功，代表进房耗时(单位：ms），当 `result` 小于0时，进房失败，代表进房错误码。
+- 如进房失败，SDK 同时会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
 
 ```java
 void enterRoom() {

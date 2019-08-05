@@ -15,13 +15,13 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 |
 |-----|-----|-----|-----|
-| sdkAppId | uint32_t | 应用标识（必填），腾讯视频云基于 sdkAppId 完成计费统计。 | 在腾讯云 [TRTC 控制台](https://console.cloud.tencent.com/rav/) 中创建应用，之后可以在账号信息页面中得到该 ID。 |
-| userId | const char * | 用户标识（必填）。当前用户的 userId，相当于用户名，UTF-8编码。 | 如果一个用户在您的账号系统中的 ID 为“abc”，则 userId 即可设置为“abc”。 |
-| userSig | const char * | 用户签名（必填），当前 userId 对应的验证签名，相当于登录密码。 | 请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| roomId | uint32_t | 房间号码（必填），指定房间号，在同一个房间里的用户（userId）可以彼此看到对方并进行视频通话。 | 您可以随意指定，但请不要重复，如果您的用户账号 ID 是数字类型的，可以直接用创建者的用户 ID 作为 roomId。 |
-| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32271#trtcroletype) | 直播场景下的角色，仅适用于直播场景（TRTCAppSceneLIVE），视频通话场景下指定无效。 | 默认值：主播（TRTCRoleAnchor）。 |
-| privateMapKey | const char * | 房间签名（非必填），如果您希望某个房间只能让特定的某些 userId 进入，就需要使用 privateMapKey 进行权限保护。 | 仅建议有高级别安全需求的客户使用，参考文档：[进房权限保护](https://cloud.tencent.com/document/product/647/32240)。 |
-| businessInfo | const char * | 业务数据（非必填），某些非常用的高级特性才需要用到此字段。 | 不建议使用。 |
+| sdkAppId | uint | 应用标识（必填），腾讯视频云基于 sdkAppId 完成计费统计。 | 在腾讯云 [TRTC 控制台](https://console.cloud.tencent.com/rav/) 中创建应用，之后可以在账号信息页面中得到该 ID。 |
+| userId | string | 用户标识（必填）。当前用户的 userId，相当于用户名，UTF-8编码。 | 如果一个用户在您的账号系统中的 ID 为“abc”，则 userId 即可设置为“abc”。 |
+| userSig | string | 用户签名（必填），当前 userId 对应的验证签名，相当于登录密码。 | 请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| roomId | uint | 房间号码（必填），指定房间号，在同一个房间里的用户（userId）可以彼此看到对方并进行视频通话。 | 您可以随意指定，但请不要重复，如果您的用户账号 ID 是数字类型的，可以直接用创建者的用户 ID 作为 roomId。 |
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/36780#trtcroletype) | 直播场景下的角色，仅适用于直播场景（TRTCAppSceneLIVE），视频通话场景下指定无效。 | 默认值：主播（TRTCRoleAnchor）。 |
+| privateMapKey | string | 房间签名（非必填），如果您希望某个房间只能让特定的某些 userId 进入，就需要使用 privateMapKey 进行权限保护。 | 仅建议有高级别安全需求的客户使用，参考文档：[进房权限保护](https://cloud.tencent.com/document/product/647/32240)。 |
+| businessInfo | string | 业务数据（非必填），某些非常用的高级特性才需要用到此字段。 | 不建议使用。 |
 
 
 
@@ -43,10 +43,10 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 | 特别说明 |
 |-----|-----|-----|-----|-----|
-| videoResolution | [TRTCVideoResolution](https://cloud.tencent.com/document/product/647/32271#trtcvideoresolution) | 视频分辨率。 | - 视频通话建议选择360 × 640及以下分辨率，resMode 选择 Portrait。- 手机直播建议选择 540 × 960，resMode 选择 Portrait。<br>- Window 和 iMac 建议选择 640 × 360 及以上分辨率，resMode 选择 Landscape。 | 您在 TRTCVideoResolution 只能找到横屏模式的分辨率，例如：640 × 360 这样的分辨率。 如果想要使用竖屏分辨率，请指定 resMode 为 Portrait，例如：640 × 360 + Portrait = 360 × 640。 |
-| resMode | [TRTCVideoResolutionMode](https://cloud.tencent.com/document/product/647/32271#trtcvideoresolutionmode) | 分辨率模式（横屏分辨率 - 竖屏分辨率）。 | 手机直播建议选择 Portrait，Window 和 Mac 建议选择 Landscape。 | 如果 videoResolution 指定分辨率 640 × 360，resMode 指定模式为 Portrait，则最终编码出的分辨率为360 × 640。 |
-| videoFps | uint32_t | 视频采集帧率。 | 15fps 或 20fps，10fps 以下会有轻微卡顿感，5fps 以下卡顿感明显，20fps 以上的帧率则过于浪费（电影的帧率也只有 24fps）。 | 很多 Android 手机的前置摄像头并不支持15fps以上的采集帧率，部分过于突出美颜功能的 Android 手机前置摄像头的采集帧率可能低于10fps。 |
-| videoBitrate | uint32_t | 视频上行码率。 | 推荐设置请参考本文件前半部分 TRTCVideoResolution 定义处的注释说明。 | 码率太低会导致视频中有很多的马赛克。 |
+| videoResolution | [TRTCVideoResolution](https://cloud.tencent.com/document/product/647/36780#trtcvideoresolution) | 视频分辨率。 | - 视频通话建议选择360 × 640及以下分辨率，resMode 选择 Portrait。- 手机直播建议选择 540 × 960，resMode 选择 Portrait。<br>- Window 和 iMac 建议选择 640 × 360 及以上分辨率，resMode 选择 Landscape。 | 您在 TRTCVideoResolution 只能找到横屏模式的分辨率，例如：640 × 360 这样的分辨率。 如果想要使用竖屏分辨率，请指定 resMode 为 Portrait，例如：640 × 360 + Portrait = 360 × 640。 |
+| resMode | [TRTCVideoResolutionMode](https://cloud.tencent.com/document/product/647/36780#trtcvideoresolutionmode) | 分辨率模式（横屏分辨率 - 竖屏分辨率）。 | 手机直播建议选择 Portrait，Window 和 Mac 建议选择 Landscape。 | 如果 videoResolution 指定分辨率 640 × 360，resMode 指定模式为 Portrait，则最终编码出的分辨率为360 × 640。 |
+| videoFps | uint | 视频采集帧率。 | 15fps 或 20fps，10fps 以下会有轻微卡顿感，5fps 以下卡顿感明显，20fps 以上的帧率则过于浪费（电影的帧率也只有 24fps）。 | 很多 Android 手机的前置摄像头并不支持15fps以上的采集帧率，部分过于突出美颜功能的 Android 手机前置摄像头的采集帧率可能低于10fps。 |
+| videoBitrate | uint | 视频上行码率。 | 推荐设置请参考本文件前半部分 TRTCVideoResolution 定义处的注释说明。 | 码率太低会导致视频中有很多的马赛克。 |
 
 
 
@@ -68,8 +68,8 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 | 特别说明 |
 |-----|-----|-----|-----|-----|
-| preference | [TRTCVideoQosPreference](https://cloud.tencent.com/document/product/647/32271#trtcvideoqospreference) | 弱网下是“保清晰”还是“保流畅”。 | - | - 弱网下保流畅：在遭遇弱网环境时，画面会变得模糊，且会有较多马赛克，但可以保持流畅不卡顿<br>- 弱网下保清晰：在遭遇弱网环境时，画面会尽可能保持清晰，但可能会更容易出现卡顿。 |
-| controlMode | [TRTCQosControlMode](https://cloud.tencent.com/document/product/647/32271#trtcqoscontrolmode) | 视频分辨率（云端控制 - 客户端控制）。 | 云端控制。 | - Client 模式：客户端控制模式，用于 SDK 开发内部调试，客户请勿使用<br>- Server 模式（默认）：云端控制模式，若没有特殊原因，请直接使用该模式。 |
+| preference | [TRTCVideoQosPreference](https://cloud.tencent.com/document/product/647/36780#trtcvideoqospreference) | 弱网下是“保清晰”还是“保流畅”。 | - | - 弱网下保流畅：在遭遇弱网环境时，画面会变得模糊，且会有较多马赛克，但可以保持流畅不卡顿<br>- 弱网下保清晰：在遭遇弱网环境时，画面会尽可能保持清晰，但可能会更容易出现卡顿。 |
+| controlMode | [TRTCQosControlMode](https://cloud.tencent.com/document/product/647/36780#trtcqoscontrolmode) | 视频分辨率（云端控制 - 客户端控制）。 | 云端控制。 | - Client 模式：客户端控制模式，用于 SDK 开发内部调试，客户请勿使用<br>- Server 模式（默认）：云端控制模式，若没有特殊原因，请直接使用该模式。 |
 
 
 
@@ -91,8 +91,8 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| userId | const char * | 用户标识。 |
-| quality | [TRTCQuality](https://cloud.tencent.com/document/product/647/32271#trtcquality) | 视频质量。 |
+| userId | string | 用户标识。 |
+| quality | [TRTCQuality](https://cloud.tencent.com/document/product/647/36780#trtcquality) | 视频质量。 |
 
 
 
@@ -114,8 +114,8 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| userId | const char * | 说话者的 userId，字符编码格式是 UTF-8。 |
-| volume | uint32_t | 说话者的音量， 取值范围0 - 100。 |
+| userId | string | 说话者的 userId，字符编码格式是 UTF-8。 |
+| volume | uint | 说话者的音量， 取值范围0 - 100。 |
 
 
 
@@ -143,10 +143,10 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| ip | const char * | 服务器 IP 地址。 |
-| quality | [TRTCQuality](https://cloud.tencent.com/document/product/647/32271#trtcquality) | 网络质量，内部通过评估算法测算出的网络质量，loss 越低，rtt 越小，得分也就越高。 |
-| upLostRate | float | 上行丢包率，范围是\[0 - 1.0]，例如0.3代表每向服务器发送10个数据包，可能有3个会在中途丢失。 |
-| downLostRate | float | 下行丢包率，范围是\[0 - 1.0]，例如0.2代表从服务器每收取10个数据包，可能有2个会在中途丢失。 |
+| ip | string | 服务器 IP 地址。 |
+| quality | [TRTCQuality](https://cloud.tencent.com/document/product/647/36780#trtcquality) | 网络质量，内部通过评估算法测算出的网络质量，loss 越低，rtt 越小，得分也就越高。 |
+| upLostRate | float | 上行丢包率，范围是[0 - 1.0]，例如0.3代表每向服务器发送10个数据包，可能有3个会在中途丢失。 |
+| downLostRate | float | 下行丢包率，范围是[0 - 1.0]，例如0.2代表从服务器每收取10个数据包，可能有2个会在中途丢失。 |
 | rtt | int | 延迟（毫秒），代表 SDK 跟服务器一来一回之间所消耗的时间，这个值越小越好，正常数值在10ms - 100ms之间。 |
 
 
@@ -160,7 +160,7 @@ __功能__
 
 __介绍__
 
-[TRTCMixUser](https://cloud.tencent.com/document/product/647/32271#trtcmixuser) 用于指定每一路（即每一个 userId）视频画面的具体摆放位置。
+[TRTCMixUser](https://cloud.tencent.com/document/product/647/36780#trtcmixuser) 用于指定每一路（即每一个 userId）视频画面的具体摆放位置。
 
 
 
@@ -169,12 +169,12 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| userId | const char * | 参与混流的 userId。 |
-| roomId | const char * | 参与混流的 roomId，跨房流传入的实际 roomId，当前房间流传入 roomId = NULL。 |
+| userId | string | 参与混流的 userId。 |
+| roomId | string | 参与混流的 roomId，跨房流传入的实际 roomId，当前房间流传入 roomId = NULL。 |
 | rect | RECT | 图层位置坐标以及大小，左上角为坐标原点(0,0) （绝对像素值）。 |
 | zOrder | int | 图层层次（1 - 15）不可重复。 |
 | pureAudio | bool | 是否纯音频。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 参与混合的是主路画面（TRTCVideoStreamTypeBig）或屏幕分享（TRTCVideoStreamTypeSub）画面。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 参与混合的是主路画面（TRTCVideoStreamTypeBig）或屏幕分享（TRTCVideoStreamTypeSub）画面。 |
 
 
 
@@ -196,19 +196,19 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 |
 |-----|-----|-----|-----|
-| mode | [TRTCTranscodingConfigMode](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfigmode) | 转码config模式。 | - |
-| appId | uint32_t | 腾讯云直播 AppID。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
-| bizId | uint32_t | 腾讯云直播 bizid。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
-| videoWidth | uint32_t | 最终转码后的视频分辨率的宽度（px）。 | - |
-| videoHeight | uint32_t | 最终转码后的视频分辨率的高度（px）。 | - |
-| videoBitrate | uint32_t | 最终转码后的视频分辨率的码率（kbps）。 | - |
-| videoFramerate | uint32_t | 最终转码后的视频分辨率的帧率（FPS）。 | 15 |
-| videoGOP | uint32_t | 最终转码后的视频分辨率的关键帧间隔（也被称为 GOP），单位秒。 | 3 |
-| audioSampleRate | uint32_t | 最终转码后的音频采样率。 | 48000 |
-| audioBitrate | uint32_t | 最终转码后的音频码率，单位：K。 | 64 |
-| audioChannels | uint32_t | 最终转码后的音频声道数。 | 2 |
-| mixUsersArray | [TRTCMixUser](https://cloud.tencent.com/document/product/647/32271#trtcmixuser) * | 每一路子画面的位置信息。 | - |
-| mixUsersArraySize | uint32_t | 数组 mixUsersArray 的大小。 | - |
+| mode | [TRTCTranscodingConfigMode](https://cloud.tencent.com/document/product/647/36780#trtctranscodingconfigmode) | 转码config模式。 | - |
+| appId | uint | 腾讯云直播 AppID。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
+| bizId | uint | 腾讯云直播 bizid。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
+| videoWidth | uint | 最终转码后的视频分辨率的宽度（px）。 | - |
+| videoHeight | uint | 最终转码后的视频分辨率的高度（px）。 | - |
+| videoBitrate | uint | 最终转码后的视频分辨率的码率（kbps）。 | - |
+| videoFramerate | uint | 最终转码后的视频分辨率的帧率（FPS）。 | 15 |
+| videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（也被称为 GOP），单位秒。 | 3 |
+| audioSampleRate | uint | 最终转码后的音频采样率。 | 48000 |
+| audioBitrate | uint | 最终转码后的音频码率，单位：K。 | 64 |
+| audioChannels | uint | 最终转码后的音频声道数。 | 2 |
+| mixUsersArray | [TRTCMixUser[]](https://cloud.tencent.com/document/product/647/36780#trtcmixuser) | 每一路子画面的位置信息。 | - |
+| mixUsersArraySize | uint | 数组 mixUsersArray 的大小。 | - |
 
 
 
@@ -226,9 +226,9 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| appId | uint32_t | 腾讯云 AppID，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
-| bizId | uint32_t | 腾讯云直播 bizid，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
-| url | const char * | 旁路转推的 URL。 |
+| appId | uint | 腾讯云 AppID，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
+| bizId | uint | 腾讯云直播 bizid，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
+| url | string | 旁路转推的 URL。 |
 
 
 
@@ -250,7 +250,7 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 特别说明 |
 |-----|-----|-----|-----|
-| filePath | const char * | 文件路径（必填），录音文件的保存路径。该路径需要用户自行指定，请确保路径存在且可写。 | 该路径需精确到文件名及格式后缀，格式后缀决定录制文件的格式，例如：指定路径为 path/to/audio.aac，则会生成一个 AAC 格式的文件。目前支持的格式有 PCM, WAV, AAC。 |
+| filePath | string | 文件路径（必填），录音文件的保存路径。该路径需要用户自行指定，请确保路径存在且可写。 | 该路径需精确到文件名及格式后缀，格式后缀决定录制文件的格式，例如：指定路径为 path/to/audio.aac，则会生成一个 AAC 格式的文件。目前支持的格式有 PCM, WAV, AAC。 |
 
 
 
@@ -268,13 +268,13 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| width | uint32_t | 视频宽度。 |
-| height | uint32_t | 视频高度。 |
-| frameRate | uint32_t | 帧率（fps）。 |
-| videoBitrate | uint32_t | 视频发送码率（Kbps）。 |
-| audioSampleRate | uint32_t | 音频采样率（Hz）。 |
-| audioBitrate | uint32_t | 音频发送码率（Kbps）。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 流类型（大画面 &#124; 小画面 &#124; 辅路画面）。 |
+| width | uint | 视频宽度。 |
+| height | uint | 视频高度。 |
+| frameRate | uint | 帧率（fps）。 |
+| videoBitrate | uint | 视频发送码率（Kbps）。 |
+| audioSampleRate | uint | 音频采样率（Hz）。 |
+| audioBitrate | uint | 音频发送码率（Kbps）。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124; 小画面 &#124; 辅路画面）。 |
 
 
 
@@ -291,15 +291,15 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| userId | const char * | 用户 ID，指定是哪个用户的视频流。 |
-| finalLoss | uint32_t | 该线路的总丢包率（％）<br>这个值越小越好，比如：0的丢包率代表网络很好。 这个丢包率是该线路的 userId 从上行到服务器再到下行的总丢包率。 如果 downLoss 为 0%, 但是 finalLoss 不为0，说明该 userId 在上行就出现了无法恢复的丢包。 |
-| width | uint32_t | 视频宽度。 |
-| height | uint32_t | 视频高度。 |
-| frameRate | uint32_t | 接收帧率（fps）。 |
-| videoBitrate | uint32_t | 视频码率（Kbps）。 |
-| audioSampleRate | uint32_t | 音频采样率（Hz）。 |
-| audioBitrate | uint32_t | 音频码率（Kbps）。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 流类型（大画面 &#124; 小画面 &#124; 辅路画面）。 |
+| userId | string | 用户 ID，指定是哪个用户的视频流。 |
+| finalLoss | uint | 该线路的总丢包率（％）<br>这个值越小越好，比如：0的丢包率代表网络很好。 这个丢包率是该线路的 userId 从上行到服务器再到下行的总丢包率。 如果 downLoss 为 0%, 但是 finalLoss 不为0，说明该 userId 在上行就出现了无法恢复的丢包。 |
+| width | uint | 视频宽度。 |
+| height | uint | 视频高度。 |
+| frameRate | uint | 接收帧率（fps）。 |
+| videoBitrate | uint | 视频码率（Kbps）。 |
+| audioSampleRate | uint | 音频采样率（Hz）。 |
+| audioBitrate | uint | 音频码率（Kbps）。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124; 小画面 &#124; 辅路画面）。 |
 
 
 
@@ -316,17 +316,17 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| upLoss | uint32_t | C -> S 上行丢包率（％）， 这个值越小越好，例如，0的丢包率代表网络很好， 而 30% 的丢包率则意味着 SDK 向服务器发送的每10个数据包中就会有3个会在上行传输中丢失。 |
-| downLoss | uint32_t | S -> C 下行丢包率（％）， 这个值越小越好，例如，0的丢包率代表网络很好， 而 30% 的丢包率则意味着服务器向 SDK 发送的每10个数据包中就会有3个会在下行传输中丢失。 |
-| appCpu | uint32_t | 当前 App 的 CPU 使用率（％）。 |
-| systemCpu | uint32_t | 当前系统的 CPU 使用率（％）。 |
-| rtt | uint32_t | 延迟（毫秒）， 代表 SDK 跟服务器一来一回之间所消耗的时间，这个值越小越好。 一般低于50ms的 rtt 是比较理想的情况，而高于100ms的 rtt 会引入较大的通话延时。 由于数据上下行共享一条网络连接，所以 local 和 remote 的 rtt 相同。 |
-| receivedBytes | uint32_t | 总接收字节数（包含信令和音视频）。 |
-| sentBytes | uint32_t | 总发送字节总数（包含信令和音视频）。 |
-| localStatisticsArray | [TRTCLocalStatistics](https://cloud.tencent.com/document/product/647/32271#trtclocalstatistics) * | 自己本地的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，所以是一个数组。 |
-| localStatisticsArraySize | uint32_t | 数组 localStatisticsArray 的大小。 |
-| remoteStatisticsArray | [TRTCRemoteStatistics](https://cloud.tencent.com/document/product/647/32271#trtcremotestatistics) * | 远端成员的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，所以是一个数组。 |
-| remoteStatisticsArraySize | uint32_t | 数组 remoteStatisticsArray 的大小。 |
+| upLoss | uint | C -> S 上行丢包率（％）， 这个值越小越好，例如，0的丢包率代表网络很好， 而 30% 的丢包率则意味着 SDK 向服务器发送的每10个数据包中就会有3个会在上行传输中丢失。 |
+| downLoss | uint | S -> C 下行丢包率（％）， 这个值越小越好，例如，0的丢包率代表网络很好， 而 30% 的丢包率则意味着服务器向 SDK 发送的每10个数据包中就会有3个会在下行传输中丢失。 |
+| appCpu | uint | 当前 App 的 CPU 使用率（％）。 |
+| systemCpu | uint | 当前系统的 CPU 使用率（％）。 |
+| rtt | uint | 延迟（毫秒）， 代表 SDK 跟服务器一来一回之间所消耗的时间，这个值越小越好。 一般低于50ms的 rtt 是比较理想的情况，而高于100ms的 rtt 会引入较大的通话延时。 由于数据上下行共享一条网络连接，所以 local 和 remote 的 rtt 相同。 |
+| receivedBytes | uint | 总接收字节数（包含信令和音视频）。 |
+| sentBytes | uint | 总发送字节总数（包含信令和音视频）。 |
+| localStatisticsArray | [TRTCLocalStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtclocalstatistics) | 自己本地的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，所以是一个数组。 |
+| localStatisticsArraySize | uint | 数组 localStatisticsArray 的大小。 |
+| remoteStatisticsArray | [TRTCRemoteStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtcremotestatistics) | 远端成员的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，所以是一个数组。 |
+| remoteStatisticsArraySize | uint | 数组 remoteStatisticsArray 的大小。 |
 
 
 
@@ -602,7 +602,7 @@ __功能__
 
 __介绍__
 
-目前暂仅支持手动配置这一种模式，即需要指定 [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/32271#trtctranscodingconfig) 的全部参数。
+目前暂仅支持手动配置这一种模式，即需要指定 [TRTCTranscodingConfig](https://cloud.tencent.com/document/product/647/36780#trtctranscodingconfig) 的全部参数。
 
 | 枚举 | 含义 |
 |-----|-----|
