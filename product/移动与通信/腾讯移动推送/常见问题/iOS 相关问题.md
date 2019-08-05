@@ -14,13 +14,11 @@
 SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息的标识（Device Token），具体请参见 [iOS SDK 集成指南](/ios_access/ios-sdk-ji-cheng-zhi-nan.md)。
 
 
-
 **服务器排查**
 - APNs 服务器问题
 由于信鸽服务针对 iOS 设备下发消息是通过 APNs 服务下发，若 APNs 出现故障，将直接导致信鸽服务器请求 APNs 给设备下发消息失败。
 - 信鸽服务器问题
 信鸽服务端使用了多个功能模块之间的协作方式完成消息的下发，若其中任何一个模块有问题，也会导致消息推送出现问题。
-
 
 
 **推送证书排查**
@@ -37,7 +35,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 
-### 终端出现未找到应用程序的“aps-environment”的授权字符串错误？
+### 终端出现未找到应用程序的 “aps-environment” 的授权字符串错误？
 
 请检查 Xcode 工程中配置的 ```bundle id``` 是否和设置的 Provision Profile 文件匹配，且对应 App 的 Provision Profile 文件是否已配置了消息推送能力。
 
