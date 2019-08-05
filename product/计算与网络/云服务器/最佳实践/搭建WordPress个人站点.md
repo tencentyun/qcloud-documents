@@ -150,7 +150,7 @@ gpgcheck=1
 ```
 >? 腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
 > 
-5. 执行以下命令，清楚 yum 缓存。
+5. 执行以下命令，清除 yum 缓存。
 ```
 yum clean all
 ```
