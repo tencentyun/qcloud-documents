@@ -7,10 +7,10 @@
 ## 配置 HTTPS 监听器
 ### 步骤1：打开监听器管理页面
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
-2. 在左侧导航栏，选择【实例】。
-3. 在实例列表页点击需配置的实例 ID，进入实例详情页。
+2. 在左侧导航栏，选择【实例管理】。
+3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/a6519693d11f889c6e5fa9cdb058949a.png)
+![](https://main.qcloudimg.com/raw/576361f9ea3825077c2abf2e5cc59e50.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/43d1a431f8cb19dfe6438f1a7612bca3.png)
 
@@ -37,7 +37,7 @@
 | Gzip 压缩 | 默认启用 | 已开启 |
 
 选择需要创建转发规则的 HTTPS 监听器，单击右侧【+】进行创建，具体基本配置如下图所示：
-![](https://main.qcloudimg.com/raw/90adf593f2135838ed421d6deea6a0ab.png)
+![](https://main.qcloudimg.com/raw/76a619051e14d1985664a1601e9be9ab.png)
 
 #### 3. 健康检查
 | 健康检查配置    | 说明                    | 示例                                |
@@ -52,7 +52,7 @@
 | HTTP 状态码检测 | 当状态码为所选状态码时，认为后端服务器存活，即健康检查正常，可选：http_1xx，http_2xx， http_3xx，http_4xx，http_5xx。 | 多选：http_1xx，http_2xx，http_3xx，http_4xx |
 
 健康检查具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/462dead1396f7665bea292b68ba0421b.png)
+![](https://main.qcloudimg.com/raw/de01c90e722082daa21415448c443520.png)
 
 #### 4. 会话保持
 | 会话保持配置    | 说明                    | 示例                                 |
@@ -61,7 +61,7 @@
 | 会话保持时间 | 会话保持时间</li><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30 - 3600秒。</li> | 30s |
 
 会话保持具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/a8c7a5fd804bedacfd029207a5dd656c.png)
+![](https://main.qcloudimg.com/raw/b5f1ac8e1a2afec01d749e548d1e0cf1.png)
 
 ### 步骤3：绑定后端云服务器
 1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `HTTPS:443` 监听器，单击左侧的【+】展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的后端服务。
@@ -78,5 +78,5 @@
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
-如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【编辑】或【删除】来完成操作。
-![](https://main.qcloudimg.com/raw/94264a2dc0578d358a2513f292a06be2.png)
+如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【修改】或【删除】完成操作。
+![](https://main.qcloudimg.com/raw/97e5fd6249d5017c2fd30891c9369313.png)

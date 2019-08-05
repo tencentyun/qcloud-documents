@@ -39,7 +39,7 @@
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)  | 服务级  | ✔       | -  | -        | -    |
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | ✔       | ✔  | ✔        | -    |
-| [日志服务](https://cloud.tencent.com/document/product/614)  | 操作级 | ✔        | -  |✔        |  ✔ |	
+| [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 操作级 | ✔        | -  |✔        |  ✔ |	
 
 ## 网络	
 
@@ -60,6 +60,7 @@
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | ✔ | -   |✔ |✔|
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | ✔    |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
+| [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/30965)  |资源级 | ✔  | -    |✔   | -    |
 
 ## CDN 与加速	
 
@@ -100,6 +101,12 @@
  | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- |	
 | [主机安全（云镜）](https://cloud.tencent.com/document/product/296)    | 操作级  | ✔ | -   | ✔  | - |
+
+## 数据安全
+
+ | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
+| ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
+| [数据安全治理中心](https://cloud.tencent.com/document/product/1087)    | 操作级  | ✔ | -   | ✔  | - |
 
 ## 应用安全
 
