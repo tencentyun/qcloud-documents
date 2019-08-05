@@ -21,20 +21,21 @@ touch /var/lib/cloud/instance/sem/config_update_etc_hosts
 ```
 
 ### 方案二
+>?此方案以 CentOS7.2 操作系统为例。
+>
+#### 获取 hosts 模版文件路径
 1. 登录 Linux 服务器。
 2. 执行以下命令，查看系统 hosts 模版文件。
 ```
 cat /etc/hosts
 ```
->?此步骤以 CentOS7.2 操作系统为例。
->
-hosts 模版文件如下图所示。
+hosts 模版文件如下图所示：
 ![](https://main.qcloudimg.com/raw/f51f9c53004574f72d32f5ed790c8563.png)
-3. 按照以下步骤，同时修改 hosts 模版文件与 /etc/hosts 文件。
->?以添加 127.0.0.1 test test 为例，您可按需修改 hosts 模版文件与 /etc/hosts 文件。
 
 
 #### 修改 hosts 模版文件
+>?以添加 127.0.0.1 test test 为例，您可按需修改 hosts 模版文件与 /etc/hosts 文件。
+>
 1. 执行以下命令，修改 hosts 模版文件。
 ```
 vim /etc/cloud/templates/hosts.redhat.tmpl
