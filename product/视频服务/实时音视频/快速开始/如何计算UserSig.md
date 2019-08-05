@@ -1,50 +1,88 @@
-本文主要介绍 UserSig 的作用和生成方法。为了避免有恶意攻击者盗用您的通话时长，腾讯云实时音视频服务（TRTC）需要您正确的生成 UserSig 才能使用。
-
 <h2 id="UserSig"> UserSig 介绍 </h2>
 
-UserSig 是腾讯云实时音视频服务（TRTC）会用到的一种“签名”，计算方法是对 SDKAppID、UserID 和过期时间进行非对称签名，签名算法为 ECDSA，下图展示了 UserSig 的原理。
+UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 
-![](https://main.qcloudimg.com/raw/dd87ed980127527e5b4b8023aa7170a7.png)
+目前，腾讯云的实时音视频（TRTC）、云通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
 
-1. 您的 App 在使用 TRTCSDK 之前，首先要向您的服务器请求 UserSig。
-2. 您的服务器根据 SDKAppID + UserID 计算 UserSig，计算方法和源代码见文章下半部分。
+其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
+
+UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
+
+```Cpp
+//UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
+
+usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire + 
+                                 base64(userid + sdkappid + currtime + expire)))
+```
+
+<h2 id="Key">密钥获取</h2>
+
+访问腾讯实时音视频 [控制台](https://console.cloud.tencent.com/rav)可以查询计算 UserSig 用的密钥，方法如下：
+1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
+2. 进入**快速上手**页面，在右侧找到**查看密钥**按钮，即可获得加密密钥。
+
+![](https://main.qcloudimg.com/raw/6b862c1c2d3534d06729d50540426bd5.png)
+
+<h2 id="Client">客户端计算</h2>
+
+我们在 IM SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
+
+| 语言版本 |  适用平台 | 源码位置 |
+|:---------:|:---------:|:---------:|
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Objective-C | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/GenerateTestUserSig.java) |
+| C++ | Windows | [Github](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h)|
+
+![](https://main.qcloudimg.com/raw/a39d9ce026d97eb3818c711d6298d462.png)
+>! 该方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。
+>
+>正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
+
+<h2 id="Server">服务端计算</h2>
+
+采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：
+
+1. 您的 App 在调用 SDK 的初始化函数之前，首先要向您的服务器请求 UserSig。
+2. 您的服务器根据 SDKAppID 和 UserID 计算 UserSig，计算源码见文档前半部分。
 3. 服务器将计算好的 UserSig 返回给您的 App。
-4. 您的 App 将获得的 UserSig 通过接口函数（TRTCCloud#enterRoom）传递给 TRTCSDK。
-5. TRTCSDK 将 SDKAppID + UserID + UserSig 提交给腾讯云服务器进行校验。
+4. 您的 App 将获得的 UserSig 通过特定 API 传递给 SDK。
+5. SDK 将 SDKAppID + UserID + UserSig 提交给腾讯云服务器进行校验。
 6. 腾讯云校验 UserSig，确认合法性。
 7. 校验通过后，会向 TRTCSDK 提供实时音视频服务。
 
-<h2 id="PrivateKey"> 下载签名私钥 (PrivateKey) </h2>
+![](https://main.qcloudimg.com/raw/60c419d6b977fa3cc158c57c8f3f7315.png)
 
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，创建一个应用，单击应用名称进入应用详情页面，即可以获得签名用的私钥下载链接：
+为了简化您的实现过程，我们提供了多个语言版本的 UserSig 计算源代码：
 
-![](https://main.qcloudimg.com/raw/8d4b35085f3e774d70f403f92d273d4b.png)
+| 语言版本 | 签名算法 | 关键函数 | 下载链接 |
+|:---------:|:---------:|:---------:|:---------:|
+| Java | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java)  | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)|
+| GO | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang)|
+| PHP | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)|
+| Nodejs | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
+| Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
+| C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
-单击【点击下载公私钥】，会得到 **keys.zip** 的压缩文件，解压后会生成 **private_key** 和 **public_key** 两个文件，其中 **private_key** 就是我们需要的私钥文件。
 
-![](https://main.qcloudimg.com/raw/9df4f826d9ccc9c3d1a3ab1021f99dfb.png)
+## 老版本算法
 
-<h2 id="GetForDebug"> 控制台生成 </h2>
+为了简化签名计算难度，方便客户更快速地使用腾讯云服务，云通讯 IM 服务自 2019.07.19 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019.07.19 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
-在应用详情页面，将私钥文件内容拷贝到第三步即“**生成 Demo 配置文件内容**”的输入框中，再单击【生成Demo配置文件内容】，即可生成一个 JSON 文件，文件中有一组或多组 userid 和 usersig。
+如果您的 SDKAppID 是 2019.07.19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
 
-![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
-
-这一批 userid 和 usersig 可以直接在我们提供的 Demo 中使用，便于您快速开始测试及调试。
-
-<h2 id="Generate"> 生成 UserSig </h2>
-
-UserSig 的计算过程，就是对 SDKAppID、UserID 及过期时间等几个关键值进行非对称签名，我们准备了各个平台的示例代码，您可以直接下载后集成到自己的服务器上。
-
-| 语言版本 | 关键函数 | 下载链接 |
+| 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
-| Java | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-java)|
-| GO | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
-| PHP | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-php)|
-| Nodejs | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-node)|
-| C++ | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api)|
-| C# | `genSig` | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
-| Python | `gen_sig` | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+| Objective-C | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-oc)|
+| Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
+| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
+| GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
+| PHP | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-php)|
+| Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
+| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
+| Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
 
->! 您也可以在客户端计算 UserSig，但需要您在客户端的代码里写死 PrivateKey，这很容易导致 PrivateKey 泄露。为了您的账号安全，我们不推荐这种方法。最安全的方法是将计算代码放在您自己的服务器上，这样可以避免客户端被破解导致 PrivateKey 泄露的风险。
+
+
+
 
