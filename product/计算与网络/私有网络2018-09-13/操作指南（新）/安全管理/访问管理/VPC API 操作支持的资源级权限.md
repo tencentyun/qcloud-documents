@@ -1,5 +1,5 @@
 在 CAM 中，可对私有网络资源进行以下 API 操作的授权， 具体 API 支持的资源和条件的对应关系如下：
->!若表格中没有出现 VPC API 不支持资源级权限，您可向用户授予使用不在该列表中的 VPC API，但是必须为策略语句的资源元素指定： *。
+>!若表格中没有出现 VPC API 不支持资源级权限，您可向用户授予使用不在该列表中的 VPC API，但必须为策略语句的资源元素指定： *。
 
 <table border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D504 style=3D'bord=
 er-collapse:
