@@ -38,7 +38,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ### 步骤 3：启动推流
-经过**步骤1**和**步骤 2**的准备之后，用下面这段代码就可以启动推流了：
+经过**步骤 1**和**步骤 2**的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
@@ -85,7 +85,7 @@ public void triggerPrivateMode() {
  - 在云端打水印对于推流期间切换分辨率等情况的兼容并不理想，会有很多花屏的问题发生。
  - 在云端打水印会引入额外的3s以上的视频延迟，这是转码服务所引入的。
 
-SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（建议您不要在Windows 下将 jpg 格式的图片修改后缀名就直接使用，因为专业的 png 图标都是需要由专业的美工设计师处理的）。
+SDK 所要求的水印图片格式为 png，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（建议您不要在 Windows 下将 jpg 格式的图片修改后缀名就直接使用，因为专业的 png 图标都是需要由专业的美工设计师处理的）。
 
 ```java
 //设置视频水印
