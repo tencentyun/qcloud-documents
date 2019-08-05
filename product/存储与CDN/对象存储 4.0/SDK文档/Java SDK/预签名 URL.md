@@ -135,6 +135,8 @@ String key = "exampleobject";
 // 这里设置签名在半个小时后过期
 Date expirationTime = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 URL url = cosClient.generatePresignedUrl(bucketName, key, expirationTime, HttpMethodName.PUT);
+System.out.println(url.toString());
+cosClient.shutdown();
 ```
 
 ## 生成签名
