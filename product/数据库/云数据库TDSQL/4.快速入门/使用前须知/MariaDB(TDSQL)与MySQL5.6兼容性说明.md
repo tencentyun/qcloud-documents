@@ -1,56 +1,40 @@
-<style type="text/css">
-table,th,td
-  {
-  max-width:830px;
-  }
-th,td
-  {
-  max-width:276px;
-  }
-</style>
-
 ## 前言
 TDSQL 是以 MariaDB 为基础开发的，我们选择 MariaDB 的原因不仅是因为考虑到未来 MySQL 的开源问题，还有就是经过多年的实际验证，对 MariaDB 的性能、功能和可靠性都充满信心。
 
->**期望读者们在阅读本文时，不要将“不兼容”看做是“洪水猛兽”；因为TDSQL（MariaDB）都将超越 MySQL 作为目标之一。“超越”意味着更强大、更丰富性能和功能，也意味着使用数据库将更标准和更灵活。因此，两个引擎的不兼容性将会一直存在。**
-
-本文所描述的内容，经过大量实际项目验证和案例测试，如存在遗漏，请 [联系我们](https://cloud.tencent.com/about/connect) 反馈。
+TDSQL（MariaDB）都将超越 MySQL 作为目标之一。“超越”意味着更强大、更丰富性能和功能，也意味着使用数据库将更标准和更灵活。因此，两个引擎的不兼容性将会一直存在。
 
 ## MariaDB（TDSQL）和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 
-## MariaDB（TDSQL）与 MySQL5.6 兼容性
->MariaDB（TDSQL）与 MySQL5.6 高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与 TDSQL 配合使用。
-
+## MariaDB（TDSQL）与 MySQL 5.6 兼容性
+MariaDB（TDSQL）与 MySQL 5.6 高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与 TDSQL 配合使用。
 - 数据文件和表定义文件是二进制兼容的。
-- 所有的客户端API和协议都是兼容的。
+- 所有的客户端 API 和协议都是兼容的。
 - 所有的文件名、二进制文件、路径、端口号等都是相同的。
 - 所有的连接器，包括 PHP、Perl、Python、Java、.NET、Ruby、MySQL 的连接器在 MariaDB 上都可以正常使用的，不需要进行任何改动。
 - 可以使用 MySQL 客户端链接到 TDSQL 上。
 
-## TDSQL和MySQL5.6的不兼容性
->MariaDB（TDSQL）与 MySQL5.6 高度兼容，却有极少点不兼容。值得说明的是，MySQL 各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
+## TDSQL 和 MySQL 5.6 的不兼容性
+MariaDB（TDSQL）与 MySQL 5.6 高度兼容，却有极少点不兼容。值得说明的是，MySQL 各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
 
+### 1 GTID 不兼容
+MariaDB（TDSQL）的 GTID 和 MySQL5.6 的 GTID 不能兼容，也就是说 MySQL 不能作为 TDSQL 的从库。
 
-### 1.GTID不兼容
-- MariaDB（TDSQL）的 GTID 和 MySQL5.6 的 GTID 不能兼容，也就是说 MySQL 不能作为 TDSQL 的从库。
+### 2 Binlog 默认配置不同
+MariaDB（TDSQL）的 Binlog 默认采用 row 格式，而 MySQL、MariaDB 默认采用 statement 格式。
 
-### 2.Binlog默认配置不同
-- MariaDB（TDSQL）的 Binlog 默认采用 row 格式，而 MySQL、MariaDB 默认采用 statement 格式。
-
-### 3.CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
-
-- 为了使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，TDSQL 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行。这样的好处是即使从库中途宕机恢复后仍然能够正常工作。
+### 3 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
+为使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，TDSQL 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行。这样的好处是即使从库中途宕机恢复后仍然能够正常工作。
 
 #### 3.1 默认值推导
 
-Create table ... Select from 语句建表时，varchar(N)类型的字段的缺省值的区别：
+Create table ... Select from 语句建表时，varchar(N) 类型的字段的缺省值的区别：
 
-- Mariadb10.1 没有默认值，
-- mysql5.7的默认值是NULL, 
-- mysql5.5/5.6的默认值是空串 ‘’。
+- Mariadb 10.1 没有默认值。
+- mysql 5.7 的默认值是NULL。
+- mysql 5.5/5.6 的默认值是空串 ‘’。
 
-decimal 列的默认值：mysql 5.5/5.6把推导为0.00，mariadb-10.1推导为NULL。
+decimal 列的默认值：mysql 5.5/5.6 把推导为0.00，mariadb 10.1 推导为 NULL。
 
 示例：
 ```
@@ -85,8 +69,8 @@ t1  CREATE TABLE `t1` (
 #### 3.2 处理子查询中 select 语句的区别
 在这条语句中`SELECT a AS x, ROW(11, 12) = (SELECT MAX(x), 12), ROW(11, 12) IN (SELECT MAX(x), 12) FROM t1;`
 
-- Mysql5.5/5.6 处理子查询“SELECT MAX(x), 12”时，如果该子查询位于“in”后面则相当于“SELECT MAX(x), 12 from t1”，如果子查询位于‘=’后面，则相当于“SELECT x, 12”，其中x就是当前行中a的别名
-- Mysql5.7和Mariadb 10.1.*中，子查询“SELECT MAX(x), 12”都等于“SELECT x, 12”，其中x就是当前行中a的别名
+- Mysql 5.5/5.6 处理子查询“SELECT MAX(x), 12”时，如果该子查询位于“in”后面则相当于“SELECT MAX(x), 12 from t1”，如果子查询位于“=”后面，则相当于“SELECT x, 12”，其中 x 就是当前行中 a 的别名。
+- Mysql 5.7 和 Mariadb 10.1.* 中，子查询“SELECT MAX(x), 12”都等于“SELECT x, 12”，其中 x 就是当前行中 a 的别名。
 
 示例：
 ```
@@ -110,31 +94,27 @@ x   ROW(11, 12) = (SELECT MAX(x), 12)   ROW(11, 12) IN (SELECT MAX(x), 12)
 
 ```
 
-#### 3.3 对 NULL 在 ALL/SOME 中的处理
-Mysql5.5 中对于 10 >=  ALL (NULL, 1, 10)或者1 <= ALL (NULL, 1, 10)的判断中,因为 NULL 不可比，所以直接跳过与 NULL，即当作该 NULL 不存在。
-Mysql 5.7和 mariadb 中，由于 NULL 属于未知值，在上述的对比中结果也应该是未知的，所以返回 NULL
+#### 3.3 对 NULL 在 ALL 和 SOME 中的处理
+Mysql 5.5 中对于 10 >=  ALL (NULL, 1, 10) 或者 1 <= ALL (NULL, 1, 10) 的判断中，因为 NULL 不可比，所以直接跳过与 NULL，即当作该 NULL 不存在。
+Mysql 5.7 和 mariadb 中，由于 NULL 属于未知值，在上述的对比中结果也应该是未知的，所以返回 NULL。
 
 #### 3.4 alter table inplace 操作
-
 如果 alter table 仅仅交换列的顺序，Mariadb 允许使用 inplace 算法，但是 Mysql 不允许。
+MariaDB 执行 inplace alter table 后，show create table t1 后发现运行结果与 Mysql 用 ALGORITHM=COPY 时运行结果相同。
 
-MariaDB 执行 inplace alter table 后，show create table t1 后发现运行结果与 mysql 用 ALGORITHM=COPY 时运行结果相同
+### 4 MySQL 和 MariaDB（TDSQL）的未定义行为
+**未定义行为（undefined behavior）**的意思是，MySQL/Mariadb 可以按照任意方式实现这种功能和行为，而且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL 和 MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
 
-
-### 4.MySQL/MariaDB(TDSQL)的未定义行为
-
->**未定义行为（undefined behavior）**的意思是，MySQL/Mariadb 可以按照任意方式实现这种功能和行为，而且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL 和 MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
-
->对于现在和未来版本的这类不同或者相同之处，TDSQL 不会做任何结果保证，也不保证提供内核优化保证完全一致。未定义行为官方说明：https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/
+对于现在和未来版本的这类不同或者相同之处，TDSQL 不会做任何结果保证，也不保证提供内核优化保证完全一致，[未定义行为官方说明](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/)。
 
 
 #### 4.1 字符类型列与大小写无关的排序
 
-字符类型列，排序（order by 子句）一般是按照大小写无关的方式排序的：这意味着对于除了大小写有区别之外内容完全相同的字段，排序后的顺序是未定义的。您可以使用BINARY关键字来强制大小写相关的排序： ORDER BY BINARY 列名。
+字符类型列，排序（order by 子句）一般是按照大小写无关的方式排序的：这意味着对于除了大小写有区别之外内容完全相同的字段，排序后的顺序是未定义的。您可以使用 BINARY 关键字来强制大小写相关的排序：ORDER BY BINARY 列名。
 
 示例：
 ```
-MySQL和MariaDB对下列面示例的排序可能是完全随机的
+MySQL 和 MariaDB 对下列面示例的排序可能是完全随机的
 mysql> SELECT email FROM t2 LEFT JOIN t1  ON kid = t2.id WHERE t1.id IS NULL order by email;
 
 +-------+
@@ -149,49 +129,39 @@ mysql> SELECT email FROM t2 LEFT JOIN t1  ON kid = t2.id WHERE t1.id IS NULL ord
 
 #### 4.2 Auto_increment 字段溢出后的处理方式不同
 INNODB 特定的未定义行为
-
-1. 在所有自增列锁定模式下(0，1，2），如果给自增列字段指定负数，自增机制的行为是未定义的；
-
+1. 在所有自增列锁定模式下(0，1，2），如果给自增列字段指定负数，自增机制的行为是未定义的。
 2. 在所有自增列锁定模式下(0，1，2），如果自增列字段值大于该自增列整数类型可以存储的最大整数值，那么自增机制的行为是未定义的。
 
-> 说明：请不要向自增列随意插入（错误）数字。
+>?请不要向自增列随意插入（错误）数字。
 
 #### 4.3 FOUND ROWS 统计方式不同
-
 FOUND_ROWS() 的返回值只有在查询语句中使用了 UNION ALL 时候才是精确的。
-
 如果**只使用 UNION 不使用 ALL，那么 MariaDB 会去重统计， MySQL 不会去重统计**。如果使用了 UNION 的查询语句不实用 LIMIT 子句那么 SQL_CALC_FOUND_ROWS 关键字就被忽略了，FOUND_ROWS() 返回的就是执行 UNION 时候创建的临时表中的行数。
 
 #### 4.4 Lock tables 语句的上锁顺序不同
-LOCK TABLES 语句按照如下方法上锁：第一步是把所有要锁住的表按照内部定义的方式排序；但从用户角度来看，MySQL/Mariadb 这个顺序是未定义的。例如，您写一个 LOCK TABLES t1, t2, t3，MySQL/Mariadb 不会按照 t1, t2, t3的顺序上锁。
+LOCK TABLES 语句按照如下方法上锁：第一步是把所有要锁住的表按照内部定义的方式排序；但从用户角度来看，MySQL/Mariadb 这个顺序是未定义的。例如，您写一个 LOCK TABLES t1, t2, t3，MySQL/Mariadb 不会按照 t1, t2, t3 的顺序上锁。
 因为对 MySQL/Mariadb 来说，这个是未定义行为，MySQL 和 MariaDB 可能采用不同的方式去排序 t1, t2, t3，然后再按照那个拍好的顺序依次给他们上锁。
 
 因此，用户写的存储过程或者查询代码不应该依赖任何上锁顺序来保持正确性，否则可能会发生死锁。
 
 #### 4.5 执行 Reset master 语句的时机
-
 RESET MASTER 不可以在有任何复制备机运行期间被执行，此时执行 RESET MASTER 时候主机和备机的行为对 MariaDB 和 MySQL 是未定义的（也是不支持的）；执行 RESET MASTER 期间可能发生各种错误（不具有可预见性，甚至不会发生错误），并且这些错误 MariaDB 和 MySQL 的官方开发团队不会认为是 bug，也不会对发生的错误负责。 
 
 #### 4.6  日期和时间类型转换为YEAR类型
-MySQL5.5 中 YEAR 与 date 类型的变量在比较时会将 date 类型转为 year 类型进行对比，即“2011-01-01”被转为2011。
+MySQL 5.5 中 YEAR 与 date 类型的变量在比较时会将 date 类型转为 year 类型进行对比，即“2011-01-01”被转为2011。
 
-MySQL5.7 和 mariadb 中 date 类型的变量仍然为 date，所以在和 year 对比时不相等。
-
+MySQL 5.7 和 mariadb 中 date 类型的变量仍然为 date，所以在和 year 对比时不相等。
 类似地，mariadb 不能够把时间类型转换为YEAR类型，而 mysql5.6 会使用当前 session 的 timestamp 值的 YEAR 部分作为每一个 TIME 类型值的 year，因此当需要把一个 time 类型的值转换为 year 类型时候，就使用这个 session 的 timestamp 的 year。
 
 #### 4.7 未知字符的处理方式
-- 不同版本的 mysql 和 mariadb 在做字符编码转换时是有区别的：例如，unhex 如果不识别一个编码字节串，那么在 mysql5.5/5.6/5.7中它返回空串’’,但是 mariadb10.1. 会返回问号字符(?)。
-
-- 语句`UPDATE t1 SET a=unhex(code) ORDER BY code`对表 t1 中的 a 字段进行赋值,但由于 unhex 只能识别和转换特定范围内的字节串，因此部分赋值是失败的:
-
- - mysql5.5 默认的存储引擎是 MyISAM，不支持事务。当对 t1 某行中的 a 赋值失败后就会退出该语句，而已经赋值的仍然存储在 t1 中
- - mysql5.7 默认的存储引擎是 InnoDB，因此当对 t1 某行中的 a 赋值失败后这个事务就会进行回滚，因此已经赋值都会被回滚。
- - mariadb 默认的存储引擎为 innodb，且当 unhex 无法找到一个字节串对应的字符时，就会返回问号字符，0x3F，即字符'?'，因此不管存储引擎是 innodb 和 myisan，他都会是的操作成功
-
+- 不同版本的 mysql 和 mariadb 在做字符编码转换时是有区别的：例如，unhex 如果不识别一个编码字节串，那么在 mysql 5.5/5.6/5.7 中它返回空串’’,但是 mariadb10.1. 会返回问号字符(?)。
+- 语句`UPDATE t1 SET a=unhex(code) ORDER BY code`对表 t1 中的 a 字段进行赋值,但由于 unhex 只能识别和转换特定范围内的字节串，因此部分赋值是失败的。
+ - mysql 5.5 默认的存储引擎是 MyISAM，不支持事务。当对 t1 某行中的 a 赋值失败后就会退出该语句，而已经赋值的仍然存储在 t1 中。
+ - mysql 5.7 默认的存储引擎是 InnoDB，因此当对 t1 某行中的 a 赋值失败后这个事务就会进行回滚，因此已经赋值都会被回滚。
+ - mariadb 默认的存储引擎为 innodb，且当 unhex 无法找到一个字节串对应的字符时，就会返回问号字符，0x3F，即字符'?'，因此不管存储引擎是 innodb 和 myisan，他都会是的操作成功。
 - 当使用 insert into 语句插入16进制的字节串时，如果无法找到对应的 utf8mb4 编码的字符时，
- - mysql5.5/5.6 使用 heap 存储引擎时，忽略这个未知字符。
- - mariadb10.1和 mysql5.7 把它用 0x3F（即问号字符）代替。
-
+ - mysql 5.5/5.6 使用 heap 存储引擎时，忽略这个未知字符。
+ - mariadb 10.1和 mysql 5.7 把它用 0x3F（即问号字符）代替。
 - 对于非法编码的字符串字段，mysql 使用 innodb 存储引擎时直接返回错误。而 mariadb 则将其替换为 3F 再将其插入。
 
 #### 4.8 时间类型精度
@@ -200,7 +170,6 @@ SELECT CAST(CAST('10:11:12.098700' AS TIME) AS DECIMAL(20,6));
 CAST(CAST('10:11:12.098700' AS TIME) AS DECIMAL(20,6))
 ``` 	
 出现类似语句时，MySQL 5.5/5.6 与 MariaDB10.1/MySQL5.7 之间采用不同的处理方式：
-
 - 在 MySQL 5.5/5.6 中返回101112.098700，仍然能够保持精度。
 - 在 MySQL 5.7 和 MariaDB 10.1 中返回101112.000000，这是因为该语句没有指定 TIME 的精度，而 TIME 的默认精度为0，因此“CAST('10:11:12.098700' AS TIME)”会丢失小数点后面的数值。
 
@@ -213,27 +182,25 @@ SELECT CAST(CAST('10:11:12.098700' (6)) AS DECIMAL(20,6));
 | 101112.098700 |
 +-----------------------------------------------------------+
 ```
-> 对于TIME默认的精度不统一，如果对时间精度有要求，为了升级或者迁移都应该明确制定 time 的具体精度。
+>?对于TIME默认的精度不统一，如果对时间精度有要求，为了升级或者迁移都应该明确制定 time 的具体精度。
 
 ```
 CREATE TABLE t1(f1 TIME);
 INSERT INTO t1 VALUES ('23:38:57');
 SELECT TIMESTAMP(f1,'1') FROM t1;
 ```
-Mysql5.5/5.6 返回 NULL, Mariadb10.1 和 Mysql5.7 返回 2016-08-03 23:38:58
-- TIMESTAMP() 的第一个参数为 time 类型时，mysql 5.5无法自动转换为 timestamp 类型，因而返回 NULL
-- 而 mysql5.7 和 mariadb 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量
+Mysql 5.5/5.6 返回 NULL，Mariadb10.1 和 Mysql5.7 返回 2016-08-03 23:38:58。
+- TIMESTAMP() 的第一个参数为 time 类型时，mysql 5.5 无法自动转换为 timestamp 类型，因而返回 NULL。
+- 而 mysql5.7 和 mariadb 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量。
 
 
 
 
 
-
-
-### 5.附录：MariaDB 参数和 MySQL 参数
+### 5 附录：MariaDB 参数和 MySQL 参数
 
 #### 5.1 相同变量名不同参数
->变量名相同意味着主要功能也相同
+变量名相同意味着主要功能也相同。
 
 <table>
 
@@ -735,7 +702,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 - wsrep_start_position     00000000-0000-0000-0000-000000000000:-1
 - wsrep_sync_wait     0
 
-#### 5.3 仅存在与 mysql5.6 中的变量
+#### 5.3 仅存在于 mysql5.6 中的变量
 
 - avoid_temporal_upgrade     OFF
 - bind_address     *

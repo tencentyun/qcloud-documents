@@ -14,21 +14,21 @@ CLB 对 HTTPS 进行代理，无论是 HTTP 还是 HTTPS 请求，到了 CLB 转
 
 腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto：
 
-X-Client-Proto: HTTP（前端为 HTTP 请求）
-X-Client-Proto: HTTPS（前端为 HTTPS 请求）
+X-Client-Proto: http（前端为 HTTP 请求）
+X-Client-Proto: https（前端为 HTTPS 请求）
 
 ## 3. 入门配置
 
 
-假定用户需要配置网站 https://example.com 。开发者希望用户在浏览器中输入网址时，直接键入www.example.com 即可通过 HTTPS 协议安全访问。
+假定用户需要配置网站 `https://example.com` 。开发者希望用户在浏览器中输入网址时，直接键入 `www.example.com` 即可通过 HTTPS 协议安全访问。
 
-此时用户输入的 www.example.com 请求转发流程如下：
+此时用户输入的 `www.example.com` 请求转发流程如下：
 
-1. 该请求以 HTTP 协议传输，通过 VIP 访问负载均衡监听器的 80 端口，并被转发到后端云服务器的 8080 端口。
+1. 该请求以 HTTP 协议传输，通过 VIP 访问负载均衡监听器的80端口，并被转发到后端云服务器的8080端口。
 
-2. 通过在腾讯云后端服务器的 nginx 上配置 rewrite 操作，该请求经过 8080 端口，并被重写到 https://example.com 页面。
+2. 通过在腾讯云后端服务器的 Nginx 上配置 rewrite 操作，该请求经过8080端口，并被重写到 `https://example.com` 页面。
 
-3. 此时浏览器再次发送 https://example.com 请求到相应的 HTTPS 站点，该请求通过 VIP 访问负载均衡监听器的 443 端口，并被转发到后端云服务器的 80 端口。
+3. 此时浏览器再次发送 `https://example.com` 请求到相应的 HTTPS 站点，该请求通过 VIP 访问负载均衡监听器的443端口，并被转发到后端云服务器的80端口。
 
 至此，请求转发完成。
 
@@ -37,7 +37,7 @@ X-Client-Proto: HTTPS（前端为 HTTPS 请求）
 ```
 server {
 
-	listen 80; 
+	listen 8080; 
 	server_name example.qcloud.com;
 
 	location / {
@@ -50,7 +50,7 @@ server {
 }
 ```
 
-或者在nginx新版本中，采用推荐的301重定向配置方法，将nginx HTTP 页面重定向到 HTTPS 页面：
+或者在 Nginx 新版本中，采用推荐的301重定向配置方法，将 Nginx HTTP 页面重定向到 HTTPS 页面：
 
 ```
 server { 	

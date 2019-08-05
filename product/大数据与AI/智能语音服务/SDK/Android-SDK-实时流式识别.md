@@ -115,6 +115,7 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
+	    //停止语音识别，等待当前任务结束
             aaiClient.stopAudioRecognize(requestId);
         }
     }
@@ -129,6 +130,7 @@ new Thread(new Runnable() {
     @Override
     public void run() {
         if (aaiClient!=null){
+	    //取消语音识别，丢弃当前任务
             aaiClient.cancelAudioRecognize(requestId);
         }
     }

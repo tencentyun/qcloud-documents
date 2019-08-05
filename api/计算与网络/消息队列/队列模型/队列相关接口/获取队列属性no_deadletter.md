@@ -20,7 +20,7 @@
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 0：表示成功，4440：队列不存在，其他返回值的含义可以参考 [错误码](https://cloud.tencent.com/document/api/431/5903)。|
+| code | Int | 0：表示成功，4440：队列不存在，其他返回值的含义可以参考 [错误码](https://cloud.tencent.com/document/product/406/5903)。|
 | message | String | 错误提示信息。| 
 | requestId| String| 服务器生成的请求 ID。出现服务器内部错误时，用户可提交此 ID 给后台定位问题。|
 | maxMsgHeapNum| Int| 最大堆积消息数。取值范围在公测期间为 `1,000,000 - 10,000,000`，正式上线后范围可达到 `1000,000-1000,000,000`。默认取值在公测期间为 `10,000,000`，正式上线后为 `100,000,000`。|
@@ -35,6 +35,13 @@
 |rewindSeconds|Int | 回溯队列的消息回溯时间最大值，取值范围0 - 43200秒，0表示不开启消息回溯。|
 |rewindmsgNum|Int|已调用 DelMsg 接口删除，但还在回溯保留时间内的消息数量。|
 |minMsgTime|Int|消息最小未消费时间，单位为秒。|
+|queueName|String|消息队列名字。|
+|queueId|String|消息队列ID。|
+|createUin|Int|创建者Uin。|
+|Bps|Int|带宽限制。|
+|qps|Int|每秒钟生产消息条数的限制，消费消息的大小是该值的1.1倍。|
+|tags|Array|关联的标签。|
+
 
 ## 示例
 输入：
@@ -47,18 +54,29 @@
 输出：
 ```
 {
-"code" : 0,
-"message" : "",
-"requestId":"14534664555",
-"maxMsgHeapNum": 10000000,
-"pollingWaitSeconds": 10,
-"visibilityTimeout": 0,
-"maxMsgSize": 65536,
-"msgRetentionSeconds": 1296000,
-"createTime":1462268960,
-"lastModifyTime": 1462269960,
-"activeMsgNum": 10000,
-"inactiveMsgNum": 1000
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId": "1661914201",
+    "maxMsgHeapNum": 100000000,
+    "pollingWaitSeconds": 3,
+    "visibilityTimeout": 43200,
+    "maxMsgSize": 65536,
+    "msgRetentionSeconds": 86400,
+    "rewindSeconds": 86400,
+    "delayMsgNum": 0,
+    "minMsgTime": 1564626851,
+    "rewindMsgNum": 0,
+    "inactiveMsgNum": 0,
+    "activeMsgNum": 2,
+    "lastModifyTime": 1563877026,
+    "createTime": 1563877026,
+    "queueName": "dns",
+    "queueId": "queue-aiav4lys",
+    "createUin": 100010439978,
+    "Bps": 52428800,
+    "qps": 5000,
+    "tags": []
 }
 ```
 

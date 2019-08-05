@@ -1,0 +1,113 @@
+## 功能说明
+
+App 后台可以通过该回调实时监控群成员拉其他用户入群的请求，包括：App 后台可以拦截群成员直接将其他用户拉入群的请求。
+
+## 注意事项
+
+- 要启用回调，必须配置回调 URL，并打开本条回调协议对应的开关，配置方法详见 [第三方回调配置](https://cloud.tencent.com/document/product/269/32431) 文档。
+- 回调的方向是即时通信 IM 后台向 App 后台发起 HTTP POST 请求。
+- App 后台在收到回调请求之后，务必校验请求 URL 中的参数 SDKAppID 是否是自己的 SDKAppID。
+- 其他安全相关事宜请参考 [第三方回调简介：安全考虑](https://cloud.tencent.com/document/product/269/1522#.E5.AE.89.E5.85.A8.E8.80.83.E8.99.91) 文档。
+
+## 可能触发该回调的场景
+
+- App 用户通过客户端发起将其他用户拉入群的请求。
+- App 管理员通过 REST API 添加用户到群组。
+
+## 回调发生时机
+
+即时通信 IM 后台将目标用户加入群组之前（如果存在关系链托管，且 App 在即时通信 IM 中配置了好友关系校验，则回调发生在好友关系校验通过之后）。
+
+## 接口说明
+
+### 请求 URL 示例
+
+以下示例中 App 配置的回调 URL 为 `https://www.example.com`。
+**示例：**
+
+```
+https://www.example.com?SdkAppid=$SDKAppID&CallbackCommand=$CallbackCommand&contenttype=json&ClientIP=$ClientIP&OptPlatform=$OptPlatform
+```
+
+### 请求参数说明
+
+| 参数 | 说明 |
+| --- | --- |
+| https | 请求协议为 HTTPS，请求方式为 POST |
+| www.example.com | 回调 URL |
+| SdkAppid | 创建应用时在即时通信 IM 控制台分配的 SDKAppID |
+| CallbackCommand | 固定为 Group.CallbackBeforeInviteJoinGroup |
+| contenttype | 固定值为 JSON |
+| ClientIP | 客户端 IP，格式如：127.0.0.1 |
+| OptPlatform | 客户端平台，取值参见 [第三方回调简介：回调协议](https://cloud.tencent.com/document/product/269/1522#.E5.9B.9E.E8.B0.83.E5.8D.8F.E8.AE.AE) 中 OptPlatform 的参数含义 |
+
+### 请求包示例
+
+```
+ {
+    "CallbackCommand": "Group.CallbackBeforeInviteJoinGroup",
+    "GroupId": "@TGS#2J4SZEAEL",
+    "Type": "Public",
+    "Operator_Account": "leckie",
+    "DestinationMembers": [
+        {
+            "Member_Account": "jared"
+        },
+        {
+            "Member_Account": "leckie"
+        }
+    ]
+}
+```
+
+### 请求包字段说明
+
+| 字段 | 类型 | 说明 |
+| --- | --- | --- |
+| CallbackCommand | String | 回调命令 |
+| GroupId | String | 要将其他用户拉入的群组 ID |
+| Type | String | 请求创建的 [群组形态介绍](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)，例如 Private，Public 和 ChatRoom |
+| Operator_Account | String | 请求的操作者 Identifier |
+| DestinationMembers | Array | 要拉入群组的 Identifier 集合 |
+
+### 应答包示例
+#### 允许所有用户入群
+
+App 后台同意所有请求中所有用户加入群。
+
+```
+{
+    "ActionStatus": "OK",
+    "ErrorInfo": "",
+    "ErrorCode": 0 // 表示允许继续处理加群请求
+}
+```
+
+#### 拦截部分成员入群
+
+App 后台拒绝请求中的某些用户被拉入群，在 RefusedMembers_Account 中返回这些 Identifier。
+
+```
+{
+    "ActionStatus": "OK",
+    "ErrorInfo": "",
+    "ErrorCode": 0,
+    "RefusedMembers_Account": [ // 拒绝加入的用户列表
+        "jared"
+    ]
+}
+```
+
+### 应答包字段说明
+
+| 字段 | 类型 | 属性 | 说明 |
+| --- | --- | --- | --- |
+| ActionStatus | String | 必填 | 请求处理的结果，OK 表示处理成功，FAIL 表示失败 |
+| ErrorCode | Integer | 必填 | 错误码 |
+| ErrorInfo | String | 必填	 | 错误信息 |
+| RefusedMembers_Account | Array | 选填 | 拒绝加入的用户 ID 集合 |
+
+## 参考
+
+- [第三方回调简介](https://cloud.tencent.com/document/product/269/1522)
+- REST API：[增加群组成员](https://cloud.tencent.com/document/product/269/1621)

@@ -19,7 +19,7 @@ PUT _snapshot/my_cos_backup
 - app_id：腾讯云账号 APPID。
 - access_key_id：腾讯云 API 密钥 SecretId。
 - access_key_secret：腾讯云 API 密钥 SecretKey。
-- bucket：COS Bucket 名字。
+- bucket：COS Bucket 名字，**名字不能带`-{appId}`后缀**。
 - region：COS Bucket 地域，建议与 ES 集群同地域。
 - base_path：备份目录。   
 
