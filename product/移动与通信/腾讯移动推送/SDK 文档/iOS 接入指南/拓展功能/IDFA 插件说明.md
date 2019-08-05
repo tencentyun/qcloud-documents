@@ -11,7 +11,6 @@
 
 如果您期望采集 IDFA， 但是并未使用任何广告，您可以采用以下方法通过 Appstore 审核。
 ![](http://docs.developer.qq.com/mta/assets/用户画像.png)
-
 - serve advertisements within the app：应用内广告服务，适用于应用内集成了广告的场景，如果您的情况符合，需要勾选此选项。
 - Attribute this app installation to a previously served advertisement：用于跟踪和统计广告带来的安装量，需要勾选。
 - Attribute an action taken within this app to a previously served advertisement：用于跟踪和统计广告安装后带来的用户行为，需要勾选。
