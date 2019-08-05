@@ -177,7 +177,8 @@ public class HiveTest {
 }
 
 ```
-**将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。**
+>!将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。
+
 整个程序会先连接 HiveServer2 服务，然后在 default 数据库中建立一个名为 HiveTestByJave 的表。然后插入两个元素到该表中，并最后输出整个表的内容。
 如果您的 Maven 配置正确并且成功的导入了依赖包，那么整个工程应该没有错误可以直接编译。在本地 shell 下进入工程目录，执行下面的命令对整个工程进行打包：
 
