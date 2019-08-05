@@ -30,6 +30,6 @@ cat /etc/hosts
 ```
 >?此步骤以 CentOS7.2 操作系统为例。
 >
-hosts 配置文件如下图所示。
+hosts 模版文件如下图所示。
 ![](https://main.qcloudimg.com/raw/f51f9c53004574f72d32f5ed790c8563.png)
 2. 同时修改 hosts 模版文件及 `/etc/hosts` 文件并保存。
