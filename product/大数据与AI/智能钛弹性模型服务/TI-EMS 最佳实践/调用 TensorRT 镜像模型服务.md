@@ -6,7 +6,7 @@
 **2. 测试图片：**[imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label为230的图片）
 ### 创建模型服务配置
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_tensorrt，单击【运行环境】，在弹出页面的【公共镜像】栏选择 tensorrt。
-![](https://main.qcloudimg.com/raw/197304efa443aa8aace74d86ee0c6fe2.png)
+![](https://main.qcloudimg.com/raw/78873f0567278515ce71f9bda7c737d8.png)
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception_v3 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/bbec678b7252e153e5a5ccc1c622161f.png)
 选择模型资源配置，单击【GPU 配置】，选择 4CPU 核 8G 内存, 2TFLOPS 配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
@@ -20,7 +20,7 @@
 单击【启动模型服务】页面选择 demo_tensorrt 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_tensorrt 模型服务的访问地址 IP 和密钥 TOKEN。
 ![](https://main.qcloudimg.com/raw/0d25e928082ab5ddf0f0a82d2ebb37f0.png)
 ### 获得模型元数据
-使用如下命令获取模型元数据：
+以 Linux 系统为例，使用如下命令获取模型元数据：
 ```shell
 curl -H "X-Auth-Token: TOKEN" IP:80/v1/models/m/metadata
 ```
@@ -54,6 +54,7 @@ opencv-python==4.1.0.25
 ```shell
 pip install -r requirements.txt
 ```
+请确保以上依赖安装成功。
 - 运行客户端脚本
 
 因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟。
