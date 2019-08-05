@@ -114,7 +114,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 其中，$localfile 是您的本地文件的路径加名称；root 为 CVM 服务器用户名；公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看；$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 命令行中即可查看对应文件夹下是否有相应文件。
 
-需要处理的文件需要事先上传到 COS 中。如果文件在本地则可以通过 [COS 控制台](https://cloud.tencent.com/document/product/436/13321) 直接上传。如果文件在 EMR 集群上，可以使用 Hadoop 命令上传。指令如下：
+需要处理的文件需要事先上传到 COS 中。如果文件在本地则可以通过 [COS 控制台直接上传](https://cloud.tencent.com/document/product/436/13321)。如果文件在 EMR 集群上，可以使用 Hadoop 命令上传。指令如下：
 ```
 [hadoop@10 hadoop]$ hadoop fs -put $testfile cosn://$bucketname/
 ```
