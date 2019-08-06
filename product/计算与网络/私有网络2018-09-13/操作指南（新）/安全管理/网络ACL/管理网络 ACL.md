@@ -48,7 +48,7 @@
 ![1](https://main.qcloudimg.com/raw/beb96d3bea157af5f5c9c76c85b1cc7f.png)
  - 方法二：在“基本信息”页面的“关联子网”模块，勾选所有需要解除关联的子网，单击【批量解绑】。
 ![2](https://main.qcloudimg.com/raw/ab35d623e1d61749dcb6594b8de21901.png)
-5. 在弹出框中单击【确认】即可。
+5. 在弹出框中单击【确定】即可。
 ![3](https://main.qcloudimg.com/raw/93c7ebc3980f072d1194e87538ab1a79.png)
 
 ## 删除网络 ACL
@@ -56,7 +56,7 @@
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 选择地域和私有网络。
 4. 在列表中，找到需要删除的网络 ACL，单击其 ID，进入详情页。
-5. 单击【删除】并确认操作，即可删除该网络 ACL 及该网络 ACL 的所有规则。
+5. 单击【删除】并确定操作，即可删除该网络 ACL 及该网络 ACL 的所有规则。
 >?若【删除】置灰，如下图中的网络 ACL`testEg`，表示该网络 ACL 正与子网相关联，您需要先解除子网关联后，才能进行删除操作。
 >
 ![](https://main.qcloudimg.com/raw/52d13aac33e609dc59d132ffa4c71171.png)
