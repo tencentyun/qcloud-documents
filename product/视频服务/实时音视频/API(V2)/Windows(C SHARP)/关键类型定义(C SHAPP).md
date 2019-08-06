@@ -191,7 +191,7 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 |
 |-----|-----|-----|-----|
-| mode | [TRTCTranscodingConfigMode](https://cloud.tencent.com/document/product/647/36780#trtctranscodingconfigmode) | 转码config模式。 | - |
+| mode | [TRTCTranscodingConfigMode](https://cloud.tencent.com/document/product/647/36780#trtctranscodingconfigmode) | 转码 config 模式。 | - |
 | appId | uint | 腾讯云直播 AppID。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】，在“直播信息”中获取。 |
 | bizId | uint | 腾讯云直播 bizid。 | 请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】，在“直播信息”中获取。 |
 | videoWidth | uint | 最终转码后的视频分辨率的宽度（px）。 | - |
@@ -200,7 +200,7 @@ __属性列表__
 | videoFramerate | uint | 最终转码后的视频分辨率的帧率（FPS）。 | 15 |
 | videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（也被称为 GOP），单位秒。 | 3 |
 | audioSampleRate | uint | 最终转码后的音频采样率。 | 48000 |
-| audioBitrate | uint | 最终转码后的音频码率，单位：K。 | 64 |
+| audioBitrate | uint | 最终转码后的音频码率（kbps）。 | 64 |
 | audioChannels | uint | 最终转码后的音频声道数。 | 2 |
 | mixUsersArray | [TRTCMixUser[]](https://cloud.tencent.com/document/product/647/36780#trtcmixuser) | 每一路子画面的位置信息。 | - |
 | mixUsersArraySize | uint | 数组 mixUsersArray 的大小。 | - |
