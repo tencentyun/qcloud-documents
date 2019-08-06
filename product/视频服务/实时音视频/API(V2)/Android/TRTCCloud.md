@@ -75,9 +75,9 @@ __参数__
 
 __介绍__
 
-调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
 
 
@@ -90,7 +90,7 @@ abstract void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32264#exitroom) 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32264#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
 如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32264#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，比如常见的 Android 媒体音量和通话音量切换问题等等。
 
 
@@ -132,20 +132,22 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 - roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
+
+
 <pre>
-                房间 001                     房间 002
-              -------------               ------------
+               房间 001                    房间 002
+            --------------              -------------
  跨房通话前：| 主播 A      |             | 主播 B     |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------</pre>
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------</pre>
 
 
 
-<pre>                房间 001                     房间 002
-              -------------               ------------
+<pre>              房间 001                     房间 002
+            --------------              -------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------
 </pre>
 
 跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
@@ -239,7 +241,7 @@ __参数__
 
 __介绍__
 
-在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频， 之后调用 startRemoteView(userId) 接口加载该用户的远程画面，此时可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您还会收到 onFirstVideoFrame(userId) 事件回调。
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面，可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
 
 
 ### stopRemoteView
@@ -441,7 +443,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | boolean | true: 镜像；false: 不镜像；默认是 false。 |
+| mirror | boolean | true：镜像；false：不镜像；默认是 false。 |
 
 __介绍__
 
@@ -660,7 +662,7 @@ __返回__
 
 __介绍__
 
-该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM等)录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
+该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。 无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 ### stopAudioRecording
@@ -1136,11 +1138,8 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，也就是该 listener 的回调函数不会被触发。
+此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
-
->?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，也就是该 listener 的回调函数不会被触发。
-
 
 
 ### enableCustomAudioCapture
