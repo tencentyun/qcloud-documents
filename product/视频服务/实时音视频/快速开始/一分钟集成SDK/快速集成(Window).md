@@ -24,7 +24,7 @@
 ### 步骤2：新建工程
 
 打开 Visual Studio，新建名为`TRTCCSharpDemo`的 Winform 应用程序。
- ![](https://main.qcloudimg.com/raw/701e4239409ff1fb988fc604b07ed9bf.png)
+ ![](https://main.qcloudimg.com/raw/5c2213a2bf04335c039a588556876299.png)
 
 ### 步骤3：拷贝文件
 
