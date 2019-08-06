@@ -1,8 +1,7 @@
 ## 文档导读
 本文主要介绍如何基于 TRTC SDK 实现一个既支持视频连麦，又支持上万人高并发观看的在线直播功能：
-
-- 本文仅提及了最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/32227)。
-- 本文仅罗列了最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32228)。
+- 本文仅提及最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/16826)。
+- 本文仅罗列最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32258)。
 
 ## 示例代码
 
@@ -16,12 +15,12 @@
 ## 在线直播
 ### 1. 初始化 SDK
 
-使用 TRTC SDK 的第一步，是先获取 `TRTCCloud` 的单例对象，并注册监听 SDK 事件的回调。
+使用 TRTC SDK 的第一步，是先获取`TRTCCloud`的单例对象，并注册监听 SDK 事件的回调。
 
-- 继承 `ITRTCCloudCallback` 事件回调接口类，重写关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件和警告事件等。
-- 调用 `addCallback` 接口注册监听 SDK 事件。
+- 继承`ITRTCCloudCallback`事件回调接口类，重写关键事件的回调接口，包括本地用户进房/退房事件、远端用户加入/退出事件、错误事件和警告事件等。
+- 调用`addCallback`接口注册监听 SDK 事件。
 
->!如果 `addCallback` 注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次 `addCallback`。
+>!如果`addCallback`注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次 `addCallback`。
 
 C++ 版：
 
@@ -182,7 +181,7 @@ public void onEnterRoom(int result)
 	IntPtr ptr = GetHandle();
     if (mTRTCCloud != null)
     {
-        // 调用SDK接口设置渲染模式和渲染窗口。
+        // 调用 SDK 接口设置渲染模式和渲染窗口。
         mTRTCCloud.setLocalViewFillMode(TRTCVideoFillMode_Fit);
         mTRTCCloud.startLocalPreview(ptr);
     }
@@ -298,7 +297,7 @@ C++ 版：
 
 void TRTCMainViewController::startPlaying()
 {
-    // TRTCParams 定义参考头文件TRTCCloudDef.h
+    // TRTCParams 定义参考头文件 TRTCCloudDef.h
     TRTCParams params;
     params.sdkAppId = sdkappid;
     params.userId   = userid;
@@ -331,7 +330,7 @@ public void startPlaying()
 }
 ```
 
-如果主播在房间里，观众会通过 TRTCCloudDelegate 中的 `onUserVideoAvailable` 回调获知主播的 userid。之后，观众可以调用 `startRemoteView` 方法来显示主播的视频画面。
+如果主播在房间里，观众会通过 TRTCCloudDelegate 中的 `onUserVideoAvailable` 回调获知主播的 userid。然后观众可以调用 `startRemoteView` 方法来显示主播的视频画面。
 
 通过 `setRemoteViewFillMode` 可以指定视频显示模式为 `Fill` 或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
@@ -368,7 +367,7 @@ public void onUserVideoAvailable(string userId, bool available)
 		SetVisableInfoView(pos, false);
 		// 设置远端用户视频的渲染模式。
 		mTRTCCloud.setRemoteViewFillMode(userId, TRTCVideoFillMode.TRTCVideoFillMode_Fit);
-		// 调用SDK接口播放远端用户流。
+		// 调用 SDK 接口播放远端用户流。
 		mTRTCCloud.startRemoteView(userId, ptr);
 	}
 	else
@@ -379,10 +378,10 @@ public void onUserVideoAvailable(string userId, bool available)
 }
 ```
 
-> ! 在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
+>!在 TRTCAppSceneLIVE 模式下，同一个房间中的观众（TRTCRoleAudience）人数没有限制。
 
 ### 8. 观众跟主播连麦
-不管是主播还是观众，都可以通过 TRTCCloud 提供的 `switchRole` 进行角色间的相互切换，最常见的场景是观众跟主播连麦：观众可以通过该接口切换成“小主播”，然后跟房间里原来的“大主播”进行连麦互动。
+主播和观众都可以通过 TRTCCloud 提供的 `switchRole` 进行角色间的相互切换，最常见的场景是观众跟主播连麦：观众可以通过该接口切换成“小主播”，然后跟房间里原来的“大主播”进行连麦互动。
 
 ### 9. 退出房间
 调用 `exitRoom` 方法退出房间。无论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。在您调用 `exitRoom` 之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
