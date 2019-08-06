@@ -13,7 +13,7 @@ __属性列表__
 | 属性 | 类型 | 是否必填|字段含义 | 推荐取值 |
 |-----|-----|-----|-----|-----|
 | sdkAppId | uint |是| 应用标识，腾讯云基于 sdkAppId 完成计费统计。 | 在 [实时音视频控制台](https://console.cloud.tencent.com/rav/) 创建应用后可在账号信息页面中得到该 ID。 |
-| userId | string | 是|用户标识。当前用户的 userId，相当于用户名，使用 UTF-8 编码。 | 如果一个用户在您的账号系统中的 ID 为“abc”，则 userId 即可设置为“abc”。 |
+| userId | string | 是|用户标识。当前用户的 userId，相当于用户名，使用 UTF-8 编码。 | 如果一个用户在您的帐号系统中的 ID 为“abc”，则 userId 即可设置为“abc”。 |
 | userSig | string | 是|用户签名，当前 userId 对应的验证签名，相当于登录密码。 | 具体计算方法请参见 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | roomId | uint | 是|房间号码，在同一个房间内的用户可以看到彼此并进行视频通话。 | 您可以自定义设置该参数值，但不可重复。如果您的用户帐号 ID （userId）为数字类型，可直接使用创建者的用户 ID 作为 roomId。 |
 | role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/36780#trtcroletype) | 否| 直播场景下的角色，仅适用于直播场景（TRTCAppSceneLIVE），视频通话场景下指定无效。 | 默认值：主播（TRTCRoleAnchor）。 |
@@ -318,9 +318,9 @@ __属性列表__
 | rtt | uint | 延迟（毫秒），指 SDK 到腾讯云服务器的一次网络往返时间，该小越好。 一般低于50ms的 rtt 相对理想，而高于100ms的 rtt 会引入较大的通话延时。由于数据上下行共享一条网络连接，所以 local 和 remote 的 rtt 相同。 |
 | receivedBytes | uint | 总接收字节数（包含信令和音视频）。 |
 | sentBytes | uint | 总发送字节总数（包含信令和音视频）。 |
-| localStatisticsArray | [TRTCLocalStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtclocalstatistics) | 自己本地的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
+| localStatisticsArray | [TRTCLocalStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtclocalstatistics) | 本地的音视频统计信息，由于可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
 | localStatisticsArraySize | uint | 数组 localStatisticsArray 的大小。 |
-| remoteStatisticsArray | [TRTCRemoteStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtcremotestatistics) | 远端成员的音视频统计信息，由于可能有大画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
+| remoteStatisticsArray | [TRTCRemoteStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtcremotestatistics) | 远端成员的音视频统计信息，由于可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
 | remoteStatisticsArraySize | uint | 数组 remoteStatisticsArray 的大小。 |
 
 
