@@ -40,7 +40,7 @@
 > [安全方案](https://cloud.tencent.com/document/product/454/14548#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
 
 ## 5. 编译运行
-使用 Android Studio （3.2 以上的版本） 打开源码工程TRTCDemo，直接单击【运行】即可。
+使用 Android Studio （3.2 以上的版本） 打开源码工程 TRTCDemo，直接单击【运行】即可。
 
 ## 常见问题
 
