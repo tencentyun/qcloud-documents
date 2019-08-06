@@ -1,4 +1,4 @@
-本文介绍如何快速地将腾讯云的 TRTC SDK(Windows C#版本) 集成到项目中，只要按照如下步骤进行操作，可以轻松完成 C# SDK 的集成工作。
+本文介绍如何快速地将腾讯云 TRTC SDK（Windows C#版本）集成到项目中。
 
 ## 开发环境要求
 
@@ -8,60 +8,55 @@
 
 ## 集成 TRTC SDK
 
-下面通过创建一个简单的 Winform 项目，介绍如何在 Visual Studio 工程中集成 C# SDK。
+本文以创建一个简单的 Winform 项目为例，介绍如何在 Visual Studio 工程中集成 C# SDK。
 
-### 1. 下载  Windows SDK
+### 步骤1：下载  Windows SDK
 
-[下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下部分：
+[下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件，包含以下部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
-| C++ | 包含的是C++版 32位/64位 依赖的SDK库文件 |
-| C#   | 包含的是C#  版 32位  依赖的SDK库文件 |
+| C++ | C++版32位/64位依赖的SDK库文件 |
+| C#   | C#版32位依赖的SDK库文件 |
 
-这里您只需要引用C#版的 SDK 文件即可。
+本文示例中，您只需要引用C#版的 SDK 文件即可。
 
-### 2. 新建工程
+### 步骤2：新建工程
 
-打开 Visual Studio，新建一个名字叫 TRTCCSharpDemo 的 Winform 应用程序，如下图所示：
+打开 Visual Studio，新建名为`TRTCCSharpDemo`的 Winform 应用程序。
  ![](https://main.qcloudimg.com/raw/5c2213a2bf04335c039a588556876299.png)
 
-### 3. 拷贝文件
+### 步骤3：拷贝文件
 
-将解压后的 LiteAVSDK 文件夹拷贝到 TRTCCSharpDemo.csproj 所在目录下，如果只需要 C# SDK，可以将 LiteAVSDK 目录下的 C++ 目录删除，如下图所示：
+将解压后的 LiteAVSDK 文件夹拷贝至`TRTCCSharpDemo.csproj`所在目录。
+>?当只需要 C# SDK时，可以将 LiteAVSDK 路径下的 C++ 目录删除。
+>
 ![](https://main.qcloudimg.com/raw/701e4239409ff1fb988fc604b07ed9bf.png)
 
-### 4. 修改工程配置
+### 步骤4：修改工程配置
 
-- **添加引用**
+#### **4.1：添加引用**
+ 1. 打开 TRTCDemo 属性页，选择【解决方案资源管理器】 > 【TRTCCSharpDemo】> 【引用的右键菜单】 > 【添加引用】，单击【浏览】
+ 2. 选中当前项目下`LiteAVSDK\win32\lib`目录中的`ManageLiteAV.dll`文件并单击【添加】，如下图所示：
+  ![](https://main.qcloudimg.com/raw/22dd93cfeb4bad65d23152f63adbb2bf.png)
+ 3. 在【引用管理器】界面进行选择`ManageLiteAV.dll`并单击【确定】，如下图所示：
+  ![](https://main.qcloudimg.com/raw/1aa24f55a51cb685d4293fdc64415921.png)
 
-  在【解决方案资源管理器】 > 【TRTCCSharpDemo】> 【引用的右键菜单】 > 【添加引用】，进入界面后选择【浏览】，选择当前项目下 LiteAVSDK\win32\lib 文件夹下的 ManageLiteAV.dll 文件并点击【添加】，如下图所示：
+#### **4.2：添加 copy 命令**
+打开 TRTCDemo 属性页，选择【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，在【生成事件】>【后期生成事件命令行】中添加以下命令，从而实现在编译完成后自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：。
+```
+copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\\*.dll" "$(ProjectDir)$(OutDir)"
+```
+ ![](https://main.qcloudimg.com/raw/1530f7eadcf746b56a86e773638ee581.png)
+ 
+#### **4.3：修改调试环境**
+打开 TRTCDemo 属性页，选择【生成】，修改【常规】区域的【平台目标(G)】为【x86】，如下图所示：
+![](https://main.qcloudimg.com/raw/87a7f270204b1c7dcf71b07e48d8987e.png)
 
- ![](https://main.qcloudimg.com/raw/22dd93cfeb4bad65d23152f63adbb2bf.png)
-
-  然后在【引用管理器】界面进行选择 ManageLiteAV.dll 并点击确定，如下图所示：
-
- ![](https://main.qcloudimg.com/raw/1aa24f55a51cb685d4293fdc64415921.png)
-
-- **添加 copy 命令**
-
-  打开 TRTCDemo 属性页，在【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，在【生成事件】>【后期生成事件命令行】，添加拷贝命令 copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\\*.dll" "$(ProjectDir)$(OutDir)"，能够在编译完成后，自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：
- ![](https://main.qcloudimg.com/raw/6611bfb008a4e76d5b90820f53053f98.png)
-  
-- **修改调试环境**
-
-  打开 TRTCDemo 属性页，在【生成】中，修改【常规】下的平台目标为【x86】，如下图所示：
-
- ![](https://main.qcloudimg.com/raw/acc59604347ad68993a371228a6bf9a6.png)
-
-### 5. 打印 SDK 版本号
-
-- 在 Form1.cs 的设计器中添加一个 label 控件，如下图所示：
-
+### 步骤5：打印 SDK 版本号
+1. 在 Form1.cs 的设计器中添加一个 label 控件，如下图所示：
  ![](https://main.qcloudimg.com/raw/fde3ee1202ca63b49c11b4c215fcd9c2.png)
-
-- 打开 Form1.cs 代码文件，添加以下代码：
-
+2. 打开 Form1.cs 代码文件，添加以下代码：
   ```c#
   using System.Windows.Forms;
   using ManageLiteAV;   // 1.添加命名空间引用
@@ -73,17 +68,16 @@
           public Form1()
           {
               InitializeComponent();
-              // 2.获取ITRTCCloud实例，打印SDK版本号
+              // 2.获取ITRTCCloud实例，打印 SDK 版本号
               ITRTCCloud lTRTCCloud = ITRTCCloud.getTRTCShareInstance(); 
               this.label1.Text = "SDK version : " + lTRTCCloud.getSDKVersion();
-              // 3.结束使用时需手动摧毁ITRTCCloud实例
+              // 3.结束使用时需手动摧毁 ITRTCCloud 实例
               ITRTCCloud.destroyTRTCShareInstance();
           }
       }
   }
   ```
-
-- 按键盘 F5 运行，打印 SDK 的版本号，如下图所示：
+3.  按键盘 F5 运行，打印 SDK 的版本号，如下图所示：
 
  ![](https://main.qcloudimg.com/raw/f392bf1fdcce254800344045425ddec7.png)
 
