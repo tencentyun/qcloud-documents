@@ -58,8 +58,8 @@ __参数__
 __介绍__
 
 调用 TRTCCloud 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
-- 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位为毫秒（ms）。
-- 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+- 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
+- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。
 
@@ -149,7 +149,7 @@ __参数__
 __介绍__
 
 没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音上行，但不一定已开启视频。
-如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 事件回调。
+如果需要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 事件回调。
 
 
 ### onUserExit
@@ -183,8 +183,8 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userId， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。 然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
-当您收到了 onUserVideoAvailable(userId， NO) 通知时，代表该路远程画面已经被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
+当您收到 onUserVideoAvailable(userId， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userId， NO) 通知时，代表该路远程画面已经被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
 
 
 ### onUserSubStreamAvailable
@@ -269,7 +269,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | TRTCVideoStreamType | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | TRTCVideoStreamType | 视频流类型，主画面、小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
