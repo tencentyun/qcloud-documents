@@ -33,7 +33,6 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
-
 ![](https://main.qcloudimg.com/raw/b573b23face32a9784a99ef92aabcf15.jpg)
 
 
