@@ -23,7 +23,7 @@ __参数__
 
 ### onWarning
 
-警告回调：用于告知您一些非严重性问题，比如出现了卡顿或者可恢复的解码失败。
+警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。
 ```
 void onWarning(int warningCode, String warningMsg, Bundle extraInfo)
 ```
@@ -475,7 +475,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderListener），该参数可以不用理会。 |
-| streamType | int | 视频流类型，比如是摄像头画面还是屏幕分享画面等等。 |
+| streamType | int | 视频流类型，例如是摄像头画面还是屏幕分享画面等等。 |
 | frame | [TRTCCloudDef.TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32266#trtcvideoframe) | 待渲染视频帧。 |
 
 
@@ -502,7 +502,7 @@ void onCapturedAudioFrame(TRTCCloudDef.TRTCAudioFrame frame)
 
 ### onPlayAudioFrame
 
-混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
+混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
 ```
 void onPlayAudioFrame(TRTCCloudDef.TRTCAudioFrame frame, String userId)
 ```

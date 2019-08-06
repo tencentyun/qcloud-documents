@@ -90,7 +90,7 @@ void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知到您。
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知到您。
 如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
 
 
@@ -339,7 +339,7 @@ __参数__
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+该设置决定了 SDK 在各种网络环境下的调控策略（例如弱网下是“保清晰”还是“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -462,7 +462,7 @@ __参数__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
 - 如果有些人的下行网络很好，可以选择观看【高清】画面
 - 如果有些人的下行网络不好，可以选择观看【低清】画面。
@@ -1020,9 +1020,9 @@ __介绍__
 如果您期望在屏幕分享的过程中，切换想要分享的窗口，可以再次调用这个函数而不需要重新开启屏幕分享。
 支持如下四种情况：
 - 共享整个屏幕：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }
+- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }
 - 共享整个窗口：sourceInfoList 中 type 为 Window 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }。
+- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }。
 
 
 ### startScreenCapture
