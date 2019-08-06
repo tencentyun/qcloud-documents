@@ -75,9 +75,9 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
 
 
@@ -90,8 +90,8 @@ void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知到您。
-如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知您。
+如果您需要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
 
 
 ### switchRole
@@ -127,25 +127,24 @@ __参数__
 
 __介绍__
 
-TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。这样一来， 两个主播可以不用退出各自原来的直播间就能进行“连麦 PK”。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
 例如：当房间“001”中的主播 A 通过 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，true) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，true) 回调。
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
-
 <pre>
-                房间 001                     房间 002
-              -------------               ------------
+               房间 001                    房间 002
+            --------------              -------------
  跨房通话前：| 主播 A      |             | 主播 B     |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------</pre>
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------</pre>
 
 
 
-<pre>                房间 001                     房间 002
-              -------------               ------------
+<pre>              房间 001                     房间 002
+            --------------              -------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------
 </pre>
 
 跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
@@ -153,11 +152,11 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知您。
 
 
 <pre>
-  //此处用到 jsoncpp 库来格式化json字符串
+  //此处用到 jsoncpp 库来格式化 JSON 字符串
   Json::Value jsonObj;
   jsonObj["roomId"] = 002;
   jsonObj["userId"] = "userB";
@@ -241,7 +240,7 @@ __参数__
 
 __介绍__
 
-在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频， 之后调用 startRemoteView(userId) 接口加载该用户的远程画面，此时可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您还会收到 onFirstVideoFrame(userId) 事件回调。
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面时，可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
 
 
 ### stopRemoteView
@@ -382,7 +381,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 、 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setRemoteViewRotation
@@ -397,7 +396,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 、 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setVideoEncoderRotation
@@ -411,7 +410,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 两个旋转角度。 |
+| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度。 |
 
 
 ### setLocalViewMirror
@@ -443,7 +442,7 @@ __参数__
 
 __介绍__
 
-该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制的）画面效果。
 
 
 ### enableSmallVideoStream
@@ -464,8 +463,8 @@ __介绍__
 
 如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果用户的下行网络很好，可以选择观看【高清】画面
+- 如果用户的下行网络不好，可以选择观看【低清】画面。
 
 
 ### setRemoteVideoStreamType
@@ -592,7 +591,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；。 |
+| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms。 |
 
 __介绍__
 
