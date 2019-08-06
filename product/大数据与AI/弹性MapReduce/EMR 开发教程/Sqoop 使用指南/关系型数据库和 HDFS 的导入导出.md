@@ -75,7 +75,7 @@ Mysql> exit;
 3, third, 2018-07-03 15:31:07.0,yarn
 ```
 
-## 4. 将 HDFS  的数据导入到 MySQL 中
+## 4. 将 HDFS 的数据导入到 MySQL 中
 首先需要在 MySQL 新建一个表准备存放 HDFS 中的数据：
 ```
 [hadoop@172 sqoop]$ mysql -h $mysqlIP –p
