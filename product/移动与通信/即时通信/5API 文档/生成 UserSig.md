@@ -17,7 +17,7 @@ IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙
 
 |语言版本|适用平台|源码位置|
 |---|---|---|
-|Objective-C|Android|[Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
+|Objective-C|iOS|[Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
 |Java|Android|[Github](https://github.com/tencentyun/TIMSDK/tree/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/debug/GenerateTestUserSig.java)|
 |C++|Windows|[Github](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/TestUserSigGenerator.cpp)|
 
