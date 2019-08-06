@@ -6,7 +6,7 @@ UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶
 
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 
-UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID和ExpireTime 等关键信息进行了一次哈希加密：
+UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID和ExpireTime 等关键信息进行了一次哈希加密：
 
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
@@ -30,8 +30,8 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
 | Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/Debug/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/GenerateTestUserSig.java) |
-| Web | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
+| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
+| Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
 ![](https://main.qcloudimg.com/raw/eb7f659f5bea475ed9c160b7028d9d6b.jpg)
 
@@ -68,7 +68,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 ## 老版本算法
 
-为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自 2019.08.06 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019.08.06 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
+为了简化签名计算难度，方便客户更快速地使用腾讯云服务，云通讯 IM 服务自 2019.08.06 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019.08.06 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
 如果您的 SDKAppID 是 2019.07.19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
 
@@ -82,6 +82,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
 | C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+
 
 
 
