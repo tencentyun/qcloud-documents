@@ -131,7 +131,7 @@ new Thread(new Runnable() {
     public void run() {
         if (aaiClient!=null){
    	    //取消语音识别，丢弃当前任务
-            aaiClient.cancelAudioRecognize(requestId);
+         aaiClient.cancelAudioRecognize(requestId);
         }
     }
 }).start();

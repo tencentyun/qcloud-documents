@@ -14,8 +14,9 @@
 + 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
 + 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
 
-### SDK 导入
 
+## 快速入门
+### SDK 导入
 iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置

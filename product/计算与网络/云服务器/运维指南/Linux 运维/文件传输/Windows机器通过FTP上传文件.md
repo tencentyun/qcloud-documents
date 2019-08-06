@@ -13,10 +13,10 @@
 >? 使用 3.5.3 版本的 FileZilla 进行 FTP 上传将会出现上传失败等问题，建议您从官方网站获取与使用 FileZilla 的 3.5.1 或 3.5.2 版本。
 >
 3. 打开 FileZilla。
-4. 在 FileZilla 窗口中，填写主机、用户名、密码和端口等信息，单击【快速链接】。如下图所示：
+4. 在 FileZilla 窗口中，填写主机、用户名、密码和端口等信息，单击【快速连接】。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/dc603f912adf94a33749155c69ddddd2/24.png)
 **配置信息说明：**
- - 主机：云服务器的公网 IP。在 [云服务器控制台](https://console.cloud.tencent.com/cvm) 的“实例列表”页面可查看对应云服务器的公网 IP。
+ - 主机：云服务器的公网 IP。在 [云服务器控制台](https://console.cloud.tencent.com/cvm) 的实例管理页面可查看对应云服务器的公网 IP。
  - 用户名：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户的帐号。图中以 “ftpuser1” 为例。
  - 密码：[搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912) 时设置的 FTP 用户帐号对应的密码。
  - 端口：FTP 监听端口，默认为**21**。
