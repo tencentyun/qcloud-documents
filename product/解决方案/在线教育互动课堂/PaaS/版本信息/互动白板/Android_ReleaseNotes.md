@@ -1,4 +1,15 @@
 # Release Notes - Android
+## 2.3.0.109 @ 2019.07.18
+1. 白板
+    - 首屏渲染优化;
+    - 支持画出白板再画入；
+    - 增加ppt加载css,js失败重试逻辑
+
+## 2.2.2.99 @ 2019.06.30
+1. 白板
+    - AddFile接口同步返回FileID;
+    - onTEBFileUploadProgress回调接口返回FileID和进度百分比；
+    - onTEBFileUploadStatus回调接口返回FileID和错误码
 
 ## 2.2.0 @ 2019.06.20
 1. 白板
