@@ -2,11 +2,11 @@
 
 直播基础版体积最小，适合仅集成移动直播相关功能的客户。
 
-| 所属平台 | SDK 下载 | SDK 集成指引 | 64位支持 | 安装包增量 |
-|:---------:| :--------:| :--------:| :--------:| :--------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
-| 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
+| 所属平台 | Github 下载  | 国内镜像 | SDK 集成指引 | 64位支持 | 安装包增量 |
+|:---------:| :--------: | :-------: | :--------:| :--------:| :--------:|
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/iOS/SDK) |  [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/Android/SDK) |[DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
+| 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/WXMini) | [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
 
 <h2 id="Professional">专业版（Professional）</h2>
 
