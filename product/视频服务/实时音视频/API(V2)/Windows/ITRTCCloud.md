@@ -182,7 +182,7 @@ __介绍__
 ## 视频相关接口函数
 ### startLocalPreview
 
-开启本地视频的预览画面 (Mac 版本)。
+开启本地视频的预览画面。
 ```
 void startLocalPreview(HWND rendHwnd)
 ```
