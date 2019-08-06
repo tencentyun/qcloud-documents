@@ -54,6 +54,7 @@ uploader.on('media_progress', function(info) {
   console.log(info.percent) // 进度
 })
 
+// 回调结果说明
 // type doneResult = {
 //   fileId: string,
 //   video: {
@@ -135,7 +136,7 @@ uploader.cancel()
 
 #### 断点续传
 
-SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时，您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
+SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时（如浏览器关闭、网络中断等），您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 ## 接口描述
 

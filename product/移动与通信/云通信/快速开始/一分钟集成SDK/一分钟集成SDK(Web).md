@@ -4,7 +4,7 @@
 
 ## 准备工作
 在集成 Web SDK 前，请确保您已完成以下步骤，详见 [跑通Demo(Web)](https://cloud.tencent.com/document/product/269/32940)。
-- 创建了腾讯云云通信 IM 应用，并获取到 SDKAppID。
+- 创建了腾讯云即时通信 IM 应用，并获取到 SDKAppID。
 - 获取私钥文件。
 
 ## 下载组件源码

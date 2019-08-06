@@ -2,7 +2,7 @@
 
 ## 获取密钥 
 
-1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/3794#.E6.8E.A5.E5.85.A5.E6.AD.A5.E9.AA.A4)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
@@ -37,4 +37,5 @@ IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙
 | Node.js | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
 | Python | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
 | C# | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
+| C++ | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp/blob/master/src/tls_sig_api_v2.cpp) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
 

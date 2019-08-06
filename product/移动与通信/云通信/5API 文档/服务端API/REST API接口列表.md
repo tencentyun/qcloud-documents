@@ -4,6 +4,7 @@
 |---------|---------|
 | 导入单个帐号 | [v4/im_open_login_svc/account_import](https://cloud.tencent.com/document/product/269/1608) |
 | 导入批量帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
+| 帐号删除接口  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
 
 ## 在线状态
@@ -28,7 +29,7 @@
 | 删除好友 | [v4/sns/friend_delete](https://cloud.tencent.com/document/product/269/1644) |
 | 删除所有好友 | [v4/sns/friend_delete_all](https://cloud.tencent.com/document/product/269/1645) |
 | 校验好友 | [v4/sns/friend_check](https://cloud.tencent.com/document/product/269/1646) |
-| 拉取好友 | [v4/sns/friend_get_all](https://cloud.tencent.com/document/product/269/1647) |
+| 拉取好友 | [v4/sns/friend_get](https://cloud.tencent.com/document/product/269/1647) |
 | 拉取指定好友 | [v4/sns/friend_get_list](https://cloud.tencent.com/document/product/269/8609) |
 | 添加黑名单 | [v4/sns/black_list_add](https://cloud.tencent.com/document/product/269/3718) |
 | 删除黑名单 | [v4/sns/black_list_delete](https://cloud.tencent.com/document/product/269/3719) |

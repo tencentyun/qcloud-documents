@@ -1,8 +1,8 @@
 ## 概述
 
-云通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，云通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级推送通道的相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
+即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级推送通道的相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
-云通信 IM 目前已经支持了 APNs、小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送等厂商推送，具体如下：
+即时通信 IM 目前已经支持了 APNs、小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送等厂商推送，具体如下：
 
 <table> 
    <tr> 
@@ -38,16 +38,16 @@
    <tr> 
      <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例。</td> 
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例</td> 
    </tr> 
 </table>
 
 
-这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成云通信 IM 离线推送。
+这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成即时通信 IM 离线推送。
 
 >!
 > - 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
-> - 目前，离线推送只提供 [普通聊天消息](/doc/product/269/%E6%B6%88%E6%81%AF%E6%94%B6%E5%8F%91%EF%BC%88Android%20SDK%EF%BC%89#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/消息收发（Android%20SDK）#.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒 。
+> - 目前，离线推送只提供 [普通聊天消息](/doc/product/269/%E6%B6%88%E6%81%AF%E6%94%B6%E5%8F%91%EF%BC%88Android%20SDK%EF%BC%89#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/消息收发（Android%20SDK）#.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒。
 
 ## IM SDK 离线推送基本配置
 ### 设置全局离线推送配置
@@ -257,7 +257,7 @@ public NotifyMode getNotifyMode()
 
 /**
  * 设置当前消息在对方收到离线推送时候的通知模式（可选，发送消息时设置）。
- * NotifyMode 只是针对第三方离线推送进行设置的，比如小米、华为的离线推送。
+ * NotifyMode 只是针对第三方离线推送进行设置的，例如小米、华为的离线推送。
  * @param mode 通知模式，默认为普通通知栏消息模式
  */
 public void setNotifyMode(NotifyMode mode)
@@ -376,213 +376,5 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 });
 ```
 
-## 使用云通信 IM SDK 的通知栏提醒
-IM SDK 提供了后台通知栏提醒的功能。由于后台通知栏提醒依赖于守护进程，为了保证离线推送的正常运作，需要在系统设置中对包含 IM SDK 的应用**自启动权限**进行授权。
 
->?部分手机厂商的 Android 定制系统（如华为、小米等）则需要将应用添加到应用白名单，保证应用被 kill 掉后，守护进程可以自动重启。
-
-### 配置 AndroidManifest
-由于 IM SDK 的离线推送依赖于服务，所以需要应用在 `AndroidManifest.xml` 的 `<application></application>` 中添加以下配置：
-
-```xml
-<!--  消息收发 service -->
-<service 
-    android:name="com.tencent.imsdk.session.remote.SessionService"
-    android:process=":network"/>
-<!--  消息收发辅助 service -->
-<service
-    android:name="com.tencent.imsdk.session.remote.AssistService"
-    android:process=":network"/>
-<service
-    android:name="com.tencent.imsdk.session.remote.KeepAliveJobService"
-    android:permission="android.permission.BIND_JOB_SERVICE"
-    android:process=":network"/>
-<!--  离线消息广播接收器 -->
-<receiver android:name="com.tencent.imsdk.session.SessionBroadcastReceiver">
-    <intent-filter>
-        <action android:name="com.tencent.imsdk.session.boot" />
-        <action android:name="android.intent.action.BOOT_COMPLETED"/>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-    </intent-filter>
-</receiver>
-```
-
-### 通知栏提醒处理
-#### 实现自己的 Application 类
-
-实现 `android.app.Application`，假设命名为 `MyApplication`，在 `AndroidManifes.xml` 中配置实现：
-
-```xml
-<!-- 应用在实现的时候请将 com.tencent.imsdk.test.MyApplication 替换为自己的 Application -->
-<application
-	android:allowBackup="true"
-	android:icon="@drawable/ic_launcher"
-	android:label="@string/app_name"
-	android:name="com.tencent.imsdk.test.MyApplication">
-
-	<!-- 这里省略其他各种配置 -->
-
-</application>
-```
-
-#### 注册离线推送监听器
-
-在以上的准备做好后，必须注册相应的离线推送监听器才能收到消息通知。如果不需要离线消息通知，可以不进行监听器注册。注册离线推送监听器可以通过 `TIMManager` 中的 `setOfflinePushListener` 接口进行设置。
-
->!
->
->设置离线推送监听器，**需要保证在主进程进行设置**。
-
-**原型：**
-```
-public void setOfflinePushListener(TIMOfflinePushListener listener)
-```
-
-**参数说明：**
-
-|参数|说明|
-|---|---|
-|listener|离线推送监听器|
-
-**示例：**
-```java
-public class MyApplication extends Application {
-    @Override
-    public void onCreate() {
-        super.onCreate();
-
-        Log.d("MyApplication", "app oncreate");
-		// 只能在主进程进行离线推送监听器注册
-        if(MsfSdkUtils.isMainProcess(this)) {
-            Log.d("MyApplication", "main process");
-
-			// 设置离线推送监听器
-            TIMManager.getInstance().setOfflinePushListener(new TIMOfflinePushListener() {
-                @Override
-                public void handleNotification(TIMOfflinePushNotification notification) {
-                    Log.d("MyApplication", "recv offline push");
-
-					// 这里的 doNotify 是 IM SDK 内置的通知栏提醒，应用也可以选择自己利用回调参数 notification 来构造自己的通知栏提醒
-                    notification.doNotify(getApplicationContext(), R.drawable.ic_launcher);
-                }
-            });
-        }
-    }
-}
-```
-
-### 通知栏提醒内容说明
-
-通知栏提醒的内容由类 `TIMOfflinePushNotification` 来定义，可以通过这个类对外提供的接口来获取相应的信息，并根据需要自由组合自己的通知栏提醒。
-
-#### 获取默认通知栏标题
-可以通过 `getTitle` 接口来获取默认通知栏标题。
-
-- **单聊消息：**默认通知栏标题为发送方用户 ID。
-- **群消息：**如果消息所在群设置了群名称，默认通知栏标题为群名称；如果该群没有设置群名称，默认通知栏标题为该群群 ID。
-
-**原型：**
-```
-public String getTitle()
-```
-
-#### 获取默认通知栏内容
-
-可以通过 `getContent` 接口来获取默认通知栏内容。
-
-**对于单聊消息， 默认通知栏内容为：**
-```
-消息内容
-```
-**对于群消息，默认通知栏内容为：**
-```
-发送者： 消息内容
-```
-
-- **发送者**为消息发送方的群名片，如果发送方没有设置群名片，则为发送方的个人昵称，如果个人昵称也没有设置，则为发送方的用户 ID。优先级为**群名片** > **个人昵称** > **用户 ID**。
-
-- **消息内容**为消息体中的各个 Elem 进行相应转换后的字符串组合，不同类型的 Elem，其转换规则如下：
-	- 文本 Elem：直接显示内容
-	- 语音 Elem：显示 [语音]
-	- 文件 Elem：显示 [文件]
-	- 图片 Elem：显示 [图片]
-	- 自定义 Elem：显示 [desc 字段内容]
-
-**获取默认通知栏内容的原型：**
-
-```
-public String getContent()
-```
-
-#### 获取会话 ID
-
-通过 `getConversationId` 可以获取到离线消息的会话 ID。**单聊消息**的会话 ID 为消息发送方用户 ID。**群消息**的会话 ID 为群 ID。获取会话 ID 原型如下，失败时返回 null。
-
-**原型：**
-```
-public String getConversationId()
-```
-
-#### 获取会话类型
-
-通过 `getConversationType` 可以获取到离线消息的会话类型。**单聊消息**的会话类型为 `TIMConversationType.C2C`。**群消息**的会话类型为`TIMConversationType.Group`。
-
-**原型：**
-
-```
-public TIMConversationType getConversationType()
-```
-
-#### 获取发送方用户 ID
-
-通过 `getSenderIdentifier` 可以获取到消息发送方的用户 ID。获取发送方用户 ID 原型如下，失败时返回 null。
-
-**原型：**
-```
-public String getSenderIdentifier()
-```
-
-#### 获取发送者昵称
-
-通过 `getSenderNickName` 可以获取到消息发送方的昵称/群名片（群消息时，优先返回群名片，当没有群名片时，返回昵称）。对于 **单聊消息**，返回 null。对于**群消息**，优先返回发送方的群名片，如果发送方没有设置群名片，则返回个人昵称。如果群名片和个人昵称都没有设置，则返回 null。
-
-**原型：**
-```
-public String getSenderNickName()
-```
-
-#### 获取群名称
-
-在收到群消息的时候，可以通过 `getGroupName` 获取到群名称。获取群名称只有在收到群消息时有效，失败时返回 null。
-
-**原型：**
-
-```
-public String getGroupName()
-```
-
-#### 获取扩展字段
-
-收到自定义消息的时候，可以通过 `getExt` 获取到消息扩展字段，即自定义消息对应的 `ext` 字段。
-
-**原型：**
-```
-public byte[] getExt()
-```
-
-#### 通知栏提醒样式
-
-可以通过 `doNotify` 来设置 IM SDK 提供的默认通知栏提醒样式。
-
-**原型：**
-```
-public void doNotify(Context context, int iconID)
-```
-
-**参数说明：**
-
-|参数|说明|
-|---|---|
-context|应用上下文|
-|iconID|要显示在提醒中的图标资源 ID|
 

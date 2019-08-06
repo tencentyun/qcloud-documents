@@ -23,7 +23,7 @@ __参数__
 
 ### onWarning
 
-警告回调：用于告知您一些非严重性问题，比如出现了卡顿或者可恢复的解码失败。
+警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。
 ```
 - (void)onWarning:(TXLiteAVWarning)warningCode warningMsg:(nullable NSString *)warningMsg extInfo:(nullable NSDictionary *)extInfo 
 ```
@@ -398,7 +398,7 @@ __参数__
 
 __介绍__
 
-TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也无法做到100%不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
 
 >?只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
@@ -446,7 +446,7 @@ __参数__
 
 ### onScreenCaptureResumed
 
-当屏幕分享开始时，SDK 会通过此回调通知。
+当屏幕分享恢复时，SDK 会通过此回调通知。
 ```
 - (void)onScreenCaptureResumed:(int)reason 
 ```
@@ -460,7 +460,7 @@ __参数__
 
 ### onScreenCaptureStoped
 
-当屏幕分享开始时，SDK 会通过此回调通知。
+当屏幕分享停止时，SDK 会通过此回调通知。
 ```
 - (void)onScreenCaptureStoped:(int)reason 
 ```
@@ -538,7 +538,7 @@ __参数__
 |-----|-----|-----|
 | frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
 | userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，比如是摄像头画面还是屏幕分享画面等等。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，例如是摄像头画面还是屏幕分享画面等等。 |
 
 
 
@@ -564,7 +564,7 @@ __功能__
 
 ### onPlayAudioFrame
 
-混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
+混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
 ```
 - (void)onPlayAudioFrame:(TRTCAudioFrame *)frame userId:(NSString *)userId 
 ```

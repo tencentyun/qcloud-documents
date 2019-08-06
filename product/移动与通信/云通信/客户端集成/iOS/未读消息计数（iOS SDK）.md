@@ -3,7 +3,7 @@
 **未读消息**是指用户没有读过的消息（而非对方是否已经阅读），`TIMMessage` 方法 `isReaded` 标识消息是否已读，要想显示正确的未读计数，需要开发者显示调用已读上报，告诉 App 某条消息是否已读。例如，当用户进入聊天界面，可以设置整个会话的消息已读。对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
 
 ```
-@interface TIMMessage (MsgExt)
+@interface TIMMessage : NSObject
 /**
  *  是否已读
  *
@@ -20,7 +20,7 @@
 **原型： **
 
 ```
-@interface TIMConversation (MsgExt)
+@interface TIMConversation : NSObject
 - (int)getUnReadMessageNum;
 @end
 ```
@@ -39,7 +39,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 **原型： **
 
 ```
-@interface TIMConversation (MsgExt)
+@interface TIMConversation : NSObject
 /**
  *  设置已读消息
  *
@@ -73,7 +73,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 ## 禁用自动上报
 
-在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，云通信 IM 不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
+在单终端情况下，默认设置可以满足需求，出于性能考虑，未读消息由 IM SDK 拉回到本地，Server 默认会删除未读消息，切换终端以后无法看到之前终端已经拉回的未读消息，如果仅在一个终端，未读计数没有问题。如果需要多终端情况下仍然会有未读，可以在 **TIMManager 初始化之前**禁用自动上报，即时通信 IM 不会代替用户已读上报，**一旦禁用自动上报，需要开发者显式调用 `setReadMessage`**。
 
 ```
 @interface TIMUserConfig: NSObject

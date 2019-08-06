@@ -1,4 +1,4 @@
-云通信 IM 提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/云通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
+即时通信 IM 提供了关系链和用户资料托管，App 开发者使用简单的接口就可实现关系链和用户资料存储功能，另外，为了方便不通用户定制化资料，也提供用户资料和用户关系链的自定义字段（目前此功能为内测功能，可提交工单修改，参考：[新增用户维度的自定义字段](/doc/product/269/即时通信配置变更需求工单#.E6.96.B0.E5.A2.9E.E7.94.A8.E6.88.B7.E7.BB.B4.E5.BA.A6.E7.9A.84.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)）。本节所有的接口不论对独立帐号体系还是托管帐号体系都有有效。 
 
 
 ## 用户资料
@@ -190,7 +190,7 @@ TIMProfileTypeKey_Role | NSNumber | 角色
 TIMProfileTypeKey_SelfSignature | NSString | 签名 
 TIMProfileTypeKey_Custom_Prefix | NSString、NSData 或 NSNumber | 自定义字段前缀
 
-自定义字段需要您加上我们的前缀。比如后台有一个自定义字段`Blood`，类型为整数，设置代码是
+自定义字段需要您加上我们的前缀。例如后台有一个自定义字段`Blood`，类型为整数，设置代码是
 ```
 NSString *key = [TIMProfileTypeKey_Custom_Prefix stringByAppendingString:@"Blood"];
 [[TIMFriendshipManager sharedInstance] modifySelfProfile:@{key:@1} succ:nil fail:nil];
@@ -473,11 +473,11 @@ NSMutableArray * del_users = [[NSMutableArray alloc] init];
 // TIM_FRIEND_DEL_BOTH 指定删除双向好友
 [[TIMFriendshipManager sharedInstance] deleteFriends:del_users delType:TIM_FRIEND_DEL_BOTH succ:^(NSArray<TIMFriendResult *> *results) {
 	for (TIMFriendResult * res in results) {
-		if (res.status != TIM_FRIEND_STATUS_SUCC) {
-			NSLog(@"deleteFriends failed: user=%@ status=%d", res.identifier, res.status);
+		if (res.result_code != TIM_FRIEND_STATUS_SUCC) {
+			NSLog(@"deleteFriends failed: user=%@ result_code=%d", res.identifier, res.result_code);
 		}
 		else {
-			NSLog(@"deleteFriends succ: user=%@ status=%d", res.identifier, res.status);
+			NSLog(@"deleteFriends succ: user=%@ result_code=%d", res.identifier, res.result_code);
 		}
 	}
 } fail:^(int code, NSString * err) {
@@ -1157,9 +1157,7 @@ identifier |  用户 identifier
 
 当申请好友时对方需要验证，自己和对方会收到好友申请系统通知。
 
-**触发时机：**
-
-当申请好友时对方需要验证，自己和对方会收到好友申请系统通知，对方可选择同意或者拒绝，自己不能操作，只做信息同步之用。 
+**触发时机：**当申请好友时对方需要验证，自己和对方会收到好友申请系统通知，对方可选择同意或者拒绝，自己不能操作，只做信息同步之用。 
 
 **参数说明：**
 
@@ -1178,6 +1176,43 @@ source | 申请来源
 
 ### 删除未决请求通知
 
-**触发时机：**
+**触发时机：**当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。 
 
-当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。 
+### 删除未决请求通知
+
+**触发时机：**当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。
+
+## 用户资料变更系统通知
+
+`TIMMessage` 中 `Elem` 类型 `TIMProfileSystemElem` 为用户资料变更系统消息。
+
+```
+/**
+ * 自身和好友资料修改，后台 push 下来的消息元素
+ */
+@interface TIMProfileSystemElem : TIMElem
+/**
+ *  变更类型
+ */
+@property(nonatomic,assign) TIM_PROFILE_SYSTEM_TYPE type;
+/**
+ *  资料变更的用户
+ */
+@property(nonatomic,strong) NSString * fromUser;
+/**
+ *  资料变更的昵称（暂未实现）
+ */
+@property(nonatomic,strong) NSString * nickName;
+@end
+/**
+ *  资料变更
+ */
+typedef NS_ENUM(NSInteger, TIM_PROFILE_SYSTEM_TYPE){
+    /**
+     好友资料变更
+     */
+    TIM_PROFILE_SYSTEM_FRIEND_PROFILE_CHANGE        = 0x01,
+};
+```
+
+当自己的资料或者好友的资料变更时，会收到用户资料变更系统消息。

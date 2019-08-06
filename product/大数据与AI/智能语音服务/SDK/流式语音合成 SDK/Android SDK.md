@@ -4,7 +4,7 @@
 - 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。
 - 合成实时流式语音，需要手机能够连接网络（2/3/4G 或 Wi-Fi 网络等）。
 - 建议使用最新版本 Android Studio 进行开发。
-- 从腾讯云控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
+- 腾讯云控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 - 服务端 [API 文档](https://cloud.tencent.com/document/api/441/18086)。
 
 ### 下载安装 SDK
@@ -49,9 +49,9 @@ SecretKey 用于加密签名字符串和服务器端验证签名字符串的密�
 
 ```
 mTtsController.init(
-	1257709062L, 
-	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”, 
-	“6xYsxngLo45sT**ORFuMZZLs9BzXt”
+	1257709062L,                           //腾讯云 appId
+	“AKIDzlIbgVXMPC**QaT6TZOwDF1WktQr4”,   //腾讯云 secretId 
+	“6xYsxngLo45sT**ORFuMZZLs9BzXt”        //腾讯云 secretKey
 );
 ```
 
@@ -84,7 +84,7 @@ public enum VoiceLanguage {
 }
 ```
 
-### 示例
+**示例**
 
 ```
 //设置语速
@@ -163,7 +163,7 @@ private final TtsController.TtsExceptionHandler mTtsExceptionHandler = new TtsCo
 
 
 
-**暂停、恢复或停止语音播放** 
+### 暂停、恢复或停止语音播放 
 
 ```
 mTtsController.pause();
@@ -173,6 +173,6 @@ mTtsController.resume();
 mTtsController.stop();
 ```
 
-**错误码**
+### 错误码
 
-请参考 [API 文档](https://cloud.tencent.com/document/api/441/18086)。
+请参考 [语音合成 API 文档](https://cloud.tencent.com/document/api/441/18086)。

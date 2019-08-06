@@ -1,16 +1,14 @@
 
-本文主要介绍如何快速地运行云通信 IM Demo（Android）工程。
+本文主要介绍如何快速地运行即时通信 IM Demo（Android）工程。
 
 <span id="step1"></span>
 ## 创建应用
-1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
- ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
 3. 在【创建新应用】对话框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
- ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
 
 <span id="step2"></span>
 ## 配置应用
@@ -28,12 +26,12 @@
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 
 ## 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载云通信 IM Demo（Android）工程。
+从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android) 下载即时通信 IM Demo（Android）工程。
 
 ## 修改源码配置
 1. 使用 Android Studio （3.0以上的版本）打开源码工程。
 2. 打开 /TIMSDK/Android/app/src/main/java/com/tencent/qcloud/tim/demo/utils/Constants.java 文件，将工程中默认的 SDKAppID 替换成 [创建应用](#step1) 中获取的 SDKAppID。
- ![](https://main.qcloudimg.com/raw/260d0bea33a644b519fd11d612df770b.png)
+ ![](https://main.qcloudimg.com/raw/e0c1cff0eabdb5493b1970b1e93a619a.png)
 3. 打开 /TIMSDK/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java 文件 ，将常量 **PRIVATEKEY** 的值设置为 [下载公私钥](#step3) 中获得的私钥文件内容。
  ![](https://main.qcloudimg.com/raw/d9e6f60bbe4b6c23fa3886ab16a4afd3.png)
 4. 通过 **GenerateTestUserSig** 中的 **genTestUserSig** 方法，自动帮您获取测试 **UserSig** 。

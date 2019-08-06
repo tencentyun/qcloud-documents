@@ -81,7 +81,7 @@
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
-    <td>h265 编码</td>
+    <td>H.265 解码</td>
 		<td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>

@@ -1,43 +1,42 @@
 >!当前小程序版本 Demo 仅提供直播聊天室场景。
 
-## 1. 创建应用
+## 步骤1：创建应用
 
-1. 登录腾讯云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录腾讯即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
 2. 在【应用列表】页面，单击【创建应用接入】。
 3. 在【创建新应用】弹框中，填写新建应用的信息，单击【确认】。
- ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
- 应用创建完成后，自动生成一个应用标识：SDKAppID，如下图：
-![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
-
-## 2. 配置应用
+ 应用创建完成后，自动生成一个应用标识：SDKAppID。
+ 
+## 步骤2：配置应用
 
 1. 在【应用列表】页面，单击对应 SDKAppID 的【应用配置】，进入应用详情页面。
  ![](https://main.qcloudimg.com/raw/b6655906590c0b9bdcd1e0c21776fa93.png)
 2. 单击【帐号体系集成】右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
  ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
- >?在使用云通信 IM 后台的 REST API 发送消息时会用到帐号管理员信息。
+ >?在使用即时通信 IM 后台的 REST API 发送消息时会用到帐号管理员信息。
 
-## 3. 获取测试 userSig
-1. 在应用详情页面，单击**帐号体系集成**右侧的【下载公私钥】，保存 **keys.zip** 压缩文件。
- ![](https://main.qcloudimg.com/raw/c44938b9268d0ef76c68b8bf61689219.png)
-2. 解压 **keys.zip** ，获得 **private_key** 和 **public_key** 文件，其中 **private_key** 即为私钥文件。
- ![](https://main.qcloudimg.com/raw/95875a7baca63c21103bc6cd6dac0279.png)
-4.  在应用详情页面，选择【开发辅助工具】页签，填写【用户名（Identifier）】，拷贝私钥文件 **private_key** 中的内容至【私钥】文本框中，单击【生成】，在【签名】文本框中即可获得该云通信 IM 应用指定用户名的 UserSig。
- ![](https://main.qcloudimg.com/raw/0439e0c6f69ec2187035697f4a364b5b.png)
+## 步骤3：获取测试 UserSig
+>!本文提到的获取 UserID 和 UserSig 的方案仅适合本地跑通 Demo 和功能调试，正确的 UserSig 签发方式请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
 
->?可以生成4组或以上 userid 和 usersig，方便在 Demo 中调试使用。
+1. 在控制台应用详情页面，单击【下载公私钥】，保存 **keys.zip** 压缩文件。
+ ![](https://main.qcloudimg.com/raw/e11d958bc43b09fb41c7064ee2b09722.png)
+2. 解压 **keys.zip** 文件 ，获得 **private_key.txt** 和 **public_key.txt** 文件，其中 **private_key.txt** 即为私钥文件。
+ ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
+3. 在控制台应用详情页面，选择【开发辅助工具】页签，填写【用户名（UserID）】，拷贝私钥文件内容至【私钥（PrivateKey）】文本框中，单击【生成签名】，在【签名（UserSig）】文本框中即可获得该即时通信应用指定用户名的 UserSig。
+ ![](https://main.qcloudimg.com/raw/f491ffbd8dc3c0e8659288d27152c847.png)
+4. 重复上述操作，生成4组或更多组 UserID 和 UserSig。
 
-## 4. 运行 Demo
+## 步骤4：运行 Demo
 
 从 [Github](<https://github.com/tencentyun/TIMSDK/tree/master/H5/AVChatRoom>) 下载 IM SDK 和 Demo。
 
-### 4.1 准备直播大群 ID
+### 步骤4.1：准备直播大群 ID
 
 运行 Demo 之前，需要创建一个 AVChatRoom 类型（直播聊天室）的群组 ID。可以通过 REST API 创建，也可以使用在其他平台（Android 或者 iOS）上创建的直播聊天室 ID。详情请参考 [创建群组](https://cloud.tencent.com/doc/product/269/%E5%88%9B%E5%BB%BA%E7%BE%A4%E7%BB%84) 。
 
 **REST API  调试地址：**`https://avc.cloud.tencent.com/im/APITester/APITester.html`
 
-### 4.2 运行 Demo
+### 步骤4.2：运行 Demo
 
 1. 运行以下代码，修改业务信息。
 ```

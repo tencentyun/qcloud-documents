@@ -1,10 +1,10 @@
 ## 登录
 
-用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `identifier`、`userSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `6206` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
+用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 `UserID`、`UserSig`。如果用户保存用户票据，可能会存在过期的情况，如果用户票据过期，`login` 将会返回 `6206` 错误码，开发者可根据错误码进行票据更换。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败后使用闭包 `succ` 和 `fail` 进行回调。
 
-> **注意：**
->- 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）。开发者必须进行登录错误码 `ERR_IMSDK_KICKED_BY_OTHERS` 的判断。关于被踢的详细描述，参见 [用户状态变更](/doc/product/269/9148#5.-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
->- 只要登录成功以后，用户没有主动登出或者被踢，网络变更会自动重连，无需开发者关心。不过特别需要注意被踢操作，需要注册 [用户状态变更回调](/doc/product/269/9148#5.-.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)，否则被踢时得不到通知。
+>!
+>- 如果此用户在其他终端被踢，登录将会失败，返回错误码（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）。开发者必须进行登录错误码 `ERR_IMSDK_KICKED_BY_OTHERS` 的判断。关于被踢的详细描述，参见 [用户状态变更](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)。
+>- 只要登录成功以后，用户没有主动登出或者被踢，网络变更会自动重连，无需开发者关心。不过特别需要注意被踢操作，需要注册 [用户状态变更回调](https://cloud.tencent.com/document/product/269/9148#.E7.94.A8.E6.88.B7.E7.8A.B6.E6.80.81.E5.8F.98.E6.9B.B4)，否则被踢时得不到通知。
 
 **原型：**
 
@@ -28,7 +28,7 @@
 @end
 ```
 
-在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `identifier`、`userSig` 填写相应内容。
+在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `UserID`、`UserSig` 填写相应内容。
 
 ```
 /**
@@ -68,7 +68,7 @@ login_param.appidAt3rd = @"123456";
     NSLog(@"Login Failed: %d->%@", code, err);
 }];
 ```
-userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
+UserSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/document/product/269/31999)。
 ## 登出
 
 如用户主动注销或需要进行用户的切换，则需要调用注销操作。
@@ -109,17 +109,17 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 **原型：**
 
 ```
-@interface TIMManager (MsgExt)
+@interface TIMManager : NSObject
 /**
  *  初始化存储，仅查看历史消息时使用，如果要收发消息等操作，如 login 成功，不需要调用此函数
  *
- *  @param param 登录参数（userSig 不用填写）
+ *  @param userID 用户名
  *  @param succ  成功回调，收到回调时，可以获取会话列表和消息
  *  @param fail  失败回调
  *
  *  @return 0 请求成功
  */
-- (int)initStorage:(TIMLoginParam*)param succ:(TIMLoginSucc)succ fail:(TIMFail)fail; 
+- (int)initStorage:(NSString*)userID succ:(TIMLoginSucc)succ fail:(TIMFail)fail; 
 @end
 ```
 
@@ -127,7 +127,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 
 | 参数 | 说明 |
 | --- | --- |
-| param | 与登录参数相同，userSig 可不填 |
+| userID | 用户名 |
 | succ | 成功回调，成功后可获取会话列表，以及进一步登录 |
 | fail | 失败回调 |
 
@@ -135,11 +135,7 @@ userSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 
 ```
 TIMLoginParam * login_param = [[TIMLoginParam alloc ]init]; 
-// identifier 为用户名
-// appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
-login_param.identifier = @"iOS_001";
-login_param.appidAt3rd = @"123456";
-[[TIMManager sharedInstance] initStorage: login_param succ:^(){
+[[TIMManager sharedInstance] initStorage: @"iOS_001" succ:^(){
     NSLog(@"Init Succ");
 } fail:^(int code, NSString * err) {
     NSLog(@"Init Failed: %d->%@", code, err);
@@ -148,7 +144,7 @@ login_param.appidAt3rd = @"123456";
 
 ## 获取当前登录用户
 
-通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `identifier` 相同，如果是第三方帐号，如微信登录，QQ 登录等，登录后会有内部转换过的 `identifer`，后续搜索好友，入群等，都需要使用转换后的 `identifier` 操作。
+通过 `TIMManager` 成员方法 `getLoginUser` 可以获取当前用户名，也可以通过这个方法判断是否已经登录。返回值为当前登录的用户名，需要注意的是，如果是自有帐号登录，用户名与登录所传入的 `UserID` 相同，如果是第三方帐号，如微信登录，QQ 登录等，登录后会有内部转换过的 `UserID`，后续搜索好友，入群等，都需要使用转换后的 `UserID` 操作。
 
 **原型：**
 
@@ -167,7 +163,7 @@ login_param.appidAt3rd = @"123456";
 
 ## IM SDK 同步离线消息
 
-IM SDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，比如会话列表的未读等。
+IM SDK 启动后会同步离线消息和最近联系人，最近联系人可通过接口禁用： [禁用最近联系人](/doc/product/269/9150#.E6.9C.80.E8.BF.91.E8.81.94.E7.B3.BB.E4.BA.BA.E6.BC.AB.E6.B8.B8) 。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，例如会话列表的未读等。
 
 ```
 @interface TIMUserConfig : NSObject

@@ -1,7 +1,7 @@
 
 ## 群组综述
 
-云通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
@@ -21,7 +21,7 @@
 
 ### 创建内置类型群组
 
-云通信 IM 中内置了私有群、公开群、聊天室、音视频聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 `Conversation` 收发消息等。
+即时通信 IM 中内置了私有群、公开群、聊天室、音视频聊天室和在线成员广播大群五种群组类型，详情请见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。创建时可指定群组名称以及要加入的用户列表，创建成功后返回群组 ID，可通过群组 ID 获取 `Conversation` 收发消息等。
 
 **创建群组说明：**
 
@@ -30,12 +30,12 @@
 | CreatePrivateGroup | 创建私有群 |
 | CreatePublicGroup | 创建公开群 |
 | CreateChatRoomGroup | 创建聊天室 |
-| CreateAVChatRoomGroup | 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人，不能查询总人数等，可参阅 [直播场景下的 IM 集成方案](/doc/product/269/4104) |
+| CreateAVChatRoomGroup | 创建直播大群，此类型群可以加入人数不做限制，但是有一些能力上的限制，如不能拉人，不能查询总人数等 |
 
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  创建私有群
  *
@@ -163,7 +163,8 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSArray* membersInfo;
 @end
-@interface TIMGroupManager (Ext)
+
+@interface TIMGroupManager : NSObject
 /**
  *  创建群组
  *
@@ -259,7 +260,7 @@ fail|失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  邀请好友入群
  *
@@ -431,7 +432,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  删除群成员
  *
@@ -514,7 +515,8 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
  */
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
-@interface TIMGroupManager (Ext)
+
+@interface TIMGroupManager : NSObject
 /**
  *  获取群成员列表
  *
@@ -552,7 +554,7 @@ fail | 失败回调
 如果群组人数过多，建议使用**分页接口**。**原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取指定类型的成员列表（支持按字段拉取，分页）
  *
@@ -580,7 +582,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取群列表
  *
@@ -670,7 +672,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  转让群给新群主
  *
@@ -716,7 +718,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群组全员禁言属性
  *
@@ -873,7 +875,7 @@ fail | 失败回调
 @property(nonatomic,retain) NSDictionary* customInfo;
 @end
 
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取服务器存储的群资料
  *
@@ -928,7 +930,7 @@ NSMutableArray * groupList = [[NSMutableArray alloc] init];
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取本人在群组内的成员信息
  *
@@ -982,7 +984,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群名
  *
@@ -1028,7 +1030,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 
 /**
  *  修改群简介
@@ -1076,7 +1078,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群公告
  *
@@ -1122,7 +1124,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群头像
  *
@@ -1168,7 +1170,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 
 /**
  *  修改加群选项
@@ -1214,7 +1216,7 @@ fail | 失败回调
 **原型： **
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  修改群自定义字段集合
  *
@@ -1265,7 +1267,7 @@ NSData *data = [NSData dataWithBytes:"custom value" length:13];
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetRole:(NSString*)group user:(NSString*)identifier role:(TIMGroupMemberRole)role succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1303,7 +1305,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetSilence:(NSString*)group user:(NSString*)identifier stime:(uint32_t)stime succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1335,7 +1337,7 @@ fail | 失败回调
 **原型： **
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetNameCard:(NSString*)group user:(NSString*)identifier nameCard:(NSString*)nameCard succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1369,7 +1371,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 - (int)modifyGroupMemberInfoSetCustomInfo:(NSString*)group user:(NSString*)identifier customInfo:(NSDictionary<NSString*,NSData*> *)customInfo succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
@@ -1396,13 +1398,13 @@ fail | 失败回调
 
 ### 修改接收群消息选项
 
-通过 `modifyReciveMessageOpt` 可以设置群消息的接收选项。默认情况下，公开群和私有群是接收并离线推送群消息，聊天室和直播大群是接收但不离线推送群消息。
+通过 `modifyReceiveMessageOpt` 可以设置群消息的接收选项。默认情况下，公开群和私有群是接收并离线推送群消息，聊天室和直播大群是接收但不离线推送群消息。
 
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
-- (int)modifyReciveMessageOpt:(NSString*)group opt:(TIMGroupReceiveMessageOpt)opt succ:(TIMSucc)succ fail:(TIMFail)fail;
+@interface TIMGroupManager : NSObject
+- (int)modifyReceiveMessageOpt:(NSString*)group opt:(TIMGroupReceiveMessageOpt)opt succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -1442,7 +1444,7 @@ fail | 失败回调
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  获取群组未决列表
  *
@@ -1597,7 +1599,7 @@ requestMsg/handleMsg|申请、审批时的留言信息
 **原型：**
 
 ```
-@interface TIMGroupManager (Ext)
+@interface TIMGroupManager : NSObject
 /**
  *  群未决已读上报
  *
@@ -1902,8 +1904,8 @@ value | 变更后的值，根据变更类型表示不同含义
 
 **触发时机：**当群成员的群相关资料变更时，包括群内用户被禁言、群内成员角色变更，会有系统消息发出，可更新相关字段展示，或者选择性把消息展示给用户。
 
-> **注意：**
->- 这里的资料仅跟群相关资料，比如禁言时间、成员角色变更等，不包括用户昵称等本身资料，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9150#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E4.BB.A5.E5.8F.8A.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)
+>!
+>- 这里的资料仅跟群相关资料，例如禁言时间、成员角色变更等，不包括用户昵称等本身资料，对于群内人数可能过多，不建议实时更新，建议的做法是直接显示消息体内的资料，参考：[消息发送者以及相关资料](/doc/product/269/9150#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81.E8.80.85.E4.BB.A5.E5.8F.8A.E7.9B.B8.E5.85.B3.E8.B5.84.E6.96.99)
 >- 如果本地有保存用户资料，可根据消息体内资料判断是否有变更，在收到此用户一条消息后更新资料。
 
 **`TIMGroupTipsElem` 参数说明：**

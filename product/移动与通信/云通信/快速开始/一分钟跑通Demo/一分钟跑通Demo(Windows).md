@@ -1,16 +1,14 @@
-本文主要介绍如何快速地运行云通信 IM Demo（Windows）工程。
+本文主要介绍如何快速地运行即时通信 IM Demo（Windows）工程。
 
 <span id="step1"></span>
 ## 创建应用
-1. 登录云通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
 2. 在【应用列表】页，单击【创建应用接入】。
- ![](https://main.qcloudimg.com/raw/a7769d15f050286162b0cbcdadca5f03.png)
 3. 在【创建新应用】对话框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
- ![](https://main.qcloudimg.com/raw/bf8fe4f38d782741a6e142c24648c9e0.png)
-
+ 
 <span id="step2"></span>
 ## 配置应用
 1. 单击目标应用所在行的【应用配置】，进入应用详情页面。
@@ -27,7 +25,7 @@
  ![](https://main.qcloudimg.com/raw/ec89f5bb93d57de1acffa4e15786da11.png)
 
 ## 下载 Demo 源码
-从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows) 下载云通信 IM Demo（Windows）IMApp 工程代码。
+从 [Github](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows) 下载即时通信 IM Demo（Windows）IMApp 工程代码。
 
 ## 修改源码配置
 >!本文提到的获取 UserID 和 UserSig 的方案仅适合本地跑通 Demo 和功能调试，正确的 UserSig 签发方式请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。

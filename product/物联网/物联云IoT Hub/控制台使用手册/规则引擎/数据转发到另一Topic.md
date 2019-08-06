@@ -20,9 +20,11 @@ WHERE house="tencent" AND temperature > 40
 ![image](https://mc.qcloudimg.com/static/img/2fd61f602479ab39f47e7d6eb4f93558/gui3.png)
 ## 配置
 1. 登录物联网通信控制台，选择左侧菜单栏【[规则引擎](https://console.cloud.tencent.com/iotcloud/rules/rule)】，单击需要配置的规则。
-![](https://main.qcloudimg.com/raw/3c63b5b58f3867feed847f632dc848a3.png)
 2. 在规则详情页面，单击【添加行为】。
-3. 在弹出的“新增行为”窗口，选择行为“republish”，填写要转发至的 Topic 名称，单击【创建】即可。
-![image](https://main.qcloudimg.com/raw/9820bc7049b9f68669082c445cda20c9.png)
+3. 在弹出的“新增行为”窗口，填写相关信息。单击【创建】即可。
+ - 选择行为类型为“republish”。
+ - 填写要转发至的 Topic 名称，
+![image](https://main.qcloudimg.com/raw/3c7e5144c448da3f6403dc966ca1fd0e.png)
+
 物联网通信平台即可将上报数据发转至该 Topic。
 
