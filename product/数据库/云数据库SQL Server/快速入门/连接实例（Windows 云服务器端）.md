@@ -1,5 +1,5 @@
 ## 操作场景
-本文为您介绍在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单的查询的操作。
+本文为您介绍在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单查询的操作。
 
 ## 操作步骤
 1. 登录腾讯云 Windows 云服务器，请参见 [快速入门 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764)。本文以 Windows Server 2012 R2 标准版64位中文版为例。
