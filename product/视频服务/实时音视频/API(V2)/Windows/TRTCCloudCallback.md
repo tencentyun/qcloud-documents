@@ -97,7 +97,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | const char * | 错误信息。 |
 
 __介绍__
@@ -117,7 +117,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 要 PK 的目标主播 userId。 |
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | const char * | 错误信息。 |
 
 __介绍__

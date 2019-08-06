@@ -61,7 +61,7 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到来自 TRTCCloudDelegate 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到来自 TRTCCloudDelegate 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 

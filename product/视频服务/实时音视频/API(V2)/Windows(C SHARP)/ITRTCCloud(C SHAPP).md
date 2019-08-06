@@ -77,7 +77,7 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请参见 [错误码表](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
