@@ -12,8 +12,8 @@
 选择模型资源配置，单击【GPU 配置】，选择 4CPU 核 8G 内存, 2TFLOPS 配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
 ![](https://main.qcloudimg.com/raw/0829979f9c7bb347b992ad153f75c277.png)
 ### 启动服务
-在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
-![](https://main.qcloudimg.com/raw/0f3e3e3b02da44116e9a95e3739b2e24.png)
+在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【启动服务】，进入启动服务页面。
+![](https://main.qcloudimg.com/raw/7407dacfca76da4db693ef12800c6395.png)
 在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
 ![](https://main.qcloudimg.com/raw/495315698f1c4ad508d69df0480c3345.png)
 ### 获得访问地址和密钥
