@@ -17,9 +17,27 @@
 ![](https://main.qcloudimg.com/raw/5843542ec2e0446d326d7d44f96a5ec0.png)
 
 <h2 id="CopyKey"> 4. 粘贴密钥到Demo工程的指定文件中 </h2>
-我们在各个平台的 Demo 的源码工程中都提供了一个叫做 “GenerateTestUserSig” 的文件，它可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。您只需要将第1步中获得的 SDKAppID 和第3步中获得的加密密钥拷贝到文件中的指定位置即可，如下所示：
+我们在各个平台的 Demo 的源码工程中都提供了一个叫做 “GenerateTestUserSig” 的文件，它可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。
+
+| 语言版本 |  适用平台 | GenerateTestUserSig 的源码位置 |
+|:---------:|:---------:|:---------:|
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Objective-C | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) |
+| C++ | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)|
+| C# | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)|
+| Javascript | Web | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/H5/js/debug/GenerateTestUserSig.js)|
+| Javascript | 微信小程序 | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js)|
+
+您只需要将第1步中获得的 SDKAppID 和第3步中获得的加密密钥拷贝到文件中的指定位置即可，如下所示：
 
 ![](https://main.qcloudimg.com/raw/33aaae61fe949f3fbee881f0e7ea4e05.png)
+
+> !安全警告：本地计算 UserSig 的做法虽然能够工作，但仅适合于调试 Demo 的场景，不适用于线上产品。
+> 
+> 这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
+> 
+> [安全方案](https://cloud.tencent.com/document/product/647/17275#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
 
 ## 5. 编译运行
 使用 Visual Stuido（建议 VS2015）打开源码目录下的 TRTCDemo.vcxproj 工程文件，编译并运行 Demo 工程即可。
