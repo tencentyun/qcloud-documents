@@ -27,7 +27,7 @@
      <tr>
          <th>编程语言</th>  
          <th nowrap="nowrap">所属平台</th>  
-         <th nowrap="nowrap">下载链接</th>  
+         <th nowrap="nowrap">GenerateTestUserSig 源代码</th>  
      </tr>
 	 <tr>      
          <td>Java</td>   
