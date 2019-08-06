@@ -47,7 +47,7 @@
 	 <tr>      
          <td>C++</td>   
 	     <td>Windows</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/TestUserSigGenerator.h">TestUserSigGenerator.h</a></td>   
+	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>   
      </tr>  
 	 <tr>      
          <td>Javascript</td>   
