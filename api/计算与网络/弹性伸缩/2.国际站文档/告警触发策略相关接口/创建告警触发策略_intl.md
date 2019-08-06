@@ -25,7 +25,7 @@ The following request parameter list only provides API request parameters. Commo
 | adjustmentType | Yes | String | Adjustment method of the scaling rule. Only 3 values are available:<br>TotalCapacity: Adjusting the number of instances in the current scaling group to the specified number. <br>QuantityChangeInCapacity: Increasing or decreasing the instances by specified number. <br>PercentChangeInCapacity: Increasing or decreasing instances by specified percentage. |
 | adjustmentValue | Yes | Int | Adjustment value for the scaling rule. If it is negative, it means decreasing instances.  The value ranges of adjustmentValue are as follows:<br>TotalCapacity: 0-30<br>QuantityChangeInCapacity: -30-30<br>PercentChangeInCapacity: -100-100. |
 | cooldown | Yes | Int | Cooldown period (in seconds), a period of time when the corresponding scaling group is locked after a scaling activity is completed. During this period, this scaling group cannot execute other scaling activities. |
-| notifyIds.n | No | String | ID of the notification group, that is, the user group ID (groupID). The maximum number is 20, and the array subscript starts from 0. You can call API <a href="/doc/api/403/4404" title="Obtain User Group List">Obtain User Group List</a> (DescribeUserGroup) to query the parameter. |
+| notifyIds.n | No | String | ID of the notification group, that is, the user group ID (groupID). The maximum number is 20, and the array subscript starts from 0. |
 
 Parameter metric stipulates the specific scaling policy in json format. Its parameters are as follows:
 
