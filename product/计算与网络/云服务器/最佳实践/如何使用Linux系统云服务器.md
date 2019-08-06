@@ -7,7 +7,7 @@
 
 ## 操作步骤
 腾讯云实验室提供了实践动手的教程，可帮助您熟悉腾讯云云服务器的使用。
-您可 [点此](https://cloud.tencent.com/developer/labs?utm_source=doc8041&utm_medium=qclab) 进入实验室。您还可以根据您实际的需要，进行如下选择和体验：
+您可 [点此](https://cloud.tencent.com/developer/labs?utm_source=doc8041&utm_medium=qclab) 进入实验室。您还可以根据您实际的需要，进行如下体验：
 - [体验 CentOS 系统 CVM](https://cloud.tencent.com/developer/labs/lab/10078)
 - [体验 Ubuntu 系统 CVM](https://cloud.tencent.com/developer/labs/lab/10081)
 
