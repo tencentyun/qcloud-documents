@@ -59,7 +59,7 @@ pip install -r requirements.txt
 
 因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟。
 ```shell
-python grpc_client.py --server IP --TOKEN --data_dir DATA_DIR
+python grpc_client.py --server IP --token TOKEN --data_dir DATA_DIR
 ```
 IP：服务访问地址
 TOKEN：服务密钥
