@@ -15,15 +15,17 @@
 IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙您快速生成 UserSig。您只需设置 SDKAPPID（应用 SDKAppID）、EXPIRETIME（UserSig 过期时间）和 SECRETKEY（密钥信息）三个成员变量的取值，然后调用 genTestUserSig() 函数即可快速获取 UserSig。
 为了简化实现过程，我们提供了下列语言或平台的 UserSig 计算源码，您可以直接下载并集成到您的客户端。
 
-|语言版本|适用平台|源码位置|
-|---|---|---|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
-| Objective-C | Mac  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/debug/GenerateTestUserSig.java)|
-| C++ | Windows | [Github](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h)|
+| 编程语言 | 所属平台 | 目标变量 |
+| :---: | :---: | :---: |
+| Java | Android | [GenerateTestUserSig](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java)  |
+| Objective-C | iOS | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) | 
+|Objective-C | Mac | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) |
+| C++ | Windows | [TestUserSigGenerator.h](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/TestUserSigGenerator.h) |
+| Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/js/debug/GenerateTestUserSig.js) |
+| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/debug/GenerateTestUserSig.js) | 
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
->**正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。**更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
+>正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
 
 <span id="GeneratingdynamicUserSig"></span>
 ## 服务端计算 UserSig
