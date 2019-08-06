@@ -1173,12 +1173,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| frame | TRTCAudioFrame | 音频帧，仅支持 LiteAVAudioFrameFormatPCM 格式。目前只支持单声道，仅支持48K采样率，LiteAVAudioFrameFormatPCM 格式。 |
+| frame | TRTCAudioFrame | 音频帧，仅支持 TRTCAudioFrameFormatPCM 格式。目前只支持单声道，仅支持48K采样率，TRTCAudioFrameFormatPCM 格式。 |
 
 __介绍__
 
 TRTCAudioFrame 推荐如下填写方式（其他字段不需要填写）：
-- audioFormat：仅支持 LiteAVAudioFrameFormatPCM。
+- audioFormat：仅支持 TRTCAudioFrameFormatPCM。
 - data：音频帧 buffer。
 - length：音频帧数据长度，推荐每帧20ms采样数。
  例如，使用 PCM 格式、采样率为48000，则单声道的帧长度为`48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节`
