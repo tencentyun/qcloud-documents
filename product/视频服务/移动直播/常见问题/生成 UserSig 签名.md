@@ -6,7 +6,7 @@ UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶
 
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 
-UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID和ExpireTime 等关键信息进行了一次哈希加密：
+UserSig 的计算原理如下所示，其本质就是对 SDKAppID、UserID 和 ExpireTime 等关键信息进行了一次哈希加密：
 
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
