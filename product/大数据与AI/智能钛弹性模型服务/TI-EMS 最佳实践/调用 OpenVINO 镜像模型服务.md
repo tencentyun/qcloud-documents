@@ -6,7 +6,7 @@
 **2. 测试图片：** [imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label为230的图片）
 ### 创建模型服务配置
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_vino，单击【运行环境】，在弹出页面的【公共镜像】栏选择 openvino。
-![](https://main.qcloudimg.com/raw/063016fdb74be44a3f74fa89b24fd022.png)
+![](https://main.qcloudimg.com/raw/16e3eefdd8afd7cb8bf158e8f47e6b84.png)
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception_v4_ir 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/b07db8a21f4a7e76a181b6a601ef9e92.png)
 选择模型资源配置，单击【CPU 配置】，选择 2CPU 核 8G 内存配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
