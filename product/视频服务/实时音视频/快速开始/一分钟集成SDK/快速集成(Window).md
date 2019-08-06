@@ -45,7 +45,7 @@
 #### **4.2：添加 copy 命令**
 打开 TRTCDemo 属性页，选择【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，在【生成事件】>【后期生成事件命令行】中添加以下命令，从而实现在编译完成后自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：。
 ```
-copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\\*.dll" "$(ProjectDir)$(OutDir)"
+copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ```
  ![](https://main.qcloudimg.com/raw/1530f7eadcf746b56a86e773638ee581.png)
  
