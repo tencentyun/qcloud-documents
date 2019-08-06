@@ -27,12 +27,12 @@
      <tr>
          <th>编程语言</th>  
          <th nowrap="nowrap">所属平台</th>  
-         <th nowrap="nowrap">目标变量</th>  
+         <th nowrap="nowrap">下载链接</th>  
      </tr>
 	 <tr>      
          <td>Java</td>   
 	     <td>Android</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java">GenerateTestUserSig</a></td>   
+	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java">GenerateTestUserSig.java</a></td>   
      </tr> 
 	 <tr>
 	     <td>Objective-C</td>   
