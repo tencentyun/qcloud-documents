@@ -4,7 +4,7 @@
     <th width="150px">Android</th>
     <th width="150px">Mac OS</th>
     <th width="150px">Windows</th>
-    <th width="150px">Chrome浏览器</th>
+    <th width="150px">Web</th>
     <th width="150px">微信小程序</th>
   </tr>
   <tr>
@@ -19,25 +19,21 @@
 </table>
 
 **iOS** 
-
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/3b40b70c24019ca487514f70bbcf1084.jpg" />
+![](https://main.qcloudimg.com/raw/3b40b70c24019ca487514f70bbcf1084.jpg)
 
 **Android**
+![](https://main.qcloudimg.com/raw/c840f483bfef5cc1b05eff87fc3d3e70.jpg)
 
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/1c184557196ce8c0a862334f4aefd552.jpg" />
 
 **Mac OS**
-
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg" />
+![](https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg)
 
 **Windows** 
-
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg" />
+![](https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg)
 
 **微信小程序**
+![](https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg)
 
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg" />
+**Web**
+![](https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg)
 
-**Chrome 浏览器**
-
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg" />

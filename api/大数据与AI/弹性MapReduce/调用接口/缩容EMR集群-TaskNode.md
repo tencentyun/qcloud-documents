@@ -4,15 +4,15 @@
 
 接口请求域名：`emr.api.qcloud.com`
 
-1) 用户指定下线一个或多个 TaskNode。
-2) TaskNode 下线后，部署在被下线 TaskNode 上的软件会被删除，节点从对应的软件集群中下线。
+1. 用户指定下线一个或多个 TaskNode。
+2. TaskNode 下线后，部署在被下线 TaskNode 上的软件会被删除，节点从对应的软件集群中下线。
 
 ## 输入参数
  以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="https://cloud.tencent.com/doc/api/229/6976" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 EmrDestroyTaskNode。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| ClusterId | 是 | string | emr 集群 ID，emr-xxxx 格式 |
+| ClusterId | 是 | string | EMR 集群 ID，emr-xxxx 格式 |
 | IPs.n | 是 | array string | 待下线 Task 节点的 IP |
 
 ## 输出参数
@@ -24,7 +24,7 @@
 
 ## 示例
 
-下线一个 Task 节点：
+下线一个 Task 节点。
 
 输入：
 <pre>

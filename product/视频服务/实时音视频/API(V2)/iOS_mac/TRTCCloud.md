@@ -5,9 +5,31 @@ TRTCCloud @ TXLiteAVSDK。
 
 
 ## 创建与销毁
+### delegate
+
+设置回调接口 TRTCCloudDelegate。
+```
+@property (nonatomic, weak) id< TRTCCloudDelegate > delegate;
+```
+
+__介绍__
+
+您可以通过 TRTCCloudDelegate 获得来自 SDK 的各种状态通知，详见 TRTCCloudDelegate.h 中的定义。
+
+### delegateQueue
+
+设置驱动 TRTCCloudDelegate 回调的队列。
+```
+@property (nonatomic, strong) dispatch_queue_t delegateQueue;
+```
+
+__介绍__
+
+SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate，也就是说，如果您不指定自己的 delegateQueue， SDK 的 TRTCCloudDelegate 回调都将由 Main Queue 来调用。此时您在 TRTCCloudDelegate 的回调函数里操作 UI 是线程安全的。
+
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -15,7 +37,7 @@ TRTCCloud @ TXLiteAVSDK。
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -37,7 +59,12 @@ __参数__
 | param | [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams) * | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32261#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32261#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
+__介绍__
+
+如果加入成功，您会收到来自 TRTCCloudDelegate 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+
+>?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+
 
 
 ### exitRoom
@@ -46,6 +73,11 @@ __参数__
 ```
 - (void)exitRoom
 ```
+
+__介绍__
+
+调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 TRTCCloudDelegate 中的 onExitRoom() 回调通知到您。
+如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
 ### switchRole
@@ -68,7 +100,7 @@ __介绍__
 
 ### connectOtherRoom
 
-请求跨房通话。
+请求跨房通话（主播 PK）。
 ```
 - (void)connectOtherRoom:(NSString *)param 
 ```
@@ -81,18 +113,38 @@ __参数__
 
 __介绍__
 
-TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，该功能意义不大。 在直播场景下，该功能可用于实现“主播 PK”的功能，即两个主播在已经有各自音视频房间存在的情况下， 通过跨房通话功能，可以在保留两个音视频房间的情况下把麦上的主播拉通在一起。
-跨房通话的参数采用了 JSON 格式，要求至少包含两个字段：
-- roomId：连麦房间号，例如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
-- userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。这样一来， 两个主播可以不用退出各自原来的直播间就能进行“连麦 PK”。
+例如：当房间“001”中的主播 A 通过 connectOtherRoom() 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，YES) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，YES) 回调。
+简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 
-跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom 回调通知给您。
+<pre>
+                房间 001                     房间 002
+              -------------               ------------
+ 跨房通话前：| 主播 A      |             | 主播 B     |
+             | 观众 U V W  |             | 观众 X Y Z |
+              -------------               ------------</pre>
+
+
+
+<pre>                房间 001                     房间 002
+              -------------               ------------
+ 跨房通话后：| 主播 A B    |             | 主播 B A   |
+             | 观众 U V W  |             | 观众 X Y Z |
+              -------------               ------------
+</pre>
+
+跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
+- roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 roomId 应指定为“002”。
+- userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 userId 应指定为 B 的 userId。
+
+
+跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
   NSMutableDictionary * jsonDict = [[NSMutableDictionary alloc] init];
-  [jsonDict setObject:@(678) forKey:"roomId"];
+  [jsonDict setObject:@(002) forKey:"roomId"];
   [jsonDict setObject:@"userB" forKey:@"userId"];
   NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:nil];
   NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -110,7 +162,7 @@ TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，�
 
 __介绍__
 
-跨房通话的退出结果会通过 TRTCCloudDelegate 中的 onDisconnectOtherRoom 回调通知给您。
+跨房通话的退出结果会通过 TRTCCloudDelegate 中的 onDisconnectOtherRoom() 回调通知给您。
 
 
 
@@ -129,6 +181,10 @@ __参数__
 | frontCamera | BOOL | YES：前置摄像头；NO：后置摄像头。 |
 | view | TXView * | 承载视频画面的控件。 |
 
+__介绍__
+
+当开始渲染首帧摄像头画面时，您会收到 TRTCCloudDelegate 中的 onFirstVideoFrame(nil) 回调。
+
 
 ### startLocalPreview
 
@@ -145,7 +201,7 @@ __参数__
 
 __介绍__
 
-在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带的摄像头还是外接摄像头。
+在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带的摄像头还是外接摄像头。 当开始渲染首帧摄像头画面时，您会收到 TRTCCloudDelegate 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### stopLocalPreview
@@ -154,50 +210,6 @@ __介绍__
 ```
 - (void)stopLocalPreview
 ```
-
-
-### startRemoteView
-
-开始显示远端视频画面。
-```
-- (void)startRemoteView:(NSString *)userId view:(TXView *)view 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | NSString * | 对方的用户标识。 |
-| view | TXView * | 承载视频画面的控件。 |
-
-__介绍__
-
-在收到 SDK 的 onUserVideoAvailable 回调时，调用这个接口，就可以显示远端视频的画面了。
-
-
-### stopRemoteView
-
-停止显示远端视频画面。
-```
-- (void)stopRemoteView:(NSString *)userId 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | NSString * | 对方的用户标识。 |
-
-
-### stopAllRemoteView
-
-停止显示所有远端视频画面。
-```
-- (void)stopAllRemoteView
-```
-
->?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
-
 
 
 ### muteLocalVideo
@@ -216,6 +228,87 @@ __参数__
 __介绍__
 
 当屏蔽本地视频后，房间里的其它成员将会收到 onUserVideoAvailable 回调通知。
+
+
+### startRemoteView
+
+开始显示远端视频画面。
+```
+- (void)startRemoteView:(NSString *)userId view:(TXView *)view 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | NSString * | 对方的用户标识。 |
+| view | TXView * | 承载视频画面的控件。 |
+
+__介绍__
+
+在收到 SDK 的 onUserVideoAvailable(userid， YES) 通知时，可以获知该远程用户开启了视频， 之后调用 startRemoteView(userid) 接口加载该用户的远程画面，此时可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您还会收到 onFirstVideoFrame(userid) 事件回调。
+
+
+### stopRemoteView
+
+停止显示远端视频画面。
+```
+- (void)stopRemoteView:(NSString *)userId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | NSString * | 对方的用户标识。 |
+
+__介绍__
+
+调用此接口后，SDK 会停止接收该用户的远程视频流，同时会清理相关的视频显示资源。
+
+
+### stopAllRemoteView
+
+停止显示所有远端视频画面。
+```
+- (void)stopAllRemoteView
+```
+
+>?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
+
+
+
+### muteRemoteVideoStream
+
+暂停接收指定的远端视频流。
+```
+- (void)muteRemoteVideoStream:(NSString *)userId mute:(BOOL)mute 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | NSString * | 对方的用户标识。 |
+| mute | BOOL | 是否停止接收。 |
+
+__介绍__
+
+该接口仅停止接收远程用户的视频流，但并不释放显示资源，所以视频画面会冻屏在 mute 前的最后一帧。
+
+
+### muteAllRemoteVideoStreams
+
+停止接收所有远端视频流。
+```
+- (void)muteAllRemoteVideoStreams:(BOOL)mute 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | BOOL | 是否停止接收。 |
 
 
 ### setVideoEncoderParam
@@ -369,7 +462,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 是否开启远端镜像，YES：开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
+| mirror | BOOL | 是否开启远端镜像，YES:开启远端画面镜像；NO：关闭远端画面镜像；默认值：NO。 |
 
 __介绍__
 
@@ -524,7 +617,7 @@ __介绍__
 
 ### muteRemoteAudio
 
-静音某一个用户的声音。
+静音掉某一个用户的声音。
 ```
 - (void)muteRemoteAudio:(NSString *)userId mute:(BOOL)mute 
 ```
@@ -539,7 +632,7 @@ __参数__
 
 ### muteAllRemoteAudio
 
-静音所有用户的声音。
+静音掉所有用户的声音。
 ```
 - (void)muteAllRemoteAudio:(BOOL)mute 
 ```
@@ -562,11 +655,45 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | NSUInteger | 决定了 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；详细的回调规则请参考 onUserVoiceVolume 的注释说明。 |
+| interval | NSUInteger | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；。 |
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。
+开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。 如希望打开此功能，请在 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前调用。
+
+
+### startAudioRecording
+
+开始录音。
+```
+- (int)startAudioRecording:(TRTCAudioRecordingParams *)param 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| param | [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32261#trtcaudiorecordingparams) * | 录音参数，请参考TRTCAudioRecordingParams。 |
+
+__返回__
+
+0：成功；-1：录音已开始；-2：文件或目录创建失败；-3：后缀指定的音频格式不支持。
+
+__介绍__
+
+该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM等)录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
+
+
+### stopAudioRecording
+
+停止录音。
+```
+- (void)stopAudioRecording
+```
+
+__介绍__
+
+如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 
@@ -1036,7 +1163,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4，nil 表示关闭特效。 |
+| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
 
 __介绍__
 
@@ -1911,7 +2038,7 @@ __参数__
 
 __介绍__
 
-仪表盘是状态统计和事件消息浮层 view，方便调试。 
+仪表盘是状态统计和事件消息浮层　view，方便调试。 
 
 
 
