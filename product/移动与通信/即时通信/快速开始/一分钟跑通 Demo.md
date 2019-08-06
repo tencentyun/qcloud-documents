@@ -65,7 +65,8 @@
   >
 3. 设置`GenerateTestUserSig`文件中的相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
- -  SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
+ - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
+
 ![](https://main.qcloudimg.com/raw/c341ba539ab0272b0a01f2bdb85cb062.png)
 
 
