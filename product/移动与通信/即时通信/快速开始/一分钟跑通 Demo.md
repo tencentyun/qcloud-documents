@@ -37,7 +37,7 @@
 	 <tr>
 	     <td>Objective-C</td>   
 	     <td>iOS</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h"></a>GenerateTestUserSig.h</td>
+	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>
      </tr> 
 	 <tr>      
          <td>Objective-C</td>   
