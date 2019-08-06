@@ -17,9 +17,10 @@ IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙
 
 |语言版本|适用平台|源码位置|
 |---|---|---|
-|Objective-C|iOS|[Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
-|Java|Android|[Github](https://github.com/tencentyun/TIMSDK/tree/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/debug/GenerateTestUserSig.java)|
-|C++|Windows|[Github](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/TestUserSigGenerator.cpp)|
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
+| Objective-C | Mac  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/debug/GenerateTestUserSig.java)|
+| C++ | Windows | [Github](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h)|
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >**正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。**更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
@@ -31,14 +32,12 @@ IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙
 
 | 语言版本 | 关键函数 | 下载链接 |
 |---------|---------|---------|
-| Java | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java) | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)|
-| GO | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang)|
-| PHP | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)|
-| Node.js | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
-| Python | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
-| C# | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
-| C++ | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp/blob/master/src/tls_sig_api_v2.cpp) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
-
+| Java | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-java/blob/master/src/main/java/com/tencentyun/TLSSigAPIv2.java)  | [Github](https://github.com/tencentyun/tls-sig-api-v2-java)|
+| GO | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-golang/blob/master/tencentyun/TLSSigAPI.go) | [Github](https://github.com/tencentyun/tls-sig-api-v2-golang)|
+| PHP | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-php/blob/master/src/TLSSigAPIv2.php) | [Github](https://github.com/tencentyun/tls-sig-api-v2-php)|
+| Nodejs | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
+| Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
+| C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
 
 ## 老版本算法
