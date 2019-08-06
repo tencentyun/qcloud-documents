@@ -34,7 +34,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [startLocalPreview](https://cloud.tencent.com/document/product/647/36778#startlocalpreview) | 开启本地视频的预览画面 (Mac 版本)。 |
+| [startLocalPreview](https://cloud.tencent.com/document/product/647/36778#startlocalpreview) | 开启本地视频的预览画面。 |
 | [stopLocalPreview](https://cloud.tencent.com/document/product/647/36778#stoplocalpreview) | 停止本地视频采集及预览。 |
 | [muteLocalVideo](https://cloud.tencent.com/document/product/647/36778#mutelocalvideo) | 是否屏蔽自己的视频画面。 |
 | [startRemoteView](https://cloud.tencent.com/document/product/647/36778#startremoteview) | 开始显示远端视频画面。 |
