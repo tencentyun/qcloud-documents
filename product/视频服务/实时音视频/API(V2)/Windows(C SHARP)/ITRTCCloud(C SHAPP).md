@@ -157,7 +157,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知给您。
 
 <pre>
-  //此处用到 jsoncpp 库来格式化json字符串
+  //此处用到 jsoncpp 库来格式化 JSON 字符串
   dynamic jsonObj = new JObject();
   jsonObj["roomId"] = 002;
   jsonObj["userId"] = "userB";
@@ -240,7 +240,7 @@ __参数__
 
 __介绍__
 
-在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以得知该远程用户开启了视频，调用 startRemoteView(userId) 接口加载该用户的远程画面时，可以用 loading 动画优化加载过程中的等待体验。待该用户的首帧画面开始显示时，您还会收到 onFirstVideoFrame(userId) 事件回调。
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以得知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面时，可以用 loading 动画优化加载过程中的等待体验。待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
 
 
 ### stopRemoteView
@@ -410,7 +410,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 两个旋转角度。 |
+| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度。 |
 
 
 ### setLocalViewMirror
@@ -442,7 +442,7 @@ __参数__
 
 __介绍__
 
-该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制的）画面效果。
 
 
 ### enableSmallVideoStream
@@ -463,8 +463,8 @@ __介绍__
 
 如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果用户的下行网络很好，可以选择观看【高清】画面
+- 如果用户的下行网络不好，可以选择观看【低清】画面。
 
 
 ### setRemoteVideoStreamType
