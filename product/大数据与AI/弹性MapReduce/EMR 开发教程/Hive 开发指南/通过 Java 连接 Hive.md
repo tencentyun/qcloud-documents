@@ -34,7 +34,7 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 其中 $hs2host 为您的 HiveServer2 的 hostID，$hs2port 为您的 HiveServer2 的端口号。
 
 ### 新建一个 Maven 工程
-推荐使用Maven 来管理您的工程。Maven 是一个项目管理工具，能够帮助您方便的管理项目的依赖信息，即它可以通过 pom.xml 文件的配置获取 jar 包，而不用去手动添加。
+推荐使用 Maven 来管理您的工程。Maven 是一个项目管理工具，能够帮助您方便的管理项目的依赖信息，即它可以通过 pom.xml 文件的配置获取 jar 包，而不用去手动添加。
 
 首先在本地下载并安装 Maven，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
 在本地 shell 下进入要新建工程的目录，例如`D://mavenWorkplace`中，输入如下命令新建一个 Maven 工程：
@@ -177,25 +177,28 @@ public class HiveTest {
 }
 
 ```
-注意将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。
+>!将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。
+
 整个程序会先连接 HiveServer2 服务，然后在 default 数据库中建立一个名为 HiveTestByJave 的表。然后插入两个元素到该表中，并最后输出整个表的内容。
 如果您的 Maven 配置正确并且成功的导入了依赖包，那么整个工程应该没有错误可以直接编译。在本地 shell 下进入工程目录，执行下面的命令对整个工程进行打包：
 
-`mvn package`
-
+```
+mvn package
+```
 运行过程中可能还需要下载一些文件，直到出现 build success 表示打包成功。然后您可以在工程目录下的 target 文件夹中看到打好的 jar 包。
 
 ## 3. 上传并运行程序
 首先需要把压缩好的 jar 包上传到 EMR 集群中，使用 scp 或者 sftp 工具来进行上传。在本地 shell 下运行：
 
-`scp $localfile root@公网IP地址:/usr/local/service/hive`
-
+```
+scp $localfile root@公网IP地址:/usr/local/service/hive
+```
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。将打好的 jar 包上传到 EMR 集群的`/usr/local/service/hive`目录下。上传完成后，在 EMR 命令行中即可查看对应文件夹下是否有相应文件。**一定要上传具有依赖的 jar 包**。
 
 登录 EMR 集群切换到 Hadoop 用户并且进入目录`/usr/local/service/hive`。接下来可以执行程序：
-
-`[hadoop@172 hive]$ yarn jar $package.jar HiveTest`
-
+```
+[hadoop@172 hive]$ yarn jar $package.jar HiveTest
+```
 其中 $package.jar 为您的 jar 包的路径加名字，HiveTest 为之前的 Java Class 的名字。运行结果如下：
 
 ```

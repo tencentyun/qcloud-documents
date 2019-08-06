@@ -1,4 +1,4 @@
-在服务的详情页中会显示出服务提供的 API 列表。API 列表显示服务对外提供的 API。
+在服务的详情页中会显示服务提供的 API 列表。API 列表显示服务对外提供的 API。
 单击 API 进入详情页，可以查看到 API 的详细信息。
 ![](https://main.qcloudimg.com/raw/328d3f8bdcae038d27aac23a5f33eacd.png)
 

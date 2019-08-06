@@ -7,9 +7,8 @@
                 andAppChannel:(NSString *)appChannel;
 ```
 接口说明：初始化 Wns 系统
-参数说明：
+参数说明：initWithAppID
 
-| 参数 | 类型 | 必选 | 说明 initWithAppID
 
 ```
 - (instancetype)initWithAppID:(int)appID
@@ -22,8 +21,8 @@
 | 参数 | 类型 | 必选 | 说明 |
 |---------|---------|---------|---------|
 | appID | int | 是 | WNS 控制台分配给 app 的 id |
-| appVersion | NSString | 否 | app 的版本号 |
-| appChannel | NSString | 否 | app 的发布渠道信息:该值填"DEBUG"和"RDM"时, 后台会分别使用 DEBUG 和 RDM 证书进行苹果推送, 填其它值时, 默认使用正式的证书来进行苹果推送 |
+| appVersion | NSString | 否 | App 的版本号 |
+| appChannel | NSString | 否 | App 的发布渠道信息:该值填"DEBUG"和"RDM"时, 后台会分别使用 DEBUG 和 RDM 证书进行苹果推送, 填其它值时, 默认使用正式的证书来进行苹果推送 |
 
 
 ### reset

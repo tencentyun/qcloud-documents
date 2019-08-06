@@ -22,12 +22,15 @@ HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I
 ```
 
 通过如下命令您可以进入 Hbase Shell ：
-`[hadoop@10hbase]$ bin/hbase shell`
+```
+[hadoop@10hbase]$ bin/hbase shell
+```
 
 在 hbase shell 下输入 help 可以查看基本的使用信息和示例的指令。接下来我们使用以下指令建立一个新表：
-`hbase(main):001:0> create 'test', 'cf'`
-
-建好表格之后，可以使用 `list` 指令来查看您建立的表是否已经存在。
+```
+hbase(main):001:0> create 'test', 'cf'
+```
+表格建立后，可以使用 `list` 指令来查看您建立的表是否已经存在。
 ```
 hbase(main):002:0> list 'test'
 TABLE                                                                             
@@ -49,7 +52,7 @@ hbase(main):005:0> put 'test', 'row3', 'cf:c', 'value3'
 0 row(s) in 0.0100 seconds
 ```
 
-我们在创建的表中加入了三个值，第一次在 “row1” 行 “cf:a” 列插入了一个值 “value1”，以此类推。
+我们在创建的表中加入了三个值，第一次在“row1”行“cf:a”列插入了一个值“value1”，以此类推。
 使用`scan`指令来遍历整个表：
 ```
 hbase(main):006:0> scan 'test'
@@ -150,7 +153,7 @@ simple
 ```
 在添加样例代码之前，需要用户获取 Hbase 集群的 zookeeper 地址。登录 EMR 任意一台 Master 节点或者 Core 节点，进入 `/usr/local/service/hbase/conf` 目录，查看 base-site.xml 的 hbase.zookeeper.quorum 配置获得 zookeeper 的 IP 地址 $quorum，hbase.zookeeper.property.clientPort 配置获得 zookeeper 的端口号 $clientPort。
 
-接下来添加样例代码，在 【main】>【java】文件夹下新建一个 Java Class 取名为 PutExample.java，并将以下代码加入其中：
+接下来添加样例代码，在 main>java 文件夹下新建一个 Java Class 取名为 PutExample.java，并将以下代码加入其中：
 ```
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.*;
@@ -203,18 +206,21 @@ public class PutExample {
 
 ### 编译代码并打包上传
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
-`mvn package`
-
+```
+mvn package
+```
 在显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
 使用 scp 或者 sftp 工具来把把打包好的文件上传到 EMR 集群。注意这里一定要上传把依赖一起进行打包的 jar 包。在本地命令行模式下运行：
-`scp $localfile root@公网IP地址:$remotefolder`
-
+```
+scp $localfile root@公网IP地址:$remotefolder
+```
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ## 4. 运行样例
 登录 EMR 集群的 Master 节点，并且切换到 Hhadoop 用户。使用如下指令来执行样例：
-`[hadoop@10 hadoop]$ java –jar $package.jar`
-
+```
+[hadoop@10 hadoop]$ java –jar $package.jar
+```
 在控制台输出“Done”之后，说明所有的操作已经完成。可以切换到 hbase shell 中使用`list`命令来查看使用 API 创建的 Hbase 表是否成功。如果成功可以使用`scan`命令来查看表的具体内容。
 ```
 [hadoop@10hbase]$ bin/hbase shell

@@ -1,0 +1,47 @@
+## 功能概述
+腾讯云数据万象通过 **imageMogr2** 接口提供图片缩放功能。
+
+## 接口形式
+```
+download_url?imageMogr2/thumbnail/<imageSizeAndOffsetGeometry>
+```
+
+## 参数说明
+
+操作名称：thumbnail。
+
+| 参数                          | 含义                                                         |
+| ----------------------------- | ------------------------------------------------------------ |
+| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.<picture region>.<domain>.com/<picture name>`，例如 `examplebucket-1250000000.picsh.myqcloud.com/picture.jpeg`。 |
+| /thumbnail/!&lt;Scale>p          | 指定图片的宽高为原图的 Scale%。                              |
+| /thumbnail/!&lt;Scale>px         | 指定图片的宽为原图的 Scale%，高度不变。                     |
+| /thumbnail/!x&lt;Scale>p         | 指定图片的高为原图的 Scale%，宽度不变。                     |
+| /thumbnail/&lt;Width>x           | 指定目标图片宽度为 Width，高度等比压缩。                    |
+| /thumbnail/x&lt;Height>          | 指定目标图片高度为 Height，宽度等比压缩。                   |
+| /thumbnail/&lt;Width>x&lt;Height>   | 限定缩略图的宽度和高度的最大值分别为 Width 和 Height，进行等比缩放。 |
+| /thumbnail/!&lt;Width>x&lt;Height>r | 限定缩略图的宽度和高度的最小值分别为 Width 和 Height，进行等比缩放。 |
+| /thumbnail/&lt;Width>x&lt;Height>!  | 忽略原图宽高比例，指定图片宽度为 Width，高度为 Height ，强行缩放图片，可能导致目标图片变形。 |
+| /thumbnail/&lt;Area>@            | 等比缩放图片，缩放后的图像，总像素数量不超过 Area。          |
+
+## 示例
+
+原图如下：
+![](https://main.qcloudimg.com/raw/3d4682ff8e622425ebd29913810a5c38.jpeg)
+
+**缩放宽高**
+假设缩放图片宽高为原图50%，示例如下：
+```
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/thumbnail/!50p
+```
+
+最终效果如下：
+![](https://main.qcloudimg.com/raw/2b64595a4a7046dc03f43a2a578764de.jpeg)
+
+**缩放宽度，高度不变**
+假设缩放指定图片宽度为原图50%，高度不变，示例如下：
+```
+http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/thumbnail/!50px
+```
+
+最终效果如下：
+![](https://main.qcloudimg.com/raw/988ad350c611a662156e34c28aa5f8a2.jpeg)

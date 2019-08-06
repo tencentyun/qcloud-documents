@@ -45,12 +45,12 @@ Form
    </tr>
    <tr>
       <td>acl</td>
-      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default；默认值：default（继承 Bucket 权限）；<br>注意：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
+      <td>定义 Object 的 ACL 属性，有效值：private，public-read，default，默认值：default（继承 Bucket 权限）。注意：当前访问策略条目限制为1000条，如果您不需要进行 Object ACL 控制，请填 default 或者此项不进行设置，默认继承 Bucket 权限</td>
       <td>String</td>
       <td>否</td>
    </tr>
    <tr>
-      <td>Cache-Control, Content-Type, Content-Disposition, Content-Encoding, Expires</td>
+      <td>Cache-Control，Content-Type，Content-Disposition，Content-Encoding， Expires&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>RFC 2616 中定义的头部，请参见 <a href="https://cloud.tencent.com/document/product/436/7749">PUT Object</a> 文档</td>
       <td>String</td>
       <td>否</td>
@@ -63,13 +63,13 @@ Form
    </tr>
    <tr>
       <td>key</td>
-      <td>上传后的文件名，使用 ${filename} 则会进行替换，例如 a/b/${filename}，上传文件 photo.jpg，那么最终的上传路径就是 a/b/photo.jpg</td>
+      <td>上传后的文件名，使用<code>${filename}</code>则会进行替换，例如<code>a/b/${filename}</code>，上传文件 photo.jpg，那么最终的上传路径就是<code>a/b/photo.jpg</code></td>
       <td>String</td>
       <td>是</td>
    </tr>
    <tr>
       <td>success_action_redirect</td>
-      <td>若设置优先生效，返回303，并提供 Location 头部，在 URL 尾部加上 bucket={bucket}&key={key}&etag={%22etag%22} 参数</td>
+      <td>若设置优先生效，返回303，并提供 Location 头部，在 URL 尾部加上<code>bucket={bucket}&key={key}&etag={%22etag%22}</code>参数</td>
       <td>String</td>
       <td>否</td>
    </tr>
@@ -81,7 +81,7 @@ Form
    </tr>
    <tr>
       <td>x-cos-meta-*</td>
-      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB。注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线</td>
+      <td>包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为2KB<br>注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线</td>
       <td>String</td>
       <td>否</td>
    </tr>
@@ -111,10 +111,10 @@ Form
 
 | 表单字段         | 描述                                                         |
 | ---------------- | ----------------------------------------- |
-| policy           | 经过 Base64 加密的策略内容，策略内容将用于对请求内容的检查。如果请求内容与策略指定条件不符，则请求将被拒绝。 |
+| policy           | 经过 Base64 加密的策略内容，策略内容将用于对请求内容的检查。如果请求内容与策略指定条件不符，则请求将被拒绝 |
 | q-sign-algorithm | 用于计算签名的算法，腾讯云 COS 目前支持 SHA1，此处填写小写 sha1 |
 | q-ak             | 用户在腾讯云的账户密钥 ID，即 SecretId                     |
-| q-key-time      | 用于请求签名的密钥有效起止时间，通过 Unix 时间戳描述起始和结束时间，以秒为单位，格式为 [start-seconds];[end-seconds]。例如`1480932292;1481012298` |
+| q-key-time      | 用于请求签名的密钥有效起止时间，通过 Unix 时间戳描述起始和结束时间，以秒为单位<br>格式为 `[start-seconds];[end-seconds]`，例如`1480932292;1481012298` |
 | q-signature      | 使用上述元素计算的请求签名，COS 将会使用表单元素与签名内容做校验，若签名与所签内容不一致，则请求将被拒绝 |
 
 #### 签名计算
@@ -163,7 +163,7 @@ Form
 | key                     | 对象的存储路径                                  | 完全、前缀 |
 | success_action_redirect | 上传成功后返回的 URL                             | 完全、前缀 |
 | success_action_status   | 上传成功后返回的状态                               | 完全    |
-| x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB<br>**注意**：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线  | 完全、前缀 |
+| x-cos-meta-\*            | 包括用户自定义头部后缀和用户自定义头部信息，将作为 Object 元数据返回，大小限制为 2KB<br>注意：用户自定义头部信息支持下划线，但用户自定义头部后缀不支持下划线  | 完全、前缀 |
 | x-cos-\*      | 其他需要签署的 COS 头部            | 完全    |
 
 
@@ -184,7 +184,7 @@ Form
 #### 响应参数
 |名称|描述|类型|
 |:---|:-- |:-- |
-| ETag| 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 在上传过程中是否有损坏|String|
+| ETag| 返回文件的 MD5 算法校验值，ETag 的值可以用于检查 Object 在上传过程中是否有损坏|String|
 | Location| 若指定了上传 success_action_redirect 则返回对应的值，若无指定则返回对象完整的路径|String|
 
 
@@ -218,7 +218,7 @@ Container 节点 PostResponse 的内容：
 
 
 #### 错误码
-以下描述此请求可能会发生的一些特殊的且常见的错误情况。关于 COS 更多的错误码信息，请查见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+以下描述此请求可能会发生的一些特殊的且常见的错误情况。关于 COS 更多的错误码信息，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                  |   HTTP 状态码                                      |    描述       |
 | ------------------- | --------------------------------------- | ------------------ |
