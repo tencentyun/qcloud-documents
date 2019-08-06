@@ -67,7 +67,7 @@
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
 
-![](https://main.qcloudimg.com/raw/c341ba539ab0272b0a01f2bdb85cb062.png)
+![](https://main.qcloudimg.com/raw/992eb973ce2d844b76b6b78ae35fe6c0.png)
 
 
 >!本文提到的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
