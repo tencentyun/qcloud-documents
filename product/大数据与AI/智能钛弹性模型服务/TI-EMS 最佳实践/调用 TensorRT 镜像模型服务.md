@@ -13,9 +13,9 @@
 ![](https://main.qcloudimg.com/raw/0829979f9c7bb347b992ad153f75c277.png)
 ### 启动服务
 在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【启动服务】，进入启动服务页面。
-![](https://main.qcloudimg.com/raw/7407dacfca76da4db693ef12800c6395.png)
+![](https://main.qcloudimg.com/raw/e7b2a5195603767ac22cf0814234ecc1.png)
 在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
-![](https://main.qcloudimg.com/raw/495315698f1c4ad508d69df0480c3345.png)
+![](https://main.qcloudimg.com/raw/7407dacfca76da4db693ef12800c6395.png)
 ### 获得访问地址和密钥
 单击【启动模型服务】页面选择 demo_tensorrt 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_tensorrt 模型服务的访问地址 IP 和密钥 TOKEN。
 ![](https://main.qcloudimg.com/raw/0d25e928082ab5ddf0f0a82d2ebb37f0.png)
