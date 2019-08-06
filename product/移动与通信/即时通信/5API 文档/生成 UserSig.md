@@ -39,3 +39,21 @@ IM SDK 示例代码中提供的 `GenerateTestUserSig`的开源模块可以帮忙
 | C# | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 | C++ | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp/blob/master/src/tls_sig_api_v2.cpp) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
 
+
+
+## 老版本算法
+
+为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256。 2019.07.19以后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
+
+如果您的 SDKAppID 是2019.07.19之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
+
+| 语言版本 | 签名算法 | 下载链接 |
+|:---------:|:---------:|:---------:|
+| Objective-C | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-oc)|
+| Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
+| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
+| GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
+| PHP | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-php)|
+| Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
+| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
+| Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
