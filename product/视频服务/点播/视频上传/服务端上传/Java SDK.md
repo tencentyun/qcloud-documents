@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 Java SDK 来实现。上传流程请参见 [服务端上传指引](/document/product/266/9759)。
+对于在服务端上传视频的场景，云点播提供 Java SDK 来实现。上传流程请参见 [服务端上传指引](/document/product/266/9759)。
 
 ## 集成方式
 
@@ -16,21 +16,21 @@
 
 ### jar 包导入
 
-如果项目没有采用 Maven 的方式进行依赖管理，可采用下述方式，下载各个所需的 jar 包，导入项目即可：
+如果项目没有采用 Maven 的方式进行依赖管理，可采用如下方式，下载各个所需的 jar 包，导入项目即可：
 
 | jar 文件         | 说明    |
 | ------------ | ------------ | 
-| vod_api-2.1.1.jar | 点播 SDK。 |
+| vod_api-2.1.1.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
 | tencentcloud-sdk-java-3.0.58.jar             | 腾讯云 API SDK。                        |
 | commons-codec-1.10.jar,commons-logging-1.2.jar,log4j-1.2.17.jar,slf4j-api-1.7.21.jar,slf4j-log4j12-1.7.21.jar           | 开源日志相关库。    |
-| httpclient-4.5.3.jar,httpcore-4.4.6.jar,okhttp-2.5.0.jar,okio-1.6.0.jar | 开源的 http 处理库。                            |
+| httpclient-4.5.3.jar,httpcore-4.4.6.jar,okhttp-2.5.0.jar,okio-1.6.0.jar | 开源的 HTTP 处理库。                            |
 | joda-time-2.9.9.jar | 开源时间处理库。                            |
 | jaxb-api-2.3.0.jar | 开源 XML 处理库。                            |
 | bcprov-jdk15on-1.59.jar | 开源加密处理库。                            |
 
-单击 [Java SDK 关联 jar 包](https://github.com/tencentyun/vod-java-sdk/raw/master/packages/vod-sdk-jar.zip)，将下载的 jar 包导入项目中，即可使用：
+单击 [Java SDK 关联 jar 包](https://github.com/tencentyun/vod-java-sdk/raw/master/packages/vod-sdk-jar.zip)，将下载的 jar 包导入项目中，即可使用。
 
 
 
@@ -109,14 +109,14 @@ try {
 ```
 
 ## 接口描述
-上传客户端类`VodUploadClient`：
+上传客户端类`VodUploadClient`
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | secretId   | 云 API 密钥 ID。        | String | 是    |
 | secretKey | 云 API 密钥 Key。 | String  | 是    |
 
-上传请求类`VodUploadRequest`：
+上传请求类`VodUploadRequest`
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
@@ -129,9 +129,9 @@ try {
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
-| SubAppId   | 点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。        | Integer | 否    |
+| SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
 
-上传响应类`VodUploadResponse`：
+上传响应类`VodUploadResponse`
 
 | 属性名称      | 属性描述                   | 类型      |
 | --------- | ---------------------- | ------- |
@@ -140,7 +140,7 @@ try {
 | CoverUrl | 媒体封面地址。 | String  |
 | RequestId | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 | String  |
 
-上传方法`VodUploadClient.upload(String region, VodUploadRequest request)`：
+上传方法`VodUploadClient.upload(String region, VodUploadRequest request)`
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
