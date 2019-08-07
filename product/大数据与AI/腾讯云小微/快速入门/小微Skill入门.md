@@ -1,5 +1,5 @@
 ## 申请 Skill
-如果你还没有通过审核，请前往[Skill 开发申请](https://xiaowei.qcloud.com/skill.html)，并填写相关注册信息，提交开通申请。
+如果您还没有通过审核，请前往[Skill 开发申请](https://xiaowei.qcloud.com/skill.html)，并填写相关注册信息，提交开通申请。
 
 在配置使用小微 Skill 前，您需要先在产品介绍页 [Skill 开发申请](https://xiaowei.qcloud.com/skill.html) 实现信息注册，并开通小微 Skill 功能。 注册需要提供如下信息：
 ![](https://mc.qcloudimg.com/static/img/219d9e375482004213e652ba77ef2545/image.png)
@@ -31,7 +31,7 @@ OAuth2 登录相关的授权页面地址、ClientID、授权模式等都是标�
 填写完以上所有基本配置内容后，单击页面右上角的【保存】按钮，可以将您填写的信息保存。
 
 ## 测试训练
-在使用 APP 前，需要在测试训练页面打开【是否启用测试】的开关。之后使用开发的 QQ 账号登录小微 APP，在技能市场页面单击【我的技能】>【开发中】，找到开发中的 Skill 并启用。
+在使用 App 前，需要在测试训练页面打开【是否启用测试】的开关。之后使用开发的 QQ 账号登录小微 App，在技能市场页面单击【我的技能】>【开发中】，找到开发中的 Skill 并启用。
 ![](https://mc.qcloudimg.com/static/img/3b17697c6027e04652b878bb7ea802e3/image.png)
 
 ## 发布 Skill
@@ -40,7 +40,7 @@ OAuth2 登录相关的授权页面地址、ClientID、授权模式等都是标�
 ![](https://mc.qcloudimg.com/static/img/98ef4cfc1c2aa60035e97f84cfdb103e/image.png)
 - **技能全称：** 用户在 Skill 市场里看到的您的 Skill 的名字，必须唯一。
 - **描述：** 用户在 Skill 市场里看到的您的 Skill 的介绍，越详细越好。
-- **最佳示例：** 需要提供 3 句能够指导用户使用你的 Skill 的例句。
+- **最佳示例：** 需要提供 3 句能够指导用户使用您的 Skill 的例句。
 - **关键字：** 用户在 Skill 市场搜索时的关键字，可以多个。
 - **技能分类：** 您的 Skill 在市场里的分类。
 - **图标：** 您的 Skill 在市场里显示的图标。
