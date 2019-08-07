@@ -175,14 +175,9 @@ try {
     PersistableUpload persistableUpload = upload.pause();
     // 恢复上传
     upload = transferManager.resumeUpload(persistableUpload);
-    // 可以显示上传进度
-    showTransferProgress(upload);
     // 等待上传任务完成
     UploadResult uploadResult = upload.waitForUploadResult();
     System.out.println(uploadResult.getETag());
-
-    // 另外也支持取消上传任务
-    transferManager.cancel();
 } catch (CosServiceException e) {
     e.printStackTrace();
 } catch (CosClientException e) {
@@ -191,7 +186,7 @@ try {
     e.printStackTrace();
 }
 
-ransferManager.shutdownNow();
+transferManager.shutdownNow();
 cosclient.shutdown();
 
 ```
