@@ -11,7 +11,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ## 局限性
 **COSFS 基于 S3FS 构建， 仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
 
-- 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
+- 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 文件/文件夹的 rename 操作不是原子的。
 - 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
@@ -123,6 +123,7 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 #### 1. 配置密钥文件
 在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
+sudo su # 切换到 root 身份，以修改 /etc/passwd-cosfs 文件；如果已经为 root 用户，无需执行该条命令。
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
@@ -132,6 +133,7 @@ chmod 640 /etc/passwd-cosfs
 **示例：**
 
 ```shell
+
 echo examplebucket-1250000000:AKIDHTVVaVR6e3:PdkhT9e2rZCfy6 > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
