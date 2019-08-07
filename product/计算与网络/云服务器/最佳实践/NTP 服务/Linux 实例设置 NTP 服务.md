@@ -56,7 +56,7 @@ service ntpd status
 ```
 返回类似如下结果，表示 NTPD 状态正常。
 ![ntpd status](https://main.qcloudimg.com/raw/321e56d0f7797f382d9f6903c0315f96.png)
-- 执行以下命令，查看 NTPD 是否正常启动以及是否配置到正确的 NTP 时钟源服务器。
+- 执行以下命令，查看 NTP 是否正常启动以及是否配置到正确的 NTP 时钟源服务器。
 ```
 ntpstat
 ```
