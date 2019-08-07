@@ -38,58 +38,56 @@
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
 11. 调用启动信鸽的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务。
+	1. 启动信鸽服务， ```AppDelegate``` 示例如下：
+	```objective-c
+		 @interface AppDelegate () <XGPushDelegate>
+		 @end
 
-- 启动信鸽服务， ```AppDelegate``` 示例如下：
-```objective-c
-   @interface AppDelegate () <XGPushDelegate>
-   @end
+		 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+				 {
+						 [[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
+			return YES;
+				 }
+	 ```
+	2. 在 ```AppDelegate``` 中，选择实现 ```XGPushDelegate ``` 协议中的方法：
+	```objective-c
+		/**
+		 收到推送的回调
+		 @param application  UIApplication 实例
+		 @param userInfo 推送时指定的参数
+		 @param completionHandler 完成回调
+		 */
+		- (void)application:(UIApplication *)application 
+					didReceiveRemoteNotification:(NSDictionary *)userInfo 
+							fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
+			{
+				[[XGPush defaultManager] reportXGNotificationInfo:userInfo];
+				completionHandler(UIBackgroundFetchResultNewData);
+		}
+		// iOS 10 新增回调 API
+		// App 用户点击通知
+		// App 用户选择通知中的行为
+		// App 用户在通知中心清除消息
+		// 无论本地推送还是远程推送都会走这个回调
+	#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 	__IPHONE_10_0
+		- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center 
+					didReceiveNotificationResponse:(UNNotificationResponse *)response 
+					withCompletionHandler:(void (^)(void))completionHandler 
+					{
+							[[XGPush defaultManager] reportXGNotificationResponse:response];
+							completionHandler();
+		}
 
-   -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-       {
-           [[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
-   	return YES;
-       }
-   ```
-  
-在 ```AppDelegate``` 中，选择实现 ```XGPushDelegate ``` 协议中的方法：
-```objective-c
-	/**
-	 收到推送的回调
-	 @param application  UIApplication 实例
-	 @param userInfo 推送时指定的参数
-	 @param completionHandler 完成回调
-	 */
-	- (void)application:(UIApplication *)application 
-        didReceiveRemoteNotification:(NSDictionary *)userInfo 
-            fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
-    {
-    	[[XGPush defaultManager] reportXGNotificationInfo:userInfo];
-    	completionHandler(UIBackgroundFetchResultNewData);
-	}
-	// iOS 10 新增回调 API
-	// App 用户点击通知
-	// App 用户选择通知中的行为
-	// App 用户在通知中心清除消息
-	// 无论本地推送还是远程推送都会走这个回调
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 	__IPHONE_10_0
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center 
-        didReceiveNotificationResponse:(UNNotificationResponse *)response 
-        withCompletionHandler:(void (^)(void))completionHandler 
-        {
-            [[XGPush defaultManager] reportXGNotificationResponse:response];
-            completionHandler();
-	}
-
-	// App 在前台弹通知需要调用这个接口
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
-         willPresentNotification:(UNNotification *)notification 
-             withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
-             {
-                 [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
-                 completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
-	}
-	#endif
-```
+		// App 在前台弹通知需要调用这个接口
+		- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
+					 willPresentNotification:(UNNotification *)notification 
+							 withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
+							 {
+									 [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
+									 completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
+		}
+		#endif
+	```
 
 
 
