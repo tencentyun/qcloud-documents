@@ -1,5 +1,5 @@
 | iOS | Android |
-| --- | --- |
+| :---: | :---: |
 | ![](https://main.qcloudimg.com/raw/de81a2004c36fbe3ceaae7cfe51e1865.png#) | ![](https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png) |
 
 **Android/iOS 基本功能演示**
