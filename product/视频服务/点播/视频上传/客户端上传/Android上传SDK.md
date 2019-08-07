@@ -104,6 +104,8 @@ param.mediaPath = "xxx";
 int publishCode = mVideoPublish.publishMedia(param);
 ```
 
+>?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+
 ## 高级功能
 
 #### 携带封面
