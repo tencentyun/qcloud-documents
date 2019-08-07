@@ -57,7 +57,7 @@ TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishPara
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
-signature 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+`signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 #### 调用上传
 
