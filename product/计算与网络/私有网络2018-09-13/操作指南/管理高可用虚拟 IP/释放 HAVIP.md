@@ -2,4 +2,4 @@
 2. 单击操作栏下的【释放】，在弹出框中选择【确认】即可。
 >!释放后请更改云服务器中的配置文件。
 >
-![](https://main.qcloudimg.com/raw/f01da4867ed3489021f2193531e3e357.png)
+![](https://main.qcloudimg.com/raw/d849bfcc150c07b208403e82b5c8af2a.png)
