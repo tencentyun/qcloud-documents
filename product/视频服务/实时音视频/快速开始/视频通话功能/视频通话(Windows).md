@@ -1,16 +1,16 @@
 ## 文档导读
 本文主要介绍如何基于 TRTC SDK 实现一个简单的视频通话功能：
 
-- 本文仅提及了最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/32227)。
-- 本文仅罗列了最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32228)。
+- 本文仅提及最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/16826)。
+- 本文仅罗列最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32258)。
 
 ## 示例代码
 
-| 所属平台 | 示例代码 | 
+| 所属平台 | 示例代码 |
 |---------|---------|
 | Windows（MFC） | [TRTCMainViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/MFCDemo/TRTCMainViewController.cpp) |
 | Windows（Duilib） | [TRTCMainViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCMainViewController.cpp) |
-
+| Windows（C#） | [TRTCMainForm.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs) |
 
 ## 视频通话
 ### 1. 初始化 SDK
@@ -20,6 +20,8 @@
 - 调用 `addCallback` 接口注册监听 SDK 事件。
 
 >!如果 `addCallback` 注册 N 次，同一个事件， SDK 就会触发 N 次回调，建议只调用一次 `addCallback`。
+
+C++ 版：
 
 ```c++
 // TRTCMainViewController.h
@@ -33,7 +35,7 @@ public:
 
     virtual void onError(TXLiteAVError errCode, const char* errMsg, void* arg);
     virtual void onWarning(TXLiteAVWarning warningCode, const char* warningMsg, void* arg);
-    virtual void onEnterRoom(uint64_t elapsed);
+    virtual void onEnterRoom(int result);
     virtual void onExitRoom(int reason);
     virtual void onUserEnter(const char* userId);
     virtual void onUserExit(const char* userId, int reason);
@@ -78,6 +80,54 @@ virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* 
 }
 ```
 
+C# 版：
+
+```c#
+// TRTCMainForm.cs
+
+// 继承 ITRTCCloudCallback 事件回调接口类
+public partial class TRTCMainForm : Form, ITRTCCloudCallback, ITRTCLogCallback
+{
+	...
+	private ITRTCCloud mTRTCCloud; 
+	...
+	
+	public TRTCMainForm(TRTCLoginForm loginForm)
+    {
+    	InitializeComponent();
+    	this.Disposed += new EventHandler(OnDisposed);
+    	// 创建 TRTCCloud 实例
+    	mTRTCCloud = ITRTCCloud.getTRTCShareInstance();
+    	// 注册 SDK 回调事件
+    	mTRTCCloud.addCallback(this);
+    	...
+    }
+    
+    private void OnDisposed(object sender, EventArgs e)
+    {
+    	if (mTRTCCloud != null)
+    	{
+    		// 取消监听 SDK 事件
+    		mTRTCCloud.removeCallback(this);
+    		// 释放 TRTCCloud 实例
+    		ITRTCCloud.destroyTRTCShareInstance();
+    		mTRTCCloud = null;
+    	}
+    	...
+    }
+    ...
+    // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+    public void onError(TXLiteAVError errCode, string errMsg, IntPtr arg)
+    {
+         if (errCode == TXLiteAVError.ERR_ROOM_ENTER_FAIL) {
+		    exitRoom();
+		}
+         ...
+    }
+    ...
+}
+```
+
 ### 2. 组装 TRTCParams
 
 TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段：sdkAppId、userId、userSig 和 roomId。
@@ -100,9 +150,11 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 **appScene** 参数指定 SDK 的应用场景，本文档中我们使用 `TRTCAppSceneVideoCall`（视频通话），该场景下 SDK 内部的编解码器和网络组件会更加侧重视频流畅性，降低通话延迟和卡顿率。
 				
-- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed`代表进入耗时，单位：ms。
-- 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：当 `result` 大于0时，进房成功，数值表示加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时，进房失败，数值表示进房失败的错误码。
+- 如进房失败，SDK 同时会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 - 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
+
+C++ 版：
 
 ```c++
 // TRTCMainViewController.cpp
@@ -134,11 +186,62 @@ void TRTCMainViewController::onError(TXLiteAVError errCode, const char* errMsg, 
 
 ...
 
-void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
+void TRTCMainViewController::onEnterRoom(int result)
 {
-    LOGI(L"onEnterRoom elapsed[%lld]", elapsed);
+    LOGI(L"onEnterRoom result[%d]", result);
+    if(result >= 0)
+	{
+		//进房成功
+	}
+	else
+	{
+		//进房失败，错误码 = result；
+	}
+}
+```
+
+C# 版：
+
+```c#
+// TRTCMainForm.cs
+
+public void EnterRoom()
+{
+    // TRTCParams 定义参考头文件TRTCCloudDef.h
+    TRTCParams @params = new TRTCParams();
+    @params.sdkAppId = sdkappid;
+    @params.userId   = userid;
+    @params.userSig  = usersig;
+    @params.roomId   = 908; // 输入您想进入的房间
+    if(mTRTCCloud != null)
+    {
+    	mTRTCCloud.enterRoom(@params, TRTCAppSceneVideoCall);
+    }
+}
+
+...
     
-	// 启动本地的视频预览，请参考下面 设置视频编码参数 和 预览本地摄像头画面 的内容
+public void onError(TXLiteAVError errCode, string errMsg, IntPtr arg)
+{
+    if(errCode == TXLiteAVError.ERR_ROOM_ENTER_FAIL)
+    {
+        Log.E(String.Format("errCode : {0}, errMsg : {1}, arg = {2}", errCode, errMsg, arg));
+        // 检查userSig是否合法、网络是否正常等
+    }
+}
+
+...
+
+public void onEnterRoom(int result)
+{
+    if(result >= 0)
+	{
+		//进房成功
+	}
+	else
+	{
+		//进房失败，错误码 = result；
+	}
 }
 ```
 
@@ -154,6 +257,8 @@ TRTC SDK 并不会默认拉取远端的视频流，当房间里有用户上行�
 通过 `setRemoteViewFillMode` 可以指定视频显示模式为 `Fill` 或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
 - `Fill` 模式：优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
 - `Fit` 模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+
+C++ 版：
 
 ```c++
 // TRTCMainViewController.cpp
@@ -173,6 +278,30 @@ void TRTCMainViewController::onUserVideoAvailable(const char* userId, bool avail
 }
 ```
 
+C# 版：
+
+```c#
+// TRTCMainForm.cs
+public void onUserVideoAvailable(string userId, bool available)
+{
+    if (available)
+	{
+		// 获取窗口句柄
+		IntPtr ptr = GetHandleAndSetUserId(pos, userId, false);
+		SetVisableInfoView(pos, false);
+		// 设置远端用户视频的渲染模式。
+		mTRTCCloud.setRemoteViewFillMode(userId, TRTCVideoFillMode.TRTCVideoFillMode_Fit);
+		// 调用SDK接口播放远端用户流。
+		mTRTCCloud.startRemoteView(userId, ptr);
+	}
+	else
+	{
+		mTRTCCloud.stopRemoteView(userId);
+		...
+	}
+}
+```
+
 ### 6. 开关本地声音采集
 
 TRTC SDK 并不会默认打开本地的麦克风采集，`startLocalAudio` 可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio` 则会关闭。
@@ -186,6 +315,8 @@ TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可
 - 调用 `setLocalViewFillMode` 接口，设置本地视频渲染的模式为 `Fill` 或者 `Fit` 。两种模式下视频尺寸都是等比缩放，区别在于：
   - `Fill` 模式：优先保证窗口被填满。如果缩放后的视频尺寸与窗口尺寸不一致，那么多出的部分将被裁剪掉。
   - `Fit`   模式：优先保证视频内容全部显示。如果缩放后的视频尺寸与窗口尺寸不一致，未被填满的窗口区域将使用黑色填充。
+
+C++ 版：
 
 ```c++
 // TRTCMainViewController.cpp
@@ -205,6 +336,26 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
         m_pTRTCSDK->startLocalPreview(hwnd);
     }
     
+	...
+}
+```
+
+C# 版：
+
+``` c#
+// TRTCMainForm.cs
+
+public void onEnterRoom(int result)
+{
+	...
+	// 获取渲染窗口的句柄。
+	IntPtr ptr = GetHandle();
+    if (mTRTCCloud != null)
+    {
+        // 调用SDK接口设置渲染模式和渲染窗口。
+        mTRTCCloud.setLocalViewFillMode(TRTCVideoFillMode_Fit);
+        mTRTCCloud.startLocalPreview(ptr);
+    }
 	...
 }
 ```
@@ -230,6 +381,8 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 调用 `exitRoom` 方法退出房间。不论当前是否还在通话中，调用该方法会把视频通话相关的所有资源释放掉。
 >在您调用 `exitRoom` 之后，SDK 会进入一个复杂的退房握手流程，当 SDK 回调 `onExitRoom` 方法时才算真正完成资源的释放。
 
+C++ 版：
+
 ```c++
 // TRTCMainViewController.cpp
 
@@ -245,6 +398,26 @@ void TRTCMainViewController::onExitRoom(int reason)
 {
 	// 退房成功，reason参数保留，暂未使用。
 
+    ...
+}
+```
+
+C# 版：
+
+```c#
+// TRTCMainForm.cs
+
+public void OnExit()
+{
+    if(mTRTCCloud != null)
+    {
+    	mTRTCCloud.exitRoom();
+    }
+}
+...
+public void onExitRoom(int reason)
+{
+    // 退房成功
     ...
 }
 ```

@@ -9,12 +9,12 @@
 | iOS          | Safari         | 11.1.2   | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用，<br > 因此对于 iOS 推荐使用兼容性更好的小程序解决方案。 |
 | Android      | TBS            | 43600    | 微信和手机 QQ 默认内置的浏览器内核为 [TBS](http://x5.tencent.com/)。                                                         |
 | Android      | Chrome         | 60+      | 需要支持 H264 编解码。                                                                                                       |
-| Mac          | Chrome         | 47+      |                                                                                                                             |
-| Mac          | Safari         | 11+      |                                                                                                                             |
-| Windows(PC)  | Chrome         | 52+      |                                                                                                                             |
-| Windows(PC)  | QQ 浏览器      | 10.2     | &nbsp;                                                                                                                      |
+| Mac          | Chrome         | 47+      |  -     |
+| Mac          | Safari         | 11+      |    -     |
+| Windows(PC)  | Chrome         | 52+      |    -     |
+| Windows(PC)  | QQ 浏览器      | 10.2     | -     |
 
->? 基于 TBS 内核的 WebView，需满足版本 ≥ 43600，Web SDK 的 [能力检测](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
+>?基于 TBS 内核的 WebView，需满足版本 ≥ 43600，Web SDK 的 [能力检测](https://cloud.tencent.com/document/product/647/17251#webrtcapi.fn.detectrtc) 中有获取 TBS 版本的方法。
 > 可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC 。例如公众号等浏览器环境。
 > 华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器不支持 H264 编码。
 

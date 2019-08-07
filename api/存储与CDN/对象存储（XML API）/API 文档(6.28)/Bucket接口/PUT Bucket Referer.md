@@ -4,7 +4,7 @@ PUT Bucket referer 接口用于为存储桶设置 Referer 白名单或者黑名�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```shell
 PUT /?referer HTTP 1.1
@@ -15,9 +15,9 @@ Content-Length:length
 Content-MD5:MD5
 ```
 
-> Authorization：Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
+>?Authorization：Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
 
-### 请求头
+#### 请求头
 
 #### 公共头部
 
@@ -50,7 +50,7 @@ Content-MD5:MD5
 
 该请求操作无特殊的请求头部信息。
 
-### 请求体
+#### 请求体
 
 该请求的请求体具体节点内容为：
 
@@ -71,16 +71,16 @@ Content-MD5:MD5
 | 名称                    | 父节点               | 描述                                                         | 类型      | 必选 |
 | ----------------------- | -------------------- | ------------------------------------------------------------ | --------- | ---- |
 | RefererConfiguration    | 无                   | 防盗链配置信息                                               | Container | 是   |
-| Status                  | RefererConfiguration | 是否开启防盗链，枚举值：Eabled、Disabled                | String    | 是   |
+| Status                  | RefererConfiguration | 是否开启防盗链，枚举值：Enabled、Disabled                | String    | 是   |
 | RefererType             | RefererConfiguration | 防盗链类型，枚举值：Black-List、White-List               | String    | 是   |
 | DomainList              | RefererConfiguration | 生效域名列表， 支持多个域名且为前缀匹配， 支持带端口的域名和 IP， 支持通配符`*`，做二级域名或多级域名的通配 | Container | 是   |
-| Domain                  | DomainList           | 单条生效域名，例如 `www.qq.com/example`，`192.168.1.2:8080`， `*.qq.com` | String    | 是   |
-| EmptyReferConfiguration | RefererConfiguration | 是否允许空 Refer 访问，枚举值：Allow、Deny，默认值 为 Deny | String    | 否   |
+| Domain                  | DomainList           | 单条生效域名<br>例如`www.qq.com/example`，`192.168.1.2:8080`， `*.qq.com` | String    | 是   |
+| EmptyReferConfiguration | RefererConfiguration | 是否允许空 Refer 访问，枚举值：Allow、Deny，默认值为 Deny | String    | 否   |
 
 
 ## 响应
 
-### 响应头
+#### 响应头
 
 #### 公共响应头
 
@@ -90,17 +90,17 @@ Content-MD5:MD5
 
 该响应无特殊的响应头。
 
-### 响应体
+#### 响应体
 
 该响应体为空。
 
-### 错误码
+#### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 PUT /?referer HTTP 1.1
@@ -121,7 +121,7 @@ Content-Type: application/xml
 </RefererConfiguration>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK

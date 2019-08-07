@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/9e38e514de2c4bc93b95e090ad606d92.png)
 3.在自动调参的弹窗里，选择需要画布调参的【算法】，若画布存在多个可调参的算法，请单选一个算法。
 ![](https://main.qcloudimg.com/raw/312100fb70fd67b8a5198e9bb39db3bc.jpg)
-4.在调参配置环节，选择某一【调参方式】，目前TI支持 random search、grid search 和 bayesian optimization 三种调参方式。
+4.在调参配置环节，选择某一【调参方式】，目前 TI 支持 random search、grid search 和 bayesian optimization 三种调参方式。
 random search：从指定的分布中采样固定数量的参数设置，为每类超参数定义一个边缘分布，并在这些参数上采样进行搜索。
 Grid search：在所有候选的参数选择中，通过循环遍历尝试每一种可能性，表现最好的参数就是最终的结果。
 bayesian optimization：给定优化的目标函数，通过不断地添加样本点来更新目标函数的后验分布。
@@ -14,7 +14,7 @@ bayesian optimization：给定优化的目标函数，通过不断地添加样�
 **全自动建模**
 在不通过人为来设定参数的情况，通过某些学习机制，让系统智能地去调节这些超参数，让整个机器学习流程做到全自动化。
 1.登录【智能钛机器学习平台】，建立一个【全自动调参】的任务。
-此步骤中需要先设置好数据源，将左侧**自动建模（全自动AutoML）节点**拖入至画布产生连接，便可启动一个 automl的任务。
+此步骤中需要先设置好数据源，将左侧**自动建模（全自动 AutoML）节点**拖入至画布产生连接，便可启动一个 automl 的任务。
 ![](https://main.qcloudimg.com/raw/7b274124134e510f38d402930fd9d5ce.png)
 2. automl 节点的参数栏中，只需指定输入路径，进行简单的参数设置（迭代次数/迭代时间等）和资源参数设置，便可完成建模流程。
 

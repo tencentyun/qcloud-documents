@@ -1,13 +1,7 @@
-## 简介
+对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。
 
-对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。上传流程请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
-
-[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
-
-## Demo
-
-- [单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
-- [单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
+- 如果您需要 SDK 源码，可访问 [SDK 源码](https://tencentyun.github.io/vod-js-sdk-v6/)。
+- 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)。
 
 ## 简单视频上传
 
@@ -36,9 +30,9 @@ function getSignature() {
 >? `url`是您派发签名服务的 URL，详细请参见 [客户端上传指引](/document/product/266/9219)。
 > `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
-####  上传视频
+####  上传视频示例
 
-示例如下：
+
 
 ```js
 // 通过 import 引入的话，new TcVod(opts) 即可。

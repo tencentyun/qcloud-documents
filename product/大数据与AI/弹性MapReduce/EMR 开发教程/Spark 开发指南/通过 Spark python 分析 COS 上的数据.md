@@ -5,9 +5,9 @@
 
 ## 2.	数据准备
 需要处理的文件需要事先上传到 COS 中。如果文件在本地那么就可以通过 [COS 控制台直接上传](https://cloud.tencent.com/document/product/436/13321)。如果文件在 EMR 集群上，可以使用 Hadoop 命令上传。指令如下：
-
-`[hadoop@10 hadoop]$ hadoop fs -put $testfile cosn:// $bucketname/`
-
+```
+[hadoop@10 hadoop]$ hadoop fs -put $testfile cosn:// $bucketname/
+```
 其中 $testfile 为要统计的文件的完整路径加名字，$bucketname 为您的存储桶名。上传完成后可以查看文件是否已经在 COS 中。
 
 ## 3.	运行样例
@@ -77,9 +77,9 @@ Found 2 items
 [hadoop@10spark]$   ./bin/spark-submit   ./wordcount.py
 cosn://$bucketname/$yourtestfile /user/hadoop/$output
 ```
-其中`/user/hadoop/`为HDFS中的路径，如果不存在用户可以自己创建。
-任务结束后，可以通过如下命令看到Spark运行日志：
-
-`[hadoop@10 spark]$  /usr/local/service/hadoop/bin/yarn logs -applicationId $yourId`
-
+其中`/user/hadoop/`为 HDFS 中的路径，如果不存在用户可以自己创建。
+任务结束后，可以通过如下命令看到 Spark 运行日志：
+```
+[hadoop@10 spark]$  /usr/local/service/hadoop/bin/yarn logs -applicationId $yourId
+```
 其中 $yourId 应该替代为您的任务 ID。任务 ID 可以在 YARN 的 WebUI 上面进行查看。

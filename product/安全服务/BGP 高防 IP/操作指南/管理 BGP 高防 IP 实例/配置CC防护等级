@@ -6,10 +6,10 @@
 >!
 	- 上述三种 CC 防护等级所采用的防护算法只适用于网页或 H5 页面类的站点。
 	- 如果被访问网站的业务是 API 或原生 App 应用，由于该类业务一般无法正常响应算法验证，所以会存在很大的误拦截的风险。
-	- 如果用户存在 API 业务或原生 App 类业务的CC防护需求，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行防护策略定制。
+	- 如果用户存在 API 业务或原生 App 类业务的 CC 防护需求，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行防护策略定制。
 
 ## 操作步骤
-默认情况下，用户的BGP 高防 IP 实例所防护的网站域名采用正常等级的 CC 防护策略，用户可以根据实际情况自由调整防护模式。
+默认情况下，用户的 BGP 高防 IP 实例所防护的网站域名采用正常等级的 CC 防护策略，用户可以根据实际情况自由调整防护模式。
 1. 登录 [DDoS 防护（大禹）控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航栏中，选择【BGP 高防 IP】> 【防护配置】，在防护策略页面下，选择目的高防 IP 实例。
 2. 定位到页面下方 HTTP CC 防护和 HTTPS CC 防护区域，选择对应协议下需要开启 CC 防护的域名，设置 CC 防护等级。
 ![](https://main.qcloudimg.com/raw/aeb4f6b6ba6f270727d4266f708f4db1.png)

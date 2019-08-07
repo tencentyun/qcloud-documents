@@ -77,7 +77,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 | sdkAppID   | 数字   | 当前应用的 AppID，在 Step4 中可以获取到。                      |
 | userID     | 字符串 | 当前用户在您的帐号系统中的 ID。                               |
 | userName   | 字符串 | 用户名（昵称）。                                               |
-| userAvatar | 字符串 | 用户头像的 URL 地址                                          |
+| userAvatar | 字符串 | 用户头像的 URL 地址。                                       |
 | userSig    | 字符串 | 登录签名，计算方法请参见 [计算 UserSig](https://cloud.tencent.com/document/product/454/14548)。 |
 
 >?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
@@ -108,7 +108,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 ### Step9. 弹幕消息
 
-MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用来弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
+MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用于弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
 
 >!腾讯云 IM 的直播聊天室，每秒钟最多可以收取40条的消息。如果您以高于40条/次的速度刷新 UI 上的弹幕界面，很容易导致 CPU 100%，请注意控制刷新频率，避免高频刷新。
 

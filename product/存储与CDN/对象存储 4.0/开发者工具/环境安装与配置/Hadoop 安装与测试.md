@@ -6,11 +6,11 @@ Hadoop 工具依赖 Hadoop-2.7.2 及以上版本，实现了以腾讯云 COS 作
 3. 安装 Java 环境，具体操作请参见 [Java 安装与配置](/doc/product/436/10865)。
 4. 安装 Hadoop 可用包：[Apache Hadoop Releases Download](http://hadoop.apache.org/releases.html#16+April%2C+2018%3A+Release+2.7.6+available)。 
 
-### 网络配置
+#### 网络配置
 使用`ifconfig -a`查看各台机器的 IP，相互使用 ping 命令检查 ，看是否可以 ping 通，同时记录每台机器的 IP。
 
 ## 配置 CentOS
-### 配置 hosts
+#### 配置 hosts
 ```
 vi /etc/hosts
 ```
@@ -22,32 +22,32 @@ vi /etc/hosts
 202.xxx.xxx.xxx slave3
 //IP 地址替换为真实 IP
 ```
-### 关闭防火墙
+#### 关闭防火墙
 ```
 systemctl status firewalld.service  //检查防火墙状态
 systemctl stop firewalld.service  //关闭防火墙
 systemctl disable firewalld.service  //禁止开机启动防火墙
 ```
-### 时间同步
+#### 时间同步
 ```
 yum install -y ntp  //安装 ntp 服务
 ntpdate cn.pool.ntp.org  //同步网络时间
 ```
-### 安装配置 JDK
+#### 安装配置 JDK
 上传 JDK 安装包（如jdk-8u144-linux-x64.tar.gz）到`root`根目录。
 ```
 mkdir /usr/java
 tar -zxvf jdk-8u144-linux-x64.tar.gz -C /usr/java/
 rm -rf jdk-8u144-linux-x64.tar.gz
 ```
-### 各个主机之间复制 JDK
+#### 各个主机之间复制 JDK
 ```
 scp -r /usr/java slave1:/usr
 scp -r /usr/java slave2:/usr
 scp -r /usr/java slave3:/usr
 .......
 ```
-### 配置各个主机 JDK 环境变量
+#### 配置各个主机 JDK 环境变量
 ```
 vi /etc/profile
 ```
@@ -59,7 +59,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
 source/etc/profile    //使配置文件生效
 java -version       //查看 java 版本
 ```
-### 配置 SSH 无密钥访问
+#### 配置 SSH 无密钥访问
 分别在各个主机上检查 SSH 服务状态：
 ```
 systemctl status sshd.service  //检查 SSH 服务状态
@@ -72,13 +72,13 @@ ssh-keygen -t rsa  //生成密钥
 ```
 在 slave1 上：
 ```
-cp ~/.ssh/id_rsa.pub~/.ssh/slave1.id_rsa.pub
-scp~/.ssh/slave1.id_rsa.pub master:~/.ssh
+cp ~/.ssh/id_rsa.pub ~/.ssh/slave1.id_rsa.pub
+scp ~/.ssh/slave1.id_rsa.pub master:~/.ssh
 ```
 在 slave2 上：
 ```
-cp ~/.ssh/id_rsa.pub~/.ssh/slave2.id_rsa.pub
-scp ~/.ssh/slave2.id_rsa.pubmaster:~/.ssh
+cp ~/.ssh/id_rsa.pub ~/.ssh/slave2.id_rsa.pub
+scp ~/.ssh/slave2.id_rsa.pub master:~/.ssh
 ```
 依此类推...
 在 master 上：
@@ -105,11 +105,11 @@ mkdir /usr/hadoop-2.7.4/hdf/name
 ```
 进入`hadoop-2.7.4/etc/hadoop`目录下，进行下一步操作。
 ### 配置 Hadoop
-#### 1. 修改`hadoop-env.sh`文件，增加
+#### 1. 修改`hadoop-env.sh`文件，增加如下内容：
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_144 
 ```
-若 SSH 端口不是默认的 22，可在`hadoop-env.sh`文件里修改：
+若 SSH 端口不是默认的22，可在`hadoop-env.sh`文件里修改：
 ```
 export HADOOP_SSH_OPTS="-p 1234"
 ```
@@ -262,16 +262,15 @@ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.4.jar wordcount 
 ![6762940-439379efda5b4ad6_副本](//mc.qcloudimg.com/static/img/50a03d9e0504301d54d12631cc8da075/image.jpg)
 出现如上图结果就说明 Hadoop 安装已经成功了。
 
-### 查看输出目录
+#### 查看输出目录
 ```
 hadoop fs -ls /output
 ```
 
-### 查看输出结果
+#### 查看输出结果
 ```
 hadoop fs -cat /output/part-r-00000
 ```
 ![6762940-623e7b1c1b81cb4c_副本](//mc.qcloudimg.com/static/img/6d777bc87c16b0fb10713bbecda1636d/image.jpg)
 
-> <font color="#0000cc">**注意：** </font>
-> 单机模式与伪分布式模式的操作方法的详细过程可以参考官网：[Hadoop入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html)。
+>?单机模式与伪分布式模式的操作方法的详细过程，请参见官网文档 [Hadoop入门](https://hadoop.apache.org/docs/r1.0.4/cn/quickstart.html)。

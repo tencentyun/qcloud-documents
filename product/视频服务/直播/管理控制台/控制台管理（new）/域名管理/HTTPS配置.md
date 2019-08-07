@@ -16,14 +16,14 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 	其中 .crt 文件是证书内容：
 	![](https://main.qcloudimg.com/raw/dc6e10861dbe5c4043e07073240cf3b0.png)
   请在 HTTPS 证书内容输入框填写包含 -----BEGIN CERTIFICATE----- 和 -----END CERTIFICATE----- 的所有内容。
-	> 说明：若您的证书为中级机构颁发，并包含多个证书，证书内容请按照下述方式拼接：
+	>?若您的证书为中级机构颁发，并包含多个证书，证书内容请按照下述方式拼接：
 	> -----BEGIN CERTIFICATE-----
 	> -----END CERTIFICATE-----
 	> -----BEGIN CERTIFICATE-----
 	> -----END CERTIFICATE-----
 - **证书私钥**：Nginx 文件中 .key 文件内容为证书私钥：
   ![](https://main.qcloudimg.com/raw/fdfe6829c5910da0742e2c3d845a8447.png)
-  请在 HTTPS 证书内容输入框填写包含 -----BEGIN RSA PRIVATE KEY----- 和 -----END RSA PRIVATE KEY----- 的所有内容。
+  请在 HTTPS 私钥内容输入框填写包含 -----BEGIN RSA PRIVATE KEY----- 和 -----END RSA PRIVATE KEY----- 的所有内容。
 
 ### 第三步：验证配置
 HTTPS 配置生效时间约2小时，请于提交证书后2小时左右访问该域名，若浏览器地址栏显示为 HTTPS 则说明配置成功。

@@ -98,7 +98,7 @@ http://manage.qcloud.com/capi/capiManage.php
 
 **b）**$package=array('offset'=>0, 'limit'=>3); 改为：
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 	
 说明：这是文智情感分析接口的参数。
 
@@ -125,7 +125,7 @@ $config = array('SecretId'        => '您在腾讯云上的SecretId',
 
 $wenzhi = QcloudApi::load(QcloudApi::MODULE_WENZHI, $config);
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 
 $a = $wenzhi->TextSentiment($package);
 

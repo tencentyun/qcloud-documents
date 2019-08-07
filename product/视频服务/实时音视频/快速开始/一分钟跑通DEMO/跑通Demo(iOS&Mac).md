@@ -1,72 +1,57 @@
-本文主要介绍如何快速地将腾讯云实时音视频 Demo（iOS与Mac） 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速地将腾讯云 TRTC Demo 运行起来，您只需参考如下步骤依次执行即可。
 
 ## 1. 创建新的应用
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
-![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAppID，SDKAppID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在第4步中会用到。
+![](https://main.qcloudimg.com/raw/b9d211494b6ec8fcea765d1518b228a1.png)
 
->!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
+接下来，点击应用进入**快速上手**页面，参考页面上指引的“第一步”、“第二步”和“第三步”操作，即可快速跑通 Demo。
 
-## 2. 激活实时音视频服务
+## 2. 下载 SDK+Demo 源码
+“快速上手”页面中第一步里的几个链接地址分别为各个平台的 SDK 和 Demo 源码，点击会跳转到 Github 上，如果您当前网络访问 Github 太慢，可以在项目首页中找到镜像下载地址。
 
-### 检查实时音视频服务状态
-在实时音视频 TRTC 控制台的 [应用列表](https://console.cloud.tencent.com/rav) 页面选择在第一步中创建的应用卡片，进入**应用详情**页面，然后单击【帐号信息】，查看“实时音视频服务状态”，以判断该应用的实时音视频服务是否可用。
-- 如果实时音视频服务状态显示“可用”，即表示该应用的实时音视频服务已激活，当前处于服务可用状态。
-![](https://main.qcloudimg.com/raw/28855a24a75fb641673af8f2731a0911.png)
-- 如果实时音视频服务状态显示“不可用”，则表示该应用的实时音视频服务处于不可用状态，需要通过购买套餐包来激活。
-![](https://main.qcloudimg.com/raw/2eb464eb34939ea772e7f0da1549c003.png)
+![](https://main.qcloudimg.com/raw/d56b4e4434da42d1a3b8e3540cf6718e.png)
 
-### 购买套餐包
-实时音视频套餐包采用预付费的计费方式，关于套餐包的详细说明请参见 [产品价格](https://cloud.tencent.com/document/product/647/17157)。
+## 3. 查看并拷贝加密密钥
+点击**查看密钥**按钮，即可看到用于计算 UserSig 的加密密钥，点击“复制密钥”按钮，可以将密钥拷贝到剪贴板中。
 
-#### 购买6.6元测试体验套餐包（新用户专享）
-针对实时音视频新用户，我们为您提供专属测试体验套餐包，您只需支付6.6元即可体验300分钟实时音视频通话时长。
-实时音视频测试体验套餐包只能通过 [专属页面](https://buy.cloud.tencent.com/trtc_activity) 购买：
-![](https://main.qcloudimg.com/raw/9214c35fbc89837047a150c741e0a670.png)
-选择您需要激活的实时音视频服务 SDKAPPID（应用标识），单击【立即购买】，并根据页面提示完成付款操作即可购买成功。**购买成功后将会自动激活实时音视频服务状态。**
+![](https://main.qcloudimg.com/raw/5843542ec2e0446d326d7d44f96a5ec0.png)
 
->!
-- 每一个腾讯云账号只能购买一次测试体验套餐包。
-- 测试体验套餐包分钟数使用完或过期时，将自动关闭实时音视频服务状态，再次激活需购买实时音视频正式套餐包。
+<h2 id="CopyKey"> 4. 粘贴密钥到Demo工程的指定文件中 </h2>
+我们在各个平台的 Demo 的源码工程中都提供了一个叫做 “GenerateTestUserSig” 的文件，它可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。
+
+| 语言版本 |  适用平台 | GenerateTestUserSig 的源码位置 |
+|:---------:|:---------:|:---------:|
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Objective-C | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) |
+| C++ | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)|
+| C# | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)|
+| Javascript | Web | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/H5/js/debug/GenerateTestUserSig.js)|
+| Javascript | 微信小程序 | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js)|
 
 
-#### 购买正式套餐包
+您只需要将第1步中获得的 SDKAppID 和第3步中获得的加密密钥拷贝到文件中的指定位置即可，如下所示：
 
-为了避免您的业务因实时音视频套餐包分钟数使用完或过期而中断，建议您及时购买正式套餐包，使实时音视频服务始终保持可用状态。
+![](https://main.qcloudimg.com/raw/de28c1eb03e779ddb7131dc2d666d8d2.jpg)
 
->!
-- 正式套餐包指的是入门包、标准包、企业包和尊享包。
-- 正式套餐包使用完当月若未及时购买新的正式预付费套餐包，超出部分将按照实时音视频后付费月结计费方式（25元/千分钟）收取。
+> !安全警告：本地计算 UserSig 的做法虽然能够工作，但仅适合于调试 Demo 的场景，不适用于线上产品。
+> 
+> 这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
+> 
+> [安全方案](https://cloud.tencent.com/document/product/647/17275#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
 
-您可以直接访问实时音视频预付费套餐包的 [购买页面](https://buy.cloud.tencent.com/rav_th5)，选择适合您业务的套餐包以及您业务所使用的 SDKAPPID（应用标识），单击【立即购买】，并根据页面提示完成付款操作即可购买成功。**购买成功后将会自动刷新实时音视频服务状态。**
-![](https://main.qcloudimg.com/raw/1da24d778c28e95f40ecd9bc5aad4f77.png)
-
-## 3. 下载 Demo 源码
-激活实时音视频服务之后，回到实时音视频 [控制台](https://console.cloud.tencent.com/rav)的**应用列表**页面，选择第一步新创建的应用卡片，进入该应用的详情页。单击【快速上手】即可看到源码下载地址：
-![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
-
-## 4. 下载私钥文件
-单击**下载公私钥**，下载并保存压缩包 **keys.zip** ，解压后可以得到 public_key 和 private_key 两个文件。用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的【生成Demo配置文件内容】的文本输入框中。
-![](https://main.qcloudimg.com/raw/688b415f15fc0568d520af55dbb930fd.png)
-
-## 5. 获得配置文件
-单击【生成Demo配置文件内容】，即可获得一段 JSON 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
-
-![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
-
-复制上述 JSON 内容，并粘贴到源码根目录下的 `Config.json` 文件中（如果已经存在示例内容，请覆盖之）。
-
-## 6. 编译运行
-使用 XCode （9.0 以上的版本） 打开源码目录下的 TRTCDemo.xcodeproj 工程，如果您已经按照上面的步骤配置过 config.json，直接单击【运行】即可。
+## 5. 编译运行
+使用 XCode （9.0 以上的版本） 打开源码目录下的 TRTCDemo.xcodeproj 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
+
 ### 1. 开发环境有什么要求？
 - Xcode 9.0+
 - 请确保您的项目已设置有效的开发者签名。
 
-### 2. 防火墙有什么限制?
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下端口加入防火墙的安全白名单中。
+### 2. 两台手机运行 Demo，为什么看不到彼此的画面？
+请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
+![](https://main.qcloudimg.com/raw/c7b1589e1a637cf502c6728f3c3c4f99.png)
 
-| 协议 | 端口号 |
-|:--------:|:--------:|
-| HTTPS | 443 |
-| UDP | 8000 |
+### 3. 防火墙有什么限制？
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。

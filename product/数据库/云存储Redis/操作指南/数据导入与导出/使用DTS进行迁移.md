@@ -27,11 +27,11 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 上云迁移：支持将您在传统 IDC 的 Redis 迁移到云数据库 Redis，帮助您的业务高效、便捷的完成上云迁移。
 - 云上自建迁移：支持将您在腾讯云或者其他云上，通过虚拟机自建的 Redis 服务迁移到腾讯云。
 - 其他云厂商 Redis 服务迁移：支持将其他云厂商提供的 Redis 数据迁移到腾讯云，前提条件是云厂商需要提供 SYNC 或者 PSYNC 命令权限。
-- 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：
-    <table>
+- 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：   
+<table>
     <tr>
-    <td colspan=3 align=center>源实例</td>
-    <td rowspan=2 align=cente>目标实例</td>
+    <td  rowspan=2 align=center>源实例</td>
+    <td  colspan=3 align=cente>目标实例</td>
     </tr>
     <tr>
     <td>2.8标准版</td>
@@ -39,25 +39,25 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <td>4.0集群版</td>
     </tr>
     <tr>
-    <td>✓</td>
-    <td>x</td>
-    <td>x</td>
     <td>2.8标准版</td>
+    <td>✓</td>
+    <td>✓</td>
+    <td>✓</td>
     </tr>
     <tr>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✓</td>
     <td>4.0标准版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
     </tr>
     <tr>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✓</td>
     <td>4.0集群版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
     </tr>
     </table>
-
+		
 #### 迁移限制
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。
 - 外网实例迁移时，需确保源实例服务在外网环境下可访问。

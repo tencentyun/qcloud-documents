@@ -1,6 +1,5 @@
-
 软件 WebUI 入口功能是 EMR 提供的组件原生 UI 访问能力，通过 Master 节点的外网 IP（建议及时配置安全策略），可以快捷访问组件原生 UI 。如果您的集群内网与您的企业网络互通，可以关闭该外网 IP，直接通过内网访问组件原生 UI。
- ![](https://main.qcloudimg.com/raw/7d69881f0ad815556f37c7883ea70fbb.png)
+ ![](https://main.qcloudimg.com/raw/bd36321ed159ee7b10d5b5ced339ddd6.png)
 访问地址需要进行身份验证，用户名为 root，默认密码为创建集群时输入的密码，如果需要修改密码，可以在该页面中单击【重置原生UI密码】进行修改。
 
 >!访问会产生网络流量费用，费用按流量计费。

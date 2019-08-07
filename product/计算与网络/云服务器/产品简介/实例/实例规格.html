@@ -52,6 +52,7 @@
 <td><a href="#I">高 IO 型实例族</a></td>
 <td>
 <ul style="margin-bottom: 0;">
+	<li><a href="#IT3">高 IO 型 IT3</a> </li>
 	<li><a href="#I2">高 IO 型 I2</a> </li>
 	<li><a href="#I1">高 IO 型 I1</a></li>
 </ul>
@@ -190,7 +191,7 @@
 													<p>2.5GHz Intel® Xeon® Cascade Lake 处理器，搭配最新一代六通道 DDR4，内存计算性能稳定</p>
 												</li>
 												<li>
-													<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+													<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 												</li>
 												<li>
 													<p>更大实例规格，S5.20XLARGE320，提供80vCPU 和320GB内存</p>
@@ -1572,7 +1573,7 @@
 													<p>2.4GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
 												</li>
 												<li>
-													<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+													<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 												</li>
 												<li>
 													<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>
@@ -3001,7 +3002,7 @@
 <p>处理器与内存配比为1:2，1:4</p>
 </li>
 <li>
-<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高。</p>
+<p>实例网络性能与规格对应，规格越高网络转发性能强，内网带宽上限越高</p>
 </li>
 <li>
 <p>支持全种类云硬盘</p>
@@ -5952,7 +5953,7 @@
 <p>2.5GHz Intel® Xeon® Cascade Lake 处理器，搭配最新一代六通道 DDR4 内存，计算性能稳定</p>
 </li>
 <li>
-<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 </li>
 <li>
 <p>处理器与内存配比为1:8</p>
@@ -6261,7 +6262,7 @@
 <p>2.4GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
 </li>
 <li>
-<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 </li>
 <li>
 <p>最新一代六通道 DDR4 内存， 带宽达2666MT/s</p>
@@ -7800,8 +7801,218 @@
 <h2 id="I">高 IO 型实例族</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>高 IO 型实例具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等I/O密集型应用。</p>
+<p>高 IO 型实例具有高随机 IOPS、高吞吐量、低访问延时等特点，适合对硬盘读写和时延要求高的高性能数据库等 I/O 密集型应用。</p>
 </div>
+<table class="tableblock frame-none grid-all spread custom-style">
+<colgroup>
+<col style="width: 100%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="sect2">
+<h3 id="IT3">高 IO 型 IT3</h3>
+<div class="paragraph">
+<p>高 IO 型 IT3 实例专为 I/O 密集型工作负载设计。基于 NVMe SSD 实例存储，提供低延迟、极高的 IOPS、高吞吐量的存储资源，提供高达180万 IOPS 及高达12GB/s吞吐能力，以较低的成本提供超高 IOPS。适合高性能关系型数据库、Elasticsearch 等 IO 密集型业务。</p>
+</div>
+<div class="paragraph">
+<p>IT3 实例提供便宜且密集的存储，能够为每个 CPU 核心提供高 IOPS 和更多的内网带宽。
+<blockquote class="doc-tip"><p class="doc-tip-tit"><i class="doc-icon-tip"></i>说明：</p><p>高 IO 型 IT3 实例暂时处于白名单开放，请联系您的售前经理开通购买该实例的权限。</p>
+</blockquote></p>
+</div>
+<div class="sect3">
+<h4 id="_使用场景_13">使用场景</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>高性能数据库，NoSQL 数据库（例如 MongoDB）、群集化数据库</p>
+</li>
+<li>
+<p> 联机事务处理（OLTP）系统、Elastic Search 搜索等需要低时延的 I/O 密集型应用</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_实例特点_13">实例特点</h4>
+<div class="ulist">
+<ul>
+<li>
+<p>2.5 GHz Intel® Xeon® Skylake 6133 处理器，计算性能稳定</p>
+</li>
+<li>
+<p>最新一代六通道 DDR4 内存</p>
+</li>
+<li>
+<p>最高可支持23Gbps内网带宽，满足极高的内网传输需求</p>
+</li>
+<li><p>采用 NVNe SSD 的实例存储，提供低延迟、极高的 IOPS</p>
+<ul>
+<li><p>单盘随机读性能高达62万 IOPS（4KB块大小），顺序读吞吐能力高达2.9GB/s（128KB块大小）</p></li>
+<li><p>整机随机读性能高达180万 IOPS（4KB块大小），顺序读吞吐能力均高达11GB/s（128KB块大小）</p></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_实例要求_13">实例要求</h4>
+<div class="ulist">
+<ul>
+<li>
+<p> IT3 实例的数据盘是本地存储，有丢失数据的风险（例如宿主机宕机时）。如果您的应用不能做到数据可靠性的架构，不建议使用 IT3 实例，我们强烈建议您使用可以选择云硬盘作为数据盘的实例。</p>
+<ul>
+<li><p>若本地硬盘损坏后，需要您进行云服务器实例关闭操作后，我们才能够进行本地硬盘替换。</p></li>
+<li><p>若云服务器实例已经宕机，我们会告知您并进行维修操作。</p></li>
+</ul>
+</li>
+<li>
+<p>IT3 实例可以用作包年包月实例和按量计费实例。</p>
+</li>
+<li>
+<p>仅支持在私有网络中启动 IT3 实例。</p>
+</li>
+<li>
+<p>IT3 实例不支持调整配置。</p>
+</li>
+<li>
+<p>IT3 实例支持购买配置，请参阅下方实例规格。</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="__a_href_instancetype_回到顶部_a_13">&nbsp; &nbsp;<a href="#INSTANCETYPE">回到顶部</a></h4>
+</div>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 10%;">
+<col style="width: 20%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>规格</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>vCPU</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内存
+（GB）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>网络
+收发包
+(pps)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>队列数</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>内网
+带宽能力
+（Gbps）</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>主频</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>备注</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>IT3.4XLARGE64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>150万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>6</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.5GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>1 × 3720GB 本地 NVMe SSD 硬盘</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>IT3.8XLARGE128</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>32</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>128</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>250万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>8</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>12</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.5GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2 × 3720GB 本地 NVMe SSD 硬盘</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>IT3.16XLARGE256</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>64</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>256</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>500万</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>16</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>23</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>2.5GHz</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>4 × 3720GB 本地 NVMe SSD 硬盘</p>
+</div></div></td>
+</tr>
+</tbody>
+</table></div></td>
+</tr>
+</tbody>
+</table>
+
 <table class="tableblock frame-none grid-all spread custom-style">
 <colgroup>
 <col style="width: 100%;">
@@ -7837,7 +8048,7 @@
 <p>2.4GHz Intel Xeon E5-2680 Broadwell（v4） 处理器，DDR4 内存</p>
 </li>
 <li>
-<p>采用 SSD 的实例存储，系统盘均为 SSD 本地盘</p>
+<p>提供 SSD 的实例存储</p>
 </li>
 <li>
 <p>低延时：典型场景下，提供亚毫秒级的访问延时（blocksize = 4k ，iodepth = 1）</p>
@@ -9473,7 +9684,7 @@
 <p>3.2GHz Intel® Xeon® Skylake 6146 处理器</p>
 </li>
 <li>
-<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 </li>
 <li>
 <p>最高可支持25Gbps内网带宽，满足极高的内网传输需求</p>
@@ -9813,7 +10024,7 @@
 <p>3.2GHz Intel® Xeon® Skylake 6146 处理器</p>
 </li>
 <li>
-<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 </li>
 <li>
 <p>最新一代六通道 DDR4 内存，内存带宽达 2666MT/s</p>
@@ -10899,7 +11110,7 @@
 								<p>2.4 GHz Intel® Xeon® Skylake 6148 处理器，计算性能稳定</p>
 							</li>
 							<li>
-								<p>配有全新的 Intel Advanced Vector Extension (AXV-512) 指令集</p>
+								<p>配有全新的 Intel Advanced Vector Extension (AVX-512) 指令集</p>
 							</li>
 							<li>
 								<p>最新一代六通道 DDR4 内存，内存带宽达2666MT/s</p>

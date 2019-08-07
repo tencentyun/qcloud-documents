@@ -2,14 +2,15 @@
 
 精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
 
-| 所属平台 | SDK 下载 | Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
-|:---------:| :--------:| :--------:| :--------:| :--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)|[DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
-| Windows| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |支持| 23.8M（x86）<br>27.8M（x64）|
-| Mac| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |支持| 2.05M（arm64）|
-| Web | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/H5)| [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) | - | -|
-| 微信小程序| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini)| [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |  - | -|
+| 所属平台 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
+|:---------:| :--------:| :--------:| :--------:| :--------:| :--------:|:--------:|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Android/SDK) | [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
+| Windows(C++)| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK/CPlusPlus)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Windows/SDK/CPlusPlus)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |支持| 12.7M（C++ x86）<br>15.6M（C++ x64）|
+| Windows(C#)| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK/CSharp)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Windows/SDK/CSharp) | [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) | - | 13.3M（C# x86）|
+| Mac| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/SDK) | [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Mac/SDK) | [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |支持| 2.05M（arm64）|
+| Web | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/H5)|  [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/H5) | [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) | - | -|
+| 微信小程序| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini) |  [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/WXMini) | [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |  - | -|
 
 >? 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
 

@@ -21,10 +21,10 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ### 创建并登录云服务器
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
 >
-1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+1. 在实例的管理页面，单击【新建】。具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/978029125b548c9abf1f83c5794f9045.png)
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
+![](https://main.qcloudimg.com/raw/f2592ea63d7575e5b992efc0bc54e3da.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
@@ -34,7 +34,7 @@ LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 CentOS7.5
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.12.2
 - MariaDB：一个数据库管理系统，本文使用 MariaDB10.4.6
-- PHP：Web 服务器生成网页的程序，本文使用 PHP7.3.7
+- PHP：Web 服务器生成网页的程序，本文使用 PHP7.2.19
 
 #### 使用 yum 安装软件和配置
 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
@@ -42,7 +42,7 @@ LNMP 组成及使用版本说明：
 #### 安装配置 Nginx 
 1. 执行以下命令，安装 Nginx。  
 ```
-yum -y install nginx 
+yum -y install nginx
 ```
 2. 执行以下命令，打开`nginx.conf`文件。
 ```
@@ -90,60 +90,14 @@ systemctl enable nginx
 ![](https://main.qcloudimg.com/raw/c23831d2579d747625e96afbf45766bb.png)
 
 #### 安装配置 PHP
->?请参照 [PHP官网](https://www.php.net/) 最新版本，根据您的需要进行 PHP 版本升级。
->
-##### 使用源码编译安装
-1. 依次执行以下命令，下载并解压 PHP 源码包。
-```
-wget https://www.php.net/distributions/php-7.3.7.tar.gz
-tar -xvf php-7.3.7.tar.gz
-```
-2. 执行以下命令，进入 PHP 解压目录。
-```
-cd php-7.3.7
-```
-3. 执行以下命令，安装编译 PHP 所需依赖库。
-```
-yum -y install libxml2 libxml2-devel bzip2 bzip2-devel libcurl libcurl-devel libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel gmp gmp-devel libmcrypt libmcrypt-devel readline readline-devel libxslt libxslt-devel openssl openssl-devel libzip libzip-devel
-```
-4. 执行以下命令，进行编译。
-```
-./configure --enable-fpm --with-mysqli --disable-fileinfo
-```
-编译成功。如下图所示：
-![](https://main.qcloudimg.com/raw/985e4c0e64bad162b7ef1172100c0dc9.png)
-5. 执行以下命令，构建 PHP。
-```
-make && make install
-```
-构建成功。如下图所示：
-![](https://main.qcloudimg.com/raw/26459747e341f9668cf7e46a7e4fc6cc.png)
-6. 依次执行以下命令，根据构建成功结果图片提示信息进行配置。
-```
-cp php.ini-development /usr/local/php/php.ini
-cp /usr/local/etc/php-fpm.conf.default /usr/local/etc/php-fpm.conf
-cp sapi/fpm/php-fpm /usr/local/bin
-cp /usr/local/etc/php-fpm.d/www.conf.default /usr/local/etc/php-fpm.d/www.conf
-```
-7. 执行以下命令，打开配置文件。
-```
-vi /usr/local/etc/php-fpm.conf
-```
-按 “**i**” 进入编辑模式，将该配置文件末尾 `include=NONE/etc/php-fpm.d/*.conf` 修改为 `include=etc/php-fpm.d/*.conf` 后，按 “**Esc**” 并输入 “**:wq**” 保存并退出。
-8. 执行以下命令，启动服务。
-```
-/usr/local/bin/php-fpm
-```
-
-##### 使用镜像源安装
->?使用镜像源安装 PHP 版本为 7.2.19。
+>? 以下操作以 PHP7.2.19 版本为例。
 >
 1. 执行以下命令，更新 yum 中 PHP 的软件源。
 ```
-rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
+rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 执行以下命令，查看可安装的 PHP 7.2 的所有包。
+2. 执行以下命令，查看可安装的 PHP7.2.19 的所有包。
 ```
 yum search php72w
 ```
@@ -168,7 +122,7 @@ echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 http://云服务器实例的公网 IP/index.php 
 ```
 页面显示如下，则说明 PHP-Nginx 环境配置成功。
-![](https://main.qcloudimg.com/raw/ac7a3da01e026ae0db537bcc26bb97c0.png)
+![](https://main.qcloudimg.com/raw/62cac02b422515364d8713062017c9e1.png)
 
 #### 安装配置 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
@@ -185,8 +139,6 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
->?请参照 [MariaDB 镜像源](http://mirrors.cloud.tencent.com/mariadb/yum/) 最新版本，根据您的需要自行替换源。
->
 4. 按 **i** 切换至编辑模式，写入并保存以下内容。
 ```
 # MariaDB 10.4 CentOS7-amd64
@@ -196,7 +148,9 @@ baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
 gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1  
 ```
-5. 执行以下命令，清楚 yum 缓存。
+>? 腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
+> 
+5. 执行以下命令，清除 yum 缓存。
 ```
 yum clean all
 ```
@@ -223,6 +177,10 @@ mysql -uroot -p
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/cd3996d219c989911dbc3eb397047ce4.png)
+10. 执行以下命令，退出 MariaDB。
+```
+\q
+```
 
 ### 安装和配置 WordPress
 #### 下载 
@@ -245,7 +203,7 @@ tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
 ```
-mysql -uroot -pXXXXX（安装配置 MariaDB 设置的登录密码）
+mysql -uroot -pXXXXX（XXXXX 表示安装 MariaDB 时设置的登录密码）
 ```
 2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
 ```
@@ -269,7 +227,7 @@ FLUSH PRIVILEGES;
 ```
 7. 执行以下命令，退出 MariaDB。
 ```
-exit
+\q
 ```
 
 ####  写入数据库信息

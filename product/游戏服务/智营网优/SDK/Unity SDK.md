@@ -162,12 +162,9 @@ public static void StartSpeed(string vip, int vport, int htype, string hookModul
 |---------|---------|
 | vip | 游戏服务器地址（IP 或域名，强烈建议使用 IP）| 
 | vport | 游戏服务器端口 | 
-| htype | 本参数决定 HOOK 的函数种类，取值有如下: | 
-|                        | htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。 | 
-|                        | htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
-| hookModules | 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 Apollo 的网络通信模块，则填`libapollo.so`；若使用 C# 的网络通信模块，则填`libmono.so`。| 
+| htype | 本参数决定 HOOK 的函数种类，取值有如下：<li>htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。<li>htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
+|  hookModules       |hookModules 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 C# 的网络通信模块，则填 libmono.so |
 | stopMNA | 默认值为 0 ； 1 表示强制关闭加速功能，保留网络诊断功能 | 
-| pvpid | 游戏对局唯一 ID，用来定位对局的网络问题 | 
 | timeout | 默认值为 0 ；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
 
 功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。
@@ -336,10 +333,7 @@ public class KartinRet {
 | -1 | 获取直连延迟失败，请稍后再试 | 
 | 0..800 | 网络时延值 | 
 
-#### 字段：netinfo_desc；关键名称：直连时延
-| 取值 | 含义 | 
-|---------|---------|
-|   | 当前网卡有丢包或错包，不适合游戏 | 
+
 
   
 具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）

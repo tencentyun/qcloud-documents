@@ -56,7 +56,7 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 
 #### 安装配置
 1. 将已下载的 PHP zip 安装包解压缩。例如，解压缩至 `C:\PHP` 目录下。
-2. 复制 `C:\PHP` 目录下的 `php.ini-production` 文件，并重命名为 `php.ini` 文件。如下图所示：
+2. 复制 `C:\PHP` 目录下的 `php.ini-production` 文件，并将该文件的后缀修改为 `.ini`（即重命名为`php.ini`文件）。如下图所示：
 ![](https://main.qcloudimg.com/raw/ba62cb859993ee25f372bc4ea969b4cf.png)
 3. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
 4. 在服务器管理器的左侧导航栏中，单击【IIS】。
@@ -71,7 +71,7 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 9. 在打开的 “添加模块映射” 窗口中，填写以下信息，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ec6ded20a961ff3acaf955221a1a68a4.png)
 主要的参数信息如下：
- - 请求路径：填写 `\*.php`。
+ - 请求路径：填写 `*.php`。
  - 模块：选择 “FastCgiModule”。
  - 可执行文件：选择 PHP zip 安装包中的 php-cgi.exe 文件，即 `C:\PHP\php-cgi.exe`。
  - 名称：自定义，例如输入 FastCGI。
@@ -89,13 +89,14 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 ![](https://main.qcloudimg.com/raw/9c1382da5600121741ecfa4560623997.png)
 18.  在打开的 “编辑  FastCGI 应用程序” 窗口中，将【监视对文件所做的更改】设置为 `php.ini` 文件的路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/c167f15bb6cabe35cce2650133ac63e2.png)
-19. 在 `C:\inetpub\wwwroot` 目录下，创建一个名称为 `index.php` 的 PHP 文件，并写入如下内容：
+19. 在 `C:\inetpub\wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `index.php` 文件。
+20. 在新创建的 `index.php` 文件中，填写以下内容并保存。
 ```
 <?php
 phpinfo();
 ?>
 ```
-20. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php` ，查看环境配置是否成功。
+21. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php`，查看环境配置是否成功。
 如果打开的页面如下显示，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
 

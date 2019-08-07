@@ -16,8 +16,7 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-	
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>``
 	<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
 		<intent-filter>
 			//检测网络变化的 acton
@@ -98,7 +97,7 @@ param.signature = "xxx";
 param.mediaPath = "xxx";
 ```
 
-signature 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+`signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 #### 调用上传
 
@@ -118,7 +117,7 @@ param.signature = "xxx";
 param.videoPath = "xxx";
 param.coverPath = "xxx";
 ```
-signature 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+`signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 #### 取消和恢复上传
 
@@ -132,7 +131,7 @@ mVideoPublish.canclePublish();
 
 #### 断点续传
 
-在视频上传过程中，点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。
+在视频上传过程中，云点播支持断点续传，即当上传意外终止时，用户再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 断点续传的有效时间是1天，即同一个视频上传被中断，那么1天内再次上传可以直接从断点处上传，超过1天默认会重新上传完整视频。
 
@@ -315,4 +314,4 @@ SDK 通过`TXUGCPublishTypeDef.ITXVideoPublishListene\ITXMediaPublishListener`�
 | 1015 | ERR_UGC_FILE_NAME              | 视频上传文件名太长（超过40）或含有特殊字符。 |
 | 1016 | ERR_UGC_INVALID_COVER_PATH     | 视频文件封面路径不对，文件不存在。       |
 | 1017 | ERR_USER_CANCEL                | 用户取消上传。       |
-| 1018 | ERR_UPLOAD_VOD                 | 小于5M的文件直接上传到点播失败。       |
+| 1018 | ERR_UPLOAD_VOD                 | 小于5M的文件直接上传到云点播失败。       |
