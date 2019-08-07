@@ -1,9 +1,8 @@
 对于在 iOS 平台上传视频的场景，云点播提供了 iOS 上传 SDK 。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源码下载
-[单击下载](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
-
-将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
+1. [单击下载](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
+2. 将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
 
 ## 集成上传库和源码
 
