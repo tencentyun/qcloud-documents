@@ -12,7 +12,7 @@
 本 SDK 运行环境与项目要求：适用于 iOS8 及以上的系统版本。
 
 ## 接入步骤
-1. 首先在工程中导入SDK库：
+1. 首先在工程中导入 SDK 库：
 ```
 TCWebCodesSDK.framework
 ```
