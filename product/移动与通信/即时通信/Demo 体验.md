@@ -13,7 +13,7 @@
 
 **Android/iOS 基本功能演示**
 
-<img src="https://main.qcloudimg.com/raw/5639db34f757924e17a4869c41e56c6d.gif" />&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://main.qcloudimg.com/raw/9aeea08e86d3a64522022f5b3a653a29.gif" />
+<img src="https://main.qcloudimg.com/raw/5639db34f757924e17a4869c41e56c6d.gif" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://main.qcloudimg.com/raw/9aeea08e86d3a64522022f5b3a653a29.gif" />
 
 **Android/iOS 自定义功能演示**
 
