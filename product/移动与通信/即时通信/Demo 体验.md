@@ -1,8 +1,7 @@
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th>iOS</th>
-    <th>Android</th>
-
+    <th style="text-align:center">iOS</th>
+    <th style="text-align:center">Android</th>
   </tr>
   <tr>
     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png" /></td>
