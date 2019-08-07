@@ -24,7 +24,7 @@
      #所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
      ./hdfs_to_cos_cmd -h
 
-     #从 HDFS 拷贝到 COS（如果 COS 上已存在文件, 则会覆盖）
+     #从 HDFS 拷贝到 COS（如果 COS 上已存在文件，则会覆盖）
     ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 
     #从 HDFS 拷贝到 COS，同时要拷贝的文件和 COS 的长度一致，则忽略上传（适用于拷贝一次后，重新拷贝）
