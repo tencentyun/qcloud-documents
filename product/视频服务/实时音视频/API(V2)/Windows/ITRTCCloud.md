@@ -12,7 +12,7 @@ LITEAV_API ITRTCCloud * getTRTCShareInstance()
 
 __返回__
 
-返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，delete ITRTCCloud\*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
 
 
 ### destroyTRTCShareInstance
