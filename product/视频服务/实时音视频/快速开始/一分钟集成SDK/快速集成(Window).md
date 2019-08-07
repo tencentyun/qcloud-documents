@@ -47,15 +47,15 @@
 ```
 copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ```
- ![](https://main.qcloudimg.com/raw/e8618c1758fa08d24981724597733383.png)
+ ![](https://main.qcloudimg.com/raw/fde21a5e23115ba224e6ffb1e4c229c3.png)
  
 #### **4.3：修改调试环境**
 打开 TRTCDemo 属性页，选择【生成】，修改【常规】区域的【平台目标(G)】为【x86】，如下图所示：
-![](https://main.qcloudimg.com/raw/e0dca89fb0168baf73b2decf5b400fa6.png)
+![](https://main.qcloudimg.com/raw/3baac938f6a2e544d391614e7287f99e.png)
 
 ### 步骤5：打印 SDK 版本号
 1. 在 Form1.cs 的设计器中添加一个 label 控件，如下图所示：
- ![](https://main.qcloudimg.com/raw/95a2aa6057349abea15117d63c3919a8.png)
+ ![](https://main.qcloudimg.com/raw/fec574b76a4250a3e948816b7cc1728d.png)
 2. 打开 Form1.cs 代码文件，添加以下代码：
   ```c#
   using System.Windows.Forms;
