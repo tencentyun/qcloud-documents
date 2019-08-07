@@ -57,7 +57,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ### 数据存放在 COS
 数据存放在 COS 中有两种方式：**在本地通过 COS 的控制台上传**和**在 EMR 集群通过 Hadoop 命令上传**。
 
-- 在本地通过 [COS 的控制台](https://cloud.tencent.com/document/product/436/13321) 上传，如果数据文件已经在 COS 可以通过如下命令查看：
+- 在本地通过 [COS 控制台直接上传](https://cloud.tencent.com/document/product/436/13321)，如果数据文件已经在 COS 可以通过如下命令查看：
  ```
  [hadoop@10 hadoop]$ hadoop fs -ls cosn://$bucketname/README.txt
 -rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname /README.txt

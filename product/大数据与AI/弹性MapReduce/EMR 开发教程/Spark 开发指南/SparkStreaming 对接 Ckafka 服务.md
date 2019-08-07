@@ -9,7 +9,7 @@
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Spark 组件。
 
 ## 2. 在 EMR 集群使用 Kafka 工具包
-首先需要查看 CKafka 的内网 IP 与端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为 9092。在 topic 管理界面新建一个 topic 为 spark_streaming_test。
+首先需要查看 CKafka 的内网 IP 与端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为9092。在 topic 管理界面新建一个 topic 为 spark_streaming_test。
 
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
@@ -75,7 +75,7 @@ simple
 　　　　　　---java　　　　测试源码目录
 　　　　　　---resources　  测试配置目录
 ```
-其中我们主要关心 pom.xml 文件和 main 下的 Java 文件夹。pom.xml文件主要用于依赖和打包配置，Java 文件夹下放置您的源代码。
+其中我们主要关心 pom.xml 文件和 main 下的 Java 文件夹。pom.xml 文件主要用于依赖和打包配置，Java 文件夹下放置您的源代码。
 
 首先在 pom.xml 文件中添加 Maven 依赖：
 ```
@@ -132,7 +132,7 @@ simple
 ```
 >!修改其中的 $yourgroupID 和 $yourartifactID 为您自己的设置。
 
-接下来添加样例代码，在【main】>【Java】文件夹下新建一个 Java Class 取名为 KafkaTest.java，并将以下代码加入其中：
+接下来添加样例代码，在 main>Java 文件夹下新建一个 Java Class 取名为 KafkaTest.java，并将以下代码加入其中：
 ```
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.spark.SparkConf;
@@ -196,14 +196,14 @@ public class KafkaTest {
 - $hdfsPath 为 HDFS 中的路径，结果将会输出到该路径下。
 
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
-
-`mvn package`
-
+```
+mvn package
+```
 显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
 使用 scp 或者 sftp 工具来把打包好的文件上传到 EMR 集群，注意一定要上传依赖一起打包的 jar 包：
-
-`scp $localfile root@公网IP地址:$remotefolder`
-
+```
+scp $localfile root@公网IP地址:$remotefolder
+```
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ### 创建 Spark Streaming 生产者工程
@@ -267,7 +267,7 @@ mvn archetype:generate -DgroupId=$yourgroupID -DartifactId=$yourartifactID
 ```
 >!修改其中的 $yourgroupID 和 $yourartifactID 为您自己的设置。
 
-接下来添加样例代码，在【main】>【Java】文件夹下新建一个 Java Class 取名为 SendData.java，并将以下代码加入其中：
+接下来添加样例代码，在 main>Java 文件夹下新建一个 Java Class 取名为 SendData.java，并将以下代码加入其中：
 ```
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -311,13 +311,15 @@ public class SendData {
 
 这个程序每10秒向 CKafka 发送10条消息从 value_0 到 value_9，其开始的顺序随机。程序中的参数信息参考消费者程序。
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
-
-`mvn package`
+```
+mvn package
+```
 
 显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
 使用 scp 或者 sftp 工具来把打包好的文件上传到 EMR 集群，注意一定要上传依赖一起打包的 jar 包：
-
-`scp $localfile root@公网IP地址:$remotefolder`
+```
+scp $localfile root@公网IP地址:$remotefolder
+```
 
 ### 使用程序消费 CKafka 的数据
 使用两个界面分别登录 EMR 集群的 Web Shell。
@@ -331,13 +333,13 @@ public class SendData {
 - $ consumerpackage 是您的消费者打包后的包名。
 
 程序开始执行之后，将会在 yarn 集群上一直运行，使用以下指令可以查看到程序运行的状态：
-
-`[hadoop@172 ~]$ yarn application –list`
-
+```
+[hadoop@172 ~]$ yarn application –list
+```
 **第二个界面** 登录 EMR 的 Web Shell，然后运行生产者程序，以便 Spark Streaming 能够从中取数据消费。
-
-`[hadoop@172 spark]$ bin/spark-submit --class SendData $producerpackage`
-
+```
+[hadoop@172 spark]$ bin/spark-submit --class SendData $producerpackage
+```
 其中 $producerpackage 为您的生产者打包后的包名。等待一段时间之后，会在指定的 HDFS 文件夹中输出 wordcount 的结果，可以到 HDFS 中查看 Spark Streaming 消费 CKafka 数据后输出的结果：
 ```
 [hadoop@172 root]$ hdfs dfs -ls /user
@@ -360,8 +362,8 @@ drwxr-xr-x - hadoop supergroup 0 2018-07-05 20:25 /user/sparkstreamingtest-15307
 (value_5,17)
 ```
 最后需要退出 yarn 集群中的 KafkaTest 程序：
-
-`[hadoop@172 ~]$ yarn application –kill $Application-Id`
-
+```
+[hadoop@172 ~]$ yarn application –kill $Application-Id
+```
 其中 $Application-Id 为使用`yarn application –list`命令查找到的 ID。
 更多 Kafka 的相关信息请查看 [官方文档](http://kafka.apache.org/)。

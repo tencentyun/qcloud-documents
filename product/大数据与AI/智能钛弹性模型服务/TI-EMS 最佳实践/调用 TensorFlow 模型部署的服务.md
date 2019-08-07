@@ -6,23 +6,24 @@
 **2. 测试图片：** [flower.jpg](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.jpg)
 ![](https://main.qcloudimg.com/raw/9e74659a24ec62bc47b0f14160afee98.png)
 **base64 编码**
-将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据。
+将上图测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flower.json`为经过编码的测试图片数据，或者您可以直接下载已经编码完成的 json 文件 [flower.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.json)，跳过该图片编码步骤，直接进行下一步。
 ```shell
 echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.json
 ```
 
+
 ### 创建模型服务配置
 在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_tfserving，单击【运行环境】，在弹出页面的【公共镜像】栏选择 tfserving。
-![](https://main.qcloudimg.com/raw/086849837dfdcd71484ca27d04ecb676.png)
+![](https://main.qcloudimg.com/raw/cfa627f4e8f9c8dbf6391953f83f2fbf.png)
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/750a166db95a17801d4443960e9ec82f.png)
 选择模型资源配置，单击【普通配置】，选择2核 CPU，2048MB内存配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
-![](https://main.qcloudimg.com/raw/7790d7a1be72ee4ce4e6124dbc7730bd.png)
+![](https://main.qcloudimg.com/raw/9a6ff404c830e7af893fd1164a003469.png)
 ### 启动服务
 在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
 ![](https://main.qcloudimg.com/raw/af95e25692913e32750c8b0ea1aca410.png)
 在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
-![](https://main.qcloudimg.com/raw/f8e97a68b4aac1a7b1a0a1075b53d62b.png)
+![](https://main.qcloudimg.com/raw/d28304ab7112e17e7f0bdb09746b9864.png)
 ### 调用测试
 单击【启动模型服务】页面选择 demo_serving 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_serving 模型服务的访问地址 IP 和密钥 TOKEN。
 ![](https://main.qcloudimg.com/raw/35a25f37773217ab2fdc3a48f0679596.png)

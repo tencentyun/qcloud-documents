@@ -2,7 +2,7 @@
 >! 当前小程序版本 Demo 仅提供直播聊天室场景。
 
 ## 准备工作
-在集成小程序 SDK 前，请确保您已完成以下步骤，详见 [跑通Demo(小程序)](https://cloud.tencent.com/document/product/269/32941)。
+在集成小程序 SDK 前，请确保您已完成以下步骤，请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
 - 创建了腾讯云即时通信 IM 应用，并获取到 SDKAppID。
 - 获取私钥文件。
 - 小程序服务器域名配置。

@@ -1,31 +1,30 @@
-本文将以一个简单案例来说明数据订阅中拉取对应表到 Kafka 的功能，并且提供简易 [KaflkaDemo下载](https://main.qcloudimg.com/raw/cf803ad5ddbb3f20534d98a5a0a23334/KafkaDemo.zip) 。以下操作将在 Centos 操作系统中完成。
-### 配置环境
-1. Java环境配置 
+本文将以一个简单案例来说明数据订阅中拉取对应表到 Kafka 的功能，并且提供简易 [KaflkaDemo 下载](https://main.qcloudimg.com/raw/cf803ad5ddbb3f20534d98a5a0a23334/KafkaDemo.zip) 。以下操作将在 Centos 操作系统中完成。
+
+## 配置环境
+- Java环境配置 
 ```
 yum install java-1.8.0-openjdk-devel 
 ```
-
-2. 相关下载
+- 相关下载
  - [数据订阅 SDK](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar)
- - [SLF4J组件](https://main.qcloudimg.com/raw/f8a577788af1d57cd269410fbe436a35/SLF4J.zip)
+ - [SLF4J 组件](https://main.qcloudimg.com/raw/f8a577788af1d57cd269410fbe436a35/SLF4J.zip)
  - [Kafka-clients](https://main.qcloudimg.com/raw/a60f793a4eafe5f77e63615c5ce920e8/kafka-clients-1.1.0.jar)
 
-### 安装 Kafka 
-具体请参考 http://kafka.apache.org/quickstart
-启动之后创建一个 testtop 主题
+## 安装 Kafka 
+具体请参考 [Kafka 介绍](http://kafka.apache.org/quickstart)。
+启动之后创建一个 testtop 主题。
 ```
 [root@VM_71_10_centos kafka_2.11-1.1.0]# bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic testtop
 Created topic "testtop".
 ```
-### 获取密钥
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接单击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
 
-![](https://main.qcloudimg.com/raw/c6fa15fc47536b875448f911b00ed290.png)
+## 获取密钥
+登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取密钥。
 
-### 选择数据订阅
-1. 登录 [数据传输DTS控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
+## 选择数据订阅
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
 2. 选择需同步的 TencentDB 实例名，然后单击启动，再返回数据订阅，单击您所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
-3. 查看对应的 DTS 通道、 IP 和 Port，然后结合之前的密钥填写到对应 KafkaDemo.java 里面。
+3. 查看对应的 DTS 通道、IP 和 Port，然后结合之前的密钥填写到对应 KafkaDemo.java 里面。
 ```
   // 从云API获取密钥,填写到此处
        
@@ -52,19 +51,15 @@ Created topic "testtop".
 ```
 
 
-
-
-###  编译操作与检验
+##  编译操作与检验
 1. 
 ```
 javac -classpath binlogsdk-2.6.0-release.jar:slf4j-api-1.7.25.jar:slf4j-log4j12-1.7.2.jar:kafka-clients-1.1.0.jar -encoding UTF-8 KafkaDemo.java 
 ```
-
-2. 执行启动,如果没有异常报错就是正常在服务。
+2. 执行启动，如果没有异常报错就是正常在服务。
 ```
 java -XX:-UseGCOverheadLimit -Xms2g -Xmx2g  -classpath .:binlogsdk-2.6.0-release.jar:kafka-clients-1.1.0.jar:slf4j-api-1.7.25.jar:slf4j-log4j12-1.7.2.jar  KafkaDemo
 ```
-
 3. 通过对表 alantest 插入一条数据，发现在 Kafka 订阅的 testtop 里面能看到已经有数据过来了。
 
 ```

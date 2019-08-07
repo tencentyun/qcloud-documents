@@ -420,7 +420,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFileElemFilePath | string | 读写（必填） | 文件所在路径（包含文件名） |
-| kTIMFileElemFileName | string | 读写（选填） | 文件名，显示的名称 |
+| kTIMFileElemFileName | string | 读写（选填） | 文件名，显示的名称<br>不设置该参数时，kTIMFileElemFileName 默认为 kTIMFileElemFilePath 指定的文件路径中的文件名 |
 | kTIMFileElemFileSize | int | 读写（必填） | 文件大小 |
 | kTIMFileElemFileId | string | 只读 | 下载视频时的 UUID |
 | kTIMFileElemBusinessId | int | 只读 | 下载时用到的 businessID |

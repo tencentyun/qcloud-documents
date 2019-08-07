@@ -1,6 +1,6 @@
 ## TCP SSL 监听器简介
 您可以在负载均衡实例上添加一个 TCP SSL 监听转发来自客户端加密的 TCP 协议请求。TCP SSL 协议适用于需要超高性能、大规模 TLS 卸载的场景。TCP SSL 协议的监听器，后端服务器可直接获取客户端的真实 IP。
->?CLB 支持 TCP SSL 协议正在内测中，如需使用，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
+>?TCP SSL 监听器正在内测中，当前仅支持公网负载均衡（不支持内网），不支持传统型负载均衡，如需使用，请通过  [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
 
 ## 前提条件
 您需要 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
@@ -10,7 +10,7 @@
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
 2. 在左侧导航栏，选择【实例管理】。
 3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
-4. 单击“监听器管理”标签页，您也可以在列表页的操作栏中点击【配置监听器】。
+4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
 ![](https://main.qcloudimg.com/raw/b6a9d6be3d216cc0f892eddfa9937ce2.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/8b20cb5510626c49860d5e67c1f2c736.png)
@@ -80,11 +80,11 @@
 ![](https://main.qcloudimg.com/raw/e0ef33bc1e3de8bd048f22b046dd2d50.png)
 
 完成步骤1到步骤3之后，TCP SSL 监听器规则已配置完毕，配置详情如下：
-![](https://main.qcloudimg.com/raw/af11e02660f3a94201df47ba98bdf010.png)
+![](https://main.qcloudimg.com/raw/a217130cfbaf64d92c9e42d1a07eaccc.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
-如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，选择【编辑】或【删除】来完成操作。
+如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，选择【修改】或【删除】来完成操作。
 ![](https://main.qcloudimg.com/raw/13cde6cfce64bff29f81ecdeaa43545a.png)

@@ -12,7 +12,7 @@ LITEAV_API ITRTCCloud * getTRTCShareInstance()
 
 __返回__
 
-返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，delete ITRTCCloud\*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
 
 
 ### destroyTRTCShareInstance
@@ -27,7 +27,7 @@ LITEAV_API void destroyTRTCShareInstance()
 ## 设置 TRTCCloudCallback 回调
 ### addCallback
 
-设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
+设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback)。
 ```
 void addCallback(ITRTCCloudCallback * callback)
 ```
@@ -37,6 +37,10 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+
+__介绍__
+
+您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
 
 
 ### removeCallback
@@ -69,7 +73,12 @@ __参数__
 | params | const [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams) & | 进房参数，请参考 [TRTCParams](https://cloud.tencent.com/document/product/647/32271#trtcparams)。 |
 | scene | [TRTCAppScene](https://cloud.tencent.com/document/product/647/32271#trtcappscene) | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理，
+__介绍__
+
+如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+
+>?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+
 
 
 ### exitRoom
@@ -78,6 +87,11 @@ __参数__
 ```
 void exitRoom()
 ```
+
+__介绍__
+
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知您。
+如果您需要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
 
 
 ### switchRole
@@ -100,7 +114,7 @@ __介绍__
 
 ### connectOtherRoom
 
-请求跨房通话。
+请求跨房通话（主播 PK）。
 ```
 void connectOtherRoom(const char * params)
 ```
@@ -113,13 +127,43 @@ __参数__
 
 __介绍__
 
-TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，该功能意义不大。 在直播场景下，该功能可用于实现“主播 PK”的功能，即两个主播在已经有各自音视频房间存在的情况下， 通过跨房通话功能，可以在保留两个音视频房间的情况下把麦上的主播拉通在一起。
-跨房通话的参数采用了 JSON 格式，要求至少包含两个字段：
-- roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
-- userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
+例如：当房间“001”中的主播 A 通过 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，true) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，true) 回调。
+简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
+
+<pre>
+               房间 001                    房间 002
+            --------------              -------------
+ 跨房通话前：| 主播 A      |             | 主播 B     |
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------</pre>
 
 
-跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom 回调通知给您。
+
+<pre>              房间 001                     房间 002
+            --------------              -------------
+ 跨房通话后：| 主播 A B    |             | 主播 B A   |
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------
+</pre>
+
+跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
+- roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 时 roomId 应指定为“002”。
+- userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 时 userId 应指定为 B 的 userId。
+
+
+跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知您。
+
+
+<pre>
+  //此处用到 jsoncpp 库来格式化 JSON 字符串
+  Json::Value jsonObj;
+  jsonObj["roomId"] = 002;
+  jsonObj["userId"] = "userB";
+  Json::FastWriter writer;
+  std::string params = writer.write(jsonObj);
+  trtc.ConnectOtherRoom(params.c_str());
+</pre>
 
 
 ### disconnectOtherRoom
@@ -131,14 +175,14 @@ void disconnectOtherRoom()
 
 __介绍__
 
-跨房通话的退出结果会通过 TRTCCloudCallback 中的 onDisconnectOtherRoom 回调通知给您。
+跨房通话的退出结果会通过 TRTCCloudCallback 中的 onDisconnectOtherRoom() 回调通知给您。
 
 
 
 ## 视频相关接口函数
 ### startLocalPreview
 
-启动本地摄像头采集和预览。
+开启本地视频的预览画面。
 ```
 void startLocalPreview(HWND rendHwnd)
 ```
@@ -149,7 +193,9 @@ __参数__
 |-----|-----|-----|
 | rendHwnd | HWND | 承载预览画面的 HWND。 |
 
->?这个接口会启动默认的摄像头，可以通过 setCurrentCameraDevice 接口选用其他摄像头。
+__介绍__
+
+这个接口会启动默认的摄像头，可以通过 setCurrentCameraDevice 接口选用其他摄像头 当开始渲染首帧摄像头画面时，您会收到 TRTCCloudCallback 中的 onFirstVideoFrame(null) 回调。
 
 
 ### stopLocalPreview
@@ -158,50 +204,6 @@ __参数__
 ```
 void stopLocalPreview()
 ```
-
-
-### startRemoteView
-
-开始显示远端视频画面。
-```
-void startRemoteView(const char * userId, HWND rendHwnd)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
-| rendHwnd | HWND | 承载预览画面的窗口句柄。 |
-
-__介绍__
-
-在收到 SDK 的 onUserVideoAvailable 回调时，调用这个接口，就可以显示远端视频的画面了。
-
-
-### stopRemoteView
-
-停止显示远端视频画面。
-```
-void stopRemoteView(const char * userId)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | const char * | 对方的用户标识。 |
-
-
-### stopAllRemoteView
-
-停止显示所有远端视频画面。
-```
-void stopAllRemoteView()
-```
-
->?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
-
 
 
 ### muteLocalVideo
@@ -222,6 +224,87 @@ __介绍__
 当屏蔽本地视频后，房间里的其它成员将会收到 onUserVideoAvailable 回调通知。
 
 
+### startRemoteView
+
+开始显示远端视频画面。
+```
+void startRemoteView(const char * userId, HWND rendHwnd)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | const char * | 对方的用户标识。 |
+| rendHwnd | HWND | 承载预览画面的窗口句柄。 |
+
+__介绍__
+
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面时，可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
+
+
+### stopRemoteView
+
+停止显示远端视频画面。
+```
+void stopRemoteView(const char * userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | const char * | 对方的用户标识。 |
+
+__介绍__
+
+调用此接口后，SDK 会停止接收该用户的远程视频流，同时会清理相关的视频显示资源。
+
+
+### stopAllRemoteView
+
+停止显示所有远端视频画面。
+```
+void stopAllRemoteView()
+```
+
+>?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
+
+
+
+### muteRemoteVideoStream
+
+暂停接收指定的远端视频流。
+```
+void muteRemoteVideoStream(const char * userId, bool mute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | const char * | 对方的用户标识。 |
+| mute | bool | 是否停止接收。 |
+
+__介绍__
+
+该接口仅停止接收远程用户的视频流，但并不释放显示资源，所以视频画面会冻屏在 mute 前的最后一帧。
+
+
+### muteAllRemoteVideoStreams
+
+停止接收所有远端视频流。
+```
+void muteAllRemoteVideoStreams(bool mute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | bool | 是否停止接收。 |
+
+
 ### setVideoEncoderParam
 
 设置视频编码器相关参数。
@@ -233,7 +316,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 视频编码参数，详情请参考 TRTCCloudDef.h 中 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 的定义。 |
+| params | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 视频编码参数，详情请参考 TRTCCloudDef.h 中的 [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) 定义。 |
 
 __介绍__
 
@@ -251,11 +334,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| params | const [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) & | 网络流控参数，详情请参考 TRTCCloudDef.h 中 [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) 的定义。 |
+| params | const [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) & | 网络流控参数，详情请参考 TRTCCloudDef.h 中的 [TRTCNetworkQosParam](https://cloud.tencent.com/document/product/647/32271#trtcnetworkqosparam) 定义。 |
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+该设置决定了 SDK 在各种网络环境下的调控策略（例如弱网下是“保清晰”还是“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -298,7 +381,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setRemoteViewRotation
@@ -313,7 +396,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setVideoEncoderRotation
@@ -327,12 +410,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持90、180、270旋转角度。 |
+| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度。 |
 
 
 ### setLocalViewMirror
 
-设置摄像头本地预览是否开镜像。
+设置本地摄像头预览画面的镜像模式。
 ```
 void setLocalViewMirror(bool mirror)
 ```
@@ -341,12 +424,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | bool | 是否开启预览镜像。 |
+| mirror | bool | 镜像模式。 |
 
 
 ### setVideoEncoderMirror
 
-设置远端看到的画面是否镜像。
+设置编码器输出的画面镜像模式。
 ```
 void setVideoEncoderMirror(bool mirror)
 ```
@@ -359,7 +442,7 @@ __参数__
 
 __介绍__
 
-该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制的）画面效果。
 
 
 ### enableSmallVideoStream
@@ -378,15 +461,15 @@ __参数__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果用户的下行网络很好，可以选择观看【高清】画面
+- 如果用户的下行网络不好，可以选择观看【低清】画面。
 
 
 ### setRemoteVideoStreamType
 
-选定观看指定 uid 的大画面还是小画面。
+选定观看指定 userId 的大画面还是小画面。
 ```
 void setRemoteVideoStreamType(const char * userId, TRTCVideoStreamType type)
 ```
@@ -400,7 +483,7 @@ __参数__
 
 __介绍__
 
-此功能需要该 uid 通过 enableEncSmallVideoStream 提前开启双路编码模式。 如果该 uid 没有开启双路编码模式，则此操作无效。
+此功能需要该 userId 通过 enableEncSmallVideoStream 提前开启双路编码模式。 如果该 userId 没有开启双路编码模式，则此操作无效。
 
 
 ### setPriorRemoteVideoStreamType
@@ -508,11 +591,45 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 报告间隔单位为ms，最小间隔20ms，如果小于等于0则会关闭回调，建议设置为大于200ms。 |
+| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms。 |
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。
+开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。 如希望打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32269#startlocalaudio) 之前调用。
+
+
+### startAudioRecording
+
+开始录音。
+```
+int startAudioRecording(const TRTCAudioRecordingParams & audioRecordingParams)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| audioRecordingParams | const [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32271#trtcaudiorecordingparams) & | 录音参数，请参考TRTCAudioRecordingParams。 |
+
+__返回__
+
+0：成功；-1：录音已开始；-2：文件或目录创建失败；-3：后缀指定的音频格式不支持。
+
+__介绍__
+
+该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM等)录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
+
+
+### stopAudioRecording
+
+停止录音。
+```
+void stopAudioRecording()
+```
+
+__介绍__
+
+如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 
@@ -527,6 +644,20 @@ ITRTCDeviceCollection * getCameraDevicesList()
 __返回__
 
 摄像头管理器对象指针 ITRTCDeviceCollection*。
+
+__介绍__
+
+示例代码： 
+
+<pre>
+ ITRTCDeviceCollection * pDevice = m_pCloud->getCameraDevicesList();
+ for (int i = 0; i < pDevice->getCount(); i++)
+ {
+     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
+ }
+ pDevice->release();
+ pDevice = null;
+</pre>
 
 >?如果 delete ITRTCDeviceCollection*指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
@@ -562,7 +693,7 @@ ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 ## 音频设备相关接口函数
 ### getMicDevicesList
 
-获取麦克风设备列表 示例代码：。
+获取麦克风设备列表。
 ```
 ITRTCDeviceCollection * getMicDevicesList()
 ```
@@ -571,8 +702,34 @@ __返回__
 
 麦克风管理器对象指针 ITRTCDeviceCollection*。
 
+__介绍__
+
+示例代码： 
+
+<pre>
+ ITRTCDeviceCollection * pDevice = m_pCloud->getMicDevicesList();
+ for (int i = 0; i < pDevice->getCount(); i++)
+ {
+     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
+ }
+ pDevice->release();
+ pDevice = null;
+</pre>
+
 >?如果 delete ITRTCDeviceCollection* 指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
+
+
+### getCurrentMicDevice
+
+获取当前选择的麦克风。
+```
+ITRTCDeviceInfo * getCurrentMicDevice()
+```
+
+__返回__
+
+ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 ### setCurrentMicDevice
@@ -593,18 +750,6 @@ __介绍__
 选择指定的麦克风作为录音设备，不调用该接口时，默认选择索引为0的麦克风。
 
 
-### getCurrentMicDevice
-
-获取当前选择的麦克风。
-```
-ITRTCDeviceInfo * getCurrentMicDevice()
-```
-
-__返回__
-
-ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
-
-
 ### getCurrentMicDeviceVolume
 
 获取当前麦克风设备音量。
@@ -614,7 +759,7 @@ uint32_t getCurrentMicDeviceVolume()
 
 __返回__
 
-音量值，范围是0 - 100]。
+音量值，范围是0 - 100。
 
 
 ### setCurrentMicDeviceVolume
@@ -642,8 +787,34 @@ __返回__
 
 扬声器管理器对象指针 ITRTCDeviceCollection*。
 
+__介绍__
+
+示例代码： 
+
+<pre>
+ ITRTCDeviceCollection * pDevice = m_pCloud->getSpeakerDevicesList();
+ for (int i = 0; i < pDevice->getCount(); i++)
+ {
+     std::wstring name = UTF82Wide(pDevice->getDeviceName(i));
+ }
+ pDevice->release();
+ pDevice = null;
+</pre>
+
 >?如果 delete ITRTCDeviceCollection* 指针会编译错误，SDK 维护 ITRTCDeviceCollection 对象的生命周期。
 
+
+
+### getCurrentSpeakerDevice
+
+获取当前的扬声器设备。
+```
+ITRTCDeviceInfo * getCurrentSpeakerDevice()
+```
+
+__返回__
+
+ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 ### setCurrentSpeakerDevice
@@ -658,18 +829,6 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | speakerId | const char * | 从 getSpeakerDevicesList 中得到的设备 ID。 |
-
-
-### getCurrentSpeakerDevice
-
-获取当前的扬声器设备。
-```
-ITRTCDeviceInfo * getCurrentSpeakerDevice()
-```
-
-__返回__
-
-ITRTCDeviceInfo 设备信息，能获取设备 ID 和设备名称。
 
 
 ### getCurrentSpeakerVolume
@@ -752,8 +911,6 @@ __介绍__
 - xOffset：水印的坐标，取值范围为0 - 1的浮点数。
 - yOffset：水印的坐标，取值范围为0 - 1的浮点数。
 - fWidthRatio：水印的大小比例，取值范围为0 - 1的浮点数。
-
-
 
 >?大小流暂未支持。
 
@@ -862,9 +1019,9 @@ __介绍__
 如果您期望在屏幕分享的过程中，切换想要分享的窗口，可以再次调用这个函数而不需要重新开启屏幕分享。
 支持如下四种情况：
 - 共享整个屏幕：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }
+- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }
 - 共享整个窗口：sourceInfoList 中 type 为 Window 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }。
+- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }。
 
 
 ### startScreenCapture
@@ -995,7 +1152,7 @@ TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）：
 
 ### enableCustomAudioCapture
 
-启用音频自定义采集模式 开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
+启用音频自定义采集模式 开启该模式后， SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
 ```
 void enableCustomAudioCapture(bool enable)
 ```
@@ -1278,6 +1435,46 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | volume | uint32_t | 音量大小，100为正常音量，取值范围为0 - 200。 |
+
+
+### startSystemAudioLoopback
+
+打开系统声音采集。
+```
+void startSystemAudioLoopback(const char * path)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| path | const char * | - path 为空，代表采集整个操作系统的声音。<br>- path 填写 exe 程序（如 QQ音乐）所在的路径，将会启动此程序并只采集此程序的声音。 |
+
+__介绍__
+
+开启后可以采集整个操作系统的播放声音（path 为空）或某一个播放器（path 不为空）的声音， 并将其混入到当前麦克风采集的声音中一起发送到云端。
+
+
+### stopSystemAudioLoopback
+
+关闭系统声音采集。
+```
+void stopSystemAudioLoopback()
+```
+
+
+### setSystemAudioLoopbackVolume
+
+设置系统声音采集的音量。
+```
+void setSystemAudioLoopbackVolume(uint32_t volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | uint32_t | 音量大小，取值范围为0 - 100。 |
 
 
 
