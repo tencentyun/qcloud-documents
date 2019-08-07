@@ -1,6 +1,16 @@
-| iOS | Android |
-| :---: | :---: |
-| ![](https://main.qcloudimg.com/raw/de81a2004c36fbe3ceaae7cfe51e1865.png#) | ![](https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png) |
+<table style="text-align:center;vertical-align:middle;">
+  <tr>
+    <th>iOS</th>
+    <th>Android</th>
+
+  </tr>
+  <tr>
+    <td><img src="https://main.qcloudimg.com/raw/de81a2004c36fbe3ceaae7cfe51e1865.png" /></td>
+    <td><img src="https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png" /></td>
+  </tr>
+</table>
+
+
 
 **Android/iOS 基本功能演示**
 
