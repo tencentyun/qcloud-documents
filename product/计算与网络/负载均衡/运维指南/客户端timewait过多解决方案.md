@@ -10,9 +10,9 @@
 客户端timewait太多，是因为客户端主动断开连接，客户端每断开一个连接，该连接都会进入timewait状态，默认60s超时回收。一般情况下，遇到这种场景时，客户会选择打开`tcp_tw_recycle`和`tcp_tw_resuse`两个参数，便于回收timewait状态连接。
 然而当前CLB没有打开`tcp_timestamps`选项，导致客户端打开的`tcp_tw_recycle`和`tcp_tw_resuse`都不会生效，不能快速回收timewait状态连接。下面会解释几个linux参数的含义和LB不能开启`tcp_timestamps`的原因。
 
-1.tcp_tw_recycle 和 tcp_tw_resuse只有在tcp_timestamps打开时才会生效。
+1. tcp_tw_recycle 和 tcp_tw_resuse只有在tcp_timestamps打开时才会生效。
 
-2.tcp_timestamps和tcp_tw_recycle是不能同时打开的，因为公网客户端经过NAT网关访问服务器，会存在问题，原因如下：
+2. tcp_timestamps和tcp_tw_recycle是不能同时打开的，因为公网客户端经过NAT网关访问服务器，会存在问题，原因如下：
 
 tcp_tw_recycle/tcp_timestamps都开启的条件下，60s内同一源ip主机的socket connect请求中的timestamp必须是递增的。以2.6.32内核为例，具体实现如下：
 
@@ -23,7 +23,7 @@ sysctl_tw_recycle：本机系统开启tcp_tw_recycle选项
 TCP_PAWS_MSL：60s，该条件判断表示该源ip的上次tcp通讯发生在60s内
 TCP_PAWS_WINDOW：1，该条件判断表示该源ip的上次tcp通讯的timestamp 大于 本次tcp
 
-3.LB（7层）关闭了tcp_timestamps原因，因为公网客户端经过NAT网关访问服务器，可能会存在问题，如下例：
+3. LB（7层）关闭了tcp_timestamps原因，因为公网客户端经过NAT网关访问服务器，可能会存在问题，如下例：
 
 a)	某五元组还是time_wait状态。NAT网关对端口的分配策略，2MSL内复用了同个五元组，发来syn包。
 
@@ -43,6 +43,6 @@ rx_opt->ts_recent_stamp： 上次收到包的时间
 ## 解决方案：
 客户端Timewait过多问题，有如下解决方案：
 
-**1.	HTTP使用短连接（Connection: close），这时由LB主动关闭连接，客户端不会产生timewait**。
+**1. HTTP使用短连接（Connection: close），这时由LB主动关闭连接，客户端不会产生timewait**。
 
-**2.	如果场景需要使用长连接，可以打开socket的SO_LINGER选项，使用rst关闭连接，避免进入timewait 状态，达到快速回收端口的目的**。
+**2. 如果场景需要使用长连接，可以打开socket的SO_LINGER选项，使用rst关闭连接，避免进入timewait 状态，达到快速回收端口的目的**。
