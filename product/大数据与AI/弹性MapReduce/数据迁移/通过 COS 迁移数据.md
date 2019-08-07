@@ -1,5 +1,5 @@
 - 原始数据非 HDFS 数据
-    如果您的原始数据是非 HDFS 数据而是其他形式的文件数据，可以通过 COS 的 web 控制台或者 COS 提供的 API 来把数据传入到 COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料。
+    如果您的原始数据不是 HDFS 数据而是其他形式的文件数据，可以通过 COS 的 web 控制台或者 COS 提供的 API 来把数据传入到 COS，然后在 EMR 集群中进行分析，COS 传输数据请查看资料。
 - 原始数据在 HDFS 的数据迁移
  1. 获取 COS 迁移工具
  [获取迁移工具](https://github.com/tencentyun/hdfs_to_cos_tools)，更多迁移工具请参考 [工具概览](https://cloud.tencent.com/document/product/436/6242)。
@@ -24,11 +24,11 @@
      #所有操作都要在工具目录下。如果同时设置了配置文件和命令行参数，以命令行参数为准
      ./hdfs_to_cos_cmd -h
 
-     #从HDFS拷贝到COS (如果COS上已存在文件, 则会覆盖)
+     #从 HDFS 拷贝到 COS（如果 COS 上已存在文件, 则会覆盖）
     ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 
-    #从HDFS拷贝到COS，同时要拷贝的文件和COS的长度一致，则忽略上传(适用于拷贝一次后，重新拷贝)
-    #这里只做长度的判断，因为如果将Hadoop上的文件摘要算出，开销较大
+    #从 HDFS 拷贝到 COS，同时要拷贝的文件和 COS 的长度一致，则忽略上传（适用于拷贝一次后，重新拷贝）
+    #这里只做长度的判断，因为如果将 Hadoop 上的文件摘要算出，开销较大
     ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/ -skip_if_len_match
 
     #完全通过命令行设置参数
