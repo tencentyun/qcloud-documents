@@ -37,16 +37,17 @@
 > 
 > 这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
 > 
-> [安全方案](https://cloud.tencent.com/document/product/647/17275#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
+> [安全方案](https://cloud.tencent.com/document/product/454/14548#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
 
 ## 5. 编译运行
-使用 Visual Stuido（建议 VS2015）打开源码目录下的 TRTCDemo.vcxproj 工程文件，编译并运行 Demo 工程即可。
+使用 Android Studio （3.2 以上的版本） 打开源码工程 TRTCDemo，直接单击【运行】即可。
 
 ## 常见问题
 
 ### 1. 开发环境有什么要求？
-- 操作系统： Microsoft Windows 7+
-- 开发环境：Microsoft Visual Studio 2015 +
+- 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
+- Android Studio 2.0 或以上版本
+- App 要求 Android 4.1 或以上设备
 
 ### 2. 两台手机同时运行 Demo，为什么看不到彼此的画面？
 请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。

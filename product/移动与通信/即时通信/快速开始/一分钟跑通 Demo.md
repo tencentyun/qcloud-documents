@@ -65,14 +65,14 @@
   >
 3. 设置`GenerateTestUserSig`文件中的相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
- -  SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
-![image.png](https://main.qcloudimg.com/raw/395acfdbf72c0893ae0cc9ce4df78fbf/3.png)
+ - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
+ ![](https://main.qcloudimg.com/raw/5771a4cb0408eb97b6ee073a764fcb30.png)
 
 
 >!本文提到的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-## 步骤5：编译运行
+## 步骤4：编译运行
 用各端的 IDE 直接编译运行即可。
 
 

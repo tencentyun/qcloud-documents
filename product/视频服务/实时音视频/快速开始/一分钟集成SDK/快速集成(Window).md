@@ -31,7 +31,7 @@
 将解压后的 LiteAVSDK 文件夹拷贝至`TRTCCSharpDemo.csproj`所在目录。
 >?当只需要 C# SDK时，可以将 LiteAVSDK 路径下的 C++ 目录删除。
 >
-![](https://main.qcloudimg.com/raw/701e4239409ff1fb988fc604b07ed9bf.png)
+![](https://main.qcloudimg.com/raw/97a30a4682eb71b121f0c55da87c64c0.png)
 
 ### 步骤4：修改工程配置
 
