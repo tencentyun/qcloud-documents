@@ -1,23 +1,21 @@
 ## 操作场景
 
-本文介绍 Windows Server 如何开启 NTP 服务和修改时钟源服务器地址。
-
-Windows 时间服务（Windows Time service， W32Time）用于本地系统与时钟源服务器之前的时间同步。其使用网络时间协议（NTP）来同步网络上的计算机时钟。 下面以 Windows Server 2016 为例，说明如何用客户端和命令行的方式开启 NTP 服务和修改时钟源服务器地址。
+Windows 时间服务（Windows Time service，W32Time）用于本地系统与时钟源服务器之前的时间同步，使用网络时间协议（NTP）来同步网络上的计算机时钟。本文档以 Windows Server 2012 操作系统云服务器为例，介绍如何开启 NTP 服务和修改时钟源服务器地址。
 
 ## 操作步骤
 
-1. [远程登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
-2. 单击 “管理工具 > 服务 > Windows Time”。
-![Windows Time](https://main.qcloudimg.com/raw/0791d5ed9387f4f876e87e41d368f837.png)
-3. 启动类型设置为 “自动”，如果服务未启动，则单击 “启动”。
-![w32time](https://main.qcloudimg.com/raw/5c1bb71c0e459a3b1e6504179751a727.png)
-4. 任务栏的通知区域，单击时间，单击 “更改日期和时间设置”。
-![时间设置](https://main.qcloudimg.com/raw/977f0739c7cccdb5ef10a563d60220d2.png)	
-5. 切换到 “Internet时间” 标签，单击更改设置。
-![Internet时间](	https://main.qcloudimg.com/raw/ed410b96b0f38e6be2837a13e9237b33.png)
-6. 在 Internet 时间设置弹窗中，输入目标时钟源服务器域名或者 IP 地址，单击 “确定”。
-![Internet时间设置](https://main.qcloudimg.com/raw/f34302c371c011d3b6e4046036910baa.png)
-7. 设置完成后，重新打开 “日期与时间” 即可看到时钟源服务器已经更换。
-![确认](	https://main.qcloudimg.com/raw/ed410b96b0f38e6be2837a13e9237b33.png)
+1. 登录 Windows 云服务器。
+2. 在操作系统界面，单击 <img src="" style="margin: 0;"></img> > 【管理工具】>【服务】，打开服务窗口。
+3. 在 “服务” 窗口中，双击打开【Windows Time】。如下图所示：
+![](https://main.qcloudimg.com/raw/f45a470caa8f09f5a12c4639db1a1ea6.png)
+4. 在打开的 “Windows Time 的属性(本地计算机)” 窗口中，将【启动类型】设置为【自动】，将【服务状态】设置为【启动】，并单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/53af4acb5d03dbf623be5b3a44a412b3.png)
+5. 在操作系统界面的任务栏中，单击右下角的时间 >【更改日期和时间设置】。如下图所示：
+![](https://main.qcloudimg.com/raw/ff260db81f9db83d0358629b319990d6.png)
+6. 在打开的 “日期和时间” 窗口中，选择【Internet 时间】页签，单击【更改设置】。如下图所示：
+![](https://main.qcloudimg.com/raw/0e70f38a5b2a43c3cbdc093b79d96f8a.png)
+7. 在弹出的 “” 窗口中，将【服务器】设置为目标时钟源服务器域名或者 IP 地址，单击【确定】，完成设置。如下图所示：
+![](https://main.qcloudimg.com/raw/d27d42f7bb62118896f675d137d9f100.png)
+
 
 
