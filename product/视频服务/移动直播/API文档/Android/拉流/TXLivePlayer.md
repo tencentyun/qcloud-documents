@@ -55,7 +55,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener) | 播放器回调，请参考 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener)。 |
+| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener)。 |
 
 ***
 
@@ -92,13 +92,13 @@ __参数__
 
 __返回__
 
-是否成功启动播放， 0: 成功；-1: 失败，playUrl 为空；-2: 失败，playUrl 非法；-3: 失败，playType 非法。
+是否成功启动播放， 0：成功；-1：失败，playUrl 为空；-2：失败，playUrl 非法；-3：失败，playType 非法。
 
 __介绍__
 
 可播放的直播流连接：
-- RTMP 直播流：[PLAY_TYPE_LIVE_RTMP](https://cloud.tencent.com/document/product/454/34775#play_type_live_rtmp)
-- FLV 直播流：PLAY_TYPE_LIVE_FLV
+- RTMP 直播流：PLAY_TYPE_LIVE_RTMP。
+- FLV 直播流：PLAY_TYPE_LIVE_FLV。
 - RTMP 加速流，用于连麦：PLAY_TYPE_LIVE_RTMP_ACC。
 
 ***
@@ -123,7 +123,7 @@ __返回__
 __介绍__
 
 isNeedClearLastImg 提供是否清除最后一帧画面的逻辑：
-- 推荐在正常停止播放时，进行清除
+- 推荐在正常停止播放时，进行清除。
 - 异常播放，如网络异常等，而您希望等待重连服务器，继续播放时，推荐保留。
 
 ***
@@ -181,9 +181,9 @@ __参数__
 | surface | Surface | 视频渲染 surface。 |
 
 >?
->- 目前仅支持硬解
->- 使用该接口需要 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview.28txcloudvideoview) 传入 null。
->- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview.28txcloudvideoview)。
+>- 目前仅支持硬解。
+>- 使用该接口需要 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview) 传入 null。
+>- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview)。
 
 ***
 
@@ -202,8 +202,8 @@ __参数__
 | height | int | 高。 |
 
 >?
->- Surface 大小变化后，需要重新设定
->- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview.28txcloudvideoview)。
+>- Surface 大小变化后，需要重新设定。
+>- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview)。
 
 ***
 
@@ -246,7 +246,7 @@ __参数__
 __介绍__
 
 渲染角度有两种：
-- 竖屏：播放是竖屏播放的时候使用
+- 竖屏：播放是竖屏播放的时候使用。
 - 横屏：播放是横屏播放的时候使用。
 
 ***
@@ -262,7 +262,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true:启用视频硬解码， false:禁用视频硬解码。 |
+| enable | boolean | true：启用视频硬解码， false：禁用视频硬解码。 |
 
 __返回__
 
@@ -296,7 +296,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| audioRoute | int | 声音播放模式,可设置值：TXLiveConstants#AUDIO_ROUTE_SPEAKER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
+| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_SPEAKER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
 
 __介绍__
 
@@ -415,7 +415,7 @@ __介绍__
 三个注意点：
 - 该 Buffer 用于接受软解回调出来的 I420 格式的 YUV 数据。
 - Buffer 大小 = width * height * 3 / 2。
-- 视频 width 、 height，可通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener.23onplayevent.28int.2C+bundle) 的 TXLiveConstants#PLAY_EVT_CHANGE_RESOLUTION 事件获取到。
+- 视频 width 、 height，可通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#onplayevent) 的 TXLiveConstants#PLAY_EVT_CHANGE_RESOLUTION 事件获取到。
 
 ***
 
@@ -465,7 +465,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | domain | String | 时移域名。 |
-| bizid | int | 流bizid。 |
+| bizid | int | 流　bizid。 |
 
 __返回__
 
@@ -476,7 +476,7 @@ __介绍__
 使用说明：
 - 非腾讯云直播地址不能时移。
 - 使用时移功能需在播放开始后调用此方法，否则时移失败。
-- 时移的使用请参考文档：[直播时移播放使用文档](https://cloud.tencent.com/document/product/881/20213#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
+- 时移的使用请参见文档：[直播时移播放使用文档](https://cloud.tencent.com/document/product/881/20213#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 ***
 
@@ -654,5 +654,4 @@ __参数__
 | bits | int | 采样点大小。 |
 
 ***
-
 

@@ -1,21 +1,19 @@
 对于在 iOS 平台上传视频的场景，云点播提供了 iOS 上传 SDK 。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源码下载
-[单击下载](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
-
-将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
+1. [单击下载](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
+2. 将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
 
 ## 集成上传库和源码
 
 1. 拷贝上传源码目录`TXUGCUploadDemo/upload`到您的工程中。
 2. 导入动态库`QCloudCore.framework`、`QCloudCOSXML.framework`和静态库`libmtasdk.a`（在`TXUGCUploadDemo/upload/COSSDK/`目录下）到您的工程中，并添加以下依赖库：
     ```
-    1、CoreTelephony.framework
-    2、Foundation.framework
-    3、SystemConfiguration.framework
-    4、libstdc++.tbd
-    ```
-		
+    1. CoreTelephony.framework
+    2. Foundation.framework
+    3. SystemConfiguration.framework
+    4. libstdc++.tbd
+    ```	
 3. 在 Build Settings 中设置 Other Linker Flags，加入参数`-ObjC`。
 
 ##  简单视频上传
@@ -55,7 +53,7 @@ TXPublishParam *publishParam = [[TXPublishParam alloc] init];
 publishParam.signature  = @"由您业务后台产生的签名";
 publishParam.videoPath  = @"视频文件路径";
 ```
-signature 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+`signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 #### 调用上传
 
@@ -94,7 +92,7 @@ publishParam.videoPath  = @"视频文件路径";
 上传参数中的`enableResume`为断点续传开关，默认是开启的。
 
 
-## 图片或媒体上传
+## 图片和媒体上传
 
 ```objc
 // 创建对象
@@ -199,7 +197,7 @@ SDK 通过`TXVideoPublishListener`接口来监听视频上传相关的状态。�
 
 
 
-## 图片或媒体上传接口描述
+## 图片和媒体上传接口描述
 
 初始化上传对象：`TXUGCPublish::initWithUserID`
 

@@ -108,9 +108,9 @@
 |Spring MVC 目录遍历漏洞	| 高	| 信息泄露 |
 |Spring REST Data SpEL 表达式注入漏洞	| 高	| 远程代码执行 |
 |Struts REST 插件远程代码执行漏洞（S2-052）	| 高	| 远程代码执行 |
-|Struts2 远程代码执行漏洞(S2-016)	| 高	| 远程代码执行 |
-|Struts2 远程代码执行漏洞(S2-032)	| 高	| 远程代码执行 |
-|Struts2 远程代码执行漏洞(S2-045)	| 高	| 远程代码执行 |
+|Struts2 远程代码执行漏洞（S2-016）| 高	| 远程代码执行 |
+|Struts2 远程代码执行漏洞（S2-032）| 高	| 远程代码执行 |
+|Struts2 远程代码执行漏洞（S2-045）	| 高	| 远程代码执行 |
 |Thinkphp 3.2.3 update 注入漏洞	| 高	| SQL 注入 |
 |ThinkPHP 5 App.php / Module.php 远程代码执行漏洞	| 高	| 远程代码执行 |
 |ThinkPHP 5 Request.php 远程代码执行漏洞	| 高	| 远程代码执行 |
@@ -142,7 +142,7 @@
 |齐博 CMS 整站系统 SQL 注入漏洞	| 高	| SQL 注入 |
 |齐博博客 /member/userinfo.php SQL 注入漏洞	| 高	| SQL 注入 |
 |齐博分类信息系统 do/jf.php 远程代码执行漏洞	| 高	| 远程代码执行 |
-|Apache Struts2远程代码执行漏洞(s2-053)	| 中	| 远程代码执行 |
+|Apache Struts2远程代码执行漏洞（s2-053）	| 中	| 远程代码执行 |
 |BlueCMS /admin/login.php SQL 注入漏洞	| 中	| SQL 注入 |
 |BlueCMS ad_js.php SQL 注入漏洞	| 中	| SQL 注入 |
 |BlueCMS comment.php SQL 注入漏洞	| 中	| SQL 注入 |
@@ -170,7 +170,7 @@
 |ElasticSearch < 1.4.5 / < 1.5.2 目录遍历	| 中	| 信息泄露 |
 |EmpireCMS /e/member/list/index.php 注入漏洞	| 中	| SQL 注入 |
 |EmpireCMS 跨站脚本漏洞	| 中	| 跨站脚本攻击（XSS） |
-|EmpireCMS(帝国cms) CSRF 导致命令执行	| 中	| 远程代码执行 |
+|EmpireCMS（帝国cms） CSRF 导致命令执行	| 中	| 远程代码执行 |
 |ESPCMS citylist.php SQL 注入漏洞	| 中	| SQL 注入 |
 |ESPCMS interface/enquiry.php SQL 注入漏洞	| 中	| SQL 注入 |
 |ESPCMS interface/order.php SQL 注入漏洞	| 中	| SQL 注入 |

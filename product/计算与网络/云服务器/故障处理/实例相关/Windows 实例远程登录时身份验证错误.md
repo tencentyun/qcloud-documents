@@ -33,15 +33,15 @@
 
 安装安全更新，可更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
 其它操作系统可参考以下操作进入【Windows 更新】：
-- Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;width: 22px;"></img> >【控制面板】>【系统与安全】>【Windows 更新】
-- Windows Server 2008：【开始】>【控制面板】>【系统与安全】>【Windows Update】
-- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新与安全】
-- Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统与安全】>【Windows Update】
+- Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;width: 22px;"></img> >【控制面板】>【系统和安全】>【Windows 更新】
+- Windows Server 2008：【开始】>【控制面板】>【系统和安全】>【Windows Update】
+- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新和安全】
+- Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统和安全】>【Windows Update】
 
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img>，选择【设置】。如下图所示：
 ![开始设置](https://main.qcloudimg.com/raw/c5add12cacd642aad479bc356cec04f1.png)
-2. 在打开的 “设置” 窗口中，选择【更新与安全】。如下图所示：
+2. 在打开的 “设置” 窗口中，选择【更新和安全】。如下图所示：
 ![更新与安全](https://main.qcloudimg.com/raw/59c7b0c52eee2c5572b73b062edd3ce9.png)
 3. 在 “更新和安全” 中，选择 【Windows 更新】，单击【检查更新】。如下图所示：
 ![检查更新](https://main.qcloudimg.com/raw/0aefedca7c90bcad7b39de781e9521df.png)
@@ -53,7 +53,7 @@
 在已安装安全更新的机器中，将【加密 Oracle 修正】策略设置为 “易受攻击” 。本方案以 Windows Server 2016 为例，其操作步骤如下：
 >! Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修改注册表来实现。操作步骤请参见 [方案三：修改注册表](#Plan3)。
 >
-1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略略编辑器”。
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略编辑器”。
 >? 您也可使用 “Win+R” 快捷键打开运行界面。
 >
 3. 在左侧导航树中，选择【计算机配置】>【管理模板】>【系统】>【凭据分配】，双击【加密 Oracle 修正】。如下图所示：

@@ -8,7 +8,7 @@
 2. 在列表上方选择地域，单击【新建】创建私有网络，例如选择地域：华南地区（广州）。
 ![](https://main.qcloudimg.com/raw/c2d8cab97a14ad69e145d320cef3e25d.png)
 3. 填写私有网络和子网的名称和 CIDR，并选择子网的可用区，单击【创建】即可。
-![](https://main.qcloudimg.com/raw/f5d2fc7859fbaa5d2e48f175d4c924f2.png)
+![](https://main.qcloudimg.com/raw/bac95b82ff25e07898f516dbf3c04e82.png)
 
 ## 2. 创建子网
 您可以同时创建一个或多个子网。
@@ -23,7 +23,7 @@
 1. 登录私有网络控制台，在左侧栏选择【路由表】页。
 2. 在列表上方选择地域和私有网络，单击【新建】。
 2. 在弹出的对话框中输入名称、所属网络及新建路由策略，单击【创建】。
-![](https://main.qcloudimg.com/raw/d646a5ed4b1e8af5e1720a354ae67448.png)
+![](https://main.qcloudimg.com/raw/fda9a210cb5d6f68247146f7f69013e9.png)
 3. 返回路由表列表即可看到您新建的路由表。
 4. 在左侧栏选择【子网】页，选择需要关联该路由表的子网，在【操作】列单击【更换路由表】进行关联。
 

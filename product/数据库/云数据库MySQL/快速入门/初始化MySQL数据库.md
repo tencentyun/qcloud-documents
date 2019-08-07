@@ -15,6 +15,6 @@
  - **自定义端口**：数据库的访问端口，默认为3306。
  - **设置root帐号密码**：新创建的 MySQL 数据库的用户名默认为 root，此处用来设置此 root 帐号的密码。
  - **确认密码**：再次输入密码。
- ![初始化实例](https://main.qcloudimg.com/raw/b9e2635a5e83618bb5bb48a6e40fcd5f.png)
+![](https://main.qcloudimg.com/raw/6cf4875a39cb614d83fd90b70ef8f617.png)
 5. 返回实例列表，目标 MySQL 实例的状态变为【运行中】，说明已初始化成功。
 ![](https://main.qcloudimg.com/raw/67bc351b68283f9b9c0b163f95d8d783.png)

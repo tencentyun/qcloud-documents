@@ -25,9 +25,9 @@ WebRTCAPI.fn.detectRTC({
 | 字段  | 含义    |  备注|
 | :------: | ----- | ------ |
 | isTBS      | 是否是 TBS (Android 的微信/手机QQ Webview) |   [什么是 TBS](https://x5.tencent.com/tbs/index.html)              |
-| TBSversion      | TBS 版本号 |                 |
-| isTBSValid      | TBS 版本号是否支持 WebRTC |                 |
-| support      | 是否支持 WebRTC |  |
+| TBSversion      | TBS 版本号 |       -          |
+| isTBSValid      | TBS 版本号是否支持 WebRTC |    -             |
+| support      | 是否支持 WebRTC | - |
 | h264Support      | 是否支持 H.264 |必须支持 H.264 |
 | screenshare      | 是否支持屏幕分享 |必须安装插件 |
 
@@ -35,23 +35,19 @@ WebRTCAPI.fn.detectRTC({
 使用基本功能必须的参数有：
 
 - **sdkAppId**
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
-![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
->!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
-
-
+ 进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
+ ![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
+ >!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
+ >
 - **userId**
-您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
-
+ 您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 - **userSig**
-基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
-
+ 基于 sdkAppId 和 userID 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 - **roomid**
-房间号是数字类型，是进入房间时的必要参数，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomid**。
-
+ 房间号是数字类型，是进入房间时的必要参数，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomid**。
 - **role**
-画面设定的配置集名称，在【控制台】>【实时音视频】>【画面设定】进行配置。
-![](https://main.qcloudimg.com/raw/1b828be9923df6a67d335b23d12309bb.png)
+ 画面设定的配置集名称，在【控制台】>【实时音视频】>【画面设定】进行配置。
+ ![](https://main.qcloudimg.com/raw/1b828be9923df6a67d335b23d12309bb.png)
 
 ## 初始化 SDK
 在需要实现实时音视频的页面添加初始化代码：
