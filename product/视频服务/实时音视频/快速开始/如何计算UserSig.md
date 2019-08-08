@@ -25,7 +25,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 <h2 id="Client">客户端计算</h2>
 
-我们在 IM SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
+我们在 TRTC SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
 |  适用平台 | 文件源码链接 | 文件相对路径 |
 |:---------:|:---------:|:---------:|
