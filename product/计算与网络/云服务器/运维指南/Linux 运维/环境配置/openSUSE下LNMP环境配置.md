@@ -25,7 +25,7 @@ zypper ref
 ``` 
 zypper install -y nginx
 ```
-2. 依次执行以下命令，启动 Nginx 服务，设置为开机自启动。
+2. 依次执行以下命令，启动 Nginx 服务并设置为开机自启动。
 ```
 systemctl start nginx
 systemctl enable nginx
@@ -87,7 +87,7 @@ vi /srv/www/htdocs/index.html
 ```
 zypper install -y mysql-community-server mysql-community-server-tools
 ```
-2. 执行以下命令，启动 MySQL 服务并设置为开机自启动。
+2. 依次执行以下命令，启动 MySQL 服务并设置为开机自启动。
 ```
 systemctl start mysql 
 systemctl enable mysql
@@ -131,7 +131,7 @@ cp php-fpm.conf.default php-fpm.conf
 cd /etc/php7/fpm/php-fpm.d
 cp www.conf.default www.conf
 ```
-4. 执行以下命令，启动服务并设置为开机自启动。
+4. 依次执行以下命令，启动服务并设置为开机自启动。
 ```
 systemctl start php-fpm
 systemctl enable php-fpm
