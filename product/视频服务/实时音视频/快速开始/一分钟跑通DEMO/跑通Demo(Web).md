@@ -7,7 +7,7 @@
 <span id="step1"></span>
 ### 步骤1：创建新的应用
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
-  >?如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK+Demo 源码](#step2)。
+  >?如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。
  >
 2. 填写新建应用的应用名称等信息，单击【确定】。
   应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
@@ -32,7 +32,7 @@
  
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开 `H5/js/debug/GenerateTestUserSig.js`文件。
-3. 设置`GenerateTestUserSig.js`文件中的相关参数，下图以 Windows(C++) 为例作为参考：
+3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   - SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
   ![](https://main.qcloudimg.com/raw/d8f5960ab7c08bb0a488ac7e98d162ba.png)
@@ -47,5 +47,5 @@
 
 ## 常见问题
 
-### 1. 防火墙有什么限制？
+### 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
