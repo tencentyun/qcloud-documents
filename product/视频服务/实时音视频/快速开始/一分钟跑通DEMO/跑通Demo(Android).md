@@ -30,11 +30,11 @@
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 <h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
- Demo 源码工程中的`GenerateTestUserSig`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
+ Demo 源码工程中的`GenerateTestUserSig.java`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
  
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开 `Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件。
-3. 设置`GenerateTestUserSig`文件中的相关参数：
+3. 设置`GenerateTestUserSig.java`文件中的相关参数：
   - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
   ![](https://main.qcloudimg.com/raw/2cad728db97990a2e4faf2c33550f2f6.png)
