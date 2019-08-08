@@ -7,7 +7,7 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.6.7459） @ 2019-08-02</td>
+        <td style="text-align:center">SDK（6.6.7460） @ 2019-08-08</td>
         <td style="text-align:center">SDK（6.6.7458） @ 2019-08-02</td>
   </tr>
   <tr align="center">
@@ -88,7 +88,7 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Player_iOS_6.6.7459.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Player_iOS_6.6.7460.zip">iOS 下载</a></td>
         <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Player_Android_6.6.7458.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
