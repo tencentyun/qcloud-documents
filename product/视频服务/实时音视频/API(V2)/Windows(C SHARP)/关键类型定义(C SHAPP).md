@@ -41,7 +41,7 @@ __属性列表__
 | videoResolution | [TRTCVideoResolution](https://cloud.tencent.com/document/product/647/36780#trtcvideoresolution) | 视频分辨率。 |<li>视频通话建议选择360 × 640及以下分辨率，resMode 选择 Portrait。</li><li>手机直播建议选择 540 × 960，resMode 选择 Portrait。</li><li>Window 和 iMac 建议选择 640 × 360 及以上分辨率，resMode 选择 Landscape。 |  TRTCVideoResolution 默认只有横屏模式的分辨率，例如640 × 360。如需使用竖屏分辨率，请指定 resMode 为 Portrait，例如640 × 360结合 Portrait 则为360 × 640。 |
 | resMode | [TRTCVideoResolutionMode](https://cloud.tencent.com/document/product/647/36780#trtcvideoresolutionmode) | 分辨率模式（横屏分辨率 - 竖屏分辨率）。 | 手机直播建议选择 Portrait，Window 和 iMac 建议选择 Landscape。 | 如果 videoResolution 指定分辨率 640 × 360，resMode 指定模式为 Portrait，则最终编码出的分辨率为360 × 640。 |
 | videoFps | uint | 视频采集帧率。 | 15fps或20fps。<li>5fps以下，卡顿感明显。</li><li>10fps以下，会有轻微卡顿感。</li><li>20fps以上，则过于浪费（电影的帧率为24fps）。 | 很多 Android 手机的前置摄像头并不支持15fps以上的采集帧率，部分过于突出美颜功能的 Android 手机前置摄像头的采集帧率可能低于10fps。 |
-| videoBitrate | uint | 视频上行码率。 | 推荐设置请参考 [TRTCVideoResolution](https://cloud.tencent.com/document/product/647/36780#trtcvideoresolution) 定义处的注释说明。 | 码率太低会导致视频中出现大量马赛克。 |
+| videoBitrate | uint | 视频上行码率。 | 推荐设置请参考 [TRTCVideoResolution](#trtcvideoresolution) 定义处的注释说明。 | 码率太低会导致视频中出现大量马赛克。 |
 
 
 
