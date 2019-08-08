@@ -75,7 +75,7 @@ __参数__
 
 __介绍__
 
-调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -337,7 +337,7 @@ __参数__
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（例如弱网下是“保清晰”还是“保流畅”）。
+该设置决定 SDK 在各种网络环境下的调控策略（例如弱网下选择“保清晰”或“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -484,16 +484,16 @@ __介绍__
 
 如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果下行网络很好，可以选择观看【高清】画面
+- 如果下行网络较差，可以选择观看【低清】画面。
 
->?双路编码开启后，会消耗更多的 CPU 和 网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
+>?双路编码开启后，会消耗更多的 CPU 和网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
 
 
 
 ### setRemoteVideoStreamType
 
-选定观看指定 uid 的大画面还是小画面。
+选定观看指定 uid 的大画面或小画面。
 ```
 abstract int setRemoteVideoStreamType(String userId, int streamType)
 ```
@@ -503,7 +503,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| streamType | int | 视频流类型，即选择看大画面还是小画面。 |
+| streamType | int | 视频流类型，即选择看大画面或小画面。 |
 
 __介绍__
 
@@ -521,7 +521,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 默认观看大画面还是小画面。 |
+| streamType | int | 默认观看大画面或小画面。 |
 
 __介绍__
 
@@ -539,7 +539,8 @@ abstract void startLocalAudio()
 
 __介绍__
 
-该函数会启动麦克风采集，并将音频数据传输给房间里的其他用户。 SDK 并不会默认开启本地的音频上行，也就说，如果您不调用这个函数，房间里的其他用户就听不到您的声音。
+该函数会启动麦克风采集，并将音频数据传输给房间里的其他用户。
+SDK 不会默认开启本地音频采集和上行，您需要调用该函数开启，否则房间里的其他用户将无法听到您的声音。
 
 >?该函数会检查麦克风的使用权限，如果当前 App 没有麦克风权限，SDK 会向用户申请开启。
 
@@ -573,8 +574,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
-
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放，因此在对录制质量要求很高的场景中，建议选择 muteLocalAudio，从而录制出兼容性更好的 MP4 文件。
 
 ### setAudioRoute
 
@@ -591,12 +591,12 @@ __参数__
 
 __介绍__
 
-微信和手机 QQ 里的视频通话功能，都有一个免提模式，开启后就不用把手机贴在耳朵上，这个功能就是基于音频路由实现的。 一般手机都有两个扬声器，一个是位于顶部的听筒扬声器，声音偏小；一个是位于底部的立体声扬声器，声音偏大。 设置音频路由的作用就是要决定声音从哪个扬声器播放出来。
+微信和手机 QQ 视频通话功能的免提模式就是基于音频路由实现的。 一般手机都有两个扬声器，一个是位于顶部的听筒扬声器，声音偏小；一个是位于底部的立体声扬声器，声音偏大。设置音频路由的作用就是决定声音使用哪个扬声器播放。
 
 
 ### muteRemoteAudio
 
-静音掉某一个用户的声音。
+静音某一个用户的声音。
 ```
 abstract void muteRemoteAudio(String userId, boolean mute)
 ```
@@ -611,7 +611,7 @@ __参数__
 
 ### muteAllRemoteAudio
 
-静音掉所有用户的声音。
+静音所有用户的声音。
 ```
 abstract void muteAllRemoteAudio(boolean mute)
 ```
@@ -638,8 +638,9 @@ __参数__
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。 如希望打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32264#startlocalaudio) 之前调用。
+开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。如需打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32264#startlocalaudio) 之前调用。
 
+>?Demo 中有一个音量大小的提示条，就是基于该接口实现的。
 
 ### startAudioRecording
 
@@ -708,7 +709,8 @@ __参数__
 
 __介绍__
 
-取值范围1 - 5，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头）。 这里最大值推荐为5，超过5后视频数据会变得模糊不清。
+取值范围1 - 5，取值为1表示最远视角（正常镜头），取值为5表示最近视角（放大镜头）。
+最大值推荐为5，若超过5，视频数据会变得模糊不清。
 
 
 ### isCameraTorchSupported
@@ -1035,7 +1037,7 @@ __参数__
 
 __介绍__
 
-对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
 
 
 
@@ -1261,7 +1263,7 @@ true：消息已通过限制，等待后续视频帧发送；false：消息被�
 
 __介绍__
 
-跟 sendCustomCmdMsg 的原理不同，sendSEIMsg 是将数据直接塞入视频数据头中。因此，即使视频帧被旁路到了直播 CDN 上， 这些数据也会一直存在。但是由于要把数据嵌入视频帧中，所以数据本身不能太大，推荐几个字节就好。
+与 sendCustomCmdMsg 的原理不同，sendSEIMsg 是将数据直接塞入视频数据头中。因此，即使视频帧被旁路到了直播 CDN 上，这些数据也会一直存在。由于需要把数据嵌入视频帧中，建议尽量控制数据大小，推荐使用几个字节大小的数据。
 最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
 
 >?本接口有以下限制：
@@ -1269,8 +1271,8 @@ __介绍__
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
 >- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
 >- 每个客户端每秒最多能发送总计8KB数据（与 sendCustomCmdMsg 共享限制）。
->- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
->- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
+>- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+>- 如果 repeatCount > 1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 
