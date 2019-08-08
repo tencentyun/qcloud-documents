@@ -1,15 +1,15 @@
 
 
 ## 操作场景
-Android SDK 是信鸽推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供两种集成方式。
+Android SDK 是信鸽推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
 ## 操作步骤
 ### 集成方法
 #### AndroidStudio Gradle 自动集成
 
->!在配置 SDK 前，确保已创建 Android 平台的应用
+>!在配置 SDK 前，确保已创建 Android 平台的应用。
 
-1. 进入 [应用列表页面](https://console.cloud.tencent.com/tpns/applist) 获取应用的包名、AccessID、AccessKey。
+1. 进入 [应用列表页面](https://console.cloud.tencent.com/tpns/applist)， 获取应用的包名、AccessID、AccessKey。
 2. 在 app build.gradle 文件下，配置 以下内容：
 
 ```
