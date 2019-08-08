@@ -545,8 +545,8 @@ __参数__
 
 __介绍__
 
-当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。 与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放。
-
+当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放，因此在对录制质量要求很高的场景中，建议选择 muteLocalAudio，从而录制出兼容性更好的 MP4 文件。
 
 ### muteRemoteAudio
 
@@ -592,7 +592,7 @@ __参数__
 
 __介绍__
 
-开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。如果需要打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/36778#startlocalaudio) 之前调用。
+开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。如需打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/36778#startlocalaudio) 之前调用。
 
 >?Demo 中有一个音量大小的提示条，就是基于该接口实现的。
 
@@ -615,7 +615,7 @@ __返回__
 
 __介绍__
 
-该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM等）录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
+该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 ### stopAudioRecording
@@ -1075,7 +1075,7 @@ __参数__
 
 __介绍__
 
-对应于 [setVideoEncoderParam()](https://cloud.tencent.com/document/product/647/36778#setvideoencoderparam) 设置主路画面的编码质量，该函数仅用于设置辅路（屏幕分享、远程播放视频）的编码参数。 该设置决定远端用户看到的画面质量，同时也是云端录制出的视频文件的画面质量。
+对应于 [setVideoEncoderParam()](https://cloud.tencent.com/document/product/647/36778#setvideoencoderparam) 设置主路画面的编码质量，该函数仅用于设置辅路（屏幕分享、远程播片）的编码参数。 该设置决定远端用户看到的画面质量，同时也是云端录制出的视频文件的画面质量。
 
 
 ### setSubStreamMixVolume
