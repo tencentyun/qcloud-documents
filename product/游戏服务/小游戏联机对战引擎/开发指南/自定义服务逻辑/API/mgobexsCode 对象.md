@@ -35,7 +35,7 @@ exports.mgobexsCode = {
 
 #### 描述
 
-logLevelSDK 是 mgobexsCode 对象的一个属性，类型为字符串，表示游戏 Server 内部日志的打印级别。只能填写以下值：
+logLevelSDK 是 mgobexsCode 对象的一个属性，类型为字符串，表示实时服务器内部日志的打印级别。只能填写以下值：
 
 |值|含义|
 |---|---|
