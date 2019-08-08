@@ -21,7 +21,7 @@
 2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】，跳转至 Github 并下载相关 SDK 和 Demo 源码。
 >?如果您当前网络访问 Github 较慢，您可以在 [项目首页](https://github.com/tencentyun/TRTCSDK) 通过分流下载地址下载相关资源。
 >
-![](https://main.qcloudimg.com/raw/6e78a94d6c9ce1b987f2bdbb44cd80a8.png)
+![](https://main.qcloudimg.com/raw/a14d2d53d688af732c0bf5d59c89a701.png)
 
 <span id="step3"></span>
 ### 步骤3：查看并拷贝加密密钥
