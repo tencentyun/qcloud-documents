@@ -265,7 +265,7 @@ webim.MsgStore
 | 名称 | 说明 | 输入参数 |返回类型|
 |---------|---------|---------|---------|
 |sessMap ()	|获取所有会话对象|	无|	\[webim.Session]|
-|sessCount ()	|获取对方 ID	|无|	Integer|
+|sessCount ()	|获取 session 的数量	|无|	Integer|
 |sessByTypeId (type,id)	|根据会话类型和会话 ID 取得相应会话|type	-String, 会话类型<br/>id-String, 对方 ID	|web.Session|
 |delSessByTypeId(type,id)	|根据会话类型和会话 ID 删除相应会话|type	-String, 会话类型<br/>id-String, 对方 ID|	Boolean|
 
