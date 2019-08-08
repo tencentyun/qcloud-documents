@@ -10,14 +10,14 @@
 - 检查手机网络是是否异常，切换4G网络，进行测试。
 - 信鸽推送分为通**知栏消息**和**应用内消息**（透传消息），通知栏消息可以展示到通知栏，应用内消息不能展示到通知栏。
 - 确认手机当前模式是正常模式，部分手机在低电量，勿扰模式，省电模式下，会对后台信鸽进程进行一系列网络和活动的限制。
-- 查看设备是否开启通知栏权限，OPPO，VIVO 等手机，需要手动开启通知栏权限。
+- 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
 
 
 ### 设备注册失败的原因？
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。
 - **参数填写有误**：Access ID 和 Access Key 是否正确配置，常见错误是误用 Secret key ，或者 Access key 头尾有空格。
-- **注册返回错误**：若控制台返回10004、10002、20等错误码，请参考 [Android SDK 错误码](https://cloud.tencent.com/document/product/548/36660)。
-- **注册无回调**：确认当前网络情况是否良好，建议使用4G网络测试，WIFI 由于使用人数过多可能造成网络带宽不足。
+- **注册返回错误**：若控制台返回10004、10002、20等错误码，请参见 [Android SDK 错误码](https://cloud.tencent.com/document/product/548/36660)。
+- **注册无回调**：确认当前网络情况是否良好，建议使用4G网络测试，Wi-Fi 由于使用人数过多可能造成网络带宽不足。
 - **努比亚品牌的手机**：在2015年下半年和2016年出的机器均无法注册，具体机型包括 Nubia Z11 系列，NubiaZ11S 系列，NubiaZ9S 系列。
 
 ### 为何关闭应用后，无法收到推送？
@@ -29,7 +29,7 @@
 
 
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult内 设置跳转。
+由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
 
 
 **使用 Intent 来跳转指定页面**
@@ -69,7 +69,7 @@ String p1= uri.getQueryParameter("param1");
 String p2= uri.getQueryParameter("param2");
  }
 ```
-2. 如果传参包含有特殊字符，如 # & 等，可以参考使用如下方式解析：
+2. 如果传参包含有特殊字符，如 # 、& 等，可以参考使用如下方式解析：
 ```
 Uri uri = getIntent().getData();
     if (uri != null) {                
@@ -126,9 +126,9 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
 - 在信鸽注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
 - App 的包名和华为推送官网、信鸽管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\),手动确认给应用存储权限，然后查看 SD 卡目录下的huawei.txt文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
-- cmd 里执行 adb shell setprop log.tag.hwpush VERBOSE 和
-  adb shell logcat -v time &gt; D:/log.txt 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持
+- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
+- cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
+  adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
 
 
 #### 魅族通道排查路径
