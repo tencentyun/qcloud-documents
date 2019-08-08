@@ -8,7 +8,7 @@
 ![](https://main.qcloudimg.com/raw/16e3eefdd8afd7cb8bf158e8f47e6b84.png)
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception_v4_ir 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/b07db8a21f4a7e76a181b6a601ef9e92.png)
-选择模型资源配置，单击【CPU 配置】，选择2核 CPU ，2048MB内存配置项。TensorRT 镜像一般要求：CPU 内存6GB以上，GPU 显存2G以上。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
+选择模型资源配置，单击【CPU 配置】，选择2核 CPU ，2048MB内存配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
 ![](https://main.qcloudimg.com/raw/9f7065f52d52de8a34d9ab8beb16b0e5.png)
 ### 启动服务
 在模型服务配置页面找到 demo_openvino 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
