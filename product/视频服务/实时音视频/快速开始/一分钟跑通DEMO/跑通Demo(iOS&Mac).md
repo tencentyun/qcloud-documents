@@ -8,7 +8,7 @@
 <span id="step1"></span>
 ### 步骤1：创建新的应用
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
-  >?如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK+Demo 源码](#step2)。
+  >?如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。
  >
 2. 填写新建应用的应用名称等信息，单击【确定】。
   应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
