@@ -4,9 +4,11 @@
 Android SDK 是信鸽推送服务为客户端实现消息推送⽽而提供给开发者的接口，本文将提供两种集成方式。
 
 ## 操作步骤
-### AndroidStudio Gradle 自动集成
+### 集成方法
+#### AndroidStudio Gradle 自动集成
 
 >!在配置 SDK 前，确保已创建 Android 平台的应用
+
 1. 进入 [应用列表页面](https://console.cloud.tencent.com/tpns/applist) 获取应用的包名、AccessID、AccessKey。
 2. 在 app build.gradle 文件下，配置 以下内容：
 
@@ -16,7 +18,7 @@ android {
     defaultConfig {
 
         //控制台上注册的包名.注意application ID 和当前的应用包名以及控制台上注册应用的包名必须一致。
-        applicationId "你的包名"
+        applicationId "您的包名"
         ......
 
         ndk {
@@ -64,19 +66,18 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
 
 
-###  Android Studio 手动集成
+####  Android Studio 手动集成
 
 
-
-#### 工程配置
+**工程配置**
 将 SDK 导入到工程的步骤为：
 
 1. 创建或打开 Android 工程（关于如何创建 Android 工程，请参照开发环境的章节）。
 2. 将信鸽 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
 3. .so 文件是信鸽必须的组件，支持armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前.so 支持的平台添加
-4. 打开Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey,请确保按照要求配置，否则可能导致服务不能正常使用。
+4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey,请确保按照要求配置，否则可能导致服务不能正常使用。
 
-#### 权限配置
+**权限配置**
 信鸽 SDK 正常运行所需要的权限。示例代码如下：
 ```xml
     <!-- 【必须】 信鸽SDK VIP版本所需权限 -->
@@ -124,7 +125,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             <!-- 【可选】 系统广播：开屏 -->
             <action android:name="android.intent.action.USER_PRESENT" />
-            <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，你也可以添加APP自定义的一些广播让启动service -->
+            <!-- 【可选】 一些常用的系统广播，增强信鸽service的复活机会，请根据需要选择。当然，您也可以添加App自定义的一些广播让启动service -->
             <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
             <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
             <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
