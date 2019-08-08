@@ -61,13 +61,11 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         </intent-filter>
     </receiver>
     ```
-- 4.X 以上版本已兼容 Android P，默认支持 HTTPS，如果要使用 HTTP，需要自行配置，单击查看 [配置方法](https://xg.qq.com/docs/android_access/android_p_compatibility.html)。
 
 
 
 
 ####  Android Studio 手动集成
-
 
 **工程配置**
 将 SDK 导入到工程的步骤为：
