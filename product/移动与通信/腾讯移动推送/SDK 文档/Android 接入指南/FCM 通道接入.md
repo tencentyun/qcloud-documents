@@ -1,33 +1,24 @@
 
 
 ## 操作场景
-
-fcm通道是信鸽和谷歌推出的各种推送通道，在外国可用谷歌service框架的手机上能够实现不打开应用收到推送消息。在没有fcm的手机rom下依旧走信鸽的推送通道。
+FCM 通道是谷歌推出的系统级推送通道，在外国可用谷歌 Service 框架的手机，能够实现不打开应用，即可收到推送消息。无 FCM 手机 rom 下仍可进入信鸽的推送通道。
 
 ## 操作步骤
-### 获取 FCM 推送秘钥
-1. j进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。
-2. 下载 google-services.json 文件。
-如图所示：
-
-获取 JSON 文件：
-![](/assets/获取fcmjson.jpeg)
-
-获取服务器密钥：
-![](/assets/获取服务器密钥.jpeg)
+### 获取秘钥
+进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。更多详情请参见 [快速接入指南](https://firebase.google.com/docs/android/setup?hl=zh-cn)。
 
 
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
-![](/assets/配置json.png)
+![](https://main.qcloudimg.com/raw/568561b72a775058bf06750bfab38ed0.png)
 2. 配置 gradle，集成谷歌 service。
-  1. 在项目级的build.gradle文件中的dependencies节点中添加下面代码：
+  1. 在项目级的 build.gradle 文件中的 dependencies 节点中添加下面代码：
 ```xml
 classpath 'com.google.gms:google-services:4.2.0'
 ```
 >!如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
 
-  2. 在应用级的build.gradle文件中添加依赖
+  2. 在应用级的 build.gradle 文件中，添加依赖：
 	```xml
 	implementation 'com.tencent.tpns:fcm:1.0.9.1'
 	implementation  'com.google.firebase:firebase-messaging:17.6.0'
