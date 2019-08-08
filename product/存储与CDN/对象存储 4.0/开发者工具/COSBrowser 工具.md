@@ -13,12 +13,11 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 |macOS 桌面端|[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
 |Linux 桌面端|[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
 |Android 移动端|[Android](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
-
->?COSBrowser iOS 移动端版本将在近期上线，如有疑问，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
+|iOS 移动端|[iOS](https://apps.apple.com/cn/app/id1469323992)|
 
 ## 桌面端
 
->?COSBrowser 桌面端支持 Windows/macOS/Linux 桌面端。
+>?COSBrowser 桌面端支持 Windows/macOS/Linux 系统。
 
 #### 软件界面
 
@@ -30,8 +29,6 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
   - **历史密钥**：单击**历史密钥**，可查看并使用已在该电脑成功登录过的云 API 密钥。
 
 ## 移动端
-
->?COSBrowser 移动端暂只支持 Android 移动端。
 
 #### 软件界面
 
@@ -59,7 +56,7 @@ COSBrowser 移动端支持以下两种登录方式：
 >- 文件夹名称不可包含`\ / : * ? " | < >`等特殊字符。
 >- 不允许以`..`作为文件夹名称。
 >- 文件夹无法进行重命名操作，请谨慎命名。
-   
+
 #### 上传文件/文件夹
 在指定的存储桶或目录内，单击【上传文件】或【上传文件夹】，选择要上传的文件或文件夹，即可完成文件或文件夹的上传。
 >?COSBrowser 移动端仅支持上传图片和视频。
@@ -99,8 +96,11 @@ COSBrowser 移动端支持以下两种登录方式：
 
 ## 更新日志
 
-更新日志： [change log](https://github.com/tencentyun/cosbrowser/blob/master/changelog.md)。
+桌面端更新日志： [changelog](https://github.com/tencentyun/cosbrowser/blob/master/changelog.md)
+移动端更新日志： [changelog_mobile](https://github.com/tencentyun/cosbrowser/blob/master/changelog_mobile.md)
+
 ## 反馈和建议
 
-欢迎提交反馈和建议：[cosbrowser issues](https://github.com/tencentyun/cosbrowser/issues)。
-
+如您在使用 COSBrowser 工具有疑问或建议，欢迎反馈给我们：
+- 桌面端：[issues](https://github.com/tencentyun/cosbrowser/issues)
+- 移动端：[issues_mobile](https://support.qq.com/embed/phone/67467)
