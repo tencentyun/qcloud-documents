@@ -72,8 +72,8 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
 1. 创建或打开 Android 工程（关于如何创建 Android 工程，请参照开发环境的章节）。
 2. 将信鸽 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
-3. .so 文件是信鸽必须的组件，支持armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前.so 支持的平台添加
-4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey,请确保按照要求配置，否则可能导致服务不能正常使用。
+3. .so 文件是信鸽必须的组件，支持armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
+4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
 
 **权限配置**
 信鸽 SDK 正常运行所需要的权限。示例代码如下：
@@ -84,7 +84,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         android:protectionLevel="signature" />
     <uses-permission android:name="应用包名.permission.XGPUSH_RECEIVE" />
 
-    <!-- 【必须】 信鸽SDK所需权限 -->
+    <!-- 【必须】 信鸽 SDK 所需权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
