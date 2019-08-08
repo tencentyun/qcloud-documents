@@ -2,8 +2,8 @@
 
 ## 环境要求
 - 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
-- Android Studio 2.0 或以上版本
-- App 要求 Android 4.1 或以上设备
+- Android Studio 2.0 及以上版本
+- App 要求 Android 4.1 及以上设备
 
 ## 操作步骤
 <span id="step1"></span>
