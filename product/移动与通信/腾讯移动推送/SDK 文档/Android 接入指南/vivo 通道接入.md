@@ -1,6 +1,6 @@
 
 ## 操作场景
-ViVO 通道是由 ViVO 官方提供的系统级推送通道。在 ViVO 手机上，推送消息能够通过 ViVO 的系统通道抵达终端，并且无需打开应用，即可收到推送，更多详情请参见 [ViVO 推送官网](https://dev.vivo.com.cn/home)。
+vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上，推送消息能够通过 vivo 的系统通道抵达终端，并且无需打开应用，即可收到推送，更多详情请参见 [vivo 推送官网](https://dev.vivo.com.cn/home)。
 
 
 ## 操作步骤
@@ -11,14 +11,14 @@ ViVO 通道是由 ViVO 官方提供的系统级推送通道。在 ViVO 手机上
 #### AndroidStudio 集成方法
 
 在 App 模块下的 build.gradle 文件内，完成信鸽所需的配置后，再增加以下节点：
-1. 配置 ViVO 的 AppID 和 AppKey。示例代码如下：
+1. 配置 vivo 的 AppID 和 AppKey。示例代码如下：
 ```xml
  manifestPlaceholders = [
 	 VIVO_APPID:"xxxx",
      VIVO_APPKEY:"xxxxx",
         ]
 ```
-2. 导入 ViVO 推送相关依赖。示例代码如下：
+2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
 /* vivo 1.0.9.0
  */
@@ -29,9 +29,9 @@ implementation 'com.tencent.tpns:vivo:1.0.9.0'
 
 
 #### Eclipes 集成方法
-获取信鸽 ViVO 通道 SDK 包后，按照信鸽官网手动集成方法，在配置好信鸽主版本的基础下，进行以下设置：
+获取信鸽 vivo 通道 SDK 包后，按照信鸽官网手动集成方法，在配置好信鸽主版本的基础下，进行以下设置：
 
-1. 导入 ViVO 推送相关 jar 包， 将```XG4VIVOPush*.jar```放在```libs```文件夹里。
+1. 导入 vivo 推送相关 jar 包， 将```XG4VIVOPush*.jar```放在```libs```文件夹里。
 2. 在 ```Androidmanifest.xml``` 文件中，新增如下配置：
 
 ```xml
@@ -66,7 +66,7 @@ implementation 'com.tencent.tpns:vivo:1.0.9.0'
 ```
 
 
-### 开启 ViVO 推送
+### 开启 vivo 推送
 在调用信鸽 ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
 
 ```java
