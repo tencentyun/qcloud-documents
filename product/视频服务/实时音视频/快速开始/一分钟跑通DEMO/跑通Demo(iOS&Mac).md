@@ -32,7 +32,7 @@
  Demo 源码工程中的`GenerateTestUserSig.h`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
  
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `GenerateTestUserSig.h`文件。
+2. 找到并打开`GenerateTestUserSig.h`文件。
   <table>
      <tr>
          <th nowrap="nowrap">适用平台</th>  
