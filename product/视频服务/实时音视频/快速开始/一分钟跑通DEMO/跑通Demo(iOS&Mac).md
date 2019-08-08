@@ -48,8 +48,8 @@
      </tr> 
 </table>
 3. 设置`GenerateTestUserSig.h`文件中的相关参数：
-  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
-  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  - \_SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - \_SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
   ![](https://main.qcloudimg.com/raw/e72c577110c22f6584e10e7d9adc2395.png)
 
 >!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
