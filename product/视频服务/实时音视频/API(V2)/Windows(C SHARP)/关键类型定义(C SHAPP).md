@@ -64,7 +64,7 @@ __属性列表__
 | 属性 | 类型 | 字段含义 | 推荐取值 | 特别说明 |
 |-----|-----|-----|-----|-----|
 | preference | [TRTCVideoQosPreference](https://cloud.tencent.com/document/product/647/36780#trtcvideoqospreference) | 弱网下选择“保清晰”或“保流畅”。 | - | <li>弱网下保流畅：在遭遇弱网环境时，画面会变得模糊，且出现较多马赛克，但可以保持流畅不卡顿。</li><li>弱网下保清晰：在遭遇弱网环境时，画面会尽可能保持清晰，但可能容易出现卡顿。 |
-| controlMode | [TRTCQosControlMode](https://cloud.tencent.com/document/product/647/36780#trtcqoscontrolmode) | 视频分辨率（云端控制 - 客户端控制）。 | 云端控制 | <li>Server 模式（默认）：云端控制模式，若没有特殊原因，请直接使用该模式。</li><li>Client 模式：客户端控制模式，用于 SDK 开发内部调试，客户请勿使用。 |
+| controlMode | [TRTCQosControlMode](https://cloud.tencent.com/document/product/647/36780#trtcqoscontrolmode) | 视频分辨率（云端控制 - 客户端控制）。 | 云端控制 | <li>Server 模式（默认）：云端控制模式，若无特殊原因，请直接使用该模式。</li><li>Client 模式：客户端控制模式，用于 SDK 开发内部调试，客户请勿使用。 |
 
 
 
@@ -124,15 +124,6 @@ __功能__
 __介绍__
 
 您可以在用户进入房间前通过 TRTCCloud 的 startSpeedTest 接口进行测速 （注意：请不要在通话中调用），测速结果每2 - 3秒钟返回1次，每次返回1个 IP 地址的测试结果。
-
->?
->- quality 是内部通过评估算法测算出的网络质量，loss 越低，rtt 越小，得分便越高。
->- upLostRate 是指上行丢包率，例如，0.3表示每向服务器发送10个数据包可能会在中途丢失3个。
->- downLostRate 是指下行丢包率，例如，0.2表示每从服务器收取10个数据包可能会在中途丢失2个。
->- rtt 是指当前设备到腾讯云服务器的一次网络往返时间，正常数值范围是10ms - 100ms。
-
-
-
 
 __属性列表__
 
@@ -198,7 +189,7 @@ __属性列表__
 | videoHeight | uint | 最终转码后的视频分辨率的高度（px）。 | - |
 | videoBitrate | uint | 最终转码后的视频分辨率的码率（kbps）。 | - |
 | videoFramerate | uint | 最终转码后的视频分辨率的帧率（FPS）。 | 15 |
-| videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（也被称为 GOP），单位秒。 | 3 |
+| videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（又称为 GOP），单位秒。 | 3 |
 | audioSampleRate | uint | 最终转码后的音频采样率。 | 48000 |
 | audioBitrate | uint | 最终转码后的音频码率（kbps）。 | 64 |
 | audioChannels | uint | 最终转码后的音频声道数。 | 2 |
@@ -221,8 +212,8 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| appId | uint | 腾讯云 AppID，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
-| bizId | uint | 腾讯云直播 bizid，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。 |
+| appId | uint | 腾讯云 AppID，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】，在“直播信息”中获取。 |
+| bizId | uint | 腾讯云直播 bizid，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】，在“直播信息”中获取。 |
 | url | string | 旁路转推的 URL。 |
 
 
@@ -269,7 +260,7 @@ __属性列表__
 | videoBitrate | uint | 视频发送码率（Kbps）。 |
 | audioSampleRate | uint | 音频采样率（Hz）。 |
 | audioBitrate | uint | 音频发送码率（Kbps）。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124；小画面 &#124；辅路画面）。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124、小画面 &#124或辅路画面）。 |
 
 
 
@@ -287,14 +278,14 @@ __属性列表__
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
 | userId | string | 用户 ID，指定是哪个用户的视频流。 |
-| finalLoss | uint | 该线路的总丢包率（％）<br>该值越小越好，例如，丢包率为0表示网络很好。 丢包率是该线路的 userId 从上行到服务器再到下行的总丢包率。 如果 downLoss 为 0%，但是 finalLoss 不为0，说明该 userId 上行时出现了无法恢复的丢包。 |
+| finalLoss | uint | 该线路的总丢包率（％）<br>该值越小越好，例如，丢包率为0表示网络很好。丢包率是该线路的 userId 从上行到服务器再到下行的总丢包率。如果 downLoss 为 0%，但是 finalLoss 不为0，说明该 userId 上行时出现了无法恢复的丢包。 |
 | width | uint | 视频宽度。 |
 | height | uint | 视频高度。 |
 | frameRate | uint | 接收帧率（fps）。 |
 | videoBitrate | uint | 视频码率（Kbps）。 |
 | audioSampleRate | uint | 音频采样率（Hz）。 |
 | audioBitrate | uint | 音频码率（Kbps）。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124; 小画面 &#124; 辅路画面）。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型（大画面 &#124、小画面 &#124或辅路画面）。 |
 
 
 
@@ -311,16 +302,16 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
-| upLoss | uint | C -> S 上行丢包率（％）， 该值越小越好，例如，丢包率为0表示网络很好， 丢包率为30%则意味着 SDK 向服务器发送的数据包中会有30%丢失在上行传输中。 |
-| downLoss | uint | S -> C 下行丢包率（％）， 该值越小越好，例如，丢包率为0表示网络很好，丢包率为30%则意味着 SDK 向服务器发送的数据包中会有30%丢失在下行传输中。 |
+| upLoss | uint | C -> S 上行丢包率（％），该值越小越好，例如，丢包率为0表示网络很好， 丢包率为30%则意味着 SDK 向服务器发送的数据包中会有30%丢失在上行传输中。 |
+| downLoss | uint | S -> C 下行丢包率（％），该值越小越好，例如，丢包率为0表示网络很好，丢包率为30%则意味着 SDK 向服务器发送的数据包中会有30%丢失在下行传输中。 |
 | appCpu | uint | 当前 App 的 CPU 使用率（％）。 |
 | systemCpu | uint | 当前系统的 CPU 使用率（％）。 |
-| rtt | uint | 延迟（毫秒），指 SDK 到腾讯云服务器的一次网络往返时间，该小越好。 一般低于50ms的 rtt 相对理想，而高于100ms的 rtt 会引入较大的通话延时。由于数据上下行共享一条网络连接，所以 local 和 remote 的 rtt 相同。 |
+| rtt | uint | 延迟（毫秒），指 SDK 到腾讯云服务器的一次网络往返时间，该小越好。一般低于50ms的 rtt 相对理想，而高于100ms的 rtt 会引入较大的通话延时。由于数据上下行共享一条网络连接，所以 local 和 remote 的 rtt 相同。 |
 | receivedBytes | uint | 总接收字节数（包含信令和音视频）。 |
 | sentBytes | uint | 总发送字节总数（包含信令和音视频）。 |
-| localStatisticsArray | [TRTCLocalStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtclocalstatistics) | 本地的音视频统计信息，由于可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
+| localStatisticsArray | [TRTCLocalStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtclocalstatistics) | 本地的音视频统计信息，可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
 | localStatisticsArraySize | uint | 数组 localStatisticsArray 的大小。 |
-| remoteStatisticsArray | [TRTCRemoteStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtcremotestatistics) | 远端成员的音视频统计信息，由于可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
+| remoteStatisticsArray | [TRTCRemoteStatistics[]](https://cloud.tencent.com/document/product/647/36780#trtcremotestatistics) | 远端成员的音视频统计信息，可能有主画面、小画面以及辅路画面等多路的情况，因此参数值为一个数组。 |
 | remoteStatisticsArraySize | uint | 数组 remoteStatisticsArray 的大小。 |
 
 
@@ -350,7 +341,7 @@ __介绍__
 | TRTCVideoResolution_640_480 | [C] 建议码率600kbps。 |
 | TRTCVideoResolution_960_720 | [C] 建议码率1000kbps。 |
 | TRTCVideoResolution_160_90 | 宽高比16:9。 |
-| TRTCVideoResolution_256_144 | [C]建议码率200kbps。 |
+| TRTCVideoResolution_256_144 | [C] 建议码率200kbps。 |
 | TRTCVideoResolution_320_180 | [C] 建议码率250kbps。 |
 | TRTCVideoResolution_480_270 | [C] 建议码率350kbps。 |
 | TRTCVideoResolution_640_360 | [C] 建议码率550kbps。 |
@@ -408,7 +399,7 @@ __功能__
 
 __介绍__
 
-TRTC SDK 对画质定义六种不同的级别，Excellent 代表最好，Down 代表不可用。
+TRTC SDK 对画质定义六种不同的级别，Excellent 表示最好，Down 表示不可用。
 
 | 枚举 | 含义 |
 |-----|-----|
@@ -501,8 +492,8 @@ __功能__
 __介绍__
 
 TRTC SDK 内部需要时刻根据网络情况调整内部的编解码器和网络模块，以便能够对网络的变化做出反应。 为了支持快速算法升级，SDK 内部设置了两种不同的流控模式：
-- ModeServer： 云端控制，默认模式，推荐选择。
-- ModeClient： 本地控制，用于 SDK 开发内部调试，客户请勿使用。
+- ModeServer：云端控制，默认模式，推荐选择。
+- ModeClient：本地控制，用于 SDK 开发内部调试，客户请勿使用。
 
 >?推荐您使用云端控制，当升级 Qos 算法时，您无需升级 SDK 即可体验更好的效果。
 
