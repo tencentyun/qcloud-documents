@@ -5,7 +5,7 @@ ViVO 通道是由 ViVO 官方提供的系统级推送通道。在 ViVO 手机上
 
 ## 操作步骤
 ### 获取密钥
-开发者需向 vivo 申请开通推送权限，获取到 AppKey、AppSecret、AppSecret 三个密钥。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
+开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
 
 ###  配置内容
 #### AndroidStudio 集成方法
