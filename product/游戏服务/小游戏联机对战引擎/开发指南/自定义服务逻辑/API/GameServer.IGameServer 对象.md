@@ -1,13 +1,13 @@
 
-GameServer.IGameServer 对象即游戏 Server 接口。提供了接收客户端消息、监听房间广播相关接口。
+GameServer.IGameServer 对象即实时服务器接口。提供了接收客户端消息、监听房间广播相关接口。
 
 ### mode 属性
 
 **描述**
-mode 是游戏 Server 处理客户端消息的模式。可以取值为 "sync" 或 "async"。
+mode 是实时服务器处理客户端消息的模式。可以取值为 "sync" 或 "async"。
 
-- 当 mode 为 "sync" 时，游戏 Server 将使用同步模式处理客户端消息。开发者在 onRecvFromClient 回调中必须显式调用 SDK.exitAction 方法，游戏 Server 才能处理下一条 onRecvFromClient 广播。
-- 当 mode 为 "async" 时，游戏 Server 将使用异步模式处理客户端消息。每次监听到 onRecvFromClient 广播时都将执行回调函数。
+- 当 mode 为 "sync" 时，实时服务器将使用同步模式处理客户端消息。开发者在 onRecvFromClient 回调中必须显式调用 SDK.exitAction 方法，游戏 Server 才能处理下一条 onRecvFromClient 广播。
+- 当 mode 为 "async" 时，实时服务器将使用异步模式处理客户端消息。每次监听到 onRecvFromClient 广播时都将执行回调函数。
 
 **使用示例**
 
