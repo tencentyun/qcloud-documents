@@ -14,7 +14,7 @@
 6. 在配置端口映射页，配置相应参数。
 ![](https://main.qcloudimg.com/raw/0ac1295fb04aebff56050b3bc6b32f6e.png)
 7. 在本地下载并安装 [SQL Server Management Studio](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)。SQL Server Management Studio 相关介绍请参见 [使用 SQL Server Management Studio](https://docs.microsoft.com/zh-cn/sql/database-engine/use-sql-server-management-studio?view=sql-server-2014)。
-8. 在本地启动 SQL Server Management Studio。在【Connect to server】 页面，填写相关信息连接云数据库。单击【Connect】，稍等几分钟后，SQL Server Management Studio 将连接到您的数据库实例。
+8. 本地启动 SQL Server Management Studio。在【Connect to server】 页面，填写相关信息连接云数据库。单击【Connect】，稍等几分钟后，SQL Server Management Studio 将连接到您的数据库实例。
  - **Server type**：选择 Database Engine。
  - **Server name**：本机 IP 地址和端口号，需用英文逗号隔开，例如`10.0.0.1,4000`。端口号需与第6步中配置的端口保持一致。
  -  **Authentication**：选择 SQL Server Authentication。
