@@ -33,7 +33,7 @@
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开 `H5/js/debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
-  - SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
   ![](https://main.qcloudimg.com/raw/d8f5960ab7c08bb0a488ac7e98d162ba.png)
 
