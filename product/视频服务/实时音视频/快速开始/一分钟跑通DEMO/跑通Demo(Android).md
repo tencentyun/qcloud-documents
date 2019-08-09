@@ -25,6 +25,9 @@
 
 <span id="step3"></span>
 ### 步骤3：查看并拷贝加密密钥
+ >?实时音视频自2019.07.19开始启用新的签名算法 HMAC-SHA256。若您的应用创建时间早于2019.07.19，您需要先单击【点此升级】升级签名算法。
+ >![](https://main.qcloudimg.com/raw/d1ce74a7b198d5eb2051c89e274d0fdd.png)
+
 1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
 2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
