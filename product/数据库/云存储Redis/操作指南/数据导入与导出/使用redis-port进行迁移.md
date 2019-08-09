@@ -1,4 +1,3 @@
-
 ## 工具介绍
 [下载 redis-port（linux64 位）](https://main.qcloudimg.com/raw/47154504189a8941250f57b60f1e2fcb/redis-port.tgz)
 
@@ -20,22 +19,22 @@ redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据�
 
 **参数说明**：
 - -n：并发写入的任务数量，建议不设置或者设置为 CPU 核心数量 * 2。
-- -m：源实例地址，格式为 "password@ip:port"。
-- -t：目标实例地址，格式为 "password@ip:port"。
+- -m：源实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
+- -t：目标实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - --tmpfile=FILE：临时文件名称。
 - --tmpfile-size=SIZW：临时文件最大长度。
 - --help：查看帮助命令。
 
 **示例**：
 ```
-./redis-sync -m 127.0.0.1:6379 -t 192.17.1.1:6379
+./redis-sync -m 127.0.0.1:6379 -t "xxx2018"@10.0.5.8:6379
 ```
 
 **输出日志**：
 
 ```
-[root@VM_5_16_centos bin]# ./redis-sync -m 127.0.0.1:6379 -t xxx2018@10.0.5.8:6379
-2019/02/21 09:56:00 sync.go:76: [INFO] sync: master = "127.0.0.1:6379", target = "Passwd2018@10.0.5.8:6379"
+[root@VM_5_16_centos bin]# ./redis-sync -m 127.0.0.1:6379 -t "xxx2018"@10.0.5.8:6379
+2019/02/21 09:56:00 sync.go:76: [INFO] sync: master = "127.0.0.1:6379", target = "xxx2018@10.0.5.8:6379"
 2019/02/21 09:56:01 sync.go:103: [INFO] +
 2019/02/21 09:56:01 sync.go:109: [INFO] sync: runid = "f63e2ad58e2fcc15c8cc122f15778389a012c1a4", offset = 18576271
 2019/02/21 09:56:01 sync.go:110: [INFO] sync: rdb file = 9063349 (8.64mb)
@@ -57,7 +56,7 @@ redis-restore 工具支持将 Redis 的备份文件（RDB）导入到指定 Redi
 **参数说明**：
 - -n：并发写入的任务数量，建议不设置或者设置为 CPU 核心数量 * 2。
 - -i：RDB 文件路径。
-- -t：目标实例地址，格式为 "password@ip:port"。
+- -t：目标实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - -a：AOF 文件路径。
 - --db=DB：导入的 DB ID，默认为和源实例保持一致。
 - --unixtime-in-milliseconds=EXPR：导入数据的同时更新 Key 过期时间值。
@@ -75,7 +74,7 @@ redis-dump 支持将 Redis 的数据备份成 RDB 文件，同时还支持备份
 
 **参数说明**：
 - -n：并发写入的任务数量，建议不设置或者设置为 CPU 核心数量 * 2。
-- -m：Redis实例地址，格式为 "password@ip:port"。
+- -m：Redis 实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - -o：备份输出的 RDB 文件路径。
 - -a：备份输出的 AOF 文件路径。
 - --help：查看帮助。
@@ -84,6 +83,4 @@ redis-dump 支持将 Redis 的数据备份成 RDB 文件，同时还支持备份
 ```
 ./redis-dump  127.0.0.1:6379 -o dump.rdb
 ```
-
-
 

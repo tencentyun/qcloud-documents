@@ -6,10 +6,10 @@
 ## 配置 UDP 监听器
 ### 步骤1：打开监听器管理页面
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
-2. 在左侧导航栏，选择【实例】。
-3. 在实例列表页点击需配置的实例 ID，进入实例详情页。
-4. 单击“监听器管理”标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/e3013c8f57779775a5961e040d3ef803.png)
+2. 在左侧导航栏，选择【实例管理】。
+3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
+4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
+![](https://main.qcloudimg.com/raw/4530fc5bbb9beb4e9610156f6bda1eef.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/f80a87e1954fa9aa14886409ffbb670d.png)
 
@@ -42,7 +42,7 @@
 </tbody></table>
 
 创建UDP 监听器具体基本配置如下图所示：
-![](https://main.qcloudimg.com/raw/443b48dc69711bc4425b9d231eae5d40.png)
+![](https://main.qcloudimg.com/raw/de1fdfa72140f0d2fea398c7f86fd211.png)
 
 #### 2. 健康检查
 | 健康检查配置    | 说明                    | 示例                                |
@@ -54,7 +54,7 @@
 | 健康阈值 |<li>如果连续 n 次（n 为填写的数值）收到的健康检查结果为成功，则识别为健康，控制台显示为**健康**。</li><li>可配置范围：2 - 10次，默认值3次。</li>  | 3次 |
 
 健康检查具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/634bd603efd94dac391c0e20a0dc85d4.png)
+![](https://main.qcloudimg.com/raw/d2f27281adecf649d6a7c3981c9f5027.png)
 
 #### 3. 会话保持
 | 会话保持配置    | 说明                    | 示例                                |
@@ -63,7 +63,7 @@
 | 会话保持时间 | 会话保持时间<br> <li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30 - 3600秒。</li> | 30s |
 
 会话保持具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/710bfc867cc0b8e55ad96d45fb762045.png)
+![](https://main.qcloudimg.com/raw/e685c5a3eb0a109e166008b763ee9d5f.png)
 
 ### 步骤3：绑定后端云服务器
 1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `UDP:8000` 监听器，即可在监听器右侧查看已绑定的后端服务。
@@ -80,5 +80,5 @@
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
-如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，选择【编辑】或【删除】来完成操作。
+如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器，选择【修改】或【删除】来完成操作。
 ![](https://main.qcloudimg.com/raw/8d9d08a0e8dcf7deafc38ab537dd9f80.png)

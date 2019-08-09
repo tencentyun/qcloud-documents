@@ -1,13 +1,13 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统的数据库（MySQL、PostgreSQL 等）之间进行数据的传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导进到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导进到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MySQL、PostgreSQL 等）之间进行数据传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导入到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导入到关系型数据库中。Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 HDFS 之间导入/导出的使用方法。
 
 ## 1. 开发准备
-- 确认您已经开通了腾讯云，并且创建了一个EMR集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop 组件。 
-- Sqoop 等相关软件安装在路径EMR云服务器的` /usr/local/service/`路径 下。
+- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop 组件。 
+- Sqoop 等相关软件安装在路径 EMR 云服务器的` /usr/local/service/`路径下。
 
 ## 2. 新建一个 MySQL 表
-首先要连接已经创建好的 MySQL 数据库，进入 EMR 控制台，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
+首先要连接已经创建好的 MySQL 数据库，进入 EMR 控制台，复制目标集群的实例 ID，即集群的名字。再进入关系型数据库控制台，使用 Ctrl+F 进行搜索，找到集群对应的 MySQL 数据库，查看该数据库的内网地址 $mysqlIP。
 
 登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
@@ -54,8 +54,9 @@ Mysql> select * from sqoop_test;
 3 rows in set (0.00 sec)
 ```
 退出 MySQL 数据库：
-
-`Mysql> exit;`
+```
+Mysql> exit;
+```
 
 ## 3. 将 MySQL 的数据导入到 HDFS 中
 使用 sqoop-import 把上一步中创建的 sqoop_test 表中数据导入到 HDFS 中：
@@ -63,7 +64,7 @@ Mysql> select * from sqoop_test;
 [hadoop@172 sqoop]$ bin/sqoop-import --connect jdbc:mysql://$mysqlIP/test --username root 
 -P --table sqoop_test --target-dir /sqoop
 ```
-其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。注意`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在会出错。
+其中 --connect 用于连接 MySQL 数据库，test 也可以换成您的数据库名字，-P 表示之后需要输入密码，--table 为您想要导出的数据库的名字，--target-dir 为导出到 HDFS 中的路径。**`/sqoop`文件夹在执行命令之前并未创建，如果文件夹已经存在会出错。**
 回车之后需要您输入密码，密码为您创建 EMR 时设置的密码。
 
 执行成功之后，可以在 HDFS 的相应路径下查看导入的数据：
@@ -74,7 +75,7 @@ Mysql> select * from sqoop_test;
 3, third, 2018-07-03 15:31:07.0,yarn
 ```
 
-## 4. 将 HDFS  的数据导入到 MySQL 中
+## 4. 将 HDFS 的数据导入到 MySQL 中
 首先需要在 MySQL 新建一个表准备存放 HDFS 中的数据：
 ```
 [hadoop@172 sqoop]$ mysql -h $mysqlIP –p
@@ -85,7 +86,7 @@ Database changed
 mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, (content varchar(255));
 Query ok , 0 rows affected(0.00 sec)
 ```
-查看表是否创建成功之后退出MySQL：
+查看表是否创建成功之后退出 MySQL：
 ```
 mysql> show tables;                                                                     
 +-----------------+

@@ -13,7 +13,7 @@
     对于 HBase 而言，如果想精确地定位到某行记录，唯一的办法是通过 rowkey 来查询。如果不通过 rowkey 来查找数据，就必须逐行地比较每一列的值，即全表扫瞄。对于较大的表，全表扫瞄的代价是不可接受的。但是，很多情况下，需要从多个角度查询数据。这需要二级索引（secondary index）来完成这件事。二级索引的原理很简单，但是如果自己维护的话则会麻烦一些。
 
 - Phoenix 二级索引配置
-    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的，可变的索引只需按照以下步骤配置即可。打开 EMR 组件管理页面，单击【Hbase】，选择【配置】>【配置管理】，增加 hbase-site.xml 的 "hbase.regionserver.wal.codec"，"hbase.region.server.rpc.scheduler.factory.class"和"hbase.rpc.controllerfactory.class"三个配置项即可，详细配置如下：
+    EMR 中 Phoenix 直接可支持 Phoenix 的二级索引。如果需要使用非事务性的，可变的索引只需按照以下步骤配置即可。打开 EMR 组件管理页面，单击【Hbase】，选择【配置】>【配置管理】，增加 hbase-site.xml 的`hbase.regionserver.wal.codec`，`hbase.region.server.rpc.scheduler.factory.class`和`hbase.rpc.controllerfactory.class`三个配置项即可，详细配置如下：
 
     ``` xml
     <property>

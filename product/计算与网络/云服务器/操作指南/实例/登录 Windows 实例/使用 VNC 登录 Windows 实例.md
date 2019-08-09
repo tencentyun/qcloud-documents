@@ -24,7 +24,7 @@ Windows，Linux 和 Mac OS
 2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3106cebfdeae7762d656ffc68732e130.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其他方式（VNC）】，单击【立即登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/bdfe5b286e7e0c388adfbc12d15cfad6.png)
+![](https://main.qcloudimg.com/raw/9f282782aa5096a82c05af675ff02203.png)
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
