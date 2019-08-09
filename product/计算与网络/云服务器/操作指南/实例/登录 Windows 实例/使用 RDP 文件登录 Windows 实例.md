@@ -19,7 +19,7 @@ Windows，Linux 和 Mac OS
 2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3106cebfdeae7762d656ffc68732e130.png)
 3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载RDP文件】，将 RDP 文件下载到本地。
-![](https://main.qcloudimg.com/raw/bfbdf813684e34b236b90b9e1a19009b.png)
+![](https://main.qcloudimg.com/raw/9bcfe6774b483261d61f648968efe5ee.png)
 4. 双击已下载到本地的 RDP 文件，即可远程连接到 Windows 云服务器。
 
 ### Linux 系统使用 RDP 登录
