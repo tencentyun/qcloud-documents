@@ -233,7 +233,7 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 
 ## TIMMessage
 
-[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timmessage) 由多个 [TIMElem](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timelem) 组成，每个 TIMElem 可以是文本或图片，即即每条消息可包含多个文本和多张图片，详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9150)。
+[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timmessage) 由多个 [TIMElem](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timelem) 组成，每个 TIMElem 可以是文本或图片，即即每条消息可包含多个文本或图片，详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9150)。
 
 | API | 描述 |
 | --- | --- |
