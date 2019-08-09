@@ -5,8 +5,7 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 
 ## 操作步骤
 ### 获取密钥
-进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。更多详情请参见 [快速接入指南](https://firebase.google.com/docs/android/setup?hl=zh-cn)。
-
+进入 FireBase 官网， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。
 
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
@@ -26,8 +25,7 @@ classpath 'com.google.gms:google-services:4.2.0'
 	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进您应用model的根路径下
 	apply plugin: 'com.google.gms.google-services'
 	```
->!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险），详情请参考 [文档](https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project)。
-
+>!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
 
 ### 启用 FCM 推送
 在调用信鸽注册代码 XGPushManager.registerPush 前，添加以下代码设置：
