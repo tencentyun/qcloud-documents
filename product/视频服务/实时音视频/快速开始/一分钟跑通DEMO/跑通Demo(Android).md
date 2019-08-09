@@ -24,8 +24,7 @@
 
 <span id="step3"></span>
 ### 步骤3：查看并拷贝加密密钥
- >?TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【点此升级】升级签名算法才能获取新的加密密钥。
- >![](https://main.qcloudimg.com/raw/d1ce74a7b198d5eb2051c89e274d0fdd.png)
+ >?TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
 1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
 2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
