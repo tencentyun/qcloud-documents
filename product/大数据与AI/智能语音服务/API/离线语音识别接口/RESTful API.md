@@ -133,7 +133,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | appid |  Int | 腾讯云应用 ID |
 | projectid |  Int | 腾讯云项目 ID |
 | audioUrl |  String | 语音下载 ur。如果语音源非公网可下载 URL，则不包含该字段 |
-| text |  String | 识别出的结果文本 |
+| text |  String | 识别出的结果文本。对于双声道文件，左声道标记为1，右声道标记为0 |
 | audioTime |  Double | 语音总时长 |
 
 >!为了防止某些字段中，出现诸如 “&” 等特殊字符，导致解包失败，所有字段的 value 值都将进行 url\_encode 之后发送给用户业务服务器，在获取 value 之后，需要先对 value 进行 url\_decode 以获取原始 value 值。
