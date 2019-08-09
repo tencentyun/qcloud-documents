@@ -11,5 +11,4 @@ Symantec 官方声明：	https://www.symantec.com/connect/blogs/chrome-53-bug-af
 
 以及 Chrome 官方公告：https://bugs.chromium.org/p/chromium/issues/detail?id=664177
 
-另外，使用了 Chromium 53 内核的 QQ 浏览器也会存在这个问题，已经在新版本中修复，使用了旧版本 QQ 浏览器的用户也建议更新到最新版本。
-详情可查看 QQ 浏览器官方公告：http://bbs.browser.qq.com/thread-222732-1-1.html
+另外，使用了 Chromium 53 内核的 QQ 浏览器也会存在这个问题，已经在新版本中修复，建议使用旧版本 QQ 浏览器的用户更新到最新版本。
