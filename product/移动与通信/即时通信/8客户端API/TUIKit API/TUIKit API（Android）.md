@@ -1,4 +1,3 @@
-﻿
 ## 会话列表界面 ConversationLayout
 
 会话列表窗口 ConversationLayout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都会提供 UI 样式以及事件注册的接口可供修改。
