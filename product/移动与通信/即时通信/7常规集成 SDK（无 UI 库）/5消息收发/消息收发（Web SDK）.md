@@ -661,13 +661,12 @@ function uploadFileByBase64() {
     }
     //封装上传文件请求
     var opt = {
-        'toAccount': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
-        'businessType': businessType,//文件的使用业务类型
-        'fileType':webim.UPLOAD_RES_TYPE.FILE,//表示文件
-        'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件 md5
-        'totalSize': 56805, //文件大小，Byte
-        'base64Str': 'xxxxxxxxxxx' //文件 base64 编码
-           
+   'toAccount': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
+   'businessType': businessType,//文件的使用业务类型
+   'File_Type':webim.UPLOAD_RES_TYPE.FILE,//表示文件
+   'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件 MD5
+   'totalSize': 56805, //文件大小，Byte
+   'base64Str': 'xxxxxxxxxxx' //文件 base64 编码
     };
     webim.uploadPicByBase64(opt,
         function (resp) {
