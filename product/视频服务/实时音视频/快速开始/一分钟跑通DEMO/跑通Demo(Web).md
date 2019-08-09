@@ -10,7 +10,7 @@
   如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
 2. 填写新建应用的应用名称等信息，单击【确定】。
   应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
-![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
+ ![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
