@@ -25,39 +25,32 @@
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
      <tr>
-         <th>编程语言</th>  
          <th nowrap="nowrap">所属平台</th>  
-         <th nowrap="nowrap">GenerateTestUserSig 源代码</th>  
+         <th nowrap="nowrap">文件相对路径</th>  
      </tr>
-	 <tr>      
-         <td>Java</td>   
-	     <td>Android</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java">GenerateTestUserSig.java</a></td>   
+  <tr>      
+      <td>Android</td>   
+      <td>Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java</td>   
      </tr> 
-	 <tr>
-	     <td>Objective-C</td>   
-	     <td>iOS</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>
+  <tr>
+      <td>iOS</td>   
+      <td>iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h</td>
      </tr> 
-	 <tr>      
-         <td>Objective-C</td>   
-	     <td>Mac</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>   
+  <tr>      
+      <td>Mac</td>   
+      <td>Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h</td>   
      </tr>  
-	 <tr>      
-         <td>C++</td>   
-	     <td>Windows</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>   
+  <tr>      
+      <td>Windows</td>   
+      <td>cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h</td>   
      </tr>  
-	 <tr>      
-         <td>Javascript</td>   
-	     <td>Web（通用）</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/H5/js/debug/GenerateTestUserSig.js">GenerateTestUserSig.js</a></td>   
+  <tr>      
+      <td>Web（通用）</td>   
+      <td>H5/js/debug/GenerateTestUserSig.js</td>   
      </tr>  
-	 <tr>      
-         <td>Javascript</td>   
-	     <td>小程序</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/WXMini/debug/GenerateTestUserSig.js">GenerateTestUserSig.js</a></td>   
+  <tr>      
+      <td>小程序</td>   
+      <td>WXMini/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 
