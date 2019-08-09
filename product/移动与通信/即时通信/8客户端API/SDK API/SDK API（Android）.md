@@ -68,7 +68,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 ## TIMConversation
 
 一个会话对应一个聊天窗口，例如，与单个好友的 C2C 聊天或者一个聊天群都是一个会话。
-[TIMConversation](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMConversation.html#timconversation) 提供的接口函数都是围绕消息的相关操作，包括消息发送、获取历史消息、设置消息已读、撤回和删除等。
+[TIMConversation](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMConversation.html#timconversation) 提供的接口函数都是围绕消息的相关操作，包括发送消息、获取历史消息、设置消息已读、撤回消息和删除删除等。
 
 ### 发消息相关接口
 | API | 描述 |
@@ -125,7 +125,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 
 ## TIMGroupManager
 
-群组管理模块负责群组的创建、删除、成员邀请、成员删除、群信息和群成员信息修改等功能。
+群组管理模块负责群组的创建群组、删除群组、邀请群成员、删除群成员、修改群信息和修改群成员信息等功能。
 
 ### 获取群组实例
 | API | 描述 |
