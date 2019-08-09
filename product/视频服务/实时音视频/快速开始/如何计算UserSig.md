@@ -76,7 +76,6 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
-| Objective-C | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-oc)|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
 | C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
