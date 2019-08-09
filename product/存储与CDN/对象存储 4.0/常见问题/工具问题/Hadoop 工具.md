@@ -4,7 +4,7 @@
 
 ### 在执行计算任务过程中抛出异常信息 java.net.ConnectException: Cannot assign requested address (connect failed) (state=42000,code=40000)，该如何处理？
 
-出现 Cannot assign requested address 错误一般是因为用户在短时间内建立了大量的 TCP 短连接，而连接关闭后，本地端口并不会被立即回收，而是默认经过一个60秒的超时阶段，因而致使客户端在这段时间内由于没有可用端口而无法与 Server 端建立 Socket 连接。
+出现 Cannot assign requested address 错误一般是因为用户在短时间内建立了大量的 TCP 短连接，而连接关闭后，本地端口并不会被立即回收，而是默认经过一个60秒的超时阶段，因此导致客户端在这段时间内，没有可用端口用于与 Server 端建立 Socket 连接。
 
 解决方法：修改`/etc/sysctl.conf`文件，调整如下内核参数进行规避：
 ```conf
