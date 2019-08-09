@@ -653,31 +653,30 @@ uploadPicByBase64: function(options, cbOk, cbErr) {},
 ```javascript
 //上传文件(通过 base64 编码)
 function uploadFileByBase64() {
-    var businessType;//业务类型，1-发群文件，2-向好友发文件
-    if (selType == webim.SESSION_TYPE.C2C) {//向好友发文件
+    var businessType; //业务类型，1-发群文件，2-向好友发文件
+    if (selType == webim.SESSION_TYPE.C2C) { //向好友发文件
         businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.C2C_MSG;
-    } else if (selType == webim.SESSION_TYPE.GROUP) {//发群文件
+    } else if (selType == webim.SESSION_TYPE.GROUP) { //发群文件
         businessType = webim.UPLOAD_PIC_BUSSINESS_TYPE.GROUP_MSG;
     }
     //封装上传文件请求
     var opt = {
-   'toAccount': selToID, //接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
-   'businessType': businessType,//文件的使用业务类型
-   'File_Type':webim.UPLOAD_RES_TYPE.FILE,//表示文件
-   'fileMd5': '6f25dc54dc2cd47375e8b43045de642a', //文件 MD5
-   'totalSize': 56805, //文件大小，Byte
-   'base64Str': 'xxxxxxxxxxx' //文件 base64 编码
+        'toAccount': selToID,//接收者，selToID 为全局变量，表示当前正在进行的聊天 ID，当聊天类型为私聊时，该值为好友帐号，否则为群号。
+        'businessType': businessType,//文件的使用业务类型
+        'File_Type': webim.UPLOAD_RES_TYPE.FILE,//表示文件
+        'fileMd5': '6f25dc54dc2cd47375e8b43045de642a',//文件 MD5
+        'totalSize': 56805,//文件大小，Byte
+        'base64Str': 'xxxxxxxxxxx' //文件 base64 编码
     };
     webim.uploadPicByBase64(opt,
-        function (resp) {
-            //alert('success');
-            //发送文件
-            sendFile(resp);
-        },
-        function (err) {
-            alert(err.ErrorInfo);
-        }
-    );
+    function(resp) {
+        //alert('success');
+        //发送文件
+        sendFile(resp);
+    },
+    function(err) {
+        alert(err.ErrorInfo);
+    });
 }
 ```
 >?您可以使用 [spark-md5 工具](https://github.com/satazor/js-spark-md5) 生成文件的 md5。
