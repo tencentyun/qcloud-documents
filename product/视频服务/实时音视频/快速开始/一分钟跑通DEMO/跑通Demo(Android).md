@@ -8,17 +8,16 @@
 ## 操作步骤
 <span id="step1"></span>
 ### 步骤1：创建新的应用
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
-  >?如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。
- >
-2. 填写新建应用的应用名称等信息，单击【确定】。
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) 。
+  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
+2. 单击【创建应用】，填写新建应用的应用名称等信息，单击【确定】。
   应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
 ![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 单击应用卡片，进入【快速上手】页面。
-2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】，跳转至 Github 并下载相关 SDK 和 Demo 源码。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK) （或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
 >?如果您当前网络访问 Github 较慢，您可以在 [项目首页](https://github.com/tencentyun/TRTCSDK) 通过分流下载地址下载相关资源。
 >
 ![](https://main.qcloudimg.com/raw/a14d2d53d688af732c0bf5d59c89a701.png)
