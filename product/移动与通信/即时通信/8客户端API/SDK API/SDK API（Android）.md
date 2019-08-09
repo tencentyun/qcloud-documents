@@ -218,7 +218,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 
 ## TIMMessage
 
-[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#timmessage) 由多个消息元素（TIMElem）组成，每个 TIMElem 都可以是文本或图片，即每条消息可包含多个文本和多张图片。详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9232)。
+[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#timmessage) 由多个消息元素（TIMElem）组成，每个 TIMElem 都可以是文本或图片，即每条消息可包含多个文本或图片。详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9232)。
 
 | API | 描述 |
 | --- | --- |
