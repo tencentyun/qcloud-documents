@@ -6,7 +6,7 @@
 
 ## 2. 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 <a href="https://cloud.tencent.com/document/product/215/4772" title="公共请求参数">公共请求参数</a>页面。其中，此接口的 Action 字段为 DeleteAddressGroup
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 <a href="https://cloud.tencent.com/document/product/215/4772" title="公共请求参数">公共请求参数 </a>页面。其中，此接口的 Action 字段为 DeleteAddressGroup
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|
