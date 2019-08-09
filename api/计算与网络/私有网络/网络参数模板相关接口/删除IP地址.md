@@ -71,7 +71,7 @@ data.output 结构
 ## 6. 示例
 	执行一个参数模板的异步调用，然后使用 DescribeNetTaskResult 查询结果。
 例如查询一个参数模板是否被云资源引用：
-### 步骤1：
+### 步骤1
 
 输入
 <pre>
@@ -91,7 +91,7 @@ https://vpc.api.qcloud.com/v2/index.php?Action=DeleteAddress
 }
 ```
 
-### 步骤2：
+### 步骤2
 输入
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=DescribeNetTaskResult
