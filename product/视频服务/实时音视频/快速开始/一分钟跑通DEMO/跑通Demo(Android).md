@@ -17,7 +17,7 @@
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 单击应用卡片，进入【快速上手】页面。
-2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK) （或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
 ![](https://main.qcloudimg.com/raw/a14d2d53d688af732c0bf5d59c89a701.png)
 
 <span id="step3"></span>
