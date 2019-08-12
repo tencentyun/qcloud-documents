@@ -11,12 +11,12 @@
 
 | 参数名称 | 子参数 | 类型 | 描述 |
 |----------|------  |----- | ---- |
-|RuleList |         |  array  |权限组规则列表 |
-|          | RuleId |   string |规则 ID |
-|          | ClientIp |  string |允许访问的客户端 IP |
-|          | RWPermission|  string |读写权限，ro 为只读，rw 为读写 |
-|          | UserPermission   | string |用户权限。其中 all_squash 为所有访问用户都会被映射为匿名用户或用户组；no_all_squash 为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash 为将来访的 root 用户映射为匿名用户或用户组；no_root_squash 为来访的 root 用户保持 root 帐号权限。 |
-|          | Priority|  int    |规则优先级，1 - 100，其中1为最高，100为最低|
+|RuleList |     -    |  array  |权限组规则列表 |
+|       -   | RuleId |   string |规则 ID |
+|    -      | ClientIp |  string |允许访问的客户端 IP |
+|    -      | RWPermission|  string |读写权限，ro 为只读，rw 为读写 |
+|      -    | UserPermission   | string |用户权限。其中 all_squash 为所有访问用户都会被映射为匿名用户或用户组；no_all_squash 为访问用户会先与本机用户匹配，匹配失败后再映射为匿名用户或用户组；root_squash 为将来访的 root 用户映射为匿名用户或用户组；no_root_squash 为来访的 root 用户保持 root 帐号权限。 |
+|    -      | Priority|  int    |规则优先级，1 - 100，其中1为最高，100为最低|
 
 
 ## 示例 
