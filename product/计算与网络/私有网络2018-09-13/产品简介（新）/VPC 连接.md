@@ -20,9 +20,28 @@
 ## 与本地数据中心通信
 您可使用以下产品或功能，实现 VPC 与数据中心的通信。
 
-| 产品 | 功能 | 特点 |
-|---------|---------|---------|
-| [VPN 网关](https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3)| 通过公网加密通道连接本地数据中心和 VPC。 | <li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li> |
-|[专线接入](https://cloud.tencent.com/document/product/216)|通过使用物理专线连接 VPC 和本地数据中心。|<li>网络延时有可靠保证。</li><li>独占网络链路，安全性高。</li><li>支持在网关上配置网络地址转换服务，可解决地址冲突问题。</li>|
-|[云联网](https://cloud.tencent.com/document/product/877)|通过腾讯云内网连接 VPC 和本地数据中心，可实现与所有  VPC、IDC 间的通信。|<li>配置简单、路由自动下发。</li><li>一次加入，可与多个 VPC、数据中心互通，支持路由开启和关闭。</li><li>同地域实例互通免费。</li>|
+<table>
+<thead>
+<tr>
+<th width="10%">产品</th>
+<th width="40%">功能</th>
+<th width="50%">特点</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 网关</a></td>
+<td>通过公网加密通道连接本地数据中心和 VPC。</td>
+<td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li></td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/216" target="_blank">专线接入</a></td>
+<td>通过使用物理专线连接 VPC 和本地数据中心。</td>
+<td><li>网络延时有可靠保证。</li><li>独占网络链路，安全性高。</li><li>支持在网关上配置网络地址转换服务，可解决地址冲突问题。</li></td>
+</tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/877" target="_blank">云联网</a></td>
+<td>通过腾讯云内网连接 VPC 和本地数据中心，可实现与所有  VPC、IDC 间的通信。</td>
+<td><li>配置简单、路由自动下发。</li><li>一次加入，可与多个 VPC、数据中心互通，支持路由开启和关闭。</li><li>同地域实例互通免费。</li></td>
+</tr>
+</tbody></table>
 
