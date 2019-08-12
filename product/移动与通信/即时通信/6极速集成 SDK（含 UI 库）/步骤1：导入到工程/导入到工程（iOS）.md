@@ -34,7 +34,7 @@ pod update
 
 ## 引用 TUIKit
 
-1. 在 `AppDelegate.m` 文件中引入 TUIKit，并初始化。
+<ol><li>在 `AppDelegate.m` 文件中引入 TUIKit，并初始化。
 
 ```objectivec
 #import "TUIKit.h"
@@ -43,5 +43,7 @@ pod update
 	[[TUIKit sharedInstance] setupWithAppId:sdkAppid]; // SDKAppID 可以在 即时通信 IM 控制台中获取
 }
 ```
-2. 保存并编译。
+</li>
+<li>保存并编译。<br>
   编译成功表示集成完成。如果编译失败，请检查错误原因或重新按照本文集成。
+</li>
