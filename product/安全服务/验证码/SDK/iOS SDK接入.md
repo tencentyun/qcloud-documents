@@ -1,6 +1,6 @@
 ## 前提条件
 ### 准备 AppId
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret。
+验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret，您可以在控制台的基础配置中查看 AppId 以及 AppSecret。
 ### SDK 包介绍和运行环境
 - 单击 [下载 iOS SDK]()。
 - SDK 工具包目录结构说明：

@@ -51,6 +51,8 @@ fmt.Println(*rsp.Response.FileId)
 fmt.Println(*rsp.Response.MediaUrl)
 ```
 
+>?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+
 ## 高级功能
 ### 携带封面
 ```
@@ -154,7 +156,7 @@ func main() {
 
 | 属性名称      | 属性描述                   | 类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| MediaFilePath   | 媒体文件路径。        | String 指针 | 是    |
+| MediaFilePath   | 媒体文件路径，路径为本地路径，不支持 URL 路径。       | String 指针 | 是    |
 | MediaType   | 媒体文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String 指针 | 否    |
 | MediaName   | 媒体名称，若不填默认采用 MediaFilePath 的文件名。      | string 指针 | 否    |
 | CoverFilePath   | 封面文件路径。        | String 指针 | 否    |

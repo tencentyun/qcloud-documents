@@ -1,4 +1,4 @@
-小程序端上传视频的 SDK。
+小程序端上传视频的 SDK。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 - 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-wx-sdk-v2/)。
 - 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-wx-sdk-v2/tree/master/demo)。

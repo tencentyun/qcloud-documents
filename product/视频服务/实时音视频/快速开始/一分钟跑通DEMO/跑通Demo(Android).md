@@ -1,57 +1,55 @@
-本文主要介绍如何快速地将腾讯云 TRTC Demo 运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Android）。
 
-## 1. 创建新的应用
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAppID，SDKAppID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在第4步中会用到。
-![](https://main.qcloudimg.com/raw/b9d211494b6ec8fcea765d1518b228a1.png)
+## 环境要求
+- 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
+- Android Studio 2.0 及以上版本
+- App 要求 Android 4.1 及以上设备
 
-接下来，点击应用进入**快速上手**页面，参考页面上指引的“第一步”、“第二步”和“第三步”操作，即可快速跑通 Demo。
+## 操作步骤
+<span id="step1"></span>
+### 步骤1：创建新的应用
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) 。
+  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
+2. 单击【创建应用】，填写新建应用的应用名称等信息，单击【确定】。
+  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
+ ![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
-## 2. 下载 SDK+Demo 源码
-“快速上手”页面中第一步里的几个链接地址分别为各个平台的 SDK 和 Demo 源码，点击会跳转到 Github 上，如果您当前网络访问 Github 太慢，可以在项目首页中找到镜像下载地址。
+<span id="step2"></span>
+### 步骤2：下载 SDK 和 Demo 源码
+1. 单击应用卡片，进入【快速上手】页面。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Android(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
+ ![](https://main.qcloudimg.com/raw/a14d2d53d688af732c0bf5d59c89a701.png)
 
-![](https://main.qcloudimg.com/raw/d56b4e4434da42d1a3b8e3540cf6718e.png)
+<span id="step3"></span>
+### 步骤3：查看并拷贝加密密钥
+1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
+2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
+ ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
-## 3. 查看并拷贝加密密钥
-点击**查看密钥**按钮，即可看到用于计算 UserSig 的加密密钥，点击“复制密钥”按钮，可以将密钥拷贝到剪贴板中。
+<h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
+ Demo 源码工程中的`GenerateTestUserSig.java`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
+ 
+1. 解压 [步骤2](#step2) 中下载的源码包。
+2. 找到并打开 `Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件。
+3. 设置`GenerateTestUserSig.java`文件中的相关参数：
+  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  ![](https://main.qcloudimg.com/raw/1efeacff505209c4f5c1d9bf67455157.png)
 
-![](https://main.qcloudimg.com/raw/5843542ec2e0446d326d7d44f96a5ec0.png)
+>!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-<h2 id="CopyKey"> 4. 粘贴密钥到Demo工程的指定文件中 </h2>
-我们在各个平台的 Demo 的源码工程中都提供了一个叫做 “GenerateTestUserSig” 的文件，它可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。
-
-| 语言版本 |  适用平台 | GenerateTestUserSig 的源码位置 |
-|:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|
-| Objective-C | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) |
-| C++ | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)|
-| C# | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)|
-| Javascript | Web | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/H5/js/debug/GenerateTestUserSig.js)|
-| Javascript | 微信小程序 | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js)|
-
-您只需要将第1步中获得的 SDKAppID 和第3步中获得的加密密钥拷贝到文件中的指定位置即可，如下所示：
-
-![](https://main.qcloudimg.com/raw/33aaae61fe949f3fbee881f0e7ea4e05.png)
-
-> !安全警告：本地计算 UserSig 的做法虽然能够工作，但仅适合于调试 Demo 的场景，不适用于线上产品。
-> 
-> 这是因为客户端代码中的 SECRETKEY 很容易被反编译逆向破解，尤其是 Web 端的代码被破解的难度几乎为零。一旦您的密钥泄露，攻击者就可以计算出正确的 UserSig 来盗用您的腾讯云流量。
-> 
-> [安全方案](https://cloud.tencent.com/document/product/454/14548#Server)：将 UserSig 的计算代码和加密密钥放在您的业务服务器上，然后由 App 按需向您的服务器获取实时算出的 UserSig。由于攻破服务器的成本要远高于破解客户端 App，所以服务器计算的方案能够更好地保护您的加密密钥。
-
-## 5. 编译运行
-使用 Android Studio （3.2 以上的版本） 打开源码工程 TRTCDemo，直接单击【运行】即可。
+### 步骤5：编译运行
+使用 Android Studio（3.2 以上的版本）打开源码工程`TRTCDemo`，单击【运行】即可。
 
 ## 常见问题
 
-### 1. 开发环境有什么要求？
-- 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
-- Android Studio 2.0 或以上版本
-- App 要求 Android 4.1 或以上设备
+### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
 ### 2. 两台手机同时运行 Demo，为什么看不到彼此的画面？
 请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
 ![](https://main.qcloudimg.com/raw/c7b1589e1a637cf502c6728f3c3c4f99.png)
 
 ### 3. 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参考 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。

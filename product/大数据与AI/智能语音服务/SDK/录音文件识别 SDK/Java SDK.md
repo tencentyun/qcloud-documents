@@ -17,7 +17,7 @@ jdk1.8及以上
 本文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中。
 
 JAR 包使用步骤如下：
-1. 找到：out 和 lib 文件夹中的 jar 文件，一共14个(包括4个 source jar）。
+1. 找到：out 和 lib 文件夹中的 jar 文件。
 2. 将 jar 复制到您的工程文件夹中。如果第三方 Jar 和您已使用的 Jar 有重复，可选择其一。
 3. 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。
 4. 将 jar 文件 include 到您的项目中。包括：out 文件夹中的：off_asr_sdk_1.0.jar 和 lib 中的9个依赖工具包。

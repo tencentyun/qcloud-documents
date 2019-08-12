@@ -5,7 +5,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 
 ## 操作步骤
 ### 获取密钥
-开发者需向 OPPO 申请开通推送权限，获取到 AppKey、AppSecret、AppSecret 三个密钥。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=1019 )。
+开发者需向 OPPO 申请开通推送权限，获取到 AppKey、AppSecret、master secret 三个密钥。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=1019 )。
 
 
 ###  配置内容

@@ -2,9 +2,8 @@
 
 ## 源码下载
 
-[单击下载](http://ugc-upload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android_1.1.0.0.zip) Android 上传 Demo 及源码。
-
-将下载好的压缩包解压，可以看到 Demo 目录，上传源码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`目录下。
+1. [单击下载](http://ugc-upload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android_1.1.0.0.zip) Android 上传 Demo 及源码。
+2. 将下载好的压缩包解压，可以看到 Demo 目录，上传源码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`目录下。
 
 ##  集成上传库和源码
 
@@ -57,7 +56,7 @@ TXUGCPublishTypeDef.TXPublishParam param = new TXUGCPublishTypeDef.TXPublishPara
 param.signature = "xxx";
 param.videoPath = "xxx";
 ```
-signature 计算规则请参见 [客户端上传签名](/document/product/266/9221)。
+`signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
 #### 调用上传
 
@@ -104,6 +103,8 @@ param.mediaPath = "xxx";
 ```java
 int publishCode = mVideoPublish.publishMedia(param);
 ```
+
+>?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 
 ## 高级功能
 

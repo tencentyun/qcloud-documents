@@ -73,7 +73,7 @@ systemctl start php-fpm
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
 > 
 ```
-mysql_sercure_installation
+mysql_secure_installation
 ```
 4. 执行以下命令，登录 MariaDB，并输入 [步骤3](#step3) 设置的密码，按 “**Enter**”。
 ```

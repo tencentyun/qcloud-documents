@@ -28,7 +28,7 @@
 | jumpUrl            | 否      | String   | 登录成功后跳转页面。                                           |
 | userAgent          | 否      | String   | 用户 HTTP 请求的 userAgent。                                   |
 | xForwardedFor      | 否      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
-| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标点击次数。                                   |
+| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标单击次数。                                   |
 | keyboardClickCount | 否      | Uint     | 用户操作过程中键盘单击次数。                                   |
 | macAddress         | 否      | String   | MAC 地址或设备唯一标识。                                        |
 | vendorId           | 否      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |

@@ -44,7 +44,7 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 
 
 ## 服务定义和注册（必选）
-**如果是虚拟机部署**，需要在应用程序所在目录中设置创建 `spec.yaml` 文件；**如果是容器部署**，需要在应用启动时，在`/opt/tsf/app_config`下写入 `spec.yaml` 文件，该文件用于描述服务信息。
+**如果是虚拟机部署**，需要在应用程序所在目录中设置创建`spec.yaml`文件；**如果是容器部署**，需要在应用启动时，在`/opt/tsf/app_config`下写入`spec.yaml`文件，该文件用于描述服务信息。
 Sidecar 会通过服务描述文件将服务注册到服务注册中心。
 spec.yaml 格式如下：
 
@@ -69,24 +69,19 @@ spec:
 
 ## 服务间调用方式
 
-### 1. 使用服务名来调用（推荐）
-
-在 user 服务所在实例上执行 curl 命令，通过使用 `shop` 服务名进行访问。
-
+### 使用服务名调用（推荐）
+在 user 服务所在实例上执行 curl 命令，通过使用`shop`服务名进行访问。
 ```
 curl shop:<shop端口>/api/v6/shop/order
 ```
 
-### 2. 统一域名转发
-
-> ？适用于 1.13.0 之后版本的 Mesh 应用
+### 统一域名转发
+>?统一域名转发适用于 1.13.0 之后版本的 Mesh 应用。
 
 #### 使用场景
+适用于在同一命名空间下，不同服务之间，希望采用统一的 Host，以及不同的 URL 进行访问。
 
-主要解决是，同一命名空间下，不同服务之间，希望采用统一的host，以及不同的url来进行访问。
-
-比如：通过以下配置
-
+示例：通过以下配置即可实现访问。
 ```
 Version: v1
 kind: Application
@@ -109,15 +104,12 @@ spec:
     tracing:
       randomSampling: 1.0
 ```
-
-即可实现，访问 user 服务，可以通过curl http://test.com/api/v6/user/create来进行访问。
-
-而访问 shop 服务，则可以通过curl http://test.com/api/v6/shop/query来进行访问。
+访问 user 服务，可以通过curl`http://test.com/api/v6/user/create`进行访问。
+访问 shop 服务，可以通过curl`http://test.com/api/v6/shop/query`进行访问。
 
 #### 配置项说明
 
-spec.yaml配置说明
-
+spec.yaml 配置说明：
 ```
 Version: v1
 kind: Application
@@ -147,15 +139,16 @@ spec:
 ```
 
 #### 特殊场景说明
-
-假如用户配置了API 路由能力，而且 API 的 PATH 刚好与服务的 PATH 重合，那么会优先匹配用户配置的 API 路由规则。
+假如用户配置了 API 路由能力，且 API 的 PATH 刚好与服务的 PATH 重合，则会优先匹配用户配置的 API 路由规则。
 
 
 
 ## API 定义和上报（可选）
 
 TSF 支持 Mesh 应用 API 上报功能，用于 API 级别的服务治理，如路由、鉴权和限流等，不需要可以跳过。
-**如果是虚拟机部署**，需要在应用程序所在目录中创建`apis`目录；**如果是容器部署**，需要在`/opt/tsf/app_config`下创建`apis`目录，该目录放置服务的 API 定义。
+- **如果是虚拟机部署**，需要在应用程序所在目录中创建`apis`目录。
+- **如果是容器部署**，需要在`/opt/tsf/app_config`下创建`apis`目录，该目录放置服务的 API 定义。
+
 一个服务对应一个 yaml 文件，文件名即服务名，如 petstore 服务对应 petstore.yaml 配置。API 遵循 [OPENAPI 3.0 规范](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。配置文件遵循 [样例参考](https://github.com/OAI/OpenAPI-Specification/blob/master/examples/v3.0/petstore.yaml)。user.yml 的 API 定义如下：
 ```yaml
 openapi: 3.0.0
@@ -217,8 +210,7 @@ Mesh 支持通过 HTTP Header 设置自定义标签（标签可用于服务治�
 
 ## 调用链 Header 传递（可选）
 
-要实现 Mesh 应用调用链和服务依赖拓扑功能，需要在请求中带上 9 个相关 header。
-
+要实现 Mesh 应用调用链和服务依赖拓扑功能，需要在请求中带上9个相关 header。
 ```
 // 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
 traceHeaders = ['x-request-id',
@@ -232,4 +224,4 @@ traceHeaders = ['x-request-id',
                 'x-b3-flags']
 ```
 
-具体使用方法参考文档 [Mesh Demo 介绍](https://cloud.tencent.com/document/product/649/30436) 。
+具体使用方法参考 [Mesh Demo 介绍](https://cloud.tencent.com/document/product/649/30436) 。

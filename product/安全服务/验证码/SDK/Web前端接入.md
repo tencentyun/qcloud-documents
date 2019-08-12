@@ -1,5 +1,5 @@
 ## 前提条件
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret。
+验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret，您可以在控制台的基础配置中查看 AppId 以及 AppSecret。
 ## 接入步骤
 ### 快速接入
 以下为 Web 端快速接入流程，适用于每次都需要进行人机验证的场景（登录、注册、下发短信、活动等）。

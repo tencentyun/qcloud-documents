@@ -4,7 +4,7 @@
 
 | 功能           |                         XML Java SDK                         |                        JSON Java SDK                         |
 | -------------- | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| 文件上传       | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式：简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传。<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
+| 文件上传       | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式：简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
 | 文件删除       |                         支持批量删除                         |                       只支持单文件删除                       |
 | 存储桶基本操作 |            创建存储桶<br>获取存储桶<br>删除存储桶            |                            不支持                            |
 | 存储桶 ACL操作 |  设置存储桶 ACL<br>获取设置存储桶 ACL<br>删除设置存储桶 ACL  |                            不支持                            |
@@ -104,16 +104,16 @@ COSClient cosclient = new COSClient(cred, clientConfig);
 ```
 
 **3. 更改 API**
-升级到 XML SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/10199) 文档。
+升级到 XML SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参见我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/10199) 文档。
 
 API 主要有以下变化：
 
 **1）没有单独的目录接口**
 
-在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
+在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
 
 例如：您上传了四个对象 `project/folder1/picture.jpg`、`project/folder2/text.txt`、`project/folder2/music.mp3`、`project/video.mp4`。
-在 JAVA SDK 中，您可以调用 listObjects 方法，指定 prefix 为 `project/` 和 delimiter 为 `/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
+在 Java SDK 中，您可以调用 listObjects 方法，指定 prefix 为`project/`和 delimiter 为`/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
 
 ```java
 cosClient.putObject(bucketName, "project/folder1/picture.jpg", "content");
@@ -175,14 +175,9 @@ try {
     PersistableUpload persistableUpload = upload.pause();
     // 恢复上传
     upload = transferManager.resumeUpload(persistableUpload);
-    // 可以显示上传进度
-    showTransferProgress(upload);
     // 等待上传任务完成
     UploadResult uploadResult = upload.waitForUploadResult();
     System.out.println(uploadResult.getETag());
-
-    // 另外也支持取消上传任务
-    transferManager.cancel();
 } catch (CosServiceException e) {
     e.printStackTrace();
 } catch (CosClientException e) {
@@ -191,14 +186,13 @@ try {
     e.printStackTrace();
 }
 
-ransferManager.shutdownNow();
+transferManager.shutdownNow();
 cosclient.shutdown();
-
 ```
 
 **3）签名算法不同**
 
-通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
+通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参见 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
 
 **4）新增 API**
 
@@ -208,4 +202,4 @@ XML Java SDK 新增 API，您可根据需求进行调用。包括：
 - 存储桶 ACL 的操作，如 getBucketAcl、setBucketAcl 等。
 - 存储桶生命周期的操作，如 setBucketLifecycleConfiguration、getBucketLifecycleConfiguration、 deleteBucketLifecycleConfiguration 等。
 
-了解更多请查看 [Java SDK 快速入门](https://cloud.tencent.com/document/product/436/10199) 文档。
+了解更多请参见 [Java SDK 快速入门](https://cloud.tencent.com/document/product/436/10199) 文档。
