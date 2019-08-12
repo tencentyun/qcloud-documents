@@ -41,7 +41,7 @@ sudo mount -t nfs -o vers=4 <挂载点IP>:/share/nfs/<文件系统名称即bucke
 sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系统名称即 bucket 名称> <待挂载目标目录>
 ```
 
->?"
+>?
 - <文件系统名称即 bucket 名称>" 与 "<待挂载目标目录>" 之间有一个空格。
 - 挂载点 IP：指网关的 IP 地址。 
 - 目前默认挂载的是文件系统目录（即文件系统名称）。 若在文件系统中创建子目录后，亦可挂载该子目录。
@@ -56,10 +56,15 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系
 ### 查看挂载点信息 
 
 挂载完成后，请使用如下命令查看已挂载的文件系统，
-`mount -l`
+```
+mount -l
+```
 
 也可以使用如下命令查看该文件系统的容量信息，
-`df -h`
+```
+df -h
+```
+
 
 ### 卸载共享目录 
 
@@ -87,6 +92,7 @@ umount <目录名称>
 ```
 mount -l
 ```
+
 ![](https://mc.qcloudimg.com/static/img/4e4f9db217874ccec91ac1f888c8e451/image.png)
 
 ### 添加匿名访问用户和用户组
@@ -98,7 +104,8 @@ mount -l
 #### 添加配置项 AnonymousUid 和 AnonymousGid
 在打开的注册表中找到如下路径并选中 
 
-``` HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
+```
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
 
 在右边空白处右键单击，弹出 "new", 在菜单中选择 "DWORD(32-bit) Value"。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
