@@ -29,17 +29,17 @@
  
 输入
 <pre>
-  https://domain/v2/index.php?Action=InquiryVpnPrice
-  &<公共请求参数>
-  &period=1
-  &bandwidth=5
+https://domain/v2/index.php?Action=InquiryVpnPrice
+&<公共请求参数>
+&period=1
+&bandwidth=5
 </pre>
 
 输出
 ```
 {
     "code" : 0,
-    "message" : "ok",
+    "message" : "ok"
 }
 ```
 
