@@ -1,6 +1,6 @@
 ## 功能介绍
 
-TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于腾讯云直播（LVB）和 云通信（IM）两个 PAAS 服务组合而成，支持：
+TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于云直播（LVB）和即时通信（IM）两个 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
@@ -55,7 +55,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
 ### Step3. 购买连麦套餐包
-由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用腾讯云直播的普通服务（推流和拉流），并不能开启连麦功能。
+由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
 - [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb##)
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)
@@ -63,7 +63,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ### Step4. 在应用管理中添加一个新的应用
 进入【直播控制台】>【直播SDK】>[【房间管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
->?该操作的目的是创建一个云通信应用，并将当前直播账号和该云通信应用绑定起来。云通信应用能为小直播 App 提供聊天室和连麦互动的能力。
+>?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
 ### Step5. 登录房间服务
 
