@@ -1,6 +1,6 @@
 创建文件系统后，请在其他服务器或客户端上按照如下指引进行配置，挂载该文件系统并使用。NFS 文件网关支持 NFS v3.0 及 NFS v4.0 协议。
 
->!若在 CVM 上使用网关，建议将网关部署在各来访客户端的 VPC 下；如果在不同 VPC 时，请使用 [对等连接](https://cloud.tencent.com/document/product/215/5000) 方法实现网络互通。
+>!若在 CVM 上使用网关，建议将网关部署在各来访客户端的 VPC 下；如果在不同 VPC 时，请使用 [对等连接](https://cloud.tencent.com/document/product/215/20082) 方法实现网络互通。
 
 您可以在 "文件系统详情" 页面上查看挂载命令。如下图
 ![](https://mc.qcloudimg.com/static/img/427c850d61745f04d34e0e4f96f0a9b7/image.png)
