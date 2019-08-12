@@ -14,7 +14,7 @@
 
 | 产品 | 功能 | 特点 |
 |---------|---------|---------|
-| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个VPC 间内网通信。 |<li>两个 VPC 的CIDR 不能重叠</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
+| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个 VPC 间内网通信。 |<li>两个 VPC 的CIDR 不能重叠</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
 |[云联网](https://cloud.tencent.com/document/product/877)|用于两个或多个 VPC 间内网通信。|<li>CIDR 限制缩小到子网范围。</li><li>配置简单，路由自动下发。</li><li>一次加入，所有实例默认互通，支持路由开启和关闭。</li><li>支持不同账号、不同地域下 VPC 的互通，同事支持 VPC 与数据中心互联。</li>|
 
 ## 与数据中心通信
