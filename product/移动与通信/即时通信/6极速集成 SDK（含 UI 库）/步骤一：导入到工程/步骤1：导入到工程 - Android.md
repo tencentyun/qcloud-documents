@@ -1,4 +1,3 @@
-﻿
 ## 开发环境要求
 
 - Android Studio 3.3.2
