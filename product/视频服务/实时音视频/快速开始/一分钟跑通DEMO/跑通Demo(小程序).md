@@ -88,7 +88,7 @@
 
  ![](https://main.qcloudimg.com/raw/7ffe4227bcac149f30c61a7d28808c14.jpg)
 
-2. 发布微信小程序，具体发布流程请参见 [小程序发布上线](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/release.html#%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF)。
+2. 发布微信小程序，具体发布流程请参见 [小程序发布上线](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/release.html#%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF)。
 
 ## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
