@@ -5,9 +5,9 @@
 <table>
 <thead>
 <tr>
-<th width="15%">产品</th>
-<th width="35%">功能</th>
-<th width="50%">特点</th>
+<th width="12%">产品</th>
+<th width="40%">功能</th>
+<th width="48%">特点</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -18,7 +18,7 @@
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/213/5733" target="_blank">弹性公网 IP<br>（EIP）</a></td>
 <td>单台云服务器可以绑定一个或多个 EIP，以访问公网或被公网访问。</td>
-<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">EIP 计费说明</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/213/16586#.E8.B0.83.E6.95.B4.E5.B8.A6.E5.AE.BD" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
+<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">EIP 计费</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/213/16586#.E8.B0.83.E6.95.B4.E5.B8.A6.E5.AE.BD" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a></td>
