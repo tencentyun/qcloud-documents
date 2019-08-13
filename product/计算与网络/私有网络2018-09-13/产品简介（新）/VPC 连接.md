@@ -40,7 +40,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/877" target="_blank">云联网</a></td>
-<td>通过腾讯云内网连接 VPC 和本地数据中心，可实现与所有  VPC、IDC 间的通信。</td>
+<td>通过腾讯云内网连接 VPC 和本地数据中心，可实现与所有  VPC、数据中心间的通信。</td>
 <td><li>配置简单、路由自动下发。</li><li>一次加入，可与多个 VPC、数据中心互通，支持路由开启和关闭。</li><li>同地域实例互通免费。</li></td>
 </tr>
 </tbody></table>
