@@ -15,7 +15,7 @@
  - TTL：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
  - MX 优先级：数值越低，优先级别就越高。
     - 邮件会先尝试发送到 MX 优先级为 5 的 `1.1.1.1`。
-![](https://main.qcloudimg.com/raw/ba0f68852420f630aa6b687f6fb0d74e.png)
+![](https://main.qcloudimg.com/raw/bd6de22b4743079fc68b8f4032c378f5.png)
     - 如果尝试失败，邮件会发送到 MX 优先级为10 的 `mail.123.com`。
-![](https://main.qcloudimg.com/raw/4c7f02ac5c8cac1654f1a4d9afcba7fc.png)
+![](https://main.qcloudimg.com/raw/cddab3ffbdd16fd05b139f057bf45873.png)
 4. 单击【保存】，完成添加。
