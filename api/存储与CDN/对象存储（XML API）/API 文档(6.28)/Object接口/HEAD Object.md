@@ -31,10 +31,10 @@ Authorization: Auth String
 
 | 名称                | 描述                                                         | 类型   | 是否必选 |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| If-Modified-Since   | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为 304（Not Modified） | string | 否       |
-| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为 412（Precondition Failed） | string | 否       |
-| If-Match            | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为 412（Precondition Failed） | string | 否       |
-| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为 304（Not Modified） | string | 否       |
+| If-Modified-Since   | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
+| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-Match            | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
 
 **服务端加密相关头部**
 
@@ -57,7 +57,7 @@ Authorization: Auth String
 | Content-Encoding    | RFC 2616 中定义的编码格式，仅当对象元数据包含此项时才会返回该头部 | string |
 | Expires             | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项时才会返回该头部 | string |
 | x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 
 **版本控制相关头部**
 
