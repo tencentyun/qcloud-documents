@@ -2,7 +2,7 @@
 
 GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至本地。该 API 的请求者需要对目标对象有读取权限，或者目标对象向所有人开放了读取权限（公有读）。
 
-> ? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
+>? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
 
 #### 版本控制
 
@@ -39,11 +39,11 @@ Authorization: Auth String
 
 | 名称                | 描述                                                         | 类型   | 是否必选 |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| Range               | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据，此时返回 HTTP 状态码 206（Partial Content）及 Content-Range 响应头部。如果不指定，则表示下载整个对象 | string | 否       |
-| If-Modified-Since   | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为 304（Not Modified） | string | 否       |
-| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为 412（Precondition Failed） | string | 否       |
-| If-Match            | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为 412（Precondition Failed） | string | 否       |
-| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为 304（Not Modified） | string | 否       |
+| Range               | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据，此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。如果不指定，则表示下载整个对象 | string | 否       |
+| If-Modified-Since   | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
+| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-Match            | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
 
 **服务端加密相关头部**
 
@@ -67,7 +67,7 @@ Authorization: Auth String
 | Content-Range       | RFC 2616 中定义的返回内容的字节范围，仅当请求中指定了 Range 请求头部时才会返回该头部 | string |
 | Expires             | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
 | x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 
 **版本控制相关头部**
 
