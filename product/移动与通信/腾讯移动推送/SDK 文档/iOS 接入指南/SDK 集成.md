@@ -15,7 +15,14 @@
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择【应用管理】>【应用列表】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
-5. 然后单击左侧菜单栏【SDK 下载】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
+5. 导入 SDK：
+ -  **方式一：Cocoapods 导入**
+通过 Cocoapods 下载地址：
+ ``` 
+ pod 'TPNS-iOS' 
+ ```
+ - **方式二：手动导入**
+进入腾讯移动推送控制台，单击左侧菜单栏【SDK 下载】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 7. 在 Build Phases 下，添加以下 Framework：
 ```
