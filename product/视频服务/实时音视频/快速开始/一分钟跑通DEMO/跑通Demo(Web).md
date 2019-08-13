@@ -1,79 +1,51 @@
-本文主要介绍如何快速地将腾讯云实时音视频 Demo（Web） 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Web）。
 
-## 1. 创建新的应用
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
-![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
->?SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
+## 环境要求
+请使用最新版本的 Chrome 浏览器。
 
-## 2. 激活实时音视频服务
+## 操作步骤
+<span id="step1"></span>
+### 步骤1：创建新的应用
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
+  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
+2. 填写新建应用的应用名称等信息，单击【确定】。
+  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
+ ![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
-### 检查实时音视频服务状态
-在实时音视频 TRTC 控制台的 [应用列表](https://console.cloud.tencent.com/rav) 页面选择在第一步中创建的应用卡片，进入**应用详情**页面，然后单击【帐号信息】，查看“实时音视频服务状态”，以判断该应用的实时音视频服务是否可用。
-- 如果实时音视频服务状态显示“可用”，即表示该应用的实时音视频服务已激活，当前处于服务可用状态。
-![](https://main.qcloudimg.com/raw/28855a24a75fb641673af8f2731a0911.png)
-- 如果实时音视频服务状态显示“不可用”，则表示该应用的实时音视频服务处于不可用状态，需要通过购买套餐包来激活。
-![](https://main.qcloudimg.com/raw/2eb464eb34939ea772e7f0da1549c003.png)
+<span id="step2"></span>
+### 步骤2：下载 SDK 和 Demo 源码
+1. 单击应用卡片，进入【快速上手】页面。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Web】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
+ ![](https://main.qcloudimg.com/raw/dc356e48e252440270448438b5568b41.png)
 
-### 购买套餐包
-实时音视频套餐包采用预付费的计费方式，关于套餐包的详细说明请参见 [产品价格](https://cloud.tencent.com/document/product/647/17157)。
+<span id="step3"></span>
+### 步骤3：查看并拷贝加密密钥
+1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
+2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
+ ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
-#### 购买6.6元测试体验套餐包（新用户专享）
-针对实时音视频新用户，我们为您提供专属测试体验套餐包，您只需支付6.6元即可体验300分钟实时音视频通话时长。
-实时音视频测试体验套餐包只能通过 [专属页面](https://buy.cloud.tencent.com/trtc_activity) 购买：
-![](https://main.qcloudimg.com/raw/d9a07105fb050368f77b0e04e1d51e9e.png)
-选择您需要激活的实时音视频服务 SDKAPPID（应用标识），单击【立即购买】，并根据页面提示完成付款操作即可购买成功。**购买成功后将会自动激活实时音视频服务状态。**
+<h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
+ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
+ 
+1. 解压 [步骤2](#step2) 中下载的源码包。
+2. 找到并打开 `H5/js/debug/GenerateTestUserSig.js`文件。
+3. 设置`GenerateTestUserSig.js`文件中的相关参数：
+  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  ![](https://main.qcloudimg.com/raw/d8f5960ab7c08bb0a488ac7e98d162ba.png)
 
->!
-- 每一个腾讯云账号只能购买一次测试体验套餐包。
-- 测试体验套餐包分钟数使用完或过期时，将自动关闭实时音视频服务状态，再次激活需购买实时音视频正式套餐包。
+>!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-
-#### 购买正式套餐包
-
-为了避免您的业务因实时音视频套餐包分钟数使用完或过期而中断，建议您及时购买正式套餐包，使实时音视频服务始终保持可用状态。
-
->!
-- 正式套餐包指的是入门包、标准包、企业包和尊享包。
-- 正式套餐包使用完当月若未及时购买新的正式预付费套餐包，超出部分将按照实时音视频后付费月结计费方式（25元/千分钟）收取。
-
-您可以直接访问实时音视频预付费套餐包的 [购买页面](https://buy.cloud.tencent.com/rav_th5)，选择适合您业务的套餐包以及您业务所使用的 SDKAPPID（应用标识），单击【立即购买】，并根据页面提示完成付款操作即可购买成功。**购买成功后将会自动刷新实时音视频服务状态。**
-![](https://main.qcloudimg.com/raw/1da24d778c28e95f40ecd9bc5aad4f77.png)
-
-
-## 3. 下载 Demo 源码
-激活实时音视频服务之后，回到实时音视频 [控制台](https://console.cloud.tencent.com/rav)的**应用列表**页面，选择第一步新创建的应用卡片，进入该应用的详情页。单击【快速上手】即可看到源码下载地址：
-![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
-
-## 4. 下载私钥文件
-单击**下载公私钥**，下载并保存压缩包 **keys.zip** ，解压后可以得到 public_key 和 private_key 两个文件。用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步【生成Demo配置文件内容】的文本输入框中。
-![](https://main.qcloudimg.com/raw/688b415f15fc0568d520af55dbb930fd.png)
-
-## 5. 获得配置文件
-单击【生成Demo配置文件内容】，即可获得一段 JSON 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
-
-![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
-
-复制上述 JSON 内容，打开文件 `js/config.js` ，并按代码注释指引替换对应的内容。
-
->?此处方案仅用于快速跑通 Demo 示例。
-真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
-
-## 6. 运行 Demo
-1. 使用最新版本的 Chrome 浏览器打开 index.html。
->!
-> - 一般情况下体验 Demo 需要部署至服务器，通过 [https://域名/xxx] 访问，或者直接在本地搭建服务器，通过 [localhost：端口] 访问，避免浏览器限制在 file 协议下进行 WebRTC 通信。
-> - 目前桌面端 Chrome 浏览器较完整支持 WebRTC 的特性，因此建议使用 Chrome 浏览器进行体验。
->
-2. 进入页面后，选择一个体验用户名，并输入相应的房间号，单击**我要视频通话**。	
-3. 浏览器会提示是否允许当前页面使用摄像头和麦克风，请单击【允许】即可看到视频画面。
+### 步骤5：编译运行
+使用 Chrome 浏览器打开 Demo 根目录下的`index.html`文件即可运行 Demo。
+>?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】。
+![](https://main.qcloudimg.com/raw/970dde95f01c45c6721ceadf5bae3831.jpg)
 
 ## 常见问题
 
-### 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下域名和端口加入防火墙的安全白名单中。
-域名：`qcloud.rtc.qq.com`
+### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
-| 协议 | 端口号 |
-|:--------|:--------|
-| TCP | 8687 |
-| UDP | 8000、8800、443 |
+### 2. 防火墙有什么限制？
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。

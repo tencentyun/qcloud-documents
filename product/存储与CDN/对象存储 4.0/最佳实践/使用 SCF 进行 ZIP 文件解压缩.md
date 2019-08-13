@@ -1,6 +1,6 @@
 ## 操作场景
 
-在本实践中，我们用到了 [无服务器云函数 SCF](https://cloud.tencent.com/document/product/583) 和 [对象存储 COS](https://cloud.tencent.com/document/product/436)。假定用户上传到 COS 的 zip 文件需要进行解压缩，并以 zip 包名作为文件夹名，回传到 COS。用户可根据示例代码进行扩展，比如支持其他格式文件的解压缩操作。
+在本实践中，我们用到了 [无服务器云函数 SCF](https://cloud.tencent.com/document/product/583) 和 [对象存储 COS](https://cloud.tencent.com/document/product/436)。假定用户上传到 COS 的 zip 文件需要进行解压缩，并以 zip 包名作为文件夹名，回传到 COS。用户可根据示例代码进行扩展，例如支持其他格式文件的解压缩操作。
 
 > ?由于当前云函数每次运行时分配的临时存储空间为512MB，因此建议单个 zip 包的大小不大于300MB，解压出来的单个文件不大于200MB。
 

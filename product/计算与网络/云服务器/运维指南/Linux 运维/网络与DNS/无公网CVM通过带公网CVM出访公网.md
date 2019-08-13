@@ -1,59 +1,72 @@
 ## 操作场景
+在选购云服务器时，若您选择了0Mbps带宽上限，则该云服务器将无法访问公网。本文以 CentOS7.5 为例，介绍如何在无公网 IP 的云服务器上通过 PPTP VPN 连接有公网 IP 的云服务器访问公网。
 
-在选购 CVM 时若选择了0Mbps带宽，该服务器将无法访问公网。此类 CVM 必须通过一个带公网 IP 的 CVM 才能访问公网。
-无公网 IP 的 CVM 欲通过带公网 IP 的 CVM 访问公网，可以使用 PPTP VPN 来实现这一目标。即无公网 IP 的 CVM，通过 PPTP 协议与带公网 IP 的 CVM 连接起来，并且在 PPTP 网络中，将带公网 IP 的 CVM 设置为网关。
+
+## 前提条件
+- 已在同一个私有网络下创建两台云服务器（一台**无公网 IP 的云服务器**和一台**有公网 IP 的云服务器**）。
+- 已获取有公网 IP 的云服务器的内网 IP。
 
 ## 操作步骤
->? 以下操作步骤以 CentOS 为例，根据操作系统的不同，详细操作步骤略有区别。
->
-### 对带公网 IP 的 CVM 进行配置
+### 在有公网 IP 的云服务器上配置 PPTP
 
-1.  执行以下命令，安装 PPTP。
+1. 登录有公网 IP 的云服务器。
+2. 执行以下命令，安装 PPTP。
 ```
-yum install pptpd
+yum install -y pptpd
 ```
-2. 修改配置文件`/etc/pptpd.conf`，即在该文件尾部添加以下内容。
+2. 执行以下命令，打开 `pptpd.conf`  配置文件。
+```
+vim /etc/pptpd.conf
+```
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，并在文件尾部添加以下内容。
 ```
 localip 192.168.0.1
 remoteip 192.168.0.234-238,192.168.0.245
 ```
-3. 修改配置文件 `/etc/ppp/chap-secrets`，即在文件尾部按指定格式添加用户名和密码信息。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，打开 `/etc/ppp/chap-secrets` 配置文件。
 ```
-用户名    pptpd   密码    *
+vim /etc/ppp/chap-secrets
 ```
-第一列表示用户名，第三列表示密码，\* 表示对任何 IP 。
-例如，带公网 IP 的 CVM 用户名为 root，登录密码为 123456AA，则需要添加的信息为：
+6. <span id="step7">按 “**i**” 或 “**Insert**” 切换至编辑模式，并按以下格式，在文件尾部添加连接 PPTP 的用户名和密码。</span>
 ```
-root pptpd 123456AA *
+用户名    pptpd    密码    *
 ```
-4. 执行以下命令，启动服务。
+例如，连接 PPTP 的用户名为 root，登录密码为123456，则需要添加的信息如下：
 ```
-service pptpd start
+root    pptpd    123456    *
 ```
-5. 执行以下命令，启动转发能力。
+7. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+8. 执行以下命令，启动 PPTP 服务。
+```
+systemctl start pptpd
+```
+9. 依次执行以下命令，启动转发能力。
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A POSTROUTING -o eth0 -s 192.168.0.0/24 -j MASQUERADE
 ```
 
-### 对无公网 IP 的 CVM 进行配置
-1. 执行以下命令，安装客户端。
+### 在无公网 IP 的云服务器上配置 PPTP
+
+1. 登录无公网 IP 的云服务器。
+2. 执行以下命令，安装 PPTP 客户端。
 ```
-yum install pptp pptp-setup
+yum install -y pptp pptp-setup
 ``` 
-2. 执行以下命令，创建配置文件。
+3. 执行以下命令，创建配置文件。
 ```
-pptpsetup --create pptp --server A机器内网IP --username 用户名 --password 密码 --encrypt
+pptpsetup --create 配置文件的名称 --server 有公网 IP 的云服务器的内网 IP --username 连接 PPTP 的用户名 --password 连接 PPTP 的密码 --encrypt
 ```
-例如，带公网 IP 的 CVM 内网 IP 为 10.10.10.10，无公网 IP 的 CVM 用户名为 root，密码为 123456AA，则创建配置文件的命令为：
+例如，创建一个 test 配置文件，已获取有公网 IP 的云服务器的内网 IP 为10.100.100.1，则执行以下命令：
 ```
-pptpsetup --create pptp --server 10.10.10.10 --username root --password 123456AA --encrypt
+pptpsetup --create test --server 10.100.100.1 --username root --password 123456 --encrypt
 ```
-3. 执行以下命令，连接 PPTP。
+4. 执行以下命令，连接 PPTP。
 ```
-pppd call pptp
+pppd call test（为步骤3创建的配置文件名称）
 ```
-4. 依次执行以下命令，设置路由。
+5. 依次执行以下命令，设置路由。
 ```
 route add -net 10.0.0.0/8 dev eth0
 route add -net 172.16.0.0/12 dev eth0
@@ -64,9 +77,13 @@ route add -net 100.64.0.0/10 dev eth0
 route add -net 0.0.0.0 dev ppp0
 ```
 
-### 确认配置成功
-完成以上步骤之后，使用无公网 IP 的 CVM 去 PING 任意一个外网地址，若能 PING 通，说明配置成功。
+### 检查配置是否成功
+在无公网 IP 的云服务器上，执行以下命令，PING 任意一个外网地址，检查是否可以 PING 通。
+```
+ping -c 4 外网地址
+```
+若返回类似如下结果，则表示配置成功：
+![](https://main.qcloudimg.com/raw/c841782ce0976982d1f289d3437ec0ed.png)
 
-## 相关说明
-无公网 IP 的 CVM 不仅可以使用 PPTP VPN 方式与带公网 IP 的 CVM 连接并访问公网，还可以通过在带公网 IP 的 CVM 上开通代理来实现。虽然代理方式配置简单，但使用起来较复杂，建议您使用上述的 PPTP VPN 方式实现。 
+
 

@@ -109,7 +109,7 @@ headers:
 | 参数名称 | 类型 | 描述 |  
 | --- | --- | --- |
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
-| message |  String | 失败原因说明，比如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
+| message |  String | 失败原因说明，例如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
 **请求 demo**
 ```
@@ -170,7 +170,7 @@ headers:
 参考 python_record_asr_sdk/OfflineClient.py
 
 ```
-# 若需中途调整参数值，可直接修改，然后继续发请求即可。比如：
+# 若需中途调整参数值，可直接修改，然后继续发请求即可。例如：
 Config.config.CALLBACK_URL = ""
 Config.config.ENGINE_MODEL_TYPE = "16k_0"
 # ......

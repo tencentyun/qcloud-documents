@@ -21,17 +21,17 @@ TSF Mesh 主要有三种使用场景：
 - 服务消费者和服务提供者均作为 Mesh 应用部署。
 
 
-**场景 1：仅服务消费者作为 Mesh 应用部署**
+**场景1：仅服务消费者作为 Mesh 应用部署**
 - 服务提供者使用 TSF-Spring Cloud 框架实现，注册到服务注册中心；
 - 服务消费者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心。
 ![](https://main.qcloudimg.com/raw/32d40f5274cc257377ce5f217494f567.png)
  
-**场景 2：仅服务提供者作为 Mesh 应用部署**
+**场景2：仅服务提供者作为 Mesh 应用部署**
 - 服务提供者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心；
 - 服务消费者使用 TSF-Spring Cloud 框架实现，注册到服务注册中心。
 ![](https://main.qcloudimg.com/raw/a24e7b97ab35908c59816f0e2dc871c9.png)
  
-**场景 3：服务消费者和服务提供者均作为 Mesh 应用部署**
+**场景3：服务消费者和服务提供者均作为 Mesh 应用部署**
 - 服务提供者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心；
 - 服务消费者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心。
 ![](https://main.qcloudimg.com/raw/995af667b109bd730b40462df4d47d70.png)

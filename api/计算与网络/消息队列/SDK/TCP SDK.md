@@ -69,7 +69,7 @@ String queue = “创建的队列名”
 | 北美     | http://cmq-nameserver-ca.tencentcloudapi.com| http://cmq-nameserver-vpc-ca.api.tencentyun.com |   
 | 成都     | http://cmq-nameserver-cd.tencentcloudapi.com | http://cmq-nameserver-vpc-cd.api.tencentyun.com|    
 | 重庆     | http://cmq-nameserver-cq.tencentcloudapi.com | http://cmq-nameserver-vpc-cq.api.tencentyun.com |    
-| 香港     |http://cmq-nameserver-hk.tencentcloudapi.com | http://cmq-nameserver-vpc-hk.api.tencentyun.com |    
+| 中国香港     |http://cmq-nameserver-hk.tencentcloudapi.com | http://cmq-nameserver-vpc-hk.api.tencentyun.com |    
 | 韩国     | http://cmq-nameserver-kr.tencentcloudapi.com | http://cmq-nameserver-vpc-kr.api.tencentyun.com |     
 | 俄罗斯   | http://cmq-nameserver-ru.tencentcloudapi.com | http://cmq-nameserver-vpc-ru.api.tencentyun.com|     
 | 新加坡   | http://cmq-nameserver-sg.tencentcloudapi.com                 | http://cmq-nameserver-vpc-sg.api.tencentyun.com          |     

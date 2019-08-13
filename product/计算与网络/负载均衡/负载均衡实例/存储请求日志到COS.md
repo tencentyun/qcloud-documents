@@ -1,4 +1,4 @@
-负载均衡支持用户存储请求日志的能力，您可以将请求日志存储到 COS 中，并下载分析。当前七层（HTTP/HTTPS）的日志功能已经全量发布，支持广州、上海、北京、香港、上海金融和北京金融，欢迎开通使用。CLB 暂不支持四层（TCP/UDP）日志的存储和下载。
+负载均衡支持用户存储请求日志的能力，您可以将请求日志存储到 COS 中，并下载分析。当前七层（HTTP/HTTPS）的日志功能已经全量发布，支持广州、上海、北京、中国香港、上海金融和北京金融，欢迎开通使用。CLB 暂不支持四层（TCP/UDP）日志的存储和下载。
 
 ## 开启日志功能
 1. 在**负载均衡实例详情**页面，开启日志访问功能。
@@ -30,8 +30,8 @@
 | 3 | server_addr:server_port  | 请求的目的 IP 和目的端口。 |
 | 4 | server_name | 规则的 server_name，即服务器名称。 |
 | 5 | remote_addr:remote_port	| client IP：port。 |
-| 6 | status | LB 返回给 client 的状态码。 |
-| 7 | upstream_status | RS 返回给 LB 的状态码。 |
+| 6 | status | CLB 返回给 client 的状态码。 |
+| 7 | upstream_status | RS 返回给 CLB 的状态码。 |
 | 8 | proxy_host | upstream ID。 |
 | 9 | request | 请求行。 |
 | 10 | request_length | 从客户端收到的请求字节数。 |

@@ -1,23 +1,23 @@
 
-## 接口描述
+### 接口描述
 本接口服务对一小时之内的录音文件进行识别，异步返回识别全部结果，支持语音 URL 和本地语音文件两种请求方式。接口是 HTTP RESTful 形式，在使用该接口前，需要在[ 语音识别控制台 ](https://console.cloud.tencent.com/aai)开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey ，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
-## 接口要求
+### 接口要求
 集成录音文件识别 API 时，需按照以下要求。
 
 | 内容 | 说明 | 
 | --- | --- |
 | 请求协议 | HTTP |
-| 请求地址 | https://aai.qcloud.com/asr/v1/<appid>? {请求参数} |
+| 请求地址 | https://aai.qcloud.com/asr/v1/<appid\>? {请求参数} |
 | 接口鉴权 | 签名机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
 | 开发语言 | 任意，只要可以向腾讯云服务发起HTTP请求的均可 |
-| 音频属性 | 采样率16k或8k、位长16bits、单声道 |
+| 音频属性 | 采样率16k或8k、位长16bits、单声道或双声道 |
 | 音频格式 | 支持 wav、pcm、mp3、silk、speex、amr 等主流音频格式 |
 | 数据长度 | 若采用直接上传音频数据方式，建议音频数据不能大于5MB；若采用上传音频 url 方式，建议音频时长不能大于1小时。 |
 | 语言种类 | 中文普通话、带有一定方言口音的普通话 |
 
-## 请求结构
+### 请求结构
 请求结构主要由**请求方法、请求 URL、请求头部、请求正文**组成。
 **请求方法**
 HTTPS 请求方法，录音文件识别的请求方法为 **POST**。
@@ -104,7 +104,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 ```
 5Zb1hKd8uo4H+AgpMbktZhHqqjY=
 ```
-## 返回结构
+### 返回结构
 **返回结果**
 录音文件识别的 RESTful API 请求返回结果如下表所示：
 
@@ -120,7 +120,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 ```
  { "code":0, "message":"success", "requestId":500 }
 ```
-## 结果回调
+### 结果回调
 当语音识别系统完成识别后，会将结果通过 HTTP POST 请求的形式通知到用户，用户需要在自身业务服务器上搭建服务接收回调。
 **服务端返回结果**
 语音识别系统通过回调接口形式将识别结果回调通知客户，接口 Body 各字段说明如下：
@@ -147,7 +147,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | code |  Int | 错误码，0 为成功，其他值代表失败 |
 | message |  String | 失败原因说明，例如业务服务器过载。 如果业务服务器返回失败，会间隔一段时间重新通知 |
 
-**回调示例**
+### 回调示例
 服务端返回 JSON 示例： 
 
 ``` 
@@ -158,7 +158,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 ```
 { "code" : 0, "message" : "成功" }
 ```
-## 请求错误码
+### 请求错误码
 
 |数值	|返回码 |	说明|
 | --- | --- | --- |
@@ -195,7 +195,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 |1032	|ERROR\_AUDIO\_TOO\_LARGE	|发送的语音数据过大（大于 5M）|
 |1034	|ERROR\_UNKNOWN	|其他未知错误|
 
-**回调错误码**
+### 回调错误码
 
 | 数值 |  说明 |  
 | --- | --- |
@@ -208,7 +208,7 @@ POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num
 | 10006 | 音轨个数不匹配 |
 
 <span id="PHP"></span>
-## PHP 代码示例
+### PHP 代码示例
 ```
 //filepath 音频文件路径
 //callBackUrl 回调地址

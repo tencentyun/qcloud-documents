@@ -1,0 +1,114 @@
+## 功能说明
+
+App 后台可以通过该回调实时监控用户创建群组的请求，包括后台可以拒绝用户创建群组的请求。
+
+## 注意事项
+
+- 要启用回调，必须配置回调 URL，并打开本条回调协议对应的开关，配置方法详见 [第三方回调配置](https://cloud.tencent.com/document/product/269/32431) 文档。
+- 回调的方向是即时通信 IM 后台向 App 后台发起 HTTP POST 请求。
+- App 后台在收到回调请求之后，务必校验请求 URL 中的参数 SDKAppID 是否是自己的 SDKAppID。
+- 其他安全相关事宜请参考 [第三方回调简介：安全考虑](https://cloud.tencent.com/document/product/269/1522#.E5.AE.89.E5.85.A8.E8.80.83.E8.99.91) 文档。
+
+## 可能触发该回调的场景
+
+- App 用户通过客户端创建群组
+- App 管理员通过 REST API 创建群组
+
+## 回调发生时机
+
+即时通信 IM 后台准备创建群组之前。
+
+## 接口说明
+
+### 请求 URL 示例
+
+以下示例中 App 配置的回调 URL 为 `https://www.example.com`。
+**示例：**
+
+```
+https://www.example.com?SdkAppid=$SDKAppID&CallbackCommand=$CallbackCommand&contenttype=json&ClientIP=$ClientIP&OptPlatform=$OptPlatform
+```
+
+### 请求参数说明
+
+| 参数 | 说明 |
+| --- | --- |
+| https | 请求协议为 HTTPS，请求方式为 POST |
+| www.example.com | 回调 URL |
+| SdkAppid | 创建应用时在即时通信 IM 控制台分配的 SDKAppID |
+| CallbackCommand | 固定为：Group.CallbackBeforeCreateGroup |
+| contenttype | 固定值为 JSON |
+| ClientIP | 客户端 IP，格式如：127.0.0.1 |
+| OptPlatform | 客户端平台，取值参见 [第三方回调简介：回调协议](https://cloud.tencent.com/document/product/269/1522#.E5.9B.9E.E8.B0.83.E5.8D.8F.E8.AE.AE) 中 OptPlatform 的参数含义 |
+
+### 请求包示例
+
+```
+{
+    "CallbackCommand": "Group.CallbackBeforeCreateGroup", // 回调命令
+    "Operator_Account": "leckie", // 操作者
+    "Owner_Account": "leckie", // 群主
+    "Type": "Public", // 群组类型
+    "Name": "MyFirstGroup", // 群组名称
+    "CreatedNum": 123, //该用户已创建的同类的群组个数
+    "MemberList": [ // 初始成员列表
+        {
+            "Member_Account": "bob"
+        },
+        {
+            "Member_Account": "peter"
+        }
+    ]
+}
+```
+
+### 请求包字段说明
+
+| 对象 | 介绍 | 功能 |
+| --- | --- | --- |
+| CallbackCommand | String | 回调命令 |
+| Operator_Account | String | 发起创建群组请求的操作者 Identifier |
+| Owner_Account | String | 请求创建的群的群主 Identifier |
+| Type | String | 产生群消息的 [群组形态介绍](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)，例如 Private，Public 和 ChatRoom |
+| Name | String | 请求创建的群组的名称 |
+| CreatedNum | Integer | 该用户已创建的同类的群组个数 |
+| MemberList | Array | 请求创建的群组的初始化成员列表 |
+
+### 应答包示例
+
+#### 允许创建
+
+允许用户创建群组。
+
+```
+{
+    "ActionStatus": "OK",
+    "ErrorInfo": "",
+    "ErrorCode": 0 // 允许创建
+}
+```
+
+#### 禁止创建
+
+不允许用户创建群组，群组将不会被创建，同时给调用方返回错误码：`10016`。
+
+```
+{
+    "ActionStatus": "OK",
+    "ErrorInfo": "",
+    "ErrorCode": 1 // 拒绝创建
+}
+```
+
+### 应答包字段说明
+
+| 字段 | 类型 | 属性 | 说明 |
+| --- | --- | --- | --- |
+| ActionStatus | String | 必填 | 请求处理的结果，OK 表示处理成功，FAIL 表示失败 |
+| ErrorCode | Integer | 必填 | 错误码，0为允许创建；1为拒绝创建。 |
+| ErrorInfo | String | 必填	 | 错误信息 |
+
+## 参考
+
+- [第三方回调简介](https://cloud.tencent.com/document/product/269/1522)
+- REST API：[创建群组](https://cloud.tencent.com/document/product/269/1615)

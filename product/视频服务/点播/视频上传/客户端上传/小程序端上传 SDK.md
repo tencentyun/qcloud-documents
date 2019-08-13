@@ -1,6 +1,5 @@
-小程序端上传视频的 SDK。
+小程序端上传视频的 SDK。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
->?
 - 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-wx-sdk-v2/)。
 - 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-wx-sdk-v2/tree/master/demo)。
 
@@ -77,7 +76,7 @@ getSignature: function(callback) {
 });
 ```
 
-## 其他
+## 其他说明
 
 1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
 1. 不支持断点续传和分片上传。

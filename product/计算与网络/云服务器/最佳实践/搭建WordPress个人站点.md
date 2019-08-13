@@ -21,10 +21,10 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 ### 创建并登录云服务器
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
 >
-1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+1. 在实例的管理页面，单击【新建】。具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/978029125b548c9abf1f83c5794f9045.png)
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/884c4eabb92281a475958a67a2b70947.png)    
+![](https://main.qcloudimg.com/raw/f2592ea63d7575e5b992efc0bc54e3da.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
@@ -150,7 +150,7 @@ gpgcheck=1
 ```
 >? 腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
 > 
-5. 执行以下命令，清楚 yum 缓存。
+5. 执行以下命令，清除 yum 缓存。
 ```
 yum clean all
 ```
@@ -177,6 +177,10 @@ mysql -uroot -p
 ```
  显示结果如下，则已成功进入 MariaDB。
 ![](https://main.qcloudimg.com/raw/cd3996d219c989911dbc3eb397047ce4.png)
+10. 执行以下命令，退出 MariaDB。
+```
+\q
+```
 
 ### 安装和配置 WordPress
 #### 下载 

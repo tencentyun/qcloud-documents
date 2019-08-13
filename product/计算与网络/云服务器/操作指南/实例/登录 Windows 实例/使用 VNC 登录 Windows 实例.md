@@ -14,15 +14,17 @@ Windows，Linux 和 Mac OS
 
 ## 前提条件
 
-已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+已获取远程登录 Windows 实例需要使用实例的管理员帐号和对应的密码。
+- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+- 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 
 ## 操作步骤
 
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 。
-2. 在实例列表中，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/96689027b98d8fc6bfb00036de7a87f8.png)
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/3106cebfdeae7762d656ffc68732e130.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其他方式（VNC）】，单击【立即登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/bdfe5b286e7e0c388adfbc12d15cfad6.png)
+![](https://main.qcloudimg.com/raw/9f282782aa5096a82c05af675ff02203.png)
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 

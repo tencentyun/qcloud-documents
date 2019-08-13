@@ -35,11 +35,11 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | --------  | ------- | -------- | ---- |	
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | 资源级 | ✔       | -  | ✔        | ✔   |	
-| [文件存储](https://cloud.tencent.com/document/product/582/14679) | 服务级 | -        | -  | ✔        | ✔    |
+| [文件存储](https://cloud.tencent.com/document/product/582/14679) | 资源级 | ✔        | -  | ✔        | -    |
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)  | 服务级  | ✔       | -  | -        | -    |
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | ✔       | ✔  | ✔        | -    |
-| [日志服务](https://cloud.tencent.com/document/product/614)  | 操作级 | ✔        | -  |✔        |  ✔ |	
+| [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 操作级 | ✔        | -  |✔        |  ✔ |	
 
 ## 网络	
 
@@ -58,7 +58,9 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  | 操作级  | - | - | ✔ | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| ✔ | -  |✔ | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | ✔ | -   |✔ |✔|
-| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | -    |
+| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | ✔    |
+| [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
+| [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/30965)  |资源级 | ✔  | -    |✔   | -    |
 
 ## CDN 与加速	
 
@@ -100,6 +102,18 @@
 | ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- |	
 | [主机安全（云镜）](https://cloud.tencent.com/document/product/296)    | 操作级  | ✔ | -   | ✔  | - |
 
+## 数据安全
+
+ | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
+| ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
+| [数据安全治理中心](https://cloud.tencent.com/document/product/1087)    | 操作级  | ✔ | -   | ✔  | - |
+
+## 营销风控
+
+ | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
+| ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
+| [验证码](https://cloud.tencent.com/product/captcha/details)    | 服务级  | - | -   | ✔  | - |
+
 ## 应用安全
 
  | 服务                                                        | 授权粒度   | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
@@ -110,7 +124,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ----- |-------- | ---- |	
-| [云直播](https://cloud.tencent.com/document/product/267/34301)   | 操作级| ✔ | ✔  | ✔   |  -  |	
+| [云直播](https://cloud.tencent.com/document/product/267/34301)   | 操作级| ✔ | ✔  | ✔   |  ✔  |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 服务级   | ✔  | -    | -   |  -  |	
 | [互动直播](https://cloud.tencent.com/document/product/268) | 服务级  | ✔   | -   | -     | -   |	
 
@@ -137,6 +151,7 @@
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | -------- | -------- | ---- |	
 | [图像分析](https://cloud.tencent.com/document/product/865) | 服务级| -| -  | ✔  | - |	
+| [文字识别](https://cloud.tencent.com/document/product/866) | 服务级| ✔| -  | ✔  | - |	
 
 ## 人脸识别
 
@@ -163,6 +178,7 @@
  | 服务                                                       | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ----- | -------- | ---- |	
 | [金融联络机器人](https://cloud.tencent.com/document/product/656)  | 资源级 | ✔ | -  | ✔ | - |
+| [云缴费平台](https://cloud.tencent.com/document/product/1097)  | 服务级 | ✔ | -  | ✔ | - |
 
 ## 智能机器人	
 

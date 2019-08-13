@@ -25,9 +25,9 @@ WebRTCAPI.fn.detectRTC({
 | 字段  | 含义    |  备注|
 | :------: | ----- | ------ |
 | isTBS      | 是否是 TBS (Android 的微信/手机QQ Webview) |   [什么是 TBS](https://x5.tencent.com/tbs/index.html)              |
-| TBSversion      | TBS 版本号 |                 |
-| isTBSValid      | TBS 版本号是否支持 WebRTC |                 |
-| support      | 是否支持 WebRTC |  |
+| TBSversion      | TBS 版本号 |       -          |
+| isTBSValid      | TBS 版本号是否支持 WebRTC |    -             |
+| support      | 是否支持 WebRTC | - |
 | h264Support      | 是否支持 H.264 |必须支持 H.264 |
 | screenshare      | 是否支持屏幕分享 |必须安装插件 |
 
