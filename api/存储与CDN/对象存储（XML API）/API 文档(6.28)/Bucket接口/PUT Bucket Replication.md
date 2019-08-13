@@ -45,7 +45,7 @@ request body
 
 |节点名称（关键字）|    父节点|    描述    |类型|    必选|
 |---|---|---|---|---|
-|ReplicationConfiguration    |无    |说明所有跨区域配置信息    |Container    |是|
+|ReplicationConfiguration    |无    |说明所有跨地域配置信息    |Container    |是|
 |Role|ReplicationConfiguration    |发起者身份标示：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>`      |String    |是|
 |Rule    |ReplicationConfiguration    |具体配置信息，最多支持 1000 个，所有策略只能指向一个目标存储桶    |Container    |是|
 |ID    |ReplicationConfiguration.Rule    |用来标注具体 Rule 的名称    |String    |否|
@@ -76,13 +76,13 @@ request body
 
 ## 实际案例
 ### 请求
-以下 PUT Bucket replication 请求向存储桶`originBucket-1250000000`中添加一条跨地域复制配置。该跨地域复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationBucket-1250000000`。
+以下 PUT Bucket replication 请求向存储桶`originbucket-1250000000`中添加一条跨地域复制配置。该跨地域复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationbucket-1250000000`。
 ```shell
 PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=replication&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f****
 Content-MD5: AAq9nzrpsz5LJ4UEe1f6Q==
-Host: originBucket-1250000000.cos.ap-guangzhou.myqcloud.com
+Host: originbucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 312
 
 <ReplicationConfiguration>
@@ -92,7 +92,7 @@ Content-Length: 312
 		<ID>RuleId_01</ID>
 		<Prefix>testPrefix</Prefix>
 		<Destination>
-			<Bucket>qcs::cos:ap-guangzhou::destinationBucket-1250000000</Bucket>
+			<Bucket>qcs::cos:ap-guangzhou::destinationbucket-1250000000</Bucket>
 		</Destination>
 	</Rule>
 </ReplicationConfiguration>
@@ -100,7 +100,7 @@ Content-Length: 312
 
 ### 响应
 
-上述请求后，COS 返回以下响应，表明当前该跨区域配置已经成功设置完毕。
+上述请求后，COS 返回以下响应，表明当前该跨地域配置已经成功设置完毕。
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
