@@ -52,13 +52,14 @@ dependencies {
 NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin。  则在 Project 根目录的 gradle.properties 文件中添加  android.useDeprecatedNdk=true。
 - 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容：
     ```xml
-    <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">  
-  <intent-filter>
+    <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+            <intent-filter>
                 <!-- 接收消息透传 -->
                 <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
                 <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
                 <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
             </intent-filter>
+        </receiver>
     ```
 
 
