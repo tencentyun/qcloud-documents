@@ -24,38 +24,38 @@
 ### 步骤2：新建工程
 
 打开 Visual Studio，新建名为`TRTCCSharpDemo`的 Winform 应用程序。
- ![](https://main.qcloudimg.com/raw/5c2213a2bf04335c039a588556876299.png)
+ ![](https://main.qcloudimg.com/raw/b0f7a80d2f86e73b4cc277bd05c73fd9.png)
 
 ### 步骤3：拷贝文件
 
 将解压后的 LiteAVSDK 文件夹拷贝至`TRTCCSharpDemo.csproj`所在目录。
 >?当只需要 C# SDK时，可以将 LiteAVSDK 路径下的 C++ 目录删除。
 >
-![](https://main.qcloudimg.com/raw/701e4239409ff1fb988fc604b07ed9bf.png)
+![](https://main.qcloudimg.com/raw/c2cc1d1672f3a7614dc69b3a2f94e556.png)
 
 ### 步骤4：修改工程配置
 
 #### **4.1：添加引用**
  1. 打开 TRTCDemo 属性页，选择【解决方案资源管理器】 > 【TRTCCSharpDemo】> 【引用的右键菜单】 > 【添加引用】，单击【浏览】
  2. 选中当前项目下`LiteAVSDK\win32\lib`目录中的`ManageLiteAV.dll`文件并单击【添加】，如下图所示：
-  ![](https://main.qcloudimg.com/raw/22dd93cfeb4bad65d23152f63adbb2bf.png)
+	![](https://main.qcloudimg.com/raw/1f7d800817b78998d0bb5ba6146cacaf.png)
  3. 在【引用管理器】界面进行选择`ManageLiteAV.dll`并单击【确定】，如下图所示：
-  ![](https://main.qcloudimg.com/raw/1aa24f55a51cb685d4293fdc64415921.png)
+	![](https://main.qcloudimg.com/raw/cc182d9e928f977c0c851177ce3efa12.png)
 
 #### **4.2：添加 copy 命令**
 打开 TRTCDemo 属性页，选择【解决方案资源管理器】 >【TRTCDemo 工程的右键菜单】>【属性】，在【生成事件】>【后期生成事件命令行】中添加以下命令，从而实现在编译完成后自动将 SDK 的 .dll 文件拷贝到程序的运行目录下，如下图所示：。
 ```
-copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\\*.dll" "$(ProjectDir)$(OutDir)"
+copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\*.dll" "$(ProjectDir)$(OutDir)"
 ```
- ![](https://main.qcloudimg.com/raw/1530f7eadcf746b56a86e773638ee581.png)
+ ![](https://main.qcloudimg.com/raw/fde21a5e23115ba224e6ffb1e4c229c3.png)
  
 #### **4.3：修改调试环境**
 打开 TRTCDemo 属性页，选择【生成】，修改【常规】区域的【平台目标(G)】为【x86】，如下图所示：
-![](https://main.qcloudimg.com/raw/87a7f270204b1c7dcf71b07e48d8987e.png)
+![](https://main.qcloudimg.com/raw/3baac938f6a2e544d391614e7287f99e.png)
 
 ### 步骤5：打印 SDK 版本号
 1. 在 Form1.cs 的设计器中添加一个 label 控件，如下图所示：
- ![](https://main.qcloudimg.com/raw/fde3ee1202ca63b49c11b4c215fcd9c2.png)
+ ![](https://main.qcloudimg.com/raw/fec574b76a4250a3e948816b7cc1728d.png)
 2. 打开 Form1.cs 代码文件，添加以下代码：
   ```c#
   using System.Windows.Forms;
@@ -77,9 +77,9 @@ copy /Y "$(ProjectDir)LiteAVSDK\CSharp\Win32\lib\\*.dll" "$(ProjectDir)$(OutDir)
       }
   }
   ```
-3.  按键盘 F5 运行，打印 SDK 的版本号，如下图所示：
-
+3.  按 F5 运行，打印 SDK 的版本号，如下图所示：
  ![](https://main.qcloudimg.com/raw/f392bf1fdcce254800344045425ddec7.png)
+ 
 
 ## 常见问题
 

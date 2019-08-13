@@ -1,8 +1,5 @@
-
 TRTCCloudDelegate @ TXLiteAVSDK。
-
 腾讯云视频通话功能的事件回调接口。
-
 
 ## 错误事件和警告事件
 ### onError
@@ -54,7 +51,9 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 
+- 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
+- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 onError() 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 onError() 回调抛出。
 
@@ -75,7 +74,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 onExitRoom() 回调通知到您。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。待资源释放完毕，SDK 会通过 onExitRoom() 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到音频设备（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
@@ -90,7 +89,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | nullable NSString * | 错误信息。 |
 
 __介绍__
@@ -110,7 +109,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 要 PK 的目标主播 userid。 |
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | nullable NSString * | 错误信息。 |
 
 __介绍__
@@ -159,7 +158,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户标识。 |
-| reason | NSInteger | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
+| reason | NSInteger | 离开原因代码，用于区分用户正常离开或是由于网络断线等原因离开。 |
 
 
 ### onUserVideoAvailable
@@ -178,8 +177,10 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userid， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。 之后，您需要调用 startRemoteView(userid) 接口加载该用户的远程画面。 再之后，您还会收到名为 onFirstVideoFrame(userid) 的首帧画面渲染回调。
-当您收到了 onUserVideoAvailable(userid， NO) 通知时，代表该路远程画面已经被关闭，这可能是 由于该用户调用了 muteLocalVideo() 或 stopLocalPreview() 所致。
+当您收到 onUserVideoAvailable(userid， YES) 通知时，表示该路画面已经有可用的视频数据帧到达。您需要调用 startRemoteView(userid) 接口加载该用户的远程画面。 此后，您会收到名为 onFirstVideoFrame(userid) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userid， NO) 通知时，表示该路远程画面已被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
+
+
 
 
 ### onUserSubStreamAvailable
@@ -196,7 +197,7 @@ __参数__
 | userId | NSString * | 用户标识。 |
 | available | BOOL | 屏幕分享是否开启。 |
 
->?显示辅路画面使用的函数不是 startRemoteView() 而是 startRemoteSubStreamView()。
+>?显示辅路画面使用的函数是 startRemoteSubStreamView() 而非 startRemoteView()。
 
 
 
@@ -264,11 +265,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，主画面、小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
-SDK 会在 enterRoom() 并 startLocalPreview() 成功后开始摄像头采集，并将采集到的画面进行编码。 当 SDK 成功向云端送出第一帧视频数据后，会抛出这个回调事件。
+SDK 会在 enterRoom() 并 startLocalPreview() 成功后开始摄像头采集，并将采集到的画面进行编码。当 SDK 成功向云端送出第一帧视频数据后，会抛出这个回调事件。
 
 
 ### onSendFirstLocalAudioFrame
@@ -460,7 +461,7 @@ __参数__
 
 __介绍__
 
-TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+实时音视频使用 UDP 通道，即使设置了可靠传输（reliable）也无法确保100%不丢失，只是丢消息概率极低，能满足常规可靠性要求。在发送端设置了可靠传输（reliable）后，SDK 都会通过此回调通知过去时间段内（通常为5s）传输途中丢失的自定义消息数量统计信息。
 
 >?只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
@@ -599,8 +600,8 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
-| userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以不用理会。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，例如是摄像头画面还是屏幕分享画面等等。 |
+| userId | NSString *\__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以忽略。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，例如，使用摄像头画面或屏幕分享画面等。 |
 
 
 
@@ -664,7 +665,7 @@ __功能__
 
 __介绍__
 
-建议在一个比较早初始化的类中设置回调委托对象，如 AppDelegate。
+建议在一个比较早初始化的类中设置回调委托对象，例如 AppDelegate。
 
 
 

@@ -25,10 +25,10 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
 > 本教程中以操作系统版本为 CentOS 7.5 的云服务器实例为例。
 > 
-1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+1. 在实例的管理页面，单击【新建】。具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+![](https://main.qcloudimg.com/raw/978029125b548c9abf1f83c5794f9045.png)
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![实例1](https://main.qcloudimg.com/raw/891c29de005bb213fed0a7b68cfb21ff.png)
+![实例1](https://main.qcloudimg.com/raw/82f0263310e44fb028537deb322fda60.png)
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
@@ -73,7 +73,7 @@ systemctl start php-fpm
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
 > 
 ```
-mysql_sercure_installation
+mysql_secure_installation
 ```
 4. 执行以下命令，登录 MariaDB，并输入 [步骤3](#step3) 设置的密码，按 “**Enter**”。
 ```

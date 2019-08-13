@@ -1,7 +1,7 @@
 ## 1. 接口描述
  
-本接口(DescribeAddress)用于查询(网络)参数模板IP地址列表。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+本接口（DescribeAddress）用于查询(网络)参数模板 IP 地址列表。
+接口请求域名：vpc.api.qcloud.com
  
 
 ## 2. 输入参数
@@ -17,9 +17,9 @@
 <tr>
 <td> addressName <td> 否 <td> String <td> IP 地址名称，支持模糊搜索。
 <tr>
-<td> offset <td> 否 <td> Int <td> 初始行的偏移量，默认为 0。
+<td> offset <td> 否 <td> Int <td> 初始行的偏移量，默认为0。
 <tr>
-<td> limit <td> 否 <td> Int <td> 每页行数，默认为 20。
+<td> limit <td> 否 <td> Int <td> 每页行数，默认为20。
 </tbody></table>
 
 注：addressId 和 addressName 作为查询条件为逻辑与关系
@@ -38,7 +38,7 @@ data 结构
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| data.totalCount |   Int | 返回的IP地址总数。 |
+| data.totalCount |   Int | 返回的 IP 地址总数。 |
 | data.data |   Array | IP 地址详情列表。|
 
 

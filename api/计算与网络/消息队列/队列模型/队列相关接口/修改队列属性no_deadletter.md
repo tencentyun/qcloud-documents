@@ -3,7 +3,7 @@
 - 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
-上述**域名中的{$region}需用具体地域替换**：gz（广州）、sh（上海）、bj（北京）、shjr（上海金融）、szjr（深圳金融）、hk（香港）、cd（成都）、ca（北美）、usw（美西）、sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+上述**域名中的{$region}需用具体地域替换**：gz（广州）、sh（上海）、bj（北京）、shjr（上海金融）、szjr（深圳金融）、hk（中国香港）、cd（成都）、ca（北美）、usw（美西）、sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 >!
 - 队列名称不可以修改。

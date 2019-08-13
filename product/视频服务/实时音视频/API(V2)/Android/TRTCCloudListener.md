@@ -23,7 +23,7 @@ __参数__
 
 ### onWarning
 
-警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。
+警告回调：用于告知您一些非严重性问题，例如出现卡顿或者可恢复的解码失败。
 ```
 void onWarning(int warningCode, String warningMsg, Bundle extraInfo)
 ```
@@ -54,7 +54,10 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
+- 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
+- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+
 
 >?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/32265#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/32265#onerror) 回调抛出。
 
@@ -75,7 +78,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调通知到您。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调到来之后再执行相关操作。 否则可能会遇到音频设备被占用等各种异常问题。
 
 
@@ -90,7 +93,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | final int | 错误码，0 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | final int | 错误码，0代表切换成功，其他请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | final String | 错误信息。 |
 
 __介绍__
@@ -110,7 +113,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | final String | 要 PK 的目标主播 userid。 |
-| errCode | final int | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | final int | 错误码，ERR_NULL 代表切换成功，其他请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | final String | 错误信息。 |
 
 __介绍__
@@ -143,7 +146,7 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。 通知参数中的 userid 也不一定都是开启视频的，可能只开启了声音的上行。
+没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音上行，但不一定已开启视频。
 如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 事件回调。
 
 
@@ -178,9 +181,8 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userId， true) 通知时，代表该路画面已经有可用的视频数据帧到达。 之后，您需要调用 startRemoteView(userid) 接口加载该用户的远程画面。 再之后，您还会收到名为 onFirstVideoFrame(userid) 的首帧画面渲染回调。
-当您收到了 onUserVideoAvailable(userId， false) 通知时，代表该路远程画面已经被关闭，这可能是 由于该用户调用了 muteLocalVideo() 或 stopLocalPreview() 所致。
-
+当您收到 onUserVideoAvailable(userId， true) 通知时，表示该路画面已经有可用的视频数据帧到达。 此时，您需要调用 startRemoteView(userid) 接口加载该用户的远程画面。 然后，您会收到名为 onFirstVideoFrame(userid) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userId， false) 通知时，表示该路远程画面已经被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview() 所致。
 
 ### onUserSubStreamAvailable
 
@@ -196,7 +198,7 @@ __参数__
 | userId | String | 用户标识。 |
 | available | boolean | 屏幕分享是否开启。 |
 
->?显示辅路画面使用的函数不是 startRemoteView() 而是 startRemoteSubStreamView()。
+>?显示辅路画面使用的函数是 startRemoteSubStreamView()，而非 startRemoteView()。
 
 
 
@@ -406,7 +408,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 null 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 
@@ -453,7 +455,7 @@ __参数__
 
 __介绍__
 
-TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+实时音视频使用 UDP 通道，即使设置了可靠传输（reliable）也无法确保100%不丢失，只是丢消息概率极低，能满足常规可靠性要求。在发送端设置了可靠传输（reliable）后，SDK 都会通过此回调通知过去时间段内（通常为5s）传输途中丢失的自定义消息数量统计信息。
 
 >?只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 

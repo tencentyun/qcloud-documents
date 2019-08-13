@@ -1,5 +1,4 @@
 ## 概要信息
-
 基于 Windows 系统的业务，需要从官方提供的 Windows Server 基础镜像来制作自定义镜像，官方镜像 [链接>>](https://market.cloud.tencent.com/products/5310)，镜像 ID ``img-er9shcln``
 
 ## Windows 自定义镜像制作步骤
