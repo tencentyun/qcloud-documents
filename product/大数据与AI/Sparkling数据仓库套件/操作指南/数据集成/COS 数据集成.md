@@ -5,7 +5,6 @@
 ![](https://main.qcloudimg.com/raw/4486aaefec174caad540075c7834e0c7.png)
 
 ### 1. 数据源配置
-
 * 数据类型：选择【COS】数据类型
 * 地域：选择 COS 存储桶所在地域。
 * 授权方式：选择用户密钥授权。
