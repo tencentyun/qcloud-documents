@@ -61,7 +61,7 @@ pod install
 ```
 pod update
 ```
-2. 使用 XCode （9.0 以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
+2. 使用 XCode（9.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
