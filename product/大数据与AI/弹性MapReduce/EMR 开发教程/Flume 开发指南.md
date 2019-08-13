@@ -15,8 +15,8 @@ Sink 负责将 events 传输到下一跳或最终目的，成功完成后将 eve
 ## 使用指南
 
 ### 使用准备
-- 已创建一个 EMR 集群。[创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981) 时需要在软件配置界面选择 Impala 组件。
-- Impala 安装在 EMR 云服务器（core 节点和 task 节点）的`/usr/local/service/flume`路径下。
+- 已创建一个 EMR 集群。[创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981) 时需要在软件配置界面选择 flume 组件。
+- flume 安装在 EMR 云服务器（core 节点和 task 节点）的`/usr/local/service/flume`路径下。
 
 ### 配置 Flume 
 ```
