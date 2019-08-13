@@ -14,8 +14,8 @@
     - 如果记录值为 IP 地址，直接填写邮件服务器 IP 即可，记录生成后同样会自动补一个 “.”。
  - TTL：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
  - MX 优先级：数值越低，优先级别就越高。
-    - 邮件会先尝试发送到 MX 优先级为 5 的 `mxbiz1.qq.com`。
+    - 邮件会先尝试发送到 MX 优先级为5的 `mxbiz1.qq.com`。
 ![](https://main.qcloudimg.com/raw/1aa0c9695cb90dcb00f8afd8cc4837f1.png)
-    - 如果尝试失败，邮件会发送到 MX 优先级为10 的 `mxbiz2.qq.com`。
+    - 如果尝试失败，邮件会发送到 MX 优先级为10的 `mxbiz2.qq.com`。
 ![](https://main.qcloudimg.com/raw/9afc6671fb9e9e4c3a3e31db65ba7fc3.png)
 4. 单击【保存】，完成添加。
