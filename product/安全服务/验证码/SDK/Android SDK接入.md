@@ -1,6 +1,6 @@
 ## 前提条件
-### 准备 AppId
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret，您可以在控制台的基础配置中查看 AppId 以及 AppSecret。
+### 准备 AppID
+验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret，注册完成后，您可以在控制台的基础配置中查看 AppID 以及 AppSecret。
 ### SDK 包介绍和运行环境
 - 单击 [下载 Android SDK]()。
 - SDK 工具包目录结构说明：
@@ -75,7 +75,7 @@ intent.putExtra("map", URLEncoder.encode(jsonObject.toString(), "utf-8"));
 */
 startActivityForResult(intent, 1);
 ```
-2. 传入 AppId，启动 TCaptchaPopupActivity。
+2. 传入 AppID，启动 TCaptchaPopupActivity。
 ```
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {

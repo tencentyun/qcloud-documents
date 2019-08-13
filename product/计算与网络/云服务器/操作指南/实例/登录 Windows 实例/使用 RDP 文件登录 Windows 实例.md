@@ -36,7 +36,7 @@ rdesktop
 您也可以通过单击以下链接，下载 v1.8.3 版本的 rdesktop。
  - [rdesktop-1.8.3.tar.gz](https://mc.qcloudimg.com/static/archive/06483121ce067b537342687dd6a909d8/rdesktop-1.8.3.tar.gz)
  - [rdesktop-1.8.3.zip](https://mc.qcloudimg.com/static/archive/24adfd7586f55bd96cd6714a6078a4df/rdesktop-1.8.3.zip)
-3. 在待安装 rdesktop 的目录下，执行以下命令，解压和安装 rdesktop。
+3. 在待安装 rdesktop 的目录下，依次执行以下命令，解压和安装 rdesktop。
 ```
 tar xvzf rdesktop-<x.x.x>.tar.gz ##替换x.x.x为下载的版本号 
 cd rdesktop-1.8.3
