@@ -31,10 +31,10 @@ Authorization: Auth String
 
 | 名称                | 描述                                                         | 类型   | 是否必选 |
 | ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| If-Modified-Since   | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
-| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
-| If-Match            | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
-| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
+| If-Modified-Since   | 当对象在指定时间后被修改，则返回 HTTP 状态码为200（OK），否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
+| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回 HTTP 状态码为200（OK），否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-Match            | 当对象的 ETag 与指定的值一致，则返回 HTTP 状态码为200（OK），否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-None-Match       | 当对象的 ETag 与指定的值不一致，则返回 HTTP 状态码为200（OK），否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
 
 **服务端加密相关头部**
 
