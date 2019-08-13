@@ -54,14 +54,7 @@
 
 ### 步骤5：编译运行
 1. 在终端窗口进入 TRTCSDK iOS/Mac Demo Podfile 文件所在目录。
-2. 执行以下命令，安装 TRTC SDK。
-```
-pod install
-```
-或执行以下命令，更新本地库版本。
-```
-pod update
-```
+2. 执行`pod install`命令安装 TRTC SDK，或者执行`pod update`命令，更新本地库版本。
 3. 使用 XCode（9.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
