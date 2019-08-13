@@ -1,5 +1,5 @@
 ## 前提条件
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppId 和 AppSecret，您可以在控制台的基础配置中查看 AppId 以及 AppSecret。
+验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册获取 AppID 和 AppSecret，您可以在控制台的基础配置中查看 AppID 以及 AppSecret。
 ## 接入步骤
 ### 快速接入
 以下为 Web 端快速接入流程，适用于每次都需要进行人机验证的场景（登录、注册、下发短信、活动等）。
@@ -7,7 +7,7 @@
 ```
 <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 ```
-2. 在您想要激活验证码的 DOM 元素（button、div、span）内加入以下 id 及属性。
+2. 在您想要激活验证码的 DOM 元素（button、div、span）内加入以下 ID 及属性。
 ```
 <!--点击此元素会自动激活验证码-->
 <!--id : 元素的id(必须)-->
@@ -43,7 +43,7 @@ TencentCaptcha 支持多种参数的重载，以下3种初始化方法，可根�
 new TencentCaptcha(appId, callback, options);
 ```
 **参数说明：**
-	- appId：String，申请的场景 Id。
+	- appId：String，申请的场景 ID。
 	- callback：Function，回调函数。
 	- options：Object，更多配置参数, 请参见 [配置参数]()。
 
@@ -63,7 +63,7 @@ new TencentCaptcha(element, appId, callback, options);
 **参数说明：**
 	- element: HTMLElement, 需要绑定`click`事件的元素
 >!手动绑定不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击）
-	- appId: String，申请的场景 Id。
+	- appId: String，申请的场景 ID。
 	- callback: Function， 回调函数。
 	- options: Object，更多配置参数, 请参见 [配置参数]()。
 
@@ -92,7 +92,7 @@ new TencentCaptcha(
 |---------|---------|---------|
 | ret | Int | 验证结果，0：验证成功。2：用户主动关闭验证码。 |
 |ticket|String|验证成功的票据，当且仅当 ret = 0 时 ticket 有值。|
-|appid|String|场景 Id。|
+|appid|String|场景 ID。|
 |bizState|Any|自定义透传参数。|
 
 ### 实例方法
