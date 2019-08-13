@@ -56,7 +56,7 @@ mysql -h hostname -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐号对应的密码。
->- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
+>- 本例中提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
 ![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
  - 外网访问时，执行以下命令登录到 MySQL 数据库实例。
