@@ -14,8 +14,7 @@
 -  **[软件配置](https://cloud.tencent.com/document/product/589/35655)**：按照要求填写参数可实现自定义软件参数创建集群，同时兼容访问外部集群功能，在参数中正确配置访问地址信息即可读写外部集群的数据。
 ![](https://main.qcloudimg.com/raw/dba21d539245584c4b1f148d4c68b1cf.jpg)
 单击软件配置处图标可查看相关说明。
-![](https://main.qcloudimg.com/raw/911c4b203f96a6faaa41c1a9026ab330.png)
-
+![](https://main.qcloudimg.com/raw/194bd7106075245323c0c0fe50aeadbc.png)
 
 ### 2. 硬件配置
 - **节点高可用（HA）**：选择【启动高可用】后，将会默认开启2个 Master 节点，至少3个 Core 节点，以及3个 Common 节点，节点类型介绍请参见 [节点类型说明](https://cloud.tencent.com/document/product/589/14624)。
