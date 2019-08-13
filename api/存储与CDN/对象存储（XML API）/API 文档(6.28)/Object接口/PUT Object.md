@@ -45,7 +45,7 @@ Authorization: Auth String
 | Expires             | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
 | Transfer-Encoding   | 如果希望在上传时分块传输，则指定 Transfer-Encoding: chunked 请求头部，此时请求体遵循 RFC 2616 中定义的传输编码格式，且不能指定 Content-Length 请求头部 | string | 否       |
 | x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
 
 **访问控制列表（ACL）相关头部**
 
