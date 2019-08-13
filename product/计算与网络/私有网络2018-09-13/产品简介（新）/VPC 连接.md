@@ -10,11 +10,11 @@
 |[负载均衡](https://cloud.tencent.com/document/product/214)|通过将访问流量均衡分发到多台云服务器上的方式对外提供服务。|<li>基于端口提供四层和七层负载均衡功能，支持用户从公网通过负载均衡（CLB）访问云服务器。</li><li>可以消除单点故障，提升应用系统的可用性。</li>
 
 ## VPC 间通信
-您可使用如下产品或功能，实现私有网络间的通信。
+您可使用如下产品或功能，实现 VPC 间的通信。
 
 | 产品 | 功能 | 特点 |
 |---------|---------|---------|
-| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个 VPC 间内网通信。 |<li>两个 VPC 的CIDR 不能重叠</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
+| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个 VPC 间内网通信。 |<li>两个 VPC 的CIDR 不能重叠。</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
 |[云联网](https://cloud.tencent.com/document/product/877)|用于两个或多个 VPC 间内网通信。|<li>CIDR 限制缩小到子网范围。</li><li>配置简单，路由自动下发。</li><li>一次加入，所有实例默认互通，支持路由开启和关闭。</li><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li>|
 
 ## 与本地数据中心通信
