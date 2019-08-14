@@ -151,16 +151,17 @@ new Thread(new Runnable() {
 
 + **计算签名函数如下：**
 
-	```
-	/**
-	 * 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
-	 * @param source 原文字符串
-	 * @return 加密后返回的密文
-	 */
-	String getAudioRecognizeSign(String source);
-	```
+```
+/**
+* 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
+* @param source 原文字符串
+* @return 加密后返回的密文
+*/
+String getAudioRecognizeSign(String source);
+```
 	
 + **计算签名算法**   
+
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
 
 为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口 **AbsCredentialProvider** 中的方法。
