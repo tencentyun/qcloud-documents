@@ -1,7 +1,7 @@
 在`TUIChatController`中，每一条消息在内部都是存储为`TUIMessageCellData`或子类对象，当滑动消息列表时，再将`TUIMessageCellData`转换为`TUIMessageCell`用于显示。
 您可以通过设置`TUIChatController`回调`delegate`，控制具体的`TUIMessageCell`实例，从而达到定制消息的目的。
 ![](https://main.qcloudimg.com/raw/54da2f3e401e54eaa03d160b833e4506.jpg)
-以上图红色线框中的超链接自定义消息为例，`TUIKit`内部没有实现此类效果，您只需在`TUIMessageCell`的 container 里添加两个 UILabel ，即可快速实现显示效果。本文将详细介绍实现过程：
+以上图红色线框中的超链接自定义消息为例，TUIKit 内部没有实现此类效果，您只需在`TUIMessageCell`的 container 里添加两个 UILabel ，即可快速实现显示效果。本文将详细介绍实现过程：
 
 ## 自定义消息
 ### 步骤1: 实现一个自定义 cellData 类
