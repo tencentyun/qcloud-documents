@@ -5,7 +5,7 @@
 
 ### 如何选择安装驱动预装镜像
 1. 在购买页选择所需要的 GPU 实例，单击【下一步：选择镜像】。如下图所示：
-![](https://main.qcloudimg.com/raw/691f53446f1f8b3e21649e8e2e13626b.png)
+![](https://main.qcloudimg.com/raw/9b6c7e118fff42122c3b0c85aa7d2f93.png)
 2. 选择【镜像市场】，单击【从镜像市场选择】。如下图所示：
 ![](	https://main.qcloudimg.com/raw/aaa7cd8bfc4ab0411199449b96b1238f.png)
 3. 在弹出的 “选择镜像” 对话框的搜索框中，输入 **GPU**，单击搜索按钮。列出所有预装 GPU 驱动的镜像，如下图所示：
