@@ -32,7 +32,7 @@ TIMConversation *conv = [[TIMManager sharedInstance] getConversation:TIM_C2C rec
 TUIChatController *vc = [[TUIChatController alloc] initWithConversation:conv];
 [self.navigationController pushViewController:vc animated:YES];
 ```
-`TUIChatController` 会自动拉取该用户的的历史消息并展示出来。
+`TUIChatController`会自动拉取该用户的的历史消息并展示出来。
 
 
 
