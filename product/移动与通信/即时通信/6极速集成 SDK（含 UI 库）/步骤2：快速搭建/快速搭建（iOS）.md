@@ -3,7 +3,7 @@
 
 ## 创建会话列表界面
 
-会话列表只需要创建 `TUIConversationListController` 对象即可。会话列表会从数据库中读取最近联系人，当用户点击联系人时，TUIConversationListController 将该事件回调给上层。
+会话列表只需要创建`TUIConversationListController`对象即可。会话列表会从数据库中读取最近联系人，当用户点击联系人时，`TUIConversationListController`将该事件回调给上层。
 
 在任意`layout.xml`中设置布局：
 ```objectivec
@@ -22,8 +22,8 @@ vc.delegate = self;
 
 ## 打开聊天界面
 
-初始化聊天界面时，上层需要传入当前聊天界面对应的会话信息，即  `TIMConversation` 。
-`TIMConversation` 对象通过 `ImSDK` 底层方法获取。
+初始化聊天界面时，上层需要传入当前聊天界面对应的会话信息，即`TIMConversation`。
+`TIMConversation`对象通过`ImSDK`底层方法获取。
 
 以创建一个与用户`abc`的 C2C 会话为例，示例代码如下：
 
