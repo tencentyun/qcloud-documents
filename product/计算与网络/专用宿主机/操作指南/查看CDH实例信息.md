@@ -7,7 +7,7 @@
 2. 点击打开专用宿主机界面。
 
 3. 在专用宿主机界面顶部选择相应的地域，您就可以查看到您在当前地域所拥有的专用宿主机的信息，包括可用区、机型、总资源和剩余可用资源的情况、到期时间等等。
-![宿主机列表](https://main.qcloudimg.com/raw/edc08487b580822a91cd4b814d538f2c.png)
+![](https://main.qcloudimg.com/raw/d5aaaddb7f3858541b571af219524d18.png)
 
 4. 点击某台专用宿主机的id，打开专用宿主机详情页，可以查看专用宿主机的详细信息以及该宿主机上的子机信息。
 ![子机列表](https://main.qcloudimg.com/raw/21c24e7ee73b71e8ce84f07729265b5f.png)
