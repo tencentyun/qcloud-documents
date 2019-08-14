@@ -90,7 +90,7 @@
 ```
 
 
-### Step 3: 注册 TUIChatController 回调
+### 步骤3: 注册 TUIChatController 回调
 
 注册`TUIChatController`回调是用于告知`TUIChatController`该如何显示自定义消息，注册该回调需要实现下列回调：
 - 收到消息时，将`TIMessage`转换为`TUIMessageCellData`对象。
