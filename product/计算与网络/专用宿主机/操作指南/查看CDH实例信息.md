@@ -10,7 +10,7 @@
 ![](https://main.qcloudimg.com/raw/d5aaaddb7f3858541b571af219524d18.png)
 
 4. 点击某台专用宿主机的id，打开专用宿主机详情页，可以查看专用宿主机的详细信息以及该宿主机上的子机信息。
-![子机列表](https://main.qcloudimg.com/raw/21c24e7ee73b71e8ce84f07729265b5f.png)
+![](https://main.qcloudimg.com/raw/002344fbb3075ee6e317e38dc2813f3b.png)
 
 ### 使用API 获取 CDH 实例信息
 
