@@ -1,56 +1,68 @@
-## 开发准备
-### SDK 下载
-智能语音服务实时流式识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
+## 1. 接入准备
+### 1.1 SDK 获取
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
 
-### 开发前
-1. 开发者使用实时流式识别功能前，需要先在 [腾讯云-控制台](https://console.cloud.tencent.com/)  注册账号，并获得 APPID、SecretId 和 SecretKey 等。
-2. 手机必须要有网络（GPRS、3G 或 Wi-Fi 等）。
-3. 支持 Android 4.0 及其以上版本。
+### 1.2 接入须知
++ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721)，了解接口的使用要求和使用步骤 。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
 
-### 运行环境配置
+### 1.3 开发环境
 
-**引入 .so 文件**
-**libWXVoice.so：** 腾讯语音检测 so 库。
++ 引入 .so 文件
 
-##### 引入 aar 包
-**aai-2.1.5.aar：** 腾讯云智能语音 SDK。
+ libWXVoice.so： 腾讯云语音检测 so 库。
 
-腾讯云智能语音服务 SDK 支持本地构建或者远程构建两种方式：
-#### 本地构建
-可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。
-在 build.gradle 文件中添加：
-```
-implementation(name: 'aai-2.1.5', ext: 'aar')
-```
-#### 远程构建
-在 build.gradle 文件中添加：
-```
-implementation 'com.tencent.aai:aai:2.1.5:@aar'
-```
-#### 添加相关依赖
-okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
-```
-implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
-implementation 'com.squareup.okio:okio:1.11.0'
-implementation 'com.google.code.gson:gson:2.8.5'
-implementation 'org.slf4j:slf4j-api:1.7.25'
-```
++ 引入 aar 包
+ 
+ aai-2.1.5.aar： 腾讯云语音识别 SDK。
 
-如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
-#### 在 AndroidManifest.xml 添加如下权限：
-```
-< uses-permission android:name="android.permission.RECORD_AUDIO"/>
-< uses-permission android:name="android.permission.INTERNET"/>
-< uses-permission android:name="android.permission.WRITE_SETTINGS" />
-< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
-< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-```
++ 该接口 SDK 支持本地构建或者远程构建两种方式：
+
+	+ 本地构建   
+	可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。   
+	在 build.gradle 文件中添加：
+	
+		```
+		implementation(name: 'aai-2.1.5', ext: 'aar')
+		```
+	
+	+ 远程构建   
+	在 build.gradle 文件中添加：
+		
+		```
+		implementation 'com.tencent.aai:aai:2.1.5:@aar'
+		```
+	
++ 添加相关依赖
+  okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
+
+	```
+	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+	implementation 'com.squareup.okio:okio:1.11.0'
+	implementation 'com.google.code.gson:gson:2.8.5'
+	implementation 'org.slf4j:slf4j-api:1.7.25'
+	```
+	如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
++ 在 AndroidManifest.xml 添加如下权限：
+
+	```
+	< uses-permission android:name="android.permission.RECORD_AUDIO"/>
+	< uses-permission android:name="android.permission.INTERNET"/>
+	< uses-permission android:name="android.permission.WRITE_SETTINGS" />
+	< uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+	< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	```
+
+
+## 2. 快速接入
+
 <span id="documen"></span>
-## 快速入门
 
-### 启动语音识别
+### 2.1 开发流程介绍
+**启动实时语音识别**
+
 ```
 int appid = XXX;
 int projectid = XXX;
@@ -106,7 +118,9 @@ try {
     e.printStackTrace();
 }
 ```
-### 停止语音识别
+
+**停止实时语音识别**
+
 ```
 // 1、获得请求的 ID
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -121,7 +135,9 @@ new Thread(new Runnable() {
     }
 }).start();
 ```
-### 取消语音识别
+
+**取消实时语音识别**
+
 ```
 // 1、获得请求的id
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -137,24 +153,33 @@ new Thread(new Runnable() {
 }).start();
 ```
 
-## SDK 详细介绍
-### 签名
-调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为SDK内部调用上层不用关心 source 来源
-计算签名函数如下：
-```
-/**
- * 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
- * @param source 原文字符串
- * @return 加密后返回的密文
- */
-String getAudioRecognizeSign(String source);
-```
-**计算最终签名算法：**
+
+
+### 2.2 主要接口类和方法说明
+
+#### 计算签名
+
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为SDK内部调用上层不用关心 source 来源。
+
++ **计算签名函数如下：**
+
+	```
+	/**
+	 * 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
+	 * @param source 原文字符串
+	 * @return 加密后返回的密文
+	 */
+	String getAudioRecognizeSign(String source);
+	```
+	
++ **计算签名算法**   
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
+
 为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider** 中的方法。
 
-### 初始化 AAIClient
+#### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
+
 ```
 public AAIClient(Context context, int appid, int projectId, String secreteId, AbsCredentialProvider credentialProvider) throws ClientException
 ```
@@ -170,6 +195,7 @@ public AAIClient(Context context, int appid, int projectId, String secreteId, Ab
 
 
 **示例：**
+
 ```
 try {
     AaiClient aaiClient = new AAIClient(context, appid, projectId, secretId, credentialProvider);
@@ -178,11 +204,12 @@ try {
 }
 ```
 如果 aaiClient 不再需要使用，请调用 release() 方法释放资源：
+
 ```
 aaiClient.release();
 ```
 
-### 配置全局参数
+####  配置全局参数
 用户调用 ClientConfiguration 类的静态方法来修改全局配置。
 
 | 方法 | 方法描述 | 默认值 | 有效范围 |
@@ -204,14 +231,14 @@ ClientConfiguration.setAudioRecognizeSliceTimeout(2000)
 ClientConfiguration.setAudioRecognizeConnectTimeout(2000)
 ClientConfiguration.setAudioRecognizeWriteTimeout(2000)
 ```
-### 设置结果监听器
+
+#### 设置结果监听器
 AudioRecognizeResultListener 可以用来监听语音识别的结果，共有如下四个接口：
 - 语音分片的语音识别结果回调接口
 
 ```
 void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, int order);
 ```
-
 
 | 参数 | 参数类型 | 参数描述 |
 |---------|---------|---------|
@@ -255,9 +282,9 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | clientException | ClientException | 客户端异常 |
 | serverException | ServerException | 服务端异常 |
 
-示例代码见 [快速入门](#documen)。
+示例代码详见[入门示例](#documen)。
 
-### 设置语音识别参数
+#### 设置语音识别参数
 通过构建 AudioRecognizeConfiguration 类，可以设置语音识别时的配置：
 
 | 参数名称 | 类型 | 是否必填 |参数描述 |默认值 |
@@ -272,6 +299,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1~5) | 3 |
 
 **示例：**
+
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
 	.enableAudioStartTimeout(true) // 是否使能起点超时停止录音
@@ -295,7 +323,7 @@ new Thread(new Runnable() {
 }).start();
 ```
 
-### 设置状态监听器
+#### 设置状态监听器
 AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共有如下七个接口：
 
 | 方法 | 方法描述 | 
@@ -307,7 +335,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共�
 | onVoiceFlowFinishRecognize | 语音流结束识别 | 
 | onVoiceVolume | 音量 | 
 
-### 设置超时监听器
+#### 设置超时监听器
 AudioRecognizeTimeoutListener 可以用来监听语音识别的的超时，一共有如下两个接口：
 
 | 方法 | 方法描述 |
@@ -316,6 +344,7 @@ AudioRecognizeTimeoutListener 可以用来监听语音识别的的超时，一�
 | onNextVoiceFlowTimeout | 检测下一个语音流超时 |
 
 **示例：**
+
 ```
 AudioRecognizeStateListener audioRecognizeStateListener = new AudioRecognizeStateListener() {
     @Override
@@ -377,11 +406,10 @@ new Thread(new Runnable() {
 }).start();
 ```
 
-
-
-### 其他重要类说明
+#### 其他重要类说明
 
 **AudioRecognizeRequest**
+
 templateName 和 customTemplate 都设置时，优先使用 templateName 的设置。
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 | 默认值 |
@@ -391,6 +419,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 |customTemplate|AudioRecognizeTemplate|否|用户自定义的模板|(1, 0, 1)|
 
 **AudioRecognizeResult**
+
 语音识别结果对象，和 AudioRecognizeRequest 对象相对应，用于返回语音识别的结果。
 
 | 参数名称 | 类型 | 参数描述 |
@@ -403,6 +432,7 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 | cookie | String | cookie 值 |
 
 **AudioRecognizeTemplate**
+
 自定义的语音模板，需要设置的参数包括：
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 |
@@ -412,10 +442,12 @@ templateName 和 customTemplate 都设置时，优先使用 templateName 的设�
 | resType | Int | 是 |结果返回方式 |
 
 **示例：**
+
 ```
 AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1);
 ```
 **PcmAudioDataSource**
+
 用户可以实现这个接口来识别单通道、采样率 16k 的 PCM 音频数据。主要包括如下几个接口：
 
 - 向语音识别器添加数据，将长度为 length 的数据从下标 0 开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
@@ -439,13 +471,20 @@ void stop();
 int maxLengthOnceRead();
 ```
 **AudioRecordDataSource**
+
 PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音频数据，用于实时识别。
+
 **AudioFileDataSource**
+
 PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率 16k 的 PCM 音频数据的文件。
->**注意：**其他格式的数据无法正确识别。
+>**注意：**
+其他格式的数据无法正确识别。
+
 
 **AAILogger**
+
 用户可以利用 AAILogger 来控制日志的输出，可以选择性的输出 debug、info、warn 以及 error 级别的日志信息。
+
 ```
 public static void disableDebug();
 public static void disableInfo();
@@ -456,12 +495,5 @@ public static void enableInfo();
 public static void enableWarn();
 public static void enableError();
 ```
-
-
-
-
-
-
-
 
 
