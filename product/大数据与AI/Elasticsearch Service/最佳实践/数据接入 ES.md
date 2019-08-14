@@ -35,12 +35,9 @@ docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.
 #### 使用腾讯云容器服务
 腾讯云 Docker 集群运行于 CVM 实例上，所以需要先在容器服务控制台上创建 CVM 集群。
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)，在【集群】页，单击【新建】创建集群。
-![](https://main.qcloudimg.com/raw/94ddeea6ba96ecedbecafde039dfa194.png)
 2. 在【服务】页，单击【新建】创建服务。
-![](https://main.qcloudimg.com/raw/d2b5b6d76e362394c4b3c7cd2b4a44e8.png)
 3. 选取 logstash 镜像。
 本例中使用 TencentHub 镜像仓库提供的 logstash 镜像，用户也可以自行创建 logstash 镜像。
-![](https://main.qcloudimg.com/raw/fe5d516ee0727c1319509f09d097e48a.png)
 4. 创建数据卷。
 创建存放 logstash 配置文件的数据卷，本例中在 CVM 的`/data/config`目录下添加了名为 logstash.conf 的配置文件，并将其挂在到 Docker 的`/data`目录下，从而使得容器启动时可以读取到 logstash.conf 文件。
 ![](https://main.qcloudimg.com/raw/ca620ea07e70c2739b6c1cabd942756a.png)
@@ -162,7 +159,6 @@ Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数�
 
 #### 使用腾讯云容器服务
 使用腾讯云容器服务部署 filebeat 的方式和部署 logstash 类似，镜像可以使用腾讯云官方提供的 filebeat 镜像。
-![](https://main.qcloudimg.com/raw/bfdea2c720d4a91304125dd608104157.png)
 
 ### 配置文件说明
 配置 filebeat.yml 文件，内容如下：
