@@ -15,12 +15,12 @@
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择【应用管理】>【应用列表】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
-5. 导入SDK：
+5. 导入 SDK：
  - **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
- ``` 
- pod 'TPNS-macOS' 
- ```
+``` 
+pod 'TPNS-macOS' 
+```
  - **方式二：手动导入**
 进入控制台，然后单击左侧菜单栏【SDK 下载】，进入下载页面，选择 macOS 平台，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
@@ -33,10 +33,12 @@
 8. 添加完成以后，库的引用如下：
 ![](https://main.qcloudimg.com/raw/481e688090a772213ce35b15be0dbd3d.png)
 9. 在工程配置和后台模式中打开推送，如下图： 
-![](配置开关.png)
+![](https://main.qcloudimg.com/raw/29eea75c08411c8666136ce3e1d8954a.png)
 10. 添加编译参数 ```-ObjC``` 
 ![](https://main.qcloudimg.com/raw/bb61982f2959bea32f43c1fd849f5e43.png)
+
 >!如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
+
 11. 调用启动信鸽的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务
    1. 启动信鸽服务，以下是在 ```AppDelegate``` 中做演示：
 		 ```objective-c
@@ -61,8 +63,6 @@
 			NSLog(@"notificaion is %@", notification);
 	}
 	```
-
-
 
 
 ## 调试方法
