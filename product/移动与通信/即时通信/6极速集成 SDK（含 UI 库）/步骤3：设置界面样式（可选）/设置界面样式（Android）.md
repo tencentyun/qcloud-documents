@@ -110,12 +110,11 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 
 
 ## 聊天窗口
-
-![](https://main.qcloudimg.com/raw/78ecf32c720e5899f8821cf89ed5a324.png)
-
 聊天窗口包含**标题区 TitleBarLayout **，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为**通知区 NoticeLayout **、**消息区 MessageLayout **和**输入区 InputLayout **，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/3da35d371b45cddb964641410958a564.png)
+效果如下图所示：
+![](https://main.qcloudimg.com/raw/9bd296ed62292fc139181a4f17fd1a73.png)
 
 ```java
 /**
@@ -166,13 +165,12 @@ noticeLayout.setOnNoticeClickListener(new View.OnClickListener() {
 
 
 MessageLayout 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IMessageProperties.html)。
-
-![](https://main.qcloudimg.com/raw/3cc583a7b7a04f4b6ca6e33fdce3329b.png)
+![](https://main.qcloudimg.com/raw/2004104d6968c9b746e8d319fb3cd05a.png)
 
 #### 修改聊天背景
 
 您可以自定义设置聊天背景。
-![](https://main.qcloudimg.com/raw/3f246e793de98c6119b584e3b75d29d6.png)
+![](https://main.qcloudimg.com/raw/cbd44348deceaa4f08fee62ca6fd3346.png)
 
 ```java
 // 从ChatLayout 里获取 MessageLayout
@@ -185,8 +183,7 @@ messageLayout.setBackground(new ColorDrawable(0xB0E2FF00));
 #### 修改头像相关
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。
-
-![](https://main.qcloudimg.com/raw/eaf380ac72624512f38453a4fd73cf46.png)
+![](https://main.qcloudimg.com/raw/e4357dd89e8e814166717300414ff8da.png)
 
 ```
 // 聊天界面设置头像和昵称
@@ -232,7 +229,7 @@ messageLayout.setAvatarSize(new int[]{48, 48});
 
 
 左边为对方的气泡，右边为自己的气泡，您可以自定义设置双方的气泡背景。
-![](https://main.qcloudimg.com/raw/567a07ec3c0cdb79d2e68ed2432f43b1.png)
+![](https://main.qcloudimg.com/raw/79acdf0b0b4d29088b76c950f876a19a.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -248,7 +245,7 @@ messageLayout.setLeftBubble(context.getResources().getDrawable(R.drawable.chat_s
 
 
 您可以自定义设置昵称的字体大小与颜色等，但双方昵称样式必须保持一致。
-![](https://main.qcloudimg.com/raw/11776f980a33d4bc779120eeb34b9198.png)
+![](https://main.qcloudimg.com/raw/5935a069c9a78eb74521b6a7ac6c8ff9.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -261,7 +258,8 @@ messageLayout.setNameFontColor(0x8B5A2B00);
 
 #### 修改聊天内容样式
 您可以自定义设置聊天内容的字体大小、双方字体颜色等，但双方字体大小必须保持一致。
-![](https://main.qcloudimg.com/raw/b9a58b074e36cfac6dbaac647f7d91e3.png)
+![](https://main.qcloudimg.com/raw/1b09dec94b8e4ab21d36022bb83a1771.png)
+
 ```java
 // 从 ChatLayout 里获取 MessageLayout
 MessageLayout messageLayout = layout.getMessageLayout();
@@ -277,7 +275,8 @@ messageLayout.setLeftChatContentFontColor(0xA020F000);
 #### 修改聊天时间线样式
 
 您可以自定义设置聊天时间线的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/338d8598dbcaed6ffd73277ea41eb3f9.png)
+![](https://main.qcloudimg.com/raw/2e1fc272f3d762dd12f9f8719aad031d.png)
+
 ```java
 // 从 ChatLayout 里获取 MessageLayout
 MessageLayout messageLayout = layout.getMessageLayout();
@@ -293,7 +292,8 @@ messageLayout.setChatTimeFontColor(0xEE00EE00);
 #### 修改聊天的提示信息样式
 
 您可以自定义设置提示信息的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/32d0cef7c5efb85b70e7e51c2f61023c.png)
+![](https://main.qcloudimg.com/raw/93087b1a5a1e4cf9c71e3e7c59a0f2d1.png)
+
 ```java
 // 从ChatLayout里获取MessageLayout
 MessageLayout messageLayout = layout.getMessageLayout();
