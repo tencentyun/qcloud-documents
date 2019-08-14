@@ -53,7 +53,8 @@ conversationLayout.initDefault();
 </LinearLayout>
 ```
 
-然后在代码里面引用
+</li>
+<li>在代码中引用：
 
 ```java
 // 从布局文件中获取聊天面板
@@ -63,7 +64,7 @@ chatLayout.initDefault();
 // 传入ChatInfo的实例，这个实例必须包含必要的聊天信息，一般从调用方传入
 chatLayout.setChatInfo(mChatInfo);
 ```
-
+</li></ol>
 
 ## 添加通讯录界面
 
