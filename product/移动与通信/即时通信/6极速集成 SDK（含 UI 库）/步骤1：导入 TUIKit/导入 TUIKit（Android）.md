@@ -45,12 +45,10 @@ implementation project(':tuikit')
 ```
 dependencies {
     ...
-    compile 'com.tencent.imsdk:tuikit:xxx版本'
+     compile 'com.tencent.imsdk:tuikit:latest.release'
     ...
 }
 ```
-
-其中，`tuikit-xxx版本`中的`xxx`请替换成 [最新的 aar 版本号](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK)。
 
 ## 初始化
 
