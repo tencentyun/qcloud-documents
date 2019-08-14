@@ -80,7 +80,7 @@ IM SDK 不做头像存储，需要集成者有头像图床接口获取头像 URL
 
 ```
 HashMap<String, Object> hashMap = new HashMap<>();
-// 头像，mIconUrl 就是你上传头像后的 URL，可以参考 Demo 中的随机头像作为示例
+// 头像，mIconUrl 就是您上传头像后的 URL，可以参考 Demo 中的随机头像作为示例
 if (!TextUtils.isEmpty(mIconUrl)) {
    hashMap.put(TIMUserProfile.TIM_PROFILE_TYPE_KEY_FACEURL, mIconUrl);
 }
