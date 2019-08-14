@@ -54,7 +54,7 @@ try:
     # 实例化Tbaas的client对象
     clientProfile = ClientProfile()
     clientProfile.httpProfile = httpProfile
-    #第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
+    #第二个参数是地域信息，根据资源所属地域填写相应的地域信息，例如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
     client = tbaas_client.TbaasClient(cred, "ap-guangzhou", clientProfile) 
 
     # 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
