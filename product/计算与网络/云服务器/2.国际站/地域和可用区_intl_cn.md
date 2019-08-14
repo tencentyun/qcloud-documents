@@ -81,8 +81,8 @@
 		</tr>
 		<tr>
 			<td rowspan="6">国际区域</td>
-			<td>东南亚地区（香港）<br>ap-hongkong</td>
-			<td>香港一区（中国香港节点可用于覆盖东南亚地区）<br>ap-hongkong-1</td>
+			<td>港澳台地区（中国香港）<br>ap-hongkong</td>
+			<td>中国香港一区（中国香港节点可用于覆盖东南亚地区）<br>ap-hongkong-1</td>
 		</tr>
 		<tr>
 			<td>东南亚地区（新加坡）<br>ap-singapore</td>
