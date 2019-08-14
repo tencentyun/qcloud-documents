@@ -41,9 +41,10 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 
 def main_handler(event, context):
     print("prepare to invoke a function!")
+    # scf = Client(region="ap-guangzhou")
     try:
         data = scf.invoke('FuncInvoked',region="ap-guangzhou",data={"a": "b"})
-        # data = scf.FuncInvoked(region="ap-guangzhou",data={"a": "b"})
+        # data = scf.FuncInvoked(data={"a": "b"}) #使用Python原生调用方式，需要首先通过Client进行初始化
         print (data)
     except TencentServerlessSDKException as e:
         print (e)
@@ -57,7 +58,7 @@ def main_handler(event, context):
 ```shell
 "Already invoked a function!"
 ```
-如果需要频繁调用函数，则可以通过 Client 的方式连接并触发。对应的 scfSDK.py 示例如下：
+如果需要频繁调用函数，则可以通过 Client 的方式连接并触发。对应的 PythonInvokeTest 函数内容如下：
 ```python
 # -*- coding: utf8 -*-
 from tencentserverless.scf import Client
@@ -90,15 +91,15 @@ def main_handler(event, context):
 
 #### 开发准备
 - 开发环境
-Python2.7 或者 Python3.6。
+已安装 Python2.7 或者 Python3.6。
 - 运行环境
-tencentserverless SDK 可以在 Windows、Linux、Mac 上运行。
+已安装 Tencentserverless SDK，支持 Windows、Linux、Mac 操作系统。
 
->?本地调用云端函数需满足以上环境要求，推荐函数在本地开发完成后上传到云端，使用云端函数互调进行调试。
+>?本地调用云端函数须进行以上开发准备，推荐函数在本地开发完成后上传到云端，使用云端函数互调进行调试。
 
 
 #### 通过 pip 安装（推荐）
-执行以下命令，安装 tencentserverless python SDK。
+执行以下命令，安装 tencentserverless Python SDK。
 ```shell
 pip install tencentserverless
 ```
@@ -108,14 +109,18 @@ pip install tencentserverless
 cd tencent-serverless-python
 python setup.py install
 ```
-#### 配置 tencentserverless python SDK
-执行以下命令，升级 tencentserverless python SDK。
+#### 配置 tencentserverless Python SDK
+执行以下命令，升级 tencentserverless Python SDK。
 ```shell
 pip install tencentserverless -U
 ```
-执行以下命令，查看 tencentserverless python SDK 信息。
+Mac、Linux 操作系统执行以下命令，查看 tencentserverless Python SDK 信息。
 ```shell
 pip list | grep tencentserverless
+```
+Windows 操作系统执行以下命令，查看 tencentserverless Python SDK 信息。
+```shell
+pip list | findstr tencentserverless
 ```
 #### 示例
 首先在云端创建一个被调用的 Python 云函数，地域为【广州】，命名为 “FuncInvoked”。函数内容如下：
@@ -129,19 +134,20 @@ def main_handler(event, context):
     return "Hello World from the function being invoked"  #return
 ```
 
-创建完毕后，本地创建一个名为 scfSDK.py 的文件。内容如下：
+创建完毕后，本地创建一个名为 PythonInvokeTest.py 的文件。内容如下：
 ```python
 # -*- coding: utf8 -*-
-from tencentserverless import scf
+from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 
 def main_handler(event, context):
     print("prepare to invoke a function!")
+    scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou")
+	# 替换为您的 secret-id 和 secret-key
     try:
-        data = scf.invoke('FuncInvoked', secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",
-secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",data={"a":"b"}) # 替换为您的 secret-id 和 secret-key
-		# data = scf.FuncInvoked(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou",data={"a":"b"}) # 替换为您的 secret-id 和 secret-key
+        data = scf.invoke('FuncInvoked',data={"a":"b"}) 
+		# data = scf.FuncInvoked(data={"a":"b"}) 
 		print (data)
     except TencentServerlessSDKException as e:
         print (e)
@@ -155,9 +161,9 @@ main_handler("","")
 ```
 >?Secret-id 及 secret-key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
 >
-进入 scfSDK.py 所在文件目录，执行以下命令，查看结果：
+进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果：
 ```shell
-python scfSDK.py
+python PythonInvokeTest.py
 ```
 输出结果如下：
 ```shell
@@ -170,7 +176,7 @@ prepare to invoke a function!
 ### API Reference
 - [Client](#client)（类）
 - [invoke](#invoke) （方法）
-- [TencentServerlessSDKException](#TencentserverlessSDKException) （类）
+- [TencentserverlessSDKException](#TencentserverlessSDKException) （类）
 
 #### Client
 - [**init**]
@@ -222,17 +228,11 @@ prepare to invoke a function!
 
 ##### 方法
 
-| 方法名 | 描述 | 
+| 方法名 | 描述 |
 |---------|---------|
-| get_code | 返回错误码信息 | 
+| get_code | 返回错误码信息 |
 |get_message|返回错误信息|
-|get_request_id |返回 request_id 信息 | 
+|get_request_id |返回 request_id 信息 |
 |get_response | 返回 response 信息|
 | get_stack_trace |  返回 stack_trace 信息 |
-
-
-
-
-
-
 
