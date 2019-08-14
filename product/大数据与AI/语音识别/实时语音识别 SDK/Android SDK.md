@@ -4,38 +4,29 @@
 
 ### 1.2 接入须知
 + 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721)，了解接口的使用要求和使用步骤 。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
 ### 1.3 开发环境
 
 + 引入 .so 文件
-
  libWXVoice.so： 腾讯云语音检测 so 库。
-
 + 引入 aar 包
- 
  aai-2.1.5.aar： 腾讯云语音识别 SDK。
-
 + 该接口 SDK 支持本地构建或者远程构建两种方式：
-
 	+ 本地构建   
 	可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。   
 	在 build.gradle 文件中添加：
-	
 		```
 		implementation(name: 'aai-2.1.5', ext: 'aar')
 		```
-	
 	+ 远程构建   
 	在 build.gradle 文件中添加：
-		
 		```
 		implementation 'com.tencent.aai:aai:2.1.5:@aar'
 		```
 	
 + 添加相关依赖
   okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
-
 	```
 	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 	implementation 'com.squareup.okio:okio:1.11.0'
@@ -44,7 +35,6 @@
 	```
 	如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
 + 在 AndroidManifest.xml 添加如下权限：
-
 	```
 	< uses-permission android:name="android.permission.RECORD_AUDIO"/>
 	< uses-permission android:name="android.permission.INTERNET"/>
@@ -54,7 +44,6 @@
 	< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	```
-
 
 ## 2. 快速接入
 
@@ -158,8 +147,7 @@ new Thread(new Runnable() {
 ### 2.2 主要接口类和方法说明
 
 #### 计算签名
-
-调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为SDK内部调用上层不用关心 source 来源。
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用上层不用关心 source 来源。
 
 + **计算签名函数如下：**
 
@@ -175,7 +163,7 @@ new Thread(new Runnable() {
 + **计算签名算法**   
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
 
-为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口**AbsCredentialProvider** 中的方法。
+为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口 **AbsCredentialProvider** 中的方法。
 
 #### 初始化 AAIClient
 AAIClient 是语音服务的核心类，用户可以调用该类来开始、停止以及取消语音识别。
@@ -183,7 +171,6 @@ AAIClient 是语音服务的核心类，用户可以调用该类来开始、停�
 ```
 public AAIClient(Context context, int appid, int projectId, String secreteId, AbsCredentialProvider credentialProvider) throws ClientException
 ```
-
 
 | 参数名称 | 类型 | 是否必填 | 参数描述 |
 |---------|---------|---------|---------|
@@ -195,7 +182,6 @@ public AAIClient(Context context, int appid, int projectId, String secreteId, Ab
 
 
 **示例：**
-
 ```
 try {
     AaiClient aaiClient = new AAIClient(context, appid, projectId, secretId, credentialProvider);
@@ -214,7 +200,7 @@ aaiClient.release();
 
 | 方法 | 方法描述 | 默认值 | 有效范围 |
 |---------|---------|---------|---------|
-| setServerProtocolHttps | 设置HTTPS/HTTP协议 | true(HTTPS) | false/true |
+| setServerProtocolHttps | 设置 HTTPS 或 HTTP 协议 | true(HTTPS) | false 或 true |
 | setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1~5 |
 | setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1~5 |
 | setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500~10000ms |
@@ -448,9 +434,9 @@ AudioRecognizeTemplate audioRecognizeTemplate = new AudioRecognizeTemplate(1,0,1
 ```
 **PcmAudioDataSource**
 
-用户可以实现这个接口来识别单通道、采样率 16k 的 PCM 音频数据。主要包括如下几个接口：
+用户可以实现这个接口来识别单通道、采样率16k的 PCM 音频数据。主要包括如下几个接口：
 
-- 向语音识别器添加数据，将长度为 length 的数据从下标 0 开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
+- 向语音识别器添加数据，将长度为 length 的数据从下标0开始复制到 audioPcmData 数组中，并返回实际的复制的数据量的长度。
 
 ```
 int read(short[] audioPcmData, int length);
@@ -476,8 +462,8 @@ PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音�
 
 **AudioFileDataSource**
 
-PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率 16k 的 PCM 音频数据的文件。
->**注意：**
+PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率16k的 PCM 音频数据的文件。
+>!
 其他格式的数据无法正确识别。
 
 
