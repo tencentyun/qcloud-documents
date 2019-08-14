@@ -9,7 +9,7 @@
 2. 在左侧导航栏，选择【实例管理】。
 3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/4530fc5bbb9beb4e9610156f6bda1eef.png)
+![](https://main.qcloudimg.com/raw/376f020caf12788e492e7f7300465ea8.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/f80a87e1954fa9aa14886409ffbb670d.png)
 
