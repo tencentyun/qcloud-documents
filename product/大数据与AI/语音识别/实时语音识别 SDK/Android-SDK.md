@@ -3,7 +3,7 @@
 实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
 
 ### 1.2 接入须知
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721)，了解接口的使用要求和使用步骤 。
++ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](product/大数据与AI/语音识别/实时语音识别 SDK/接口说明.md)，了解接口的使用要求和使用步骤 。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
 
 ### 1.3 开发环境
