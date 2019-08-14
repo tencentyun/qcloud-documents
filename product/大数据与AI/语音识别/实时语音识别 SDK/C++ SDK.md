@@ -1,7 +1,6 @@
 ## 1. 接入准备
 
 ### 1.1 SDK 获取
-
 实时语音识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_realtime_asr_sdk.tar.gz )。
 
 ### 1.2 接入须知
