@@ -69,7 +69,7 @@ chatLayout.setChatInfo(mChatInfo);
 
 ![](https://main.qcloudimg.com/raw/366686f4d8f1204ca58c28c27116a1a1.png)
 
-
+<ol><li>在任意`layout.xml`中设置布局：
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -84,7 +84,8 @@ chatLayout.setChatInfo(mChatInfo);
 </LinearLayout>
 ```
 
-然后在代码里面引用
+</li>
+<li>在代码中引用：
 
 ```java
 // 从布局文件中获取通讯录面板
@@ -92,3 +93,4 @@ ContactLayout contactLayout = findViewById(R.id.contact_layout);
 // 通讯录面板的默认UI和交互初始化
 contactLayout.initDefault();
 ```
+</li></ol>
