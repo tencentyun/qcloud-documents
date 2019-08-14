@@ -1,7 +1,7 @@
 
-## 头像修改
+## 修改头像
 
-### 默认头像图片
+### 修改默认头像图片
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。如果用户没有设置头像，则显示默认头像。
 - 群头像默认头像：		<img src="https://main.qcloudimg.com/raw/a81959993b0073329b7dd525cb1630a1.png"  style="margin:0;">
@@ -17,7 +17,7 @@ config.defaultGroupAvatarImage = [UIImage imageNamed:@"Your Image"];
 ```
 
 
-### 头像类型
+### 修改头像类型
 
 头像类型提供矩形直角头像、圆形头像和圆角头像三种可选类型，默认头像为矩形直角类型。
 
@@ -39,7 +39,7 @@ config.avatarCornerRadius = 5.f;
 ```
 
 
-## 聊天界面配置
+## 配置聊天界面
 
 聊天界面 View 的组合方式如下图所示：
 ![](https://main.qcloudimg.com/raw/391d26b927660d99eec807ec1fe84c3b.png)
@@ -53,9 +53,9 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ![](https://main.qcloudimg.com/raw/9067bc2de0cd428bdfc228b24b9dbcb8.png)
 
 
-### 消息配置
+### 配置消息
 
-#### 气泡图片
+#### 设置气泡图片
 
 气泡`Cell`显示的图片从`TUIBubbleMessageCellData`获取，该对象提供了类方法可以设置图片。
 
@@ -66,7 +66,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-#### 气泡边距
+#### 设置气泡边距
 
 在 TUIKit 中，文字和声音都会用气泡显示，`TUIMessageCellLayout`提供了类方法设置`bubbleInsets`。
 
@@ -76,7 +76,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-#### 消息字体和颜色
+#### 修改消息字体和颜色
 
 文字消息的数据来自于`TUITextMessageCellData`类，通过它的接口可以修改文字消息的字体和颜色。
 
@@ -87,11 +87,11 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-### 头像配置
+### 配置头像
 
 头像是所有消息都包含的内容，且属于`layout`配置，通过修改`TUIMessageCellLayout`可改变所有消息的头像样式。
 
-#### 头像大小
+#### 设置头像大小
 
 ```objectivec
 // 设置发送头像大小；设置接收的方法类似
@@ -99,7 +99,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-#### 头像位置
+#### 设置头像位置
 
 ```objectivec
 // 设置发送位置；设置接收的方法类似
@@ -107,12 +107,9 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-### 昵称配置
+### 配置昵称字体和颜色
 
-
-#### 昵称字体和颜色
-
-昵称位置和头像位置设置是方法类似，即修改`TUIMessageCellLayout`的相关属性。
+配置昵称字体和颜色与设置头像位置的方法类似，即修改`TUIMessageCellLayout`的相关属性。
 
 ```objectivec
 // 设置接收消息的昵称字体；设置发送的方法类似，但默认情况下不显示发送方的昵称
@@ -121,7 +118,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 
-## 更多菜单配置
+## 配置更多菜单
 
 单击输入框的"+"按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过`TUIChatController`的`moreMenus`属性可以配置更多菜单。
 本文以删除文件菜单为例，示例代码如下：
