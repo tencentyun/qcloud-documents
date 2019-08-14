@@ -60,6 +60,7 @@ try:
     # 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
     params = '{\"Module\":\"transaction\",\"Operation\": \"invoke\",\"ClusterId\" : \"251005746ctestenv\",\"Peers\":[{\"PeerName\":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"},{\"PeerName\": \"peer0.youtucorg.ctestenv\",\"OrgName\": \"youtucOrg\"},],\"ChannelName\" : \"pettyc1\",\"ChaincodeName\" : \"pettycc1\",\"FuncName\" : \"invoke\",\"Args\" : [\"b\",\"a\",\"25\"],\"AsyncFlag\" : 0}'
     req = models.InvokeRequest()
+    # 调用InvokeRequest的from_json_string方法，使用params初始化req对象
     req.from_json_string(params)
 
     # 通过client对象调用想要访问的接口，需要传入请求对象
