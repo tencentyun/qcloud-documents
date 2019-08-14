@@ -71,6 +71,7 @@ chatLayout.setChatInfo(mChatInfo);
 ![](https://main.qcloudimg.com/raw/366686f4d8f1204ca58c28c27116a1a1.png)
 
 <ol><li>在任意`layout.xml`中设置布局：
+    
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
