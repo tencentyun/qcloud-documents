@@ -1,18 +1,15 @@
 ## 1. 接入准备
-
 ### 1.1 SDK 获取
-
 实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://client-sdk-1255628450.cos.ap-shanghai.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
-
 
 ### 1.2 接入须知
 
 + 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为**iOS 9.0**及以上版本。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0** 及以上版本。
 
 ### 1.3 开发环境
 
-在工程` info.plist` 添加以下设置：
+在工程` info.plist`添加以下设置：
 
 + **设置 NSAppTransportSecurity 策略，添加如下内容：**
 
@@ -57,19 +54,15 @@
 ## 2. 快速接入
 
 ### 2.1 开发流程及接入示例
-
 下面分别介绍**使用内置录音器采集语音识别**和**调用者提供语音数据**接入流程和示例。
 
 #### 使用内置录音器采集语音识别示例
 
-1.**引入 QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
-
+1. **引入 QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
-
-2.**创建 QCloudConfig 实例**
-
+2. **创建 QCloudConfig 实例**
 ```objective-c
  //1.创建QCloudConfig实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
@@ -80,41 +73,30 @@
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-
-3.**创建 QCloudRealTimeRecognizer 实例** 
-
+3. **创建 QCloudRealTimeRecognizer 实例** 
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config];
 ```
-
-4.**设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
-
+4. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
 recognizer.delegate = self;
 ```
-
-5.**开始识别**
-
+5. **开始识别**
 ```objective-c
  [recognizer start];
 ```
-
-6.**结束识别**
-
+6. **结束识别**
 ```objective-c
  [recognizer stop];
 ```
 
 
 #### 调用者提供语音数据示例
-1.**引入  QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
-
+1. **引入  QCloudSDK 的头文件，将使用 QCloudSDK 的文件名后缀由 .m->.mm**
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 ```
-
-2.**创建 QCloudConfig 实例** 
-
+2. **创建 QCloudConfig 实例** 
 ```objective-c
  //1.创建QCloudConfig实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
@@ -125,33 +107,23 @@ recognizer.delegate = self;
  config.enableDetectVolume = YES;               //是否检测音量
  config.endRecognizeWhenDetectSilence = YES;    //是否检测到静音停止识别
 ```
-
-3.**自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
-
+3. **自定义 QCloudDemoAudioDataSource，QCloudDemoAudioDataSource 实现 [QCloudAudioDataSource](#QCloudAudioDataSource) 协议**
 ```objective-c
  QCloudDemoAudioDataSource *dataSource = [[QCloudDemoAudioDataSource alloc] init];
 ```
-
-4.**创建 QCloudRealTimeRecognizer 实例**
-
+4. **创建 QCloudRealTimeRecognizer 实例**
 ```objective-c
  QCloudRealTimeRecognizer *recognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
-
-5.**设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
-
+5. **设置 delegate，实现 [QCloudRealTimeRecognizerDelegate](#QCloudRealTimeRecognizerDelegate) 方法**
 ```objective-c
  recognizer.delegate = self;
 ```
-
-6.**开始识别** 
-
+6. **开始识别** 
 ```objective-c
  [recognizer start];
 ```
-
-7.**结束识别**
-
+7. **结束识别**
 ```objective-c
  [recognizer stop];
 ```
@@ -192,8 +164,6 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
                     secretKey:(NSString *)secretKey
                     projectId:(NSString *)projectId;
 ```
-
-
 
 
 **<div id="QCloudRealTimeRecognizerDelegate">QCloudRealTimeRecognizerDelegate方法说明</div>**
@@ -282,7 +252,7 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 @end
 ```
 
-**<div id="QCloudAudioDataSource">QCloudAudioDataSource协议说明</div>**
+**<div id="QCloudAudioDataSource">QCloudAudioDataSource 协议说明</div>**
 调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的 QDAudioDataSource 实现
 
 ```objective-c
