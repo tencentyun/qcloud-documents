@@ -6,17 +6,15 @@
 
 ### 1.2 接入须知
 
-开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 
 
 ### 1.3 开发环境
 
 **环境依赖**
-
 该接口需要满足 JDK1.8 及以上版本。
 
 **安装 SDK**
-
 + 本 SDK 文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中使用。    
 + 可以先浏览 docs 目录中的“压缩包目录结构说明.png”，了解该SDK的主要结构。   
 + Jar 包使用步骤举例如下：
@@ -57,11 +55,9 @@ this.voiceAddingTask = new VoiceAddingTask(this.receiverEntrance, voiceFile);
 
 ```
 this.voiceAddingTask.start();
-
 ```
 
 ### 2.2 主要接口方法说明
- 
 
 + **start**
 
@@ -91,7 +87,7 @@ public void registerReponseHandler(FlowHandler flowHandler) {
 /*
 ** 增加声音数据到缓存。
 ** @param content 字节数组
-** @return true表示成功。false表示添加失败，通常是因为调用太频繁，内存积压太多数据（暂定：超过1万条）未被发出造成。
+** @return true 表示成功。false 表示添加失败，通常是因为调用太频繁，内存积压太多数据（暂定：超过1万条）未被发出造成。
 */
 public boolean add(byte[] content) {
 	return this.receiverCache.add(content);
@@ -101,7 +97,7 @@ public boolean add(byte[] content) {
 ** 增加声音数据到缓存且标识当前这份数据是否为一句语音的结尾。
 ** @param content  字节数组
 ** @param endFlag  结束标记
-** @return true表示成功。false表示添加失败，通常是因为调用太频繁，内存积压太多数据（暂定：超过1万条）未被发出造成。
+** @return true 表示成功。false 表示添加失败，通常是因为调用太频繁，内存积压太多数据（暂定：超过1万条）未被发出造成。
 */
 public boolean add(byte[] content, boolean endFlag) {
 	return this.receiverCache.add(content, endFlag);
