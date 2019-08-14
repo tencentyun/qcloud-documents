@@ -6,7 +6,7 @@
 
 ## 集成说明
 
-TUIKit 支持 aar 集成、 module 源码和 gradle 接入三种集成方式。
+TUIKit 支持 gradle 接入、aar 集成和 module 源码三种集成方式。
 
 ### gradle 接入集成
 
