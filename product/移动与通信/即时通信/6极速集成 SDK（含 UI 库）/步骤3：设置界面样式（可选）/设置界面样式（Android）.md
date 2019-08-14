@@ -1,10 +1,10 @@
 
-## 会话列表
+## 设置会话列表
 会话列表 Layout 由**标题区 TitleBarLayout **与**列表区 ConversationListLayout **组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
 
 ![](https://main.qcloudimg.com/raw/80f6ff3ce199a4f8cf1c4daca232342b.png)
 
-### 标题区 TitleBarLayout
+### 修改标题区 TitleBarLayout 样式
 
 标题区除了本身作为 view 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
 ![](https://main.qcloudimg.com/raw/726ff20e1fa1990b97f3360060794e8a.png)
@@ -45,8 +45,8 @@ titleBarLayout.setOnRightClickListener(new View.OnClickListener() {
 });
 ```
 
-
-### 列表区 ConversationListLayout
+ 
+### 修改列表区 ConversationListLayout 样式
 
 列表区的自定义 layout 继承自 RecyclerView，登录后 TUIKit 会根据用户名从 SDK 读取该用户的会话列表。
 会话列表提供一些常用功能定制，例如，头像是否圆角、背景、字体大小、点击与长按事件等。示例代码如下：
@@ -109,7 +109,7 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 ```
 
 
-## 聊天窗口
+## 设置聊天窗口
 聊天窗口包含**标题区 TitleBarLayout **，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为**通知区 NoticeLayout **、**消息区 MessageLayout **和**输入区 InputLayout **，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/3da35d371b45cddb964641410958a564.png)
@@ -137,7 +137,7 @@ InputLayout getInputLayout();
 ```
 
 
-### 通知区域 NoticeLayout
+### 修改通知区域 NoticeLayout 样式
 ![](https://main.qcloudimg.com/raw/1143973f3cbdb22cbf9d861e3d53f8d8.png)
 
 通知区域由两个 TextView 组成，如下图所示：
@@ -161,7 +161,7 @@ noticeLayout.setOnNoticeClickListener(new View.OnClickListener() {
 });
 ```
 
-### 消息区域 MessageLayout
+### 修改消息区域 MessageLayout 样式
 
 
 MessageLayout 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IMessageProperties.html)。
@@ -180,7 +180,7 @@ messageLayout.setBackground(new ColorDrawable(0xB0E2FF00));
 ```
 
 
-#### 修改头像相关
+#### 修改头像相关属性
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。
 ![](https://main.qcloudimg.com/raw/e4357dd89e8e814166717300414ff8da.png)
@@ -306,7 +306,7 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 ```
 
 
-### 输入区域 InputLayout
+### 设置输入区域 InputLayout
 输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
 ![](https://main.qcloudimg.com/raw/402308d600b4a5a8de5bde8bb059b1bb.png)
 

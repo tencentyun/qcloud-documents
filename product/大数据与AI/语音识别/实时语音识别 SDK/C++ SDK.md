@@ -1,16 +1,13 @@
 ## 1. 接入准备
 
 ### 1.1 SDK 获取
-
 实时语音识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_realtime_asr_sdk.tar.gz )。
 
 ### 1.2 接入须知
-
-开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 
 ### 1.3 开发环境
 + **编译 Demo**，如失败需确认以下环境：
-
 ```
 //下载sdk
 tar -xzf c++_realtime_asr_sdk.tar.gz
@@ -21,18 +18,15 @@ make
 ```
 
 + **安装 gcc g++** 
-
 ```
-1.RedHat系列系统:
+1.RedHat 系列系统:
 yum install -y gcc gcc-c++ make automake
 //安装 gcc 等必备程序包（已安装则略过此步）
 yum install -y wget
-
 2.Debian系列系统：
 apt-get install gcc g++
 ```
 + **安装 CMake 工具**
-
 ```
 // cmake 版本要大于3.5
 wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
@@ -43,17 +37,15 @@ sudo make
 sudo make install
 ```
 + **依赖库安装及编译**
-
-客户需自行安装版本大于7.44.0的**curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
-
+客户需自行安装版本大于7.44.0的 **curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
 ```
 sudo ./configure
 sudo cmake ./
 sudo make
 sudo make install
 ```
-**openssl**
 
+**openssl**
 本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
 
 ```
@@ -70,7 +62,6 @@ sudo make install
 ```
 
 **speex**
-
 本 SDK 提供，目录为：c++\_realtime\_asr\_sdk/lib，如果不适合客户系统，自行安装方法：下载 [speex 源码](https://speex.org/downloads/)，解压进入源码目录并执行以下命令：
 
 ```
@@ -83,8 +74,7 @@ sudo make install
 
 ### 2.1 开发流程介绍
 **配置用户信息**
-
-+ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取AppID、SecretId、SecretKey信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 	```
 	#需要配置成用户账号信息 c++_record_asr_sdk/config/TCloudRecordASRConfig.ini

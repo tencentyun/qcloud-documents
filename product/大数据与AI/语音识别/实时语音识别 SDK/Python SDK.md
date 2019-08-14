@@ -1,39 +1,28 @@
 ## 1. 接入准备
 
 ### 1.1 SDK 获取
-
 实时语音识别 Python SDK 以及 Demo 的下载地址：[Python SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_realtime_asr_sdk.tar.gz)。
 
-
 ### 1.2 接入须知
-
-开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
-
+开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 
 ### 1.3 开发环境
 **环境依赖**
-
-该接口目前仅支持 Python 2.7 版本，后续会支持Python 3。
+该接口目前仅支持 Python 2.7 版本，后续会支持 Python 3。
 
 **安装 requests**
-
 + 方法1：pip install requests 。
 + 方法2：先下载[ requests](https://2.python-requests.org//zh_CN/latest/user/install.html#install)，然后进入下载目录执行：python setup.py install 。
 
-
-
 ## 2. 快速接入
-1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取AppID、SecretId、SecretKey，并将```Python_realtime_asr_sdk/src/Config.py```中的配置项按需改成自己的值。
-
+1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 并将```Python_realtime_asr_sdk/src/Config.py```中的配置项按需改成自己的值。
 2. 参考 ```Python_realtime_asr_sdk/src/RasrClient.py``` 接入： 
 
 ```
-# 说明：请先将Config.py中的配置项按需改成自己的值，然后再开始使用。
-
+# 说明：请先将 Config.py 中的配置项按需改成自己的值，然后再开始使用。
 import RASRsdk
 import os
 import Config
-
 # ----------------------------- 调用方法1 -----------------------------
 # 音频文件路径
 filepath = "../../test_wavs/8k.wav"
@@ -42,7 +31,7 @@ result = RASRsdk.sendVoice(filepath, True)
 print("Final result: " + result)
 
 # ---------------------------------------------------------------------
-# 若需中途调整参数值，可直接修改，然后继续发请求即可。比如：
+# 若需中途调整参数值，可直接修改，然后继续发请求即可。例如：
 Config.config.ENGINE_MODEL_TYPE = '8k_0'
 
 # ----------------------------- 调用方法2 -----------------------------
