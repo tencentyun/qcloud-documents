@@ -1,11 +1,11 @@
 ## 1. 接入准备
 ### 1.1 SDK 获取
 录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.tar.gz)。
-
 ### 1.2 接入须知
-开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 ### 1.3 开发环境
 + **编译 Demo**，如失败需确认以下环境：
+
 ```
 //下载sdk
 tar -xzf c++_record_asr_sdk.tar.gz
@@ -15,6 +15,7 @@ make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ```
 + **安装 gcc、g++**   
+
 ```
 1.RedHat系列系统:
 yum install -y gcc gcc-c++ make automake
@@ -25,6 +26,7 @@ yum install -y wget
 apt-get install gcc g++
 ```
 + **安装 CMake 工具**
+
 ```
 // cmake 版本要大于3.5
 wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
@@ -34,7 +36,8 @@ sudo ./bootstrap --prefix=/usr
 sudo make
 sudo make install
 ```
-+ **依赖库安装及编译**
+
++ + **依赖库安装及编译**
 客户需自行安装版本大于7.44.0的**curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
 	
 ```
@@ -44,12 +47,13 @@ sudo make
 sudo make install
 ```
 + **openssl**
+
 本 SDK 会提供，目录为：c++\_record\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载地址: [wget 源码](http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 。
 	
 ```
 1.更新zlib
-RedHat系列:yum install -y zlib
-Debian系列:sudo apt-get install zlib1g zlib1g.dev
+RedHat 系列:yum install -y zlib
+Debian 系列:sudo apt-get install zlib1g zlib1g.dev
 2.安装
 tar zxf openssl-1.0.2f.tar.gz
 cd openssl-1.0.2f
@@ -64,26 +68,26 @@ sudo make install
 **配置用户信息**
 + 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
-	```
-	#需要配置成用户账号信息 c++_realtime_asr_sdk/config/TCloudRealtimeASRConfig.ini
-	[tcloud_config]
-	#用户Appid
-	appid=1256******* 
-	#用户SecretId
-	secretid=AKID****************************
-	#用户SecretKey，此处若担心存在密钥泄露风险，可在调用接口中传入，参考下面的“设置用户密钥”
-	secretkey=670m***************************
-	#需要配置成用户实际的参数，参见接口说明中的请求 URL 参数说明
-	[tcloud_asr]
-	projectid=0
-	sub_service_type=0
-	engine_model_type=16k_0
-	callback_url=http://www.qq.com
-	source_type=0
-	channel_num=1
-	res_text_format=0
-	res_type=0
-	```
+```
+#需要配置成用户账号信息 c++_realtime_asr_sdk/config/TCloudRealtimeASRConfig.ini
+[tcloud_config]
+#用户Appid
+appid=1256******* 
+#用户SecretId
+secretid=AKID****************************
+#用户 SecretKey，此处若担心存在密钥泄露风险，可在调用接口中传入，参考下面的“设置用户密钥”
+secretkey=670m***************************
+#需要配置成用户实际的参数，参见接口说明中的请求 URL 参数说明
+[tcloud_asr]
+projectid=0
+sub_service_type=0
+engine_model_type=16k_0
+callback_url=http://www.qq.com
+source_type=0
+channel_num=1
+res_text_format=0
+res_type=0
+```
 
 **初始化请求参数**  
 + 调用 Init 接口初始化请求参数。  
@@ -160,8 +164,8 @@ int SetData(char* pPCMData, int length);
 
 ```
 /* 
-** 设置可以获取音频的URL
-** strAudioURL 音频url
+** 设置可以获取音频的 URL
+** strAudioURL 音频 URL
 ** Output int 返回结果
 */
 int SetUrl(string strAudioURL);
