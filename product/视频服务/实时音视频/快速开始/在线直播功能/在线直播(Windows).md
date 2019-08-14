@@ -259,7 +259,7 @@ public void createRoom()
     @params.role     = TRTCRoleAnchor; //主播
     if(mTRTCCloud != null)
     {
-    	mTRTCCloud.enterRoom(@params, TRTCAppSceneVideoCall);
+    	mTRTCCloud.enterRoom(@params, TRTCAppSceneLIVE);
     }
 }
 
@@ -325,7 +325,7 @@ public void startPlaying()
     @params.role     = TRTCRoleAudience; //观众
     if(mTRTCCloud != null)
     {
-    	mTRTCCloud.enterRoom(@params, TRTCAppSceneVideoCall);
+    	mTRTCCloud.enterRoom(@params, TRTCAppSceneLIVE);
     }
 }
 ```

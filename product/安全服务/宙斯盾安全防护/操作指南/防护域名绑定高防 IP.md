@@ -24,5 +24,5 @@ BGP 线路优先开关开启时，若有绑定 BGP 线路 IP，则防护域名�
 4. **主域名 CNAME 到防护域名**
 线路解析开启后，业务主域名可通过 CNAME 到防护域名，智能解析到高防 IP。
 ![](https://main.qcloudimg.com/raw/93aa86de5e043c32a2dfde4923d9a4a1.png)
-用户验证，比如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
+用户验证，例如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
 ![](https://main.qcloudimg.com/raw/8f99c54ec818af753f277c67d8b12324.png)

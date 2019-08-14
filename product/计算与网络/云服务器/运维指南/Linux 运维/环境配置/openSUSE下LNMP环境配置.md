@@ -1,6 +1,6 @@
 ## 操作场景
 LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE42.3 下的 LNMP 环境搭建。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047) 。
+本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047)。
 LNMP 组成及使用版本说明：
 - Linux：Linux 系统，本文使用 openSUSE42.3
 - Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.14.2
@@ -9,12 +9,13 @@ LNMP 组成及使用版本说明：
 
 ## 操作步骤
 ### 配置镜像源
-1. 执行以下命令，添加镜像源。
+1. 登录云服务器。
+2. 执行以下命令，添加镜像源。
 ```
 zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/oss suseOss
 zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo/non-oss suseNonOss
 ```
-2. 执行以下命令，更新镜像源。
+3. 执行以下命令，更新镜像源。
 ```
 zypper ref
 ```
@@ -24,7 +25,7 @@ zypper ref
 ``` 
 zypper install -y nginx
 ```
-2. 执行以下命令，启动 Nginx 服务，并设置为开机自启动。
+2. 依次执行以下命令，启动 Nginx 服务并设置为开机自启动。
 ```
 systemctl start nginx
 systemctl enable nginx
@@ -86,14 +87,14 @@ vi /srv/www/htdocs/index.html
 ```
 zypper install -y mysql-community-server mysql-community-server-tools
 ```
-2. 执行以下命令，启动 MySQL 服务并设置为开机自启动。
+2. 依次执行以下命令，启动 MySQL 服务并设置为开机自启动。
 ```
 systemctl start mysql 
 systemctl enable mysql
 ```
 
 3. 执行以下命令，首次登录 MySQL。
->? 首次登录 MySQL 当系统提示输入密码时，不进行输入密码操作，直接按下 “**Enter**” 即可进入。
+>? 首次登录 MySQL 时，系统将提示输入密码，若不进行输入密码的操作，可直接按 “**Enter**” 进入 MySQL。
 >
 ```
 mysql -u root -p
@@ -130,7 +131,7 @@ cp php-fpm.conf.default php-fpm.conf
 cd /etc/php7/fpm/php-fpm.d
 cp www.conf.default www.conf
 ```
-4. 执行以下命令，启动服务并设置为开机自启动。
+4. 依次执行以下命令，启动服务并设置为开机自启动。
 ```
 systemctl start php-fpm
 systemctl enable php-fpm
