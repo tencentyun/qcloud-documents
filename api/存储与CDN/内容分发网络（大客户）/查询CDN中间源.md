@@ -38,7 +38,7 @@ Action=GetCdnMiddleSourceList
 
 ### POST 请求
 
-POST请求时，参数填充在 HTTP Request-body 中，请求地址：
+POST 请求时，参数填充在 HTTP Request-body 中，请求地址：
 
 ```
 https://cdn.api.qcloud.com/v2/index.php
