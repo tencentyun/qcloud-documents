@@ -68,7 +68,11 @@ messageLayout.setOnCustomMessageDrawListener(new CustomMessageDraw());
 
 ### 示例代码
 
-`CustomMessageDraw`实现了`IOnCustomMessageDrawListener`，并且在`onDraw`里完成了自定义消息的解析以及 View 的创建，示例代码将呈现一个完整的`CustomMessageDraw`实现：
+下列示例代码将呈现一个完整的`CustomMessageDraw`实现过程：
+1. 在`CustomMessageDraw`中实现`IOnCustomMessageDrawListener`。
+2. 在`onDraw`中解析自定义消息、创建 View 并显示消息。
+
+您也可以直接 [下载](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/helper/ChatLayoutHelper.java) 完整的 Demo。
 ```java
 public static class CustomMessageDraw implements IOnCustomMessageDrawListener {
 
