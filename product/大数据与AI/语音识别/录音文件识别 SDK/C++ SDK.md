@@ -1,17 +1,11 @@
 ## 1. 接入准备
-
 ### 1.1 SDK 获取
-
 录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.tar.gz)。
 
-
 ### 1.2 接入须知
-
 开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
-
 ### 1.3 开发环境
 + **编译 Demo**，如失败需确认以下环境：
-
 ```
 //下载sdk
 tar -xzf c++_record_asr_sdk.tar.gz
@@ -20,9 +14,7 @@ make clean
 make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ```
-
 + **安装 gcc、g++**   
-
 ```
 1.RedHat系列系统:
 yum install -y gcc gcc-c++ make automake
@@ -32,9 +24,7 @@ yum install -y wget
 2.Debian系列系统：
 apt-get install gcc g++
 ```
-
 + **安装 CMake 工具**
-
 ```
 // cmake 版本要大于3.5
 wget https://cmake.org/files/v3.5/cmake-3.5.2.tar.gz
@@ -45,7 +35,6 @@ sudo make
 sudo make install
 ```
 + **依赖库安装及编译**
- 
 客户需自行安装版本大于7.44.0的**curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
 	
 ```
@@ -55,7 +44,6 @@ sudo make
 sudo make install
 ```
 + **openssl**
-
 本 SDK 会提供，目录为：c++\_record\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载地址: [wget 源码](http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 。
 	
 ```
@@ -74,8 +62,7 @@ sudo make install
 ## 2. 快速接入
 ### 2.1 开发流程介绍
 **配置用户信息**
-
-+ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取AppID、SecretId、SecretKey信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 	```
 	#需要配置成用户账号信息 c++_realtime_asr_sdk/config/TCloudRealtimeASRConfig.ini
@@ -99,17 +86,14 @@ sudo make install
 	```
 
 **初始化请求参数**  
-
 + 调用 Init 接口初始化请求参数。  
 + 参考接口 [TCloudRecordASR::Init](#init)。
 
-**设置用户密钥**  
-  
+**设置用户密钥**    
 + 调用 SetSecretKey 接口设置密钥。  
 + 参考接口 [TCloudRecordASR::SetSecretKey](#SetSecretKey)。
 
 **传入音频获取结果**  
- 
 + **方法一：传入音频 URL(建议使用)**  
 调用 SetUrl 接口获取结果，对应参数设置为 url 模式。
 参考接口 [TCloudRecordASR::SetUrl](#setdata)。   
@@ -118,7 +102,6 @@ sudo make install
 参考接口 [TCloudRecordASR::SetData](#seturl) 与 [TCloudRecordASR::SetFile](#setfile)。
 
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
-
 
 ### 2.2 主要接口方法说明
  
@@ -220,16 +203,12 @@ bool Encode(const char* inputBuffer, int inputSize, string& strRsp);
 ```
 
 **请求 demo**
-
 ```
 make
 ./run.sh
 ```
-
-
 ### 2.3 入门示例
 参考 c++\_record\_asr\_sdk/src/demo.cpp  
-
 ```
 int RunReacordASR()
 {
