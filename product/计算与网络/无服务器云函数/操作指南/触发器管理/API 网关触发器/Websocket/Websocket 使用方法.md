@@ -11,7 +11,7 @@
 
 ### 注册函数
 
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf)。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
 2. 在左侧导航栏中，选择【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入函数服务管理页面。
 3. 单击【新建】按钮，选择 “空白函数”，定义函数名称，创建函数。例如，创建了一个名称为 Register 的空白函数。
 4. 在 Register 的空白函数中，选择 “函数代码” 页签，并将以下代码拷贝至在线编辑框中。以下函数代码可以保持为默认配置。
@@ -59,7 +59,7 @@ def main_handler(event, context):
 
 ### 传输函数
 
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf)。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
 2. 在左侧导航栏中，选择【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入函数服务管理页面。
 3. 单击【新建】按钮，选择 “空白函数”，定义函数名称，创建函数。例如，创建了一个名称为 Transmission 的空白函数。
 4. 在 Transmission 的空白函数中，选择 “函数代码” 页签，并将以下代码拷贝至在线编辑框中。以下函数代码可以保持为默认配置。
@@ -98,7 +98,7 @@ def main_handler(event, context):
 
 ### 清理函数
 
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf)。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
 2. 在左侧导航栏中，选择【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入函数服务管理页面。
 3. 单击【新建】按钮，选择 “空白函数”，定义函数名称，创建函数。例如，创建了一个名称为 Delete 的空白函数。
 4. 在 Delete 的空白函数中，选择 “函数代码” 页签，并将以下代码拷贝至在线编辑框中。以下函数代码可以保持为默认配置。
