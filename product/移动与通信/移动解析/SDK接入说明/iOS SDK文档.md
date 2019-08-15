@@ -1,9 +1,11 @@
 ## 功能介绍
+
 HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS 解析导致的无法访问最佳接入点的方案。原理是使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 您可以通过以下方式获取智营解析 iOS SDK：
 [从 Github 获取最新版本SDK >>](https://github.com/tencentyun/httpdns-ios-sdk)
 
 ## 安装包结构
+
 压缩文件中包含 demo 工程，其中包含：
 
 | **demo 内容** | **说明** | 
@@ -45,6 +47,7 @@ NSString * appkey = @"业务的灯塔appkey（即申请时获取到 appid），�
 >!请在 Other linker flag 里加入 -ObjC 标志。
 
 ## API 及使用示例
+
 获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。返回格式的详细说明如下：
 - [IPv4, 0]：一般业务使用的情景中，绝大部分均会返回这种格式的结果，即不存在 IPv6 地址，仅返回 IPv4 地址给业务；
 - [IPv4, IPv6]：发生在 IPv6 环境下，IPv6 及 IPv4 地址均会返回给业务；
@@ -154,24 +157,25 @@ if (result) {
 ```
 
 ## 注意事项
+
 1. 如果客户端的业务已与 Host 绑定，例如绑定了 Host 的 HTTP 服务或 CDN 的服务，那么在用 HttpDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定 HTTP 头的 Host 字段。
  - 以 NSURLConnection 为例：
-     ```
+ ```
      NSURL* httpDnsURL = [NSURL URLWithString:@”使用解析结果 IP 拼接的URL”];
      float timeOut = 设置的超时时间;
      NSMutableURLRequest* mutableReq = [NSMutableURLRequest requestWithURL:httpDnsURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval: timeOut];
      [mutableReq setValue:@"原域名" forHTTPHeaderField:@"host"];
      NSURLConnection* connection = [[NSURLConnection alloc] initWithRequest:mutableReq delegate:self];
      [connection start];
-     ```
+```
  - 以 curl 为例：
      假设您要访问 www.qq.com，通过 HttpDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可：
      ```
      curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
-     ```
+```
   - 以 Unity 的 WWW 接口为例：
-     ```
-     string httpDnsURL = "使用解析结果IP拼接的URL";
+  ```
+		 string httpDnsURL = "使用解析结果IP拼接的URL";
      Dictionary<string, string> headers = new Dictionary<string, string> ();
      headers["host"] = "原域名";
      WWW conn = new WWW (url, null, headers);
@@ -183,10 +187,10 @@ if (result) {
      {  
      	print("request ok" + conn.text); 
      }  
-     ```
+```
 2. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HttpDNS 做域名解析。
    - 检测是否使用了 HTTP 代理：
-     ```
+ ```
      - (BOOL)isUseHTTPProxy {
      	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
      	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
@@ -197,9 +201,9 @@ if (result) {
      		return NO;
      	}
      }
-     ```
+```
    - 检测是否使用了 HTTPS 代理：
-     ```
+```
      - (BOOL)isUseHTTPSProxy {
      CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
      const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPSProxy);
@@ -210,18 +214,19 @@ if (result) {
      	return NO;
      }
      }
-     ```
+```
 
 ## 实践场景
+
 ### Unity 工程接入
 1. 将 HTTPDNSUnityDemo/Assets/Plugins/Scripts 下的 **HttpDns.cs** 文件拷贝到 Unity 对应 Assets/Plugins/Scripts 路径下。
-2. 在需要进行域名解析的部分，调用 **HttpDns.GetAddrByName(string domain)** 或者 **HttpDns.GetAddrByNameAsync(string domain)** 方法。
- - 若使用同步接口 **HttpDns.GetAddrByName**，直接调用接口即可；
- - 若使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。并建议添加下面的 [代码](#code)。
+2. 在需要进行域名解析的部分，调用 **HttpDns.GetAddrByName(string domain)** 或 **HttpDns.GetAddrByNameAsync(string domain)** 方法。
+  - 若使用同步接口 **HttpDns.GetAddrByName**，直接调用接口即可。
+  - 若使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。并建议添加下面的 [代码](#code)。
 3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库。
 4. 将 HTTPDNSUnityDemo 下的 MSDKDnsUnityManager.h 及 MSDKDnsUnityManager.mm 文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致。如下图所示：
  ![](https://main.qcloudimg.com/raw/4f24e4c6cca796fd93751ca30255fa51.png)
-![](https://main.qcloudimg.com/raw/91050cb9cbfb7199fae6a4b27e04fa09.png)
+ ![](https://main.qcloudimg.com/raw/91050cb9cbfb7199fae6a4b27e04fa09.png)
 5. 按照所需接口调用即可。
 <a id="code"></a>
 **建议添加的代码：**   
@@ -243,10 +248,10 @@ if (sArray != null && sArray.Length > 1) {
 ```
 
 ### 普通 HTTPS 场景（非 SNI）
-原理：在进行证书校验时，将ip替换成原来的域名，再进行证书验证。
+原理：在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
 Demo 示例：
 1. 以 NSURLConnection 接口为例，实现以下两个方法：
-   ```
+  ```
    - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
    {
    /*
@@ -312,10 +317,9 @@ Demo 示例：
    [[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
    }
    }
-   ```
-
+```
 2. 以 NSURLSession 接口为例，实现以下两个方法：
-   ```
+ ```
    - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain        
    {
    /*
@@ -372,19 +376,19 @@ Demo 示例：
    // 对于其他的challenges直接使用默认的验证方案
    completionHandler(disposition,credential);
    }
-   ```
+```
 
 3. 以 Unity 的 WWW 接口为例：
 将 Unity 工程导为 Xcode 工程后，打开 Classes/Unity/WWWConnection.mm 文件，将下述代码：
-   ```
-   //const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
+  ```
+		//const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
    const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
-   ```
+```
 修改为：
-   ```
+ ```
    const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
    //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
-   ```
+```
 	 
 ### HTTPS SNI（单 IP 多 HTTPS 证书）场景
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
@@ -400,7 +404,7 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 具体示例参见 Demo，部分代码如下：
 >?在网络请求前注册 NSURLProtocol 子类，在示例的 SNIViewController.m 中。
 >
-   ```
+  ```
    // 注册拦截请求的NSURLProtocol
    [NSURLProtocol registerClass:[MSDKDnsHttpMessageTools class]];
    
@@ -452,7 +456,7 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
    // NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
    // NSURLSessionTask *task = [session dataTaskWithRequest:_request];
    // [task resume];
-   ```
+```
 
 #### 使用说明：
 需调用以下接口来设置需要拦截域名或无需拦截的域名：
