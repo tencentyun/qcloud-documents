@@ -8,37 +8,6 @@
 标题区除了本身作为 View 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
 ![标题区结构](https://main.qcloudimg.com/raw/832fd209cbc6061b47ff5434740b210c.png)
 
-<table>
-     <tr>
-         <td width="40%" align="center" colspan="2">LeftGroup</td>  
-         <td width="20%" align="center" rowspan="2">文本</td>  
-         <td align="center" colspan="2">RightGroup</td>  
-     </tr>
-	 <tr>
-	     <td>文本</td>   
-	     <td>图片</td>   
-	     <td>文本</td>   
-	     <td>图片</td>   
-     </tr> 
-</table>
-
-<table border="0">
-     <tr>
-         <td width="30%" align="center" colspan="2">LeftGroup</td>  
-         <td width="5%" align="center" rowspan="2"></td>  
-         <td width="30%" align="center" rowspan="2">文本</td>  
-         <td width="5%" align="center" rowspan="2"></td>  
-         <td align="center" colspan="2">RightGroup</td>  
-     </tr>
-	 <tr>
-	     <td>文本</td>   
-	     <td>图片</td>   
-	     <td>文本</td>   
-	     <td>图片</td>   
-     </tr> 
-</table>
-
-
 您可以参考 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
 例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
 
