@@ -6,7 +6,7 @@ Tencentserverless 是腾讯云无服务器云函数 SDK，集成云函数业务�
 Tencentserverless SDK 的功能特性可分为以下几点：
 
 * 高性能，低时延的进行函数调用和访问。
-* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数如 region，secretId 等）。
+* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，secretId 等）。
 * 支持内网域名的访问。
 * 支持 keepalive 能力。
 * 支持跨地域函数调用。
@@ -152,7 +152,7 @@ main_handler("","")
 ```
 >?Secret-id 及 secret-key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
 >
-3. 进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果：
+3. 进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果。
 ```shell
 python PythonInvokeTest.py
 ```
@@ -250,7 +250,7 @@ prepare to invoke a function!
 - [**response**]
 - [**stack_trace**]
 
-**方法：**
+**方法及描述：**
 
 | 方法名 | 描述 |
 |---------|---------|
