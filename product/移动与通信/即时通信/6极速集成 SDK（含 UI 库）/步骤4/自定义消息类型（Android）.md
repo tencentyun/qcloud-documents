@@ -5,7 +5,7 @@ TUIKit 已经在内部完成了基本消息的渲染工作，您可以很简单�
 TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.html)。
 <table>
      <tr>
-         <th width="40%" style="text-align:center">消息类型</th>  
+         <th width="30%" style="text-align:center">消息类型</th>  
          <th style="text-align:center">显示效果图</th>  
      </tr>
 	 <tr>      
