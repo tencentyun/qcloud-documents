@@ -147,7 +147,7 @@ new Thread(new Runnable() {
 ### 主要接口类和方法说明
 
 #### 计算签名
-调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用上层不用关心 source 来源。
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用，上层不用关心 source 来源。
 
 + **计算签名函数如下：**
 
@@ -202,11 +202,11 @@ aaiClient.release();
 | 方法 | 方法描述 | 默认值 | 有效范围 |
 |---------|---------|---------|---------|
 | setServerProtocolHttps | 设置 HTTPS 或 HTTP 协议 | true(HTTPS) | false 或 true |
-| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1~5 |
-| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1~5 |
-| setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500~10000ms |
-| setAudioRecognizeConnectTimeout | HTTP 连接超时时间 | 5000ms | 500~10000ms |
-| setAudioRecognizeWriteTimeout | HTTP 写超时时间 | 5000ms | 500~10000ms |
+| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1 - 5 |
+| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1 - 5 |
+| setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500 - 10000ms |
+| setAudioRecognizeConnectTimeout | HTTP 连接超时时间 | 5000ms | 500 - 10000ms |
+| setAudioRecognizeWriteTimeout | HTTP 写超时时间 | 5000ms | 500 - 10000ms |
 
 
 **示例：**
@@ -231,7 +231,7 @@ void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, 
 |---------|---------|---------|
 | request | AudioRecognizeRequest | 语音识别请求 |
 | result | AudioRecognizeResult | 语音分片的语音识别结果 |
-| order | int | 该语音分片所在语音流的次序 |
+| order | Int | 该语音分片所在语音流的次序 |
 
 - 语音流的语音识别结果回调接口
 
@@ -243,7 +243,7 @@ void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result
 |---------|---------|---------|
 | request | AudioRecognizeRequest | 语音识别请求 |
 | result | AudioRecognizeResult | 语音分片的语音识别结果 |
-| order | int | 该语音流的次序 |
+| order | Int | 该语音流的次序 |
 
 - 返回所有的识别结果
 
@@ -283,7 +283,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | maxAudioFlowSilenceTime | Int | 否 | 语音终点超时时间 | 10000ms |
 | maxAudioStartSilenceTime | Int | 否 | 语音起点超时时间 | 2000ms |
 | minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
-| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1~5) | 3 |
+| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
 
 **示例：**
 
