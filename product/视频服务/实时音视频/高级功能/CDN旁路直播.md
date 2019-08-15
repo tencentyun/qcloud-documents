@@ -51,7 +51,7 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 
 我们通过如下例子来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
-例如，bizid = 8888，进行旁路直播的房间号 = 12345、用户名 = userA、用户当前使用了摄像头。
+例如，bizid = 8888，进行旁路直播的房间号 = 12345、用户名 = userA，用户当前使用了摄像头。
 
 1. 以此计算 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
 2. 按规则将 bizid 与 streamid 进行拼接，则 userA 这一路的腾讯云 CDN 观看地址为：
