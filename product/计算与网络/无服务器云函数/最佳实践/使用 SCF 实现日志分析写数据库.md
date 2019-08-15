@@ -1,5 +1,5 @@
 ## 操作场景
-在本文档示例中，我们用到了无服务器云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
+在本文档示例中，我们用到了云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
 
 ## 操作步骤
 <span id="step01"></span>
@@ -14,7 +14,7 @@
 
 <span id="step03"></span>
 ### 创建云函数 SCF
-1. 登录[【无服务器云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
+1. 登录[【云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
 2. 选择**北京**地域，单击【新建】，进入新建函数页面。
 3. 填写以下参数信息，单击【下一步】。如下图所示：
  - 创建方式：选择 “模板函数”。
