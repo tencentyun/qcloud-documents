@@ -1,13 +1,13 @@
-## 1. 接入准备
-### 1.1 SDK 获取
+##  接入准备
+###  SDK 获取
 实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://client-sdk-1255628450.cos.ap-shanghai.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
-### 1.2 接入须知
+###  接入须知
 
 + 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0** 及以上版本。
 
-### 1.3 开发环境
+###  开发环境
 
 在工程` info.plist`添加以下设置：
 + **设置 NSAppTransportSecurity 策略，添加如下内容：**
@@ -47,9 +47,9 @@
 添加完后如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
-## 2. 快速接入
+##  快速接入
 
-### 2.1 开发流程及接入示例
+### 开发流程及接入示例
 下面分别介绍**使用内置录音器采集语音识别**和**调用者提供语音数据**接入流程和示例。
 
 #### 使用内置录音器采集语音识别示例
@@ -124,7 +124,7 @@ recognizer.delegate = self;
  [recognizer stop];
 ```
 
-### 2.2 主要接口类说明
+### 主要接口类说明
 
 **QCloudRealTimeRecognizer 初始化说明**
 QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法。
