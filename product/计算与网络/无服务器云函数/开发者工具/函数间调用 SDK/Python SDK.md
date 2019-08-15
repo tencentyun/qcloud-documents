@@ -1,6 +1,6 @@
 
 ## Tencentserverless SDK 简介
-Tencentserverless 是腾讯云无服务器云函数 SDK，集成云函数业务流接口，简化云函数的调用方法。在使用该 SDK 的情况下，用户可以方便的从本地、云服务器（CVM）、容器、以及云端函数里快速调用某一个云函数，无需再进行公有云 API 的接口封装。
+Tencentserverless 是腾讯云云函数 SDK，集成云函数业务流接口，简化云函数的调用方法。在使用该 SDK 的情况下，用户可以方便的从本地、云服务器（CVM）、容器、以及云端函数里快速调用某一个云函数，无需再进行公有云 API 的接口封装。
 
 ## 功能特性
 Tencentserverless SDK 的功能特性可分为以下几点：
