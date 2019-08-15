@@ -22,6 +22,22 @@
      </tr> 
 </table>
 
+<table border="0">
+     <tr>
+         <td width="30%" align="center" colspan="2">LeftGroup</td>  
+         <td width="5%" align="center" rowspan="2"></td>  
+         <td width="30%" align="center" rowspan="2">文本</td>  
+         <td width="5%" align="center" rowspan="2"></td>  
+         <td align="center" colspan="2">RightGroup</td>  
+     </tr>
+	 <tr>
+	     <td>文本</td>   
+	     <td>图片</td>   
+	     <td>文本</td>   
+	     <td>图片</td>   
+     </tr> 
+</table>
+
 
 您可以参考 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
 例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
