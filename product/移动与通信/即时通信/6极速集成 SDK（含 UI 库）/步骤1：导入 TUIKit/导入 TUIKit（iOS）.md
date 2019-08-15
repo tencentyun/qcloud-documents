@@ -27,10 +27,11 @@ pod update
 
 1. 在`Framework Search Path`中加上 ImSDK 的文件路径，手动地将`TUIKit`和`ImSDK`目录添加到您的工程。
 2. 手动将 TUIKit 使用的第三方库添加到您的工程：
- - [MMLayout](https://github.com/annidy/MMLayou)
+ - [MMLayout](https://github.com/annidy/MMLayout)
  - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
  - [ReactiveObjC](https://github.com/ReactiveCocoa/ReactiveObjC.git)
  - [Toast](https://github.com/scalessec/Toast)
+ - [ISVImageScrollView](https://github.com/yuriiik/ISVImageScrollView)
 
 ## 引用 TUIKit
 
