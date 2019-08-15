@@ -4,7 +4,7 @@
 ### 修改默认头像图片
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。如果用户没有设置头像，则显示默认头像。
-- 群头像默认头像：		<img src="https://main.qcloudimg.com/raw/a81959993b0073329b7dd525cb1630a1.png"  style="margin:0;">
+- 群头像默认头像：<img src="https://main.qcloudimg.com/raw/a81959993b0073329b7dd525cb1630a1.png"  style="margin:0;">
 - 个人默认头像：<img src="https://main.qcloudimg.com/raw/9ff8053cf27137b523633026c0a9f5e4.png"  style="margin:0;">
 
 您可以自定义默认头像的图片。
@@ -57,7 +57,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 #### 设置气泡图片
 
-气泡`Cell`显示的图片从`TUIBubbleMessageCellData`获取，该对象提供了类方法可以设置图片。
+气泡 Cell 显示的图片从 TUIBubbleMessageCellData 获取，该对象提供了类方法可以设置图片。
 
 ```objectivec
 // 设置发送气泡，包括普通状态和选中状态；设置接收的方法类似
@@ -68,7 +68,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 #### 设置气泡边距
 
-在 TUIKit 中，文字和声音都会用气泡显示，`TUIMessageCellLayout`提供了类方法设置`bubbleInsets`。
+在 TUIKit 中，文字和声音都会用气泡显示，TUIMessageCellLayout 提供了类方法设置 bubbleInsets。
 
 ```objectivec
 // 设置发送气泡边距；设置接收的方法类似
@@ -78,7 +78,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 #### 修改消息字体和颜色
 
-文字消息的数据来自于`TUITextMessageCellData`类，通过它的接口可以修改文字消息的字体和颜色。
+文字消息的数据来自于 TUITextMessageCellData 类，通过它的接口可以修改文字消息的字体和颜色。
 
 ```objectivec
 // 设置发送文字消息的字体和颜色；设置接收的方法类似
@@ -89,7 +89,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ### 配置头像
 
-头像是所有消息都包含的内容，且属于`layout`配置，通过修改`TUIMessageCellLayout`可改变所有消息的头像样式。
+头像是所有消息都包含的内容，且属于 layout 配置，通过修改 TUIMessageCellLayout 可改变所有消息的头像样式。
 
 #### 设置头像大小
 
@@ -109,7 +109,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ### 配置昵称字体和颜色
 
-配置昵称字体和颜色与设置头像位置的方法类似，即修改`TUIMessageCellLayout`的相关属性。
+配置昵称字体和颜色与设置头像位置的方法类似，即修改 TUIMessageCellLayout 的相关属性。
 
 ```objectivec
 // 设置接收消息的昵称字体；设置发送的方法类似，但默认情况下不显示发送方的昵称
@@ -120,7 +120,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ## 配置更多菜单
 
-单击输入框的"+"按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过`TUIChatController`的`moreMenus`属性可以配置更多菜单。
+单击输入框的"+"按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
 本文以删除文件菜单为例，示例代码如下：
 
 ```objectivec
@@ -132,7 +132,7 @@ vc.moreMenus = array; // 重新设置属性，立即生效
 显示效果如下图所示：
 ![](https://main.qcloudimg.com/raw/19a34761f49c2ffc48e6452f0c1892a6.jpg)
 
-当用户单击菜单中的按钮时，`TUIChatController`会通过回调事件通知上层。
+当用户单击菜单中的按钮时，TUIChatController 会通过回调事件通知上层。
 >?用户单击默认菜单时，也会有回调通知，您可以不作处理。
 
 
