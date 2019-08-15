@@ -1,6 +1,6 @@
 
 ## 设置会话列表
-会话列表 Layout 由**标题区 TitleBarLayout **与**列表区 ConversationListLayout **组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
+会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
 
 ![](https://main.qcloudimg.com/raw/80f6ff3ce199a4f8cf1c4daca232342b.png)
 
@@ -124,7 +124,7 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 NoticeLayout getNoticeLayout();
 
 /**
- * 获取聊天窗口 Message 区域 Layout
+ * 获取聊天窗口 Notice 区域 Layout
  * @return
  */
 MessageLayout getMessageLayout();
@@ -308,7 +308,7 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 
 ### 设置输入区域 InputLayout
 输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
-![](https://main.qcloudimg.com/raw/402308d600b4a5a8de5bde8bb059b1bb.png)
+![](https://main.qcloudimg.com/raw/3ea963c383a3c7c620ceffab40020be0.png)
 
 #### 去掉不要的功能
 
