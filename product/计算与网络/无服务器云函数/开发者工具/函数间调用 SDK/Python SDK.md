@@ -55,7 +55,11 @@ def main_handler(event, context):
         print (e)
     return "Already invoked a function!" # return
 ```
- - 如果需要频繁调用函数，可选择通过 Client 的方式连接并触发。可将 PythonInvokeTest 函数替换如下内容：
+输出结果如下：
+```shell
+"Already invoked a function!"
+```
+ - 如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可将 PythonInvokeTest 函数替换如下内容：
 ```python
 # -*- coding: utf8 -*-
 from tencentserverless.scf import Client
@@ -78,7 +82,7 @@ def main_handler(event, context):
         print (e)
     return "Already invoked a function!" # return
 ```
-3. 输出结果如下：
+输出结果如下：
 ```shell
 "Already invoked a function!"
 ```
@@ -90,7 +94,7 @@ def main_handler(event, context):
 - 开发环境
 已安装 Python2.7 或者 Python3.6。
 - 运行环境
-已安装 Tencentserverless SDK，支持 Windows、Linux 和 Mac 操作系统。
+已安装 tencentserverless SDK，支持 Windows、Linux 和 Mac 操作系统。
 
 >?本地调用云端函数须进行以上开发准备，推荐函数在本地开发完成后上传到云端，使用云端函数互调进行调试。
 
@@ -156,7 +160,7 @@ main_handler("","")
 ```shell
 python PythonInvokeTest.py
 ```
-4. 输出结果如下：
+输出结果如下：
 ```shell
 prepare to invoke a function!
 "Hello World form the function being invoked"
@@ -173,9 +177,9 @@ prepare to invoke a function!
 **方法：**
 - **\_init_** 
 
-**参数信息：**
+ **参数信息：**
 
-<table>
+ <table>
 	<tr>
 	<th>参数名</th> <th>是否必填</th> <th>类型</th> <th>描述</th>
 	</tr>
@@ -200,9 +204,9 @@ prepare to invoke a function!
 
 - **\_invoke_**
 
-**参数信息：**
+ **参数信息：**
 
-<table>
+ <table>
 	<tr>
 	<th>参数名</th> <th>是否必填</th> <th>类型</th> <th>描述</th>
 	</tr>
