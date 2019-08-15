@@ -5,28 +5,28 @@ TUIKit 已经在内部完成了基本消息的渲染工作，您可以很简单�
 TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.html)。
 <table>
      <tr>
-         <th width="30%" style="text-align:center">消息类型</th>  
+         <th width="20%" style="text-align:center">消息类型</th>  
          <th style="text-align:center">显示效果图</th>  
      </tr>
 	 <tr>      
          <td style="text-align:center">文本类消息</td>   
-	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6535b0a414d4dd51aabab464f0980ca3.png" /></td>   
+	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6535b0a414d4dd51aabab464f0980ca3.png" width="320"/></td>   
      </tr> 
 	 <tr>      
          <td style="text-align:center">图片类消息</td>   
-	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/1f5330a92c688b6288bbd47f97202867.png" /></td>   
+	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/1f5330a92c688b6288bbd47f97202867.png" width="320"/></td>   
      </tr> 
 	 <tr>      
          <td style="text-align:center">语音类消息</td>   
-	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/5387ea2450e7fe37daa59efb163e93b6.png" /></td>   
+	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/5387ea2450e7fe37daa59efb163e93b6.png" width="320"/></td>   
      </tr> 
 	 <tr>      
          <td style="text-align:center">视频类消息</td>   
-	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/eb50c8cefa0decf1eef1c896c44e6188.png" /></td>   
+	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/eb50c8cefa0decf1eef1c896c44e6188.png" width="320"/></td>   
      </tr> 
 	 <tr>      
          <td style="text-align:center">文件类消息</td>   
-	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/4be73ac319f7693916ee08b98f14c4c6.png" /></td>   
+	 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/4be73ac319f7693916ee08b98f14c4c6.png" width="320"/></td>   
      </tr> 
 </table>
 
