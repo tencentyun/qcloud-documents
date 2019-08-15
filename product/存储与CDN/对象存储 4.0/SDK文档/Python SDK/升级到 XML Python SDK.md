@@ -1,4 +1,4 @@
-如果您细心对比过 Python SDK V4 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
+如果您细心对比过 JSON Python SDK 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
 
 ## 功能对比
 
@@ -19,9 +19,9 @@
 
 通过 pip 命令您可以方便获取到最新的 XML Python SDK：
 ```
- pip uninstall qcloud_cos_v4
+pip uninstall qcloud_cos_v4
 
- pip install -U cos-python-sdk-v5
+pip install -U cos-python-sdk-v5
 ```
 
 此外，您也可以参考 Python SDK [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档选择合适您的安装方式。
