@@ -7,7 +7,7 @@
 
 会话列表 ConversationLayout 继承自 LinearLayout，其数据的获取、同步、展示以及交互均已在 TUIKit 内部封装，会话列表 UI 的使用与 Android 的普通 View 一样方便。
 
-<ol><li>在任意`layout.xml`中设置布局：
+<ol><li>在任意 layout.xml 中设置布局：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -37,7 +37,7 @@ conversationLayout.initDefault();
 
 ![](https://main.qcloudimg.com/raw/7eba88ed5546649c8a66ac702b495e3d.png)
 
-<ol><li>在任意`layout.xml`中设置布局：
+<ol><li>在任意 layout.xml 中设置布局：
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -70,7 +70,7 @@ chatLayout.setChatInfo(mChatInfo);
 
 ![](https://main.qcloudimg.com/raw/366686f4d8f1204ca58c28c27116a1a1.png)
 
-<ol><li>在任意`layout.xml`中设置布局：
+<ol><li>在任意 layout.xml 中设置布局：
     
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
