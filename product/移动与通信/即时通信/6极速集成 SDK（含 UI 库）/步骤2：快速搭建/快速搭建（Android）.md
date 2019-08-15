@@ -27,7 +27,7 @@
 ```java
 // 从布局文件中获取会话列表面板
 ConversationLayout conversationLayout = findViewById(R.id.conversation_layout);
-// 会话列表面板的默认UI和交互初始化
+// 会话列表面板的默认 UI 和交互初始化
 conversationLayout.initDefault();
 ```
 </li></ol>
@@ -58,9 +58,9 @@ conversationLayout.initDefault();
 ```java
 // 从布局文件中获取聊天面板
 ChatLayout chatLayout = findViewById(R.id.chat_layout);
-// 单聊面板的默认UI和交互初始化
+// 单聊面板的默认 UI 和交互初始化
 chatLayout.initDefault();
-// 传入ChatInfo的实例，这个实例必须包含必要的聊天信息，一般从调用方传入
+// 传入 ChatInfo 的实例，这个实例必须包含必要的聊天信息，一般从调用方传入
 chatLayout.setChatInfo(mChatInfo);
 ```
 </li></ol>
@@ -90,7 +90,7 @@ chatLayout.setChatInfo(mChatInfo);
 ```java
 // 从布局文件中获取通讯录面板
 ContactLayout contactLayout = findViewById(R.id.contact_layout);
-// 通讯录面板的默认UI和交互初始化
+// 通讯录面板的默认 UI 和交互初始化
 contactLayout.initDefault();
 ```
 </li></ol>
