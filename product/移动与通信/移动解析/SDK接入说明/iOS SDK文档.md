@@ -17,6 +17,8 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
 ### 未接入灯塔（Beacon）的业务
+>?灯塔（beacon）SDK 是由腾讯灯塔团队开发，并用于移动应用统计分析，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据, 辅助定位问题。
+>
 1. 引入依赖库（位于 HTTPDNSLibs 目录下）：
   - BeaconAPI_Base.framework
   - MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
