@@ -36,7 +36,7 @@ HttpDNS SDK 监听网络切换广播，在发生网络切换时，清理 HttpDNS
 
 在 AndroidManifest 文件中注册广播接收器：
 
-```xml
+ ```xml
 <receiver
     android:name="com.tencent.msdk.dns.HttpDnsCache$ConnectivityChangeReceiver"
     android:label="NetworkConnection" >
@@ -49,8 +49,7 @@ HttpDNS SDK 监听网络切换广播，在发生网络切换时，清理 HttpDNS
 #### targetSdkVersion >= 24(Android 7.0)
 
 App targetSdkVersion >= 24(Android 7.0)情况下，静态注册的网络切换广播接收器不会生效，详细信息参见 [Changes to system broadcasts](https://developer.android.com/guide/components/broadcasts#Changes%20to%20system%20broadcasts)。
-在该情况下，您需要通过代码动态注册广播接收器，即在 HttpDNS SDK 初始化之后添加以下代码片段：
-
+这种情况下，业务侧需要通过代码动态注册广播接收器，在 HttpDNS SDK 初始化之后添加以下代码片段：
 ```Java
 // import com.tencent.msdk.dns.HttpDnsCache;
 context.getApplicationContext()
@@ -90,7 +89,9 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ### 接入灯塔
 
 将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
- >! 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
+ >! 
+ >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
+ >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
 ### 接口调用
 
@@ -126,8 +127,8 @@ MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 /**
  * HttpDNS同步解析接口
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
- * 解析完成返回最新解析结果，解析结果有多个IP则以“;”分隔
- * 解析失败返回null
+ * 解析完成返回最新解析结果
+ * 返回值字符串以“;”分隔，“;”前为解析得到的IPv4地址（解析失败填“0”），“;”后为解析得到的IPv6地址（解析失败填“0”）
  *
  * @param domain 域名(如www.qq.com)
  * @return 域名对应的解析IP结果集合
@@ -141,32 +142,28 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 
 ### 注意事项
 
-- getAddrByName 是耗时同步接口，应当在子线程调用。当**域名解析失败接口返回 null** 时，请根据实际需求进行相关处理。
+- getAddrByName 是耗时同步接口，应当在子线程调用。
 - 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HttpDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
   - 以 URLConnection 为例：
-  
-    ```Java
+ ```Java
     URL oldUrl = new URL(url);
     URLConnection connection = oldUrl.openConnection();
     // 获取HttpDNS域名解析结果 
     String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
     if (null != ips) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
         String ip;
-        if (ips.contains(";")) {
-            ip = ips.substring(0, ips.indexOf(";"));
-        } else {
-            ip = ips;
-        }
+        String[] ipArr = ips.split(";");
+    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+        String ip = ipArr[0];
         String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
         connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
         connection.setRequestProperty("Host", oldUrl.getHost());
     }
-    ```
-		
+```
  - 以 curl 为例，假设您想要访问 www.qq.com，通过 HttpDNS 解析出来的 IP 为192.168.0.111，那么您可以这么访问：
-    ```shell
+   ```shell
     curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
-    ```
+```
 - 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用** HttpDNS 做域名解析。
   示例如下：
   ```Java
@@ -175,7 +172,7 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
   if (null != host && null != port) {
       // 使用了本地代理模式
   }
-  ```
+```
 
 ## 实践场景
 
@@ -193,21 +190,15 @@ mOkHttpClient =
             public List<InetAddress> lookup(String hostname) {
                 Utils.checkNotNull(hostname, "hostname can not be null");
                 String ips = MSDKDnsResolver.getInstance().getAddrByName(hostname);
-                if (null == ips) {
-                    return Collections.emptyList();
-                }
-                String[] ipArr;
-                if (ips.contains(";")) {
-                    ipArr = ips.split(";");
-                } else {
-                    ipArr = new String[1];
-                    ipArr[0] = ips;
-                }
+                String[] ipArr = ips.split(";");
                 if (0 == ipArr.length) {
                     return Collections.emptyList();
                 }
                 List<InetAddress> inetAddressList = new ArrayList<>(ipArr.length);
                 for (String ip : ipArr) {
+				     if ("0".equals(ip)) {
+                         continue;        
+                      }
                     try {
                         InetAddress inetAddress = InetAddress.getByName(ip);
                         inetAddressList.add(inetAddress);
@@ -338,8 +329,7 @@ mWebView.loadUrl(targetUrl);
 	connection.setConnectTimeout(mTimeOut); // 设置连接超时
 	connection.setReadTimeout(mTimeOut); // 设置读流超时
 	connection.connect();
-	```
-
+```
 - HTTPS + SNI
 	示例如下：
 
@@ -453,7 +443,7 @@ mWebView.loadUrl(targetUrl);
 			return ssl;
 		}
     }
-	```
+```
 
 ### Unity
 
@@ -484,24 +474,23 @@ mWebView.loadUrl(targetUrl);
 		}
 		sHttpDnsObj.Call("init", contextObj, appkey, dnsid, dnskey, debug, timeout);
 	}
-	```
-
+```
 - 调用 getAddrByName 接口解析域名
 	示例如下：
-
-	```C#
-	// 该操作建议在子线程中或使用Coroutine处理
-	// 注意在子线程中调用需要在调用前后做AttachCurrentThread和DetachCurrentThread处理 
-	public static string GetHttpDnsIP(string strUrl) {
-		string strIp = string.Empty;
-		AndroidJNI.AttachCurrentThread(); // 子线程中调用需要加上
-		// 解析得到IP配置集合
-		strIp = sHttpDnsObj.Call<string>("getAddrByName", strUrl);
-		AndroidJNI.DetachCurrentThread(); // 子线程中调用需要加上
-		if (null != strIp) {
-			string[] strIps = strIp.Split(';');
-			strIp = strIps[0];
-		}
-		return strIp;
-	}
-	```
+```C#
+  // 该操作建议在子线程中或使用Coroutine处理
+  // 注意在子线程中调用需要在调用前后做AttachCurrentThread和DetachCurrentThread处理 
+  public static string GetHttpDnsIP(string url) {
+  	string ip = string.Empty;
+  	AndroidJNI.AttachCurrentThread(); // 子线程中调用需要加上
+  	// 解析得到IP配置集合
+  	string ips = sHttpDnsObj.Call<string>("getAddrByName", url);
+  	AndroidJNI.DetachCurrentThread(); // 子线程中调用需要加上
+  	if (null != ips) {
+  		string[] ipArr = ips.Split(';');
+          if (2 == ipArr.Length && !"0".Equals(ipArr[0]))
+  		ip = ipArr[0];
+  	}
+  	return ip;
+  }
+  ```
