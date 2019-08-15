@@ -1,15 +1,15 @@
-## 1. 接入准备
+## 接入准备
 
-### 1.1 SDK 获取
+### SDK 获取
 
 实时语音识别 Java SDK 以及 Demo 的下载地址：[Java SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/java_realtime_asr_sdk.tar.gz)。
 
-### 1.2 接入须知
+### 接入须知
 
 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 
 
-### 1.3 开发环境
+### 开发环境
 
 **环境依赖**
 该接口需要满足 JDK1.8 及以上版本。
@@ -24,9 +24,9 @@
 
 + 添加完成后用户即可在工程中使用实时语音 SDK 。
 
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程介绍
+### 开发流程介绍
 + **新建一个服务**
 
 ```
@@ -57,7 +57,7 @@ this.voiceAddingTask = new VoiceAddingTask(this.receiverEntrance, voiceFile);
 this.voiceAddingTask.start();
 ```
 
-### 2.2 主要接口方法说明
+### 主要接口方法说明
 
 + **start**
 
@@ -131,7 +131,7 @@ public void stopService() {
 
 
 
-### 2.3  入门示例
+### 入门示例
 
 ```
 public class RasrRequestSample {
