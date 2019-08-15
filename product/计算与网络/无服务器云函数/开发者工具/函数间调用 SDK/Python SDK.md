@@ -18,7 +18,8 @@ Tencentserverless SDK 的功能特性可分为以下几点：
 
 #### 示例
 >!
->- 不同地域下的函数互调，须指定地域，命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。如果不指定地域，默认为同地域下函数互调。
+>- 不同地域下的函数互调，须指定地域，命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+> - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
 
 1. 在云端创建一个被调用的 Python 云函数，地域为【广州】，命名为 “FuncInvoked”。函数内容如下：
