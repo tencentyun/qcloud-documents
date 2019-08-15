@@ -12,7 +12,7 @@
 
 TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。
 
-1. 在`Podfile`中增加以下内容。
+1. 在 Podfile 中增加以下内容。
 ```
 pod 'TXIMSDK_TUIKit_iOS'
 ```
@@ -35,7 +35,7 @@ pod update
 
 ## 引用 TUIKit
 
-<ol><li>在 `AppDelegate.m` 文件中引入 TUIKit，并初始化。
+<ol><li>在 AppDelegate.m 文件中引入 TUIKit，并初始化。
 
 ```objectivec
 #import "TUIKit.h"
