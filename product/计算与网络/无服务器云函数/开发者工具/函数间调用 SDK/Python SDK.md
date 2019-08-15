@@ -145,7 +145,7 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 
 def main_handler(event, context):
     print("prepare to invoke a function!")
-    scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou")# 替换为您的 secret-id 和 secret-key
+    scf = Client(secret_id="AKIxxxxxxxxxxxxxxxxxxxxxxggB4Sa",secret_key="3vZzxxxxxxxxxxxaeTC",region="ap-guangzhou")# 替换为您的 secret_id 和 secret_key
     try:
         data = scf.invoke('FuncInvoked',data={"a":"b"}) 
 		# data = scf.FuncInvoked(data={"a":"b"}) 
