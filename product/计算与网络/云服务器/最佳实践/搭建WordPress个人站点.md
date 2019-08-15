@@ -24,7 +24,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 1. 在实例的管理页面，单击【新建】。
 具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)    
+![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)    
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
