@@ -65,7 +65,7 @@ new TencentCaptcha(element, appId, callback, options);
 >!手动绑定不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击）
 	- appId: String，申请的场景 ID。
 	- callback: Function， 回调函数。
-	- options: Object，更多配置参数, 请参见 [配置参数]()。
+	- options: Object，更多配置参数, 请参见 [配置参数](#pzcs)。
 
 #### 示例代码
 ```
@@ -105,7 +105,7 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 |getTicket|获取验证码验证成功后的 ticket。|无|`Object:{"appid":"","ticket":""}`|
 
 >?show 与 destroy 可以反复调用。
-
+<span id="pzcs"></span>
 ### 配置参数
 options 提供以下配置参数：
 
