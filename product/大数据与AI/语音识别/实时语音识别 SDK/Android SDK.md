@@ -1,12 +1,12 @@
-## 1. 接入准备
-### 1.1 SDK 获取
+## 接入准备
+### SDK 获取
 实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
 
-### 1.2 接入须知
+### 接入须知
 + 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138)，了解接口的使用要求和使用步骤 。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
-### 1.3 开发环境
+### 开发环境
 
 + 引入 .so 文件
  libWXVoice.so： 腾讯云语音检测 so 库。
@@ -45,11 +45,11 @@
 	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	```
 
-## 2. 快速接入
+## 快速接入
 
 <span id="documen"></span>
 
-### 2.1 开发流程介绍
+### 开发流程介绍
 **启动实时语音识别**
 
 ```
@@ -144,7 +144,7 @@ new Thread(new Runnable() {
 
 
 
-### 2.2 主要接口类和方法说明
+### 主要接口类和方法说明
 
 #### 计算签名
 调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用上层不用关心 source 来源。
