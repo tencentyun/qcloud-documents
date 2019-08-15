@@ -5,7 +5,7 @@
 
 会话列表只需要创建`TUIConversationListController`对象即可。会话列表会从数据库中读取最近联系人，当用户点击联系人时，`TUIConversationListController`将该事件回调给上层。
 
-在任意`layout.xml`中设置布局：
+在任意 layout.xml 中设置布局：
 ```objectivec
 // 创建会话列表
 TUIConversationListController *vc = [[TUIConversationListController alloc] init];
