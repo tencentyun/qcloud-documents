@@ -160,7 +160,7 @@ def main_handler(event, context):
 
 main_handler("","")
 ```
->?Secret-id 及 secret-key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
+>?Secret_id 及 secret_key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
 >
 进入 PythonInvokeTest.py 所在文件目录，执行以下命令，查看结果。
 ```shell
