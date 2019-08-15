@@ -3,9 +3,8 @@
 
 ## 创建会话列表界面
 
-![](https://main.qcloudimg.com/raw/06883035478301c21be30a4ab15c4b94.png)
-
 会话列表 ConversationLayout 继承自 LinearLayout，其数据的获取、同步、展示以及交互均已在 TUIKit 内部封装，会话列表 UI 的使用与 Android 的普通 View 一样方便。
+![](https://main.qcloudimg.com/raw/8c89ee2cee17dfa9e829d647db5595ec.png)
 
 <ol><li>在任意 layout.xml 中设置布局：
 
@@ -35,7 +34,7 @@ conversationLayout.initDefault();
 
 ## 打开聊天界面
 
-![](https://main.qcloudimg.com/raw/7eba88ed5546649c8a66ac702b495e3d.png)
+![](https://main.qcloudimg.com/raw/975658261cc115b7fd4bad165e889f91.png)
 
 <ol><li>在任意 layout.xml 中设置布局：
 
@@ -67,8 +66,7 @@ chatLayout.setChatInfo(mChatInfo);
 </li></ol>
 
 ## 添加通讯录界面
-
-![](https://main.qcloudimg.com/raw/366686f4d8f1204ca58c28c27116a1a1.png)
+![](https://main.qcloudimg.com/raw/4566dd0061821cf9f914e3df8fbd41a5.png)
 
 <ol><li>在任意 layout.xml 中设置布局：
     
