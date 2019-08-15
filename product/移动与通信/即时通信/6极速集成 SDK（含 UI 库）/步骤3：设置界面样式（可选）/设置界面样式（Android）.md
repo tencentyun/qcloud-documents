@@ -1,8 +1,7 @@
 
 ## 设置会话列表
 会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
-
-![](https://main.qcloudimg.com/raw/80f6ff3ce199a4f8cf1c4daca232342b.png)
+![](https://main.qcloudimg.com/raw/8c89ee2cee17dfa9e829d647db5595ec.png)
 
 ### 修改标题区 TitleBarLayout 样式
 
