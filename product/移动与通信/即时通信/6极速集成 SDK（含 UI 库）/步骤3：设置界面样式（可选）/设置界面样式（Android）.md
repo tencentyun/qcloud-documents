@@ -5,7 +5,7 @@
 
 ### 修改标题区 TitleBarLayout 样式
 
-标题区除了本身作为 view 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
+标题区除了本身作为 View 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
 ![](https://main.qcloudimg.com/raw/726ff20e1fa1990b97f3360060794e8a.png)
 
 您可以参考 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
