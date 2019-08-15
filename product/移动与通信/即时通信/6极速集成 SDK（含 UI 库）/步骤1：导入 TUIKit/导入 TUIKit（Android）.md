@@ -56,7 +56,7 @@ dependencies {
 ```java
 public class DemoApplication extends Application {
 
-    public static final int SDKAPPID = "您的SDKAppId";
+    public static final String SDKAPPID = "您的 SDKAppID";
 
     @Override
     public void onCreate() {
