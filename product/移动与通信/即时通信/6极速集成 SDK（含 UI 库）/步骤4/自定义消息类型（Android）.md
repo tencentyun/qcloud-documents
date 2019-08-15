@@ -43,7 +43,7 @@ MessageInfo info = MessageInfoUtil.buildCustomMessage("{\"text\": \"欢迎加入
 
 ### 发送一条自定义消息
 
-您可以通过`ChatLayout`的实例发送自定义消息：
+您可以通过 ChatLayout 的实例发送自定义消息：
 ```java
 chatLayout.sendMessage(info)
 ```
@@ -58,7 +58,7 @@ chatLayout.sendMessage(info)
 4. 实现 View 的交互逻辑。
 
 渲染自定义消息的流程如下图所示：
-![](https://main.qcloudimg.com/raw/4c42314623c5a088cc2337da66378fec.png)
+![](https://main.qcloudimg.com/raw/644f6a44045300f48d98440ceb150bb3.png)
 
 TUIKit 会在内部通过消息的类型获知该条消息是自定义消息，渲染到该条消息时会通过回调通知您，并调用您的布局以及实现逻辑，所以您只需将实现了`IOnCustomMessageDrawListener`的监听传入到 TUIKit 即可。
 ```java
