@@ -6,7 +6,7 @@ TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.c
 <table>
      <tr>
          <th width="40%" align="center">消息类型</th>  
-         <th align="center">显示效果图</th>  
+         <th style="text-align:center">显示效果图</th>  
      </tr>
 	 <tr>      
          <td align="center">文本类消息</td>   
