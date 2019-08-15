@@ -1,4 +1,4 @@
-## Sdk 目录结构说明
+## SDK 目录结构说明
 WnsSDK：包含 WnsSDK4Cloud.framework
 WnsSDKDemo：示例工程，演示了如何使用 WnsSDK
 Doc：
