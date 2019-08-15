@@ -39,7 +39,7 @@
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
 2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的 Bucket：loganalysis，单击【上传文件】。
 3. 在弹出的 “上传文件” 窗口中，选择下载好的 demo-scf1.txt，单击【确定上传】。
-4. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**运行日志**中可以看到打印出来的日志信息，如下图所示：
+4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**运行日志**中可以看到打印出来的日志信息，如下图所示：
 ![](https://main.qcloudimg.com/raw/72f4b02e3fcc76653d495e1d3c6c2272.jpg)
 5. 切换至 MySQL 管理界面，查看数据库中的分析结果。
 
