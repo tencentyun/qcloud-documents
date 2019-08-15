@@ -182,7 +182,7 @@ prepare to invoke a function!
 
 #### Client
 **方法：**
-- **\_init_** 
+- **\_\_init__** 
 
  **参数信息：**
 
@@ -209,7 +209,7 @@ prepare to invoke a function!
 </table>
 
 
-- **\_invoke_**
+- **invoke**
 
  **参数信息：**
 
