@@ -25,7 +25,7 @@ pod update
 ### 手动集成
 我们**不推荐**使用手动集成。
 
-1. 在`Framework Search Path`中加上 ImSDK 的文件路径，手动地将`TUIKit`和`ImSDK`目录添加到您的工程。
+1. 在 Framework Search Path 中加上 ImSDK 的文件路径，手动地将 TUIKit 和 ImSDK 目录添加到您的工程。
 2. 手动将 TUIKit 使用的第三方库添加到您的工程：
  - [MMLayout](https://github.com/annidy/MMLayout)
  - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
