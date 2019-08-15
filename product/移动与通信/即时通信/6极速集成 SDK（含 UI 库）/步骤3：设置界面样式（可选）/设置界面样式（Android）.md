@@ -109,7 +109,7 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 
 
 ## 设置聊天窗口
-聊天窗口包含**标题区 TitleBarLayout **，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为**通知区 NoticeLayout **、**消息区 MessageLayout **和**输入区 InputLayout **，如下图所示：
+聊天窗口包含标题区 TitleBarLayout，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为通知区 NoticeLayout、消息区 MessageLayout 和输入区 InputLayout，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/3da35d371b45cddb964641410958a564.png)
 效果如下图所示：
@@ -182,7 +182,7 @@ messageLayout.setBackground(new ColorDrawable(0xB0E2FF00));
 #### 修改头像相关属性
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。
-![](https://main.qcloudimg.com/raw/e4357dd89e8e814166717300414ff8da.png)
+![](https://main.qcloudimg.com/raw/ae1ef5e8c9ba71938bffb8fca386d5a8.png)
 
 ```
 // 聊天界面设置头像和昵称
@@ -225,10 +225,8 @@ messageLayout.setAvatarSize(new int[]{48, 48});
 
 
 #### 修改气泡
-
-
 左边为对方的气泡，右边为自己的气泡，您可以自定义设置双方的气泡背景。
-![](https://main.qcloudimg.com/raw/79acdf0b0b4d29088b76c950f876a19a.png)
+![](https://main.qcloudimg.com/raw/73eba5f14f92a16ff94ca3289618dbe5.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -241,10 +239,8 @@ messageLayout.setLeftBubble(context.getResources().getDrawable(R.drawable.chat_s
 
 
 #### 修改昵称样式
-
-
 您可以自定义设置昵称的字体大小与颜色等，但双方昵称样式必须保持一致。
-![](https://main.qcloudimg.com/raw/5935a069c9a78eb74521b6a7ac6c8ff9.png)
+![](https://main.qcloudimg.com/raw/6d31e9f031becd8e2b7fb5aa8d047b18.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -257,7 +253,7 @@ messageLayout.setNameFontColor(0x8B5A2B00);
 
 #### 修改聊天内容样式
 您可以自定义设置聊天内容的字体大小、双方字体颜色等，但双方字体大小必须保持一致。
-![](https://main.qcloudimg.com/raw/1b09dec94b8e4ab21d36022bb83a1771.png)
+![](https://main.qcloudimg.com/raw/a5ac14272844560d6b5ab4314dd1bf18.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -274,7 +270,7 @@ messageLayout.setLeftChatContentFontColor(0xA020F000);
 #### 修改聊天时间线样式
 
 您可以自定义设置聊天时间线的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/2e1fc272f3d762dd12f9f8719aad031d.png)
+![](https://main.qcloudimg.com/raw/b193ed4eebb3d7610405e79e7b7b4f00.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -291,7 +287,7 @@ messageLayout.setChatTimeFontColor(0xEE00EE00);
 #### 修改聊天的提示信息样式
 
 您可以自定义设置提示信息的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/93087b1a5a1e4cf9c71e3e7c59a0f2d1.png)
+![](https://main.qcloudimg.com/raw/26f487874aeb688b596199b878feeede.png)
 
 ```java
 // 从ChatLayout里获取MessageLayout
@@ -307,7 +303,7 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 
 ### 设置输入区域 InputLayout
 输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
-![](https://main.qcloudimg.com/raw/3ea963c383a3c7c620ceffab40020be0.png)
+![](https://main.qcloudimg.com/raw/d0681c8396fd0f04059f6267d8937f5d.png)
 
 #### 去掉不要的功能
 
