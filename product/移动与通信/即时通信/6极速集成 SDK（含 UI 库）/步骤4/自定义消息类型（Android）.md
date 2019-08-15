@@ -36,7 +36,7 @@ TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.c
 
 ### 创建一条自定义消息
 
-`MessageInfoUtil`类可以帮助您实现各种消息类型，包括自定义消息，例如用 JSON 串来创建一条消息：
+MessageInfoUtil 类可以帮助您实现各种消息类型，包括自定义消息，例如用 JSON 串来创建一条消息：
 ```java
 MessageInfo info = MessageInfoUtil.buildCustomMessage("{\"text\": \"欢迎加入即时通信 IM 大家庭！查看详情>>\",\"url\": \"https://cloud.tencent.com/product/im"}");
 ```
