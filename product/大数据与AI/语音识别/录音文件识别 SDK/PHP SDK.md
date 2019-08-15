@@ -27,7 +27,7 @@
 <?php
 require ('OfflineSdk.php');
 
-# 1. 先修改好Config.php文件中的配置值。也可以直接在下面修改，比如：
+# 1. 先修改好Config.php文件中的配置值。也可以直接在下面修改，例如：
 Config :: $ENGINE_MODEL_TYPE = "8k_0";
 Config :: $VOICE_FORMAT = 1;
 
