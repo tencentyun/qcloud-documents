@@ -1,7 +1,7 @@
 ## TIMManager
 
 IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以及管理推送等功能。
-- 初始化：初始化是使用 IM SDK 的前提，调用任何其它 API 的操作都应该在调用 init 接口之后。
+- 初始化：初始化是使用 IM SDK 的前提，调用 init 接口后，才能调用其它 API。
 - 登录：需要设置 SDKAppID，UserID 和 UserSig 才能使用即时通信 IM 服务。
 - 会话：一个会话对应一个聊天窗口，例如，与单个好友的 C2C 聊天或者一个聊天群都是一个会话。
 - 推送：管理和设置离线推送的相关功能，包括 token 和开关等。
@@ -245,7 +245,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [getOfflinePushSettings](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getofflinepushsettings) | 获取消息离线推送配置。 |
 | [setCustomInt](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#setcustomint) | 设置自定义整数， 默认为0（此属性仅本地使用）。 |
 | [getCustomInt](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getcustomint) | 获取自定义整数。 |
-| [setCustomStr](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#setcustomstr) | 设置自定义数据内容，默认为""（此属性仅本地使用）。 |
+| [setCustomStr](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#setcustomstr) | 设置自定义数据内容，默认为空串`""`（此属性仅本地使用）。 |
 | [getCustomStr](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getcustomstr) | 获取自定义数据内容的值。 |
 | [copyFrom](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#copyfrom) | 复制消息内容到当前消息（复制对象包括 Elem、priority、online 以及 offlinePushInfo 等）。 |
 | [convertToImportedMsg](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#converttoimportedmsg) | 将消息导入到本地。 |
