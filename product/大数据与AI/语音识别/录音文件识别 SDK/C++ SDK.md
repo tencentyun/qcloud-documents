@@ -1,9 +1,9 @@
-## 1. 接入准备
-### 1.1 SDK 获取
+## 接入准备
+###  SDK 获取
 录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.tar.gz)。
-### 1.2 接入须知
-开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
-### 1.3 开发环境
+###  接入须知
+开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37139) ，了解接口的**使用要求**和**使用步骤**。
+### 开发环境
 + **编译 Demo**，如失败需确认以下环境：
 
 ```
@@ -37,8 +37,9 @@ sudo make
 sudo make install
 ```
 
-+ + **依赖库安装及编译**
-客户需自行安装版本大于7.44.0的**curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
++ **依赖库安装及编译**
+
+客户需自行安装版本大于7.44.0的 **curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
 	
 ```
 sudo ./configure
@@ -63,8 +64,8 @@ sudo make install
 自行替换 c++_record_asr_sdk/lib 下面的库文件
 ```
 
-## 2. 快速接入
-### 2.1 开发流程介绍
+## 快速接入
+### 开发流程介绍
 **配置用户信息**
 + 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
@@ -99,7 +100,7 @@ res_type=0
 
 **传入音频获取结果**  
 + **方法一：传入音频 URL(建议使用)**  
-调用 SetUrl 接口获取结果，对应参数设置为 url 模式。
+调用 SetUrl 接口获取结果，对应参数设置为 URL 模式。
 参考接口 [TCloudRecordASR::SetUrl](#setdata)。   
 + **方法二：传入音频数据**  
 调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频。  
@@ -107,7 +108,7 @@ res_type=0
 
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
-### 2.2 主要接口方法说明
+### 主要接口方法说明
  
 **<span id="init"></span>TCloudRecordASR::Init**
 
@@ -211,7 +212,7 @@ bool Encode(const char* inputBuffer, int inputSize, string& strRsp);
 make
 ./run.sh
 ```
-### 2.3 入门示例
+### 入门示例
 参考 c++\_record\_asr\_sdk/src/demo.cpp  
 ```
 int RunReacordASR()
