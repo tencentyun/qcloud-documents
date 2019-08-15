@@ -8,8 +8,8 @@ HttpDNS 的主要功能是为了有效地避免由于运营商传统 LocalDNS �
 
 | **demo 内容** | **说明** | 
 |---------|---------|
-| MSDKDns.framework     | 适用于“Build Setting->C++ Language Dialect”配置为“GNU++98”，“Build Setting->C++ Standard Library”为“libstdc++(GNU C++ standard library)”的工程。 |
-| MSDKDns_C11.framework | 适用于“Build Setting->C++ Language Dialect”和“Build Setting->C++ Standard Library”两项配置分别为“GNU++11”和“libc++(LLVM C++ standard library with C++11 support)”的工程。 |
+| MSDKDns.framework     | 适用于 “Build Setting->C++ Language Dialect” 配置为 “GNU++98”，“Build Setting->C++ Standard Library” 为 “libstdc++(GNU C++ standard library)” 的工程。 |
+| MSDKDns_C11.framework | 适用于 “Build Setting->C++ Language Dialect” 和 “Build Setting->C++ Standard Library” 两项配置分别为 “GNU++11” 和 “libc++(LLVM C++ standard library with C++11 support)” 的工程。 |
 
 ## 接入步骤
 
@@ -42,8 +42,7 @@ NSString * appkey = @"业务的灯塔appkey（即申请时获取到 appid），�
 [BeaconBaseInterface enableAnalytics:@"" gatewayIP:nil];
 //******************************
 ```
-> **注意：**
-请在 Other linker flag 里加入 -ObjC 标志。
+>!请在 Other linker flag 里加入 -ObjC 标志。
 
 ## API 及使用示例
 获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。返回的地址格式为 NSArray，固定长度为 2，其中第一个值为 IPv4 地址，第二个值为 IPv6 地址。返回格式的详细说明如下：
@@ -166,7 +165,7 @@ if (result) {
      [connection start];
      ```
  - 以 curl 为例：
-     假设您要访问 www.qq.com，通过 HttpDNS解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可：
+     假设您要访问 www.qq.com，通过 HttpDNS 解析出来的 IP 为 192.168.0.111，那么通过这个方式来调用即可：
      ```
      curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
      ```
@@ -219,9 +218,9 @@ if (result) {
 2. 在需要进行域名解析的部分，调用 **HttpDns.GetAddrByName(string domain)** 或者 **HttpDns.GetAddrByNameAsync(string domain)** 方法。
  - 若使用同步接口 **HttpDns.GetAddrByName**，直接调用接口即可；
  - 若使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。并建议添加下面的 [代码](#code)。
-3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库；
-4. 将 HTTPDNSUnityDemo 下的 MSDKDnsUnityManager.h 及 MSDKDnsUnityManager.mm 文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
-   ![](https://main.qcloudimg.com/raw/4f24e4c6cca796fd93751ca30255fa51.png)
+3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库。
+4. 将 HTTPDNSUnityDemo 下的 MSDKDnsUnityManager.h 及 MSDKDnsUnityManager.mm 文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致。如下图所示：
+ ![](https://main.qcloudimg.com/raw/4f24e4c6cca796fd93751ca30255fa51.png)
 ![](https://main.qcloudimg.com/raw/91050cb9cbfb7199fae6a4b27e04fa09.png)
 5. 按照所需接口调用即可。
 <a id="code"></a>
@@ -386,7 +385,7 @@ Demo 示例：
    const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
    //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
    ```
-
+	 
 ### HTTPS SNI（单 IP 多 HTTPS 证书）场景
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
@@ -399,7 +398,8 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 2. 先将 HTTPBody 放入 HTTP Header field 中，然后在 NSURLProtocol 中再取出来。
 
 具体示例参见 Demo，部分代码如下：
-在网络请求前注册 NSURLProtocol 子类，在示例的 SNIViewController.m 中。
+>?在网络请求前注册 NSURLProtocol 子类，在示例的 SNIViewController.m 中。
+>
    ```
    // 注册拦截请求的NSURLProtocol
    [NSURLProtocol registerClass:[MSDKDnsHttpMessageTools class]];
@@ -459,7 +459,7 @@ SNI（Server Name Indication）是为了解决一个服务器使用多个域名�
 ```
 #pragma mark - SNI场景，仅调用一次即可，请勿多次调用
 /**
- SNI场景下设置需要拦截的域名列表
+ SNI 场景下设置需要拦截的域名列表
  建议使用该接口设置，仅拦截SNI场景下的域名，避免拦截其它场景下的域名
 
  @param hijackDomainArray 需要拦截的域名列表
