@@ -1,12 +1,12 @@
-## 1. 接入准备
+## 接入准备
 
-### 1.1 SDK 获取
+### SDK 获取
 实时语音识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_realtime_asr_sdk.tar.gz )。
 
-### 1.2 接入须知
+### 接入须知
 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138) ，了解接口的**使用要求**和**使用步骤**。
 
-### 1.3 开发环境
+### 开发环境
 + **编译 Demo**，如失败需确认以下环境：
 ```
 //下载sdk
@@ -70,9 +70,9 @@ sudo make
 sudo make install
 自行替换 c++_realtime_asr_sdk/lib 下面的库文件
 ```
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程介绍
+### 开发流程介绍
 **配置用户信息**
 + 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
@@ -118,7 +118,7 @@ sudo make install
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
 
-### 2.2 主要接口方法说明
+### 主要接口方法说明
 
 **TCloudRealtimeASR::Init**
 
@@ -188,10 +188,7 @@ make
 ./run.sh 
 ```
 
-
-
-
-### 2.3 入门示例
+### 入门示例
 参考 c++\_realtime\_asr\_sdk/src/demo.cpp，此例为 speex 压缩请求，建议使用 speex 压缩方式，可以减少带宽。
 
 ```
