@@ -1,8 +1,8 @@
-﻿WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 和 MySQL 数据库的服务上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统来使用。
+WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 和 MySQL 数据库的服务上架设属于自己的网站，也可以把 WordPress 当作一个内容管理系统来使用。
 
   本文档旨在介绍如何使用 `tutum/wordpress` 镜像来创建一个公开访问的 WordPress 网站。
 
-> **注意：**
+>!
 > 创建单实例版的 WordPress 仅供测试使用，该镜像中包含了 WordPress 所有的运行环境，直接拉取创建服务即可，但使用单实例版的 WordPress 不能保证数据的持久化存储，建议您使用自建的 MySQL 或使用腾讯云数据库 CDB 来保存您的数据。详情请参考 [使用 CDB 的 WordPress](/doc/product/457/7447)。 在创建 WordPress 服务之前，您必须拥有:
 >
 > 1. 一个腾讯云帐户。有关如何创建腾讯云帐户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云帐户。
