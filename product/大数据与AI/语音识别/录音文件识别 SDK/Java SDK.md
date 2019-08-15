@@ -4,7 +4,7 @@
 录音文件识别 Java SDK 以及 Demo 的下载地址：[Java SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/java_record_asr_sdk.tar.gz)。
 
 ### 接入须知
-开发者在调用前请先查看录音文件识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
 
 ### 开发环境
 
@@ -17,7 +17,7 @@
 + jar 包使用步骤如下：
 	+ 找到 out 和 lib 文件夹中的 jar 文件，将所有的 jar文件复制到您的工程文件夹中。如果第三方 jar文件和您已使用的 jar文件有重复，可选择其一。   
 	+ 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。   
-	+ 将 jar 文件 include 到您的项目中。包括out 文件夹中的 off\_asr\_sdk\_1.0.jar 和 lib 中的9个依赖工具包。
+	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 off\_asr\_sdk\_1.0.jar 和 lib 中的9个依赖工具包。
 + 添加完成后用户即可在工程中使用录音文件识别 SDK 。
 
 ## 快速接入
