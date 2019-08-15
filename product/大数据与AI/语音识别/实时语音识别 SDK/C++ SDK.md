@@ -72,7 +72,7 @@ sudo make install
 ```
 ## 快速接入
 
-### 开发流程介绍
+### <span id="result">开发流程介绍</span>
 **配置用户信息**
 + 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
@@ -99,12 +99,12 @@ sudo make install
 **初始化请求参数** 
 
 + 调用 Init 接口初始化请求参数  
-+ 请参考接口2.1
++ 请参考 [开发流程介绍](#result)
 
 **设置用户密钥**  
 
 + 调用 SetSecretKey 接口设置密钥  
-+ 请参考接口2.2
++ 请参考 [主要接口方法说明](#方法说明)
 
 **Speex 压缩(可选）**
 
@@ -118,7 +118,7 @@ sudo make install
 **SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
 
 
-### 主要接口方法说明
+### <span id="方法说明">主要接口方法说明</span>
 
 **TCloudRealtimeASR::Init**
 
