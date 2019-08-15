@@ -2,7 +2,7 @@
 
   本文档旨在介绍如何设置 MySQL 数据库，它将在实例/容器重新启动后继续存在。通过使用 [云数据库CDB](https://cloud.tencent.com/product/cdb-overview) 可以实现永久存储。
 
-> **注意：**
+>!
 > 在创建使用 CDB 的 WordPress 服务之前，您必须拥有:
 >
 > 1. 一个腾讯云账户。有关如何创建腾讯云账户，请在 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
