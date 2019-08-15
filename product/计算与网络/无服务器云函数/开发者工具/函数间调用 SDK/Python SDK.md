@@ -5,7 +5,7 @@ Tencentserverless 是腾讯云云函数 SDK，集成云函数业务流接口，�
 ## 功能特性
 Tencentserverless SDK 的功能特性可分为以下几点：
 
-* 高性能，低时延的进行函数调用和访问。
+* 高性能，低时延的进行函数调用。
 * 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，secretId 等）。
 * 支持内网域名的访问。
 * 支持 keepalive 能力。
@@ -18,10 +18,9 @@ Tencentserverless SDK 的功能特性可分为以下几点：
 
 #### 示例
 >!
+>- 不同地域下的函数互调，须指定地域，命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
->- 同一个地域下的函数互调不需要指定地域。
->- 不同地域下的函数互调，指定地域命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
->
+
 1. 在云端创建一个被调用的 Python 云函数，地域为【广州】，命名为 “FuncInvoked”。函数内容如下：
 
 ```python
@@ -34,7 +33,7 @@ def main_handler(event, context):
     return "Hello World from the function being invoked"  #return
 ```
 2. 在云端创建调用的 Python 云函数，地域为【成都】，命名为 “PythonInvokeTest”。可通过以下两种方式，结合您的实际情况编辑 PythonInvokeTest 函数。
-方式 1：如果您不需要频繁的调用函数，可将 PythonInvokeTest 函数替换如下内容：
+方式 1：如果您不需要频繁的调用函数，可使用如下示例代码：
 
 ```python
 # -*- coding: utf8 -*-
@@ -44,10 +43,9 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 
 def main_handler(event, context):
     print("prepare to invoke a function!")
-    # scf = Client(region="ap-guangzhou")
+    
     try:
         data = scf.invoke('FuncInvoked',region="ap-guangzhou",data={"a": "b"})
-        # data = scf.FuncInvoked(data={"a": "b"}) #使用Python原生调用方式，需要首先通过Client进行初始化
         print (data)
     except TencentServerlessSDKException as e:
         print (e)
@@ -61,8 +59,8 @@ def main_handler(event, context):
 ```shell
 "Already invoked a function!"
 ```
-方式 2：如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可将 PythonInvokeTest 函数替换如下内容：
- 
+方式 2：如果您需要频繁调用函数，可选择通过 Client 的方式连接并触发。可使用如下示例代码:
+
 ```python
 # -*- coding: utf8 -*-
 from tencentserverless.scf import Client
@@ -75,7 +73,7 @@ def main_handler(event, context):
     print("prepare to invoke a function!")
     try:
         data = scf.invoke('FuncInvoked',data={"a": "b"})
-        # data = scf.FuncInvoked(data={"a": "b"})
+        # data = scf.FuncInvoked(data={"a": "b"}) #使用Python原生调用方式，需要首先通过Client进行初始化
         print (data)
     except TencentServerlessSDKException as e:
         print (e)
@@ -196,11 +194,11 @@ prepare to invoke a function!
 	</tr>
 	<tr>
 	<td>secret_id</td> 	<td>否</td> 	<td><code>String</code></td>
-		<td>用户 secret_id， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
+		<td>用户 secret-id， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
 	</tr>
 	<tr>
 	<td>secret_key</td> 	<td>否</td> 	<td><code>String</code></td>
-		<td>用户 secret_key， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
+		<td>用户 secret-key， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
 	</tr>
 	<tr>
 		<td>token</td> 	<td>否</td> 	<td><code>String</code></td>
@@ -244,8 +242,8 @@ prepare to invoke a function!
 | 参数名        | 是否必填 |  类型  |                    描述                                      |
 |---------|---------|---------|---------|
 | region        |    否    | `String` | 地域信息，默认与调用接口的函数所属地域相同，本地调用默认是广州。|
-| secret_id     |    否    | `String` | 用户 secret_id， 默认是从云函数环境变量中获取，**本地调试必填**。|
-| secret_key    |    否    | `String` | 用户 secret_key， 默认是从云函数环境变量中获取，**本地调试必填**。|
+| secret_id     |    否    | `String` | 用户 secret-id， 默认是从云函数环境变量中获取，**本地调试必填**。|
+| secret_key    |    否    | `String` | 用户 secret-key， 默认是从云函数环境变量中获取，**本地调试必填**。|
 | token         |    否    | `String` | 用户 token，默认从云函数环境变量中获取。|
 | function_name |    是    | `String` | 函数名称。 |
 | qualifier     |    否    | `String` | 函数版本，默认为 $LATEST。 |
