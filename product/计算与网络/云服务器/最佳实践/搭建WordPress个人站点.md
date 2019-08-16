@@ -166,15 +166,15 @@ systemctl enable mariadb
 
 <span id="login"></span>
 #### 配置 MariaDB 
->!针对**首次登录** MariaDB 的用户须执行此步骤设置登录密码，如已设置过 MariaDB 登录密码，请跳过此步骤。
+>!
+>- 针对**首次登录** MariaDB 的用户须执行此步骤设置登录密码，如已设置过 MariaDB 登录密码，请跳过此步骤。
+>- 根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
 ```
 2. 执行以下命令，设置 root 用户身份验证方式。
->?根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
->
 ```
 ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
 ```
