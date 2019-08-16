@@ -172,7 +172,9 @@ systemctl enable mariadb
 ```
 mysql
 ```
-2. 执行以下命令，设置 root 用户身份验证方式
+2. 执行以下命令，设置 root 用户身份验证方式。
+>?根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
+>
 ```
 ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
 ```
