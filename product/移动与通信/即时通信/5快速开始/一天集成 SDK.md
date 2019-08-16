@@ -1,7 +1,5 @@
 若需在您的 App 中集成 IM SDK 达到以下图片所示效果，仅仅需要三步：
-![](https://main.qcloudimg.com/raw/0e873b713bd8a9a1676aec22b6fe49bd.png)
-![](https://main.qcloudimg.com/raw/40448d398aee82ae747f2a3dc9454d17.png)
-![](https://main.qcloudimg.com/raw/890f8338847a2490861833c8bde6074e.png)
+![](https://main.qcloudimg.com/raw/2f2150448910209afb112656ae73d290.png)![](https://main.qcloudimg.com/raw/05f75bf5eadc614a91d460a2c8933aa1.png)![](https://main.qcloudimg.com/raw/59069f8615bbcf14b0b5d6051475d6c9.png)
 
 ## 步骤1：体验 Demo
 
