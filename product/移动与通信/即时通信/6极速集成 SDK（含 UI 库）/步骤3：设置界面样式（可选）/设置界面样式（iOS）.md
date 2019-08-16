@@ -50,7 +50,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
 
 显示效果下图所示：
-![](https://main.qcloudimg.com/raw/9067bc2de0cd428bdfc228b24b9dbcb8.png)
+![](https://main.qcloudimg.com/raw/57f1dde542ca2df17308451f6c518374.png)
 
 
 ### 配置消息
@@ -130,7 +130,7 @@ NSMutableArray *array = [NSMutableArray arrayWithArray:vc.moreMenus];
 vc.moreMenus = array; // 重新设置属性，立即生效
 ```
 显示效果如下图所示：
-![](https://main.qcloudimg.com/raw/19a34761f49c2ffc48e6452f0c1892a6.jpg)
+![](https://main.qcloudimg.com/raw/ddf5937ae221699f30dea212303901f2.jpg)
 
 当用户单击菜单中的按钮时，TUIChatController 会通过回调事件通知上层。
 >?用户单击默认菜单时，也会有回调通知，您可以不作处理。
