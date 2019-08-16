@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.0.9.1'
+    implementation 'com.tencent.tpns:tpns:1.1.0.0-release' //  TPNS 推送
 
 }
 ```
