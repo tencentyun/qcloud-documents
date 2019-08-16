@@ -73,7 +73,7 @@ public static void customizeConversation(final ConversationLayout layout) {
 
 ### 设置头像
 
-IM SDK 不做头像存储，需要集成者有头像图床接口获取头像 URL，这里 TUIKit 通过随机头像接口进行演示，如何设置头像。
+IM SDK 不做头像存储，需要集成者有头像存储接口获取头像 URL，这里 TUIKit 通过随机头像接口进行演示，如何设置头像。
 首先您需要在个人资料页面中，上传头像图片，调用修改资料接口。
 
 ```
