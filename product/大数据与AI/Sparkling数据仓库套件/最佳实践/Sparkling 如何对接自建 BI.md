@@ -5,7 +5,7 @@
 >?本步骤是使用 BI 账号登录进行以下操作。若 BI 端已创建私有网络可以复用，直接跳过此步。
 
 具体步骤如下：
-1. 使用 BI 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 使用 BI 账号登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击左侧目录中的【私有网络】，进入管理页面。
 3. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
@@ -21,7 +21,7 @@
 >?本步骤是使用 Sparkling 账号登录进行以下操作。若 Sparkling 端已创建私有网络可以复用，直接跳过此步。
 >
 具体步骤如下：
-1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 使用 Sparkling 账号登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击左侧目录中的【私有网络】，进入管理页面。
 2. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
@@ -44,16 +44,14 @@ b. 选择其他账户
 c. 选择对端地域（如：广州）
 d. 对端账户：填入 Sparkling 用户账号 ID，可在用户的 [个人中心](https://console.cloud.tencent.com/developer) 查看。
 ![](https://main.qcloudimg.com/raw/0be60e3505401e5c4d857f154772b312.jpg)
-e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 查看。
+e. 对端网络：填入 Sparkling 私有网络 ID，可在 Sparking 端登录 [私有网络控制台](https://console.cloud.tencent.com/vpc) 查看。
 ![](https://main.qcloudimg.com/raw/be13b24659b8c433990dca0a3984b768.jpg)
 4. 选择带宽上限
 >!若 BI 端私有网络与 Sparkling 端私有网络所在地区不同，其中产生的费用由发起对等连接方承担。
 >
-
  - 同地域对等连接带宽无上限，不可修改 。
  - 跨地域对等连接可以选择带宽上限。如需更大的跨地域带宽，请提 [工单](https://console.cloud.tencent.com/workorder/category) 申请。
 ![](https://main.qcloudimg.com/raw/0e525b591343b4ad30c2170405006ffd.jpg)
-
 5. 单击【创建】。**同一账户内 VPC 进行连接，新建后对等连接立即生效。**
 
 ### 第四步：BI 新增路由策略
@@ -71,7 +69,7 @@ e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制�
 
 ### 第五步：Sparkling 接受由 BI 创建的对等连接
 具体步骤如下：
-1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 使用 Sparkling 账号登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击左侧目录中的【对等连接】，进入管理页面。
 3. 在列表上方选择对应的地域，如广州， 找到列表中待接受的对等连接：PeerConn，单击【接受】。
 ![](https://main.qcloudimg.com/raw/b0c5a1c457ade0e5edd4c97c7a85e8a8.png)
