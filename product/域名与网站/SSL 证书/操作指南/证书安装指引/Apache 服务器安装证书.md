@@ -59,7 +59,7 @@
 		DocumentRoot "/var/www/html" 
 		ServerName www.domain.com #填写证书名称
 		SSLEngine on #启用 SSL 功能
-		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com_cert.crt #证书文件的路径
+		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com.crt #证书文件的路径
 		SSLCertificateKeyFile /etc/httpd/ssl/3_www.domain.com.key #私钥文件的路径
 		SSLCertificateChainFile /etc/httpd/ssl/1_root_bundle.crt #证书链文件的路径
 </VirtualHost>
