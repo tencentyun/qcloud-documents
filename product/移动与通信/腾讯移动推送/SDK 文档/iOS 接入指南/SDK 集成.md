@@ -22,7 +22,7 @@
  pod 'TPNS-iOS' 
  ```
  - **方式二：手动导入**
-进入腾讯移动推送控制台，单击左侧菜单栏【SDK 下载】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
+进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 7. 在 Build Phases 下，添加以下 Framework：
 ```
