@@ -124,7 +124,7 @@ http://云服务器实例的公网 IP/index.php
 页面显示如下，则说明 PHP-Nginx 环境配置成功。
 ![](https://main.qcloudimg.com/raw/62cac02b422515364d8713062017c9e1.png)
 
-#### 安装配置 MariaDB
+#### 安装 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
 ```
 rpm -qa | grep -i mariadb
@@ -163,24 +163,31 @@ yum -y install MariaDB-client MariaDB-server
 systemctl start mariadb
 systemctl enable mariadb
 ```
-8. <span id="login">执行以下命令，设置 root 帐户登录密码及基础配置。</span>
->! 
->- 针对首次登录 MariaDB 的用户需执行以下命令进入用户密码及基础设置。
->- 首次输入 root 帐户密码后，需按 “**Enter**”（设置 root 密码时界面默认不显示），并再次输入 root 密码进行确认。请通过界面上的提示完成基础配置。
+
+<span id="login"></span>
+#### 配置 MariaDB 
+>!针对**首次登录** MariaDB 的用户须执行此步骤设置登录密码，如已设置过 MariaDB 登录密码，请跳过此步骤。
 >
+1. 执行以下命令，进入 MariaDB。
 ```
-mysql_secure_installation
+mysql
 ```
-9. 执行以下命令，登录 MariaDB，并输入 [步骤8](#login) 设置的密码，按 “**Enter**”。
+2. 执行以下命令，设置 root 用户身份验证方式
 ```
-mysql -uroot -p
+ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
 ```
- 显示结果如下，则已成功进入 MariaDB。
-![](https://main.qcloudimg.com/raw/cd3996d219c989911dbc3eb397047ce4.png)
-10. 执行以下命令，退出 MariaDB。
+3. 执行以下命令，设置 root 用户登录密码。
+```
+SET PASSWORD = PASSWORD('此处填写密码');
+```
+显示结果如下，则已成功设置。
+![](https://main.qcloudimg.com/raw/2c44bf47a93810be4c246cd5e49a84a9.png)
+4. <span id="out">执行以下命令，退出 MariaDB。</span>
 ```
 \q
 ```
+
+
 
 ### 安装和配置 WordPress
 #### 下载 
@@ -202,9 +209,9 @@ tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 #### 配置数据库
 在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
 1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
-```
-mysql -uroot -pXXXXX（XXXXX 表示安装 MariaDB 时设置的登录密码）
-```
+<pre>
+mysql -uroot -pXXXXX（XXXXX 表示<a href="#login"> 配置 MariaDB</a> 时设置的登录密码）
+</pre>
 2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
 ```
 CREATE DATABASE wordpress;
