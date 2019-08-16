@@ -19,8 +19,8 @@ classpath 'com.google.gms:google-services:4.2.0'
 
   2. 在应用级的 build.gradle 文件中，添加依赖：
 	```xml
-	implementation  'com.google.firebase:firebase-messaging:17.6.0' // fcm 推送
-	implementation  'com.google.firebase:firebase-messaging:17.6.0'
+	    implementation 'com.tencent.tpns:fcm:1.1.0.0-release' // fcm 推送
+            implementation  'com.google.firebase:firebase-messaging:17.6.0'
 
 	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进您应用model的根路径下
 	apply plugin: 'com.google.gms.google-services'
