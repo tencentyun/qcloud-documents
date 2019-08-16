@@ -38,38 +38,40 @@ window.callback = function(res){
 ### 定制接入
 验证码会在全局注册一个 TencentCaptcha 类，业务方可以使用 TencentCaptcha 类自行初始化验证码，并对验证码进行显示或者隐藏操作。
 默认的验证码的 JS（TCaptcha.js）在加载完成后，会检测页面中是否存在`id="TencentCaptcha"`的元素，如果存在，则会自动将验证码的触发事件绑定在该元素上。如不希望默认绑定，请避免使用`id="TencentCaptcha"`的元素。
-#### 构造函数
+-  **构造函数**
 TencentCaptcha 支持多种参数的重载，以下3种初始化方法，可根据具体情况选择其中一种。
-1. 手动初始化。
+	1. 手动初始化。
 ```
 new TencentCaptcha(appId, callback, options);
 ```
 **参数说明：**
-	- appId：String，申请的场景 ID。
-	- callback：Function，回调函数。
-	- options：Object，更多配置参数, 请参见 [配置参数]()。
-
+		- appId：String，申请的场景 ID。
+		- callback：Function，回调函数。
+		- options：Object，更多配置参数, 请参见 [配置参数]()。
+		
  >!手动初始化的情况，一般是单击一个元素，执行一段逻辑，才调用验证码，绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 
-2. 绑定到一个元素。
+	2. 绑定到一个元素。
 ```
 new TencentCaptcha(element);
 ```
 **参数说明：**
 element： HTMLElement，验证码将绑定 click 事件到该元素上，该方式需要确保元素上有 data-appid 和 data-cbfn 属性。
 >!手动绑定不要使用`id="TencentCaptcha" `的元素，避免重复绑定单击。
-3. 手动初始化并绑定到一个元素。
+	3. 手动初始化并绑定到一个元素。
 ```
 new TencentCaptcha(element, appId, callback, options);
 ```
 **参数说明：**
-	- element: HTMLElement, 需要绑定`click`事件的元素
+		- element: HTMLElement, 需要绑定`click`事件的元素
 >!手动绑定不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
-	- appId: String，申请的场景 ID。
-	- callback: Function， 回调函数。
-	- options: Object，更多配置参数, 请参见 [配置参数](#pzcs)。
+		- appId: String，申请的场景 ID。
+		- callback: Function， 回调函数。
+		- options: Object，更多配置参数, 请参见 [配置参数](#pzcs)。
 
-#### 示例代码
+- **示例代码**
+
+
 ```
 //方法1: 直接生成一个验证码对象。
 var captcha1 = new TencentCaptcha('appId', function(res) {/* callback */});
