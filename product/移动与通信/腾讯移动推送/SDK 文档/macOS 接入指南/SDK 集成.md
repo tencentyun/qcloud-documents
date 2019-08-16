@@ -82,15 +82,15 @@ pod 'TPNS-macOS'
 
 ```objective-c
 /**
- @brief 监控信鸽推送服务地启动情况
+ @brief 监控腾讯移动推送服务地启动情况
 
- @param isSuccess 信鸽推送是否启动成功
- @param error 信鸽推送启动错误的信息
+ @param isSuccess 腾讯移动推送是否启动成功
+ @param error 腾讯移动推送启动错误的信息
  */
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
 
 /**
- @brief 向信鸽服务器注册设备token的回调
+ @brief 向腾讯移动推送服务器注册设备token的回调
  
  @param deviceToken 当前设备的token
  @param error 错误信息
