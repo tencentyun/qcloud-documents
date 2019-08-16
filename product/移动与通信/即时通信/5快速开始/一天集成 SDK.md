@@ -3,8 +3,8 @@
 
 ## 步骤1：体验 Demo
 
-您可以扫码下载 [体验 Demo](https://cloud.tencent.com/document/product/269/36852)。
-如果想更进一步了解如何使用 IM SDK，请参见 [一分钟运行 Demo](https://cloud.tencent.com/document/product/269/36838)。
+您可以扫码 [下载并体验 Demo](https://cloud.tencent.com/document/product/269/36852)。
+如果想更进一步了解如何使用 IM SDK，请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
 
 <a name="nJjpr"></a>
 ## 步骤2：集成 SDK
