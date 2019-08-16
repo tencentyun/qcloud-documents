@@ -22,7 +22,7 @@
 pod 'TPNS-macOS' 
 ```
  - **方式二：手动导入**
-进入控制台，然后单击左侧菜单栏【SDK 下载】，进入下载页面，选择 macOS 平台，单击操作栏【下载】即可。
+进入控制台，然后单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择 macOS 平台，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 XG-Demo-macOS 文件夹，将 XG_SDK_Cloud_macOS.framework 及 XGMTACloud_macOS.framework 添加到工程。
 7. 在 Build Phases 下添加以下 Framework：
 ```
