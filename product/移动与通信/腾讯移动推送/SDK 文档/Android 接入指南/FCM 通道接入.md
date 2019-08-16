@@ -5,7 +5,7 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 
 ## 操作步骤
 ### 获取密钥
-进入 FireBase 官网， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。
+进入 FireBase 官网， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到腾讯移动推送的管理台。
 
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
@@ -28,7 +28,7 @@ classpath 'com.google.gms:google-services:4.2.0'
 >!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
 
 ### 启用 FCM 推送
-在调用信鸽注册代码 XGPushManager.registerPush 前，添加以下代码设置：
+在调用腾讯移动推送注册代码 XGPushManager.registerPush 前，添加以下代码设置：
 
 ```java
 XGPushConfig.enableOtherPush(this, true);
