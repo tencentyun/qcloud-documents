@@ -47,7 +47,7 @@ new TencentCaptcha(appId, callback, options);
 **参数说明：**
 		- appId：String，申请的场景 ID。
 		- callback：Function，回调函数。
-		- options：Object，更多配置参数, 请参见 [配置参数]()。
+		- options：Object，更多配置参数, 请参见 [配置参数](#pzcs)。
 		
  >!手动初始化的情况，一般是单击一个元素，执行一段逻辑，才调用验证码，绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 
@@ -70,7 +70,6 @@ new TencentCaptcha(element, appId, callback, options);
 		- options: Object，更多配置参数, 请参见 [配置参数](#pzcs)。
 
 - **示例代码**
-
 
 ```
 //方法1: 直接生成一个验证码对象。
