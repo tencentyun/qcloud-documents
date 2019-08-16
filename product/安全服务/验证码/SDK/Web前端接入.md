@@ -34,7 +34,7 @@ window.callback = function(res){
 }
 ```
 
-完成以上操作后，单击激活验证码的 DOM 元素，即可弹出验证码。至此，验证码客户端接入已完成，您可以进行 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 。
+完成以上操作后，单击激活验证码的 DOM 元素，即可弹出验证码。至此，验证码客户端接入已完成，您可以进行 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 操作。
 ### 定制接入
 验证码会在全局注册一个 TencentCaptcha 类，业务方可以使用 TencentCaptcha 类自行初始化验证码，并对验证码进行显示或者隐藏操作。
 默认的验证码的 JS（TCaptcha.js）在加载完成后，会检测页面中是否存在`id="TencentCaptcha"`的元素，如果存在，则会自动将验证码的触发事件绑定在该元素上。如不希望默认绑定，请避免使用`id="TencentCaptcha"`的元素。
