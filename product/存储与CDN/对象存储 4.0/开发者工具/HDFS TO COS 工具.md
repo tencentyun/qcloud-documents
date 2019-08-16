@@ -32,7 +32,7 @@ JDK 1.7或1.8。
 ![](https://main.qcloudimg.com/raw/9f83bc3b2446e27254936e7fe6d7d281.png)
 
 #### 文件拷贝
-- 从 HDFS 拷贝到 COS，若 COS 上已存在同名文件， 则会覆盖原文件。
+- 从 HDFS 拷贝到 COS，若 COS 上已存在同名且长度不一致的文件时， 则会覆盖原文件。
 ```
 ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 ```
