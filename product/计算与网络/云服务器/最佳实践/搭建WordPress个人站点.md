@@ -171,7 +171,7 @@ systemctl enable mariadb
 ```
 mysql_secure_installation
 ```
-9. 执行以下命令，登录 MariaDB，并输入 [步骤5](#login) 设置的密码，按 “**Enter**”。
+9. 执行以下命令，登录 MariaDB，并输入 [步骤8](#login) 设置的密码，按 “**Enter**”。
 ```
 mysql -uroot -p
 ```
