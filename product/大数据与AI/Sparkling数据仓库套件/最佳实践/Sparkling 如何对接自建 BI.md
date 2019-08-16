@@ -34,9 +34,6 @@
 ![](https://main.qcloudimg.com/raw/4f60959b89c4c60490ecd6ffbd2e2635.jpg)
 
 ### 第三步：BI 创建对等连接
- >!若 BI 端私有网络与 Sparkling 端私有网络所在地区不同，其中产生的费用由发起对等连接方承担。
->
-
 具体步骤如下：
 1. 使用 BI 账号单击控制台左侧目录中的【对等连接】，进入管理页面。
 2. 在列表上方选择地域和已创建的私有网络，单击【新建】，创建对等连接。
@@ -50,9 +47,13 @@ d. 对端账户：填入 Sparkling 用户账号 ID，可在用户的 [个人中�
 e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 查看。
 ![](https://main.qcloudimg.com/raw/be13b24659b8c433990dca0a3984b768.jpg)
 4. 选择带宽上限
+>!若 BI 端私有网络与 Sparkling 端私有网络所在地区不同，其中产生的费用由发起对等连接方承担。
+>
+
  - 同地域对等连接带宽无上限，不可修改 。
  - 跨地域对等连接可以选择带宽上限。如需更大的跨地域带宽，请提 [工单](https://console.cloud.tencent.com/workorder/category) 申请。
 ![](https://main.qcloudimg.com/raw/0e525b591343b4ad30c2170405006ffd.jpg)
+
 5. 单击【创建】。**同一账户内 VPC 进行连接，新建后对等连接立即生效。**
 
 ### 第四步：BI 新增路由策略
@@ -62,8 +63,10 @@ e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制�
 ![](https://main.qcloudimg.com/raw/7210f931dc919da05fd1fbb1e7dc36cd.jpg)
 3. 单击【+新增路由策略】。
 ![](https://main.qcloudimg.com/raw/a375d7506b8e7075bdbd6f62661216d4.jpg)
-4. 目的端中填入对端 Sparkling 私有网络 CIDR，可在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 查看。下一跳类型选择【对等连接】，下一跳选择已建立的对等连接（PeerConn）。
+4. 目的端中填入对端 Sparkling 私有网络 CIDR。下一跳类型选择【对等连接】，下一跳选择已建立的对等连接（PeerConn）。
 ![](https://main.qcloudimg.com/raw/6dfb18cede3e94bfbef4a1d57b953bcd.png)
+ Sparkling 私有网络 CIDR，可在 Sparking 端选择【云产品】>【网络】>【私有网络】，进入私有网络控制台，私有网络 CIDR 如下图：
+ ![](https://main.qcloudimg.com/raw/6e87dd28bc99c0a20c6edf6e6deff27a.png)
 5. 单击【确定】。**路由表配置完成后，不同 VPC 的网段之间即可进行通信。**
 
 ### 第五步：Sparkling 接受由 BI 创建的对等连接
