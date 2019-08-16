@@ -5,7 +5,7 @@
 >?本步骤是使用 BI 账号登录进行以下操作。若 BI 端已创建私有网络可以复用，直接跳过此步。
 
 具体步骤如下：
-1. 使用 BI 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【产品】>【基础】>【网络】>【私有网络】，单击【立即体验】进入私有网络控制台。
+1. 使用 BI 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击左侧目录中的【私有网络】，进入管理页面。
 3. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
@@ -21,7 +21,7 @@
 >?本步骤是使用 Sparkling 账号登录进行以下操作。若 Sparkling 端已创建私有网络可以复用，直接跳过此步。
 >
 具体步骤如下：
-1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择选择【产品】>【基础】>【网络】>【私有网络】，单击【立即体验】进入私有网络控制台。
+1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击左侧目录中的【私有网络】，进入管理页面。
 2. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
@@ -63,7 +63,7 @@ e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制�
 ![](https://main.qcloudimg.com/raw/7210f931dc919da05fd1fbb1e7dc36cd.jpg)
 3. 单击【+新增路由策略】。
 ![](https://main.qcloudimg.com/raw/a375d7506b8e7075bdbd6f62661216d4.jpg)
-4. 目的端中填入对端 Sparkling 私有网络 CIDR。下一跳类型选择【对等连接】，下一跳选择已建立的对等连接（PeerConn）。
+4. 目的端中填入对端 Sparkling 私有网络 CIDR。【下一跳类型】选择【对等连接】，【下一跳】选择已建立的对等连接（PeerConn）。
 ![](https://main.qcloudimg.com/raw/6dfb18cede3e94bfbef4a1d57b953bcd.png)
  Sparkling 私有网络 CIDR，可在 Sparking 端选择【云产品】>【网络】>【私有网络】，进入私有网络控制台，私有网络 CIDR 如下图：
  ![](https://main.qcloudimg.com/raw/6e87dd28bc99c0a20c6edf6e6deff27a.png)
@@ -71,8 +71,9 @@ e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制�
 
 ### 第五步：Sparkling 接受由 BI 创建的对等连接
 具体步骤如下：
-1. 使用 Sparkling 账号单击控制台左侧目录中的【对等连接】，进入管理页面。
-2. 在列表上方选择对应的地域，如广州， 找到列表中待接受的对等连接：PeerConn，单击【接受】。
+1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+2. 单击左侧目录中的【对等连接】，进入管理页面。
+3. 在列表上方选择对应的地域，如广州， 找到列表中待接受的对等连接：PeerConn，单击【接受】。
 ![](https://main.qcloudimg.com/raw/b0c5a1c457ade0e5edd4c97c7a85e8a8.png)
 
 ### 第六步：Sparkling 新增路由策略
@@ -82,8 +83,10 @@ e. 对端网络：填入 Sparkling 私有网络 ID，可在 [私有网络控制�
 ![](https://main.qcloudimg.com/raw/7210f931dc919da05fd1fbb1e7dc36cd.jpg)
 3. 单击【+新增路由策略】。
 ![](https://main.qcloudimg.com/raw/a375d7506b8e7075bdbd6f62661216d4.jpg)
-4. 目的端中填入 BI 私有网络 CIDR，可在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 查看。下一跳类型选择【对等连接】，下一跳选择已建立的对等连接（PeerConn）。
+4. 目的端中填入 BI 私有网络 CIDR。【下一跳类型】选择【对等连接】，【下一跳】选择已建立的对等连接（PeerConn）。
 ![](https://main.qcloudimg.com/raw/6dfb18cede3e94bfbef4a1d57b953bcd.png)
+ BI 私有网络 CIDR，可在 BI 端选择【云产品】>【网络】>【私有网络】，进入私有网络控制台，私有网络 CIDR 如下图：
+![](https://main.qcloudimg.com/raw/4472dc4f0b58a7de33f90e1ba29f1b30.png)
 5. 单击【确定】。**路由表配置完成后，不同 VPC 的网段之间即可进行通信。**
 
 ### 第七步：Sparkling 创建集群
