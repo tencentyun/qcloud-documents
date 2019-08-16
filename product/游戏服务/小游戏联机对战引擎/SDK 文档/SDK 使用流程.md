@@ -20,8 +20,7 @@ report.wxlagame.com
 xxx.wxlagame.com
 xxx.wxlagame.com:5443
 ```	
-2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。如下图所示：
-![控制台游戏信息](https://main.qcloudimg.com/raw/d9148b71fbc9d377d440e645fa7e2a1e.png)
+2. 进入小游戏联机对战引擎控制台，将控制台获取的游戏域名信息复制保存。
 3. 登录 [微信公众平台](https://mp.weixin.qq.com)，选择左侧菜单栏【开发】>【开发设置】。
 4. 进入开发设置详情页，在 “服务器域名” 中添加合法域名记录。如下图所示：
 ![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
