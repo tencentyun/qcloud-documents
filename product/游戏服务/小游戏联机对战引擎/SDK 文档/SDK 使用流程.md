@@ -167,7 +167,7 @@ Listener.init(gameInfo, config, event => {
 
 调用 Listener.init 时，需要传入游戏信息 gameInfo 和游戏配置 config 两个参数。
 - gameInfo.gameId、gameInfo.secretKey 和 config.url 都需要根据控制台上的信息传入。
-- gameInfo.openId 为玩家唯一 ID，比如微信小游戏平台上的 OpenID。
+- gameInfo.openId 为玩家唯一 ID，例如，微信小游戏平台上的 OpenID。
 - 其它字段由开发者自定义。
 
 每个字段的具体含义可以参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
@@ -206,7 +206,7 @@ room.getRoomDetail(event => {
 
 ### Room 接收广播
 
-一个房间对象会有很多广播事件与其相关，比如该房间有新成员加入、房间属性变化、房间开始对战等广播。Room 实例需要在 Listener 中注册广播监听，并且实现广播的回调函数。
+一个房间对象会有很多广播事件与其相关，例如该房间有新成员加入、房间属性变化、房间开始对战等广播。Room 实例需要在 Listener 中注册广播监听，并且实现广播的回调函数。
 
 #### 注册广播监听
 
