@@ -249,7 +249,7 @@
 | ------------------------------------------------------------| ------ | --------| ----- | -------- | ---- |		
 | [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | ✔ | -   | ✔   |✔    |
 | [企业组织](https://cloud.tencent.com/document/product/850/18556) | 操作级 | ✔ | -  |✔     | - |
-| [商业流程服务 BPaaS](https://cloud.tencent.com/document/product/1083/34888)  | 操作级 | ✔ | -   | ✔  | -  |
+| [商业流程服务](https://cloud.tencent.com/document/product/1083/34888)  | 操作级 | ✔ | -   | ✔  | -  |
 
 ## 监控与运维	
 
@@ -278,7 +278,7 @@
  | 服务                                                          | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | -------------------------------------------------------- | ------ | -------- | ------- | -------- | ---- |	
 | [商业直播](https://cloud.tencent.com/document/product/1078)  | 操作级 | ✔   | -  | ✔  | - |
-| [微信云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | ✔   | - | - | - |
+| [云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | ✔   | - | - | - |
 
 ## 管理与支持
 
