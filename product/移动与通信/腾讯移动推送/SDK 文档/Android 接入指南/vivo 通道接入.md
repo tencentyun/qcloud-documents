@@ -10,7 +10,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ###  配置内容
 #### AndroidStudio 集成方法
 
-在 App 模块下的 build.gradle 文件内，完成信鸽所需的配置后，再增加以下节点：
+在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需的配置后，再增加以下节点：
 1. 配置 vivo 的 AppID 和 AppKey。示例代码如下：
 ```xml
  manifestPlaceholders = [
@@ -29,7 +29,7 @@ implementation 'com.tencent.tpns:vivo:1.0.9.0'
 
 
 #### Eclipes 集成方法
-获取信鸽 vivo 通道 SDK 包后，按照信鸽官网手动集成方法，在配置好信鸽主版本的基础下，进行以下设置：
+获取腾讯移动推送 vivo 通道 SDK 包后，按照腾讯移动推送官网手动集成方法，在配置好腾讯移动推送主版本的基础下，进行以下设置：
 
 1. 导入 vivo 推送相关 jar 包， 将```XG4VIVOPush*.jar```放在```libs```文件夹里。
 2. 在 ```Androidmanifest.xml``` 文件中，新增如下配置：
@@ -67,7 +67,7 @@ implementation 'com.tencent.tpns:vivo:1.0.9.0'
 
 
 ### 开启 vivo 推送
-在调用信鸽 ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
+在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
 
 ```java
 //打开第三方推送
