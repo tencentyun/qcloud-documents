@@ -303,7 +303,7 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
 ![输入区域](https://main.qcloudimg.com/raw/262f09005c939b5004e437df58112056.png)
 
-#### 去掉不要的功能
+#### 隐藏不要的功能
 
 您可以自定义隐藏或展示更多"+"面板的图片、拍照、摄像以及发送文件的功能。
 
