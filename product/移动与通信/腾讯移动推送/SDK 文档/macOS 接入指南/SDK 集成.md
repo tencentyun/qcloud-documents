@@ -106,7 +106,7 @@ pod 'TPNS-macOS'
 
 ```javascript
 [xgpush]Current device token is 623e4a477abce566a74c449ae32c1ca6066fbb243e7417b3fe393811b54792eb
-服务器(193.112.115.248)返回正确， 注册设备Token 成功
+服务器(192.168.1.1)返回正确， 注册设备Token 成功
 ```
 
 
