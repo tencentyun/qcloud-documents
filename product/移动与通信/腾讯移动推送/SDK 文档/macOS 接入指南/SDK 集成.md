@@ -5,7 +5,7 @@
 
 
 ## SDK 组成
-- doc 文件夹：信鸽 macOS SDK 开发指南。
+- doc 文件夹：腾讯移动推送 macOS SDK 开发指南。
 - demo 文件夹：主要包含样例工程，信鸽 SDK。
 
 
@@ -39,8 +39,8 @@ pod 'TPNS-macOS'
 
 >!如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
-11. 调用启动信鸽的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务
-   1. 启动信鸽服务，以下是在 ```AppDelegate``` 中做演示：
+11. 调用启动腾讯移动推送的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务
+   1. 启动腾讯移动推送服务，以下是在 ```AppDelegate``` 中做演示：
 		 ```objective-c
 		 @interface AppDelegate () <XGPushDelegate>
 		 @end
@@ -67,7 +67,7 @@ pod 'TPNS-macOS'
 
 ## 调试方法
 #### 开启 Debug 模式
-打开 Debug 模式，即可在终端查看详细的信鸽 Debug 信息，方便定位问题。
+打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
 
 #### 代码示例
 
