@@ -1,16 +1,16 @@
 ## 前提条件
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret，注册完成后，您可以在控制台的基础配置中查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
 ## 接入步骤
 ### 快速接入
 以下为 Web 端快速接入流程，适用于每次都需要进行人机验证的场景（登录、注册、下发短信、活动等）。
-1. 在 Head 的标签内，最后加入以下代码引入验证 JS 文件（建议直接在 HTML 中引入）
+1. 在 Head 的标签内的最后加入以下代码，引入验证 JS 文件（建议直接在 HTML 中引入）
 ```
 <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
 ```
-2. 在您想要激活验证码的 DOM 元素（button、div、span）内加入以下 ID 及属性。
+2. 在您需要激活验证码的 DOM 元素（button、div、span）内加入以下 ID 及属性。
 ```
 <!--点击此元素会自动激活验证码-->
-<!--id : 元素的id(必须)-->
+<!--id : 元素的 ID (必须)-->
 <!--data-appid : AppID(必须)-->
 <!--data-cbfn : 回调函数名(必须)-->
 <!--data-biz-state : 业务自定义透传参数(可选)-->
@@ -20,7 +20,9 @@
         type="button"
 >验证</button>
 ```
-3. 为验证码创建回调函数，注意函数名要与 data-cbfn 相同。
+3. 为验证码创建回调函数。
+>!函数名要与 data-cbfn 相同。
+>
 ```
 window.callback = function(res){
     console.log(res)
@@ -32,9 +34,9 @@ window.callback = function(res){
 }
 ```
 
-完成以上操作后，单击激活验证码的元素，即可弹出验证码。至此，验证码客户端接入已完成，您可以继续完成 [后台 API 接入]() 。
+完成以上操作后，单击激活验证码的 DOM 元素，即可弹出验证码。至此，验证码客户端接入已完成，您可以进行 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 。
 ### 定制接入
-验证码会在全局注册一个 TencentCaptcha 类，业务方可以使用这个类自行初始化验证码，并对验证码进行显示或者隐藏。
+验证码会在全局注册一个 TencentCaptcha 类，业务方可以使用 TencentCaptcha 类自行初始化验证码，并对验证码进行显示或者隐藏操作。
 默认的验证码的 JS（TCaptcha.js）在加载完成后，会检测页面中是否存在`id="TencentCaptcha"`的元素，如果存在，则会自动将验证码的触发事件绑定在该元素上。如不希望默认绑定，请避免使用`id="TencentCaptcha"`的元素。
 #### 构造函数
 TencentCaptcha 支持多种参数的重载，以下3种初始化方法，可根据具体情况选择其中一种。
@@ -47,7 +49,7 @@ new TencentCaptcha(appId, callback, options);
 	- callback：Function，回调函数。
 	- options：Object，更多配置参数, 请参见 [配置参数]()。
 
- >!手动初始化的情况，一般是单击一个元素，执行一段逻辑，然后才调用验证码，绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
+ >!手动初始化的情况，一般是单击一个元素，执行一段逻辑，才调用验证码，绑定单击的元素不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 
 2. 绑定到一个元素。
 ```
@@ -62,7 +64,7 @@ new TencentCaptcha(element, appId, callback, options);
 ```
 **参数说明：**
 	- element: HTMLElement, 需要绑定`click`事件的元素
->!手动绑定不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击）
+>!手动绑定不要使用`id="TencentCaptcha"`的元素，避免重复绑定单击。
 	- appId: String，申请的场景 ID。
 	- callback: Function， 回调函数。
 	- options: Object，更多配置参数, 请参见 [配置参数](#pzcs)。
