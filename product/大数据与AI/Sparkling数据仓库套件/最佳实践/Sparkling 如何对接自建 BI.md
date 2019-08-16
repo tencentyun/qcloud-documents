@@ -2,9 +2,12 @@
 ![](https://main.qcloudimg.com/raw/3283eee40de5f15a4ab915af3b25b6b3.png)
 
 ### 第一步：BI 创建私有网络
+>?本步骤是使用 BI 账号登录进行以下操作。若 BI 端已创建私有网络可以复用，直接跳过此步。
+
 具体步骤如下：
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
+1. 使用 BI 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择【产品】>【基础】>【网络】>【私有网络】，单击【立即体验】进入私有网络控制台。
+2. 单击左侧目录中的【私有网络】，进入管理页面。
+3. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
    新建私有网络步骤如下：
    a. 填写私有网络名称
@@ -15,8 +18,11 @@
 ![](https://main.qcloudimg.com/raw/4f60959b89c4c60490ecd6ffbd2e2635.jpg)
 
 ### 第二步：Sparkling 创建私有网络
+>?本步骤是使用 Sparkling 账号登录进行以下操作。若 Sparkling 端已创建私有网络可以复用，直接跳过此步。
+>
 具体步骤如下：
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
+1. 使用 Sparkling 账号登录 [腾讯云控制台](https://cloud.tencent.com/login)，选择选择【产品】>【基础】>【网络】>【私有网络】，单击【立即体验】进入私有网络控制台。
+2. 单击左侧目录中的【私有网络】，进入管理页面。
 2. 在管理页上方选择地域，例如广州，单击【新建】，创建私有网络。
    ![](https://main.qcloudimg.com/raw/5b545a32b89c0cc979e055195415e9e4.png)
    新建私有网络步骤如下：
