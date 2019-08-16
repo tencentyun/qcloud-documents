@@ -4,8 +4,6 @@
 ### 修改默认头像图片
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。如果用户没有设置头像，则显示默认头像。
-- 群头像默认头像：<img src="https://main.qcloudimg.com/raw/a81959993b0073329b7dd525cb1630a1.png"  style="margin:0;">
-- 个人默认头像：<img src="https://main.qcloudimg.com/raw/9ff8053cf27137b523633026c0a9f5e4.png"  style="margin:0;">
 
 您可以自定义默认头像的图片。
 ```objectivec
@@ -19,7 +17,7 @@ config.defaultGroupAvatarImage = [UIImage imageNamed:@"Your Image"];
 
 ### 修改头像类型
 
-头像类型提供矩形直角头像、圆形头像和圆角头像三种可选类型，默认头像为矩形直角类型。
+头像类型提供矩形直角头像、圆形头像和圆角头像三种可选类型。
 
 ```objectivec
 typedef NS_ENUM(NSInteger, TUIKitAvatarType) {
