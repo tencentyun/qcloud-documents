@@ -1,4 +1,4 @@
-您的域名接入 DSA 后，系统会为您自动分配一个 CNAME 域名（以`.dsa.dnsv1.com`为后缀)。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 DSA 加速服务。
+您的域名接入 ECDN 后，系统会为您自动分配一个 CNAME 域名（以`.dsa.dnsv1.com`为后缀)。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受 ECDN 加速服务。
 ![](https://main.qcloudimg.com/raw/2a1ebdce1a0978ee162ccb3d534eabaf.png)
 
 ## 腾讯云设置方法
@@ -23,6 +23,6 @@
 ![](https://mccdn.qcloud.com/static/img/301f06bf3f6f107fec5295f69f8c0ad3/image.png)
 
 ## 验证 CNAME 是否生效
-不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 PING 命令来查询 CNAME 是否生效，如果 PING 到后缀为`.dsa.sp.spcdntip.com`或`.dsa.p23.tc.cdntip.com`的域名，表示域名 CNAME 已生效。
+不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 PING 命令来查询 CNAME 是否生效，如果 PING 到后缀为`.ecdn.sp.spcdntip.com`或`.ecdn.p23.tc.cdntip.com`的域名，表示域名 CNAME 已生效。
 ![](https://mc.qcloudimg.com/static/img/3e45aca57e30b993541c16d83d07d154/image.png)
 ![](https://mc.qcloudimg.com/static/img/c3deeb94c05f02ae934d2f7bb7673f28/image.png)
