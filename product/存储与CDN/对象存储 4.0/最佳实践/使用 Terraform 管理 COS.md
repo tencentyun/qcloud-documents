@@ -24,7 +24,7 @@ provider "tencentcloud" {
 
 > ?其他方式配置方式，详情请参见 [腾讯云 Terraform 应用指南（一）](https://cloud.tencent.com/developer/article/1473713) 的“配置腾讯云 provider 文件”章节。
 
-4）**执行 init 命令**初始化工作目录（例如 terraform-test），示例如下：
+（4）**执行 init 命令**初始化工作目录（例如 terraform-test），示例如下：
 ```
 [nick@tigger terraform-test]#terraform init
 ```
