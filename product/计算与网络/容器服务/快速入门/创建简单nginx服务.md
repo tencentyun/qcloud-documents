@@ -58,7 +58,7 @@
 
 ### 验证 nginx 服务
 服务创建成功，访问服务时直接进入 nginx 服务器的默认欢迎页。如下图所示：
-![](https://mc.qcloudimg.com/static/img/a3cbbc5c902bd162210a4615c0955f19/image.png)
+![](https://main.qcloudimg.com/raw/37246241fe0abd1d3796c080b1661217.png)
 
 ### 更多 Nginx 设置
 - 可查看 [使用腾讯云容器服务来构建简单 web service ](https://cloud.tencent.com/community/article/223421)。
