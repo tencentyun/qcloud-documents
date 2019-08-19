@@ -26,7 +26,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
  - **类型**：根据实际需求进行选择。
  - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
  ![](https://main.qcloudimg.com/raw/d2b3c89b8770a0bfd06cc39f20ead90d.png)
-5. 根据以下提示，设置**实例内容器**。
+5. 根据以下提示，设置**实例内容器**。如下图所示：
  - **名称**：输入自定义容器名称，本文以 test 为例。
  - **镜像**：输入 `tutum/wordpress`。
  - **镜像版本（Tag）**：输入 latest。
