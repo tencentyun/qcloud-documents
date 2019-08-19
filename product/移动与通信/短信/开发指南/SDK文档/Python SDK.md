@@ -84,7 +84,7 @@ ssender = SmsSingleSender(appid, appkey)
 params = ["5678"]  # 当模板没有参数时，`params = []`
 try:
     result = ssender.send_with_param(86, phone_numbers[0],
-        template_id, params, sign=sms_sign, extend="", ext="")  # 签名参数未提供或者为空时，会使用默认签名发送短信
+        template_id, params, sign=sms_sign, extend="", ext="") 
 except HTTPError as e:
     print(e)
 except Exception as e:
@@ -118,7 +118,7 @@ msender = SmsMultiSender(appid, appkey)
 params = ["5678"]
 try:
     result = msender.send_with_param(86, phone_numbers,
-        template_id, params, sign=sms_sign, extend="", ext="")   # 签名参数未提供或者为空时，会使用默认签名发送短信
+        template_id, params, sign=sms_sign, extend="", ext="")
 except HTTPError as e:
     print(e)
 except Exception as e:
