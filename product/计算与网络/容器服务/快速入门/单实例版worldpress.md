@@ -53,7 +53,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 
 #### 通过负载均衡 IP 来访问 WordPress 服务
 1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入“集群管理”页面。
-2. 单击 Nginx 服务所在的集群 ID，选择【服务】>【Service】。
+2. 单击 WordPress 服务所在的集群 ID，选择【服务】>【Service】。
 3. 进入服务管理页面，复制 WordPress 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/204793d204a733e7c4c8b2cea5e96dce.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。
