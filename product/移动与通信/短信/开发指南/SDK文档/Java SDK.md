@@ -111,7 +111,7 @@ try {
     String[] params = {"5678"};
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
-        templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        templateId, params, smsSign, "", "");
     System.out.println(result);
 } catch (HTTPException e) {
     // HTTP 响应码错误
@@ -163,7 +163,7 @@ try {
     String[] params = {"5678"};
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     SmsMultiSenderResult result =  msender.sendWithParam("86", phoneNumbers,
-        templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        templateId, params, smsSign, "", "");
     System.out.println(result);
 } catch (HTTPException e) {
     // HTTP 响应码错误
