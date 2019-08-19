@@ -18,7 +18,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
 2. 单击左侧导航栏【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
 3. 单击需要创建服务的集群 ID，进入工作负载 Deployment 详情页，选择【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/236918b1a3c7c502fcd110da0971e74b.png)
-4. 在“新建Workload” 页面，根据以下提示，设置工作负载基本信息。
+4. 在“新建Workload” 页面，根据以下提示，设置工作负载基本信息。如下图所示：
  - **工作负载名**：输入要创建的工作负载的名称，本文以 wordpress 为例。
  - **描述**：填写工作负载的相关信息。
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **wordpress** 。
