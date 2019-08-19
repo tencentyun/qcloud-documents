@@ -10,11 +10,11 @@
 ### 创建 Nginx 服务
 
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2) 。
-2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
-3. 单击需要创建服务的集群 ID/名称，进入工作负载 Deployment 详情页，选择【新建】。如下图所示：
+2. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入“集群管理”页面。
+3. 单击需要创建服务的集群 ID，进入工作负载 Deployment 详情页，选择【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/812eca17f3943d661f3bc70573367ae6.png)
 4. 在“新建 Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
- - **工作负载名**：要创建的工作负载的名称，本文以 nginx 为例。
+ - **工作负载名**：输入要创建的工作负载的名称，本文以 nginx 为例。
  - **描述**：填写工作负载的相关信息。
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **nginx** 。
  - **命名空间**：根据实际需求进行选择。
@@ -22,10 +22,10 @@
  - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
 ![](https://main.qcloudimg.com/raw/bfb910953eca3845de6436c8b9b26191.png)
 5. 设置**实例内容器**，输入实例内容器名称（本文以 test 为例），并单击【选择镜像】。如下图所示：
- ![](https://main.qcloudimg.com/raw/5426739b6bd36ce40388ee9b1478f4f5.png)
-在弹出框中选择【DockerHub镜像】> **nginx** ，并单击【确定】。如下图所示：
 >!其他选项保持为默认设置。
 >
+ ![](https://main.qcloudimg.com/raw/5426739b6bd36ce40388ee9b1478f4f5.png)
+在弹出框中选择【DockerHub镜像】> **nginx** ，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8d69dc01860cbfc28f5a881b4d42bba4.png)
 6.   根据以下提示，进行工作负载的访问设置。如下图所示：   
  - **Service**：勾选“启用”。
