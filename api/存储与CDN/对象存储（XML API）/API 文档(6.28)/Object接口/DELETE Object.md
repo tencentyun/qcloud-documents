@@ -48,7 +48,7 @@ Authorization: Auth String
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
 | x-cos-version-id | 对象的版本 ID | string |
-| x-cos-delete-marker | 当使用 versionId 请求参数指定删除标记的版本 ID 时，将返回此响应头部且值为 true，代表删除的版本 ID 对应的是一个删除标记；<br>当未使用 versionId 请求参数且指定的对象所在的存储桶启用了版本控制时，将返回此响应头部且值为 true，代表该删除请求创建了一个删除标记作为对象的最新版本 | boolean |
+| x-cos-delete-marker | 当使用 versionId 请求参数指定删除标记的版本 ID 时，将返回此响应头部且值为 true，代表删除的版本 ID 对应的是一个删除标记<br>当未使用 versionId 请求参数且指定的对象所在的存储桶启用了版本控制时，将返回此响应头部且值为 true，代表该删除请求创建了一个删除标记作为对象的最新版本 | boolean |
 
 #### 响应体
 
