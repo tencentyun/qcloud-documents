@@ -28,7 +28,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 | 参数                  | 说明                                       |
 | ------------------- | ---------------------------------------- |
 | Profile Name        | 配置文件保存为的名称。                               |
-| Broker Address      | MQTT 服务器连接地址，广州域设备填入：iotcloud-mqtt.gz.tencentdevices.com |
+| Broker Address      | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com |
 | Broker Port         | MQTT 服务器连接端口，填入：8883。                     |
 | Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："QICJYEM1T4Demo1", QICJYEM1T4 是产品 ID，Demo1 是设备名。 |
 | Connection Timeout  | 连接超时时间秒。                                 |
