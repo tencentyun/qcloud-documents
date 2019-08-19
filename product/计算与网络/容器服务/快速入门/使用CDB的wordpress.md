@@ -57,7 +57,7 @@ WORDPRESS_DB_PASSWORD = 初始化时填写的密码
   - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80 。
  ![](https://main.qcloudimg.com/raw/3f722201e228c2bebc63cad0ea3d76c7.png)
  >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
-
+>
 6. 单击【创建Workload】，完成 WordPress 服务的创建。
 
 
