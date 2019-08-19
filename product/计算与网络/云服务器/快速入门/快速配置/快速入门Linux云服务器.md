@@ -25,7 +25,7 @@
 
 >! 对于初次购买的账户，默认进入【快速配置】页面。对于已购买过云服务器的用户，默认进入【自定义配置】页面。若您已购买过云服务器，请选择【快速配置】进行快速配置操作。
 >
-![](https://main.qcloudimg.com/raw/1ec1a6e1071c7fa52f7c733ba1b0cf6b.png)
+![](https://main.qcloudimg.com/raw/c8d360b6374657befdca0fd7aa5f195a.png)
 
 ### 选择云服务器所在地域及可用区
 
@@ -48,7 +48,7 @@
 ### 选择镜像
 
 本文介绍 Linux 实例的购买及登录，请选择 Linux 提供镜像。 
-![](https://main.qcloudimg.com/raw/e7dabdf30f673cfd33548788f8816319.png)
+![](https://main.qcloudimg.com/raw/62eb1d6ed15229ba074734eca7066c33.png)
 
 ### 配置网络
 

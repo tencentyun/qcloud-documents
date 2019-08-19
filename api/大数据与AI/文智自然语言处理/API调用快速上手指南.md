@@ -31,7 +31,7 @@
 		<tr>
 			<td style="text-align: center; width: 87px;">Region</td>
 			<td style="text-align: center; width: 75px;">String</td>
-			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
+			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:中国香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
 			<td style="text-align: center; width: 76px;">是</td>
 		</tr>
 		<tr>

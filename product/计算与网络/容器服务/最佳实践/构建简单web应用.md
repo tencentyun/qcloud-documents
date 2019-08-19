@@ -15,7 +15,7 @@ Web 应用分为以下两部分：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)。
 2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke/cluster?rid=1)】，进入集群管理页面。
 3. 单击【[新建](https://console.cloud.tencent.com/tke/cluster/create?rid=1)】，进入 “创建集群” 页面。如下图所示：
-![创建集群](https://main.qcloudimg.com/raw/7cbdee82043ed142dc30962d0afbecdf.png)
+![](https://main.qcloudimg.com/raw/26d6ea41c2d1300c67a24b9e9049dbcc.png)
 4. 根据实际需求，填写以下参数。
  - 集群名称：自定义。
  - 新增资源所属项目：指定项目，集群内新增的云服务器、负载均衡器等资源将会自动分配到该项目下。

@@ -1,5 +1,5 @@
-国际短信采用 [月结后付费](https://cloud.tencent.com/document/product/382/18052#.E4.BB.98.E6.AC.BE.E6.96.B9.E5.BC.8F)的方式。表中的价格单位为美元。
- <br />单击下载 [国际短信价格表](https://mc.qcloudimg.com/static/archive/ecbd7de36078dab5baf0a270e8a82103/archive.xlsx "腾讯云短信海外价格表")。
+国际/港澳台短信采用 [月结后付费](https://cloud.tencent.com/document/product/382/18052#.E4.BB.98.E6.AC.BE.E6.96.B9.E5.BC.8F)的方式。表中的价格单位为美元。
+ <br />单击下载 [国际/港澳台短信价格表](https://mc.qcloudimg.com/static/archive/ecbd7de36078dab5baf0a270e8a82103/archive.xlsx "腾讯云短信海外价格表")。
 
  | 国家（或地区） | 中文名	| 代号	| 国家（或地区）码 |	单价（美元） |
  |--------------------|----------|-------|---------|---------------|

@@ -4,7 +4,7 @@
 首先您需要创建集群。集群是指容器运行所需云资源的集合，包含了若干台云服务器、负载均衡器等腾讯云资源。
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/ccs)。
 2. 单击左侧导航栏中的【集群】，单击集群列表页的【新建】。
-![](https://main.qcloudimg.com/raw/93941a4de61062f42e0a8f4c540b9d36.png)
+![](https://main.qcloudimg.com/raw/983945cbf3738b6cdf1cefaceda3804c.png)
 3. 设置集群的基本信息。
  - **集群名称**：您要创建的集群的名称。不超过 60 个字符。
  - **新增资源所属项目**：集群内新增的云服务器、负载均衡器等资源将会自动分配到该项目下。
@@ -14,7 +14,7 @@
  - **集群网络**：如现有的网络不合适，您可以去控制台 [新建私有网络](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
  - **容器网络**：为集群内容器分配在容器网络地址范围内的 IP 地址。参阅 [容器及节点网络设置](/doc/product/457/9083)。
  - **集群描述**：创建集群的相关信息。该信息将显示在 **集群信息** 页面。
- ![](https://main.qcloudimg.com/raw/9489be79dd6271905e72f2c1e5943c4a.png)
+ ![](https://main.qcloudimg.com/raw/7ab68aa5298d2c033b859ee6a4fc120b.png)
 4. 选择机型（支持系统盘为云盘的所有机型）。
  - **计费模式**：提供按量计费和包年包月两种计费模式，参阅 [详细对比](https://cloud.tencent.com/document/product/213/2180)。
  - **所在地域**：显示当前服务所在地域。
@@ -41,18 +41,18 @@
 ![Alt text](https://main.qcloudimg.com/raw/33400238d456e6d4f06d15676452f677.png)
 
 6. 创建完成的集群将出现在集群列表中。
-![Alt text](https://main.qcloudimg.com/raw/89eb566462e9127b267a67e04ee2ed39.png)
+![](https://main.qcloudimg.com/raw/1526bc9175686a1ae341d74ffcb0873f.png)
 
 ## 步骤 2：创建服务
 您现已创建了集群，接下来就是创建服务。服务是由多个相同配置的容器和访问这些容器的规则组成的微服务。
 1. 单击左侧导航栏中的【服务】，单击服务列表页的【新建】。
-![](https://main.qcloudimg.com/raw/9b3988966f2342ac16a9558bde93e75e.png)
+![](https://main.qcloudimg.com/raw/f1a031e18b65c1931b6e0bf646164802.png)
 2. 基本信息设置。
  - **服务名称**：要创建的服务的名称。服务名称最长 63 个字符，只能包含小写字母、数字及分隔符(-)，且必须以小写字母开头，数字或小写字母结尾。
  - **所在地域**：建议您根据所在地理位置选择靠近的地域。
  - **运行集群**：选择服务所要运行的集群。运行集群需要选择运行中和集群内有可用服务器的集群。
  - **服务描述**：创建服务的相关信息。该信息将显示在 **服务信息** 页面。
-![](https://main.qcloudimg.com/raw/c48fdab182e05e167ab2d17ffeeab849.png)
+![](https://main.qcloudimg.com/raw/aef8964cb6088e7848033850a8cd48e7.png)
 
 3. 部署设置。
 
@@ -92,7 +92,7 @@
 在上述步骤中，您创建了集群、服务。在此步骤中，您将查看您所创建的资源。
 ### 查看集群
 1. 单击左侧导航栏中的【集群】，单击集群列表页集群的【ID/名称】。
-![](https://main.qcloudimg.com/raw/1c70065c18cc9071c564f924719f39b9.png)
+![](https://main.qcloudimg.com/raw/bcbbf59e647fb27c7a3ddabe34f1f937.png)
 2. 单击后显示以下内容。
 - **节点列表** ：节点是一台已注册到集群内的云服务器。可以进行新建节点、添加已有节点、移除节点的操作。
 - **Namespace 列表**：Namespace 是对一组资源和对象的抽象集合。单击【Namespace 列表】，可以对 Namespace 进行新建和删除操作。
@@ -102,7 +102,7 @@
 
 ### 查看服务
 1. 单击左侧导航栏中的【服务】，单击服务列表页服务的【名称】。
-![](https://main.qcloudimg.com/raw/64ea8b6c2f0044228f625344c7175a65.png)
+![](https://main.qcloudimg.com/raw/971b2c62809ab5eab4ebe760ff4c9662.png)
 2. 单击后显示以下内容。
 - **实例列表**：实例由相关的一个或多个容器构成。可以进行更新实例数量和销毁实例操作。
 - **服务信息**：显示了服务基本信息、配置信息和端口映射信息。
@@ -114,7 +114,7 @@
 在本教程中，您启动了两种资源：集群和服务。在此步骤中，您将清除所有的资源以免产生不必要的费用。
 ### 删除集群
 1. 单击左侧导航栏中的【集群】，单击集群列表页面右侧【更多】下的【删除】。
-![](https://main.qcloudimg.com/raw/d7e49a6c27755ccc1a84aea8879837dd.png)
+![](https://main.qcloudimg.com/raw/2814955239dc0ca327aa4b1d865c4278.png)
 2. 单击【确定】。
 ![](https://main.qcloudimg.com/raw/fd84ce3368edcfc37a65b71bf0cf04d8.png)
 >**注意：**
@@ -122,7 +122,7 @@
 
 ### 删除服务
 1. 单击左侧导航栏中的【服务】，单击服务列表右侧【更多】下的【删除】。
-![](https://main.qcloudimg.com/raw/2bbc2ff87f7520d4903b7b91316fc1e4.png)
+![](https://main.qcloudimg.com/raw/0779678a3a0c24bfd31bf3b93377d07d.png)
 2. 单击【确定】。
 ![](https://main.qcloudimg.com/raw/3a4b0bec6291d38a52464f18b30ac01a.png)
 ## 更多

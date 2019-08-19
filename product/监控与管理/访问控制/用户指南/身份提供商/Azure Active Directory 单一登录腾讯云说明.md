@@ -43,7 +43,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 | 名称 | 命名空间 | 源 | 源属性 |
 |---------|---------|---------|---------|
-|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
+|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
 |RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Test |
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：

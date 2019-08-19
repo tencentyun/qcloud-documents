@@ -2,7 +2,7 @@
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 
-目前，腾讯云的实时音视频（TRTC）、云通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
+目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
 
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 
@@ -25,17 +25,17 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 <h2 id="Client">客户端计算</h2>
 
-我们在 IM SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
+我们在 TRTC SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
-| 语言版本 |  适用平台 | 源码位置 |
+|  适用平台 | 文件源码链接 | 文件相对路径 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|
-| Objective-C | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) |
-| C++ | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)|
-| C# | Windows | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)|
-| Javascript | Web | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/H5/js/debug/GenerateTestUserSig.js)|
-| Javascript | 微信小程序 | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js)|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|iOS/TRTCDemo/TRTC/GenerateTestUserSig.h|
+| Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|Mac/TRTCDemo/TRTC/GenerateTestUserSig.h|
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) | Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java |
+| Windows(C++) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)| Windows/DuilibDemo/GenerateTestUserSig.h |
+| Windows(C#) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)| Windows/CSharpDemo/GenerateTestUserSig.cs |
+| Web | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/H5/js/debug/GenerateTestUserSig.js)| H5/js/debug/GenerateTestUserSig.js |
+| 微信小程序 | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js)| WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js |
 
 ![](https://main.qcloudimg.com/raw/a39d9ce026d97eb3818c711d6298d462.png)
 >! 该方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。
@@ -70,13 +70,12 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 ## 老版本算法
 
-为了简化签名计算难度，方便客户更快速地使用腾讯云服务，云通讯 IM 服务自 2019.07.19 开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从 2019.07.19 之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
+为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从2019.07.19之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
 如果您的 SDKAppID 是 2019.07.19 之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
-| Objective-C | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-oc)|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
 | C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|

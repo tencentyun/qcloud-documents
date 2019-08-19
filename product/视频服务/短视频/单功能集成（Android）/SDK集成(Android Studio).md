@@ -130,7 +130,7 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 #### 3.4 License 设置
-请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/cfbf370ecc3db1429e2d3ecf582a100c.png)
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```

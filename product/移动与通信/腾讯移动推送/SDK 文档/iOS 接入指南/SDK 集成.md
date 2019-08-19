@@ -5,8 +5,8 @@
 
 
 ## SDK 组成
-- doc 文件夹：信鸽 iOS SDK 开发指南。
-- demo 文件夹：主要包含样例工程，信鸽 SDK。 
+- doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
+- demo 文件夹：主要包含样例工程，腾讯移动推送 SDK。 
 
 
 
@@ -15,7 +15,14 @@
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择【应用管理】>【[应用列表](https://console.cloud.tencent.com/tpns/applist)】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
-5. 然后单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
+5. 导入 SDK：
+ -  **方式一：Cocoapods 导入**
+通过 Cocoapods 下载地址：
+ ``` 
+ pod 'TPNS-iOS' 
+ ```
+ - **方式二：手动导入**
+进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 7. 在 Build Phases 下，添加以下 Framework：
 ```
@@ -37,8 +44,8 @@
 
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
-11. 调用启动信鸽的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务。
-	1. 启动信鸽服务， ```AppDelegate``` 示例如下：
+11. 调用启动腾讯移动推送的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务。
+	1. 启动腾讯移动推送服务， ```AppDelegate``` 示例如下：
 	```objective-c
 		 @interface AppDelegate () <XGPushDelegate>
 		 @end
@@ -94,10 +101,9 @@
 
 ## 调试方法
 #### 开启 Debug 模式
-打开 Debug 模式，即可在终端查看详细的信鸽 Debug 信息，方便定位问题。
+打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
 
 #### 示例代码
-
 ```
 //打开debug开关
 [[XGPush defaultManager] setEnableDebug:YES];
@@ -111,15 +117,15 @@
 
 ```objective-c
 /**
- @brief 监控信鸽推送服务地启动情况
+ @brief 监控腾讯移动推送服务地启动情况
 
- @param isSuccess 信鸽推送是否启动成功
- @param error 信鸽推送启动错误的信息
+ @param isSuccess 腾讯移动推送是否启动成功
+ @param error 腾讯移动推送启动错误的信息
  */
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
 
 /**
- @brief 向信鸽服务器注册设备token的回调
+ @brief 向腾讯移动推送服务器注册设备token的回调
  
  @param deviceToken 当前设备的token
  @param error 错误信息
@@ -133,10 +139,19 @@
 如果 Xcode 控制台，显示如下相似日志，表明客户端已经正确集成 SDK。
 
 ```javascript
-[xgpush]Current device token is 623e4a477abce566a74c449ae32c1ca6066fbb243e7417b3fe393811b54792eb
-服务器(193.112.115.248)返回正确， 注册设备Token 成功
+[xgpush]Current device token is ***
+服务器(192.168.1.1)返回正确， 注册设备Token 成功
 ```
 
+
+
+>?建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示Token，该操作便于我们后续进行问题排查。示例代码如下：
+```objective-c
+//获取 TPNS 生成的 Token
+[[XGPushTokenManager defaultTokenManager] xgTokenString];
+//获取 APNs 生成的 DeviceToken
+[[XGPushTokenManager defaultTokenManager] deviceTokenString];
+```
 
 
 

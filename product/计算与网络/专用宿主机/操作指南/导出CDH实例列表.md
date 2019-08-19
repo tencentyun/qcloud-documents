@@ -6,7 +6,7 @@
 
 2. 选择地域，单击如下图所示的导出按钮。
 
-   ![导出宿主机列表入口](https://main.qcloudimg.com/raw/f3ec4cbb187668220fb2f973136d501a.png)
+   ![](https://main.qcloudimg.com/raw/c0161350a8beb09eeaa4f853cb200974.png)
 
 3. 下载一个 cdh.csv 文件到本地，文件内容如下图所示。
   ![导出文件](https://main.qcloudimg.com/raw/c72af223902dea5849485dd6941c93d8.png)
