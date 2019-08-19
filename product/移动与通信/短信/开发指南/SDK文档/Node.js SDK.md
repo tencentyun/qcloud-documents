@@ -87,7 +87,7 @@ ssender.send(smsType, 86, phoneNumbers[0],
 var ssender = qcloudsms.SmsSingleSender();
 var params = ["5678"];
 ssender.sendWithParam(86, phoneNumbers[0], templateId,
-  params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+  params, smsSign, "", "", callback); 
 ```
 
 <a id="群发短信" ></a>
@@ -104,7 +104,7 @@ msender.send(smsType, "86", phoneNumbers,
 var msender = qcloudsms.SmsMultiSender();
 var params = ["5678"];
 msender.sendWithParam("86", phoneNumbers, templateId,
-  params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+  params, smsSign, "", "", callback);
 ```
 
 <a id="拉取短信回执" ></a>
