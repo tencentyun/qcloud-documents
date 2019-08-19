@@ -58,7 +58,7 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  | 操作级  | - | - | ✔ | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| ✔ | -  |✔ | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | ✔ | -   |✔ |✔|
-| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | ✔    |
+| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/30940)  |资源级 | ✔  | -    |✔   | ✔    |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
 | [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/30965)  |资源级 | ✔  | -    |✔   | -    |
 
@@ -257,7 +257,7 @@
 | ------------------------------------------------------------  | ------ | -------- | ----- | -------- | ---- |	
 | [云监控](https://cloud.tencent.com/document/product/248) | 操作级 | ✔  | -  | ✔        | - |	
 | [云拨测](https://cloud.tencent.com/document/product/280)  | 服务级 | ✔ | -    | -        | - |	
-| [密钥管理服务](https://cloud.tencent.com/document/product/573) | 资源级   | ✔  | -  | ✔        | -     |	
+| [密钥管理服务](https://cloud.tencent.com/document/product/573/10126) | 资源级   | ✔  | -  | ✔        | -     |	
 | [迁移服务平台](https://cloud.tencent.com/document/product/659)  | -   | -  | -   | -        |✔    |	
 
 ## 开发者工具
