@@ -1,4 +1,4 @@
-用户登录即时通信 IM 时使用的密码（UserSig）由 App Server 用密钥对 UserID 等信息加密所得，本文将指导您如何生成 UserSig。
+UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。UserSig 由 App Server 用密钥对 UserID 等信息加密所得，本文将指导您如何生成 UserSig。
 
 ## 获取密钥 
 

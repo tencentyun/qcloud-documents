@@ -7,16 +7,16 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
-![](https://main.qcloudimg.com/raw/ef65da477fcad7243304bf51cf8593d9.png)
+![](https://main.qcloudimg.com/raw/245072a611287b1ec54c5f81780e0a57.png)
 4. 填写 Connection Profile 相关信息和 General 信息。
 ![](https://main.qcloudimg.com/raw/e777e866ff82f9e50cc9ba9733060c65.png)
 5. 填写 User Credentials 信息。
 ![](https://main.qcloudimg.com/raw/400b9f9629e3ad50c2b7707b6d3771fd.png)
  >?
- - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。如："9B17RZW2EZgate_dev0112010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
+ - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。如："9B17RZW2EZgate_dev01;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
  - **Password**	：Password 必须填写，由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
 6. 选择开启 SSL/TLS，勾选 Self signed Certificates，上传相关内容。
-![](https://main.qcloudimg.com/raw/e6075ae11c33a87d59e2db819800f164.png)
+![](https://main.qcloudimg.com/raw/0e30b80e1cc60d68a7f09308d9153466.png)
  >!由于 IoT Cloud 使用安全加密链路，因此还需要设置 SSL/TLS 信息。MQTT.fx 不支持对称加密 PSK，本文仅演示非对称加密连接设置。
 7. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
 8. 当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
@@ -30,7 +30,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 | Profile Name        | 配置文件保存为的名称。                               |
 | Broker Address      | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com |
 | Broker Port         | MQTT 服务器连接端口，填入：8883。                     |
-| Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："9B17RZW2EZgate_dev01 "，9B17RZW2EZ 是产品 ID，ate_dev01 是设备名。 |
+| Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："9B17RZW2EZgate_dev01 "，9B17RZW2EZ 是产品 ID，gate_dev01 是设备名。 |
 | Connection Timeout  | 连接超时时间秒。                                 |
 | Keep Alive Interval | 心跳间隔时间秒。                                 |
 | Auto Reconnect      | 断网自动重连。                                   |

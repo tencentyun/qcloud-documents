@@ -1,10 +1,10 @@
 
-创建 CHDFS 及挂载点后，可以通过挂载点挂载 CHDFS，本文为您详细介绍如何挂载文件系统。
+创建 CHDFS 及挂载点后，可以通过挂载点挂载 CHDFS，本文为您详细介绍如何挂载 CHDFS。
 
 ## 前提条件
-- 挂载前，需要确保挂载的机器或者容器内安装了 Java 1.8。
-- 挂载的 CVM、CPM 2.0或者容器其 VPC 与挂载点指定 VPC 相同。
-- 挂载的 CVM、CPM 2.0或者容器其 VPC IP 与挂载点指定权限组中有一条权限规则授权地址匹配。
+- 确保挂载的机器或者容器内安装了 Java 1.8。
+- 确保挂载的 CVM、CPM 2.0或者容器其 VPC ，与挂载点指定 VPC 相同。
+- 确保挂载的 CVM、CPM 2.0或者容器其 VPC IP，与挂载点指定权限组中有一条权限规则授权地址匹配。
 
 ## 操作步骤
 1.	编译 JAR 包（mvn clean package），或者下载已编译好的 JAR 包`chdfs_hadoop_plugin-x.y.z-shaded.jar`。
