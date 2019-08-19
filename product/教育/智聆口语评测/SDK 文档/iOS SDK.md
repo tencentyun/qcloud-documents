@@ -36,7 +36,7 @@ self.oralEvaluation.delegate = self;
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;
@@ -60,7 +60,7 @@ param.secretKey = @"";
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;
