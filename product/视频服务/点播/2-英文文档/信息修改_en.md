@@ -1,5 +1,5 @@
 
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), click "Video Management" in the left menu bar to go to the Cloud Video Management page. Click the ID of the video to be edited to go to the details page. And click "Edit" on the **Basic Information** tab.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), click "Video Management" in the left menu bar to go to the Cloud Video Management page. Click the ID of the video to be edited to go to the details page. And click "Edit" on the **Basic Information** tab.
 ![](https://mc.qcloudimg.com/static/img/69d097413abfb7736189131eb91790e1/image.png)
 In the editing mode (as shown below), you can perform the following operations:
 

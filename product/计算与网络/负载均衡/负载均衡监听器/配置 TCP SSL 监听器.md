@@ -11,7 +11,7 @@
 2. 在左侧导航栏，选择【实例管理】。
 3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/b6a9d6be3d216cc0f892eddfa9937ce2.png)
+![](https://main.qcloudimg.com/raw/376f020caf12788e492e7f7300465ea8.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/8b20cb5510626c49860d5e67c1f2c736.png)
 
@@ -38,8 +38,8 @@
 </tr>
 <tr>
 <td>SSL 解析方式</td>
-<td>支持单项认证和双向认证</td>
-<td>单项认证</td>
+<td>支持单向认证和双向认证</td>
+<td>单向认证</td>
 </tr>
 <tr>
 <td>服务器证书</td>

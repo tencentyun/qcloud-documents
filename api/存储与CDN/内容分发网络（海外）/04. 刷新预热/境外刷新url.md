@@ -7,22 +7,18 @@
 [调用Demo](https://cloud.tencent.com/document/product/228/1734)
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的Action字段为RefreshCdnOverSeaUrl。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 [公共请求参数](https://cloud.tencent.com/doc/api/231/4473) 页面。其中，此接口的 Action 字段为 RefreshCdnOverSeaUrl。
 
 | 参数名称   | 是否必选 | 类型     | 描述                     |
 | ------ | ---- | ------ | ---------------------- |
-| urls.n | 是    | String | 需要刷新的 URL，支持刷新一个或多个URL |
+| urls.n | 是    | String | 需要刷新的 URL，支持刷新一个或多个 URL |
 
-#### 注意事项
 
-+ 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考：
-  ```
-  urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg
-  ```
 
-+ 注意 URL 必须以'http://' 或 'https://' 开头，否则会报错。
-
-+ 每日刷新数量不超过10000个，每次提交的URL数量不超过1000个
+>!
+>+ 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考： ```urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg```
++ 注意 URL 必须以 'http://' 或 'https://' 开头，否则会报错。
++ 每日刷新数量不超过10000个，每次提交的 URL 数量不超过1000个
 
 
 
@@ -31,7 +27,7 @@
 
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关                           |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
 | data     | Array  | 详细说明见下文                                  |
@@ -40,7 +36,7 @@
 
 | 参数名称  | 类型   | 描述           |
 | ----- | ---- | ------------ |
-| count | Int  | 此次刷新提交的URL数目 |
+| count | Int  | 此次刷新提交的 URL 数目 |
 
 
 
@@ -73,7 +69,7 @@ Action=RefreshCdnOverSeaUrl
 
 ### 4.3 POST 请求
 
-POST请求时，参数填充在 HTTP Request-body 中，请求地址：
+POST 请求时，参数填充在 HTTP Request-body 中，请求地址：
 
 ```
 https://cdn.api.qcloud.com/v2/index.php

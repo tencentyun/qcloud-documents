@@ -27,22 +27,22 @@
 
 <h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
  Demo 源码工程中的`GenerateTestUserSig.h`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
- 
+
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开`GenerateTestUserSig.h`文件。
   <table>
      <tr>
-         <th nowrap="nowrap">适用平台</th>  
-         <th nowrap="nowrap">文件相对路径</th>  
+         <th nowrap="nowrap">适用平台</th>
+         <th nowrap="nowrap">文件相对路径</th>
      </tr>
-	 <tr>      
-         <td>iOS</td>    
-	 <td>iOS/TRTCDemo/TRTC/GenerateTestUserSig.h</td>   
-     </tr> 
-	<tr>
-	     <td>Mac</td> 
-	     <td>Mac/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
-     </tr> 
+   <tr>
+         <td>iOS</td>
+   <td>iOS/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+     </tr>
+  <tr>
+       <td>Mac</td>
+       <td>Mac/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+     </tr>
 </table>
 3. 设置`GenerateTestUserSig.h`文件中的相关参数：
   - \_SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
@@ -53,7 +53,9 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤5：编译运行
-使用 XCode （9.0 以上的版本）打开源码目录下的`TRTCDemo.xcodeproj`工程，编译并运行 Demo 工程即可。
+1. 在终端窗口进入 TRTCSDK iOS/Mac Demo Podfile 文件所在目录。
+2. 执行`pod install`命令安装 TRTC SDK，或者执行`pod update`命令，更新本地库版本。
+3. 使用 XCode（9.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
 

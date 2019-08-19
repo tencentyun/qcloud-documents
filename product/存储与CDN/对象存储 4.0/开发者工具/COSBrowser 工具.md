@@ -7,13 +7,13 @@ COSBrowser 工具即 COS 客户端工具，用户可以通过可视化界面方�
 
 ## 下载地址
 
-|支持平台|下载地址|
-|:---|:---|
-|Windows 桌面端|[Windows](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
-|macOS 桌面端|[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
-|Linux 桌面端|[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
-|Android 移动端|[Android](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
-|iOS 移动端|[iOS](https://apps.apple.com/cn/app/id1469323992)|
+|支持平台|系统要求|下载地址|
+|:---|:---|:---|
+|Windows 桌面端| Windows 7 32/64位以上、Windows Server 2008 R2 64位以上  |[Windows](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe)|
+|macOS 桌面端|macOS 10.13以上 |[macOS](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg)|
+|Linux 桌面端| 需带有图形界面并支持 AppImage |[Linux](https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip)|
+|Android 移动端| Android 4.4以上  |[Android](https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client)|
+|iOS 移动端|  iOS 11以上  |[iOS](https://apps.apple.com/cn/app/id1469323992)|
 
 ## 桌面端
 

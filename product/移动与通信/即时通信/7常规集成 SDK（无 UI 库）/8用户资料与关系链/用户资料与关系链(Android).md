@@ -59,18 +59,6 @@ public String getSelfSignature()
 public String getAllowType()
 
 /**
- * 获取用户备注
- * @return 用户备注
- */
-public String getRemark()
-
-/**
- * 获取被加入的好友分组列表
- * @return 分组列表
- */
-public List<String> getFriendGroups()
-
-/**
  * 获取用户自定义信息
  * @return 自定义信息 Map
  */
@@ -123,7 +111,7 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 	public void onSuccess(TIMUserProfile result){
 		Log.e(tag, "getSelfProfile succ");
 		Log.e(tag, "identifier: " + result.getIdentifier() + " nickName: " + result.getNickName() 
-					+ " remark: " + result.getRemark() + " allow: " + result.getAllowType());
+					 + " allow: " + result.getAllowType());
 	}
 });
 
@@ -180,8 +168,7 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, true, new TIMValueCall
 	public void onSuccess(List<TIMUserProfile> result){
         Log.e(tag, "getUsersProfile succ");
 		for(TIMUserProfile res : result){
-	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName() 
-	        		+ " remark: " + res.getRemark());
+	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName();
 		}
 	}
 });

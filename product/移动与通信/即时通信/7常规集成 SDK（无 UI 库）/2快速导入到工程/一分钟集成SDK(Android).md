@@ -49,7 +49,7 @@ dependencies {
 
 - **第二步：拷贝 IM SDK 到工程目录**
 将下载到的 aar 文件拷贝到 tuikit lib工程的 **/libs** 目录下：
-![](https://main.qcloudimg.com/raw/0fd3c6b1ae67c9838ce4f9a7c7c40ba8.png)
+![](https://main.qcloudimg.com/raw/bf71b27bbb52e879b75528e707194a2a.png)
 
 - **第三步：指定本地仓库路径**
 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径：
@@ -73,7 +73,7 @@ defaultConfig {
 单击 Sync Now 按钮，完成 IM SDK 的集成工作。
 
 
-## 集成 SDK（jar）
+## 集成 SDK（jar & so）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 IM SDK：
 
 - **第一步：下载解压 IM SDK**
@@ -83,7 +83,7 @@ defaultConfig {
 ![](https://main.qcloudimg.com/raw/cbe70a310281e4085cbe77f129202762.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
-将重命名后的  jar 文件和 armeabi-v7a 文件夹拷贝到 tuikit/libs 目录下：
+将重命名后的 jar 文件和 armeabi-v7a 文件夹拷贝到 tuikit/libs 目录下：
 ![](https://main.qcloudimg.com/raw/2c7b9300124815eeed1e942b799037af.png)
 
 - **第三步：引用 jar 库**
