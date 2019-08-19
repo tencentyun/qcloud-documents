@@ -1,57 +1,59 @@
 ## 操作场景
-本文以 [原TKE控制台](https://console.cloud.tencent.com/tke) 为例进行操作，快速创建一个容器集群内的 nginx 服务。
+本文档旨在帮助大家了解如何快速创建一个容器集群内的 nginx 服务。
 
 ## 前提条件
-- 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
-- 已创建集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/9091#.E5.88.9B.E5.BB.BA.E9.9B.86.E7.BE.A4) 。
-
+>- 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
+>-  已创建集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 
 ## 操作步骤
-### 创建 Nginx 服务
-1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke) 。
-2. 单击左侧导航栏中的【服务】，选择服务列表页上方的【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/36688cf67af80f32cdeb531e7f6d1919.png)
-3. 设置服务的基本信息。如下图所示：
- - **服务名称**：要创建的服务的名称。服务名称由小写字母、数字和 - 组成。且由小写字母开头，小写字母或数字结尾。本例中服务名称为 nginx 。
- - **所在地域**：选择运行该服务集群所在的地域。
- - **运行集群**：选择服务所要运行的集群，选择运行中及该集群内有可用主机的集群。
- - **服务描述**：创建服务的相关信息。该信息将显示在**服务信息**页面。
-  >!其他选项保持为默认设置。
-  >
-![](https://main.qcloudimg.com/raw/761d51aba410392296168a9bf2974379.png)
 
-4. 选择镜像。输入运行容器的名称（以 nginx 为例）后，单击【选择镜像】。如下图所示：
-![](https://main.qcloudimg.com/raw/8248aa5497093d1b8744f5ea5526c0b5.png)
-在弹出对话框中，选择【DockerHub 镜像】> **nginx** ，单击 【确定】。如下图所示：
-![](https://mc.qcloudimg.com/static/img/0cec90a9a793d8769d586376935bf361/image.png)
-**版本（Tag）**： latest 。容器服务会默认使用最新版本。如下图所示：
-![](https://main.qcloudimg.com/raw/76d962e9b89d64bd4fc9ad6662f46ee6.png)
-5. 设置端口映射，将容器端口和服务端口都设置为80 。如下图所示：
->!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题。详情参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
+### 创建 Nginx 服务
+
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2) 。
+2. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入“集群管理”页面。
+3. 单击需要创建服务的集群 ID，进入工作负载 Deployment 详情页，选择【新建】。如下图所示：
+![](https://main.qcloudimg.com/raw/812eca17f3943d661f3bc70573367ae6.png)
+4. 在“新建 Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
+ - **工作负载名**：输入要创建的工作负载的名称，本文以 nginx 为例。
+ - **描述**：填写工作负载的相关信息。
+ - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **nginx** 。
+ - **命名空间**：根据实际需求进行选择。
+ - **类型**：根据实际需求进行选择。
+ - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
+![](https://main.qcloudimg.com/raw/bfb910953eca3845de6436c8b9b26191.png)
+5. 设置**实例内容器**，输入实例内容器名称（本文以 test 为例），并单击【选择镜像】。如下图所示：
+>!其他选项保持为默认设置。
 >
-![](https://mc.qcloudimg.com/static/img/a86f50da339892896871ab9408514433/image.png)
-6. 单击【创建服务】，即可完成 nginx 服务的创建。
+ ![](https://main.qcloudimg.com/raw/5426739b6bd36ce40388ee9b1478f4f5.png)
+在弹出框中选择【DockerHub镜像】> **nginx** ，并单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/8d69dc01860cbfc28f5a881b4d42bba4.png)
+6.   根据以下提示，进行工作负载的访问设置。如下图所示：   
+ - **Service**：勾选“启用”。
+ - **服务访问方式**：选择“提供公网访问”。
+ - **负载均衡器**：根据实际需求进行选择。
+ - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80 。
+ ![](https://main.qcloudimg.com/raw/3f722201e228c2bebc63cad0ea3d76c7.png)
+ >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题，详情请参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
+7. 单击【创建Workload】，完成 nginx 服务的创建。
 
 
 ### 访问 Nginx 服务
-可通过以下三种方式访问 nginx 服务。
-#### 通过负载均衡 IP 访问 Nginx 服务
-1. 进入集群 [服务列表](https://console.cloud.tencent.com/tke/service/detail/container) 页。
-2. 单击【服务信息】进入服务信息详情页，查看负载均衡 IP 和负载均衡 ID。 如下图所示：
-![](https://main.qcloudimg.com/raw/4700a84b57f61bfc97b5622b743cd6a6.png)
-3. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。
 
-#### 通过域名访问 Nginx 服务
-1. 进入服务信息详情页，单击服务的负载均衡 ID。如下图所示：
-![](https://main.qcloudimg.com/raw/b7c9497dc573613d963a6c8b097c9e6c.png)
-2. 进入负载均衡详情页，查看域名。如下图所示：
-![](https://main.qcloudimg.com/raw/20cf06e2cbf2a2d12e3e318c59031020.png)
-3. 在浏览器地址栏输入该域名，按 “**Enter**” 即可访问服务。
+可通过以下两种方式访问 nginx 服务。
 
-#### 通过服务名称访问 Nginx 服务
+#### 通过**负载均衡 IP** 访问 nginx 服务
+
+1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
+2. 单击 Nginx 服务所在的集群 ID，选择【服务】>【Service】。
+3. 在服务管理页面，复制 Nginx 服务的负载均衡 IP，如下图所示：
+![](https://main.qcloudimg.com/raw/7e491f937ce63a099aa749c4e1947f5b.png)
+4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。
+
+#### 通过服务名称访问 nginx 服务
+
 集群内的其他服务或容器可以直接通过服务名称访问。
 
-### 验证 Nginx 服务
+### 验证 nginx 服务
 服务创建成功，访问服务时直接进入 nginx 服务器的默认欢迎页。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/a3cbbc5c902bd162210a4615c0955f19/image.png)
 

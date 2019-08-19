@@ -1,12 +1,10 @@
 ### 新建迁移任务
 登录腾讯云 [DTS 控制台](https://console.cloud.tencent.com/dtsnew)，打开【数据迁移】页面单击【新建任务】。
-![](https://main.qcloudimg.com/raw/193e3845c8a34e615f5b5d74b7a36b02.png)
 
 ### 选择链路区域
 选择您迁移项目链路目标实际所在地区。
 >?迁移任务订购后不支持更换地域，请谨慎选择。
 
-![](https://main.qcloudimg.com/raw/716c32342947b1d3b5bdada1129af41a.png)
 ### 设置源库和目标库
 填写任务设置、源库设置和目标库设置等信息。
 ![](https://main.qcloudimg.com/raw/057c262782e77a57fe54bf4008500780.png)

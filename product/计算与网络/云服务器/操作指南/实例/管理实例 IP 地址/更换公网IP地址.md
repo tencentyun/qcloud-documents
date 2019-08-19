@@ -11,9 +11,9 @@
 ## 操作步骤
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在“实例列表”中，选择待转换为弹性 IP的云服务器行，单击【更多】>【IP操作】>【更换公网IP】，如下图所示：
-![](https://main.qcloudimg.com/raw/68528420766bab8f61a86b522c30aeae.png)
-3. 在弹出的“更换IP” 提示框中，单击【确认】，即可完成更换。
+2. 在实例的管理页面，选择待转换为弹性 IP 的云服务器行，单击【更多】>【IP/网卡】>【更换公网IP】，如下图所示：
+![](https://main.qcloudimg.com/raw/23c277a820f39416d72115689dae3575.png)
+3. 在弹出的 “更换IP” 提示框中，单击【确认】，即可完成更换。
 
 
 

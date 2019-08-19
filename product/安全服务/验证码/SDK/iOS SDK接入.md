@@ -1,18 +1,18 @@
 ## 前提条件
-### 准备 AppId
-验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret，注册完成后，您可以在控制台的基础配置中查看 AppID 以及 AppSecret。
-### SDK 包介绍和运行环境
-- 单击 [下载 iOS SDK]()。
-- SDK 工具包目录结构说明：
+### 准备 AppID
+验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret，注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
+### SDK 包下载与运行环境准备
+- 单击 [下载 iOS SDK](https://captcha.gtimg.com/static/portal/sdk/iOS_SDK_20181101.zip)。
+- 本 SDK 运行环境与项目要求：适用于 iOS8 及以上的系统版本。SDK 工具包目录结构说明如下：
 ```
 .
 ├── sdk                # TCWebCodesSDK.framework
-└── demo            # 示例工程,演示了如何使用TCWebCodesSDK.framework
+└── demo            # 示例工程,演示了如何使用 TCWebCodesSDK.framework
 ```
-本 SDK 运行环境与项目要求：适用于 iOS8 及以上的系统版本。
+
 
 ## 接入步骤
-1. 首先在工程中导入 SDK 库：
+1. 在工程中导入 SDK 库：
 ```
 TCWebCodesSDK.framework
 ```
@@ -72,7 +72,7 @@ TCWebCodesSDK.framework
  */
  - (void)setCaptchaPosition:(CGPoint)center;
 ```
-使用举例：
+示例：
 ```
 [[TCWebCodesBridge sharedBridge] setCaptchaPosition:CGPointMake(self.view.bounds.size.width*0.5, self.view.bounds.size.height*0.4)];
 [[TCWebCodesBridge sharedBridge] loadTencentCaptcha:self.view appid:@"**** callback:^(NSDictionary *resultJSON) {
@@ -88,7 +88,7 @@ TCWebCodesSDK.framework
  */
  - (void)setLogState:(BOOL)enable;
 ```
-使用举例：
+示例：
 ```
 [[TCWebCodesBridge sharedBridge] setLogState:YES;
 [[TCWebCodesBridge sharedBridge] loadTencentCaptcha:self.view appid:@"**** callback:^(NSDictionary *resultJSON) {

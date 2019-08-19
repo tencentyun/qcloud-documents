@@ -11,19 +11,19 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ###  配置内容
 #### AndroidStudio 集成方法
 
-1. 在 App 模块下的 build.gradle 文件内，完成信鸽所需要的配置后，再增加以下节点：
+1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
 2. 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
 /* Oppo 1.0.9.0版
  */
-implementation 'com.tencent.tpns:oppo:1.0.9.0'
+implementation 'com.tencent.tpns:oppo:1.1.0.0-release'//oppo推送
 ```
 
 
 
 
 #### Eclipes 集成方法
-获取信鸽 OPPO 通道 SDK 包后，按照信鸽官网手动集成方法，在配置好信鸽主版本的基础下，进行以下设置。
+获取腾讯移动推送 OPPO 通道 SDK 包后，按照腾讯移动推送官网手动集成方法，在配置好腾讯移动推送主版本的基础下，进行以下设置。
 
 1. 导入 OPPO 推送相关 jar 包 ，将```com.coloros.mcssdk.jar```放在```libs```文件夹里。
 2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
@@ -50,7 +50,7 @@ com.tencent.android.oppopush.PushMessageService"
 
 
 ### 开启 OPPO 推送
-在调用信鸽 ```XGPushManager.registerPush``` 之前，调用以下代码：
+在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，调用以下代码：
 
 ```java
 XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); // 注意这里填入的是Oppo的AppKey

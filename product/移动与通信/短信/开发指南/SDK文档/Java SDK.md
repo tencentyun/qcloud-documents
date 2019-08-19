@@ -1,7 +1,7 @@
 ## SDK 功能简介
-目前腾讯云短信为客户提供**国内短信、语音短信**和**国际短信**服务，腾讯云短信 SDK 支持以下操作：
+目前腾讯云短信为客户提供**国内短信、语音短信**和**国际/港澳台短信**服务，腾讯云短信 SDK 支持以下操作：
 
-| 国内短信             | 语音短信              | 国际短信                 |
+| 国内短信             | 语音短信              | 国际/港澳台短信                 |
 | ------------------ | ---------------------- | ---------------- |
 | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
@@ -24,7 +24,7 @@
 - **获取 SDKAppID 和 AppKey**
 云短信应用 **SDKAppID** 和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取。如您尚未添加应用，请登录 [短信控制台](https://console.cloud.tencent.com/sms) 添加应用。
 - **申请签名并确认审核通过**
-一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。发送国际短信时，允许不携带签名。
+一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。发送国际/港澳台短信时，允许不携带签名。
 - **申请模板并确认审核通过**
 短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
 
@@ -111,7 +111,7 @@ try {
     String[] params = {"5678"};
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     SmsSingleSenderResult result = ssender.sendWithParam("86", phoneNumbers[0],
-        templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        templateId, params, smsSign, "", "");
     System.out.println(result);
 } catch (HTTPException e) {
     // HTTP 响应码错误
@@ -163,7 +163,7 @@ try {
     String[] params = {"5678"};
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     SmsMultiSenderResult result =  msender.sendWithParam("86", phoneNumbers,
-        templateId, params, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        templateId, params, smsSign, "", "");
     System.out.println(result);
 } catch (HTTPException e) {
     // HTTP 响应码错误
@@ -195,7 +195,7 @@ try {
     SmsStatusPullCallbackResult callbackResult = spuller.pullCallback(maxNum);
     System.out.println(callbackResult);
 
-    // 拉取回复，国际短信不支持回复功能
+    // 拉取回复，国际/港澳台短信不支持回复功能
     SmsStatusPullReplyResult replyResult = spuller.pullReply(maxNum);
     System.out.println(replyResult);
 } catch (HTTPException e) {
@@ -229,7 +229,7 @@ try {
         phoneNumbers[0], beginTime, endTime, maxNum);
     System.out.println(callbackResult);
 
-    // 拉取回复，国际短信不支持回复功能
+    // 拉取回复，国际/港澳台短信不支持回复功能
     SmsStatusPullReplyResult replyResult = mspuller.pullReply("86",
         phoneNumbers[0], beginTime, endTime, maxNum);
     System.out.println(replyResult);
@@ -322,8 +322,8 @@ try {
 }
 ```
 
-- **发送国际短信**
-发送国际短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
+- **发送国际/港澳台短信**
+发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
  - [单发短信](#单发短信)
  - [指定模板单发短信](#指定模板单发短信)
  - [群发短信](#群发短信)
