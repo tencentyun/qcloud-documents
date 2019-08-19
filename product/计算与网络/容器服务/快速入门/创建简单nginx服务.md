@@ -21,20 +21,23 @@
  - **类型**：根据实际需求进行选择。
  - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
 ![](https://main.qcloudimg.com/raw/bfb910953eca3845de6436c8b9b26191.png)
-5. 设置**实例内容器**，输入实例内容器名称（本文以 test 为例），并单击【选择镜像】。如下图所示：
->!其他选项保持为默认设置。
->
+5. 设置**实例内容器**，输入实例内容器名称，本文以 test 为例。
+6. 单击【选择镜像】（其余选项保持默认设置）。如下图所示：
  ![](https://main.qcloudimg.com/raw/5426739b6bd36ce40388ee9b1478f4f5.png)
 在弹出框中选择【DockerHub镜像】> **nginx** ，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8d69dc01860cbfc28f5a881b4d42bba4.png)
-6.   根据以下提示，进行工作负载的访问设置。如下图所示：   
+6. 根据以下提示，设置服务的实例数量。如下图所示：
+ - **手动调节**：设定实例数量，本文实例数量设置为1。可单击“+”或“-”控制实例数量。
+ - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [服务自动扩缩容](https://cloud.tencent.com/document/product/457/14209)。
+ ![](https://main.qcloudimg.com/raw/10129daba44bfa7d7573c968cab8c4a4.png)
+7.   根据以下提示，进行工作负载的访问设置。如下图所示：   
  - **Service**：勾选“启用”。
  - **服务访问方式**：选择“提供公网访问”。
  - **负载均衡器**：根据实际需求进行选择。
  - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80 。
  ![](https://main.qcloudimg.com/raw/3f722201e228c2bebc63cad0ea3d76c7.png)
  >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题，详情请参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
-7. 单击【创建Workload】，完成 nginx 服务的创建。
+8. 单击【创建Workload】，完成 nginx 服务的创建。
 
 
 ### 访问 Nginx 服务
