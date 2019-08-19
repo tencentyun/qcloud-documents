@@ -109,7 +109,7 @@ try
 {
     SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
     var result = ssender.sendWithParam("86", phoneNumbers[0],
-        templateId, new[]{ "5678" }, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        templateId, new[]{ "5678" }, smsSign, "", "");
     Console.WriteLine(result);
 }
 catch (JSONException e)
@@ -167,7 +167,7 @@ try
 {
     SmsMultiSender msender = new SmsMultiSender(appid, appkey);
     var sresult = msender.sendWithParam("86", phoneNumbers, templateId,
-        new[]{"5678"}, smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        new[]{"5678"}, smsSign, "", "");
     Console.WriteLine(sresult);
 catch (JSONException e)
 {
