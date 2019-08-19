@@ -7,7 +7,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
-![](https://main.qcloudimg.com/raw/ef65da477fcad7243304bf51cf8593d9.png)
+![](https://main.qcloudimg.com/raw/245072a611287b1ec54c5f81780e0a57.png)
 4. 填写 Connection Profile 相关信息和 General 信息。
 ![](https://main.qcloudimg.com/raw/e777e866ff82f9e50cc9ba9733060c65.png)
 5. 填写 User Credentials 信息。
