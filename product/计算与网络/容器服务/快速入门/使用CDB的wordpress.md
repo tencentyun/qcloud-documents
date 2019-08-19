@@ -43,7 +43,7 @@
  - **环境变量**：依次输入以下配置信息。
 WORDPRESS_DB_HOST = 云数据库 MySQL 的内网 IP
 WORDPRESS_DB_PASSWORD = 初始化时填写的密码
->!其他选项保持为默认设置
+>!其他选项保持为默认设置。
 >
 ![](https://main.qcloudimg.com/raw/f90c2362c30130625460d927570f1bf3.png)
 5. 根据以下提示，设置服务的实例数量。如下图所示：
