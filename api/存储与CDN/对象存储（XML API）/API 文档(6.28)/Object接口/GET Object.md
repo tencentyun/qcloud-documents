@@ -31,7 +31,7 @@ Authorization: Auth String
 | response-content-language | 设置响应中的 Content-Language 头部的值 | string | 否 |
 | response-content-type | 设置响应中的 Content-Type 头部的值 | string | 否 |
 | response-expires | 设置响应中的 Expires 头部的值 | string | 否 |
-| versionId | 当启用版本控制时，指定要下载的对象的版本 ID，如不指定则下载对象的最新版本 | string | 否 |
+| versionId | 当启用版本控制时，指定要下载的对象的版本 ID，若不指定则下载对象的最新版本 | string | 否 |
 
 #### 请求头
 
@@ -67,7 +67,7 @@ Authorization: Auth String
 | Content-Range | RFC 2616 中定义的返回内容的字节范围，仅当请求中指定了 Range 请求头部时才会返回该头部 | string |
 | Expires | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
 | x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息 | string |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
 
 **版本控制相关头部**
 
