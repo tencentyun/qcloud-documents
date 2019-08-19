@@ -30,7 +30,7 @@ CHDFS 预设授权策略如下：
 | chdfs:ModifyAccessRules    | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/${access-group-ids} | 批量修改权限规则属性 |
 | chdfs:DescribeAccessRules  | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/*       | 查看权限规则列表     |
 
-#### CHDFS 授权策略示例
+## CHDFS 授权策略示例
 授予子账号 CHDFS 管控系统只读权限的策略示例如下：
 ```
 {
