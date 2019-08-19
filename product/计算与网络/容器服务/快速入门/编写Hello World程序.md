@@ -35,15 +35,15 @@ www.listen(80);
 node server.js
 ```
 以下提供两种方式，测试 Hello World 程序。
- - 再次登录节点，执行以下命令。或在浏览器以 IP 地址：端口的形式访问，端口为8080 。
+ - 再次登录节点，执行以下命令。或在浏览器以 IP 地址：端口的形式访问，端口为80 。
 ```shell
-curl 127.0.0.1:8080
+curl 127.0.0.1:80
 ```
 显示如下，则说明 Hello World 程序运行成功。
-![](https://main.qcloudimg.com/raw/eb1fb55dbf4ab73fc3cac7a986aa25cf.png)
- - 打开浏览器，以 IP 地址：端口的形式访问，端口为8080。
+![](https://main.qcloudimg.com/raw/4b97b9e2fdaee77376b114ef92f90936.png)
+ - 打开浏览器，以 IP 地址：端口的形式访问，端口为80。
  显示如下，则说明 Hello World 程序运行成功。
- ![](https://main.qcloudimg.com/raw/c4cf4a3e3b3e8178f82a5ac840832822.png)
+![](https://main.qcloudimg.com/raw/1fb82340313ab81dcffd693f9577624d.png)
 
 
 #### 创建 Docker 镜像
