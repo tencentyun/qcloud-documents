@@ -91,7 +91,7 @@ try {
     $ssender = new SmsSingleSender($appid, $appkey);
     $params = ["5678"];
     $result = $ssender->sendWithParam("86", $phoneNumbers[0], $templateId,
-        $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        $params, $smsSign, "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
@@ -124,7 +124,7 @@ try {
     $msender = new SmsMultiSender($appid, $appkey);
     $params = ["5678"];
     $result = $msender->sendWithParam("86", $phoneNumbers,
-        $templateId, $params, $smsSign, "", "");  // 签名参数未提供或者为空时，会使用默认签名发送短信
+        $templateId, $params, $smsSign, "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
