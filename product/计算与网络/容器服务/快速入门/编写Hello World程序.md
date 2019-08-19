@@ -128,7 +128,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 9. 单击【创建Workload】，完成 Hello World 服务的创建。
 
 ### 访问 Hello World 服务
-可通过以下两种方式访问 nginx 服务。
+可通过以下两种方式访问 Hello World 服务。
 #### 通过负载均衡 IP 访问 Hello World 服务
 1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
 2. 单击 Hello World 服务所在的集群 ID，选择【服务】>【Service】。
