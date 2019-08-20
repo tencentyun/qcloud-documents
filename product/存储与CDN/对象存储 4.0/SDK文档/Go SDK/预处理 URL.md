@@ -24,6 +24,17 @@ func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, a
 ### 上传请求示例
 
 ```go
+ak := "COS_SECRETID"
+sk := "COS_SECRETKEY"
+u, _ := url.Parse("http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+b := &cos.BaseURL{BucketURL: u}
+c := cos.NewClient(b, &http.Client{
+   Transport: &cos.AuthorizationTransport{
+      SecretID:  ak,
+      SecretKey: sk,
+   },
+})
+
 name := "test/objectPut.go"
 ctx := context.Background()
 // NewReader create file content
@@ -35,7 +46,7 @@ if err != nil {
 	panic(err)
 }
 // Get presigned
-presignedURL, err := c.Object.PresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
+presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
 if err != nil {
 	panic(err)
 }
@@ -57,6 +68,17 @@ if err != nil {
 ### 下载请求示例
 
 ```go
+ak := "COS_SECRETID"
+sk := "COS_SECRETKEY"
+u, _ := url.Parse("http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
+b := &cos.BaseURL{BucketURL: u}
+c := cos.NewClient(b, &http.Client{
+   Transport: &cos.AuthorizationTransport{
+      SecretID:  ak,
+      SecretKey: sk,
+   },
+})
+
 name := "test"
 ctx := context.Background()
 // 1.Normal add auth header way to get object
