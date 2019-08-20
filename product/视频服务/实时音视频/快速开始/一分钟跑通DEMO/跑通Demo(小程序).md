@@ -1,129 +1,102 @@
-本文主要介绍如何快速地将腾讯云实时音视频 Demo（小程序）工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Web）。
 
-## 1. 创建新的应用
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 创建一个新的应用，获得 SDKAPPID：
-![](https://main.qcloudimg.com/raw/92d980b7ed3b1b4eebd02019e8a48243.png)
->!SDKAPPID 是腾讯云后台用来区分不同实时音视频应用的唯一标识，在后续开发过程中需要用到。
-
-## 2. 激活实时音视频服务
-
-### 检查实时音视频服务状态
-在实时音视频 TRTC 控制台的 [应用列表](https://console.cloud.tencent.com/rav) 页面选择在第一步中创建的应用卡片，进入**应用详情**页面，然后单击【帐号信息】，查看“实时音视频服务状态”，以判断该应用的实时音视频服务是否可用。
-- 如果实时音视频服务状态显示“可用”，即表示该应用的实时音视频服务已激活，当前处于服务可用状态。
-![](https://main.qcloudimg.com/raw/28855a24a75fb641673af8f2731a0911.png)
-- 如果实时音视频服务状态显示“不可用”，则表示该应用的实时音视频服务处于不可用状态，需要通过购买套餐包来激活。
-![](https://main.qcloudimg.com/raw/2eb464eb34939ea772e7f0da1549c003.png)
-
-### 购买套餐包
-实时音视频套餐包采用预付费的计费方式，关于套餐包的详细说明请参见 [产品价格](https://cloud.tencent.com/document/product/647/17157)。
-
-#### 购买6.6元测试体验套餐包（新用户专享）
-针对实时音视频新用户，我们为您提供专属测试体验套餐包，您只需支付6.6元即可体验300分钟实时音视频通话时长。
-实时音视频测试体验套餐包只能通过 [专属页面](https://buy.cloud.tencent.com/trtc_activity) 购买，**购买成功后将会自动激活实时音视频服务状态。**
-
->!
-- 每一个腾讯云账号只能购买一次测试体验套餐包。
-- 测试体验套餐包分钟数使用完或过期时，将自动关闭实时音视频服务状态，再次激活需购买实时音视频正式套餐包。
+## 环境要求
+- 微信 App iOS 最低版本要求：6.5.21
+- 微信 App Android 最低版本要求：6.5.19
+- 小程序基础库最低版本要求：1.7.0
+- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验。
 
 
-#### 购买正式套餐包
+## 操作步骤
+<span id="step1"></span>
+### 步骤1：创建新的应用
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
+  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
+2. 填写新建应用的应用名称等信息，单击【确定】。
+  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
+![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
-为了避免您的业务因实时音视频套餐包分钟数使用完或过期而中断，建议您及时购买正式套餐包，使实时音视频服务始终保持可用状态。
+<span id="step2"></span>
+### 步骤2：下载 SDK 和 Demo 源码
+1. 单击应用卡片，进入【快速上手】页面。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【小程序】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
+![](https://main.qcloudimg.com/raw/486d7696aeb29e457bd654b5936a56e2.png)
 
->!
-- 正式套餐包指的是入门包、标准包、企业包和尊享包。
-- 正式套餐包使用完当月若未及时购买新的正式预付费套餐包，超出部分将按照实时音视频后付费月结计费方式（25元/千分钟）收取。
+<span id="step3"></span>
+### 步骤3：查看并拷贝加密密钥
+1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
+2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
+ ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
-您可以直接访问 [实时音视频预付费套餐包](https://buy.cloud.tencent.com/rav_th5) 购买页面，**购买成功后将会自动刷新实时音视频服务状态。**
+<h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
 
-## 3. 下载 Demo 源码
-激活实时音视频服务之后，回到实时音视频 [控制台](https://console.cloud.tencent.com/rav)的**应用列表**页面，选择第一步新创建的应用卡片，进入该应用的详情页。单击【快速上手】即可看到源码下载地址：
-![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
+ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
+ 
+1. 解压 [步骤2](#step2) 中下载的源码包。
+2. 找到并打开 `WXMini/pages/webrtc-room/debug/GenerateTestUserSig.js`文件。
+3. 设置`GenerateTestUserSig.js`文件中的相关参数：
+  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  ![](https://main.qcloudimg.com/raw/c523de56afa69a7309872cbcfd75445f.png)
 
-## 4. 下载私钥文件
-单击**下载公私钥**，下载并保存压缩包 **keys.zip** ，解压后可以得到 public_key 和 private_key 两个文件。用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的【生成Demo配置文件内容】的文本输入框中。
-![](https://main.qcloudimg.com/raw/688b415f15fc0568d520af55dbb930fd.png)
+>!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-## 5. 获得配置文件
-单击【生成Demo配置文件内容】，即可获得一段 JSON 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
-![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
-
-复制上述 JSON 内容，并粘贴到 `pages/webrtc-room/account.js` 文件中（如果已经存在示例内容，请覆盖之）。
-
->! 此处方案仅用于快速跑通 Demo 示例。
-> 真实的线上环境中，需要您的业务服务器根据 userid，使用上面提到的 private_key 实时计算出 usersig，这部分内容请参考 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。
-
-## 6. 开通小程序类目与推拉流标签权限
-出于政策和合规的考虑，微信暂时没有放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
-
-- 企业账号的小程序暂时只开放如下表格中的类目：
-
-| 主类目 | 子类目  |小程序内容场景|
-|-------|----------|----------|
-| 社交| 直播 |涉及娱乐性质，如明星直播、生活趣事直播、宠物直播等。选择该类目后首次提交代码审核，需经当地互联网主管机关审核确认，预计审核时长7天左右|
-| 教育| 在线视频课程 |网课、在线培训、讲座等教育类直播|
-| 医疗| 互联网医院，公立医院 |问诊、大型健康讲座等直播|
-| 金融| 银行、信托、基金、证券/期货、证券、期货投资咨询、保险、征信业务、新三板信息服务平台、股票信息服务平台（港股/美股）、消费金融 |金融产品视频客服理赔、金融产品推广直播等|
-|汽车|	汽车预售服务|	汽车预售、推广直播|
-|政府主体帐号|	-	|政府相关工作推广直播、领导讲话直播等|
-|工具	|视频客服	|不涉及以上几类内容的一对一视频客服服务，如企业售后一对一视频服务等|
-
+### 步骤5：开通小程序类目与推拉流标签权限
+出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
+- 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
+- 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
 - 符合类目要求的小程序，需要在【微信公众平台】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
-![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+![](https://main.qcloudimg.com/raw/cabb6b98121754b7956bd02029714616.jpg)
 
-## 7. 小程序服务器域名配置
-&lt;webrtc-room&gt; 组件内部需要访问如下地址，请将以下域名在 【微信公众平台】>【开发】>【开发设置】>【服务器域名】中进行配置，添加到 **request 合法域名**中：
+### 步骤6：编译运行
+1. 打开微信开发者工具，选择【小程序】，单击新建图标，选择【导入项目】。
+2. 填写您微信小程序的 AppID，单击【导入】。
+ >!此处应输入您微信小程序的 AppID，而非 SDKAppID。
+ >
+ ![](https://main.qcloudimg.com/raw/b4eefa2896672e132f827fea79a2608b.jpg)
+3. 单击【预览】，生成二维码，通过手机微信扫码二维码即可进入小程序。
 
-| 域名 | 说明 | 
-|:-------:|---------|
-|`https://official.opensso.tencent-cloud.com` | WebRTC音视频鉴权服务域名 | 
-|`https://yun.tim.qq.com` | WebRTC音视频鉴权服务域名 | 
-|`https://cloud.tencent.com`| 推流域名 | 
-|`https://webim.tim.qq.com` | IM域名 | 
+>! 
+>- 小程序 &lt;live-player&gt; 和 &lt;live-pusher&gt; 标签需要在手机微信上才能使用，微信开发者工具上无法使用。
+>- 为了小程序能够使用腾讯云房间管理服务，您需要在手机微信上开启调试功能：手机微信扫码二维码后，单击右上角【...】>【打开调试】。
+![](https://main.qcloudimg.com/raw/79a3773337d34682b5f84f5694cd0290.jpg)
 
-![](https://main.qcloudimg.com/raw/b3fb6291c097dda1606d46a5e8f2b810.png)
+### 步骤7：发布上线
+1. 打开微信小程序控制台，选择【开发】>【开发设置】>【[服务器域名](https://mp.weixin.qq.com/wxopen/devprofile?action=get_profile&token=1269878219&lang=zh_CN)】中配置“request 合法域名”，否则将无法使用腾讯云的房间管理服务。需要配置的域名如下表所示：
+<table>
+     <tr>
+         <th nowrap="nowrap">域名</th>  
+         <th>说明</th>  
+     </tr>
+	 <tr>      
+         <td>https://official.opensso.tencent-cloud.com</td>    
+	      <td>WebRTC 音视频鉴权服务域名</td>   
+     </tr> 
+	 <tr>
+	     <td>https://yun.tim.qq.com</td>   
+	     <td>WebRTC 音视频鉴权服务域名</td>   
+     </tr> 
+	 <tr>      
+	     <td>https://cloud.tencent.com</td>   
+	     <td>推流域名</td>   
+     </tr> 
+		 	 <tr>      
+	     <td>https://webim.tim.qq.com</td>   
+	     <td>IM 域名</td>   
+     </tr> 
+</table>
 
-## 8. 编译运行
+ ![](https://main.qcloudimg.com/raw/7ffe4227bcac149f30c61a7d28808c14.jpg)
 
-1. 安装微信小程序 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，打开微信开发者工具，单击【小程序】。
-2. 设置以下参数信息，单击【确定】创建小程序项目。
- - 项目目录：请选择上一步下载到的代码目录，需要选择**根目录**，根目录包含有 `project.config.json`文件。
- - AppID：请输入申请到的微信小程序 AppID，而非上面的 SDKAppID。
- - 项目名称：请输入项目名称。
-3. 按照上文第5步中的步骤修改 `pages/webrtc-room/account.js` 。
-4. 使用手机进行测试，直接扫描开发者工具预览生成的二维码进入。
-5. **开启调试模式**，体验和调试内部功能。开启调试可以跳过把这些域名加入小程序白名单的工作。
-
->!不同的手机进行预览体验时，要选择不同的体验 ID，因为同一个 ID 不能互相通讯。
-![](https://main.qcloudimg.com/raw/9e28cb57bd7656641aec6a74b5c9dcb3.png)
-	
+2. 发布微信小程序，具体发布流程请参见 [小程序发布上线](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/release.html#%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF)。
 
 ## 常见问题
-### 1. 开发和运行环境有什么要求？
-- 微信 App 最低版本要求：
- - iOS 最低要求：6.5.21
- - Android 最低要求：6.5.19
-- 小程序基础库最低版本要求：1.7.0
-- 由于微信开发者工具不支持原生组件（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签），需要在真机上进行运行体验
+### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
 ### 2. 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下端口加入防火墙的安全白名单中。
-
-| 协议 | 端口号 |
-|:--------:|:--------:|
-| HTTP | 80 |
-| HTTPS | 443 |
-| UDP    | 443 |
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
 
 ### 3. 调试时为什么要开启调试模式？
-开启调试可以跳过把这些域名加入小程序白名单的工作，否则可能会遇到登录失败，通话无法连接的问题。
-
-### 4. 小程序源码会访问哪些域名？
-&lt;webrtc-room&gt; 组件内部需要访问如下地址，您可以在 [微信公众平台](https://mp.weixin.qq.com)  > 开发 > 开发设置 > 服务器域名配置中进行配置：
-
-| 域名 | 说明 | 
-|:-------:|---------|
-|`https://official.opensso.tencent-cloud.com` | WebRTC 音视频鉴权服务域名 | 
-|`https://yun.tim.qq.com` | WebRTC 音视频鉴权服务域名 | 
-|`https://cloud.tencent.com`| 推流域名 | 
-|`https://webim.tim.qq.com` | IM 域名 | 
+开启调试后，可以略过把“request 合法域名”加入小程序白名单的操作，避免遇到登录失败，通话无法连接的问题。

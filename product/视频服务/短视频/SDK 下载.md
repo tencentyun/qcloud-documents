@@ -305,14 +305,14 @@
       <td rowspan='2'>SDK 下载</td>
       <td>Android</td>
 	  <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
-          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/LiteAVSDK_UGC_Android_6.5.7272.zip">DOWNLOAD</a> </td>
-	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/LiteAVSDK_Enterprise_6.5.7272.zip">DOWNLOAD</a> </td>
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_UGC_Android_6.6.7458.zip">DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Enterprise_6.6.7458.zip">DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
-     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/TXLiteAVSDK_UGC_iOS_6.5.7271.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.5/TXLiteAVSDK_Enterprise_iOS_6.5.7272.zip">DOWNLOAD</a> </td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_basic") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_UGC_iOS_6.6.7460.zip">DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Enterprise_iOS_6.6.7460.zip">DOWNLOAD</a> </td>
    </tr>
    
    <tr>

@@ -8,7 +8,7 @@
 
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
-| accountType        | 是      | Uint     | 用户账号类型：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号 （暂仅支持国内手机号）。</li><li>0：其他。</li><li>10004：手机号 MD5。</li>|
+| accountType        | 是      | Uint     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li>|
 | uid                | 是      | String   | 用户 ID 值，如微信/QQ OpenID，或手机号等（如15912345687）。     |
 | userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
 | postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
@@ -28,7 +28,7 @@
 | jumpUrl            | 否      | String   | 登录成功后跳转页面。                                           |
 | userAgent          | 否      | String   | 用户 HTTP 请求的 userAgent。                                   |
 | xForwardedFor      | 否      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
-| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标点击次数。                                   |
+| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标单击次数。                                   |
 | keyboardClickCount | 否      | Uint     | 用户操作过程中键盘单击次数。                                   |
 | macAddress         | 否      | String   | MAC 地址或设备唯一标识。                                        |
 | vendorId           | 否      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |

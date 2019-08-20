@@ -1,20 +1,19 @@
-为了方便您有效地使用腾讯云云服务器（Cloud Virtual Machine，CVM），本文档带您进行云服务器入门指导：
+为了方便您有效地使用腾讯云云服务器（Cloud Virtual Machine，CVM），本文档带您进行云服务器入门指导。
 
 ## 入门篇
 入门篇帮助了解 CVM 基本概念，适合零基础和初用腾讯云服务的用户，您可以了解以下要点：
-
-- [云服务器概述](/doc/product/213/495)
-- [云服务器功能与优势 ](/doc/product/213/3035)
-- [云服务器基本操作指南](/doc/product/213/16918)
+- [云服务器概述](https://cloud.tencent.com/document/product/213/495)
+- [云服务器功能与优势 ](https://cloud.tencent.com/document/product/213/3036)
+- [云服务器基本操作指南](https://cloud.tencent.com/document/product/213/16918)
 
 ## 进阶篇
 进阶篇帮助您在购买时，更好地选择合适的云服务器：
-在购买与使用云服务器之前，您需要首先完成  [注册与认证](/doc/product/213/6090) 。 
-- 当您不知道如何挑选配置时，我们提供 [配置推荐](https://cloud.tencent.com/act/recommended)，80%的云上用户首选配置，买服务器，听大家的。
+在购买与使用云服务器之前，您需要首先完成  [注册与认证](https://cloud.tencent.com/document/product/213/6090)。 
+- 当您不知道如何挑选配置时，我们提供 [配置推荐](https://cloud.tencent.com/act/recommended)，80%的云上用户首选配置。
 - 您可以单击 [价格计算器](https://buy.cloud.tencent.com/calculator/cvm) 查看您需要的产品组合的价格，估算资源成本，加入购买预算清单，更可实现一键购买。
-- 当您不懂云服务器如何计费时，[云服务器计费模式说明](/doc/product/213/2180) 帮您选择适合您业务场景的计费模式。
-- 当您面对丰富多样的机型不知如何选择时，[云服务器机型选择](/doc/product/213/7153) 助您了解不同机型的适用场景和性能，帮助您选择适合您业务场景的机型。
-- 当您不清楚在何地配置时，[地域与可用区](/doc/product/213/6091) 助您了解地域与可用区的最优选择方案。
+- 当您不懂云服务器如何计费时，[云服务器计费模式说明](https://cloud.tencent.com/document/product/213/2180) 帮您选择适合您业务场景的计费模式。
+- 当您面对丰富多样的机型不知如何选择时，[云服务器机型选择](https://cloud.tencent.com/document/product/213/11518) 助您了解不同机型的适用场景和性能，帮助您选择适合您业务场景的机型。
+- 当您不清楚在何地配置时，[地域与可用区](https://cloud.tencent.com/document/product/213/6091) 助您了解地域与可用区的最优选择方案。
 
 ## 实战篇
 
@@ -22,7 +21,7 @@
 
 ### 常规思路
 
-1. 注册帐号 
+1. 注册账号
 2. 确定地域及云服务器配置
 3. 创建云服务器
 4. 登录云服务器
@@ -61,5 +60,5 @@
 ## 其他
 - **续费相关：**若您的云服务器到期，但您仍想继续使用，我们有 [云服务器续费](https://cloud.tencent.com/document/product/213/6143) 指引您进行手动续费或自动续费，以防实例到期后被系统销毁而导致数据丢失或服务中断。
 - **调整实例配置：**若您在应用初期、请求量较小时选用较低的硬件配置，而随着应用快速增长、服务请求量剧增，您可以通过 [调整实例配置](https://cloud.tencent.com/document/product/213/2178) 快速调整硬件，提高服务的处理速度，更好地满足您变化的需求。
-- **常见问题FAQ：**若您仍遇到其他 [云服务器管理常见问题](https://cloud.tencent.com/document/product/213/10339)，我们提供常见问题合集供您查阅，方便您快速定位及解决疑问。
+- **常见问题：**若您仍遇到其他 [云服务器管理常见问题](https://cloud.tencent.com/document/product/213/10339)，我们提供常见问题合集供您查阅，方便您快速定位及解决疑问。
 - **问题反馈：**若您有其他疑问未得到解决，您可拨打服务热线 95716 或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈给我们，我们将在第一时间为您答疑解惑！

@@ -7,13 +7,13 @@ PUT Object - Copy 请求创建一个已存在 COS 的对象的副本，即将一
 >- 在跨账号复制的时候，需要先设置被复制文件的权限为公有读，或者对目标账号赋权，同账号则不需要。
 >- 当 COS 收到复制请求或 COS 正在复制对象时可能会返回错误。如果在复制操作开始之前发生错误，则会收到标准的错误返回。如果在复制操作执行期间发生错误，则依然会返回 HTTP 200 OK，并将错误作为响应体返回。这意味着 HTTP 200 OK 响应既可以包含成功也可以包含错误，在使用此接口时应当进一步根据响应体的内容来判断复制请求的成功与失败并正确的处理结果。
 
-### 版本
+#### 版本
 
 默认情况下，在目标存储桶上启用版本控制，对象存储会为正在复制的对象生成唯一的版本 ID。此版本 ID 与源对象的版本 ID 不同。对象存储会在 x-cos-version-id 响应中的响应标头中返回复制对象的版本 ID。
 如果您在目标存储桶没有启用版本控制或暂停版本控制，则对象存储生成的版本 ID 始终为 null。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```shell
 PUT /<ObjectKey> HTTP/1.1
@@ -23,14 +23,14 @@ Authorization: Auth String
 x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 ```
 
-> Authorization: Auth String （详细请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+>?Authorization: Auth String （详细请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
+#### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -123,15 +123,15 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 | --------- | ---------- | ------ | ------ |
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
-### 请求体
+#### 请求体
 该请求的请求体为空。
 
 ## 响应
-### 响应头
+#### 响应头
 
 #### 公共响应头
 
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -154,7 +154,7 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 </table>
 
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```shell
@@ -169,13 +169,13 @@ x-cos-copy-source: <BucketName-APPID>.cos.<Region>.myqcloud.com/filepath
 | 名称               | 描述                                       | 类型     |
 | ---------------- | ---------------------------------------- | ------ |
 | CopyObjectResult | 返回复制结果信息                                 | String |
-| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化。 | String |
+| ETag             | 返回文件的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
 | LastModified     | 返回文件最后修改时间，GMT 格式                        | String |
 
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 PUT /exampleobject HTTP/1.1
@@ -188,7 +188,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-beijing.myqcloud.com/picture.j
 Content-Length: 0
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK

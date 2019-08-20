@@ -5,7 +5,7 @@
 - Nginx 版本：Nginx 1.12.2
 
 ## 安装 Nginx
-1. 购买完成后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Nginx 环境。有关如何创建云服务器实例，请参考 [创建云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
+1. 购买完成后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Nginx 环境。有关如何创建云服务器实例，请参见 [创建云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
 ```
 # 安装 n=Nginx：
 yum -y install nginx  
@@ -35,11 +35,11 @@ vim index.html
 Hello nginx , This is rs-1!
 URL is image/index.html
 ```
->!Nginx 的默认端口是 `80`，如果想修改端口请修改配置文件并重启 Nginx。
+>!Nginx 的默认端口是`80`，如果想修改端口请修改配置文件并重启 Nginx。
 
 ## 验证 Nginx 服务
-访问云服务器的公网 IP+路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
+访问云服务器的公网 IP + 路径，如果可以显示出已部署好的静态页面，则证明 Nginx 部署成功。
 - rs-1 的 index.html 页面：
-![](https://main.qcloudimg.com/raw/6293722f700526a41386fb348b523e9c.png)
+![](https://main.qcloudimg.com/raw/1a6deb1a0ad5b2e4d5d1df2f91c5f54e.png)
 - rs-1 的 /image/index.html 页面：
-![](https://main.qcloudimg.com/raw/3c43253a92de6b6fa216e320e84a68b1.png)
+![](https://main.qcloudimg.com/raw/98d56c43e02b8b7bd6b09e95e48625f9.png)

@@ -30,8 +30,8 @@
 | 3 | server_addr:server_port  | 请求的目的 IP 和目的端口。 |
 | 4 | server_name | 规则的 server_name，即服务器名称。 |
 | 5 | remote_addr:remote_port	| client IP：port。 |
-| 6 | status | LB 返回给 client 的状态码。 |
-| 7 | upstream_status | RS 返回给 LB 的状态码。 |
+| 6 | status | CLB 返回给 client 的状态码。 |
+| 7 | upstream_status | RS 返回给 CLB 的状态码。 |
 | 8 | proxy_host | upstream ID。 |
 | 9 | request | 请求行。 |
 | 10 | request_length | 从客户端收到的请求字节数。 |

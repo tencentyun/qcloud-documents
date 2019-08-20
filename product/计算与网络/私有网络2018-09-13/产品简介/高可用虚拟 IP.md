@@ -81,7 +81,6 @@ HAVIP 目前处于灰度阶段，如有需要，请提交 [内测申请](https:/
 - **负载均衡的 HA**
 用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual Ip address。
 - **关系型数据库主备**
-两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。
-
+两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。详细操作请参见 [最佳实践-用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187)。
 ## 操作指南
 控制台操作，详情请参见 [操作概述](https://cloud.tencent.com/document/product/215/20133)。

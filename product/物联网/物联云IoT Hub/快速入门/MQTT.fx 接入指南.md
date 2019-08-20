@@ -7,20 +7,20 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
-![](https://main.qcloudimg.com/raw/bd83f2f9976cab19c9117a5fe6d63a07.png)
+![](https://main.qcloudimg.com/raw/245072a611287b1ec54c5f81780e0a57.png)
 4. 填写 Connection Profile 相关信息和 General 信息。
-![](https://main.qcloudimg.com/raw/86649d2431efe8794fe31885b33775af.png)
+![](https://main.qcloudimg.com/raw/e777e866ff82f9e50cc9ba9733060c65.png)
 5. 填写 User Credentials 信息。
-![](https://main.qcloudimg.com/raw/d8c9e225e48f2ae7ef23df34c8b1e07b.png)
+![](https://main.qcloudimg.com/raw/400b9f9629e3ad50c2b7707b6d3771fd.png)
  >?
- - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。如："QICJYEM1T4Demo1;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
+ - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。如："9B17RZW2EZgate_dev01;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
  - **Password**	：Password 必须填写，由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
 6. 选择开启 SSL/TLS，勾选 Self signed Certificates，上传相关内容。
-![](https://main.qcloudimg.com/raw/e68e018aed4f9088d4be0180ec9b3cf3.png)
+![](https://main.qcloudimg.com/raw/2e4189ce063a81c099727349e00dc520.png)
  >!由于 IoT Cloud 使用安全加密链路，因此还需要设置 SSL/TLS 信息。MQTT.fx 不支持对称加密 PSK，本文仅演示非对称加密连接设置。
 7. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
 8. 当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，可进行发布和订阅操作。
- ![](https://main.qcloudimg.com/raw/138f172fbda398a91758c7b20cdaf748.png)
+ ![](https://main.qcloudimg.com/raw/01637e6108ec7adff7030c483308fdf6.png)
 
 ### 参数说明
 上文涉及到的相关参数及文件说明，请参考下表：
@@ -28,9 +28,9 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 | 参数                  | 说明                                       |
 | ------------------- | ---------------------------------------- |
 | Profile Name        | 配置文件保存为的名称。                               |
-| Broker Address      | MQTT 服务器连接地址，广州域设备填入：iotcloud-mqtt.gz.tencentdevices.com |
+| Broker Address      | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com |
 | Broker Port         | MQTT 服务器连接端口，填入：8883。                     |
-| Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："QICJYEM1T4Demo1", QICJYEM1T4 是产品 ID，Demo1 是设备名。 |
+| Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："9B17RZW2EZgate_dev01 "，9B17RZW2EZ 是产品 ID，gate_dev01 是设备名。 |
 | Connection Timeout  | 连接超时时间秒。                                 |
 | Keep Alive Interval | 心跳间隔时间秒。                                 |
 | Auto Reconnect      | 断网自动重连。                                   |
@@ -46,8 +46,8 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 
 ### 发布消息
 选择客户端 Publish Tab，输入主题名称、Qos 等级，单击【Publish】进行发布。发布结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
-![](https://main.qcloudimg.com/raw/ddabd8fb534fbda71d9bede64d1eef21.png)
+![](https://main.qcloudimg.com/raw/80dddbe2538f8e80e075ef57a2f923fe.png)
 
 ### 订阅主题
 选择客户端 Subscribe Tab，输入主题名称、Qos 等级，单击【Subscribe】进行主题订阅，订阅结果可通过 [云日志](https://cloud.tencent.com/document/product/634/14445) 查询。
-![](https://main.qcloudimg.com/raw/9988b9ff0ffea71583c629f956f49a29.png)
+![](https://main.qcloudimg.com/raw/a3cc01c87f70a8b6f910f4544344b2ae.png)

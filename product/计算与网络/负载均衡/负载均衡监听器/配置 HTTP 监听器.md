@@ -7,11 +7,10 @@
 ## 配置 HTTP 监听器
 ### 步骤1：打开监听器管理页面
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
-2. 在左侧导航栏，选择【实例】。
-3. 在实例列表页单击需配置的实例 ID，进入实例详情页。
+2. 在左侧导航栏，选择【实例管理】。
+3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-  ![](https://main.qcloudimg.com/raw/f63f422bf280020c733e302bb5be73ad.png)
-
+![](https://main.qcloudimg.com/raw/376f020caf12788e492e7f7300465ea8.png)
 5.“监听器管理”页面如下图所示。
  ![](https://main.qcloudimg.com/raw/7f864bc406a222e937e5d68bafc17a5a.png)
 
@@ -24,7 +23,8 @@
 | 监听协议端口 | 监听器的协议和监听端口<br><li> 监听协议：CLB支持的协议包括 TCP、UDP、TCP SSL、HTTP、HTTPS，本例选择 HTTP。</li><li>监听端口：用来接收请求并向后端服务器转发请求的端口，端口范围为1 - 65535。</li><li> 同一个负载均衡实例内，监听端口不可重复。</li>| HTTP:80 |
 
 创建 HTTP 监听器具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/db39bf0a0e846fbbb4902512e58e3f98.png)
+![](https://main.qcloudimg.com/raw/b2843d7255b411cbb535d4a0f507dd69.png)
+
 #### 2. 创建转发规则
 | 转发规则基本配置    | 说明                    | 示例                              |
 | ------- | ------------------------ | ---------------------------------------- |
@@ -35,7 +35,7 @@
 | Gzip 压缩 | 默认启用 | 已开启 |
 
 选择需要创建转发规则的 HTTP 监听器，单击右侧【+】进行创建，具体基本配置如下图所示：
-![](https://main.qcloudimg.com/raw/be04fed93b4e48fc77a83cafd66f9859.png)
+![](https://main.qcloudimg.com/raw/ca73b8816fd88ab76b0cd17a5f7b911e.png)
 
 #### 3. 健康检查
 | 健康检查配置    | 说明                    | 示例                                |
@@ -50,7 +50,7 @@
 | HTTP 状态码检测 | 当状态码为所选状态码时，认为后端服务器存活，即健康检查正常，可选：http_1xx，http_2xx， http_3xx，http_4xx，http_5xx。 | 多选：http_1xx，http_2xx，http_3xx，http_4xx |
 
 健康检查具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/ccd992ae2cf18c20e3f6050980e6f4c4.png)
+![](https://main.qcloudimg.com/raw/831f571073ccf0efc2fe6ba3ccd31c99.png)
 
 #### 4. 会话保持
 | 会话保持配置    | 说明                    | 示例                                 |
@@ -59,10 +59,10 @@
 | 会话保持时间 | 会话保持时间<br><li>当超过保持时间，连接内无新的请求，将会自动断开会话保持。</li><li>可配置范围30 - 3600秒。</li> | 30s |
 
 会话保持具体配置如下图所示：
-![](https://main.qcloudimg.com/raw/44ddb8fd9d66ef498dc20e16d446ebb4.png)
+![](https://main.qcloudimg.com/raw/457a0179ac0db0201cd69d20098cad2e.png)
 
 ### 步骤3：绑定后端云服务器
-1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `HTTP:80` 监听器，单击左侧的【+】展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的云服务器。
+1. 在“监听器管理”页面，单击已创建完毕的监听器，如上述 `HTTP:80` 监听器，单击左侧的【+】展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的后端服务。
 ![](https://main.qcloudimg.com/raw/45ab9753f5295b3ab9b4b8018695a5be.png)
 2. 单击【绑定】，在弹出框中选择需绑定的后端服务器，并配置服务端口和权重。
  1. 添加端口功能：在右侧“已选择”的云服务器框内，单击【添加端口】，即可给同一个云服务器添加多个端口，如同时添加 CVM 的 80、81、82 三个端口。
@@ -70,11 +70,11 @@
 ![](https://main.qcloudimg.com/raw/da45ac2c8ef8eae6a32b31a2502919b6.png)
 
 完成步骤1到步骤3之后，HTTP 监听器规则已配置完毕，配置详情如下图所示：
-![](https://main.qcloudimg.com/raw/0684cdf0802f8a86748cd15232f0dd28.png)
+![](https://main.qcloudimg.com/raw/52150fde0ac149fa34c58f89bfc5d37a.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
-如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【编辑】或【删除】来完成操作。
-![](https://main.qcloudimg.com/raw/375864083529fbc473452d80303cfc15.png)
+如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【修改】或【删除】完成操作。
+![](https://main.qcloudimg.com/raw/94df509ce8533a6934bc8587acd99bdf.png)

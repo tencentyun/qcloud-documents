@@ -142,7 +142,7 @@ done
     </property>
   
     <property>
-      <name>fs.cosn.upload.buffr</name>
+      <name>fs.cosn.upload.buffer</name>
       <value>mapped_disk</value>
       <description>The type of upload buffer. Available values: non_direct_memory, direct_memory, mapped_disk.</description>
     </property>

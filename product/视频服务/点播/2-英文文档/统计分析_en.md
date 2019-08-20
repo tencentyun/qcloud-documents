@@ -1,4 +1,4 @@
-With the statistical analysis feature on Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), you can analyze the statistical data through the four dimensions of bandwidth/traffic statistics, storage statistics, transcoding statistics and playback statistics.
+With the statistical analysis feature on Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), you can analyze the statistical data through the four dimensions of bandwidth/traffic statistics, storage statistics, transcoding statistics and playback statistics.
 ## Bandwidth/Traffic Statistics
 Click "Statistical Analysis" in the right menu bar to go to the statistical analysis page, and then click "Bandwidth/Traffic Statistics" to see the statistical analysis of bandwidth/traffic. You can view the statistical analysis of today, yesterday, within 7 days or in a customized period, and can also view the bandwidth/traffic statistical analysis of a specified domain name, region or ISP.
 ![](https://mc.qcloudimg.com/static/img/bc2e37d2646a3bb9b828694eebfbf0a4/image.png)

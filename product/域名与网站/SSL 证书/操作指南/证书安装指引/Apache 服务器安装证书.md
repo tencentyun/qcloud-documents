@@ -2,7 +2,7 @@
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
->- Apache 版本以 `Apache/2.4.6` 为例。
+>- Apache 版本以 `Apache/2.4.6` 为例。默认端口为 `80`。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 
 ## 前提条件
@@ -59,7 +59,7 @@
 		DocumentRoot "/var/www/html" 
 		ServerName www.domain.com #填写证书名称
 		SSLEngine on #启用 SSL 功能
-		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com_cert.crt #证书文件的路径
+		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com.crt #证书文件的路径
 		SSLCertificateKeyFile /etc/httpd/ssl/3_www.domain.com.key #私钥文件的路径
 		SSLCertificateChainFile /etc/httpd/ssl/1_root_bundle.crt #证书链文件的路径
 </VirtualHost>
