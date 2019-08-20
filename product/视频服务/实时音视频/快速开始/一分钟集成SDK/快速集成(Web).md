@@ -49,7 +49,7 @@
 - 增加接口 chooseSpeakerDevice（选择音频输出设备）
 
 #### 2.6 （ 2018-08-10）
-- 新增SoundMeter接口
+- 新增 SoundMeter 接口
 - 新增日志上报的字段
 - createRoom 名称改为 enterRoom 
 
