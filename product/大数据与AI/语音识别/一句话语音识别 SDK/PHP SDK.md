@@ -34,7 +34,7 @@ try {
 
     $req = new SentenceRecognitionRequest();
     
-    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k","SourceType":0,"Url":"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
+    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k","SourceType":0,"Url":"https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
     $req->fromJsonString($params);
 
 
