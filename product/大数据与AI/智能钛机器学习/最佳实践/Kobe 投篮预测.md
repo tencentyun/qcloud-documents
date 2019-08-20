@@ -104,22 +104,21 @@
 ![](https://main.qcloudimg.com/raw/09fd804263c4b3a7c6c6af4cc73f0c88.png)
 
 #### 六. 模型评估
-1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输出】>【模型评估】>【BinaryEvaluator】。 
-2. 将【BinaryEvaluator】拖入画布中。 
-3. 填写参数： 
-算法 IO 参数配置： 
- - 输入数据：`${cos}/kobe_predict/result.csv`。 
- - 标签列：0。 
- - 得分列：1。 
- - 抽样率：1.0。 
- - 并行数：10。 
-![](https://main.qcloudimg.com/raw/12064128bd813d55faf4222a2c9ed83e.png)
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【算法】>【机器学习算法】>【评估算子】>【二分类任务评估】，并拖入画布中。 
+2. 单击【二分类任务评估】，在右侧弹框中单击【高级设置】，此处需要手动填写【输入数据】路径（请直接复制填写）：`${cos}/kobe_predict/result.csv`，其余路径根据 IO 连线自动生成。
+![](https://main.qcloudimg.com/raw/fc8160c50edd866138dbd1357c2e48a0.png)
+![](https://main.qcloudimg.com/raw/9dd2e7e984698dd727d233982eeb42f5.png)
 
-**算法参数和资源参数配置** 
-- 预测阈值：0.5。 
-- 其余参数均可默认。 
+3. 填写算法 IO 参数：  
+- 标签列：0。 
+- 是否是打分项：否。 
+- 输入数据是否包含 header 信息：否。 
+- 输入数据分隔符：空格。
+- 预测列：1。
+- 其余参数可默认。 
+![](https://main.qcloudimg.com/raw/826b2fe2a0452e672306cb452e05d133.png)
 
-#### 七. 运行调度及训练进度查看
-详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
-运行成功后，将光标放置于【BinaryEvaluator】，画布中将展示工作流评估结果： 
-<img src="https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png" width="78%" />
+#### 七. 运行调度及模型评估
+单击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
+运行成功后，右键单击【二分类任务评估】>【评估指标】，即可查看模型效果。
+![](https://main.qcloudimg.com/raw/2b8cd6ecf444905d82e5f53733c4afa0.png)
