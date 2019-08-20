@@ -1,7 +1,7 @@
 ## 接入准备
 
 ### SDK 获取
-一句话识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_realtime_asr_sdk.tar.gz )。
+一句话识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_sentence_sdk.tar.gz )。
 
 ### 接入须知
 开发者在调用前请先查看一句话语音识别的[ 接口说明]()，了解接口的**使用要求**和**使用步骤**。
@@ -156,14 +156,14 @@ int main(int argc, const char * argv[]) {
 	string SecretId="Your SecretId";
 	string SecretKey="Your SecretKey";
 	//8k or 16k
-	string EngSerViceType="8k";
+	string EngSerViceType="16k";
 	//1 or 0
 	//填1的时候URL可以设置为空
-	string SourceType="1";
+	string SourceType="0";
 	//wav or mp3
 	string VoiceFormat="wav";
-	//string fileURI="http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-	string fileURI="test.wav";
+	string fileURI="https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav";
+	//string fileURI="test.wav";
 	TCloudSASR *sasrdemo=new TCloudSASR();
 
 	//设置请求参数以及校验参数
