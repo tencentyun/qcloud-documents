@@ -13,7 +13,7 @@
 2. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入“集群管理”页面。
 3. 单击需要创建服务的集群 ID，进入工作负载 Deployment 详情页，选择【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/812eca17f3943d661f3bc70573367ae6.png)
-4. 在“新建 Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
+4. 在“新建Workload”页面，根据以下提示，设置工作负载基本信息。如下图所示：
  - **工作负载名**：输入要创建的工作负载的名称，本文以 nginx 为例。
  - **描述**：填写工作负载的相关信息。
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **nginx** 。

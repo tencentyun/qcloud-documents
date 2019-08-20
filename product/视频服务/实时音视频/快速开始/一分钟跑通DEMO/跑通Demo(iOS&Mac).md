@@ -26,6 +26,7 @@
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 <h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
+
  Demo 源码工程中的`GenerateTestUserSig.h`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
 
 1. 解压 [步骤2](#step2) 中下载的源码包。
