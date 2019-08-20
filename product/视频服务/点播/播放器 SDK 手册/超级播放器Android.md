@@ -74,7 +74,7 @@ mSuperPlayerView.playWithMode(model);
 1. 客户端视频发布后，服务器会返回 fileId 到客户端。
 2. 服务端视频上传时，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
-如果文件已存在腾讯云，则可以进入 [视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件，查看 fileId。如下图所示，ID 即表示 fileId：
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 fileId。如下图所示，ID 即表示 fileId：
 
 ![视频管理](https://main.qcloudimg.com/raw/15c5d181b9037b58db5cf192fe831f1b.png)
 

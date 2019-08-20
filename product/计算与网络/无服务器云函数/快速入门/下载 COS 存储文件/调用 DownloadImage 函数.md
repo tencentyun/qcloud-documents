@@ -35,6 +35,6 @@
 1. 登录 [对象存储服务控制台](https://console.cloud.tencent.com/cos5/bucket)，进入【存储桶列表】页面。
 2. 在 “Bucket列表” 中，选择 “test-scf” bucket，进入 “ test-scf” 详情页面。
 3. 单击【上传文件】，上传一张图片或者一个文件。
-3. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，并选择 “DownloadImage” 函数。
+3. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，并选择 “DownloadImage” 函数。
 4. 在 “DownloadImage” 详情页面，选择【运行日志】页签，检查运行结果及运行日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/40fd92e598472c43f669b5982b04bb8c.png)

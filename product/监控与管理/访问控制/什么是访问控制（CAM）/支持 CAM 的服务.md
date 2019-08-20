@@ -58,7 +58,7 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  | 操作级  | - | - | ✔ | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| ✔ | -  |✔ | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | ✔ | -   |✔ |✔|
-| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | ✔  | -    |✔   | ✔    |
+| [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/30940)  |资源级 | ✔  | -    |✔   | ✔    |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
 | [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/30965)  |资源级 | ✔  | -    |✔   | -    |
 
@@ -112,7 +112,13 @@
 
  | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
 | ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
-| [验证码](https://cloud.tencent.com/product/captcha/details)    | 服务级  | - | -   | ✔  | - |
+| [验证码](https://cloud.tencent.com/document/product/1110)    | 服务级  | ✔ | -   | ✔  | - |
+
+## 安全管理
+
+ | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
+| ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
+| [安全运营中心](https://cloud.tencent.com/document/product/664)    | 操作级  | ✔ | -   | -  | - |
 
 ## 应用安全
 
@@ -243,7 +249,7 @@
 | ------------------------------------------------------------| ------ | --------| ----- | -------- | ---- |		
 | [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | ✔ | -   | ✔   |✔    |
 | [企业组织](https://cloud.tencent.com/document/product/850/18556) | 操作级 | ✔ | -  |✔     | - |
-| [商业流程服务 BPaaS](https://cloud.tencent.com/document/product/1083/34888)  | 操作级 | ✔ | -   | ✔  | -  |
+| [商业流程服务](https://cloud.tencent.com/document/product/1083/34888)  | 操作级 | ✔ | -   | ✔  | -  |
 
 ## 监控与运维	
 
@@ -251,7 +257,7 @@
 | ------------------------------------------------------------  | ------ | -------- | ----- | -------- | ---- |	
 | [云监控](https://cloud.tencent.com/document/product/248) | 操作级 | ✔  | -  | ✔        | - |	
 | [云拨测](https://cloud.tencent.com/document/product/280)  | 服务级 | ✔ | -    | -        | - |	
-| [密钥管理服务](https://cloud.tencent.com/document/product/573) | 资源级   | ✔  | -  | ✔        | -     |	
+| [密钥管理服务](https://cloud.tencent.com/document/product/573/10126) | 资源级   | ✔  | -  | ✔        | -     |	
 | [迁移服务平台](https://cloud.tencent.com/document/product/659)  | -   | -  | -   | -        |✔    |	
 
 ## 开发者工具
@@ -272,7 +278,7 @@
  | 服务                                                          | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | -------------------------------------------------------- | ------ | -------- | ------- | -------- | ---- |	
 | [商业直播](https://cloud.tencent.com/document/product/1078)  | 操作级 | ✔   | -  | ✔  | - |
-| [微信云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | ✔   | - | - | - |
+| [云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | ✔   | - | - | - |
 
 ## 管理与支持
 
