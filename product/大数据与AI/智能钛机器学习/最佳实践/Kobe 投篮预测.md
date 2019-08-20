@@ -49,9 +49,9 @@
 
 ## 整体流程 
 该 Demo 的整体流程如下： 
-![](https://main.qcloudimg.com/raw/8b95ebd269c35ae066aa9f523e87ece8/1558602795896.png) 
+![](https://main.qcloudimg.com/raw/23458db24b1c4705726240cd09541a65.png)
 ## 详细流程 
-**一. 上传数据** 
+#### 一. 上传数据
 本案例通过本地数据节点上传所需数据： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中 
 2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。 
@@ -62,7 +62,7 @@
 >!请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。 
 
 ![](https://main.qcloudimg.com/raw/dd205a5d0d471adf1a62604e86e775e0.png)
-**二. 数据清洗** 
+#### 二. 数据清洗
 此数据清洗功能由【案例相关材料】中的清洗代码`data_cleaning.py`提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
 2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
@@ -73,7 +73,7 @@
 ![](https://main.qcloudimg.com/raw/b92bb4738fad36cfd69c5fc6d59d1961.png)
 ![](https://main.qcloudimg.com/raw/588929da02c4c401be4f591c0d6310b3.png)
 
-**三. 特征转换** 
+#### 三. 特征转换
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
 2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。 
 3. 填写参数： 
@@ -83,7 +83,7 @@
 ![](https://main.qcloudimg.com/raw/2ed1378ddf492e1b85300e55d93d80b2.png)
 ![](https://main.qcloudimg.com/raw/fe1145d5af74cc69ae15a3bdf4a9d17a.png)
 
-**四. 特征选择** 
+#### 四. 特征选择
 此特征选择功能亦由【案例相关材料】中的相关代码data_selection.py提供： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。 
 2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。 
@@ -93,7 +93,7 @@
  - 其余参数均可默认。 
 ![](https://main.qcloudimg.com/raw/ecf79a181e533d9db7baf0519097688f.png)
 
-**五. 分类器** 
+#### 五. 分类器
 此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。 
 2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”。 
@@ -103,7 +103,7 @@
  - 其余参数均可默认。 
 ![](https://main.qcloudimg.com/raw/09fd804263c4b3a7c6c6af4cc73f0c88.png)
 
-**六. 模型评估** 
+#### 六. 模型评估
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输出】>【模型评估】>【BinaryEvaluator】。 
 2. 将【BinaryEvaluator】拖入画布中。 
 3. 填写参数： 
@@ -119,7 +119,7 @@
 - 预测阈值：0.5。 
 - 其余参数均可默认。 
 
-**七. 运行调度及训练进度查看** 
+#### 七. 运行调度及训练进度查看
 详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
 运行成功后，将光标放置于【BinaryEvaluator】，画布中将展示工作流评估结果： 
 <img src="https://main.qcloudimg.com/raw/5360153d3e7794573d26a141d2cc4633.png" width="78%" />
