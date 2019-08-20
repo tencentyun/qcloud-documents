@@ -52,8 +52,7 @@
             ],
             "resource": [
                 "qcs::cvm::uin/1410643447:*"
-            ],
-            "effect": "allow"
+            ]
         }
     ]
 }
