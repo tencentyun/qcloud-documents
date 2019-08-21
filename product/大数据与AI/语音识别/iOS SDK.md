@@ -4,7 +4,7 @@
 ### 1.1 SDK 获取
 
 
-一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://client-sdk-1255628450.cos.ap-shanghai.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
+一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
 ### 1.2 接入须知
 
