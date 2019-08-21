@@ -300,12 +300,12 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 
 
 ### 设置输入区域 InputLayout
-输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
+输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的“+”输入。
 ![输入区域](https://main.qcloudimg.com/raw/262f09005c939b5004e437df58112056.png)
 
 #### 隐藏不要的功能
 
-您可以自定义隐藏或展示更多"+"面板的图片、拍照、摄像以及发送文件的功能。
+您可以自定义隐藏或展示更多“+”面板的图片、拍照、摄像以及发送文件的功能。
 
 ```java
 // 从 ChatLayout 里获取 InputLayout
@@ -321,7 +321,7 @@ inputLayout.disableVideoRecordAction(true);
 ```
 
 #### 增加自定义的功能
-您可以自定义新增更多"+"面板的动作单元实现相应的功能。
+您可以自定义新增更多“+”面板的动作单元实现相应的功能。
 ![增加自定义的功能](https://main.qcloudimg.com/raw/727056dd0e975dbaea86927040b385ab.gif)
 本文以隐藏发送文件，增加一个动作单元且该动作单元会发送一条消息为例，示例代码如下：
 
@@ -348,7 +348,7 @@ inputLayout.addAction(unit);
 
 
 #### 替换点击“+”的事件
-您可以自定义替换更多"+"面板的各个动作单元的功能。
+您可以自定义替换更多“+”面板的各个动作单元的功能。
 ![替换事件](https://main.qcloudimg.com/raw/5acf471b7a36cd8be511b1b44c0abdbf.gif)
 
 ```java
@@ -367,7 +367,7 @@ inputLayout.replaceMoreInput(new View.OnClickListener() {
 
 
 #### 替换点击“+”弹出的面板
-您可以自定义更多"+"面板的样式、各个动作单元以及其对应的功能。
+您可以自定义更多“+”面板的样式、各个动作单元以及其对应的功能。
 
 ```java
 // 从 ChatLayout 里获取 InputLayout
