@@ -5,8 +5,7 @@
 
 ### 如何确定是否当前浏览器是否支持 WebRTC
 请使用 WebRTCAPI.fn.detectRTC 检测支持度，如果反馈false，业务应提供错误提示页面引导用户使用支持的环境。遇到特殊的 case 时，也可以通过
-- 打开能力检测页面进行检测
-  [https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html)
+- 打开 [能力检测页面](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 进行检测
 - 通过创建工单寻求我们的协助。
 
 ### 啸叫（或重音）
