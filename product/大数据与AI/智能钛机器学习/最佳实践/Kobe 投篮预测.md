@@ -126,7 +126,7 @@
 
 2. 点击【二分类任务评估】，在右侧弹框中点击【高级设置】，此处需要手动填写【输入数据】路径（请直接复制填写）：`${cos}/kobe_predict/result.csv`，其余路径根据IO连线自动生成。
 
-   ![](https://main.qcloudimg.com/raw/fc8160c50edd866138dbd1357c2e48a0.png)
+   ![](https://main.qcloudimg.com/raw/17d393d4452e9b6b786100cbfa2b6ae2.png)
 
    ![](https://main.qcloudimg.com/raw/9dd2e7e984698dd727d233982eeb42f5.png)
 
@@ -138,7 +138,7 @@
 - 输入数据分隔符：空格。
 - 预测列：1。
 - 其余参数可默认。 
-  ![](https://main.qcloudimg.com/raw/826b2fe2a0452e672306cb452e05d133.png)
+  ![](https://main.qcloudimg.com/raw/7ac0e7335be9d81e1e466a056acab942.png)
 
 **七. 运行调度及模型评估** 
 点击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
@@ -146,4 +146,4 @@
 运行成功后，右键点击【二分类任务评估】>【评估指标】，即可查看模型效果。
           ![](https://main.qcloudimg.com/raw/2b8cd6ecf444905d82e5f53733c4afa0.png)
 
-![](https://main.qcloudimg.com/raw/d5ed293e3aa2966ea146baed55b0208f.png)
+![](https://main.qcloudimg.com/raw/32ea9c3b4df6cad5df02829cde5483f2.png)
