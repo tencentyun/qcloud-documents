@@ -1,4 +1,4 @@
-UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密得到的密文，本文将指导您如何生成 UserSig。
+UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文，本文将指导您如何生成 UserSig。
 
 ## 获取密钥 
 
