@@ -17,7 +17,7 @@
          "action": "clb:Describe*",
          "resource": "*"
      }
-	]
+  ]
 }
 ```
 步骤2：将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。
