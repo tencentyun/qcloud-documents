@@ -34,4 +34,5 @@
 4.	将 core-site.xml 同步到所有 hadoop 节点上。
 >?对于 EMR 集群，以上步骤3、4可在 EMR 控制台的组件管理中，修改 HDFS 配置即可。
 5.	使用 hadoop fs 命令行工具，运行`hadoop fs –ls chdfs://${mountpoint}/`命令，这里 mountpoint 为挂载地址。如果正常列出文件列表，则说明已经成功挂载 CHDFS。
-6.	可以使用 hadoop 其他命令，或者 mr 任务在 CHDFS 上运行数据任务。对于 mr 任务，可以通过`-Dfs.defaultFS=chdfs://${mountPoint}/`将本次任务的默认输入输出 FS 改为 CHDFS。
+6.	可以使用 hadoop 其他命令，或者 mr 任务在 CHDFS 上运行数据任务。
+对于 mr 任务，可以通过`-Dfs.defaultFS=chdfs://${mountPoint}/`将本次任务的默认输入输出 FS 改为 CHDFS。
