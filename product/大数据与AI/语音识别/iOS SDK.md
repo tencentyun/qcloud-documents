@@ -1,28 +1,23 @@
 
-## 开发准备
+## 1. 接入准备
 
-### SDK 获取
-
-一句话识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
+### 1.1 SDK 获取
 
 
-### 使用须知
+一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
-+ QCloudSDK 支持 **iOS 9.0** 及以上版本。
-+ 一句话识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
-+ 从控制台获取 AppID、SecretID、SecretKey、ProjectId 详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
-+ 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
+### 1.2 接入须知
+
++ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为**iOS 9.0**及以上版本。
 
 
-## 快速入门
-### SDK 导入
-iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample Code 和 QCloudSDK。
-
-### 工程配置
+### 1.3 开发环境
 
 在工程` info.plist` 添加以下设置：
-1. **设置 NSAppTransportSecurity 策略，添加如下内容：**
+
++ **设置 NSAppTransportSecurity 策略，添加如下内容：**
+
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -42,24 +37,100 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 	</dict>
     </dict>
 ```
-2. **申请系统麦克风权限，添加如下内容：**
+
++ **申请系统麦克风权限，添加如下内容：**
+
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
 ```
-3. **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
+
++ **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
+
    + AVFoundation.framework
    + AudioToolbox.framework
    + QCloudSDK.framework
    + CoreTelephony.framework
    + libWXVoiceSpeex.a
 
-添加完如图所示。
+添加完如下图所示：
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
-### 类说明
+
+## 2. 快速接入
+
+### 2.1 开发流程及接入示例
+
+1）**创建 QCloudSentenceRecognizer 实例** 
+
+```objective-c
+  QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
+  									        secretId:secretId 
+									       secretKey:secretKey];
+  //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
+ recognizer.delegate = self;
+```
+2）**实现此 QCloudSentenceRecognizerDelegate 协议方法**
+
+3）**调用示例**
+
++ **a. 通过语音 URL 调用**
+
+```objective-c
+- (void)recognizeWithUrl {
+//语音数据url
+NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+  //指定语音数据url 语音数据格式 采样率
+  [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
+}
+```
+
++ **b. 通过语音数据调用**
+
+```objective-c
+- (void)recognizeWithAudioData {
+   //语音数据
+   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"recordedFile" ofType:@"wav"];
+   NSData *audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+   //指定语音数据 语音数据格式 采样率
+   [_recognizer recoginizeWithData:audioData voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
+}
+```
+
++ **c. 通过指定参数调用**
+
+```objective-c
+- (void)recognizeWithParams {
+   NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+   //获取一个已设置默认参数params
+   QCloudOneSentenceRecognitionParams *params = [_recognizer defaultRecognitionParams];    
+   //通过语音url请求, 此4个参数必须设置
+   params.url = url;                           
+   //设置语音频数据格式，见kQCloudVoiceFormat定义
+   params.voiceFormat = kQCloudVoiceFormatWAV;
+   //设置语音数据来源，见QCloudAudioSourceType定义
+   params.sourceType = QCloudAudioSourceTypeUrl;
+   //设置采样率，见kQCloudEngSerViceType定义
+   params.engSerViceType = kQCloudEngSerViceType16k; 
+   [_recognizer recognizeWithParams:params];
+}
+```
+
++ **d. 通过 SDK 内置录音器调用**
+
+```objective-c
+- (void)recognizeWithRecorder {
+   [_recognizer startRecognizeWithRecorder];
+}
+```
+
+
+
+### 2.2 主要接口类说明
 **QCloudSentenceRecognizer 初始化说明**
-**QCloudSentenceRecognizer** 是一句话识别入口类，提供两种初始化方法。
+
+QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方法。
+
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -68,14 +139,17 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 - (instancetype)initWithConfig:(QCloudConfig *)config;
 /**
  * 通过appId secretId secretKey初始化
- * @param appid     腾讯云appId        基本概念见https://cloud.tencent.com/document/product/441/6194
- * @param secretId  腾讯云secretId     基本概念见https://cloud.tencent.com/document/product/441/6194
- * @param secretKey 腾讯云secretKey    基本概念见https://cloud.tencent.com/document/product/441/6194
+ * @param appid     腾讯云appId        
+ * @param secretId  腾讯云secretId     
+ * @param secretKey 腾讯云secretKey    
  */
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
 ```
+
 **QCloudConfig 初始化方法说明**
-腾讯云 AppId，腾讯云 secretId，腾讯云 secretKey，腾讯云 projectId 从控制台获取，[基本概念](https://cloud.tencent.com/document/product/441/6194) 。
+
+参考一句话识别接口说明中的使用步骤，获取AppID、SecretID 和 SecretKey。
+
 ```objective-c
 /**
  * 初始化方法
@@ -89,8 +163,11 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
                     secretKey:(NSString *)secretKey
                     projectId:(NSString *)projectId;
 ```
+
 **QCloudSentenceRecognizerDelegate 说明**
+
 此 delegate 为一句话识别相关回调，调用者需要实现此 delegate 获取识别结果、开始录音、结束录音事件。
+
 ```objective-c
 @protocol QCloudSentenceRecognizerDelegate <NSObject>
 @required
@@ -118,57 +195,4 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 - (void)oneSentenceRecognizerDidUpdateVolume:(QCloudSentenceRecognizer *)recognizer volume:(float)volume;
 @end
 ```
-### 示例
-1）**创建 QCloudSentenceRecognizer 实例** 
 
-```objective-c
-  QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
-  									        secretId:secretId 
-									       secretKey:secretKey];
-  //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
- recognizer.delegate = self;
-```
-2）**实现此 QCloudSentenceRecognizerDelegate 协议方法**
-3）**调用示例**
-**a. 通过语音 URL 调用**
-```objective-c
-- (void)recognizeWithUrl {
-//语音数据url
-NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-  //指定语音数据url 语音数据格式 采样率
-  [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
-}
-```
-**b. 通过语音数据调用**
-```objective-c
-- (void)recognizeWithAudioData {
-   //语音数据
-   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"recordedFile" ofType:@"wav"];
-   NSData *audioData = [[NSData alloc] initWithContentsOfFile:filePath];
-   //指定语音数据 语音数据格式 采样率
-   [_recognizer recoginizeWithData:audioData voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
-}
-```
-**c. 通过指定参数调用**
-```objective-c
-- (void)recognizeWithParams {
-   NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-   //获取一个已设置默认参数params
-   QCloudOneSentenceRecognitionParams *params = [_recognizer defaultRecognitionParams];    
-   //通过语音url请求, 此4个参数必须设置
-   params.url = url;                           
-   //设置语音频数据格式，见kQCloudVoiceFormat定义
-   params.voiceFormat = kQCloudVoiceFormatWAV;
-   //设置语音数据来源，见QCloudAudioSourceType定义
-   params.sourceType = QCloudAudioSourceTypeUrl;
-   //设置采样率，见kQCloudEngSerViceType定义
-   params.engSerViceType = kQCloudEngSerViceType16k; 
-   [_recognizer recognizeWithParams:params];
-}
-```
-**d. 通过 SDK 内置录音器调用**
-```objective-c
-- (void)recognizeWithRecorder {
-   [_recognizer startRecognizeWithRecorder];
-}
-```
