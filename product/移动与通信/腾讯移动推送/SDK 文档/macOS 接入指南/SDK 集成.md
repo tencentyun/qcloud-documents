@@ -11,7 +11,7 @@
 
 
 ## 集成步骤
-1. 登录腾讯移动推送控制台，单击左侧菜单栏【[产品管理](https://console.cloud.tencent.com/tpns/product)】。
+1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
 4. 产品创建完成后，选择【应用管理】>【[应用列表](https://console.cloud.tencent.com/tpns/applist)】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
@@ -110,8 +110,10 @@ pod 'TPNS-macOS'
 ```
 
 
+#### 获取 Token （非必选）
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 
->?建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示Token，该操作便于我们后续进行问题排查。示例代码如下：
+#### 示例代码
 ```objective-c
 //获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
