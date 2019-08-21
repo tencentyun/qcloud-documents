@@ -1,4 +1,4 @@
-﻿## 注意事项
+## 注意事项
 - 所有场景默认采用 UTF-8 编码。
 - Access Token 必须缓存在磁盘并定时刷新，建议每20分钟请求新的 Access Token，原 Access Token 2小时（7200秒）失效，获取之后立即请使用最新的 Access Token。旧的 Access Token 只有一分钟的并存期 。
 - 每次用户登录时必须重新获取 ticket。
