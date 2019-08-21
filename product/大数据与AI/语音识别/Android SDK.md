@@ -1,6 +1,6 @@
 ## 1. 接入准备
 ### 1.1 SDK 获取
-一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/12d8f3ebe1ed16190b874c910db1369c/QCloudOneSentenceSDK_v1.0.0.zip)
+一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudOneSentenceSDK_Android.zip)
 
 ### 1.2 接入须知
 + 开发者在调用前请先查看一句话识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721)，了解接口的使用要求和使用步骤 。
