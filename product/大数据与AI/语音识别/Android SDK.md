@@ -51,14 +51,14 @@ recognizer.setCallback(this);
 ```
 3）**调用示例**
 
-+ **a. 通过语音 URL 调用**
++ **通过语音 URL 调用**
 
 ```
 String audioUrl = "https://img.soulapp.cn/audio/2019-07-22/9ed1a797-93b5-4268-be6d-5660cc3e894e.mp3";
 recognizer.recognize(audioUrl, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
 
-+ **b. 通过语音数据调用**
++ **通过语音数据调用**
 
 ```
 AssetManager am = getResources().getAssets();
@@ -69,7 +69,7 @@ is.read(audioData);
 recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAudioFrequence.QCloudAudioFrequence16k);
 ```
 
-+ **c. 通过 SDK 内置录音器**
++ **通过 SDK 内置录音器**
 
 ```
 recognizer.recognizeWithRecorder();
