@@ -1,19 +1,30 @@
 对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。
 
-- 如果您需要 SDK 源码，可访问 [SDK 源码](https://tencentyun.github.io/vod-js-sdk-v6/)。
-- 如果您需要 Demo 源码，可访问 [Demo 源码](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)。
+- 如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6)。
 
 ## 简单视频上传
 
-#### 引入 SDK 到页面中
+#### 如何引入 SDK
+
+#### script 引入
+未使用 webpack 的情况下，可通过 script 标签方式引入。这时会暴露全局的 `TcVod` 变量。
 
 ```html
 <script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
 
+查看 script 引入方式的 Demo，[请点击此](https://tencentyun.github.io/vod-js-sdk-v6/)。查看 Demo 源码，[请点击此](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)。
+
+#### npm 引入
+
+使用了 webpack 的情况（例如使用 Vue 或者 React）下，可通过 npm 引入
+
 ```js
+// npm install vod-js-sdk-v6 之后，在页面中直接 import 引入
 import TcVod from 'vod-js-sdk-v6'
 ```
+
+查看 npm 引入方式的 Demo 源码，[请点击此](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo)
 
 >? SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
