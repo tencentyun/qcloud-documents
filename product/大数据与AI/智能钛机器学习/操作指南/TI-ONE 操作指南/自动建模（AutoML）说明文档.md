@@ -33,6 +33,4 @@
 ![](https://main.qcloudimg.com/raw/899ad41aed98ba1326ce681b1d494295.jpg)
 - 参数详情模块展示的是每一轮迭代的信息、AUC 值、运行状态及对应迭代的参数，单击参数展示被调的参数这一轮的具体值。
 ![](https://main.qcloudimg.com/raw/a25f77b5ef3cabd0947aea8374f35e2b.jpg)
-![](https://main.qcloudimg.com/raw/e11c7e9753b23a2591c14861ec3eabf1.jpg)
-
 
