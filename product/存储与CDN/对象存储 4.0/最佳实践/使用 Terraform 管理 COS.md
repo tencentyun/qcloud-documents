@@ -1,12 +1,12 @@
 ## 简介
 
-Terraform 是一个开源自动化资源编排工具，用代码来管理维护 IT 资源，取代手动操作。已获得超过一百家云厂商的支持，几乎可以支持所有市面上能见到的云服务。
+Terraform 是一个开源自动化资源编排工具，使用代码管理维护 IT 资源，取代手动操作。
 
-腾讯云于2017年开始支持 terraform 进行资源编排，截止目前共有10余款基础产品完美支持 terraform，涉及计算、存储、网络、数据库等类别。
+腾讯云于2017年开始支持 terraform 进行资源编排，截止目前共有10余款基础产品完美支持 terraform，涉及计算、存储、网络、数据库等类别。本文为您详细介绍如何安装 Terraform，以及使用 Terraform 管理 COS。
 
 ## 安装 Terraform
 
-Terraform 安装简单，具体请参见 [腾讯云 Terraform 应用指南（一）](https://cloud.tencent.com/developer/article/1473713) 的“安装Terraform”章节。
+Terraform 安装简单，具体请参见 [腾讯云 Terraform 应用指南（一）](https://cloud.tencent.com/developer/article/1473713) 的“安装 Terraform ”章节。
 
 ## 使用 Terraform 管理 COS 
 
