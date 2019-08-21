@@ -155,6 +155,6 @@
 [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 ```
 
-
+![]()
 
 
