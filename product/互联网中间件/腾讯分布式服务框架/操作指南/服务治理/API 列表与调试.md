@@ -8,7 +8,7 @@ API 列表显示服务对外暴露的 API 列表。API 调试提供用户在线�
 ## 操作步骤
 ### API 列表
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf)，在左侧导航栏中，选择【[服务治理](https://console.cloud.tencent.com/tsf/service)】。
-2. 单击服务名称，计入服务详情页。
+2. 单击服务名称，进入服务详情页。
 3. 在服务详情页，单击顶部的【API列表】，会显示服务对外提供的 API。
 ![](https://main.qcloudimg.com/raw/328d3f8bdcae038d27aac23a5f33eacd.png)
 4. 单击 API 名称进入详情页，可以查看到 API 的详细信息。
