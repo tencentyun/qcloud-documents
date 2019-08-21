@@ -32,5 +32,5 @@
 - 下方分两个模块，**模型指标**和**参数详情**。用户可以选择不同的评估指标来查看，**模型指标**模块主要以曲线呈现每一迭代的 AUC 效果。
 ![](https://main.qcloudimg.com/raw/899ad41aed98ba1326ce681b1d494295.jpg)
 - 参数详情模块展示的是每一轮迭代的信息、AUC 值、运行状态及对应迭代的参数，单击参数展示被调的参数这一轮的具体值。
-![](https://main.qcloudimg.com/raw/a25f77b5ef3cabd0947aea8374f35e2b.jpg)
+![](https://main.qcloudimg.com/raw/e11c7e9753b23a2591c14861ec3eabf1.jpg)
 
