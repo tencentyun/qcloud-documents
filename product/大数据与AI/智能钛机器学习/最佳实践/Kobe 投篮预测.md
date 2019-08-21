@@ -110,8 +110,8 @@
  - 输入数据分隔符：空格。
  - 预测列：1。
  - 其余参数可默认。 
-![](https://main.qcloudimg.com/raw/fc8160c50edd866138dbd1357c2e48a0.png)
-![](https://main.qcloudimg.com/raw/f5f07c1bc55c472b6c3aa433955b7ad9.png)
+![](https://main.qcloudimg.com/raw/ed13796c5f707a77b6f8c5075ab169f7.png)
+![](https://main.qcloudimg.com/raw/d5feafd51b37fd376472f3234f95dd7d.png)
 
 #### 七. 运行调度及模型评估
 单击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
