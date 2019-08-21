@@ -307,4 +307,4 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 //获取 Token
 XGPushConfig.getToken(getApplicationContext());
 ```
-![](https://main.qcloudimg.com/raw/6c71dd5a180da66f592dfbd07f162b01.png)
+![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
