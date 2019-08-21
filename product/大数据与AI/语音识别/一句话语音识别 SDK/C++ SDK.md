@@ -152,7 +152,7 @@ using namespace std;
 
 int main(int argc, const char * argv[]) {
 	//重要：<Your SecretId>、<Your SecretKey>需要替换成客户自己的账号信息
-   //请参考接口说明中的使用步骤1进行获取。 
+        //请参考接口说明中的使用步骤1进行获取。 
 	string SecretId="Your SecretId";
 	string SecretKey="Your SecretKey";
 	//8k or 16k
