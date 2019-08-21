@@ -6,7 +6,7 @@ Terraform 是一个开源自动化资源编排工具，使用代码管理维护 
 
 ## 安装 Terraform
 
-Terraform 安装简单，具体请参见 [腾讯云 Terraform 应用指南（一）](https://cloud.tencent.com/developer/article/1473713) 的“安装 Terraform ”章节。
+Terraform 安装简单，具体请参见 [腾讯云 Terraform 应用指南（一）](https://cloud.tencent.com/developer/article/1473713) 的“安装 Terraform”章节。
 
 ## 使用 Terraform 管理 COS 
 
