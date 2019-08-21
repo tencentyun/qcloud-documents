@@ -11,8 +11,8 @@
 - **请求参数：**
 <table><tbody>
 <tr><th >参数</th><th >说明</th><th >类型</th><th >长度（字节）</th><th >是否必填</th></tr>
-<tr><td >app_id</td><td >请参考 <a href="https://cloud.tencent.com/document/product/655/31892">接入前须知</a>，按照指引进入链接在线申请</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
-<tr><td>access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/655/31946'>Access Token 获取</a> 指引进行获取</td><td>String</td><td >腾讯云线下对接决定</td><td>是</td></tr>
+<tr><td >app_id</td><td >请添加小助手微信 faceid001，进行线下对接获取</td><td >String</td><td >腾讯云线下对接决定</td><td >是</td></tr>
+<tr><td>access_token</td><td >请根据 <a href='https://cloud.tencent.com/document/product/1007/37304'>Access Token 获取</a> 指引进行获取</td><td>String</td><td >腾讯云线下对接决定</td><td>是</td></tr>
 <tr><td >type</td><td >ticket 类型，默认值：SIGN（必须大写）</td><td >String</td><td >20</td><td >是</td></tr>
 <tr><td >version</td><td >版本号，默认值：1.0.0</td><td >String</td><td >20</td><td >是</td></tr>
 </tbody></table>
