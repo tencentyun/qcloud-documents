@@ -7,7 +7,7 @@
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
 
 ### 1.3 开发环境
-1) **添加一句话识别 SDK aar**
+1）**添加一句话识别 SDK aar**
 
 将 **qcloudasrsdk\_1.0\_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 
@@ -15,7 +15,7 @@
   implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
 ```
 
-2) **添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
+2）**添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
 
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
@@ -24,7 +24,7 @@
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
 
-3) **在 AndroidManifest.xml 添加如下权限**：
+3）**在 AndroidManifest.xml 添加如下权限**：
 
 ```
 < uses-permission android:name="android.permission.RECORD_AUDIO"/>
