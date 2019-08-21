@@ -9,7 +9,7 @@
 ```html
 <script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
-请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/)，查看 script 方式引入的 Demo 源码。
+请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/)，查看 script 方式引入的 Demo。请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)，查看 Demo 源码。
 - **npm 引入**
 使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入。
 ```js
@@ -18,9 +18,7 @@ import TcVod from 'vod-js-sdk-v6'
 ```
 请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo)，查看 npm 方式引入的 Demo 源码。
 
->?
->- 请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)，查看 Demo 源码。 
->- SDK 依赖 Promise，请在低版本浏览器中自行引入。
+>? SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
 ####  定义获取上传签名的函数
 
