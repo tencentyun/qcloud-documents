@@ -144,8 +144,10 @@
 ```
 
 
+#### 获取 Token （非必选）
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 
->?建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示Token，该操作便于我们后续进行问题排查。示例代码如下：
+#### 示例代码
 ```objective-c
 //获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
