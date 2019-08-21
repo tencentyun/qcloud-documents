@@ -16,7 +16,7 @@
 | muted     | Boolean | false             | 可选，true 静音 false 不静音    |
 | debug     | Boolean | false             | 可选，true 打印推流 debug 信息 fales 不打印推流 debug 信息  |
 | bindRoomEvent     | Function |      -   | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
-| enableIM     | Boolean | false     -     | 可选，是否启用 IM   |
+| enableIM     | Boolean | false        | 可选，是否启用 IM   |
 | bindIMEvent     | Function |      -    | 当 IM 开启时必要，监听 IM 返回的事件   |
 | aspect | String | 9:16 | 可选， 宽高比3:4，9:16 |
 | minBitrate | String | 200 | 可选，最小码率，该数值决定了画面最差的清晰度表现 |
@@ -29,11 +29,11 @@
 | smallViewTop | String | '1vw' | 小窗口距离大画面顶部的距离，只在 template 设置为 bigsmall 有效 |
 | smallViewWidth | String | '30vw' | 小窗口宽度，只在 template 设置为 bigsmall 有效 |
 | smallViewHeight | String | '40vw' | 小窗口高度，只在 template 设置为 bigsmall 有效 |
-| waitingImg | String | &nbsp; | 当微信切到后台时的垫片图片 |
-| loadingImg | String | &nbsp; | 画面 loading 图片 |
+| waitingImg | String | - | 当微信切到后台时的垫片图片 |
+| loadingImg | String | - | 画面 loading 图片 |
 
 
-> 小程序实时音视频与 WebRTC 互通只需要保证两端的 sdkAppID 与 roomID 一致
+>?小程序实时音视频与 WebRTC 互通只需要保证两端的 sdkAppID 与 roomID 一致。
 
 ### 操作接口
 
@@ -79,7 +79,7 @@ fail | Function | 否 | 发送失败的回调
 
 #### sendGroupTextMsg
 
-> 发送群组文本消息
+发送群组文本消息
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -89,7 +89,7 @@ fail | Function | 否 | 发送失败的回调
 
 #### sendGroupCustomMsg
 
-> 发送群组自定义消息
+发送群组自定义消息
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -100,7 +100,7 @@ fail | Function | 否 | 发送失败的回调
 ### 事件通知
 **&lt;webrtc-room&gt;** 标签通过 **onRoomEvent** 返回内部事件，通过 **onIMEvent** 返回 IM 消息事件，事件参数格式如下:
 
-> 如果 enableIM 关闭了，则可以忽略 onIMEvent
+>?如果 enableIM 关闭了，则可以忽略 onIMEvent
 
 ```json
 "detail": {
