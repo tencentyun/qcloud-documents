@@ -25,10 +25,10 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 >! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
 > 本教程中以操作系统版本为 CentOS 7.5 的云服务器实例为例。
 > 
-1. 在实例的管理页面，单击【新建】。具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/978029125b548c9abf1f83c5794f9045.png)
+1. 在实例的管理页面，单击【新建】，创建实例。
+具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![实例1](https://main.qcloudimg.com/raw/82f0263310e44fb028537deb322fda60.png)
+![实例1](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
@@ -161,4 +161,4 @@ chmod -R 777 /var/www/html
 6. 单击【下一步】，开始安装。
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】，即可访问论坛。如下图所示：
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
- 
+ 

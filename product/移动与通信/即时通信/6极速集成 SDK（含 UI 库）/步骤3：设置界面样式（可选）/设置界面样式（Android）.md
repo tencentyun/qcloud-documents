@@ -1,13 +1,12 @@
 
-## 会话列表
-会话列表 Layout 由**标题区 TitleBarLayout **与**列表区 ConversationListLayout **组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
+## 设置会话列表
+会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
+![会话列表](https://main.qcloudimg.com/raw/8adef6cec9f943958bbcbd0959130ce6.png)
 
-![](https://main.qcloudimg.com/raw/80f6ff3ce199a4f8cf1c4daca232342b.png)
+### 修改标题区 TitleBarLayout 样式
 
-### 标题区 TitleBarLayout
-
-标题区除了本身作为 view 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
-![](https://main.qcloudimg.com/raw/726ff20e1fa1990b97f3360060794e8a.png)
+标题区除了本身作为 View 所具有的属性功能之外，还包含左、中、右三块区域，如下图所示：
+![标题区结构](https://main.qcloudimg.com/raw/832fd209cbc6061b47ff5434740b210c.png)
 
 您可以参考 [ITitleBarLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/base/ITitleBarLayout.html) 进行自定义修改。
 例如，在 ConversationLayout 中，隐藏左边的 LeftGroup，设置中间的标题，隐藏右边的文本和图片按钮，代码如下：
@@ -24,8 +23,7 @@ titleBarLayout.setRightIcon(R.drawable.conversation_more);
 ```
 
 效果如下图所示：
-
-![](https://main.qcloudimg.com/raw/15d8dfc0f632d447425289cd7fda72b6.png)
+![标题区效果](https://main.qcloudimg.com/raw/b4d5c63dac1fa602830574ea4096c89f.png)
 
 另外，您也可以定制点击事件：
 
@@ -45,8 +43,8 @@ titleBarLayout.setOnRightClickListener(new View.OnClickListener() {
 });
 ```
 
-
-### 列表区 ConversationListLayout
+ 
+### 修改列表区 ConversationListLayout 样式
 
 列表区的自定义 layout 继承自 RecyclerView，登录后 TUIKit 会根据用户名从 SDK 读取该用户的会话列表。
 会话列表提供一些常用功能定制，例如，头像是否圆角、背景、字体大小、点击与长按事件等。示例代码如下：
@@ -75,7 +73,7 @@ public static void customizeConversation(final ConversationLayout layout) {
 
 ### 设置头像
 
-IM SDK 不做头像存储，需要集成者有头像图床接口获取头像 URL，这里 TUIKit 通过随机头像接口进行演示，如何设置头像。
+IM SDK 不做头像存储，需要集成者有头像存储接口获取头像 URL，这里 TUIKit 通过随机头像接口进行演示，如何设置头像。
 首先您需要在个人资料页面中，上传头像图片，调用修改资料接口。
 
 ```
@@ -109,12 +107,11 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 ```
 
 
-## 聊天窗口
-聊天窗口包含**标题区 TitleBarLayout **，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为**通知区 NoticeLayout **、**消息区 MessageLayout **和**输入区 InputLayout **，如下图所示：
-
-![](https://main.qcloudimg.com/raw/3da35d371b45cddb964641410958a564.png)
+## 设置聊天窗口
+聊天窗口包含标题区 TitleBarLayout，用法与会话列表相同。除此之外，聊天窗口还包含三个区域，从上到下为通知区 NoticeLayout、消息区 MessageLayout 和输入区 InputLayout，如下图所示：
+![聊天界面组成](https://main.qcloudimg.com/raw/8b6e650af731fffc4a816fbf54920970.png)
 效果如下图所示：
-![](https://main.qcloudimg.com/raw/9bd296ed62292fc139181a4f17fd1a73.png)
+![聊天界面含更多功能](https://main.qcloudimg.com/raw/5953198d2a5249d1b18f218b319cdd2c.png)
 
 ```java
 /**
@@ -124,7 +121,7 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 NoticeLayout getNoticeLayout();
 
 /**
- * 获取聊天窗口 Message 区域 Layout
+ * 获取聊天窗口 Notice 区域 Layout
  * @return
  */
 MessageLayout getMessageLayout();
@@ -137,11 +134,12 @@ InputLayout getInputLayout();
 ```
 
 
-### 通知区域 NoticeLayout
-![](https://main.qcloudimg.com/raw/1143973f3cbdb22cbf9d861e3d53f8d8.png)
+### 修改通知区域 NoticeLayout 样式
 
 通知区域由两个 TextView 组成，如下图所示：
-![](https://main.qcloudimg.com/raw/8d44310be9f7c9e2360b0c5d50d00686.png)
+![通知区域组成](https://main.qcloudimg.com/raw/1a34baf21414ffe9671a31a7223c6377.png)
+效果如下图所示：
+![通知效果图](https://main.qcloudimg.com/raw/406ce089eccc51524e559e0a9f69c1f6.png)
 
 ```java
 // 从 ChatLayout 里获取 NoticeLayout
@@ -161,16 +159,15 @@ noticeLayout.setOnNoticeClickListener(new View.OnClickListener() {
 });
 ```
 
-### 消息区域 MessageLayout
-
+### 修改消息区域 MessageLayout 样式
 
 MessageLayout 继承自 RecyclerView ，本文提供自定义修改聊天背景、气泡、文字、是否显示昵称等常见的用法，更多详情请参见 [IMessageProperties](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IMessageProperties.html)。
-![](https://main.qcloudimg.com/raw/2004104d6968c9b746e8d319fb3cd05a.png)
+![消息区域](https://main.qcloudimg.com/raw/063933c9ace8f762695af5a75a70c4b8.png)
 
 #### 修改聊天背景
 
 您可以自定义设置聊天背景。
-![](https://main.qcloudimg.com/raw/cbd44348deceaa4f08fee62ca6fd3346.png)
+![更换聊天背景](https://main.qcloudimg.com/raw/fbab3a9bc355b4ba47ee2d864c7a8bf5.png)
 
 ```java
 // 从ChatLayout 里获取 MessageLayout
@@ -180,10 +177,10 @@ messageLayout.setBackground(new ColorDrawable(0xB0E2FF00));
 ```
 
 
-#### 修改头像相关
+#### 修改头像相关属性
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。
-![](https://main.qcloudimg.com/raw/e4357dd89e8e814166717300414ff8da.png)
+![换头像](https://main.qcloudimg.com/raw/16ba2fdf5bd410efc19ad88f056f9022.png)
 
 ```
 // 聊天界面设置头像和昵称
@@ -226,10 +223,8 @@ messageLayout.setAvatarSize(new int[]{48, 48});
 
 
 #### 修改气泡
-
-
 左边为对方的气泡，右边为自己的气泡，您可以自定义设置双方的气泡背景。
-![](https://main.qcloudimg.com/raw/79acdf0b0b4d29088b76c950f876a19a.png)
+![换气泡](https://main.qcloudimg.com/raw/670e40297978817012d9cd81524e73e7.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -242,10 +237,8 @@ messageLayout.setLeftBubble(context.getResources().getDrawable(R.drawable.chat_s
 
 
 #### 修改昵称样式
-
-
 您可以自定义设置昵称的字体大小与颜色等，但双方昵称样式必须保持一致。
-![](https://main.qcloudimg.com/raw/5935a069c9a78eb74521b6a7ac6c8ff9.png)
+![换昵称](https://main.qcloudimg.com/raw/df0ab81eccc1c2f65804c20964b76419.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -258,7 +251,7 @@ messageLayout.setNameFontColor(0x8B5A2B00);
 
 #### 修改聊天内容样式
 您可以自定义设置聊天内容的字体大小、双方字体颜色等，但双方字体大小必须保持一致。
-![](https://main.qcloudimg.com/raw/1b09dec94b8e4ab21d36022bb83a1771.png)
+![换聊天内容](https://main.qcloudimg.com/raw/6b86269ecef12ba43762d917f596a51c.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -275,7 +268,7 @@ messageLayout.setLeftChatContentFontColor(0xA020F000);
 #### 修改聊天时间线样式
 
 您可以自定义设置聊天时间线的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/2e1fc272f3d762dd12f9f8719aad031d.png)
+![换时间线](https://main.qcloudimg.com/raw/278f58e24d1cf05601d789a45b840fc0.png)
 
 ```java
 // 从 ChatLayout 里获取 MessageLayout
@@ -292,7 +285,7 @@ messageLayout.setChatTimeFontColor(0xEE00EE00);
 #### 修改聊天的提示信息样式
 
 您可以自定义设置提示信息的背景、字体大小以及字体颜色等。
-![](https://main.qcloudimg.com/raw/93087b1a5a1e4cf9c71e3e7c59a0f2d1.png)
+![换提示消息](https://main.qcloudimg.com/raw/a59d9b24ec12abea73c78996d912976e.png)
 
 ```java
 // 从ChatLayout里获取MessageLayout
@@ -306,11 +299,11 @@ messageLayout.setTipsMessageFontColor(0x7CFC0000);
 ```
 
 
-### 输入区域 InputLayout
+### 设置输入区域 InputLayout
 输入区域 InputLayout，包含语音输入、文字输入、表情输入以及更多的"+"输入。
-![](https://main.qcloudimg.com/raw/402308d600b4a5a8de5bde8bb059b1bb.png)
+![输入区域](https://main.qcloudimg.com/raw/262f09005c939b5004e437df58112056.png)
 
-#### 去掉不要的功能
+#### 隐藏不要的功能
 
 您可以自定义隐藏或展示更多"+"面板的图片、拍照、摄像以及发送文件的功能。
 
@@ -329,7 +322,7 @@ inputLayout.disableVideoRecordAction(true);
 
 #### 增加自定义的功能
 您可以自定义新增更多"+"面板的动作单元实现相应的功能。
-![](https://main.qcloudimg.com/raw/571c5bd7192c2001d9a5736ed540a7b7.gif)
+![增加自定义的功能](https://main.qcloudimg.com/raw/727056dd0e975dbaea86927040b385ab.gif)
 本文以隐藏发送文件，增加一个动作单元且该动作单元会发送一条消息为例，示例代码如下：
 
 ```java
@@ -356,7 +349,8 @@ inputLayout.addAction(unit);
 
 #### 替换点击“+”的事件
 您可以自定义替换更多"+"面板的各个动作单元的功能。
-![](https://main.qcloudimg.com/raw/f56120a68c2b1e5c271e72ef34f5620c.gif)
+![替换事件](https://main.qcloudimg.com/raw/5acf471b7a36cd8be511b1b44c0abdbf.gif)
+
 ```java
 // 从 ChatLayout 里获取 InputLayout
 InputLayout inputLayout = layout.getInputLayout();
@@ -394,14 +388,14 @@ public static class CustomInputFragment extends BaseInputFragment {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.toastShortMessage("自定义的按钮1");
+                ToastUtil.toastShortMessage("发送一条超链接消息");
             }
         });
         Button btn2 = baseView.findViewById(R.id.test_send_message_btn2);
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ToastUtil.toastShortMessage("自定义的按钮2");
+                ToastUtil.toastShortMessage("发送一条视频文字混合消息");
             }
         });
         return baseView;
@@ -409,4 +403,4 @@ public static class CustomInputFragment extends BaseInputFragment {
 }
 ```
 效果如下图所示：
-![](https://main.qcloudimg.com/raw/e947cf2d73aed83ef59f61c190595b80.gif)
+![替换面板](https://main.qcloudimg.com/raw/d347f9e12358fb00d0c517e6a7aa44a6.gif)

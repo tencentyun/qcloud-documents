@@ -1,8 +1,8 @@
 ### 1 License的申请与查看
 
-短视频SDK的License随点播套餐包赠送，相关的信息均在[点播控制台](https://console.cloud.tencent.com/video/license)中。
+短视频SDK的License随点播套餐包赠送，相关的信息均在[点播控制台](https://console.cloud.tencent.com/vod/license)中。
 
-1. 登录腾讯云官网，进入 [点播控制台](https://console.cloud.tencent.com/video/license)，填写相应的信息，在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 bundleId。
+1. 登录腾讯云官网，进入 [点播控制台](https://console.cloud.tencent.com/vod/license)，填写相应的信息，在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 bundleId。
 
    **注意: 在购买正式license前会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改。**
 
@@ -58,7 +58,7 @@ TXLiveBase.getInstance().getLicenceInfo();
 
 ### 4.  License的有效期与续费
 
-可以在 [点播控制台](https://console.cloud.tencent.com/video/license)查看License的有效期，正式版本的License有效期一般为一年，到期后进入 [点播控制台](https://console.cloud.tencent.com/video/license) 点击购买链接即可。
+可以在 [点播控制台](https://console.cloud.tencent.com/vod/license)查看License的有效期，正式版本的License有效期一般为一年，到期后进入 [点播控制台](https://console.cloud.tencent.com/vod/license) 点击购买链接即可。
 
 
 

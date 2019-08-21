@@ -24,10 +24,10 @@ LITEAV_API void destroyTRTCShareInstance()
 
 
 
-## 设置 TRTCCloudCallback 回调
+## 设置 ITRTCCloudCallback 回调
 ### addCallback
 
-设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback)。
+设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270)。
 ```
 void addCallback(ITRTCCloudCallback * callback)
 ```
@@ -36,11 +36,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
 
 __介绍__
 
-您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
+您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
 
 
 ### removeCallback
@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
 
 
 

@@ -6,8 +6,24 @@
 
 ## 集成说明
 
-TUIKit 支持 aar 集成、 module 源码和 gradle 接入三种集成方式。
+TUIKit 支持 gradle 接入、aar 集成和 module 源码集成。
 
+### gradle 接入集成
+
+```
+dependencies {
+    ...
+     compile 'com.tencent.imsdk:tuikit:xxx版本'
+    ...
+}
+```
+其中，`xxx版本`中的`xxx`请替换成 [最新的 aar 版本号](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK)。
+
+### module 源码集成
+
+```
+implementation project(':tuikit')
+```
 
 ### aar 集成
 
@@ -33,22 +49,6 @@ dependencies {
 ```
 其中，`tuikit-xxx版本`中的`xxx`请替换成 [最新的 aar 版本号](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK)。
 
-### module 源码集成
-
-```
-implementation project(':tuikit')
-```
-
-
-### gradle 接入集成
-
-```
-dependencies {
-    ...
-     compile 'com.tencent.imsdk:tuikit:latest.release'
-    ...
-}
-```
 
 ## 初始化
 
@@ -57,7 +57,7 @@ dependencies {
 ```java
 public class DemoApplication extends Application {
 
-    public static final int SDKAPPID = "您的SDKAppId";
+    public static final String SDKAPPID = "您的SDKAppId";
 
     @Override
     public void onCreate() {

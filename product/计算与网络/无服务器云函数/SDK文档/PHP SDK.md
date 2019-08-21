@@ -1,5 +1,5 @@
 ## 开发准备
-安装 PHP SDK 前，需要先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey， SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+安装 PHP SDK 前，需要先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretId 和 SecretKey，SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
 ### 开发环境
 PHP 7.2 
@@ -13,7 +13,7 @@ PHP 7.2
 curl -sS https://getcomposer.org/installer | php
 ```
 
-2. 在 composer.json 的 require 结构体中加入依赖。以 3.0.6 版本为例，您可以在 composer 仓库上看到最新的版本号：
+2. 在 composer.json 的 require 结构体中加入依赖。以 3.0.6 版本为例，您可以在 Composer 仓库上看到最新的版本号：
 ```
  "tencentcloud/tencentcloud-sdk-php": "3.0.6"
 ```
@@ -74,10 +74,8 @@ setEndpoint("scf.tencentcloudapi.com");
 ?>
 ```
 ## 打包部署
-如果需要在云函数控制台中部署函数，并使用 SDK 调用其他函数，则需要把 tencentcloud 的库和函数代码一起打包成zip 文件；另外也可以在函数根目录下执行如下命令，把 SDK 下载安装到函数目录下。
-```
-pip install tencentcloud-sdk-python -t .
-```
+如果需要在云函数控制台中部署函数，并使用 SDK 调用其他函数，则需要把 tencentcloud 的库和函数代码一起打包成zip 文件。
+
 - 注意在控制台创建函数时的执行方法，需要和 zip 文件里的代码文件和执行函数对应。
 - 最终生成的 zip 包如果大于50MB，需要通过 COS 上传。
 - 云 API 默认限频为每秒20次，如果需要开大并发，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。

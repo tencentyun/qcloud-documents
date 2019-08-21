@@ -75,4 +75,4 @@ Logstash 是开源的日志分析处理程序，能够从多种源采集转换�
 [1]:https://mc.qcloudimg.com/static/img/da4ea19aa75ffbf94b38e39a6e781082/ccs-log.jpeg
 [2]:https://mc.qcloudimg.com/static/img/a233130efb256ef5836b294e9ec65a35/ccs-log-visual.jpeg
 [3]:https://main.qcloudimg.com/raw/3a4f6c4ed288c4b5f80a720254751f74.png
-[4]:https://main.qcloudimg.com/raw/84058baffe25a116e0bf40c250227665.png
+[4]:https://main.qcloudimg.com/raw/2ebaab9ee812eecbe5490c0b83cbf145.png

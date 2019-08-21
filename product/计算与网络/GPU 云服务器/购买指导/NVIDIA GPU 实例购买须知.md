@@ -17,7 +17,7 @@
 2. 网络：选择现有私有网络或创建新私有网络。
 
 3. 地域和可用区：目前 GPU GN10型云服务器仅支持 **广州三区** 。
-   ![地狱和可用区](https://main.qcloudimg.com/raw/512c557f7507de2c3f03e6808008a879.png)
+   ![](https://main.qcloudimg.com/raw/8f193b96b6303275b7b1f37a0c739218.png)
 
 4. 机型和配置：机型选择**【GPU 计算型 GN10】**，提供四种配置任用户选择。
 ![](https://main.qcloudimg.com/raw/a3c1ce240d22be89b3e2cde384f23292.png)

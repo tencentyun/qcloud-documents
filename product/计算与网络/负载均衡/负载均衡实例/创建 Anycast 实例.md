@@ -16,17 +16,15 @@ Anycast CLB 用 Anycast 的方式把 VIP 同时发布到多个地域，请求包
 
 ## Anycast CLB 架构
 Anycast CLB 的架构如下图所示。
-![](https://main.qcloudimg.com/raw/08a51e333f26f4b123703dfb7922fc68.svg)
+![](https://main.qcloudimg.com/raw/246a76b59853740089f012832c0a5fb0.svg)
 Anycast CLB 的 VIP 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云内网将访问流量极速转发至云服务器。
 
 ### Anycast 发布域
-Anycast 发布域是加速 IP 地址发布的地域，即 Anycast CLB 的 VIP 所发布的 POP 接入点，客户端接入最近的 POP 接入点。目前 Anycast CLB 支持以下发布域：
-- 发布域 A：主要是中国和欧美地区，VIP 将同时在在北京、上海、广州、中国香港、多伦多、硅谷、法兰克福、弗吉尼亚和莫斯科发布。
-- 发布域 B：主要是中国和东南亚地区，VIP 将同时在北京、上海、广州、中国香港、新加坡、首尔、孟买、曼谷和东京发布。
+Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP 所发布的 POP 接入点，客户端会接入最近的 POP 点。目前 Anycast CLB 支持同时发布在：北京、上海、广州、香港、多伦多、硅谷、法兰克福、弗吉尼亚、莫斯科、新加坡、首尔、孟买、曼谷和东京。
 
 ### Anycast CLB 所属地域
 与普通负载均衡的地域概念一致，Anycast CLB 所属地域是购买 Anycast CLB 时选择的地域，也指后端云服务器所在的地域。目前 Anycast CLB 已覆盖绝大部分地域。
-- 中国：北京、上海、广州、中国香港。
+- 中国：北京、上海、广州、香港。
 - 欧美：多伦多、硅谷、法兰克福、弗吉尼亚、莫斯科。
 - 东南亚：新加坡、首尔、孟买、曼谷、东京。
 >!
@@ -37,11 +35,11 @@ Anycast 发布域是加速 IP 地址发布的地域，即 Anycast CLB 的 VIP �
 ## Anycast CLB 使用场景
 ### 全球同服
 游戏客户希望全球多个地域玩家在同一区内（或者企业在全球各地的分公司希望使用同一个数据中心），可以把后端服务部署在一个地域（如广州），购买一个广州地域的 Anycast CLB，根据需要选择发布域，全球玩家（或员工）将就近接入，并访问同一套后端服务。
-![](https://main.qcloudimg.com/raw/ec37cb1cdfce0cdee1bbc60598558e4c.svg)
+![](https://main.qcloudimg.com/raw/052fa943c9cdfa90c98a4f84ec0976e0.svg)
 
 ### 游戏加速
 Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接入腾讯云，通过腾讯云的内网到达游戏服务器，极大缩短经过的公网路径，减少了延时、抖动、丢包等问题的发生。跟传统加速比，入口无需额外部署流量接收设备，且无需区分地域，简化了 DNS 部署。
-![](https://main.qcloudimg.com/raw/172c214c17258a279856a7e4ea0c2200.svg)
+![](https://main.qcloudimg.com/raw/345252f99a6dd42eb3d4033d39d8f6f6.svg)
 
 
 ## 操作指南

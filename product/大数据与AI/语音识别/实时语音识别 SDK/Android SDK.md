@@ -1,12 +1,12 @@
-## 1. 接入准备
-### 1.1 SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)
+## 接入准备
+### SDK 获取
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)。
 
-### 1.2 接入须知
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/37138)，了解接口的使用要求和使用步骤 。
+### 接入须知
++ 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
-### 1.3 开发环境
+### 开发环境
 
 + 引入 .so 文件
  libWXVoice.so： 腾讯云语音检测 so 库。
@@ -45,11 +45,11 @@
 	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	```
 
-## 2. 快速接入
+## 快速接入
 
 <span id="documen"></span>
 
-### 2.1 开发流程介绍
+### 开发流程介绍
 **启动实时语音识别**
 
 ```
@@ -144,23 +144,24 @@ new Thread(new Runnable() {
 
 
 
-### 2.2 主要接口类和方法说明
+### 主要接口类和方法说明
 
 #### 计算签名
-调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用上层不用关心 source 来源。
+调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用，上层不用关心 source 来源。
 
 + **计算签名函数如下：**
 
-	```
-	/**
-	 * 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
-	 * @param source 原文字符串
-	 * @return 加密后返回的密文
-	 */
-	String getAudioRecognizeSign(String source);
-	```
+```
+/**
+* 签名函数：将原始字符串进行加密，具体的加密算法见以下说明。
+* @param source 原文字符串
+* @return 加密后返回的密文
+*/
+String getAudioRecognizeSign(String source);
+```
 	
 + **计算签名算法**   
+
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
 
 为方便用户测试，SDK 已提供一个实现类 **LocalCredentialProvider**，但为保证 SecretKey 的安全性，请仅在测试环境下使用，正式版本建议上层实现接口 **AbsCredentialProvider** 中的方法。
@@ -201,11 +202,11 @@ aaiClient.release();
 | 方法 | 方法描述 | 默认值 | 有效范围 |
 |---------|---------|---------|---------|
 | setServerProtocolHttps | 设置 HTTPS 或 HTTP 协议 | true(HTTPS) | false 或 true |
-| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1~5 |
-| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1~5 |
-| setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500~10000ms |
-| setAudioRecognizeConnectTimeout | HTTP 连接超时时间 | 5000ms | 500~10000ms |
-| setAudioRecognizeWriteTimeout | HTTP 写超时时间 | 5000ms | 500~10000ms |
+| setMaxAudioRecognizeConcurrentNumber | 语音识别最大并发请求数 | 2 | 1 - 5 |
+| setMaxRecognizeSliceConcurrentNumber | 语音识别分片最大并发数 | 5 | 1 - 5 |
+| setAudioRecognizeSliceTimeout | HTTP 读超时时间 | 5000ms | 500 - 10000ms |
+| setAudioRecognizeConnectTimeout | HTTP 连接超时时间 | 5000ms | 500 - 10000ms |
+| setAudioRecognizeWriteTimeout | HTTP 写超时时间 | 5000ms | 500 - 10000ms |
 
 
 **示例：**
@@ -230,7 +231,7 @@ void onSliceSuccess(AudioRecognizeRequest request, AudioRecognizeResult result, 
 |---------|---------|---------|
 | request | AudioRecognizeRequest | 语音识别请求 |
 | result | AudioRecognizeResult | 语音分片的语音识别结果 |
-| order | int | 该语音分片所在语音流的次序 |
+| order | Int | 该语音分片所在语音流的次序 |
 
 - 语音流的语音识别结果回调接口
 
@@ -242,7 +243,7 @@ void onSegmentSuccess(AudioRecognizeRequest request, AudioRecognizeResult result
 |---------|---------|---------|
 | request | AudioRecognizeRequest | 语音识别请求 |
 | result | AudioRecognizeResult | 语音分片的语音识别结果 |
-| order | int | 该语音流的次序 |
+| order | Int | 该语音流的次序 |
 
 - 返回所有的识别结果
 
@@ -282,7 +283,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | maxAudioFlowSilenceTime | Int | 否 | 语音终点超时时间 | 10000ms |
 | maxAudioStartSilenceTime | Int | 否 | 语音起点超时时间 | 2000ms |
 | minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
-| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1~5) | 3 |
+| sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
 
 **示例：**
 

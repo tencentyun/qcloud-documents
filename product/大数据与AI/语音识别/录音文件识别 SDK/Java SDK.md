@@ -1,17 +1,14 @@
-## 1. 接入准备
+## 接入准备
 
-### 1.1 SDK 获取
-
+### SDK 获取
 录音文件识别 Java SDK 以及 Demo 的下载地址：[Java SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/java_record_asr_sdk.tar.gz)。
 
-### 1.2 接入须知
+### 接入须知
+开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
 
-开发者在调用前请先查看录音文件识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
-
-### 1.3 开发环境
+### 开发环境
 
 **环境依赖**
-
 该接口需要的 JDK 版本要满足1.8及以上。 
 
 **安装 SDK**
@@ -20,19 +17,19 @@
 + jar 包使用步骤如下：
 	+ 找到 out 和 lib 文件夹中的 jar 文件，将所有的 jar文件复制到您的工程文件夹中。如果第三方 jar文件和您已使用的 jar文件有重复，可选择其一。   
 	+ 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。   
-	+ 将 jar 文件 include 到您的项目中。包括out 文件夹中的 off\_asr\_sdk\_1.0.jar 和 lib 中的9个依赖工具包。
+	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 off\_asr\_sdk\_1.0.jar 和 lib 中的9个依赖工具包。
 + 添加完成后用户即可在工程中使用录音文件识别 SDK 。
 
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程介绍
+### 开发流程介绍
 
 录音文件识别支持以下两种数据上传方式。
 
 **指定 Url，发出请求**：
 
 ```
-//指定语音文件的Url，发出请求。建议使用此方法。
+//指定语音文件的 Url，发出请求。建议使用此方法。
 OasrRequesterSender oasrRequesterSender = new OasrRequesterSender();
 OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx",
 		"https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav");
@@ -51,11 +48,11 @@ OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx", co
 OasrResponse oasrResponse = oasrRequesterSender.send(oasrBytesRequest);
 ```
 
-### 2.2 主要接口方法说明
+### 主要接口方法说明
 
 **initBaseParameters**
 
-+ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取您的 AppID、SecretId、SecretKey。
+进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取您的 AppID、SecretId、SecretKey。
 
 ```
 /*
@@ -93,7 +90,7 @@ private void sendUrlRequest() {
 
 ```
 /*
-** 从文件中读取语音数据，通过HttpBody发出请求。语音文件大小需小于5兆才可使用此方法。
+** 从文件中读取语音数据，通过 HttpBody 发出请求。语音文件大小需小于5兆才可使用此方法。
 */
 private void sendBytesRequest() {
 	byte[] content = ByteUtils.inputStream2ByteArray("test_wav/8k/8k.wav");
@@ -116,9 +113,7 @@ private void start() {
 }
 ```
 
-
-
-### 2.3 入门示例
+### 入门示例
 
 ```
 public class OasrRequestSample {
@@ -140,7 +135,7 @@ public class OasrRequestSample {
 	}
 
 	/**
-	 * 指定语音文件的Url，发出请求。建议使用此方法。
+	 * 指定语音文件的 Url，发出请求。建议使用此方法。
 	 */
 	private void sendUrlRequest() {
 		OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx",

@@ -1,18 +1,16 @@
-## 1. 接入准备
-### 1.1 SDK 获取
+##  接入准备
+###  SDK 获取
 实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://client-sdk-1255628450.cos.ap-shanghai.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
-### 1.2 接入须知
+###  接入须知
 
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
++ 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0** 及以上版本。
 
-### 1.3 开发环境
+###  开发环境
 
 在工程` info.plist`添加以下设置：
-
 + **设置 NSAppTransportSecurity 策略，添加如下内容：**
-
 ```objective-c
   <key>NSAppTransportSecurity</key>
   <dict>
@@ -34,7 +32,6 @@
 ```
 
 + **申请系统麦克风权限，添加如下内容：**
-
 ```objective-c
    <key>NSMicrophoneUsageDescription</key>
    <string>需要使用了的麦克风采集音频</string>
@@ -48,12 +45,11 @@
    + libWXVoiceSpeex.a
    
 添加完后如下图所示：
-
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
-## 2. 快速接入
+##  快速接入
 
-### 2.1 开发流程及接入示例
+### 开发流程及接入示例
 下面分别介绍**使用内置录音器采集语音识别**和**调用者提供语音数据**接入流程和示例。
 
 #### 使用内置录音器采集语音识别示例
@@ -64,7 +60,7 @@
 ```
 2. **创建 QCloudConfig 实例**
 ```objective-c
- //1.创建QCloudConfig实例
+ //1.创建 QCloudConfig 实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						   secretId:kQDSecretId 
 					          secretKey:kQDSecretKey 
@@ -98,7 +94,7 @@ recognizer.delegate = self;
 ```
 2. **创建 QCloudConfig 实例** 
 ```objective-c
- //1.创建QCloudConfig实例
+ //1.创建 QCloudConfig 实例
  QCloudConfig *config = [[QCloudConfig alloc] initWithAppId:kQDAppId 
   						  secretId:kQDSecretId 
 					         secretKey:kQDSecretKey 
@@ -128,12 +124,10 @@ recognizer.delegate = self;
  [recognizer stop];
 ```
 
-### 2.2 主要接口类说明
+### 主要接口类说明
 
 **QCloudRealTimeRecognizer 初始化说明**
-
 QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法。
-
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
@@ -150,14 +144,13 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 ```
 
 **QCloudConfig 初始化方法说明**
-
 ```objective-c
 /**
  * 初始化方法
- * @param appid     腾讯云appId 
- * @param secretId  腾讯云secretId
- * @param secretKey 腾讯云secretKey
- * @param projectId 腾讯云projectId
+ * @param appid     腾讯云 appId 
+ * @param secretId  腾讯云 secretId
+ * @param secretKey 腾讯云 secretKey
+ * @param projectId 腾讯云 projectId
  */
 - (instancetype)initWithAppId:(NSString *)appid
                      secretId:(NSString *)secretId
@@ -166,12 +159,12 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 ```
 
 
-**<div id="QCloudRealTimeRecognizerDelegate">QCloudRealTimeRecognizerDelegate方法说明</div>**
+**<div id="QCloudRealTimeRecognizerDelegate">QCloudRealTimeRecognizerDelegate 方法说明</div>**
 
 ```objective-c
 /**
- * 一次实时录音识别，分为多个flow，每个flow可形象的理解为一句话，一次识别中可以包括多句话。
-  * 每个flow包含多个seq语音数据包，每个flow的seq从0开始
+ * 一次实时录音识别，分为多个flow，每个 flow 可形象的理解为一句话，一次识别中可以包括多句话。
+  * 每个 flow 包含多个 seq 语音数据包，每个 flow 的 seq 从0开始
  */
 @protocol QCloudRealTimeRecognizerDelegate <NSObject>
 
@@ -221,14 +214,14 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 /**
  * 语音流的开始识别
  * @param recognizer 实时语音识别实例
- * @param voiceId 语音流对应的voiceId，唯一标识
- * @param seq flow的序列号
+ * @param voiceId 语音流对应的 voiceId，唯一标识
+ * @param seq flow 的序列号
  */
 - (void)realTimeRecognizerOnFlowRecognizeStart:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
 /**
  * 语音流的结束识别
  * @param recognizer 实时语音识别实例
- * @param voiceId 语音流对应的voiceId，唯一标识
+ * @param voiceId 语音流对应的 voiceId，唯一标识
  * @param seq flow的序列号
  */
 - (void)realTimeRecognizerOnFlowRecognizeEnd:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
@@ -237,15 +230,15 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 /**
  * 语音流开始识别
  * @param recognizer 实时语音识别实例
- * @param voiceId 语音流对应的voiceId，唯一标识
- * @param seq flow的序列号
+ * @param voiceId 语音流对应的 voiceId，唯一标识
+ * @param seq flow 的序列号
  */
 - (void)realTimeRecognizerOnFlowStart:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
 /**
  * 语音流结束识别
  * @param recognizer 实时语音识别实例
- * @param voiceId 语音流对应的voiceId，唯一标识
- * @param seq flow的序列号
+ * @param voiceId 语音流对应的 voiceId，唯一标识
+ * @param seq flow 的序列号
  */
 - (void)realTimeRecognizerOnFlowEnd:(QCloudRealTimeRecognizer *)recognizer voiceId:(NSString *)voiceId seq:(NSInteger)seq;
 
@@ -268,21 +261,21 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 @required
 
 /**
- * 标识data source是否开始工作，执行完start后需要设置成YES， 执行完stop后需要设置成NO
+ * 标识 data source是否开始工作，执行完 start 后需要设置成 YES， 执行完 stop 后需要设置成 NO
  */
 @property (nonatomic, assign) BOOL running;
 
 /**
- * SDK会调用start方法，实现此协议的类需要初始化数据源。
+ * SDK 会调用 start 方法，实现此协议的类需要初始化数据源。
  */
 - (void)start:(void(^)(BOOL didStart, NSError *error))completion;
 /**
- * SDK会调用stop方法，实现此协议的类需要停止提供数据
+ * SDK 会调用 stop 方法，实现此协议的类需要停止提供数据
  */
 - (void)stop;
 /**
- * SDK会调用实现此协议的对象的此方法读取语音数据, 如果语音数据不足expectLength，则直接返回nil。
- * @param expectLength 期望读取的字节数，如果返回的NSData不足expectLength个字节，SDK会抛出异常。
+ * SDK 会调用实现此协议的对象的此方法读取语音数据, 如果语音数据不足 expectLength，则直接返回 nil。
+ * @param expectLength 期望读取的字节数，如果返回的 NSData 不足 expectLength个字节，SDK 会抛出异常。
  */
 - (nullable NSData *)readData:(NSInteger)expectLength;
 

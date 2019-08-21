@@ -14,7 +14,7 @@ __属性列表__
 |-----|-----|-----|-----|-----|
 | sdkAppId | uint |是| 应用标识，腾讯云基于 sdkAppId 完成计费统计。 | 在 [实时音视频控制台](https://console.cloud.tencent.com/rav/) 创建应用后可在帐号信息页面中得到该 ID。 |
 | userId | string | 是|用户标识。当前用户的 userId，相当于用户名，使用 UTF-8 编码。 | 如果一个用户在您的帐号系统中的 ID 为“abc”，则 userId 即可设置为“abc”。 |
-| userSig | string | 是|用户签名，当前 userId 对应的验证签名，相当于登录密码。 | 具体计算方法请参见 [如何计算UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
+| userSig | string | 是|用户签名，当前 userId 对应的验证签名，相当于登录密码。 | 具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | roomId | uint | 是|房间号码，在同一个房间内的用户可以看到彼此并进行视频通话。 | 您可以自定义设置该参数值，但不可重复。如果您的用户帐号 ID （userId）为数字类型，可直接使用创建者的用户 ID 作为 roomId。 |
 | role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/36780#trtcroletype) | 否| 直播场景下的角色，仅适用于直播场景（TRTCAppSceneLIVE），视频通话场景下指定无效。 | 默认值：主播（TRTCRoleAnchor）。 |
 | privateMapKey | string | 否|房间签名，当您希望某个房间只能让特定的 userId 进入时，需要使用 privateMapKey 进行权限保护。 | 仅建议有高级别安全需求的客户使用，更多详情请参见 [进房权限保护](https://cloud.tencent.com/document/product/647/32240)。 |
@@ -576,8 +576,8 @@ __功能__
 | 枚举 | 含义 |
 |-----|-----|
 | TRTCWaterMarkSrcTypeFile | 图片文件路径，支持 BMP、GIF、JPEG、PNG、TIFF、Exif、WMF 和 EMF 文件格式。 |
-| TRTCWaterMarkSrcTypeBGRA32 | BGRA32格式内存块。 |
-| TRTCWaterMarkSrcTypeRGBA32 | RGBA32格式内存块。 |
+| TRTCWaterMarkSrcTypeBGRA32 | BGRA32 格式内存块。 |
+| TRTCWaterMarkSrcTypeRGBA32 | RGBA32 格式内存块。 |
 
 
 ## TRTCTranscodingConfigMode

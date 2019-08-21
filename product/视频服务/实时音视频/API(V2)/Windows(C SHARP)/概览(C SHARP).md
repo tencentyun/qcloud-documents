@@ -11,7 +11,7 @@
 | [destroyTRTCShareInstance](https://cloud.tencent.com/document/product/647/36778#destroytrtcshareinstance) | 释放 ITRTCCloud 单例对象。          |
 
 
-### 设置 TRTCCloudCallback 回调
+### 设置 ITRTCCloudCallback 回调
 
 | API | 描述 |
 |-----|-----|
