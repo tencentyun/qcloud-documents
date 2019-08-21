@@ -1,4 +1,4 @@
-﻿## 注意事项
+## 注意事项
 - **前置条件：**请合作方确保 Access Token 已经正常获取，获取方式请参见 [Access Token 获取](https://cloud.tencent.com/document/product/655/31946)。
 - SIGN ticket 是合作方**后台服务端业务请求**生成签名鉴权参数之一，用于后台查询验证结果、调用其他业务服务等。
 - API ticket 的 SIGN 类型，其有效期最长为3600秒，此处 API ticket 必须缓存在磁盘，并定时刷新，刷新的机制如下：
