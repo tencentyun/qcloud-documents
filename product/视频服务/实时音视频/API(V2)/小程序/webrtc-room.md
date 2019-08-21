@@ -6,24 +6,24 @@
 | 属性      | 类型    | 默认值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | 'float'             | 必要，标识组件使用的界面模版，demo 中内置 bigsmall，float 和 grid 三种布局（用户如果需要自定义界面，请看 [界面定制](#CustomUI)） |
-| sdkAppID    | String  |        &nbsp;               | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
-| userID     | String  |         &nbsp;          |必要，用户 ID |
-| userSig    | String  |        &nbsp;             | 必要，身份签名，相当于登录密码的作用    |
-| roomID    | Number  |         &nbsp;             | 必要，房间号                           |
-| privateMapKey    | String  |        &nbsp;         | 可选，房间权限 key，相当于进入指定房间 roomID 的钥匙，如果 trtc 控制台开启了权限密钥，则需要传 privateMapKey（[trtc 控制台](https://console.cloud.tencent.com/rav)>选择您的应用>账号信息）      |
+| sdkAppID    | String  |        -              | 必要，开通实时音视频服务创建应用后分配的 sdkAppID       |
+| userID     | String  |         -     |必要，用户 ID |
+| userSig    | String  |        -       | 必要，身份签名，相当于登录密码的作用    |
+| roomID    | Number  |        -         | 必要，房间号                           |
+| privateMapKey    | String  |       -      | 可选，房间权限 key，相当于进入指定房间 roomID 的钥匙，如果 trtc 控制台开启了权限密钥，则需要传 privateMapKey（[trtc 控制台](https://console.cloud.tencent.com/rav)>选择您的应用>账号信息）      |
 | beauty    | Number  | 0                     | 可选， 美颜指数，取值0 - 9，数值越大效果越明显  |
 | whiteness | String | 0                      | 可选， 美白指数，取值0 - 9，数值越大效果越明显 |
 | muted     | Boolean | false             | 可选，true 静音 false 不静音    |
 | debug     | Boolean | false             | 可选，true 打印推流 debug 信息 fales 不打印推流 debug 信息  |
-| bindRoomEvent     | Function |       &nbsp;       | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
-| enableIM     | Boolean | false      &nbsp;       | 可选，是否启用 IM   |
-| bindIMEvent     | Function |      &nbsp;       | 当 IM 开启时必要，监听 IM 返回的事件   |
+| bindRoomEvent     | Function |      -   | 必要，监听 &lt;webrtc-room&gt; 组件返回的事件   |
+| enableIM     | Boolean | false     -     | 可选，是否启用 IM   |
+| bindIMEvent     | Function |      -    | 当 IM 开启时必要，监听 IM 返回的事件   |
 | aspect | String | 9:16 | 可选， 宽高比3:4，9:16 |
 | minBitrate | String | 200 | 可选，最小码率，该数值决定了画面最差的清晰度表现 |
 | maxBitrate | String | 400 | 可选，最大码率，该数值决定了画面最好的清晰度表现 |
 | autoplay | Boolean | false | 可选，进入房间后是否自动播放房间中其他的远程画面，true：自动播放，false：不自动播放 |
 | enableCamera | Boolean | true | 可选，开启/关闭摄像头 |
-| pureAudioPushMod | Number | &nbsp; | 可选，纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 mp3 文件 <br/> 2 => 本次是纯音频推流,录制文件为 mp3 |
+| pureAudioPushMod | Number | - | 可选，纯音频推流模式，需要旁路直播和录制时需要带上此参数 <br/>1 => 本次是纯音频推流,不需要录制 mp3 文件 <br/> 2 => 本次是纯音频推流,录制文件为 mp3 |
 | recordId | Number | &nbsp; | 可选，自动录制时业务自定义 ID，将在录制完成后通过直播录制回调接口通知业务方（[控制台 - 直播录制回调](https://console.cloud.tencent.com/live/livecodemanage)），相关文档：[直播录制文件获取](https://cloud.tencent.com/document/product/267/32739#.E5.BD.95.E5.88.B6.E6.96.87.E4.BB.B6.E8.8E.B7.E5.8F.96)，[事件消息通知](https://cloud.tencent.com/document/product/267/32744) `注意：如果小程序与小程序或者小程序与 Web 端互通，且传了 recordId，必须保证 web 端和小程序传递的值一致` |
 | smallViewLeft | String | '1vw' | 小窗口距离大画面左边的距离，只在 template 设置为 bigsmall 有效 |
 | smallViewTop | String | '1vw' | 小窗口距离大画面顶部的距离，只在 template 设置为 bigsmall 有效 |
