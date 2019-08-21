@@ -36,7 +36,7 @@ https://idasc.webank.com/api/oauth2/api_ticket?app_id=xxx&access_token=xxx&type=
 }
 ```
 >!
->- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [通用响应码列表](https://cloud.tencent.com/document/product/655/32309)。
+>- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)。
 >- expire_in 为 SIGN ticket 的最大生存时间，单位：秒，合作伙伴在**判定有效期时以此为准**。
 >- expire_time 为 SIGN ticket 失效的绝对时间，由于各服务器时间差异，不能以此作为有效期的判定依据，只作为展示使用。
 >- access_token 失效时，该 access_token 生成的 ticket 都失效。
