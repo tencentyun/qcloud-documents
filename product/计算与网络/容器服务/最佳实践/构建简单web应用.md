@@ -6,7 +6,7 @@ Web 应用分为以下两部分：
 - 前端服务，用于处理客户端的查询和写入请求。
 - 数据存储服务，使用 redis。将写入的数据存放到 redis-master，访问 redis-slave 进行读取操作。redis-master 和 redis-slave 通过主从复制来保持数据同步。
 
-该应用是 kubernetes 项目自带的例子，详情请参见 <a href="https://github.com/kubernetes/kubernetes/tree/release-1.6/examples/guestbook">guestbook</a>。
+该应用是 kubernetes 项目自带的示例，详情请参见 <a href="https://github.com/kubernetes/kubernetes/tree/release-1.6/examples/guestbook">Guestbook App</a>。
 
 ## 前提条件
 - 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
@@ -30,7 +30,7 @@ Web 应用分为以下两部分：
  - **名称**：输入实例内容器名称，本文以 master 为例。
  - **镜像**：输入 `ccr.ccs.tencentyun.com/library/redis`。
  - **镜像版本（Tag）**：输入 latest 。
- >!其余选项保持默认设置。
+ >!此步骤其余选项保持默认设置。
  >
 ![](https://main.qcloudimg.com/raw/2dfa9dcd2f8ecbd2a2e220e52e6a7916.png)
 6. 设置实例数量，如下图所示：
@@ -64,7 +64,7 @@ Web 应用分为以下两部分：
  - **镜像版本（Tag）**：输入 latest 。
  - **环境变量**：输入以下配置信息。
 GET_HOSTS_FROM = dns
->?其余选项保持默认设置。
+>!此步骤其余选项保持默认设置。
 >
 ![](https://main.qcloudimg.com/raw/346af383984c6ef0062458f9c37e2c4f.png)    
 6. 设置实例数量。如下图所示：
@@ -98,7 +98,7 @@ GET_HOSTS_FROM = dns
  - **镜像版本（Tag）**：输入 latest 。
  - **环境变量**：输入以下配置信息。
 GET_HOSTS_FROM = dns
->?此步骤其余选项保持默认设置。
+>!此步骤其余选项保持默认设置。
 >
 ![](https://main.qcloudimg.com/raw/cee2b5443fdc8bc4f14f6009cc2caa2e.png)
 6. 设置实例数量，如下图所示：
