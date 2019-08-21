@@ -11,14 +11,14 @@
 <tr><th>参数</th><th>说明</th><th>类型</th><th>长度（字节）</th><th>是否必填</th></tr>
 <tr>
 <td>app_id</td>
-<td>请参考 <a href="https://cloud.tencent.com/document/product/655/31892">接入前须知</a>，按照指引进入链接在线申请</td>
+<td>请添加小助手微信 faceid001，进行线下对接获取</td>
 <td>String</td>
 <td>腾讯云线下对接决定</td>
 <td>是</td>
 </tr>
 <tr>
 <td>secret</td>
-<td>请参考 <a href="https://cloud.tencent.com/document/product/655/31892">接入前须知</a>，按照指引进入链接在线申请</td>
+<td>请添加小助手微信 faceid001，进行线下对接获取</td>
 <td>String</td>
 <td>腾讯云线下对接决定</td>
 <td>是</td>
