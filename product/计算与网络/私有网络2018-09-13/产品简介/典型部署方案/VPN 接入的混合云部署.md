@@ -19,7 +19,7 @@ VPN 连接可利用公网和 IPsec 协议，在您的数据中心和私有网络
 - **网段规划：**物理数据中心与需要连接的私有网络之间**网段不可重叠**。
 
 ## 操作步骤
-在腾讯云创建的某个私有网络部署云上数据中心，详情请参见 [私有网络-操作总览](https://cloud.tencent.com/document/product/215/20188)，本文不重复说明。
+在腾讯云创建的某个私有网络部署云上数据中心，详情请参见 [操作总览](https://cloud.tencent.com/document/product/215/20188)，本文不重复说明。
 VPN 连接可以在控制台实现全自助配置，操作步骤如下：
 1. [创建 VPN 网关](https://cloud.tencent.com/document/product/554/18989)。
 2. [创建对端网关](https://cloud.tencent.com/document/product/554/18990)。
