@@ -112,7 +112,7 @@ resource "tencentcloud_cos_bucket_object" "myobject" {
 
 若需查询指定存储桶或对象的指定信息，则需要编写配置文件，可执行`terraform apply`命令进行查询。
 
-4.2 精细化查询存储桶信息
+4.2 精细化查询存储桶信息。
 
 （1）编写 data source 配置文件，定义精细化查询条件。假设查询存储桶名以 example 为前缀的存储桶，示例如下：
 ```
@@ -131,7 +131,7 @@ data "tencentcloud_cos_buckets" "cos_buckets" {
 
 >?若需查询存储桶的属性信息，详情请参见 [tencentcloud_cos_buckets](https://www.terraform.io/docs/providers/tencentcloud/d/cos_buckets.html) 的 Argument Reference 章节。
 
-4.3 精细化查询对象信息
+4.3 精细化查询对象信息。
 
 （1）编写 data source 配置文件，定义精细化查询条件。假设查询对象 picture.jpg 的元数据，示例如下：
 
