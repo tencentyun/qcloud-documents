@@ -155,6 +155,6 @@
 [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 ```
 
-![]()
+![](https://main.qcloudimg.com/raw/7afeffeac5828bb42563765e10730179.png)
 
 
