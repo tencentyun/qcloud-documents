@@ -57,7 +57,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 网关</a></td>
+<td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 连接</a></td>
 <td>通过公网加密通道连接本地数据中心和 VPC。</td>
 <td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li></td>
 </tr>
