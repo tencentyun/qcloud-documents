@@ -43,7 +43,7 @@
    <tr> 
      <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">FCM 推送</a></td> 
      <td nowrap="nowrap">Android 4.1 及以上</td> 
-     <td>手机需安装 Google Play Services 并在海外使用。</td> 
+     <td>手机需安装 Google Play Services 并在境外使用。</td> 
    </tr> 
 </table>
 
