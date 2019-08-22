@@ -8,7 +8,7 @@ Demo 提供了3个 Python 应用，对应的服务名和应用监听端口为：
 - shop （8090）
 - promotion （8091）
 
-3 个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口（对应 Demo 中的 sidecarPort），如 shop 监听8090，user 访问 shop 可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
+3个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口（对应 Demo 中的 sidecarPort），如 shop 监听8090，user 访问 shop 可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
 
 >!Mesh 的调用链通过头传递实现。如果用户想要串联整个服务调用关系，需要在访问其他服务时，带上父调用的9个相关调用链头，具体示例如下：
 

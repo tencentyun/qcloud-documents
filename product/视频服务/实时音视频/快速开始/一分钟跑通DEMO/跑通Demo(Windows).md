@@ -1,47 +1,82 @@
-本文主要介绍如何快速地将腾讯云实时音视频 Demo(Windows) 工程运行起来，您只需参考如下步骤依次执行即可。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
-## 1. 创建新的应用
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有创建过一个应用，可以先创建一个新应用，即可获得 SDKAppid，并且可以继续下一步：
+## 环境要求
+#### Windows(C++)
 
-![](https://main.qcloudimg.com/raw/32065cbcd4cac9d8051a045cb1ae5d63.png)
+- 操作系统： Microsoft Windows 7及以上版本
+- 开发环境：Microsoft Visual Studio 2015及以上版本
 
-## 2. 购买测试套餐
-单击【购买6.6元测试体验包】按钮，为上一步中创建的 SDKAppid 充值一定分钟数的测试用视频通话时长。
+#### Windows(C#)
 
-![](https://main.qcloudimg.com/raw/24ee79290d7c328ee654bdb0643c55cb.png)
-
-## 3. 下载 Demo 源码
-充值完体验包之后，回到实时音视频控制台页面，单击第一步新创建的应用名称，进入该应用的详情页，在页面的第一步指引中即可看到源码下载地址：
-
-![](https://main.qcloudimg.com/raw/064819772bf0ef727a377a4ee23f03eb.png)
-
-## 4. 下载私钥文件
-单击**下载公私钥**的链接，即可获得一个名为 **keys.zip** 的压缩包，解压后可以得到两个文件，即 public_key 和 private_key，用记事本打开 **private_key** 文件，并将其中的内容拷贝到控制台应用详情页的第三步**生成Demo配置文件内容**的文本输入框中。
-![](https://main.qcloudimg.com/raw/75edc5d22563c32aace232543915bbff.png)
+- 操作系统： Microsoft Windows 7及以上版本
+- 开发环境：Microsoft Visual Studio 2015及以上版本
+- 开发框架：.Net Framework 4.0及以上版本
 
 
-## 5. 获得配置文件
-单击【生成Demo配置文件内容】按钮，即可获得一段 json 格式的文本内容，这段内容是由控制台根据您在第四步中填写的 private_key 基于非对称加密算法，生成的一组测试用的 userid 和 usersig。
-![](https://main.qcloudimg.com/raw/5de8161bb72b2e19ebdb24ef6056751c.png)
+## 操作步骤
+<span id="step1"></span>
+### 步骤1：创建新的应用
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
+  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
+2. 填写新建应用的应用名称等信息，单击【确定】。
+  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
+![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
-复制上面的 json 内容，并粘贴到源码根目录下的 `Config.json` 文件中（如果已经存在示例内容，请覆盖之）。
+<span id="step2"></span>
+### 步骤2：下载 SDK 和 Demo 源码
+1. 单击应用卡片，进入【快速上手】页面。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Windows(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 SDK 和 Demo 源码。
+ ![](https://main.qcloudimg.com/raw/1bc8fdb853ab6b8bdf5b398c6efa1623.png)
 
+<span id="step3"></span>
+### 步骤3：查看并拷贝加密密钥
+1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
+2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
+ ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
-## 6. 编译运行
-使用 Visual Stuido（建议 VS2015）打开源码目录下的 TRTCDemo.vcxproj 工程文件，如果您已经按照上面的步骤配置过 config.json，直接单击运行按钮即可。
+<h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
+
+ Demo 源码工程中的`GenerateTestUserSig`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
+ 
+1. 解压 [步骤2](#step2) 中下载的源码包。
+2. 找到并打开 `GenerateTestUserSig`文件。
+  <table>
+     <tr>
+         <th nowrap="nowrap">适用平台</th>  
+         <th nowrap="nowrap">文件相对路径</th>  
+     </tr>
+	 <tr>      
+         <td>Windows(C++)</td>   
+	     <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
+     </tr> 
+	 <tr>
+	     <td>Windows(C#)</td>   
+	     <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
+     </tr> 
+</table>
+3. 设置`GenerateTestUserSig`文件中的相关参数，下图以 Windows(C++) 为例作为参考：
+  - SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  ![](https://main.qcloudimg.com/raw/c8dd14631e8f976944376ba58e9c1079.png)
+
+>!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
+>正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
+
+### 步骤5：编译运行
+- **Windows(C++)**
+使用 Visual Stuido（建议 VS2015）打开源码目录下的`MFCDemo\TRTCMfcDemo.vcxproj`工程文件，编译并运行 Demo 工程即可。
+
+- **Windows(C#)**
+使用 Visual Stuido（建议 VS2015）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.csproj`工程文件，编译并运行 Demo 工程即可。
 
 ## 常见问题
-### 1. 开发环境要求
-- 操作系统： Microsoft Windows 7+
-- 开发环境：Microsoft Visual Studio 2015 +
 
-### 2. 防火墙限制
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请将如下端口加入防火墙的安全白名单中。
+### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
-| 协议 | 端口号 |
-|:--------:|:--------:|
-| HTTPS | 443 |
-| UDP | 8000 |
+### 2. 两台手机同时运行 Demo，为什么看不到彼此的画面？
+请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
+![](https://main.qcloudimg.com/raw/c7b1589e1a637cf502c6728f3c3c4f99.png)
 
-
-
+### 3. 防火墙有什么限制？
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。

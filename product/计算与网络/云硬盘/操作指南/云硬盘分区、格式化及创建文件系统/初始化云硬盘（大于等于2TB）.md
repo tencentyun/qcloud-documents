@@ -2,11 +2,11 @@
 本文以云硬盘容量大于等于2TB为例，提供云硬盘的初始化操作指导。关于云磁盘初始化场景的更多介绍，请参考 [初始化场景介绍](https://cloud.tencent.com/document/product/362/33065)。
 MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分区时，请采用 GPT 分区形式。对于 Linux 操作系统而言，当磁盘分区形式选用 GPT 时，fdisk 分区工具将无法使用，需要采用 parted 工具。
 
-## 注意事项
-- 格式化数据盘会将数据将被全部清空。请确保数据盘中没有数据或已备份重要数据。
-- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
-
 ## 前提条件
+>!
+>- 格式化数据盘会将数据将被全部清空。请确保数据盘中没有数据或已备份重要数据。
+>- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
+>
 已 [挂载云硬盘](/doc/product/362/5745) 至云服务器。
 
 ## 操作步骤
@@ -25,6 +25,7 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
 <span id="online"></span>
 5. 在右侧窗格中出现磁盘列表，右键单击1所在行，在菜单列表中选择【联机】，进行联机。联机后，1由【脱机】状态变为【联机】。
  ![](https://main.qcloudimg.com/raw/e8bf6970a2b203a3fc926a35322680c2.png)
+ 
 <span id="initialize"></span>
 6. 右键单击1所在行，在菜单列表中选择【初始化】。
  ![](https://main.qcloudimg.com/raw/9cb41b9ea7d29115035e15924e65a86f.png)
@@ -63,7 +64,7 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
  ```
 fdisk -l
 ```
- 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdb”是新增数据盘。
+ 回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdb” 是新增数据盘。
  ![](https://main.qcloudimg.com/raw/aad842b12fec3ca583790bff609c9fb7.png)
 3. 执行以下命令，对 “/dev/vdb” 裸设备直接创建文件系统格式。
 ```
@@ -119,7 +120,10 @@ df -TH
 		 <td nowrap="nowrap">执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
 	</tr>
 </table>
-8. 备份 `/etc/fstab` 文件。
+8. 执行以下命令，备份 `/etc/fstab` 文件。以备份到 /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 9. 执行以下命令，使用 VI 编辑器打开 `/etc/fstab` 文件。
 ```
 vi /etc/fstab
@@ -143,7 +147,7 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data  ext4 defaults     0   0
 ```
 12. 按 **Esc**，输入 **:wq**，按 **Enter**。
 保存设置并退出编辑器。
-13. 执行以下命令，检查 **/etc/fstab** 文件是否写入成功。
+13. 执行以下命令，检查 `/etc/fstab` 文件是否写入成功。
 ```
 mount -a 
 ```
@@ -159,7 +163,7 @@ mount -a
  ```
 lsblk
 ```
-回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda”是系统盘，“/dev/vdc”是新增数据盘。
+回显信息类似如下图，表示当前的云服务器有两块磁盘，“/dev/vda” 是系统盘，“/dev/vdc” 是新增数据盘。
 	![](https://main.qcloudimg.com/raw/72a7a48c59c13a44958a6b1aa0407ac2.png)
 3. 执行以下命令，进入 parted 分区工具，开始对新增数据盘执行分区操作。
 ```
@@ -199,7 +203,7 @@ mklabel gpt
  ```
 lsblk
 ```
-回显信息类似如下图，此时可看到新分区“/dev/vdc1”。
+回显信息类似如下图，此时可看到新分区 “/dev/vdc1”。
 ![](https://main.qcloudimg.com/raw/f95f599f11f88b8bcb89d4f02bb41292.png)
 12. 执行以下命令，将新建分区文件系统设置为系统所需格式。
 ```
@@ -262,7 +266,10 @@ df -TH
 	       <td>执行以下命令，查看设备名称。</br><pre>fdisk -l</pre></td>
      </tr> 
 </table>
-17. 备份`/etc/fstab`文件。
+17. 执行以下命令，备份 `/etc/fstab` 文件。以备份到 /home 目录下为例：
+```
+cp -r /etc/fstab /home
+```
 18. 执行以下命令，使用 VI 编辑器打开`/etc/fstab`文件。
  ```
 vi /etc/fstab

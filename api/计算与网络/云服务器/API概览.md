@@ -1,9 +1,15 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689" target="_blank">云服务器 API 3.0</a>。**
+>
+
 ## 1. 地域相关接口
+
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查询地域列表 | [DescribeRegions](https://cloud.tencent.com/document/product/213/9456) | 用于查询地域信息。
 | 查询可用区列表 | [DescribeZones](https://cloud.tencent.com/document/product/213/9455) | 用于查询可用区信息。
+
 ## 2. 实例相关接口
+
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查看实例列表 | [DescribeInstances](/document/api/213/9388) |  用于获取一个或多个实例的详细信息。
@@ -33,6 +39,7 @@
 | 查询实例带宽配置 | [DescribeInstanceInternetBandwidthConfigs](/document/api/213/9390) | 用于查询实例带宽配置。
 
 ## 3. 镜像相关接口
+
 | 接口功能 | Action ID | 功能描述
 |---------|---------|---------|
 | 查看镜像列表 | [DescribeImages](/document/api/213/9418) | 用于获取本账户能够使用的镜像，用户可以使用这些镜像来创建CVM实例。
@@ -56,14 +63,15 @@
 | 普通IP转弹性IP | [TransformAddress](https://cloud.tencent.com/document/product/213/11662) | 用于将实例的普通公网 IP 转换为弹性公网IP（简称 EIP）。
 
 ## 5. 密钥相关接口
-| 接口功能 | Action ID | 功能描述
+
+| 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查询密钥对列表 | [DescribeKeyPairs](/document/api/213/9403) | 用于查询密钥对信息。
-| 创建密钥对 | [CreateKeyPair](/document/api/213/9400) | 用于创建一个OpenSSH RSA密钥对，可以用于登录Linux实例。
-| 修改密钥对属性 | [ModifyKeyPairAttribute](/document/api/213/9399) | 用于修改密钥对属性。
-| 删除密钥对 | [DeleteKeyPairs](/document/api/213/9401) | 用于删除已在腾讯云托管的密钥对。
-| 导入密钥对 | [ImportKeyPair](/document/api/213/9402) | 用于导入密钥对。
-| 绑定密钥对 | [AssociasteInstancesKeyPairs](/document/api/213/9404) | 用于将密钥绑定到实例上。
-| 解绑密钥对 | [DisassociasteInstancesKeyPairs](/document/api/213/9405) | 用于解除实例的密钥绑定关系。
+| 查询密钥对列表 | [DescribeKeyPairs](/document/api/213/9403) | 用于查询密钥对信息。|
+| 创建密钥对 | [CreateKeyPair](/document/api/213/9400) | 用于创建一个OpenSSH RSA密钥对，可以用于登录Linux实例。|
+| 修改密钥对属性 | [ModifyKeyPairAttribute](/document/api/213/9399) | 用于修改密钥对属性。|
+| 删除密钥对 | [DeleteKeyPairs](/document/api/213/9401) | 用于删除已在腾讯云托管的密钥对。|
+| 导入密钥对 | [ImportKeyPair](/document/api/213/9402) | 用于导入密钥对。|
+| 绑定密钥对 | [AssociasteInstancesKeyPairs](/document/api/213/9404) | 用于将密钥绑定到实例上。|
+| 解绑密钥对 | [DisassociasteInstancesKeyPairs](/document/api/213/9405) | 用于解除实例的密钥绑定关系。|
 
 

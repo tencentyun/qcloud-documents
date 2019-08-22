@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.3.7088） @ 2019-03-29</td>
-        <td style="text-align:center">SDK（6.3.7089） @ 2019-03-29</td>
+        <td style="text-align:center">SDK（6.6.7460） @ 2019-08-08</td>
+        <td style="text-align:center">SDK（6.6.7458） @ 2019-08-02</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -81,15 +81,15 @@
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
-    <td>h265 编码</td>
+    <td>H.265 解码</td>
 		<td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/TXLiteAVSDK_Player_iOS_6.3.7088.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.3/LiteAVSDK_Player_Android_6.3.7089.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Player_iOS_6.6.7460.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_standard") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Player_Android_6.6.7458.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
@@ -98,10 +98,10 @@
   </tr>
 </table>
 
-详细介绍可参考 [此文档](https://github.com/tencentyun/SuperPlayer)。
+详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流
-关注公众号"腾讯云视频"，在聊天窗口发送关键字"技术支持"，将有专人和您联系。
+关注公众号“腾讯云视频”，在聊天窗口发送“技术支持”，将有专人和您联系。
 
 ![公众号二维码](https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg)

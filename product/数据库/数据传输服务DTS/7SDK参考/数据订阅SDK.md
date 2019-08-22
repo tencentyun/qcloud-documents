@@ -388,7 +388,7 @@ public Record getRecord()
 
 | 类型 | 参数含义 |
 |:-------------|:-------------|
-| Record | 变更记录，对应某个事务中某条具体的记录，比如 begin，commit，update，insert 等|
+| Record | 变更记录，对应某个事务中某条具体的记录，例如 begin，commit，update，insert 等|
 
 **抛出异常**
 无

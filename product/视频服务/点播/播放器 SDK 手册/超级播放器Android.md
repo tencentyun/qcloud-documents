@@ -4,7 +4,7 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 
 ## SDK 下载
 
-点播 Android 超级播放器的下载地址是 [SuperPlayer_Android](https://github.com/tencentyun/SuperPlayer_Android)。
+点播 Android 超级播放器的项目地址是 [SuperPlayer_Android](https://github.com/tencentyun/SuperPlayer_Android)。
 
 ## 阅读对象
 
@@ -14,9 +14,9 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 
 ### aar 集成
 
-1. 下载 SDK + Demo 开发包，下载地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
-3. 在 `app/build.gralde` 中添加依赖：
+1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
+3. 在`app/build.gralde`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
 compile(name: 'lib_tcsuperplayer', ext: 'aar')
@@ -49,7 +49,7 @@ allprojects {
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
->! `lib_tcsuperplayer.aar` 以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+>! `lib_tcsuperplayer.aar`以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
 
 ### 使用播放器
 
@@ -74,7 +74,7 @@ mSuperPlayerView.playWithMode(model);
 1. 客户端视频发布后，服务器会返回 fileId 到客户端。
 2. 服务端视频上传时，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
-如果文件已存在腾讯云，则可以进入 [视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件，查看 fileId。如下图所示，ID 即表示 fileId：
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 fileId。如下图所示，ID 即表示 fileId：
 
 ![视频管理](https://main.qcloudimg.com/raw/15c5d181b9037b58db5cf192fe831f1b.png)
 
@@ -108,7 +108,7 @@ rect.height = 540;
 
 ## 退出播放
 
-当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
+当不需要播放器时，调用`resetPlayer`清理播放器内部状态，释放内存。
 ```java
 mSuperPlayerView.resetPlayer();
 ```

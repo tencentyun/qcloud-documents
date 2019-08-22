@@ -37,7 +37,7 @@ XML  JavaScript SDK 的存储桶名称和可用区域简称与 JSON  JavaScript 
 XML  JavaScript SDK  存储桶名称由两部分组成：用户自定义字符串和 APPID，两者以中划线“-”相连。
 例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
-> ?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
+> ?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过腾讯云控制台，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket，请参考以下上传示例代码：
 
@@ -62,8 +62,8 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 | 广州（华南）     | ap-guangzhou     | gz          |
 | 成都（西南）     | ap-chengdu       | cd          |
 | 重庆             | ap-chongqing     | 无          |
-| 新加坡           | ap-singapore     | sgp         |
 | 香港             | ap-hongkong      | hk          |
+| 新加坡           | ap-singapore     | sgp         |
 | 多伦多           | na-toronto       | ca          |
 | 法兰克福         | eu-frankfurt     | ger         |
 | 孟买             | ap-mumbai        | 无          |
@@ -90,7 +90,7 @@ cos.headBucket({
 
 升级到 XML  JavaScript SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。
 
-同时我们做了封装让 SDK 更加易用，具体请参考我们的 [示例代码](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/demo) 和 [接口文档](https://cloud.tencent.com/document/product/436/12260)。
+同时我们做了封装让 SDK 更加易用，具体请参考我们的 [示例代码](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/demo) 和 [快速入门](https://cloud.tencent.com/document/product/436/11459)。
 
 API 变化主要有以下变化：
 
@@ -172,4 +172,4 @@ XML  JavaScript SDK 新增 API，您可根据需求进行调用。包括：
 - 工具方法：getObjectUrl。
 - 对象上传队列：pauseTask、restartTask、cancelTask、getTaskList 方法以及 list-update 事件。
 
-了解更多请查看 [JavaScript SDK 接口文档](https://cloud.tencent.com/document/product/436/12260)。
+了解更多请参见 JavaScript SDK [快速入门](https://cloud.tencent.com/document/product/436/11459) 文档。

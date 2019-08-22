@@ -2,8 +2,7 @@
 
 
 
-> **注意：**
-> 在创建 Nginx 服务之前，您必须拥有一个已经创建好的容器集群。有关如何创建集群的详细信息，参见 [集群](https://cloud.tencent.com/document/product/649/13684)。
+>!在创建 Nginx 服务之前，您必须拥有一个已经创建好的容器集群。有关如何创建集群的详细信息，参见 [集群](https://cloud.tencent.com/document/product/649/13684)。
 
 
 
@@ -36,11 +35,8 @@
 ## 创建部署组
 
 1. 在应用的详情页中单击【部署组】标签页。
-
 2. 单击【新建部署组】按钮，在弹框中填写部署组相关信息，可参考下方截图填写。注意网络访问方式选择【公网】，端口映射中两个端口号都填写 80。
-
    ![](https://main.qcloudimg.com/raw/31f7816456e45c8176660f54af922817/creategroup.png)
-
 3. 单击【提交】按钮。
 
 
@@ -48,11 +44,8 @@
 ## 部署应用
 
 1. 单击部署组列表右侧的【部署应用】按钮。
-
 2. 在部署应用的弹框中填写镜像等信息，参考下图填写。
-
    ![](https://main.qcloudimg.com/raw/90ace29375b5ef3b6ca02022e05283ea/deploy.png)
-
 3. 单击【提交】按钮。
 
 
@@ -60,9 +53,6 @@
 ## 验证
 
 1. 部署成功后，部署组的状态变为运行中。
-
    ![](https://main.qcloudimg.com/raw/e6153a8ffcfdad0cab9cebe6d112ceb1.png)
-
 2. 复制负载均衡 IP，在浏览器地址栏粘贴后，显示 Nginx 欢迎页面。
-
    ![](https://main.qcloudimg.com/raw/3ff519319e5dc4d3b3cc3d6668281a45.png)

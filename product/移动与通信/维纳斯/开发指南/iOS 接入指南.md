@@ -1,4 +1,4 @@
-## Sdk 目录结构说明
+## SDK 目录结构说明
 WnsSDK：包含 WnsSDK4Cloud.framework
 WnsSDKDemo：示例工程，演示了如何使用 WnsSDK
 Doc：
@@ -13,7 +13,7 @@ sdk 接受数据限制长度为 512K 字节
 应用程序工程需要包含以下库(可以参考 demo)：
 ![](//mccdn.qcloud.com/static/img/dab523fae1934af9d3ad1d5ff872e9e4/image.png)
 
-## Sdk 使用说明
+## SDK 使用说明
 ### 名词解释
 **appID**：为开发商在控制台申请的应用 ID。
 **appVersion**：是开发商应用程序的版本号，如"1.0"等。
