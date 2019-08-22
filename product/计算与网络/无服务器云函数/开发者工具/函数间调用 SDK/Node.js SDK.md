@@ -132,9 +132,9 @@ if (process.env.NODE_ENV === 'development') {
     exports.main_handler(event)
 }
 ```
->!Secret_id 及 secret_key：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】，获取相关密钥或创建相关密钥。
+>!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
 
-2. 进入 index.js 所在文件目录，执行以下命令，查看结果。
+3. 进入 index.js 所在文件目录，执行以下命令，查看结果。
  - Linux 及 Mac 操作系统，执行以下命令：
 ```
 export NODE_ENV=development && node index.js
@@ -158,10 +158,10 @@ Already invoked a function!
 - [Invoke](#Invoke)
 
 #### Init
-在使用 SDK 前，建议执行 `npm init` 命令进行初始化。
+在使用 SDK 前，建议执行 `npm init` 命令进行初始化 SDK。
 >?
 >- 初始化命令可传入 `region`，`secretId`，`secretKey`参数。
->- 完成初始化 SDK 后，调用 API 接口时可复用初始化的配置。
+>- 完成初始化后，调用 API 接口时可复用初始化的配置。
 
 
 **参数信息：**
