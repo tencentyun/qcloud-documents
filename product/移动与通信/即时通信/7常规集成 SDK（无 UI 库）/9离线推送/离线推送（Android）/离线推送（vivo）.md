@@ -39,10 +39,10 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  - **应用包名称**：填写 vivo 推送服务应用的**应用包名**
  - **APPID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
- ![](https://main.qcloudimg.com/raw/aec362779569a915d2f2a96d49ecf9bc.png)
+ ![](https://main.qcloudimg.com/raw/d249073c92986efe9719d6508570b4d2.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
-7. 待推送证书信息生成后，记录 **`证书 ID`** 。
- ![](https://main.qcloudimg.com/raw/4eb9be556cce525fc4e1a100846673d2.png)
+7. 待推送证书信息生成后，记录**`证书 ID`** 。
+ ![](https://main.qcloudimg.com/raw/744870d8e96007cf910d54a4ee48d0b4.png)
 
 <span id="Step3"></span>
 ### Step3. 集成推送 SDK
