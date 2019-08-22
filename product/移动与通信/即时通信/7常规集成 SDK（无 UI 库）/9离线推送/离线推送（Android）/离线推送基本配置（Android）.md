@@ -37,8 +37,13 @@
    </tr> 
    <tr> 
      <td nowrap="nowrap">OPPO 推送</td> 
-     <td>ColorOS</td> 
+     <td>Android4.0 以上</td> 
      <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。OPPO 目前只有受邀开发者才能集成推送，因此 Demo 暂时没有 OPPO 推送的示例</td> 
+   </tr>  
+   <tr> 
+     <td nowrap="nowrap">FCM 推送</td> 
+     <td>Android4.0 及以上</td> 
+     <td>手机需安装 Google Play Services 并在海外使用。</td> 
    </tr> 
 </table>
 
