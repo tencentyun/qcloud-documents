@@ -41,6 +41,8 @@ PUT _all/_settings
 ```
 PUT _cluster/settings
 {
-  "index.blocks.read_only_allow_delete": null
+  "persistent": {
+    "index.blocks.read_only_allow_delete": null
+  }
 }
 ```
