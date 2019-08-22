@@ -47,32 +47,32 @@ npm install tencentcloud-serverless-nodejs
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
-    console.log("\n Hello World from the function being invoked\n")
-    console.log(event)
-    console.log(event["non-exist"])
-    return event
+      console.log("\n Hello World from the function being invoked\n")
+      console.log(event)
+      console.log(event["non-exist"])
+      return event
 };
 ```
 2. 在 `testNodejsSDK` 目录下新建文件 `index.js`，并输入如下示例代码，创建**发起调用**的 Node.js 云函数。
 ```js
 const sdk = require('tencentcloud-serverless-nodejs')
 exports.main_handler = async (event,context,callback)=>{
-    sdk.init({
-        region: 'ap-beijing'
-    }) // 如果sdk运行在云函数中，初始化时可以不传secretId,secretKey
+      sdk.init({
+          region: 'ap-beijing'
+      }) // 如果sdk运行在云函数中，初始化时可以不传secretId,secretKey
 
-    console.log('prepare to invoke a function!')
-    const res = await sdk.invoke({
-        functionName: 'FuncInvoked',
-        qualifier: '$LATEST',
-        data: JSON.stringify({
-            key:'value'
-        }),
-        namespace:'default'
-    })
-    console.log(res)
-    //return res
-    return 'Already invoked a function!'
+      console.log('prepare to invoke a function!')
+      const res = await sdk.invoke({
+          functionName: 'FuncInvoked',
+          qualifier: '$LATEST',
+          data: JSON.stringify({
+              key:'value'
+          }),
+          namespace:'default'
+      })
+      console.log(res)
+      //return res
+      return 'Already invoked a function!'
 }
 ```
 3. 创建一个地域为【成都】，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
@@ -96,10 +96,10 @@ exports.main_handler = async (event,context,callback)=>{
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
-    console.log("\n Hello World from the function being invoked\n")
-    console.log(event)
-    console.log(event["non-exist"])
-    return event
+      console.log("\n Hello World from the function being invoked\n")
+      console.log(event)
+      console.log(event["non-exist"])
+      return event
 };
 ```
 
@@ -107,29 +107,29 @@ exports.main_handler = async (event, context, callback) => {
 ```js
 const sdk = require('tencentcloud-serverless-nodejs')
 exports.main_handler = async (event, context, callback) => {
-    sdk.init({
-        region: 'ap-beijing',
-        secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
-        secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
-    }) // 替换为您的 secretId 和 secretKey
-    console.log('prepare to invoke a function!')
-    const res = await sdk.invoke({
-        functionName: 'FuncInvoked',
-        qualifier: '$LATEST',
-        data: JSON.stringify({
-            key:'value'
-        }),
-        namespace:'default'
-    })
-    console.log(res)
-    //return res
-    console.log('Already invoked a function!')
-}
-if (process.env.NODE_ENV === 'development') {
-    const event = {
-        test: '123'
-    }
-    exports.main_handler(event)
+      sdk.init({
+          region: 'ap-beijing',
+         secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
+          secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
+      }) // 替换为您的 secretId 和 secretKey
+      console.log('prepare to invoke a function!')
+      const res = await sdk.invoke({
+          functionName: 'FuncInvoked',
+          qualifier: '$LATEST',
+          data: JSON.stringify({
+              key:'value'
+          }),
+          namespace:'default'
+      })
+      console.log(res)
+      //return res
+      console.log('Already invoked a function!')
+  }
+  if (process.env.NODE_ENV === 'development') {
+      const event = {
+          test: '123'
+      }
+      exports.main_handler(event)
 }
 ```
 >!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
