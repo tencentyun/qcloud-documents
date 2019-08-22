@@ -126,7 +126,6 @@ bool SetTCloudConfig(const string &SecretId, const string &SecretKey,const strin
 ```
 /*
 * 发型音频数据
-* params：
 * fileURI：本地音频文件或者远程音频文件地址
 * pResponse：识别结果
 *
