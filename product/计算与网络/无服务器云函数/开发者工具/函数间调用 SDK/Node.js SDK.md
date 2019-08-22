@@ -132,15 +132,15 @@ if (process.env.NODE_ENV === 'development') {
     exports.main_handler(event)
 }
 ```
->!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
+>!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
 
 3. 进入 index.js 所在文件目录，执行以下命令，查看结果。
  - Linux 及 Mac 操作系统，执行以下命令：
-```
+```shell
 export NODE_ENV=development && node index.js
 ```
  - Windows 操作系统执行以下命令：
-```
+```shell
 set NODE_ENV=development && node index.js
 ```
 
