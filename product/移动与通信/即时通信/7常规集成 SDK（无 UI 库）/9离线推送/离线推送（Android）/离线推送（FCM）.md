@@ -49,6 +49,7 @@
 
 以下为 Demo 中的示例代码：
 
+定义证书 ID 常量：
 ```java
 /****** FCM 离线推送参数 start ******/
 // 使用您在即时通信 IM 控制台上 FCM 推送证书信息里的证书 ID
@@ -56,6 +57,7 @@ public static final long GOOGLE_FCM_PUSH_BUZID = 6768;
 /****** FCM 离线推送参数 end ******/
 ```
 
+上报推送的证书 ID 及 token：
 ```java
 /**
  * 在 ThirdPushTokenMgr.java 中对推送的证书 ID 及设备信息进行上报操作
