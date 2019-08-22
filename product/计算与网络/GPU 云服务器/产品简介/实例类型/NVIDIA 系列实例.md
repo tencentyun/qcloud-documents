@@ -19,7 +19,7 @@
 
 ## 硬件规格
 基本硬件规格如下图所示：
-![](https://main.qcloudimg.com/raw/adb41beb183e0a6a86235d630e8234e7.png)
+![](https://main.qcloudimg.com/raw/3facef30152a1700147e457a5f40b0e3.png)
 
 **规格说明**：
 - GPU 性能：主要指标为 GPU 的浮点运行能力，TF 代表 T Flops，SP 代表 single-precision 单精度浮点运算，DP 代表 double-precision 双精度浮点运算，INT8 代表 INT8 整数运算，DL 代表 Tensor Core 的深度学习加速能力（仅适用 V100）。

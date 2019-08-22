@@ -22,7 +22,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```js
 /* vivo 1.0.9.0
  */
-implementation 'com.tencent.tpns:vivo:1.0.9.0'
+implementation 'com.tencent.tpns:vivo:1.1.0.0-release' // vivo  推送
 ```
 
 

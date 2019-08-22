@@ -71,7 +71,7 @@ AWSServiceConfiguration* configuration = [[AWSServiceConfiguration alloc]
 [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
 ```
 
-### JavaScript
+### NodeJS
 
 下面以 `AWS JS SDK` 2.509.0 版本为例，介绍如何使用访问 COS 服务。
 

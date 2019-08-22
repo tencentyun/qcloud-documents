@@ -16,7 +16,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ```js
 /* Oppo 1.0.9.0版
  */
-implementation 'com.tencent.tpns:oppo:1.0.9.0'
+implementation 'com.tencent.tpns:oppo:1.1.0.0-release'//oppo推送
 ```
 
 

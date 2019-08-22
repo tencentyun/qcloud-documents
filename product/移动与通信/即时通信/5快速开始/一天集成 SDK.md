@@ -1,4 +1,4 @@
-若需在您的 App 中集成 IM SDK 达到以下图片所示效果，仅仅需要三步：
+若需在您的 App 中集成 IM SDK 达到如下图所示效果，仅仅需要三步：
 ![](https://main.qcloudimg.com/raw/8e62583eda69db2f6f1baade7ab8540a.png)
 
 ## 步骤1：体验 Demo

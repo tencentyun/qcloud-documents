@@ -15,6 +15,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 >- 此指引文档是直接参考 vivo 推送官方文档所写，若 vivo 推送有变动，请以 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/180) 为准。
 >- 如果不需要对 vivo 设备做专门的离线推送适配，可以忽略此章节。
 
+<span id="Step1"></span>
 ### Step1. 申请 vivo 推送证书
 1. 打开 [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。
  >?认证过程大约需要3天左右，请务必提前阅读 [vivo 推送服务说明](https://dev.vivo.com.cn/documentCenter/doc/180)，以免影响您的接入进度。
@@ -29,7 +30,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
- ![](https://main.qcloudimg.com/raw/bdbbbce31242bd8a917e3ecec9c3be88.jpg)
+ ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
 4. 单击【Android 推送证书】区域的【添加证书】。
  >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
  > 

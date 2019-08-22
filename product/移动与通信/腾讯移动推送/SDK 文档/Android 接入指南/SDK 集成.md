@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.0.9.1'
+    implementation 'com.tencent.tpns:tpns:1.1.0.0-release' //  TPNS 推送
 
 }
 ```
@@ -300,3 +300,11 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	```
 
 
+#### 获取 Token（非必选）
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
+示例代码如下：
+```java
+//获取 Token
+XGPushConfig.getToken(getApplicationContext());
+```
+![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)

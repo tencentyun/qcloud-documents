@@ -54,7 +54,7 @@ public class MApplication extends Application {
 ```
 
 ### 4. 开启摄像头预览
-欲展示摄像头的预览画面，您需要先 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：
+欲展示摄像头的预览画面，您需要先给 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：
 
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -158,7 +158,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
 
 | API 函数 | 功能说明 | 备注说明 |
 |---------|---------|---------|
-| switchCamera | 切换前后摄像头 |  |
+| switchCamera | 切换前后摄像头 | - |
 | turnOnFlashLight | 打开或关闭闪光灯 | 仅在当前是后置摄像头时有效。|
 | setZoom | 调整摄像头的焦距 | 可以通过 TXLivePusher 的`getMaxZoom()`函数获取最大焦距，`setZoom`的取值范围即为 1 - 最大焦距。|
 | setExposureCompensation | 设置曝光比例，取值范围从-1到1 | 负数表示调低曝光，-1是最小值，对应`getMinExposureCompensation`。正数表示调高曝光，1是最大值，对`getMaxExposureCompensation`。0表示不调整曝光，默认值为0。|
