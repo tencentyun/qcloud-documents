@@ -14,7 +14,7 @@
 1. 请参考 [Google FCM 离线推送](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK，启动应用后获取设备注册令牌 **token**。
 2. 请参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/client) 测试通知消息，确保已成功集成 FCM。
 3. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。
-4. 单击【Project Overview】右侧的<img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【云消息传递】。
+4. 单击 Project Overview 右侧的<img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【云消息传递】。
 5. 记录**旧版服务器密钥**和**发送者 ID**。
 
 <span id="Step2"></span>
@@ -22,7 +22,7 @@
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
-   ![](https://main.qcloudimg.com/raw/bdbbbce31242bd8a917e3ecec9c3be88.jpg)
+   ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
 4. 单击【Android 推送证书】区域的【添加证书】。
  >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
  > 
@@ -31,7 +31,7 @@
  - **应用包名称**：填写 Google 推送服务应用的应用包名
  - **发送者ID**：填写 Google 推送服务应用的 **发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的 **旧版服务器密钥**
- ![](https://main.qcloudimg.com/raw/aec362779569a915d2f2a96d49ecf9bc.png)
+  ![](https://main.qcloudimg.com/raw/c18875484ca19bcb43fa0a0564f3cb0c.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录 **`证书 ID`** 。
  ![](https://main.qcloudimg.com/raw/fdefad767f38c6bbf680faf7cba8cd27.png)	 
