@@ -1,7 +1,7 @@
 ## 准备工作
 1. 下载 TSF 提供的 Demo（该步骤预计耗时1min）。
-2. 在 TSF 控制台上已创建容器集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建容器集群和添加节点的用户（该步骤预计耗时10min）。
-3. 主机上已安装应用运行的环境（如 Python 应用的相关依赖等，该步骤预计耗时根据运行环境的复杂度有所不同）。
+2. 在 TSF 控制台上已创虚拟机集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建虚拟机集群和添加节点的用户（该步骤预计耗时10min）。
+3. 主机上已安装应用运行的环境（如 Python 应用的相关依赖等，TSF 对相关依赖的版本没有限制，该步骤预计耗时根据运行环境的复杂度有所不同）。
 
 
 ## 一、创建并部署 Mesh 应用
@@ -42,7 +42,7 @@
 使用同样的步骤一和步骤二部署 user、shop 和 promotion 三个应用。user、shop、promotion 三个服务的接口间调用关系如下：
 ![](https://main.qcloudimg.com/raw/4b4cfb3f587dcca35f975db0c924542a.png)
 
-用户可以登录容器集群 VPC 下的任一机器，然后通过`curl`命令验证 user 服务是否健康，以及触发 user 服务调用 shop 和 promotion 服务。
+用户可以登虚拟机集群 VPC 下的任一机器，然后通过`curl`命令验证 user 服务是否健康，以及触发 user 服务调用 shop 和 promotion 服务。
 
 #### 1. 登录服务器验证服务间调用
 为了验证 user 服务能通过服务名来调用 shop 服务，需要用户通过以下几种方式来触发 user 服务的接口调用：
