@@ -23,8 +23,8 @@ Tencentcloud-Serverless-Nodejs SDK 的功能特性可分为以下几点：
 ### 安装 tencentcloud-serverless-nodejs SDK
 #### 通过 npm 安装（推荐）
 1. 根据实际需求，选择目录路径，并在该路径下创建新的目录。
-例如，创建一个名称为 testNodejsSDK 的项目目录，项目路径为  `/Users/xxx/Desktop/testNodejsSDK`。
-2. 进入 testNodejsSDK 目录，并依次执行以下命令，安装 tencentcloud-serverless-nodejs SDK。
+例如，创建一个名称为 `testNodejsSDK` 的项目目录，项目路径为  `/Users/xxx/Desktop/testNodejsSDK`。
+2. 进入 `testNodejsSDK` 目录，并依次执行以下命令，安装 tencentcloud-serverless-nodejs SDK。
 ```shell
 npm init -y
 npm install tencentcloud-serverless-nodejs
