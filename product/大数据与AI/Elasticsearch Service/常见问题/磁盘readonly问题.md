@@ -11,7 +11,7 @@ Elasticsearch 6.4.3版本设置了磁盘水位（watermark）阈值，当磁盘�
 #### 写入索引出错
 
 当您的集群磁盘状态变为 readonly 时，清理索引或扩容磁盘仍无法将数据写入索引，错误如下：
-* 索引只读错误
+* 索引只读错误：
 ```
 Elasticsearch exception [
     type=cluster_block_exception, 
@@ -19,13 +19,14 @@ Elasticsearch exception [
 ]
 ```
 
-* 集群只读错误
+* 集群只读错误：
 ```
 Elasticsearch exception [
     type=cluster_block_exception, 
     reason=blocked by: [FORBIDDEN/13/cluster read-only / allow delete (api)];
 ]
 ```
+
 ### 问题解决
 
 您需要先清理无用索引释放空间或扩容磁盘，然后在 Kibana 界面的【Dev Tools】中使用如下命令：
