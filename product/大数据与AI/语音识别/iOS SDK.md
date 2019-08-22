@@ -8,7 +8,7 @@
 
 ### 1.2 接入须知
 
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
++ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308) ，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为**iOS 9.0**及以上版本。
 
 
@@ -45,7 +45,7 @@
    <string>需要使用了的麦克风采集音频</string>
 ```
 
-+ **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
++ **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
 
    + AVFoundation.framework
    + AudioToolbox.framework
@@ -134,11 +134,11 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
- * @param config 配置参数，详见QCloudConfig定义
+ * @param config 配置参数，详见 QCloudConfig 定义
  */
 - (instancetype)initWithConfig:(QCloudConfig *)config;
 /**
- * 通过appId secretId secretKey初始化
+ * 通过 appId secretId secretKey 初始化
  * @param appid     腾讯云appId        
  * @param secretId  腾讯云secretId     
  * @param secretKey 腾讯云secretKey    
@@ -148,7 +148,7 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 
 **QCloudConfig 初始化方法说明**
 
-参考一句话识别接口说明中的使用步骤，获取AppID、SecretID 和 SecretKey。
+参考一句话识别接口说明中的使用步骤，获取 AppID、SecretID 和 SecretKey。
 
 ```objective-c
 /**
