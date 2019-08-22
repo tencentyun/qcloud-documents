@@ -157,6 +157,7 @@ Already invoked a function!
 - [Init](#Init)
 - [Invoke](#Invoke)
 
+<span id="Init"></span>
 #### Init
 在使用 SDK 前，建议执行 `npm init` 命令进行初始化 SDK。
 >?
@@ -173,6 +174,8 @@ Already invoked a function!
 | secretKey |    否    | `String` | 默认会取 process.env.TENCENTCLOUD_SECRETKEY |
 | token |    否    | `String` | 默认会取 process.env.TENCENTCLOUD_SESSIONTOKEN |
 
+
+<span id="Invoke"></span>
 #### Invoke
 调用函数，目前支持同步调用。
 
