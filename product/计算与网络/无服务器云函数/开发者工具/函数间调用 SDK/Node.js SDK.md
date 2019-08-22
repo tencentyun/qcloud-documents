@@ -43,7 +43,7 @@ npm install tencentcloud-serverless-nodejs
 > - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
 
-1. 创建一个在**北京**，名称为 “FuncInvoked” **被调用**的 Node.js 云函数。函数内容如下：
+1. 创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -75,7 +75,7 @@ exports.main_handler = async (event,context,callback)=>{
     return 'Already invoked a function!'
 }
 ```
-3. 创建一个在**成都**，名称为 “NodejsInvokeTest” 进行**调用**的 Node.js 云函数。并根据以下提示设置函数：
+3. 创建一个地域为【成都】，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
  - 执行方法：选择【index.main_handler】。
  - 代码提交方式：选择【本地上传 zip 包】。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
@@ -92,7 +92,7 @@ exports.main_handler = async (event,context,callback)=>{
 
 #### 示例
 
-1. 创建一个在**北京**，名称为 “FuncInvoked” **被调用**的 Node.js 云函数。函数内容如下：
+1. 创建一个地域为【北京】，名称为 “FuncInvoked”，并且用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
