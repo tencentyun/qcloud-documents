@@ -88,7 +88,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                       | 描述                                                         | 类型   |
 | ------------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
+| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID<br>格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
 | DisplayName        | ListAllMyBucketsResult.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 Buckets 的内容：**
