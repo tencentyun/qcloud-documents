@@ -1,4 +1,4 @@
->!使用 FCM 离线推送需要手机端安装 Google Play Services 且在境外使用。
+>!使用 FCM 离线推送需要手机端安装 Google Play Services 且在中国大陆地区以外使用。
 
 ## 流程说明
 
