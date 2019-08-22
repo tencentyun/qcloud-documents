@@ -15,6 +15,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 >- 此指引文档是直接参考 vivo 推送官方文档所写，若 vivo 推送有变动，请以 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/180) 为准。
 >- 如果不需要对 vivo 设备做专门的离线推送适配，可以忽略此章节。
 
+<span id="Step1"></span>
 ### Step1. 申请 vivo 推送证书
 1. 打开 [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。
  >?认证过程大约需要3天左右，请务必提前阅读 [vivo 推送服务说明](https://dev.vivo.com.cn/documentCenter/doc/180)，以免影响您的接入进度。
