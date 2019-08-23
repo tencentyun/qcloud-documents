@@ -13,7 +13,7 @@
 ## 操作步骤
 <span id="Step1"></span>
 ### Step1：设置 Firebase 和 FCM SDK
->?本步骤中的网址需要在中国大陆地区以外才能访问。
+>?本步骤中的网址为 Firebase 官方网址，需要在中国大陆地区以外才能访问。
 
 1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK，启动应用后获取设备注册令牌 **token**。
 2. 请参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
