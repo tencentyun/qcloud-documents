@@ -15,7 +15,7 @@
 ### Step1：设置 Firebase 和 FCM SDK
 >?本步骤中的网址需要在中国大陆地区以外才能访问。
 
-1. 请参考 [Google FCM 离线推送](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK，启动应用后获取设备注册令牌 **token**。
+1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK，启动应用后获取设备注册令牌 **token**。
 2. 请参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 3. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。
 4. 单击 Project Overview 右侧的<img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【云消息传递】。
