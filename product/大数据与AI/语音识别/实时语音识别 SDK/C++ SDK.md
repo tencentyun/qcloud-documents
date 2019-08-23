@@ -45,7 +45,7 @@ sudo make
 sudo make install
 ```
 
-**openssl**
++ **openssl**
 本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
 
 ```
@@ -61,7 +61,7 @@ sudo make install
 自行替换 c++_realtime_asr_sdk/lib 下面的库文件
 ```
 
-**speex**
++ **speex**
 本 SDK 提供，目录为：c++\_realtime\_asr\_sdk/lib，如果不适合客户系统，自行安装方法：下载 [speex 源码](https://speex.org/downloads/)，解压进入源码目录并执行以下命令：
 
 ```
