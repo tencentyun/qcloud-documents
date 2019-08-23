@@ -21,7 +21,7 @@ CreateAudit 用于创建云审计跟踪集。
 
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| IsMultiRegionAudit | Number | 是否开启多地域采集，1 代表是，0 代表否|
+| IsMultiRegionAudit | Number | 是否开启多地域采集，1代表是，0代表否|
 | Name | String | 跟踪集名称 |
 | CosBucketName | String | 	COS Bucket 名称 |
 | CosKeyPrefix | String | COS Bucket 前缀 |
