@@ -14,7 +14,7 @@ tim.login(options)
 | 名称      | 类型     | 描述                                                         |
 | --------- | -------- | ------------------------------------------------------------ |
 | UserID  | String | 用户 ID。                                                       |
-| UserSig | String | 用户登录即时通信 IM 时使用的密码，其本质是 App Server 用密钥对 UserID 等信息加密后的数据。<br/>具体生成方法请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。 |
+| UserSig | String | 用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文。<br/>具体生成方法请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。 |
 
 **返回值**
 
