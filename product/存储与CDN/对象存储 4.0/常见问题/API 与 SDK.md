@@ -132,10 +132,10 @@ clientConfig.setHttpProxyPort(8080);
 COSClient cosClient = new COSClient(cred, clientConfig);
 ```
 
-### 如何设置自定义EndpointBuilder
+### 如何设置自定义 EndpointBuilder？
 您的场景也许需要指定 API 请求的 Endpoint，此时，您需要实现 EndpointBuilder 接口中的 buildGeneralApiEndpoint 和 buildGetServiceApiEndpoint 中的两个函数，分别为普通 API 请求和 GETService 请求指定远端的 Endpoint。使用示例如下：
 ```
-// 步骤一：实现 EndpointBuilder 接口中的两个函数
+// 步骤1：实现 EndpointBuilder 接口中的两个函数
 class SelfDefinedEndpointBuilder implements EndpointBuilder {
     @Override
     public String buildGeneralApiEndpoint(String bucketName) {
@@ -148,7 +148,7 @@ class SelfDefinedEndpointBuilder implements EndpointBuilder {
     }
 }
 
-// 步骤二：初始化客户端
+// 步骤2：初始化客户端
 String secretId = "COS_SECRETID";
 String secretKey = "COS_SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
