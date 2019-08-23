@@ -4,7 +4,7 @@ HEAD Object 接口请求可以判断指定对象是否存在和有权限，并�
 
 #### 版本控制
 
-当启用版本控制时，该 HEAD 操作返回最新版本的元数据。要返回历史版本的元数据，请使用 versionId 请求参数。
+当启用版本控制时，该 HEAD 操作可以使用 versionId 请求参数指定要返回的版本 ID，此时将返回指定版本的元数据，如指定版本为删除标记则返回 HTTP 响应码404（Not Found），否则将返回最新版本的元数据。
 
 ## 请求
 
@@ -23,7 +23,7 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| versionId | 当启用版本控制时，指定要查询的对象的版本 ID，如不指定则查询对象的最新版本 | string | 否 |
+| versionId | 当启用版本控制时，指定要查询的版本 ID，如不指定则查询对象的最新版本 | string | 否 |
 
 #### 请求头
 
@@ -57,7 +57,7 @@ Authorization: Auth String
 | Content-Encoding | RFC 2616 中定义的编码格式，仅当对象元数据包含此项时才会返回该头部 | string |
 | Expires | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项时才会返回该头部 | string |
 | x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息 | string |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
 
 **版本控制相关头部**
 
