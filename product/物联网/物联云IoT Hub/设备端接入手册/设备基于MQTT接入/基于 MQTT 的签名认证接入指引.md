@@ -61,7 +61,7 @@ def IotHmac(productID, devicename, devicePsk):
 if __name__ == '__main__':
     print IotHmac(sys.argv[1], sys.argv[2], sys.argv[3])
 ```
-将上述代码保存到 IotHmac.py，执行下面的命令即可（Python2.7 版本）。这里 "YOUR_PRODUCTID"、 "YOUR_DEVICENAME" 和"YOUR_PSK" 是填写你实际创建设备的产品 ID、设备名称和设备密钥。
+将上述代码保存到 IotHmac.py，执行下面的命令即可（Python2.7 版本）。这里 "YOUR_PRODUCTID"、 "YOUR_DEVICENAME" 和"YOUR_PSK" 是填写您实际创建设备的产品 ID、设备名称和设备密钥。
 ```
 python IotHmac.py "YOUR_PRODUCTID" "YOUR_DEVICENAME" "YOUR_PSK" 
 ```
