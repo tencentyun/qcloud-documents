@@ -78,8 +78,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Key | Delete.Object | 要删除的目标对象的对象键 | string | 是 |
-| VersionId | Delete.Object | 当启用版本控制并且要删除对象的指定版本时需指定该元素，值为要删除的版本 ID。如未开启版本控制或开启版本控制但需要插入删除标记，则无需指定该元素 | string | 是 |
+| Key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Delete.Object | 要删除的目标对象的对象键 | string | 是 |
+| VersionId | Delete.Object | 当启用版本控制并且要删除对象的指定版本时需指定该元素，值为要删除的版本 ID。若未开启版本控制或开启版本控制但需要插入删除标记，则无需指定该元素 | string | 是 |
 
 ## 响应
 
