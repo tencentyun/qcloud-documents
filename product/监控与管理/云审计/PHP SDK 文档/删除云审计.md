@@ -14,8 +14,8 @@ DeleteAudit 用于删除云审计（CloudAudit）。
 ### 请求示例
 
 ```
-$config = array('SecretId'       => '你的secretId',
-                'SecretKey'      => '你的secretKey',
+$config = array('SecretId'       => '您的secretId',
+                'SecretKey'      => '您的secretKey',
                 'RequestMethod'  => 'GET',
                 'DefaultRegion'  => 'gz');
 $ca = QcloudApi::load(QcloudApi::MODULE_CLOUDAUDIT, $config);
