@@ -6,7 +6,7 @@ GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至�
 
 #### 版本控制
 
-当启用版本控制时，该 GET 操作返回对象的最新版本。要返回对象的历史版本，请使用 versionId 请求参数。
+当启用版本控制时，该 GET 操作可以使用 versionId 请求参数指定要返回的版本 ID，此时将返回对象的指定版本，如指定版本为删除标记则返回 HTTP 响应码404（Not Found），否则将返回指定对象的最新版本。
 
 ## 请求
 
@@ -31,7 +31,7 @@ Authorization: Auth String
 | response-content-language | 设置响应中的 Content-Language 头部的值 | string | 否 |
 | response-content-type | 设置响应中的 Content-Type 头部的值 | string | 否 |
 | response-expires | 设置响应中的 Expires 头部的值 | string | 否 |
-| versionId | 当启用版本控制时，指定要下载的对象的版本 ID，若不指定则下载对象的最新版本 | string | 否 |
+| versionId | 当启用版本控制时，指定要下载的版本 ID，如不指定则下载对象的最新版本 | string | 否 |
 
 #### 请求头
 
