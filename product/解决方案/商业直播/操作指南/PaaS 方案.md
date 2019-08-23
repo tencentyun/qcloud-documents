@@ -18,7 +18,7 @@
 2. 生成推流/播放地址。
    打开`https://bizlive.myqcloud.com/tools/address.html?bizname=bizname`工具页面（URL 中的 bizname 参数为您的 bizname），您可以在工具页面中填写流名称以及鉴权密钥，自动生成推流地址以及播放地址。
 
->!若已配置转码模板，需要播放地址播放模板中指定码率的直播，则需要在原来的`StreamName`加上`_模板名称`作为新的`StreamName`，重新生成新的播放地址。**不能直接在已生成的播放地址中添加直接添加模板名称，否则播放地址不可用。**
+>!若已配置转码模板，需要播放地址播放模板中指定码率的直播，则需要在原来的`StreamName`加上`_模板名称`作为新的`StreamName`，重新生成新的播放地址。不能直接在已生成的播放地址中添加直接添加模板名称，否则播放地址不可用。
 
 商业直播的直播模板配置不能通过云直播进行关联，如有需要请提交 [工单](https://console.cloud.tencent.com/workorder/category) 或联系对接的商务同学处理。
 
