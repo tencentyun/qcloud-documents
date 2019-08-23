@@ -122,7 +122,7 @@ Authorization: Auth String
 | --- | --- | --- | --- |
 | Key | ListBucketResult.Contents | 对象键 | string |
 | LastModified | ListBucketResult.Contents | 对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
-| ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化，例如“8e0b617ca298a564c3331da28dcb50df”。此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
+| ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化<br>例如“8e0b617ca298a564c3331da28dcb50df”，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | Size | ListBucketResult.Contents | 对象大小，单位为 Byte | integer |
 | Owner | ListBucketResult.Contents | 对象持有者信息 | Container |
 | StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
