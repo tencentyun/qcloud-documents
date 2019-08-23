@@ -131,7 +131,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| ID | ListBucketResult.Contents.Owner | 存储桶的 APPID | string |
+| ID | ListBucketResult.Contents.Owner | 对象持有者的 APPID | string |
 | DisplayName | ListBucketResult.Contents.Owner | 对象持有者的名称 | string |
 
 #### 错误码
