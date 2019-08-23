@@ -8,7 +8,7 @@
 
 
 ### 开发环境
-**编译 Demo**，如失败需确认以下环境：
++ **编译 Demo**，如失败需确认以下环境：
 
 ```
 //下载sdk
@@ -19,7 +19,7 @@ make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ``` 
 
-**安装 gcc g++** 
++ **安装 gcc g++** 
 
 ```
 1.RedHat 系列系统:
@@ -29,7 +29,7 @@ yum install -y wget
 2.Debian系列系统：
 apt-get install gcc g++
 ```
-**安装 CMake 工具**
++ **安装 CMake 工具**
 
 ```
 // cmake 版本要大于3.5
@@ -40,7 +40,7 @@ sudo ./bootstrap --prefix=/usr
 sudo make
 sudo make install
 ```
-**依赖库安装及编译**
++ **依赖库安装及编译**
 
 客户需自行安装版本大于7.44.0的 **curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：  
 
@@ -51,7 +51,7 @@ sudo make
 sudo make install
 ```
 
-**openssl**  
++ **openssl**  
 本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
 
 ```
