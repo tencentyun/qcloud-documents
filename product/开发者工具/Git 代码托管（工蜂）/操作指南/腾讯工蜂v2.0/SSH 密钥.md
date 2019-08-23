@@ -11,8 +11,7 @@ ssh-keygen -t rsa -C "您的账号ID@git.code.tencent.com"
 ![img](https://mc.qcloudimg.com/static/img/173699ee233a1116418c44a6044989f9/2017-08-28_114043.png)
 ![img](https://mc.qcloudimg.com/static/img/171eecae63ecd839c349bca6d682952c/2017-08-28_114309.png)
 
-> **注意：**
-以上操作以 Windows 平台为例，Linux 下命令不变，操作类似。
+>!以上操作以 Windows 平台为例，Linux 下命令不变，操作类似。
 
 ## 添加 SSH Keys
 1. 在腾讯工蜂主页上单击【个人设置】。
