@@ -12,7 +12,6 @@
 - 使用小程序之前，请先阅读微信小程序提供的 [插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
 
 ## 推流及拉流
-
 1. 配置防盗链。
    直播防盗链用于对推流端/播放端身份的权限鉴定，通过使用加密算法对推流 URL 或者播放 URL 进行加密，防止非法用户恶意盗推或者盗播。您可以提供推流密钥/播放密钥到腾讯云为您配置推流防盗链/播放防盗链。
    默认情况下，为您自动开启推流防盗链配置。
@@ -29,14 +28,14 @@
        ……
        "plugins": {
             "liveRoomPlugin": {
-                "version": "1.0.3",
+                "version": "1.1.3",
                 "provider": "wx95a7d2b78cf30f98"
             }
         }
     }
 ```
-1. 使用插件中的推、拉流组件。
-    1) 播放组件
+3. 使用插件中的推、拉流组件。
+**播放组件**
  - 在 page 的 .json 文件中定义需要引入的 live-room-play 组件，使用 plugin:// 协议。
 ```js
   {
@@ -56,7 +55,7 @@
   </view>
 ```
 
- 2) 推流组件
+ **推流组件**
  - 在 page 的 .json 文件中定义需要引入的 live-room-push 组件，使用 plugin:// 协议。
 ```js
   {
@@ -76,8 +75,8 @@
 </view>
 ```
 
- 3）直播播放相关的属性
-<table width="850px">
+ **直播播放相关的属性**
+ <table width="850px">
   <tr align="center">
     <th width="80px">属性</th>
     <th width="80px">类型</th>
@@ -129,7 +128,8 @@
     <td>播放状态变化事件回调</td>
   </tr>
 </table>
-4）直播推流组件相关属性说明
+
+ **直播推流组件相关属性说明**
 <table>
 <thead>
 <tr>
