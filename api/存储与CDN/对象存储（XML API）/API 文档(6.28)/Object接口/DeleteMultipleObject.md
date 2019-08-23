@@ -1,6 +1,10 @@
 ## 功能描述
 
-DELETE Multiple Objects 接口请求可以批量删除指定存储桶中的多个对象（Object），单次请求支持最多删除1000个对象。对于响应结果，COS 提供 Quiet 模式和 Verbose 模式：Quiet 模式在响应中仅包含删除失败的对象信息和错误信息；Verbose 模式在响应中包含每个对象的删除结果信息。该 API 的请求者需要对存储桶有写入权限。
+DELETE Multiple Objects 接口请求可以批量删除指定存储桶中的多个对象（Object），单次请求支持最多删除1000个对象。对于响应结果，COS 提供 Quiet 模式和 Verbose 模式：
+- Quiet 模式在响应中仅包含删除失败的对象信息和错误信息。
+- Verbose 模式在响应中包含每个对象的删除结果信息。
+ 
+该 API 的请求者需要对存储桶有写入权限。
 
 #### 版本控制
 
@@ -38,7 +42,7 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化。 | string | 是 |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | string | 是 |
 
 #### 请求体
 
@@ -67,7 +71,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Quiet | Delete | 布尔值：true 为使用 Quiet 模式，在响应中仅包含删除失败的对象信息和错误信息；false 为使用 Verbose 模式，在响应中包含每个对象的删除结果。默认为 false | boolean | 是 |
+| Quiet | Delete | 布尔值，默认为 false <br><li>true 为使用 Quiet 模式，在响应中仅包含删除失败的对象信息和错误信息<br><li>false 为使用 Verbose 模式，在响应中包含每个对象的删除结果| boolean | 是 |
 | Object | Delete | 单个要删除的目标对象的信息 | Container | 是 |
 
 **Container 节点 Object 的内容：**
