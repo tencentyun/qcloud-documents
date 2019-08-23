@@ -54,7 +54,7 @@ import COS from "cos-wx-sdk-v5";
 <script src="./cos-js-sdk-v5.min.js"></script>
 <script>
 var options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的云通信应用的 SDKAppID
+  SDKAppID: 0 // 接入时需要将0替换为您的即时通信应用的 SDKAppID
 };
 // 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例
 var tim = TIM.create(options);
