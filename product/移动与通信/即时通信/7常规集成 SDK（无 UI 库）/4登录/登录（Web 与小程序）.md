@@ -46,4 +46,4 @@ let onKickedOut = funciton (event) {
 tim.on(TIM.EVENT.KICKED_OUT, onKickedOut);
 ```
 
-如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到 [云通信控制台](https://console.cloud.tencent.com/avc)，找到相应 SDKAppID，【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
+如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc)，找到相应 SDKAppID，【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
