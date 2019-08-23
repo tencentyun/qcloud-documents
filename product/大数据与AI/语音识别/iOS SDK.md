@@ -1,18 +1,18 @@
 
-## 1. 接入准备
+## 接入准备
 
-### 1.1 SDK 获取
+### SDK 获取
 
 
 一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
-### 1.2 接入须知
+### 接入须知
 
 + 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308) ，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0**及以上版本。
 
 
-### 1.3 开发环境
+### 开发环境
 
 在工程` info.plist` 添加以下设置：
 
@@ -57,9 +57,9 @@
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程及接入示例
+### 开发流程及接入示例
 
 1）**创建 QCloudSentenceRecognizer 实例** 
 
@@ -126,7 +126,7 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
 
 
 
-### 2.2 主要接口类说明
+### 主要接口类说明
 **QCloudSentenceRecognizer 初始化说明**
 
 QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方法。
