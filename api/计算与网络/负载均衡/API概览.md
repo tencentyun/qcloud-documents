@@ -1,5 +1,5 @@
 ## 通用负载均衡相关接口
-该部分接口适用于传统型和应用型负载均衡：
+该部分接口适用于负载均衡和传统型负载均衡：
 
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
@@ -46,53 +46,53 @@
 | [修改负载均衡属性信息](https://cloud.tencent.com/document/product/214/1263) | ModifyLoadBalancerAttributes |  修改用户指定的负载均衡实例的属性信息，包括负载均衡实例的名字等。|
 
 
-## 应用型负载均衡相关接口
+## 负载均衡相关接口
 
 
 ### 实例相关接口
 
 | 接口名 | Action | 功能描述 |
 |---------|---------| ---------
-|  [修改应用型型负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改应用型型负载均衡的名称。|
+|  [修改负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改负载均衡的名称。|
 
 ### 监听器相关接口
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------
-| [查询应用型负载均衡监听器](https://cloud.tencent.com/document/product/214/9005) | DescribeForwardLBListeners | 查询应用型负载均衡监听器。|
-| [创建应用型负载均衡七层监听器](https://cloud.tencent.com/document/product/214/9000) | CreateForwardLBSeventhLayerListeners |创建应用型七层监听器。| 
-| [修改应用型负载均衡七层监听器属性](https://cloud.tencent.com/document/product/214/8997) | ModifyForwardLBSeventhListener |修改应用型负载均衡七层监听器属性。| 
-| [创建应用型负载均衡四层监听器](https://cloud.tencent.com/document/product/214/9001) | CreateForwardLBFourthLayerListeners |创建应用型四层监听器。|
-| [修改应用型负载均衡四层监听器属性](https://cloud.tencent.com/document/product/214/8998) | ModifyForwardLBFourthListener |修改应用型负载均衡四层监听器属性。| 
-| [删除应用型负载均衡监听器](https://cloud.tencent.com/document/product/214/9004) | DeleteForwardLBListener |删除应用型负载均衡监听器。|
+| [查询负载均衡监听器](https://cloud.tencent.com/document/product/214/9005) | DescribeForwardLBListeners | 查询负载均衡监听器。|
+| [创建负载均衡七层监听器](https://cloud.tencent.com/document/product/214/9000) | CreateForwardLBSeventhLayerListeners |创建七层监听器。| 
+| [修改负载均衡七层监听器属性](https://cloud.tencent.com/document/product/214/8997) | ModifyForwardLBSeventhListener |修改负载均衡七层监听器属性。| 
+| [创建负载均衡四层监听器](https://cloud.tencent.com/document/product/214/9001) | CreateForwardLBFourthLayerListeners |创建四层监听器。|
+| [修改负载均衡四层监听器属性](https://cloud.tencent.com/document/product/214/8998) | ModifyForwardLBFourthListener |修改负载均衡四层监听器属性。| 
+| [删除负载均衡监听器](https://cloud.tencent.com/document/product/214/9004) | DeleteForwardLBListener |删除负载均衡监听器。|
 
 ### 转发规则相关接口
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------
-| [创建应用型负载均衡七层监听器转发规则的能力](https://cloud.tencent.com/document/product/214/9011) | CreateForwardLBListenerRules |创建应用型负载均衡七层监听器转发规则的能力。|
-| [修改应用型负载均衡七层监听器下的域名](https://cloud.tencent.com/document/product/214/9007) | ModifyForwardLBRulesDomain | 修改应用型负载均衡七层监听器下的域名。|
-|[ 修改应用型负载均衡七层监听器转发规则的健康检查及转发路径](https://cloud.tencent.com/document/product/214/9008) | ModifyLoadBalancerRulesProbe |修改应用型负载均衡七层监听器转发规则的健康检查及转发路径。| 
-| [删除应用型负载均衡实例七层监听器的转发规则](https://cloud.tencent.com/document/product/214/9012) | DeleteForwardLBListenerRules |删除应用型负载均衡实例七层监听器的转发规则。| 
+| [创建负载均衡七层监听器转发规则的能力](https://cloud.tencent.com/document/product/214/9011) | CreateForwardLBListenerRules |创建负载均衡七层监听器转发规则的能力。|
+| [修改负载均衡七层监听器下的域名](https://cloud.tencent.com/document/product/214/9007) | ModifyForwardLBRulesDomain | 修改负载均衡七层监听器下的域名。|
+|[ 修改负载均衡七层监听器转发规则的健康检查及转发路径](https://cloud.tencent.com/document/product/214/9008) | ModifyLoadBalancerRulesProbe |修改负载均衡七层监听器转发规则的健康检查及转发路径。| 
+| [删除负载均衡实例七层监听器的转发规则](https://cloud.tencent.com/document/product/214/9012) | DeleteForwardLBListenerRules |删除负载均衡实例七层监听器的转发规则。| 
 
 ### 健康检查相关接口
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------
-| [查询应用型负载均衡实例的健康检查](https://cloud.tencent.com/document/product/214/8995) | DescribeForwardLBHealthStatus | 查询应用型负载均衡实例的健康检查。|
+| [查询负载均衡实例的健康检查](https://cloud.tencent.com/document/product/214/8995) | DescribeForwardLBHealthStatus | 查询负载均衡实例的健康检查。|
 
 
 ### 云服务器相关接口
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------
-| [查询应用型负载均后端绑定的云服务器器列表](https://cloud.tencent.com/document/product/214/8987) | DescribeForwardLBBackends | 查询应用型负载均后端绑定的云服务器器列表。|
-| [绑定云服务器到应用型负载均衡七层监听器的转发规则](https://cloud.tencent.com/document/product/214/8988) | RegisterInstancesWithForwardLBSeventhListener | 绑定云服务器到应用型负载均衡七层监听器的转发规则。|
-| [解绑云服务器从应用型负载均衡七层监听器的转发规则](https://cloud.tencent.com/document/product/214/8991) | DeregisterInstancesFromForwardLB | 解绑云服务器从应用型负载均衡七层监听器的转发规则。|
+| [查询负载均后端绑定的云服务器器列表](https://cloud.tencent.com/document/product/214/8987) | DescribeForwardLBBackends | 查询负载均后端绑定的云服务器器列表。|
+| [绑定云服务器到负载均衡七层监听器的转发规则](https://cloud.tencent.com/document/product/214/8988) | RegisterInstancesWithForwardLBSeventhListener | 绑定云服务器到负载均衡七层监听器的转发规则。|
+| [解绑云服务器从负载均衡七层监听器的转发规则](https://cloud.tencent.com/document/product/214/8991) | DeregisterInstancesFromForwardLB | 解绑云服务器从负载均衡七层监听器的转发规则。|
 | [修改绑定到七层监听器的云服务器的端口](https://cloud.tencent.com/document/product/214/8979) | ModifyForwardSeventhBackendsPort | 修改绑定到七层监听器的云服务器的端口。|
 | [修改绑定到七层监听器的云服务器的权重](https://cloud.tencent.com/document/product/214/8978) | ModifyForwardSeventhBackends | 修改绑定到七层监听器的云服务器的权重。|
-| [绑定云服务器到应用型负载均衡四层监听器](https://cloud.tencent.com/document/product/214/8989) | RegisterInstancesWithForwardLBFourthListener | 绑定云服务器到应用型负载均衡四层监听器。|
-| [解绑云服务器从应用型负载均衡四层监听器](https://cloud.tencent.com/document/product/214/8992) | DeregisterInstancesFromForwardLBFourthListener | 解绑云服务器从应用型负载均衡四层监听器。|
+| [绑定云服务器到负载均衡四层监听器](https://cloud.tencent.com/document/product/214/8989) | RegisterInstancesWithForwardLBFourthListener | 绑定云服务器到负载均衡四层监听器。|
+| [解绑云服务器从负载均衡四层监听器](https://cloud.tencent.com/document/product/214/8992) | DeregisterInstancesFromForwardLBFourthListener | 解绑云服务器从负载均衡四层监听器。|
 | [修改绑定到四层监听器的云服务器的端口](https://cloud.tencent.com/document/product/214/8984) | ModifyForwardFourthBackendsPort | 修改绑定到四层监听器的云服务器的端口。|
 |[ 修改绑定到四层监听器的云服务器的权重](https://cloud.tencent.com/document/product/214/8981) | ModifyForwardFourthBackendsWeight | 修改绑定到四层监听器的云服务器的权重。|
 
@@ -101,10 +101,10 @@
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------
-| [查询应用型负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9016) | DescribeRewrite | 查询应用型负载均衡的重定向关系。|
-|[ 删除应用型负载均衡的重定向关系 ](https://cloud.tencent.com/document/product/214/9014)| DeleteRewrite | 删除应用型负载均衡的重定向关系。|
-| [手动添加应用型负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9015) | ManualRewrite | 手动添加应用型负载均衡的重定向关系。|
-| [自动生成应用型负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9017) | AutoRewrite | 自动生成应用型负载均衡的重定向关系。|
+| [查询负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9016) | DescribeRewrite | 查询负载均衡的重定向关系。|
+|[ 删除负载均衡的重定向关系 ](https://cloud.tencent.com/document/product/214/9014)| DeleteRewrite | 删除负载均衡的重定向关系。|
+| [手动添加负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9015) | ManualRewrite | 手动添加负载均衡的重定向关系。|
+| [自动生成负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9017) | AutoRewrite | 自动生成负载均衡的重定向关系。|
 
 
 
