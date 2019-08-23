@@ -3,7 +3,7 @@ SSH 密钥允许您在您的电脑和腾讯 Git 代码托管（工蜂）之间
 ### 生成 SSH 公钥
 您可以按照如下命令生成 SSH Keys：
 ```
-ssh-keygen -t rsa -C "您的账号 ID@git.cloud.tencent.com"
+ssh-keygen -t rsa -C "您的账号ID@git.cloud.tencent.com"
 ```
 
 然后按三次回车即可生成 SSH Key，并且会生成两个文件。其中 id_rsa.pub 文件中的内容便是公钥。
