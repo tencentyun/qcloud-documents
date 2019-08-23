@@ -1,6 +1,6 @@
 ## 创建 SDK 实例
 ### Web 项目
-```javascript
+```
 import TIM from 'tim-js-sdk';
 // 发送图片、文件等消息需要的 COS SDK
 import COS from "cos-js-sdk-v5";
@@ -17,7 +17,7 @@ tim.registerPlugin({'cos-js-sdk': COS});
 
 ### 小程序项目
 
-```javascript
+```
 import TIM from 'tim-wx-sdk';
 // 发送图片、文件等消息需要的 COS SDK
 import COS from "cos-wx-sdk-v5";
@@ -33,13 +33,13 @@ tim.registerPlugin({'cos-wx-sdk': COS});
 ```
 
 ## 设置日志级别
-```javascript
-// 设置 SDK 日志输出级别为 release 级别（详细分级请参考 setLogLevel 接口的说明）
+<pre>
+// 设置 SDK 日志输出级别为 release 级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
 tim.setLogLevel(1);
-```
+</pre>
 
 ## 事件绑定
-```javascript
+<pre>
 // 监听事件，例如：
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // 收到推送的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
@@ -62,7 +62,7 @@ tim.on(TIM.EVENT.GROUP_LIST_UPDATED, function(event) {
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECERIVED, function(event) {
   // 收到新的群系统通知
   // event.name - TIM.EVENT.GROUP_SYSTEM_NOTICE_RECERIVED
-  // event.data.type - 群系统通知的类型，详见 TIM.TYPES.GROUP_SYSTEM_NOTICE_TYPES 的枚举值说明
+  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload"> operationType 枚举值说明</a>
   // event.data.message - Message 对象，可将 event.data.message.content 渲染到到页面
 });
 
@@ -100,6 +100,6 @@ tim.on(TIM.EVENT.KICKED_OUT, function(event) {
   // event.name - TIM.EVENT.KICKED_OUT
   // event.data.type - 被踢下线的原因，例如 TIM.TYPES.KICKED_OUT_MULT_ACCOUNT 多账号登录被踢
 });
-```
+</pre>
 
 更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
