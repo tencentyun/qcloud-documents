@@ -1,6 +1,6 @@
 ## 概要信息
 
-Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写COS/CFS路径，相比http 方式访问COS bucket 或者 文件，会稍有差异，详细见下。
+Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写COS/CFS路径，相比 http 方式访问 COS bucket 或者 文件，会稍有差异，详细见下。
 
 ## 1. COS路径说明
 
@@ -14,7 +14,7 @@ COS 支持访问域名包含适用于 XML API 和 JSON API 的两种，Batch 填
 
 ![](https://mc.qcloudimg.com/static/img/9e0e71c620551fd4271f5e026978d068/1.png)
 
-比如上图的地址，在Batch 的路径填写里，需要添加 cos:// 开头，具体形式见下
+比如上图的地址，在 Batch 的路径填写里，需要添加 cos:// 开头，具体形式见下
 
 ``` 
 cos://testbatch-1252462967.cos.ap-beijing-1.myqcloud.com/ 
@@ -38,13 +38,13 @@ COS 是具有地域属性的，需要保证您的 Batch 作业和 COS Bucket 在
 
 ## 2. CFS路径说明
 
-远程存储映射里，可以配置自动挂载CFS / NAS 路径到本地路径。
+远程存储映射里，可以配置自动挂载 CFS / NAS 路径到本地路径。
 
 ![](https://mc.qcloudimg.com/static/img/7721d8b14f775055615d430528008cb9/3.png)
 
 ### 前缀需要以 cfs:// 或 nfs:// 开头
 
-比如上图的地址，在Batch 的路径填写里，需要添加 cfs:// 或者 nfs:// 开头，具体形式见下
+比如上图的地址，在 Batch 的路径填写里，需要添加 cfs:// 或者 nfs:// 开头，具体形式见下
 
 ``` 
 cfs://10.66.140.208/ 

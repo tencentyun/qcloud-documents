@@ -4,9 +4,9 @@
 ## 版本下载
 您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 可以联系商务获取）， 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个 so 文件，替换工程中的非特权版 jar 和 so 文件即可。
 
->? 区分特权版与非特权版，可以查看 SDK 的 bundler id。
-> - bundler id 为 com.tencent.TXRTMPSDK 表示非特权版。
-> - bundler id 为 com.tencent.TXRTMPSDK.pitu 表示特权版。
+>? 区分特权版与非特权版，可以查看 SDK 的 Bundle ID。
+> - Bundle ID 为 com.tencent.TXRTMPSDK 表示非特权版。
+> - Bundle ID 为 com.tencent.TXRTMPSDK.pitu 表示特权版。
 
 ## <span id="jump">Xcode 工程设置</span>
 
@@ -39,7 +39,7 @@
 获得 License 后，将其命名为 **YTFaceSDK.license**，并添加到工程的 assets 目录下。
 
 >?
-> - 每个 License 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+> - 每个 License 都有绑定具体的 package name，修改 App 的 package name 会导致验证失败。
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
 > - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 Bundle ID 和一个 Android 的 packageName。
 

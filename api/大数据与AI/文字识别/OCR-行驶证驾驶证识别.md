@@ -1,7 +1,13 @@
+
+>!
+- 行驶证驾驶证识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版行驶证识别](https://cloud.tencent.com/document/product/866/36209) 和 [新版驾驶证识别](https://cloud.tencent.com/document/product/866/36213)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[行驶证驾驶证识别](https://console.cloud.tencent.com/ai/ocr/drivinglicence)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版行驶证识别](https://cloud.tencent.com/document/product/866/36209) 和 [新版驾驶证识别](https://cloud.tencent.com/document/product/866/36213)，体验更优服务。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/drivinglicence`
 本接口（drivinglicence）用于根据用户上传的图像，识别出行驶证或驾驶证的各字段信息。开发者使用功能之前，需要先注册腾讯云账号，添加密钥。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 
@@ -12,7 +18,7 @@
 | content-type   | 是| application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数 url 或 image，其值为图片链接或图片 base64编码；<br/>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。 |
 | authorization  | 是 | 鉴权签名                             | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。|
 
->!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
+>?如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
 
 ## 输入参数
 使用 multipart/form-data 格式，参数选择 image ；使用 application/json 格式，参数选择 url 或 base64。

@@ -1,4 +1,4 @@
-LoadBalance 团队在4月推出**公网应用型 LB** 能力：自定义重定向。该能力可解决两大难题：
+LoadBalance 团队在4月推出**公网应用型 CLB** 能力：自定义重定向。该能力可解决两大难题：
 1. 强制 HTTPS
 PC、手机浏览器等以 HTTP 请求访问 Web 服务，LoadBalance 代理后，返回 HTTPS 的 respond。默认强制以 HTTPS 访问网页。
 2. 自定义重定向
@@ -42,7 +42,7 @@ server {
 ```
 
 #### CLB 代理 HTTPS
-1. 上述架构中，CLB 的主要作用是对 HTTPS 进行代理，因此无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。此时，**客户端到 LB 时如果为 HTTPS 协议，则采用加密传输的方式，但 LB 到后端服务器依然是明文传输。**此时，开发者无法分辨出前端的请求是 HTTP 还是 HTTPS。
+1. 上述架构中，CLB 的主要作用是对 HTTPS 进行代理，因此无论是 HTTP 还是 HTTPS 请求，到了 CLB 转发给后端 CVM 时，都是 HTTP 请求。此时，**客户端到 CLB 时如果为 HTTPS 协议，则采用加密传输的方式，但 CLB 到后端服务器依然是明文传输。**此时，开发者无法分辨出前端的请求是 HTTP 还是 HTTPS。
 2. 为了解决这个问题，腾讯云 CLB 在将请求转发给后端 CVM 时，头部 header 会植入 X-Client-Proto，从而便于开发者依据 header 内容判断请求类型：
  - X-Client-Proto: HTTP （前端为 HTTP 请求）。
  - X-Client-Proto: HTTPS （前端为 HTTPS 请求）。
@@ -55,7 +55,7 @@ server {
 ### CLB 强制 HTTP 跳转方案
 #### 方案说明
 假定开发者需要配置网站`https://example.com` 。开发者希望用户在浏览器中输入网址时，直接键入`www.example.com`即可通过 HTTPS 协议安全访问。`www.example.com` 下，不仅仅是一个地址，后端关联的 URL 可能有数百的（用正则匹配），总的 real server 数量会有几百个，逐一配置难度太大。腾讯云支持一键式的，强制 HTTPS 跳转。
-1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 LB 的 HTTPS 监听器的配置，搭建`https://example.com`的 Web 环境。
+1. 请在 [腾讯云负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1) 完成 CLB 的 HTTPS 监听器的配置，搭建`https://example.com`的 Web 环境。
 ![](https://main.qcloudimg.com/raw/634b11258bfdfee45568062f8c3bf651.png)
 2. 完成 HTTPS 配置后的结果如下图所示。
 ![](https://main.qcloudimg.com/raw/f11a1c39ea720f8476b29e97a57c3999.png)

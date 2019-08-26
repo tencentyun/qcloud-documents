@@ -26,7 +26,7 @@ $ python setup.py install
 | 接口名称 | 接口功能                            |
 | :--- | :------------------------------------ |
 | [CreateFunction](https://cloud.tencent.com/document/api/583/18586)   | 创建函数          |
-| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数范        |
+| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数        |
 | [GetFunction](https://cloud.tencent.com/document/api/583/18584)      | 获取函数详细信息   |
 | [GetFunctionLogs](https://cloud.tencent.com/document/api/583/18583)  | 获取函数运行日志   |
 | [Invoke](https://cloud.tencent.com/document/api/583/17243)           | 运行函数          |

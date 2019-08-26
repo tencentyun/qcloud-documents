@@ -90,7 +90,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 
 -  **如何获取可用的推流 URL**
 >开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/7bc0eed15c9886c049862e8ba2324d19.png)
+>![](https://main.qcloudimg.com/raw/35d5b0bb095fce48f5b268de91a818d8.png)
 
 - **返回 -5 的原因**
 >如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置   License 授权”中的工作是否有问题。
@@ -135,11 +135,11 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 ```
 
 ### 9. 色彩滤镜效果
-调用 TXLivePush 中的`setFilter`接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，比如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。
+调用 TXLivePush 中的`setFilter`接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，例如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。
 
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
-从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多遍的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
+从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多遍的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
 
 ![](https://main.qcloudimg.com/raw/850bb60b66c487029e197b0b5dab9e2d.jpg)
 
@@ -193,7 +193,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 该功能也常用于 App 被切到后台时：在 iOS 系统中，当 App 切到后台以后，操作系统不再允许该 App 继续采集摄像头画面。 此时就可以通过调用`pausePush`进入垫片状态。因为对于大多数直播 CDN 而言，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器就会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
 
-![](https://main.qcloudimg.com/raw/d7152e55b484ec4b4e63a9f21c1d8fac.jpg)
+![](https://main.qcloudimg.com/raw/5985b8c837ad62c05550fc0380489a69.jpg)
 
 - **step1: 开启 XCode 中的 Background 模式**
 ![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
@@ -213,22 +213,22 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 ```
 
 - **step3: 监听 App 的前后台切换事件**
-如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将就无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
+如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
 ```objectivec
     // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackGround:)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
 		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
     // 注册 App 被切回前台的处理函数 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
 		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
     // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackGround:(NSNotification *)notification {
+    -(void)onAppDidEnterBackground:(NSNotification *)notification {
         [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
         _appIsBackground = YES;
         [_pusher pausePush];
     }
     // App 被切回前台的处理函数																			 
-    -(void)onAppDidEnterBackGround:(NSNotification *)notification {
+    -(void)onAppWillEnterForeground:(NSNotification *)notification {
         if (_appIsBackground ){
             [_pusher resumePush];
         }
@@ -261,7 +261,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由`watermarkNormalization`选项决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.1, 水印高度会被自动计算）。
+- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为： (540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```objectivec
 //设置视频水印
@@ -271,7 +271,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 ### 17. 本地录制
 调用 TXLivePush 中的`startRecord`接口可以启动本地录制，录制格式为 MP4，通过参数 `videoPath` 可以指定 MP4文件的存放路径。
-调用 TXLivePush 中的`stopRecord`接口可以结束录制。如果您已经通过 `recordDelegate` 接口注册监听器给 TXLivePusher，那么一旦录制结束，录制出来的文件会通过 `TXLiveRecordListener` （详见 TXLiveRecordTypeDef.h 头文件）回调通知出来。
+调用 TXLivePush 中的`stopRecord`接口可以结束录制。如果您已经通过 `recordDelegate` 接口注册了监听器给 TXLivePusher，那么一旦录制结束，录制出来的文件会通过 `TXLiveRecordListener` （详见 TXLiveRecordTypeDef.h 头文件）回调通知出来。
 
 ```objectivec
 -(int) startRecord:(NSString *)videoPath;
@@ -280,7 +280,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 >! 
 >1. 录制过程中请勿动态切换视频分辨率和软硬编，这会导致生成的视频异常。
->2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，腾讯云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 18. 主播端弱网提醒
 
@@ -325,7 +325,7 @@ NSString* msg = @"test";
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档 “[错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件有（例如，收到1003就意味着摄像头的画面开始渲染）：
@@ -333,7 +333,7 @@ SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错�
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器。|
-|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流。|
+|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕，一切正常，准备开始推流。|
 |PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（部分 Android 手机在此过程需要耗时1s - 2s）。| 
 
 ### 3. 错误通知 
@@ -361,7 +361,7 @@ SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝�
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻。|
-|PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)。|
+|PUSH_WARNING_RECONNECT           |  1102| 网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）。|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码。|
 |PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP - DNS 解析失败（会触发重试流程）。        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）。  |

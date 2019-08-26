@@ -13,7 +13,7 @@ Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查�
 
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Hive 组件，并且在基础配置页面勾选“开启 COS”，在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
 
-- Hive 等相关软件安装在路径 EMR 云服务器的·`/usr/local/service/`路径下。
+- Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
 ## 2. 准备数据
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
@@ -44,14 +44,14 @@ done
 
 这个脚本文件会生成1000000个随机数对，并且保存到文件 hive_test.data 中。
 使用如下指令把生成的测试数据先上传到 HDFS 中：
-
-`[hadoop@172 hive]$ hdfs dfs -put ./hive_test.data /$hdfspath`
-
+```
+[hadoop@172 hive]$ hdfs dfs -put ./hive_test.data /$hdfspath
+```
 其中 $hdfspath 为 HDFS 上的您存放文件的路径。
 也可以使用 COS 上面的数据。将数据上传到 COS 中，如果数据在本地，那么可以使用 COS 控制台来上传数据。如果数据在 EMR 集群，那么使用如下指令来上传数据：
-
-`[hadoop@172 hive]$ hdfs dfs -put ./hive_test.data cosn://$bucketname/`
-
+```
+[hadoop@172 hive]$ hdfs dfs -put ./hive_test.data cosn://$bucketname/
+```
 其中 $bucketname 为您创建的 COS 桶名。
 
 ## 3. Hive 基础操作
@@ -64,7 +64,7 @@ done
 [hadoop@172 bin]$ hive
 ```
 用户也可以使用`-h`参数来获取 Hive 指令的基本信息。
-也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中, 获得 hive server2 的连接端口 $port 和 host 地址 $hos：
+也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中，获得 hive server2 的连接端口 $port 和 host 地址 $hos：
 
 ```
 <property>
@@ -117,7 +117,7 @@ hive> ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
 OK
 Time taken: 0.204 seconds
 ```
-注意这里只有一条指令，如果不输入分号 “;”，Hive-SQL 可以把一条指令放在多行输入。
+**这里只有一条指令，如果不输入分号“;”，Hive-SQL 可以把一条指令放在多行输入。**
 最后可以用以下指令查看表是否创建成功：
 
 ```
@@ -129,19 +129,19 @@ Time taken: 0.176 seconds, Fetched: 1 row(s)
 
 ### 将数据导入表中
 对于存放在 HDFS 中的数据，使用如下指令来将其导入表中：
-
-`hive> load data inpath "/$hdfspath/hive_test.data" into table hive_test;`
-
+```
+hive> load data inpath "/$hdfspath/hive_test.data" into table hive_test;
+```
 其中 $hdfspath 为 HDFS 上的您存放文件的路径。导入完成后，HDFS 上导入路径上的源数据文件将会被删除。
 对于存放在 COS 中的数据，使用如下指令来将其导入表中：
-
-`hive> load data inpath "cosn://$bucketname/hive_test.data" into table hive_test;`
-
+```
+hive> load data inpath "cosn://$bucketname/hive_test.data" into table hive_test;
+```
 其中 $bucketname 为您的 COS 桶名加桶内存放数据的路径。同样在导入完成之后，COS 导入路径上的源数据文件将会被删除。
 也可以将存放在 EMR 集群本地的数据导入到 Hive 中，使用如下指令：
-
-`hive>load data local inpath "/$localpath/hive_test.data" into table hive_test;`
-
+```
+hive>load data local inpath "/$localpath/hive_test.data" into table hive_test;
+```
 其中 $localpath 为您的 EMR 集群本地存放数据的路径。导入完成后，源数据会被删除。
 
 ### 执行查询

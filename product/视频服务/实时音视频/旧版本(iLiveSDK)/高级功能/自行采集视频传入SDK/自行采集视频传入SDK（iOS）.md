@@ -44,7 +44,7 @@
 |captureOutput: didOutputSampleBuffer: fromConnection:|采集画面回调函数，采集到的画面将从这里回吐，用户可在这个接口作预处理|
 
 ### 采集后处理
-接收到系统回吐出的原始数据（`CMSampleBufferRef`类型数据），用户就可以对其做预处理，比如美白，美颜，人脸识别等，预处理之后的画面需要用户自己完成渲染，与ILiveSDK无直接联系，ILiveSDK提供接口，可将 `CMSampleBufferRef` 转换为 SDK所需的QAVFrame类型，再将QAVFrame类型传入SDK中，SDK完成数据传输
+接收到系统回吐出的原始数据（`CMSampleBufferRef`类型数据），用户就可以对其做预处理，例如美白，美颜，人脸识别等，预处理之后的画面需要用户自己完成渲染，与ILiveSDK无直接联系，ILiveSDK提供接口，可将 `CMSampleBufferRef` 转换为 SDK所需的QAVFrame类型，再将QAVFrame类型传入SDK中，SDK完成数据传输
 
 ```
 //ilivesdk提供接口，将CMSampleBufferRef转为QAVVideoFrame对象

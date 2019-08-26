@@ -99,7 +99,7 @@ __介绍__
 
 ### setWatermark
 
-设置水印图片及水印图片位置.。
+设置水印图片及水印图片位置。
 ```
 void setWatermark(Bitmap watermark, float x, float y, float width)
 ```
@@ -109,9 +109,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | watermark | Bitmap | 水印图片。 |
-| x | float | 归一化水印位置的 X 轴坐标，取值[0,1]。 |
-| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1]。 |
-| width | float | 归一化水印宽度，取值[0,1]。 |
+| x | float | 归一化水印位置的 X 轴坐标，取值[0，1]。 |
+| y | float | 归一化水印位置的 Y 轴坐标，取值[0，1]。 |
+| width | float | 归一化水印宽度，取值[0，1]。 |
 
 __介绍__
 
@@ -181,9 +181,9 @@ __参数__
 __介绍__
 
 接口说明：
-- 默认值：TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO
-- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用 [TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig.23setpauseimg.28bitmap) 传入的图片作为画面推流，声音不做暂停，继续录制麦克风或 custom 音频发送
-- TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或 custom 视频数据
+- 默认值：TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO。
+- TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO 表示暂停推流时，采用 [TXLivePushConfig#setPauseImg(Bitmap)](https://cloud.tencent.com/document/product/454/34771#setpauseimg) 传入的图片作为画面推流，声音不做暂停，继续录制麦克风或 custom 音频发送。
+- TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推静音数据，画面数据不做暂停，继续发送摄像头、录屏或 custom 视频数据。
 - TXLiveConstants#PAUSE_FLAG_PAUSE_VIDEO|TXLiveConstants#PAUSE_FLAG_PAUSE_AUDIO 表示暂停推流时，推送暂停图片和静音数据。
 
 ***
@@ -289,7 +289,7 @@ __介绍__
 
 接口说明：
 - 默认值：1000。
-- 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate.28boolean)。
+- 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate)。
 
 ***
 
@@ -310,7 +310,7 @@ __介绍__
 
 接口说明：
 - 默认值：400。
-- 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate.28boolean)。
+- 只有开启码率自适应， 该设置项才能启作用：[setAutoAdjustBitrate(boolean)](https://cloud.tencent.com/document/product/454/34771#setautoadjustbitrate)。
 
 ***
 
@@ -514,14 +514,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | int | SDK 重连间隔,单位秒。 |
+| interval | int | SDK 重连间隔，单位秒。 |
 
 __介绍__
 
 当 SDK 与服务器异常断开连接时，SDK 会尝试与服务器重连，通过此函数来设置两次重连间隔时间。
 接口说明：
-- 默认值：3秒
-- 取值范围：3 - 30 秒。
+- 默认值：3秒。
+- 取值范围：3秒 - 30秒。
 
 ***
 
@@ -543,7 +543,7 @@ __参数__
 __介绍__
 
 接口说明：
-- 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
+- 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：　_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
 - 其他值：详情见 TXLiveConstants 中 CUSTOM_MODE_XXX 。
 
 ***
@@ -629,7 +629,7 @@ __参数__
 
 __介绍__
 
-待废弃，建议直接使用 [TXLivePusher#switchCamera()](https://cloud.tencent.com/document/product/454/34772#txlivepusher.23switchcamera)。
+待废弃，建议直接使用 [TXLivePusher#switchCamera()](https://cloud.tencent.com/document/product/454/34772#switchcamera)。
 
 ***
 
@@ -650,7 +650,7 @@ __参数__
 
 __介绍__
 
-待废弃，建议直接使用 [TXLivePusher#setBeautyFilter(int， int， int， int)](https://cloud.tencent.com/document/product/454/34772#txlivepusher.23setbeautyfilter.28int.2C+int.2C+int.2C+int)。
+待废弃，建议直接使用 [TXLivePusher#setBeautyFilter(int， int， int， int)](https://cloud.tencent.com/document/product/454/34772#setbeautyfilter)。
 
 ***
 
@@ -669,7 +669,7 @@ __参数__
 
 __介绍__
 
-待废弃，建议直接使用 [TXLivePusher#setEyeScaleLevel(int)](https://cloud.tencent.com/document/product/454/34772#txlivepusher.23seteyescalelevel.28int)。。
+待废弃，建议直接使用 [TXLivePusher#setEyeScaleLevel(int)](https://cloud.tencent.com/document/product/454/34772#seteyescalelevel)。
 
 ***
 
@@ -688,13 +688,13 @@ __参数__
 
 __介绍__
 
-待废弃，建议直接使用 [TXLivePusher#setFaceSlimLevel(int)](https://cloud.tencent.com/document/product/454/34772#txlivepusher.23setfaceslimlevel.28int)。
+待废弃，建议直接使用 [TXLivePusher#setFaceSlimLevel(int)](https://cloud.tencent.com/document/product/454/34772#setfaceslimlevel)。
 
 ***
 
 ### setRtmpChannelType
 
-设置RTMP传输通道的类型。
+设置 RTMP 传输通道的类型。
 ```
 void setRtmpChannelType(int type)
 ```
@@ -761,7 +761,4 @@ __参数__
 | funcName | String | 预处理库的函数名。 |
 
 ***
-
-
-
 

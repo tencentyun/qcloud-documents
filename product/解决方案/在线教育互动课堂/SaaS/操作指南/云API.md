@@ -5,6 +5,8 @@
     * [1\.3 修改课堂信息](#13-%E4%BF%AE%E6%94%B9%E8%AF%BE%E5%A0%82%E4%BF%A1%E6%81%AF)
     * [1\.4 查询课堂信息](#14-%E6%9F%A5%E8%AF%A2%E8%AF%BE%E5%A0%82%E4%BF%A1%E6%81%AF)
     * [1\.5 查询课堂列表](#15-%E6%9F%A5%E8%AF%A2%E8%AF%BE%E5%A0%82%E5%88%97%E8%A1%A8)
+    * [1\.6 上课](#16-%E4%B8%8A%E8%AF%BE)
+    * [1\.7 下课](#17-%E4%B8%8B%E8%AF%BE)
   * [2 账号模块](#2-%E8%B4%A6%E5%8F%B7%E6%A8%A1%E5%9D%97)
     * [2\.1 创建账号](#21-%E5%88%9B%E5%BB%BA%E8%B4%A6%E5%8F%B7)
     * [2\.2 修改账号信息](#22-%E4%BF%AE%E6%94%B9%E8%B4%A6%E5%8F%B7%E4%BF%A1%E6%81%AF)
@@ -26,6 +28,16 @@
   * [5 企业模块](#5-%E4%BC%81%E4%B8%9A%E6%A8%A1%E5%9D%97)
     * [5\.1 修改企业信息](#51-%E4%BF%AE%E6%94%B9%E4%BC%81%E4%B8%9A%E4%BF%A1%E6%81%AF)
     * [5\.2 查询企业信息](#52-%E6%9F%A5%E8%AF%A2%E4%BC%81%E4%B8%9A%E4%BF%A1%E6%81%AF)
+  * [6 成员模块](#6-%E6%88%90%E5%91%98%E6%A8%A1%E5%9D%97)
+    * [6\.1 添加课堂预约成员](#61-%E6%B7%BB%E5%8A%A0%E8%AF%BE%E5%A0%82%E9%A2%84%E7%BA%A6%E6%88%90%E5%91%98)
+    * [6\.2 删除课堂预约成员](#62-%%E5%88%A0%E9%99%A4%E8%AF%BE%E5%A0%82%E9%A2%84%E7%BA%A6%E6%88%90%E5%91%98)
+    * [6\.3 成员加入课堂](#63-%E6%88%90%E5%91%98%E5%8A%A0%E5%85%A5%E8%AF%BE%E5%A0%82)
+    * [6\.4 游客加入课堂](#64-%E6%B8%B8%E5%AE%A2%E5%8A%A0%E5%85%A5%E8%AF%BE%E5%A0%82)
+    * [6\.5 成员退出课堂](#65-%E6%88%90%E5%91%98%E9%80%80%E5%87%BA%E8%AF%BE%E5%A0%82)
+    * [6\.6 获取课堂实时成员列表](#66-%E8%8E%B7%E5%8F%96%E8%AF%BE%E5%A0%82%E5%AE%9E%E6%97%B6%E6%88%90%E5%91%98%E5%88%97%E8%A1%A8)
+    * [6\.7 获取课堂实时成员总数](#67-%E8%8E%B7%E5%8F%96%E8%AF%BE%E5%A0%82%E5%AE%9E%E6%97%B6%E6%88%90%E5%91%98%E6%80%BB%E6%95%B0)
+    * [6\.8 获取课堂历史成员列表](#68-%E8%8E%B7%E5%8F%96%E8%AF%BE%E5%A0%82%E5%8E%86%E5%8F%B2%E6%88%90%E5%91%98%E5%88%97%E8%A1%A8)
+    * [6\.9 获取课堂历史成员总数](#69-%E8%8E%B7%E5%8F%96%E8%AF%BE%E5%A0%82%E5%8E%86%E5%8F%B2%E6%88%90%E5%91%98%E6%80%BB%E6%95%B0)
   * [附录](#%E9%99%84%E5%BD%95)
     * [附录1: API公共参数](#%E9%99%84%E5%BD%951-api%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
     * [附录2: API鉴权算法](#%E9%99%84%E5%BD%952-api%E9%89%B4%E6%9D%83%E7%AE%97%E6%B3%95)
@@ -70,11 +82,15 @@ __请求参数__
 | admin_id | string | 云通信管理员ID，互动课堂用它来创建IM群组 | 是 | - |
 | admin_sig | string | 云通信管理员Sig，互动课堂用它来创建IM群组 | 是 | - |
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`, <br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
+| auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
+| auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 否 |  教师ID默认在成员列表中 |
 | role | string | 角色信息，本接口中全部填“student”。需要设置members时此字段必填 | 否 | - |
 | user_id | string | 学生ID。需要设置members时此字段必填 | 否 | - |
 | record_user_id | string | 用于录制的user_id，必须包含前缀"tic_recorduser${room_id}"，其中${room_id}为房间号，<br> 在线录制服务会使用这个user_id进房进行录制房间内的音视频与白板，为了防止进房冲突，请保证此user_id不重复，如果要云端录制，则必填 | 否 | - |
 | record_user_sig | string | 用于录制的record_user_id对应的签名，如果要云端录制，则必填 | 否 | - |
+|max_member_limit|int|最大上麦人数|否|||
 
 __响应参数__ 
 
@@ -98,6 +114,7 @@ request:
   "stop_time": 1558350988,
   "admin_id":"云通信IM管理员ID",
   "admin_sig":"云通信IM管理员鉴权sig",
+  "max_member_limit"：6
   "members": [
     {
       "role": "student",
@@ -110,6 +127,14 @@ request:
   ],
   "settings":{
     "record_types": ["local","remote"],
+    "resolution": "1024x768",
+    "fps": 20,
+    "layout": 1,
+    "record_types": ["local","remote"],
+    "auto_create_im": 1,
+    "bitrate": 850,
+    "auto_open_mic": 0,
+    "auto_open_camera": 0
   }
   "record_user_id":"tic_record_user_1234_01",
   "record_user_sig": "user_sig"
@@ -251,10 +276,13 @@ __响应参数__
 | fps | int | 视频帧率 | 是 | - |
 | layout | int | 客户端互动课堂组件布局模式(使用客户端组件的用户需要关注) | 是 | - |
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`, 在开始上课时，会自动开启云端录制 | 是 | - | 
+| auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
+| auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 是 | - |
 | role | string | 成员角色信息 | 是 | - |
 | user_id | string | 成员id | 是 | - |
-
+|max_member_limit|int|最大上麦人数|否|||
 
 __举例__ 
 
@@ -285,11 +313,15 @@ response
   "member_count":30,
   "chat_group_id":"102304_chat",
   "cmd_group_id":"102304",
+  "max_member_limit":6
   "settings" : {
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
     "record_types": ["remote"]
+    "bitrate": 850,
+    "auto_open_mic": 0,
+    "auto_open_camera": 0
   },
   "members": [
     {
@@ -371,7 +403,58 @@ response
   ]
 }
 ```
+### 1.6 上课
+客户端老师调用，标志着开始上课
 
+|请求基本信息|描述|
+|--|--|
+|方法|POST|
+|请求URL|https://domain/saas/v1/class/start?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
+|header|Content-Type:application/json|
+|鉴权方式|token鉴权|
+
+request
+
+```json
+{
+    "class_id": 1234354
+}
+```
+
+response
+
+```json
+{
+    "error_code": 0,
+    "error_msg": ""
+}
+```
+### 1.7 下课
+客户端老师调用，标志着下课
+一期：可以不调用下课接口，只通过“预约的结束时间”作为下课的唯一判断标示
+
+|请求基本信息|描述|
+|--|--|
+|方法|POST|
+|请求URL|https://domain/saas/v1/class/stop?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
+|header|Content-Type:application/json|
+|鉴权方式|token鉴权|
+
+request
+```json
+{
+    "class_id": 1234354
+}
+```
+
+response
+
+```json
+{
+    "error_code": 0,
+    "error_msg": ""
+}
+```
 ## 2 账号模块
 ### 2.1 创建账号
 __接口__ 
@@ -1227,6 +1310,9 @@ __接口__
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
+| enterprise_id | string | 机构id | 是 | - |
+| sdkappid | int | 腾讯云账号下开通TRTC后，会得到一个唯一的项目标识sdkappid | 是 | - |
+| busi_type | string | 业务类型 | 是 | - |
 | name | string | 企业名字 | 是 | - |
 | contact_user | string | 企业联系人 | 是 | - |
 | phone_no | string | 企业联系人电话 | 是 | 空字符串 |
@@ -1234,10 +1320,13 @@ __接口__
 | create_time | int64 | 企业创建时间,单位秒 | 是 | - |
 | valid_time | int64 | 企业账号有效时间,单位秒 | 是 | - |
 | super_admin | string | 企业超级管理员(需要使用互动课堂控制台的企业需要关注此字段) | 是 | - |
+| icon | string | 企业logo | 是 | 空字符串 |
 | tic_key | string | 互动课堂所有的API鉴权都依赖这个字段，用户需妥善`保密保存` | 是 | - |
+| private_key | string | 腾讯云账号的私钥，用户需要妥善`保密保存` | 是 | - |
+| bizid | int | 腾讯云账号的BIZID | 是 | - |
 | call_back_url | string | 事件回调地址 | 是 | 空字符串 |
-| appid | int | 腾讯云账号下的appid(需要ai功能时需关注) | 是 | 0 |
 | project_id | int | 腾讯云账号下的项目ID(需要ai功能时需关注) | 是 | 0 |
+| appid | int | 腾讯云账号下的appid(需要ai功能时需关注) | 是 | 0 |
 | secret_id | string | 腾讯云账号下的密钥对ID(需要ai功能时需关注) | 是 | 空字符串 |
 | secret_key | string | 腾讯云账号下的密钥对KEY(需要ai功能时需关注) | 是 | 空字符串 |
 
@@ -1257,6 +1346,9 @@ response
 {
     "error_code": 0,
     "error_msg": "",
+    "enterprise_id": 10001,
+    "sdkappid": 14000000,
+    "busi_type": "saas",
     "name": "XX教育机构",
     "contact_user":"张三",
     "phone_no":"133xxxxxxxx",
@@ -1264,7 +1356,10 @@ response
     "create_time":1559094591,
     "valid_time":31536000,
     "super_admin":"adminid",
+    "icon": "",
     "tic_key":"xxxxx",
+    "private_key": "xxxxx",
+    "bizid": 1234,
     "call_back_url":"https://xxx/yyy",
     "appid":0,
     "project_id":0,
@@ -1273,6 +1368,517 @@ response
 }
 ```
 
+## 6 成员模块
+### 6.1 添加课堂预约成员
+__接口__ 
+
+| 接口名称 | `/member/add` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/add?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| list | Array[info] | 要增加的成员数组，数组中是用户信息 | 是 | - |
+| user_id | string | 用户ID | 是 | - |
+| role | string | 用户角色 | 是 | - |
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+ __举例__ 
+
+request
+
+```json
+{
+	"class_id": 1234354,
+	"list": [
+		{
+			"user_id": "user1",
+			"role": "stduent"
+		},
+		{
+			"user_id": "user2",
+			"role": "teacher"
+		}
+	]
+}
+```
+
+response
+
+```json
+{
+    "error_code": 0,
+    "error_msg": ""
+}
+```
+
+### 6.2 删除课堂预约成员
+__接口__ 
+
+| 接口名称 | `/member/delete` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/delete?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| list | Array[string] | 要删除的成员数组,数组中是成员ID | 是 | - |
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+ __举例__ 
+
+request
+
+```json
+{
+
+	"class_id": 1234354,
+	"list": [
+		"user1",
+		"user2",
+	]
+}
+```
+
+response
+
+```json
+{
+    "error_code": 0,
+    "error_msg": ""
+}
+```
+
+### 6.3 成员加入课堂
+__接口__ 
+
+| 接口名称 | `/member/join` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/join?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| user_id | string | 用户ID | 是 | - |
+| password | string | 课堂密码 | 否 | - |
+| camera | int | 摄像头状态 1-打开/0-关闭 | 否 | 0 |
+| mic | int | 麦克风状态 1-打开/0-关闭 | 否 | 0 |
+| speaker | int | 扬声器状态 1-打开/0-关闭 | 否 | 0 |
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| role | string | 成员在本课堂中的角色 | 是 | - |
+|history_camera|int|用户在该课堂上一次摄像头的状态 (0:关闭 1:打开 -1:未知)|是|
+|history_mic|int|用户在该课堂上一次麦克风的状态 (0:关闭 1打开 -1:未知)|是|
+|history_speaker|int|用户在该课堂上一次扬声器的状态 (0:关闭 1:打开 -1:未知)|是|
+|history_silence|int|用户在该课堂上一次禁言状态 (0:未禁言 1:禁言 -1:未知)|是|
+|history_hand_up|int|用户在该课堂上一次举手状态 (0:未举手 1:举手 -1:未知)|是|
+
+ __举例__ 
+ 
+ request
+ 
+```json
+{
+	"class_id":12345,
+	"user_id":"xxx",
+	"password": "",
+	"camera": 1,
+	"mic": 1,
+	"speaker": 1
+}
+```
+
+response
+
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "role":"student",
+	"history_camera":0,
+	"history_mic":0,
+	"history_speaker":0,
+	"history_silence":0,
+	"history_hand_up":0
+}
+```
+
+### 6.4 游客加入课堂
+__接口__ 
+
+| 接口名称 | `/member/visitor/join` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/visitor/join?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+
+| class_id | int | 课堂ID | 是 | - |
+| password | string | 课堂密码 | 否 | - |
+| nickname | string | 游客昵称 | 否 | 用户ID |
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| visitor_info | Object | 互动课堂自动生成的游客信息 | 是 | - |
+| user_id | string | 游客ID | 是 | - |
+| user_token | string | 游客互动课堂票据(使用互动课堂API时需要) | 是 | - |
+| user_sig | string | 游客IM鉴权票据(登录IM时需要)，有效期24小时 | 是 | - |
+
+ __举例__ 
+
+ request
+ 
+```json
+{
+	"class_id":12345,
+	"password": "",
+	"nickname":"游客昵称"
+}
+```
+
+response
+
+```
+{
+	 "error_code":0,
+	"error_msg":"",
+	"visitor_info": {
+		"user_id":"游客ID",
+		"user_token":"互动课堂票据",
+		"user_sig":"IM票据"
+	}
+}
+```
+
+### 6.5 成员退出课堂
+__接口__ 
+
+| 接口名称 | `/member/quit` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/quit?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| user_id | string | 用户ID | 是 | - |
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+ __举例__ 
+ 
+ request
+ 
+```json
+{
+	"class_id":12345,
+	"user_id":"xxx"
+}
+```
+
+response
+```
+{
+    "error_code":0,
+    "error_msg":""
+}
+```
+
+### 6.6 获取课堂实时成员列表
+__接口__ 
+
+| 接口名称 | `/member/runtime/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/runtime/list?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | 0
+| index | int | 分段拉取分页索引 | 否 | 0
+| size | int | 分段拉取分页大小(最大100) | 否 | 100
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| finish | bool | 是否拉取完所有成员 | 是 | - |
+| total | string | 实时成员总数 | 是 | - |
+| list | Array | 成员信息数组 | 是 | 空数组 |
+| user_id | string | 用户ID | 是 | - |
+| nickname | string | 用户昵称 | 是 | - |
+| gender | string | 用户性别 | 是 | - |
+| avatar | string | 用户头像URL | 是 | - |
+| enter_time | int64 | 用户进房时间 | 是 | - |
+| role | string | 用户角色 | 是 | - |
+| Status | Object | 用户的一些状态信息 | 是 | - |
+| camera | int | 用户摄像头状态 1-打开/0-关闭 | 是 | - |
+| mic | int | 用户麦克风状态 1-打开/0-关闭 | 是 | - |
+| speaker | int | 用户扬声器状态 1-打开/0-关闭 | 是 | - |
+| silence | int | 用户是否被禁言 1-被禁言/0-未被禁言 | 是 | - |
+| hand_up | int | 用户是否正在举手 1-举手/0-未举手 | 是 | - |
+
+
+ __举例__ 
+ 
+ request
+ 
+```json
+{
+	"class_id":12345,
+	"index":0,
+	"size":20
+}
+```
+
+response
+
+```json
+{
+	"error_code":0,
+	"error_msg":"",
+	"finish":true,
+	"total":1,
+	"list":[
+		{
+			"user_id":"xxx",
+			"nickname":"昵称",
+			“gender”:"male",
+			"avatar":"https://xxxx/head.png",
+			"enter_time": 1550546356,
+			"role":"student",
+			"status": {
+				"camera": 1,
+				"mic": 1,
+				"speaker": 1,
+				"silence": 0,
+				"hand_up":1,
+			}
+		}
+	]
+}
+```
+
+### 6.7 获取课堂实时成员总数
+__接口__ 
+
+| 接口名称 | `/member/runtime/total` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/runtime/total?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | 0
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| total | string | 实时成员总数 | 是 | - |
+
+ __举例__ 
+ 
+ request
+ 
+```json
+{
+	"class_id":1000001234
+}
+```
+
+response
+
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "total":20
+}
+```
+
+### 6.8 获取课堂历史成员列表
+
+历史成员与实时成员的区别：
+1、历史成员中不包含`游客`
+2、历史成员信息中有“退房时间“
+3、历史成员信息中**没有**”成员状态信息“
+
+__接口__ 
+
+| 接口名称 | `/member/history/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/history/list?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | 0
+| index | int | 分段拉取分页索引 | 否 | 0
+| size | int | 分段拉取分页大小(最大100) | 否 | 100
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| finish | bool | 是否拉取完所有课堂 | 是 | - |
+| total | string | 实时成员总数 | 是 | - |
+| list | Array | 成员信息数组 | 是 | 空数组 |
+| user_id | string | 用户ID | 是 | - |
+| nickname | string | 用户昵称 | 是 | - |
+| gender | string | 用户性别 | 是 | - |
+| avatar | string | 用户头像URL | 是 | - |
+| enter_time | int64 | 用户进房时间 | 是 | - |
+| quit_time | int64 | 用户退房时间 | 是 | - |
+| role | string | 用户角色 | 是 | - |
+|history_camera|int|用户在该课堂上一次摄像头的状态 (0:关闭 1:打开 -1:未知)|是|
+|history_mic|int|用户在该课堂上一次麦克风的状态 (0:关闭 1打开 -1:未知)|是|
+|history_speaker|int|用户在该课堂上一次扬声器的状态 (0:关闭 1:打开 -1:未知)|是|
+|history_silence|int|用户在该课堂上一次禁言状态 (0:未禁言 1:禁言 -1:未知)|是|
+|history_hand_up|int|用户在该课堂上一次举手状态 (0:未举手 1:举手 -1:未知)|是|
+ __举例__ 
+ 
+  request
+ 
+```json
+{
+
+	"class_id":12345,
+	"index":0,
+	"size":20
+}
+```
+
+response
+
+```json
+{
+	"error_code":0,
+	"error_msg":"",
+	"finish":true,
+	"total":1,
+	"list":[
+		{
+			"user_id":"xxx",
+			"nickname":"昵称",
+			"gender":"male",
+			"avatar":"https://xxxx/head.png",
+			"enter_time": 1550546356,
+			"quit_time": 1550548573,
+			"role":"student",
+			"history_camera":0,
+			"history_mic":0,
+			"history_speaker":0,
+			"history_silence":0,
+			"history_hand_up":0
+		}
+	]
+}
+```
+
+### 6.9 获取课堂历史成员总数
+__接口__ 
+
+| 接口名称 | `/member/history/total` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/history/total?公共参数` |
+
+ __请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | 0
+
+ __响应参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+| total | string | 实时成员总数 | 是 | - |
+
+ __举例__ 
+
+ request
+ 
+```json
+{
+	"class_id":1000001234
+}
+```
+
+response
+
+```
+{
+    "error_code":0,
+    "error_msg":"",
+    "total":20
+}
+```
 ## 附录
 
 ### 附录1: API公共参数

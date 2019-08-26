@@ -8,7 +8,7 @@
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，进入 Hbase 文件夹并进入 Hbase shell：
 ```
-[root@172 ~]# su Hadoop
+[root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hbase
 [hadoop@10hbase]$ bin/hbase shell
 ```

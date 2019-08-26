@@ -2,22 +2,24 @@
 
 COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用于生成请求签名。您可以在工具页面上填入指定的参数，生成请求签名，以及校验请求签名的正确性。
 - 目前 COS 存在 XML 和 JSON 两个不同版本的 API，两类 API 的签名入参有所差异，COS 推荐您使用 XML 版本的 API。JSON API 是腾讯云 COS 服务在推出 XML API 前为用户提供接入使用 COS 的 API 接口，接口与标准 XML 的 API 底层架构相同，数据互通，可以交叉使用，但是接口不兼容。
-- 有关 XML 版本的签名介绍文档，可参阅 XML 版本 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
-- 有关 JSON 版本的签名介绍文档，可参阅 JSON 版本 [请求签名](https://cloud.tencent.com/document/product/436/6054)。
+- 有关 XML 版本的签名介绍文档，请参见 XML 版本 [请求签名](https://cloud.tencent.com/document/product/436/7778)。
+- 有关 JSON 版本的签名介绍文档，请参见 JSON 版本 [签名算法](https://cloud.tencent.com/document/product/436/6054)。
 
 ## 工具地址
 
 单击进入 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)。
 
 ## 使用方法
+### XML 版本签名工具
 
 #### 输入基础配置信息
-
-在 “基础信息” 栏中，填写 API 版本及签名有效时间。如下图所示：
+1. 单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
+2. 在 “基础信息” 栏中，选择 API 版本，填写签名有效时间。
+	- API 版本：选择 XML 版本 API。
+	- 签名有效时间：签名的有效时间。您可以单击【获取（60分钟有效期）】，即可获取一个有效时长为60分钟的签名。也可以自行输入一个有效的起止时间用于复现在该起止时间下的签名结果。相关签名有效时间的介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E7.AD.BE.E5.90.8D.E5.86.85.E5.AE.B9)。
 ![avatar](https://main.qcloudimg.com/raw/6855a2f6b18779037090e0769303bbc7.png)
-基础信息中的参数均为必填项
-- API 版本：选择 XML 版本 API。
-- 签名有效时间：签名的有效时间。您可以单击【获取】，即可获取一个有效时长为 60 分钟的签名。也可以自行输入一个有效的起止时间用于复现在该起止时间下的签名结果。相关签名有效时间的介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E7.AD.BE.E5.90.8D.E5.86.85.E5.AE.B9)。
+>?基础信息中的参数均为必填项。
+
 
 #### 输入 API 密钥信息
 
@@ -53,12 +55,12 @@ COS 签名工具将分别展示生成的最终签名及计算签名过程中的�
 #### 输入基础配置信息
 
 1. 单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
-2. 在 “基础信息” 栏中，填写 API 版本、存储桶名称以及当前时间。如下图所示：
+2. 在 “基础信息” 栏中，填写 API 版本、存储桶名称以及当前时间。
+	- API 版本：选择 JSON 版本 API。
+	- 存储桶名称：填写需要访问的存储桶名称，格式如 bucketname-appid。
+	- 当前时间：目前系统的时间，是一个符合 Unix Epoch 时间戳规范的数值，单位为秒。您也可以填入一个指定的时间用于复现在指定时间戳下的签名结果。
 ![avatar](https://main.qcloudimg.com/raw/8b764cd2bef9d2d64a3b8faeb26afff1.png)
-API 密钥中的信息均为必填项。
-- API 版本：选择 JSON 版本 API。
-- 存储桶名称：填写需要访问的存储桶名称，格式如：bucketname-appid。
-- 当前时间：目前系统的时间，是一个符合 Unix Epoch 时间戳规范的数值，单位为秒；您也可以填入一个指定的时间用于复现在指定时间戳下的签名结果。
+>?API 密钥中的信息均为必填项。
 
 #### 输入 API 密钥信息
 
@@ -71,9 +73,9 @@ API 密钥中的信息均为必填项。
 在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/621bd5458b8da2dcfc6eea7d707fecbb.png)
 主要参数如下：
-- **ExpiredTime：**必选项。签名的失效时间，单位为秒。您可以在【当前时间】的参数上加上一个有效时长，得到签名的失效时间。**单次签名时，失效时间必须设置为 0**。
-- **RandomId：**必选项。无符号 10 进制整数的随机串。
-- **FilePath：**可选项。标识存储资源的相对路径。格式如：/[dirname]/[filename]。
+- **ExpiredTime：**必选项。签名的失效时间，单位为秒。您可以在【当前时间】的参数上加上一个有效时长，得到签名的失效时间。**单次签名时，失效时间必须设置为0**。
+- **RandomId：**必选项。无符号10进制整数的随机串。
+- **FilePath：**可选项。标识存储资源的相对路径。格式如：`/[dirname]/[filename]`。
    -  当操作对象为文件夹时，filename 缺省。filename 中要包含文件后缀名。
    -  当 FilePath 为空时，生成的请求签名将适用于访问存储桶内所有对象。
  

@@ -27,5 +27,5 @@
 | bankcardNo        |String       | 银行卡识别结果：银行卡号                         |
 | bankcardValidDate |String       | 银行卡识别结果：银行卡有效时间                      |
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
-|multiWarningCode | String | 多重告警码，含义请参考 [通用响应码列表](https://cloud.tencent.com/document/product/655/32309) |
+|multiWarningCode | String | 多重告警码，含义请参考 [错误码](https://cloud.tencent.com/document/product/1007/31082) |
 | clarity       | String | 图片清晰度                |
