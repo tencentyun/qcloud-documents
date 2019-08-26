@@ -55,8 +55,6 @@ Runtime: python3.6
 [*] Project initialization is complete
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
->?此命令会在当前目录下创建 testscf 函数。
->
 3. 您可以根据实际需求执行以下命令，指定函数的 runtime 和名称。
 ```bash
 $ scf init --runtime nodejs8.9 --name testscf
