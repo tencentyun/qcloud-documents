@@ -1,6 +1,6 @@
 ### COS 文件更新（重新上传或删除）时，CDN 仍然保存缓存内容，造成与源站不一致。能否在 COS 更新时自动刷新 CDN 的缓存？
 
-COS 本身不支持自动刷新 CDN 缓存，您可以联合无服务器云函数 SCF 来设置自动刷新 CDN 缓存，详情请参阅 [使用 SCF 自动刷新被 CDN 缓存的 COS 资源 ](https://cloud.tencent.com/document/product/436/30434) 文档。
+COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设置自动刷新 CDN 缓存，详情请参阅 [使用 SCF 自动刷新被 CDN 缓存的 COS 资源 ](https://cloud.tencent.com/document/product/436/30434) 文档。
 
 ### 在控制台进行域名管理时，总是提示“请至少启用一个可用密钥”该如何处理？
 
