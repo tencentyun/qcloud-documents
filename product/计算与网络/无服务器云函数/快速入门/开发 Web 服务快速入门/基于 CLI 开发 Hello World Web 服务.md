@@ -3,7 +3,7 @@
 
 
 ## 前提条件
-- 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
+- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
 - 已安装 pip。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
