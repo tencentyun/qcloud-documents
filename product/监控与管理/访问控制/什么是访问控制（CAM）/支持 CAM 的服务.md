@@ -37,6 +37,7 @@
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | 资源级 | ✔       | -  | ✔        | ✔   |	
 | [文件存储](https://cloud.tencent.com/document/product/582/14679) | 资源级 | ✔        | -  | ✔        | -    |
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | ✔        | -    |	
+| [云 HDFS](https://cloud.tencent.com/document/product/1105/37238) | 资源级 |✔       | -  | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)  | 服务级  | ✔       | -  | -        | -    |
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | ✔       | ✔  | ✔        | -    |
 | [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 操作级 | ✔        | -  |✔        |  ✔ |	
@@ -112,7 +113,7 @@
 
  | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 | 
 | ------------------------------------------------------------ | ------ | -------- | ------- |-------- | ---- | 
-| [验证码](https://cloud.tencent.com/product/captcha/details)    | 服务级  | - | -   | ✔  | - |
+| [验证码](https://cloud.tencent.com/document/product/1110)    | 服务级  | ✔ | -   | ✔  | - |
 
 ## 安全管理
 

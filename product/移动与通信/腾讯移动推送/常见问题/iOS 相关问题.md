@@ -11,7 +11,7 @@
 
 即使是客户端正确获取 Token，且已经将 Token 注册到腾讯移动推送后台，当使用腾讯移动推送服务器推送下发消息成功时，如果是设备未联网的状态，客户端将无法收到消息。若设备在短时内恢复网络连接，可能还会收到消息（APNs 会持有一段时间，然后再次下发消息）。
 
-SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息的标识（Device Token），具体请参见 [iOS SDK 集成指南](/ios_access/ios-sdk-ji-cheng-zhi-nan.md)。
+SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息的标识（Device Token），具体请参见 [iOS SDK 集成指南](https://cloud.tencent.com/document/product/548/36663)。
 
 
 **服务器排查**
@@ -22,7 +22,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 **推送证书排查**
-腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书说明](/ios_access/ios-tui-song-zheng-shu-shuo-ming.md)。
+腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书说明](https://cloud.tencent.com/document/product/548/36664)。
 
 为了验证服务器的问题，可以借助 [腾讯移动推送测试助手](http://xg.qq.com/pigeon_v2/resource/sdk/XGPushTool.zip)，此工具不仅可以帮助验证腾讯移动推送服务器和 APNs 服务器，还能验证消息推送证书的有效性、自动生成腾讯移动推送专用的消息推送证书的格式。
 
