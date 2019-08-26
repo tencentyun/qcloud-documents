@@ -96,7 +96,7 @@ TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下�
     implementation "com.tencent.ticsaas:core:0.0.7-alpha"
     // 实时音视频
     implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.5.7272"
-    // 云通信 IM SDK
+    // 即时通信 IM SDK
     implementation "com.tencent.imsdk:imsdk:4.3.145"
     implementation "com.tencent.imsdk:mobilepbforimsdk:1.6.0.45"
     // 腾讯云互动白板
@@ -253,7 +253,7 @@ SDK 中暴露的公开头文件如下表：
   */
  - (void)initWithSdkAppId:(int)sdkAppId callback:(void (^)(int code, NSString *desc))callback;
 ```
-需要注意的是，互动课堂 SaaS 组件中用到了 [腾讯 bugly](https://bugly.qq.com/v2/) 服务，初始化后默认就会开启，如果你的 App 也用到了腾讯 bugly，可调用以下接口，`isOpen`参数传`NO`来关闭组件中的 bugly 服务：
+需要注意的是，互动课堂 SaaS 组件中用到了 [腾讯 bugly](https://bugly.qq.com/v2/) 服务，初始化后默认就会开启，如果您的 App 也用到了腾讯 bugly，可调用以下接口，`isOpen`参数传`NO`来关闭组件中的 bugly 服务：
 ```objc
  /**
    初始化【建议 App 启动时调用】
