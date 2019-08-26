@@ -11,7 +11,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 
 ## 前提条件
 Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
-- 已注册腾讯云帐户。单击 [这里](https://cloud.tencent.com/register) 进入注册页面，注册指引请参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
+- 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 - 已安装 Python 2.7+ 或 Python 3.6+，以及对应版本 pip。
 
@@ -76,7 +76,7 @@ def main_handler(event, context):
 
 ### 部署函数（含配置触发器）
 1. 修改模板文件，配置触发器。
-由于我们的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 template.yaml 如下：
+由于我们的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 如下：
 ```yaml
 Resources:
   default:
@@ -156,12 +156,12 @@ Resources:
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
 ![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
-更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686) 
+更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 #### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
-更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133) 。
+更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
 
 ## 欢迎交流
 
