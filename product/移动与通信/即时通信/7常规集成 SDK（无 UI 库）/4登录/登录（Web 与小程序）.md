@@ -33,9 +33,10 @@ promise.then(function(imResponse) {
 
 
 
-## 多端登录场景
+## 多端登录相关问题
 
-如果此帐号已在其他页面登录，再在当前页面登录成功，有可能会将其他页面踢下线。用户被踢下线时会触发事件`KICKED_OUT`，用户可在监听到事件后做相应处理。
+默认情况下，不支持多实例登录，即如果此帐号已在其他页面登录，再在当前页面登录成功，有可能会将其他页面踢下线。用户被踢下线时会触发事件`KICKED_OUT`，用户可在监听到事件后做相应处理。
+如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc)，找到相应 SDKAppID，【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
 
 **监听示例**
 
@@ -46,4 +47,4 @@ let onKickedOut = funciton (event) {
 tim.on(TIM.EVENT.KICKED_OUT, onKickedOut);
 ```
 
-如需支持多实例登录（允许在多个网页中同时登录同一帐号），请到 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc)，找到相应 SDKAppID，【应用配置】 > 【功能配置】> 【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
+
