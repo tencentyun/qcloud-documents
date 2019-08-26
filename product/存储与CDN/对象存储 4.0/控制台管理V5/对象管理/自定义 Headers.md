@@ -4,7 +4,7 @@
 
 ## 操作步骤
 1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos5)，选择左侧菜单栏【存储桶列表】，进入存储桶列表页面。单击对象所在的存储桶，进入存储桶。
-![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
+![](https://main.qcloudimg.com/raw/f0868afb4209d10b0c152b6e364fc460.jpg)
 2. 找到需要设置头部的对象，单击对象右侧的【详情】。
 ![](https://main.qcloudimg.com/raw/ebbaf88db0cae88896e469926966556d.png)
 3. 在文件列表下方找到【自定义 Header】，然后单击【添加 Header】，选择需要设置的参数类型（自定义内容需输入自定义名称），输入对应的值。COS 提供了以下 6 种对象 HTTP 头部标识供配置。头部配置说明如下。配置完成后，单击【保存】即可。

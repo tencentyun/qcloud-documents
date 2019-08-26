@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文档介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
+本文档以 Windows Server 2012 R2 操作系统云服务器为例，介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
 
 
 ## 前提条件
@@ -13,13 +13,13 @@
 <span id="jump1"></span>
 ### PHP 7.0 及之前版本安装
 
->! 
-> [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。
+>! [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。以下操作步骤以 PHP 5.2.13 版本为例。
 > 
 1. 在云服务器中打开 PHP 安装包。
-2. 选择【Web Server Setup】时，选择【IIS FastCGI】。如下图所示：
-![](//mc.qcloudimg.com/static/img/ef2f5959779cd733934d11ecbcb4a7f5/image.png)
-3. 按照安装界面的指引，完成 PHP 的安装。
+2. 按照安装界面的指引，单击【Next】。
+3. 在 “Web Server Setup” 界面，选择【IIS FastCGI】，单击【Next】。如下图所示：
+![](https://main.qcloudimg.com/raw/c5fc89547b020e6ec943732d16186a7b.png)
+4. 按照安装界面的指引，完成 PHP 的安装。
 4. 在 `C:/inetpub/wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `hello.php` 文件，如下图所示：
 ![](https://main.qcloudimg.com/raw/bd064531274bf38dc1ddaa1ec3f27a61.png)
 5. 在新创建的 `hello.php` 文件中，填写以下内容并保存。
@@ -56,7 +56,7 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 
 #### 安装配置
 1. 将已下载的 PHP zip 安装包解压缩。例如，解压缩至 `C:\PHP` 目录下。
-2. 复制 `C:\PHP` 目录下的 `php.ini-production` 文件，并重命名为 `php.ini` 文件。如下图所示：
+2. 复制 `C:\PHP` 目录下的 `php.ini-production` 文件，并将该文件的后缀修改为 `.ini`（即重命名为`php.ini`文件）。如下图所示：
 ![](https://main.qcloudimg.com/raw/ba62cb859993ee25f372bc4ea969b4cf.png)
 3. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;"></img>，打开服务器管理器。
 4. 在服务器管理器的左侧导航栏中，单击【IIS】。
@@ -71,7 +71,7 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 9. 在打开的 “添加模块映射” 窗口中，填写以下信息，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ec6ded20a961ff3acaf955221a1a68a4.png)
 主要的参数信息如下：
- - 请求路径：填写 `\*.php`。
+ - 请求路径：填写 `*.php`。
  - 模块：选择 “FastCgiModule”。
  - 可执行文件：选择 PHP zip 安装包中的 php-cgi.exe 文件，即 `C:\PHP\php-cgi.exe`。
  - 名称：自定义，例如输入 FastCGI。
@@ -89,13 +89,14 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 ![](https://main.qcloudimg.com/raw/9c1382da5600121741ecfa4560623997.png)
 18.  在打开的 “编辑  FastCGI 应用程序” 窗口中，将【监视对文件所做的更改】设置为 `php.ini` 文件的路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/c167f15bb6cabe35cce2650133ac63e2.png)
-19. 在 `C:\inetpub\wwwroot` 目录下，创建一个名称为 `index.php` 的 PHP 文件，并写入如下内容：
+19. 在 `C:\inetpub\wwwroot` 目录下，创建一个 PHP 文件。例如创建一个 `index.php` 文件。
+20. 在新创建的 `index.php` 文件中，填写以下内容并保存。
 ```
 <?php
 phpinfo();
 ?>
 ```
-20. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php` ，查看环境配置是否成功。
+21. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php`，查看环境配置是否成功。
 如果打开的页面如下显示，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
 

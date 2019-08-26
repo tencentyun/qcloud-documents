@@ -1,25 +1,22 @@
-## 简介
-
-对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。上传流程请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
-
-[单击访问](https://github.com/tencentyun/vod-js-sdk-v6) 源码地址。
-
-## Demo
-
-- [单击访问](https://tencentyun.github.io/vod-js-sdk-v6/) Demo。
-- [单击访问](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) Demo 源码。
+对于浏览器上传音视频的场景，云点播提供了 Web 上传 SDK。如果您需要 SDK 源码，可访问 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6)。
 
 ## 简单视频上传
 
-#### 引入 SDK 到页面中
+#### 如何引入 SDK
 
+- **script 引入**
+未使用 webpack 的情况下，可通过 script 标签方式引入。该方式会暴露全局的`TcVod`变量。
 ```html
 <script src="//unpkg.com/vod-js-sdk-v6"></script>
 ```
-
+请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/)，查看 script 方式引入的 Demo。请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)，查看 Demo 源码。
+- **npm 引入**
+使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入。
 ```js
+// npm install vod-js-sdk-v6 之后，在页面中直接 import 引入
 import TcVod from 'vod-js-sdk-v6'
 ```
+请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo)，查看 npm 方式引入的 Demo 源码。
 
 >? SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
@@ -36,9 +33,9 @@ function getSignature() {
 >? `url`是您派发签名服务的 URL，详细请参见 [客户端上传指引](/document/product/266/9219)。
 > `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
-####  上传视频
+####  上传视频示例
 
-示例如下：
+
 
 ```js
 // 通过 import 引入的话，new TcVod(opts) 即可。
@@ -72,6 +69,8 @@ uploader.done().then(function (doneResult) {
 
 
 ```
+
+>?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 
 ## 高级功能
 

@@ -92,7 +92,7 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback) 显示该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 [MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startremoteview) 显示该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -114,7 +114,7 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom#stopRemoteView(AnchorInfo)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23stopremoteview.28anchorinfo) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom#stopRemoteView(AnchorInfo)](https://cloud.tencent.com/document/product/454/34776#stopremoteview) 关闭该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -176,7 +176,7 @@ void onKickoutJoinAnchor()
 
 __介绍__
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom#kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23kickoutjoinanchor.28string) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom#kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776#kickoutjoinanchor) 来退出连麦。
 
 ***
 
@@ -890,5 +890,3 @@ __参数__
 | customInfo | Map< String, Object > | 自定义信息。 |
 
 ***
-
-

@@ -20,10 +20,9 @@ initscripts-9.03.40-2.e16.centos.x86_64
 可得知，initscripts 版本 initscripts-9.03.40-2 低于存在的问题版本（initscripts-9.03.49-1），存在 DNS 被清空的风险。
 3. 依次执行以下命令，将 initscripts 升级到最新的版本，并重新生成 DNS 信息。
 ```
-cat /dev/null > /etc/resolv.conf
-service network restart
 yum makecache
 yum -y update initscripts
+service network restart
 ```
 3. 完成升级后，执行以下命令，检查 initscripts 的版本信息，确认升级是否成功。
 ```

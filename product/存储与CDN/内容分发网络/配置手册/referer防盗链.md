@@ -3,7 +3,7 @@
 ## 配置指引
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧目录中，单击【域名管理】，进入管理页面。
 2. 在列表中，找到您需要编辑的域名所在行，单击操作栏的【管理】。
- ![](https://main.qcloudimg.com/raw/e542cb5ac8bda19eeabeb6c99ea551e1.png)
+ ![](https://main.qcloudimg.com/raw/18a3dd6931e3fe4ea109f971e5afe410.png)
 3. 单击【访问控制】选项卡，可在**防盗链配置**模块进行配置。
  ![](https://main.qcloudimg.com/raw/5899ec8771e97321e4486e880073040a.png)
 默认情况下，防盗链未启用，无黑/白名单。referer 黑名单、白名单二者不兼容，同一时间只能生效一种类型，防盗链输入内容最多可输400条，以换行符相隔，一行输入一个。

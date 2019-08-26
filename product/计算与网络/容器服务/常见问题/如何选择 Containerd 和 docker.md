@@ -8,6 +8,7 @@ TKE 支持用户选择 containerd 和 docker 作为运行时组件：
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
  - 如需调用 docker API。
  - 如需 docker compose 或 docker swarm。
+ - 如需在集群内创建 GPU 应用。
 
 ## Containerd 和 Docker 组件常用命令
 Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命令实现类似的功能。

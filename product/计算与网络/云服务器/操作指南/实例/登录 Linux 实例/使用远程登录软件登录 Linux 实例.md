@@ -12,7 +12,9 @@ Windows
 **密码**或**密钥**
 
 ## 前提条件
-- 已获取登录实例的管理员帐号及密码（或密钥）。如果忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+- 已获取登录实例的管理员帐号及密码（或密钥）。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 您的云服务器实例已购买及获取公网 IP，且该实例已开通云服务器实例的22号端口（对于通过快速配置购买的云服务器实例已默认开通）。
 
 
@@ -56,7 +58,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 8. 切换至 Session 配置界面，配置服务器的 IP、端口，以及连接类型。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddfd58429288ce0e195e86a6cb1c9cd6.png)
  - Host Name (IP address)：云服务器的公网 IP。登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，可在列表页及详情页中获取公网 IP。
- - Port：云服务器的端口，必须填 22 。
+ - Port：云服务器的端口，必须填 22。
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
  配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
@@ -64,7 +66,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 
 ## 后续操作
 
-当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作，相关操作可参考：
+当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作。相关操作可参考：
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 - [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
 

@@ -116,6 +116,6 @@ Accelerate.framework
 ```
 
 ## 常见问题
-### 1. LiteAV SDK 是否支持后台运行？
+### LiteAV SDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)
