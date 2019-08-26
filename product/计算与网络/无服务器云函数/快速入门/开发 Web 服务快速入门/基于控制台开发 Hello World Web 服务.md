@@ -2,7 +2,7 @@
 本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）控制台开发简单的 Hello World Web 服务。
 
 ## 前提条件
-- 已注册腾讯云帐户。单击 [这里](https://cloud.tencent.com/register) 进入注册页面，注册指引请参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
+- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 -  已登录 [云函数控制台](https://console.cloud.tencent.com/scf)。
 
 ## 操作步骤
@@ -14,17 +14,17 @@
 ![](https://main.qcloudimg.com/raw/d953a84b5987bb26799afda56cc08206.png)
  - 函数名称：命名为 “helloworld”。
  - 运行环境：选择 “Python 2.7”。
- - 创建方式：选择“模版函数”。
+ - 创建方式：选择 “模版函数”。
  - 模板搜索：输入 helloworld 后按 “Enter” 进行搜索，选择 “helloworld” 模版。
-4. 函数配置保持默认，单击【完成】。如下图所示：
+4. 如下图函数配置保持默认，并单击【完成】。
+函数创建完成后，自动进入创建成功函数的“函数配置”页面，可查看该云函数的函数配置信息。
 ![](https://main.qcloudimg.com/raw/51904d21bab798a3cd57991e32b8ccb7.png)
  - “执行方法” 的 “index.main_handler” 参数值表示 SCF 控制台会将此段代码自动保存为 `index.py` 文件，并将该文件压缩和上传至 SCF 平台，用于创建云函数。
  - 示例代码中的 `main_handler` 为入口函数，主要参数为：
     - `event` 参数：可以获取触发源的消息。
     - `context` 参数：可以获取本函数的环境及配置信息。
-5. 创建完成后，自动进入创建成功函数的“函数配置”页面，可查看该云函数的函数配置信息。
-5. 选择【函数代码】，可查看或在线编辑函数代码。如下图所示：
-![](https://main.qcloudimg.com/raw/01d6b5a920623268ec7f378327161816.png)
+5. 选择【函数代码】，查看或在线编辑函数代码。如下图所示：
+![](https://main.qcloudimg.com/raw/6fc47d3b5ffd22daee110f0895c30671.png)
 
 
 ### 部署函数（含配置触发器）
@@ -37,7 +37,7 @@
 
 ### 云端测试
 #### 函数部署测试
-选择【函数代码】，单击测试，运行代码并返回测试结果。如下图所示：
+选择【函数代码】，单击【测试】，运行代码并返回测试结果。如下图所示：
 >?
 >- 如果您需要更换测试模版或模版中的内容。可直接编辑函数内容，或者选择【当前测试模版】，更换后单击【保存】即可生效。
 >- 不同的测试模板分别模拟不同的触发器消息源，且不同的触发器和云函数之间传递的消息均为约定好的数据结构。具体详情可参考 [触发器介绍](https://cloud.tencent.com/document/product/583/9705)。
@@ -67,10 +67,10 @@
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
 ![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
-更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686) 
+更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 <sapn id="config"></span>
 #### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
-更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133) 。
+更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
