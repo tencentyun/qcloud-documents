@@ -264,7 +264,7 @@ tim.joinGroup(options);
 ```js
 let promise = tim.joinGroup({ groupID: 'group1', type: TIM.TYPES.GRP_AVCHATROOM });
 promise.then(function(imResponse) {
-  switch(imResponse.data.status){
+  switch (imResponse.data.status) {
     case TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL: break; // 等待管理员同意
     case TIM.TYPES.JOIN_STATUS_SUCCESS: // 加群成功
       console.log(imResponse.data.group); // 加入的群组资料
