@@ -144,7 +144,7 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
        Type: apigw
       ...
          service:
-           serviceId: service-qnw3irqg
+           serviceId: service-qnwxxxxxx
            serviceName: SCF_API_SERVICE
            subDomain: https://service-qnw3irqg-xxxxxxxxxxx.gz.apigw.tencentcs.com/release/hello_world
        ...
@@ -154,12 +154,12 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
 3. 完成部署后，您可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域下查看已成功部署的函数。
 部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
 
-#### 云端测试
+### 云端测试
 完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
 显示如下，即为成功部署函数。
 ![](https://main.qcloudimg.com/raw/bcaffcaa34e2e75988c01a7d8df923c0.png)
 
-#### 查看日志
+### 查看日志
 您可以执行 `scf logs -n hello_world` 命令获取 hello_world 函数日志，输出结果如下：
 ```bash
 $scf logs -n hello_world
@@ -177,7 +177,7 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 
 ### 查看监控
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
-2. 在“函数服务”页面上方选择已创建函数地域，单击函数 ID。
+2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
