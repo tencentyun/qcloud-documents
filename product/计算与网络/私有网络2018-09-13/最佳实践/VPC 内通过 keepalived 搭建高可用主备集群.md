@@ -188,7 +188,7 @@ esac
 1. 启动 keepalived：`/etc/init.d/keepalived start` 或 `systemctl start keepalived` 或 `service keepalived start`。
 2. 验证主备切换容灾效果：通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能迁移。`/var/log/keepalived.log` 中会同时留下相应的日志。通过 ping VIP 的方式，可以查看网络中断到恢复的时间间隔。
 >!
->- 每切换一次，ping 中断的时间大致为4秒。如果是常主常备模式，有可能达到6秒，这种情况通常发生在主的“故障”时间**极短**时，可能发生两次短时间的主备状态倒换， 然后 VIP 重新落地到刚恢复的旧的主机上。
+>- 每切换一次，ping 中断的时间大致为4秒。如果是常主常备模式，有可能达到6秒，这种情况通常发生在主集群的“故障”时间**极短**时，可能发生两次短时间的主备状态倒换， 然后 VIP 重新落地到刚恢复的旧的主机上。
 >- 脚本日志将会写到`/var/log/keealived.log`中。日志会占用您的磁盘空间。您可以自行借助 logrotate 等工具处理日志累积的问题。keepalived 进程的日志仍会写到`/var/log/message`中。
 
 ### TIPS
