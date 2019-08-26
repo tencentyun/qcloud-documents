@@ -163,7 +163,7 @@ tp2_setgamestatus(TP2_GAME_STATUS_BACKEND);
 ```
 
 ## 验证 SDK 接入是否正确
-1. 将 Android 手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 android adb 控制台，如图：
+1. 将 Android 手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 Android adb 控制台，如图：
  ![](https://mc.qcloudimg.com/static/img/091f2d44b4862e843748fdd9655e9914/image.png)
 2. 敲入 cd /sdcard 回车，再敲入 mkdir sdk 回车，用于创建 / sdcard/sdk 目录。其中，如果目录已经存在，则系统会提示 mkdir failed for /sdcard/sdk，File exists，继续下一步。：
  ![](https://mc.qcloudimg.com/static/img/748c74c2ef3f5bec2a650f3d8eb0bdc6/image.png)
