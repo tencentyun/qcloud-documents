@@ -2,7 +2,7 @@
 | 接口名 | Action Name | 功能描述 |
 |---------|---------|---------|
 | [查询售卖可用区](http://cloud.tencent.com/doc/api/260/4951) | DescribeRedisZones | 查询可以购买 Redis 的可用区列表 |
-| [查询可售卖规格](http://cloud.tencent.com/doc/api/260/4974) | DescribeRedisProduct | 查询可购买实例的规格，比如最大容量、可购买数量等 |
+| [查询可售卖规格](http://cloud.tencent.com/doc/api/260/4974) | DescribeRedisProduct | 查询可购买实例的规格，例如最大容量、可购买数量等 |
 
 
 ## 2. 实例相关接口

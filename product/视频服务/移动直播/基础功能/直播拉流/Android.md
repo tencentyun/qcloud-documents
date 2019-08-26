@@ -32,7 +32,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 ```
 
 ### step 2: 创建 Player
-视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将这它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
+视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
 ```java
 //mPlayerView 即 step1 中添加的界面 view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
@@ -283,7 +283,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
 
 - **Obs 的延时是不达标的**
-推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
+推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 
 - **该功能按播放时长收费**
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
@@ -313,7 +313,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
 >**不要在收到 PLAY_LOADING 后隐藏播放画面**
->因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
+>因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
 ### 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -334,7 +334,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | :-------------------  |:-------- |  :------------------------ | 
 | PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | 当前视频帧解码失败  |
 | PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | 当前音频帧解码失败  |
-| PLAY_WARNING_RECONNECT           |  2103  | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT 了) |
+| PLAY_WARNING_RECONNECT           |  2103  | 网络断连，已启动自动重连（重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT）|
 | PLAY_WARNING_RECV_DATA_LAG       |  2104  | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀|
 | PLAY_WARNING_VIDEO_PLAY_LAG      |  2105  | 当前视频播放出现卡顿|
 | PLAY_WARNING_HW_ACCELERATION_FAIL|  2106  | 硬解启动失败，采用软解   |

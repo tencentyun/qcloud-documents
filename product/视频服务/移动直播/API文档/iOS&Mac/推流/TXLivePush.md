@@ -250,7 +250,7 @@ __参数__
 
 __介绍__
 
-该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，比如原来是540 x 960，希望变成960 x 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 homeOrientation 来实现。
+该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，例如原来是540 x 960，希望变成960 x 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 homeOrientation 来实现。
 
 
 <pre>

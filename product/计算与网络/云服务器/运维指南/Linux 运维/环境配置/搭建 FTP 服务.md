@@ -3,7 +3,7 @@
 
 ## 操作步骤
 ### 安装 vsftpd
-1. 登录云服务器。
+1. 登录 Linux 云服务器。
 2. 执行以下命令，安装 vsftpd。
 ``` 
 yum install vsftpd -y
@@ -20,11 +20,17 @@ netstat -tunlp
 ```
 返回类似如下信息，则表示 vsftpd 服务已经启动成功。
 ![](//mc.qcloudimg.com/static/img/6cc74de5689106ce763be98bfe7f5d24/image.png)
-3. 执行以下命令，安装 telnet 服务。
+
+### （可选）验证 vsftpd 服务
+>? 为了保证 FTP 服务端顺利完成配置，您还可以在本地计算机或其他云服务器上执行以下操作步骤，再次验证 vsftpd 服务是否启动成功。以下操作步骤以 Linux 操作系统的本地计算机为例。如果本地计算机为 Windows/Mac OS 操作系统，请确保该计算机已开启 telnet 功能。
+>
+1. 在本地计算机的操作系统界面，执行以下命令，安装 telnet 服务。
+>? 如果您的本地计算机为 Windows/Mac OS 操作系统，请跳过此步骤。
+>
 ```
 yum -y install  telnet
 ```
-4. 执行以下命令，在其他联网计算机上测试服务是否启动成功。
+3. 执行以下命令，测试 vsftpd 服务是否启动成功。
 ```
 telnet + 云服务器公网 IP + 21
 ```

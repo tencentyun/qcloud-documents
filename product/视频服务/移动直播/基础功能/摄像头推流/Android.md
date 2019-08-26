@@ -54,7 +54,7 @@ public class MApplication extends Application {
 ```
 
 ### 4. 开启摄像头预览
-欲展示摄像头的预览画面，您需要先 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：
+欲展示摄像头的预览画面，您需要先给 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：
 
 ```xml
 <com.tencent.rtmp.ui.TXCloudVideoView
@@ -89,7 +89,7 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 
 - **如何获取可用的推流 URL**
 >开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/7bc0eed15c9886c049862e8ba2324d19.png)
+>![](https://main.qcloudimg.com/raw/d8cc87319b64a4f5f05614680ecb20d3.png)
 
 - **返回 -5 的原因**
 >如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。
@@ -112,7 +112,7 @@ mLivePusher.startPusher(tRTMPURL.trim());
 如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
 
 ### 7. 设定画面清晰度
-调用 TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参考 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
+调用 TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
 
 ![](https://main.qcloudimg.com/raw/082b8cedd8d9f50afe23dbce723fc6d7.png)
 
@@ -138,7 +138,7 @@ mLivePusher.startPusher(tRTMPURL.trim());
 
 
 ### 9. 色彩滤镜效果
-调用 TXLivePusher 中的`setFilter`接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，比如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。
+调用 TXLivePusher 中的`setFilter`接口可以设置色彩滤镜效果。所谓色彩滤镜，是指一种将整个画面色调进行区域性调整的技术，例如将画面中的淡黄色区域淡化实现肤色亮白的效果，或者将整个画面的色彩调暖让视频的效果更加清新和温和。
 
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
@@ -158,7 +158,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
 
 | API 函数 | 功能说明 | 备注说明 |
 |---------|---------|---------|
-| switchCamera | 切换前后摄像头 |  |
+| switchCamera | 切换前后摄像头 | - |
 | turnOnFlashLight | 打开或关闭闪光灯 | 仅在当前是后置摄像头时有效。|
 | setZoom | 调整摄像头的焦距 | 可以通过 TXLivePusher 的`getMaxZoom()`函数获取最大焦距，`setZoom`的取值范围即为 1 - 最大焦距。|
 | setExposureCompensation | 设置曝光比例，取值范围从-1到1 | 负数表示调低曝光，-1是最小值，对应`getMinExposureCompensation`。正数表示调高曝光，1是最大值，对`getMaxExposureCompensation`。0表示不调整曝光，默认值为0。|
@@ -203,7 +203,7 @@ public void onOrientationChange(boolean isPortrait) {
 }
 ```
 
->! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参考
+>! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参见
 [CameraPusherActivity.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)  中的`setRotationForActivity`以及相关示例代码。
 ![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
 
@@ -213,7 +213,7 @@ public void onOrientationChange(boolean isPortrait) {
 
 有时候主播的一些动作不希望被观众看到，但直播过程中又不能下播，那就可以考虑进入隐私模式。在隐私模式下，SDK 可以暂停采集主播手机的摄像头画面以及麦克风声音，并使用一张默认图片作为替代图像进行推流，也就是所谓的“垫片”。
 
-![](https://main.qcloudimg.com/raw/bcc06c97c77f422ea7d78f923d02f039.jpg)
+![](https://main.qcloudimg.com/raw/dbb280bace017e407ada1fb3320223fb.jpg)
 
 通过 TXLivePushConfig 中的`setPauseImg`接口可以设置垫片用的背景图片、垫片的最大时长以及视频帧率。
 通过 TXLivePushConfig 中的`setPauseFlag`接口可以设置是暂停视频采集、还是暂停声音采集，还是两者都暂停。
@@ -273,7 +273,7 @@ mLivePusher.resumePusher();
 通过 TXLivePushConfig 中的`setWatermark`接口可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由该接口函数的后三个参数决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：(0.02f，0.25f，0.2f)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.2, 水印高度会被自动计算）。
+- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.02f，0.25f，0.2f），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.2，水印高度会被自动计算）。
 
 ```java
 //设置视频水印
@@ -304,7 +304,7 @@ public interface ITXVideoRecordListener {
 
 >! 
 >1. 录制过程中请勿动态切换视频分辨率和软硬编，这会导致生成的视频异常。
->2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，腾讯云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参见 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 17. 主播端弱网提醒
 手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
@@ -314,17 +314,19 @@ public interface ITXVideoRecordListener {
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
 
 ```objectiveC
-- (void)onPushEvent:(int)evtID withParam:(NSDictionary *)param {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (evtID == PUSH_ERR_NET_DISCONNECT || evtID == PUSH_ERR_INVALID_ADDRESS) {
-		    //...
-        } else if (evtID == PUSH_WARNING_NET_BUSY) {
-            [_notification displayNotificationWithMessage:
-                @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
+@Override
+    public void onPushEvent(int event, Bundle param) {
+        if (event == TXLiveConstants.PUSH_ERR_NET_DISCONNECT
+                || event == TXLiveConstants.PUSH_ERR_INVALID_ADDRESS
+                || event == TXLiveConstants.PUSH_ERR_OPEN_CAMERA_FAIL
+                || event == TXLiveConstants.PUSH_ERR_OPEN_MIC_FAIL) {
+            // 遇到以上错误，则停止推流
+            //...
+        } else if (event == TXLiveConstants.PUSH_WARNING_NET_BUSY) {
+            //您当前的网络环境不佳，请尽快更换网络保证正常直播
+            showNetBusyTips();
         }
-		//...
-    });
-}
+    }
 ```
 
 ### 18. 发送 SEI 消息 
@@ -348,7 +350,7 @@ mTXLivePusher.sendMessageEx(msg.getBytes("UTF-8"));
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参见文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 
 ### 2. 常规事件 
@@ -374,7 +376,7 @@ SDK 发现部分严重问题，推流无法继续（例如，用户禁用了 App
 |PUSH_ERR_NET_DISCONNECT          | -1307| 网络断连，且经三次重连无效，更多重试请自行重启推流。|
 
 ### 4. 警告事件 
-SDK 发现了一些问题，但这并不意味着推流无法继续，SDK 会在警告事件发生后，尽可能地启动一些重试性的保护逻辑或者恢复措施，比如：
+SDK 发现了一些问题，但这并不意味着推流无法继续，SDK 会在警告事件发生后，尽可能地启动一些重试性的保护逻辑或者恢复措施，例如：
 
 - **WARNING_NET_BUSY**
 主播网络差，如果您需要 UI 提示，这个 WARNING 相对比较有用。
@@ -385,9 +387,10 @@ SDK 发现了一些问题，但这并不意味着推流无法继续，SDK 会在
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻。|
-|PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)。|
+|PUSH_WARNING_RECONNECT           |  1102| 网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）。|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码。|
 |PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）。     |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）。  |
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP 服务器握手失败（会触发重试流程）。  |
 |PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）。  |
+

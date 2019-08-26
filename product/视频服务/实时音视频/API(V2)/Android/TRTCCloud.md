@@ -7,8 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 基础方法
 ### sharedInstance
 
-创建 TRTCCloud 单例。
-
+创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 单例。
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -64,7 +63,7 @@ SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，
 
 进入房间。
 ```
-abstract void enterRoom(TRTCCloudDef.TRTCParams param, int appScene)
+abstract void enterRoom(TRTCCloudDef.TRTCParams param, int scene)
 ```
 
 __参数__
@@ -72,9 +71,14 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | param | [TRTCCloudDef.TRTCParams](https://cloud.tencent.com/document/product/647/32266#trtcparams) | 进房参数，请参考 TRTCParams。 |
-| appScene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
+| scene | int | 应用场景，目前支持视频通话（VideoCall）和在线直播（Live）两种场景。 |
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。进房成功通过 onEnterRoom 回调通知，进房失败通过 onError 回调错误信息，请参考 [TRTC Demo](https://github.com/tencentyun/trtcsdk) 中的 onError 处理。
+__介绍__
+
+调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+
+>?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+
 
 
 ### exitRoom
@@ -83,6 +87,11 @@ __参数__
 ```
 abstract void exitRoom()
 ```
+
+__介绍__
+
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32264#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
+如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32264#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等等。
 
 
 ### switchRole
@@ -105,7 +114,7 @@ __介绍__
 
 ### ConnectOtherRoom
 
-开启跨房连麦。
+请求跨房通话（主播 PK）。
 ```
 abstract void ConnectOtherRoom(String param)
 ```
@@ -118,20 +127,40 @@ __参数__
 
 __介绍__
 
-TRTC SDK 支持两个不同的房间之间进行互联。在通话场景下，该功能意义不大。 在直播场景下，该功能可用于实现“主播 PK”的功能，即两个主播在已经有各自音视频房间存在的情况下， 通过跨房通话功能，可以在保留两个音视频房间的情况下把麦上的主播拉通在一起。
-跨房通话的参数采用了 JSON 格式，要求至少包含两个字段：
-- roomId：连麦房间号，比如 A 主播当前的房间号是123，另一个主播 B 的房间号是678，对于主播 A 而言，roomId 填写123即可。
-- userId：另一个房间的 userId，在“主播 PK”场景下，userId 指定为另一个房间的主播 ID 即可。
-
-
-跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom 回调通知给您。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
+例如：当房间“001”中的主播 A 通过 connectOtherRoom() 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，true) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，true) 回调。
+简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 
 <pre>
-JSONObject jsonObj = new JSONObject();
-jsonObj.put("roomId"， 678);
-jsonObj.put("userId"， "userB");
-trtcCloud.ConnectOtherRoom(jsonObj.toString());
+               房间 001                    房间 002
+            --------------              -------------
+ 跨房通话前：| 主播 A      |             | 主播 B     |
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------</pre>
+
+
+
+<pre>              房间 001                     房间 002
+            --------------              -------------
+ 跨房通话后：| 主播 A B    |             | 主播 B A   |
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------
+</pre>
+
+跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
+- roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32264#connectotherroom) 时 roomId 应指定为“002”。
+- userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32264#connectotherroom) 时 userId 应指定为 B 的 userId。
+
+
+跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onConnectOtherRoom() 回调通知给您。
+
+
+<pre>
+  JSONObject jsonObj = new JSONObject();
+  jsonObj.put("roomId"， 002);
+  jsonObj.put("userId"， "userB");
+  trtc.ConnectOtherRoom(jsonObj.toString());
 </pre>
 
 
@@ -163,6 +192,10 @@ __参数__
 | frontCamera | boolean | true：前置摄像头；false：后置摄像头。 |
 | view | TXCloudVideoView | 承载视频画面的控件。 |
 
+__介绍__
+
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onFirstVideoFrame(null) 回调。
+
 
 ### stopLocalPreview
 
@@ -170,50 +203,6 @@ __参数__
 ```
 abstract void stopLocalPreview()
 ```
-
-
-### startRemoteView
-
-开始显示远端视频画面。
-```
-abstract void startRemoteView(String userId, TXCloudVideoView view)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 对方的用户标识。 |
-| view | TXCloudVideoView | 承载视频画面的控件。 |
-
-__介绍__
-
-在收到 SDK 的 onUserVideoAvailable 回调时，调用这个接口，就可以显示远端视频的画面了。
-
-
-### stopRemoteView
-
-停止显示远端视频画面。
-```
-abstract void stopRemoteView(String userId)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 对方的用户标识。 |
-
-
-### stopAllRemoteView
-
-停止显示所有远端视频画面。
-```
-abstract void stopAllRemoteView()
-```
-
->?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
-
 
 
 ### muteLocalVideo
@@ -232,6 +221,87 @@ __参数__
 __介绍__
 
 当屏蔽本地视频后，房间里的其它成员将会收到 onUserVideoAvailable 回调通知。
+
+
+### startRemoteView
+
+开始显示远端视频画面。
+```
+abstract void startRemoteView(String userId, TXCloudVideoView view)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户标识。 |
+| view | TXCloudVideoView | 承载视频画面的控件。 |
+
+__介绍__
+
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面，可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
+
+
+### stopRemoteView
+
+停止显示远端视频画面。
+```
+abstract void stopRemoteView(String userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户标识。 |
+
+__介绍__
+
+调用此接口后，SDK 会停止接收该用户的远程视频流，同时会清理相关的视频显示资源。
+
+
+### stopAllRemoteView
+
+停止显示所有远端视频画面。
+```
+abstract void stopAllRemoteView()
+```
+
+>?如果有屏幕分享的画面在显示，则屏幕分享的画面也会一并被关闭。
+
+
+
+### muteRemoteVideoStream
+
+暂停接收指定的远端视频流。
+```
+abstract void muteRemoteVideoStream(String userId, boolean mute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户标识。 |
+| mute | boolean | 是否停止接收。 |
+
+__介绍__
+
+该接口仅停止接收远程用户的视频流，但并不释放显示资源，所以视频画面会冻屏在 mute 前的最后一帧。
+
+
+### muteAllRemoteVideoStreams
+
+停止接收所有远端视频流。
+```
+abstract void muteAllRemoteVideoStreams(boolean mute)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mute | boolean | 是否停止接收。 |
 
 
 ### setVideoEncoderParam
@@ -267,7 +337,7 @@ __参数__
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+该设置决定 SDK 在各种网络环境下的调控策略（例如弱网下选择“保清晰”或“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -310,7 +380,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | rotation 支持90、180、270旋转角度。 |
+| rotation | int | rotation 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度。 |
 
 
 ### setRemoteViewRotation
@@ -325,7 +395,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| rotation | int | 支持90、180、270旋转角度。 |
+| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度。 |
 
 
 ### setVideoEncoderRotation
@@ -339,7 +409,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | 目前支持0和180两个旋转角度。 |
+| rotation | int | 目前支持 TRTC_VIDEO_ROTATION_0 和 TRTC_VIDEO_ROTATION_180 两个旋转角度。 |
 
 __介绍__
 
@@ -348,7 +418,7 @@ __介绍__
 
 ### setLocalViewMirror
 
-设置本地预览画面镜像方式。
+设置本地摄像头预览画面的镜像模式。
 ```
 abstract void setLocalViewMirror(int mirrorType)
 ```
@@ -357,7 +427,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像； TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像； TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 |
+| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像。 TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像。 TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 |
 
 
 ### setVideoEncoderMirror
@@ -371,7 +441,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | boolean | mirror true:镜像；false:不镜像；默认是false。 |
+| mirror | boolean | true：镜像；false：不镜像；默认是 false。 |
 
 __介绍__
 
@@ -412,18 +482,18 @@ __返回__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果下行网络很好，可以选择观看【高清】画面
+- 如果下行网络较差，可以选择观看【低清】画面。
 
->?双路编码开启后，会消耗更多的 CPU 和 网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
+>?双路编码开启后，会消耗更多的 CPU 和网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
 
 
 
 ### setRemoteVideoStreamType
 
-选定观看指定 uid 的大画面还是小画面。
+选定观看指定 uid 的大画面或小画面。
 ```
 abstract int setRemoteVideoStreamType(String userId, int streamType)
 ```
@@ -433,7 +503,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| streamType | int | 视频流类型，即选择看大画面还是小画面。 |
+| streamType | int | 视频流类型，即选择看大画面或小画面。 |
 
 __介绍__
 
@@ -451,7 +521,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 默认观看大画面还是小画面。 |
+| streamType | int | 默认观看大画面或小画面。 |
 
 __介绍__
 
@@ -469,7 +539,8 @@ abstract void startLocalAudio()
 
 __介绍__
 
-该函数会启动麦克风采集，并将音频数据传输给房间里的其他用户。 SDK 并不会默认开启本地的音频上行，也就说，如果您不调用这个函数，房间里的其他用户就听不到您的声音。
+该函数会启动麦克风采集，并将音频数据传输给房间里的其他用户。
+SDK 不会默认开启本地音频采集和上行，您需要调用该函数开启，否则房间里的其他用户将无法听到您的声音。
 
 >?该函数会检查麦克风的使用权限，如果当前 App 没有麦克风权限，SDK 会向用户申请开启。
 
@@ -503,8 +574,7 @@ __参数__
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(false) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是会继续发送码率极低的静音包。 在对录制质量要求很高的场景中，选择 muteLocalAudio 是更好的选择，能录制出兼容性更好的 MP4 文件。 这是由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，简单粗暴地 stopLocalAudio 会导致录制出的 MP4 不易播放。
-
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放，因此在对录制质量要求很高的场景中，建议选择 muteLocalAudio，从而录制出兼容性更好的 MP4 文件。
 
 ### setAudioRoute
 
@@ -521,12 +591,12 @@ __参数__
 
 __介绍__
 
-微信和手机 QQ 里的视频通话功能，都有一个免提模式，开启后就不用把手机贴在耳朵上，这个功能就是基于音频路由实现的。 一般手机都有两个扬声器，一个是位于顶部的听筒扬声器，声音偏小；一个是位于底部的立体声扬声器，声音偏大。 设置音频路由的作用就是要决定声音从哪个扬声器播放出来。
+微信和手机 QQ 视频通话功能的免提模式就是基于音频路由实现的。 一般手机都有两个扬声器，一个是位于顶部的听筒扬声器，声音偏小；一个是位于底部的立体声扬声器，声音偏大。设置音频路由的作用就是决定声音使用哪个扬声器播放。
 
 
 ### muteRemoteAudio
 
-静音掉某一个用户的声音。
+静音某一个用户的声音。
 ```
 abstract void muteRemoteAudio(String userId, boolean mute)
 ```
@@ -541,7 +611,7 @@ __参数__
 
 ### muteAllRemoteAudio
 
-静音掉所有用户的声音。
+静音所有用户的声音。
 ```
 abstract void muteAllRemoteAudio(boolean mute)
 ```
@@ -568,7 +638,42 @@ __参数__
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。 我们在 Demo 中有一个音量大小的提示条，就是基于这个接口实现的。
+开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。如需打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32264#startlocalaudio) 之前调用。
+
+>?Demo 中有一个音量大小的提示条，就是基于该接口实现的。
+
+### startAudioRecording
+
+开始录音。
+```
+abstract int startAudioRecording(TRTCCloudDef.TRTCAudioRecordingParams TRTCAudioRecordingParams)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| TRTCAudioRecordingParams | [TRTCCloudDef.TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32266#trtcaudiorecordingparams) | 录音参数，请参考TRTCAudioRecordingParams。 |
+
+__返回__
+
+0：成功；-1：录音已开始；-2：文件或目录创建失败；-3：后缀指定的音频格式不支持。
+
+__介绍__
+
+该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。 无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
+
+
+### stopAudioRecording
+
+停止录音。
+```
+abstract void stopAudioRecording()
+```
+
+__介绍__
+
+如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 
@@ -604,7 +709,8 @@ __参数__
 
 __介绍__
 
-取值范围1 - 5，当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头）。 这里最大值推荐为5，超过5后视频数据会变得模糊不清。
+取值范围1 - 5，取值为1表示最远视角（正常镜头），取值为5表示最近视角（放大镜头）。
+最大值推荐为5，若超过5，视频数据会变得模糊不清。
 
 
 ### isCameraTorchSupported
@@ -931,7 +1037,7 @@ __参数__
 
 __介绍__
 
-对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播片）画面。
+对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
 
 
 
@@ -1032,11 +1138,8 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。
+此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
-
->?调用此函数之前，需要先调用 startRemoteView 来获取远端用户的视频流（view 设置为 null 即可），否则回调函数不会被触发。
-
 
 
 ### enableCustomAudioCapture
@@ -1136,7 +1239,7 @@ __介绍__
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息。
 >- 每个包最大为1KB，超过则很有可能会被中间路由器或者服务器丢弃。
 >- 每个客户端每秒最多能发送总计8KB数据。
->- 将 reliable 和 ordered 同时设置为 YES 或 NO，暂不支持交叉设置。
+>- 将 reliable 和 ordered 同时设置为 true 或 false，暂不支持交叉设置。
 >- 强烈建议不同类型的消息使用不同的 cmdID，这样可以在要求有序的情况下减小消息时延。
 
 
@@ -1160,7 +1263,7 @@ true：消息已通过限制，等待后续视频帧发送；false：消息被�
 
 __介绍__
 
-跟 sendCustomCmdMsg 的原理不同，sendSEIMsg 是将数据直接塞入视频数据头中。因此，即使视频帧被旁路到了直播 CDN 上， 这些数据也会一直存在。但是由于要把数据嵌入视频帧中，所以数据本身不能太大，推荐几个字节就好。
+与 sendCustomCmdMsg 的原理不同，sendSEIMsg 是将数据直接塞入视频数据头中。因此，即使视频帧被旁路到了直播 CDN 上，这些数据也会一直存在。由于需要把数据嵌入视频帧中，建议尽量控制数据大小，推荐使用几个字节大小的数据。
 最常见的用法是把自定义的时间戳（timstamp）用 sendSEIMsg 嵌入视频帧中，这种方案的最大好处就是可以实现消息和画面的完美对齐。
 
 >?本接口有以下限制：
@@ -1168,8 +1271,8 @@ __介绍__
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
 >- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
 >- 每个客户端每秒最多能发送总计8KB数据（与 sendCustomCmdMsg 共享限制）。
->- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
->- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
+>- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+>- 如果 repeatCount > 1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 
@@ -1274,7 +1377,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小，100为正常音量，取值范围为0 - 200，如果需要调大背景音量可以设置更大的值。 |
+| volume | int | 音量大小，100为正常音量，如需调高背景音量可以设置更大的值，取值范围为0 - 200。 |
 
 
 ### setReverbType

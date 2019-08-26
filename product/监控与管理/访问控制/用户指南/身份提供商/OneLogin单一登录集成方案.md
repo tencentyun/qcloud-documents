@@ -48,7 +48,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 		<td>https://cloud.tencent.com/SAML/Attributes/Role</td>
 		<td>Include in SAML assertion</td>
 		<td>Macro</td>
-	<td>qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}</td>
+	<td>qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}</td>
 	</tr>
 		<tr>
 		<td>https://cloud.tencent.com/SAML/Attributes/RoleSessionName</td>

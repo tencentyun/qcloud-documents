@@ -129,7 +129,7 @@ playerModel.appId = 1252463788;
 3. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
-如果文件已存在腾讯云，则可以进入 [点播视频管理](https://console.cloud.tencent.com/video/videolist) ，找到对应的文件。点开后在右侧视频详情中，可以看到 appId 和 fileId。
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media)，找到对应的文件。点开后在右侧视频详情中，可以看到 appId 和 fileId。
 
 ![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
 

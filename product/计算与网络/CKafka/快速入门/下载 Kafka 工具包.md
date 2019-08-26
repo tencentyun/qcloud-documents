@@ -73,7 +73,7 @@ telnet $ip $port
 
 **发送消息：**
 ```
-./kafka-console-producer.sh --broker-list $ip $port --topic topicName
+./kafka-console-producer.sh --broker-list $ip:$port --topic topicName
 This is a message
 This is another message
 ```
@@ -81,7 +81,7 @@ This is another message
 
 **接收消息(CKafka 默认隐藏 Zookeeper 集群)：**
 ```
-./kafka-console-consumer.sh --bootstrap-server $ip $port --from-beginning --new-consumer --topic topicName
+./kafka-console-consumer.sh --bootstrap-server $ip:$port --from-beginning --new-consumer --topic topicName
 This is a message
 This is another message
 ```
@@ -90,7 +90,7 @@ This is another message
 
 配置完成后，指定 consumer group 的命令如下所示：
 ```
-./kafka-console-consumer.sh --bootstrap-server $ip $port --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
+./kafka-console-consumer.sh --bootstrap-server $ip:$port --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
 > ?ConsumerConfig 参数配置中，建议将 auto.offset.reset 配置为 earliest，防止新的消费者分组不存在时，遗漏消费消息的情况发生。 
 原因：当创建一个新分组的消费者时，auto.offset.reset 值为 latest 时，表示消费最新的数据，即从 consumer 创建后生产的数据。这样会导致之前产生的数据不消费。

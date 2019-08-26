@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，腾讯云点播提供了 Go SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
+对于在服务端上传视频的场景，云点播提供 Go SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
 
 ## 集成方式
 
@@ -12,8 +12,8 @@ go get -u github.com/tencentyun/vod-go-sdk
 ### 通过源码包安装
 如果项目中需要直接引用源码，可以直接下载源码导入项目中使用：
 
-* [从 Github 访问](https://github.com/tencentyun/vod-go-sdk)。
-* [单击下载 Go SDK](https://github.com/tencentyun/vod-go-sdk/archive/master.zip)。
+* [从 Github 访问](https://github.com/tencentyun/vod-go-sdk)
+* [单击下载 Go SDK](https://github.com/tencentyun/vod-go-sdk/archive/master.zip)
 
 ##  简单视频上传
 ### 初始化上传对象
@@ -50,6 +50,8 @@ if err != nil {
 fmt.Println(*rsp.Response.FileId)
 fmt.Println(*rsp.Response.MediaUrl)
 ```
+
+>?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 
 ## 高级功能
 ### 携带封面
@@ -143,18 +145,18 @@ func main() {
 ```
 
 ## 接口描述
-上传客户端类`VodUploadClient`：
+上传客户端类`VodUploadClient`
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | SecretId   | 云 API 密钥 ID。        | String | 是    |
 | SecretKey | 云 API 密钥 Key。 | String  | 是    |
 
-上传请求类`VodUploadRequest`：
+上传请求类`VodUploadRequest`
 
-| 属性名称      | 属性描述                   | 类型      | 必填   |
+| 属性名称      | 属性描述                   | 类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| MediaFilePath   | 媒体文件路径。        | String 指针 | 是    |
+| MediaFilePath   | 媒体文件路径，路径为本地路径，不支持 URL 路径。       | String 指针 | 是    |
 | MediaType   | 媒体文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String 指针 | 否    |
 | MediaName   | 媒体名称，若不填默认采用 MediaFilePath 的文件名。      | string 指针 | 否    |
 | CoverFilePath   | 封面文件路径。        | String 指针 | 否    |
@@ -163,9 +165,9 @@ func main() {
 | ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String 指针 | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](https://cloud.tencent.com/document/product/266/31772) 接口，创建分类，获得分类 ID。        | int64 指针 | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String 指针 | 否    |
-| SubAppId   | 点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。        | uint64 指针 | 否    |
+| SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | uint64 指针 | 否    |
 
-上传响应类 `VodUploadResponse`：
+上传响应类 `VodUploadResponse`
 
 | 属性名称      | 属性描述                   | 类型      |
 | --------- | ---------------------- | ------- |
@@ -175,14 +177,14 @@ func main() {
 | Response.CoverUrl | 媒体封面地址。 | String 指针  |
 | Response.RequestId | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 | String 指针  |
 
-上传方法 `VodUploadClient.Upload(region string, request *VodUploadRequest)`：
+上传方法 `VodUploadClient.Upload(region string, request *VodUploadRequest)`
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | region   | 上传地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。        | String | 是    |
 | request   | 上传请求。        | VodUploadRequest 指针 | 是    |
 
-## 错误码列表
+## 错误码表
 
 | 状态码         | 含义               |
 | ----------- | ----------------- |

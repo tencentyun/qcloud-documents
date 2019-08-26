@@ -1,0 +1,709 @@
+群组相关介绍请参考 [群组系统](https://cloud.tencent.com/document/product/269/1502)、[群组管理](https://cloud.tencent.com/document/product/269/3661) 和 [群组自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)。
+
+## TIMGroupCreate
+
+创建群组。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupCreate(const char* json_group_create_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_create_param | const char\* | 创建群组的参数 JSON 字符串 |
+| cb | TIMCommCallback | 创建群组成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 创建群组时可以指定群 ID，若未指定时 IM 通讯云服务器会生成一个唯一的 ID，以便后续操作，群组 ID 通过创建群组时传入的回调返回。
+- 创建群参数的 JSON Key 详情请参考 [CreateGroupParam](https://cloud.tencent.com/document/product/269/33553#creategroupparam)。
+
+
+**示例**
+
+```c
+Json::Value json_group_member_array(Json::arrayValue);
+
+Json::Value json_value_param;
+json_value_param[kTIMCreateGroupParamGroupId] = "first group id";
+json_value_param[kTIMCreateGroupParamGroupType] = kTIMGroup_Public;
+json_value_param[kTIMCreateGroupParamGroupName] = "first group name";
+json_value_param[kTIMCreateGroupParamGroupMemberArray] = json_group_member_array;
+
+json_value_param[kTIMCreateGroupParamNotification] = "group notification";
+json_value_param[kTIMCreateGroupParamIntroduction] = "group introduction";
+json_value_param[kTIMCreateGroupParamFaceUrl] = "group face url";
+json_value_param[kTIMCreateGroupParamMaxMemberCount] = 2000;
+json_value_param[kTIMCreateGroupParamAddOption] = kTIMGroupAddOpt_Any;
+
+const void* user_data = nullptr; // 回调函数回传
+int ret = TIMGroupCreate(json_value_param.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_params, const void* user_data) {
+   if (ERR_SUCC != code) { 
+        // 创建群组失败
+        return;
+    }
+    
+    // 创建群组成功 解析 JSON 获取创建后的 GroupID
+}, user_data);
+if (TIM_SUCC != ret) {
+    // TIMGroupCreate 接口调用失败
+}
+
+// json_value_param.toStyledString().c_str() 得到 json_group_create_param JSON 字符串如下
+{
+   "create_group_param_add_option" : 2,
+   "create_group_param_face_url" : "group face url",
+   "create_group_param_group_id" : "first group id",
+   "create_group_param_group_member_array" : [],
+   "create_group_param_group_name" : "first group name",
+   "create_group_param_group_type" : 0,
+   "create_group_param_introduction" : "group introduction",
+   "create_group_param_max_member_num" : 2000,
+   "create_group_param_notification" : "group notification"
+}
+```
+
+
+## TIMGroupDelete
+
+删除（解散）群组。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupDelete(const char* group_id, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| group_id | const char\* | 要删除的群组 ID  |
+| cb | TIMCommCallback | 删除群组成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 对于私有群，任何人都无法解散群组。
+ - 对于公开群、聊天室和直播大群，群主可以解散群组。
+- 删除指定群组 group_id 的接口，删除成功与否可根据回调 cb 的参数判断。
+
+
+## TIMGroupJoin
+
+申请加入群组。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupJoin(const char* group_id, const char* hello_msg, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| group_id | const char\* | 要加入的群组 ID  |
+| hello_msg | const char\* | 申请理由（选填） |
+| cb | TIMCommCallback | 申请加入群组成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 私有群不能由用户主动申请入群。
+ - 公开群和聊天室可以主动申请进入。
+ 如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群主设置为任何人可加入，则直接入群成功。直播大群可以任意加入群组。
+- 申请加入指定群组 group_id 的接口，申请加入的操作成功与否可根据回调 cb 的参数判断。
+
+
+## TIMGroupQuit
+
+退出群组。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupQuit(const char* group_id, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| group_id | const char\* | 要退出的群组 ID  |
+| cb | TIMCommCallback | 退出群组成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 对于私有群，全员可退出群组。
+ - 对于公开群、聊天室和直播大群，群主不能退出。
+- 退出指定群组 group_id 的接口，退出成功与否可根据回调 cb 的参数判断。
+
+
+## TIMGroupInviteMember
+
+邀请加入群组。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupInviteMember(const char* json_group_invite_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_invite_param | const char\* | 邀请加入群组的 JSON 字符串 |
+| cb | TIMCommCallback | 邀请加入群组成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 只有私有群可以拉用户入群。
+ - 公开群、聊天室邀请用户入群。
+ - 需要用户同意；直播大群不能邀请用户入群。
+- 此接口支持批量邀请成员加入群组，JSON Key 详情请参考 [GroupInviteMemberParam](https://cloud.tencent.com/document/product/269/33553#groupinvitememberparam)。
+
+
+**示例**
+
+```c
+Json::Value json_value_invite;
+json_value_invite[kTIMGroupInviteMemberParamGroupId] = groupid;
+json_value_invite[kTIMGroupInviteMemberParamUserData] = "userdata";
+json_value_invite[kTIMGroupInviteMemberParamIdentifierArray].append("user1");
+json_value_invite[kTIMGroupInviteMemberParamIdentifierArray].append("user2");
+
+const void* user_data = nullptr; // 回调函数回传;
+int ret = TIMGroupInviteMember(json_value_invite.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_params, const void* user_data) {
+    if (ERR_SUCC != code) { 
+        // 邀请成员列表失败
+        return;
+    }
+    // 邀请成员列表成功，解析 JSON 获取每个成员邀请结果
+}, user_data);
+if (TIM_SUCC != ret) {
+    // TIMGroupInviteMember 接口调用失败
+}
+
+// json_value_invite.toStyledString().c_str() 得到 json_group_invite_param JSON 字符串如下
+{
+   "group_invite_member_param_group_id" : "first group id",
+   "group_invite_member_param_identifier_array" : [ "user1", "user2" ],
+   "group_invite_member_param_user_data" : "userdata"
+}
+```
+
+
+## TIMGroupDeleteMember
+
+删除群组成员。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupDeleteMember(const char* json_group_delete_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_delete_param | const char\* | 删除群组成员的 JSON 字符串 |
+| cb | TIMCommCallback | 删除群组成员成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 对于私有群：只有创建者可删除群组成员。
+ - 对于公开群和聊天室：只有管理员和群主可以踢人。
+ - 对于直播大群：不能踢人。
+- 此接口支持批量删除群成员，JSON Key 详情请参考 [GroupDeleteMemberParam](https://cloud.tencent.com/document/product/269/33553#groupdeletememberparam)。
+
+
+**示例**
+
+```c
+Json::Value json_value_delete;
+json_value_delete[kTIMGroupDeleteMemberParamGroupId] = groupid;
+json_value_delete[kTIMGroupDeleteMemberParamUserData] = "reason";
+json_value_delete[kTIMGroupDeleteMemberParamIdentifierArray].append("user1");
+json_value_delete[kTIMGroupDeleteMemberParamIdentifierArray].append("user2");
+
+int ret = TIMGroupDeleteMember(json_value_delete.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_params, const void* user_data) {
+      
+}, this));
+
+// json_value_delete.toStyledString().c_str() 得到 json_group_delete_param JSON 字符串如下
+{
+  "group_delete_member_param_group_id" : "third group id",
+  "group_delete_member_param_identifier_array" : [ "user2", "user3" ],
+  "group_delete_member_param_user_data" : "reason"
+}
+```
+
+
+## TIMGroupGetJoinedGroupList
+
+获取已加入群组列表。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupGetJoinedGroupList(TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| cb | TIMCommCallback | 获取已加入群组列表成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 此接口可以获取自己所加入的群列表。
+ - 此接口只能获得加入的部分直播大的列表。
+- 此接口用于获取当前用户已加入的群组列表，返回群组的基础信息。具体返回的群组基本信息字段参考 [GroupBaseInfo](https://cloud.tencent.com/document/product/269/33553#groupbaseinfo)。
+
+
+## TIMGroupGetGroupInfoList
+
+获取群组信息列表。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupGetGroupInfoList(const char* json_group_getinfo_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_getinfo_param | const char\* | 获取群组信息列表参数的 JSON 字符串 |
+| cb | TIMCommCallback | 获取群组信息列表成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?此接口用于获取指定群 ID 列表的群详细信息。具体返回的群组详细信息字段参考 [GroupDetailInfo](https://cloud.tencent.com/document/product/269/33553#groupdetailinfo)。
+
+
+**示例**
+
+```c
+Json::Value groupids;
+groupids.append("third group id");
+groupids.append("second group id");
+groupids.append("first group id");
+int ret = TIMGroupGetGroupInfoList(groupids.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+
+}, this);
+
+// groupids.toStyledString().c_str() 得到 json_group_getinfo_param 如下
+[ "third group id", "second group id", "first group id" ]
+```
+
+
+## TIMGroupModifyGroupInfo
+
+修改群信息。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupModifyGroupInfo(const char* json_group_modifyinfo_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_modifyinfo_param | const char\* | 设置群信息参数的 JSON 字符串 JSON 字符串 |
+| cb | TIMCommCallback | 设置群信息成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 修改群主（群转让）的权限说明：
+ - 只有群主才有权限进行群转让操作。
+ - 直播大群不能进行群转让操作。
+- 修改群其他信息的权限说明：
+ - 对于公开群、聊天室和直播大群，只有群主或者管理员可以修改群简介。
+ - 对于私有群，任何人可修改群简介。
+- `kTIMGroupModifyInfoParamModifyFlag`可以按位或设置多个值。不同的 flag 设置不同的键，详情请参考 [GroupModifyInfoParam](https://cloud.tencent.com/document/product/269/33553#groupmodifyinfoparam)。
+
+
+**示例一、设置群所有者**
+
+```c
+Json::Value json_value_modifygroupinfo;
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamGroupId] = "first group id";
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamModifyFlag] = kTIMGroupModifyInfoFlag_Owner;
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamOwner] = "user2";
+
+int ret = TIMGroupModifyGroupInfo(json_value_modifygroupinfo.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+
+}, nullptr);
+
+// json_value_modifygroupinfo.toStyledString().c_str() 得到 json_group_modifyinfo_param JSON 字符串如下
+{
+  "group_modify_info_param_group_id" : "first group id",
+  "group_modify_info_param_modify_flag" : -2147483648,
+  "group_modify_info_param_owner" : "user2"
+}
+```
+
+
+**示例二、设置群名称和群通知**
+
+```c
+Json::Value json_value_modifygroupinfo;
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamGroupId] = "first group id";
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamModifyFlag] = kTIMGroupModifyInfoFlag_Name | kTIMGroupModifyInfoFlag_Notification;
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamGroupName] = "first group name to other name";
+json_value_modifygroupinfo[kTIMGroupModifyInfoParamNotification] = "first group notification";
+
+int ret = TIMGroupModifyGroupInfo(json_value_modifygroupinfo.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+
+}, nullptr);
+
+// json_value_modifygroupinfo.toStyledString().c_str() 得到 json_group_modifyinfo_param JSON 字符串如下
+{
+   "group_modify_info_param_group_id" : "first group id",
+   "group_modify_info_param_group_name" : "first group name to other name",
+   "group_modify_info_param_modify_flag" : 3,
+   "group_modify_info_param_notification" : "first group notification"
+}
+```
+
+
+## TIMGroupGetMemberInfoList
+
+获取群成员信息列表。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupGetMemberInfoList(const char* json_group_getmeminfos_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_getmeminfos_param | const char\* | 获取群成员信息列表参数的 JSON 字符串 |
+| cb | TIMCommCallback | 获取群成员信息列表成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 任何群组类型都可以获取成员列表。
+ - 直播大群只能拉取部分成员列表：包括群主、管理员和部分成员。
+- 根据不同的选项，获取群成员信息列表。成员信息的各个字段含义请参考 [GroupMemberInfo](https://cloud.tencent.com/document/product/269/33553#groupmemberinfo)。
+
+
+**示例**
+
+```c
+Json::Value identifiers(Json::arrayValue); 
+...
+Json::Value customs(Json::arrayValue);
+...
+Json::Value option;
+option[kTIMGroupMemberGetInfoOptionInfoFlag] = kTIMGroupMemberInfoFlag_None;
+option[kTIMGroupMemberGetInfoOptionRoleFlag] = kTIMGroupMemberRoleFlag_All;
+option[kTIMGroupMemberGetInfoOptionCustomArray] = customs;
+Json::Value getmeminfo_opt;
+getmeminfo_opt[kTIMGroupGetMemberInfoListParamGroupId] = groupid;
+getmeminfo_opt[kTIMGroupGetMemberInfoListParamIdentifierArray] = identifiers;
+getmeminfo_opt[kTIMGroupGetMemberInfoListParamOption] = option;
+getmeminfo_opt[kTIMGroupGetMemberInfoListParamNextSeq] = 0;
+
+int ret = TIMGroupGetMemberInfoList(getmeminfo_opt.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+
+}, this);
+
+// getmeminfo_opt.toStyledString().c_str() 得到 json_group_getmeminfos_param JSON 字符串如下
+{
+   "group_get_members_info_list_param_group_id" : "first group id",
+   "group_get_members_info_list_param_identifier_array" : [],
+   "group_get_members_info_list_param_next_seq" : 0,
+   "group_get_members_info_list_param_option" : {
+      "group_member_get_info_option_custom_array" : [],
+      "group_member_get_info_option_info_flag" : 0,
+      "group_member_get_info_option_role_flag" : 0
+   }
+}
+```
+
+
+## TIMGroupModifyMemberInfo
+
+修改群成员信息。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupModifyMemberInfo(const char* json_group_modifymeminfo_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_modifymeminfo_param | const char\* | 设置群信息参数的 JSON 字符串 |
+| cb | TIMCommCallback | 设置群成员信息成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 权限说明：
+ - 只有群主或者管理员可以进行对群成员的身份进行修改。
+ - 直播大群不支持修改用户群内身份。
+ - 只有群主或者管理员可以进行对群成员进行禁言。
+- `kTIMGroupModifyMemberInfoParamModifyFlag`可以按位或设置多个值，不同的 flag 设置不同的键。请参考 [GroupModifyMemberInfoParam](https://cloud.tencent.com/document/product/269/33553#groupmodifymemberinfoparam)。
+
+
+**示例**
+
+```c
+Json::Value json_value_setgroupmeminfo;
+json_value_setgroupmeminfo[kTIMGroupModifyMemberInfoParamGroupId] = "third group id";
+json_value_setgroupmeminfo[kTIMGroupModifyMemberInfoParamIdentifier] = "user2";
+json_value_setgroupmeminfo[kTIMGroupModifyMemberInfoParamModifyFlag] = kTIMGroupMemberModifyFlag_MemberRole | kTIMGroupMemberModifyFlag_NameCard;
+json_value_setgroupmeminfo[kTIMGroupModifyMemberInfoParamMemberRole] = kTIMMemberRole_Admin;
+json_value_setgroupmeminfo[kTIMGroupModifyMemberInfoParamNameCard] = "change name card";
+
+int ret = TIMGroupModifyMemberInfo(json_value_setgroupmeminfo.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+  
+}, nullptr);
+
+// json_value_modifygroupmeminfo.toStyledString().c_str() 得到 json_group_modifymeminfo_param JSON 字符串如下
+{
+   "group_modify_member_info_group_id" : "third group id",
+   "group_modify_member_info_identifier" : "user2",
+   "group_modify_member_info_member_role" : 1,
+   "group_modify_member_info_modify_flag" : 10,
+   "group_modify_member_info_name_card" : "change name card"
+}
+```
+
+
+## TIMGroupGetPendencyList
+
+获取群未决信息列表群未决信息是指还没有处理的操作，例如，邀请加群或者请求加群操作还没有被处理，称之为群未决信息。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupGetPendencyList(const char* json_group_getpendence_list_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_getpendence_list_param | const char\* | 设置群未决信息参数的 JSON 字符串 |
+| cb | TIMCommCallback | 获取群未决信息列表成功与否的回调。回调函数定义和参数解析请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 此处的群未决消息泛指所有需要审批的群相关的操作。例如：加群待审批，拉人入群待审批等等。即便审核通过或者拒绝后，该条信息也可通过此接口拉回，拉回的信息中有已决标志。
+- UserA 申请加入群 GroupA，则群管理员可获取此未决相关信息，UserA 因为没有审批权限，不需要获取此未决信息。
+- 如果 AdminA 拉 UserA 进去 GroupA，则 UserA 可以拉取此未决相关信息，因为该未决信息待 UserA 审批。
+- 权限说明：
+ - 只有审批人有权限拉取相关未决信息。
+- `kTIMGroupPendencyOptionStartTime`设置拉取时间戳，第一次请求填0，后边根据 server 返回的 [GroupPendencyResult](https://cloud.tencent.com/document/product/269/33553#grouppendencyresult) 键`kTIMGroupPendencyResultNextStartTime`指定的时间戳进行填写。
+- `kTIMGroupPendencyOptionMaxLimited`拉取的建议数量，server 可根据需要返回或多或少，不能作为完成与否的标志。
+
+
+**示例**
+
+```c
+Json::Value get_pendency_option;
+get_pendency_option[kTIMGroupPendencyOptionStartTime] = 0;
+get_pendency_option[kTIMGroupPendencyOptionMaxLimited] = 0;
+int ret = TIMGroupGetPendencyList(get_pendency_option.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    if (ERR_SUCC != code) { 
+        // 获取群未决信息失败
+        return;
+    }
+}, nullptr);
+
+// get_pendency_option.toStyledString().c_str() 得到 json_group_getpendence_list_param JSON 字符串如下
+{
+   "group_pendency_option_max_limited" : 0,
+   "group_pendency_option_start_time" : 0
+}
+```
+
+
+## TIMGroupReportPendencyReaded
+
+上报群未决信息已读。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupReportPendencyReaded(uint64_t time_stamp, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| time_stamp | uint64_t | 已读时间戳（单位秒）。与 [GroupPendency](https://cloud.tencent.com/document/product/269/33553#grouppendency) 键`kTIMGroupPendencyAddTime`指定的时间比较 |
+| cb | TIMCommCallback | 上报群未决信息已读成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?时间戳 time_stamp 以前的群未决请求都将置为已读。上报已读后，仍然可以拉取到这些未决信息，但可通过对已读时戳的判断判定未决信息是否已读。
+
+
+## TIMGroupHandlePendency
+
+处理群未决信息。
+
+**原型：**
+
+```c
+TIM_DECL int TIMGroupHandlePendency(const char* json_group_handle_pendency_param, TIMCommCallback cb, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_group_handle_pendency_param | const char\* | 处理群未决信息参数的 JSON 字符串 |
+| cb | TIMCommCallback | 处理群未决信息成功与否的回调。回调函数定义请参考 [TIMCommCallback](https://cloud.tencent.com/document/product/269/33552#timcommcallback)  |
+| user_data | const void\* | 用户自定义数据，IM SDK 只负责传回给回调函数 cb，不做任何处理 |
+
+**返回值**
+
+| 类型 | 含义 |
+|-----|-----|
+| int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
+
+>?
+- 对于群的未决信息，IM SDK 增加了处理接口。审批人可以选择对单条信息进行同意或者拒绝。已处理成功过的未决信息不能再次处理。
+- 处理未决信息时需要带一个未决信息 [GroupPendency](https://cloud.tencent.com/document/product/269/33553#grouppendency)，可以在接口 [TIMGroupGetPendencyList](https://cloud.tencent.com/document/product/269/33550#timgroupgetpendencylist) 返回的未决信息列表将未决信息保存下来，在处理未决信息的时候将 [GroupPendency](https://cloud.tencent.com/document/product/269/33553#grouppendency) 传入键`kTIMGroupHandlePendencyParamPendency`。
+
+
+**示例**
+
+```c
+Json::Value pendency; //构造 GroupPendency
+...
+Json::Value handle_pendency;
+handle_pendency[kTIMGroupHandlePendencyParamIsAccept] = true;
+handle_pendency[kTIMGroupHandlePendencyParamHandleMsg] = "I accept this pendency";
+handle_pendency[kTIMGroupHandlePendencyParamPendency] = pendency;
+int ret = TIMGroupHandlePendency(handle_pendency.toStyledString().c_str(), [](int32_t code, const char* desc, const char* json_param, const void* user_data) {
+    if (ERR_SUCC != code) {
+        // 上报群未决信息已读失败
+        return;
+    }
+}, nullptr);
+
+// handle_pendency.toStyledString().c_str() 得到 json_group_handle_pendency_param JSON 字符串如下
+{
+   "group_handle_pendency_param_handle_msg" : "I accept this pendency",
+   "group_handle_pendency_param_is_accept" : true,
+   "group_handle_pendency_param_pendency" : {
+      "group_pendency_add_time" : 1551414487947,
+      "group_pendency_apply_invite_msg" : "Want Join Group, Thank you",
+      "group_pendency_approval_msg" : "",
+      "group_pendency_form_identifier" : "user2",
+      "group_pendency_form_user_defined_data" : "",
+      "group_pendency_group_id" : "four group id",
+      "group_pendency_handle_result" : 0,
+      "group_pendency_handled" : 0,
+      "group_pendency_pendency_type" : 0,
+      "group_pendency_to_identifier" : "user1",
+      "group_pendency_to_user_defined_data" : ""
+   }
+}
+```
+
+

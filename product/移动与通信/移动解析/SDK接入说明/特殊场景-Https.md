@@ -1,12 +1,12 @@
-该文档说明HttpDNS 的 Https 场景
+该文档说明 HttpDNS 的 Https 场景
 
-### iOS部分代码
+### iOS 部分代码
 
 #### 原理
-在进行证书校验时，将IP替换成原来的域名，再进行证书验证。
+在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
 
-#### Demo示例
-以NSURLConnection接口为例
+#### Demo 示例
+以 NSURLConnection 接口为例
 
 ```
 #pragma mark - NSURLConnectionDelegate
