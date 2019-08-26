@@ -50,9 +50,10 @@
 
 #### 简单查询
 
-1. 在左侧菜单栏中单击【工作区】，并新建一个 Notebook 笔记簿，然后执行一个简单 SQL 语句；
-   ![](https://main.qcloudimg.com/raw/80ac3cf51b859c3be9264f812d4f819f.jpg)
+1. 在左侧菜单栏中单击【工作区】，并新建一个 Notebook 笔记簿，执行一个 SQL 语句。
+	 ![](https://main.qcloudimg.com/raw/35c7e2ec3c50db80dd410da70a8fc482.jpg)
 2. 分析错误码的分布并可视化，这里的错误字段名是`_c16`，执行如下 SQL 语句：`select _c14, count(*) from cos_logging group by _c16`。
-   ![](https://main.qcloudimg.com/raw/fea191f726ec270801a14dac8d33b49f.jpg)
+	 ![](https://main.qcloudimg.com/raw/48bbd07d3e1468b8c0c7300c88a3f98d.png)
+
 3. 选择柱状图进行可视化，如下图所示：
    ![](https://main.qcloudimg.com/raw/630f7e6223a7894ba34b7595f67f4fe3.jpg)
