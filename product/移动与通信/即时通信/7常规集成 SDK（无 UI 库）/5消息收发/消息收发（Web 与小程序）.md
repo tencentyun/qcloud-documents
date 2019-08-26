@@ -355,8 +355,7 @@ promise.then(function(imResponse) {
 
 > See:	[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
 
-接受消息的接口，
-调用时机：消息发送失败时，调用该接口进行重发。
+接受消息的接口，接收消息需要通过事件监听实现：
 
 **示例**
 
