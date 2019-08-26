@@ -7,7 +7,7 @@
 - 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
 - 已安装 pip。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
-- 已安装并启动 Docker （可选，仅针对 [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local)）。
+- （可选）使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local) 时需按安装并启动 Docker。
 
 上述安装可参考 [安装与配置文档](https://cloud.tencent.com/document/product/583/33449)。
 
@@ -20,15 +20,18 @@ $ sudo pip install scf
 2. 执行以下命令，验证 SCF CLI 是否安装成功。
 ```bash
 $ scf --version
+```
+返回类似如下信息，则表示安装成功。
+```
 scf CLI, version 0.0.1
 ```
-返回类似如上信息，则表示安装成功。
+
 
 <span id="configure"></span>
 ### 配置 SCF CLI
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)。
 2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域，配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
-3. 执行 `scf configure set` 命令，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
+3. 执行以下命令，并按照提示，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
 例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
 您可以通过执行以下命令，按照提示输入对应信息，完成 SCF CLI 的配置：
 ```shell
@@ -55,12 +58,12 @@ Runtime: python3.6
 [*] Project initialization is complete
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
-3. 您可以根据实际需求执行以下命令，指定函数的 runtime 和名称。
+（可选）您可以根据实际需求执行以下命令，指定函数的 runtime 和名称。
 ```bash
 $ scf init --runtime nodejs8.9 --name testscf
 ```
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
-4. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
+3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
 import sys
@@ -83,9 +86,12 @@ def main_handler(event, context):
 ### 本地测试
 通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。当前 `native invoke` 仅支持 Node.js 及 Python 语言，结合 Docker  进行本地调试请参考 [本地调试（local invoke）](https://cloud.tencent.com/document/product/583/35401)。
 1. 进入项目所在目录 `hello_world`。
-2. 执行 `scf native invoke --no-event` 命令，启动函数在本地运行。输出结果如下：
+2. 执行以下命令，启动函数在本地运行。
 ```
 $ scf native invoke --no-event
+```
+输出结果如下：
+```
 Run python3.6's cmd: python
 START RequestId: 2f258903-95d0-4992-9321-0d720867a383
 Loading function
