@@ -7,7 +7,7 @@
 - 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
 - 已安装 pip。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
-- （可选）使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local) 时需按安装并启动 Docker。
+- 使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local) 时需按安装并启动 Docker。
 
 上述安装可参考 [安装与配置文档](https://cloud.tencent.com/document/product/583/33449)。
 
