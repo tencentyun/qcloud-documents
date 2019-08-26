@@ -11,7 +11,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 
 ## 前提条件
 Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
-- 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
+- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 - 已安装 Python 2.7+ 或 Python 3.6+，以及对应版本 pip。
 
