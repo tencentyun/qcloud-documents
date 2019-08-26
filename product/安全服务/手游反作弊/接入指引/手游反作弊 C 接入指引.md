@@ -73,7 +73,7 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 | game_id | 是 | 由腾讯云官网分配的 game_id  |
 | app_key | 是 | 由腾讯云官网分配 game_key，与 game_id 对应  |
 
-- gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
+- gameId 和 AppKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
 - ** 返回值 **：0 表示调用成功
 
 ### 用户登录接口
@@ -131,8 +131,8 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 - ** 返回值 **：0 表示调用成功
 
 ### 调用时机
-1. tp2_sdk_init_ex 在游戏启动的第一时间调用，参数为游戏 id 和 app_key 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
-2. tp2_setuserinfo 在游戏获取到用户授权的登录信息后调用，如果游戏有设置大区 id 和角色 id，则在获取大区 id 和角色 id 之后再调用 tp2_setuserinfo 函数。在游戏过程中，如果出现断线重连，用户注销重新登录等需要重新获取用户登录信息的情况，也需要再次调用该函数。传递的参数为用户的帐号信息，可自定义。
+1. tp2_sdk_init_ex 在游戏启动的第一时间调用，参数为游戏 ID 和 App_key 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
+2. tp2_setuserinfo 在游戏获取到用户授权的登录信息后调用，如果游戏有设置大区 ID 和角色 ID，则在获取大区 ID 和角色 ID 之后再调用 tp2_setuserinfo 函数。在游戏过程中，如果出现断线重连，用户注销重新登录等需要重新获取用户登录信息的情况，也需要再次调用该函数。传递的参数为用户的帐号信息，可自定义。
 3. tp2_setgamestatus 在游戏切换前后台调用。当游戏从后台切换到前台运行时调用 Tp2SetGamestatus 接口，设置参数为 Tp2Status. FRONTEND。当游戏切从前台切换到后台时传递参数为 Tp2Status. BACKEND。SDK 部分功能在切换到后台时停止运行，因此该接口将影响 SDK 功能是否正常。
 
 ### 示例代码
@@ -176,7 +176,7 @@ tp2_setgamestatus(TP2_GAME_STATUS_BACKEND);
 如果没有生成日志，请检查 / sdcard/sdk 和 enable.log 是否有读写权限。少部分机型无法读写这个目录，可更换机型测试或将 / sdcard/sdk 改为 / data/data/log（需要 root）。
 >**注意：**enable.log 只用于测试使用。
 5. 打开 tp2.log 文件，检查日志中是否包含三个接口（native）信息 **tp2_sdk_init_ex，tp2_setuserinfo，setgamestatus** 以及 jar 包版本号 **jar_ver**。以上条件必须都满足才能正确运行安全 SDK。setgamestatus:1 表示当前进程运行在前台，setgamestatus:2 表示当前进程运行在后台。
-请测试 app 切换前后台，查看接口调用是否正确。除了接口调用，还要检查用户信息 (userinfo) 是否填写正确。
+请测试 App 切换前后台，查看接口调用是否正确。除了接口调用，还要检查用户信息 (userinfo) 是否填写正确。
  ![](https://mc.qcloudimg.com/static/img/75eef4a35cf89e8e1d02be304403377b/image.png)
 6. 打开 tlog.log 可查看安全 SDK 发送的数据，如图
  ![](https://mc.qcloudimg.com/static/img/50526870e79bb4d21d5b5bb0c333f86f/image.png)
