@@ -2,7 +2,7 @@
 ## TIMManager
 
 IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以及管理推送等功能。
-- 初始化：初始化是使用 IM SDK 的前提，调用任何其它 API 的操作都应该在调用 init 接口之后。
+- 初始化：初始化是使用 IM SDK 的前提，调用 init 接口后，才能调用其它 API。
 - 登录：需要设置 SDKAppID，UserID 和 UserSig 才能使用即时通信 IM 服务。
 - 会话：一个会话对应一个聊天窗口，例如，与单个好友的 C2C 聊天或者一个聊天群都是一个会话。
 - 推送：管理和设置离线推送的相关功能，包括 token 和开关等。
@@ -233,7 +233,7 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 
 ## TIMMessage
 
-[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timmessage) 由多个 [TIMElem](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timelem) 组成，每个 TIMElem 可以是文本或图片，即即每条消息可包含多个文本或图片，详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9150)。
+[TIMMessage](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timmessage) 由多个 [TIMElem](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#timelem) 组成，每个 TIMElem 可以是文本或图片，即每条消息可包含多个文本或图片，详情请参见 [消息收发](https://cloud.tencent.com/document/product/269/9150)。
 
 | API | 描述 |
 | --- | --- |
@@ -261,7 +261,7 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 | [getOfflinePushInfo](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#getofflinepushinfo) | 获取消息离线推送配置。 |
 | [setCustomInt](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setcustomint) | 设置自定义整数，默认为0。 |
 | [customInt](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#customint) | 获取 CustomInt。 |
-| [setCustomData](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setcustomdata) | 设置自定义数据，默认为""。 |
+| [setCustomData](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setcustomdata) | 设置自定义数据，默认为空串`""`。 |
 | [customData](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#customdata) | 获取 CustomData。 |
 | [copyFrom](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#copyfrom) | 复制消息中的属性（复制对象包括 ELem、priority、online 以及 offlinePushInfo）。 |
 | [convertToImportedMsg](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#converttoimportedmsg) | 将消息导入到本地。 |

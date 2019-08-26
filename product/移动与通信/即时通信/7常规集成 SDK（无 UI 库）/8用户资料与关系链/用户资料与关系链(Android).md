@@ -59,18 +59,6 @@ public String getSelfSignature()
 public String getAllowType()
 
 /**
- * 获取用户备注
- * @return 用户备注
- */
-public String getRemark()
-
-/**
- * 获取被加入的好友分组列表
- * @return 分组列表
- */
-public List<String> getFriendGroups()
-
-/**
  * 获取用户自定义信息
  * @return 自定义信息 Map
  */
@@ -123,7 +111,7 @@ TIMFriendshipManager.getInstance().getSelfProfile(new TIMValueCallBack<TIMUserPr
 	public void onSuccess(TIMUserProfile result){
 		Log.e(tag, "getSelfProfile succ");
 		Log.e(tag, "identifier: " + result.getIdentifier() + " nickName: " + result.getNickName() 
-					+ " remark: " + result.getRemark() + " allow: " + result.getAllowType());
+					 + " allow: " + result.getAllowType());
 	}
 });
 
@@ -180,8 +168,7 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, true, new TIMValueCall
 	public void onSuccess(List<TIMUserProfile> result){
         Log.e(tag, "getUsersProfile succ");
 		for(TIMUserProfile res : result){
-	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName() 
-	        		+ " remark: " + res.getRemark());
+	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName();
 		}
 	}
 });
@@ -1203,7 +1190,14 @@ addWording | 添加好友附言
 
 **触发时机：**
 
-当申请对方为好友，申请审核通过后，自己会收到删除未决请求消息，表示之前的申请已经通过。
+当申请对方为好友，申请审核被拒后，自己会收到删除未决请求消息，表示之前的申请被拒绝。
+
+**参数说明：**
+
+参数 | 说明
+--- | ---
+subType | TIM_SNS_SYSTEM_DEL_FRIEND_REQ 
+delFriendAddPendencyList | 被拒绝的加好友未决列表
 
 ## 用户资料变更系统通知
 

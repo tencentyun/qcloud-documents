@@ -1,5 +1,5 @@
 ## 流程说明
-为 App 中 即时通信 IM 功能实现消息推送的过程一般如下：
+实现离线消息推送的过程如下：
 1. 开发者到厂商的平台注册账号，并通过开发者认证后，申请开通推送服务。
 2. 创建推送服务，并绑定应用信息，获取推送证书、密码、密钥等信息。
 3. 登录 [即时通信 IM 控制台](https://console.qcloud.com/avc) 填写推送证书及相关信息，即时通信 IM 服务端会为每个证书生成不同的证书 ID。
@@ -15,7 +15,8 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 >- 此指引文档是直接参考 vivo 推送官方文档所写，若 vivo 推送有变动，请以 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/180) 为准。
 >- 如果不需要对 vivo 设备做专门的离线推送适配，可以忽略此章节。
 
-### Step1. 申请 vivo 推送证书
+<span id="Step1"></span>
+### Step1：申请 vivo 推送证书
 1. 打开 [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。
  >?认证过程大约需要3天左右，请务必提前阅读 [vivo 推送服务说明](https://dev.vivo.com.cn/documentCenter/doc/180)，以免影响您的接入进度。
 2. 登录 vivo 开放平台的管理中心，选择【消息推送】>【创建】>【测试推送】，创建 vivo 推送服务应用。
@@ -25,11 +26,11 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  ![](https://main.qcloudimg.com/raw/4bee78a25cadae911d56ca0b6adbac3a.png)
 
 <span id="Step2"></span>
-### Step2. 托管证书信息到即时通信 IM
+### Step2：托管证书信息到即时通信 IM
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
- ![](https://main.qcloudimg.com/raw/bdbbbce31242bd8a917e3ecec9c3be88.jpg)
+ ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
 4. 单击【Android 推送证书】区域的【添加证书】。
  >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
  > 
@@ -38,25 +39,25 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  - **应用包名称**：填写 vivo 推送服务应用的**应用包名**
  - **APPID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
- ![](https://main.qcloudimg.com/raw/aec362779569a915d2f2a96d49ecf9bc.png)
+ ![](https://main.qcloudimg.com/raw/d249073c92986efe9719d6508570b4d2.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
-7. 待推送证书信息生成后，记录 **`证书 ID`** 。
- ![](https://main.qcloudimg.com/raw/4eb9be556cce525fc4e1a100846673d2.png)
+7. 待推送证书信息生成后，记录**`证书 ID`** 。
+ ![](https://main.qcloudimg.com/raw/744870d8e96007cf910d54a4ee48d0b4.png)
 
 <span id="Step3"></span>
-### Step3. 集成推送 SDK
+### Step3：集成推送 SDK
 >?
 > - 即时通信 IM 默认推送的通知标题为 `a new message`。
 > - 阅读此小节前，请确保您已经正常集成并使用即时通信 IM SDK。
 > - 您可以在我们的 demo 里找到 vivo 推送的实现示例，请注意： vivo 推送版本更新时有可能会有功能调整，若您发现本节内容存在差异，烦请您及时查阅 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/155)，并将文档信息差异反馈给我们，我们会及时跟进修改。
 
-#### Step3.1 下载 vivo 推送 SDK 并添加引用
+#### Step3.1：下载 vivo 推送 SDK 并添加引用
 1. 访问 [vivo 推送运营平台](https://dev.vivo.com.cn/documentCenter/doc/232) 下载 vivo 推送 SDK。
 2. 解压 vivo 推送 SDK，获取`vivo_pushsdk_xxx.jar`库文件。
 3. 将`vivo_pushsdk_xxx.jar`库文件添加到您项目的`libs`目录下，并且在项目中添加引用。
 
 
-#### Step3.2 配置 AndroidManifest.xml 文件
+#### Step3.2：配置 AndroidManifest.xml 文件
 
 添加 vivo 推送服务需要的配置：
 
@@ -80,7 +81,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <!--这里的 com.vivo.push.app_id ，com.vivo.push.api_key 由 vivo 开放平台生成 -->
 ```
 
-#### Step3.3 自定义一个 BroadcastReceiver 类
+#### Step3.3：自定义一个 BroadcastReceiver 类
 
 为了接收消息，您需要自定义一个继承自 `OpenClientPushMessageReceiver` 类的 BroadcastReceiver，并实现其中的 `onReceiveRegId`，`onNotificationMessageClicked` 方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
 
@@ -115,7 +116,7 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 </receiver>
 ```
 
-#### Step3.4 在 App 中注册 vivo 推送服务
+#### Step3.4：在 App 中注册 vivo 推送服务
 
 如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()` 可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的 `onCreate` 中调用。
 
@@ -191,7 +192,7 @@ if (IMFunc.isBrandVivo()) {
 </pre>
 
 <span id="Step4"></span>
-### Step4. 上报推送信息至即时通信 IM 服务端
+### Step4：上报推送信息至即时通信 IM 服务端
 若您需要通过 vivo 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
 >!正确上报 regId 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
 
@@ -287,7 +288,7 @@ public class ThirdPushTokenMgr {
 }
 ```
 
-### Step5. 离线推送
+### Step5：离线推送
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后，将消息通过 vivo 推送通知到用户端。
 

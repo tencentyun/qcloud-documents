@@ -1,6 +1,6 @@
 ## 访问方式
 访问云数据库 MySQL 的方式有三种：
-- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（都是基础网络或都在同一个 [私有网路 VPC](https://cloud.tencent.com/document/product/215/20046)）。
+- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（都是基础网络或都在同一个 [私有网络 VPC](https://cloud.tencent.com/document/product/215/20046)）。
 - **外网访问**：通过外网地址访问云数据库 MySQL 。
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
@@ -56,7 +56,7 @@ mysql -h hostname -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐号对应的密码。
->- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
+>- 本例中提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
 ![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
  - 外网访问时，执行以下命令登录到 MySQL 数据库实例。
