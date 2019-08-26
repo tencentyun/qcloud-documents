@@ -9,7 +9,7 @@
 
 > ?开通 COS 日志管理功能，您可以参见 [设置日志管理](https://cloud.tencent.com/document/product/436/17040) 控制台指南进行设置，下面为举例说明。
 
-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，选择需要分析访问记录的存储桶，并开通日志管理功能，此后根据需要开启相应存储桶的访问日志功能。例如用户需要分析访问记录的存储桶为`loggingbucket-1250000000`，其所有的访问记录投递到目标存储桶`deliverybucket-1250000000`下，并且路径前缀为`cos-access-log/ap-guangzhou/deliverybucket/`，如下图所示：
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，选择需要分析访问记录的存储桶，并开通日志管理功能，此后根据需要开启相应存储桶的访问日志功能。例如，用户需要分析访问记录的存储桶为`loggingbucket-1250000000`，其所有的访问记录投递到目标存储桶`deliverybucket-1250000000`下，并且路径前缀为`cos-access-log/ap-guangzhou/deliverybucket/`，如下图所示：
 ![](https://main.qcloudimg.com/raw/ddc7080d779cf8bbe86ec20d121e2576.png)
 2. 目标存储桶和路径前缀配置完成后，COS 存储桶的日志管理功能即可开通完毕。
 
@@ -50,7 +50,7 @@
 
 #### 简单查询
 
-1. 在左侧菜单栏中单击【工作区】，并新建一个 Notebook 笔记簿，执行一个 SQL 语句。
+1. 在左侧菜单栏中单击【工作区】，新建一个 Notebook 笔记簿，并执行一条 SQL 语句。
 	 ![](https://main.qcloudimg.com/raw/35c7e2ec3c50db80dd410da70a8fc482.jpg)
 2. 分析错误码的分布并可视化，这里的错误字段名是`_c16`，执行如下 SQL 语句：`select _c14, count(*) from cos_logging group by _c16`。
 	 ![](https://main.qcloudimg.com/raw/48bbd07d3e1468b8c0c7300c88a3f98d.png)
