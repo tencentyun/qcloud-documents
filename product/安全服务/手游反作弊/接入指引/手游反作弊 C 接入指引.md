@@ -30,10 +30,10 @@ libtersafe2.so
 
 ## 添加 SDK 文件到工程
 ### 添加文件
-1. 将 sdk/android/c 目录下的 tp2.jar 文件拷贝到 android 工程目录的 libs 目录下。
-2. 将 sdk/android/c 目录下 tp2_sdk.h 文件拷贝到 android 工程目录的 jni 目录下。
-3. 将 sdt/c++ 目录下的 tss_sdt.h 和 tss_sdt_ex.h 文件拷贝到 android 工程目录的 jni 目录下（选接，接入教程见《C++ 安全数据类型接入教程. doc》）。
-4. 将 sdk/android/c/lib 目录下以 CPU 架构命名的文件夹 (包含 libtersafe2.so 文件) 拷贝到 android 工程目录的 jni / 对应存 so 文件的目录，如 jni/armeabi、jni/x86 等, 对不支持的 CPU 架构体系不需要拷贝。
+1. 将 sdk/Android/c 目录下的 tp2.jar 文件拷贝到 Android 工程目录的 libs 目录下。
+2. 将 sdk/Android/c 目录下 tp2_sdk.h 文件拷贝到 Android 工程目录的 jni 目录下。
+3. 将 sdt/c++ 目录下的 tss_sdt.h 和 tss_sdt_ex.h 文件拷贝到 Android 工程目录的 jni 目录下（选接，接入教程见《C++ 安全数据类型接入教程. doc》）。
+4. 将 sdk/Android/c/lib 目录下以 CPU 架构命名的文件夹 (包含 libtersafe2.so 文件) 拷贝到 Android 工程目录的 jni / 对应存 so 文件的目录，如 jni/armeabi、jni/x86 等, 对不支持的 CPU 架构体系不需要拷贝。
  ![](https://mc.qcloudimg.com/static/img/5c0861221c69ff2a296717b48223b614/image.png)
 
 ### 工程属性设置
@@ -43,12 +43,12 @@ libtersafe2.so
 ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
 3. 添加 tp2.jar 后在 [Order and Export] 中选中 tp2.jar
 ![](https://mc.qcloudimg.com/static/img/e19cbe55f0997e7bdb68eeef275a1fb4/image.png)
-4. 再在 android 工程加载游戏 so 的地方，添加对 libtersafe2.so 的引用。
+4. 再在 Android 工程加载游戏 so 的地方，添加对 libtersafe2.so 的引用。
 >**注意：**
 >libtersafe2.so 的加载顺序，需要在游戏自己的 so 之前。
 
 ### 修改 Android.mk
-1. 在 jin/android.mk 中添加如下代码, 用于加载 libtersafe2.so。
+1. 在 jin/Android.mk 中添加如下代码, 用于加载 libtersafe2.so。
 ```
 include $(CLEAR_VARS)
 LOCAL_MODULE:=libtp2
@@ -163,7 +163,7 @@ tp2_setgamestatus(TP2_GAME_STATUS_BACKEND);
 ```
 
 ## 验证 SDK 接入是否正确
-1. 将安卓手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 android adb 控制台，如图：
+1. 将 Android 手机通过 usb 数据线连接 Windows 电脑。连接成功后，使用 Windows 的命令行工具，登录到 android adb 控制台，如图：
  ![](https://mc.qcloudimg.com/static/img/091f2d44b4862e843748fdd9655e9914/image.png)
 2. 敲入 cd /sdcard 回车，再敲入 mkdir sdk 回车，用于创建 / sdcard/sdk 目录。其中，如果目录已经存在，则系统会提示 mkdir failed for /sdcard/sdk，File exists，继续下一步。：
  ![](https://mc.qcloudimg.com/static/img/748c74c2ef3f5bec2a650f3d8eb0bdc6/image.png)
