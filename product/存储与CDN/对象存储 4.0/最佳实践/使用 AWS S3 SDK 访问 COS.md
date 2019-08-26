@@ -2,19 +2,18 @@
 
 COS 提供了 AWS S3兼容的 API，因此当您的数据从 S3 迁移到 COS 之后，只需要进行简单的配置修改，即可让您的客户端应用轻松兼容 COS 服务。本文主要介绍不同开发平台的 S3 SDK 的适配步骤。在完成添加适配步骤后，您就可以使用 S3 SDK 的接口来访问 COS 上的文件了。
 
-### 准备工作
+#### 准备工作
 
-1. 您已经注册了腾讯云账号，并且从 [腾讯云访问管理控制台](https://console.cloud.tencent.com/cam/capi) 上获取腾讯云密钥 SecretID 与 SecretKey。
+1. 您已经注册了腾讯云账号，并且从 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 上获取了腾讯云密钥 SecretID 与 SecretKey。
 2. 您已经有一个集成了 S3 SDK，并能正常运行的客户端应用。
 
-### Android
+## Android
 
 下面以 AWS Android SDK 2.14.2 版本为例，介绍如何适配以便访问 COS 服务。
 
 #### 初始化
 
-初始化实例时您需要设置临时密钥提供者和 Endpoint，以存储桶所在地域是 `ap-guangzhou` 为例：
-
+初始化实例时您需要设置临时密钥提供者和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
 ```
 AmazonS3Client s3 = new AmazonS3Client(new AWSCredentialsProvider() {
     @Override
@@ -34,7 +33,7 @@ AmazonS3Client s3 = new AmazonS3Client(new AWSCredentialsProvider() {
 s3.setEndpoint("cos.ap-guangzhou.myqcloud.com"); 
 ```
 
-### iOS
+## iOS
 
 以 AWS iOS SDK 2.10.2 版本为例，介绍如何适配以便访问 COS 服务。
 
@@ -69,13 +68,13 @@ AWSServiceConfiguration* configuration = [[AWSServiceConfiguration alloc]
 [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
 ```
 
-### Node.js
+## Node.js
 
 下面以 AWS JS SDK 2.509.0 版本为例，介绍如何适配以便访问 COS 服务。
 
 #### 初始化
 
-初始化实例时设置腾讯云密钥和 Endpoint，以存储桶所在地域是 `ap-guangzhou` 为例，代码示例如下：
+初始化实例时设置腾讯云密钥和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例，代码示例如下：
 
 ```
 var AWS = require('aws-sdk');
@@ -90,7 +89,7 @@ AWS.config.update({
 s3 = new AWS.S3({apiVersion: '2006-03-01'});
 ```
 
-### Java
+## Java
 
 下面以 AWS Java SDK 1.11.609 版本为例，介绍如何适配以便访问 COS 服务。
 
@@ -100,16 +99,13 @@ s3 = new AWS.S3({apiVersion: '2006-03-01'});
 
 AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和证书文件](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)。
 
-- 在配置文件（文件位置是 `~/.aws/config`）中添加以下配置信息：
-
+- 在配置文件（文件位置是`~/.aws/config`）中添加以下配置信息：
 ```
 [default]  
 s3 =  
 addressing_style = virtual 
 ```
-
 - 在证书文件（文件位置是 `~/.aws/credentials`）中配置腾讯云的密钥：  
-
 ```
 [default]  
 aws_access_key_id = [腾讯云的 SecretID]  
@@ -118,8 +114,7 @@ aws_secret_access_key = [腾讯云的 SecretKey]
 
 **2.代码中设置 Endpoint**
 
-以存储桶所在地域是 `ap-guangzhou` 为例，代码示例如下：
-
+以存储桶所在地域是`ap-guangzhou`为例，代码示例如下：
 ```
 AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
     .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(
@@ -128,7 +123,7 @@ AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
     .build();
 ```
 
-### Python
+## Python
 
 下面以 AWS Python SDK 1.9.205 版本为例，介绍如何适配以便访问 COS 服务。
 
@@ -162,7 +157,7 @@ aws_secret_access_key = [腾讯云的 SecretKey]
 client = boto3.client('s3', endpoint_url='"https://cos.ap-guangzhou.myqcloud.com"')
 ```
 
-### PHP
+## PHP
 
 下面以 AWS PHP SDK 3.109.3 版本为例，介绍如何适配以便访问 COS 服务。
 
@@ -172,16 +167,14 @@ client = boto3.client('s3', endpoint_url='"https://cos.ap-guangzhou.myqcloud.com
 
 AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和证书文件](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)。
 
-在配置文件（文件位置是 `~/.aws/config`） 中添加以下配置：
-
+在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
 ```
 [default]  
 s3 =  
 addressing_style = virtual 
 ```
 
-在证书文件（文件位置是 `~/.aws/credentials`）中配置腾讯云的密钥：  
-
+在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
 aws_access_key_id = [腾讯云的 SecretID]  
@@ -190,8 +183,7 @@ aws_secret_access_key = [腾讯云的 SecretKey]
 
 **2.代码中设置 Endpoint**
 
-以存储桶所在地域是 `ap-guangzhou` 为例：
-
+以存储桶所在地域是`ap-guangzhou`为例：
 ```
 $S3Client = new S3Client([
   'region'          => 'ap-guangzhou',
@@ -201,12 +193,12 @@ $S3Client = new S3Client([
 
 ```
 
-### .NET
+## .NET
 
 下面以 AWS .NET SDK 3.3.104.12 版本为例，介绍如何适配以便访问 COS 服务。
 
 **初始化**
-初始化实例时设置腾讯云密钥和 Endpoint，以存储桶所在地域是 `ap-guangzhou` 为例：
+初始化实例时设置腾讯云密钥和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
 
 ```
 string sAccessKeyId = "<腾讯云的 SecretID>";
@@ -218,14 +210,13 @@ var client = new AmazonS3Client(sAccessKeyId, sAccessKeySecret, config);
 
 ```
 
-### Go
+## Go
 
 下面以 AWS Go SDK 1.21.9 版本为例，介绍如何适配以便访问 COS 服务。
 
 **1. 根据密钥创建 session**
 
-以存储桶所在地域是 `ap-guangzhou` 为例：
-
+以存储桶所在地域是`ap-guangzhou`为例：
 ```golang
 func newSession() (*session.Session, error) {
 	creds := credentials.NewStaticCredentials("<腾讯云的 SecretID>", "<腾讯云的 SecretKey>", "")
@@ -243,7 +234,6 @@ func newSession() (*session.Session, error) {
 ```
 
 **2. 根据 session 创建 server 发起请求**
-
 ```golang
 sess, _ := newSession()
 service := s3.New(sess)
@@ -262,7 +252,7 @@ service.PutObjectWithContext(ctx, &s3.PutObjectInput{
 })
 ```
 
-### C++
+## C++
 
 下面以 AWS C++ SDK 1.7.68 版本为例，介绍如何适配以便访问 COS 服务。
 
@@ -288,7 +278,7 @@ aws_access_key_id = [腾讯云的 SecretID]
 aws_secret_access_key = [腾讯云的 SecretKey] 
 ```
 
-**2.代码中设置 Endpoint**
+**2. 代码中设置 Endpoint**
 
 以存储桶所在地域是 `ap-guangzhou` 为例，代码示例如下：
 
