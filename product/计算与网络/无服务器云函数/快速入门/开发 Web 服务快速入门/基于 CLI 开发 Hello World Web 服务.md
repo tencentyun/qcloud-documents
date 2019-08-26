@@ -1,0 +1,191 @@
+## 操作场景
+本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）产品的命令行工具 SCF CLI 开发简单的 Hello World Web 服务。
+
+
+## 前提条件
+- 已注册腾讯云帐户。单击 [这里](https://cloud.tencent.com/register) 进入注册页面，注册指引请参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)。
+- 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
+- 已安装 pip。
+- 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
+- 已安装并启动 Docker （可选，仅针对 [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local)）。
+
+上述安装可参考 [安装与配置文档](https://cloud.tencent.com/document/product/583/33449)。
+
+## 操作步骤
+### 安装 SCF CLI
+1. 执行以下命令，安装 SCF CLI。
+```bash
+$ sudo pip install scf
+```
+2. 执行以下命令，验证 SCF CLI 是否安装成功。
+```bash
+$ scf --version
+scf CLI, version 0.0.1
+```
+返回类似如上信息，则表示安装成功。
+
+<span id="configure"></span>
+### 配置 SCF CLI
+1. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域。获取途径如下：
+ - 账号的 APPID：通过访问控制台中的 [账号信息](https://console.cloud.tencent.com/developer)，可以查看您的 APPID。
+ - SecretId 及 SecretKey：通过访问控制台中的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)，获取相关密钥或创建相关密钥。
+ - 地域：地域列表及对应的英文写法可参见 [地域列表](https://cloud.tencent.com/document/product/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+2. 执行 `scf configure set` 命令，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
+例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
+您可以通过执行以下命令，按照提示输入对应信息，完成 SCF CLI 的配置：
+```shell
+$ scf configure set
+TencentCloud appid(None): 1253970223
+TencentCloud region(None): ap-guangzhou
+TencentCloud secret-id(********************************): AKIxxxxxxxxxx
+TencentCloud secret-key(****************************): uxxlxxxxxxxx
+Allow report information to help us optimize scfcli(Y/n):
+```
+
+### 编写函数
+1. 选择并进入到存放项目代码的目录。
+2. 执行以下命令，创建函数。
+>?此命令会在当前目录下创建 hello_world 函数。
+>
+```bash
+$ scf init 
+[+] Initializing project...
+Template: /usr/local/lib/python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-python
+Output-Dir: .
+Project-Name: hello_world
+Runtime: python3.6
+[*] Project initialization is complete
+```
+此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
+3. 您可以根据实际需求执行以下命令，指定函数的 runtime 和名称。
+```bash
+$ scf init --runtime nodejs8.9 --name testscf
+```
+了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
+4. 将 hello_wolrd 目录中的 index.py 文件替换为如下内容：
+```python
+# -*- coding: utf-8 -*-
+import sys
+import logging
+print('Loading function')
+logger = logging.getLogger()
+def main_handler(event, context):
+    logger.info("start main handler")
+    print(event)
+    body = 'API GW Test Success'
+    response = {
+        "isBase64": False,
+        "statusCode": 200,
+        "headers": {"Content-Type": "text", "Access-Control-Allow-Origin": "*"},
+        "body": body
+    }
+    return response
+```
+
+### 本地测试
+通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。当前 `native invoke` 仅支持 Node.js 及 Python 语言，更多关于本地调用云函数请参考 [本地调试 local invoke](https://cloud.tencent.com/document/product/583/35401)。
+1. 进入项目所在目录 `hello_world`。
+2. 执行 `scf native invoke --no-event` 命令，启动函数在本地运行。输出结果如下：
+```
+$ scf native invoke --no-event
+Run python3.6's cmd: python
+START RequestId: 2f258903-95d0-4992-9321-0d720867a383
+Loading function
+start main handler
+{}
+END RequestId: 2f258903-95d0-4992-9321-0d720867a383
+REPORT RequestId: 2f258903-95d0-4992-9321-0d720867a383 Duration: 0 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 8 MB
+{"body": "API GW Test Success", "headers": {"Access-Control-Allow-Origin": "*", "Content-Type": "text"}, "isBase64": false, "statusCode": 200}
+```
+
+
+### 部署函数（含配置触发器）
+1. 修改模板文件，配置触发器。由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
+```yaml
+Resources:
+  default:
+    Type: TencentCloud::Serverless::Namespace
+    hello_world:
+      Type: TencentCloud::Serverless::Function
+      Properties:
+        CodeUri: ./
+        Type: Event
+        Description: This is a template function
+        Environment:
+          Variables:
+            ENV_FIRST: env1
+            ENV_SECOND: env2
+        Handler: index.main_handler
+        MemorySize: 128
+        Runtime: Python2.7
+        Timeout: 3
+        Events:
+           hello_world_apigw:  # ${FunctionName} + '_apigw'
+             Type: APIGW
+             Properties:
+             StageName: release
+             ServiceId: 
+             HttpMethod: ANY
+```
+更多模板文件规范请参阅 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。
+2. 在项目目录下执行以下命令，将本地代码包及函数配置部署到云端。
+```bash
+$ scf deploy 
+Package name: default-hello_world-latest.zip, package size: 4.097 kb
+...
+[o] Deploy function 'hello_world' success
+[o] Deploy trigger 'api' success
+[+] Function Base Information: 
+     Name: hello_world
+     ...
+[+] Trigger Information: 
+    > APIGW - hello_world_apigw:
+       ModTime: 2019-08-16 12:01:13
+       Type: apigw
+      ...
+         service:
+           serviceId: service-qnw3irqg
+           serviceName: SCF_API_SERVICE
+           subDomain: https://service-qnw3irqg-xxxxxxxxxxx.gz.apigw.tencentcs.com/release/hello_world
+       ...
+[o] Deploy success
+```
+部署完成后，您可以在终端输出信息中查看函数信息和网关信息，您可以将 serviceId 复制到 template.yaml，之后部署就不会再创建新的 API 网关。
+3. 完成部署后，您可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域下查看已成功部署的函数。
+部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
+
+#### 云端测试
+完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
+显示如下，即为成功部署函数。
+![](https://main.qcloudimg.com/raw/bcaffcaa34e2e75988c01a7d8df923c0.png)
+
+#### 查看日志
+您可以执行 `scf logs -n hello_world` 命令获取 hello_world 函数日志，输出结果如下：
+```bash
+$scf logs -n hello_world
+[>] Log startTime: 2019-08-16 12:06:26
+START RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10
+Event RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10
+Loading function
+start main handler
+{'headers': {'connection': 'keep-alive', 'accept-language': 'zh-cn', 'accept-encoding': 'br, gzip, deflate', 'x-anonymous-consumer': 'true', 'x-qualifier': '$LATEST', 'host': 'service-qnw3irqg-1255721742.gz.apigw.tencentcs.com', 'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8', 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Safari/605.1.15'}, 'headerParameters': {}, 'requestContext': {'httpMethod': 'ANY', 'serviceId': 'service-qnw3irqg', 'path': '/hello_world', 'sourceIp': '59.37.124.125', 'identity': {}, 'stage': 'release'}, 'queryStringParameters': {}, 'httpMethod': 'GET', 'path': '/hello_world', 'pathParameters': {}, 'queryString': {}}
+END RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10
+Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB MaxMemoryUsed:0.679688MB
+```
+更多关于使用 CLI 查看日志，请参见 [日志查看](https://cloud.tencent.com/document/product/583/36352)。
+
+
+### 查看监控
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
+2. 在“函数服务”页面上方选择已创建函数地域，单击函数 ID。
+3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
+>!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
+>
+![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686) 
+
+
+### 配置告警
+在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
+![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
+更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133) 。
