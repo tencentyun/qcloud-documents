@@ -10,7 +10,7 @@
 > ?开通 COS 日志管理功能，您可以参见 [设置日志管理](https://cloud.tencent.com/document/product/436/17040) 控制台指南进行设置，下面为举例说明。
 
 1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，选择需要分析访问记录的存储桶，并开通日志管理功能，此后根据需要开启相应存储桶的访问日志功能。例如用户需要分析访问记录的存储桶为`loggingbucket-1250000000`，其所有的访问记录投递到目标存储桶`deliverybucket-1250000000`下，并且路径前缀为`cos-access-log/ap-guangzhou/deliverybucket/`，如下图所示：
-![](https://main.qcloudimg.com/raw/ccb0a757d1f4b841b359559d9b96ebc2.png)
+![](https://main.qcloudimg.com/raw/ddc7080d779cf8bbe86ec20d121e2576.png)
 2. 目标存储桶和路径前缀配置完成后，COS 存储桶的日志管理功能即可开通完毕。
 
 #### 开通 Sparkling 服务
@@ -18,7 +18,7 @@
 1. 登录到 [Sparkling 服务控制台](https://console.cloud.tencent.com/sparkling)（需申请试用），创建与目标存储桶**相同地域**的 sparkling 集群。
 > !由于目前 Sparkling 只能支持从 COS 加载待分析日志到 Sparkling 本地集群中进行分析，因此您需要根据日志规模选择合适的集群配置。
 
-	![](https://main.qcloudimg.com/raw/7b34b39f941351269abb7e3971fa4615.jpg)
+	![](https://main.qcloudimg.com/raw/e6e09beacd16054fe4e259f9846e6f5f.jpg)
 2. 等待集群创建完成。
 ![](https://main.qcloudimg.com/raw/fa2c2b84b799a044767b19cbb0b2cbec.png)
 
@@ -35,16 +35,16 @@
 	- **存储桶**：填写目标存储桶，并单击**浏览存储桶**来导入待分析的数据所在的目录。
 	- **文件格式**：其他分隔符日志。
 	- **字段分隔符**：\x20。
-  ![](https://main.qcloudimg.com/raw/f084ae60f7b2bf708208fc34bac1eecf.jpg)
+	![](https://main.qcloudimg.com/raw/34e18484024f70a0dc96aabbf6abbf2b.jpg)
 2. 单击【下一步】，完成数据导入后，可以获得数据预览。
 > !这里 sparkling 会做字段的类型推断，字段名为`_c0,_c1,...,_cN`，并且字段名暂时不支持修改。
 
 	![](https://main.qcloudimg.com/raw/6bf1dd9d5da5a13d612357ab1d7882ff.jpg)
 
 3. 单击【下一步】，创建待分析数据的表。
-   ![](https://main.qcloudimg.com/raw/9a757c809e0d2890725597f579a74a86.png)
-4. 完成上面步骤后，可以在左侧菜单栏【任务】中查看到数据源导入完成。
-   ![](https://main.qcloudimg.com/raw/c99eb7310dffae304d2a57bdf1c40680.png)
+	 ![](https://main.qcloudimg.com/raw/d0ab0d04aef2738f711945b7e5731ac0.png)
+4. 完成上面步骤后，可以在左侧菜单栏中单击【任务】，查看到数据源导入完成。
+![](https://main.qcloudimg.com/raw/655a5b8071bd8ffe3defc809976167a0.png)
 
 #### 基于 Notebook 笔记簿使用 SQL 对日志进行分析
 
