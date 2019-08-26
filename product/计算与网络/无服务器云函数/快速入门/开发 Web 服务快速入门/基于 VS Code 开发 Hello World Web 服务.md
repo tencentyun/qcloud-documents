@@ -1,7 +1,15 @@
 ## 操作场景
-本文介绍通过腾讯云云函数（Serverless Cloud Function，SCF）、SCF VS Code 插件开发简单的 Hello World Web 服务。
+本文介绍通过腾讯云云函数（Serverless Cloud Function，SCF）、VS Code 插件开发简单的 Hello World Web 服务。
+Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code（Visual Studio Code）IDE 的插件。该插件可以让您更好的在本地进行 Serverless 项目开发和代码调试，并且轻松将项目部署到云端。
+通过该 VS Code 插件，您可以：
+- 拉取云端的云函数列表，并触发云函数。
+- 在本地快速创建云函数项目。
+- 在本地开发、调试及测试您的云函数代码。
+- 使用模拟的 COS、CMQ、CKafka、API 网关等触发器事件来触发函数运行。
+- 上传函数代码到云端，更新函数配置。
 
 ## 前提条件
+Tencent Serverless 均可在 Windows，Linux 和 MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
 - 已注册腾讯云帐户。单击 [这里](https://cloud.tencent.com/register) 进入注册页面，注册指引请参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985)。
 - VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 - 已安装 Python 2.7+ 或 Python 3.6+，以及对应版本 pip。
@@ -19,6 +27,9 @@
 ![](https://main.qcloudimg.com/raw/4d629d80bb03d4957213af44a4fb524c.png)    
 安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
 
+VS Code 插件借助于 SCF 命令行工具 进行本地函数的创建，触发和调试。插件安装完成后，会自动检测 SCF CLI 是否已安装。如果插件未检测到 SCF CLI ，会在右下角弹框提示安装 SCF CLI ，单击 【Go】进行安装。
+>?部分 PC 环境配置可能导致安装 SCF CLI 失败，请参见 [手动安装 CLI](https://cloud.tencent.com/document/product/583/33449)。
+>
 ### 配置插件
 >?如果您已经在 SCF CLI 中配置了账户信息，无需再次配置，请跳过此步骤。
 >
@@ -104,12 +115,42 @@ Resources:
 单击左侧列表中的云函数名称，在右侧页面中单击【云端调用】，即可在页面中查看到函数在云端运行的相关信息。如下图所示：  
 ![](https://main.qcloudimg.com/raw/34732ab4a7f7b2ea34ee32618f560f35.jpg)
 
-### 查看日志
+### 更多功能
+#### 导入本地
+>?
+>如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数导入到本地。
+
+1. **右键单击**目标远端函数，选择【导入到本地】。如下图所示：
+![](https://main.qcloudimg.com/raw/f6099e61443fb9d4bfbe67ff70ff3268.png)
+2. 单击右下角弹出框中的【Yes】。
+3. 创建完成后会自动打开代码工作区。
+4. 在插件页，您也可以右键单击目标函数，选择【编辑代码】，即可打开函数代码编辑视图。如下图所示：
+![](https://main.qcloudimg.com/raw/158ee2d66fad64ad624c821043f0e44c.png)
+
+#### 测试模板
+本地调用时，可根据函数功能选择不同的测试模板，也可以自定义模板。如下图所示：
+![](https://main.qcloudimg.com/raw/d5bd8513efd5b9106f3be04f1fb82de6.png)
+更多测试模版相关内容，详情请参见 [触发器](https://cloud.tencent.com/document/product/583/9705)。
+
+#### 本地调试函数
+针对 Python 函数，可以利用 SCF CLI 的本地调试能力，结合 VS Code 插件进行本地调试。
+1. 单击左侧导航栏第一个图标，进入本地编辑页面，给函数设置断点。如下图所示：
+![](https://main.qcloudimg.com/raw/6a334b1ac8caf6ce961317e58a249079.png)
+2. 单击左侧列表中的本地函数，打开函数基本信息页面。
+3. 单击左侧导航栏【调试图标】（或 ctrl+shift+D），新建调试配置文件，**并选择 SCF Debugger For Node 或者 SCF Debugger For Python 调试模板**。如下图所示：
+>!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。
+>
+![](https://main.qcloudimg.com/raw/fa12740221d5d0310442d0c105a52546.png)
+4. 单击<img src="https://main.qcloudimg.com/raw/56499c05a2a66c9d011e40d504d57cc7.png" style="margin:-3px 0">，即可看到调试信息。如下图所示：  
+![](https://main.qcloudimg.com/raw/a41fbefae0657c1d793c26ac12732436.png)
+
+
+#### 查看日志
 云端调用的日志会输出到 VS Code。如下图所示：
 ![](https://main.qcloudimg.com/raw/83c56ff1d4e808488cffafea2867f4de.png)
 您也可以前往控制台打开函数页面选择【运行日志】，查看所有历史日志，详情请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
 
-### 查看监控
+#### 查看监控
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
 2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
@@ -118,11 +159,15 @@ Resources:
 ![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
 更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686) 
 
-
-### 配置告警
+#### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133) 。
+
+## 欢迎交流
+
+如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。  
+![Alt text](https://main.qcloudimg.com/raw/bc881547d1cd2043ecf1b286c70f7319.png)
 
 
 
