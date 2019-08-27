@@ -83,7 +83,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 
 #### Step3.3：自定义一个 BroadcastReceiver 类
 
-为了接收消息，您需要自定义一个继承自 `OpenClientPushMessageReceiver` 类的 BroadcastReceiver，并实现其中的 `onReceiveRegId`，`onNotificationMessageClicked` 方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
+为了接收消息，您需要自定义一个继承自`OpenClientPushMessageReceiver`类的 BroadcastReceiver，并实现其中的`onReceiveRegId`和`onNotificationMessageClicked`方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
 
 以下为 Demo 中的示例代码：
 
@@ -118,9 +118,9 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 
 #### Step3.4：在 App 中注册 vivo 推送服务
 
-如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()` 可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的 `onCreate` 中调用。
+如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用`PushClient.getInstance(getApplicationContext()).initialize()`来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()`可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的`onCreate`中调用。
 
-注册成功后，需要在您的 App 主界面中获取注册结果。其中 `regId` 为当前设备上当前 App 的唯一标识，请记录 `regId` 信息。
+注册成功后，需要在您的 App 主界面中获取注册结果。其中`regId`为当前设备上当前 App 的唯一标识，请记录`regId`信息。
 
 以下为 Demo 中的示例代码：
 
@@ -193,7 +193,7 @@ if (IMFunc.isBrandVivo()) {
 
 <span id="Step4"></span>
 ### Step4：上报推送信息至即时通信 IM 服务端
-若您需要通过 vivo 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
+若您需要通过 vivo 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
 >!正确上报 regId 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
 
 以下为 Demo 中的示例代码：
@@ -324,4 +324,4 @@ public class ThirdPushTokenMgr {
 3. 确认您的项目 [集成 vivo 推送 SDK](#Step3) 的配置正确，并正常获取到了 regId。
 4. 确认您已将正确的 [推送信息上报](#Step4) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
-6. 若通过上述步骤后仍然接收不到推送，可以将您的问题 `时间点`、`SDKAppID`、`证书 ID`、`接收推送的 userid` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+6. 若通过上述步骤后仍然接收不到推送，可以将您的问题`时间点`、`SDKAppID`、`证书 ID`、`接收推送的 UserID` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
