@@ -3,9 +3,9 @@
 
 ### 1.14.2-Finchley-RELEASE（2019-08-14）
 #### Bug 修复
-修复使用RedisConnectionFactory获取Redis连接，这种方式使用时的一个类型转化错误。
+修复使用 RedisConnectionFactory 获取 Redis 连接，这种方式使用时的一个类型转化错误。
 
-修复在给span.tag(key,value)传入value时没判空抛出异常的问题。
+修复在给 span.tag(key,value) 传入 value 时没判空抛出异常的问题。
 
 #### 版本建议
 支持向后兼容，建议全量升级。
