@@ -20,8 +20,7 @@
 <tr><td>地域</td><td>建议选择与您的客户最近的地域，可降低访问时延、提高访问速度。</td></tr>
 <tr><td>可用区</td><td>请根据实际需求进行选择。</br>如果您需要购买多台云服务器，建议选择不同可用区，实现容灾效果。</td></tr>
 <tr><td>网络</td><td>腾讯云提供以下两种网络，请根据实际需求进行选择：<ul><li><b>基础网络</b>：同一用户同地域下的服务器默认内网互通，不同地域内网不通。</br>2017年6月13日后，新注册的账号已不支持基础网络，推荐您使用私有网络。</li><li><b>私有网络</b>：适合更高阶的用户，不同私有网络间逻辑隔离。</li></ul></td></tr>
-<tr><td>实例</td><td>根据底层硬件的不同，腾讯云目前提供了<b>系列1</b>和<b>系列2</b>（也称为<b>上一代实例</b>和<b>当前一代实例</b>）两种不同的实例系列。<ul><li>上一代实例：标准型 S1，高 IO 型 I1，内存型 M1</li><li>当前一代实例：<a href="https://cloud.tencent.com/document/product/213/11518#S2">标准型 S2</a>，<a href="https://cloud.tencent.com/document/product/213/11518#I2">高 IO 型 I2</a>，<a href="https://cloud.tencent.com/document/product/213/11518#M2">内存型 M2</a>，<a href="https://cloud.tencent.com/document/product/213/11518#C2">计算型 C2</a>，<a href="https://cloud.tencent.com/document/product/560/11625">GPU 型 G2</a>，<a href="https://cloud.tencent.com/document/product/565/10417">FPGA 型 FX2</a> 等。为获得最佳性能，建议使用当前一代实例。</li></ul>
-不同的地域与可用区下的系列、机型会有所不同，更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td></tr>
+<tr><td>实例</td><td>根据底层硬件的不同，腾讯云目前提供了多种不同的实例类型。为获得最佳性能，建议使用新一代实例类型。</br>更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td></tr>
 <tr><td>镜像</td><td>腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 <a href="https://cloud.tencent.com/document/product/213/4941">镜像类型</a> 进行选择。</br>对于刚开始使用腾讯云的用户，推荐选择公共镜像。</td></tr>
 <tr><td>系统盘</td><td rowspan=2>腾讯云提供以下两种类型，请根据实际需求进行设置。<ul><li><b><a href="https://cloud.tencent.com/document/product/362/2353">云硬盘</a></b>：采用一盘三备的分布式存储方式，数据可靠性高。</li><li><b>本地硬盘</b>：处在云服务器所在的物理机上的存储设备，可以获得较低的时延，但存在单点丢失风险。</li></ul>系统盘默认为50GB，数据盘默认不添加。</td></tr>
 <tr><td>数据盘</td></tr>
