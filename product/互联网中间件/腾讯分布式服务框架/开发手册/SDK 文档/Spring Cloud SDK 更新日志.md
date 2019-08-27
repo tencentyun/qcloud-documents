@@ -1,6 +1,15 @@
 ## Spring Cloud Finchley
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.14.2-Finchley-RELEASE（2019-08-14）
+#### Bug 修复
+修复使用RedisConnectionFactory获取Redis连接，这种方式使用时的一个类型转化错误。
+
+修复在给span.tag(key,value)传入value时没判空抛出异常的问题。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
 ### 1.14.1-Finchley-RELEASE（2019-07-24）
 
 #### Bug 修复
