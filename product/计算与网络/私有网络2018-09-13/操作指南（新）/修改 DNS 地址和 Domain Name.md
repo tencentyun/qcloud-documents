@@ -4,7 +4,9 @@
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击需要修改的私有网络 ID，进入详情页，即可在基本信息内配置 DNS 地址和 Domain Name。
- - DNS 地址（该功能灰度中，仅2018年04月01日后创建的部分 VPC 支持，如有疑问和需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)）
+>?目前配置 DNS 地址功能灰度中，仅2018年04月01日后创建的部分 VPC 支持，如有疑问和需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=168&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%20VPC)。
+>
+ - DNS 地址
 	 - DNS 最多支持4个 IP，IP 之间请用逗号隔开。
 	 - DNS 可以指定4个 IP，但某些操作系统可能无法支持4个 DNS 地址。
 	 - 腾讯云默认 DNS 为：`183.60.83.19`，`183.60.82.98`。如不使用腾讯云默认 DNS，将无法使用内部服务，如 Windows 激活、NTP、YUM 等。
