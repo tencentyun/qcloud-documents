@@ -43,7 +43,7 @@
 <span id="Step3"></span>
 ### Step3：上报推送信息至即时通信 IM 服务端
 
-在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及集成 FCM 后在客户端生成的 **token** 上报到即时通信 IM 服务端。
+在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及集成 FCM 后在客户端生成的 **token** 上报到即时通信 IM 服务端。
 
 >!正确上报 token 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 FCM 进行推送通知。
 
@@ -132,4 +132,4 @@ public class ThirdPushTokenMgr {
 3. 确认您的 FCM 项目配置正确，并已正常获取 token。
 4. 确认您已将正确的 [推送信息上报](#Step3) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
-6. 若通过上述步骤后仍然接收不到推送，可以将您的问题 `时间点`、`SDKAppID`、`证书 ID`、`接收推送的 userid` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+6. 若通过上述步骤后仍然接收不到推送，可以将您的问题`时间点`、`SDKAppID`、`证书 ID`、`接收推送的 UserID` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
