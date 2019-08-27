@@ -210,7 +210,7 @@ function convertImageMsgToHtml(content) {
 //解析语音消息元素
 
 /**
- * @uses amr音频信息转使用amr.js播放
+ * @uses amr音频信息需使用 amr.js 播放
  * @param {Object.<{uuid:string,downUrl:string}>} content - 消息内容对象
  * @property {string} uuid - 文件的 UUID
  * @property {string} downUrl - 文件的下载地址
