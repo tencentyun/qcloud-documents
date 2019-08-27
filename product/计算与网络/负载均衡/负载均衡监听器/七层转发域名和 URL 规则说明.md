@@ -35,7 +35,7 @@
 4. 在转发规则中配置域名，并在转发组中配置模糊匹配的 URL。使用前缀匹配，可在最后加入通配符 `$` 进行完整匹配。
 例如，客户通过配置转发组 `URL ~* \.(gif|jpg|bmp)$`，希望匹配任何以 gif、 jpg 或 bmp 结尾的文件。
 5. 建议用户设置默认访问域名，当监听器中所有域名均没有匹配成功时，系统会将请求指向默认访问域名，让默认规则可控。设置默认访问域名的操作如下图所示：
-![](https://main.qcloudimg.com/raw/5706189d4c9529c545dae488cd912d41.png)
+![](https://main.qcloudimg.com/raw/f70b6102af92f640ed6a5466427ba9f4.png)
 
 
 ## 转发组 URL 匹配规则说明
@@ -53,15 +53,15 @@
 `"` `{` `}` `;` `\` ``` `~`  `'` `空格`  
 
 ### URL 匹配规则示例
-![](https://main.qcloudimg.com/raw/87891ffda7fefa4cac4edf008d52fa80.png)
+![](https://main.qcloudimg.com/raw/d217db123616491f8de8c754bd64f29b.png)
 1. 匹配规则：优先精确匹配，之后依照规则模糊匹配。
 例如，依照上图配置转发规则及转发组后，如下请求将依次被匹配到不同的转发组中：
  1. `example.qloud.com/test1/image/index1.html` 由于精确匹配转发组1设置的 URL 规则，则该请求将被转发到转发组1所关联的后端云服务器中，即图中 RS1 和 RS2 的80端口。
  2. `example.qloud.com/test1/image/hello.html` 由于此请求无法精确匹配第一条规则，因此将继续匹配转发组2中的规则，发现模糊匹配成功。因此该请求将被转发到转发组2所关联的后端云服务器中，图中即 RS2 和 RS3 的81端口。
  3. `example.qloud.com/test2/video/mp4/` 由于此请求无法精确匹配到前两条规则，因此将继续向下匹配，直至发现可以模糊匹配转发组 3 中的规则。因此该请求将被转发到转发组3所关联的后端云服务器中，图中即 RS4 的90端口。
- 4. `example.qloud.com/test3/hello/index.html` 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则 `default URL`。这时应该是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），tomcat（jsp），Nginx 作为反向代理服务器存在。
+ 4. `example.qloud.com/test3/hello/index.html` 由于此请求无法匹配到前三个转发组中的规则，因此将匹配用户配置的最通用规则 `Default URL`。这时应该是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），tomcat（jsp），Nginx 作为反向代理服务器存在。
  5. `example.qloud.com/test2/` 由于请求无法精确匹配到前三个转发组中的规则，因此将匹配用户配置的通用规则 `default URL`。
 2. 如果用户设置的 URL 规则中，服务不能正常运行，则匹配成功后，不会重定向到其他页面。
-例如，客户端请求 `example.qloud.com/test1/image/index1.html` 匹配了转发组1的 URL 规则，但此时转发组1的后端服务器运行异常，出现404的页面时，用户进行访问时页面则会显示404，不会跳转到其他页面。
-3. 建议用户设置 default URL，将其指向服务稳定的页面（如静态页面、首页等），并绑定所有后端云服务器。此时，如果所有规则均没有匹配成功时，系统会将请求指向 default URL 所在的页面，否则可能会出现404的问题。
-4. 如果用户未设置 default URL，且所有转发规则都不匹配时，此时访问服务，会返回404。
+例如，客户端请求`example.qloud.com/test1/image/index1.html`匹配了转发组1的 URL 规则，但此时转发组1的后端服务器运行异常，出现404的页面时，用户进行访问时页面则会显示404，不会跳转到其他页面。
+3. 建议用户设置 Default URL，将其指向服务稳定的页面（如静态页面、首页等），并绑定所有后端云服务器。此时，如果所有规则均没有匹配成功时，系统会将请求指向 Default URL 所在的页面，否则可能会出现404的问题。
+4. 如果用户未设置 Default URL，且所有转发规则都不匹配时，此时访问服务，会返回404。
