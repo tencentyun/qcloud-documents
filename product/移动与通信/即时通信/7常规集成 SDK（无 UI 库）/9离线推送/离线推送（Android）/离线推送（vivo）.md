@@ -47,7 +47,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <span id="Step3"></span>
 ### Step3：集成推送 SDK
 >?
-> - 即时通信 IM 默认推送的通知标题为 `a new message`。
+> - 即时通信 IM 默认推送的通知标题为`a new message`。
 > - 阅读此小节前，请确保您已经正常集成并使用即时通信 IM SDK。
 > - 您可以在我们的 demo 里找到 vivo 推送的实现示例，请注意： vivo 推送版本更新时有可能会有功能调整，若您发现本节内容存在差异，烦请您及时查阅 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/155)，并将文档信息差异反馈给我们，我们会及时跟进修改。
 
