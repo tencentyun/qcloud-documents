@@ -2,8 +2,8 @@
 
 精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
 
-<
-| 所属平台 |  ZIP包下载 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
+
+| 所属平台 |  ZIP 包下载 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :---------:| :--------:| :--------:| :--------:| :--------:| :--------:|:--------:|
 | iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
 | Android | [AAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.aar)<br>[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
@@ -23,7 +23,7 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
 
-| 所属平台 |  ZIP包下载 | Github 下载 || 64位支持 | 安装包增量 |
+| 所属平台 |  ZIP 包下载 | Github 下载 || 64位支持 | 安装包增量 |
 |:---------:| :---------:| :--------:| :--------:|:--------:|
 | iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Professional_iOS_6.6.7460.zip) | [Github](hhttps://github.com/tencentyun/LiteAVProfessional_iOS) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
 | Android | [AAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.aar)<br>[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.zip) | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/647/34400) |
@@ -35,7 +35,7 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 
-| 所属平台 | ZIP包下载 | 64位支持 | 安装包增量 | 安装包瘦身|
+| 所属平台 | ZIP 包下载 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
 | iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Enterprise_iOS_6.6.7460.zip) |支持 | 6.15M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
 | Android | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Enterprise_6.6.7458.zip) | 支持 |  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/647/34400) |
