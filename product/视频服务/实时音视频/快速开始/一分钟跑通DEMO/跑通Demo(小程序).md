@@ -29,6 +29,7 @@
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 <h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
+
  Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
  
 1. 解压 [步骤2](#step2) 中下载的源码包。
@@ -88,7 +89,7 @@
 
  ![](https://main.qcloudimg.com/raw/7ffe4227bcac149f30c61a7d28808c14.jpg)
 
-2. 发布微信小程序，具体发布流程请参见 [小程序发布上线](https://developers.weixin.qq.com/miniprogram/dev/quickstart/basic/release.html#%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF)。
+2. 发布微信小程序，具体发布流程请参见 [小程序发布上线](https://developers.weixin.qq.com/miniprogram/dev/framework/quickstart/release.html#%E5%8F%91%E5%B8%83%E4%B8%8A%E7%BA%BF)。
 
 ## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？

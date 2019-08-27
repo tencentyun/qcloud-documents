@@ -12,7 +12,7 @@ WNS 不支持多进程同时调用
 void initAndStartWns(Application app,
                    com.tencent.wns.client.inte.WnsAppInfo info)
 接口说明：
-初始化 APP 信息并启动 wns 
+初始化 App 信息并启动 wns 
 
 参数:
 
@@ -186,7 +186,7 @@ java.lang.String getStatus()
 void reset()
 
 接口说明:
-取消当前未完成的所有请求，比如切换帐号时可以调用
+取消当前未完成的所有请求，例如切换帐号时可以调用
 
 ### getWid
 

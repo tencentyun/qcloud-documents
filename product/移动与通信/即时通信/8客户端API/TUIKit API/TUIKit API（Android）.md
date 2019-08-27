@@ -11,7 +11,7 @@
 
 ## 聊天界面 ChatLayout
 
-聊天窗口 ChatLayout 提供消息的展示与发送等功能，界面布局从上到下分为下列四个部分，每个区域都提供多样化的方法以满足定制需求。
+聊天窗口 ChatLayout 提供消息的展示与发送等功能，界面布局从上到下分为以下四个部分，每个区域都提供多样化的方法以满足定制需求。
 - 标题区 TitleBarLayout
 - 提醒区 NoticeLayout
 - 消息区 MessageLayout
@@ -142,7 +142,7 @@
 
 ## 标题区 TitleBarLayout
 
-会话列表窗口 ConversationLayout、聊天窗口 ChatLayout 等都自带标题栏。标题栏设计分为左中右三部分，其中，左边和右边都可以为图片+文字，中间只能为文字，这些区域返回的都是标准的 Android View，您可以根据实际业务需要对这些 View 进行交互响应处理。
+会话列表窗口 ConversationLayout、聊天窗口 ChatLayout 等都自带标题栏。标题栏设计分为左中右三部分，其中，左边和右边都可以为图片 + 文字，中间只能为文字，这些区域返回的都是标准的 Android View，您可以根据实际业务需要对这些 View 进行交互响应处理。
 
 | API | 描述 |
 | --- | --- |

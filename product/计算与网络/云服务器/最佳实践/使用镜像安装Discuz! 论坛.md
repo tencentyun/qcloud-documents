@@ -27,7 +27,7 @@
 >? 云服务器实例状态处于运行中时，即可测试 Discuz! 论坛。
 >
 1. 在实例的管理页面，找到待启动的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
-![](https://main.qcloudimg.com/raw/fd428060759b3dbae9f2b178d865d8ae.png)
+![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)
 2. 将**公网 IP** 粘贴到本地浏览器的地址栏中访问，进入Discuz！安装页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/c55ce0a0a24ef524c0bf0352b6651feb.png)
 3. 单击【我同意】，进入检查安装环境页面。如下图所示：

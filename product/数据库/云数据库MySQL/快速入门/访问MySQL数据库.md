@@ -1,6 +1,6 @@
 ## 访问方式
 访问云数据库 MySQL 的方式有三种：
-- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（都是基础网络或都在同一个 [私有网路 VPC](https://cloud.tencent.com/document/product/215/20046)）。
+- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（都是基础网络或都在同一个 [私有网络 VPC](https://cloud.tencent.com/document/product/215/20046)）。
 - **外网访问**：通过外网地址访问云数据库 MySQL 。
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
@@ -15,15 +15,15 @@
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )。
 2. 在实例列表中，选择需要修改的实例，单击实例名或操作列的【管理】，进入实例详情页面。
 3. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
-![](https://main.qcloudimg.com/raw/c1ef4d6d01fe9cd3f7e9caabae440fc6.png)
+![](https://main.qcloudimg.com/raw/4dc96e38403e7a93184d1c556c31a39e.png)
 4. 单击【确定】后，外网开通进入处理状态。
-![](https://main.qcloudimg.com/raw/b2a407e7609fa0c31b0e7ee06c94a3de.png)
+![](https://main.qcloudimg.com/raw/8f303ad7f17e16eda26343410fd3671e.png)
 5. 开启成功后，即可在基本信息中查看到外网地址。
 6. 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
 
 ### 从 Windows 系统登录
 1. 登录到与数据库实例属于同一个地域且网络可达的 Windows 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门 </a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
 1. 下载一个标准的 SQL 客户端。推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
 2. 界面上将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 请选择【No thanks, just start my download.】来快速下载。
@@ -41,7 +41,7 @@
 
 ### 从 Linux 系统登录 
 1. 登录到与数据库实例属于同一个地域且网络可达的 Linux 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门 </a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
 1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
 执行以下命令安装 MySQL 客户端：
 ```
@@ -56,7 +56,7 @@ mysql -h hostname -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 MySQL 数据库实例的内网（或外网）地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 帐号对应的密码。
->- 提示 MySQL [(none)]> 说明成功登录到 MySQL。
+>- 本例中提示 MySQL [(none)]> 说明成功登录到 MySQL。
 >
 ![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
  - 外网访问时，执行以下命令登录到 MySQL 数据库实例。
@@ -69,7 +69,7 @@ mysql -h hostname -P port -u username -p
 >- 本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 >
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
-3. 在 MySQL > 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
+3. 在 MySQL \[(none)]> 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 

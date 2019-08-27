@@ -2,7 +2,7 @@
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 
-目前，腾讯云的移动直播（MLVB）、实时音视频（TRTC）以及云通信（IM）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID、UserID 和 UserSig 三个关键信息。
+目前，腾讯云的移动直播（MLVB）、实时音视频（TRTC）以及即时通信（IM）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID、UserID 和 UserSig 三个关键信息。
 
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
 
@@ -33,7 +33,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
-![](https://main.qcloudimg.com/raw/1dccb5267535b85cc1d342101dbd5224.png)
+![](https://main.qcloudimg.com/raw/97a74943e3175f5e8a7c823864bfb1af.png)
 
 
 >! 该方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。

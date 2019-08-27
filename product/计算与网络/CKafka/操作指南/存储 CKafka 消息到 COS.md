@@ -1,6 +1,10 @@
+## 操作场景
 消息队列 CKafka 支持用户存储消息的能力，您可以将消息存储到 COS 中，并下载分析。
 
-## 开启存储消息到 COS
+## 前提条件
+该功能目前处于灰度测试阶段，如需试用请通过[ 提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+
+## 操作步骤
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【存储消息到 COS】。
@@ -20,7 +24,7 @@
 - 转储服务会占用一个 group id。
 - 文件名为存放的 timestamp，存放路径为 `instance id/topic id`。
 - 文件内容是 CKafka 消息里的 value 用 String 序列化拼接而成。
-- 当前 CKafka 消息到COS服务`免费`，COS 存储可享受一定 [免费额度](https://cloud.tencent.com/document/product/436/6240)，提供50G免费存储空间。如您的消息量级较大，请及时清理数据。
+- 当前 CKafka 消息到 COS 服务**免费**，COS 存储可享受一定 [免费额度](https://cloud.tencent.com/document/product/436/6240)，提供50G免费存储空间。如您的消息量级较大，请及时清理数据。
 - 开启转 COS 的操作人必须对目标 COS Bucket 具备写权限。
 - 开启转发前，积压 Ckafka 消息不会被转存到 COS。
 - 实例到期后转发 COS 也会中断，实例续费后会自动恢复转发。

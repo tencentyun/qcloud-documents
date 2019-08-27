@@ -210,7 +210,7 @@ function convertImageMsgToHtml(content) {
 //解析语音消息元素
 
 /**
- * @uses amr音频信息转使用amr.js播放
+ * @uses amr音频信息需使用 amr.js 播放
  * @param {Object.<{uuid:string,downUrl:string}>} content - 消息内容对象
  * @property {string} uuid - 文件的 UUID
  * @property {string} downUrl - 文件的下载地址
@@ -633,7 +633,7 @@ function uploadPicLowIE() {
 
 ## 上传文件（高版本浏览器）
 
-目前 demo 采用了 H5 FileAPI 读取文件，并将文件二进制数据转换成 base64 编码进行分片上传，理论上没有大小限制。
+目前 demo 采用了 H5 FileAPI 读取文件，并将文件二进制数据转换成 base64 编码进行分片上传，上传文件最大支持20M。
 >?当前版本仅支持上传图片文件。
 
 ```javascript

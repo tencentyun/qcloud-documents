@@ -20,7 +20,7 @@
 3. 机型和配置：机型选择【系列2】-【GPU 渲染型 GA2】。
 
 设置完成后单击【下一步：选择镜像】。
-![](https://main.qcloudimg.com/raw/0edf108875b932ef29cdb0633a12e105.png)
+![](https://main.qcloudimg.com/raw/8359ed8557fefadb6a419e18385b039e.png)
 
 ### 3. 选择镜像
 
