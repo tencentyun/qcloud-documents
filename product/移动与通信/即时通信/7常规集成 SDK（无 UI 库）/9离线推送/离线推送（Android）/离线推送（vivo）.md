@@ -106,9 +106,9 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 将自定义的 BroadcastReceiver 注册到 AndroidManifest.xml：
 
 ```xml
-<!--这里的 com.tencent.qcloud.uipojo.thirdpush.VIVOPushMessageReceiverImpl 修改成您 App 中的完整类名-->
+<!--这里的 com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl 修改成您 App 中的完整类名-->
 <!-- push 应用定义消息 receiver 声明 -->
-<receiver android:name="com.tencent.qcloud.uipojo.thirdpush.VIVOPushMessageReceiverImpl">
+<receiver android:name="com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl">
     <intent-filter>
         <!-- 接收 push 消息 -->
         <action android:name="com.vivo.pushclient.action.RECEIVE" />
@@ -125,7 +125,7 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 以下为 Demo 中的示例代码：
 
 ```java
-public class PojoApplication extends Application {
+public class DemoApplication extends Application {
 
     private static PojoApplication instance;
 
