@@ -2,15 +2,16 @@
 
 精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
 
-| 所属平台 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
-|:---------:| :--------:| :--------:| :--------:| :--------:| :--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/iOS/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Android/SDK) | [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
-| Windows(C++)| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Windows/SDK)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |支持| 12.7M（C++ x86）<br>15.6M（C++ x64）|
-| Windows(C#)| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Windows/SDK) | [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) | - | 13.3M（C# x86）|
-| Mac| [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/SDK) | [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/Mac/SDK) | [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |支持| 2.05M（arm64）|
-| Web | [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/H5)|  [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/H5) | [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) | - | -|
-| 微信小程序| [GitHub](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini) |  [Gitee](https://gitee.com/cloudtencent/TRTCSDK/tree/master/WXMini) | [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |  - | -|
+<
+| 所属平台 |  ZIP包下载 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
+|:---------:| :---------:| :--------:| :--------:| :--------:| :--------:| :--------:|:--------:|
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|
+| Android | [AAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.aar)<br>[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32166)| [DOC](https://cloud.tencent.com/document/product/647/32175) |支持| jar：820K<br> so(armeabi)：5.1M<br> so(armeabi-v7a)：4.8M<br>so(arm64-v8a)：5.7M |
+| Windows(C++)| [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK)| [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) |支持| 12.7M（C++ x86）<br>15.6M（C++ x64）|
+| Windows(C#)| [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)| [Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32397)| [DOC](https://cloud.tencent.com/document/product/647/32178) | - | 13.3M（C# x86）|
+| Mac| [TAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2) | [Github](https://github.com/tencentyun/TRTCSDK) | [Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32176) |支持| 2.05M（arm64）|
+| Web |  -  | [GitHub](https://github.com/tencentyun/TRTCSDK)|  [Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32398)| [DOC](https://cloud.tencent.com/document/product/647/16863) | - | -|
+| 微信小程序 |  - | [GitHub](https://github.com/tencentyun/TRTCSDK) |  [Gitee](https://gitee.com/cloudtencent/TRTCSDK) | [DOC](https://cloud.tencent.com/document/product/647/32399)| [DOC](https://cloud.tencent.com/document/product/647/32183) |  - | -|
 
 >? 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
 
@@ -22,10 +23,10 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
 
-| 所属平台 | 下载地址 | 64位支持 | 安装包增量 |
-|:---------:| :--------:| :--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/647/34400) |
+| 所属平台 |  ZIP包下载 | Github 下载 || 64位支持 | 安装包增量 |
+|:---------:| :---------:| :--------:| :--------:|:--------:|
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Professional_iOS_6.6.7460.zip) | [Github](hhttps://github.com/tencentyun/LiteAVProfessional_iOS) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
+| Android | [AAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.aar)<br>[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.zip) | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/647/34400) |
 
 >? Windows 和 Mac 版本的 SDK 暂时只有一个版本，没有做精简版、专业版和企业版的区分。
 
@@ -34,10 +35,10 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
 
 LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 
-| 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
+| 所属平台 | ZIP包下载 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) |支持|4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)|支持|  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/647/34400) |
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Enterprise_iOS_6.6.7460.zip) |支持 | 6.15M（arm64）|  [DOC](https://cloud.tencent.com/document/product/647/34400) |
+| Android | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Enterprise_6.6.7458.zip) | 支持 |  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/647/34400) |
 
 >? Windows 和 Mac 版的 SDK 暂无 AI 特效组件，没有做精简版、专业版和企业版的区分。
 
