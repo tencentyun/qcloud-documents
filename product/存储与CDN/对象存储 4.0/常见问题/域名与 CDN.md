@@ -1,6 +1,6 @@
 ### COS 文件更新（重新上传或删除）时，CDN 仍然保存缓存内容，造成与源站不一致。能否在 COS 更新时自动刷新 CDN 的缓存？
 
-COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设置自动刷新 CDN 缓存，详情请参阅 [使用 SCF 自动刷新被 CDN 缓存的 COS 资源 ](https://cloud.tencent.com/document/product/436/30434) 文档。
+COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设置自动刷新 CDN 缓存，详情请参见 [使用 SCF 自动刷新被 CDN 缓存的 COS 资源 ](https://cloud.tencent.com/document/product/436/30434) 文档。
 
 ### 在控制台进行域名管理时，总是提示“请至少启用一个可用密钥”该如何处理？
 
@@ -13,7 +13,7 @@ COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设
 
 ### 如何使用自有域名访问对象？
 
-可通过绑定自定义域名实现。详情请参阅 [自定义加速域名](https://cloud.tencent.com/document/product/436/18424#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.8A.A0.E9.80.9F.E5.9F.9F.E5.90.8D)。
+可通过绑定自定义域名实现。详情请参见 [自定义加速域名](https://cloud.tencent.com/document/product/436/18424#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.8A.A0.E9.80.9F.E5.9F.9F.E5.90.8D)。
 
 ### COS 是否支持 HTTPS 访问？
 
@@ -31,11 +31,11 @@ COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设
 
 ### 如何对 COS 中的文件生成一个临时 URL？
 
-具体操作请参阅 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
+具体操作请参见 [预签名授权下载](https://cloud.tencent.com/document/product/436/14116)。
 
 ### 私有读存储桶能否通过 CDN 加速访问？
 
-可以，但是需要进行授权相关配置。具体配置请参阅 CDN 加速概述文档的 [私有读存储桶](https://cloud.tencent.com/document/product/436/18669#.E7.A7.81.E6.9C.89.E8.AF.BB.E5.AD.98.E5.82.A8.E6.A1.B6) 部分。
+可以，但是需要进行授权相关配置。具体配置请参见 CDN 加速概述文档的 [私有读存储桶](https://cloud.tencent.com/document/product/436/18669#.E7.A7.81.E6.9C.89.E8.AF.BB.E5.AD.98.E5.82.A8.E6.A1.B6) 部分。
 
 ### 为何在 CDN 控制台变更源站后，COS 控制台里的原自定义域名就消失了？
 >!一旦您使用了 V5 版本控制台，并带有 JSON 版本域名配置，COS  V5 控制台则无法显示新域名。
