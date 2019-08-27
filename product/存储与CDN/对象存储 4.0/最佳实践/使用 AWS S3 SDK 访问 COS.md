@@ -9,11 +9,12 @@ COS 提供了 AWS S3兼容的 API，因此当您的数据从 S3 迁移到 COS �
 
 ## Android
 
-下面以 AWS Android SDK 2.14.2 版本为例，介绍如何适配以便访问 COS 服务。
+下面以 AWS Android SDK 2.14.2 版本为例，介绍如何适配以便访问 COS 服务。对于终端访问 COS，把永久密钥放到客户端代码中有极大的泄露风险，我们建议您接入 STS 服务获取临时密钥，详细可以查看 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。 
 
 #### 初始化
 
 初始化实例时您需要设置临时密钥提供者和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
+
 ```
 AmazonS3Client s3 = new AmazonS3Client(new AWSCredentialsProvider() {
     @Override
@@ -35,7 +36,7 @@ s3.setEndpoint("cos.ap-guangzhou.myqcloud.com");
 
 ## iOS
 
-以 AWS iOS SDK 2.10.2 版本为例，介绍如何适配以便访问 COS 服务。
+以 AWS iOS SDK 2.10.2 版本为例，介绍如何适配以便访问 COS 服务。对于终端访问 COS，把永久密钥放到客户端代码中有极大的泄露风险，我们建议您接入 STS 服务获取临时密钥，详细可以查看 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048)。 
 
 #### 1. 实现 AWSCredentialsProvider 协议
 
