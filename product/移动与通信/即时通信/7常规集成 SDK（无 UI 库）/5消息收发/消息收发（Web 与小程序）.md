@@ -505,7 +505,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-> See:	[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考：[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
