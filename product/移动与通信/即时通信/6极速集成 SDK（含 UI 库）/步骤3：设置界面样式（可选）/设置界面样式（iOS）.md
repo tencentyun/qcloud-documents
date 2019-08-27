@@ -118,7 +118,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ## 配置更多菜单
 
-单击输入框的"+"按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
+单击输入框的“+”按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
 本文以删除文件菜单为例，示例代码如下：
 
 ```objectivec

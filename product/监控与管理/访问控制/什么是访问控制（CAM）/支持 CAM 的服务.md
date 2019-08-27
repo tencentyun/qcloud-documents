@@ -37,6 +37,7 @@
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | 资源级 | ✔       | -  | ✔        | ✔   |	
 | [文件存储](https://cloud.tencent.com/document/product/582/14679) | 资源级 | ✔        | -  | ✔        | -    |
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | ✔        | -    |	
+| [云 HDFS](https://cloud.tencent.com/document/product/1105/37238) | 资源级 |✔       | -  | ✔        | -    |	
 | [存储网关](https://cloud.tencent.com/document/product/581)  | 服务级  | ✔       | -  | -        | -    |
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | ✔       | ✔  | ✔        | -    |
 | [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 操作级 | ✔        | -  |✔        |  ✔ |	

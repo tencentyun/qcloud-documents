@@ -2,11 +2,11 @@
 
 直播基础版体积最小，适合仅集成移动直播相关功能的客户。
 
-| 所属平台 | Github 下载  | 国内镜像 | SDK 集成指引 | 64位支持 | 安装包增量 |
-|:---------:| :--------: | :-------: | :--------:| :--------:| :--------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/iOS/SDK) |  [DOC](https://cloud.tencent.com/document/product/454/7876) |支持| 1.27M（arm64） |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/Android/SDK) |[DOC](https://cloud.tencent.com/document/product/454/7877) |支持| jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
-| 微信小程序| [GitHub](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |  [Gitee](https://gitee.com/cloudtencent/MLVBSDK/tree/master/WXMini) | [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A|
+| 所属平台 |  ZIP包下载 | Github 下载  | 国内镜像 | SDK 集成指引 | 64位支持 | 安装包增量 |
+|:---------:| :---------:|  :--------: | :-------: | :--------:| :--------:| :--------:|
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Smart_iOS_6.6.7460.zip) | [Github](https://github.com/tencentyun/MLVBSDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK) | [DOC](https://cloud.tencent.com/document/product/454/7876) | 支持 | 1.27M（arm64） |
+| Android | [AAR](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.6/LiteAVSDK_Smart_6.6.7458.aar)<br>[ZIP](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/6.6/LiteAVSDK_Smart_6.6.7458.zip) | [Github](https://github.com/tencentyun/MLVBSDK)|  [Gitee](https://gitee.com/cloudtencent/MLVBSDK) |[DOC](https://cloud.tencent.com/document/product/454/7877) | 支持 | jar：1.5M <br> so(armeabi)：4.4M <br>so(armeabi-v7a)：4.1M <br>so(arm64-v8a)：4.9M|
+| 微信小程序| - | [GitHub](https://github.com/tencentyun/MLVBSDK) | [Gitee](https://gitee.com/cloudtencent/MLVBSDK) | [DOC](https://cloud.tencent.com/document/product/454/12554) | N/A | N/A |
 
 <h2 id="Professional">专业版（Professional）</h2>
 
@@ -16,19 +16,19 @@
 
 要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
 
-| 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
-|:---------:| :--------:| :--------:|:--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%B8%93%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)| 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/454/34927) |
+| 所属平台 |  ZIP包下载 | Github 下载 | 64位支持 | 安装包增量 | 安装包瘦身|
+|:---------:| :--------:| :--------:|:--------:|:--------:|:--------:|
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Professional_iOS_6.6.7460.zip) | [Github](hhttps://github.com/tencentyun/LiteAVProfessional_iOS) | 支持 | 4.08M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
+| Android | [AAR](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.aar)<br>[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Professional_6.6.7458.zip) | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | 支持 | jar：1.5M<br> so(armeabi)：6.5M<br> so(armeabi-v7a)：6.1M<br>so(arm64-v8a)：7.3M| [DOC](https://cloud.tencent.com/document/product/454/34927) |
 
 <h2 id="Enterprise">商业版（Enterprise）</h2>
 
 LiteAV SDK 的商业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请联系腾讯云商务获取。
 
-| 所属平台 | 下载地址 | 64位支持 | 安装包增量 | 安装包瘦身|
+| 所属平台 | ZIP包下载 | 64位支持 | 安装包增量 | 安装包瘦身|
 |:---------:| :--------:| :--------:|:--------:|:--------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80) |支持|6.15M（arm64）|  [DOC](https://cloud.tencent.com/document/product/454/34927) |
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md#%E4%BC%81%E4%B8%9A%E7%89%88-sdk-%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80)|支持|  jar：2.3M；so(armeabi)：20.4M |[DOC](https://cloud.tencent.com/document/product/454/34927) |
+| iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/TXLiteAVSDK_Enterprise_iOS_6.6.7460.zip)  | 支持 | 6.15M（arm64）| [DOC](https://cloud.tencent.com/document/product/454/34927) |
+| Android | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/6.6/LiteAVSDK_Enterprise_6.6.7458.zip) | 支持 | jar：2.3M；so(armeabi)：20.4M | [DOC](https://cloud.tencent.com/document/product/454/34927) |
 
 ## 各版本差异对照表
 

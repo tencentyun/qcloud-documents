@@ -273,7 +273,7 @@ mLivePusher.resumePusher();
 通过 TXLivePushConfig 中的`setWatermark`接口可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由该接口函数的后三个参数决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：(0.02f，0.25f，0.2f)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.2, 水印高度会被自动计算）。
+- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.02f，0.25f，0.2f），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.2，水印高度会被自动计算）。
 
 ```java
 //设置视频水印
@@ -314,17 +314,19 @@ public interface ITXVideoRecordListener {
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
 
 ```objectiveC
-- (void)onPushEvent:(int)evtID withParam:(NSDictionary *)param {
-    dispatch_async(dispatch_get_main_queue(), ^{
-        if (evtID == PUSH_ERR_NET_DISCONNECT || evtID == PUSH_ERR_INVALID_ADDRESS) {
-		    //...
-        } else if (evtID == PUSH_WARNING_NET_BUSY) {
-            [_notification displayNotificationWithMessage:
-                @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
+@Override
+    public void onPushEvent(int event, Bundle param) {
+        if (event == TXLiveConstants.PUSH_ERR_NET_DISCONNECT
+                || event == TXLiveConstants.PUSH_ERR_INVALID_ADDRESS
+                || event == TXLiveConstants.PUSH_ERR_OPEN_CAMERA_FAIL
+                || event == TXLiveConstants.PUSH_ERR_OPEN_MIC_FAIL) {
+            // 遇到以上错误，则停止推流
+            //...
+        } else if (event == TXLiveConstants.PUSH_WARNING_NET_BUSY) {
+            //您当前的网络环境不佳，请尽快更换网络保证正常直播
+            showNetBusyTips();
         }
-		//...
-    });
-}
+    }
 ```
 
 ### 18. 发送 SEI 消息 
@@ -385,7 +387,7 @@ SDK 发现了一些问题，但这并不意味着推流无法继续，SDK 会在
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻。|
-|PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)。|
+|PUSH_WARNING_RECONNECT           |  1102| 网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）。|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码。|
 |PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）。     |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）。  |
