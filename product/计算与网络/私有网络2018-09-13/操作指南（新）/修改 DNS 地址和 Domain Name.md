@@ -9,7 +9,7 @@
 	 - DNS 可以指定4个 IP，但某些操作系统可能无法支持4个 DNS 地址。
 	 - 腾讯云默认 DNS 为：`183.60.83.19`，`183.60.82.98`。如不使用腾讯云默认 DNS，将无法使用内部服务，如 Windows 激活、NTP、YUM 等。
  - Domain Name
-	 - 云服务器 hostname 后缀，例如`example.com`。
+	 - 云服务器 hostname 后缀，如`example.com`。
 
 ![](https://main.qcloudimg.com/raw/b6c45b1894296513876be194d7ba086d.png)
 
