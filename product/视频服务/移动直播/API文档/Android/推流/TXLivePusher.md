@@ -231,7 +231,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
