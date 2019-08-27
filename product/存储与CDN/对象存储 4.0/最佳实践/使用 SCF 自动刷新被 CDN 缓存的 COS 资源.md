@@ -1,7 +1,7 @@
 ## 简介
 本实践将引导您在使用腾讯云对象存储 COS 上传对象时，借助云函数 SCF 实现自动刷新在 CDN 上指定的缓存文件，让其自动获取到更新后的资源。
 
->!使用此功能将遵循 CDN 相关 API 调用次数的限制，详情请查见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299#url-.E5.88.B7.E6.96.B0) 文档。
+>!使用此功能将遵循 CDN 相关 API 调用次数的限制，详情请参见 [缓存刷新](https://cloud.tencent.com/document/product/228/6299#url-.E5.88.B7.E6.96.B0) 文档。
 
 ## 实践背景
 
