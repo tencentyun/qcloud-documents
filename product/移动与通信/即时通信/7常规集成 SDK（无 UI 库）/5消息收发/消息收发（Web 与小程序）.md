@@ -372,7 +372,7 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 
 <ul><li><b>简单版</b><br>
  如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
-<li><b>含有 [呲牙] 内容需要解析为😬的文本</b>
+<li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
 
 ```javascript
 const emojiMap = {         // 根据[呲牙]可匹配的路径地址
@@ -381,7 +381,7 @@ const emojiMap = {         // 根据[呲牙]可匹配的路径地址
   '[下雨]': 'emoji_2.png'
 }
 
-const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为😬图片的地址
+const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">图片的地址
 
 function parseText (payload) {
   let renderDom = []
@@ -438,7 +438,7 @@ function parseText (payload) {
 
 
 // 最后的 renderDom 结构为[{name: 'text', text: 'XXX'}, {name: 'img', src: 'http://xxx'}......]
-// 渲染当前数组即可得到想要的 UI 结果，如：XXX😬XXX😬XXX[呲牙XXX]
+// 渲染当前数组即可得到想要的 UI 结果，如：XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX[呲牙XXX]
 ```
 </li></ul>
 
