@@ -28,7 +28,7 @@
 | jumpUrl            | 否      | String   | 登录成功后跳转页面。                                           |
 | userAgent          | 否      | String   | 用户 HTTP 请求的 userAgent。                                   |
 | xForwardedFor      | 否      | String   | 用户 HTTP 请求中的 x_forward_for。                             |
-| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标点击次数。                                   |
+| mouseClickCount    | 否      | Uint     | 用户操作过程中鼠标单击次数。                                   |
 | keyboardClickCount | 否      | Uint     | 用户操作过程中键盘单击次数。                                   |
 | macAddress         | 否      | String   | MAC 地址或设备唯一标识。                                        |
 | vendorId           | 否      | String   | 手机制造商 ID，如果手机注册，请带上此信息。                    |
@@ -37,7 +37,7 @@
 | businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
 | wxSubType  | 否      | int      |<li>1：微信公众号。</li><li>2：微信小程序。</li>                                |
 | randNum        | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
-| wxToken       | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256 签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| wxToken       | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256 签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
 | checkDevice  | 否      | Int      | 是否识别设备异常：<li>0：不识别。</li><li>1：识别。</li>                             |
 
 ## 输出参数

@@ -25,39 +25,32 @@
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
      <tr>
-         <th>编程语言</th>  
          <th nowrap="nowrap">所属平台</th>  
-         <th nowrap="nowrap">GenerateTestUserSig 源代码</th>  
+         <th nowrap="nowrap">文件相对路径</th>  
      </tr>
-	 <tr>      
-         <td>Java</td>   
-	     <td>Android</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java">GenerateTestUserSig.java</a></td>   
+  <tr>      
+      <td>Android</td>   
+      <td>Android/app/src/main/java/com/tencent/qcloud/tim/demo/signature/GenerateTestUserSig.java</td>   
      </tr> 
-	 <tr>
-	     <td>Objective-C</td>   
-	     <td>iOS</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>
+  <tr>
+      <td>iOS</td>   
+      <td>iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h</td>
      </tr> 
-	 <tr>      
-         <td>Objective-C</td>   
-	     <td>Mac</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>   
+  <tr>      
+      <td>Mac</td>   
+      <td>Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h</td>   
      </tr>  
-	 <tr>      
-         <td>C++</td>   
-	     <td>Windows</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h">GenerateTestUserSig.h</a></td>   
+  <tr>      
+      <td>Windows</td>   
+      <td>cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h</td>   
      </tr>  
-	 <tr>      
-         <td>Javascript</td>   
-	     <td>Web（通用）</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/H5/js/debug/GenerateTestUserSig.js">GenerateTestUserSig.js</a></td>   
+  <tr>      
+      <td>Web（通用）</td>   
+      <td>H5/js/debug/GenerateTestUserSig.js</td>   
      </tr>  
-	 <tr>      
-         <td>Javascript</td>   
-	     <td>小程序</td>   
-	     <td><a href="https://github.com/tencentyun/TIMSDK/blob/master/WXMini/debug/GenerateTestUserSig.js">GenerateTestUserSig.js</a></td>   
+  <tr>      
+      <td>小程序</td>   
+      <td>WXMini/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 
@@ -66,7 +59,7 @@
 3. 设置`GenerateTestUserSig`文件中的相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
- ![](https://main.qcloudimg.com/raw/5771a4cb0408eb97b6ee073a764fcb30.png)
+ ![](https://main.qcloudimg.com/raw/bfbe25b15b7aa1cc34be76d7388562aa.png)
 
 
 >!本文提到的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。

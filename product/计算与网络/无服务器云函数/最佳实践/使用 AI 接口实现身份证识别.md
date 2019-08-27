@@ -6,7 +6,7 @@
 前往 [智能图像控制台](https://console.cloud.tencent.com/ai/ocr/idcard) 开通身份证识别功能，单击【开通服务】即可。
 
 ## 创建云函数
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
 2. 选择**北京**地域，单击【新建】，进入新建函数页面。
 3. 填写以下参数信息，单击【下一步】。如下图所示：
  - 创建方式：选择 “模板函数”。
@@ -24,5 +24,5 @@
 
 ## 测试函数功能
 1. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的 Bucket：idcard-detect，单击【上传文件】，选择自己拍好的身份证照片，照片要清晰可读且尽可能大的占满图片，然后上传。
-2. 进入无服务器云函数控制台查看执行结果，在 **日志** 中可以看到打印出来的日志信息，包含身份证识别的结果。如下图所示：
+2. 进入云函数控制台查看执行结果，在 **日志** 中可以看到打印出来的日志信息，包含身份证识别的结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f1df813647d9b5061fc9c4e5dfb1400.jpg) 

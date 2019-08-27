@@ -32,7 +32,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
 2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】。如下图所示：
- - 标识符（实体 ID）：http://cloud.tencent.com
+ - 标识符（实体 ID）：cloud.tencent.com
  - 回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/d13c71c27fe913bc2d9c21949f731a02.png)
 3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
@@ -43,7 +43,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 | 名称 | 命名空间 | 源 | 源属性 |
 |---------|---------|---------|---------|
-|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
+|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
 |RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Test |
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：

@@ -13,35 +13,41 @@
  
 ## 自动激活
 腾讯云为 Windows 服务器的激活封装了一个脚本，简化了手工激活的步骤。
-请在您的 Windows 云服务器上访问以下地址：http://mirrors.tencentyun.com/install/windows/activate-win.bat 下载脚本，并在下载完成后执行该脚本，即可完成自动激活。
+1. 登录 Windows 云服务器。
+2. 通过浏览器访问 `http://mirrors.tencentyun.com/install/windows/activate-win.bat` 地址，下载脚本。
+3. 运行脚本，即可完成自动激活。
 
 ## 手工运行激活
 
+### 注意事项
+在某些系统上，如果系统时钟存在问题，手工激活时会出现错误。此时，您需要先同步系统时钟。同步时钟的操作步骤如下：
+>? 若 Windows 云服务器上的系统时钟正常，请直接进行 [激活步骤](#ActivationStep)。
+>
+1. 登录 Windows 云服务器。
+2. 在操作系统界面，单击【开始】>【运行】，输入`cmd.exe`，打开控制台窗口。
+3. 在控制台窗口依次执行以下命令，同步系统时钟。
+```
+w32tm /config /syncfromflags:manual /manualpeerlist:"ntpupdate.tencentyun.com"
+w32tm /resync
+```
+
+<span id="ActivationStep"></span>
 ### 激活步骤
 
-1. 登录您的腾讯云 Windows 云服务器。
-2. 单击【开始】>【运行】，输入`cmd.exe`以打开控制台窗口。
-3. 在控制台依次输入命令：
- - Windows 2008 和 Windows 2012 服务器依次输入：
+1. 登录 Windows 云服务器。
+2. 在操作系统界面，单击【开始】>【运行】，输入`cmd.exe`，打开控制台窗口。
+3. 在控制台窗口依次执行以下命令，即可完成手工运行激活。
+ - Windows Server 2008 和 Windows Server 2012 服务器依次执行的命令如下：
 ```
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato
 ```
- - Windows 2016 服务器依次输入：
+ - Windows Server 2016 服务器依次执行的命令如下：
 ```
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms1.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato
 ```
 
-实现以上步骤即可完成手工运行激活。
-
-### 注意事项
-在某些系统上，如果系统时钟存在问题，手工激活的时候会出现错误，此时需要先同步系统时钟。同步时钟的操作步骤如下：
-在控制台窗口执行以下命令。
-```
-w32tm /config /syncfromflags:manual /manualpeerlist:"ntpupdate.tencentyun.com"
-w32tm /resync
-```
 
 
 

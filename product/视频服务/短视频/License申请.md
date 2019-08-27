@@ -2,13 +2,13 @@
 
 ## 申请测试 License
 **您可以免费申请测试 License（基础版，有效期14天，可申请两次）体验测试，具体步骤如下**：
-1. 登录腾讯云官网，进入 [云点播控制台](https://console.cloud.tencent.com/video/license)，填写相应的信息，在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 BundleID。
+1. 登录腾讯云官网，进入 [云点播控制台](https://console.cloud.tencent.com/vod/license)，填写相应的信息，在 Package Name 中填写 Android 的包名，Bundle Id 中填写 iOS 的 BundleID。
 ![](https://main.qcloudimg.com/raw/148ea8cee25d6faea2d90bac30685d1c.png)
 2. 创建成功后页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
 ![](https://main.qcloudimg.com/raw/e45994fd46982632ad4e29469e67f64f.png)
 
 ## 购买正式 License
-当您的测试 License 过期了，您需要进入 [云点播控制台](https://console.cloud.tencent.com/video/license) 购买正式 License。注意，您购买的是点播套餐包，根据点播套餐包，我们会赠送您对应版本 SDK 使用 License，点播套餐包的购买截图如下：
+当您的测试 License 过期了，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 购买正式 License。注意，您购买的是点播套餐包，根据点播套餐包，我们会赠送您对应版本 SDK 使用 License，点播套餐包的购买截图如下：
  ![](https://main.qcloudimg.com/raw/01f8e581617aeaea3fc87fbbab16b075.png)
 
 SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
@@ -20,7 +20,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [商业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366) | 参考目录6申请商业版本 License | 
 | [商业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366) | 参考目录6申请商业版本 License | 
 
-**注意: 购买点播套餐包后，在 [云点播控制台](https://console.cloud.tencent.com/video/license) 测试 License 信息下面会有一键切换正式 License 按钮，当单击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License 信息不能再做修改。**
+**注意: 购买点播套餐包后，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 测试 License 信息下面会有一键切换正式 License 按钮，当单击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License 信息不能再做修改。**
 
 ## License 的使用方法
 在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置
@@ -52,7 +52,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 
 ## License 的有效期与续费
 
-可以在 [云点播控制台](https://console.cloud.tencent.com/video/license)查看 License 的有效期，正式版本的 License 有效期一般为一年，到期后进入 [云点播控制台](https://console.cloud.tencent.com/video/license) 单击购买链接即可。
+可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license)查看 License 的有效期，正式版本的 License 有效期一般为一年，到期后进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 单击购买链接即可。
 
 
 

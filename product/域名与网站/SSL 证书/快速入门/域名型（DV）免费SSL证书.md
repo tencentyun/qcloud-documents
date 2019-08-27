@@ -8,11 +8,11 @@
 ## 申请免费证书
 
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，选择【证书管理】>【证书列表】，单击【申请免费证书】。如下图所示：
-![](https://main.qcloudimg.com/raw/d42478ed0c5c8f68a2d3f3a04c5eecd9.png)
+![](https://main.qcloudimg.com/raw/d0b6f2549a72dfc2e282134e36d0be35.png)
 2. 在弹出的【确认证书类型】窗口中，单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/216f9cdc5d224b8218634f01ad1f38ba.png)
+![](https://main.qcloudimg.com/raw/67c9a271ea357da40cba2bb10f272354.png)
 3. 填写证书申请内容，例如`qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。
-![](https://main.qcloudimg.com/raw/488726b0850838123a7ba69ace72386a.png)
+![](https://main.qcloudimg.com/raw/52bb576a87623c002ec283447d7fe7a3.png)
 4. 单击【下一步】，选择域名身份验证。
 5. 单击【确认申请】，完成域名身份验证即可获取证书，具体可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
 

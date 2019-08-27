@@ -2,6 +2,7 @@
 
 精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
 
+<
 | 所属平台 |  ZIP包下载 | Github 下载 | 国内镜像 |  Demo 运行说明 | SDK 集成指引 | 64位支持 | 安装包增量 |
 |:---------:| :---------:| :--------:| :--------:| :--------:| :--------:| :--------:|:--------:|
 | iOS | [ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip) | [Github](https://github.com/tencentyun/TRTCSDK)|[Gitee](https://gitee.com/cloudtencent/TRTCSDK)| [DOC](https://cloud.tencent.com/document/product/647/32396)| [DOC](https://cloud.tencent.com/document/product/647/32173) |支持|1.90M（arm64）|

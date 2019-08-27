@@ -1,9 +1,9 @@
-本文将指导您如何生成 UserSig。
+UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文，本文将指导您如何生成 UserSig。
 
 ## 获取密钥 
 
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
- >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/3794#.E6.8E.A5.E5.85.A5.E6.AD.A5.E9.AA.A4)，然后执行 [步骤2](#step2)。
+ >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
 3. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
@@ -50,7 +50,6 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
-| Objective-C | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-oc)|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
 | C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
