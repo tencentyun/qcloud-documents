@@ -1,6 +1,5 @@
 本文主要介绍如何快速地将互动课堂组件集成到您的项目中，只要按照如下步骤进行配置，就可以完成组件的集成工作。
-<img src="https://main.qcloudimg.com/raw/7e44e32f52f393ef01d21c8a10ff99a1.jpg"  width="800" />
-
+![](https://main.qcloudimg.com/raw/a27a44948393333f80c8b347bf56b7c8.jpg)
 ## <span id="jump">调用参数</span>
 
 参数 ID|参数类型|解释|获取方式
