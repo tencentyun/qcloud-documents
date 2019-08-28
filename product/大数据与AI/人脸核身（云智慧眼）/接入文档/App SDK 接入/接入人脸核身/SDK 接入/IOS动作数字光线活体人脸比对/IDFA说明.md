@@ -11,5 +11,3 @@
 用于跟踪和统计广告安装后带来的用户行为，需要勾选。
 4. Limit Ad Tracking setting in iOS
 此项属于确认项，需要勾选。
-
-
