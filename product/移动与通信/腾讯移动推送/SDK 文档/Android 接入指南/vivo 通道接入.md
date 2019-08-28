@@ -20,7 +20,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```
 2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:vivo:1.1.0.1-release' // vivo  推送
+implementation 'com.tencent.tpns:vivo:1.1.0.2-release' // vivo  推送
 ```
 
 
