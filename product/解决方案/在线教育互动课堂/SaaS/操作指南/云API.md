@@ -17,8 +17,8 @@
 | class_type | string | 课堂类型，详情参考附录 | 否 | `public` |
 | start_time | int64 | 课堂预计开始时间戳 | 否 | 约课时的时间 | 
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
-| admin_id | string | 云通信管理员 ID，互动课堂用它来创建 IM 群组 | 是 | - |
-| admin_sig | string | 云通信管理员 Sig，互动课堂用它来创建 IM 群组 | 是 | - |
+| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 是 | - |
+| admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 是 | - |
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，<br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
@@ -50,8 +50,8 @@
   "class_type":"public",
   "start_time": 1558350988,
   "stop_time": 1558350988,
-  "admin_id":"云通信IM管理员ID",
-  "admin_sig":"云通信IM管理员鉴权sig",
+  "admin_id":"即时通信IM管理员ID",
+  "admin_sig":"即时通信IM管理员鉴权sig",
   "max_member_limit"：6
   "members": [
     {
@@ -1642,7 +1642,7 @@ transport_progress
 ### 附录1：API 公共参数
 | 参数名 | 类型 | 描述 |
 | :------ | :--- | :---- |
-| sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 sdkappid |
+| sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 SDKAppID |
 | random | int | 一个随机数，用于区分不同的请求，过滤日志等 |
 | sign | string | API 鉴权字符串 |
 | expire_time | int64 | 请求签名串过期时间戳 |
