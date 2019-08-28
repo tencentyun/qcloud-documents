@@ -118,7 +118,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             <!-- 【必须】 腾讯移动推送SDK的内部广播 -->
             <action android:name="com.tencent.android.xg.vip.action.SDK" />
             <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
-
+            <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
             <!-- 【可选】 系统广播：网络切换 -->
             <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             <!-- 【可选】 系统广播：开屏 -->
