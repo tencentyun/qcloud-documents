@@ -1,8 +1,8 @@
 ## 功能描述
-Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行此请求以后会返回 UploadId 用于后续的 Upload Part 请求。
+Initiate Multipart Upload 接口请求实现初始化分片上传，成功执行此请求后将返回 UploadId，用于后续的 Upload Part 请求。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```shell
 POST /<ObjectKey>?uploads HTTP/1.1
@@ -11,12 +11,12 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求头
+#### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 **推荐头部**
@@ -34,7 +34,7 @@ Authorization: Auth String
 
 **权限相关头部**
 
->?了解更多 ACL 请求请参阅 [ACL 概述](https://cloud.tencent.com/document/product/436/30752) 文档。
+>?了解更多 ACL 请求请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752) 文档。
 
 | 名称                       | 描述                                       | 类型     | 必选   |
 | :----------------------- | :--------------------------------------- | :----- | :--- |
@@ -50,14 +50,14 @@ Authorization: Auth String
 | ---------------------------- | ---------------------------------------- | ------ | ------ |
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密填写：AES256 | String | 如需加密，是 |
 
-### 请求体
+#### 请求体
 该请求的操作请求体为空。
 
 ## 响应
 
-### 响应头
+#### 响应头
 #### 公共响应头 
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 **服务端加密相关响应**
 
@@ -67,7 +67,7 @@ Authorization: Auth String
 | ---------------------------- | ---------------------------------------- | ------ |
 | x-cos-server-side-encryption | 如果通过 COS 管理的服务器端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256| String |
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```shell
 <InitiateMultipartUploadResult>
@@ -76,6 +76,7 @@ Authorization: Auth String
     <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
 </InitiateMultipartUploadResult>
 ```
+
 具体的数据内容如下：
 
 | 节点名称（关键字）                     | 父节点  | 描述       | 类型        |
@@ -86,13 +87,13 @@ Container 节点 InitiateMultipartUploadResult 的内容：
 
 | 节点名称（关键字） | 父节点                           | 描述                                       | 类型        |
 | :-------- | :---------------------------- | :--------------------------------------- | :-------- |
-| Bucket    | InitiateMultipartUploadResult | 分片上传的目标 Bucket，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，如：examplebucket-1250000000 | Container |
+| Bucket    | InitiateMultipartUploadResult | 分片上传的目标 Bucket，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，例如 examplebucket-1250000000 | Container |
 | Key       | InitiateMultipartUploadResult | Object 的名称                               | Container |
 | UploadId  | InitiateMultipartUploadResult | 在后续上传中使用的 ID                             | Container |
 
 ## 实际案例
 
-### 请求
+#### 请求
 ```shell
 POST /exampleobject?uploads HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
@@ -100,7 +101,7 @@ Date: Fri, 10 Mar 2016 09:45:46 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727259;32557623259&q-key-time=1484727259;32557623259&q-header-list=host&q-url-param-list=uploads&q-signature=b5f46c47379aeaee74be7578380b193c01b28045
 ```
 
-### 响应
+#### 响应
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
