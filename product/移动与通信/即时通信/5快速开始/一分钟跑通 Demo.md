@@ -50,7 +50,7 @@
      </tr>  
   <tr>      
       <td>小程序</td>   
-      <td>WXMini/dist/wx/static/debug/GenerateTestUserSig.js</td>   
+      <td>WXMini/static/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 
