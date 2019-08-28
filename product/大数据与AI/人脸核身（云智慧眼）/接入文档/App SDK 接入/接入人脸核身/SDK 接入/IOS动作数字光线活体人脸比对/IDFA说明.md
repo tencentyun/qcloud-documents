@@ -1,4 +1,4 @@
-﻿## 上传 IDFA 注意事项
+## 上传 IDFA 注意事项
 
 由于 iOS SDK 默认采集 IDFA，而使用 IDFA 原则上需要集成任意一家的广告 SDK，如果您期望采集 IDFA 但是并未使用任何广告，可以采用以下方法通过 Appstore 审核。
 ![img](https://qqadapt.qpic.cn/txdocpic/0/9abb2bb3ded0872f40ca7f2468351909/0)             
