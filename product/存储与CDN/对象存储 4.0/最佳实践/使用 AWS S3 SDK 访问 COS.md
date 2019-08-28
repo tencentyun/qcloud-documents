@@ -1,11 +1,11 @@
 ## 简介
 
-COS 提供了 AWS S3兼容的 API，因此当您的数据从 S3 迁移到 COS 之后，只需要进行简单的配置修改，即可让您的客户端应用轻松兼容 COS 服务。本文主要介绍不同开发平台的 S3 SDK 的适配步骤。在完成添加适配步骤后，您就可以使用 S3 SDK 的接口来访问 COS 上的文件了。
+COS 提供了 AWS S3 兼容的 API，因此当您的数据从 S3 迁移到 COS 之后，只需要进行简单的配置修改，即可让您的客户端应用轻松兼容 COS 服务。本文主要介绍不同开发平台的 S3 SDK 的适配步骤。在完成添加适配步骤后，您就可以使用 S3 SDK 的接口来访问 COS 上的文件了。
 
 #### 准备工作
 
-1. 您已经注册了腾讯云账号，并且从 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 上获取了腾讯云密钥 SecretID 与 SecretKey。
-2. 您已经有一个集成了 S3 SDK，并能正常运行的客户端应用。
+1. 您已 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并且从 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 上获取了腾讯云密钥 SecretID 与 SecretKey。
+2. 您已有一个集成了 S3 SDK，并能正常运行的客户端应用。
 
 ## Android
 
@@ -13,7 +13,7 @@ COS 提供了 AWS S3兼容的 API，因此当您的数据从 S3 迁移到 COS �
 
 #### 初始化
 
-初始化实例时您需要设置临时密钥提供者和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
+初始化实例时，您需要设置临时密钥提供者和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
 
 ```
 AmazonS3Client s3 = new AmazonS3Client(new AWSCredentialsProvider() {
@@ -134,16 +134,13 @@ AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
 
 AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和证书文件](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)。
 
-在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
-
+- 在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
 ```
 [default]  
 s3 =  
 addressing_style = virtual 
 ```
-
-在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
-
+- 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
 aws_access_key_id = [腾讯云的 SecretID]  
@@ -168,14 +165,13 @@ client = boto3.client('s3', endpoint_url='"https://cos.ap-guangzhou.myqcloud.com
 
 AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和证书文件](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)。
 
-在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
+- 在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
 ```
 [default]  
 s3 =  
 addressing_style = virtual 
 ```
-
-在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
+- 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
 aws_access_key_id = [腾讯云的 SecretID]  
@@ -263,16 +259,13 @@ service.PutObjectWithContext(ctx, &s3.PutObjectInput{
 
 AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和证书文件](https://docs.aws.amazon.com/zh_cn/cli/latest/userguide/cli-configure-files.html)。
 
-在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
-
+- 在配置文件（文件位置是`~/.aws/config`） 中添加以下配置：
 ```
 [default]  
 s3 =  
 addressing_style = virtual 
 ```
-
-在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
-
+- 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
 aws_access_key_id = [腾讯云的 SecretID]  
