@@ -28,9 +28,23 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 | GetState(key string) ([]byte, error) | 获取指定键对应的值 |
 | DelState(key string) error | 在账本中，删除对应的键值 |
 | GetStateByRange(startKey, endKey string) (StateQueryIteratorInterface, error) | 查询指定范围内的键值 |
+|GetStateByRangeWithPagination(startKey, endKey string, pageSize int32, bookmark string) (StateQueryIteratorInterface, \*pb.QueryResponseMetadata, error) | 分页查询指定范围内的键值|
 | GetStateByPartialCompositeKey(objectType string, attributes []string) (StateQueryIteratorInterface, error) | 查询匹配局部复合键的所有键值 |
+|GetStateByPartialCompositeKeyWithPagination(objectType string, keys []string, pageSize int32, bookmark string) (StateQueryIteratorInterface, \*pb.QueryResponseMetadata, error) | 分页查询匹配局部复合键的所有键值| 
 | GetQueryResult(query string)(StateQueryIteratorInterface, error) | 查询状态数据库，只对支持富查询功能的状态数据库 |
+|GetQueryResultWithPagination(query string, pageSize int32, bookmark string) (StateQueryIteratorInterface, \*pb.QueryResponseMetadata, error) | 分页查询状态数据库，需要支持富查询功能的状态数据库| 
 | GetHistoryForKey(key string) (HistoryQueryIteratorInterface, error) | 返回对应键的所有历史值 |
+|GetPrivateData(collection, key string) ([]byte, error) |获取指定私有数据集中的键的值 |
+|GetPrivateDataHash(collection, key string) ([]byte, error)|获取指定私有数据集中的键的值的 hash |
+|PutPrivateData(collection string, key string, value []byte) error |设置指定私有数据集中键的值 |
+| DelPrivateData(collection, key string) error|删除指定私有数据集中对应的键 |
+|SetPrivateDataValidationParameter(collection, key string, ep []byte) error | 设置指定私有数据集中键的背书策略 |
+|GetPrivateDataValidationParameter(collection, key string) ([]byte, error) |获取指定私有数据集中键的背书策略|
+|GetPrivateDataByRange(collection, startKey, endKey string) (StateQueryIteratorInterface, error) | 获取指定私有数据集中特定范围键的键值|
+|GetPrivateDataByPartialCompositeKey(collection, objectType string, keys []string) (StateQueryIteratorInterface, error) | 获取指定私有数据集中匹配局部复合键的键值|
+|GetPrivateDataQueryResult(collection, query string) (StateQueryIteratorInterface, error) | 获取指定私有数据集中特定查询的键值，需要支持富查询功能的状态数据库|
+
+
 
 <span id="parametersProcess"></span>
 ### 参数处理
@@ -51,3 +65,5 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 | SplitCompositeKey(compositeKey string) (string, []string, error) | 拆分复合键成一系列属性 |
 | InvokeChaincode(chaincodeName string, args [][]byte, channel string) pb.Response | 调用其它智能合约 Invoke 方法 |
 | SetEvent(name string, payload []byte) error | 设置发送的事件 |
+|SetStateValidationParameter(key string, ep []byte) error |  设置特定键的背书策略 |
+| GetStateValidationParameter(key string) ([]byte, error) | 获取特定键的背书策略 |  
