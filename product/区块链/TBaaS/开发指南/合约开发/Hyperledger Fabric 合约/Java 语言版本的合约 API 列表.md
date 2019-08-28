@@ -115,10 +115,14 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 	<tr>
 		<td>byte[] getPrivateDataHash(String collection, String key)</td>
-		<td>获取指定私有数据集集中的键的值的hash</td>
+		<td>获取指定私有数据集集中的键的值的 hash</td>
 	</tr>
 	<tr>
 		<td>void putPrivateData(String collection, String key, byte[] value)</td>
+		<td>设置指定私有数据集集中键的值</td>
+	</tr>
+	<tr>
+		<td>void putPrivateData(String collection, String key, String value)</td>
 		<td>设置指定私有数据集集中键的值</td>
 	</tr>
 	<tr>
@@ -139,6 +143,10 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 	<tr>
 		<td>QueryResultsIterator&lt;KeyValue&gt; getPrivateDataByPartialCompositeKey(String collection, String compositeKey)</td>
+		<td>获取指定私有数据集集中匹配局部复合键的键值</td>
+	</tr>
+	<tr>
+		<td>QueryResultsIterator<KeyValue> getPrivateDataByPartialCompositeKey(String collection, CompositeKey compositeKey)</td>
 		<td>获取指定私有数据集集中匹配局部复合键的键值</td>
 	</tr>
 	<tr>
