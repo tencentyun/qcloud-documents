@@ -163,7 +163,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 ### 参数处理
 <table>
 	<tr>
-		<th width="65%">接口</th>
+		<th width="50%">接口</th>
 		<th>说明</th>
 	</tr>
 	<tr>
@@ -188,7 +188,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 ### 其他辅助类
 <table>
 	<tr>
-		<th width="50%">接口</th>
+		<th width="65%">接口</th>
 		<th>说明</th>
 	</tr>
 	<tr>
