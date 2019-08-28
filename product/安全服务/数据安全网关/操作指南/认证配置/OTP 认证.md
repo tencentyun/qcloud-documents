@@ -27,7 +27,7 @@
 #### 登录验证
 1. 打开堡垒机登录页面。
 2. 输入用户名及动态口令登录。
-![](https://main.qcloudimg.com/raw/151a527a86cec9abb55713640e1a8f97.png)
+![](https://main.qcloudimg.com/raw/377cf6a6c595710a993ac84341a0cfdb.jpg)
 
 ### 第三方 OTP 认证配置
 #### 开启第三方 OTP 服务
@@ -49,5 +49,5 @@
 #### 登录验证
 1. 打开堡垒机登录页面。
 2. 输入用户名及第三方动态口令登录。
-![](https://main.qcloudimg.com/raw/151a527a86cec9abb55713640e1a8f97.png)
+![](https://main.qcloudimg.com/raw/377cf6a6c595710a993ac84341a0cfdb.jpg)
  
