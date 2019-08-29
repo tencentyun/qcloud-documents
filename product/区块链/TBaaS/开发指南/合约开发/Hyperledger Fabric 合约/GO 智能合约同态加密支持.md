@@ -63,7 +63,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 
 - encrypt
 执行以下命令，工具会使用 pk.pai 中存储的公钥对数字10进行加密，生成的密文存在文件 cipher.pai 中。
-密文是一个16进制字符串，可以直接做为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时做为密文入参。
+密文是一个16进制字符串，可以直接作为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时作为密文入参。
 ```
 ./paitool encrypt -pkin=pk.pai -plaintext=10 -cipherout=cipher.pai
 ```
@@ -97,7 +97,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		</td>
 		<td>
 			<ul class="bottom">
-				<li>私钥：用于解密，可导出成员 PublicKey 做为公钥进行加密。</li>
+				<li>私钥：用于解密，可导出成员 PublicKey 作为公钥进行加密。</li>
 				<li>错误信息。</li>
 			</ul>
 		</td>
@@ -338,7 +338,3 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 	</td>
 </tr>
 </table>
-
-<style>
-	.bottom{margin-bottom:0px !important;}
-<style>
