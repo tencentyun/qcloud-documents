@@ -39,7 +39,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  - **应用包名称**：填写 vivo 推送服务应用的**应用包名**
  - **APPID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
- ![](https://main.qcloudimg.com/raw/d249073c92986efe9719d6508570b4d2.png)
+ ![](https://main.qcloudimg.com/raw/b046e3dc6fb604bbc0a88da393fa1b83.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录**`证书 ID`** 。
  ![](https://main.qcloudimg.com/raw/744870d8e96007cf910d54a4ee48d0b4.png)
@@ -297,6 +297,58 @@ public class ThirdPushTokenMgr {
 >- vivo 推送并非100%必达。
 >- vivo 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 vivo 推送服务有关。
 >- 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
+
+## 点击通知栏消息后的行为
+
+
+![](https://main.qcloudimg.com/raw/7d03a9b30d00aac52fbe59268e19400c.png)
+
+### 打开应用
+
+默认行为是点击通知栏消息打开应用。
+
+### 跳转到自定义界面
+
+点击通知栏，可以用内置的浏览器打开指定的网页，也可以打开应用内指定的界面。
+
+1. 打开网页，以 http:// 或者 https:// 开头，例如 https://cloud.tencent.com/document/product/269 。
+
+2. 打开应用内指定界面。
+
+   首先需要在 manifest 中配置需要打开的 Activity 的 `intent-filter`，例如：
+
+   ```
+   <activity
+   	android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
+     android:launchMode="singleTask"
+     android:screenOrientation="portrait"
+     android:windowSoftInputMode="adjustResize|stateHidden">
+   
+   	<intent-filter>
+     	<action android:name="android.intent.action.View" />
+       <data
+       	android:host="com.tencent.qcloud"
+         android:path="/detail"
+         android:scheme="pushscheme" />
+     </intent-filter>
+   
+   </activity>
+   ```
+
+   然后获取 intent uri，方式如下：
+
+   ```
+   Intent intent = new Intent(this, ChatActivity.class);
+   intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
+   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+   String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
+   Log.i(TAG, "intentUri = " + intentUri);
+   
+   // 打印结果
+   intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
+   ```
+
+   把打印的结果填入上图中对应位置。
 
 ## 常见问题
 
