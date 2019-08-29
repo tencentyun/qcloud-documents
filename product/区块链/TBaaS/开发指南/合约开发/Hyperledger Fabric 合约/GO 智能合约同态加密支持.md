@@ -1,4 +1,3 @@
-
 ## 简介
 在 Fabric 区块链网络中，用户可以把业务数据按照特定的业务逻辑上链。对于链上的数据，多个参与方之间都是透明可见证的。对于不能对链上其他组织直接开放的隐私数据，用户可以直接把相关数据的 hash 值存储在链上做为见证。但是在有些业务领域，有些数据不能直接对于其他组织开放，用户又希望其他组织可以根据链上这些数据进行特定的运算背书。
 针对以上场景，TBaaS 引入同态加密的能力，很好的保证了数据隐私性，链上透明性，以及数据可操作性。
@@ -64,7 +63,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 
 - encrypt
 执行以下命令，工具会使用 pk.pai 中存储的公钥对数字10进行加密，生成的密文存在文件 cipher.pai 中。
-密文是一个16进制字符串，可以直接做为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时做为密文入参。
+密文是一个16进制字符串，可以直接作为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时作为密文入参。
 ```
 ./paitool encrypt -pkin=pk.pai -plaintext=10 -cipherout=cipher.pai
 ```
@@ -340,11 +339,6 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 </tr>
 </table>
 
-
-
-
 <style>
 	.bottom{margin-bottom:0px !important;}
 <style>
-
-
