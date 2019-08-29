@@ -242,7 +242,7 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 			<td>输出：<br>
 				<ul class="bottom">
 					<li>签名：[]byte 类型。</li>
-					<li>错误信息</li>
+					<li>错误信息。</li>
 				</ul>
 			</td>
 		</tr>
