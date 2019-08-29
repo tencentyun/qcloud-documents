@@ -113,9 +113,9 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 #### 私钥相关函数
 <table>
 	<tr>
-		<th>接口类型</th>
-		<th>函数名</th>
-		<th>说明</th>
+		<th width="11%">接口类型</th>
+		<th width="39%">函数名</th>
+		<th width="53%">说明</th>
 	</tr>
 	<tr>
 		<td rowspan=6>非成员函数</td>
@@ -268,9 +268,9 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 #### 公钥相关函数
 <table>
 	<tr>
-		<th>接口类型</th>
-		<th>函数名</th>
-		<th>说明</th>
+		<th width="11%">接口类型</th>
+		<th width="39%">函数名</th>
+		<th width="53%">说明</th>
 	</tr>
 		<tr>
 			<td rowspan=3>非成员函数</td>
@@ -360,9 +360,9 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 #### 哈希算法相关函数
 <table>
 		<tr>
-		<th>接口类型</th>
-		<th>函数名</th>
-		<th>说明</th>
+		<th width="11%">接口类型</th>
+		<th width="39%">函数名</th>
+		<th width="53%">说明</th>
 	</tr>
 	<tr>
 		<td  rowspan=3>非成员函数</td>
