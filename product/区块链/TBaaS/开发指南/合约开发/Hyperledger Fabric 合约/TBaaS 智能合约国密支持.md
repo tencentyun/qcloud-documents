@@ -94,7 +94,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 
 - **sign**
 执行以下命令，工具会解析文件 sk.sm2 中的私钥，对 message 文件中的内容用 SM2 签名算法和 SM3 哈希算法进行签名，并把签名存在文件 sig.sm2 中。签名已经经过 base64 编码，可以直接被 gmtool 工具的验签功能验证，但需要解码后才能作为国密库验签算法的入参。
->?工具中的摘要片段固定使用“1234567812345678”与入参 message 拼接，暂不支持自定义。这里与 >chaincode 中的接口说明对应。
+>?工具中的摘要片段固定使用“1234567812345678”与入参 message 拼接，暂不支持自定义。这里与 chaincode 中的接口说明对应。
 >
 ```
 ./gmtool sign -skin=sk.sm2 -message=message -signature=sig.sm2
@@ -147,7 +147,7 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 		<td>参数：<br>
 			<ul class="bottom">
 				<li>pem：string 类型，符合 PEM 格式的字符串。</li>
-				<li>password：string 类型，若私钥 PEM 经过加密保护，则在这里传入加密时使用的口令。若没有加密，则传入空字符串`“”`。</li>
+				<li>password：string 类型，若私钥 PEM 经过加密保护，则在这里传入加密时使用的口令。若没有加密，则传入空字符串<code>“”</code>。</li>
 			</ul>
 		</td>
 		</tr>
@@ -234,7 +234,7 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 				<ul class="bottom">
 					<li>alg：string类型，算法名称。SM2 签名算法固定入参为 “sm2sign”。</li>
 					<li>dgst：[]byte 类型，信息摘要。将要签名的信息和 ComputeSM2IDDigest 函数生成的部分摘要，用选定的哈希算法算出最终摘要，作为此项入参。</li>
-					<li>engine： SM2 算法固定入参为 nil</li>
+					<li>engine： SM2 算法固定入参为 nil。</li>
 				</ul>
 			</td>
 		</tr>
