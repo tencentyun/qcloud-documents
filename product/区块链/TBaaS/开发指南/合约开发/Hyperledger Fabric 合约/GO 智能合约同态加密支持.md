@@ -97,7 +97,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		</td>
 		<td>
 			<ul class="bottom">
-				<li>私钥：用于解密，可导出成员 PublicKey 作为公钥进行加密。</li>
+				<li>私钥：用于解密，可导出成员 PublicKey 做为公钥进行加密。</li>
 				<li>错误信息。</li>
 			</ul>
 		</td>
