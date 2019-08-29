@@ -8,7 +8,7 @@ TBaaS 智能合约对国密的支持，主要体现在以下两个方面：
 以下将分别对 gmtool 和 Go 智能合约的 gmssl 包进行说明。
 
 ## 国密算法工具 gmtool 
-gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥生成，加密，解密，签名和验签等功能，您可访问 [gmtool 工具](https://main.qcloudimg.com/raw/be234bd141c9422c0f69d95cace32115/gmtool-amd64-1.4.1-tbaas-r050-d002) 进行下载。
+Gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥生成、加密、解密、签名、验签等功能，您可访问 [gmtool 工具](https://main.qcloudimg.com/raw/be234bd141c9422c0f69d95cace32115/gmtool-amd64-1.4.1-tbaas-r050-d002) 进行下载。
 
 
 ### 使用说明
@@ -23,8 +23,8 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>生成 SM2 算法的公私钥对（加密、签名的公私钥对使用同一个算法）</td>
 		<td> 
 			<ul class="bottom">
-			<li>pkout：新公钥的文件路径</li>
-			<li>skout：新私钥的文件路径</li>
+			<li>pkout：新公钥的文件路径。</li>
+			<li>skout：新私钥的文件路径。</li>
 			</ul>
 		</td>
 	</tr>
@@ -33,19 +33,19 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>加密</td>
 		<td>
 			<ul class="bottom">
-				<li>pkin：用于加密的公钥的文件路径，可以是 genkey 生成的公钥文件路径</li>
-				<li>plaintext：要加密的明文文件路径</li>
-				<li>cipherout：生成的密文的指定文件路径</li>
+				<li>pkin：用于加密的公钥的文件路径，可以是 genkey 生成的公钥文件路径。</li>
+				<li>plaintext：要加密的明文文件路径。</li>
+				<li>cipherout：生成的密文的指定文件路径。</li>
 			</ul>
 		</td>
 	</tr>
 	<tr>
 		<td>decrypt</td>
-		<td>解密，解密后的明文结果会在控制台展示。</td>
+		<td>解密，解密后的明文结果会在控制台展示</td>
 		<td>
 			<ul class="bottom">
-				<li>skin：解密使用的私钥的文件路径</li>
-				<li>cipherin：需要解密的密文文件路径</li>
+				<li>skin：解密使用的私钥的文件路径。</li>
+				<li>cipherin：需要解密的密文文件路径。</li>
 			</ul>
 		</td>
 	</tr>
@@ -54,9 +54,9 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>签名</td>
 		<td>
 			<ul class="bottom">
-				<li>skin：签名使用的私钥的文件路径</li>
-				<li>message：需要签发的信息的文件路径</li>
-				<li>signature：生成的签名的指定文件路径</li>
+				<li>skin：签名使用的私钥的文件路径。</li>
+				<li>message：需要签发的信息的文件路径。</li>
+				<li>signature：生成的签名的指定文件路径。</li>
 			</ul>
 		</td>
 	</tr>
@@ -65,9 +65,9 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>验签</td>
 		<td>
 			<ul class="bottom">
-				<li>pkin：验签使用的公钥文件路径</li>
-				<li>message：验证的信息所在文件路径</li>
-				<li>signature：验证的签名所在文件路径</li>
+				<li>pkin：验签使用的公钥文件路径。</li>
+				<li>message：验证的信息所在文件路径。</li>
+				<li>signature：验证的签名所在文件路径。</li>
 			</ul>
 		</td>
 	</tr>
@@ -107,17 +107,17 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 ```
 
 ## Go 语言智能合约 gmssl 包接口说明
-Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户可以很方便的在智能合约中直接使用相关的接口。
+Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户可以很方便的在智能合约中直接使用相关的接口。
 
 ### gmssl 包支持接口
+#### 私钥相关函数
 <table>
 	<tr>
-		<th  colspan=2>接口类型</th>
+		<th>接口类型</th>
 		<th>函数名</th>
 		<th>说明</th>
 	</tr>
 	<tr>
-		<td  rowspan=22>私钥相关函数</td>
 		<td rowspan=6>非成员函数</td>
 		<td rowspan=3>GeneratePrivateKey(alg string, args map[string]string, engine *Engine)  (*PrivateKey, error)</td>
 		<td>功能：生成私钥。</td>
@@ -135,7 +135,7 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 		</td></tr>
 		<tr><td>输出：<br>
 		<ul class="bottom">
-			<li>私钥：用于解密或签名，可导出成员 PublicKey 作为公钥进行加密</li>
+			<li>私钥：用于解密或签名，可导出成员 PublicKey 作为公钥进行加密。</li>
 			<li>错误信息。</li>
 		</ul>
 		</td></tr>
@@ -263,8 +263,16 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 				</ul>
 			</td>
 		</tr>
+</table>
+
+#### 公钥相关函数
+<table>
+	<tr>
+		<th>接口类型</th>
+		<th>函数名</th>
+		<th>说明</th>
+	</tr>
 		<tr>
-			<td rowspan=14>公钥相关函数</td>
 			<td rowspan=3>非成员函数</td>
 			<td rowspan=3>NewPublicKeyFromPEM(pem string) (*PublicKey, error)</td>
 			<td>功能：从 PEM 格式的字符串中读取解析出公钥。</td>
@@ -346,8 +354,17 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 			</ul>
 		</td>
 	</tr>
+	</table>
+	
+
+#### 哈希算法相关函数
+<table>
+		<tr>
+		<th>接口类型</th>
+		<th>函数名</th>
+		<th>说明</th>
+	</tr>
 	<tr>
-		<td  rowspan=9>哈希算法相关函数</td>
 		<td  rowspan=3>非成员函数</td>
 		<td  rowspan=3>	NewDigestContext(alg string)  (*DigestContext, error)</td>
 		<td>功能：初始化所选哈希算法。</td>
@@ -382,8 +399,6 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 			</ul>
 		</td>
 	</tr>
-
-	
 </table>
 
 
