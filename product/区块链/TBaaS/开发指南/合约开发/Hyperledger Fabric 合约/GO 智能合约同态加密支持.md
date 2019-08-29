@@ -64,7 +64,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 
 - encrypt
 执行以下命令，工具会使用 pk.pai 中存储的公钥对数字10进行加密，生成的密文存在文件 cipher.pai 中。
-密文是一个16进制字符串，可以直接作为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时作为密文入参。
+密文是一个16进制字符串，可以直接做为 paitool 工具的解密功能入参，或者在调用 Paillier chaincode 的解密、同态运算接口时做为密文入参。
 ```
 ./paitool encrypt -pkin=pk.pai -plaintext=10 -cipherout=cipher.pai
 ```
