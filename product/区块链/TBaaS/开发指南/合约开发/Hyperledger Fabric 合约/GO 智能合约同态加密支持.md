@@ -1,4 +1,3 @@
-<script type="text/javascript"<src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
 
 ## 简介
 在 Fabric 区块链网络中，用户可以把业务数据按照特定的业务逻辑上链。对于链上的数据，多个参与方之间都是透明可见证的。对于不能对链上其他组织直接开放的隐私数据，用户可以直接把相关数据的 hash 值存储在链上做为见证。但是在有些业务领域，有些数据不能直接对于其他组织开放，用户又希望其他组织可以根据链上这些数据进行特定的运算背书。
