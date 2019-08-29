@@ -48,7 +48,7 @@ Request body
 
 以下请求展示了用户发起一个 COS Select 请求，检索 CSV 格式对象的所有内容，并将结果保存为 CSV 格式对象。 
 
-```
+```shell
 <?xml version="1.0" encoding="UTF-8"?>
 <SelectRequest>
     <Expression>Select * from COSObject</Expression>
@@ -82,7 +82,7 @@ Request body
 
 以下请求展示了用户发起一个 COS Select 请求，检索 JSON 格式对象的所有内容，并将结果保存为 JSON 格式对象。                    
 
-```
+```shell
 <?xml version="1.0" encoding="UTF-8"?>
 <SelectRequest>
     <Expression>Select * from COSObject</Expression>
@@ -222,9 +222,9 @@ COS 将检索结果切成多个分块，每个分块即一个 Message。每一�
 
 以下详细介绍响应体各部分组成：
 
-| 组成                      | 描述                                                         |
+| 组成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                      | 描述                                                         |
 | ------------------------- | ------------------------------------------------------------ |
-| 预响应 prelude&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            | 分别记录了分块 Message 的总长度和所有报头的总长度，每个记录4字节，总长8字节<br>1. `total byte-length`：所在分块 Message 的总长度，使用大端编码，包含该记录本身容量共4字节；<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节 |
+| 预响应 prelude            | 分别记录了分块 Message 的总长度和所有报头的总长度，每个记录4字节，总长8字节<br>1. `total byte-length`：所在分块 Message 的总长度，使用大端编码，包含该记录本身容量共4字节；<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节 |
 | 预响应校验码 prelude CRC | 预响应的 CRC 校验码，使用大端编码，总共4字节。预响应校验码可以帮助程序快速识别预响应信息是否正确，减少缓冲时的阻塞。 |
 | 报头信息 header          | 分块 Message 记录的检索结果的元数据信息，诸如数据类型，正文格式。根据数据类型的差异，本部分的字节长度也有所差异。响应报头以 kv 键值对形式存储，使用 UTF-8编码。响应报头中所记录的元数据信息可以以任意顺序展示，但每一项元数据仅记录一次。根据数据类型的差异，以下响应报头均有可能在 COS Select 返回的结果中出现：<br>1. `MessageType Header`：该报头代表响应类型。Key 值为":message-type"，合法的 Value 值为"error"或者"event"，"error"代表本条记录为报错信息，"event"代表本条记录为具体的事件。<br>2. `EventType Header`：该报头记录事件类型。Key 值为":event-type"，合法的 Value 值为"Records"，"Cont"，"Progress"，"Stats"或"End"。"Records"代表事件为返回检索记录，"Cont"代表事件为保持 TCP 连接，"Progress"代表事件为定期返回的检索结果，"Stats"代表事件为本次查询的统计信息，"End"代表本次查询结束。<br>3. `ErrorCode Header`：该报头记录报错类型。Key 值为":error-code"，合法的 Value 值为 [特殊错误码](#.E7.89.B9.E6.AE.8A.E9.94.99.E8.AF.AF.E7.A0.81) 中的错误码信息。<br>4. `ErrorMessage Header`：该报头记录错误码信息。Key 值为":error-message"，合法的 Value 值为服务端返回的错误码信息，可用于定位错误。 |
 | 响应正文 Payload         | 记录检索结果，或者与请求相关的正式信息。                     |
@@ -232,9 +232,9 @@ COS 将检索结果切成多个分块，每个分块即一个 Message。每一�
 
 同一个分块 Message 中可能记录了多个 header，每一个响应报头 header 由以下几部分组成：
 
-| 组成                     | 描述                                                         |
+| 组成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                     | 描述                                                         |
 | ------------------------ | ------------------------------------------------------------ |
-| Header Name Byte-Length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | 记录 Header Name 的字节长度信息                              |
+| Header Name Byte-Length  | 记录 Header Name 的字节长度信息                              |
 | Header Name              | 报头类型，合法值包括 ":message-type"， ":event-type"， ":error-code"和":error-message"<br><li>":message-type"代表该报头记录了响应类型<br><li> ":event-type"代表了该报头记录事件类型 <br><li>":error-code"代表该报头记录报错类型<br><li>":error-message"代表该报头记录错误码信息 |
 | Header Value Type        | Header Value 的类型，对于 COS Select 而言这个值固定为7，代表类型为 String |
 | Value String Byte-Length | Header Value 的字节长度信息，固定2字节                    |
@@ -242,14 +242,14 @@ COS 将检索结果切成多个分块，每个分块即一个 Message。每一�
 
 COS Select 的响应类型主要可以分为以下几种：
 
-| 响应类型                  | 描述                                                         |
+| 响应类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                   | 描述                                                         |
 | ------------------------- | ------------------------------------------------------------ |
 | Records message           | 检索信息，可以包含单条记录，部分记录或者多条记录，取决于检索结果的多少。一个响应体中可能包含多个 Records message |
 | Continuation message      | 连接信息，COS Select 周期性地发送这些信息以保持 TCP 连接，这些信息随机出现在响应体中。客户端最好能够自动识别这类信息，并对其做过滤处理以免弄脏检索结果 |
 | Progress message          | 进度信息，COS Select 周期性地返回这些信息以反馈当前查询进度 |
 | Stats message             | 统计信息，COS Select 在查询结束后返回本次查询的相关统计信息 |
 | End message               | 结束信息，代表本次查询已经结束，没有后续响应数据。只有在接受到该类型的信息时才能认为查询结束 |
-| RequestLevelError message&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 报错信息，COS Select 在查询出现错误时将会返回这一信息，包含请求的错误原因。如果 COS Select 返回了这一信息，则将不会再返回 End message 信息 |
+| RequestLevelError message| 报错信息，COS Select 在查询出现错误时将会返回这一信息，包含请求的错误原因。如果 COS Select 返回了这一信息，则将不会再返回 End message 信息 |
 
 下面将进一步介绍这些响应类型的详情。
 
@@ -276,13 +276,13 @@ COS Select 的响应类型主要可以分为以下几种：
   ![Progress Message](https://main.qcloudimg.com/raw/fbbfc15950e7a063fdfa38cb349c40aa.png) 
 - 正文格式
   Progress Message 的正文是一个包含了当前查询进度的 XML 文本，主要包含以下信息：
-- BytesScanned：如果文件是压缩文件，该数值代表文件解压前的字节大小；如果文件不是压缩文件，该数值即文件的字节大小。
-- BytesProcessed：如果文件是压缩文件，该数值代表文件解压后的字节大小；如果文件不是压缩文件，该数值即文件的字节大小。
-- BytesReturned：COS Select 目前返回的检索结果字节大小。
+	- BytesScanned：如果文件是压缩文件，该数值代表文件解压前的字节大小。如果文件不是压缩文件，该数值即文件的字节大小。
+	- BytesProcessed：如果文件是压缩文件，该数值代表文件解压后的字节大小。如果文件不是压缩文件，该数值即文件的字节大小。
+	- BytesReturned：COS Select 目前返回的检索结果字节大小。
 
 示例如下：
 
-```
+```shell
 <?xml version="1.0" encoding="UTF-8"?>
 <Progress>
      <BytesScanned>512</BytesScanned>
@@ -304,7 +304,7 @@ COS Select 的响应类型主要可以分为以下几种：
 
 示例如下：
 
-```
+```shell
 <?xml version="1.0" encoding="UTF-8"?>
 <Stats>
      <BytesScanned>512</BytesScanned>
