@@ -17,7 +17,7 @@
 
 ## 检查路由表（可选）
 同意申请并关联成功后，您还需检查路由表，避免该实例与云联网中已有实例因网段冲突而导致路由未生效的情况。 
-相关操作请参见 [检查路由表](https://cloud.tencent.com/document/product/877/18766)。
+相关操作请参见 [检查路由表](https://cloud.tencent.com/document/product/877/18756)。
 
 ## 设置跨域互通带宽（可选）
 相关操作请参见 [设置跨域互通带宽](https://cloud.tencent.com/document/product/877/18759)。
