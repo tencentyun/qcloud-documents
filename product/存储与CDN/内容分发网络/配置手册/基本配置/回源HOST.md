@@ -8,9 +8,9 @@
 ### 查看配置
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的【域名管理】，进入管理页面。
 2. 在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
- ![域名列表](https://main.qcloudimg.com/raw/18a3dd6931e3fe4ea109f971e5afe410.png)
+ ![域名列表](https://main.qcloudimg.com/raw/99e0c24b4530c30b9abe27325bb1b317.png)
 3. 在基本配置页面最下方，可以看到回源 HOST 配置信息。
- ![](https://main.qcloudimg.com/raw/d4a2560be715caeccfab0894d6a8e175.png)
+ ![](https://main.qcloudimg.com/raw/88420f34964c14d554b8f48b10304491.png)
 默认情况下，子域名的回源 HOST 为所配置的加速域名，泛域名回源 HOST 为访问域名：
  - 若您接入的加速域名为 `www.test.com`，则此节点对此域名下资源发起回源请求时，Request HTTP Header 中 HOST 字段的值为 `www.test.com`。
  - 若您接入的加速域名为泛域名，如 `*.test.com`，若访问域名为 `abc.test.com`，则回源 HOST 为 `abc.test.com`。
