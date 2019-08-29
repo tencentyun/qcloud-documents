@@ -353,7 +353,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-> See:	[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
+请参考：[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
 
 接受消息的接口，接收消息需要通过事件监听实现：
 
@@ -372,16 +372,16 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 
 <ul><li><b>简单版</b><br>
  如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
-<li><b>含有 [呲牙] 内容需要解析为😬的文本</b>
+<li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
 
-```javascript
+<pre>
 const emojiMap = {         // 根据[呲牙]可匹配的路径地址
   '[微笑]': 'emoji_0.png',
   '[呲牙]': 'emoji_1.png',
   '[下雨]': 'emoji_2.png'
 }
 
-const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为😬图片的地址
+const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">图片的地址
 
 function parseText (payload) {
   let renderDom = []
@@ -438,8 +438,8 @@ function parseText (payload) {
 
 
 // 最后的 renderDom 结构为[{name: 'text', text: 'XXX'}, {name: 'img', src: 'http://xxx'}......]
-// 渲染当前数组即可得到想要的 UI 结果，如：XXX😬XXX😬XXX[呲牙XXX]
-```
+// 渲染当前数组即可得到想要的 UI 结果，例如：XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX[呲牙XXX]
+</pre>
 </li></ul>
 
 
@@ -505,7 +505,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-> See:	[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考：[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 

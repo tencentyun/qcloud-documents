@@ -1,15 +1,14 @@
 本文主要介绍如何快速地将互动课堂组件集成到您的项目中，只要按照如下步骤进行配置，就可以完成组件的集成工作。
-![](https://main.qcloudimg.com/raw/ac3b3ad62e0d26baa40223b0658e64e7.jpg)
-
+![](https://main.qcloudimg.com/raw/a27a44948393333f80c8b347bf56b7c8.jpg)
 ## <span id="jump">调用参数</span>
 
 参数 ID|参数类型|解释|获取方式
 :--:|:--:|:--:|:--
 company_id|int|机构码：获取机构的信息（机构名称，应用图标等）的唯一标识。|申请 SaaS 服务邮件获取。具体请参见 [邮件获取方式](https://cloud.tencent.com/document/product/680/34356)。
-class_id|int|课堂 ID：获取课堂信息的唯一标识。|通过云 API 预约课堂获取。具体请参见 [云 API](./%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/%E4%BA%91API.md)。
-user_id|string|用户帐号。|通过云 API 创建账号获取。具体请参见 [云 API](./%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/%E4%BA%91API.md)。
-user_token|string|用户签名。|通过云 API 创建账号获取。具体请参见 [云 API](./%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97/%E4%BA%91API.md)。
-user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|<br>1. 如果用户把私钥托管给我们控制台，则不用填。<br>2. 如果没有托管，请使用 IMSDK 私钥自行计算。具体请参见 [IM 获取 sig]()。
+class_id|int|课堂 ID：获取课堂信息的唯一标识。|通过云 API 预约课堂获取。具体请参见 [云 API](https://cloud.tencent.com/document/product/680/37540)。
+user_id|string|用户帐号。|通过云 API 创建账号获取。具体请参见 [云 API](https://cloud.tencent.com/document/product/680/37540)。
+user_token|string|用户签名。|通过云 API 创建账号获取。具体请参见 [云 API](https://cloud.tencent.com/document/product/680/37540)。
+user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|<br>1. 如果用户把私钥托管给我们控制台，则不用填。<br>2. 如果没有托管，请使用 IMSDK 私钥自行计算。具体请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 ## 各端接入流程
 

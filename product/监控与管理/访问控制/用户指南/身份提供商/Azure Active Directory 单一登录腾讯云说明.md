@@ -43,12 +43,12 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 | 名称 | 命名空间 | 源 | 源属性 |
 |---------|---------|---------|---------|
-|Role | https://cloud.tencent.com/SAML/Attributes | 属性 |qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
-|RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Test |
+|Role | https://cloud.tencent.com/SAML/Attributes | 属性| |qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
+|RoleSessionName| https://cloud.tencent.com/SAML/Attributes | 属性 | Azure |
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
+>- {RoleName1}、{RoleName2} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}  ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)

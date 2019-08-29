@@ -46,11 +46,11 @@
      </tr>  
   <tr>      
       <td>Web（通用）</td>   
-      <td>H5/js/debug/GenerateTestUserSig.js</td>   
+      <td>H5/dist/debug/GenerateTestUserSig.js</td>   
      </tr>  
   <tr>      
       <td>小程序</td>   
-      <td>WXMini/debug/GenerateTestUserSig.js</td>   
+      <td>WXMini/static/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 

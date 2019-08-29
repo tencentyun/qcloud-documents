@@ -1,11 +1,12 @@
 ## SaaS 客户端接入流程
 ![](https://main.qcloudimg.com/raw/6bc87cb24381be162af59ece11c991af.png)
+
 1. 控制台添加老师/学生账户信息；
 2. 在控制台上提前准备上课课件；
 3. 创建课堂，获取课堂 ID；
 4. 在1 - 3步骤之后，您可以拿到 classID、userID 和 userToken 等关键信息，加上腾讯云互动课堂统一分配的机构码，这样您就可以使用腾讯云互动课堂客户端进行授课上课了。
 
-更多控制台的使用，可以参考 [控制台使用手册]()。
+更多控制台的使用，可以参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505)。
 
 
 ## 参数详解
@@ -76,4 +77,4 @@ iOS：App Store 搜索【腾讯云互动课堂】。
 
 #### 使用
 
-参考 [互动课堂 SaaS 移动端 App 使用文档](#Android_location)。
+参考互动课堂 SaaS [移动端使用文档](https://cloud.tencent.com/document/product/680/37519)。
