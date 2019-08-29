@@ -37,4 +37,4 @@ COS Select 适用于以 CSV、JSON  格式存储的对象，还适用于通过 G
 
 ## 常见问题
 
-如果在尝试执行查询时遇到问题，COS Select 将返回错误代码和关联的错误消息。有关错误代码和描述的列表，请参见 [特殊错误码](#)。                      
+如果在尝试执行查询时遇到问题，COS Select 将返回错误代码和关联的错误消息。有关错误代码和描述的列表，请参见 [特殊错误码](https://cloud.tencent.com/document/product/436/37641#errorcode)。                      
