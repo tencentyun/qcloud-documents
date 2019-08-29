@@ -2,30 +2,33 @@
 
 COS Select 接口可以使用结构化查询语句（Structured Query Language，SQL）从指定对象（CSV 格式或者 JSON 格式）中检索内容。在检索过程中，您需要指定对象内容的分隔符，并使用合适的 SQL 函数进行检索，COS Select 将返回相匹配的检索结果，您可以指定检索结果的保存格式。
 
-如您需要了解 COS Select 的更多介绍，请参阅 [COS Select 概述](#)。有关 COS Select 的 SQL 表达式的介绍，您可以在开发者指南中查阅 [Select 命令](#) 进一步了解。
+如您需要了解 COS Select 的更多介绍，请参见 COS [Select 概述](https://cloud.tencent.com/document/product/436/37635)。有关 COS Select 的 SQL 表达式的介绍，您可以在开发者指南中参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) 进一步了解。
 
-### 权限限制
+#### 权限限制
 
-使用 COS Select，您必须具有 `cos:GetObject` 的授权。如果您是主账号，则默认拥有该权限；如果您是子账号，请联系您的主账号获取该操作的权限。有关权限设置，可以参阅 [授权子账号访问 COS](https://cloud.tencent.com/document/product/436/11714) 文档。
+使用 COS Select，您必须具有`cos:GetObject`的授权。
 
-### 对象数据格式
+- 如果您是主账号，则默认拥有该权限。
+- 如果您是子账号，请联系您的主账号获取该操作的权限。有关权限设置，请参见 [授权子账号访问 COS](https://cloud.tencent.com/document/product/436/11714) 文档。
+
+#### 对象数据格式
 
 COS Select 支持检索以下格式的对象数据：
 
-- CSV 格式：对象以 CSV 格式存储，并以固定的分隔符划分；
+- CSV 格式：对象以 CSV 格式存储，并以固定的分隔符划分。
 - JSON 格式：对象以 JSON 格式存储，可以是 JSON 文件或者 JSON 列表。
 
 > !
 >
-> - CSV、JSON 对象需要以 UTF-8 格式编码；
-> - COS Select 支持检索 GZIP 或者 BZIP2 压缩的 CSV、JSON 对象；
+> - CSV、JSON 对象需要以 UTF-8 格式编码。
+> - COS Select 支持检索 GZIP 或者 BZIP2 压缩的 CSV、JSON 对象。
 > - COS Select 支持检索 SSE-COS 加密的 CSV、JSON 对象。
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
-```
+```http
 POST /<ObjectKey>?select&select-type=2 HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: date
@@ -35,9 +38,8 @@ Request body
 ```
 
 > ?
->
 > - Authorization: Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - 请求参数中 `select` 和 `select-type=2`参数均为必填参数，其中 `select` 代表发起 `select` 请求，`select-type=2` 代表这一接口的版本信息。
+> - 请求参数中`select`和`select-type=2`参数均为必填参数，其中`select`代表发起`select`请求，`select-type=2`代表这一接口的版本信息。
 
 #### 请求头
 
@@ -104,16 +106,16 @@ Request body
 ```
 
 > ?
->
-> - InputSerialization 元素描述了待检索的对象格式，为必填参数，该参数可以指定为 `CSV` 或者 `JSON` 格式。
-> - OutputSerialization 元素描述了检索结果的保存格式，该参数可以指定为 `CSV` 或者 `JSON` 格式。
-> - 待检索的对象格式无需和检索结果的保存格式互相匹配，您可以检索一个 `JSON` 格式的对象，并将检索结果保存为 `CSV` 格式，反之亦然。
+> - InputSerialization 元素描述了待检索的对象格式，为必填参数，该参数可以指定为 CSV 或者 JSON 格式。
+> - OutputSerialization 元素描述了检索结果的保存格式，该参数可以指定为 CSV 或者 JSON 格式。
+> - 待检索的对象格式无需和检索结果的保存格式互相匹配，您可以检索一个 JSON 格式的对象，并将检索结果保存为 CSV 格式，反之亦然。
 
 下表展示了请求体中的各项元素组成：
 
 | 名称                | 父节点        | 描述                                                         | 类型      | 是否必选 |
 | ------------------- | ------------- | ------------------------------------------------------------ | --------- | -------- |
-| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。如 `SELECT s._1 FROM S3Object s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，可以查看 [SELECT 命令](#) | String    | 是       |
+| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。例如`SELECT s._1 FROM S3Object s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，可以查看 [文档中心  对象存储  开发者指南  数据管理  数据检索  Select 命令
+Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    | 是       |
 | ExpressionType      | SelectRequest | 表达式类型，该项为扩展项，目前只支持 SQL 表达式，仅支持 SQL 参数 | String    | 是       |
 | InputSerialization  | SelectRequest | 描述待检索对象的格式                                         | Container | 是       |
 | OutputSerialization | SelectRequest | 描述检索结果的输出格式                                       | Container | 是       |
@@ -148,7 +150,7 @@ Request body
 
 | 名称      | 父节点              | 描述                                              | 类型      | 是否必选                          |
 | --------- | ------------------- | ------------------------------------------------- | --------- | --------------------------------- |
-| CSV /JSON | OutputSerialization | 指定检索结果的输出格式，可选项为`CSV`或者`JSON`。 | Container | 是，必须是 CSV 或者 JSON 中的一个 |
+| CSV /JSON | OutputSerialization | 指定检索结果的输出格式，可选项为CSV或者JSON。 | Container | 是，必须是 CSV 或者 JSON 中的一个 |
 
 **CSV container element (OutputSerialization 子元素)**
 
@@ -164,13 +166,13 @@ Request body
 
 | 名称            | 父节点 | 描述                                                         | 类型   | 是否必选 |
 | --------------- | ------ | ------------------------------------------------------------ | ------ | -------- |
-| RecordDelimiter | JSON   | 将输出结果中的记录分隔为不同行的字符，默认通过`\n `进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String | 否       |
+| RecordDelimiter | JSON   | 将输出结果中的记录分隔为不同行的字符，默认通过`\n `进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n ` | String | 否       |
 
 **RequestProgress container element**
 
 | 名称    | 父节点          | 描述                                                       | 类型    | 是否必选 |
 | ------- | --------------- | ---------------------------------------------------------- | ------- | -------- |
-| Enabled | RequestProgress | 指定是否需要 COS Select 定期返回查询进度。默认值为 FALSE。 | Boolean | 否       |
+| Enabled | RequestProgress | 指定是否需要 COS Select 定期返回查询进度。默认值为 FALSE | Boolean | 否       |
 
 ## 响应
 
@@ -197,27 +199,25 @@ Request body
 COS 将检索结果切成多个分块，每个分块即一个`Message`。每一个`Message`由预响应（prelude）和响应结果（data）组成。
 
 - 预响应包含两个部分：
-  1）所在分块`Message`的总长度；
-  2）所有头部的总长度。
+ - 所在分块 Message 的总长度。
+  - 所有头部的总长度。
 - 响应结果包含两个部分：
-  1）响应报头（header）；
-  2）响应正文（payload）。
+  - 响应报头（header）。
+  - 响应正文（payload）。
 
-预响应和响应结果均以4字节的经过大端编码（big-endian）的 CRC 校验码结尾。COS Select 使用 CRC32计算 CRC 校验码，有关 CRC32的详细信息可以参考[ RFC 文档](https://www.ietf.org/rfc/rfc1952.txt)。除了响应结果之外，COS Select 总共额外花费了16字节用于传输预响应和校验码信息。
+预响应和响应结果均以4字节的经过大端编码（big-endian）的 CRC 校验码结尾。COS Select 使用 CRC32计算 CRC 校验码，有关 CRC32的详细信息，请参见 [RFC 文档](https://www.ietf.org/rfc/rfc1952.txt)。除了响应结果之外，COS Select 总共额外花费了16字节用于传输预响应和校验码信息。
 
-> !所有分块`Message`中的`整数值`均以网络字节序，即大端编码，传输。
+> !所有分块 Message 中的整数值均以网络字节序，即大端编码，传输。
 
-下图展示了分块`Message`以及检索结果中的响应报头`header`是如何构成的。每一个分块`Message`中可能包含多个`header`。
+下图展示了分块 Message 以及检索结果中的响应报头 header 是如何构成的。每一个分块 Message 中可能包含多个 header 。
 ![Message construction](https://main.qcloudimg.com/raw/aeb1263d0c9af56842997327514f13aa.png)
 
-如上图所示，每一个分块`Message`均由预响应 `prelude`，预响应校验码 `prelude CRC`（由两个记录字节数的信息组成），报头信息`header`，响应正文`Payload`和正文校验码`Message CRC`构成。从上图可以看到，整个响应体的长度计算方式如下：
-
+如上图所示，每一个分块 Message 均由预响应 prelude，预响应校验码 prelude CRC（由两个记录字节数的信息组成），报头信息 header ，响应正文 Payload 和正文校验码 Message CRC 构成。从上图可以看到，整个响应体的长度计算方式如下：
 ```
 响应体总长度 =  预响应长度 + 预响应校验码长度 + 响应正文长度 + 响应报头长度  + 响应正文校验码长度
 ```
 
-由于校验码（prelude CRC 和 Message CRC）和预响应`prelude`总长度固定为16字节，因此响应体总长还可以通过如下方式快速计算：
-
+由于校验码（prelude CRC 和 Message CRC）和预响应 prelude 总长度固定为16字节，因此响应体总长还可以通过如下方式快速计算：
 ```
 响应体总长度 =  响应正文长度 + 响应报头长度 + 16
 ```
@@ -226,13 +226,13 @@ COS 将检索结果切成多个分块，每个分块即一个`Message`。每一�
 
 | 组成                      | 描述                                                         |
 | ------------------------- | ------------------------------------------------------------ |
-| 预响应`prelude`           | 分别记录了分块`Message`的总长度和所有报头的总长度，每个记录4字节，总长8字节；<br>1. `total byte-length`: 所在分块`Message`的总长度，使用大端编码，包含该记录本身容量共4字节；<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节。 |
+| 预响应`prelude`           | 分别记录了分块 Message 的总长度和所有报头的总长度，每个记录4字节，总长8字节<br>1. `total byte-length`：所在分块 Message 的总长度，使用大端编码，包含该记录本身容量共4字节；<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节 |
 | 预响应校验码`prelude CRC` | 预响应的 CRC 校验码，使用大端编码，总共4字节。预响应校验码可以帮助程序快速识别预响应信息是否正确，减少缓冲时的阻塞。 |
-| 报头信息`header`          | 分块`Message`记录的检索结果的元数据信息，诸如数据类型，正文格式。根据数据类型的差异，本部分的字节长度也有所差异。响应报头以 kv 键值对形式存储，使用 UTF-8编码。响应报头中所记录的元数据信息可以以任意顺序展示，但每一项元数据仅记录一次。根据数据类型的差异，以下响应报头均有可能在 COS Select 返回的结果中出现：<br>1. `MessageType Header`：该报头代表响应类型。Key 值为":message-type"，合法的 Value 值为"error"或者"event"，"error"代表本条记录为报错信息，"event"代表本条记录为具体的事件。<br>2. `EventType Header`：该报头记录事件类型。Key 值为":event-type"，合法的 Value 值为"Records"，"Cont"，"Progress"，"Stats"或"End"。"Records"代表事件为返回检索记录，"Cont"代表事件为保持 TCP 连接，"Progress"代表事件为定期返回的检索结果，"Stats"代表事件为本次查询的统计信息，"End"代表本次查询结束。<br>3. `ErrorCode Header`：该报头记录报错类型。Key 值为":error-code"，合法的 Value 值为 [特殊错误码](#.E7.89.B9.E6.AE.8A.E9.94.99.E8.AF.AF.E7.A0.81) 中的错误码信息。<br>4. `ErrorMessage Header`：该报头记录错误码信息。Key 值为":error-message"，合法的 Value 值为服务端返回的错误码信息，可用于定位错误。 |
+| 报头信息`header`          | 分块 Message 记录的检索结果的元数据信息，诸如数据类型，正文格式。根据数据类型的差异，本部分的字节长度也有所差异。响应报头以 kv 键值对形式存储，使用 UTF-8编码。响应报头中所记录的元数据信息可以以任意顺序展示，但每一项元数据仅记录一次。根据数据类型的差异，以下响应报头均有可能在 COS Select 返回的结果中出现：<br>1. `MessageType Header`：该报头代表响应类型。Key 值为":message-type"，合法的 Value 值为"error"或者"event"，"error"代表本条记录为报错信息，"event"代表本条记录为具体的事件。<br>2. `EventType Header`：该报头记录事件类型。Key 值为":event-type"，合法的 Value 值为"Records"，"Cont"，"Progress"，"Stats"或"End"。"Records"代表事件为返回检索记录，"Cont"代表事件为保持 TCP 连接，"Progress"代表事件为定期返回的检索结果，"Stats"代表事件为本次查询的统计信息，"End"代表本次查询结束。<br>3. `ErrorCode Header`：该报头记录报错类型。Key 值为":error-code"，合法的 Value 值为 [特殊错误码](#.E7.89.B9.E6.AE.8A.E9.94.99.E8.AF.AF.E7.A0.81) 中的错误码信息。<br>4. `ErrorMessage Header`：该报头记录错误码信息。Key 值为":error-message"，合法的 Value 值为服务端返回的错误码信息，可用于定位错误。 |
 | 响应正文`Payload`         | 记录检索结果，或者与请求相关的正式信息。                     |
 | 正文校验码`Message CRC`   | 使用大端编码的 CRC 校验码，总长4字节。                       |
 
-同一个分块`Message`中可能记录了多个`header`，每一个响应报头`header`由以下几部分组成：
+同一个分块 Message 中可能记录了多个 header，每一个响应报头 header 由以下几部分组成：
 
 | 组成                     | 描述                                                         |
 | ------------------------ | ------------------------------------------------------------ |
@@ -341,106 +341,106 @@ COS Select 的响应类型主要可以分为以下几种：
 | 错误码                                                 | 描述                                                         | HTTP 状态码             |
 | ------------------------------------------------------ | ------------------------------------------------------------ | ----------------------- |
 | Busy                                                   | 服务器内部错误，请重试                                       | 503 Service Unavailable |
-| UnauthorizedAccess                                     | 无授权进行此项操作。                                         | 401                     |
-| EmptyRequestBody                                       | 请求体不能为空。                                             | 400 Bad Request         |
-| ExpressionTooLong                                      | SQL 表达式过长：SQL 表达式最长支持256KB。                    | 400 Bad Request         |
-| IllegalSqlFunctionArgument                             | SQL 函数中包含不合法参数。                                   | 400 Bad Request         |
-| InternalError                                          | 服务端内部错误。                                             | 500 Internal Server     |
-| InvalidColumnIndex                                     | SQL 表达式中引用了不合法的列索引。                           | 400 Bad Request         |
-| InvalidKeyPath                                         | SQL 表达式中引用了不合法的对象路径。                         | 400 Bad Request         |
-| ColumnTooLong                                          | 检索结果中的列表头长度超过1MB限制。                          | 400 Bad Request         |
-| OverMaxColumn                                          | 检索结果中的列表头字段数量超过上限。                         | 400 Bad Request         |
+| UnauthorizedAccess                                     | 无授权进行此项操作                                           | 401                     |
+| EmptyRequestBody                                       | 请求体不能为空                                               | 400 Bad Request         |
+| ExpressionTooLong                                      | SQL 表达式过长：SQL 表达式最长支持256KB                      | 400 Bad Request         |
+| IllegalSqlFunctionArgument                             | SQL 函数中包含不合法参数                                     | 400 Bad Request         |
+| InternalError                                          | 服务端内部错误                                               | 500 Internal Server     |
+| InvalidColumnIndex                                     | SQL 表达式中引用了不合法的列索引                             | 400 Bad Request         |
+| InvalidKeyPath                                         | SQL 表达式中引用了不合法的对象路径                           | 400 Bad Request         |
+| ColumnTooLong                                          | 检索结果中的列表头长度超过1MB限制                            | 400 Bad Request         |
+| OverMaxColumn                                          | 检索结果中的列表头字段数量超过上限                           | 400 Bad Request         |
 | OverMaxRecordSize                                      | 检索记录或者检索结果中的单条记录长度超过1MB限制              | 400 Bad Request         |
-| MissingHeaders                                         | 指定的列表头不存在于对象中，请检查对象并重试。               | 400 Bad Request         |
-| InvalidCompressionFormat                               | 不合法的对象压缩格式。仅支持 GZIP 或者 BZIP2。               | 400 Bad Request         |
-| TruncatedInput                                         | 对象解压失败。请检查对象是否已按照指定压缩格式压缩。         | 400 Bad Request         |
-| InvalidExpressionType                                  | 当前表达式不合法，仅支持 SQL 表达式。                        | 400 Bad Request         |
-| InvalidFileHeaderInfo                                  | 列表头不合法，请使用 NONE、USE、IGNORE 中的一个。            | 400 Bad Request         |
-| InvalidJsonType                                        | JSON 对象类型不合法，仅支持`DOCUMENT`或者`LINES`。           | 400 Bad Request         |
-| InvalidQuoteFields                                     | 转义符设置不合法，仅支持`ALWAYS`或者`ASNEEDED`。             | 400 Bad Request         |
-| InvalidRequestParameter                                | COS Select 请求参数不合法，请检查API文档并重试。             | 400 Bad Request         |
-| CSVParsingError                                        | 解析 CSV 文件时出错，请检查文件并重试。                      | 400 Bad Request         |
-| JSONParsingError                                       | 解析 JSON 文件时出错，请检查文件并重试。                     | 400 Bad Request         |
-| ExternalEvalException                                  | 无法识别该请求，请检查并重试。                               | 400 Bad Request         |
-| InvalidDataType                                        | SQL 表达式中包含错误数据类型。                               | 400 Bad Request         |
-| UnrecognizedFormatException                            | 无法识别对象内容的格式。                                     | 400 Bad Request         |
-| InvalidTextEncoding                                    | 无效编码，仅支持 UTF-8格式。                                 | 400 Bad Request         |
-| InvalidDataSource                                      | 对象类型不合法，仅支持`CSV`和`JSON`格式。                    | 400 Bad Request         |
-| InvalidTableAlias                                      | SQL 表达式中包含了不合法的别名。                             | 400 Bad Request         |
-| MalformedXML                                           | XML文本格式不合法，请检查后重试。                            | 400 Bad Request         |
-| MultipleDataSourcesUnsupported                         | 无法同时指定多种对象类型。                                   | 400 Bad Request         |
-| MissingRequiredParameter                               | 查询请求中缺失必选参数，请检查后重试。                       | 400 Bad Request         |
-| ObjectSerializationConflict                            | 输入对象或者输出结果指定了多种对象类型，仅支持指定`CSV`或者`JSON`中的一个。 | 400 Bad Request         |
-| UnsupportedFunction                                    | 不支持当前SQL 表达式。                                       | 400 Bad Request         |
-| UnsupportedSqlOperation                                | 不支持当前SQL操作符。                                        | 400 Bad Request         |
-| UnsupportedSqlStructure                                | 不支持当前SQL结构，请检查后重试。                            | 400 Bad Request         |
-| UnsupportedStorageClass                                | 不支持指定的存储类型，仅支持标准存储。                       | 400 Bad Request         |
-| UnsupportedSyntax                                      | 语法不合法。                                                 | 400 Bad Request         |
-| UnsupportedRangeHeader                                 | 该操作不支持设置`Range`头部。                                | 400 Bad Request         |
-| LexerInvalidChar                                       | SQL 表达式中存在不合法字符。                                 | 400 Bad Request         |
-| LexerInvalidOperator                                   | SQL 表达式中存在不合法操作符。                               | 400 Bad Request         |
-| LexerInvalidLiteral                                    | SQL 表达式中存在不合法文本。                                 | 400 Bad Request         |
-| LexerInvalidIONLiteral                                 | SQL 表达式中存在不合法文本。                                 | 400 Bad Request         |
-| ParseExpectedDatePart                                  | 未在 SQL 表达式中找到指定的日期单位。                        | 400 Bad Request         |
-| ParseExpectedKeyword                                   | 未在SQL 表达式中找到指定的关键字。                           | 400 Bad Request         |
-| ParseExpectedTokenType                                 | 未在SQL 表达式中找到指定的标识。                             | 400 Bad Request         |
-| ParseExpected2TokenTypes                               | 未在SQL 表达式中找到指定的标识。                             | 400 Bad Request         |
-| ParseExpectedNumber                                    | 未在 SQL 表达式中找到指定的数值。                            | 400 Bad Request         |
-| ParseExpectedRightParenBuiltinFunctionCall             | 未在SQL 表达式中找到右括号。                                 | 400 Bad Request         |
-| ParseExpectedTypeName                                  | 未在SQL 表达式中找到列名。                                   | 400 Bad Request         |
-| ParseExpectedWhenClause                                | 未在SQL 表达式中找到WHEN子句，不支持当前用法。               | 400 Bad Request         |
-| ParseUnsupportedToken                                  | SQL 表达式中不支持当前标识。                                 | 400 Bad Request         |
-| ParseUnsupportedLiteralsGroupBy                        | SQL 表达式中不支持当前`GROUP BY`子句。                       | 400 Bad Request         |
-| ParseExpectedMember                                    | SQL 表达式中错误使用了`MEMBER`。                             | 400 Bad Request         |
-| ParseUnsupportedSelect                                 | SQL 表达式中不支持当前`SELECT`语句。                         | 400 Bad Request         |
-| ParseUnsupportedCase                                   | SQL 表达式中不支持当前`CASE`。                               | 400 Bad Request         |
-| ParseUnsupportedCaseClause                             | SQL 表达式中不支持当前`CASE`。                               | 400 Bad Request         |
-| ParseUnsupportedAlias                                  | SQL 表达式不支持当前`ALIAS`。                                | 400 Bad Request         |
+| MissingHeaders                                         | 指定的列表头不存在于对象中，请检查对象并重试                 | 400 Bad Request         |
+| InvalidCompressionFormat                               | 不合法的对象压缩格式。仅支持 GZIP 或者 BZIP2                 | 400 Bad Request         |
+| TruncatedInput                                         | 对象解压失败。请检查对象是否已按照指定压缩格式压缩           | 400 Bad Request         |
+| InvalidExpressionType                                  | 当前表达式不合法，仅支持 SQL 表达式                          | 400 Bad Request         |
+| InvalidFileHeaderInfo                                  | 列表头不合法，请使用 NONE、USE、IGNORE 中的一个              | 400 Bad Request         |
+| InvalidJsonType                                        | JSON 对象类型不合法，仅支持`DOCUMENT`或者`LINES`             | 400 Bad Request         |
+| InvalidQuoteFields                                     | 转义符设置不合法，仅支持`ALWAYS`或者`ASNEEDED`               | 400 Bad Request         |
+| InvalidRequestParameter                                | COS Select 请求参数不合法，请检查API文档并重试               | 400 Bad Request         |
+| CSVParsingError                                        | 解析 CSV 文件时出错，请检查文件并重试                        | 400 Bad Request         |
+| JSONParsingError                                       | 解析 JSON 文件时出错，请检查文件并重试                       | 400 Bad Request         |
+| ExternalEvalException                                  | 无法识别该请求，请检查并重试                                 | 400 Bad Request         |
+| InvalidDataType                                        | SQL 表达式中包含错误数据类型                                 | 400 Bad Request         |
+| UnrecognizedFormatException                            | 无法识别对象内容的格式                                       | 400 Bad Request         |
+| InvalidTextEncoding                                    | 无效编码，仅支持 UTF-8格式                                   | 400 Bad Request         |
+| InvalidDataSource                                      | 对象类型不合法，仅支持`CSV`和`JSON`格式                      | 400 Bad Request         |
+| InvalidTableAlias                                      | SQL 表达式中包含了不合法的别名                               | 400 Bad Request         |
+| MalformedXML                                           | XML文本格式不合法，请检查后重试                              | 400 Bad Request         |
+| MultipleDataSourcesUnsupported                         | 无法同时指定多种对象类型                                     | 400 Bad Request         |
+| MissingRequiredParameter                               | 查询请求中缺失必选参数，请检查后重试                         | 400 Bad Request         |
+| ObjectSerializationConflict                            | 输入对象或者输出结果指定了多种对象类型，仅支持指定`CSV`或者`JSON`中的一个 | 400 Bad Request         |
+| UnsupportedFunction                                    | 不支持当前SQL 表达式                                         | 400 Bad Request         |
+| UnsupportedSqlOperation                                | 不支持当前SQL操作符                                          | 400 Bad Request         |
+| UnsupportedSqlStructure                                | 不支持当前SQL结构，请检查后重试                              | 400 Bad Request         |
+| UnsupportedStorageClass                                | 不支持指定的存储类型，仅支持标准存储                         | 400 Bad Request         |
+| UnsupportedSyntax                                      | 语法不合法                                                   | 400 Bad Request         |
+| UnsupportedRangeHeader                                 | 该操作不支持设置`Range`头部                                  | 400 Bad Request         |
+| LexerInvalidChar                                       | SQL 表达式中存在不合法字符                                   | 400 Bad Request         |
+| LexerInvalidOperator                                   | SQL 表达式中存在不合法操作符                                 | 400 Bad Request         |
+| LexerInvalidLiteral                                    | SQL 表达式中存在不合法文本                                   | 400 Bad Request         |
+| LexerInvalidIONLiteral                                 | SQL 表达式中存在不合法文本                                   | 400 Bad Request         |
+| ParseExpectedDatePart                                  | 未在 SQL 表达式中找到指定的日期单位                          | 400 Bad Request         |
+| ParseExpectedKeyword                                   | 未在SQL 表达式中找到指定的关键字                             | 400 Bad Request         |
+| ParseExpectedTokenType                                 | 未在SQL 表达式中找到指定的标识                               | 400 Bad Request         |
+| ParseExpected2TokenTypes                               | 未在SQL 表达式中找到指定的标识                               | 400 Bad Request         |
+| ParseExpectedNumber                                    | 未在 SQL 表达式中找到指定的数值                              | 400 Bad Request         |
+| ParseExpectedRightParenBuiltinFunctionCall             | 未在SQL 表达式中找到右括号                                   | 400 Bad Request         |
+| ParseExpectedTypeName                                  | 未在SQL 表达式中找到列名                                     | 400 Bad Request         |
+| ParseExpectedWhenClause                                | 未在SQL 表达式中找到WHEN子句，不支持当前用法                 | 400 Bad Request         |
+| ParseUnsupportedToken                                  | SQL 表达式中不支持当前标识                                   | 400 Bad Request         |
+| ParseUnsupportedLiteralsGroupBy                        | SQL 表达式中不支持当前`GROUP BY`子句                         | 400 Bad Request         |
+| ParseExpectedMember                                    | SQL 表达式中错误使用了`MEMBER`                               | 400 Bad Request         |
+| ParseUnsupportedSelect                                 | SQL 表达式中不支持当前`SELECT`语句                           | 400 Bad Request         |
+| ParseUnsupportedCase                                   | SQL 表达式中不支持当前`CASE`                                 | 400 Bad Request         |
+| ParseUnsupportedCaseClause                             | SQL 表达式中不支持当前`CASE`                                 | 400 Bad Request         |
+| ParseUnsupportedAlias                                  | SQL 表达式不支持当前`ALIAS`                                  | 400 Bad Request         |
 | ParseUnsupportedSyntax                                 | SQL 表达式中不支持当前语法。                                 | 400 Bad Request         |
-| ParseUnknownOperator                                   | SQL 表达式中包含了未知操作符。                               | 400 Bad Request         |
-| ParseInvalidPathComponent                              | SQL 表达式中包含了错误的路径。                               | 400 Bad Request         |
-| ParseMissingIdentAfterAt                               | SQL 表达式中未在`@`之后添加标识符。                          | 400 Bad Request         |
-| ParseUnexpectedTerm                                    | SQL 表达式中包含了不合法项。                                 | 4400 Bad Request        |
-| ParseUnexpectedToken                                   | SQL 表达式中使用了不合法的标识。                             | 400 Bad Request         |
-| ParseUnExpectedKeyword                                 | SQL 表达式中使用了不合法的关键字。                           | 400 Bad Request         |
-| ParseExpectedExpression                                | SQL 表达式中使用了不合法的表达式。                           | 400 Bad Request         |
-| ParseExpectedLeftParenAfterCast                        | SQL 表达式中在`CAST`函数中找不到左括号。                     | 400 Bad Request         |
-| ParseExpectedLeftParenValueConstructor                 | SQL 表达式中缺失左括号。                                     | 400 Bad Request         |
-| ParseExpectedLeftParenBuiltinFunctionCall              | SQL 表达式中缺失左括号。                                     | 400 Bad Request         |
+| ParseUnknownOperator                                   | SQL 表达式中包含了未知操作符                                 | 400 Bad Request         |
+| ParseInvalidPathComponent                              | SQL 表达式中包含了错误的路径                                 | 400 Bad Request         |
+| ParseMissingIdentAfterAt                               | SQL 表达式中未在`@`之后添加标识符                            | 400 Bad Request         |
+| ParseUnexpectedTerm                                    | SQL 表达式中包含了不合法项                                   | 4400 Bad Request        |
+| ParseUnexpectedToken                                   | SQL 表达式中使用了不合法的标识                               | 400 Bad Request         |
+| ParseUnExpectedKeyword                                 | SQL 表达式中使用了不合法的关键字                             | 400 Bad Request         |
+| ParseExpectedExpression                                | SQL 表达式中使用了不合法的表达式                             | 400 Bad Request         |
+| ParseExpectedLeftParenAfterCast                        | SQL 表达式中在`CAST`函数中找不到左括号                       | 400 Bad Request         |
+| ParseExpectedLeftParenValueConstructor                 | SQL 表达式中缺失左括号                                       | 400 Bad Request         |
+| ParseExpectedLeftParenBuiltinFunctionCall              | SQL 表达式中缺失左括号                                       | 400 Bad Request         |
 | ParseExpectedArgumentDelimiter                         | SQL 表达式中未找到参数分隔符                                 | 400 Bad Request         |
-| ParseCastArity                                         | SQL 表达式中`CAST`使用了不正确的元数。                       | 400 Bad Request         |
-| ParseInvalidTypeParam                                  | SQL 表达式中包含不合法的参数值。                             | 400 Bad Request         |
-| ParseEmptySelect                                       | SQL 表达式中包含空`SELECT`请求。                             | 400 Bad Request         |
-| ParseSelectMissingFrom                                 | SQL 表达式中`SELECT`语句缺失了`FROM`子句。                   | 400 Bad Request         |
-| ParseExpectedIdentForGroupName                         | SQL 表达式中不支持当前组名。                                 | 400 Bad Request         |
-| ParseExpectedIdentForAlias                             | SQL 表达式中未找到当前别名的标识符。                         | 400 Bad Request         |
-| ParseUnsupportedCallWithStar                           | SQL 表达式中`COUNT`函数仅支持 (\*)。                         | 400 Bad Request         |
-| ParseNonUnaryAgregateFunctionCall                      | SQL 表达式中聚合函数仅支持一个入参。                         | 400 Bad Request         |
-| ParseMalformedJoin                                     | SQL 表达式中不支持`JOIN`函数。                               | 400 Bad Request         |
-| ParseExpectedIdentForAt                                | SQL 表达式中未找到`AT`的标识符。                             | 400 Bad Request         |
-| ParseAsteriskIsNotAloneInSelectList                    | SQL 表达式中如果使用了不带注释的`*`，则不允许使用其他表达式。 | 400 Bad Request         |
-| ParseCannotMixSqbAndWildcardInSelectList               | SQL 表达式中不能混用`[]`和`*`。                              | 400 Bad Request         |
-| ParseInvalidContextForWildcardInSelectList             | SQL 表达式的 SELECT 语句错误使用了`*`。                      | 400 Bad Request         |
-| EvaluatorBindingDoesNotExist                           | SQL 表达式中使用的列索引或者路径不存在。                     | 400 Bad Request         |
-| ValueParseFailure                                      | 无法解析SQL 表达式中的时间戳。                               | 400 Bad Request         |
-| IncorrectSqlFunctionArgumentType                       | SQL 表达式中函数入参错误。                                   | 400 Bad Request         |
+| ParseCastArity                                         | SQL 表达式中`CAST`使用了不正确的元数                         | 400 Bad Request         |
+| ParseInvalidTypeParam                                  | SQL 表达式中包含不合法的参数值                               | 400 Bad Request         |
+| ParseEmptySelect                                       | SQL 表达式中包含空`SELECT`请求                               | 400 Bad Request         |
+| ParseSelectMissingFrom                                 | SQL 表达式中`SELECT`语句缺失了`FROM`子句                     | 400 Bad Request         |
+| ParseExpectedIdentForGroupName                         | SQL 表达式中不支持当前组名                                   | 400 Bad Request         |
+| ParseExpectedIdentForAlias                             | SQL 表达式中未找到当前别名的标识符                           | 400 Bad Request         |
+| ParseUnsupportedCallWithStar                           | SQL 表达式中`COUNT`函数仅支持 (\*)                           | 400 Bad Request         |
+| ParseNonUnaryAgregateFunctionCall                      | SQL 表达式中聚合函数仅支持一个入参                           | 400 Bad Request         |
+| ParseMalformedJoin                                     | SQL 表达式中不支持`JOIN`函数                                 | 400 Bad Request         |
+| ParseExpectedIdentForAt                                | SQL 表达式中未找到`AT`的标识符                               | 400 Bad Request         |
+| ParseAsteriskIsNotAloneInSelectList                    | SQL 表达式中如果使用了不带注释的`*`，则不允许使用其他表达式  | 400 Bad Request         |
+| ParseCannotMixSqbAndWildcardInSelectList               | SQL 表达式中不能混用`[]`和`*`                                | 400 Bad Request         |
+| ParseInvalidContextForWildcardInSelectList             | SQL 表达式的 SELECT 语句错误使用了`*`                        | 400 Bad Request         |
+| EvaluatorBindingDoesNotExist                           | SQL 表达式中使用的列索引或者路径不存在                       | 400 Bad Request         |
+| ValueParseFailure                                      | 无法解析SQL 表达式中的时间戳                                 | 400 Bad Request         |
+| IncorrectSqlFunctionArgumentType                       | SQL 表达式中函数入参错误                                     | 400 Bad Request         |
 | AmbiguousFieldName                                     | SQL 表达式中字段名称不清晰，检查后重试。                     | 400 Bad Request         |
-| EvaluatorInvalidArguments                              | SQL 表达式中函数参数数量有误。                               | 400 Bad Request         |
-| EvaluatorInvalidTimestampFormatPattern                 | SQL 表达式中时间戳字符串有误。                               | 400 Bad Request         |
-| IntegerOverflow                                        | SQL 表达式中的整数超过上限或者下限。                         | 400 Bad Request         |
-| LikeInvalidInputs                                      | SQL 表达式的`LIKE`子句使用了错误的参数。                     | 400 Bad Request         |
-| CastFailed                                             | SQL 表达式中使用`CAST`转换字符时出错。                       | 400 Bad Request         |
-| InvalidCast                                            | SQL 表达式中使用`CAST`转换字符类型出错。                     | 400 Bad Request         |
+| EvaluatorInvalidArguments                              | SQL 表达式中函数参数数量有误                                 | 400 Bad Request         |
+| EvaluatorInvalidTimestampFormatPattern                 | SQL 表达式中时间戳字符串有误                                 | 400 Bad Request         |
+| IntegerOverflow                                        | SQL 表达式中的整数超过上限或者下限                           | 400 Bad Request         |
+| LikeInvalidInputs                                      | SQL 表达式的`LIKE`子句使用了错误的参数                       | 400 Bad Request         |
+| CastFailed                                             | SQL 表达式中使用`CAST`转换字符时出错                         | 400 Bad Request         |
+| InvalidCast                                            | SQL 表达式中使用`CAST`转换字符类型出错                       | 400 Bad Request         |
 | EvaluatorInvalidTimestampFormatPatternSymbolForParsing | SQL 表达式的时间戳存在无法解析的格式。                       | 400 Bad Request         |
-| EvaluatorTimestampFormatPatternDuplicateFields         | SQL 表达式的时间戳格式存在多个冲突的值。                     | 400 Bad Request         |
-| EvaluatorTimestampFormatPatternHourClockAmPmMismatch   | SQL 表达式中时间戳使用了12小时制但没有指定`AM/PM`，或者使用了24小时制但指定了`AM/PM`。 | 400 Bad Request         |
-| EvaluatorUnterminatedTimestampFormatPatternToken       | SQL 表达式中时间戳存在未终止的标记。                         | 400 Bad Request         |
-| EvaluatorInvalidTimestampFormatPatternToken            | SQL 表达式中时间戳存在不合法的标记。                         | 400 Bad Request         |
-| EvaluatorInvalidTimestampFormatPatternSymbol           | SQL 表达式中时间戳存在不合法的符号。                         | 400 Bad Request         |
+| EvaluatorTimestampFormatPatternDuplicateFields         | SQL 表达式的时间戳格式存在多个冲突的值                       | 400 Bad Request         |
+| EvaluatorTimestampFormatPatternHourClockAmPmMismatch   | SQL 表达式中时间戳使用了12小时制但没有指定`AM/PM`，或者使用了24小时制但指定了`AM/PM` | 400 Bad Request         |
+| EvaluatorUnterminatedTimestampFormatPatternToken       | SQL 表达式中时间戳存在未终止的标记                           | 400 Bad Request         |
+| EvaluatorInvalidTimestampFormatPatternToken            | SQL 表达式中时间戳存在不合法的标记                           | 400 Bad Request         |
+| EvaluatorInvalidTimestampFormatPatternSymbol           | SQL 表达式中时间戳存在不合法的符号                           | 400 Bad Request         |
 
 ## 示例
 
-### 示例 1: 从 CSV 格式的对象中检索内容
+#### 示例 1: 从 CSV 格式的对象中检索内容
 
 以下示例展示了调用该接口从 CSV 格式的对象中检索全部内容，并将检索结果输出为 CSV 格式的过程。待检索的对象名为`exampleobject.csv`，该对象存储于北京地域（ap-beijing）的存储桶 examplebucket-1250000000 中。
 
@@ -479,7 +479,7 @@ Content-Length: content length
 
 ```
 
-如果您需要执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [SELECT命令](#)，以下为部分常见检索场景的简介。
+如果您需要执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 假设您使用列索引筛选对象中的内容，您可以使用`s._n`筛选第`n`列的数据，`n`最小为1。如下指令将从对象中筛选第3列数值大于100的记录，并返回这些记录的第1和第2列： 
 
@@ -514,7 +514,7 @@ A series of messages
 
 ```
 
-### 示例 2:  从 JSON 格式的对象中检索内容
+#### 示例2:  从 JSON 格式的对象中检索内容
 
 以下示例展示了调用该接口从 JSON 格式的对象中检索全部内容，并将检索结果输出为 CSV 格式的过程。待检索的对象名为`exampleobject.json`，该对象存储于北京地域（ap-beijing）的存储桶 examplebucket-1250000000 中。
 
@@ -546,9 +546,10 @@ Content-Length: content length
     </OutputSerialization>
 </SelectRequest> 
 
+
 ```
 
-同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [SELECT 命令](#)，以下为部分常见检索场景的简介。
+同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [Select 命令](<https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 您可以通过 JSON 属性名称检索相应的数据，如下指令将从对象中筛选`city`数值为 Seattle 的记录，并返回这些记录的`country`和`city`信息：
 
@@ -568,5 +569,5 @@ SELECT count(*) FROM S3Object s
 
 与 [GET Object](https://cloud.tencent.com/document/product/436/7753) 接口不同， SELECT Object Content 不支持以下功能：
 
-- 返回对象的某一片段：您不能通过 Range 这类参数指定返回对象的某一部分；
+- 返回对象的某一片段：您不能通过 Range 这类参数指定返回对象的某一部分。
 - 操作归档存储（ARCHIVE）类型的对象，COS Select 无法直接操作归档存储类型的对象，您需要取回数据后再进行操作。
