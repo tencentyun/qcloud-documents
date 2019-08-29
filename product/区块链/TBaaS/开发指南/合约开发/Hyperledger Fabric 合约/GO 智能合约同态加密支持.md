@@ -90,13 +90,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>GenerateKey(rand io.Reader, length int) (*PrivateKey, error)</td>
 		<td>生成私钥</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>rand：io.Reader，是随机数生成器，推荐使用 crypto/rand 库中的 rand.Reader。</li>
 				<li>length：int，是公钥长度，也代表安全性，推荐使用大于2048的整数。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>私钥：用于解密，可导出成员 PublicKey 作为公钥进行加密。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -106,13 +106,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Encrypt(pk *PublicKey, plaintext string) (string, error)</td>
 		<td>加密，生成密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>plaintext：string 类型明文，格式需要是以 string 表示的整数，可以是负数。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -122,13 +122,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Decrypt(sk *PrivateKey, ciphertext string) (string, error)</td>
 		<td>解密，用私钥 sk 从密文中获取明文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>sk：私钥。</li>
 				<li>ciphertext：string 类型密文。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>明文：string 类型表示的数字。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -138,13 +138,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Neg(pk *PublicKey, ciphertext string) (string, error)</td>
 		<td>计算密文中被加密数字的相反数，生成其相反数的密文</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>ciphertext：string 类型密文。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型，其内容为原信息的相反数。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -154,13 +154,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>AddCipher(pk *PublicKey, cipher1 string, cipher2 string) (string, error)</td>
 		<td>计算 cipher1 和 cipher2 中明文的和，并生成和的新密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>cipher1，cipher2：string 类型的密文。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -170,14 +170,14 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Add(pk *PublicKey, cipher string, plain string) (string, error)</td>
 		<td>计算密文 cipher 中被加密的数与明文数字 plain 的和，并生成和的新密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>cipher：string 类型密文。</li>
 				<li>plain：string 类型明文，以 tring 表示的一个数，可以为负数。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -187,13 +187,13 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>SubCipher(pk *PublicKey, cipher1 string, cipher2 string) (string, error)</td>
 		<td>计算 cipher1 和 cipher2 中明文的差（cipher1 - cipher2），并生成差的新密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>cipher1，cipher2：string 类型的密文。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -203,14 +203,14 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Sub(pk *PublicKey, cipher string, plain string) (string, error)</td>
 		<td>计算密文 cipher 中被加密的数与明文数字 plain 的差（cipher - plain），并生成差的新密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>cipher：string 类型密文</li>
 				<li>plain：string 类型明文，以 string 表示的一个数，可以为负数。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -220,14 +220,14 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>Mul(pk *PublicKey, cipher string, plain string) (string, error)</td>
 		<td>计算密文 cipher 中被加密的数与明文数字 plain 的乘积，并生成积的新密文。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>cipher：string 类型密文。</li>
 				<li>plain：string 类型明文，以 string 表示的一个数，可以为负数。</li>
 			</ul>
 		</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>密文：string 类型。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -251,7 +251,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>WritePublicKeyToFile(pk *PublicKey, file string) error</td>
 		<td>将公钥写入文件。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>pk：公钥。</li>
 				<li>file：文件名。</li>
 			</ul>
@@ -263,7 +263,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>从文件中读取公钥。</td>
 		<td>file：文件名。</td>		
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>公钥。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -285,7 +285,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>WritePrivateKeyToFile(sk *PrivateKey, file string) error</td>
 		<td>将私钥写入文件。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>sk：私钥。</li>
 				<li>file：文件名。</li>
 			</ul>
@@ -297,7 +297,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 		<td>从文件中读取私钥。</td>
 		<td>file：文件名。</td>
 		<td>
-			<ul class="indentation">
+			<ul class="bottom">
 				<li>私钥。</li>
 				<li>错误信息。</li>
 			</ul>
@@ -319,7 +319,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 	<td>WriteCiphertextToFile(cipher string, file string) error</td>
 	<td>将密文写入文件。</td>
 	<td>
-		<ul class="indentation">
+		<ul class="bottom">
 			<li>cipher：密文。</li>
 			<li>file：文件名。</li>
 		</ul>
@@ -331,7 +331,7 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 	<td>从文件中读取密文。</td>
 	<td>file：文件名。</td>
 	<td>
-		<ul class="indentation">
+		<ul class="bottom">
 			<li>密文。</li>
 			<li>错误信息。</li>
 		</ul>
@@ -339,6 +339,4 @@ Go 语言智能合约 paillier 包是根据轻量同态加密 Paillier 算法实
 </tr>
 </table>
 
-<style>
-	.indentation{margin-bottom:0px !important;}
-<style>
+<style> .bottom{ margin-bottom:0px !important;} </style>
