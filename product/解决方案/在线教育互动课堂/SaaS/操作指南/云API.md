@@ -1549,8 +1549,8 @@ transport_progress
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| finish | bool | 是否拉取完所有课堂 | 是 | - |
-| total | string | 实时成员总数 | 是 | - |
+| finish | bool | 是否拉取完所有成员 | 是 | - |
+| total | string | 历史成员总数 | 是 | - |
 | list | Array | 成员信息数组 | 是 | 空数组 |
 | user_id | string | 用户 ID | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
