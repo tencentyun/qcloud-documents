@@ -23,8 +23,8 @@
 如现有的私有网络/子网不符合您的要求，可以在私有网络控制台进行创建。</br><b>注意</b>：<ul><li>同一私有网络内资源默认内网互通。</li><li>购买时，云服务器需要创建在与云服务器相同可用区属性的子网内。</li></ul></td></tr>
 <tr><td>实例</td><td>必选</td><td>根据底层硬件的不同，腾讯云目前提供了多种不同的实例类型。为获得最佳性能，建议使用新一代实例类型。</br>更多实例详情请参见 <a href="https://cloud.tencent.com/document/product/213/11518">实例规格</a>。</td></tr>
 <tr><td>镜像</td><td>必选</td><td>腾讯云提供公共镜像、自定义镜像、共享镜像、服务市场，您可参考 <a href="https://cloud.tencent.com/document/product/213/4941">镜像类型</a> 进行选择。</br>对于刚开始使用腾讯云的用户，推荐选择公共镜像。</td></tr>
-<tr><td><a href="https://cloud.tencent.com/document/product/362/2353">系统盘</a></td><td>必选</td><td>用于安装操作系统，默认为50GB。</br>地域的不同将会影响可供选择的云盘类型，请根据实际页面提示进行选择。</td></tr>
-<tr><td>数据盘</td><td>可选</td><td>用于扩展云服务器的存储容量，提供高效可靠的存储设备。默认不添加云硬盘数据盘。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
+<tr><td><a href="https://cloud.tencent.com/document/product/362/2353">系统盘</a></td><td>必选</td><td>用于安装操作系统，默认为50GB。</br>地域的不同将会影响可供选择的云硬盘类型，请根据实际页面提示进行选择。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
+<tr><td><a href="https://cloud.tencent.com/document/product/362/2353">数据盘</a></td><td>可选</td><td>用于扩展云服务器的存储容量，提供高效可靠的存储设备。默认不添加云硬盘数据盘。</br>更多关于云硬盘的介绍，请参考 <a href="https://cloud.tencent.com/document/product/362/2353">云硬盘类型</a>。</td></tr>
 <tr><td>公网带宽</td><td>必选</td><td>腾讯云提供以下两种网络计费方式，请根据实际需求进行选择。<ul><li><b>按带宽计费</b>：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。</li><li><b>按使用流量计费</b>：按实际使用流量收费。可限制峰值带宽避免意外流量带来的费用，当瞬时带宽超过该值时将丢包。适合网络波动较大的场景。</li></ul></td></tr>
 <tr><td>公共网关</td><td>可选</td><td>公网网关是私有网络与公网的一种接口，可转发私有网络中不同子网内无外网 IP 的云服务器请求。</br>更多详情请参见 <a href="https://cloud.tencent.com/document/product/215/20078">公网网关</a>。</td></tr> 
 <tr><td>数量</td><td>必选</td><td>表示需购买云服务器的数量。</td></tr> 
