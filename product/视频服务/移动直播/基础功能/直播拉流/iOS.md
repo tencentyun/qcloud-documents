@@ -37,7 +37,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 
 如果您要调整渲染画面的大小，只需要调整您所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
 
-![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+![](https://main.qcloudimg.com/raw/b5b8a6a7679a6f701f6c43ffd6e8e4a1.png)
  
 > **如何做动画？**
 > 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
