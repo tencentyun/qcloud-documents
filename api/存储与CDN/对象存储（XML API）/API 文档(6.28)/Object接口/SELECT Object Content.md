@@ -174,7 +174,7 @@ Request body
 
 ## 响应
 
-执行成功的检索操作将返回200 OK状态码。
+执行成功的检索操作将返回`200 OK`状态码。
 
 #### 响应头
 
@@ -477,7 +477,7 @@ Content-Length: content length
 </SelectRequest> 
 ```
 
-如果您需要执行不同的检索指令，可以在`Expression`元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
+如果您需要执行不同的检索指令，可以在 Expression 元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 假设您使用列索引筛选对象中的内容，您可以使用`s._n`筛选第`n`列的数据，`n`最小为1。如下指令将从对象中筛选第3列数值大于100的记录，并返回这些记录的第1和第2列： 
 ```shell
