@@ -62,7 +62,7 @@
 				 <td align="center"><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini">Github</a></td>
 				 <td align="center"><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/WXMini">Gitee</a></td>
 				 <td align="center">-</td>
-				 <td align="center"><a href="https://cloud.tencent.com/document/product/269/33144">DOC</a></td>
+				 <td align="center"><a href="https://cloud.tencent.com/document/product/269/37413">DOC</a></td>
 				 <td align="center">-</td>
 				 <td align="center">-</td>   
      </tr> 
