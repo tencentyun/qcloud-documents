@@ -2,4 +2,4 @@
 2. 单击左侧目录中的【路由表】。
 3. 在列表上方筛选地域和私有网络。
 4. 单击您要查看的路由表 ID，进入详情页，在相关路由策略中即可看到：下一跳是云联网的路由策略信息。
-![](https://main.qcloudimg.com/raw/61d683694dba76e3e163f15f6cc5a385.png)
+![](https://main.qcloudimg.com/raw/702bb56968b38db8f7250d25bc6b4ba7.png)
