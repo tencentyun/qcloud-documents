@@ -20,7 +20,7 @@ Authorization: Auth String
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | prefix | 对象键匹配前缀，限定响应中只包含指定前缀的对象键 | string | 否 |
-| delimiter | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string | 否 |
+| delimiter | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（若未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string | 否 |
 | encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，例如“腾讯云”将被编码为`%E8%85%BE%E8%AE%AF%E4%BA%91` | string | 否 |
 | key-marker | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象版本条目 | string | 否 |
 | version-id-marker | 起始版本 ID 标记，从该标记之后（不含）返回对象版本条目 | string | 否 |
@@ -128,7 +128,7 @@ Authorization: Auth String
 | IsTruncated | ListVersionsResult | 响应条目是否被截断，布尔值，例如 true 或 false | boolean |
 | NextKeyMarker | ListVersionsResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 key-marker 参数传入 | string |
 | NextVersionIdMarker | ListVersionsResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象的版本 ID，当需要继续请求后续条目时，将该节点的值作为下一次请求的 version-id-marker 参数传入 | string |
-| CommonPrefixes | ListVersionsResult | 从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点 | Container |
+| CommonPrefixes | ListVersionsResult | 从 prefix 或从头（若未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点 | Container |
 | Version | ListVersionsResult | 对象版本条目 | Container |
 | DeleteMarker | ListVersionsResult | 对象删除标记条目 | Container |
 
@@ -145,7 +145,7 @@ Authorization: Auth String
 | Key | ListVersionsResult.Version | 对象键 | string |
 | VersionId | ListVersionsResult.Version | 对象的版本 ID | string |
 | IsLatest | ListVersionsResult.Version | 当前版本是否为该对象的最新版本 | boolean |
-| LastModified | ListVersionsResult.Version | 当前版本的最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
+| LastModified | ListVersionsResult.Version | 当前版本的最后修改时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z | date |
 | ETag | ListVersionsResult.Version | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化，例如"8e0b617ca298a564c3331da28dcb50df"。此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | Size | ListVersionsResult.Version | 对象大小，单位为 Byte | integer |
 | StorageClass | ListVersionsResult.Version | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
@@ -165,7 +165,7 @@ Authorization: Auth String
 | Key | ListVersionsResult.DeleteMarker | 对象键 | string |
 | VersionId | ListVersionsResult.DeleteMarker | 对象的删除标记的版本 ID | string |
 | IsLatest | ListVersionsResult.DeleteMarker | 当前删除标记是否为该对象的最新版本 | boolean |
-| LastModified | ListVersionsResult.DeleteMarker | 当前删除标记的删除时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
+| LastModified | ListVersionsResult.DeleteMarker | 当前删除标记的删除时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z | date |
 | Owner | ListVersionsResult.DeleteMarker | 对象持有者信息 | Container |
 
 **Container 节点 ListVersionsResult.DeleteMarker.Owner 的内容：**
