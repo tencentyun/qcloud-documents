@@ -19,7 +19,6 @@ COS Select 支持检索以下格式的对象数据：
 - JSON 格式：对象以 JSON 格式存储，可以是 JSON 文件或者 JSON 列表。
 
 > !
->
 > - CSV、JSON 对象需要以 UTF-8 格式编码。
 > - COS Select 支持检索 GZIP 或者 BZIP2 压缩的 CSV、JSON 对象。
 > - COS Select 支持检索 SSE-COS 加密的 CSV、JSON 对象。
@@ -28,7 +27,7 @@ COS Select 支持检索以下格式的对象数据：
 
 #### 请求示例
 
-```http
+```shell
 POST /<ObjectKey>?select&select-type=2 HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: date
@@ -114,8 +113,7 @@ Request body
 
 | 名称                | 父节点        | 描述                                                         | 类型      | 是否必选 |
 | ------------------- | ------------- | ------------------------------------------------------------ | --------- | -------- |
-| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。例如`SELECT s._1 FROM S3Object s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，可以查看 [文档中心  对象存储  开发者指南  数据管理  数据检索  Select 命令
-Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    | 是       |
+| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。例如`SELECT s._1 FROM S3Object s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) | String    | 是       |
 | ExpressionType      | SelectRequest | 表达式类型，该项为扩展项，目前只支持 SQL 表达式，仅支持 SQL 参数 | String    | 是       |
 | InputSerialization  | SelectRequest | 描述待检索对象的格式                                         | Container | 是       |
 | OutputSerialization | SelectRequest | 描述检索结果的输出格式                                       | Container | 是       |
@@ -125,8 +123,8 @@ Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    
 
 | 名称            | 父节点             | 描述                                                         | 类型      | 是否必选                     |
 | --------------- | ------------------ | ------------------------------------------------------------ | --------- | ---------------------------- |
-| CompressionType | InputSerialization | 描述待检索对象的压缩格式，如果对象未被压缩过，则该项为 NONE；如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、   BZIP2，默认值为 NONE | String    | 否                           |
-| CSV/JSON        | InputSerialization | 描述在相应的对象格式下所需的文件参数。如 CSV 格式需要指定分隔符 | Container | 是。CSV 和 JSON 中的任意一个 |
+| CompressionType | InputSerialization | 描述待检索对象的压缩格式：<br><li>如果对象未被压缩过，则该项为 NONE<br><li>如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、   BZIP2，默认值为 NONE | String    | 否                           |
+| CSV/JSON        | InputSerialization | 描述在相应的对象格式下所需的文件参数。例如 CSV 格式需要指定分隔符 | Container | 是<br>CSV 和 JSON 中的任意一个 |
 
 **CSV container element (InputSerialization 子元素)**
 
@@ -137,20 +135,20 @@ Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    
 | QuoteCharacter             | CSV    | 如果您待检索的 CSV 对象中存在于分隔符相同的字符串，您可以使用 QuoteCharacter 进行转义，避免该字符串被切割成几个部分。如 CSV 对象中存在`"a, b" `这个字符串，双引号"可以避免这一字符串被分隔成 `a` 和 `b` 两个字符。默认值为`" `。 | String  | 否       |
 | QuoteEscapeCharacter       | CSV    | 如果您待检索的字符串中已经存在`"`，那您需要使用`"`进行转义以保证字符串可以正常转义。如您的字符串 `""" a , b """`将会被解析为`" a , b  "`。默认值为"。 | String  | 否       |
 | AllowQuotedRecordDelimiter | CSV    | 指定待检索对象中是否存在与分隔符相同且需要用"转义的字符。设定为 TRUE 时，COS   Select 将会在检索进行转义，这会导致检索性能下降；设定为 FALSE 时，则不会做转义处理。默认值为 FALSE。 | Boolean | 否       |
-| FileHeaderInfo             | CSV    | 待检索对象中是否存在列表头。该参数为存在 NONE、USE、IGNORE 三个选项。NONE 代表对象中没有列表头，USE 代表对象中存在列表头并且您可以使用表头进行检索（如 `SELECT "name" FROM S3Object`），IGNORE 代表对象中存在列表头且您不打算使用表头进行检索（但您仍然可以通过列索引进行检索，如 `SELECT s._1 FROM S3Object s`）。合法值为 NONE、USE、IGNORE。 | Enum    | 否       |
+| FileHeaderInfo             | CSV    | 待检索对象中是否存在列表头。该参数为存在 NONE、USE、IGNORE 三个选项。NONE 代表对象中没有列表头，USE 代表对象中存在列表头并且您可以使用表头进行检索（例如 `SELECT "name" FROM S3Object`），IGNORE 代表对象中存在列表头且您不打算使用表头进行检索（但您仍然可以通过列索引进行检索，如 `SELECT s._1 FROM S3Object s`）。合法值为 NONE、USE、IGNORE。 | Enum    | 否       |
 | Comments                   | CSV    | 指定某行记录为注释行，该字符会被添加到该行记录的首字符。如果某一行记录被指定为注释，则 COS Select 将不对此行做任何分析。默认值为`#`。 | String  | 否       |
 
 **JSON container element (InputSerialization 子元素)**
 
 | 名称 | 父节点 | 描述                                                         | 类型 | 是否必选 |
 | ---- | ------ | ------------------------------------------------------------ | ---- | -------- |
-| Type | JSON   | JSON 文件的类型。DOCUMENT 表示 JSON 文件仅包含一个独立的 JSON 对象，且该对象可以被切割成多行；LINES 表示 JSON 对象中的每一行包含了一个独立的 JSON 对象。合法值为 DOCUMENT 、LINES。 | Enum | 是       |
+| Type | JSON   | JSON 文件的类型：<br><li>DOCUMENT 表示 JSON 文件仅包含一个独立的 JSON 对象，且该对象可以被切割成多行<br><li>LINES 表示 JSON 对象中的每一行包含了一个独立的 JSON 对象<br>合法值为 DOCUMENT 、LINES | Enum | 是       |
 
 **OutputSerialization container element**
 
 | 名称      | 父节点              | 描述                                              | 类型      | 是否必选                          |
 | --------- | ------------------- | ------------------------------------------------- | --------- | --------------------------------- |
-| CSV /JSON | OutputSerialization | 指定检索结果的输出格式，可选项为CSV或者JSON。 | Container | 是，必须是 CSV 或者 JSON 中的一个 |
+| CSV /JSON | OutputSerialization | 指定检索结果的输出格式，可选项为 CSV 或者 JSON | Container | 是，必须是 CSV 或者 JSON 中的一个 |
 
 **CSV container element (OutputSerialization 子元素)**
 
@@ -176,17 +174,17 @@ Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    
 
 ## 响应
 
-执行成功的检索操作将返回 `200 OK` 状态码。
+执行成功的检索操作将返回200 OK状态码。
 
-### 响应头
+#### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729)文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729)文档。
 
-### 响应体
+#### 响应体
 
 由于响应体的大小无法预知，COS 将用户请求响应体以序列化形式展示，即将响应体切分成多个分块返回，如下展示了返回响应体的概览：
 
-```
+```shell
 <Message 1>
 <Message 2>
 <Message 3>
@@ -194,9 +192,9 @@ Select 命令](https://cloud.tencent.com/document/product/436/37636 | String    
 <Message n>
 ```
 
-### 预响应（prelude）和响应结果（data）
+#### 预响应（prelude）和响应结果（data）
 
-COS 将检索结果切成多个分块，每个分块即一个`Message`。每一个`Message`由预响应（prelude）和响应结果（data）组成。
+COS 将检索结果切成多个分块，每个分块即一个 Message。每一个 Message 由预响应（prelude）和响应结果（data）组成。
 
 - 预响应包含两个部分：
  - 所在分块 Message 的总长度。
@@ -334,7 +332,8 @@ COS Select 的响应类型主要可以分为以下几种：
 - 正文格式
   Request Level Error Message 信息中不包含正文内容。
 
-### 特殊错误码
+<span id="errorcode"></span>
+#### 特殊错误码
 
 该请求常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档，特殊错误码信息如下所示。                     
 
@@ -364,19 +363,19 @@ COS Select 的响应类型主要可以分为以下几种：
 | ExternalEvalException                                  | 无法识别该请求，请检查并重试                                 | 400 Bad Request         |
 | InvalidDataType                                        | SQL 表达式中包含错误数据类型                                 | 400 Bad Request         |
 | UnrecognizedFormatException                            | 无法识别对象内容的格式                                       | 400 Bad Request         |
-| InvalidTextEncoding                                    | 无效编码，仅支持 UTF-8格式                                   | 400 Bad Request         |
-| InvalidDataSource                                      | 对象类型不合法，仅支持`CSV`和`JSON`格式                      | 400 Bad Request         |
+| InvalidTextEncoding                                    | 无效编码，仅支持 UTF-8 格式                                   | 400 Bad Request         |
+| InvalidDataSource                                      | 对象类型不合法，仅支持 CSV 和 JSON 格式                      | 400 Bad Request         |
 | InvalidTableAlias                                      | SQL 表达式中包含了不合法的别名                               | 400 Bad Request         |
 | MalformedXML                                           | XML文本格式不合法，请检查后重试                              | 400 Bad Request         |
 | MultipleDataSourcesUnsupported                         | 无法同时指定多种对象类型                                     | 400 Bad Request         |
 | MissingRequiredParameter                               | 查询请求中缺失必选参数，请检查后重试                         | 400 Bad Request         |
 | ObjectSerializationConflict                            | 输入对象或者输出结果指定了多种对象类型，仅支持指定`CSV`或者`JSON`中的一个 | 400 Bad Request         |
-| UnsupportedFunction                                    | 不支持当前SQL 表达式                                         | 400 Bad Request         |
-| UnsupportedSqlOperation                                | 不支持当前SQL操作符                                          | 400 Bad Request         |
-| UnsupportedSqlStructure                                | 不支持当前SQL结构，请检查后重试                              | 400 Bad Request         |
+| UnsupportedFunction                                    | 不支持当前 SQL 表达式                                         | 400 Bad Request         |
+| UnsupportedSqlOperation                                | 不支持当前 SQL 操作符                                          | 400 Bad Request         |
+| UnsupportedSqlStructure                                | 不支持当前 SQL 结构，请检查后重试                              | 400 Bad Request         |
 | UnsupportedStorageClass                                | 不支持指定的存储类型，仅支持标准存储                         | 400 Bad Request         |
 | UnsupportedSyntax                                      | 语法不合法                                                   | 400 Bad Request         |
-| UnsupportedRangeHeader                                 | 该操作不支持设置`Range`头部                                  | 400 Bad Request         |
+| UnsupportedRangeHeader                                 | 该操作不支持设置 Range 头部                                  | 400 Bad Request         |
 | LexerInvalidChar                                       | SQL 表达式中存在不合法字符                                   | 400 Bad Request         |
 | LexerInvalidOperator                                   | SQL 表达式中存在不合法操作符                                 | 400 Bad Request         |
 | LexerInvalidLiteral                                    | SQL 表达式中存在不合法文本                                   | 400 Bad Request         |
@@ -386,38 +385,38 @@ COS Select 的响应类型主要可以分为以下几种：
 | ParseExpectedTokenType                                 | 未在SQL 表达式中找到指定的标识                               | 400 Bad Request         |
 | ParseExpected2TokenTypes                               | 未在SQL 表达式中找到指定的标识                               | 400 Bad Request         |
 | ParseExpectedNumber                                    | 未在 SQL 表达式中找到指定的数值                              | 400 Bad Request         |
-| ParseExpectedRightParenBuiltinFunctionCall             | 未在SQL 表达式中找到右括号                                   | 400 Bad Request         |
+| ParseExpectedRightParenBuiltinFunctionCall             | 未在 SQL 表达式中找到右括号                                   | 400 Bad Request         |
 | ParseExpectedTypeName                                  | 未在SQL 表达式中找到列名                                     | 400 Bad Request         |
-| ParseExpectedWhenClause                                | 未在SQL 表达式中找到WHEN子句，不支持当前用法                 | 400 Bad Request         |
+| ParseExpectedWhenClause                                | 未在SQL 表达式中找到 WHEN 子句，不支持当前用法                 | 400 Bad Request         |
 | ParseUnsupportedToken                                  | SQL 表达式中不支持当前标识                                   | 400 Bad Request         |
-| ParseUnsupportedLiteralsGroupBy                        | SQL 表达式中不支持当前`GROUP BY`子句                         | 400 Bad Request         |
-| ParseExpectedMember                                    | SQL 表达式中错误使用了`MEMBER`                               | 400 Bad Request         |
-| ParseUnsupportedSelect                                 | SQL 表达式中不支持当前`SELECT`语句                           | 400 Bad Request         |
-| ParseUnsupportedCase                                   | SQL 表达式中不支持当前`CASE`                                 | 400 Bad Request         |
-| ParseUnsupportedCaseClause                             | SQL 表达式中不支持当前`CASE`                                 | 400 Bad Request         |
-| ParseUnsupportedAlias                                  | SQL 表达式不支持当前`ALIAS`                                  | 400 Bad Request         |
-| ParseUnsupportedSyntax                                 | SQL 表达式中不支持当前语法。                                 | 400 Bad Request         |
+| ParseUnsupportedLiteralsGroupBy                        | SQL 表达式中不支持当前 GROUP BY 子句                         | 400 Bad Request         |
+| ParseExpectedMember                                    | SQL 表达式中错误使用了 MEMBER                               | 400 Bad Request         |
+| ParseUnsupportedSelect                                 | SQL 表达式中不支持当前 SELECT 语句                           | 400 Bad Request         |
+| ParseUnsupportedCase                                   | SQL 表达式中不支持当前 CASE                                 | 400 Bad Request         |
+| ParseUnsupportedCaseClause                             | SQL 表达式中不支持当前 CASE                                 | 400 Bad Request         |
+| ParseUnsupportedAlias                                  | SQL 表达式不支持当前 ALIAS                                  | 400 Bad Request         |
+| ParseUnsupportedSyntax                                 | SQL 表达式中不支持当前语法                                | 400 Bad Request         |
 | ParseUnknownOperator                                   | SQL 表达式中包含了未知操作符                                 | 400 Bad Request         |
 | ParseInvalidPathComponent                              | SQL 表达式中包含了错误的路径                                 | 400 Bad Request         |
-| ParseMissingIdentAfterAt                               | SQL 表达式中未在`@`之后添加标识符                            | 400 Bad Request         |
+| ParseMissingIdentAfterAt                               | SQL 表达式中未在 @ 之后添加标识符                            | 400 Bad Request         |
 | ParseUnexpectedTerm                                    | SQL 表达式中包含了不合法项                                   | 4400 Bad Request        |
 | ParseUnexpectedToken                                   | SQL 表达式中使用了不合法的标识                               | 400 Bad Request         |
 | ParseUnExpectedKeyword                                 | SQL 表达式中使用了不合法的关键字                             | 400 Bad Request         |
 | ParseExpectedExpression                                | SQL 表达式中使用了不合法的表达式                             | 400 Bad Request         |
-| ParseExpectedLeftParenAfterCast                        | SQL 表达式中在`CAST`函数中找不到左括号                       | 400 Bad Request         |
+| ParseExpectedLeftParenAfterCast                        | SQL 表达式中在 CAST 函数中找不到左括号                       | 400 Bad Request         |
 | ParseExpectedLeftParenValueConstructor                 | SQL 表达式中缺失左括号                                       | 400 Bad Request         |
 | ParseExpectedLeftParenBuiltinFunctionCall              | SQL 表达式中缺失左括号                                       | 400 Bad Request         |
 | ParseExpectedArgumentDelimiter                         | SQL 表达式中未找到参数分隔符                                 | 400 Bad Request         |
-| ParseCastArity                                         | SQL 表达式中`CAST`使用了不正确的元数                         | 400 Bad Request         |
+| ParseCastArity                                         | SQL 表达式中 CAST 使用了不正确的元数                         | 400 Bad Request         |
 | ParseInvalidTypeParam                                  | SQL 表达式中包含不合法的参数值                               | 400 Bad Request         |
-| ParseEmptySelect                                       | SQL 表达式中包含空`SELECT`请求                               | 400 Bad Request         |
-| ParseSelectMissingFrom                                 | SQL 表达式中`SELECT`语句缺失了`FROM`子句                     | 400 Bad Request         |
+| ParseEmptySelect                                       | SQL 表达式中包含空 SELECT 请求                               | 400 Bad Request         |
+| ParseSelectMissingFrom                                 | SQL 表达式中 SELECT 语句缺失了 FROM 子句                     | 400 Bad Request         |
 | ParseExpectedIdentForGroupName                         | SQL 表达式中不支持当前组名                                   | 400 Bad Request         |
 | ParseExpectedIdentForAlias                             | SQL 表达式中未找到当前别名的标识符                           | 400 Bad Request         |
-| ParseUnsupportedCallWithStar                           | SQL 表达式中`COUNT`函数仅支持 (\*)                           | 400 Bad Request         |
+| ParseUnsupportedCallWithStar                           | SQL 表达式中 COUNT 函数仅支持 (\*)                           | 400 Bad Request         |
 | ParseNonUnaryAgregateFunctionCall                      | SQL 表达式中聚合函数仅支持一个入参                           | 400 Bad Request         |
-| ParseMalformedJoin                                     | SQL 表达式中不支持`JOIN`函数                                 | 400 Bad Request         |
-| ParseExpectedIdentForAt                                | SQL 表达式中未找到`AT`的标识符                               | 400 Bad Request         |
+| ParseMalformedJoin                                     | SQL 表达式中不支持 JOIN 函数                                 | 400 Bad Request         |
+| ParseExpectedIdentForAt                                | SQL 表达式中未找到 AT 的标识符                               | 400 Bad Request         |
 | ParseAsteriskIsNotAloneInSelectList                    | SQL 表达式中如果使用了不带注释的`*`，则不允许使用其他表达式  | 400 Bad Request         |
 | ParseCannotMixSqbAndWildcardInSelectList               | SQL 表达式中不能混用`[]`和`*`                                | 400 Bad Request         |
 | ParseInvalidContextForWildcardInSelectList             | SQL 表达式的 SELECT 语句错误使用了`*`                        | 400 Bad Request         |
@@ -428,10 +427,10 @@ COS Select 的响应类型主要可以分为以下几种：
 | EvaluatorInvalidArguments                              | SQL 表达式中函数参数数量有误                                 | 400 Bad Request         |
 | EvaluatorInvalidTimestampFormatPattern                 | SQL 表达式中时间戳字符串有误                                 | 400 Bad Request         |
 | IntegerOverflow                                        | SQL 表达式中的整数超过上限或者下限                           | 400 Bad Request         |
-| LikeInvalidInputs                                      | SQL 表达式的`LIKE`子句使用了错误的参数                       | 400 Bad Request         |
-| CastFailed                                             | SQL 表达式中使用`CAST`转换字符时出错                         | 400 Bad Request         |
-| InvalidCast                                            | SQL 表达式中使用`CAST`转换字符类型出错                       | 400 Bad Request         |
-| EvaluatorInvalidTimestampFormatPatternSymbolForParsing | SQL 表达式的时间戳存在无法解析的格式。                       | 400 Bad Request         |
+| LikeInvalidInputs                                      | SQL 表达式的 LIKE 子句使用了错误的参数                       | 400 Bad Request         |
+| CastFailed                                             | SQL 表达式中使用 CAST 转换字符时出错                         | 400 Bad Request         |
+| InvalidCast                                            | SQL 表达式中使用 CAST 转换字符类型出错                       | 400 Bad Request         |
+| EvaluatorInvalidTimestampFormatPatternSymbolForParsing | SQL 表达式的时间戳存在无法解析的格式                      | 400 Bad Request         |
 | EvaluatorTimestampFormatPatternDuplicateFields         | SQL 表达式的时间戳格式存在多个冲突的值                       | 400 Bad Request         |
 | EvaluatorTimestampFormatPatternHourClockAmPmMismatch   | SQL 表达式中时间戳使用了12小时制但没有指定`AM/PM`，或者使用了24小时制但指定了`AM/PM` | 400 Bad Request         |
 | EvaluatorUnterminatedTimestampFormatPatternToken       | SQL 表达式中时间戳存在未终止的标记                           | 400 Bad Request         |
@@ -444,7 +443,7 @@ COS Select 的响应类型主要可以分为以下几种：
 
 以下示例展示了调用该接口从 CSV 格式的对象中检索全部内容，并将检索结果输出为 CSV 格式的过程。待检索的对象名为`exampleobject.csv`，该对象存储于北京地域（ap-beijing）的存储桶 examplebucket-1250000000 中。
 
-```
+```shell
 POST /exampleobject.csv?select&select-type=2 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 12 Jan 2019 11:49:52 GMT
@@ -476,49 +475,41 @@ Content-Length: content length
         </CSV>                               
     </OutputSerialization>
 </SelectRequest> 
-
 ```
 
-如果您需要执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
+如果您需要执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 假设您使用列索引筛选对象中的内容，您可以使用`s._n`筛选第`n`列的数据，`n`最小为1。如下指令将从对象中筛选第3列数值大于100的记录，并返回这些记录的第1和第2列： 
-
-```
-  SELECT s._1, s._2 FROM S3Object s WHERE s._3 > 100
-
+```shell
+SELECT s._1, s._2 FROM S3Object s WHERE s._3 > 100
 ```
 
 - 如果您的 CSV 对象中具有列表头，且您打算使用列表头的名称筛选对象中的内容（将`FileHeaderInfo`设置为`Use`），您可以使用`s.name`进行索引，如下指令将从对象中筛选表头名为`Id`和`FirstName`的对象：
-
-```
+```shell
 SELECT s.Id, s.FirstName FROM S3Object s
-
 ```
 
 - 您也可以在 SQL 表达式中指定函数，如下指令将统计出第一列中小于1的记录数：
-
-```
+```shell
 SELECT count(*) FROM S3Object s WHERE s._1 < 1
-
 ```
 
 如下为响应的例子：
 
-```
+```shell
 HTTP/1.1 200 OK
 x-cos-id-2: cos_id_demo
 x-cos-request-id: cos_request_id_demo
 Date: Tue, 12 Jan 2019 11:50:29 GMT
 
 A series of messages
-
 ```
 
 #### 示例2:  从 JSON 格式的对象中检索内容
 
 以下示例展示了调用该接口从 JSON 格式的对象中检索全部内容，并将检索结果输出为 CSV 格式的过程。待检索的对象名为`exampleobject.json`，该对象存储于北京地域（ap-beijing）的存储桶 examplebucket-1250000000 中。
 
-```
+```shell
 POST /exampleobject.json?select&select-type=2 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 12 Jan 2019 11:52:29 GMT
@@ -545,24 +536,18 @@ Content-Length: content length
         </CSV>                               
     </OutputSerialization>
 </SelectRequest> 
-
-
 ```
 
-同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍可以参考 [Select 命令](<https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
+同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](<https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 您可以通过 JSON 属性名称检索相应的数据，如下指令将从对象中筛选`city`数值为 Seattle 的记录，并返回这些记录的`country`和`city`信息：
-
-```
+```shell
 SELECT s.country, s.city from S3Object s where s.city = 'Seattle'
-
 ```
 
 - 您也可以在 SQL 表达式中指定函数，如下指令将统计出 JSON 对象中的记录总数：
-
-```
+```shell
 SELECT count(*) FROM S3Object s
-
 ```
 
 ## 注意事项
