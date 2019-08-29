@@ -83,7 +83,7 @@ https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighe
 
 #### 开发环境要求
 * Android studio 3.0+
-* Android 4.3（API 19）及以上系统
+* Android 4.4（API 19）及以上系统
 
 #### 快速集成 SDK
 TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下载更新。只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 TICSaaSDemo 为例），然后通过简单的三个步骤修改 `app/build.gradle` 文件，就可以完成 SDK 集成：
@@ -92,12 +92,11 @@ TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下�
 ```groovy
  dependencies {
     // TIC SaaS 组件
-    implementation "com.tencent.ticsaas:core:0.0.7-alpha"
+    implementation "com.tencent.ticsaas:core:1.0.0.1"
     // 实时音视频
     implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.5.7272"
     // 即时通信 IM SDK
-    implementation "com.tencent.imsdk:imsdk:4.3.145"
-    implementation "com.tencent.imsdk:mobilepbforimsdk:1.6.0.45"
+    implementation "com.tencent.imsdk:imsdk:4.4.900"
     // 腾讯云互动白板
     implementation "com.tencent.teduboard:TEduBoardSdk:2.2.2.99"
 }
@@ -147,17 +146,18 @@ Manifest.permission.WRITE_EXTERNAL_STORAGE
 ```
 可参考 [请求应用权限](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
 #### 调起 SaaS 组件
-只需要传递5个参数，即可调起 SaaS 组件主页面，分别是结构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig，如下：
+只需要传递5个参数，即可调起 SaaS 组件主页面，分别是机构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig，如下：
 ```java
-    private void launchInActivity(int agencyId, int classID, String userID, String userToken, String userSig) {
+   private void launchInActivity(int companyID, int classID, String userID, String userToken, String userSig) {
         Intent intent = new Intent(this, InClassActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         Bundle bundle = new Bundle();
-        bundle.putInt("agency_id", agencyId);
-        bundle.putInt("class_id", classID);
-        bundle.putString("user_id", userID);
-        bundle.putString("user_token", userToken);
-        bundle.putString("user_sig", userSig);
+        bundle.putInt(com.tencent.ticsaas.Constants.KEY_CLASS_COMPANY_ID, companyID);
+        bundle.putInt(Constants.KEY_CLASS_CLASS_ID, classID);
+        bundle.putString(Constants.KEY_CLASS_USER_ID, userID);
+        bundle.putString(Constants.KEY_CLASS_USER_TOKEN, userToken);
+        bundle.putString(Constants.KEY_CLASS_USER_SIG, userSig);
+
         intent.putExtras(bundle);
         startActivity(intent);
     }
