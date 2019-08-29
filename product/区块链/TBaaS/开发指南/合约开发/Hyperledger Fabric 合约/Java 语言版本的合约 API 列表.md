@@ -201,7 +201,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 	<tr>
 		<td> Response invokeChaincode(final String chaincodeName, final List&lt;byte[]&gt; args, final String channel)</td>
-		<td>调用其它智能合约 Invoke 方法</td>
+		<td>调用其它智能合约 invoke 方法</td>
 	</tr>
 	<tr>
 		<td> Response invokeChaincode(String chaincodeName, List&lt;byte[]&gt; args)</td>
