@@ -23,7 +23,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>genkey</td>
 		<td>生成 SM2 算法的公私钥对（加密、签名的公私钥对使用同一个算法）</td>
 		<td> 
-			<ul>
+			<ul class="bottom">
 			<li>pkout：新公钥的文件路径</li>
 			<li>skout：新私钥的文件路径</li>
 			</ul>
@@ -33,7 +33,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>encrypt</td>
 		<td>加密</td>
 		<td>
-			<ul>
+			<ul class="bottom">
 				<li>pkin：用于加密的公钥的文件路径，可以是 genkey 生成的公钥文件路径</li>
 				<li>plaintext：要加密的明文文件路径</li>
 				<li>cipherout：生成的密文的指定文件路径</li>
@@ -44,7 +44,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>decrypt</td>
 		<td>解密，解密后的明文结果会在控制台展示。</td>
 		<td>
-			<ul>
+			<ul class="bottom">
 				<li>skin：解密使用的私钥的文件路径</li>
 				<li>cipherin：需要解密的密文文件路径</li>
 			</ul>
@@ -54,7 +54,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>sign</td>
 		<td>签名</td>
 		<td>
-			<ul>
+			<ul class="bottom">
 				<li>skin：签名使用的私钥的文件路径</li>
 				<li>message：需要签发的信息的文件路径</li>
 				<li>signature：生成的签名的指定文件路径</li>
@@ -65,7 +65,7 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 		<td>verify</td>
 		<td>验签</td>
 		<td>
-			<ul>
+			<ul class="bottom">
 				<li>pkin：验签使用的公钥文件路径</li>
 				<li>message：验证的信息所在文件路径</li>
 				<li>signature：验证的签名所在文件路径</li>
@@ -107,7 +107,9 @@ gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 ```
 
 
- 
+ <style>
+	 .bottom{ margin-bottom:0px !important;}
+ </style>
 
 
 
