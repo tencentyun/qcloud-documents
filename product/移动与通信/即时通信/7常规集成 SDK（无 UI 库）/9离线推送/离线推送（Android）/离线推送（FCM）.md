@@ -35,11 +35,12 @@
  - **应用包名称**：填写客户 App 的包名
  - **发送者ID**：填写 Google 推送服务应用的 **发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的 **旧版服务器密钥**
-  ![](https://main.qcloudimg.com/raw/493e61d8406a81ca4f81abe18417c57c.png)
+    ![](https://main.qcloudimg.com/raw/fe5391a0cbddee4421e38a4dfc200a74.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录**`证书 ID`** 。
  ![](https://main.qcloudimg.com/raw/0a7322c3e689764390cb3ddbae911ff4.png) 
-	 
+	
+
 <span id="Step3"></span>
 ### Step3：上报推送信息至即时通信 IM 服务端
 
