@@ -58,7 +58,7 @@ Hyperledger Fabric 提供了很多官方的智能合约样例，具体请参考 
 - query：查询 key 所对应的值。
 
 #### init 函数示例
-init 函数在智能合约实例化以及升级的时候会被调用。在实现 init 函数的过程中，可使用 [Java 语言版本的合约 API 列表](https://cloud.tencent.com/document/product/663/30530) 来对参数和账本进行操作。本例通过调用 API getFunction 和 getParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API putStringState 将数据写到账本中。具体代码如下:
+init 函数在智能合约实例化以及升级的时候会被调用。在实现 init 函数的过程中，可使用 [Java 语言版本的合约 API 列表](https://cloud.tencent.com/document/product/663/30530) 来对参数和账本进行操作。本例通过调用 API getFunction 和 getParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API putStringState 将数据写到账本中。具体代码如下：
 ```Java
 /*
 	 * init函数用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1,
