@@ -112,8 +112,9 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 #### 私钥相关函数
 - 非成员函数
  - GeneratePrivateKey(alg string, args map[string]string, engine \*Engine)  (\*PrivateKey, error)
- **功能：**生成私钥。
- **参数：**
+ **功能**    
+生成私钥。
+ **参数**
      - alg：string 类型的算法名称，SM2 算法固定为  “EC”。
      - args：map[string]string 类型算法参数，SM2 算法固定为 ：
 			map[string]string{
@@ -123,11 +124,19 @@ Go 语言智能合约 gmssl包 支持 SM2，SM3 算法的相关接口，用户�
 		
 	-  engine：SM2 加密或签名算法固定入参为 nil。
 
-   **输出：**
+   **输出**
    - 私钥：用于解密或签名，可导出成员PublicKey作为公钥进行加密
    - 错误信息。
 
-
+ - NewPrivateKeyFromPEM(pem string, password string) (\*PrivateKey, error)
+  **功能：**从 PEM 格式字符串中读取私钥。
+	**入参：**
+	 - pem：string 类型，符合 PEM 格式的字符串。
+	 - password：string 类型，若私钥 PEM 经过加密保护，则在这里传入加密时使用的口令。若没有加密，则传入空字符串`“”`。
+	 
+	**输出：**
+	 - 私钥：用于解密或签名，可导出成员 PublicKey 作为公钥进行加密。
+	 - 错误信息。
 
 
 
