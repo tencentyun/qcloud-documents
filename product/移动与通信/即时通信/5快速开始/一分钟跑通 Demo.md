@@ -68,4 +68,33 @@
 ## 步骤4：编译运行
 用各端的 IDE 直接编译运行即可。
 
+**其中 iOS 和 Mac Demo 的编译运行需要使用到 pod 集成，详情步骤如下：**
+1. 终端执行以下命令，检查 pod 版本。
+```
+pod --version
+```
+如果提示 pod 不存在，或则 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
+```
+//更换 gem 源
+gem sources --remove https://rubygems.org/
+gem sources --add https://gems.ruby-china.com/
+//安装 pod
+sudo gem install cocoapods -n /usr/local/bin
+//如果安装了多个 Xcode ，请使用下面的命令选择 Xcode 版本（一般选择最新的 Xcode 版本）
+sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+//更新 pod 本地库
+pod setup
+```
+2. 终端执行以下命令，加载 ImSDK 库。
+```
+//iOS
+cd iOS/TUIKitDemo
+pod install
+//Mac
+cd Mac/TUIKitDemo
+pod install
+```
+3. iOS 进入 iOS/TUIKitDemo 文件夹，Mac 进入Mac/TUIKitDemo 文件夹，打开 `TUIKitDemo.xcworkspace` 编译运行。
+
+
 
