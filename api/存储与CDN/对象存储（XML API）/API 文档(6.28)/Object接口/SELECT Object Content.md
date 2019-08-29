@@ -38,7 +38,7 @@ Request body
 
 > ?
 > - Authorization: Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - 请求参数中`select`和`select-type=2`参数均为必填参数，其中`select`代表发起`select`请求，`select-type=2`代表这一接口的版本信息。
+> - 请求参数中 select 和 select-type=2 参数均为必填参数，其中 select 代表发起 select 请求，select-type=2 代表这一接口的版本信息。
 
 #### 请求头
 
@@ -123,7 +123,7 @@ Request body
 
 | 名称            | 父节点             | 描述                                                         | 类型      | 是否必选                     |
 | --------------- | ------------------ | ------------------------------------------------------------ | --------- | ---------------------------- |
-| CompressionType | InputSerialization | 描述待检索对象的压缩格式：<br><li>如果对象未被压缩过，则该项为 NONE<br><li>如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、   BZIP2，默认值为 NONE | String    | 否                           |
+| CompressionType | InputSerialization | 描述待检索对象的压缩格式：<br><li>如果对象未被压缩过，则该项为 NONE<br><li>如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、BZIP2，默认值为 NONE | String    | 否                           |
 | CSV/JSON        | InputSerialization | 描述在相应的对象格式下所需的文件参数。例如 CSV 格式需要指定分隔符 | Container | 是<br>CSV 和 JSON 中的任意一个 |
 
 **CSV container element (InputSerialization 子元素)**
@@ -224,7 +224,7 @@ COS 将检索结果切成多个分块，每个分块即一个 Message。每一�
 
 | 组成&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                      | 描述                                                         |
 | ------------------------- | ------------------------------------------------------------ |
-| 预响应 prelude            | 分别记录了分块 Message 的总长度和所有报头的总长度，每个记录4字节，总长8字节<br>1. `total byte-length`：所在分块 Message 的总长度，使用大端编码，包含该记录本身容量共4字节；<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节 |
+| 预响应 prelude            | 分别记录了分块 Message 的总长度和所有报头的总长度，每个记录4字节，总长8字节：<br>1. `total byte-length`：所在分块 Message 的总长度，使用大端编码，包含该记录本身容量共4字节。<br>2. `headers byte-length`：所有报头的总长度，使用大端编码，不包含该记录所占空间共4字节。 |
 | 预响应校验码 prelude CRC | 预响应的 CRC 校验码，使用大端编码，总共4字节。预响应校验码可以帮助程序快速识别预响应信息是否正确，减少缓冲时的阻塞。 |
 | 报头信息 header          | 分块 Message 记录的检索结果的元数据信息，诸如数据类型，正文格式。根据数据类型的差异，本部分的字节长度也有所差异。响应报头以 kv 键值对形式存储，使用 UTF-8编码。响应报头中所记录的元数据信息可以以任意顺序展示，但每一项元数据仅记录一次。根据数据类型的差异，以下响应报头均有可能在 COS Select 返回的结果中出现：<br>1. `MessageType Header`：该报头代表响应类型。Key 值为":message-type"，合法的 Value 值为"error"或者"event"，"error"代表本条记录为报错信息，"event"代表本条记录为具体的事件。<br>2. `EventType Header`：该报头记录事件类型。Key 值为":event-type"，合法的 Value 值为"Records"，"Cont"，"Progress"，"Stats"或"End"。"Records"代表事件为返回检索记录，"Cont"代表事件为保持 TCP 连接，"Progress"代表事件为定期返回的检索结果，"Stats"代表事件为本次查询的统计信息，"End"代表本次查询结束。<br>3. `ErrorCode Header`：该报头记录报错类型。Key 值为":error-code"，合法的 Value 值为 [特殊错误码](#.E7.89.B9.E6.AE.8A.E9.94.99.E8.AF.AF.E7.A0.81) 中的错误码信息。<br>4. `ErrorMessage Header`：该报头记录错误码信息。Key 值为":error-message"，合法的 Value 值为服务端返回的错误码信息，可用于定位错误。 |
 | 响应正文 Payload         | 记录检索结果，或者与请求相关的正式信息。                     |
@@ -355,8 +355,8 @@ COS Select 的响应类型主要可以分为以下几种：
 | TruncatedInput                                         | 对象解压失败。请检查对象是否已按照指定压缩格式压缩           | 400 Bad Request         |
 | InvalidExpressionType                                  | 当前表达式不合法，仅支持 SQL 表达式                          | 400 Bad Request         |
 | InvalidFileHeaderInfo                                  | 列表头不合法，请使用 NONE、USE、IGNORE 中的一个              | 400 Bad Request         |
-| InvalidJsonType                                        | JSON 对象类型不合法，仅支持`DOCUMENT`或者`LINES`             | 400 Bad Request         |
-| InvalidQuoteFields                                     | 转义符设置不合法，仅支持`ALWAYS`或者`ASNEEDED`               | 400 Bad Request         |
+| InvalidJsonType                                        | JSON 对象类型不合法，仅支持 DOCUMENT 或者 LINES             | 400 Bad Request         |
+| InvalidQuoteFields                                     | 转义符设置不合法，仅支持 ALWAYS 或者 ASNEEDED               | 400 Bad Request         |
 | InvalidRequestParameter                                | COS Select 请求参数不合法，请检查API文档并重试               | 400 Bad Request         |
 | CSVParsingError                                        | 解析 CSV 文件时出错，请检查文件并重试                        | 400 Bad Request         |
 | JSONParsingError                                       | 解析 JSON 文件时出错，请检查文件并重试                       | 400 Bad Request         |
@@ -369,7 +369,7 @@ COS Select 的响应类型主要可以分为以下几种：
 | MalformedXML                                           | XML文本格式不合法，请检查后重试                              | 400 Bad Request         |
 | MultipleDataSourcesUnsupported                         | 无法同时指定多种对象类型                                     | 400 Bad Request         |
 | MissingRequiredParameter                               | 查询请求中缺失必选参数，请检查后重试                         | 400 Bad Request         |
-| ObjectSerializationConflict                            | 输入对象或者输出结果指定了多种对象类型，仅支持指定`CSV`或者`JSON`中的一个 | 400 Bad Request         |
+| ObjectSerializationConflict                            | 输入对象或者输出结果指定了多种对象类型，仅支持指定 CSV 或者 JSON 中的一个 | 400 Bad Request         |
 | UnsupportedFunction                                    | 不支持当前 SQL 表达式                                         | 400 Bad Request         |
 | UnsupportedSqlOperation                                | 不支持当前 SQL 操作符                                          | 400 Bad Request         |
 | UnsupportedSqlStructure                                | 不支持当前 SQL 结构，请检查后重试                              | 400 Bad Request         |
@@ -423,7 +423,7 @@ COS Select 的响应类型主要可以分为以下几种：
 | EvaluatorBindingDoesNotExist                           | SQL 表达式中使用的列索引或者路径不存在                       | 400 Bad Request         |
 | ValueParseFailure                                      | 无法解析SQL 表达式中的时间戳                                 | 400 Bad Request         |
 | IncorrectSqlFunctionArgumentType                       | SQL 表达式中函数入参错误                                     | 400 Bad Request         |
-| AmbiguousFieldName                                     | SQL 表达式中字段名称不清晰，检查后重试。                     | 400 Bad Request         |
+| AmbiguousFieldName                                     | SQL 表达式中字段名称不清晰，检查后重试                     | 400 Bad Request         |
 | EvaluatorInvalidArguments                              | SQL 表达式中函数参数数量有误                                 | 400 Bad Request         |
 | EvaluatorInvalidTimestampFormatPattern                 | SQL 表达式中时间戳字符串有误                                 | 400 Bad Request         |
 | IntegerOverflow                                        | SQL 表达式中的整数超过上限或者下限                           | 400 Bad Request         |
@@ -477,7 +477,7 @@ Content-Length: content length
 </SelectRequest> 
 ```
 
-如果您需要执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
+如果您需要执行不同的检索指令，可以在`Expression`元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 假设您使用列索引筛选对象中的内容，您可以使用`s._n`筛选第`n`列的数据，`n`最小为1。如下指令将从对象中筛选第3列数值大于100的记录，并返回这些记录的第1和第2列： 
 ```shell
