@@ -17,13 +17,13 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 	<tr>
 		<th>命令</th>
 		<th>描述</th>
-		<th>参数</th>
+		<th width="68%">参数</th>
 	</tr>
 	<tr>
 		<td>genkey</td>
 		<td>生成 Paillier 算法的公私钥对</td>
 		<td>
-				<ul class="bottom">
+				<ul class="indentation">
 					<li>length：公钥长度，即安全等级，可选，默认为2048。</li>
 					<li>pkout：新公钥的文件路径。</li>
 					<li>skout：新私钥的文件路径。</li>
@@ -34,7 +34,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 		<td>encrypt</td>
 		<td>加密</td>
 		<td>
-			<ul class="bottom">
+			<ul class="indentation">
 				<li>pkin：用于加密的公钥的文件路径，可以是 genkey 生成的公钥文件路径。</li>
 				<li>plaintext：要加密的明文数字，十进制形式的数字。假设公钥值为 N，长度为 n bit，该数字范围只能取 <code>(-N/2,N/2]</code>，即明文的安全长度为 <code>n - 2</code> bit（不算符号的长度）。</li>
 				<li>cipherout：生成的密文的指定文件路径。</li>
@@ -45,7 +45,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 		<td>decrypt</td>
 		<td>解密</td>
 		<td>
-			<ul class="bottom">
+			<ul class="indentation">
 				<li>skin：解密使用的私钥的文件路径。</li>
 				<li>cipherin：需要解密的密文文件路径。</li>
 			</ul>
