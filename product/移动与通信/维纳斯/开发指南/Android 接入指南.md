@@ -140,7 +140,7 @@ HttpClent 实例使用 WnsService.getWnsHttpClient()来获取，然后使用Http
 - 发送和接受数据大小限制为512KB。
 - 业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据，以便于 bug 定位。
 
-**此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。
+此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。
 
 ```
 //[必须] 定义wns的引用，从而使用其内部方法
@@ -263,13 +263,14 @@ private void sendHttpUrlConnReq(final String url)
     };
     new Thread(run).start();
 }```
+
 ### 调用接口 sendRequest 来收发二进制数据。
 发送二进制数据的接口和发送 http 的比较类似，开发商终端需要修改原来的代码，将收发接口替换为 Wns 的 Sdk
 1. 发送和接受数据大小限制为 512KB。
 2. 命令字禁止使用“wnscloud”作为前缀。
 
 
->!**cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置模块 wnsdemo 对应的路由。
+>!cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置模块 wnsdemo 对应的路由。
 
 ```
  private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); //[必须] 定义wns的引用，从而使其内部方法
@@ -302,6 +303,7 @@ private int sendReq()
 
     return seqNo;
 }```
+
 ## PUSH 接入
 
 ### 在 AndroidManifest.xml 中注册接收 push 的 service
@@ -321,7 +323,7 @@ private int sendReq()
 
 ### 自定义处理 Push 的Service
 假设类名是 com.example.cloudwns.push.MyPushService（应用可自定义名称），应用只需要实现 onPushReceived 这个方法即可。如下：
-
+```
  package com.example.cloudwns.push;
 
 
@@ -365,7 +367,7 @@ public class MyPushService extends AbstractPushService{
      }
 
 }
-
+```
 
 ## 调试类接口
 
