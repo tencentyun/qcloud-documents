@@ -12,12 +12,12 @@ sdk 发送数据限制长度为 512K 字节
 sdk 接受数据限制长度为 512K 字节
 
 ## 名词解释
-**appid**： wns 为接入 App 分配的标识。
-**appVersion**：  App 版本号。
-**channelId**： App 渠道号，与 appVersion 一起在 wns 监控系统中提供统计信息，
+- **appid**： wns 为接入 App 分配的标识。
+- **appVersion**：  App 版本号。
+- **channelId**： App 渠道号，与 appVersion 一起在 wns 监控系统中提供统计信息，
 来区分各种下载渠道，例如应用宝,百度手机助手。
-**uid**：业务用户的唯一标识。
-**wid**：wns 为每个终端分配的唯一标识。
+- **uid**：业务用户的唯一标识。
+- **wid**：wns 为每个终端分配的唯一标识。
 
 ## Sdk 配置和初始化说明
 ### 引入 Wns Sdk
@@ -141,7 +141,7 @@ HttpClent 实例使用 WnsService.getWnsHttpClient()来获取，然后使用Http
 - 业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据，以便于 bug 定位。
 
 **此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。
-如下图所示：
+
 ```
 //[必须] 定义wns的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 
@@ -201,9 +201,9 @@ private void sendHttpReq() {
 
 #### 使用 HttpUrlConnection 请求
 使用 wns.getWnsHttpUrl()获取 URL 实例
-：
+
 发送和接受数据大小限制为 512KB。
-**此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。
+此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。
 ```
  //[必须] 定义 wns 的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 
@@ -387,11 +387,10 @@ Wns 提供快速验证模式，开发商可以先集成 Wns 的 Sdk，但是通�
 3. 终端在初始化阶段调用 Sdk 接口 initWithAppID。
 
 ## 常见问题
-
  
-  通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相CPU  架构的 so，根据以 往经验，一些低端机型无法加载到 so 导致 WNS 启动失败。
-因此 WNS 会在 assets 目录 下也放了一份 so，当 loadLibraray 方法加载失败会尝试将 assets 目录下的 so 复制到 App 运行目录中，通过 System.load 
+通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相CPU  架构的 so，一些低端机型无法加载到 so 导致 WNS 启动失败。
+因此 WNS 会在 assets 目录下也放了一份 so，当 loadLibraray 方法加载失败会尝试将 assets 目录下的 so 复制到 App 运行目录中，通过 System.load 
 方法加载 so，提高启动 WNS 的成功率。
 
 我们提供的 sdk  zip 包中包含获取应用签名的 App 工具，安装到手机后，输入您的 App 包名即可获取到签名。
-![](https://mccdn.qcloud.com/static/img/bde9d37a48d969ead313cbbe6f2b1e9a/wns_and_tool.png)
+
