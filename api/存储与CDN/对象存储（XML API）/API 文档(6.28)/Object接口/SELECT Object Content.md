@@ -154,7 +154,7 @@ Request body
 
 | 名称                 | 父节点 | 描述                                                         | 类型   | 是否必选 |
 | -------------------- | ------ | ------------------------------------------------------------ | ------ | -------- |
-| QuoteFields          | CSV    | 指定输出结果为文件时，是否需要使用`"`进行转义。可选项包括 ALWAYS、ASNEEDED、ALWAYS 代表对所有本次输出的检索文件应用`"`，ASNEEDED 代表仅在需要时使用。合法值为 ALWAYS、ASNEEDED，默认值为 ASNEEDED。 | String | 否       |
+| QuoteFields          | CSV    | 指定输出结果为文件时，是否需要使用`"`进行转义。可选项包括 ALWAYS、ASNEEDED、ALWAYS 代表对所有本次输出的检索文件应用`"`，ASNEEDED 代表仅在需要时使用。合法值为 ALWAYS、ASNEEDED，默认值为 ASNEEDED。 | String | 是       |
 | RecordDelimiter      | CSV    | 将输出结果中的记录分隔为不同行的字符，默认通过`\n `进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String | 否       |
 | FieldDelimiter       | CSV    | 将输出结果中的每一行进行分列的字符，默认通过`,`进行分隔。您可以指定任意8进制字符，该参数最多支持1个字节。默认值为`, `。 | String | 否       |
 | QuoteCharacter       | CSV    | 如果输出结果中存在于分隔符相同的字符串，可以使用 QuoteCharacter 进行转义，保证该字符串不会在后续分析中被切割。如输出结果中存在`a,b`这个字符串，双引号`"`可以避免这一字符串被分隔成`a`和`b`两个字符，COS Select 将会将其转为`"a, b" `写入文件。默认值为`" `。 | String | 否       |
