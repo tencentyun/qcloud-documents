@@ -203,7 +203,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 ```
 
 #### 业务逻辑 query 函数示例
-业务逻辑 query 函数主要用于实现业务逻辑中的账户查询。 本示例通过调用 API GetState 查询对应账户的资产。
+业务逻辑 query 函数主要用于实现业务逻辑中的账户查询功能，本示例通过调用 API GetState 查询对应账户的资产。
 ```
 // query主要是查询键对应的值，输入为KEY_NAME
 // query callback representing the query of a chaincode
