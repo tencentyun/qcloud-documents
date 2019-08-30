@@ -7,16 +7,10 @@
 - Mac 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Mac)。
 - Android 平台 [IM SDK](https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Android)。
 
+回调分两种，一种是指调用接口的异步返回，另外一种指后台推送的通知。回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程可能不是同一线程。
+在 Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调抛到主 UI 线程调用。
 
-**关于回调的说明**
-
-- 回调分两种，一种是指调用接口的异步返回，另外一种指后台推送的通知。回调在 IM SDK 内部的逻辑线程触发，跟调用接口的线程可能不是同一线程。
-- 在 Windows 平台，如果调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口进行初始化 IM SDK 之前，已创建了 UI 的消息循环，且调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 接口的线程为主 UI 线程，则 IM SDK 内部会将回调抛到主 UI 线程调用。
-
-
-**注意**
-
-- 如果接口的参数字符串包含中文，请使用 UTF-8 编码。
+>!如果接口的参数字符串包含中文，请使用 UTF-8 编码。
 
 
 
@@ -124,7 +118,7 @@
 | [TIMFriendshipHandleFriendAddRequest](https://cloud.tencent.com/document/product/269/37662#timfriendshiphandlefriendaddrequest) | 处理好友请求 |
 | [TIMFriendshipModifyFriendProfile](https://cloud.tencent.com/document/product/269/37662#timfriendshipmodifyfriendprofile) | 更新好友资料（备注等） |
 | [TIMFriendshipDeleteFriend](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletefriend) | 删除好友 |
-| [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) | 检测好友类型（单向的还是双向的） |
+| [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) | 检测好友类型（单向或双向） |
 | [TIMFriendshipCreateFriendGroup](https://cloud.tencent.com/document/product/269/37662#timfriendshipcreatefriendgroup) | 创建好友分组 |
 | [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) | 获取指定好友分组的分组信息 |
 | [TIMFriendshipModifyFriendGroup](https://cloud.tencent.com/document/product/269/37662#timfriendshipmodifyfriendgroup) | 修改好友分组 |
