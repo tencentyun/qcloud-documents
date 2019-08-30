@@ -1,6 +1,6 @@
 ## 功能描述
 
-Delete Archive 请求实现删除一个 Archive。请求成功以后会返回 x-cas-archive-id 用来表示唯一的 Archive 文件。请求成功返回 204 No Content。
+Delete Archive 请求实现删除一个 Archive。请求成功以后会返回 x-cas-archive-id 用来表示唯一的 Archive 文件。请求成功返回204 No Content。
 
 在删除 Archive 后，您仍可能成功请求启动对已删除 Archive 的检索任务，但 Archive 检索任务会失败。
 
@@ -13,7 +13,7 @@ Delete Archive 请求实现删除一个 Archive。请求成功以后会返回 x-
 
 ## 请求
 
-### 请求语法
+#### 请求语法
 
 ```HTTP
 DELETE /<UID>/vaults/<VaultName>/archives/<ArchiveID> HTTP 1.1
@@ -22,24 +22,24 @@ Date:date
 Authorization: Auth
 ```
 
-### 请求参数
+#### 请求参数
 
 无特殊请求参数。
 
-### 请求头部
+#### 请求头部
 
 无特殊请求头部，其他头部请参见公共请求头部。
 
-### 请求内容
+#### 请求内容
 
 无请求内容。
 
 ## 返回值
 
-### 返回头部
+#### 返回头部
 
 无特殊返回头部，其他头部请参见公共返回头部。
 
-### 返回内容
+#### 返回内容
 
 无返回内容。

@@ -8,15 +8,16 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 登录保护指在您进行登录操作的时候，腾讯云会给您增加一层保护。通常情况下，该保护的措施是在正确输入账号和密码的前提下，还需要额外输入一种能证明身份的凭证。更多详情请参见  [登录保护](https://cloud.tencent.com/document/product/378/8392) 文档。
 
 ### 绑定 MFA 设备方式？
-更多详情请参考 [硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 和 [虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498)。
+更多详情请参考 [MFA 设备](https://cloud.tencent.com/document/product/378/37310)。
 
 
 
 ### 如果账号绑定了 MFA，如果手机丢了，如何登录账号？
 - **方法1：有其他腾讯云账号**
-进入 [腾讯云网站](https://cloud.tencent.com/) 首页，单击网站右侧：“联系我们”，告知用户登录其他账号提交工单申请解封：“账号中心 > 账号安全设置 > MFA 问题”。
+请您登录其他账号 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请解封：“账号中心 > 账号安全设置（MFA）问题。
+ 
 - **方法2：没有其他腾讯云账号**
-进入 [腾讯云网站](https://cloud.tencent.com/) 首页，单击网站右侧：“联系我们”，找到页面”有任何建议或问题，欢迎您向我们进行反馈：立即反馈 > 需求建议 > 云产品 > 其他”。
+进入 [腾讯云官网](https://cloud.tencent.com/) 首页，单击网站右侧【联系我们】，找到页面”有任何建议或问题，欢迎您向我们进行反馈：立即反馈 > 产品建议/投诉反馈 > 完成并提交。
 
 **工单申请模板：**
 - **a. 个人 MFA 解绑：**

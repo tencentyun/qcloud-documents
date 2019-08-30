@@ -23,7 +23,8 @@
 如有其他语言或自行实现可以看以下流程：
 1. 向服务端获取临时密钥，服务端首先使用固定密钥 SecretId、SecretKey 向 STS 服务获取临时密钥，得到临时密钥 tmpSecretId、tmpSecretKey、sessionToken，详情请参考 [临时密钥生成及使用指引](https://cloud.tencent.com/document/product/436/14048) 或 [cos-sts-sdk](https://github.com/tencentyun/qcloud-cos-sts-sdk) 文档。
 2. 前端通过 tmpSecretId、tmpSecretKey，以及 method、pathname 计算签名，可参考下文使用 [cos-auth.js](https://unpkg.com/cos-js-sdk-v5/demo/common/cos-auth.min.js) 来计算签名，如果业务需要也可以放在后端计算签名。
-3. 前端将 sessionToken 计算得到的签名 authorization，前端将服务端返回的两个值分别放到 header 的 x-cos-security-token 和  authorization 字段里，向 COS API 发出上传请求。
+3. 如果使用 PutObject 接口上传文件，将计算得到的签名和 sessionToken，分别放到发请求时 header 的 authorization 和 x-cos-security-token 字段里。
+如果使用 PostObject 接口上传文件，则将计算得到的签名和 sessionToken，分别放到发请求时表单的 Signature 和 x-cos-security-token 字段里。
 
 
 ### 前端上传

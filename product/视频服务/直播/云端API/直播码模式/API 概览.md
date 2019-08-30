@@ -9,7 +9,6 @@
 | [Get_LivePlayStat](https://cloud.tencent.com/doc/api/258/6110)  |  统计信息查询 - 查询播放相关信息 |
 | [Live_Channel_GetStatus](https://cloud.tencent.com/doc/api/258/5958) |  仅查询某条流的状态信息（旧版本接口） | 
 | [Live_Channel_SetStatus](https://cloud.tencent.com/doc/api/258/5959) | 对某条流实行禁播操作，主要用于鉴黄场景 | 
-| [Live_Tape_GetFilelist](https://cloud.tencent.com/doc/api/258/5960)| 查询某条流在直播过程中的录制文件列表 | 
 | [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997)|查询频道列表|
 | [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862)|查询直播中频道列表|
 | [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流操作接口|

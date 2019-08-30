@@ -13,8 +13,8 @@
 ### 通过 VNC 方式登录云服务器
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在 “实例” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
-![登录](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
+2. 在实例的管理页面，找到目标云服务器实例，单击【登录】。如下图所示：
+![登录](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)

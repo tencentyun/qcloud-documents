@@ -1,8 +1,8 @@
 ## 文档导读
 本文主要介绍如何基于 TRTC SDK 实现一个简单的视频通话功能：
 
-- 本文仅提及了最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/32227)。
-- 本文仅罗列了最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32228)。
+- 本文仅提及最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/16826)。
+- 本文仅罗列最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32258)。
 
 ## 示例代码
 
@@ -98,9 +98,9 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 
 **appScene** 参数指定 SDK 的应用场景，本文档中我们使用 `TRTCAppSceneVideoCall`（视频通话），该场景下 SDK 内部的编解码器和网络组件会更加侧重视频流畅性，降低通话延迟和卡顿率。
 
-- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed` 代表进入耗时，单位：ms。
-- 如进房失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
-- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。
+- 如进房成功，SDK 会回调 `onEnterRoom` 接口，参数：当 `result` 大于0时，进房成功，数值表示加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时，进房失败，数值表示进房失败的错误码。
+- 如进房失败，SDK 同时会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- 如果已在房间中，则必须调用 `exitRoom` 方法退出当前房间，才能进入下一个房间。 
 
 ```java
 void enterRoom() {

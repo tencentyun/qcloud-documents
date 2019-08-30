@@ -7,7 +7,7 @@
 - **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷土豆等视频网站上的视频观看就是典型的点播场景。
 
 #### 协议的支持
-通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址(以“http”开头，以“.flv”结尾)：
+通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址（以“http”开头，以“.flv”结尾）：
 ![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
 
 ## 特别说明
@@ -37,7 +37,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 
 如果您要调整渲染画面的大小，只需要调整您所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
 
-![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+![](https://main.qcloudimg.com/raw/b5b8a6a7679a6f701f6c43ffd6e8e4a1.png)
  
 > **如何做动画？**
 > 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
@@ -58,7 +58,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 | PLAY_TYPE_LIVE_RTMP | 0 | 传入的 URL 为 RTMP 直播地址 |
 | PLAY_TYPE_LIVE_FLV | 1 | 传入的 URL 为 FLV 直播地址 |
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
-| PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS(m3u8) 播放地址 |
+| PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
 > **关于 HLS(m3u8)**
 > 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用于点播），因为延迟太高，在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
@@ -81,13 +81,13 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 | 可选值 | 含义  |
 |---------|---------|
 | RENDER_ROTATION_PORTRAIT | 正常播放（Home 键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转 270 度（Home 键在画面正左方） | 
+| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home 键在画面正左方） | 
 
 ![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
 
 
 ### step 5: 暂停播放
-对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同)。
+对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
 
 ```objectivec
 // 暂停
@@ -170,7 +170,7 @@ _txLivePlayer.recordDelegate = recordListener;
 
 
 ### step 11: 直播回看
-时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
+时移功能是腾讯云推出的特色能力，可以在直播过程中，随时回退到任意直播历史时间点观看，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
 ```objectivec
 // 设置直播回看前，先调用startPlay
@@ -253,7 +253,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要高于 CDN 线路的价格）。
 
 - **Obs 的延时是不达标的**
-推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
+推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7879)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 
 - **该功能按播放时长收费**
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 **[价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)**。
@@ -283,7 +283,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
 >**不要在收到 PLAY_LOADING 后隐藏播放画面**
 >
->因为PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
+>因为PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
 ### 结束事件
 
@@ -304,7 +304,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | :-------------------  |:-------- |  :------------------------ | 
 | PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | 当前视频帧解码失败  |
 | PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | 当前音频帧解码失败  |
-| PLAY_WARNING_RECONNECT           |  2103  | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT 了) |
+| PLAY_WARNING_RECONNECT           |  2103  | 网络断连，已启动自动重连（重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT） |
 | PLAY_WARNING_RECV_DATA_LAG       |  2104  | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀|
 | PLAY_WARNING_VIDEO_PLAY_LAG      |  2105  | 当前视频播放出现卡顿|
 | PLAY_WARNING_HW_ACCELERATION_FAIL|  2106  | 硬解启动失败，采用软解   |

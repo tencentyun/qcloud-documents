@@ -78,7 +78,7 @@ cur.execute('select * from ' + tablename)
 for i in cur.fetch():
         print i
 ```
->!替换其中的 $hs2host 为您查询到的 HiveServer2 的 hostID，$hs2port 为您查询到的 HiveServer2 的端口号。
+>!将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。
 
 该程序连接 HiveServer2 之后，首先输出所有的数据库，然后显示“default”数据库中的表。创建一个名为“hivebypython”的表，在表中插入两个数据并输出。运行该程序：
 ```

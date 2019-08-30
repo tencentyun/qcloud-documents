@@ -143,8 +143,8 @@ XML Android SDK 的存储桶可用区域简称发生了变化，下列表格列�
 | 广州（华南）   | ap-guangzhou | gz |
 | 成都（西南）   | ap-chengdu   | cd |
 | 重庆       | ap-chongqing | 无 |
-| 新加坡      | ap-singapore | sgp |
 | 香港       | ap-hongkong  | hk |
+| 新加坡      | ap-singapore | sgp |
 | 多伦多      | na-toronto   | ca |
 | 法兰克福     | eu-frankfurt | ger |
 | 孟买       | ap-mumbai    | 无 |

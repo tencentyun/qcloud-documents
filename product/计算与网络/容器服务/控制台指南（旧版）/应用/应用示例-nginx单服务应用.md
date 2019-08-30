@@ -10,7 +10,7 @@
 
 在[应用列表][2]中，单击新建按钮，开始基于应用模板创建应用。
 
-![应用nginx示例-010.png][create]
+![应用nginx示例-010.png](https://main.qcloudimg.com/raw/c77c84541bbde88f61517ec408ca73d5.png)
 
 ## 步骤三： 配置应用
 
@@ -19,7 +19,7 @@
 1. 填写应用名称和应用描述
 2. 选择应用需要部署到的地域和集群集群
 
-![应用nginx示例-009.png][create2]
+![应用nginx示例-009.png](https://main.qcloudimg.com/raw/401698a511ec1f62b5b81bf32fe99a95.png)
 
 单击下一步进入应用编辑页面，可以对应用中模板内容和配置项进行进一步的修改。
 1. 选择应用模板，这里选择刚刚创建的`nginx`这个模板
