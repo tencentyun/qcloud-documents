@@ -29,11 +29,12 @@ COS Select 适用于以 CSV、JSON  格式存储的对象，还适用于通过 G
 - 您必须使用在对象的架构中指定的数据类型。
 - 选择重复字段将只返回最后一个值。
 
-## 构建请求
+## 发起请求
 
-在构建请求时，您提供通过使用 `InputSerialization` 对象查询的对象的详细信息。您提供要使用 `OutputSerialization` 对象返回结果的方式的详细信息。您还包含 COS 将用于筛选请求的 SQL 表达式。                    
+在发起请求时，您可以通过使用 InputSerialization 参数指定待查询对象的格式、分隔符等信息，通过 OutputSerialization 参数指定返回结果的格式、分隔符等信息。
 
-有关构建 COS Select 请求的更多信息，请参见 [SELECT Object Content](https://cloud.tencent.com/document/product/436/37641) API 文档。                   
+有关发起 COS Select 请求的详细信息，请参见 [SELECT Object Content API](https://cloud.tencent.com/document/product/436/37641) 文档。
+
 
 ## 常见问题
 
