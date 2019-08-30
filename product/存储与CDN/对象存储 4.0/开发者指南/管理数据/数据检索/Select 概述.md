@@ -13,7 +13,7 @@ COS Select 适用于以 CSV、JSON  格式存储的对象，还适用于通过 G
 以下是使用 COS Select 的要求：
 
 - 您必须拥有所查询对象的 cos:GetObject 权限。                               
-- 如果您查询的对象已使用客户提供的加密密钥（SSE-C）进行加密，则必须使用 HTTPS，并且您必须在请求中提供加密密钥。                               
+                            
 
 使用 COS Select 时存在以下限制：
 
