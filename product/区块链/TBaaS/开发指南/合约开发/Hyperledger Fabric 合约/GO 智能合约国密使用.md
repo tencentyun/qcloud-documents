@@ -32,7 +32,7 @@ func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
 ```
 
 #### Invoke 函数示例
-本示例以实现了一种业务类型国密验签 verify 为例。Invoke 函数对用户的不同的智能合约业务逻辑进行拆分，通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数。
+Invoke 函数可以对用户的不同的智能合约业务逻辑进行拆分。本示例以只实现了一种业务类型国密验签 verify 为例，介绍如何通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，再分别调用不同的函数。
 ```
 //Invoke把用户调用的function细分到几个子function, 这里只实现了verify
 // Invoke is called per transaction on the chaincode. 
