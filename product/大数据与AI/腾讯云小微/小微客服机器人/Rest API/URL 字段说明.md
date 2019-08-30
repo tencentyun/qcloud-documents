@@ -20,7 +20,7 @@ appid=$appid
 |appid	|用户的 APPID 信息，在控制台中可以获取。|
 |sdkappid	|业务 SDK_ID，用户开通业务时获取到的信息。|
 |identifier	|用户名，为第三方用户帐号 ID 信息, 需要管理员权限的操作必须填管理员。|
-|usersig	|用户名对应的签名，第三方后台使用腾讯工具结合用户 identifier 信息生成。生成方法详情见 [TLS后台API使用手册](https://cloud.tencent.com/document/product/269/1510) |
+|usersig	|用户名对应的签名，第三方后台使用腾讯工具结合用户 identifier 信息生成。 |
 |random	|标识当前请求的整数随机数参数。|
 
 ### AppID 获取方式
