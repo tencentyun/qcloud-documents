@@ -317,19 +317,19 @@ public class ThirdPushTokenMgr {
    1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
    ```
    <activity
-   	android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
-     android:launchMode="singleTask"
-     android:screenOrientation="portrait"
-     android:windowSoftInputMode="adjustResize|stateHidden">
-   
-   	<intent-filter>
-     	<action android:name="android.intent.action.View" />
-       <data
-       	android:host="com.tencent.qcloud"
-         android:path="/detail"
-         android:scheme="pushscheme" />
-     </intent-filter>
-   
+	android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
+	android:launchMode="singleTask"
+	android:screenOrientation="portrait"
+	android:windowSoftInputMode="adjustResize|stateHidden">
+	   
+	<intent-filter>
+		<action android:name="android.intent.action.View" />
+		<data
+		    android:host="com.tencent.qcloud"
+		    android:path="/detail"
+		    android:scheme="pushscheme" />
+	</intent-filter>
+	   
    </activity>
    ```
 	 
