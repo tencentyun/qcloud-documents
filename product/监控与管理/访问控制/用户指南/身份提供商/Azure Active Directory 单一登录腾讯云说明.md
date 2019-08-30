@@ -24,7 +24,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 ![](https://main.qcloudimg.com/raw/103a22a9aed1c2a8f87f7c8fdcb38297.png)
 4. 在 “SAML 单一登录”的预览页面，下载【SAML签名证书】中的【联合元数据 XML】文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/e14e13b4f0d8a6d376e71036ed3888f9.png)
-4. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
+5. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
 ### 配置 Azure AD 的单一登录
 >?您可以通过本步骤将 Azure AD 应用程序属性映射到腾讯云的属性，建立 Azure AD 应用程序和腾讯云的互信关系。
@@ -48,7 +48,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName1}、{RoleName2} 替换您 [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22) 名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+>- {RoleName}替换您 [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22) 名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
