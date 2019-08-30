@@ -50,7 +50,7 @@
      </tr>  
   <tr>      
       <td>小程序</td>   
-      <td>WXMini/static/debug/GenerateTestUserSig.js</td>   
+      <td>WXMini/dist/wx/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 
@@ -68,12 +68,12 @@
 ## 步骤4：编译运行
 用各端的 IDE 直接编译运行即可。
 
-**其中 iOS 和 Mac Demo 的编译运行需要使用到 pod 集成，详情步骤如下：**
+**其中 iOS 和 Mac Demo 的编译运行需要使用 pod 集成，详情步骤如下：**
 1. 终端执行以下命令，检查 pod 版本。
 ```
 pod --version
 ```
-如果提示 pod 不存在，或则 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
+若提示 pod 不存在，或 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
 ```
 //更换 gem 源
 gem sources --remove https://rubygems.org/
@@ -94,7 +94,9 @@ pod install
 cd Mac/TUIKitDemo
 pod install
 ```
-3. iOS 进入 iOS/TUIKitDemo 文件夹，Mac 进入Mac/TUIKitDemo 文件夹，打开 `TUIKitDemo.xcworkspace` 编译运行。
+3. 编译运行：
+ - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
+ - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 
 
 
