@@ -322,13 +322,13 @@ public class ThirdPushTokenMgr {
 		android:screenOrientation="portrait"
 		android:windowSoftInputMode="adjustResize|stateHidden">
 		   
-	<intent-filter>
-		<action android:name="android.intent.action.View" />
-		<data
-			android:host="com.tencent.qcloud"
-			android:path="/detail"
-			android:scheme="pushscheme" />
-	</intent-filter>
+		<intent-filter>
+			<action android:name="android.intent.action.View" />
+			<data
+				android:host="com.tencent.qcloud"
+				android:path="/detail"
+				android:scheme="pushscheme" />
+		</intent-filter>
 		   
 	</activity>
 	```
@@ -345,7 +345,7 @@ public class ThirdPushTokenMgr {
     intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
     ```
 
-   3. 选择【跳转到自定义页面】并输入上述打印结果。
+  3. 选择【跳转到自定义页面】并输入上述打印结果。
     ![](https://main.qcloudimg.com/raw/8d8b1dcedb1165503d490abc391dcf66.png)
 
 ## 常见问题
