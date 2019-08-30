@@ -54,7 +54,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22)），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+>- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
