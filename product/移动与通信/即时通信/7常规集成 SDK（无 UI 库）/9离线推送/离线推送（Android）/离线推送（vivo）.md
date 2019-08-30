@@ -314,24 +314,25 @@ public class ThirdPushTokenMgr {
 如需配置跳转到自定义界面，您需要在 [添加证书](#Step2) 时选择【跳转到自定义页面】并输入需要执行的操作或 URL：
 - 如需打开网页，则需选择【跳转到自定义界面】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 - 如需打开应用内指定界面，需执行以下步骤。
-   1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+  1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
    ```
-   <activity
-	android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
-	android:launchMode="singleTask"
-	android:screenOrientation="portrait"
-	android:windowSoftInputMode="adjustResize|stateHidden">
-	   
-	<intent-filter>
-		<action android:name="android.intent.action.View" />
-		<data
-		    android:host="com.tencent.qcloud"
-		    android:path="/detail"
-		    android:scheme="pushscheme" />
-	</intent-filter>
-	   
-   </activity>
-   ```
+	<activity
+		android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
+		android:launchMode="singleTask"
+		android:screenOrientation="portrait"
+		android:windowSoftInputMode="adjustResize|stateHidden">
+		   
+		<intent-filter>
+			<action android:name="android.intent.action.View" />
+			<data
+				android:host="com.tencent.qcloud"
+				android:path="/detail"
+				android:scheme="pushscheme" />
+		</intent-filter>
+		   
+	</activity>
+  ```
+
 	 
   2. 获取 intent URL，方式如下：
    ```
