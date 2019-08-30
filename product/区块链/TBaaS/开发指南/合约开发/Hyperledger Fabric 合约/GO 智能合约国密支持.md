@@ -1,5 +1,5 @@
 ## 简介
-在有些业务场景中，用户希望在智能合约层增加对国密 SM2，SM3 的支持。TBaaS 在智能合约层引入了国密的能力，方便用户快速在智能合约层使用国密。
+在业务场景中，用户希望在智能合约层增加对国密SM2，SM3的支持。TBaaS 已在智能合约层引入了国密的能力，方便用户快速在智能合约层使用国密。
 
 TBaaS 智能合约对国密的支持，主要体现在以下两个方面：
 - TBaaS 提供了一个单独的用户业务层工具 gmtool，用户可以使用 gmtool 实现公私钥生成、加密、解密、签名以及验签等功能。
@@ -41,7 +41,7 @@ Gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 	</tr>
 	<tr>
 		<td>decrypt</td>
-		<td>解密，解密后的明文结果会在控制台展示</td>
+		<td>解密</td>
 		<td>
 			<ul class="bottom">
 				<li>skin：解密使用的私钥的文件路径。</li>
@@ -113,7 +113,7 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 #### 私钥相关函数
 <table>
 	<tr>
-		<th width="11%">接口类型</th>
+		<th width="12%">接口类型</th>
 		<th width="39%">函数名</th>
 		<th width="53%">说明</th>
 	</tr>
@@ -199,7 +199,7 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 		<tr>
 			<td>输出：<br>
 				<ul class="bottom">
-					<li>PEM: string类型，公钥的PEM格式字符串，未经加密。</li>
+					<li>PEM：string类型，公钥的PEM格式字符串，未经加密。</li>
 					<li>错误信息。</li>
 				</ul>
 			</td>
@@ -232,7 +232,7 @@ Go 语言智能合约 gmssl 包 支持 SM2，SM3 算法的相关接口，用户�
 		<tr>
 			<td>参数：<br>
 				<ul class="bottom">
-					<li>alg：string类型，算法名称。SM2 签名算法固定入参为 “sm2sign”。</li>
+					<li>alg：string 类型，算法名称。SM2 签名算法固定入参为 “sm2sign”。</li>
 					<li>dgst：[]byte 类型，信息摘要。将要签名的信息和 ComputeSM2IDDigest 函数生成的部分摘要，用选定的哈希算法算出最终摘要，作为此项入参。</li>
 					<li>engine： SM2 算法固定入参为 nil。</li>
 				</ul>

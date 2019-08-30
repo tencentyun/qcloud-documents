@@ -16,7 +16,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 >- 如果不需要对 vivo 设备做专门的离线推送适配，可以忽略此章节。
 
 <span id="Step1"></span>
-### Step1：申请 vivo 推送证书
+### 步骤1：申请 vivo 推送证书
 1. 打开 [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。
  >?认证过程大约需要3天左右，请务必提前阅读 [vivo 推送服务说明](https://dev.vivo.com.cn/documentCenter/doc/180)，以免影响您的接入进度。
 2. 登录 vivo 开放平台的管理中心，选择【消息推送】>【创建】>【测试推送】，创建 vivo 推送服务应用。
@@ -26,7 +26,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  ![](https://main.qcloudimg.com/raw/4bee78a25cadae911d56ca0b6adbac3a.png)
 
 <span id="Step2"></span>
-### Step2：托管证书信息到即时通信 IM
+### 步骤2：托管证书信息到即时通信 IM
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
@@ -34,30 +34,31 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 4. 单击【Android 推送证书】区域的【添加证书】。
  >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
  > 
-5. 根据 [Step1](#Step1_3) 中获取的信息设置以下参数：
+5. 根据 [步骤1](#Step1_3) 中获取的信息设置以下参数：
  - **推送平台**：选择 **vivo**
  - **应用包名称**：填写 vivo 推送服务应用的**应用包名**
  - **APPID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
- ![](https://main.qcloudimg.com/raw/b046e3dc6fb604bbc0a88da393fa1b83.png)
+ - **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
+ ![](https://main.qcloudimg.com/raw/143a5b3e9d7129ed0b537bb33b0d401d.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录**`证书 ID`** 。
- ![](https://main.qcloudimg.com/raw/744870d8e96007cf910d54a4ee48d0b4.png)
+ ![](https://main.qcloudimg.com/raw/d72eafe4a74ae9ec5a1670204465d743.png)
 
 <span id="Step3"></span>
-### Step3：集成推送 SDK
+### 步骤3：集成推送 SDK
 >?
 > - 即时通信 IM 默认推送的通知标题为`a new message`。
 > - 阅读此小节前，请确保您已经正常集成并使用即时通信 IM SDK。
 > - 您可以在我们的 demo 里找到 vivo 推送的实现示例，请注意： vivo 推送版本更新时有可能会有功能调整，若您发现本节内容存在差异，烦请您及时查阅 [vivo 推送官网文档](https://dev.vivo.com.cn/documentCenter/doc/155)，并将文档信息差异反馈给我们，我们会及时跟进修改。
 
-#### Step3.1：下载 vivo 推送 SDK 并添加引用
+#### 步骤3.1：下载 vivo 推送 SDK 并添加引用
 1. 访问 [vivo 推送运营平台](https://dev.vivo.com.cn/documentCenter/doc/232) 下载 vivo 推送 SDK。
 2. 解压 vivo 推送 SDK，获取`vivo_pushsdk_xxx.jar`库文件。
 3. 将`vivo_pushsdk_xxx.jar`库文件添加到您项目的`libs`目录下，并且在项目中添加引用。
 
 
-#### Step3.2：配置 AndroidManifest.xml 文件
+#### 步骤3.2：配置 AndroidManifest.xml 文件
 
 添加 vivo 推送服务需要的配置：
 
@@ -81,7 +82,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <!--这里的 com.vivo.push.app_id ，com.vivo.push.api_key 由 vivo 开放平台生成 -->
 ```
 
-#### Step3.3：自定义一个 BroadcastReceiver 类
+#### 步骤3.3：自定义一个 BroadcastReceiver 类
 
 为了接收消息，您需要自定义一个继承自`OpenClientPushMessageReceiver`类的 BroadcastReceiver，并实现其中的`onReceiveRegId`和`onNotificationMessageClicked`方法，然后将此 receiver 注册到 AndroidManifest.xml 中。
 
@@ -116,7 +117,7 @@ public class VIVOPushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 </receiver>
 ```
 
-#### Step3.4：在 App 中注册 vivo 推送服务
+#### 步骤3.4：在 App 中注册 vivo 推送服务
 
 如果您选择启用 vivo 离线推送，需要向 vivo 服务器注册推送服务，通过调用`PushClient.getInstance(getApplicationContext()).initialize()`来对 vivo 推送服务进行初始化。`PushClient.getInstance(getApplicationContext()).initialize()`可在任意地方调用，为了提高注册成功率，vivo 官方建议在 Application 的`onCreate`中调用。
 
@@ -192,7 +193,7 @@ if (IMFunc.isBrandVivo()) {
 </pre>
 
 <span id="Step4"></span>
-### Step4：上报推送信息至即时通信 IM 服务端
+### 步骤4：上报推送信息至即时通信 IM 服务端
 若您需要通过 vivo 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 vivo 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
 >!正确上报 regId 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 vivo 推送服务进行推送通知。
 
@@ -288,7 +289,7 @@ public class ThirdPushTokenMgr {
 }
 ```
 
-### Step5：离线推送
+### 步骤5：离线推送
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后，将消息通过 vivo 推送通知到用户端。
 
@@ -298,62 +299,60 @@ public class ThirdPushTokenMgr {
 >- vivo 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 vivo 推送服务有关。
 >- 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
-## 点击通知栏消息后的行为
 
 
-![](https://main.qcloudimg.com/raw/7d03a9b30d00aac52fbe59268e19400c.png)
+<span id="click"></span>
+## 配置点击通知栏消息事件
+您可以选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**。
 
 ### 打开应用
-
-默认行为是点击通知栏消息打开应用。
+默认为点击通知栏消息打开应用。
+![](https://main.qcloudimg.com/raw/143a5b3e9d7129ed0b537bb33b0d401d.png)
 
 ### 跳转到自定义界面
-
-点击通知栏，可以用内置的浏览器打开指定的网页，也可以打开应用内指定的界面。
-
-1. 打开网页，以 http:// 或者 https:// 开头，例如 https://cloud.tencent.com/document/product/269 。
-
-2. 打开应用内指定界面。
-
-   首先需要在 manifest 中配置需要打开的 Activity 的 `intent-filter`，例如：
-
-   ```
-   <activity
-   	android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
-     android:launchMode="singleTask"
-     android:screenOrientation="portrait"
-     android:windowSoftInputMode="adjustResize|stateHidden">
+点击通知栏消息后，可以配置为用内置浏览器打开指定网页，也可以配置为打开应用内指定界面。
+如需配置跳转到自定义界面，您需要在 [添加证书](#Step2) 时选择【跳转到自定义页面】并输入需要执行的操作或 URL：
+- 如需打开网页，则需选择【跳转到自定义界面】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
+- 如需打开应用内指定界面，需执行以下步骤。
+  1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+	```
+	<activity
+		android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
+		android:launchMode="singleTask"
+		android:screenOrientation="portrait"
+		android:windowSoftInputMode="adjustResize|stateHidden">
+		   
+		<intent-filter>
+			<action android:name="android.intent.action.View" />
+			<data
+				android:host="com.tencent.qcloud"
+				android:path="/detail"
+				android:scheme="pushscheme" />
+		</intent-filter>
+		   
+	</activity>
+	```
+ 
+  2. 获取 intent URL，方式如下：
+    ```
+    Intent intent = new Intent(this, ChatActivity.class);
+    intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
+    Log.i(TAG, "intentUri = " + intentUri);
    
-   	<intent-filter>
-     	<action android:name="android.intent.action.View" />
-       <data
-       	android:host="com.tencent.qcloud"
-         android:path="/detail"
-         android:scheme="pushscheme" />
-     </intent-filter>
-   
-   </activity>
-   ```
+    // 打印结果
+    intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
+    ```
 
-   然后获取 intent uri，方式如下：
-
-   ```
-   Intent intent = new Intent(this, ChatActivity.class);
-   intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
-   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-   String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
-   Log.i(TAG, "intentUri = " + intentUri);
-   
-   // 打印结果
-   intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
-   ```
-
-   把打印的结果填入上图中对应位置。
+  3. 选择【跳转到自定义页面】并输入上述打印结果。
+    ![](https://main.qcloudimg.com/raw/8d8b1dcedb1165503d490abc391dcf66.png)
 
 ## 常见问题
 
 ### 如果应用使用了混淆，如何防止 vivo 离线推送功能异常？
 
+如果您的应用使用了混淆，为了防止 vivo 离线推送功能异常，您需要 keep 自定义的 BroadcastReceiver，参考添加以下混淆规则：
 如果您的应用使用了混淆，为了防止 vivo 离线推送功能异常，您需要 keep 自定义的 BroadcastReceiver，参考添加以下混淆规则：
 >?以下代码仅为示例，请根据实际情况修改后再使用。
 
@@ -366,13 +365,14 @@ public class ThirdPushTokenMgr {
 -keep class com.tencent.qcloud.uipojo.thirdpus.VIVOPushMessageReceiverImpl{*;}
 ```
 
+
 ### 能否自定义配置推送提示音？
 
 目前 vivo 推送不支持自定义的提示音。
 
 ### 收不到推送时，如何排查问题？
 1. 任何推送都不是100%必达，厂商推送也不例外。因此，若在快速、连续的推送过程中偶现一两条推送未通知提醒，通常是由厂商推送频控的限制引起。
-2. 按照推送的流程，确认 vivo 推送证书信息是否正确配置在 [即时通信 IM 控制台](https://console.qcloud.com/avc)中。
+2. 按照推送的流程，确认 vivo 推送证书信息是否正确配置在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 中。
 3. 确认您的项目 [集成 vivo 推送 SDK](#Step3) 的配置正确，并正常获取到了 regId。
 4. 确认您已将正确的 [推送信息上报](#Step4) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
