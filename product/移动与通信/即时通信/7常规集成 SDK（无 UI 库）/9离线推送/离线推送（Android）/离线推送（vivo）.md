@@ -334,20 +334,20 @@ public class ThirdPushTokenMgr {
 	```
 
 	 
-  2. 获取 intent URL，方式如下：
-   ```
-   Intent intent = new Intent(this, ChatActivity.class);
-   intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
-   intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-   String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
-   Log.i(TAG, "intentUri = " + intentUri);
+   2. 获取 intent URL，方式如下：
+    ```
+    Intent intent = new Intent(this, ChatActivity.class);
+    intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
+    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+    String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
+    Log.i(TAG, "intentUri = " + intentUri);
    
-   // 打印结果
-   intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
-   ```
+    // 打印结果
+    intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
+    ```
 
-  3. 选择【跳转到自定义页面】并输入上述打印结果。
-   ![](https://main.qcloudimg.com/raw/8d8b1dcedb1165503d490abc391dcf66.png)
+   3. 选择【跳转到自定义页面】并输入上述打印结果。
+    ![](https://main.qcloudimg.com/raw/8d8b1dcedb1165503d490abc391dcf66.png)
 
 ## 常见问题
 
