@@ -1,5 +1,5 @@
 ## 操作场景
-用户可以利用 TBaaS 提供的同态加密的能力，便捷的在智能合约中使用同态加密。使用同态加密可以分为以下两个步骤：
+用户可以利用 TBaaS 提供的同态加密的能力，便捷的在智能合约中使用同态加密。使用同态加密可以分为以下三个步骤：
 1.  使用 TBaaS 提供的 paitool 生成同态公私钥，同时使用生成的公钥对用户数据线下加密。
 2.  使用 TBaaS 提供的 Go 语言智能合约包 paillier，编写同态相关的业务层操作，例如同态加、同态减、部分同态乘等。
 3.  当业务逻辑完成后，用户可以从智能合约中获取到对应的同态加密数据，线下使用对应的同态私钥进行数据解密，从而可以获取链上业务操作完成后的真实数据。
@@ -24,7 +24,7 @@ Hyperledger Fabric 提供了很多官方的智能合约样例，具体请参考 
 - invoke：用于 key 之间的 value 转移。
 - query：用于查询 key 所对应的值。
 
-以下将对代码中的重要函数进行分析，您可以访问 [智能合约代码](https://main.qcloudimg.com/raw/9d62832aa7f04218c795a2624176a7fc/pai_base64_demo.go) 获得完整代码。
+您可以访问 [智能合约代码](https://main.qcloudimg.com/raw/9d62832aa7f04218c795a2624176a7fc/pai_base64_demo.go) 获得完整代码，以下将对代码中的重要函数进行分析。
 
 #### Init 函数示例
 Init 函数主要用于在智能合约实例化和升级的时候默认调用。在实现 Init 函数的过程中，可以使用 [Go 语言版本的合约 API](https://cloud.tencent.com/document/product/663/36243) 来对参数和账本进行操作。在这个示例中，通过调用 API GetFunctionAndParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API PutState 将数据写到账本中。
@@ -67,8 +67,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 ```
 
 #### Invoke 函数示例
-Invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数。
-本示例中，根据用户的不同业务类型，分别会调用不同的业务函数，如 invoke 和 query 函数。
+Invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数，如 invoke 和 query 函数。
 ```
 //Invoke把用户调用的function细分到几个子function, 包含invoke和query
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
@@ -88,7 +87,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 
 #### 业务逻辑 invoke 函数示例
 业务逻辑 invoke 函数主要用于实现业务逻辑中的资产转移。本示例中通过调用 API GetState 获取到 KEY 对应的同态加密资产总值，通过调用用户业务逻辑实现资产转移，通过调用 API PutState 将用户最终资产写入账本。
-在此过程中，调用了同态加密的接口 GetPublicKeyFromHex，用于获取同态公钥，GetCiphertextFromHex 用于获取同态加密数据，Sub 用于同态密文和明文相减，Add 用于同态密文和明文相加以及 GetCiphertextHex 用于获取同态加密后的16进制密文数据。
+在此过程中，调用了同态加密的接口 GetPublicKeyFromHex 用于获取同态公钥，GetCiphertextFromHex 用于获取同态加密数据，Sub 用于同态密文和明文相减，Add 用于同态密文和明文相加以及 GetCiphertextHex 用于获取同态加密后的16进制密文数据。
 ```
 //invoke实现两个键之间的value转移，输入为KEY1_NAME, KEY1_PUBKEYINHEX, KEY2_NAME，KEY2_PUBKEYINHEX，VALUE
 //在例子中，KEY1_PUBKEYINHEX是pk1.pai内容的base64, KEY2_PUBKEYINHEX是pk2.pai的内容base64
