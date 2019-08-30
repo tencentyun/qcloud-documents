@@ -1,6 +1,5 @@
 #### 下列操作可支持资源级权限
 
-
 | 操作名                  | API 名                         | 配置后控制台是否生效 |
 | ----------------------- | ------------------------------ | -------------------- |
 | 恢复独享实例            | ActiveDedicatedDBInstance      | YES                  |
@@ -17,13 +16,13 @@
 | 删除参数模板            | DeleteConfigTemplate           | YES                  |
 | 删除临时实例            | DeleteTmpInstance              | YES                  |
 | 获取权限列表            | DescribeAccountPrivileges      | YES                  |
-| 查看帐号列表            | DescribeAccounts               | YES                  |
+| 查询帐号列表            | DescribeAccounts               | YES                  |
 | 查询审计日志            | DescribeAuditLogs              | YES                  |
 | 查询审计规则详情        | DescribeAuditRuleDetail        | YES                  |
 | 查询审计规则列表        | DescribeAuditRules             | YES                  |
 | 查询审计策略            | DescribeAuditStrategies        | YES                  |
 | 获取自定义备份时间      | DescribeBackupTime             | YES                  |
-| 批量 MariaDB 实例续费询价 | DescribeBatchRenewalPrice      | YES                  |
+| 批量实例续费询价 | DescribeBatchRenewalPrice      | YES                  |
 | 查询 binlog 时间          | DescribeBinlogTime             | YES                  |
 | 查询参数配置历史        | DescribeConfigHistories        | YES                  |
 | 查询参数模板            | DescribeConfigTemplate         | YES                  |
@@ -35,7 +34,8 @@
 | 查询实例密钥信息        | DescribeDBEncryptAttributes    | YES                  |
 | 查询实例详情            | DescribeDBInstanceDetail       | YES                  |
 | 查询实例 HA 信息          | DescribeDBInstanceHAInfo       | YES                  |
-| 查看实例列表            | DescribeDBInstances            | YES                  |
+| 查询实例规格              |DescribeDBInstanceSpecs           |YES|
+| 查询实例列表            | DescribeDBInstances            | YES                  |
 | 获取日志列表            | DescribeDBLogFiles             | YES                  |
 | 查询监控信息            | DescribeDBMetrics              | YES                  |
 | 查看数据库参数          | DescribeDBParameters           | YES                  |
