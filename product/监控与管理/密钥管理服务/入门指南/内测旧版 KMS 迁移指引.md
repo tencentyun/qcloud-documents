@@ -6,7 +6,7 @@
 以上变更，不影响内测版旧 KMS 服务的正常使用以及您的业务正常运行。如需迁移或对产品有任何疑问可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈给我们，感谢您对腾讯云的信赖与支持。
 
 ## 价格说明
-密钥管理服务 KMS 由 CMK 存储费用及 API 调用费用两部分组成，详细请参见 [计费概述](https://cloud.tencent.com/document/product/573/34388)。
+密钥管理服务 KMS，由 CMK 存储费用及 API 调用费用两部分组成，详细请参见 [计费概述](https://cloud.tencent.com/document/product/573/34388)。
 
 ## 步骤说明
 **步骤1：**内测旧 KMS 服务用户，可先在官网重新开通使用新的密钥管理服务（合规）。
