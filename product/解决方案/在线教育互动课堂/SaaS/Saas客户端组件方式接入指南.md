@@ -81,7 +81,7 @@ https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighe
 
 #### 快速集成 SDK
 1. TICSaaS 组件已发布到 jcenter，可通过配置 gradle 自动下载更新。
-2. 使用 Android Studio 打开需要集成 SDK 的工程（本文以 TICSaaSDemo 为例），修改 `app/build.gradle` 文件，修改内容如下：
+2. 使用 Android Studio 打开需要集成 SDK 的工程，修改 `app/build.gradle` 文件，修改内容如下：
   1. 添加 SDK 依赖。在`dependencies`中添加 TICSaaS 以及其它模块的依赖。
 ```groovy
  dependencies {
