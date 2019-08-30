@@ -32,8 +32,13 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
 2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】。如下图所示：
- - 标识符（实体 ID）：cloud.tencent.com
- - 回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
+>?
+> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
+标识符（实体 ID）：cloud.tencent.com
+回复 URL（断言使用者服务 URL）：https://cloud.tencent.com/login/saml
+> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
+标识符（实体 ID）：intl.cloud.tencent.com
+回复 URL（断言使用者服务 URL）：https://intl.cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/d13c71c27fe913bc2d9c21949f731a02.png)
 3. 在 “SAML 单一登录”概览界面，单击“用户属性和声明右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">，打开“用户属性声明”编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/012441d7e961f9f784e05cc347c66294.png)
@@ -48,7 +53,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName}替换您 [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22) 名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+>- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22)），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/01b51dd563c366e82fc3f15ec31a5747.png)
