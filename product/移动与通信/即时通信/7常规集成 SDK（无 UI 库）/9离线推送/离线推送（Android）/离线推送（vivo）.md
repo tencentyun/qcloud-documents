@@ -332,9 +332,8 @@ public class ThirdPushTokenMgr {
 		   
 	</activity>
 	```
-
-	 
-   2. 获取 intent URL，方式如下：
+ 
+  2. 获取 intent URL，方式如下：
     ```
     Intent intent = new Intent(this, ChatActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
