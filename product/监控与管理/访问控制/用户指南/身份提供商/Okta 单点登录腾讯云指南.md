@@ -32,7 +32,7 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/81053cfb0863aa625912eb375dea857f.png)
-4. 单击【Next】，进入 反馈/Feedback 页面，选择以下信息之后单击【Finish】，完成配置 CAM 操作。如下图所示：
+4. 单击【Next】，进入反馈/Feedback 页面，选择以下信息之后单击【Finish】，完成配置 CAM 操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e927753d30a0707f2c41304f63f1729.png)
 
 ### 为 Okta 应用程序配置 SAML 集成
