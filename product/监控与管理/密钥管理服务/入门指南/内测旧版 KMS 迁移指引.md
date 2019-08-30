@@ -1,5 +1,5 @@
 ## 概述
-腾讯云内测旧版 [密钥管理服务](https://console.cloud.tencent.com/kms) 由于架构改进，计划进行 EOL(end-of-life)流程。客户仍可以继续使用内测旧版密钥管理服务及其提供的所有功能服务，但后续将不再支持升级。
+腾讯云内测旧版 [密钥管理服务](https://console.cloud.tencent.com/kms) 由于架构改进，计划进行 EOL（end-of-life）流程。您仍可以继续使用内测旧版密钥管理服务，及其提供的所有功能服务，但后续将不再支持升级。
 
 官网已正式上线全新 [密钥管理服务（合规）](https://cloud.tencent.com/product/kms2) 做服务替换。新的密钥管理服务 KMS 完全满足合规标准，提供了更为丰富的密钥管理功能，且大大提高了可靠性设计。
 
@@ -31,6 +31,6 @@
 
 1. 开通 [密钥管理服务（合规）](https://console.cloud.tencent.com/kms2) 服务。
 2. 按照业务需求，在密钥管理服务（合规）创建相应的 CMK。
-3. 内测旧版密钥管理服务(https://console.cloud.tencent.com/kms) 加密数据进行解密：只需要处理 DataKey 的迁移，按照 API/SDK 2017 接口规范，使用旧版本 SDK，调用解密 Decrypt 接口，获取明文 DataKey，详情请参见 [解密](https://cloud.tencent.com/document/product/573/8890) API 文档。
+3. 内测旧版 [密钥管理服务](https://console.cloud.tencent.com/kms) 加密数据进行解密：只需要处理 DataKey 的迁移，按照 API/SDK 2017 接口规范，使用旧版本 SDK，调用解密 Decrypt 接口，获取明文 DataKey，详情请参见 [解密](https://cloud.tencent.com/document/product/573/8890) API 文档。
 4. 新版密钥管理服务（合规）信封加密：按照腾讯云 API3.0 标准，使用新版 SDK，调用加密 Encrypt 接口进行加密，详情请参见 [加密](https://cloud.tencent.com/document/api/573/34420) API 文档。
 5. 新版密钥管理服务（合规）信封解密：按照腾讯云 API3.0 标准，使用新版 SDK，调用解密 Decrypt 接口解密 DataKey 获取明文，使用 DataKey 明文对数据进行解密。详情请参见 [解密](https://cloud.tencent.com/document/product/573/34429) API 文档。
