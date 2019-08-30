@@ -17,13 +17,12 @@
 其中，message 是信息文件包含要签名的信息，sig.sm2 是生成的文件包含签名信息，该签名信息是 base64 编码的。
 
 ### 智能合约国密示例
-本示例中的 Init 函数直接返回成功，没有任何操作。Invoke 函数用于根据不同业务逻辑进行细分调用，最终调用 verify 业务逻辑接口用于验证用户的签名是否正确。
+该示例中的 Init 函数直接返回成功，无其余操作。Invoke 函数会根据不同业务逻辑进行细分调用，最终调用 verify 业务逻辑接口，用于验证用户的签名是否正确。您可访问 [智能合约代码](https://main.qcloudimg.com/raw/21e2670a6591b6a7b78ef3c7568c4c2c/gm_base64_demo.go) 获得完整代码，以下将对代码中的重要函数进行分析。
 
-以下将对代码中的重要函数进行分析，您可访问 [智能合约代码](https://main.qcloudimg.com/raw/21e2670a6591b6a7b78ef3c7568c4c2c/gm_base64_demo.go) 获得完整代码。
 
 #### Init 函数示例
 Init 函数主要用于在智能合约实例化和升级的时候默认调用。在实现 Init 函数的过程中，可以使用 [Go 语言版本的合约 API](https://cloud.tencent.com/document/product/663/36243) 来对参数和账本进行操作。
-在本示例中，直接返回成功。
+以返回成功为例，示例代码如下：
 ```
 //Init函数不包含具体业务，直接返回成功。
 func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
@@ -33,8 +32,7 @@ func (t *SimpleAsset) Init(stub shim.ChaincodeStubInterface) peer.Response {
 ```
 
 #### Invoke 函数示例
-Invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数。
-本示例中，只实现了一种业务类型国密验签 verify。
+本示例以实现了一种业务类型国密验签 verify 为例。Invoke 函数对用户的不同的智能合约业务逻辑进行拆分，通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数。
 ```
 //Invoke把用户调用的function细分到几个子function, 这里只实现了verify
 // Invoke is called per transaction on the chaincode. 
@@ -63,7 +61,7 @@ func (t *SimpleAsset) Invoke(stub shim.ChaincodeStubInterface) peer.Response {
 ```
 
 #### 业务逻辑 verify 函数示例
-业务逻辑 verify 函数主要用于实现业务逻辑中的国密签名验证。本示例通过调用国密的接口 NewPublicKeyFromPEM 用于获取国密公钥，以及 ComputeSM2IDDiges，NewDigestContext，Reset，Update，Final 用于生成信息摘要，Verify 用于验证签名是否正确。
+本示例以实现国密签名验证的业务逻辑 verify 函数为例。调用国密的接口 NewPublicKeyFromPEM 用于获取国密公钥，调用 ComputeSM2IDDiges，NewDigestContext，Reset，Update，Final 用于生成信息摘要，调用 Verify 用于验证签名是否正确。
 ```
 // verify输入的参数是信息,签名base64以及公钥base64
 // verify验证用户的签名是否正确
