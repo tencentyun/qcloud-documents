@@ -16,11 +16,11 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 ### <span id="stepCAM"></span>为 Okta 应用程序配置 SAML
 >?
 > - 您可以通过本步骤将 Okta 应用程序属性映射到腾讯云的属性，建立 Okta 和腾讯云之间的信任关系使之相互信任。
-> -  如您是参考 [创建 Okta 应用程序](#stepCREATE)  创建的应用程序，可直接进行操作 [步骤3](#stepCREATE) 。
+> -  如您是参考 [创建 Okta 应用程序](#stepCREATE)  创建的应用程序，可直接进行操作 [步骤3](#stepbuzhou3) 。
 >
 1. 前往 [应用管理页面](https://qqyu-admin.okta.com/admin/apps/active) ，单击您创建的应用程序名称。
 2. 在通用/GENERAL 页面，单击 SAML Settings 栏下的【Edit】，确认当前 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，进入配置 SAML/Configure SAML 页面。
-2. 在配置 SAML/Configure SAML 页面补充 GENERAL、ATTRIBUTE STATEMENTS 的以下信息。如下图所示：
+3. <span id="buzhou3"></span>在配置 SAML/Configure SAML 页面补充 GENERAL、ATTRIBUTE STATEMENTS 的以下信息。如下图所示：
 
 | Name | Name format | Value |
 |---------|---------|---------|
@@ -28,11 +28,11 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 | https://cloud.tencent.com/SAML/Attributes/RoleSessionName | Unspecified| okta |
 >?在 Value 中 {AccountID}，{RoleName}，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22) ），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+>- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22)），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/81053cfb0863aa625912eb375dea857f.png)
-3. 单击【Next】，进入 反馈/Feedback 页面，选择以下信息之后单击【Finish】，完成配置 CAM 操作。如下图所示：
+4. 单击【Next】，进入 反馈/Feedback 页面，选择以下信息之后单击【Finish】，完成配置 CAM 操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e927753d30a0707f2c41304f63f1729.png)
 
 ### 为 Okta 应用程序配置 SAML 集成
