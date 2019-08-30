@@ -22,7 +22,7 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 
 | Name | Name format | Value |
 |---------|---------|---------|
-| https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
+| https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
 | https://cloud.tencent.com/SAML/Attributes/RoleSessionName | Unspecified| okta |
 >?在 Value 中 {AccountID}，{RoleName}，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
