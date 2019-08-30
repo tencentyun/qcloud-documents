@@ -67,7 +67,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 ```
 
 #### Invoke 函数示例
-Invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，分别调用不同的函数，如 invoke 和 query 函数。
+Invoke 函数可以对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，再分别调用不同的函数，如 invoke 和 query 函数。
 ```
 //Invoke把用户调用的function细分到几个子function, 包含invoke和query
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
