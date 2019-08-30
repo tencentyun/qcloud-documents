@@ -1,13 +1,11 @@
 ## SaaS 客户端接入流程
 ![](https://main.qcloudimg.com/raw/6bc87cb24381be162af59ece11c991af.png)
-
-1. 控制台添加老师/学生账户信息；
+1. 在控制台添加老师/学生账户信息；
 2. 在控制台上提前准备上课课件；
 3. 创建课堂，获取课堂 ID；
-4. 在1 - 3步骤之后，您可以拿到 classID、userID 和 userToken 等关键信息，加上腾讯云互动课堂统一分配的机构码，这样您就可以使用腾讯云互动课堂客户端进行授课上课了。
+4. 完成1 - 3步骤后，您可获得 classID、userID 和 userToken 等关键信息以及腾讯云互动课堂统一分配的机构码，这样您就可以使用腾讯云互动课堂客户端进行授课上课了。
 
 更多控制台的使用，可以参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505)。
-
 
 ## 参数详解
 
@@ -17,7 +15,7 @@ company_id|int|机构码：获取机构的信息（机构名称，应用图标�
 class_id|int|课堂 ID：获取课堂信息的唯一标识。|通过云 API 创建课堂获取。
 user_id|string|用户帐号。|通过云 API 创建用户获取。
 user_token|string|用户签名。|通过云 API 创建用户获取。
-user_sig|string|腾讯云用户签名，登录腾讯云模块的时候需要带上。|<br>1. 如果用户把私钥托管给我们，不用填；<br>2. 如果没有托管，请使用 IMSDK 私钥自行计算。
+user_sig|string|腾讯云用户签名，登录腾讯云模块时需要。|1. 如果用户把私钥托管给我们，不用填；<br>2. 如果没有托管，请使用 IMSDK 私钥自行计算。
 
 ## 各端接入流程
 
@@ -30,9 +28,9 @@ win：[下载地址](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Setup_Saas.exe
 >!在用户机器上安装互动课堂组件。在 Win10 上必须使用管理员权限安装。
 
 ####  使用
-1. 通过浏览器启动应用直接进入课堂
-如果已经安装过应用，可以通过浏览器方式直接拉起来。如果没有安装，会提示下载地址。目前支持的浏览器有 Chrome、Safari。
->?MAC 需点击启动一次才能拉起，受限 electron 注册网络协议。
+1. 通过浏览器启动应用进入课堂
+如果应用已安装，可通过浏览器直接拉起。如果未安装，会提示下载地址。目前支持的浏览器有 Chrome、Safari。
+>?因受到 electron 注册网络协议的限制，MAC 需点击启动后才可拉起。
 
  URL 拼写规则如下：
 ```
@@ -47,7 +45,7 @@ https://tedu.qcloudtrtc.com/#/class/100001/1000776477
 https://tedu.qcloudtrtc.com/#/class/100001/1000776477/xxx/xxx/xxx
 ```
 2. 单击启动进入课堂
-  桌面单击应用启动，输入机构码、课堂 ID、用户 ID 和用户密码加入课堂。
+  桌面单击应用启动，输入机构 ID、课堂 ID、用户 ID 和密码加入课堂。
 
 ### Web 端
 <span id="web_location"></span>
