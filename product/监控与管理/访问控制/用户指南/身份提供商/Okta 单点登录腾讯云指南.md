@@ -22,11 +22,11 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 
 | Name | Name format | Value |
 |---------|---------|---------|
-| https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName} |
+| https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
 | https://cloud.tencent.com/SAML/Attributes/RoleSessionName | Unspecified| okta |
->?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
+>?在 Value 中 {AccountID}，{RoleName1} ，{RoleName2} ，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
+>- {RoleName1}、{RoleName2} 替换您 [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E4.B8.BA.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86.E5.88.9B.E5.BB.BA.E8.A7.92.E8.89.B22) 名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/81053cfb0863aa625912eb375dea857f.png)
