@@ -14,9 +14,9 @@ CDN 为您提供了 IP 黑白名单配置功能，您可以根据业务需要对
    在输入框中输入名单并提交，即可开启 IP 白名单功能，仅当客户源 IP 匹配列表中的 IP 或 IP 段时，访问能够正常返回所请求的内容，其他请求均直接返回403。
 ![img](https://main.qcloudimg.com/raw/7a3c457c4448a8c10aedd6feb399af05.png)
 2. 配置完成后，开关为开启状态，下方显示正在生效的 IP 白名单配置信息。单击【编辑】可更改配置信息。
-![img](https://main.qcloudimg.com/raw/31c725a85d339d28f117a9e60a1b644d.png)
+![img](https://main.qcloudimg.com/raw/b75819f595495f27117a5f0947bc6c26.png)
 3. 关闭 **IP 黑白名单**开关后，下方的配置信息失效，即 IP 黑白名单未启用。可再次手动开启。
-![img](https://main.qcloudimg.com/raw/690f14a3823b4e09897b792a4a7c91f0.png)
+![img](https://main.qcloudimg.com/raw/852bd47704f7a8dff83af4aa74956161.png)
 
 ### 黑名单配置
 
@@ -24,9 +24,9 @@ CDN 为您提供了 IP 黑白名单配置功能，您可以根据业务需要对
    在下方输入框中输入名单并提交后，即开启了 IP 黑名单功能，当客户源 IP 匹配列表中的 IP 或 IP 段时，访问直接返回403，其他访问能够正常返回所请求内容。
 ![img](https://main.qcloudimg.com/raw/5df321c78a59f19125634230dee84a42.png)
 2. 配置完成后，开关为开启状态，下方显示正在生效的 IP 黑名单配置信息。单击【编辑】可更改配置信息。
-![img](https://main.qcloudimg.com/raw/bb9068501bd29d7f16309c738f1c537d.png)
+![img](https://main.qcloudimg.com/raw/cd2fa0e9923cb6c88a49ed95b1398af9.png)
 3. 关闭 **IP 黑白名单**开关后，下方的配置信息失效，即 IP 黑白名单未启用。可再次手动开启。
-![img](https://main.qcloudimg.com/raw/d1f877a9f0675838e5a14852fea2f6a9.png)
+![img](https://main.qcloudimg.com/raw/0e1cd5c478cddb2890736be60e8ab55e.png)
 
 ## 配置案例
 若域名`www.test.com`的 IP 黑白名单配置如下：
