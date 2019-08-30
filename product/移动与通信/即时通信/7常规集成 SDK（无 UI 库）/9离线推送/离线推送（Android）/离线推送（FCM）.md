@@ -36,10 +36,10 @@
  - **发送者ID**：填写 Google 推送服务应用的 **发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的 **旧版服务器密钥**
  **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
-    ![](https://main.qcloudimg.com/raw/e9afea8b003046811645cbe1187c2d33.png)
+  ![](https://main.qcloudimg.com/raw/1c1f43a53874a15cefe8b23612da43d3.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录**`证书 ID`** 。
- ![](https://main.qcloudimg.com/raw/6ce977daa0fb4e31971d34f3530e3897.png)
+ ![](https://main.qcloudimg.com/raw/4fc22d574cbca7aedb30c0a13e728a9f.png)
 	
 
 <span id="Step3"></span>
