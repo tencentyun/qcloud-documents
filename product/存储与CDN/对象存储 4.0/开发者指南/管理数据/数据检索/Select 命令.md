@@ -22,7 +22,7 @@ SELECT projection [ AS column_alias | column_alias ] [, ...]
 
 ## FROM 子句
 
-COS Select 支持以下形式的 `From` 子句：
+COS Select 支持以下形式的 From 子句：
 
 ```shell
 FROM table_name
@@ -51,7 +51,7 @@ FROM COSObject[*].path AS alias
 > !
 - 此类调用形式仅支持 JSON 格式的对象。
 - 通配符至少返回一条记录。如果没有匹配的记录，COS Select 将返回一个 MISSING。如果序列操作执行完毕后，整个检索结果中均无匹配记录，则 COS Select 将会把 MISSING 替换为空记录。
-- 聚合函数 (`AVG`，`COUNT`，`MAX`，`MIN`，`SUM`) 将忽略 MISSING 值。
+- 聚合函数（AVG，COUNT，MAX，MIN，SUM）将忽略 MISSING 值。
 - 如果您在使用通配符时未提供别名，可以引用路径中的最后一个元素。例如，您可以通过`SELECT price FROM COSObject[*].books[*].price`从书籍列表中查询所有价格。如果路径以通配符而不是以字段名结束，可以使用`_1`来引用行。在这种情况下，您可以使用`SELECT _1.price FROM COSObject[*].books[*]`进行查询，而不是`SELECT price FROM COSObject[*].books[*].price`。
 - 通常情况下，COS Select将JSON文件视为一个具有根键值的数组。因此，即便您即将查询的JSON对象只有一个根元素，FROM 子句仍旧需要搭配`COSObject[*]`使用。出于兼容性考虑，COS Select允许您在未包含路径的情况下使用通配符。在这种情况下，`FROM COSObject`和`FROM COSObject[*] as COSObject`等效。如果您将路径包含在查询语句中，您必须使用通配符。这种情况下，`FROM COSObject` 和 `FROM COSObject[*].*path*`都是合法查询指令， `FROM COSObject.*path*`则是非法指令。
 
@@ -123,7 +123,7 @@ LIMIT 子句限制每次查询返回的记录数量，您可以通过 **number**
 
 ## 访问属性
 
-`SELECT`和`WHERE`子句可以通过以下任意方式选择查询的字段，您可以根据文件格式是 CSV 还是 JSON 进行选择。
+SELECT 和 WHERE 子句可以通过以下任意方式选择查询的字段，您可以根据文件格式是 CSV 还是 JSON 进行选择。
 
 #### CSV
 
@@ -216,5 +216,5 @@ COS Select 的 SQL 表达式具有一些保留字段，包含了函数名称，�
 - **unary_op** **expression**： SQL 一元运算符。
 - **expression** **binary_op** **expression**：SQL 二元运算符。
 - **func_name**：被调用的标量函数的名称。
-- **expression** `[ NOT ] BETWEEN` **expression** `AND` **expression**
-- **expression** `LIKE` **expression** [ `ESCAPE` ***expression*** ]
+- **expression** [ NOT ] BETWEEN **expression** AND **expression**
+- **expression** LIKE **expression** [ ESCAPE **expression** ]
