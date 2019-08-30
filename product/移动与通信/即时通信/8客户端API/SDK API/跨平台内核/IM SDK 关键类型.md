@@ -154,6 +154,7 @@
 | kTIMUserConfigIsReadReceipt | bool | 只写（选填） | true 表示要收已读回执事件 |
 | kTIMUserConfigIsSyncReport | bool | 只写（选填） | true 表示服务端要删掉已读状态 |
 | kTIMUserConfigIsIngoreGroupTipsUnRead | bool | 只写（选填） | true 表示群 tips 不计入群消息已读计数 |
+| kTIMUserConfigIsDisableStorage | bool | 只写（选填） | 是否禁用本地数据库，true 表示禁用，false 表示不禁用。默认是 false |
 | kTIMUserConfigGroupGetInfoOption |  object [GroupGetInfoOption](#groupgetinfooption)  | 只写（选填） | 获取群组信息默认选项 |
 | kTIMUserConfigGroupMemberGetInfoOption |  object [GroupMemberGetInfoOption](#groupmembergetinfooption)  | 只写（选填） | 获取群组成员信息默认选项 |
 
@@ -293,6 +294,8 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMElem_Location | 7 | 位置元素 |
 | kTIMElem_GroupReport | 8 | 群组系统通知元素 |
 | kTIMElem_Video | 9 | 视频元素 |
+| kTIMElem_FriendChange | 10 | 关系链变更消息元素 |
+| kTIMElem_ProfileChange | 11 | 资料变更消息元素 |
 
 ### Elem
 
@@ -420,7 +423,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFileElemFilePath | string | 读写（必填） | 文件所在路径（包含文件名） |
-| kTIMFileElemFileName | string | 读写（选填） | 文件名，显示的名称<br>不设置该参数时，kTIMFileElemFileName 默认为 kTIMFileElemFilePath 指定的文件路径中的文件名 |
+| kTIMFileElemFileName | string | 读写（选填） | 文件名，显示的名称。不设置该参数时，kTIMFileElemFileName 默认为 kTIMFileElemFilePath 指定的文件路径中的文件名 |
 | kTIMFileElemFileSize | int | 读写（必填） | 文件大小 |
 | kTIMFileElemFileId | string | 只读 | 下载视频时的 UUID |
 | kTIMFileElemBusinessId | int | 只读 | 下载时用到的 businessID |
@@ -484,18 +487,6 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 |-----|-----|-----|-----|
 | kTIMGroupTipMemberChangeInfoIdentifier | string | 只读 | 群组成员 ID |
 | kTIMGroupTipMemberChangeInfoShutupTime | uint | 只读 | 禁言时间 |
-
-### UserProfile
-
-用户个人资料。
-
-| JSON 键 | 值类型 | 属性 | 含义 |
-|-----|-----|-----|-----|
-| kTIMUserProfileIdentifier | string | 只读 | 用户 ID |
-| kTIMUserProfileNickName | string | 只读 | 用户的昵称 |
-| kTIMUserProfileFaceURL | string | 只读 | 用户头像 URL |
-| kTIMUserProfileSelfSignature | string | 只读 | 用户个人签名 |
-| kTIMUserProfileRemark | string | 只读 | 用户备注 |
 
 ### TIMGroupTipType
 
@@ -573,6 +564,62 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMGroupReportElemOpGroupMemberInfo |  object [GroupMemberInfo](#groupmemberinfo)  | 只读 | 操作者群内资料 |
 | kTIMGroupReportElemPlatform | string | 只读 | 操作方平台信息 |
 
+### TIMProfileChangeType
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMProfileChange_None | 0 | 未知类型 |
+| kTIMProfileChange_Profile | 1 | 资料修改 |
+
+### ProfileChangeElem
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMProfileChangeElemChangeType |  uint [TIMProfileChangeType](#timprofilechangetype)  | 只读 | 资料变更类型 |
+| kTIMProfileChangeElemFromIndentifier | string | 只读 | 资料变更用户的 identifier |
+| kTIMProfileChangeElemUserProfileItem |  object [UserProfileItem](#userprofileitem)  | 只读 | 具体的变更信息，只有当`change_type`为`kTIMProfileChange_Profile`时有效 |
+
+### TIMFriendChangeType
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMFriendChange_None | 0 | 未知类型 |
+| kTIMFriendChange_FriendAdd | 1 | 好友表增加 |
+| kTIMFriendChange_FriendDel | 2 | 好友表删除 |
+| kTIMFriendChange_PendencyAdd | 3 | 未决增加 |
+| kTIMFriendChange_PendencyDel | 4 | 未决删除多终端同步 |
+| kTIMFriendChange_BlackListAdd | 5 | 黑名单添加 |
+| kTIMFriendChange_BlackListDel | 6 | 黑名单删除 |
+| kTIMFriendChange_PendencyReadedReport | 7 | 未决已读上报 |
+| kTIMFriendChange_FriendProfileUpdate | 8 | 好友数据更新 |
+| kTIMFriendChange_FriendGroupAdd | 9 | 分组增加 |
+| kTIMFriendChange_FriendGroupDel | 10 | 分组删除 |
+| kTIMFriendChange_FriendGroupModify | 11 | 分组修改 |
+
+### FriendProfileUpdate
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendProfileUpdateIdentifier | string | 只写 | 资料更新的好友的 identifier |
+| kTIMFriendProfileUpdateItem |  object [FriendProfileItem](#friendprofileitem)  | 只写 | 资料更新的 Item |
+
+### FriendChangeElem
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendChangeElemChangeType |  uint [TIMFriendChangeType](#timfriendchangetype)  | 只读 | 资料变更类型 |
+| kTIMFriendChangeElemFriendAddIdentifierArray |  array string | 只读 | 新增的好友 identifier 列表，只有当`change_type`为`kTIMFriendChange_FriendAdd`时有效 |
+| kTIMFriendChangeElemFriendDelIdentifierArray |  array string | 只读 | 删除的好友 identifier 列表，只有当`change_type`为`kTIMFriendChange_FriendDel`时有效 |
+| kTIMFriendChangeElemFriendAddPendencyItemArray |  array [FriendAddPendency](#friendaddpendency)  | 只读 | 好友添加未决信息列表，只有当`change_type`为`kTIMFriendChange_PendencyAdd`时有效 |
+| kTIMFriendChangeElemPendencyDelIdentifierArray |  array string | 只读 | 好友未决信息删除列表，只有当`change_type`为`kTIMFriendChange_PendencyDel`时有效 |
+| kTIMFriendChangeElemPendencyReadedReportTimestamp | uint64 | 只读 | 未决已读上报时间戳，只有当`change_type`为`kTIMFriendChange_PendencyReadedReport`时有效 |
+| kTIMFriendChangeElemBlackListAddIdentifierArray |  array string | 只读 | 新增的黑名单 identifier 列表，只有当`change_type`为`kTIMFriendChange_BlackListAdd`时有效 |
+| kTIMFriendChangeElemBlackListDelIdentifierArray |  array string | 只读 | 删除的黑名单 identifier 列表，只有当`change_type`为`kTIMFriendChange_BlackListDel`时有效 |
+| kTIMFriendChangeElemFreindProfileUpdateItemArray |  array [FriendProfileUpdate](#friendprofileupdate)  | 只读 | 好友资料更新列表，只有当`change_type`为`kTIMFriendChange_FriendProfileUpdate`时有效 |
+| kTIMFriendChangeElemFriendGroupAddIdentifierArray |  array string | 只读 | 新增的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupAdd`时有效 |
+| kTIMFriendChangeElemFriendGroupDelIdentifierArray |  array string | 只读 | 删除的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupDel`时有效 |
+| kTIMFriendChangeElemFriendGroupModifyIdentifierArray |  array string | 只读 | 修改的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupModify`时有效 |
+
 ### MsgBatchSendParam
 
 消息群发接口的参数。
@@ -606,6 +653,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMMsgLocatorSeq | uint64 | 读写（必填） | 要查找的消息的序列号 |
 | kTIMMsgLocatorIsSelf | bool | 读写（必填） | 要查找的消息的发送者是否是自己。true 发送者是自己，false 发送者不是自己。默认值为 false |
 | kTIMMsgLocatorRand | uint64 | 读写（必填） | 要查找的消息随机码 |
+| kTIMMsgLocatorUniqueId | uint64 | 读写（必填） | 要查找的消息的唯一标识 |
 
 ### MsgGetMsgListParam
 
@@ -725,6 +773,13 @@ UUID 类型。
 | kTIMMemberRole_Admin | 1 | 管理员 |
 | kTIMMemberRole_SuperAdmin | 2 | 超级管理员 |
 
+### GroupMemberInfoCustemString
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupMemberInfoCustemStringInfoKey | string | 只写 | 自定义字段的 key |
+| kTIMGroupMemberInfoCustemStringInfoValue | string | 只写 | 自定义字段的 value |
+
 ### GroupMemberInfo
 
 群组成员信息。
@@ -738,7 +793,14 @@ UUID 类型。
 | kTIMGroupMemberInfoMsgSeq | uint | 只读 | - |
 | kTIMGroupMemberInfoShutupTime | uint | 只读 | 成员禁言时间 |
 | kTIMGroupMemberInfoNameCard | string | 只读 | 成员群名片 |
-| kTIMGroupMemberInfoCustomInfo |  object key string value string | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+| kTIMGroupMemberInfoCustomInfo |  array [GroupMemberInfoCustemString](#groupmemberinfocustemstring)  | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+
+### GroupInfoCustemString
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMGroupInfoCustemStringInfoKey | string | 只写 | 自定义字段的 key |
+| kTIMGroupInfoCustemStringInfoValue | string | 只写 | 自定义字段的 value |
 
 ### CreateGroupParam
 
@@ -755,7 +817,7 @@ UUID 类型。
 | kTIMCreateGroupParamFaceUrl | string | 只写（选填） | 群组头像 URL |
 | kTIMCreateGroupParamAddOption |  uint [TIMGroupAddOption](#timgroupaddoption)  | 只写（选填） | 加群选项，默认为 Any |
 | kTIMCreateGroupParamMaxMemberCount | uint | 只写（选填） | 群组最大成员数 |
-| kTIMCreateGroupParamCustomInfo |  object key string value string | 只读（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+| kTIMCreateGroupParamCustomInfo |  array [GroupInfoCustemString](#groupinfocustemstring)  | 只读（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
 
 ### CreateGroupResult
 
@@ -845,10 +907,10 @@ UUID 类型。
 | kTIMGroupBaseInfoGroupName | string | 只读 | 群组名称 |
 | kTIMGroupBaseInfoGroupType |  string [TIMGroupType](#timgrouptype)  | 只读 | 群组类型 |
 | kTIMGroupBaseInfoFaceUrl | string | 只读 | 群组头像 URL |
-| kTIMGroupBaseInfoInfoSeq | uint | 只读 | - |
-| kTIMGroupBaseInfoLastestSeq | uint | 只读 | - |
-| kTIMGroupBaseInfoReadedSeq | uint | 只读 | - |
-| kTIMGroupBaseInfoMsgFlag | uint | 只读 | - |
+| kTIMGroupBaseInfoInfoSeq | uint | 只读 | 群资料的 Seq，群资料的每次变更都会增加这个字段的值 |
+| kTIMGroupBaseInfoLastestSeq | uint | 只读 | 群最新消息的 Seq。群组内每一条消息都有一条唯一的消息 Seq，且该 Seq 是按照发消息顺序而连续的。从1开始，群内每增加一条消息，LastestSeq 就会增加1 |
+| kTIMGroupBaseInfoReadedSeq | uint | 只读 | 用户所在群已读的消息 Seq |
+| kTIMGroupBaseInfoMsgFlag | uint | 只读 | 消息接收选项 |
 | kTIMGroupBaseInfoIsShutupAll | bool | 只读 | 当前群组是否设置了全员禁言 |
 | kTIMGroupBaseInfoSelfInfo |  object [GroupSelfInfo](#groupselfinfo)  | 只读 | 用户所在群的个人信息 |
 
@@ -865,9 +927,9 @@ UUID 类型。
 | kTIMGroupDetialInfoIntroduction | string | 只读 | 群组简介 |
 | kTIMGroupDetialInfoFaceUrl | string | 只读 | 群组头像 URL |
 | kTIMGroupDetialInfoCreateTime | uint | 只读 | 群组创建时间 |
-| kTIMGroupDetialInfoInfoSeq | uint | 只读 | - |
+| kTIMGroupDetialInfoInfoSeq | uint | 只读 | 群资料的 Seq，群资料的每次变更都会增加这个字段的值 |
 | kTIMGroupDetialInfoLastInfoTime | uint | 只读 | 群组信息最后修改时间 |
-| kTIMGroupDetialInfoNextMsgSeq | uint | 只读 | - |
+| kTIMGroupDetialInfoNextMsgSeq | uint | 只读 | 群最新消息的 Seq |
 | kTIMGroupDetialInfoLastMsgTime | uint | 只读 | 最新群组消息时间 |
 | kTIMGroupDetialInfoMemberNum | uint | 只读 | 群组当前成员数量 |
 | kTIMGroupDetialInfoMaxMemberNum | uint | 只读 | 群组最大成员数量 |
@@ -877,7 +939,7 @@ UUID 类型。
 | kTIMGroupDetialInfoSearchable | uint | 只读 | 群组是否能被搜索 |
 | kTIMGroupDetialInfoIsShutupAll | bool | 只读 | 群组是否被设置了全员禁言 |
 | kTIMGroupDetialInfoOwnerIdentifier | string | 只读 | 群组所有者 ID |
-| kTIMGroupDetialInfoCustomInfo |  object key string value string | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+| kTIMGroupDetialInfoCustomInfo |  array [GroupInfoCustemString](#groupinfocustemstring)  | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
 
 ### GetGroupInfoResult
 
@@ -925,7 +987,7 @@ UUID 类型。
 | kTIMGroupModifyInfoParamSearchAble | uint | 只写（选填） | 修改群是否被搜索，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Searchable`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamIsShutupAll | bool | 只写（选填） | 修改群是否全体禁言，当`modify_flag`包含`kTIMGroupModifyInfoFlag_ShutupAll`时必填，其他情况不用填 |
 | kTIMGroupModifyInfoParamOwner | string | 只写（选填） | 修改群主所有者，当`modify_flag`包含`kTIMGroupModifyInfoFlag_Owner`时必填，其他情况不用填。此时`modify_flag`不能包含其他值，当修改群主时，同时修改其他信息已无意义 |
-| kTIMGroupModifyInfoParamCustomInfo |  object key string value string | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+| kTIMGroupModifyInfoParamCustomInfo |  array [GroupInfoCustemString](#groupinfocustemstring)  | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
 
 ### GroupGetMemberInfoListParam
 
@@ -972,7 +1034,7 @@ UUID 类型。
 | kTIMGroupModifyMemberInfoParamMemberRole |  uint [TIMGroupMemberRole](#timgroupmemberrole)  | 只写（选填） | 修改成员角色，当`modify_flag`包含`kTIMGroupMemberModifyFlag_MemberRole`时必填，其他情况不用填 |
 | kTIMGroupModifyMemberInfoParamShutupTime | uint | 只写（选填） | 修改禁言时间，当`modify_flag`包含`kTIMGroupMemberModifyFlag_ShutupTime`时必填，其他情况不用填 |
 | kTIMGroupModifyMemberInfoParamNameCard | string | 只写（选填） | 修改群名片，当`modify_flag`包含`kTIMGroupMemberModifyFlag_NameCard`时必填，其他情况不用填 |
-| kTIMGroupModifyMemberInfoParamCustomInfo |  object key string value string | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
+| kTIMGroupModifyMemberInfoParamCustomInfo |  array [GroupMemberInfoCustemString](#groupmemberinfocustemstring)  | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5)  |
 
 ### GroupPendencyOption
 
@@ -1019,7 +1081,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
-| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID。例如，请求加群：请求者，邀请加群：邀请人。 |
+| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID，例如：请求加群：请求者，邀请加群：邀请人。 |
 | kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，请求加群：""，邀请加群：被邀请人。 |
 | kTIMGroupPendencyAddTime | uint64 | 只读 | 未决信息添加时间 |
 | kTIMGroupPendencyPendencyType |  uint [TIMGroupPendencyType](#timgrouppendencytype)  | 只读 | 未决请求类型 |
@@ -1050,4 +1112,274 @@ UUID 类型。
 | kTIMGroupHandlePendencyParamIsAccept | bool | 只写（选填） | true 表示接受，false 表示拒绝。默认为 false |
 | kTIMGroupHandlePendencyParamHandleMsg | string | 只写（选填） | 同意或拒绝信息，默认为空字符串 |
 | kTIMGroupHandlePendencyParamPendency |  object [GroupPendency](#grouppendency)  | 只写（必填） | 未决信息详情 |
+
+## 关系链和资料关键类型
+
+关系链和资料相关宏定义，以及相关结构成员存取 JSON Key 定义。
+
+### FriendShipGetProfileListParam
+
+处理群未决消息接口的参数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendShipGetProfileListParamIdentifierArray |  array string | 只写 | 想要获取目标用户资料的 identifier 列表 |
+| kTIMFriendShipGetProfileListParamForceUpdate | bool | 只写 | 是否强制更新。false 表示优先从本地缓存获取，获取不到则去网络上拉取。true 表示直接去网络上拉取资料。默认值为 false |
+
+### TIMGenderType
+
+用户性别类型。
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMGenderType_Unkown | 0 | 未知性别 |
+| kTIMGenderType_Male | 1 | 性别男 |
+| kTIMGenderType_Female | 2 | 性别女 |
+
+### TIMProfileAddPermission
+
+用户加好友的选项。
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| kTIMProfileAddPermission_Unknown | 0 | 未知 |
+| kTIMProfileAddPermission_AllowAny | 1 | 允许任何人添加好友 |
+| kTIMProfileAddPermission_NeedConfirm | 2 | 拒绝任何人添加好友 |
+| kTIMProfileAddPermission_DenyAny | 3 | 添加好友需要验证 |
+
+### UserProfileCustemStringInfo
+
+用户自定义资料字段，字符串。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMUserProfileCustemStringInfoKey | string | 只写 | 用户自定义资料字段的 key 值（包含前缀 Tag_Profile_Custom_） |
+| kTIMUserProfileCustemStringInfoValue | string | 只写 | 该字段对应的字符串值 |
+
+>?字符串长度不得超过500字节。
+
+
+### UserProfile
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMUserProfileIdentifier | string | 只读 | 用户 ID |
+| kTIMUserProfileNickName | string | 只读 | 用户的昵称 |
+| kTIMUserProfileGender |  uint [TIMGenderType](#timgendertype)  | 只读 | 性别 |
+| kTIMUserProfileFaceUrl | string | 只读 | 用户头像 URL |
+| kTIMUserProfileSelfSignature | string | 只读 | 用户个人签名 |
+| kTIMUserProfileAddPermission |  uint [TIMProfileAddPermission](#timprofileaddpermission)  | 只读 | 用户加好友的选项 |
+| kTIMUserProfileLocation | string | 只读 | 用户位置信息 |
+| kTIMUserProfileLanguage | uint | 只读 | 语言 |
+| kTIMUserProfileBirthDay | uint | 只读 | 生日 |
+| kTIMUserProfileLevel | uint | 只读 | 等级 |
+| kTIMUserProfileRole | uint | 只读 | 角色 |
+| kTIMUserProfileCustomStringArray |  array [UserProfileCustemStringInfo](#userprofilecustemstringinfo)  | 只读 | 请参考 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
+
+### UserProfileItem
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMUserProfileItemNickName | string | 只写 | 修改用户昵称 |
+| kTIMUserProfileItemGender |  uint [TIMGenderType](#timgendertype)  | 只写 | 修改用户性别 |
+| kTIMUserProfileItemFaceUrl | string | 只写 | 修改用户头像 |
+| kTIMUserProfileItemSelfSignature | string | 只写 | 修改用户签名 |
+| kTIMUserProfileItemAddPermission |  uint [TIMProfileAddPermission](#timprofileaddpermission)  | 只写 | 修改用户加好友的选项 |
+| kTIMUserProfileItemLoaction | uint | 只写 | 修改位置 |
+| kTIMUserProfileItemLanguage | uint | 只写 | 修改语言 |
+| kTIMUserProfileItemBirthDay | uint | 只写 | 修改生日 |
+| kTIMUserProfileItemLevel | uint | 只写 | 修改等级 |
+| kTIMUserProfileItemRole | uint | 只写 | 修改角色 |
+| kTIMUserProfileItemCustomStringArray |  array [UserProfileCustemStringInfo](#userprofilecustemstringinfo)  | 只写 | 修改 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
+
+### FriendProfileCustemStringInfo
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendProfileCustemStringInfoKey | string | 只写 | 好友自定义资料字段 key |
+| kTIMFriendProfileCustemStringInfoValue | string | 只写 | 好友自定义资料字段 value |
+
+### FriendProfile
+
+好友资料。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendProfileIdentifier | string | 只读 | 好友 identifier |
+| kTIMFriendProfileGroupNameArray |  array string | 只读 | 好友分组名称列表 |
+| kTIMFriendProfileRemark | string | 只读 | 好友备注，最大96字节，获取自己资料时，该字段为空 |
+| kTIMFriendProfileAddWording | string | 只读 | 好友申请时的添加理由 |
+| kTIMFriendProfileAddSource | string | 只读 | 好友申请时的添加来源 |
+| kTIMFriendProfileAddTime | uint64 | 只读 | 好友添加时间 |
+| kTIMFriendProfileUserProfile | `object`【UserProfile】 | 只读 | 好友的个人资料 |
+| kTIMFriendProfileCustomStringArray |  array [FriendProfileCustemStringInfo](#friendprofilecustemstringinfo)  | 只读 |  [自定义好友字段](https://cloud.tencent.com/document/product/269/1501#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5)  |
+
+### FriendProfileItem
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendProfileItemRemark | string | 只写 | 修改好友备注 |
+| kTIMFriendProfileItemGroupNameArray |  array string | 只写 | 修改好友分组名称列表 |
+| kTIMFriendProfileItemCustomStringArray |  array [FriendProfileCustemStringInfo](#friendprofilecustemstringinfo)  | 只写 | 修改 [自定义好友字段](https://cloud.tencent.com/document/product/269/1501#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5)  |
+
+### TIMFriendType
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| FriendTypeSignle | 0 | 单向好友：用户 A 的好友表中有用户 B，但 B 的好友表中却没有 A |
+| FriendTypeBoth | 1 | 双向好友：用户 A 的好友表中有用户 B，B 的好友表中也有 A |
+
+### FriendshipAddFriendParam
+
+添加好友接口的参数。
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipAddFriendParamIdentifier | string | 只写 | 请求加好友对应的 identifier |
+| kTIMFriendshipAddFriendParamFriendType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 请求添加好友的好友类型 |
+| kTIMFriendshipAddFriendParamRemark | string | 只写 | 预备注 |
+| kTIMFriendshipAddFriendParamGroupName | string | 只写 | 预分组名 |
+| kTIMFriendshipAddFriendParamAddSource | string | 只写 | 加好友来源描述 |
+| kTIMFriendshipAddFriendParamAddWording | string | 只写 | 加好友附言 |
+
+### FriendResult
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendResultIdentifier | string | 只读 | 关系链操作的用户 ID |
+| kTIMFriendResultCode |  int [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 关系链操作的结果 |
+| kTIMFriendResultDesc | string | 只读 | 关系链操作失败的详细描述 |
+
+### FriendshipModifyFriendProfileParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipModifyFriendProfileParamIdentifier | string | 只写 | 被修改的好友的 Identifier |
+| kTIMFriendshipModifyFriendProfileParamItem |  object [FriendProfileItem](#friendprofileitem)  | 只写 | 修改的好友资料各个选项 |
+
+### FriendAddPendency
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendAddPendencyIdentifier | string | 只读 | 添加好友请求方的 identifier |
+| kTIMFriendAddPendencyNickName | string | 只读 | 添加好友请求方的昵称 |
+| kTIMFriendAddPendencyAddSource | string | 只读 | 添加好友请求方的来源 |
+| kTIMFriendAddPendencyAddWording | string | 只读 | 添加好友请求方的附言 |
+
+### TIMFriendPendencyType
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| FriendPendencyTypeComeIn | 0 | 别人发给我的 |
+| FriendPendencyTypeSendOut | 1 | 我发给别人的 |
+| FriendPendencyTypeBoth | 2 | 双向的 |
+
+### FriendshipGetPendencyListParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipGetPendencyListParamType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只写 | 获取好友添加请求未决类型 |
+| kTIMFriendshipGetPendencyListParamStartSeq | uint64 | 只写 | 获取未决的起始 seq 未决列表序列号。建议客户端保存`seq`和未决列表，请求时填入`server`返回的seq。如果`seq`是`server`最新的，则不返回数据 |
+| kTIMFriendshipGetPendencyListParamStartTime | uint64 | 只写 | 获取未决信息的开始时间戳 |
+| kTIMFriendshipGetPendencyListParamLimitedSize | int | 只写 | 获取未决信息列表，每页的数量 |
+
+### PendencyPage
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMPendencyPageStartTime | uint64 | 只读 | 未决请求信息页的起始时间 |
+| kTIMPendencyPageUnReadNum | uint64 | 只读 | 未决请求信息页的未读数量 |
+| kTIMPendencyPageCurrentSeq | uint64 | 只读 | 未决请求信息页的当前 Seq |
+| kTIMPendencyPagePendencyInfoArray |  array [FriendAddPendencyInfo](#friendaddpendencyinfo)  | 只读 | 未决请求信息页的未决信息列表 |
+
+### FriendAddPendencyInfo
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendAddPendencyInfoType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只读 | 好友添加请求未决类型 |
+| kTIMFriendAddPendencyInfoIdentifier | string | 只读 | 好友添加请求未决的 identifier |
+| kTIMFriendAddPendencyInfoNickName | string | 只读 | 好友添加请求未决的昵称 |
+| kTIMFriendAddPendencyInfoAddTime | uint64 | 只读 | 好友添加请求未决的请求添加时间 |
+| kTIMFriendAddPendencyInfoAddSource | string | 只读 | 好友添加请求未决的添加来源 |
+| kTIMFriendAddPendencyInfoAddWording | string | 只读 | 好友添加请求未决的添加附言 |
+
+### FriendshipDeletePendencyParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipDeletePendencyParamType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只读 | 删除好友添加请求未决的类型 |
+| kTIMFriendshipDeletePendencyParamIdentifierArray |  array string | 只读 | 删除好友未决请求的 Identifier 列表 |
+
+### TIMFriendResponseAction
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| ResponseActionAgree | 0 | 同意 |
+| ResponseActionAgreeAndAdd | 1 | 同意并添加 |
+| ResponseActionReject | 2 | 拒绝 |
+
+### FriendRespone
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendResponeIdentifier | string | 只写（必填） | 响应好友添加的 Identifier |
+| kTIMFriendResponeAction |  uint [TIMFriendResponseAction](#timfriendresponseaction)  | 只写（必填） | 响应好友添加的动作 |
+| kTIMFriendResponeRemark | string | 只写（选填） | 好友备注 |
+| kTIMFriendResponeGroupName | string | 只写（选填） | 好友分组列表 |
+
+### FriendshipDeleteFriendParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipDeleteFriendParamFriendType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 删除好友，指定删除的好友类型 |
+| kTIMFriendshipDeleteFriendParamIdentifierArray |  array string | 只写（选填） | 删除好友 identifier 列表 |
+
+### FriendGroupInfo
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipCreateFriendGroupParamNameArray |  array string | 只写 | 创建分组的名称列表 |
+| kTIMFriendshipCreateFriendGroupParamIdentifierArray |  array string | 只写 | 要放到创建的分组的好友 Identifier 列表 |
+
+### FriendGroupInfo
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendGroupInfoName | string | 只读 | 分组名称 |
+| kTIMFriendGroupInfoCount | uint64 | 只读 | 当前分组的好友个数 |
+| kTIMFriendGroupInfoIdentifierArray |  array string | 只读 | 当前分组内好友 Identifier 列表 |
+
+### FriendshipModifyFriendGroupParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipModifyFriendGroupParamName | string | 只写 | 要修改的分组名称 |
+| kTIMFriendshipModifyFriendGroupParamNewName | string | 只写（选填） | 修改后的分组名称 |
+| kTIMFriendshipModifyFriendGroupParamDeleteIdentifierArray |  array string | 只写（选填） | 要从当前分组删除的好友 identifier 列表 |
+| kTIMFriendshipModifyFriendGroupParamAddIdentifierArray |  array string | 只写（选填） | 当前分组要新增的好友 identifier 列表 |
+
+### FriendshipCheckFriendTypeParam
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipCheckFriendTypeParamCheckType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 要检测的好友类型 |
+| kTIMFriendshipCheckFriendTypeParamIdentifierArray |  array string | 只写 | 要检测的好友 Identifier 列表 |
+
+### TIMFriendCheckRelation
+
+| 名称 | 值 | 含义 |
+|-----|-----|-----|
+| FriendCheckNoRelation | 0 | 无关系 |
+| FriendCheckAWithB | 1 | 仅 A 中有 B |
+| FriendCheckBWithA | 2 | 仅 B 中有 A |
+| FriendCheckBothWay | 3 | 双向 |
+
+### FriendshipCheckFriendTypeResult
+
+| JSON 键 | 值类型 | 属性 | 含义 |
+|-----|-----|-----|-----|
+| kTIMFriendshipCheckFriendTypeResultIdentifier | string | 只读 | 被检测的好友 Identifier |
+| kTIMFriendshipCheckFriendTypeResultRelation |  uint [TIMFriendCheckRelation](#timfriendcheckrelation)  | 只读 | 检测成功时返回的二者之间的关系 |
+| kTIMFriendshipCheckFriendTypeResultCode |  int [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 检测的结果 |
+| kTIMFriendshipCheckFriendTypeResultDesc | string | 只读 | 检测好友失败的描述信息 |
 
