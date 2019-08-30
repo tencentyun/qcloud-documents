@@ -156,12 +156,12 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
   <tr>
     <th width="100px" style="text-align:center">功能模块</th>
     <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center">直播精简版<br>LiteAV_Smart</th>
-    <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
-    <th width="100px" style="text-align:center">TRTC版<br>LiteAV_TRTC</th>
-    <th width="100px" style="text-align:center">播放器版<br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center">专业版<br>Professional</th>
-    <th width="100px" style="text-align:center">企业版<br>Enterprise</th>
+    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/7873">直播精简版</a><br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/9366">短视频版</a><br>LiteAV_UGC</th>
+    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC版</a><br>LiteAV_TRTC</th>
+    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
+    <th width="100px" style="text-align:center"><a href="#Professional">专业版</a><br>Professional</th>
+    <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
   </tr>
   <tr>
     <td rowspan='2' style="text-align:center">直播推流</td>
