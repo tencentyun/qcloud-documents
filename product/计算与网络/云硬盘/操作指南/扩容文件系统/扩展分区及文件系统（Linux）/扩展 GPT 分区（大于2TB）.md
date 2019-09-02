@@ -10,22 +10,24 @@
 	<tr>
 		<td>小于2TB</td>
 		<td>大于2TB</td>
-		<td>建议将扩容部分新建一块云硬盘，挂载后请参照 新建 GRT 分区 分区后，将数据拷至新盘。</td>
+		<td>建议将扩容部分新建一块云硬盘，挂载后请参照 <a href="https://cloud.tencent.com/document/product/362/6735#.E5.88.9D.E5.A7.8B.E5.8C.96.E4.BA.91.E7.A1.AC.E7.9B.98.EF.BC.88linux.EF.BC.89">初始化云硬盘（大于2TB）</a> 创建分区及文件系统后，将数据拷至新盘。</td>
 	</tr>
 		<tr>
 		<td>大于2TB</td>
 		<td>任意</td>
 		<td>
 			<ul style="margin-bottom:0px;">
-				<li>将扩容部分合并至已有 GRT 分区</li>
-				<li>将扩容部分新建 GRT 分区</li>
+			<li>将扩容部分 <a href="#Add">划分至原有 GRT 分区</a></li>
+				<li>将扩容部分 <a href="#New">新建 GRT 分区</a></li>
 			</ui>
 		</td>
 	</tr>
 </table>
 
 ## 操作步骤
-### 将扩容部分的容量划分至原有分区（GPT）
+
+<span id="Add"></span>
+### 将扩容部分的容量划分至原有 GPT 分区
 1. 以 root 用户执行以下命令，确认云硬盘的容量变化。
 ```
 parted <磁盘路径> print
@@ -48,7 +50,7 @@ mount | grep '<磁盘路径>'
 mount | grep '/dev/vdb'
 ```
 执行结果如下，则说明云硬盘上有一个分区（vdb1）挂载在 `/data` 上。
-![](//mccdn.qcloud.com/static/img/edc5bbd6834e1dd929ce0eb00acd53ca/image.png)
+![](https://main.qcloudimg.com/raw/3b786b5ccc36f2819b2659cf47afb422.png)
 <span id="step3"></span>
 3. 执行以下命令，解挂该分区的文件系统。
 ```
@@ -61,7 +63,8 @@ umount /data
 >? 请将云硬盘上**所有分区的文件系统**都解挂，可重复执行 [步骤2](#step2) 查看是否还有挂载。
 > - 若有挂载，执行 [步骤3](#step3) 进行卸载。
 > - 若无挂载，则如下图所示：
-![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
+> 
+![](https://main.qcloudimg.com/raw/c51d1e9215493837b4b0968aecb94f5c.png)
 <span id="step4"></span>
 4. 执行以下命令，进入 parted 分区工具。
 ```
@@ -158,8 +161,8 @@ df -h
 返回如下图信息说明挂载成功，即可以查看到数据盘。
 ![](https://main.qcloudimg.com/raw/b99b58b68ae1d156325392767cdc5c72.png)
 
-<span id="CreateANewGPTPart"></span>
-### 将扩容部分的容量格式化成独立的新分区（GPT）
+<span id="Add"></span>
+### 将扩容部分的容量格式化成独立的 GPT 分区
 1. 以 root 用户执行以下命令， 确认云硬盘的容量变化。
 ```
 parted <磁盘路径> print
@@ -182,7 +185,7 @@ mount | grep '<磁盘路径>'
 mount | grep '/dev/vdb'
 ```
 如下图所示，云硬盘上有一个分区（vdb1）挂载在 `/data` 上。
-![](//mccdn.qcloud.com/static/img/edc5bbd6834e1dd929ce0eb00acd53ca/image.png)
+![](https://main.qcloudimg.com/raw/71e89299483c2fa21975fa6f3e112314.png)
 <span id="Step3"></span>
 3. 执行以下命令，解挂该分区的文件系统。
 ```
@@ -195,8 +198,9 @@ umount /data
 >? 请将云硬盘上**所有分区的文件系统**都解挂，可重复执行 [步骤2](#Step2) 查看是否还有挂载。
 > - 若有挂载，执行 [步骤3](#Step3) 进行卸载。
 > - 若无挂载，则如下图所示：
-![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
->
+> 
+![](https://main.qcloudimg.com/raw/cc22a30e399c428e8580ef1425729f4d.png)
+
 4. 执行以下命令，进入 parted 分区工具。
 ```
 parted '<磁盘路径>'
