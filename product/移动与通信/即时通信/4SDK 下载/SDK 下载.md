@@ -1,6 +1,6 @@
 您可以根据不同使用平台下载对应的即时通信 IM SDK，Demo 运行说明请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
 
->?推荐使用 Github 下载 Demo 源码、TUIKit 以及 SDK，当 Github 访问较慢时，您可以使用 Gitee 下载或者直接下载[ Zip 包](https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK-4.4.900.zip)。
+>?推荐使用 Github 下载 Demo 源码、TUIKit 以及 SDK，当 Github 访问较慢时，您可以使用 Gitee 下载或者直接下载[ Zip 包](http://github-1252463788.file.myqcloud.com/imsdk/TIMSDK-4.5.15.zip)。
 
 <table>
      <tr>
