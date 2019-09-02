@@ -20,15 +20,25 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >
 1. 前往 [应用管理页面](https://qqyu-admin.okta.com/admin/apps/active) ，单击您创建的应用程序名称。
 2. 在通用/GENERAL 页面，单击 SAML Settings 栏下的【Edit】，确认当前 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，进入配置 SAML/Configure SAML 页面。
-3. <span id="buzhou3"></span>在配置 SAML/Configure SAML 页面补充 GENERAL、ATTRIBUTE STATEMENTS 的以下信息。如下图所示：
+3. <span id="buzhou3"></span>在配置 SAML/Configure SAML 页面将 GENERAL 下 Single sign on URL 和 Audience URL(SP Entity ID)补充为以下信息，如下图所示：
+>?
+> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
+> Single sign on URL：https://cloud.tencent.com/login/saml
+Audience URL(SP Entity ID)：cloud.tencent.com
+> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
+> Single sign on URL：https://intl.cloud.tencent.com/login/saml
+Audience URL(SP Entity ID)：intl.cloud.tencent.com
+
+![](https://main.qcloudimg.com/raw/ada0e33a12e237e23d86bc6cdf4defc0.png)
+4. 在配置 SAML/Configure SAML 页面将 GENERAL 下 ATTRIBUTE STATEMENTS 补充为以下信息。如下图所示：
 
 | Name | Name format | Value |
 |---------|---------|---------|
 | https://cloud.tencent.com/SAML/Attributes/Role | Unspecified| qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
 | https://cloud.tencent.com/SAML/Attributes/RoleSessionName | Unspecified| okta |
->?在 Value 中 {AccountID}，{RoleName}，{ProviderName} 分别替换内容下：
+>?>在 Value 中 {AccountID}，{RoleName}，{ProviderName} 分别替换内容下：
 >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何  [在腾讯云为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 角色 - 控制台 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+>- {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何在腾讯云  [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 ![](https://main.qcloudimg.com/raw/81053cfb0863aa625912eb375dea857f.png)
@@ -54,8 +64,7 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 ![](https://main.qcloudimg.com/raw/28eb0bceaebf2de3f073a72ed5bdd6c8.jpg)
 2. 在用户管理页面，单击左上角的【Everyone】，找到您需要授权的用户。如下图所示：
 ![](https://main.qcloudimg.com/raw/cc2022608165d39e0eeb3de495c5b07a.png)
-3. 单击用户名称，进入用户详情页，单击左上角【Assigned Applications
-】。如下图所示：
+3. 单击用户名称，进入用户详情页，单击左上角【Assigned Applications】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ed74fd59d8d757dabcc2c82a7983582.png)
 4. 在弹出的设置窗口中，单击【Done】，完成配置 Okta 用户操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/2d80e92964f5e7be9849c82ad4017ea7.jpg)
