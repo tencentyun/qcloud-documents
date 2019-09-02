@@ -1,0 +1,218 @@
+为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍游戏多媒体引擎实时语音音效的接入技术文档。
+
+
+## 实时语音音效相关接口
+|接口     | 接口含义   |
+| ------------- |:-------------:|
+|PlayEffect    		|播放音效。|
+|PauseEffect    	|暂停播放音效。|
+|PauseAllEffects	|暂停所有音效。|
+|ResumeEffect    	|重新播放音效。|
+|ResumeAllEffects	|重新播放所有音效。|
+|StopEffect 		|停止播放音效。|
+|StopAllEffects		|停止播放所有音效。|
+|SetVoiceType 		|变声特效。|
+|SetKaraokeType 		|K 歌音效特效。|
+|GetEffectsVolume	|获取播放音效的音量。|
+|SetEffectsVolume 	|设置播放音效的音量。|
+
+
+### 播放音效
+PlayEffect 接口用于播放音效。参数中音效 ID 需要 App 侧进行管理，ID 代表一次独立的播放事件。后续可以根据此 ID 控制此次播放。文件支持 m4a、wav、mp3 一共三种格式。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int PlayEffect(int soundId,  const char* filePath, bool loop, double pitch, double pan, double gain)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| soundId    	|int    		|音效 ID。|
+| filePath    	|char\*     	|音效路径。						|
+| loop    		|bool  	|是否重复播放	。					|
+| pitch    	|double	|播放频率，默认为1.0，该值越小播放速度越慢、时间越长。		|
+| pan    		|double	|声道，取值范围为 -1.0到1.0之间，-1.0表示只开启左声道。	|
+| gain    		|double	|增益音量，取值范围为 0.0到 1.0之间，默认为1.0。		|
+
+####  示例代码  
+```
+double pitch = 1.0;
+double pan = 0.0;
+double gain = 0.0;
+//Windows端
+ITMGContextGetInstance()->GetAudioEffectCtrl()->PlayEffect(soundId,filepath,true,pitch,pan,gain);
+//Android端
+ITMGContext.GetInstance(this).GetAudioEffectCtrl().PlayEffect(soundId,filePath,loop);
+//iOS端
+[[[ITMGContext GetInstance] GetAudioEffectCtrl] PlayEffect:soundId filePath:path loop:isLoop];
+```
+
+
+### 暂停播放音效
+PauseEffect 接口用于暂停播放音效。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int PauseEffect(int soundId)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| soundId    |int                    |音效 ID。|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->PauseEffect(soundId);
+```
+
+### 暂停所有音效
+调用 PauseAllEffects 接口暂停所有音效
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int PauseAllEffects()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->PauseAllEffects();
+```
+
+### 重新播放音效
+ResumeEffect 接口用于重新播放音效。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int ResumeEffect(int soundId)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| soundId    |int                    |音效 ID。|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeEffect(soundId);
+```
+
+
+
+### 重新播放所有音效
+调用 ResumeAllEffects 接口重新播放所有音效。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int ResumeAllEffects()
+```
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->ResumeAllEffects();
+```
+
+### 停止播放音效
+StopEffect 接口用于停止播放音效。
+####  函数原型  
+```
+ITMGAudioEffectCtrl virtual int StopEffect(int soundId)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| soundId    |int                    |音效 ID。|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->StopEffect(soundId);
+```
+
+### 停止播放所有音效
+调用 StopAllEffects 接口停止播放所有音效。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int StopAllEffects()
+```
+
+
+#### 示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->StopAllEffects();
+```
+
+
+
+### 变声特效
+调用 SetVoiceType 接口设置变声特效。
+#### 函数原型  
+```
+TMGAudioEffectCtrl int setVoiceType(int type)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| type    |int                    |表示本端音频变声类型。|
+
+
+
+|类型参数     |参数代表|意义|
+| ------------- |-------------|------------- |
+| ITMG_VOICE_TYPE_ORIGINAL_SOUND  		|0	|原声。			|
+| ITMG_VOICE_TYPE_LOLITA    				|1	|萝莉。			|
+| ITMG_VOICE_TYPE_UNCLE  				|2	|大叔。			|
+| ITMG_VOICE_TYPE_INTANGIBLE    			|3	|空灵。			|
+| ITMG_VOICE_TYPE_DEAD_FATBOY  			|4	|死肥仔。			|
+| ITMG_VOICE_TYPE_HEAVY_MENTA			|5	|重金属。			|
+| ITMG_VOICE_TYPE_DIALECT 				|6	|歪果仁。			|
+| ITMG_VOICE_TYPE_INFLUENZA 				|7	|感冒。			|
+| ITMG_VOICE_TYPE_CAGED_ANIMAL 			|8	|困兽。			|
+| ITMG_VOICE_TYPE_HEAVY_MACHINE		|9	|重机器。			|
+| ITMG_VOICE_TYPE_STRONG_CURRENT		|10	|强电流。			|
+| ITMG_VOICE_TYPE_KINDER_GARTEN			|11	|幼稚园。			|
+| ITMG_VOICE_TYPE_HUANG 					|12	|小黄人。			|
+
+#### 示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->setVoiceType(0);
+```
+
+### K 歌音效特效
+调用 SetKaraokeType 接口设置 K 歌音效特效。
+####  函数原型  
+```
+TMGAudioEffectCtrl int SetKaraokeType(int type)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| type    |int                    |表示本端音频变声类型。|
+
+
+|类型参数     |参数代表|意义|
+| ------------- |-------------|------------- |
+|ITMG_KARAOKE_TYPE_ORIGINAL 		|0	|原声。			|
+|ITMG_KARAOKE_TYPE_POP 				|1	|流行。			|
+|ITMG_KARAOKE_TYPE_ROCK 			|2	|摇滚。			|
+|ITMG_KARAOKE_TYPE_RB 				|3	|嘻哈。			|
+|ITMG_KARAOKE_TYPE_DANCE 			|4	|舞曲。			|
+|ITMG_KARAOKE_TYPE_HEAVEN 			|5	|空灵。			|
+|ITMG_KARAOKE_TYPE_TTS 				|6	|语音合成。		|
+
+####  示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->SetKaraokeType(0);
+```
+
+### 获取播放音效的音量
+调用 GetEffectsVolume 接口获取播放音效的音量，为线性音量，默认值为100，数值大于100为增益效果，数值小于100为减益效果。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int GetEffectsVolume()
+```
+#### 示例代码  
+```
+ITMGContextGetInstance()->GetAudioEffectCtrl()->GetEffectsVolume();
+```
+
+### 设置播放音效的音量
+调用 SetEffectsVolume 接口设置播放音效的音量。
+#### 函数原型  
+```
+ITMGAudioEffectCtrl virtual int SetEffectsVolume(int volume)
+```
+|参数     | 类型         |意义|
+| ------------- |:-------------:|-------------|
+| volume    |int                    |音量数值。|
+
+#### 示例代码  
+```
+int volume=1;
+ITMGContextGetInstance()->GetAudioEffectCtrl()->SetEffectsVolume(volume);
+```
+

@@ -1,103 +1,444 @@
-## 1. 功能介绍
+## 概述
 
-腾讯云智营解析SDK MSDKDns 的主要功能是为了有效的避免由于运营商传统LocalDns解析导致的无法访问最佳接入点的方案。原理为使用Http加密协议替代传统的DNS协议，整个过程不使用域名，大大减少劫持的可能性。
+总的来说，HttpDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
+- LocalDNS 劫持/故障
+- LocalDNS 调度不准确
 
-您可以通过以下方式获取智营解析 Android SDK：
+HttpDNS 的 Android SDK，主要提供了基于 HttpDNS 服务的域名解析和缓存管理能力：
+- SDK 在进行域名解析时，优先通过 HttpDNS 服务得到域名解析结果，极端情况下如果 HttpDNS 服务不可用，则使用LocalDNS 解析结果。
+- HttpDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HttpDNS 解析结果的缓存管理。
 
-[从 Github 获取最新版本SDK >>](https://github.com/tencentyun/httpdns-android-sdk)
-[点击下载 Android SDK >>](https://mc.qcloudimg.com/static/archive/86d55ba36f96092a82b20c762a5dce59/httpdns-android-sdk-master.zip)
+HttpDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HttpDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
+智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)
 
-注意：
-如果客户端的业务是与host绑定的，比如是绑定了host的http服务或者是cdn的服务，那么在用HttpDNS返回的IP替换掉URL中的域名以后，还需要指定下Http头的Host字段。以curl为例，假设你要访问www.qq.com，通过HttpDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：`curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt`
+## 接入
 
-名词解释：
-DNS_KEY，DNS_ID，开通使用httpdns时，会分配对应业务的ID和KEY，ID和KEY是与产品绑定的，不能修改，通过接口使用httpdns时，需要提供ID与KEY，具体参照接口调用手册
+### 权限配置
 
-## 2. 接入
-
-### 2.1. AndroidMainfest配置
-```
+```xml
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-<uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.INTERNET" />
-<!-- 添加应用自身的灯塔appkey，如0I000LT6GW1YGCP7-->
-<meta-data
-    android:name="APPKEY_DENGTA"
-    android:value="XXXXXXXXXXXXXXXX" />
-<!-- DNS接收网络切换广播 -->
-<receiver
-    android:name="com.tencent.msdk.dns.HttpDnsCache$ConnectivityChangeReceiver"
-    android:label="NetworkConnection" >
-    <intent-filter>
-        <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
-    </intent-filter>
-</receiver>
+
+<!-- 用于获取手机imei码进行数据上报，非必须 -->
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
+<!-- 灯塔 -->
+<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-注意：`android: value`的值在提供的版本包key_android.txt文件中，即appkey，请按照此文件中的内容修改，AndroidMainfest中的权限如果已经存在不需要重复添加。
+### 网络安全配置兼容
 
-### 2.2. 接入HttpDns库
-将`HttpDnsDemo\libs\msdkhttpdns_xxxx.jar`库文件拷贝至应用libs相应的位置；
-将`HttpDnsDemo\assets\dnsconfig.ini`配置文件拷贝到应用Android\assets目录下；
-
-拷贝`dnsconfig.ini`文件前，先修改此文件里的相关配置，但不要改变文件原有的编码格式，具体修改方法如下：
-
-| 修改项 | 修改字段 | 修改方法|
-|-------|---------|---------|
-|厂商开关 |	IS_COOPERATOR | 外部应用填"true" |
-|外部厂商测试开关 | IS_COOPERATOR_TEST | 如果需要使用测试环境来测试则填"true"，直接使用正式环境填"false" （测试环境将会使用官方提供的demo，无需申请ID与KEY，正式使用时需要申请自己的ID与KEY）|
-|厂商上报appID | COOPERATOR_APPID | 注册后由系统或管理员分配|
-|SDK日志开关 | IS_DEBUG | true为打开日志开关，false为关闭日志，在测试阶段建议打开日志，以便排查问题，正式上线后可以关闭|
-|服务端分配的ID | DNS_ID | 注册后由系统或管理员分配|
-|服务端分配的KEY | DNS_KEY | 注册后由系统或管理员分配|
-
-### 2.3. 接入依赖库
-> 注意：检查应用是否接入过已经接入了腾讯msdk，如果已经接入了腾讯msdk则忽略此步。
-
-将`HttpDnsDemo\libs\ beacon_android_v1.9.4.jar`拷贝至游戏libs相应的位置。
-
-### 2.4. HttpDns Java接口调用
+App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP 网络请求，详细信息参见 [Opt out of cleartext traffic](https://developer.android.com/training/articles/security-config#Opt%20out%20of%20cleartext%20traffic)。
+这种情况下，业务侧需要将HttpDNS请求使用的IP配置到域名白名单中：
+- AndroidManifest 文件中配置
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... >
+    <application android:networkSecurityConfig="@xml/network_security_config"
+                    ... >
+        ...
+    </application>
+</manifest>
 ```
+- XML 目录下添加 network_security_config.xml 配置文件
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="false">182.254.116.117</domain>
+        <domain includeSubdomains="false">119.29.29.29</domain>
+    </domain-config>
+</network-security-config>
+```
+
+### 接入HttpDNS
+- 将 HttpDNSLibs\HttpDNS_xxxx.jar 拷贝至应用 libs 相应位置。
+- 将 HttpDNSLibs/*/libhttpdns.so 拷贝至应用 jniLibs 相应位置。
+
+### 接入灯塔
+
+将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
+ >! 
+ >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
+ >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+
+### 接口调用
+
+```Java
+// 初始化灯塔：如果已经接入MSDK或者IMSDK或者单独接入了腾讯灯塔(Beacon)则不需再初始化该接口
+try {
+    // 注意：这里业务需要输入自己的灯塔appkey
+    UserAction.setAppKey("0I000LT6GW1YGCP7");
+    UserAction.initUserAction(MainActivity.this.getApplicationContext());
+} catch (Exception e) {
+    Log.e(TAG, "Init beacon failed", e);
+}
+
 /**
-* 初始化HttpDns
-* @param context 传入Application Context
-*/
-MSDKDnsResolver.getInstance().init(MainActivity.this.getApplicationContext());
+ * 初始化HttpDNS：如果接入了MSDK，建议初始化MSDK后再初始化HttpDNS
+ *
+ * @param context 应用上下文，最好传入ApplicationContext
+ * @param appkey 业务appkey，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于上报
+ * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的key(加密密钥)，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于域名解析鉴权
+ * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
+ * @param timeout dns请求超时时间，单位ms，建议设置1000
+ */
+MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, debug, timeout);
 
 /**
-* 初始化灯塔
-* 注意：如果已接入腾讯msdk并且初始化了msdk，则不用再次初始化灯塔
-* @param this 传入主Activity或者Application Context
-*/
-UserAction.initUserAction(MainActivity.this. getApplicationContext ());
+ * 设置OpenId，已接入MSDK业务直接传MSDK OpenId，其它业务传“NULL”
+ *
+ * @param String openId
+ */
+MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 /**
-* HttpDns同步解析接口
-* 注意：domain只能传入域名不能传入IP，返回结果需要做非空判断
-* 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求，
-* 解析完成返回最新解析结果，若解析失败返回空对象
-* @param domain 域名(如www.qq.com)
-* @return 域名对应的解析IP结果集合
-*/
-
-String ips = MSDKDnsResolver.getInstance(). getAddrByName(domain);
+ * HttpDNS同步解析接口
+ * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
+ * 解析完成返回最新解析结果
+ * 返回值字符串以“;”分隔，“;”前为解析得到的IPv4地址（解析失败填“0”），“;”后为解析得到的IPv6地址（解析失败填“0”）
+ *
+ * @param domain 域名(如www.qq.com)
+ * @return 域名对应的解析IP结果集合
+ */
+String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 ```
 
-## 3. 注意事项
+### 接入验证
 
-1. 客户端使用代理
-当客户端使用代理时HttpDns解析的结果就变成了根据代理的IP来判断用户的所在的依据，从而可能会返回和直接用用户IP访问时的不同的结果。
+当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HttpDNS（日志上为hdns_ip）相关日志时，可以确认接入无误。
 
-2. 建议调用HttpDns同步接口时最好在子线程调用，getAddrByName(domain)接口做了超时管理，超时时间由应用自己在dnsconfig.ini文件中配置，默认超时时间为1秒(TIME_OUT=1000)。
+### 注意事项
 
-3. 若想自己使用灯塔上报内容，在接入HttpDns后可以直接调用灯塔接口上报，例如：
+- getAddrByName 是耗时同步接口，应当在子线程调用。
+- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HttpDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
+  - 以 URLConnection 为例：
+ ```Java
+URL oldUrl = new URL(url);
+URLConnection connection = oldUrl.openConnection();
+// 获取HttpDNS域名解析结果 
+String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
+String[] ipArr = ips.split(";");
+if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+    String ip = ipArr[0];
+    String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
+    connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
+    connection.setRequestProperty("Host", oldUrl.getHost());
+}
 ```
-Map map = new HashMap();
-map.put("resultKey", "resultValue");
-UserAction.onUserAction("WGGetHostByNameResult", true, -1, -1, map, true);
+ - 以 curl 为例，假设您想要访问 www.qq.com，通过 HttpDNS 解析出来的 IP 为192.168.0.111，那么您可以这么访问：
+   ```shell
+   curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
+```
+- 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用** HttpDNS 做域名解析。示例如下：
+  ```Java
+String host = System.getProperty("http.proxyHost");
+String port= System.getProperty("http.proxyPort");
+if (null != host && null != port) {
+    // 使用了本地代理模式
+}
 ```
 
-## 4. 线下咨询
-如有其他问题可提交工单咨询。
+## 实践场景
+
+### OkHttp
+
+OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HttpDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
+
+```Java
+mOkHttpClient =
+    new OkHttpClient.Builder()
+        .dns(new Dns() {
+            @NonNull
+            @Override
+            public List<InetAddress> lookup(String hostname) {
+                Utils.checkNotNull(hostname, "hostname can not be null");
+                String ips = MSDKDnsResolver.getInstance().getAddrByName(hostname);
+                String[] ipArr = ips.split(";");
+                if (0 == ipArr.length) {
+                    return Collections.emptyList();
+                }
+                List<InetAddress> inetAddressList = new ArrayList<>(ipArr.length);
+                for (String ip : ipArr) {
+                    if ("0".equals(ip)) {
+                        continue;
+                    }
+                    try {
+                        InetAddress inetAddress = InetAddress.getByName(ip);
+                        inetAddressList.add(inetAddress);
+                    } catch (UnknownHostException ignored) {
+                    }
+                }
+                return inetAddressList;
+            }
+        })
+        .build();
+```
+
+>! 实现 DNS 接口，即表示所有经由当前 OkHttpClient 实例处理的网络请求都会经过 HttpDNS。如果您只有少部分域名是需要通过 HttpDNS 进行解析，建议您在调用 HttpDNS 域名解析接口之前先进行过滤。
+
+### Retrofit + OkHttp
+Retrofit 实际上是一个基于 OkHttp，对接口做了一层封装桥接的 lib。因此只需要仿 OkHttp 的接入方式，定制 Retrofit 中的 OkHttpClient，即可方便地接入 HttpDNS。示例如下：
+```Java
+mRetrofit =
+    new Retrofit.Builder()
+        .client(mOkHttpClient)
+        .baseUrl(baseUrl)
+        .build();
+```
+
+### WebView
+
+Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HttpDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
+```Java
+mWebView.setWebViewClient(new WebViewClient() {
+    // API 21及之后使用此方法
+    @SuppressLint("NewApi")
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+        if (request != null && request.getUrl() != null && request.getMethod().equalsIgnoreCase("get")) {
+            String scheme = request.getUrl().getScheme().trim();
+            String url = request.getUrl().toString();
+            Log.d(TAG, "url:" + url);
+            // HttpDNS解析css文件的网络请求及图片请求
+            if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
+            && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url .endsWith(".gif"))) {
+                try {
+                    URL oldUrl = new URL(url);
+                    URLConnection connection = oldUrl.openConnection();
+                    // 获取HttpDNS域名解析结果
+                    String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
+                    String[] ipArr = ips.split(";");
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+                        String ip = ipArr[0];
+                        String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
+                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
+                        connection.setRequestProperty("Host", oldUrl.getHost());
+                    }
+                    Log.d(TAG, "contentType:" + connection.getContentType());
+                    return new WebResourceResponse("text/css", "UTF-8", connection.getInputStream());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return null;
+    }
+
+    // API 11至API20使用此方法
+    public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+        if (!TextUtils.isEmpty(url) && Uri.parse(url).getScheme() != null) {
+            String scheme = Uri.parse(url).getScheme().trim();
+            Log.d(TAG, "url:" + url);
+            // HttpDNS解析css文件的网络请求及图片请求
+            if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
+            && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".gif"))) {
+                try {
+                    URL oldUrl = new URL(url);
+                    URLConnection connection = oldUrl.openConnection();
+                    // 获取HttpDNS域名解析结果
+                    String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
+                    String[] ipArr = ips.split(";");
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+                        String ip = ipArr[0];
+                        String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
+                        connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
+                        connection.setRequestProperty("Host", oldUrl.getHost());
+                    }
+                    Log.d(TAG, "contentType:" + connection.getContentType());
+                    return new WebResourceResponse("text/css", "UTF-8", connection.getInputStream());
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                }
+            }
+        }
+        return null;
+    }});
+// 加载web资源
+mWebView.loadUrl(targetUrl);
+```
+
+### HttpURLConnection
+
+- HTTPS 示例如下：
+    ```Java
+ // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
+String url = "https://192.168.0.1/"; // 业务自己的请求连接
+ HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
+ connection.setRequestProperty("Host", "www.qq.com");
+ connection.setHostnameVerifier(new HostnameVerifier() {
+ 	@Override
+ 	public boolean verify(String hostname, SSLSession session) {
+ 		return HttpsURLConnection.getDefaultHostnameVerifier().verify("www.qq.com", session);
+ 	}
+ });
+ connection.setConnectTimeout(mTimeOut); // 设置连接超时
+ connection.setReadTimeout(mTimeOut); // 设置读流超时
+ connection.connect();
+```
+- HTTPS + SNI 示例如下：
+	```Java
+ // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
+ String url = "https://192.168.0.1/"; // 用HttpDNS解析得到的IP封装业务的请求URL
+ HttpsURLConnection sniConn = null;
+ try {
+ 	sniConn = (HttpsURLConnection) new URL(url).openConnection();
+ 	// 设置HTTP请求头Host域
+ 	sniConn.setRequestProperty("Host", "www.qq.com");
+ 	sniConn.setConnectTimeout(3000);
+ 	sniConn.setReadTimeout(3000);
+ 	sniConn.setInstanceFollowRedirects(false);
+ 	// 定制SSLSocketFactory来带上请求域名 ***关键步骤
+ 	SniSSLSocketFactory sslSocketFactory = new SniSSLSocketFactory(sniConn);
+ 	sniConn.setSSLSocketFactory(sslSocketFactory);
+ 	// 验证主机名和服务器验证方案是否匹配
+ 	HostnameVerifier hostnameVerifier = new HostnameVerifier() {
+ 		@Override
+ 		public boolean verify(String hostname, SSLSession session) {
+ 			return HttpsURLConnection.getDefaultHostnameVerifier().verify("原解析的域名", session);
+ 		}
+ 	};
+ 	sniConn.setHostnameVerifier(hostnameVerifier);
+ 	...
+ } catch (Exception e) {
+ 	Log.w(TAG, "Request failed", e);
+ } finally {
+ 	if (sniConn != null) {
+ 		sniConn.disconnect();
+ 	}
+ }
+
+ class SniSSLSocketFactory extends SSLSocketFactory {
+ 
+ 	private HttpsURLConnection mConn;
+
+ 	public SniSSLSocketFactory(HttpsURLConnection conn) {
+ 		mConn = conn;
+ 	}
+
+ 	@Override
+ 	public Socket createSocket() throws IOException {
+ 		return null;
+ 	}
+
+ 	@Override
+ 	public Socket createSocket(String host, int port) throws IOException, UnknownHostException {
+ 		return null;
+ 	}
+
+ 	@Override
+ 	public Socket createSocket(String host, int port, InetAddress localHost, int localPort) throws IOException, UnknownHostException {
+ 		return null;
+ 	}
+
+ 	@Override
+ 	public Socket createSocket(InetAddress host, int port) throws IOException {
+ 		return null;
+ 	}
+
+ 	@Override
+ 	public Socket createSocket(InetAddress address, int port, InetAddress localAddress, int localPort) throws IOException {
+ 		return null;
+ 	}
+
+ 	@Override
+ 	public String[] getDefaultCipherSuites() {
+ 		return new String[0];
+ 	}
+
+ 	@Override
+ 	public String[] getSupportedCipherSuites() {
+ 		return new String[0];
+ 	}
+
+ 	@Override
+ 	public Socket createSocket(Socket socket, String host, int port, boolean autoClose) throws IOException {
+ 		String realHost = mConn.getRequestProperty("Host");
+ 		if (realHost == null) {
+ 			realHost = host;
+ 		}
+ 		Log.i(TAG, "customized createSocket host is: " + realHost);
+ 		InetAddress address = socket.getInetAddress();
+ 		if (autoClose) {
+ 			socket.close();
+ 		}
+ 		SSLCertificateSocketFactory sslSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
+ 		SSLSocket ssl = (SSLSocket) sslSocketFactory.createSocket(address, port);
+ 		ssl.setEnabledProtocols(ssl.getSupportedProtocols());
+ 		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+ 			Log.i(TAG, "Setting SNI hostname");
+ 			sslSocketFactory.setHostname(ssl, realHost);
+ 		} else {
+ 			Log.d(TAG, "No documented SNI support on Android < 4.2, trying with reflection");
+ 			try {
+ 				Method setHostnameMethod = ssl.getClass().getMethod("setHostname", String.class);
+ 				setHostnameMethod.invoke(ssl, realHost);
+ 			} catch (Exception e) {
+ 				Log.w(TAG, "SNI not useable", e);
+ 			}
+ 		}
+ 		// verify hostname and certificate
+ 		SSLSession session = ssl.getSession();
+ 		HostnameVerifier hostnameVerifier = HttpsURLConnection.getDefaultHostnameVerifier();
+ 		if (!hostnameVerifier.verify(realHost, session)) {
+ 			throw new SSLPeerUnverifiedException("Cannot verify hostname: " + realHost);
+ 		}			
+ 		Log.i(TAG, "Established " + session.getProtocol() + " connection with " + session.getPeerHost() + " using " + session.getCipherSuite());
+ 		return ssl;
+ 	}
+ }
+```
+
+### Unity
+
+- 初始化 HttpDNS 和灯塔接口
+	>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
+	>
+	示例如下：
+	```C#
+ private static AndroidJavaObject sHttpDnsObj;
+ public static void Init() {
+ 	AndroidJavaClass unityPlayerClass = new AndroidJavaClass("com.unity3d.player.UnityPlayer");
+ 	if (unityPlayerClass == null) {
+ 		return;
+ 	}	
+ 	AndroidJavaObject activityObj = unityPlayerClass.GetStatic<AndroidJavaObject>("currentActivity");
+ 	if (activityObj == null) {
+ 		return;
+ 	}
+ 	AndroidJavaObject contextObj = activityObj.Call<AndroidJavaObject>("getApplicationContext");
+ 	// 初始化HttpDNS
+ 	AndroidJavaObject httpDnsClass = new AndroidJavaObject("com.tencent.msdk.dns.MSDKDnsResolver");
+ 	if (httpDnsClass == null) {
+ 		return;
+ 	}
+ 	sHttpDnsObj = httpDnsClass.CallStatic<AndroidJavaObject>("getInstance");
+ 	if (sHttpDnsObj == null) {
+ 		return;
+ 	}
+ 	sHttpDnsObj.Call("init", contextObj, appkey, dnsid, dnskey, debug, timeout);
+ }
+```
+- 调用 getAddrByName 接口解析域名。示例如下：
+```C#
+// 该操作建议在子线程中或使用Coroutine处理
+// 注意在子线程中调用需要在调用前后做AttachCurrentThread和DetachCurrentThread处理 
+public static string GetHttpDnsIP(string url) {
+	string ip = string.Empty;
+	AndroidJNI.AttachCurrentThread(); // 子线程中调用需要加上
+	// 解析得到IP配置集合
+	string ips = sHttpDnsObj.Call<string>("getAddrByName", url);
+	AndroidJNI.DetachCurrentThread(); // 子线程中调用需要加上
+	if (null != ips) {
+		string[] ipArr = ips.Split(';');
+        if (2 == ipArr.Length && !"0".Equals(ipArr[0]))
+		ip = ipArr[0];
+	}
+	return ip;
+}
+  ```

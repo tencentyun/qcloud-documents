@@ -1,0 +1,165 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
+## 功能描述
+ 
+CreateBmForwardRules 提供了创建黑石负载均衡七层转发规则功能。
+
+接口请求域名：bmlb.api.qcloud.com
+
+转发规则的配置规则如下：
+
+创建相同转发域名的转发规则会合并到同一转发域名下
+
+转发域名的使用限制：
+1) 允许长度为1~80的可打印ascii字符。
+2）有四种使用方式：默认域名格式，普通域名格式，通配符格式，正则表达式格式。
+3) 默认域名格式用'_'表示。
+4) 普通域名格式只能使用字母、数字、'-'，'.'。
+5) 通配符格式中只能以通配符\*开头或者结尾。
+6) 支持~开头的正则表达式，正则中不能存在以下字符：空格"';`~{} 。
+7) 转发域名的匹配优先级：普通域名格式 > 以通配符开头的通配符格式 > 以通配符结尾的通配符格式 > 正则表达式 > 默认域名格式。
+
+
+转发路径的使用限制：
+1) 允许长度为1~80的可打印ascii字符。
+2）有两种使用方式：无修饰符格式，有修饰符格式。
+3) 无修饰符格式只能使用字母、数字、'-'，'.'，'?'，'%'，'#'，'&'，'='。
+4) 有修饰符格式可以使用一下修饰符：~，~\*，^~，=。~表示接下来的表达式为大小写敏感的正则表达式；~\*表示接下来的表达式为大小写不敏感的正则表达式；^~表示如果该表达式被认为最佳匹配，那么不再进行一下的搜索匹配；=表示精确匹配，只有请求与该表达式完全相同才转发。
+5) 正则中不能存在以下字符：空格"';`~{} 。
+6) 转发域名的匹配优先级：=修饰的精确匹配 > ^~修饰的前缀匹配 > ~和~\*修饰的正则表达式 > 无修饰符格式。
+
+健康检查转发域名的使用限制：
+1) 健康检查域名都是普通格式域名
+2) 健康检查域名必须匹配转发域名
+
+健康检查转发路径的使用限制：
+健康检查路径都是普通格式路径
+
+## 请求
+### 请求示例
+
+```
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=CreateBmForwardRules
+	&<公共请求参数>
+	&loadBalancerId=<负载均衡实例ID>
+	&listenerId=<七层监听器实例ID>
+	&rules.0.domain=<七层转发域名>
+	&rules.0.url=<七层转发路径>
+	&rules.0.sessionExpire=<会话保持时间>
+	&rules.0.healthSwitch=<健康检查开关>
+	&rules.0.intervalTime=<健康检查检测间隔>
+	&rules.0.healthNum=<健康检查健康阀值>
+	&rules.0.unhealthNum=<健康检查不健康阀值>
+	&rules.0.httpCode=<健康检查中认为健康的HTTP返回码的组合>
+	&rules.0.httpCheckPath=<健康检查路径>
+	&rules.0.httpCheckDomain=<健康检查域名>
+	&rules.0.balanceMode=<均衡方式>
+```
+
+### 请求参数
+
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数页面](/document/product/386/6718)。其中，此接口的Action字段为 CreateBmForwardRules。
+
+| 参数名称 | 必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| loadBalancerId | 是 | String |   负载均衡实例ID，可通过接口[DescribeBmLoadBalancers](/document/product/386/9306)查询。|
+| listenerId | 是 | String | 七层监听器实例ID，可通过接口[DescribeBmForwardListeners](/document/product/386/9283)查询。|
+| rules | 是 | Array | 七层转发规则信息数组，可以创建多个七层转发规则。目前一个七层监听器下面最多允许创建50个七层转发域名，而每一个转发域名下最多可以创建100个转发规则。|
+
+rules描述当前七层转发规则的具体信息，n为下标，rules包含字段如下
+
+| 参数名称 | 必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+|rules.n.domain|是|String|七层转发规则的转发域名。|
+|rules.n.url|是|String|七层转发规则的转发路径。|
+|rules.n.sessionExpire|否|Int|会话保持时间，单位：秒。可选值：30~3600。默认值0，表示不开启会话保持。|
+|rules.n.healthSwitch|否|Int|健康检查开关：1（开启）、0（关闭）。默认值0，表示关闭。|
+|rules.n.intervalTime|否|Int|健康检查检查间隔时间，默认值：5，可选值：5-300，单位：秒。|
+|rules.n.healthNum|否|Int|健康检查健康阀值，默认值：3，表示当连续探测三次健康则表示该转发正常，可选值：2-10，单位：次。|
+|rules.n.unhealthNum|否|Int|健康检查不健康阀值，默认值：5，表示当连续探测五次不健康则表示该转发不正常，可选值：2-10，单位：次。|
+|rules.n.httpCode|否|Int|健康检查中认为健康的HTTP返回码的组合。可选值：0~31，例如：7表示HTTP返回码为1xx，2xx，3xx认为健康。|
+|rules.n.httpCheckPath|否|String|健康检查检查路径。|
+|rules.n.httpCheckDomain|否|String|健康检查检查域名。|
+|rules.n.balanceMode|否|String|均衡方式：ip_hash、wrr。默认值wrr。|
+
+
+
+## 响应
+### 响应示例
+
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId" : 1234
+}
+```
+
+### 响应参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](/document/product/386/6725)。|
+| message | String | 错误信息描述，与接口相关。|
+| codeDesc | String | 返回码信息描述。|
+| requestId | Int | 任务ID。该接口为异步任务，可根据本参数调用[DescribeBmLoadBalancersTaskResult](/document/product/386/9308)接口来查询任务操作结果|
+
+
+## 错误码
+
+| 错误代码 | 英文提示 | 错误描述 |
+|------|------|------|
+| 9003 | InvalidParameter | 参数错误 |
+| 9006 | InternalError.CCDBAbnormal | CCDB 服务异常 |
+| 11041 | InvalidParameter.CCDBLBNotExist | CCDB中不存在该负载均衡记录信息 |
+| 12003 | IncorrectStatus.LBWrongStatus | 该负载均衡状态不正确,无法执行当前操作 |
+| -12000 | InvalidL7Listener.NotExist | CCDB中不存在该七层监听器 |
+| -12010 | IncorrectStatus.ListenerWrongStatus | 该负载均衡监听器状态不正确 |
+| -12011 | IncorrectStatus.ForwardRuleWrongStatus | 该负载均衡转发规则状态不正确 |
+| -12007 | InvalidResource.ForwardDomainNumberOverLimit | 该负载均衡监听器的转发域名数量超过限制 |
+| -12008 | InvalidResource.ForwardLocationNumberOverLimit | 该负载均衡监听器转发域名的转发路径数量超过限制 |
+| -12015 | InvalidParameter.ForwardLocationIsDuplicate | 该负载均衡已经存在该转发路径 |
+| -12016 | InvalidParameter.ForwardDomainNotComplianceWithRule | 转发域名不符合规则 |
+| -12017 | InvalidParameter.ForwardLocationNotComplianceWithRule | 转发路径不符合规则 |
+| -12019 | InvalidParameter.httpCheckDomainNotMatch | 该健康检查域名不匹配转发域名 |
+
+
+## 实际案例
+ 
+### 输入
+
+```
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=CreateBmForwardRules
+	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
+	&Nonce=24763
+	&Timestamp=1507714922
+	&Region=bj
+	&loadBalancerId=lb-abcdefgh
+	&listenerId=lbl-abcdefgh
+	&rules.0.domain=a.com
+	&rules.0.url=/
+	&rules.0.sessionExpire=900
+	&rules.0.healthSwitch=1
+	&rules.0.intervalTime=5
+	&rules.0.healthNum=3
+	&rules.0.unhealthNum=5
+	&rules.0.httpCode=7
+	&rules.0.httpCheckPath=/
+	&rules.0.httpCheckDomain=a.com
+	&rules.0.balanceMode=wrr
+	&Signature=AySJsE6Zq3knXwPSzxlYUl%2FrM90%3D
+```
+
+### 输出
+
+```
+{
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "requestId" : 1234
+}
+
+```

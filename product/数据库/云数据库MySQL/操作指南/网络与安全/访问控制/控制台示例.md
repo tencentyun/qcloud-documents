@@ -1,0 +1,208 @@
+## 操作场景
+您可以使用访问管理 CAM 策略让用户拥有在云数据库控制台中查看和使用特定资源的权限。该部分的示例能够使用户使用控制台的特定部分的策略。
+
+## 操作步骤
+### 云数据库的全读写策略
+如果您想让用户拥有创建和管理云数据库实例的权限，您可以对该用户使用名称为：QcloudCDBFullAccess 的策略。
+
+进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，单击列项【服务类型】在下拉选项中选择【云数据库 MySQL】，就可以在结果中找到该策略。
+![Alt text](https://main.qcloudimg.com/raw/ba7b466f999f19d32fdadec0fd8a9f6d.png)
+策略语法如下：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "cdb:*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "vpc:*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "cvm:*"
+            ],
+            "resource": "qcs::cvm:::sg/*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "cos:*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "effect": "allow",
+            "action": "monitor:*",
+            "resource": "*"
+        },
+        {
+            "action": [
+                "kms:CreateKey",
+                "kms:GenerateDataKey",
+                "kms:Decrypt",
+                "kms:ListKey"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+以上策略是通过让用户分别对云数据库、私有网络、安全组、对象存储、密钥管理服务和 Monitor 中所有资源进行 CAM 策略授权来达到目的。
+
+### 云数据库的只读策略
+如果您只想让用户拥有查询云数据库实例的权限，但是不具有创建、删除和修改的权限，您可以对该用户使用名称为：QcloudCDBInnerReadOnlyAccess 的策略。
+
+>?建议配置云数据库的只读策略。
+
+您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，单击列项【服务类型】在下拉选项中选择【云数据库 MySQL】，就可以在结果中找到该策略。
+
+策略语法如下：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "cdb:Describe*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
+### 云数据库相关资源的只读策略
+如果您想要让用户只拥有查询云数据库实例及相关资源（私有网络、安全组、对象存储、Monitor）的权限，但不允许该用户拥有创建、删除和修改等操作的权限，您可以对该用户使用名称为：QcloudCDBReadOnlyAccess 的策略。
+
+您可以进入 [策略管理界面](https://console.cloud.tencent.com/cam/policy)，单击列项【服务类型】在下拉选项中选择【云数据库 MySQL】，就可以在结果中找到该策略。
+
+策略语法如下：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "cdb:Describe*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "vpc:Describe*",
+                "vpc:Inquiry*",
+                "vpc:Get*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "cvm:DescribeSecurityGroup*"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "action": [
+                "cos:List*",
+                "cos:Get*",
+                "cos:Head*",
+                "cos:OptionsObject"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        },
+        {
+            "effect": "allow",
+            "action": "monitor:*",
+            "resource": "*"
+        }
+    ]
+}
+```
+以上策略是通过让用户分别对如下操作进行 CAM 策略授权来达到目的：
+- 云数据库中所有以单词“Describe”开头的操作。
+- 私有网络中所有以单词“Describe”开头的操作、所有以单词“Inquiry”开头的操作和所有以单词“Get”开头的操作。
+- 安全组中所有以单词“DescribeSecurityGroup”开头的所有操作。
+- 对象存储中所有以单词“List”开头的操作、所有以单词“Get”开头的操作、所有以单词“Head”开头的操作和名为“OptionsObject”的操作。
+- Monitor 中所有的操作。
+
+### 授权用户拥有特定云数据库的操作权限策略
+如果您想要授权用户拥有特定云数据库操作权限，可将以下策略关联到该用户。以下策略允许用户拥有对 ID 为 cdb-xxx，广州地域的云数据库实例的操作权限：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "cdb:*",
+            "resource": "qcs::cdb:ap-guangzhou::instanceId/cdb-xxx",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
+### 授权用户拥有批量云数据库的操作权限策略
+如果您想要授权用户拥有批量云数据库操作权限，可将以下策略关联到该用户。以下策略允许用户拥有对 ID 为 cdb-xxx、cdb-yyy，广州地域的云数据库实例的操作权限和对 ID 为 cdb-zzz，北京地域的云数据库实例的操作权限。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "cdb:*",
+            "resource": ["qcs::cdb:ap-guangzhou::instanceId/cdb-xxx", "qcs::cdb:ap-guangzhou::instanceId/cdb-yyy", "qcs::cdb:ap-beijing::instanceId/cdb-zzz"],
+            "effect": "allow"
+        }
+    ]
+}
+```
+
+### 授权用户拥有特定地域云数据库的操作权限策略
+如果您想要授权用户拥有特定地域的云数据库的操作权限，可将以下策略关联到该用户。以下策略允许用户拥有对广州地域的云数据库机器的操作权限。
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": "cdb:*",
+            "resource": "qcs::cdb:ap-guangzhou::*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+
+### 自定义策略
+如果您觉得预设策略不能满足您所想要的要求，您也可以创建自定义策略，若您想要授权用户拥有某些项目的操作权限，需要同时为用户添加 QcloudCDBProjectToUser 策略。
+自定义的策略语法如下：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "Action"
+            ],
+            "resource": "Resource",
+            "effect": "Effect"
+        }
+    ]
+}
+```
+- Action 中换成您要进行允许或拒绝的操作。
+- Resource 中换成您要授权的具体资源。
+- Effect 中换成允许或者拒绝。

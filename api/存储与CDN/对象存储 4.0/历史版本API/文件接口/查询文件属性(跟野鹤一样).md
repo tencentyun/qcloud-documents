@@ -1,0 +1,131 @@
+## 功能描述
+使用该 API 查询文件的属性信息，包括：包括文件大小、文件 SHA-1 校验码、文件创建时间、修改时间、访问权限、自定义头部信息等。使用该接口前请确认该文件已存在，如果 Bucket 中没有文件则请求不成功。
+
+## 请求
+语法示例：
+```
+GET /files/v2/1252448703/test02/sample_file.txt?op=stat
+Host: <Region>.file.myqcloud.com
+Authorization: <multi_effect_signature>
+
+```
+
+> Authorization: <MultiEffectSignature> 多次有效签名（详细参见 [签名算法](https://cloud.tencent.com/document/product/436/6054) 章节）
+
+
+### 请求参数
+该请求不带请求参数。
+
+### 请求体
+该请求的请求体为空。
+
+## 响应
+
+### 响应体
+
+该响应体返回为 **application/json** 数据，包含完整节点数据的内容展示如下：
+```
+{
+	"message": "SUCCESS",
+	"code": 0,
+	"data": {
+		"slicesize": 0,
+		"ctime": 1503385091,
+		"biz_attr": "",
+		"filelen": 0,
+		"authority": "eInvalid",
+		"source_url": "http://test01-1252448703.costj.myqcloud.com/sample_file.txt",
+		"forbid": 0,
+		"sha": "00000000000000000000000000000000",
+		"custom_headers": {
+			"Cache-Control": "no",
+			"Content-Language": "ch",
+			"Content-Type": "application/pdf"
+		},
+		"filesize": 0,
+		"mtime": 1503385091,
+		"access_url": "http://test01-1252448703.file.myqcloud.com/sample_file.txt"
+	},
+	"request_id": "NTk5YmQ2MDNfYWRhYjM1MGFfMmVmZTdfZWFlODM="
+}
+```
+具体的参数描述如下：
+
+| 参数名称 | 描述 | 类型 |
+|-----|------|--------|
+| code     |服务端返回码，如果没有发生任何错误取值为**0**；如果发生错误该参数指称具体的错误码。COS 服务相关的错误码可以查看 [COS 错误码汇总](https://cloud.tencent.com/document/product/436/8432) | Number  |
+|request_id| 该请求的唯一标识 id |String | 
+| message |服务端提示内容，如果发生错误该字段将详细描述发生错误的情况。 | String | 
+| data     |服务端返回的应答数据，该内容代表了接口返回的具体的业务数据。 | Object   | 
+
+
+data 数据集参数描述：
+
+|参数名称|描述|类型|
+|---|--|--|
+|biz_attr	|COS 服务调用方自定义属性，可通过 [查询目录属性](https://cloud.tencent.com/document/product/436/6063) 获取该属性值|String	|
+|filesize	|文件大小|	Number 	|
+|sha	|文件 SHA-1 校验码|String	|
+|ctime	|创建时间，10 位 Unix 时间戳（UNIX 时间是从协调世界时 1970 年 1 月 1 日 0 时 0 分 0 秒起的总秒数）|	String	|
+|mtime	|修改时间，10 位 Unix 时间戳（UNIX 时间是从协调世界时 1970 年 1 月 1 日 0 时 0 分 0 秒起的总秒数）|	String	|
+|access_url	|通过 CDN 访问该文件的资源链接|	String	|
+|source_url	|（不通过 CDN ）直接访问 COS 的资源链接|	String	|
+|authority	|Object 的权限，默认与 Bucket 权限一致，此时不会返回该字段。如果设置了独立权限，则会返回该字段。有效值：eInvalid 空权限，此时系统会默认调取 Bucket 权限 eWRPrivate 私有读写 eWPrivateRPublic 公有读私有写|	String|	
+|custom_headers	|	用户自定义头部|Object |
+
+custom_headers 数据集参数描述：
+
+|参数名称	|	描述	|类型 |
+|---|--|--|
+|Cache-Control	|文件的缓存机制|String	|
+|Content-Type|	文件的 MIME 信息|String	|
+|Content-Disposition	|MIME 协议的扩展|	String|	
+|Content-Language|	文件的语言|	String	|
+|Content-Encoding|	文件的加密格式|String	|
+|x-cos-meta-自定义内容	|	自定义内容|String|
+
+## 实际案例
+
+### 请求
+```
+GET /files/v2/1252448703/lewzylu02/testfolder/?op=list&pattern=eListBoth&order=0&num=20 HTTP/1.1
+Host: gz.file.myqcloud.com
+Date: Mon, 21 Aug 2017 11:54:31 GMT
+Accept: */*
+Authorization: DUbxmGI7DuyqWQxB+LaUYDII+WdhPTEyNTI0NDg3MDMmaz1BS0lEMTVJc3NraUJRS1RaYkFvNldoZ2NCcVZsczlTbXVHMDAmZT0xNTAzMzE2NjA1JnQ9MTUwMzMxNjQyNSZyPTExMjMwJmY9JmI9bGV3enlsdTAy
+Method:GET
+User-Agent:cos-php-sdk-v4.3.2
+Connection: keep-alive
+```
+
+### 响应
+```
+HTTP/1.1 200 OK
+Content-Length: 427, 
+Content-Type: application/json; charset=utf-8
+Server: tencent-cos 
+Connection: 'keep-alive
+Date: Tue, 22 Aug 2017 07:35:36 GMT
+x-cos-request-id': NTk5YmRlYzhfMmFhYzM1MGFfNzcxMV9mMjg1ZQ==
+
+{
+	"message": "SUCCESS",
+	"code": 0,
+	"data": {
+		"slicesize": 0,
+		"ctime": 1503385091,
+		"biz_attr": "",
+		"filelen": 0,
+		"authority": "eInvalid",
+		"source_url": "http://test01-1252448703.costj.myqcloud.com/sample_file.txt",
+		"forbid": 0,
+		"sha": "00000000000000000000000000000000",
+		"custom_headers": {},
+		"filesize": 0,
+		"mtime": 1503385091,
+		"access_url": "http://test01-1252448703.file.myqcloud.com/sample_file.txt"
+	},
+	"request_id": "NTk5YmQ2MDNfYWRhYjM1MGFfMmVmZTdfZWFlODM="
+}
+
+```

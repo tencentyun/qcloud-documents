@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 EipBmUnBindVpcIp接口用于绑定黑石弹性公网IP到黑石私有网络的IP（非黑石物理机IP）。此IP地址必须通过[申请内网IP接口](/document/product/386/7337)申请获得或者通过[注册子网IP](/document/product/386/7925)接口注册，否则无法绑定EIP。解绑后EIP仍然会收取闲置费，请及时[释放清理EIP](/document/product/386/6676)。
  
@@ -11,7 +14,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	Action=EipBmUnBindVpcIp
 	&<公共请求参数>
 	&eipId=<EIP实例ID>
-	&vpcId=<vpc数字ID>
+	&unVpcId=<vpc的ID>
 	&vpcIp=<内网IP>
 ```
 
@@ -22,7 +25,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 |参数名称|必选|类型|描述|
 |-------|----|----|----|
 | eipId | 是 | String | EIP实例ID，格式形如：eip-testid |
-| vpcId | 是 | Int | IP所属的VPC的ID，可通过[查询私有网络列表](/document/product/386/6646)返回的字段vpcId获得|
+| unVpcId | 是 | String | EIP归属的VPC的标识，格式形如：vpc-k7j1t2x1，可通过[查询私有网络列表](/document/product/386/6646)返回的字段unVpcId获得 |
 | vpcIp | 是 | String | VPC内IP，此IP地址必须通过[申请内网IP接口](/document/product/386/7337)获得或者通过[注册子网IP](/document/product/386/7925)接口注册|
 
 ## 响应
@@ -30,12 +33,12 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 ### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "data": {
-        "requestId": <EIP异步任务ID>
-    }
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "data": {
+  "requestId": "<EIP异步任务ID>"
+ }
 }
 ```
 
@@ -82,7 +85,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
 	&Timestamp=1507728522
 	&Region=bj
 	&eipId=eip-kpge33wo
-	&vpcId=1025
+	&unVpcId=vpc-k7j1t2x1
 	&vpcIp=10.1.1.2
 	&Signature=ndChNl391MRIo%2Fb14VBlwxNQ1wQ%3D
 ```

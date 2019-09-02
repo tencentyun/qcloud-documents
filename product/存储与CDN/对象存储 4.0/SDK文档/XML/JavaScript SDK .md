@@ -40,7 +40,7 @@ npm install cos-js-sdk-v5
 * Expose-Headers ： 默认设置`ETag`即可，也可以暴露你`指定的头部`
 * 超时 Max-Age ： 可以设置为 3600 ，或者你`指定的超时时间`，以`秒`为单位
 
-![Bucket 跨域设置](https://github.com/tencentyun/cos-js-sdk-v5/blob/master/demo/cors.png)
+![Bucket 跨域设置](//mc.qcloudimg.com/static/img/2e7791e9274ce3ebf8b25bbeafcd7b45/image.png)
 
 ### SDK配置
 

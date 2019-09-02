@@ -2,11 +2,11 @@
 
 腾讯云数字营销服务（pCTR，pCVR，流量优选，物料优选等）基于实时上报的item（物料）和action（行为），结合15亿+腾讯用户画像进行机器学习并实时返回服务结果。为简化开发者上报item和action两类数据，同时方便获取数字服务结果，腾讯云提供了相关协议标准。
 
-### 2 item上报
+### 2. item上报
 
 **接口描述**
 
-上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。开发者基于http-post上报物料，URL：http://data.dm.qcloud.com:8088
+上报物料信息， 包括物料id， 物料有效期， 物料标签，物料池等信息。相同的item_id可以重复上报， 字段信息以最后一次上报为准。开发者基于http-post上报物料，URL：`http://data.dm.qcloud.com:8088`
 
 **输入参数**
 
@@ -16,10 +16,10 @@ item上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":1, //1：item，2：action
-	"bid":"BID" , //腾讯云为该业务分配的业务标识
+	"bid":"BID", //腾讯云为该业务分配的业务标识
 	"item_id":"item_id", //物料标识
 	"publish":1, //1：上架（默认），0：下架
 	"describe":"最新款黑色苹果7", //物料描述  
@@ -45,7 +45,7 @@ item上报JSON数据格式
 	"extend":{
 		"key1":"value1",
 		"key2":"value2",
-		"key3":"value3",
+		"key3":"value3"
 		…
 		}
 
@@ -90,12 +90,12 @@ item上报返回JSON数据格式
    "msg":"true"
 }
 ```
-
-### 3 action上报
+ 
+### 3. action 上报
 
 **接口描述**
 
-上报某一用户在特定场景下的行为，用户的行为包括曝光、点击、转换、点赞等， 上报用户行为时，必须指定用户行为的会话id。用户行为可以在客户端和服务端上报，建议在客户端上报，可控性更强些，遇到协议变更或者问题排查时，更容易处理。开发者基于http-post上报行为，URL：http://data.dm.qcloud.com:8088
+上报某一用户在特定场景下的行为，用户的行为包括曝光、点击、转换、点赞等， 上报用户行为时，必须指定用户行为的会话id。用户行为可以在客户端和服务端上报，建议在客户端上报，可控性更强些，遇到协议变更或者问题排查时，更容易处理。开发者基于http-post上报行为，URL：`http://data.dm.qcloud.com:8088`
 
 **输入参数**
 
@@ -105,10 +105,10 @@ action上报JSON数据格式
 ```
 {
 
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
 	"request_id":"request_id", //request_id 为“毫秒级时间戳_随机数”
 	"data_type":2, //1：item，2：action 
-	"bid":"BID" , //腾讯云为该业务分配的业务标识
+	"bid":"BID", //腾讯云为该业务分配的业务标识
 	"uid_type":3, //0：QQ，1：微信号，3：设备号imei/idfa或其MD5值（默认），4：手机号
 	"uid":"userId", //QQ，微信号，imei/idfa或其MD5值，手机号
 	"item_id":"item_id1;item_id2;item_id3", //物料列表,多个物料用 ; 号隔开
@@ -126,7 +126,7 @@ action上报JSON数据格式
 	"extend":{
 		"key1":"value1",
 		"key2":"value2",
-		"key3":"value3",
+		"key3":"value3"
 		…
 		}
 }
@@ -163,9 +163,9 @@ action上报返回JSON数据格式
 }
 ```
 
-### 4 请求服务
+### 4. 请求服务
 
-开发者发送http-post获取服务结果，服务URL：http://service.dm.qcloud.com:8088
+开发者发送http-post获取服务结果，服务URL：`http://service.dm.qcloud.com:8088`
 
 Post报文body部分为JSON数据格式，如下所示
 
@@ -174,7 +174,7 @@ Post报文body部分为JSON数据格式，如下所示
 pCTR 请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7"，//md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
 	"service_type":0, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
@@ -296,7 +296,7 @@ pCTR 请求服务返回JSON数据格式
 pCVR 请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7"， //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
 	"service_type":2, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选 
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”
 	"bid":"BID", //腾讯云为该业务分配的业务标识
@@ -412,7 +412,7 @@ pCVR 请求服务返回JSON数据格式
 物料优选请求服务JSON数据格式
 ```
 {
-	"MD5":"40379db889f9124819228947faaeb1f7"， //md5(bid&request_id&TOKEN)
+	"MD5":"40379db889f9124819228947faaeb1f7", //md5(bid&request_id&TOKEN)
 	"service_type":4, //服务类型。0：pCTR，1：流量优选，2：pCVR，3：个性化推荐（默认），4：物料优选
 	"request_id":"request_id", //request_id 为”毫秒级时间戳_随机数”,
 	"bid":"BID", //腾讯云为该业务分配的业务标识

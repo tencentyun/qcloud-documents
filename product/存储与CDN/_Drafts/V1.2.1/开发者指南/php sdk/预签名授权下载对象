@@ -1,0 +1,20 @@
+## 对象 - 预签名授权下载对象
+### 步骤说明
+1. 初始化客户端cosClient
+2. 执行 getObjectUrl 方法预签名授权下载对象
+### 代码示例
+以下代码演示了简单上传对象的步骤：
+```php
+try {
+    $bucket =  'testbucket-1252448703';
+    $key = 'hello.txt';
+    $region = 'cn-south';
+    $url = "/{$key}";
+    $request = $cosClient->get($url);
+    $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes');
+    echo ($signedUrl);
+
+} catch (\Exception $e) {
+    echo "$e\n";
+}
+```

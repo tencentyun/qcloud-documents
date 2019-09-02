@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.routeTableId | String | The routing table ID assigned by the system, for example, gz_rtb_8849.   |
 | data.n.unRouteTableId | String | New routing table ID assigned by the system. New ID is recommended. For example, rtb-0ox8fuhw.   |
 | data.n.routeTableName | String  | Routing table name.   |
-| data.n.routeTableType | Int  | Type of routing table. 0: default routing table; 1: ordinary routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="Routing Table Product Overview">Routing Table Product Overview</a>.   |
+| data.n.routeTableType | Int  | Type of routing table. 0: ordinary routing table; 1: default routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="Routing Table Product Overview">Routing Table Product Overview</a>.   |
 | data.n.routeTableCreateTime | String  | Creation time of routing table, for example: 2015-11-06 17:50:21.   |
 | data.n.subnetNum | Int  | Number of associated subnets.   |
 | data.n.routeTableSet.n | Array  | An array of routing policy information.   |
@@ -42,7 +42,7 @@ routeTableSet Routing Policy Information Array
 | Parameter Name | Type | Description |
 |---------|---------|---------|
 | routeTableSet.n.destinationCidrBlock | string  | Destination network segment, which cannot be within VPC network segment. For example, 112.20.51.0/24.   |
-| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway.   |
+| routeTableSet.n.nextType | string  | Type of next hop. Supported types: 0: public network gateway; 1: VPN gateway; 3: Direct Connect gateway; 4: peering connection; 7: sslvpn; 8: NAT gateway; 9: general cvm.   |
 | routeTableSet.n.nextHub | string  | Next hop address. You just need to specify gateway IDs (new ID is recommended) of different next hop types and the system will automatically match to the next hop address.  |
 | routeTableSet.n.unNextHub | string  | Unique ID of next hop address. It is recommended to use the unified ID.   |
 | routeTableSet.n.description | string  | Route description.   |

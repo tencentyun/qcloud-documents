@@ -1,0 +1,60 @@
+## 功能描述
+
+本接口用于修改日志集。
+
+## 请求
+
+### 请求示例
+
+```
+PUT /logset HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <AuthorizationString>
+Content-Type: application/json
+
+{"logset_id": "xxxx-xx-xx-xx-xxxxxxx","logset_name": "testname","period": 15}
+```
+
+### 请求行
+
+```
+PUT /logset
+```
+
+### 请求头
+
+除公共响应头部外，无特殊响应头部。
+
+### 请求参数
+
+| 字段名        |  类型  | 位置  | 必须 |      含义                       |
+|--------------|--------|------|---------|--------------------------------|
+| logset_id    | string | body | 是      |要修改的日志集的 ID                |
+| logset_name  | string | body | 否      |日志集的名字，不能重名             |
+| period       | int    | body | 否      |日志集的保存周期，单位天，最大90    |
+
+> **注意：**
+>
+> logset_name 和 period 至少要提供一个。
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Length: 0
+
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。
+
+### 响应参数
+
+无
+
+## 错误码
+
+参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。

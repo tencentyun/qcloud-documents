@@ -4,11 +4,11 @@
 
 腾讯云文智中文语义平台以SDK模块的方式提供服务，多种编程语言都可以轻松使用。在正式使用之前，您需要首先在腾讯云上注册文智账号。
 
-## 2 API调用概述
+## 2 API 调用概述
 
 ### 2.1 通信协议和规则
 
-  详见[《腾讯云通信协议和规则》](http://cloud.tencent.com/doc/api/307/%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%84)
+  详见[《通信协议》](https://cloud.tencent.com/document/api/271/2052#2.-.E9.80.9A.E4.BF.A1.E5.8D.8F.E8.AE.AE)
 	
 ### 2.2 公共参数
 
@@ -31,7 +31,7 @@
 		<tr>
 			<td style="text-align: center; width: 87px;">Region</td>
 			<td style="text-align: center; width: 75px;">String</td>
-			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
+			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:中国香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
 			<td style="text-align: center; width: 76px;">是</td>
 		</tr>
 		<tr>
@@ -87,8 +87,8 @@
 ### 3.1 首先请在腾讯云官方SDK下载地址
 
 下载或更新最新版本的SDK（本次以php-sdk为例）
-- [从 github 获取最新版本SDK >> ](https://github.com/QcloudApi/qcloudapi-sdk-php)（推荐）
-- [点击此处下载 SDK >>](https://mc.qcloudimg.com/static/archive/cd1857b4d9a9aeb0179e72a59f235c41/qcloudapi-sdk-php-master.zip)
+- [从 github 获取最新版本 SDK >> ](https://github.com/QcloudApi/qcloudapi-sdk-php)
+
 
 ### 3.2 修改demo.php文件，修改点如下
 
@@ -98,7 +98,7 @@ http://manage.qcloud.com/capi/capiManage.php
 
 **b）**$package=array('offset'=>0, 'limit'=>3); 改为：
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 	
 说明：这是文智情感分析接口的参数。
 
@@ -118,14 +118,14 @@ $a = $wenzhi->TextSentiment($package);
 error_reporting(E_ALL ^ E_NOTICE);
 require_once './src/QcloudApi/QcloudApi.php';
 
-$config = array('SecretId'        => '你在腾讯云上的SecretId',
-             'SecretKey'       => '你在腾讯云上的SecretKey',
+$config = array('SecretId'        => '您在腾讯云上的SecretId',
+             'SecretKey'       => '您在腾讯云上的SecretKey',
              'RequestMethod'  => 'POST',
              'DefaultRegion'    => 'gz');
 
 $wenzhi = QcloudApi::load(QcloudApi::MODULE_WENZHI, $config);
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 
 $a = $wenzhi->TextSentiment($package);
 

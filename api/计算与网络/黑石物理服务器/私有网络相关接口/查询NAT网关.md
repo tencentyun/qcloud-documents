@@ -1,123 +1,106 @@
-## 功能描述
-DescribeBmNatGateway 用于查询租户创建的NAT网关列表信息，包括网关统一ID、网关名称、网关并发连接上限、绑定eip列表、以及nat网关绑定的子网列表等
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
 
+## 功能描述
+DescribeBmNatGateway 接口用于查询租户创建的NAT网关列表信息，包括网关统一 ID、网关名称、网关并发连接上限、绑定 eip 列表等。
 接口请求域名：bmvpc.api.qcloud.com
 
 
 ## 请求
 
-语法示例：
+### 请求示例
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
     &<公共请求参数>
     &natId=<NAT网关ID>
     &natName=<NAT网关名称>
-    &vpcId=<vpc网络ID>
+    &unVpcId=<vpc网络ID>
     &offset=<初始行的偏移量>
     &limit=<每页行数>
     &orderField=<排序字段>
 	&orderDirection=<排序类型>
 ```
 ### 请求参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为DescribeNatGateway
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/document/product/386/6718" title="公共请求参数">公共请求参数</a>页面。其中，此接口的 Action 字段为 DescribeBmNatGateway。
 
-| 参数名称 | 必选  | 类型 | 描述 |
+| 参数名称 |  描述 | 类型 |必选  |
 |---------|---------|---------|---------|
-| natId | 否 | string | NAT网关统一ID，例如：nat-xx454|
-| natName | 否 | string | NAT网关名称 (支持模糊查找) |
-| vpcId | 否 | int | 私有网络ID值，可使用vpcId或unVpcId，建议使用unVpcId，例如：vpc-kd7d06of，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。|
-| offset | 否 | int | 初始行的偏移量，默认为0|
-| limit | 否 | int | 每页行数，默认为20，最大支持50。|
-| orderField | 否 | string | 按某个字段排序，默认不排序。<br>支持字段：natId。|
-| orderDirection | 否 | string | 升序（asc）或降序（desc），默认：desc。|
+| natId | NAT 网关统一 ID，例如：nat-xx454| String | 否 |
+| natName | NAT 网关名称 (支持模糊查找) | String | 否 |
+| unVpcId | 私有网络 ID 值，例如：vpc-kd7d06of，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询。| Int | 否 |
+| offset |  初始行的偏移量，默认为 0| Int | 否 |
+| limit |  每页行数，默认为 20，最大支持 50。| Int | 否 |
+| orderField |按某个字段排序，默认不排序。<br>支持字段：natId。| String | 否 |
+| orderDirection | 升序（asc）或降序（desc），默认：desc。| String | 否 |
+
 
 ## 响应
-响应示例：
+### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "totalCount": 1,
-    "data": [
-        {
-            "natId": "nat-787jwhek",
-            "natName": "testnat",
-            "unVpcId": "vpc-test",
-            "vpcId": 12345,
-            "vpcName": "test",
-            "state": 0,
-            "productionStatus": 1,
-            "eipCount": 1,
-            "eipSet": [
-                "115.159.240.68"
-            ],
-            "maxConcurrent": 1000000,
-            "ntype": "small",
-            "subnetAll": "0",
-            "createTime": "2017-05-10 20:13:00",
-            "subnets": [
-                {
-                    "name": "test",
-                    "unSubnetId": "subnet-jv24ivq0",
-                    "subnetId": 8946，
-                    "subnetNatType": 1,
-                    "cidrBlock": "10.11.5.0/24"
-                }
-            ]
-        }
-    ]
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "totalCount": "< NAT网关数目 > ",
+ "data": [{
+  "natId": "< NAT网关ID >",
+  "natName": "< NAT网关名称 >",
+  "unVpcId": "< VPC统一ID >",
+  "vpcId": "< vpc网络ID >",
+  "vpcName": "< VPC名称 >",
+  "state": "< NAT网关状态 >",
+  "forwardMode": "< 转发方式 >",
+  "productionStatus": "< NAT网关生产状态 >",
+  "eipCount": "< 绑定至NAT网关的eip个数 >",
+  "eipSet": ["<绑定的eip >"],
+  "maxConcurrent": "< NAT网关并发连接上限 >",
+  "ntype": "< NAT网关并发连接上限类型 >",
+  "exclusive": "< NAT网关共享型和独占型标识 >",
+  "createTime": "< 创建时间 >"
+ }]
 }
+
 ```
 
 ### 响应参数
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | int | 错误码, 0: 成功, 其他值: 失败|
-| message | string | 错误信息|
-| totalCount | int | 查询的NAT网关总数 |
-| data.n | array | 查询的NAT网关信息数组 |
+| code | 错误码，0：成功，其他值：失败| Int |
+| message | 错误信息| String |
+| totalCount |  查询的 NAT 网关总数 | Int |
+| data.n | 查询的 NAT 网关信息数组 | Array |
 
-data数据结构如下：
+data 数据结构如下：
 
-| 参数名称 | 类型 | 描述 |
+| 参数名称 |描述 | 类型 |
 |---------|---------|---------|
-| data.n.natId | string | NAT网关统一ID，例如：nat-xx454 |
-| data.n.natName | string | NAT网关名称 |
-| data.n.unVpcId | string | 私有网络统一ID，例如：vpc-xgfd55d |
-| data.n.vpcId | int | 私有网络ID |
-| data.n.vpcName | string | vpc网络名称 |
-| data.n.state | int | NAT网关状态，1:运行中, 0:不可用 |
-| data.n.productionStatus | int | NAT网关的生产状态, 0: 创建中, 1: 创建成功, 2: 创建失败 |
-| data.n.maxConcurrent | int | NAT网关并发连接上限, 100w:小型, 300w:中型, 1000w:大型，详见<a href="">NAT网关产品说明</a> |
-| data.n.ntype | string | 对应NAT网关并发连接上限, 取值为small, middle, big, 分别对应小型、中型、大型|
-| data.n.eipCount | string | NAT网关绑定eip的个数 |
-| data.n.eipSet | array | NAT网关绑定的弹性IP列表，例如：[183.60.249.11] |
-| data.n.createTime | string | NAT网关网关创建时间，例如：2016-06-21 12:01:23 |
-| data.n.subnets | array | NAT网关绑定的子网列表信息 |
+| data.n.natId |  NAT 网关统一 ID，例如：nat-xx454 |String |
+| data.n.natName | NAT 网关名称 | String |
+| data.n.unVpcId |私有网络统一 ID，例如：vpc-xgfd55d | String | 
+| data.n.vpcId | 私有网络 ID | Int |
+| data.n.vpcName |  vpc 网络名称 |String |
+| data.n.state | NAT 网关状态，1：运行中，0：不可用 | Int |
+| data.n.productionStatus |  NAT 网关的生产状态，0：创建中，1：创建成功，2：创建失败 |Int |
+| data.n.maxConcurrent |  NAT 网关并发连接上限，100w：小型, 300w：中型, 1000w：大型，详见 NAT 网关产品说明 |Int |
+| data.n.ntype |  对应 NAT 网关并发连接上限, 取值为 small，middle，big，分别对应小型、中型、大型|String |
+| data.n.forwardMode | NAT 网关的转发方式。当值为 0 时表示 IP 方式，值为 1 时表示 cidr 方式| Int |
+| data.n.exclusive |  NAT 网关共享型和独占型标识，0 表示共享型 NAT 网关，1 表示独占型 NAT 网关 |Int 
+| data.n.eipCount |  NAT 网关绑定 eip 的个数 |String |
+| data.n.eipSet |  NAT 网关绑定的弹性 IP 列表，例如：`[183.60.249.11]` |Array |
+| data.n.createTime | NAT 网关网关创建时间，例如：2016-06-21 12:01:23 |String | 
 
-subnets包含的数据结构如下：
-
-|参数名称|类型|描述|
-|-------|---|---------------|
-|name|string|子网名称|
-|unSubnetId|string|子网统一ID|
-|subnetId|int|子网ID|
-|subnetNatType|int|绑定的子网类型，0表示子网部分IP，1表示子网全部IP|
-|cidrBlock|string|子网网段|
 
 ## 错误码
- 以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码">VPC错误码</a>。
  
 | 错误代码 | 英文提示 | 错误描述 |
 |---------|---------|---------|
-| -3047 | InvalidBmVpc.NotFound | 无效的VPC。VPC资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="https://cloud.tencent.com/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询VPC。 |
-| 13014 | BmVpcNat.NotFound | 无效的NAT网关，NAT网关资源不存在。请再次核实您输入的资源信息是否正确，可通过DescribeBmNatGateway接口查询NAT网关。 |
+| -3047 | InvalidBmVpc.NotFound | 无效的 VPC。VPC 资源不存在，请再次核实您输入的资源信息是否正确，可通过<a href="/document/api/386/6646" title="DescribeBmVpcEx">DescribeBmVpcEx</a>接口查询 VPC。 |
+| 13014 | BmVpcNat.NotFound | 无效的 NAT 网关，NAT 网关资源不存在。请再次核实您输入的资源信息是否正确 |
 
 ## 实际案例
 
-### 请求
+### 输入
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
 	Action=DescribeBmNatGateway
@@ -125,11 +108,11 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&Nonce=4557
 	&Timestamp=1507692902
 	&Region=gz
-	&vpcId=300006
+	&unVpcId=300006
 	&Signature=4dq8JXWTyg9n8FuVckaIhg8Pnbw%3D
 ```
 
-### 响应
+### 输出
 ```
 {
     "code": 0,
@@ -144,6 +127,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             "vpcId": 300006,
             "vpcName": "mgt_two",
             "state": 0,
+			"forwardMode": 1,
             "productionStatus": 1,
             "eipCount": 2,
             "eipSet": [
@@ -152,23 +136,8 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
             ],
             "maxConcurrent": 10000000,
             "ntype": "big",
-            "createTime": "2017-05-12 11:35:57",
-            "subnets": [
-                {
-                    "name": "wefwefwe",
-                    "unSubnetId": "subnet-00al7z8l",
-                    "subnetId": 224,
-                    "subnetNatType": 1,
-                    "cidrBlock": "10.11.5.0/24"
-                },
-                {
-                    "name": "test0717",
-                    "unSubnetId": "subnet-4qh1a0bt",
-                    "subnetId": 263,
-                    "subnetNatType": 1,
-                    "cidrBlock": "10.11.8.0/24"
-                }
-            ]
+            "exclusive": 0,
+            "createTime": "2017-05-12 11:35:57"
         }
     ]
 }

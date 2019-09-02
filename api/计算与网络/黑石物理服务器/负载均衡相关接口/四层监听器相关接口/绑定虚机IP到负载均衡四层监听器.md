@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 BindBmL4ListenerVmIp 提供了绑定虚机IP到黑石负载均衡四层监听器功能。
 
@@ -7,12 +10,12 @@ BindBmL4ListenerVmIp 提供了绑定虚机IP到黑石负载均衡四层监听器
 ## 请求
 ### 请求示例
 ```
-https://bmlb.api.qcloud.com/v2/index.php?
-	Action=BindBmL4ListenerVmIp
-	&公共请求参数
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
+	&<公共请求参数>
 	&loadBalancerId=<负载均衡实例ID>
 	&listenerId=<四层监听器实例ID>
 	&vmList.0.port=<待绑定的虚机端口>
+	&vmList.0.probePort=<自定义探测的虚机端口>
 	&vmList.0.vmIp=<待绑定的虚机IP>
 	&vmList.0.weight=<待绑定的主机权重>
 ```
@@ -33,6 +36,7 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 |vmList.n.port|是|Int|待绑定的虚机端口，可选值1~65535。|
+|vmList.n.probePort|否|Int|自定义探测的虚机端口，可选值1~65535。（需要监听器开启自定义健康检查）|
 |vmList.n.vmIp|是|String|待绑定的虚机IP。|
 |vmList.n.weight|是|Int|待绑定的虚机权重，可选值0~100。|
 
@@ -43,10 +47,10 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "requestId" : <异步任务ID>
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "requestId": "< 异步任务ID >"
 }
 ```
 
@@ -82,8 +86,7 @@ vmList描述待绑定的虚机信息，n为下标，vmList包含字段如下
  
 ### 输入
 ```
-https://domain/v2/index.php?
-	Action=BindBmL4ListenerVmIp
+GET https://bmlb.api.qcloud.com/v2/index.php?Action=BindBmL4ListenerVmIp
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=61431
 	&Timestamp=1507728683
@@ -91,6 +94,7 @@ https://domain/v2/index.php?
 	&loadBalancerId=lb-abcdefgh
 	&listenerId=lbl-abcdefgh
 	&vmList.0.port=1234
+	&vmList.0.probePort=1234
 	&vmList.0.vmIp=1.1.1.1
 	&vmList.0.weight=10
 	&Signature=umZFAAWKzjXEQp4ySgrWAoWOHKI%3D

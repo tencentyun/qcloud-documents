@@ -1,6 +1,6 @@
 ## 产品介绍 FAQ
-### 1.DDoS 攻击都有什么类型？
-常见的 DDoS 攻击类型有 SYN Flood、ACK Flood、ICMP Flood、UDP Flood、NTP Flood 、SSDP Flood、DNS Flood、HTTP Flood，以及 CC 攻击。
+### 1.DDoS 攻击都有哪些类型？
+常见的 DDoS 攻击类型有 SYN Flood、ACK Flood、ICMP Flood、UDP Flood、NTP Flood 、SSDP Flood、DNS Flood 以及 CC 攻击等。
 ### 2.如何防 DDoS 攻击？
 首先需要足够大的机房带宽，接下攻击流量，其次需要有好的防护设备，识别并清洗掉攻击流量。
 

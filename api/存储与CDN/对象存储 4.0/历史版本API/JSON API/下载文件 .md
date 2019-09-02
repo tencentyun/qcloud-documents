@@ -1,0 +1,48 @@
+## 功能描述
+使用该 API 下载 Bucket 中对应文件。公有文件无需拼接签名，私有文件需要拼接多次有限签名。
+
+## 请求
+语法示例：
+```
+GET /abcde.flv HTTP/1.1
+Host: <Region>.file.myqcloud.com
+Authorization: <MultiEffectSignature>
+```
+
+> Authorization: &lt;MultiEffectSignature&gt; 多次有效签名（详细请参阅 [签名算法](https://cloud.tencent.com/document/product/436/6054) 文档）。
+
+### 请求参数
+该请求不带请求参数。<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }</style>
+
+### 请求体
+该请求的请求体为空。
+
+## 响应
+
+### 响应体
+该请求的响应内容为 Object 文件。
+
+## 实际案例
+下面的请求和响应案例是`abcde.flv`文件在根目录下进行的 GET 操作。如需下载某目录（如 doc）下的文件`abcde.flv`，则发起 GET 请求时，将`/abcde.flv`改为`/doc/abcde.flv`即可。
+
+### 请求
+```
+GET /abcde.flv HTTP/1.1
+Host: examplebucket-1250000000.costj.myqcloud.com
+Authorization: lG59otAcouKclTGFddctiwVYqRNhPTEyNTE2Njg1Nzcmaz1BS0lEcDhSYVhIa0xoVDl5aEZ3bG9mSzFmSWkxOWpkT3dLVVYmZT0xNTAzNTE4MzM0JnQ9MTUwMzkwOTQ5NiZyPTQzNzg5NDY5ODU5NDM1NTE3MzgmZj0mYj1zZXZlbnlvdXRlc3Q=
+```
+
+### 响应
+```
+HTTP/1.1 200 OK
+Content-Type: video/x-flv
+x-cos-storage-class: STANDARD
+x-cos-version-id: null
+ETag: a193f1f55f601956a47ea3c2283d1a1d
+x-cos-object-type: normal
+Last-Modified: Tue, 01 Aug 2017 15:39:43 GMT
+Content-Length: 67
+
+Object file
+```
+

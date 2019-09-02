@@ -1,16 +1,19 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 EipBmDelete 接口用于释放弹性公网EIP，以清理不再使用的EIP资源。需注意的是，弹性公网EIP必须已经处于未绑定或创建失败的的状态下，才可以进行释放操作。
 
-接口访问域名: bmeip.api.qcloud.com
+接口访问域名: `bmeip.api.qcloud.com`
 
 
 ## 请求
 ### 请求示例
 ```
 GET https://bmeip.api.qcloud.com/v2/index.php?
-	Action=EipBmDelete
-	&<公共请求参数>
-	&eipIds.0=<EIP实例ID>
+Action=EipBmDelete
+&<公共请求参数>
+&eipIds.0=<EIP实例ID>
 ```
 
 ### 请求参数
@@ -31,7 +34,7 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "message": "",
     "codeDesc": "Success",
     "data": {
-        "requestId": <异步任务ID>
+        "requestId": "<异步任务ID>"
     }
 }
 ```
@@ -84,6 +87,5 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
         "requestId": 2383049
     }
 }
-
 ```
 

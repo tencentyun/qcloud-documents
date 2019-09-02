@@ -6,9 +6,9 @@
 
 ## 2 使用步骤
 
-在本地电脑新建Java工程, 并导入下载好的Memcached-Java-Client.2.5.1源码.
+在本地电脑新建Java工程, 并导入下载好的Memcached-Java-Client.2.5.1源码。
 
-编写源码并导出为Jar包.
+编写源码并导出为Jar包。
 
 将导出的Jar包上传到腾讯云CVM服务器上并运行java -jar ***.jar. (注意: 只有在CVM服务器上才能访问内网的NoSQL服务器)
 
@@ -32,7 +32,7 @@ import java.util.Date;
 public class MemcachedDemo {
     public static void main(String[] args){
 
-        //管理中心，点击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
+        //管理中心，单击“NoSQL高速存储”，在NoSQL高速存储“管理视图”，可以看到系统分配的IP:Port
         //需要在内网IP上访问, 不需要账号密码
         final String ip = "**.***.***.**";
         final String port = "****";

@@ -1,0 +1,128 @@
+## 功能描述
+使用该 API 对腾讯云对象存储中某个文件的属性进行设置或修改。成功更新文件属性的前提条件是 Bucket 中已存在该文件。如果该 Bucket 中没有该文件请求不成功。
+
+>!
+>1. 目前仅提供对 `authority` 和 `custom_headers` 的更新操作，在更新时需要用 `flag` 来决定此次操作是更新 `authority` 还是 `custom_headers` 或者二者都更新。
+>2. 对于自定义头部 `custom_headers` 中的各属性值，均由用户来定义和维护，腾讯云对象存储不负责维护其属性值是否正确有效。
+
+
+## 请求
+语法示例：
+```
+POST /files/v2/100088888/test/sample_file.txt HTTP/1.1
+Host: <Region>.file.myqcloud.com
+Content-Length: <ContentLength>
+Content-Type: application/json
+Authorization: <OnceSignature>
+
+```
+> Authorization: <OnceSignature> 单次有效签名（详细参见 [签名算法](https://cloud.tencent.com/document/product/436/6054) 章节）
+> Content-Length: <ContentLength> RFC 2616 中定义的 HTTP 请求内容长度（字节）
+
+### 请求参数
+该请求不带请求参数。
+
+### 请求体
+该 API 接口请求的请求体具体节点内容为：
+```
+{
+	"biz_attr": "demo",
+	"custom_headers": {
+		"x-cos-meta-yyy": "yyy",
+		"Content-Disposition": "ccccxxx.txt",
+		"Content-Language": "english",
+		"Cache-Control": "cache_xxx",
+		"Content-Type": "application/text",
+		"x-cos-meta-xxx": "xxx"
+	},
+	"authority": "eWRPrivate",
+	"op": "update"
+}
+```
+具体内容描述如下：
+
+| 参数名称       | 描述                                                         | 类型   | 必选 |
+| -------------- | ------------------------------------------------------------ | ------ | ---- |
+| biz_attr       | COS 服务调用方自定义属性，可通过 [查询目录属性](https://cloud.tencent.com/document/product/436/6063) 获取该属性值 | String | 否   |
+| custom_headers | 用户自定义 header，在执行更新操作时，只需填写需要增加或修改的项 | Object | 否   |
+| authority      | Object 的权限，默认与 Bucket 权限一致，此时不会返回该字段。如果设置了独立权限，则会返回该字段。 有效值：eInvalid（空权限），此时系统会默认调取 Bucket 权限，eWRPrivate（私有读写） ，eWPrivateRPublic （公有读私有写） | String | 否   |
+| op             | 操作类型，填“update”                                         | String | 是   |
+
+custom_headers 数据集参数描述：
+
+|参数名称|描述|类型|必选|
+|---|-- |--|--|
+| x-cos-meta-yyy | 用户自定义内容 yyy | String | 否 |
+|Content-Disposition| MIME 协议的扩展 |String | 否 |
+| Content-Language | 文件的语言 | String | 否 |
+|Cache-Control| 文件的缓存机制 |String | 否 |
+|Content-Type| 文件的 MIME 信息 |String | 否 |
+| x-cos-meta-xxx | 用户自定义内容 xxx | String | 否 |
+
+
+
+## 响应
+
+### 响应体
+
+该响应体返回为 **application/json** 数据，包含完整节点数据的内容展示如下：
+```
+{
+	"message": "SUCCESS",
+	"code": 0,
+	"request_id": "NTk5YmRjNjZfNmNhZDM1MGFfOGE0MF9lZDA1MQ=="
+}
+```
+具体的参数描述如下：
+
+| 参数名称 | 描述 | 类型 |
+|-------|-------|------|
+| code     |服务端返回码，如果没有发生任何错误取值为**0**；如果发生错误该参数指称具体的错误码。COS 服务相关的错误码可以查看 [COS 错误码汇总](https://cloud.tencent.com/document/product/436/8432) | Number  |
+|request_id| 该请求的唯一标识 id |String | 
+| message |服务端提示内容，如果发生错误该字段将详细描述发生错误的情况。 | String | 
+
+
+## 实际案例
+
+### 请求
+```
+POST /files/v2/1252448703/test02/sample_file.txt HTTP/1.1
+Content-Length: 268
+Accept-Encoding: gzip, deflate
+Accept': */*
+Connection: keep-alive
+Content-Type: application/json
+Authorization: W0o/dAf5RjYPqBOkFx+TVAw2PwhhPTEyNTI0NDg3MDMmaz1BS0lEMTVJc3NraUJRS1RaYkFvNldoZ2NCcVZsczlTbXVHMDAmZT0wJnQ9MTUwMzM4OTUwMyZyPTc1ODUyMTM3OSZmPS8xMjUyNDQ4NzAzL3Rlc3QwMi9zYW1wbGVfZmlsZS50eHQmYj10ZXN0MDI=
+
+{
+	"biz_attr": "demo",
+	"custom_headers": {
+		"x-cos-meta-yyy": "yyy",
+		"Content-Disposition": "ccccxxx.txt",
+		"Content-Language": "english",
+		"Cache-Control": "cache_xxx",
+		"Content-Type": "application/text",
+		"x-cos-meta-xxx": "xxx"
+	},
+	"authority": "eWRPrivate",
+	"op": "update"
+}
+```
+
+### 响应
+```
+HTTP/1.1 200 OK
+Content-Length': 616
+Content-Type: application/json; charset=utf-8
+Server: tencent-cos
+Connection: keep-alive
+Date: Tue, 22 Aug 2017 07:35:36 GMT 
+x-cos-request-id: NTk5YmRlYzhfMmFhYzM1MGFfNzcwNF9mNTU0OQ==
+
+{
+	"message": "SUCCESS",
+	"code": 0,
+	"request_id": "NTk5YmRjNjZfNmNhZDM1MGFfOGE0MF9lZDA1MQ == "
+}
+
+```

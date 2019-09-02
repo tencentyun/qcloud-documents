@@ -1,20 +1,17 @@
-### 开发准备
-#### 相关环境
-资源下载地址：[SDK](http://wiki.connect.qq.com/sdk%E4%B8%8B%E8%BD%BD )
+## 开发准备
 
-![](https://mc.qcloudimg.com/static/img/1c18ecaece1d026e23d2f7c92545d6b4/image.jpg)
-#### 环境依赖
+### 环境依赖
 适用于 JDK1.6 版本以上 。
-####  安装SDK
-以下以 eclipse 为开发的 IDE 进行范例说明：
-1. 创建一个工程，把 open_sdk.jar, mta-sdk.jar 以及 mid-sdk.jar 文件拷贝到libs（或lib）目录下。
+###  安装 SDK
+以下以 Eclipse 为开发的 IDE 进行范例说明：
+1. 创建一个工程，把 open_sdk.jar, mta-sdk.jar 以及 mid-sdk.jar 文件拷贝到 libs（或 lib）目录下。
 2. 将 open_sdk.jar, mta-sdk.jar 以及 mid-sdk.jar 加入编译路径中。
 
    具体的操作步骤为：选中 open_sdk.jar, mta-sdk.jar 以及 mid-sdk.jar，右键菜单中选择【Build Path】>【Add to Build  Path】。 
 3. 配置 AndroidManifest：
-在应用的 AndroidManifest.xml 增加配置的  ***application*** 节点下增加以下配置；
+在应用的 AndroidManifest.xml 增加配置的 **application** 节点下增加以下配置；
 >**注意：**
->不配置将会导致无法调用API。
+>不配置将会导致无法调用 API。
 
 ```
 <uses-permission android:name="android.permission.INTERNET" />
@@ -34,10 +31,10 @@
  </activity>
 <application>
 ```
-通过以上步骤，工程就已经配置完成了。接下来就可以在代码里使用QQ互联的 SDK 进行开发了。
-### 快速入门
-#### 创建实例
-Tencent 是 SDK 的功能入口，所有的接口调用都得通过 Tencent 进行调用。因此调用 SDK首先需要创建一个 Tencent    实例，其代码如下：
+通过以上步骤，工程就已经配置完成了。接下来就可以在代码里使用 QQ 互联的 SDK 进行开发了。
+## 快速入门
+### 创建实例
+Tencent 是 SDK 的功能入口，所有的接口调用都得通过 Tencent 进行调用。因此调用 SDK 首先需要创建一个 Tencent 实例，其代码如下：
 
 ```
 @Override
@@ -63,15 +60,15 @@ initViews();
 }
 ```
 
-如果你已经添加了 android.permission.INTERNET 和 android.permission.ACCESS_NETWORK_STATE 权限，则无需重复添加。而你的 AppId 则要替换成具体应用的 AppId，例如你的 AppId 是 222222，则 ***data*** 标签应该是这样的：
+如果你已经添加了 android.permission.INTERNET 和 android.permission.ACCESS_NETWORK_STATE 权限，则无需重复添加。而你的 APPID 则要替换成具体应用的 APPID，例如你的 APPID 是 222222，则 **data** 标签应该是这样的：
 
 ```
 <data android:scheme="tencent222222" />
 ```
-#### 实现回调
+### 实现回调
 所有的 SDK 接口调用，都会传入一个回调用以接收 SDK 返回的调用结果。回调的主要接口有两种：
-- 实现回调 IUiListener
-调用SDK已经封装好的接口时，例如登录、快速支付登录、应用分享、应用邀请等接口，需传入该回调的实例。IUiListener 的实现示例代码如下：
+- 实现回调 IUiListener：
+调用 SDK 已经封装好的接口时，例如登录、快速支付登录、应用分享、应用邀请等接口，需传入该回调的实例。IUiListener 的实现示例代码如下：
 
 ```
 private class BaseUiListener implements IUiListener {
@@ -112,7 +109,7 @@ showResult("onCancel", "");
  
 }
 ```
-- 实现回调 IRequestListener
+- 实现回调 IRequestListener：
 使用 requestAsync、request 等通用方法调用 SDK 未封装的接口时，例如上传图片、查看相册等接口，需传入该回调的实例。IRequestListener 的实现示例代码如下：
 
 ```
@@ -204,9 +201,9 @@ public void onUnknowException(Exception e, Object state) {
  
 }
 ```
-应用在调用 SDK 提供的接口时，将实现了对应回调接口的实例传入。当SDK的接口调用完成后，具体如登录、应用邀请和应用分享调用完成后，会回调传入的接口实例。
+应用在调用 SDK 提供的接口时，将实现了对应回调接口的实例传入。当 SDK 的接口调用完成后，具体如登录、应用邀请和应用分享调用完成后，会回调传入的接口实例。
 >**注意：**
->应用调用 Andriod_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity的onActivityResult 方法中增加如下代码：
+>应用调用 Andriod_SDK 接口时，如果要成功接收到回调，需要在调用接口的 Activity 的 onActivityResult 方法中增加如下代码：
 
 ```
 @Override

@@ -1,63 +1,49 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689" target="_blank">云服务器 API 3.0</a>。**
+>
+
 ## 1. 接口描述
 
-本接口(UpdateInstanceVpcConfig)用于修改实例vpc属性，如私有网络ip。
- 
-接口请求域名：<font style="color:red">cvm.api.qcloud.com</font>
+本接口（UpdateInstanceVpcConfig）用于修改实例 VPC 属性，如私有网络 IP。
 
-
+接口请求域名：cvm.api.qcloud.com
 * 此操作默认会关闭实例，完成后再启动。
-* 不支持跨vpcId操作。
+* 不支持跨 VpcId 操作。
 
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/6976)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/11650) 页面。
 
-| 名称      |  是否必选|    类型  | 描述|
+| 名称      |    类型 |  是否必选 | 描述|
 |---------|---------|---------|---------|
-|instanceId |是|String|待操作的实例ID。可通过 [DescribeInstances](https://cloud.tencent.com/doc/api/229/831) API返回值中的 unInstanceId 获取|
-|vpcId | 是 |String| 私有网络ID。|
-|subnetId| 是|String|私有网络子网ID。|
-|privateIpAddresses.n| 是|array of Strings|私有子网ip数组，目前只支持一个ip。|
-|autoPowerOffFlag| 否 |int| 1表示自动关机，0表示不自动关机，默认为1|
+|Version|String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
+|InstanceId |String|是|待操作的实例 ID。可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/831) 接口返回值中的 `InstanceId` 获取。|
+|VirtualPrivateCloud|[VirtualPrivateCloud](https://cloud.tencent.com/document/api/213/9451#virtualprivatecloud) object| 是 |私有网络相关信息配置。通过该参数指定私有网络的 ID，子网 ID，私有网络 IP 等信息。|
+|ForceStop| Boolean| 否 |是否对运行中的实例选择强制关机。默认为 TRUE。|
 
 ## 3. 输出参数
- 
+
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
-| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
+|RequestId|String| 唯一请求 ID。每次请求都会返回一个唯一的 requestId，当客户调用接口失败找后台研发人员处理时需提供该 requestId 具体值。|
 
 
+### 接口执行正常返回参数示例
+```
+{
+    "Response": {
+        "RequestId": "d39d6c09-44e9-4e80-8661-77b5ff3cbc15"
+    }
+}
+```
 ## 4. 错误码
-以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见[CVM错误码](/document/product/213/6982)页面。
 
-|错误码|描述|
-|---|---|
-|InvalidParameter.InvalidIpFormat|ip格式不正确|
-|InvalidParameter.NotSupportReservedIp|保留ip不可使用|
-|InvalidParameter.IpNotInCidrRange|ip不在子网内|
-|InvalidParameter.IpInUse|ip已经被使用|
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/11657)。
 
-## 5. 示例
- 
-输入
-
-<pre>
-  https://cvm.api.qcloud.com/v2/index.php?Action=UpdateInstanceVpcConfig
-  &instanceId=qcvm12345
-  &vpcId=gz_vpc_1
-  &subnetId=gz_subnet_1
-  &privateIpAddresses.0=10.0.0.20
-  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
-</pre>
-
-输出
-
-```
-  {
-      "code" : 0,
-      "message" : ""
-  }
-
-```
+| 错误码 | 描述 |
+|---------|---------|
+|InvalidParameterValue|无效参数值。参数值格式错误或者参数值不被支持等。|
+|VpcAddrNotInSubNet|私有网络 IP 不在子网内。|
+|VpcIpIsUsed|私有网络 IP 已经被使用。|
+|VpcIdNotMatch|VpcId 与实例所在 VpcId 不匹配。|
+|EniNotAllowedChangeSubnet|弹性网卡不允许跨子网操作。|

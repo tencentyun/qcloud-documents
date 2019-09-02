@@ -1,0 +1,7 @@
+Tencent Cloud is the first domestic enterprise to attain dual ISO9001 China National Accreditation Service for Conformity Assessment (CNAS) and ANSI-ASQ National Accreditation Board (ANAB) certifications pertaining to cloud computing. 
+
+ISO9001 is derived from the first global quality management system standard, namely, the BS 5750, formulated by the BSI. To date, it is the most sophisticated quality management framework, one that systematically provides assurance as to the product quality and operations of a company. In addition, it also provides guidelines and structure to the entire process of planning, implementation, improving and realization of a company’s products and services, ensuring that customer satisfaction and compliance with laws and regulations are achieved.
+
+The employment of a quality management system enables us to meet our quality assurance targets in an effective and efficient manner. Moreover, through the audit and assessment of the said system, we are in a position to rectify any problems as well as to put in place the requisite precautionary measures, setting us on a path of continuous improvement in the effectiveness of the same, which is ultimately the cornerstone for the development and growth of a company. 
+
+Tencent Cloud has already been conferred the ISO9001 certification, whose remit includes cloud computing services, hosting services and disaster preparedness services.

@@ -1,0 +1,446 @@
+
+| API        | 描述   | 
+| --------   | -----  | 
+|ModifyInstanceParam	|修改实例参数|
+|CloseWanService	|	关闭实例外网访问|
+|OpenWanService	 | 开通实例外网访问|
+|RestartDBInstances	|重启实例|
+|OpenDBInstanceGTID	|开启实例的 GTID|
+|ModifyDBInstanceName	|修改云数据库实例名|
+|ModifyDBInstanceProject	|修改云数据库实例的所属项目|
+|ModifyDBInstanceVipVport	|修改云数据库实例的 IP 和端口号|
+|DescribeDBInstanceCharset	|查询云数据库实例的字符集|
+|DescribeDBInstanceConfig	|查询云数据库实例的配置信息|
+|DescribeDBInstanceGTID	|查询云数据实例的 GTID 是否开通|
+|DescribeDBInstanceRebootTime	|查询云数据库实例的预期重启时间|
+
+### ModifyInstanceParam  修改实例参数
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+import logging
+import traceback
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象
+    req = models.ModifyInstanceParamRequest()
+    req.InstanceIds = ["cdb-1y6g3zj8","cdb-7ghaiocc"]
+    req.ParamList = [{"name":"max_connections","currentValue":"100"},{"name":"character_set_server","currentValue":"utf8"},{"name":"lower_case_table_names","currentValue":"1"}]
+    #req.ParamList = [{"name":"max_connections","currentValue":"100"}]
+    #param = models.Parameter()
+    #param.Name = "max_connections"
+    #param.CurrentValue = "1000"
+    #req.ParamList = [param]
+
+
+    print req
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.ModifyInstanceParam(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    msg = traceback.format_exc() # 方式1  
+    print (msg) 
+
+```
+
+### CloseWanService	关闭实例外网访问
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.CloseWanServiceRequest()
+    req.InstanceId = "cdb-1y6g3zj8"
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.CloseWanService(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+
+```
+
+### OpenWanService 开通实例外网访问
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.OpenWanServiceRequest()
+    req.InstanceId = "cdb-1y6g3zj8"
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.OpenWanService(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+```
+
+
+### RestartDBInstances	重启实例
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.RestartDBInstancesRequest()
+    req.InstanceIds = ["cdb-7ghaiocc"]
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.RestartDBInstances(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+```
+
+
+### OpenDBInstanceGTID 开启实例的 GTID
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.OpenDBInstanceGTIDRequest()
+    req.InstanceId = "cdb-7ghaiocc"
+    
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.OpenDBInstanceGTID(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+
+```
+
+### ModifyDBInstanceName	修改云数据库实例名
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-beijing")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.ModifyDBInstanceNameRequest()
+    req.InstanceId = "cdb-cukm86n2"
+    req.InstanceName = "1s中文"
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.ModifyDBInstanceName(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+```
+
+
+### ModifyDBInstanceProject	修改云数据库实例的所属项目
+
+```python
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+import logging
+import traceback
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+
+def DescribeDBInstancesList():
+    try:
+        # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+        cred = credential.Credential("secretId", "secretKey")
+
+        #实例化要请求产品(以cdb为例)的client对象
+        client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+        #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+        req = models.ModifyDBInstanceProjectRequest()
+        req.InstanceIds = ["cdb-7ghaiocc"]
+        req.NewProjectId =1
+
+
+        # 通过client对象调用想要访问的接口，需要传入请求对象
+        resp = client.ModifyDBInstanceProject(req)
+
+        # 输出json格式的字符串回包
+        print(resp.to_json_string())
+    except TencentCloudSDKException as err:
+        msg = traceback.format_exc() # 方式1  
+        print (msg) 
+
+
+
+DescribeDBInstancesList()
+
+
+```
+
+### ModifyDBInstanceVipVport	修改云数据库实例的 IP 和端口号
+
+```python
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+import logging
+import traceback
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.ModifyDBInstanceVipVportRequest()
+    req.InstanceId = "cdb-7ghaiocc"
+    req.DstIp = "10.0.0.13"
+    req.DstPort =1025
+    req.UniqVpcId = 1111
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.ModifyDBInstanceVipVport(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+        msg = traceback.format_exc() # 方式1  
+        print (msg) 
+
+```
+
+
+### DescribeDBInstanceCharset	查询云数据库实例的字符集
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.DescribeDBInstanceCharsetRequest()
+    req.InstanceId = "cdb-1y6g3zj8"
+
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.DescribeDBInstanceCharset(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+
+```
+
+### DescribeDBInstanceConfig	查询云数据库实例的配置信息
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.DescribeDBInstanceConfigRequest()
+    req.InstanceId = "cdb-1y6g3zj8"
+
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.DescribeDBInstanceConfig(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+
+```
+
+### DescribeDBInstanceGTID	查询云数据实例的 GTID 是否开通
+
+```python
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.DescribeDBInstanceGTIDRequest()
+    req.InstanceId = "cdb-1y6g3zj8"
+
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.DescribeDBInstanceGTID(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+    
+```
+
+### DescribeDBInstanceRebootTime	查询云数据库实例的预期重启时间
+
+```python
+
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+# 引入云API入口模块
+
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+from tencentcloud.cdb.v20170320 import cdb_client, models
+
+try:
+    # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+    cred = credential.Credential("secretId", "secretKey")
+
+    #实例化要请求产品(以cdb为例)的client对象
+    client = cdb_client.CdbClient(cred, "ap-shanghai")
+
+    #实例化一个请求对象:req = models.ModifyInstanceParamRequest()
+    req = models.DescribeDBInstanceRebootTimeRequest()
+    req.InstanceIds = ["cdb-1y6g3zj8"]
+
+
+    # 通过client对象调用想要访问的接口，需要传入请求对象
+    resp = client.DescribeDBInstanceRebootTime(req)
+
+    # 输出json格式的字符串回包
+    print(resp.to_json_string())
+except TencentCloudSDKException as err:
+    print(err)
+
+```

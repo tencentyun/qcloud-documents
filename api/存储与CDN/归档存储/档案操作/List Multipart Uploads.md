@@ -48,16 +48,15 @@ Authorization: Auth
 
 ```JSON
 {
-  "Marker": String,
-  "UploadsList" : [ 
-    {
-      "ArchiveDescription": String,
-      "CreationDate": String,
-      "MultipartUploadId": String,
-      "PartSizeInBytes": Number,
-      "VaultQCS": String
-    }, 
-   ...
-  ]
-} 
+	"Marker": "String",
+	"UploadsList": [{
+			"ArchiveDescription": "String",
+			"CreationDate": "String",
+			"MultipartUploadId": "String",
+			"PartSizeInBytes": "Number",
+			"VaultQCS": "String"
+		},
+		...
+	]
+}
 ```

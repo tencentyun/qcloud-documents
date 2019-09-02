@@ -1,0 +1,21 @@
+
+**请求示例:**
+
+```
+DELETE / HTTP/1.1
+Host: arlenhuangtestsgnoversion-1251668577.cos.ap-beijing.myqcloud.comn
+Date: Wed, 23 Oct 2016 21:32:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484708950;32557604950&q-key-time=1484708950;32557604950&q-header-list=host&q-url-param-list=&q-signature=2b27b72ad2540ff2dde341dc7579a66ee8cb2af
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 204 OK
+Content-Type: application/xml
+Content-Length: 0
+Connection: keep-alive
+Date: Wed, 23 Oct 2016 21:32:00 GMT
+Server: tencent-cos
+x-cos-request-id: NTg3ZWRjNjBfOTgxZjRlXzZhYjlfMTg
+```

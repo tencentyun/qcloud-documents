@@ -1,0 +1,69 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。云服务器 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/213/15689" target="_blank">云服务器 API 3.0</a>。**
+>
+
+## 1. 接口描述
+
+本接口 (ResetInstances) 用于将重装指定实例上的操作系统。
+
+接口请求域名：<font style="color:red">cvm.api.qcloud.com</font>
+
+
+* 如果用户指定了镜像ID，则使用用户指定的镜像重装；如果用户未指定，则按照当前实例使用的镜像进行重装。
+* 系统盘将会被格式化，并重置；确保系统盘中无重要文件。
+* Linux和Windows系统互相切换时，该实例系统盘ID将发生变化，系统盘关联快照将无法回滚、恢复数据。
+* 密码不指定将会通过站内信下发随机密码。
+
+## 2. 输入参数
+
+以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/6976)页面。
+
+| 参数名称 | 是否必选  | 类型 | 描述 |
+|---------|---------|---------|---------|
+| instanceId| 是| String| 待操作的实例ID。可通过 [DescribeInstances](/doc/api/229/831) API返回值中的 unInstanceId 获取。
+| imageType| 否| Int| 镜像类型。<br>1：私有镜像<br>2：公有镜像<br>3：镜像市场<br>4：共享镜像。<br>默认为2。需与imageId同时指定。|
+| imageId| 否| String| 镜像ID。默认使用实例当前的镜像安装。如果指定了镜像ID则使用指定的镜像安装。可通过 [DescribeImages](http://cloud.tencent.com/document/api/213/1272) 接口（内附常用公有镜像ID）返回字段中的  unImgId 获取（需与imageType同时指定）。|
+| password| 否| String| 实例密码。linux实例密码必须8到16位，至少包括两项[a-z，A-Z]、[0-9] 和 [( ) &#96; ~ ! @ # $ % ^ & * - + = &#124; { } [ ] : ; ' , . ? / ]中的特殊符号。Windows实例密码必须12到16位，至少包括三项[a-z]，[A-Z]，[0-9] 和 [( ) &#96; ~ ! @ # $ % ^ & * - + = { } [ ] : ; ' , . ? /]中的特殊符号。|
+|needSecurityAgent|否|Int| 安装安全Agent，0：不安装，1：安装，默认安装。
+|needMonitorAgent|否|Int| 安装监控Agent，0：不安装，1：安装，默认安装。
+|rootSize|否|Int| 系统盘大小(GB)。rootSize默认保持不变。
+
+ 
+
+## 3. 输出参数
+
+| 参数名称 | 类型 | 描述 |
+|---------|---------|---------|
+| code | Int | 公共错误码。0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
+| message | String | 模块错误信息描述，与接口相关。详见错误码页面的[模块错误码](https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#2.E3.80.81.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
+| requestId| Int| 请求任务ID。|
+
+## 4. 错误码
+以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见[CVM错误码](/document/product/213/6982)页面。
+
+|错误码|描述|
+|---|---|
+|OperationConstraints.InvaildInstanceStatus|实例状态不正确或获取实例状态失败|
+|OperationFail.AllResourceOpFailed|资源操作失败|
+|OperationConstraints.AccountBalanceNotEnough|您的余额不足，请先充值|
+|OperationFail.SystemBusy	|资源购买繁忙| 
+
+## 5. 示例
+ 
+输入
+
+<pre>
+  https://cvm.api.qcloud.com/v2/index.php?Action=ResetInstances
+  &instanceId=qcvm12345
+  &<<a href="https://cloud.tencent.com/doc/api/229/6976">公共请求参数</a>>
+</pre>
+
+
+输出
+
+参见：[普通异步任务接口返回格式](http://cloud.tencent.com/doc/api/229/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F#1.-普通异步任务接口返回格式)
+
+
+
+
+
+

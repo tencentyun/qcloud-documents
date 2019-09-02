@@ -1,14 +1,14 @@
 ## 1. 接口描述
 本接口（QueryCdnIp）用于查询指定IP是否为CDN节点。
 
-接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
+接口请求域名：cdn.api.qcloud.com
 
 **接口说明：**
 + 支持多IP查询，一次最多可查询20个；
 
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/doc/api/231/4473)页面。其中，此接口的Action字段为QueryCdnIp。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为QueryCdnIp。
 
 | 参数名称 | 是否必选 | 类型     | 描述                |
 | ---- | ---- | ------ | ----------------- |
@@ -25,7 +25,7 @@ ips=1.1.1.1,2.2.2.2
 ## 3. 输出参数
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的[公共错误码](https://www.qcloud.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
 | data     | Object | 返回结果数据                                   |
@@ -63,7 +63,7 @@ Action=QueryCdnIp
 ```
 
 ### 4.2 POST请求
-POST请求时，参数填充在HTTP Requestbody中，请求地址：
+POST 请求时，参数填充在 HTTP Requestbody 中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
@@ -81,7 +81,8 @@ array (
 ```
 
 ### 4.3 返回示例
-注意：示例中IP仅供参考。
+>!示例中IP仅供参考。
+
 ```
 {
     "code": 0,
@@ -106,5 +107,3 @@ array (
     }
 }
 ```
-
-

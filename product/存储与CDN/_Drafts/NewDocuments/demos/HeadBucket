@@ -1,0 +1,19 @@
+
+**请求示例:**
+
+```
+HEAD / HTTP/1.1
+Host: zuhaotestsgnoversion-1251668577.cos.ap-beijing.myqcloud.com
+Date: Thu, 27 Oct 2015 20:32:00 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484640517;32557536517&q-key-time=1484640517;32557536517&q-header-list=host&q-url-param-list=&q-signature=7bedc2f84a0a3d29df85fe727d0c1e388c41037
+```
+
+**响应示例:**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 0
+Date: Thu, 27 Oct 2015 20:32:00 GMT
+x-cos-request-id: NTg3ZGQxNDNfNDUyMDRlXzUyOWNfMjY
+```
