@@ -5,7 +5,7 @@ COS Select 功能仅支持 SELECT SQL 查询指令，以便检索所需的部分
 - SELECT 语句
 - FROM 子句
 - WHERE 子句
-- LIMIT 子句（仅 COS 支持此类查询）
+- LIMIT 子句
 
 > !COS Select 当前暂不支持子句查询或者 joins。
 
