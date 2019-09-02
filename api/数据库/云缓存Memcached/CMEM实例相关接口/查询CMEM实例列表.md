@@ -3,7 +3,7 @@
 域名: cmem.api.qcloud.com
 接口名: DescribeCmem
 
-查询CMEM实例列表
+查询实例列表
 可调用地域：广州、上海、北美
 
  
