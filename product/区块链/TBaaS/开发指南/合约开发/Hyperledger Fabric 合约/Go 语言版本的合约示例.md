@@ -63,8 +63,7 @@ Hyperledger Fabric 提供了很多官方智能合约样例，具体请参考 [fa
 #### Init 函数示例
 Init 函数在智能合约实例化以及升级的时候会被调用。在实现 Init 函数的过程中，可使用 [Go 语言版本的合约 API 列表](https://cloud.tencent.com/document/product/663/36243) 来对参数和账本进行操作。本例通过调用 API GetFunctionAndParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API PutState 将数据写到账本中。具体代码如下：
 ```
-// Init用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, 
-VALUE2
+// Init用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, VALUE2
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Init")
 	// 调用API GetFunctionAndParameters 获取用户输入参数
