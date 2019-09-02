@@ -63,11 +63,11 @@ Content-Length: Content Length
 
 在上传对象时可以通过指定下列表单字段来使用服务端加密：
 
-| 名称 | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 类型 | 是否必选 |
+| 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时必须指定该字段 |
+| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码，例如<br>`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时必须指定该字段 |
 
 <span id="id1"></span>
