@@ -337,55 +337,55 @@ COS Select 的响应类型主要可以分为以下几种：
 
 该请求常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档，特殊错误码信息如下所示：                     
 
-| 错误码| 错误信息 | 含义| HTTP 状态码 |
+| 错误码| 错误信息 | 含义|<br><br><br>HTTP&nbsp;状态码&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   |
 | -- | -- | -- | -- |
-| InvalidXML | The XML is invalid. | XML 格式不合法。 | 400 Bad Request|
-| MissingRequiredParameter | The SelectRequest entity is missing a required parameter.  | 检索请求缺少必填参数项。 | 400 Bad Request|
-| MissingExpectedExpression | The SQL expression is missing.  | 缺少 SQL 表达式。 | 400 Bad Request|
-| MissingInputSerialization |  The input serialization is missing. | 未指定输入 CSV 对象的数据序列化格式。 | 400 Bad Request|
-| InvalidCompressionFormat |  The file is not in a supported compression format. Only GZIP and BZIP2 are supported. | 不合法的文件压缩格式，仅支持 GZIP 和 BZIP2 两种格式。 | 400 Bad Request|
-| MissingInputFormat | The input format is missing.  | 缺少输入格式。 | 400 Bad Request|
-| InvalidFileHeaderInfo |  The input FileHeaderInfo is invalid. Only NONE, USE, and IGNORE are supported. | 输入的文件表头信息不合法。仅支持 NONE，USE 和 IGNORE。 | 400 Bad Request|
-| InvalidRequestParameter | The input RecordDelimiter of CSV is invalid  | 不合法的 CSV 文件换行符。 | 400 Bad Request|
-| InvalidRequestParameter | The input FieldDelimiter of CSV is invalid  | 不合法的 CSV 文件列分隔符。 | 400 Bad Request|
-| InvalidRequestParameter | The input QuoteCharacter of CSV is invalid  | 不合法的 CSV 文件引用符。 | 400 Bad Request|
-| InvalidRequestParameter |  The input AllowQuoteRecordDelimiter of csv is invalid. Only TRUE and FALSE are supported | 在输入 CSV 文件中启用转义符的配置不合法，仅支持 TRUE 和 FALSE。 | 400 Bad Request|
-| InvalidJsonType |  The JsonType is invalid. Only DOCUMENT and LINES are supported. | 不合法的 JSON 类型，仅支持 DOCUMENT 和 LINES。 | 400 Bad Request|
-| MissingOutputSerialization |  The output serialization is missing. |  未指定输出 CSV 对象的数据序列格式。| 400 Bad Request|
-| MissingOutputFormat | The output format is missing.  | 缺少输出格式。 | 400 Bad Request|
-| InvalidQuoteFields | The QuoteFields is invalid. Only ALWAYS and ASNEEDED are supported.  | 不合法的转义规则，仅支持 ALWAYS 和 ASNEEDED。 | 400 Bad Request|
-| InvalidRequestParameter |  The output RecordDelimiter of CSV is invalid | 输出 CSV 文件的换行符不合法。 | 400 Bad Request|
-| InvalidRequestParameter |  The output FieldDelimiter of CSV is invalid | 输出 CSV 文件的分隔符不合法。 | 400 Bad Request|
-| InvalidRequestParameter | The output QuoteCharacter of CSV is invalid  | 输出 CSV 文件的转义符不合法。 | 400 Bad Request|
-| InvalidRequestParameter | The output QuoteEscapeCharacter of CSV is invalid  | 输出 CSV 的双引号转义符不合法。 | 400 Bad Request|
-| InvalidRequestParameter |  The output RecordDelimiter of JSON is invalid | 输出 JSON 文件的换行符不合法。 | 400 Bad Request|
-| SQLParsingError | Encountered an error parsing the SQL expression.  | 解析 SQL 表达式出现问题。 | 400 Bad Request|
-| SQLParsingError |  Other expressions are not allowed in the SELECT list when '\*' is used without dot notation. | SELECT list 不允许在未使用点符的时候使用 `'*'`。 | 400 Bad Request|
-| SQLParsingError |  The SQL expression contains an empty SELECT. | SQL 表达式中包含了空的 SELECT 子句。 | 400 Bad Request|
-| SQLParsingError | GROUP is not supported in the SQL expression.  | SQL 表达式中不支持 GROUP 子句。 | 400 Bad Request|
-| SQLParsingError | UNION is not supported in the SQL expression.  | SQL 表达式中不支持 UNION 子句。 | 400 Bad Request|
-| SQLParsingError | FROM is missing in the SQL expression.  | SQL 表达式中缺少 FROM 子句。 | 400 Bad Request|
-| SQLParsingError | ORDER is not supported in the SQL expression.  | SQL表达式中不支持ORDER子句。 | 400 Bad Request|
-| SQLParsingError | The column index is invalid in the SQL expression.  | SQL表达式中指定的列索引不合法。 | 400 Bad Request|
-| SQLParsingError | The table alias is invalid in WHERE.  | WHERE 子句中的表别名不合法。 | 400 Bad Request|
-| Bzip2DecompressError | Encountered an error decompressing the bzip2 file.  | 解压 BZIP2 格式的文件是出现问题。 | 400 Bad Request|
-| Bzip2DecompressError |  BZIP2 is not applicable to the queried object. | BZIP2 格式不适用于解压待查询对象。 | 400 Bad Request|
-| GzipDecompressError |  Encountered an error decompressing the gzip file. | 解压 GZIP 格式的文件是出现问题。 | 400 Bad Request|
-| GzipDecompressError | GZIP is not applicable to the queried object.  | GZIP 格式不适用于解压待查询对象。 | 400 Bad Request|
-| Busy |  The service is busy. Please retry later. | 后端服务阻塞，请稍后重试。 | 400 Bad Request|
-| Overload | The service is overload. Please retry later.  | 后端服务过载，请稍后重试。 | 400 Bad Request|
-| AmbiguousFieldName |  Field name matches to multiple fields in the file. | 指定的表头名称存在多个相同的值。 | 400 Bad Request|
-| ComparisonFailed | Attempt to compare failed.  | 匹配失败，请重试。 | 400 Bad Request|
-| CastFailed |  Attempt to convert from one data type to another using CAST failed in the SQL expression. | 在 SQL 表达式中通过 CAST 函数转换数据类型时出现错误。 | 400 Bad Request|
-| OverMaxRecordSize |  The length of a record in the input or result is greater than maxCharsPerRecord of 1 MB. | 输入或输出的文件中，单行记录大小超过1MB限制。 | 400 Bad Request|
-| LastRecordParseFail |  Please check the last record in the input. | 请检查输出文件的最后一行记录。 | 400 Bad Request|
-| CSVParsingError | Encountered an error parsing the CSV file.  | 解析 CSV 格式文件的时候出现问题。 | 400 Bad Request|
-| JSONParsingError | Encountered an error parsing the JSON file.  | 解析 JSON 格式文件的时候出现问题。 | 400 Bad Request|
-| ErrorWritingRow | Encountered an error parsing the SELECT result. Please try again.  | 无法格式化您的查询结果，请检查文件并重试。 | 400 Bad Request|
-| NoSuchKey | The specified key does not exist.  | 指定的对象键不存在。 | 404 Not Found|
-| AccessDenied |  Access Denied. | 签名或者权限不正确，拒绝访问。 | 403 Forbidden|
-| MethodNotAllowed | The specified method is not allowed against this resource.  | 当前资源不支持该 HTTP 方法。 | 405 Method Not Allowed|
-| InternalError | We encountered an internal error. Please try again.  | 服务端内部错误。 | 500 Internal Server|
+| InvalidXML | The XML is invalid | XML 格式不合法 | 400 Bad Request|
+| MissingRequiredParameter | The SelectRequest entity is missing a required parameter | 检索请求缺少必填参数项 | 400 Bad Request|
+| MissingExpectedExpression | The SQL expression is missing | 缺少 SQL 表达式 | 400 Bad Request|
+| MissingInputSerialization |  The input serialization is missing| 未指定输入 CSV 对象的数据序列化格式 | 400 Bad Request|
+| InvalidCompressionFormat |  The file is not in a supported compression format. Only GZIP and BZIP2 are supported | 不合法的文件压缩格式，仅支持 GZIP 和 BZIP2 两种格式 | 400 Bad Request|
+| MissingInputFormat | The input format is missing  | 缺少输入格式 | 400 Bad Request|
+| InvalidFileHeaderInfo |  The input FileHeaderInfo is invalid. Only NONE, USE, and IGNORE are supported| 输入的文件表头信息不合法。仅支持 NONE，USE 和 IGNORE | 400 Bad Request|
+| InvalidRequestParameter | The input RecordDelimiter of CSV is invalid  | 不合法的 CSV 文件换行符 | 400 Bad Request|
+| InvalidRequestParameter | The input FieldDelimiter of CSV is invalid  | 不合法的 CSV 文件列分隔符 | 400 Bad Request|
+| InvalidRequestParameter | The input QuoteCharacter of CSV is invalid  | 不合法的 CSV 文件引用符 | 400 Bad Request|
+| InvalidRequestParameter |  The input AllowQuoteRecordDelimiter of csv is invalid. Only TRUE and FALSE are supported | 在输入 CSV 文件中启用转义符的配置不合法，仅支持 TRUE 和 FALSE | 400 Bad Request|
+| InvalidJsonType |  The JsonType is invalid. Only DOCUMENT and LINES are supported| 不合法的 JSON 类型，仅支持 DOCUMENT 和 LINES | 400 Bad Request|
+| MissingOutputSerialization |  The output serialization is missing. |  未指定输出 CSV 对象的数据序列格式| 400 Bad Request|
+| MissingOutputFormat | The output format is missing  | 缺少输出格式 | 400 Bad Request|
+| InvalidQuoteFields | The QuoteFields is invalid. Only ALWAYS and ASNEEDED are supported  | 不合法的转义规则，仅支持 ALWAYS 和 ASNEEDED | 400 Bad Request|
+| InvalidRequestParameter |  The output RecordDelimiter of CSV is invalid | 输出 CSV 文件的换行符不合法 | 400 Bad Request|
+| InvalidRequestParameter |  The output FieldDelimiter of CSV is invalid | 输出 CSV 文件的分隔符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The output QuoteCharacter of CSV is invalid  | 输出 CSV 文件的转义符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The output QuoteEscapeCharacter of CSV is invalid  | 输出 CSV 的双引号转义符不合法 | 400 Bad Request|
+| InvalidRequestParameter |  The output RecordDelimiter of JSON is invalid | 输出 JSON 文件的换行符不合法 | 400 Bad Request|
+| SQLParsingError | Encountered an error parsing the SQL expression  | 解析 SQL 表达式出现问题 | 400 Bad Request|
+| SQLParsingError |  Other expressions are not allowed in the SELECT list when '\*' is used without dot notation. | SELECT list 不允许在未使用点符的时候使用`'*'` | 400 Bad Request|
+| SQLParsingError |  The SQL expression contains an empty SELECT | SQL 表达式中包含了空的 SELECT 子句 | 400 Bad Request|
+| SQLParsingError | GROUP is not supported in the SQL expression | SQL 表达式中不支持 GROUP 子句 | 400 Bad Request|
+| SQLParsingError | UNION is not supported in the SQL expression | SQL 表达式中不支持 UNION 子句 | 400 Bad Request|
+| SQLParsingError | FROM is missing in the SQL expression | SQL 表达式中缺少 FROM 子句 | 400 Bad Request|
+| SQLParsingError | ORDER is not supported in the SQL expression | SQL 表达式中不支持ORDER子句 | 400 Bad Request|
+| SQLParsingError | The column index is invalid in the SQL expression | SQL 表达式中指定的列索引不合法 | 400 Bad Request|
+| SQLParsingError | The table alias is invalid in WHERE | WHERE 子句中的表别名不合法 | 400 Bad Request|
+| Bzip2DecompressError | Encountered an error decompressing the bzip2 file | 解压 BZIP2 格式的文件是出现问题 | 400 Bad Request|
+| Bzip2DecompressError |  BZIP2 is not applicable to the queried object | BZIP2 格式不适用于解压待查询对象 | 400 Bad Request|
+| GzipDecompressError |  Encountered an error decompressing the gzip file | 解压 GZIP 格式的文件是出现问题 | 400 Bad Request|
+| GzipDecompressError | GZIP is not applicable to the queried object  | GZIP 格式不适用于解压待查询对象 | 400 Bad Request|
+| Busy |  The service is busy. Please retry later| 后端服务阻塞，请稍后重试 | 400 Bad Request|
+| Overload | The service is overload. Please retry later | 后端服务过载，请稍后重试 | 400 Bad Request|
+| AmbiguousFieldName |  Field name matches to multiple fields in the file| 指定的表头名称存在多个相同的值 | 400 Bad Request|
+| ComparisonFailed | Attempt to compare failed | 匹配失败，请重试 | 400 Bad Request|
+| CastFailed |  Attempt to convert from one data type to another using CAST failed in the SQL expression. | 在 SQL 表达式中通过 CAST 函数转换数据类型时出现错误 | 400 Bad Request|
+| OverMaxRecordSize |  The length of a record in the input or result is greater than maxCharsPerRecord of 1 MB | 输入或输出的文件中，单行记录大小超过1MB限制 | 400 Bad Request|
+| LastRecordParseFail |  Please check the last record in the input | 请检查输出文件的最后一行记录| 400 Bad Request|
+| CSVParsingError | Encountered an error parsing the CSV file | 解析 CSV 格式文件的时候出现问题 | 400 Bad Request|
+| JSONParsingError | Encountered an error parsing the JSON file  | 解析 JSON 格式文件的时候出现问题 | 400 Bad Request|
+| ErrorWritingRow | Encountered an error parsing the SELECT result. Please try again  | 无法格式化您的查询结果，请检查文件并重试 | 400 Bad Request|
+| NoSuchKey | The specified key does not exist  | 指定的对象键不存在 | 404 Not Found|
+| AccessDenied |  Access Denied| 签名或者权限不正确，拒绝访问 | 403 Forbidden|
+| MethodNotAllowed | The specified method is not allowed against this resource | 当前资源不支持该 HTTP 方法 | 405 Method Not Allowed|
+| InternalError | We encountered an internal error. Please try again  | 服务端内部错误 | 500 Internal Server|
 
 
 
@@ -490,7 +490,7 @@ Content-Length: content length
 </SelectRequest> 
 ```
 
-同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression` 元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](<https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
+同样的，您也可以对 JSON 对象执行不同的检索指令，可以在 `Expression`元素中修改 SQL 指令，有关指令的详细介绍，请参见 [Select 命令](<https://cloud.tencent.com/document/product/436/37636)，以下为部分常见检索场景的简介。
 
 - 您可以通过 JSON 属性名称检索相应的数据，如下指令将从对象中筛选`city`数值为 Seattle 的记录，并返回这些记录的`country`和`city`信息：
 ```shell
