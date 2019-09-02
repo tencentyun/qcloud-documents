@@ -31,7 +31,7 @@
 | acls::host | String | ACL 策略作用的主机 IP  |
 | acls::principal | Int | ACL 关联的用户列表 |
 
-## 4.示例
+## 4. 示例
 
 
 输入：
