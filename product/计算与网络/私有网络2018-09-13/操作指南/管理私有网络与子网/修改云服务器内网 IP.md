@@ -7,4 +7,3 @@
 4. 在弹出框中，填写新的 IP，单击【确定】即可。
  ![2](https://main.qcloudimg.com/raw/9ebf49f2c619f5b1a0149543259ee349.png)
  
-您也可以在弹性网卡详情页修改主内网 IP，详情请参见弹性网卡文档 [修改主内网 IP](https://cloud.tencent.com/document/product/576/18541)。
