@@ -362,8 +362,8 @@ TRIM ( [[LEADING | TRAILING | BOTH remove_chars] FROM] string )
 ```shell
 TRIM('       foobar         ')               -- 'foobar'
 TRIM('      \tfoobar\t         ')            -- '\tfoobar\t'
-TRIM(LEADING FROM '       foobar         ')  -- 'foobar         '
-TRIM(TRAILING FROM '       foobar         ') -- '       foobar'
+TRIM(LEADING FROM '       foobar         ')  -- 'foobar'
+TRIM(TRAILING FROM '       foobar         ') -- 'foobar'
 TRIM(BOTH FROM '       foobar         ')     -- 'foobar'
 TRIM(BOTH '12' FROM '1112211foobar22211122') -- 'foobar'
 ```
