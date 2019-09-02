@@ -2,7 +2,6 @@
 ## 准备工作
 ### 新建用户权限
 1. 在 [TDSQL 控制台](https://console.cloud.tencent.com/dcdb) 中，单击需要操作的实例最右方的【管理】，进入实例详情页面。
-![](https://mc.qcloudimg.com/static/img/d2eafea1a7b03224961c0906180e6b22/image.png)
 2. 在实例详情页面单击【账号管理】，进入帐号管理页面后单击【创建帐号】。
 ![](https://mc.qcloudimg.com/static/img/4e60badccaa63bf1632dbe1ed948793f/r2.png)
 3. 依次输入帐号名、主机、密码、备注，检查无误后单击【确定】，进入设置权限页面。
