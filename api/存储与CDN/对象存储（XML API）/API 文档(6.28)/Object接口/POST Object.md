@@ -42,7 +42,7 @@ Content-Length: Content Length
 | file | 文件的信息和内容，通过网页表单上传时，浏览器将自动设置该字段的值为正确的格式 | file | 是 |
 | key | 对象键，可在对象键中指定`${filename}`通配符，此时将使用实际上传的文件的文件名替换对象键中的通配符，相关示例请参见本文档的 [案例七](#step7) | string | 是 |
 | success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string | 否 |
-| success_action_status | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参阅本文档的 [案例九](#step9) | number | 否 |
+| success_action_status | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number | 否 |
 | x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否 |
 | x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum | 否 |
 | Content-MD5 | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否 |
@@ -63,7 +63,7 @@ Content-Length: Content Length
 
 在上传对象时可以通过指定下列表单字段来使用服务端加密：
 
-| 名称 | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 类型 | 是否必选 |
+| 名称 | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时必须指定该字段 |
@@ -214,7 +214,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
-| Location | <li>当使用 success_action_redirect 表单字段时，此响应头部的值为 success_action_redirect 指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#.step8)<br><li>当未使用 success_action_redirect 表单字段时，此响应头部的值为完整的对象访问 URL 地址，相关示例请参阅本文档的案例一 | string |
+| Location | <li>当使用 success_action_redirect 表单字段时，此响应头部的值为 success_action_redirect 指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8)<br><li>当未使用 success_action_redirect 表单字段时，此响应头部的值为完整的对象访问 URL 地址，相关示例请参见本文档的 [案例一](#step1) | string |
 
 **版本控制相关头部**
 
