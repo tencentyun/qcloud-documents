@@ -337,7 +337,7 @@ COS Select 的响应类型主要可以分为以下几种：
 
 该请求常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档，特殊错误码信息如下所示：                     
 
-| 错误码| 错误信息 | 含义|<br><br><br>HTTP&nbsp;状态码&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;   |
+| 错误码| 错误信息 | 含义|HTTP 状态码  |
 | -- | -- | -- | -- |
 | InvalidXML | The XML is invalid | XML 格式不合法 | 400 Bad Request|
 | MissingRequiredParameter | The SelectRequest entity is missing a required parameter | 检索请求缺少必填参数项 | 400 Bad Request|
