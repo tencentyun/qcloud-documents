@@ -3,7 +3,7 @@
 POST Object 接口请求可以将本地的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > !
-> - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参阅本文档的**签名保护**及相关字段的描述。
+> - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时按照指定的返回方式正常返回。
 
 #### 版本控制
@@ -40,9 +40,9 @@ Content-Length: Content Length
 | Content-Type | RFC 2616 中定义的 HTTP 内容类型（MIME），将作为对象元数据保存<br>**注意：**通过网页表单上传文件时，浏览器会自动把指定文件的 MIME 类型携带在请求中，但对象存储 COS 并不会使用浏览器携带的 MIME 类型，您需要显式指定 Content-Type 表单字段作为对象的内容类型 | string | 否 |
 | Expires | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存 | string | 否 |
 | file | 文件的信息和内容，通过网页表单上传时，浏览器将自动设置该字段的值为正确的格式 | file | 是 |
-| key | 对象键，可在对象键中指定`${filename}`通配符，此时将使用实际上传的文件的文件名替换对象键中的通配符，相关示例请参阅本文档的案例七 | string | 是 |
-| success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参阅本文档的案例八 | string | 否 |
-| success_action_status | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参阅本文档的案例九 | number | 否 |
+| key | 对象键，可在对象键中指定`${filename}`通配符，此时将使用实际上传的文件的文件名替换对象键中的通配符，相关示例请参见本文档的 [案例七](#step7) | string | 是 |
+| success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string | 否 |
+| success_action_status | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参阅本文档的 [案例九](#step9) | number | 否 |
 | x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否 |
 | x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum | 否 |
 | Content-MD5 | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否 |
@@ -63,13 +63,14 @@ Content-Length: Content Length
 
 在上传对象时可以通过指定下列表单字段来使用服务端加密：
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称 | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时必须指定该字段 |
 | x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时必须指定该字段 |
 
+<span id="id1"></span>
 **签名保护**
 
 POST Object 接口要求在请求中携带签名相关字段，COS 服务器端收到消息后，进行身份验证，验证成功则可接受并执行请求，否则将会返回错误信息并丢弃此请求。
@@ -82,7 +83,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 **生成 KeyTime**
 
-1. 获取当前时间对应的 Unix 时间戳 StartTimestamp，Unix 时间戳是从 UTC（协调世界时，或 GMT 格林威治时间）1970年1月1日0时0分0秒（北京时间 1970年1月1日8时0分0秒）起至现在的总秒数。
+1. 获取当前时间对应的 Unix 时间戳 StartTimestamp，Unix 时间戳是从 UTC（协调世界时，或 GMT 格林威治时间）1970年1月1日0时0分0秒（北京时间：1970年1月1日8时0分0秒）起至现在的总秒数。
 2. 根据上述时间戳和期望的签名有效时长算出签名过期时间对应的 Unix 时间戳 EndTimestamp。
 3. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 KeyTime。
 
@@ -129,7 +130,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 | success_action_redirect | 上传成功时重定向的目标 URL 地址 | 完全、前缀 | 否 |
 | success_action_status | 上传成功时返回的 HTTP 状态码 | 完全 | 否 |
 | x-cos-meta-* | 用户自定义的元数据头部字段 | 完全、前缀 | 否 |
-| x-cos-* | 本文档中提到的其他 COS 相关表单字段，如 ACL 和 SSE 相关字段 | 完全 | 否 |
+| x-cos-* | 本文档中提到的其他 COS 相关表单字段，例如 ACL 和 SSE 相关字段 | 完全 | 否 |
 | q-sign-algorithm | 签名哈希算法，固定为 sha1 | 完全 | 是 |
 | q-ak | 上文所述的 SecretId | 完全 | 是 |
 | q-sign-time | 上文所生成的 KeyTime | 完全 | 是 |
@@ -213,7 +214,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
-| Location | <li>当使用 success_action_redirect 表单字段时，此响应头部的值为 success_action_redirect 指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参阅本文档的案例八<br><li>当未使用 success_action_redirect 表单字段时，此响应头部的值为完整的对象访问 URL 地址，相关示例请参阅本文档的案例一 | string |
+| Location | <li>当使用 success_action_redirect 表单字段时，此响应头部的值为 success_action_redirect 指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#.step8)<br><li>当未使用 success_action_redirect 表单字段时，此响应头部的值为完整的对象访问 URL 地址，相关示例请参阅本文档的案例一 | string |
 
 **版本控制相关头部**
 
@@ -237,6 +238,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 ## 实际案例
 
+<span id="step1"></span>
 #### 案例一：简单案例（未启用版本控制）
 
 #### 请求
@@ -294,6 +296,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzZfMmViMDJhMDlfY2NjOF84NGQz****
 ```
 
+<span id="step2"></span>
 #### 案例二：使用表单字段指定元数据和 ACL
 
 #### 请求
@@ -375,6 +378,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzdfM2NhZjJhMDlfMTQzYV84Nzhh****
 ```
 
+<span id="step3"></span>
 #### 案例三：使用服务端加密 SSE-COS
 
 #### 请求
@@ -437,6 +441,7 @@ x-cos-request-id: NWQ2NzgxMzdfMTljMDJhMDlfNTg4ZF84Njgx****
 x-cos-server-side-encryption: AES256
 ```
 
+<span id="step4"></span>
 #### 案例四：使用服务端加密 SSE-C
 
 #### 请求
@@ -508,6 +513,7 @@ x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
+<span id="step5"></span>
 #### 案例五：启用（Enabled）版本控制
 
 #### 请求
@@ -566,6 +572,7 @@ x-cos-request-id: NWQ2NzgxNTdfNzFiNDBiMDlfMmE3ZmJfODQ1****
 x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
 ```
 
+<span id="step6"></span>
 #### 案例六：暂停（Suspended）版本控制
 
 #### 请求
@@ -623,6 +630,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxNzZfMjFjOTBiMDlfMWY3YTFfNjY2****
 ```
 
+<span id="step7"></span>
 #### 案例七：对象键（表单字段 key）使用`${filename}`通配符
 
 #### 请求
@@ -680,6 +688,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2N2M2N2NfNWZhZjJhMDlfNmUzMV84OTg4****
 ```
 
+<span id="step8"></span>
 #### 案例八：指定 success_action_redirect 表单字段
 
 #### 请求
@@ -741,6 +750,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2Nzg2OTVfMTRiYjI0MDlfZGFkOV85MDA4****
 ```
 
+<span id="step9"></span>
 #### 案例九：指定 success_action_status 表单字段
 
 #### 请求
