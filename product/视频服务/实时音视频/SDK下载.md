@@ -68,7 +68,7 @@
    </tr>
    <tr>
       <td style="text-align:center">微信小程序 </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_wxmini_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/WXMini_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_wxmini_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32399">DOC</a></td>
