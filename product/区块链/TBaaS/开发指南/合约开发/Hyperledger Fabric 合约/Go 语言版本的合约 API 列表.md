@@ -87,7 +87,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 <tr>
 <td>GetQueryResult(query string)(StateQueryIteratorInterface, error)</td>
-<td>查询状态数据库，需要对支持富查询功能的状态数据库</td>
+<td>查询状态数据库，需要支持富查询功能的状态数据库</td>
 </tr>
 <tr>
 <td>GetQueryResultWithPagination(query string, pageSize int32, bookmark string) (StateQueryIteratorInterface, *pb.QueryResponseMetadata, error)</td>
