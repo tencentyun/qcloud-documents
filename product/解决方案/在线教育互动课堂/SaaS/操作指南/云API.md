@@ -322,7 +322,7 @@ __接口__
 - 接口名称：`/class/start` 
 - 接口方法：`POST`
 - Content-Type：`application/json`
-- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` |
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` 
 
 __请求参数__ 
 
@@ -361,7 +361,7 @@ __接口__
 - 接口名称：`/class/stop` 
 - 接口方法：`POST`
 - Content-Type：`application/json`
-- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` |
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` 
 
 __请求参数__ 
 
