@@ -22,7 +22,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 2. 登录 vivo 开放平台的管理中心，选择【消息推送】>【创建】>【测试推送】，创建 vivo 推送服务应用。
  vivo 推送服务应用创建完成后，在应用详情中，您可以查看详细的应用信息。
 <span id="Step1_3"></span>
-3. 记录**`应用包名`**、**`APP ID`**、**`APP secret`**信息。
+3. 记录**`APP ID`**、**`APP key`**、**`APP secret`**信息。
  ![](https://main.qcloudimg.com/raw/4bee78a25cadae911d56ca0b6adbac3a.png)
 
 <span id="Step2"></span>
@@ -36,8 +36,8 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  > 
 5. 根据 [步骤1](#Step1_3) 中获取的信息设置以下参数：
  - **推送平台**：选择 **vivo**
- - **应用包名称**：填写 vivo 推送服务应用的**应用包名**
  - **APPID**：填写 vivo 推送服务应用的 **APP ID**
+ - **AppKey**：填写 vivo 推送服务应用的 **APP key**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
  - **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
  ![](https://main.qcloudimg.com/raw/143a5b3e9d7129ed0b537bb33b0d401d.png)
@@ -332,7 +332,7 @@ public class ThirdPushTokenMgr {
 		   
 	</activity>
 	```
- 
+
   2. 获取 intent URL，方式如下：
     ```
     Intent intent = new Intent(this, ChatActivity.class);
