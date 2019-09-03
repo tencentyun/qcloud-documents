@@ -3,9 +3,9 @@
 
 官网已正式上线全新 [密钥管理服务（合规）](https://console.cloud.tencent.com/kms2 ) 做服务替换。新版密钥管理服务 KMS 完全满足合规标准，提供了更为丰富的密钥管理功能，且大大提高了可靠性设计。
 
-以上变更，不影响内测版密钥管理服务的正常使用以及您的业务正常运行。如需迁移或对产品有任何疑问，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈给我们，感谢您对腾讯云的信赖与支持。
-
->!内测版密钥管理服务系统永久维护，不影响您继续使用，若您正在使用内测版密钥管理服务，请参见内测版密钥管理服务 [API ](https://cloud.tencent.com/document/product/573/8899)文档。
+>!
+>- 内测版密钥管理服务系统将永久维护，此次变更不影响您的正常业务使用。
+>- 内测版密钥管理服务采用 API/SDK 2017接口（链接）提供服务。若需确认您是否正在使用内测版密钥管理服务，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 与我们联系。
 
 ## 价格说明
 密钥管理服务 KMS，由 CMK 存储费用及 API 调用费用两部分组成，详细请参见 [计费概述](https://cloud.tencent.com/document/product/573/34388)。
