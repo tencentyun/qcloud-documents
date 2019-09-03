@@ -77,7 +77,7 @@ mSuperPlayerView.playWithMode(model);
 
 ## 缩略图与打点
 
-在播放长视频时，缩略图（雪碧图）和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
+在播放长视频时，缩略图（雪碧图）和打点信息有助于观众找到感兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 - [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
