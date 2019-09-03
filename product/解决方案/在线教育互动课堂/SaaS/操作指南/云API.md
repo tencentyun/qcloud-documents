@@ -319,11 +319,10 @@
 ### 上课
 __接口__ 
 
-| 接口名称 | `/class/start` |
-| :---------| :---------------|
-| 接口方法 | `POST` |
-| Content-Type | `application/json` |
-| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` |
+- 接口名称：`/class/start` 
+- 接口方法：`POST`
+- Content-Type：`application/json`
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` |
 
 __请求参数__ 
 
@@ -340,7 +339,7 @@ __响应参数__
 
 __举例__ 
 
-request
+请求：
 
 ```json
 {
@@ -348,7 +347,7 @@ request
 }
 ```
 
-response
+响应：
 
 ```json
 {
@@ -359,11 +358,10 @@ response
 ### 下课
 __接口__ 
 
-| 接口名称 | `/class/stop` |
-| :---------| :---------------|
-| 接口方法 | `POST` |
-| Content-Type | `application/json` |
-| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` |
+- 接口名称：`/class/stop` 
+- 接口方法：`POST`
+- Content-Type：`application/json`
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` |
 
 __请求参数__ 
 
@@ -379,14 +377,14 @@ __响应参数__
 | error_msg | string | 错误信息 | 是 | - |
 
 __举例__ 
-request
+请求：
 ```json
 {
     "class_id": 1234354
 }
 ```
 
-response
+响应：
 
 ```json
 {
