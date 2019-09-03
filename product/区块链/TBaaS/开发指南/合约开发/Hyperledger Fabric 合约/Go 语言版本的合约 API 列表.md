@@ -1,5 +1,5 @@
-Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric/blob/release-1.1/core/chaincode/shim/chaincode.go)。
-从逻辑方面划分，可将 API 划分为以下类型：
+Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric/blob/release-1.4/core/chaincode/shim/chaincode.go)，文档可以参考 [官方文档说明](https://godoc.org/github.com/hyperledger/fabric/core/chaincode/shim)。
+从逻辑方面划分，可将 type 为 haincodeStub 的 API 划分为以下类型：
 - [交易信息提取](#informationExtraction)
 - [账本交互](#accountInteraction)
 - [参数处理](#parametersProcess)
@@ -87,7 +87,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 <tr>
 <td>GetQueryResult(query string)(StateQueryIteratorInterface, error)</td>
-<td>查询状态数据库，只对支持富查询功能的状态数据库</td>
+<td>查询状态数据库，需要支持富查询功能的状态数据库</td>
 </tr>
 <tr>
 <td>GetQueryResultWithPagination(query string, pageSize int32, bookmark string) (StateQueryIteratorInterface, *pb.QueryResponseMetadata, error)</td>
@@ -96,6 +96,14 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 <tr>
 <td>GetHistoryForKey(key string) (HistoryQueryIteratorInterface, error)</td>
 <td>返回对应键的所有历史值</td>
+</tr>
+<tr>
+<td>SetStateValidationParameter(key string, ep []byte) error</td>
+<td>设置特定键的背书策略</td>
+</tr>
+<tr>
+<td>GetStateValidationParameter(key string) ([]byte, error)</td>
+<td>获取特定键的背书策略</td>
 </tr>
 <tr>
 <td>GetPrivateData(collection, key string) ([]byte, error)</td>
@@ -190,13 +198,5 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 <tr>
 <td>SetEvent(name string, payload []byte) error</td>
 <td>设置发送的事件</td>
-</tr>
-<tr>
-<td>SetStateValidationParameter(key string, ep []byte) error</td>
-<td>设置特定键的背书策略</td>
-</tr>
-<tr>
-<td>GetStateValidationParameter(key string) ([]byte, error)</td>
-<td>获取特定键的背书策略</td>
 </tr>
 </tbody></table>

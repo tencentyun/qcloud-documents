@@ -44,15 +44,14 @@
 
 请求：
 ```
-{
-  "teacher_id":"user_00",
+{"teacher_id":"user_00",
   "class_topic": "课堂主题",
   "class_type":"public",
   "start_time": 1558350988,
   "stop_time": 1558350988,
   "admin_id":"即时通信IM管理员ID",
   "admin_sig":"即时通信IM管理员鉴权sig",
-  "max_member_limit"：6
+  "max_member_limit":6,
   "members": [
     {
       "role": "student",
@@ -68,14 +67,13 @@
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
-    "record_types": ["local","remote"],
     "auto_create_im": 1,
     "bitrate": 850,
     "auto_open_mic": 0,
     "auto_open_camera": 0
-  }
+  },
   "record_user_id":"tic_record_user_1234_01",
-  "record_user_sig": "user_sig"
+  "record_user_sig":"user_sig"
 }
 ```
 
@@ -232,12 +230,12 @@
   "member_count":30,
   "chat_group_id":"102304_chat",
   "cmd_group_id":"102304",
-  "max_member_limit":6
+  "max_member_limit":6,
   "settings" : {
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
-    "record_types": ["remote"]
+    "record_types": ["remote"],
     "bitrate": 850,
     "auto_open_mic": 0,
     "auto_open_camera": 0
@@ -319,22 +317,38 @@
 }
 ```
 ### 上课
-客户端老师调用，标志着开始上课。
+#### 接口
 
-|请求基本信息|描述|
-|--|--|
-|方法|POST|
-|请求 URL|https://domain/saas/v1/class/start?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
-|header|Content-Type:application/json|
-|鉴权方式|token 鉴权|
+- 接口名称：`/class/start` 
+- 接口方法：`POST`
+- Content-Type：`application/json`
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` 
+
+#### 请求参数
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂 ID | 是 | - |
+
+#### 响应参数
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+#### 举例
 
 请求：
+
 ```json
 {
     "class_id": 1234354
 }
 ```
+
 响应：
+
 ```json
 {
     "error_code": 0,
@@ -342,16 +356,27 @@
 }
 ```
 ### 下课
-客户端老师调用，标志着下课。
-一期：可以不调用下课接口，只通过“预约的结束时间”作为下课的唯一判断标示。
+#### 接口
 
-|请求基本信息|描述|
-|--|--|
-|方法|POST|
-|请求 URL|https://domain/saas/v1/class/stop?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
-|header|Content-Type:application/json|
-|鉴权方式|token 鉴权|
+- 接口名称：`/class/stop` 
+- 接口方法：`POST`
+- Content-Type：`application/json`
+- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` 
 
+#### 请求参数
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂 ID | 是 | - |
+
+#### 响应参数
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+#### 举例
 请求：
 ```json
 {
@@ -360,6 +385,7 @@
 ```
 
 响应：
+
 ```json
 {
     "error_code": 0,
@@ -406,7 +432,7 @@
       "user_id":"xxxxx",
       "role":"student",
       "nickname":"小明",
-      “gender”:"male",
+      "gender":"male",
       "avatar":"https://xxx/xiaoming.png", 
       "phone_no":"13033445566",
       "e_mail":"xxx@xx.com"
@@ -764,7 +790,7 @@
 请求：
 ```json
 {
-  "doc_id": “ywyzhohnx”
+  "doc_id": "ywyzhohnx"
 }
 ```
 响应：
@@ -1007,20 +1033,20 @@ online_record_stop
   "class_id":100001234,
   "video_info":[
     {
-      "video_play_time":0
+      "video_play_time":0,
       "video_size":1200,
       "video_format":"mp4",
-      "video_duration":3600
+      "video_duration":3600,
       "video_url":"http://1253488539.vod2.myqcloud.com/oM86K7X3Ig8b.mp4",
       "video_id":"5285890781570653827",
       "video_type":0,
       "user_id":"ios_test1"
     },
     {
-      "video_play_time":4000
+      "video_play_time":4000,
       "video_size":3756,
       "video_format":"mp4",
-      "video_duration":5000
+      "video_duration":5000,
       "video_url":"http://1253488539.vod2.myqcloud.com/oM86K7X3IsdfA.mp4",
       "video_id":"5285890781570653828",
       "video_type":2,
@@ -1259,7 +1285,7 @@ transport_progress
 	"class_id": 1234354,
 	"list": [
 		"user1",
-		"user2",
+		"user2"
 	]
 }
 ```
@@ -1325,54 +1351,6 @@ transport_progress
 	"history_speaker":0,
 	"history_silence":0,
 	"history_hand_up":0
-}
-```
-
-### 游客加入课堂
-#### 接口
-- 接口名称：`/member/visitor/join`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/visitor/join?公共参数`
-
-#### 请求参数
-
-| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
-| :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
-| password | string | 课堂密码 | 否 | - |
-| nickname | string | 游客昵称 | 否 | 用户 ID |
-
-#### 响应参数
-
-| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
-| :------ | :--- | :---- | :--------: | :-----: |
-| error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
-| error_msg | string | 错误信息 | 是 | - |
-| visitor_info | Object | 互动课堂自动生成的游客信息 | 是 | - |
-| user_id | string | 游客 ID | 是 | - |
-| user_token | string | 游客互动课堂票据（使用互动课堂 API 时需要） | 是 | - |
-| user_sig | string | 游客 IM 鉴权票据（登录 IM 时需要），有效期24小时 | 是 | - |
-
-#### 举例
-请求：
-```json
-{
-	"class_id":12345,
-	"password": "",
-	"nickname":"游客昵称"
-}
-```
-响应：
-```
-{
-	 "error_code":0,
-	"error_msg":"",
-	"visitor_info": {
-		"user_id":"游客ID",
-		"user_token":"互动课堂票据",
-		"user_sig":"IM票据"
-	}
 }
 ```
 
@@ -1459,30 +1437,30 @@ transport_progress
 	"size":20
 }
 ```
-访问：
+响应：
 ```json
 {
-	"error_code":0,
-	"error_msg":"",
-	"finish":true,
-	"total":1,
-	"list":[
-		{
-			"user_id":"xxx",
-			"nickname":"昵称",
-			“gender”:"male",
-			"avatar":"https://xxxx/head.png",
-			"enter_time": 1550546356,
-			"role":"student",
-			"status": {
-				"camera": 1,
-				"mic": 1,
-				"speaker": 1,
-				"silence": 0,
-				"hand_up":1,
-			}
-		}
-	]
+    "error_code":0,
+    "error_msg":"",
+    "finish":true,
+    "total":1,
+    "list":[
+        {
+            "user_id":"xxx",
+            "nickname":"昵称",
+            "gender":"male",
+            "avatar":"https://xxxx/head.png",
+            "enter_time": 1550546356,
+            "role":"student",
+            "status": {
+                "camera": 1,
+                "mic": 1,
+                "speaker": 1,
+                "silence": 0,
+                "hand_up":1
+            }
+        }
+    ]
 }
 ```
 

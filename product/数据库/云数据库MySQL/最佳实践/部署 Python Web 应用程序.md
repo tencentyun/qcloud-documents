@@ -96,7 +96,7 @@ def hello(request):
 6. 配置 URL，配置项目目录下的 urls.py 文件，删除原来的内容，添加内容如下。
 ```
 from django.conf.urls import *
-form testProject.view import hello
+from testProject.view import hello
 urlpatterns = [
     url(r'^hello/$',hello),
 ]

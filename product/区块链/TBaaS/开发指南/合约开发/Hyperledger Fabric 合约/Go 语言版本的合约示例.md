@@ -63,10 +63,10 @@ Hyperledger Fabric 提供了很多官方智能合约样例，具体请参考 [fa
 #### Init 函数示例
 Init 函数在智能合约实例化以及升级的时候会被调用。在实现 Init 函数的过程中，可使用 [Go 语言版本的合约 API 列表](https://cloud.tencent.com/document/product/663/36243) 来对参数和账本进行操作。本例通过调用 API GetFunctionAndParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API PutState 将数据写到账本中。具体代码如下：
 ```
-//Init函数用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, //VALUE2
+// Init用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, VALUE2
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Init")
-	//调用API GetFunctionAndParameters 获取用户输入参数
+	// 调用API GetFunctionAndParameters 获取用户输入参数
 	_, args := stub.GetFunctionAndParameters()
 	var A, B string    // Entities
 	var Aval, Bval int // Asset holdings
@@ -107,11 +107,11 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 
 #### Invoke 函数示例
 Invoke 函数对用户的不同的智能合约业务逻辑进行拆分。本例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，根据用户的不同业务类型，分别调用不同的业务函数，如 invoke，delete 和 query 函数。具体代码如下：
-```
-//Invoke把用户调用的function细分到几个子function, 包含invoke, delete和query
+```go
+// Invoke把用户调用的function细分到几个子function, 包含invoke,delete和query
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Invoke")
-	//调用API GetFunctionAndParameters获取用户输入的业务类型和参数
+	// 调用API GetFunctionAndParameters获取用户输入的业务类型和参数
 	function, args := stub.GetFunctionAndParameters()
 	if function == "invoke" {
 		// Make payment of X units from A to B
@@ -132,7 +132,7 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 #### invoke 函数示例
 业务逻辑 invoke 函数主要用于实现业务逻辑中的资产转移。本例中通过调用 API GetState 获取到 KEY 对应的资产总值，通过调用用户业务逻辑实现资产转移，通过调用 API PutState 将用户最终资产写入账本。具体代码如下：
 ```
-//invoke实现两个键之间的value转移，输入为KEY1_NAME, KEY2_NAME，VALUE
+// invoke实现两个键之间的value转移，输入为KEY1_NAME, KEY2_NAME，VALUE
 // Transaction makes payment of X units from A to B
 func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var A, B string    // Entities
@@ -166,8 +166,8 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	}
 	Bval, _ = strconv.Atoi(string(Bvalbytes))
 
-	//执行具体业务逻辑，这里是对应资产进行转移
-  // Perform the execution
+	// 执行具体业务逻辑，这里是对应资产进行转移
+	// Perform the execution
 	X, err = strconv.Atoi(args[2])
 	if err != nil {
 		return shim.Error("Invalid transaction amount, expecting a integer value")
@@ -176,7 +176,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	Bval = Bval + X
 	fmt.Printf("Aval = %d, Bval = %d\n", Aval, Bval)
 
-	//API PutState将对应资产写入账本
+	// API PutState将对应资产写入账本
 	// Write the state back to the ledger
 	err = stub.PutState(A, []byte(strconv.Itoa(Aval)))
 	if err != nil {
@@ -195,7 +195,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 #### delete 函数示例
 业务逻辑 delete 函数主要用于实现业务逻辑中的账户删除功能，本例通过调用 API DelState 删除对应账户。具体代码如下：
 ```
-//delete用于从账本中删除指定的键，输入为KEY_NAME
+// delete用于从账本中删除指定的键，输入为KEY_NAME
 // Deletes an entity from state
 func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	if len(args) != 1 {
@@ -204,7 +204,7 @@ func (t *SimpleChaincode) delete(stub shim.ChaincodeStubInterface, args []string
 
 	A := args[0]
 
-	//API DelState删除特定的账户
+	// API DelState删除特定的账户
 	// Delete the key from the state in ledger
 	err := stub.DelState(A)
 	if err != nil {
