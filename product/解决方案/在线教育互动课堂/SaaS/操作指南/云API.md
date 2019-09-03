@@ -1354,54 +1354,6 @@ transport_progress
 }
 ```
 
-### 游客加入课堂
-#### 接口
-- 接口名称：`/member/visitor/join`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/visitor/join?公共参数`
-
-#### 请求参数
-
-| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
-| :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
-| password | string | 课堂密码 | 否 | - |
-| nickname | string | 游客昵称 | 否 | 用户 ID |
-
-#### 响应参数
-
-| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
-| :------ | :--- | :---- | :--------: | :-----: |
-| error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
-| error_msg | string | 错误信息 | 是 | - |
-| visitor_info | Object | 互动课堂自动生成的游客信息 | 是 | - |
-| user_id | string | 游客 ID | 是 | - |
-| user_token | string | 游客互动课堂票据（使用互动课堂 API 时需要） | 是 | - |
-| user_sig | string | 游客 IM 鉴权票据（登录 IM 时需要），有效期24小时 | 是 | - |
-
-#### 举例
-请求：
-```json
-{
-	"class_id":12345,
-	"password": "",
-	"nickname":"游客昵称"
-}
-```
-响应：
-```
-{
-	 "error_code":0,
-	"error_msg":"",
-	"visitor_info": {
-		"user_id":"游客ID",
-		"user_token":"互动课堂票据",
-		"user_sig":"IM票据"
-	}
-}
-```
-
 ### 成员退出课堂
 #### 接口
 - 接口名称：`/member/quit`
