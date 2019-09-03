@@ -1,5 +1,5 @@
 ## 简介
-高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、告警（Alerting）、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
+高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
 
 ## 购买指引
 ![](https://main.qcloudimg.com/raw/2a4012362412758e950aff249bf4e4a3.png)
@@ -14,22 +14,19 @@
 为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本文对部分常用高级特性进行了说明介绍，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 
 >!  
 >- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别，请注意查看本文的说明。
->- 安全、告警、机器学习**白金版**特有，开源和基础版不包含。
+>- 安全、告警、机器学习白金版特有，开源和基础版不包含。
 
 - **安全（Security）**  
 支持索引和字段级别，读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
 ![](https://main.qcloudimg.com/raw/ec7529df345ebbf27db0453292eafe8d.png)
-- **告警（Alerting）**  
-提供了针对数据变化的告警能力，并通过电子邮件等方式通知用户。如在日志分析场景中，结合 Elasticsearch 查询统计能力，监测到某类错误日志量突然增大，超过某个阈值时，触发告警。
-![](https://main.qcloudimg.com/raw/aece0801646fce642856f0b349b79379.png)
 - **机器学习（Machine Learning）**  
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
 
->!监控、SQL，**白金版、基础版** 包含，开源版不包含。不过，SQL 支持方面，开源版是集成了其他的 SQL 插件，详细了解和使用，可查看 [elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)。
+>!监控、SQL，白金版、基础版包含，开源版不包含。不过，SQL 支持方面，开源版集成了其他的 SQL 插件，详细了解和使用，可查看 [elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)。
 
 - **监控**   
 集群、节点、索引多个维度，全方位监控，实时了解集群运行情况，辅助应用开发及运维。  
@@ -52,7 +49,7 @@
     <th class="tg-s268">白金版</th>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Elasticsearch</td>
+    <td class="tg-0lax" rowspan="6">Elasticsearch</td>
     <td class="tg-s268">可扩展性和弹性</td>
     <td class="tg-s6z2">◑</td>
     <td class="tg-s6z2">◑</td>
@@ -82,12 +79,7 @@
     <td class="tg-s6z2">-</td>
     <td class="tg-s6z2">⚫</td>
   </tr>
-  <tr>
-    <td class="tg-s268"><a href="#Alerting">Alerting</a></td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">⚫</td>
-  </tr>
+
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
     <td class="tg-s6z2">-</td>
@@ -95,7 +87,7 @@
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="8">Kibana</td>
+    <td class="tg-0lax" rowspan="7">Kibana</td>
     <td class="tg-0lax">探索和可视化</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">◑</td>
@@ -127,12 +119,6 @@
   </tr>
   <tr>
     <td class="tg-0lax">Security</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Alerting</td>
     <td class="tg-baqh">-</td>
     <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
@@ -314,7 +300,7 @@
     <th class="tg-s268">白金版</th>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="11"><a name="manage_tool">管理和工具</a></td>
+    <td class="tg-0lax" rowspan="11"><a id="manage_tool">管理和工具</a></td>
     <td class="tg-s268">REST API</td>
     <td class="tg-s268">✓</td>
     <td class="tg-s268">✓</td>
@@ -381,7 +367,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="14"><a name="Security">Security</a></td>
+    <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>
@@ -404,31 +390,7 @@
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">IP 筛选</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">LDAP、PKI* 和活动目录身份验证</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">Elasticsearch 令牌服务</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">单点登录身份验证（SAML、Kerberos*）</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
+  </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
     <td class="tg-s268">-</td>
@@ -442,44 +404,7 @@
     <td class="tg-s268">✓</td>
   </tr>
   <tr>
-    <td class="tg-s268">第三方整合（自定义身份验证和授权 Realm）</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">授权 Realm</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">静态数据加密支持</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">FIPS 140-2 模式</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="2"><a name="Alerting">警报提醒</a></td>
-    <td class="tg-s268">高可用性、可扩展警报</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-s268">通过电子邮件、Slack、PagerDuty、Jira 或 Webhook 发送通知</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax" rowspan="6"><a name="machine_learning">机器学习</a></td>
+    <td class="tg-0lax" rowspan="6"><a id="machine_learning">机器学习</a></td>
     <td class="tg-s268">时序型异常监测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>

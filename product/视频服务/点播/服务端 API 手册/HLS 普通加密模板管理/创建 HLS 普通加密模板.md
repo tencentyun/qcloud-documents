@@ -2,24 +2,24 @@
 CreateSimpleAesTemplate
 
 ## 功能说明
-1. 创建 HLS 普通加密模板。
-2. 创建加密模板的数量上限是10个。
+- 创建 HLS 普通加密模板。
+- 创建加密模板的数量上限是10个。
 
 ## 请求方式
 
-### 请求域名
+#### 请求域名
 `vod.api.qcloud.com`
 
-### 最高调用频率
+#### 最高调用频率
 100次/分钟
 
-### 参数说明
+#### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
 | get_key_url | 是 | String | HLS 普通加密模板的 GetKeyURL。 |
-| COMMON_PARAMS | 是 |  | 请参见 [公共参数](/document/api/213/6976)。 |
+| COMMON_PARAMS | 是 | -| 请参见 [公共参数](/document/api/213/6976)。 |
 
-### 请求示例
+#### 请求示例
 <pre>
 https://vod.api.qcloud.com/v2/index.php?Action=CreateSimpleAesTemplate
 &ampget_key_url=http://xxx.com/getNotification1.php
@@ -28,7 +28,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=CreateSimpleAesTemplate
 
 ## 接口应答
 
-### 参数说明
+#### 参数说明
 | 参数名称 | 类型 | 说明 |
 |---------|---------|---------|
 | code | Integer | 错误码，0：成功；其他值：失败。 |
@@ -36,14 +36,14 @@ https://vod.api.qcloud.com/v2/index.php?Action=CreateSimpleAesTemplate
 | data | Object | 返回的数据信息。 |
 | data.definition | Integer | HLS 普通加密模板的模板 ID。 |
 
-### 错误码说明
+#### 错误码说明
 | 错误码 | 含义说明|
 |---------|---------|
-| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/10146)。  |
+| 4000 - 7000 | 请参见 [公共错误码](https://cloud.tencent.com/document/api/213/6982)。  |
 | 1000 | 参数非法。  |
 | 10700 | 内部错误。  |
 
-### 应答示例
+#### 应答示例
 
 ```javascript
 {

@@ -17,16 +17,16 @@ WAF 当前的主流检测手段有基于正则规则和基于语义规则两种�
 - 当确认提交的误报或漏报有误时，可在【AI 误报处理】或【AI 漏报处理】页面勾选有误的记录，单击【删除】按钮，进行删除操作。
   
 ## 配置案例 
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia)，单击【网站应用防火墙】>【防护设置】，单击防护的域名，进入基础设置页面，将 AI 引擎模式配置为【观察】。
- ![1](https://main.qcloudimg.com/raw/590bb975f838ffcc9ae754d5f81c6520.png)
+1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia)，单击【Web 应用防火墙】>【防护设置】，单击防护的域名，进入基础设置页面，将 AI 引擎模式配置为【观察】。
+ ![1](https://main.qcloudimg.com/raw/9ad3d867d9f817b9e38645f301beee89.png)
 2. 由 AI 引擎检出的攻击，在【攻击详情】页面会有相关日志记录，攻击类型记录为“AI 引擎检出”，可通过筛选条件，查看该类型的攻击日志。
- ![2](https://main.qcloudimg.com/raw/7b7b8a4222829e22160a939f0d27f0c9.png)
+ ![2](https://main.qcloudimg.com/raw/60add00b7d524be3447f4aac5fe4573e.png)
 3. 单击【AI 引擎】，此页面展示共三个选项：【AI 误报处理】、【AI 漏报处理】和【AI 在线验证】。
- ![3](https://main.qcloudimg.com/raw/eed0cca787b2221840b243440826ab5a.png)
+ ![3](https://main.qcloudimg.com/raw/8d3005d5edb14b482034b0733906d9cd.png)
 4. 单击【AI 在线验证】选项，在此页面可以对指定访问地址的 GET 参数、POST 参数和 HEADER 参数进行验证，下面以参数名称为“a” ，参数值为“1 and 1=1”为例。
- ![4](https://main.qcloudimg.com/raw/51222479e3eb1c2a5cba878fad00326e.png)
+ ![4](https://main.qcloudimg.com/raw/b79073349ccbc99987eba4e0412e4a33.png)
 当正常的参数被 AI 引擎误报时，可单击【一键添加误报】添加到误报列表，在【AI 误报处理】页面可查看添加的误报记录，单击【学习】按钮，AI 引擎会根据误报信息更新模型、优化算法。
- ![5](https://main.qcloudimg.com/raw/d60d94145d49f6c9511a6680cea4d412.png)
+ ![5](https://main.qcloudimg.com/raw/88e317b8e1f957e206fd612a97c736e7.png)
  >**注意**：
  AI 引擎学习提交的误报的 payload，从未学习状态到已学习状态需要一定时间。
 

@@ -7,7 +7,7 @@
 
 | 参数名称 | 描述 |类型 | 必选  | 
 |---------|---------|---------|---------
-| reponame   | 镜像名字 | String |是 |
+| reponame   | 仓库名字 | String |是 |
 | offset   | 偏移量,默认为 0 | Uint |否 |
 | limit   | 返回最大数量，默认 20, 最大值 100 | Uint |否 |
 | tag   | 可用于搜索的 tag 名字 | String |否 |
@@ -23,7 +23,7 @@
 | reponame |  仓库名字|String |
 | server |  镜像仓库域名|String |
 | tagCount |  tag 数目|Int |
-| tagInfo |  tag 列表，结果按 pushTime 降序排练|Object Array |
+| tagInfo |  tag 列表，结果按 pushTime 降序排列|Object Array |
 
 tag 字段详细说明：
 

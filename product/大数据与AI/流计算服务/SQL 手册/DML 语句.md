@@ -49,7 +49,7 @@ HAVING SUM(amount) > 50
 ```
 
 ## GROUP BY
-在流计算 Oceanus 中，GROUP BY 用于对结果进行分组聚合。目前有基于时间窗口（Window）类型的  GROUP BY，以及不含窗口的 GROUP BY（也叫做持续查询）。其中前者不会更新之前的结果，因而会产生 Append 类型的数据流，只允许写入 Tuple 类型的 CDP 数据目的（Sink）或 CKafka；而后者会更新之前发出的记录，因而会产生 Upsert 类型的数据流，只允许写入 Upsert 类型的 CDP 数据目的（Sink）。
+在流计算 Oceanus 中，GROUP BY 用于对结果进行分组聚合。目前有含时间窗口（Window）类型的  GROUP BY，以及不含窗口的 GROUP BY（也叫做持续查询）。其中前者不会更新之前的结果，因而会产生 Append 类型的数据流，只允许写入 Tuple 类型的 CDP 数据目的（Sink）或 CKafka；而后者会更新之前发出的记录，因而会产生 Upsert 类型的数据流，只允许写入 Upsert 类型的 CDP 数据目的（Sink）。
 
 #### 含时间窗口的 GROUP BY
 本示例定义了一个包含时间窗口的 GROUP BY 查询语句。关于时间窗口函数的使用方法，请参见 [时间相关函数](/document/product/849/18075)。

@@ -22,11 +22,11 @@ dependencies {
 ```
 
 - **第二步：指定 App 使用架构**
-在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
@@ -55,17 +55,17 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/98b4806ed2484e96d47eb1ad165e900d.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a)  。
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
 
 - **第六步：同步 SDK**
-单击 Sync Now 按钮，完成 TRTC SDK 的集成工作。
+单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 集成 SDK（jar）
@@ -75,11 +75,11 @@ dependencies {
 在 Github 上可以 [下载](https://github.com/tencentyun/TRTCSDK/tree/master/Android) 到最新版本的 jar 压缩包，文件名一般为 LiteAV_TRTC_xxx.zip（其中 xxx 为 TRTC SDK 的版本号）：
 ![](https://main.qcloudimg.com/raw/8a97ef2b6a0cb2860b57b220d0684328.png)
 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
-![](https://main.qcloudimg.com/raw/d90ef03851b93079a6863e7530ac89ca.png)
+![](https://main.qcloudimg.com/raw/7b8efbef6d003896e91730b8f68abf76.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
-将解压得到的 jar文件和 armeabi， armeabi-v7a 文件夹拷贝到 app/libs 目录下。
-![](https://main.qcloudimg.com/raw/2b093d87ebaa3650e16523f26866b16c.png)
+将解压得到的 jar文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
+![](https://main.qcloudimg.com/raw/9af01cf965bbaf3dd9bcb23216eb0e6b.png)
 
 - **第三步：引用 jar 库**
 在 app/build.gradle 中，添加引用 jar 库的代码。
@@ -90,11 +90,11 @@ dependencies {
 ![](https://main.qcloudimg.com/raw/10003cdc49d4856ee4feb840f24680a7.jpg)
 
 - **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi 和 armeabi-v7a) 。 
+在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a) 。 
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi", "armeabi-v7a"
+            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
         }
     }
 ```
@@ -128,8 +128,5 @@ dependencies {
 -keep class com.tencent.** { *; }
 ```
 
-## 常见问题
 
-### 1. TRTC SDK 是否支持 arm64
-目前 TRTC SDK 由于 3A 声学处理库尚不支持 arm64 下的一些汇编指令， 所以暂时还不支持 arm64 架构，请注意指定 App 的架构配置。
 
