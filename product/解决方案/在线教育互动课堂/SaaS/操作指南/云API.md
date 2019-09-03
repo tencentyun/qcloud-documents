@@ -44,15 +44,14 @@
 
 请求：
 ```
-{
-  "teacher_id":"user_00",
+{"teacher_id":"user_00",
   "class_topic": "课堂主题",
   "class_type":"public",
   "start_time": 1558350988,
   "stop_time": 1558350988,
   "admin_id":"即时通信IM管理员ID",
   "admin_sig":"即时通信IM管理员鉴权sig",
-  "max_member_limit"：6
+  "max_member_limit":6,
   "members": [
     {
       "role": "student",
@@ -68,14 +67,13 @@
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
-    "record_types": ["local","remote"],
     "auto_create_im": 1,
     "bitrate": 850,
     "auto_open_mic": 0,
     "auto_open_camera": 0
-  }
+  },
   "record_user_id":"tic_record_user_1234_01",
-  "record_user_sig": "user_sig"
+  "record_user_sig":"user_sig"
 }
 ```
 
@@ -232,12 +230,12 @@
   "member_count":30,
   "chat_group_id":"102304_chat",
   "cmd_group_id":"102304",
-  "max_member_limit":6
+  "max_member_limit":6,
   "settings" : {
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
-    "record_types": ["remote"]
+    "record_types": ["remote"],
     "bitrate": 850,
     "auto_open_mic": 0,
     "auto_open_camera": 0
@@ -406,7 +404,7 @@
       "user_id":"xxxxx",
       "role":"student",
       "nickname":"小明",
-      “gender”:"male",
+      "gender":"male",
       "avatar":"https://xxx/xiaoming.png", 
       "phone_no":"13033445566",
       "e_mail":"xxx@xx.com"
@@ -764,7 +762,7 @@
 请求：
 ```json
 {
-  "doc_id": “ywyzhohnx”
+  "doc_id": "ywyzhohnx"
 }
 ```
 响应：
@@ -1007,20 +1005,20 @@ online_record_stop
   "class_id":100001234,
   "video_info":[
     {
-      "video_play_time":0
+      "video_play_time":0,
       "video_size":1200,
       "video_format":"mp4",
-      "video_duration":3600
+      "video_duration":3600,
       "video_url":"http://1253488539.vod2.myqcloud.com/oM86K7X3Ig8b.mp4",
       "video_id":"5285890781570653827",
       "video_type":0,
       "user_id":"ios_test1"
     },
     {
-      "video_play_time":4000
+      "video_play_time":4000,
       "video_size":3756,
       "video_format":"mp4",
-      "video_duration":5000
+      "video_duration":5000,
       "video_url":"http://1253488539.vod2.myqcloud.com/oM86K7X3IsdfA.mp4",
       "video_id":"5285890781570653828",
       "video_type":2,
@@ -1259,7 +1257,7 @@ transport_progress
 	"class_id": 1234354,
 	"list": [
 		"user1",
-		"user2",
+		"user2"
 	]
 }
 ```
@@ -1459,30 +1457,30 @@ transport_progress
 	"size":20
 }
 ```
-访问：
+响应：
 ```json
 {
-	"error_code":0,
-	"error_msg":"",
-	"finish":true,
-	"total":1,
-	"list":[
-		{
-			"user_id":"xxx",
-			"nickname":"昵称",
-			“gender”:"male",
-			"avatar":"https://xxxx/head.png",
-			"enter_time": 1550546356,
-			"role":"student",
-			"status": {
-				"camera": 1,
-				"mic": 1,
-				"speaker": 1,
-				"silence": 0,
-				"hand_up":1,
-			}
-		}
-	]
+    "error_code":0,
+    "error_msg":"",
+    "finish":true,
+    "total":1,
+    "list":[
+        {
+            "user_id":"xxx",
+            "nickname":"昵称",
+            "gender":"male",
+            "avatar":"https://xxxx/head.png",
+            "enter_time": 1550546356,
+            "role":"student",
+            "status": {
+                "camera": 1,
+                "mic": 1,
+                "speaker": 1,
+                "silence": 0,
+                "hand_up":1
+            }
+        }
+    ]
 }
 ```
 
