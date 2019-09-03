@@ -25,7 +25,7 @@ paitool 工具是同态加密 Paillier 算法的用户工具，主要实现了�
 		<td>生成 Paillier 算法的公私钥对</td>
 		<td>
 				<ul class="indentation">
-					<li>length：公钥长度，即安全等级，`[]`代表可选，默认为2048</li>
+				<li>length：公钥长度，即安全等级，<code>[]</code>代表可选，默认为2048</li>
 					<li>pkout：新公钥的文件路径</li>
 					<li>skout：新私钥的文件路径</li>
 				</ul>
