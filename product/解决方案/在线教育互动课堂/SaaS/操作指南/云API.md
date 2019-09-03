@@ -317,22 +317,39 @@
 }
 ```
 ### 上课
-客户端老师调用，标志着开始上课。
+__接口__ 
 
-|请求基本信息|描述|
-|--|--|
-|方法|POST|
-|请求 URL|https://domain/saas/v1/class/start?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
-|header|Content-Type:application/json|
-|鉴权方式|token 鉴权|
+| 接口名称 | `/class/start` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` |
 
-请求：
+__请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+
+__响应参数__
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+__举例__ 
+
+request
+
 ```json
 {
     "class_id": 1234354
 }
 ```
-响应：
+
+response
+
 ```json
 {
     "error_code": 0,
@@ -340,24 +357,37 @@
 }
 ```
 ### 下课
-客户端老师调用，标志着下课。
-一期：可以不调用下课接口，只通过“预约的结束时间”作为下课的唯一判断标示。
+__接口__ 
 
-|请求基本信息|描述|
-|--|--|
-|方法|POST|
-|请求 URL|https://domain/saas/v1/class/stop?sdkappid=1400127140&user_id=user&token=f30c31384bc967f359bbf7247e8ecb98&random=1234|
-|header|Content-Type:application/json|
-|鉴权方式|token 鉴权|
+| 接口名称 | `/class/stop` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` |
 
-请求：
+__请求参数__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+
+__响应参数__
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
+| error_msg | string | 错误信息 | 是 | - |
+
+__举例__ 
+request
 ```json
 {
     "class_id": 1234354
 }
 ```
 
-响应：
+response
+
 ```json
 {
     "error_code": 0,
