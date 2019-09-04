@@ -18,7 +18,7 @@
 5. 至此您已成功接入日志服务平台。如需进行日志检索，需要手动开启索引。
    请您登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，单击【日志集管理】，并依次进入目标日志集、日志主题，在日志主题选项卡中，在日志主题右侧的操作栏中，选择【管理配置】>【索引配置】，进入索引配置页面。
    ![](https://main.qcloudimg.com/raw/9e0c82b2e14b0dafc7aceb2deb21af5b.png)
-6. 单击右上角的【编辑】，打开索引状态，开启全文索引，点击保存。
+6. 单击右上角的【编辑】，打开索引状态，开启全文索引，单击【保存】。
    ![](https://main.qcloudimg.com/raw/8e7c084d37b9c9e46750a949d66f231b.png)
    > ?如需进行更多操作如日志实时检索，日志投递消费等，请登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。更多功能请参见 [日志服务](https://cloud.tencent.com/document/product/614) 文档。
 
