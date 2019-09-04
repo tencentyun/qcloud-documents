@@ -14,7 +14,7 @@
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_ios_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_ios_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
@@ -23,7 +23,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_android_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32166">DOC</a></td>
@@ -32,7 +32,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Windows(C++)  </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_win_cplusplus_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_cplusplus_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32397">DOC</a></td>
@@ -41,7 +41,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Windows(C#) </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_win_csharp_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_csharp_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32397">DOC</a></td>
@@ -50,7 +50,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Mac</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_mac_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_mac_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
@@ -59,7 +59,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Web</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_web_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32398">DOC</a></td>
@@ -68,7 +68,7 @@
    </tr>
    <tr>
       <td style="text-align:center">微信小程序 </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_wxmini_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_wxmini_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32399">DOC</a></td>
@@ -98,7 +98,7 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("professional_ios_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_ios_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS">Github</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">4.08M（arm64）</td>
@@ -106,7 +106,7 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
    </tr>
    <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("professional_android_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android">Github</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">jar：1.5M<br> so(armeabi)：6.5M<br> so(armv7)：6.1M<br>so(arm64)：7.3M</td>
@@ -131,14 +131,14 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("enterprise_ios_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center"> 6.15M（arm64）</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
    <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("enterprise_android_zip_download") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center"> jar：2.3M；so(armeabi)：20.4M</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
@@ -373,12 +373,13 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
 
 
 <script>
-  var _mtac = {};
+  var _mtac = {"senseHash":0};
   (function() {
     var mta = document.createElement("script");
     mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
     mta.setAttribute("name", "MTAH5");
     mta.setAttribute("sid", "500695331");
+    mta.setAttribute("cid", "500695332");
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(mta, s);
   })();
