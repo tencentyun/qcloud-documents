@@ -24,8 +24,14 @@
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
+
+**方法1**
+下载 Windows 端 [SDK 和 Demo 源码](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)。
+
+
+**方法2**
 1. 单击应用卡片，进入【快速上手】页面。
-2. 单击【第一步 下载SDK+配套demo源码】区域的【Windows(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载相关 Demo 源码。
+2. 单击【第一步 下载SDK+配套demo源码】区域的【Windows(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载并解压相关 Demo 源码。
  ![](https://main.qcloudimg.com/raw/1bc8fdb853ab6b8bdf5b398c6efa1623.png)
 3. 下载并解压 [SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)。
  >?如果您觉得当前网络访问 Github 过慢，则可以直接通过[该链接](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)下载 SDK 和配套 Demo 源码。
@@ -40,8 +46,7 @@
 <h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
  Demo 源码工程中的`GenerateTestUserSig`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
 
-1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `GenerateTestUserSig`文件。
+1. 在 [步骤2](#step2) 中解压的 Demo 源码包目录中，找到并打开 `GenerateTestUserSig`文件。
   <table>
      <tr>
          <th nowrap="nowrap">适用平台</th>  
@@ -56,7 +61,7 @@
 	     <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
      </tr> 
 </table>
-3. 设置`GenerateTestUserSig`文件中的相关参数，下图以 Windows(C++) 为例作为参考：
+2. 设置`GenerateTestUserSig`文件中的相关参数，下图以 Windows(C++) 为例作为参考：
   - SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
     ![](https://main.qcloudimg.com/raw/c8dd14631e8f976944376ba58e9c1079.png)
