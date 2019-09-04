@@ -129,7 +129,7 @@ TKE 容器服务用户可以直接在控制台，通过配置日志收集规则�
 
 **前提条件**：检索日志前需先开启并配置索引规则，详情请参见  [开启索引](<https://cloud.tencent.com/document/product/614/16981>) 。
 
-（1）登陆 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏单击【日志检索】，进入检索页面。
+（1）登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏单击【日志检索】，进入检索页面。
 （2）选择关联容器服务的日志主题，单击【搜索】进行查询。
 
 ![](https://main.qcloudimg.com/raw/6ac34f2032a4e7b16eb9d142cd03f342.png)
