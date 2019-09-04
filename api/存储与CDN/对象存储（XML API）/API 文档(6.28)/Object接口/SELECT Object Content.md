@@ -365,7 +365,7 @@ COS Select 的响应类型主要可以分为以下几种：
 | SQLParsingError | GROUP is not supported in the SQL expression | SQL 表达式中不支持 GROUP 子句 | 400 Bad Request|
 | SQLParsingError | UNION is not supported in the SQL expression | SQL 表达式中不支持 UNION 子句 | 400 Bad Request|
 | SQLParsingError | FROM is missing in the SQL expression | SQL 表达式中缺少 FROM 子句 | 400 Bad Request|
-| SQLParsingError | ORDER is not supported in the SQL expression | SQL 表达式中不支持ORDER子句 | 400 Bad Request|
+| SQLParsingError | ORDER is not supported in the SQL expression | SQL 表达式中不支持 ORDER 子句 | 400 Bad Request|
 | SQLParsingError | The column index is invalid in the SQL expression | SQL 表达式中指定的列索引不合法 | 400 Bad Request|
 | SQLParsingError | The table alias is invalid in WHERE | WHERE 子句中的表别名不合法 | 400 Bad Request|
 | Bzip2DecompressError | Encountered an error decompressing the bzip2 file | 解压 BZIP2 格式的文件是出现问题 | 400 Bad Request|
@@ -382,6 +382,8 @@ COS Select 的响应类型主要可以分为以下几种：
 | CSVParsingError | Encountered an error parsing the CSV file | 解析 CSV 格式文件的时候出现问题 | 400 Bad Request|
 | JSONParsingError | Encountered an error parsing the JSON file  | 解析 JSON 格式文件的时候出现问题 | 400 Bad Request|
 | ErrorWritingRow | Encountered an error parsing the SELECT result. Please try again  | 无法格式化您的查询结果，请检查文件并重试 | 400 Bad Request|
+| InvalidRequestParameter | The input Comment of CSV is invalid  | 不合法的 CSV 文件注释符 | 400 Bad Request|
+| InvalidTextEncoding | UTF-8 encoding is required. Please check the file and try again. | 检索文件和检索结果仅支持UTF-8编码 | 400 Bad Request|
 | NoSuchKey | The specified key does not exist  | 指定的对象键不存在 | 404 Not Found|
 | AccessDenied |  Access Denied| 签名或者权限不正确，拒绝访问 | 403 Forbidden|
 | MethodNotAllowed | The specified method is not allowed against this resource | 当前资源不支持该 HTTP 方法 | 405 Method Not Allowed|
