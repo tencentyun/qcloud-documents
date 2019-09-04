@@ -51,11 +51,10 @@ fsck -a /dev/vdb1
 python /tmp/devresize.py /dev/vdb
 ```
 <span id="step4MBR"></span>
-4. 执行以下命令，手动挂载扩容后的分区。
+4. 执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
 ```
 mount <分区路径> <挂载点>
 ```
-本文以挂载点是`/data`为例。
  - 若扩容前已有分区且以分区路径是`/dev/vdb1`为例，则执行：
 ```
 mount /dev/vdb1 /data
@@ -68,7 +67,7 @@ mount /dev/vdb /data
 ```
 df -h
 ```
-若返回类似如下图所示的信息，说明挂载成功，即可以查看到数据盘：
+若返回类似如下图所示的信息，说明挂载成功，即可查看到数据盘：
 ![](//mccdn.qcloud.com/static/img/2367f3e70cd0c3c1bef665cc47c1c3bc/image.jpg)
 6. 执行以下命令，查看扩容后原分区的数据信息，确认新增加的存储空间是否扩容到文件系统中。
 ```
@@ -87,13 +86,13 @@ df -h
 ```
 fdisk -l
 ```
-数据盘以扩容至107.4GB。如下图所示：
+数据盘已扩容至107.4GB。如下图所示：
 ![](//mccdn.qcloud.com/static/img/594671a1215dee3036b7940892438f62/image.png)
 3. 执行以下命令，解挂所有已挂载的分区。
 ```
 umount <挂载点>
 ```
-本文以挂载点以`/data`为例，执行以下命令：
+本文以挂载点以 `/data` 为例，执行以下命令：
 ```
 umount /data
 ```
@@ -103,11 +102,17 @@ umount /data
 ```
 fdisk <硬盘路径>
 ```
-本文以磁盘路径是`/dev/xvdc`为例，则执行：
+本文以磁盘路径以 `/dev/xvdc` 为例，则执行：
 ```
 fdisk /dev/xvdc
 ```
-按照界面的提示，依次输入”p”（查看现有分区信息）、“n”（新建分区）、“p”（新建主分区）、“2”（新建第2个主分区），两次回车（使用默认配置），输入 “w”（保存分区表），开始分区。如下图所示：
+按照界面的提示，依次以下命令：
+ - 输入 “p”：查看现有分区信息，本文已有分区 `/dev/xvdc1`。
+ - 输入 “n”：新建分区。
+ - 输入 “p”：新建主分区。
+ - 输入 “2”：新建第2个主分区。
+ - 按2次 “Enter”：分区大小使用默认配置。
+ - 输入 “w”：保存分区表，开始分区。如下图所示：
 ![](//mccdn.qcloud.com/static/img/8c35d6f4dfb367e74edc27ce6822c317/image.png)
 >? 本文以创建一个分区为例，您可以根据实际需求创建多个分区。
 5. 执行以下命令，查看新分区。
@@ -116,21 +121,21 @@ fdisk -l
 ```
 新的分区 xvdc2 已经创建完成。如下图所示：
 ![](//mccdn.qcloud.com/static/img/e04e924d62317bc2c605c8abaac394f5/image.png)
-6. 执行以下命令，格式化新分区并创建文件系统。
+6. 执行以下命令，格式化新分区并创建文件系统，您可以自行选择文件系统的格式，例如 EXT2、EXT3 等。
 ```
 mkfs.<fstype> <分区路径> 
 ```
-您可以自行选择文件系统的格式，例如 EXT2、EXT3 等。
-本文以文件系统 EXT3 为例，执行以下命令：
+本文以 EXT3 为例，则执行：
 ```
 mkfs.ext3 /dev/xvdc2
 ```
+已成功创建 EXT3 文件系统，如下图所示：
 ![](//mccdn.qcloud.com/static/img/074e23eaa580495f96fb532b688d2d68/image.png)
 7. 执行以下命令，创建新的挂载点。
 ```
 mkdir <新挂载点>
 ```
-本文以新挂载点是`/data1`为例，则执行：
+本文以新挂载点以 `/data1` 为例，则执行：
 ```
 mkdir /data1
 ```
@@ -138,7 +143,7 @@ mkdir /data1
 ```
 mount <新分区路径> <新挂载点>
 ```
-本文以新分区路径 `/dev/xvdc2`，新挂载点 `/data1` 为例，执行以下命令：
+本文以新分区路径 `/dev/xvdc2`，新挂载点 `/data1` 为例，则执行：
 ```
 mount /dev/xvdc2 /data1
 ```
@@ -146,7 +151,7 @@ mount /dev/xvdc2 /data1
 ```
 df -h
 ```
-返回如下图所示信息则说明挂载成功，即可以查看到数据盘。
+返回如下图所示信息则说明挂载成功，即可以查看到数据盘：
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
 <span id="AddNewPartINFOstep10"></span>
