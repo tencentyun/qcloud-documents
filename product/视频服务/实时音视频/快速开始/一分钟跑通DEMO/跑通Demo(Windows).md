@@ -24,6 +24,7 @@
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
+>?如果您的网络环境访问 Github 过慢，建议通过**方法1**下载 SDK 和配套 Demo 源码。
 
 **方法1**
 下载 Windows 端 [SDK 和 Demo 源码](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)。
@@ -34,7 +35,6 @@
 2. 单击【第一步 下载SDK+配套demo源码】区域的【Windows(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载并解压相关 Demo 源码。
  ![](https://main.qcloudimg.com/raw/1bc8fdb853ab6b8bdf5b398c6efa1623.png)
 3. 下载并解压 [SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)。
- >?如果您觉得当前网络访问 Github 过慢，则可以直接通过[该链接](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)下载 SDK 和配套 Demo 源码。
 4. 将解压所得 SDK 目录下的所有文件复制并替换至 Demo 源码的 `Windows/SDK` 目录中。
 
 <span id="step3"></span>
