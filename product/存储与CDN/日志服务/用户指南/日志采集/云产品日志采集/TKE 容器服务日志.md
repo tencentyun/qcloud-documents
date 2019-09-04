@@ -7,7 +7,7 @@ TKE 容器服务用户可以直接在控制台，通过配置日志收集规则�
 
 登录 [日志服务控制台](https://console.cloud.tencent.com/cls) 新建日志集及日志主题。创建日志主题时，由于容器服务的日志有独立的采集能力，日志主题无需开启【使用 LogListener】。详情请参见  [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
 ![](https://main.qcloudimg.com/raw/89000135b617388b74d09c309acf33c7.png)
->!日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。
+>!目前 TKE 容器集群的日志只能投递到同地域的日志服务。
 
 
 
@@ -49,8 +49,7 @@ TKE 容器服务用户可以直接在控制台，通过配置日志收集规则�
 <span id="log1"></span>
 #### 采集容器标准输出日志
 
-日志采集功能支持采集 Kubernetes 集群内指定容器的标准输出日志，用户可以根据自己的需求，灵活的配置采集规则。
-采集到的日志信息将会以 JSON 格式输出到用户指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。
+用户可以通过配置将 Kubernetes 集群内指定容器的标准输出日志投递到日志服务 CLS 中，投递的日志内容会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。
 
 （1）在新建日志收集规则页面，选择【容器标准输出】采集类型，并配置日志源。
  ![](https://main.qcloudimg.com/raw/5796b7217dfe8ac055c9df6b3e8c81e2.png)
@@ -72,8 +71,7 @@ TKE 容器服务用户可以直接在控制台，通过配置日志收集规则�
 <span id="log2"></span>
 #### 采集容器内文件日志
 
-日志采集功能也支持采集集群内指定 pod 内文件的日志。
-采集到的日志信息将会以 JSON 格式输出到用户指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。
+用户可以通过配置将集群内指定 pod 内文件的日志投递到日志服务 CLS 中，投递日志格式为 JSON 格式，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。
 
 >!目前仅支持采集存储在 volume 的日志文件，即需要在工作负载创建时挂载 emptyDir、hostpath 等 volume，并将日志文件存到指定 volume。
 
@@ -99,8 +97,7 @@ TKE 容器服务用户可以直接在控制台，通过配置日志收集规则�
 <span id="log3"></span>
 #### 采集主机内文件日志
 
-日志采集功能支持采集集群内所有节点的指定主机路径的日志。用户可以根据自己的需求，灵活的配置所需的路径，日志采集 Agent 会采集集群内所有节点上满足指定路径规则的文件日志。
-采集到的日志信息将会以 JSON 格式输出到用户指定的输出端，并会附加用户指定的 metadata，包括日志来源文件的路径和用户自定义的 metadata。
+用户可以通过配置将集群内所有节点的指定主机路径的日志投递到日志服务 CLS，投递日志格式为 JSON 格式，并会附加用户指定的 metadata，包括日志来源文件的路径和用户自定义的 metadata。
 
 （1）在新建日志采集规则页面，指定【节点文件路径】采集类型。
 用户可以通过指定日志文件的路径来采集集群内节点上相应路径的日志文件，路径支持文件路径和通配规则，例如 `/var/log/nginx.log`或`/var/lib/docker/containers/*/*.log`。
