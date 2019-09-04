@@ -71,9 +71,10 @@
 ### 其他接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
+| [更换负载均衡的证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
 | [查询证书关联的负载均衡信息](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
 | [查询负载均衡应用层日志](https://cloud.tencent.com/document/product/214/12235)| DescribeLoadBalancerLog | 查询负载均衡应用层日志。|
-| [更换负载均衡的证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
+| [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
 
 ## 传统型负载均衡相关接口
 ### 实例相关接口
