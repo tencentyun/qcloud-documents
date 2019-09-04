@@ -50,8 +50,7 @@ fsck -a /dev/vdb1
 ```
 python /tmp/devresize.py /dev/vdb
 ```
-<span id="step4MBR"></span>
-4. 执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
+4. <span id="step4MBR"></span>执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
 ```
 mount <分区路径> <挂载点>
 ```
@@ -97,8 +96,8 @@ umount <挂载点>
 umount /data
 ```
 >? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR) 。
-><span id="Step4MBR"></span>
-4. 执行以下命令，新建一个新分区。
+>
+4. <span id="Step4MBR"></span>执行以下命令，新建一个新分区。
 ```
 fdisk <硬盘路径>
 ```
