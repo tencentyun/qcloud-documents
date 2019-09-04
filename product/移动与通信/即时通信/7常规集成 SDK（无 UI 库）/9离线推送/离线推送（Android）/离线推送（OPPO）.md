@@ -37,7 +37,6 @@ OPPO 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  - **AppKey**：填写 OPPO 推送服务应用的 **AppKey**
  - **APPID**：填写 OPPO 推送服务应用的 **AppId**
  - **MasterSecret**：填写 OPPO 推送服务应用的 **MasterSecret**
- -  **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
 ![](https://main.qcloudimg.com/raw/3d45a37fefef558b299972f66df86a43.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
 7. 待推送证书信息生成后，记录**`证书 ID`** 。
