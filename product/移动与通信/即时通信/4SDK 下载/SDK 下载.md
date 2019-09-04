@@ -7,7 +7,7 @@
 		<th align="center">所属平台</th>  
 		<th nowrap="nowrap" align="center">ZIP 包下载 </th>  
 		<th nowrap="nowrap" align="center">Github 下载（推荐）</th>  
-		<th align="center">Gitee下载</th>  
+		<th align="center">Gitee 下载</th>  
 		<th nowrap="nowrap" align="center">极速集成指引<br>（含 UI 库）</th> 
 		<th nowrap="nowrap" align="center">常规集成指引<br>（无 UI 库）</th>  
 		<th nowrap="nowrap" align="center">安装包增量</th>  
