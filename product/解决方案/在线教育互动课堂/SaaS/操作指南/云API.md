@@ -1155,7 +1155,7 @@ transport_progress
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | enterprise_id | string | 机构 ID | 是 | - |
-| sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 sdkappid | 是 | - |
+| sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 SDKAppID | 是 | - |
 | busi_type | string | 业务类型 | 是 | - |
 | name | string | 企业名字 | 是 | - |
 | contact_user | string | 企业联系人 | 是 | - |
