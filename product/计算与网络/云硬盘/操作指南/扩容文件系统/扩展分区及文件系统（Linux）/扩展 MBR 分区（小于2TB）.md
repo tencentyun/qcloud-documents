@@ -31,7 +31,7 @@ wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcl
 ```
 python /tmp/devresize.py <硬盘路径>
 ```
-本文以硬盘路径是`/dev/vdb`且文件系统在 vdb1 上为例，执行以下命令：
+本文以硬盘路径以 `/dev/vdb` ，文件系统在 vdb1 上为例，执行以下命令：
 ```
 python /tmp/devresize.py /dev/vdb
 ```
@@ -55,7 +55,7 @@ python /tmp/devresize.py /dev/vdb
 ```
 mount <分区路径> <挂载点>
 ```
- - 若扩容前已有分区且以分区路径是`/dev/vdb1`为例，则执行：
+ - 若扩容前已有分区且以分区路径以 `/dev/vdb1` 为例，则执行：
 ```
 mount /dev/vdb1 /data
 ```
