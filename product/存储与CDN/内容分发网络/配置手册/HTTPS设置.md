@@ -12,7 +12,7 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的【域名管理】，进入管理页面，在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
 ![img](https://main.qcloudimg.com/raw/99e0c24b4530c30b9abe27325bb1b317.png)
-2. 单击【高级配置】，找到 **HTTPS 配置**模块。单击【前往配置】，跳转至**证书管理**页面配置证书。配置流程请参阅 [证书管理](https://cloud.tencent.com/document/product/228/6303)。
+2. 单击【高级配置】，找到 **HTTPS 配置**模块。单击【前往配置】，跳转至**证书管理**页面配置证书。配置流程请参见 [证书管理](https://cloud.tencent.com/document/product/228/6303)。
 ![img](https://main.qcloudimg.com/raw/5c11cea6df9309c96856c352c3b94d23.png)
 3. 证书**配置成功**后，会出现【强制跳转 HTTPS】开关，默认情况下，强制跳转 HTTPS为关闭状态。
 ![img](https://main.qcloudimg.com/raw/7741e2cccc5c7ad5b44d0e6f527a2b3b.png)
