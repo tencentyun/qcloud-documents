@@ -1,14 +1,14 @@
 ## 接入准备
 ### SDK获取
-一句话语音识别 Python SDK 安装及相关环境说明 [Python SDK 安装及相关环境说明>>](https://cloud.tencent.com/document/sdk/Python)
+一句话语音识别 Python SDK 安装及相关环境说明 [Python SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/Python)
 
 ### 接入须知
-开发者在调用前请先查看一句话语音识别的[ 接口说明]()，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看一句话语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
 
 ##  快速接入
-以下分别是通过**语音URL**和**本地语音上传**请求方式的demo，来帮助客户快速接入。
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
 
-+ **通过语音URL方式请求**
++ **通过语音 URL 方式请求**
 
 ```
 # -*- coding: utf-8 -*-
@@ -19,9 +19,9 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 from tencentcloud.asr.v20190614 import asr_client, models 
 import base64
 
-//通过语音URL方式调用
+//通过语音 URL 方式调用
 try: 
-    #重要：Your SecretId、Your SecretKey需要替换成客户自己的账号信息
+    #重要：Your SecretId、Your SecretKey 需要替换成客户自己的账号信息
     #请参考接口说明中的使用步骤1进行获取。 
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()

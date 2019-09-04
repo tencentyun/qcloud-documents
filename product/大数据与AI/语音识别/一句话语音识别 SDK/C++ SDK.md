@@ -4,11 +4,11 @@
 一句话识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_sentence_sdk.tar.gz )。
 
 ### 接入须知
-开发者在调用前请先查看一句话语音识别的[ 接口说明]()，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看一句话语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
 
 
 ### 开发环境
-**编译 Demo**，如失败需确认以下环境：
++ **编译 Demo**，如失败需确认以下环境：
 
 ```
 //下载sdk
@@ -19,7 +19,7 @@ make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ``` 
 
-**安装 gcc g++** 
++ **安装 gcc g++** 
 
 ```
 1.RedHat 系列系统:
@@ -29,7 +29,7 @@ yum install -y wget
 2.Debian系列系统：
 apt-get install gcc g++
 ```
-**安装 CMake 工具**
++ **安装 CMake 工具**
 
 ```
 // cmake 版本要大于3.5
@@ -40,7 +40,7 @@ sudo ./bootstrap --prefix=/usr
 sudo make
 sudo make install
 ```
-**依赖库安装及编译**
++ **依赖库安装及编译**
 
 客户需自行安装版本大于7.44.0的 **curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：  
 
@@ -51,7 +51,7 @@ sudo make
 sudo make install
 ```
 
-**openssl**  
++ **openssl**  
 本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
 
 ```
@@ -72,7 +72,7 @@ sudo make install
 ### <span id="开发流程">开发流程介绍</span>
 **配置用户信息**
 
-+ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 ```
 //需要配置成用户账号信息 c++_sentence_asr_sdk/src/TCloudSASR.h
@@ -87,12 +87,12 @@ struct TCloudSASRConfig{
 **初始化请求参数** 
 
 + 定义请求参数，具体参数参考请求参数说明。
-+ 请参考 [ 接口说明]()
++ 请参考 [接口说明](https://cloud.tencent.com/document/product/1093/37308)
 
 **设置用户密钥**  
 
-+ 赋值用户的SecretId和SecretKey
-+ 请参考 [ 开发流程介绍](#开发流程)
++ 赋值用户的SecretId 和 SecretKey
++ 请参考 [开发流程介绍](#开发流程)
 
 **初始化请求**
 
@@ -113,10 +113,10 @@ struct TCloudSASRConfig{
 /*
 *设置相关参数
 *params：
-*	  SecretId，SecretKey：官网获得的SecretId，SecretKey
+*	  SecretId，SecretKey：官网获得的 SecretId，SecretKey
 *	  EngSerViceTyp：引擎类型引擎模型类型。8k:8k通用，16k:16k通用。
 *	  SourceType：语音数据来源。0：语音 URL；1：语音数据（post body）
-*	 VoiceFormat：识别音频的音频格式（mp3,wav）
+*	 VoiceFormat：识别音频的音频格式（mp3，wav）
 */
 bool SetTCloudConfig(const string &SecretId, const string &SecretKey,const string &EngSerViceType="16k",const string &SourceType="0",const string &VoiceFormat="wav");
 ```
@@ -126,7 +126,6 @@ bool SetTCloudConfig(const string &SecretId, const string &SecretKey,const strin
 ```
 /*
 * 发型音频数据
-* params：
 * fileURI：本地音频文件或者远程音频文件地址
 * pResponse：识别结果
 *
@@ -137,7 +136,7 @@ int SendVoiceData(const string fileURI,string &pResponse);
 **请求 demo**
 
 ```
-//在sdk的根目录下执行
+//在 sdk 的根目录下执行
 cd demo
 make
 ./SASRtest

@@ -23,6 +23,7 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
+>! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
 ## 对接攻略
 
 ### Step1. 页面准备工作

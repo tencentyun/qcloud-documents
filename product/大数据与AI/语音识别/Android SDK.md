@@ -1,12 +1,12 @@
-## 1. 接入准备
-### 1.1 SDK 获取
+## 接入准备
+### SDK 获取
 一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudOneSentenceSDK_Android.zip)
 
-### 1.2 接入须知
-+ 开发者在调用前请先查看一句话识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721)，了解接口的使用要求和使用步骤 。
+### 接入须知
++ 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
 
-### 1.3 开发环境
+### 开发环境
 1）**添加一句话识别 SDK aar**
 
 将 **qcloudasrsdk\_1.0\_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
@@ -35,9 +35,9 @@
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
 
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程及接入示例
+### 开发流程及接入示例
 
 1）**创建 QCloudOneSentenceRecognizer 示例**
 
@@ -75,12 +75,12 @@ recognizer.recognize(audioData, QCloudAudioFormat.QCloudAudioFormatMp3, QCloudAu
 recognizer.recognizeWithRecorder();
 ```
 
-### 2.2 关键类说明
+### 关键类说明
 **QCloudOneSentenceRecognizer** :一句话识别入口类
 
 ```
 /**
- * 初始化方法，关于AppId, SecretId, SecretKey的获取见一句话识别接口说明中的使用步骤
+ * 初始化方法，关于 AppId, SecretId, SecretKey 的获取见一句话识别接口说明中的使用步骤
  * @param activity app activity
  * @param appId 腾讯云appid
  * @param secretId 腾讯云secretId

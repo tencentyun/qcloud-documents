@@ -43,44 +43,44 @@ npm install tencentcloud-serverless-nodejs
 > - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
 
-1. 在云端创建**被调用**的 Node.js 云函数，地域为【北京】，命名为 “FuncInvoked”。函数内容如下：
+1. 创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
-    console.log("\n Hello World from the function being invoked\n")
-    console.log(event)
-    console.log(event["non-exist"])
-    return event
+      console.log("\n Hello World from the function being invoked\n")
+      console.log(event)
+      console.log(event["non-exist"])
+      return event
 };
 ```
-2. 创建**发起调用**的 Node.js 云函数。
-在 `testNodejsSDK` 目录下新建文件 `index.js` ，并输入如下示例代码：
+2. 在 `testNodejsSDK` 目录下新建文件 `index.js`，并输入如下示例代码，创建**发起调用**的 Node.js 云函数。
 ```js
 const sdk = require('tencentcloud-serverless-nodejs')
 exports.main_handler = async (event,context,callback)=>{
-    sdk.init({
-        region: 'ap-beijing'
-    }) // 如果sdk运行在云函数中，初始化时可以不传secretId,secretKey
+      sdk.init({
+          region: 'ap-beijing'
+      }) // 如果sdk运行在云函数中，初始化时可以不传secretId,secretKey
 
-    console.log('prepare to invoke a function!')
-    const res = await sdk.invoke({
-        functionName: 'FuncInvoked',
-        qualifier: '$LATEST',
-        data: JSON.stringify({
-            key:'value'
-        }),
-        namespace:'default'
-    })
-    console.log(res)
-    //return res
-    return 'Already invoked a function!'
+      console.log('prepare to invoke a function!')
+      const res = await sdk.invoke({
+          functionName: 'FuncInvoked',
+          qualifier: '$LATEST',
+          data: JSON.stringify({
+              key:'value'
+          }),
+          namespace:'default'
+      })
+      console.log(res)
+      //return res
+      return 'Already invoked a function!'
 }
 ```
-3. 在云端创建调用的 Node.js 云函数，地域为【成都】，命名为 “NodejsInvokeTest”。根据以下提示设置函数：
+3. 创建一个地域为【成都】，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
  - 执行方法：选择【index.main_handler】。
  - 代码提交方式：选择【本地上传 zip 包】。
     将 `testNodejsSDK` 目录下的所有文件压缩为 zip 格式，并上传到云端。
-4. 创建完成后进行测试，输出结果如下：
+4. 
+在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 中的函数详情页面，通过进入函数代码子页面，单击【运行】，测试运行函数。输出结果如下：
 ```shell
 "Already invoked a function!"
 ```
@@ -92,14 +92,14 @@ exports.main_handler = async (event,context,callback)=>{
 
 #### 示例
 
-1. 在云端创建一个**被调用**的 Node.js 云函数，地域为【北京】，命名为 “FuncInvoked”。函数内容如下：
+1. 创建一个地域为【北京】，名称为 “FuncInvoked”，并且用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
-    console.log("\n Hello World from the function being invoked\n")
-    console.log(event)
-    console.log(event["non-exist"])
-    return event
+      console.log("\n Hello World from the function being invoked\n")
+      console.log(event)
+      console.log(event["non-exist"])
+      return event
 };
 ```
 
@@ -107,29 +107,29 @@ exports.main_handler = async (event, context, callback) => {
 ```js
 const sdk = require('tencentcloud-serverless-nodejs')
 exports.main_handler = async (event, context, callback) => {
-    sdk.init({
-        region: 'ap-beijing',
-        secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
-        secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
-    }) // 替换为您的 secretId 和 secretKey
-    console.log('prepare to invoke a function!')
-    const res = await sdk.invoke({
-        functionName: 'FuncInvoked',
-        qualifier: '$LATEST',
-        data: JSON.stringify({
-            key:'value'
-        }),
-        namespace:'default'
-    })
-    console.log(res)
-    //return res
-    console.log('Already invoked a function!')
-}
-if (process.env.NODE_ENV === 'development') {
-    const event = {
-        test: '123'
-    }
-    exports.main_handler(event)
+      sdk.init({
+          region: 'ap-beijing',
+         secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
+          secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
+      }) // 替换为您的 secretId 和 secretKey
+      console.log('prepare to invoke a function!')
+      const res = await sdk.invoke({
+          functionName: 'FuncInvoked',
+          qualifier: '$LATEST',
+          data: JSON.stringify({
+              key:'value'
+          }),
+          namespace:'default'
+      })
+      console.log(res)
+      //return res
+      console.log('Already invoked a function!')
+  }
+  if (process.env.NODE_ENV === 'development') {
+      const event = {
+          test: '123'
+      }
+      exports.main_handler(event)
 }
 ```
 >!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。
@@ -157,6 +157,7 @@ Already invoked a function!
 - [Init](#Init)
 - [Invoke](#Invoke)
 
+<span id="Init"></span>
 #### Init
 在使用 SDK 前，建议执行 `npm init` 命令进行初始化 SDK。
 >?
@@ -173,6 +174,8 @@ Already invoked a function!
 | secretKey |    否    | `String` | 默认会取 process.env.TENCENTCLOUD_SECRETKEY |
 | token |    否    | `String` | 默认会取 process.env.TENCENTCLOUD_SESSIONTOKEN |
 
+
+<span id="Invoke"></span>
 #### Invoke
 调用函数，目前支持同步调用。
 

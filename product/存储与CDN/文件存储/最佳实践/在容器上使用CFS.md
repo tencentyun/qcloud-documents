@@ -44,7 +44,7 @@ spec:
     storage: 10Gi
   volumeMode: Filesystem
   accessModes:
-    - ReadWritemMany
+    - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   mountOptions:
     - hard

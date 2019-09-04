@@ -1,10 +1,13 @@
 ## 操作场景
 HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认证的网络协议，比 HTTP 协议安全。若需要开启 HTTPS 加速，可通过开启播放域名的 HTTPS 功能和配置正确有效的证书来实现。您可以在腾讯云 [SSL 证书](https://cloud.tencent.com/product/ssl) 购买相应证书，若您已有 HTTPS 证书，可上传至云直播控制台进行配置。直播目前仅支持 PEM 格式，若您的证书为其它格式，需要转化为 PEM 格式。证书的格式要求和配置方法如下：
 
+## 前提条件
+- 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
+- 已添加**播放域名**。
 
 ## 操作步骤
 ### 第一步：进入控制台
- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，选择左侧菜单栏的【域名管理】，单击【管理】或需配置的播放域名进入域名管理。
+ 选择左侧菜单栏的【域名管理】，单击需配置的**播放域名**或【管理】进入域名管理。
  ![](https://main.qcloudimg.com/raw/ba9fa1cab68838873a319f10729a1657.png)
 
 ### 第二步：编辑 HTTPS 配置

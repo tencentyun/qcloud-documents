@@ -4422,10 +4422,10 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>子商户在第三方支付平台的商户名</td>
    </tr>
    <tr>
-      <td>logo</td>
+      <td>logo_cos_url</td>
       <td>否</td>
       <td>String</td>
-      <td>商户 logo</td>
+      <td>商户 logo url</td>
    </tr>
    <tr>
       <td>admin_email </td>
@@ -4544,10 +4544,10 @@ post(request, "https://pay.qcloud.com/cpay/upload_client_conf_info", &response);
       <td>说明</td>
    </tr>
    <tr>
-      <td>picture</td>
-      <td>是</td>
-      <td>String(64)</td>
-      <td>广告图片内容</td>
+      <td>picture_cos_url</td>
+      <td>否</td>
+      <td>String</td>
+      <td>广告图片 url</td>
    </tr>
    <tr>
       <td>url</td>

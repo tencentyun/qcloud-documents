@@ -52,7 +52,7 @@ class QcloudApi:
 
 #### 2. 针对具体某个接口的使用示例：
 
-下面的代码在 Python SDK 中的 sample/application 目录下，创建应用型负载均衡四层监听器的接口 CreateForwardLBFourthLayerListeners.py，代码中 `region` 指的是要操作的实例的地域，根据实际情况来指定。
+下面的代码在 Python SDK 中的 sample/application 目录下，创建负载均衡四层监听器的接口 CreateForwardLBFourthLayerListeners.py，代码中 `region` 指的是要操作的实例的地域，根据实际情况来指定。
 
 ```
 #!/usr/bin/python
@@ -62,7 +62,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.QcloudApi.qcloudapi import QcloudApi
 
-action = 'CreateForwardLBFourthLayerListeners'  # 创建应用型负载均衡四层监听器
+action = 'CreateForwardLBFourthLayerListeners'  # 创建负载均衡四层监听器
 
 """
 loadBalancerId 必传 负载均衡ID

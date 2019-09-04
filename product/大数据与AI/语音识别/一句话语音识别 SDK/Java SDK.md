@@ -1,14 +1,14 @@
 ## 接入准备
 ### SDK获取
-一句话语音识别 Java SDK 安装及相关环境说明 [Java SDK 安装及相关环境说明>>](https://cloud.tencent.com/document/sdk/Java)
+一句话语音识别 Java SDK 安装及相关环境说明 [Java SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/Java)。
 
 ### 接入须知
-开发者在调用前请先查看一句话语音识别的[ 接口说明]()，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看一句话语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
 
 ## 快速接入
-以下分别是通过**语音URL**和**本地语音上传**请求方式的demo，来帮助客户快速接入。
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
 
-+ **通过语音URL方式请求**
++ **通过语音 URL 方式请求**
 
 ```
 import com.tencentcloudapi.common.Credential;

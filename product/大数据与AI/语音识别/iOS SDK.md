@@ -1,18 +1,18 @@
 
-## 1. 接入准备
+## 接入准备
 
-### 1.1 SDK 获取
+### SDK 获取
 
 
 一句话识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
 
-### 1.2 接入须知
+### 接入须知
 
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明 ](https://cloud.tencent.com/document/product/1093/35721) ，了解接口的**使用要求**和**使用步骤**。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为**iOS 9.0**及以上版本。
++ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308) ，了解接口的**使用要求**和**使用步骤**。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等），且系统为 **iOS 9.0**及以上版本。
 
 
-### 1.3 开发环境
+### 开发环境
 
 在工程` info.plist` 添加以下设置：
 
@@ -45,7 +45,7 @@
    <string>需要使用了的麦克风采集音频</string>
 ```
 
-+ **在工程中添加依赖库，在 build Phases Link Binary With Libraries 中添加以下库：**
++ **在工程中添加依赖库，在建阶段链接二进制与库中添加以下库：**
 
    + AVFoundation.framework
    + AudioToolbox.framework
@@ -57,9 +57,9 @@
 ![](https://main.qcloudimg.com/raw/17ff6f4f4a27e0843de528eb070c2f32.png)
 
 
-## 2. 快速接入
+## 快速接入
 
-### 2.1 开发流程及接入示例
+### 开发流程及接入示例
 
 1）**创建 QCloudSentenceRecognizer 实例** 
 
@@ -126,7 +126,7 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
 
 
 
-### 2.2 主要接口类说明
+### 主要接口类说明
 **QCloudSentenceRecognizer 初始化说明**
 
 QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方法。
@@ -134,11 +134,11 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 ```objective-c
 /**
  * 初始化方法，调用者使用内置录音器采集音频
- * @param config 配置参数，详见QCloudConfig定义
+ * @param config 配置参数，详见 QCloudConfig 定义
  */
 - (instancetype)initWithConfig:(QCloudConfig *)config;
 /**
- * 通过appId secretId secretKey初始化
+ * 通过 appId secretId secretKey 初始化
  * @param appid     腾讯云appId        
  * @param secretId  腾讯云secretId     
  * @param secretKey 腾讯云secretKey    
@@ -148,7 +148,7 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 
 **QCloudConfig 初始化方法说明**
 
-参考一句话识别接口说明中的使用步骤，获取AppID、SecretID 和 SecretKey。
+参考一句话识别接口说明中的使用步骤，获取 AppID、SecretID 和 SecretKey。
 
 ```objective-c
 /**
