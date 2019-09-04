@@ -1,17 +1,33 @@
-
 在借助标准直播 LVB 处理直播业务时，会产生大量的日志数据。标准直播 LVB 实时日志已经和腾讯云的日志服务 CLS 平台打通，将采集的实时日志实时推送至日志服务平台，5分钟快速接入日志服务 CLS ，帮助您实现“一站式”的日志管理。
 ![](https://main.qcloudimg.com/raw/5d8310deca5c97cd7225a297425c6089.png)
 
 ## 接入步骤
 
 1. 登录 [标准直播控制台](https://console.cloud.tencent.com/live)，选择【日志分析】>【实时日志分析】，进入实时日志分析页面。
+
 2. 如果首次进入实时日志，您需要单击【确定授权】，进行日志服务 CLS 的相关授权，才能正常使用检索功能。
- ![](https://main.qcloudimg.com/raw/9f343f94f60129df6352476892e23b78.png)
+   ![](https://main.qcloudimg.com/raw/9f343f94f60129df6352476892e23b78.png)
+
 3. 单击【同意授权】，即可完成日志服务 CLS 的相关授权。
- ![](https://main.qcloudimg.com/raw/fb15cb0c2ec7b80d72866acaf1ce8a8a.png)
-4. 您需要创建日志主题，并绑定域名。创建成功后，该日志主题将默认创建在日志服务平台的成都地域。
-![](https://main.qcloudimg.com/raw/af3d8210ffe652d0622b8fc2a72fdb09.png)
+   ![](https://main.qcloudimg.com/raw/fb15cb0c2ec7b80d72866acaf1ce8a8a.png)
+
+4. 您需要创建日志主题，并绑定域名。
+
+   注意：创建成功后，该日志主题将默认创建在日志服务平台的成都地域。
+   ![](https://main.qcloudimg.com/raw/af3d8210ffe652d0622b8fc2a72fdb09.png)
+
 5. 创建成功后，单击检索，输入检索语句，可快速检索详细日志数据。日志服务的检索功能支持全文检索和键值检索，详细的检索语法，请参见检索 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
+
+![](https://main.qcloudimg.com/raw/34d32de296751a997760d365759c2405.png)
+
+![](https://main.qcloudimg.com/raw/15a82d81e5eefb41a0594cb476cd867a.png)
+
+6. 如果您删除了日志主题，就会停止推送相关域名的日志数据，并将清除历史数据，同时您将无法再使用该主题对应的报表及检索功能。
+   ![](https://main.qcloudimg.com/raw/c8aeb64c12df699698dadee6b7b938db.png)
+7. 如果您关闭了右上角的【关闭实时日志】功能，就会停止推送日志数据，并将清除历史数据，同时您将无法再使用报表及检索等相关功能。
+   ![](https://main.qcloudimg.com/raw/7d0ce6654513a801815c54045d18e1c7.png)
+
+
 
 推送至日志服务平台的日志为标准直播的访问日志，日志字段如下：
 
@@ -33,23 +49,9 @@
 | user_agent         | text | User-Agent 信息    | "Lavf/58.15.100" |
 | refer              | text | Refer信息          | "-"              |
 | hit                | text | 缓存 HIT/MISS      | miss             |
-| msg_self_ip        | text | 节点IP             | 10.10.1.2   |
+| msg_self_ip        | text | 节点IP             | 10.10.1.2        |
 | oc_country_id      | long | 服务器国家         | 1                |
 | oc_area_info       | text | 服务器地区         | 中国             |
 
->!国家（地区）映射、省份映射、运营商映射以及服务器地区和国家（地区映射）参见 [日志下载](https://cloud.tencent.com/document/product/267/33998)。
+> !国家（地区）映射、省份映射、运营商映射以及服务器地区和国家（地区映射）参见 [日志下载](https://cloud.tencent.com/document/product/267/33998)。
 
-## 实时检索示例
-
-示例一：检索状态码大于400且流 ID 为 test2 的日志数据。
-```
-http_status>400 and bytes_stream_id:test2
-```
-![](https://main.qcloudimg.com/raw/7f655681369ab5a3ef314371e32b9674.png)
-
-
-示例二：检索状态码大于等于200且小于300，同时请求方式为 GET 的方式（大小写不敏感）。
-```
-http_status>=200 and http_status<300 and http_method:get
-```
-![](https://main.qcloudimg.com/raw/51e6277cfc99e1fec084633019fc9f2d.png)
