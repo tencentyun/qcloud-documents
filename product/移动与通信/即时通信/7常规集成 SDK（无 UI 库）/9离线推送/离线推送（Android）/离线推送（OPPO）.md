@@ -19,7 +19,7 @@ OPPO 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <span id="Step1"></span>
 ### 步骤1：申请 OPPO 推送证书
 1. 请参考 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 开通 PUSH 服务。
-2. 在 [OPPO 推送运营平台](https://push.oppo.com/) >【配置管理】>【应用配置】页面，您可以查看详细的应用信息。
+2. 在 [OPPO 推送平台](https://push.oppo.com/) >【配置管理】>【应用配置】页面，您可以查看详细的应用信息。
 <span id="Step1_3"></span>
 3. 记录`AppId`、`AppKey`、`AppSecret`和`MasterSecret`信息。
 
