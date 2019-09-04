@@ -45,7 +45,7 @@ OPPO 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 <span id="Step3"></span>
 ### 步骤3：集成推送 SDK
 
-1. 请参考  [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196) 集成SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
+1. 请参考  [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196) 集成 SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
 2. 通过调用 OPPO SDK 中的`PushManager.getInstance().register(…)`初始化 Opush 推送服务。
  注册成功后，您可以在 `PushCallback` 的 `onRegister` 回调方法中得到`regId`。
 3. 记录`regId`信息。
