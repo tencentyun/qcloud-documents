@@ -1,12 +1,12 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-#### Windows(C++)
+#### Windows（C++）
 
 - 操作系统： Microsoft Windows 7及以上版本
 - 开发环境：Microsoft Visual Studio 2015及以上版本
 
-#### Windows(C#)
+#### Windows（C#）
 
 - 操作系统： Microsoft Windows 7及以上版本
 - 开发环境：Microsoft Visual Studio 2015及以上版本
@@ -16,14 +16,14 @@
 ## 操作步骤
 <span id="step1"></span>
 ### 步骤1：创建新的应用
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击【创建应用】。
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击【创建应用】。
  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
 2. 填写新建应用的应用名称等信息，单击【确定】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
  ![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
 <span id="step2"></span>
-### 步骤2：下载 SDK 和 Demo 源码
+### 步骤2：下载并解压 SDK 和 Demo 源码
 >?如果您的网络环境访问 Github 过慢，建议通过**方法1**下载 SDK 和配套 Demo 源码。
 
 **方法1**
@@ -34,8 +34,8 @@
 1. 单击应用卡片，进入【快速上手】页面。
 2. 单击【第一步 下载SDK+配套demo源码】区域的【Windows(V2)】跳转至 [Github](https://github.com/tencentyun/TRTCSDK)（或直接访问 [Gitee](https://gitee.com/cloudtencent/TRTCSDK)），下载并解压相关 Demo 源码。
  ![](https://main.qcloudimg.com/raw/1bc8fdb853ab6b8bdf5b398c6efa1623.png)
-3. 下载并解压 [SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK)。
-4. 将解压所得 SDK 目录下的所有文件复制并替换至 Demo 源码的 `Windows/SDK` 目录中。
+3. 下载并解压 [SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/SDK) 源码。
+4. 将解压 SDK 源码所得`SDK`目录下的所有文件复制并替换至 Demo 源码的`Windows/SDK`目录中。
 
 <span id="step3"></span>
 ### 步骤3：查看并拷贝加密密钥
