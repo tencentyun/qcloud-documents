@@ -27,7 +27,7 @@
 使用实时检索功能之前，请确保您的函数服务日志已接入日志服务平台，并且需检索的日志主题已开启索引功能。若未开启索引，可参见文档 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏单击【日志检索】，进入到日志检索页。
-2. 选择检索的时间范围和日志主题，在输入框填写检索语法（语法支持关键词检索、模糊检索、范围检索等方式，详情请参见 [语法规则](https://cloud.tencent.com/document/product/614/16982)）.
+2. 选择检索的时间范围和日志主题，在输入框填写检索语法（语法支持关键词检索、模糊检索、范围检索等方式，详情请参见 [语法规则](https://cloud.tencent.com/document/product/614/16982)）。
 3. 单击【搜索】，即可检索日志。
    如图示例：检索包含 Memory 的日志数据.
    ![](https://main.qcloudimg.com/raw/0137def3872bbce2911cfeef416d3a83.png)
