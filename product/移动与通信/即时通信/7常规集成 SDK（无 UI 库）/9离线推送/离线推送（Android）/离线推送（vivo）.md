@@ -198,6 +198,7 @@ if (IMFunc.isBrandVivo()) {
 
 以下为 Demo 中的示例代码：
 
+定义证书 ID 常量：
 ```java
 /**
  * 我们先定义一些常量信息在 Constants.java
@@ -210,7 +211,7 @@ public static final String VIVO_PUSH_APPID = "1234512345123451234"; // 见清单
 public static final String VIVO_PUSH_APPKEY = "12345abcde"; // 见清单文件
 /****** vivo 离线推送参数 end ******/
 ```
-
+上报推送的证书 ID 及 regId：
 ```java
 /**
  * 在 ThirdPushTokenMgr.java 中对推送的证书 ID 及设备信息进行上报操作
