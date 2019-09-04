@@ -27,8 +27,7 @@ parted /dev/vdb print
 ![](https://main.qcloudimg.com/raw/ec2ec164e146e46c2a4d11489dceecfa.png)
 扩容后的云硬盘大小为2169GB，已有分区的大小为10.7GB。如下图所示：
 ![](https://main.qcloudimg.com/raw/d902d173106fdb9b5ff44c494ba8147a.png)
-<span id="step2"></span>
-2. 执行以下命令，确认该云硬盘是否还有已挂载分区。
+2. <span id="step2"></span>执行以下命令，确认该云硬盘是否还有已挂载分区。
 ```
 mount | grep '<磁盘路径>' 
 ```
@@ -38,8 +37,7 @@ mount | grep '/dev/vdb'
 ```
 执行结果如下，则说明云硬盘上有一个分区（vdb1）挂载在 `/data` 上。
 ![](https://main.qcloudimg.com/raw/3b786b5ccc36f2819b2659cf47afb422.png)
-<span id="step3"></span>
-3. 执行以下命令，解挂该分区。
+3. <span id="step3"></span>执行以下命令，解挂该分区。
 ```
 umount <挂载点>
 ```
@@ -52,8 +50,7 @@ umount /data
 > - 若无分区挂载，则如下图所示：
 > 
 ![](https://main.qcloudimg.com/raw/c51d1e9215493837b4b0968aecb94f5c.png)
-<span id="step4"></span>
-4. 执行以下命令，进入 parted 分区工具。
+4. <span id="step4"></span>执行以下命令，进入 parted 分区工具。
 ```
 parted '<磁盘路径>'
 ```
@@ -65,8 +62,7 @@ parted '/dev/vdb'
 ```
 unit s
 ```
-<span id="step6"></span>
-6. 执行以下命令，查看分区信息，并记录已有分区的 Start 值。
+6. <span id="step6"></span>执行以下命令，查看分区信息，并记录已有分区的 Start 值。
 ```
 print
 ```
@@ -161,8 +157,7 @@ parted /dev/vdb print
 ![](https://main.qcloudimg.com/raw/69791b332c9237f5b4b4b392a4f0001f.png)
 扩容后的云硬盘大小为2169GB，已有分区的大小为10.7GB。如下图所示：
 ![](https://main.qcloudimg.com/raw/26ddf5d567cb6d28c87ed40222ffede6.png)
-<span id="Step2"></span>
-2. 执行以下命令，确认该云硬盘是否还有已挂载分区。
+2. <span id="Step2"></span>执行以下命令，确认该云硬盘是否还有已挂载分区。
 ```
 mount | grep '<磁盘路径>' 
 ```
@@ -172,8 +167,7 @@ mount | grep '/dev/vdb'
 ```
 如下图所示，云硬盘上有一个分区（vdb1）挂载在 `/data` 上。
 ![](https://main.qcloudimg.com/raw/71e89299483c2fa21975fa6f3e112314.png)
-<span id="Step3"></span>
-3. 执行以下命令，解挂该分区。
+3. <span id="Step3"></span>执行以下命令，解挂该分区。
 ```
 umount <挂载点>
 ```
@@ -194,8 +188,7 @@ parted '<磁盘路径>'
 ```
 parted '/dev/vdb'
 ```
-<span id="Step5"></span>
-5. 执行以下命令，查看分区信息，并记录已有分区的 End 值，以此值作为下一个分区的起始偏移值。
+5. <span id="Step5"></span>执行以下命令，查看分区信息，并记录已有分区的 End 值，以此值作为下一个分区的起始偏移值。
 ```
 print
 ```
