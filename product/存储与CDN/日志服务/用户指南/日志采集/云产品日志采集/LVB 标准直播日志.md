@@ -45,5 +45,4 @@
 | oc_country_id      | long | 服务器国家         | 1                |
 | oc_area_info       | text | 服务器地区         | 中国             |
 
-> !国家（地区）映射、省份映射、运营商映射以及服务器地区和国家（地区映射），请参见 [日志下载](https://cloud.tencent.com/document/product/267/33998)。
 
