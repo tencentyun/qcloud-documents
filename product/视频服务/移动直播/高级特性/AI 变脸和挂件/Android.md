@@ -31,14 +31,14 @@
 
 - **方式一：aar 集成方式**
 
- 1. 将下载到的 arr 文件拷贝到工程的 app/libs 目录下。
+ 1.将下载到的 arr 文件拷贝到工程的 app/libs 目录下。
   ![](https://main.qcloudimg.com/raw/d826e6842b947b113f26795270fafc30.png)
- 2. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
+ 2.在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
   ![](https://main.qcloudimg.com/raw/5ba8aabbf657983c13b5b8dfe7fb9f20.png)
- 3. 添加 LiteAVSDK 依赖：  
+ 3.添加 LiteAVSDK 依赖：  
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/1511152637686ab9e6f46388ff879c76.png)
- 4. 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 4.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
@@ -47,22 +47,22 @@
     }
 ```
 
- 5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+ 5.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 - **方式二：jar 集成方式**
  若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
- 1. 解压 LiteAVSDK_Enterprise_xxx.zip 文件。
+ 1.解压 LiteAVSDK_Enterprise_xxx.zip 文件。
   解压后得到 libs 目录，里面主要包含 jar 文件、 so 文件夹以及资源文件，文件清单如下：
   ![](https://main.qcloudimg.com/raw/11370b61f1e4b2ebbcebb0d904f98d40.png)
- 2. 将解压得到的 jar 文件和 armeabi 文件夹拷贝到 app/libs 目录下。
+ 2.将解压得到的 jar 文件和 armeabi 文件夹拷贝到 app/libs 目录下。
   ![](https://main.qcloudimg.com/raw/54976997e5e6000393a419b925273872.png)
- 3. 将解压得到的特效资源文件拷贝到 app/src/main/assets 目录下。
+ 3.将解压得到的特效资源文件拷贝到 app/src/main/assets 目录下。
   ![](https://main.qcloudimg.com/raw/734797453f3d00b99e3bcd3fd810f869.png)
- 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
+ 4.在 app/build.gradle 中，添加引用 jar 库的代码。
   ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)			
- 5. 在 app/build.gradle 中，添加引用 so 库的代码。
+ 5.在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
- 6. 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 6.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
@@ -71,7 +71,7 @@
     }
 ```
 
-7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+7.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 ### 4. 给 SDK 配置 License 授权
 申请商业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用商业版 SDK 相关功能前需进行如下设置：
