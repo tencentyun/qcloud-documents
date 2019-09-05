@@ -14,7 +14,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
 2. 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:oppo:1.1.0.1-release'//oppo推送
+implementation 'com.tencent.tpns:oppo:1.1.0.2-release'//oppo推送
 ```
 
 

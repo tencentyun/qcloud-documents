@@ -41,7 +41,7 @@ func main() {
 1. 需要使用 package main 包含 main 函数。
 2. 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库。
 3. 入口函数入参可选0 - 2参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明可见如下的入参说明。
-4. 入口函数返回值可选 0~2 参数，如包含参数，需 返回内容在前，error 错误信息在否，返回值组合有 （），（ret），（error），（ret，error），具体说明可见如下的返回值说明。
+4. 入口函数返回值可选 0~2 参数，如包含参数，需返回内容在前，error 错误信息在后，返回值组合有 （），（ret），（error），（ret，error），具体说明可见如下的返回值说明。
 5. 入参 event ，和返回值 ret，均需要能够兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal。
 6. 在 main 函数中使用包内的 Start 函数启动入口函数。
 

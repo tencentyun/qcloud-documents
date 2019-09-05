@@ -1524,7 +1524,7 @@ __参数__
 
 __介绍__
 
-会触发 onLocalVideoFrameAfterProcess 回调接口。
+会触发 onFirstVideoFrame 回调接口。
 
 >?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 

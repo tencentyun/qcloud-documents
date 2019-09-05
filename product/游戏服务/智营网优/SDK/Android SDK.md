@@ -125,7 +125,7 @@ public static void GSDKGoFront()
 ```
 public static void GSDKGoBack()
 ```
-当游戏切换到后台（比如被其它应用遮挡），必须调用此函数，通知加速引擎。
+当游戏切换到后台（例如被其它应用遮挡），必须调用此函数，通知加速引擎。
 
 #### 3.2.4 强行关闭加速
 ```

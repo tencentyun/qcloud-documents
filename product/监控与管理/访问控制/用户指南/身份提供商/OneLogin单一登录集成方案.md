@@ -32,9 +32,15 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 1. 在 [OneLogin 应用管理页](https://xiaoyu.onelogin.com/apps)，单击已创建的 “test” 应用，跳转至应用编辑页。
 2. 选择【Configuration】页签，输入以下内容，单击【SAVE】。如下图所示：
 ![](https://main.qcloudimg.com/raw/89ba839089fe217aeedf1753010238ae.png)
- - SAML Consumer URL：https://cloud.tencent.com/login/saml
- - SAML Audience：https://cloud.tencent.com
- - SAML Recipient：https://cloud.tencent.com/login/saml
+>?
+> - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
+SAML Consumer URL：https://cloud.tencent.com/login/saml
+SAML Audience：https://cloud.tencent.com
+SAML Recipient：https://cloud.tencent.com/login/saml
+> - 如果您的腾讯云账号所在站点为 International ，请按照如下信息进行配置：
+SAML Consumer URL：https://intl.cloud.tencent.com/login/saml
+SAML Audience：https://intl.cloud.tencent.com
+SAML Recipient：https://intl.cloud.tencent.com/login/saml
 3. 单击【Parameters】，选择【Add parameter】，添加以下两条配置信息。
 
 <table>
