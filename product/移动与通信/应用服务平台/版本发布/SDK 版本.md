@@ -5,7 +5,7 @@
 - `auth().getUserInfo()` 返回字段中加入 `customUserId`。
 
 ### v1.10.0
-- 新增获取登录凭据 Ticket 的接口。
+新增获取登录凭据 Ticket 的接口。
 
 ### v1.9.0
 新增聚合搜索接口。
