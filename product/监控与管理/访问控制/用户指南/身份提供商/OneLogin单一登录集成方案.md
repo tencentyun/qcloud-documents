@@ -85,5 +85,4 @@ SAML Recipient：https://intl.cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/f7d3ecad4803cff72c62d665d4a2ec96.png)
 6. 在编辑页面，单击【 SAVE 】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9d9389fbe5b821f23519524b30827c23.png)
-7. 使用 [步骤3](#step3) 创建的帐户登录 OneLogin ，访问上述创建的 SAML 应用 “test”。即可跳转至腾讯云控制台。如下图所示：
-![](https://main.qcloudimg.com/raw/0245bd15e08651b6d7e641ed8e843aad.png)
+7. 使用 [步骤3](#step3) 创建的帐户登录 OneLogin ，访问上述创建的 SAML 应用 “test”。即可跳转至腾讯云控制台。
