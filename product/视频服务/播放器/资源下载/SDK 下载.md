@@ -7,89 +7,89 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.6.7460） @ 2019-08-08</td>
-        <td style="text-align:center">SDK（6.6.7458） @ 2019-08-02</td>
+        <td style="text-align:center">SDK（6.6.7555） @ 2019-09-05</td>
+        <td style="text-align:center">SDK（6.6.7551） @ 2019-09-05</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>多手势操作</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>播放列表</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>进度条打点、进度缩略图</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>互动浮窗</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>首屏秒开+预加载</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>视频截图</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>弹幕</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>直播时移</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>视频加密、视频试看</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>码率自适应</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>变速播放、镜像播放</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>清晰度流畅切换</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>多格式支持</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
   <tr align="center">
     <td>H.265 解码</td>
-		<td style="text-align:center">✔</td>
+    <td style="text-align:center">✔</td>
     <td style="text-align:center">✔</td>
   </tr>
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/LiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
