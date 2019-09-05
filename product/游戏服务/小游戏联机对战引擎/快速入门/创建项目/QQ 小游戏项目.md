@@ -14,5 +14,5 @@
  ![create_lib](https://main.qcloudimg.com/raw/f153098d36d2d837cbfcfe0ca93d6e79.png)
 
 
-请参考 [QQ小游戏开发文档](https://q.qq.com/wiki/)，使用QQ小程序开发者工具创建游戏。
+请参考 [QQ 小游戏开发文档](https://q.qq.com/wiki/)，使用 QQ 小程序开发者工具创建游戏。
 其他平台具体步骤请参考： [Cocos Creator](https://docs.cocos.com/creator/manual/zh/getting-started/hello-world.html) 和 [LayaAir](https://ldc2.layabox.com/doc/?nav=zh-ts-1-0-2)。
