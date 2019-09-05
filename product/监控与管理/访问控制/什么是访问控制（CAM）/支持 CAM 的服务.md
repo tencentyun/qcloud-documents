@@ -122,7 +122,7 @@
 
  | 服务                                                        | 授权粒度   | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------ |-------- | ---- |	
-| [Web 应用防火墙](https://cloud.tencent.com/document/product/627)  | 操作级 | ✔  | ✔  | ✔ | - |
+| [Web 应用防火墙](https://cloud.tencent.com/document/product/627)  | 操作级 | ✔  | -  | ✔ | - |
 
 ## 视频服务
 
@@ -140,7 +140,7 @@
 | [云数据仓库套件 Sparkling](https://cloud.tencent.com/document/product/1002)  | 资源级  | ✔ | -  | -  | ✔    |	
 | [Snova 数据仓库](https://cloud.tencent.com/document/product/878/20072) | 操作级  | ✔  | - | ✔  | - |
 | [流计算服务](https://cloud.tencent.com/document/product/849)  | 服务级   | ✔     | -  | ✔  |✔  |
-| [Elasticsearch Service](https://cloud.tencent.com/document/product/845)  | 操作级   | ✔ | ✔   | ✔   | -  |	
+| [Elasticsearch Service](https://cloud.tencent.com/document/product/845)  | 操作级   | ✔ | ✔   | -   | -  |	
 
 ## 云智大数据应用
 
