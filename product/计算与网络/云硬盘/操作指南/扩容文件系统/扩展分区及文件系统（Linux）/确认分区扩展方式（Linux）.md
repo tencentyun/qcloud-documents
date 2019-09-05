@@ -16,7 +16,7 @@
 ```
 fdisk -l
 ```
- - 若结果如下图所示无分区（如仅展示 /dev/vdb），请您参考 [扩容文件系统](#ExpandTheFileSystem)。
+ - 若结果如下图所示无分区（如仅展示 /dev/vdb），请您参考 [扩容文件系统](https://cloud.tencent.com/document/product/362/37740)。
  ![](https://main.qcloudimg.com/raw/661ad0745c10a44035697cf4d03759f5.png)
  - 若结果如下两图所示（根据操作系统不同略有不同），则说明使用 GPT 分区形式。
 ![](https://main.qcloudimg.com/raw/5ff70adb58a223d32d334470c5b29e0e.png)
@@ -38,27 +38,27 @@ fdisk -l
 		 	 <tr>      
          <td>-</td>   
 				 <td>-</td>
-	     <td nowrap="nowrap"><a href="#ExpandTheFileSystem">扩容文件系统</a></td>
+	     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/37740">扩容文件系统</a></td>
 			 <td>适用于<b>没有创建分区</b>、直接在裸设备上创建了文件系统的场景。</td>
      </tr>
 	 <tr>      
          <td rowspan="2">GPT</td>   
 				 <td rowspan="2">大于2TB</td>   
-	     <td nowrap="nowrap"><a href="">将扩容部分的容量划分至原有 GPT 分区</a></td>
+	     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/362/37667?!preview&!editLang=zh#.E5.B0.86.E6.89.A9.E5.AE.B9.E9.83.A8.E5.88.86.E7.9A.84.E5.AE.B9.E9.87.8F.E5.88.92.E5.88.86.E8.87.B3.E5.8E.9F.E6.9C.89-gpt-.E5.88.86.E5.8C.BA">将扩容部分的容量划分至原有 GPT 分区</a></td>
 	     <td>可用于格式化后未分区的云硬盘。</td>
      </tr> 
 	 <tr>
-         <td><a href="#CreateANewGPTPart">将扩容部分的容量格式化成独立的 GPT 分区</a></td> 
+         <td><a href="https://cloud.tencent.com/document/product/362/37667?!preview&!editLang=zh#.E5.B0.86.E6.89.A9.E5.AE.B9.E9.83.A8.E5.88.86.E7.9A.84.E5.AE.B9.E9.87.8F.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.88.90.E7.8B.AC.E7.AB.8B.E7.9A.84-gpt-.E5.88.86.E5.8C.BA">将扩容部分的容量格式化成独立的 GPT 分区</a></td> 
 	     <td>可保持原有分区不变，使用扩容部分新建 GPT 分区。</td>
      </tr> 
 	 <tr>
          <td rowspan="2">MBR</td>   
 				 <td rowspan="2">小于2TB</td>  
-	     <td><a href="#AddToTheExistingMBRPart">将扩容部分的容量划分至原有 MBR 分区</a></td> 
+	     <td><a href="https://cloud.tencent.com/document/product/362/37668?!preview&!editLang=zh#.E5.B0.86.E6.89.A9.E5.AE.B9.E9.83.A8.E5.88.86.E7.9A.84.E5.AE.B9.E9.87.8F.E5.88.92.E5.88.86.E8.87.B3.E5.8E.9F.E6.9C.89-mbr-.E5.88.86.E5.8C.BA">将扩容部分的容量划分至原有 MBR 分区</a></td> 
 	     <td>可用于格式化后未分区的云硬盘。</td>
      </tr> 
 	 <tr>
-         <td><a href="#CreateANewMBRPart">将扩容部分的容量格式化成独立的 MBR 分区</a></td> 
+         <td><a href="https://cloud.tencent.com/document/product/362/37668?!preview&!editLang=zh#.E5.B0.86.E6.89.A9.E5.AE.B9.E9.83.A8.E5.88.86.E7.9A.84.E5.AE.B9.E9.87.8F.E6.A0.BC.E5.BC.8F.E5.8C.96.E6.88.90.E7.8B.AC.E7.AB.8B.E7.9A.84-mbr-.E5.88.86.E5.8C.BA">将扩容部分的容量格式化成独立的 MBR 分区</a></td> 
 	     <td>可保持原有分区不变，使用扩容部分新建 MBR 分区。</td>
      </tr> 
 </table>
