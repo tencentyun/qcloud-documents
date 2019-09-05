@@ -6,10 +6,13 @@
 
 ## 前提条件
 fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新扩容的云硬盘空间添加到已有的文件系统中，扩容能够成功必须满足以下条件：
+- 已确认扩容分区格式，请参考 [如何确认扩展方式](https://cloud.tencent.com/document/product/362/37738)。
 - 文件系统是 EXT2/EXT3/EXT4/XFS。
 - 当前文件系统不能有错误。
 - 扩容后的磁盘大小不超过2TB。
 - 当前工具仅支持 Python 2 版本，不支持 Python 3 版本。
+
+
 
 
 <span id="Add"></span>
@@ -31,7 +34,7 @@ wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcl
 ```
 python /tmp/devresize.py <硬盘路径>
 ```
-本文以硬盘路径以 `/dev/vdb` ，文件系统在 vdb1 上为例，执行以下命令：
+本文以硬盘路径以 `/dev/vdb` ，文件系统在 vdb1 上为例，则执行：
 ```
 python /tmp/devresize.py /dev/vdb
 ```
@@ -42,7 +45,7 @@ python /tmp/devresize.py /dev/vdb
 ```
 fsck -a <分区路径>
 ```
-本文以硬盘路径是`/dev/vdb`且文件系统在 vdb1 上为例，执行：
+本文以硬盘路径是`/dev/vdb`且文件系统在 vdb1 上为例，则执行：
 ```
 fsck -a /dev/vdb1
 ```
@@ -91,11 +94,11 @@ fdisk -l
 ```
 umount <挂载点>
 ```
-本文以挂载点以 `/data` 为例，执行以下命令：
+本文以挂载点以 `/data` 为例，则执行：
 ```
 umount /data
 ```
->? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR) 。
+>? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR)。
 >
 4. <span id="Step4MBR"></span>执行以下命令，新建一个新分区。
 ```
@@ -105,7 +108,7 @@ fdisk <硬盘路径>
 ```
 fdisk /dev/xvdc
 ```
-按照界面的提示，依次以下命令：
+按照界面的提示，依次执行以下命令：
  - 输入 “p”：查看现有分区信息，本文已有分区 `/dev/xvdc1`。
  - 输入 “n”：新建分区。
  - 输入 “p”：新建主分区。
@@ -153,8 +156,7 @@ df -h
 返回如下图所示信息则说明挂载成功，即可以查看到数据盘：
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
-<span id="AddNewPartINFOstep10"></span>
-10. 执行以下命令，添加信息。
+10. <span id="AddNewPartINFOstep10"></span>执行以下命令，添加信息。
 ```
 echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab
 ```
