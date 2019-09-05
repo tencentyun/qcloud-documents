@@ -19,10 +19,10 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 | remote_addr          | 客户端IP地址                                         |
 | remote_user          | 客户端名称                                           |
 | time_local           | 服务器本地时间                                       |
-| method               | http 请求方法                                        |
+| method               |HTTP 请求方法                                        |
 | url                  | url 地址                                             |
 | protocol             | 协议类型                                             |
-| status               | http 请求状态码                                      |
+| status               | HTTP 请求状态码                                      |
 | body_bytes_sent      | 发送给客户端的字节数                                 |
 | http_referer         | 访问来源的页面链接地址                               |
 | http_user_agent      | 客户端浏览器信息                                     |
@@ -35,20 +35,20 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 （1）登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】，进入日志集管理页面。
 （2）在页面顶部选择合适的地域，单击【创建日志集】，开始创建日志集。例如，创建一个名为 nginx_project 的日志集。
 （3）单击“日志集名称”，进入到日志主题管理页面。
-（4）单击【新增日志主题】，开始创建日志主题，例如创建一个名为 nginx_access 的日志主题，创建好的日志主题将会出现在日志主题列表中。
+（4）单击【新增日志主题】，开始创建日志主题。例如，创建一个名为 nginx_access 的日志主题，创建好的日志主题将会出现在日志主题列表中。
 
 
 #### 2. 创建机器组
 
->?推荐使用日志服务采集器采集 Nginx 服务集群的日志，下载安装请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
+>?推荐使用日志服务采集器采集 Nginx 服务集群的日志，采集器下载安装请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
 
-（1）在控制台左侧导航栏单击【机器组管理】，进入到机器组管理页面。
+（1）在控制台左侧导航栏中单击【机器组管理】，进入到机器组管理页面。
 （2）在页面顶部选择合适的地域，单击【创建机器组】，创建一个名为 nginx_group 的机器组（一个机器组可以填入多个机器 IP 地址（每行一个 IP 地址），若是腾讯云服务器 CVM，直接填写内网 IP 地址即可，更多信息请参见 [机器组管理](https://cloud.tencent.com/document/product/614/17412)）。
 
 
 #### 3. 配置采集规则
 
-（1）在左侧导航栏单击【日志集管理】，依次进入到所创建的日志集和日志主题管理界面。
+（1）在控制台左侧导航栏中单击【日志集管理】，依次进入到所创建的日志集和日志主题管理界面。
 （2）在日志主题管理页面，单击【采集配置】，为该日志主题指定采集路径、解析模式、绑定机器组。
 - 设置日志路径并绑定机器组
   例如，将本地日志路径`/usr/local/webserver/nginx/logs/access.log`设置为采集目标路径，并绑定 nginx_group 机器组，相关设置如图所示：
@@ -62,7 +62,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
                         '"$http_user_agent" "$http_x_forwarded_for"';
   ```
 
-  一条完整的 nginx 访问日志样例：
+  一条完整的 Nginx 访问日志样例：
   ```shell
   59.x.x.x - - [06/Aug/2019:12:12:19 +0800] "GET /nginx-logo.png HTTP/1.1" 200 368 "http://119.x.x.x/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
   ```
@@ -77,12 +77,12 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
 
 #### 4. 配置索引规则
 
-（1）在左侧导航栏单击【日志集管理】，依次进入到所创建的日志集和日志主题管理界面。
+（1）在控制台左侧导航栏中单击【日志集管理】，依次进入到所创建的日志集和日志主题管理界面。
 （2）在日志主题管理页面，单击【索引配置】，按照 Nginx 日志格式的字段定义，在索引配置管理页面设置对应的索引字段。
 ![](https://main.qcloudimg.com/raw/a2fb95a5055dc5fe47fbdb1140b7e1e6.png)
 
 #### 5. 查询 Nginx 日志
 
-（1）在左侧导航栏单击【日志检索】，进入到日志检索页，选择对应的日志集和日志主题。
+（1）在控制台左侧导航栏中单击【日志检索】，进入到日志检索页，选择对应的日志集和日志主题。
 （2）单击【搜索】，即可查询到 Nginx 访问日志内容。
 ![](https://main.qcloudimg.com/raw/71e82c28ea34781b2893152974e15867.png)
