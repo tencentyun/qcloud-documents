@@ -79,5 +79,4 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 7. 单击【单一登录】，打开 “SAML 单一登录”概览界面，单击【测试】。如下图所示：
 ![](https://main.qcloudimg.com/raw/18869ef276217645b1ac03ab92ed3ab7.png)
 8. 在“测试单一登录”界面，选择【以其他用户的身份登录】。
-9. 输入 [步骤2](#step2) 保存的用户名、密码，登录腾讯云控制台。如下图所示：
-![](https://main.qcloudimg.com/raw/20f2f252be88507ee4d608a0237bd917.png)
+9. 输入 [步骤2](#step2) 保存的用户名、密码，登录腾讯云控制台。
