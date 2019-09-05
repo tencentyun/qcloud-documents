@@ -487,7 +487,7 @@ __介绍__
 - 如果下行网络很好，可以选择观看【高清】画面
 - 如果下行网络较差，可以选择观看【低清】画面。
 
->?双路编码开启后，会消耗更多的 CPU 和 网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
+>?双路编码开启后，会消耗更多的 CPU 和网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
 
 
 
@@ -1173,7 +1173,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32264#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32264#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。
 
 
 ### sendCustomAudioData
