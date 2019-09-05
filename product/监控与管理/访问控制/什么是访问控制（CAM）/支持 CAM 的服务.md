@@ -128,7 +128,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ----- |-------- | ---- |	
-| [云直播](https://cloud.tencent.com/document/product/267/34301)   | 操作级| ✔ | ✔  | ✔   |  ✔  |	
+| [云直播](https://cloud.tencent.com/document/product/267/34301)   | 资源级| ✔ | ✔  | ✔   |  ✔  |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 服务级   | ✔  | -    | -   |  -  |	
 | [互动直播](https://cloud.tencent.com/document/product/268) | 服务级  | ✔   | -   | -     | -   |	
 
