@@ -12,7 +12,7 @@
  ![create_lib](https://main.qcloudimg.com/raw/1f5bfddfbb751eb4c15fb240718c8dbe.jpg)
 3. 在编辑页面，选择【详情】，勾选【不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书】，关闭域名校验。如下图所示：
  ![create_lib](https://main.qcloudimg.com/raw/f153098d36d2d837cbfcfe0ca93d6e79.png)
+4. 后续步骤请参考 [QQ 小游戏开发文档](https://q.qq.com/wiki/)，使用 QQ 小程序开发者工具创建游戏。
 
 
-请参考 [QQ 小游戏开发文档](https://q.qq.com/wiki/)，使用 QQ 小程序开发者工具创建游戏。
-其他平台具体步骤请参考： [Cocos Creator](https://docs.cocos.com/creator/manual/zh/getting-started/hello-world.html) 和 [LayaAir](https://ldc2.layabox.com/doc/?nav=zh-ts-1-0-2)。
+>?其他平台具体步骤请参考： [Cocos Creator](https://docs.cocos.com/creator/manual/zh/getting-started/hello-world.html) 和 [LayaAir](https://ldc2.layabox.com/doc/?nav=zh-ts-1-0-2)。
