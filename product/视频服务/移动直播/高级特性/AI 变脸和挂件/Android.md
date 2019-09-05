@@ -47,7 +47,7 @@
     }
 ```
 
- 5.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+ 5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 - **方式二：jar 集成方式**
  若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -71,7 +71,7 @@
     }
 ```
 
-7.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 ### 4. 给 SDK 配置 License 授权
 申请商业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用商业版 SDK 相关功能前需进行如下设置：
