@@ -1,21 +1,21 @@
 ## tcb-admin-node
 
 ### v1.11.0
-- 新增获取客户端IP的接口
-- `auth().getUserInfo()` 返回字段中加入 `customUserId`
+- 新增获取客户端 IP 的接口。
+- `auth().getUserInfo()` 返回字段中加入 `customUserId`。
 
 ### v1.10.0
-- 新增获取登录凭据Ticket的接口
+- 新增获取登录凭据 Ticket 的接口。
 
 ### v1.9.0
-- 新增聚合搜索接口
+- 新增聚合搜索接口。
 
 ### v1.8.0
-- 新增getCurrentEnv方法
+- 新增 getCurrentEnv 方法。
 
 ### v1.6.0
-- 新增auth api
-- 文件上传直传
+- 新增 auth api。
+- 文件上传直传。
 
 ### v1.4.2
 - 修复了 doc.set() 对于复杂错误类型的签名错误问题。
