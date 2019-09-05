@@ -7,6 +7,7 @@
 
 ## 前提条件
 e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新扩容的云硬盘空间添加到已有的文件系统中，扩容能够成功必须满足以下条件：
+- 已确认扩容分区格式，请参考 [如何确认扩展方式](https://cloud.tencent.com/document/product/362/37738)。
 - 文件系统是 EXT2/EXT3/EXT4/XFS。
 - 当前文件系统不能有错误。
 
