@@ -35,7 +35,7 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | --------  | ------- | -------- | ---- |	
 | [对象存储](https://cloud.tencent.com/document/product/436/12469) | 资源级 | ✔       | -  | ✔        | ✔   |	
-| [文件存储](https://cloud.tencent.com/document/product/582/14679) | 资源级 | ✔        | -  | ✔        | -    |
+| [文件存储](https://cloud.tencent.com/document/product/582/14679) | 资源级 | ✔        | -  | ✔        | ✔    |
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | ✔        | -    |	
 | [云 HDFS](https://cloud.tencent.com/document/product/1105/37238) | 资源级 |✔       | -  | ✔        | -    |	
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | ✔       | ✔  | ✔        | -    |
@@ -61,6 +61,7 @@
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/30940)  |资源级 | ✔  | -    |✔   | ✔    |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | ✔  | -    |✔   | -    |
 | [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/30965)  |资源级 | ✔  | -    |✔   | -    |
+| [数据传输服务](https://cloud.tencent.com/document/product/571)  | - |  -  | -    | -   | ✔    |
 
 ## CDN 与加速	
 
@@ -68,7 +69,7 @@
 | ------------------------------------------------------------| ------ | -------- | -------- | ------- | ---- |	
 | [全球应用加速](https://cloud.tencent.com/document/product/608)  | 资源级 | ✔  |  -   | ✔ | -  |
 | [动态加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | ✔  |  - | ✔   | -  |
-| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>1</sup> | ✔   |  -   | ✔  | - |
+| [内容分发网络](https://cloud.tencent.com/document/product/228/12722)| 操作级<sup>1</sup> | ✔   |  -   | ✔  | ✔ |
 
 > ?<sup>1</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
 
@@ -123,6 +124,7 @@
  | 服务                                                        | 授权粒度   | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | -------- | ------ |-------- | ---- |	
 | [Web 应用防火墙](https://cloud.tencent.com/document/product/627)  | 操作级 | ✔  | -  | ✔ | - |
+| [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088)  | - | -  | -  | - | ✔ |
 
 ## 视频服务
 
@@ -198,6 +200,7 @@
 
 | 服务                                                        | 授权粒度 | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ----------------------------------------------------------- | ------ | -------- | ----- | -------- | ---- |	
+| [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038)  | -  | - | -   | -  |✔   |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)  | 资源级 | ✔| -   | ✔ | -    |	
 
 ## 教育服务	
