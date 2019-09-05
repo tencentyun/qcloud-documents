@@ -16,7 +16,7 @@
 ```
 fdisk -l
 ```
- - 若结果如下图所示无分区且仅包含 /dev/vdb，请您参考 [扩容文件系统](#ExpandTheFileSystem)。
+ - 若结果如下图所示无分区（如仅展示 /dev/vdb），请您参考 [扩容文件系统](#ExpandTheFileSystem)。
  ![](https://main.qcloudimg.com/raw/661ad0745c10a44035697cf4d03759f5.png)
  - 若结果如下两图所示（根据操作系统不同略有不同），则说明使用 GPT 分区形式。
 ![](https://main.qcloudimg.com/raw/5ff70adb58a223d32d334470c5b29e0e.png)
