@@ -1,5 +1,5 @@
 ## 操作场景
-以 [QQ 小程序开发者工具](https://developers.weixin.qq.com/minigame/dev/guide/) 为例，本文介绍使用小游戏联机对战引擎 MGOBE API 快速接入对战平台的方法，实现一个 MGOBE 的 Hello World。
+以 [编码开发小程序](https://q.qq.com/wiki/#_4-) 为例，本文介绍使用小游戏联机对战引擎 MGOBE API 快速接入对战平台的方法，实现一个 MGOBE 的 Hello World。
 
 
 ## 前提条件
