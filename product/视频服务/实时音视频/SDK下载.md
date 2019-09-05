@@ -140,7 +140,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
       <td style="text-align:center">Android</td>
       <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
-      <td style="text-align:center"> jar：2.3M；so(armeabi)：20.4M</td>
+      <td style="text-align:center"> jar：2.3M<br>so(armeabi)：20.4M</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
 </table>
