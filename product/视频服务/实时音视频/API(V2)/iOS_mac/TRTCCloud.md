@@ -29,7 +29,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -37,7 +37,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -61,7 +61,7 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到来自 TRTCCloudDelegate 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到来自 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onEnterRoom(result) 回调: 如果加入成功，result 会是一个正数（result > 0），表示加入房间的时间所消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -76,7 +76,7 @@ __介绍__
 
 __介绍__
 
-调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudDelegate 中的 onExitRoom() 回调通知到您。
+调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onExitRoom() 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
@@ -113,33 +113,34 @@ __参数__
 
 __介绍__
 
-TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
-例如：当房间“001”中的主播 A 通过 connectOtherRoom() 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，true) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，true) 回调。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。这样一来， 两个主播可以不用退出各自原来的直播间就能进行“连麦 PK”。
+例如：当房间“001”中的主播 A 通过 connectOtherRoom() 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，YES) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，YES) 回调。
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 
 <pre>
-               房间 001                    房间 002
-            --------------              -------------
+                房间 001                     房间 002
+              -------------               ------------
  跨房通话前：| 主播 A      |             | 主播 B     |
-            | 观众 U V W  |             | 观众 X Y Z |
-            --------------              -------------</pre>
+             | 观众 U V W  |             | 观众 X Y Z |
+              -------------               ------------</pre>
 
 
 
-<pre>              房间 001                     房间 002
-            --------------              -------------
+<pre>                房间 001                     房间 002
+              -------------               ------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
-            | 观众 U V W  |             | 观众 X Y Z |
-            --------------              -------------
+             | 观众 U V W  |             | 观众 X Y Z |
+              -------------               ------------
 </pre>
 
 跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
 - roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 roomId 应指定为“002”。
+
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 TRTCCloudDelegate 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
@@ -162,7 +163,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 
 __介绍__
 
-跨房通话的退出结果会通过 TRTCCloudDelegate 中的 onDisconnectOtherRoom() 回调通知给您。
+跨房通话的退出结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onDisconnectOtherRoom() 回调通知给您。
 
 
 
@@ -183,7 +184,7 @@ __参数__
 
 __介绍__
 
-当开始渲染首帧摄像头画面时，您会收到 TRTCCloudDelegate 中的 onFirstVideoFrame(nil) 回调。
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### startLocalPreview
@@ -201,7 +202,7 @@ __参数__
 
 __介绍__
 
-在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。当开始渲染首帧摄像头画面时，您会收到 TRTCCloudDelegate 中的 onFirstVideoFrame(nil) 回调。
+在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。 当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### stopLocalPreview
@@ -507,7 +508,7 @@ __介绍__
 - 如果下行网络很好，可以选择观看【高清】画面
 - 如果下行网络较差，可以选择观看【低清】画面。
 
->?双路编码开启后，会消耗更多的 CPU 和网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
+>?双路编码开启后，会消耗更多的 CPU 和 网络带宽，所以对于 iMac、Windows 或者高性能 Pad 可以考虑开启，但请不要在手机端开启。
 
 
 ### setRemoteVideoStreamType
@@ -526,7 +527,7 @@ __参数__
 
 __介绍__
 
-此功能需要该 uid 通过 enableEncSmallVideoStream 提前开启双路编码模式。如果该 uid 没有开启双路编码模式，则此操作将无任何反应。
+此功能需要该 uid 通过 enableEncSmallVideoStream 提前开启双路编码模式。 如果该 uid 没有开启双路编码模式，则此操作将无任何反应。
 
 
 ### setPriorRemoteVideoStreamType
@@ -680,7 +681,7 @@ __返回__
 
 __介绍__
 
-该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM 等)录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
+该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM等)录制到一个文件里。 无论是否进房，调用该接口都生效。 如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 ### stopAudioRecording
@@ -693,6 +694,24 @@ __介绍__
 __介绍__
 
 如果调用 exitRoom 时还在录音，录音会自动停止。
+
+
+### setSystemVolumeType
+
+设置通话过程中使用的系统音量类型。
+```
+- (void)setSystemVolumeType:(TRTCSystemVolumeType)type 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考TRTCSystemVolumeType。 |
+
+__介绍__
+
+通过该接口可以禁止 SDK 使用通话音量 需要在调用 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前调用该接口。
 
 
 
@@ -1454,7 +1473,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染回调。 |
+| delegate | id< [TRTCVideoRenderDelegate](https://cloud.tencent.com/document/product/647/32263#trtcvideorenderdelegate) > | 自定义渲染回调。 |
 | pixelFormat | [TRTCVideoPixelFormat](https://cloud.tencent.com/document/product/647/32261#trtcvideopixelformat) | 指定回调的像素格式。 |
 | bufferType | [TRTCVideoBufferType](https://cloud.tencent.com/document/product/647/32261#trtcvideobuffertype) | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
 
@@ -1483,7 +1502,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 指定目标 userId。 |
-| delegate | id< TRTCVideoRenderDelegate > | 自定义渲染的回调。 |
+| delegate | id< [TRTCVideoRenderDelegate](https://cloud.tencent.com/document/product/647/32263#trtcvideorenderdelegate) > | 自定义渲染的回调。 |
 | pixelFormat | [TRTCVideoPixelFormat](https://cloud.tencent.com/document/product/647/32261#trtcvideopixelformat) | 指定回调的像素格式。 |
 | bufferType | [TRTCVideoBufferType](https://cloud.tencent.com/document/product/647/32261#trtcvideobuffertype) | PixelBuffer：可以直接使用 imageWithCVImageBuffer 转成 UIImage；NSData：经过内存整理的视频数据。 |
 
@@ -1493,7 +1512,7 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderDelegate，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。
+此方法同 setLocalVideoRenderDelegate，区别在于一个是本地画面的渲染回调， 一个是远程画面的渲染回调。
 
 >?调用此函数之前，需要先调用 startRemoteView 来获取远端用户的视频流（view 设置为 nil 即可），否则不会有数据回调出来。
 
@@ -1545,7 +1564,7 @@ __介绍__
 
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
->?可以设置 frame 中的 timestamp 为0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
+>?可以设置 frame 中的 timestamp 为 0，相当于让 SDK 自己设置时间戳，但请“均匀”地控制 sendCustomAudioData 的调用间隔，否则会导致声音断断续续。
 
 
 
@@ -1560,7 +1579,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| delegate | id< TRTCAudioFrameDelegate > | 音频数据回调，delegate = nil 则停止回调数据。 |
+| delegate | id< [TRTCAudioFrameDelegate](https://cloud.tencent.com/document/product/647/32263#trtcaudioframedelegate) > | 音频数据回调，delegate = nil 则停止回调数据。 |
 
 __介绍__
 
@@ -1632,8 +1651,8 @@ __介绍__
 >- 发送消息到房间内所有用户，每秒最多能发送30条消息（与 sendCustomCmdMsg 共享限制）。
 >- 每个包最大为1KB，若发送大量数据，会导致视频码率增大，可能导致视频画质下降甚至卡顿（与 sendCustomCmdMsg 共享限制）。
 >- 每个客户端每秒最多能发送总计8KB数据（与 sendCustomCmdMsg 共享限制）。
->- 若指定多次发送（repeatCount > 1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
->- 如果 repeatCount > 1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
+>- 若指定多次发送（repeatCount>1），则数据会被带在后续的连续 repeatCount 个视频帧中发送出去，同样会导致视频码率增大。
+>- 如果 repeatCount>1，多次发送，接收消息 onRecvSEIMsg 回调也可能会收到多次相同的消息，需要去重。
 
 
 
@@ -1769,7 +1788,82 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType |TXVoiceChangerType | 变声类型，详见  [TRTCVoiceChangerType](https://cloud.tencent.com/document/product/647/32261#trtcvoicechangertype) 。 |
+| voiceChangerType | [TRTCVoiceChangerType](https://cloud.tencent.com/document/product/647/32261#trtcvoicechangertype) | 变声类型，详见 TXVoiceChangerType。 |
+
+
+
+## 音效相关接口函数
+### playAudioEffect
+
+播放音效。
+```
+- (void)playAudioEffect:(TRTCAudioEffectParam *)effect 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effect | [TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32261#trtcaudioeffectparam) * | 音效。 |
+
+__介绍__
+
+每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 ID 进行播放。因为使用同一个 ID 播放不同音效，SDK 会先停止播放旧的音效，再播放新的音效。
+
+
+### setAudioEffectVolume
+
+设置单个音效音量。
+```
+- (void)setAudioEffectVolume:(int)effectId volume:(int)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| volume | int | 取值范围：[0, 100]。 |
+
+>?会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+
+
+### stopAudioEffect
+
+停止音效。
+```
+- (void)stopAudioEffect:(int)effectId 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+
+
+### stopAllAudioEffects
+
+停止所有音效。
+```
+- (void)stopAllAudioEffects
+```
+
+
+### setAllAudioEffectsVolume
+
+设置所有音效音量。
+```
+- (void)setAllAudioEffectsVolume:(int)volume 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 取值范围：[0, 100]。 |
+
+>?会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
 
 
@@ -2037,7 +2131,7 @@ __参数__
 
 __介绍__
 
-仪表盘是状态统计和事件消息浮层 view，方便调试。 
+仪表盘是状态统计和事件消息浮层　view，方便调试。 
 
 
 

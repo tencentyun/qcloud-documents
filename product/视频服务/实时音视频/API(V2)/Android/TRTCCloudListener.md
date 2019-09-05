@@ -54,10 +54,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
-- 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
-- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
-
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
 
 >?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/32265#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/32265#onerror) 回调抛出。
 
@@ -420,7 +417,7 @@ __介绍__
 
 收到自定义消息回调。
 ```
-void onRecvCustomCmdMsg(String userId, int cmdID, int seq, byte [] message)
+void onRecvCustomCmdMsg(String userId, int cmdID, int seq, byte[] message)
 ```
 
 __参数__
@@ -430,7 +427,7 @@ __参数__
 | userId | String | 用户标识。 |
 | cmdID | int | 命令 ID。 |
 | seq | int | 消息序号。 |
-| message | byte [] | 消息数据。 |
+| message | byte[] | 消息数据。 |
 
 __介绍__
 
@@ -464,7 +461,7 @@ __介绍__
 
 收到 SEI 消息的回调。
 ```
-void onRecvSEIMsg(String userId, byte [] data)
+void onRecvSEIMsg(String userId, byte[] data)
 ```
 
 __参数__
@@ -472,7 +469,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户标识。 |
-| data | byte [] | 数据。 |
+| data | byte[] | 数据。 |
 
 __介绍__
 
@@ -521,6 +518,23 @@ __参数__
 |-----|-----|-----|
 | err | int | 0表示成功，其余值表示失败。 |
 | errMsg | String | 具体错误原因。 |
+
+
+
+## 音效回调
+### onAudioEffectFinished
+
+播放音效结束回调。
+```
+void onAudioEffectFinished(int effectId, int code)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | - |
+| code | int | 0：表示播放正常结束；其他为异常结束，暂无异常值。 |
 
 
 

@@ -578,6 +578,20 @@ __参数__
 | err | int | 0表示成功，其余值表示失败。 |
 | errMsg | NSString * | 具体错误原因。 |
 
+## 音效回调
+### onAudioEffectFinished
+
+播放音效结束回调。
+```
+- (void)onAudioEffectFinished:(int)effectId code:(int)code 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| code | int | 0： 表示播放正常结束；其他为异常结束。 |
 
 
 ## TRTCVideoRenderDelegate

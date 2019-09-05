@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
 
 
 
@@ -132,18 +132,18 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 <pre>
-               房间 001                    房间 002
+                房间 001                     房间 002
             --------------              -------------
  跨房通话前：| 主播 A      |             | 主播 B     |
-            | 观众 U V W  |             | 观众 X Y Z |
+             | 观众 U V W  |             | 观众 X Y Z |
             --------------              -------------</pre>
 
 
 
-<pre>              房间 001                     房间 002
+<pre>                房间 001                     房间 002
             --------------              -------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
-            | 观众 U V W  |             | 观众 X Y Z |
+             | 观众 U V W  |             | 观众 X Y Z |
             --------------              -------------
 </pre>
 
@@ -1525,7 +1525,7 @@ __参数__
 
 __介绍__
 
-会触发 onLocalVideoFrameAfterProcess 回调接口。
+会触发 onFirstVideoFrame 回调接口。
 
 >?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 
@@ -1674,7 +1674,7 @@ const char * getSDKVersion()
 
 __返回__
 
-UTF-8 编码的版本号。
+UTF-8 编码的版本号。 
 
 
 ### setLogLevel
