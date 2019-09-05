@@ -72,7 +72,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
   (\S+)\s\S+\s(\S+)\s\[([^\]]+)\]\s\"([^\"]+)\s(\S+)\s([^\"]+)\"\s(\d+)\s(\d+)\s\"([^\"]+)\"\s\"([^\"]+)\"\s\"([^\"]+)\"$
   ```
 
-  提取正则表达式验证成功后，为每个字段命名对应的键值名称
+  提取正则表达式验证成功后，为每个字段命名对应的键值名称：
 	![](https://main.qcloudimg.com/raw/a6e0750e379a0bff82d19040eabea23a.png)
 
 #### 4. 配置索引规则
