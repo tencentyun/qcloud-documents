@@ -31,7 +31,7 @@
 
 - **方式一：aar 集成方式**
 
- 1 .将下载到的 arr 文件拷贝到工程的 app/libs 目录下。
+ 1. 将下载到的 arr 文件拷贝到工程的 app/libs 目录下。
   ![](https://main.qcloudimg.com/raw/d826e6842b947b113f26795270fafc30.png)
  2. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
   ![](https://main.qcloudimg.com/raw/5ba8aabbf657983c13b5b8dfe7fb9f20.png)
