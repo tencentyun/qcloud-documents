@@ -138,14 +138,13 @@ go-mysql-elasticsearch 的基本原理是：如果是第一次启动该程序，
 
 ### 使用限制：
 
-1. mysql binlog 必须是 ROW 模式。
+1. mysql binlog 必须是 ROW 模式（腾讯云TencentDB for MySQL产品默认开启）。
 2. 要同步的 MySQL 数据表必须包含主键，否则直接忽略。这是因为如果数据表没有主键，UPDATE 和 DELETE 操作就会因为在 ES 中找不到对应的 document 而无法进行同步。
 3. 不支持程序运行过程中修改表结构。
-4. 要赋予用于连接 MySQL 的账户 RELOAD 权限、REPLICATION 权限和 SUPER 权限。
+4. 要赋予用于连接 MySQL 的账户 RELOAD 权限、REPLICATION 权限。
 ```
    GRANT REPLICATION SLAVE ON *.* TO 'elastic'@'172.16.32.44';
    GRANT RELOAD ON *.* TO 'elastic'@'172.16.32.44';
-   UPDATE mysql.user SET Super_Priv='Y' WHERE user='elastic' AND host='172.16.32.44';
 ```
 
 ### 使用方式
