@@ -3,7 +3,7 @@
 
 ## 获取当前未读消息数量
 
-每次使用 [ getConversationList() ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationList) 时，会获得[ [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
+每次使用 [ getConversationList() ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationList) 时，会获得[[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
 所有会话的未读计数，由所有会话的`unreadCount`相加所得。
 
 
