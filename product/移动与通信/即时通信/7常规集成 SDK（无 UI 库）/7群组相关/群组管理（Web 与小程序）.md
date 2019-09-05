@@ -456,6 +456,31 @@ promise.then(function(imResponse) {
 ```
 
 ## 群成员管理
+### 获取群成员列表
+
+**接口名**
+
+```js
+tim.getGroupMemberList(options);
+```
+
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称      | 类型     | 属性          | 默认值 | 描述                                                         |
+| :-------- | :------- | :------------ | :----- | :----------------------------------------------------------- |
+| `groupID` | `String` |               |        | 群组的 ID                                                    |
+| `count`   | `Number` | `<optional> ` | `15`   | 需要拉取的数量。最大值为100，避免回包过大导致请求失败。若传入超过100，则只拉取前100个。 |
+| `offset`  | `Number` | `<optional> ` | `0`    | 偏移量，默认从0开始拉取                                      |
+
+**返回值**
+
+该接口返回`Promise`对象：
+
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](
+https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 ### 添加群成员
 
