@@ -81,14 +81,14 @@ tim.updateMyProfile(options)
 | :---------------- | :------- | :----------------------------------------------------------- |
 | `nick`            | `String` | 昵称                                                         |
 | `avatar`          | `String` | 头像地址                                                     |
-| `gender`          | `String` | 性别<br>TIM.TYPES.GENDER_UNKNOWN 表示未设置性别<br/>TIM.TYPES.GENDER_FEMALE 表示女 <br/>TIM.TYPES.GENDER_MALE 表示男 |
+| `gender`          | `String` | 性别<li>TIM.TYPES.GENDER_UNKNOWN 表示未设置性别<li>TIM.TYPES.GENDER_FEMALE 表示女 </li><li>TIM.TYPES.GENDER_MALE 表示男</li> |
 | `selfSignature`   | `String` | 个性签名                                                     |
-| `allowType`       | `String` | 当被加人加好友时是否需要验证<br/>TIM.TYPES.ALLOW_TYPE_ALLOW_ANY 表示允许直接加为好友<br/> TIM.TYPES.ALLOW_TYPE_NEED_CONFIRM 表示需要验证<br/> TIM.TYPES.ALLOW_TYPE_DENY_ANY 表示拒绝 |
+| `allowType`       | `String` | 当被加人加好友时是否需要验证<li>TIM.TYPES.ALLOW_TYPE_ALLOW_ANY 表示允许直接加为好友</li><li> TIM.TYPES.ALLOW_TYPE_NEED_CONFIRM 表示需要验证</li><li>TIM.TYPES.ALLOW_TYPE_DENY_ANY 表示拒绝</li> |
 | `birthday`        | `Number` | 生日，推荐用法：20000101                                      |
 | `location`        | `String` | 所在地，推荐用法：App 本地定义一套数字到地名的映射关系，后台实际保存的是4个 uint32_t 类型的数字：<li>第一个 uint32_t 表示国家</li><li>第二个 uint32_t 用于表示省份</li><li>第三个 uint32_t 用于表示城市</li><li>第四个 uint32_t 用于表示区县 |
 | `language`        | `Number` | 语言                                                         |
 | `messageSettings` | `Number` | 消息设置，0表示接收消息，1表示不接收消息                          |
-| `adminForbidType` | `String` | 管理员禁止加好友标识：<br>TIM.TYPES.FORBID_TYPE_NONE 表示允许加好友，默认值<br/> TIM.TYPES.FORBID_TYPE_SEND_OUT 表示禁止该用户发起加好友请求 |
+| `adminForbidType` | `String` | 管理员禁止加好友标识：<li>TIM.TYPES.FORBID_TYPE_NONE 表示允许加好友，默认值</li><li>TIM.TYPES.FORBID_TYPE_SEND_OUT 表示禁止该用户发起加好友请求<li> |
 | `level`           | `Number` | 等级，建议拆分以保存多种角色的等级信息                        |
 | `role`            | `Number` | 角色，建议拆分以保存多种角色信息                              |
 
