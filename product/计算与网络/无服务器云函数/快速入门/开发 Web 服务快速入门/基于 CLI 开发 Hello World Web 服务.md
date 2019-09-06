@@ -61,7 +61,6 @@ Runtime: Python3.6
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
-
 3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
