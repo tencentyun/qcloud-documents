@@ -4,18 +4,15 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 
 ## 操作步骤
 ### 创建 OneLogin 企业应用程序
->?您可以通过本步骤创建 OneLogin 企业应用程序。如您已经有正在使用的应用程序，请忽略本操作，进行 [配置 CAM](#cam)。
+>?
+> - 您可以通过本步骤创建 OneLogin 企业应用程序。如您已经有正在使用的应用程序，请忽略本操作，进行 [配置 CAM](#cam)。
+> - 本文中应用程序名称以 “test” 为示例。
 
 1. 登录并访问 [OneLogin 应用管理页](https://xiaoyu.onelogin.com/apps)，单击【ADD APP】。
 2. 在搜索框中输入 “SAML”，按 “Enter”，并在结果列表中单击【 Pilot Catastrophe SAML( IdP )】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f80d98e0a6f05a589bd6a87323e56f7.png)
 3. 在 “Display Name” 中输入应用名 ，并单击【SAVE】，即可完成应用程序的创建。如下图所示：
  ![](https://main.qcloudimg.com/raw/d600fb5d578a92f9a2bf5cba1605af46.png)
- 
->?本文中应用程序以 “test” 为示例。
->
-
-
 
 <span id="cam"></span>
 ### 配置 CAM
