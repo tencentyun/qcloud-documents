@@ -10,9 +10,11 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 2. 在搜索框中输入 “SAML”，按 “Enter”，并在结果列表中单击【 Pilot Catastrophe SAML( IdP )】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f80d98e0a6f05a589bd6a87323e56f7.png)
 3. 在 “Display Name” 中输入应用名 ，并单击【SAVE】，即可完成应用程序的创建。如下图所示：
+ ![](https://main.qcloudimg.com/raw/d600fb5d578a92f9a2bf5cba1605af46.png)
+ 
 >?本文中应用程序以 “test” 为示例。
 >
-![](https://main.qcloudimg.com/raw/d600fb5d578a92f9a2bf5cba1605af46.png)
+
 
 
 <span id="cam"></span>
