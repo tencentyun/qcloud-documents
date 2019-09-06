@@ -1,4 +1,4 @@
-该文档说明 HttpDNS 的 HTTPS 场景
+该文档说明 HttpDNS 的 HTTPS 场景。
 
 ### iOS 部分代码
 
@@ -6,7 +6,7 @@
 在进行证书校验时，将 IP 替换成原来的域名，再进行证书验证。
 
 #### Demo 示例
-以 NSURLConnection 接口为例
+以 NSURLConnection 接口为例。
 
 ```
 #pragma mark - NSURLConnectionDelegate
