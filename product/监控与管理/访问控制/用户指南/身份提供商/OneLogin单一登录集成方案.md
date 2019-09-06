@@ -71,7 +71,6 @@ SAML Recipient：https://intl.cloud.tencent.com/login/saml
 >- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
 >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
-
 4. 单击右上角【SAVE】保存配置。
 
 ### 配置 OneLogin 用户
@@ -81,6 +80,7 @@ SAML Recipient：https://intl.cloud.tencent.com/login/saml
 ![](https://main.qcloudimg.com/raw/ef4f738c88f3c97fe5980286ad383ffa.png)
 
 >?此帐户密码可查看 Email，或单击【MORE ACTIONS】选择【change password】修改密码。
+>
 4. 单击用户编辑页【 Applications 】，选择右侧的<image style="margin:0;" src="https://main.qcloudimg.com/raw/98a24d12696834b52f559d0abe490fd2.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/d8e9053d445b3af6d9aaecd74a0952b7.png)
 5. 在弹出对话框选择您已创建的 SAML 应用 “test”，单击【CONITINUE】。如下图所示：
