@@ -430,7 +430,7 @@ __参数__
 | userId | String | 用户标识。 |
 | cmdID | int | 命令 ID。 |
 | seq | int | 消息序号。 |
-| message | byte [] | 消息数据。 |
+| message | byte[] | 消息数据。 |
 
 __介绍__
 
@@ -464,7 +464,7 @@ __介绍__
 
 收到 SEI 消息的回调。
 ```
-void onRecvSEIMsg(String userId, byte [] data)
+void onRecvSEIMsg(String userId, byte[] data)
 ```
 
 __参数__
@@ -472,7 +472,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户标识。 |
-| data | byte [] | 数据。 |
+| data | byte[] | 数据。 |
 
 __介绍__
 
@@ -522,6 +522,19 @@ __参数__
 | err | int | 0表示成功，其余值表示失败。 |
 | errMsg | String | 具体错误原因。 |
 
+## 音效回调 onAudioEffectFinished
+
+播放音效结束回调。
+```
+void onAudioEffectFinished(int effectId, int code)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | - |
+| code | int | 0表示播放正常结束；其他为异常结束，暂无异常值。 |
 
 
 ## TRTCVideoRenderListener
