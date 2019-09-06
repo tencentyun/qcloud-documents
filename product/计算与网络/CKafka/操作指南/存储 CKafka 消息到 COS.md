@@ -16,22 +16,25 @@
 如果您还未创建对象存储的 Bucket，请在 [新建 Bucket](https://console.cloud.tencent.com/cos/bucket) 后选取相应的存储位置。
 
 ## 后置条件
-开启【存储消息到 COS】功能后，CKafka服务会在【访问管理】-【角色】中增加一个【cosCkafka_QCSRole】角色用来授权消息存储到COS服务。
-如若您是不在需要此项功能，请在CKafka控制台-实例-topic管理-存储消息到cos中禁用次功能并删除其角色。
-此处有图1
+开启【存储消息到 COS】功能后，CKafka 服务会在【访问管理】>【角色】中增加一个【cosCkafka_QCSRole】角色用来授权消息存储到 COS 服务。
+- 如果您不再需要此项功能，请在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/index?rid=1) >【实例列表】>【topic 管理】中，单击操作列的【存储消息到cos】，禁用此功能并删除其角色。
+![](https://main.qcloudimg.com/raw/cbdfa1ba141d9f3f50d9f8b639173325.png)
 
-如果需要一直使用此功能，但误删除了【cosCkafka_QCSRole】角色，将会影响消息存储到COS，请及时重新创建角色。
-具体创建方法：
-1、【访问管理】-【角色】-【新建角色】，选择角色载体【腾讯云账号】，其他账号ID：91000000031
-此处有图2
-2、搜索策略：QcloudCOSAccessForCkafkaRole
-此处有图3
-3、角色名称：cosCkafka_QCSRole；角色描述：	消息服务(ckafka)对对象存储服务(cos)的跨业务访问权限
-此处有图4
-4、创建完成
-此处有图5
-5、观察 consumer group 数据消费是否正常
-此处有图6
+- 如果您需要一直使用此功能，但误删除了【cosCkafka_QCSRole】角色，将会影响消息存储到 COS，请及时重新创建角色。
+
+具体创建步骤如下：
+1. 登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，在左侧导航栏中选择【角色】>【新建角色】>【腾讯云账号】，填写其他账号ID：91000000031。
+![](https://main.qcloudimg.com/raw/c4b83be38d3393224c5aed37008a1c02.png)
+2. 搜索策略：QcloudCOSAccessForCkafkaRole，选中后单击【下一步】。
+![](https://main.qcloudimg.com/raw/787c4bde85226c5f62596aa92a9ff235.png)
+3. 填写角色名称和描述。
+![](https://main.qcloudimg.com/raw/53782c7cd8e66de2a4c6e261a147df32.png)
+角色名称：cosCkafka_QCSRole
+角色描述：	消息服务（CKafka）对对象存储服务（COS）的跨业务访问权限
+4. 单击【完成】，创建的角色将显示在角色列表中。
+![](https://main.qcloudimg.com/raw/a3d60e97288278d3cb6266e153a5979b.png)
+5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
+![](https://main.qcloudimg.com/raw/5b9a909731c654c927bb08f217330458.png)
 
 ## 产品限制和费用计算
 - 该功能适用于少量数据备份到 COS 的场景，不保证数据能100%成功同步到 COS 中。
