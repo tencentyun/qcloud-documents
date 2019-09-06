@@ -32,7 +32,7 @@ Azure Active Directory （Azure AD） 是 Microsoft 推出的基于云的标识�
 1. 在 “SAML 单一登录”概览界面，单击“基本 SAML 配置”右上角的<image style="margin:0;" src="https://main.qcloudimg.com/raw/836588594e0a214b5951ee5207fc2353.png">。如下图所示：
 ![](https://main.qcloudimg.com/raw/abeffc5c30a39561448523a5fc29b8ee.png)
 2. 在“基本 SAML 配置”编辑页面填写以下信息，并单击【保存】。如下图所示：
-![](https://main.qcloudimg.com/raw/65aba9c97a25b0797969d667b051d959.png)
+![](https://main.qcloudimg.com/raw/a0161d7c8eeddcf00dab05d6a65dd2d7.png)
 
 >>?
 > - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
