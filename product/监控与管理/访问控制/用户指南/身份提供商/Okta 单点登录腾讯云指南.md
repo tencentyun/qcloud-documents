@@ -53,7 +53,7 @@ Audience URL(SP Entity ID)：intl.cloud.tencent.com
 2. 在应用管理页面，单击您创建的应用程序名称，进入应用详情页，单击【Sign On】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f43a5c67075b28f2ef649e93bfb9b8a.png)
 3. 在 Sign On 页面，单击【Identity Provider metadata】查看身份提供商元数据。如下图所示：
-![](https://main.qcloudimg.com/raw/ef361bbd2084642ffced8d339ccdeba0.jpg)
+![](https://main.qcloudimg.com/raw/14e34ce4819d848c056fefa145b11060.png)
 4. 获取身份提供商元数据之后可在查看页面右键保存至本地。
 5. 在腾讯云创建 SAML 身份提供商及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
