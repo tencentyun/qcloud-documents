@@ -28,9 +28,9 @@
 2. 搜索策略：QcloudCOSAccessForCkafkaRole，选中后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/787c4bde85226c5f62596aa92a9ff235.png)
 3. 填写角色名称和描述。
-![](https://main.qcloudimg.com/raw/53782c7cd8e66de2a4c6e261a147df32.png)
 角色名称：cosCkafka_QCSRole
 角色描述：	消息服务（CKafka）对对象存储服务（COS）的跨业务访问权限
+![](https://main.qcloudimg.com/raw/53782c7cd8e66de2a4c6e261a147df32.png)
 4. 单击【完成】，创建的角色将显示在角色列表中。
 ![](https://main.qcloudimg.com/raw/a3d60e97288278d3cb6266e153a5979b.png)
 5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
