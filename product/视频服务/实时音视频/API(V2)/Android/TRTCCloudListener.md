@@ -522,7 +522,8 @@ __参数__
 | err | int | 0表示成功，其余值表示失败。 |
 | errMsg | String | 具体错误原因。 |
 
-## 音效回调 onAudioEffectFinished
+## 音效回调
+### onAudioEffectFinished
 
 播放音效结束回调。
 ```
@@ -534,7 +535,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | effectId | int | - |
-| code | int | 0表示播放正常结束；其他为异常结束，暂无异常值。 |
+| code | int | 0表示播放正常结束，其他表示异常结束，暂无异常值。 |
 
 
 ## TRTCVideoRenderListener
