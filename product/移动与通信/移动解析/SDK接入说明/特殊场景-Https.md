@@ -1,4 +1,4 @@
-该文档说明 HttpDNS 的 Https 场景
+该文档说明 HttpDNS 的 HTTPS 场景
 
 ### iOS 部分代码
 
