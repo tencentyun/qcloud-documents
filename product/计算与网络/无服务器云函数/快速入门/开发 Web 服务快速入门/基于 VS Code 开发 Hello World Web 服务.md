@@ -160,7 +160,7 @@ VS Code 插件借助于 [SCF 命令行工具](https://cloud.tencent.com/document
 4. 单击<img src="https://main.qcloudimg.com/raw/fa6357932d0b31898ede19d74f129fb5.png" style="margin:-3px 0;">，即可看到调试信息。如下图所示：  
 >?目前插件是对当前工作区打开的函数文件进行调试，为保障调试正常进行，您需要确保目标函数文件已经当前窗口打开。
 >
-![](https://main.qcloudimg.com/raw/bb5234989da7d23b8b958e0ca76d0eda.png)
+![](https://main.qcloudimg.com/raw/30ae89b7e45482253cc9ffa29973f67b.png)
 
 
 #### 查看监控
