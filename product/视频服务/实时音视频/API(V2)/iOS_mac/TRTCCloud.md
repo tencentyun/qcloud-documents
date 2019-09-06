@@ -76,7 +76,7 @@ __介绍__
 
 __介绍__
 
-调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onExitRoom() 回调通知到您。
+调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudDelegate 中的 onExitRoom() 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
@@ -113,22 +113,22 @@ __参数__
 
 __介绍__
 
-TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。这样一来， 两个主播可以不用退出各自原来的直播间就能进行“连麦 PK”。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
 例如：当房间“001”中的主播 A 通过 connectOtherRoom() 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，YES) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，YES) 回调。
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
 
 <pre>
                 房间 001                     房间 002
-              -------------               ------------
+            --------------              -------------
  跨房通话前：| 主播 A      |             | 主播 B     |
              | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------</pre>
+            --------------              -------------</pre>
 
 
 
 <pre>                房间 001                     房间 002
-              -------------               ------------
+            --------------              -------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
              | 观众 U V W  |             | 观众 X Y Z |
               -------------               ------------
