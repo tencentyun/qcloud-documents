@@ -1453,7 +1453,7 @@ __参数__
 | effectId | int | 音效 ID。 |
 | volume | int | 取值范围0 - 100。 |
 
->?设置单个音效音量会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+>?该操作会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
 
 ### stopAudioEffect
 
@@ -1490,7 +1490,7 @@ __参数__
 |-----|-----|-----|
 | volume | int | 取值范围0 -100。 |
 
->?设置所有音效音量会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
+>?该操作会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
 ## 网络测试
 ### startSpeedTest
