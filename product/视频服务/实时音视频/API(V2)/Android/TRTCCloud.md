@@ -676,6 +676,18 @@ __介绍__
 如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
+### setSystemVolumeType
+
+设置系统音量类型。
+```
+abstract void setSystemVolumeType(int type)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| type | int | TRTCAudioVolumeTypeAuto 默认类型，麦上通话音量、麦下媒体音量; TRTCAudioVolumeTypeMedia 始终使用媒体音量。 |
 
 ## 摄像头相关接口函数
 ### switchCamera
@@ -1143,6 +1155,7 @@ __介绍__
 
 
 ### enableCustomAudioCapture
+>?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，即该 listener 的回调函数不会被触发。
 
 启用音频自定义采集模式。
 ```
@@ -1215,7 +1228,7 @@ __介绍__
 
 发送自定义消息给房间内所有用户。
 ```
-abstract boolean sendCustomCmdMsg(int cmdID, byte [] data, boolean reliable, boolean ordered)
+abstract boolean sendCustomCmdMsg(int cmdID, byte[] data, boolean reliable, boolean ordered)
 ```
 
 __参数__
@@ -1223,7 +1236,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cmdID | int | 消息 ID，取值范围为1 - 10。 |
-| data | byte [] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
+| data | byte[] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
 | reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传。 |
 | ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
 
@@ -1247,14 +1260,14 @@ __介绍__
 
 将小数据量的自定义数据嵌入视频帧中。
 ```
-abstract boolean sendSEIMsg(byte [] data, int repeatCount)
+abstract boolean sendSEIMsg(byte[] data, int repeatCount)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| data | byte [] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
+| data | byte[] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
 | repeatCount | int | 发送数据次数。 |
 
 __返回__
@@ -1407,7 +1420,77 @@ __参数__
 |-----|-----|-----|
 | voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE。 |
 
+## 音效相关接口函数
+### playAudioEffect
 
+播放音效。
+```
+abstract void playAudioEffect(TRTCCloudDef.TRTCAudioEffectParam effect)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effect | [TRTCCloudDef.TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32266#trtcaudioeffectparam) | 音效。 |
+
+__介绍__
+
+每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 ID 进行播放。如果使用同一个 ID 播放不同音效，SDK 会先停止播放旧的音效，再播放新的音效。
+
+
+### setAudioEffectVolume
+
+设置单个音效音量。
+```
+abstract void setAudioEffectVolume(int effectId, int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| volume | int | 取值范围0 - 100。 |
+
+>?设置单个音效音量会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+
+### stopAudioEffect
+
+停止音效。
+```
+abstract void stopAudioEffect(int effectId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+
+
+### stopAllAudioEffects
+
+停止所有音效。
+```
+abstract void stopAllAudioEffects()
+```
+
+
+### setAllAudioEffectsVolume
+
+设置所有音效音量。
+```
+abstract void setAllAudioEffectsVolume(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 取值范围0 -100。 |
+
+>?设置所有音效音量会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
 ## 网络测试
 ### startSpeedTest
@@ -1531,7 +1614,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 参见 TRTC_LOG_LEVEL。 |
+| level | int | 请参见 TRTC_LOG_LEVEL。 |
 
 
 ### setConsoleEnabled
@@ -1621,7 +1704,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| margin | [TRTCViewMargin](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
+| margin | [TRTCViewMargin](https://cloud.tencent.com/document/product/647/32264#.E8.A7.86.E5.9B.BE.E8.BE.B9.E8.B7.9D) | 仪表盘内边距，基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
 
 __介绍__
 
