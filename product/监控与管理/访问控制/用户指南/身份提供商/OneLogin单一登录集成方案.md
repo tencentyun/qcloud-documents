@@ -41,6 +41,7 @@ SAML Recipient：https://cloud.tencent.com/login/saml
 SAML Consumer URL：https://intl.cloud.tencent.com/login/saml
 SAML Audience：https://intl.cloud.tencent.com
 SAML Recipient：https://intl.cloud.tencent.com/login/saml
+
 3. 单击【Parameters】，选择【Add parameter】，添加以下两条配置信息。
 
 <table>
