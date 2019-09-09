@@ -62,7 +62,12 @@
 | strategyName | 策略名称。 | strategy1 |
 | strategyInfo | 策略描述的内容（这里要传一个 **JSON 字符串**）。 | 见 [示例代码](#示例代码1) |
 | remark | 策略的备注。 | hello test |
-| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`，第一段为固定格式 qcs；第二段为空；第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic；第四段为地域信息，例如 gz、bj、sh 若为全地域，则设置为空；第五段为主账号 ID；第六段为资源的描述，`uin/`后的值为创建者 ID，如果资源是主账号创建的，那么该 ID 为主账号 ID，如果为协作者或者子帐号创建的，该 uin 为相应子帐号或者协作者帐号的 ID。 |* |
+| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`
+第一段为固定格式 qcs，
+第二段为空，第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic
+第四段为地域信息，例如 gz、bj、sh 若为全地域，则设置为空
+第五段为主账号 uin/{主账号uin}
+第六段为资源的描述,例如是队列模式 则 queueName/uin/{创建者Uin}/{队列名字} ，当为主题模式时 该值取 topicName/uin/{创建者Uin}/{主题名字}。创建者Uin的获取可以通过控制台详情页获取，或者通过yunapi接口GetQueueAttributes 或者GetTopicAttributes的返回值createUin获取。|* |
 
 - 示例代码：<span id="示例代码1"></span>
 ```
