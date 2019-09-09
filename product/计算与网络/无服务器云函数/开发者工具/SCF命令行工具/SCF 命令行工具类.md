@@ -12,6 +12,12 @@
 
 解决方法： `pip install -I PyYAML==x.x.x`（在requirements.txt中查看具体版本）
 
+### six 版本过低
+表现：`pip "Cannot uninstall 'six'. It is a distutils installed project..."` 
+
+解决方法： `sudo pip install six --upgrade --ignore-installed six` 
+
+
 ## 使用相关
 
 ### yaml 配置文件内有多个函数描述时，如何指定函数进行本地调试

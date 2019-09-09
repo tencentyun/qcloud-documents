@@ -21,7 +21,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
 2. 进入**快速上手**页面，在右侧找到【查看密钥】按钮，单击即可获得加密密钥。
 
-![](https://main.qcloudimg.com/raw/6b862c1c2d3534d06729d50540426bd5.png)
+![](https://main.qcloudimg.com/raw/6ae9ecfe80c0f21947ddf0d639885025.png)
 
 <h2 id="Client">客户端计算</h2>
 
@@ -33,7 +33,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
-![](https://main.qcloudimg.com/raw/1dccb5267535b85cc1d342101dbd5224.png)
+![](https://main.qcloudimg.com/raw/97a74943e3175f5e8a7c823864bfb1af.png)
 
 
 >! 该方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。

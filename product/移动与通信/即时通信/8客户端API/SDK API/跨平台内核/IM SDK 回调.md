@@ -5,7 +5,7 @@
 
 新消息回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMRecvNewMsgCallback)(const char* json_msg_array, const void* user_data);
@@ -186,7 +186,7 @@ for (Json::ArrayIndex i = 0; i < json_value_msgs.size(); i++) {  // 遍历 Messa
 
 消息已读回执回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMMsgReadedReceiptCallback)(const char* json_msg_readed_receipt_array, const void* user_data);
@@ -227,7 +227,7 @@ void MsgReadedReceiptCallback(const char* json_msg_readed_receipt_array, const v
 
 接收的消息被撤回回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMMsgRevokeCallback)(const char* json_msg_locator_array, const void* user_data);
@@ -271,7 +271,7 @@ void MsgRevokeCallback(const char* json_msg_locator_array, const void* user_data
 
 消息内元素相关文件上传进度回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMMsgElemUploadProgressCallback)(const char* json_msg, uint32_t index, uint32_t cur_size, uint32_t total_size, const void* user_data);
@@ -326,7 +326,7 @@ void MsgElemUploadProgressCallback(const char* json_msg, uint32_t index, uint32_
 
 群事件回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMGroupTipsEventCallback)(const char* json_group_tip_array, const void* user_data);
@@ -343,7 +343,7 @@ typedef void (*TIMGroupTipsEventCallback)(const char* json_group_tip_array, cons
 
 会话事件回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMConvEventCallback)(enum TIMConvEvent conv_event, const char* json_conv_array, const void* user_data);
@@ -388,7 +388,7 @@ void ConvEventCallback(TIMConvEvent conv_event, const char* json_conv_array, con
 
 网络状态回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMNetworkStatusListenerCallback)(enum TIMNetworkStatus status, int32_t code, const char* desc, const void* user_data);
@@ -433,7 +433,7 @@ void NetworkStatusListenerCallback(TIMNetworkStatus status, int32_t code, const 
 
 被踢下线回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMKickedOfflineCallback)(const void* user_data);
@@ -449,7 +449,7 @@ typedef void (*TIMKickedOfflineCallback)(const void* user_data);
 
 用户票据过期回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMUserSigExpiredCallback)(const void* user_data);
@@ -461,11 +461,122 @@ typedef void (*TIMUserSigExpiredCallback)(const void* user_data);
 |-----|-----|-----|
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
+### TIMOnAddFriendCallback
+
+添加好友的回调。
+
+**原型**
+
+```c
+typedef void(*TIMOnAddFriendCallback)(const char* json_identifier_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_identifier_array | const char\* | 添加好友列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例：json_identifier_array 示例**
+
+```c
+[ "user15" ]
+```
+
+
+### TIMOnDeleteFriendCallback
+
+删除好友的回调。
+
+**原型**
+
+```c
+typedef void(*TIMOnDeleteFriendCallback)(const char* json_identifier_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_identifier_array | const char\* | 删除好友列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例：json_identifier_array 示例**
+
+```c
+[ "user15" ]
+```
+
+
+### TIMUpdateFriendProfileCallback
+
+更新好友资料的回调。
+
+**原型**
+
+```c
+typedef void(*TIMUpdateFriendProfileCallback)(const char* json_friend_profile_update_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_friend_profile_update_array | const char\* | 好友资料更新列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例：json_friend_profile_update_array 示例**
+
+```c
+[
+   {
+      "friend_profile_update_identifier" : "user4",
+      "friend_profile_update_item" : {
+         "friend_profile_item_group_name_array" : [ "group1", "group2" ],
+         "friend_profile_item_remark" : "New Remark"
+      }
+   }
+]
+```
+
+
+### TIMFriendAddRequestCallback
+
+好友添加请求的回调。
+
+**原型**
+
+```c
+typedef void(*TIMFriendAddRequestCallback)(const char* json_friend_add_request_pendency_array, const void* user_data);
+```
+
+**参数**
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| json_friend_add_request_pendency_array | const char\* | 好友添加请求未决信息列表 |
+| user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
+
+**示例：json_friend_add_request_pendency_array 示例**
+
+```c
+[
+   {
+      "friend_add_pendency_add_source" : "AddSource_Type_android",
+      "friend_add_pendency_add_wording" : "aaaa",
+      "friend_add_pendency_identifier" : "v222",
+      "friend_add_pendency_nick_name" : ""
+   }
+]
+```
+
+
 ### TIMLogCallback
 
 日志回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMLogCallback)(enum TIMLogLevel level, const char* log, const void* user_data);
@@ -483,7 +594,7 @@ typedef void (*TIMLogCallback)(enum TIMLogLevel level, const char* log, const vo
 
 消息更新回调。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* user_data);
@@ -496,7 +607,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 | json_msg_array | const char\* | 更新的消息数组 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
->?请参考 [TIMRecvNewMsgCallback](https://cloud.tencent.com/document/product/269/33552#timrecvnewmsgcallback)。
+>?请参考 [TIMRecvNewMsgCallback](#timrecvnewmsgcallback)。
 
 
 ## IM SDK 接口回调
@@ -506,7 +617,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 
 接口回调定义。
 
-**原型：**
+**原型**
 
 ```c
 typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json_params, const void* user_data);
@@ -541,6 +652,10 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 - [TIMGroupModifyMemberInfo](https://cloud.tencent.com/document/product/269/33550#timgroupmodifymemberinfo)。
 - [TIMGroupReportPendencyReaded](https://cloud.tencent.com/document/product/269/33550#timgroupreportpendencyreaded)。
 - [TIMGroupHandlePendency](https://cloud.tencent.com/document/product/269/33550#timgrouphandlependency)。
+- [TIMProfileModifySelfUserProfile](https://cloud.tencent.com/document/product/269/37661#timprofilemodifyselfuserprofile)。
+- [TIMFriendshipModifyFriendProfile](https://cloud.tencent.com/document/product/269/37662#timfriendshipmodifyfriendprofile)。
+- [TIMFriendshipDeleteFriendGroup](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletefriendgroup)。
+- [TIMFriendshipReportPendencyReaded](https://cloud.tencent.com/document/product/269/37662#timfriendshipreportpendencyreaded)。
 
 
 **示例一、接口 [TIMSetConfig](https://cloud.tencent.com/document/product/269/33546#timsetconfig) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig)。**
@@ -942,6 +1057,325 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
    "group_pendency_result_read_time_seq" : 0,
    "group_pendency_result_unread_num" : 1
 }
+```
+
+
+**示例十六、接口 [TIMProfileGetUserProfileList](https://cloud.tencent.com/document/product/269/37661#timprofilegetuserprofilelist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [UserProfile](https://cloud.tencent.com/document/product/269/33553#userprofile)**
+
+```c
+[
+   {
+      "user_profile_add_permission" : 1,
+      "user_profile_birthday" : 0,
+      "user_profile_face_url" : "",
+      "user_profile_gender" : 0,
+      "user_profile_identifier" : "user1",
+      "user_profile_language" : 0,
+      "user_profile_level" : 0,
+      "user_profile_location" : "",
+      "user_profile_nick_name" : "User1NickName",
+      "user_profile_role" : 0,
+      "user_profile_self_signature" : ""
+   },
+   {
+      "user_profile_add_permission" : 0,
+      "user_profile_birthday" : 0,
+      "user_profile_face_url" : "",
+      "user_profile_gender" : 0,
+      "user_profile_identifier" : "user2",
+      "user_profile_language" : 0,
+      "user_profile_level" : 0,
+      "user_profile_location" : "",
+      "user_profile_nick_name" : "",
+      "user_profile_role" : 0,
+      "user_profile_self_signature" : ""
+   }
+]
+```
+
+
+**示例十七、接口 [TIMFriendshipGetFriendProfileList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendprofilelist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendProfile](https://cloud.tencent.com/document/product/269/33553#friendprofile)**
+
+```c
+[
+   {
+      "friend_profile_add_source" : "AddSource_Type_android",
+      "friend_profile_add_time" : 1562229520,
+      "friend_profile_add_wording" : "",
+      "friend_profile_group_name_array" : [],
+      "friend_profile_identifier" : "asd12341",
+      "friend_profile_item_custom_string_array" : [
+         {
+            "friend_profile_custom_string_info_key" : "Tag_Profile_Custom_Str",
+            "friend_profile_custom_string_info_value" : "qcloud"
+         }
+      ],
+      "friend_profile_remark" : "",
+      "friend_profile_user_profile" : {
+         "user_profile_add_permission" : 0,
+         "user_profile_birthday" : 20190419,
+         "user_profile_face_url" : "faceUrl",
+         "user_profile_gender" : 0,
+         "user_profile_identifier" : "asd12341",
+         "user_profile_item_custom_string_array" : [
+            {
+               "user_profile_custom_string_info_key" : "Tag_Profile_Custom_Str",
+               "user_profile_custom_string_info_value" : "qcloud"
+            }
+         ],
+         "user_profile_language" : 1,
+         "user_profile_level" : 3,
+         "user_profile_location" : "sz\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000",
+         "user_profile_nick_name" : "nick_test23",
+         "user_profile_role" : 4,
+         "user_profile_self_signature" : "sig_test"
+      }
+   },
+   {
+      "friend_profile_add_source" : "AddSource_Type_Android",
+      "friend_profile_add_time" : 1555659941,
+      "friend_profile_add_wording" : "",
+      "friend_profile_group_name_array" : [],
+      "friend_profile_identifier" : "lttest1",
+      "friend_profile_remark" : "",
+      "friend_profile_user_profile" : {
+         "user_profile_add_permission" : 0,
+         "user_profile_birthday" : 0,
+         "user_profile_face_url" : "",
+         "user_profile_gender" : 0,
+         "user_profile_identifier" : "lttest1",
+         "user_profile_language" : 0,
+         "user_profile_level" : 0,
+         "user_profile_location" : "",
+         "user_profile_nick_name" : "",
+         "user_profile_role" : 0,
+         "user_profile_self_signature" : ""
+      }
+   }
+]
+```
+
+
+**示例十八、接口 [TIMFriendshipAddFriend](https://cloud.tencent.com/document/product/269/37662#timfriendshipaddfriend) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+{
+   "friend_result_code" : 0,
+   "friend_result_desc" : "",
+   "friend_result_identifier" : "user4"
+}
+```
+
+
+**示例十九、接口 [TIMFriendshipDeleteFriend](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletefriend) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user4"
+   }
+]
+```
+
+
+**示例二十、接口 [TIMFriendshipHandleFriendAddRequest](https://cloud.tencent.com/document/product/269/37662#timfriendshiphandlefriendaddrequest) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+{
+   "friend_result_code" : 0,
+   "friend_result_desc" : "",
+   "friend_result_identifier" : "user1"
+}
+```
+
+
+**示例二十一、接口 [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [PendencyPage](https://cloud.tencent.com/document/product/269/33553#pendencypage)**
+
+```c
+{
+   "pendency_page_current_seq" : 2,
+   "pendency_page_pendency_info_array" : [
+      {
+         "friend_add_pendency_info_add_source" : "AddSource_Type_Windows",
+         "friend_add_pendency_info_add_time" : 1563026447,
+         "friend_add_pendency_info_add_wording" : "I am Iron Man",
+         "friend_add_pendency_info_idenitifer" : "user4",
+         "friend_add_pendency_info_nick_name" : "change my nick name",
+         "friend_add_pendency_info_type" : 1
+      }
+   ],
+   "pendency_page_start_time" : 0,
+   "pendency_page_unread_num" : 0
+}
+```
+
+
+**示例二十二、接口 [TIMFriendshipDeletePendency](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletependency) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user4"
+   }
+]
+```
+
+
+**示例二十三、接口 [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendshipCheckFriendTypeResult](https://cloud.tencent.com/document/product/269/33553#friendshipcheckfriendtyperesult)**
+
+```c
+[
+   {
+      "friendship_check_friendtype_result_code" : 0,
+      "friendship_check_friendtype_result_desc" : "",
+      "friendship_check_friendtype_result_identifier" : "user4",
+      "friendship_check_friendtype_result_relation" : 3
+   }
+]
+```
+
+
+**示例二十四、接口 [TIMFriendshipCreateFriendGroup](https://cloud.tencent.com/document/product/269/37662#timfriendshipcreatefriendgroup) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "",
+      "friend_result_identifier" : "user4"
+   },
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "",
+      "friend_result_identifier" : "user10"
+   }
+]
+```
+
+
+**示例二十五、接口 [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendGroupInfo](https://cloud.tencent.com/document/product/269/33553#friendgroupinfo)**
+
+```c
+[
+   {
+      "friend_group_info_count" : 2,
+      "friend_group_info_identifier_array" : [ "user4", "user10" ],
+      "friend_group_info_name" : "Group123"
+   }
+]
+```
+
+
+**示例二十六、接口 [TIMFriendshipModifyFriendGroup](https://cloud.tencent.com/document/product/269/37662#timfriendshipmodifyfriendgroup) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 30001,
+      "friend_result_desc" : "Err_SNS_GroupUpdate_Friend_Not_Exist",
+      "friend_result_identifier" : "user5"
+   },
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "",
+      "friend_result_identifier" : "user4"
+   },
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "",
+      "friend_result_identifier" : "user9"
+   }
+]
+```
+
+
+**示例二十七、接口 [TIMFriendshipAddToBlackList](https://cloud.tencent.com/document/product/269/37662#timfriendshipaddtoblacklist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user5"
+   },
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user10"
+   }
+]
+```
+
+
+**示例二十八、接口 [TIMFriendshipGetBlackList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetblacklist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendProfile](https://cloud.tencent.com/document/product/269/33553#friendprofile)**
+
+```c
+[
+   {
+      "friend_profile_add_source" : "AddSource_Type_Android",
+      "friend_profile_add_time" : 1555656865,
+      "friend_profile_add_wording" : "",
+      "friend_profile_group_name_array" : [ "Group123" ],
+      "friend_profile_identifier" : "user10",
+      "friend_profile_remark" : "",
+      "friend_profile_user_profile" : {
+         "user_profile_add_permission" : 0,
+         "user_profile_birthday" : 0,
+         "user_profile_face_url" : "",
+         "user_profile_gender" : 0,
+         "user_profile_identifier" : "user10",
+         "user_profile_language" : 0,
+         "user_profile_level" : 0,
+         "user_profile_location" : "",
+         "user_profile_nick_name" : "",
+         "user_profile_role" : 0,
+         "user_profile_self_signature" : ""
+      }
+   },
+   {
+      "friend_profile_add_source" : "",
+      "friend_profile_add_time" : 0,
+      "friend_profile_add_wording" : "",
+      "friend_profile_group_name_array" : [],
+      "friend_profile_identifier" : "user5",
+      "friend_profile_remark" : "",
+      "friend_profile_user_profile" : {
+         "user_profile_add_permission" : 0,
+         "user_profile_birthday" : 0,
+         "user_profile_face_url" : "",
+         "user_profile_gender" : 0,
+         "user_profile_identifier" : "user5",
+         "user_profile_language" : 0,
+         "user_profile_level" : 0,
+         "user_profile_location" : "",
+         "user_profile_nick_name" : "",
+         "user_profile_role" : 0,
+         "user_profile_self_signature" : ""
+      }
+   }
+]
+```
+
+
+**示例二十九、接口 [TIMFriendshipDeleteFromBlackList](https://cloud.tencent.com/document/product/269/37662#timfriendshipdeletefromblacklist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendResult](https://cloud.tencent.com/document/product/269/33553#friendresult)**
+
+```c
+[
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user5"
+   },
+   {
+      "friend_result_code" : 0,
+      "friend_result_desc" : "OK",
+      "friend_result_identifier" : "user10"
+   }
+]
 ```
 
 

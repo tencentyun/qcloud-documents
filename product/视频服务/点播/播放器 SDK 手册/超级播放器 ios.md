@@ -24,17 +24,14 @@ pod 'SuperPlayer'
 #### 方案2. 本地 CocoaPods
 
 [下载 SDK](https://github.com/tencentyun/SuperPlayer_iOS)，解压到本地。此时您可以看到解压后的文件。
-
 ![](https://mc.qcloudimg.com/static/img/5ef04a5e101beea834813e58fc5115ec/androidzippkg.png)
-
 其中，播放器代码位于`Demo/SuperPlayer`，SDK 库位于 SDK 目录。
 在您的 Podfile 文件，添加下面代码：
-
 ```
 pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec', :subspecs => ['Player']
-# subspecs根据下载SDK不同会不一样，如果您下载的是专业版，则需要将Player改为Professional，其它以此类推
+# subspecs 根据下载 SDK 不同会不一样，如果您下载的是专业版，则需要将 Player 改为 Professional，其它以此类推
 ```
-命令行输入 `pod install` 或 `pod update` 执行安装。
+命令行输入`pod install`或`pod update`执行安装。
 
 ### 使用播放器
 
@@ -45,7 +42,7 @@ pod 'SuperPlayer', :path => '<解压路径>/Demo/SuperPlayer/SuperPlayer.podspec
 _playerView = [[SuperPlayerView alloc] init];
 // 设置代理，用于接受事件
 _playerView.delegate = self;
-// 设置父View，_playerView会被自动添加到holderView下面
+// 设置父 View，_playerView 会被自动添加到 holderView 下面
 _playerView.fatherView = self.holderView;
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 //设置播放信息
@@ -60,28 +57,27 @@ playerModel.fileId = @"4564972819219071679";  //视频 FileId
 ### 选择 FileId
 
 视频 FileId 在一般是在视频上传后，由服务器返回：
-1. 客户端视频发布后，服务器会返回 fileId 到客户端。
-2. 服务端视频上传时，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
+1. 客户端视频发布后，服务器会返回 FileId 到客户端。
+2. 服务端视频上传时，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 FileId。
 
-如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 fileId。如下图所示，ID 即表示 fileId：
-![视频管理](https://main.qcloudimg.com/raw/15c5d181b9037b58db5cf192fe831f1b.png)
+如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media) ，找到对应的文件，查看 FileId。如下图所示，ID 即表示 FileId：
+![视频管理](https://main.qcloudimg.com/raw/1a3677d5fe618227a117d7502be42793.png)
 
 ## 缩略图与打点
 
-在播放长视频时，缩略图（雪碧图）和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
+在播放长视频时，缩略图（雪碧图）和打点信息有助于观众找到感兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 - [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
-
 ![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
 
 ## 小窗播放
 
-小窗播是指在 App 内，悬浮在主 Window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
+小窗播放是指在 App 内，悬浮在主 Window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
 SuperPlayerWindowShared.superPlayer = _playerView; // 设置小窗显示的播放器
-SuperPlayerWindowShared.backController = self;  // 设置返回的view controller
+SuperPlayerWindowShared.backController = self;  // 设置返回的 view controller
 [SuperPlayerWindowShared show]; // 悬浮显示
 ```
 ![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)

@@ -12,7 +12,7 @@
 
 ## 操作步骤
 <span id="Step1"></span>
-### Step1：设置 Firebase 和 FCM SDK
+### 步骤1：设置 Firebase 和 FCM SDK
 >?本步骤中的网址为 Firebase 官方网址，需要在中国大陆地区以外才能访问。
 
 1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK，启动应用后获取设备注册令牌 **token**。
@@ -22,28 +22,30 @@
 5. 记录**旧版服务器密钥**和**发送者 ID**。
 
 <span id="Step2"></span>
-### Step2：托管证书信息到即时通信 IM 
-1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc) ，选择您的即时通信 IM 应用，进入应用配置页面。
+### 步骤2：托管证书信息到即时通信 IM 
+1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，选择您的即时通信 IM 应用，进入应用配置页面。
 2. 在基础配置页签中，单击应用平台右侧的【编辑】。
 3. 勾选【Android】，单击【保存】。
    ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
 4. 单击【Android 推送证书】区域的【添加证书】。
- >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
+ >?如果您原来已有证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
  > 
 5. 根据 [Step1](#Step1) 中获取的信息设置以下参数：
  - **推送平台**：选择 **Google**
  - **应用包名称**：填写客户 App 的包名
- - **发送者ID**：填写 Google 推送服务应用的 **发送者 ID**
- - **旧版服务器密钥**：填写 Google 推送服务应用的 **旧版服务器密钥**
-  ![](https://main.qcloudimg.com/raw/493e61d8406a81ca4f81abe18417c57c.png)
+ - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
+ - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
+ **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
+  ![](https://main.qcloudimg.com/raw/1c1f43a53874a15cefe8b23612da43d3.png)
 6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
-7. 待推送证书信息生成后，记录**`证书 ID`** 。
- ![](https://main.qcloudimg.com/raw/0a7322c3e689764390cb3ddbae911ff4.png) 
-	 
-<span id="Step3"></span>
-### Step3：上报推送信息至即时通信 IM 服务端
+7. 待推送证书信息生成后，记录**`证书 ID`**。
+ ![](https://main.qcloudimg.com/raw/4fc22d574cbca7aedb30c0a13e728a9f.png)
+	
 
-在**用户登录成功后**通过 `TIMManager` 中的 `setOfflinePushToken` 方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及集成 FCM 后在客户端生成的 **token** 上报到即时通信 IM 服务端。
+<span id="Step3"></span>
+### 步骤3：上报推送信息至即时通信 IM 服务端
+
+在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及集成 FCM 后在客户端生成的 **token** 上报到即时通信 IM 服务端。
 
 >!正确上报 token 与证书 ID 后，即时通信 IM 服务才能将用户与对应的设备信息绑定，从而使用 FCM 进行推送通知。
 
@@ -114,10 +116,11 @@ public class ThirdPushTokenMgr {
 ```
 
 <span id="Step4"></span>
-### Step4：离线推送
+### 步骤4：离线推送
 
 成功上报证书 ID 及 token 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。
 
+>?
 > - FCM 推送并非100%必达。
 > - FCM 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 FCM 推送服务有关。
 > - 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
@@ -132,4 +135,4 @@ public class ThirdPushTokenMgr {
 3. 确认您的 FCM 项目配置正确，并已正常获取 token。
 4. 确认您已将正确的 [推送信息上报](#Step3) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
-6. 若通过上述步骤后仍然接收不到推送，可以将您的问题 `时间点`、`SDKAppID`、`证书 ID`、`接收推送的 userid` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+6. 若通过上述步骤后仍然接收不到推送，可以将您的问题`时间点`、`SDKAppID`、`证书 ID`、`接收推送的 UserID` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。

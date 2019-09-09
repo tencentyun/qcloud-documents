@@ -1,6 +1,6 @@
-### 编译问题
 
-##### 集成遇到异常
+
+### 集成遇到异常怎么办？
 
 ![企业微信截图_18d122ab-812e-4d09-a7f3-f9f5b8220806](https://main.qcloudimg.com/raw/b631f468aca6a2d1e83b868874631030.png)
 
@@ -10,7 +10,7 @@
 
 如上图所示，请在app的build.gradle中指定abiFilters为”armeabi“
 
-##### SDK升级后，短视频的功能不能使用？
+### SDK 升级后，短视频的功能不能使用？
 
 1、如果使用的是androidstudio，在替换新的aar后，请修改app的build.gradle中的aar引用，是否与您放入工程下/libs目录下的aar**文件名称是否一致**。然后重新clean并且build一下您的工程。
 

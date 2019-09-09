@@ -2,6 +2,7 @@
 ## 操作场景
 vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上，推送消息能够通过 vivo 的系统通道抵达终端，并且无需打开应用，即可收到推送，更多详情请参见 [vivo 推送官网](https://dev.vivo.com.cn/home)。
 
+>?vivo 通道暂不支持应用内消息，此类型的消息会以通知的形式展示。
 
 ## 操作步骤
 ### 获取密钥
@@ -20,7 +21,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```
 2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:vivo:1.1.0.1-release' // vivo  推送
+implementation 'com.tencent.tpns:vivo:1.1.0.2-release' // vivo  推送
 ```
 
 

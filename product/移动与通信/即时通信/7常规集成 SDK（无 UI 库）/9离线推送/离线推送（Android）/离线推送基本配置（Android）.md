@@ -36,7 +36,7 @@
      <td>使用魅族推送 push-internal:3.6.+</td> 
    </tr> 
    <tr> 
-     <td nowrap="nowrap">OPPO 推送</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/9234" target="_blank">OPPO 推送</a></td> 
      <td>ColorOS</td> 
      <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。目前 OPPO 推送服务暂时只开放给已上架 OPPO 软件商店 A/B 等级的应用使用，因此 Demo 暂时没有 OPPO 推送的示例</td> 
    </tr>  
