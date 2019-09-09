@@ -64,11 +64,14 @@ VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
 request.MediaFilePath = "/data/videos/Wildlife.wmv";
 request.CoverFilePath = "/data/videos/Wildlife.jpg";
-try {
+try 
+{
     VodUploadResponse response = client.Upload("ap-guangzhou", request);
     // 打印媒体 FileId
     Console.WriteLine(response.FileId);
-} catch (Exception e) {
+} 
+catch (Exception e) 
+{
     // 业务方进行异常处理
     Console.WriteLine(e);
 }
@@ -84,11 +87,14 @@ VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
 request.MediaFilePath = "/data/videos/Wildlife.wmv";
 request.Procedure = "Your Procedure Name";
-try {
+try 
+{
     VodUploadResponse response = client.Upload("ap-guangzhou", request);
     // 打印媒体 FileId
     Console.WriteLine(response.FileId);
-} catch (Exception e) {
+} 
+catch (Exception e) 
+{
     // 业务方进行异常处理
     Console.WriteLine(e);
 }
@@ -104,11 +110,14 @@ VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
 request.MediaFilePath = "/data/videos/Wildlife.wmv";
 request.SubAppId = 101;
-try {
+try 
+{
     VodUploadResponse response = client.Upload("ap-guangzhou", request);
     // 打印媒体 FileId
     Console.WriteLine(response.FileId);
-} catch (Exception e) {
+} 
+catch (Exception e) 
+{
     // 业务方进行异常处理
     Console.WriteLine(e);
 }
