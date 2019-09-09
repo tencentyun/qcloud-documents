@@ -33,7 +33,7 @@
 
 | 权限集合              | API2.0                                                       | API3.0                                                       | 是否需要授权 |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------- |
-| 查询消耗数据及统计量  | DescribeCdnHostInfo DescribeCdnHostDetailedInfo<br/>GetCdnStatusCode GetCdnStatTop GetCdnProvIspDetailStat | DescribeCdnData DescribeOriginData ListTopData<br/>DescribeIpVisit | 是           |
+| 查询消耗数据及统计量  | DescribeCdnHostInfo <br/>DescribeCdnHostDetailedInfo<br/>GetCdnStatusCode<br/> GetCdnStatTop<br/> GetCdnProvIspDetailStat | DescribeCdnData<br/> DescribeOriginData<br/> ListTopData<br/>DescribeIpVisit | 是           |
 | 查询域名信息          | GetHostInfoById<br/>GetHostInfoByHost                        | 暂未上线                                                     | 是           |
 | 查询 CDN 日志下载链接 | GenerateLogList<br/>GetCdnLogList                            | 暂未上线                                                     | 是           |
 | 添加域名              | AddCdnHost<br/>                                              | 暂未上线                                                     | 是           |
