@@ -1,35 +1,10 @@
 
 ## 漏洞名称
-Fastjson < 1.2.60 远程拒绝服务漏洞
+Fastjson 远程拒绝服务漏洞
 ## 影响版本
 Fastjson < 1.2.60 
 ## 漏洞详情
 近日，[腾讯云安全中心](https://console.cloud.tencent.com/ssa) 监测到开源 JSON 解析库 Fastjson 1.2.60 以下版本存在字符串解析异常，攻击者可利用该漏洞发送精心构造的恶意请求包到使用到 Fastjson 的服务器，使服务器内存、CPU 等资源耗尽，导致服务不可用。目前该漏洞相关利用代码已被公开，建议尽快升级处理。
-
-```
-import java.net.URLDecoder;
-
-public class Issue2689 extends TestCase {
-
-    final String DEATH_STRING = "{\"a\":\"\\x";
-
-    public void test_OOM() throws Exception {
-
-        String line = new String("[{\\x22a\\x22:\\x22a\\xB1ph.\\xCD\\x86\\xBEI\\xBA\\xC3\\xBCiM+\\xCE\\xCE\\x1E\\xDF7\\x1E\\xD9z\\xD9Q\\x8A}\\xD4\\xB2\\xD5\\xA0y\\x98\\x08@\\xE1!\\xA8\\xEF^\\x0D\\x7F\\xECX!\\xFF\\x06IP\\xEC\\x9F[\\x85;\\x02\\x817R\\x87\\xFB\\x1Ch\\xCB\\xC7\\xC6\\x06\\x8F\\xE2Z\\xDA^J\\xEB\\xBCF\\xA6\\xE6\\xF4\\xF7\\xC1\\xE3\\xA4T\\x89\\xC6\\xB2\\x5Cx]");
-        line = line.replaceAll("\\\\x", "%");
-        String decodeLog = URLDecoder.decode(line, "UTF-8");
-        System.out.println(decodeLog);
-        try {
-            Object obj = JSON.parse(decodeLog);
-            obj = JSON.parse(DEATH_STRING);
-        } catch (Exception e) {
-            assertEquals(e.getClass(), JSONException.class);
-            assertTrue(e.getMessage().contains("invalid escape character \\x"));
-        }
-    }
-}
-```
-
 
 ## 官方修复建议
 
