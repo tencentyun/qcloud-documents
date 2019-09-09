@@ -27,7 +27,7 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 ![img](https://main.qcloudimg.com/raw/a159bd0cd6d1760003f80b546f6b8833.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
 
-> ?`file.myqcloud.com`后缀域名暂不支持 HTTP2.0。
+> ? `.myqcloud.com`后缀加速域名暂不支持 Http2.0
 
 ## OCSP 装订配置
 **功能说明**
