@@ -17,6 +17,12 @@
 
 解决方法： `sudo pip install six --upgrade --ignore-installed six` 
 
+###  pytz 版本过低
+表现：```uninstalling pytz : [error 1] Operation not permitted ...```
+
+解决办法：`sudo pip install pytz --upgrade --ignore-installed six` 
+
+
 
 ## 使用相关
 
