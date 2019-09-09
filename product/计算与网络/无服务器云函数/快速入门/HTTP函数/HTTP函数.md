@@ -28,7 +28,7 @@ HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.
 
 ### 云端测试
 在浏览器里打开该访问路径，显示 “hello from Express”，则说明函数创建成功。如下图所示：
-![](https://main.qcloudimg.com/raw/aba4ac973d6e040589b6fc233a243380.png)
+![](https://main.qcloudimg.com/raw/688e56210f56513a9eeeddc0174d08b6.png)
 您也可以使用其他 HTTP 测试工具，如 CURL、POSTMAN 等测试您已创建成功的 HTTP 函数。
 
 ### 查看日志
