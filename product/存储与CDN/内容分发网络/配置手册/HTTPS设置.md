@@ -29,13 +29,6 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 
 > ? `.myqcloud.com`后缀加速域名暂不支持 Http2.0
 
-## OCSP 装订配置
-**功能说明**
-OCSP 装订（OCSP Stapling，TLS 证书状态查询扩展）。OCSP Stapling 服务器在 TLS 握手时可将已经缓存好的 OCSP 查询结果发送给客户端，供用户验证，而不用让客户端自己向 CA 发送请求。OCSP 装订极大地提高了 TLS 握手效率，节省了用户验证时间。
-
-在成功为域名配置了 HTTPS 证书后，可以开启 OCSP 装订。
-![image](https://main.qcloudimg.com/raw/fcaee8ad06ea02f5fcdb7ad1d39b0bff.png)
-
 ## HTTPS 回源支持的算法
 
 目前 HTTPS 回源可支持的算法如下表所示（顺序无先后之分）：
