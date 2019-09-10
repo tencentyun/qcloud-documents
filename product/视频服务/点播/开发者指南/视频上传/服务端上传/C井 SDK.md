@@ -15,7 +15,7 @@ dotnet add package VodSDK --version 1.0.1
 * [从 Github 访问](https://github.com/tencentyun/vod-dotnet-sdk)
 * [单击下载 C# SDK](https://github.com/tencentyun/vod-dotnet-sdk/archive/master.zip)
 
-下载最新代码，解压后安装到项目工作目录下，使用 Visual Studio 2017 打开编译。因为此 SDK 还依赖外部的包，所以需要同时安装下面两个 SDK： 
+下载最新代码，解压后安装到项目工作目录下，使用 Visual Studio 2017 打开编译。因为此 SDK 还依赖外部的包，所以需要同时安装如下 SDK： 
 - [云 API SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)
 - [对象存储 SDK](https://github.com/tencentyun/qcloud-sdk-dotnet)
 
