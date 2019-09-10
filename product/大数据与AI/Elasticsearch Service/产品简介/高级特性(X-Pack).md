@@ -87,7 +87,7 @@
     <td class="tg-s6z2">⚫</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Kibana</td>
+    <td class="tg-0lax" rowspan="6">Kibana</td>
     <td class="tg-0lax">探索和可视化</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">◑</td>
@@ -107,12 +107,6 @@
   </tr>
   <tr>
     <td class="tg-0lax">分享与合作</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">本地化 UI</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">◑</td>
     <td class="tg-baqh">⚫</td>
@@ -186,7 +180,7 @@
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">ELASTIC APM</td>
+    <td class="tg-0lax" rowspan="6">ELASTIC APM</td>
     <td class="tg-0lax">APM 服务器</td>
     <td class="tg-baqh">⚫</td>
     <td class="tg-baqh">⚫</td>
@@ -214,12 +208,6 @@
     <td class="tg-0lax">分布式追踪</td>
     <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Alerting  整合</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
     <td class="tg-baqh">⚫</td>
   </tr>
   <tr>

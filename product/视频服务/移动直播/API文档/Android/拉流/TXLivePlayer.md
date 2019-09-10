@@ -10,6 +10,7 @@ __介绍__
 - 针对腾讯云的拉流地址，可使用低延时拉流，实现直播连麦等相关场景。
 - 针对腾讯云的拉流地址，可使用直播时移功能，能够实现直播观看与时移观看的无缝切换。
 - 支持自定义的音视频数据处理，您可以根据项目需要处理直播流中的音视频数据，然后进行渲染以及播放。
+- SDK 仅支持 Android 4.2 以上的版本。
 
 
 
@@ -415,7 +416,7 @@ __介绍__
 三个注意点：
 - 该 Buffer 用于接受软解回调出来的 I420 格式的 YUV 数据。
 - Buffer 大小 = width * height * 3 / 2。
-- 视频 width 、 height，可通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#onplayevent) 的 TXLiveConstants#PLAY_EVT_CHANGE_RESOLUTION 事件获取到。
+- 视频 width 和 height，可通过 [ITXLivePlayListener#onPlayEvent(int， Bundle)](https://cloud.tencent.com/document/product/454/34773#onplayevent) 的 TXLiveConstants#PLAY_EVT_CHANGE_RESOLUTION 事件获取到。
 
 ***
 
@@ -465,7 +466,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | domain | String | 时移域名。 |
-| bizid | int | 流　bizid。 |
+| bizid | int | 流 bizid。 |
 
 __返回__
 

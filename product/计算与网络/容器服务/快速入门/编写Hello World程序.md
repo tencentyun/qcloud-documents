@@ -76,18 +76,18 @@ docker images
 
 #### 上传该镜像到 qcloud 镜像仓库
 >!
->- 已在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user) 创建命名空间。
+>- 已在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/space) 创建命名空间。
 >- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/457/9117#.E7.99.BB.E5.BD.95.E5.88.B0.E8.85.BE.E8.AE.AF.E4.BA.91-registry)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
 
 依次执行以下命令，上传镜像到 qcloud 仓库。
->?
->- 请将命令中的 IMAGEID 替换为 [查看镜像](#search) 中记录的 IMAGEID。
->- 请将命令中的命名空间替换为您已创建的命名空间。
->
 ```shell
 sudo docker tag IMAGEID ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 ```
+>?
+>- 请将命令中的 IMAGEID 替换为 [查看镜像](#search) 中记录的 IMAGEID。
+>- 请将命令中的命名空间替换为您已创建的命名空间。
+>
 显示以下结果，则说明镜像上传成功。
 ![](https://main.qcloudimg.com/raw/1aadc58e8663488200e3e34a532642c4.png)
 

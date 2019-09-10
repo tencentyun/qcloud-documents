@@ -1,6 +1,6 @@
-腾讯云为您提供丰富的解决方案，可以满足您 VPC 内的云服务器/数据库等实例访问公网（Internet）、访问其他 VPC 内实例、或与本地数据中心（IDC）互连的需求。
-## 访问公网
-您可使用如下产品或功能，实现 VPC 内的实例访问公网。
+腾讯云为您提供丰富的解决方案，可以满足 VPC 内的云服务器、数据库等实例连接公网（Internet）、连接其他 VPC 内实例、或与本地数据中心（IDC）互联的需求。
+## 连接公网
+您可使用如下产品或功能，实现 VPC 与公网间的访问。
 
 <table>
 <thead>
@@ -42,11 +42,11 @@
 
 | 产品 | 功能 | 特点 |
 |---------|---------|---------|
-| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个 VPC 间内网通信。 |<li>两个 VPC 的CIDR 不能重叠。</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
+| [对等连接](https://cloud.tencent.com/document/product/553) | 用于两个 VPC 间内网通信。 |<li>两个 VPC 的 CIDR 不能重叠。</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li>|
 |[云联网](https://cloud.tencent.com/document/product/877)|用于两个或多个 VPC 间内网通信。|<li>CIDR 限制缩小到子网范围。</li><li>配置简单，路由自动下发。</li><li>一次加入，所有实例默认互通，支持路由开启和关闭。</li><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li>|
 
-## 与本地数据中心通信
-您可使用如下产品或功能，实现 VPC 与本地数据中心的通信。
+## 连接本地数据中心
+您可使用如下产品或功能，实现 VPC 与本地数据中心的互联。
 
 <table>
 <thead>
@@ -57,7 +57,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 网关</a></td>
+<td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 连接</a></td>
 <td>通过公网加密通道连接本地数据中心和 VPC。</td>
 <td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li></td>
 </tr>

@@ -13,7 +13,7 @@
 | ----------------------------- | -------------------------- | ---------------------------------------- |
 | [创建指标](/doc/api/255/创建指标)     | CreateMetric               | 在命名空间下创建指标，指定指标对应的统计信息                   |
 | [查询指标](/doc/api/255/查询指标)     | DescribeMetric             | 查询指定命名空间下的指标                             |
-| [修改指标](/doc/api/255/修改指标)     | ModifyMetric               | 修改指标的unit或者metricCname                   |
+| [修改指标](/doc/api/255/修改指标)     | ModifyMetric               | 修改指标的 unit 或者 metricCname                   |
 | [删除指标](/doc/api/255/删除指标)     | DeleteMetric               | 根据命名空间名和指标名删除指标                          |
 | [创建指标聚合](/doc/api/255/创建指标聚合) | CreateMetricAggeration     | 将指标下的指定维度聚合起来，以实现统计指标下部分维度的信息的功能以及查询指标下部分维度信息的功能 |
 | [删除指标聚合](/doc/api/255/删除指标聚合) | DeleteMetricAggeration     | 依据聚合的维度信息将该聚合删除                          |

@@ -27,18 +27,18 @@
 
 ### 阿里云（万网）注册商域名修改 DNS
 1. 选择需要在腾讯云进行解析的域名，进入域名管理页的【DNS 修改/创建】，单击【修改域名 DNS】；
-![](https://mccdn.qcloud.com/static/img/2ade9bc496f296f14186df348835ed8e/image.png)
+![](https://main.qcloudimg.com/raw/139975c769f43867a53c70b3ae2fc6ad.png)
 2. 分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net，保存后最长等待 72 小时可以全球生效。
-![](https://mccdn.qcloud.com/static/img/bca1fc5a448568567c3498b3d2c0da4d/image.png)
+![](https://main.qcloudimg.com/raw/1694dd7391aa85140f654ee7db90ebe0.png)
 
 ### GoDaddy 注册商域名修改 DNS
 1. 登录 [GoDaddy](http://www.godaddy.com) 后单击【DOMAINS】的【Manage】。
-![1](https://mccdn.qcloud.com/static/img/857a65f25a4c950dab04f36c6773bf20/GD-1.png)
+![gd1](https://main.qcloudimg.com/raw/2ca1a9c4c5a5f4513c7b2ff419582f5f.png)
 2. 在域名列表中找到要修改要修改 DNS 的域名，然后单击该域名下拉列表中的 【Set NameServers】。
-![2](https://mccdn.qcloud.com/static/img/d692fab785a928ebbfc183637bdd9c31/GD-2.png)
+![gd2](https://main.qcloudimg.com/raw/c2bba72ee7f8afc445d84327229518e8.png)
 3. 选择【Custom】，再单击左下角的【Add Nameserver】。
-![3](https://mccdn.qcloud.com/static/img/2b5194f50b656d4d75666d2357f784b6/GD-3.png)
+![gd3](https://main.qcloudimg.com/raw/66cdd937d1e94d0e87f5adbd413dd221.png)
 4. 分别输入 f1g1ns1.dnspod.net、f1g1ns2.dnspod.net，然后单击【Add Nameserver】，再单击【Save】，等待全球递归 DNS 服务器刷新（最多72小时）。
-![4](https://mccdn.qcloud.com/static/img/bed919b5d4fe0b33b6bc9f537dce1a8d/GD-4.png)
-![5](https://mccdn.qcloud.com/static/img/8c4f15a5fa913037a06f752ac62ac22b/GD-5.png)
+![gd4](https://main.qcloudimg.com/raw/ec7b82d7b0080932246a65480680c1b8.png)
+![gd5](https://main.qcloudimg.com/raw/c2473a10face5bbd1524283bde65b08c.png)
 

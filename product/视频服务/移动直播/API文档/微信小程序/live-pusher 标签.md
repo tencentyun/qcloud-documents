@@ -2,9 +2,9 @@
 **&lt;live-pusher&gt;** 是小程序内部用于支持音视频上行能力的功能标签，本文主要介绍该标签的使用方法。
 
 ## 版本支持
-- 微信 App iOS 最低版本要求：6.5.21 
-- 微信 App Android 最低版本要求：6.5.19 
-- 小程序基础库最低版本要求：1.7.0 
+- 微信 App iOS 最低版本要求：6.5.21。 
+- 微信 App Android 最低版本要求：6.5.19。
+- 小程序基础库最低版本要求：1.7.0。 
 
 >? 通过 wx.getSystemInfo 可以获取当前基础库版本信息。
 
@@ -43,7 +43,7 @@
 | orientation | String | vertical | vertical，horizontal |
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
-| aspect | String | 9:16 | 3：4，9：6|
+| aspect | String | 9：16 | 3：4，9：6|
 | zoom | Boolean | false | 是否正常焦距，true 表示将摄像头放大 |
 | device-position | String | front | front 前置摄像头，back 后置摄像头 | 
 | min-bitrate | Number | 200  | 最小码率，该数值决定了画面最差的清晰度表现|
@@ -110,7 +110,7 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 | 多人会议（主讲） | RTC | 200kbps | 1000kbps | high | 主讲人画质可以适当高一些，参与的质量可以设置的低一些 |
 | 多人会议（参与） | RTC | 150kbps | 300kbps   | low | 作为会议参与者，不需要太高的画质和音质 |
 
->? 如果不是对带宽特别没有信心的应用场景，audio-quality选项请不要选择 low，其音质和延迟感都要会比 high 模式差很多。
+>? 如果不是对带宽特别没有信心的应用场景，audio-quality 选项请不要选择 low，其音质和延迟感都要会比 high 模式差很多。
 
 ## 对象操作
 - **wx.createLivePusherContext()**

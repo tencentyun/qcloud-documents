@@ -97,7 +97,6 @@ User-Agent: curl/7.29.0
 Accept: */*
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa873003759404
-Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
 

@@ -4,9 +4,11 @@ DELETE Object 接口请求可以删除一个指定的对象（Object）。该 AP
 
 #### 版本控制
 
-当启用版本控制时，该 DELETE 操作将创建一个删除标记作为指定对象的最新版本，并返回 x-cos-delete-marker: true 和 x-cos-version-id 响应头部。
+当启用版本控制时，该 DELETE 操作可以使用 versionId 请求参数指定要删除的版本 ID，此时将永久删除对象的指定版本或指定删除标记，否则将创建一个删除标记作为指定对象的最新版本。
 
->!要永久删除指定对象的指定版本或指定删除标记，请使用 versionId 请求参数。
+当该 DELETE 操作创建或删除了删除标记，那么将返回 x-cos-delete-marker: true 响应头部，代表该 DELETE 操作创建或删除了指定对象的删除标记。
+
+当该 DELETE 永久删除了特定的版本 ID（包括删除标记的版本 ID），那么将返回 x-cos-version-id 响应头部，代表该请求操作删除的版本 ID。
 
 ## 请求
 
@@ -25,7 +27,7 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| versionId | 当启用版本控制时，指定要删除的版本 ID（包括删除标记的版本 ID，下同），如不指定则创建一个删除标记作为指定对象的最新版本 | string | 否 |
+| versionId | 当启用版本控制时，指定要删除的版本 ID（包括删除标记的版本 ID，下同），若不指定则创建一个删除标记作为指定对象的最新版本 | string | 否 |
 
 #### 请求头
 
@@ -47,8 +49,8 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
-| x-cos-version-id | 对象的版本 ID | string |
-| x-cos-delete-marker | 当使用 versionId 请求参数指定删除标记的版本 ID 时，将返回此响应头部且值为 true，代表删除的版本 ID 对应的是一个删除标记<br>当未使用 versionId 请求参数且指定的对象所在的存储桶启用了版本控制时，将返回此响应头部且值为 true，代表该删除请求创建了一个删除标记作为对象的最新版本 | boolean |
+| x-cos-version-id | 对象的版本 ID 或删除标记的版本 ID | string |
+| x-cos-delete-marker | <li>当使用 versionId 请求参数指定删除标记的版本 ID 时，将返回此响应头部且值为 true，代表删除的版本 ID 对应的是一个删除标记<br><li>当未使用 versionId 请求参数，且指定对象所在的存储桶启用了版本控制时，将返回此响应头部且值为 true，代表该删除请求创建了一个删除标记作为对象的最新版本 | boolean |
 
 #### 响应体
 

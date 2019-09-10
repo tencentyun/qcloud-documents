@@ -5,7 +5,7 @@
 - iOS 9.0 以上的 iPhone 或者 iPad 真机。
 - 项目已配置有效的开发者签名。
 
-## 集成 LiteAV SDK
+## 集成 LiteAVSDK
 您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK，再将其导入到您当前的工程项目中。
 
 ### CocoaPods
@@ -23,7 +23,7 @@ pod init
 
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式：
--  方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
+-  方式一：使用腾讯云 LiteAVSDK 的 podspec 文件路径。
 
 ```
   platform :ios, '8.0'
@@ -45,7 +45,7 @@ pod init
 ```
 
 #### 4. 更新并安装 SDK
-在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAV SDK：
+在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAVSDK：
 ```
 pod install
 ```
@@ -95,9 +95,9 @@ Accelerate.framework
 #import "TXLiteAVSDK_Professional/TXLiteAVSDK.h"
 ```
 
-## 给 SDK 配置 license 授权
+## 给 SDK 配置 License 授权
 
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 license，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用 LiteAVSDK 的相关功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置：
 
@@ -116,6 +116,6 @@ Accelerate.framework
 ```
 
 ## 常见问题
-### LiteAV SDK 是否支持后台运行？
+### LiteAVSDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)

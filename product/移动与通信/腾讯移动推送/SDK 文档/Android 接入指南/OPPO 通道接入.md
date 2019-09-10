@@ -3,6 +3,8 @@
 ## 操作场景
 OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上，推送消息能够通过 OPPO 的系统通道抵达终端，并且无需打开应用就能够收到推送，而且在 Color OS 3.1 手机上，App 只要注册 OPPO 推送，即可自动打开通知接收权限，否则默认是关闭的，需要用户手动设置开启。详情请参见 [OPPO 推送官网](https://push.oppo.com/)。
 
+>?OPPO 通道暂不支持应用内消息的发送，此类型的消息会以通知的形式展示。
+
 ## 操作步骤
 ### 获取密钥
 开发者需向 OPPO 申请开通推送权限，获取到 AppKey、AppSecret、master secret 三个密钥。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=1019 )。
@@ -14,9 +16,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
 2. 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-/* Oppo 1.0.9.0版
- */
-implementation 'com.tencent.tpns:oppo:1.1.0.0-release'//oppo推送
+implementation 'com.tencent.tpns:oppo:1.1.0.2-release'//oppo推送
 ```
 
 
