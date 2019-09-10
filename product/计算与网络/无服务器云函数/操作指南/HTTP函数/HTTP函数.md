@@ -19,15 +19,15 @@ HTTP 函数当前处于内测发布状态，请通过 [内测申请](https://clo
 - HTTP 函数不支持设置触发器。
 - HTTP 函数暂不支持版本和别名。
 - 在 `Request headers` 中有以下限制：
- - 所有 key 和 value 的大小不得超过 4 KB。
- - path（含 query、params）不得超过 4 KB。
- - body 大小不超过 6 MB。
+ - 所有 key 和 value 的大小不得超过4KB。
+ - path（含 query、params）不得超过4KB。
+ - body 大小不超过6MB。
 - 在 `Response headers` 中有以下限制：
- - 所有 key 和 value 的大小不得超过 4 KB。
- - body 的大小不超过 6 MB。
+ - 所有 key 和 value 的大小不得超过4KB。
+ - body 的大小不超过6MB。
 
 ## 问题分析
-HTTP 函数的 Response headers 会包含请求 ID（`X-Scf-Request-Id`）和错误类型（`X-Scf-Error-Type`）来帮助您进行问题诊断。您可参考以下信息分析错误原因：
+当 HTTP 函数出现问题时，Response headers 会包含请求 ID（`X-Scf-Request-Id`）和错误类型（`X-Scf-Error-Type`）信息，来帮助您分析问题原因。您可参考以下信息查看错误原因：
 
 
 | 结构名                 | 内容 | 原因分析                                               |
@@ -35,7 +35,7 @@ HTTP 函数的 Response headers 会包含请求 ID（`X-Scf-Request-Id`）和错
 | ScfCommonError         | 400  | 域名和 url 格式错误时返回                                |
 | ScfCommonError         | 404  | AppId、函数名等不存在                                  |
 | ScfCommonError         | 413  | 当请求参数大小超过限制时返回                           |
-| ScfCommonError         | 429  | 用户被流控，可减小并发量或者 [提交工单]() 联系我们提高并发度 |
+| ScfCommonError         | 429  | 用户被流控，可减小并发量或者 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&level3_id=671&radio_title=%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6%E6%8F%90%E5%8D%87%E7%94%B3%E8%AF%B7&queue=81&scene_code=17230&step=2) 联系我们提高并发度 |
 | ScfSysError            | 500  | 平台系统错误                                           |
 | UnhandledInvocationErr | 502  | 响应大小超过限制                                       |
 | UnhandledInvocationErr | 502  | 函数错误（如函数代码有语法错误或者异常）               |
