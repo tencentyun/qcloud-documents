@@ -1,41 +1,57 @@
-针对单函数，提供从公网 Git 仓库拉取代码部署的能力。
-在函数代码页面，提交方法选择“通过git上传代码包”。
-填写 Git 相关认证信息，和仓库信息后，点击确定，云函数后台即可从 git 仓库拉取代码进行部署。
+## 操作场景
+腾讯云云函数（SCF）针对单函数，提供从公网 Git 仓库拉取代码部署的能力。
 
 ## 前提条件
- - 已开通云函数Git拉取代码功能。
-云Git拉取代码目前为内测发布功能，可通过 [内测申请](https://cloud.tencent.com/apply/p/kd8np1at8r) 获取此功能。
- - 暂时只支持北京和广州地域。
+ - 已开通云函数 Git 拉取代码功能。
+ Git 拉取代码目前为内测发布功能，可通过 [内测申请](https://cloud.tencent.com/apply/p/kd8np1at8r) 获取此功能。
+ - 请对应您的公网 Git 仓库获取认证信息。SCF 支持以下公网 Git 仓库：
+  - [Github](#git)
+  - [Coding](#coding) 
+  - [码云](#yun)
 
 
-![](https://main.qcloudimg.com/raw/e8823044d909585ecc662c3eee6f98a8.png)
 
-### 支持的公网Git仓库列表：
-    Github，Coding，码云
 
-### Git认证信息：
-    用户名：Git账户的用户名
 
-    Token（或密码）：Git账户的私人令牌或者密码
+<span id="git"></span>
+### Git 认证信息
+**用户名：**Git 账户的用户名。
+**密码：**Git 账户的私人令牌或者密码。
 
-## 私人令牌申请页面：
+#### 获取 Github 私人令牌
+1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo。如下图所示：
+![](https://main.qcloudimg.com/raw/6e12bcb45bbd998d80440a0e0849f035.png)
+2. 单击页面下方的【Generate token】，即可看到生成的私人令牌。
 
-### GitHub
-    Github：https://github.com/settings/tokens 需要赋予repo权限
+<span id="coding"></span>
+### Coding 认证信息
+**用户名：** 登录 Coding 并进入个人首页，记录浏览器地址栏 `/u/` 后的内容作为用户名。如下图所示：
+![](https://main.qcloudimg.com/raw/5e061a19c2ef0c691b89d84352fe97a1.png)
+**密码：**Coding 账户的私人令牌。
 
-![](https://main.qcloudimg.com/raw/8a41e0e1a9d39c951e014a50f9956ce3.png)
+#### 获取 Coding 私人令牌
+请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。 
+设置令牌时，请勾选 `project:depot` 获取仓库的读/写权限。如下图所示：
+![](https://main.qcloudimg.com/raw/2a221caac37be9b91767c8ef1065371a.png)
 
-### Coding
-    Coding：参照此文档https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C
-
-#### 用户名
-![](https://main.qcloudimg.com/raw/bef9e8ca86af22d1384fe1b2ca0e3300.png)
-
-#### Token
-![](https://main.qcloudimg.com/raw/58698cb5e8ba44d806b4687a1d1fdc37.png)
-
+<span id="yun"></span>
 ### 码云
+**用户名：**码云账户的用户名。
+**密码**：码云账户的私人令牌。
 
-    码云：https://gitee.com/profile/personal_access_tokens 需要赋予projects权限
+#### 获取码云私人令牌
+1. 进入 [码云私人令牌设置](https://gitee.com/profile/personal_access_tokens) 页面，单击页面右上角的【生成私人令牌】。
+2. 在私人令牌配置页面，勾选 `projects` 后单击【提交】，即可在弹出页面看到生成的私人令牌。如下图所示：
+![](https://main.qcloudimg.com/raw/4ecc29dd0cc3b3a5137f92bd90b84813.png)
 
-![](https://main.qcloudimg.com/raw/b8d35925768b86225fcccc10fcf070bb.png)
+## 操作步骤
+1.登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index)，选择**广州**。
+>!Git 拉取代码功能目前仅支持**北京**和**广州**。
+>
+2. 选择左侧导航栏【函数服务】，单击【新建】。如下图所示：
+![](https://main.qcloudimg.com/raw/3edbe1d2a74e21a2800bd21b08741f50.png)
+3. 在“新建函数”页面，根据您的实际需求填写函数信息，单击【下一步】。
+4. 在“函数配置”页面，“提交方法”选择“通过git上传代码包”，并填写您使用的 Git 仓库相关信息。
+![](https://main.qcloudimg.com/raw/8992b7bc2e06f9135164f5cb69783817.png)
+5.单击【完成】，即可成功创建函数。
+
