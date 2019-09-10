@@ -1,5 +1,5 @@
 
-宙斯盾安全防护（Aegis Anti-DDoS）提供 HTTP CC 高级防护策略。CC 防护策略，当设置 HTTP 请求数超过设定的 QPS 值时，才会触发 CC 防护。更详细的配置说明，详情请参见 [**自定义高级安全策略**](https://cloud.tencent.com/document/product/685/18800#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AE.89.E5.85.A8.E7.AD.96.E7.95.A5)。
+宙斯盾安全防护（Aegis Anti-DDoS）提供 HTTP CC 高级防护策略，CC 防护策略当设置 HTTP 请求数超过设定的 QPS 值时，才会触发 CC 防护。更详细的配置说明，详情请参见 [**自定义高级安全策略**](https://cloud.tencent.com/document/product/685/18800#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AE.89.E5.85.A8.E7.AD.96.E7.95.A5)。
 
 ## 添加 CC 防护策略
 1. 用户进入 [宙斯盾高防控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，单击【HTTP CC 防护高级策略】，在 “HTTP CC 防护高级策略” 下，单击【添加新策略】。添加成功后，在 “操作” 列下单击【配置】进入策略配置页面。
