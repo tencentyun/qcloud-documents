@@ -1,5 +1,5 @@
 
-腾讯物联网通信 REST API 为客户提供易于使用的 API（通过封装HTTP接口）。客户应用程序（如：后台软件和APP软件）可使用此 API 实现产品创建/删除、设备创建/删除、发布消息、影子数据操作等相关的功能。
+腾讯物联网通信 REST API 为客户提供易于使用的 API（通过封装 HTTP 接口）。客户应用程序（例如，后台软件和 App 软件）可使用此 API 实现产品创建/删除、设备创建/删除、发布消息、影子数据操作等相关的功能。
 
 
 
@@ -25,17 +25,15 @@
 	```
 	//初始化
 	iotCloud = IoTCloud(region, secretId, secretkey)
-
 	//创建产品
 	response = self.iotCloud.create_product('ProductName')
-
 	//打印结果
 	{"productName":"ProductName","productID":"QZIAVH2HNS","message":"","codeDesc":"Success","code":0}
 	```
 5. 在 Demo.py 填写从官网获取的 SecretID 和用户从官网获取的 SecretKey，然后到根目录输入以下命令执行 Demo 代码。
-  ```
-  python Demo.py
-  ```
+	```
+	python Demo.py
+	```
 
 
 ## 接口说明
