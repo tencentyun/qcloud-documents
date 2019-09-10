@@ -1,6 +1,5 @@
 ## 操作场景
 本文为您介绍通过云数据库 CynosDB 控制台创建集群的操作。
->?出于性能和安全的考虑，目前 CynosDB 仅支持私有网络 VPC，云服务器 CVM 需要与 CynosDB 在同一 VPC 下方可通信。
 
 ## 前提条件
 购买前需要实名认证，请参见 [实名认证指引](https://cloud.tencent.com/document/product/378/3629)。
