@@ -48,6 +48,8 @@
 >? 若无 `/usr/local/nginx/conf` 目录，可通过 `mkdir /usr/local/nginx/conf` 命令行创建。
 4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
+>?此操作可通过 `vim usr/local/nginx/conf/nginx.conf` 命令行编辑该文件。
+>
 ```
 server {
         listen 443; #SSL 访问端口号为 443
