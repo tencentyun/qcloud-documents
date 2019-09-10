@@ -123,10 +123,10 @@ style 支持的样式如下：
 #### 4.3 实现用例
 
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
-```
->!**在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
+[视频封面](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-poster.html)
+>!
+ - **在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
+ - **以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
@@ -165,13 +165,13 @@ var player = new TcPlayer('id_test_video', {
 
 #### 5.3 实现用例
 使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
+[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
 
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true
-```
 正常情况将看到如下效果：
 ![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
-**PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
+>!
+ - **PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
+ - **以上示例链接仅用于文档演示，请勿用于生产环境**
 
 ### Step6. 定制错误提示语
 Web 播放器支持提示语定制。
@@ -194,8 +194,10 @@ var player = new TcPlayer('id_test_video', {
 视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http://2527.vod.myqcloud.com/2527_b393eb1.f230.av.m3u8
+https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 ```
+>!
+ - **以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 #### 6.3 错误码表
 | Code  | 提示语|说明                                       |
@@ -220,15 +222,9 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 
 ## 源码参考
 如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true
-```
-
-您可以用它来测试播放器的效果，在链接后面加上需要播放的视频地址，刷新后就会播放如下视频地址：
-
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true&m3u8=http%3A%2F%2F1251132611.vod2.myqcloud.com%2F4126dd3evodtransgzp1251132611%2F8a592f8b9031868222950257296%2Ff0.f240.m3u8
-```
+[播放示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer.html)
+>!
+ - **以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ## 参数列表
 播放器支持的所有参数，如下所示：
@@ -253,7 +249,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>- default 居中1：1显示。 <br>- stretch 拉伸铺满播放器区域，图片可能会变形。 <br>- cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)）  <br> 示例："system"|
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-consoles.html)）  <br> 示例："system"|
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
@@ -356,7 +352,7 @@ volumechange
 | timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
-应用案例：通过事件监听，可以进行播放失败重连，[单击访问](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html) 在线案例。
+应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-reconnect.html) 在线案例。
 
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
