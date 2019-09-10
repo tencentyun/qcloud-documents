@@ -7,17 +7,17 @@
 ```
 dotnet add package VodSDK --version 1.0.1
 ```
-2. 通过 Visual Studio 的 nuget 包管理工具，搜索 VodSDK 并安装
+2. 通过 Visual Studio 的 nuget 包管理工具，搜索 VodSDK 并安装。
 
 ### 通过源码包安装
 如果项目中没有使用 nuget 工具，可以直接下载源码导入项目中使用：
 
 * [从 Github 访问](https://github.com/tencentyun/vod-dotnet-sdk)
-* [单击下载 Python SDK](https://github.com/tencentyun/vod-dotnet-sdk/archive/master.zip)
+* [单击下载 C# SDK](https://github.com/tencentyun/vod-dotnet-sdk/archive/master.zip)
 
-下载最新代码，解压后安装到项目工作目录下，使用 Visual Studio 2017 打开编译。因为此 SDK 还依赖外部的包，所以需要同时安装下面两个 SDK： 
-1. [云API SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)
-2. [对象存储 SDK](https://github.com/tencentyun/qcloud-sdk-dotnet)
+下载最新代码，解压后安装到项目工作目录下，使用 Visual Studio 2017 打开编译。因为此 SDK 还依赖外部的包，所以需要同时安装如下 SDK： 
+- [云 API SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)
+- [对象存储 SDK](https://github.com/tencentyun/qcloud-sdk-dotnet)
 
 ##  简单上传
 ### 初始化一个上传客户端对象
