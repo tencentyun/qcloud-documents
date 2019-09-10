@@ -9,7 +9,7 @@ HTTP 函数（HTTP Function）是云函数的一种，区别于事件函数（Ev
 - 减少请求处理环节，HTTP 函数支持更高效的请求/响应格式，不需要 encode/decode 生成 json，性能更优。
 - 方便对接其他支持 Webhook 回调的服务，例如 CDN 回源，企业微信机器人等。
 - HTTP 函数的编写体验更贴近编写原生 WEB 服务，使用 Node.js 原生接口（[HTTP Request/Response 数据结构](http://nodejs.cn/api/http.html)）。
-- 丰富的框架支持，您可以使用常见的 WEB 框架（如 Nodejs Web 框架：`Express`、`Koa`）编写 HTTP 函数。WEB框架内置的一些中间件（如 `cors`）也会极大的方便您的业务编写。
+- 丰富的框架支持，您可以使用常见的 WEB 框架（如 Nodejs Web 框架：`Express`、`Koa`）编写 HTTP 函数。而 WEB 框架内置的一些中间件（如 `cors`）也会极大的方便您的业务编写。
 
 HTTP 函数当前处于内测发布状态，请通过 [内测申请](https://cloud.tencent.com/apply/p/1zimo1hbjpu) 获得此功能。
 
