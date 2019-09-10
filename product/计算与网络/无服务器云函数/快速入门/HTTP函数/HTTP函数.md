@@ -1,15 +1,17 @@
 ## 操作场景
-本文档介绍了如何快速创建一个 HTTP 函数，帮助您了解 HTTP 函数创建过程及 SCF 控制台基本操作。
+本文档介绍了如何快速创建一个 HTTP 函数，您可通过此教程了解 HTTP 函数创建过程及 SCF 控制台基本操作。
+
+
 
 ## 前提条件
-- 已 注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
+- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已开通 HTTP 函数功能。
 HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.tencent.com/apply/p/tagk8e0x19f) 获得此功能。
 
 ## 操作步骤
 
 ### 创建函数
-1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，选择**广州**地域。
+1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1)，选择**广州**。
 >!HTTP 函数目前仅支持**广州**地区。
 >
 2. 选择左侧导航栏【函数服务】，单击【新建】。如下图所示：
@@ -33,7 +35,7 @@ HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.
 
 ### 查看日志
 在已创建函数的详情页面，选择【运行日志】，即可查看函数详细日志。如下图所示：
-![img](https://main.qcloudimg.com/raw/520a0499b08bf6a04da90ce7e1e24396.png)
+![](https://main.qcloudimg.com/raw/6af3b878cd0f7d5a66bb3242f3f9f5e4.png)
 更多关于日志信息请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
 
 ### 查看监控
