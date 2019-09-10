@@ -1,6 +1,6 @@
 ## 功能描述
 
-GET Bucket acl 接口用来获取存储桶的访问控制列表（ACL）。该 API 的请求者需要对存储桶有写入 ACL 权限。
+GET Bucket acl 接口用来获取存储桶的访问控制列表（ACL）。该 API 的请求者需要对存储桶有读取 ACL 权限。
 
 ## 请求
 
