@@ -125,8 +125,8 @@ style 支持的样式如下：
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [视频封面](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-poster.html)
 >!
- - **在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
- - **以上示例链接仅用于文档演示，请勿用于生产环境。**
+>- **在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
+>- **以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
@@ -166,7 +166,6 @@ var player = new TcPlayer('id_test_video', {
 #### 5.3 实现用例
 使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
-
 正常情况将看到如下效果：
 ![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
 >!
@@ -196,8 +195,7 @@ var player = new TcPlayer('id_test_video', {
 ```
 https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 ```
->!
- - **以上示例链接仅用于文档演示，请勿用于生产环境。**
+>!**以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 #### 6.3 错误码表
 | Code  | 提示语|说明                                       |
@@ -223,8 +221,7 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 ## 源码参考
 如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [播放示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer.html)
->!
- - **以上示例链接仅用于文档演示，请勿用于生产环境。**
+>!**以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ## 参数列表
 播放器支持的所有参数，如下所示：
