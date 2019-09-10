@@ -1,10 +1,11 @@
 ## 操作场景
-本文档介绍了如何快速创建一个 HTTP 函数，您可通过此教程了解 HTTP 函数创建过程及 SCF 控制台基本操作。
+本文档介绍了如何快速创建一个 HTTP 函数，您可通过此教程了解 HTTP 函数创建过程及云函数控制台基本操作。
 
 
 
 ## 前提条件
-- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
+- 已注册腾讯云账户。
+若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已开通 HTTP 函数功能。
 HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.tencent.com/apply/p/tagk8e0x19f) 获得此功能。
 
@@ -20,12 +21,12 @@ HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.
  - **函数类型**：选择 “HTTP”。
  - **函数名称**：填写 express-helloworld。
  - **运行环境**：选择 “Nodejs 8.9”。
- - **创建方式**：选择 “模版函数”。
+ - **创建方式**：选择“模版函数”。
  - **模板搜索**：输入 Express 后按 “Enter” 进行搜索，选择 “Express” 模版。
 ![](https://main.qcloudimg.com/raw/f5758f5dc63b1527793edb3899177e43.png)
 4. 函数配置保持默认，并单击【完成】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0fa5b842f20ad3a48360b94a40ca19e8.png)
-函数创建完成后，自动进入创建成功函数的“访问控制”页面，可查看 HTTP 函数的访问路径 URL。如下图所示：
+函数创建完成后，自动进入创建成功函数的“访问控制”页面，即可可查看 HTTP 函数的访问路径 URL。如下图所示：
 ![](https://main.qcloudimg.com/raw/586eb7de3cb672c359fb9852b60d7031.png)
 
 ### 云端测试
