@@ -71,11 +71,11 @@ Authorization: Auth String
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口除返回公共响应头部外，还返回以下响应头部，了解公共响应头部详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 **版本控制相关头部**
 
-在启用（Enabled）版本控制的存储桶中上传对象，将返回下列响应头部：
+在启用版本控制的存储桶中上传对象，将返回下列响应头部：
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
@@ -222,7 +222,7 @@ x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
-#### 案例五：启用（Enabled）版本控制
+#### 案例五：启用版本控制
 
 #### 请求
 
@@ -252,7 +252,7 @@ x-cos-request-id: NWQwY2EyNWRfYThjMDBiMDlfMTA1MDlfYTQ1****
 x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
 ```
 
-#### 案例六：暂停（Suspended）版本控制
+#### 案例六：暂停版本控制
 
 #### 请求
 
