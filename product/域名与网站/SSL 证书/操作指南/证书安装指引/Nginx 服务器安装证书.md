@@ -54,17 +54,25 @@
 >
 ```
 server {
-        listen 443; #SSL 访问端口号为 443
-        server_name www.domain.com; #填写绑定证书的域名
-        ssl on; #启用 SSL 功能
-        ssl_certificate 1_www.domain.com_bundle.crt; #证书文件名称
-        ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
+        #SSL 访问端口号为 443
+        listen 443; 
+	    #填写绑定证书的域名
+        server_name www.domain.com; 
+		#启用 SSL 功能
+        ssl on;
+		#证书文件名称
+        ssl_certificate 1_www.domain.com_bundle.crt; 
+		#私钥文件名称
+        ssl_certificate_key 2_www.domain.com.key; 
         ssl_session_timeout 5m;
-        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; #请按照这个协议配置
-        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; #请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
+	    #请按照这个协议配置
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
+	    #请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
+        ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
         ssl_prefer_server_ciphers on;
         location / {
-            root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+		   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+            root /var/www/www.domain.com; 
             index  index.html index.htm;
         }
     }
@@ -89,12 +97,16 @@ server {
 ```
 server {
     listen 443;
-    server_name www.domain.com; #填写绑定证书的域名
+	#填写绑定证书的域名
+    server_name www.domain.com; 
     ssl on;
-    root /var/www/www.domain.com; #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+	#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
+    root /var/www/www.domain.com; 
     index index.html index.htm;   
-		ssl_certificate  1_www.domain.com_bundle.crt; #证书文件名称
-    ssl_certificate_key 2_www.domain.com.key; #私钥文件名称
+	#证书文件名称
+	ssl_certificate  1_www.domain.com_bundle.crt; 
+	#私钥文件名称
+    ssl_certificate_key 2_www.domain.com.key; 
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
@@ -105,8 +117,10 @@ server {
 }
 server {
     listen 80;
-    server_name www.domain.com; #填写绑定证书的域名
-    rewrite ^(.*)$ https://$host$1 permanent; #把http的域名请求转成https
+	#填写绑定证书的域名
+    server_name www.domain.com; 
+	#把http的域名请求转成https
+    rewrite ^(.*)$ https://$host$1 permanent; 
 }
 ``` 
 >?未添加注释的配置语句，您按照上述配置即可。
