@@ -23,7 +23,7 @@ WHERE house="tencent" AND temperature > 40
 2. 在规则详情页面，单击【添加行为】。
 3. 在弹出的“新增行为”窗口，填写相关信息。单击【创建】即可。
  - 选择行为类型为“republish”。
- - 填写要转发至的 Topic 名称，
+ - 填写要转发至的 Topic 名称。
  ![image](https://main.qcloudimg.com/raw/3c7e5144c448da3f6403dc966ca1fd0e.png)
 
 物联网通信平台即可将上报数据发转至该 Topic。
