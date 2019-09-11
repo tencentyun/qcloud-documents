@@ -5,7 +5,7 @@
 ## SDK 组成
 SDK 目录文件和功能说明如下：
 
-- application：应用入口及 API 使用使用样例。  
+- application：应用入口及 API 使用样例。  
 - doc： 源代码相关说明文档存放目录。
 - include： SDK 头文件 xgAgent.h 存放目录。  
 - lib： SDK 静态库 libxgIoT.a 存放目录。   
