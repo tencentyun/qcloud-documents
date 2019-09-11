@@ -15,6 +15,6 @@
 
 |  接口名 | Action ID  | 功能描述  |
 | ------------ | ------------ | ------------ |
-|  申请角色临时凭证 | [AssumeRole](/document/product/598/13895)  |  用于获取角色的临时访问凭证 |
+|  申请角色临时凭证 | [AssumeRole](/document/product/598/13895)  |  用于获取指定角色的临时访问凭证 |
 |  获取联合身份临时访问凭证 | [GetFederationToken](/document/product/598/13896)  |  用于获取联合身份用户临时访问凭证 |
 
