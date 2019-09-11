@@ -31,7 +31,7 @@
 
 ### 步骤1：开通服务
 
-在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的【功能配置】页面里可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
+登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击目标应用卡片，选择【功能配置】，您可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
 ![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
 
 ### 步骤2：独立画面
