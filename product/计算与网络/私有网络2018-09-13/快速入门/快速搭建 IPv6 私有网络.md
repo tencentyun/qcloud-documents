@@ -37,12 +37,12 @@
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】，为 IPv6 开启公网并设置公网带宽。
 3. 单击操作栏下的【调整带宽】。
 ![](https://main.qcloudimg.com/raw/9007bdd4fa3ca305e4654ada454d767f.png)
-4. 在弹框中设置公网带宽。
+4. 在弹框中设置公网带宽并单击【调整】。
 >?如果带宽设置不为0，则开通公网；如果带宽设置为0，则关闭公网。
 >
-![](https://main.qcloudimg.com/raw/081b70cdbb104a3c0a9bbe51e74036ef.png)
+![](https://main.qcloudimg.com/raw/23ac117592bf4bc3aec2a5f179039193.png)
 5. 您也可勾选多个 IPv6 地址实例，单击【开通公网】或【关闭公网】并确定操作来批量开通或关闭 IPv6 公网。
-![](https://main.qcloudimg.com/raw/244121ef0310777489b678a012b1ad60.png)
+![](https://main.qcloudimg.com/raw/ebb907c22c5672c38e728e66f35272b1.png)
 
 ### 步骤5：登录云服务器，开启 IPv6
 云服务器开启 IPv6 需要进行相关的手工设置，如下操作适用于**新购买的 CentOS7.5 /CentOS7.6**。如果云服务器镜像为存量 CentOS 7.5/CentOS 7.6，新购或者存量的其他 Linux 版本，新购或者存量的 Windows 系统，请参见下文中的 [其他镜像开启 IPv6](#other)。
