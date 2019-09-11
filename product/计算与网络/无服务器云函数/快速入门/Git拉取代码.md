@@ -19,14 +19,14 @@
 **密码：**Git 账户的私人令牌或者密码。
 
 #### 获取 Github 私人令牌
-1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo。如下图所示：
+1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo 获取仓库的读/写权限。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e12bcb45bbd998d80440a0e0849f035.png)
 2. 单击页面下方的【Generate token】，即可看到生成的私人令牌。
 
 <span id="coding"></span>
 ### Coding 认证信息
 **用户名：** 登录 Coding 并进入个人首页，记录浏览器地址栏 `/u/` 后的内容作为用户名。如下图所示：
-![](https://main.qcloudimg.com/raw/5e061a19c2ef0c691b89d84352fe97a1.png)
+![](https://main.qcloudimg.com/raw/966071a6c017ae3ca337cfed7b302f77.png)
 **密码：**Coding 账户的私人令牌。
 
 #### 获取 Coding 私人令牌
@@ -53,5 +53,5 @@
 3. 在“新建函数”页面，根据您的实际需求填写函数信息，单击【下一步】。
 4. 在“函数配置”页面，“提交方法”选择“通过git上传代码包”，并填写您使用的 Git 仓库相关信息。
 ![](https://main.qcloudimg.com/raw/8992b7bc2e06f9135164f5cb69783817.png)
-5.单击【完成】，即可成功创建函数。
+5.单击【完成】，即可成功拉取代码并创建函数。
 
