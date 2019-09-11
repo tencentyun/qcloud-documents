@@ -30,7 +30,7 @@
 4. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 CynosDB 集群的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
- - Hostname：输入内网（或外网）地址。在CynosDB 控制台中的集群详情页可查看到目标数据库实例的内网（或外网）地址。
+ - Hostname：输入内网（或外网）地址。在 CynosDB 控制台中的集群详情页可查看到目标数据库实例的内网（或外网）地址。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独创建帐号便于访问控制管理。
  - Password：Username 对应的密码。
@@ -72,4 +72,11 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
-
+### 从 DMC 登录
+1. 在集群列表，单击操作列的【登录】。
+2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在创建集群时配置的 root 帐户的密码，单击【登录】。
+![](https://main.qcloudimg.com/raw/5a98c6617b1a4aa17c10d1c369dfc465.png)
+3. 在数据管理页面可以查看实例的状态和基本信息，单击【前往PMA】访问数据库。
+![](https://main.qcloudimg.com/raw/34f10d3cf14636b35b607a7156f39fd7.png)
+4. 通过 phpMyAdmin 成功连接到 CynosDB 集群，在此页面您可以看到数据库的各种模式和对象，以及进行创建表、数据插入和查询等操作。
+![](https://main.qcloudimg.com/raw/1e2d0e2ee262e76235f53e58ed87b74b.png)
