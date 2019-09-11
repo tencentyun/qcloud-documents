@@ -18,11 +18,8 @@ request body
 >?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 用户在请求体中设置跨地域复制的具体配置信息。配置信息包括跨地域复制规则的启用状态、复制内容、目标存储桶的存储桶名和存储区域等信息。对于每一个已启用版本控制的存储桶，COS 目前仅支持一条跨地域复制规则。
@@ -47,7 +44,7 @@ request body
 |---|---|---|---|---|
 |ReplicationConfiguration    |无    |说明所有跨地域配置信息    |Container    |是|
 |Role|ReplicationConfiguration    |发起者身份标示：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>`      |String    |是|
-|Rule    |ReplicationConfiguration    |具体配置信息，最多支持1000个，所有策略只能指向一个目标存储桶    |Container    |是|
+|Rule    |ReplicationConfiguration    |具体配置信息，最多支持1000个   |Container    |是|
 |ID    |ReplicationConfiguration.Rule    |用来标注具体 Rule 的名称    |String    |否|
 |Status    |ReplicationConfiguration.Rule    |标识 Rule 是否生效，枚举值：Enabled, Disabled    |String    |是|
 |Prefix    |ReplicationConfiguration.Rule    |前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空    |String    |是|
@@ -58,16 +55,14 @@ request body
 ## 响应
 
 #### 响应头
-#### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-#### 特有响应头
-该请求的响应无特殊的响应头。
+
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 该响应体为空。
 
 #### 错误分析
-该请求可能会发生的一些常见的特殊错误如下，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+该请求可能会发生的一些常见的特殊错误如下，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 |错误代码|    描述|    状态码|
 |---|---|---|
@@ -77,6 +72,7 @@ request body
 ## 实际案例
 #### 请求
 以下 PUT Bucket replication 请求向存储桶`originbucket-1250000000`中添加一条跨地域复制配置。该跨地域复制配置中，指定复制前缀为`testPrefix`的对象内容，目标存储桶为广州的`destinationbucket-1250000000`。
+
 ```shell
 PUT /?replication HTTP/1.1
 Date: Mon, 28 Aug 2017 02:53:38 GMT
@@ -101,6 +97,7 @@ Content-Length: 312
 #### 响应
 
 上述请求后，COS 返回以下响应，表明当前该跨地域配置已经成功设置完毕。
+
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
