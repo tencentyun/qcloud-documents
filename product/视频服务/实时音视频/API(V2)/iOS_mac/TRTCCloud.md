@@ -76,7 +76,7 @@ __介绍__
 
 __介绍__
 
-调用 [exitRoom](https://cloud.tencent.com/document/product/647/32259#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudDelegate 中的 onExitRoom() 回调通知到您。
+调用 [exitRoom](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudDelegate 中的 onExitRoom() 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
@@ -657,7 +657,7 @@ __参数__
 
 __介绍__
 
-开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。 如需打开此功能，请在 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前调用。
+开启此功能后，SDK 会在 onUserVoiceVolume() 中反馈对每一路声音音量大小值的评估。 如需打开此功能，请在 [startLocalAudio](#startlocalaudio) 之前调用。
 
 >?Demo 中有一个音量大小的提示条，就是基于该接口实现的。
 
@@ -709,7 +709,7 @@ __参数__
 
 __介绍__
 
-通过该接口可以禁止 SDK 使用通话音量，需要在调用 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前使用。
+通过该接口可以禁止 SDK 使用通话音量，需要在调用 [startLocalAudio](#startlocalaudio) 之前使用。
 
 
 ## 摄像头相关接口函数
