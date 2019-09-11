@@ -14,18 +14,7 @@ SDK 目录文件和功能说明如下：
 
 
 
-## 集成步骤
-1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单【SDK 下载】。
-2. 进入 SDK 下载页面，选择 IoT SDK 进行下载。
-3. 将 `lib/libxgIoT.a` 和 `include/xgAgent.h` 拷贝到自定义的源码目录中。
-4. 修改 Makefile，在编译选项中添加以下代码：
-```c
--lxgIoT -lpthread -lrt
-```
-5. 参考 application 目录下的 main.c 的代码，将 SDK 的 API 集成到自己的源码中。
-
 ## 使用方法
-
 #### 编译
 
 1. 进入 Demo 源码根目录，运行命令编译：
@@ -40,6 +29,7 @@ make clean
 
 
 #### 启动 Demo
+启动时需要将应用的 AccessID、AccessKey、deviceName 传入到测试应用，命令格式如下：
 1. 按以下格式运行：
 ```
 ./xgDemo [accessID] [accessKey] [deviceName]
@@ -59,3 +49,12 @@ level":"D","message":"xgMqttRpcResult(811):cmd account "}
 ```
 
 
+## 集成步骤
+1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单【SDK 下载】。
+2. 进入 SDK 下载页面，选择 IoT SDK 进行下载。
+3. 将 `lib/libxgIoT.a` 和 `include/xgAgent.h` 拷贝到自定义的源码目录中。
+4. 修改 Makefile，在编译选项中添加以下代码：
+```c
+-lxgIoT -lpthread -lrt
+```
+5. 参考 application 目录下的 main.c 的代码，将 SDK 的 API 集成到自己的源码中。
