@@ -7,7 +7,7 @@
 - [TKE](https://cloud.tencent.com/product/ccs)
 - 预先准备一个备案过的域名(eg:game.tdemo.net 或直接使用 IP)  
 
->?例子中为了方便测试，数据库也部署在 TKE 里面，生产环境一般会使用 CDB 实例。
+>?例子中为了方便测试，数据库也部署在 TKE 里面，生产环境一般会使用 TencentDB 实例。
 
 ### 准备工作
 1. fork 游戏源码到自己的github 方便后续修改和提交。这里 fork 到`https://github.com/Kevin-Qiu/2Moons` 并新建`tencent_cloud`分支。   
