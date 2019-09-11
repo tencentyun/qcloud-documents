@@ -5,30 +5,53 @@
 ## 前提条件
 - 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
-- 使用[ 本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需按安装并启动 Docker。
+- (可选) 安装并启动 Docker（使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需要）。
 
 
 
 ## 操作步骤
 
-### 安装 CLI 
+### 安装 CLI （Windows）
+
+#### 方式1
+1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
+2. 执行 `pip install scf` 命令，安装 CLI。
+3. 可执行 `pip install -U scf` 命令，升级 CLI。
+
+#### 方式2
+1. 前往 [CLI 下载](https://cloud.tencent.com/document/product/583/37940)，获取 SCF CLI 安装包。
+>?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
+>
+2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】。
+3. 执行 `scf --version` 命令，验证 SCF CLI 是否安装成功。
+```bash
+scf CLI, version 0.0.1
+```
+返回类似如上信息，则表示安装成功。
+
+
+
+### 安装 CLI （Mac / Linux）
 1. 执行以下命令，检查 Python 版本。
 ```
-python --version
+Python --version
 ```
-查看输出结果，Python 版本须为 2.7 或 3.6 +。若版本不符，您可以参考 [Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python)，安装 2.7 或 3.6+ 的 Python 版本。
+Python 版本须为 2.7 或 3.6 + ，如果 Python 版本不符，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
 2. 执行以下命令，安装 SCF CLI。
 ```bash
-$ pip install scf
+pip install scf
 ```
-3. 安装后执行以下命令，验证 SCF CLI 是否安装成功。
+3. 执行以下命令，验证 SCF CLI 是否安装成功。
 ```bash
-$ scf --version
+scf --version
 ```
 返回类似如下信息，则表示安装成功。
 ```
 scf CLI, version 0.0.1
 ```
+
+
+
 
 ### 配置 SCF CLI
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)。
@@ -47,7 +70,7 @@ Allow report information to help us optimize scfcli(Y/n):
 
 ### 编写函数
 1. 选择并进入到存放项目代码的目录。
-2. 执行  `scf init` 命令，创建函数。输出结果如下：
+2. 执行命令`scf init`，创建函数。
 >?此命令会在当前目录下创建 hello_world 函数。
 >
 ```bash
@@ -61,6 +84,7 @@ Runtime: Python3.6
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
+
 3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
@@ -83,7 +107,8 @@ def main_handler(event, context):
 
 ### 本地测试
 通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。当前 `native invoke` 仅支持 Node.js 及 Python 语言，结合 Docker  进行本地调试请参考 [本地调试（local invoke）](https://cloud.tencent.com/document/product/583/35401)。
-1.依次执行以下命令，进入项目所在目录 `hello_world` 并启动函数在本地运行。
+1. 进入项目所在目录 `hello_world`。
+2. 执行以下命令，启动函数在本地运行。
 ```
 $ cd hello_world 
 $ scf native invoke --no-event
@@ -186,11 +211,17 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
-![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
-更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
+>![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+>更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 
 ### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
+
+
+
+## 常见问题
+
+工具安装或使用常见问题参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456)。
