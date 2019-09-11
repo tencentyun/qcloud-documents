@@ -3,7 +3,7 @@
 - **内网访问**：使用云服务器（CVM）访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（在同一个 [私有网络 VPC](https://cloud.tencent.com/document/product/215/20046)）。
 - **外网访问**：通过外网地址访问云数据库 CynosDB。
 >!
->- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
+>- 外网访问需要开启数据库的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
 >- 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
 - **对等连接**：对于不同地域、不同账号或不同网络类型的 CVM 与数据库的内网连接方式，请参见 [对等连接](https://cloud.tencent.com/document/product/553/18827)，收费标准请参见 [对等连接计费概述](https://cloud.tencent.com/document/product/553/18833)。
 - **DMC 访问**：通过数据管理平台（Database Management Console，DMC）访问 CynosDB。
@@ -11,7 +11,7 @@
 
 ## 访问 CynosDB（兼容 MySQL 版）
 ### （可选）开启外网访问地址
->?使用外网访问时，需要先开启数据库实例的外网地址。
+>?使用外网访问时，需要先开启数据库的外网地址。
 >
 1. 登录 [CynosDB 控制台](https://console.cloud.tencent.com/cynosdb)，在集群列表，单击集群名或操作列的【管理】，进入集群详情页面。
 2. 在集群详情页下的连接信息里找到【外网地址】，单击【开启】。
@@ -30,7 +30,7 @@
 4. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 CynosDB 集群的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
- - Hostname：输入内网（或外网）地址。在 CynosDB 控制台中的集群详情页可查看到目标数据库实例的内网（或外网）地址。
+ - Hostname：输入内网（或外网）地址。在 CynosDB 控制台中的集群详情页可查看到目标数据库的内网（或外网）地址。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独创建帐号便于访问控制管理。
  - Password：Username 对应的密码。
@@ -39,7 +39,7 @@
 ![](https://main.qcloudimg.com/raw/8f02e50fcc9c5c8dff33bcd2a83e3522.png)
 
 ### 从 Linux 系统登录 
-1. 登录到与数据库实例属于同一个地域且网络可达的 Linux 系统 CVM。
+1. 登录到与数据库属于同一个地域且网络可达的 Linux 系统 CVM。
 登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指此 CVM 主机与 CynosDB 集群处于同一个 VPC 中。
 1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
 执行以下命令安装 MySQL 客户端：
