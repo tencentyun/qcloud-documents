@@ -52,7 +52,7 @@ Authorization: Auth String
 
 在复制对象时可以通过指定下列请求头部来设置目标对象的元数据信息，此时请求头部 x-cos-metadata-directive 需指定为 Replaced。
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | Cache-Control | RFC 2616 中定义的缓存指令，将作为对象元数据保存 | string | 否 |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存 | string | 否 |
