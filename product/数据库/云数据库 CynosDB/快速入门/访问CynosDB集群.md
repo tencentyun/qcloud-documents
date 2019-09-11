@@ -32,7 +32,7 @@
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 CynosDB 集群的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
  - Hostname：输入内网（或外网）地址。在 CynosDB 控制台中的集群详情页可查看到目标数据库的内网（或外网）地址。
  - Port：内网（或外网）对应端口。
- - Username：默认为 root，外网访问时建议您单独创建帐号便于访问控制管理。
+ - Username：默认为 root。
  - Password：Username 对应的密码。
 ![](https://main.qcloudimg.com/raw/9c9e5dcc8a2bb9fa15fa4d98a18308f1.png)
 6. 登录成功的页面如图所示，在此页面上您可以看到 CynosDB 集群的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
@@ -64,7 +64,6 @@ mysql -h hostname -P port -u username -p
 ```
 >?
 >- 请将 hostname 替换为目标 CynosDB 集群的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 Enter password：后输入 cdb_outerroot 帐号对应的密码。
->- 外网访问用户名用于外网访问，建议您单独创建便于访问控制管理。
 >- 本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 >
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
