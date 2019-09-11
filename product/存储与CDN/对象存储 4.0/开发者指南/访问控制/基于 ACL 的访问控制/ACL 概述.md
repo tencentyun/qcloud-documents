@@ -56,7 +56,7 @@
 | READ         | 读取对象           | GetObject，GetObjectVersion，HeadObject |
 | READ_ACP     | 读取对象的 ACL     | GetObjectAcl，GetObjectVersionAcl       |
 | WRITE_ACP    | 写入对象的 ACL     | PutObjectAcl，PutObjectVersionAcl       |
-| FULL_CONTROL | 以上四种权限的集合 | 以上所有行为的集合                      |
+| FULL_CONTROL | 以上三种权限的集合 | 以上所有行为的集合                      |
 
 >?对象不支持授予 WRITE 操作集。
 
