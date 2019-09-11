@@ -36,7 +36,7 @@ scf CLI, version 0.0.1
 ```
 Python --version
 ```
-Python 版本须为 2.7 或 3.6 + ，如果 Python 版本不符，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
+Python 版本须为 2.7 或 3.6 + ，如果 Python 版本不符，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python) 进行安装。
 2. 执行以下命令，安装 SCF CLI。
 ```bash
 pip install scf
