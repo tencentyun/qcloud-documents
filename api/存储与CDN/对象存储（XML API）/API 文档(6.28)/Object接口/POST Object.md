@@ -65,10 +65,10 @@ Content-Length: Content Length
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码，例如<br>`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时必须指定该字段 |
+| x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时，此字段为必选项 |
 
 <span id="id1"></span>
 **签名保护**
@@ -218,7 +218,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 **版本控制相关头部**
 
-在启用（Enabled）版本控制的存储桶中上传对象，将返回下列响应头部：
+在启用版本控制的存储桶中上传对象，将返回下列响应头部：
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
@@ -514,7 +514,7 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
 <span id="step5"></span>
-#### 案例五：启用（Enabled）版本控制
+#### 案例五：启用版本控制
 
 #### 请求
 
@@ -573,7 +573,7 @@ x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
 ```
 
 <span id="step6"></span>
-#### 案例六：暂停（Suspended）版本控制
+#### 案例六：暂停版本控制
 
 #### 请求
 
