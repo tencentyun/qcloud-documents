@@ -15,8 +15,8 @@
 
 <span id="git"></span>
 ### Git 认证信息
-**用户名：**Git 账户的用户名。
-**密码：**Git 账户的私人令牌或者密码。
+**用户名：**Git 帐户的用户名。
+**密码：**Git 帐户的私人令牌或者密码。
 
 #### 获取 Github 私人令牌
 1. 进入 [Github tokens](https://github.com/settings/tokens) 页面，勾选 repo 获取仓库的读/写权限。如下图所示：
@@ -27,7 +27,7 @@
 ### Coding 认证信息
 **用户名：** 登录 Coding 并进入个人首页，记录浏览器地址栏 `/u/` 后的内容作为用户名。如下图所示：
 ![](https://main.qcloudimg.com/raw/966071a6c017ae3ca337cfed7b302f77.png)
-**密码：**Coding 账户的私人令牌。
+**密码：**Coding 帐户的私人令牌。
 
 #### 获取 Coding 私人令牌
 请参考 [Coding 私人令牌](https://open.coding.net/personal-access-token/#%E5%88%9B%E5%BB%BA%E4%B8%AA%E4%BA%BA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C) 文档获取。 
@@ -36,8 +36,8 @@
 
 <span id="yun"></span>
 ### 码云认证信息
-**用户名：**码云账户的用户名。
-**密码**：码云账户的私人令牌。
+**用户名：**码云帐户的用户名。
+**密码**：码云帐户的私人令牌。
 
 #### 获取码云私人令牌
 1. 进入 [码云私人令牌设置](https://gitee.com/profile/personal_access_tokens) 页面，单击页面右上角的【生成私人令牌】。
@@ -52,8 +52,8 @@
 ![](https://main.qcloudimg.com/raw/3edbe1d2a74e21a2800bd21b08741f50.png)
 3. 在“新建函数”页面，填写函数信息，单击【下一步】。如下图所示：
  - **函数类型**：选择“事件”。
- - **函数名称**：可根据您的实际需求填写，本文以“hello”为例。
- - **运行环境**：选择“Node.js 8.9”。
+ - **函数名称**：可根据您的实际需求填写，本文以 “hello” 为例。
+ - **运行环境**：选择 “Node.js 8.9”。
  - **创建方式**：选择“空白函数”。
  若您选择创建方式为“模板函数”，请前往“函数代码”页面通过 Git 拉取代码。
 ![](https://main.qcloudimg.com/raw/46c0da164697a959679f1f65e76375f5.png)
