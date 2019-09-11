@@ -1,8 +1,8 @@
 ## 功能描述
 
-PUT Object acl 接口用来写入对象的访问控制列表（ACL），您可以通过请求头 `x-cos-acl` 和 `x-cos-grant-*` 传入 ACL 信息，或者通过请求体以 XML 格式传入 ACL 信息。
+PUT Object acl 接口用来写入对象的访问控制列表（ACL），您可以通过请求头`x-cos-acl`和`x-cos-grant-*`传入 ACL 信息，或者通过请求体以 XML 格式传入 ACL 信息。
 > !
-> - 通过请求头设置 ACL 和通过请求体设置 ACL 两种方式只能选择其中一种。
+> - 通过请求头设置 ACL 和通过请求体设置 ACL，两种方式只能选择其中一种。
 > - PUT Object acl 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
 > - 该 API 的请求者需要对指定对象有写入 ACL 权限。
 
@@ -44,7 +44,7 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
 | x-cos-grant-read | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
@@ -107,15 +107,15 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息，`xsi:type` 可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
+| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息，`xsi:type`可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
 | Permission | AccessControlPolicy.AccessControlList.Grant | 授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中对象的操作部分，例如 READ，FULL_CONTROL 等 | Enum | 是 |
 
 **Container 节点 AccessControlPolicy.AccessControlList.Grant.Grantee 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| URI | AccessControlPolicy.AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时必选 |
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时必选 |
+| URI | AccessControlPolicy.AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时，必选 |
+| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时，必选 |
 
 ## 响应
 
