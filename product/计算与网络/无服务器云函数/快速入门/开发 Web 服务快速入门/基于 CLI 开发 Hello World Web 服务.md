@@ -16,14 +16,14 @@
 #### 方式1
 1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
 2. 执行 `pip install scf` 命令，安装 CLI。
-3. 可执行 `pip install -U scf` 命令，升级 CLI。
+3. 升级 CLI 可直接执行 `pip install -U scf` 命令。
 
 #### 方式2
 1. 前往 [CLI 下载](https://cloud.tencent.com/document/product/583/37940)，获取 SCF CLI 安装包。
 >?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
 >
-2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】。
-3. 执行 `scf --version` 命令，验证 SCF CLI 是否安装成功。
+2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】进行安装。
+3. 执行 `scf --version` 命令，验证 CLI 是否安装成功。
 ```bash
 scf CLI, version 0.0.1
 ```
