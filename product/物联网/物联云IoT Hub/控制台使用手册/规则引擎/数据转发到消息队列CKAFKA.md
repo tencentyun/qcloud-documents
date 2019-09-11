@@ -5,7 +5,7 @@
 ![avatar](https://main.qcloudimg.com/raw/ae9179db06123982f14857891aeabb8a.png)
 
 ## 配置
-1. 登录物联网通信控制台，单击左侧菜单【规则引擎】。
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单【规则引擎】。
 2. 进入规则引擎页面，单击需要配置的规则。
 3. 在规则详情页面，单击【添加行为】。
 4. 在弹出的“新增行为”窗口，选择行为“数据转发到消息队列（CKAFKA）”；依次选择 CKAFKA 实例和 Topic，单击【创建】即可。
