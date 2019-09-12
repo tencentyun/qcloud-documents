@@ -8,7 +8,7 @@
 - **DMC 访问**：通过数据管理平台（Database Management Console，DMC）访问 CynosDB。
 - **对等连接**：对于不同地域、不同账号或不同网络类型的 CVM 和数据库，内网连接方式请参见 [对等连接](https://cloud.tencent.com/document/product/553/18827)，收费标准请参见 [对等连接计费概述](https://cloud.tencent.com/document/product/553/18833)。
 
-## 访问 CynosDB（兼容 MySQL 版）
+## 内外网访问 CynosDB（兼容 MySQL 版）
 ### （可选）开启外网访问地址
 >?使用外网访问时，需要先开启数据库的外网地址。
 >
@@ -70,7 +70,7 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
-### 从 DMC 平台访问
+## DMC 平台访问 CynosDB
 1. 在集群列表，单击操作列的【登录】。
 2. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在创建集群时配置的 root 帐户的密码，单击【登录】。
 ![](https://main.qcloudimg.com/raw/5a98c6617b1a4aa17c10d1c369dfc465.png)
