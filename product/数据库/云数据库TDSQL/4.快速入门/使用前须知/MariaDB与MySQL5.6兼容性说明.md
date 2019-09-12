@@ -1,27 +1,24 @@
-## 前言
-TDSQL 是以 MariaDB 为基础开发的，我们选择 MariaDB 的原因不仅是因为考虑到未来 MySQL 的开源问题，还有就是经过多年的实际验证，对 MariaDB 的性能、功能和可靠性都充满信心。
 
-TDSQL（MariaDB）都将超越 MySQL 作为目标之一。“超越”意味着更强大、更丰富性能和功能，也意味着使用数据库将更标准和更灵活。因此，两个引擎的不兼容性将会一直存在。
 
-## MariaDB（TDSQL）和开源 MariaDB 的兼容性
+## MariaDB和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 
-## MariaDB（TDSQL）与 MySQL 5.6 兼容性
-MariaDB（TDSQL）与 MySQL 5.6 高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与 TDSQL 配合使用。
+## MariaDB与 MySQL 5.6 兼容性
+MariaDB与 MySQL 5.6 高度兼容，这意味着已用于 MySQL 数据库的代码、应用程序、驱动程序和工具，无需更改（或少量调整），即可与 TDSQL 配合使用。
 - 数据文件和表定义文件是二进制兼容的。
 - 所有的客户端 API 和协议都是兼容的。
 - 所有的文件名、二进制文件、路径、端口号等都是相同的。
 - 所有的连接器，包括 PHP、Perl、Python、Java、.NET、Ruby、MySQL 的连接器在 MariaDB 上都可以正常使用的，不需要进行任何改动。
 - 可以使用 MySQL 客户端链接到 TDSQL 上。
 
-## TDSQL 和 MySQL 5.6 的不兼容性
-MariaDB（TDSQL）与 MySQL 5.6 高度兼容，却有极少点不兼容。值得说明的是，MySQL 各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
+## MariaDB 和 MySQL 5.6 的不兼容性
+MariaDB与 MySQL 5.6 高度兼容，却有极少点不兼容。值得说明的是，MySQL 各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
 
 ### 1 GTID 不兼容
-MariaDB（TDSQL）的 GTID 和 MySQL5.6 的 GTID 不能兼容，也就是说 MySQL 不能作为 TDSQL 的从库。
+MariaDB的 GTID 和 MySQL5.6 的 GTID 不能兼容，也就是说 MySQL 不能作为MariaDB 的从库。
 
 ### 2 Binlog 默认配置不同
-MariaDB（TDSQL）的 Binlog 默认采用 row 格式，而 MySQL、MariaDB 默认采用 statement 格式。
+MariaDB的 Binlog 默认采用 row 格式，而 MySQL、MariaDB 默认采用 statement 格式。
 
 ### 3 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
 为使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，TDSQL 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行。这样的好处是即使从库中途宕机恢复后仍然能够正常工作。
@@ -102,10 +99,10 @@ Mysql 5.7 和 mariadb 中，由于 NULL 属于未知值，在上述的对比中�
 如果 alter table 仅仅交换列的顺序，Mariadb 允许使用 inplace 算法，但是 Mysql 不允许。
 MariaDB 执行 inplace alter table 后，show create table t1 后发现运行结果与 Mysql 用 ALGORITHM=COPY 时运行结果相同。
 
-### 4 MySQL 和 MariaDB（TDSQL）的未定义行为
-**未定义行为（undefined behavior）**的意思是，MySQL/Mariadb 可以按照任意方式实现这种功能和行为，而且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL 和 MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
+### 4 MySQL 和 MariaDB的未定义行为
+**未定义行为（undefined behavior）**的意思是，MySQL/MariaDB 可以按照任意方式实现这种功能和行为，而且版本之间可能发生变化而不需要通知用户或者明确指出。MySQL 和 MariaDB 对这些行为的实现可能产生相同的结果或者不同的结果。
 
-对于现在和未来版本的这类不同或者相同之处，TDSQL 不会做任何结果保证，也不保证提供内核优化保证完全一致，[未定义行为官方说明](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/)。
+对于现在和未来版本的这类不同或者相同之处，MariaDB不会做任何结果保证，也不保证提供内核优化保证完全一致，[未定义行为官方说明](https://mariadb.com/kb/en/mariadb/mariadb-vs-mysql-compatibility/)。
 
 
 #### 4.1 字符类型列与大小写无关的排序
@@ -139,8 +136,8 @@ FOUND_ROWS() 的返回值只有在查询语句中使用了 UNION ALL 时候才�
 如果**只使用 UNION 不使用 ALL，那么 MariaDB 会去重统计， MySQL 不会去重统计**。如果使用了 UNION 的查询语句不实用 LIMIT 子句那么 SQL_CALC_FOUND_ROWS 关键字就被忽略了，FOUND_ROWS() 返回的就是执行 UNION 时候创建的临时表中的行数。
 
 #### 4.4 Lock tables 语句的上锁顺序不同
-LOCK TABLES 语句按照如下方法上锁：第一步是把所有要锁住的表按照内部定义的方式排序；但从用户角度来看，MySQL/Mariadb 这个顺序是未定义的。例如，您写一个 LOCK TABLES t1, t2, t3，MySQL/Mariadb 不会按照 t1, t2, t3 的顺序上锁。
-因为对 MySQL/Mariadb 来说，这个是未定义行为，MySQL 和 MariaDB 可能采用不同的方式去排序 t1, t2, t3，然后再按照那个拍好的顺序依次给他们上锁。
+LOCK TABLES 语句按照如下方法上锁：第一步是把所有要锁住的表按照内部定义的方式排序；但从用户角度来看，MySQL/MariaDB 这个顺序是未定义的。例如，您写一个 LOCK TABLES t1, t2, t3，MySQL/Mariadb 不会按照 t1, t2, t3 的顺序上锁。
+因为对 MySQL/MariaDB 来说，这个是未定义行为，MySQL 和 MariaDB 可能采用不同的方式去排序 t1, t2, t3，然后再按照那个拍好的顺序依次给他们上锁。
 
 因此，用户写的存储过程或者查询代码不应该依赖任何上锁顺序来保持正确性，否则可能会发生死锁。
 
@@ -150,19 +147,19 @@ RESET MASTER 不可以在有任何复制备机运行期间被执行，此时执�
 #### 4.6  日期和时间类型转换为YEAR类型
 MySQL 5.5 中 YEAR 与 date 类型的变量在比较时会将 date 类型转为 year 类型进行对比，即“2011-01-01”被转为2011。
 
-MySQL 5.7 和 mariadb 中 date 类型的变量仍然为 date，所以在和 year 对比时不相等。
-类似地，mariadb 不能够把时间类型转换为YEAR类型，而 mysql5.6 会使用当前 session 的 timestamp 值的 YEAR 部分作为每一个 TIME 类型值的 year，因此当需要把一个 time 类型的值转换为 year 类型时候，就使用这个 session 的 timestamp 的 year。
+MySQL 5.7 和 MariaDB 中 date 类型的变量仍然为 date，所以在和 year 对比时不相等。
+类似地，MariaDB 不能够把时间类型转换为YEAR类型，而 mysql5.6 会使用当前 session 的 timestamp 值的 YEAR 部分作为每一个 TIME 类型值的 year，因此当需要把一个 time 类型的值转换为 year 类型时候，就使用这个 session 的 timestamp 的 year。
 
 #### 4.7 未知字符的处理方式
-- 不同版本的 mysql 和 mariadb 在做字符编码转换时是有区别的：例如，unhex 如果不识别一个编码字节串，那么在 mysql 5.5/5.6/5.7 中它返回空串’’,但是 mariadb10.1. 会返回问号字符(?)。
+- 不同版本的 MySQL 和 MariaDB 在做字符编码转换时是有区别的：例如，unhex 如果不识别一个编码字节串，那么在 mysql 5.5/5.6/5.7 中它返回空串’’,但是 mariadb10.1. 会返回问号字符(?)。
 - 语句`UPDATE t1 SET a=unhex(code) ORDER BY code`对表 t1 中的 a 字段进行赋值,但由于 unhex 只能识别和转换特定范围内的字节串，因此部分赋值是失败的。
  - mysql 5.5 默认的存储引擎是 MyISAM，不支持事务。当对 t1 某行中的 a 赋值失败后就会退出该语句，而已经赋值的仍然存储在 t1 中。
  - mysql 5.7 默认的存储引擎是 InnoDB，因此当对 t1 某行中的 a 赋值失败后这个事务就会进行回滚，因此已经赋值都会被回滚。
- - mariadb 默认的存储引擎为 innodb，且当 unhex 无法找到一个字节串对应的字符时，就会返回问号字符，0x3F，即字符'?'，因此不管存储引擎是 innodb 和 myisan，他都会是的操作成功。
+ - MariaDB 默认的存储引擎为InnoDB，且当 unhex 无法找到一个字节串对应的字符时，就会返回问号字符，0x3F，即字符'?'，因此不管存储引擎是InnoDB 和 MyISAM，他都会是的操作成功。
 - 当使用 insert into 语句插入16进制的字节串时，如果无法找到对应的 utf8mb4 编码的字符时，
- - mysql 5.5/5.6 使用 heap 存储引擎时，忽略这个未知字符。
- - mariadb 10.1和 mysql 5.7 把它用 0x3F（即问号字符）代替。
-- 对于非法编码的字符串字段，mysql 使用 innodb 存储引擎时直接返回错误。而 mariadb 则将其替换为 3F 再将其插入。
+ - MySQL 5.5/5.6 使用 heap 存储引擎时，忽略这个未知字符。
+ - MariaDB 10.1和 MySQL 5.7 把它用 0x3F（即问号字符）代替。
+- 对于非法编码的字符串字段，mysql 使用 InnoDB 存储引擎时直接返回错误。而 MariaDB 则将其替换为 3F 再将其插入。
 
 #### 4.8 时间类型精度
 ``` 
@@ -189,9 +186,9 @@ CREATE TABLE t1(f1 TIME);
 INSERT INTO t1 VALUES ('23:38:57');
 SELECT TIMESTAMP(f1,'1') FROM t1;
 ```
-Mysql 5.5/5.6 返回 NULL，Mariadb10.1 和 Mysql5.7 返回 2016-08-03 23:38:58。
-- TIMESTAMP() 的第一个参数为 time 类型时，mysql 5.5 无法自动转换为 timestamp 类型，因而返回 NULL。
-- 而 mysql5.7 和 mariadb 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量。
+MySQL 5.5/5.6 返回 NULL，MariaDB10.1 和 MySQL5.7 返回 2016-08-03 23:38:58。
+- TIMESTAMP() 的第一个参数为 time 类型时，MySQL 5.5 无法自动转换为 timestamp 类型，因而返回 NULL。
+- 而 MySQL5.7 和 MariaDB 则将 time 类型自动转为 timestamp 类型，即将当前的日期+输入的 time 变量。
 
 
 
@@ -481,7 +478,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 </table>
 
 
-#### 5.2 仅存在于 TDSQL（MariaDB）中的变量
+#### 5.2 仅存在于MariaDB中的变量
 
 - aria_block_size     8192
 - aria_checkpoint_interval     30
@@ -702,7 +699,7 @@ index_merge=on,<br>index_merge_union=on,<br>index_merge_sort_union=on,<br>index_
 - wsrep_start_position     00000000-0000-0000-0000-000000000000:-1
 - wsrep_sync_wait     0
 
-#### 5.3 仅存在于 mysql5.6 中的变量
+#### 5.3 仅存在于 MySQL5.6 中的变量
 
 - avoid_temporal_upgrade     OFF
 - bind_address     *
