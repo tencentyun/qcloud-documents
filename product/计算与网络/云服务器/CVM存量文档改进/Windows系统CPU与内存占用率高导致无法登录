@@ -1,0 +1,39 @@
+## 操作场景
+
+本文档介绍 Windows 云服务器因 CPU 与内存占用率高导致无法登录的排查方法和解决方案。
+>? 以下操作步骤以 Windows server 2012 R2 为例，根据操作系统版本的不同，详细操作步骤略有区别。
+
+## 操作步骤
+
+### 登录云服务器
+
+1. 登录[云服务器控制台](https://console.cloud.tencent.com/cvm)，单击实例右侧【登录】
+![](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
+2. 在登录Windows实例页面，选择“其他方式（VNC）”，单击【立即登录】 ![](https://main.qcloudimg.com/raw/8daeaac7cc4a5b94e1a5e5b6aa73be63.png)
+
+### 查看进程占用情况
+
+ 1. 登录Windows实例后，右键单击 “任务栏”，单击【任务管理器】。如下图所示：
+![](//mc.qcloudimg.com/static/img/12539e5b76898e30bbb3bf510b0a5262/image.png)
+ 2. 在打开的“任务管理器”中，即可查看资源占用情况。如下图所示：
+>?  您可单击 CPU 或内存，以升序/降序对进程进行排序。
+>
+![](//mc.qcloudimg.com/static/img/a708645531ccd6545196b3ebfbaee1f4/image.png)
+
+### 进程分析
+
+查看任务管理器中进程，分析与排查问题，以采取对应解决方案。
+ - 业务进程占用大量资源。如 IIS 、httpd 、PHP 、Java 等。
+ 	- 若当前业务量确实较大，则高负载是正常情况，需要考虑适当扩容。
+ 	- 若当前业务量不大，则需要进一步结合业务报错日志来分析，可能由于参数配置不当，导致空耗资源。
+ - 系统进程占用大量资源。如 `svchost.exe` 等。
+ 	- 可以通过网络查询核实是否系统进程。
+ 	- 系统进程多数位于 `C:\windows\system32` 目录下，并且有完善的签名以及描述介绍。
+ 	- 重启系统 或 关闭不需要且安全的系统进程。
+ - 既非业务进程，亦非系统进程占用大量资源。
+	 - 进程命名奇怪，没有签名描述，不在 `C:\windows\system32` 目录下，异常进程消耗资源，云服务器可能中毒。
+	 - 检测服务器的安全情况，必要时考虑备份数据，重装系统。
+
+根据现象可以备份数据并[重装系统](https://cloud.tencent.com/document/product/213/4933)或[重启实例](https://cloud.tencent.com/document/product/213/4928)，再次远程登录看是否能成功登录。
+
+远程登录方法可以参考：[登录Windows实例](https://cloud.tencent.com/document/product/213/5435)

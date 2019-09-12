@@ -9,9 +9,9 @@ GitHub 地址：[Android SDK](https://github.com/tencentyun/cos_android_sdk)。
 
 ### 开发准备
 
-1. SDK 支持 Android 2.2 及以上版本的手机系统；
-2. 手机必须要有网络（GPRS、3G 或 WI-FI 网络等）；
-3. 手机可以没有存储空间，但会使部分功能无法正常工作；
+1. SDK 支持 Android 2.2 及以上版本的手机系统。
+2. 手机必须要有网络（GPRS、3G 或 WI-FI 网络等）。
+3. 手机可以没有存储空间，但会使部分功能无法正常工作。
 4. 从控制台获取 APPID、SecretId、SecretKey，详情参考权限控制。
 
 ### SDK 配置
@@ -53,7 +53,7 @@ COSClientConfig config = new COSClientConfig();
 
 |                    方法                    |                 方法描述                 |
 | :--------------------------------------: | :----------------------------------: |
-|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh"，新加坡"sgp";sdk中默认为华南地区 |
+|       setEndPoint(String endPoint)       | 设置园区：华南 "gz"， 华北 "tj"， 华东"sh"，新加坡"sgp"。SDK 中默认为华南地区 |
 | setConnectionTimeout(int connectionTimeout) |                连接超时设置   (毫秒)             |
 |   setSocketTimeout(int socketTimeout)    |                读取超时设置      （毫秒）          |
 | setMaxConnectionsCount(int maxConnectionsCount) |               并发数大小设置                |
@@ -462,8 +462,8 @@ GetObjectMetadataRequest result = cos.getObjectMetadata(getObjectMetadataRequest
 
 | 参数名称     | 类型               | 是否必填 | 参数描述          |
 | :------- | :--------------- | :--- | :------------ |
-| appid    | String           | 是    | 腾讯云APP ID     |
-| bucket   | String           | 是    | 目录所属bucket 名称 |
+| appid    | String           | 是    | 腾讯云 APP ID     |
+| bucket   | String           | 是    | 目录所属 bucket 名称 |
 | cosPath  | String           | 是    | 远程相对路径        |
 | sign     | String           | 是    | 签名信息，此处使用单次签名 |
 | listener | ICmdTaskListener | 否    | 结果回调          |
@@ -517,12 +517,11 @@ RemoveEmptyDirResult result = cos.removeEmptyDir(removeEmptyDirRequest);
 
 | 参数名称       | 类型                  | 是否必填 | 参数描述                                   |
 | :--------- | :------------------ | :--- | :------------------------------------- |
-| appid      | String              | 是    | 腾讯云APP ID                              |
-| bucket     | String              | 是    | 目录所属bucket 名称                          |
+| appid      | String              | 是    | 腾讯云 APP ID                              |
+| bucket     | String              | 是    | 目录所属 bucket 名称                          |
 | cosPath    | String              | 是    | 远程相对路径                                 |
 | srcPath    | String              | 是    | 本地绝对路径                                 |
-| insertOnly | String              | 否    | 是否覆盖相同文件名："0"，允许覆盖；"1",不允许覆盖；默认为："1" . |
-| slice_size | int                 | 否    | 分片上传时，设置的分片大小，默认为:1M                   |
+| slice_size | int                 | 否    | 分片上传时，设置的分片大小，默认为：1M                   |
 | sign       | String              | 是    | 签名信息，此处使用多次签名                          |
 | listener   | IUploadTaskListener | 否    | 结果回调                                   |
 
@@ -596,12 +595,12 @@ PutObjectResult result = cos.putObject(putObjectRequest);
 
 | 参数名称           | 类型                 | 是否必填 | 参数描述                                     |
 | :------------- | :----------------- | :--- | :--------------------------------------- |
-| appid          | String             | 是    | 腾讯云APP ID                                |
-| bucket         | String             | 是    | 目录所属bucket 名称                            |
+| appid          | String             | 是    | 腾讯云 APP ID                                |
+| bucket         | String             | 是    | 目录所属 bucket 名称                            |
 | cosPath        | String             | 是    | 远程相对路径                                   |
 | sign           | String             | 是    | 签名信息，此处使用单次签名                            |
 | bizAttr        | String             | 否    | 目录绑定的属性信息                                |
-| authority      | String             | 否    | 文件操作权限，与bucket拥有相同的权限(COSAuthority.EINVALID),私有读写权限（COSAuthority.EWRPRIVATE），私有写公有读权限（COSAuthority.EWPRIVATERPUBLIC） |
+| authority      | String             | 否    | 文件操作权限，与 bucket 拥有相同的权限（COSAuthority.EINVALID），私有读写权限（COSAuthority.EWRPRIVATE），私有写公有读权限（COSAuthority.EWPRIVATERPUBLIC） |
 | custom_headers | Map<String,String> | 否    | 文件自定义的header: 如Cache-Control,  Content-Disposition,Content-Language,x-cos-meta-。 |
 | listener       | ICmdTaskListener   | 否    | 结果回调                                     |
 

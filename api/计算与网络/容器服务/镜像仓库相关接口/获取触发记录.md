@@ -57,7 +57,7 @@ invokePara 参数包括以下字段：
 | clusterId   | 更新服务参数集群 ID | String |
 | namespace   | 更新服务参数命名空间 | String |
 | containerName   | 更新服务参数容器名称 | String |
-| clusterRegion   | 更新服务参数集群区域。<br>地域编号如下：<br>1：广州<br>4：上海<br>5：香港<br>7：上海金融<br>8：北京<br>9：新加坡<br>16：成都 | Int |
+| clusterRegion   | 更新服务参数集群区域。<br>地域编号如下：<br>1：广州<br>4：上海<br>5：中国香港<br>7：上海金融<br>8：北京<br>9：新加坡<br>16：成都 | Int |
 
 invokeResult 参数包括以下字段：
 

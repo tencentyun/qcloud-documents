@@ -13,7 +13,7 @@ CREATE TABLE `表名` (
 	[, `参数名` = '参数值' ]*
 )
 ```
-其中 BOUNDED 和 ROWS 属于 Event Time 时间模式，即数据源中自带时间戳字段）、ROWS 两种 WATERMARK 互斥，只可最多选择一项。
+其中 BOUNDED 和 ROWS 属于 Event Time 时间模式（即数据源中自带时间戳字段）、ROWS 两种 WATERMARK 互斥，只可最多选择一项。
 最大容忍乱序时间只在 Event Time 模式下有意义；而 Processing Time 模式不严格保证处理顺序，因为源数据没有时间戳定义。
 
 **示例：**
@@ -31,7 +31,7 @@ CREATE TABLE KafkaSource1 (
 ```
 
 ## Source 和 Sink
-目前 SCS 可以根据后续的插入语句（INSERT INTO）和选择语句（SELECT FROM）自动判断源和目的表，因而用户无需显式指定源和目的表的类型，但仍然需要注意  CDB（MySQL）只能用作数据源，且只能用于 JOIN 操作的右表。
+目前流计算 Oceanus 可以根据后续的插入语句（INSERT INTO）和选择语句（SELECT FROM）自动判断源和目的表，因而用户无需显式指定源和目的表的类型，但仍然需要注意 TencentDB（MySQL）只能用作数据源，且只能用于 JOIN 操作的右表。
 
 用户可以在 CREATE TABLE 的 WITH 参数中指定数据源或数据目的类型，例如 type = ‘cdp’ 则表明使用 CDP；type = ‘ckakfa’ 则是使用 CKafka 作为数据源。
 
@@ -116,10 +116,10 @@ CREATE TABLE `public_traffic_output` (
 >- 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号(“”) 来替换每个出现的双引号。
 >- CKafka 只支持 Append 类型流的写入，不支持 Upsert 流。如需写入 Upsert 流，请使用 CDP。
 
-### CDB（仅支持作为 JOIN 条件的右表）
+### TencentDB（仅支持作为 JOIN 条件的右表）
 | 字段	| 含义 |
 | ----- | ----- |
-| instanceId	| CDB 的实例 ID，注意大小写敏感。|
+| instanceId	| TencentDB 的实例 ID，注意大小写敏感。|
 | database |	数据库名，注意大小写敏感。|
 | table	| 表名，注意大小写敏感。|
 | user |	用户名，注意大小写敏感。|
@@ -127,7 +127,7 @@ CREATE TABLE `public_traffic_output` (
 
 ## WATERMARK
 ### Event Time / Processing Time
-对于基于窗口的操作（例如 GROUP BY、OVER、JOIN 条件中时间段的指定），SCS 支持两种时间处理模式：Event Time 和 Processing Time 模式。
+对于基于窗口的操作（例如 GROUP BY、OVER、JOIN 条件中时间段的指定），流计算 Oceanus 支持两种时间处理模式：Event Time 和 Processing Time 模式。
 ![](https://main.qcloudimg.com/raw/3b1452e12aa27378ad022b23cba6896c.png)
 Event Time 模式使用输入数据自带的时间戳，容忍一定程度的乱序数据输入（例如更早的数据由于各节点处理能力以及网络波动等不可预知的原因来的却更晚），这个参数可以通过 BOUNDED 的第二个参数指定，单位是毫秒。该处理模式最精确，但对输入数据有自带时间戳的要求。目前只支持数据源中以 timestamp 类型定义的字段，未来将会支持虚拟列，可将其他类型的列应用处理函数转换为系统接受的时间戳。
 Processing Time 处理模式不要求输入数据有时间戳，而是将该条数据被处理的时间戳自动加入数据，并以 PROCTIME（必须全为大写）字段命名。该列是隐藏的，SELECT * 时不会出现，只有用户手动使用时才会被读取。

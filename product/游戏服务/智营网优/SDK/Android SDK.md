@@ -1,12 +1,11 @@
 ## 1 接入流程/开发准备
 
 ### 1.1 SDK 获取
-登录腾讯云控制台,在智营网优管理后台下载 SDK.  
-*** 注意：本产品需要申请通过后才能访问管理后台 ***
+登录腾讯云控制台,在智营网优管理后台下载 SDK。
+>!本产品需要申请通过后才能访问管理后台 
 
 ### 1.2 SDK 配置
 将下列文件导入到项目中：
-
 - MNA_ANDROID.jar
 - beacongsdk_xxx.jar
 - libgsdk.so
@@ -16,7 +15,7 @@
 <uses-permission android:name="android.permission.INTERNET"/>
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+<uses-permission android:name="android.permission.ACCESS_Wi-Fi_STATE"/>
 <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 ```
 
@@ -30,7 +29,7 @@
 接入步骤注意事项：见附录1。
 
 ## 3 API 介绍
-API接口由`com.tencent.mna`包下的`GSDKPlatform`类提供，该类将所有方法都设计为静态函数，开发者可用类名直接进行调用。
+API 接口由`com.tencent.mna`包下的`GSDKPlatform`类提供，该类将所有方法都设计为静态函数，开发者可用类名直接进行调用。
 
 ### 3.1 初始化
 #### 3.1.1 初始化 SDK
@@ -43,10 +42,10 @@ public static void GSDKInit(Context context, string qqappid, bool debug, int zon
 | context | 上下文环境或者当前 activity | 
 | qqappid | 惟一标识该应用，对应腾讯云加速服务的“游戏ID” | 
 | debug | 控制 log 的输出方便联调 | 
-| zoneid | 玩家大区 id | 
+| zoneid | 玩家大区 ID | 
 | env | 云控正式环境，默认直接填 true 即可 | 
 | useBattery | 电量统计信息，默认直接填 false 即可 | 
-| tCloudKey | 腾讯云申请的 key 值,即“密钥KEY” | 
+| tCloudKey | 腾讯云申请的 key 值,即“密钥 KEY” | 
 
 #### 3.1.2 设置用户信息
 ```
@@ -103,16 +102,14 @@ public class StartSpeedRet {
 ```
 public static void GSDKStartSpeed(string vip, int vport, int htype, string hookModules, int zoneid, int stopMNA, int timeout, String pvpid)
 ```
-功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要 5~6 秒。完成后会回调`GSDKObserver`函数。  
+功能： 本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要5 - 6秒。完成后会回调`GSDKObserver`函数。  
 
 |参数 | 含义 | 
 |---------|---------|
 | vip | 游戏服务器地址（IP 或域名，强烈建议使用 IP）| 
 | vport | 游戏服务器端口 | 
-| htype | 本参数决定 HOOK 的函数种类，取值有如下: | 
-|                        | htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。 | 
-|                        | htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
-| hookModules | 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 Apollo 的网络通信模块，则填`libapollo.so`；若使用 C# 的网络通信模块，则填`libmono.so`。| 
+| htype | 本参数决定 HOOK 的函数种类，取值有如下：<li>htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。<li>htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
+|  hookModules       |hookModules 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 C# 的网络通信模块，则填 libmono.so |
 | stopMNA | 默认值为 0 ； 1 表示强制关闭加速功能，保留网络诊断功能 | 
 | timeout | 默认值为 0 ；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
 | pvpid | 游戏对局唯一 ID，应用直接填`"UNKNOWN"` | 
@@ -128,7 +125,7 @@ public static void GSDKGoFront()
 ```
 public static void GSDKGoBack()
 ```
-当游戏切换到后台（比如被其它应用遮挡），必须调用此函数，通知加速引擎。
+当游戏切换到后台（例如被其它应用遮挡），必须调用此函数，通知加速引擎。
 
 #### 3.2.4 强行关闭加速
 ```
@@ -176,7 +173,7 @@ public static void SetKartinObserver(GSDKKartinObserver d)
 public static void GSDKQueryKartin(string tag)
 //参数：tag，作为标识每一次查询的 ID 。
 ```
-网络诊断是一个耗时的过程，大概有 4~8 秒钟，因此 GSDK 使用异步返回来实现。调用此函数后，查询结果会通过回调`KartinObserver`返回。
+网络诊断是一个耗时的过程，大概有4 - 8秒钟，因此 GSDK 使用异步返回来实现。调用此函数后，查询结果会通过回调`KartinObserver`返回。
 
 ## 4 附录
 
@@ -200,7 +197,7 @@ public class KartinRet {
 	public string tag; // 游戏传入的Tag
 	public int flag; // 查询成功标识，若为0则成功
 	public string desc; // 查询flag的具体描述
-	// 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
+	// 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: Wi-Fi
 	public int jump_network;
 	public int jump_signal; // 信号强度
 	// 0表示绿色，信号强；1表示黄色，信号弱；2表示红色，信号极弱
@@ -216,11 +213,11 @@ public class KartinRet {
 	public String export_desc = ""; //宽带出口和基站出口描述
 	public int jump_proxy; // ping代理时延
 	public int jump_edge; // ping边缘时延
-	public int jump_terminal; // wifi终端数 
+	public int jump_terminal; // Wi-Fi终端数 
 	// terminal状态,0表示绿色终端数少；2表示红色，时延高   
-	public int terminal_status = -1; //wifi终端数状态
-	public String terminal_desc = ""; //wifi终端数描述
-	public int jump_terminal; // wifi终端数
+	public int terminal_status = -1; //Wi-Fi终端数状态
+	public String terminal_desc = ""; //Wi-Fi终端数描述
+	public int jump_terminal; // Wi-Fi终端数
 	public int jump_direct; // 直连测速时延
 	// 直连状态,0表示绿色时延低；2表示红色，时延高
 	public int direct_status; // 直连测速时延状态
@@ -267,7 +264,7 @@ public class KartinRet {
 #### 字段：jump_terminal；关键名称：共享 Wi-Fi 设备数（仅 Wi-Fi）
 | 取值 | 含义 | 
 |---------|---------|
-| -1 | 仅在WIFI模式下支持共享 Wi-Fi 设备查询 | 
+| -1 | 仅在 Wi-Fi 模式下支持共享 Wi-Fi 设备查询 | 
 | 0..254 | 链接相同 Wi-Fi 的设备数 | 
 
 #### 字段：jump_export；关键名称：宽带出口时延
@@ -283,14 +280,11 @@ public class KartinRet {
 | -1 | 获取直连延迟失败，请稍后再试 | 
 | 0..800 | 网络时延值 | 
 
-#### 字段：netinfo_desc；关键名称：直连时延
-| 取值 | 含义 | 
-|---------|---------|
-|   | 当前网卡有丢包或错包，不适合游戏 |   
+
 
 具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
 
-WIFI 直连环境下图示如下：
+Wi-Fi 直连环境下图示如下：
 ![](https://mc.qcloudimg.com/static/img/8be2ccf30041db352caed1d98b524bab/wifi-android.png)
 
 4G 直连环境下图示如下：

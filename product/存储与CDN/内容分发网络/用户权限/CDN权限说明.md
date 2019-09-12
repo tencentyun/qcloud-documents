@@ -1,157 +1,96 @@
-CDN 目前已经接入新版的云资源访问管理（Cloud Access Management）系统，根据功能属性的不同对 CDN 的所有操作进行了划分，每一项功能的权限包含了对应的 **控制台操作** 及对应的 **云 API 操作**，创建者可以根据需要对子用户进行一个功能或多个功能及功能对应允许操作对象（项目/域名）的配置。
-> **注意**：
-> 原协作者无法完成生成密钥对调用 API 操作。在 CAM 系统中配置权限后，子用户可使用自身密钥对调用有权限使用的 API。
+内容分发网络（CDN）接入了腾讯云云资源访问管理（Cloud Access Management）系统，您可以在 [访问管理](https://console.cloud.tencent.com/cam/overview) 控制台进行用户组、用户、角色、策略等一系列相关管理操作。
 
-## 管理员权限
-### 创建者
-创建者是指此腾讯云账号的拥有者，拥有最高权限，可以管理账户内所有用户及其权限、财务相关的信息、云服务资产。
-### 预设管理员
-预设管理员包括超级管理员、云资源管理员和财务管理员。超级管理员拥有创建者的所有权限。云资源管理员拥有对所有云服务资产的管理权限。财务管理员拥有账户内财务相关的内容的管理权限，如：付款，开票。
-创建者可以通过将用户关联到 **预设策略**，指派以下几种管理员：
-+ 超级管理员(策略名：AdministratorAccess)
-+ 云资源管理员(策略名：QCloudResourceFullAccess)
-+ 财务管理员(策略名：QCloudFinanceFullAccess)
+由于 CDN 目前处于权限系统升级过渡阶段，您可以通过以下几种方式为您的子用户和角色分配 CDN 管理权限。
 
-CDN 部分功能仅供预设管理员使用，如：
-+ 调用云 API [DescribeCdnHosts](https://cloud.tencent.com/doc/api/231/3937) 获取账户下所有域名的详细信息，包括配置信息，支持分页查询。
-+ 调用云 API [UpdateCdnProject](https://cloud.tencent.com/doc/api/231/3935) 或在 CDN 控制台进行域名所属项目的切换。
+## 预设策略
+目前 CDN 可适配的预设策略如下：
+- AdministratorAccess：关联了此策略的子用户，可以管理账户内含 CDN 服务在内的所有云服务资产、财务相关信息、用户及权限。
+- QCloudResourceFullAccess：关联了此策略的子用户，可以管理账户内含 CDN 服务在内的所有云服务资产。
 
-### 项目管理员
-项目管理员拥有管理 CDN 业务项目内云资源和管理其他业务项目内云资源的权限。创建者或超级管理员可以通过将用户关联到 **项目管理** 策略进行指派。
-项目管理员权限等同于原有版本 **项目协作者**，可以在控制台进行有权限项目之间的资源分配。由于项目的划分对所有云资源均有效，您可以根据需要对项目管理的业务范围进行选择。
-如何配置项目管理员？请参考 [项目管理员配置示例](https://cloud.tencent.com/doc/product/228/6693)。
+若子用户关联了以上两类策略，则具备 CDN 所有域名的读写权限。
 
-## 子用户权限
-### 查看消耗数据及统计量
-#### 配置须知
-+ 目前查询消耗及统计信息的权限仅可按照 **项目** 划分。
-+ 仅有 **默认项目** 的用户，给子用户分配查看消耗数据及统计量权限时无法进行更细粒度的划分。
+## 项目策略
+若需要按照已经分配好的项目授权给某个子用户，使其具备项目下域名的完全读写权限，则可通过创建项目策略实现。
+1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) ，单击左侧目录的【策略】。
+2. 单击【新建自定义策略】，而后选择【按产品功能或项目权限创建】：
+![](https://main.qcloudimg.com/raw/59c8c89263412208344bd071430db23d.png)
+3. 按要求填充策略名称，在下方服务类型中勾选【项目管理】：
+![](https://main.qcloudimg.com/raw/f0c7a068257c3f4ab8e734791d6ceeb2.png)
+4. 开启【管理CDN业务项目内云资源】，而后关联需要授权的项目，即可完成创建一条项目管理员策略：
+![](https://main.qcloudimg.com/raw/f9e5762bcae1dfe0cc77044cc3441122.png)
 
-#### 控制台权限控制
-拥有查看消耗数据及统计量权限的子用户，在控制台可进行如下操作：
-+ 【CDN 控制台】>【概览】：显示指定项目下资源对象的概览信息。
-+ 【CDN 控制台】>【统计分析】>【使用量统计】：指定项目下资源对象的消耗明细查询、下载。
-+ 【CDN 控制台】>【统计分析】>【访问情况统计】：指定项目下资源对象的访问情况明细查询、下载。
-+ 【CDN 控制台】>【统计分析】>【状态码统计】：指定项目下资源对象的状态码统计明细查询、下载。
-+ 【CDN 控制台】>【统计分析】>【源站统计】：指定项目下资源对象的源站统计明细查询、下载。
-  ![](https://main.qcloudimg.com/raw/1b7f65c15f0987e7bbeab821dad95a1d.png)
+## 功能集策略
+若您需要针对项目级别的授权操作进行细化，如数据查询、刷新预热、域名管理操作分别授权给不同的子账号，可通过以下步骤创建策略：
+1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) ，单击左侧目录的【策略】。
+2. 单击【新建自定义策略】，而后选择【按产品功能或项目权限创建】：
+![](https://main.qcloudimg.com/raw/59c8c89263412208344bd071430db23d.png)
+3. 按要求填充策略名称，在下方服务类型中勾选【内容分发网络】：
+![](https://main.qcloudimg.com/raw/e057955abd823f0b92ff6cc13a016c4c.png)
+4. 按需开启需要授权的操作集并关联项目（默认项目不可进行授权），而后关联子用户即可：
+![](https://main.qcloudimg.com/raw/961dfce5817ba690b554f12dfa22d7c9.png)
 
-#### 云 API 权限控制
-拥有查看消耗数据及统计量权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询指定项目下资源对象的消耗数据及统计量：
-+ [DescribeCdnHostInfo](https://cloud.tencent.com/doc/api/231/3941)：查询指定时间区间、数据类型、项目、域名对应的统计量汇总信息。
-+ [DescribeCdnHostDetailedInfo](https://cloud.tencent.com/doc/api/231/3942)：查询指定时间区间、数据类型、项目、域名对应的统计明细。
-+ [GetCdnStatusCode](https://cloud.tencent.com/doc/api/231/3943)：查询指定时间区间、项目、域名对应的状态码统计明细。
-+ [GetCdnStatTop](https://cloud.tencent.com/doc/api/231/3944)：查询指定时间区间、项目、域名、统计类型，对应的各省份、运营商、URL 排名 TOP100 统计。
+目前操作集归类及对应的 OPEN API 2.0 及 OPEN API 3.0 接口如下所示，拥有操作集权限的子用户，可针对有权限项目内任意一个域名调用下列接口。
 
-> **注意**：项目中已删除的域名，由于存在历史记录，因此在消耗查询中仍然可以查到。
+| 权限集合              | API2.0                                                       | API3.0                                                       | 是否需要授权 |
+| :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------- |
+| 查询消耗数据及统计量  | DescribeCdnHostInfo <br/>DescribeCdnHostDetailedInfo<br/>GetCdnStatusCode<br/> GetCdnStatTop<br/> GetCdnProvIspDetailStat | DescribeCdnData<br/> DescribeOriginData<br/> ListTopData<br/>DescribeIpVisit | 是           |
+| 查询域名信息          | GetHostInfoById<br/>GetHostInfoByHost                        | 暂未上线                                                     | 是           |
+| 查询 CDN 日志下载链接 | GenerateLogList<br/>GetCdnLogList                            | 暂未上线                                                     | 是           |
+| 添加域名              | AddCdnHost<br/>                                              | 暂未上线                                                     | 是           |
+| 上线 / 下线域名         | OnlineHost<br/>OfflineHost                                   | 暂未上线                                                     | 是           |
+| 删除域名              | DeleteCdnHost                                                | 暂未上线                                                     | 是           |
+| 修改域名配置          | UpdateCdnConfig                                              | 暂未上线                                                     | 是           |
+| 刷新预热              | RefreshCdnDir<br/>RefreshCdnUrl<br/>GetCdnRefreshLog<br/>CdnPusherV2<br/>GetPushLogs<br/>CdnOverseaPushser | PurgeUrlsCache<br/>PurgePathCache<br/>DescribePurgeTasks<br/>PushUrlsCache<br/>DescribePushTasks | 是           |
+| 服务查询              | QueryCdnIp（无需授权）                                       | DescribeCdnIp                                                | 是           |
 
-### 查询域名信息
-#### 配置须知
-+ 目前查询域名信息的权限仅可按照 **项目** 划分。
-+ 仅有 **默认项目** 的用户，给子用户分配查询域名信息权限时无法进行更细粒度的划分。
+#### 控制台页面权限说明：
+- 查看消耗数据及统计量：若策略开启了【查看消耗数据及统计量】并关联项目，则可查看控制台以下模块信息：
+  - 概览页
+  - 统计分析：实时监控
+  - 统计分析：数据分析
+  - 全网数据监控
+- 查询域名信息：若策略开启了【查询域名信息】并关联项目，则在控制台【域名管理】页面查看有权限的项目中域名列表及详细配置信息。
+- 查询 CDN 日志下载链接：若策略开启了【查询 CDN 日志下载链接】并关联项目，则在控制台【日志管理】页面，可查询访问日志下载链接。
+- 添加域名：若策略开启了【添加域名】并关联项目，则可向指定项目中添加域名。
+- 上线 / 下线域名：若策略开启了【上线 / 下线域名】并关联项目，则可上线/下线指定项目中的加速域名。
+- 删除域名：若策略开启了【删除域名】并关联项目，则可删除指定项目中的加速域名，删除域名需要为下线状态。因此若需要删除一个上线状态的域名，需要具备【上线 / 下线域名】权限。
+- 修改域名配置：若策略开启了【修改域名配置】并关联项目，则可以修改指定项目中的加速域名配置。
+- 刷新预热：若策略开启了【刷新预热】并关联项目，则可以在【刷新缓存】页面提交对应的刷新、预热（白名单）任务，并查询刷新预热任务的执行状态。
 
-#### 控制台权限控制
-拥有查询域名信息权限的子用户，在控制台可进行如下操作：
-【CDN 控制台】>【域名管理】：查看指定项目下资源对象的域名信息，单击【管理】可查看更多配置详情。
-![](https://main.qcloudimg.com/raw/ad9b7064f81ad9f3134ef435257da159.png)
+## 资源授权
 
-#### 云 API 权限控制
-拥有查询域名信息权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询域名信息（该域名必须属于该子用户有权限的项目）：
-+ [GetHostInfoByHost](https://cloud.tencent.com/doc/api/231/3938)：根据域名查询域名的详细信息、配置信息，支持多个域名同时查询。
-+ [GetHostInfoById](https://cloud.tencent.com/doc/api/231/3939)：根据域名 ID 查询域名详情，支持多域名 ID 一次性查询。
+为方便用户更加细粒度的配置域名查询、管理权限，CDN 系统目前在进行权限策略的升级，将逐步支持策略语法能力，用户可通过自定义策略语句，实现域名级别的权限分配。
 
-### 查询日志下载链接
-#### 配置须知
-+ 目前查询日志下载链接的权限仅可按照 **项目** 划分。
-+ 仅有 **默认项目** 的用户，给子用户分配查询日志下载链接权限时无法进行更细粒度的划分。
+目前新增的 API3.0 接口及新版的统计分析控制台，已经全面支持策略语法，对应的 Action 如下：
+- DescribeCdnData
+- DescribeOriginData
+- ListTopData
+- DescribeIpVisit
+- PurgeUrlsCache
+- PurgePathCache
+- DescribePurgeTasks
+- PushUrlsCache
+- DescribePushTasks
+- DescribeCdnIp
 
-#### 控制台权限控制
-拥有查询日志下载链接权限的子用户，在控制台可进行如下操作：
-【CDN 控制台】>【高级工具】>【日志管理】：查询指定项目下资源对象的指定日期日志下载链接。
-![](https://main.qcloudimg.com/raw/0454152de50c9d5f402cba40ccb341b9.png)
+策略语法示例：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "*"
+            ],
+            "resource": [
+                "qcs::cdn::uin/主账号UIN:domain/www.test.com"
+            ],
+            "effect": "allow"
+        }
+    ]
+}
+```
 
-#### 云 API 权限控制
-拥有查询日志下载链接权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 查询日志下载链接（该域名必须属于该子用户有权限的项目）：
-+ [GenerateLogList](https://cloud.tencent.com/doc/api/231/3950)：根据域名 ID 查询指定时间区间内，指定域名日志的下载链接，一次仅可指定一个域名进行查询。
-+ [GetCdnLogList](https://cloud.tencent.com/doc/api/228/8087):根据域名查询指定时间区间内，指定域名日志的下载链接，一次仅可指定一个域名进行查询。
-
-### 添加域名
-#### 配置须知
-+ 目前添加域名的权限仅可按照 **项目** 划分，即可指定允许添加域名的项目。
-+ 仅有 **默认项目** 的用户，给子用户分配添加域名权限时无法进行更细粒度的划分。
-
-#### 控制台权限控制
-拥有添加域名权限的子用户，在控制台可进行如下操作：
-【CDN 控制台】>【域名管理】>【添加域名】：单击【添加域名】后，**所属项目** 下拉菜单中显示的项目即为有权限添加域名的项目，若无项目，表明该子用户无添加域名的权限。
-![](https://main.qcloudimg.com/raw/e61a06742f8f3a206471aad8e2c3b68f.png)
-
-#### 云 API 权限控制
-拥有添加域名权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 添加域名（项目必须为有权限的项目）：
-+ [AddCdnHost](https://cloud.tencent.com/doc/api/231/1406)：新增加速域名。
-
-### 上线/下线域名
-#### 配置须知
-+ 目前上线/下线域名的权限仅可按照 **项目** 划分。
-+ 仅有 **默认项目** 的用户，给子用户分配上线/下线域名权限时无法进行更细粒度的划分。
-
-#### 控制台权限控制
-拥有上线/下线域名权限的子用户，在控制台可进行如下操作：
-【CDN 控制台】>【域名管理】：找到有权限的域名，可对其进行上线/下线（开启/关闭）操作。
-![](https://main.qcloudimg.com/raw/e05e631b07fa456499c146c9e1f33a74.png)
-
-#### 云 API 权限控制
-拥有上线/下线域名权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 上线/下线域名（上线/下线的域名必须为有权限的域名）：
-+ [OnlineHost](https://cloud.tencent.com/doc/api/231/1402)：根据域名 ID 上线 CDN 域名。
-+ [OfflineHost](https://cloud.tencent.com/doc/api/231/1403)：根据域名 ID 下线 CDN 域名。
-
-### 删除域名
-#### 配置须知
-+ 目前删除域名权限仅支持按照 **项目** 划分。
-+ 可删除的域名状态需为 **已关闭**，否则需要先进行下线域名操作。
-
-####  控制台权限控制
-拥有删除域名权限的子用户，在控制台可进行如下操作：
-![](https://main.qcloudimg.com/raw/d4e07efc098973d6faa642f13beb96e2.png)
-【CDN 控制台】>【域名管理】：勾选要删除的域名，单击【更多操作】下拉菜单中的【删除】，可以对有权限的已关闭的域名进行删除操作。
-
-#### 云 API 权限控制
-拥有删除域名权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 删除域名（指定域名必须为有权限的域名，域名状态需要为已关闭状态）：
-+ [DeleteCdnHost](https://cloud.tencent.com/doc/api/231/1396)：根据域名 ID 删除 CDN 域名。
-
-### 修改域名配置
-#### 配置须知
-+ 目前修改域名配置权限仅支持按照 **项目** 划分。
-+ 仅有 **默认项目** 的用户，给子用户分配修改域名配置权限时无法进行更细粒度的划分。
-
-#### 控制台权限控制
-拥有修改域名配置权限的子用户，可在控制台做如下操作：
-【CDN 控制台】>【域名管理】：单击域名右侧【管理】，可对有权限的域名的各项配置进行修改。
-![](https://main.qcloudimg.com/raw/4f372acc37b1511c1c7392874979b29a.png)
-
-#### 云 API 权限控制
-拥有修改域名配置权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 修改域名配置（指定域名必须为有权限的域名）：
-+ [UpdateCdnConfig](https://cloud.tencent.com/doc/api/231/3933)：修改域名配置。
-+ [UpdateCache](https://cloud.tencent.com/doc/api/231/3934)：修改域名缓存配置。
-+ [UpdateCdnHost](https://cloud.tencent.com/doc/api/231/1397)：修改域名源站配置。
-
-### 刷新预热
-#### 配置须知
-+ 目前刷新预热权限仅支持按照 **项目** 划分。
-+ 提交的 URL 列表或者目录列表中的域名必须都有权限。
-
-#### 控制台权限控制
-拥有刷新预热权限的子用户，可在控制台做如下操作：
-【CDN 控制台】>【缓存刷新】：批量贴入有权限的域名下的 URL 或目录，提交进行刷新。单击【操作记录】，可以看到您最近的操作记录。
-![](https://main.qcloudimg.com/raw/42693acbc573a0fc474174de209c4c18.png)
-
-#### 云 API 权限控制
-拥有刷新预热权限的子用户，可申请云 API 密钥，详情请参考 [申请安全凭证](https://cloud.tencent.com/doc/api/231/1725#1.-.E7.94.B3.E8.AF.B7.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81)，并使用密钥调用下列云 API 进行刷新预热（仅可提交有权限的域名下的 URL 或目录）：
-+ [RefreshCdnUrl](https://cloud.tencent.com/doc/api/231/3946)：将节点上指定 URL 资源设置为过期。
-+ [RefreshCdnDir](https://cloud.tencent.com/doc/api/231/3947)：将节点上指定资源目录下的内容设置为过期。
-+ [GetCdnRefreshLog](https://cloud.tencent.com/doc/api/228/3948):查询指定时间区间内的刷新日志、刷新次数，可指定 URL 查询。
-
-### 默认权限
-子用户一旦配置了 CDN 功能权限，则默认可以进行如下操作，无需进行配置。
-+ 使用控制台查询所有刷新记录。
-  ![](https://main.qcloudimg.com/raw/cbe883536cfea044eda8679ebc2df9fa.png)
-+ 使用云 API [GetCdnRefreshLog](https://cloud.tencent.com/doc/api/228/3948) 查询指定时间区间内的刷新日志、刷新次数，可指定URL查询。
+> !
+- 策略语法仅支持上述已列出来的 3.0 API 接口进行授权，因此若 Action 配置为 `*`，仅代表上述10个接口。
+- 允许同时按照项目授权、策略语法进行域名级别授权。若授权了项目 A 的数据访问权限，在策略语法中又拒绝了项目 A 中 a 域名的数据查询权限，则没有项目 A 的权限，但是有项目 A 下其他域名权限。

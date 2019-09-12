@@ -1,0 +1,55 @@
+## 功能描述
+
+本接口用于设置日志主题绑定的机器组信息。
+
+## 请求
+
+### 请求示例
+
+```
+PUT /topic/machinegroup?topic_id=xxxx-xx-xx-xx-xxxxxxxx HTTP/1.1
+Host: <Region>.cls.myqcloud.com
+Authorization: <Authorization String>
+Content-Type: application/json
+{  
+	"machine_groups": ["xxxxxx-xx-xx-xx-yyyyyyyy"]
+}
+```
+
+### 请求行
+
+```
+PUT /topic/machinegroup
+```
+
+### 请求头
+
+除公共头部外，无特殊请求头部。 
+
+### 请求参数
+
+| 字段名         | 类型              | 位置  | 是否必须 | 含义                         |
+| -------------- | ----------------- | ----- | -------- | ---------------------------- |
+| topic_id       | string            | query | 是       | 设置的日志主题 ID            |
+| machine_groups | JsonArray（string） | body  | 是       | 日志主题绑定的机器组 ID 数组 |
+
+## 响应
+
+### 响应示例
+
+```
+HTTP/1.1 200 OK
+Content-Length: 0
+```
+
+### 响应头
+
+除公共响应头部外，无特殊响应头部。 
+
+### 响应参数
+
+无。
+
+### 错误码
+
+请查看 [错误码](https://cloud.tencent.com/document/product/614/12402) 文档。

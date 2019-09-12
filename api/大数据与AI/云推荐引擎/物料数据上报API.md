@@ -29,7 +29,7 @@
 		<td colspan="2">data_type</td>
 		<td>是</td>
 		<td>String</td>
-		<td>协议类型： "1" - item， "2" – action，物料上报传 "1"</td>
+		<td>协议类型： "1" - item， "2" - action，物料上报传 "1"</td>
 	</tr>
 	<tr>
 		<td colspan="2">token</td>
@@ -120,7 +120,7 @@
 		<td colspan="2">platform</td>
 		<td>否</td>
 		<td>String</td>
-		<td>"ios" - ios 平台，"android" - Android 平台，"h5" - H5 </td>
+		<td>"ios" - iOS 平台，"android" - Android 平台，"h5" - H5 </td>
 	</tr>
 	<tr>
 		<td colspan="2">lv1class</td>

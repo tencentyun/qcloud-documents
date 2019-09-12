@@ -1,0 +1,36 @@
+
+### 云数据库 SQL Server 对库的数量是否有限制？
+云数据库 SQL Server 对数据库个数的创建没有限制，从性能考虑，建议单个 SQL Server 实例下创建的数据库个数不超过70个。如特殊情况需要咨询，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈进行评估。
+
+### SQL Server 到期会怎样？
+- 云数据库资源到期前七天，系统会通过邮件、站内信及短信的方式给用户发送续费提醒通知。
+- 到期后七天内，云数据库还可以继续使用，需要尽快续费，系统将发送云数据库到期提醒。
+- 到期超过七天的云数据库资源将被系统回收，数据将会被清除，不可恢复。
+
+### 创建 SQL Server 数据库后，还没有写入数据或写入极少量数据，为什么存储空间监控显示是已经占用500MB数据？
+腾讯云每个 SQL Server 数据库，会自动分配500MB的初始化空间，数据写入时，会优先写入到初始化空间中。
+因此您没有写入数据或写入极少量数据，存储监控也会显示500MB。
+
+### SQL Server 写入数据删掉后，存储空间监控仍显示占用了相当数量的存储空间，空间不会释放吗？
+SQL Server 删除数据后，已经扩展的数据文件不会收缩，文件内部空闲的空间可以支撑后续插入、更新等操作。
+例如您申请50GB的实例，某一个数据库写入50GB数据后再全部删除，这时候存储空间监控您已经使用了50GB，但您仍可以继续写入大量文件。
+
+### 通过 Microsoft SQL Server Management 管理数据库，系统提示 “Login failed. The login is from an untrusted domain and cannot be used with Windows authentication”，是为什么？
+请将身份认证方式改为“SQL Server 身份验证”。
+
+### SQL Server 使用 SSH 端口映射外网连接管理实例？
+考虑到数据的安全，目前云数据库 SQL Server 尚未开放实例的外网 IP，有需求的用户可以利用 SSH2 的端口映射在外网连接实例，并对其进行配置和管理。具体操作请参见 [连接实例](https://cloud.tencent.com/document/product/238/11627#.E4.BA.8C.E3.80.81.E8.BF.9E.E6.8E.A5-sql-server-.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E5.AE.9E.E4.BE.8B.EF.BC.88.E6.9C.AC.E5.9C.B0.E7.AB.AF.EF.BC.89)。
+
+
+
+
+
+
+
+
+
+
+
+
+
+

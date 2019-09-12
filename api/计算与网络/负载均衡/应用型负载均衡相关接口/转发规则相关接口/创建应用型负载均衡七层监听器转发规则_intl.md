@@ -1,8 +1,8 @@
 ## API Description
 This API (CreateForwardLBListenerRules) is used to create forwarding rules of an application-based load balancer layer-7 listener.
- 
+
 Domain name for API access: `lb.api.qcloud.com`
- 
+
 ## Request Parameters
 The following request parameter list only provides the API request parameters. Common request parameters are required when the API is called. For more information, please see [Common Request Parameters](https://cloud.tencent.com/document/api/214/4183) page. The Action field for this API is CreateForwardLBListenerRules.
 
@@ -18,7 +18,7 @@ The following request parameter list only provides the API request parameters. C
 | rules.n.intervalTime | No | Int | Time interval between health checks on the forwarding rules of application-based load balancer listener (in sec). Default value: 5. Value range: 5-300. |
 | rules.n.healthNum | No | Int | Healthy threshold for the forwarding rules of application-based load balancer listener (in count). Default value: 3, which means the forwarding is considered normal if it is detected to be healthy for three times consecutively. Value range: 2-10. |
 | rules.n.unhealthNum | No | Int | Unhealthy threshold for the forwarding rules of application-based load balancer listener (in count). Default value: 3, which means the forwarding is considered abnormal if it is detected to be unhealthy for three times consecutively. Value range: 2-10. |
-| rules.n.httpHash | No | Int | Forward method for the forwarding rules of application-based load balancer listener. <br>Available values: wrr (polling by weight), ip_hash (hashing a value based on the source IP and forwarding the value to the backend server), least_conn (minimum number of connections). Default is wrr. |
+| rules.n.httpHash | No | String | Forward method for the forwarding rules of application-based load balancer listener. <br>Available values: wrr (polling by weight), ip_hash (hashing a value based on the source IP and forwarding the value to the backend server), least_conn (minimum number of connections). Default is wrr. |
 | rules.n.httpCode | No | Int | Health status code for the forwarding rules of application-based load balancer listener. Value range: 1-31. Default is 31.<br> 1: It is considered healthy if the health check returns 1xx code; 2: It is considered healthy if the health check returns 2xx code; 4: It is considered healthy if the health check returns 3xx code; 8: It is considered healthy if the health check returns 4xx code; 16: It is considered healthy if the health check returns 5xx code. If you need multiple types of codes that can indicate healthy status, enter the accumulated value corresponding to such codes. |
 | rules.n.httpCheckPath | No | String | Check path for the forwarding rules of application-based load balancer listener, which is / by default and must begin with /. It must be a combination of 1-80 characters comprised of letters, numbers, "_", "-", ".", "=", "?" and "/". |
 
@@ -35,7 +35,7 @@ The following request parameter list only provides the API request parameters. C
 
 
 ## Example
- 
+
 Request
 ```
 https://lb.api.qcloud.com/v2/index.php?Action=CreateForwardLBListenerRules
@@ -63,4 +63,3 @@ Response
     "requestId": 28182
 }
 ```
-

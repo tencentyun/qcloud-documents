@@ -1,260 +1,119 @@
-## 场景背景
-
-科比在 2016 年 4 月 12 日星期三的最后一场比赛中为洛杉矶湖人队得到 60 分，标志着他从 NBA 退役。从 17 岁入选 NBA，科比在他的职业生涯中获得了无数的赞誉。
-
-使用 20 年有关科比的投篮命中和投失数据，您能预测哪些投篮能命中篮筐吗？本案例非常适合实践分类基础知识、特征工程和时间序列分析。
-
-训练数据包含了科比在他 20 年职业生涯中所尝试的每个投篮命中的位置和情况。您的任务是训练模型来预测每次投篮是否会投进。
-
-字段如下：
-
-| **字段名**         | **取值类型** | **取值举例**                                                 |
-| ------------------ | ------------ | ------------------------------------------------------------ |
-| action_type        | 枚举         | Jump Shot/Running Jump Shot/Layup Shot/Reverse Dunk Shot/Slam Dunk Shot |
-| combined_shot_type | 枚举         | Jump Shot/Layup/Dunk                                       |
-| game_event_id      | 数值         | 1/2//3/……                                                  |
-| game_id            | 数值         | 20000012/20000047/……                                       |
-| lat                | 数值         | 33.9343/34.0163/……                                         |
-| loc_x              | 数值         | -157/138/0/……                                            |
-| loc_y              | 数值         | 175/-11/0/……                                              |
-| lon                | 数值         | -118.1028/-118.2938/……                                    |
-| minutes_remaining  | 数值         | 0/1/2/3/4/5/6/7/8/9/10/11                         |
-| period             | 数值         | 1/2/3/4/5/6/7                                          |
-| playoffs           | 数值         | 0/1                                                         |
-| season             | 字符串       | 2004-5-1/2007-8-1/2015-16/……                              |
-| seconds_remaining  | 数值         | 0\~59                                                        |
-| shot_distance      | 数值         | 0/45/79/……                                                |
-| target             | label        | 0/1                                                         |
-| shot_type          | 枚举         | 2PT Field Goal/3PT Field Goal                               |
-| shot_zone_area     | 枚举         | Right Side(R)/Left Side(L)/Left Side Center(LC)/Right Side Center(RC)/Center©/Back Court(BC) |
-| shot_zone_basic    | 枚举         | Mid-Range/Restricted Area/In The Paint (Non-RA)/Above the Break 3/…… |
-| shot_zone_range    | 枚举         | 16-24 ft./8-16 ft./Less Than 8 ft./24+ ft./……            |
-| team_id            | 数值         | 1610612747                                                   |
-| team_name          | 字符串       | Los Angeles Lakers                                           |
-| game_date          | 日期         | 2000-10-31/2014-12-21/……                                   |
-| matchup            | 字符串       | LAL vs. IND/LAL vs. SAC/LAL vs. UTA/LAL vs. SAC/……       |
-| opponent           | 字符串       | SAC/PHX/……                                                 |
-| shot_id            | 数值         | 1/2/3/4/5/……                                          |
-
-## 案例相关材料
-相关材料下载链接：
-[Kobe投篮预测 Demo 材料.zip](https://main.qcloudimg.com/raw/5c5a9b493b948241cf4d9d1e955febfb/Kobe%E6%8A%95%E7%AF%AE%E9%A2%84%E6%B5%8BDemo%E6%9D%90%E6%96%99.zip)（包含：train.txt、feature_conf.json、predict.txt）
-
-## 整体流程
-
-该 Demo 的整体流程如下图所示：
-![](https://main.qcloudimg.com/raw/c0b76a52418263b5033e48fde20030a2.png)
-
-包含 8 个环节，分别是：
-
-1. [将训练数据从本地上传到 COS](#jump1)
-2. [对训练数据做特征处理](#jump2)
-3. [将特征处理后的训练数据切分成训练集和测试集](#jump3)
-4. [训练 Kobe 投篮预测模型](#jump4)
-5. [将验证数据从本地上传到 COS](#jump5)
-6. [对验证数据做特征处理](#jump6)
-7. [在验证数据集上验证 Kobe 投篮预测模型](#jump7)
-8. [生成模型评估结果](#jump8)
-
-
-## 流程详解
-
-### 新建工程和工作流
-
-1. 登录 [TI-ONE](https://tio.cloud.tencent.com)控制台，进入 TI-ONE 项目列表页。单击【+新建工程】。
-    ![](https://main.qcloudimg.com/raw/3cdde89b99dab1f0acf605e05383583d.png)
-
-2. 填写工程名称和工程描述等相关信息。
-    ![](https://main.qcloudimg.com/raw/e8b2d533ede8e55b24c63c96ade15825.png)
-
-3. 登录腾讯云[对象存储控制台](https://console.cloud.tencent.com/cos)，单击【存储桶列表】>【创建存储桶】。
-    ![](https://main.qcloudimg.com/raw/0a83a1b11edf7cd3d875b13e5e6086f3.png)
-
-4. 创建成功后在新建工程页下拉列表处选取储存桶。
-    ![](https://main.qcloudimg.com/raw/645d2203a91e7ea715d41769a964dc74.png)
-
-5. 单击新建工程页面的 API 密钥管理链接，进入 COS 控制台，单击【密钥管理】>【云 API 密钥链接】进入密钥界面。
-    ![](https://main.qcloudimg.com/raw/6dad73a787505e4e6f8af670424d330e/5a.png)
-
-6. 单击新建密钥进行密钥创建-复制创建好的 SecretId 和 Secretkey，在新建工程页面粘贴，单击保存。
-    ![](https://main.qcloudimg.com/raw/51d455f62142ca9d18f5ee623e6221ef.png)
-
-7. 完成新建工程后，单击“+号”新建工作流。
-    ![](https://main.qcloudimg.com/raw/11c67f72ffef272fafcf5554284fee42.png)
-
-8. 输入工作流名称。
-     ![](https://main.qcloudimg.com/raw/e9fb02f1e334a1622cdb64af8e99f6b5.png)
-
-9. 单击确认，进入画布。
-    ![](https://main.qcloudimg.com/raw/668c1e0bd960838c7015443d1a097938/9a.png)
-
-
-
-
-
-
-### 上传训练数据
-
-1. 左边栏选择：输入>数据源>本地输入。
-
-2. 拖入画布，填写参数。
-    ![](https://main.qcloudimg.com/raw/4f0e510dcbe2a4f489149c2f801f03e3.png)
-
-3. 上传数据文件：选择本地文件“train.txt”并上传。
-
-![](https://main.qcloudimg.com/raw/3fe44dd549ba73ce959d2110aced66f5.png)
-
->目标 COS 路径自动生成，支持修改。
-
-
-### 训练集特征处理
-
-1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
-
-2. 右键重命名：训练特征集处理。
-
-3. 特征上传配置：上传本地文件 feature_conf.json。
-    ![](https://main.qcloudimg.com/raw/ef901ab45ee6127e7ac884615a9e9b36.png)
-
-4. 填写参数：
- - 输入输出路径根据连线自动生成，无需用户填写。
- - 负样本抽样率：1.0
- - 并行数：100
- - 特征频次阈值：2
- - num-executors：5
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/cd68130908f7bdb5a87b3b00ff1c9ddc.png)
-
-
-### 数据切分
-
-1. 左边栏选择：算法>机器学习算法>数据预处理>Splitter。
-
-2. 右键重命名：数据切分。
-
-3. 填写参数
- - 输入输出路径根据连线自动生成，无需用户填写。
- - 并行数：11
- - 切分比例：0.7
- - num-executors：10
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/91700070a7e58feab2b6fdfa2f1f4020.png)
-
-
-### 训练投篮预测模型
-
-1. 左边栏选择：算法>机器学习算法>分类>SparseLogicalRegression。
-
-2. 右键重命名：投篮预测训练模型。
-
-3. 填写参数：
- - 输入数据根据连线自动生成。
- - 并行率：10
- - 验证集数据若未生成，则需要用户手动将上一组件与本组件相连，重新点开参数配置栏，验证集数据根据连线自动生成。
- - 子模型数：2
- - L1 正则系数：0.001
- - rho：0.01
- - 最大迭代次数：20
- - num-executors：10
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/ab313a03b34d21bc3c78f7a9d561092c/kobe%E6%8A%95%E7%AF%AE%20%E8%AE%AD%E7%BB%83%E6%AD%A5%E9%AA%A43.png)
-
-
-### 上传验证数据
-
-1. 左边栏选择：输入>数据源>本地输入。
-
-2. 填写参数：
- - 数据文件选择上传 predict.txt。
- - COS 目标路径自动生成，支持修改。
-    ![](https://main.qcloudimg.com/raw/fbd21bb7f46d42c39c433ada184438bc.png)
-
-
-> **注意：**
-> 从训练特征集处理到验证数据源的连线并非代表这里有数据流传输，只是因为后面的验证集特征处理会用到训练特征集处理的产出物，所以要确保验证特征集处理的开始时间在训练特征集处理结束之后。
-
-
-### 验证集特征预处理
-
-1. 左边栏选择：算法>机器学习算法>特征转换>Dummy。
-
-2. 右键重命名：验证集特征处理。
-
-3. 上传特征配置：feature_conf.json，在本案例中，验证集的该配置文件与训练集一致，所以不需要重新上传，只需要选择已上传的配置文件，单击确定即可。
-    ![](https://main.qcloudimg.com/raw/47ba93c53368adcbeff7fdaf456f6e24.png)
-
-4. 填写参数：
- - 输入输出路径根据连线自动生成，无需用户填写。
- - 负样本抽样率：1.0
- - 并行数：100
- - 特征频次阈值：2
- - num-executors：10
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/c0a5c5030925adacf77cb86b46ee3bc1.png)
-
-
-### 模型验证
-
-1. 单击流失率训练模型旁边的小圈。
-
-2. 填写参数：
- - 模型运行方式设为“自动运行”。
- - 将验证集特征处理组件与模型小圈连线，输入输出路径根据连线自动生成。
- - 并行数：10
- - num-executors： 10
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/ee772f14c6393891c62ee94a8e734753.png)
-
-
-### 模型评估
-
-1. 左边栏选择：算法>机器学习算法>输出>BinaryEvaluator。
-
-2. 右键重命名：模型评估。
-
-3. 填写参数：
- - 输入输出路径根据连线自动生成，无需用户填写。
- - 标签列：0
- - 预测列：1
- - 抽样率：1.0
- - 并行数：20
- - 预测阈值：0.5
- - num-executors： 10
- - 其余使用默认值。
-    ![](https://main.qcloudimg.com/raw/4a54d7eba7bc6f323cef9369b4a08951.png)
-
-
-## 操作说明
-
-### 保存工作流
-
-单击工具条上的磁盘图标，保存工作流。
-![](https://main.qcloudimg.com/raw/e6c1c7e4daf1553ff4b6fec8f28f0bc6.png)
-
-### 运行完整流程
-
-单击工具条上的“三角”箭头，运行完整的流程。
-![](https://main.qcloudimg.com/raw/aa76d80e4e31eaaabfb204b10ec1161f.png)
-
-### 从指定环节开始运行
-
-右键单击要运行的环节，选择“起点运行”，从该环节开始向下执行。
-![](https://main.qcloudimg.com/raw/8c8d13294c755e8284839dd44bbc4f26.png)
-
-
-### 查看中间结果
-
-
-运行完成后，右键单击数据处理的组件，可以查看中间结果。
-![](https://main.qcloudimg.com/raw/38bd9e266d6d767968190c0a89f65fae.png)
-
-单击 COS 链接，可以获取完整的中间结果。
-
-
-### 异常处理
-
-当环节节点上出现感叹号，说明流程出现异常。鼠标悬浮于组件，可以查看失败原因。
-![](https://main.qcloudimg.com/raw/5442900d9885083c49eab44ae069b4dc.png)
-
-右键单击该环节选择“Spark 控制台”查看日志，可以查看具体错误原因。
-![](https://main.qcloudimg.com/raw/5af904db6c303497feb22c988f3908b6.png)
+## 场景背景 
+2016年4月12日，科比结束了他传奇的职业生涯。他在最后一场比赛中，独得60分，帮助湖人队取得了胜利。从17岁入选 NBA 开始到此刻光荣退役，科比在他的职业生涯中获得了无数的荣誉。 
+通过使用科比职业生涯中投中和投失的数据，您能预测他的哪些投篮能命中篮筐吗？通过本案例，您可以利用智能钛机器学习平台的 TensorFlow 组件训练一个分类模型，来预测科比的某次投篮是否会投进，并通过评估指标检测模型效果。本案例非常适合实践特征工程和分类的知识。 
+
+## 数据集介绍 
+该案例的训练数据包含科比在20年职业生涯中所尝试的每个投篮的具体特征信息：动作、位置、日期等。 
+**数据集字段信息如下：** 
+
+| **字段名** | **取值类型** | **取值举例** | 
+| ------------------ | ------------ | ------------------------------------------------------------ | 
+| action_type | 枚举 | Jump Shot/Running Jump Shot/Layup Shot/Reverse Dunk Shot/Slam Dunk Shot | 
+| combined_shot_type | 枚举 | Jump Shot/Layup/Dunk | 
+| game_event_id | 数值 | 1/2/3/…… | 
+| game_id | 数值 | 20000012/20000047/…… | 
+| lat | 数值 | 33.9343/34.0163/…… | 
+| loc_x | 数值 | -157/138/0/…… | 
+| loc_y | 数值 | 175/-11/0/…… | 
+| lon | 数值 | -118.1028/-118.2938/…… | 
+| minutes_remaining | 数值 | 0/1/2/3/4/5/6/7/8/9/10/11 | 
+| period | 数值 | 1/2/3/4/5/6/7 | 
+| playoffs | 数值 | 0/1 | 
+| season | 字符串 | 2004-5-1/2007-8-1/2015-16/…… | 
+| seconds_remaining | 数值 | 0\~59 | 
+| shot_distance | 数值 | 0/45/79/…… | 
+| target | 枚举 | 0/1 | 
+| shot_type | 枚举 | 2PT Field Goal/3PT Field Goal | 
+| shot_zone_area | 枚举 | Right Side(R)/Left Side(L)/Left Side Center(LC)/Right Side Center(RC)/Center©/Back Court(BC) | 
+| shot_zone_basic | 枚举 | Mid-Range/Restricted Area/In The Paint (Non-RA)/Above the Break 3/…… | 
+| shot_zone_range | 枚举 | 16-24 ft./8-16 ft./Less Than 8 ft./24+ ft./…… | 
+| team_id | 数值 | 1610612747 | 
+| team_name | 字符串 | Los Angeles Lakers | 
+| game_date | 日期 | 2000-10-31/2014-12-21/…… | 
+| matchup | 字符串 | LAL vs. IND/LAL vs. SAC/LAL vs. UTA/LAL vs. SAC/…… | 
+| opponent | 字符串 | SAC/PHX/…… | 
+| shot_id | 数值 | 1/2/3/4/5/…… | 
+
+**数据集具体内容抽样展示如下（前八列）：** 
+![](https://main.qcloudimg.com/raw/839e2d3e9b8bb72618302a470df46ad6.png) 
+## 案例相关材料 
+相关材料下载链接：[Kobe 投篮预测 Demo 材料](https://main.qcloudimg.com/raw/c16f2f3c736e434b63341db6026d7425/kobe.zip)。 
+该材料包含以下文件： 
+- classifier.py：分类模型的分类器文件，用于模型分类。 
+- data_cleaning.py：数据预处理阶段的数据清洗代码。 
+- data_transformation.py：数据特征转换代码。 
+- feature_selection.py：数据特征选择代码。 
+- kobe.csv：kobe 投篮具体特征信息的数据集文件。 
+请用户下载该案例所需全部材料，并保存到本地以便后面搭建工作流需要。 
+
+## 整体流程 
+该 Demo 的整体流程如下： 
+![](https://main.qcloudimg.com/raw/7b696c2745c1610ce6f0ad3c3e71193f.png) 
+## 详细流程 
+#### 一. 上传数据
+本案例通过本地数据节点上传所需数据： 
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中 
+2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。 
+3. 修改 COS 路径： 
+目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。 
+请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。 
+![](https://main.qcloudimg.com/raw/65b53b22d3bb35f48a3fd2fb51559dbb.png)
+![](https://main.qcloudimg.com/raw/2ca958b17981ca9f72bd675842246eca.png)
+
+#### 二. 数据清洗
+此数据清洗功能由【案例相关材料】中的清洗代码 data_cleaning.py 提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
+2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
+3. 填写参数： 
+ - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。 
+ - Python 版本：选择 Python 3.5。 
+ - 其余参数均可默认。 
+![](https://main.qcloudimg.com/raw/dcd97fe674174da579b2ec96cb89bc2c.png)
+
+#### 三. 特征转换
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
+2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。 
+3. 填写参数： 
+ - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。 
+ - Python 版本：选择 `Python 3.5`。 
+ - 其余参数均可默认。 
+![](https://main.qcloudimg.com/raw/1fff4d15e3f0efeec33783cf871deb53.png)
+
+#### 四. 特征选择
+此特征选择功能亦由【案例相关材料】中的相关代码 feature_selection.py 提供： 
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。 
+2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。 
+3. 填写参数： 
+ - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。 
+ - Python 版本：选择 Python 3.5。 
+ - 其余参数均可默认。 
+![](https://main.qcloudimg.com/raw/ecf0a1c0307c0b521ffdbe7d0f0da01f.png)
+
+#### 五. 分类器
+此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供： 
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【TensorFlow】。 
+2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”。 
+3. 填写参数： 
+ - 程序脚本：上传文件 `classifier.py` 详见【案例相关材料】。 
+ - Python 版本：选择 `Python 3.5`。 
+ - 其余参数均可默认。 
+ ![](https://main.qcloudimg.com/raw/cc7c6df4d11289d525c6fa699e1cc684.png)
+
+#### 六. 模型评估
+1. 在智能钛机器学习平台控制台的左侧导航栏，选择【算法】>【机器学习算法】>【评估算子】>【二分类任务评估】，并拖入画布中。 
+2. 单击【二分类任务评估】，在右侧弹框中单击【高级设置】，此处需要手动填写【输入数据】路径（请直接复制填写）：`${cos}/kobe_predict/result.csv`，其余路径根据 IO 连线自动生成。
+3. 填写算法 IO 参数：  
+ - 标签列：0。 
+ - 是否是打分项：否。 
+ - 输入数据是否包含 header 信息：否。 
+ - 输入数据分隔符：空格。
+ - 预测列：1。
+ - 其余参数可默认。 
+![](https://main.qcloudimg.com/raw/ed13796c5f707a77b6f8c5075ab169f7.png)
+![](https://main.qcloudimg.com/raw/d5feafd51b37fd376472f3234f95dd7d.png)
+
+#### 七. 运行调度及模型评估
+单击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
+运行成功后，右键单击【二分类任务评估】>【评估指标】，即可查看模型效果。
+![](https://main.qcloudimg.com/raw/2b8cd6ecf444905d82e5f53733c4afa0.png)
+![](https://main.qcloudimg.com/raw/2e2d3809a2bf48bba481a2393c7822da.png)
