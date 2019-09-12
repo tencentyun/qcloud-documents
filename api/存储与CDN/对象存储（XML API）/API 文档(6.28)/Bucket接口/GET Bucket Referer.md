@@ -4,7 +4,7 @@ GET Bucket referer 接口用于读取存储桶 Referer 白名单或者黑名单�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```HTTP
 GET /?referer HTTP 1.1
@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization：Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization：Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
@@ -55,13 +55,13 @@ Authorization: Auth String
 | Domain                  | DomainList           | 单条生效域名，例如 `www.qq.com/example`，`192.168.1.2:8080`， `*.qq.com` | String    | 是   |
 | EmptyReferConfiguration | RefererConfiguration | 是否允许空 Referer 访问，枚举值：Allow，Deny，默认值为 Deny | String    | 否   |
 
-### 错误码
+#### 错误码
 
 该请求操作无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 GET /?referer HTTP 1.1
@@ -70,7 +70,7 @@ Date: Fri, 25 Feb 2017 04:10:22 GMT
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1547105134;32526689134&q-key-time=1547105134;32620001134&q-header-list=content-md5;content-type;host&q-url-param-list=referer&q-signature=0f7fef5b1d2180deaf6f92fa2ee0cf87ae83****
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
