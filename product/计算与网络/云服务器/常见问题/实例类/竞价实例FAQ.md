@@ -7,7 +7,7 @@
 
 ### 如何感知实例将要被中断？
 我们会在系统中断前2分钟通过 Metadata 的方式来通知您即将中断回收该实例。
-
+详细请查看 [查询竞价实例回收状态](https://cloud.tencent.com/document/product/213/37970)。
 
 ### 如何实现在库存恢复后自动申请竞价实例？
 您可以使用能够自动维护云服务器集群的云产品，例如 [批量计算](http://console.cloud.tencent.com/batch/env)、[弹性伸缩](http://console.cloud.tencent.com/autoscaling)，通过它们提供的跨机型、跨可用区能力可以更有效的维护指定数量的云服务器集群。
