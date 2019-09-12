@@ -5,8 +5,7 @@
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
 >- 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
-- **对等连接**：对于不同地域、不同账号或不同网络类型的 CVM 与数据库的内网连接方式，请参见 [对等连接](https://cloud.tencent.com/document/product/553/18827)，收费标准请参见 [对等连接计费概述](https://cloud.tencent.com/document/product/553/18833)。
-
+- **对等连接**：对于不同地域、不同账号或不同网络类型的 CVM 和数据库，内网连接方式请参见 [对等连接](https://cloud.tencent.com/document/product/553/18827)，收费标准请参见 [对等连接计费概述](https://cloud.tencent.com/document/product/553/18833)。
 
 ## 访问 MySQL 实例
 ### （可选）开启外网访问地址
@@ -20,8 +19,7 @@
 4. 开启成功后，即可在基本信息中查看到外网地址。通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
 
 ### 从 Windows 系统登录
-1. 登录到与数据库实例属于同一个地域且网络可达的 Windows 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+1. 登录到 Windows 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a>。
 1. 下载一个标准的 SQL 客户端。推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
 2. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
@@ -38,8 +36,7 @@
 ![](https://main.qcloudimg.com/raw/8f02e50fcc9c5c8dff33bcd2a83e3522.png)
 
 ### 从 Linux 系统登录 
-1. 登录到与数据库实例属于同一个地域且网络可达的 Linux 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+1. 登录到 Linux 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。
 1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
 执行以下命令安装 MySQL 客户端：
 ```
