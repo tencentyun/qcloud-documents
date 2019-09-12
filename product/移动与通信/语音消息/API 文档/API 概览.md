@@ -3,8 +3,7 @@
 |API 名称	|描述|
 |-----|------|
 |[发送语音验证码](https://cloud.tencent.com/document/product/1128/37721)	|给国内用户发语音验证码，支持英文字母、数字及组合|
-|[发送语音通知](https://cloud.tencent.com/document/product/1128/37722)	|给国内用户发语音通知，支持中文、英文字母、数字及组合，内容长度不超过100字|
-|[指定模板发送语音通知](https://cloud.tencent.com/document/product/1128/37723)	|给国内用户发送指定模板的语音通知|
+|[指定模板发送语音通知](https://cloud.tencent.com/document/product/1128/37723)	|给国内用户发语音通知，支持中文、英文字母、数字及组合，内容长度不超过100字|
 |[语音验证码状态通知](https://cloud.tencent.com/document/product/1128/37724)	|通过回调业务 URL 的方式，通知业务方语音验证码下发的状态|
 |[语音通知状态通知](https://cloud.tencent.com/document/product/1128/37725)	|通过回调业务 URL 的方式，通知业务方语音通知下发的状态|
 |[语音通知按键通知](https://cloud.tencent.com/document/product/1128/37726)	|可以通过回调业务 URL 的方式，通知业务方用户按下的键|
