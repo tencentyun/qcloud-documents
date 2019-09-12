@@ -51,7 +51,7 @@ titleBarLayout.setOnRightClickListener(new View.OnClickListener() {
 
 ```java
 public static void customizeConversation(final ConversationLayout layout) {
-    // 从CoversationLayout获取会话列表
+    // 从ConversationLayout获取会话列表
     ConversationListLayout listLayout = layout.getConversationList();
     listLayout.setItemTopTextSize(16); // 设置 item 中 top 文字大小
     listLayout.setItemBottomTextSize(12);// 设置 item 中 bottom 文字大小
