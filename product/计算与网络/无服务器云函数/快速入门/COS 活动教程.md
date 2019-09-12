@@ -36,9 +36,9 @@ $ scf configure get
 ```
 
 ### 部署函数
+1. 执行以下命令，初始化示例项目 hello_world。
 >?如果您已经有创建好的云函数，请执行 [步骤2](#cd)。
 >
-1. 执行以下命令，初始化示例项目 hello_world。
 ```
 scf init
 ```
