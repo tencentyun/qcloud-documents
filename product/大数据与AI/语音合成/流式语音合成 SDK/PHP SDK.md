@@ -58,8 +58,8 @@ static $APPID = 1255*********;
 <?php
 require ('TTSUtil.php');
 
-# 1. 先修改好Config.php文件中的配置值。
-# 2. TEXT为每次请求的文本，SESSION_ID建议每次请求修改成唯一id，例如uuid。
+# 1. 先修改好 Config.php 文件中的配置值。
+# 2. TEXT为每次请求的文本，SESSION_ID 建议每次请求修改成唯一 ID，例如 uuid。
 Config :: $TEXT = "您好，五一节准备去哪里玩啊";
 Config :: $SESSION_ID = guid();
 //echo "Session id : " . Config :: $SESSION_ID . "\n";
