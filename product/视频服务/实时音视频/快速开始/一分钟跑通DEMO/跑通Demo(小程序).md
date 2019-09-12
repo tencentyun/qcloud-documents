@@ -46,8 +46,8 @@
 出于政策和合规的考虑，微信暂未放开所有小程序对实时音视频功能（即 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签）的支持：
 - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
 - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
-- 符合类目要求的小程序，需要在【微信公众平台】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
-![](https://main.qcloudimg.com/raw/cabb6b98121754b7956bd02029714616.jpg)
+- 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
+ ![](https://main.qcloudimg.com/raw/8a7f689522978f6e1638815dd1ce2d28.png)
 
 ### 步骤6：编译运行
 1. 打开微信开发者工具，选择【小程序】，单击新建图标，选择【导入项目】。
@@ -63,7 +63,7 @@
 ![](https://main.qcloudimg.com/raw/79a3773337d34682b5f84f5694cd0290.jpg)
 
 ### 步骤7：发布上线
-1. 打开微信小程序控制台，选择【开发】>【开发设置】>【[服务器域名](https://mp.weixin.qq.com/wxopen/devprofile?action=get_profile&token=1269878219&lang=zh_CN)】中配置“request 合法域名”，否则将无法使用腾讯云的房间管理服务。需要配置的域名如下表所示：
+1. 打开微信小程序控制台，选择【开发】>【开发设置】>【服务器域名】中配置“request 合法域名”，否则将无法使用腾讯云的房间管理服务。需要配置的域名如下表所示：
 <table>
      <tr>
          <th nowrap="nowrap">域名</th>  

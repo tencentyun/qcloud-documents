@@ -81,7 +81,7 @@ tim.createImageMessage(options)
 
 | Name | Type                        | Description                                                  |
 | ---- | --------------------------- | ------------------------------------------------------------ |
-| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片。 |
+| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
 
 **Web 示例**
 
@@ -141,7 +141,6 @@ wx.chooseImage({
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
-
 ### 创建文件消息
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
 
@@ -196,7 +195,7 @@ promise.then(function(imResponse) {
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
 
@@ -371,7 +370,7 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ### 解析文本消息
 
 <ul><li><b>简单版</b><br>
- 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
+ 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出“xxxxxxx”文字。</li>
 <li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
 
 <pre>
@@ -522,7 +521,7 @@ tim.getMessageList(options)
 | Name               | Type     | Attributes | Default | Description    |
 | ------------------ | -------- | -------------- | -------------- | -------------- |
 | `conversationID`   | `String` |      -     |    -       | 会话 ID          |
-| `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可。          |
+| `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可          |
 | `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，最大值为15         |
 
 **示例**
@@ -597,7 +596,7 @@ tim.getConversationList()
 // 拉取会话列表
 let promise = tim.getConversationList();
 promise.then(function(imResponse) {
-  const conversationList = imResponse.data.conversationList; // 会话列表，用该列表覆盖原有的会话列表。
+  const conversationList = imResponse.data.conversationList; // 会话列表，用该列表覆盖原有的会话列表
 }).catch(function(imError) {
   console.warn('getConversationList error:', imError); // 获取会话列表失败的相关信息
 });
@@ -673,7 +672,7 @@ tim.getConversationProfile(conversationID)
 let promise = tim.deleteConversation('C2CExample');
 promise.then(function(imResponse) {
   //删除成功。
-  const { conversationID } = imResponse.data;// 被删除的会话 ID。
+  const { conversationID } = imResponse.data;// 被删除的会话 ID
 }).catch(function(imError) {
   console.warn('deleteConversation error:', imError); // 删除会话失败的相关信息
 });

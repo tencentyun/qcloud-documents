@@ -51,7 +51,7 @@ Content-Length: Content Length
 
 在上传对象时可以通过指定下列表单字段来设置对象的访问权限：
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
 | x-cos-grant-read | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
@@ -65,10 +65,10 @@ Content-Length: Content Length
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码，例如<br>`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时必须指定该字段 |
-| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时必须指定该字段 |
+| x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时，此字段为必选项 |
 
 <span id="id1"></span>
 **签名保护**
@@ -120,7 +120,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 支持被限定的表单字段如下：
 
-| 字段名称 | 描述 | 匹配方式 | 是否必选 |
+| 字段名称 | 描述 | 匹配方式&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 是否必选 |
 | --- | --- | --- | --- |
 | acl | 对象的访问控制列表（ACL）属性 | 完全、前缀 | 否 |
 | bucket | 上传的存储桶 | 完全 | 否 |
@@ -218,7 +218,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 **版本控制相关头部**
 
-在启用（Enabled）版本控制的存储桶中上传对象，将返回下列响应头部：
+在启用版本控制的存储桶中上传对象，将返回下列响应头部：
 
 | 名称 | 描述 | 类型 |
 | --- | --- | --- |
@@ -514,7 +514,7 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
 <span id="step5"></span>
-#### 案例五：启用（Enabled）版本控制
+#### 案例五：启用版本控制
 
 #### 请求
 
@@ -573,7 +573,7 @@ x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
 ```
 
 <span id="step6"></span>
-#### 案例六：暂停（Suspended）版本控制
+#### 案例六：暂停版本控制
 
 #### 请求
 

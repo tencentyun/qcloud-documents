@@ -36,7 +36,7 @@
 #### 添加容器网段
 
 >! 一个子网只能绑定一个路由表，若关联多个路由表，将被替换成最后一个绑定的路由表。
-
+>
 1. 在左侧导航栏中，单击【[路由表](https://console.cloud.tencent.com/vpc/route)】，进入路由表管理页面。
 2. <span id="addCIDRStep2">找到 [设置同地域集群间互通](https://cloud.tencent.com/document/product/457/32197) 或者 [设置跨地域集群间互通](https://cloud.tencent.com/document/product/457/32198) 时配置的路由表，单击该路由表的 ID/名称，进入路由表的详情页面。</span>
 3. 单击【+新增路由策略】，追加容器网段。

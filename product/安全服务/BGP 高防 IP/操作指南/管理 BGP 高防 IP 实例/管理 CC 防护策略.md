@@ -48,5 +48,5 @@ BGP 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 
 ## 设置黑白名单
 1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，前往【BGP 高防 IP】>【防护配置】，单击【CC 攻击防护】页签，选择地域和线路，选择目的实例。
-1. 勾选页面右侧【HTTP】或【HTTPS】，选择【URL 白名单】、【IP 白名单】或【IP 黑名单】，进行黑白名单设置，支持添加、修改。
-![](https://main.qcloudimg.com/raw/c2a740f586066edaed33a9e09c1ff930.png)
+2. 勾选页面右侧【HTTP】或【HTTPS】，选择【URL 白名单】、【IP 白名单】或【IP 黑名单】，进行黑白名单设置，支持添加、修改，也支持批量导入导出。
+![](https://main.qcloudimg.com/raw/aa6affedb8ef027a9b5d316c04a892f2.png)
