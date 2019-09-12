@@ -3,7 +3,7 @@
 
 | 国内短信             | 语音短信               | 国际/港澳台短信                 |
 | ------------------ | ---------------------- | ---------------- |
-| <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
 >?
 >- 群发短信
@@ -67,22 +67,6 @@ $templateId = 7839;  // NOTE: 这里的模板 ID`7839`只是示例，真实的�
 $smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
 ```
 
-<a id="单发短信" ></a>
-- **单发短信**
-```php
-use Qcloud\Sms\SmsSingleSender;
-try {
-    $ssender = new SmsSingleSender($appid, $appkey);
-    $result = $ssender->send(0, "86", $phoneNumbers[0],
-        "【腾讯云】您的验证码是: 5678", "", "");
-    $rsp = json_decode($result);
-    echo $result;
-} catch(\Exception $e) {
-    echo var_dump($e);
-}
-```
-
-
 <a id="指定模板单发短信" ></a>
 - **指定模板 ID 单发短信**
 ```php
@@ -92,22 +76,6 @@ try {
     $params = ["5678"];
     $result = $ssender->sendWithParam("86", $phoneNumbers[0], $templateId,
         $params, $smsSign, "", "");
-    $rsp = json_decode($result);
-    echo $result;
-} catch(\Exception $e) {
-    echo var_dump($e);
-}
-```
-
-
-<a id="群发短信" ></a>
-- **群发短信**
-```php
-use Qcloud\Sms\SmsMultiSender;
-try {
-    $msender = new SmsMultiSender($appid, $appkey);
-    $result = $msender->send(0, "86", $phoneNumbers,
-        "【腾讯云】您的验证码是: 5678", "", "");
     $rsp = json_decode($result);
     echo $result;
 } catch(\Exception $e) {
@@ -195,19 +163,6 @@ try {
 }
 ```
 
-<a id="发送语音通知" ></a>
-- **发送语音通知**
-```php
-use Qcloud\Sms\SmsVoicePromptSender;
-try {
-    $vpsender = new SmsVoicePromptSender($appid, $appkey);
-    $result = $vpsender->send("86", $phoneNumbers[0], 2, "5678");
-    $rsp = json_decode($result);
-    echo $result;
-} catch (\Exception $e) {
-    echo var_dump($e);
-}
-```
 
 <a id="指定模板发送语音通知" ></a>
 - **指定模板发送语音通知**
@@ -228,8 +183,6 @@ try {
 
 - **发送国际/港澳台短信**
 发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
- - [单发短信](#单发短信)
  - [指定模板单发短信](#指定模板单发短信)
- - [群发短信](#群发短信)
  - [指定模板群发短信](#指定模板群发短信)
  - [拉取短信回执](#拉取短信回执)
