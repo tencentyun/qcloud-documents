@@ -3,7 +3,7 @@
 
 | 国内短信             | 语音短信               | 国际/港澳台短信                 |
 | ------------------ | ---------------------- | ---------------- |
-| <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
 >?
 >- 群发短信
@@ -58,22 +58,6 @@ template_id = 7839  # NOTE: 这里的模板 ID`7839`只是示例，真实的模�
 sms_sign = "腾讯云"  # NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台中申请
 ```
 
-<a id="单发短信" ></a>
-- **单发短信**
-```python
-from qcloudsms_py import SmsSingleSender
-from qcloudsms_py.httpclient import HTTPError
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-ssender = SmsSingleSender(appid, appkey)
-try:
-    result = ssender.send(sms_type, 86, phone_numbers[0],
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-print(result)
-```
 
 <a id="指定模板单发短信" ></a>
 - **指定模板 ID 单发短信**
@@ -92,22 +76,6 @@ except Exception as e:
 print(result)
 ```
 
-<a id="群发短信" ></a>
-- **群发短信**
-```python
-from qcloudsms_py import SmsMultiSender
-from qcloudsms_py.httpclient import HTTPError
-sms_type = 0  # Enum{0: 普通短信, 1: 营销短信}
-msender = SmsMultiSender(appid, appkey)
-try:
-    result = msender.send(sms_type, "86", phone_numbers,
-        "【腾讯云】您的验证码是: 5678", extend="", ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-print(result)
-```
 
 <a id="指定模板群发短信" ></a>
 - **指定模板 ID 群发短信**
@@ -187,21 +155,6 @@ except Exception as e:
 print(result)
 ```
 
-<a id="发送语音通知" ></a>
-- **发送语音通知**
-```python
-from qcloudsms_py import SmsVoicePromptSender
-from qcloudsms_py.httpclient import HTTPError
-vpsender = SmsVoicePromptSender(appid, appkey)
-try:
-    result = vpsender.send("86", phone_numbers[0], 2, "5678",
-        playtimes=2, ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-print(result)
-```
 <a id="指定模板发送语音通知" ></a>
 - **指定模版发送语音通知**
 ```python
@@ -222,9 +175,7 @@ print(result)
 
 - **发送国际/港澳台短信**
 发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
- - [单发短信](#单发短信)
  - [指定模板单发短信](#指定模板单发短信)
- - [群发短信](#群发短信)
  - [指定模板群发短信](#指定模板群发短信)
  - [拉取短信回执](#拉取短信回执)
 

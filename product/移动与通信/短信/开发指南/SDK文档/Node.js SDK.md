@@ -3,7 +3,7 @@
 
 | 国内短信             | 语音短信               | 国际/港澳台短信                 |
 | ------------------ | ---------------------- | ---------------- |
-| <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
 >?
 >- 群发短信
@@ -72,15 +72,6 @@ function callback(err, res, resData) {
 }
 ```
 
-<a id="单发短信" ></a>
-- **单发短信**
-```javascript
-var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
-var ssender = qcloudsms.SmsSingleSender();
-ssender.send(smsType, 86, phoneNumbers[0],
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
-
 <a id="指定模板单发短信" ></a>
 - **指定模板 ID 单发短信**
 ```javascript
@@ -90,14 +81,6 @@ ssender.sendWithParam(86, phoneNumbers[0], templateId,
   params, smsSign, "", "", callback); 
 ```
 
-<a id="群发短信" ></a>
-- **群发短信**
-```
-var smsType = 0;  // Enum{0: 普通短信, 1: 营销短信}
-var msender = qcloudsms.SmsMultiSender();
-msender.send(smsType, "86", phoneNumbers,
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
 <a id="指定模板群发短信" ></a>
 - **指定模板 ID 群发短信**
 ```javascript
@@ -137,13 +120,6 @@ var cvsender = qcloudsms.CodeVoiceSender();
 cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
 ```
 
-
-<a id="发送语音通知" ></a>
-- **发送语音通知**
-```javascript
-var pvsender = qcloudsms.PromptVoiceSender();
-pvsender.send("86", phoneNumbers[0], 2, "5678", 2, "", callback);
-```
 <a id="指定模板发送语音通知" ></a>
 - **指定模板发送语音通知**
 ```javascript
@@ -155,9 +131,7 @@ tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
 
 - **发送国际/港澳台短信**
 发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
- - [单发短信](#单发短信)
  - [指定模板单发短信](#指定模板单发短信)
- - [群发短信](#群发短信)
  - [指定模板群发短信](#指定模板群发短信)
  - [拉取短信回执](#拉取短信回执)
 
