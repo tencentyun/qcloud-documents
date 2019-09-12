@@ -77,4 +77,4 @@
 
 ## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 dig 或 nslookup 命令来查询 CNAME 是否生效，如果查询到后缀为 .myqcloud.com 的域名表示域名 CNAME 已生效。
-![](https://main.qcloudimg.com/raw/cc49dc693d41eefdc0130f0b8b3439e1.png)
+![](https://main.qcloudimg.com/raw/765fe7372475a9c8902f9f13b4d458e4.png)
