@@ -9,11 +9,12 @@
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单【规则引擎】。
 2. 进入规则引擎页面，单击需要配置的规则。
 3. 在规则详情页面，单击【添加行为】。
+>?第一次使用时会提示用户授权访问 CMQ Topic，您需单击【立即授权】才能继续创建。
+![image](https://main.qcloudimg.com/raw/53d30358667dd6f89d14eb777528eeed.png)
 4. 在弹出的“新增行为”窗口，选择“数据转发到消息队列（CMQ-Topic）选项”、地域和 Topic，单击【创建】即可。
 ![](https://main.qcloudimg.com/raw/c71b51f926b45a7b49e4bb6ef2d77000.png)
 
->?第一次使用时会提示用户授权访问 CMQ Topic，您需单击【立即授权】才能继续创建。
-![image](https://main.qcloudimg.com/raw/53d30358667dd6f89d14eb777528eeed.png)
+
 
 
 ## 示例
