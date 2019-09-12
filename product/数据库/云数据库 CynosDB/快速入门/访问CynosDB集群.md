@@ -20,8 +20,7 @@
 4. 开启成功后，即可在连接信息中查看外网地址。通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
 
 ### 从 Windows 系统访问
-1. 登录到与 CynosDB 集群属于同一个地域且网络可达的 Windows 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指 CVM 主机与 CynosDB 集群处于同一个 VPC 中。
+1. 登录到 Windows 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a>。
 2. 下载一个标准的 SQL 客户端。推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
@@ -38,8 +37,7 @@
 ![](https://main.qcloudimg.com/raw/8f02e50fcc9c5c8dff33bcd2a83e3522.png)
 
 ### 从 Linux 系统访问 
-1. 登录到与数据库属于同一个地域且网络可达的 Linux 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指此 CVM 主机与 CynosDB 集群处于同一个 VPC 中。
+1. 登录到 Linux 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。
 1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
 执行以下命令安装 MySQL 客户端：
 ```
