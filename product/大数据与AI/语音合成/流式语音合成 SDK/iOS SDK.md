@@ -4,7 +4,7 @@
 - 合成实时流式语音，需要手机能够连接网络（2/3/4G 或 Wi-Fi 网络等）。
 - 语音合成 iOS SDK [下载地址](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/tts_sdk_ios_v2.zip)。
 - 腾讯云控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
-- 服务端 [API 文档](https://cloud.tencent.com/document/api/441/18086)。
+- 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 导入 SDK
 iOS SDK 文件夹名称为： QCloud_TTS。其中包含一个 .a 静态库和一个头文件夹 header。
