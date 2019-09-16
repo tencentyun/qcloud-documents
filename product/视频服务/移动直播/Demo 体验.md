@@ -27,6 +27,6 @@
 |:--------:|:--------:|:--------:|
 | 微信小程序 | “腾讯视频云” | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |
 
-![](https://main.qcloudimg.com/raw/913bc2c34495e04dcd3d97eff069df53.jpg)
+![](https://main.qcloudimg.com/raw/491b381c87c374cd4927a28b7891ce7e.jpg)
 
 
