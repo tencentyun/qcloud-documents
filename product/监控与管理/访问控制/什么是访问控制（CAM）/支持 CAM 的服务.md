@@ -132,6 +132,7 @@
 | ------------------------------------------------------------ | ------ | -------- | ----- |-------- | ---- |	
 | [云直播](https://cloud.tencent.com/document/product/267/34301)   | 资源级| ✔ | ✔  | ✔   |  ✔  |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 服务级   | ✔  | -    | -   |  -  |	
+| [视频处理](https://cloud.tencent.com/document/product/862)    | 服务级   | ✔  | -    | ✔    |  ✔   |	
 | [互动直播](https://cloud.tencent.com/document/product/268) | 服务级  | ✔   | -   | -     | -   |	
 
 ## 云智大数据平台
@@ -261,7 +262,6 @@
 
  | 服务                                                         | 授权粒度  | 控制台 | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------| ------ | -------- | -----| -------- | ---- |	
-| [数据万象](https://cloud.tencent.com/document/product/460)   | 服务级 | ✔  | -   | -   | ✔ |
 | [视频处理](https://cloud.tencent.com/document/product/314)   | -   | -  | -   | -   |✔    |	
 
 ## 解决方案	
