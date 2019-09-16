@@ -4,8 +4,8 @@
 ### 1.14.3-Finchley-RELEASE（2019-09-10）
 
 #### Bug 修复
-- 限流Bug fix。
-- TsfContext.putTag覆盖bug fix。
+- 修复限流 Bug。
+- 修复 TsfContext.putTag 覆盖 Bug。
 
 #### 版本建议
 支持向后兼容，建议全量升级。
@@ -94,8 +94,8 @@
 ### 1.14.2-Edgware-RELEASE（2019-09-10）
 
 #### Bug 修复
-- 限流Bug fix。
-- TsfContext.putTag覆盖bug fix。
+- 修复限流 Bug。
+- 修复 TsfContext.putTag 覆盖 Bug。
 
 #### 版本建议
 支持向后兼容，建议全量升级。
