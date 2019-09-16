@@ -17,7 +17,7 @@
 + Jar 包使用步骤举例如下：
 	+ 找到 out 和 lib 文件夹中的 jar 文件。将所有的 jar文件 复制到您的工程文件夹中。如果第三方 jar 文件和您已使用的 jar 文件有重复，可选择其一。
 	+ 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。
-	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 real\_asr\_sdk\_1.5.jar 和 lib 中的8个依赖工具包。
+	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 real\_asr\_sdk\_1.5.jar 和 lib 中的所有依赖工具包。
 
 + 添加完成后用户即可在工程中使用实时语音 SDK 。
 

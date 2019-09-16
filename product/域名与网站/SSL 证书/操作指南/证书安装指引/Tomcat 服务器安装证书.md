@@ -55,8 +55,10 @@
 ```
 <Connector port="443" protocol="HTTP/1.1" SSLEnabled="true"
   maxThreads="150" scheme="https" secure="true"
-  keystoreFile="/usr/*/conf/www.domain.com.jks" #证书保存的路径
-  keystorePass="******"#密钥库密码
+#证书保存的路径
+  keystoreFile="/usr/*/conf/www.domain.com.jks" 
+#密钥库密码
+  keystorePass="******"
   clientAuth="false"/>
 ```
 详细 `server.xml` 文件请参考如下内容：

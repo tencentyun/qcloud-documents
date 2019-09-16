@@ -5,8 +5,7 @@
 
 ### 如何确定是否当前浏览器是否支持 WebRTC
 请使用 WebRTCAPI.fn.detectRTC 检测支持度，如果反馈false，业务应提供错误提示页面引导用户使用支持的环境。遇到特殊的 case 时，也可以通过
-- 打开能力检测页面进行检测
-  [https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html)
+- 打开 [能力检测页面](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 进行检测。
 - 通过创建工单寻求我们的协助。
 
 ### 啸叫（或重音）
@@ -75,9 +74,9 @@ constraints 对象未设置，或者都被设置为 false。
 - 如果您使用了纯观众模式，不进行推流，特别注意，iOS不允许自动播放带声音的视频，远端视频流无法自动播放。需要在onRemoteStreamUpdate事件处理函数中，将远端流绑定到video标签后，加上video.play()。
 
 
-### 为什么关闭麦克风/静音了还有数据包
-静音包。
+### 为什么关闭麦克风/静音了还有数据包？
+闭麦克风或静音后仍会有静音包。
 
-### 为什么关闭摄像头了还有数据包
-黑屏包。
+### 为什么关闭摄像头了还有数据包？
+关闭摄像头后仍会有黑屏包。
 

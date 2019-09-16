@@ -13,7 +13,7 @@
 根据下载地址下载源码，将源码中的 * .php 复制到项目中即可使用。
 
 ## 快速接入
-1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 并将```php_realtime_asr_sdk/Config.py```中的配置项按需改成自己的值。
+1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 并将```php_realtime_asr_sdk/Config.php```中的配置项按需改成自己的值。
 2. 参考```php_realtime_asr_sdk/RasrClient.php``` 接入 ：
 
 ```

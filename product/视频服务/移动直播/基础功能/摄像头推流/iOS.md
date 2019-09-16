@@ -213,7 +213,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 ```
 
 - **step3: 监听 App 的前后台切换事件**
-如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将就无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
+如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
 ```objectivec
     // 注册 App 被切到后台的处理函数
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
@@ -261,7 +261,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由`watermarkNormalization`选项决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.1, 水印高度会被自动计算）。
+- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```objectivec
 //设置视频水印
@@ -271,7 +271,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 ### 17. 本地录制
 调用 TXLivePush 中的`startRecord`接口可以启动本地录制，录制格式为 MP4，通过参数 `videoPath` 可以指定 MP4文件的存放路径。
-调用 TXLivePush 中的`stopRecord`接口可以结束录制。如果您已经通过 `recordDelegate` 接口注册监听器给 TXLivePusher，那么一旦录制结束，录制出来的文件会通过 `TXLiveRecordListener` （详见 TXLiveRecordTypeDef.h 头文件）回调通知出来。
+调用 TXLivePush 中的`stopRecord`接口可以结束录制。如果您已经通过 `recordDelegate` 接口注册了监听器给 TXLivePusher，那么一旦录制结束，录制出来的文件会通过 `TXLiveRecordListener` （详见 TXLiveRecordTypeDef.h 头文件）回调通知出来。
 
 ```objectivec
 -(int) startRecord:(NSString *)videoPath;
@@ -280,7 +280,7 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 
 >! 
 >1. 录制过程中请勿动态切换视频分辨率和软硬编，这会导致生成的视频异常。
->2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，腾讯云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 18. 主播端弱网提醒
 
@@ -325,7 +325,7 @@ NSString* msg = @"test";
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档 “[错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件有（例如，收到1003就意味着摄像头的画面开始渲染）：
@@ -333,7 +333,7 @@ SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错�
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_EVT_CONNECT_SUCC            |  1001| 已经成功连接到腾讯云推流服务器。|
-|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕,一切正常，准备开始推流。|
+|PUSH_EVT_PUSH_BEGIN              |  1002| 与服务器握手完毕，一切正常，准备开始推流。|
 |PUSH_EVT_OPEN_CAMERA_SUCC    | 1003    | 推流器已成功打开摄像头（部分 Android 手机在此过程需要耗时1s - 2s）。| 
 
 ### 3. 错误通知 
@@ -361,7 +361,7 @@ SDK 发现部分警告问题，但 WARNING 级别的事件都会触发一些尝�
 | 事件 ID                 |    数值  |  含义说明                    |   
 | :-------------------  |:-------- |  :------------------------ | 
 |PUSH_WARNING_NET_BUSY            |  1101| 网络状况不佳：上行带宽太小，上传数据受阻。|
-|PUSH_WARNING_RECONNECT           |  1102| 网络断连, 已启动自动重连 (自动重连连续失败超过三次会放弃)。|
+|PUSH_WARNING_RECONNECT           |  1102| 网络断连，已启动自动重连（自动重连连续失败超过三次会放弃）。|
 |PUSH_WARNING_HW_ACCELERATION_FAIL|  1103| 硬编码启动失败，采用软编码。|
 |PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP - DNS 解析失败（会触发重试流程）。        |
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）。  |

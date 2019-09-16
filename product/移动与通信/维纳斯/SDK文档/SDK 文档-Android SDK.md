@@ -186,7 +186,7 @@ java.lang.String getStatus()
 void reset()
 
 接口说明:
-取消当前未完成的所有请求，比如切换帐号时可以调用
+取消当前未完成的所有请求，例如切换帐号时可以调用
 
 ### getWid
 

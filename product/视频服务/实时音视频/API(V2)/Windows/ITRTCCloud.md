@@ -24,10 +24,10 @@ LITEAV_API void destroyTRTCShareInstance()
 
 
 
-## 设置 TRTCCloudCallback 回调
+## 设置 ITRTCCloudCallback 回调
 ### addCallback
 
-设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback)。
+设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270)。
 ```
 void addCallback(ITRTCCloudCallback * callback)
 ```
@@ -36,11 +36,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
 
 __介绍__
 
-您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
+您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
 
 
 ### removeCallback
@@ -1152,7 +1152,7 @@ TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）：
 
 ### enableCustomAudioCapture
 
-启用音频自定义采集模式 开启该模式后， SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
+启用音频自定义采集模式 开启该模式后， SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。
 ```
 void enableCustomAudioCapture(bool enable)
 ```
@@ -1525,7 +1525,7 @@ __参数__
 
 __介绍__
 
-会触发 onLocalVideoFrameAfterProcess 回调接口。
+会触发 onFirstVideoFrame 回调接口。
 
 >?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 

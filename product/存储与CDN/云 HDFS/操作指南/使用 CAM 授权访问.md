@@ -3,8 +3,8 @@ CHDFS 预设授权策略如下：
 
 | 策略| 说明 |
 |---------|---------|
-| CHDFSReadOnlyAccess | 只读访问 CHDFS 的权限 | 
-| CHDFSFullAccess | 管理 CHDFS 的权限 |
+| QcloudCHDFSReadOnlyAccess | 只读访问 CHDFS 的权限 | 
+| QcloudCHDFSFullAccess | 管理 CHDFS 的权限 |
 
 
 #### CHDFS 授权操作

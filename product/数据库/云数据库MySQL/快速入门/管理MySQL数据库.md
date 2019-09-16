@@ -27,7 +27,7 @@
 2. 单击【新增文件】，选择本地 SQL 文件，确认上传即可。
 
 ### 参数设置
-在【数据库管理】>【参数设置】页面，您可以对数据库的众多可修改参数进行设置和查看修改历史，如下表所示，单击【参数运行值】旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改，详细介绍请参见 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
+在【数据库管理】>【参数设置】页面，您可以对数据库的众多可修改参数进行设置和查看修改历史，单击【参数运行值】旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改，详细介绍请参见 [参数模板概述](https://cloud.tencent.com/document/product/236/8461)。
 
 ### 帐号管理
 在【数据库管理】>【帐号管理】页面，您可以对系统默认的 root 帐户进行管理，如修改权限，重置密码等，也可以创建帐号，删除帐号。

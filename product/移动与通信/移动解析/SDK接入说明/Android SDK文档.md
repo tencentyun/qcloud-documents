@@ -30,7 +30,7 @@ HttpDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思�
 ### 网络安全配置兼容
 
 App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP 网络请求，详细信息参见 [Opt out of cleartext traffic](https://developer.android.com/training/articles/security-config#Opt%20out%20of%20cleartext%20traffic)。
-这种情况下，业务侧需要将HttpDNS请求使用的IP配置到域名白名单中：
+这种情况下，业务侧需要将HttpDNS请求使用的 IP 配置到域名白名单中：
 - AndroidManifest 文件中配置
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -108,7 +108,7 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 
 ### 接入验证
 
-当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HttpDNS（日志上为hdns_ip）相关日志时，可以确认接入无误。
+当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HttpDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
 
 ### 注意事项
 

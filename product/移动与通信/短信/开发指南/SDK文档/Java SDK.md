@@ -3,7 +3,7 @@
 
 | 国内短信             | 语音短信              | 国际/港澳台短信                 |
 | ------------------ | ---------------------- | ---------------- |
-| <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
 >?
 >- 群发短信
@@ -11,7 +11,7 @@
 >- 拉取短信回执
 >该功能默认关闭。您可以根据实际需求联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）开通，实现批量拉取短信回执。
 >- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
+>只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
 >- 发送语音通知
 >数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
@@ -24,9 +24,9 @@
 - **获取 SDKAppID 和 AppKey**
 云短信应用 **SDKAppID** 和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取。如您尚未添加应用，请登录 [短信控制台](https://console.cloud.tencent.com/sms) 添加应用。
 - **申请签名并确认审核通过**
-一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。发送国际/港澳台短信时，允许不携带签名。
+一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/36136#Sign)。发送国际/港澳台短信时，允许不携带签名。
 - **申请模板并确认审核通过**
-短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
+短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/36136#Template)。
 
 
 ### 配置 SDK
@@ -74,30 +74,6 @@ int templateId = 7839; // NOTE: 这里的模板 ID`7839`只是示例，真实的
 String smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
 ```
 
-<a id="单发短信"></a>
-- **单发短信**
-```java
-import com.github.qcloudsms.SmsSingleSender;
-import com.github.qcloudsms.SmsSingleSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-import java.io.IOException;
-try {
-    SmsSingleSender ssender = new SmsSingleSender(appid, appkey);
-    SmsSingleSenderResult result = ssender.send(0, "86", phoneNumbers[0],
-        "【腾讯云】您的验证码是: 5678", "", "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
 
 <a id="指定模板单发短信"></a>
 - **指定模板 ID 单发短信**
@@ -124,32 +100,6 @@ try {
     e.printStackTrace();
 }
 ```
-
-<a id="群发短信" ></a>
-- **群发短信**
-```java
-import com.github.qcloudsms.SmsMultiSender;
-import com.github.qcloudsms.SmsMultiSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-import java.io.IOException;
-try {
-    SmsMultiSender msender = new SmsMultiSender(appid, appkey);
-    SmsMultiSenderResult result =  msender.send(0, "86", phoneNumbers,
-        "【腾讯云】您的验证码是: 5678", "", "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
-
 
 <a id="指定模板群发短信" ></a>
 - **指定模板 ID 群发短信**
@@ -270,31 +220,6 @@ try {
 }
 ```
 
-<a id="发送语音通知" > </a>
-- **发送语音通知**
-```java
-import com.github.qcloudsms.SmsVoicePromptSender;
-import com.github.qcloudsms.SmsVoicePromptSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-import java.io.IOException;
-try {
-    SmsVoicePromptSender vpsender = new SmsVoicePromptSender(appid, appkey);
-    SmsVoicePromptSenderResult result = vpsender.send("86", phoneNumbers[0],
-        2, 2, "5678", "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
-
 <a id="指定模板发送语音通知" > </a>
 - **指定模板发送语音通知**
 ```java
@@ -324,9 +249,7 @@ try {
 
 - **发送国际/港澳台短信**
 发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
- - [单发短信](#单发短信)
  - [指定模板单发短信](#指定模板单发短信)
- - [群发短信](#群发短信)
  - [指定模板群发短信](#指定模板群发短信)
  - [拉取短信回执](#拉取短信回执)
 

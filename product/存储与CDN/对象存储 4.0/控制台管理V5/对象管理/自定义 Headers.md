@@ -55,7 +55,7 @@
 
 未自定义对象的 HTTP 头部时，浏览器或客户端下载时得到的对象头部范例如下：
 #### 请求
-```http
+```sh
 GET /exampleobject.txt HTTP/1.1
 Host: examplebucket-1250000000.file.myqcloud.com
 Accept: */*
@@ -72,10 +72,10 @@ Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
 ```
 
 添加如下配置：
-![设置HTTP头部3](//mc.qcloudimg.com/static/img/bcba7754ca585143371935a9f4f0228a/image.png)
+![](https://main.qcloudimg.com/raw/0a7f4edb39dfd49bc007701e8c0a0d8c.jpg)
 再次发起请求，浏览器或客户端得到的对象头部范例如下：
 #### 请求
-```http
+```sh
 GET /exampleobject.txt HTTP/1.1
 Host: examplebucket-1250000000.file.myqcloud.com
 Accept: */*
