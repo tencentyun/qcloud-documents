@@ -3,7 +3,7 @@
 - 为了保证配置修改后及时生效，已有的云服务器需重启机器或 dhclient。
 
 ## 什么是 DHCP
-动态主机设置协议（DHCP，Dynamic Host Configuration Protocol）是一种局域网的网络协议， 提供了将配置信息传递到 TCP / IP 网络服务器的标准。
+动态主机设置协议（Dynamic Host Configuration Protocol，DHCP）是一种局域网的网络协议， 提供了将配置信息传递到 TCP / IP 网络服务器的标准。
 腾讯云私有网络内的云服务器支持 DHCP 协议，支持配置的 DHCP Options 字段包括：DNS 地址、Domain Name。您可在私有网络配置 DNS 地址和 Domain Name，该配置将对该私有网络下的所有云服务器生效。
 - DNS 地址
 	- DNS 最多支持4个 IP，IP 之间请用逗号隔开。
