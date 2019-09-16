@@ -35,7 +35,7 @@ IM SDK 函数使用顺序，如下：
 |---------|---------|---------|
 | 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 IM SDK，需要传入当前用户信息，新消息通知回调函数等 |
 | 进群 | webim.applyJoinBigGroup(options,cbOk, cbErr);| 进群 |
-|监听新消息 |Demo 中使用的监听函数是:<br/>onBigGroupMsgNotify(监听群普通消，点赞，提示和红包消息);<br/>groupSystemNotifys（监听群系统消息）;<br/>onMsgNotify（监听新消息(私聊(包括普通消息和全员推送消息)，普通群(非直播聊天室)消息)）|业务自定义监听函数，包括群普通消息，群提示消息和群系统消息，登录时传给 IM SDK |
+|监听新消息 |Demo 中使用以下监听函数:<br/>onBigGroupMsgNotify(监听群普通消，点赞，提示和红包消息);<br/>groupSystemNotifys（监听群系统消息）;<br/>onMsgNotify（监听新消息(私聊(包括普通消息和全员推送消息)，普通群(非直播聊天室)消息)）|业务自定义监听函数，包括群普通消息，群提示消息和群系统消息，登录时传给 IM SDK |
 |发消息(带登录态) |webim.sendMsg(options,cbOk, cbErr); |发消息（普通，点赞，红包） |
 |退群 |webim.quitBigGroup(options,cbOk, cbErr);|退群 |
 |登出|webim.logout(options,cbOk, cbErr); |退出，用于切换帐号登录 |
