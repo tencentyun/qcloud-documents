@@ -124,4 +124,4 @@
 | 查询用户配额              | [ GetLimit ](https://cloud.tencent.com/document/product/457/14654) | 用于查询用户配额                                           |
 | 查询用户仓库列表          | [ SearchUserRepository ](https://cloud.tencent.com/document/product/457/14653) | 用于查询用户仓库列表                                       |
 | 添加收藏                  | [ AddFavor ](https://cloud.tencent.com/document/product/457/17938) | 用于把仓库加入收藏                                         |
-| 取消收藏                  | [ DeleteFavor ](https://cloud.tencent.com/document/product/457/17937) | 用于取消收藏                                               |
+| 取消收藏                  | [ DeleteFavor ](https://cloud.tencent.com/document/product/457/17937) | 用于取消收藏                                          |

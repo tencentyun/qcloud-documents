@@ -118,3 +118,4 @@ var COS = require('cos-nodejs-sdk-v5');
 ```
 
 更详细的 COS SDK 使用说明见[COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。
+

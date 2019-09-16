@@ -1,7 +1,7 @@
 ## 访问方式
 访问云数据库 MySQL 的方式有三种：
 - **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和云数据库要在同一地域、同一账号且同一网络类型（都是基础网络或都在同一个 [私有网络 VPC](https://cloud.tencent.com/document/product/215/20046)）。
-- **外网访问**：通过外网地址访问云数据库 MySQL 。
+- **外网访问**：通过外网地址访问云数据库 MySQL。
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
 >- 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
@@ -12,21 +12,19 @@
 ### （可选）开启外网访问地址
 >?使用外网访问时，需要先开启数据库实例的外网地址。
 >
-1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )。
-2. 在实例列表中，选择需要修改的实例，单击实例名或操作列的【管理】，进入实例详情页面。
-3. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表中，单击实例名或操作列的【管理】，进入实例详情页面。
+2. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
 ![](https://main.qcloudimg.com/raw/4dc96e38403e7a93184d1c556c31a39e.png)
-4. 单击【确定】后，外网开通进入处理状态。
+3. 在弹出的对话框单击【确定】后，外网开通进入处理状态。
 ![](https://main.qcloudimg.com/raw/8f303ad7f17e16eda26343410fd3671e.png)
-5. 开启成功后，即可在基本信息中查看到外网地址。
-6. 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
+4. 开启成功后，即可在基本信息中查看到外网地址。通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。
 
 ### 从 Windows 系统登录
 1. 登录到与数据库实例属于同一个地域且网络可达的 Windows 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
 1. 下载一个标准的 SQL 客户端。推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
 ![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
-2. 界面上将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 请选择【No thanks, just start my download.】来快速下载。
+2. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
 ![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
 3. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
@@ -41,7 +39,7 @@
 
 ### 从 Linux 系统登录 
 1. 登录到与数据库实例属于同一个地域且网络可达的 Linux 系统 CVM。
-登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
+登录 CVM 主机请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。网络可达指 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
 1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
 执行以下命令安装 MySQL 客户端：
 ```

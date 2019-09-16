@@ -43,7 +43,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) | 推流配置项，详情见  [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig)}。 |
+| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) | 推流配置项，详情见  [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig)。 |
 
 ***
 
@@ -360,7 +360,7 @@ __返回__
 
 true：成功； false：失败。
 
->?当distance为1的时候为最远视角（正常镜头），当为 [getMaxZoom()](https://cloud.tencent.com/document/product/454/34772#getmaxzoom) 的时候为最近视角（放大镜头），最大值不要超过，超过后画面会模糊不清。
+>?当 distance 为1的时候为最远视角（正常镜头），当为 [getMaxZoom()](https://cloud.tencent.com/document/product/454/34772#getmaxzoom) 的时候为最近视角（放大镜头），最大值不要超过，超过后画面会模糊不清。
 
 
 ***
@@ -679,7 +679,7 @@ boolean resumeBGM()
 
 __返回__
 
-true：恢复播放成功； false:恢复播放失败。
+true：恢复播放成功； false：恢复播放失败。
 
 ***
 
@@ -863,7 +863,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| textureID | int | 视频纹理ID。 |
+| textureID | int | 视频纹理 ID。 |
 | w | int | 视频图像的宽度，不能大于 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 videoResolution 属性设定的宽度，否则会失败，小于时 SDK 会自动裁剪。 |
 | h | int | 视频图像的高度，不能大于 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 videoResolution 属性设定的宽度，否则会失败，小于时 SDK 会自动裁剪。 |
 
@@ -1101,8 +1101,7 @@ __参数__
 |-----|-----|-----|
 | str | String | 存入本地文件的 log。 |
 
->?
->- 此功能一般仅用在协助调试的情况下。
+>?此功能一般仅用在协助调试的情况下。
 
 ***
 
