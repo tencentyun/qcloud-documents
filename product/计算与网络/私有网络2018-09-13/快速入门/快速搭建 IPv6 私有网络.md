@@ -72,7 +72,7 @@ vim /etc/ssh/sshd_config
 
 ### 步骤6：测试 IPv6 的连通性
 可通过 ping 或 ssh 等操作来测试 IPv6 的连通性。
-例如，从云服务器 ping `240c::6666` 或 `www.qq.com`，或从公网 IPv6 地址 ssh 云服务器。
+例如，从云服务器 `ping -6 240c::6666` 或 `ping -6 www.qq.com`，或从公网 IPv6 地址 ssh 云服务器。
 ![](https://main.qcloudimg.com/raw/6202b3ebe7e946884d0342d6ec2ca16d.png)
 <span id="other"/>
 
