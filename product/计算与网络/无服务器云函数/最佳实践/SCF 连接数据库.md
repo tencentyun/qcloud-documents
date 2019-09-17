@@ -1,5 +1,5 @@
 ## 操作场景
-如果您需要在云函数中使用关系型数据库，我们推荐使用连接池以及云函数团队提供的 SDK 来连接关系型数据库。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
+如果您需要在云函数中使用关系型数据库，您可使用连接池或云函数团队提供的 SDK 来连接关系型数据库。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
 
 
 ## 注意事项
@@ -7,12 +7,11 @@
 
 
 ## 前提条件
-- 已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
+已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
 >?本文以 CynosDB 数据库为例。您可根据实际需求选用 TencentDB 其他的数据库或自建的数据库。
 
 
 ## 操作步骤
-
 ### Java 使用 Hikari 连接池示例
 ```Java
 package example;
@@ -97,7 +96,7 @@ Maven 依赖如下：
 </dependencies>
 ```
 
-### 配置环境变量和私有网络
+####  配置环境变量和私有网络
 1. 登录 [CynosDB 控制台](https://console.cloud.tencent.com/cynosdb)，单击已创建的 CynosDB 数据库 ID。
 2. 在数据库详情页，获取该数据库的**内网地址**、**所属网络**。如下图所示：
 ![](https://main.qcloudimg.com/raw/8d4cb9700aacabf5ec669523c057b967.png)
@@ -126,10 +125,10 @@ Maven 依赖如下：
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
 
-## Serverless DB SDK
+### 使用 Serverless DB SDK 连接数据库
 为了方便用户使用，云函数团队封装了内置 Node.js 和 Python 语言的 MySQL SDK，支持 MySQL，TDSQL，CynosDB 等 MySQL 协议的数据库。
 
-### Node.js SDK
+#### Node.js SDK
 ```
 'use strict';
 const database = require('scf-nodejs-serverlessdb-sdk').database;
@@ -141,7 +140,7 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
-### Python SDK
+#### Python SDK
 ```
 from serverless_db_sdk import database
 
@@ -164,7 +163,7 @@ Serverless DB SDK 具备以下特点：
 - 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
 
 
-### 配置环境变量和私有网络
+#### 配置环境变量和私有网络
 若您使用 Serverless DB SDK，请按照以下步骤进行配置：
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
