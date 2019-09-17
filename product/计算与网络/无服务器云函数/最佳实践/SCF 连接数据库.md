@@ -62,7 +62,6 @@ Environment:
 
 
 ## 前提条件
-- 已创建云函数。
 - 已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
 >?本文以 CynosDB 数据库为例。您可根据实际需求选用 TencentDB 其他的数据库或自建的数据库。
 
