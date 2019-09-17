@@ -43,7 +43,7 @@ Serverless DB SDK 具备以下特点：
 - 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
 
 
-结合 SDK，添加如下环境变量和私有网络配置即可使用。
+结合您的实际情况，进行如下环境变量和私有网络的配置即可使用。
 ```
 VpcConfig:
   VpcId: "vpc-xxxxxxx"
@@ -62,11 +62,13 @@ Environment:
 
 
 ## 前提条件
-已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
+- 已创建云函数。
+- 已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
 >?本文以 CynosDB 数据库为例。您可根据实际需求选用 TencentDB 其他的数据库或自建的数据库。
 
 
 ## 操作步骤
+
 ### Java 使用 Hikari 连接池示例
 ```Java
 package example;
@@ -179,6 +181,8 @@ Maven 依赖如下：
 </table>
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
+
+
 
 
 
