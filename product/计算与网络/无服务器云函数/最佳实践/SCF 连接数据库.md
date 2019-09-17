@@ -1,5 +1,64 @@
 ## 操作场景
-您可参考本文，在云函数中使用连接池及云函数团队提供的 SDK 来连接关系型数据库。
+如果您需要在云函数（SCF）中使用关系型数据库，我们推荐使用连接池以及 SCF 团队提供的 SDK 来连接关系型数据库。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
+
+
+## 注意事项
+由于云函数单实例同时处理的请求数均为1，以及为了防止连接数设置过大导致高并发下数据库连接耗尽，在使用连接池时，建议将最大连接数设置为1。
+
+## Serverless DB SDK
+为了方便用户使用，云函数团队封装了内置 Node.js 和 Python 语言的 MySQL SDK，支持 MySQL，TDSQL，CynosDB 等 MySQL 协议的数据库。
+
+### Node.js SDK
+```
+'use strict';
+const database = require('scf-nodejs-serverlessdb-sdk').database;
+
+exports.main_handler = async (event, context, callback) => {
+  let connection = await database().connection();
+  let result = await connection.queryAsync('select * from name');
+  console.log(result);
+}
+```
+
+### Python SDK
+```
+from serverless_db_sdk import database
+
+def main_handler(event, context):
+    print('Start Serverlsess DB SDK function')
+
+    connection = database().connection(autocommit=False)
+    cursor = connection.cursor()
+
+    cursor.execute('SELECT * FROM name')
+    myresult = cursor.fetchall()
+
+    for x in myresult:
+        print(x)
+```
+
+Serverless DB SDK 具备以下特点：
+- 自动从环境变量初始化数据库客户端。
+- 经验证，SDK 会在全局维护一个数据库长连接，并会处理连接中断后的重连。
+- 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
+
+
+结合 SDK，添加如下环境变量和私有网络配置即可使用。
+```
+VpcConfig:
+  VpcId: "vpc-xxxxxxx"
+  SubnetId: "subnet-xxxxxxxx"
+Environment:
+  Variables:
+    # 格式 DB_{引用}_XXX，可通过 mysql.database(引用).connection() 拿到初始化好的数据库连接。
+    DB_DB1_HOST: "10.0.31.25" # DB1 实例的地址
+    DB_DB1_PORT: "3306" # DB1 实例的端口
+    DB_DB1_USER: "root" # DB1 实例的用户名
+    DB_DB1_PASSWORD: "xxxxxxxxx" # DB1 实例的密码
+    DB_DB1_DATABASE: "TEST" # DB1 实例的数据库
+    # 填写此配置，mysql.database() 默认使用 DB1，否则需要指定引用 mysql.database("DB1")。
+    DB_DEFAULT: "DB1" 
+```
 
 
 ## 前提条件
@@ -8,14 +67,6 @@
 
 
 ## 操作步骤
-### 使用连接池
-我们推荐使用连接池来管理连接。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
-
-使用连接池时，结合以下情形，请将最大连接数设置为1。
-- 云函数单实例同时处理的请求数为1，当最大连接数为1时并不会造成连接缺乏的情况。
-- 防止连接数设置过大，出现高并发下数据库连接耗尽的情况。
-
-
 ### Java 使用 Hikari 连接池示例
 ```Java
 package example;
@@ -129,59 +180,5 @@ Maven 依赖如下：
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
 
-## Serverless DB SDK
-为了方便用户使用，云函数团队封装了内置 node.js 和 python 语言的 MySQL SDK，支持 MySQL，TDSQL，CynosDB 等 MySQL 协议的数据库。
-
-### Node.js SDK
-```
-'use strict';
-const database = require('scf-nodejs-serverlessdb-sdk').database;
-
-exports.main_handler = async (event, context, callback) => {
-  let connection = await database().connection();
-  let result = await connection.queryAsync('select * from name');
-  console.log(result);
-}
-```
-
-### Python SDK
-```
-from serverless_db_sdk import database
-
-def main_handler(event, context):
-    print('Start Serverlsess DB SDK function')
-
-    connection = database().connection(autocommit=False)
-    cursor = connection.cursor()
-
-    cursor.execute('SELECT * FROM name')
-    myresult = cursor.fetchall()
-
-    for x in myresult:
-        print(x)
-```
-
-Serverless DB SDK 具备以下特点：
-- 自动从环境变量初始化数据库客户端。
-- 经验证，SDK 会在全局维护一个数据库长连接，并会处理连接中断后的重连。
-- 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
-
-
-结合 SDK，添加如下环境变量和私有网络配置即可使用。
-```
-VpcConfig:
-  VpcId: "vpc-xxxxxxx"
-  SubnetId: "subnet-xxxxxxxx"
-Environment:
-  Variables:
-    # 格式 DB_{引用}_XXX，可通过 mysql.database(引用).connection() 拿到初始化好的数据库连接。
-    DB_DB1_HOST: "10.0.31.25" # DB1 实例的地址
-    DB_DB1_PORT: "3306" # DB1 实例的端口
-    DB_DB1_USER: "root" # DB1 实例的用户名
-    DB_DB1_PASSWORD: "xxxxxxxxx" # DB1 实例的密码
-    DB_DB1_DATABASE: "TEST" # DB1 实例的数据库
-    # 填写此配置，mysql.database() 默认使用 DB1，否则需要指定引用 mysql.database("DB1")。
-    DB_DEFAULT: "DB1" 
-```
 
 
