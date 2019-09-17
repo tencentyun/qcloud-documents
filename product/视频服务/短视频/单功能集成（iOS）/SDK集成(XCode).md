@@ -16,7 +16,7 @@
 
 2. 选中当工程的 Target，添加以下系统库
     1. Accelerate.framework
-    2. SystemConfiguration.farmework
+    2. SystemConfiguration.framework
     3. libc++.tbd
     4. libsqlite3.tbd
 
