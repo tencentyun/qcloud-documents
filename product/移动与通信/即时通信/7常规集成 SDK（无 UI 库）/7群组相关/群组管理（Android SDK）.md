@@ -1300,7 +1300,7 @@ TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 - **公开群和私有群：**默认消息接收方式为接收并离线推送群消息。
 - **聊天室和音视频聊天室：**默认为接收但不离线推送群消息。
 
-**`TIMGroupReceiveMessageOpt` 接口定义如下： **
+**`TIMGroupReceiveMessageOpt` 接口定义如下：**
 
 ```
 //不接收群消息， 服务器不会进行转发
