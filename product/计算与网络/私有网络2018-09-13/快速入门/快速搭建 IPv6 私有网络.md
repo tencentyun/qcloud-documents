@@ -89,43 +89,47 @@ net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 ![](https://main.qcloudimg.com/raw/dc1e37e0c3a89b170038ef28d6d0583d.png)
-3. 执行如下命令，确认是否修改成功。
+3. 执行如下命令，对参数进行加载。
+```
+sysctl -p
+```
+4. 执行如下命令，确认是否修改成功。
 ```
 sysctl -a | grep ipv6 | grep disable
 ```
 显示结果如下，则已成功修改。
 ![](https://main.qcloudimg.com/raw/b1294c92045d0dc5c688c6afc970a412.png)
 
-4. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+5. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-5. 按 i 切换至编辑模式，增加`DHCPV6C=yes`并保存。
+6. 按 i 切换至编辑模式，增加`DHCPV6C=yes`并保存。
 ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
 
-6. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+7. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-7. 按 i 切换至编辑模式，增加`default dev eth0`并保存。
+8. 按 i 切换至编辑模式，增加`default dev eth0`并保存。
 ![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
-8. 执行如下命令，重新启动网卡。
+9. 执行如下命令，重新启动网卡。
 ```
 service network restart
 或者
 systemctl restart network
 ```
-9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+10. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
-10. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+11. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-11. 按 i 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`）并保存，为 ssh 等应用程序开启 IPv6 监听。
+12. 按 i 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`）并保存，为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 
 #### Debian 8.2 开启 IPv6
