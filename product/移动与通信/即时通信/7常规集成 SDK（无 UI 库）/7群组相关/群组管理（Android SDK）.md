@@ -1297,8 +1297,8 @@ TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 
 **权限说明：**
 
-- **公开群和私有群：**默认消息接收方式为接收并提醒。
-- **聊天室和音视频聊天室：**默认为接收不提醒。
+- **公开群和私有群：**默认消息接收方式为接收并离线推送群消息。
+- **聊天室和音视频聊天室：**默认为接收但不离线推送群消息。
 
 **`TIMGroupReceiveMessageOpt` 接口定义如下： **
 
@@ -1306,10 +1306,10 @@ TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 //不接收群消息， 服务器不会进行转发
 TIMGroupReceiveMessageOpt.NotReceive
 
-//接收群消息，不提醒
+//接收群消息，但若离线情况下则不会推送离线消息
 TIMGroupReceiveMessageOpt.ReceiveNotNotify
 
-//接收群消息并提醒
+//接收群消息，若离线情况下会推送离线消息
 TIMGroupReceiveMessageOpt.ReceiveAndNotify
 ```
 
