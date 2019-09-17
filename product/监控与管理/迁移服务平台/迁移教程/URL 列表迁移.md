@@ -6,14 +6,13 @@
 
 ## 前提条件
 #### 腾讯云对象存储 COS
-创建目标存储空间：用于存放迁移的数据。详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+创建目标存储空间：用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 创建用于迁移的子用户并授予相关权限：
-1.	登陆腾讯云控制台。
-2.	搜索 访问管理 或单击账户 > 访问管理 进入访问管理界面。
-3.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
-4.	新建子用户，并勾选编程访问及腾讯云控制台访问。
-5.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
-6.	完成子用户创建并保存生成的密码，SecretId，SecretKey。
+1.	登陆腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
+3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
+4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
+5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
 
 >?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子用户并使用子用户API密钥进行迁移，迁移完成后删除。
 
@@ -29,16 +28,17 @@
 ![](https://main.qcloudimg.com/raw/9709f9932688e7f639c0b3d080ace061.jpg)
 任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 3. 设置要迁移的文件来源。
-此处迁移源服务提供商应选择 URL 列表。MSP 支持本地上传 URL 列表文件和添加 URL 列表文件下载地址两种方式。如果文件记录数较多，URL 列表文件较大，浏览器上传可能会超时，建议先将 URL 列表文件保存到 COS，选择【提供URL列表文件下载地址】，填写此文件的 COS URL 访问地址。文件列表请在 txt 文件中请按行列出。
+此处迁移源服务提供商应选择 URL 列表。MSP 支持本地上传 URL 列表文件和添加 URL 列表文件下载地址两种方式。如果文件记录数较多，URL 列表文件较大，浏览器上传可能会超时，建议先将 URL 列表文件保存到 COS，选择【提供 URL 列表文件下载地址】，填写此文件的 COS URL 访问地址。文件列表请在 txt 文件中请按行列出。
 例如：
 `http://xxx.xxx.xxx/xxx/l.jpg`
 `http://xxx.xxx.xxx/xxx/xxx/xxxxxx/test.mp4`
-![](https://main.qcloudimg.com/raw/300076f8d9d8296957d8c3c6d665be19.jpg)
+![](https://main.qcloudimg.com/raw/afa00a5039e915355b1f2e1270edbfb3.jpg)
 4. 设置任务执行时间。
 数据迁移会占用源厂商的网络资源，您可以根据自身业务情况，在此处灵活设置迁移任务的开始执行时间。
-![](https://main.qcloudimg.com/raw/ef46c58c4b4221ac3e75a9c8f3398d0a.jpg)
+
+![](https://main.qcloudimg.com/raw/ad178b139fc842d6f885f6e0d23f55a4.jpg)
 5. 设置数据迁移执行速度。
-您可以使用本功能限制数据迁移的速度上限，从而避免额外的CDN带宽成本。实际迁移速度受网络波动影响会在设定值上下波动。
+您可以使用本功能限制数据迁移的速度上限，从而避免额外的 CDN 带宽成本。实际迁移速度受网络波动影响会在设定值上下波动。
 ![](https://main.qcloudimg.com/raw/b5ec9c811a1fba7e82e2d30a7110de83.jpg)
 6. 选择要迁移到的目标位置。
 在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。目标对象存储桶列表可在填入密钥后点击下拉框右侧刷新按钮获取。
@@ -46,7 +46,7 @@
 7. 指定迁移到目标桶的指定目录。
  - 保存到根目录： 直接将源桶中的文件按原始相对路径保存到目标桶的根目录。
  - 保存到指定目录：将源桶中的文件保持原始相对路径保存到指定目录中。
-![](https://main.qcloudimg.com/raw/300dd8e97fc21a09f2601af2553bcb95.jpg)
+![](https://main.qcloudimg.com/raw/bdd44e075b79b7b8c18493899beeeae5.jpg)
 例如：
 源桶中的文件`/a.txt`，`/dir/b.txt`两个文件，文本框中填写“dest”，那么迁移后这两个文件在目标桶中的路径为：`/dest/a.txt`，`/dest/dir/b.txt`。
 如果文本框中填写`dest/20180901`，那么迁移后这两个文件在目标桶中的路径为：`/dest/20180901/a.txt`，`/dest/20180901/dir/b.txt`。
@@ -57,6 +57,7 @@
 	- 新建迁移任务后立即启动全托管迁移：选择托管迁移，用户单击“新建并启动”后 MSP 服务将通过公网访问源存储进行迁移。
 	- 新建迁移任务后手动下载 Agent 启动迁移：选择 Agent 模式迁移，用户在单击“新建并启动”后，将仅创建任务配置，需要用户手动下载 Agent 在迁移源一侧的服务器上部署之后才会正式启动迁移。Agent 模式适用于已有专线希望通过专线迁移的场景。
 ![](https://main.qcloudimg.com/raw/c8787f78d1b0d80bcc3fed2872f2fcfd.jpg)
+9. 单击【新建并启动】，即可启动迁移任务。
 
 #### 查看迁移状态和进度
 在文件迁移工具主界面中，可以查看所有文件迁移任务的状态和进度：
