@@ -7,6 +7,7 @@
 ## 前提条件
 #### 腾讯云对象存储 COS
 创建目标存储空间：用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+
 创建用于迁移的子用户并授予相关权限：
 1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
 2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
@@ -45,7 +46,7 @@
 7. 指定迁移到目标桶的指定目录。
  - 保存到根目录： 直接将源桶中的文件按原始相对路径保存到目标桶的根目录。
  - 保存到指定目录：将源桶中的文件保持原始相对路径保存到指定目录中。
-![](https://main.qcloudimg.com/raw/bdd44e075b79b7b8c18493899beeeae5.jpg)
+![](https://main.qcloudimg.com/raw/6140d72ef3af1be40b9ae31e5d03d627.jpg)
 例如：
 源桶中的文件`/a.txt`，`/dir/b.txt`两个文件，文本框中填写“dest”，那么迁移后这两个文件在目标桶中的路径为：`/dest/a.txt`，`/dest/dir/b.txt`。
 如果文本框中填写`dest/20180901`，那么迁移后这两个文件在目标桶中的路径为：`/dest/20180901/a.txt`，`/dest/20180901/dir/b.txt`。
