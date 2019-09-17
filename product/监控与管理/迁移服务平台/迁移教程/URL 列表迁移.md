@@ -8,13 +8,13 @@
 #### 腾讯云对象存储 COS
 创建目标存储空间：用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 创建用于迁移的子用户并授予相关权限：
-1.	登陆腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
 2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
 3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
 4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
 5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
 
->?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子用户并使用子用户API密钥进行迁移，迁移完成后删除。
+>?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子用户并使用子用户 API 密钥进行迁移，迁移完成后删除。
 
 
 ## 操作步骤
@@ -35,7 +35,6 @@
 ![](https://main.qcloudimg.com/raw/afa00a5039e915355b1f2e1270edbfb3.jpg)
 4. 设置任务执行时间。
 数据迁移会占用源厂商的网络资源，您可以根据自身业务情况，在此处灵活设置迁移任务的开始执行时间。
-
 ![](https://main.qcloudimg.com/raw/ad178b139fc842d6f885f6e0d23f55a4.jpg)
 5. 设置数据迁移执行速度。
 您可以使用本功能限制数据迁移的速度上限，从而避免额外的 CDN 带宽成本。实际迁移速度受网络波动影响会在设定值上下波动。
