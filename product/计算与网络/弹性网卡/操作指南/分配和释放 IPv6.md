@@ -1,5 +1,5 @@
 本文将为您详细介绍如何为弹性网卡分配 IPv6 地址。
-1. 进入 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。
 3. 单击需要查看的实例 ID，进入详情页
 4. 选择【IPv6 地址管理】标签页，单击【分配 IP】。
