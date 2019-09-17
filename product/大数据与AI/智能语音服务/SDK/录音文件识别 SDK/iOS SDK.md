@@ -4,13 +4,13 @@
 
 ### SDK 获取
 
-一句话识别的iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
+录音文件识别的iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://main.qcloudimg.com/raw/777564552ff9e038b613f8cb96570a2d/QCloudSDK_v2.0.3.zip)。
 
 
 ### 使用须知
 
 + QCloudSDK 支持 **iOS 9.0** 及以上版本。
-+ 一句话识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
++ 录音文件识别，需要手机能够连接网络（GPRS、3G 或 Wi-Fi 网络等）。
 + 从控制台获取 AppID、SecretID、SecretKey、ProjectId 详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
 + 运行 Demo 必须设置 AppID、SecretID、SecretKey、ProjectId.
 + 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
@@ -131,44 +131,21 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 + ##### 通过语音url调用
 ```objective-c
 - (void)recognizeWithUrl {
-//语音数据url
-NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-  //指定语音数据url 语音数据格式 采样率
-  [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
+    QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];
+//    params.audioUrl = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+    params.audioUrl = @"http://client-sdk-1255628450.cossh.myqcloud.com/test%20audio/voice_WGVNG_8000.mp3";
+    [_recognizer recognize:params];
 }
 ```
 
 + ##### 通过语音数据调用
 ```objective-c
 - (void)recognizeWithAudioData {
-   //语音数据
-   NSString *filePath = [[NSBundle mainBundle] pathForResource:@"recordedFile" ofType:@"wav"];
-   NSData *audioData = [[NSData alloc] initWithContentsOfFile:filePath];
-   //指定语音数据 语音数据格式 采样率
-   [_recognizer recoginizeWithData:audioData voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
-}
-```
-
-+ ##### 通过指定参数调用
-```objective-c
-- (void)recognizeWithParams {
-   NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-   //获取一个已设置默认参数params
-   QCloudOneSentenceRecognitionParams *params = [_recognizer defaultRecognitionParams];    
-   //通过语音url请求, 此4个参数必须设置
-   params.url = url;                           
-   //设置语音频数据格式，见kQCloudVoiceFormat定义
-   params.voiceFormat = kQCloudVoiceFormatWAV;
-   //设置语音数据来源，见QCloudAudioSourceType定义
-   params.sourceType = QCloudAudioSourceTypeUrl;
-   //设置采样率，见kQCloudEngSerViceType定义
-   params.engSerViceType = kQCloudEngSerViceType16k; 
-   [_recognizer recognizeWithParams:params];
-}
-```
-+ ##### 通过sdk内置录音器调用
-```objective-c
-- (void)recognizeWithRecorder {
-   [_recognizer startRecognizeWithRecorder];
+    QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"recordedFile" ofType:@"wav"];
+    NSData *audioData = [[NSData alloc] initWithContentsOfFile:filePath];
+    params.audioData = audioData;
+    params.sourceType = QCloudAudioSourceTypeAudioData;
+    [_recognizer recognize:params];
 }
 ```
