@@ -5,7 +5,7 @@ Agent 半托管迁移模式中，用户需要手工在源数据云厂商的服�
 本文将详细介绍当源对象存储部署在阿里云 OSS 时，如何配置 Agent 半托管迁移任务。
 
 ## 准备工作
-#### 阿里云对象存储OSS
+#### 阿里云对象存储 OSS
 1. 专线准备确认：
 Agent 半托管模式如果是通过专线迁移，需要确保阿里云侧主机上使用的 COS SDK，可经过专线访问 COS，迁移前请与商务经理确认。
 2. 创建 RAM 子账号并授予相关权限：
@@ -16,15 +16,13 @@ Agent 半托管模式如果是通过专线迁移，需要确保阿里云侧主�
 	5. 勾选用户登录名称，单击添加权限，授予子账号存储空间读写权限（AliyunOSSFullAccess）。
 
 #### 腾讯云对象存储 COS
-1. 创建目标存储空间。
-创建目标存储空间，用于存放迁移的数据。详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+1. 创建目标存储空间，用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 2. 创建用于迁移的子用户并授予相关权限：
-	1. 登陆腾讯云控制台。
-	2. 搜索 访问管理 或单击账户 > 访问管理 进入访问管理界面。
-	3. 选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
-	4. 新建子用户，并勾选编程访问及腾讯云控制台访问。
-	5. 搜索 MSP 并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
-	6. 完成子用户创建并保存生成的密码，SecretId，SecretKey。
+	1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+	2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
+	3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
+	4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
+	5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
 - 单击 [这里](https://main.qcloudimg.com/raw/7579efd7d2839e0dfbcff6be0ac2e22b/agent.zip) 下载 Agent。
 
 ## 迁移限速
