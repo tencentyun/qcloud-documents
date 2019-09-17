@@ -6,7 +6,7 @@
 - 为了保证配置修改后及时生效，已有的云服务器需重启机器或 dhclient。
 
 ## 操作步骤
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击需要修改的私有网络 ID，进入详情页，即可在基本信息内配置 DNS 地址和 Domain Name。
  - DNS 地址
 	 - DNS 最多支持4个 IP，IP 之间请用逗号隔开。
