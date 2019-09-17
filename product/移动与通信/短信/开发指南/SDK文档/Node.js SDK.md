@@ -77,7 +77,7 @@ function callback(err, res, resData) {
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
 var params = ["5678"];
-ssender.sendWithParam(86, phoneNumbers[0], templateId,
+ssender.sendWithParam("86", phoneNumbers[0], templateId,
   params, smsSign, "", "", callback); 
 ```
 
