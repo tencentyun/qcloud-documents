@@ -1,20 +1,23 @@
-## 在云函数中连接关系型数据库最佳实践
-
-本文提供云函数使用数据库的最佳实践。
-
-### 前提条件
-
-如需在云函数中使用关系型数据库，首先请查阅 CDB 文档，在 CDB 控制台申请一个数据库。下面以 CDB 团队新推出的 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505) 为例。您也可以使用 CDB 其他的数据库，或者自建的数据库。
+## 操作场景
+您可参考本文，在云函数中使用连接池及云函数团队提供的 SDK 来连接关系型数据库。
 
 
+## 前提条件
+已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
+>?本文以 CynosDB 数据库为例。您可根据实际需求选用 TencentDB 其他的数据库或自建的数据库。
+
+
+## 操作步骤
 ### 使用连接池
+我们推荐使用连接池来管理连接。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
 
-我们推荐您使用连接池来管理连接。连接池会自动重连，从而避免连接由云函数底层或者数据库释放掉连接，造成连接不可用的情况。
+使用连接池时，结合以下情形，请将最大连接数设置为1。
+- 云函数单实例同时处理的请求数为1，当最大连接数为1时并不会造成连接缺乏的情况。
+- 防止连接数设置过大，出现高并发下数据库连接耗尽的情况。
 
-当使用连接池的时候，我们建议将最大连接数设置为1。由于云函数一个实例同时处理的请求数为1，所以将最大连接数设置为1并不会造成连接不够的情况。并且如果将连接数设置过大可能会造成高并发下数据库连接耗尽的情况。
 
-### Java 使用 Hikari 连接池例子
-```
+### Java 使用 Hikari 连接池示例
+```Java
 package example;
 
 import com.qcloud.scf.runtime.Context;
@@ -76,7 +79,7 @@ public class Http {
     }
 }
 ```
-Maven 依赖
+Maven 依赖如下：
 ```
 <dependencies>
     <dependency>
@@ -96,44 +99,40 @@ Maven 依赖
     </dependency>
 </dependencies>
 ```
-还需要配置环境变量和内网VPC。
 
-可以在数据库控制台找到内网地址，以及所属网络。
-![](https://main.qcloudimg.com/raw/0d4faebac800955492fd26e5a6cddd0e.png)
-然后配置在如下位置。
-![](https://main.qcloudimg.com/raw/01137a224de2727ce1327978625efb9b.png)
-![](https://main.qcloudimg.com/raw/eeeac8fc305333f81752fbd989500d67.png)
+### 配置环境变量和私有网络
+1. 登录 [CynosDB 控制台](https://console.cloud.tencent.com/cynosdb)，单击已创建的 CynosDB 数据库 ID。
+2. 在数据库详情页，获取该数据库的**内网地址**、**所属网络**。如下图所示：
+![](https://main.qcloudimg.com/raw/8d4cb9700aacabf5ec669523c057b967.png)
+3. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
+4. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
+ - 新增**环境变量**参考以下表格填写。如下图所示：
+ ![](https://main.qcloudimg.com/raw/a751f79ce20e6be790909a6a5b74fdbe.png)
+<table>
+<tr>
+<th>key</th>
+<th>value</th>
+</tr>
+<tr>
+<td>DB_PASSWORD</td>
+<td>已创建数据库的 root 帐户密码。</td>
+</tr>
+<tr>
+<td>DB_USER</td>
+<td>默认为 root。</td>
+</tr>
+<tr>
+<td>DB_URL</td>
+<td>jdbc:mysql://<code>内网地址</code></td>
+</tr>
+</table>
+ - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
+![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
 
 ## Serverless DB SDK
-为了方便使用，云函数团队封装了最佳实践，内置了node.js和python语言的MySQL SDK。（支持MySQL，TDSQL，CynosDB等MySQL协议的数据库）
+为了方便用户使用，云函数团队封装了内置 node.js 和 python 语言的 MySQL SDK，支持 MySQL，TDSQL，CynosDB 等 MySQL 协议的数据库。
 
-此SDK完成了以下事情：
-
-1. 自动从环境变量初始化数据库客户端。（最佳实践）
-
-2. SDK会在全局维护一个数据库长连接，并会处理连接中断后的重连。（经过测试验证）
-
-3. 云函数团队会持续关注issue。保证拿到连接即可用，不需要关注数据库。
-
-配置了环境变量和内网VPC即可使用。
-
-```
-VpcConfig:
-  VpcId: "vpc-oyeye0y3"
-  SubnetId: "subnet-k93nsp5i"
-Environment:
-  Variables:
-    # 格式 DB_{引用}_XXX，可通过 mysql.database(引用).connection() 拿到初始化好的数据库连接。
-    DB_DB1_HOST: "10.0.31.25" # DB1 实例的地址
-    DB_DB1_PORT: "3306" # DB1 实例的端口
-    DB_DB1_USER: "root" # DB1 实例的用户名
-    DB_DB1_PASSWORD: "1234qwer" # DB1 实例的密码
-    DB_DB1_DATABASE: "TEST" # DB1 实例的数据库
-    # 填写此配置，mysql.database() 默认使用 DB1，否则需要指定引用 mysql.database("DB1")。
-    DB_DEFAULT: "DB1" 
-```
-
-### Node.js
+### Node.js SDK
 ```
 'use strict';
 const database = require('scf-nodejs-serverlessdb-sdk').database;
@@ -145,7 +144,7 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
-### Python
+### Python SDK
 ```
 from serverless_db_sdk import database
 
@@ -161,3 +160,28 @@ def main_handler(event, context):
     for x in myresult:
         print(x)
 ```
+
+Serverless DB SDK 具备以下特点：
+- 自动从环境变量初始化数据库客户端。
+- 经验证，SDK 会在全局维护一个数据库长连接，并会处理连接中断后的重连。
+- 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
+
+
+结合 SDK，添加如下环境变量和私有网络配置即可使用。
+```
+VpcConfig:
+  VpcId: "vpc-xxxxxxx"
+  SubnetId: "subnet-xxxxxxxx"
+Environment:
+  Variables:
+    # 格式 DB_{引用}_XXX，可通过 mysql.database(引用).connection() 拿到初始化好的数据库连接。
+    DB_DB1_HOST: "10.0.31.25" # DB1 实例的地址
+    DB_DB1_PORT: "3306" # DB1 实例的端口
+    DB_DB1_USER: "root" # DB1 实例的用户名
+    DB_DB1_PASSWORD: "xxxxxxxxx" # DB1 实例的密码
+    DB_DB1_DATABASE: "TEST" # DB1 实例的数据库
+    # 填写此配置，mysql.database() 默认使用 DB1，否则需要指定引用 mysql.database("DB1")。
+    DB_DEFAULT: "DB1" 
+```
+
+
