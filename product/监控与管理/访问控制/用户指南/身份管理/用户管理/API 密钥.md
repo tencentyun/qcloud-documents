@@ -20,7 +20,7 @@
  > - SecretKey：在密钥列单击【显示】，完成身份验证后，可直接查看，单击 ![](https://main.qcloudimg.com/raw/f76547dfc5a0b8982a714011026f3244.png) 可复制保存相关信息。
 
 ### 查看当前账号 API 密钥
-您可以查看和复制当前账号 API 密钥的 SecretId 和 SecretKey 信息，通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工管理主账号下的资源。
+具有 **QcloudCollApiKeyReadOnlyAccess 策略** 权限的用户可以查看和复制当前账号 API 密钥的 SecretId 和 SecretKey 信息，通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工管理主账号下的资源。
 1. 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，在秘钥对列可直接获取复制 SecretId。
 2. 在秘钥对列，单击【显示】，完成身份验证，可以获取复制SecretKey。
 
