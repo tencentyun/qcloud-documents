@@ -117,23 +117,22 @@ iOS SDK 压缩包名称为： QCloudSDK_v2.0.3.zip，压缩包中包含 Sample C
 @end
 ```
 ## 示例
-### 1.**创建 QCloudSentenceRecognizer 实例** 
+### 1.**创建 QCloudFileRecognizer 实例** 
 ```objective-c
-  QCloudSentenceRecognizer *recognizer = [[QCloudSentenceRecognizer alloc] initWithAppId:appId 
-  									        secretId:secretId 
-									       secretKey:secretKey];
-  //设置delegate，相关回调方法见QCloudOneSentenceRecognizerDelegate定义
+  QCloudFileRecognizer *recognizer = [[QCloudFileRecognizer alloc] initWithAppId:appId 
+  								        secretId:secretId 
+								       secretKey:secretKey];
+  //设置delegate，相关回调方法见QCloudFileRecognizerDelegate定义
  recognizer.delegate = self;
 ```
-### 2.实现此***QCloudSentenceRecognizerDelegate***协议方法
+### 2.实现此***QCloudFileRecognizerDelegate***协议方法
 ### 3.**调用方式示例**
 
 + ##### 通过语音url调用
 ```objective-c
 - (void)recognizeWithUrl {
     QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];
-//    params.audioUrl = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
-    params.audioUrl = @"http://client-sdk-1255628450.cossh.myqcloud.com/test%20audio/voice_WGVNG_8000.mp3";
+    params.audioUrl = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
     [_recognizer recognize:params];
 }
 ```
