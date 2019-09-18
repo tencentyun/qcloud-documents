@@ -89,7 +89,7 @@ public QCloudFileRecognizer(AppCompatActivity activity, String appId, String sec
 public long recognize(QCloudFileRecognitionParams params) throws Exception;
 ```
 
-**QCloudFileRecognizerListener**开始录音、结束录音以及识别结果回调
+**QCloudFileRecognizerListener**识别结果回调
 ```
 public interface QCloudFileRecognizerListener {
     /**
