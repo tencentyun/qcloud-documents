@@ -47,7 +47,7 @@
 | Nonce            | UInt   | 随机正整数，与 Timestamp 联合起来, 用于防止重放攻击（公共参数）。 |
 | associateAccount | String | accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
 | registerTime     | String | 注册时间戳，单位：秒。                                         |
-| uid              | String | 用户 ID accountType 不同对应不同的用户 ID。如是 QQ 或微信用户则填入对应的 OpenID。 |
+| uid              | String | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | registerIp       | String | 注册来源的外网 IP。                                            |
 | level            | Int    | <li>0：表示无恶意。</li><li>1 - 4：恶意等级由低到高。</li>                     |
 | riskType         | Array  | 风险类型，详情请参见下文 **riskType 详细说明**。                                                     |
