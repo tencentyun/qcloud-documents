@@ -9,7 +9,7 @@
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
 | accountType        | 是      | Uint     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li>|
-| uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（131****6789）。     |
+| uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如131****6789）。     |
 | userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
 | postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
 | appId              | 否      | String   | accountType 是QQ或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
