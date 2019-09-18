@@ -5,7 +5,7 @@
       <th><center>计费说明<center></th>
    </tr>
    <tr>
-      <td  rowspan="3">数据取回量</td>
+      <td  rowspan="3",nowrap="nowrap">数据取回量</td>
       <td  rowspan="3">低频存储<br>归档存储</td>
       <td>按月结算<br>数据取回费用 = 每 GB 单价 * 月数据取回量</td>
    </tr>
