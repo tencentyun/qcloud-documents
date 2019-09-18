@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
 
 
 
@@ -1525,7 +1525,7 @@ __参数__
 
 __介绍__
 
-会触发 onLocalVideoFrameAfterProcess 回调接口。
+会触发 onFirstVideoFrame 回调接口。
 
 >?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 

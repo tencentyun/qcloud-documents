@@ -4,22 +4,46 @@
 
 ## 前提条件
 - 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
-- 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
-- 已安装 pip。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
-- 使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需按安装并启动 Docker。
+- (可选) 安装并启动 Docker（使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需要）。
 
-上述安装可参考 [安装与配置文档](https://cloud.tencent.com/document/product/583/33449)。
+
 
 ## 操作步骤
-### 安装 SCF CLI
-1. 执行以下命令，安装 SCF CLI。
+
+### 安装 CLI （Windows）
+
+#### 方式1
+1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
+2. 执行 `pip install scf` 命令，安装 CLI。
+3. 升级 CLI 可直接执行 `pip install -U scf` 命令。
+
+#### 方式2
+1. 前往 [CLI 下载](https://cloud.tencent.com/document/product/583/37940)，获取 SCF CLI 安装包。
+>?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
+>
+2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】进行安装。
+3. 执行 `scf --version` 命令，验证 CLI 是否安装成功。
 ```bash
-$ sudo pip install scf
+scf CLI, version 0.0.1
 ```
-2. 执行以下命令，验证 SCF CLI 是否安装成功。
+返回类似如上信息，则表示安装成功。
+
+
+
+### 安装 CLI （Mac / Linux）
+1. 执行以下命令，检查 Python 版本。
+```
+Python --version
+```
+Python 版本须为 2.7 或 3.6 + ，如果 Python 版本不符，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python) 进行安装。
+2. 执行以下命令，安装 SCF CLI。
 ```bash
-$ scf --version
+pip install scf
+```
+3. 执行以下命令，验证 SCF CLI 是否安装成功。
+```bash
+scf --version
 ```
 返回类似如下信息，则表示安装成功。
 ```
@@ -27,13 +51,14 @@ scf CLI, version 0.0.1
 ```
 
 
-<span id="configure"></span>
+
+
 ### 配置 SCF CLI
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)。
 2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域，配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
 3. 执行以下命令，并按照提示，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
-例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
-您可以通过执行以下命令，按照提示输入对应信息，完成 SCF CLI 的配置：
+    例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
+    您可以通过执行`scf configure set`命令，按照提示输入对应信息，完成 SCF CLI 的配置：
 ```shell
 $ scf configure set
 TencentCloud appid(None): 1253970223
@@ -45,20 +70,21 @@ Allow report information to help us optimize scfcli(Y/n):
 
 ### 编写函数
 1. 选择并进入到存放项目代码的目录。
-2. 执行以下命令，创建函数。
+2. 执行命令`scf init`，创建函数。
 >?此命令会在当前目录下创建 hello_world 函数。
 >
 ```bash
 $ scf init 
 [+] Initializing project...
-Template: /usr/local/lib/python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-python
+Template: /usr/local/lib/Python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-Python
 Output-Dir: .
 Project-Name: hello_world
-Runtime: python3.6
+Runtime: Python3.6
 [*] Project initialization is complete
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
+
 3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
@@ -84,11 +110,12 @@ def main_handler(event, context):
 1. 进入项目所在目录 `hello_world`。
 2. 执行以下命令，启动函数在本地运行。
 ```
+$ cd hello_world 
 $ scf native invoke --no-event
 ```
 输出结果如下：
 ```
-Run python3.6's cmd: python
+Run Python3.6's cmd: Python
 START RequestId: 2f258903-95d0-4992-9321-0d720867a383
 Loading function
 start main handler
@@ -103,7 +130,7 @@ REPORT RequestId: 2f258903-95d0-4992-9321-0d720867a383 Duration: 0 ms Billed Dur
 
 ### 部署函数（含配置触发器）
 1. 修改模板文件，配置触发器。
-由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
+    由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
 ```yaml
 Resources:
   default:
@@ -131,7 +158,7 @@ Resources:
              HttpMethod: ANY
 ```
 更多模板文件规范请参阅 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。
-2. 在项目目录下执行以下命令，将本地代码包及函数配置部署到云端。
+2. 在项目目录下执行命令`scf deploy`，将本地代码包及函数配置部署到云端。
 ```bash
 $ scf deploy 
 Package name: default-hello_world-latest.zip, package size: 4.097 kb
@@ -155,7 +182,7 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
 ```
 部署完成后，您可以在终端输出信息中查看函数信息和网关信息，您可以将 serviceId 复制到 template.yaml，之后部署就不会再创建新的 API 网关。
 3. 完成部署后，您可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域下查看已成功部署的函数。
-部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
+    部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
 
 ### 云端测试
 完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
@@ -184,11 +211,17 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
-![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
-更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
+>![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+>更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 
 ### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
+
+
+
+## 常见问题
+
+工具安装或使用常见问题参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456)。

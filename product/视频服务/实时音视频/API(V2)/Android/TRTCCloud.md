@@ -7,7 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 基础方法
 ### sharedInstance
 
-创建 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 单例。
+创建 [TRTCCloud](#trtccloud) 单例。
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -20,14 +20,14 @@ __参数__
 
 __返回__
 
-[TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 实例。
+[TRTCCloud](#trtccloud) 实例。
 
 >?可以调用 destroySharedInstance 销毁单例对象。
 
 
 ### destroySharedInstance
 
-销毁 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 单例。
+销毁 [TRTCCloud](#trtccloud) 单例。
 ```
 void destroySharedInstance()
 ```
@@ -35,7 +35,7 @@ void destroySharedInstance()
 
 ### setListener
 
-设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 的各种状态通知。
+设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](#trtccloud) 的各种状态通知。
 ```
 abstract void setListener(TRTCCloudListener listener)
 ```
@@ -90,8 +90,8 @@ abstract void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32264#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
-如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32264#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等等。
+调用 [exitRoom()](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
+如果您要再次调用 [enterRoom()](#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等等。
 
 
 ### switchRole
@@ -149,8 +149,8 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 </pre>
 
 跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
-- roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32264#connectotherroom) 时 roomId 应指定为“002”。
-- userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32264#connectotherroom) 时 userId 应指定为 B 的 userId。
+- roomId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](#connectotherroom) 时 roomId 应指定为“002”。
+- userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](#connectotherroom) 时 userId 应指定为 B 的 userId。
 
 
 跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onConnectOtherRoom() 回调通知给您。
@@ -638,7 +638,7 @@ __参数__
 
 __介绍__
 
-开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。如需打开此功能，请在 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32264#startlocalaudio) 之前调用。
+开启后会在 onUserVoiceVolume 中获取到 SDK 对音量大小值的评估。如需打开此功能，请在 [startLocalAudio()](#startlocalaudio) 之前调用。
 
 >?Demo 中有一个音量大小的提示条，就是基于该接口实现的。
 
@@ -676,6 +676,18 @@ __介绍__
 如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
+### setSystemVolumeType
+
+设置系统音量类型。
+```
+abstract void setSystemVolumeType(int type)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| type | int | TRTCAudioVolumeTypeAuto 默认类型，麦上通话音量、麦下媒体音量; TRTCAudioVolumeTypeMedia 始终使用媒体音量。 |
 
 ## 摄像头相关接口函数
 ### switchCamera
@@ -1001,7 +1013,7 @@ __参数__
 
 __介绍__
 
-对应于 [startRemoteView()](https://cloud.tencent.com/document/product/647/32264#startremoteview) 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
+对应于 [startRemoteView()](#startremoteview) 用于显示主画面，该接口只能用于显示辅路（屏幕分享、远程播片）画面。
 
 >?请在 onUserSubStreamAvailable 回调后再调用这个接口。
 
@@ -1037,7 +1049,7 @@ __参数__
 
 __介绍__
 
-对应于 [setRemoteViewFillMode()](https://cloud.tencent.com/document/product/647/32264#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
+对应于 [setRemoteViewFillMode()](#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
 
 
 
@@ -1057,7 +1069,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 [sendCustomVideoData()](https://cloud.tencent.com/document/product/647/32264#sendcustomvideodata) 不断地向 SDK 塞入自己采集的视频画面。
+开启该模式后，SDK 不在运行原有的视频采集流程，只保留编码和发送能力。 您需要用 [sendCustomVideoData()](#sendcustomvideodata) 不断地向 SDK 塞入自己采集的视频画面。
 
 
 ### sendCustomVideoData
@@ -1143,6 +1155,7 @@ __介绍__
 
 
 ### enableCustomAudioCapture
+>?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，即该 listener 的回调函数不会被触发。
 
 启用音频自定义采集模式。
 ```
@@ -1157,7 +1170,7 @@ __参数__
 
 __介绍__
 
-开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32264#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。
+开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。
 
 
 ### sendCustomAudioData
@@ -1215,7 +1228,7 @@ __介绍__
 
 发送自定义消息给房间内所有用户。
 ```
-abstract boolean sendCustomCmdMsg(int cmdID, byte [] data, boolean reliable, boolean ordered)
+abstract boolean sendCustomCmdMsg(int cmdID, byte[] data, boolean reliable, boolean ordered)
 ```
 
 __参数__
@@ -1223,7 +1236,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | cmdID | int | 消息 ID，取值范围为1 - 10。 |
-| data | byte [] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
+| data | byte[] | 待发送的消息，最大支持1KB（1000字节）的数据大小。 |
 | reliable | boolean | 是否可靠发送，可靠发送的代价是会引入一定的延时，因为接收端要暂存一段时间的数据来等待重传。 |
 | ordered | boolean | 是否要求有序，即是否要求接收端接收的数据顺序和发送端发送的顺序一致，这会带来一定的接收延时，因为在接收端需要暂存并排序这些消息。 |
 
@@ -1247,14 +1260,14 @@ __介绍__
 
 将小数据量的自定义数据嵌入视频帧中。
 ```
-abstract boolean sendSEIMsg(byte [] data, int repeatCount)
+abstract boolean sendSEIMsg(byte[] data, int repeatCount)
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| data | byte [] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
+| data | byte[] | 待发送的数据，最大支持1kb（1000字节）的数据大小。 |
 | repeatCount | int | 发送数据次数。 |
 
 __返回__
@@ -1289,7 +1302,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | path | String | 音乐文件路径。 |
-| notify | [BGMNotify](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 播放背景音乐的回调。 |
+| notify | [BGMNotify](#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 播放背景音乐的回调。 |
 
 
 ### stopBGM
@@ -1407,7 +1420,77 @@ __参数__
 |-----|-----|-----|
 | voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE。 |
 
+## 音效相关接口函数
+### playAudioEffect
 
+播放音效。
+```
+abstract void playAudioEffect(TRTCCloudDef.TRTCAudioEffectParam effect)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effect | [TRTCCloudDef.TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32266#trtcaudioeffectparam) | 音效。 |
+
+__介绍__
+
+每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 ID 进行播放。如果使用同一个 ID 播放不同音效，SDK 会先停止播放旧的音效，再播放新的音效。
+
+
+### setAudioEffectVolume
+
+设置单个音效音量。
+```
+abstract void setAudioEffectVolume(int effectId, int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| volume | int | 取值范围0 - 100。 |
+
+>?该操作会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+
+### stopAudioEffect
+
+停止音效。
+```
+abstract void stopAudioEffect(int effectId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+
+
+### stopAllAudioEffects
+
+停止所有音效。
+```
+abstract void stopAllAudioEffects()
+```
+
+
+### setAllAudioEffectsVolume
+
+设置所有音效音量。
+```
+abstract void setAllAudioEffectsVolume(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 取值范围0 -100。 |
+
+>?该操作会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
 ## 网络测试
 ### startSpeedTest
@@ -1531,7 +1614,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 参见 TRTC_LOG_LEVEL。 |
+| level | int | 请参见 TRTC_LOG_LEVEL。 |
 
 
 ### setConsoleEnabled
@@ -1621,7 +1704,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| margin | [TRTCViewMargin](https://cloud.tencent.com/document/product/647/32264#.E6.92.AD.E6.94.BE.E8.83.8C.E6.99.AF.E9.9F.B3.E4.B9.90.E7.9A.84.E5.9B.9E.E8.B0.83.E6.8E.A5.E5.8F.A3) | 仪表盘内边距，注意这里是基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
+| margin | [TRTCViewMargin](#.E8.A7.86.E5.9B.BE.E8.BE.B9.E8.B7.9D) | 仪表盘内边距，基于 parentView 的百分比，margin 的取值范围是0 - 1。 |
 
 __介绍__
 

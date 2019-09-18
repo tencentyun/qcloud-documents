@@ -121,6 +121,7 @@ positional arguments:
                         Set the versioning state
     getbucketversioning
                         Get the versioning state
+	probe               Connection test
 
 optional arguments:
   -h, --help            show this help message and exit

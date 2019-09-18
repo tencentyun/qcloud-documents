@@ -37,6 +37,6 @@
 
 ## 设置黑白名单
 1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，前往【高防 IP 专业版】>【防护配置】，在【CC 攻击防护】页签，选择目的实例。
-1. 目前默认 HTTP，选择【URL 白名单】、【IP 白名单】或【IP 黑名单】，进行黑白名单设置，支持添加、修改。
+1. 目前默认 HTTP，选择【URL 白名单】、【IP 白名单】或【IP 黑名单】，进行黑白名单设置，支持添加、修改，也支持批量导入导出。
+![](https://main.qcloudimg.com/raw/ad41cf321add1cb1a4104333042874be.png)
 
-![](https://main.qcloudimg.com/raw/b6ac037c0261e5aeaeeef6ee3ecf4f34.png)
