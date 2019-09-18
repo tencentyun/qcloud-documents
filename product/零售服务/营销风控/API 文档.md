@@ -23,7 +23,7 @@
       <td>uid</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户 ID 值，如微信或QQ openid，或手机号等（如15912345687）。</td>
+      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。</td>
    </tr>
    <tr>
       <td>userIp</td>
