@@ -42,7 +42,7 @@
 此处迁移源服务提供商应选择百度云 BOS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的百度云子用户 AccessKeyID，AccessKeySecret。源对象存储桶列表可在填入密钥后点击下拉框右侧刷新按钮获取。
 ![](https://main.qcloudimg.com/raw/352390f9b4d102479604a52a91e1b2ae.png)
 4. 选择文件存储方式。
-根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性。
+根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
 ![](https://main.qcloudimg.com/raw/8301bfa06c4d01e0ddc6e5d107c5ce05.jpg)
 5. 选择 Header 设置。
 如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
