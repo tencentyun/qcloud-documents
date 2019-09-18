@@ -1,13 +1,13 @@
-## 场景背景
+### 场景背景
 手写数字识别是图像识别领域基本任务之一，旨在通过机器学习或深度学习算法将每张手写数字图片分类到0 - 9的数字标签中。在海量的手写数字图像数据集中，MNIST 数据集被学术界、工业界广泛研究。
 
 本文通过智能钛机器学习平台提供的 Notebook，利用 TensorFlow 框架构建一个简单的神经网络来实现 MNIST 手写数字识别。通过本文的学习，您可了解到如何通过智能钛机器学习平台实现您自己的代码。
 
-## 数据集介绍
-用户可从 [MNIST官网](http://yann.lecun.com/exdb/mnist/) 下载 MNIST 数据集，该数据集由来自250个不同人手写的数字构成，共包含60,000个训练数据，10,000个测试数据，每个数据都是一张28px * 28px大小的灰度图像，该图像空白像素标记为0，有笔迹的地方用0 - 1之间的数值标记笔迹颜色的深浅。手写数字图像示例如下：
+### 数据集介绍
+用户可从 [MNIST 官网](http://yann.lecun.com/exdb/mnist/) 下载 MNIST 数据集，该数据集由来自250个不同人手写的数字构成，共包含60,000个训练数据，10,000个测试数据，每个数据都是一张28px * 28px大小的灰度图像，该图像空白像素标记为0，有笔迹的地方用0 - 1之间的数值标记笔迹颜色的深浅。手写数字图像示例如下：
 ![](https://main.qcloudimg.com/raw/426361bfc93a89a622b17d4d5d491cb1/1568170022438.png)
 
-## 整体流程
+### 整体流程
 在智能钛机器学习平台提供的 Notebook 中完成手写数字识别的任务，我们需要完成以下几个步骤：
 1. 新建 Notebook 容器
 2. 在 Notebook 中，创建 MNIST 手写数字识别项目
@@ -20,12 +20,12 @@
    - 构建手写数字识别模型
    - 模型评估输出模型准确率
 
-## 详细流程
+### 详细流程
 #### 新建 Notebook 容器
-1. 登录智能钛机器学习平台控制台后，单击顶层菜单栏的【Notebook】，页面跳转至 Notebook 容器列表页面。单击【新增】按钮，配置容器参数：
+1. 登录智能钛机器学习平台控制台后，单击顶层菜单栏的【Notebook】，页面跳转至 Notebook 容器列表页面。单击【新增】，配置容器参数：
    - 容器名称：MNIST 手写数字识别
    - 框架选择：tensorflow/1.6
-   - 资源选择：通用-低配（1xCPU，4G内存）
+   - 资源选择：通用-低配（1xCPU，4GB内存）
    - 存储桶：此处请选择您自己在 [COS](https://console.cloud.tencent.com/cos5/bucket) 上的存储桶
 
 ![](https://main.qcloudimg.com/raw/a91852e99d70cbc3ed8ae0b591f74184/1568170500528.png)
@@ -34,17 +34,17 @@
 
 #### 创建 MNIST 手写数字识别项目
 1. 在 Notebook 操作页面，选择【Python3】，进入项目后，将项目重命名为：MNIST.ipynb
-![](https://main.qcloudimg.com/raw/fc6f47faae3cc4995b32bc45364fa1b4/1568170835063.png)![](https://main.qcloudimg.com/raw/b58fcebc408549c26bc2a5a405f9df64/1568170953842.png)
+![](https://main.qcloudimg.com/raw/1709f337a680877206663cee68299390.png)
 2. 在 MNIST.ipynb 的同级目录处，新建文件夹【MNIST_data】，并将 [MNIST 官网](http://yann.lecun.com/exdb/mnist/) 提供的四个数据集下载后上传至该文件夹中：
  - train-images-idx3-ubyte.gz
  - train-labels-idx1-ubyte.gz
  - t10k-images-idx3-ubyte.gz
  - t10k-labels-idx1-ubyte.gz
 
-![](https://main.qcloudimg.com/raw/e56830c2193ffe252fec95da412aeb2c.png)![](https://main.qcloudimg.com/raw/757175d79ad667be93c2cd229ac8e6ba.png)
+![](https://main.qcloudimg.com/raw/21fe51c6350e640b07aa5d873b2889d7.png)
 
 #### 利用 TensorFlow 实现 MNIST 手写数字识别
-1. 在 Notebook 中安装并导入所需依赖包，此处可忽视 tensorboard 相关报错
+1. 在 Notebook 中安装并导入所需依赖包
 ```
  <!--您可直接复制以下所有代码块到 Notebook 中运行-->
  ! pip install --user --upgrade pip
