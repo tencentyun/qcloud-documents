@@ -184,7 +184,7 @@
    <tr>
       <td>uid</td>
       <td>String</td>
-      <td>用户 ID，accountType 不同对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId（对应输入参数）。</td>
+      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。</td>
    </tr>
    <tr>
       <td>userIp</td>
