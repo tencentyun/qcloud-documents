@@ -13,7 +13,7 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 #### 开源版和基础版集群的登录页如下图所示：
 ![登录](https://main.qcloudimg.com/raw/9cd85e47708b6d40cbacf1fb76cb5f80.png)
 #### 白金版集群登录页如下图所示:
-![白金版登陆](https://main.qcloudimg.com/raw/272088c161b9b9e3691e9460354ba1c3.png)
+![白金版登录](https://main.qcloudimg.com/raw/272088c161b9b9e3691e9460354ba1c3.png)
 
 ### 访问
 登录 Kibana 页面后，如果用户是第一次使用，集群尚未存入用户自定义的索引数据，页面会提示用户配置索引，具体参考下文索引添加及访问部分。
