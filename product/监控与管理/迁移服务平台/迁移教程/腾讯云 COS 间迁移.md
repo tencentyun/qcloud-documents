@@ -7,17 +7,17 @@
 
 
 
-## 前提条件
+## 准备工作
 
 
 #### 腾讯云对象存储 COS
-创建目标存储空间：用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
-创建用于迁移的子用户并授予相关权限：
-1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
-2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
-3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
-4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
-5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
+1. 创建目标存储空间，用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+2. 创建用于迁移的子用户并授予相关权限：
+	1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
+	2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
+	3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
+	4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
+	5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
 
 >?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子用户并使用子用户 API 密钥进行迁移，迁移完成后删除。
 
@@ -36,7 +36,7 @@
 此处迁移源服务提供商应选择腾讯云 COS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的腾讯云子用户SecretId，SecretKey。源对象存储桶列表可在填入密钥后点击下拉框右侧刷新按钮获取。
 ![](https://main.qcloudimg.com/raw/8189f701c6202c1d69963461dfa2f335.png)
 4. 选择文件存储方式。
-根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性。
+根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
 ![](https://main.qcloudimg.com/raw/8301bfa06c4d01e0ddc6e5d107c5ce05.jpg)
 5. 选择 Header 设置。
 如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。

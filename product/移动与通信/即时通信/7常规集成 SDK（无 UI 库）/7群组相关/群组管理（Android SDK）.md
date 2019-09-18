@@ -307,7 +307,7 @@ TIMGroupManager.getInstance().quitGroup(
 **公开群和聊天室：**只有管理员和群主可以踢人。
 **直播大群：**不能踢人。
 
-**原型：  **
+**原型：**
 
 ```
 /**
@@ -1300,7 +1300,7 @@ TIMGroupManager.getInstance().modifyMemberInfo(param, new TIMCallBack() {
 - **公开群和私有群：**默认消息接收方式为接收并离线推送群消息。
 - **聊天室和音视频聊天室：**默认为接收但不离线推送群消息。
 
-**`TIMGroupReceiveMessageOpt` 接口定义如下： **
+**`TIMGroupReceiveMessageOpt` 接口定义如下：**
 
 ```
 //不接收群消息， 服务器不会进行转发
