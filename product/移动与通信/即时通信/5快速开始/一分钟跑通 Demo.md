@@ -5,7 +5,7 @@
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
-2. 在【应用列表】页，单击【创建应用接入】。
+2. 在【应用列表】页，单击【创建应用】。
 3. 在【创建新应用】对话框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
 
@@ -46,11 +46,11 @@
      </tr>  
   <tr>      
       <td>Web（通用）</td>   
-      <td>H5/js/debug/GenerateTestUserSig.js</td>   
+      <td>H5/dist/debug/GenerateTestUserSig.js</td>   
      </tr>  
   <tr>      
       <td>小程序</td>   
-      <td>WXMini/debug/GenerateTestUserSig.js</td>   
+      <td>WXMini/dist/wx/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
 
@@ -68,12 +68,12 @@
 ## 步骤4：编译运行
 用各端的 IDE 直接编译运行即可。
 
-**其中 iOS 和 Mac Demo 的编译运行需要使用到 pod 集成，详情步骤如下：**
+**其中 iOS 和 Mac Demo 的编译运行需要使用 pod 集成，详情步骤如下：**
 1. 终端执行以下命令，检查 pod 版本。
 ```
 pod --version
 ```
-如果提示 pod 不存在，或则 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
+若提示 pod 不存在，或 pod 版本小于 1.7.5，请执行以下命令安装最新 pod。
 ```
 //更换 gem 源
 gem sources --remove https://rubygems.org/
@@ -94,7 +94,9 @@ pod install
 cd Mac/TUIKitDemo
 pod install
 ```
-3. iOS 进入 iOS/TUIKitDemo 文件夹，Mac 进入Mac/TUIKitDemo 文件夹，打开 `TUIKitDemo.xcworkspace` 编译运行。
+3. 编译运行：
+ - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
+ - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 
 
 

@@ -8,7 +8,13 @@
 
 #### 协议的支持
 通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址（以“http”开头，以“.flv”结尾）：
-![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
+
+| 直播协议 | 优点 | 缺点 | 播放延迟 |
+|---------|---------|---------|---------|
+| FLV | 成熟度高、高并发无压力 | 需集成 SDK 才能播放 | 2s - 3s |
+| RTMP | 优质线路下理论延迟最低 | 高并发情况下表现不佳 | 1s - 3s |
+| HLS（m3u8） | 手机浏览器支持度高 | 延迟非常高 | 10s - 30s |
+
 
 ## 特别说明
 - **是否有限制？**
@@ -37,7 +43,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 
 如果您要调整渲染画面的大小，只需要调整您所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
 
-![](//mccdn.qcloud.com/static/img/75b41bd0e9d8a6c2ec8406dc706de503/image.png)
+![](https://main.qcloudimg.com/raw/b5b8a6a7679a6f701f6c43ffd6e8e4a1.png)
  
 > **如何做动画？**
 > 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。

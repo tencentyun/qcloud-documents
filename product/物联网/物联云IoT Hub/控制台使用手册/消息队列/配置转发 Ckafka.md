@@ -41,4 +41,4 @@
 
 
 
-消息队列的 SDK 使用说明，您可以参照消息队列提供的 [使用入门](https://cloud.tencent.com/document/product/597/10112) 文档。
+消息队列的 SDK 使用说明，您可以参照消息队列提供的 [使用入门](https://cloud.tencent.com/document/product/597/30931) 文档。

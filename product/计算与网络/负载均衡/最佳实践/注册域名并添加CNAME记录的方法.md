@@ -11,7 +11,7 @@
 ### 2.1. 进入域名解析页面
 
 登录腾讯云 [云解析控制台](https://console.cloud.tencent.com/cns)，在操作拦中单击【解析】。
-![](https://main.qcloudimg.com/raw/5dc41cf2166a9db13516e021204e1316.png)
+![](https://main.qcloudimg.com/raw/14a23a600162daaee162f246dd081eef.png)
 
 ### 2.2. 添加 CNAME 记录
 

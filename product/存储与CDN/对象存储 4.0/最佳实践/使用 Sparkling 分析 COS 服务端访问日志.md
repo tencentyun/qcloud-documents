@@ -16,7 +16,7 @@
 #### 开通 Sparkling 服务
 
 1. 登录到 [Sparkling 服务控制台](https://console.cloud.tencent.com/sparkling)（需申请试用），创建与目标存储桶**相同地域**的 sparkling 集群。
-> !由于目前 Sparkling 只能支持从 COS 加载待分析日志到 Sparkling 本地集群中进行分析，因此您需要根据日志规模选择合适的集群配置。
+> !由于目前 Sparkling 只能支持，从 COS 加载待分析日志到 Sparkling 本地集群中进行分析，因此您需要根据日志规模选择合适的集群配置。
 
 	![](https://main.qcloudimg.com/raw/081099ae1b6a53f4666100ad7d27d54b.jpg)
 2. 等待集群创建完成。

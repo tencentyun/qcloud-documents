@@ -15,7 +15,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 c
 
 
 ## 支持的平台
-IM SDK 支持 IE 9+、Chrome、微信、手机QQ、QQ 浏览器、FireFox、Opera 和 Safari。
+IM SDK 支持 IE 9+、Chrome、微信、手机 QQ、QQ 浏览器、FireFox、Opera 和 Safari。
 
 ## 调用顺序介绍
 IM SDK 调用 API 需要遵循如下表所示顺序。

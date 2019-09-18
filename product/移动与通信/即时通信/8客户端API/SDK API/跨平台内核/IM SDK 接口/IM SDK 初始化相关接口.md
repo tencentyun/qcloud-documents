@@ -3,7 +3,7 @@
 
 IM SDK 初始化。
 
-**原型：**
+**原型**
 
 ```c
 TIM_DECL int TIMInit(uint64_t sdk_app_id, const char* json_sdk_config);
@@ -52,7 +52,7 @@ if (TIM_SUCC != TIMInit(sdk_app_id, json_value_init.toStyledString().c_str())) {
 
 IM SDK 卸载。
 
-**原型：**
+**原型**
 
 ```c
 TIM_DECL int TIMUninit(void);
@@ -80,7 +80,7 @@ if (TIM_SUCC != TIMUninit()) {
 
 获取 IM SDK 版本号。
 
-**原型：**
+**原型**
 
 ```c
 TIM_DECL const char* const TIMGetSDKVersion(void);
@@ -96,7 +96,7 @@ TIM_DECL const char* const TIMGetSDKVersion(void);
 
 设置额外的用户配置。
 
-**原型：**
+**原型**
 
 ```c
 TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const void* user_data);
@@ -116,7 +116,7 @@ TIM_DECL int TIMSetConfig(const char* json_config, TIMCommCallback cb, const voi
 |-----|-----|
 | int | 返回 TIM_SUCC 表示接口调用成功（接口只有返回 TIM_SUCC，回调 cb 才会被调用），其他值表示接口调用失败。每个返回值的定义请参考 [TIMResult](https://cloud.tencent.com/document/product/269/33553#timresult)  |
 
->?`json_config`可以填`NULL`空字符串指针或者""空字符串，此时若回调 cb 不为空，则通过回调 cb，返回当前所有的配置信息。目前支持设置的配置有 HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口建议调用 [TIMInit](https://cloud.tencent.com/document/product/269/33546#timinit) 之前配置。每项配置可以单独设置，也可以一起配置，详情请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig)。
+>?`json_config`可以填`NULL`空字符串指针或者""空字符串，此时若回调 cb 不为空，则通过回调 cb，返回当前所有的配置信息。目前支持设置的配置有 HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口、输出日志的级别、获取群信息/群成员信息的默认选项、是否接受消息已读回执事件等。HTTP 代理的 IP 和端口、SOCKS5 代理的 IP 和端口建议调用 [TIMInit](#timinit) 之前配置。每项配置可以单独设置，也可以一起配置，详情请参考 [SetConfig](https://cloud.tencent.com/document/product/269/33553#setconfig)。
 
 
 **示例一、**

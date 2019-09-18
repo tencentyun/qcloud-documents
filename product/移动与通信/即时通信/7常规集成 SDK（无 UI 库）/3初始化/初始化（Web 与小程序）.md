@@ -62,7 +62,7 @@ tim.on(TIM.EVENT.GROUP_LIST_UPDATED, function(event) {
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECERIVED, function(event) {
   // 收到新的群系统通知
   // event.name - TIM.EVENT.GROUP_SYSTEM_NOTICE_RECERIVED
-  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload"> operationType 枚举值说明</a>
+  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">operationType 枚举值说明</a>
   // event.data.message - Message 对象，可将 event.data.message.content 渲染到到页面
 });
 

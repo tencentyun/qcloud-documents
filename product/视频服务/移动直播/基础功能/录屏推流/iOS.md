@@ -80,7 +80,7 @@ static NSString *s_rtmpUrl;
 }
 
 ```
-s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 sampleHandler 实例有可能不只一个，因此对变量采用静态声明，确保录屏推流过程中使用的是同一个推流器。s_txLivePublisher 的 config 默认的配置为摄像头推流配置，因此需要额外配置为自定义采集视频和音频模式, 视频开启 autoSampleBufferSize，SDK 会自动根据输入的分辨率设置编码器，您不需要关心推流的分辨率；如果您关闭此选项，那么代表您需要自定义分辨率。因为系统录制对不同机型屏幕所得到的分辨率不一致，因此录屏推流不建议您开启 autoSampleBufferSize，使用自定义分辨率设置。
+s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 sampleHandler 实例有可能不只一个，因此对变量采用静态声明，确保录屏推流过程中使用的是同一个推流器。s_txLivePublisher 的 config 默认的配置为摄像头推流配置，因此需要额外配置为自定义采集视频和音频模式，视频开启 autoSampleBufferSize，SDK 会自动根据输入的分辨率设置编码器，您不需要关心推流的分辨率；如果您关闭此选项，那么代表您需要自定义分辨率。因为系统录制对不同机型屏幕所得到的分辨率不一致，因此录屏推流不建议您开启 autoSampleBufferSize，使用自定义分辨率设置。
 
 实例化 s_txLivePublisher 的最佳位置是在`-[SampleHandler broadcastStartedWithSetupInfo:]`方法中，直播扩展启动后会回调这个函数，就可以进行推流器初始化开始推流。但在 ReplayKit2 的屏幕录制扩展启动时，回调给这里的 setupInfo 为  nil，无法获取启动推流所需要的推流地址等信息，因此通常回调此函数时发通知给主 App，在主 App 中设置好推流地址，横竖屏清晰度等信息后再传递给扩展并通知扩展启动推流。扩展与主 App 间的通信请参见后面所附的**扩展与宿主 App 之间的通信与数据传递方式** 。
 
@@ -127,7 +127,7 @@ s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 s
     [s_txLivePublisher setConfig:config];
 ```
 >!
->1. 一般手机上为9 : 16，而在 iPhoneX 上画面比例为1125 : 2436，因此此处使用屏幕比例进行计算分辨率。
+>1. 一般手机上为9：16，而在 iPhoneX 上画面比例为1125：2436，因此此处使用屏幕比例进行计算分辨率。
 >2. 在 ReplayKit2 上采集的都是竖屏的分辨率，如果需要推送横屏分辨率，除了设置横屏分辨率外还需同时指定 homeOrientation 为横屏推流，否则会引起画面变形。
 
 
@@ -161,7 +161,7 @@ Replaykit 会将音频和视频都以回调的方式传给`-[SampleHandler proce
 视频 sampleBuffer 只需要调用`-[TXLivePush sendVideoSampleBuffer:]`发送即可。
 
 系统分发视频 sampleBuffer 的频率并不固定，如果画面静止，可能很长时间才会有一帧数据过来。SDK 考虑到这种情况，内部会做补帧逻辑，使其达到 config 所设置的帧率（默认为20fps）。
->!建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送, 因为画面没有变化时系统可能会很长时间才采集一帧画面。
+>!建议保存一帧给推流启动时使用，防止推流启动或切换横竖屏时因无新的画面数据采集发送，因为画面没有变化时系统可能会很长时间才采集一帧画面。
 
 ### 步骤 4：发送音频
 
@@ -263,7 +263,7 @@ SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵�
 
 ### 步骤 7：结束推流
 
-结束推流 Replay Kit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
+结束推流 ReplayKit 会调用`-[SampleHandler broadcastFinished]`，示例代码：
 
 ```objective-c
 - (void)broadcastFinished {
@@ -312,8 +312,8 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
 ```
 通过此通知可以提示用户回到主 App 设置推流信息、启动推流等。
 
-**2.进程间的通知 CFNotificationCenter**
-扩展与宿主App之间还经常需要实时的交互处理，本地通知需要用户点知横幅才能触发代码处理，因此不能通过本地通知的方式。而 NSNotificationCenter 不能跨进程，因此可以利用 CFNotificationCenter 在宿主 App 与扩展之前通知发送，但此通知不能通过其中的 userInfo 字段进行数据传递，需要通过配置 App Group 方式使用 NSUserDefault 进行数据传递（也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要加些延迟规避），如主 App 在获取好推流 URL 等后，通知扩展可以进行推流时，可通过 CFNotificationCenter 进行通知发送直播扩展开始推流：
+**2. 进程间的通知 CFNotificationCenter**
+扩展与宿主 App 之间还经常需要实时的交互处理，本地通知需要用户点知横幅才能触发代码处理，因此不能通过本地通知的方式。而 NSNotificationCenter 不能跨进程，因此可以利用 CFNotificationCenter 在宿主 App 与扩展之前通知发送，但此通知不能通过其中的 userInfo 字段进行数据传递，需要通过配置 App Group 方式使用 NSUserDefault 进行数据传递（也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要加些延迟规避），如主 App 在获取好推流 URL 等后，通知扩展可以进行推流时，可通过 CFNotificationCenter 进行通知发送直播扩展开始推流：
 
 ```
                 CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),kDarvinNotificationNamePushStart,NULL,nil,YES);
@@ -380,7 +380,7 @@ ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档并且�
 系统在锁屏或有电话打入时，会自动停止屏幕录制，此时 SampleHandler 里的 broadcastFinished 函数会被调用，可在此函数发通知提示用户。
 
 5. 采集推流过程中有时屏幕录制会自动停止问题
-通常是因为设置的推流分辨率过高时在做横竖屏切换过程中容易出现。ReplayKit2 的直播扩展目前是有50M的内存使用限制，超过此限制系统会直接杀死扩展进程，因此 ReplayKit2 上建议推流分辨率不高于720P。另外不建议使用 autoSampleBufferSize 时做横竖屏切换，因为 Plus 的手机的分辨率可达1080*1920，容易触发系统内存限制而被强制停止。
+通常是因为设置的推流分辨率过高时在做横竖屏切换过程中容易出现。ReplayKit2 的直播扩展目前是有50M的内存使用限制，超过此限制系统会直接杀死扩展进程，因此 ReplayKit2 上建议推流分辨率不高于720P。另外不建议使用 autoSampleBufferSize 时做横竖屏切换，因为 Plus 的手机的分辨率可达1080 \* 1920，容易触发系统内存限制而被强制停止。
 
 6. iPhoneX 手机的兼容性与画面变形问题
-iPhoneX 手机因为有刘海，屏幕采集的画面分辨率不是9：16，如果设了推流输出分辨率为9 : 16的比例如高清里是为960*540的分辨率，这时因为源分辨率不是9：16的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用 AspectFit 显示模式 iPhoneX 的屏幕采集推流会有黑边是正常现象，AspectFill 看画面会不全。
+iPhoneX 手机因为有刘海，屏幕采集的画面分辨率不是9：16，如果设了推流输出分辨率为9 : 16的比例如高清里是为960 \* 540的分辨率，这时因为源分辨率不是9：16的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用 AspectFit 显示模式 iPhoneX 的屏幕采集推流会有黑边是正常现象，AspectFill 看画面会不全。

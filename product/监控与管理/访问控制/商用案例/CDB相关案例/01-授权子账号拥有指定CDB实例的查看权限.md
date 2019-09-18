@@ -16,5 +16,5 @@
 ```
 步骤2：将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。
 
-注：子账号 Developer 在 CDB 的查询列表页同样仅能查看到实例 id 为 cdb-1 和 cdb-2 的资源。
+注：子账号 Developer 在 CDB 的查询列表页同样仅能查看到实例 ID 为 cdb-1 和 cdb-2 的资源。
 
