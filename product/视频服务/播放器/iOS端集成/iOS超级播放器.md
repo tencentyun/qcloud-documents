@@ -99,7 +99,7 @@ playerModel.fileId = @"4564972819219071679";
 ```
 视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/vod/video-process/template)）。转码完成后，播放器会自动显示多个清晰度。
 
-## 视频缩略图&打点信息
+## 雪碧图和打点信息
 在播放长视频时，雪碧图和打点信息有助于观众找到感兴趣的点。使用腾讯云服务 API，能快速对视频处理。
 
 - [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
