@@ -108,42 +108,6 @@ playerModel.fileId = @"4564972819219071679";
 任务执行成功后，播放器的界面会增加新的元素。
 ![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
 
-## 数字版权管理
-数字版权管理解决方案（Digital Rights Management，DRM），通过技术手段加密内容，用来控制带版权作品的使用、更改和分发，保护带版权内容的安全。适用于音乐和电影等带版权的多媒体内容。
-
-
-iOS SDK 可以播放云点播两种方式加密的输出：
-1. 基于 FairPlay 加密的 HLS 方案。
-2. 基于 SimpleAES 加密的 HLS 方案。
-
-关于 DRM 的更多详情，您可以参考此篇文档：[如何对内容做版权保护](<https://cloud.tencent.com/document/product/266/34105#.E5.95.86.E4.B8.9A.E7.BA.A7-drm>)。
-
-
-### 如何在 iOS 平台使用腾讯云 DRM 服务
-
-- 步骤1：集成 [超级播放器 Library ](<https://cloud.tencent.com/document/product/881/20208>)到您的工程中。
-- 步骤2：从您的**业务后台**获取 Token，关于 Token 的内容，您可以参考此篇文档：[播放加密视频 - Token 生成](<https://cloud.tencent.com/document/product/266/34102#token-.E7.94.9F.E6.88.90>)。
-
-- 步骤3：通过 FileId + Token 方式进行播放。
-
-```
-SuperPlayerModel *model = [[SuperPlayerModel alloc] init];
-SuperPlayerVideoId *video = [[SuperPlayerVideoId alloc] init];
-video.appId = 1253039488;
-video.fileId = @"15517827183850370616";
-video.playDefinition = @"20"; // 播放模板
-video.version = FileIdV3; // DRM 需要使用 V3 协议
-model.videoId = video;
-model.token = token; // 服务端下发的 token
-model.certificate = fairplay_cer; // FairPlay 的 certificate，一般是从本地文件读取
-```
-
-- 关于 FileId 的内容，您可以参考此篇文档：[超级播放器 - FileId 播放](<https://cloud.tencent.com/document/product/881/20213#667643674>)。
-- 关于播放模板的内容，您可以参考此篇文档：[使用播放器播放视频 - 播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF)。
-- 播放器会根据播放模板 ID 指定的行为播放，例如当模板 ID 为20时，先尝试播放商业级加密的输出，若无法播放再降级播放 SimpleAES 方式加密的输出。
-- 关于使用 DRM 防盗链内容，您可以参考此篇文档：[使用播放器播放视频](https://cloud.tencent.com/document/product/266/34101)。
-
-
 ## 小窗播放
 小窗播是指在 App 内，悬浮在主 window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
