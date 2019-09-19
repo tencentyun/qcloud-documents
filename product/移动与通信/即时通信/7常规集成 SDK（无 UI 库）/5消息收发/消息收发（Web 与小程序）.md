@@ -358,8 +358,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-请参考：[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
-
+请参考 [接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
 接受消息的接口，接收消息需要通过事件监听实现：
 
 **示例**
@@ -510,7 +509,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-请参考：[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)。
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
