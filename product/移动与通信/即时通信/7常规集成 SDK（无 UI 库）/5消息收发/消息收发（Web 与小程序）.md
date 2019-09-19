@@ -272,6 +272,12 @@ promise.then(function(imResponse) {
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
 
+>!调用该接口发送消息实例时，需要 SDK 处于 ready 状态，否则将无法发送消息实例。您可以通过以下监听事件获取 SDK 状态：
+ - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
+ - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
+>
+>接收推送的单聊、群聊、群提示以及群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
+
 **接口**
 
 ```javascript
@@ -514,6 +520,8 @@ function parseGroupTipContent (payload) {
 tim.getMessageList(options)
 ```
 
+>!该接口可用于"拉取历史消息"。
+
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
@@ -650,12 +658,12 @@ promise.then(function(imResponse) {
 
 ### 删除会话
 
-根据会话 ID 删除会话的接口。
+根据会话 ID 删除会话的接口，该接口只删除会话，不删除消息。例如，删除与用户 A 的会话，下次再与用户 A 发起会话时，之前的聊天信息仍在。
 
 **接口**
 
 ```javascript
-tim.getConversationProfile(conversationID)
+tim.deleteConversation(conversationID)
 ```
 
 **参数**
