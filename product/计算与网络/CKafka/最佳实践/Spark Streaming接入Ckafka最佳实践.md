@@ -37,7 +37,7 @@ Spark Streaming 将连续数据抽象成 DStream(Discretized Stream)，而 DStre
 这里创建了一个名为 spark_test 的 topic，接下来将以该 topic 为例介绍如何生产消费
 [内网IP与端口]即为生产消费需要用到的 bootstrap-server。
 
-### 云主机环境
+### 云服务器环境
 **Centos6.8 系统**
 
 | package  | version | 
