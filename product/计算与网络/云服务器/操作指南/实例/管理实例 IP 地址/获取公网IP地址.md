@@ -5,7 +5,7 @@
 ## 操作步骤
 
 ### 使用控制台获取
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/) 。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
 2. 在实例的管理页面，鼠标移动至主 IP 地址列，出现 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"></img>。如下图所示：
 ![](https://main.qcloudimg.com/raw/7f184b52a3311b4d3cc45b810bbda04f.png)
 3. 单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;"></img>，即可复制该 IP 地址。	
@@ -15,7 +15,7 @@
 ### 使用 API 获取
 请参考 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 相关接口。
 
-<span id = "jump"></span>
+<span id = "jump">  </span>
 ### 使用实例元数据获取
 1. 登录云服务器实例。
 具体登录方法参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/16515) 和 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/35697)。
@@ -24,5 +24,5 @@
 curl http://metadata.tencentyun.com/meta-data/public-ipv4
 ```
 返回值有类似如下结构，即可查看到公网 IP 地址：
-![](//mccdn.qcloud.com/img56a1f015c48e5.png)
+![](https://main.qcloudimg.com/raw/03f603e433b7a5da09e33a8b09d731b4.png)
 有关更多信息，请参阅 [查看实例元数据](https://cloud.tencent.com/document/product/213/4934)。
