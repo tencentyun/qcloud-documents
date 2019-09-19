@@ -117,14 +117,15 @@ exports.callback_handler = function(event, context, callback) {
 var COS = require('cos-nodejs-sdk-v5');
 ```
 
-更详细的 COS SDK 使用说明见[COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。
+更详细的 COS SDK 使用说明见 [COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。
 
 
 
-Node.js 6.10  云端运行时已支持的库列表：
+Node.js 6.10 云端运行时已支持的库如下表：
 
-| base64-js               | 1.2.1   |
+|库名称|版本|
 | ----------------------- | ------- |
+| base64-js               | 1.2.1   |
 | buffer                  | 5.0.7   |
 | cos-nodejs-sdk-v5       | 2.0.7   |
 | crypto-browserify       | 3.11.1  |
@@ -145,10 +146,11 @@ Node.js 6.10  云端运行时已支持的库列表：
 | xml2js                  | 0.4.17  |
 | xmlbuilder              | 9.0.1   |
 
-Node.js 8.9云端运行时已支持的库列表：
+Node.js 8.9 云端运行时已支持的库如下表：
 
+|库名称|版本|
+| ----------------------- | ------- |
 | cos-nodejs-sdk-v5       | 2.5.7  |
-| ----------------------- | ------ |
 | base64-js               | 1.2.1  |
 | buffer                  | 5.0.7  |
 | crypto-browserify       | 3.11.1 |
