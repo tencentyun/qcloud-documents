@@ -520,7 +520,7 @@ function parseGroupTipContent (payload) {
 tim.getMessageList(options)
 ```
 
->!该接口可用于"拉取历史消息"。
+>?该接口可用于拉取历史消息。
 
 **参数**
 
