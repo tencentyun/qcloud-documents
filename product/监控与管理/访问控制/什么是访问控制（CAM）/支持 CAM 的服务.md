@@ -55,7 +55,6 @@
  | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 临时密钥 | 服务角色 |	
 | ------------------------------------------------------------ | ------ | --------| --------- | -------- | ---- |	
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236/14469)  | 资源级 | &#10003; | &#10003;  | &#10003; | &#10003; |	
-| [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  | 操作级  | - | - | &#10003; | - |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| &#10003; | -  |&#10003; | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | &#10003; | -   |&#10003; |&#10003;|
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/30940)  |资源级 | &#10003;  | -    |&#10003;   | &#10003;    |
