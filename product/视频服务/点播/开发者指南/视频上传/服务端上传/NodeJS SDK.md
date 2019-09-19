@@ -30,7 +30,7 @@ req.MediaFilePath = "/data/file/Wildlife.mp4";
 ```
 
 ### 调用上传
-调用上传方法，传入上传地域及上传请求，通过回调方法获取返回的信息。
+调用上传方法，传入接入点地域及上传请求，通过回调方法获取返回的信息。
 ```
 client.upload("ap-guangzhou", req, function (err, data) {
     if (err) {
@@ -110,6 +110,27 @@ client.upload("ap-guangzhou", req, function (err, data) {
 });
 ```
 
+### 指定存储地域
+在控制台确认已经开通目标存储地域，若没有开通可以参考 [上传存储设置](/document/product/266/14059)，最后通过 `StorageRegion` 属性设置存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。
+```
+const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
+
+client = new VodUploadClient("your secretId", "your secretKey");
+let req = new VodUploadRequest();
+req.MediaFilePath = "/data/file/Wildlife.mp4";
+req.StorageRegion = "ap-chongqing";
+client.upload("ap-guangzhou", req, function (err, data) {
+    if (err) {
+        // 处理业务异常
+        console.log(err)
+    } else {
+        // 获取上传成功后的信息
+        console.log(data.FileId);
+        console.log(data.MediaUrl);
+    }
+});
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
@@ -132,6 +153,7 @@ client.upload("ap-guangzhou", req, function (err, data) {
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](https://cloud.tencent.com/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
 | SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
+| StorageRegion   | 存储地域，指定预期希望存储的地域，该字段填写为存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。        | String | 否    |
 
 上传响应类`VodUploadResponse`
 
@@ -146,7 +168,7 @@ client.upload("ap-guangzhou", req, function (err, data) {
 
 | 参数名称      | 参数描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| region   | 上传地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。       | String | 是    |
+| region   | 接入点地域，即请求到哪个地域的云点播服务器，不同于存储地域，具体参考支持的 [地域列表](https://cloud.tencent.com/document/product/266/31756#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。       | String | 是    |
 | request   | 上传请求。       | VodUploadRequest | 是    |
 | callback   | 上传完成回调函数。        | function | 是    |
 
