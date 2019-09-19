@@ -371,7 +371,7 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 
 ### 获取群成员列表
 
-IM SDK 提供了获取群内成员列表的功能，默认拉取内置字段，但不拉取自定义字段，想要获取自定义字段，可通过 [设置拉取字段](#TIMGroupSettings) 进行设置。获取群成员列表的接口由 `TIMGroupManager` 提供。
+获取群成员列表的接口为 `getGroupMembers` ，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **权限说明：**
 
@@ -579,7 +579,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 <span id="TIMGroupSettings"></span>
 ### 设置拉取字段
 
-目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段，且不会拉取自定义字段**。如果需要只拉取其中某些字段，或者需要拉取自定义字段，需要在**登录 IM SDK 之前**，通过`TIMGroupSettings`进行相应的设置，并通过`TIMManager`的`setUserConfig`将其也当前通信管理器进行关联（请参见 [用户配置](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
+目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段以及自定义字段**。如果需要只拉取基本字段中的某些字段，需要在**登录 IM SDK 之前**，通过 `TIMGroupSettings` 进行相应的设置，可参考示例代码。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
 
 **`TIMGroupSettings` 的接口定义如下：**
 
@@ -607,48 +607,30 @@ public void setMemberInfoOptions(Options memberInfoOptions)
  *              群成员资料标志如{@see TIMGroupManager#TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD}等
  */
 public void setFlags(long flags)
-
-/**
- * 设置自定义资料标签
- * @param customTags 自定义资料标签
- */
-public void setCustomTags(List<String> customTags)
-
-/**
- * 添加自定义资料标签
- * @param tag 自定义资料标签
- */
-public void addCustomTag(String tag)
 ```
 
 **示例：**
 
-首先在控制台配置私有群的群维度自定义字段和群成员维度自定义字段：
-
-![](https://main.qcloudimg.com/raw/d19cc6d6e96672cb8b8a1d04ad76c1ec.png)
-
-然后在 IM SDK 初始化后，添加用户配置：
+在 IM SDK 初始化后，添加用户配置：
 
 ```
 TIMGroupSettings settings = new TIMGroupSettings();
 
-//设置群资料拉取字段，这里只关心群头像、群类型、群主ID和自定义字段“group_info"
+//设置群资料拉取字段，这里只关心群头像、群类型、群主ID
 TIMGroupSettings.Options groupOpt = new TIMGroupSettings.Options();
 long groupFlags = 0;
 groupFlags |= TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_FACE_URL
 		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_GROUP_TYPE
 		| TIMGroupManager.TIM_GET_GROUP_BASE_INFO_FLAG_OWNER_UIN;
 groupOpt.setFlags(groupFlags);
-groupOpt.addCustomTag("group_info");
 settings.setGroupInfoOptions(groupOpt);
 
-//设置群成员资料拉取字段，这里只关心群名片、群角色和群成员自定义字段“group_member”
+//设置群成员资料拉取字段，这里只关心群名片、群角色
 TIMGroupSettings.Options memberOpt = new TIMGroupSettings.Options();
 long memberFlags = 0;
 memberFlags |= TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_NAME_CARD
 		| TIMGroupManager.TIM_GET_GROUP_MEM_INFO_FLAG_ROLE_INFO;
 memberOpt.setFlags(memberFlags);
-memberOpt.addCustomTag("group_member");
 settings.setMemberInfoOptions(memberOpt);
 
 TIMUserConfig config = new TIMUserConfig();
@@ -665,7 +647,7 @@ TIMManager.getInstance().setUserConfig(config);
 
 **说明：**
 
-默认拉取基本资料，如果想要拉取自定义字段，首先要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，然后在 initSDK 的时候把生成的 key 设置在`TIMGroupSettings`中`groupInfoOptions`里面的`customTags`字段。需要注意的是，只有对自定义字段的 value 做了赋值或则修改，才能拉取到自定义字段。
+默认拉取基本资料以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **原型：**
 
