@@ -71,57 +71,59 @@ from qcloud_cos import UploadFileRequest
 ## Python 2 或 3？
 您可以在函数创建时，通过选择运行环境中的 `Python 2.7` 或 `Python 3.6` 选择您所期望使用的运行环境。
 
-您可以在[这里](https://wiki.python.org/moin/Python2orPython3)查看 Python 官方对 Python 2 或 Python 3 语言选择的建议。
+您可以在 [这里](https://wiki.python.org/moin/Python2orPython3) 查看 Python 官方对 Python 2 或 Python 3 语言选择的建议。
 
-Python3  云端运行时已支持的库列表：
+Python3  云端运行时已支持的库如下表：
 
-| absl-py (0.2.2)                  |
-| -------------------------------- |
-| asn1crypto (0.24.0)              |
-| astor (0.7.1)                    |
-| bleach (1.5.0)                   |
-| certifi (2019.3.9)               |
-| cffi (1.12.2)                    |
-| chardet (3.0.4)                  |
-| cos-python-sdk-v5 (1.6.6)        |
-| cryptography (2.6.1)             |
-| dicttoxml (1.7.4)                |
-| gast (0.2.0)                     |
-| grpcio (1.13.0)                  |
-| html5lib (0.9999999)             |
-| idna (2.8)                       |
-| iniparse (0.4)                   |
-| Markdown (2.6.11)                |
-| mysqlclient (1.3.13)             |
-| numpy (1.15.0)                   |
-| Pillow (6.0.0)                   |
-| pip (9.0.1)                      |
-| protobuf (3.6.0)                 |
-| psycopg2-binary (2.8.2)          |
-| pycparser (2.19)                 |
-| pycurl (7.43.0)                  |
-| PyMySQL (0.9.3)                  |
-| pytz (2019.1)                    |
-| qcloud-image (1.0.0)             |
-| qcloudsms-py (0.1.3)             |
-| requests (2.21.0)                |
-| serverless-db-sdk (0.0.1)        |
-| setuptools (28.8.0)              |
-| six (1.12.0)                     |
-| tencentcloud-sdk-python (3.0.65) |
-| tencentserverless (0.1.4)        |
-| tensorboard (1.9.0)              |
-| tensorflow (1.9.0)               |
-| tensorflow-serving-api (1.9.0)   |
-| termcolor (1.1.0)                |
-| urllib3 (1.24.2)                 |
-| Werkzeug (0.14.1)                |
-| wheel (0.31.1)                   |
+|库名称|版本|
+| -------------------------------- |---------------|
+| absl-py                |0.2.2|
+| asn1crypto              |0.24.0|
+| astor                  |0.7.1|
+| bleach                   |1.5.0|
+| certifi             |2019.3.9|
+| cffi                     |1.12.2|
+| chardet                   |3.0.4|
+| cos-python-sdk-v5       |1.6.6|
+| cryptography           |2.6.1|
+| dicttoxml             |1.7.4|
+| gast                     |0.2.0|
+| grpcio                  |1.13.0|
+| html5lib           |0.9999999|
+| idna                      |2.8|
+| iniparse                   |0.4|
+| Markdown                 |2.6.11|
+| mysqlclient             |1.3.13|
+| numpy                    |1.15.0|
+| Pillow                    |6.0.0|
+| pip                       |9.0.1|
+| protobuf                  |3.6.0|
+| psycopg2-binary           |2.8.2|
+| pycparser                  |2.19|
+| pycurl                   |7.43.0|
+| PyMySQL                   |0.9.3|
+| pytz                     |2019.1|
+| qcloud-image              |1.0.0|
+| qcloudsms-py              |0.1.3|
+| requests                 |2.21.0|
+| serverless-db-sdk         |0.0.1|
+| setuptools               |28.8.0|
+| six                      |1.12.0|
+| tencentcloud-sdk-python  |3.0.65|
+| tencentserverless         |0.1.4|
+| tensorboard               |1.9.0
+| tensorflow                |1.9.0
+| tensorflow-serving-api    |1.9.0|
+| termcolor                 |1.1.0
+| urllib3                  |1.24.2
+| Werkzeug                 |0.14.1
+| wheel                    |0.31.1|
 
-Python2  云端运行时已支持的库列表：
+Python 2 云端运行时已支持的库如下表：
 
+|库名称|版本|
+| -------------------------------- |---------------|
 | absl-py                      | 0.2.2     |
-| ---------------------------- | --------- |
 | asn1crypto                   | 0.24.0    |
 | astor                        | 0.7.1     |
 | backports.ssl-match-hostname | 3.4.0.2   |
