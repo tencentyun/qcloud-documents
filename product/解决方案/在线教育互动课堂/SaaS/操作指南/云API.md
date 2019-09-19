@@ -411,6 +411,7 @@
 | :------ | :--- | :---- | :--------: | :-----: |
 | list | Array | 需要注册的用户列表 | 是 | - |
 | user_id | string | 用户 ID | 是 | - |
+| password | string | 密码, 长度4-18,规则:数字/大小写字母/特殊字符(!@#$%^&*()-+=.[]{}:;,?/) | 是 |
 | role | string | 用户角色 | 是 | - |
 | nickname | string | 用户昵称 | 否 | 用户 ID |
 | gender | string | 用户性别 | 否 | 男 |
@@ -435,6 +436,7 @@
   "list":[
     {
       "user_id":"xxxxx",
+      "password":"12345",
       "role":"student",
       "nickname":"小明",
       "gender":"male",
