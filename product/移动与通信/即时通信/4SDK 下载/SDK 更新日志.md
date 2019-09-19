@@ -11,13 +11,13 @@
 
 **Android 平台**
 
-- 废弃 TIMManager中的 setOfflinePushListener 接口 以及 TIMOfflinePushNotification 类
+废弃 TIMManager 中的 setOfflinePushListener 接口以及 TIMOfflinePushNotification 类
 
 ### TUIKit & Demo
 
 **iOS**
 
-- 修复 NSSting + Common.h  类冲突的问题
+- 修复 NSSting + Common.h 类冲突的问题
 - 修复群 tips 消息展示不全的问题
 
 **Android**
@@ -29,7 +29,7 @@
 - 修复不能显示多 elements 群消息的问题
 - 修复特定消息导致的崩溃
 - 修复群管理员权限错误的问题
-- 修复web端发送文件不能正常接收的问题
+- 修复 Web 端发送文件不能正常接收的问题
 
 ## 4.5.15 @2019.08.30
 
@@ -55,7 +55,7 @@
 
 - MessageLocator 新增 unique_id 字段
 - Windows 版本支持64位
-- 跨平台库新增用户资料接口、关系链接口
+- 跨平台库新增用户资料接口以及关系链接口
 
 ### TUIKit & Demo
 
@@ -67,7 +67,7 @@
 
 **Android**
 
-- 修改部分场景下 demo 内存泄漏的问题
+- 修改部分场景下 Demo 内存泄漏的问题
 - 修改某些场景下的崩溃问题
 - 修改定制消息颜色不对的问题
 - 修改气泡显示不全或不对的问题

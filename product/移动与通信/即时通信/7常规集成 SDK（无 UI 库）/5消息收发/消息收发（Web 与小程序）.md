@@ -35,7 +35,7 @@ tim.createTextMessage(options)
 // 1. 创建消息实例，接口返回的实例可以上屏
 let message = tim.createTextMessage({
   to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C
+  conversationType: TIM.TYPES.CONV_C2C,
   payload: {
     text: 'Hello world!'
   }

@@ -117,5 +117,57 @@ exports.callback_handler = function(event, context, callback) {
 var COS = require('cos-nodejs-sdk-v5');
 ```
 
-更详细的 COS SDK 使用说明见[COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。
+更详细的 COS SDK 使用说明见 [COS Node.js SDK](https://cloud.tencent.com/document/product/436/8629)。
 
+
+
+Node.js 6.10 云端运行时已支持的库如下表：
+
+|库名称|版本|
+| ----------------------- | ------- |
+| base64-js               | 1.2.1   |
+| buffer                  | 5.0.7   |
+| cos-nodejs-sdk-v5       | 2.0.7   |
+| crypto-browserify       | 3.11.1  |
+| ieee754                 | 1.1.8   |
+| imagemagick             | 0.1.3   |
+| isarray                 | 2.0.2   |
+| jmespath                | 0.15.0  |
+| lodash                  | 4.17.4  |
+| npm                     | 3.10.10 |
+| punycode                | 2.1.0   |
+| qcloudapi-sdk           | 0.1.5   |
+| querystring             | 0.2.0   |
+| request                 | 2.87.0  |
+| sax                     | 1.2.4   |
+| tencentcloud-sdk-nodejs | 3.0.10  |
+| url                     | 0.11.0  |
+| uuid                    | 3.1.0   |
+| xml2js                  | 0.4.17  |
+| xmlbuilder              | 9.0.1   |
+
+Node.js 8.9 云端运行时已支持的库如下表：
+
+|库名称|版本|
+| ----------------------- | ------- |
+| cos-nodejs-sdk-v5       | 2.5.7  |
+| base64-js               | 1.2.1  |
+| buffer                  | 5.0.7  |
+| crypto-browserify       | 3.11.1 |
+| ieee754                 | 1.1.8  |
+| imagemagick             | 0.1.3  |
+| isarray                 | 2.0.2  |
+| jmespath                | 0.15.0 |
+| lodash                  | 4.17.4 |
+| npm                     | 5.6.0  |
+| punycode                | 2.1.0  |
+| puppeteer               | 1.14.0 |
+| qcloudapi-sdk           | 0.1.5  |
+| querystring             | 0.2.0  |
+| request                 | 2.87.0 |
+| sax                     | 1.2.4  |
+| tencentcloud-sdk-nodejs | 3.0.52 |
+| url                     | 0.11.0 |
+| uuid                    | 3.1.0  |
+| xml2js                  | 0.4.17 |
+| xmlbuilder              | 9.0.1  |
