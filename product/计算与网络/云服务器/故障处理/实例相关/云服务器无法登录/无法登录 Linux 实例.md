@@ -7,7 +7,7 @@
 - [服务器高负载](#HighServerLoad)
 - [远程端口配置异常](#RemotePortConfiguration)
 - [安全组规则不当](#SafetyGroupRule)
-- [通过 SSH 方式无法登录](https://cloud.tencent.com/document/product/213/37925)
+- [通过 SSH 方式无法登录](#UseSSHLogin)
 
 ## 使用自助诊断工具
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题引起。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
