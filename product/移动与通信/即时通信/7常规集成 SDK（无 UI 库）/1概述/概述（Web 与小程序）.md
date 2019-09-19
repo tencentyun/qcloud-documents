@@ -5,7 +5,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 c
 | 基本概念 | 说明 |
 | :--- | :---- |
 | Message（消息） | IM SDK 中 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 表示要发送给对方的内容，消息包括若干属性，例如自己是否为发送者，发送人帐号以及消息产生时间等。 |
-| Conversation（会话） | IM SDK 中 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示单聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。 |
+| Conversation（会话） | IM SDK 中 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html) 分为两种：<li> C2C（Client to Client）会话，表示私聊情况，自己与对方建立的对话。</li><li> GROUP（群）会话，表示群聊情况下群内成员组成的会话。 |
 | Profile（资料） | IM SDK 中 [Profile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Profile.html) 描述个人的常用基本信息，例如昵称、头像地址、个性签名以及性别等。 |
 | Group（群组） | IM SDK 中 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html) 表示一个支持多人聊天的通信系统，支持私有群、公开群、聊天室以及音视频聊天室。 |
 | GroupMember（群成员） | IM SDK 中 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 描述群内成员的常用基本信息，例如 ID、昵称、群内身份以及入群时间等。 |
@@ -15,7 +15,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 c
 
 
 ## 支持的平台
-IM SDK 支持 IE 9+、Chrome、微信、手机 QQ、QQ 浏览器、FireFox、Opera 和 Safari。
+IM SDK 支持 IE 9+、Chrome、微信、手机QQ、QQ 浏览器、FireFox、Opera 和 Safari。
 
 ## 调用顺序介绍
 IM SDK 调用 API 需要遵循如下表所示顺序。
