@@ -2,12 +2,12 @@
 
 ## 可能原因
 无法登录 Linux 实例的主要原因包括：
+- [SSH 问题导致无法登录](#UseSSHLogin)
 - [密码问题导致无法登录](#CryptographicProblem)
 - [带宽利用率过高](#BandwidthUtilization)
 - [服务器高负载](#HighServerLoad)
 - [远程端口配置异常](#RemotePortConfiguration)
 - [安全组规则不当](#SafetyGroupRule)
-- [通过 SSH 方式无法登录](#UseSSHLogin)
 
 ## 使用自助诊断工具
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题引起。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
@@ -28,6 +28,11 @@
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >
 4. 在弹出的对话框中，输入用户名和密码登录，完成登录。
+
+<span id="UseSSHLogin"></span>
+### SSH 问题导致无法登录
+**故障现象**：[使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
+**处理步骤**：参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925) 进行排查。
 
 <span id="CryptographicProblem"></span>
 ### 密码问题导致无法登录
@@ -66,10 +71,7 @@
 ![](https://main.qcloudimg.com/raw/c6a26565610a1360f187ee10db12a634.png)
 如果您需要自定义设置安全组规则，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 重新配置安全组规则。
 
-<span id="UseSSHLogin"></span>
-### 通过 SSH 方式无法登录
-**故障现象**：[使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
-**处理步骤**：参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925) 进行排查。
+
 
 ## 其它解决方案
 通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，[提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
