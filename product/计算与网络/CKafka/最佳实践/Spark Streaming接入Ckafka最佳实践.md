@@ -61,7 +61,7 @@ version := "1.0"
 scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
-2. 配置`producer_example.scala`
+2. 配置`producer_example.scala`：
 ```scala
 import java.util.Properties
 import org.apache.kafka.clients.producer._
