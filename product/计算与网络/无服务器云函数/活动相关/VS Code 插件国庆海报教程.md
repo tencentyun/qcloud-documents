@@ -50,7 +50,7 @@ SCF CLI, version 0.0.1
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)     
 
 #### Git 拉取创建函数
->?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](create)。
+>?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](#create)。
 >
 1. 打开插件，单击本地函数右侧的<img src="https://main.qcloudimg.com/raw/1a14823bd6129b9989e3ef34ed80a9cc.png" style="margin:-3px 0;">，并选择【Git 仓库】为代码来源后按 “**Enter**”。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c9d4f9c05cbc41ce1fa84b59ad94551.png)
