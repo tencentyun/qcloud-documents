@@ -941,8 +941,8 @@ fail | 失败回调
  *
  *  获取群组指定成员的信息，需要设置群成员 members，其他限制参考 getGroupMembers
  *
- *  @param groupId 群组Id
- *  @param members 成员Id（NSString*）列表
+ *  @param groupId 群组 ID
+ *  @param members 成员 ID（NSString*）列表
  *  @param succ    成功回调 (TIMGroupMemberInfo 列表)
  *  @param fail    失败回调
  *
@@ -956,8 +956,8 @@ fail | 失败回调
 
 参数|说明
 ---|---
-groupId | 群组 Id
-members | 成员 Id 列表
+groupId | 群组 ID
+members | 成员 ID 列表
 succ |  成功回调，返回群成员资料列表
 fail | 失败回调
 
