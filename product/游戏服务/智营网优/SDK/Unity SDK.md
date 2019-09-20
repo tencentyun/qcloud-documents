@@ -71,7 +71,7 @@ mna->MNASetObserver(observer);
 7. 完成后，按照所需在 Unity 调用相应接口即可。
 
 ## 接入步骤
-![](https://main.qcloudimg.com/raw/dc38cb11ce6def2dc805c83e19921283.png)
+![](https://main.qcloudimg.com/raw/9dc44c0ad0efc306925fd50c70642da0.png)
 1. 游戏启动时，调用初始化`Init`。
 2. 游戏登录成功后，需要调用`SetUserName`设置`openid`；并设置加速结果回调`SetObserver`；使用`SetZoneId`来设置用户的zone id；如果需要接入诊断部分，则还需要调用`SetKartinObserver`函数。
 3. 游戏对局开始时，获取到对局中所使用到的域名或 IP 后，尽可能早的调用`StartSpeed`，玩家因网络或者其他异常无法连接到游戏，重新进行连接时，为保证加速效果，需要再次调用`StartSpeed`；当游戏切换到前台时，调用`GoFront`; 当游戏切换到后台时，调用`GoBack`；当游戏不想进行加速，但依然想保留 SDK 的网络探测功能时可调用`StopMNA`函数。
