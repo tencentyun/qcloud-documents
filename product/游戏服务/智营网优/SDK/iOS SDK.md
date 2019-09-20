@@ -42,13 +42,13 @@
 #import <MNA/MNAPublic.h>
 #import “MyMNAObserver.h”
 ```
-7. 并在 application:didFinishLaunchingWithOptions 函数中设置回调函数，即粘帖如下代码：
+并在 application:didFinishLaunchingWithOptions 函数中设置回调函数，即粘帖如下代码：
 ```
 MNAPublic * mna = MNAPublic::GetInstance();
 MyMNAObserver * observer = MyMNAObserver::GetInstance();
 mna->MNASetObserver(observer);
 ```
-完成后，按照所需调用相应接口即可。
+7. 完成后，按照所需调用相应接口即可。
 
 ## 接入步骤
 ![](https://main.qcloudimg.com/raw/a02f212a550ce7f7aebeed7c7ba69212.png)
