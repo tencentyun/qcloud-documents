@@ -133,26 +133,26 @@ void MNASetGameIp(const char *gameip);
 
 #### 通知加速引擎：游戏目前在前台
 ```
-- (void)MNAGoFront;
+(void)MNAGoFront;
 ```
 当游戏切换到前台时,调用此函数。
 
 #### 通知加速引擎：游戏目前切换到后台
 ```
-- (void)MNAGoBack;
+(void)MNAGoBack;
 ```
 当游戏切换到后台（例如被其它应用遮挡），必须调用此函数，通知加速引擎。
 
 #### 正常结束加速器引擎
 ```
-- void MNAEndSpeed(const char * vip, int vport);
+void MNAEndSpeed(const char * vip, int vport);
 //参数： vip 游戏服务器地址,跟 startspeed 保持一致
 //参数： vport 游戏服务器端口
 ```
 
 #### 查询 4G QoS 是否保障
 ```
-- (int)MNAIsQOSWork;
+(int)MNAIsQOSWork;
 ```
 返回 QoS 是否有保障成功：需要把此状态信息在游戏体验数据中记录并上报。4G QoS 在移动 4G 网络下才会生效，一般在结束加速 `MNAEndSpeed` 时调用，返回值具体含义如下，这个可以用于游戏上线后核对 4G QOS 加速效果。
 
@@ -172,7 +172,7 @@ void MNASetGameIp(const char *gameip);
 ### 网络诊断
 ####  设置实时网络诊断
 ```
--void MNARealTimeQuery(const char * tag);
+void MNARealTimeQuery(const char * tag);
 //参数`tag`，作为标识每一次查询的 ID。
 ```
 结果由 MNAObserver 函数的 OnQueryKartinNotify 返回。
