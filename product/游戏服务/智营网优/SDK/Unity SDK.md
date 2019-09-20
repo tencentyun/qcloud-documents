@@ -159,7 +159,7 @@ public static void StartSpeed(string vip, int vport, int htype, string hookModul
 | vport | 游戏服务器端口 | 
 | htype | 本参数决定 HOOK 的函数种类，取值有如下：<li>htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。<li>htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
 |  hookModules       |hookModules 指定要HOOK的动态链接库，多个库名用英文（半角）逗号分开。若使用 apollo 的网络通信模块，则填 libapollo.so；若使用 C# 的网络通信模块，则填 libmono.so。|
-| stopWlanAcc | 默认值为0；为1表示强制关闭骨干网加速功能，4G QOS加速功能、网络诊断功能不受影响。 | 
+| stopWlanAcc | 默认值为0；为1表示强制关闭公网加速功能，4G QOS加速功能、网络诊断功能不受影响。 | 
 | pvpid | 对局唯一 ID，用来定位对局的网络问题； | 
 | timeout |默认值为0；设置启动阶段超时时间，单位为毫秒，当 timeout<=0 时，表示不设置启动超时。| 
 
@@ -345,9 +345,10 @@ KartinRet 关键参数取值及其说明如下：
 
 - 字段：netinfo_desc。
 - 关键名称：直连时延。
-- 无取值
 
->?当前网卡有丢包或错包，不适合游戏。
+| 取值 | 含义 | 
+|---------|---------|
+| String| 当前网卡有丢包或错包，不适合游戏。 | 
   
 具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
 
