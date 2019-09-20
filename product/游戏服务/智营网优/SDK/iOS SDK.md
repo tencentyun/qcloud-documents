@@ -4,8 +4,7 @@
 
 #### 获取 SDK 
 1. 登录 [智营网优控制台](https://console.cloud.tencent.com/ino)，单击左侧菜单【SDK 下载】。  
-2. 请根据版本选择并单击【下载】。
-
+2. 请按系统平台选择对应版本的 SDK，并单击【下载】。
 
 #### 配置 SDK 
 >!iOS SDK 为动态库，仅支持 iOS8 以上。
