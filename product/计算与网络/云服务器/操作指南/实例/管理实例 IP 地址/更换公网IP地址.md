@@ -22,14 +22,14 @@
 ## 操作步骤
 
 <span id="ReplacementPublicIP"></span>
-### 直接更换公网 IP
+### 方式一：直接更换公网 IP
 
 1. 在实例的管理页面，选择待转换 IP 的云服务器行，单击【更多】>【IP/网卡】>【更换公网IP】，如下图所示：
 ![](https://main.qcloudimg.com/raw/23c277a820f39416d72115689dae3575.png)
 2. 在弹出的 “更换IP” 提示框中，单击【确认】，即可完成更换。
 
 <span id="ReplacementEIP"></span>
-### 先更换为弹性公网 IP，再解绑弹性公网 IP
+### 方式二：先更换为弹性公网 IP，再解绑弹性公网 IP
 
 #### 更换弹性公网 IP
 1. 在实例的管理页面，选择待转换 IP 的云服务器行，单击<img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: 0;"></img>。如下图所示：
