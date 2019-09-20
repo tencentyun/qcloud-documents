@@ -1,13 +1,13 @@
 >!请先单击 [智营网优申请页](https://cloud.tencent.com/act/apply/ino) 进行申请。
 
-## iOS 接入
+## 接入流程
 
-#### SDK 获取
+#### 获取 SDK 
 1. 登录 [智营网优控制台](https://console.cloud.tencent.com/ino)，单击左侧菜单【SDK 下载】。  
 2. 请根据版本选择并单击【下载】。
 
 
-#### SDK 配置
+#### 配置 SDK 
 >!iOS SDK 为动态库，仅支持 iOS8 以上。
 
 1. 在 Embedded Binaries 中引入 SDK：
