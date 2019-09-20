@@ -37,5 +37,5 @@
 ![](https://main.qcloudimg.com/raw/cb654e02602b6dd277978c185799b307.png)
 
 ## 验证 CNAME 是否生效
-不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过 dig 的方式来查询 CNAME 是否生效，如果 dig 到后缀为 `.cdn.dnsv1.com` 的域名，表示域名 CNAME 已生效。
- 
+不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过 dig 的方式来查询 CNAME 是否生效，如果 dig 到后缀为 ```.cdn.dnsv1.com``` 的域名，表示域名 CNAME 已生效。
+![](https://main.qcloudimg.com/raw/4c611fda0209a45d9441a2f0336bbf84.png)
