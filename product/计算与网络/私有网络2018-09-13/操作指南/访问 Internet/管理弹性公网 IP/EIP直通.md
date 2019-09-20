@@ -25,7 +25,7 @@
 	```
 	- 执行脚本
 	```
-	eip_linux.sh install XX.XX.XX.XX 
+	./eip_direct.sh install XX.XX.XX.XX 
 	```
 	其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
  - Windows 操作系统下：
