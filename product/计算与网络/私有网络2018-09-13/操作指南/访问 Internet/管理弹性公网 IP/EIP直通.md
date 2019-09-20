@@ -19,10 +19,15 @@
 1. 登录需要 EIP 直通的 CVM 云服务器。
 2. 运行 EIP 直通脚本。具体方法：
  - Linux 操作系统 CentOS 下：
-```
-eip_linux.sh install XX.XX.XX.XX 
-```
-其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
+	 - 添加执行权限
+	```
+	chmod + x eip_direct.sh
+	```
+	- 执行脚本
+	```
+	eip_linux.sh install XX.XX.XX.XX 
+	```
+	其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
  - Windows 操作系统下：
 ```
 eip_windows.bat XX.XX.XX.XX
