@@ -371,7 +371,7 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 
 ### 获取群成员列表
 
-获取群成员列表的接口为 `getGroupMembers` ，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
+获取群成员列表的接口为`getGroupMembers`，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **权限说明：**
 
@@ -579,9 +579,9 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 <span id="TIMGroupSettings"></span>
 ### 设置拉取字段
 
-目前 IM SDK 在获取群组资料的时候，**默认会获取所有基本字段以及自定义字段**。如果需要只拉取基本字段中的某些字段，需要在**登录 IM SDK 之前**，通过 `TIMGroupSettings` 进行相应的设置，可参考示例代码。此设置对所有资料相关接口（`getGroupList`  除外）全局有效。
+目前 IM SDK 在获取群组资料时，**默认会获取所有基本字段以及自定义字段**。如果需要只拉取基本字段中的某些字段，需要在**登录 IM SDK 之前**，通过`TIMGroupSettings`进行相应的设置，可参考示例代码。此设置对所有资料相关接口（`getGroupList`除外）全局有效。
 
-**`TIMGroupSettings` 的接口定义如下：**
+**`TIMGroupSettings`的接口定义如下：**
 
 ```
 /**
@@ -597,7 +597,7 @@ public void setGroupInfoOptions(Options groupInfoOptions)
 public void setMemberInfoOptions(Options memberInfoOptions)
 ```
 
-**`TIMGroupSettings.Options` 的接口定义如下：**
+**`TIMGroupSettings.Options`的接口定义如下：**
 
 ```
 /**
