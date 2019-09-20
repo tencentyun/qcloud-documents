@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png" /></td>
-    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/e9dbfa68c0588921e9cce8dcee9b097e.png" /></td>
+    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/8144c3dfa548ad0d945042804f8f40f3.png" /></td>
   </tr>
 </table>
 
