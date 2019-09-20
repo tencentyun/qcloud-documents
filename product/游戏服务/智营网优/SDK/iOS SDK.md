@@ -180,21 +180,21 @@ void MNARealTimeQuery(const char * tag);
 返回结果以分号拼接，含义依次如下：
 ```
 tag; // 游戏传入的Tag
-	flag; // 查询成功标识，若为0则成功
-	desc; // 查询flag的具体描述
+flag; // 查询成功标识，若为0则成功
+desc; // 查询flag的具体描述
 jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
-	jump_signal; // 信号强度
-	jump_router; // ping路由时延
-   router_status; // ping状态,0表示绿色，时延低；2表示红色，时延高
-   router_desc; // ping描述
-   jump_export; // 宽带或基站出口时延  
+jump_signal; // 信号强度
+jump_router; // ping路由时延
+router_status; // ping状态,0表示绿色，时延低；2表示红色，时延高
+router_desc; // ping描述
+jump_export; // 宽带或基站出口时延  
 export_status; // export状态,0表示绿色，时延低；2表示红色，时延高
-   export_desc; //宽带出口和基站出口描述
-   jump_terminal; // wifi终端数 
-   terminal_status; // terminal状态,0表示绿色终端数少；2表示红色，时延高
-   terminal_desc; //wifi终端数描述
-	jump_proxy; // ping代理时延
-	jump_edge; // ping边缘时延
+export_desc; //宽带出口和基站出口描述
+jump_terminal; // wifi终端数 
+terminal_status; // terminal状态,0表示绿色终端数少；2表示红色，时延高
+terminal_desc; //wifi终端数描述
+jump_proxy; // ping代理时延
+jump_edge; // ping边缘时延
 signal_desc; //信号强度描述
 signal_status; //信号强度状态
 jump_direct; // 直连测速时延
