@@ -578,7 +578,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 ### 获取群组资料
 
-`TIMGroupManager`提供的`getGroupInfo`方法可以获取服务器存储的群组资料，`queryGroupInfo`方法可以获取本地缓存的群组资料，默认拉取基本资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
+`TIMGroupManager`提供的`getGroupInfo`方法可以获取服务器存储的群组资料，`queryGroupInfo`方法可以获取本地缓存的群组资料。群成员可以拉取到群组信息。非群成员无权限拉取私有群的信息，其他群类型仅可以拉取公开字段，`groupId\groupName\groupOwner\groupType\createTime\memberNum\maxMemberNum\onlineMemberNum\groupIntroduction\groupFaceUrl\addOption\custom` 。
 
 **说明：**
 
