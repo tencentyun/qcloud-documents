@@ -21,7 +21,7 @@
  - Linux 操作系统 CentOS 下：
 	 - 添加执行权限
 	```
-	chmod + x eip_direct.sh
+	chmod +x eip_direct.sh
 	```
 	- 执行脚本
 	```
