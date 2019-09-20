@@ -84,10 +84,10 @@ TIMManager * manager = [TIMManager sharedInstance];
 //是否开启被阅回执。YES：接收者查看消息（setReadMessage）后，消息的发送者会收到 TIMMessageReceiptListener 的回调提醒；NO: 不开启被阅回执，默认不开启。
 @property(nonatomic,assign) BOOL enableReadReceipt;
 
-//设置默认拉取的群组资料,如果想要拉取自定义字段，要通过 IM 控制台 -> 功能配置 -> 群维度自定义字段配置对应的 "自定义字段" 和用户操作权限，控制台配置之后 5 分钟后才会生效。
+//设置默认拉取的群组资料,如果想要拉取自定义字段，要通过即时通信 IM 控制台 > 功能配置 > 群维度自定义字段配置对应的 "自定义字段" 和用户操作权限，控制台配置之后5分钟后才会生效。
 @property(nonatomic,strong) TIMGroupInfoOption * groupInfoOpt;
 
-//设置默认拉取的群成员资料,如果想要拉取自定义字段，要通过 IM 控制台 -> 功能配置 -> 群成员维度自定义字段配置对应的 "自定义字段" 和用户操作权限，控制台配置之后 5 分钟后才会生效。
+//设置默认拉取的群成员资料,如果想要拉取自定义字段，要通过即时通信 IM 控制台 > 功能配置 > 群成员维度自定义字段配置对应的 "自定义字段" 和用户操作权限，控制台配置之后5分钟后才会生效。
 @property(nonatomic,strong) TIMGroupMemberInfoOption * groupMemberInfoOpt;
 
 //关系链参数
