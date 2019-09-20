@@ -2,7 +2,7 @@
 ![](https://main.qcloudimg.com/raw/64aa3f78c45b66f2387d64b54d77f75d.png)
 
 ## 配置步骤
-以下提供了四家不同域名服务提供商的 CNAME 配置步骤：
+本文提供腾讯云、DNSPod、万网以及新网的 CNAME 配置步骤说明：
 - [腾讯云设置方法](#m1)
 - [DNSPod 设置方法](#m2)
 - [万网设置方法](#m3)
