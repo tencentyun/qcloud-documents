@@ -65,16 +65,16 @@ spec:
           servicePort: 65535
         path: /
 ```
-- kind：标识Ingress资源类型。
-- metadata：Ingress 的名称、Label等基本信息。
-- metadata.annotations: Ingress 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+- kind：标识 Ingress 资源类型。
+- metadata：Ingress 的名称、Label 等基本信息。
+- metadata.annotations：Ingress 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 - spec.rules：Ingress 的转发规则，配置该规则可实现简单路由服务、基于域名的简单扇出路由、简单路由默认域名、配置安全的路由服务等。
 
 ### 说明事项
 如果您使用的是 **IP 带宽包**账号，在创建公网访问方式的服务时需要指定以下两个 annotations 项：
 - `kubernetes.io/ingress.internetChargeType` 公网带宽计费方式，可选值有：
  - TRAFFIC_POSTPAID_BY_HOUR（按使用流量计费）
- - BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）。
+ - BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）
 - `kubernetes.io/ingress.internetMaxBandwidthOut` 带宽上限，范围：[1,2000] Mbps。
 例如：
 ```Yaml
