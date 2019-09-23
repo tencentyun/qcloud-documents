@@ -35,11 +35,10 @@
 您可以通过 [API 工具](https://cloud.tencent.com/document/product/266/33427#API-Explorer) 执行 `ProcessMedia` 命令，对上传的视频发起“转加密的自适应码流”任务，具体步骤如下：
  
 1. 进入 [云点播 ProcessMedia 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=ProcessMedia&SignVersion=)，填写您的“**个人密钥**”（可单击【查看密钥】，从 [API 密钥管理控制台](https://console.cloud.tencent.com/cam/capi) 获取）。
-<img src="https://main.qcloudimg.com/raw/a834509d249b2e44b95cf1cf37c13f34.jpg" width="403">
- 
-2. 在“**FileId**”输入框中，填写您上传的视频的 ID。
-<img src="https://main.qcloudimg.com/raw/ba89291239caccaedfd040693df711dc.png" width="393">
+<img src="https://main.qcloudimg.com/raw/5e05d26b67584c3390cba9760293ba0a.jpg" width="400">
 
+2. 在“**FileId**”输入框中，填写您上传的视频的 ID。
+<img src="https://main.qcloudimg.com/raw/2fe911592aed489386baaa83817a6485.png" width="400">
 3. 在“**AdaptiveDynamicStreamingTaskSet.N**”输入框中，“**Definition**”填写21。
 >?此处填写的21是 [预置转自适应码流模板](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E8.87.AA.E9.80.82.E5.BA.94.E7.A0.81.E6.B5.81.E6.A8.A1.E6.9D.BF) 的模板 ID，表示转出 Widevine 方式加密的 Dash 输出。
 <img src="https://main.qcloudimg.com/raw/13e8250e98854d5c87f82ff50ff217c7.jpg" width="401">
@@ -53,7 +52,7 @@
 您可以通过 [API 工具](https://cloud.tencent.com/document/product/266/33427#API-Explorer) 执行`DescribeTaskDetail`命令，查询“转加密的自适应码流”任务的执行状态，具体步骤如下。
 
 1. 进入 [云点播 DescribeTaskDetail 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=DescribeTaskDetail&SignVersion=)，填写您的“**个人密钥**”。
-<img src="https://main.qcloudimg.com/raw/b8aa2ff34580749bb126bf58e0df1fea.jpg" width="400">
+<img src="https://main.qcloudimg.com/raw/7dc6aa297bd24b4cdc9edd8841dd98ee.jpg" width="400">
 2. 在【TaskId】输入框中，填写您发起任务后获取的 TaskId。
 <img src="https://main.qcloudimg.com/raw/006e1462b20417eff77256e650044290.png" width="390">
 
@@ -76,14 +75,14 @@
 
 1. 请下载 [源码压缩包](http://document-1251659802.coscd.myqcloud.com/DrmTuition.zip)，并解压到您的工作目录。
 2. 修改 AuthenticationServer.py 文件，填写您的 SECRET_ID 和 SECRET_KEY。
-<img src="https://main.qcloudimg.com/raw/c323e2b6cfaec4c2638fe63a8d2f7e58.png" width="571">
+<img src="https://main.qcloudimg.com/raw/28a30dccfabe97e14cf7b8644e64b9b1.png" width="600">
 3. 在工作目录下执行命令:
 ```
 python AuthenticationServer.py
 ```
-<img src="https://main.qcloudimg.com/raw/76f68bf77d6ca283af0e10ef25fcdddd.png" width="494">
+<img src="https://main.qcloudimg.com/raw/76f68bf77d6ca283af0e10ef25fcdddd.png" width="600">
 4. 在浏览器中输入 `http://localhost:8081/?fileId=5285xxx5672872` ，其中`5285xxx5672872`是您上传视频的 fileId。输入链接后，您将在应答的结果中获得解密播放视频时需要的 Token。
-<img src="https://main.qcloudimg.com/raw/79d473f4349cd175be01ae4e505c3cfc.png" width="694">
+<img src="https://main.qcloudimg.com/raw/79d473f4349cd175be01ae4e505c3cfc.png" width="600">
 
 经过这4个步骤，您在本地部署了一个鉴权服务，为指定视频 ID 派发解密播放需要使用的 Token。
 
@@ -94,21 +93,21 @@ python AuthenticationServer.py
 1. 修改解压文件中的 Player.html 文件，fileID 填写您的视频 ID，appID 填写您的 AppId。
 >?Player.html 中的 playDefinition 保持为20，是 [播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF)  ID，表示仅播放加密后的自适应码流视频。
 
-	![](https://main.qcloudimg.com/raw/d392603910330e90c9ab5228141e3a7c.png)
+	<img src="https://main.qcloudimg.com/raw/d392603910330e90c9ab5228141e3a7c.png" width="600">
 
 2. 在工作目录下执行命令:
 
 	```
 python PlayerServer.py
 ```
-<img src="https://main.qcloudimg.com/raw/0e50dd7cf035c89d763119422e03fa78.png" width="553">
+<img src="https://main.qcloudimg.com/raw/0e50dd7cf035c89d763119422e03fa78.png" width="600">
 3. 在浏览器中输入 `http://localhost:8082`，您将看到演示视频的播放页面。单击播放器，视频即开始解密播放。
-<img src="https://main.qcloudimg.com/raw/0fb9789545d48085f7e9c460eb3b97c9.png" width="876">
+<img src="https://main.qcloudimg.com/raw/0fb9789545d48085f7e9c460eb3b97c9.png" width="600">
 
 	打开 Chrome 的调试模式，您可以看到播放器在播放前，先从 `localhost:8081` 获取了要播放视频的 Token。
-<img src="https://main.qcloudimg.com/raw/a0251ea804f2f38d8b9d8a19827f6da8.jpg" width="547">
+<img src="https://main.qcloudimg.com/raw/a0251ea804f2f38d8b9d8a19827f6da8.jpg" width="600">
 
 	接着，播放器从点播 License 派发服务获取了播放 Widevine 加密视频所需要的 License。
-<img src="https://main.qcloudimg.com/raw/c33480e9288d6339ee8f5fbb335d3436.jpg" width="550">
+<img src="https://main.qcloudimg.com/raw/c33480e9288d6339ee8f5fbb335d3436.jpg" width="600">
 
 经过这3个步骤，您在本地部署了播放演示视频的 Web 播放器，单击播放器即可解密播放视频。
