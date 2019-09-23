@@ -7,7 +7,7 @@
 
 
 ## 前提条件
-已创建 Serverless 数据库 [CynosDB](https://cloud.tencent.com/document/product/1003/30505)。
+已创建数据库。
 >?本文以 CynosDB 数据库为例。您可根据实际需求选用 TencentDB 其他的数据库或自建的数据库。
 
 
@@ -112,15 +112,15 @@ Maven 依赖如下：
 </tr>
 <tr>
 <td>DB_PASSWORD</td>
-<td>已创建数据库的 root 帐户密码。</td>
+<td>数据库密码</td>
 </tr>
 <tr>
 <td>DB_USER</td>
-<td>默认为 root。</td>
+<td>数据库用户名</td>
 </tr>
 <tr>
 <td>DB_URL</td>
-<td>jdbc:mysql://<code>内网地址</code></td>
+<td> jdbc:mysql://<code>内网ip:内网port/数据库名</code></td>
 </tr>
 </table>
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
@@ -161,7 +161,7 @@ def main_handler(event, context):
 Serverless DB SDK 具备以下特点：
 - 自动从环境变量初始化数据库客户端。
 - SDK 会在全局维护一个数据库长连接，并处理连接中断后的重连。
-- 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库。
+- 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库连接。
 
 
 ### 配置环境变量和私有网络
