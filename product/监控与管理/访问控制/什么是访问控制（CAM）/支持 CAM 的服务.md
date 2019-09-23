@@ -39,7 +39,7 @@
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  | &#10003;        | -    |	
 | [云 HDFS](https://cloud.tencent.com/document/product/1105/37238) | 资源级 |&#10003;       | -  | &#10003;        | -    |	
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | &#10003;       | &#10003;  | &#10003;        | -    |
-| [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 操作级 | &#10003;        | -  |&#10003;        |  &#10003; |	
+| [日志服务](https://cloud.tencent.com/document/product/614/35565)  | 资源级 | &#10003;        | -  |&#10003;        |  &#10003; |	
 
 ## 网络	
 
