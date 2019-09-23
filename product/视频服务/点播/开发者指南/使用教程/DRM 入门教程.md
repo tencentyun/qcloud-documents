@@ -16,16 +16,16 @@
 请下载 [Wildlife.wmv](http://1255566954.vod2.myqcloud.com/ca75586fvodgzp1255566954/484c46995285890788305672872/xUCHV5kOGyIA.wmv) 到您的本地，用于入门教学的演示视频。
 
 1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，单击左侧菜单栏的【媒资管理】，选择【已上传】，单击【上传视频】。
-![](https://main.qcloudimg.com/raw/bbbbc39b295157b9dee12a6841b712d3.png)
+<img src="https://main.qcloudimg.com/raw/bbbbc39b295157b9dee12a6841b712d3.png" width="850">
 
 2. 弹出“**上传视频**”的对话框后，选择【本地上传】，单击【选择视频】，将“Wildlife.wmv”上传到云点播平台。
-<img src="https://main.qcloudimg.com/raw/e52b179050923d6c98c979994063d0ce.png" width="839">
+<img src="https://main.qcloudimg.com/raw/e52b179050923d6c98c979994063d0ce.png" width="850">
  
  执行上传之后，您将在“**正在上传**”栏看到视频的上传进度。
- <img src="https://main.qcloudimg.com/raw/8a2579f87d5ea0ca5181550f7d4eaca4.png" width="1219">
+ <img src="https://main.qcloudimg.com/raw/8a2579f87d5ea0ca5181550f7d4eaca4.png" width="1200">
  
  上传完成之后，在“**已上传**”栏的视频列表中，将看到上传完成的视频，以及视频对应的 ID（即 FileId）。
-  <img src="https://main.qcloudimg.com/raw/69b347af5d260d31ed9eb16617388a3b.png" width="1210">
+  <img src="https://main.qcloudimg.com/raw/69b347af5d260d31ed9eb16617388a3b.png" width="1200">
  
 经过这2个步骤，您已经上传了一个视频到云点播平台，并获取到了上传视频的 ID。
  
@@ -40,9 +40,9 @@
 <img src="https://main.qcloudimg.com/raw/2fe911592aed489386baaa83817a6485.png" width="400">
 3. 在“**AdaptiveDynamicStreamingTaskSet.N**”输入框中，“**Definition**”填写21。
 >?此处填写的21是 [预置转自适应码流模板](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E8.87.AA.E9.80.82.E5.BA.94.E7.A0.81.E6.B5.81.E6.A8.A1.E6.9D.BF) 的模板 ID，表示转出 Widevine 方式加密的 Dash 输出。
-<img src="https://main.qcloudimg.com/raw/13e8250e98854d5c87f82ff50ff217c7.jpg" width="401">
+<img src="https://main.qcloudimg.com/raw/13e8250e98854d5c87f82ff50ff217c7.jpg" width="400">
 4. 在右边栏中选择【在线调用】，并单击【发送请求】。发送请求后，从返回结果中获取 `TaskId` 参数的值，并记录下来。
-<img src="https://main.qcloudimg.com/raw/74a8a36b656926f25f7ada5a79682d4c.jpg" width="625">
+<img src="https://main.qcloudimg.com/raw/74a8a36b656926f25f7ada5a79682d4c.jpg" width="600">
  
 经过这4个步骤，您已经对视频发起了转自适应码流任务，目标是 Widevine 方式加密的 Dash。
  
@@ -53,16 +53,16 @@
 1. 进入 [云点播 DescribeTaskDetail 命令的 API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vod&Version=2018-07-17&Action=DescribeTaskDetail&SignVersion=)，填写您的“**个人密钥**”。
 <img src="https://main.qcloudimg.com/raw/7dc6aa297bd24b4cdc9edd8841dd98ee.jpg" width="400">
 2. 在【TaskId】输入框中，填写您发起任务后获取的 TaskId。
-<img src="https://main.qcloudimg.com/raw/006e1462b20417eff77256e650044290.png" width="390">
+<img src="https://main.qcloudimg.com/raw/006e1462b20417eff77256e650044290.png" width="400">
 
 3. 在右边栏中选择【在线调用】，并单击【发送请求】。
-<img src="https://main.qcloudimg.com/raw/71be1709e68a0181ca0094b04adb2ba6.jpg" width="615">
+<img src="https://main.qcloudimg.com/raw/71be1709e68a0181ca0094b04adb2ba6.jpg" width="600">
  
 	发送请求后，观察返回结果中的任务状态 `Status`。当任务状态为 `PROCESSING` 时，表示任务仍然在执行中，您需要隔一段时间后再调用 API 状态；当任务状态为 `FINISH` 时，表示任务执行完毕。
-<img src="https://main.qcloudimg.com/raw/3dc08f5867e33b59d32303909c48dfe4.jpg" width="584">
+<img src="https://main.qcloudimg.com/raw/3dc08f5867e33b59d32303909c48dfe4.jpg" width="600">
 
 	任务执行完毕后，您可以在 `MediaProcessResultSet` 的类型为 `AdaptiveDynamicStreaming` 的结果中找到带加密的转自适应码流的输出，其中 `Url` 对应的是播放地址。
-<img src="https://main.qcloudimg.com/raw/073cba331c699a36e339bb95526ebc8d.png" width="561">
+<img src="https://main.qcloudimg.com/raw/073cba331c699a36e339bb95526ebc8d.png" width="600">
 
 经过这3个步骤，您可以查询“转加密的自适应码流”任务的执行结果。
 
