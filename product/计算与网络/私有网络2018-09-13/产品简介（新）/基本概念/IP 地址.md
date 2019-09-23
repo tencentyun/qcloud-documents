@@ -6,7 +6,7 @@
 <table>
 <thead>
 <tr>
-<th colspan="2">对比项</th>
+<th colspan="2" width="16%">对比项</th>
 <th>普通公网 IP</th>
 <th>弹性公网 IP</th>
 </tr>
