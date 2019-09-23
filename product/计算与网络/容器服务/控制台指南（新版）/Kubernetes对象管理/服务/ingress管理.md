@@ -71,7 +71,7 @@ spec:
 - spec.rules：Ingress 的转发规则，配置该规则可实现简单路由服务、基于域名的简单扇出路由、简单路由默认域名、配置安全的路由服务等。
 
 ### 说明事项
-如果您使用的是 **IP 带宽包**账号，在创建公网访问方式的服务时需要指定以下两个 annotations 项：
+如果您使用的是 **IP 带宽包** 账号，在创建公网访问方式的服务时需要指定以下两个 annotations 项：
 - `kubernetes.io/ingress.internetChargeType` 公网带宽计费方式，可选值有：
  - TRAFFIC_POSTPAID_BY_HOUR（按使用流量计费）
  - BANDWIDTH_POSTPAID_BY_HOUR（按带宽计费）
@@ -83,7 +83,7 @@ metadata:
     kubernetes.io/ingress.internetChargeType: TRAFFIC_POSTPAID_BY_HOUR
     kubernetes.io/ingress.internetMaxBandwidthOut: "10"
 ```
-关于 **IP 带宽包**的更多详细信息，欢迎查看文档 [共享带宽包产品类别](https://cloud.tencent.com/document/product/684/15246)。
+关于 **IP 带宽包** 的更多详细信息，欢迎查看文档 [共享带宽包产品类别](https://cloud.tencent.com/document/product/684/15246)。
 
 ### 创建 Ingress
 
