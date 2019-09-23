@@ -3,7 +3,7 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ## 前提条件
-- 已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 
 
 ## 操作步骤
