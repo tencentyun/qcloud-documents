@@ -334,8 +334,7 @@
    </tr>
 </table>
 
-#### 1. 如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。
-#### 2. 如果您想了解 SDK 版本更新历史，请参见 [版本历史](https://cloud.tencent.com/document/product/454/7878)。
+**如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)**。
 
 ## 全功能小视频 App（Demo）源代码
 

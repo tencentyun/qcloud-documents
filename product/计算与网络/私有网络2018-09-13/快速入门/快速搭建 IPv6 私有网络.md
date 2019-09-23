@@ -1,4 +1,5 @@
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器或者弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
+>? IPv6 功能内侧中，如有需要，请提交 [内测申请]()。
 
 ## 操作场景
 1. 云服务器启用 IPv6，和 VPC 内云服务器 IPv6 双向通信。
@@ -53,22 +54,23 @@
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-3. 按 i 切换至编辑模式，增加`DHCPV6C=yes`并保存。
+3. 按 “i” 或 “Insert” 切换至编辑模式，增加`DHCPV6C=yes`。
 ![](https://main.qcloudimg.com/raw/94b60f6fb3177f5124339e5c017a8ac2.png)
-
-4. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+4. 按 “Esc”，输入 “:wq”，保存文件并返回。
+5. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/25ccd3b27744ad0f056de14a39465724.png)
 
-5. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+6. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-6. 按 i 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`）并保存，为 ssh 等应用程序开启 IPv6 监听。
+7. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/52e9354e072a31f21071acde0262d58d.png)
+8. 按 “Esc”，输入 “:wq”，保存文件并返回。
 
 ### 步骤6：测试 IPv6 的连通性
 可通过 ping 或 ssh 等操作来测试 IPv6 的连通性。
@@ -82,86 +84,95 @@ vim /etc/ssh/sshd_config
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 i 切换至编辑模式，将如下的 IPv6 相关参数设置为0并保存。
+2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disableipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 ![](https://main.qcloudimg.com/raw/dc1e37e0c3a89b170038ef28d6d0583d.png)
-3. 执行如下命令，确认是否修改成功。
+3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+4. 执行如下命令，对参数进行加载。
+```
+sysctl -p
+```
+5. 执行如下命令，查看是否修改成功。
 ```
 sysctl -a | grep ipv6 | grep disable
 ```
 显示结果如下，则已成功修改。
 ![](https://main.qcloudimg.com/raw/b1294c92045d0dc5c688c6afc970a412.png)
 
-4. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+6. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-5. 按 i 切换至编辑模式，增加`DHCPV6C=yes`并保存。
+7. 按 “i” 或 “Insert” 切换至编辑模式，增加`DHCPV6C=yes`。
 ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
-
-6. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+8. 按 “Esc”，输入 “:wq”，保存文件并返回。
+9. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-7. 按 i 切换至编辑模式，增加`default dev eth0`并保存。
+10. 按 “i” 或 “Insert” 切换至编辑模式，增加`default dev eth0`。
 ![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
-8. 执行如下命令，重新启动网卡。
+11. 按 “Esc”，输入 “:wq”，保存文件并返回。
+12. 执行如下命令，重新启动网卡。
 ```
 service network restart
 或者
 systemctl restart network
 ```
-9. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+13. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
-10. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+14. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-11. 按 i 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`）并保存，为 ssh 等应用程序开启 IPv6 监听。
+15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
+16. 按 “Esc”，输入 “:wq”，保存文件并返回。
 
 #### Debian 8.2 开启 IPv6
 1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`。
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 i 切换至编辑模式，将如下的 IPv6 相关参数设置为0并保存。
+2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 ```
-3. 执行如下命令，对参数进行加载。
+3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+4. 执行如下命令，对参数进行加载。
 ```
 sysctl -p
 ```
-4. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+5. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
-5. 执行如下命令，配置默认路由，并通过 ping 测试公网连通性。
+6. 执行如下命令，配置默认路由，并通过 ping 测试公网连通性。
 ```
 ip -6 route add default dev eth0
 ```
 ![](https://main.qcloudimg.com/raw/30f3bd7387c721b8e120d7d50bd8c92b.png)
 
 #### Windows 开启 IPv6
-1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络连接】，双击命名为“以太网”的网卡进行编辑。
-![](https://main.qcloudimg.com/raw/ee56b6dd824c704e56c8ec5e0d4b013a.png)
-2. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
+1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
+![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)
+2. 在“以太网状态”弹窗中，单击【属性】。
+3. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-3. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工编辑 IPv6 地址并设置 DNS，单击【确定】。
+4. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工编辑 IPv6 地址并设置 DNS，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
-4. 登录 powershell 依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 ping 测试公网连通性。
+5. 登录 powershell 依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 ping 测试公网连通性。
 ```
 netsh interface ipv6 add route ::/0 "以太网"
 ipconfig

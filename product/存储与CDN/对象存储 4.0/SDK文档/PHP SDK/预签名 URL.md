@@ -22,7 +22,7 @@ try {
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'Body' => '', //
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -39,7 +39,7 @@ try {
         'PartNumber' => '1',
         'Body' => '', 
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -66,7 +66,7 @@ try {
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -78,7 +78,7 @@ try {
 try {    
     $bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
     $key = "exampleobject"; //对象在存储桶中的位置，即对象键
-    $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes');
+    $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes'); //签名的有效时间
     // 请求成功
     echo $signedUrl;
 } catch (\Exception $e) {
@@ -110,7 +110,7 @@ try {
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
         'Body' => '', 
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -127,7 +127,7 @@ try {
         'PartNumber' => '1',
         'Body' => '', 
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -156,7 +156,7 @@ try {
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject" //对象在存储桶中的位置，即对象键
     ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes');
+    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {
@@ -168,7 +168,7 @@ try {
 try {    
     $bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
     $key = "exampleobject"; //对象在存储桶中的位置，即对象键
-    $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes');
+    $signedUrl = $cosClient->getObjectUrl($bucket, $key, '+10 minutes'); //签名的有效时间
     // 请求成功
     echo $signedUrl;
 } catch (\Exception $e) {

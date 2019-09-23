@@ -1,4 +1,4 @@
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在“私有网络”列表上方，选择【地域】，将会展示所属地域下的所以私有网络信息。
 3. 选择一个私有网络（VPC），单击【获取 IPv6 CIDR】，系统将为该 VPC 分配1个`/56`的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/1e26c485dfcbf28ed5bd9ea46dd59c9d.png)

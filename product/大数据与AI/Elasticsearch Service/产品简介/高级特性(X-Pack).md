@@ -277,7 +277,7 @@
 
 **Elasticsearch 部分功能详细说明：**
 
->?下表中 ✓ 用于表示是否拥有对应特性的功能，✓：表示具备；-：表示不具备。
+>?下表中 &#10003; 用于表示是否拥有对应特性的功能，&#10003;：表示具备；-：表示不具备。
 
 <table class="tg">
   <tr>
@@ -290,143 +290,143 @@
   <tr>
     <td class="tg-0lax" rowspan="11"><a id="manage_tool">管理和工具</a></td>
     <td class="tg-s268">REST API</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">语言客户端</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">快照/恢复</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">_仅源快照</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">SQL 解释器 CLI</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">数据汇总</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">索引生命周期管理</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">冻结索引</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">升级助手 API</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">JDBC 客户端</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">ODBC 客户端</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">基于角色的访问控制</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">文件和原生身份验证</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">审核日志</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6"><a id="machine_learning">机器学习</a></td>
     <td class="tg-s268">时序型异常监测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">输入/实体分析</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">日志消息分类</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">根本原因指示</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">异常情况警报</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">时序型预测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
 </table>
 
