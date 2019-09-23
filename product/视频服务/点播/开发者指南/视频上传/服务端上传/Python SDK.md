@@ -128,6 +128,25 @@ except Exception as err:
     print(err)
 ```
 
+### 指定分片并发数
+分片并发数是针对大文件，拆分成多个分片同时进行上传。分片并发上传的优势在于可以快速完成单个文件的上传，SDK 会根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。而文件的分片并发数通过 `ConcurrentUploadNumber` 参数进行指定。
+```
+from qcloud_vod.vod_upload_client import VodUploadClient
+from qcloud_vod.model import VodUploadRequest
+
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+request.ConcurrentUploadNumber = 5
+try:
+    response = client.upload("ap-guangzhou", request)
+    print(response.FileId)
+    print(response.MediaUrl)
+except Exception as err:
+    // 处理业务异常
+    print(err)
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`：
 
@@ -151,6 +170,7 @@ except Exception as err:
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。      | String | 否    |
 | SubAppId   | 云点播 [子应用](https://cloud.tencent.com/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |
 | StorageRegion   | 存储地域，指定预期希望存储的地域，该字段填写为存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。        | String | 否    |
+| ConcurrentUploadNumber   | 分片并发数，针对大文件分片时有效。        | Integer | 否    |
 
 上传响应类`VodUploadResponse`
 
