@@ -10,7 +10,6 @@
 
 登录 [腾讯云控制台](https://console.cloud.tencent.com)，选择左上角【云产品】>【视频服务】>【云点播】，进入云点播控制台。
 
-<img src="https://main.qcloudimg.com/raw/38c85e14bc8c3332e5face6ea6c33cad.png" width="1420">
 
 ## 上传视频
 
