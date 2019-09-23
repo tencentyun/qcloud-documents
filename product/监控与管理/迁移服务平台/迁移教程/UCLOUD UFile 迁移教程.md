@@ -17,10 +17,11 @@
 1. 创建目标存储空间，用于存放迁移的数据，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 2. 创建用于迁移的子用户并授予相关权限：
 	1.	登录腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
-	2.	选择【用户】>【用户列表】>【新建用户】，进入新建用户界面。
-	3.	新建子用户，并勾选编程访问及腾讯云控制台访问。
-	4.	搜索 MSP，并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
-	5. 完成子用户创建，并保存生成的密码，SecretId，SecretKey。
+	2.	在左导航栏中选择【用户】>【用户列表】，进入用户列表页面。
+	3.	新建子用户，勾选编程访问及腾讯云控制台访问。
+	4.	搜索并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
+	5.	完成子用户创建并保存子用户名，访问登陆密码，SecretId，SecretKey。
+
 
 >?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子用户并使用子用户 API 密钥进行迁移，迁移完成后删除。
 
