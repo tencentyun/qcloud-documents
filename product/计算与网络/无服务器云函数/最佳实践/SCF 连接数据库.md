@@ -248,7 +248,7 @@ Maven 依赖如下：
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
 
-## Serverless DB SDK
+## 使用 Serverless DB SDK 连接数据库的操作步骤
 为了方便使用，云函数团队将上述 Node.js 和 Python 连接池最佳实践封装成了 Serverless DB SDK，并且内置到了运行时中，不需要在依赖文件中导入依赖。支持 MySQL，CynosDB，TDSQL 等 MySQL 协议的数据库。
 
 Serverless DB SDK 具备以下特点：
