@@ -8,8 +8,8 @@
 - 打开 [能力检测页面](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 进行检测。
 - 通过创建工单寻求我们的协助。
 
-### 啸叫（或重音）
-特别注意，我们的demo中，对本地的video/audio，是有设置一个 muted 属性的，这里的意思是指将本地视频流播放时静音，否则，就会出现本地视频流的声音又一次作为音频输入源的循环中，造成我们常说的“啸叫”或者“重音”问题。
+### 出现啸叫（或重音）该如何处理？
+Demo （Web）中已对本地的 video/audio 设置了 muted 属性，即设置本地视频流静音播放。若不做设置，会将本地视频流的声音再次作为音频输入源，造成“啸叫”或者“重音”问题。
 
 ```html
 	<video muted autoplay playsinline></video>
@@ -17,6 +17,7 @@
 	<audio muted autoplay playsinline></audio>
 ```
 
+>?使用两个移动端（Android 或 iOS）近距离测试时，也可能出现“啸叫”或者“重音”问题，只需将其中一端静音即可。
 
 ### 音频需要很长时间才能听到
 如果您使用的是纯音频场景，请特别注意，使用 audio 标签来加载音频流，而不是使用video。
