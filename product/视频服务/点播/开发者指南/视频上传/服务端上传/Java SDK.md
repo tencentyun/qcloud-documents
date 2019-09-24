@@ -127,7 +127,7 @@ try {
 ```
 
 ### 指定分片并发数
-分片并发数是针对大文件，拆分成多个分片同时进行上传。分片并发上传的优势在于可以快速完成单个文件的上传，SDK 会根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。而文件的分片并发数通过 `ConcurrentUploadNumber` 参数进行指定。
+分片并发数是针对大文件，拆分成多个分片同时进行上传。分片并发上传的优势在于可以快速完成单个文件的上传，SDK 会根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。而文件的分片并发数通过`ConcurrentUploadNumber`参数进行指定。
 ```
 VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
