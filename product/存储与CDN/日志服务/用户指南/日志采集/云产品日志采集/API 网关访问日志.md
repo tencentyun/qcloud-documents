@@ -29,19 +29,19 @@ API 网关访问日志接入日志服务后，API 管理员可以根据日志中
 
 ## 查看日志
 
-API 网关的日志收集到日志服务中后，您可在日志服务页面对应的日志集下进行查看对应的日志集和日志主题，也可以在检索页面查看 API 网关访问日志的详情信息，检索前必须预先在日志服务的控制台 [开启索引配置](https://cloud.tencent.com/document/product/614/16981)。
+API 网关的日志收集到日志服务中后，您可在日志服务页面对应的日志集下进行查看对应的日志集和日志主题，也可以在检索页面查看 API 网关访问日志的详情信息，检索前必须预先在日志服务的控制台 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
 
 
 在日志服务控制台操作日志主题索引配置，将全文索引开启并保存。
 ![](https://main.qcloudimg.com/raw/3dc8a71867d6744f854fffb494a1ede5.png)
 
 在日志服务控制台检索页面查看日志。
-![](https://main.qcloudimg.com/raw/8ee6aee06b3279daf4d9be88d1627348.png)
+![](https://main.qcloudimg.com/raw/4e6c2819ed69fc9a4ef9018e21bb2434.png)
 
 
 
 ## API 访问日志格式
-```
+```shell
 log_format  
 '[$app_id][$env_name][$service_id][$http_host][$api_id][$uri][$scheme][rsp_st:$status][ups_st:$upstream_status]'
 '[cip:$remote_addr][uip:$upstream_addr][vip:$server_addr][rsp_len:$bytes_sent][req_len:$request_length]' 
