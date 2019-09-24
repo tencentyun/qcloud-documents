@@ -12,78 +12,78 @@
   </tr>
   <tr align="center">
     <td>小窗播放</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>多手势操作</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>播放列表</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>进度条打点、进度缩略图</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>互动浮窗</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>首屏秒开+预加载</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>视频截图</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>弹幕</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>直播时移</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>视频加密、视频试看</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>码率自适应</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>变速播放、镜像播放</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>清晰度流畅切换</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>多格式支持</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr align="center">
     <td>H.265 解码</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
  
   <tr align="center">
