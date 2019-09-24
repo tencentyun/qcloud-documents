@@ -115,7 +115,7 @@ compression.type=[none, snappy, lz4]
 # 客户端发送给 Broker 的请求的超时时间，不能小于 Broker 配置的 replica.lag.time.max.ms，目前该值为 10000ms。
 request.timeout.ms=30000
 
-# 请求发生错误时重试次数，当 retries 大于 0 且 max.in.flight.requests.per.connection 大于 1 时可能会导致乱序。建议客户将该值改成大于 0，即重复发送失败的消息。
+# 请求发生错误时重试次数，当 retries 大于 0 且 max.in.flight.requests.per.connection 大于 1 时可能会导致乱序。希望消息严格有序时，建议客户将该值设置 0，即不要重复发送失败的消息。
 retries=0
 
 # 发送请求失败时到下一次重试请求之间的时间。
