@@ -52,8 +52,8 @@ partition 的数量需要根据生产和消费的吞吐来判断。理想情况�
 
 #### 2. 选取合适的副本
 
-目前为了保证可用性副本数必须大于等于 2，如果需要保障高可靠建议 3 副本。
->**注意：**副本数会影响生产/消费流量，如 3 副本则实际流量= 生产流量*3
+目前为了保证可用性副本数必须大于等于2，如果需要保障高可靠建议3副本。
+>!副本数会影响生产/消费流量，如 3 副本则实际流量= 生产流量*3
 
 #### 3. 日志保留时间
 
@@ -80,7 +80,7 @@ min.insync.replicas=1
 生产端常用参数配置如下，建议客户根据实际业务场景调整配置：
 
 ```
-# 生产者会尝试将业务发送到相同的 Partition 的消息合包发送到 Broker，batch.size 设置合包的大小上限。默认为 16K。batch.size 设太小会导致吞吐下降，设太大会导致内存使用过多。
+# 生产者会尝试将业务发送到相同的 Partition 的消息合包发送到 Broker，batch.size 设置合包的大小上限。默认为 16KB。batch.size 设太小会导致吞吐下降，设太大会导致内存使用过多。
 batch.size=16384
 
 # Kafka producer 的 ack 有 3 种机制，分别说明如下：
@@ -138,7 +138,7 @@ auto.commit.enable=true
 # 当 auto.commit.enable=true 时，自动提交 Offset 的时间间隔，建议设置至少1000
 auto.commit.interval.ms=5000
 
-# 当 Broker 端没有 offset（如第一次消费或 offset 超过 7 天过期）时如何初始化 offset，当收到 OFFSET_OUT_OF_RANGE 错误时，如何重置 Offset
+# 当 Broker 端没有 offset（如第一次消费或 offset 超过7天过期）时如何初始化 offset，当收到 OFFSET_OUT_OF_RANGE 错误时，如何重置 Offset
 # earliest：表示自动重置到 partition 的最小 offset
 # latest：默认为 latest，表示自动重置到 partition 的最大 offset
 # none：不自动进行 offset 重置，抛出 OffsetOutOfRangeException 异常
@@ -165,7 +165,7 @@ fetch.max.bytes=52428800
 # Fetch 请求等待时间
 fetch.max.wait.ms=500
 
-# Fetch 请求每个 partition 返回的最大数据大小，默认为 10MB
+# Fetch 请求每个 partition 返回的最大数据大小，默认为10MB
 max.partition.fetch.bytes=1048576
 
 # 在一次 poll 调用中返回的记录数
