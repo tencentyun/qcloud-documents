@@ -170,7 +170,7 @@ Maven 依赖如下：
 </dependencies>
 ```
 
-### 环境变量配置
+### 配置环境变量和私有网络
 
 ####  MySQL 配置环境变量和私有网络
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击已创建的 MySQL 数据库 ID。
