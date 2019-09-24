@@ -2,7 +2,7 @@ Tensorflow 组件为用户提供了基于 Python API 的 Tensorflow 运行环境
 
 ## 版本说明
 Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
-   - Python 2.7.12
+   - Python 2.7/3.5
    - SciPy 1.0.0
    - NumPy 1.14.0
    
@@ -43,6 +43,30 @@ pip.main(['install', "package_name"])
 6. **查看 Tensorboard**
   组件处于“运行中”状态时，您可以右键单击任务栏，通过【Tesnorflow 控制台】>【Tensorboard】查看 Tensorboard 信息。
 ![](https://main.qcloudimg.com/raw/4068ddf48a43bc659966d938d014e2d0.png)
+
+
+案例说明：
+
+本案例提供了一段从文件读取IRIS数据集，训练基于神经网络的分类器，评估分类器的效果，并用训练好的分类器对新的数据进行预测代码，并展示如何让代码在智能钛平台上运行。
+
+代码修改自Tensorflow[官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
+
+![](https://main.qcloudimg.com/raw/699578068afaa722ce193bb8c9c7d621.png)
+
+1. 程序的入口脚本为premade_estimator.py。因此，我们点击【Tensorflow组件】的【程序脚本】输入框，选择premade_estimator.py这个脚本文件上传。
+
+2. 如果入口脚本需要import项目中的其它自己编写的模块，需要将其它模块的代码压缩成zip包，并上传到【Tensorflow】组件的【依赖包文件】中，该zip包会被添加到python的path中。在本demo中，我们将iris_data.py和estimator_test.py两个文件压缩成iris.zip，上传至【依赖包文件】中，此时，程序脚本中可以使用import iris_data来引入这一模块。
+
+3. 如果入口脚本需要启动参数，如本demo中，入口脚本premade_estimator.py可以接收--batch_size，--train_steps，--train_path和--test_path四个参数，则将参数及其取值填写到【程序参数】输入框中。
+示例代码为：
+--train_steps 2000
+--batch_size 100
+--train_path ${ai_dataset_lib}/demo/other/iris_training.csv
+--test_path ${ai_dataset_lib}/demo/other/iris_test.csv
+
+4. 如果自行编写的Tensorflow代码会产生用于Tensorboard展示的文件（如events文件），则可以在自定义的代码中，将这些文件输出到cos的某个特定目录，并在【Tensorboard目录】输入框中填写该目录的路径。如果填写了，训练过程中可以在【日志信息】——【Tensorflow控制台】——【Tensorboard】中查看Tensorboard。
+
+5. 运行后，可以右键点击算子，并在【日志信息】——【Tensorflow控制台】——【App详情】中查看stdout和stderr两个日志。
    
 
 
