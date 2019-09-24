@@ -1,3 +1,7 @@
+### 请求HTTPS API是否限定特定的语言？
+参考 [接口调用说明](https://cloud.tencent.com/document/product/569/37627)
+按照文档的请求格式发送https请求即可，对于实现语言没有特定的要求。
+
 ### 请求返回参数 authen_code 错误要怎么处理？
 示例：
 ```
@@ -5,4 +9,5 @@
 ```
 
 参考 [接口调用说明](https://cloud.tencent.com/document/product/569/37627) 重新计算后再尝试请求。
+
 
