@@ -14,9 +14,7 @@ kubectl get pods -o wide
 ```
 会发现集群中会新增一个 Pod 和虚拟节点，名称相同：virtual-kubelet。
 ![][1]
-4. 执行以下命令部署 Deployment ，并指定 nodeName 为 virtual-kubelet，把该 Deployment 的 Pod 调度到虚拟节点 virtual-kubelet 上。
->?本文配置文件 `service-nginx.yaml` 为例，您可根据实际需求创建特定配置文件并使用以下命令部署 Deployment。
->
+4. 您可根据实际需求创建特定配置文件，并执行以下命令部署 Deployment ，并指定 nodeName 为 virtual-kubelet，把该 Deployment 的 Pod 调度到虚拟节点 virtual-kubelet 上。
 ```
 kubectl create -f xxxxxx.yaml
 ```
