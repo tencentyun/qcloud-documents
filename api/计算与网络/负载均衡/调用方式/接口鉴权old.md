@@ -8,7 +8,7 @@
 1. 登录 [腾讯云管理中心控制台](https://console.cloud.tencent.com/)。
 
 2. 单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面。
-![](//mccdn.qcloud.com/img568f5fb824757.png)
+![](https://main.qcloudimg.com/raw/386a049cc3e88e882413d19d42ccfd5e.png)
 
 3. 在 [云 API 访问密钥管理](https://console.cloud.tencent.com/capi) 页面，单击【新建】即可以创建 SecretId， 每个帐号最多可以创建两个 Secret ID。
 
