@@ -94,7 +94,7 @@ SELECT 和 WHERE 子句可以通过以下任意方式选择查询的字段，您
   SELECT s.name from COSObject s
   ```
 
-  以下 SQL 示例使用双引号，表明是大小写敏感的。由于表中实际上未包含这个表头，所以最终会返回400错误`MissingHeaderName`。
+  以下 SQL 示例使用双引号，表明是大小写敏感的。由于表中实际上未包含这个表头，所以最终会返回400错误`SQLParsingError`。
   ```shell
   SELECT s."name" from COSObject s
   ```
