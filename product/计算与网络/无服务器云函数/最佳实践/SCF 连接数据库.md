@@ -6,14 +6,13 @@
 
 ## 前提条件
 已创建数据库。
-> 此最佳实践适用于 [MySQL](https://cloud.tencent.com/document/product/236/5160)，[CynosDB](https://cloud.tencent.com/document/product/1003/30505)，[TDSQL](https://cloud.tencent.com/document/product/557/10236)。 
-> 推荐使用，腾讯云提供的 Serverless 数据库（CynosDB）。
+>?此最佳实践适用于 [MySQL](https://cloud.tencent.com/document/product/236/5160)，[CynosDB](https://cloud.tencent.com/document/product/1003/30505)，[TDSQL](https://cloud.tencent.com/document/product/557/10236)。推荐使用腾讯云提供的 Serverless 数据库（CynosDB）。
 
-## 最佳实践
 
-### 使用原生代码连接数据库的操作步骤
 
-#### Node.js 使用 mysql2 连接池示例
+## 使用原生代码连接数据库的操作步骤
+
+### Node.js 使用 mysql2 连接池示例
 ```JavaScript
 'use strict';
 
@@ -37,14 +36,16 @@ exports.main_handler = async (event, context, callback) => {
   console.log(result);
 }
 ```
-Npm 依赖如下
+Npm 依赖如下：
 ```JSON
 "dependencies": {
     "mysql2": "^1.7.0"
 }
 ```
 
-#### Python 使用 pymysql 无连接池示例（因为 pymysql 无连接池功能）
+### Python 使用 pymysql 无连接池示例
+>?pymysql 无连接池功能。
+>
 ```Python
 # -*- coding: utf8 -*-
 from os import getenv
@@ -80,12 +81,12 @@ def main_handler(event, context):
         for x in myresult:
             print(x)
 ```
-PIP 依赖如下
+PIP 依赖如下：
 ```
 pymysql
 ```
 
-#### Java 使用 Hikari 连接池示例
+### Java 使用 Hikari 连接池示例
 ```Java
 package example;
 
@@ -174,12 +175,12 @@ Maven 依赖如下：
 ####  MySQL 配置环境变量和私有网络
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击已创建的 MySQL 数据库 ID。
 2. 在数据库详情页，获取该数据库的**内网地址**、**所属网络**。如下图所示：
-![](https://main.qcloudimg.com/raw/7accf9e8d4258deff9b5e3887e74e6e2.png)
+![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
 > 如果您使用自建的MySQL实例，请根据实际情况填写**内网地址**、**所属网络**。
 3. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 4. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**参考以下表格填写。如下图所示：
- ![](https://main.qcloudimg.com/raw/38c4889ae768d1dd5db9c5bf5debd364.png)
+![](https://main.qcloudimg.com/raw/94a17932ae2a1968d6ab19be4aa3fb91.png)
 <table>
 <tr>
 <th>key</th>
@@ -217,7 +218,7 @@ Maven 依赖如下：
 3. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 4. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**参考以下表格填写。如下图所示：
- ![](https://main.qcloudimg.com/raw/38c4889ae768d1dd5db9c5bf5debd364.png)
+![](https://main.qcloudimg.com/raw/67aa4cfe1852ae4fb72cf14d0271f1f2.png)
 <table>
 <tr>
 <th>key</th>
@@ -290,7 +291,7 @@ def main_handler(event, context):
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
-![](https://main.qcloudimg.com/raw/38c4889ae768d1dd5db9c5bf5debd364.png)
+![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 	>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
 	>- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
 	>
