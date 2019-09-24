@@ -6,13 +6,12 @@ DELETE Object 接口请求可以删除一个指定的对象（Object）。该 AP
 
 如需删除对象的指定版本（包括删除标记，下同），请使用 versionId 请求参数指定对应的版本 ID （包括删除标记的版本 ID，下同）。
 
-如未指定 versionId 请求参数，当版本控制为启用时，该 DELETE 操作将创建一个删除标记作为指定对象的最新版本；当版本控制为暂停时，该 DELETE 操作将创建一个版本 ID 为 null 的删除标记作为指定对象的最新版本，同时删除任何已存在的版本 ID 为 null 的其他版本（如有）。
+如未指定 versionId 请求参数，当版本控制为启用时，该 DELETE 操作将创建一个删除标记作为指定对象的最新版本。当版本控制为暂停时，该 DELETE 操作将创建一个版本 ID 为 null 的删除标记作为指定对象的最新版本，同时删除任何已存在的版本 ID 为 null 的其他版本（如有）。
 
-当该 DELETE 操作创建或删除了删除标记，那么将返回 x-cos-delete-marker: true 响应头部，代表该 DELETE 操作创建或删除了指定对象的删除标记。
+- 当该 DELETE 操作创建或删除了删除标记，那么将返回 x-cos-delete-marker: true 响应头部，代表该 DELETE 操作创建或删除了指定对象的删除标记。
+- 当该 DELETE 永久删除了特定的版本 ID，那么将返回 x-cos-version-id 响应头部，代表该请求操作删除的版本 ID。
 
-当该 DELETE 永久删除了特定的版本 ID，那么将返回 x-cos-version-id 响应头部，代表该请求操作删除的版本 ID。
-
-有关版本控制的启用或暂停状态说明，请参阅 [版本控制概述](https://cloud.tencent.com/document/product/436/19883)
+有关版本控制的启用或暂停状态说明，请参见 [版本控制概述](https://cloud.tencent.com/document/product/436/19883)。
 
 ## 请求
 
