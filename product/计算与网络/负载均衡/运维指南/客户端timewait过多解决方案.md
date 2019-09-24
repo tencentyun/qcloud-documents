@@ -1,12 +1,12 @@
-## 本文背景：
+## 本文背景
 客户压测 CLB 时，常会遇到了一些客户端 timewait 过多，端口被快速占满，导致 connect 失败的问题，下面会说明原因和解决方案。
 
-## Linux 参数介绍：
+## Linux 参数介绍
 **tcp_timestamps ：** 是否开启 tcp timestamps 选项，timestamps 是在 tcp 三次握手过程中协商的，任意一方不支持，该连接就不会使用 timestamps 选项。
 **tcp_tw_recycle ：**  是否开启 tcp time_wait 状态回收。
 **tcp_tw_resuse ：** 开启后，可直接回收超过1s的 time_wait 状态的连接。
 
-## 原因分析：
+## 原因分析
 客户端timewait太多，是因为客户端主动断开连接，客户端每断开一个连接，该连接都会进入timewait状态，默认60s超时回收。一般情况下，遇到这种场景时，客户会选择打开 `tcp_tw_recycle` 和 `tcp_tw_resuse` 两个参数，便于回收timewait状态连接。
 然而当前 CLB 没有打开 `tcp_timestamps` 选项，导致客户端打开的 `tcp_tw_recycle` 和 `tcp_tw_resuse` 都不会生效，不能快速回收 timewait 状态连接。下面会解释几个 Linux 参数的含义和 CLB 不能开启 `tcp_timestamps` 的原因。
 
@@ -40,7 +40,7 @@ rx_opt->rcv_tsval：本次收到的时间戳
 get_seconds（）： 当前时间
 rx_opt->ts_recent_stamp： 上次收到包的时间
 
-## 解决方案：
+## 解决方案
 客户端 Timewait 过多问题，有如下解决方案：
 
 **1. HTTP 使用短连接（Connection: close），这时由 CLB 主动关闭连接，客户端不会产生 timewait**。
