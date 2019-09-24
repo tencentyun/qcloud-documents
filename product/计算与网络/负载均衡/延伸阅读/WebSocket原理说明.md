@@ -14,10 +14,10 @@ WebSocket是HTML5下一种新的协议。它实现了浏览器与服务器全双
 - WebSocket需要像TCP一样，先建立连接，连接成功后才能相互通信。
 
 传统HTTP客户端与服务器请求响应模式如下图所示：
-![](//mccdn.qcloud.com/static/img/c99efde0caccb49814ea83c126b0e18a/image.jpg)
+![](https://main.qcloudimg.com/raw/44a1251733ad215969b14f66a0f2ec61.jpg)
 
 WebSocket模式客户端与服务器请求响应模式如下图：
-![](//mccdn.qcloud.com/static/img/e4128e588c6c21216319351ee7eb0bac/image.jpg)
+![](https://main.qcloudimg.com/raw/f62fa2415a9f8bdcbe6ea2053aca41ed.jpg)
 
 上图对比可以看出，相对于传统HTTP每次请求-应答都需要客户端与服务端建立连接的模式，WebSocket是类似Socket的TCP长连接通讯模式。一旦WebSocket连接建立后，后续数据都以帧序列的形式传输。在客户端断开WebSocket连接或Server端中断连接前，不需要客户端和服务端重新发起连接请求。在海量并发及客户端与服务器交互负载流量大的情况下，极大的节省了网络带宽资源的消耗，有明显的性能优势，且客户端发送和接受消息是在同一个持久连接上发起，实时性优势明显。
 
@@ -57,7 +57,7 @@ Sec-WebSocket-Accept: K7DJLdLooIwIG/MOpvWFB3y3FE8=
 
 腾讯云公网有日租类型七层负载均衡转发部分支持Websocket，目前包括英魂之刃、银汉游戏等多家企业已接入使用。当出现不兼容问题时，请修改websocket配置，websocket server不校验下图中圈出的字段：
 
-![](//mccdn.qcloud.com/static/img/53d8a8462bdf6d4ebe8e1134e40919ef/image.png)
+![](https://main.qcloudimg.com/raw/bd313e9a949fb949256be37499354d4b.png)
 
 一个使用WebSocket应用于视频的业务思路如下：
 - 使用心跳维护websocket链路，探测客户端端的网红/主播是否在线
