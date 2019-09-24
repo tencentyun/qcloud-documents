@@ -100,9 +100,6 @@ buffer.memory=33554432
 # 当生产消息的速度比 Sender 线程发送到 Broker 速度快，导致 buffer.memory 配置的内存用完时会阻塞生产者 send 操作，该参数设置最大的阻塞时间
 max.block.ms=60000
 
-# 客户端在每个连接上最多可发送的最大的未确认请求数，该参数大于1且 retries 大于0时可能导致数据乱序
-max.in.flight.requests.per.connection=5
-
 # 设置消息延迟发送的时间，这样可以等待更多的消息组成 batch 发送。默认为0表示立即发送。当待发送的消息达到 batch.size 设置的大小时，不管是否达到 linger.ms 设置的时间，请求也会立即发送
 linger.ms=0
 
