@@ -20,16 +20,16 @@ IPv6 负载均衡的架构如下图所示。
 
 >!
 >- 当前 IPv6 负载均衡仅支持北京、上海、广州三个地域。
->- IPv6 负载均衡仅支持 **应用型** 负载均衡，不支持传统型负载均衡。
+>- IPv6 不支持传统型负载均衡。
 >- 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请填写 [工单](https://console.cloud.tencent.com/workorder/category) 反馈，同时在内测期间，不提供 SLA 保障。
 
 ## 操作指南
 ### 创建 IPv6 负载均衡
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
-2. 实例类型选择 **应用型 CLB**，IP 类型选择 **IPv6**，其他配置和普通实例配置相同。
+2. 实例类型选择【负载均衡】，IP 类型选择【IPv6】，其他配置和普通实例配置相同。
 3. 购买完成后，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
-![](https://main.qcloudimg.com/raw/1b87146cc6b4e42417e2d323f4f6d00c.png)
+![](https://main.qcloudimg.com/raw/f10d4c1a7dc111fb2ea0b3d286594af9.png)
 
-### 使用 IPV6 负载均衡
-登录 [负载均衡管理控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在 **监听器管理** 页面配置监听器、转发规则、绑定云服务器，详情请参见 [应用型 LB 快速入门](https://cloud.tencent.com/document/product/214/8975)。
+### 使用 IPv6 负载均衡
+登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在“监听器管理”页面配置监听器、转发规则、绑定云服务器，详情请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/9802a8e3baeffccb1b1ba853594b0755.png)
