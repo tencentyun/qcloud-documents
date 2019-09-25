@@ -21,7 +21,7 @@
 <span id="step3"></span>
 ## 步骤3：下载并配置 Demo 源码
 
-1. 从 [Github](https://github.com/tencentyun/TIMSDK) 克隆即时通信 IM Demo 工程。
+1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
      <tr>
