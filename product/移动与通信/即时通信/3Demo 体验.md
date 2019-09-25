@@ -8,7 +8,7 @@
   <tr>
     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/fb92ef0d89d4991274440a0671446daa.png" /></td>
     <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/8144c3dfa548ad0d945042804f8f40f3.png" /></td>
-    <td style="text-align:center"><img src="![](https://main.qcloudimg.com/raw/2941f70d899576cc8155aa628d7c67c0.png)" /></td>
+    <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/2941f70d899576cc8155aa628d7c67c0.png" /></td>
     <td style="text-align:center"><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524')" /></td>
   </tr>
 </table>
