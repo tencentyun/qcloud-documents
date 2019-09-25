@@ -1,7 +1,7 @@
 COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前推出了桌面端和移动端两种，详情可参见：
 
 - [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)
-- [移动端使用说明](https://cloud.tencent.com/document/product/436/38103)
+- [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
 
 ## COSBrowser 桌面端
 
