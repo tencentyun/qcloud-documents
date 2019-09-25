@@ -53,9 +53,9 @@
       <td>WXMini/dist/wx/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
+3. 设置`GenerateTestUserSig`文件中的相关参数：
  >?本文以使用 Android Studio 打开 Android 工程为例。
   >
-3. 设置`GenerateTestUserSig`文件中的相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  ![](https://main.qcloudimg.com/raw/bfbe25b15b7aa1cc34be76d7388562aa.png)
