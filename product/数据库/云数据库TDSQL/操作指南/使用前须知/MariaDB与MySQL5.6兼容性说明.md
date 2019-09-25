@@ -10,7 +10,7 @@ MariaDB 与 MySQL 5.6 高度兼容，已用于 MySQL 数据库的代码、应用
 - 可使用 MySQL 客户端连接到 MariaDB。
 
 ## MariaDB 和 MySQL 5.6 的不兼容性
-MariaDB 与 MySQL 5.6 有极少不兼容。MySQL 各个版本之间，如5.5与5.6、5.6与5.7也并非完全兼容。
+MariaDB 的 Binlog 默认采用 row 格式，而源生 MySQL、源生 MariaDB 默认采用 statement 格式。
 
 ### 1. GTID 不兼容
 MariaDB 的 GTID 和 MySQL 5.6 的 GTID 不兼容，即 MySQL 不能作为 MariaDB 的从库。
