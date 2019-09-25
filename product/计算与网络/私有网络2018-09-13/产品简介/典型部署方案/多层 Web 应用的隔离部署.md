@@ -106,8 +106,8 @@ CIDR（10.0.2.0/24），为了保证数据安全，单独分配一个数据子�
  </table>
  
 ## 操作步骤
-为部署多层 Web 应用，您需要完成以下步骤：
-1. 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/8113)。
+为部署多层 Web 应用，您需要完成如下步骤：
+1. 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/20109)。
 2. 创建 Web 层子网并添加云服务器，部署负载均衡服务， 详情请参见 [向子网中添加云服务器](https://cloud.tencent.com/document/product/215/20119) 和 [购买并创建负载均衡实例](https://cloud.tencent.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
 3. 创建逻辑层子网并添加云服务器，详情请参见 [向子网中添加云服务器](https://cloud.tencent.com/document/product/215/20119)。
 4. 创建数据层子网，添加云数据库，详情请参见 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128)。
