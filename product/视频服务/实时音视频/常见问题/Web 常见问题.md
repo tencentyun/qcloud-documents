@@ -17,7 +17,7 @@ Demo （Web）中已对本地的 video/audio 设置了 muted 属性，即设置�
 	<audio muted autoplay playsinline></audio>
 ```
 
->?使用两个移动端（Android 或 iOS）近距离测试时，也可能出现“啸叫”或者“重音”问题，只需将其中一端静音即可。
+>?使用两个移动端（Android 或 iOS）近距离测试时，也可能出现“啸叫”或者“重音”问题，只需将其中一端采集和播放同时静音即可。
 
 ### 音频需要很长时间才能听到
 如果您使用的是纯音频场景，请特别注意，使用 audio 标签来加载音频流，而不是使用video。
