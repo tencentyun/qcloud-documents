@@ -1,4 +1,4 @@
-Horovod，它的名字来自于俄国传统民间舞蹈，舞者手牵手围成一个圈跳舞，与分布式 TensorFlow 流程使用 Horovod 互相通信的场景很像。Horovod 是 Uber（优步）开源的又一个深度学习工，Horovod 在2017年10月，Uber 以 Apache 2.0授权许可开源发布。Horovod 是优步跨多台机器的分布式训练框架，现已加入开源计划 LF Deep Learning Foundation。目前智能钛支持 TensorFlow 和 PyTorch 的 horovod 加速框架。
+Horovod，与分布式 TensorFlow 流程使用 Horovod 互相通信的场景很像。Horovod 是 Uber（优步）开源的又一个深度学习工，Horovod 在2017年10月，Uber 以 Apache 2.0授权许可开源发布。Horovod 是优步跨多台机器的分布式训练框架，现已加入开源计划 LF Deep Learning Foundation。目前智能钛支持 TensorFlow 和 PyTorch 的 horovod 加速框架。
 #### 位置
 在【框架】>【深度学习】>【horovod】
 ![img](https://main.qcloudimg.com/raw/28d9734a48723aa1bc4f7f8ecca5fb85.png)
