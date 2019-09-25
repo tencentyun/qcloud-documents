@@ -6,31 +6,24 @@
 sudo parted -l /dev/sda | grep 'Partition Table'
 ```
 msdos 表示 MBR 分区；gpt 表示 GPT 分区。
-
 - 检查启动方式，目前服务迁移不支持 EFI 启动。
 ```
 sudo ls /sys/firmware/efi
 ```
 若文件存在，则目前系统是以 EFI 方式启动，需要确认 grub 中有传统方式的启动项。
-
 - 检查网络配置，目前服务迁移不支持 IPv6，不支持多网卡。依赖于 IPv6 和多网卡的服务都无法正常工作。
-
 - 检查系统关键文件，包括且不限于以下系统文件：
-> 请遵循相关发行版的标准，确保系统关键文件位置和权限正确无误，可以正常读写。
-
- - /etc/grub/grub.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动；
- - /etc/fstab：请勿挂载其它硬盘，迁移后可能会由于磁盘缺失导致系统无法启动；
+>? 请遵循相关发行版的标准，确保系统关键文件位置和权限正确无误，可以正常读写。
+>
+ - /etc/grub/grub.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动。
+ - /etc/fstab：请勿挂载其它硬盘，迁移后可能会由于磁盘缺失导致系统无法启动。
  - /etc/shadow：权限正常，可以读写。
-
 - 卸载会产生冲突的驱动和软件（包括 VMware tools，Xen tools，Virtualbox GuestAdditions 以及一些自带底层驱动的软件）。
-
 - 检查 virtio 驱动：请参考 [Linux 系统检查 virtio 驱动](https://cloud.tencent.com/document/product/213/9929)。
-
 - 安装 cloud-init：请参考 [cloud-init 安装文档](https://cloud.tencent.com/document/product/213/12587)。
-
 - 检查其它硬件相关的配置，如 Linux 桌面环境中的驱动设置。上云之后的硬件变化包括但可能不限于：
- - 显卡更换为 cirrus vga；
- - 磁盘更换为 virtio disk，设备名为 vda、vdb；
+ - 显卡更换为 cirrus vga。
+ - 磁盘更换为 virtio disk，设备名为 vda、vdb。
  - 网卡更换为 virtio nic，默认只提供 eth0。
 
 ## 二. 查找分区和大小
@@ -74,8 +67,7 @@ gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime
 从示例中可以看出根分区是在`/dev/sda1`，boot 和 home 没有独立分区。可以复制整个 sda，或者复制到 sda1 结束位置。
 
 导出的镜像中至少应该要包含根分区以及 mbr。如果`/boot`和`/home`独立分区的话，也需要包含这两个独立分区。
-> **注意：**
-> 复制时要包含 mbr，否则无法会启动，如上述示例，虽然 sda1 里也包含 boot 分区，但由于缺少 mbr 是无法启动的，必须要复制sda。
+>! 复制时要包含 mbr，否则无法会启动，如上述示例，虽然 sda1 里也包含 boot 分区，但由于缺少 mbr 是无法启动的，必须要复制sda。
 
 
 ## 三. 使用工具导出
@@ -123,8 +115,7 @@ Disk identifier: 0x0008f290
 可以看出 sda1 结束位置在 41945087 * 512 字节处，所以复制 20481M 即可。
 如果是全盘复制的话，count 参数可以忽略。
 
-> **注意：**
-> 使用命令手工导出的风险比较大，例如在 io 繁忙时可能造成文件系统的 metadata 错乱等。建议在导出镜像后，检查镜像完整无误。
+>! 使用命令手工导出的风险比较大，例如在 io 繁忙时可能造成文件系统的 metadata 错乱等。建议在导出镜像后，检查镜像完整无误。
 
 ## 五. 镜像格式转换
 目前腾讯云的服务迁移支持的镜像格式有：qcow2，vpc，vmdk，raw。建议使用压缩的镜像格式，可以节省传输和迁移的时间。
@@ -134,7 +125,7 @@ Disk identifier: 0x0008f290
 ```
 sudo qemu-img convert -f raw -O qcow2 test.img test.qcow2
 ```
-- `-f`为源端镜像文件格式；
+- `-f`为源端镜像文件格式。
 - `-O` 为目的端镜像文件格式。
 参数见 [第四节](#-o)。
 

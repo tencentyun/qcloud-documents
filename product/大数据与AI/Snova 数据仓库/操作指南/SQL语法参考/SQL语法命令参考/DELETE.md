@@ -20,7 +20,7 @@ DELETE 从指定的表中删除满足 WHERE 子句的行，如果该 WHERE 子�
 
 用户必须有对表的 DELETE 权限才能从中删除。
 
-**Outputs**
+**输出**
 
 成功完成后， DELETE 命令返回表单的命令标签。
 

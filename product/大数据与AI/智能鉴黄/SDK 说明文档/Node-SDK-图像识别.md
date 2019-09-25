@@ -100,6 +100,6 @@ npm run example
     - [名片识别（V2)](https://cloud.tencent.com/document/product/866/17595) - ocrBizCard
 
 * 图片识别
-    -  [图片标签](https://cloud.tencent.com/document/product/865/17592) - imgTagDetect
+    -  [图片分析](https://cloud.tencent.com/document/product/865/17592) - imgTagDetect
     -  [图片鉴黄](https://cloud.tencent.com/document/product/864/17609) - imgPornDetect
 

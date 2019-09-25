@@ -5,12 +5,11 @@
 
 ### 如何确定是否当前浏览器是否支持 WebRTC
 请使用 WebRTCAPI.fn.detectRTC 检测支持度，如果反馈false，业务应提供错误提示页面引导用户使用支持的环境。遇到特殊的 case 时，也可以通过
-- 打开能力检测页面进行检测
-  [https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html)
+- 打开 [能力检测页面](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 进行检测。
 - 通过创建工单寻求我们的协助。
 
-### 啸叫（或重音）
-特别注意，我们的demo中，对本地的video/audio，是有设置一个 muted 属性的，这里的意思是指将本地视频流播放时静音，否则，就会出现本地视频流的声音又一次作为音频输入源的循环中，造成我们常说的“啸叫”或者“重音”问题。
+### 出现啸叫（或重音）该如何处理？
+Demo （Web）中已对本地的 video/audio 设置了 muted 属性，即设置本地视频流静音播放。若不做设置，会将本地视频流的声音再次作为音频输入源，造成“啸叫”或者“重音”问题。
 
 ```html
 	<video muted autoplay playsinline></video>
@@ -18,6 +17,7 @@
 	<audio muted autoplay playsinline></audio>
 ```
 
+>?使用两个移动端（Android 或 iOS）近距离测试时，也可能出现“啸叫”或者“重音”问题，只需将其中一端静音即可。
 
 ### 音频需要很长时间才能听到
 如果您使用的是纯音频场景，请特别注意，使用 audio 标签来加载音频流，而不是使用video。
@@ -75,9 +75,9 @@ constraints 对象未设置，或者都被设置为 false。
 - 如果您使用了纯观众模式，不进行推流，特别注意，iOS不允许自动播放带声音的视频，远端视频流无法自动播放。需要在onRemoteStreamUpdate事件处理函数中，将远端流绑定到video标签后，加上video.play()。
 
 
-### 为什么关闭麦克风/静音了还有数据包
-静音包。
+### 为什么关闭麦克风/静音了还有数据包？
+闭麦克风或静音后仍会有静音包。
 
-### 为什么关闭摄像头了还有数据包
-黑屏包。
+### 为什么关闭摄像头了还有数据包？
+关闭摄像头后仍会有黑屏包。
 

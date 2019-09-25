@@ -1,5 +1,5 @@
 ## 操作场景
-该指南指导运维用户在登录数据安全网关系统后，使用 XFTP 方式登录 Linux 资源进行操作，通过 XFTP 工具能够上传下载文件。用户上传下载文件能够被数据安全网关记录并生成相关的审计数据。
+该指南指导运维用户在登录堡垒机系统后，使用 XFTP 方式登录 Linux 资源进行操作，通过 XFTP 工具能够上传下载文件。用户上传下载文件能够被堡垒机记录并生成相关的审计数据。
 
 ## 前提条件
 1. 已下载安装 [控件](https://cloud.tencent.com/document/product/1025/32034)。
@@ -8,13 +8,14 @@
 
 ## 操作步骤
 
-1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)。
-2. 运维用户登录数据安全网关系统。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)。
+2. 运维用户登录堡垒机系统。
 3. 在“单点登录”选项卡下，单击相应的授权岗位，进入运维类岗位列表，您可查看有权限访问的资源，如下图所示。
-    ![1](https://main.qcloudimg.com/raw/2056b1eabe9700caa4ba2aee23eb4bea.png)
+![](https://main.qcloudimg.com/raw/242d42921fc134d5906140848238446a.png)
 4. 在运维岗位列表页面，找到您需要登录的 Linux 资源，单击【配置登录】，在弹出的窗口中，配置如下信息。
  - **登录方式**：选择“XFTP 登录”。
  - **协议**：FTP 和 SFTP 两种协议，请根据实际环境选择。
  - **端口**：访问协议对应的访问端口，请根据实际环境选择。
-![2](https://main.qcloudimg.com/raw/35edde4040c04217b7c248fd3c29eb81.png)
+![](https://main.qcloudimg.com/raw/5cad32dce0043a4c3fa9df7792a882ca.png)
 5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用相关的工具连接到目标资源，目标资源连接成功后即可上传、下载文件。
+

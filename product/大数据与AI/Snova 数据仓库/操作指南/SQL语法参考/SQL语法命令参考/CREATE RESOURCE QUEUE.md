@@ -29,7 +29,7 @@ CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 
 带有 MAX_COST 阈值的资源队列在查询总代价上设置了一个最大限制，该查询能够被分配到该队列上的角色所执行。代价是按照数据库查询计划器（正如查询的 EXPLAIN 输出显示的）确定的查询的\*估计总成本*来进行衡量的。
 因此，管理员必须熟悉系统典型执行的查询，以对队列设置一个合适的代价阈值。代价是以磁盘页的提取为单位进行衡量的。1.0等于一个顺序的磁盘页面的读取。MAX_COST 的值被指定为浮点数（例如100.0）或者也可以被指定为指数（例如1e + 2）。
-如果基于成本阈值限制资源队列，则管理员可以允许 COST_OVERCOMMIT = TRUE（默认值）。这意味着超过成本阈值的查询将被允许查询，但只有当系统空闲的时候才行。如果指定 COST_OVERCOMMIT = FALSE，超过成本限制的查询将始终被拒绝，从不允许执行。对 MIN_COST 指定一个值，这将允许管理员定义小查询的成本，低于该成本的肖查询将免除排队的烦恼。
+如果基于成本阈值限制资源队列，则管理员可以允许 COST_OVERCOMMIT = TRUE（默认值）。这意味着超过成本阈值的查询将被允许查询，但只有当系统空闲的时候才行。如果指定 COST_OVERCOMMIT = FALSE，超过成本限制的查询将始终被拒绝，从不允许执行。对 MIN_COST 指定一个值，这将允许管理员定义小查询的成本，低于该成本的小查询将免除排队的烦恼。
 
 如果没有给 ACTIVE_STATEMENTS 或者 MAX_COST设定值，将被设置为默认值 -1（意味着没有限制）。在定义了资源队列之后，用户必须使用 [ALTER ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/ALTER_ROLE.html#topic1) 或者 [CREATE ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/CREATE_ROLE.html#topic1) 命令向队列分配角色。
 

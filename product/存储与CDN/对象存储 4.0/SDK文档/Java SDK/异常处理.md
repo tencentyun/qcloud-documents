@@ -1,0 +1,26 @@
+## 简介
+
+调用 SDK 请求 COS 服务失败时，抛出的异常皆是 RuntimeExcpetion，目前 SDK 常见的异常有 CosClientException，CosServiceException 和 IllegalArgumentException。
+
+
+## 客户端异常
+
+客户端异常 CosClientException，是由于客户端原因导致无法和服务端完成正常的交互而导致的失败，如客户端无法连接到服务端，无法解析服务端返回的数据，读取本地文件发生 IO 异常等。CosClientException 继承自 RuntimeException，没有自定义的成员变量，使用方法同 RuntimeException。
+
+## 服务端异常
+
+服务端异常 CosServiceException，用于指交互正常完成，但是操作失败的场景。例如客户端访问一个不存在 Bucket，删除一个不存在的文件，没有权限进行某个操作， 服务端故障异常等。CosServiceException 包含了服务端返回的状态码，requestid，出错明细等。捕获异常后，建议对整个异常进行打印，异常包含了必须的排查因素。以下是异常成员变量的描述：
+
+
+| request 成员 | 描述                                                         | 类型      |
+| ------------ | ------------------------------------------------------------ | --------- |
+| requestId    | 请求 ID， 用于表示一个请求， 对于排查问题十分重要            | String    |
+| traceId      | 辅助排查问题的 ID，                                          | String    |
+| statusCode   | response 的 status 状态码， 4xx 是指请求因客户端而失败， 5xx 是服务端异常导致的失败。 请参照 [COS 错误信息](https://cloud.tencent.com/document/product/436/7730) | String    |
+| errorType    | 枚举类， 表示异常的种类， 分为 Client， Service， Unknown    | ErrorType |
+| errorCode    | 请求失败时 body 返回的 Error Code 请参照 [COS 错误信息](https://cloud.tencent.com/document/product/436/7730) | String    |
+| errorMessage | 请求失败时 body 返回的 Error Message  请参照 [COS 错误信息](https://cloud.tencent.com/document/product/436/7730) | String    |
+
+## 常见问题
+
+若您在使用 Java SDK 过程中，有相关的疑问，请参阅 [常见问题](https://cloud.tencent.com/document/product/436/30746#java-sdk-.E7.B1.BB.E9.97.AE.E9.A2.98) 文档的 Java SDK 部分。

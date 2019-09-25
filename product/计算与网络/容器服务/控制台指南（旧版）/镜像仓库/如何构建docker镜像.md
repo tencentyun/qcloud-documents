@@ -90,7 +90,7 @@ docker.io/php                                  5.6-apache          eb8333e24502 
 7. Push 前先在本地运行，确保构建的镜像无误。
 
 ## 执行 Commit 实现打包生成镜像
-通过 Dockerfile 可以快速构建镜像，而通过 commit 生成镜像可以解决应用在部署过程中有大量交互内容，通过 Dockerfile 难以构建的问题。
+通过 Dockerfile 可以快速构建镜像，而通过 commit 生成镜像可以解决应用在部署过程中有大量交互内容以及难以通过 Dockerfile 构建的问题。
 
 通过 commit 构建镜像操作如下：
 1. 运行基础镜像容器，并进入console。

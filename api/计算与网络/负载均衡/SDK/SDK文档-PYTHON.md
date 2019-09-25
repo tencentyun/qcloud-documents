@@ -21,11 +21,9 @@ Python 2.x 目前不支持 Python 3
 使用 SDK 时，首先需要用户的云 API 密钥，云 API 密钥是对用户身份的合法性验证。
 
 获取云 API 密钥的方法如下：
-
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云 API 密钥】选项。
-
-用户可在此新建新的云 API 密钥或使用现有密钥。单击密钥 ID 进入详情页获取使用的密钥 secretId 和对应的 secretKey。
-![](https://mc.qcloudimg.com/static/img/47b2cf18add4d32a867f115fffb6af48/2.png)
+1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在左侧导航栏选择【访问密钥】>【API 密钥管理】。
+2. 用户可在此新建新的云 API 密钥或使用现有密钥。
+![](https://main.qcloudimg.com/raw/ad5adad7719bf7aa6d7979d9f6f617ae.png)
 
 
 #### CLB Python SDK下载
@@ -54,7 +52,7 @@ class QcloudApi:
 
 #### 2. 针对具体某个接口的使用示例：
 
-下面的代码在 Python SDK 中的 sample/application 目录下，创建应用型负载均衡四层监听器的接口 CreateForwardLBFourthLayerListeners.py，代码中 `region` 指的是要操作的实例的地域，根据实际情况来指定。
+下面的代码在 Python SDK 中的 sample/application 目录下，创建负载均衡四层监听器的接口 CreateForwardLBFourthLayerListeners.py，代码中 `region` 指的是要操作的实例的地域，根据实际情况来指定。
 
 ```
 #!/usr/bin/python
@@ -64,7 +62,7 @@ import os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)) + "/../..")
 from src.QcloudApi.qcloudapi import QcloudApi
 
-action = 'CreateForwardLBFourthLayerListeners'  # 创建应用型负载均衡四层监听器
+action = 'CreateForwardLBFourthLayerListeners'  # 创建负载均衡四层监听器
 
 """
 loadBalancerId 必传 负载均衡ID

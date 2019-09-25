@@ -27,13 +27,13 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 ### 开启功能
 #### 1. 选择存储桶
 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，在左侧导航栏中，单击【存储桶列表】，单击需要加速的存储桶，进入存储桶。
-![](https://main.qcloudimg.com/raw/0452527f6adfb8e57bde8e1bbc08e4ea.png)
+![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
 
 #### 2. 进入配置页面
 >!从未使用过腾讯云 CDN 服务的用户将无法进入【域名管理】，需先单击外链进入 CDN 控制台开通 CDN 服务。
 
 在页面上方单击【域名管理】，默认加速域名的初始状态为**关闭**。单击【编辑】，将当前状态设置为**开启**。
-![](https://main.qcloudimg.com/raw/c00f77ed375dccf34fb88e3118b1449f.png)
+![](https://main.qcloudimg.com/raw/90169099da40a28451808e4f41d94f31.png)
 **源站类型**：源站类型默认是**默认源站**，若作为源站的存储桶开启了静态网站，并且希望为静态网站加速，可以将源站类型设置为**静态网站源站**，具体详情请参阅 [CDN 加速概述](https://cloud.tencent.com/document/product/436/18669)。
 
 #### 3. 添加 CDN 服务授权（可选）
@@ -79,7 +79,7 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 回源鉴权是用来验证 CDN 边缘节点的服务身份以阻止非法访问，具体情况如下：
 - 公有读存储桶：CDN 边缘节点无需任何授权即可直接访问存储桶，无需开启回源鉴权。
 - 私有读存储桶：CDN 边缘节点需经回源鉴权验证服务身份，验证通过的 CDN 边缘节点才能访问存储桶中对象，单击开启【回源鉴权】>【保存】。
-![](https://main.qcloudimg.com/raw/f12d59eb2c9663b55ab3705dfb80ccf0.png)
+![](https://main.qcloudimg.com/raw/2e0d85ced4511a4091a584f6e1dd4223.png)
 
 >!对于私有读存储桶，开启回源鉴权和 CDN 服务授权会使 CDN 边缘节点访问源站时无需携带签名，CDN 缓存资源会进行公网分发，导致数据的安全性受到影响，因此强烈建议开启 CDN 鉴权。
 
@@ -90,14 +90,14 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 >!在为默认域名启用 CDN 加速之后，任何人都可以通过此域名直接访问源站，如果您的数据有一定的私密性，请您务必开启鉴权配置来保护您的源站数据。
 
 开启默认加速域名和回源鉴权后，默认加速域名管理界面下会出现一条 CDN 鉴权状态提示，可通过提示上【鉴权配置】直接跳转到对应域名的 CDN 安全配置页面进行配置。
-![鉴权配置](https://main.qcloudimg.com/raw/8ed30acab9085f97f052e9eda83e6740.png)
+![](https://main.qcloudimg.com/raw/b8d07449891a8843799efa225f017d9a.png)
 
 从 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进入 CDN 鉴权配置页面的路径为【域名管理】> 对应域名的【管理】>【安全配置】。具体配置步骤详见 [鉴权配置](https://cloud.tencent.com/document/product/228/33115) 。
 
 
 ### 关闭功能
 - 在默认加速域名管理界面，单击【编辑】，把状态从**开启**改成**关闭**，单击【 保存】，大约需要5分钟时间进行部署。部署完成之后在 CDN 控制台上该域名的状态由**已启动**变为**已关闭**。
-![](https://main.qcloudimg.com/raw/6e5456486ebc9b94c826a8170b7edb4a.png)
+![](https://main.qcloudimg.com/raw/029ef0a210a6fe1343bd5b7302c7d0d2.png)
 
 - 在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以对域名进行关闭/删除操作，详情请见 [域名操作](https://cloud.tencent.com/document/product/228/5736) 。
 >!在 CDN 控制台删除的只是默认加速域名在 CDN 加速时的记录，并不会将默认加速域名真正抹去，可在 COS 控制台重新开启默认加速域名。
@@ -105,14 +105,16 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 
 ## 对自定义加速域名配置 CDN 加速
 用户可以通过 COS 控制台为存储桶绑定自定义域名，绑定后开启 CDN 加速，便可通过自定义域名加速访问存储桶。绑定自定义域名时，用户需自行在自定义域名的服务提供商处添加 CNAME 解析。
->! 绑定存储桶的自定义域名需在工信部 [备案](https://cloud.tencent.com/product/ba)，否则自定义域名将无法被访问。 
+>! 目前 COS 使用自定义域名必须开启 CDN，请根据您的情况进行判断：
+1. 若您的域名接入国内 CDN，需要备案。但不要求必须通过腾讯云备案，保证接入的域名已备案即可。
+2. 若您的域名接入海外 CDN，不需要备案。但需要注意，您在腾讯云上存放的数据和操作行为仍需遵守相关国家的法律法规，以及[《腾讯云服务协议》](https://cloud.tencent.com/document/product/301/1967)。
 
 ### 开启功能
 >!COS 控制台和 CDN 控制台均可完成自定义域名添加及开启 CDN 加速，若要从 CDN 控制台添加自定义域名，可以参考 [域名接入](https://cloud.tencent.com/document/product/228/5734)。
 
 #### 1. 选择自定义域名要绑定的存储桶
 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，在左侧导航栏中，单击【存储桶列表】，单击需要加速的存储桶，进入存储桶。
-![](https://main.qcloudimg.com/raw/a2f4f607af4e6e7c8fd8526098250f27.png)
+![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
 
 #### 2. 添加自定义域名
 单击【域名管理】，进入域名管理页面，单击自定义域名下的【添加域名】，进入可配置状态。

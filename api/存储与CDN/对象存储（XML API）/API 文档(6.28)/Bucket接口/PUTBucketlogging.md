@@ -5,7 +5,7 @@ PUT Bucket Logging 接口用于为源存储桶开启日志记录，将源存储�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 ```shell
 PUT /?logging HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
@@ -16,19 +16,19 @@ Content-MD5: MD5
 Authorization: Auth String
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
+#### 请求头
 #### 公共头部
 
-该请求操作的实现需要用 Content-MD5 的请求头来验证消息的完整性，具体内容如下。其他公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现需要用 Content-MD5 的请求头来验证消息的完整性，具体内容如下。其他公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 |名称|描述|类型|必选 |
 |:---|:-- |:--|:--|
 | Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值，此头部用来校验文件内容是否发生变化。 | String| 是 |
 
-### 请求体
+#### 请求体
 该请求操作的实现需要有请求体。带所有节点的请求体内容示例如下：
 ```shell
 <BucketLoggingStatus>
@@ -60,18 +60,18 @@ Container 节点 LoggingEnabled 的内容：
 
 ## 响应
 
-### 响应头
+#### 响应头
 #### 公共响应头
-该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特殊响应头
 该响应无特殊的响应头。
 
-### 响应体
+#### 响应体
 该响应体返回为空。
 
 ## 实际案例
 
-### 请求
+#### 请求
 ```shell
 PUT /?logging HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
@@ -88,7 +88,7 @@ Content-Length: 147
 </BucketLoggingStatus>
 ```
 
-### 响应
+#### 响应
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml

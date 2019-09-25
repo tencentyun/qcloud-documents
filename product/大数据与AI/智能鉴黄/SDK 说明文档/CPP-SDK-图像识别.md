@@ -42,7 +42,7 @@ ImageAPI image(config);
 ### 调用对应的方法
 在创建完对象后，根据实际需求，调用对应的操作方法就可以了。
 ### 图片识别
-图片识别包括：图片鉴黄、图片标签、OCR - 身份证识别及 OCR - 名片识别。
+图片识别包括：图片鉴黄、图像分析、OCR - 身份证识别及 OCR - 名片识别。
 #### 图片鉴黄
 ```
 //单个或多个图片 Url
@@ -61,7 +61,7 @@ PornDetectReq pornReq2(BUCKET, pornImages);
 ret = image.PornDetect(pornReq);
 cout<<ret<<endl;      
 ```
-#### 图片标签
+#### 图像分析
 ```
 //单个图片 Url
 TagDetectReq tagReq(BUCKET);

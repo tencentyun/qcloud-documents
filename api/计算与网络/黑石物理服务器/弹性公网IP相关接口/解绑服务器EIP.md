@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 EipBmUnbindRs 接口用于解绑黑石物理服务器上的弹性公网EIP。需注意的是，解绑成功后的EIP会处于闲置状态，该状态下的EIP会收取闲置费，请及时[释放清理](/document/product/386/6676)。
  

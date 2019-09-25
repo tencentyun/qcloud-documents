@@ -1,14 +1,14 @@
-接口 GetCdnOverseaStatTop 通过入参 statType 不同可指定查询按境外流量/境外请求数排序的TOP URL，此文档对境外请求数 TOP 查询进行详细说明。
+接口 GetCdnOverseaStatTop 通过入参 statType 不同可指定查询按境外流量/境外请求数排序的 TOP URL，此文档对境外请求数 TOP 查询进行详细说明。
 ## 接口描述
 **GetCdnStatTop** 用于查询多域名/项目指定时间区间请求数 TOP 1000 URL 列表排名。
 请求域名：`cdn.api.qcloud.com`
 
->**注意：**
+>!
 - 可一次提交多个域名，查询整体请求数 TOP1000 URL，需填充对应 projectId。
 - 可一次提交多个项目，查询整体请求数 TOP1000 URL排名。
-- TOP 数据从日志中计算获取，数据延迟约 30 分钟。
-- 支持查询 90 天内的 TOP 数据。
-- 调用频次限制为 100 次 / 分钟。
+- TOP 数据从日志中计算获取，数据延迟约30分钟。
+- 支持查询90天内的 TOP 数据。
+- 调用频次限制为100次/分钟。
 - 接口暂不支持子账号调用。
 
 ## 请求参数
@@ -18,7 +18,7 @@
 | ---------- | ---- | ------ | ---------------------------------------- |
 | startDate  | 是    | String | 查询开始时间（日）                                |
 | endDate    | 是    | String | 查询结束时间（日）                                |
-| projects.n | 是    | String | 项目 ID，[查看项目ID](https://console.cloud.tencent.com/project) |
+| projects.n | 是    | String | 项目 ID，[查看项目 ID](https://console.cloud.tencent.com/project) |
 | hosts.n    | 否    | String | 域名                                       |
 | statType   | 是    | String | "requests"：表示按请求数排序                      |
 

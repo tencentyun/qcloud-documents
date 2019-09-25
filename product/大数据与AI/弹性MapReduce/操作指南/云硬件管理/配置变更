@@ -1,8 +1,0 @@
-## 配置变更
-登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在【云硬件管理】目录下可根据业务需要和节点类型在【变更配置】，变更相应配置。
-![](https://main.qcloudimg.com/raw/6913ea662d369953d04ec547a5f5d939.png)
-![](https://main.qcloudimg.com/raw/7a9e9a6bebee244bf1b180da5d2a4d13.png)
-步骤：
-1、确认相关变配信息，需认真阅读并勾选并同意变更信息。
-2、选择目标配置，选择变配的配置。
-3、费用确认，点击开始调整后，即可调整配置。

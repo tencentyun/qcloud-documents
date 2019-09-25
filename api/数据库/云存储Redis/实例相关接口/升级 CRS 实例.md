@@ -35,7 +35,7 @@
 |10701|InstanceNotExists|没有找到serialId对应的实例|
 |10703|InvalidMemSize|请求的容量不在售卖规格中（memSize应为1024的整数倍，单位：MB）|
 |11063|MemSizeNotInRange|请求的容量不在售卖容量范围内（请用[查询售卖规格](http://cloud.tencent.com/doc/api/260/4974)接口查询售卖容量限制）|
-|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）|
+|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（例如，流程中或已隔离或已删除）|
 |11057|ReduceCapacityNotAllowed| 请求容量小于实例实际容量，暂不支持缩容|
 |100207|OperationConstraints.AccountBalanceNotEnough| 账号余额不足，请充值|
 

@@ -11,7 +11,7 @@
 | 终止录制任务        | [StopRecord](https://cloud.tencent.com/doc/api/258/4724) |
 | 删除录制任务        | [DeleteRecord](https://cloud.tencent.com/doc/api/258/4729) |
 | 查询录制任务列表 | [DescribeRecordList](https://cloud.tencent.com/document/product/267/4731)|
-| 查询录制文件(荐)     | [GetVodRecordFiles](https://cloud.tencent.com/doc/api/258/5823) |
+| 查询录制文件（荐）     | [GetVodRecordFiles](https://cloud.tencent.com/doc/api/258/5823) |
 | 查询已录制分片列表     | [DescribeRecord](https://cloud.tencent.com/doc/api/258/4725) |
 
 

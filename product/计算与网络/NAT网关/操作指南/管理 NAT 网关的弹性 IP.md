@@ -7,7 +7,6 @@
  ![](https://main.qcloudimg.com/raw/5b503b63af709be21630c4d32be8c0c6.png)
  - 解绑弹性 IP
  在需要解绑的弹性 IP 操作栏中，单击【解绑】即可。
- >**注意：**
- >至少要保留一个弹性 IP。
- 
+ >!至少要保留一个弹性 IP。
+ >
  ![](https://main.qcloudimg.com/raw/67f6a8da57017f87407a5aba06c31638.png)

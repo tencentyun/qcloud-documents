@@ -7,7 +7,7 @@ Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象
 
 ## 通过 ResourceQuota 设置 Namespaces 资源的使用配额
 
-一个命名空间下可以拥有多个 ResourceQuota 资源，每个 ResourceQuota 可以设置每个 Namespace 资源的使用约束。可以设置 Namespces 资源的使用约束如下：
+一个命名空间下可以拥有多个 ResourceQuota 资源，每个 ResourceQuota 可以设置每个 Namespace 资源的使用约束。可以设置 Namespaces 资源的使用约束如下：
 - 计算资源的配额，例如 CPU、内存。
 - 存储资源的配额，例如请求存储的总存储。
 - Kubernetes 对象的计数，例如 Deployment 个数配额。
