@@ -13,7 +13,7 @@
 |ERR_CAMERA_OCCUPY|-1316|摄像头正在被占用中，可尝试打开其他摄像头|
 |ERR_MIC_START_FAIL|-1302|打开麦克风失败，例如在 Windows 或 Mac 设备，麦克风的配置程序（驱动程序）异常，禁用后重新启用设备，或者重启机器，或者更新配置程序|
 |ERR_MIC_NOT_AUTHORIZED|-1317|麦克风设备未授权，通常在移动设备出现，可能是权限被用户拒绝了|
-|ERR_MIC_SET_PARAM_FAIL|-1318|麦克风设置参数失败|
+|ERR_MIC_SET_PARAM_FAIL|-1318|麦克风设置参数失败。仅用于 iOS 和 Mac 中，请确保在使用 SDK 过程中，不要操作 AVAudioSession|
 |ERR_MIC_OCCUPY|-1319|麦克风正在被占用中，例如移动设备正在通话时，打开麦克风会失败|
 |ERR_MIC_STOP_FAIL|-1320|停止麦克风失败|
 |ERR_SPEAKER_START_FAIL|-1321|打开扬声器失败，例如在 Windows 或 Mac 设备，扬声器的配置程序（驱动程序）异常，禁用后重新启用设备，或者重启机器，或者更新配置程序|
