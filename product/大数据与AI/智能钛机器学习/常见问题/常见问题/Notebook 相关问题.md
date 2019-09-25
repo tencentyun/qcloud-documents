@@ -1,4 +1,4 @@
-﻿### 在平台 Notebook 里访问 COS 存储桶的数据文件，路径应该怎么填写？
+### 在平台 Notebook 里访问 COS 存储桶的数据文件，路径应该怎么填写？
 新建 notebook 的时候会选择 bucket，我们会把 bucket 里面的文件挂载到 notebook 容器中的 /cos_person 目录下，访问的时候，在路径前面加上 /cos_person 就可以了。
 
 ### 新建一个 Notebook，打开后却报502错误，应该怎么处理？
