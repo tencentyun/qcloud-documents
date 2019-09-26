@@ -2,9 +2,16 @@
 本文介绍了如何使用 VS Code 插件开发并部署 H5 页面，成功部署 H5 页面后填写 [礼物发送表](http://serverlesscloud.mikecrm.com/1bmzgEO) 即可领取礼物。
 
 ## 前提条件
-已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
+- 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
+- 已激活使用 SCF 权限。
+如果您从未使用过 SCF，您需要前往 [SCF 控制台](<https://console.cloud.tencent.com/scf/index?rid=1>) 打开函数页面进行权限激活。打开页面后会自动激活权限，无需其他操作。
+
 
 ## 操作步骤
+
+
+
+
 ### 安装 SCF CLI
 VS Code 插件部分功能依赖 SCF CLI，更多关于 SCF CLI 请参见 [概述](https://cloud.tencent.com/document/product/583/33445)。
 1. 请参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip)， 安装所需软件。
