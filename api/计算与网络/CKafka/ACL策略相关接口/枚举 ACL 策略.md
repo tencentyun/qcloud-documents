@@ -2,7 +2,7 @@
 
 ## 1. 接口描述
 
-本接口（ListAcl）用于为实例的用户删除 ACL 策略。
+本接口（ListAcl）用于枚举实例的 ACL 策略。
 
 接口请求域名：`ckafka.api.qcloud.com`
 
@@ -31,7 +31,7 @@
 | acls::host | String | ACL 策略作用的主机 IP  |
 | acls::principal | Int | ACL 关联的用户列表 |
 
-## 4.示例
+## 4. 示例
 
 
 输入：

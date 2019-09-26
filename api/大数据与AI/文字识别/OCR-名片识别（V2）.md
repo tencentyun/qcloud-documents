@@ -1,10 +1,14 @@
+>!
+- 名片识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[名片识别](https://console.cloud.tencent.com/ai/ocr/namecard)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/businesscard`
 本接口（businesscard）用于根据用户上传的名片图片，返回识别出的20多个字段信息，详细字段包括：姓名、英文姓名、职位、英文职位、部门、英文部门、公司、英文公司、地址、英文地址、邮编、邮箱、网址、手机、电话、传真、QQ、MSN、微信、微博、公司账号、logo、其他。
 
->!
+>?
 - 本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
-- 如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到该版本。
+- 如果开发者使用的是 V1 版本，为获得更优体验，请及时切换到 [新版名片识别](https://cloud.tencent.com/document/product/866/36214)。
 
 ## 请求头 header
 
@@ -24,7 +28,7 @@
 | 参数名       | 必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 是         | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看.                 |
-| image         | 否   | Binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 HTTP Body 中会返回用户设置的 filename 值。 |
+| image         | 否   | Binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 HTTP body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 HTTP Body 中会返回用户设置的 filename 值。 |
 | url_list	    | 否  |	String 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入。|
 
 ## 输出参数

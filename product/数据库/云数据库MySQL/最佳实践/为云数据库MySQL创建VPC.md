@@ -6,9 +6,8 @@
 [私有网络](https://cloud.tencent.com/document/product/215/20109) 至少包含一个子网，只有在子网中才可以添加云服务资源。
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧栏选择【私有网络】页。
 2. 在列表上方选择地域，单击【新建】创建私有网络，例如选择地域：华南地区（广州）。
-![](https://main.qcloudimg.com/raw/c2d8cab97a14ad69e145d320cef3e25d.png)
 3. 填写私有网络和子网的名称和 CIDR，并选择子网的可用区，单击【创建】即可。
-![](https://main.qcloudimg.com/raw/f5d2fc7859fbaa5d2e48f175d4c924f2.png)
+![](https://main.qcloudimg.com/raw/bac95b82ff25e07898f516dbf3c04e82.png)
 
 ## 2. 创建子网
 您可以同时创建一个或多个子网。
@@ -23,18 +22,18 @@
 1. 登录私有网络控制台，在左侧栏选择【路由表】页。
 2. 在列表上方选择地域和私有网络，单击【新建】。
 2. 在弹出的对话框中输入名称、所属网络及新建路由策略，单击【创建】。
-![](https://main.qcloudimg.com/raw/d646a5ed4b1e8af5e1720a354ae67448.png)
+![](https://main.qcloudimg.com/raw/fda9a210cb5d6f68247146f7f69013e9.png)
 3. 返回路由表列表即可看到您新建的路由表。
 4. 在左侧栏选择【子网】页，选择需要关联该路由表的子网，在【操作】列单击【更换路由表】进行关联。
 
 ## 4. 添加云数据库
 新购的云数据库支持在私有网络中使用，需要注意的是，**网络一旦选定将不可更改**。
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击【新建】，进入购买页。
-2. 在购买页的【网络】选项，单击【私有网络】，选择之前创建的私有网络以及相应子网，将新购的云数据库添加进私有网络。
+2. 在购买页的【网络】选项，选择【私有网络】，选择之前创建的私有网络以及相应子网，将新购的云数据库添加进私有网络。
 ![](https://main.qcloudimg.com/raw/4c6e7a353898521351145fecbd723f4e.png)
 
 ## 5. 添加云服务器
 新购的云服务器支持在私有网络中使用，需要注意的是，**网络一旦选定将不可更改。**
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击【新建】，进入购买页。
-2. 在购买页的【网络】选项，单击【私有网络】，选择与之前数据库相同的私有网络，将新购的云服务器添加到与云数据库相同的私有网络内。
- ![](https://mc.qcloudimg.com/static/img/ede1b30456b4fe9f46e6f0ea954f8c22/step11.png)
+2. 在购买页的【网络】选项，选择与之前数据库相同的私有网络，将新购的云服务器添加到与云数据库相同的私有网络内。
+ ![](https://main.qcloudimg.com/raw/cbc0494130c960640e0d44ba50d4b36c.png)

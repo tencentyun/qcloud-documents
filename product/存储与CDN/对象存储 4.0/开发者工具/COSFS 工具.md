@@ -11,7 +11,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ## 局限性
 **COSFS 基于 S3FS 构建， 仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
 
-- 随机或者追加写文件会导致整个文件的重写，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
+- 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 文件/文件夹的 rename 操作不是原子的。
 - 元数据操作，例如 list directory，性能较差，因为需要远程访问 COS 服务器。
@@ -25,7 +25,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 ### 安装步骤
 
 #### 1. 获取源码 
-您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录 `/usr/cosfs` 为例：
+您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
 ```shell
 git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
@@ -123,15 +123,17 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 #### 1. 配置密钥文件
 在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
 ```shell
+sudo su # 切换到 root 身份，以修改 /etc/passwd-cosfs 文件；如果已经为 root 用户，无需执行该条命令。
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
 >!您需要将 &lt;BucketName-APPID&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
->Bucket 命名规范，请参阅 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
+>Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
 
 **示例：**
 
 ```shell
+
 echo examplebucket-1250000000:AKIDHTVVaVR6e3:PdkhT9e2rZCfy6 > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
@@ -143,8 +145,8 @@ chmod 640 /etc/passwd-cosfs
 cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- &lt;MountPoint&gt; 为本地挂载目录（如 /mnt）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为 `http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 如： ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请查阅 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;MountPoint&gt; 为本地挂载目录（例如 /mnt）。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
 **示例：**
@@ -207,4 +209,4 @@ fusermount -u /mnt 或者 umount -l /mnt
 用来指定当缓存文件所在磁盘，剩余空间不足 [size] MB 大小时，COSFS 运行将尽量减少使用磁盘空间（单位： MB）。 COSFS 的上传下载都会使用磁盘文件缓存，当上传大文件时，若不指定该参数，会写满缓存文件所在的磁盘。如果指定 -ouse_cache=[path] 参数，缓存文件位于 path 目录下，否则，在 /tmp 目录下。
 
 ## 常见问题
-如果您在使用 COSFS 工具过程中，有相关的疑问，请参阅 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。
+如果您在使用 COSFS 工具过程中，有相关的疑问，请参见 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。

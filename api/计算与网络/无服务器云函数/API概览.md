@@ -15,3 +15,4 @@
 |---------|---------|---------|
 | [设置函数触发器](https://cloud.tencent.com/document/product/583/9748) | SetTrigger |  用于设置指定函数的触发器
 | [删除函数触发器](https://cloud.tencent.com/document/product/583/9749) | DeleteTrigger |  用于删除指定函数的指定触发器
+

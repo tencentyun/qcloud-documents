@@ -10,7 +10,7 @@
 
 在[应用列表][3]中，单击新建按钮。
 
-![应用guestbook示例-009.png][4]
+![应用guestbook示例-009.png](https://main.qcloudimg.com/raw/924dc0e0389bdfb0a77fb5c7d52d424d.png)
 
 ## 步骤三： 配置应用
 
@@ -19,7 +19,7 @@
 1. 填写应用名称和描述
 2. 选择地域和应用需要部署到的集群
 
-![应用guestbook示例-10.png][5]
+![应用guestbook示例-10.png](https://main.qcloudimg.com/raw/5a260c3f60ff8bcce9f33560950cef96.png)
 
 单击下一步进入应用编辑页面，可以对应用中模板内容和配置项进行进一步的修改。
 

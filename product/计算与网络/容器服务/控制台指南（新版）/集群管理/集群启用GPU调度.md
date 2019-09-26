@@ -71,4 +71,3 @@
 
 您可以通过应用或 Kubectl 命令创建，在 YAML 文件中添加 GPU 字段。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f2b3a751fd4bc0a3d443d7495fb1050.png)
-

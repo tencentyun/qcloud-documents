@@ -1,7 +1,6 @@
 ## 使用说明
 
 微软官方已于2015年7月14日起停止提供对 Windows Server 2003 和 Windows Server 2003 R2 的扩展支持服务。同时，在腾讯云运行 Windows Server 2003 系统的腾讯云服务器，在此日期后无法再获得微软的更新和补丁，并将面临程序兼容性、不稳定性、安全等问题及风险。
-
 为了保障您的业务安全稳定，我们建议您把现有的 Windows Server 2003 的云服务器迁移到 Windwos Server 的更高版本，如 Windows Server 2008 R2 和 Windows Server 2012 等。
 
 ## 风险提醒

@@ -12,4 +12,4 @@ LVB channel console: https: //console.cloud.tencent.com/live
 #### Video on-demand (VOD)
 VOD capability is the precondition for using recording feature.
 VOD documentation: https: //cloud.tencent.com/doc/product/267/2822
-VOD file console: http://console.cloud.tencent.com/video
+VOD file console: http://console.cloud.tencent.com/vod
