@@ -687,7 +687,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 系统音量类型，请参考 [TRTCAudioVolumeTypeAuto](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypeauto) 或者 [TRTCAudioVolumeTypeMedia](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypemedia)。 |
+| type | int | 系统音量类型，请参考 [TRTCSystemVolumeTypeAuto](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypeauto) 或者 [TRTCSystemVolumeTypeMedia](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypemedia)。 |
 
 __介绍__
 
