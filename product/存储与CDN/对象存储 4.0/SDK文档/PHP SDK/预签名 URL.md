@@ -20,14 +20,8 @@ try {
     $signedUrl = $cosClient->getPresignetUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-<<<<<<< HEAD
-        'Body' => '', //
-    ));
-    $signedUrl = $command->createPresignedUrl('+10 minutes'); //签名的有效时间
-=======
         'Body' => 'string'
-    ), '+10 minutes');
->>>>>>> update to v2(guzzlehttp)
+    ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);
 } catch (\Exception $e) {

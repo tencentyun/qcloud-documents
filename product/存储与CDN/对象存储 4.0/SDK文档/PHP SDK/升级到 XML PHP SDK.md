@@ -39,7 +39,7 @@ curl -sS https://getcomposer.org/installer | php
 ```
 {
     "require": {
-        "qcloud/cos-sdk-v5": "1.*"
+        "qcloud/cos-sdk-v5": ">=2.0"
     }
 }
 ```
