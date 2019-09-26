@@ -72,7 +72,7 @@
 
 ## 新网设置方法
 若您的 DNS 服务商为新网，您可通过如下步骤添加 CNAME 记录。
-![](https://main.qcloudimg.com/raw/caaa0fb6c0af5d58cc8012e9d090b5b9.png)
+![](https://main.qcloudimg.com/raw/656a08fdc068ef7189a8aee89521fb85.png)
 
 
 ## 验证 CNAME 是否生效
