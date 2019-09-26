@@ -3,7 +3,7 @@
 
 ## 前提条件
 - 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
-- 已激活使用 SCF 权限。
+- 已激活 SCF 使用权限。
 如果您从未使用过 SCF，您需要前往 [SCF 控制台](<https://console.cloud.tencent.com/scf/index?rid=1>) 打开函数页面进行权限激活。打开页面后会自动激活权限，无需其他操作。
 
 
