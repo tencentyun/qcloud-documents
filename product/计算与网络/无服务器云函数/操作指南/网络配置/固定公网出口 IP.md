@@ -29,7 +29,7 @@
 	<td>无弹性公网 IP</td>
 	</tr>
 		<tr>
-	<td>仅私有网络访问 </td>
+	<td>仅内网访问 </td>
 	<td>无弹性公网 IP</td>
 	<td>无弹性公网 IP</td>
 	<td>无弹性公网 IP</td>
@@ -43,7 +43,7 @@
 	<td>弹性公网 IP-y</td>
 	</tr>
 			<tr>
-	<td>私有网络访问且固定公网出口 IP </td>
+	<td>同一私有网络访问且固定公网出口 IP </td>
 	<td>弹性公网 IP-z</td>
 	<td>弹性公网 IP-z</td>
 	<td>弹性公网 IP-z </td>
