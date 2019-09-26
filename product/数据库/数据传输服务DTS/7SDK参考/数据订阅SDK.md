@@ -1,5 +1,5 @@
 ## 数据订阅 SDK 下载
-单击下载 [数据订阅 SDK Version 2.8.0](https://main.qcloudimg.com/raw/2e471276a1609b488776ae57d9ea6f83/binlogsdk-2.8.0-official.jar)。
+单击下载 [数据订阅 SDK Version 2.8.2](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/binlogsdk-2.8.2-jar-with-dependencies.jar)。
 
 ## 发布日志
 ### Version 2.8.2
