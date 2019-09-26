@@ -36,7 +36,7 @@
 10. 登录 [腾讯云备案系统](https://console.cloud.tencent.com/beian) ，进入【新增备案】管理页面。请您先完成【主体信息】>【网站信息】的填写，再在【上传材料】模块单击【继续上传】。如下图所示：
 >?具体备案过程请参考 [验证备案信息](https://cloud.tencent.com/document/product/243/18958#.E4.BA.8C.-.E9.AA.8C.E8.AF.81.E5.A4.87.E6.A1.88.E4.BF.A1.E6.81.AF)。
 >
-![](https://main.qcloudimg.com/raw/89034da7926825a409a6eaa27cf29e73.png)
+![](https://main.qcloudimg.com/raw/fbe70e2628d1dad1dd1c28a4ca15b2bb.png)
 11. 在上传材料页面，填写图片验证码，并单击【提交】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2c40e9be84c53ee76461525ee16031f6.png)
 12. 等待系统自动获取核验图片，单击【提交照片】，腾讯云将在1个工作日内完成复审。
