@@ -24,12 +24,15 @@
 <tr>
 <td colspan="2">特点</td>
 <td>与云服务器生命周期一致，云服务器释放后，普通公网 IP 也会释放。</td>
-<td><li>独立享有的 IP 资源，可随时与云服务器、NAT 网关等解绑、绑定。</li><li>不再需要时可以释放。</li></td>
+<td><li>独立享有的 IP 资源，可随时与云服务器、NAT 网关等绑定、解绑。</li><li>不再需要时可以释放。</li></td>
 </tr>
 <tr>
 <td colspan="2">价格</td>
 <td>普通公网 IP 可免费使用。</td>
-<td>弹性公网 IP 会收取<a href="https://cloud.tencent.com/document/product/213/17156" target="_blank"> IP 保留费用</a>，但在有绑定资源（云服务器、NAT 网关等）时减免 IP 保留费用。</td>
+<td><li>绑定：有绑定资源（如云服务器、NAT 网关）时，不收取 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">资源占用费</a>。</li>
+<li>未绑定：收取资源占用费。</li>
+<li>释放：不再收取任何费用。</li>
+</td>
 </tr>
 <tr>
 <td rowspan="4" >操作</td>
@@ -45,7 +48,7 @@
 </tr>
 <tr>
 <td>释放 IP</td>
-<td>如果您不再需要该公网IP，可以 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择【更多】>【IP/网卡】>【退还公网 IP】进行退还。</td>
+<td>如果您不再需要该公网IP，可在 <a href="https://console.cloud.tencent.com/cvm" target="_blank">云服务器控制台 </a>的操作栏下，选择【更多】>【IP/网卡】>【退还公网 IP】进行退还。</td>
 <td>可以在弹性公网 IP 控制台释放，详情请参见 <a href="https://cloud.tencent.com/document/product/213/16586#.E9.87.8A.E6.94.BE.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip" target="_blank"> 释放弹性公网 IP</a>。</td>
 </tr>
 <tr>
