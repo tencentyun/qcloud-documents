@@ -51,9 +51,9 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
-| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
 | PHP | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-php)|
 | Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
-| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
+| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
