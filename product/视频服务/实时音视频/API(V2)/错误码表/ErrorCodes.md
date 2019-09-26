@@ -13,11 +13,11 @@
 |ERR_CAMERA_OCCUPY|-1316|摄像头正在被占用中，可尝试打开其他摄像头|
 |ERR_MIC_START_FAIL|-1302|打开麦克风失败，例如在 Windows 或 Mac 设备，麦克风的配置程序（驱动程序）异常，禁用后重新启用设备，或者重启机器，或者更新配置程序|
 |ERR_MIC_NOT_AUTHORIZED|-1317|麦克风设备未授权，通常在移动设备出现，可能是权限被用户拒绝了|
-|ERR_MIC_SET_PARAM_FAIL|-1318|麦克风设置参数失败|
+|ERR_MIC_SET_PARAM_FAIL|-1318|麦克风设置参数失败。仅用于 iOS 和 Mac 中，请确保在使用 SDK 过程中，不要操作 AVAudioSession|
 |ERR_MIC_OCCUPY|-1319|麦克风正在被占用中，例如移动设备正在通话时，打开麦克风会失败|
 |ERR_MIC_STOP_FAIL|-1320|停止麦克风失败|
 |ERR_SPEAKER_START_FAIL|-1321|打开扬声器失败，例如在 Windows 或 Mac 设备，扬声器的配置程序（驱动程序）异常，禁用后重新启用设备，或者重启机器，或者更新配置程序|
-|ERR_SPEAKER_SET_PARAM_FAIL|-1322|扬声器设置参数失败|
+|ERR_SPEAKER_SET_PARAM_FAIL|-1322|扬声器设置参数失败。仅用于 iOS 和 Mac 中，请确保在使用 SDK 过程中，不要操作 AVAudioSession|
 |ERR_SPEAKER_STOP_FAIL|-1323|停止扬声器失败|
 |ERR_VIDEO_ENCODE_FAIL|-1303|视频帧编码失败，例如 iOS 设备切换到其他应用时，硬编码器可能被系统释放，再切换回来时，硬编码器重启前，可能会抛出|
 |ERR_AUDIO_ENCODE_FAIL|-1304|音频帧编码失败，例如传入自定义音频数据，SDK 无法处理|
@@ -90,7 +90,7 @@
 |ERR_SERVER_INFO_LACK_SDKAPPID|-100015|非法SDKAppid|
 |ERR_SERVER_INFO_INVALID|-100016|无效请求, 旧版 0x1 要求带 Token; ECDH 要求带 ECDH Publich Key; 两个都没有就按报错|
 |ERR_SERVER_INFO_ECDH_GET_KEY|-100017|生成公钥失败|
-|ERR_SERVER_INFO_ECDH_GET_TINYID|-100018|获取 tinyid 失败|
+|ERR_SERVER_INFO_ECDH_GET_TINYID|-100018| userSig 校验失败，请检查 TRTCParams.userSig 是否填写正确|
 |ERR_SERVER_ACC_TOKEN_TIMEOUT|-101000|token 过期|
 |ERR_SERVER_ACC_SIGN_ERROR|-101001|签名错误|
 |ERR_SERVER_ACC_SIGN_TIMEOUT|-101002|签名超时|

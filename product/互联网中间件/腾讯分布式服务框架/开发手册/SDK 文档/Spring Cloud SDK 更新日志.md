@@ -1,6 +1,15 @@
 ## Spring Cloud Finchley
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.14.3-Finchley-RELEASE（2019-09-10）
+
+#### Bug 修复
+- 修复限流 Bug。
+- 修复 TsfContext.putTag 覆盖 Bug。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
 ### 1.14.2-Finchley-RELEASE（2019-08-14）
 #### Bug 修复
 修复使用 RedisConnectionFactory 获取 Redis 连接，这种方式使用时的一个类型转化错误。
@@ -81,6 +90,15 @@
 
 ## Spring Cloud Edgware
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+
+### 1.14.2-Edgware-RELEASE（2019-09-10）
+
+#### Bug 修复
+- 修复限流 Bug。
+- 修复 TsfContext.putTag 覆盖 Bug。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
 
 ### 1.14.1-Edgware-RELEASE（2019-07-24）
 

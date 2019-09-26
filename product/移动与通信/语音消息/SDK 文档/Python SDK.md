@@ -1,12 +1,11 @@
 ## SDK 功能简介
 语音消息 SDK 支持以下操作：
 - [发送语音验证码](#发送语音验证码)
-- [发送语音通知](#发送语音通知)
 - [指定模板发送语音通知](#指定模板发送语音通知)
 
 >?
 >- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
+>只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
 >- 发送语音通知
 >数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
@@ -65,21 +64,6 @@ except Exception as e:
 print(result)
 ```
 
-<a id="发送语音通知" ></a>
-- **发送语音通知**
-```python
-from qcloudsms_py import SmsVoicePromptSender
-from qcloudsms_py.httpclient import HTTPError
-vpsender = SmsVoicePromptSender(appid, appkey)
-try:
-    result = vpsender.send("86", phone_numbers[0], 2, "5678",
-        playtimes=2, ext="")
-except HTTPError as e:
-    print(e)
-except Exception as e:
-    print(e)
-print(result)
-```
 <a id="指定模板发送语音通知" ></a>
 - **指定模版发送语音通知**
 ```python

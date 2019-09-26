@@ -1,5 +1,5 @@
 ## 创建网络 ACL
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表上方，选择地域和私有网络，单击【+新建】。
 ![](https://main.qcloudimg.com/raw/62c052935777f47cef2a77fcee75fc3e.png)
@@ -8,7 +8,7 @@
 5. 在列表页中，单击对应的 ACL ID 即可进入详情页，查看 ACL 规则及其关联子网。
 
 ## 增加网络 ACL 规则
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要修改的网络 ACL，单击其 ID，进入详情页。
 4. 新增出/入站规则，单击【出站规则】或【入站规则】>【编辑】>【新增一行】，选择协议类型并输入端口、源 IP，以及选择策略。
@@ -20,7 +20,7 @@
 5. 单击【保存】即可。
 
 ## 删除网络 ACL 规则
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要删除的网络 ACL，单击其 ID，进入"基本信息"页面。
 4. 单击【入站规则】或【出站规则】选项卡，进入"规则列表"页面。
@@ -35,7 +35,7 @@
 >!ACL规则的删除或恢复删除操作，必须保存后才会生效。
 
 ## 子网关联网络 ACL
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要关联的网络 ACL，单击其 ID，进入详情页。
 4. 在“基本信息”页面的“关联子网”模块，单击【新增关联】。
@@ -44,7 +44,7 @@
 ![2](https://main.qcloudimg.com/raw/a7a608ebaf447a6fc24a6f9f313d14e6.png)
 
 ## 子网解关联网络 ACL
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要解除关联的网络 ACL，单击其 ID，进入详情页。
 4. 解除关联子网有以下方法：
@@ -56,7 +56,7 @@
 ![3](https://main.qcloudimg.com/raw/93c7ebc3980f072d1194e87538ab1a79.png)
 
 ## 删除网络 ACL
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 选择地域和私有网络。
 4. 在列表中，找到需要删除的网络 ACL，单击其 ID，进入详情页。

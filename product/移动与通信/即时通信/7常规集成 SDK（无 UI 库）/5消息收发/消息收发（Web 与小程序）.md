@@ -35,7 +35,7 @@ tim.createTextMessage(options)
 // 1. 创建消息实例，接口返回的实例可以上屏
 let message = tim.createTextMessage({
   to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C
+  conversationType: TIM.TYPES.CONV_C2C,
   payload: {
     text: 'Hello world!'
   }
@@ -81,7 +81,7 @@ tim.createImageMessage(options)
 
 | Name | Type                        | Description                                                  |
 | ---- | --------------------------- | ------------------------------------------------------------ |
-| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片。 |
+| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
 
 **Web 示例**
 
@@ -141,7 +141,6 @@ wx.chooseImage({
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
-
 ### 创建文件消息
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
 
@@ -196,7 +195,7 @@ promise.then(function(imResponse) {
 
 **返回**
 
-消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
 
@@ -272,6 +271,12 @@ promise.then(function(imResponse) {
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
+
+>!调用该接口发送消息实例时，需要 SDK 处于 ready 状态，否则将无法发送消息实例。您可以通过以下监听事件获取 SDK 状态：
+ - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
+ - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
+>
+>接收推送的单聊、群聊、群提示以及群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
 
 **接口**
 
@@ -353,8 +358,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-请参考：[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
-
+请参考 [接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
 接受消息的接口，接收消息需要通过事件监听实现：
 
 **示例**
@@ -371,7 +375,7 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ### 解析文本消息
 
 <ul><li><b>简单版</b><br>
- 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
+ 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出“xxxxxxx”文字。</li>
 <li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
 
 <pre>
@@ -505,7 +509,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-请参考：[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)。
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
@@ -515,6 +519,8 @@ function parseGroupTipContent (payload) {
 tim.getMessageList(options)
 ```
 
+>?该接口可用于拉取历史消息。
+
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
@@ -522,7 +528,7 @@ tim.getMessageList(options)
 | Name               | Type     | Attributes | Default | Description    |
 | ------------------ | -------- | -------------- | -------------- | -------------- |
 | `conversationID`   | `String` |      -     |    -       | 会话 ID          |
-| `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可。          |
+| `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可          |
 | `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，最大值为15         |
 
 **示例**
@@ -597,7 +603,7 @@ tim.getConversationList()
 // 拉取会话列表
 let promise = tim.getConversationList();
 promise.then(function(imResponse) {
-  const conversationList = imResponse.data.conversationList; // 会话列表，用该列表覆盖原有的会话列表。
+  const conversationList = imResponse.data.conversationList; // 会话列表，用该列表覆盖原有的会话列表
 }).catch(function(imError) {
   console.warn('getConversationList error:', imError); // 获取会话列表失败的相关信息
 });
@@ -651,12 +657,12 @@ promise.then(function(imResponse) {
 
 ### 删除会话
 
-根据会话 ID 删除会话的接口。
+根据会话 ID 删除会话的接口，该接口只删除会话，不删除消息。例如，删除与用户 A 的会话，下次再与用户 A 发起会话时，之前的聊天信息仍在。
 
 **接口**
 
 ```javascript
-tim.getConversationProfile(conversationID)
+tim.deleteConversation(conversationID)
 ```
 
 **参数**
@@ -673,7 +679,7 @@ tim.getConversationProfile(conversationID)
 let promise = tim.deleteConversation('C2CExample');
 promise.then(function(imResponse) {
   //删除成功。
-  const { conversationID } = imResponse.data;// 被删除的会话 ID。
+  const { conversationID } = imResponse.data;// 被删除的会话 ID
 }).catch(function(imError) {
   console.warn('deleteConversation error:', imError); // 删除会话失败的相关信息
 });

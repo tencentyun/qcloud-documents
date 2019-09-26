@@ -113,7 +113,7 @@ Request body
 
 | 名称                | 父节点        | 描述                                                         | 类型      | 是否必选 |
 | ------------------- | ------------- | ------------------------------------------------------------ | --------- | -------- |
-| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。例如`SELECT s._1 FROM S3Object s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) | String    | 是       |
+| Expression          | SelectRequest | SQL   表达式，代表您需要发起的检索操作。例如`SELECT s._1 FROM COSObject s`。这个表达式可以从 CSV   格式的对象中检索第一列内容。有关 SQL 表达式的详细介绍，请参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) | String    | 是       |
 | ExpressionType      | SelectRequest | 表达式类型，该项为扩展项，目前只支持 SQL 表达式，仅支持 SQL 参数 | String    | 是       |
 | InputSerialization  | SelectRequest | 描述待检索对象的格式                                         | Container | 是       |
 | OutputSerialization | SelectRequest | 描述检索结果的输出格式                                       | Container | 是       |
@@ -132,10 +132,10 @@ Request body
 | -------------------------- | ------ | ------------------------------------------------------------ | ------- | -------- |
 | RecordDelimiter            | CSV    | 将 CSV 对象中记录分隔为不同行的字符，默认您通过`\n`进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String  | 否       |
 | FieldDelimiter             | CSV    | 指定分隔 CSV 对象中每一行的字符，默认您通过,进行分隔。您可以指定任意8进制字符，该参数最多支持1个字节。默认值为`, `。 | String  | 否       |
-| QuoteCharacter             | CSV    | 如果您待检索的 CSV 对象中存在于分隔符相同的字符串，您可以使用 QuoteCharacter 进行转义，避免该字符串被切割成几个部分。如 CSV 对象中存在`"a, b" `这个字符串，双引号"可以避免这一字符串被分隔成 `a` 和 `b` 两个字符。默认值为`" `。 | String  | 否       |
+| QuoteCharacter             | CSV    | 如果您待检索的 CSV 对象中存在包含分隔符的字符串，您可以使用 QuoteCharacter 进行转义，避免该字符串被切割成几个部分。如 CSV 对象中存在`"a, b" `这个字符串，双引号"可以避免这一字符串被分隔成 `a` 和 `b` 两个字符。默认值为`" `。 | String  | 否       |
 | QuoteEscapeCharacter       | CSV    | 如果您待检索的字符串中已经存在`"`，那您需要使用`"`进行转义以保证字符串可以正常转义。如您的字符串 `""" a , b """`将会被解析为`" a , b  "`。默认值为"。 | String  | 否       |
 | AllowQuotedRecordDelimiter | CSV    | 指定待检索对象中是否存在与分隔符相同且需要用"转义的字符。设定为 TRUE 时，COS   Select 将会在检索进行转义，这会导致检索性能下降；设定为 FALSE 时，则不会做转义处理。默认值为 FALSE。 | Boolean | 否       |
-| FileHeaderInfo             | CSV    | 待检索对象中是否存在列表头。该参数为存在 NONE、USE、IGNORE 三个选项。NONE 代表对象中没有列表头，USE 代表对象中存在列表头并且您可以使用表头进行检索（例如 `SELECT "name" FROM S3Object`），IGNORE 代表对象中存在列表头且您不打算使用表头进行检索（但您仍然可以通过列索引进行检索，如 `SELECT s._1 FROM S3Object s`）。合法值为 NONE、USE、IGNORE。 | Enum    | 否       |
+| FileHeaderInfo             | CSV    | 待检索对象中是否存在列表头。该参数为存在 NONE、USE、IGNORE 三个选项。NONE 代表对象中没有列表头，USE 代表对象中存在列表头并且您可以使用表头进行检索（例如 `SELECT "name" FROM COSObject`），IGNORE 代表对象中存在列表头且您不打算使用表头进行检索（但您仍然可以通过列索引进行检索，如 `SELECT s._1 FROM COSObject s`）。合法值为 NONE、USE、IGNORE。 | Enum    | 否       |
 | Comments                   | CSV    | 指定某行记录为注释行，该字符会被添加到该行记录的首字符。如果某一行记录被指定为注释，则 COS Select 将不对此行做任何分析。默认值为`#`。 | String  | 否       |
 
 **JSON container element (InputSerialization 子元素)**
@@ -157,7 +157,7 @@ Request body
 | QuoteFields          | CSV    | 指定输出结果为文件时，是否需要使用`"`进行转义。可选项包括 ALWAYS、ASNEEDED、ALWAYS 代表对所有本次输出的检索文件应用`"`，ASNEEDED 代表仅在需要时使用。合法值为 ALWAYS、ASNEEDED，默认值为 ASNEEDED。 | String | 是       |
 | RecordDelimiter      | CSV    | 将输出结果中的记录分隔为不同行的字符，默认通过`\n `进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String | 否       |
 | FieldDelimiter       | CSV    | 将输出结果中的每一行进行分列的字符，默认通过`,`进行分隔。您可以指定任意8进制字符，该参数最多支持1个字节。默认值为`, `。 | String | 否       |
-| QuoteCharacter       | CSV    | 如果输出结果中存在于分隔符相同的字符串，可以使用 QuoteCharacter 进行转义，保证该字符串不会在后续分析中被切割。如输出结果中存在`a,b`这个字符串，双引号`"`可以避免这一字符串被分隔成`a`和`b`两个字符，COS Select 将会将其转为`"a, b" `写入文件。默认值为`" `。 | String | 否       |
+| QuoteCharacter       | CSV    | 如果输出结果中存在包含分隔符的字符串，可以使用 QuoteCharacter 进行转义，保证该字符串不会在后续分析中被切割。如输出结果中存在`a,b`这个字符串，双引号`"`可以避免这一字符串被分隔成`a`和`b`两个字符，COS Select 将会将其转为`"a, b" `写入文件。默认值为`" `。 | String | 否       |
 | QuoteEscapeCharacter | CSV    | 如果您即将输出的字符串中已经存在`"`，那您需要使用`"`进行转义以保证该字符串可以正常转义。如您的字符串`" a , b"` 将会被在写入文件时被转换为`""" a , b """`。默认值为`" `。 | String | 否       |
 
 **JSON container element (OutputSerialization 子元素)**
@@ -406,7 +406,7 @@ Content-Length: content length
 
 <?xml version="1.0" encoding="UTF-8"?>
 <SelectRequest>
-    <Expression>Select * from S3Object</Expression>
+    <Expression>Select * from COSObject</Expression>
     <ExpressionType>SQL</ExpressionType>
     <InputSerialization>
         <CompressionType>None</CompressionType>
@@ -435,17 +435,17 @@ Content-Length: content length
 
 - 假设您使用列索引筛选对象中的内容，您可以使用`s._n`筛选第`n`列的数据，`n`最小为1。如下指令将从对象中筛选第3列数值大于100的记录，并返回这些记录的第1和第2列： 
 ```shell
-SELECT s._1, s._2 FROM S3Object s WHERE s._3 > 100
+SELECT s._1, s._2 FROM COSObject s WHERE s._3 > 100
 ```
 
 - 如果您的 CSV 对象中具有列表头，且您打算使用列表头的名称筛选对象中的内容（将`FileHeaderInfo`设置为`Use`），您可以使用`s.name`进行索引，如下指令将从对象中筛选表头名为`Id`和`FirstName`的对象：
 ```shell
-SELECT s.Id, s.FirstName FROM S3Object s
+SELECT s.Id, s.FirstName FROM COSObject s
 ```
 
 - 您也可以在 SQL 表达式中指定函数，如下指令将统计出第一列中小于1的记录数：
 ```shell
-SELECT count(*) FROM S3Object s WHERE s._1 < 1
+SELECT count(*) FROM COSObject s WHERE s._1 < 1
 ```
 
 如下为响应的例子：
@@ -472,7 +472,7 @@ Content-Length: content length
 
 <?xml version="1.0" encoding="UTF-8"?>
 <SelectRequest>
-    <Expression>Select * from S3Object</Expression>
+    <Expression>Select * from COSObject</Expression>
     <ExpressionType>SQL</ExpressionType>
     <InputSerialization>
         <CompressionType>NONE</CompressionType>
@@ -496,12 +496,12 @@ Content-Length: content length
 
 - 您可以通过 JSON 属性名称检索相应的数据，如下指令将从对象中筛选`city`数值为 Seattle 的记录，并返回这些记录的`country`和`city`信息：
 ```shell
-SELECT s.country, s.city from S3Object s where s.city = 'Seattle'
+SELECT s.country, s.city from COSObject s where s.city = 'Seattle'
 ```
 
 - 您也可以在 SQL 表达式中指定函数，如下指令将统计出 JSON 对象中的记录总数：
 ```shell
-SELECT count(*) FROM S3Object s
+SELECT count(*) FROM COSObject s
 ```
 
 ## 注意事项
