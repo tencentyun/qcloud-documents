@@ -6,13 +6,13 @@
 [点此注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct)
 
 
-## 步骤二：购买 Linux 云服务器
+## 步骤二：购买 Windows 云服务器
 
 [点此进入快速购买页面](https://buy.cloud.tencent.com/cvm?tab=lite)
 
 ![](https://main.qcloudimg.com/raw/f1a994e1e7dc79723cb03c5aac3a5e8e.png)
 
--  **地域**：选择与您最近的一个地区，比如我在“深圳”，地域选择“广州”。
+-  **地域**：选择与您最近的一个地区，例如我在“深圳”，地域选择“广州”。
 - **机型**：选择 “入门设置（1核1GB）”。 
 - **镜像**：您需要的云服务器操作系统。这里我们选择 “CentOS 7.2 64位”。
 - **公网带宽**：勾选后会为您分配公网 IP，默认为 “1Mbps”，您可以根据需求调整。
