@@ -71,7 +71,7 @@ Authorization: Auth String
 
 #### 请求
 
-如下请求申请查询存储桶`examplebucket-1250000000`下的标签信息，COS 解析该请求后并返回了该存储桶下已有的{age:18}和{name:xiaoming}两个标签。
+如下请求申请查询存储桶`examplebucket-1250000000`下的标签信息，COS 解析该请求后，并返回了该存储桶下已有的 {age:18} 和 {name:xiaoming} 两个标签。
 
 ```shell
 GET /?tagging HTTP/1.1
