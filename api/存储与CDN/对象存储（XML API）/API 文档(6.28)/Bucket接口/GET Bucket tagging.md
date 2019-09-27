@@ -2,7 +2,7 @@
 
 COS 支持为已存在的 Bucket 设置标签（Tag）。GET Bucket tagging 接口用于查询指定存储桶下已有的存储桶标签。
 
-> ?如您使用子账号调用此项接口，请确保您已经在主账号处获取了 GET Bucket tagging 这个接口的权限。
+> ?若您使用子账号调用此项接口，请确保您已经在主账号处获取了 GET Bucket tagging 这个接口的权限。
 
 ## 请求
 
@@ -32,7 +32,7 @@ Authorization: Auth String
 
 #### 响应体
 查询成功，返回 application/xml 数据，包含存储桶下已有的标签信息。
-```
+```shell
 <Tagging>
     <TagSet>
         <Tag>
