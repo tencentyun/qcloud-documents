@@ -20,7 +20,7 @@
 > 
 它们的弹性公网 IP 和云函数的绑定关系如下表所示：
 <table>
-<tr class="param"><th rowspan=2 class="param"><b>网络配置</b></th><th colspan=2 class="param"><b>命名空间 A</b></th><th colspan=2 class="param"><b>命名空间 B</b></th></tr>
+<tr><th rowspan=2 class="param"><b>网络配置</b></th><th colspan=2 class="param"><b>命名空间 A</b></th><th colspan=2 class="param"><b>命名空间 B</b></th></tr>
 <tr><th class="param"><b>函数 a</b></th><th class="param"><b>函数 b</b></th><th class="param"><b>函数 c</b></th><th class="param"><b>函数 d</b></th></tr>
 	<tr>
 	</tr>
@@ -79,8 +79,8 @@
 配置完成后，单击【保存】即可。
 
 <style>
-	.param{
-		align:center;
+th{
+		align:center !important;
 	}
 </style>
 
