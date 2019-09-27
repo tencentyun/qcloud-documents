@@ -1,13 +1,13 @@
 ![](https://main.qcloudimg.com/raw/debfa5fad2065bb82184057d6c1483ce.jpg)
 
 
-## 步骤一：注册腾讯云账号。
+## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
 
 [点击注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct)
 
 
-## 步骤二：购买 Windows 云服务器。
+## 步骤二：购买 Windows 云服务器
 
 [点击进入快速购买页面](https://cloud.tencent.com/document/product/213/6090)
 
@@ -21,7 +21,7 @@
 
 当您付费完成后，即完成了云服务器的购买。云服务器可以作为个人虚拟机或者您建站的服务器。接下来，我们可以登录您购买的这台服务器。
 
-## 步骤三：登录云服务器。
+## 步骤三：登录云服务器
 
 >! 通过快速购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中，此密码为登录云服务器的凭据。 [点击查看初始登录密码](https://console.cloud.tencent.com/message)。
 
