@@ -58,6 +58,6 @@
 </tbody></table>
 
 ## 内网 IP 地址
-内网 IP 地址是腾讯云内网服务的实现形式，无法通过 Internet 访问。每个云服务器实例都具有分配内网 IP 的默认网络接口（即 eth0 ），内网 IP 地址可由腾讯云自动分配，在私有网络环境下，内网 IP 地址也可由用户自定义。
-- 要获取实例的内网 IP 地址和设置 DNS，详情请参见 [获取内网 IP 地址和设置 DNS](https://cloud.tencent.com/document/product/213/17941)。
-- 您可以修改私有网络中云服务器实例的内网 IP，详情请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
+内网 IP 地址是腾讯云内网服务的实现形式，无法通过 Internet 访问。每个云服务器实例都具有分配内网 IP 的默认网络接口（即 eth0 ），内网 IP 地址可由系统自动分配，在私有网络环境下，内网 IP 地址也可由用户自定义。
+- 获取实例的内网 IP 地址和设置 DNS，请参见 [获取内网 IP 地址和设置 DNS](https://cloud.tencent.com/document/product/213/17941)。
+- 修改私有网络中云服务器实例的内网 IP，详情请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
