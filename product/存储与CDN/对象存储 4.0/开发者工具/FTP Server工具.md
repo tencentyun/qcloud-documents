@@ -23,7 +23,7 @@ COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，�
 - 操作系统：Linux，推荐使用腾讯 CentOS 系列 [云服务器](https://cloud.tencent.com/document/product/213)，暂时不支持 Windows 系统。
 - Python 解释器版本：Python 2.7，请参见 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 - 依赖包：
- - [cos-python-sdk-v5](https://github.com/tencentyun/cos-python-sdk-v5) （≥1.6.5）
+ - [cos-python-sdk-v5](https://pypi.org/project/cos-python-sdk-v5/) （≥1.6.5）
  - [pyftpdlib](https://pypi.org/project/pyftpdlib/) （≥1.5.2）
 
 

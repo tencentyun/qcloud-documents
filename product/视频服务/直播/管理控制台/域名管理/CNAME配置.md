@@ -47,7 +47,7 @@
 ![](https://main.qcloudimg.com/raw/f139c87b258c48981075de341c92e603.png)
 
 4. 添加解析记录，如下图所示：
-![](https://main.qcloudimg.com/raw/e7c11bc00e33e59676eb2945f1a4f963.png)
+![](https://main.qcloudimg.com/raw/7ed00d812a79bb472c6d5395ea5c8783.png)
  - 主机记录：填写二级域名，即域名前缀。若播放域名为 play.myqcloud.com，则添加 play；若需要直接解析主域名myqloud.com，则输入@；若需要解析泛域名，则输入\*。
  - 记录类型：CNAME 记录。
  - 解析路线：建议选择“默认”。
@@ -72,9 +72,9 @@
 
 ## 新网设置方法
 若您的 DNS 服务商为新网，您可通过如下步骤添加 CNAME 记录。
-![](https://main.qcloudimg.com/raw/caaa0fb6c0af5d58cc8012e9d090b5b9.png)
+![](https://main.qcloudimg.com/raw/656a08fdc068ef7189a8aee89521fb85.png)
 
 
 ## 验证 CNAME 是否生效
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 dig 或 nslookup 命令来查询 CNAME 是否生效，如果查询到后缀为 .myqcloud.com 的域名表示域名 CNAME 已生效。
-![](https://main.qcloudimg.com/raw/cc49dc693d41eefdc0130f0b8b3439e1.png)
+![](https://main.qcloudimg.com/raw/765fe7372475a9c8902f9f13b4d458e4.png)

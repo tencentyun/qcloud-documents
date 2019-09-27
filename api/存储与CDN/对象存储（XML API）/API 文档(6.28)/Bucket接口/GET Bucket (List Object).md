@@ -23,7 +23,7 @@ Authorization: Auth String
 | --- | --- | --- | --- |
 | prefix | 对象键匹配前缀，限定响应中只包含指定前缀的对象键 | string | 否 |
 | delimiter | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string | 否 |
-| encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，如“腾讯云”将被编码为`%E8%85%BE%E8%AE%AF%E4%BA%91` | string | 否 |
+| encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，例如“腾讯云”将被编码为`%E8%85%BE%E8%AE%AF%E4%BA%91` | string | 否 |
 | marker | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目 | string | 否 |
 | max-keys | 单次返回最大的条目数量，默认值为1000，最大为1000 | integer | 否 |
 
@@ -54,7 +54,7 @@ Authorization: Auth String
 <ListBucketResult>
 	<Name>string</Name>
 	<Prefix>string</Prefix>
-	<Marker/>
+	<Marker>string</Marker>
 	<MaxKeys>integer</MaxKeys>
 	<Delimiter>string</Delimiter>
 	<IsTruncated>boolean</IsTruncated>
@@ -99,7 +99,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| Name | ListBucketResult | 存储桶的名称，格式为`<BucketName-APPID>`，例如 `examplebucket-1250000000` | string |
+| Name | ListBucketResult | 存储桶的名称，格式为`<BucketName-APPID>`，例如`examplebucket-1250000000` | string |
 | EncodingType | ListBucketResult | 编码格式，对应请求中的 encoding-type 参数，且仅当请求中指定了 encoding-type 参数才会返回该节点 | string |
 | Prefix | ListBucketResult | 对象键匹配前缀，对应请求中的 prefix 参数 | string |
 | Marker | ListBucketResult | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目，对应请求中的 marker 参数 | string |
@@ -122,7 +122,7 @@ Authorization: Auth String
 | --- | --- | --- | --- |
 | Key | ListBucketResult.Contents | 对象键 | string |
 | LastModified | ListBucketResult.Contents | 对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
-| ETag | ListBucketResult.Contents | 根据文件内容计算出的哈希值 | string |
+| ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化<br>例如“8e0b617ca298a564c3331da28dcb50df”，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | Size | ListBucketResult.Contents | 对象大小，单位为 Byte | integer |
 | Owner | ListBucketResult.Contents | 对象持有者信息 | Container |
 | StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
@@ -131,7 +131,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| ID | ListBucketResult.Contents.Owner | 存储桶的 APPID | string |
+| ID | ListBucketResult.Contents.Owner | 对象持有者的 APPID | string |
 | DisplayName | ListBucketResult.Contents.Owner | 对象持有者的名称 | string |
 
 #### 错误码

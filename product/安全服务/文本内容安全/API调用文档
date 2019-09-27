@@ -1,0 +1,15 @@
+文本内容安全 API 调用接口如下所示：
+
+| 接口名称 | 接口功能 | 
+|---------|---------|
+|[AudioModeration](https://cloud.tencent.com/document/api/669/34505)	|音频内容检测|
+|[CreateFileSample](https://cloud.tencent.com/document/api/669/37189)|	新增文件类型样本|
+|[CreateTextSample](https://cloud.tencent.com/document/api/669/35620)|	新增文本样本|
+|[DeleteFileSample](https://cloud.tencent.com/document/api/669/37188)|	删除文件样本库|
+|[DeleteTextSample](https://cloud.tencent.com/document/api/669/35619)|	删除文字样本库|
+|[DescribeFileSample](https://cloud.tencent.com/document/api/669/37187)|	查询文件样本库|
+|[DescribeModerationOverview](https://cloud.tencent.com/document/api/669/34504)|	识别结果概览数据||
+|[DescribeTextSample](https://cloud.tencent.com/document/api/669/35618)|	查询文字样本库|
+|[ImageModeration](https://cloud.tencent.com/document/api/669/34503)|	图片内容检测|
+|[TextModeration](https://cloud.tencent.com/document/api/669/34502)|	文本内容检测|
+|[VideoModeration](https://cloud.tencent.com/document/api/669/34501)	|视频内容检测|

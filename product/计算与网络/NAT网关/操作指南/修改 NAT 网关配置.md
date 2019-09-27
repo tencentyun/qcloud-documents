@@ -5,4 +5,4 @@ NAT 网关创建后，您可以对其属性进行修改。
  - 修改网关类型，更改后实时设定，实时生效（变更类型不会中断原网络连接）。
  - 修改带宽上限。
  
-![1](https://main.qcloudimg.com/raw/291d27d0e7d235f519aca3627db4e9ed.png)
+![1](https://main.qcloudimg.com/raw/44ca3bc895ce850a3c79956e066059e9.png)

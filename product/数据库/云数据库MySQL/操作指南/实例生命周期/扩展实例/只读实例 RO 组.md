@@ -63,98 +63,68 @@
    - 实例延时超限剔除：是否启动剔除策略。被剔除的实例权重自动设置为0。若只读实例延迟超过阈值被剔除会向用户发出警告。
    - 延迟阈值：为只读实例设置延迟超限阈值，超过阈值的只读实例会被剔除 RO 组。
    - 最少保留实例数：组内需要保证的实例下限数，若现有只读实例数小于等于此下限且延迟时间超过阈值，现有只读实例均不被剔除。
-   - 读权重分配：RO 组支持系统自动分配权重和自定义权重两种权重设置方式。权重输入范围为0 - 100，且必须是整数。系统自动设置实例的读权重值列表：
+   - 读权重分配：RO 组支持系统自动分配权重和自定义权重两种权重设置方式。权重输入范围为0 - 100，且必须是整数。系统自动设置高 IO 版 MySQL 实例的读权重值列表：
 <table>
   <tr>
-    <th>配置类型</th>
-    <th>数据库类型</th>
     <th>实例规格</th>
     <th>权重</th>
   </tr>
   <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存1000MB</td>
 		<td>1</td>
   </tr>
   <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存2000MB</td>
 		<td>1</td>
   </tr>
   <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存4000MB</td>
 		<td>2</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存8000MB</td>
 		<td>2</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存12000MB</td>
 		<td>4</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存16000MB</td>
 		<td>4</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存24000MB</td>
 		<td>8</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存32000MB</td>
 		<td>8</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存48000MB</td>
 		<td>10</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存64000MB</td>
 		<td>12</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存96000MB</td>
 		<td>14</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存128000MB</td>
 		<td>16</td>
   </tr>
 	  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存244000MB</td>
 		<td>26</td>
   </tr>  <tr>
-    <td>高 IO 版</td>
-    <td>MySQL 实例</td>
 		<td>内存488000MB</td>
 		<td>50</td>
   </tr>
-</table>
+</table> 
  - 重新负载均衡：
  关闭重新负载均衡时，修改权重时仅对新增负载生效，不改变原长连接所访问的只读实例，不会引起数据库闪断。
   开启重新负载均衡时，数据库会有秒级闪断来断开所有连接，新增连接将按照设置的权重均衡负载。

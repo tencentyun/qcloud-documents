@@ -7,7 +7,7 @@
 | `TXVideoInfoReader`| 媒体信息获取 |
 | `TXVideoEditer` | 视频编辑 |
 
-##使用说明
+## 使用说明
 视频编辑的基本使用流程如下
 
 1. 设置视频路径

@@ -7,7 +7,7 @@
 
 ### 新建 DTS 数据迁移任务
 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页，单击【新建任务】。
-![](https://main.qcloudimg.com/raw/f77219716e287a9621b3636492761cd6.png)
+
 
 ### 设置源和目标数据库
 跳转页面后，填写任务设置、源库设置和目标库设置。
@@ -78,13 +78,6 @@ wal_level >= logical
 ![](https://main.qcloudimg.com/raw/9ea1ec694a672b98f168a81ee7080c6a.png)
 4. 重启源实例。
 >!如果使用指定库表功能，表使用了 rule 或者关联了其他表，有可能会导致增量迁移插入数据不成功，原因是一些 SQL 不在迁移的支持功能中。如果发生这种问题，可以使用 schema 迁移功能或者全部实例迁移功能。
-
-
-
-
-
-
-
 
 
 

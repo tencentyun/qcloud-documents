@@ -4,19 +4,19 @@ Apache Flume 是一个分布式、可靠、高可用的日志收集系统，支�
 Flume 基本结构如下：
 ![](https://mc.qcloudimg.com/static/img/291cf61049ab4820c10c05c6f0900850/00.png)
 
-Flume 以 agent 为最小的独立运行单位。一个 agent 就是一个 JVM。单个 agent 由 Source、Sink 和 Channel 三大组件构成。
+Flume 以 agent 为最小的独立运行单位。一个 agent 就是一个 JVM，单个 agent 由 Source、Sink 和 Channel 三大组件构成。
 ![](https://mc.qcloudimg.com/static/img/17244b0d3460b838f7b6764db5497c98/11.png)
 
 ##  Flume 与 Kafka 
-把数据存储到 HDFS 或者 HBase 等下游存储模块或者计算模块时需要考虑各种复杂的场景，例如并发写入的量以及系统承载压力、网络延迟等问题。Flume 设计作为灵活的分布式系统具有多种接口，同时提供可定制化的管道。
-在生产处理环节中，当生产与处理速度不一致时，Kafka 可以充当缓存角色。拥有 partition 结构以及采用 append 追加数据，使 Kafka 具有优秀的吞吐能力；同时其拥有 replication 结构，使 Kafka 具有很高的容错性。
+把数据存储到 HDFS 或者 HBase 等下游存储模块或者计算模块时需要考虑各种复杂的场景，例如并发写入的量以及系统承载压力、网络延迟等问题。Flume 作为灵活的分布式系统具有多种接口，同时提供可定制化的管道。
+在生产处理环节中，当生产与处理速度不一致时，Kafka 可以充当缓存角色。Kafka 拥有 partition 结构以及采用 append 追加数据，使 Kafka 具有优秀的吞吐能力；同时其拥有 replication 结构，使 Kafka 具有很高的容错性。
 所以将 Flume 和 Kafka 结合起来，可以满足生产环境中绝大多数要求。
 
 ## 开源 Kafka 接入方式
 ### 准备工作
--	 下载 [Apache Flume](http://flume.apache.org/download.html) （版本1.6.0之后兼容 Kafka）
--	下载 [Kafka](https://kafka.apache.org/downloads) （版本0.9.x以上，0.8已经不支持）
--	确认 Kafka 的 Source、 Sink 组件已经在 Flume 中
+-	 下载 [Apache Flume](http://flume.apache.org/download.html) （1.6.0以上版本兼容 Kafka）
+-	下载 [Kafka](https://kafka.apache.org/downloads) （0.9.x以上版本，0.8已经不支持）
+-	确认 Kafka 的 Source、 Sink 组件已经在 Flume 中。
 
 ### 接入方式
 Kafka 可作为 Source 或者 Sink 端对消息进行导入或者导出。

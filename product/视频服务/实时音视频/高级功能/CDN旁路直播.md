@@ -31,7 +31,7 @@
 
 ### 步骤1：开通服务
 
-在腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav) 的【功能配置】页面里可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
+登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击目标应用卡片，选择【功能配置】，您可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
 ![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
 
 ### 步骤2：独立画面
@@ -51,17 +51,15 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 
 我们通过如下例子来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
-例如 bizid = 8888， 房间号 = 12345，用户名 = userA， 用户当前使用了摄像头，
+例如，bizid = 8888，进行旁路直播的房间号 = 12345、用户名 = userA，用户当前使用了摄像头。
 
-那么 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8。
-
-所以 userA 这一路的腾讯云 CDN 观看地址是：
-
-flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
-hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
+1. 以此计算 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
+2. 按规则将 bizid 与 streamid 进行拼接，则 userA 这一路的腾讯云 CDN 观看地址为：
+ flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
+ hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
 ```
 
->! 上述实例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
+>! 上述示例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
 
 ### 步骤3：混合画面
 

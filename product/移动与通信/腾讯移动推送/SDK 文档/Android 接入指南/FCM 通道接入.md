@@ -1,45 +1,34 @@
 
 
 ## 操作场景
-
-fcm通道是信鸽和谷歌推出的各种推送通道，在外国可用谷歌service框架的手机上能够实现不打开应用收到推送消息。在没有fcm的手机rom下依旧走信鸽的推送通道。
+FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Service 框架的手机上，能够实现无需打开应用，即可收到推送消息。
 
 ## 操作步骤
-### 获取 FCM 推送秘钥
-1. j进入 [FireBase 官网](https://firebase.google.com/?hl=zh-cn)， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到信鸽的管理台。
-2. 下载 google-services.json 文件。
-如图所示：
-
-获取 JSON 文件：
-![](/assets/获取fcmjson.jpeg)
-
-获取服务器密钥：
-![](/assets/获取服务器密钥.jpeg)
-
+### 获取密钥
+进入 FireBase 官网， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到腾讯移动推送的管理台。
 
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
-![](/assets/配置json.png)
+![](https://main.qcloudimg.com/raw/568561b72a775058bf06750bfab38ed0.png)
 2. 配置 gradle，集成谷歌 service。
-  1. 在项目级的build.gradle文件中的dependencies节点中添加下面代码：
+  1. 在项目级的 build.gradle 文件中的 dependencies 节点中添加下面代码：
 ```xml
 classpath 'com.google.gms:google-services:4.2.0'
 ```
 >!如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
 
-  2. 在应用级的build.gradle文件中添加依赖
+  2. 在应用级的 build.gradle 文件中，添加依赖：
 	```xml
-	implementation 'com.tencent.tpns:fcm:1.0.9.1'
-	implementation  'com.google.firebase:firebase-messaging:17.6.0'
+	    implementation 'com.tencent.tpns:fcm:1.1.0.2-release' // fcm 推送
+        implementation  'com.google.firebase:firebase-messaging:17.6.0'
 
-	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进你应用model的根路径下
+	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进您应用model的根路径下
 	apply plugin: 'com.google.gms.google-services'
 	```
->!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险），详情请参考 [文档](https://developers.google.com/android/guides/setup#add_google_play_services_to_your_project)。
-
+>!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
 
 ### 启用 FCM 推送
-在调用信鸽注册代码 XGPushManager.registerPush 前，添加以下代码设置：
+在调用腾讯移动推送注册代码 XGPushManager.registerPush 前，添加以下代码设置：
 
 ```java
 XGPushConfig.enableOtherPush(this, true);

@@ -17,7 +17,7 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 ### 手工下载 cloud-init 源码包方式
 
 #### 下载 cloud-init 源码包
->?  在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 Cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
+>?  在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
 >
 执行以下命令，下载 cloud-init 源码包。
 ```
@@ -26,7 +26,7 @@ wget https://launchpad.net/cloud-init/trunk/17.1/+download/cloud-init-17.1.tar.g
 
 #### 安装 cloud-init
 1. 执行以下命令，解压 cloud-init 安装包。
->? 如果您使用的操作系统为Ubuntu，请切换至 root 帐号。
+>? 如果您使用的操作系统为 Ubuntu，请切换至 root 帐号。
 >
 ```
 tar -zxvf cloud-init-17.1.tar.gz 
