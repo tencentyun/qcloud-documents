@@ -111,3 +111,6 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/e177e583e85b2f2da8dbdd4d0fde334a.png)
 6. 在浏览器中访问此路径，即可看到成功部署的 H5 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d92b529543f096fed16d6f6a1573deef.jpg)      
+
+## 联系我们
+如果您在使用的过程中遇到问题以及对 Tencent Serverless 感兴趣，欢迎加入 QQ 群（854582882）与我们交流。
