@@ -13,8 +13,6 @@ GET /?tagging HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
-Content-Length: Content Length
-Content-Type: application/xml
 ```
 
 >?Authorization: Auth String（详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
