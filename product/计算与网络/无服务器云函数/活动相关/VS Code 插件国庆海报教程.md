@@ -113,4 +113,4 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/d92b529543f096fed16d6f6a1573deef.jpg)      
 
 ## 联系我们
-如果您在使用的过程中遇到问题以及对 Tencent Serverless 感兴趣，欢迎加入 QQ 群（854582882）与我们交流。
+如果您在使用的过程中遇到问题或者对 Tencent Serverless 感兴趣，欢迎加入 QQ 群（854582882）与我们交流。
