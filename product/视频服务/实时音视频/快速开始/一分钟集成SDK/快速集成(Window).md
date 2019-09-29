@@ -37,15 +37,15 @@
 <span id="Step4"></span>
 ### 步骤4：修改工程配置
 **步骤4.1：添加引用**
-1. 打开 TRTCCSharpDemo 项目所在的文件夹，并用文本编辑器编辑`TRTCCSharpDemo.csproj`文件。
-2. 在 Visual Studio 的【生成】目录下找到【配置管理器】并打开。
+1. 在 Visual Studio 的【生成】目录下找到【配置管理器】并打开。
+<span id="step4_1_2"></span>
+2. 在【活动解决方案平台】下拉框中选择【新建】，弹出【新建解决方案平台】对话框。
 <span id="step4_1_3"></span>
-3. 在【活动解决方案平台】下拉框中选择【新建】，弹出【新建解决方案平台】对话框。
-<span id="step4_1_4"></span>
-4. 输入或选择新平台，单击【确定】。
+3. 输入或选择新平台，单击【确定】。
  ![](https://main.qcloudimg.com/raw/75f07143f2c6a83a4d22e3f95f8f3864.png)
-5. 根据实际需求重复 [步骤3](step4_1_3) - [步骤4](step4_1_4)  新建需要支持的解决方案平台。
+4. 根据实际需求重复 [步骤2](step4_1_2) - [步骤3](step4_1_3)  新建需要支持的解决方案平台。
  ![](https://main.qcloudimg.com/raw/e7d906cbc18d32848a25cce38f50d20c.png)
+5. 打开 TRTCCSharpDemo 项目所在的文件夹，并用文本编辑器编辑`TRTCCSharpDemo.csproj`文件。
 6. 在`TRTCCSharpDemo.csproj`文件中的标签 `<itemGroup>`下添加以下内容：
   ```
   //添加对不同平台下的引用
