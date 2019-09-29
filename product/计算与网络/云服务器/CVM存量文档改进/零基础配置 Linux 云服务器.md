@@ -6,7 +6,7 @@
 [点此注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct)
 
 
-## 步骤二：购买 Windows 云服务器
+## 步骤二：购买 Linux 云服务器
 
 [点此进入快速购买页面](https://buy.cloud.tencent.com/cvm?tab=lite)
 
