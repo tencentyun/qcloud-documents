@@ -13,12 +13,11 @@
 您的系统版本信息可通过以下方法进行查看：
 1. 登录云服务器，并在桌面右键单击【计算机】>【属性】，打开“系统”窗口。
 2. 在“系统”的【查看有关计算机的基本信息】中，即可查看到系统版本信息。如下图所示：
-![](//mccdn.qcloud.com/static/img/5cd57bbbd48668cca57efdaba7e5ae84/image.png)   
+![](https://main.qcloudimg.com/raw/a812e310eff3567b5111f7ed91c711c4.png)   
 
 ### 更新 Virtio 网卡驱动方法
 >! 更新过程中网络会闪断，更新前请检查是否会影响业务，更新后需要重启计算机。
 >
-
 1. 通过云服务器中的浏览器下载适用于 Window Server 2008 R2 和 Windows Server 2012 R2 的 VirtIO 网卡驱动安装文件。 
 VirtIO 网卡驱动下载地址：http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi
 2. 下载完成后，双击启动安装程序，选择【典型】安装模式，单击【下一步】。如下图所示：
@@ -27,7 +26,8 @@ VirtIO 网卡驱动下载地址：http://mirrors.tencentyun.com/install/windows/
 ![](//mccdn.qcloud.com/static/img/f2f5aea8ed1aa8814e69fa9142254537/image.png) 
 安装过程中，如果出现如下的弹出框，请选择【始终安装此驱动程序软件】。
 ![](//mccdn.qcloud.com/static/img/ca48d6e37f5deb2f4575bc608f5c49d6/image.png)      
-4. 根据提示，重新启动计算机，即可完成更新。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+4. 根据提示，重新启动计算机，即可完成更新。
+
 
 ### 查看驱动版本
 

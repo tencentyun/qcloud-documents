@@ -35,7 +35,7 @@ ids.0=123&ids.1=1234
 | code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
-| data     | Array  | 结果数据，详细说明见下文<br/>详见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81) |
+| data     | Array  | 结果数据，详细说明见下文<br/>详见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
 
 ### 详细说明
 
@@ -75,8 +75,8 @@ ids.0=123&ids.1=1234
 | refer             | Object | 防盗链设置，详细说明见下文                                   |
 | cache_mode        | String | 缓存规则类型<br/>"simple"：表示缓存完全依赖控制台设置<br/>"custom"：则表示缓存依赖控制台设置的缓存时间和源站吐出的 max-age 的最小值 |
 | furl_cache        | String | 过滤参数<br/>"on"：开启全路径缓存，关闭过滤参数<br/>"off"：关闭全路径缓存，开启过滤参数 |
-| http2             | Int    | 是否开启HTTP2.0<br/>"1"：表示已开启http2.0                   |
-| ssl_type          | Int    | 是否开通HTTPS<br/>"0"：未开通HTTPS配置<br/>若为其他，则表示已开通HTTPS配置 |
+| http2             | Int    | 是否开启 HTTP2.0<br/>"1"：表示已开启 HTTP2.0                   |
+| ssl_type          | Int    | 是否开通 HTTPS<br/>"0"：未开通 HTTPS 配置<br/>若为其他，则表示已开通 HTTPS 配置 |
 | ssl_deploy_time   | String | SSL 部署时间                                                  |
 | ssl_expire_time   | String | SSL 过期时间                                                  |
 | ssl_cert_name     | String | 证书备注名                                                   |
@@ -92,7 +92,7 @@ ids.0=123&ids.1=1234
 | 参数名称         | 类型   | 描述                                                         |
 | ---------------- | ------ | ------------------------------------------------------------ |
 | backup_origin    | String | 备用源站设置                                                 |
-| https_switch     | String | https 强制跳转设置<br/>"on"：表示开启 https 强制跳转，默认跳转方式为302<br/>"off"：表示未开启 |
+| https_switch     | String | HTTPS 强制跳转设置<br/>"on"：表示开启 HTTPS 强制跳转，默认跳转方式为302<br/>"off"：表示未开启 |
 | follow302_switch | String | 302跟随配置<br/>"on"：表示开启302跳转跟随<br/>"off"：表示关闭302跳转跟随 |
 | ip_cc            | Object | IP 黑白名单配置<br/>"type"：2 表示白名单，1 表示黑名单<br/>"list"：具体的 IP/IP 段清单 |
 | ip_freq_limit    | Object | IP 访问限频配置<br/> "type"：1 表示开启，0 表示关闭<br/>"limit_count"：设置的 QPS 阈值 |

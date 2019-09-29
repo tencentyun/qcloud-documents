@@ -140,7 +140,7 @@ rect.width = 810;
 rect.height = 540;
 // ...其他配置
 ```
-![](https://main.qcloudimg.com/raw/d6783a450e339526e0ca0b2ed3ef6142.png)
+<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="400">
 
 ## 退出播放
 

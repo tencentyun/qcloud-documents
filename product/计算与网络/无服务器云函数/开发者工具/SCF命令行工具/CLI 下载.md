@@ -5,7 +5,7 @@
 
 | 操作系统   | 更新时间   | 版本   | 下载                                                         | 文档                                                         |
 | ---------- | ---------- | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Windows 64 | 2019-09-11 | V0.2.0 | [下载](https://scf-dev-tools-1253665819.cos.ap-guangzhou.myqcloud.com/scfcli.exe) | [快速入门](https://cloud.tencent.com/document/product/583/37510) [更新日志](https://cloud.tencent.com/document/product/583/36908) |
+| Windows 64 | 2019-09-11 | V0.2.0 | <a href="https://scf-dev-tools-1253665819.cos.ap-guangzhou.myqcloud.com/scfcli.exe" hotrep="document.product.scf.view.wendang.cli_download">下载 | [快速入门](https://cloud.tencent.com/document/product/583/37510) [更新日志](https://cloud.tencent.com/document/product/583/36908) |
 
 
 ## 联系我们
