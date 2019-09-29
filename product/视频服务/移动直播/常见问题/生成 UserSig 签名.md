@@ -15,7 +15,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
                                  base64(userid + sdkappid + currtime + expire)))
 ```
 
-<h2 id="Key">密钥获取</h2>
+<h3 id="Key">密钥获取</h3>
 
 访问实时音视频 [控制台](https://console.cloud.tencent.com/rav) 可以查询计算 UserSig 用的密钥，方法如下：
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
