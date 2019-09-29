@@ -3,14 +3,14 @@
 
 如需更换云服务器的公网 IP 地址，详情请参见如下操作步骤。
 
-### 一、 腾讯云服务器转弹性 IP 如何操作？
+### 腾讯云服务器转弹性 IP 如何操作？
 若当前云服务器的公网 IP 地址还不是弹性公网 IP，则需要先转换为弹性公网 IP 地址，以便于在更换后继续保留该 IP。
 首先，进入 [腾讯云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。在 “主IP地址列” 下，单击 “转换为弹性 IP” 按钮，单击【确定转换】。
 ![](https://main.qcloudimg.com/raw/fe92e1b6dfb7db8ab4ce60b23ea20382.png)
 >**说明：**
 >将当前公网 IP转换为弹性 IP 地址，转发过程不会中断服务。
 
-### 二、 弹性 IP 转公网 IP 如何操作？
+### 弹性 IP 转公网 IP 如何操作？
 在 “操作” 列 “更多” 下，选择 “IP 操作” 里的 “解绑弹性 IP”，并同时勾选 “解绑后免费分配公网 IP”，单击 【确定】。此时云服务器的 IP 已更为新的公网 IP 地址。
 ![](https://main.qcloudimg.com/raw/7b17baa39966082c9e9141df34b6da6d.png)
 ![](https://main.qcloudimg.com/raw/f53d07b45b605f774b92cbacd7d13234.png)
