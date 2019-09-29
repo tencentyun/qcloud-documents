@@ -5,6 +5,8 @@
 - 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
 - 已激活 SCF 使用权限。
 如果您从未使用过 SCF，您需要前往 [SCF 控制台](<https://console.cloud.tencent.com/scf/index?rid=1>) 打开函数页面进行权限激活。打开页面后会自动激活权限，无需其他操作。
+- 已安装 Node.js 8.9 或 Node.js 6.10。若未安装，请前往 [Node.js 官网](https://nodejs.org/zh-cn/download/releases/) 选择对应的版本进行安装。
+- 已安装  Python 2.7（及以上版本）或 Python 3.6（及以上版本）。若为安装，请参考  [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip)， 安装所需软件。
 
 
 ## 操作步骤
@@ -14,9 +16,9 @@
 
 ### 安装 SCF CLI
 VS Code 插件部分功能依赖 SCF CLI，更多关于 SCF CLI 请参见 [概述](https://cloud.tencent.com/document/product/583/33445)。
-1. 请参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip)， 安装所需软件。
-2. 执行  `pip install scf` 命令，安装 SCF CLI。
-3. 安装后执行 `scf --version` 命令验证是否安装成功。
+
+1. 执行  `pip install scf` 命令，安装 SCF CLI。
+2. 安装后执行 `scf --version` 命令验证是否安装成功。
 输出结果如下，则成功安装 SCF CLI。如果未安装成功，请参考 [SCF 工具类常见问题](<https://cloud.tencent.com/document/product/583/33456>)。
 ```
 SCF CLI, version 0.0.1
@@ -72,6 +74,13 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)        
 
 
+### 设置函数运行环境
+1. 请查看您正在使用的 Node.js 版本是否为 `Node.js 8.9.x` 或 `Node.js 6.10.x`。
+>?若您使用 Node.js 8.9.x 版本，请跳过此步骤。
+>
+3. 若您使用 Node.js 6.10.x 版本，单击左侧导航栏<img src="https://main.qcloudimg.com/raw/ac3668c67f7d6a66f977d5b32474390f.png" style="margin:-3px 0;">，打开 `template.yaml` 文件进入代码编辑页面。
+4. 将 `Runtime:Nodejs8.9` 修改为 `Runtime:Nodejs6.10`，并保存文件。如下图所示：
+![](https://main.qcloudimg.com/raw/ed6681c8c57ab909649c0d93e133d76e.png)
 
 ### 修改函数
 1. 单击左侧导航栏<img src="https://main.qcloudimg.com/raw/ac3668c67f7d6a66f977d5b32474390f.png" style="margin:-3px 0;">，打开 `index.js` 文件进入代码编辑页面。
@@ -102,3 +111,6 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/e177e583e85b2f2da8dbdd4d0fde334a.png)
 6. 在浏览器中访问此路径，即可看到成功部署的 H5 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d92b529543f096fed16d6f6a1573deef.jpg)      
+
+## 联系我们
+如果您在使用的过程中遇到问题或者对 Tencent Serverless 感兴趣，欢迎加入 QQ 群（854582882）与我们交流。

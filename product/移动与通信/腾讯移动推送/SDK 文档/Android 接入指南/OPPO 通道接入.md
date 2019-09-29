@@ -8,8 +8,13 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 - OPPO 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 自建通道进行补推发送。
 
 ## 操作步骤
+### 开通权限
+使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在“管理中心 > 应用服务平台 > 移动应用列表 > 选择应用 > 开发服务 > 推送服务”中完成 OPPO PUSH 权限申请。
+
 ### 获取密钥
-开发者需向 OPPO 申请开通推送权限，获取到 AppKey、AppSecret、master secret 三个密钥。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=1019 )。
+>?仅开发者帐号（主帐号）可查看。
+
+Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.com/) > 配置管理 > 应用配置页面，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
 
 
 ###  配置内容
