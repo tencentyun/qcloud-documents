@@ -121,5 +121,5 @@ System.BadImageFormatException:“未能加载文件或程序集“ManageLiteAV,
 ```
 System.IO.FileNotFoundException:“未能加载文件或程序集“ManageLiteAV.dll”或它的某一个依赖项。找不到指定的模块。”
 ```
-- 由于 windows 不同版本可能存在兼容性问题，目前在 C# SDK 中新增了解决兼容性问题的 dll 文件，文件清单如下图所示。
+- 由于 Windows 不同版本可能存在兼容性问题，目前在 C# SDK 中新增了解决兼容性问题的 dll 文件，文件清单如下图所示。
 	![](https://main.qcloudimg.com/raw/1467310c3f5b2ab7271376902d23a2be.png)
