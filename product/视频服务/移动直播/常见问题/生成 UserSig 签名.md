@@ -1,4 +1,4 @@
-<h2 id="UserSig"> UserSig 介绍 </h2>
+<h3 id="UserSig"> UserSig 介绍 </h3>
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 
@@ -23,7 +23,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 ![](https://main.qcloudimg.com/raw/6ae9ecfe80c0f21947ddf0d639885025.png)
 
-<h2 id="Client">客户端计算</h2>
+<h3 id="Client">客户端计算</h3>
 
 我们在 IM SDK 的示例代码中提供了一个叫做`GenerateTestUserSig`的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用`genTestUserSig()`函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
@@ -40,7 +40,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 >
 >正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
 
-<h2 id="Server">服务端计算</h2>
+<h3 id="Server">服务端计算</h3>
 
 采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：
 
@@ -66,7 +66,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
 
-## 老版本算法
+### 老版本算法
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019-08-06开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从2019-08-06之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
