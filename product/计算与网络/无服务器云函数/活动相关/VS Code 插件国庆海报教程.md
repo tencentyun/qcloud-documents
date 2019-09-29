@@ -37,8 +37,9 @@ SCF CLI, version 0.0.1
 ![](https://main.qcloudimg.com/raw/15592fb57aa84d524c07554dd852b31c.png)
  - AppId：请前往 [账号信息](https://console.cloud.tencent.com/developer) 获取。
  - ServiceId 及 ServiceKey：请前往 【访问管理】>【访问密钥】>【[API 密钥](https://console.cloud.tencent.com/cam/capi)】获取。
- >?若您未创建 ServiceId 及 ServiceKey，请在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
- >
+ >!
+ >- 若您未创建 ServiceId 及 ServiceKey，请在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
+ >- 函数期望所在地域请勿选择**成都**。
 
 ### 创建函数
 您可根据实际需求，选择以下方式使用 VS Code 插件创建函数。
