@@ -1,4 +1,4 @@
-![](https://main.qcloudimg.com/raw/debfa5fad2065bb82184057d6c1483ce.jpg)
+![](https://main.qcloudimg.com/raw/d643781693d27439ad67048dd369f981.jpg)
 
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
@@ -10,7 +10,7 @@
 
 [点此进入快速购买页面](https://buy.cloud.tencent.com/cvm?tab=lite)
 
-![](https://main.qcloudimg.com/raw/f1a994e1e7dc79723cb03c5aac3a5e8e.png)
+![](https://main.qcloudimg.com/raw/9c98a58a292028998842c14965908c84.jpg)
 
 -  **地域**：选择与您最近的一个地区，例如我在“深圳”，地域选择“广州”。
 - **机型**：选择 “入门设置（1核1GB）”。 
