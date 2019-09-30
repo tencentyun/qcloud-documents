@@ -4,12 +4,14 @@
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
 
-[点击注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct)
+<a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点击注册腾讯云账号&nbsp;&nbsp;</button></a>
 
 
 ## 步骤二：购买 Windows 云服务器
 
-[点击进入快速购买页面](https://cloud.tencent.com/document/product/213/6090)
+<a href="https://buy.cloud.tencent.com"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点击进入快速购买页面&nbsp;&nbsp;</button></a>
+
+[](https://cloud.tencent.com/document/product/213/6090)
 
 ![](https://main.qcloudimg.com/raw/4e0ce6a41f857a82ae6387f4a5db208a.jpg)
 
