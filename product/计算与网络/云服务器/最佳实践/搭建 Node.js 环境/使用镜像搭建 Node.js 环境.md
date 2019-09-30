@@ -30,7 +30,7 @@
 >
 1. 在实例的管理页面，找到待启动的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f6c1d0c3ce0b474b0b12bd9c6c9eec5.png)
-2. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成云服务器登陆操作。
+2. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成云服务器登录操作。
 3. 执行以下命令，新建并编辑 `test.js` 文件。
 ```
 vim test.js
