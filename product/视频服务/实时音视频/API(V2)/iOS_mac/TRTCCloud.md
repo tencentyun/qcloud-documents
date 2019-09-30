@@ -672,7 +672,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32261#trtcaudiorecordingparams) * | 录音参数，请参考TRTCAudioRecordingParams。 |
+| param | TRTCAudioRecordingParams * | 录音参数，请参考 [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32261#trtcaudiorecordingparams)。 |
 
 __返回__
 
@@ -680,7 +680,7 @@ __返回__
 
 __介绍__
 
-该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM 等)录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
+该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 ### stopAudioRecording
@@ -707,7 +707,7 @@ __参数__
 |-----|-----|-----|
 | type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考 TRTCSystemVolumeType。 |
 
->?需要在调用 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前调用该接口。
+>?需要在调用 [startLocalAudio](#startlocalaudio) 之前调用该接口。
 
 
 ## 摄像头相关接口函数
