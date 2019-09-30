@@ -1,15 +1,14 @@
 ## 操作场景
-本文档介绍了在 Linux 操作系统的腾讯云云服务器（CVM）手动部署 Java Web 环境。
-文档包含软件安装内容，请确保您已经熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+本文档介绍了在 Linux 操作系统的腾讯云云服务器（CVM）手动部署 Java Web 环境。文档包含软件安装内容，请确保您已经熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 Java Web 环境组成及说明：
-- Linux：Linux 操作系统，本文以 CentOS 6.9 及 CentOS 7.6 为例。
-- Tomcat：
-- JDK：Java 开发工具包，本文使用 jdk-8u221-linux-x64.tar.gz 版本。
+- Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
+- Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.46 为例。
+- JDK：Java 开发工具包，本文使用 jdk 1.8.0_221 版本。
 
 
 ## 前提条件
-请登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。在 root 权限下，根据以下步骤进行部署。
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 
 ## 操作步骤
 ### 创建并登录云服务器
@@ -26,14 +25,14 @@ Java Web 环境组成及说明：
 ### 安装 JDK
 1. 下载 JDK 源码包，您可前往 [Java SE 下载](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 页面选择需要的版本。
 >?请先将 JDK 源码包下载到本地，再上传至云服务器，否则会出现解压错误。
-> - 若您使用机器为 Windows 操作系统，可 [通过 WinSCP 上传文件](https://cloud.tencent.com/document/product/213/2131)。
-> - 若您使用机器为 Mac 或 Linux 操作系统，可 通过 [SCP 上传文件](https://cloud.tencent.com/document/product/213/2133)。
+> - 若您使用机器为 Windows 操作系统，可通过 [ WinSCP 上传文件](https://cloud.tencent.com/document/product/213/2131)。
+> - 若您使用机器为 Mac 或 Linux 操作系统，可通过 [SCP 上传文件](https://cloud.tencent.com/document/product/213/2133)。
 >
 2. 执行以下命令，新建 JDK 安装目录。
 ```
 mkdir /usr/java
 ```
-3. 请根据您实际使用的 JDK 版执行以下命令，将 JDK 源码包解压到指定位置。
+3. 请根据您实际使用的 JDK 版执行以下命令，并将 JDK 源码包解压到指定位置。
 ```
 tar xzf jdk-xxxxxx-linux-x64.tar.gz -C /usr/java
 ```
@@ -85,7 +84,7 @@ vim /usr/local/tomcat/conf/server.xml
 appBase="/usr/local/tomcat/webapps"
 ```
 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-5. 执行以下命令，新建 `setenc.sh` 文件。
+5. 执行以下命令，新建 `setenv.sh` 文件。
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
