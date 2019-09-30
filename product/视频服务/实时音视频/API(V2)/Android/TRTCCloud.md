@@ -687,14 +687,17 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 系统音量类型，请参考 [TRTCCloudDef.TRTCSystemVolumeTypeAuto](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypeauto) 或者 [TRTCCloudDef.TRTCSystemVolumeTypeMedia](https://cloud.tencent.com/document/product/647/32266#trtcsystemvolumetypemedia)。 |
+| type | int | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32266#TRTCCloudDef)。 |
 
->?需要在调用 [startLocalAudio()](https://cloud.tencent.com/document/product/647/32264#startlocalaudio) 之前调用该接口。
+>?需要在调用 [startLocalAudio()](#startlocalaudio) 之前调用该接口。
+
+
 
 ## 摄像头相关接口函数
 ### switchCamera
 
 切换摄像头。
+
 ```
 abstract void switchCamera()
 ```
