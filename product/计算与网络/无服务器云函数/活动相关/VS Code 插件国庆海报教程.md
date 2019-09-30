@@ -48,20 +48,7 @@ Tencent Serverless Toolkit for VS Code
 ### 创建函数
 您可根据实际需求，选择以下方式使用 VS Code 插件创建函数。
 
-<span id="create"></span>
-#### 源码创建函数
-1. 请前往 [活动包下载地址](https://github.com/TencentServerless/scf_vscode_demo1.git )，选择【Clone or download】>【Download ZIP】。如下图所示：
-![](https://main.qcloudimg.com/raw/c960496a9f897256383b7962763caa26.png)
-2. 成功下载压缩包后请解压，并进入【scf_vscode_demo1-master】>【{{cookiecutter.project_name}}】目录打开 `template.yaml` 文件。
- - 将文件中的 `{{cookiecutter.namespace}}:` 替换为 `default:`。
- - 将文件中的 `{{cookiecutter.project_name}}:` 替换为 `testFunc:`。
- 成功替换后保存，如下图所示：
- ![](https://main.qcloudimg.com/raw/ae7e46637e20316a580735b08889634d.png)
-3. 单击 VS Code IDE 左上角的【File】，选择【Open Folder】。如下图所示：
-![](https://main.qcloudimg.com/raw/da2380944925aace539b6b82b1a98c4d.png)
-4. 在弹出界面上选择已下载的 `scf_vscode_demo1-master` 目录，单击【选择文件夹】确认选择。
-5. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
-![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)     
+
 
 #### Git 拉取创建函数
 >?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](#create)。
@@ -77,6 +64,23 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/85c6edfe032cb8aeb5bf4349a81fe750.png)
 4. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)        
+
+
+<span id="create"></span>
+#### 源码创建函数
+1. 请前往 [活动包下载地址](https://github.com/TencentServerless/scf_vscode_demo1.git )，选择【Clone or download】>【Download ZIP】。如下图所示：
+![](https://main.qcloudimg.com/raw/c960496a9f897256383b7962763caa26.png)
+2. 成功下载压缩包后请解压，并进入【scf_vscode_demo1-master】>【{{cookiecutter.project_name}}】目录打开 `template.yaml` 文件。
+ - 将文件中的 `{{cookiecutter.namespace}}:` 替换为 `default:`。
+ - 将文件中的 `{{cookiecutter.project_name}}:` 替换为 `testFunc:`。
+ 成功替换后保存，如下图所示：
+ ![](https://main.qcloudimg.com/raw/ae7e46637e20316a580735b08889634d.png)
+3. 单击 VS Code IDE 左上角的【File】，选择【Open Folder】。如下图所示：
+![](https://main.qcloudimg.com/raw/da2380944925aace539b6b82b1a98c4d.png)
+4. 在弹出界面上选择已下载的 `scf_vscode_demo1-master` 目录，单击【选择文件夹】确认选择。
+5. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
+![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)     
+
 
 
 
