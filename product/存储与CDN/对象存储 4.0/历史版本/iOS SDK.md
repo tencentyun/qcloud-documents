@@ -52,7 +52,8 @@ git clone https://github.com/tencentyun/COS_iOS_SDK.git
 
 在 Build Settings 中设置 Other Linker Flags，加入参数 -ObjC。
 
-![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
+
+![](https://main.qcloudimg.com/raw/07351db6cb93db277b2a58ebd52a3ea9.png)
 
 在工程info.plist文件中添加App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean,值设为YES。
 
@@ -328,18 +329,17 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
-
-    COSDeleteDirCommand *cm = [COSDeleteDirCommand new];
-    cm.directory = dir;
-    cm.bucket = bucket;
-    cm.sign = _oneSign;//删除使用一次性签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-            //sucess;
-        }else{}
-    };
-    [client deleteDir:cm];
+COSDeleteDirCommand *cm = [COSDeleteDirCommand new];
+cm.directory = dir;
+cm.bucket = bucket;
+cm.sign = _oneSign;//删除使用一次性签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+				//sucess;
+		}else{}
+};
+[client deleteDir:cm];
 ```
 
 ### 目录列表
@@ -378,21 +378,20 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
-
-    COSListDirCommand *cm = [COSListDirCommand new]；
-    cm.directory = dir;
-    cm.bucket = bucket;
-    cm.sign = _sign;
-    cm.number = 100;
-    cm.pageContext = @"";
-    cm.prefix = @"xx";
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-          //sucess
-        }else{}
-    };
-    [client listDir:cm];
+COSListDirCommand *cm = [COSListDirCommand new]；
+cm.directory = dir;
+cm.bucket = bucket;
+cm.sign = _sign;
+cm.number = 100;
+cm.pageContext = @"";
+cm.prefix = @"xx";
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+			//sucess
+		}else{}
+};
+[client listDir:cm];
 ```
 
 
@@ -453,25 +452,24 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
-
-    COSObjectPutTask *task = [COSObjectPutTask new];
-    task.filePath = path;
-    task.fileName = fileName;
-    task.bucket = bucket;
-    task.attrs = @"customAttribute";
-    task.directory = dir;
-    task.insertOnly = YES;
-    task.sign = _sign;
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-         //sucess
-        }else{}
-    };
-    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
-          //progress
-    };
-    [client putObject:task];
+COSObjectPutTask *task = [COSObjectPutTask new];
+task.filePath = path;
+task.fileName = fileName;
+task.bucket = bucket;
+task.attrs = @"customAttribute";
+task.directory = dir;
+task.insertOnly = YES;
+task.sign = _sign;
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+		 //sucess
+		}else{}
+};
+client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+			//progress
+};
+[client putObject:task];
 ```
 
 ### 文件属性更新
@@ -551,20 +549,18 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
-
-    COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
-	cm.fileName = file;
-	cm.bucket = bucket;
-    cm.directory = dir;
-	cm.sign = _oneSign;//单次签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-         	//sucess
-        }else{}
-    };
-    [client getObjectMetaData:cm];
-
+COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
+cm.fileName = file;
+cm.bucket = bucket;
+cm.directory = dir;
+cm.sign = _oneSign;//单次签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+			//sucess
+		}else{}
+};
+[client getObjectMetaData:cm];
 ```
 
 ### 文件删除
@@ -599,19 +595,18 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 #### 示例
 
 ```objective-c
-
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
-	cm.fileName = file;
-	cm.bucket = bucket;
-    cm.directory = dir;
-	cm.sign = _oneSign;//单次签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];;
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-            //sucess
-        }else{        }
-    };
-    [client deleteObject:cm];
+COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+cm.fileName = file;
+cm.bucket = bucket;
+cm.directory = dir;
+cm.sign = _oneSign;//单次签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];;
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+				//sucess
+		}else{        }
+};
+[client deleteObject:cm];
 ```
 
 ### 文件下载
