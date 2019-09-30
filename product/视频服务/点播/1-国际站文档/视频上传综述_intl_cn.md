@@ -6,7 +6,7 @@
 
 ## 控制台上传
 
-控制台上传是指 APP 管理员登录腾讯云点播控制台后，通过 Web 页面将本地视频上传到腾讯云点播系统的方式。控制台上传页面从[这里](https://console.cloud.tencent.com/video/webupload)进入。
+控制台上传是指 APP 管理员登录腾讯云点播控制台后，通过 Web 页面将本地视频上传到腾讯云点播系统的方式。控制台上传页面从[这里](https://console.cloud.tencent.com/vod/webupload)进入。
 
 ### 上传步骤
 

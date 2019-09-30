@@ -1,3 +1,6 @@
+>?当前页面接口为旧版 API，未来可能停止维护。容器服务 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [容器服务 API 3.0](https://cloud.tencent.com/document/api/457/31853)。
+>
+
 ##  集群相关接口
 
 | 接口功能                       | Action ID                                                    | 功能描述                                       |
@@ -124,4 +127,4 @@
 | 查询用户配额              | [ GetLimit ](https://cloud.tencent.com/document/product/457/14654) | 用于查询用户配额                                           |
 | 查询用户仓库列表          | [ SearchUserRepository ](https://cloud.tencent.com/document/product/457/14653) | 用于查询用户仓库列表                                       |
 | 添加收藏                  | [ AddFavor ](https://cloud.tencent.com/document/product/457/17938) | 用于把仓库加入收藏                                         |
-| 取消收藏                  | [ DeleteFavor ](https://cloud.tencent.com/document/product/457/17937) | 用于取消收藏                                               |
+| 取消收藏                  | [ DeleteFavor ](https://cloud.tencent.com/document/product/457/17937) | 用于取消收藏                                          |

@@ -55,8 +55,7 @@ compile 'com.github.bumptech.glide:glide:3.7.0'
 #### 3. 初始化 SDK 接口<span id="aar">
 在程序的 Application 中或在调用 SDK 之前初始化 SDK，设置相关配置，具体请参考 AuthDemo。**每次调用都需要从 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口生成新的 BizToken**。
 ```
-String serverUrl = "https://faceid.qq.com";
-AuthConfig.Builder configBuilder = new AuthConfig.Builder(BizToken, R.class.getPackage().getName(), serverUrl);
+AuthConfig.Builder configBuilder = new AuthConfig.Builder(editText.getText().toString(), R.class.getPackage().getName());
 ```
 
 **4. 调用实名核身**
@@ -72,10 +71,7 @@ private IdentityCallback mListener = new IdentityCallback() {
             boolean indexback = data.getBooleanExtra(AuthSDKApi.INDEX_BACK, false);
             boolean identityStatus = data.getBooleanExtra(AuthSDKApi.EXTRA_IDENTITY_STATUS, false);//验证结果标识 true：通过 false：不通过
             if (identityStatus) {
-                IDCardInfo idCardInfo = data.getExtras().getParcelable(AuthSDKApi.EXTRA_IDCARD_INFO);
-                if (idCardInfo != null) {
-
-                }
+               //实名核身通过
             }
         }
     };

@@ -122,7 +122,7 @@ __参数__
 
 __介绍__
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763#stopremoteview.3A+.28mlvbliveroom) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763#stopremoteview) 关闭该主播的视频画面。
 
 >?直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -185,7 +185,7 @@ __参数__
 
 __介绍__
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor.3A+.28mlvbliveroom) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763#kickoutjoinanchor) 来退出连麦。
 
 ***
 
@@ -259,5 +259,3 @@ __参数__
 | message | NSString * | 自定义消息内容。 |
 
 ***
-
-

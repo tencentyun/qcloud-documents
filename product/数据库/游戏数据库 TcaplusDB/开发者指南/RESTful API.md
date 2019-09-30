@@ -1,8 +1,7 @@
 本文档为 Tcaplus RESTful API v1.0 用户手册
 
 ## 概述
-
-Tcaplus RESTful API 为开发者提供了一种通过 Http 请求与 Tcaplus 数据库远程交互的方式。当您通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，您会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
+Tcaplus RESTful API 为开发者提供了一种通过 HTTP 请求与 Tcaplus 数据库远程交互的方式。当您通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，您会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
 
 ## 准备工作
 
@@ -92,7 +91,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
 
 ### HTTP 头
 
-通过设置 HTTP 头可以允许用户 http 客户端通过请求和回包传递一些额外的信息。
+通过设置 HTTP 头可以允许用户 HTTP 客户端通过请求和回包传递一些额外的信息。
 
 #### 鉴权
 
@@ -238,7 +237,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D
 ```
 
-##### 请求 Http 头：
+##### 请求 HTTP 头：
 ```
 [
  "x-tcaplus-target:Tcaplus.GetRecord",
@@ -311,7 +310,7 @@ SetRecord操作支持resultflag设置以下取值：
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
-##### 请求 Http 头：
+##### 请求 HTTP 头：
 ```
 [
  "x-tcaplus-target:Tcaplus.SetRecord",
@@ -418,7 +417,7 @@ AddRecord操作支持resultflag设置以下取值：
 ```
  http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
-##### 请求 Http 头：
+##### 请求 HTTP 头：
 
 ```
 [
@@ -527,7 +526,7 @@ DeleteRecord操作支持resultflag设置以下取值：
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
-##### 请求 Http 头：
+##### 请求 HTTP 头：
 
 ```
 [
@@ -595,7 +594,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'
 http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.auth.pay_keys%22%2C%20%22pay.total_money%22%5D
 ```
 
-##### 请求 Http 头：
+##### 请求 HTTP 头：
 
 ```
 [

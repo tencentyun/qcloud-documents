@@ -1,4 +1,4 @@
-Apache Thrift 是一个跨平台、跨语言的开发框架，提供多语言的编译功能，并提供多种服务器工作模式。用户通过Thrift的 IDL（接口描述语言）来描述接口函数及数据类型，然后通过 Thrift 的编译环境生成各种语言类型的接口文件，用来进行可扩展且跨语言的服务的开发。
+Apache Thrift 是一个跨平台、跨语言的开发框架，提供多语言的编译功能，并提供多种服务器工作模式。用户通过 Thrift 的 IDL（接口描述语言）来描述接口函数及数据类型，然后通过 Thrift 的编译环境生成各种语言类型的接口文件，用来进行可扩展且跨语言的服务的开发。
 它结合了功能强大的软件堆栈和代码生成引擎，以构建在 C++、Java、Go、Python、PHP、Ruby、Erlang、Perl、Haskell、C#、Cocoa、JavaScript、Node.js、Smalltalk、and OCaml 这些编程语言间无缝结合的、高效的服务。
 
 Thrift server 是 HBase 中的一种服务，主要用于对多语言 API 的支持。基于 Apache Thrift 开发。Thrift API 依赖于客户端和服务器进程。本节将以 Python 为例子，说明如何通过 Thrift 利用 Python 编程来使用 Hbase。
@@ -59,7 +59,7 @@ Password: ********
 [root@172 hbase]# yum install python-pip
 [root@172 hbase]# pip install hbase-thrift
 ```
-然后切换回 Hadoop 用户并新建一个 Python 文件 Hbase_Client.py，在其中加入以下代码：
+然后切换回 Hadoop 用户并新建一个 Python 文件 Hbase_client.py，在其中加入以下代码：
 ```
 #! /usr/bin/env python
 #coding=utf-8
@@ -79,11 +79,11 @@ transport.open()
 
 print client.getTableNames()
 ```
->!其中 $thriftIP 为 Master 节点在内网的 IP 地址，$port 为 ThriftService的端口号，下同。
+>!其中 $thriftIP 为 Master 节点在内网的 IP 地址，$port 为 ThriftService 的端口号，下同。
 
 保存之后直接运行程序，会直接在控制台输出 Hbase 中的存在的表：
 ```
-[hadoop@172 hbase]$ ./Hbase_client.py 
+[hadoop@172 hbase]$ python Hbase_client.py
 ['thrift_test']
 ```
 
@@ -117,9 +117,9 @@ socket.close()
 
 print tables
 ```
-该程序会在 Hbase 中添加一个名为 thrift_test_1的新表，并且输出所有存在的表，运行效果如下：
+该程序会在 Hbase 中添加一个名为 thrift_test_1 的新表，并且输出所有存在的表，运行效果如下：
 ```
-[hadoop@172 hbase]$ ./Create_table.py
+[hadoop@172 hbase]$ python Create_table.py
 ['thrift_test', 'thrift_test_1']
 ```
 
@@ -208,7 +208,7 @@ socket.close()
 ```
 其中使用 GetRow 来取得一行的数据，使用 scannerGetList 来得到整个表格中的数据，运行该程序后输出如下：
 ```
-[hadoop@172 hbase]$ ./ Scan_table.py
+[hadoop@172 hbase]$ python Scan_table.py
 [TRowResult(columns={'cf:a': TCell(timestamp=1530697238581, value='value1'), 'cf:b': TCell(timestamp=1530697238587, value='value2')}, row='row1')]
 the rowname is  row1
 the frist value is  value1
@@ -245,7 +245,7 @@ socket.close()
 ```
 该程序会删除测试表中的第二行数据，运行后可以在 Hbase Shell 中查看该表中的内容：
 ```
-[hadoop@172 hbase]$ ./ Delete_row.py
+[hadoop@172 hbase]$ python Delete_row.py
 [hadoop@172 hbase]$ hbase shell
 
 hbase(main):004:0> scan 'thrift_test_1'

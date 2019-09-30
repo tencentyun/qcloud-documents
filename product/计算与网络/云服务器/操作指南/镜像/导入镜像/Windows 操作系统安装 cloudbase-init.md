@@ -1,26 +1,39 @@
-## 下载 cloudbase-init 工具安装包
+## 操作场景
 
-请根据实际使用的操作系统位数，下载对应版本的 cloudbase-init 工具安装包进行安装。具体详情请参见 [Cloudbase-Init 官网](http://www.cloudbase.it/cloud-init-for-windows-instances/)。
+本文档以 Windows Server 2012 R2 64位 操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
 
-Cloudbase-init 分为以下版本：
-- 稳定版本：推荐使用该版本安装包进行安装。
-获取路径如下：
-	- Windows 64位 操作系统：https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi
-	- Windwos 32位 操作系统：https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x86.msi
-- Beta 版本
+<span id="PreparationSoftware"></span>
+## 准备软件
+安装 Cloudbase-Init 需准备以下软件：
 
-## 安装 cloudbase-init
+| 软件名称 | 获取路径 | 说明 |
+|---------|---------|---------|
+| CloudbaseInitSetup_X_X_XX_xXX.msi | 请根据实际使用的操作系统位数，下载对应的 Cloudbase-Init 安装包：<ul style="margin: 0;"><li>稳定版本：推荐使用该版本安装包<ul style="margin: 0;"><li>Windows 64位 操作系统：[点此获取](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x64.msi)</li><li>Windows 32位 操作系统：[点此获取](https://www.cloudbase.it/downloads/CloudbaseInitSetup_Stable_x86.msi)</li></ul></li><li>Beta 版本</li></ul>更多详情请参见 [Cloudbase-Init 官网](http://www.cloudbase.it/cloud-init-for-windows-instances/)。 | 用于安装 Cloudbase-Init。  |
+| TencentCloudRun.ps1 | [点此获取](http://cloudinit-1251783334.cosgz.myqcloud.com/TencentCloudRun.ps1) | - |
+| localscripts.py | [点此获取](http://cloudinit-1251783334.file.myqcloud.com/localscripts.py) | 用于保证 Cloudbase-Init 可以正常启动。 |
 
-安装 cloudbase-init 的过程中，请注意以下两点：
-- **在 “Configuration options” 窗口中，请按照下图的内容进行配置。即将 “Serial port for logging” 设置为 “COM1”。**
-![Alt text](https://main.qcloudimg.com/raw/beaca64e8484ec7e9880703cad400717.png)
-- **在安装完成的最后一步时，请勿勾选任何复选框，不运行 Sysprep。如下图所示：**
-![Alt text](https://main.qcloudimg.com/raw/aceec91df6a51db2eca775f3350de88c.png)
+## 操作步骤
 
-## 修改 cloudbase-init 配置文件 
+### 安装 Cloudbase-Init
 
-1. 打开 cloudbase-init 配置文件（配置文件的路径为：\PATH\TO\Cloudbase Solutions\Cloubase-Init\conf\cloudbase-init.conf）。
-2. 将 cloudbase-init 配置文件替换为以下内容：
+1. 在操作系统界面，双击打开 Cloudbase-Init 安装包。
+2. 在弹出的安全警告提示框中，单击【运行】，进入 Cloudbase-Init 安装界面。如下图所示：
+![](https://main.qcloudimg.com/raw/bdeb8ff4370dc6da38da6749154e449f.png)
+3. 单击【Next】。
+4. 勾选【I accept the terms in the License Agreement】，连续单击2次【Next】。
+5. 在 “Configuration options” 界面，将 “**Serial port for logging**” 设置为 “**COM1**”，单击【Next】。如下图所示：
+![](https://main.qcloudimg.com/raw/a41580e9b21e4550245b661b44682937.png)
+6. 单击【Install】，安装 Cloudbase-Init。
+7. 待 Cloudbase-Init 完成安装后，单击【Finish】，关闭 Cloudbase-Init 安装界面。如下图所示：
+>! 关闭 Cloudbase-Init 安装界面时，请勿勾选任何复选框，不要运行 Sysprep。
+>
+![](https://main.qcloudimg.com/raw/d2d6c30def7812af9d7e484f5e8ccaa9.png)
+
+### 修改 cloudbase-init 配置文件 
+
+1. 打开 `cloudbase-init.conf` 配置文件。
+`cloudbase-init.conf` 配置文件的默认路径为：`C:\Program Files\Cloudbase Solutions\Cloudbase-Init\conf` 
+2. 将 `cloudbase-init.conf` 配置文件替换为以下内容：
 ```
 [DEFAULT]
 username=Administrator
@@ -50,4 +63,5 @@ local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScri
 C:\powershell
 PS C:\Set-ExecutionPolicy Unrestricted
 ```
-3. 将 [TencentCloudRun.ps1](http://cloudinit-1251783334.cosgz.myqcloud.com/TencentCloudRun.ps1) 脚本拷贝到 C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\ 路径下。
+3. 将 `TencentCloudRun.ps1` 脚本拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts` 路径下。
+4. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。

@@ -1,4 +1,3 @@
-# 特效功能（大眼、瘦脸、动效、绿幕）
 
 ## 功能说明
 
@@ -52,7 +51,7 @@
 
 ### 4. 添加动效资源示例
 
-将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，你可以找到直接添加，具体操作如图所示：
+将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，您可以找到直接添加，具体操作如图所示：
 ![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
 ![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
 
@@ -185,6 +184,6 @@
  > 1. 检查是否调用了`+[TXUGCBase setLicenceURL:key:]`方法, 以及参数是否正确
  > 2. 调用TXUGCBase的getLicenseInfo方法，带有动效的licence会包含`pituLicense`字段
  > 3. 检查pitu资源是否添加正确，尤其要注意 handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，最简单的方法就是比对自己工程添加的动效文件是否和我们demo添加的完全一致  
- > 4. SDK会把licence下载到沙盒的Documents目录当中, 可以在开发过程中使用Xcode菜单中Window -> Devices and Simulators工具导出并使用[查询工具(点击下载)](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)查看有效期。
+ > 4. SDK会把licence下载到沙盒的Documents目录当中, 可以在开发过程中使用Xcode菜单中Window -> Devices and Simulators工具导出并使用[查询工具（单击下载）](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)查看有效期。
  
 ##### [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)是一个xcode工程，目前仅支持在mac上使用， 后续会开放其他查询方式

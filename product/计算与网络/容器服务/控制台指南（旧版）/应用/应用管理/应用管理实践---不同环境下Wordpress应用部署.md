@@ -282,11 +282,12 @@ status:
 ## 步骤三： 创建不同环境的 CBS 盘
 由于[云硬盘][31]页面，选择对应的区域单击新建按钮，创建新的云硬盘。
 
-![应用管理wordpress-16.png-35.2kB][32]
+![应用管理wordpress-16.png-35.2kB](https://main.qcloudimg.com/raw/cc26d6f3b84636984c25edf4d0653da8.png)
 
 填写对应的参数：
 
-![应用管理wordpress-17.png-93.9kB][33]
+![应用管理wordpress-17.png-93.9kB](https://main.qcloudimg.com/raw/64864b6a5f7c9d66e0e472eb6edcfa27.png)
+
 
 设置的主要参数包括：
 1. 磁盘名称，例如：wordpress-dev

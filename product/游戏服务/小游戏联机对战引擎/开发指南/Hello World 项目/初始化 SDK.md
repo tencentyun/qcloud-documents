@@ -7,7 +7,9 @@
 2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家的 playerId 使用 Util.js 中的 mockPlayerId 方法生成。
 
 game.js 最终代码如下所示：
+
 ```
+
 // 导入 MGOBE.js
 import "./MGOBE.js";
 // 获取 Room、Listener 对象
@@ -22,34 +24,42 @@ import "./view/RoomView.js";
 import "./view/GameView.js";
 
 const gameInfo = {
-  version: 'v1.0',
-  // 替换 为控制台上的“游戏ID”
-  gameId: 91000000,
-  // 随机生成 玩家 ID
-  playerId: Util.mockPlayerId(),
-  wxAppid: 'wx43c6c5xxxxxxxxx',
-  // 替换 为控制台上的“密钥”
-  secretKey: 'kJm9RZWL7xxxxxxxxxxxxxxxxxxx',
+    // 随机生成 玩家 ID
+    openId: Util.mockOpenId(),
+    // 替换 为控制台上的“游戏ID”
+    gameId: "xxxxxx",
+    // 替换 为控制台上的“密钥”
+    secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 
 const config = {
-  // 替换 为控制台上的“域名”
-  url: 'access.wxlagame.com',
-  reconnectMaxTimes: 5,
-  reconnectInterval: 1000,
-  resendInterval: 1000,
-  resendTimeout: 10000,
-  autoRequestFrame: true,
+    // 替换 为控制台上的“域名”
+    url: 'xxxxxx.wxlagame.com',
+    reconnectMaxTimes: 5,
+    reconnectInterval: 1000,
+    resendInterval: 1000,
+    resendTimeout: 10000,
+    autoRequestFrame: true,
 };
 
 // 初始化 Listener
-Listener.init(gameInfo, config);
+Listener.init(gameInfo, config, event => {
+    if (event.code === ErrCode.EC_OK) {
+
+        console.log("初始化成功");
+
+        // 接收广播
+        Listener.add(room);
+
+        // 启动页为 MainView
+        new Global.MainView();
+    } else {
+        console.error("初始化失败", event);
+    }
+});
 
 // 实例化 Room 对象
 const room = new Room();
-
-// 接收广播
-Listener.add(room);
 
 // 保存常用对象的引用
 Global.room = room;
@@ -57,6 +67,6 @@ Global.ErrCode = ErrCode;
 Global.ENUM = ENUM;
 Global.gameInfo = gameInfo;
 
-// 启动页为 MainView
-new Global.MainView();
+
 ```
+

@@ -24,7 +24,7 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 【ID】其值为密钥内的 secret_id 的值。
 【algorithm】加密算法，当前支持的是 hmac-sha1。
 【headers】参与签名计算的 header，按实际计算时的顺序排列。
-【signature】计算签名后得到的签名。
+【signature】计算签名后得到的签名，signing_str 是签名内容。
 
 ### 签名计算方法
 签名由两部分并根据指定加密算法进行计算，以 hmac-sha1 算法举例：
@@ -37,7 +37,7 @@ header 按如下要求转换后按顺序排列：
 * 然后附加 header 值。
 * 如果不是最后一条需构造签名的 header，附上**ascii 换行字符`\n`**。
 
-例如有两个 header 参与构建签名内容：
+例如有两个 header 参与构建签名内容（仅为示例，请根据业务实际情况填写字段）：
 ```
 Date:Fri, 09 Oct 2015 00:00:00 GMT
 Source:AndriodApp
@@ -62,6 +62,6 @@ source: AndriodApp
 Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。
 
 ### 签名内容生成
-排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。
+排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。SecretId、SecretKey、URL、Host 需要修改为真实信息。 
 
 [常用语言的签名 Demo>>](https://github.com/apigateway-demo)
