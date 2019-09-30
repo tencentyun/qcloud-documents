@@ -705,7 +705,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考 TRTCSystemVolumeType。 |
+| type | TRTCSystemVolumeType | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype)。 |
 
 >?需要在调用 [startLocalAudio](#startlocalaudio) 之前调用该接口。
 
