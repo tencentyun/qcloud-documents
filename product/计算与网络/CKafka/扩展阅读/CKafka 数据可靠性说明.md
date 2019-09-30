@@ -23,7 +23,7 @@
 ### 建议配置的参数值
 此参数值仅供参考，实际数值需要依业务实际情况而定。
  - 重试机制：`message.send.max.retries=3;retry.backoff.ms=10000;`
- - 高可靠的保证：`request.required.acks=-1;min.isync.replicas=2;`
+ - 高可靠的保证：`request.required.acks=-1;min.insync.replicas=2;`
  - 高性能的保证：`request.required.acks=0;`
  - 可靠性+性能：`request.required.acks=1;`
 
