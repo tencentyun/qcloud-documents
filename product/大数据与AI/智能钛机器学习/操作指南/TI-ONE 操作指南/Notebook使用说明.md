@@ -1,12 +1,10 @@
-# 使用 Notebook 调试代码
-
 ## Notebook 概述
 
 Notebook 作为一个灵活的交互式可视化开发工具，非常适合需要多次比对优化的算法调试环节。下文将介绍如何在智能钛机器学习平台建立、使用 Notebook 文件。
 
 ## Notebook 上手案例教程
 
-智能钛机器学习平台为用户准备了利用 [Notebook 实现手写数字识别](/tione/最佳实践/利用Notebook实现手写数字识别.md) 案例，用户可以点击此案例进行查看及进行上手操作。
+智能钛机器学习平台为用户准备了利用 [Notebook 实现手写数字识别](https://cloud.tencent.com/document/product/851/38030) 案例，用户可以点击此案例进行查看及进行上手操作。
 
 ## Notebook 使用说明
 
