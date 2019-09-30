@@ -696,7 +696,7 @@ __介绍__
 
 ### setSystemVolumeType
 
-设置通话过程中使用的系统音量类型。
+设置通话时使用的系统音量类型。
 ```
 - (void)setSystemVolumeType:(TRTCSystemVolumeType)type 
 ```
@@ -705,11 +705,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考TRTCSystemVolumeType。 |
+| type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考 TRTCSystemVolumeType。 |
 
-__介绍__
-
-通过该接口可以禁止 SDK 使用通话音量，需要在调用 [startLocalAudio](#startlocalaudio) 之前使用。
+>?需要在调用 [startLocalAudio](https://cloud.tencent.com/document/product/647/32259#startlocalaudio) 之前调用该接口。
 
 
 ## 摄像头相关接口函数
