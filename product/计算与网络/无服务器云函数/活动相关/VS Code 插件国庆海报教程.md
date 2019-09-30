@@ -27,7 +27,11 @@ SCF CLI, version 0.0.1
 ### 安装 VS Code 插件
 1. 运行 VS Code IDE。
 2. 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/14b7872880f99820e01ad74de38fc956.png" style="margin:-3px 0;">，打开 VS Code 插件市场。
-3. 在搜索框中输入 “Tencent Serverless”，单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：
+3. 在搜索框中输入以下信息：
+```
+Tencent Serverless Toolkit for VS Code
+```
+单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：
 ![](https://main.qcloudimg.com/raw/49a9ec2dad6e19a497dd148d9f2b88ee.png)
        
 
