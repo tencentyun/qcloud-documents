@@ -1,11 +1,13 @@
 ## 测试工具
 Kafka Producer 和 Consumer 的性能测试均可使用 Kafka 客户端自带的开源脚本，主要输出每秒发送消息量（MB/second）和每秒发送消息数（records/second）两项指标。
 - Kafka Producer 测试脚本：`$KAFKA_HOME/bin/kafka-producer-perf-test.sh`
-- Kafka Consumer 测试脚本：`$KAFKA_HOME/bin/kafka-consumer-perf-test.sh `
+- Kafka Consumer 测试脚本：`$KAFKA_HOME/bin/kafka-consumer-perf-test.sh`
 
 
 ## 测试命令
 生产测试命令示例：
+>?`ckafka vip:vport`应替换为您实际实例分配的 IP 和端口。
+
 ```
 bin/kafka-producer-perf-test.sh   
 --topic test 
