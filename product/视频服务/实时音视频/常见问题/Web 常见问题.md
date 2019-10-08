@@ -1,4 +1,4 @@
-### 如何确定是否当前浏览器是否支持 WebRTC？
+### 如何确定当前浏览器是否支持 WebRTC？
 请使用 WebRTCAPI.fn.detectRTC 检测支持度，如果反馈 false，业务应提供错误提示页面引导用户使用支持的环境。遇到特殊的 case 时，也可以通过以下方式处理：
 - 打开 [能力检测页面](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 进行检测。
 - 通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 寻求我们的协助。
