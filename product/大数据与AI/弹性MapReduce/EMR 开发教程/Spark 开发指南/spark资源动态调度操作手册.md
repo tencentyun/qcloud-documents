@@ -71,21 +71,22 @@ do
        scp "$source_dir/$file" root@$node:"$target_dir";
 done
 ```
+
 ## 修改 Yarn 配置
- 1. 在 Yarn 组件管理界面，选择配置管理。选中配置文件`yarn-site.xml`，维度范围选择集群维度（集群维度的配置项修改将应用到所有节点）。
+1. 在 Yarn 组件管理界面，选择配置管理。选中配置文件`yarn-site.xml`，维度范围选择集群维度（集群维度的配置项修改将应用到所有节点）。
 ![](https://main.qcloudimg.com/raw/3368002c167223724cfa46acfb46e53b.png)
- 2. 修改配置项`yarn.nodemanager.aux-services`，添加 spark_shuffle。
+2. 修改配置项`yarn.nodemanager.aux-services`，添加 spark_shuffle。
 ![](https://main.qcloudimg.com/raw/596df73363cdc6a05258412f6e794669.png)
- 3. 新增配置项`yarn.nodemanager.aux-services.spark_shuffle.class`，该配置项的值设置为`org.apache.spark.network.yarn.YarnShuffleService`。
+3. 新增配置项`yarn.nodemanager.aux-services.spark_shuffle.class`，该配置项的值设置为`org.apache.spark.network.yarn.YarnShuffleService`。
 ![](https://main.qcloudimg.com/raw/c06e70618a11f88bea03d1fd53be5b11.png)
- 4. 新增配置项`spark.yarn.shuffle.stopOnFailure`，该配置项的值设置为 false。
+4. 新增配置项`spark.yarn.shuffle.stopOnFailure`，该配置项的值设置为 false。
 ![](https://main.qcloudimg.com/raw/44cde8c818ce0de1aed3e50c8c7da538.png)
- 5. 保存设置并下发，重启 YARN 组件使得配置生效。
+5. 保存设置并下发，重启 YARN 组件使得配置生效。
 
 ##  修改 Spark 配置
- 1. 在【组件管理】中找到 Spark 组件，选择【操作】>【配置】。
+1. 在【组件管理】中找到 Spark 组件，选择【操作】>【配置】。
 ![](https://main.qcloudimg.com/raw/285b3305d926c0e06a6dd84a9baeae45.png)
- 2. 选中配置文件【spark-defaults.conf】，单击【修改配置】。新建如下配置项：
+2. 选中配置文件【spark-defaults.conf】，单击【修改配置】。新建如下配置项：
 ![](https://main.qcloudimg.com/raw/211d6d4a6504be660546a0a4b6b33821.png)
 <table>
 <tr>
@@ -135,7 +136,7 @@ done
 </tr>
 </table>
 
- 3. 保存配置、下发并重启组件。
+3. 保存配置、下发并重启组件。
 
 ## 测试 Spark 资源动态调整
 ###  1. 测试环境资源配置说明
