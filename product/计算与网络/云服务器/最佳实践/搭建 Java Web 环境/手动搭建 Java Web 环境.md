@@ -18,7 +18,8 @@ Java Web 环境组成及说明：
 ![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码。
  - 云服务器实例公网 IP。
-3. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
+3. 登录 Linux 云云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
+4. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
 
 
 
