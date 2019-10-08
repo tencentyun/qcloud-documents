@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍了在 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）上手动部署 Node.js 环境并创建示例项目。
+本文档介绍了在以 CentOS 7.6 的 Linux 操作系统为例的腾讯云云服务器（CVM）上，手动部署 Node.js 环境并创建示例项目。
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ## 前提条件
@@ -24,7 +24,7 @@
 ```
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
->?本文以 Node.js 10.16.3 版本为例，请根据实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获得相应版本。
+>?本文以 Node.js 10.16.3 版本为例，请根据您的实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获得相应版本。
 >
 2. 执行以下命令，解压安装包。
 ```
@@ -43,7 +43,7 @@ npm -v
 ```
 
 ### 安装 Node.js 多版本（可选）
->?此步骤使用 NVM（Node Version Manager）Node.js 节点版本管理器，来管理多个 Node.js 版本。
+>?此步骤使用 NVM（Node Version Manager）Node.js 节点版本管理器，来管理多个 Node.js 版本，您可根据实际需求进行安装。
 >
 1. 执行以下命令，安装 git。
 ```
@@ -102,7 +102,7 @@ server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
-修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
+修改完成后，按“**Esc**”，输入“**:wq**”，保存文件并返回。
 >?本文在 `index.js` 项目文件中使用端口号为7500，您可根据实际需求自行修改端口号。
 >
 3. 执行以下命令，运行 Node.js 项目。
