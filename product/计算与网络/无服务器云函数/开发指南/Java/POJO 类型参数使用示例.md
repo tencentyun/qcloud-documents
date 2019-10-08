@@ -1,48 +1,44 @@
-使用 POJO 类型参数，您可以处理除简单事件入参外更复杂的数据结构。在本节中，将使用一组示例，来说明在 SCF 云函数中如何使用 POJO 参数，并能支持何种格式的入参。
+## 操作场景
+通过使用 POJO 类型参数，您可以处理除简单事件入参外更复杂的数据结构。在本文档中，将使用一组示例说明在 SCF 中如何使用 POJO 参数，并能支持何种格式的入参。
 
-## 事件入参和 POJO 
+## 前提条件
+已登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1)。
 
-假设我们的事件入参如下所示：
-
+## 操作步骤
+### 事件入参和 POJO 
+本文使用的事件入参如下所示：
 ```json
 {
   "person": {"firstName":"bob","lastName":"zou"},
   "city": {"name":"shenzhen"}
 }
 ```
-
-在有如上入参的情况下，输出接下来的内容：
-
+在有如上入参的情况下，输出内容如下：
 ```json
 {
   "greetings": "Hello bob zou.You are from shenzhen"
 }
 ```
-
-根据入参，我们构建了如下四个类：
+根据入参，构建了如下四个类：
 * RequestClass：用于接受事件，作为接受事件的类
 * PersonClass：用于处理事件 JSON 内 `person` 段
 * CityClass：用于处理事件 JSON 内 `city` 段
 * ResponseClass：用于组装响应内容
 
-## 代码准备
+### 代码准备
+根据入参已构建的四个类及入口函数，请按照以下步骤进行代码准备。
 
-根据入参已经设计的四个类和入口函数，按接下来的步骤进行准备。
-
-### 项目目录准备
-
+#### 项目目录准备
 创建项目根目录，例如 `scf_example`。
 
-### 代码目录准备
+#### 代码目录准备
+1. 在项目根目录下创建文件夹 `src\main\java` 作为代码目录。
+2. 根据准备使用的包名，在代码目录下创建包文件夹。
+例如 `example`，形成 `scf_example\src\main\java\example` 的目录结构。
 
-在项目根目录下创建文件夹 `src\main\java` 作为代码目录。
-
-根据准备使用的包名，在代码目录下创建包文件夹，例如 `example`，形成 `scf_example\src\main\java\example` 的目录结构。
-
-### 代码准备
-在 example 文件夹内创建 `Pojo.java`，`RequestClass.java`，`PersonClass.java`，`CityClass.java`，`ResponseClass.java` 文件，文件内容分别如下
-
-* Pojo.java
+#### 代码准备
+在 `example` 文件夹内创建 `Pojo.java`，`RequestClass.java`，`PersonClass.java`，`CityClass.java`，`ResponseClass.java` 文件，文件内容分别如下：
+* **Pojo.java**
 
 ```
 package example;
@@ -55,11 +51,10 @@ public class Pojo{
 }
 ```
 
-* RequestClass.java
+* **RequestClass.java**
 
 ```
 package example;
-
 
 public class RequestClass {
     PersonClass person;
@@ -89,10 +84,9 @@ public class RequestClass {
     public RequestClass() {
     }
 }
-
 ```
 
-* PersonClass.java
+* **PersonClass.java**
 
 ```
 package example;
@@ -125,10 +119,9 @@ public class PersonClass {
     public PersonClass() {
     }
 }
-
 ```
 
-* CityClass.java
+* **CityClass.java**
 
 ```
 package example;
@@ -136,7 +129,6 @@ package example;
 public class CityClass {
     String name;
     
-
     public String getName() {
         return name;
     }
@@ -152,14 +144,12 @@ public class CityClass {
     public CityClass() {
     }
 }
-
 ```
 
-* ResponseClass.java
+* **ResponseClass.java**
 
 ```
 package example;
-
 
 public class ResponseClass {
     String greetings;
@@ -182,11 +172,9 @@ public class ResponseClass {
 ```
 
 ## 代码编译
-
-示例在这里选择了使用 Maven 进行编译打包，您可以根据自身情况，选择使用打包方法。
-
-在项目根目录创建 pom.xml 函数，并输入如下内容：
-
+>?本示例使用 Maven 进行编译打包，您可以根据自身情况，选择使用打包方法。
+>
+1. 在项目根目录创建 pom.xml 函数，并输入如下内容：
 ```
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -220,9 +208,7 @@ public class ResponseClass {
   </build>
 </project>
 ```
-
-在命令行内执行命令 `mvn package` 并确保有编译成功字样，如下所示：
-
+2. 在命令行内执行命令 `mvn package` ，确保有编译成功字样，输出结果如下则说明成功打包。
 ```
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
@@ -232,36 +218,31 @@ public class ResponseClass {
 [INFO] Final Memory: 18M/309M
 [INFO] ------------------------------------------------------------------------
 ```
-
 如果编译失败，请根据提示进行相应修改。
+3. 编译后的生成包位于 `target\java-example-1.0-SNAPSHOT.jar`。
 
-编译后的生成包位于 `target\java-example-1.0-SNAPSHOT.jar`。
-
-## SCF 云函数创建及测试
-
-根据指引，创建云函数，并使用编译后的包作为提交包上传。您可以自行选择使用 zip 上传，或先上传至 COS Bucket后再通过选择 COS Bucket上传来提交。
-
-云函数的执行方法配置为 `example.Pojo::handle`。
-
-通过测试按钮展开测试界面，在测试模版内输入我们一开始期望能处理的入参：
-
+### SCF 云函数创建及测试
+1. 创建云函数，详情请参见 [创建及更新函数](https://cloud.tencent.com/document/product/583/19806)。
+2. 使用编译后的包作为提交包上传。
+您可以自行选择使用 zip 上传，或先上传至 COS Bucket 后再通过选择 COS Bucket 上传来提交。
+3. 设置云函数的执行方法为 `example.Pojo::handle`。
+4. 通过测试按钮展开测试界面，在测试模版内输入我们一开始期望能处理的入参：
 ```json
 {
   "person": {"firstName":"bob","lastName":"zou"},
   "city": {"name":"shenzhen"}
 }
 ```
-
-单击运行后，应该能看到返回内容为：
-
-
+单击运行后，可查看返回内容为：
 ```
 {
   "greetings": "Hello bob zou.You are from shenzhen"
 }
 ```
-
 您也可以自行修改测试入参内结构的 value 内容，运行后可以看到修改效果。
 
-## Demo
+### 相关示例
+您可前往如下地址，拉取示例代码并进行测试。
+```
 https://github.com/tencentyun/scf-demo-java
+```
