@@ -13,12 +13,12 @@ Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，�
 ### aar 集成
 
 1. 下载 SDK + Demo 开发包，下载地址为 （[Android](https://cloud.tencent.com/document/product/881/20205)）。
-2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
+2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/player/libs/libsuperplayer.aar`到工程中去。
 3. 在 `app/build.gradle` 中添加依赖：
 
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
-compile(name: 'lib_tcsuperplayer', ext: 'aar')
+compile(name: 'libsuperplayer', ext: 'aar')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```

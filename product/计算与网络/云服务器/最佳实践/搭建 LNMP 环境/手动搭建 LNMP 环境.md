@@ -1,6 +1,6 @@
 ## 操作场景
-LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍在 CentOS 6.9 及 CentOS 7.5 的 Linux 操作系统的腾讯云云服务器（CVM） 上手动搭建 LNMP 环境。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 组成的网站服务器架构。本文档介绍在 CentOS 6.9 及 CentOS 7.5 的 Linux 操作系统的腾讯云云服务器（CVM） 上手动搭建 LNMP 环境。
+本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ## 前提条件
 已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
@@ -9,13 +9,16 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。�
 ## 操作步骤
 
 ### 创建并登录云服务器
+>!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应的操作系统。
+>
 1. 在实例的管理页面，单击【新建】。
 具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回至云服务器控制台，查看和获取实例的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码。
  - 云服务器实例公网 IP。
-3. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
+3. 登录 Linux 云云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
+4. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
 
 ### 安装 Nginx
 1. 执行以下命令，安装 Nginx。

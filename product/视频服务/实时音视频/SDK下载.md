@@ -46,7 +46,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32397">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32178">DOC</a></td>
-      <td style="text-align:center">13.3M（C# x86）</td>
+      <td style="text-align:center">13.8M（C# x64）<br>13.3M（C# x86）</td>
    </tr>
      <tr>
       <td style="text-align:center">Mac</td>
