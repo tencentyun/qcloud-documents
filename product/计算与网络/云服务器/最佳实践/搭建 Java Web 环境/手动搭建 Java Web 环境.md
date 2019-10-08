@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍了在 Linux 操作系统的腾讯云云服务器（CVM）手动部署 Java Web 环境。文档包含软件安装内容，请确保您已经熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+本文档介绍如何在 Linux 操作系统的腾讯云云服务器（CVM）上手动部署 Java Web 环境。文档包含软件安装内容，请确保您已经熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 Java Web 环境组成及说明：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
@@ -32,9 +32,10 @@ Java Web 环境组成及说明：
 ```
 mkdir /usr/java
 ```
-3. 请根据您实际使用的 JDK 版执行以下命令，并将 JDK 源码包解压到指定位置。
+3. 执行以下命令，将 JDK 源码包解压到指定位置。
+请根据您实际使用的 JDK 版本，本文以 jdk 1.8.0_221 为例。
 ```
-tar xzf jdk-xxxxxx-linux-x64.tar.gz -C /usr/java
+tar xzf jdk-8u221-linux-x64.tar.gz -C /usr/java
 ```
 4. 执行以下命令，打开 `profile` 文件。
 ```
@@ -42,12 +43,12 @@ vim /etc/profile
 ```
 5. 按 “**i**” 或 “**Insert**” 切换至编辑模式，在 `export PATH USER ...` 后另起一行，根据您实际使用的 JDK 版本添加以下内容。
 ```
-export JAVA_HOME=/usr/java/jdk1.8.0_xxx（您的 JDK 版本）
+export JAVA_HOME=/usr/java/jdk1.8.0_221（您的 JDK 版本）
 export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
 export PATH=$JAVA_HOME/bin:$PATH
 ```
 添加完成后，如下图所示：
-![](https://main.qcloudimg.com/raw/e25bc1a17f587b8294c28a3fb836754f.png)
+![](https://main.qcloudimg.com/raw/a4d0466eca6c4c0ef219f571b7d165de.png)
 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 6. 执行以下命令，读取环境变量。
 ```
@@ -58,28 +59,28 @@ source /etc/profile
 java -version
 ```
 返回如下信息，则表示安装成功。
-![](https://main.qcloudimg.com/raw/02231907037630d69a479680a82cc7e7.png)
+![](https://main.qcloudimg.com/raw/f12cfeed5d8aa15cccb9836637e9555f.png)
 
 ### 安装 Tomcat
-1. 根据您的实际需求替换 Tomcat 版本，并执行以下命令，下载 Tomcat 源码包。
+1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
 >?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [Tomcat 软件源](http://mirrors.tencent.com/apache/tomcat/) 中获取最新下载地址。
 >
 ```
-wget http://mirrors.tencent.com/apache/tomcat/tomcat-x/v8.5.xx/bin/apache-tomcat-8.5.xx.tar.gz
+wget http://mirrors.tencent.com/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.tar.gz
 ```
 2. 执行以下命令，解压 Tomcat 源码包。
 ```
-tar xzf apache-tomcat-8.5.xx.tar.gz
+tar xzf apache-tomcat-8.5.46.tar.gz
 ```
 3. 执行以下命令，移动并重命名解压后的源码包。
 ```
-mv apache-tomcat-8.5.xx /usr/local/tomcat/
+mv apache-tomcat-8.5.46 /usr/local/tomcat/
 ```
 4. 执行以下命令，打开 `server.xml` 文件。
 ```
 vim /usr/local/tomcat/conf/server.xml
 ```
-按 “**i**” 或 “**Insert**” 切换至编辑模式，找到 &lt;Host ... appBase="webapps"&gt;，将 appBase="webapps" 替换为以下内容：
+找到 &lt;Host ... appBase="webapps"&gt;，按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
 ```
 appBase="/usr/local/tomcat/webapps"
 ```
@@ -88,7 +89,7 @@ appBase="/usr/local/tomcat/webapps"
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数：
+按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8' 
 ```
