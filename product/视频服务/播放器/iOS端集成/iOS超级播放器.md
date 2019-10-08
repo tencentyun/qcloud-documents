@@ -67,7 +67,7 @@ playerModel.videoURL = url1.url; // 设置默认播放的清晰度
 ![直播清晰度](https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg)
 
 ## 时移播放
-播放器开启时移非常简单，您只需要在播放前配置好 appId
+播放器开启时移非常简单，您只需要在播放前配置好 appId。
 
 ```objc
 SuperPlayerVideoId *videoId = [[SuperPlayerVideoId alloc] init];
