@@ -10,6 +10,11 @@
 
 <a href="https://buy.cloud.tencent.com/cvm?tab=lite"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点此进入快速购买页面&nbsp;&nbsp;</button></a>
 
+<div style="background-color:#5291F8; width: 180px; height: 40px; line-height:40px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点击注册腾讯云账号</a></div>
+
+<a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px"><button type="button" style="background-color:#5291F8; width: 180px; height: 40px">点击注册腾讯云账号</button></a>
+
+
 ![](https://main.qcloudimg.com/raw/9c98a58a292028998842c14965908c84.jpg)
 
 - **地域**：选择与您最近的一个地区，例如我在“深圳”，地域选择“广州”。
