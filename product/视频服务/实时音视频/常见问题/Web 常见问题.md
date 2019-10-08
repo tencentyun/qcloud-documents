@@ -32,7 +32,7 @@ webrtcapi 实例化方法中参数 closeLocalMedia 表示是否关闭自动推�
 ```
 
 ### 出现 SecurityError［安全错误］该如何处理？
-该异常表示无法正确获取音视频视频。
+该异常表示无法正确获取音视频。
 WebRTC 必须在 HTTPS 或 localhost 的页面中被打开，否则将无法获取音视频设备。
 
 ### 出现 NotAllowedError［拒绝错误］是什么意思？
