@@ -2,16 +2,14 @@
 
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
-
-<a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点击注册腾讯云账号&nbsp;&nbsp;</button></a>
-
+- 样式一：
+<a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct"  target="_blank"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点击注册腾讯云账号&nbsp;&nbsp;</button></a>
+- 样式二：
+<div style="background-color:#5291F8; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点击注册腾讯云账号</a></div>
 
 ## 步骤二：购买 Linux 云服务器
 
 <a href="https://buy.cloud.tencent.com/cvm?tab=lite"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点此进入快速购买页面&nbsp;&nbsp;</button></a>
-
-<div style="background-color:#5291F8; width: 180px; height: 40px; line-height:40px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点击注册腾讯云账号</a></div>
-
 
 ![](https://main.qcloudimg.com/raw/9c98a58a292028998842c14965908c84.jpg)
 
