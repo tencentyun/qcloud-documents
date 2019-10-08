@@ -76,7 +76,7 @@
 <tr>
 <td> InvalidRequest.UnsupportedProtocol
 </td><td> 协议不支持
-</td><td> 协议不支持，当前 API 仅支持 https 协议，不支持 http 协议。
+</td><td> 协议不支持，当前 API 仅支持 HTTPS 协议，不支持 HTTP 协议。
 </td></tr>
 <tr>
 <td> InternalError.ResourceOpFailed
