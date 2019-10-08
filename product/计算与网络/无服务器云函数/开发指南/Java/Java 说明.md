@@ -33,7 +33,7 @@ public class Hello {
 	* 使用 Context 需要在代码中使用 `com.qcloud.scf.runtime.Context;` 引入包，并在打包时带入 jar 包。
 	* 如不使用此对象，可在函数入参中忽略，可写为`public String mainHandler(String name)`。
 
->! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-java-libs) 获取 java 的库并使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-java-libs/issues/new) 或提交工单说明。
+>! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-java-libs) 获取 Java 的库并使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-java-libs/issues/new) 或提交工单说明。
 
 ## 日志
 您可以在程序中使用如下语句来完成日志输出：

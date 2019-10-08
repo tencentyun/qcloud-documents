@@ -5,6 +5,8 @@
 - 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
 - 已激活 SCF 使用权限。
 如果您从未使用过 SCF，您需要前往 [SCF 控制台](<https://console.cloud.tencent.com/scf/index?rid=1>) 打开函数页面进行权限激活。打开页面后会自动激活权限，无需其他操作。
+- 已安装 Node.js 8.9.x 版本。请查看您是否安装或是否使用对应版本，若不符合条件，请前往 [Node.js 官网](https://nodejs.org/zh-cn/download/releases/) 选择对应的版本进行安装。
+- 已安装  Python 2.7（及以上版本）或 Python 3.6（及以上版本）。若为安装，请参考  [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip)， 安装所需软件。
 
 
 ## 操作步骤
@@ -14,9 +16,9 @@
 
 ### 安装 SCF CLI
 VS Code 插件部分功能依赖 SCF CLI，更多关于 SCF CLI 请参见 [概述](https://cloud.tencent.com/document/product/583/33445)。
-1. 请参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip)， 安装所需软件。
-2. 执行  `pip install scf` 命令，安装 SCF CLI。
-3. 安装后执行 `scf --version` 命令验证是否安装成功。
+
+1. 执行  `pip install scf` 命令，安装 SCF CLI。
+2. 安装后执行 `scf --version` 命令验证是否安装成功。
 输出结果如下，则成功安装 SCF CLI。如果未安装成功，请参考 [SCF 工具类常见问题](<https://cloud.tencent.com/document/product/583/33456>)。
 ```
 SCF CLI, version 0.0.1
@@ -25,7 +27,11 @@ SCF CLI, version 0.0.1
 ### 安装 VS Code 插件
 1. 运行 VS Code IDE。
 2. 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/14b7872880f99820e01ad74de38fc956.png" style="margin:-3px 0;">，打开 VS Code 插件市场。
-3. 在搜索框中输入 “Tencent Serverless”，单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：
+3. 在搜索框中输入以下信息：
+```
+Tencent Serverless Toolkit for VS Code
+```
+单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：
 ![](https://main.qcloudimg.com/raw/49a9ec2dad6e19a497dd148d9f2b88ee.png)
        
 
@@ -35,11 +41,30 @@ SCF CLI, version 0.0.1
 ![](https://main.qcloudimg.com/raw/15592fb57aa84d524c07554dd852b31c.png)
  - AppId：请前往 [账号信息](https://console.cloud.tencent.com/developer) 获取。
  - ServiceId 及 ServiceKey：请前往 【访问管理】>【访问密钥】>【[API 密钥](https://console.cloud.tencent.com/cam/capi)】获取。
- >?若您未创建 ServiceId 及 ServiceKey，请在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
- >
+ >!
+ >- 若您未创建 ServiceId 及 ServiceKey，请在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
+ >- 函数期望所在地域请勿选择**成都**。
 
 ### 创建函数
 您可根据实际需求，选择以下方式使用 VS Code 插件创建函数。
+
+
+
+#### Git 拉取创建函数
+>?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](#create)。
+>
+1. 打开插件，单击本地函数右侧的<img src="https://main.qcloudimg.com/raw/1a14823bd6129b9989e3ef34ed80a9cc.png" style="margin:-3px 0;">，并选择【Git 仓库】为代码来源后按 “**Enter**”。如下图所示：
+![](https://main.qcloudimg.com/raw/2c9d4f9c05cbc41ce1fa84b59ad94551.png)
+2. 将以下 git 地址填入输入框，并按 “**Enter**”。如下图所示：
+```
+https://github.com/TencentServerless/scf_vscode_demo1.git 
+```
+![](https://main.qcloudimg.com/raw/9836d6ebc8c9093c43190f2382a88884.png)
+3. 输入自定义函数名（本文以 `testFunc` 为例），并按 “**Enter**”。如下图所示：
+![](https://main.qcloudimg.com/raw/85c6edfe032cb8aeb5bf4349a81fe750.png)
+4. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
+![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)        
+
 
 <span id="create"></span>
 #### 源码创建函数
@@ -56,20 +81,6 @@ SCF CLI, version 0.0.1
 5. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
 ![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)     
 
-#### Git 拉取创建函数
->?使用 Git 拉取创建函数，须完成 VS Code IDE 和 git 的配置。若您没有安装 git 或已完成配置，请选择 [源码创建函数](#create)。
->
-1. 打开插件，单击本地函数右侧的<img src="https://main.qcloudimg.com/raw/1a14823bd6129b9989e3ef34ed80a9cc.png" style="margin:-3px 0;">，并选择【Git 仓库】为代码来源后按 “**Enter**”。如下图所示：
-![](https://main.qcloudimg.com/raw/2c9d4f9c05cbc41ce1fa84b59ad94551.png)
-2. 将以下 git 地址填入输入框，并按 “**Enter**”。如下图所示：
-```
-https://github.com/TencentServerless/scf_vscode_demo1.git 
-```
-![](https://main.qcloudimg.com/raw/9836d6ebc8c9093c43190f2382a88884.png)
-3. 输入自定义函数名（本文以 `testFunc` 为例），并按 “**Enter**”。如下图所示：
-![](https://main.qcloudimg.com/raw/85c6edfe032cb8aeb5bf4349a81fe750.png)
-4. 打开插件即可看到本地函数下已创建函数 `testFunc`。如下图所示：
-![](https://main.qcloudimg.com/raw/30cd6a9c4ce2c70cebfd0e1316781594.png)        
 
 
 
@@ -102,3 +113,8 @@ https://github.com/TencentServerless/scf_vscode_demo1.git
 ![](https://main.qcloudimg.com/raw/e177e583e85b2f2da8dbdd4d0fde334a.png)
 6. 在浏览器中访问此路径，即可看到成功部署的 H5 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d92b529543f096fed16d6f6a1573deef.jpg)      
+
+## 联系我们
+如果您在使用的过程中遇到问题或者对 Tencent Serverless 感兴趣，欢迎扫描下方二维码加入 QQ 群（854582882）与我们交流。
+![](https://main.qcloudimg.com/raw/afd3b9ad25dd3cc8c9d53288bc111d21.png)
+

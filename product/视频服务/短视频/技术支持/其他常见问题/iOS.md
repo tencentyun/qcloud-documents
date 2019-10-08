@@ -98,7 +98,7 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 
 ### 视频编辑时退后台再回到前台，视频生成失败
 
-生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，APP 进后台时可以调用 `pauseGenerate` 暂停视频生成，APP 回到前台后再调用 `resumeGenerate` 继续视频生成。
+生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，App 进后台时可以调用 `pauseGenerate` 暂停视频生成，App 回到前台后再调用 `resumeGenerate` 继续视频生成。
 
 > [注意] 调用 `resumeGenerate`，SDK 将重启硬编码器，有一定的概率重启失败，或重启后前几帧数据编码失败。此时，SDK 内部会在 `TXVideoGenerateListener` 抛出错误事件，收到错误事件后需要重新生成视频。
 
