@@ -70,7 +70,10 @@ playerModel.videoURL = url1.url; // 设置默认播放的清晰度
 播放器开启时移非常简单，您只需要在播放前配置好 appId
 
 ```objc
-playerModel.appId = 1252463788;
+SuperPlayerVideoId *videoId = [[SuperPlayerVideoId alloc] init];
+videoId.appId = 1252463788; // 这里换成您的 appID
+SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
+playerModel.videoId = videoId;
 ```
 >? appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查到。
 
@@ -92,9 +95,10 @@ playerModel.appId = 1252463788;
 
 播放 fileId 的代码如下：
 ```
-SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
-playerModel.appId = 1252463788;
-playerModel.fileId = @"4564972819219071679";
+SuperPlayerVideoId *videoId = [SuperPlayerVideoId new];
+videoId.appId = 1252463788; // 这里换成您的 appID
+videoId.fileId = @"4564972819219071679"; // 这里换成需要播放视频的 fileID
+playerModel.videoId = videoId;
 [_playerView playWithModel:self.playerModel];
 ```
 视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://console.cloud.tencent.com/vod/video-process/template)）。转码完成后，播放器会自动显示多个清晰度。
@@ -111,9 +115,9 @@ playerModel.fileId = @"4564972819219071679";
 ## 小窗播放
 小窗播是指在 App 内，悬浮在主 window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
-SuperPlayerWindowShared.superPlayer = _playerView; // 设置小窗显示的播放器
-SuperPlayerWindowShared.backController = self;  // 设置返回的view controller
-[SuperPlayerWindowShared show]; // 悬浮显示
+[SuperPlayerWindow sharedInstance].superPlayer = _playerView; // 设置小窗显示的播放器
+[SuperPlayerWindow sharedInstance].backController = self;  // 设置返回的view controller
+[[SuperPlayerWindow sharedInstance] show]; // 悬浮显示
 ```
 ![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)
 
