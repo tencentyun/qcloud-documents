@@ -21,7 +21,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
 2. 进入**应用管理**页面，单击【查看密钥】按钮即可获得加密密钥。
 
-![](https://main.qcloudimg.com/raw/b60febc3e7512e733c56d7f5c37289a6.png)
+![](https://main.qcloudimg.com/raw/1b2fd401578d46323614b00c7e1b51ce.png)
 
 <h3 id="Client">客户端计算</h3>
 
