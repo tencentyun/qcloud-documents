@@ -2,14 +2,12 @@
 
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
-- 样式一：
-<a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fdocument%2Fproduct"  target="_blank"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点击注册腾讯云账号&nbsp;&nbsp;</button></a>
-- 样式二：
-<div style="background-color:#5291F8; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点击注册腾讯云账号</a></div>
+<div style="background-color:#5291F8; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点此注册腾讯云账号</a></div>
 
 ## 步骤二：购买 Linux 云服务器
 
-<a href="https://buy.cloud.tencent.com/cvm?tab=lite"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点此进入快速购买页面&nbsp;&nbsp;</button></a>
+<div style="background-color:#5291F8; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
+</br>
 
 ![](https://main.qcloudimg.com/raw/9c98a58a292028998842c14965908c84.jpg)
 
@@ -24,10 +22,8 @@
 
 ## 步骤三：登录云服务器
 
->! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<a href="https://console.cloud.tencent.com/message"><button type="button" style="background-color:#5291F8; color: white; font-size:16px">&nbsp;&nbsp;点此获取初始密码&nbsp;&nbsp;</button></a>
-
+>! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<div style="background-color:#5291F8; width: 160px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/message" target="_blank"  style="color: white; font-size:16px;">点此获取初始密码</a></div>
 >
-
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到刚购买的云服务器，在右侧操作栏中单击【登录】。
 ![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
 2. 推荐您 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
