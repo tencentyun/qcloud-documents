@@ -9,9 +9,9 @@
 #### 计费价格
 <table>
 	<tr><th>地域</th><th>价格（元/小时）</th></tr>
-	<tr><td><ul  style="margin: 0;"><li>中国大陆地区</li><li>法兰克福</li><li>首尔</li></ul></td><td>0.20</td></tr>
-	<tr><td><ul  style="margin: 0;"><li>中国香港</li><li>新加坡</li></ul></td><td>0.30</td></tr>
-	<tr><td><ul  style="margin: 0;"><li>多伦多</li><li>弗吉尼亚</li><li>硅谷</li><li>曼谷</li><li>莫斯科</li><li>东京</li><li>孟买</li></ul></td><td>0.25</td></tr>
+	<tr><td>中国大陆地区</br>法兰克福</br>首尔</td><td>0.20</td></tr>
+	<tr><td>中国香港</br>新加坡</td><td>0.30</td></tr>
+	<tr><td>多伦多</br>弗吉尼亚</br>硅谷</br>曼谷</br>莫斯科</br>东京</br>孟买</td><td>0.25</td></tr>
 </table>
 
 >? 闲置的弹性公网 IP 费用精确到秒，每小时结算一次，未绑定时长不足1小时则按比例计费。在同一计费周期内，多次解绑和绑定，闲置的时间累加，然后计费。
