@@ -92,3 +92,6 @@ COS 触发器具有以下特点：
 | cos | 记录事件对应的 COS 信息 |
 | cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称，地域，所属用户 APPID |
 | cosObject |  记录具体事件发生的对象，包含对象文件路径，大小，自定义元数据，访问 URL  |
+
+## Java Demo
+https://github.com/tencentyun/scf-demo-java/blob/master/src/main/java/example/Cos.java
