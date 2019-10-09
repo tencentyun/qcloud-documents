@@ -29,7 +29,7 @@
 ### 4. 使用自定义镜像提交测试作业
 
 ```
-qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
+tccli batch SubmitJob --version 2017-03-12 --Job '{
     "JobName": "TestJob",       // 作业名称
     "JobDescription": "for test ",    // 作业描述
     "Priority": "1",            // 作业优先级
@@ -63,7 +63,7 @@ qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
 
 
 ```
-qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
+tccli batch SubmitJob --version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
 ```
 
 实际命令行提交请复制上面这段命令到文本，修改里面的『待替换』部分（3处，镜像 ID 和日志地址）即可。

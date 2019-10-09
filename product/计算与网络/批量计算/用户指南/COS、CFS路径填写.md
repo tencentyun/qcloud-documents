@@ -6,30 +6,32 @@ Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写CO
 
 ### 仅支持 COS XML API 访问域名
 
-![](https://mc.qcloudimg.com/static/img/9e0e71c620551fd4271f5e026978d068/1.png)
+![](https://main.qcloudimg.com/raw/09f2daaa7e883debaaf1e964b47f459b.png)
 
-COS 支持访问域名包含适用于 XML API 和 JSON API 的两种，Batch 填写的时候仅支持 XML API 形式的域名，如上图红框标识部分。
+Batch 填写的时候仅支持 XML API 形式的域名，如上图红框标识部分。
 
 ### 前缀需要以cos:// 开头
 
-![](https://mc.qcloudimg.com/static/img/9e0e71c620551fd4271f5e026978d068/1.png)
+![](https://main.qcloudimg.com/raw/09f2daaa7e883debaaf1e964b47f459b.png)
 
 比如上图的地址，在 Batch 的路径填写里，需要添加 cos:// 开头，具体形式见下
 
 ``` 
-cos://testbatch-1252462967.cos.ap-beijing-1.myqcloud.com/ 
+cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/
 ```
 
 ``注意：需要以 / 结尾``
 
 ### 挂载子目录
 
-![](https://mc.qcloudimg.com/static/img/5dfebdda44fa0417c03090675a58a099/2.png)
+![](https://main.qcloudimg.com/raw/1b3ea193e2f7582d9b31e6c041555a34.png)
 
 子目录直接以常规文件目录的方式添加在 Bucket 的域名后面即可，比如上图的 Bucket 下的文件夹，进行目录挂载时 COS 路径填写方式见下
 
 ``` 
-cos://testbatch-1252462967.cos.ap-beijing-1.myqcloud.com/testdir/ 
+cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/logs/
+cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/input/
+cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/output/
 ```
 
 ### 支持同地域Bucket
