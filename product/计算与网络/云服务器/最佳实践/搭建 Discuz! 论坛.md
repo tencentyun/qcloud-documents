@@ -49,7 +49,7 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 ![putty2](//mc.qcloudimg.com/static/img/b7883110e977fb0d94310379a152c5d3/image.png)
 进入 “PuTTY” 运行界面，提示 “login as:”，等待用户输入云服务器实例的用户名。
 7. 在 “login as” 后输入用户名，按 “**Enter**”。
-8. 在 “Password” 后输入密码，按 “**Enter**”。如下图所示：
+8. 在 “password” 后输入密码，按 “**Enter**”。如下图所示：
 登录完成后，命令提示符左侧显示出当前登录服务器的主机名。
 ![putty3](//mc.qcloudimg.com/static/img/b632cf3e122832193a77afe04c93fbc1/image.png)
 
