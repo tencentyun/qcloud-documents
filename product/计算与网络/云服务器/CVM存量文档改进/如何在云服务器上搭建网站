@@ -1,1 +1,25 @@
+![](https://main.qcloudimg.com/raw/04d1370f70725f7968546c3b1452c4d2.jpg)
+当您云服务器购买完成后，您可以在购买的服务器上搭建一个属于自己的网站或者论坛。腾讯云针对主流的网站系统，提供以下几种搭建网站的方式。
 
+   <table>
+      <tr >
+        <th>网站类型</th>
+        <th>说明</th>
+      </tr>
+      <tr>
+        <td rowspan=2> WordPress</td>
+        <td rowspan=2>WordPress是使用PHP语言开发的博客平台，用户可以在支持PHP和MySQL数据库的服务器上架设属于自己的网站。也可以把 WordPress当作一个内容管理系统（CMS）来使用。</td>
+        <td>镜像部署 WordPress 个人网站</td>
+      </tr>
+      <tr>
+        <td>手动部署 WordPress个人网站</td>
+      </tr>
+      <tr>
+        <td rowspan=2> LNMP环境</td>
+        <td rowspan=2>LNMP代表Linux系统下Nginx+MySQL+PHP这种网站服务器架构。</td>
+        <td>镜像部署 LNMP 环境</td>
+      </tr>
+      <tr>
+        <td>手动部署 LNMP 环境</td>
+      </tr>
+    </table>
