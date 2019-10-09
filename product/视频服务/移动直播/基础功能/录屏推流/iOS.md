@@ -83,7 +83,6 @@ static NSString *s_rtmpUrl;
 - s_txLivePublisher 是我们用于推流的对象，因为系统录屏回调的 sampleHandler 实例有可能不只一个，因此对变量采用静态声明，确保录屏推流过程中使用的是同一个推流器。
 - s_txLivePublisher 的 config 默认的配置为摄像头推流配置，因此需要额外配置为自定义采集视频和音频模式，视频开启 autoSampleBufferSize，SDK 会自动根据输入的分辨率设置编码器，您不需要关心推流的分辨率；如果您关闭此选项，那么代表您需要自定义分辨率。
 - 因为系统录制对不同机型屏幕所得到的分辨率不一致，所以录屏推流不建议您开启 autoSampleBufferSize，使用自定义分辨率设置。
-
 - 实例化 s_txLivePublisher 的最佳位置是在`-[SampleHandler broadcastStartedWithSetupInfo:]`方法中，直播扩展启动后会回调这个函数，就可以进行推流器初始化开始推流。但在 ReplayKit2 的屏幕录制扩展启动时，回调给 s_txLivePublisher 的 setupInfo 为  nil，无法获取启动推流所需要的推流地址等信息，因此通常回调此函数时发通知给主 App，在主 App 中设置好推流地址，横竖屏清晰度等信息后再传递给扩展并通知扩展启动推流。扩展与主 App 间的通信请参见后面所附的**扩展与宿主 App 之间的通信与数据传递方式** 。
 
 
