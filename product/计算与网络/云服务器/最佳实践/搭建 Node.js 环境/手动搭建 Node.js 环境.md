@@ -21,11 +21,11 @@
 
 ### 安装 Node.js
 1. 执行以下命令，下载 Node.js Linux 64位二进制安装包。
+>?本文以 Node.js 10.16.3 版本为例，请根据您的实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 下载对应版本。
+>
 ```
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
->?本文以 Node.js 10.16.3 版本为例，请根据您的实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 下载对应版本。
->
 2. 执行以下命令，解压安装包。
 ```
 tar xvf node-v10.16.3-linux-x64.tar.xz
@@ -63,12 +63,12 @@ source /etc/profile
 nvm list-remote
 ```
 5. 依次执行以下命令，安装多个版本的 Node.js。
+>?本文以 Node.js 6.9.5 及 10.16.3 为例，您可根据实际需求进行安装。
+>
 ```
 nvm install v6.9.5
 nvm install v10.16.3
 ```
->?本文以 Node.js 6.9.5 及 10.16.3 为例，您可根据实际需求进行安装。
->
 6. 执行以下命令，查看已安装的 Node.js 版本。
 ```
 nvm ls
