@@ -12,7 +12,7 @@
 2. 根据页面提示选择机型，并选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
 ![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
-3. 在“选择镜像”窗口中，选择 nodejs-mysql 镜像，并单击【免费使用】。如下图所示：
+3. 在“选择镜像”窗口中，选择 nodejs-mysql 镜像。如下图所示：
 >?
 >- 本文以下图所示 nodejs-mysql 环境系统镜像为例，您可根据实际需求进行选择。
 >- 单击镜像名，查看镜像详情。
@@ -29,7 +29,7 @@
 >
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f6c1d0c3ce0b474b0b12bd9c6c9eec5.png)
-2. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成云服务器登录操作。
+2. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
 3. 执行以下命令，新建并编辑 `test.js` 文件。
 ```
 vim test.js
@@ -48,6 +48,8 @@ server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```
+>?本文在 `test.js` 测试文件中设置端口号为8080，您可根据实际需求自行修改。
+>
 5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 4. 执行以下命令，进行测试。
 ```
@@ -55,7 +57,7 @@ node test.js
 ```
 6. 在浏览器中访问以下地址，查看项目是否正常运行。
 ```
-http://云服务器实例的公网 IP:8080
+http://云服务器实例的公网 IP:已配置的端口号
 ```
 显示结果如下，则说明 Node.js 环境搭建成功。
 ![](https://main.qcloudimg.com/raw/1e552742bacbfbc4d2164f5efe3fc09c.png)
