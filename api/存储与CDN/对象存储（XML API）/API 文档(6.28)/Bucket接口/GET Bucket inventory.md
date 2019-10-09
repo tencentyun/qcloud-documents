@@ -133,7 +133,7 @@ Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 #### 响应
 
 上述请求后，COS 返回以下响应，表明当前该存储桶内的清单任务 list1 处于启用状态。
-该清单任务分析存储桶`examplebucket-1250000000`中前缀为 myPrefix 的对象及其所有版本。
+- 该清单任务分析存储桶`examplebucket-1250000000`中前缀为 myPrefix 的对象及其所有版本。
 - 分析频次为每天一次。
 - 分析维度包括 Size，LastModifiedDate， StorageClass，ETag，IsMultipartUploaded， ReplicationStatus。
 - 分析结果将以 CSV 格式文件存储在存储桶 examplebucket-1250000000 中，文件添加前缀 list1 且用 SSE-COS 加密。
