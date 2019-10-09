@@ -1,5 +1,5 @@
 ## 操作场景
-LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 组成的网站服务器架构。本文档介绍在 CentOS 6.9 及 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM） 上手动搭建 LNMP 环境。
+LNMP 环境代表 Linux 系统下 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 6.9 及 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
 
 ## 前提条件
@@ -13,12 +13,12 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 组成的网站服务器�
 >
 1. 在实例的管理页面，单击【新建】。
 具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回云服务器控制台，查看并获取云服务器的以下信息。如下图所示：
+2. 云服务器创建成功后，返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看并获取云服务器的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器用户名和密码。
  - 云服务器公网 IP。
-3. 登录 Linux 云云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-4. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
+3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
+4. 登录云服务器后，默认已获取 root 权限。以下步骤需在 root 权限下操作。
 
 ### 安装 Nginx
 1. 执行以下命令，安装 Nginx。
@@ -60,8 +60,8 @@ server {
   }
 }
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-4. 请区分操作系统版本，依次执行对应命令，启动 Nginx 并设置为开机自启动。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 根据安装操作系统的不同，依次执行对应命令启动 Nginx 并设置为开机自启动。
  - CentOS 6.9 请依次执行以下命令：
 ```
 	 service nginx start
@@ -73,7 +73,7 @@ server {
 systemctl start nginx
 systemctl enable nginx 
 ```
-5. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+6. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/aafa7ee638e68a8771953908a06fd704.png)
 
@@ -156,18 +156,18 @@ baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
 gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 >?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
-5. 执行以下命令，安装 MariaDB。
+5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 执行以下命令，安装 MariaDB。
 ```
 yum -y install MariaDB-client MariaDB-server
 ```
-6. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
+7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
 systemctl start mariadb
 systemctl enable mariadb
 ```
-7. 执行以下命令，验证 MariaDB 是否安装成功。
+8. 执行以下命令，验证 MariaDB 是否安装成功。
 ```
 mysql
 ```
