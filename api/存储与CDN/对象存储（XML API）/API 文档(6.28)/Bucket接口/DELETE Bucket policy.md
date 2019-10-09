@@ -5,7 +5,7 @@ DELETE Bucket policy 请求可以向 Bucket 删除权限策略。
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```shell
 DELETE /?policy HTTP/1.1
@@ -13,9 +13,9 @@ Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: date
 Authorization: Auth String
 ```
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求头
+#### 请求头
 
 #### 公共头部
 
@@ -24,11 +24,11 @@ Authorization: Auth String
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
-### 请求体
+#### 请求体
 该请求的请求体为空。
 
 ## 响应
-### 响应头
+#### 响应头
 
 #### 公共响应头
 
@@ -37,12 +37,12 @@ Authorization: Auth String
 #### 特有响应头
 该响应无特殊的响应头。
 
-### 响应体
+#### 响应体
 该响应体为空。
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 DELETE /?policy HTTP/1.1
@@ -50,7 +50,7 @@ Host:examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814613;32557710613&q-key-time=1484814613;32557710613&q-header-list=host&q-url-param-list=policy&q-signature=57c9a3f67b786ddabd2c208641944ec7f9b02f98
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 204 No Content
