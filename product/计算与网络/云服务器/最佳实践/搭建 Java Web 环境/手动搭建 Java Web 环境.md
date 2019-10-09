@@ -3,8 +3,8 @@
 
 Java Web 环境组成及说明：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.46 为例。
-- JDK：Java 开发工具包，本文使用 jdk 1.8.0_221 版本。
+- Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.46 版本为例。
+- JDK：Java 开发工具包，本文以 jdk 1.8.0_221 版本为例。
 
 
 ## 前提条件
