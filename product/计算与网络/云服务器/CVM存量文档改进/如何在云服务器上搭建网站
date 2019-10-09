@@ -38,6 +38,8 @@
 			<td rowspan=2>AMH 建站</td>
 			<td rowspan=2>AMH 是开源的云主机面板，基于 LNMP 环境运行，同时具备 SSH 命令及 Web 端软件维护等功能。用户可通过 AMH 快速搭建个性化个人网站。</td>
 			<td>镜像部署 AMH</td>
+			</tr>
+			<tr>
 			<td>手动部署 AMH</td>
 			</tr>
 			<tr>
@@ -62,8 +64,8 @@
         <td>手动部署 LAMP 环境</td>
       </tr>
 			<tr>
-				<td>FTP服务<td>
-				<td>搭建FTP服务后，服务器可在网络中提供文件存储和访问服务等功能。用户可在服务器上搭建属于个人或团队的FTP服务。<td>
+				<td>FTP服务</td>
+				<td>搭建FTP服务后，服务器可在网络中提供文件存储和访问服务等功能。用户可在服务器上搭建属于个人或团队的FTP服务。</td>
 				<td>手动搭建 FTP 服务<td>
 			</tr>
     </table>
