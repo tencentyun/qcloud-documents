@@ -1,4 +1,5 @@
 
+>?本文所列错误码适用于 iOS、Mac、Android、Windows(C++) 以及 Windows(C#) 平台。
 
 ## （一）错误码（严重）
 
