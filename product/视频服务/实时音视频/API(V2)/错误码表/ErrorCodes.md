@@ -1,5 +1,5 @@
 
->?本文所列错误码适用于 iOS、Mac、Android、Windows(C++) 以及 Windows(C#) 平台。
+>?本文所列错误码适用于 iOS、Mac、Android、Windows(C++)、Windows(C#) 以及小程序平台，Web 平台的错误码详情请参见 [错误码](https://cloud.tencent.com/document/product/647/34342)。
 
 ## （一）错误码（严重）
 
