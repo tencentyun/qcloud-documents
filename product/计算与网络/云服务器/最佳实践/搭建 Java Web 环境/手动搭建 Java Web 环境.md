@@ -14,12 +14,12 @@ Java Web 环境组成及说明：
 ### 创建并登录云服务器
 1. 在实例的管理页面，单击【新建】。
 具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回至云服务器控制台，查看和获取实例的以下信息。如下图所示：
+2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码。
  - 云服务器实例公网 IP。
-3. 登录 Linux 云云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-4. 登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
+3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
+登录云服务器后，默认已获取 root 权限，以下步骤需在 root 权限下操作。
 
 
 
@@ -34,7 +34,6 @@ Java Web 环境组成及说明：
 mkdir /usr/java
 ```
 3. 执行以下命令，将 JDK 源码包解压到指定位置。
-请根据您实际使用的 JDK 版本，本文以 jdk 1.8.0_221 为例。
 ```
 tar xzf jdk-8u221-linux-x64.tar.gz -C /usr/java
 ```
@@ -50,8 +49,8 @@ export PATH=$JAVA_HOME/bin:$PATH
 ```
 添加完成后，如下图所示：
 ![](https://main.qcloudimg.com/raw/a4d0466eca6c4c0ef219f571b7d165de.png)
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 执行以下命令，读取环境变量。
+6. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+7. 执行以下命令，读取环境变量。
 ```
 source /etc/profile
 ```
@@ -85,17 +84,17 @@ vim /usr/local/tomcat/conf/server.xml
 ```
 appBase="/usr/local/tomcat/webapps"
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-5. 执行以下命令，新建 `setenv.sh` 文件。
+5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 执行以下命令，新建 `setenv.sh` 文件。
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
+7. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8' 
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 执行以下命令，启动 Tomcat。
+8. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+9. 执行以下命令，启动 Tomcat。
 ```
 /usr/local/tomcat/bin/startup.sh
 ```
