@@ -72,4 +72,4 @@
 | master_slavesync_distance        | 主从延迟距离                             | MB                                  | uInstanceId |
 | seconds_behind_master            | 主从延迟时间                             | 秒                                  | uInstanceId |
 
-有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的 [读取监控数据接口](https://cloud.tencent.com/document/api/248/11006)。
+有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的 [云数据库 MySQL 监控接口](https://cloud.tencent.com/document/api/248/11006)。

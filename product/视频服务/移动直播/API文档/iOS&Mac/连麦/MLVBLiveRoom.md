@@ -280,7 +280,7 @@ __介绍__
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
 2. 主播会收到 MLVBLiveRoomDelegate onRequestJoinAnchor 的回调通知。
-3. 主播调用 reponseJoinAnchor 确定是否接受观众的连麦请求。
+3. 主播调用 responseJoinAnchor 确定是否接受观众的连麦请求。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 joinAnchor 正式进入连麦状态。

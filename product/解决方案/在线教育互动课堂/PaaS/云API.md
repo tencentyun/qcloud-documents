@@ -19,21 +19,21 @@
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
 | admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 是 | - |
 | admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 是 | - |
-| settings | settings | 课堂配置信息 | 否 | |
-| resolution | string | 设置课堂的分辨率（320x240 / 800x600 / 1024x768)  | 否 | 1024x768 |
+| settings | settings | 课堂配置信息 | 否 |- |
+| resolution | string | 设置课堂的分辨率（320x240/800x600/1024x768)  | 否 | 1024x768 |
 | fps | int | 设置课堂的帧率| 否 | 15 |
 | layout | int | 课堂的布局风格（布局候选待定）| 否 | 0 |
-| auto_create_im | int | 是否由后台创建并管理IM群组，并记录IM历史消息（0- 不创建/1- 创建） | 否 | 1 |
-| record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`, <br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
+| auto_create_im | int | 是否由后台创建并管理 IM 群组，并记录 IM 历史消息（0- 不创建/1- 创建） | 否 | 1 |
+| record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，<br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
-| members | Array | 课堂预约成员列表 | 否 |  教师ID默认在成员列表中 |
-| role | string | 角色信息，本接口中全部填“student”。需要设置members时此字段必填 | 否 | - |
-| user_id | string | 学生ID。需要设置members时此字段必填 | 否 | - |
-| record_user_id | string | 用于录制的user_id，必须包含前缀"tic_recorduser${room_id}"，其中${room_id}为房间号，<br> 在线录制服务会使用这个user_id进房进行录制房间内的音视频与白板，为了防止进房冲突，请保证此user_id不重复，如果要云端录制，则必填 | 否 | - |
-| record_user_sig | string | 用于录制的record_user_id对应的签名，如果要云端录制，则必填 | 否 | - |
-|max_member_limit|int|最大上麦人数|否|||
+| members | Array | 课堂预约成员列表 | 否 |  教师 ID 默认在成员列表中 |
+| role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
+| user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
+| record_user_id | string | 用于录制的 user_id，必须包含前缀“tic_recorduser${room_id}”，其中${room_id}为房间号，<br>在线录制服务会使用这个 user_id 进房进行录制房间内的音视频与白板，为了防止进房冲突，请保证此 user_id 不重复，如果要云端录制，则必填 | 否 | - |
+| record_user_sig | string | 用于录制的 record_user_id 对应的签名，如果要云端录制，则必填 | 否 | - |
+|max_member_limit|int|最大上麦人数|否|0|
 
 #### 响应参数
 
@@ -411,7 +411,7 @@
 | :------ | :--- | :---- | :--------: | :-----: |
 | list | Array | 需要注册的用户列表 | 是 | - |
 | user_id | string | 用户 ID | 是 | - |
-| password | string | 密码, 长度4-18,规则:数字/大小写字母/特殊字符(!@#$%^&*()-+=.[]{}:;,?/) | 是 |
+| password | string | 密码，长度4-18，规则：数字/大小写字母/特殊字符(!@#$%^&*()-+=.[]{}:;,?/) | 是 |-
 | role | string | 用户角色 | 是 | - |
 | nickname | string | 用户昵称 | 否 | 用户 ID |
 | gender | string | 用户性别 | 否 | 男 |
@@ -1329,11 +1329,11 @@ transport_progress
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | role | string | 成员在本课堂中的角色 | 是 | - |
-|history_camera|int|用户在该课堂上一次摄像头的状态（0：关闭，1：打开，-1：未知）|是|
-|history_mic|int|用户在该课堂上一次麦克风的状态（0：关闭，1：打开，-1：未知）|是|
-|history_speaker|int|用户在该课堂上一次扬声器的状态（0：关闭，1：打开，-1：未知）|是|
-|history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|
-|history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是|
+|history_camera|int|用户在该课堂上一次摄像头的状态（0：关闭，1：打开，-1：未知）|是|-1
+|history_mic|int|用户在该课堂上一次麦克风的状态（0：关闭，1：打开，-1：未知）|是|-1
+|history_speaker|int|用户在该课堂上一次扬声器的状态（0：关闭，1：打开，-1：未知）|是|-1
+|history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|-1
+|history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是|-1
 
 #### 举例
 请求：
