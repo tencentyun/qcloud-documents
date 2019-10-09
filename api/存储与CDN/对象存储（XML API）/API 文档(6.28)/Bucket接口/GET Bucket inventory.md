@@ -113,7 +113,7 @@ Authorization: Auth String
 | Encryption              | COSBucket Destination   | 为清单结果提供服务端加密的选项                             | Container |
 | SSE-COS                 | Encryption              | COS 托管密钥的加密方式                                     | Container |
 
-## 错误码
+#### 错误码
 
 该请求不产生特殊报错信息，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730)文档。
 
