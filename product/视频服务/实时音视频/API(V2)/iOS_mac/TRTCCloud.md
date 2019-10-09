@@ -672,7 +672,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| param | [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32261#trtcaudiorecordingparams) * | 录音参数，请参考TRTCAudioRecordingParams。 |
+| param | TRTCAudioRecordingParams * | 录音参数，请参考 [TRTCAudioRecordingParams](https://cloud.tencent.com/document/product/647/32261#trtcaudiorecordingparams)。 |
 
 __返回__
 
@@ -680,7 +680,7 @@ __返回__
 
 __介绍__
 
-该方法调用后， SDK 会将通话过程中的所有音频(包括本地音频，远端音频，BGM 等)录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
+该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitRoom 时还在录音，录音会自动停止。
 
 
 ### stopAudioRecording
@@ -696,7 +696,7 @@ __介绍__
 
 ### setSystemVolumeType
 
-设置通话过程中使用的系统音量类型。
+设置通话时使用的系统音量类型。
 ```
 - (void)setSystemVolumeType:(TRTCSystemVolumeType)type 
 ```
@@ -705,11 +705,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype) | 系统音量类型，请参考TRTCSystemVolumeType。 |
+| type | TRTCSystemVolumeType | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype)。 |
 
-__介绍__
-
-通过该接口可以禁止 SDK 使用通话音量，需要在调用 [startLocalAudio](#startlocalaudio) 之前使用。
+>?需要在调用 [startLocalAudio](#startlocalaudio) 之前调用该接口。
 
 
 ## 摄像头相关接口函数

@@ -117,7 +117,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | :----: | :--------: | :----------------------------------------------------------- |
 | 第一步 |    观众    | 观众调用`requestJoinAnchor()`向主播发起连麦请求。            |
 | 第二步 |    主播    | 主播会收到`MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)`通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。 |
-| 第三步 |    主播    | 主播调用`reponseJoinAnchor()`确定是否接受观众的连麦请求。  |
+| 第三步 |    主播    | 主播调用`responseJoinAnchor()`确定是否接受观众的连麦请求。  |
 | 第四步 |    观众    | 观众会收到`MLVBLiveRoomDelegate.RequestJoinAnchorCallback`回调通知，得知请求是否被同意。 |
 | 第五步 |    观众    | 观众如果请求被同意，则调用 startLocalPreview() 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示用户授权摄像头和麦克风的使用权限。 |
 | 第六步 |    观众    | 观众调用`joinAnchor()`正式进入连麦状态。               |

@@ -1,4 +1,5 @@
 
+>?本文所列错误码适用于 iOS、Mac、Android、Windows(C++)、Windows(C#) 以及小程序平台，Web 平台的错误码详情请参见 [错误码](https://cloud.tencent.com/document/product/647/34342)。
 
 ## （一）错误码（严重）
 
@@ -85,7 +86,7 @@
 |ERR_SERVER_INFO_BAD_ROOMID|-100010|房间号错误|
 |ERR_SERVER_INFO_BAD_SCENE_OR_ROLE|-100011|场景或角色错误|
 |ERR_SERVER_INFO_ROOMID_EXCHANGE_FAILED|-100012|房间号转换出错|
-|ERR_SERVER_INFO_SERVICE_SUSPENDED|-100013|腾讯云账号欠费|
+|ERR_SERVER_INFO_SERVICE_SUSPENDED|-100013|服务不可用。请检查：<li>套餐包剩余分钟数是否大于0<li>腾讯云账户是否欠费|
 |ERR_SERVER_INFO_STRGROUP_HAS_INVALID_CHARS|-100014|房间号非法|
 |ERR_SERVER_INFO_LACK_SDKAPPID|-100015|非法SDKAppid|
 |ERR_SERVER_INFO_INVALID|-100016|无效请求, 旧版 0x1 要求带 Token; ECDH 要求带 ECDH Publich Key; 两个都没有就按报错|

@@ -678,7 +678,7 @@ __介绍__
 
 ### setSystemVolumeType
 
-设置系统音量类型。
+设置通话时使用的系统音量类型。
 ```
 abstract void setSystemVolumeType(int type)
 ```
@@ -687,12 +687,17 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | TRTCAudioVolumeTypeAuto 默认类型，麦上通话音量、麦下媒体音量; TRTCAudioVolumeTypeMedia 始终使用媒体音量。 |
+| type | int | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32266#TRTCCloudDef)。 |
+
+>?需要在调用 [startLocalAudio()](#startlocalaudio) 之前调用该接口。
+
+
 
 ## 摄像头相关接口函数
 ### switchCamera
 
 切换摄像头。
+
 ```
 abstract void switchCamera()
 ```
