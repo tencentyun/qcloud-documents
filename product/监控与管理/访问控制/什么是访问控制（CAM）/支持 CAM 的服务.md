@@ -28,7 +28,6 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377) | 资源级   | &#10003;      | -  |  &#10003;      | &#10003;    |	
 | [无服务器云函数](https://cloud.tencent.com/document/product/583/18014)  | 资源级 | &#10003;        |  -  |&#10003;        | &#10003;   |
 | [批量计算](https://cloud.tencent.com/document/product/599)  | 资源级 | &#10003;         |  -  |&#10003;        | -    |
-| [黑石 Stack-V](https://cloud.tencent.com/document/product/889/20029)  | 服务级   | &#10003;       |  -  |  -        | -    |
 
 ## 存储	
 
