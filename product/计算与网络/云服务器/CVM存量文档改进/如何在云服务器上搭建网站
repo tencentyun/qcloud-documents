@@ -29,25 +29,7 @@
       <tr>
         <td>手动部署 WordPress个人网站</td>
       </tr>
-			<tr>
-				<td>Magento</td>
-				<td>Magento 是使用 PHP 语言开发的电子商务平台， 具备模块化的功能体系。用户可以使用 Magento 搭建个人商城、网店等线上营销网站。</td>
-				<td>镜像搭建 Magento 商务网站</td>
-			</tr>
-			<tr>
-			<td rowspan=2>AMH 建站</td>
-			<td rowspan=2>AMH 是开源的云主机面板，基于 LNMP 环境运行，同时具备 SSH 命令及 Web 端软件维护等功能。用户可通过 AMH 快速搭建个性化个人网站。</td>
-			<td>镜像部署 AMH</td>
-			</tr>
-			<tr>
-			<td>手动部署 AMH</td>
-			</tr>
-			<tr>
-			<td>GitLab</td>
-		  <td>GitLab 是基于网络的 Git 仓库管理工具，用户可将 GitLab 部署在 Linux 服务器上作为自托管的 Git 项目仓库。</td>
-			<td>手动部署 GitLab</td>
-			</tr>
-      <tr>
+			   <tr>
         <td rowspan=2> LNMP环境</td>
         <td rowspan=2>LNMP代表Linux系统下Nginx+MySQL/MariaDB+PHP组成的网站服务器架构。</td>
         <td>镜像部署 LNMP 环境</td>
@@ -64,8 +46,16 @@
         <td>手动部署 LAMP 环境</td>
       </tr>
 			<tr>
-				<td>FTP服务</td>
-				<td>搭建FTP服务后，服务器可在网络中提供文件存储和访问服务等功能。用户可在服务器上搭建属于个人或团队的FTP服务。</td>
-				<td>手动搭建 FTP 服务</td>
+				<td>Magento</td>
+				<td>Magento 是使用 PHP 语言开发的电子商务平台， 具备模块化的功能体系。用户可以使用 Magento 搭建个人商城、网店等线上营销网站。</td>
+				<td>镜像搭建 Magento 商务网站</td>
 			</tr>
-    </table>
+			<tr>
+			<td rowspan=2>AMH 建站</td>
+			<td rowspan=2>AMH 是开源的云主机面板，基于 LNMP 环境运行，同时具备 SSH 命令及 Web 端软件维护等功能。用户可通过 AMH 快速搭建个性化个人网站。</td>
+			<td>镜像部署 AMH</td>
+			</tr>
+			<tr>
+			<td>手动部署 AMH</td>
+			</tr>
+ </table>
