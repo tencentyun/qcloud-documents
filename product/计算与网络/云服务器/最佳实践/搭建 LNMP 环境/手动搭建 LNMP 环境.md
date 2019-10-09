@@ -18,7 +18,7 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL/MariaDB + PHP 组成的网站服
  - 云服务器用户名和密码。
  - 云服务器公网 IP。
 3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-4. 登录云服务器后，默认已获取 root 权限。以下步骤需在 root 权限下操作。
+登录云服务器后，默认已获取 root 权限，以下步骤需在 root 权限下操作。
 
 ### 安装 Nginx
 1. 执行以下命令，安装 Nginx。
