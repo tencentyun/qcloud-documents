@@ -57,7 +57,7 @@ constraints 对象未设置，或者都被设置为 false。
 浏览器使用的是默认的声音输出设备，建议调整声音输出设备并将非功放的其他设备暂时禁用，检查是否正常。
 
 ### Electron 开发无法进行视频通话该如何处理？
-如果您使用的是 Electron，在提交 Mac App Store 后无法正常进行视频通话，请在 entitlements.plist 文件中加上 `com.apple.securite.network.server` 。
+如果您使用的是 Electron，在提交 Mac App Store 后无法正常进行视频通话，请在 entitlements.plist 文件中加上`com.apple.securite.network.server` 。
 
 ### 如何避免 dom tree 重绘引起的黑屏问题？
 如果您使用 react/vue/angular，video 与 stream 的关系是通过 js 来控制的。如果数据变化引起了页面的变化，您需要重新绑定 video 与 stream 的关系，否则会引发黑屏问题。
@@ -68,7 +68,7 @@ constraints 对象未设置，或者都被设置为 false。
 
 
 ### 为什么关闭麦克风/静音了还有数据包？
-闭麦克风或静音后仍会有静音包。
+关闭麦克风或静音后仍会有静音包。
 
 ### 为什么关闭摄像头了还有数据包？
 关闭摄像头后仍会有黑屏包。
