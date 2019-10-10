@@ -1,58 +1,50 @@
 ## 概要信息
+Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写 COS/CFS 路径，相比 HTTP 方式访问 COS Bucket 或者文件会稍有差异。
 
-Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写COS/CFS路径，相比 http 方式访问 COS bucket 或者 文件，会稍有差异，详细见下。
-
-## 1. COS路径说明
+##  COS 路径说明
 
 ### 仅支持 COS XML API 访问域名
+Batch 填写的时候仅支持 XML API 形式的域名。如下图所示：
+![](https://main.qcloudimg.com/raw/c7e6c54a6af8a22d53744d57dcad3a2b.png)
 
-![](https://main.qcloudimg.com/raw/09f2daaa7e883debaaf1e964b47f459b.png)
 
-Batch 填写的时候仅支持 XML API 形式的域名，如上图红框标识部分。
 
-### 前缀需要以cos:// 开头
-
-![](https://main.qcloudimg.com/raw/09f2daaa7e883debaaf1e964b47f459b.png)
-
-比如上图的地址，在 Batch 的路径填写里，需要添加 cos:// 开头，具体形式见下
-
+### 前缀需要以 cos:// 开头
+已获取的 COS 路径。如下图所所示：
+![](https://main.qcloudimg.com/raw/d5aa91a950df1de72970f5dc18b39fda.png)
+在 Batch 的路径填写里，需要添加 `cos://` 开头、需要以 `/` 结尾，得出以下形式路径：
 ``` 
-cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/
+cos://batchdemo-125178xxxx.cos.ap-guangzhou.myqcloud.com/
 ```
 
-``注意：需要以 / 结尾``
+
 
 ### 挂载子目录
-
-![](https://main.qcloudimg.com/raw/1b3ea193e2f7582d9b31e6c041555a34.png)
-
-子目录直接以常规文件目录的方式添加在 Bucket 的域名后面即可，比如上图的 Bucket 下的文件夹，进行目录挂载时 COS 路径填写方式见下
-
+子目录可直接以常规文件目录的方式添加在 Bucket 路径后即可，Bucket 中已创建的子目录如下图所示：
+![](https://main.qcloudimg.com/raw/ff8eda23225ce9e69ec2d6613f677596.png)
+进行目录挂载时 COS 路径填写方式如下：
 ``` 
-cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/logs/
-cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/input/
-cos://batchdemo-1251783334.cos.ap-guangzhou.myqcloud.com/output/
+cos://batchdemo-125178xxxx.cos.ap-guangzhou.myqcloud.com/logs/
+cos://batchdemo-125178xxxx.cos.ap-guangzhou.myqcloud.com/input/
+cos://batchdemo-125178xxxx.cos.ap-guangzhou.myqcloud.com/output/
 ```
 
-### 支持同地域Bucket
+### 支持同地域 Bucket
+COS 是具有地域属性的，需确保您的 Batch 作业和 COS Bucket 在同一地域，这样才能最高效的让数据在存储和云服务器之间传输。
 
-COS 是具有地域属性的，需要保证您的 Batch 作业和 COS Bucket 在同一地域，这样才能最高效的让数据在存储和云服务器之间传输。
-
-## 2. CFS路径说明
-
-远程存储映射里，可以配置自动挂载 CFS / NAS 路径到本地路径。
-
-![](https://mc.qcloudimg.com/static/img/7721d8b14f775055615d430528008cb9/3.png)
+## CFS 路径说明
+远程存储映射里，可以配置自动挂载 CFS/NAS 路径到本地路径。如下图所示：
+![](https://main.qcloudimg.com/raw/414ac8013f2f31587d75420ec0dc700f.png)
 
 ### 前缀需要以 cfs:// 或 nfs:// 开头
-
-比如上图的地址，在 Batch 的路径填写里，需要添加 cfs:// 或者 nfs:// 开头，具体形式见下
-
+已获取 CFS 路径，例如 `10.66.xxx.xxx`。在 Batch 的路径填写里，需以 `cfs://` 或者 `nfs://` 开头，具体形式如下：
+>!需要以`/` 结尾，并且确保您的 CFS/NAS 和 Batch 作业配置在同一网络内。
+>
 ``` 
-cfs://10.66.140.208/ 
+cfs://10.66.xxx.xxx/ 
 ```
 
-``注意：需要以 / 结尾，并且保证您的 CFS / NAS 和 Batch 作业配置在同一网络内``
+
 
 
 
