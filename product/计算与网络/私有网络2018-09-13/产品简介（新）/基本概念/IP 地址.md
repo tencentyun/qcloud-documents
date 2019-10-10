@@ -27,11 +27,20 @@
 <td><li>独立享有的 IP 资源，可随时与云服务器、NAT 网关等绑定、解绑。</li><li>不再需要时可以释放。</li></td>
 </tr>
 <tr>
-<td colspan="2">价格</td>
+<td colspan="2" >IP 费用</td>
 <td>普通公网 IP 可免费使用。</td>
 <td><li>绑定：有绑定资源（如云服务器、NAT 网关）时，不收取 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">资源占用费</a>。</li>
 <li>未绑定：收取资源占用费。</li>
 <li>释放：不再收取任何费用。</li>
+</td>
+</tr>
+<tr>
+<td colspan="2" rowspan="2">配额</td>
+<td>IP 数无固定配额，与可购云服务器配额一致。</td>
+<td>每个账户每个地域（Region）可申请：20个。</td>
+</tr>
+<tr>
+<td colspan="2">单台云服务器绑定公网 IP 数配额见 <a href="https://cloud.tencent.com/document/product/213/5733#.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.BB.91.E5.AE.9A.E5.85.AC.E7.BD.91-ip-.E9.99.90.E5.88.B6" target="_blank">配额说明</a>。
 </td>
 </tr>
 <tr>
