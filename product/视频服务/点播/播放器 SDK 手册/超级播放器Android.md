@@ -61,7 +61,7 @@ SuperPlayerModel model = new SuperPlayerModel();
 model.appid = 1252463788;   //AppId
 model.fileid = "5285890781763144364"; //视频 FileId
 // 开始播放
-mSuperPlayerView.playWithMode(model);
+mSuperPlayerView.playWithModel(model);
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
 ![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
