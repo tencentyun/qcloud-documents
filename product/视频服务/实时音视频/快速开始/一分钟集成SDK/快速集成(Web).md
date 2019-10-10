@@ -45,7 +45,7 @@ SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/
 
 ## 更新日志
 ### 4.0.0（2019-10-11）
-- 重构 SDK，采用全新设计的 API 和使用流程[新 API 文档](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html)
+- 重构 SDK，采用全新设计的 API 和使用流程 [新 API 文档](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html)
 - 提供更语义化和更友好的 API
 - 新增 stream 订阅与发布模式
   
@@ -77,4 +77,4 @@ SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/
 ## 常见问题
 
 ### 1. 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
