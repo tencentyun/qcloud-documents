@@ -8,4 +8,7 @@
 5. 在弹窗中单击【确定】。
 ![](https://main.qcloudimg.com/raw/5c842277924dc62f3d0d92e4804fd6bc.png)
 6. 在“IPv6 地址管理”标签页中，您可看到系统已为弹性网卡分配一个 IPv6 地址。
+7. 您可以通过单击操作栏下的【释放】，释放 IPv6 地址。
+>?释放前，请先关闭该 IPv6 地址的公网（即公网带宽设置为0）。
+>
 ![](https://main.qcloudimg.com/raw/40198bee694fefdc5b557ac6cb62df8d.png)
