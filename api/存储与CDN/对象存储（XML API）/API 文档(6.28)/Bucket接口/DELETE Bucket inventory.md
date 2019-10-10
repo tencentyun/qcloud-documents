@@ -1,6 +1,7 @@
 ## 功能描述
 
-DELETE Bucket inventory 用于删除存储桶中指定的清单任务，用户需提供待删除的清单任务的名称。有关清单的详细特性，请参见 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
+DELETE Bucket inventory 用于删除存储桶中指定的清单任务，用户需提供待删除的清单任务的名称。
+有关清单的详细特性，请参见 [清单功能概述](https://cloud.tencent.com/document/product/436/33703)。
 
 > !
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。
