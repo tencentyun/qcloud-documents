@@ -40,7 +40,7 @@
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">单台云服务器绑定公网 IP 数配额见 <a href="https://cloud.tencent.com/document/product/213/5733#.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.BB.91.E5.AE.9A.E5.85.AC.E7.BD.91-ip-.E9.99.90.E5.88.B6" target="_blank">配额说明</a>。
+<td colspan="2">单台云服务器绑定公网 IP 数配额请参见 <a href="https://cloud.tencent.com/document/product/213/5733#.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.BB.91.E5.AE.9A.E5.85.AC.E7.BD.91-ip-.E9.99.90.E5.88.B6" target="_blank">配额说明</a>。
 </td>
 </tr>
 <tr>
