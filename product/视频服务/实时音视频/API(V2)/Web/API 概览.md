@@ -2,7 +2,7 @@
 
 >!本文适用于4.x.x版本的 TRTC Web SDK
 
-TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象 (Client) 和本地音视频流对象 (Stream)。 TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
+TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象 (Client) 和本地音视频流对象 (Stream)。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
 
 | API | 描述 |
 | --- | --- |
@@ -18,7 +18,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 
 ### TRTC.Logger
 
-提供日志设置方法，包括设置[日志输出等级](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.Logger.html#.LogLevel)、打开或关闭日志上传。
+提供日志设置方法，包括设置 [日志输出等级](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.Logger.html#.LogLevel)、打开或关闭日志上传。
 
 | API | 描述 |
 | --- | --- |
@@ -71,8 +71,8 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [muteVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#muteVideo) | 禁用视频轨道。 |
 | [unmuteAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#unmuteAudio) | 启用音频轨道。 |
 | [unmuteVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#unmuteVideo) | 启用视频轨道。 |
-| [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getId) | 获取 Stream 唯一标识ID。 |
-| [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getUserId) | 获取该流所属的用户ID。 |
+| [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getId) | 获取 Stream 唯一标识 ID。 |
+| [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioOutput) | 设置声音输出设备。 |
 | [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
@@ -100,8 +100,8 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [muteVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#muteVideo) | 禁用视频轨道。 |
 | [unmuteAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#unmuteAudio) | 启用音频轨道。 |
 | [unmuteVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#unmuteVideo) | 启用视频轨道。 |
-| [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getId) | 获取 Stream 唯一标识ID。 |
-| [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getUserId) | 获取该流所属的用户ID。 |
+| [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getId) | 获取 Stream 唯一标识 ID。 |
+| [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioOutput) | 设置声音输出设备。 |
 | [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
