@@ -20,11 +20,11 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </property>
 ```
 ### 2. 配置 Capacity Scheduler 参数
-在`${HADOOP_HOME}/etc/hadoop/capacity-scheduler.xml`中设置`yarn.scheduler.capacity.root`是 Capacity Scheduler 预定义的根队列，其他队列均为根队列的子队列。所有队列以树的形式组织。
-`yarn.scheduler.capacity.<queue-path>.queues`用于设置 queue-path 路径下的子队列，使用逗号分隔。
-示例：
+在`${HADOOP_HOME}/etc/hadoop/capacity-scheduler.xml`中设置`yarn.scheduler.capacity.root`是 Capacity Scheduler 预定义的根队列，其他队列均为根队列的子队列。所有队列以树的形式组织。`yarn.scheduler.capacity.<queue-path>.queues`用于设置 queue-path 路径下的子队列，使用逗号分隔。
+
+**示例：**
 ![](https://main.qcloudimg.com/raw/6e0b2a4713f76cafeaf60533897e4266.png)
-上图所示结构将配置如下：
+**上图结构配置如下：**
 ```
 <property>
 	<name>yarn.scheduler.capacity.root.queues</name>
@@ -57,7 +57,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </property>
 ```
 >!
-1. 确保创建了`yarn.node-labels.fs-store.root-dir`，并且 ResourceManager 有权访问它。
+1. 确保已创建`yarn.node-labels.fs-store.root-dir`，且 ResourceManager 有权访问。
 2. 若将节点标签保存在 RM 的本地文件系统，可使用`file://home/yarn/node-label`等路径。但是为了保证集群的高可用，避免 RM 宕机而丢失标签信息，建议将标签信息保存在 HDFS 上。
 3. 在 hadoop2.8.2 下需要配置`yarn.node-labels.configuration-type`配置项。
 
@@ -68,16 +68,16 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 |---------|---------| 
 | yarn.scheduler.capacity.`<queue-path>`.capacity | 设置队列可以访问属于 DEFAULT 分区的节点的百分比。**每个 parent 队列下直接子队列的 DEFAULT 容量总和必须等于100。** |  
 | yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels  | 设置队列可以访问的特定标签列表，用逗号分隔，如“HBASE，STORM”意味着队列可以访问标签 HBASE 和 STORM。所有队列都可以在没有标签的情况下访问节点，如果不指定此字段，则将从其父字段继承。如果用户想限制队列仅访问没有标签的节点，该字段只需留空即可。  |
-| yarn.scheduler.capacity.`<queue-path>`. accessible-node-labels.`<label>`.capacity  | 设置队列可以访问属于`<label>`分区的节点百分比。注意，每个 parent 队列下直接子队列的`<label>`容量总和必须等于100，默认为0。  |
-| yarn.scheduler.capacity.`<queue-path>`. accessible-node-labels.`<label>`.maximum-capacity  | 与 Capacity Scheduler 配置项 yarn.scheduler.capacity.`<queue-path>`.maximum-capacity 类似，它指定了`<queue-path>`在`<label>`分区的最大容量，默认为100。  |
-| yarn.scheduler.capacity.`<queue-path>`. default-node-label-expression  | 当资源请求未指定节点标签时，应用将被提交到该值对应的分区。默认情况下，该值为空，即应用程序将被分配没有标签的节点上的容器。  |
+| yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels.`<label>`.capacity  | 设置队列可以访问属于`<label>`分区的节点百分比。注意，每个 parent 队列下直接子队列的`<label>`容量总和必须等于100，默认为0。  |
+| yarn.scheduler.capacity.`<queue-path>`.accessible-node-labels.`<label>`.maximum-capacity  | 与 Capacity Scheduler 配置项 yarn.scheduler.capacity.`<queue-path>`.maximum-capacity 类似，它指定了`<queue-path>`在`<label>`分区的最大容量，默认为100。  |
+| yarn.scheduler.capacity.`<queue-path>`.default-node-label-expression  | 当资源请求未指定节点标签时，应用将被提交到该值对应的分区。默认情况下，该值为空，即应用程序将被分配没有标签的节点上的容器。  |
 
 ## 应用示例
 ### 1. 准备工作
 1. 准备集群
 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。
 2. 检查 YARN 组件配置
-在“组件管理”界面中，选择 YARN 组件进入组件管理界面，在角色管理标签页确认 ResourceManager 服务所在节点 IP，之后切换至配置管理标签页修改 yarn-site.xml 中相关参数，保存并重启所有 YARN 组件。
+在“组件管理”界面中，选择 YARN 组件进入组件管理界面，在角色管理标签页确认 ResourceManager 服务所在节点 IP，之后切换至配置管理标签页修改`yarn-site.xml`中相关参数，保存并重启所有 YARN 组件。
  1. YARN 组件管理界面入口。
 ![](https://main.qcloudimg.com/raw/624a444b76e2dff90bd8c5cb16fd8f03.png)
  2. 确认 RM 的 IP 地址。
@@ -88,9 +88,9 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 ### 2. 在 Capacity-Scheduler.xml 中配置 Node Label 与队列的映射关系和占比
 1. 创建存储节点标签的 HDFS 目录。
 ![](https://main.qcloudimg.com/raw/5fadfe11a03a36a7022c3041f80be43a.png)
-2. 在 core-site.xml 中获取 RM 的 IP 和 Port。
+2. 在`core-site.xml`中获取 RM 的 IP 和 Port。
 ![](https://main.qcloudimg.com/raw/80adfada78e73691ad073b97cd28a7ad.png)
-3. 在 master 节点 yarn-site.xml 中新建配置项后，重启 ResourceManager。
+3. 在 master 节点`yarn-site.xml`中新建配置项后，重启 ResourceManager。
 ![](https://main.qcloudimg.com/raw/6f145550bfb6c5613ab952e80b791f7a.png)
 4. 使用`yarn rmadmin -addToClusterNodeLabels`命令新增标签。
 ![](https://main.qcloudimg.com/raw/c23e4f3fb2d81cf21da40d6cdec3c6e5.png)
@@ -102,7 +102,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 ![](https://main.qcloudimg.com/raw/45e47b8fa8f27246dc77cbcc94e8a332.png)
  在 Scheduler 面板中可以看到，测试系统的两个节点对应的标签已经发生改变。
 ![](https://main.qcloudimg.com/raw/0388a5e8ecf0a148ad5985080a04e145.jpg)
-6. 编辑 Capacity-Scheduler.xml 中的配置项，配置集群队列、队列的资源占比和队列的可访问标签。示例如下：
+6. 编辑`Capacity-Scheduler.xml`中的配置项，配置集群队列、队列的资源占比和队列的可访问标签。示例如下：
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
@@ -185,7 +185,8 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </configuration>
 ```
 在 Scheduler 面板中可以看到，测试集群的3个分区、分区资源分配情况、包含队列情况。在 Application Queues 面板中，共有3个分区：default、normal、cpu，其中 default 分区是默认分区，normal 分区是由带有 normal 标签的节点组成的分区、cpu 分区是由带有 cpu 标签的节点组成的分区。在测试环境中，共有两个节点，这两个节点分别被标记为 normal 和 cpu。
-点击分区左侧的＋号，能够展开该分区中包含的队列。
+
+ 单击分区左侧的＋号，能够展开该分区中包含的队列。
 ![](https://main.qcloudimg.com/raw/fa2c002eb9337425c2db519126825db8.png)
 
 ## 验证标签调度
