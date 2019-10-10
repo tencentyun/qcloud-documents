@@ -11,10 +11,11 @@
 ### 下载 JDK
 输入以下命令：
 ```
-mkdir /usr/java  # 创建Java文件夹
-cd /usr/java     # 进入Java文件夹
-# 直接使用命令： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可；每个人的 cookie 不一样，请前往https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html页面同意许可协议并获取带有自己 cookie 的下载链接（您也可以直接下载 JDK 安装压缩包，再上传到实例上）
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
+mkdir /usr/java  # 创建 java 文件夹
+cd /usr/java     # 进入 java 文件夹
+```
+直接使用命令： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可。建议您使用 [WinSCP](https://winscp.net/eng/docs/lang:chs)或其他工具将 JDK 安装包上传到上述 java 目录下，而后解压安装包。
+```
 # 解压
 chmod +x jdk-8u201-linux-x64.tar.gz
 tar -xzvf jdk-8u201-linux-x64.tar.gz
@@ -46,6 +47,7 @@ source /etc/profile
 ### 下载 Tomcat
 输入以下命令：
 ```
+# 镜像地址会改变，Tomcat 版本也会不断升级。如果下载链接失效，请您到 [Tomcat 官网](https://tomcat.apache.org/download-80.cgi)选择合适的安装包地址。
 wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
 tar -xzvf apache-tomcat-8.5.39.tar.gz
 mv apache-tomcat-8.5.39 /usr/local/tomcat/
@@ -173,12 +175,7 @@ service tomcat stop
 ```
 运行结果如下：
 ![](https://main.qcloudimg.com/raw/78800e85c09820d98a0a15dc2792aaa8.png)
-5. 若提示没有权限则输入。
-```
-cd /usr/local
-chmod -R 777 tomcat
-```
-6. 在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
+5. 在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
 ![](https://main.qcloudimg.com/raw/0d28a69249da06f4455281013c848189.png)
 
 ### 配置安全组
