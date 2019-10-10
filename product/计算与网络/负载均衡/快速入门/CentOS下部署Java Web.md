@@ -45,14 +45,14 @@ source /etc/profile
 
 ## 安装 Tomcat
 ### 下载 Tomcat
-输入以下命令：
+输入如下命令：
 ```
 # 镜像地址会改变，Tomcat 版本也会不断升级。如果下载链接失效，请您到 [Tomcat 官网](https://tomcat.apache.org/download-80.cgi)选择合适的安装包地址。
 wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.39/bin/apache-tomcat-8.5.39.tar.gz
 tar -xzvf apache-tomcat-8.5.39.tar.gz
 mv apache-tomcat-8.5.39 /usr/local/tomcat/
 ```
-在`/usr/local/tomcat/`目录中包含以下文件：
+在`/usr/local/tomcat/`目录中包含如下文件：
 - bin：脚本文件，包含启动和关闭 Tomcat 服务脚本。
 - conf：各种全局配置文件，其中最重要的是 server.xml 和 web.xml。
 - webapps：Tomcat 的主要 Web 发布目录，默认情况下把 Web 应用文件放于此目录。
