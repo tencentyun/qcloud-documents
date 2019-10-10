@@ -6,15 +6,15 @@
 - JDK 版本：JDK 1.8.0_201
 
 ## 安装JDK
-购买负载均衡服务后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参考 [购买并启动云服务器实例](https://cloud.tencent.com/document/product/213/4855)。
+购买负载均衡服务后，在云服务器的详情页面，单击【登录】，可以直接登录云服务器，输入自己的用户名密码后，开始搭建 Java Web 环境。有关如何创建云服务器实例，请参见 [云服务器-创建实例](https://cloud.tencent.com/document/product/213/4855)。
 
 ### 下载 JDK
-输入以下命令：
+输入如下命令：
 ```
 mkdir /usr/java  # 创建 java 文件夹
 cd /usr/java     # 进入 java 文件夹
 ```
-直接使用命令： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可。建议您使用 [WinSCP](https://winscp.net/eng/docs/lang:chs)或其他工具将 JDK 安装包上传到上述 java 目录下，而后解压安装包。
+直接使用命令：wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可。建议您使用 [WinSCP](https://winscp.net/eng/docs/lang:chs) 或其他工具将 JDK 安装包上传到上述 java 文件夹下，然后解压安装包。
 ```
 # 解压
 chmod +x jdk-8u201-linux-x64.tar.gz
@@ -76,10 +76,11 @@ chown -R www.www /data/wwwroot
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-2. 按下 i 键进入编辑模式，添加如下内容并保存。
+2. 按下 i 键进入编辑模式，添加如下内容。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8'
 ```
+3. 按 Esc 键退出编辑模式，输入`:wq`保存并退出编辑。
 
 ### 配置 server.xml
 1. 切换到 `/usr/local/tomcat/conf/` 目录。
