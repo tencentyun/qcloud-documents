@@ -184,9 +184,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 </property>
 </configuration>
 ```
-在 Scheduler 面板中可以看到，测试集群的3个分区、分区资源分配情况、包含队列情况。在 Application Queues 面板中，共有3个分区：default、normal、cpu，其中 default 分区是默认分区，normal 分区是由带有 normal 标签的节点组成的分区、cpu 分区是由带有 cpu 标签的节点组成的分区。在测试环境中，共有两个节点，这两个节点分别被标记为 normal 和 cpu。
-
- 单击分区左侧的＋号，能够展开该分区中包含的队列。
+在 Scheduler 面板中可以看到，测试集群的3个分区、分区资源分配情况、包含队列情况。在 Application Queues 面板中，共有3个分区：default、normal、cpu，其中 default 分区是默认分区，normal 分区是由带有 normal 标签的节点组成的分区、cpu 分区是由带有 cpu 标签的节点组成的分区。在测试环境中，共有两个节点，这两个节点分别被标记为 normal 和 cpu。单击分区左侧的＋号，能够展开该分区中包含的队列。
 ![](https://main.qcloudimg.com/raw/fa2c002eb9337425c2db519126825db8.png)
 
 ## 验证标签调度
