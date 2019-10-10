@@ -1,14 +1,14 @@
 
-## Linux(Ubuntu) 环境
+## Linux（Ubuntu）环境
 
 >?本文使用 Ubuntu 的版本为14.04或16.04。
 
-1. 必要软件安装
+1. **必要软件安装**
 ```
 $ sudo apt-get install -y build-essential make git gcc cmake
 ```
 SDK 需要 cmake 版本在3.5以上，默认安装的 cmake 版本较低，请单击 [下载](https://cmake.org/download/) 并参考 [安装说明](https://gitlab.kitware.com/cmake/cmake) 进行 cmake 特定版本的下载与安装。
-2. 配置修改
+2. **配置修改**
 修改 CMakeLists.txt， 并确保以下选项存在（以密钥认证设备为例）：
 ```
 set(BUILD_TYPE                   "release")
@@ -19,7 +19,7 @@ set(FEATURE_AUTH_MODE "KEY")
 set(FEATURE_AUTH_WITH_NOTLS OFF)
 set(FEATURE_DEBUG_DEV_INFO_USED  OFF)  
 ```
-3.  执行脚本编译
+3.  **执行脚本编译**
  1. 完整编译库和示例如下：
 ```
 ./cmake_build.sh 
@@ -29,7 +29,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 ```
 ./cmake_build.sh samples
 ```
-4. 填写设备信息
+4. **填写设备信息**
 将在腾讯云物联网平台创建的设备的设备信息（以密钥认证设备为例），填写到 device_info.json 中，示例代码如下：
 ```
 "auth_mode":"KEY",	
@@ -39,7 +39,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
     "deviceSecret":"vX6PQqazsGsMyf5SMfs6OA6y"
 }
 ```
-5. 运行示例
+5. **运行示例**
 示例输出位于`output/release/bin`文件夹中，例如运行 data_template_sample 示例，输入`./output/release/bin/data_template_sample`即可。
 
 
