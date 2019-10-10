@@ -56,7 +56,15 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 
 1. 运行 visual studio，选择【打开本地文件夹】，并选择下载的 C SDK 目录。
 ![](https://main.qcloudimg.com/raw/b245adf8ccfe14f78c862d62516ec3c8.png)
-2. 修改用户信息。
+2. 将在腾讯云物联网通信控制台创建的设备的设备信息（以密钥认证设备为例），填写到 device_info.json 中，示例代码如下：
+```
+"auth_mode":"KEY",	
+"productId":"S3EUVBQAZW",
+"deviceName":"test_device",	
+"key_deviceinfo":{    
+    "deviceSecret":"vX6PQqazsGsMyf5SMfs6OA6y"
+}
+```
 3. 双击打开根目录的 CMakeLists.txt，并确认编译工具链中设置的平台为 **Windows** 和编译工具为 **MSVC**。其他配置选项请参考 [cmake 编译配置与代码抽取]()。
 ![](https://main.qcloudimg.com/raw/d4ef02feb3304c99dbfb02fe37996870.png)
 ```cmake
