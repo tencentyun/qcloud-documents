@@ -5,13 +5,13 @@ Batch 中执行日志（StdOut、StdErr）和远程存储映射都涉及填写 C
 
 ### 仅支持 COS XML API 访问域名
 Batch 填写的时候仅支持 XML API 形式的域名。如下图所示：
-![](https://main.qcloudimg.com/raw/c7e6c54a6af8a22d53744d57dcad3a2b.png)
+![](https://main.qcloudimg.com/raw/a678139c758058e419e90418deba7501.png)
 
 
 
 ### 前缀需要以 cos:// 开头
 已获取的 COS 路径。如下图所所示：
-![](https://main.qcloudimg.com/raw/d5aa91a950df1de72970f5dc18b39fda.png)
+![](https://main.qcloudimg.com/raw/b8f6104573627c26fbe96900cc350632.png)
 在 Batch 的路径填写里，需要添加 `cos://` 开头、需要以 `/` 结尾，得出以下形式路径：
 ``` 
 cos://batchdemo-125178xxxx.cos.ap-guangzhou.myqcloud.com/
@@ -38,7 +38,7 @@ COS 是具有地域属性的，需确保您的 Batch 作业和 COS Bucket 在同
 
 ### 前缀需要以 cfs:// 或 nfs:// 开头
 已获取 CFS 路径，例如 `10.66.xxx.xxx`。在 Batch 的路径填写里，需以 `cfs://` 或者 `nfs://` 开头，具体形式如下：
->!需要以`/` 结尾，并且确保您的 CFS/NAS 和 Batch 作业配置在同一网络内。
+>!需要以`/`结尾，并且确保您的 CFS/NAS 和 Batch 作业配置在同一网络内。
 >
 ``` 
 cfs://10.66.xxx.xxx/ 
