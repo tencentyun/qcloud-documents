@@ -21,7 +21,12 @@
  ``` 
  pod 'TPNS-iOS' 
  ```
- - **方式二：手动导入**
+ - **方式二：carthage 导入**
+ 在 Cartfile 文件中指明依赖的第三方库：
+ ```
+ github "xingePush/carthage-TPNS-iOS"
+ ```
+ - **方式三：手动导入**
 进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
 6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 7. 在 Build Phases 下，添加以下 Framework：
@@ -139,10 +144,10 @@
 如果 Xcode 控制台，显示如下相似日志，表明客户端已经正确集成 SDK。
 
 ```javascript
-[xgpush]Current device token is ***
-服务器(192.168.1.1)返回正确， 注册设备Token 成功
+[xgpush]Current device token is 80ba1c251161a397692a107f0433d7fd9eb59991583a925030f1b913625a9dab
+[xgpush]Current XG token is 05da87c0ae5973bd2dfa9e08d884aada5bb2
 ```
-
+>?在推送单个目标设备时请使用 XG 36位的 Token。
 
 #### 获取 Token （非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。

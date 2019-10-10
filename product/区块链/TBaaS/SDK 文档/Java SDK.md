@@ -72,7 +72,7 @@ public class InvokeTransaction
             // 实例化Tbaas的client对象
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);
-            // 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
+            // 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，例如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
             TbaasClient client = new TbaasClient(cred, "ap-guangzhou", clientProfile);
             // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
             String params = "{\"Module\":\"transaction\",\"Operation\": \"invoke\",\"ClusterId\" : \"251005746ctestenv\",\"Peers\":[{\"PeerName\":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"},{\"PeerName\": \"peer0.youtucorg.ctestenv\",\"OrgName\": \"youtucOrg\"},],\"ChannelName\" : \"pettyc1\",\"ChaincodeName\" : \"pettycc1\",\"FuncName\" : \"invoke\",\"Args\" : [\"b\",\"a\",\"25\"],\"AsyncFlag\" : 0}";

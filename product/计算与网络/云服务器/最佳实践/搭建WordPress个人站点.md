@@ -249,7 +249,7 @@ cp wp-config-sample.php wp-config.php
 ```
 vim wp-config.php
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，将 [配置数据库](#database) 中已配置好的数据库相关信息写入。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，并将相关配置信息修改为 [配置数据库](#database) 中的内容。
 ```
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
@@ -267,7 +267,7 @@ vim wp-config.php
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
 #### 验证 WordPress 安装
-1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 worspress 文件夹，例如：
+1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 wordpress 文件夹，例如：
 ```
 http://192.xxx.xxx.xx /wordpress
 ```

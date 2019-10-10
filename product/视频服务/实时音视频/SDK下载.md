@@ -46,7 +46,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32397">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32178">DOC</a></td>
-      <td style="text-align:center">13.3M（C# x86）</td>
+      <td style="text-align:center">13.8M（C# x64）<br>13.3M（C# x86）</td>
    </tr>
      <tr>
       <td style="text-align:center">Mac</td>
@@ -59,7 +59,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Web</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_H5_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32398">DOC</a></td>

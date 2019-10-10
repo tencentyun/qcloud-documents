@@ -1,18 +1,25 @@
 ## 获取 Demo
 
- [Demo 下载 >> ](https://main.qcloudimg.com/raw/95f5ef44f7212fa5998de5f024fb1d1c/tsf-demo-simole-20190614152400.zip) 
+ [Demo 下载 >> ](https://alon-deployment-gz-1257356411.cos.ap-guangzhou.myqcloud.com/tsf-demo-simple_1.14.zip) 
+
 
 ## 工程目录
 
 `tsf-simple-demo`的工程目录如下：
 
 ```
-|- consumer-demo
-|- provider-demo
+|- consumer-demo：服务消费者
+|- provider-demo：服务提供者
+|- scg-demo：基于 Spring Cloud Gateway 的微服务网关示例（仅适用于 Finchley 版本 ）
+|- zuul-demo：基于 Zuul 的微服务网关示例
+|- cmq-producer-demo：CMQ 消息队列消息生产者示例
+|- cmq-consumer-demo：CMQ 消息队列消息消费者示例
+|- mongodb-demo：调用 MongoDB 的微服务示例
+|- mysql-demo：调用 MySQL 的微服务示例
+|- redis-demo：调用 Redis 的微服务示例
 |- pom.xml
 ```
 
-其中 consumer-demo 表示服务消费者， provider-demo 表示服务提供者。
 pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finchley 版本 SDK 举例说明）：
 
 ```xml
