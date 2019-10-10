@@ -1,6 +1,6 @@
 ## TRTC
 
->!本文适用于4.x.x版本的 TRTC Web SDK
+>!本文适用于4.x.x版本的 TRTC Web SDK。
 
 TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象 (Client) 和本地音视频流对象 (Stream)。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
 
@@ -16,7 +16,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | [createClient](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createClient) | 创建一个实时音视频通话的客户端对象，在每次会话中仅需要调用一次。 |
 | [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) | 创建一个本地流 Stream 对象，本地流 Stream 对象通过 [publish()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) 方法发布本地音视频流。 |
 
-### TRTC.Logger
+## TRTC.Logger
 
 提供日志设置方法，包括设置 [日志输出等级](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.Logger.html#.LogLevel)、打开或关闭日志上传。
 
@@ -26,7 +26,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | [enableUploadLog](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.Logger.html#.enableUploadLog) | 打开日志上传。 |
 | [disableUploadLog](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.Logger.html#.disableUploadLog) | 关闭日志上传。 |
 
-### Client
+## Client
 
 音视频通话客户端对象 Client 通过 [createClient()](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createClient) 创建，代表一次音视频会话。
 
@@ -49,7 +49,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | [getRemoteAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteAudioStats) | 获取当前所有远端流的音频统计数据。 |
 | [getRemoteVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteVideoStats) | 获取当前所有远端流的视频统计数据。 |
 
-### LocalStream
+## LocalStream
 
 LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) 创建。是 [Stream](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html) 的子类。
 
@@ -85,7 +85,7 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 
 
 
-### RemoteStream
+## RemoteStream
 
 远端音视频流，通过监听 Client.on('stream-added') 事件获得。是 [Stream]() 的子类。
 
@@ -113,7 +113,7 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [on](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#on) | 监听 Stream 事件。 |
 
 
-### RtcError
+## RtcError
 
 RtcError 错误对象。
 
@@ -121,7 +121,7 @@ RtcError 错误对象。
 | --- | --- |
 | [getCode](https://trtc-1252463788.file.myqcloud.com/web/docs/RtcError.html#getCode) | 获取错误码。 |
 
-### 联系我们
+## 联系我们
 
 关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
 
