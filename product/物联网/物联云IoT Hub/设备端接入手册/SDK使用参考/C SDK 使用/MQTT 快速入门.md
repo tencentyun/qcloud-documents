@@ -34,7 +34,7 @@
 下面讲述在 Linux 环境编译运行 mqtt_sample 示例（以密钥认证设备为例）
 
 #### 1. 编译 SDK
-修改 CMakeLists.txt 确保以下选项存在：
+ 1. 修改 CMakeLists.txt 确保以下选项存在：
 ```
 set(BUILD_TYPE                   "release")
 set(COMPILE_TOOLS                "gcc") 
@@ -44,11 +44,11 @@ set(FEATURE_AUTH_MODE "KEY")
 set(FEATURE_AUTH_WITH_NOTLS OFF)
 set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 ```
-执行脚本编译
+ 2. 执行脚本编译。
 ```
 ./cmake_build.sh 
 ```
-示例输出位于`output/release/bin`文件夹中
+ 3. 示例输出位于`output/release/bin`文件夹中。
 
 #### 2. 填写设备信息
 将上面在腾讯云物联网 IoT Hub 创建的设备的设备信息，填写到 device_info.json 中。
