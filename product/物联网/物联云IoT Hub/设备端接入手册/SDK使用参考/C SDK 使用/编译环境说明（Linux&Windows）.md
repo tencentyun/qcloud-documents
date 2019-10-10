@@ -4,10 +4,10 @@
 >?本文使用 Ubuntu 的版本为14.04或16.04。
 
 1. **必要软件安装**
+SDK 需要 cmake 版本在3.5以上，默认安装的 cmake 版本较低，请单击 [下载](https://cmake.org/download/) 并参考 [安装说明](https://gitlab.kitware.com/cmake/cmake) 进行 cmake 特定版本的下载与安装。
 ```
 $ sudo apt-get install -y build-essential make git gcc cmake
 ```
-SDK 需要 cmake 版本在3.5以上，默认安装的 cmake 版本较低，请单击 [下载](https://cmake.org/download/) 并参考 [安装说明](https://gitlab.kitware.com/cmake/cmake) 进行 cmake 特定版本的下载与安装。
 2. **配置修改**
 修改 CMakeLists.txt， 并确保以下选项存在（以密钥认证设备为例）：
 ```
