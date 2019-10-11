@@ -132,7 +132,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  1. 机具生成的8字节随机字符串（nonce_str）：`c44f32e0`。
  2. 机具拼接字符串 ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000。
  3. 机具计算 sha256：hmac-sha256(“ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000”, “C852274D372982D5530B692FD77124D3”) ，获得 HMAC-SHA256 结果：`E0CA8FDA56464BDF702FCA1AE9692EB99483E065879247763B3A46B576EBF5AC`。
- 4. 拼接二维码 URL：`https://payapp.weixin.qq.com/smartqr/entry/home?ac=p9fa01zex4mi&rs=c44f32e0&sign=E0CA8FDA56464BDF702FCA1AE9692EB99483E065879247763B3A46B576EBF5AC&sn=LANDI_QM600_LA190000000`，机具显示器把拼接二维码 URL 展示成二维码。
+ 4. 拼接二维码 URL：`https://payapp.weixin.qq.com/smartqr/entry/home?ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000&sign=E0CA8FDA56464BDF702FCA1AE9692EB99483E065879247763B3A46B576EBF5AC`，机具显示器把拼接二维码 URL 展示成二维码。
 4. **轮询绑定结果**
 机具展示出绑定二维码后，立即开始定时轮询云支付后台绑定结果。
  - 轮询接口：`get_bill_device_bind_info`，详见 [接口说明](#9.-.E6.8E.A5.E5.8F.A3.E8.AF.B4.E6.98.8E)。
