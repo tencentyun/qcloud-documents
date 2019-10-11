@@ -1,6 +1,24 @@
 ## Spring Cloud Finchley
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.16.0-Finchley-RELEASE（2019-10-11）
+
+#### 新特性
+- kafka的链路追踪能力。
+- 增加 swagger-ui依赖包。
+
+#### 优化
+- 集成spring-cloud-tsf-swagger包后, 本地启动无需设置tsf.swagger.enabled=false。
+- 集成spring-cloud-tsf-swagger包后, 支持本地使用swagger-ui进行调试。
+
+#### Bug 修复
+- 修复DEBUG 日志级别启动时, spring-cloud-tsf-sleuth包空指针异常。
+- 修复引入swagger包后, 低版本guava包引起冲突。
+- 配置回调功能空指针异常。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
 ### 1.14.3-Finchley-RELEASE（2019-09-10）
 
 #### Bug 修复
@@ -90,6 +108,25 @@
 
 ## Spring Cloud Edgware
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+
+### 1.16.0-Edgware-RELEASE（2019-10-11）
+
+#### 新特性
+- kafka的链路追踪能力。
+- 增加 swagger-ui依赖包
+
+#### 优化
+- 集成spring-cloud-tsf-swagger包后, 本地启动无需设置tsf.swagger.enabled=false。
+- 集成spring-cloud-tsf-swagger包后, 支持本地使用swagger-ui进行调试。
+
+#### Bug 修复
+- 修复在自定义RedisTemplate中指定序列化方式时的错误。
+- 修复对StringRedisTemplate的支持。
+- 修复引入swagger包后, 低版本guava包引起冲突。
+- 配置回调功能空指针异常。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
 
 ### 1.14.2-Edgware-RELEASE（2019-09-10）
 
