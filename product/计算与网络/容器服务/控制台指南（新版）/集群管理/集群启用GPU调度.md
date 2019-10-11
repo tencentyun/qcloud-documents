@@ -58,8 +58,8 @@
 #### 通过控制台方式创建
 
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
-2. 单击需要创建 Workload 的集群 ID/名称，进入待创建 Workload 的集群管理页面。
-3. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
+2. 单击需要创建工作负载的集群 ID/名称，进入待创建工作负载的集群管理页面。
+3. 在 “工作负载” 下，任意选择工作负载类型，进入对应的信息页面。例如，选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
 4. 单击【新建】，进入 “新建Workload” 页面。
 5. 根据页面信息，设置工作负载名、命名空间等信息。并在 “GPU限制” 中，设置 GPU 限制的数量。如下图所示：
