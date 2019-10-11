@@ -1,5 +1,7 @@
 ## 简介
 HTTP 函数（HTTP Function）是云函数的一种，区别于事件函数（Event Function）。HTTP 函数专注于优化 Web 服务场景，例如自带 URL 并通过发送 HTTP 请求到 URL 触发函数执行。
+>? HTTP 函数功能在全新升级中，后期会开放申请使用，您可以前往 [云函数介绍页](https://cloud.tencent.com/product/scf) 来了解最新进展。
+>
 
 
 ## 功能与优势
