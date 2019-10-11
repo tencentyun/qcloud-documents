@@ -11,7 +11,8 @@
 ## 购买正式 License
 
 您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive) 免费获得一年 License 使用权限。
-![](https://main.qcloudimg.com/raw/52004efac93e7e6c8f446e53830816a3.png)
+
+![](https://main.qcloudimg.com/raw/91c2733410acd44d2349c52ef7484bfa.png)
 
 > ! 购买“移动直播 SDK 套餐包”后，在 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面会出现【一键切换普通版】按钮。
 > 单击【一键切换普通版】后需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功将无法再修改 License 信息。
