@@ -1,4 +1,4 @@
-﻿凭借 Angel 强大的 PS Service 能力，Spark on Angel 扩展了 Spark 的参数更新能力，使 Spark 也具备高速训练大模型的能力而不用再顾虑 Spark Driver 的单点性能问题。
+凭借 Angel 强大的 PS Service 能力，Spark on Angel 扩展了 Spark 的参数更新能力，使 Spark 也具备高速训练大模型的能力而不用再顾虑 Spark Driver 的单点性能问题。
 Spark on Angel 组件一般用来运行用户自己实现的算法，如果需要运行 Spark on Angel 自带算法，建议使用各个算法对应的算法组件。
 
 ## 操作步骤
@@ -14,7 +14,7 @@ Spark on Angel 组件一般用来运行用户自己实现的算法，如果需�
  ![](https://main.qcloudimg.com/raw/cdf170de016b90d0244e9db963666d07.png)
 
 #### 配置资源
- - Spark资源参数
+ - Spark 资源参数
  - num-executors：指定分配的 Spark Executor 个数。
  - driver-memory：指定 Spark Driver 需要的内存大小，单位为 GB。
  - executor-cores：指定每个 Spark Executor 上需要的 CPU Core 数。
