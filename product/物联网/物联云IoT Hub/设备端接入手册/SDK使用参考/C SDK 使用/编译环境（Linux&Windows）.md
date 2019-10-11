@@ -1,15 +1,15 @@
 
 ## Linux（Ubuntu）环境
 
->?本文使用 Ubuntu 的版本为14.04或16.04。
+>?本文演示使用 Ubuntu 的版本为16.04。
 
 1. **必要软件安装**
-SDK 需要 cmake 版本在3.5以上，默认安装的 cmake 版本较低，请单击 [下载](https://cmake.org/download/) 并参考 [安装说明](https://gitlab.kitware.com/cmake/cmake) 进行 cmake 特定版本的下载与安装。
+SDK 需要 cmake 版本在3.5以上，默认安装的 cmake 版本较低，若编译失败，请单击 [下载](https://cmake.org/download/) 并参考 [安装说明](https://gitlab.kitware.com/cmake/cmake) 进行 cmake 特定版本的下载与安装。
 ```
 $ sudo apt-get install -y build-essential make git gcc cmake
 ```
 2. **配置修改**
-修改 CMakeLists.txt， 并确保以下选项存在（以密钥认证设备为例）：
+修改 SDK 根目录下的 CMakeLists.txt 文件，并确保以下选项存在（以密钥认证设备为例）：
 ```
 set(BUILD_TYPE                   "release")
 set(COMPILE_TOOLS                "gcc") 
@@ -30,7 +30,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 ./cmake_build.sh samples
 ```
 4. **填写设备信息**
-将在腾讯云物联网平台创建的设备的设备信息（以密钥认证设备为例），填写到 device_info.json 中，示例代码如下：
+将在腾讯云物联网平台创建的设备的设备信息（以密钥认证设备为例），填写到 SDK 根目录下 device_info.json 中，示例代码如下：
 ```
 "auth_mode":"KEY",	
 "productId":"S3EUVBQAZW",
