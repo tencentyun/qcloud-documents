@@ -4,10 +4,7 @@
 
 
 ## 前提条件
-- 已注册腾讯云账户。
-若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
-- 已开通 HTTP 函数功能。
-HTTP 函数目前为内测发布功能，可通过 [内测申请](https://cloud.tencent.com/apply/p/tagk8e0x19f) 获得此功能。
+已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 
 ## 操作步骤
 
