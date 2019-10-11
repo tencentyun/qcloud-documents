@@ -15,13 +15,11 @@ mkdir /usr/java  # 创建 java 文件夹
 cd /usr/java     # 进入 java 文件夹
 ```
 <pre>
-<code>
-# 上传 JDK 安装包（推荐）
+<code># 上传 JDK 安装包（推荐）
 推荐您使用 <a href="https://winscp.net/eng/docs/lang:chs" target="_blank">WinSCP</a> 或其他工具将 JDK 安装包上传到上述 java 文件夹下，然后解压安装包。
 或者
 # 直接使用命令（推荐您使用上传 JDK 安装包的方法）： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可；每个人的 cookie 不一样，请前往https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html页面同意许可协议并获取带有自己 cookie 的下载链接。
-wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz
-</code>
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz</code>
 </pre>
 ```
 # 解压
