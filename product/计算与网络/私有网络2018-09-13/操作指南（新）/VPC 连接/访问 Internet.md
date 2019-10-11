@@ -16,7 +16,7 @@
 
 ## NAT 网关
 如果您有多台云服务器需要通过一个公网 IP 访问公网，NAT 网关可以满足您的需求。NAT 网关能够为私有网络内的云服务器提供 SNAT 和 DNAT 功能，轻松搭建公网出口、提供服务。 
-NAT 网关的购买、配置操作请参见 [NAT 网关-操作总览](https://cloud.tencent.com/document/product/552/12958)。
+NAT 网关的相关配置操作，请参见 [NAT 网关-操作总览](https://cloud.tencent.com/document/product/552/12958)。
 NAT 网关具有如下优势： 
 - 安全的公网访问 
 NAT 网关可以为您提供 SNAT 和 DNAT 功能，在满足与公网通信功能的同时，隐藏 VPC 内主机的 IP，有安全保障。 
