@@ -149,7 +149,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 #### 本地调试函数
 针对 Python 函数，可以在 VS Code 插件进行本地调试。
->?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python) 。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里设置对应路径: 设置--Extensions--scf--Python path。详情可参考下方设置方法。
+>?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python) 。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里 [设置 Python path](#pythonpath)。
 >
 1. 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/063fc1d0d23c25144d8bd883a3a89185.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：  
 ![](https://main.qcloudimg.com/raw/7bde25c17fe9c35d25ef6126a736a2bc.png)
