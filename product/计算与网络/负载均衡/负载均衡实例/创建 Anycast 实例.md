@@ -47,7 +47,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 本功能内测中，操作前请确保您已通过 [内测申请](https://cloud.tencent.com/act/apply/aia) 。
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在左侧导航栏中，单击 [弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)，进入 “弹性公网IP” 管理页面。
+2. 在左侧导航栏中，单击 【[弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)】，进入 “弹性公网IP” 管理页面。
 3. 单击【申请】，在弹框中，IP 地址类型选择【加速IP】，绑定对象选择【负载均衡】，单击【确定】。
 ![](https://main.qcloudimg.com/raw/8653aacbb1f258d7f5b7c4147c365afc.png)
 4. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，选择一个内网负载均衡（不支持绑定传统型内网负载均衡），单击操作栏下的【更多】>【绑定加速IP】。
