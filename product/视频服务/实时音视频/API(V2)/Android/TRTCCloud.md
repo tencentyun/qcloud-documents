@@ -1155,10 +1155,9 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
+此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
->?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，即该 listener 的回调函数不会被触发。
 
 ### enableCustomAudioCapture
 
