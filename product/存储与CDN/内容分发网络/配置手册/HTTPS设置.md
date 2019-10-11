@@ -11,15 +11,15 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 
 
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的【域名管理】，进入管理页面，在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
-![img](https://main.qcloudimg.com/raw/99e0c24b4530c30b9abe27325bb1b317.png)
+![img](https://main.qcloudimg.com/raw/f7f2871e66214431430af7c4e508e29a.png)
 2. 单击【高级配置】，找到 **HTTPS 配置**模块。单击【前往配置】，跳转至**证书管理**页面配置证书。配置流程请参见 [证书管理](https://cloud.tencent.com/document/product/228/6303)。
 ![img](https://main.qcloudimg.com/raw/5c11cea6df9309c96856c352c3b94d23.png)
 3. 证书**配置成功**后，会出现【强制跳转 HTTPS】开关，默认情况下，强制跳转 HTTPS为关闭状态。
 ![img](https://main.qcloudimg.com/raw/1de2e0e330cc65ced62bd5d351379d43.png)
-4. 开启【强制跳转 HTTPS】后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问。默认情况下，跳转方式为301。
-![image](https://main.qcloudimg.com/raw/bba9dd9934aee8b5e23b1a8249a135ce.png)
+4. 开启【强制跳转 HTTPS】后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问。默认情况下，跳转方式为302。
+![image](https://main.qcloudimg.com/raw/9d5fb1d152c3aa781b0f1eaca1f3211a.png)
 可点击【编辑】修改跳转方式：
-![image](https://main.qcloudimg.com/raw/1e3a2f7c5cdbdd5046ba7da3edd3706e.png)
+![image](https://main.qcloudimg.com/raw/cbd93a57a01478d44f9a6ec067e91e83.png)
 
 ## HTTP2.0 配置
 
@@ -29,12 +29,7 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 
 > ? `.myqcloud.com`后缀加速域名暂不支持 Http2.0
 
-## OCSP 装订配置
-**功能说明**
-OCSP 装订（OCSP Stapling，TLS 证书状态查询扩展）。OCSP Stapling 服务器在 TLS 握手时可将已经缓存好的 OCSP 查询结果发送给客户端，供用户验证，而不用让客户端自己向 CA 发送请求。OCSP 装订极大地提高了 TLS 握手效率，节省了用户验证时间。
 
-在成功为域名配置了 HTTPS 证书后，可以开启 OCSP 装订。
-![image](https://main.qcloudimg.com/raw/fcaee8ad06ea02f5fcdb7ad1d39b0bff.png)
 
 ## HTTPS 回源支持的算法
 
