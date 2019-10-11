@@ -65,7 +65,7 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
     "deviceSecret":"vX6PQqazsGsMyf5SMfs6OA6y"
 }
 ```
-3. 双击打开根目录的 CMakeLists.txt，并确认编译工具链中设置的平台为 **Windows** 和编译工具为 **MSVC**。其他配置选项请参考 [cmake 编译配置与代码抽取]()。
+3. 双击打开根目录的 CMakeLists.txt，并确认编译工具链中设置的平台为 **Windows** 和编译工具为 **MSVC**。
 ![](https://main.qcloudimg.com/raw/d4ef02feb3304c99dbfb02fe37996870.png)
 ```cmake
 # 编译工具链
