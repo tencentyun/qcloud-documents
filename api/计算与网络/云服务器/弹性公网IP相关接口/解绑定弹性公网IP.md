@@ -4,9 +4,7 @@
 ## 1. 接口描述
 
 本接口 (DisassociateAddress) 用于解绑 [弹性公网IP](https://cloud.tencent.com/document/product/213/5733)（简称 EIP）。
-
-接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
-
+接口请求域名：eip.api.qcloud.com
 * 只有状态为 BIND 和 BIND_ENI 的 EIP 才能进行解绑定操作。
 * EIP 如果被封堵，则不能进行解绑定操作。
 
