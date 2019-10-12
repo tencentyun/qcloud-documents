@@ -4,16 +4,16 @@
 ### 1.16.0-Finchley-RELEASE（2019-10-11）
 
 #### 新特性
-- kafka的链路追踪能力。
-- 增加 swagger-ui依赖包。
+- 增加 Kafka 的链路追踪能力。
+- 增加 swagger-ui 依赖包。
 
 #### 优化
-- 集成spring-cloud-tsf-swagger包后, 本地启动无需设置tsf.swagger.enabled=false。
-- 集成spring-cloud-tsf-swagger包后, 支持本地使用swagger-ui进行调试。
+- 集成 spring-cloud-tsf-swagger 包后，本地启动无需设置 tsf.swagger.enabled=false。
+- 集成 spring-cloud-tsf-swagger 包后，支持本地使用 swagger-ui 进行调试。
 
 #### Bug 修复
-- 修复DEBUG 日志级别启动时, spring-cloud-tsf-sleuth包空指针异常。
-- 修复引入swagger包后, 低版本guava包引起冲突。
+- 修复 DEBUG 日志级别启动时，spring-cloud-tsf-sleuth 包空指针异常。
+- 修复引入 swagger 包后，低版本 guava 包引起冲突。
 - 配置回调功能空指针异常。
 
 #### 版本建议
@@ -112,17 +112,17 @@
 ### 1.16.0-Edgware-RELEASE（2019-10-11）
 
 #### 新特性
-- kafka的链路追踪能力。
-- 增加 swagger-ui依赖包
+- 增加 Kafka 的链路追踪能力。
+- 增加 swagger-ui 依赖包。
 
 #### 优化
-- 集成spring-cloud-tsf-swagger包后, 本地启动无需设置tsf.swagger.enabled=false。
-- 集成spring-cloud-tsf-swagger包后, 支持本地使用swagger-ui进行调试。
+- 集成 spring-cloud-tsf-swagger 包后，本地启动无需设置 tsf.swagger.enabled=false。
+- 集成 spring-cloud-tsf-swagger 包后, 支持本地使用 swagger-ui 进行调试。
 
 #### Bug 修复
-- 修复在自定义RedisTemplate中指定序列化方式时的错误。
-- 修复对StringRedisTemplate的支持。
-- 修复引入swagger包后, 低版本guava包引起冲突。
+- 修复在自定义 RedisTemplate 中指定序列化方式时的错误。
+- 修复对 StringRedisTemplate 的支持。
+- 修复引入 swagger 包后, 低版本 guava 包引起冲突。
 - 配置回调功能空指针异常。
 
 #### 版本建议
