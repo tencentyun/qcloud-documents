@@ -12,7 +12,7 @@
 将 **qcloudasrsdk\_1.0\_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 
 ```
-  implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
+  implementation(name: 'qcloudasrsdk_2.0_release', ext: 'aar')
 ```
 
 2）**添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
