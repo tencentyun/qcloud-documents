@@ -8,7 +8,7 @@
 
 ![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)
 
->!  下载安装应用“小直播”，注册一个账号即可开始体验。
+>!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
 
 
 ## 精简版 Demo
