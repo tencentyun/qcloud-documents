@@ -79,7 +79,7 @@
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406/8621) | 资源级   | &#10003;  | - | &#10003; | - |	
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597/17989) | 资源级 | &#10003; | - | &#10003; | &#10003;   |
 | [API 网关](https://cloud.tencent.com/document/product/628/34267)     | 资源级  | &#10003;  | -  | -   | &#10003; |
-| [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - | &#10003;   | &#10003; |
+| [腾讯微服务平台](https://cloud.tencent.com/document/product/649/38327)  | 资源级  | &#10003;  | - | &#10003;   | &#10003; |
 
 ## 域名与网站	
 
