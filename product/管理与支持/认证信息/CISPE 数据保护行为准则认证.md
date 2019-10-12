@@ -1,4 +1,4 @@
-腾讯云通过了欧洲云计算服务供应商联盟(CISPE，Cloud Infrastructure ServicesProviders in Europe) 个人数据保护行为准则认证，成为中国第一家获得此认证的云服务提供商。CISPE 是目前欧盟唯一针对云服务商提供数据保护行为准则认证的非盈利组织，该行为准则以 GDPR 的合规要求为基础。此认证不仅是腾讯云综合实力的体现，更是表明腾讯云已成为出海企业数据业务合规的极佳选择。
+腾讯云通过了欧洲云计算服务供应商联盟（CISPE，Cloud Infrastructure ServicesProviders in Europe）个人数据保护行为准则认证，成为中国第一家获得此认证的云服务提供商。CISPE 是目前欧盟唯一针对云服务商提供数据保护行为准则认证的非盈利组织，该行为准则以 GDPR 的合规要求为基础。此认证不仅是腾讯云综合实力的体现，更是表明腾讯云已成为出海企业数据业务合规的极佳选择。
 请参阅有关 [CISPE 更多详细信息](https://cispe.cloud/publicregister/)。
 
 ### 什么是 GDPR？
