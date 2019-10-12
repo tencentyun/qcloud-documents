@@ -1,5 +1,5 @@
 
-目前物联网通信支持 CoAP 标准协议接入。 具体的协议请参考 [RFC7252](https://tools.ietf.org/html/rfc7252) 协议文档。
+目前物联网通信支持 CoAP 标准协议接入。 具体协议请参考 [RFC7252](https://tools.ietf.org/html/rfc7252) 协议文档。
 
 ## 和标准 CoAP 区别
 1. 目前只支持消息的上报，将 SDK 的信息上传到物联网通信。
