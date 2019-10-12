@@ -32,7 +32,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 <span id="create"></span>
 #### 创建虚拟主机
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
-![](https://main.qcloudimg.com/raw/aeff0a3a2401527d488fb582cb121e2b.png)
+![](https://main.qcloudimg.com/raw/311265ab23862a65414e49a7da5dbe8d.png)
 2. 使用浏览器访问以下地址，进入 AMH 后台管理登录页面。
 ```
 http://云服务器实例的公网 IP:8888
@@ -87,9 +87,9 @@ http://云服务器实例的公网 IP:8888
  - 本文使用 [DedeCMS内容管理系统](http://www.dedecms.com/products/dedecms/)，您可结合实际情况准备文件。
  - 请将网站文件压缩为 zip 文件，本文以 `upload.zip` 为例。如下图所示：
  ![](https://main.qcloudimg.com/raw/fd734bafdac587f18f4f188bac182030.png)
-8. 请勾选 AMFTP 中默认的主页文件，并单击下方的【删除】。如下图所示：
+8. 请勾选 AMFTP 中默认的主页文件 `ErrorPages` 和 `index.html`，并单击下方的【删除】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0a6da6636e1857f4f15b6fee0b90fc01.png)
-9. 选择【上传】>【极速上传】， 在本地目录中选择 `upload.zip`。如下图所示：
+9. 选择【上传】>【极速上传】， 并在本地目录中选择 `upload.zip`。
 10. 成功上传后，请根据页面提示单击【刷新列表】。如下图所示：
  ![](https://main.qcloudimg.com/raw/9cbe6fd84ea6ef607d3b45e82ccb2fc6.png)
 10. 勾选 `upload.zip` 文件，并单击下方的【智能解压】。如下图所示：
