@@ -8,6 +8,8 @@
 
 ![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)
 
+>!  下载安装应用“小直播”，注册一个账号即可开始体验。
+
 
 ## 精简版 Demo
 如果您是开发人员，可以直接下载我们的 SDK Demo，Demo 中的每一个菜单项均对应 SDK 中的一项独立功能，您可以根据当前项目需要进行针对性的调试。
