@@ -58,7 +58,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ### 2. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
 
-### 3. 为什么会出现 10006 error？
+### 3. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"
 请确认您的实时音视频应用的服务状态是否为可用状态，登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板即可确认服务状态
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
