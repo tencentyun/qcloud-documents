@@ -38,8 +38,8 @@ Authorization: Auth String
 ```shell
 <BucketLoggingStatus>
   <LoggingEnabled>
-    <TargetBucket>logs</TargetBucket>
-    <TargetPrefix>logdir</TargetPrefix>
+    <TargetBucket>examplebucket-1250000000</TargetBucket>
+    <TargetPrefix>prefix</TargetPrefix>
   </LoggingEnabled>
 </BucketLoggingStatus>
 ```
@@ -84,8 +84,8 @@ x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZT==
 
 <BucketLoggingStatus>
   <LoggingEnabled>
-    <TargetBucket>logs</TargetBucket>
-    <TargetPrefix>logdir</TargetPrefix>
+    <TargetBucket>examplebucket-1250000000</TargetBucket>
+    <TargetPrefix>prefix</TargetPrefix>
   </LoggingEnabled>
 </BucketLoggingStatus>
 ```
