@@ -122,7 +122,7 @@
 #### Bug 修复
 - 修复在自定义 RedisTemplate 中指定序列化方式时的错误。
 - 修复对 StringRedisTemplate 的支持。
-- 修复引入 swagger 包后, 低版本 guava 包引起冲突。
+- 修复引入 swagger 包后，低版本 guava 包引起冲突。
 - 配置回调功能空指针异常。
 
 #### 版本建议
