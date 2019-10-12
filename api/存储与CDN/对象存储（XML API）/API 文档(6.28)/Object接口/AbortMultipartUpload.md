@@ -39,7 +39,7 @@ Authorization: Auth String
 
 #### 响应头
 #### 公共响应头 
-该响应使用公共响应头,了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该请求操作无特殊的响应头。
 
