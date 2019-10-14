@@ -30,7 +30,7 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：   
 <table>
     <tr>
-		        <th style="width:100px;padding:0;">
+		        <th style="width:px;padding:0;">
             <div style="border-top:40px #f2f2f2 solid;width:0px;height:0px; border-left:80px #f2f2f2 solid;position:relative;">
                 <b style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-40px;width:60px;">目标实例</b>
                 <em style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-75px;width:60x;">源实例</em>
