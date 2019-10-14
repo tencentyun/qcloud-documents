@@ -23,7 +23,7 @@ LAMP 环境代表 Linux 系统下 Apache Web 服务器软件 + MySql 数据库  
 
 ### 修改数据库密码
 1. 在浏览器中访问以下地址，进入 phpMyAdmin 管理平台。
->?phpMyAdmin 是使用 PHP 语言编写的，通过 Web 管理 Mysql、MariaDB 数据库的软件。
+>?phpMyAdmin 是使用 PHP 语言编写，通过 Web 管理 Mysql、MariaDB 数据库的软件。
 >
 ```
 http://云服务器实例的公网 IP/phpmyadmin
