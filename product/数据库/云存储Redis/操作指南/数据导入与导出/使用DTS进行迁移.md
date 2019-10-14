@@ -30,7 +30,7 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 <table>
     <caption></caption>
     <tr>
-<th style ="width:135px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top" ><div style="position:absolute;width:1px;height:145px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th>
+<th style ="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top" ><div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th>
             </div>
         </th>
     <th style="background-color:#f2f2f2;">2.8标准版</th>
