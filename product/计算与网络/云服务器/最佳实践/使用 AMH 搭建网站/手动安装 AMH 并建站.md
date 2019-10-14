@@ -1,4 +1,4 @@
-## 操作场景
+﻿## 操作场景
 本文介绍在腾讯云云服务器（CVM）上手动安装 AMH 并搭建 PHP 网站。
 
 ## 前提条件
@@ -8,7 +8,7 @@
 ## 注意事项
 - 本文以安装 AMH 4.2 版本为例，您可前往 [AMH 官网](https://amh.sh/index.htm?amh) 了解其他版本的最新信息。
 - 本文针对全新购买云服务器，如果您已购买云服务器，请参考 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应操作系统。
-- AMH 4.2 版本支持下列操作系统的云服务器：
+- AMH 4.2 版本支持下列操作系统的云服务器，本文以 CentOS 6.9 为例。
  - CentOS 6 x64
  - CentOS 6 i386
  - CentOS 5 x64
@@ -17,7 +17,7 @@
  - Ubuntu 12 i386
  - Debian 6 x64 (squeeze)
  - Debian 6 i386 (squeeze)
-- 本文以 CentOS 6.9 为例。
+
 
 
 
@@ -26,7 +26,7 @@
 1. 在实例的管理页面，单击【新建】。
 具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看并获取云服务器的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
+![](https://main.qcloudimg.com/raw/6b00db689948af25fc68bcfe94a63cda.png)
 - 云服务器用户名和密码。
 - 云服务器公网 IP。
 3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
