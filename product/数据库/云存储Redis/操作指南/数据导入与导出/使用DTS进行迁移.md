@@ -29,11 +29,12 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 其他云厂商 Redis 服务迁移：支持将其他云厂商提供的 Redis 数据迁移到腾讯云，前提条件是云厂商需要提供 SYNC 或者 PSYNC 命令权限。
 - 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：   
 <table>
+    <caption></caption>
     <tr>
-		        <th style="width:px;padding:0;">
+        <th style="width:80px;padding:0;">
             <div style="border-top:40px #f2f2f2 solid;width:0px;height:0px; border-left:80px #f2f2f2 solid;position:relative;">
-                <b style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-40px;width:60px;">目标实例</b>
-                <em style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-75px;width:60x;">源实例</em>
+                <b style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-40px;width:35px;">目标实例</b>
+                <em style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-75px;width:55x;">源实例</em>
             </div>
         </th>
     <td style="background-color:#f2f2f2;">2.8标准版</td>
@@ -114,3 +115,5 @@ DTS 服务支持迁移中断告警，以便及时了解到迁移任务的异常�
 断开同步前，可在目标实例上验证数据，如果验证无误，即可完成迁移任务。
 当源实例和目标实例的 key 同步一致时，单击【完成】确定，即可完成数据同步操作。
 
+
+ 
