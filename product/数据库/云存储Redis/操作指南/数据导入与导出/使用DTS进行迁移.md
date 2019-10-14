@@ -33,13 +33,13 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <tr>
         <th style="width:80px;padding:0;">
             <div style="border-top:40px #f2f2f2 solid;width:0px;height:0px; border-left:80px #f2f2f2 solid;position:relative;">
-                <b style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-40px;width:35px;">目标实例</b>
+                <b style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-40px;width:60px;">目标实例</b>
                 <em style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-75px;width:55x;">源实例</em>
             </div>
         </th>
-    <td style="background-color:#f2f2f2;">2.8标准版</td>
-    <td style="background-color:#f2f2f2;">4.0标准版</td>
-    <td style="background-color:#f2f2f2;">4.0集群版</td>
+    <th style="background-color:#f2f2f2;">2.8标准版</th>
+    <th style="background-color:#f2f2f2;">4.0标准版</th>
+    <th style="background-color:#f2f2f2;">4.0集群版</th>
     </tr>
     <tr>
     <td style="background-color:#f2f2f2;">2.8标准版</td>
