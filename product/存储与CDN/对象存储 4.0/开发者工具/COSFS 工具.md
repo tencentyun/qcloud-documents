@@ -193,9 +193,9 @@ fusermount -u /mnt 或者 umount -l /mnt
 #### -opasswd_file=[path]
 该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为600。
 
-#### -odbglevel=[info|dbg]
+#### -odbglevel=[dbg|info|warn|err|crit]
 
-设置 COSFS 日志记录级别，可选 info、dbg。生产环境中建议设置为 info，调试时可以设置为 dbg。
+设置 COSFS 日志记录级别，可选 info、dbg、warn、err和crit。生产环境中建议设置为 info，调试时可以设置为 dbg。如果您的系统日志，未定期清理且由于访问量很大，生成大量日志，您可以设置为err或者crit。
 
 #### -oumask=[perm]
 
