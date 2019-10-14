@@ -32,7 +32,7 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <caption></caption>
     <tr>
         <th style="width:120px;padding:0;">
-            <div style="border-top:40px #D6D3D6 solid;width:0px;height:0px; border-left:120px #BDBABD solid;position:relative;">
+            <div style="border-top:40px #f2f2f2 solid;width:0px;height:0px; border-left:120px #d2d1d2 solid;position:relative;">
                 <b style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-65px;width:80px;">目标实例</b>
                 <em style ="font-size:14px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-115px;width:55x;">源实例</em>
             </div>
@@ -42,19 +42,19 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <th style="background-color:#f2f2f2;">4.0集群版</th>
     </tr>
     <tr>
-    <td style="background-color:#f2f2f2;">2.8标准版</td>
+    <td style="background-color:#d2d1d2;">2.8标准版</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
-    <td style="background-color:#f2f2f2;">4.0标准版</td>
+    <td style="background-color:#d2d1d2;">4.0标准版</td>
     <td>x</td>
     <td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
-    <td style="background-color:#f2f2f2;">4.0集群版</td>
+    <td style="background-color:#d2d1d2;">4.0集群版</td>
     <td>x</td>
     <td>✓</td>
     <td>✓</td>
