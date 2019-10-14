@@ -16,7 +16,7 @@
  - Ubuntu 12 i386
  - Debian 6 x64（squeeze）
  - Debian 6 i386（squeeze）
- - 本文针对全新购买云服务器，如果您已购买云服务器，请参考 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应操作系统。
+- 本文针对全新购买云服务器，如果您已购买云服务器，请参考 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应操作系统。
 
 
 
