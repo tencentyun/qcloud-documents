@@ -32,7 +32,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 <span id="create"></span>
 #### 创建虚拟主机
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
-![](https://main.qcloudimg.com/raw/762e3cbc60f041ad811a363bcdc2e3af.png)
+![](https://main.qcloudimg.com/raw/a33ce52cd6195a07b5d4fba29e1dd598.png)
 2. 使用浏览器访问以下地址，进入 AMH 后台管理登录页面。
 ```
 http://云服务器实例的公网 IP:8888
