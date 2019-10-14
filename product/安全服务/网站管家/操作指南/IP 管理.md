@@ -5,12 +5,12 @@
 - IP 封堵状态，实时查看 CC 攻击、自定义策略人机识别等源 IP 封堵状态信息。
 
 ## 配置步骤
-- **示例一 IP 查询**
+- #### **示例一 IP 查询**
 1.进入 [腾讯云 Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，选择【IP 管理】>【IP 查询】输入需要查询的 IP 地址查看该 IP 状态。
 ![](https://main.qcloudimg.com/raw/0c845bb0732fe394c5aeff36d443389f.png)
 2.查询出的 IP 地址，可手动添加黑白名单。
 ![](https://main.qcloudimg.com/raw/cc7737fbb7e8e5065c7f2a17dc39613b.png)
-- **示例二 添加 IP 黑名单**
+- #### **示例二 添加 IP 黑名单**
 1.进入 [腾讯云 Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，选择【IP 管理】>【IP 黑白名单】进入配置页面。
 >?IP 黑名单名单模块，可以添加基于域名的黑白名单或基于全局的黑白名单，生效优先级说明说如下：
 >- 黑白名单的优先级仅低于 Web 应用防火墙（网站管家）自定义放行策略，高于其他检测逻辑。
@@ -28,7 +28,7 @@
 3.黑白名单支持导入和筛选结果导出，导入 IP 信息时，请参考导出格式。
 ![](https://main.qcloudimg.com/raw/1cb1a2a169f996f6f70cbf52e7d0925e.png)
 4.添加完成后，可以在 IP 查询中输入添加的源 IP，查询状态信息。
-- **示例三 IP 封堵状态查询**
+- #### **示例三 IP 封堵状态查询**
 进入 [腾讯云 Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，选择【IP 管理】>【IP 封堵状态】进入查询页面，可以查询自定义规则、CC 防护模块拦截的 IP 信息。可对查询结果进行导出，对单个 IP 进行加黑加白操作。
 ![](https://main.qcloudimg.com/raw/0c6d50cd2155715e259e73690a7061ad.png)
 
