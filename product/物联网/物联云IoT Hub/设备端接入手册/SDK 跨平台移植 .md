@@ -74,5 +74,5 @@ SDK 根据代码结构可以大致分成四部分：
 
 
 ### SDK 接口声明层+例程
-1、接口说明：[SDK 接口文档](https://cloud.tencent.com/document/product/634/11929)
+1、接口说明：[SDK 接口文档](https://cloud.tencent.com/document/product/634/38255)
 2、例程介绍：[快速开始](https://cloud.tencent.com/document/product/634/11912)
