@@ -32,9 +32,9 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <caption></caption>
     <tr>
         <th style="width:120px;padding:0;">
-            <div style="border-top:40px #D6D3D6 solid;width:0px;height:0px; border-left:80px #BDBABD solid;position:relative;">
-                <b style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-25px;width:80px;">目标实例</b>
-                <em style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-75px;width:55x;">源实例</em>
+            <div style="border-top:40px #D6D3D6 solid;width:0px;height:0px; border-left:120px #BDBABD solid;position:relative;">
+                <b style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-40px;left:-65px;width:80px;">目标实例</b>
+                <em style ="font-size:15px;font-style:normal;font-weight:700;display:block;position:absolute;top:-20px;left:-115px;width:55x;">源实例</em>
             </div>
         </th>
     <th style="background-color:#f2f2f2;">2.8标准版</th>
@@ -115,5 +115,3 @@ DTS 服务支持迁移中断告警，以便及时了解到迁移任务的异常�
 断开同步前，可在目标实例上验证数据，如果验证无误，即可完成迁移任务。
 当源实例和目标实例的 key 同步一致时，单击【完成】确定，即可完成数据同步操作。
 
-
- 
