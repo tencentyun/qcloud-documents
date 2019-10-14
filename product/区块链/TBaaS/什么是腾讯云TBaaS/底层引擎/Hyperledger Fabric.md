@@ -71,7 +71,7 @@ Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/l
 
 ### TBaaS 目前支持哪个版本的 Hyperledger Fabric？
 
-**答**： Hyperledger Fabric v1.1。
+**答**： Hyperledger Fabric v1.4。
 	
 ### TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？
 
