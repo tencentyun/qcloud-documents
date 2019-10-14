@@ -75,7 +75,7 @@ http://云服务器实例的公网 IP:8888
 3. 单击顶部导航栏【FTP】。
 4. <span id="ftp"></span>请参考以下配置信息，并单击【保存】创建 FTP 账号。如下图所示：
 ![](https://main.qcloudimg.com/raw/0050365b3bb6211626d47821e6781938.png)
- - **账号**：FTP 账号名，本文以 ftpuser 为例。
+ - **账号**：FTP 账号名，本文以 `ftpuser` 为例。
  - **密码**：FTP 账号密码，本文以 `123456` 为例。
  - **主机根目录**：网站根目录，选择下拉列表中的 `/home/wwwroot/xxxxxxxxx/web`。
  - **权限用户**：保持默认设置。
