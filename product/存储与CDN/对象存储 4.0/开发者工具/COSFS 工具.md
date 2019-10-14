@@ -195,7 +195,7 @@ fusermount -u /mnt 或者 umount -l /mnt
 
 #### -odbglevel=[dbg|info|warn|err|crit]
 
-设置 COSFS 日志记录级别，可选 info、dbg、warn、err和crit。生产环境中建议设置为 info，调试时可以设置为 dbg。如果您的系统日志，未定期清理且由于访问量很大，生成大量日志，您可以设置为err或者crit。
+设置 COSFS 日志记录级别，可选 info、dbg、warn、err 和 crit。生产环境中建议设置为 info，调试时可以设置为 dbg。如果您的系统日志，未定期清理且由于访问量很大，生成大量日志，您可以设置为 err 或者 crit。
 
 #### -oumask=[perm]
 
