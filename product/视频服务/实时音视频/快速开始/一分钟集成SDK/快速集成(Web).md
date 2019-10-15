@@ -41,8 +41,18 @@ import TRTC from 'trtc-js-sdk';
 ## 相关资源
 SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/sdk/trtc.js)
 
-更详细的初始化流程和 API 使用介绍请参见 [基础音视频通话](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)。
+更详细的初始化流程和 API 使用介绍请参见以下指引：
 
+| 功能                       | Sample Code 指引                                                                                                              |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)                       |
+| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                                   |
+| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)         |
+| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)           |
+| 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html) |
+| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)                          |
+| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)                   |
+  
 ## 更新日志
 ### 4.0.0（2019-10-11）
 - 重构 SDK，采用全新设计的 API 和使用流程 [新 API 文档](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html)
