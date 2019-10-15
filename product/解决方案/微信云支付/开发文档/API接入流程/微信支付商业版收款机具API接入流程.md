@@ -141,7 +141,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
     1. `get_bill_device_bind_info`接口返回了绑定信息，即应答中 activated为true；
     2. 轮询超过了二维码有效期，有效期长度由`generate_bill_device_bind_qr_code`接口应答中的 ttl 指定，单位为秒，假如 ttl 为180，表示整个轮询过程超过180秒就必须结束，并停止展示二维码。
 5. **处理绑定信息**
-获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密，解密算法为 Aes128Gcm，解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
+获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密(解密说明详见10.1章节)，解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
 
 ## 8. 机具收款相关流程说明
 
@@ -1193,4 +1193,77 @@ request_str 即为 post 内容。
 | 2      | 支付宝。   |
 | 3      | 会员卡。   |
 
- 
+##  10 加解密相关说明
+### 10.1 AES-128-CBC 解密说明
+- 算法：AES-128
+- 模式：CBC 
+- 填充类型：PKCS5Padding
+- 盐（salt）：要解密的内容前8字节为盐，剩余字节内容为原始明文内容的加密内容。
+
+示例代码如下：
+```
+bool aes_128_cbc_decrpty(
+            const std::string &session_key,
+            const std::string &input,
+            std::string *output)
+{
+    assert(output);
+    output->clear();
+    output->reserve(input.length() + 24); // Space for salt + padding.
+
+    unsigned char salt[8];
+    size_t total = input.size();
+    const char *inptr = input.data();
+
+    if (input.length() < sizeof(salt)) {
+        return false;
+    }
+
+    memcpy(salt, inptr, sizeof(salt));
+    inptr += sizeof(salt);
+    total -= sizeof(salt);
+
+    unsigned char iv[16];
+    unsigned char key[16];
+    int ret = EVP_BytesToKey(EVP_aes_128_cbc(), EVP_sha1(), salt,
+                             (const unsigned char *)session_key.data(),
+                             session_key.length(),
+                             1, key, iv);
+
+    if (ret != sizeof(key)) {
+        return false;
+    }
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_CIPHER_CTX_init(ctx);
+
+    if (!EVP_CipherInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, iv, 0)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+
+    int outlen;
+    unsigned char buffer[2560];
+    for (size_t i = 0; i < total; i += 2048, inptr += 2048) {
+        outlen = sizeof(buffer);
+        unsigned char *in = (unsigned char *)inptr;
+        int inlen = total - i < 2048 ? total - i : 2048;
+        if (!EVP_CipherUpdate(ctx, buffer, &outlen, in, inlen)) {
+            EVP_CIPHER_CTX_free(ctx);
+            return false;
+        }
+
+        output->append(reinterpret_cast<const char *>(buffer), outlen);
+    }
+
+    outlen = sizeof(buffer);
+    if (!EVP_CipherFinal_ex(ctx, buffer, &outlen)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+
+    output->append(reinterpret_cast<const char *>(buffer), outlen);
+    EVP_CIPHER_CTX_free(ctx);
+    return true;
+}
+```
