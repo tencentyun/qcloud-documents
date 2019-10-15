@@ -24,11 +24,11 @@
 #### 新建 Notebook 容器
 1. 登录智能钛机器学习平台控制台后，单击顶层菜单栏的【Notebook】，页面跳转至 Notebook 容器列表页面。单击【新增】，配置容器参数：
    - 容器名称：MNIST 手写数字识别
-   - 框架选择：tensorflow/1.6
-   - 资源选择：通用-低配（1xCPU，4GB内存）
+   - 框架选择：tensorflow/1.12
+   - 资源选择：后付费/CPU/2核4G内存
    - 存储桶：此处请选择您自己在 [COS](https://console.cloud.tencent.com/cos5/bucket) 上的存储桶
 
-![](https://main.qcloudimg.com/raw/a91852e99d70cbc3ed8ae0b591f74184/1568170500528.png)
+![](https://main.qcloudimg.com/raw/0b015e2ac5f9967c11cef41679cec50b.png)
 2. 待 Notebook 容器创建完成后状态为：运行中，单击【打开】进入 Notebook 操作页面
 ![](https://main.qcloudimg.com/raw/b55d646b0010a79a65b0d5081f3ad6b6/1568170766875.png)
 

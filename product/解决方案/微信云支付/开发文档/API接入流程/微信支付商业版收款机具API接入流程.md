@@ -222,7 +222,7 @@ curl -H "Content-Type:application/json" -X POST -data '' <https://pay.qcloud.com
 
 | 参数名       | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ------------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
-| sn           | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
+| sn_code           | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
 | out_shop_id  | 是   | String |     -       | 云支付系统内的全局门店 ID，机具绑定成功后即可获得这个 ID。       |
 | device_id    | 是   | String |       -     | 云支付系统内的逻辑设备 ID，机具绑定成功后即可获得这个 ID。       |
 | nonce_str    | 是   | String | 8          | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。                         |
@@ -254,7 +254,7 @@ std::string nonce_str = "ea90ceba"	// 生成8字节随机字符串
 std::string authen_key_hash = hmac_sha256(authen_key, nonce_str); // 计算 authen_key 的 hash 值
 
 Json::Value request_content;
-request_content["sn"] = "aaa";
+request_content["sn_code"] = "aaa";
 request_content["out_shop_id"] = "ddd";
 request_content["device_id"] = "fff";
 request_content["nonce_str"] = nonce_str;
@@ -294,7 +294,7 @@ request_str 即为 post 内容。
 		"hash_content":"2F09EFCB064D4F9A4A0BABD5260842D8AC4D0611F4B941A03A77E5E55B5168D7",
 		"nonce_str":"ea90ceba",
 		"out_shop_id":"ddd",
-		"sn":"aaa",
+		"sn_code":"aaa",
 		"timestamp":1568859333
 	}"
 }
@@ -335,7 +335,7 @@ request_str 即为 post 内容。
 
 | 参数名           | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ---------------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
-| sn               | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
+| sn_code               | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
 | mcc              | 否   | String |      -      | 基站信息中的 mcc 字段，如果未获取到可以不填。                    |
 | mnc              | 否   | String |      -      | 基站信息中的 mnc 字段，如果未获取到可以不填。                    |
 | lac              | 否   | String |       -     | 基站信息中的 lac 字段，如果未获取到可以不填。                    |
@@ -378,7 +378,7 @@ request_str 即为 post 内容。
 
 ```
 Json::Value request_content;
-request_content["sn"] = "aaa";
+request_content["sn_code"] = "aaa";
 request_content["mcc"] = "bbb";
 request_content["mnc"] = "ccc";
 request_content["lac"] = "ddd";
@@ -425,7 +425,7 @@ request_str 即为 post 内容。
 		"mnc":"ccc",
 		"nonce_str":"ea90ceba",
 		"rss":"fff",
-		"sn":"aaa",
+		"sn_code":"aaa",
 		"timestamp":1568859333
 	}"
 }
@@ -473,7 +473,7 @@ request_str 即为 post 内容。
 
 | 参数名    | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | --------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
-| sn        | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
+| sn_code        | 是   | String |      -      | 机具自身的 sn，注意要是完整的 sn，如`LANDI_QM800_LA19**********`，`POPSECU_SL51_BP51********`。 |
 | token     | 是   | String | 12         | generate_bill_device_bind_qr_code 接口应答中的 token。           |
 | nonce_str | 是   | String | 8          | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。                         |
 | timestamp | 是   | Int    | 8          | 机具系统当前时间，UNIX 时间戳，单位为秒，如1568810504。       |
@@ -520,7 +520,7 @@ request_str 即为 post 内容。
 
 ```
 Json::Value request_content;
-request_content["sn"] = "aaa";
+request_content["sn_code"] = "aaa";
 request_content["token"] = "8azip8115bq";
 request_content["nonce_str"] = "ea90ceba";	// 8字节随机字符串
 request_content["timestamp"] = 1568859333;	// 当前系统时间
@@ -556,7 +556,7 @@ request_str 即为 post 内容。
 	},"
 	request_content":"{
 		"nonce_str":"ea90ceba",
-		"sn":"aaa",
+		"sn_code":"aaa",
 		"timestamp":1568859333,
 		"token":"8azip8115bq"
 	}"
@@ -665,11 +665,7 @@ request_content["sc"] = sn_code;
 request_content["stt"] = sub_terminal_type;
 Json::FastWriter w;
 const std::string &rc = w.write(request_content);
-std::string authen_code;
-//使用支付密钥计算认证码,支付密钥在绑定成功时获取.
-if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
-return ""; // 计算失败
-}
+std::string authen_code = hmac_sha256(authen_key, rc); // 计算签名
 Json::Value request;
 request["r"] = rc;
 request["a"] = authen_code;
@@ -779,11 +775,7 @@ request_content["otn"] = out_trade_no;
 Json::FastWriter w;
 const std::string &rc = w.write(request_content);
 
-std::string authen_code;
-//使用支付密钥计算认证码,支付密钥在绑定成功时获取.
-if (!calc_HMAC_SHA256(authen_key, rc, &authen_code)) {
-    return "";// 计算失败
-}
+std::string authen_code = hmac_sha256(authen_key, rc); // 计算签名
 
 Json::Value request;
 request["r"] = rc;
