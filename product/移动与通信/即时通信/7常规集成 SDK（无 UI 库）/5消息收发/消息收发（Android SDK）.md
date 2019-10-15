@@ -847,7 +847,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 TIMElem getElement(int i)
 
 //获取元素个数
-long    getElementCount()
+int     getElementCount()
 ```
 
 **示例：**
