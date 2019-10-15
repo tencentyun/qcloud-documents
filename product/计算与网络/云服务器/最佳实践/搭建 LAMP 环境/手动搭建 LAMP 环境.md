@@ -1,13 +1,11 @@
 ## 操作场景
-本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LAMP 环境。文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
-LAMP 环境代表 Linux 系统下由 Apache  + MySql + PHP 及其它相关辅助组件组成的网站服务器架构。
+本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LAMP 环境。LAMP 环境代表 Linux 系统下由 Apache  + MySql + PHP 及其它相关辅助组件组成的网站服务器架构。
 
 LAMP 组成及使用版本说明：
-- Linux 系统，本文使用 CentOS 7.6。
-- Apache：Web 服务器软件，本文使用 2.4.41 版本。
-- MySQL：数据库管理系统，本文使用
-- PHP：脚本语言，本文使用 PHP 7.0.32
-- phpMyAdmin：通过 Web 管理数据库的软件，本文使用
+- Linux：Linux 操作系统，本文使用 CentOS 7.6。
+- Apache：Web 服务器软件，本文使用 Apache 2.4.41。
+- MySQL：数据库管理系统，本文使用 MySQL 5.6.24。
+- PHP：脚本语言，本文使用 PHP 7.3.10。
 
 
 ## 前提条件
@@ -53,7 +51,7 @@ cd /usr/local/src
 mv apr-1.7.0 httpd-2.4.41/srclib/apr
 mv apr-util-1.6.1 httpd-2.4.41/srclib/apr-util
 ```
-5. 依次执行以下命令，编译源码并安装。
+5. 依次执行以下命令，编译安装 Apache。
 ```
 cd /usr/local/src/httpd-2.4.41
 ```
@@ -143,11 +141,11 @@ chown -R mysql:mysql /mnt/data
 wget https://downloads.mysql.com/archives/get/file/mysql-5.6.24.tar.gz
 tar xvf mysql-5.6.24.tar.gz -C  /usr/local/src
 ```
-6. 依次执行以下命令，进行编译安装。
+6. 依次执行以下命令，编译安装 MySQL。
 ```
 cd /usr/local/src/mysql-5.6.24
 ```
-```
+```bash
 cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
 -DMYSQL_DATADIR=/mnt/data \
 -DSYSCONFDIR=/etc \
@@ -172,22 +170,25 @@ make && make install
 ```
 chown -R mysql:mysql /usr/local/mysql/
 ```
-8. 依次执行以下命令，初始化数据库并备份配置文件。
+8. 依次执行以下命令，初始化数据库。
 ```
 cd /usr/local/mysql
 /usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/mnt/data/
+```
+9. 依次执行以下命令，备份数据库配置文件。
+```
 mv /etc/my.cnf /etc/my.cnf.bak
 cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
 ```
-9. 执行以下命令，修改配置文件。
+10. 执行以下命令，修改配置文件。
 ```
 echo -e "basedir = /usr/local/mysql\ndatadir = /mnt/data\n" >> /etc/my.cnf
 ```
-10. 执行以下命令，创建 MySQL 的启动配置文件。
+11. 执行以下命令，创建 MySQL 的启动配置文件。
 ```
 vi /usr/lib/systemd/system/mysql.service
 ```
-11. 按 “**i**” 或 “**Insert**” 切换至编辑模式，添加以下内容。
+12. 按 “**i**” 或 “**Insert**” 切换至编辑模式，添加以下内容。
 ```
 [Unit]
 Description=MySQL Community Server
@@ -205,31 +206,31 @@ TimeoutSec=600
 Restart=always
 PrivateTmp=false
 ```
-12. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-13. 执行以下命令，设置 MySQL 的环境变量。
+13. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+14. 执行以下命令，设置 MySQL 的环境变量。
 ```
 echo "export PATH=$PATH:/usr/local/mysql/bin" > /etc/profile.d/mysql.sh
 ```
-14. 执行以下命令，读取环境变量。
+15. 执行以下命令，读取环境变量。
 ```
 source /etc/profile.d/mysql.sh
 ```
-15. 依次执行以下命令，启动 MySQL 并设置为开机自启动。
+16. 依次执行以下命令，启动 MySQL 并设置为开机自启动。
 ```
 systemctl start mysql
 systemctl enable mysql
 ```
-16. 执行以下命令，设置 MySQL 的 root 账户密码。
+17. 执行以下命令，设置 MySQL 的 root 账户密码。
 ```
 mysqladmin -u root password
 ```
-17. 执行以下命令，登录 MySQL 数据库。
+18. 执行以下命令，登录 MySQL 数据库。
 ```
 mysql -uroot -p
 ```
 显示结果如下，则说明成功安装 MySQL。
 ![](https://main.qcloudimg.com/raw/9738ba9487eb8e2ebaf52c2a7a741871.png)
-18. 执行以下命令，脱出 MySQL。
+19. 执行以下命令，退出 MySQL。
 ```
 \q
 ```
@@ -316,7 +317,7 @@ systemctl restart httpd
 ### 环境配置验证
 1. 执行以下命令，创建测试文件。
 ```
-echo "<? php phpinfo(); ?>" >> /usr/local/apache2/htdocs/index.php
+echo "<?php phpinfo(); ?>" >> /usr/local/apache2/htdocs/index.php
 ```
 在浏览中访问以下地址，查看环境配置是否成功。
 ```
