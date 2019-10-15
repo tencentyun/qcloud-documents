@@ -28,7 +28,7 @@ openssl ecparam -name prime256v1 -genkey -out out.key
 ```
 openssl req -batch -config openssl_user.cnf -key out.key -new -sha256 -out out.csr
 ```
-- **转换私钥格式**：将已生成的 `out.key` 私钥转换为 pkcs#8 格式的 `out_sk` 文件，用于 fabric-sdk 识别。
+- **转换私钥格式**：将已生成的 `out.key` 私钥转换为 `pkcs#8` 格式的 `out_sk` 文件，用于 fabric-sdk 识别。
 ```
 openssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 ```
