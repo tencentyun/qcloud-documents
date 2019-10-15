@@ -1,3 +1,17 @@
+# API 概览
+## API 使用指引
+详细的 API 使用介绍请参见以下指引：
+
+| 功能                       | Sample Code 指引                                                                                                              |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)                       |
+| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                                   |
+| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)         |
+| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)           |
+| 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html) |
+| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)                          |
+| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)                   |
+
 ## TRTC
 
 >!本文适用于4.x.x版本的 TRTC Web SDK。
