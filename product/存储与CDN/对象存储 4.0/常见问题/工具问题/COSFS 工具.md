@@ -211,4 +211,4 @@ ln -s /usr/local/util-linux-ng/bin/mount /bin
 >!建议您不要开启 IO hung，导致不必要的重启。
 
 ### 使用 info 级别的日志，生成的系统日志文件，占用大量存储空间，该怎么处理？
-您可以定期清理生成的系统日志文件，或者调高日志级别，比如使用`-odbglevel=crit`挂载。
+您可以定期清理生成的系统日志文件，或者调高日志级别，例如使用`-odbglevel=crit`挂载。
