@@ -14,7 +14,13 @@
 mkdir /usr/java  # 创建 java 文件夹
 cd /usr/java     # 进入 java 文件夹
 ```
-直接使用命令：wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可。建议您使用 [WinSCP](https://winscp.net/eng/docs/lang:chs) 或其他工具将 JDK 安装包上传到上述 java 文件夹下，然后解压安装包。
+<pre>
+<code># 上传 JDK 安装包（推荐）
+推荐您使用 <a href="https://winscp.net/eng/docs/lang:chs" target="_blank">WinSCP</a> 或其他工具将 JDK 安装包上传到上述 java 文件夹下，然后解压安装包。
+或者
+# 直接使用命令（推荐您使用上传 JDK 安装包的方法）： wget 下载链接，下载得到的压缩包无法解压，这是因为直接下载的压缩包默认没有接受 Oracle BSD 许可；每个人的 cookie 不一样，请前往https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html页面同意许可协议并获取带有自己 cookie 的下载链接。
+wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-x64.tar.gz</code>
+</pre>
 ```
 # 解压
 chmod +x jdk-8u201-linux-x64.tar.gz
@@ -176,7 +182,12 @@ service tomcat stop
 ```
 运行结果如下：
 ![](https://main.qcloudimg.com/raw/78800e85c09820d98a0a15dc2792aaa8.png)
-5. 在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
+5. 若提示没有权限，请切换为 root 用户并修改权限。
+```
+cd /usr/local
+chmod -R 777 tomcat
+```
+6. 在浏览器地址栏中输入 `http://公网IP:端口`（端口为 server.xml 中设置的 connector port）进行访问。出现下图所示页面时表示安装成功。
 ![](https://main.qcloudimg.com/raw/0d28a69249da06f4455281013c848189.png)
 
 ### 配置安全组

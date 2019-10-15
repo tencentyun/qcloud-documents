@@ -41,14 +41,14 @@ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 �
 ### 步骤5：运行 Demo
 使用 Chrome 浏览器打开 Demo 根目录下的`index.html`文件即可运行 Demo。
 Demo 运行界面如图所示：
-![](https://main.qcloudimg.com/raw/74e17645358f36a7bcb9ca2d109a54fb.png)
-- 单击【JOIN】加入音视频通话房间并且发布本地音视频流。
-- 单击【LEAVE】退出音视频通话。
-- 单击【PUBLISH】发布本地音视频流。
-- 单击【UNPUBLISH】停止发布本地音视频流。
+![](https://main.qcloudimg.com/raw/d261de9f7d9a467afcbd26cf273149a4.png)
+- 单击【加入房间】加入音视频通话房间并且发布本地音视频流。
+- 单击【离开房间】退出音视频通话。
+- 单击【开始推流】发布本地音视频流。
+- 单击【停止推流】停止发布本地音视频流。
 
 >?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】。
-![](https://main.qcloudimg.com/raw/5889d06cd6e6bb4ef5f0331a295230e8.png)
+![](https://main.qcloudimg.com/raw/2f595dc976970c5398efd993ade5b22b.png)
 
 ## 常见问题
 
@@ -57,3 +57,8 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 ### 2. 防火墙有什么限制？
 由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+
+### 3. 出现10006 error 该如何处理？
+如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。
+登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板即可确认服务状态。
+![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)

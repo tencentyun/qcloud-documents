@@ -4,4 +4,4 @@
 
 | 平台 | 更新时间 | 版本 | SDK下载|文档|
 |---------|---------|---------|---------|---------|
-| 微信小游戏/QQ 小游戏/百度小游戏/oppo 小游戏<br>vivo 小游戏/H5 小游戏（JavaScript） | 2019/9/24 |v1.2.0   | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/MGOBE_v1.2.0.zip) |[快速入门](https://cloud.tencent.com/document/product/1038/33299) [接口文档](https://cloud.tencent.com/document/product/1038/33315) |
+| 微信小游戏/QQ 小游戏/百度小游戏/oppo 小游戏<br>vivo 小游戏/H5 小游戏（JavaScript） | 2019/10/11 |v1.2.1   | [下载](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/MGOBE_v1.2.1.zip) |[快速入门](https://cloud.tencent.com/document/product/1038/33299) [接口文档](https://cloud.tencent.com/document/product/1038/33315) |

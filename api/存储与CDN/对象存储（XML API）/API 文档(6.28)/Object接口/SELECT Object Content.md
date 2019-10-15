@@ -378,7 +378,7 @@ COS Select 的响应类型主要可以分为以下几种：
 | ComparisonFailed | Attempt to compare failed | 匹配失败，请重试 | 400 Bad Request|
 | CastFailed |  Attempt to convert from one data type to another using CAST failed in the SQL expression. | 在 SQL 表达式中通过 CAST 函数转换数据类型时出现错误 | 400 Bad Request|
 | OverMaxRecordSize |  The length of a record in the input or result is greater than maxCharsPerRecord of 1 MB | 输入或输出的文件中，单行记录大小超过1MB限制 | 400 Bad Request|
-| LastRecordParseFail |  Please check the last record in the input | 请检查输出文件的最后一行记录| 400 Bad Request|
+| LastRecordParseFail |  Please check the last record in the input | 请检查输入文件的最后一行记录| 400 Bad Request|
 | CSVParsingError | Encountered an error parsing the CSV file | 解析 CSV 格式文件的时候出现问题 | 400 Bad Request|
 | JSONParsingError | Encountered an error parsing the JSON file  | 解析 JSON 格式文件的时候出现问题 | 400 Bad Request|
 | ErrorWritingRow | Encountered an error parsing the SELECT result. Please try again  | 无法格式化您的查询结果，请检查文件并重试 | 400 Bad Request|

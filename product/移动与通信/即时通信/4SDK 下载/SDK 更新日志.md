@@ -10,11 +10,11 @@
 
 **Android 平台**
 
-- 优化 Android 9.0 及以上版本对 http 请求的限制
+优化 Android 9.0 及以上版本对 HTTP 请求的限制
 
 **iOS & Mac 平台**
 
-- 优化 pod 集成
+优化 pod 集成
 
 
 ## 4.5.45 @2019.09.18

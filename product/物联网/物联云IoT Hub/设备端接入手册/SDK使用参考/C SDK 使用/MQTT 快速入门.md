@@ -26,7 +26,7 @@
 2. 进入权限列表页面，单击【添加 Topic 权限】。
 3. 在弹出的 Topic 权限页面中，输入 data，并设置操作权限为**发布和订阅**，单击【创建】
 ![](https://main.qcloudimg.com/raw/15b0ee60510c823b9da7e391d68d8dc0.png)
-4. 随后将会创建出 productID/\${deviceName}/data 的 Topic，在产品页面的权限列表中即可查看该产品的所有权限。
+4. 随后将会创建出`productID/\${deviceName}/data`的 Topic，在产品页面的权限列表中即可查看该产品的所有权限。
 
 
 ## 编译运行示例程序
@@ -53,11 +53,11 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 #### 2. 填写设备信息
 将上面在腾讯云物联网 IoT Hub 创建的设备的设备信息，填写到 device_info.json 中。
 ```
-    "auth_mode":"KEY",	
-	"productId":"S3EUVBRJLB",
-  	"deviceName":"test_device",	
-    "key_deviceinfo":{    
-        "deviceSecret":"vX6PQqazsGsMyf5SMfs6OA6y"
+"auth_mode":"KEY",	
+"productId":"S3EUVBRJLB",
+"deviceName":"test_device",	
+"key_deviceinfo":{    
+"deviceSecret":"vX6PQqazsGsMyf5SMfs6OA6y"
     }
 ```
 
@@ -88,7 +88,7 @@ INF|2019-09-12 21:28:22|mqtt_client.c|IOT_MQTT_Destroy(186): mqtt release!
 ```
 
 #### 4. 观察消息发送
-如下日志信息显示示例程序通过 MQTT 的 Publish 类型消息，上报数据到 /{productID}/{deviceName}/data, 服务器已经收到并成功完成了该消息的处理。 
+如下日志信息显示示例程序通过 MQTT 的 Publish 类型消息，上报数据到 `/{productID}/{deviceName}/data`， 服务器已经收到并成功完成了该消息的处理。 
 ```
 INF|2019-09-12 21:28:21|mqtt_sample.c|_mqtt_event_handler(98): publish success, packet-id=1934
 ```
@@ -100,7 +100,7 @@ INF|2019-09-12 21:28:21|mqtt_sample.c|on_message_callback(195): Receive Message 
 ```
 
 #### 6. 观察控制台日志
-登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单【云日志】，即可查看刚上报的消息。
+登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击该产品名称，单击左侧菜单【云日志】，即可查看刚上报的消息。
 ![](https://main.qcloudimg.com/raw/f589691c7e007b59a5426ede6dc17ddb.png)
 
 
