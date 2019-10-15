@@ -2,6 +2,7 @@
 
 - 官网体验 Demo 请直接访问：[即时通信 IM Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
 - Demo 运行指引请访问：[一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
+- 
 
 ### 下载 IM SDK
 
@@ -13,8 +14,7 @@ sdk/json2.js
 ```
 
 Demo 目录结构如下：
-
-![](//mccdn.qcloud.com/static/img/91348025ca0c8d2487c9e2fef4c7ec43/image.png)
+![](https://main.qcloudimg.com/raw/6ae6941452a8c9a8ea50a08e422d4113.png)
 
 Demo 主要 JavaScript 文件功能说明如下：
 
@@ -119,11 +119,11 @@ IM SDK 函数使用顺序，如下：
 
 **会话：**IM SDK 中会话（Session）分为两种，一种是 C2C 会话，表示单聊情况，自己与对方建立的对话；另一种是群会话，表示群聊情况下，群内成员组成的会话。如下图所示，一个会话表示与一个好友的对话：
 
-![](//mccdn.qcloud.com/static/img/a7718fe7aecbcb4a29c6c112640a98d1/image.png)
+![](https://main.qcloudimg.com/raw/d4c1cdd04086660e6ddaf0764f1b0374.png)
 
 下图为群聊天会话：
 
-![](//mccdn.qcloud.com/static/img/f9c516615c9917881c2b5842968ed9fd/image.png)
+![](https://main.qcloudimg.com/raw/e4be3231b4cb39c5afa76f5a555d1e95.png)
 
 **消息：**IM SDK 中消息（webim.Msg）表示要发送给对方的内容，消息包括若干属性，如自己是否为发送者，发送人帐号，消息产生时间等；一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、表情，图片等，消息支持多种 `Elem` 组合发送。
 
@@ -731,13 +731,13 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 
 `webim.Emotions` 是表情对象，键值对形式，key 是表情 index，value 包括了表情标识字符串和表情数据（可以是 BASE64 编码或者地址）。
 
-![](//mccdn.qcloud.com/static/img/28b535381f62f87d5b8464b819a5bcd1/image.png)
+![](https://main.qcloudimg.com/raw/1de2838e3a67ab00e2b9ceda12e855de.png)
 
 ### 表情数据索引对象 EmotionDataIndexs
 
 `webim.EmotionDataIndexs` 是表情标识字符串和 index 的映射关系对象，键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息时，需要将消息文本中的表情识别出来，并转换成对应的索引 index 传给后台接口。
 
-![](//mccdn.qcloud.com/static/img/11a2b050d1b47aefa1d9fb0a4e3fc716/image.png)
+![](https://main.qcloudimg.com/raw/7cedd99f5e7b961902693410cc258fe1.png)
 
 ### 工具对象 Tool
 

@@ -2,7 +2,7 @@
 
 > **注意：**  
 >1. 前提：已经 **创建集群** 并已添加节点（单击了解 [创建集群](https://cloud.tencent.com/document/product/457/11741)）。  
->2. 请先确保成功容器服务所在的 VPC 和您 IDC 机房通过专线或 VPN 连接，（单击了解 [VPN 连接](https://cloud.tencent.com/document/product/554/18988)）子机间能互通，若通道未连接，可以参考 [详情](https://cloud.tencent.com/document/product/215/17010) 排查。
+>2. 请先确保成功容器服务所在的 VPC 和您 IDC 机房通过专线或 VPN 连接，（单击了解 [VPN 连接](https://cloud.tencent.com/document/product/554/18988)）子机间能互通，若通道未连接，可以参考 [功能类常见问题](https://cloud.tencent.com/document/product/554/18904) 排查。
 > 
 
 ## 专线打通

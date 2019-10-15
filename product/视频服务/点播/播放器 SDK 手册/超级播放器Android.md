@@ -15,11 +15,11 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 ### aar 集成
 
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/player/libs/libsuperplayer.aar`到工程中去。
 3. 在`app/build.gralde`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
-compile(name: 'lib_tcsuperplayer', ext: 'aar')
+compile(name: 'libsuperplayer', ext: 'aar')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
@@ -61,7 +61,7 @@ SuperPlayerModel model = new SuperPlayerModel();
 model.appid = 1252463788;   //AppId
 model.fileid = "5285890781763144364"; //视频 FileId
 // 开始播放
-mSuperPlayerView.playWithMode(model);
+mSuperPlayerView.playWithModel(model);
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
 ![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
