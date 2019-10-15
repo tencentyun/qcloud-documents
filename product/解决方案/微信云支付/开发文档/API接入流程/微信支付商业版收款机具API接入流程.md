@@ -141,7 +141,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
     1. `get_bill_device_bind_info`接口返回了绑定信息，即应答中 activated为true；
     2. 轮询超过了二维码有效期，有效期长度由`generate_bill_device_bind_qr_code`接口应答中的 ttl 指定，单位为秒，假如 ttl 为180，表示整个轮询过程超过180秒就必须结束，并停止展示二维码。
 5. **处理绑定信息**
-获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密(解密说明详见10.1章节)，解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
+获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密（解密说明详见 [10.1 AES-128-CBC 解密说明](#10.1-aes-128-cbc-.E8.A7.A3.E5.AF.86.E8.AF.B4.E6.98.8E)），解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
 
 ## 8. 机具收款相关流程说明
 
