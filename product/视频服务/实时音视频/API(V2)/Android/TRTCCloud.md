@@ -587,7 +587,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | int | 音频路由，即声音由哪里输出（扬声器、听筒）。 |
+| route | int | 音频路由，即声音由哪里输出（扬声器、听筒），请参考[TRTCCloudDef.TRTC_AUDIO_ROUTE_SPEAKER](https://cloud.tencent.com/document/product/647/32266#TRTC_AUDIO_ROUTE) |
 
 __介绍__
 
