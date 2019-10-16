@@ -8,7 +8,7 @@
 <span id="ecc"></span>
 ### ECC 证书申请 CSR 
 1. 前往 [OpenSSL 官网](https://www.openssl.org/source/)，下载 openssl 并配置安装。
-2. 下载 [ecccsr 工具]() 并解压。
+2. 下载 [ecccsr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip) 并解压。
 3. 执行以下命令，生成对应文件。
 ```
 sh ecccsr.sh
@@ -36,7 +36,7 @@ openssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 <span id="sm2"></span>
 ### SM2 证书申请 CSR
 1. 前往 [gmssl 官网](http://gmssl.org/docs/quickstart.html)，下载 gmssl 并配置安装。 
-2. 下载 [sm2csr 工具]() 并解压。
+2. 下载 [sm2csr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/sm2csr.zip) 并解压。
 3. 执行以下命令，生成对应文件。
 ```
 sh sm2csr.sh
