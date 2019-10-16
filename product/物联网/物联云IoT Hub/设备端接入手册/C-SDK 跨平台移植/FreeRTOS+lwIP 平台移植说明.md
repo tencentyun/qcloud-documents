@@ -59,7 +59,7 @@ COMPONENT_SRCDIRS := \
 qcloud_iot_c_sdk/sdk_src \
 qcloud_iot_c_sdk/platform
 ```
-至此，你可以将 qcloud_iot_c_sdk 作为一个组件进行编译了，之后在用户代码里面就可以调用物联 C-SDK 的接口进行连接和收发消息。
+至此，您可以将 qcloud_iot_c_sdk 作为一个组件进行编译了，之后在用户代码里面就可以调用物联 C-SDK 的接口进行连接和收发消息。
 
 
 
