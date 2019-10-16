@@ -6,14 +6,14 @@
 ## 示例
 查看指定 CMK 详细信息。
 
-#### 输入示例
+#### 输入
 ```shell
 tccli kms DescribeKey --region ap-guangzhou --KeyId 521xxxxx-xxxx-xxxx-xxxx-52xxxxd4
 ```
 
 
 
-#### 输出示例
+#### 输出
 在 API 成功执行的情况下，将返回 CMK 的详细信息。
 ```shell
 {
