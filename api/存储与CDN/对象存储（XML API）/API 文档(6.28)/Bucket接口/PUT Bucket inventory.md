@@ -6,6 +6,7 @@ PUT Bucket inventory 用于在存储桶中创建清单任务，您可以对清�
 > - COS 支持在每个存储桶中创建最多1000条清单任务。
 > - 您必须在目标存储桶中写入存储桶策略，以供 COS 将清单任务的结果文件写入该存储桶中。
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。  
+> - 如果您指定了清单投递的前缀，COS 后端会自动在您指定的前缀后边加上`/`。如您指定了`Prefix`作为前缀，则 COS 后端投递的清单报告路径为`Prefix/inventory_report`。
 
 ## 请求
 
@@ -46,7 +47,7 @@ Content-MD5: MD5
 ```shell
 <InventoryConfiguration>
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
@@ -82,7 +83,7 @@ Content-MD5: MD5
 | ---------------------- | ---------------------- | ------------------------------------------------------------ | --------- | -------- |
 | InventoryConfiguration | 无                     | 包含清单的配置参数                                         | Container | 是       |
 | Id                     | InventoryConfiguration | 清单的名称，与请求参数中的 id 对应                         | Container | 是       |
-| IsEnabled              | InventoryConfiguration | 清单是否启用的标识。如果设置为 True，清单功能将生效；如果设置为 False，将不生成任何清单 | String    | 是       |
+| IsEnabled              | InventoryConfiguration | 清单是否启用的标识。如果设置为 true，清单功能将生效；如果设置为 false，将不生成任何清单 | String    | 是       |
 | IncludedObjectVersions | InventoryConfiguration | 是否在清单中包含对象版本<br>如果设置为 All，清单中将会包含所有对象版本，并在清单中增加 VersionId，IsLatest，DeleteMarker 这几个字段<br>如果设置为 Current，则清单中不包含对象版本信息 | String    | 是       |
 | Filter                 | InventoryConfiguration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container | 否       |
 | Prefix                 | Filter                 | 需要分析的对象的前缀                                       | String    | 否       |
@@ -146,7 +147,7 @@ Content-Length: 1024
 <?xml version = "1.0" encoding = "UTF-8">
 <InventoryConfiguration xmlns = "http://....">
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
