@@ -4,8 +4,11 @@
 |---------|---------|
 | 导入单个帐号 | [v4/im_open_login_svc/account_import](https://cloud.tencent.com/document/product/269/1608) |
 | 导入批量帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
-| 帐号删除接口  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 帐号删除  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 帐号校验  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
+
+
 
 ## 在线状态
 
