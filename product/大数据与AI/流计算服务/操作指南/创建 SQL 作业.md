@@ -39,7 +39,7 @@ SQL 作业是通过 SQL 语句直接编写业务逻辑的方式。对于流计�
 单击代码编辑框上方的【选择数据流】，通过【添加数据流DDL】对话框自动生成 SQL 代码，然后编写计算逻辑。
 
  示例如下：类型选择 CKafka，实例 ID 选择您在准备工作中创建的 CKafka，Topic 选择作为数据源的 Topic，数据格式选择 json，输入字段结构，单击【预校验】来校验输入的字段结构是否与 CKafka 中一致，最后单击【添加】。
-![添加数据流DDL](https://main.qcloudimg.com/raw/9d1d1886541278e88bac0a5856248423.png)
+![添加数据流DDL](https://main.qcloudimg.com/raw/0df6e8e9fdb6517893a9294a44b91dba.png)
 添加完数据流以后，在代码编辑框中会生成如下代码：
 ```mysql
 CREATE TABLE `page_visits` (
@@ -48,7 +48,7 @@ CREATE TABLE `page_visits` (
   `page_id` VARCHAR
 ) WITH (
   `type` = 'ckafka',
-  `instanceId` = 'ckafka-2b6b5m11',
+  `instanceId` = 'ckafka-xxxxxxxx',
   `encoding` = 'json',
   `topic` = 'page_visits'
 );
