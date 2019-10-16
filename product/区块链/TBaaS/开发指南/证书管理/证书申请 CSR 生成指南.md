@@ -73,7 +73,7 @@ gmssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 
 #### Node.js SDK
 ```
-var fs = require('fs-extra');
+ var fs = require('fs-extra');
  var fabric_client = new Fabric_Client();
 
  var cert = fs.readFileSync('TBaaS 上下载的证书');
