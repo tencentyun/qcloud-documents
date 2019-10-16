@@ -1,26 +1,20 @@
-## 操作场景
+﻿## 操作场景
 LNMP 环境代表 Linux 系统下 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 6.9 及 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+
+## 技能要求
+进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。手动搭建 LNMP 环境可能需要较长的时间。
+
+腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
 
 ## 前提条件
-已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
 
 ## 操作步骤
+当您登录 Linux 云服务器后，可以按照以下步骤分别安装 Nginx， MySQL 和 PHP。
 
-### 创建并登录云服务器
->!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应的操作系统。
->
-1. 在实例的管理页面，单击【新建】。
-具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看并获取云服务器的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
- - 云服务器用户名和密码。
- - 云服务器公网 IP。
-3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-登录云服务器后，默认已获取 root 权限，以下步骤需在 root 权限下操作。
-
-### 安装 Nginx
+### 步骤1：安装 Nginx
 1. 执行以下命令，安装 Nginx。
 ```
 yum -y install nginx
@@ -73,12 +67,12 @@ server {
 systemctl start nginx
 systemctl enable nginx 
 ```
-6. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+6. 在浏览器中，输入云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/aafa7ee638e68a8771953908a06fd704.png)
 
-### 安装配置 PHP
-由于操作系统版本不同，PHP 版本也不相同，请结合您使用的操作系统按照以下步骤进行安装配置 PHP。
+### 步骤2：安装配置 PHP
+由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
 #### CentOS 6.9 安装配置 PHP
 1. 执行以下命令，更新 yum 中 PHP 的软件源。
 ```
@@ -112,8 +106,8 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-### 安装数据库
-由于操作系统版本不同，数据库使用的版本也不相同，请对应您使用的操作系统进行安装配置。
+### 步骤3：安装数据库
+由于操作系统版本不同，所使用的数据库版本也不相同，请对应您使用的操作系统并按照以下步骤进行进行安装配置。
 #### CentOS 6.9 安装 MySQL
 1. 执行以下命令，安装 MySQL。
 ```
@@ -174,7 +168,9 @@ mysql
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
 
-### 环境配置验证
+
+### 验证环境配置是否成功
+当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
@@ -187,4 +183,11 @@ http://云服务器实例的公网 IP/index.php
 ![](https://main.qcloudimg.com/raw/aba0d414cc3954909b1e97fdc72bc4ea.png)
  - CentOS 7.6 系统显示结果如下， 则说明环境配置成功。
 ![](https://main.qcloudimg.com/raw/c47f6aab01fcf0cfcb716b69da7b0474.png)
+
+
+## 相关操作
+在完成了 LNMP 环境搭建之后，您可在此基础上进行 [手动搭建 Wordpress 个人站点](https://cloud.tencent.com/document/product/213/8044) 实践，了解并掌握更多关于云服务器的相关功能。
+
+
+
 
