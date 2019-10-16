@@ -504,7 +504,7 @@ request_str 即为 post 内容。
 | out_sub_mch_id    | 否   | String | 最长64     | 云支付内部的子商户 ID，只当 activated 为1时才有。              |
 | cloud_cashier_id  | 否   | String | 最长64     | 云支付规定的定单前缀，只当 activated 为1时才有。               |
 | authen_type       | 否   | Int    | 4          | 子商户与云支付之间的签名算法类型，只当 activated 为1时才有。   |
-| e_authen_key      | 否   | String | 最长256    | Aes128Gcm 加密并 base64 编码之后的支付密钥，机具先 base64 解码后，再使用初始化密钥来解密这个字段，以获得支付密钥（authen_key）。支付用这个密钥来计算签名。只当 activated 为1时才有。 |
+| e_authen_key      | 否   | String | 最长256    | Aes128CBC 加密并 base64 编码之后的支付密钥，机具先 base64 解码后，再使用初始化密钥来解密这个字段，以获得支付密钥（authen_key）。支付用这个密钥来计算签名。只当 activated 为1时才有。 |
 | out_shop_id       | 否   | String | 最长64     | 云支付系统全局唯一门店 ID，只当 activated 为1时才有。          |
 | shop_name         | 否   | String | 最长128    | 门店名称，只当 activated 为1时才有。                           |
 | device_id         | 否   | String | 最长64     | 设备 ID，只当 activated 为1时才有。                            |
