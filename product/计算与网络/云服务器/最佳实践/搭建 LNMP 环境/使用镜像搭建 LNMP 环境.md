@@ -1,5 +1,5 @@
 ## 操作场景
-LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍如何在 Linux 操作系统的腾讯云云服务器（CVM） 上通过镜像完成 LNMP 环境搭建。
+LNMP 是L（Linux）、N（Nginx）、M（MySQL）和 P（PHP）的简写，其实就是把Nginx, MySQL以及PHP安装在Linux系统上，组成一个环境来运行PHP的脚本语言。本文档介绍如何在 Linux 操作系统的腾讯云云服务器（CVM） 上通过镜像完成 LNMP 环境搭建。
 
 ## 前提条件
 已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
