@@ -79,7 +79,7 @@ CREATE TABLE KafkaSource1 (
 - Tuple 类型数据流，只能写入不设主键（即没有 PRIMARY KEY 语句）的数据表。
 - Upsert 类型数据流，只能写入含有主键（PRIMARY KEY 语句）的数据表。
 
-对于含主键的表（即使用 PRIMARY KEY 定义了主键），支持插入或更新（Upsert）操作，可以接受由 DISTINCT、不含窗口的 JOIN、不含窗口的 GROUP BY 等操作产生的 Upsert 数据流。
+对于含主键的表（即使用 PRIMARY KEY 定义了主键），支持插入或更新（Upsert）操作，可接收由 DISTINCT、不含窗口的 JOIN、不含窗口的 GROUP BY 等操作产生的 Upsert 数据流。
 
 **示例：Tuple 类型 MySQL 数据表，使用 Processing Time 时间模式**
 
