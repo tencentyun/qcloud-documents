@@ -81,7 +81,7 @@ var fs = require('fs-extra');
 
  fabric_client.createUser({
      username: '证书标识',
-     mspid: 'Org1MSP',
+     mspid: '组织 MSP',
      cryptoContent: {
      privateKeyPEM: priv,
      signedCertPEM: cert
