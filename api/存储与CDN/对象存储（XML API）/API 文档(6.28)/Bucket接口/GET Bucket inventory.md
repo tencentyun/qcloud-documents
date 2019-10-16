@@ -4,7 +4,8 @@ GET Bucket inventory 接口用于查询存储桶中用户的清单任务信息�
 
 > !
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。
-> - 存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。  
+> - 存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。
+> - 如果您指定了清单投递的前缀，COS 后端会自动在您指定的前缀后边加上`/`。如您指定了`Prefix`作为前缀，则 COS 后端投递的清单报告路径为`Prefix/inventory_report`。
 
 ## 请求
 
@@ -60,7 +61,7 @@ Authorization: Auth String
 ```shell
 <InventoryConfiguration>
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
@@ -96,7 +97,7 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ------------------------------------------------------------ | --------- |
 | Inventory Configuration | 无                      | 包含清单的配置参数                                         | Container |
 | Id                      | Inventory Configuration | 清单的名称，与请求参数中的 ID 对应                           | Container |
-| IsEnabled               | Inventory Configuration | 清单是否启用的标识。如果设置为 True，清单功能将生效；如果设置为 False，将不生成任何清单 | String    |
+| IsEnabled               | Inventory Configuration | 清单是否启用的标识。如果设置为 true，清单功能将生效；如果设置为 false，将不生成任何清单 | String    |
 | IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本。如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker这几个字段；如果设置为 Current，则清单中不包含对象版本信息 | String    |
 | Filter                  | Inventory Configuration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container |
 | Prefix                  | Filter                  | 需要分析的对象的前缀                                   | String    |
@@ -148,7 +149,7 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
 <?xml version = "1.0" encoding = "UTF-8">
 <InventoryConfiguration xmlns = "http://....">
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
