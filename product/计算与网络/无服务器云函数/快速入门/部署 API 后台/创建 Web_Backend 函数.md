@@ -1,4 +1,4 @@
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入【函数服务】页面。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入【函数服务】页面。
 2. 选择**广州**地域，单击【新建】，进入新建函数页面。
 3. 填写以下参数信息，单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/5749b6161b101eff5009649e08c29da8.png)

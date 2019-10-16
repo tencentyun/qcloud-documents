@@ -32,6 +32,6 @@
 |address	| String	| 身份证识别结果：住址<br>如果用户没有正确上传身份证反面，则没有该字段|
 |authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传身份证反面，则没有该字段|
 |validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传身份证反面，则没有该字段|
-|multiWarning	| String	| 正面多重告警码，详情请参见 [通用响应码列表](https://cloud.tencent.com/document/product/655/32309)|
+|multiWarning	| String	| 正面多重告警码，详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)|
 |clarity	| String	| 图片清晰度|
 

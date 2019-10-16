@@ -1,6 +1,6 @@
 ## 操作场景
 
-在本实践中，我们用到了 [无服务器云函数 SCF](https://cloud.tencent.com/document/product/583) 和 [对象存储 COS](https://cloud.tencent.com/document/product/436)。假定用户上传到 COS 的 zip 文件需要进行解压缩，并以 zip 包名作为文件夹名，回传到 COS。用户可根据示例代码进行扩展，比如支持其他格式文件的解压缩操作。
+在本实践中，我们用到了 [云函数 SCF](https://cloud.tencent.com/document/product/583) 和 [对象存储 COS](https://cloud.tencent.com/document/product/436)。假定用户上传到 COS 的 zip 文件需要进行解压缩，并以 zip 包名作为文件夹名，回传到 COS。用户可根据示例代码进行扩展，例如支持其他格式文件的解压缩操作。
 
 > ?由于当前云函数每次运行时分配的临时存储空间为512MB，因此建议单个 zip 包的大小不大于300MB，解压出来的单个文件不大于200MB。
 
@@ -20,7 +20,7 @@
 
 ### 创建云函数 SCF
 
-1. 登录 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
 2. 选择**北京**地域，单击【新建】，进入新建函数页面。
 3. 在**新建函数**页面配置以下信息，配置完成后，然后单击【下一步】。
 	- **创建方式**：选择 “模板函数”。
@@ -50,5 +50,5 @@
 2. 进入 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，选择创建好的存储桶：zip-upload，单击【上传文件】。
 3. 在弹出的“上传文件”窗口中，选择第1步下载的测试样例，单击【上传】。
 4. 进入另外一个存储桶：unzip，可查看到解压后的文件。
-5. 进入 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。选择【函数服务】>【“函数”】>【运行日志】，即可看到打印出的日志信息。
+5. 进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。选择【函数服务】>【“函数”】>【运行日志】，即可看到打印出的日志信息。
 

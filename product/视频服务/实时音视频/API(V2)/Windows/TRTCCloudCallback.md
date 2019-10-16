@@ -26,7 +26,7 @@ __参数__
 
 ### onWarning
 
-警告回调：用于告知您一些非严重性问题，比如出现了卡顿或者可恢复的解码失败。
+警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。
 ```
 void onWarning(TXLiteAVWarning warningCode, const char * warningMsg, void * extraInfo)
 ```
@@ -57,7 +57,9 @@ __参数__
 
 __介绍__
 
-调用 TRTCCloud 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 如果加入成功，result 会是一个正数（result > 0），代表加入房间的时间消耗，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），代表进房失败的错误码。 进房失败的错误码含义请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+调用 TRTCCloud 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
+- 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
+- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/32270#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/32270#onerror) 回调抛出。
 
@@ -78,8 +80,8 @@ __参数__
 
 __介绍__
 
-调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调通知到您。
-如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
+调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调通知到您。
+如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/32270#onexitroom) 回调到来后再执行相关操作。否则可能会遇到例如摄像头、麦克风设备被强占等各种异常问题。
 
 
 ### onSwitchRole
@@ -146,8 +148,8 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。 通知参数中的 userId 也不一定都是开启视频的，可能只开启了声音的上行。
-如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 事件回调。
+没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音上行，但不一定已开启视频。
+如果需要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 事件回调。
 
 
 ### onUserExit
@@ -181,9 +183,8 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userId， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。 之后，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。 再之后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
-当您收到了 onUserVideoAvailable(userId， NO) 通知时，代表该路远程画面已经被关闭，这可能是 由于该用户调用了 muteLocalVideo() 或 stopLocalPreview() 所致。
-
+当您收到 onUserVideoAvailable(userId， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userId， NO) 通知时，代表该路远程画面已经被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
 
 ### onUserSubStreamAvailable
 
@@ -236,7 +237,7 @@ __参数__
 
 __介绍__
 
-如果 userId 为 null，代表开始渲染本地采集的摄像头画面，需要您先调用 startLocalPreview 触发。 如果 userId 不为 null，代表开始渲染远程用户的首帧画面，需要您先调用 startRemoteView 触发。
+如果 userId 为 null，表示开始渲染本地采集的摄像头画面，需要您先调用 startLocalPreview 触发。 如果 userId 不为 null，表示开始渲染远程用户的首帧画面，需要您先调用 startRemoteView 触发。
 
 >?只有当您调用 startLocalPreview()、startRemoteView() 或 startRemoteSubStreamView() 之后，才会触发该回调。
 
@@ -267,7 +268,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | const TRTCVideoStreamType | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | const TRTCVideoStreamType | 视频流类型，主画面、小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
@@ -403,7 +404,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调，如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 null 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 
@@ -503,7 +504,8 @@ __参数__
 
 __介绍__
 
-TRTC 所使用的传输通道为 UDP 通道，所以即使设置了 reliable，也做不到100不丢失，只是丢消息概率极低，能满足常规可靠性要求。 在过去的一段时间内（通常为5s），自定义消息在传输途中丢失的消息数量的统计，SDK 都会通过此回调通知出来。
+实时音视频使用 UDP 通道，即使设置了可靠传输（reliable）也无法确保100%不丢失，只是丢消息概率极低，能满足常规可靠性要求。在发送端设置了可靠传输（reliable）后，SDK 都会通过此回调通知过去时间段内（通常为5s）传输途中丢失的自定义消息数量统计信息。
+
 
 >?只有在发送端设置了可靠传输（reliable），接收方才能收到消息的丢失回调。
 
@@ -570,6 +572,23 @@ __参数__
 |-----|-----|-----|
 | errCode | int | 0表示成功，其余值表示失败。 |
 | errMsg | const char * | 具体错误原因。 |
+
+
+
+## 音效回调
+### onAudioEffectFinished
+
+播放音效结束回调。
+```
+void onAudioEffectFinished(int effectId, int code)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | - |
+| code | int | 0： 表示播放正常结束；其他为异常结束。 |
 
 
 
@@ -717,18 +736,28 @@ __功能__
 
 
 ### onCapturedAudioFrame
+
+本地麦克风采集到的音频数据回调。
 ```
 void onCapturedAudioFrame(TRTCAudioFrame * frame)
 ```
 
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frame | TRTCAudioFrame * | 音频数据。 |
+
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
->- 此接口回调出的音频数据是只读的，不支持修改。
+>- 此接口回调出的音频数据支持修改。
+>- 此接口回调出的音频时间帧长固定为0.02s。 由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。 以SDK默认的音频录制格式48000采样率、单声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+>- 此接口回调出的音频数据包含背景音、音效、混响等前处理效果。
 
 
 ### onPlayAudioFrame
 
-混音前的每一路远程用户的音频数据（比如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
+混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。
 ```
 void onPlayAudioFrame(TRTCAudioFrame * frame, const char * userId)
 ```
@@ -746,13 +775,23 @@ __参数__
 
 
 ### onMixedPlayAudioFrame
+
+各路音频数据混合后送入喇叭播放的音频数据。
 ```
 void onMixedPlayAudioFrame(TRTCAudioFrame * frame)
 ```
 
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frame | TRTCAudioFrame * | 音频数据。 |
+
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
->- 此接口回调出的音频数据是只读的，不支持修改。
+>- 此接口回调出的音频数据支持修改。
+>- 此接口回调出的音频时间帧长固定为0.02s。 由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。 以SDK默认的音频播放格式48000采样率、双声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 2 × 16bit = 30720bit = 3840字节】。
+>- 此接口回调出的音频数据是各路音频播放数据的混合，不包含耳返的音频数据。
 
 
 

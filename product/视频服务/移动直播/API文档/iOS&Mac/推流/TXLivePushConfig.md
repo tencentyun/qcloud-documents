@@ -19,7 +19,7 @@ __属性列表__
 | enableZoom | BOOL | 是否允许双指手势放大预览画面，默认值：NO。 | - | - |
 | watermark | TXImage * | 水印图片，设为 nil 等同于关闭水印。 | - | - |
 | watermarkPos | CGPoint | 水印图片位置，水印大小为图片实际大小，待废弃，推荐使用 watermarkNormalization。 | - | - |
-| watermarkNormalization | CGRect | 水印图片相对于推流分辨率的归一化坐标。 | 假设推流分辨率为：540x960，该字段设置为：(0.1，0.1，0.1，0.0)，那么水印的实际像素坐标为： (540 × 0.1, 960 × 0.1, 水印宽度 × 0.1, 水印高度会被自动计算）。 | watermarkNormalization 的优先级高于 watermarkPos。 |
+| watermarkNormalization | CGRect | 水印图片相对于推流分辨率的归一化坐标。 | 假设推流分辨率为：540 x 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。 | watermarkNormalization 的优先级高于 watermarkPos。 |
 | pauseTime | int | 垫片推流的最大持续时间，单位秒，默认值：300s。 | - | 调用 TXLivePusher 的 pausePush  接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。 |
 | pauseFps | int | 垫片推流时的视频帧率，取值范围3 - 8，默认值：5FPS。 | - | - |
 | pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 x 1920。 | - | - |
@@ -37,7 +37,7 @@ __属性列表__
 | enablePureAudioPush | BOOL | 是否为纯音频推流。 | NO | 如果希望实现纯音频推流的功能，需要在推流前就设置该参数，否则播放端会有兼容性问题。 |
 | connectRetryCount | int | 推流遭遇网络连接断开时 SDK 默认重试的次数，取值范围1 - 10，默认值：3。 | - | - |
 | connectRetryInterval | int | 网络重连的时间间隔，单位秒，取值范围3 - 30，默认值：3。 | - | - |
-| customModeType | int | 自定义采集和自定义处理开关。 | - | 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）：开启自定义视频采集：_config.customModeType &#124;= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：_config.customModeType &#124;= CUSTOM_MODE_AUDIO_CAPTURE;。 |
+| customModeType | int | 自定义采集和自定义处理开关。 | - | 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）：开启自定义视频采集：\_config.customModeType &#124;= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：\_config.customModeType &#124;= CUSTOM_MODE_AUDIO_CAPTURE;。 |
 | sampleBufferSize | CGSize | 仅开启自定义采集时有效，用于设置编码分辨率。 | - | 此值设置需与调用 sendVideoSampleBuffer 时传入的 SampleBuffer 的宽高比一致，否则会引起画面变形。 如果指定 autoSampleBufferSize 为 YES，则不需要设置该字段。 |
 | autoSampleBufferSize | BOOL | 仅开启自定义采集时有效，YES 代表编码分辨率等于输入的 SampleBuffer 的分辨率，默认值：NO。 | - | - |
 | enableNAS | BOOL | 是否开启噪声抑制（注意：早期版本引入了拼写错误，考虑到接口兼容一直没有修正，正确拼写应该是 ANS）。 | NO：ANS 对于直播环境中由其它设备外放的音乐是不友好的，通过 playBGM 设置的背景音不受影响。 | 如果直播场景只有主播在说话，ANS 有助于让主播的声音更清楚，但如果主播在吹拉弹唱，ANS 会损伤乐器的声音。 |

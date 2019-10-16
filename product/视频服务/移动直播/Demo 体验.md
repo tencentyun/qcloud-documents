@@ -1,5 +1,5 @@
 ## 小直播 App
-小直播 App 是一套开源的完整的在线直播解决方案，它基于腾讯云直播服务（LVB）、云通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
+小直播 App 是一套开源的完整的在线直播解决方案，它基于云直播服务（LVB）、即时通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
 
 | 平台 | Demo体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
@@ -7,6 +7,8 @@
 | Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo) |
 
 ![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)
+
+>!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
 
 
 ## 精简版 Demo
@@ -27,6 +29,6 @@
 |:--------:|:--------:|:--------:|
 | 微信小程序 | “腾讯视频云” | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |
 
-![](https://main.qcloudimg.com/raw/913bc2c34495e04dcd3d97eff069df53.jpg)
+![](https://main.qcloudimg.com/raw/491b381c87c374cd4927a28b7891ce7e.jpg)
 
 

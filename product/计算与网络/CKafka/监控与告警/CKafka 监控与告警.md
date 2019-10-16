@@ -5,9 +5,12 @@
 CKafka 控制台提供改了单独的监控数据读取选项卡。
 CKafka 控制台提供两种维度的数据监控：实例维度和 Topic 维度。您可以通过控制台查看 CKafka 实例和 Topic 的生产流量、消费流量、消息堆积量等监控数据，并可任意调整查看的时间段。查看方法如下：
 
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)  。
-2. 在实例列表中，单击需要要查看的实例 ID/Topic ID，进入实例详情页。
-3. 在实例详情页顶部，单击【本实例监控】选项卡，可查看监控数据。
+1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+2. 在实例列表中，单击操作列的【配置告警】可以直接跳转到告警配置页面。请务必对实例配置告警，防止因突发流量或者到达规格限制而导致的异常。
+![](https://main.qcloudimg.com/raw/5211355ea3bca6accabdd524891c0dea.png)
+3. 在实例列表中，单击需要要查看的实例 ID/Topic ID，进入实例详情页。
+4. 在实例详情页顶部，单击【本实例监控】选项卡，可查看监控数据。
+
 
 ### CKafka 监控指标说明
 实例监控：

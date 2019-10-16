@@ -1,6 +1,6 @@
 ## TCP SSL 监听器简介
 您可以在负载均衡实例上添加一个 TCP SSL 监听转发来自客户端加密的 TCP 协议请求。TCP SSL 协议适用于需要超高性能、大规模 TLS 卸载的场景。TCP SSL 协议的监听器，后端服务器可直接获取客户端的真实 IP。
->?TCP SSL 监听器正在内测中，如需使用，请通过 [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
+>?TCP SSL 监听器正在内测中，当前仅支持公网负载均衡（不支持内网），不支持传统型负载均衡，如需使用，请通过  [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
 
 ## 前提条件
 您需要 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
@@ -11,7 +11,7 @@
 2. 在左侧导航栏，选择【实例管理】。
 3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
 4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/b6a9d6be3d216cc0f892eddfa9937ce2.png)
+![](https://main.qcloudimg.com/raw/376f020caf12788e492e7f7300465ea8.png)
 5. “监听器管理”页面如下图所示。
 ![](https://main.qcloudimg.com/raw/8b20cb5510626c49860d5e67c1f2c736.png)
 
@@ -38,8 +38,8 @@
 </tr>
 <tr>
 <td>SSL 解析方式</td>
-<td>支持单项认证和双向认证</td>
-<td>单项认证</td>
+<td>支持单向认证和双向认证</td>
+<td>单向认证</td>
 </tr>
 <tr>
 <td>服务器证书</td>
@@ -60,7 +60,7 @@
 | 健康检查配置    | 说明                    | 示例                                |
 | ------- | ------------------------ | ---------------------------------------- |
 | 健康检查状态 | 开启或关闭健康检查。TCP SSL 监听器中，负载均衡实例向指定的服务器端口发 SYN 包进行健康检查。 | 开启 |
-| 响应超时 | <li> 健康检查响应的最大超时时间。</li><li>如果后端云服务器在相应时间内没有正确响应，则判定为健康检查异常。</li><li>可配置范围：2 - 60秒，默认值2秒。</li> | 2s |
+| 响应超时 | <li> 健康检查响应的最大超时时间。</li><li>如果后端云服务器在超时时间内没有正确响应，则判定为健康检查异常。</li><li>可配置范围：2 - 60秒，默认值2秒。</li> | 2s |
 | 检测间隔 | <li>负载均衡进行健康检查的时间间隔。</li><li>可配置范围：5 - 300秒，默认值5秒。</li> | 5s |
 | 不健康阈值 | <li>如果连续 n 次（n 为填写的数值）收到的健康检查结果失败，则识别为不健康，控制台显示为**异常**。</li><li>可配置范围：2 - 10次，默认值3次。</li> | 3次 |
 | 健康阈值 |<li>如果连续 n 次（n 为填写的数值）收到的健康检查结果为成功，则识别为健康，控制台显示为**健康**。</li><li>可配置范围：2 - 10次，默认值3次。 </li> | 3次 |
@@ -80,7 +80,7 @@
 ![](https://main.qcloudimg.com/raw/e0ef33bc1e3de8bd048f22b046dd2d50.png)
 
 完成步骤1到步骤3之后，TCP SSL 监听器规则已配置完毕，配置详情如下：
-![](https://main.qcloudimg.com/raw/af11e02660f3a94201df47ba98bdf010.png)
+![](https://main.qcloudimg.com/raw/a217130cfbaf64d92c9e42d1a07eaccc.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。

@@ -58,7 +58,7 @@ redis-restore 工具支持将 Redis 的备份文件（RDB）导入到指定 Redi
 - -i：RDB 文件路径。
 - -t：目标实例地址，格式为`"password"@ip:port`，免密码认证下格式为`ip:port`。
 - -a：AOF 文件路径。
-- --db=DB：导入的 DB ID，默认为和源实例保持一致。
+- --db=DB：备份文件导入 Redis 目标实例的 DB ID，须和源实例 DB ID 保持一致。
 - --unixtime-in-milliseconds=EXPR：导入数据的同时更新 Key 过期时间值。
 - --help：查看帮助命令。
 

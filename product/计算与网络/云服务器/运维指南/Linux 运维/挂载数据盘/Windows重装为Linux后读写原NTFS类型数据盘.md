@@ -19,7 +19,7 @@ yum install ntfsprogs
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在左侧导航栏中，单击【[云硬盘](https://console.cloud.tencent.com/cvm/cbs)】，进入云硬盘管理页面。
 3. 选择需要进行挂载的 Windows 数据盘，单击【更多】>【挂载】。如下图所示：
-![](https://main.qcloudimg.com/raw/8d2bfd3e4be60064c83efc92a8a96271.png)
+![](https://main.qcloudimg.com/raw/d227d87d0b750ddaf38295b2e20ccb39.png)
 4. 在弹出的 “挂载到实例” 窗口中，选择需要挂载至的 Linux 云服务器，单击【确定】。
 5. 登录已挂载 Windows 数据盘的 Linux 云服务器。
 6. 执行以下命令，查看从 Windows 云服务器中挂载过来的数据盘。

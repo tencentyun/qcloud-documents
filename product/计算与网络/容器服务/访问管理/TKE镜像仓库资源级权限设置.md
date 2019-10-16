@@ -17,7 +17,7 @@
 如果您不需要详细管理镜像仓库权限，可以使用 [预设策略授权](#PresetPpolicyAuthorization)。
 如果您需要细致地管理协作者权限，请使用 [自定义策略授权](#CustomPolicyAuthorization)。
 容器镜像服务权限基于腾讯云 CAM 进行管理，您可以详细了解 CAM 的使用方法：
-- [用户管理](https://cloud.tencent.com/document/product/598/17289)
+- [用户管理](https://cloud.tencent.com/document/product/598/1059)
 - [策略管理](https://cloud.tencent.com/document/product/598/10601)
 - [授权管理](https://cloud.tencent.com/document/product/598/10602)
 

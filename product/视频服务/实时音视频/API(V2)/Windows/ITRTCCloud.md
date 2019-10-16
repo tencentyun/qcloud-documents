@@ -12,7 +12,7 @@ LITEAV_API ITRTCCloud * getTRTCShareInstance()
 
 __返回__
 
-返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，delete ITRTCCloud\*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
 
 
 ### destroyTRTCShareInstance
@@ -24,10 +24,10 @@ LITEAV_API void destroyTRTCShareInstance()
 
 
 
-## 设置 TRTCCloudCallback 回调
+## 设置 ITRTCCloudCallback 回调
 ### addCallback
 
-设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback)。
+设置回调接口 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270)。
 ```
 void addCallback(ITRTCCloudCallback * callback)
 ```
@@ -36,11 +36,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
 
 __介绍__
 
-您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
+您可以通过 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) 获得来自 SDK 的各种状态通知，详见 ITRTCCloudCallback.h 中的定义。
 
 
 ### removeCallback
@@ -75,9 +75,9 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到 onEnterRoom() 回调；如果失败，您会收到 onEnterRoom(result) 回调。 跟进房失败相关的错误码，请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
->?不管进房是否成功，都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
+>?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
 
 
@@ -90,8 +90,8 @@ void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，比如释放音视频设备资源和编解码器资源等。 待资源释放完毕之后，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知到您。
-如果您要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
+调用 [exitRoom()](https://cloud.tencent.com/document/product/647/32269#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 TRTCCloudCallback 中的 onExitRoom() 回调通知您。
+如果您需要再次调用 [enterRoom()](https://cloud.tencent.com/document/product/647/32269#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来后再执行相关操作。 否则可能会遇到如摄像头、麦克风设备被强占等各种异常问题。
 
 
 ### switchRole
@@ -127,25 +127,24 @@ __参数__
 
 __介绍__
 
-TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。这样一来， 两个主播可以不用退出各自原来的直播间就能进行“连麦 PK”。
+TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”功能拉通连麦通话功能。使用此功能时，两个主播无需退出各自原来的直播间即可进行“连麦 PK”。
 例如：当房间“001”中的主播 A 通过 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的 onUserEnter(B) 回调和 onUserVideoAvailable(B，true) 回调。 房间“002”中的用户都会收到主播 A 的 onUserEnter(A) 回调和 onUserVideoAvailable(A，true) 回调。
 简言之，跨房通话的本质，就是把两个不同房间中的主播相互分享，让每个房间里的观众都能看到两个主播。
 
-
 <pre>
-                房间 001                     房间 002
-              -------------               ------------
+               房间 001                    房间 002
+            --------------              -------------
  跨房通话前：| 主播 A      |             | 主播 B     |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------</pre>
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------</pre>
 
 
 
-<pre>                房间 001                     房间 002
-              -------------               ------------
+<pre>              房间 001                     房间 002
+            --------------              -------------
  跨房通话后：| 主播 A B    |             | 主播 B A   |
-             | 观众 U V W  |             | 观众 X Y Z |
-              -------------               ------------
+            | 观众 U V W  |             | 观众 X Y Z |
+            --------------              -------------
 </pre>
 
 跨房通话的参数考虑到后续扩展字段的兼容性问题，暂时采用了 JSON 格式的参数，要求至少包含两个字段：
@@ -153,11 +152,11 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [connectOtherRoom()](https://cloud.tencent.com/document/product/647/32269#connectotherroom) 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 TRTCCloudCallback 中的 onConnectOtherRoom() 回调通知您。
 
 
 <pre>
-  //此处用到 jsoncpp 库来格式化json字符串
+  //此处用到 jsoncpp 库来格式化 JSON 字符串
   Json::Value jsonObj;
   jsonObj["roomId"] = 002;
   jsonObj["userId"] = "userB";
@@ -183,7 +182,7 @@ __介绍__
 ## 视频相关接口函数
 ### startLocalPreview
 
-开启本地视频的预览画面 (Mac 版本)。
+开启本地视频的预览画面。
 ```
 void startLocalPreview(HWND rendHwnd)
 ```
@@ -241,7 +240,7 @@ __参数__
 
 __介绍__
 
-在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频， 之后调用 startRemoteView(userId) 接口加载该用户的远程画面，此时可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您还会收到 onFirstVideoFrame(userId) 事件回调。
+在收到 SDK 的 onUserVideoAvailable(userId， true) 通知时，可以获知该远程用户开启了视频，此后调用 startRemoteView(userId) 接口加载该用户的远程画面时，可以用 loading 动画优化加载过程中的等待体验。 待该用户的首帧画面开始显示时，您会收到 onFirstVideoFrame(userId) 事件回调。
 
 
 ### stopRemoteView
@@ -339,7 +338,7 @@ __参数__
 
 __介绍__
 
-该设置决定了 SDK 在各种网络环境下的调控策略（比如弱网下是“保清晰”还是“保流畅”）。
+该设置决定了 SDK 在各种网络环境下的调控策略（例如弱网下是“保清晰”还是“保流畅”）。
 
 
 ### setLocalViewFillMode
@@ -382,7 +381,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 、 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setRemoteViewRotation
@@ -397,7 +396,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 、 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
 
 
 ### setVideoEncoderRotation
@@ -411,7 +410,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 两个旋转角度。 |
+| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度。 |
 
 
 ### setLocalViewMirror
@@ -425,7 +424,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | bool | 镜像模式。 |
+| mirror | bool | 镜像模式，默认值：false（非镜像模式）。 |
 
 
 ### setVideoEncoderMirror
@@ -443,7 +442,7 @@ __参数__
 
 __介绍__
 
-该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制下来的）画面效果。
+该接口不改变本地摄像头的预览画面，但会改变另一端用户看到的（以及服务器录制的）画面效果。
 
 
 ### enableSmallVideoStream
@@ -462,10 +461,10 @@ __参数__
 
 __介绍__
 
-如果当前用户是房间中的主要角色（比如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
+如果当前用户是房间中的主要角色（例如主播、老师、主持人等），并且使用 PC 或者 Mac 环境，可以开启该模式。 开启该模式后，当前用户会同时输出【高清】和【低清】两路视频流（但只有一路音频流）。 对于开启该模式的当前用户，会占用更多的网络带宽，并且会更加消耗 CPU 计算资源。
 对于同一房间的远程观众而言：
-- 如果有些人的下行网络很好，可以选择观看【高清】画面
-- 如果有些人的下行网络不好，可以选择观看【低清】画面。
+- 如果用户的下行网络很好，可以选择观看【高清】画面
+- 如果用户的下行网络不好，可以选择观看【低清】画面。
 
 
 ### setRemoteVideoStreamType
@@ -592,7 +591,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms；。 |
+| interval | uint32_t | 设置 onUserVoiceVolume 回调的触发间隔，单位为ms，最小间隔为100ms，如果小于等于0则会关闭回调，建议设置为300ms。 |
 
 __介绍__
 
@@ -1020,9 +1019,9 @@ __介绍__
 如果您期望在屏幕分享的过程中，切换想要分享的窗口，可以再次调用这个函数而不需要重新开启屏幕分享。
 支持如下四种情况：
 - 共享整个屏幕：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }
+- 共享指定区域：sourceInfoList 中 type 为 Screen 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }
 - 共享整个窗口：sourceInfoList 中 type 为 Window 的 source，captureRect 设为 { 0， 0， 0， 0 }
-- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，比如 { 100， 100， 300， 300 }。
+- 共享窗口区域：sourceInfoList 中 type 为 Window 的 source，captureRect 设为非 NULL，例如 { 100， 100， 300， 300 }。
 
 
 ### startScreenCapture
@@ -1153,7 +1152,7 @@ TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）：
 
 ### enableCustomAudioCapture
 
-启用音频自定义采集模式 开启该模式后，SDK 不在运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的视频画面。
+启用音频自定义采集模式 开启该模式后， SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/32269#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。
 ```
 void enableCustomAudioCapture(bool enable)
 ```
@@ -1440,7 +1439,7 @@ __参数__
 
 ### startSystemAudioLoopback
 
-打开系统声音采集。
+打开系统声音采集（64位 SDK 尚不支持系统混音能力）。
 ```
 void startSystemAudioLoopback(const char * path)
 ```
@@ -1479,6 +1478,81 @@ __参数__
 
 
 
+## 音效相关接口函数
+### playAudioEffect
+
+播放音效。
+```
+void playAudioEffect(TRTCAudioEffectParam * effect)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effect | [TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32271#trtcaudioeffectparam) * | - |
+
+__介绍__
+
+每个音效都需要您指定具体的 id，您可以通过该 id 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 id 进行播放。因为使用同一个 id 播放不同音效，SDK 将会停止上一个 id 对应的音效播放，再启动新的音效播放。
+
+
+### setAudioEffectVolume
+
+设置单个音效音量。
+```
+void setAudioEffectVolume(int effectId, int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 Id。 |
+| volume | int | 取值范围：[0, 100]。 |
+
+>?会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+
+
+### stopAudioEffect
+
+停止音效。
+```
+void stopAudioEffect(int effectId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 Id。 |
+
+
+### stopAllAudioEffects
+
+停止所有音效。
+```
+void stopAllAudioEffects()
+```
+
+
+### setAllAudioEffectsVolume
+
+设置所有音效音量。
+```
+void setAllAudioEffectsVolume(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 取值范围：[0, 100]。 |
+
+>?会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
+
+
+
 ## 设备和网络测试
 ### startSpeedTest
 
@@ -1505,7 +1579,7 @@ __介绍__
 
 ### stopSpeedTest
 
-停止服务器测速。
+停止网络测速。
 ```
 void stopSpeedTest()
 ```
@@ -1526,7 +1600,7 @@ __参数__
 
 __介绍__
 
-会触发 onLocalVideoFrameAfterProcess 回调接口。
+会触发 onFirstVideoFrame 回调接口。
 
 >?在测试过程中可以使用 setCurrentCameraDevice 接口切换摄像头。
 

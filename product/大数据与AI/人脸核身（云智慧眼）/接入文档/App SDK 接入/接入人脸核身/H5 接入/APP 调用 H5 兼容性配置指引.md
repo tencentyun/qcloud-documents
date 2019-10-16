@@ -1,7 +1,7 @@
 ## 概述
 ![](https://main.qcloudimg.com/raw/e2b8ff1a050e043bbc50bd0e65926a54.png)
-- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/655/32103#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
-- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/655/32103#yz)，需覆盖 Android 系统版本4.0 - 8.0。
+- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/1007/35886#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
+- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/1007/35886#yz)，需覆盖 Android 系统版本4.0 - 8.0。
 
 <span id='pz'></span>
 ## 兼容性配置

@@ -14,7 +14,7 @@
 - [Python SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_python_sdk_V1.0.4.zip)
 - [PHP SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_php_sdk_V1.0.4.zip)
 - [C++ SDK](http://cmqsdk-10016717.cossh.myqcloud.com/qc_cmq_cpp_sdk_V1.0.4.zip)
-- [C# SDK](https://main.qcloudimg.com/raw/2fe051dcc6ee0b3088f16d5d04182f64.zip)
+
 
 #### GitHub 地址
 - [Java SDK](https://github.com/tencentyun/cmq-java-sdk)
@@ -41,7 +41,7 @@
 - 目前消息队列对于公网下行流量是要收取流量费用的，用内网可以节省这部分的费用。
 
 #### 说明
-{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（中国香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 
 ## Demo工程使用

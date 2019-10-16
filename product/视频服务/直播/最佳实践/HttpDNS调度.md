@@ -50,4 +50,4 @@ https://play_domain/live/ streamname -123.ts?xxxxxxxxxx
 rtmp://server_ip/play_domain/live/ streamname?xxxxxxxxxx
 ```
 
->!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。若需在国内使用 HttpDNS 优化云直播调度，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
+>!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。

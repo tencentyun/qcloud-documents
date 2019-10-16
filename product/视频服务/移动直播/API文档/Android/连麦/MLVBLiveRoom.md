@@ -6,7 +6,7 @@ __功能__
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、云点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
 - 两个不同房间的主播 PK 互动。
@@ -261,8 +261,8 @@ __介绍__
 有时候您可能需要为房间产生一些额外的信息，此接口可以将这些信息缓存到服务器。
 
 >?
->- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型
->- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型
+>- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型。
+>- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型。
 >- op 为 MLVBCommonDef.CustomFieldOp#DEC 时，value 是 Integer 类型。
 
 ***

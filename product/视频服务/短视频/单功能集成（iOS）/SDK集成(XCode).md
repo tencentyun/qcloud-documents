@@ -16,7 +16,7 @@
 
 2. 选中当工程的 Target，添加以下系统库
     1. Accelerate.framework
-    2. SystemConfiguration.farmework
+    2. SystemConfiguration.framework
     3. libc++.tbd
     4. libsqlite3.tbd
 
@@ -40,7 +40,7 @@
 ```
 
 #### 3. SDK License 设置与基本信息获取
-请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/1124501484177029a7c0e084dfe16ed6.png)
   在您的应用中使用短视频功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置
 

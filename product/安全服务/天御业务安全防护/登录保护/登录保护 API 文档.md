@@ -10,9 +10,9 @@
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
 | loginIp            | 是      | String   | 登录来源的外网  IP。                                            |
-| uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 OpenID。 |
+| uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | loginTime          | 是      | UInt     | 登录时间戳，单位：秒。                                         |
-| accountType        | 是      | UInt     | 用户账号类型（QQ 开放帐号、微信开放账号需要提交 工单 由腾讯云进行资格审核）：<li>1：QQ 开放帐号</li><li>2：微信开放账号</li><li>4：手机号</li><li>0：其他</li><li>10004：手机号 MD5</li> |
+| accountType        | 是      | UInt     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li> |
 | appId              | 否      | String     | accountType    是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
 | associateAccount   | 否      | String   | accountType   是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
 | nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
@@ -52,7 +52,7 @@
 | Nonce            | UInt   | 随机正整数，与 Timestamp 联合起来，用于防止重放攻击（公共参数）。 |
 | associateAccount | String | accountType 是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
 | loginTime     | String | 操作时间。                                         |
-| uid              | String | 用户 ID accountType 不同对应不同的用户 ID。如是 QQ 或微信用户则填入对应的 OpenID。 |
+| uid              | String | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | loginIp       | String | 登录 IP。                                            |
 | level            | Int    | <li>0：表示无恶意。</li><li>1 - 4：恶意等级由低到高。</li>                     |
 | riskType         | Array  | 风险类型，详情请参见下文 **riskType 详细说明**。                                                     |
