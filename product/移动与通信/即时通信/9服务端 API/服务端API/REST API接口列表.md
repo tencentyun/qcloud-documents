@@ -84,13 +84,7 @@
 | 设置全局禁言 |[ v4/openconfigsvr/setnospeaking](https://cloud.tencent.com/document/product/269/4230) |
 | 查询全局禁言 |[ v4/openconfigsvr/getnospeaking](https://cloud.tencent.com/document/product/269/4229) |
 
-## 脏字管理
 
-| 功能说明 | 接口 |
-|---------|---------|
-| 查询 App 自定义脏字  | [v4/openim_dirty_words/get](https://cloud.tencent.com/document/product/269/2396)|
-| 添加 App 自定义脏字   | [v4/openim_dirty_words/add](https://cloud.tencent.com/document/product/269/2397) |
-| 删除 App 自定义脏字  | [v4/openim_dirty_words/delete](https://cloud.tencent.com/document/product/269/2398) |
 
 ## 运营管理
 
