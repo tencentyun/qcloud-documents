@@ -97,8 +97,8 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ------------------------------------------------------------ | --------- |
 | Inventory Configuration | 无                      | 包含清单的配置参数                                         | Container |
 | Id                      | Inventory Configuration | 清单的名称，与请求参数中的 ID 对应                           | Container |
-| IsEnabled               | Inventory Configuration | 清单是否启用的标识。如果设置为 true，清单功能将生效；如果设置为 false，将不生成任何清单 | String    |
-| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本。如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker这几个字段；如果设置为 Current，则清单中不包含对象版本信息 | String    |
+| IsEnabled               | Inventory Configuration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    |
+| IncludedObject Versions | Inventory Configuration | 是否在清单中包含对象版本：<br><li>如果设置为 All ，清单中将会包含所有对象版本，并在清单中增加 VersionId， IsLatest， DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    |
 | Filter                  | Inventory Configuration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container |
 | Prefix                  | Filter                  | 需要分析的对象的前缀                                   | String    |
 | OptionalFields          | Inventory Configuration | 设置清单结果中应包含的分析维度                            | Container |
