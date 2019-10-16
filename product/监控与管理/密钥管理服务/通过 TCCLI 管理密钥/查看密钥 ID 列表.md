@@ -7,14 +7,14 @@
 ## 示例
 看广东区的前5个 KeyId 信息。
 
-#### 输入示例
+#### 输入
 ```shell
 tccli kms ListKeys --region ap-guangzhou --Limit 5
 ```
 
 
 
-#### 输出示例
+#### 输出
 ```shell
 {
     "Keys": [
