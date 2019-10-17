@@ -4,19 +4,25 @@
 
 
 ## 使用对象存储控制台
+通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本流程图如下：
+![](https://mc.qcloudimg.com/static/img/520720197375cee1cc86ad0ebc38ffe2/image.png)
 
-
-
-
+1. [注册与登录](https://cloud.tencent.com/document/product/436/6231)
+2. [创建存储桶](https://cloud.tencent.com/document/product/436/6232)
+3. [上传对象](https://cloud.tencent.com/document/product/436/6233)
+4. [下载对象](https://cloud.tencent.com/document/product/436/6234)
+5. [删除对象](https://cloud.tencent.com/document/product/436/6235)
+6. [删除存储桶](https://cloud.tencent.com/document/product/436/6236)
 
 
 ## 使用图形化管理工具 COSBrowser
 
-COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 有桌面端和移动端两种，详情可参见 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 提供桌面端和移动端两种，详情可参见 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
 
 ## 使用 API 和 SDK
 
-对象存储 COS 提供 API 和多种语言的 SDK 包，您可以方便对其调用和二次开发，详情如下。
+对象存储 COS 提供 API 和多种语言的 SDK 包，您可以方便对其调用和二次开发。COS 各接口的详细信息，请参见 [COS API](https://cloud.tencent.com/document/product/436/7751) 文档。
+
 
 
 ## 更多操作
