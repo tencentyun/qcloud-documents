@@ -51,7 +51,7 @@ CREATE TABLE KafkaSource1 (
 | encoding       | 可以为`'json'`或`'csv'`，如果选择`'csv'`则需要同时指定 fieldDelimiter。 | 是            |
 | topic          | Ckafka 指定 instanceId 下的 topic，表示要消费的 Kafka 主题。 |是             |
  | timestampMode  | 可选项，用于指定数据源或数据目的表中 TIMESTAMP 字段时间戳的处理格式，默认值为 'AUTO'。<br>1. 对于数据源（Source）表，默认将根据输入数据的格式自动判断（仅适用于数字格式的时间戳，大于99999999999则视为`MILLISECOND`，小于等于99999999999则视为`SECOND`）。<br>2. 对于数据目的（Sink）表，默认按`MILLISECOND`格式输出时间戳类型的字段。<br>3. 若显式设定值为`'MILLISECOND'`，表示采用毫秒为单位的 Unix 时间戳。<br>4. 若显式设定值为`'SECOND'`表示采用秒为单位的 Unix 时间戳。<br>5. 如果需要自定义时间戳格式，则可以输入与 Java SimpleDateFormat 兼容的格式化字符串，例如`'yyyy-MM-dd HH:mm:SS'`可以解析为`2019-10-09 15:37:21`这样的时间戳字符串。<br>**由于默认的 AUTO 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。** | 否             |
-| fieldDelimiter | encoding 为 CSV 时可选，指定 CSV 各字段的分隔符。默认以逗号（,）分隔。 | 否         |
+| fieldDelimiter | encoding 为 CSV 时可选，指定 CSV 各字段的分隔符。默认以逗号（,）分隔。**分隔符只允许填入一个半角字符，不允许多个字符作为分隔符使用；分隔符也不能为分号（;）。** | 否         |
 | startMode      | 可选项，值可以为`EARLIEST`（从最早 Offset 读取）、`LATEST`（从最新 Offset 读取），也可以设置为`T+毫秒单位的 Unix 时间戳`，例如`T1560510495355`表示从2019年6月14日晚上7点08分开始读取数据。 |否        |
 | ignoreErrors | 可选项，默认为 true，表示跳过错误的行，如果设为 false 则遇到错误数据会导致程序直接终止。|否|
 
