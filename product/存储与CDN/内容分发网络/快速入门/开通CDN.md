@@ -7,7 +7,7 @@ CDN 为后付费产品，您需要通过实名认证以及选择计费方式以�
 3. 详细认证流程请参见 [实名认证指引](https://cloud.tencent.com/doc/product/378/3629) 。个人认证会在提交审核后立即完成。企业认证约一个工作日完成，且认证成功后您将收到短信通知。您可以 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=1&level2_id=41&level1_name=%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%B1%BB%E9%97%AE%E9%A2%98&level2_name=%E8%B4%A6%E5%8F%B7%E7%B1%BB) 咨询实名认证进度。
 
 ## 补充服务信息
-完成实名认证后，进入 [CDN 控制台](https://console.cloud.tencent.com/cdn)，确认您的实名认证信息及选择服务内容，完成后单击 【下一步】。
+完成实名认证后，进入 [CDN 控制台](https://console.cloud.tencent.com/cdn)，受相关部门要求，您需要补充更多 CDN 服务相关信息。确认您的实名认证信息及选择服务内容，完成后单击 【下一步】。
 ![](https://main.qcloudimg.com/raw/799e2d9d0b5dff6a04142ea28a2c1752.png)
 
 ## 选择付费方式
