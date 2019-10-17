@@ -3,11 +3,11 @@
 ![](https://main.qcloudimg.com/raw/6b5ce84ac2728e387d79703267efdbb8.png)
 
 ### 实例详情
-【实例详情】页可查看和操作数据库的各种信息，如下图所示，单击<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
+在【实例详情】页面，您可以查看和操作数据库的各种信息，如下图所示，单击<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对实例的基本信息进行修改，其中外网地址默认是关闭状态，如您需要，请手动开启。
 ![](https://main.qcloudimg.com/raw/507b3aecf9a1d1fd6bf134034ef572a6.png)
 
 ### 实例监控
-【实例监控】页提供了对当前数据库运行的众多核心指标的监控，分为访问、负载、查询缓存、表、InnoDB、MyISAM 等维度的监控。
+在【实例监控】页面，您可以查看当前数据库运行的众多核心指标的监控，分为访问、负载、查询缓存、表、InnoDB、MyISAM 等维度的监控。
 详细实例监控功能和告警功能的介绍，请参见 [监控功能](https://cloud.tencent.com/document/product/236/8455) 和 [告警功能](https://cloud.tencent.com/document/product/236/8457)。
 
 ### 数据库管理
