@@ -15,7 +15,7 @@
 | COMPILE_TOOLS                    | gcc/MSVC      | 根据需要设置，IDE 情况不关注            |
 | PLATFORM                         | linux/windows | 根据需要设置，IDE 情况不关注                |
 | FEATURE_OTA_COMM_ENABLED         | ON/OFF       | 根据需要设置                     |
-| FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选秘钥认证    |
+| FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选密钥认证    |
 | FEATURE_AUTH_WITH_NOTLS          | ON/OFF        | 根据需要是否使能 TLS             |
 | FEATURE_EVENT_POST_ENABLED       | ON/OFF        | 根据需要是否使能事件上报    |
 | FEATURE_AT_TCP_ENABLED           | ON        | AT 模组 TCP 功能开关                        |
@@ -50,7 +50,7 @@ cmake ..
 
 请先参考 [C-SDK_Porting 跨平台移植概述](https://cloud.tencent.com/document/product/634/38388) 进行移植。
 对于网络相关的 HAL 接口，通过上面的编译选项已选择 SDK 提供的 `AT_Socket` 框架，SDK 会调用 `network_at_tcp.c` 的 `at_socket` 接口，`at_socket` 层不需要移植，需要实现 AT 串口驱动及AT模组驱动，AT模组驱动只需要实现 AT 框架中`at_device`的驱动结构体 `at_device_op_t`的驱动接口即可，可以参照`at_device`目录下的已支持的模组。
-目前 SDK 针对物联网使用较广的 WiFi 模组 ESP8266 提供了底层接口实现，供移植到其他通讯模组时作为参考。
+目前 SDK 针对物联网使用较广的 Wi-Fi 模组 ESP8266 提供了底层接口实现，供移植到其他通讯模组时作为参考。
 
 ## 业务逻辑开发
 
