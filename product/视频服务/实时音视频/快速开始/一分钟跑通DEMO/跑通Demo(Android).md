@@ -22,7 +22,7 @@
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至 Android 卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK)】跳转至 Github（或单击【[ZIP](https://gitee.com/cloudtencent/TRTCSDK)】），下载相关 SDK 及配套的 Demo 源码。
-  ![](https://main.qcloudimg.com/raw/a0061ec707ebd4fabc6bb36e99780ad5.png)
+  ![](https://main.qcloudimg.com/raw/363243119b9faf74f8585ee08d01e5a9.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】。
 
 <span id="step3"></span>
