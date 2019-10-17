@@ -1,6 +1,6 @@
 对象存储（Cloud Object Storage，COS）是腾讯云提供的一种存储海量文件的分布式存储服务，具有高扩展性、低成本、可靠安全等优点。通过控制台、API、SDK 和工具等多样化方式，用户可简单、快速地接入 COS，进行多格式文件的上传、下载和管理，实现海量数据存储和管理。
 
-初次使用对象存储 COS，建议您了解 COS [规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
+初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 
 ## 使用对象存储控制台
@@ -21,8 +21,14 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 
 ## 使用 API 和 SDK
 
-对象存储 COS 提供 API 和多种语言的 SDK 包，您可以方便对其调用和二次开发。COS 各接口的详细信息，请参见 [COS API](https://cloud.tencent.com/document/product/436/7751) 文档。
+对象存储 COS 提供 API 和多种语言的 SDK 包，您可以方便对其调用和二次开发。
+- [Android SDK](https://cloud.tencent.com/document/product/436/12159) 
+- [Java SDK](https://cloud.tencent.com/document/product/436/10199)
+- [JavaScript SDK](https://cloud.tencent.com/document/product/436/11459) 
+- [Python SDK](https://cloud.tencent.com/document/product/436/12269) 
+- [PHP SDK](https://cloud.tencent.com/document/product/436/12266)
 
+更多语言的 SDK，请参见 [COS SDK](https://cloud.tencent.com/document/product/436/6474) 文档。COS API 各接口的详细信息，请参见 [COS API](https://cloud.tencent.com/document/product/436/7751) 文档。
 
 
 ## 更多操作
