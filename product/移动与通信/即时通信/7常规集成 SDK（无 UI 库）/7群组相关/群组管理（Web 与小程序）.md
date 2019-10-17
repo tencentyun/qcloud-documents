@@ -77,6 +77,8 @@ promise.then(function(imResponse) {
 
 更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
 
+>!该接口创建 TIM.TYPES.GRP_AVCHATROOM（音视频聊天室） 后，需调用 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
+
 **接口名**
 
 ```js

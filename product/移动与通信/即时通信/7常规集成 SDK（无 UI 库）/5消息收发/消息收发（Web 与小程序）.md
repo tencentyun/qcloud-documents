@@ -141,6 +141,84 @@ wx.chooseImage({
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
+### 创建音频消息
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。
+
+>!全平台互通音频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)
+
+**接口**
+
+```javascript
+tim.createAudioMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type     | Description                                            |
+| ------------------ | -------- | ------------------------------------------------------ |
+| `to`               | `String` | 消息的接收方                                           |
+| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `payload`          | `Object` | 消息内容的容器                                         |
+
+`paylaod`的描述如下表所示：
+
+| Name | Type                        | Description                                                  |
+| ---- | --------------------------- | ------------------------------------------------------------ |
+| file | `Object` | 录音后得到的文件信息。 |
+
+**小程序示例**
+
+```javascript
+// 示例：使用微信官方的 RecorderManager 进行录音，参考 https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html
+// 1. 获取全局唯一的录音管理器 RecorderManager
+const recorderManager = wx.getRecorderManager();
+
+// 录音部分参数
+const recordOptions = {
+  duration: 60000, // 录音的时长，单位 ms，最大值 600000（10 分钟）
+  sampleRate: 44100, // 采样率
+  numberOfChannels: 1, // 录音通道数
+  encodeBitRate: 192000, // 编码码率
+  format: 'aac' // 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和Web）互通
+};
+
+// 2.1 监听录音错误事件
+recorderManager.onError(function(errMsg) {
+  console.warn('recorder error:', errMsg);
+});
+// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例
+recorderManager.onStop(function(res) {
+  console.log('recorder stop', res);
+
+  // 4. 创建消息实例，接口返回的实例可以上屏
+  const message = tim.createAudioMessage({
+    to: 'user1',
+    conversationType: TIM.TYPES.CONV_C2C,
+    payload: {
+      file: res
+    }
+  });
+
+  // 5. 发送消息
+  let promise = tim.sendMessage(message);
+  promise.then(function(imResponse) {
+    // 发送成功
+    console.log(imResponse);
+  }).catch(function(imError) {
+    // 发送失败
+    console.warn('sendMessage error:', imError);
+  });
+});
+
+// 3. 开始录音
+recorderManager.start(recordOptions);
+```
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 ### 创建文件消息
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
@@ -270,13 +348,15 @@ promise.then(function(imResponse) {
 发送消息的接口，需先调用下列的创建消息实例的接口获取消息实例后，再调用该接口发送消息实例。
 - [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
+- [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
 
 >!调用该接口发送消息实例，需要 sdk 处于 ready 状态，否则将无法发送消息实例。sdk 状态，可通过监听以下事件得到：
 -  [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY) - sdk 处于 ready 状态时触发
 - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY) - sdk 处于 not ready 状态时触发
->!接收推送的私聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
+>!接收推送的单聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)<br/>
+>!本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。同账号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
 
 **接口**
 
@@ -530,7 +610,7 @@ tim.getMessageList(options)
 | ------------------ | -------- | -------------- | -------------- | -------------- |
 | `conversationID`   | `String` |      -     |    -       | 会话 ID          |
 | `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可。          |
-| `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，最大值为15         |
+| `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息。         |
 
 **示例**
 
