@@ -98,7 +98,7 @@ tim.createGroup(options);
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
 | `avatar`           | `String`         | `<optional>` |                 -                     | 群头像 URL，最长100字节                                      |
 | `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，默认值：私有群为200，公开群为2000，聊天室为6000，音视频聊天室无限制 |
-| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建私有群/聊天室/音视频聊天室时不能填写该字段。**私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<br/>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS (自由加入)<br/>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION (需要验证)<br/>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY (禁止加群) |
+| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建私有群/聊天室/音视频聊天室时不能填写该字段。**私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
 | `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建音视频聊天室时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                     -                 | 群组维度的自定义字段，默认没有自定义字段，如需开通请参见 [群成员资料](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
@@ -187,7 +187,7 @@ tim.updateGroupProfile(options);
 | `introduction`     | `Object`         | `<optional>` |                       -               | 群简介，最长240字节                                          |
 | `notification`     | `Object`         | `<optional>` |                    -                  | 群公告，最长300字节                                          |
 | `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，最大为6000                                   |
-| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br>**修改私有群/聊天室/音视频聊天室的群资料时不能设置该字段**，私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<br>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS (自由加入)<br>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION (需要验证)<br>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY (禁止加群) |
+| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br>**修改私有群/聊天室/音视频聊天室的群资料时不能设置该字段**，私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                 -                     | 群自定义字段，详情请参见下方[`groupCustomField`参数说明](#groupCustomField)<br>默认没有自定义字段，如需开通请参见  [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 <span id="groupCustomField"></span>

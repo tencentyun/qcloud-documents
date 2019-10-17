@@ -1,5 +1,3 @@
-![](https://main.qcloudimg.com/raw/6437931d2e24b3c8c8e8affd2bcde8ca.png)
-
 CDN 为后付费产品，您需要通过实名认证以及选择计费方式以开通 CDN 服务。 
 ## 完成实名认证
 1. 新用户登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以看到实名认证指引，单击 【前往认证】 可进行实名认证。

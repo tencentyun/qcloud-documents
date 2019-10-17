@@ -39,7 +39,7 @@ vi /etc/resolv.conf
 ```
 nameserver 10.53.216.182
 nameserver 10.53.216.198
-ioptions timeout:1 rotate
+options timeout:1 rotate
 ```
 4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 

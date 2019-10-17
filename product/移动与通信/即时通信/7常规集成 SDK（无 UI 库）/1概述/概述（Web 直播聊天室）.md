@@ -1,7 +1,8 @@
 ## IM SDK 集成 
 
 - 单击体验 [直播聊天室 Demo](http://avc.cloud.tencent.com/demo/webim/biggroup/mobile/index.html)，或者扫描下方二维码：
-	![](//mccdn.qcloud.com/static/img/a188f7fd653c8237b362a7adea1f63b1/image.png)
+	![](https://main.qcloudimg.com/raw/ec8b6476c9460508ac329276d818ad81.png)
+	
 -  单击体验 [通用 Demo](http://avc.cloud.tencent.com/demo/webim/index.html)。
 -  单击了解 [通用 Demo 运行指引](https://cloud.tencent.com/doc/product/269/4196)。
 
@@ -563,13 +564,13 @@ webim.Msg.Elem.MemberInfo.GroupInfo(userId,shutupTime)
 
 webim.Emotions 是表情对象，键值对形式，key 是表情 index，value 包括了表情标识字符串和表情数据（可以是 BASE64 编码或者地址）。
 
-![](//mccdn.qcloud.com/static/img/28b535381f62f87d5b8464b819a5bcd1/image.png)
+![](https://main.qcloudimg.com/raw/a9e797d144dc1111279cde32570cb5e7.png)
 
 ### 表情数据索引对象 EmotionDataIndexs
 
 webim.EmotionDataIndexs 是表情标识字符串和 index 的映射关系对象，键值对形式，key 是表情的标识字符串，value 是表情 index，主要用于发表情消息时，需要将消息文本中的表情识别出来，并转换成对应的索引 index 传给后台接口。
 
-![](//mccdn.qcloud.com/static/img/11a2b050d1b47aefa1d9fb0a4e3fc716/image.png)
+![](https://main.qcloudimg.com/raw/4d9ae3dff6b0ca4e1d0564979c7aa77b.png)
 
 ### 工具对象 Tool
 

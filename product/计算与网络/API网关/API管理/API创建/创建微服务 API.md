@@ -17,7 +17,7 @@
 7. 选择是否支持 CORS.
 8. 填写参数配置。
 **入参**包含了来源于 Header、Query、Path 的参数。其中 Path 参数对应于在 URL 路径中定义的动态参数。任一参数，均需要指定参数名，参数类型和参数数据类型；同时可以指明是否必填、默认值、示例数据和描述说明。利用这些配置，API 网关可以协助您完成入参的文档化和初步校验。同时，可根据需要，在参数上加入更多更详细验证配置，例如最大最小值、最大最小长度、枚举值、甚至正则表达式。
-在调用时需要传入两个必选参数：X-NameSpace-Code、X-MicroService-Name 来告诉 API 网关这个请求是发往哪个微服务。这两个参数可放置在 Header、Path、Query 中，若放在 Path 中，则与通用 API 类似，需要在路径中配置路径参数。除了这两个固定参数。其他参数配置均与通用 API 一致。
+在调用时需要传入两个必选参数：X-NameSpace-Code、X-MicroService-Name 来告诉 API 网关这个请求是发往哪个微服务。这两个参数可放置在 Header、Path、Query 中，若放在 Path 中，则与通用 API 类似，需要在路径中配置路径参数，例如：/{X-NameSpace-Code}/{X-MicroService-Name}，若变量X-NameSpace-Code=crgt，X-MicroService-Name=coupon-activity，则访问的url为“https://访问域名/crgt/coupon-activity/”。除了这两个固定参数。其他参数配置均与通用 API 一致。
 9. 单击【下一步】，进行后端配置。
 
 ## 后端配置

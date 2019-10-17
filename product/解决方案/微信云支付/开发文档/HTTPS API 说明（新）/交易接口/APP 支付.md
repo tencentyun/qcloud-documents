@@ -158,11 +158,6 @@ log_id|	是	|Number(32)	|消息 ID。
 internal_status|	是|	Number(32)	|调试使用，调用者可以不予理会。
 app_pay	|否|	AppPayResponse	|authen_info 存在时必填。详见 AppPayResponse。
 
-### ScanPayResponse 结构
-|参数名 | 	必填 |类型 |	说明
-|---------|---------|---------|-----|
-code_url	|是	|String	|二维码 url。
-nonce_str	|是	|String(32)	|随机字符串。
 
 ### AppPayResponse 结构 
 

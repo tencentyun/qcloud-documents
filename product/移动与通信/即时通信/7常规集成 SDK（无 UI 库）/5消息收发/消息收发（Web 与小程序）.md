@@ -438,7 +438,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-> See:	[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
+请参考 [接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
 
 接受消息的接口，接收消息需要通过事件监听实现：
 
@@ -590,7 +590,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-> See:	[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)。
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
@@ -700,7 +700,7 @@ promise.then(function(imResponse) {
 
 ### 获取会话资料
 
-获取会话资料的接口，当单机会话列表中的某个会话时，调用该接口获取会话的详细信息。
+获取会话资料的接口，当单击会话列表中的某个会话时，调用该接口获取会话的详细信息。
 
 **接口**
 
@@ -738,7 +738,7 @@ promise.then(function(imResponse) {
 
 ### 删除会话
 
-根据会话 ID 删除会话的接口。该接口只删除会话，不删除消息，例如：删除与用户 A 的会话，下次再与用户 A 发起会话时，之前的聊天信息仍在。
+根据会话 ID 删除会话的接口，该接口只删除会话，不删除消息。例如，删除与用户 A 的会话，下次再与用户 A 发起会话时，之前的聊天信息仍在。
 
 **接口**
 

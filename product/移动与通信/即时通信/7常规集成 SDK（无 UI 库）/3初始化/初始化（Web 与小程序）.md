@@ -42,7 +42,7 @@ tim.setLogLevel(1);
 <pre>
 // 监听事件，例如：
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
-  // 收到推送的私聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
+  // 收到推送的单聊、群聊、群提示以及群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
   // event.name - TIM.EVENT.MESSAGE_RECEIVED
   // event.data - 存储 Message 对象的数组 - [Message]
 });
@@ -62,7 +62,7 @@ tim.on(TIM.EVENT.GROUP_LIST_UPDATED, function(event) {
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, function(event) {
   // 收到新的群系统通知
   // event.name - TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED
-  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload"> operationType 枚举值说明</a>
+  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">operationType 枚举值说明</a>
   // event.data.message - Message 对象，可将 event.data.message.content 渲染到到页面
 });
 

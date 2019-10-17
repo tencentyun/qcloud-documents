@@ -86,7 +86,7 @@ API 接口为 GET Service，若授予其操作权限，则策略的 action 为 n
 Bucket API 策略的 resource 可以归纳为以下几种情况：
 
 - 可操作任意地域的存储桶，策略的 resource 为`*`。
-- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶，则策略的 resource 为 `qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
 - 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶， 则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
 
 Bucket API 策略的 action 则因操作不同而取值不同，以下列举所有 Bucket API 授权策略。

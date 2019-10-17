@@ -1,3 +1,5 @@
+>? IPv6 功能内侧中，如有需要，请提交 [内测申请]()。
+
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器或者弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
 
 ## 操作场景
@@ -5,10 +7,10 @@
 2. 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
 ![](https://main.qcloudimg.com/raw/21eb23c9b65349e06568806f36ddee2f.png)
 
-## 前提条件
+## 操作须知
 1. 在开始使用腾讯云产品前，您需要先完成 [账号注册与认证](https://cloud.tencent.com/doc/product/213/6090) 。
 2. 目前支持 IPv6 的地域为上海、北京和广州，请在这些地域部署 IPv6 服务。
-3. IPv6 地址为GUA地址，每个VPC分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
+3. IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
 4. 主网卡支持申请 IPv6 地址，辅助网卡也支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，可参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 
 ## 操作步骤
@@ -164,13 +166,14 @@ ip -6 route add default dev eth0
 ![](https://main.qcloudimg.com/raw/30f3bd7387c721b8e120d7d50bd8c92b.png)
 
 #### Windows 开启 IPv6
-1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络连接】，双击命名为“以太网”的网卡进行编辑。
-![](https://main.qcloudimg.com/raw/ee56b6dd824c704e56c8ec5e0d4b013a.png)
-2. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
+1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
+![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)
+2. 在“以太网状态”弹窗中，单击【属性】。
+3. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-3. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工编辑 IPv6 地址并设置 DNS，单击【确定】。
+4. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工编辑 IPv6 地址并设置 DNS，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
-4. 登录 powershell 依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 ping 测试公网连通性。
+5. 登录 powershell 依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 ping 测试公网连通性。
 ```
 netsh interface ipv6 add route ::/0 "以太网"
 ipconfig

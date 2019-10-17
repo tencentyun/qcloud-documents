@@ -111,7 +111,7 @@ client.upload("ap-guangzhou", req, function (err, data) {
 ```
 
 ### 指定存储地域
-在控制台确认已经开通目标存储地域，若没有开通可以参考 [上传存储设置](/document/product/266/14059)，最后通过 `StorageRegion` 属性设置存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。
+在 [控制台](https://console.cloud.tencent.com/vod) 确认已经开通目标存储地域，若没有开通可以参考 [上传存储设置](/document/product/266/14059)，最后通过`StorageRegion`属性设置存储地域的 [英文简称](/document/product/266/9760#.E4.B8.8A.E4.BC.A0.E5.AD.98.E5.82.A8)。
 ```
 const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
 
