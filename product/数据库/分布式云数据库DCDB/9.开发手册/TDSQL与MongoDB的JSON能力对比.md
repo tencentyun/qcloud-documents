@@ -25,7 +25,7 @@ sh.shardCollection("test.inventory", {"_id":"hashed"})
      <span style="font-size:14px;">MongoDB</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB</span><br>
+     <span style="font-size:14px;">TDSQL</span><br>
     </td>
    </tr>
    <tr>
@@ -157,7 +157,7 @@ where value->"$.item"="paper" limit 1
 |通过路径语法实现对json内任意成员的访问|	支持	|支持|
 |查询文件|db.inventory.find( { status: "D" } )|	SELECT * FROM inventory WHERE value->"$.status" = "D";
 ||db.inventory.find( { status: { $in: [ "A", "D" ] } } )	|SELECT * FROM inventory WHERE cast(value->"$.status" as char(4)) in ('"A"', '"D"');<br><br> value->"$.status"是json类型，mysql对于json类型目前不支持in比较操作，需要注意类型转换，并且"A"一定要用单引号引起来
-|查询嵌入式/嵌套文档|db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )<br><br>MongoDB在筛选匹配条件的时候也会考虑字段的顺序，比如<br>db.inventory.find(  { size: { w: 21, h: 14, uom: "cm" } }  )<br>将不会查询到任何结果	|SELECT \* FROM inventory WHERE value->"$.size" = cast('{"h": 14, "w": 21, "uom": "cm"}' as json)<br><br>Mysql这种查找方式不会考虑字段顺序<br>SELECT * FROM inventory WHERE value->"$.size" = cast('{"w": 21, "h": 14, "uom": "in"}' as json) <br>将会筛选出同样的结果|
+|查询嵌入式/嵌套文档|db.inventory.find( { size: { h: 14, w: 21, uom: "cm" } } )<br><br>MongoDB在筛选匹配条件的时候也会考虑字段的顺序，例如<br>db.inventory.find(  { size: { w: 21, h: 14, uom: "cm" } }  )<br>将不会查询到任何结果	|SELECT \* FROM inventory WHERE value->"$.size" = cast('{"h": 14, "w": 21, "uom": "cm"}' as json)<br><br>Mysql这种查找方式不会考虑字段顺序<br>SELECT * FROM inventory WHERE value->"$.size" = cast('{"w": 21, "h": 14, "uom": "in"}' as json) <br>将会筛选出同样的结果|
 |查询数组 | db.inventory.find( { tags: ["red", "blank"] } )<br>需要考虑数组中的顺序	|select * from inventory where value->"$.tags"=cast('["red", "blank"]' as json);<br>需要考虑数组中的顺序|
  |查找包含“红色”和“空白”元素的数组，而不考虑数组中的顺序或其他元素|	db.inventory.find( { tags: { $all: ["red", "blank"] } } )|select * from inventory where json_contains(value->"$.tags",cast('["red", "blank"]' as json))=1;|
 |为数组元素指定多个条件 | db.inventory.find( { dim_cm: { $gt: 15, $lt: 20 } } )<br>选出数组中至少有一个元素满足大于15或者小于20或同时满足	|不支持|
@@ -179,7 +179,7 @@ where value->"$.item"="paper" limit 1
      <span style="font-size:14px;">MongoDB</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB</span><br>
+     <span style="font-size:14px;">TDSQL</span><br>
     </td>
    </tr>
    <tr>
@@ -266,7 +266,7 @@ db.stores.createIndex( { name: "text", description: "text" } )<br><br>
 db.stores.find( { $text: { $search: "java coffee shop" } } )</span><br>
     </td>
     <td>
-     <span style="font-size:14px;">DCDB暂时不支持，mysql5.7可以按照如下方法进行<br><br>
+     <span style="font-size:14px;">TDSQL暂时不支持，mysql5.7可以按照如下方法进行<br><br>
 插入数据<br>
 create table stores(id int primary key auto_increment, value json);<br>
 insert into stores(value) values('{ "name": "Java Hut", "description": "Coffee and cakes" }'),<br>
@@ -381,7 +381,7 @@ db.users.aggregate([{
 ]);
 
 ```
-相对 MongoDB，而 DCDB 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 DCDB 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
+相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
 ```
 插入数据
 create table users(id int primary key auto_increment, value json);

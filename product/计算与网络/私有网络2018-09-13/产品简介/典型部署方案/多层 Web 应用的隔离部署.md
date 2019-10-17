@@ -1,5 +1,5 @@
 ## 应用场景
-多层 Web 应用的隔离部署，适用于既希望保证 Web 接入层能访问 Internet、响应海量请求，又需要通过网络隔离保护数据库服务器安全的场景。
+多层 Web 应用的隔离部署，适用于既希望保证 Web 接入层能访问 Internet、响应海量请求，又需通过网络隔离保护数据库服务器安全的场景。
 
 ## 解决方案
 您可以在私有网络内创建不同的子网，将整个 Web 层放在一个子网，通过弹性 IP / 网关云服务器 / NAT 网关与 Internet 通信，并使用负载均衡服务，将访问流量自动分配到多个 Web 接入层的云服务器上；将逻辑层单独放在一个子网，只能和 Web 层及数据层通信；将数据层放在另外一个子网，只和逻辑层通信。通过上述部署，可实现网络隔离。
@@ -106,9 +106,9 @@ CIDR（10.0.2.0/24），为了保证数据安全，单独分配一个数据子�
  </table>
  
 ## 操作步骤
-为部署多层 Web 应用，您需要完成以下步骤：
-1. 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/8113)。
-2. 创建 Web 层子网并添加云服务器，部署负载均衡服务， 详情请参见 [添加云服务器](https://cloud.tencent.com/document/product/215/8116) 和 [购买并创建负载均衡实例](https://cloud.tencent.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
-3. 创建逻辑层子网并添加云服务器，详情请参见 [添加云服务器](https://cloud.tencent.com/document/product/215/8116)。
+为部署多层 Web 应用，您需要完成如下步骤：
+1. 创建私有网络，详情请参见 [创建私有网络](https://cloud.tencent.com/document/product/215/20109)。
+2. 创建 Web 层子网并添加云服务器，部署负载均衡服务， 详情请参见 [向子网中添加云服务器](https://cloud.tencent.com/document/product/215/20119) 和 [购买并创建负载均衡实例](https://cloud.tencent.com/document/product/214/6574#.E8.B4.AD.E4.B9.B0.E5.B9.B6.E5.88.9B.E5.BB.BA.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1.E5.AE.9E.E4.BE.8B)。
+3. 创建逻辑层子网并添加云服务器，详情请参见 [向子网中添加云服务器](https://cloud.tencent.com/document/product/215/20119)。
 4. 创建数据层子网，添加云数据库，详情请参见 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128)。
-5. 分别为三个子网配置网络 ACL，配置规则请参见上文 [网络 ACL](#guize)，操作详情请参见 [快速入门](https://cloud.tencent.com/document/product/215/8119)。
+5. 分别为三个子网配置网络 ACL，配置规则请参见上文 [网络 ACL](#guize)，操作详情请参见 [快速搭建私有网络](https://cloud.tencent.com/document/product/215/30716)。

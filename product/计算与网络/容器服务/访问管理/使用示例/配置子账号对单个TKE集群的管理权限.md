@@ -1,8 +1,16 @@
-## 配置子账号对单个TKE集群的管理权限
-您可以通过使用 CAM （Cloud Access Management，访问管理）策略让用户拥有在 TKE （Tencent Kubernetes Engine，容器服务）控制台中查看和使用特定资源的权限。该部分的示例能够使用户使用控制台的单个集群的策略。
+## 操作场景
+
+您可以通过使用访问管理（Cloud Access Management，CAM）策略让用户拥有在容器服务（Tencent Kubernetes Engine，TKE）控制台中查看和使用特定资源的权限。本文档中的示例指导您在控制台中配置单个集群的策略。
+
+## 操作步骤
 
 ### 配置对单个集群全读写权限
-若您想为您的子账号仅拥有指定集群的全读写权限，您可以进入策略管理界面，通过策略语法的方式新建自定义策略，将以下策略绑定到指定的子用户。
+
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
+2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
+3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
+4. 选择 “空白模板” 类型，单击【下一步】。
+5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
 {
     "version": "2.0",
@@ -12,7 +20,7 @@
                 "ccs:*"
             ],
             "resource": [
-                "qcs::ccs:sh::cluster/cls-XXXXXXX", ## 替换成您想赋予权限的指定地域下的集群
+                "qcs::ccs:sh::cluster/cls-XXXXXXX", // 替换成您想赋予权限的指定地域下的集群
                 "qcs::cvm:sh::instance/*"
             ],
             "effect": "allow"
@@ -43,7 +51,8 @@
                 "monitor:*",
                 "cam:ListUsersForGroup",
                 "cam:ListGroups",
-                "cam:GetGroup"
+                "cam:GetGroup",
+                "cam:GetRole"
             ],
             "resource": "*",
             "effect": "allow"
@@ -51,11 +60,19 @@
     ]
 }
 ```
->注意：请替换成您想赋予权限的指定地域下的指定的集群ID。
-如您需允许子账号进行集群的扩缩容，需要配置子账号用户支付权限。
+6. 在 “编辑策略内容” 中，将 `qcs::ccs:sh::cluster/cls-XXXXXXX` 修改为您想赋予权限的指定地域下的集群。如下图所示：
+例如，您需要为广州地域的 cls-69z7ek9l 集群赋予全读写的权限，将 `qcs::ccs:sh::cluster/cls-XXXXXXX` 修改为 `"qcs::ccs:gz::cluster/cls-69z7ek9l"`。
+![编辑策略内容](https://main.qcloudimg.com/raw/a9d1825ebe2986e4c8a019b1fcb74713.png)
+>! 请替换成您想赋予权限的指定地域下的集群 ID。如果您需要允许子账号进行集群的扩缩容，还需要配置子账号用户支付权限。
+7. 单击【创建策略】，即可完成对单个集群全读写权限的配置。
 
 ### 配置对单个集群只读权限
-若您想为您的子账号仅拥有指定集群的只读权限，您可以进入策略管理界面，通过策略语法的方式新建自定义策略，将以下策略绑定到指定的子用户。
+
+1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam/overview)。
+2. 在左侧导航栏中，单击 [策略](https://console.cloud.tencent.com/cam/policy)，进入策略管理页面。
+3. 单击【新建自定义策略】，选择 “[按策略语法创建](https://console.cloud.tencent.com/cam/policy/createV2)” 方式。
+4. 选择 “空白模板” 类型，单击【下一步】。
+5. 自定义策略名称，将 “编辑策略内容” 替换为以下内容。
 ```json
 {
     "version": "2.0",
@@ -65,7 +82,7 @@
                 "ccs:Describe*",
                 "ccs:Check*"
             ],
-            "resource": "qcs::ccs:gz::cluster/cls-1xxxxxx", ## 替换成您想赋予权限的指定地域下的集群
+            "resource": "qcs::ccs:gz::cluster/cls-1xxxxxx", // 替换成您想赋予权限的指定地域下的集群
             "effect": "allow"
         },
         {
@@ -98,13 +115,16 @@
                 "monitor:*",
                 "cam:ListUsersForGroup",
                 "cam:ListGroups",
-                "cam:GetGroup"
+                "cam:GetGroup",
+                "cam:GetRole"
             ],
             "resource": "*"
         }
     ]
 }
 ```
-
-
->注意：请替换成您想赋予权限的指定地域下的指定的集群ID。
+6. 在 “编辑策略内容” 中，将 `qcs::ccs:gz::cluster/cls-1xxxxxx` 修改为您想赋予权限的指定地域下的集群。如下图所示：
+例如，您需要为北京地域的 cls-19a7dz9c 集群赋予只读的权限，将 `qcs::ccs:gz::cluster/cls-1xxxxxx` 修改为 `qcs::ccs:bj::cluster/cls-19a7dz9c`。
+![编辑策略内容2](https://main.qcloudimg.com/raw/0689ed1ad85aa4d8fc8960e258b9bd1b.png)
+>! 请替换成您想赋予权限的指定地域下的集群 ID。
+7. 单击【创建策略】，即可完成对单个集群只读权限的配置。

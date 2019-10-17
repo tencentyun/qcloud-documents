@@ -1,5 +1,5 @@
 ## 1. 接口描述
-本接口(ExportRedisBackup)用于导出CRS实例的备份。
+本接口(ExportRedisBackup)用于导出 Redis 实例的备份。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 - 导出备份为rdb格式的文件；

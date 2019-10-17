@@ -1,6 +1,5 @@
-﻿**运行前必备**：
-
-使用客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
+**运行前必备**：
+下载客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
 
 **示例代码**：
 ```
@@ -16,21 +15,15 @@ import(
 
 )
 
-
-
 func main() {
-
-
 
    const host=192.168.0.195
    const port=6379
    const instanceId="84ffd722-b506-4934-9025-645bb2a0997b"
    const pass="1234567q"
-   // 连接Redis服务器 192.168.0.195:6379 并授权 instanceId 密码
+   // 连接 Redis 服务器 192.168.0.195:6379 并授权 instanceId 密码
    spec := redis.DefaultSpec().Host(host).Port(port).Password(instanceId+":"+pass);
    client, err := redis.NewSynchClientWithSpec(spec)
-
-
 
    if err != nil { // 是否连接出错
 
@@ -39,8 +32,6 @@ func main() {
       return
 
    }
-
-
 
    newvalue :=[]byte("QcloudV5!");
 
@@ -53,8 +44,6 @@ func main() {
       return
 
    }
-
-   
 
    value, err := client.Get("name") // 取值
 

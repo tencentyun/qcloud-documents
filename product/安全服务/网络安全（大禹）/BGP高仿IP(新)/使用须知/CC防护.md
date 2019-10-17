@@ -7,7 +7,7 @@ CC 防护即指针对 CC 攻击的防护。
 ## 如何开启 CC 防护？
 **特别提醒：**
 CC 防护可根据您自身业务情况选择开启。
-1. 登录 [DDoS 防护（大禹）](https://console.cloud.tencent.com/dayu/basic) 控制台，在 “BGP 高防 IP” 控制页中找到您所购买的 BGP 高防 IP 实例；
+1. 登录 [DDoS 防护（大禹）](https://console.cloud.tencent.com/dayu/overview) 控制台，在 “BGP 高防 IP” 控制页中找到您所购买的 BGP 高防 IP 实例；
  ![](https://main.qcloudimg.com/raw/d9d8a9d3bca8ba7ec791065be15358c0.png)
 2. 选择所要开启 CC 防护的 BGP 高防 IP 实例，单击实例名称进入 BGP 高防 IP 详情页面；
  ![](https://main.qcloudimg.com/raw/89fa28959d6409a918ce1a7c6e65bc70.png)

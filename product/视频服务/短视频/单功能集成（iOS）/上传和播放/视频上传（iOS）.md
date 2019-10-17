@@ -1,5 +1,5 @@
 ## 计算上传签名
-客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参考点播[客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
+客户端视频上传，是指 App 的最终用户将本地视频直接上传到腾讯云点播。客户端上传的详细介绍请参考点播 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)，本文将以最简洁的方式介绍客户端上传的签名生成方法。
 
 ### 总体介绍
 客户端上传的整体流程如下图所示：
@@ -13,14 +13,14 @@
 * 客户端首先向签名派发服务请求上传签名；
 * 签名派发服务校验该用户是否有上传权限，若校验通过，则生成签名并下发；否则返回错误码，上传流程结束；
 * 客户端拿到签名后使用短视频 SDK 中集成的上传功能来上传视频；
-* 上传完成后，点播后台会发送[上传完成事件通知](https://cloud.tencent.com/document/product/266/7830)给开发者的事件通知接收服务；
-* 如果签名派发服务在签名中指定了视频处理[任务流](https://cloud.tencent.com/document/product/266/11700)，点播服务会在视频上传完成后根据指定流程自动进行视频处理。短视频场景下的视频处理一般为 [AI 鉴黄](https://cloud.tencent.com/document/product/266/11701#.E8.A7.86.E9.A2.91.E9.89.B4.E9.BB.84)；
-* 视频处理完成之后，点播后台会发送[任务流状态变更事件通知](https://cloud.tencent.com/document/product/266/9636)给开发者的事件通知接收服务；
+* 上传完成后，点播后台会发送 [上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 给开发者的事件通知接收服务；
+* 如果签名派发服务在签名中指定了视频处理 [任务流](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)，点播服务会在视频上传完成后根据指定流程自动进行视频处理。短视频场景下的视频处理一般为 [AI 鉴黄](https://cloud.tencent.com/document/product/266/33498)；
+* 视频处理完成之后，点播后台会发送 [任务流状态变更事件通知](https://cloud.tencent.com/document/product/266/9636) 给开发者的事件通知接收服务；
 
 至此整个视频上传-处理流程结束。
 
 ### 签名生成
-有关客户端上传签名的详细介绍请参考点播[客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+有关客户端上传签名的详细介绍请参考点播 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 ### 签名派发服务实现示例
 
@@ -81,7 +81,7 @@ function getUploadSignature(req, res) {
 
 ### 特别注意
 
-- App 千万不要把计算上传签名的 SecretID 和 SecretKey 写在客户端的代码里，这两个关键信息泄露将导致安全隐患，比如恶意攻击者一旦破解 App 获取该信息，就可以免费使用您的流量和存储服务。
+- App 千万不要把计算上传签名的 SecretID 和 SecretKey 写在客户端的代码里，这两个关键信息泄露将导致安全隐患，例如恶意攻击者一旦破解 App 获取该信息，就可以免费使用您的流量和存储服务。
 - 正确的做法是在您的服务器上用  SecretID 和 SecretKey 生成一次性的上传签名然后将签名交给 App。因为服务器一般很难被攻陷，所以安全性是可以保证的。
 - 发布短视频时，请务必保证正确传递 Signature 字段，否则会发布失败； 
 
@@ -119,7 +119,7 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 @optional
 -(void) onPublishProgress:(NSInteger)uploadBytes totalBytes: (NSInteger)totalBytes;
 ```
-- onPublishComplete 用于反馈发布结果，TXPublishResult 的字段 errCode 和 descMsg 分别表示错误码和错误描述信息，videoURL 表示短视频的点播地址，coverURL 表示视频封面的云存储地址，videoId 表示视频文件云存储 Id，您可以通过这个Id调用点播 [服务端API接口](https://cloud.tencent.com/document/product/266/1965)。
+- onPublishComplete 用于反馈发布结果，TXPublishResult 的字段 errCode 和 descMsg 分别表示错误码和错误描述信息，videoURL 表示短视频的点播地址，coverURL 表示视频封面的云存储地址，videoId 表示视频文件云存储 Id，您可以通过这个Id调用点播 [服务端API接口](https://cloud.tencent.com/document/product/266/7788)。
 ``` C 
 @optional
 -(void) onPublishComplete:(TXPublishResult*)result;
@@ -130,4 +130,4 @@ _ugcPublish.delegate = self;                                 // 设置 TXVideoPu
 
 #### 4、播放视频
 
-- 第3步上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372)可以直接传入 fileId 播放，或者 url 播放。
+- 第3步上传成功后，会返回视频的 fileId，播放地址 url，封面 url。用 [点播播放器](https://cloud.tencent.com/document/product/584/9372) 可以直接传入 fileId 播放，或者 url 播放。

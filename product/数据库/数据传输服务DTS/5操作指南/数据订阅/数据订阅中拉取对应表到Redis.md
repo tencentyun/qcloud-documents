@@ -1,27 +1,20 @@
-本文将以一个简单案例来说明数据订阅中拉取对应表到 Redis 的功能，并且提供简易 [RedisDemo下载](https://main.qcloudimg.com/raw/0a3b560fad57a27440f9445039552d2b/RedisDemo.zip) 。以下操作将在 Centos 操作系统中完成。
-### 配置环境
-1. Java环境配置 
+本文将以一个简单案例来说明数据订阅中拉取对应表到 Redis 的功能，并且提供简易 [RedisDemo 下载](https://main.qcloudimg.com/raw/0a3b560fad57a27440f9445039552d2b/RedisDemo.zip) 。以下操作将在 Centos 操作系统中完成。
+
+## 配置环境
+- Java 环境配置 
 ```
 yum install java-1.8.0-openjdk-devel 
 ```
+- [数据订阅 SDK 下载](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar)
+- [jedis-2.9.0.jar 下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip)
 
-2. 数据订阅 SDK 下载
-[单击下载](https://main.qcloudimg.com/raw/2aa7b213535065def5655712c8494182/binlogsdk-2.7.0-official.jar) 
+## 获取密钥
+登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 获取密钥。
 
-3. jedis-2.9.0.jar 下载
-[单击下载](https://main.qcloudimg.com/raw/130e0f114f84e6e7eb9cc16d2fecd58c/jedis-2.9.0.zip) 
-
-
-### 获取密钥
-登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击导航条中的【云产品】>【管理工具】>【云 API 密钥】，或直接单击进入 [云数据库控制台](https://console.cloud.tencent.com/cam/capi)。
-
-![](https://main.qcloudimg.com/raw/c6fa15fc47536b875448f911b00ed290.png)
-
-### 选择数据订阅
-1. 登录 [数据传输DTS控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
+## 选择数据订阅
+1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
 2. 选择需同步的 TencentDB 实例名，然后单击启动，再返回数据订阅，单击您所创建的数据订阅。 详细介绍请参考 [如何获取数据订阅](https://cloud.tencent.com/document/product/571/13707)。
-
-3. 查看对应的 DTS 通道、 IP 和 Port，然后结合之前的密钥填写到对应 RedisDemo.java 里面。
+3. 查看对应的 DTS 通道、IP 和 Port，然后结合之前的密钥填写到对应 RedisDemo.java 里面。
 
 ```
  context.setSecretId("AKIDfdsfdsfsdt1331431sdfds"); 请填写您从云API获取的secretID。
@@ -82,18 +75,16 @@ yum install java-1.8.0-openjdk-devel
 ```
 
 
-###  编译操作与检验
+##  编译操作与检验
 1. 
 ```
 [root@VM_71_10_centos ~]# javac -classpath binlogsdk-2.6.0-release.jar:jedis-2.9.0.jar -encoding UTF-8 RedisDemo.java 
 ```
-
-2. 执行启动,如果没有异常报错就是正常在服务了，然后查看对应之前设置的落地文件。
+2. 执行启动，如果没有异常报错就是正常在服务了，然后查看对应之前设置的落地文件。
 ```
  java -XX:-UseGCOverheadLimit -Xms2g -Xmx2g -classpath .:binlogsdk-2.6.0-release.jar:jedis-2.9.0.jar RedisDemo
 ```
-
-3. 查看进行数据库插入和update操作，并从redis观察发现确实插入并修改成功了,最后进行delete操作，redis对应的数据也被删除掉了。
+3. 查看进行数据库插入和 update 操作，并从 redis 观察发现确实插入并修改成功了,最后进行 delete 操作，redis 对应的数据也被删除掉了。
 
 ```
 MySQL [test]> insert into alantest values(1001,'alan1');

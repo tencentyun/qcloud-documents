@@ -3,17 +3,17 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-VPN网关和对端网关建立后，即可建立VPN通道，用于私有网络和外部 IDC 之间的加密通信。
+VPN 网关和对端网关建立后，即可建立 VPN 通道，用于私有网络和外部 IDC 之间的加密通信。
 
 查询VPN通道产品监控数据，入参取值如下：
 namespace：qce/vpnx
 维度名称取值：vpnConnId
 dimensions.0.name=vpnConnId
-dimensions.0.value为VPN通道ID
+dimensions.0.value 为 VPN 通道 ID
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>页面。其中，此接口的Action字段为GetMonitorData。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段 为GetMonitorData。
 
 ### 2.1输入参数
 
@@ -65,7 +65,7 @@ dimensions.0.value为VPN通道ID
 
 ## 5. 示例
 
-输入
+### 输入
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
@@ -78,9 +78,9 @@ https://monitor.api.qcloud.com/v2/index.php?
 &endTime=2016-06-28 14:20:00
 </pre>
 
-输出
+### 输出
 
-```
+```shell
 {
     "code": 0,
     "message": "",
@@ -90,7 +90,7 @@ https://monitor.api.qcloud.com/v2/index.php?
     "period": 60,
     "dataPoints": [
         30,
-        35，
+        35,
         40
     ]
 }

@@ -7,13 +7,14 @@ URL 路径：`http://接口域名/v2/application/get_app_token_info?params`
 |参数名|	类型	|必需	|默认值|	描述|
 |-|-|-|-|-|
 |device_token|	string|	是	|无|	无|
+
 ### 响应结果
 在通用返回结果参数中，result 字段的 json 如下：
 ```
 {
- "isReg":1,（1为token已注册，0为未注册）
- "connTimestamp":1426493097, （最新活跃时间戳）
- "msgsNum":2（该应用的离线消息数）
+ "isReg":1, //（1为token已注册，0为未注册）
+ "connTimestamp":1426493097, //（最新活跃时间戳）
+ "msgsNum":2 //（该应用的离线消息数）
 }
 ```
 ### 示例

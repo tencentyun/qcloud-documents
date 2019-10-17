@@ -1,6 +1,14 @@
-.DS_Store
+﻿.DS_Store
 product/.DS_Store
 .idea
 product/计算与网络/容器服务/集群/集群的基本操作.md
 api/存储与CDN/对象存储（XML API）/API 文档(6.28)/Object接口/UploadPartCopy.md
 product/移动与通信/游戏语音/SDK/IOS平台/iOS接入流程.md
+product/计算与网络/容器服务/控制台指南（新版）/集群管理/集群启用GPU调度.md
+product/计算与网络/容器服务/控制台指南（新版）/Kubernetes对象管理/服务/CLB-ingress管理.md
+product/计算与网络/容器服务/控制台指南（新版）/Kubernetes对象管理/服务/Nginx-Ingress管理.md
+product/互联网中间件/腾讯分布式服务框架/独立版适用文档/TSF对接Gaia集群管理.md
+product/互联网中间件/腾讯分布式服务框架/独立版适用文档/TSF服务告警.md
+product/互联网中间件/腾讯分布式服务框架/独立版适用文档/TSF运营端操作手册-v12-20190427.md
+product/互联网中间件/腾讯分布式服务框架/独立版适用文档/TSF-1.12-对接灵雀2.x.md
+product/互联网中间件/腾讯分布式服务框架/API 文档/简介.md

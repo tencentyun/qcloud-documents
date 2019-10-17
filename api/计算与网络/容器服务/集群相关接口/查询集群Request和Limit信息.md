@@ -1,3 +1,5 @@
+>?当前页面接口为旧版 API，未来可能停止维护。容器服务 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [容器服务 API 3.0](https://cloud.tencent.com/document/api/457/31853)。
+>
 ## 接口描述
 本接口 ( DescribeClusterRequestLimitInfo ) 用于查询集群 CPU、内存的 Request 和 Limit 信息。
 
@@ -56,7 +58,6 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 ### 输出
 ```
 {
-{
     "data":{
         "code":0,
         "message":"",
@@ -87,6 +88,5 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
     },
     "message":"",
     "code":0
-}
 }
 ```

@@ -11,7 +11,7 @@ IP 封堵指在访问您域名的流量通过腾讯云清洗集群时，会将�
 
 ## 提前解封
 如需提前解封，您可以升级BGP高防产品：
-已购买 BGP 高防 IP 产品的用户，建议您 [升级](https://console.cloud.tencent.com/dayu/bgpip) 保底防护，以提前解封高防 IP。
+已购买 BGP 高防 IP 产品的用户，建议您 [升级](https://console.cloud.tencent.com/dayu/bgpip_v2) 保底防护，以提前解封高防 IP。
 
 >**注意：**
-开启 [弹性防护](https://console.cloud.tencent.com/dayu/bgp)，可帮您抵御大规模流量攻击，且弹性防护按天按量灵活付费，可节约您的成本。您可参见 [使用教程](https://cloud.tencent.com/document/product/297/15563) 中的 **开启防护** 相关内容来开启弹性防护。
+开启 [弹性防护](https://console.cloud.tencent.com/dayu/bgpip_v2)，可帮您抵御大规模流量攻击，且弹性防护按天按量灵活付费，可节约您的成本。您可参见 [使用教程](https://cloud.tencent.com/document/product/297/15563) 中的 **开启防护** 相关内容来开启弹性防护。

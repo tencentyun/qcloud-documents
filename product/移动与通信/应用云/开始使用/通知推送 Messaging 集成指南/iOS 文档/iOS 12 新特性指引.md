@@ -7,13 +7,13 @@
 payload 示例：
 ```
 {
-  "aps" : {
-  "alert" : {
-  "title" : "New Photo",
-  "body" : "Jane Doe posted a new photo",
-  },
-},
-  "thread-id" : "thread-identifier",
+	"aps": {
+		"alert": {
+			"title": "New Photo",
+			"body": "Jane Doe posted a new photo"
+		}
+	},
+	"thread-id": "thread-identifier"
 }
 
 ```
@@ -26,15 +26,14 @@ payload 示例：
 参考示例：
 ```
 {
-  "aps" : {
-  "alert" : {
-  "title" : "Michele",
-  "body" : "We should celebrate after the conference before you leave your trip!",
-  "summary-arg":"Michele",
-
-  },
-},
-  "thread-id" : "thread-id-that-you-want",
+	"aps": {
+		"alert": {
+			"title": "Michele",
+			"body": "We should celebrate after the conference before you leave your trip!",
+			"summary-arg": "Michele"
+		}
+	},
+	"thread-id": "thread-id-that-you-want"
 }
 
 ```
@@ -69,13 +68,13 @@ notificationCenter.requestAuthorization(options:[.badge, .sound, .alert, .provis
 参考示例：
 ```
 {
-  "aps" : {
-    "sound" : {
-    "critical": 1,
-    }
-  }
-  "name": "warning-sound.aiff",
-  "volume": 1.0
+	"aps": {
+		"sound": {
+			"critical": 1
+		}
+	},
+	"name": "warning-sound.aiff",
+	"volume": 1.0
 }
 
 ```

@@ -1,4 +1,4 @@
-# 特效功能（大眼、瘦脸、动效、绿幕等）
+
 
 ## 功能说明
 
@@ -6,21 +6,7 @@
 
 ## 接入流程
 
-申请步骤如下：
-
-1. 提工单或客服电话（400-9100-100）联系我们商务同学。
-
-2. 下载[示例表格](https://mc.qcloudimg.com/static/archive/766c9092424d0440a31c56c81f34a629/archive.xlsx)，按照表格填好信息后，邮件发送到 wisonxie@tencent.com 并抄送给您联系的商务同学（重要）。
-
-3. 敦促商务同学回复邮件确认，未经腾讯云商务同学确认的邮件，我们可能会视为骚扰邮件不予处理。
-
-4. 确认后，我们会第一时间替您向优图实验室申请试用 Licence，并同压缩包解压密码一起发给您。
-
-   Licence 有两种：
-
-   - 试用Licence：**有效期为一个月**，用于调试和测试动效SDK，如果您用试用Licence发布了您的应用，会导致有效期过后动效的功能不可用。
-   - 正式Licence：有效期根据最终的合同而定，一般为一年。
-5. 回复的邮件中将包含Licence对应的URL和Key, 具体使用方法请见下文的工程配置部分。
+单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)
 
 ## 版本下载
 
@@ -34,11 +20,11 @@
 
 #### 使用aar方式集成
 
-直接替换你工程中的非商业版的aar，并在app目录下的build.gradle中修改对应的名称即可，相对简单
+直接替换工程中的非商业版的aar，并在app目录下的build.gradle中修改对应的名称即可，相对简单
 
 #### 使用jar包方式集成
 
-1.需要解压zip，把libs下的jar包和so拷贝到你的jni加载路径下。其中跟动效有关的jar包和so如下：
+1.需要解压zip，把libs下的jar包和so拷贝到您的jni加载路径下。其中跟动效有关的jar包和so如下：
 
 | jar                     |                          |                   |
 | ----------------------- | ------------------------ | ----------------- |
@@ -53,7 +39,7 @@
 | libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
 | libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
 
-2.把解压后的assets文件夹下的所有资源拷贝到你的工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
+2.把解压后的assets文件夹下的所有资源拷贝到工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
 ### 导入licence文件
 
@@ -155,6 +141,6 @@ public void setGreenScreenFile(String path);
  > 1. 检查是否调用了`TXUGCBase.getInstance().setLicence(Context context, String url, String key)`方法, 以及参数是否正确；  
  > 2. 调用TXUGCBase的getLicenseInfo方法，带有动效的licence会包含`pituLicense`字段；
  > 3. 如果是jar集成方式，检查pitu资源是否添加正确（sdk解压出来的assets目录内容都要拷贝到工程的assets目录下）；
- > 4. SDK会把P图的licence保存到`/sdcard/android/data/你的应用包名/files/YTFaceSDK.licence`，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译       
+ > 4. SDK会把P图的licence保存到`/sdcard/android/data/您的应用包名/files/YTFaceSDK.licence`，可以查下licence的有效期（下载[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)或则联系我们开发同学)，另外如果工程更换了licence，请先clean工程，删除本地安装包，重新编译       
  
 ##### [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)是一个xcode工程，目前仅支持在mac上使用， 后续会开放其他查询方式
