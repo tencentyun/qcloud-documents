@@ -92,7 +92,7 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <br/>TIM.TYPES.GRP_PRIVATE(私有群，默认) <br/>TIM.TYPES.GRP_PUBLIC(公开群)<br/>TIM.TYPES.GRP_CHATROOM(聊天室)<br/>TIM.TYPES.GRP_AVCHATROOM(互动直播聊天室) |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群<br/>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
@@ -251,7 +251,7 @@ tim.joinGroup(options);
      </tr>
 	 <tr>
 	     <td>status</td>   
-	     <td>加群的状态。包括：<br/>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL (等待管理员审核)<br/>TIM.TYPES.JOIN_STATUS_SUCCESS (加群成功) </td>   
+	     <td>加群的状态。包括：<li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li> </td>   
      </tr> 
 	 <tr>
 	     <td>group</td>   
@@ -384,7 +384,7 @@ promise.then(function(imResponse) { // 转让成功
 
 ### 处理加群申请
 
-当用户申请加入一个需要管理员同意的群组时，管理员/群主会收到申请加群的【群系统通知消息】，详情请参见 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)
+当用户申请加入一个需要管理员同意的群组时，管理员/群主会收到申请加群的【群系统通知消息】，详情请参见 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 **接口名**
 
@@ -400,7 +400,7 @@ tim.handleGroupApplication(options);
 | :-------------- | :-------------------------------------- | :--------- | :----------------------------------------------------------- |
 | `handleAction`  | `String `               |       -     | 处理结果 Agree（同意） / Reject（拒绝）                          |
 | `handleMessage` | `String`                       | `<optional>` | 附言                                                         |
-| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |            | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<br/>1. [收到新的群系统通知事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED) 的回调参数中获取<br/>2. 系统类型会话的消息列表中获取 |
+| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |            | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
 
 **返回值**
 
@@ -438,7 +438,7 @@ tim.setMessageRemindType(options);
 | 名称                | 类型   | 描述                                                         |
 | :------------------ | :----- | :----------------------------------------------------------- |
 | `groupID`           | `String` | 群组 ID                                                      |
-| `messageRemindType` | `String` | 群消息提示类型。详细如下：<br/>TIM.TYPES.MSG_REMIND_ACPT_AND_NOTE（SDK 接收消息并抛出 [收到消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 通知接入侧，接入侧做提示）<br/>TIM.TYPES.MSG_REMIND_ACPT_NOT_NOTE（SDK 接收消息并抛出 [收到消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 通知接入侧，接入侧不做提示）<br/>TIM.TYPES.MSG_REMIND_DISCARD（SDK 拒收消息，不会抛出[收到新消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)）|
+| `messageRemindType` | `String` | 群消息提示类型。详细如下：<li>TIM.TYPES.MSG_REMIND_ACPT_AND_NOTE：SDK 接收消息并抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧做提示</li><li>TIM.TYPES.MSG_REMIND_ACPT_NOT_NOTE：SDK 接收消息并抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧不做提示</li><li>TIM.TYPES.MSG_REMIND_DISCARD：SDK 拒收消息，不会抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到新消息事件</a></li>|
 
 **返回值**
 
@@ -451,7 +451,7 @@ tim.setMessageRemindType(options);
 ```js
 let promise = tim.setMessageRemindType({ groupID: 'group1', messageRemindType: TIM.TYPES.MSG_REMIND_DISCARD }); // 拒收消息
 promise.then(function(imResponse) {
-  console.log(imResponse.data.group); // 设置后的群资料。
+  console.log(imResponse.data.group); // 设置后的群资料
 }).catch(function(imError) {
   console.warn('setMessageRemindType error:', imError);
 });
@@ -474,14 +474,14 @@ tim.getGroupMemberList(options);
 | 名称      | 类型     | 属性          | 默认值 | 描述                                                         |
 | :-------- | :------- | :------------ | :----- | :----------------------------------------------------------- |
 | `groupID` | `String` |               |        | 群组的 ID                                                    |
-| `count`   | `Number` | `<optional> ` | `15`   | 需要拉取的数量。最大值：100，避免回包过大导致请求失败。若传入超过100，则只拉取前100个。 |
+| `count`   | `Number` | `<optional> ` | `15`   | 需要拉取的数量。最大值为100，避免回包过大导致请求失败。若传入超过100，则只拉取前100个 |
 | `offset`  | `Number` | `<optional> ` | `0`    | 偏移量，默认从0开始拉取                                      |
 
 **返回值**
 
 该接口返回`Promise`对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，参考：[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 ### 添加群成员
@@ -583,7 +583,7 @@ tim.deleteGroupMember(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为更新后的群组资料
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为更新后的群组资料。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**
@@ -828,4 +828,4 @@ tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, onGroupSystemNoticeReceived);
 | 10   | 取消管理员|被取消方接收           |
 | 255  | 用户自定义通知|默认全员接收       |
 
-群系统通知的 content 结构。系统会在恰当的时机，向特定用户发出群系统通知。例如：user1 被踢出群组，系统会给 user1 发送对应的群系统消息。
+群系统通知的 content 结构。系统会在恰当的时机，向特定用户发出群系统通知。例如，user1 被踢出群组，系统会给 user1 发送对应的群系统消息。
