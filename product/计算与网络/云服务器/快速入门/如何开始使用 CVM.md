@@ -18,7 +18,7 @@
 实战篇提供非常详细的操作指引，帮助您从注册账号、购买、登录并管理云服务器，参照本篇您将快速入门 Windows 和 Linux 系统云服务器的简单使用。
 
 - [快速入门 Windows 云服务器](https://cloud.tencent.com/document/product/213/2764) 
-- [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+- [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)
 
 
 
