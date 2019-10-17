@@ -181,18 +181,18 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  伪代码详细说明如下：
 ```
 function uplink_warm_up() {
- while true {
-  if qrcode_is_ready {
-   return
-  }
-  t = now_time()
+      while true {
+         if qrcode_is_ready {
+            return
+         }
+         t = now_time()
  
-  https_send('\r\n', 2)
-  wait_ack() // 不同机具可能做法不同
-  while now_time() - t < 500ms {
-   sleep(50ms)
-  }
- }
+         https_send('\r\n', 2)
+         wait_ack() // 不同机具可能做法不同
+         while now_time() - t < 500ms {
+            sleep(50ms)
+         }
+      }
 }
 ```
 
