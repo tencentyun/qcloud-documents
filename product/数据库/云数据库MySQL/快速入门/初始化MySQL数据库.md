@@ -10,7 +10,7 @@
 3. 选择状态为【未初始化】的 MySQL 实例，在操作列单击【初始化】。
 ![](https://main.qcloudimg.com/raw/5161cf5c35bf952ba6b1f0ba77cc6f07.png)
 4. 在弹出的初始化对话框中，配置初始化相关参数，单击【确定】开始初始化。
-![](https://main.qcloudimg.com/raw/6cf4875a39cb614d83fd90b70ef8f617.png)
+![](https://main.qcloudimg.com/raw/5d4c7296e8f808ce7a23977b5fee02ac.png)
  - **支持字符集**：选择 MySQL 数据库支持的字符集。
  - **表名大小写敏感**：表名是否大小写敏感，默认为是。
  - **自定义端口**：数据库的访问端口，默认为3306。
