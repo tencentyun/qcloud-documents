@@ -1,8 +1,5 @@
-## 操作场景
-本文为您介绍对已经购买的 MySQL 数据库执行初始化操作。
 
-## 前提条件
-已购买 MySQL 数据库，请参见 [购买指引](https://cloud.tencent.com/document/product/236/5160)。
+本文为您介绍对已经购买的 MySQL 数据库执行初始化操作。
 
 ## 操作步骤
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
