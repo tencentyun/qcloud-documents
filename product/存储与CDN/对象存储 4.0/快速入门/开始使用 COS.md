@@ -8,6 +8,8 @@
 ![](https://main.qcloudimg.com/raw/b4244e5d28ca84accafeff97a468d40d.png)
 ![](https://main.qcloudimg.com/raw/3fc893d41adba35221a0e9a1b2f14fda.jpg)
 ![](https://main.qcloudimg.com/raw/b3ec2b19443ff4befee5a7296cf8ac83.jpg)
+![](https://main.qcloudimg.com/raw/368877884021c61cb4b6d46902df4435.jpg)
+![](https://main.qcloudimg.com/raw/0ef17250e94129ab9b37ad5de51d00ab.jpg)
 
 1. [开通对象存储](https://cloud.tencent.com/document/product/436/6231)
 2. [创建存储桶](https://cloud.tencent.com/document/product/436/6232)
