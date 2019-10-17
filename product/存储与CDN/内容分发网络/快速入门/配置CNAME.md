@@ -37,7 +37,7 @@
 ![](https://main.qcloudimg.com/raw/cb654e02602b6dd277978c185799b307.png)
 
 ## 验证 CNAME 是否生效
-不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可以通过 nslookup 或 dig 的方式来查询 CNAME 是否生效。
+不同的 DNS 服务商，CNAME 生效的时间略有不同，一般在半个小时之内生效。您可以通过 nslookup 或 dig 的方式来查询 CNAME 是否生效。
 - `nslookup -qt=cname <加速域名>`
 ![](https://main.qcloudimg.com/raw/b89c6ced8402fd93ae9159b9cde4421e.png)
 - `dig <加速域名>`
