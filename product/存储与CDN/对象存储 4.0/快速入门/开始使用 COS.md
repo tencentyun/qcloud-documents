@@ -4,9 +4,9 @@
 
 ## 使用对象存储控制台
 通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本流程图如下：
-![](https://main.qcloudimg.com/raw/0ef17250e94129ab9b37ad5de51d00ab.jpg)
+![](https://main.qcloudimg.com/raw/23b268fb00a84499445b6b4e9e1571a4.jpg)
 
-1. [开通对象存储](https://cloud.tencent.com/document/product/436/6231)
+1. [开通 COS 服务](https://cloud.tencent.com/document/product/436/6231)
 2. [创建存储桶](https://cloud.tencent.com/document/product/436/6232)
 3. [上传对象](https://cloud.tencent.com/document/product/436/6233)
 4. [下载对象](https://cloud.tencent.com/document/product/436/6234)
