@@ -1,5 +1,7 @@
 
 
+对象存储（Cloud Object Storage，COS）是腾讯云提供的一种存储海量文件的分布式存储服务，具有高扩展性、低成本、可靠安全等优点。通过控制台、API、SDK 和工具等多样化方式，您可简单、快速地接入 COS，进行多格式文件的上传、下载和管理，实现海量数据存储和管理。
+
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 
@@ -32,6 +34,6 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 
 
 ## 更多操作
-- 了解更多对象存储 COS 工具，例如 COSCMD、COSFS，请参见 [工具指南](https://cloud.tencent.com/document/product/436/6242)。
-- 了解更多对象存储 COS 常见实践应用，例如托管静态网站、设置防盗链、数据迁移、访问控制和权限管理等，请参见 [最佳实践](https://cloud.tencent.com/document/product/436/38222)。
-- 更多高级操作，请参见 [开发者指南](https://cloud.tencent.com/document/product/436/31315)。
+了解更多对象存储 COS 工具，例如 COSCMD、COSFS，请参见 [工具指南](https://cloud.tencent.com/document/product/436/6242)。
+了解更多对象存储 COS 常见实践应用，例如托管静态网站、设置防盗链、数据迁移、访问控制和权限管理等，请参见 [最佳实践](https://cloud.tencent.com/document/product/436/38222)。
+更多高级操作，请参见 [开发者指南](https://cloud.tencent.com/document/product/436/31315)。
