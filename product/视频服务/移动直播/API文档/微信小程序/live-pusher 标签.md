@@ -43,7 +43,7 @@
 | orientation | String | vertical | vertical，horizontal |
 | beauty |  Number | 0 | 美颜指数，取值 0 - 9，数值越大效果越明显 |
 | whiteness  | Number | 0 | 美白指数，取值 0 - 9，数值越大效果越明显 |
-| aspect | String | 9：16 | 3：4，9：6|
+| aspect | String | 9：16 | 3:4,9:16 |
 | zoom | Boolean | false | 是否正常焦距，true 表示将摄像头放大 |
 | device-position | String | front | front 前置摄像头，back 后置摄像头 | 
 | min-bitrate | Number | 200  | 最小码率，该数值决定了画面最差的清晰度表现|
