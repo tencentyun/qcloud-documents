@@ -8,7 +8,7 @@
 <span id="ecc"></span>
 ### ECC 证书申请 CSR 
 1. 前往 [OpenSSL 官网](https://www.openssl.org/source/)，下载 openssl 并配置安装。
-2. 下载 [ecccsr 工具]() 并解压。
+2. 下载 [ecccsr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip) 并解压。
 3. 执行以下命令，生成对应文件。
 ```
 sh ecccsr.sh
@@ -28,15 +28,15 @@ openssl ecparam -name prime256v1 -genkey -out out.key
 ```
 openssl req -batch -config openssl_user.cnf -key out.key -new -sha256 -out out.csr
 ```
-- **转换私钥格式**：将已生成的 `out.key` 私钥转换为 pkcs#8 格式的 `out_sk` 文件，用于 fabric-sdk 识别。
+- **转换私钥格式**：将已生成的 `out.key` 私钥转换为 `pkcs#8` 格式的 `out_sk` 文件，用于 fabric-sdk 识别。
 ```
 openssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 ```
 
 <span id="sm2"></span>
 ### SM2 证书申请 CSR
-1. 前往 [gmssl 官网](http://gmssl.org/docs/quickstart.html)，下载 gmssl 并配置安装。 
-2. 下载 [sm2csr 工具]() 并解压。
+1. 前往 [GmSSL 官网](http://gmssl.org/docs/quickstart.html)，下载 gmssl 并配置安装。 
+2. 下载 [sm2csr 工具](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/sm2csr.zip) 并解压。
 3. 执行以下命令，生成对应文件。
 ```
 sh sm2csr.sh
@@ -73,7 +73,7 @@ gmssl pkcs8 -topk8 -in out.key -nocrypt -out out_sk
 
 #### Node.js SDK
 ```
-var fs = require('fs-extra');
+ var fs = require('fs-extra');
  var fabric_client = new Fabric_Client();
 
  var cert = fs.readFileSync('TBaaS 上下载的证书');
@@ -81,7 +81,7 @@ var fs = require('fs-extra');
 
  fabric_client.createUser({
      username: '证书标识',
-     mspid: 'Org1MSP',
+     mspid: '组织 MSP',
      cryptoContent: {
      privateKeyPEM: priv,
      signedCertPEM: cert

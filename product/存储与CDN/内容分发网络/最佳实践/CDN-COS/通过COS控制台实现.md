@@ -41,4 +41,4 @@
 (3) 保存后，**CDN 鉴权**栏将出现 CDN 鉴权功能开关，可手动开启自定义域名 CDN 鉴权。
 **CDN 鉴权：**开启时间戳鉴权配置，可防止恶意用户盗取内容，需在添加完域名后进行设置。
 
-关于在COS控制台实现CDN加速COS的更多内容，请参见 [COS域名管理概述](https://cloud.tencent.com/document/product/436/18424)。
+关于在 COS 控制台实现 CDN 加速 COS 的更多内容，请参见 [COS 域名管理概述](https://cloud.tencent.com/document/product/436/18424)。

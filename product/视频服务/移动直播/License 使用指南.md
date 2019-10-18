@@ -10,7 +10,7 @@
 <span id="buy"></span>
 ## 购买正式 License
 
-您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive) 免费获得一年 License 使用权限。
+您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限。
 
 ![](https://main.qcloudimg.com/raw/a4b2ac2a7cbaac7b0d9e295d149e3d3f.png)
 

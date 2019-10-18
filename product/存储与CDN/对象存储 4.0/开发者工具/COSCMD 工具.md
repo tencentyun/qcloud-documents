@@ -81,7 +81,7 @@ pip install coscmd --no-index -f coscmd-packages
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
 
 ```shell
-coscmd -h  //查看当面版本信息
+coscmd -h  //查看当前版本信息
 ```
 
 help 信息如下所示：
@@ -263,7 +263,6 @@ coscmd upload /data/exampleobject data/
 coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-storage-class':'Archive'}"
 #设置 meta 元属性
 coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-meta-example':'example'}"
-
 ```
 
 - 上传文件夹命令如下：
@@ -288,7 +287,6 @@ coscmd upload -rs /data/examplefolder data/examplefolder --ignore *.txt,*.doc
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
 
 > !
->
 > - 上传文件时需要将 COS 上的路径包括文件（文件夹）的名字补全（参考例子）。
 > - COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
@@ -416,7 +414,6 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。
 
 > ?
->
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 > - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。

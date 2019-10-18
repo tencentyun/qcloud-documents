@@ -5,8 +5,7 @@
 | 1.0    | 创建文档 | 2019-10-06 | 
 
 ## 2. 概述
-
-微信支付商业版收款机具是微信支付推出的官方收款设备，机具在绑定指定商户与门店后，便可收款。机具的绑定和收款功能的后台能力由微信云支付提供。本文档主要说明了机具厂商如何通过云支付提供的 API，完成云支付后台的接入。
+机具通过小程序绑定指定商户与门店后，便可收款。机具的绑定和收款功能的后台能力由云支付提供。本文档主要说明了机具厂商如何通过云支付提供的 API，完成云支付后台的接入。
 
 ## 3. 机具要求
 显示器能清晰展示 URL 为200字节大小的二维码。
@@ -141,7 +140,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
     1. `get_bill_device_bind_info`接口返回了绑定信息，即应答中 activated为true；
     2. 轮询超过了二维码有效期，有效期长度由`generate_bill_device_bind_qr_code`接口应答中的 ttl 指定，单位为秒，假如 ttl 为180，表示整个轮询过程超过180秒就必须结束，并停止展示二维码。
 5. **处理绑定信息**
-获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密，解密算法为 Aes128Gcm，解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
+获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密（解密说明详见 [10.1 AES-128-CBC 解密说明](#10.1-aes-128-cbc-.E8.A7.A3.E5.AF.86.E8.AF.B4.E6.98.8E)），解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
 
 ## 8. 机具收款相关流程说明
 
@@ -165,6 +164,37 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  - 如果是退款至顾客的银行卡，到账时间与银行处理进度相关，可能要花几个小时。
 - 申请退款成功后，需告知顾客，申请退款已经成功，请关注后续到账情况。顾客可关注微信或支付宝消息通知，收到已经发起退款或退款到账的消息。
 - 如果想在设备上看这笔退款是否到账，可以调用退款查询接口，通过退款单的状态来查看是否退款成功。适配者可以自己选择是否适配退款查询接口。
+
+### 8.3 机具支付使用 HTTPS 长连接
+1. **背景**
+机具与云支付后台使用 HTTPS 方式交互，如果机具收款时每次都新建连接请求云支付后台，则完成 TCP 握手和 TLS 握手需要很多次网络报文交互，会增加支付相关接口调用的整体耗时，影响收款体验。因此机具需要与云支付后台保持一个 HTTPS 长连接，使用长连接完成支付相关接口调用。
+2. **创建连接**
+ - 如果机具已绑定，机具启动完成后立即尝试创建与云支付后台的 HTTPS 连接，并保持这个连接，供后续支付使用。如果创建连接过程超时，则跳过此步骤，让机具完成启动。
+ - 如果机具未绑定，待机具绑定成功后，立即尝试创建与云支付后台的 HTTPS 连接，并保持这个连接，供后续支付使用。
+3. **保持连接**
+每个 HTTPS 请求头设置`connection: keep-alive`。
+
+ 每隔2分钟，进行一次真实的 HTTPS 交互，发送请求：`GET / HTTP/1.1\r\nHost: pay.qcloud.com\r\nConnection: keep-alive\r\n\r\n`，接收完服务器应答后丢掉不处理。
+4. **预热连接**
+商家输入完金额并按下确定键之后，每隔0.5秒通过长连接以 GET 方式向后台发送'\r\n' 2个字符，扫码后停止发送，走正常支付流程。GET 请求不会触发后台返回应答。
+
+ 伪代码详细说明如下：
+```
+function uplink_warm_up() {
+      while true {
+         if qrcode_is_ready {
+            return
+         }
+         t = now_time()
+ 
+         https_send('\r\n', 2)
+         wait_ack() // 不同机具可能做法不同
+         while now_time() - t < 500ms {
+            sleep(50ms)
+         }
+      }
+}
+```
 
 ## 9. 接口说明
 
@@ -439,7 +469,7 @@ request_str 即为 post 内容。
 		"description":"",
 		"log_id":18654852,
 		"internal_status":0,
-		"generate_bill_device_bind_qr_code_response":"{
+		"generate_bill_device_bind_qr_code":"{
 			"activator":"p9fa01zex4mi",
 			"token":"8azip8115bq",
 			"ttl":180,
@@ -504,7 +534,7 @@ request_str 即为 post 内容。
 | out_sub_mch_id    | 否   | String | 最长64     | 云支付内部的子商户 ID，只当 activated 为1时才有。              |
 | cloud_cashier_id  | 否   | String | 最长64     | 云支付规定的定单前缀，只当 activated 为1时才有。               |
 | authen_type       | 否   | Int    | 4          | 子商户与云支付之间的签名算法类型，只当 activated 为1时才有。   |
-| e_authen_key      | 否   | String | 最长256    | Aes128Gcm 加密并 base64 编码之后的支付密钥，机具先 base64 解码后，再使用初始化密钥来解密这个字段，以获得支付密钥（authen_key）。支付用这个密钥来计算签名。只当 activated 为1时才有。 |
+| e_authen_key      | 否   | String | 最长256    | Aes128CBC 加密并 base64 编码之后的支付密钥，机具先 base64 解码后，再使用初始化密钥来解密这个字段，以获得支付密钥（authen_key）。支付用这个密钥来计算签名。只当 activated 为1时才有。 |
 | out_shop_id       | 否   | String | 最长64     | 云支付系统全局唯一门店 ID，只当 activated 为1时才有。          |
 | shop_name         | 否   | String | 最长128    | 门店名称，只当 activated 为1时才有。                           |
 | device_id         | 否   | String | 最长64     | 设备 ID，只当 activated 为1时才有。                            |
@@ -571,7 +601,7 @@ request_str 即为 post 内容。
 		"description":"",
 		"log_id":18654852,
 		"internal_status":0,
-		"bill_device_bind_sn_response" : "{
+		"bill_device_bind_sn" : "{
 			"activated":1,
 			"out_mch_id":"aaa",
 			"out_sub_mch_id":"bbb",
@@ -1193,4 +1223,77 @@ request_str 即为 post 内容。
 | 2      | 支付宝。   |
 | 3      | 会员卡。   |
 
- 
+##  10 加解密相关说明
+### 10.1 AES-128-CBC 解密说明
+- 算法：AES-128
+- 模式：CBC 
+- 填充类型：PKCS5Padding
+- 盐（salt）：要解密的内容前8字节为盐，剩余字节内容为原始明文内容的加密内容。
+
+示例代码如下：
+```
+bool aes_128_cbc_decrpty(
+            const std::string &session_key,
+            const std::string &input,
+            std::string *output)
+{
+    assert(output);
+    output->clear();
+    output->reserve(input.length() + 24); // Space for salt + padding.
+
+    unsigned char salt[8];
+    size_t total = input.size();
+    const char *inptr = input.data();
+
+    if (input.length() < sizeof(salt)) {
+        return false;
+    }
+
+    memcpy(salt, inptr, sizeof(salt));
+    inptr += sizeof(salt);
+    total -= sizeof(salt);
+
+    unsigned char iv[16];
+    unsigned char key[16];
+    int ret = EVP_BytesToKey(EVP_aes_128_cbc(), EVP_sha1(), salt,
+                             (const unsigned char *)session_key.data(),
+                             session_key.length(),
+                             1, key, iv);
+
+    if (ret != sizeof(key)) {
+        return false;
+    }
+
+    EVP_CIPHER_CTX *ctx = EVP_CIPHER_CTX_new();
+    EVP_CIPHER_CTX_init(ctx);
+
+    if (!EVP_CipherInit_ex(ctx, EVP_aes_128_cbc(), NULL, key, iv, 0)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+
+    int outlen;
+    unsigned char buffer[2560];
+    for (size_t i = 0; i < total; i += 2048, inptr += 2048) {
+        outlen = sizeof(buffer);
+        unsigned char *in = (unsigned char *)inptr;
+        int inlen = total - i < 2048 ? total - i : 2048;
+        if (!EVP_CipherUpdate(ctx, buffer, &outlen, in, inlen)) {
+            EVP_CIPHER_CTX_free(ctx);
+            return false;
+        }
+
+        output->append(reinterpret_cast<const char *>(buffer), outlen);
+    }
+
+    outlen = sizeof(buffer);
+    if (!EVP_CipherFinal_ex(ctx, buffer, &outlen)) {
+        EVP_CIPHER_CTX_free(ctx);
+        return false;
+    }
+
+    output->append(reinterpret_cast<const char *>(buffer), outlen);
+    EVP_CIPHER_CTX_free(ctx);
+    return true;
+}
+```
