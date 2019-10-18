@@ -204,7 +204,7 @@ data|表情二进制数据，由开发者定义
 ```
 TIMFaceElem * face_elem = [[TIMFaceElem alloc] init];
 
-[image_elem setIndex:10];
+[face_elem setIndex:10];
 
 TIMMessage * msg = [[TIMMessage alloc] init];
 [msg addElem:face_elem];
