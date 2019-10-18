@@ -4,9 +4,9 @@
 
 #### Windows 
 
-前往[下载地址](https://nodejs.org/en/download/)，选择 windows 32-bit 版本，安装 node 环境。
+前往 [下载地址](https://nodejs.org/en/download/)，选择 windows 32-bit 版本，安装 node 环境。
 
-> 注意: trtc electron sdk暂只支持 win32 版本，安装 node 请选用 win32 版本
+>!trtc electron sdk 暂只支持 windows 32-bit 版本。
 
 #### Mac
 
@@ -26,24 +26,29 @@ brew install node
 
 <span id="step2"></span>
 ### 步骤2：下载 Demo 源码
-https://gitee.com/vqcloud/Trtc_Electron_Demo.git
+[下载](https://gitee.com/vqcloud/Trtc_Electron_Demo.git) Demo 源码。
 
 <span id="step3"></span>
 ### 步骤3：查看并拷贝加密密钥
 1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
 2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
-![](https://main.qcloudimg.com/raw/6ae2ee8958c5147a591a81136320fe21.png)
+ ![](https://main.qcloudimg.com/raw/6ae2ee8958c5147a591a81136320fe21.png)
 
 <span id="step4"></span>
 ### 步骤4：配置 Demo 工程文件
-我们在各个平台的 Demo 的源码工程中都提供了一个叫做 “GenerateTestUserSig” 的文件(目录:TRTC_Electron_Demo/js/GenerateTestUserSig.js)，它可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。您只需要将第1步中获得的 SDKAppID 和第3步中获得的加密密钥拷贝到文件中的指定位置即可，如下所示：
+Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。
 
-![](https://main.qcloudimg.com/raw/9275a5f99bf00467eac6c34f6ddd3ca5.jpg)
+1. 解压 [步骤2](#step2) 中下载的源码包。
+2. 找到并打开`TRTC_Electron_Demo/js/GenerateTestUserSig.js`文件。
+3. 设置`GenerateTestUserSig.h`文件中的相关参数：
+  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
+  - PRIVATEKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  ![](https://main.qcloudimg.com/raw/9275a5f99bf00467eac6c34f6ddd3ca5.jpg)
 
 <span id="step5"></span>
 ### 步骤5：编译运行
 
-通过命令行工具，在TRTC_Electron_Demo目录下:
+在 TRTC_Electron_Demo 目录下执行以下命令：
 ```js
 npm install  //下载npm包
 npm start    //开始运行
