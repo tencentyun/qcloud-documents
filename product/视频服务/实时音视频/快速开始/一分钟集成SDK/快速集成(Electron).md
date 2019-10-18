@@ -21,8 +21,6 @@ brew install node
 
 ## 集成 TRTC Electron SDK
 
-### NPM 集成
-
 在您的项目中使用 npm 安装 SDK 包。
 
 ```
