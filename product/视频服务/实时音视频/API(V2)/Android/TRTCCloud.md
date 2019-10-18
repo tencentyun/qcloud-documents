@@ -678,7 +678,7 @@ __介绍__
 
 ### setSystemVolumeType
 
-设置系统音量类型。
+设置通话时使用的系统音量类型。
 ```
 abstract void setSystemVolumeType(int type)
 ```
@@ -687,12 +687,17 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | TRTCAudioVolumeTypeAuto 默认类型，麦上通话音量、麦下媒体音量; TRTCAudioVolumeTypeMedia 始终使用媒体音量。 |
+| type | int | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32266#TRTCSystemVolumeType)。 |
+
+>?需要在调用 [startLocalAudio()](#startlocalaudio) 之前调用该接口。
+
+
 
 ## 摄像头相关接口函数
 ### switchCamera
 
 切换摄像头。
+
 ```
 abstract void switchCamera()
 ```
@@ -1049,7 +1054,7 @@ __参数__
 
 __介绍__
 
-对应于 [setRemoteViewFillMode()](#setremoteviewfillmode) 于设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
+对应于 [setRemoteViewFillMode()](#setremoteviewfillmode) 设置主画面的显示模式，该接口用于设置远端的辅路（屏幕分享、远程播放视频）画面。
 
 
 
@@ -1150,12 +1155,11 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
+此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
 
 
 ### enableCustomAudioCapture
->?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，即该 listener 的回调函数不会被触发。
 
 启用音频自定义采集模式。
 ```
@@ -1376,7 +1380,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | int | 音量大小，100为正常音量，取值范围为0 - 100。 |
 
 
 ### setBGMVolume
@@ -1390,7 +1394,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小，100为正常音量，如需调高背景音量可以设置更大的值，取值范围为0 - 200。 |
+| volume | int | 音量大小，100为正常音量，取值范围为0 - 100。 |
 
 
 ### setReverbType
@@ -1441,7 +1445,7 @@ __介绍__
 
 ### setAudioEffectVolume
 
-设置单个音效音量。
+设置指定音效的音量。
 ```
 abstract void setAudioEffectVolume(int effectId, int volume)
 ```
@@ -1451,7 +1455,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | effectId | int | 音效 ID。 |
-| volume | int | 取值范围0 - 100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
 >?该操作会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
 
@@ -1479,7 +1483,7 @@ abstract void stopAllAudioEffects()
 
 ### setAllAudioEffectsVolume
 
-设置所有音效音量。
+设置所有音效的音量。
 ```
 abstract void setAllAudioEffectsVolume(int volume)
 ```
@@ -1488,7 +1492,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 取值范围0 -100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
 >?该操作会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
@@ -1614,7 +1618,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 请参见 TRTC_LOG_LEVEL。 |
+| level | int | 请参见 [TRTC_LOG_LEVEL](https://cloud.tencent.com/document/product/647/32266#4.2-log-.E7.BA.A7.E5.88.AB)。 |
 
 
 ### setConsoleEnabled

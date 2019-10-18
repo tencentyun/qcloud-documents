@@ -232,7 +232,7 @@ _config.maxAutoAdjustCacheTime = 5;
 //设置完成之后再启动播放
 ```
 
-> 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
+> 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 

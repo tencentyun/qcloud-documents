@@ -35,7 +35,7 @@ tim.createTextMessage(options)
 // 1. 创建消息实例，接口返回的实例可以上屏
 let message = tim.createTextMessage({
   to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C
+  conversationType: TIM.TYPES.CONV_C2C,
   payload: {
     text: 'Hello world!'
   }
@@ -140,6 +140,85 @@ wx.chooseImage({
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
+
+### 创建音频消息
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。
+
+>!全平台互通音频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+
+**接口**
+
+```javascript
+tim.createAudioMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type     | Description                                            |
+| ------------------ | -------- | --------------------- |
+| `to`               | `String` | 消息的接收方                                           |
+| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `payload`          | `Object` | 消息内容的容器                                         |
+
+`paylaod`的描述如下表所示：
+
+| Name | Type                        | Description                                                  |
+| ---- | --------------------------- | ------------ |
+| file | `Object` | 录音后得到的文件信息 |
+
+**小程序示例**
+
+<pre>
+// 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a>
+// 1. 获取全局唯一的录音管理器 RecorderManager
+const recorderManager = wx.getRecorderManager();
+
+// 录音部分参数
+const recordOptions = {
+  duration: 60000, // 录音的时长，单位 ms，最大值 600000（10 分钟）
+  sampleRate: 44100, // 采样率
+  numberOfChannels: 1, // 录音通道数
+  encodeBitRate: 192000, // 编码码率
+  format: 'aac' // 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和 Web）互通
+};
+
+// 2.1 监听录音错误事件
+recorderManager.onError(function(errMsg) {
+  console.warn('recorder error:', errMsg);
+});
+// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例
+recorderManager.onStop(function(res) {
+  console.log('recorder stop', res);
+
+  // 4. 创建消息实例，接口返回的实例可以上屏
+  const message = tim.createAudioMessage({
+    to: 'user1',
+    conversationType: TIM.TYPES.CONV_C2C,
+    payload: {
+      file: res
+    }
+  });
+
+  // 5. 发送消息
+  let promise = tim.sendMessage(message);
+  promise.then(function(imResponse) {
+    // 发送成功
+    console.log(imResponse);
+  }).catch(function(imError) {
+    // 发送失败
+    console.warn('sendMessage error:', imError);
+  });
+});
+
+// 3. 开始录音
+recorderManager.start(recordOptions);
+</pre>
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 ### 创建文件消息
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
@@ -269,8 +348,17 @@ promise.then(function(imResponse) {
 发送消息的接口，需先调用下列的创建消息实例的接口获取消息实例后，再调用该接口发送消息实例。
 - [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
+- [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
+
+>!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
+- [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
+- [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
+
+
+接收推送的单聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
+本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。同帐号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
 
 **接口**
 
@@ -290,7 +378,7 @@ tim.sendMessage(options)
 
 ```javascript
 // 发送文本消息，Web 端与小程序端相同
-// 1. 将生成的Message实例发送
+// 1. 将生成的 Message 实例发送
 let promise = tim.sendMessage(message);
 promise.then(function(imResponse) {
   // 发送成功
@@ -352,7 +440,7 @@ promise.then(function(imResponse) {
 
 ### 接收消息
 
-请参考：[接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
+请参考 [接收消息事件](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
 
 接受消息的接口，接收消息需要通过事件监听实现：
 
@@ -370,17 +458,17 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ### 解析文本消息
 
 <ul><li><b>简单版</b><br>
- 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出“xxxxxxx”文字。</li>
-<li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
+ 如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
+<li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
 
-<pre>
+```javascript
 const emojiMap = {         // 根据[呲牙]可匹配的路径地址
   '[微笑]': 'emoji_0.png',
   '[呲牙]': 'emoji_1.png',
   '[下雨]': 'emoji_2.png'
 }
 
-const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">图片的地址
+const emojiUrl = 'http://xxxxxxxx/emoji/'   // 为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">图片的地址
 
 function parseText (payload) {
   let renderDom = []
@@ -437,8 +525,8 @@ function parseText (payload) {
 
 
 // 最后的 renderDom 结构为[{name: 'text', text: 'XXX'}, {name: 'img', src: 'http://xxx'}......]
-// 渲染当前数组即可得到想要的 UI 结果，例如：XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX[呲牙XXX]
-</pre>
+// 渲染当前数组即可得到想要的 UI 结果，如：XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX[呲牙XXX]
+```
 </li></ul>
 
 
@@ -504,7 +592,7 @@ function parseGroupTipContent (payload) {
 
 ### 获取某会话的消息列表 
 
-请参考：[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)
+请参考 [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)。
 
 分页拉取指定会话的消息列表的接口，当用户进入会话首次渲染消息列表或者用户“下拉查看更多消息”时，需调用该接口。
 
@@ -514,6 +602,8 @@ function parseGroupTipContent (payload) {
 tim.getMessageList(options)
 ```
 
+>!该接口可用于"拉取历史消息"。
+
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
@@ -522,7 +612,7 @@ tim.getMessageList(options)
 | ------------------ | -------- | -------------- | -------------- | -------------- |
 | `conversationID`   | `String` |      -     |    -       | 会话 ID          |
 | `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可          |
-| `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，最大值为15         |
+| `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息         |
 
 **示例**
 
@@ -612,7 +702,7 @@ promise.then(function(imResponse) {
 
 ### 获取会话资料
 
-获取会话资料的接口，当单机会话列表中的某个会话时，调用该接口获取会话的详细信息。
+获取会话资料的接口，当单击会话列表中的某个会话时，调用该接口获取会话的详细信息。
 
 **接口**
 
@@ -650,12 +740,12 @@ promise.then(function(imResponse) {
 
 ### 删除会话
 
-根据会话 ID 删除会话的接口。
+根据会话 ID 删除会话的接口，该接口只删除会话，不删除消息。例如，删除与用户 A 的会话，下次再与用户 A 发起会话时，之前的聊天信息仍在。
 
 **接口**
 
 ```javascript
-tim.getConversationProfile(conversationID)
+tim.deleteConversation(conversationID)
 ```
 
 **参数**
@@ -672,7 +762,7 @@ tim.getConversationProfile(conversationID)
 let promise = tim.deleteConversation('C2CExample');
 promise.then(function(imResponse) {
   //删除成功。
-  const { conversationID } = imResponse.data;// 被删除的会话 ID
+  const { conversationID } = imResponse.data;// 被删除的会话 ID。
 }).catch(function(imError) {
   console.warn('deleteConversation error:', imError); // 删除会话失败的相关信息
 });

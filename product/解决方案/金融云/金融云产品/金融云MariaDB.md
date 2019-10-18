@@ -1,13 +1,10 @@
 ## 简介
-金融级云数据库 TencentDB for MariaDB 是一个适用于 OLTP 场景且兼容 MySQL 5.5、5.6 的关系型数据库，它结合了高端商用数据库的可用性和可靠性，同时还具有开源数据库的简单性和性价比，现有 MySQL 应用程序和工具无需修改即可迁移到 TencentDB for MariaDB 中运行。
-
+金融级云数据库 TencentDB for MariaDB 是一个适用于 OLTP 场景且兼容 MySQL 5.5、5.6的关系型数据库，它结合了高端商用数据库的可用性和可靠性，同时还具有开源数据库的简单性和性价比，现有 MySQL 应用程序和工具无需修改即可迁移到 TencentDB for MariaDB 中运行。
 
 ### 单机集群架构
-![](https://mccdn.qcloud.com/static/img/ea3f76dc7e661147a05f84e5e6f0bcf1/image.png)
-
+![](https://main.qcloudimg.com/raw/622c3872cfbe382bdef51417fa0ff950.png)
 ### 分布式集群架构
-![](https://mccdn.qcloud.com/static/img/1243449707b88ff38e0122c3049b5334/image.png)
-
+![](https://main.qcloudimg.com/raw/05345c77c8ecb7bab61aaaf8d84271bd.png)
 **架构说明**
 - 腾讯云公用组件由云安全、云监控、大禹高防、负载均衡等多个服务组成的综合服务能力，也可添加服务市场第三方服务。
 - 数据库节点组（SET）由 MySQL 数据库、监控和信息采集模块组成跨机房部署的一主多从数据库节点。分布式集群下，若干个数据库节点组一组逻辑统一物理分散分布式的数据库实例。

@@ -10,14 +10,14 @@ CLB 的四层（TCP/UDP/TCP SSL）和七层（HTTP/HTTPS）服务均支持直接
 下文将对常见的应用服务器配置方案进行介绍。
 
 ## IIS 6 配置方案
-1. 安装插件 F5XForwardedFor.dll，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
 2. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键选择【属性】，打开属性页。
 3. 在属性页切换至【ISAPI 筛选器】，单击【添加】，弹出添加窗口。
 4. 在添加窗口“筛选器名称”中填写“F5XForwardedFor”，“可执行文件”填写`F5XForwardedFor.dll`的完整路径，单击【确定】。
 5. 重启 IIS 服务器，等待配置生效。
 
 ## IIS 7 配置方案
-1. 下载与安装插件 F5XForwardedFor 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C: \F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C: \F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
 2. 选择【IIS服务器】，双击【模块】功能。
 ![](https://main.qcloudimg.com/raw/fe7f9a664fb6b8dca4d285b06e2f8c62.png)
 3. 单击【配置本机模块】。

@@ -941,8 +941,8 @@ fail | 失败回调
  *
  *  获取群组指定成员的信息，需要设置群成员 members，其他限制参考 getGroupMembers
  *
- *  @param groupId 群组Id
- *  @param members 成员Id（NSString*）列表
+ *  @param groupId 群组 ID
+ *  @param members 成员 ID（NSString*）列表
  *  @param succ    成功回调 (TIMGroupMemberInfo 列表)
  *  @param fail    失败回调
  *
@@ -956,8 +956,8 @@ fail | 失败回调
 
 参数|说明
 ---|---
-groupId | 群组 Id
-members | 成员 Id 列表
+groupId | 群组 ID
+members | 成员 ID 列表
 succ |  成功回调，返回群成员资料列表
 fail | 失败回调
 
@@ -1669,7 +1669,7 @@ TIMGroupPendencyItem *item = [pendencies firstObject];
 
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可选择是否予以展示，以及如何展示（例如：忽略或者根据需要展示给用户）。 提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息，参见 [新消息通知](/doc/product/269/9148#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。如下图中，展示一条修改群名的事件消息。
 
-![](//mccdn.qcloud.com/static/img/cc5b0e33ed6bd492fca7d8fb8469307a/image.jpg)
+![](https://main.qcloudimg.com/raw/5a103b18bc1728baa742c7671443788e.jpg)
 
 **消息原型：**
 

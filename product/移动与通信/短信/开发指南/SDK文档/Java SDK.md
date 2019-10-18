@@ -1,19 +1,14 @@
 ## SDK 功能简介
-目前腾讯云短信为客户提供**国内短信、语音短信**和**国际/港澳台短信**服务，腾讯云短信 SDK 支持以下操作：
+目前腾讯云短信为客户提供**国内短信**和**国际/港澳台短信**服务，腾讯云短信 SDK 支持以下操作：
 
-| 国内短信             | 语音短信              | 国际/港澳台短信                 |
-| ------------------ | ---------------------- | ---------------- |
-| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
-
+| 国内短信             | 国际/港澳台短信                 |
+| ------------------ | ---------------- |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) |  <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 >?
 >- 群发短信
 >一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
 >- 拉取短信回执
 >该功能默认关闭。您可以根据实际需求联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）开通，实现批量拉取短信回执。
->- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
->- 发送语音通知
->数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
 ## SDK 使用指南
 ### 相关资料
@@ -26,7 +21,7 @@
 - **申请签名并确认审核通过**
 一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/36136#Sign)。发送国际/港澳台短信时，允许不携带签名。
 - **申请模板并确认审核通过**
-短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/36136#Template)。
+短信正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/36136#Template)。
 
 
 ### 配置 SDK
@@ -195,57 +190,6 @@ try {
 }
 ```
 
-<a id="发送语音验证码" ></a>
-- **发送语音验证码**
-```java
-import com.github.qcloudsms.SmsVoiceVerifyCodeSender;
-import com.github.qcloudsms.SmsVoiceVerifyCodeSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-import java.io.IOException;
-try {
-    SmsVoiceVerifyCodeSender vvcsender = new SmsVoiceVerifyCodeSender(appid,appkey);
-    SmsVoiceVerifyCodeSenderResult result = vvcsender.send("86", phoneNumbers[0],
-        "5678", 2, "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
-
-<a id="指定模板发送语音通知" > </a>
-- **指定模板发送语音通知**
-```java
-import com.github.qcloudsms.TtsVoiceSender;
-import com.github.qcloudsms.TtsVoiceSenderResult;
-import com.github.qcloudsms.httpclient.HTTPException;
-import org.json.JSONException;
-import java.io.IOException;
-try {
-    int templateId = 45221;
-    String[] params = {"5678"};
-    TtsVoiceSender tvsender = new TtsVoiceSender(appid, appkey);
-    TtsVoiceSenderResult result = tvsender.send("86", phoneNumbers[0],
-        templateId, params, 2, "");
-    System.out.println(result);
-} catch (HTTPException e) {
-    // HTTP 响应码错误
-    e.printStackTrace();
-} catch (JSONException e) {
-    // JSON 解析错误
-    e.printStackTrace();
-} catch (IOException e) {
-    // 网络 IO 错误
-    e.printStackTrace();
-}
-```
 
 - **发送国际/港澳台短信**
 发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：

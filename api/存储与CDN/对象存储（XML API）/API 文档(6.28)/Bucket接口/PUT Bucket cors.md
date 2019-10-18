@@ -1,8 +1,8 @@
 ## 功能描述
-PUT Bucket cors 接口用来请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+PUT Bucket cors 接口用于请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```sh
 PUT /?cors HTTP/1.1
@@ -14,19 +14,19 @@ Content-MD5: MD5
 Authorization: Auth String
 
 ```
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
-
+#### 请求头
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
-### 请求体
+#### 请求体
 请求的请求体为跨域规则。
 
 ```http
@@ -69,19 +69,19 @@ Container 节点 CORSRule 的内容：
 
 
 ## 响应
-### 响应头
+#### 响应头
 
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
+该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
 
 #### 特有响应头
 该请求操作无特殊的响应头部信息。
 
-### 响应体
+#### 响应体
 该请求响应体为空。
 
-### 错误码
+#### 错误码
 
 |错误码|描述|HTTP 状态码|
 |---|---|---|
@@ -90,7 +90,7 @@ Container 节点 CORSRule 的内容：
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```sh
 PUT /?cors HTTP/1.1
@@ -112,7 +112,7 @@ Content-Length: 280
 </CORSConfiguration>
 ```
 
-### 响应
+#### 响应
 
 ```sh
 HTTP/1.1 200 OK
