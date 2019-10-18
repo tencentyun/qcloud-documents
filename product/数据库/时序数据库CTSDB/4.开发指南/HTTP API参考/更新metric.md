@@ -35,7 +35,7 @@ options 属性如下：
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ## CURL 示例说明
-请求数据：
+请求：
 ```
 	curl -u root:le201909 -X PUT 172.16.345.14:9201/_metric/ctsdb_test/update -d'
 	{
