@@ -4,9 +4,9 @@
 
 #### Windows 
 
-前往 [下载地址](https://nodejs.org/en/download/)，选择 windows 32-bit 版本，安装 node 环境。
+前往 [下载地址](https://nodejs.org/en/download/)，选择 Windows 32-bit 版本，安装 node 环境。
 
->!trtc electron sdk 暂只支持 windows 32-bit 版本。
+>!trtc electron sdk 目前仅支持 Windows 32-bit 版本。
 
 #### Mac
 
