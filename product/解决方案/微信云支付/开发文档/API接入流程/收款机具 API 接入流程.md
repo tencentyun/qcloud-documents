@@ -469,7 +469,7 @@ request_str 即为 post 内容。
 		"description":"",
 		"log_id":18654852,
 		"internal_status":0,
-		"generate_bill_device_bind_qr_code_response":"{
+		"generate_bill_device_bind_qr_code":"{
 			"activator":"p9fa01zex4mi",
 			"token":"8azip8115bq",
 			"ttl":180,
@@ -601,7 +601,7 @@ request_str 即为 post 内容。
 		"description":"",
 		"log_id":18654852,
 		"internal_status":0,
-		"bill_device_bind_sn_response" : "{
+		"bill_device_bind_sn" : "{
 			"activated":1,
 			"out_mch_id":"aaa",
 			"out_sub_mch_id":"bbb",
