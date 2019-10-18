@@ -1,22 +1,17 @@
 ## 建立 Rollup 任务
-
 在海量数据场景下，业务系统每天甚至每小时会产生 PB 级别数据。而时序数据的最主要的特点就是海量性、时效性和趋势性，因此通常情况下，使用数据的系统（例如监控系统或数据分析系统）通常只需要最近时间段内的高精度数据，而历史数据只需降精度（Downsampling）保存即可。用户可通过配置 Rollup 任务定时聚合历史数据保存至新的数据表。Rollup 任务不仅能降精度保存历史数据，也能提高查询性能，降低存储成本。需要注意的是，Rollup 任务会自动根据 base_metric 建立子表，继承父表的所有配置，如果指定 options，会覆盖父表配置。
 
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200
+地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200。
 
 ### 2. 请求路径和方法
-
-路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称
+路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称。
 方法：PUT
 
 ### 3. 请求参数
-
 无
 
 ### 4. 请求内容
-
 | 参数名称      | 必选 | 类型   | 描述                                                         |
 | ------------- | ---- | ------ | ------------------------------------------------------------ |
 | base_metric   | 是   | string | Rollup 依赖的 metric 名称（父表）                            |
@@ -32,16 +27,11 @@
 | end_time      | 否   | string | 结束时间，到达该时间后不再调度 ，默认为时间戳最大值          |
 | options       | 否   | map    | rollup_metric 选项，跟新建 metric 选项一致                   |
 
-
-
 ### 5. 返回内容
-
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. CURL 示例说明
-
 请求：
-
 ```
 curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test -d'
 {
@@ -104,7 +94,6 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 ```
 
 返回：
-
 ```
 {
     "acknowledged": true,
@@ -113,34 +102,27 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 ```
 
 ## 获取所有 Rollup 任务的名称
-
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200
+地址为实例的 IP 和 PORT，可从控制台获取到，例如：10.13.20.15:9200。
 
 ### 2. 请求路径和方法
-
 路径：`/_rollups`
 方法：GET
 
 ### 3. 请求参数
-
 无
 
 ### 4. 请求内容
-
 无
 
 ### 5. 返回内容
-
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. CURL 示例说明
-
-请求：`curl -u root:le201909 -X GET 172.16.345.14:9201/_rollups`
+请求：
+`curl -u root:le201909 -X GET 172.16.345.14:9201/_rollups`
 
 返回：
-
 ```
 {
     "result": 
@@ -156,34 +138,27 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 ```
 
 ## 获取某个 Rollup 任务的详细信息
-
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
 
 ### 2. 请求路径和方法
-
-路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称
+路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`为 Rollup 任务的名称。
 方法：GET
 
 ### 3. 请求参数
-
 指定 v 参数可以查看 rollup 的具体进度，返回结构中的 @last_end_time 为 rollup 最新进度。
 
 ### 4. 请求内容
-
 无
 
 ### 5. 返回内容
-
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
-### 6. JSON 示例说明
-
-请求：`curl -u root:le201909 -X GET 172.16.345.14:9201/_rollup/rollup_jgq_6?v`
+### 6. CURL 示例说明
+请求：
+`curl -u root:le201909 -X GET 172.16.345.14:9201/_rollup/rollup_jgq_6?v`
 
 返回：
-
 ```
 {
   "result": {
@@ -223,8 +198,8 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
        "start_time": 1534003200,
        "end_time": 2147483647,
        "@state": "running",             // 运行状态
-       "@timestamp": 1550766085000,     // rollup任务信息更新的时间点
-       "@last_end_time": 1550764800     // rollup任务正确执行到的时间点
+       "@timestamp": 1550766085000,     // rollup 任务信息更新的时间点
+       "@last_end_time": 1550764800     // rollup 任务正确执行到的时间点
 
     }
   },
@@ -233,34 +208,27 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 ```
 
 ## 删除 Rollup 任务
-
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
 
 ### 2. 请求路径和方法
-
-路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`，为 Rollup 任务的名称
+路径：`/_rollup/${rollup_task_name}`，`${rollup_task_name}`，为 Rollup 任务的名称。
 方法：DELETE
 
 ### 3. 请求参数
-
 无
 
 ### 4. 请求内容
-
 无
 
 ### 5. 返回内容
-
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. CURL 示例说明
-
-请求：`curl -u root:le201909 -X DELETE 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test`
+请求：
+`curl -u root:le201909 -X DELETE 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test`
 
 返回：
-
 ```
 {
     "acknowledged": true,
@@ -269,22 +237,17 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 ```
 
 ## 更新 Rollup 任务
-
 ### 1. 请求地址
-
-地址为实例的 IP 和 PORT，例如：10.13.20.15:9200
+地址为实例的 IP 和 PORT，例如：10.13.20.15:9200。
 
 ### 2. 请求路径和方法
-
-路径：`/_rollup/${rollup_task_name}/update`，`${rollup_task_name}`为 Rollup 任务的名称
+路径：`/_rollup/${rollup_task_name}/update`，`${rollup_task_name}`为 Rollup 任务的名称。
 方法：POST
 
 ### 3. 请求参数
-
 无
 
 ### 4. 请求内容
-
 | 参数名称   | 必选 | 类型   | 描述                                                    |
 | ---------- | ---- | ------ | ------------------------------------------------------- |
 | state      | 是   | string | running/pause                                           |
@@ -293,13 +256,10 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test 
 | options    | 否   | map    | 聚合选项，跟新建 metric 选项一致                        |
 
 ### 5. 返回内容
-
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
 ### 6. CURL 示例说明
-
 请求：
-
 ```
 curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test/update -d'
 {
@@ -314,7 +274,6 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test/
 ```
 
 返回：
-
 ```
 {
     "acknowledged": true,
