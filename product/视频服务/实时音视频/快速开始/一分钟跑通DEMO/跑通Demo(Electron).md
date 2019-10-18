@@ -22,7 +22,7 @@ brew install node
  如果您已有应用，请记录其 SDKAppID 然后直接 [下载 SDK 和 Demo 源码](#step2)。否则，继续执行下一步。
 2. 填写新建应用的应用名称等信息，单击【确定】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
-![](https://main.qcloudimg.com/raw/b9d211494b6ec8fcea765d1518b228a1.png)
+![](https://main.qcloudimg.com/raw/1acc030cfc47e32bc36873c9a494b88a.png)
 
 <span id="step2"></span>
 ### 步骤2：下载 Demo 源码
@@ -32,8 +32,8 @@ brew install node
 ### 步骤3：查看并拷贝加密密钥
 1. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
 2. 单击【复制密钥】，将密钥拷贝到剪贴板中。
- ![](https://main.qcloudimg.com/raw/6ae2ee8958c5147a591a81136320fe21.png)
-
+ ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
+ 
 <span id="step4"></span>
 ### 步骤4：配置 Demo 工程文件
 Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法本地计算出 UserSig，用于快速跑通 Demo。
