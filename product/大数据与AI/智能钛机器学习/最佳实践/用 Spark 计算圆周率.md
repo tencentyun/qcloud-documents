@@ -1,225 +1,99 @@
 ## 场景背景
-智能钛机器学习平台的 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至框架进行算法训练。
-
-本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒，训练完成后您可进行模型服务部署和在线测试。
-
-## 数据集介绍
-本案例代码修改自 Tensorflow [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
-本案例使用公共的鸢尾花（iris）数据集训练模型，该数据集包含四个特征，分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，我们根据这四个特征将鸢尾花分成三种物种。
-
-```python
-CSV_COLUMN_NAMES = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
-SPECIES = ['Setosa', 'Versicolor', 'Virginica']
-```
+Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用程序并编译打包成 jar 包后，可通过智能钛机器学习平台提供的 Spark 框架运行自定义代码。本案例以利用 Spark 计算圆周率为例，向用户介绍：如何在智能钛机器学习平台上使用 Spark 框架，如何上传 jar 包，如何通过工作流页面向自定义代码传参，在自定义代码中如何读取 COS 上的文件，以及如何查看代码日志/报错信息。整个工作流运行耗时约几十秒。
 
 ## 整体流程
-在智能钛机器学习平台运行用户自定义 TensorFlow 代码，主要包含以下步骤：
-1.数据与代码准备。
-2.利用 TensorFlow 框架搭建分类模型。
-3.运行自定义代码及评估效果查看。
-4.模型部署及在线测试。
-工作流示意图如下：
-![](https://main.qcloudimg.com/raw/4b326182a9123aad246122ec0f747e57.png)
+在智能钛机器学习平台运行用户自定义 Spark 代码，主要包含以下步骤：
+1. 本地编译源代码，完成打包。
+2. 利用 Spark 框架完成圆周率计算。
+3. 查看工作流运行状态和结果。
 
+整体工作流如下：
+![](https://main.qcloudimg.com/raw/5cc167dabb65b8fe99abb866934b105d.png)
 
 ## 详细流程
-#### 一、数据与代码准备
-本案例代码取自 TensorFlow  [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started) ，您可通过链接下载，或直接拷贝以下代码。
-
-```python
-#  Copyright 2016 The TensorFlow Authors. All Rights Reserved.
-#
-#  Licensed under the Apache License, Version 2.0 (the "License");
-#  you may not use this file except in compliance with the License.
-#  You may obtain a copy of the License at
-#
-#   http://www.apache.org/licenses/LICENSE-2.0
-#
-#  Unless required by applicable law or agreed to in writing, software
-#  distributed under the License is distributed on an "AS IS" BASIS,
-#  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#  See the License for the specific language governing permissions and
-#  limitations under the License.
-"""An Example of a DNNClassifier for the Iris dataset."""
-from __future__ import absolute_import
-from __future__ import division
-from __future__ import print_function
-
-import argparse
-
-import tensorflow as tf
-
-import iris_data
-
-parser = argparse.ArgumentParser()
-
-parser.add_argument('--batch_size', default=100, type=int,
-                    help='batch size')
-parser.add_argument('--train_steps', default=1000, type=int,
-                    help='number of training steps')
-parser.add_argument('--train_path', type=str,
-                    help='path to the train data file.')
-parser.add_argument('--test_path', type=str,
-                    help='path to the test data file.')
-parser.add_argument('--export_dir', type=str,
-                    help='path to export the train model (.pb file)')
-
-
-def main(argv):
-    args = parser.parse_args(argv[1:])
-
-    # Fetch the data
-    (train_x, train_y), (test_x, test_y) = iris_data.load_data(args.train_path,
-                                                               args.test_path)
-
-    # Feature columns describe how to use the input.
-    my_feature_columns = []
-    for key in train_x.keys():
-        my_feature_columns.append(tf.feature_column.numeric_column(key=key))
-
-    # Build 2 hidden layer DNN with 10, 10 units respectively.
-    classifier = tf.estimator.DNNClassifier(
-        feature_columns=my_feature_columns,
-        # Two hidden layers of 10 nodes each.
-        hidden_units=[10, 10],
-        # The model must choose between 3 classes.
-        n_classes=3,
-    )
-
-    # Train the Model.
-    classifier.train(
-        input_fn=lambda: iris_data.train_input_fn(train_x, train_y,
-                                                  args.batch_size),
-        steps=args.train_steps)
-
-    # Evaluate the model.
-    eval_result = classifier.evaluate(
-        input_fn=lambda: iris_data.eval_input_fn(test_x, test_y,
-                                                 args.batch_size))
-
-    def serving_input_receiver_fn():
-        input_placeholder = tf.placeholder(shape=[4], dtype=tf.string)
-        sepal_length_placeholder = tf.strings.to_number(input_placeholder[0:1])
-        sepal_width_placeholder = tf.strings.to_number(input_placeholder[1:2])
-        petal_length_placeholder = tf.strings.to_number(input_placeholder[2:3])
-        petal_width_placeholder = tf.strings.to_number(input_placeholder[3:])
-
-        # How the input data is fed into model_fn.
-        features = {
-            "SepalLength": sepal_length_placeholder,
-            "SepalWidth": sepal_width_placeholder,
-            "PetalLength": petal_length_placeholder,
-            "PetalWidth": petal_width_placeholder
-        }
-
-        return tf.estimator.export.ServingInputReceiver(features,
-                                                        input_placeholder)
-
-    if not tf.gfile.Exists(args.export_dir):
-        tf.gfile.MakeDirs(args.export_dir)
-
-    classifier.export_saved_model(
-        export_dir_base=args.export_dir,
-        serving_input_receiver_fn=serving_input_receiver_fn)
-
-    print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
-
-    # Generate predictions from the model
-    expected = ['Setosa', 'Versicolor', 'Virginica']
-    predict_x = {
-        'SepalLength': [5.1, 5.9, 6.9],
-        'SepalWidth': [3.3, 3.0, 3.1],
-        'PetalLength': [1.7, 4.2, 5.4],
-        'PetalWidth': [0.5, 1.5, 2.1],
-    }
-
-    predictions = classifier.predict(
-        input_fn=lambda: iris_data.eval_input_fn(predict_x,
-                                                 labels=None,
-                                                 batch_size=args.batch_size))
-
-    template = '\nPrediction is "{}" ({:.1f}%), expected "{}"'
-
-    for pred_dict, expec in zip(predictions, expected):
-        class_id = pred_dict['class_ids'][0]
-        probability = pred_dict['probabilities'][class_id]
-
-        print(template.format(iris_data.SPECIES[class_id],
-                              100 * probability, expec))
-
-
-if __name__ == '__main__':
-    tf.logging.set_verbosity(tf.logging.INFO)
-    tf.app.run(main)
+#### 一、本地准备
+1. 下载代码
+本案例使用的计算圆周率代码来自 Spark 官方：[利用 Spark 框架计算圆周率](https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/SparkPi.scala)，您也可通过链接下载，或直接拷贝以下代码到本地进行编译。
 
 ```
+计算圆周率代码：
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ *
+ *    http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
-#### 二、利用 TensorFlow 组件搭建分类模型
-TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
-- Python 2.7/3.5
-- SciPy 1.0.0
-- NumPy 1.14.0
+// scalastyle:off println
+package org.apache.spark.examples
 
-1. 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
-![](https://main.qcloudimg.com/raw/abf4a19d08cea703419b41025b754e09.png)
-2. 点击该组件，在右侧弹窗中配置组件参数和资源参数。
-![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
-- 程序脚本：
-- 单击此处上传用户的自定义代码。
-- 在本文中，内容为上文代码。您可以点击上传本地文件，或选择【新建脚本】，贴入上段代码，将其命名为premade_estimator.py
-![](https://main.qcloudimg.com/raw/33d68e6e69f2fedd333d8a08a4b02943.png)
-![](https://main.qcloudimg.com/raw/0767250d3643a459a3f805bcf026092d.png)
-- 依赖包文件：
-- 如果入口脚本需要 import 项目中的其它自己编写的模块，需要将其它模块的代码上传至此。多个.py文件需要压缩成 zip 包上传，该 zip 包会被添加到 Python 的 path 中。
-- 在本文中，我们将 iris_data.py 和 estimator_test.py 两个文件压缩成 iris.zip，文件来自 [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started) ，您可通过链接下载，将其压缩并上传至【依赖包文件】中。
-![](https://main.qcloudimg.com/raw/a9ea4eb1ded824bd5ae9f5fdc8219c2b.png)
-![](https://main.qcloudimg.com/raw/f7fe44d99b0dddb4e977417642d8ddc2.png)
-- 程序参数：此处填入用户自定义参数，自定义参数将会传递给入口 py 文件。用户可以在自己的cos存储桶中先新建一个文件夹，命名为tf_model，模型将会存储至该路径中，以便后续导入模型时查找。
+import scala.math.random
 
+import org.apache.spark.sql.SparkSession
+
+/** Computes an approximation to pi */
+object SparkPi {
+  def main(args: Array[String]) {
+    val spark = SparkSession
+      .builder
+      .appName("Spark Pi")
+      .getOrCreate()
+    val slices = if (args.length > 0) args(0).toInt else 2
+    val n = math.min(100000L * slices, Int.MaxValue).toInt // avoid overflow
+    val count = spark.sparkContext.parallelize(1 until n, slices).map { i =>
+      val x = random * 2 - 1
+      val y = random * 2 - 1
+      if (x*x + y*y <= 1) 1 else 0
+    }.reduce(_ + _)
+    println(s"Pi is roughly ${4.0 * count / (n - 1)}")
+    spark.stop()
+  }
+}
+// scalastyle:on println
 ```
---train_path ${ai_dataset_lib}/demo/other/iris_training.csv
-     
---test_path ${ai_dataset_lib}/demo/other/iris_test.csv
-     
---export_dir ${cos}/tf_model
-```
 
-- TensorBoard目录：指定 Tensorboard 保存路径。本案例此处无需填写。
-- 程序依赖：指定存储于cos上的依赖文件的路径，指定内容将被拷贝到程序脚本同一级目录下。本案例此处无需填写。
-- Python 版本：3.5
-- GPUs：深度学习网络用到了 GPU 资源， 可以极大地提高训练速度。 单击该选项，在对话框中选择合适的显卡型号和数量，此处默认0。
-- CPUs：1
-- Memory（m）：2560
+2. 本地打包
+由于智能钛机器学习平台内置的 Spark 版本是2.4，所以用户在本地打包时请引入 Spark 2.4 相关的依赖。您可以选择 sbt 或者 maven 作为打包工具，并将打包后的 jar 包命名为 pi-1.0.jar 。您也可以直接下载我们打包好的 [jar 包](https://csy-classification-1256633383.cos.ap-shanghai.myqcloud.com/pi-1.0.jar) 进行以下步骤的使用体验。
 
-#### 三、运行调度及评估效果查看
-单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。运行成功后在组件上右击，单击【日志信息】>【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。在 stdout.log 日志中我们可以看到模型效果。
+#### 二、利用 Spark 框架完成圆周率计算
+1. 在智能钛控制台的左侧导航栏，选择【框架】>【机器学习】>【Spark】，并拖入画布中。
+![](https://main.qcloudimg.com/raw/764a232d6c49113d1d978b1be7ece94c.png)
+2. 配置组件参数
+>?Spark 框架需用户上传自己的 jar 包，PySpark 框架需用户上传 Python 文件。
+ 
+ -  在右侧弹出的配置栏中，单击【作业 jar 包】：上传用户在本地编译源代码后打的 jar 包：[pi-1.0.jar](https://csy-classification-1256633383.cos.ap-shanghai.myqcloud.com/pi-1.0.jar)（您也可以直接下载我们打好的 jar 包进行体验）。
+ - 主类名：org.apache.spark.examples.SparkPi （填写格式与代码名保持一致，即：包名+类名）。
+![](https://main.qcloudimg.com/raw/2a9ebb2aab9571d58cd8003dcc4c6ac5.png)
+ - 程序参数：100（此处填写用户自定义参数取值，在代码中可通过参数 args[0] 读取用户填写的第一个值，args[1] 读取第二个值，以此类推）。
+![](https://main.qcloudimg.com/raw/365f1f51da0e38aa6b40fab790909c1e.png)
+ - 配置文件：此案例中无需配置文件（该参数代表的资源文件在代码中可通过 getResourceAsStream('xxx.txt') 获取）。
 
-![](https://main.qcloudimg.com/raw/2c231f21bd7d73b396468779e1bbc112.png)
-![](https://main.qcloudimg.com/raw/7fea23b8c09ed6e1e5bc70fda8f55c44.png)
-![](https://main.qcloudimg.com/raw/715f546ff695d3965ec4e5f69d0e6a9a.png)
+3. 配置资源参数（用户可根据自身代码调整分配资源）
+ - num-executors：1（spark executor 的数量） 
+ - driver-memory：1（spark driver 的内存大小，单位 G）
+ - executor-cores：2（spark executor 的 CPU 核数）
+ - executor-memory：1（spark executor 的内存大小，单位 G）
+ - spark-conf：本案例中可不填（spark 的配置参数，例如 spark.shuffle.service.enabled=false，用空格或者回车分割多个 conf）
+![](https://main.qcloudimg.com/raw/f186c28228adc9a16196ac6a195f96a8.png)
+4. 运行工作流
+单击右键【Spark】，选择起点运行，待运行成功（耗时约20s）。
+![](https://main.qcloudimg.com/raw/747d9f84ee19f8fb24d5eefd6753c199.png)
 
-#### 四、模型部署及在线预测
-智能钛平台支持 TensorFlow 的模型部署，用户在 TensorFlow 代码中生成模型后，可在模型仓库页面进行部署。
-1. 模型导入
-前往【模型仓库】页面，单击【导入模型】，按照页面弹窗提示输入所需要的信息。
-![](https://main.qcloudimg.com/raw/8efcb1f829ad40a097ae4e9112a43a0d.png)
-![](https://main.qcloudimg.com/raw/c4ed993a0768bb3356052489ad0e4f17.png)
+#### 三、查看工作流运行状态和结果
+1. 单击右键【Spark】，选择【日志信息】>【Spark 控制台】可查看该工作流运行相关日志。
+![](https://main.qcloudimg.com/raw/8b27c540eabfdcefdd82a97ac5c4ae5c.png)
+>?右键【Spark】>【日志信息】>【查看日志】/【历史日志】是任务提交的后台日志，一般不用关注。
 
- - cos路径：模型导入需要上传 .pmml/.pb/.zip 格式的文件，TensorFlow 的模型文件储存在 COS 中，我们在 COS 存储桶中找到此前创建的【tf_model】文件夹，将其中的两个模型文件下载并压缩成 .zip 格式，单击【本地上传】。
- - 模型名称：tfmodel
-![](https://main.qcloudimg.com/raw/e83ebfa2a6f156e6c8eff4498f4b223a.png)
-成功导入后，模型将在【模型服务】中展示。
-2. 模型部署
-进入【模型仓库】页面，单击【部署】，在弹框中进行模型部署设置。
- - 模型服务名称：tfmodel
- - 运行环境：tfserving/1.12
- - 其他参数可默认
-![](https://main.qcloudimg.com/raw/a23468a8f04519dc21f2235e24461023.png)
-3. 在线测试
-模型部署完成后，可以在【模型服务】页面进行查看和在线测试。在此模型的【操作】栏中选择【更多】-【测试】，测试方法选择【JSON】，输入符合规范的 JSON 代码即可在线预测。
-![](https://main.qcloudimg.com/raw/c25e2bc056159fd940b472215944de87.png)
+2. 单击【driver.log】 即可在日志中查看圆周率 PI 的计算结果。
+![](https://main.qcloudimg.com/raw/c1a21f988bb1dc78bbc473800d3c28e7.png)
 
-我们已为您准备好了如下测试案例，输入鸢尾花的四个特征，预测该花朵属于哪一类别。将如下代码输入弹框中，点击【测试】，即可得到测试结果。
-`{"inputs": ["5.1", "3.3", "1.7", "0.5"]}`
-![](https://main.qcloudimg.com/raw/162063cc910d7becdbbf127bea56894d.png)
-由上图可知，该鸢尾花分别属于三种类别的概率，以此判断该花朵的种类是 0，即 Setosa 。至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码以及模型部署和在线预测的全部流程。
