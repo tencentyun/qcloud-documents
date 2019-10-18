@@ -3,7 +3,7 @@
 腾讯云视频通话功能的主要接口类。
 
 
-### 创建TRTC对象
+### 创建 TRTC 对象
 ```js
 const TRTCEngine = require('trtc-electron-sdk');
 this.rtcEngine = new TRTCEngine();
