@@ -1,19 +1,16 @@
-### 请求地址 
+## 请求地址 
+地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200。
 
-地址为实例的 IP 和 PORT，可从控制台获取到，例如10.13.20.15:9200
-
-### 请求路径和方法
-
-- 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称
+## 请求路径和方法
+- 路径：`/_metric/${metric_name}`，`${metric_name}` 为新建的 metric 的名称。
 - 方法：PUT
 
-> ?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/13611)。
+>?`metric` 命名限制请参见 [系统限制](https://cloud.tencent.com/document/product/652/13611)。
 
-### 请求参数 
-
+## 请求参数 
 无
 
-### 请求内容
+## 请求内容
 
 | 参数名称 | 必选 | 类型 | 描述                                                         |
 | -------- | ---- | ---- | ------------------------------------------------------------ |
@@ -22,7 +19,7 @@
 | fields   | 否   | map  | 指标列，为了节省空间，建议使用最适合实际业务使用的类型，支持的数据类型：string（字符串）、long、integer、short、byte、double、float、date、boolean。<br>例如`{"cpu_usage":"float"}` |
 | options  | 否   | map  | 常用的调优配置信息<br>例如`{"expire_day":7,"refresh_interval":"10s","number_of_shards":5,"number_of_replicas":1,"rolling_period":1,"max_string_length": 256,"default_date_format":"strict_date_optional_time","indexed_fields":["host"]}` |
 
-> !
+>!
 >
 > - time 字段的 name 默认为 timestamp，时间格式（format）完全兼容 Elasticsearch 的时间格式，如 epoch_millis（以毫秒为单位的 Unix 时间戳）、epoch_second（以秒为单位的 Unix 时间戳）、basic_date（格式如 yyyyMMdd）、basic_date_time（格式如 yyyyMMdd'T'HHmmss.SSSZ）等。
 > - options 选项及解释如下：
@@ -45,12 +42,10 @@
 > | ＞3个月         | 30天     |
 > | 永不过期        | 30天     |
 
-### 返回内容 
-
+## 返回内容 
 需要通过 error 字段判断请求是否成功，若返回内容有 error 字段则请求失败，具体错误详情请参照 error 字段描述。
 
-### JSON 示例说明
-
+## JSON 示例说明
 请求：
 
 ```
