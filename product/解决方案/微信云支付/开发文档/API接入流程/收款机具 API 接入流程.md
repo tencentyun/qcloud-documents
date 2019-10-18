@@ -871,7 +871,7 @@ return w.write(request);
 
 #### 接口地址
 
-`https://pay.qcloud.com/cpay/device_info_report`
+`https://pay.qcloud.com/cpay/device_report`
 
 #### 请求参数
 
