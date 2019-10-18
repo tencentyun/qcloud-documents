@@ -33,7 +33,7 @@
 8. 在弹出的 “设置ConfigMap” 窗口中，参考以下信息配置挂载点，并单击【确认】。如下图所示：
  - **选择ConfigMap**：根据实际需求进行。
  - **选项**：提供“全部”和“指定部分Key”两种选择。
- - **items**：当选择“指定部分Key”选项时，可以通过添加 item 向特定路径挂载，如挂载点是 `/data/config`，子路径是 `dev`，最终会存储在 `/data/config/dev` 下。
+ - **Items**：当选择“指定部分Key”选项时，可以通过添加 item 向特定路径挂载，如挂载点是 `/data/config`，子路径是 `dev`，最终会存储在 `/data/config/dev` 下。
 ![](https://main.qcloudimg.com/raw/5658bc285aecaf7915f0b46fbd6be9a0.png)
 9. 单击【创建Workload】，完成创建。
 
