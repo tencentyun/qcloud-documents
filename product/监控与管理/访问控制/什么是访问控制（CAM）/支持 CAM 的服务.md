@@ -139,7 +139,7 @@
 | [云直播](https://cloud.tencent.com/document/product/267/34301)   | 资源级| &#10003; | &#10003;  | &#10003;   |  &#10003;  |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 服务级   | &#10003;  | -    | -   |  -  |	
 | [视频处理](https://cloud.tencent.com/document/product/862)    | 服务级   | &#10003;  | -    | &#10003;    |  &#10003;   |	
-| [互动直播](https://cloud.tencent.com/document/product/268) | 服务级  | &#10003;   | -   | -     | -   |	
+| [互动直播](https://cloud.tencent.com/solution/ilvb) | 服务级  | &#10003;   | -   | -     | -   |	
 
 ## 云智大数据平台
 
