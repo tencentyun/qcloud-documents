@@ -15,15 +15,37 @@ LNMP 环境代表 Linux 系统下 Nginx + MySQL/MariaDB + PHP 组成的网站服
 当您登录 Linux 云服务器后，可以按照以下步骤分别安装 Nginx， MySQL 和 PHP。
 
 ### 步骤1：安装 Nginx
-1. 执行以下命令，安装 Nginx。
+1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
-yum -y install nginx
+vi /etc/yum.repos.d/nginx.repo
+```
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入以下内容。
+ - CentOS 6.9 请写入以下内容：
+```
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/mainline/centos/6/$basearch/
+gpgcheck=0
+enabled=1
+```
+ - CentOS 7.6 请写入以下内容：
+```
+[nginx] 
+name = nginx repo 
+baseurl = https：//nginx.org/packages/mainline/centos/7/$basearch/ 
+gpgcheck = 0 
+enabled = 1
+```
+3. 依次执行以下命令，安装 nginx。
+```
+yum update
+yum install nginx
 ```
 2. 执行以下命令，打开 `nginx.conf` 文件。
 ```
 vim /etc/nginx/nginx.conf
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `nginx.conf` 文件中 server{...} 的内容替换成以下内容。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容写入 http{ ...} 中。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
