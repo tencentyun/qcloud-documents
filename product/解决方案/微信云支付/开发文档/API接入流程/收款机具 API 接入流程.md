@@ -899,11 +899,11 @@ return w.write(request);
 | network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
-| mcc                     | 否   | String         |     -       | 基站国家码。                                        |
-| mnc                     | 否   | String         |     -       | 基站网络码。                                        |
-| lac                     | 否   | String         |    -        | 基站小区号。                                        |
-| cellid                  | 否   | String         |     -       | 基站 ID。                                            |
-| rss                     | 否   | String         |      -      | 基站信号强度，单位 dbm。                             |
+| mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |
+| mnc                     | 否   | String         |     -       | 基站网络码，十进制数字字符串。                                      |
+| lac                     | 否   | String         |    -        | 基站小区号，十进制数字字符串。                                |
+| cellid                  | 否   | String         |     -       | 基站 ID，十进制数字字符串。                                 |
+| rss                     | 否   | String         |      -      | 基站信号强度，单位 dbm，十进制数字字符串。                      |
 | longitude               | 否   | String         |    -        | 经度。                                              |
 | latitude                | 否   | String         |      -      | 纬度。                                              |
 | wx_pay_count            | 是   | Int            | 4          | 累计微信支付笔数，上报后清零计数。                  |
