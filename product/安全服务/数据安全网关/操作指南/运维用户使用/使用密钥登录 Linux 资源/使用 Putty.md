@@ -6,7 +6,7 @@
 
 ## 操作步骤
 
-### 步骤1：工具生成密钥对
+### 步骤1：生成密钥对
 1. 打开 Putty 安装目录，双击运行 puttygen.exe。
 2. 打开后，选择密钥对类型及长度，选择 Generate 生成密钥对。
 <img src="https://main.qcloudimg.com/raw/8f6073ef798ed32011db3e9cb048c668.png"  width="70%">
