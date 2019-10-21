@@ -177,9 +177,9 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 上传完成后如下图展示：
 ![](https://main.qcloudimg.com/raw/e6ffc297777ab6d4aad4f6aa2c5586c9.png)
  - 程序参数：此处填入用户自定义参数，自定义参数将会传递给入口 py 文件。用户可以在自己的 COS 存储桶中先新建一个文件夹，命名为tf_model，模型将会存储至该路径中，以便后续导入模型时查找。
-	--train_path ${ai_dataset_lib}/demo/other/iris_training.csv	
-	--test_path ${ai_dataset_lib}/demo/other/iris_test.csv
-	--export_dir ${cos}/tf_model
+				--train_path ${ai_dataset_lib}/demo/other/iris_training.csv
+				--test_path ${ai_dataset_lib}/demo/other/iris_test.csv
+				--export_dir ${cos}/tf_model
  - TensorBoard 目录：指定 Tensorboard 保存路径。本案例此处无需填写。
  - 程序依赖：指定存储于cos上的依赖文件的路径，指定内容将被拷贝到程序脚本同一级目录下。本案例此处无需填写。
  - Python 版本：3.5
