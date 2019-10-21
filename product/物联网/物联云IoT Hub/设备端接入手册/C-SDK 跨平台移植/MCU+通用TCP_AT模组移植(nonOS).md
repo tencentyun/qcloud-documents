@@ -15,7 +15,7 @@
 | COMPILE_TOOLS                    | gcc/MSVC      | 根据需要设置，IDE 情况不关注            |
 | PLATFORM                         | linux/windows | 根据需要设置，IDE 情况不关注                |
 | FEATURE_OTA_COMM_ENABLED         | ON/OFF       | 根据需要设置                     |
-| FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选秘钥认证    |
+| FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选密钥认证    |
 | FEATURE_AUTH_WITH_NOTLS          | ON/OFF        | 根据需要是否使能 TLS             |
 | FEATURE_EVENT_POST_ENABLED       | ON/OFF        | 根据需要是否使能事件上报    |
 | FEATURE_AT_TCP_ENABLED           | ON        | 使能 at_socket 组件                          |
