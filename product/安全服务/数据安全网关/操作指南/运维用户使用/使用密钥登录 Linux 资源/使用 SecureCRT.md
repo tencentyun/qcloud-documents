@@ -29,17 +29,19 @@
 ![](https://main.qcloudimg.com/raw/57b28db46c65a5e0019de5cc48d31e5f.png)
 2. 单击【OK】，配置即可生效，进行密钥直连目标机。
 ![](https://main.qcloudimg.com/raw/dde5874988d3e5798c7d4144e03df84e.png)
-![](https://main.qcloudimg.com/raw/a340fb44e40c41ace13c37ea2fa79c3d.png)
+<img src="https://main.qcloudimg.com/raw/a340fb44e40c41ace13c37ea2fa79c3d.png"  width="80%">
 
 ### 步骤3：实现密钥单点登录
 1. 打开 SecureCRT 工具，选择【Options】>【Global Options】>【SSH2】，将 Enable OpenSSHell agent forwarding 选项勾选上。
-![](https://main.qcloudimg.com/raw/796fa653c9c669702b834b67f2ce7fa1.png)
+<img src="https://main.qcloudimg.com/raw/796fa653c9c669702b834b67f2ce7fa1.png"  width="80%">
 2. 选择【Tools】>【Manage Agent Keys】。
-![](https://main.qcloudimg.com/raw/a47db4ad1428ca4535c73fd925cf1e12.png)
+<img src="https://main.qcloudimg.com/raw/a47db4ad1428ca4535c73fd925cf1e12.png"  width="80%">
 3. 将私钥文件加入到 Agent 服务中，即可生效进行目标设备的单点登录。
-![](https://main.qcloudimg.com/raw/17d01226a639c19a9353a406b44f7106.png)
+ <img src="https://main.qcloudimg.com/raw/17d01226a639c19a9353a406b44f7106.png"  width="80%"> 
 >!SecureCRT 工具 Manage Agent Keys 组件添加私钥文件，关闭工具后失效，需每次单点登录前打开 SecureCRT 工具手动添加私钥文件并保持 SecureCRT 工具打开）
 4. 打开浏览器，登录堡垒机。在登录界面，选择登录的账号和登录工具，单击【连接】。
-![](https://main.qcloudimg.com/raw/dcf204f21377e471d583085b31dca044.png)
-5. 即可实现单点登录。
-![](https://main.qcloudimg.com/raw/922b353eddfca911d839b2a390285f41.png)
+ <img src="https://main.qcloudimg.com/raw/dcf204f21377e471d583085b31dca044.png"  width="80%">
+5. 即可实现单点登录。                                                                                                                                             
+
+	<img src="https://main.qcloudimg.com/raw/922b353eddfca911d839b2a390285f41.png"  width="80%">
+
