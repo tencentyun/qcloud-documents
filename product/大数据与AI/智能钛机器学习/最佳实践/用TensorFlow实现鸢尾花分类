@@ -157,11 +157,14 @@ if __name__ == '__main__':
 #### 二、利用 TensorFlow 组件搭建分类模型
 TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提供了 GPU 集群平台，用户只需申请权限就可以简单配置深度学习任务。Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
 - Python 2.7/3.5
-- SciPy 1.0.0 - NumPy 1.14.0
-- 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
+- SciPy 1.0.0
+- NumPy 1.14.0
+
+1. 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
 ![](https://main.qcloudimg.com/raw/abf4a19d08cea703419b41025b754e09.png)
-- 单击该组件，在右侧弹窗中配置组件参数和资源参数。
+2. 单击该组件，在右侧弹窗中配置组件参数和资源参数。
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
+
 - 程序脚本：
  - 单击此处上传用户的自定义代码。
  - 在本文中，内容为上文代码。您可以点击上传本地文件，或选择【新建脚本】，贴入上段代码，将其命名为premade_estimator.py
