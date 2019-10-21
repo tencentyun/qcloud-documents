@@ -11,15 +11,15 @@
 
 | 节点名          | 父节点   | 描述                                             | 类型   | 是否必选 |
 | --------------- | -------- | ------------------------------------------------ | ------ | -------- |
-| ETag            | Location | 指定对象清单的 etag。长度1-1024字节。            | String | 是       |
-| ObjectArn       | Location | 指定对象清单的唯一资源标识符，长度为1~1024字节。 | String | 是       |
-| ObjectVersionId | Location | 指定对象清单的版本 ID，长度为1~1024字节。        | String | 否       |
+| ETag            | Location | 指定对象清单的 etag。长度1 - 1024字节。            | String | 是       |
+| ObjectArn       | Location | 指定对象清单的唯一资源标识符，长度为1 - 1024字节。 | String | 是       |
+| ObjectVersionId | Location | 指定对象清单的版本 ID，长度为1 - 1024字节。        | String | 否       |
 
 ### Spec
 
 | 节点名 | 父节点 | 描述                                                         | 类型             | 是否必选 |
 | ------ | ------ | ------------------------------------------------------------ | ---------------- | -------- |
-| Fields | Spec   | 描述清单中包含的字段，当 Format 为 COSBatchOperations_CSV_V1时，需要使用此元素指定 csv 文件字段。合法字段为：Ignore/Bucket/Key/VersionId | Array of Strings | 否       |
+| Fields | Spec   | 描述清单中包含的字段，当 Format 为 COSBatchOperations_CSV_V1 时，需要使用此元素指定 CSV 文件字段。合法字段为：Ignore/Bucket/Key/VersionId | Array of Strings | 否       |
 | Format | Spec   | 指定对象清单的格式信息。合法字段为： COSBatchOperations_CSV_V1 / COSInventoryReport_CSV_V1 | String           | 是       |
 
 ### Operation 
@@ -36,12 +36,12 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | ------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------- | -------- |
 | AccessControlGrants       | COSPutObjectCopy | 控制 Object 的具体访问权限。                                 | AccessControlGrants Object | 否       |
 | CannedAccessControlList   | COSPutObjectCopy | 定义 Object 的 ACL 属性。有效值：private，public-read        | String                     | 否       |
-| MetadataDirective         | COSPutObjectCopy | 是否拷贝源文件的元数据，枚举值：Copy，Replaced。默认值 Copy。假如标记为 Copy，则拷贝源文件的元数据；假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。 | String                     | 否       |
+| MetadataDirective         | COSPutObjectCopy | 是否拷贝源文件的元数据，枚举值：Copy，Replaced。默认值 Copy。<br><li>假如标记为 Copy，则拷贝源文件的元数据。<br><li>假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。 | String                     | 否       |
 | ModifiedSinceConstraint   | COSPutObjectCopy | 当 Object 在指定时间后被修改，则执行操作，否则返回412。      | Timestamp                  | 否       |
 | UnModifiedSinceConstraint | COSPutObjectCopy | 当 Object 在指定时间后未被修改，则执行操作，否则返回412。    | Timestamp                  | 否       |
 | NewObjectMetadata         | COSPutObjectCopy | 配置 Object 的元数据                                         | NewObjectMetadata Object   | 否       |
 | StorageClass              | COSPutObjectCopy | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
-| TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如：`qcs::cos:ap-beijing::result-1250000000` | String                     | 是       |
+| TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-beijing::result-1250000000` | String                     | 是       |
 
 ### AccessControlGrants
 
@@ -83,7 +83,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | Bucket      | Report | 任务完成报告的投递存储桶。                                   | String  | 是       |
 | Enabled     | Report | 是否输出任务完成报告。                                       | Boolean | 是       |
 | Format      | Report | 任务完成报告格式信息。合法值： Report_CSV_V1                 | String  | 是       |
-| Prefix      | Report | 任务完成报告的前缀信息。长度0-256字节                        | String  | 否       |
+| Prefix      | Report | 任务完成报告的前缀信息。长度0 - 256字节                        | String  | 否       |
 | ReportScope | Report | 任务完成报告所需记录的任务信息，以确定记录所有操作执行信息还是失败操作的信息。合法值：AllTasks/FailedTasksOnly | String  | 是       |
 
 ### ProgressSummary
