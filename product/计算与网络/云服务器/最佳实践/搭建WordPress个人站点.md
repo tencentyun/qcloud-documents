@@ -224,7 +224,7 @@ CREATE USER user;
 ```
 4. 执行以下命令，为 “user” 用户设置密码。例如 “wordpresspassword”。
 ```
-SET PASSWORD FOR user=PASSWORD("wordpresspassword");
+SET PASSWORD FOR user=PASSWORD('wordpresspassword');
 ```
 5. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
 ```
