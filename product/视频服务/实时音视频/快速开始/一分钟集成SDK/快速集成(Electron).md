@@ -30,7 +30,7 @@ npm install trtc-eletron-sdk --save
 在项目脚本里引入模块。
 
 ```javascript
-const TRTCEngine = require('trtc-electron-sdk');
+const TRTCCloud = require('trtc-electron-sdk');
 ```
 
 ## 常见问题
