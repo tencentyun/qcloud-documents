@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 LNMP 环境代表 Linux 系统下 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 6.9 及 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
 
 ## 技能要求
@@ -36,16 +36,16 @@ baseurl = https：//nginx.org/packages/mainline/centos/7/$basearch/
 gpgcheck = 0 
 enabled = 1
 ```
-3. 依次执行以下命令，安装 nginx。
+3. 执行以下命令，安装 nginx。
 ```
-yum update
 yum install nginx
 ```
-2. 执行以下命令，打开 `nginx.conf` 文件。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，打开 `nginx.conf` 文件。
 ```
 vim /etc/nginx/nginx.conf
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容写入 http{ ...} 中。
+6. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容写入 http{ ...} 中。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
@@ -91,7 +91,7 @@ systemctl enable nginx
 ```
 6. 在浏览器中，输入云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
-![](https://main.qcloudimg.com/raw/aafa7ee638e68a8771953908a06fd704.png)
+![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 ### 步骤2：安装配置 PHP
 由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
