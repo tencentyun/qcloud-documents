@@ -1,14 +1,14 @@
 ## 功能描述
 
-CreateJob 用于在存储桶中创建批量处理任务。详细信息可参见 [批量处理概述](https://cloud.tencent.com/document/product/***/****)。
+CreateJob 用于在存储桶中创建批量处理任务。详细信息可参见 [批量处理概述](https://cloud.tencent.com/document/product/436/38601)。
 
-调用该请求时，请确保您有足够的权限对存储桶的对象进行操作；存储桶所有者默认拥有该权限，如您无该项权限，请先向存储桶所有者申请该项操作的权限。
+调用该请求时，请确保您有足够的权限对存储桶的对象进行操作。存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。
 
 ## 请求
 
-**请求示例**
+#### 请求示例
 
-```
+```shell
 POST /jobs HTTP/1.1
 x-cos-appid: <appid>
 <?xml version="1.0" encoding="UTF-8"?>
@@ -17,21 +17,21 @@ x-cos-appid: <appid>
 </CreateJobRequest>
 ```
 
-**请求参数**
+#### 请求参数
 
 调用 CreateJob 所需的参数。该参数格式如下：
 
 | 参数        | 描述                     | 必选 |
 | ----------- | ------------------------ | ---- |
-| x-cos-appid | 用户 UIN，长度1-64字节。 | 是   |
+| x-cos-appid | 用户 UIN，长度1 - 64字节。 | 是   |
 
-**请求头**
+#### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-**请求体**
+#### 请求体
 用户在请求体中使用 XML 语言设置清单任务的具体配置信息。配置信息包括清单任务分析的对象，分析的频次，分析的维度，分析结果的格式及存储的位置等信息。
 
-```
+```shell
 <CreateJobRequest>
     <ClientRequestToken>string</ClientRequestToken>
     <ConfirmationRequired>boolean</ConfirmationRequired>
@@ -112,12 +112,12 @@ x-cos-appid: <appid>
 
 | 节点名               | 父节点           | 描述                                                         | 类型             | 是否必选 |
 | -------------------- | ---------------- | ------------------------------------------------------------ | ---------------- | -------- |
-| ClientRequestToken   | CreateJobRequest | 每个请求唯一的 token，用于避免前端重复发起同一批处理任务。长度为1-64字节，建议使用 uuid。 | String           | 是       |
+| ClientRequestToken   | CreateJobRequest | 每个请求唯一的 token，用于避免前端重复发起同一批处理任务。长度为1 - 64字节，建议使用 uuid。 | String           | 是       |
 | ConfirmationRequired | CreateJobRequest | 是否在执行任务前进行确认。缺省项为 false。                   | Boolean          | 否       |
-| Description          | CreateJobRequest | 任务描述。若您在创建任务时配置了此信息，则会返回该项内容。描述长度范围为0~256字节。 | String           | 否       |
+| Description          | CreateJobRequest | 任务描述。若您在创建任务时配置了此信息，则会返回该项内容。描述长度范围为0 - 256字节。 | String           | 否       |
 | Manifest             | CreateJobRequest | 待处理的对象清单。您需要将需要处理的对象记录在此对象清单内。 | Manifest Object  | 是       |
 | Operation            | CreateJobRequest | 您需要对清单内的对象批量执行的操作。目前 COS 支持的操作为`PUT Object-Copy`操作，您可以据此批量复制桶内的存量数据。 | Operation Object | 是       |
-| Priority             | CreateJobRequest | 任务优先级。越高的数值代表此项任务的优先级越高。优先级数值范围为0~2147483647 | Integer          | 是       |
+| Priority             | CreateJobRequest | 任务优先级。越高的数值代表此项任务的优先级越高。优先级数值范围为0 - 2147483647。 | Integer          | 是       |
 | Report               | CreateJobRequest | 任务完成报告。您可配置此参数以在任务完成时输出报告，方便审计任务执行状况。 | Report Object    | 是       |
 | RoleArn              | CreateJobRequest | COS 资源标识符，此处用于标识您创建的角色。你需要此资源标识符以验证您的身份。 | String           | 是       |
 
@@ -125,11 +125,11 @@ x-cos-appid: <appid>
 
 **响应头**
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 **响应体**
 
-```
+```shell
 <CreateJobResult>
    <JobId>string</JobId>
 </CreateJobResult>
@@ -141,16 +141,16 @@ x-cos-appid: <appid>
 
 | 节点名 | 父节点          | 描述                                                         | 类型   |
 | ------ | --------------- | ------------------------------------------------------------ | ------ |
-| JobId  | CreateJobResult | 任务 Id。当您成功创建一项任务后，COS 自动返回的 Id。长度1-64字节。 | String |
+| JobId  | CreateJobResult | 任务 Id。当您成功创建一项任务后，COS 自动返回的 Id，长度1 - 64字节。 | String |
 
 **错误分析**
 
-该请求可能会发生的一些常见的特殊错误如下。其他错误请参见 [对象存储批量处理功能错误响应](https://cloud.tencent.com/document/product/***/****)。
+该请求可能会发生的一些常见的特殊错误如下。其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
 | 错误代码           | 描述                                      | 状态码 | API       |
 | ------------------ | ----------------------------------------- | ------ | --------- |
 | InvalidRequest     | 重复的请求                                | 400    | CreateJob |
-| InvalidRequest     | 优先级的有效范围是0～2147483647的整数     | 400    | CreateJob |
+| InvalidRequest     | 优先级的有效范围是0 - 2147483647的整数     | 400    | CreateJob |
 | MalformedXML       | 请求体的 XML Manifest字段不符合 XML 语法  | 400    | CreateJob |
 | MalformedXML       | 请求体的 XML Operation字段不符合 XML 语法 | 400    | CreateJob |
 | MalformedXML       | 请求体的 XML Report字段不符合 XML 语法    | 400    | CreateJob |
@@ -161,9 +161,9 @@ x-cos-appid: <appid>
 
 ## 实际案例
 
-**请求**
+#### 请求
 
-```
+```shell
 POST /jobs HTTP/1.1
 x-cos-appid: 100000000001
 <?xml version="1.0" encoding="UTF-8"?>
@@ -199,11 +199,11 @@ x-cos-appid: 100000000001
 </CreateJobRequest>
 ```
 
-**响应**
+#### 响应
 
 上述请求后，COS 返回以下响应，表明该清单任务已经成功设置完毕。
 
-```
+```shell
 HTTP/1.1 200
 <CreateJobResult>
    <JobId>65f2e4cf-83f5-42f1-9aa2-14720613da29</JobId>
