@@ -18,7 +18,7 @@ LNMP 是 L（Linux）、N（Nginx）、M（MySQL）和 P（PHP）的简写，其
 2. 根据页面提示选择机型，并选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
 ![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 LNMP 并单击。如下图所示：
+3. 在“选择镜像”窗口的左侧搜索框中，输入 LNMP 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px;">。如下图所示：
 >?
 >- 本文以下图所示 LNMP 环境系统镜像为例，您可根据实际需求进行选择。
 >- 单击镜像名可查看镜像详情。
