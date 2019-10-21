@@ -60,7 +60,7 @@
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| &#10003; | -  |&#10003; | - |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | &#10003; | -   |&#10003; |&#10003;|
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | &#10003;  | -    |&#10003;   | -    |
-| [数据传输服务](https://cloud.tencent.com/document/product/571)  | - |  -  | -    | -   | &#10003;    |
+| [数据传输服务](https://cloud.tencent.com/document/product/571/38480)  | 资源级 |  &#10003;  | -    | &#10003;   | &#10003;    |
 
 ## CDN 与加速	
 
