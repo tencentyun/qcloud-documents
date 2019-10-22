@@ -1,6 +1,6 @@
 ## 功能描述
 
-UpdateJobStatus 用于更新任务状态。您可以使用这一接口以启动一项任务或者取消一项正在进行的任务。有关批量处理任务的详细介绍，可参见 [批量处理概述](https://cloud.tencent.com/document/product/436/38601)。
+UpdateJobPriority 用于更新任务优先级。您可以使用这一接口以更新一项任务的优先级，数值越大，优先级越高，高优先级的 Job 会被优先执行。有关批量处理任务的详细介绍，可参见 [批量处理概述](https://cloud.tencent.com/document/product/436/38601)。
 
 ## 请求
 
@@ -62,7 +62,7 @@ HTTP/1.1 200
 | JobId    | UpdateJobPriorityResult | 任务 ID。您所更新的任务的 ID，长度限制为1 - 64字节。 | String  |
 | Priority | UpdateJobPriorityResult | 任务的当前优先级。大小限制为0 - 2147483647。       | Integer |
 
-**错误分析**
+## 错误分析
 
 该请求可能会发生的一些常见的特殊错误如下：
 
