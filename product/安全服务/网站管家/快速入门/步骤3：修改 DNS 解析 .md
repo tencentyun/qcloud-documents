@@ -5,7 +5,7 @@
 2. 单击【添加记录】。
 	 ![](https://main.qcloudimg.com/raw/2f7380ecb4a2a2d6a12878b5eef4e4f9.png)
 3. 在当前配置页面中填写相应信息。
-	- 主机记录填写对应网站的主机记录，本例中需要防护的是 `waf.qcloudwaf.com`，即填写 waf 。
+	- 主机记录填写对应网站的主机记录，本例中需要防护的是`waf.qcloudwaf.com`，即填写 waf 。
    ![4](https://main.qcloudimg.com/raw/881fa62631473226eec39fe97cc032d1.png)
 	- 记录类型选择 CNAME。
    ![3](https://main.qcloudimg.com/raw/fb4d9604279ad05a8d2db97eb7858422.png)
