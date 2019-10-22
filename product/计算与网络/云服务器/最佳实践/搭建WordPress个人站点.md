@@ -63,7 +63,6 @@ server {
 	location / {
 			index index.php index.html index.htm;
 	}
-
 	#error_page  404              /404.html;
 	#redirect server error pages to the static page /50x.html
 	#
