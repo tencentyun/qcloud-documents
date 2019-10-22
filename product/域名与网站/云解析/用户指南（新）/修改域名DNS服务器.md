@@ -9,7 +9,7 @@
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择 “云产品 > 域名与网站 > 云解析”，进入 “域名解析列表” 页面。
 2. 选择需要查看的域名，进入该域名的管理页面。
 3. 选择 “记录管理” 页签。若存在如下提示，说明 DNS 服务器不正确。如下图所示：
-![1](https://main.qcloudimg.com/raw/b4c693849dcd351fe7aefcf9c5aed05a.png)
+![1](https://main.qcloudimg.com/raw/1334ffff245ca5ecebea8521d6df5d65.png)
 >!不同解析套餐对应的 DNS 地址不同，请根据提示来修改。
 
 ### 腾讯云注册域名修改 DNS
