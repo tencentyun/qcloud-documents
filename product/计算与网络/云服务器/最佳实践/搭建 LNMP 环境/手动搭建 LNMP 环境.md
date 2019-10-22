@@ -31,7 +31,7 @@ enabled=1
 ```
 [nginx] 
 name = nginx repo 
-baseurl = https：//nginx.org/packages/mainline/centos/7/$basearch/ 
+baseurl = https://nginx.org/packages/mainline/centos/7/$basearch/ 
 gpgcheck = 0 
 enabled = 1
 ```
