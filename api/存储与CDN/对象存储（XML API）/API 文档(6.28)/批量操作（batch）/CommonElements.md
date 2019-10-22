@@ -19,8 +19,8 @@
 
 | 节点名 | 父节点 | 描述                                                         | 类型             | 是否必选 |
 | ------ | ------ | ------------------------------------------------------------ | ---------------- | -------- |
-| Fields | Spec   | 描述清单中包含的字段，当 Format 为 COSBatchOperations_CSV_V1 时，需要使用此元素指定 CSV 文件字段。合法字段为：Ignore/Bucket/Key/VersionId | Array of Strings | 否       |
-| Format | Spec   | 指定对象清单的格式信息。合法字段为： COSBatchOperations_CSV_V1 / COSInventoryReport_CSV_V1 | String           | 是       |
+| Fields | Spec   | 描述清单中包含的字段，当 Format 为 COSBatchOperations_CSV_V1 时，需要使用此元素指定 CSV 文件字段。合法字段为：Ignore、Bucket、Key、VersionId | Array of Strings | 否       |
+| Format | Spec   | 指定对象清单的格式信息。合法字段为： COSBatchOperations_CSV_V1、 COSInventoryReport_CSV_V1 | String           | 是       |
 
 ### Operation 
 
@@ -61,8 +61,8 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | 节点名         | 父节点  | 描述                                                         | 类型   | 是否必选 |
 | -------------- | ------- | ------------------------------------------------------------ | ------ | -------- |
 | DisplayName    | Grantee | 用户名称。                                                   | String | 否       |
-| Identifier     | Grantee | qcs 格式的用户 id（uin）。例如：`qcs::cam::uin/100000000001:uin/100000000001` | String | 是       |
-| TypeIdentifier | Grantee | 指定 Identifier 的类型，目前仅支持用户 id。枚举值：id 。     | String | 是       |
+| Identifier     | Grantee | qcs 格式的用户 ID（UIN）。例如：`qcs::cam::uin/100000000001:uin/100000000001` | String | 是       |
+| TypeIdentifier | Grantee | 指定 Identifier 的类型，目前仅支持用户 ID。枚举值：ID 。     | String | 是       |
 
 ### NewObjectMetadata
 
@@ -84,7 +84,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | Enabled     | Report | 是否输出任务完成报告。                                       | Boolean | 是       |
 | Format      | Report | 任务完成报告格式信息。合法值： Report_CSV_V1                 | String  | 是       |
 | Prefix      | Report | 任务完成报告的前缀信息。长度0 - 256字节                        | String  | 否       |
-| ReportScope | Report | 任务完成报告所需记录的任务信息，以确定记录所有操作执行信息还是失败操作的信息。合法值：AllTasks/FailedTasksOnly | String  | 是       |
+| ReportScope | Report | 任务完成报告所需记录的任务信息，以确定记录所有操作执行信息还是失败操作的信息。合法值：AllTasks、FailedTasksOnly | String  | 是       |
 
 ### ProgressSummary
 
