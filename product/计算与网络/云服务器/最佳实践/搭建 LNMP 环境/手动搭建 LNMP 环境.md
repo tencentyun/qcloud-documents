@@ -46,9 +46,9 @@ vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 或 “**Insert**” 切换至编辑模式，对应使用的操作系统编辑 `nginx.conf` 文件。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->!
->- 在 CentOS 6.9 中，请将以下内容写入 http{...} 中。
->- CentOS 7.6 中，请将 http{...} 中的 server{...} 全部替换为以下内容。
+>?
+>- 若在 http{...} 中已存在 server{...}，则请替换为以下内容。
+>- 若在 http{...} 中无 server{..}，则请在 http{..} 中添加以下内容。
 >
 ```
 server {
@@ -61,7 +61,6 @@ server {
  location / {
          index index.php index.html index.htm;
  }
-
  #error_page  404              /404.html;
  #redirect server error pages to the static page /50x.html
  #
