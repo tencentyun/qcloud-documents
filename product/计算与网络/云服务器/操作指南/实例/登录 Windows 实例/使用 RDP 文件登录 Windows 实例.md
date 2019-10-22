@@ -35,7 +35,7 @@ rdesktop
 ```
  - 若已安装 rdesktop，请执行 [步骤4](#step04)。
  - 若提示 command not found，则表示未安装 rdesktop，请执行 [步骤2](#step02)。
-2. <span id="step02"></span>在终端执行以下命令，下载 rdesktop 安装包（此步骤以 rdesktop 1.8.3 版本为例。如果您需要最新的安装包，可以前往 [GitHub rdesktop页面](https://github.com/rdesktop/rdesktop/releases) 查找最新安装包，并在命令行中替换为最新安装路径。
+2. <span id="step02"></span>在终端执行以下命令，下载 rdesktop 安装包（此步骤以 rdesktop 1.8.3 版本为例。如果您需要最新的安装包，可以前往 [GitHub rdesktop页面](https://github.com/rdesktop/rdesktop/releases) 查找最新安装包，并在命令行中替换为最新安装路径）。
 >
 ```
 wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
