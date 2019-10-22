@@ -119,7 +119,7 @@ x-cos-appid: <appid>
 | Operation            | CreateJobRequest | 您需要对清单内的对象批量执行的操作。目前 COS 支持的操作为`PUT Object-Copy`操作，您可以据此批量复制桶内的存量数据。 | Operation Object | 是       |
 | Priority             | CreateJobRequest | 任务优先级。越高的数值代表此项任务的优先级越高。优先级数值范围为0 - 2147483647。 | Integer          | 是       |
 | Report               | CreateJobRequest | 任务完成报告。您可配置此参数以在任务完成时输出报告，方便审计任务执行状况。 | Report Object    | 是       |
-| RoleArn              | CreateJobRequest | COS 资源标识符，此处用于标识您创建的角色。你需要此资源标识符以验证您的身份。 | String           | 是       |
+| RoleArn              | CreateJobRequest | COS 资源标识符，此处用于标识您创建的角色。您需要此资源标识符以验证您的身份。 | String           | 是       |
 
 ## 响应
 
