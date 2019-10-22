@@ -21,7 +21,7 @@ Drupal 组成及版本使用说明：
 
 ## 操作步骤
 ### 搭建 LAMP 环境
-当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402) 
+当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402)。 
 
 ### 下载 Drupal
 1. 依次执行以下命令，进入网站根目录并下载 Drupal 安装包。
@@ -45,24 +45,26 @@ wget -P sites/default/files/translations https://ftp.drupal.org/files/translatio
 ```
 vi /etc/httpd/conf/httpd.conf
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到 `Directory '/var/www/html'></Directory>` 中的 `AllowOverride None` 并替换为以下内容：
+2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到 `Directory "/var/www/html"></Directory>` 中的 `AllowOverride None` 并替换为以下内容：
 ```
 AllowOverride All
 ```
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/c68f918f22d9c29607d59fe1847eff69.png)
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-4. 执行以下命令，重启 Apache 服务。
-```
-systemctl restart httpd
-```
-5. 执行以下命令，修改网站根目录用户权限。
+4. 执行以下命令，修改网站根目录用户权限。
 ```
 chown -R apache:apache /var/www/html
 ```
+5. 执行以下命令，重启 Apache 服务。
+```
+systemctl restart httpd
+```
+
 
 #### 配置 Drupal 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
+>
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -123,4 +125,4 @@ http://云服务器公网IP/drupal
 ![](https://main.qcloudimg.com/raw/8d371d5d27f4fe8d7cf565eb848e74bf.png)
 6. 安装完成后，网站自动进入首页登录维护帐号。如下图所示：
 ![](https://main.qcloudimg.com/raw/386561c62047ce3785ca8663a0308381.png)
-您已成功搭建 Drupal 内容管理框架，可根据实际需求对网站进行个性化设置。
+您已成功搭建 Drupal 个人站点，可根据实际需求对网站进行个性化设置。
