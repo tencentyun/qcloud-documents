@@ -35,11 +35,10 @@ rdesktop
 ```
  - 若已安装 rdesktop，请执行 [步骤4](#step04)。
  - 若未安装 rdesktop，请执行 [步骤2](#step02)。
-2. <span id="step02"></span>在终端执行以下命令，下载 rdesktop 安装包。
->?本文以 rdesktop 1.8.3 版本为例，您可以前往 [GitHub 下载最新安装包](https://github.com/rdesktop/rdesktop/releases)。
+2. <span id="step02"></span>在终端执行以下命令，下载 rdesktop 安装包（此步骤以 rdesktop 1.8.3 版本为例。如果您需要最新的安装包，可以前往 [GitHub rdesktop页面](https://github.com/rdesktop/rdesktop/releases)查找最新安装包，并在命令行中替换为最新安装路径。
 >
 ```
-wget https://mc.qcloudimg.com/static/archive/06483121ce067b537342687dd6a909d8/rdesktop-1.8.3.tar.gz
+wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.3/rdesktop-1.8.3.tar.gz
 ```
 3. 在待安装 rdesktop 的目录下，依次执行以下命令，解压和安装 rdesktop。
 ```
