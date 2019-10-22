@@ -30,7 +30,7 @@ yum install httpd -y
 systemctl start httpd
 systemctl enable httpd
 ```
-3. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+3. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Apache 服务是否正常运行。
 显示如下，则说明 Apache 安装成功。
 ![](https://main.qcloudimg.com/raw/f9dc3992f4d6e7e94bb63330fd5cadfe.png)
 
