@@ -3,19 +3,19 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 
 
 ## 技能要求
-腾讯云市场中提供了各个版本的 LNMP 环境组合，如果您不熟悉 Linux 命令的使用，建议您通过镜像部署 LNMP 环境。如果您对 Linux 的使用比较熟悉，需要定制化配置 LNMP，您也可以 [手动配置 LNMP 环境](https://cloud.tencent.com/document/product/213/38056)。
+腾讯云市场中提供了各个版本的 LNMP 环境组合，如果您不熟悉 Linux 命令的使用，建议您通过镜像部署 LNMP 环境。如果您对 Linux 的使用比较熟悉，需要定制化配置 LNMP，您也可以 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38056)。
 
 
 ## 注意事项
-- 如果您**未购买**云服务器，您可以直接在购买云服务器时，选择镜像市场中的 LNMP 镜像环境，可参考 [创建云服务器时搭建 LNMP 环境](#create)。
-- 如果您**已购买**云服务器，但该云服务器的操作系统并不具备 LNMP 环境，可参考 [更换系统镜像](#change) 完成 LNMP 环境搭建。
+- 如果您**未购买**云服务器，您可以在购买云服务器时，通过选择镜像市场中的 LNMP 镜像直接搭建环境。详情可参考 [创建云服务器时搭建 LNMP 环境](#create)。
+- 如果您**已购买**云服务器，但该云服务器的操作系统并不具备 LNMP 环境，您可以参考 [更换系统镜像](#change) 完成 LNMP 环境搭建。
 
 
 ## 操作步骤
 ### 搭建 LNMP 环境
 #### 创建云服务器时搭建 LNMP 环境<span id="create"></span>
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例的管理页面的【新建】。
-2. 根据页面提示选择机型，并选择【镜像市场】>【从镜像市场选择】。如下图所示：
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
+2. 在“自定义配置”页面根据提示选择机型，“镜像”项选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
 ![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
 3. 在“选择镜像”窗口的左侧搜索框中，输入 LNMP 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px;">。如下图所示：
@@ -26,6 +26,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 ![](https://main.qcloudimg.com/raw/3dcee56060fdabbdc3b92d01f6480df9.png)
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
+云服务器完成操作系统部署后，您可通过 [环境配置验证](#inspect) 步骤测试 LNMP 环境是否搭建成功。
 
 
 #### 更换系统镜像<span id="change"></span>
