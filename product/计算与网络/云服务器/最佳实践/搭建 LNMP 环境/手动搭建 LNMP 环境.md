@@ -3,7 +3,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 ## 技能要求
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
->!手动搭建 LNMP 环境可能需要较长的时间。腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
 
 ## 前提条件
 - 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
@@ -35,11 +35,11 @@ baseurl = https：//nginx.org/packages/mainline/centos/7/$basearch/
 gpgcheck = 0 
 enabled = 1
 ```
-3. 执行以下命令，安装 nginx。
+3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+4. 执行以下命令，安装 nginx。
 ```
 yum install nginx
 ```
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 5. 执行以下命令，打开 `nginx.conf` 文件。
 ```
 vim /etc/nginx/nginx.conf
@@ -99,7 +99,7 @@ systemctl enable nginx
 ### 步骤2：安装配置 PHP
 由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
 #### CentOS 6.9 安装配置 PHP
-1. 执行以下命令，更新 yum 中 PHP 的软件源。
+1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
@@ -156,13 +156,15 @@ mysql
 ```
 rpm -qa | grep -i mariadb
 ```
-返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2)。
+ - 返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 依次移除。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
+ - 返回结果类似如下内容，请执行 [步骤3](#step3) 开始安装 MariaDB。
+![](https://main.qcloudimg.com/raw/2695390041ffef31032739281c91c228.png)
 2. <span id="step2"></span>执行以下命令，删除 MariaDB 现有包。
 ```
 yum -y remove 包名
 ```
-3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
+3. <span id="step3"></span>执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
