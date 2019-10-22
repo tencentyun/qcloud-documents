@@ -112,7 +112,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -163,7 +163,7 @@ API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
