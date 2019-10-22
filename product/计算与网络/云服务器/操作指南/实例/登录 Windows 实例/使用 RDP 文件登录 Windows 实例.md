@@ -1,9 +1,9 @@
 ## 操作场景
 
-RDP 为腾讯云推荐的登录方式。无论您的本地系统为 Windows，Linux 或者 Mac OS，都可以通过 RDP 登录。本文介绍如何使用 RDP 文件登录 Windows 实例。
+RDP 是 Remote Desktop Protocol 的缩写，是微软开发的一个多通道的协议，帮助您的本地计算机连上远程计算机。RDP作为腾讯云推荐登录您 Windows 云服务器的方式。本文介绍如何使用 RDP 文件登录 Windows 实例。
 
 ## 适用本地操作系统
-Windows，Linux 和 Mac OS
+Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 
 ## 前提条件
 
