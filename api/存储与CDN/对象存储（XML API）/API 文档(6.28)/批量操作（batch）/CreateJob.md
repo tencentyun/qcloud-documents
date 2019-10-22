@@ -106,7 +106,7 @@ x-cos-appid: <appid>
 </CreateJobRequest>
 ```
 
-请求体内相关元素的具体描述如下。其他元素请参见 [CommonElements](https://cloud.tencent.com/document/product/***/****)。
+请求体内相关元素的具体描述如下。其他元素请参见 [CommonElements](https://cloud.tencent.com/document/product/436/38607)。
 
 **CreateJobRequest**
 
@@ -141,7 +141,7 @@ x-cos-appid: <appid>
 
 | 节点名 | 父节点          | 描述                                                         | 类型   |
 | ------ | --------------- | ------------------------------------------------------------ | ------ |
-| JobId  | CreateJobResult | 任务 Id。当您成功创建一项任务后，COS 自动返回的 Id，长度1 - 64字节。 | String |
+| JobId  | CreateJobResult | 任务 ID。当您成功创建一项任务后，COS 自动返回的 ID，长度1 - 64字节。 | String |
 
 **错误分析**
 
