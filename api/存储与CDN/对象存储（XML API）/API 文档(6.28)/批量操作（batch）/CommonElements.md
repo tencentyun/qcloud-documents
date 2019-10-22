@@ -1,13 +1,15 @@
-## 批量处理功能公共元素
 
-### Manifest
+本文提供以下批量处理功能的公共元素。
+
+
+## Manifest
 
 | 节点名   | 父节点   | 描述                                                         | 类型            | 是否必选 |
 | -------- | -------- | ------------------------------------------------------------ | --------------- | -------- |
 | Location | Manifest | 对象清单的位置信息。                                         | Location Object | 是       |
 | Spec     | Manifest | 描述对象清单的格式信息。如果为 CSV 文件，此元素将描述清单中包含的字段。 | Spec Object     | 是       |
 
-### Location
+## Location
 
 | 节点名          | 父节点   | 描述                                             | 类型   | 是否必选 |
 | --------------- | -------- | ------------------------------------------------ | ------ | -------- |
@@ -15,14 +17,14 @@
 | ObjectArn       | Location | 指定对象清单的唯一资源标识符，长度为1 - 1024字节。 | String | 是       |
 | ObjectVersionId | Location | 指定对象清单的版本 ID，长度为1 - 1024字节。        | String | 否       |
 
-### Spec
+## Spec
 
 | 节点名 | 父节点 | 描述                                                         | 类型             | 是否必选 |
 | ------ | ------ | ------------------------------------------------------------ | ---------------- | -------- |
 | Fields | Spec   | 描述清单中包含的字段，当 Format 为 COSBatchOperations_CSV_V1 时，需要使用此元素指定 CSV 文件字段。合法字段为：Ignore、Bucket、Key、VersionId | Array of Strings | 否       |
 | Format | Spec   | 指定对象清单的格式信息。合法字段为： COSBatchOperations_CSV_V1、 COSInventoryReport_CSV_V1 | String           | 是       |
 
-### Operation 
+## Operation 
 
 Operation 包含多种操作，但同时您只能指定一种操作，目前我们仅支持`PUT Object-Copy`操作，所以您只能包含 COSPutObjectCopy 元素。
 
@@ -30,7 +32,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | ---------------- | --------- | ------------------------------------------ | ----------------------- | -------- |
 | COSPutObjectCopy | Operation | 指定对清单内的对象批量复制操作的具体参数。 | COSPutObjectCopy Object | 否       |
 
-### COSPutObjectCopy
+## COSPutObjectCopy
 
 | 节点名                    | 父节点           | 描述                                                         | 类型                       | 是否必选 |
 | ------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------- | -------- |
@@ -43,20 +45,20 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | StorageClass              | COSPutObjectCopy | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
 | TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-beijing::result-1250000000` | String                     | 是       |
 
-### AccessControlGrants
+## AccessControlGrants
 
 | 节点名   | 父节点              | 描述               | 类型            | 是否必选 |
 | -------- | ------------------- | ------------------ | --------------- | -------- |
 | COSGrant | AccessControlGrants | 配置一项权限控制。 | COSGrant Object | 否       |
 
-### COSGrant
+## COSGrant
 
 | 节点名     | 父节点   | 描述                                                       | 类型           | 是否必选 |
 | ---------- | -------- | ---------------------------------------------------------- | -------------- | -------- |
 | Grantee    | COSGrant | 指定将权限授予给哪个用户。                                 | Grantee Object | 是       |
 | Permission | COSGrant | 指定要授予的某项权限。枚举值：READ，WRITE，FULL_CONTROL 。 | String         | 是       |
 
-### Grantee
+## Grantee
 
 | 节点名         | 父节点  | 描述                                                         | 类型   | 是否必选 |
 | -------------- | ------- | ------------------------------------------------------------ | ------ | -------- |
@@ -64,7 +66,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | Identifier     | Grantee | qcs 格式的用户 ID（UIN）。例如：`qcs::cam::uin/100000000001:uin/100000000001` | String | 是       |
 | TypeIdentifier | Grantee | 指定 Identifier 的类型，目前仅支持用户 ID。枚举值：ID 。     | String | 是       |
 
-### NewObjectMetadata
+## NewObjectMetadata
 
 | 节点名             | 父节点            | 描述                                                | 类型                   | 是否必选 |
 | ------------------ | ----------------- | --------------------------------------------------- | ---------------------- | -------- |
@@ -76,7 +78,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | SSEAlgorithm       | NewObjectMetadata | 服务端加密算法，目前仅支持 AES256                   | String                 | 否       |
 | UserMetadata       | NewObjectMetadata | 包括用户自定义元数据                                | Array of Key and Value | 否       |
 
-### Report
+## Report
 
 | 节点名      | 父节点 | 描述                                                         | 类型    | 是否必选 |
 | ----------- | ------ | ------------------------------------------------------------ | ------- | -------- |
@@ -86,7 +88,7 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | Prefix      | Report | 任务完成报告的前缀信息。长度0 - 256字节                        | String  | 否       |
 | ReportScope | Report | 任务完成报告所需记录的任务信息，以确定记录所有操作执行信息还是失败操作的信息。合法值：AllTasks、FailedTasksOnly | String  | 是       |
 
-### ProgressSummary
+## ProgressSummary
 
 | 节点名                 | 父节点          | 描述               | 类型    |
 | ---------------------- | --------------- | ------------------ | ------- |
