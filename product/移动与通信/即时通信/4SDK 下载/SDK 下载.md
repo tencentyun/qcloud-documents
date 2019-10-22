@@ -46,7 +46,7 @@
 		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows">Gitee</a></td>
 		<td align="center">-</td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/33489">DOC</a></td>
-		<td align="center">x86：约3.9M<br>x86-64：约5.1M</td>
+		<td>x86：约3.9M<br>x86-64：约5.1M</td>
 	</tr>
 	<tr>
 		<td align="center">Web</td>
