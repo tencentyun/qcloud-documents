@@ -50,6 +50,8 @@ vim /etc/nginx/nginx.conf
 ```
 3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `nginx.conf` 文件中 server{...} 的内容替换成以下内容。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
+>? 若 `nginx.conf` 文件中无 server{..}，则请在 `nginx.conf` 文件中添加以下内容。
+> 
 ```
 server {
 	listen       80;
