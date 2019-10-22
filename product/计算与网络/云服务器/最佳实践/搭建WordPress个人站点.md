@@ -167,7 +167,7 @@ systemctl enable mariadb
 
 
 
-### 配置 WordPress 数据库<span id="database"></span>
+#### 配置 WordPress 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
@@ -195,7 +195,7 @@ FLUSH PRIVILEGES;
 \q
 ```
 
-### 配置 root 帐户
+#### 配置 root 帐户
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
