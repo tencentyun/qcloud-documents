@@ -9,7 +9,7 @@
    ![4](https://main.qcloudimg.com/raw/881fa62631473226eec39fe97cc032d1.png)
 	- 记录类型选择 CNAME。
    ![3](https://main.qcloudimg.com/raw/fb4d9604279ad05a8d2db97eb7858422.png)
-	- 记录值填写 Web 应用防火墙（网站管家）分配的 CNAME 域名 ```***************bd4e69fd3c8a187.qcloudcjgj.com ```。
+	- 记录值填写 Web 应用防火墙（网站管家）分配的 CNAME 域名，分配的 CNAME 域名样式为：`xxxx.qcloudcjgj.com`。
    ![5](https://main.qcloudimg.com/raw/660137182993991acb43fde45d53053d.png)
 	- 填写完毕后， 单击【保存】。
  ![6](https://main.qcloudimg.com/raw/181fd99ac73c145d359805a975540305.png)
