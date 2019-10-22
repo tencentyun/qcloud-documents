@@ -133,7 +133,7 @@ echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
 ```
 在浏览中访问以下地址，查看环境配置是否成功。
 ```
-http://云服务器实例的公网 IP
+http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明 LAMP 环境配置成功。
 ![](https://main.qcloudimg.com/raw/64681fb76bad29072de9ddc3250e66d1.png)
