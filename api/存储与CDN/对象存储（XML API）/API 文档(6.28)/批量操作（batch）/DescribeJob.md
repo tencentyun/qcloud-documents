@@ -157,7 +157,7 @@ HTTP/1.1 200
 
 其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-**错误分析**
+## 错误分析
 
 该请求可能会发生的一些常见的特殊错误如下，其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
