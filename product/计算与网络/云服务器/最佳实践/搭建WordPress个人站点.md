@@ -165,11 +165,11 @@ systemctl start mariadb
 systemctl enable mariadb
 ```
 
-<span id="login"></span>
-#### 配置 MariaDB 
+
+
+### 配置 WordPress 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
-#### 配置 WordPress 数据库<span id="database"></span>
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -195,7 +195,7 @@ FLUSH PRIVILEGES;
 \q
 ```
 
-#### 配置 root 帐户
+### 配置 root 帐户
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -213,7 +213,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 
 
 ### 安装和配置 WordPress
-#### 下载 
+#### 下载 WordPress
 >? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
@@ -229,7 +229,7 @@ tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 
 
 
-####  写入数据库信息
+####  修改 WordPress 配置文件
 1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
 ```
 cd /usr/share/nginx/html/wordpress
@@ -249,7 +249,7 @@ vim wp-config.php
 	define('DB_USER', 'user');
 	
 	/** MySQL database password */
-	define('DB_PASSWORD', 'wordpresspassword');
+	define('DB_PASSWORD', '123456');
 	
 	/** MySQL hostname */
 	define('DB_HOST', 'localhost');
