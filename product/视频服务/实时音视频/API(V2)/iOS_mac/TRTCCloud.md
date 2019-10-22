@@ -433,7 +433,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | [TRTCLocalVideoMirrorType](https://cloud.tencent.com/document/product/647/32261#trtclocalvideomirrortype) | 镜像模式，默认值为：TRTCLocalVideoMirrorType_Auto。 |
+| mirror | [TRTCLocalVideoMirrorType](https://cloud.tencent.com/document/product/647/32261#trtclocalvideomirrortype) | 镜像模式，默认值为 TRTCLocalVideoMirrorType_Auto。 |
 
 
 ### setLocalViewMirror
@@ -447,7 +447,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 镜像模式，默认值为：YES。 |
+| mirror | BOOL | 镜像模式，默认值为 YES。 |
 
 
 ### setVideoEncoderMirror
