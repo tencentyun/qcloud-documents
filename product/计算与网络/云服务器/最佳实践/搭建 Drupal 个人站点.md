@@ -11,7 +11,7 @@ Drupal 组成及版本使用说明：
 
 
 ## 技能要求
-进行 Drupal 网站搭建，您需要熟悉 Liunx 操作系统及命令，了解并使用过 LAMP 开发环境及软件版本特性。
+进行 Drupal 网站搭建，您需要熟悉 Liunx 操作系统及命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 
 
 ## 前提条件
@@ -21,7 +21,7 @@ Drupal 组成及版本使用说明：
 
 ## 操作步骤
 ### 搭建 LAMP 环境
-当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402)。 
+当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402)。
 
 ### 下载 Drupal
 1. 依次执行以下命令，进入网站根目录并下载 Drupal 安装包。
@@ -29,7 +29,7 @@ Drupal 组成及版本使用说明：
 cd /var/www/html
 wget wget http://ftp.drupal.org/files/projects/drupal-8.1.1.zip
 ```
-2. 执行以下命令，解压安装包并重命名。
+2. 依次执行以下命令，解压安装包并重命名。
 ```
 unzip drupal-8.1.1.zip 
 mv drupal-8.1.1/ drupal/
@@ -123,6 +123,6 @@ http://云服务器公网IP/drupal
 >?请记录站点维护帐号及密码。
 >
 ![](https://main.qcloudimg.com/raw/8d371d5d27f4fe8d7cf565eb848e74bf.png)
-6. 安装完成后，网站自动进入首页登录维护帐号。如下图所示：
+6. 安装完成后，网站自动进入首页并登录维护帐号。如下图所示：
 ![](https://main.qcloudimg.com/raw/386561c62047ce3785ca8663a0308381.png)
 您已成功搭建 Drupal 个人站点，可根据实际需求对网站进行个性化设置。
