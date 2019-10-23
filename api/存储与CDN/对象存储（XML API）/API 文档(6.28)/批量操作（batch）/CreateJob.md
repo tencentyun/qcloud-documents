@@ -21,9 +21,9 @@ x-cos-appid: <appid>
 
 调用 CreateJob 所需的参数。该参数格式如下：
 
-| 参数        | 描述                     | 必选 |
+| 参数        | 描述                     | 是否必选 |
 | ----------- | ------------------------ | ---- |
-| x-cos-appid | 用户 UIN，长度1 - 64字节。 | 是   |
+| x-cos-appid | 用户的 APPID，长度为1 - 64字节。 | 是   |
 
 #### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
@@ -108,7 +108,7 @@ x-cos-appid: <appid>
 
 请求体内相关元素的具体描述如下。其他元素请参见 [CommonElements](https://cloud.tencent.com/document/product/436/38607)。
 
-**CreateJobRequest**
+
 
 | 节点名               | 父节点           | 描述                                                         | 类型             | 是否必选 |
 | -------------------- | ---------------- | ------------------------------------------------------------ | ---------------- | -------- |
@@ -137,25 +137,23 @@ x-cos-appid: <appid>
 
 具体内容描述如下：
 
-**CreateJobResult**
-
 | 节点名 | 父节点          | 描述                                                         | 类型   |
 | ------ | --------------- | ------------------------------------------------------------ | ------ |
 | JobId  | CreateJobResult | 任务 ID。当您成功创建一项任务后，COS 自动返回的 ID，长度1 - 64字节。 | String |
 
 **错误分析**
 
-该请求可能会发生的一些常见的特殊错误如下。其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
+该请求操作可能会出现如下错误信息。其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
 | 错误代码           | 描述                                      | 状态码 | API       |
 | ------------------ | ----------------------------------------- | ------ | --------- |
 | InvalidRequest     | 重复的请求                                | 400    | CreateJob |
 | InvalidRequest     | 优先级的有效范围是0 - 2147483647的整数     | 400    | CreateJob |
-| MalformedXML       | 请求体的 XML Manifest字段不符合 XML 语法  | 400    | CreateJob |
-| MalformedXML       | 请求体的 XML Operation字段不符合 XML 语法 | 400    | CreateJob |
-| MalformedXML       | 请求体的 XML Report字段不符合 XML 语法    | 400    | CreateJob |
+| MalformedXML       | 请求体的 XML Manifest 字段不符合 XML 语法  | 400    | CreateJob |
+| MalformedXML       | 请求体的 XML Operation 字段不符合 XML 语法 | 400    | CreateJob |
+| MalformedXML       | 请求体的 XML Report 字段不符合 XML 语法    | 400    | CreateJob |
 | ServiceUnavailable | 服务暂不可用，无法建立新的任务            | 500    | CreateJob |
-| TooManyJobs        | Service is unavailable                    | 500    | CreateJob |
+| TooManyJobs        | 任务已达上限，服务器不可用              | 500    | CreateJob |
 
 
 
@@ -165,7 +163,7 @@ x-cos-appid: <appid>
 
 ```shell
 POST /jobs HTTP/1.1
-x-cos-appid: 100000000001
+x-cos-appid: 1250000000
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateJobRequest>
     <ClientRequestToken>1829b6c7-3141-42f1-9fe4-17082b841646</ClientRequestToken>
