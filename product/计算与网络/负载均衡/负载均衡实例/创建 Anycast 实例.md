@@ -27,10 +27,8 @@ Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP �
 - 中国：北京、上海、广州、香港。
 - 欧美：多伦多、硅谷、法兰克福、弗吉尼亚、莫斯科。
 - 东南亚：新加坡、首尔、孟买、曼谷、东京。
->!
+>?
 >- Anycast CLB 不支持传统型负载均衡。
->- Anycast CLB 当前仅支持四层协议（TCP/UDP），暂不支持七层协议（HTTP/HTTPS）。
->- Anycast CLB 暂不支持 S4、SN3ne、S2ne、M4、GN6s 云服务器。
 
 ## Anycast CLB 使用场景
 ### 全球同服
