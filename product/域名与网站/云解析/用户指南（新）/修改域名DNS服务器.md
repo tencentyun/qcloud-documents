@@ -26,10 +26,8 @@
 下面以阿里云（万网）、GoDaddy 为例说明修改方法。
 
 ### 阿里云（万网）注册商域名修改 DNS
-1. 选择需要在腾讯云进行解析的域名，进入域名管理页的【DNS 修改/创建】，单击【修改域名 DNS】；
-![](https://main.qcloudimg.com/raw/139975c769f43867a53c70b3ae2fc6ad.png)
-2. 分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net，保存后最长等待 72 小时可以全球生效。
-![](https://main.qcloudimg.com/raw/1694dd7391aa85140f654ee7db90ebe0.png)
+请登录对应注册商官网，具体操作请参考 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html)。
+>?需要在腾讯云进行解析的域名，请分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net。
 
 ### GoDaddy 注册商域名修改 DNS
 1. 登录 [GoDaddy](http://www.godaddy.com) 后单击【DOMAINS】的【Manage】。
