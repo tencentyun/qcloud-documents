@@ -23,8 +23,8 @@ dotnet add package VodSDK --version 1.0.1
 ### 初始化一个上传客户端对象
 使用云 API 密钥初始化 VodUploadClient 实例。
 ```
-use System;
-use VodSDK;
+using System;
+using VodSDK;
 
 VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 ```
