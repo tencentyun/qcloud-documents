@@ -20,17 +20,17 @@ tccli kms DescribeKey --region ap-guangzhou --KeyId 521xxxxx-xxxx-xxxx-xxxx-52xx
     "KeyMetadata": {
         "KeyId": "521xxxxx-xxxx-xxxx-xxxx-52xxxxd",
         "Description": "this is test for gz key",
-        "CreatorUin": "Mosaic",
+        "CreatorUin": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
         "KeyRotationEnabled": "false",
-        "NextRotateTime": "Mosaic",
-        "CreateTime": "Mosaic",
+        "NextRotateTime": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
+        "CreateTime": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
         "Alias": "d-test-gz01",
         "KeyUsage": "ENCRYPT_DECRYPT",
         "DeletionDate": 0,
         "KeyState": "Enabled",
         "Type": 4,
-        "Owner": "Mosaic"
+        "Owner": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
     },
-    "RequestId": "Mosaic"
+    "RequestId": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
 }
 ```
