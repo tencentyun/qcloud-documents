@@ -25,18 +25,10 @@
 >?如果域名在其他注册商处管理，您需要前往域名注册商提供的域名管理页面，修改为指定的域名 DNS。
 下面以阿里云（万网）、GoDaddy 为例说明修改方法。
 
-### 阿里云（万网）注册商域名修改 DNS
-请登录对应注册商官网，具体操作请参考 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html)。
->?需要在腾讯云进行解析的域名，请分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net。
+### 其他注册商域名修改 DNS
+以下列注册商为例子进行域名 DNS 修改。
+- 请登录阿里云（万网）注册商官网，具体操作请参考 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html)。
+- 请登录 GoDaddy 注册商官网，具体操作请参考 [域名 DNS 修改](https://sg.godaddy.com/zh/help/change-nameservers-for-my-domains-664)。
 
-### GoDaddy 注册商域名修改 DNS
-1. 登录 [GoDaddy](http://www.godaddy.com) 后单击【DOMAINS】的【Manage】。
-![gd1](https://main.qcloudimg.com/raw/2ca1a9c4c5a5f4513c7b2ff419582f5f.png)
-2. 在域名列表中找到要修改要修改 DNS 的域名，然后单击该域名下拉列表中的 【Set NameServers】。
-![gd2](https://main.qcloudimg.com/raw/c2bba72ee7f8afc445d84327229518e8.png)
-3. 选择【Custom】，再单击左下角的【Add Nameserver】。
-![gd3](https://main.qcloudimg.com/raw/66cdd937d1e94d0e87f5adbd413dd221.png)
-4. 分别输入 f1g1ns1.dnspod.net、f1g1ns2.dnspod.net，然后单击【Add Nameserver】，再单击【Save】，等待全球递归 DNS 服务器刷新（最多72小时）。
-![gd4](https://main.qcloudimg.com/raw/ec7b82d7b0080932246a65480680c1b8.png)
-![gd5](https://main.qcloudimg.com/raw/c2473a10face5bbd1524283bde65b08c.png)
+>?需要在腾讯云进行解析的域名，请分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net。
 
