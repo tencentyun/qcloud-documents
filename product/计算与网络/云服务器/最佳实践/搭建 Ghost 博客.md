@@ -8,7 +8,7 @@ Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost �
 ## 前提条件
 - 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
 - 已登录 Linux 云服务器。如果您还未登录，请准备好云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
-- 请通过腾讯域名注册购买域名，并通过 [云解析](https://cloud.tencent.com/product/cns) 服务解析域名。
+- 请通过腾讯域名注册购买域名并完成 [网站备案](https://cloud.tencent.com/product/ba)，当域名可使用后通过 [云解析](https://cloud.tencent.com/product/cns) 服务解析域名。
 
 
 ## 操作步骤
@@ -106,16 +106,16 @@ ghost install
  3. **Enter your MySQL username**：输入数据库用户名，请输入 `root` 后按 “Enter”。
  4. **Enter your MySQL password**：输入数据库密码，请输入在 [设置 root 帐户密码](#sercet) 中已设置的密码后按 “Enter”。
  5. **Enter your database name**：输入 Ghost 使用的数据库，请输入在 [创建数据库](#database) 中已创建的 `ghost_data` 后按 “Enter” 。
- 后续设置请结合实际情况输入 “Y” 确认或 “n” 否认来完成配置。完成设置后，界面下方会输出 Ghost 的管理员访问地址。
+ 6. 后续设置请结合实际情况输入 “Y” 确认或 “n” 否认来完成配置。完成设置后，界面下方会输出 Ghost 的管理员访问地址。
 4. 使用浏览器访问 Ghost 的管理员访问地址，开始个人博客配置。如下图所示：
 单击【Create your account】开始创建管理员账户。
 ![](https://main.qcloudimg.com/raw/8cd0a5b93a299e8d3b9faa5f813e23a6.png)
-5. 输入相关信息，并单击【Last setp】。如下图所示：
+5. 输入相关信息，并单击【Last step】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b74067914e25a8d60592aee9a2abf158.png)
 6. 可邀请他人一起参与博客创建，也可跳过此步骤。
 7. 进入管理界面后，即可开始管理博客。如下图所示：
 ![](https://main.qcloudimg.com/raw/d69feb2f695922773616578b0eb887a4.png)
-配置完成后，访问 `www.xxxxxxxx.xx` 域名即可看到个人博客主页。如下图所示：
+配置完成后，访问已配置的 `www.xxxxxxxx.xx` 域名即可看到个人博客主页。如下图所示：
 ![](https://main.qcloudimg.com/raw/cfdd18b0ab2fa07e46658d0b502d4ea3.png)
 
  
