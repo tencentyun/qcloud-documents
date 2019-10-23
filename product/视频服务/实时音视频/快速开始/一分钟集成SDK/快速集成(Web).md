@@ -5,14 +5,14 @@
 在 Web 端实现实时音视频通话，需要浏览器完整支持 WebRTC 能力，目前已知支持 WebRTC 的浏览器如下表所示：
 
 | 操作系统平台 | 浏览器/webview | 版本要求 | 备注                                                                                                                              |
-| ------------ | -------------- | -------- | ------------------------------------ |
+| ------------ | -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | iOS          | Safari         | 11.1.2   | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用，<br > 因此对于 iOS 推荐使用兼容性更好的小程序解决方案。 |
-| Android      | TBS            | 43600    | 微信和手机 QQ 默认内置的浏览器内核为 [TBS](http://x5.tencent.com/)。    |
-| Android      | Chrome         | 60+      | 需要支持 H264 编解码。    |
-| Mac          | Chrome         | 47+      | - |
-| Mac          | Safari         | 11+      | - |
-| Windows(PC)  | Chrome         | 52+      | - |
-| Windows(PC)  | QQ 浏览器      | 10.2     | - |
+| Android      | TBS            | 43600    | 微信和手机 QQ 默认内置的浏览器内核为 [TBS](http://x5.tencent.com/)。                                                              |
+| Android      | Chrome         | 60+      | 需要支持 H264 编解码。                                                                                                            |
+| Mac          | Chrome         | 47+      | -                                                                                                                                 |
+| Mac          | Safari         | 11+      | -                                                                                                                                 |
+| Windows(PC)  | Chrome         | 52+      | -                                                                                                                                 |
+| Windows(PC)  | QQ 浏览器      | 10.2     | -                                                                                                                                 |
 
 > ?基于 TBS 内核的 WebView，需满足版本 ≥ 43600。
 > 可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
@@ -49,14 +49,14 @@ SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/
 更详细的初始化流程和 API 使用介绍请参见以下指引：
 
 | 功能                       | Sample Code 指引                                                                                           |
-| -------------------------- | --------------------------- |
-| 基础音视频通话  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)           |
-| 互动直播      | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                 |
-| 切换摄像头和麦克风   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html) |
-| 设置本地视频属性  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html) |
+| -------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)           |
+| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                 |
+| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html) |
+| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html) |
 | 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html) |
-| 屏幕分享   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)        |
-| 音量大小检测  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)     |
+| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)        |
+| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)     |
 
 ## 更新日志
 
@@ -78,6 +78,7 @@ SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/
 
 TRTC Web SDK (WebRTC) 重构版本，提供 Client/Stream 模式的接口，各对象职责更明确，语义更简洁明了。
 重构版本与旧版本不兼容，除接口改动之外，还提供以下功能：
+
 - 视频属性 （分辨率、帧率及码率）控制完全由 App 通过 SDK 的 LocalStream.setVideoProfile() 接口设置，不再支持老版本通过腾讯云控制台的“画面设定 （Spear Role）”。
 - SDK 在 Stream 对象中封装了音视频播放器，音视频播放完全由 SDK 控制。
 - 提供远端流的订阅与取消订阅功能，开发者可以通过 Client.subscribe()/unsubscribe() 接口灵活控制远端流的音频、视频或音视频数据流的接收。
@@ -115,4 +116,8 @@ TRTC Web SDK (WebRTC) 重构版本，提供 Client/Stream 模式的接口，各�
 
 ### 1. 防火墙有什么限制？
 
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+TRTC Web SDK 依赖以下端口进行数据传输，请将它们加入防火墙白名单。
+
+- TCP 端口：8687
+- UDP 端口：8000，8800，843，443
+- 域名：qcloud.rtc.qq.com
