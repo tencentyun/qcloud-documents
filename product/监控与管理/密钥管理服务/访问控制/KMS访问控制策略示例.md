@@ -1,5 +1,5 @@
 ## 概述
-本文为您详细介绍在访问管理控制台创建 KMS 策的操作。
+本文为您详细介绍在访问管理控制台创建 KMS 策略的操作。
 
 ## 操作步骤
 1. 登录 [访问管理](https://console.cloud.tencent.com/cam/overview) 控制台。
