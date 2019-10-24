@@ -1269,7 +1269,8 @@ return w.write(request);
 		"ods":[
 			{
 				"bo":{
-					"spp":100,"tt":1,
+					"spp":100,
+					"tt":1,
 					"otn":"110138591298768",
 					"spp":100,
 					"tt":1,
@@ -1307,8 +1308,8 @@ return w.write(request);
 
 | 参数名 | 必填 | 类型           | 长度 | 说明                                                      |
 | ------ | ---- | -------------- | ---- | --------------------------------------------------------- |
-| r      | 是   | RequestContent |   -   | 请求内容，详见本节 RequestContent。                          |
-| a      | 是   | string         |    -  | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+| r      | 是   | RequestContent |      | 请求内容，详见本节 RequestContent。                          |
+| a      | 是   | string         |      | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
 
 **RequestContent 结构**
 
