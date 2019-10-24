@@ -1,4 +1,4 @@
-本文档将指导您快速将本地视频上传至云点播，并使用云点播服务处理该视频，最终实现在自定义的 Web 播放器中播放多种清晰度可切换、且含水印的转码视频。以本地视频文件“腾讯云.mp4”为例。
+本文档将指导您快速将本地视频上传至云点播，并使用云点播服务处理该视频，最终实现在自定义的 Web 播放器中播放多种清晰度可切换、且含水印的转码视频。以本地视频文件`腾讯云.mp4`为例。
 
 
 ## 步骤1：开通云点播
@@ -13,125 +13,65 @@
 ## 步骤2：上传视频
 1. 单击左侧导航栏的[【媒资管理】](https://console.cloud.tencent.com/vod/media)。
 2. 单击【上传视频】，在该页面进行如下设置：
-	<table>
-     <tr>
-         <th nowrap="nowrap">参数项 </th>  
-         <th nowrap="nowrap">取值示例</th>  
-     </tr>
-	 <tr>      
-         <td>上传方式</td>   
-	     <td>选择【本地上传】</td>   
-     </tr> 
-	 <tr>      
-         <td nowrap="nowrap">上传视频 </td>   
-	     <td>单击【选择视频】，选择本地视频文件“腾讯云.mp4”</td>   
-     </tr> 
-	 <tr>      
-         <td>视频处理</td>   
-	     <td>选择【暂不处理，直接上传】</td>   
-     </tr> 
-		  </table>
+	- 上传方式选择【本地上传】
+	- 单击【选择视频】，选择本地视频文件`腾讯云.mp4`
+	<img src="https://main.qcloudimg.com/raw/21bfdb05593033f9a568f60f31c94341.png" width ="750">
+	- 视频处理选择【暂不处理，直接上传】
 3. 设置完毕后，单击左下角的【开始上传】。
 
 ## 步骤3：创建水印模板
 1. 在左侧导航栏选择【视频处理设置】>[【模板设置】](https://console.cloud.tencent.com/vod/video-process/template)。
 2. 在页签栏选择【水印模板】，单击【创建水印模板】，在该页面进行如下设置：
-<table>
-     <tr>
-         <th nowrap="nowrap">参数项 </th>  
-         <th nowrap="nowrap">取值示例</th>  
-     </tr>
-	 <tr>      
-         <td>模板名称</td>   
-	     <td>p001</td>   
-     </tr> 
-	 <tr>      
-         <td nowrap="nowrap">水印图片 </td>   
-	     <td> 单击【选择文件】，从本地选择一张图片（以腾讯企鹅 LOGO 为例）</td>   
-     </tr> 
-	 <tr>      
-         <td>水印尺寸</td>   
-	     <td> 15%</td>   
-     </tr> 
-		  <tr>      
-         <td>其他</td>   
-	     <td> 其他参数项为默认设置</td>   
-     </tr> 
-		  </table>
-	<img src="https://main.qcloudimg.com/raw/94bee9385fba5fc2ded17069b36d2325.png">
+	- 【模板名称】：p001
+	- 【水印图片】：单击【选择文件】，从本地选择一张图片（以腾讯企鹅 LOGO 为例）
+	- 【水印尺寸】：15%
+	- 其他选项为默认设置
+	<span></span><img src="https://main.qcloudimg.com/raw/3656d00de30967da95b93bf8488167ee.png" width ="750">
 3. 设置完毕后，单击【创建】。
 	
 ## 步骤4：处理视频
 1. 在 [媒资管理](https://console.cloud.tencent.com/vod/media) 页签栏选择【已上传】。
-2. 选中“腾讯云.mp4”前的勾选框，单击【视频处理】。
-![](https://main.qcloudimg.com/raw/82af82fefe1d35d420ebba92894fae37.png)
+2. 选中`腾讯云.mp4`前的勾选框，单击【视频处理】。
+<img src="https://main.qcloudimg.com/raw/82af82fefe1d35d420ebba92894fae37.png" width ="800">
 3. 在视频处理弹框中进行如下设置：
-<table>
-     <tr>
-         <th nowrap="nowrap">参数项 </th>  
-         <th nowrap="nowrap">取值示例</th>  
-     </tr>
-	 <tr>      
-         <td>处理类型</td>   
-	     <td>选择【转码】</td>   
-     </tr> 
-	 <tr>      
-         <td nowrap="nowrap">转码模板 </td>   
-	     <td> （1）单击左侧下拉框选择【选择转码模板】<br>
-	 （2）单击右侧下拉框选择【MP4-标清-SD(20)】和【MP4-高清-HD(30)】（可勾选多个转码模板）</td>   
-     </tr> 
-	 <tr>      
-         <td>水印模板</td>   
-	     <td> （1）单击下拉框选择【选择水印模板】，右侧弹出下拉框<br>
-	 （2）选择【p001】</td>   
-     </tr> 
-		  <tr>      
-         <td>视频封面</td>   
-	     <td> 选择【使用首帧做封面】</td>   
-     </tr> 
-		  </table>
-<img src="https://main.qcloudimg.com/raw/788dfb8ef9fc14b729185560657f8634.png">
+ - 处理类型：选择【转码】
+ - 转码模板：
+	 1. 单击左侧下拉框选择【选择转码模板】
+	 2. 单击右侧下拉框选择【MP4-标清-SD(20)】和【MP4-高清-HD(30)】（可勾选多个转码模板）
+ - 水印模板：
+	 1. 单击下拉框选择【选择水印模板】，右侧弹出下拉框
+	 2. 选择【p001】
+ - 视频封面：选择【使用首帧做封面】
+ <img src="https://main.qcloudimg.com/raw/346af73386af61e654f26ebe5e95ee6b.png" width ="750">
 4. 设置完毕后，单击【确定】。 
 
 ## 步骤5：自定义 Web 播放器
 1. 在左侧导航栏选择【分发播放设置】>[【Web 播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)。
 2. 单击【新建播放器】，在弹框中进行如下设置并单击【下一步】：
-<table>
-     <tr>
-         <th nowrap="nowrap">参数项 </th>  
-         <th nowrap="nowrap">取值示例</th>  
-     </tr>
-	 <tr>      
-         <td nowrap="nowrap"> 基本设置</td>   
-	     <td> <ul><li>播放器名称：player001</li>
-	<li>默认画质：【标清】
-	<li>其他选项为默认设置</ul></td>   
-     </tr> 
-	 <tr>      
-         <td >外观 </td>   
-	     <td>	 <ul><li> LOGO 图片：单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）</li>
-		<li>其他选项为默认设置</li></ul></td>   
-     </tr> 
-	 <tr>      
-         <td>贴片</td>   
-	     <td><ul><li> 开启【暂停贴片】，单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）</li>
-	<li>其他选项为默认设置</li></ul></td>   
-     </tr> 
-		  </table>
+ 1. 基本设置
+	 - 播放器名称：player001
+	 - 默认画质：【标清】
+	 - 其他选项为默认设置
+ 2. 外观
+		- LOGO 图片：单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）
+		- 其他选项为默认设置
+ 3. 贴片
+		- 开启【暂停贴片】，单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）
+		- 其他选项为默认设置
 3. 设置完毕后，单击【确定】。  
 
 
 ## <span id = "p1"></span>步骤6：生成 Web 播放器代码
 1. 在 [媒资管理](https://console.cloud.tencent.com/vod/media) 页签栏选择【已上传】。
-2. 单击“腾讯云.mp4”所在行操作栏的【管理】。
+2. 单击`腾讯云.mp4`所在行操作栏的【管理】。
 3. 在页签栏选择【Web播放器代码生成】，在该页面进行如下设置：
  - 参数设置：单击【修改】，选择【player001】
- ![](https://main.qcloudimg.com/raw/f7a8523e69db80c8f866a08d81e55388.png)
+ <img src="https://main.qcloudimg.com/raw/76c8d55601c3fb7fa3c603b10ae27fbe.png" width ="750">
  - 其他选项为默认设置
 4. 设置完毕后，单击页面左下角的【复制代码】。
 
 ## 步骤7：使用 Web 播放器播放视频
 1. 将 [步骤6](#p1) 生成的代码复制到 HTML 在线运行工具或您的 Web 前端开发工具（如 HBuilder 等）。
 2. 运行该代码，效果如下图：
-![](https://main.qcloudimg.com/raw/930f7e34fc51e004101286c83cd3bb92.jpg)
+<img src="https://main.qcloudimg.com/raw/930f7e34fc51e004101286c83cd3bb92.jpg" width ="800">
 
