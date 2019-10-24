@@ -1173,7 +1173,7 @@ request_str 即为 post 内容。
 | ods    | 否   | OrderDetail [] | -          | order_details：见 OrderDetail 说明。     |
 | ns     | 是   | String         | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。 |
 
-**OrderDetail **
+**OrderDetail**
 
 | 参数名 | 必填 | 类型             | 长度(Byte) | 说明                                   |
 | ------ | ---- | ---------------- | ---------- | -------------------------------------- |
