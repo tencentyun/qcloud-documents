@@ -146,5 +146,4 @@ RtcError 错误对象。
 ## 联系我们
 
 关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/8a67d26cc645eb8a86e35fa4d78eaf62.jpg)
+![](https://main.qcloudimg.com/raw/30ad559e5f1f35dccc56149208aba552.jpg)
