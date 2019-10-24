@@ -7,8 +7,8 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 >
 1. 登录进入 [Okta 网站](https://www.okta.com)，单击右上角【用户名称】>【Your Org】，如下图所示：
 ![](https://main.qcloudimg.com/raw/29d6e0d2803dfe96284d9745571df382.png)
-2. 在 Okta 主页，单击右上角【管理员】，进入管理员界面<span id="admin"></span>。
-3. 在管理员页面，选择 Applications，进入应用管理页面<span id="app"></span>。如下图所示：
+2. 在 Okta 主页，单击右上角【管理员】，进入管理员界面<span id="stepadmin"></span>。
+3. 在管理员页面，选择 Applications，进入应用管理页面<span id="stepapp"></span>。如下图所示：
 ![](https://main.qcloudimg.com/raw/5d55782d704ed50fac661603a30aa0d3.jpg)
 4. 在应用管理页面，单击【Add Application】。进入添加应用页面。
 5. 在添加应用页面，单击【Create New APP】。如下图所示：
