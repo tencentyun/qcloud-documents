@@ -27,7 +27,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 3. 创建腾讯云 CAM 身份提供商以及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
 ### 配置 OneLogin 单点登录
->?您可以通过本步骤将 OneLogin 应用程序属性映射到腾讯云的属性，建立 Azure AD 应用程序和腾讯云的互信关系。
+>?您可以通过本步骤将 OneLogin 应用程序属性映射到腾讯云的属性，建立OneLogin 应用程序和腾讯云的互信关系。
 
 1. 在 [OneLogin 应用管理页](#app)，单击已创建的 “test” 应用，跳转至应用编辑页。
 2. 选择【Configuration】页签，输入以下内容，单击【SAVE】。如下图所示：
