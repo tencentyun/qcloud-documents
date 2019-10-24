@@ -115,4 +115,7 @@ TRTC Web SDK (WebRTC) 重构版本，提供 Client/Stream 模式的接口，各�
 
 ### 1. 防火墙有什么限制？
 
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+- TCP 端口：8687
+- UDP 端口：8000，8800，843，443
+- 域名：qcloud.rtc.qq.com
