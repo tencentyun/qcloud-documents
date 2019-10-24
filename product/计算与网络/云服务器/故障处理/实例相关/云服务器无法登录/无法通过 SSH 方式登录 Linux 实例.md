@@ -5,6 +5,7 @@
 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
 
 ## 故障定位及处理
+### 第一步 查看安全组配置
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
 2. 在实例的管理页面，选择需要排查故障的实例，单击【更多】>【安全组】>【配置安全组】。如下图所示：
@@ -17,8 +18,10 @@
 6. 重新 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，查看是否可以登录成功。
  - 是，任务结束。
  - 否，请执行 [步骤7](#step07)。
-7. <span id="step07">[使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。</span>
-8. 在操作系统界面，执行以下命令，查看是否含有 sshd 服务监听的端口。
+ 
+###  第二步 查看 sshd 服务端口
+1. <span id="step07">[使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。</span>
+2. 在操作系统界面，执行以下命令，查看是否含有 sshd 服务监听的端口。
 ```
 netstat -tnlp | grep sshd
 ```
@@ -26,8 +29,10 @@ netstat -tnlp | grep sshd
 ```
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1015/sshd  
 ```
- - 若无输出，则可能是 sshd 服务未启动，请执行 [步骤9](#step09)。
-9. <span id="step09">执行以下命令，查看 sshd 服务是否启动。</span>
+ - 若无输出，则可能是 sshd 服务未启动，请执行 [下一步](#step09)。
+ 
+###  第三步 查看 sshd 服务是否启动
+<span id="step09">执行以下命令，查看 sshd 服务是否启动。</span>
 ```
 systemctl status sshd.service
 ```
@@ -38,8 +43,4 @@ systemctl start sshd
 ```
 
 如果进行以上操作后，您的实例仍无法连接，建议您 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
-
-
-
-
 
