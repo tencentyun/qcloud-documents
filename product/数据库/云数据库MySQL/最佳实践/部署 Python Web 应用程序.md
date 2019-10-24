@@ -14,7 +14,7 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 ```
 yum install python-pip 
 ```
-2. 更新 pip 包。
+2. 更新 Python。
 ```
 pip install --upgrade pip
 ```
