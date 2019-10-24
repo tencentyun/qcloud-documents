@@ -1,7 +1,15 @@
-本文主要介绍如何快速运行腾讯云 TRTC Demo（Web）。
+本文主要介绍如何快速运行腾讯云 TRTC Web SDK Demo。
 
+>?TRTC Web SDK Demo 主要面向开发者，如您想快速体验 TRTC Web SDK 功能，可直接访问 [官网体验 Ddemo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html)。
+在开始体验之前，建议您先了解 [TRTC Web SDK API 概览](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 和 [基础音视频通话教程](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)。
+
+<span id="requirements"></span>
 ## 环境要求
-请使用最新版本的 Chrome 浏览器。
+- 请使用最新版本的 Chrome 浏览器。
+- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+ - TCP 端口：8687
+ - UDP 端口：8000，8800，843，443
+ - 域名：qcloud.rtc.qq.com
 
 ## 操作步骤
 <span id="step1"></span>
@@ -29,7 +37,7 @@
 Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
  
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `H5/js/debug/GenerateTestUserSig.js`文件。
+2. 找到并打开 `Web/js/debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
@@ -40,9 +48,11 @@ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 �
 
 ### 步骤5：运行 Demo
 使用 Chrome 浏览器打开 Demo 根目录下的`index.html`文件即可运行 Demo。
+
 Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/d261de9f7d9a467afcbd26cf273149a4.png)
 - 单击【加入房间】加入音视频通话房间并且发布本地音视频流。
+ 您可以打开多个页面，每个页面都单击 【加入房间】，正常情况下可以看到多个画面并模拟实时音视频通话。
 - 单击【离开房间】退出音视频通话。
 - 单击【开始推流】发布本地音视频流。
 - 单击【停止推流】停止发布本地音视频流。
@@ -55,10 +65,13 @@ Demo 运行界面如图所示：
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
-### 2. 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以对 UDP 有拦截的办公网络下无法使用，如遇到类似问题，请参考文档：[应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399)。
+### 2. 出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
+出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
-### 3. 出现10006 error 该如何处理？
+### 3. 出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
+出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
+
+### 4. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。
 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板即可确认服务状态。
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
