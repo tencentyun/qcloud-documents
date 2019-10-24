@@ -1188,8 +1188,8 @@ order、refund_order 只包含一个。
 | ------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
 | spp     | 否   | Int    | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
 | tt      | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
-| otn     | 是   | String |            | out_trade_no：支付单号。                                       |
-| tf      | 否   |        |            | total_fee：订单总金额。                                        |
+| otn     | 是   | String |      32      | out_trade_no：支付单号。                                       |
+| tf      | 否   |    Int    |        8    | total_fee：订单总金额。                                        |
 | ct      | 是   | Int    | 8          | create_time：订单创建时间。                                    |
 | wx_cts  | 否   | Int    | 4          | wxpay_current_trade_state：见枚举值定义 WxpayOrderState。      |
 | ali_cts | 否   | Int    | 4          | 支付宝订单状态，见枚举值定义 AlipayOrderState。                |
@@ -1271,7 +1271,12 @@ return w.write(request);
 				"bo":{
 					"spp":100,"tt":1,
 					"otn":"110138591298768",
-					"tf":200,"ct":1571817657,"wx_cts":2
+					"spp":100,
+					"tt":1,
+					"otn":"110138591298768",
+					"tf":200,
+					"ct":1571817657,
+					"wx_cts":2
 				}
 			},
 			{
