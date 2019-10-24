@@ -836,7 +836,9 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 必须在 URI 中指定`keys`变量，而 select 变量则是可选项。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称。并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如：“pay.total_money”。
 
->! 请求的变量必须通过urlencode编码，请将url中的空格编码为“%20”而不是“+”
+limit和offset是用于记录部分返回控制的参数。
+
+>! 请求的变量必须通过urlencode编码，请将url中的空格编码为“%20”而不是“+””；请在HEADER中通过`x-tcaplus-index-name`指定想要访问的索引名，索引名在表定义文件中可以找到。
 
 |名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |
@@ -844,6 +846,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 |x-tcaplus-version  |String|Tcaplus3.32.0 |
 |x-tcaplus-pwd-md5  |String|MD5 of AppKey(Password) |
 |x-tcaplus-idl-type  |String|protobuf |
+|x-tcaplus-index-name  |String| {index_name}|
 
 
 #### 示例：
@@ -866,6 +869,7 @@ http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7
 "x-tcaplus-version:Tcaplus3.32.0",
 "x-tcaplus-pwd-md5:c3eda5f013f92c81dda7afcdc273cf82",
 "x-tcaplus-idl-type:protobuf"
+"x-tcaplus-index-name:index_name"
 ]
 ```
 
