@@ -22,11 +22,9 @@
 4. 在弹出的 “修改 DNS 服务器” 窗口中，填写指定的 DNS 服务器地址，单击【提交】，完成修改。
 ![4](https://main.qcloudimg.com/raw/7660182fc679028ed428d0564e1d8d89.png)
 
->?如果域名在其他注册商处管理，您需要前往域名注册商提供的域名管理页面，修改为指定的域名 DNS。
-下面以阿里云（万网）、GoDaddy 为例说明修改方法。
-
 ### 其他注册商域名修改 DNS
-以下列注册商为例子进行域名 DNS 修改。
+如果域名在其他注册商处注册管理，您需要前往域名注册商提供的域名管理页面，修改为指定的域名 DNS。
+下面以阿里云（万网）、GoDaddy 为例。
 - 参考阿里云（万网）注册商的 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html) 操作。
 - 参考 GoDaddy 注册商的 [域名 DNS 修改](https://sg.godaddy.com/zh/help/change-nameservers-for-my-domains-664) 操作。
 
