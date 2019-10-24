@@ -111,7 +111,7 @@ yum remove -y 包名
 ```
 3. <span id="install"></span>执行以下命令，安装 MySQL。
 ```
-yum install -y mysql55w-libs  mysql55w-server mysql55w-devel
+yum install -y mysql-devel.x86_64 mysql-server.x86_64 mysql-libs.x86_64
 ```
 4. 依次执行以下命令，启动 MySQL 服务，同时设置为开机自启动。
 ```
