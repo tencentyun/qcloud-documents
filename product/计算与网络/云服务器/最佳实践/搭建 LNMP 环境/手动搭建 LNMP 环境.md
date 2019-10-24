@@ -46,36 +46,34 @@ vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 或 “**Insert**” 切换至编辑模式，对应使用的操作系统编辑 `nginx.conf` 文件。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->?
->- 若在 http{...} 中已存在 server{...}，则请替换为以下内容。
->- 若在 http{...} 中无 server{..}，则请在 http{..} 中添加以下内容。
+>?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
 >
 ```
 server {
- listen       80;
- root   /usr/share/nginx/html;
- server_name  localhost;
- #charset koi8-r;
- #access_log  /var/log/nginx/log/host.access.log  main;
- #
- location / {
-         index index.php index.html index.htm;
- }
- #error_page  404              /404.html;
- #redirect server error pages to the static page /50x.html
- #
- error_page   500 502 503 504  /50x.html;
- location = /50x.html {
-     root   /usr/share/nginx/html;
- }
- #pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
- #
- location ~ .php$ {
-     fastcgi_pass   127.0.0.1:9000;
-     fastcgi_index  index.php;
-     fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-     include        fastcgi_params;
-  }
+	listen       80;
+	root   /usr/share/nginx/html;
+	server_name  localhost;
+	#charset koi8-r;
+	#access_log  /var/log/nginx/log/host.access.log  main;
+	#
+	location / {
+		  index index.php index.html index.htm;
+	}
+	#error_page  404              /404.html;
+	#redirect server error pages to the static page /50x.html
+	#
+	error_page   500 502 503 504  /50x.html;
+	location = /50x.html {
+	  root   /usr/share/nginx/html;
+	}
+	#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+	#
+	location ~ .php$ {
+	  fastcgi_pass   127.0.0.1:9000;
+	  fastcgi_index  index.php;
+	  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
+	  include        fastcgi_params;
+	}
 }
 ```
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
@@ -95,55 +93,33 @@ systemctl enable nginx
 显示如下，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
-### 步骤2：安装配置 PHP
-由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
-#### CentOS 6.9 安装配置 PHP
-1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
-rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
-```
-2. 执行以下命令，安装 PHP 7.1.32 所需要的包。
-```
-yum -y install mod_php71w.x86_64 php71w-cli.x86_64 php71w-common.x86_64 php71w-mysqlnd php71w-fpm.x86_64
-```
-3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
-```
-service php-fpm start
-chkconfig --add php-fpm  
-chkconfig php-fpm on
-```
 
-#### CentOS 7.6 安装配置 PHP
-1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
-rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-```
-2. 执行以下命令，安装 PHP 7.2.22 所需要的包。
-```
-yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
-```
-3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
-```
-systemctl start php-fpm
-systemctl enable php-fpm
-```
-
-### 步骤3：安装数据库
+### 步骤2：安装数据库
 由于操作系统版本不同，所使用的数据库版本也不相同，请对应您使用的操作系统并按照以下步骤进行进行安装配置。
 #### CentOS 6.9 安装 MySQL
-1. 执行以下命令，安装 MySQL。
+1. 执行以下命令，查看系统中是否存在 MySQL 现有包。
+```
+rpm -qa | grep -i mysql
+```
+ - 返回结果如下所示，则表示已岑在 MySQL，请执行 [步骤2](#delete) 依次移除。
+![](https://main.qcloudimg.com/raw/1ba3471ce79797a5c4223f2d10cca0d3.png)
+ - 返回结果如下所示，请执行 [步骤3](#install) 开始安装 MySQL。
+![](https://main.qcloudimg.com/raw/e8832cae8d70d352afdd67e8ec71e1e0.png)
+2. <span id="delete"></span>执行以下命令，删除 MySQL 现有包。
+```
+yum remove -y 包名
+```
+3. <span id="install"></span>执行以下命令，安装 MySQL。
 ```
 yum install -y mysql55w-libs  mysql55w-server mysql55w-devel
 ```
-2. 依次执行以下命令，启动 MySQL 服务，同时设置为开机自启动。
+4. 依次执行以下命令，启动 MySQL 服务，同时设置为开机自启动。
 ```
 service mysqld start 
 chkconfig --add mysqld
 chkconfig mysqld  on 
 ```
-3. 执行以下命令，验证 MySQL 是否安装成功。
+5. 执行以下命令，验证 MySQL 是否安装成功。
 ```
 mysql
 ```
@@ -195,11 +171,58 @@ mysql
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
 
 
+### 步骤3：安装配置 PHP
+由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
+#### CentOS 6.9 安装配置 PHP
+1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
+```
+rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+```
+2. 执行以下命令，安装 PHP 7.1.32 所需要的包。
+```
+yum -y install mod_php71w.x86_64 php71w-cli.x86_64 php71w-common.x86_64 php71w-mysqlnd php71w-fpm.x86_64
+```
+3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
+```
+service php-fpm start
+chkconfig --add php-fpm  
+chkconfig php-fpm on
+```
+
+#### CentOS 7.6 安装配置 PHP
+1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
+```
+rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+```
+2. 执行以下命令，安装 PHP 7.2.22 所需要的包。
+```
+yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
+```
+3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
+```
+systemctl start php-fpm
+systemctl enable php-fpm
+```
+
+
+
+
 ### 验证环境配置是否成功
 当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
+```
+2. 对应操作系统执行命令，重启 Nginx 服务。
+ - CentOS 6.9 执行以下命令：
+```
+service nginx restart
+```
+ - CentOS 7.6 执行以下命令：
+```
+systemctl restart nginx
 ```
 2. 在浏览器中访问如下地址，查看环境配置是否成功。
 ```
