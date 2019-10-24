@@ -11,7 +11,7 @@
 ## 操作步骤
 ### 搭建 Java Web 环境
 
-### 创建云服务器时搭建 Java Web 环境<span id="create"></span>
+#### 创建云服务器时搭建 Java Web 环境<span id="create"></span>
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
