@@ -22,11 +22,11 @@
 ```
 netstat -tnlp | grep sshd
 ```
- - 若返回如下结果，即表示 sshd 进程已监听22端口，请执行 [步骤9](#step09)。
+ - 若返回如下结果，即表示 sshd 进程已监听22端口，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行反馈。
 ```
 tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1015/sshd  
 ```
- - 若无输出，则可能是 sshd 服务未启动，请执行 [步骤3](#step03)。
+ - 若无输出，则可能是 sshd 服务未启动，请执行 [步骤9](#step09)。
 9. <span id="step09">执行以下命令，查看 sshd 服务是否启动。</span>
 ```
 systemctl status sshd.service
