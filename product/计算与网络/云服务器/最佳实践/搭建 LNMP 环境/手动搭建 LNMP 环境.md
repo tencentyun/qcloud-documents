@@ -101,10 +101,10 @@ systemctl enable nginx
 ```
 rpm -qa | grep -i mysql
 ```
- - 返回结果如下所示，则表示已岑在 MySQL，请执行 [步骤2](#delete) 依次移除。
-![](https://main.qcloudimg.com/raw/1ba3471ce79797a5c4223f2d10cca0d3.png)
+ - 返回结果如下所示，则表示已存在 MySQL，请执行 [步骤2](#delete) 依次移除。
+![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
  - 返回结果如下所示，请执行 [步骤3](#install) 开始安装 MySQL。
-![](https://main.qcloudimg.com/raw/e8832cae8d70d352afdd67e8ec71e1e0.png)
+![](https://main.qcloudimg.com/raw/41abe6eb40d523042c8b6593e6a61ac0.png)
 2. <span id="delete"></span>执行以下命令，删除 MySQL 现有包。
 ```
 yum remove -y 包名
