@@ -30,5 +30,5 @@
 - 参考阿里云（万网）注册商的 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html) 操作。
 - 参考 GoDaddy 注册商的 [域名 DNS 修改](https://sg.godaddy.com/zh/help/change-nameservers-for-my-domains-664) 操作。
 
->?需要在腾讯云进行解析的域名，请分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net。
+>?需要在腾讯云进行解析的域名，请填写 [各个套餐对应的 DNS 地址](https://cloud.tencent.com/document/product/302/9070)。
 
