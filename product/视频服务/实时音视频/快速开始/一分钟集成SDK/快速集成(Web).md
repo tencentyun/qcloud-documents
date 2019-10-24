@@ -18,6 +18,13 @@
 > 可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
 > 华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器不支持 H264 编码。
 
+
+## 环境要求
+TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+- TCP 端口：8687
+- UDP 端口：8000，8800，843，443
+- 域名：qcloud.rtc.qq.com
+
 ## 集成 TRTC Web SDK
 
 ### NPM 集成
@@ -111,11 +118,3 @@ TRTC Web SDK (WebRTC) 重构版本，提供 Client/Stream 模式的接口，各�
 - 新增日志上报的字段。
 - createRoom 名称改为 enterRoom。
 
-## 常见问题
-
-### 1. 防火墙有什么限制？
-
-TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
-- TCP 端口：8687
-- UDP 端口：8000，8800，843，443
-- 域名：qcloud.rtc.qq.com
