@@ -23,7 +23,7 @@
 此处的项目为腾讯云所有产品共享，您可以在 [项目管理](https://console.cloud.tencent.com/project) 中添加项目。
 3. 选择**源站类型**并填写**源站设置**
 源站类型的详细说明请参阅  [CDN 接入域名](https://cloud.tencent.com/document/product/228/5734)。
-源站设置中需填写您的** CVM 外网地址**。
+源站设置中需填写您的 **CVM 外网地址**。
 
 ### 加速服务配置
 
