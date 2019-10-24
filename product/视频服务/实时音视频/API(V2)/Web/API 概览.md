@@ -134,6 +134,15 @@ RtcError 错误对象。
 | --- | --- |
 | [getCode](https://trtc-1252463788.file.myqcloud.com/web/docs/RtcError.html#getCode) | 获取错误码。 |
 
+## 3.x.x及以前版本 API 文档
+
+- [基础功能接口](https://cloud.tencent.com/document/product/647/17251)
+- [基础事件通知](https://cloud.tencent.com/document/product/647/17248)
+- [高级功能接口](https://cloud.tencent.com/document/product/647/17250)
+- [高级事件通知](https://cloud.tencent.com/document/product/647/17252)
+- [异常处理与问题定位](https://cloud.tencent.com/document/product/647/34341)
+- [常见问题](https://cloud.tencent.com/document/product/647/17017)
+
 ## 联系我们
 
 关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
