@@ -6,11 +6,12 @@
 <span id="requirements"></span>
 ## 环境要求
 - 请使用最新版本的 Chrome 浏览器。
-- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
+- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Ddemo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html)检查配置是否生效。
  - TCP 端口：8687
  - UDP 端口：8000，8800，843，443
  - 域名：qcloud.rtc.qq.com
-
+ 
+ 
 ## 操作步骤
 <span id="step1"></span>
 ### 步骤1：创建新的应用
