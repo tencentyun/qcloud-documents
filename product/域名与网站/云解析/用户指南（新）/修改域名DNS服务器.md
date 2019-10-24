@@ -27,8 +27,8 @@
 
 ### 其他注册商域名修改 DNS
 以下列注册商为例子进行域名 DNS 修改。
-- 请登录阿里云（万网）注册商官网，具体操作请参考 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html)。
-- 请登录 GoDaddy 注册商官网，具体操作请参考 [域名 DNS 修改](https://sg.godaddy.com/zh/help/change-nameservers-for-my-domains-664)。
+- 参考阿里云（万网）注册商的 [域名 DNS 修改](https://help.aliyun.com/document_detail/54157.html) 操作。
+- 参考 GoDaddy 注册商的 [域名 DNS 修改](https://sg.godaddy.com/zh/help/change-nameservers-for-my-domains-664) 操作。
 
 >?需要在腾讯云进行解析的域名，请分别填写 f1g1ns1.dnspod.net，f1g1ns2.dnspod.net。
 
