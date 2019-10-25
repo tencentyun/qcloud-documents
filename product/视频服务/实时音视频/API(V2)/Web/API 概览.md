@@ -1,15 +1,17 @@
 ## API 使用指引
 详细的 API 使用介绍请参见以下指引：
 
-| 功能                       | Sample Code 指引                                                                                                              |
-|--------------------------|----------------------------------------------------------------------------------------------------------------------------|
-| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)                       |
-| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                                   |
-| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)         |
-| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)           |
+| 功能                       | Sample Code 指引   |
+|--------------|--------------------|
+| 基础音视频通话  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)               |
+| 互动直播 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                           |
+| 切换摄像头和麦克风 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)      |
+| 设置本地视频属性  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)      |
 | 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html) |
-| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)                          |
-| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)                   |
+| 屏幕分享  | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)   |
+| 音量大小检测 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html) |
+| 自定义采集与自定义播放渲染 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-08-advanced-customized-capture-rendering.html) |
+| 房间内上行用户个数限制 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-09-advanced-uplink-limits.html) |
 
 ## TRTC
 
@@ -69,6 +71,7 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | API | 描述 |
 | --- | --- |
 | [initialize](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#initialize) | 初始化本地音视频流对象。 |
+| [setAudioProfile](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioProfile) | 设置音频 Profile。该方法需要在调用 [initialize()](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#initialize) 之前调用。 |
 | [setVideoProfile](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setVideoProfile) | 设置视频 Profile。该方法需要在调用 [initialize()](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#initialize) 之前调用。 |
 | [setScreenProfile](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setScreenProfile) | 设置屏幕分享 Profile。该方法需要在调用 [initialize()](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#initialize) 之前调用。 |
 | [setVideoContentHint](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setVideoContentHint) | 设置视频内容提示，主要用于提升在不同场景下的视频编码质量。该方法需要在调用 [initialize()](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#initialize) 成功之后调用。 |
