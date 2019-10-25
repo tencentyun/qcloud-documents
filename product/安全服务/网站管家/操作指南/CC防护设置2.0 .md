@@ -3,6 +3,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 >!
 - 智能 CC 防护策略和自定义 CC 规则防护策略，不能同时开启。
 - 使用基于 SESSION 的 CC 防护策略，需要先进行 SESSION 设置，才能设置基于 SESSION 的 CC 防护策略置。
+- 如果您使用的 Web 应用防火墙（网站管家）版本不支持 CC 防护设置2.0，请您参考 [旧版 CC 防护设置](https://cloud.tencent.com/document/product/627/35525)  进行配置。
 
 ## 配置步骤
 **示例一：智能 CC 防护配置**
