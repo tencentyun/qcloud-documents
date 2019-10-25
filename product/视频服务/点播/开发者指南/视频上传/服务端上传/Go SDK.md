@@ -214,11 +214,11 @@ func main() {
 
 上传请求类`VodUploadRequest`
 
-| 属性名称      | 属性描述                   | 类型 | 必填   |
+| 属性名称      | 属性描述                   | 类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | MediaFilePath   | 待上传的媒体文件路径。必须为本地路径，不支持 URL。| String 指针 | 是    |
 | MediaType   | 待上传的媒体文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String 指针 | 否    |
-| MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | string 指针 | 否    |
+| MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String 指针 | 否    |
 | CoverFilePath   | 待上传的封面文件路径。必须为本地路径，不支持 URL。 | String 指针 | 否    |
 | CoverType   | 待上传的封面文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String 指针 | 否    |
 | Procedure   | 上传后需要自动执行的任务流名称，该参数在创建任务流（[API 方式](/document/product/266/33897) 或 [控制台方式](https://console.cloud.tencent.com/vod/video-process/taskflow)）时由用户指定。具体请参考 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。       | String 指针 | 否    |
