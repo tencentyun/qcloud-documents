@@ -86,7 +86,7 @@ done
 ##  修改 Spark 配置
 1. 在【组件管理】中找到 Spark 组件，选择【操作】>【配置】。
 ![](https://main.qcloudimg.com/raw/285b3305d926c0e06a6dd84a9baeae45.png)
-2. 选中配置文件【spark-defaults.conf】，单击【修改配置】。新建如下配置项：
+2. 选中配置文件【spark-defaults.conf】，单击【修改配置】。新建配置项如下：
 ![](https://main.qcloudimg.com/raw/211d6d4a6504be660546a0a4b6b33821.png)
 <table>
 <tr>
@@ -97,27 +97,27 @@ done
 <tr>
 <td>spark.shuffle.service.enabled</td>
 <td>true</td>
-<td>启动 shuffle 服务 </td>
+<td>启动 shuffle 服务。 </td>
 </tr>
 <tr>
 <td>spark.dynamicAllocation.enabled</td>
 <td>true</td>
-<td>启动动态资源分配</td>
+<td>启动动态资源分配。</td>
 </tr>
 <tr>
 <td>spark.dynamicAllocation.minExecutors</td>
 <td>1</td>
-<td>每个 Application 最小分配的 executor 数</td>
+<td>每个 Application 最小分配的 executor 数。</td>
 </tr>
 <tr>
 <td>spark.dynamicAllocation.maxExecutors</td>
 <td>30</td>
-<td>每个 Application 最大分配的 executor 数   </td>
+<td>每个 Application 最大分配的 executor 数。   </td>
 </tr>
 <tr>
 <td>spark.dynamicAllocation.initialExecutors</td>
 <td>1</td>
-<td>一般情况下与 spark.dynamicAllocation.minExecutors 值相同 </td>
+<td>一般情况下与 spark.dynamicAllocation.minExecutors 值相同。 </td>
 </tr>
 <tr>
 <td>spark.dynamicAllocation.schedulerBacklogTimeout</td>

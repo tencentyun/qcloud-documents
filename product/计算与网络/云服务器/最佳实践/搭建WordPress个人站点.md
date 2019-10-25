@@ -50,6 +50,8 @@ vim /etc/nginx/nginx.conf
 ```
 3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `nginx.conf` 文件中 server{...} 的内容替换成以下内容。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
+>? 若 `nginx.conf` 文件中无 server{..}，则请在 `nginx.conf` 文件中添加以下内容。
+> 
 ```
 server {
 	listen       80;
@@ -61,7 +63,6 @@ server {
 	location / {
 			index index.php index.html index.htm;
 	}
-
 	#error_page  404              /404.html;
 	#redirect server error pages to the static page /50x.html
 	#
@@ -164,35 +165,55 @@ systemctl start mariadb
 systemctl enable mariadb
 ```
 
-<span id="login"></span>
-#### 配置 MariaDB 
->!
->- 针对**首次登录** MariaDB 的用户须执行此步骤设置登录密码，如已设置过 MariaDB 登录密码，请跳过此步骤。
->- 根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
+
+
+#### 配置 WordPress 数据库<span id="database"></span>
+>!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
 ```
-2. 执行以下命令，设置 root 用户身份验证方式。
+2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
 ```
-ALTER USER root@localhost IDENTIFIED VIA mysql_native_password;
+CREATE DATABASE wordpress;
 ```
-3. 执行以下命令，设置 root 用户登录密码。
+3. 执行以下命令，创建一个新用户。例如 “user”，登录密码为 `123456`。
 ```
-SET PASSWORD = PASSWORD('此处填写密码');
+CREATE USER 'user'@'localhost' IDENTIFIED BY '123456';
 ```
-显示结果如下，则已成功设置。
-![](https://main.qcloudimg.com/raw/2c44bf47a93810be4c246cd5e49a84a9.png)
-4. <span id="out">执行以下命令，退出 MariaDB。</span>
+4. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
+```
+GRANT ALL PRIVILEGES ON wordpress.* TO 'user'@'localhost' IDENTIFIED BY '123456';
+```
+5. 执行以下命令，使所有配置生效。
+```
+FLUSH PRIVILEGES;
+```
+6. 执行以下命令，退出 MariaDB。
+```
+\q
+```
+
+#### 配置 root 帐户
+1. 执行以下命令，进入 MariaDB。
+```
+mysql
+```
+2. 执行以下命令，设置 root 帐户密码。
+>?MariaDB 10.4 在 CentOS 系统上已增加了 root 帐户免密登录功能，请执行以下步骤设置您的 root 帐户密码并牢记。
+>
+```
+ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('输入您的密码');
+```
+3. 执行以下命令，退出 MariaDB。
 ```
 \q
 ```
 
 
-
 ### 安装和配置 WordPress
-#### 下载 
+#### 下载 WordPress
 >? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
@@ -206,40 +227,9 @@ wget https://cn.wordpress.org/wordpress-5.0.4-zh_CN.tar.gz
 tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 ```
 
-<span id="database"></span>
 
-#### 配置数据库
-在写博客之前，需要先建好数据库，以存储各类数据。请根据以下步骤进行 MariaDB 数据库配置。
-1. 执行以下命令，使用 root 用户登录到 MariaDB 服务器。
-<pre>
-mysql -uroot -pXXXXX（XXXXX 表示<a href="#login"> 配置 MariaDB</a> 时设置的登录密码）
-</pre>
-2. 执行以下命令，创建 MariaDB 数据库。例如 “wordpress”。
-```
-CREATE DATABASE wordpress;
-```
-3. 执行以下命令，创建一个新用户。例如 “user”。
-```
-CREATE USER user;
-```
-4. 执行以下命令，为 “user” 用户设置密码。例如 “wordpresspassword”。
-```
-SET PASSWORD FOR user=PASSWORD("wordpresspassword");
-```
-5. 执行以下命令，赋予用户对 “wordpress” 数据库的全部权限。
-```
-GRANT ALL PRIVILEGES ON wordpress.* TO user IDENTIFIED BY 'wordpresspassword';
-```
-6. 执行以下命令，使所有配置生效。
-```
-FLUSH PRIVILEGES;
-```
-7. 执行以下命令，退出 MariaDB。
-```
-\q
-```
 
-####  写入数据库信息
+####  修改 WordPress 配置文件
 1. 依次执行以下命令，进入 WordPress 安装目录，将`wp-config-sample.php`文件复制到`wp-config.php`文件中，并将原先的示例配置文件保留作为备份。
 ```
 cd /usr/share/nginx/html/wordpress
@@ -249,7 +239,7 @@ cp wp-config-sample.php wp-config.php
 ```
 vim wp-config.php
 ```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，并将相关配置信息修改为 [配置数据库](#database) 中的内容。
+3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，找到文件中 MySQL 的部分，并将相关配置信息修改为 [配置 WordPress 数据库](#database) 中的内容。
 ```
 	// ** MySQL settings - You can get this info from your web host ** //
 	/** The name of the database for WordPress */
@@ -259,10 +249,10 @@ vim wp-config.php
 	define('DB_USER', 'user');
 	
 	/** MySQL database password */
-	define('DB_PASSWORD', 'wordpresspassword');
+	define('DB_PASSWORD', '123456');
 	
 	/** MySQL hostname */
-	define('DB_HOST', '127.0.0.1');
+	define('DB_HOST', 'localhost');
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 

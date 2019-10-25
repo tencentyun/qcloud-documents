@@ -1,24 +1,31 @@
 本文档描述互动课堂后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况。
 
-## 课堂模块
-### 预约课堂
-#### 接口
-- 接口名称：`/class/create`
-- 接口方法： `POST`
-- Content-Type：`application/json`
-- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/create?公共参数`
 
-#### 请求参数
+
+## 1 课堂模块
+### 1.1 预约课堂
+
+#### 接口__ 
+
+| 接口名称 | `/class/create` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/create?公共参数` |
+
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | teacher_id | string | 教师 ID | 是 | - |
+| assistant_id | string | 助教ID | 否 | - |
 | class_topic | string | 课堂主题/课堂名字 | 否 | 课堂 ID 的字符串形式 |
 | class_type | string | 课堂类型，详情参考附录 | 否 | `public` |
 | start_time | int64 | 课堂预计开始时间戳 | 否 | 约课时的时间 | 
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
-| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 是 | - |
-| admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 是 | - |
+| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 否 | - |
+| admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 否 | - |
 | settings | settings | 课堂配置信息 | 否 |- |
 | resolution | string | 设置课堂的分辨率（320x240/800x600/1024x768)  | 否 | 1024x768 |
 | fps | int | 设置课堂的帧率| 否 | 15 |
@@ -27,29 +34,31 @@
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，<br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| enable_all_silence  | int | 是否开启了全员禁言(0-否/1-是)| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 否 |  教师 ID 默认在成员列表中 |
 | role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
 | user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
-| record_user_id | string | 用于录制的 user_id，必须包含前缀“tic_recorduser${room_id}”，其中${room_id}为房间号，<br>在线录制服务会使用这个 user_id 进房进行录制房间内的音视频与白板，为了防止进房冲突，请保证此 user_id 不重复，如果要云端录制，则必填 | 否 | - |
-| record_user_sig | string | 用于录制的 record_user_id 对应的签名，如果要云端录制，则必填 | 否 | - |
-|max_member_limit|int|最大上麦人数|否|0|
+| max_member_limit | int |最大上麦人数| 否 | - |
+| class_live_type | string | 直播类型,详情参考附录 | 否 | - |
 
-#### 响应参数
+
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | class_id | int | 课堂 ID | 否 | - |
-| teacher_url | string | 老师进房地址，成功时下发 | 否 | - |
-| student_url | string | 学生进房地址，成功时下发 | 否 | - |
+| url | string | 进房地址，成功时下发 | 否 | - |
 
-#### 举例
+#### 举例__ 
 
-请求：
+request:
 ```
-{"teacher_id":"user_00",
+{
+  "teacher_id":"user_00",
+  "assistant_id":"user_01",
   "class_topic": "课堂主题",
   "class_type":"public",
   "start_time": 1558350988,
@@ -72,55 +81,64 @@
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
+    "record_types": ["local","remote"],
     "auto_create_im": 1,
     "bitrate": 850,
     "auto_open_mic": 0,
-    "auto_open_camera": 0
-  },
+    "auto_open_camera": 0,
+    "enable_all_silence":0
+
+  }
   "record_user_id":"tic_record_user_1234_01",
   "record_user_sig":"user_sig"
 }
 ```
 
-响应：
+response:
 ```
 {
   "error_code":0,
   "error_msg":"",
   "class_id":100012345,
-  "teacher_url":"https://tedu.qcloudtrtc.com/1400127140/100012345/0",
-  "student_url":"https://tedu.qcloudtrtc.com/1400127140/100012345/1"
+  "url":"https://tedu.qcloudtrtc.com/#/class/100001/100012345",
 }
 ```
 
-###  删除
-#### 接口
-- 接口名称：`/class/delete`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/class/delete?公共参数`
+### 1.2 删除
 
-#### 请求参数
+#### 接口__ 
+
+| 接口名称 | `/class/delete` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/delete?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | class_id | int | 课堂 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```
 {
   "class_id": 100012345
 }
 ```
-响应：
+
+response
+
 ```
 {
   "error_code":0,
@@ -128,26 +146,31 @@
 }
 ```
 
-### 修改课堂信息
-#### 接口
-- 接口名称：`/class/modify`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/class/modify?公共参数`
 
-#### 请求参数
+### 1.3 修改课堂信息
+#### 接口__ 
+
+| 接口名称 | `/class/modify` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/modify?公共参数` |
+
+#### 请求参数__
+
 修改课堂的参数字段与创建课堂相同，需要修改哪个字段，就在请求体中设置该字段。不需要修改的字段，不要带在请求体中。**class_id 不可修改；members 是全量修改，如果要增量修改，请参考成员模块中的`添加预约成员`接口**。
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
+#### 举例__ 
 修改课堂主题和课堂结束时间。
-请求：
+request
+
 ```json
 {
   "class_id": 102304,
@@ -156,7 +179,8 @@
 }
 ```
 
-响应：
+response
+
 ```json
 {
   "error_code":0,
@@ -165,20 +189,22 @@
 ```
 
 
-###  查询课堂信息
-####  接口
-- 接口名称：`/class/info`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/class/info?公共参数`
+### 1.4 查询课堂信息
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/class/info` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/info?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | class_id | int | 课堂 ID | 否 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -204,20 +230,25 @@
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，在开始上课时，会自动开启云端录制 | 是 | - | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| enable_all_silence  | int | 是否开启了全员禁言(0-否/1-是)| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 是 | - |
 | role | string | 成员角色信息 | 是 | - |
 | user_id | string | 成员 ID | 是 | - |
 |max_member_limit|int|最大上麦人数|否|-|
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```json
 {
   "class_id": 100012345
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code": 0,
@@ -258,15 +289,16 @@
 }
 ```
 
-### 查询课堂列表
+### 1.5 查询课堂列表
+#### 接口__ 
 
-####  接口
-- 接口名称：`/class/list`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/class/list?公共参数`
+| 接口名称 | `/class/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/list?公共参数` |
 
-#### 请求参数
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -278,7 +310,7 @@
 | class_type | Array  | 课堂的类型，默认拉取所有课堂；不传此字段或字段是空数组，也是拉取所有课堂 | 否 | ["public","1v1","1vN"] |
 
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -288,8 +320,9 @@
 | total | int | 课堂总数 | 是 | -  |
 | list | Array | 课堂信息列表 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
 ```json
 {
   "index":0,
@@ -300,7 +333,9 @@
   "class_type":["1vN"]
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code": 0,
@@ -321,30 +356,31 @@
   ]
 }
 ```
-### 上课
-#### 接口
+### 1.6 上课
+#### 接口__ 
 
-- 接口名称：`/class/start` 
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` 
+| 接口名称 | `/class/start` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/start?公共参数` |
 
-#### 请求参数
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | class_id | int | 课堂 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
+#### 举例__ 
 
-请求：
+request
 
 ```json
 {
@@ -352,7 +388,7 @@
 }
 ```
 
-响应：
+response
 
 ```json
 {
@@ -360,36 +396,37 @@
     "error_msg": ""
 }
 ```
-### 下课
-#### 接口
+### 1.7 下课
+#### 接口__ 
 
-- 接口名称：`/class/stop` 
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL： `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` 
+| 接口名称 | `/class/stop` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/class/stop?公共参数` |
 
-#### 请求参数
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | class_id | int | 课堂 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
+| error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+request
 ```json
 {
     "class_id": 1234354
 }
 ```
 
-响应：
+response
 
 ```json
 {
@@ -397,15 +434,17 @@
     "error_msg": ""
 }
 ```
-## 账号模块
-###  创建账号
-####  接口
-- 接口名称：`/user/register`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/user/register?公共参数`
+## 2 账号模块
+### 2.1 创建账号
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/user/register` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/user/register?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -419,18 +458,20 @@
 | phone_no | string | 手机号 | 否 |- |
 | e_mail | string | 邮箱 | 否 | -|
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | user_list | Array |创建成功后，每个用户对应生成一个 user_token，用于唤起组件 | 是 | 空数组 |
-| user_token | string | 用户票据，每个用户 ID 对应一个 user_token | 是 | - |
+| user_token | string | 用户票据，每个用户 ID 对应一个 user_token，等同于控制台的密码 | 是 | - |
 | repeats | Array | 出现重复 ID 时，会报错，且返回重复 user_id 列表 | 是 | 空数组 |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request:
+
 ```
 {
   "list":[
@@ -447,7 +488,9 @@
   ]
 }
 ```
-响应：
+
+response:
+
 ```
 {
   "error_code":0,
@@ -462,14 +505,16 @@
 }
 ```
 
-### 修改账号信息
-####  接口
-- 接口名称：`/user/profile/modify`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/user/profile/modify?公共参数`
+### 2.2 修改账号信息
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/user/profile/modify` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/user/profile/modify?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -481,24 +526,28 @@
 | phone_no | string | 手机号 | 否 | - |
 | e_mail | string | 邮箱 | 否 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
-需要修改哪个字段，就在请求体中设置该字段的值，不需要修改的字段，不要在请求体中设置。
-本例修改用户昵称。
-请求：
+#### 举例__ 
+
+需要修改哪个字段，就在请求body中设置该字段的值，不需要修改的字段，不要在body中设置。
+本例修改用户昵称
+request
+
 ```
 {
   "user_id":"xxxx",
   "nickname":"新昵称"
 }
 ```
-响应：
+
+response
+
 ```
 {
   "error_code":0,
@@ -507,20 +556,22 @@
 ```
 
 
-### 更新账号票据
-####  接口
-- 接口名称：`/user/token/update`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/user/token/update?公共参数`
+### 2.3 更新账号票据
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/user/token/update` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/user/token/update?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | user_id | string | 用户 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -528,14 +579,18 @@
 | error_msg | string | 错误信息 | 是 | - |
 | user_token | string | 新的用户票据 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```
 {
   "user_id":"xxxx"
 }
 ```
-响应：
+
+response
+
 ```
 {
   "error_code":0,
@@ -544,20 +599,22 @@
 }
 ```
 
-### 查询用户详情
-####  接口
-- 接口名称：`/user/info`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/user/info?公共参数`
+### 2.4 查询用户详情
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/user/info` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/user/info?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | user_id | string | 用户 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -574,14 +631,18 @@
 | regist_time | string | 用户注册时间 | 是 | - |
 | update_time | string | 用户信息最后一次修改时间 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```json
 {
   "user_id":"用户ID"
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code":0,
@@ -600,14 +661,16 @@
 }
 ```
 
-### 查询用户列表
-####  接口
-- 接口名称：`/user/list`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/user/list?公共参数`
+### 2.5 查询用户列表
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/user/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/user/list?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -616,7 +679,7 @@
 | roles | Array | 用户角色，用作过滤（不填此字段或字段为空数组均获取所有角色） | 否 | 所有角色
 | prefix | string | 用户 ID 的前缀，用做模糊过滤 | 否 | 空字符串
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -635,10 +698,12 @@
 | regist_time | int64 | 用户注册时间 | 是 | - |
 | update_time | int64 | 用户最后一次更新时间 | 是 | - |
 
-#### 举例
+
+#### 举例__ 
 
 获取所有角色为老师的用户。
-请求：
+request
+
 ```json
 {
   "index":0,
@@ -647,7 +712,9 @@
   "prefix":""
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code":0,
@@ -670,15 +737,17 @@
 }
 ```
 
-## 课件模块
-### 添加课件
-####  接口
-- 接口名称：`/document/add`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/document/add?公共参数`
+## 3 课件模块
+### 3.1 添加课件
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/document/add` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/document/add?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -691,7 +760,7 @@
 | is_transcode | bool | 是否需要 H5 转码（true-转码/false-不转码），如果需要此功能，需联系我们开通白名单 | 否 | false|
 | owner | string | 指定文档归属者（如果不填此字段，permission 会被设置为 public） | 否 | 空字符串 |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -699,8 +768,10 @@
 | error_msg | string | 错误信息 | 是 | - |
 | doc_id | int | 文档 ID（互动课堂后台生成的课件唯一 ID） | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```
 {
   "doc_url": "课件地址",
@@ -713,7 +784,9 @@
   "is_transcode":false
 }
 ```
-响应：
+
+response
+
 ```
 {
   "error_code": 0,
@@ -722,28 +795,31 @@
 }
 ```
 
-### 删除课件
-####  接口
-- 接口名称：`/document/delete`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/document/delete?公共参数`
+### 3.2 删除课件
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/document/delete` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/document/delete?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | doc_ids | Array | 课件 ID 数组 | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+request
+
 ```json
 {
   "doc_ids": [
@@ -752,7 +828,9 @@
   ]
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code": 0,
@@ -760,20 +838,22 @@
 }
 ```
 
-### 查询课件信息
-####  接口
-- 接口名称：`/document/info`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/document/info?公共参数`
+### 3.3 查询课件信息
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/document/info` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/document/info?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | doc_id | string | 课件 ID | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -793,14 +873,19 @@
 | transcode_msg | string | 转码错误信息 | 是 | - |
 | transcode_result | string | 转码结果（一个 H5 预览地址） | 是 | - |
 
-#### 举例
-请求：
+
+#### 举例__ 
+
+request
+
 ```json
 {
   "doc_id": "ywyzhohnx"
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code": 0,
@@ -822,14 +907,16 @@
 }
 ```
 
-### 查询课件列表
-####  接口
-- 接口名称：`/document/list`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/document/list?公共参数`
+### 3.4 查询课件列表
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/document/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/document/list?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -839,7 +926,8 @@
 | owner | string | 课件归属者 | 否 | 空字符串 |
 | permissions | Array | 课件权限类型（如果是空数组，则获取所有类型） | 否 | 空数组 |
 
-#### 响应参数
+
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -849,8 +937,10 @@
 | total | int | 课件总数 | 是 | - |
 | list | Array | 课件信息数组 | 是 | - |
 
-#### 举例
-请求：
+#### 举例__ 
+
+request
+
 ```json
 {
   "index":0,
@@ -860,7 +950,9 @@
   "permissions":["public","private"]
 }
 ```
-响应：
+
+response
+
 ```json
 {
   "error_code": 0,
@@ -888,17 +980,21 @@
 }
 ```
 
-## 事件回调
+## 4 事件回调
 用户在互动课堂后台设置接收事件的回调地址，互动课堂后台发起回调请求，用户后台必须回复响应包，响应包中 error_code 如果不为0，或者没有回复响应包，互动课堂后台会持续发送回调请求（重试10次，每次间隔1分钟）。
 
-### 回调格式模版
-####  接口
-- 接口名称：`用户回调地址`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://用户回调地址?公共参数`
+### 4.1 回调格式模版
 
-#### 请求参数
+#### 接口__ 
+
+| 接口名称 | `用户回调地址` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://用户回调地址?公共参数` |
+
+#### 请求参数__ 
+
 互动课堂后台发起的请求包体。
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
@@ -906,16 +1002,19 @@
 | event | string | 事件名称 | 是 | - |
 | data | Object | 具体回调事件对应的的数据 | 是 | - |
 
-#### 响应参数
+#### 响应参数__ 
+
 用户业务后台返回的响应包体。
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 
-#### 举例
+#### 举例__ 
+
 老师开始上课回调事件。
-请求：
+
+回调请求格式如下：
 ```
 {
   "event":"class_begin",
@@ -925,22 +1024,25 @@
   }
 }
 ```
-响应：
+
+响应包格式如下：
 ```
 {
   "error_code":0
 }
 ```
 
-#### 1. 老师开始上课
+### 4.2 老师开始上课
+
 互动课堂客户端组件会上报老师开始上课到互动课堂后台，上报之后，互动课堂后台将此事件回调到客户后台。使用客户端互动课堂组件时，才会有“老师开始上课”事件回调；直接使用后台 API 发起老师开始上课，没有此事件回调。
 
-**event**
+__event__
 
 ```
 class_begin
 ```
-**data**
+
+__data__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -954,14 +1056,18 @@ class_begin
 }
 ```
 
-#### 2. 老师确认下课
+### 4.3 老师确认下课
 
 互动课堂客户端组件会上报`下课事件`到互动课堂后台，上报之后，互动课堂后台将此事件回调到客户后台。使用客户端互动课堂组件时，才会有“老师开始下课”事件回调，直接使用后台 API 的，没有此事件回调。
-**event**
+
+
+__event__
+
 ```
 class_over
 ```
-**data**
+
+__data__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -975,14 +1081,17 @@ class_over
 }
 ```
 
-#### 3. 在线录制开始
+### 4.4 在线录制开始
 
 如果在约课时，录制类型设置了云端录制`remote`, 则在`老师开始上课`时，会自动发起云端录制，并回调`在线录制开始`事件。
-**event**
+
+__event__
+
 ```
 online_record_start
 ```
-**data**
+
+__data__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -1000,12 +1109,15 @@ online_record_start
 }
 ```
 
-#### 4. 在线录制结束
-**event**
+### 4.5 在线录制结束
+
+__event__
+
 ```
 online_record_stop
 ```
-**data**
+
+__data__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 |:--------|:-----|:-------|:-------|:-------|
@@ -1017,7 +1129,7 @@ online_record_stop
 | class_id | int | 课堂 ID | 是 | - |
 | video_info | []VideoInfo | 录制的视频信息 | 是 | - |
 
-**VideoInfo 对象格式：**
+VideoInfo 对象格式
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 |:--------|:-----|:------|:-------|:-------|
@@ -1063,14 +1175,15 @@ online_record_stop
 }
 ```
 
-#### 5. 转码进度回调
+### 4.6 转码进度回调
 
 添加课件接口的 `is_transcode` 字段，可以控制是否进行 H5 转码，H5 转码可以将 PPT 中的动画效果，高度还原为 H5 页面，需要 H5 转码功能，需提前联系我们开通白名单。
-**event**
+__event__
 ```
 transport_progress
 ```
-**data**
+
+__data__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 |:--------|:-----|:-------|:-------|:-------|
@@ -1096,18 +1209,77 @@ transport_progress
   "title": "PPT名字"
 }
 ```
+### 4.7 进入课堂回调
 
-## 企业模块
 
-### 修改企业信息
+
+__event__
+
+```
+join_class
+```
+
+__data__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| join_time | int64 | 进入课堂的时间 | 是 | - |
+| user_id | string | 进入课堂的用户 | 是 | - |
+| role | int64 | 进入课堂用户的角色 | 是 | - |
+
+
+```
+{
+"class_id":100012345,
+"join_time":1558350988,
+"user_id":xxx,
+"role":student,
+}
+```
+### 4.8 退出课堂回调
+
+
+
+__event__
+
+```
+quit_class
+```
+
+__data__ 
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| quit_time | int64 | 退出课堂的时间 | 是 | - |
+| user_id | string | 退出课堂的用户 | 是 | - |
+| role | int64 |退出入课堂用户的角色 | 是 | - |
+
+
+```
+{
+"class_id":100012345,
+"quit_time":1558350988,
+"user_id":xxx,
+"role":student,
+}
+```
+## 5 企业模块
+
+### 5.1 修改企业信息
+
 需要修改的字段填写在请求体中，不需要修改的字段不要设置，如果某个字段设置为空，则会覆盖已有数据。
-#### 接口
-- 接口名称：`/business/modify`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/business/modify?公共参数`
 
-#### 请求参数
+#### 接口__ 
+
+| 接口名称 | `/business/modify` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/business/modify?公共参数` |
+
+#### 请求参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -1121,16 +1293,19 @@ transport_progress
 | secret_key | string | 企业腾讯云账号下的密钥 key（需要 ai 功能时才设置） | 否 | - |
 | call_back_url | string | 接收互动课堂的事件回调地址 | 否 | - |
 
-#### 响应参数
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/ 非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 
-#### 举例
-修改企业名字、企业联系人、事件回调地址三项。
-请求：
+#### 举例__ 
+ 
+ 修改企业名字、企业联系人、事件回调地址三项。
+ 
+ request
+ 
 ```
 {
     "name": "新的企业名称",
@@ -1138,7 +1313,9 @@ transport_progress
     "call_back_url":"新的回调地址"
 }
 ```
-响应：
+
+response
+
 ```
 {
     "error_code": 0,
@@ -1146,16 +1323,20 @@ transport_progress
 }
 ```
 
-### 查询企业信息
-#### 接口
-- 接口名称：`/business/info`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/business/info?公共参数`
+### 5.2 查询企业信息
+#### 接口__ 
 
-#### 请求参数
+| 接口名称 | `/business/info` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/business/info?公共参数` |
+
+#### 请求参数__ 
+
 无
-#### 响应参数
+
+#### 响应参数__ 
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
@@ -1182,12 +1363,14 @@ transport_progress
 | secret_key | string | 腾讯云账号下的密钥对 KEY（需要 ai 功能时需关注）  | 是 | 空字符串 |
 
 #### 举例
-请求：
+request
 ```
 {
 }
 ```
-响应：
+
+response
+
 ```
 {
     "error_code": 0,
@@ -1214,13 +1397,15 @@ transport_progress
 }
 ```
 
-## 成员模块
-### 添加课堂预约成员
-#### 接口
-- 接口名称：`/member/add`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/add?公共参数`
+## 6 成员模块
+### 6.1 添加课堂预约成员
+####_接口__ 
+
+| 接口名称 | `/member/add` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/add?公共参数` |
 
 #### 请求参数
 
@@ -1239,7 +1424,9 @@ transport_progress
 | error_msg | string | 错误信息 | 是 | - |
 
 #### 举例
-请求：
+
+request
+
 ```json
 {
 	"class_id": 1234354,
@@ -1255,7 +1442,9 @@ transport_progress
 	]
 }
 ```
-响应：
+
+response
+
 ```json
 {
     "error_code": 0,
@@ -1263,12 +1452,14 @@ transport_progress
 }
 ```
 
-### 删除课堂预约成员
-#### 接口
-- 接口名称：`/member/delete`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/delete?公共参数`
+### 6.2 删除课堂预约成员
+#### 接口__ 
+
+| 接口名称 | `/member/delete` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/delete?公共参数` |
 
 #### 请求参数
 
@@ -1285,7 +1476,7 @@ transport_progress
 | error_msg | string | 错误信息 | 是 | - |
 
 #### 举例
-请求：
+request
 ```json
 {
 
@@ -1296,7 +1487,9 @@ transport_progress
 	]
 }
 ```
-响应：
+
+response
+
 ```json
 {
     "error_code": 0,
@@ -1304,12 +1497,14 @@ transport_progress
 }
 ```
 
-### 成员加入课堂
-#### 接口
-- 接口名称：`/member/join`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/join?公共参数`
+### 6.3 成员加入课堂
+#### 接口_ 
+
+| 接口名称 | `/member/join` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/join?公共参数` |
 
 #### 请求参数
 
@@ -1336,7 +1531,9 @@ transport_progress
 |history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是|-1
 
 #### 举例
-请求：
+ 
+ request
+ 
 ```json
 {
 	"class_id":12345,
@@ -1347,7 +1544,9 @@ transport_progress
 	"speaker": 1
 }
 ```
-响应：
+
+response
+
 ```
 {
     "error_code":0,
@@ -1361,12 +1560,16 @@ transport_progress
 }
 ```
 
-### 成员退出课堂
+
+
+### 6.4 成员退出课堂
 #### 接口
-- 接口名称：`/member/quit`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/quit?公共参数`
+
+| 接口名称 | `/member/quit` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/quit?公共参数` |
 
 #### 请求参数
 
@@ -1383,14 +1586,15 @@ transport_progress
 | error_msg | string | 错误信息 | 是 | - |
 
 #### 举例
-请求：
+request
 ```json
 {
 	"class_id":12345,
 	"user_id":"xxx"
 }
 ```
-响应：
+
+response
 ```
 {
     "error_code":0,
@@ -1398,12 +1602,14 @@ transport_progress
 }
 ```
 
-### 获取课堂实时成员列表
-#### 接口
-- 接口名称：`/member/runtime/list`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/runtime/list?公共参数`
+### 6.5 获取课堂实时成员列表
+#### 接口_ 
+
+| 接口名称 | `/member/runtime/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/runtime/list?公共参数` |
 
 #### 请求参数
 
@@ -1434,9 +1640,10 @@ transport_progress
 | speaker | int | 用户扬声器状态1-打开/0-关闭 | 是 | - |
 | silence | int | 用户是否被禁言1-被禁言/0-未被禁言 | 是 | - |
 | hand_up | int | 用户是否正在举手1-举手/0-未举手 | 是 | - |
+| enable_draw | int  | 0-未授权/1-授权 | 是 |
 
 #### 举例
-请求：
+ request
 ```json
 {
 	"class_id":12345,
@@ -1444,7 +1651,9 @@ transport_progress
 	"size":20
 }
 ```
-响应：
+
+response
+
 ```json
 {
     "error_code":0,
@@ -1464,19 +1673,23 @@ transport_progress
                 "mic": 1,
                 "speaker": 1,
                 "silence": 0,
-                "hand_up":1
+                "hand_up":1,
+		"enable_draw":0
             }
         }
     ]
 }
+
 ```
 
-###  获取课堂实时成员总数
-#### 接口
-- 接口名称：`/member/runtime/total`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/runtime/total?公共参数`
+### 6.6 获取课堂实时成员总数
+#### 接口__ 
+
+| 接口名称 | `/member/runtime/total` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/runtime/total?公共参数` |
 
 #### 请求参数
 
@@ -1493,13 +1706,16 @@ transport_progress
 | total | string | 实时成员总数 | 是 | - |
 
 #### 举例
-请求：
+ request
+ 
 ```json
 {
 	"class_id":1000001234
 }
 ```
-响应：
+
+response
+
 ```
 {
     "error_code":0,
@@ -1508,17 +1724,20 @@ transport_progress
 }
 ```
 
-### 获取课堂历史成员列表
+### 6.7 获取课堂历史成员列表
+
 历史成员与实时成员的区别：
 1. 历史成员中不包含`游客`。
 2. 历史成员信息中有“退房时间”。
 3. 历史成员信息中**没有**“成员状态信息”。
 
-#### 接口
-- 接口名称：`/member/history/list`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/history/list?公共参数`
+#### 接口 
+
+| 接口名称 | `/member/history/list` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/history/list?公共参数` |
 
 #### 请求参数
 
@@ -1534,8 +1753,8 @@ transport_progress
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| finish | bool | 是否拉取完所有成员 | 是 | - |
-| total | string | 历史成员总数 | 是 | - |
+| finish | bool | 是否拉取完所有课堂 | 是 | - |
+| total | string | 实时成员总数 | 是 | - |
 | list | Array | 成员信息数组 | 是 | 空数组 |
 | user_id | string | 用户 ID | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
@@ -1549,9 +1768,10 @@ transport_progress
 |history_speaker|int|用户在该课堂上一次扬声器的状态（0：关闭，1：打开，-1：未知）|是|-1
 |history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|-1
 |history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是|-1
+|history_enable_draw|int|用户在该课堂上一次交互授权状态 (0:未授权 1:授权 -1:未知)|是|-1
 
 #### 举例
-请求：
+request
 ```json
 {
 
@@ -1560,7 +1780,9 @@ transport_progress
 	"size":20
 }
 ```
-响应：
+
+response
+
 ```json
 {
 	"error_code":0,
@@ -1580,18 +1802,21 @@ transport_progress
 			"history_mic":0,
 			"history_speaker":0,
 			"history_silence":0,
-			"history_hand_up":0
+			"history_hand_up":0,
+			"history_enable_draw":0
 		}
 	]
 }
 ```
 
-### 获取课堂历史成员总数
+### 6.8 获取课堂历史成员总数
 #### 接口
-- 接口名称：`/member/history/total`
-- 接口方法：`POST`
-- Content-Type：`application/json`
-- 接口 URL：`https://iclass.api.qcloud.com/paas/v1/member/history/total?公共参数`
+
+| 接口名称 | `/member/history/total` |
+| :---------| :---------------|
+| 接口方法 | `POST` |
+| Content-Type | `application/json` |
+| 接口URL | `https://iclass.api.qcloud.com/paas/v1/member/history/total?公共参数` |
 
 #### 请求参数
 
@@ -1607,14 +1832,18 @@ transport_progress
 | error_msg | string | 错误信息 | 是 | - |
 | total | string | 实时成员总数 | 是 | - |
 
-#### 举例
-请求：
+#### 举例 
+
+ request
+ 
 ```json
 {
 	"class_id":1000001234
 }
 ```
-响应：
+
+response
+
 ```
 {
     "error_code":0,
@@ -1755,9 +1984,13 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | speed_test | string | 测速信息上报 |
 | hand_up | string | 举手 |
 | hand_down | string | 取消举手 |
+| enable_draw | string | 交互授权 |
+| diable_draw | string | 取消交互授权 |
 | reward | string | 奖励 |
 | slience | string | 禁言 |
-| be_silenced | string | 被禁言 |
+| del_silenced | string | 解除禁言 |
+| all_silence | string | 全员禁言 | 
+| del_all_silence | string | 解除全员禁言 |
 | disable_camera | string | 禁用别人的摄像头 |
 | be_disable_camera | string | 被别人的禁用了自己的摄像头 |
 | disable_mic | string | 禁用别人的麦克风 |
@@ -1772,9 +2005,15 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | media_close | string | 停止播片 |
 | packet_loss_mutation |  string | 丢包突变 |
 | rate_mutation |  string | 码率突变 |
+#### 附录3.10 直播类型-class_live_type
 
-### 附录4：用户头像规则
-如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像。
+| 常量值 | 类型 | 描述 |
+| -- | -- | -- |
+| close | string | 关闭 |
+| window | string | 窗口分享 |
+| board | string | 白屏分享 |
+### 附录4: 用户头像规则
+如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像
 
 | 格式 | 大小 |
 | :-----  | :--- |

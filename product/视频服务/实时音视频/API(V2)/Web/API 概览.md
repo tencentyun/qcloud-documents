@@ -1,3 +1,16 @@
+## API 使用指引
+详细的 API 使用介绍请参见以下指引：
+
+| 功能                       | Sample Code 指引                                                                                                              |
+|--------------------------|----------------------------------------------------------------------------------------------------------------------------|
+| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)                       |
+| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                                   |
+| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)         |
+| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)           |
+| 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html) |
+| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)                          |
+| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)                   |
+
 ## TRTC
 
 >!本文适用于4.x.x版本的 TRTC Web SDK。
@@ -121,8 +134,16 @@ RtcError 错误对象。
 | --- | --- |
 | [getCode](https://trtc-1252463788.file.myqcloud.com/web/docs/RtcError.html#getCode) | 获取错误码。 |
 
+## 3.x.x及以前版本 API 文档
+
+- [基础功能接口](https://cloud.tencent.com/document/product/647/17251)
+- [基础事件通知](https://cloud.tencent.com/document/product/647/17248)
+- [高级功能接口](https://cloud.tencent.com/document/product/647/17250)
+- [高级事件通知](https://cloud.tencent.com/document/product/647/17252)
+- [异常处理与问题定位](https://cloud.tencent.com/document/product/647/34341)
+- [常见问题](https://cloud.tencent.com/document/product/647/17017)
+
 ## 联系我们
 
 关注公众号"腾讯云视频"，给公众号发关键字"技术支持"，会有专人联系。
-
-![](https://main.qcloudimg.com/raw/769293c3dbc0df8fbfb7d6a7cc904692.jpg)
+![](https://main.qcloudimg.com/raw/30ad559e5f1f35dccc56149208aba552.jpg)

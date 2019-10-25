@@ -134,8 +134,6 @@
  
  @param deviceToken 当前设备的token
  @param error 错误信息
- @note 当前的token已经注册过之后，将不会再调用此方法
- */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
 
 ```

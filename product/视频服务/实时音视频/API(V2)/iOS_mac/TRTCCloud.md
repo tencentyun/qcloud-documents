@@ -433,7 +433,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | [TRTCLocalVideoMirrorType](https://cloud.tencent.com/document/product/647/32261#trtclocalvideomirrortype) | 镜像模式。 |
+| mirror | [TRTCLocalVideoMirrorType](https://cloud.tencent.com/document/product/647/32261#trtclocalvideomirrortype) | 镜像模式，默认值为 TRTCLocalVideoMirrorType_Auto。 |
 
 
 ### setLocalViewMirror
@@ -447,7 +447,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 镜像模式。 |
+| mirror | BOOL | 镜像模式，默认值为 YES。 |
 
 
 ### setVideoEncoderMirror
@@ -708,6 +708,28 @@ __参数__
 | type | TRTCSystemVolumeType | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32261#trtcsystemvolumetype)。 |
 
 >?需要在调用 [startLocalAudio](#startlocalaudio) 之前调用该接口。
+
+
+
+### enableAudioEarMonitoring
+
+开启耳返。
+```
+- (void)enableAudioEarMonitoring:(BOOL)enable 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | BOOL | YES：开启；NO：关闭。 |
+
+__介绍__
+
+开启后会在耳机里听到自己的声音。
+
+>?仅在戴耳机时有效。
+
 
 
 ## 摄像头相关接口函数
@@ -1740,7 +1762,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 200。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 100。 |
 
 
 ### setBGMVolume
@@ -1754,7 +1776,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | NSInteger | 音量大小，100为正常音量，如需调高背景音量可以设置更大的值，取值范围为0 - 200。 |
+| volume | NSInteger | 音量大小，100为正常音量，取值范围为0 - 100。 |
 
 
 ### setReverbType
@@ -1816,7 +1838,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | effectId | int | 音效 ID。 |
-| volume | int | 取值范围为0 - 100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
 >?该操作会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
 
@@ -1853,7 +1875,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 取值范围为0 - 100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
 >?该操作会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
 
