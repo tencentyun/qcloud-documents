@@ -1,6 +1,6 @@
 ### 旧版 WebIM 的文档如何获取？
 
-旧版 WebIM 的文档已从官网下线，可访问 Github 获取 [备份](https://github.com/tencentyun/TIMSDK/tree/master/H5/v1.7.x)。
+1.7.x版本的 WebIM 的文档已从官网下线，可访问 Github 获取 [备份](https://github.com/tencentyun/TIMSDK/tree/master/H5/v1.7.x)。
 
 ### 登录时提示 Err_TLS_Third_Sig_Check_Session_Key_Too_Long 是什么原因？
 
