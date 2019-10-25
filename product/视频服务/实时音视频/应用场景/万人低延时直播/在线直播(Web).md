@@ -31,7 +31,7 @@ const client = TRTC.createClient({
 ```javascript
 // 以观众角色进房收看
 client
-  .join({ roomId，role: 'audience' })
+  .join({ roomId,role: 'audience' })
   .catch(error => {
     console.error('进房失败 ' + error);
   })
