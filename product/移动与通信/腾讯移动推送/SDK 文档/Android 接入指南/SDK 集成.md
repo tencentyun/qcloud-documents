@@ -94,6 +94,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
 #### 组件和应用信息配置
