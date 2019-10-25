@@ -62,6 +62,8 @@
   clientAuth="false"/>
 ```
 详细 `server.xml` 文件请参考如下内容：
+>!不建议您直接复制 server.xml 文件内容，避免格式有误。
+>
 ```
  <?xml version="1.0" encoding="UTF-8"?>
   <Server port="8005" shutdown="SHUTDOWN">
@@ -85,12 +87,12 @@
                 keystoreFile="/usr/*/conf/www.domain.com.jks"
                 keystorePass="******" />
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-   <Engine name="Catalina" defaultHost=“www.domain.com">
+   <Engine name="Catalina" defaultHost="www.domain.com">
       <Realm className="org.apache.catalina.realm.LockOutRealm">
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
       </Realm>
-    <Host name=“www.domain.com"  appBase="webapps" 
+    <Host name="www.domain.com"  appBase="webapps" 
         unpackWARs="true" autoDeploy="true" >
         <Context path="" docBase ="Knews" />
     <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"

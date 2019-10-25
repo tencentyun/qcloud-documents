@@ -424,7 +424,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | bool | 镜像模式。 |
+| mirror | bool | 镜像模式，默认值：false（非镜像模式）。 |
 
 
 ### setVideoEncoderMirror
@@ -1439,7 +1439,7 @@ __参数__
 
 ### startSystemAudioLoopback
 
-打开系统声音采集。
+打开系统声音采集（64位 SDK 尚不支持系统混音能力）。
 ```
 void startSystemAudioLoopback(const char * path)
 ```
@@ -1478,6 +1478,81 @@ __参数__
 
 
 
+## 音效相关接口函数
+### playAudioEffect
+
+播放音效。
+```
+void playAudioEffect(TRTCAudioEffectParam * effect)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effect | [TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32271#trtcaudioeffectparam) * | - |
+
+__介绍__
+
+每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 ID 进行播放。因为使用同一个 ID 播放不同音效，SDK 将会停止上一个 ID 对应的音效播放，再启动新的音效播放。
+
+
+### setAudioEffectVolume
+
+设置单个音效音量。
+```
+void setAudioEffectVolume(int effectId, int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| volume | int | 取值范围：0 - 100。 |
+
+>?会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
+
+
+### stopAudioEffect
+
+停止音效。
+```
+void stopAudioEffect(int effectId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+
+
+### stopAllAudioEffects
+
+停止所有音效。
+```
+void stopAllAudioEffects()
+```
+
+
+### setAllAudioEffectsVolume
+
+设置所有音效音量。
+```
+void setAllAudioEffectsVolume(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 取值范围：0 - 100。 |
+
+>?会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
+
+
+
 ## 设备和网络测试
 ### startSpeedTest
 
@@ -1504,7 +1579,7 @@ __介绍__
 
 ### stopSpeedTest
 
-停止服务器测速。
+停止网络测速。
 ```
 void stopSpeedTest()
 ```

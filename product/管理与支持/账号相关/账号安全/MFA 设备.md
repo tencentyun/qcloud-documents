@@ -6,6 +6,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 ![](https://main.qcloudimg.com/raw/efbf89cf14546aaf0b775df9af863b8a.png)
 
 
+
 ### 绑定硬件 MFA 设备
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)，单击右上角账号名称，单击【安全设置】。
 2. 进入安全设置页面后，选择【基本设置】>【MFA 设备】，单击【绑定】。

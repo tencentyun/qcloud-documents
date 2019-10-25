@@ -8,8 +8,7 @@ let onKickedOut = funciton (event) {
 };
 tim.on(TIM.EVENT.KICKED_OUT, onKickedOut);
 ```
-如需支持多实例登录（允许在多个网页中同时登录同一帐号），请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc)，找到相应 SDKAppID，选择【应用配置】>【功能配置】>【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
-
+如需支持多实例登录（允许在多个网页中同时登录同一帐号），请登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，找到相应 SDKAppID，选择【应用配置】>【功能配置】>【Web端实例同时在线】配置实例个数。配置将在50分钟内生效。
 
 **接口名**
 
@@ -59,6 +58,7 @@ tim.logout();
 
 该接口返回`Promise`对象：
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`为空对象。表示成功登出。
+
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**
@@ -71,4 +71,3 @@ promise.then(function(imResponse) {
   console.warn('logout error:', imError);
 });
 ```
-
