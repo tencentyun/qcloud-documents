@@ -5,7 +5,7 @@
 开发者在调用前请先查看录音文件识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
 ### 开发环境
 **环境依赖**
-该接口支持 Python2.7 和 Python3 版本,请用户根据需要选择。
+该接口支持 Python3 和 Python2.7 版本,请用户根据需要选择。
 
 **安装 requests**
 - 方法1：pip install requests 。
