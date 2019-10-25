@@ -4,7 +4,7 @@
 
 ### 登录时提示 Err_TLS_Third_Sig_Check_Session_Key_Too_Long 是什么原因？
 
-密钥问题导致生成的 UserSig 鉴权失败，请使用正确的 UserSig，生成 UserSig 的具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)
+密钥问题导致生成的 UserSig 鉴权失败，请使用正确的 UserSig，生成 UserSig 的具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。
 
 ###  登录时提示 TypeError: wx.$app.ready is not a function 该怎么处理？
 请通过监听事件 [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY) 代替直接使用 ready 函数，ready 函数已经废弃。
