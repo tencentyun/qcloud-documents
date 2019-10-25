@@ -2,7 +2,9 @@
 
 TSF Serverless （Tencent Service Framework Serverless）是面向应用和微服务的高性能Serverless平台，提供按需使用、按量计费、免运维的使用体验。支持南北向 Web 应用场景和东西向的 Spring Cloud 和 Service Mesh 微服务场景。
 
-> TSF Serverless即将于11月初推出，敬请期待
+TSF Serverless 目前处于内测阶段，请先填写 [使用申请](https://cloud.tencent.com/apply/p/om62iz2gqx)。申请审核通过后，即可获取内测资格。
+
+内测期间，您可以免费使用。内测结束之后，本产品将进行公测。届时我们将在 [产品发布台](https://cloud.tencent.com/product/events) 发布公告，如有定价方面的变动也将提前通知您。 
 
 ### 产品优势（对比TSF）
 
