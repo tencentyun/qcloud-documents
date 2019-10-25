@@ -7,6 +7,7 @@
 ### 开发环境
 **环境依赖**
 <br>该接口支持 Python3 和 Python2.7 版本,请用户根据需要选择。
+
 <br>**安装 requests**
 <br>方法1：pip install requests 。
 <br>方法2：先下载[ requests](https://2.python-requests.org//zh_CN/latest/user/install.html#install)，然后进入下载目录执行：python setup.py install 。
