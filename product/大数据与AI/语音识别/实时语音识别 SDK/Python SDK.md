@@ -8,7 +8,7 @@
 
 ### 开发环境
 **环境依赖**
-该接口目前仅支持 Python 2.7 版本，后续会支持 Python 3。
+该接口支持 Python 3 和 Python 2.7 版本，请用户根据自己需要选择。
 
 **安装 requests**
 + 方法1：pip install requests 。
