@@ -32,7 +32,7 @@ implementation 'com.tencent.tpns:vivo:1.1.2.1-release' // vivo  推送
 #### Eclipes 集成方法
 获取腾讯移动推送 vivo 通道 SDK 包后，按照腾讯移动推送官网手动集成方法，在配置好腾讯移动推送主版本的基础下，进行以下设置：
 
-1. 导入 vivo 推送相关 jar 包， 将```XG4VIVOPush*.jar```放在```libs```文件夹里。
+1.导入 vivo 推送相关 jar 包，将 vivo4tpns1.1.2.1.jar 导入项目工程中。
 2. 在 ```Androidmanifest.xml``` 文件中，新增如下配置：
 
 ```xml
