@@ -41,12 +41,9 @@ client
 ```
 
 ## 步骤3：收看直播
-
-### 步骤3.1 订阅远端音视频流
-
-远端流通过监听事件 `client.on('stream-added')` 获得，请在 [Client.join()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) 进房前注册该事件以确保您不会错过远端用户进房通知。
-收到上述事件后要通过 [Client.subscribe()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#subscribe) 订阅远端音视频流。
-
+1. 远端流通过监听事件`client.on('stream-added')`获取，收到该事件后，通过 [Client.subscribe()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#subscribe) 订阅远端音视频流。
+>?请在 [Client.join()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) 进房前注册`client.on('stream-added')`事件以确保您不会错过远端用户进房通知。
+>
 ```javascript
 client.on('stream-added', event => {
   const remoteStream = event.stream;
@@ -61,10 +58,7 @@ client.on('stream-subscribed', event => {
   remoteStream.play('remote_stream-' + remoteStream.getId());
 });
 ```
-
-### 步骤3.2 播放音视频流
-
-在远端流订阅成功事件回调中，通过调用 [Stream.play()](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html#play) 方法在网页中播放音视频。`play`方法接受一个 div 元素 ID 作为参数，SDK 内部会在该 div 元素下自动创建相应的音视频标签并在其上播放音视频。
+2. 在远端流订阅成功事件回调中，通过调用 [Stream.play()](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html#play) 方法在网页中播放音视频。`play`方法接受一个 div 元素 ID 作为参数，SDK 内部会在该 div 元素下自动创建相应的音视频标签并在其上播放音视频。
 
 ```javascript
 client.on('stream-subscribed', event => {
