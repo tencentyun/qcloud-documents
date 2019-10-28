@@ -4,7 +4,7 @@
 Java Web 环境组成及说明：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
 - Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.46 版本为例。
-- JDK：Java 开发工具包，本文以 jdk 1.8.0_221 版本为例。
+- JDK：Java 开发工具包，本文以 JDK 1.8.0_221 版本为例。
 
 
 ## 技能要求
@@ -72,7 +72,7 @@ wget http://mirrors.tencent.com/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat
 ```
 tar xzf apache-tomcat-8.5.46.tar.gz
 ```
-3. 执行以下命令，移动并重命名解压后的源码包。
+3. 执行以下命令，将解压后的源码包移入对应文件夹下并重命名。
 ```
 mv apache-tomcat-8.5.46 /usr/local/tomcat/
 ```
@@ -80,21 +80,21 @@ mv apache-tomcat-8.5.46 /usr/local/tomcat/
 ```
 vim /usr/local/tomcat/conf/server.xml
 ```
-找到 `<Host ... appBase="webapps">`，按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
+5. 找到 `<Host ... appBase="webapps">`，按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
 ```
 appBase="/usr/local/tomcat/webapps"
 ```
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 执行以下命令，新建 `setenv.sh` 文件。
+6. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+7. 执行以下命令，新建 `setenv.sh` 文件。
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-7. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
+8. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8' 
 ```
-8. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-9. 执行以下命令，启动 Tomcat。
+9. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+10. 执行以下命令，启动 Tomcat。
 ```
 /usr/local/tomcat/bin/startup.sh
 ```
