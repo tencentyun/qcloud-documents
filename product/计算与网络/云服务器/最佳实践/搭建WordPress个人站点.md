@@ -7,7 +7,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 ## 技能要求
 搭建 WordPress 个人博客，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
-腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [使用镜像搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [使用镜像搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
 
 
 ## 前提条件
@@ -19,7 +19,7 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 
 ### 搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可以开始进行 LNMP 环境搭建。
-本文以 CentOS 7.6 的 LNMP 环境为例进行搭建 WordPress 个人博客，请您参考[ 手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 进行准备。
+本文以 CentOS 7.6 的 LNMP 环境为例进行搭建 WordPress 个人博客，请您参考[ 手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 完成 LNMP 环境搭建。
 
 
 
