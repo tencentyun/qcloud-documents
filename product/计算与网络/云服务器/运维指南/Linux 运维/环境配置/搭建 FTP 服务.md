@@ -60,6 +60,9 @@ passwd ftpuser1
 创建用户、用户密码设置成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/eec9ba9d188bf8b82a846fed73e02b52.png)
 
+## 后续操作
+在完成了 FTP 服务搭建之后，您可在此基础上进行上传或下载文件。例如，[Windows 机器通过 FTP 上传文件](https://cloud.tencent.com/document/product/213/2132)。
+
 ## 常见问题
 ### FTP 客户端连接超时或者读取目录列表失败
 #### 问题描述
