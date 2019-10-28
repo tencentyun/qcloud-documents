@@ -1,4 +1,4 @@
-流式语音合成 Python SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/python_stream_tts_sdk.tar.gz )。
+流式语音合成 Python3 SDK [下载地址](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_stream_tts_sdk_v3.tar.gz)、Python2 SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/python_stream_tts_sdk.tar.gz )。
 
 接口请求域名：tts.cloud.tencent.com/stream  
 
@@ -6,8 +6,11 @@
 
 ### 开发环境
 **基本编译环境**
-python 2.7版本
+
+Python 3 和 Python 2.7版本
+
 **requests**
+
 安装方法：`pip install requests`  或先下载，然后进入目录执行：`python setup.py install`
 下载 [requests 链接](https://2.python-requests.org//zh_CN/latest/user/install.html#install)。
 
