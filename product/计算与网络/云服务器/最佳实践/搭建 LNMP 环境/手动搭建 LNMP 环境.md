@@ -196,7 +196,7 @@ chkconfig php-fpm on
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 执行以下命令，安装 PHP 7.2.24 所需要的包。
+2. 执行以下命令，安装 PHP 7.2.22 所需要的包。
 ```
 yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
@@ -231,7 +231,7 @@ http://云服务器实例的公网 IP
  - CentOS 6.9 系统显示结果如下， 则说明环境配置成功。
 ![](https://main.qcloudimg.com/raw/64af927320f2121ae4daf15cf2eaba39.png)
  - CentOS 7.6 系统显示结果如下， 则说明环境配置成功。
-![](https://main.qcloudimg.com/raw/083eb17a5f2eea8e937e6ac7dd2de0c4.png)
+![](https://main.qcloudimg.com/raw/640812413941a61efe29d7faa546ad80.png)
 
 
 ## 相关操作
