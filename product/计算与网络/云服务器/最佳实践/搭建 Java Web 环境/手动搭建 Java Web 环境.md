@@ -21,7 +21,7 @@ Java Web 环境组成及说明：
 当您登录 Linux 云服务器后，可以按照以下步骤分别安装 JDK 和 Tomcat。
 
 
-### 步骤1：安装 JDK
+### 步骤一：安装 JDK
 1. 下载 JDK 源码包，您可前往 [Java SE 下载](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 页面选择需要的版本。
 >?请先将 JDK 源码包下载到本地，再上传至云服务器，否则会出现解压错误。
 > - 若您使用机器为 Windows 操作系统，可通过 [WinSCP 上传文件](https://cloud.tencent.com/document/product/213/2131)。
@@ -61,7 +61,7 @@ java -version
 返回如下信息，则表示安装成功。
 ![](https://main.qcloudimg.com/raw/f12cfeed5d8aa15cccb9836637e9555f.png)
 
-### 步骤2：安装 Tomcat
+### 步骤二：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
 >?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [Tomcat 软件源](http://mirrors.tencent.com/apache/tomcat/) 中获取最新下载地址。
 >
@@ -72,7 +72,7 @@ wget http://mirrors.tencent.com/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat
 ```
 tar xzf apache-tomcat-8.5.46.tar.gz
 ```
-3. 执行以下命令，将解压后的源码包移入对应文件夹下并重命名。
+3. 执行以下命令，将解压后的源码包移动到 `/usr/local/tomcat/` 目录下。
 ```
 mv apache-tomcat-8.5.46 /usr/local/tomcat/
 ```
