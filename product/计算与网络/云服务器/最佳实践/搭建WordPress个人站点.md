@@ -1,8 +1,6 @@
 ## 操作场景
-WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言开发。您可通过在腾讯云服务器的简单操作部署 WordPress，发布个人博客。
+WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 WordPress 搭建属于个人的博客平台。本文以 CentOS 7.6 操作系统的腾讯云云服务器为例，手动搭建 WordPress 个人站点。
 
-本教程以 Linux 系统 CentOS 7.6 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
-![步骤流程](https://main.qcloudimg.com/raw/350c12570478973b9ecd293760c5fde6.png)
 
 
 ## 技能要求
@@ -10,20 +8,20 @@ WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP
 >!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [使用镜像搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
 
 
-## 前提条件
-- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 使[用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
-## 操作步骤 
-当您登录 Linux 云服务器后，可以按照以下步骤搭建 WordPress 个人博客。
-
-### 搭建 LNMP 环境
-LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可以开始进行 LNMP 环境搭建。
-本文以 CentOS 7.6 的 LNMP 环境为例进行搭建 WordPress 个人博客，请您参考[ 手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 完成 LNMP 环境搭建。
 
 
 
-### 配置 WordPress 数据库<span id="database"></span>
+## 操作步骤 
+### 步骤1：登录云服务器
+登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
+
+### 步骤2：手动搭建 LNMP 环境
+LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可参考 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 完成基本环境搭建。
+
+
+
+### 步骤3：配置 WordPress 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
@@ -51,7 +49,7 @@ FLUSH PRIVILEGES;
 \q
 ```
 
-### 配置 root 帐户
+### 步骤4：配置 root 帐户
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -68,7 +66,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 ```
 
 
-### 安装和配置 WordPress
+### 步骤5：安装和配置 WordPress
 #### 下载 WordPress
 >? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
@@ -112,7 +110,7 @@ vim wp-config.php
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
-#### 验证 WordPress 安装
+### 步骤6：验证 WordPress 安装
 1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 wordpress 文件夹，例如：
 ```
 http://192.xxx.xxx.xx /wordpress
@@ -165,11 +163,6 @@ http://192.xxx.xxx.xx /wordpress
 3. 您需要在腾讯云 [云解析](https://console.cloud.tencent.com/cns/domains)上配置域名解析之后，用户才能通过域名访问您的网站，指引参考 [域名解析](https://cloud.tencent.com/document/product/302/3446)。
 
 
-此外，您还可以在腾讯云平台横向和纵向扩展服务容量，例如：
-- 扩展单个 CVM 实例的 CPU 和内存规格，增强服务器的处理能力。[了解详情 >>](https://cloud.tencent.com/document/product/213/2178)
-- 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
-- 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
-- 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
