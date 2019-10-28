@@ -1,173 +1,29 @@
 ## 操作场景
 WordPress 是一款常用的搭建个人博客网站软件，该软件使用 PHP 语言开发。您可通过在腾讯云服务器的简单操作部署 WordPress，发布个人博客。
 
-本文介绍手动部署 WordPress 的方法，如果您的网站对可扩展性需求要求不高，腾讯云还提供镜像的方式部署  WordPress，具体可参考 [使用镜像部署 WordPress](https://cloud.tencent.com/document/product/213/9740)。
-
-本教程以 Linux 系统 CentOS 7.5 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
+本教程以 Linux 系统 CentOS 7.6 为例，搭建一个 WordPress 个人站点，具体操作方法如下：
 ![步骤流程](https://main.qcloudimg.com/raw/350c12570478973b9ecd293760c5fde6.png)
 
-## 相关简介
-以下是本教程中，将会使用的服务或工具：
-- **云服务器**：本教程使用腾讯云云服务器（Cloud Virtual Machine，CVM）创建云服务器实例，用来完成 WordPress 搭建工作。
-- **域名注册**：如果您想要使用易记的域名访问您的 WordPress 站点，可以使用腾讯云域名注册服务来购买域名。
-- **网站备案**：对于域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云 [网站备案](https://cloud.tencent.com/product/ba) 产品为您的域名备案。
-- **云解析**：配置域名解析后，用户可通过域名访问您的网站，不需要使用复杂的 IP 地址才可访问您的网站。您可以通过腾讯云的 [云解析](https://cloud.tencent.com/product/cns) 服务来解析域名。
+
+## 技能要求
+搭建 WordPress 个人博客，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
+腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [使用镜像搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
+
 
 ## 前提条件
-
-已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 使[用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
 ## 操作步骤 
-### 创建并登录云服务器
->! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 WordPress 建站系统。
->
-1. 在实例的管理页面，单击【新建】。
-具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)    
- - 云服务器实例用户名和密码
- - 云服务器实例公网 IP
+当您登录 Linux 云服务器后，可以按照以下步骤搭建 WordPress 个人博客。
 
 ### 搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可以开始进行 LNMP 环境搭建。
-LNMP 组成及使用版本说明：
-- Linux：Linux 系统，本文使用 CentOS7.5
-- Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.12.2
-- MariaDB：一个数据库管理系统，本文使用 MariaDB10.4.6
-- PHP：Web 服务器生成网页的程序，本文使用 PHP7.2.19
-
-#### 使用 yum 安装软件和配置
-登录云服务器后，默认已获取 root 权限。在 root 权限下，根据以下步骤分步安装。
-
-#### 安装配置 Nginx 
-1. 执行以下命令，安装 Nginx。  
-```
-yum -y install nginx
-```
-2. 执行以下命令，打开`nginx.conf`文件。
-```
-vim /etc/nginx/nginx.conf
-```
-3. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `nginx.conf` 文件中 server{...} 的内容替换成以下内容。
-用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->? 若 `nginx.conf` 文件中无 server{..}，则请在 `nginx.conf` 文件中添加以下内容。
-> 
-```
-server {
-	listen       80;
-	root   /usr/share/nginx/html;
-	server_name  localhost;
-	#charset koi8-r;
-	#access_log  /var/log/nginx/log/host.access.log  main;
-	#
-	location / {
-			index index.php index.html index.htm;
-	}
-	#error_page  404              /404.html;
-	#redirect server error pages to the static page /50x.html
-	#
-	error_page   500 502 503 504  /50x.html;
-	location = /50x.html {
-		root   /usr/share/nginx/html;
-	}
-	#pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-	#
-	location ~ .php$ {
-		fastcgi_pass   127.0.0.1:9000;
-		fastcgi_index  index.php;
-		fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;
-		include        fastcgi_params;
-	 }
-}
-```
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 依次执行以下命令，启动 Nginx ，设置为开机自启动。
-```
-systemctl start nginx
-systemctl enable nginx 
-```
-7. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
-显示如下，则说明 Nginx 安装配置成功。
-![](https://main.qcloudimg.com/raw/c23831d2579d747625e96afbf45766bb.png)
-
-#### 安装配置 PHP
->? 以下操作以 PHP7.2.19 版本为例。
->
-1. 执行以下命令，更新 yum 中 PHP 的软件源。
-```
-rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
-```
-2. 执行以下命令，查看可安装的 PHP7.2.19 的所有包。
-```
-yum search php72w
-```
-3. 执行以下命令，安装需要的包。
-```
-yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
-```
-4. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
-```
-systemctl start php-fpm
-systemctl enable php-fpm
-```
-
-
-#### 验证 PHP-Nginx 环境配置
-1. 执行以下命令，创建测试文件。
-```
-echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
-```
-2. 在浏览器中，访问该`index.php`文件，查看环境配置是否成功。
-```
-http://云服务器实例的公网 IP/index.php 
-```
-页面显示如下，则说明 PHP-Nginx 环境配置成功。
-![](https://main.qcloudimg.com/raw/62cac02b422515364d8713062017c9e1.png)
-
-#### 安装 MariaDB
-1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
-```
-rpm -qa | grep -i mariadb
-```
-返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2)。
-![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
-2. <span id="step2">执行以下命令，删除 MariaDB 现有包。</span>
-```
-yum -y remove 包名
-```
-3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
-```
-vi /etc/yum.repos.d/MariaDB.repo
-```
-4. 按 **i** 切换至编辑模式，写入并保存以下内容。
-```
-# MariaDB 10.4 CentOS7-amd64
-[mariadb]  
-name = MariaDB  
-baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
-gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
-gpgcheck=1  
-```
->? 腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
-> 
-5. 执行以下命令，清除 yum 缓存。
-```
-yum clean all
-```
-6. 执行以下命令，安装 MariaDB。
-```
-yum -y install MariaDB-client MariaDB-server
-```
-7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
-```
-systemctl start mariadb
-systemctl enable mariadb
-```
+本文以 CentOS 7.6 的 LNMP 环境为例进行搭建 WordPress 个人博客，请您参考[ 手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 进行准备。
 
 
 
-#### 配置 WordPress 数据库<span id="database"></span>
+### 配置 WordPress 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
@@ -195,7 +51,7 @@ FLUSH PRIVILEGES;
 \q
 ```
 
-#### 配置 root 帐户
+### 配置 root 帐户
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -314,3 +170,9 @@ http://192.xxx.xxx.xx /wordpress
 - 增加多台 CVM 实例，并利用 [负载均衡](https://cloud.tencent.com/document/product/214)，在多个实例中进行负载的均衡分配。
 - 利用 [弹性伸缩](https://cloud.tencent.com/document/product/377)，根据业务量自动增加或减少 CVM 实例的数量。
 - 利用 [对象存储](https://cloud.tencent.com/document/product/436)，存储静态网页和海量图片、视频等。
+
+## 常见问题
+如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
+- 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+- 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
+
