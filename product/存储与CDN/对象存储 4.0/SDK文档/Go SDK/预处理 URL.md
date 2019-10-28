@@ -35,7 +35,7 @@ if err != nil {
 	panic(err)
 }
 // Get presigned
-presignedURL, err := c.Object.PresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
+presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
 if err != nil {
 	panic(err)
 }
