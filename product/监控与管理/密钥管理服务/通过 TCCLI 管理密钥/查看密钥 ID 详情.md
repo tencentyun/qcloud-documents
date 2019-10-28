@@ -1,7 +1,9 @@
 ## 概述
 通过 DescribeKey 查看指定 CMK 的详细信息，信息包括用户主密钥 CMK 名称、ID、状态、所属地区等密钥详情。
 
-本文示例使用腾讯云 [命令行工具 TCCLI](https://cloud.tencent.com/product/cli)，后续您可以使用任何搜支持的编程语言调用。该 API 操作的 KeyId 为必选参数，您可以查看 [DescribeKey](https://cloud.tencent.com/document/product/573/34428) 接口文档来查看其它参数说明。
+本文示例使用腾讯云 [命令行工具 TCCLI](https://cloud.tencent.com/product/cli)，后续您可以使用任何搜支持的编程语言调用。
+
+该 API 操作的 KeyId 为必选参数，您可以查看 [DescribeKey](https://cloud.tencent.com/document/product/573/34428) 接口文档来查看其它参数说明。
 
 ## 示例
 查看指定 CMK 详细信息。
