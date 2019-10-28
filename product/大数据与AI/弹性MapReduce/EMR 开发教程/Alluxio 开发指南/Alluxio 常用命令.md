@@ -458,7 +458,7 @@ unpin 命令将 Alluxio 中的文件或文件夹解除标记。该命令仅作�
 **操作示例**
 当管理员知道数据访问模式发生改变时，可以使用 unpin 命令。
 
-$ ./bin/alluxio fs unpin /data/yesterday/join-table
+`$ ./bin/alluxio fs unpin /data/yesterday/join-table`
 
 ## unsetTtl
 

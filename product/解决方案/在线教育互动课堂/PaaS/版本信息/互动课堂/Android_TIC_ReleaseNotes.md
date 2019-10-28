@@ -1,5 +1,14 @@
 # Release Notes - Android
 
+## 2019.07.12
+1. TIC变更
+    - 增加事件上报，方便问题定位;
+
+| TRTC版本 | TIM版本 | TEduBoard版本 |
+| :-: | :-: | :-: |
+|6.5.7272|4.4.716|2.3.0
+
+
 ## 2019.06.20
 1. TIC变更
     - 进房参数TICClassroomOption增加白板初始化参数boardInitParam和白板回调boardCallback;

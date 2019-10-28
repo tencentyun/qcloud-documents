@@ -23,7 +23,7 @@
 | 参数名   | 必选 | 类型           | 参数说明                                     |
 | ----- | ---- | ------------ | ---------------------------------------- |
 | appid | 是   | String       | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                    |
-| image | 否   |  Binary/String | 图片文件 或 图片 base64。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image | 否   |  Binary/String | 图片文件 或 图片 base64。图片需指定 filename，filename 的值为可为空，响应 HTTP body 中会返回用户设置的 filename 值。 |
 | url   | 否   | String       | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入。|
 
 

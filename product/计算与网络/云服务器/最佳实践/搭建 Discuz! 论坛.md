@@ -22,13 +22,13 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 ## 操作步骤
 
 ### 创建云服务器
->! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
+>! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择 Discuz! 建站系统。
 > 本教程中以操作系统版本为 CentOS 7.5 的云服务器实例为例。
 > 
-1. 在 “实例列表” 页面，单击【新建】。具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-![](https://main.qcloudimg.com/raw/66c5fa52e20d0a44259e0c9f094803ee.png)
+1. 在实例的管理页面，单击【新建】，创建实例。
+具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![实例1](https://main.qcloudimg.com/raw/891c29de005bb213fed0a7b68cfb21ff.png)
+![实例1](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码
  - 云服务器实例公网 IP
 
@@ -47,8 +47,12 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 5. 配置完成后，单击【Open】。
 6. 在弹出的确认证书提示对话框中，单击【是】。如下图所示：
 ![putty2](//mc.qcloudimg.com/static/img/b7883110e977fb0d94310379a152c5d3/image.png)
-7. 在 “PuTTY” 运行界面，依次输入云服务器实例的用户名和密码，即可连接到云服务器，进行后续操作。如下图所示：
+进入 “PuTTY” 运行界面，提示 “login as:”，等待用户输入云服务器实例的用户名。
+7. 在 “login as” 后输入用户名，按 “**Enter**”。
+8. 在 “password” 后输入密码，按 “**Enter**”。如下图所示：
+登录完成后，命令提示符左侧显示出当前登录服务器的主机名。
 ![putty3](//mc.qcloudimg.com/static/img/b632cf3e122832193a77afe04c93fbc1/image.png)
+
 
 <span id="InstallNecessarySoftware"></span>
 #### 安装必要软件
@@ -73,7 +77,7 @@ systemctl start php-fpm
 >- 首次输入 root 帐户密码后按下回车键（设置 root 密码时界面默认不显示），并再次输入确认。通过界面上的提示完成基础配置。
 > 
 ```
-mysql_sercure_installation
+mysql_secure_installation
 ```
 4. 执行以下命令，登录 MariaDB，并输入 [步骤3](#step3) 设置的密码，按 “**Enter**”。
 ```
@@ -161,4 +165,4 @@ chmod -R 777 /var/www/html
 6. 单击【下一步】，开始安装。
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】，即可访问论坛。如下图所示：
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
- 
+ 

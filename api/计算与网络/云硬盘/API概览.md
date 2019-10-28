@@ -1,4 +1,3 @@
-
 ## 1. 云硬盘相关接口
 
 | 接口名 | Action Name | 功能描述 |
@@ -27,16 +26,16 @@
 | [修改快照名称](/doc/api/364/2532) | ModifySnapshot | 修改指定快照的展示名称 |
 | [回滚快照](/doc/api/364/2533) | ApplySnapshot | 回滚快照到原云硬盘 |
 | [删除快照](/doc/api/364/2531) | DeleteSnapshot | 删除指定的快照 |
-| [查询快照价格]() | InquirySnapshotPrice | 查询对指定大小指定类型指定时长的云硬盘创建快照所需费用 |
+
 
 ## 4. 定期快照相关接口
 
 | 接口名称 | Action Name | 功能描述 | 
 | -------- | --------- | ------ |
-| [创建定期快照策略]() | CreateAutoSnapshotPolicy | 创建一个定期快照策略 |
-| [查询定期快照策略]() | DescribeAutoSnapshotPolicies | 查询定期快照策略详细信息 |
-| [修改定期快照策略]() | ModifyAutoSnapshotPolicy | 修改定期快照策略 |
-| [绑定定期快照策略]() | BindAutoSnapshotPolicy | 将云硬盘绑定到定期快照策略 |
-| [解绑定期快照策略]() | UnbindAutoSnapshotPolicy | 将云硬盘从定期快照策略解绑 |
-| [删除定期快照策略]() | DeleteAutoSnapshotPolicies | 删除指定的定期快照策略 |
-| [查询云硬盘关联定期快照策略]() | DescribeCbsAssociatedAsp | 查询云硬盘关联的定期快照策略 |
+| [创建定期快照策略](https://cloud.tencent.com/document/product/362/33558) | CreateAutoSnapshotPolicy | 创建一个定期快照策略 |
+| [查询定期快照策略](https://cloud.tencent.com/document/product/362/33556) | DescribeAutoSnapshotPolicies | 查询定期快照策略详细信息 |
+| [修改定期快照策略信息](https://cloud.tencent.com/document/product/362/35482) | ModifyAutoSnapshotPolicyAttribute | 修改定期快照策略 |
+| [绑定定期快照策略](https://cloud.tencent.com/document/product/362/33559) | BindAutoSnapshotPolicy | 将云硬盘绑定到定期快照策略 |
+| [解绑定期快照策略](https://cloud.tencent.com/document/product/362/33554) | UnbindAutoSnapshotPolicy | 将云硬盘从定期快照策略解绑 |
+| [删除定期快照策略](https://cloud.tencent.com/document/product/362/33557) | DeleteAutoSnapshotPolicies | 删除指定的定期快照策略 |
+| [查询云硬盘关联定期快照策略](https://cloud.tencent.com/document/product/362/33555) | DescribeDiskAssociatedAutoSnapshotPolicy | 查询云硬盘关联的定期快照策略 |

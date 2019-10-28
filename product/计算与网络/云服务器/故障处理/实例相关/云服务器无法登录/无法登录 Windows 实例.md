@@ -27,8 +27,8 @@
 
 当您无法通过 RDP 或者远程登录软件登录 Windows 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例列表中，选择您需要登录的实例，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
+2. 在实例的管理页面，选择您需要登录的实例，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】。
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >

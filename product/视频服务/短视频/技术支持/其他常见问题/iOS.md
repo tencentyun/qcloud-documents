@@ -19,8 +19,7 @@
 ![](https://main.qcloudimg.com/raw/bafe4d2c775330a29b4478be270022fc.jpg)
 
 
-### 连接 Xcode 调试，短视频录制报错
-_此问题在4.9版本已经修复_
+### 连接 Xcode 调试，短视频录制报错（此问题在4.9版本已经修复）
 
 连接 Xcode 调试，短视频录制报错，报错信息：`Main Thread Checker: UI API called on a background thread`
 ![](https://main.qcloudimg.com/raw/04b272c456b0e69239c0867a8e964d7a.jpg)
@@ -46,12 +45,6 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`
 
 
 
-### 集成 SDK 报 duplicate symbol（符号重复）
-
-- 检查 `Build Settings` -> `Linking` -> `Other Linker Flags` 设置，不能有 `-all_load`。
-- 更换 rename 版 SDK。
-
-
 ### 录制短视频时设置背景音乐无效
 
 1. 确定传的 BGM path 下有没有文件，以及是否可以正常播放。
@@ -59,7 +52,7 @@ SDK 用到了一些类别的方法，加载类别方法需要在工程配置：`
 2. 确定接口的调用顺序：`startCameraSimple:preview:` -> `setBGM:` -> `startRecord`。
 
 > [注意] 很多接口调用有时序要求，不然会无效。一般在注释上会有说明。
-比如短视频录制的 `setVideoResolution:`、`setVideoBitrate:`、`setAspectRatio:` 等接口都需要在 `startRecord` 之前设置才有效。
+例如短视频录制的 `setVideoResolution:`、`setVideoBitrate:`、`setAspectRatio:` 等接口都需要在 `startRecord` 之前设置才有效。
 
 
 ### 录制设置 BGM 不能循环播放
@@ -105,7 +98,7 @@ iOS 中的 AudioSession 是所有音视频应用共用的，使用其他播放�
 
 ### 视频编辑时退后台再回到前台，视频生成失败
 
-生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，APP 进后台时可以调用 `pauseGenerate` 暂停视频生成，APP 回到前台后再调用 `resumeGenerate` 继续视频生成。
+生成视频默认采用的是硬编码（编码效率高，编码出来的图像效果好），硬编码器在程序进后台后会停止工作，从而导致视频生成失败。SDK 提供了两个接口 `pauseGenerate` 和 `resumeGenerate`，App 进后台时可以调用 `pauseGenerate` 暂停视频生成，App 回到前台后再调用 `resumeGenerate` 继续视频生成。
 
 > [注意] 调用 `resumeGenerate`，SDK 将重启硬编码器，有一定的概率重启失败，或重启后前几帧数据编码失败。此时，SDK 内部会在 `TXVideoGenerateListener` 抛出错误事件，收到错误事件后需要重新生成视频。
 

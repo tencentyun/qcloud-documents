@@ -66,7 +66,7 @@ defaultConfig {
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
-| liteavsdk.jar                | 短视频 SDK android 核心库          |
+| liteavsdk.jar                | 短视频 SDK Android 核心库          |
 
 
 | so文件                           | 说明                      |
@@ -77,7 +77,7 @@ defaultConfig {
 | libtxsdl.so                  | ijkplayer 开源库，用于点播播放功能，解决一些视频格式的兼容问题        |
 
 ##### 3.2.2. 拷贝文件
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android studio 默认的 jni 加载目录。
 
 如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，参考 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
 
@@ -101,7 +101,7 @@ dependencies {
 
  **2. 启动准备**
 
- 在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
+ 在用户启动 SDK 相关功能前，例如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
 
  **3. 下载 SO 文件**
 
@@ -130,7 +130,7 @@ dependencies {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 #### 3.4 License 设置
-请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/video/license) 复制 key 和 url，见下图。
+请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/cfbf370ecc3db1429e2d3ecf582a100c.png)
 在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置
 ```

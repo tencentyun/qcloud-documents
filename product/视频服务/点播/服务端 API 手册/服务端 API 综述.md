@@ -10,8 +10,8 @@
 * [接口请求参数](https://cloud.tencent.com/document/api/213/6977)
 * [最终请求形式](https://cloud.tencent.com/document/api/213/6978)
 
-#### 签名方法
-* [签名方法](https://cloud.tencent.com/document/api/213/6984)
+<!---#### 签名方法
+* [签名方法](https://cloud.tencent.com/document/api/213/6984)--->
 
 #### 返回结果
 * [正确返回结果](https://cloud.tencent.com/document/api/213/6980)

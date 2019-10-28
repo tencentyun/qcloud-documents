@@ -42,7 +42,7 @@
 
 ### step1. 开通点播服务（VOD）
 
-单击 [点播控制台](https://console.cloud.tencent.com/video) 开通点播服务，点播服务可以为小视频提供视频存储和在线播放的能力。
+单击 [点播控制台](https://console.cloud.tencent.com/vod) 开通点播服务，点播服务可以为小视频提供视频存储和在线播放的能力。
 在腾讯云点播控制台，【视频处理设置】下【回调配置】中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要 10 分钟左右能生效。
 ![](https://main.qcloudimg.com/raw/2790946cfc7cae82339385f5345fe3f5.png)
 
@@ -52,8 +52,7 @@
 
 - 2.1 登录 [腾讯云控制台](https://console.cloud.tencent.com/)。
 
-- 2.2 单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面，如下图所示：
-![](https://mccdn.qcloud.com/img568f5fb824757.png)
+- 2.2 单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面。
 
 - 2.3 获取云 API 密钥，如下图所示。如果您尚未创建密钥，则单击【新建】即可创建一对 SecretId/SecretKey。
 ![](https://mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)

@@ -8,7 +8,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 登录保护指在您进行登录操作的时候，腾讯云会给您增加一层保护。通常情况下，该保护的措施是在正确输入账号和密码的前提下，还需要额外输入一种能证明身份的凭证。更多详情请参见  [登录保护](https://cloud.tencent.com/document/product/378/8392) 文档。
 
 ### 绑定 MFA 设备方式？
-更多详情请参考 [硬件 MFA 设备](https://cloud.tencent.com/document/product/378/14520) 和 [虚拟 MFA 设备](https://cloud.tencent.com/document/product/378/14498)。
+更多详情请参考 [MFA 设备](https://cloud.tencent.com/document/product/378/37310)。
 
 
 
@@ -23,7 +23,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 - **a. 个人 MFA 解绑：**
 登录账号：（QQ、邮箱、微信、微信公众号） 
 实名姓名 + 身份证号： 
-申请人手持身份证照片：
+申请人手持身份证照片彩色扫描件：
 请提供正在使用手机号：
 >!申请人须与实名认证信息一致。
 
@@ -31,5 +31,5 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 登录账号：（QQ、邮箱、微信、微信公众号） 
 实名公司名称 + 公司证件号： 
 申请人姓名 + 证件号码：
-公司营业执照证件照片或者彩色扫描件 + 申请人手持身份证照片：
+公司营业执照证件照片或者彩色扫描件 + 申请人手持身份证照片彩色扫描件：
 提供正在使用手机号：
