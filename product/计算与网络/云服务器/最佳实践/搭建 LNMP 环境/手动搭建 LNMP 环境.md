@@ -226,7 +226,7 @@ systemctl restart nginx
 ```
 2. 在浏览器中访问如下地址，查看环境配置是否成功。
 ```
-http://云服务器实例的公网 IP/index.php
+http://云服务器实例的公网 IP
 ```
  - CentOS 6.9 系统显示结果如下， 则说明环境配置成功。
 ![](https://main.qcloudimg.com/raw/aba0d414cc3954909b1e97fdc72bc4ea.png)
