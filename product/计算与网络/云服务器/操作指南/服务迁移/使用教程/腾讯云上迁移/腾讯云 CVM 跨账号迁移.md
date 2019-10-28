@@ -39,21 +39,21 @@ client.json 是配置迁移模式和其他迁移配置项的文件。无论选�
  在 Linux 源端主机编辑 rsync\_excludes\_linux.txt 文件，排除不需要迁移的文件和目录。
 5. 运行工具。
 以 [内网迁移模式：场景1](https://cloud.tencent.com/document/product/213/38654#Scenario1) 进行跨账号迁移为例：  
- 1. 在一台可以访问公网的主机上，执行以下命令，运行工具，进行初始化远程实例的迁移。
+ 1. 在一台可以访问公网的主机上，执行以下命令，运行工具，进行“阶段1：初始化远程实例”的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
-若返回`Stage 1 is finished and please run next stage at source machine.`，则说明初始化远程实例已完成。 
+若返回`Stage 1 is finished and please run next stage at source machine.`，则说明“阶段1：初始化远程实例”已完成。 
  ![](https://main.qcloudimg.com/raw/afeceabbdaad10f348cd0805b209e5cb.png)
- 2. 待上一步骤（即初始化远程实例）完成后，需先将初始化远程实例的整个工具目录拷贝至待迁移的源端主机，再运行工具进行传输数据的迁移。
- 例如，执行以下命令运行工具，进行传输数据的迁移。
+ 2. 待上一步骤（即阶段1：初始化远程实例）完成后，需先将“阶段1：初始化远程实例”的整个工具目录拷贝至待迁移的源端主机，再运行工具进行“阶段2：传输数据”的迁移。
+ 例如，执行以下命令运行工具，进行“阶段2：传输数据”的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
-若返回`Stage 2 is finished and please run next stage at gateway machine.`，则说明传输数据已完成。
+若返回`Stage 2 is finished and please run next stage at gateway machine.`，则说明“阶段2：传输数据”已完成。
  ![](https://main.qcloudimg.com/raw/be35753f3f8f3a30b8d6364a1052991f.png)
- 3. 待上一步骤（即传输数据）完成后，需先将传输数据的整个工具目录拷贝至刚才初始化远程实例的主机，再运行工具进行传输数据的迁移。
- 例如，执行以下命令运行工具，进行传输数据的迁移。
+ 3. 待上一步骤（即阶段2：传输数据）完成后，需先将“阶段2：传输数据”的整个工具目录拷贝至刚才“阶段1：初始化远程实例”的主机，再运行工具进行“阶段3：释放远程实例”的迁移。
+ 例如，执行以下命令运行工具，进行“阶段3：释放远程实例”的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
