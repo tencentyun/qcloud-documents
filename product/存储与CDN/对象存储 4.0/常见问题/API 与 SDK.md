@@ -51,7 +51,7 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 
 ### 小程序里请求多个域名，或者存储桶名称不确定，怎么解决白名单配置和限制问题？
 
-SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下`https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>`后缀式请求，在签名时会存储桶名称`/<BucketName-APPID>`也会加入签名计算。
+SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下`https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>`后缀式请求，在签名时存储桶名称`/<BucketName-APPID>`也会加入签名计算。
 
 ### 小程序如何保存图片到本地？
 
