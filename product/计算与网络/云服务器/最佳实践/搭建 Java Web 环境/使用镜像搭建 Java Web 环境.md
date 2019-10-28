@@ -32,7 +32,7 @@
 >- 此步骤通过重装云服务器操作系统来搭建 Java Web 环境，请参考 [重装系统](https://cloud.tencent.com/document/product/213/4933) 了解注意事项。
 >- 如果您的云服务器之前使用 Windows 操作系统并挂载了数据盘，请参考 [Windows 重装为 Linux 后读写原 NTFS 类型数据盘](https://cloud.tencent.com/document/product/213/3857) 进行数据盘格式更换，防止重要数据损坏。 
 >
-1. 登录 云服务器控制台，找到需搭建 Java Web 环境的云服务器。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，找到需搭建 Java Web 环境的云服务器。
 2. 选择右侧的【更多】>【重装系统】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7f8ccb797a27eb113b32678e7437c86f.png)
 3. 在弹出的“重装系统”窗口中，选择【服务市场】，并搜索 Java Web 镜像。如下图所示：
