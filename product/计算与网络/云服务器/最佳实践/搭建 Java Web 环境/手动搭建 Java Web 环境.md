@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍如何在 Linux 操作系统的腾讯云云服务器（CVM）上手动部署 Java Web 环境。文档包含软件安装内容，请确保您已经熟悉软件安装方法，请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+本文档介绍如何在 Linux 操作系统的腾讯云云服务器（CVM）上手动部署 Java Web 环境。
 
 Java Web 环境组成及说明：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
