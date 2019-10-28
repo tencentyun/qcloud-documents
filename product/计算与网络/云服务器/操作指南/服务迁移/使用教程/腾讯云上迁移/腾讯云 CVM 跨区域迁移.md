@@ -1,7 +1,7 @@
 跨区域迁移是指在腾讯云某个地域下某个可用区的主机迁移至另一个地域下某个可用区的目标主机，也可以指在腾讯云同一个地域下不同可用区之间的主机迁移。
 
 ## 1. 获取迁移工具  
- [点此获取]() 迁移工具压缩包。
+ [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/v2.0.0/go2tencentcloud.zip) 迁移工具压缩包。
 
 ## 2. 根据网络环境确定迁移模式
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
@@ -41,5 +41,5 @@ client.json 是配置迁移模式和其他迁移配置项的文件。无论选�
 ```
 sudo ./go2tencentcloud_x64
 ```
-例如，您使用内网迁移模式的场景2进行迁移，迁移成功的控制台输出如下所示：
+例如，您使用 [内网迁移模式：场景2](https://cloud.tencent.com/document/product/213/38654#Scenario2) 进行迁移，迁移成功的控制台输出如下所示：
  ![](https://main.qcloudimg.com/raw/3d5c45ccb9f5350bb30cf3d3fce29590/console-cross-region.png)
