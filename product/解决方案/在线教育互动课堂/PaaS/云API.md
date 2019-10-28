@@ -1494,7 +1494,7 @@ quit_class
 | speaker | int | 用户扬声器状态1-打开/0-关闭 | 是 | - |
 | silence | int | 用户是否被禁言1-被禁言/0-未被禁言 | 是 | - |
 | hand_up | int | 用户是否正在举手1-举手/0-未举手 | 是 | - |
-| enable_draw | int  | 0-未授权/1-授权 | 是 |
+| enable_draw | int  | 0-未授权/1-授权 | 是 |-
 
 #### 举例
 请求：
