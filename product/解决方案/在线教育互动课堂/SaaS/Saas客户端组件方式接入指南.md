@@ -25,8 +25,8 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
 ## 桌面端组件
 <div id="electron_location"></div>
 
-业务方通过云API 对课堂，用户，课件进行管理。互动课堂组件只负责上课环节,是一个纯课中页面。
-目前组件页面只支持定制组件名称和icon，页面布局后期会通过云API方式逐步开放。
+业务方通过云 API 对课堂、用户、课件进行管理。互动课堂组件只负责上课环节，是一个纯课中页面。
+目前组件页面只支持定制组件名称和图标，页面布局后期会通过云 API 方式逐步开放。
 
 ####  下载组件
 - Windows 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-1.0.0-win.zip)。    
@@ -36,18 +36,14 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
  1. 命令行拉起
 ```javascript
 //WIN平台 
-
 TClass company_id class_id user_id user_token user_sig
-
 //MAC平台   
-
 open TClass.app --args company_id class_id user_id user_token user_sig
-
 ```
 参数获取请参考 [调用参数](#jump)。
 
-2. 点击启动进入课堂
-桌面端组件实际是一个可执行程序，也支持点击启动的方式。
+2. 单击启动进入课堂
+桌面端组件实际是一个可执行程序，也支持单击启动的方式。
 
 ###  Web 组件
 与 Windows/Mac 桌面端类似，Web 端组件提供完整的上课页面交互和业务能力，是一个可直接打开的网页。
@@ -75,7 +71,7 @@ loginUrl | 登出 URL | 是 | 上课完毕/上课期间多端登录被踢下线/
 #### 部署
 - 组件代码需要部署到自己的服务器上。
 - Web 端组件是一个纯静态的 Web 项目，您可以使用 `nginx/apache/nodejs` 来搭建 web 服务，并将组件代码解压后部署到 web 服务上。
-- 由于浏览器对音视频能力的安全限制，正常使用时必须要通过 https 访问（开发阶段通过 `http://localhost` 可绕过此限制）。
+- 由于浏览器对音视频能力的安全限制，正常使用时必须要通过 HTTPS 访问（开发阶段通过 `http://localhost` 可绕过此限制）。
 
 #### 拼接链接进入课堂
 - URL 启动。“:”表示是变量，拼接地址时可省略。
@@ -96,21 +92,21 @@ https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighe
 * Android 4.4（API 19）及以上系统
 
 #### 快速集成 SDK
-TICSaaS组件已经发布到jcenter，您可以通过配置gradle自动下载更新。只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
-  1. 添加 SDK 依赖。在`dependencies`中添加 TICSaaS 以及其它模块的依赖。
+TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下载更新。只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成。
+1. 添加 SDK 依赖。在`dependencies`中添加 TICSaaS 以及其它模块的依赖。
 ```groovy
  dependencies {
     // TIC SaaS 组件
     implementation "com.tencent.ticsaas:core:1.1.5.1"
     // 实时音视频
     implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.7.7734"
-    // 云通信 IM SDK
+    // 即时通信 IM SDK
     implementation "com.tencent.imsdk:imsdk:4.4.900"
     // 腾讯云互动白板
     implementation "com.tencent.teduboard:TEduBoardSdk:2.3.5.210"
 }
 ```
- 2. 指定 App 使用架构。在`defaultConfig`中，指定 App 使用的 CPU 架构（目前 TICSaaS 支持`armeabi`和`armeabi-v7a`） 。
+2. 指定 App 使用架构。在`defaultConfig`中，指定 App 使用的 CPU 架构（目前 TICSaaS 支持`armeabi`和`armeabi-v7a`）。
 ```groovy
   defaultConfig {
       ndk {
@@ -118,14 +114,14 @@ TICSaaS组件已经发布到jcenter，您可以通过配置gradle自动下载更
       }
   }
 ```
- 3. 使用 JDK 1.8 编译。
+3. 使用 JDK 1.8 编译。
 ```groovy
 compileOptions {
     sourceCompatibility 1.8
     targetCompatibility 1.8
 }
 ```
- 4. 同步 SDK。单击【Sync Now】，如果您的网络连接 jcenter 正常，SDK 就会自动下载集成到工程中。
+4. 同步 SDK。单击【Sync Now】，如果您的网络连接 jcenter 正常，SDK 就会自动下载集成到工程中。
 
 #### 使用方法
 1. 在 Application 的 onCreate() 中初始化。
