@@ -1,5 +1,5 @@
 ## 1. 获取迁移工具  
- [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/v2.0.0/go2tencentcloud.zip) 迁移工具压缩包。
+ [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
 ## 2. 根据网络环境确定迁移模式
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
@@ -12,7 +12,7 @@
 
 迁移前，需要分别检查源端主机和目标云服务器。源端主机和目标云服务器需要检查的内容如下：
 <table>
-	<tr><th style="width: 15%;">目标云服务器</th><td><ol  style="margin: 0;"><li>目标云服务器系统盘的存储空间：迁移后，目标云服务器的系统盘会存放源端主机根目录的数据。</li><li>是否限制443端口和80端口：使用默认模式迁移时，需要公网访问能力，安全组中不能限制443端口和80端口。</li><li>带宽设置：建议尽可能调大两端的带宽，以便更快迁移。迁移过程中，会产生约等于数据量的流量消耗，如有必要请提前调整网络计费模式。</li><li>目标云服务器和源端主机的操作系统类型是否一致：操作系统不一致会造成后续制作的镜像的信息与实际操作系统不符，建议目标云服务器的操作系统尽量和源端主机的操作系统类型一致。例如，CentOS 7 系统的对源端主机迁移时，选择一台 CentOS 7 系统的云服务器作为迁移目标。</li></ol></td></tr>
+	<tr><th style="width: 15%;">目标云服务器</th><td><ol  style="margin: 0;"><li>存储空间：目标云服务器的云硬盘（包括系统盘和数据盘）必须具备足够的存储空间用来装载源端的数据。</li><li>安全组：安全组中不能限制443端口和80端口。</li><li>带宽设置：建议尽可能调大两端的带宽，以便更快迁移。迁移过程中，会产生约等于数据量的流量消耗，如有必要请提前调整网络计费模式。</li><li>目标云服务器和源端主机的操作系统类型是否一致：操作系统不一致会造成后续制作的镜像的信息与实际操作系统不符，建议目标云服务器的操作系统尽量和源端主机的操作系统类型一致。例如，CentOS 7 系统的对源端主机迁移时，选择一台 CentOS 7 系统的云服务器作为迁移目标。</li></ol></td></tr>
 	<tr><th>Linux 源端主机</th><td><ol  style="margin: 0;"><li>检查和安装 Virtio，操作详情可参考 <a href="https://cloud.tencent.com/document/product/213/9929">Linux 系统检查 Virtio 驱动</a>。</li><li>检查是否安装了 rsync 和 grub2-install（或 grub-install）。</li><li>检查 SELinux 是否已打开。如果 SELinux 已打开，请关闭 SELinux。</li><li>向腾讯云 API 发起迁移请求后，云 API 会使用当前 UNIX 时间检查生成的 Token，请确保当前系统时间无误。</li><li>请确保源端主机已开启 DHCP 服务。如果未开启 DHCP 服务，请开启 DHCP 服务。</li></ol></td></tr>
 </table>
 
@@ -21,18 +21,6 @@
 > - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的`Client.Extra.IgnoreCheck`字段配置为`true`。
 > 
 
-
-Linux源端主机需要检查以下几项：
-
-1. 安装virtio，请参考腾讯云[检查virtio文档](https://cloud.tencent.com/document/product/213/9929)进行检查;
-2. 请检查是否安装了rsync和grub2-install（或grub-install）;
-3. 如果SELinux已打开，请关闭SELinux；
-4. 向腾讯云API发起迁移请求后，云API会使用当前unix时间检查生成的Token，请确保当前系统时间无误。
-5. 请检查是否已开启DHCP服务。
-
-源端主机检查可以使用工具命令自动检查，如： 
-`sudo ./go2tencentcloud_x64 --check` ，如果控制台没有错误提示说明源端主机检查通过。
-go2tencentcloud迁移工具默认在工具开始运行时自动检查，如果要绕过检查强制迁移，请在client.json文件里配置`Client.Extra.IgnoreCheck`字段为`true`。
 
 ## 5. 开始迁移
  
