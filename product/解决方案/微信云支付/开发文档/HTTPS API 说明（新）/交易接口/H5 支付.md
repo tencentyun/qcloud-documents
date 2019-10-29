@@ -34,7 +34,7 @@ authen_info	|是|	AuthenInfo	|认证信息，详见接口调用说明。
     <td class="tg-s268">-</td>
     <td class="tg-s268">是</td>
     <td class="tg-s268"> Number(32)</td>
-		<td class="tg-s268">订单总金额。</td>
+		<td class="tg-s268">订单总金额，单位：分。</td>
   </tr>
   <tr> 
       <td class="tg-s268">fee_type</td>

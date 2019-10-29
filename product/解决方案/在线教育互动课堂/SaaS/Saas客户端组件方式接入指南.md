@@ -12,9 +12,21 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
 
 ## 各端接入流程
 
-### 桌面端组件
-- 业务方通过云 API 对课堂、用户、课件进行管理。互动课堂组件只负责上课环节，是一个纯课中页面。
-- 目前组件页面只支持定制组件名称和图标，页面布局后期会通过云 API 方式逐步开放。
+[桌面端组件接入流程跳转](#electron_location)  
+
+[WEB组件接入流程跳转](#web_location)
+
+[IOS组件接入流程跳转](#iOS_location)
+
+[Android组件接入流程跳](#Android_location)
+
+
+
+## 桌面端组件
+<div id="electron_location"></div>
+
+业务方通过云API 对课堂，用户，课件进行管理。互动课堂组件只负责上课环节,是一个纯课中页面。
+目前组件页面只支持定制组件名称和icon，页面布局后期会通过云API方式逐步开放。
 
 ####  下载组件
 - Windows 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-1.0.0-win.zip)。    
@@ -24,9 +36,13 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
  1. 命令行拉起
 ```javascript
 //WIN平台 
+
 TClass company_id class_id user_id user_token user_sig
+
 //MAC平台   
+
 open TClass.app --args company_id class_id user_id user_token user_sig
+
 ```
 参数获取请参考 [调用参数](#jump)。
 
@@ -80,19 +96,18 @@ https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighe
 * Android 4.4（API 19）及以上系统
 
 #### 快速集成 SDK
-1. TICSaaS 组件已发布到 jcenter，可通过配置 gradle 自动下载更新。
-2. 使用 Android Studio 打开需要集成 SDK 的工程，修改 `app/build.gradle` 文件，修改内容如下：
+TICSaaS组件已经发布到jcenter，您可以通过配置gradle自动下载更新。只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
   1. 添加 SDK 依赖。在`dependencies`中添加 TICSaaS 以及其它模块的依赖。
 ```groovy
  dependencies {
     // TIC SaaS 组件
-    implementation "com.tencent.ticsaas:core:1.0.0.1"
+    implementation "com.tencent.ticsaas:core:1.1.5.1"
     // 实时音视频
-    implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.5.7272"
-    // 即时通信 IM SDK
+    implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.7.7734"
+    // 云通信 IM SDK
     implementation "com.tencent.imsdk:imsdk:4.4.900"
     // 腾讯云互动白板
-    implementation "com.tencent.teduboard:TEduBoardSdk:2.2.2.99"
+    implementation "com.tencent.teduboard:TEduBoardSdk:2.3.5.210"
 }
 ```
  2. 指定 App 使用架构。在`defaultConfig`中，指定 App 使用的 CPU 架构（目前 TICSaaS 支持`armeabi`和`armeabi-v7a`） 。
@@ -139,11 +154,11 @@ Manifest.permission.WRITE_EXTERNAL_STORAGE
 #### 调起 SaaS 组件
 只需传递5个参数，即可调起 SaaS 组件主页面，分别为机构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig。
 ```java
-   private void launchInActivity(int companyID, int classID, String userID, String userToken, String userSig) {
+    private void launchInActivity(int companyID, int classID, String userID, String userToken, String userSig) {
         Intent intent = new Intent(this, InClassActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         Bundle bundle = new Bundle();
-        bundle.putInt(com.tencent.ticsaas.Constants.KEY_CLASS_COMPANY_ID, companyID);
+        bundle.putInt(Constants.KEY_CLASS_COMPANY_ID, companyID);
         bundle.putInt(Constants.KEY_CLASS_CLASS_ID, classID);
         bundle.putString(Constants.KEY_CLASS_USER_ID, userID);
         bundle.putString(Constants.KEY_CLASS_USER_TOKEN, userToken);

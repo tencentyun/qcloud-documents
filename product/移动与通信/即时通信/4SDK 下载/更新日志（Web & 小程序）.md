@@ -1,3 +1,12 @@
+### 2.1.2 @2019.10.25
+**新增**
+ [getGroupList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupList) 接口支持拉取群主 ID、群成员数量等群相关的资料。
+
+**修复**
+- 使用 REST API 发音视频聊天室的群自定义通知，SDK 代码报错。
+- 退群后再进群，调用 getMessageList 接口 SDK 没有发起拉历史消息的请求。
+- 上传失败时，SDK 代码报错。
+
 
 ### 2.1.1 @2019.10.18
 **新增**

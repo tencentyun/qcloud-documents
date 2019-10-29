@@ -17,20 +17,20 @@ tccli kms DescribeKey --region ap-guangzhou --KeyId 521xxxxx-xxxx-xxxx-xxxx-52xx
 在 API 成功执行的情况下，将返回 CMK 的详细信息。
 ```shell
 {
-    "KeyMetadata": {
-        "KeyId": "521xxxxx-xxxx-xxxx-xxxx-52xxxxd",
+ "KeyMetadata": {
+        "KeyId": "6xxxxxxx-xxxx-xxxx-xxxx-5xxxxxxxxc09",
         "Description": "this is test for gz key",
-        "CreatorUin": "Mosaic",
-        "KeyRotationEnabled": "false",
-        "NextRotateTime": "Mosaic",
-        "CreateTime": "Mosaic",
-        "Alias": "d-test-gz01",
+        "CreatorUin": 10xxxxxxxxxx,
+        "KeyRotationEnabled": false,
+        "NextRotateTime": 1603439621,
+        "CreateTime": 1571903621,
+        "Alias": "test-gz01",
         "KeyUsage": "ENCRYPT_DECRYPT",
         "DeletionDate": 0,
         "KeyState": "Enabled",
         "Type": 4,
-        "Owner": "Mosaic"
+        "Owner": "user"
     },
-    "RequestId": "Mosaic"
+    "RequestId": "608f514c-3279-44ea-8e4c-c00b69e3521c"
 }
 ```

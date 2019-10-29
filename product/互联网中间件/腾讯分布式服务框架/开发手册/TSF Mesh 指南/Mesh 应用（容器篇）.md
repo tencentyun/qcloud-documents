@@ -35,7 +35,7 @@
 
 3.3 设置访问设置、更新方式、日志配置项。
    - 网络访问方式：NodePort
-   - 端口协议：协议选择 TCP，容器端口和服务端口填写相同的数值（user 填写 8089，shop 8090，promotion 8091）
+   - 端口协议：协议选择 TCP，容器端口和服务端口填写相同的数值（user：8089，shop：8090，promotion：8091）
    - 更新方式：快速更新
    - 日志配置项：选择无
 
@@ -68,7 +68,7 @@
 
 - **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过**负载均衡 IP + 服务端口**来访问`user`服务的`/api/v6/user/account/query`接口。
 
-- **云主机IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过**云主机 IP + NodePort**来访问`user`服务的`/api/v6/user/account/query`接口。其中`云主机 IP`为集群中任一云主机的内网IP，`NodePort`可以在部署组的基本信息页面被查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
+- **云主机 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过**云主机 IP + NodePort**来访问`user`服务的`/api/v6/user/account/query`接口。其中`云主机 IP`为集群中任一云主机的内网 IP，`NodePort`可以在部署组的基本信息页面被查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
 
 ```
 curl -XGET <云主机 IP>:<NodePort>/api/v6/user/account/query

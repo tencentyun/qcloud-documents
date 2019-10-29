@@ -15,10 +15,10 @@ x-cos-appid: <appid>
 
 调用 DescribeJob 所需的参数。该参数格式如下：
 
-| 参数        | 描述                     | 必选 |
+| 参数        | 描述                     | 是否必选 |
 | ----------- | ------------------------ | ---- |
 | JobId       | 任务 ID。                | 是   |
-| x-cos-appid | 用户 UIN，长度1 - 64字节。 | 是   |
+| x-cos-appid | 用户的 APPID，长度为1 - 64字节。 | 是   |
 
 **请求头**
 
@@ -157,11 +157,11 @@ HTTP/1.1 200
 
 其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-**错误分析**
+## 错误分析
 
 该请求可能会发生的一些常见的特殊错误如下，其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
 | 错误代码  | 描述                             | 状态码 | API         |
 | --------- | -------------------------------- | ------ | ----------- |
-| NoSuchJob | The specified job does not exist | 404    | DescribeJob |
+| NoSuchJob | 指定任务不存在 | 404    | DescribeJob |
 

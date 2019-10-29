@@ -15,12 +15,12 @@ x-cos-appid: <appid>
 
 调用 ListJobs 所需要使用的参数。该参数格式如下：
 
-| 参数        | 描述                                                         | 必选 |
+| 参数        | 描述                                                         | 是否必选 |
 | ----------- | ------------------------------------------------------------ | ---- |
 | jobStatuses | 您所需查询的任务状态信息。如您未指定任务状态，则 COS 将返回所有执行过的任务状态，包括正在执行的任务。若您指定任务状态，则 COS 将返回指定状态的任务。可选的任务状态包括：Active、Cancelled、Cancelling、Complete、Completing、Failed、Failing、New、Paused、Pausing、Preparing、Ready、Suspended。 | 否   |
 | maxResults  | COS 返回的任务数量最大值。如您配置了此项参数，每次返回的任务数最多不会超过这个最大值。您可以配合 nextToken 参数进行分页返回。该参数范围为1 - 1000，默认为1000。 | 否   |
 | nextToken   | 翻页符。每次 list 操作会返回本次任务列表的最后一个 JobId 作为 nextToken，在下一次 list 传入该值，即可接续上一次 list 的内容进行 list，用于分页。该参数的长度限制在1 - 64字节。 | 否   |
-| x-cos-appid | 用户 UIN，长度1 - 64字节。                                     | 是   |
+| x-cos-appid | 用户的 APPID，长度为1 - 64字节。                                     | 是   |
 
 **请求头**
 
@@ -97,9 +97,9 @@ HTTP/1.1 200
 | Status          | member | 任务执行状态。合法参数值包括 Active、Cancelled、Cancelling、Complete、Completing、Failed、Failing、New、Paused、Pausing、Preparing、Ready、Suspended。 | String                 |
 | TerminationDate | member | 批量处理任务的结束时间。                                     | Timestamp              |
 
-其他元素请参考 [对象存储批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
+其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-**错误分析**
+## 错误分析
 
 该请求可能会发生的一些常见的特殊错误如下：
 
@@ -109,5 +109,5 @@ HTTP/1.1 200
 | InvalidArgument | maxResults 参数必须为整数        | 400    | ListJobs |
 | InvalidArgument | nextToken 参数无效               | 400    | ListJobs |
 
-其他错误请参考 [对象存储批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
+其他错误请参考 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
