@@ -41,5 +41,5 @@ client.json 是配置迁移模式和其他迁移配置项的文件。无论选�
 ```
 sudo ./go2tencentcloud_x64
 ```
-例如，您使用 [内网迁移模式：场景2](https://cloud.tencent.com/document/product/213/38654#Scenario2) 进行迁移，迁移成功的控制台输出如下所示：
+例如，您使用 [内网迁移模式：场景2](https://cloud.tencent.com/document/product/213/38783#Scenario2) 进行迁移，迁移成功的控制台输出如下所示：
  ![](https://main.qcloudimg.com/raw/3d5c45ccb9f5350bb30cf3d3fce29590/console-cross-region.png)
