@@ -1,6 +1,6 @@
 
 ## 1. 获取迁移工具  
-[点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/v2.0.0/go2tencentcloud.zip) 迁移工具压缩包。
+[点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
 ## 2. 根据网络环境确定迁移模式
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
@@ -12,7 +12,7 @@
 ## 4. 迁移前检查
 迁移前，需要分别检查源端主机和目标云服务器。源端主机和目标云服务器需要检查的内容如下：
 <table>
-	<tr><th style="width: 15%;">目标云服务器</th><td><ol  style="margin: 0;"><li>目标云服务器系统盘的存储空间：迁移后，目标云服务器的系统盘会存放源端主机根目录的数据。</li><li>是否限制443端口和80端口：使用默认模式迁移时，需要公网访问能力，安全组中不能限制443端口和80端口。</li><li>带宽设置：建议尽可能调大两端的带宽，以便更快迁移。迁移过程中，会产生约等于数据量的流量消耗，如有必要请提前调整网络计费模式。</li><li>目标云服务器和源端主机的操作系统类型是否一致：操作系统不一致会造成后续制作的镜像的信息与实际操作系统不符，建议目标云服务器的操作系统尽量和源端主机的操作系统类型一致。例如，CentOS 7 系统的对源端主机迁移时，选择一台 CentOS 7 系统的云服务器作为迁移目标。</li></ol></td></tr>
+	<tr><th style="width: 15%;">目标云服务器</th><td><ol  style="margin: 0;"><li>存储空间：目标云服务器的云硬盘（包括系统盘和数据盘）必须具备足够的存储空间用来装载源端的数据。</li><li>安全组：安全组中不能限制443端口和80端口。</li><li>带宽设置：建议尽可能调大两端的带宽，以便更快迁移。迁移过程中，会产生约等于数据量的流量消耗，如有必要请提前调整网络计费模式。</li><li>目标云服务器和源端主机的操作系统类型是否一致：操作系统不一致会造成后续制作的镜像的信息与实际操作系统不符，建议目标云服务器的操作系统尽量和源端主机的操作系统类型一致。例如，CentOS 7 系统的对源端主机迁移时，选择一台 CentOS 7 系统的云服务器作为迁移目标。</li></ol></td></tr>
 	<tr><th>Linux 源端主机</th><td><ol  style="margin: 0;"><li>检查和安装 Virtio，操作详情可参考 <a href="https://cloud.tencent.com/document/product/213/9929">Linux 系统检查 Virtio 驱动</a>。</li><li>检查是否安装了 rsync 和 grub2-install（或 grub-install）。</li><li>检查 SELinux 是否已打开。如果 SELinux 已打开，请关闭 SELinux。</li><li>向腾讯云 API 发起迁移请求后，云 API 会使用当前 UNIX 时间检查生成的 Token，请确保当前系统时间无误。</li><li>检查源端主机的登录方式。如果您的 AWS 源端主机使用 SSH 密钥对方式登录，建议更换为密码方式登录，具体操作请参考 <a href="https://aws.amazon.com/cn/premiumsupport/knowledge-center/ec2-password-login/">AWS 开启密码登录 EC2</a>。</li></ol></td></tr>
 </table>
 
