@@ -14,11 +14,11 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
 
 [桌面端组件接入流程跳转](#electron_location)  
 
-[WEB组件接入流程跳转](#web_location)
+[Web 组件接入流程跳转](#web_location)
 
-[IOS组件接入流程跳转](#iOS_location)
+[iOS 组件接入流程跳转](#iOS_location)
 
-[Android组件接入流程跳](#Android_location)
+[Android 组件接入流程跳](#Android_location)
 
 
 
@@ -29,8 +29,8 @@ user_sig|string|腾讯云签名，登录必要的腾讯云模块用。|1. 如果
 目前组件页面只支持定制组件名称和图标，页面布局后期会通过云 API 方式逐步开放。
 
 ####  下载组件
-- Windows 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-1.0.0-win.zip)。    
-- Mac 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-1.0.0-mac.zip)。
+- Windows 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-win.zip)。    
+- Mac 平台组件下载：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass-mac.zip)。
 
 用户组件下载完成后，将对应压缩包解压到自身应用路径中，在对应解压目录中通过系统命令拉起组件。
  1. 命令行拉起
