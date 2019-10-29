@@ -3,8 +3,7 @@
 - 支持 Android 4.0 以上版本 API LEVEL 16，支持手机与平板。
 - 合成实时流式语音，需要手机能够连接网络（2/3/4G 或 Wi-Fi 网络等）。
 - 建议使用最新版本 Android Studio 进行开发。
-- 腾讯云控制台获取 AppID、SecretID、SecretKey，详情参考 [基本概念](https://cloud.tencent.com/document/product/441/6194)。
-- 服务端 [API 文档](https://cloud.tencent.com/document/api/441/18086)。
+- 服务端 [API 文档](https://cloud.tencent.com/document/product/1073/37995)。
 
 ### 下载安装 SDK
 - 语音合成 Android SDK [下载地址](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/tts_sdk_android_v2.zip)。
@@ -63,7 +62,6 @@ public enum VoiceType {
     VOICE_TYPE_AFFNITY_FEMALE(0, "亲和女声(默认)"),
     VOICE_TYPE_AFFNITY_MALE(1, "亲和男声"),
     VOICE_TYPE_MATURE_MALE(2, "成熟男声"),
-    VOICE_TYPE_VIBRANT_MALE(3, "活力男声"),
     VOICE_TYPE_WARM_FEMALE(4, "温暖女声"),
     VOICE_TYPE_Emotional_FEMALE(5, "情感女声"),
     VOICE_TYPE_Emotional_MALE(6, "情感男声"),
@@ -173,4 +171,4 @@ mTtsController.stop();
 
 ### 错误码
 
-请参考 [语音合成 API 文档](https://cloud.tencent.com/document/api/441/18086)。
+请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。

@@ -145,7 +145,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 const gameInfo = {
 	openId: 'xxxxxx',
 	gameId: "xxxxxx",// 替换为控制台上的“游戏ID”
-	secretKey: 'xxxxxx',// 替换为控制台上的“密钥”
+	secretKey: 'xxxxxx',// 替换为控制台上的“后端密钥”
 };
 
 const config = {

@@ -13,7 +13,7 @@
     <td>
 <input type="button" value="单击下载" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')" /></td>
     <td><input type="button" value="单击下载" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')" /></td>
-		<td><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://sxb.qcloud.com/miniApp/?from=qcloud.com')" /></td>
+		<td><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')" /></td>
     <td><img src="https://main.qcloudimg.com/raw/7298c4c6297b3dc6d9fac973c52caf66.png" /></td>
   </tr>
 </table>

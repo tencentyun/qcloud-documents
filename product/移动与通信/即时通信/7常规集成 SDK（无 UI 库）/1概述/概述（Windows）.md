@@ -21,7 +21,7 @@ json_value_init[kTIMSdkConfigDeviceInfo] = json_value_dev;
 TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 ```
 
-SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
+SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
 
 
 ## 登录/登出
@@ -188,7 +188,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 |       私有群（Private）       | 适用于较为私密的聊天场景，群组资料不公开，只能通过邀请的方式加入，类似于微信群。 |
 |       公开群（Public）        | 适用于公开群组，具有较为严格的管理机制、准入机制，类似于 QQ 群。 |
 |      聊天室（ChatRoom）       | 群成员可以随意进出。                                         |
-|   直播聊天室（AVChatRoom）    | 与聊天室相似，但群成员人数无上限；支持以游客身份（不登录）接收消息。 |
+|   直播聊天室（AVChatRoom）    | 与聊天室相似，但群成员人数无上限。 |
 | 在线成员广播大群（BChatRoom） | 适用于需要向全体在线用户推送消息的场景。                     |
 
 

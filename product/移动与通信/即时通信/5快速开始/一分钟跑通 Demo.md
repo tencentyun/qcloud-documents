@@ -2,10 +2,10 @@
 
 <span id="step1"></span>
 ## 步骤1：创建应用
-1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
  >?如果您已有应用，请记录其 SDKAppID 并 [配置应用](#step2)。
  >
-2. 在【应用列表】页，单击【创建应用接入】。
+2. 在【应用列表】页，单击【创建应用】。
 3. 在【创建新应用】对话框中，填写新建应用的信息，单击【确认】。
  应用创建完成后，自动生成一个应用标识 SDKAppID，请记录 SDKAppID 信息。
 
@@ -13,15 +13,14 @@
 ## 步骤2：获取密钥信息
 
 1. 单击目标应用所在行的【应用配置】，进入应用详情页面。
-3. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
- ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
-4. 单击【查看密钥】，拷贝并保存密钥信息。
+2. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
+3. 单击【查看密钥】，拷贝并保存密钥信息。
  >!请妥善保管密钥信息，谨防泄露。
 
 <span id="step3"></span>
 ## 步骤3：下载并配置 Demo 源码
 
-1. 从 [Github](https://github.com/tencentyun/TIMSDK) 克隆即时通信 IM Demo 工程。
+1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
      <tr>
@@ -53,10 +52,9 @@
       <td>WXMini/dist/wx/debug/GenerateTestUserSig.js</td>   
      </tr>  
 </table>
-
+3. 设置`GenerateTestUserSig`文件中的相关参数：
  >?本文以使用 Android Studio 打开 Android 工程为例。
   >
-3. 设置`GenerateTestUserSig`文件中的相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  ![](https://main.qcloudimg.com/raw/bfbe25b15b7aa1cc34be76d7388562aa.png)
@@ -66,7 +64,7 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 ## 步骤4：编译运行
-用各端的 IDE 直接编译运行即可。
+用各端的 IDE 直接编译运行即可，更多详情可参见 [步骤3](#step3) 克隆的 Demo 工程中对应目录下的`README.md`文件。
 
 **其中 iOS 和 Mac Demo 的编译运行需要使用 pod 集成，详情步骤如下：**
 1. 终端执行以下命令，检查 pod 版本。

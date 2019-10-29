@@ -16,10 +16,10 @@
 | preSharedKey | 否 | String | 预共享密钥。 |
 | userGwCidrBlock.n | 否 | Array | 对端网段 CIDR 地址，可写多个，指定 vpc 可以和哪些 IDC 网段通信，后面升级为spdAcl（粒度更细），userGwCidrBlock 和 spdAcl 必须填一项。 |
 | spdAcl.n | 否 | Array | SPD 策略组，用户指定 VPC 内哪些网段可以和您 IDC 中哪些网段通信，由 userGwCidrBlock 升级而来，userGwCidrBlock 和 spdAcl 必须填一项，更多详见产品说明文档。 |
-| IKESet.n | 否 | Array | IKE 配置（Internet Key Exchange，因特网密钥交换），IKE 具有一套自我保护机制，用户配置网络安全协议，详见<a href="https://cloud.tencent.com/doc/product/215/VPN%e8%bf%9e%e6%8e%a5#4.3-ike.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置"> VPN 连接-IKE 配置</a>。 |
-| IPsecSet.n | 否 | Array | IPSec 配置，腾讯云提供 IPSec 安全会话设置，详见<a href="https://cloud.tencent.com/document/product/215/4956#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPSec配置"> VPN 连接-IPSec 配置</a>。|
+| IKESet.n | 否 | Array | IKE 配置（Internet Key Exchange，因特网密钥交换），IKE 具有一套自我保护机制，用户配置网络安全协议，详见<a href="https://cloud.tencent.com/document/product/554/19276#ike-.E9.85.8D.E7.BD.AE" title="VPN连接-IKE配置"> VPN 连接-IKE 配置</a>。 |
+| IPsecSet.n | 否 | Array | IPSec 配置，腾讯云提供 IPSec 安全会话设置，详见<a href="https://cloud.tencent.com/document/product/554/19276#ipsec-.E4.BF.A1.E6.81.AF" title="VPN连接-IPsec配置"> VPN 连接-IPsec 配置</a>。|
 
-IKE配置详情
+IKE 配置详情
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
@@ -28,7 +28,7 @@ IKE配置详情
 | IKESet.exchangeMode | 否 | String | IKE 配置，协商模式：可选值：'aggressive','main'，默认为 main，更多详见产品说明文档。 |
 | IKESet.localIdentity | 否 | String | IKE 配置，本端标识类型：可选值：'address','fqdn'，默认为 address，更多详见产品说明文档。 |
 | IKESet.remoteIdentity | 否 | String | IKE 配置，对端标识类型：可选值：'address','fqdn'，默认为 address，更多详见产品说明文档。 |
-| IKESet.localAddress | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 address 时，localAddress 必填。 localAddress 默认为 vpn 网关公网 IP，更多详见产品说明文档。 |
+| IKESet.localAddress | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 address 时，localAddress 必填。 localAddress 默认为 VPN 网关公网 IP，更多详见产品说明文档。 |
 | IKESet.remoteAddress | 否 | String | IKE 配置，对端标识，当 remoteIdentity 选为 address 时，remoteAddress 必填，更多详见产品说明文档。 |
 | IKESet.localFqdnName | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 fqdn 时，localFqdnName 必填，更多详见产品说明文档。 |
 | IKESet.remoteFqdnName | 否 | String | IKE 配置，对端标识，当 remoteIdentity 选为 fqdn 时，remoteFqdnName 必填，更多详见产品说明文档。 |
@@ -37,7 +37,7 @@ IKE配置详情
 | IKESet.encryptAlgorithm | 否 | String | IPsec 配置，加密算法，取值：'3des-cbc','aes-cbc-128','aes-cbc-192','aes-cbc-256','des-cbc','null'，默认为3des-cbc，更多详见产品说明文档。 |
 
 
-IPsec配置详情
+IPsec 配置详情
 
 | 参数名称 | 必选  | 类型 | 描述 |
 |---------|---------|---------|---------|

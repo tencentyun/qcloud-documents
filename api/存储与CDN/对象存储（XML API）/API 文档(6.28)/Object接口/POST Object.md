@@ -143,7 +143,7 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 **生成 StringToSign**
 
-使用 SHA1 对构造的策略计算消息摘要，即为 StringToSign。
+使用 SHA1 对上文中构造的策略（Policy）文本计算消息摘要（哈希值），即为 StringToSign。
 
 **生成 Signature**
 

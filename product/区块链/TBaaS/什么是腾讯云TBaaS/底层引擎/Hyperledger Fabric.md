@@ -1,7 +1,7 @@
 
 ## 概述
 
-Hyperledger Fabric 是一个企业级的区块链框架实现，是 Linux 基金会旗下托管的 Hyperledger 开源项目之一，具有高度的模块化、可配置设计，拥有完备的成员管理和治理措施，支持可插拔的共识协议。比如银行、保险、医疗、供应链等行业可以根据自身特色灵活配置使用 Fabric、各种主流编程语言来开发智能合约，将其与自身的业务进行对接。
+Hyperledger Fabric 是一个企业级的区块链框架实现，是 Linux 基金会旗下托管的 Hyperledger 开源项目之一，具有高度的模块化、可配置设计，拥有完备的成员管理和治理措施，支持可插拔的共识协议。例如银行、保险、医疗、供应链等行业可以根据自身特色灵活配置使用 Fabric、各种主流编程语言来开发智能合约，将其与自身的业务进行对接。
 Hyperledger Fabric 不需要利用传统的发币、挖矿、PoW 工作量证明等手段来激励参与方。针对联盟链场景，差异化设计使得 Fabric 成为当前性能优秀、广受认可的区块链底层引擎。
 
 
@@ -71,7 +71,7 @@ Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/l
 
 ### TBaaS 目前支持哪个版本的 Hyperledger Fabric？
 
-**答**： Hyperledger Fabric v1.1。
+**答**： Hyperledger Fabric v1.4。
 	
 ### TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？
 

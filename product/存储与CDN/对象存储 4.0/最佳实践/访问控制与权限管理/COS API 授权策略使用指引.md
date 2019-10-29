@@ -1,3 +1,6 @@
+>!在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+
+
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
@@ -86,7 +89,7 @@ API 接口为 GET Service，若授予其操作权限，则策略的 action 为 n
 Bucket API 策略的 resource 可以归纳为以下几种情况：
 
 - 可操作任意地域的存储桶，策略的 resource 为`*`。
-- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶，则策略的 resource 为 `qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
 - 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶， 则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
 
 Bucket API 策略的 action 则因操作不同而取值不同，以下列举所有 Bucket API 授权策略。
@@ -109,7 +112,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -160,7 +163,7 @@ API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]

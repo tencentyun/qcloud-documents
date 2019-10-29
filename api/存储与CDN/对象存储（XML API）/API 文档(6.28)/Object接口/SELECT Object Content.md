@@ -132,7 +132,7 @@ Request body
 | -------------------------- | ------ | ------------------------------------------------------------ | ------- | -------- |
 | RecordDelimiter            | CSV    | 将 CSV 对象中记录分隔为不同行的字符，默认您通过`\n`进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String  | 否       |
 | FieldDelimiter             | CSV    | 指定分隔 CSV 对象中每一行的字符，默认您通过,进行分隔。您可以指定任意8进制字符，该参数最多支持1个字节。默认值为`, `。 | String  | 否       |
-| QuoteCharacter             | CSV    | 如果您待检索的 CSV 对象中存在于分隔符相同的字符串，您可以使用 QuoteCharacter 进行转义，避免该字符串被切割成几个部分。如 CSV 对象中存在`"a, b" `这个字符串，双引号"可以避免这一字符串被分隔成 `a` 和 `b` 两个字符。默认值为`" `。 | String  | 否       |
+| QuoteCharacter             | CSV    | 如果您待检索的 CSV 对象中存在包含分隔符的字符串，您可以使用 QuoteCharacter 进行转义，避免该字符串被切割成几个部分。如 CSV 对象中存在`"a, b" `这个字符串，双引号"可以避免这一字符串被分隔成 `a` 和 `b` 两个字符。默认值为`" `。 | String  | 否       |
 | QuoteEscapeCharacter       | CSV    | 如果您待检索的字符串中已经存在`"`，那您需要使用`"`进行转义以保证字符串可以正常转义。如您的字符串 `""" a , b """`将会被解析为`" a , b  "`。默认值为"。 | String  | 否       |
 | AllowQuotedRecordDelimiter | CSV    | 指定待检索对象中是否存在与分隔符相同且需要用"转义的字符。设定为 TRUE 时，COS   Select 将会在检索进行转义，这会导致检索性能下降；设定为 FALSE 时，则不会做转义处理。默认值为 FALSE。 | Boolean | 否       |
 | FileHeaderInfo             | CSV    | 待检索对象中是否存在列表头。该参数为存在 NONE、USE、IGNORE 三个选项。NONE 代表对象中没有列表头，USE 代表对象中存在列表头并且您可以使用表头进行检索（例如 `SELECT "name" FROM COSObject`），IGNORE 代表对象中存在列表头且您不打算使用表头进行检索（但您仍然可以通过列索引进行检索，如 `SELECT s._1 FROM COSObject s`）。合法值为 NONE、USE、IGNORE。 | Enum    | 否       |
@@ -157,7 +157,7 @@ Request body
 | QuoteFields          | CSV    | 指定输出结果为文件时，是否需要使用`"`进行转义。可选项包括 ALWAYS、ASNEEDED、ALWAYS 代表对所有本次输出的检索文件应用`"`，ASNEEDED 代表仅在需要时使用。合法值为 ALWAYS、ASNEEDED，默认值为 ASNEEDED。 | String | 是       |
 | RecordDelimiter      | CSV    | 将输出结果中的记录分隔为不同行的字符，默认通过`\n `进行分隔。您可以指定任意8进制字符，如逗号、分号、Tab 等。该参数最多支持2个字节，即您可以输入`\r\n`这类格式的分隔符。默认值为`\n `。 | String | 否       |
 | FieldDelimiter       | CSV    | 将输出结果中的每一行进行分列的字符，默认通过`,`进行分隔。您可以指定任意8进制字符，该参数最多支持1个字节。默认值为`, `。 | String | 否       |
-| QuoteCharacter       | CSV    | 如果输出结果中存在于分隔符相同的字符串，可以使用 QuoteCharacter 进行转义，保证该字符串不会在后续分析中被切割。如输出结果中存在`a,b`这个字符串，双引号`"`可以避免这一字符串被分隔成`a`和`b`两个字符，COS Select 将会将其转为`"a, b" `写入文件。默认值为`" `。 | String | 否       |
+| QuoteCharacter       | CSV    | 如果输出结果中存在包含分隔符的字符串，可以使用 QuoteCharacter 进行转义，保证该字符串不会在后续分析中被切割。如输出结果中存在`a,b`这个字符串，双引号`"`可以避免这一字符串被分隔成`a`和`b`两个字符，COS Select 将会将其转为`"a, b" `写入文件。默认值为`" `。 | String | 否       |
 | QuoteEscapeCharacter | CSV    | 如果您即将输出的字符串中已经存在`"`，那您需要使用`"`进行转义以保证该字符串可以正常转义。如您的字符串`" a , b"` 将会被在写入文件时被转换为`""" a , b """`。默认值为`" `。 | String | 否       |
 
 **JSON container element (OutputSerialization 子元素)**
@@ -346,19 +346,19 @@ COS Select 的响应类型主要可以分为以下几种：
 | InvalidCompressionFormat |  The file is not in a supported compression format. Only GZIP and BZIP2 are supported | 不合法的文件压缩格式，仅支持 GZIP 和 BZIP2 两种格式 | 400 Bad Request|
 | MissingInputFormat | The input format is missing  | 缺少输入格式 | 400 Bad Request|
 | InvalidFileHeaderInfo |  The input FileHeaderInfo is invalid. Only NONE, USE, and IGNORE are supported| 输入的文件表头信息不合法。仅支持 NONE，USE 和 IGNORE | 400 Bad Request|
-| InvalidRequestParameter | The input RecordDelimiter of CSV is invalid  | 不合法的 CSV 文件换行符 | 400 Bad Request|
-| InvalidRequestParameter | The input FieldDelimiter of CSV is invalid  | 不合法的 CSV 文件列分隔符 | 400 Bad Request|
-| InvalidRequestParameter | The input QuoteCharacter of CSV is invalid  | 不合法的 CSV 文件引用符 | 400 Bad Request|
+| InvalidRequestParameter | The input RecordDelimiter of CSV is invalid  | 输入的 CSV 文件换行符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The input FieldDelimiter of CSV is invalid  | 输入的 CSV 文件列分隔符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The input QuoteCharacter of CSV is invalid  | 输入的 CSV 文件引用符不合法 | 400 Bad Request|
 | InvalidRequestParameter |  The input AllowQuoteRecordDelimiter of csv is invalid. Only TRUE and FALSE are supported | 在输入 CSV 文件中启用转义符的配置不合法，仅支持 TRUE 和 FALSE | 400 Bad Request|
 | InvalidJsonType |  The JsonType is invalid. Only DOCUMENT and LINES are supported| 不合法的 JSON 类型，仅支持 DOCUMENT 和 LINES | 400 Bad Request|
 | MissingOutputSerialization |  The output serialization is missing. |  未指定输出 CSV 对象的数据序列格式| 400 Bad Request|
 | MissingOutputFormat | The output format is missing  | 缺少输出格式 | 400 Bad Request|
 | InvalidQuoteFields | The QuoteFields is invalid. Only ALWAYS and ASNEEDED are supported  | 不合法的转义规则，仅支持 ALWAYS 和 ASNEEDED | 400 Bad Request|
-| InvalidRequestParameter |  The output RecordDelimiter of CSV is invalid | 输出 CSV 文件的换行符不合法 | 400 Bad Request|
-| InvalidRequestParameter |  The output FieldDelimiter of CSV is invalid | 输出 CSV 文件的分隔符不合法 | 400 Bad Request|
-| InvalidRequestParameter | The output QuoteCharacter of CSV is invalid  | 输出 CSV 文件的转义符不合法 | 400 Bad Request|
-| InvalidRequestParameter | The output QuoteEscapeCharacter of CSV is invalid  | 输出 CSV 的双引号转义符不合法 | 400 Bad Request|
-| InvalidRequestParameter |  The output RecordDelimiter of JSON is invalid | 输出 JSON 文件的换行符不合法 | 400 Bad Request|
+| InvalidRequestParameter |  The output RecordDelimiter of CSV is invalid | 输出的 CSV 文件换行符不合法 | 400 Bad Request|
+| InvalidRequestParameter |  The output FieldDelimiter of CSV is invalid | 输出的 CSV 文件列分隔符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The output QuoteCharacter of CSV is invalid  | 输出的 CSV 文件转义符不合法 | 400 Bad Request|
+| InvalidRequestParameter | The output QuoteEscapeCharacter of CSV is invalid  | 输出的 CSV 的双引号转义符不合法 | 400 Bad Request|
+| InvalidRequestParameter |  The output RecordDelimiter of JSON is invalid | 输出的 JSON 文件换行符不合法 | 400 Bad Request|
 | SQLParsingError | Encountered an error parsing the SQL expression  | 解析 SQL 表达式出现问题 | 400 Bad Request|
 | SQLParsingError |  Other expressions are not allowed in the SELECT list when '\*' is used without dot notation. | SELECT list 不允许在未使用点符的时候使用`'*'` | 400 Bad Request|
 | SQLParsingError |  The SQL expression contains an empty SELECT | SQL 表达式中包含了空的 SELECT 子句 | 400 Bad Request|
@@ -368,9 +368,9 @@ COS Select 的响应类型主要可以分为以下几种：
 | SQLParsingError | ORDER is not supported in the SQL expression | SQL 表达式中不支持 ORDER 子句 | 400 Bad Request|
 | SQLParsingError | The column index is invalid in the SQL expression | SQL 表达式中指定的列索引不合法 | 400 Bad Request|
 | SQLParsingError | The table alias is invalid in WHERE | WHERE 子句中的表别名不合法 | 400 Bad Request|
-| Bzip2DecompressError | Encountered an error decompressing the bzip2 file | 解压 BZIP2 格式的文件是出现问题 | 400 Bad Request|
+| Bzip2DecompressError | Encountered an error decompressing the bzip2 file | 解压 BZIP2 格式的文件时出现问题 | 400 Bad Request|
 | Bzip2DecompressError |  BZIP2 is not applicable to the queried object | BZIP2 格式不适用于解压待查询对象 | 400 Bad Request|
-| GzipDecompressError |  Encountered an error decompressing the gzip file | 解压 GZIP 格式的文件是出现问题 | 400 Bad Request|
+| GzipDecompressError |  Encountered an error decompressing the gzip file | 解压 GZIP 格式的文件时出现问题 | 400 Bad Request|
 | GzipDecompressError | GZIP is not applicable to the queried object  | GZIP 格式不适用于解压待查询对象 | 400 Bad Request|
 | Busy |  The service is busy. Please retry later| 后端服务阻塞，请稍后重试 | 400 Bad Request|
 | Overload | The service is overload. Please retry later | 后端服务过载，请稍后重试 | 400 Bad Request|
@@ -378,7 +378,7 @@ COS Select 的响应类型主要可以分为以下几种：
 | ComparisonFailed | Attempt to compare failed | 匹配失败，请重试 | 400 Bad Request|
 | CastFailed |  Attempt to convert from one data type to another using CAST failed in the SQL expression. | 在 SQL 表达式中通过 CAST 函数转换数据类型时出现错误 | 400 Bad Request|
 | OverMaxRecordSize |  The length of a record in the input or result is greater than maxCharsPerRecord of 1 MB | 输入或输出的文件中，单行记录大小超过1MB限制 | 400 Bad Request|
-| LastRecordParseFail |  Please check the last record in the input | 请检查输出文件的最后一行记录| 400 Bad Request|
+| LastRecordParseFail |  Please check the last record in the input | 请检查输入文件的最后一行记录| 400 Bad Request|
 | CSVParsingError | Encountered an error parsing the CSV file | 解析 CSV 格式文件的时候出现问题 | 400 Bad Request|
 | JSONParsingError | Encountered an error parsing the JSON file  | 解析 JSON 格式文件的时候出现问题 | 400 Bad Request|
 | ErrorWritingRow | Encountered an error parsing the SELECT result. Please try again  | 无法格式化您的查询结果，请检查文件并重试 | 400 Bad Request|
