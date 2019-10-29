@@ -75,7 +75,7 @@
 - Attaching 绑定中：子机正在被绑定到伸缩组
 - Detaching 解绑中：子机正在从伸缩组解绑
 - AttachLb 绑定 CLB 中：子机正在绑定 CLB
-- DetachLb 解绑 CLB 中：子机正在解绑 LB
+- DetachLb 解绑 CLB 中：子机正在解绑 CLB
 - Preheating 预热中：子机正在预热
 
 
