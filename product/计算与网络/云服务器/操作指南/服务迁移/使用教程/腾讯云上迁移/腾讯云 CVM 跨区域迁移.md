@@ -1,7 +1,7 @@
 跨区域迁移是指在腾讯云某个地域下某个可用区的主机迁移至另一个地域下某个可用区的目标主机，也可以指在腾讯云同一个地域下不同可用区之间的主机迁移。
 
 ## 1. 获取迁移工具  
- [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/v2.0.0/go2tencentcloud.zip) 迁移工具压缩包。
+ [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
 ## 2. 根据网络环境确定迁移模式
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
