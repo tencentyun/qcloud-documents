@@ -4,7 +4,7 @@
 ## 帧同步开发实践 -《猪猪对战》
 开发实践帧同步的双人对战小游戏《猪猪对战》。
 
-<img src="https://main.qcloudimg.com/raw/ef969cc825d7ba291bcd150c72ad6859.png" width=80%">
+<img src="https://main.qcloudimg.com/raw/ef969cc825d7ba291bcd150c72ad6859.png" width="80%">
 
 1. 立即下载 [猪猪对战游戏源码](http://95s.pw/2g)，解压得源码文件。
 2. 在小游戏联机对战引擎控制台，开通小游戏联机对战引擎服务，获取游戏 ID、游戏 KEY、域名等。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
@@ -15,8 +15,8 @@
 ## 状态同步开发实践 -《题题对战》
 开发实践状态同步的答题游戏《题题对战》。
 
-<img src="https://main.qcloudimg.com/raw/aa0135dbb6e9e88f599a40dcd7b435c7.png" width=80%">
-<img src="https://main.qcloudimg.com/raw/62366805da37ec84ccbc08d47e104573.png" width=80%">                                  
+<img src="https://main.qcloudimg.com/raw/aa0135dbb6e9e88f599a40dcd7b435c7.png" width="80%">
+<img src="https://main.qcloudimg.com/raw/62366805da37ec84ccbc08d47e104573.png" width="80%">                                  
 
 1. 立即下载 [题题对题游戏源码](http://95s.pw/2k)，解压得源码文件。
 2. 在小游戏联机对战引擎控制台，开通小游戏联机对战引擎服务，获取游戏 ID、游戏 KEY、域名等。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
