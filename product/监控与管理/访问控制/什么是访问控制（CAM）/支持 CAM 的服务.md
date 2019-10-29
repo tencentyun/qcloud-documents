@@ -1,6 +1,6 @@
 ## 简介	
 
-访问管理已经支持多数腾讯云产品服务进行权限管理。本文主要介绍支持访问管理 CAM 的产品服务的相关信息。具体维度包括授权粒度、控制台、根据标签进行授权、临时密钥等。
+访问管理已经支持多数腾讯云产品服务进行权限管理。本文主要介绍支持访问管理 CAM 的产品服务的相关信息。具体维度包括授权粒度、控制台、根据标签进行授权、参考文档等。
 以下列表分别罗列了腾讯云平台各大产品类别下已支持 CAM 的服务。
 对表中信息进行如下定义：
 
@@ -74,12 +74,12 @@
 
 ## 中间件	
 
- | 服务                                                       | 授权粒度 | 控制台  | 根据标签进行授权 | 临时密钥 | 服务角色 |	参考文档 |
-| ------------------------------------------------------------| ------ | -------- | -------- | ------- | ---- |	 ---- |
-| [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003;  | - | &#10003; | - |	[用户与权限](https://cloud.tencent.com/document/product/406/8618) |
-| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级 | &#10003; | - | &#10003; | &#10003;   |[用户访问控制（ACL 与用户管理）](https://cloud.tencent.com/document/product/597/31528)|
-| [API 网关](https://cloud.tencent.com/document/product/628)     | 资源级  | &#10003;  | -  | -   | &#10003; |[权限管理](https://cloud.tencent.com/document/product/628/34267)|
-| [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - | &#10003;   | &#10003; |[概述](https://cloud.tencent.com/document/product/649/38327) |
+ | 服务                                                       | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
+| ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	 ---- |
+| [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003;  | - |  - |	[用户与权限](https://cloud.tencent.com/document/product/406/8618) |
+| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级 | &#10003; | - | &#10003;   |[用户访问控制（ACL 与用户管理）](https://cloud.tencent.com/document/product/597/31528)|
+| [API 网关](https://cloud.tencent.com/document/product/628)     | 资源级  | &#10003;  | -  | &#10003; |[权限管理](https://cloud.tencent.com/document/product/628/34267)|
+| [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - |  &#10003; |[概述](https://cloud.tencent.com/document/product/649/38327) |
 
 ## 数据处理	
 
