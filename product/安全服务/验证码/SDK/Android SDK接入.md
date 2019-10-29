@@ -82,7 +82,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if(requestCode == 1 && data != null) {
         switch(resultCode) {
             case Activity.RESULT_OK: {
-                JSONObject jsonObject = new JSONObject(data,getStringExtra("retJson"));
+                JSONObject jsonObject = new JSONObject(data.getStringExtra("retJson"));
                 int ret = jsonObject.getInt("ret");
                 if(ret == 0) {
                     //验证成功回调，此时ret=0，
