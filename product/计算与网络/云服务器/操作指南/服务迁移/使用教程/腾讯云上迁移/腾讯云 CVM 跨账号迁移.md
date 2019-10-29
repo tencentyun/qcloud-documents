@@ -1,7 +1,7 @@
 在线迁移工具支持腾讯云两个不同主机之间的迁移。跨账号迁移是指两个不同账号下的主机之间的迁移。
 
 ## 1. 获取迁移工具  
- [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/v2.0.0/go2tencentcloud.zip) 迁移工具压缩包。
+ [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
 ## 2. 根据网络环境确定迁移模式
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
@@ -39,25 +39,25 @@ client.json 是配置迁移模式和其他迁移配置项的文件。无论选�
  在 Linux 源端主机编辑 rsync\_excludes\_linux.txt 文件，排除不需要迁移的文件和目录。
 5. 运行工具。
 以 [内网迁移模式：场景1](https://cloud.tencent.com/document/product/213/38654#Scenario1) 进行跨账号迁移为例：  
- 1. 在一台可以访问公网的主机上，执行以下命令，运行工具，进行“阶段1：初始化远程实例”的迁移。
+ 1. 在一台可以访问公网的主机上，执行以下命令，运行工具，进行阶段1的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
-若返回`Stage 1 is finished and please run next stage at source machine.`，则说明“阶段1：初始化远程实例”已完成。 
+若提示`Stage 1 is finished and please run next stage at source machine.`，则说明阶段1已完成。 
  ![](https://main.qcloudimg.com/raw/afeceabbdaad10f348cd0805b209e5cb.png)
- 2. 待上一步骤（即阶段1：初始化远程实例）完成后，需先将“阶段1：初始化远程实例”的整个工具目录拷贝至待迁移的源端主机，再运行工具进行“阶段2：传输数据”的迁移。
- 例如，执行以下命令运行工具，进行“阶段2：传输数据”的迁移。
+ 2. 待上一步骤（即阶段1）完成后，需先将阶段1的整个工具目录拷贝至待迁移的源端主机，再运行工具进行阶段2的迁移。
+ 例如，执行以下命令运行工具，进行阶段2的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
-若返回`Stage 2 is finished and please run next stage at gateway machine.`，则说明“阶段2：传输数据”已完成。
+若提示`Stage 2 is finished and please run next stage at gateway machine.`，则说明阶段2已完成。
  ![](https://main.qcloudimg.com/raw/be35753f3f8f3a30b8d6364a1052991f.png)
- 3. 待上一步骤（即阶段2：传输数据）完成后，需先将“阶段2：传输数据”的整个工具目录拷贝至刚才“阶段1：初始化远程实例”的主机，再运行工具进行“阶段3：释放远程实例”的迁移。
- 例如，执行以下命令运行工具，进行“阶段3：释放远程实例”的迁移。
+ 3. 待上一步骤（即阶段2）完成后，需先将阶段2的整个工具目录拷贝至刚才阶段1的主机，再运行工具进行阶段3的迁移。
+ 例如，执行以下命令运行工具，进行阶段3的迁移。
 ```
 sudo ./go2tencentcloud_x64
 ```
-若返回`Migrate successfully.`，则说明整个迁移任务已完成。
+若提示`Migrate successfully.`，则说明整个迁移任务已完成。
  ![](https://main.qcloudimg.com/raw/1cf4ef72cebab8b42440608643cedade.png)
  
  
