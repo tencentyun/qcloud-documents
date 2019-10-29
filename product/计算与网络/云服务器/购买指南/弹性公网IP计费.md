@@ -1,7 +1,7 @@
 ## 计费说明
 
 弹性公网 IP 的费用由两部分组成：IP 资源费用、公网网络费用。
-![](https://main.qcloudimg.com/raw/e2b90344fee7a09ccbfa03937592c4ef.png)
+<img src="https://main.qcloudimg.com/raw/e2b90344fee7a09ccbfa03937592c4ef.png" style="width: 80%;"></img>
 
 ### IP 资源费用
 腾讯云会对弹性公网 IP 收取 IP 资源费用，当您将弹性公网 IP 与云服务器或 NAT 网关绑定时，**可减免资源占用费**。
