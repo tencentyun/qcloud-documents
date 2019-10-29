@@ -38,7 +38,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 ![](https://main.qcloudimg.com/raw/5e6f39af9efcce9fd09c670c34db78ea.png)
 
 5. 根据规则设置，触发 CC 攻击行为。
-![](https://main.qcloudimg.com/raw/d5fa43ac17ab42057198cba8abed4463.png)
+![](https://main.qcloudimg.com/raw/46867af97968b3ddd28b96645d9e91ae.png)
 6. 查看 IP 实时阻断信息。在左侧导航栏，选择【IP 管理】>【IP 封堵状态】 ，可以查看到实时阻断的 IP 信息 ,可以对 IP 进行加白或者加黑处理。
 
 **示例三： 基于 SESSION 的 CC 防护设置**
