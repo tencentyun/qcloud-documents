@@ -159,4 +159,5 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 ```
 
 ### SDK 的上传、下载、批量删除等操作中，使用的 key 值是否需要添加 '/' 前缀？
-对象存储的 key 值无需携带 '/' 前缀，例如，您将对象 key 值设置为 exampleobject上传的对象，可以通过url http://cos.ap-guangzhou.myqcloud.com/exampleobject 进行访问。注：在批删请求中，请勿传入 '/' 前缀的 key，这会导致对象删除失败。
+对象存储的 key 值无需携带 '/' 前缀。例如，您将对象 key 值设置为 exampleobject 上传的对象，可以通过 URL： `http://cos.ap-guangzhou.myqcloud.com/exampleobject`进行访问。
+>!在批删请求中，请勿传入 '/' 前缀的 key，这将导致对象删除失败。
