@@ -30,6 +30,7 @@
  - **通信密钥**：OTP 认证密码。请根据实际环境填写。
 ![](https://main.qcloudimg.com/raw/0d587d9986c7f37cd085d43b463dbf88.png)
 4. 单击【保存】，即可完成 OTP 服务配置。
+5. 用户认证配置及如何使用数盾 OTP 小程序，请参见 [OTP 认证](https://cloud.tencent.com/document/product/1025/35133#.E8.AE.BE.E7.BD.AE.E7.94.A8.E6.88.B7.E8.AE.A4.E8.AF.81.E6.96.B9.E5.BC.8F)。
 
 
 
