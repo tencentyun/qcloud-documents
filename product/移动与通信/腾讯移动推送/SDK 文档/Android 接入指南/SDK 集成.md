@@ -102,7 +102,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```xml
 <application>
     <!-- 应用的其它配置 -->
-    <uses-permission android:name="android.permission.GET_TASKS" /> 
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
     <!-- 【必须】 腾讯移动推送默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">
