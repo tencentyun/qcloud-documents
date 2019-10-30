@@ -17,7 +17,7 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
 ### 步骤二：手动搭建 LNMP 环境
-LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可参考 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/8044) 完成基本环境搭建。
+LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可参考 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38056) 完成基本环境搭建。
 
 
 
