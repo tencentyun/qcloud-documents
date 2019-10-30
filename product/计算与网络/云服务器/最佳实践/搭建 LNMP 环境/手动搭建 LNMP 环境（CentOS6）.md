@@ -131,29 +131,27 @@ mysql
 
 
 ### 步骤三：安装配置 PHP
-
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
-
 ```
-
+```
+rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
+```
 2. 执行以下命令，安装 PHP 7.1.32 所需要的包。
-
 ```
 yum -y install mod_php71w.x86_64 php71w-cli.x86_64 php71w-common.x86_64 php71w-mysqlnd php71w-fpm.x86_64
-
 ```
-
-3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
-
+3. 执行以下命令，启动 PHP-FPM 服务。
 ```
 service php-fpm start
+```
+3. 依次执行以下命令，设置 PHP-FPM 为开机自启动。
+```bash
 chkconfig --add php-fpm  
+```
+```
 chkconfig php-fpm on
-
 ```
 
 
