@@ -63,18 +63,20 @@ java -version
 
 ### 步骤二：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
->?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [Tomcat 软件源](http://mirrors.tencent.com/apache/tomcat/) 中获取最新下载地址。
+>?
+>- 腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [Tomcat 软件源](http://mirrors.tencent.com/apache/tomcat/) 中获取最新下载地址。
+>- 请将命令对应信息替换为您实际使用的 Tomcat 版本。
 >
 ```
-wget http://mirrors.tencent.com/apache/tomcat/tomcat-8/v8.5.46/bin/apache-tomcat-8.5.46.tar.gz
+wget http://mirrors.tencent.com/apache/tomcat/tomcat-x/vx.x.xx/bin/apache-tomcat-x.x.xx.tar.gz
 ```
 2. 执行以下命令，解压 Tomcat 源码包。
 ```
-tar xzf apache-tomcat-8.5.46.tar.gz
+tar xzf apache-tomcat-x.x.xx.tar.gz
 ```
 3. 执行以下命令，将解压后的源码包移动到 `/usr/local/tomcat/` 目录下。
 ```
-mv apache-tomcat-8.5.46 /usr/local/tomcat/
+mv apache-tomcat-x.x.xx /usr/local/tomcat/
 ```
 4. 执行以下命令，打开 `server.xml` 文件。
 ```
