@@ -185,7 +185,7 @@ const room = new Room();
 实例化 Room 后，可以调用 getMyRoom 接口来检查玩家是否已经加房，适用于应用重启后需要恢复玩家状态的场景。
 
 ```
-//查询玩家自己的房间
+// 查询玩家自己的房间
 Room.getMyRoom(event => {
         if (event.code === 0) {
                 // 设置房间信息到 room 实例
