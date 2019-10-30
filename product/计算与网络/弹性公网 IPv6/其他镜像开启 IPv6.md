@@ -47,8 +47,22 @@ dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
-
-16.测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+14. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+```
+vim /etc/ssh/sshd_config
+```
+15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
+16. 按 “Esc”，输入 “:wq”，保存文件并返回。
+17. 执行如下命令，重启 ssh 进程。
+```
+service sshd restart
+```
+18. 执行如下命令，查看 ssh 是否已经监听 IPv6。
+```
+netstat -tupln
+```
+16. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 
 <span id="CentOS7.3"/>
 
@@ -109,7 +123,16 @@ vim /etc/ssh/sshd_config
 15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 16. 按 “Esc”，输入 “:wq”，保存文件并返回。
-17. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+17. 执行如下命令，重启 ssh 进程。
+```
+service sshd restart
+```
+18. 执行如下命令，查看 ssh 是否已经监听 IPv6。
+```
+netstat -tupln
+```
+![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
+19. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 <span id="Debian8.2"/>
 
 ## Debian 8.2 开启 IPv6
