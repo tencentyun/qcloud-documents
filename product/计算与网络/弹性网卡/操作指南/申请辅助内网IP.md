@@ -1,4 +1,4 @@
-如果你想实现单网卡多 IP，你可为弹性网卡申请辅助内网 IP，操作如下：
+如需实现单网卡多 IP，您可为弹性网卡申请辅助内网 IP，操作如下：
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。
 ![](https://main.qcloudimg.com/raw/4075af8d7e9655ab5306e5152e1a79ce.png)
