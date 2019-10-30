@@ -3,7 +3,6 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 
 使用的软件环境为：CentOS7.2 | Python2.7  | Django1.11
 
-
 ### 登录到云服务器实例
 云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
@@ -13,7 +12,11 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 ### 安装 Django
 1. 安装 pip。
 ```
-yum install python-pip -y
+yum install python-pip 
+```
+2. 更新 pip 包。
+```
+pip install --upgrade pip
 ```
 2. 通过 pip 安装 Django。
 ```

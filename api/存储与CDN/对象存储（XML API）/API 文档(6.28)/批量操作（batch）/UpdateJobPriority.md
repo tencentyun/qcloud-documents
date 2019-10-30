@@ -15,11 +15,11 @@ x-cos-appid: <appid>
 
 调用 UpdateJobPriority 接口所需的参数。该参数格式如下：
 
-| 参数        | 描述                                                 | 必选 |
+| 参数        | 描述                                                 | 是否必选 |
 | ----------- | ---------------------------------------------------- | ---- |
 | JobId       | 您想要更新的批量处理任务的 ID。长度限制为1 - 64字节。  | 是   |
 | priority    | 更新后的任务优先级。此项参数大小限制为0 - 2147483647。 | 是   |
-| x-cos-appid | 用户 UIN，长度1 - 64字节。                             | 是   |
+| x-cos-appid | 用户的 APPID，长度为1 - 64字节。                             | 是   |
 
 **请求头**
 
@@ -68,8 +68,8 @@ HTTP/1.1 200
 
 | 错误代码       | 描述                                                     | 状态码 | API                               |
 | -------------- | -------------------------------------------------------- | ------ | --------------------------------- |
-| InvalidRequest | No priority was provided                                 | 400    | UpdateJobPriority                 |
-| NoSuchJob      | The specified job does not exist or was already finished | 404    | UpdateJobStatus,UpdateJobPriority |
+| InvalidRequest | 未提供任务优先级                                | 400    | UpdateJobPriority                 |
+| NoSuchJob      | 指定任务不存在或已完成 | 404    | UpdateJobStatus，UpdateJobPriority |
 
 其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 

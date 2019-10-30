@@ -12,6 +12,13 @@
 ```js
 tim.getGroupList();
 ```
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称                    | 类型           | 属性 | 描述                                                         |
+| :---------------------- | :------------- | :--- | :----------------------------------------------------------- |
+| `groupProfileFilter` | `Array<String>` |`<optional>`  | 群资料过滤器。除默认拉取的群资料外，指定需要额外拉取的群资料，支持的值如下：<br/>TIM.TYPES.GRP_PROFILE_OWNER_ID：群主 ID<br/>TIM.TYPES.GRP_PROFILE_CREATE_TIME：群创建时间<br/>TIM.TYPES.GRP_PROFILE_LAST_INFO_TIME：最后一次群资料变更时间<br/>TIM.TYPES.GRP_PROFILE_MEMBER_NUM：群成员数量<br/>TIM.TYPES.GRP_PROFILE_MAX_MEMBER_NUM：最大群成员数量<br/>TIM.TYPES.GRP_PROFILE_JOIN_OPTION：申请加群选项<br/>TIM.TYPES.GRP_PROFILE_INTRODUCTION：群介绍<br/>TIM.TYPES.GRP_PROFILE_NOTIFICATION：群公告 |
 
 **返回值**
 
@@ -20,9 +27,22 @@ tim.getGroupList();
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**
-
+- 默认拉取：
 ```js
+// 该接口默认只拉取这些资料：群类型、群名称、群头像以及最后一条消息的时间。
 let promise = tim.getGroupList();
+promise.then(function(imResponse) {
+  console.log(imResponse.data.groupList); // 群组列表
+}).catch(function(imError) {
+  console.warn('getGroupList error:', imError); // 获取群组列表失败的相关信息
+});
+```
+- 拉取其他资料：
+```js
+// 若默认拉取的字段不满足需求，可以参考下述代码，拉取额外的资料字段。
+let promise = tim.getGroupList({
+   groupProfileFilter: [TIM.TYPES.GRP_PROFILE_OWNER_ID],
+});
 promise.then(function(imResponse) {
   console.log(imResponse.data.groupList); // 群组列表
 }).catch(function(imError) {

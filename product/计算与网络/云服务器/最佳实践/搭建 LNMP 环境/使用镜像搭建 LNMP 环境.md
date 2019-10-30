@@ -57,7 +57,7 @@ http://云服务器实例的公网 IP/phpinfo.php
 ![](https://main.qcloudimg.com/raw/fc3d72b5c5522cd942dfceab7ca8bc8a.png)
 
 ## 相关操作
-在完成了 LNMP 环境搭建之后，您可在此基础上进行 [手动搭建 Wordpress 个人站点](https://cloud.tencent.com/document/product/213/8044) 实践，了解并掌握更多关于云服务器的相关功能。
+在完成了 LNMP 环境搭建之后，您可在此基础上进行 [手动搭建 Wordpress 个人站点](https://cloud.tencent.com/document/product/213/8044#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E9.85.8D.E7.BD.AE-wordpress-.E6.95.B0.E6.8D.AE.E5.BA.93.3Cspan-id.3D.22database.22.3E.3C.2Fspan.3E) 实践，了解并掌握更多关于云服务器的相关功能。
 
 ## 常见问题
 如果您在搭建 LNMP 环境的过程中遇到问题，可参考以下文档进行分析并解决问题：

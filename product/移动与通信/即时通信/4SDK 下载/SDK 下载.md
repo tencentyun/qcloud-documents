@@ -1,6 +1,6 @@
 您可以根据不同使用平台下载对应的即时通信 IM SDK，Demo 运行说明请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
 
->?推荐使用 Github 下载 Demo 源码、TUIKit 以及 SDK，当 Github 访问较慢时，您可以使用 Gitee 下载或者直接下载 Zip 包。
+>?推荐使用 Github 下载 Demo 源码、TUIKit 源码以及 SDK，当 Github 访问较慢时，您可以使用 Gitee 下载或者直接下载 Zip 包。
 
 <table>
 	<tr>
@@ -19,7 +19,7 @@
 		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'android'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Android">Gitee</a></td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/37059">DOC</a></td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32679">DOC</a></td>
-		<td>arm64-v8a：约1.6M<br />armeabi-v7a：约1.1M<br />x86：约1.8M<br />x86-64：约1.8M</td>   
+		<td>arm64-v8a：约1.6M<br />armeabi-v7a：约1.1M</td>   
 	</tr> 
 	<tr>      
 		<td align="center">iOS</td>

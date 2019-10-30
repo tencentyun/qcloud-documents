@@ -32,7 +32,7 @@ HTTP/1.1 400
 | InvalidRequest     | ClientRequestToken 参数重复                       | 400    | CreateJob                         |
 | InvalidRequest     | 指定作业已完成                                    | 400    | UpdateJobStatus                   |
 | InvalidRequest     | 任务状态变更错误                                  | 400    | UpdateJobStatus                   |
-| InternalError      | Failure occured when marshaling response to xml   | 500    | Any                               |
+| InternalError      |格式化响应 xml 失败   | 500    | Any                               |
 | MalformedXML       | 请求格式不合法                                    | 400    | Any                               |
 | MalformedXML       | 提供的 Manifest 格式不正确                        | 400    | CreateJob                         |
 | MalformedXML       | 提供的 Operation 格式不正确                       | 400    | CreateJob                         |

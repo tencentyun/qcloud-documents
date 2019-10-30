@@ -14,5 +14,5 @@
 	- 填写完毕后， 单击【保存】。
  ![6](https://main.qcloudimg.com/raw/181fd99ac73c145d359805a975540305.png)
 
-5. 修改完成之后，待 DNS 记录生效，Web 应用防火墙（网站管家）即可对访问网站的流量进行防护了。同时，Web 应用防火墙（网站管家）检测到被防护域名解析正常之后，Web 应用防火墙（网站管家）控制台上将提示 “正常防护”。
+5. 修改完成之后，待 DNS 记录生效，Web 应用防火墙（网站管家）即可对访问网站的流量进行防护了。同时，Web 应用防火墙（网站管家）检测到被防护域名解析正常之后，[Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/config) 上将提示 “正常防护”。
 ![](https://main.qcloudimg.com/raw/c3dfeae5cf9442df882946bb0bbec902.png)
