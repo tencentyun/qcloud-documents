@@ -1,4 +1,3 @@
-### 如何适配苹果 ATS？
 
 苹果在 WWDC 2016 中表示，从2017年01月01日起，所有新提交的 App 默认不能使用`NSAllowsArbitraryLoads=YES`来绕过 ATS 的限制。腾讯云已正式支持 HTTPS，您只需要使用新版 SDK（接口无变化），并且将原来的视频地址的前缀从 `http://` 换成 `https://` 即可，SDK 内部会自动适配。
 
