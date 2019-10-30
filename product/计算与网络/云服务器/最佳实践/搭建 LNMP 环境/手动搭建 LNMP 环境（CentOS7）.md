@@ -1,5 +1,5 @@
 ## 操作场景
-LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 6.9 及 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
+LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
 
 ## 技能要求
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
@@ -18,16 +18,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ```
 vi /etc/yum.repos.d/nginx.repo
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入以下内容。
- - CentOS 6.9 请写入以下内容：
-```
-[nginx]
-name=nginx repo
-baseurl=https://nginx.org/packages/mainline/centos/6/$basearch/
-gpgcheck=0
-enabled=1
-```
- - CentOS 7.6 请写入以下内容：
+2. 按 “**i**” 切换至编辑模式，写入以下内容。
 ```
 [nginx] 
 name = nginx repo 
@@ -44,7 +35,7 @@ yum install nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-6. 按 “**i**” 或 “**Insert**” 切换至编辑模式，对应使用的操作系统编辑 `nginx.conf` 文件。
+6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 >?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
 >
@@ -76,57 +67,21 @@ server {
 	}
 }
 ```
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-5. 根据安装操作系统的不同，依次执行对应命令启动 Nginx 并设置为开机自启动。
- - CentOS 6.9 请依次执行以下命令：
-```
-	 service nginx start
-	 chkconfig --add nginx
-	 chkconfig  nginx on
-```
- - CentOS 7.6 请依次执行以下命令：
+7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+8. 执行以下命令启动 Nginx。
 ```
 systemctl start nginx
+```
+9. 执行以下命令，设置 Nginx 为开机自启动。
+```
 systemctl enable nginx 
 ```
-6. 在浏览器中，输入云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+10. 在浏览器中，输入云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
 显示如下，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
 ### 步骤2：安装数据库
-由于操作系统版本不同，所使用的数据库版本也不相同，请对应您使用的操作系统并按照以下步骤进行进行安装配置。
-#### CentOS 6.9 安装 MySQL
-1. 执行以下命令，查看系统中是否存在 MySQL 现有包。
-```
-rpm -qa | grep -i mysql
-```
- - 返回结果如下所示，则表示已存在 MySQL，请执行 [步骤2](#delete) 依次移除。
-![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
- - 返回结果如下所示，请执行 [步骤3](#install) 开始安装 MySQL。
-![](https://main.qcloudimg.com/raw/41abe6eb40d523042c8b6593e6a61ac0.png)
-2. <span id="delete"></span>执行以下命令，删除 MySQL 现有包。
-```
-yum remove -y 包名
-```
-3. <span id="install"></span>执行以下命令，安装 MySQL。
-```
-yum install -y mysql-devel.x86_64 mysql-server.x86_64 mysql-libs.x86_64
-```
-4. 依次执行以下命令，启动 MySQL 服务，同时设置为开机自启动。
-```
-service mysqld start 
-chkconfig --add mysqld
-chkconfig mysqld  on 
-```
-5. 执行以下命令，验证 MySQL 是否安装成功。
-```
-mysql
-```
-显示结果如下，则成功安装。
-![](https://main.qcloudimg.com/raw/9c9347ad0264ddad5e98c8dd48adcc6a.png)
-
-#### CentOS 7.6 安装 MariaDB
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。 
 ```
 rpm -qa | grep -i mariadb
@@ -143,7 +98,7 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入以下内容。
+4. 按 “**i**” 切换至编辑模式，写入以下内容。
 ```
 # MariaDB 10.4 CentOS7-amd64
 [mariadb]  
@@ -158,51 +113,44 @@ gpgcheck=1
 ```
 yum -y install MariaDB-client MariaDB-server
 ```
-7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
+7. 执行以下命令，启动 MariaDB 服务。
 ```
 systemctl start mariadb
+```
+8. 执行以下命令，设置 MariaDB 为开机自启动。
+```
 systemctl enable mariadb
 ```
-8. 执行以下命令，验证 MariaDB 是否安装成功。
+9. 执行以下命令，验证 MariaDB 是否安装成功。
 ```
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
+10. 执行以下命令，退出 MariaDB。
+```
+\q
+```
 
 
 ### 步骤3：安装配置 PHP
-由于操作系统版本不同，所使用的 PHP 的版本也不相同，请结合您使用的操作系统并按照以下步骤进行安装配置 PHP。
-#### CentOS 6.9 安装配置 PHP
-1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
-```
-rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
-rpm -Uvh https://mirror.webtatic.com/yum/el6/latest.rpm
-```
-2. 执行以下命令，安装 PHP 7.1.32 所需要的包。
-```
-yum -y install mod_php71w.x86_64 php71w-cli.x86_64 php71w-common.x86_64 php71w-mysqlnd php71w-fpm.x86_64
-```
-3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
-```
-service php-fpm start
-chkconfig --add php-fpm  
-chkconfig php-fpm on
-```
-
-#### CentOS 7.6 安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
+```
+```
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，安装 PHP 7.2.22 所需要的包。
 ```
 yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
-3. 依次执行以下命令，启动 PHP-FPM 服务，同时设置为开机自启动。
+3. 执行以下命令，启动 PHP-FPM 服务。
 ```
 systemctl start php-fpm
+```
+4. 执行以下命令，设置 PHP-FPM 服务为开机自启动。
+```
 systemctl enable php-fpm
 ```
 
@@ -215,12 +163,7 @@ systemctl enable php-fpm
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
-2. 对应操作系统执行命令，重启 Nginx 服务。
- - CentOS 6.9 执行以下命令：
-```
-service nginx restart
-```
- - CentOS 7.6 执行以下命令：
+2. 执行以下命令，重启 Nginx 服务。
 ```
 systemctl restart nginx
 ```
@@ -228,9 +171,7 @@ systemctl restart nginx
 ```
 http://云服务器实例的公网 IP
 ```
- - CentOS 6.9 系统显示结果如下， 则说明环境配置成功。
-![](https://main.qcloudimg.com/raw/64af927320f2121ae4daf15cf2eaba39.png)
- - CentOS 7.6 系统显示结果如下， 则说明环境配置成功。
+显示结果如下， 则说明环境配置成功。
 ![](https://main.qcloudimg.com/raw/640812413941a61efe29d7faa546ad80.png)
 
 
