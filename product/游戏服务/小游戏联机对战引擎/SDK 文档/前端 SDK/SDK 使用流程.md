@@ -182,27 +182,27 @@ Listener.init(gameInfo, config, event => {
 const room = new Room();
 ```
 
-实例化 Room 后，可以调用 getRoomDetail 接口来检查玩家是否已经加房，适用于应用重启后需要恢复玩家状态的场景。
+实例化 Room 后，可以调用 getMyRoom 接口来检查玩家是否已经加房，适用于应用重启后需要恢复玩家状态的场景。
 
 ```
-// 初始化房间信息
-room.initRoom();
-// 查询玩家自己的房间
-room.getRoomDetail(event => {
-	if (event.code === 0) {
-		return console.log("玩家已在房间内：", event.data.roomInfo.name);
-	}
-	
-	if (event.code === 20011) {
-		return console.log("玩家不在房间内");
-	}
+/查询玩家自己的房间
+Room.getMyRoom(event => {
+        if (event.code === 0) {
+                // 设置房间信息到 room 实例
+                room.initRoom(event.data.roomInfo);
+                return console.log("玩家已在房间内：", event.data.roomInfo.name);
+        }
+        
+        if (event.code === 20011) {
+                return console.log("玩家不在房间内");
+        }
 
-	return console.log("调用失败");
+        return console.log("调用失败");
 });
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->! getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getRoomList、getRoomByRoomId。
+>! getMyRoom、getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getMyRoom、Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getMyRoom、getRoomList、getRoomByRoomId。
 
 ### Room 接收广播
 
