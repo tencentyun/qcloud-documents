@@ -13,7 +13,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ## 操作步骤
 当您登录 Linux 云服务器后，可以按照以下步骤分别安装 Nginx， MySQL 和 PHP。
 
-### 步骤1：安装 Nginx
+### 步骤一：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
 vi /etc/yum.repos.d/nginx.repo
@@ -29,7 +29,7 @@ enabled = 1
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 4. 执行以下命令，安装 nginx。
 ```
-yum install nginx
+yum install -y nginx
 ```
 5. 执行以下命令，打开 `nginx.conf` 文件。
 ```
@@ -81,7 +81,7 @@ systemctl enable nginx
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
-### 步骤2：安装数据库
+### 步骤二：安装数据库
 1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。 
 ```
 rpm -qa | grep -i mariadb
@@ -133,7 +133,7 @@ mysql
 ```
 
 
-### 步骤3：安装配置 PHP
+### 步骤三：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
@@ -141,7 +141,7 @@ rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
 ```
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 执行以下命令，安装 PHP 7.2.22 所需要的包。
+2. 执行以下命令，安装 PHP 7.2 所需要的包。
 ```
 yum -y install mod_php72w.x86_64 php72w-cli.x86_64 php72w-common.x86_64 php72w-mysqlnd php72w-fpm.x86_64
 ```
