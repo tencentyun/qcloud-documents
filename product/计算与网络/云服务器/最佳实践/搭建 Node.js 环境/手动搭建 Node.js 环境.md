@@ -1,6 +1,6 @@
 ## 操作场景
 本文档以 CentOS 7.6 的 Linux 操作系统为例的腾讯云云服务器（CVM）为例，手动部署 Node.js 环境并创建示例项目。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+
 
 ## 技能要求
 进行手动搭建 Node.js 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用、配置和兼容性比较了解。
