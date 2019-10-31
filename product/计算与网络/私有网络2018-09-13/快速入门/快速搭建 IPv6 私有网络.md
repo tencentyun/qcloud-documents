@@ -47,7 +47,14 @@
 ![](https://main.qcloudimg.com/raw/ebb907c22c5672c38e728e66f35272b1.png)
 
 ### 步骤5：登录云服务器，开启 IPv6
-本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例，其他镜像开启 IPv6，详情请参见 [弹性公网 IPv6-快速入门步骤5](https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.EF.BC.8C.E5.BC.80.E5.90.AF-ipv6)。
+不同云服务器开启 IPv6 的操作方法有差异，如下列举了几种典型的云服务器的操作方法，本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例：
+- [新购 CentOS 7.5/新购 CentOS 7.6 开启 IPv6](#新购CentOS7.5/CentOS7.6)
+- <a href="https://cloud.tencent.com/document/product/215/38861#CentOS6.8" target="_blank">CentOS 6.8 开启 IPv6</a>
+- <a href="https://cloud.tencent.com/document/product/215/38861#CentOS7.3" target="_blank">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 开启 IPv6</a>
+- <a href="https://cloud.tencent.com/document/product/215/38861#Debian8.2" target="_blank">Debian 8.2 开启 IPv6</a>
+- <a href="https://cloud.tencent.com/document/product/215/38861#Windows2012" target="_blank">Windows 2012 开启 IPv6</a>
+
+#### 新购 CentOS7.5 /新购 CentOS7.6 开启 IPv6
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
 ![](https://main.qcloudimg.com/raw/70a6364dfeabd537398f2bd98bc600e4.png)
 
@@ -55,7 +62,7 @@
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-3. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容。
+3. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 DHCPV6C=yes
 ```
@@ -72,7 +79,7 @@ ifconfig
 ```
 vim /etc/ssh/sshd_config
 ```
-7. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+7. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/52e9354e072a31f21071acde0262d58d.png)
 8. 按 “Esc”，输入 “:wq”，保存文件并返回。
 9. 执行如下命令，重启 ssh 进程。
