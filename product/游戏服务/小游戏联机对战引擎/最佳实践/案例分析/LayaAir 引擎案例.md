@@ -9,7 +9,7 @@
 3. 在小游戏联机对战引擎控制台，新建匹配、创建匹配规则，获取匹配 code。详情请参见 [匹配配置](https://cloud.tencent.com/document/product/1038/34949)。
 4. 使用 LayaAir 直接打开源码文件 Demo，即可快速构建猪猪对战游戏。详细的构建步骤见猪猪对战 [视频教程](https://cloud.tencent.com/document/product/1038/38114)。
 
-#### 游戏示例展示
+#### 游戏部分页面展示
 <img src="https://main.qcloudimg.com/raw/ef969cc825d7ba291bcd150c72ad6859.png" width="80%">
 
 ## 状态同步开发实践 -《题题对战》
@@ -25,6 +25,6 @@
 ![](https://main.qcloudimg.com/raw/2e2844317fab4e413d2f593ead8c86fe.png)
 
 
-#### 游戏示例展示
-<img src="https://main.qcloudimg.com/raw/aa0135dbb6e9e88f599a40dcd7b435c7.png" width="80%">
-<img src="https://main.qcloudimg.com/raw/62366805da37ec84ccbc08d47e104573.png" width="80%">  
+#### 游戏部分页面展示
+<img src="https://main.qcloudimg.com/raw/411df9f565e8a7bdb3befe2c56dde828.png" width="80%">
+
