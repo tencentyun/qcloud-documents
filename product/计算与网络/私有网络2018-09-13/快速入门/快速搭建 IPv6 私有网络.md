@@ -54,7 +54,7 @@
 - <a href="https://cloud.tencent.com/document/product/215/38861#Debian8.2" target="_blank">Debian 8.2 开启 IPv6</a>
 - <a href="https://cloud.tencent.com/document/product/215/38861#Windows2012" target="_blank">Windows 2012 开启 IPv6</a>
 
-<span id="#新购CentOS7.5/CentOS7.6"/>
+<span id="新购CentOS7.5/CentOS7.6"/>
 
 #### 新购 CentOS7.5 /新购 CentOS7.6 开启 IPv6
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
