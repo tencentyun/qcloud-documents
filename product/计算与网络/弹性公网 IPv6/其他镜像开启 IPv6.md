@@ -170,8 +170,7 @@ dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
-6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置。
-您可执行如下命令，进行查看。
+6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
 ```
 netstat -tupln
 ```
