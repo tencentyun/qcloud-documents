@@ -112,7 +112,10 @@ DHCPV6C=yes
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-10. 按 “i” 或 “Insert” 切换至编辑模式，增加`default dev eth0`，为网卡的 IPv6 添加默认出口。
+10. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```
+default dev eth0
+```
 ![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
 11. 按 “Esc”，输入 “:wq”，保存文件并返回。
 12. 执行如下命令，重新启动网卡。
