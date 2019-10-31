@@ -32,7 +32,7 @@ DHCPV6C=yes
 ```
 ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
 9. 按“Esc”，输入 “:wq”，保存文件并返回。
-10. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+10. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
