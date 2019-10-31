@@ -47,7 +47,7 @@
  - TTL：建议填写`10分钟`。
 4. 单击【确定】提交即可。
 ![](https://main.qcloudimg.com/raw/7ed00d812a79bb472c6d5395ea5c8783.png)
-5. 验证 CNAME 生效。CNAME 设置完成后约15分钟生效，当云直播[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)中域名对应 CNAME 值显示![](https://main.qcloudimg.com/raw/bd92cce6703d3703582c0c2a194fd866.png)则 CNAME 成功。若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
+5. 验证 CNAME 生效。CNAME 设置完成后约15分钟生效，当云直播域名管理中域名对应 CNAME 值显示![](https://main.qcloudimg.com/raw/bd92cce6703d3703582c0c2a194fd866.png)则 CNAME 成功。若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
 
 >?本文档基于百度云 2019年03月01日版本进行说明，如百度云控制台更新，本文档暂未更新，请根据说明路径自行调整。如 无法设置成功，请 [与客服联系](https://cloud.tencent.com/about/connect)。
 
