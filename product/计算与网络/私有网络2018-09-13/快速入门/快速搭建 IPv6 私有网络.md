@@ -47,7 +47,7 @@
 ![](https://main.qcloudimg.com/raw/ebb907c22c5672c38e728e66f35272b1.png)
 
 ### 步骤5：登录云服务器，开启 IPv6
-本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例，其他镜像开启 IPv6，详情请参见 [弹性公网 IPv6-快速入门](https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.EF.BC.8C.E5.BC.80.E5.90.AF-ipv6)。
+本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例，其他镜像开启 IPv6，详情请参见 [弹性公网 IPv6-快速入门步骤5](https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.EF.BC.8C.E5.BC.80.E5.90.AF-ipv6)。
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
 ![](https://main.qcloudimg.com/raw/70a6364dfeabd537398f2bd98bc600e4.png)
 
