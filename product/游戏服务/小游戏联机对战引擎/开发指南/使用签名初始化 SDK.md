@@ -15,7 +15,6 @@
 |secretKey|string|游戏密钥|
 
 1. 拼接字符串 str：
-
 ```
 // 注意字段的顺序为game_id、nonce、open_id、timestamp
 // 字段和值之间使用 = 连接
@@ -23,7 +22,6 @@
 const str = "game_id=您的游戏ID&nonce=1655790837&open_id=玩家openId&timestamp=1571902273"
 ```
 2. 计算字符串 str、secretKey 的 HMACSHA1 值，然后使用 BASE64 编码即可得到签名 sign：
-
 ```
 // 使用 secretKey 作为密钥计算 str 的 HmacSHA1 值
 // 然后使用 BASE64 编码
@@ -35,7 +33,7 @@ const sign = Base64.encode(HmacSHA1(str, secretKey));
 
 #### 服务端
 
-服务端可使用一个 https 服务计算签名，然后将签名 sign、随机数 nonce、时间戳 timestamp 返回给客户端。计算签名的 TypeScript 示例代码如下：
+服务端可使用一个 HTTPS 服务计算签名，然后将签名 sign、随机数 nonce、时间戳 timestamp 返回给客户端。计算签名的 TypeScript 示例代码如下：
 
 ```
 const Base64 = require("crypto-js/enc-base64");
