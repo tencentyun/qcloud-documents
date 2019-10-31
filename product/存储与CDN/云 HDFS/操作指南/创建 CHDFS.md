@@ -8,4 +8,4 @@
 ![](https://main.qcloudimg.com/raw/2f9b0dfc3d79e241c4ae2943c2815074.png)
 3. 单击【保存】，即可新建 CHDFS。
 4. 单击 CHDFS 上的【配置】，可查看 CHDFS 基础配置和挂载信息，如下图所示：
-![](https://main.qcloudimg.com/raw/b9fdfd2808108dce80f0853edb994e61.png)
+![](https://main.qcloudimg.com/raw/3229893f63b05c04258e2588922c5215.png)
