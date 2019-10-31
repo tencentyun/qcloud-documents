@@ -98,7 +98,7 @@ sysctl -a | grep ipv6 | grep disable
 显示结果如下，则已成功修改。
 ![](https://main.qcloudimg.com/raw/b1294c92045d0dc5c688c6afc970a412.png)
 
-6. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+6. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
