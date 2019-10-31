@@ -34,7 +34,7 @@ systemctl enable nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+4. 按 “**i**” 切换至编辑模式。
 5. 找到 server{...} 并其替换成以下内容。
 ```
 server {
@@ -73,7 +73,7 @@ systemctl restart nginx
 ```
 vi /srv/www/htdocs/index.html
 ```
-10. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容：
+10. 按 “**i**” 切换至编辑模式，输入以下内容：
 ```html
 <p> hello world!</p>
 ```
@@ -142,7 +142,7 @@ systemctl enable php-fpm
 ```
 vim /srv/www/htdocs/index.php
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入如下内容：
+2. 按 “**i**” 切换至编辑模式，写入如下内容：
 ```
 <?php
 	echo "hello new world!";
