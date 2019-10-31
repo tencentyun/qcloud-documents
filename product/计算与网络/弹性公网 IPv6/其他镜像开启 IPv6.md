@@ -25,14 +25,21 @@ net.ipv6.conf.all.disable_ipv6 = 0
 ```
 vi /etc/sysconfig/network
 ```
-8. 按 “i” 或 “Insert” 切换至编辑模式，增加`NETWORKING_IPV6=yes`和`DHCPV6C=yes`。
+8. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容。
+```
+NETWORKING_IPV6=yes
+DHCPV6C=yes
+```
 ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
 9. 按“Esc”，输入 “:wq”，保存文件并返回。
 10. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-11. 按 “i” 或 “Insert” 切换至编辑模式，增加`default dev eth0`，为网卡的 IPv6 添加默认出口。
+11. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```
+default dev eth0
+```
 ![](https://main.qcloudimg.com/raw/7bac4ad80fed5cebcdef1fb6ae07cf1b.png)
 12. 按“Esc”，输入 “:wq”，保存文件并返回。
 13. 重启云服务器，仅通过 `service network restart`，IPv6 无法正常加载。
@@ -95,7 +102,10 @@ sysctl -a | grep ipv6 | grep disable
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-7. 按 “i” 或 “Insert” 切换至编辑模式，增加`DHCPV6C=yes`。
+7. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容。
+```
+DHCPV6C=yes
+```
 ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
 8. 按 “Esc”，输入 “:wq”，保存文件并返回。
 9. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
