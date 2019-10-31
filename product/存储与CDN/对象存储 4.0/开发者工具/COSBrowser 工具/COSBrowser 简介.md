@@ -25,7 +25,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
    </tr>
    <tr>
       <td>Linux</td>
-      <td>需带有图形界面并支持 AppImage</td>
+      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
       <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip">Linux</a></td>
    </tr>
    <tr>
