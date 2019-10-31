@@ -176,10 +176,10 @@ netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
 7. 执行如下命令，配置默认路由。
-8. 测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 ```
 ip -6 route add default dev eth0
 ```
+8. 测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 
 <span id="Windows2012"/>
 
