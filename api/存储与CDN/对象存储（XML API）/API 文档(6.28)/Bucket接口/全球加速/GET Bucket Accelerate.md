@@ -12,14 +12,14 @@ GET Bucket Accelerate 接口实现查询存储桶的全球加速功能配置。
 
 #### 请求示例
 
-```
+```shell
 GET /?accelerate HTTP 1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT date
 Authorization: Auth String
 ```
 
-> ? Authorization: Auth String (详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档)。
+> ? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -35,9 +35,9 @@ Authorization: Auth String
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
 
-### 响应体
+#### 响应体
 
-```
+```shell
 <AccelerateConfiguration xmlns="cos xmlns/"> 
   <Status>Enabled</Status> 
 </AccelerateConfiguration>
@@ -51,7 +51,7 @@ Authorization: Auth String
 | Status                  | AccelerateConfiguration | 说明全球加速功能是否开启，枚举值：Suspended、Enabled | Enum      |
 | Type                    | AccelerateConfiguration | 指定全球加速功能的类型，枚举值：Suspended、Enabled   | Enum      |
 
-### 错误码
+#### 错误码
 
 此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
@@ -59,7 +59,7 @@ Authorization: Auth String
 
 #### 请求
 
-```
+```shell
 GET /?accelerate HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
 Connection: keep-alive
@@ -69,7 +69,7 @@ Content-Type: text/plain
 
 #### 响应1（开启全球加速状态）
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 73
@@ -85,7 +85,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 #### 响应2（暂停全球加速状态）
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 73
@@ -101,7 +101,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 #### 响应3（未开启全球加速状态）
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 73
