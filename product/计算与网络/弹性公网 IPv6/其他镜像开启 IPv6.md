@@ -5,7 +5,7 @@
 ```
 vi /etc/modprobe.d/ipv6.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的内核参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的内核参数设置为0。
 ```
 options ipv6 disable=0
 ```
@@ -15,7 +15,7 @@ options ipv6 disable=0
 ```
 vim /etc/sysctl.conf.first
 ```
-5. 按 “i” 或 “Insert” 切换至编辑模式，将如下的配置文件参数设置为0。
+5. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
@@ -25,7 +25,7 @@ net.ipv6.conf.all.disable_ipv6 = 0
 ```
 vi /etc/sysconfig/network
 ```
-8. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容。
+8. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 NETWORKING_IPV6=yes
 DHCPV6C=yes
@@ -36,7 +36,7 @@ DHCPV6C=yes
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-11. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+11. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
 ```
 default dev eth0
 ```
@@ -58,7 +58,7 @@ ifconfig
 ```
 vim /etc/ssh/sshd_config
 ```
-15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+15. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 16. 按 “Esc”，输入 “:wq”，保存文件并返回。
 17. 执行如下命令，重启 ssh 进程。
@@ -79,7 +79,7 @@ netstat -tupln
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disableipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
@@ -102,7 +102,7 @@ sysctl -a | grep ipv6 | grep disable
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-7. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容。
+7. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 DHCPV6C=yes
 ```
@@ -112,7 +112,7 @@ DHCPV6C=yes
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-10. 按 “i” 或 “Insert” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+10. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
 ```
 default dev eth0
 ```
@@ -134,7 +134,7 @@ ifconfig
 ```
 vim /etc/ssh/sshd_config
 ```
-15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+15. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 16. 按 “Esc”，输入 “:wq”，保存文件并返回。
 17. 执行如下命令，重启 ssh 进程。
@@ -154,7 +154,7 @@ netstat -tupln
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
