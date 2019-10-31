@@ -171,12 +171,12 @@ ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 6. Debian 8.2 系统默认 ssh（22端口）开启 IPv6 监听，无需特殊配置。
-7. 执行如下命令，查看 ssh 是否已经监听 IPv6。
+您可执行如下命令，进行查看。
 ```
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
-8. 执行如下命令，配置默认路由，并测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+7. 执行如下命令，配置默认路由，并测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 ```
 ip -6 route add default dev eth0
 ```
