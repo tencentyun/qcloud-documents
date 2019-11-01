@@ -272,7 +272,7 @@ tim.joinGroup(options);
      </tr>
 	 <tr>
 	     <td>status</td>   
-	     <td>加群的状态。包括：<li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li><li>TIM.TYPES.JOIN_STATUS_ALREADY_IN_GROUP：已在群中</li> </td>
+	     <td>加群的状态。包括：<ul><li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li><li>TIM.TYPES.JOIN_STATUS_ALREADY_IN_GROUP：已在群中</li></ul></td>
      </tr> 
 	 <tr>
 	     <td>group</td>   
