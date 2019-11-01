@@ -259,7 +259,7 @@ tim.joinGroup(options);
 | :------------- | :----- | :--------- | :----------------------------------------------------------- |
 | `groupID`      | `String` |     -       |                       -                                       |
 | `applyMessage` | `String` |    -        | 附言                                                         |
-| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入音视频聊天室时该字段必填。可选值：<br/>TIM.TYPES.GRP_PUBLIC (公开群)<br/>TIM.TYPES.GRP_CHATROOM (聊天室)<br/>TIM.TYPES.GRP_AVCHATROOM (音视频聊天室) |
+| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入音视频聊天室时该字段必填。可选值：<br/><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：音视频聊天室</li> |
 
 **返回值**
 
