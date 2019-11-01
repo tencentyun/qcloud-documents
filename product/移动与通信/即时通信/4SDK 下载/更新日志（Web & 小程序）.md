@@ -1,3 +1,15 @@
+### 2.1.3 @2019.10.31
+
+**变更**
+- 兼容 REST API 或 旧版 IM 发送的组合消息（即单条消息中包括多个消息元素）。[兼容指引](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/tutorial-01-faq.html)。
+
+**修复**
+- 未读计数不准。
+- 未上报消息已读可能导致的消息乱序。
+- 发送空图片消息成功但无法渲染。SDK 不支持发送空图片消息。
+- 发送空文件消息，消息状态不对。SDK 不支持发送空文件消息。
+- 偶发调用 [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 接口 SDK 代码报错。
+
 ### 2.1.2 @2019.10.25
 **新增**
  [getGroupList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupList) 接口支持拉取群主 ID、群成员数量等群相关的资料。
