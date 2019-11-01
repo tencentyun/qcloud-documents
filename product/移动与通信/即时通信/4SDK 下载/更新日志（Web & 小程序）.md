@@ -1,7 +1,7 @@
 ### 2.1.3 @2019.10.31
 
 **变更**
-- 兼容 REST API 或 旧版 IM 发送的组合消息（即单条消息中包括多个消息元素）。[兼容指引](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/tutorial-01-faq.html)。
+兼容 REST API 或 旧版 IM 发送的组合消息（即单条消息中包括多个消息元素），更多详情请参见 [兼容指引](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/tutorial-01-faq.html)。
 
 **修复**
 - 未读计数不准。
