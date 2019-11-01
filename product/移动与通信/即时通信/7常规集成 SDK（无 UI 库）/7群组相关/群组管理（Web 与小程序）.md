@@ -12,6 +12,7 @@
 ```js
 tim.getGroupList();
 ```
+
 **请求参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
@@ -271,7 +272,8 @@ tim.joinGroup(options);
      </tr>
 	 <tr>
 	     <td>status</td>   
-	     <td>加群的状态。包括：<li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li> </td>   
+	     <td>加群的状态。包括：<li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li>
+       <li>TIM.TYPES.JOIN_STATUS_ALREADY_IN_GROUP：已在群中</li> </td>
      </tr> 
 	 <tr>
 	     <td>group</td>   
