@@ -61,7 +61,10 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             </intent-filter>
         </receiver>
     ```
-
+- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 
 
