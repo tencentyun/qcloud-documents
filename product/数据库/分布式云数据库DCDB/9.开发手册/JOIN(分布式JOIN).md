@@ -1,6 +1,5 @@
 
-> 如果您期望阅读或下载全量开发文档，请参考 [《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)
-
+如果您期望阅读或下载全量开发文档，请参考 [《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)
 
 ## JOIN(分布式 JOIN)
 由于 TDSQL 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 JOIN，一般叫做分布式 JOIN。
