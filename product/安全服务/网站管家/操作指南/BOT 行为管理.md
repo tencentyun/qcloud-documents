@@ -10,7 +10,7 @@
  - 自定义类型 BOT： 是指用户自己配置的 BOT 类型。
 
 ### BOT 设置
-1.登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot/strategy/know) ，在左侧导航栏中，选择【BOT 行为管理】>【BOT 设置】，进入BOT策略设置页面。
+登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot/strategy/know) ，在左侧导航栏中，选择【BOT 行为管理】>【BOT 设置】，进入BOT策略设置页面。
 - **已知类型预设**
 单击【已知类型预测】，进入已知类型预设界面，展示的信息有 BOT 类型、BOT 种类数、动作以及操作，操作选项有【监控】和【拦截】。
 ![](https://main.qcloudimg.com/raw/8ac91e7749fd9c55d49cc987e3975345.png)
