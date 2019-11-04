@@ -20,9 +20,9 @@ REGISTRY_MIRROR="--registry-mirror=https://mirror.ccs.tencentyun.com"
 1. 创建或修改 `/etc/docker/daemon.json` 文件，并写入以下内容：
 ```shell
 {
-	"registry-mirrors": [
-		"https://mirror.ccs.tencentyun.com"
-	]
+  	"registry-mirrors": [
+	  	"https://mirror.ccs.tencentyun.com"
+	 ]
 }
 ```
 2. 依次执行以下命令，重新启动 Docker 服务。
@@ -38,9 +38,9 @@ $ sudo systemctl restart docker
 2. 打开配置窗口后选择 Docker Engine，并写入以下内容。
 ```shell
 {
-	"registry-mirrors": [
-		"https://mirror.ccs.tencentyun.com"
-	]
+	 "registry-mirrors": [
+	  	"https://mirror.ccs.tencentyun.com"
+	 ]
 }
 ```
 2. 单击【Apply & Restart】，Docker 服务会保存该配置并自动重启。
