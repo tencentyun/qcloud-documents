@@ -32,6 +32,8 @@ pod update
  - [Toast](https://github.com/scalessec/Toast)
  - [ISVImageScrollView](https://github.com/yuriiik/ISVImageScrollView)
 
+**以上依赖库请使用库的最新 Tag 集成。**
+
 ## 引用 TUIKit
 
 <ol><li>在 AppDelegate.m 文件中引入 TUIKit，并初始化。

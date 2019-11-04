@@ -1,315 +1,134 @@
 ## 操作场景
-本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LAMP 环境。LAMP 环境代表 Linux 系统下由 Apache  + MySql + PHP 及其它相关辅助组件组成的网站服务器架构。
+LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关辅助组件组成的网站服务器架构。本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LAMP 环境。
 
 LAMP 组成及使用版本说明：
 - Linux：Linux 操作系统，本文使用 CentOS 7.6。
-- Apache：Web 服务器软件，本文使用 Apache 2.4.41。
-- MySQL：数据库管理系统，本文使用 MySQL 5.6.24。
-- PHP：脚本语言，本文使用 PHP 7.3.10。
+- Apache：Web 服务器软件，本文使用 Apache 2.4.6。
+- MariaDB：数据库管理系统，本文使用 MariaDB 10.4。
+- PHP：脚本语言，本文使用 PHP 7.0.33。
+
+## 技能要求
+进行手动搭建 LAMP 环境，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用的版本特性比较了解。
+>!腾讯云建议您可以通过云市场的镜像部署 LAMP 环境，手动搭建 LAMP 环境可能需要较长时间。具体步骤可参考 [使用镜像搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38364)。
 
 
 ## 前提条件
-已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 已登录 Linux 云服务器。如果您还未登录，请准备好云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
 ## 操作步骤
-### 创建并登录云服务器
->!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应的操作系统。
->
-1. 在实例的管理页面，单击【新建】。
-具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看并获取云服务器的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/9563d4c3cd313c588a532be7fdd9fc29.png)
-- 云服务器用户名和密码。
-- 云服务器公网 IP。
-3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-登录云服务器后，默认已获取 root 权限，以下步骤需在 root 权限下操作。
+当您登录 Linux 云服务器后，可以按照以下步骤分别安装 Apache，MariaDB 和 PHP。
 
-### 安装配置 Apache
-1. 依次执行以下命令，安装依赖包。
+
+### 步骤1：安装 Apache
+1. 执行以下命令，安装 Apache。
 ```
-yum groupinstall "Development Tools" -y
-yum install libtool -y
-yum install expat-devel pcre pcre-devel openssl-devel -y
+yum install httpd -y
 ```
-2. 依次运行以下命令，下载 Apache、Apr、Apr-util 的源码包。
->?腾讯云软件源每天同步一次各官网软件源，请从 [Apache 软件源](http://mirrors.tencent.com/apache) 获取最新下载地址。 
->
-```
-wget http://mirrors.tencent.com/apache/httpd/httpd-2.4.41.tar.gz
-wget http://mirrors.tencent.com/apache/apr/apr-1.7.0.tar.gz
-wget http://mirrors.tencent.com/apache/apr/apr-util-1.6.1.tar.gz
-```
-3. 依次执行以下命令，将源码包解压到指定目录。
-```
-tar xvf httpd-2.4.41.tar.gz -C /usr/local/src
-tar xvf apr-1.7.0.tar.gz -C /usr/local/src
-tar xvf apr-util-1.6.1.tar.gz -C /usr/local/src
-```
-4. 依次执行以下命令，将 Apr 及 Apr-util 文件移动至 Apache 下的 srclib 文件夹中。
-```
-cd /usr/local/src
-mv apr-1.7.0 httpd-2.4.41/srclib/apr
-mv apr-util-1.6.1 httpd-2.4.41/srclib/apr-util
-```
-5. 依次执行以下命令，编译安装 Apache。
-```
-cd /usr/local/src/httpd-2.4.41
-```
-```
-./buildconf
-```
-```
-./configure --prefix=/usr/local/apache2 \
---enable-ssl \
---enable-so \
---with-mpm=event \
---with-included-apr \
---enable-cgi \
---enable-rewrite \
---enable-mods-shared=most \
---enable-mpms-shared=all
-```
-```
-make && make install
-```
-6. 运行以下命令，设置 Apache 的环境变量。
-```
-echo "export PATH=$PATH:/usr/local/apache2/bin" > /etc/profile.d/httpd.sh
-```
-7. 运行以下命令，读取环境变量。
-```
-source /etc/profile.d/httpd.sh
-```
-8. 运行以下命令，查看 Apache 版本号。
-```
-httpd -v
-```
-返回结果如下，则说明环境变量配置成功。
-![](https://main.qcloudimg.com/raw/a1bc1d985c625510411fbd13b0b56512.png)
-9. 执行以下命令，创建 Apache 启动配置文件。
-```
-vi /usr/lib/systemd/system/httpd.service
-```
-10. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容输入到文件中。
-```
-[Unit] 
-Description=The Apache HTTP Server 
-After=network.target 
-[Service] 
-Type=forking 
-ExecStart=/usr/local/apache2/bin/apachectl -k start 
-ExecReload=/usr/local/apache2/bin/apachectl -k graceful 
-ExecStop=/usr/local/apache2/bin/apachectl -k graceful-stop 
-PIDFile=/usr/local/apache2/logs/httpd.pid 
-PrivateTmp=false
-[Install] 
-WantedBy=multi-user.target
-```
-11. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-12. 依次运行以下命令，启动 Apache 并设置为开机自启动。
+2. 依次执行以下命令，启动 Apache 并设置为开机自启动。
 ```
 systemctl start httpd
 systemctl enable httpd
 ```
-13. 在浏览器中访问云服务器实例公网 IP，查看安装结果。
-显示如下，则说明 Apache 成功安装。
-![](https://main.qcloudimg.com/raw/1386035d4b1d7b2f72608a35dc92dc01.png)
+3. 在浏览器中访问以下地址，查看 Apache 服务是否正常运行。
+```
+http://云服务器实例的公网 IP
+```
+显示如下，则说明 Apache 安装成功。
+![](https://main.qcloudimg.com/raw/f9dc3992f4d6e7e94bb63330fd5cadfe.png)
 
-### 安装配置 MySQL
-1. 依次执行以下命令，安装依赖包。
+
+### 步骤2：安装配置 MariaDB
+1. 执行以下命令，查看系统中是否已安装 MariaDB。
 ```
-yum install ncurses-devel bison gnutls-devel -y
-yum install cmake -y
+rpm -qa | grep -i mariadb
 ```
-2. 依次执行以下命令，创建 MySQL 文件目录。
+ - 返回结果类似如下内容，则表示已存在 MariaDB。
+ ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
+为避免安装版本不同造成冲突，请执行下面命令移除已安装的 MariaDB。
 ```
-cd
-mkdir /mnt/data
+yum -y remove 包名
 ```
-3. 依次执行以下命令，创建组、系统用户，并查看用户 ID 及 组 ID。
+ - 若返回结果为空，则说明未预先安装，则执行下一步。
+2. 执行以下命令，删除 MariaDB 现有包。
+3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。 
 ```
-groupadd -r mysql
-useradd -r -g mysql -s /sbin/nologin mysql
-id mysql
+vi /etc/yum.repos.d/MariaDB.repo
 ```
-4. 执行以下命令，设置目录的用户权限。
+4. 按 “**i**” 切换至编辑模式，并写入以下内容。
 ```
-chown -R mysql:mysql /mnt/data
+# MariaDB 10.4 CentOS7-amd64
+[mariadb]  
+name = MariaDB  
+baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
+gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
+gpgcheck=1
 ```
-5. 依次运行以下命令，下载 MySQL 安装包及解压到指定目录。
+>?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
+>
+5.  按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6.  执行以下命令，安装 MariaDB。
 ```
-wget https://downloads.mysql.com/archives/get/file/mysql-5.6.24.tar.gz
-tar xvf mysql-5.6.24.tar.gz -C  /usr/local/src
+yum -y install MariaDB-client MariaDB-server
 ```
-6. 依次执行以下命令，编译安装 MySQL。
+7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
-cd /usr/local/src/mysql-5.6.24
+systemctl start mariadb
+systemctl enable mariadb
 ```
-```bash
-cmake . -DCMAKE_INSTALL_PREFIX=/usr/local/mysql \
--DMYSQL_DATADIR=/mnt/data \
--DSYSCONFDIR=/etc \
--DWITH_INNOBASE_STORAGE_ENGINE=1 \
--DWITH_ARCHIVE_STORAGE_ENGINE=1 \
--DWITH_BLACKHOLE_STORAGE_ENGINE=1 \
--DWITH_READLINE=1 \
--DWITH_SSL=system \
--DWITH_ZLIB=system \
--DWITH_LIBWRAP=0 \
--DMYSQL_TCP_PORT=3306 \
--DDEFAULT_CHARSET=utf8 \
--DMYSQL_UNIX_ADDR=/usr/local/mysql/mysql.sock \
--DDEFAULT_COLLATION=utf8_general_ci \
--DWITH_SYSTEMD=1 \
--DINSTALL_SYSTEMD_UNITDIR=/usr/lib/systemd/system 
+8. 执行以下命令，验证 MariaDB 是否安装成功。
 ```
+mysql
 ```
-make && make install
-```
-7. 执行以下命令，设置安装目录的用户权限。
-```
-chown -R mysql:mysql /usr/local/mysql/
-```
-8. 依次执行以下命令，初始化数据库。
-```
-cd /usr/local/mysql
-/usr/local/mysql/scripts/mysql_install_db --user=mysql --datadir=/mnt/data/
-```
-9. 依次执行以下命令，备份数据库配置文件。
-```
-mv /etc/my.cnf /etc/my.cnf.bak
-cp /usr/local/mysql/support-files/my-default.cnf /etc/my.cnf
-```
-10. 执行以下命令，修改配置文件。
-```
-echo -e "basedir = /usr/local/mysql\ndatadir = /mnt/data\n" >> /etc/my.cnf
-```
-11. 执行以下命令，创建 MySQL 的启动配置文件。
-```
-vi /usr/lib/systemd/system/mysql.service
-```
-12. 按 “**i**” 或 “**Insert**” 切换至编辑模式，添加以下内容。
-```
-[Unit]
-Description=MySQL Community Server
-After=network.target
-After=syslog.target
-[Install]
-WantedBy=multi-user.target
-Alias=mysql.service
-[Service]
-User=mysql
-Group=mysql
-PermissionsStartOnly=true
-ExecStart=/usr/local/mysql/bin/mysqld
-TimeoutSec=600
-Restart=always
-PrivateTmp=false
-```
-13. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-14. 执行以下命令，设置 MySQL 的环境变量。
-```
-echo "export PATH=$PATH:/usr/local/mysql/bin" > /etc/profile.d/mysql.sh
-```
-15. 执行以下命令，读取环境变量。
-```
-source /etc/profile.d/mysql.sh
-```
-16. 依次执行以下命令，启动 MySQL 并设置为开机自启动。
-```
-systemctl start mysql
-systemctl enable mysql
-```
-17. 执行以下命令，设置 MySQL 的 root 账户密码。
-```
-mysqladmin -u root password
-```
-18. 执行以下命令，登录 MySQL 数据库。
-```
-mysql -uroot -p
-```
-显示结果如下，则说明成功安装 MySQL。
-![](https://main.qcloudimg.com/raw/9738ba9487eb8e2ebaf52c2a7a741871.png)
-19. 执行以下命令，退出 MySQL。
+显示结果如下，则成功安装。
+![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
+9. 执行以下命令，退出 MariaDb。
 ```
 \q
 ```
 
-### 安装配置 PHP
-1. 执行以下命令，安装依赖包。
+### 步骤3：安装配置 PHP
+1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
-yum install -y libmcrypt libmcrypt-devel mhash mhash-devel libxml2 libxml2-devel bzip2 bzip2-devel 
+rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
+rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
-2. 依次运行以下命令，进入对应目录，下载 PHP 7.3.10 源码包。
+2. 执行以下命令，安装 PHP 7.0.33 所需要的包。
 ```
-cd
-wget https://www.php.net/distributions/php-7.3.10.tar.bz2
+yum -y install php70w php70w-opcache php70w-mbstring php70w-gd php70w-xml php70w-pear php70w-fpm php70w-mysql php70w-pdo
 ```
-3. 依次执行以下命令，解压 PHP 源码包到指定目录。
+3. 执行以下命令，修改 Apache 配置文件。
 ```
-tar xvf php-7.3.10.tar.bz2 -C /usr/local/src
-cd /usr/local/src/php-7.3.10
+vi /etc/httpd/conf/httpd.conf
 ```
-4. 依次执行以下命令，编译安装 PHP。
-```
-./configure --prefix=/usr/local/php \
---with-config-file-scan-dir=/etc/php.d \
---with-apxs2=/usr/local/apache2/bin/apxs \
---with-config-file-path=/etc \
---with-pdo-mysql=mysqlnd \
---with-mysqli=/usr/local/mysql/bin/mysql_config \
---enable-mbstring \
---with-freetype-dir \
---with-jpeg-dir \
---with-png-dir \
---with-zlib \
---with-libxml-dir=/usr \
---with-openssl \
---enable-xml \
---enable-sockets \
---enable-fpm \
---with-bz2 \
---disable-fileinfo
-```
-```
-make && make install
-```
-5. 执行以下命令，复制 PHP 配置文件。
-```
-cp php.ini-production /etc/php.ini
-```
-6. 执行以下命令，修改 Apache 配置文件。
-```
-vi /usr/local/apache2/conf/httpd.conf
-```
-按 “**i**” 或 “**Insert**” 切换至编辑模式：
- - 在 `ServerName www.example.com:80` 下另起一行，增加以下内容：
+按 “**i**” 切换至编辑模式：
+ 1. 在 `ServerName www.example.com:80` 下另起一行，增加以下内容：
 ```
 ServerName localhost:80
 ```
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/b0ea5d5cea2883a89890482b98b9e81d.png)
- - 将 `<Directory>` 中的 `Require all denied` 修改为以下内容：
+ 2. 将 `<Directory>` 中的 `Require all denied` 修改为以下内容：
 ```
 Require all granted
 ```
  修改完成后如下图所示：
  ![](https://main.qcloudimg.com/raw/5c4e2019b90e038d169ede1e1606dcba.png)
- - 将 `<IfModule dir_module>` 中内容替换为以下配置：
+ 3. 将 `<IfModule dir_module>` 中内容替换为以下配置：
 ```
 DirectoryIndex index.php index.html
 ```
  修改完成后如下图所示：
  ![](https://main.qcloudimg.com/raw/ae7ff73d2af51b3989474cb51971ddf0.png)
- - 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
+ 4. 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
 ```
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
 ```
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/57ff0ddb44c0bcbf20148b5df8bc0e38.png)
-7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-8. 执行以下命令，重启 Apache 服务。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，重启 Apache 服务。
 ```
 systemctl restart httpd
 ```
@@ -317,12 +136,22 @@ systemctl restart httpd
 ### 环境配置验证
 1. 执行以下命令，创建测试文件。
 ```
-echo "<?php phpinfo(); ?>" >> /usr/local/apache2/htdocs/index.php
+echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
 ```
 在浏览中访问以下地址，查看环境配置是否成功。
 ```
 http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明 LAMP 环境配置成功。
-![](https://main.qcloudimg.com/raw/fa49126902d4f87f0e5a945f1c11fbd3.png)
+![](https://main.qcloudimg.com/raw/64681fb76bad29072de9ddc3250e66d1.png)
+
+## 相关操作
+在完成了 LAMP 环境搭建后，您可在此基础上进行 [手动搭建 Drupal 网站]() 实践，了解并掌握更多关于云服务器的相关功能。、
+
+
+## 常见问题
+如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
+- 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+- 云服务器的网络问题，可参考[ IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
+- 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
 

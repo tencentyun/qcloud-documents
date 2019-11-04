@@ -14,8 +14,8 @@
 | Instance | Instance |服务器实例 | 指代一台消息队列服务器。这里的一台消息队列服务器是逻辑上的概念，物理上是由多台物理机提供服务。|
 | Region | Region |[地域](https://cloud.tencent.com/doc/product/213/6091) | 表示资源所在的地域，每个地域包含一个或多个可用区。|
 | Zone | Zone | [可用区](https://cloud.tencent.com/doc/product/213/6091) | 指腾讯云在同一 [地域](https://cloud.tencent.com/doc/product/213/6091) 内电力和网络互相独立的物理数据中心。目标是能够保证可用区之间故障相互隔离，不出现故障扩散，使得用户的业务持续在线服务。 |
-|包年包月 | 包年包月 | 包年包月 |	一种计费模式，参看 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88)。|
-|包年包月| 包年包月| 按量计费 |	一种计费模式，参看 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9)。|
+|包年包月 | 包年包月 | 包年包月 |	一种计费模式，参看 [计费模式](https://cloud.tencent.com/doc/product/213/2180)。|
+|按量计费| 按量计费| 按量计费 |	一种计费模式，参看 [计费模式](https://cloud.tencent.com/doc/product/213/2180)。|
 
 #### 输入参数与返回参数释义
 * Limit 和 Offset

@@ -1,5 +1,4 @@
 
-### 如何自主拼装推流 URL？
 云直播控制台的 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 工具可自助生成推流地址和播放地址，当直播间较多时，可通过服务器自行拼接推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/f94876b78d22d9d90570cac9d4d61eb2.png)
 - **Domain**

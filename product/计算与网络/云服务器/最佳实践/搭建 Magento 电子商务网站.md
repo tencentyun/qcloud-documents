@@ -47,7 +47,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/b3d8041e70e3e2599f2ed8fa20f553c9.png)
 4. 环境检测通过后，单击【Next】进入下一步。如下图所示：
 ![](https://main.qcloudimg.com/raw/f54c130dbb2ea32a8aa2ff1526188ea0.png)
-5. 添加数据库信息，请输入 [步骤5](#password) 中获取的数据库密码，并单击【Next】。如下图所示：
+5. 添加数据库信息，请输入从 [修改密码](#password) 步骤中获取的数据库密码，并单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/82794a1e1495da4d8ce48e1805e4bb5d.png)
 6. <span id="admin"></span>将 Magento 管理员登录地址修改为 `admin` ，并单击【Next】。如下图所示：
 >?请记录您的商务网站地址及管理员登录地址。
@@ -60,7 +60,7 @@ http://云服务器实例的公网 IP
 9. 单击【Install Now】进行安装。
 10. 成功安装后请记录页面上的信息，并单击【Launch Magento Admin】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6c74ce4e8f31a388c53fd9931499678e.png)
-11. 进入管理员登录页面，输入 [步骤6](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
+11. 进入管理员登录页面，输入 [步骤8](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/43b1ccc91aa2029d5e4b6a1a8f4b4f82.png)
 12. 登录成功后，即可进入管理员页面配置个人商务网站。如下图所示：
 ![](https://main.qcloudimg.com/raw/70c7c47306de2cc796b8593493ab35af.png)

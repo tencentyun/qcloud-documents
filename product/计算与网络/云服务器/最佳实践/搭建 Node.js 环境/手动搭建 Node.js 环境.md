@@ -1,25 +1,20 @@
 ## 操作场景
 本文档以 CentOS 7.6 的 Linux 操作系统为例的腾讯云云服务器（CVM）为例，手动部署 Node.js 环境并创建示例项目。
-本文档包含软件安装内容，请确保您已熟悉软件安装方法，详情请参见 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046)。
+
+
+## 技能要求
+进行手动搭建 Node.js 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用、配置和兼容性比较了解。
+>!腾讯云建议您可以通过云市场的镜像环境部署 Node.js 环境，手动搭建 Node.js 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
+>
 
 ## 前提条件
-已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
+- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
 ## 操作步骤
+当您登录 Linux 云服务器后，可按照以下步骤搭建 Node.js 环境。
 
-### 创建并登录云服务器
->!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933) 选择对应的操作系统。
->
-1. 在实例的管理页面，单击【新建】。
-具体操作请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
-2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
-![](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
- - 云服务器实例用户名和密码。
- - 云服务器实例公网 IP。
-3. 登录 Linux 云服务器，具体操作请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-登录云服务器后，默认已获取 root 权限，以下步骤需在 root 权限下操作。
-
-### 安装 Node.js
+### 步骤一：安装 Node.js
 1. 执行以下命令，下载 Node.js Linux 64位二进制安装包。
 >?本文以 Node.js 10.16.3 版本为例，请根据您的实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 下载对应版本。
 >
@@ -42,7 +37,7 @@ node -v
 npm -v
 ```
 
-### 安装 Node.js 多版本（可选）
+### 步骤二：安装 Node.js 多版本（可选）
 >?此步骤使用 NVM（Node Version Manager）Node.js 节点版本管理器，来管理多个 Node.js 版本，您可根据实际需求进行安装。
 >
 1. 执行以下命令，安装 git。
@@ -82,7 +77,7 @@ nvm use v6.9.5
 返回结果如下图所示：
 ![](https://main.qcloudimg.com/raw/817fd96fef77f818e65ce41a3723e5bc.png)
 
-### 创建 Node.js 项目
+### 步骤三：创建 Node.js 项目
 1. 依次执行以下命令，创建项目文件 `index.js`。
 ```
 cd ~
@@ -115,3 +110,11 @@ http://云服务器实例的公网 IP:已配置的端口号
 ```
 显示结果如下，则说明 Node.js 环境搭建成功。
 ![](https://main.qcloudimg.com/raw/5b72798dc9e988eee8d8186055aa45e9.png)
+
+
+## 常见问题
+如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
+- 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+- 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
+- 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
+

@@ -13,12 +13,13 @@
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | teacher_id | string | 教师 ID | 是 | - |
+| assistant_id | string | 助教ID | 否 | - |
 | class_topic | string | 课堂主题/课堂名字 | 否 | 课堂 ID 的字符串形式 |
 | class_type | string | 课堂类型，详情参考附录 | 否 | `public` |
 | start_time | int64 | 课堂预计开始时间戳 | 否 | 约课时的时间 | 
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
-| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 是 | - |
-| admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 是 | - |
+| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 否 | - |
+| admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 否 | - |
 | settings | settings | 课堂配置信息 | 否 |- |
 | resolution | string | 设置课堂的分辨率（320x240/800x600/1024x768)  | 否 | 1024x768 |
 | fps | int | 设置课堂的帧率| 否 | 15 |
@@ -27,13 +28,13 @@
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，<br> 在开始上课时，会自动开启服务端录制 | 否 | local | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| enable_all_silence  | int | 是否开启了全员禁言(0-否/1-是)| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 否 |  教师 ID 默认在成员列表中 |
 | role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
 | user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
-| record_user_id | string | 用于录制的 user_id，必须包含前缀“tic_recorduser${room_id}”，其中${room_id}为房间号，<br>在线录制服务会使用这个 user_id 进房进行录制房间内的音视频与白板，为了防止进房冲突，请保证此 user_id 不重复，如果要云端录制，则必填 | 否 | - |
-| record_user_sig | string | 用于录制的 record_user_id 对应的签名，如果要云端录制，则必填 | 否 | - |
-|max_member_limit|int|最大上麦人数|否|0|
+| max_member_limit | int |最大上麦人数| 否 | - |
+| class_live_type | string | 直播类型,详情参考附录 | 否 | - |
 
 #### 响应参数
 
@@ -42,14 +43,15 @@
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | class_id | int | 课堂 ID | 否 | - |
-| teacher_url | string | 老师进房地址，成功时下发 | 否 | - |
-| student_url | string | 学生进房地址，成功时下发 | 否 | - |
+| url | string | 进房地址，成功时下发 | 否 | - |
 
 #### 举例
 
 请求：
 ```
-{"teacher_id":"user_00",
+{
+  "teacher_id":"user_00",
+  "assistant_id":"user_01",
   "class_topic": "课堂主题",
   "class_type":"public",
   "start_time": 1558350988,
@@ -72,11 +74,14 @@
     "resolution": "1024x768",
     "fps": 20,
     "layout": 1,
+    "record_types": ["local","remote"],
     "auto_create_im": 1,
     "bitrate": 850,
     "auto_open_mic": 0,
-    "auto_open_camera": 0
-  },
+    "auto_open_camera": 0,
+    "enable_all_silence":0
+
+  }
   "record_user_id":"tic_record_user_1234_01",
   "record_user_sig":"user_sig"
 }
@@ -88,8 +93,7 @@
   "error_code":0,
   "error_msg":"",
   "class_id":100012345,
-  "teacher_url":"https://tedu.qcloudtrtc.com/1400127140/100012345/0",
-  "student_url":"https://tedu.qcloudtrtc.com/1400127140/100012345/1"
+  "url":"https://tedu.qcloudtrtc.com/#/class/100001/100012345",
 }
 ```
 
@@ -204,6 +208,7 @@
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，在开始上课时，会自动开启云端录制 | 是 | - | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
+| enable_all_silence  | int | 是否开启了全员禁言(0-否/1-是)| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
 | members | Array | 课堂预约成员列表 | 是 | - |
 | role | string | 成员角色信息 | 是 | - |
@@ -426,7 +431,7 @@
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | user_list | Array |创建成功后，每个用户对应生成一个 user_token，用于唤起组件 | 是 | 空数组 |
-| user_token | string | 用户票据，每个用户 ID 对应一个 user_token | 是 | - |
+| user_token | string | 用户票据，每个用户 ID 对应一个 user_token，等同于控制台的密码 | 是 | - |
 | repeats | Array | 出现重复 ID 时，会报错，且返回重复 user_id 列表 | 是 | 空数组 |
 
 #### 举例
@@ -1096,7 +1101,62 @@ transport_progress
   "title": "PPT名字"
 }
 ```
+### 进入课堂回调
 
+
+
+**event**
+
+```
+join_class
+```
+
+**data**
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| join_time | int64 | 进入课堂的时间 | 是 | - |
+| user_id | string | 进入课堂的用户 | 是 | - |
+| role | int64 | 进入课堂用户的角色 | 是 | - |
+
+
+```
+{
+"class_id":100012345,
+"join_time":1558350988,
+"user_id":xxx,
+"role":student,
+}
+```
+### 退出课堂回调
+
+
+
+**event**
+
+```
+quit_class
+```
+
+**data**
+
+| 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
+| :------ | :--- | :---- | :--------: | :-----: |
+| class_id | int | 课堂ID | 是 | - |
+| quit_time | int64 | 退出课堂的时间 | 是 | - |
+| user_id | string | 退出课堂的用户 | 是 | - |
+| role | int64 |退出入课堂用户的角色 | 是 | - |
+
+
+```
+{
+"class_id":100012345,
+"quit_time":1558350988,
+"user_id":xxx,
+"role":student,
+}
+```
 ## 企业模块
 
 ### 修改企业信息
@@ -1434,6 +1494,7 @@ transport_progress
 | speaker | int | 用户扬声器状态1-打开/0-关闭 | 是 | - |
 | silence | int | 用户是否被禁言1-被禁言/0-未被禁言 | 是 | - |
 | hand_up | int | 用户是否正在举手1-举手/0-未举手 | 是 | - |
+| enable_draw | int  | 0-未授权/1-授权 | 是 |-
 
 #### 举例
 请求：
@@ -1464,7 +1525,8 @@ transport_progress
                 "mic": 1,
                 "speaker": 1,
                 "silence": 0,
-                "hand_up":1
+                "hand_up":1,
+		"enable_draw":0
             }
         }
     ]
@@ -1549,6 +1611,7 @@ transport_progress
 |history_speaker|int|用户在该课堂上一次扬声器的状态（0：关闭，1：打开，-1：未知）|是|-1
 |history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|-1
 |history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是|-1
+|history_enable_draw|int|用户在该课堂上一次交互授权状态 (0:未授权 1:授权 -1:未知)|是|-1
 
 #### 举例
 请求：
@@ -1580,7 +1643,8 @@ transport_progress
 			"history_mic":0,
 			"history_speaker":0,
 			"history_silence":0,
-			"history_hand_up":0
+			"history_hand_up":0,
+			"history_enable_draw":0
 		}
 	]
 }
@@ -1755,9 +1819,13 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | speed_test | string | 测速信息上报 |
 | hand_up | string | 举手 |
 | hand_down | string | 取消举手 |
+| enable_draw | string | 交互授权 |
+| diable_draw | string | 取消交互授权 |
 | reward | string | 奖励 |
 | slience | string | 禁言 |
-| be_silenced | string | 被禁言 |
+| del_silenced | string | 解除禁言 |
+| all_silence | string | 全员禁言 | 
+| del_all_silence | string | 解除全员禁言 |
 | disable_camera | string | 禁用别人的摄像头 |
 | be_disable_camera | string | 被别人的禁用了自己的摄像头 |
 | disable_mic | string | 禁用别人的麦克风 |
@@ -1772,9 +1840,15 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | media_close | string | 停止播片 |
 | packet_loss_mutation |  string | 丢包突变 |
 | rate_mutation |  string | 码率突变 |
+#### 附录3.10 直播类型-class_live_type
 
-### 附录4：用户头像规则
-如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像。
+| 常量值 | 类型 | 描述 |
+| -- | -- | -- |
+| close | string | 关闭 |
+| window | string | 窗口分享 |
+| board | string | 白屏分享 |
+### 附录4: 用户头像规则
+如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像
 
 | 格式 | 大小 |
 | :-----  | :--- |
