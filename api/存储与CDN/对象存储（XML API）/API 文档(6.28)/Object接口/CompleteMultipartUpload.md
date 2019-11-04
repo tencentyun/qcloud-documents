@@ -1,7 +1,7 @@
 ## 功能描述
-Complete Multipart Upload 接口请求用来实现完成整个分块上传。当使用 Upload Parts 上传完所有块以后，必须调用该 API 来完成整个文件的分块上传。在使用该 API 时，您必须在请求 Body 中给出每一个块的 PartNumber 和 ETag，用来校验块的准确性。
-由于分块上传完后需要合并，而合并需要数分钟时间，因而当合并分块开始的时候，COS 就立即返回200的状态码，在合并的过程中，COS 会周期性的返回空格信息来保持连接活跃，直到合并完成，COS 会在 Body 中返回合并后块的内容。
-- 当上传块小于1MB的时候，在调用该 API 时，会返回400 EntityTooSmall。
+Complete Multipart Upload 接口请求用来实现完成整个分块上传。当使用 Upload Parts 上传所有分块完成后，必须调用该 API 来完成整个文件的分块上传。在使用该 API 时，您必须在请求 Body 中给出每一个块的 PartNumber 和 ETag，用来校验块的准确性。
+由于分块上传完成后需要合并，而合并需要数分钟时间，因而当合并分块开始时，COS 会立即返回200的状态码，在合并的过程中，COS 会周期性的返回空格信息来保持连接活跃，直到合并完成，COS 会在 Body 中返回合并完成后，整个块的内容。
+- 当上传的分块小于1MB的时候，在调用该 API 时，会返回400 EntityTooSmall。
 - 当上传块编号不连续的时候，在调用该 API 时，会返回400 InvalidPart。
 - 当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回400 InvalidPartOrder。
 - 当 UploadId 不存在的时候，在调用该 API 时，会返回404 NoSuchUpload。
@@ -84,7 +84,7 @@ Container 节点 Part 的内容：
 ```shell
 <CompleteMultipartUploadResult>
     <Location>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Location>
-    <Bucket>examplebucket-1250000000</Bucket>
+    <Bucket>examplebucket-1250000000</Bucket>
     <Key>exampleobject</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUploadResult>
@@ -102,7 +102,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 | :-------- | :---------------------------- | :--------------------------------------- | :----- |
 | Location  | CompleteMultipartUploadResult | 新创建的对象的外网访问域名                         | URL    |
 | Bucket    | CompleteMultipartUploadResult | 分块上传的目标存储桶，格式为 BucketName-APPID，例如：examplebucket-1250000000 | String |
-| Key       | CompleteMultipartUploadResult | Object 名称                                | String |
+| Key       | CompleteMultipartUploadResult | 对象名称                                | String |
 | ETag      | CompleteMultipartUploadResult | 合并后对象的唯一标签值，该值不是对象内容的 MD5 校验值，仅能用于检查对象唯一性                        | String |
 
 ## 实际案例
@@ -139,7 +139,7 @@ x-cos-request-id: NTg3ZjJlMjVfNDYyMDRlXzM0YzRfMjc1
 
 <CompleteMultipartUploadResult>
     <Location>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Location>
-    <Bucket>examplebucket-1250000000</Bucket>
+    <Bucket>examplebucket-1250000000</Bucket>
     <Key>exampleobject</Key>
     <ETag>"3a0f1fd698c235af9cf098cb74aa25bc"</ETag>
 </CompleteMultipartUploadResult>
