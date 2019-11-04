@@ -2,7 +2,7 @@
 提交媒体元信息接口，媒体处理服务会对输入文件进行媒体信息分析；用户可通过该接口查询输入文件的媒体信息。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```
 POST /mediainfo HTTP/1.1
@@ -15,13 +15,13 @@ Content-type: application/xml
 <body>
 ```
 
-> Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
+>?Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 章节）。
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 该 API 接口请求的请求体具体节点内容为：
 
 ```
@@ -52,11 +52,11 @@ Container 节点 Input 的内容：
 
 
 ## 响应
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
@@ -220,13 +220,13 @@ Container 节点 Subtitle 的内容：
 | Index | Response.MediaInfo.Stream.Subtitle | 媒体 |  Int |
 | Language | Response.MediaInfo.Stream.Subtitle | 媒体 |  String |
 
-### 错误码
+#### 错误码
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 
 ## 实际案例
 
-### 请求
+#### 请求
 ```
 POST /mediainfo HTTP/1.1
 Host: bucket-1250000000.ci.ap-beijing.myqcloud.com
@@ -241,7 +241,8 @@ Content-Type: application/xml
   </Input>
 </Request>
 ```
-### 响应
+
+#### 响应
 ```
 HTTP/1.1 200 OK
 Content-Type: application/xml
