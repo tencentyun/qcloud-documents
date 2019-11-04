@@ -26,7 +26,7 @@ Windows，Linux 和 Mac OS 系统
 3. 在弹出的【登录Linux实例】窗口，选择【其它方式（VNC）】，单击【立即登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6d4eb31a5c3e127f7214b31db263bc5a.png)
 4. 在弹出的对话框中，输入用户名和密码登录，即可完成登录。如下图所示：
->?输入的密码默认不显示，输入完成后按 “**Enter**” 即可。
+>?输入的密码默认不显示，输入完成后按 “**Enter**”。
 >
 ![](https://main.qcloudimg.com/raw/bab14d0f56db2f3bc1ab949e08fcc0f0.png)
 
