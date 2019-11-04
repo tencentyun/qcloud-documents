@@ -89,11 +89,11 @@ chkconfig  nginx on
 
 
 ### 步骤二：安装数据库
-1. 执行以下命令，查看系统中是否已存在 MySQL 安装包。
+1. 执行以下命令，查看系统中是否已安装 MySQL。
 ```
 rpm -qa | grep -i mysql
 ```
-返回结果如下所示，则表示已存在 MySQL 安装包，为避免安装版本不同造成冲突，请执行 `yum remove -y 包名` 命令依次移除。
+返回结果如下所示，则表示已存在 MySQL，为避免安装版本不同造成冲突，请执行 `yum remove -y 包名` 命令依次移除。
 若返回结果为空，请跳过此步骤。
 ![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
 2. <span id="install"></span>执行以下命令，安装 MySQL。
