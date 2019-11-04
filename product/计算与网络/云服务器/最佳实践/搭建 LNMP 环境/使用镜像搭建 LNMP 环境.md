@@ -17,7 +17,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
-![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
+![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
 3. 在“选择镜像”窗口的左侧搜索框中，输入 LNMP 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px;">。如下图所示：
 >?
 >- 本文以下图所示 LNMP 环境系统镜像为例，您可根据实际需求进行选择。
