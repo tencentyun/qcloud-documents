@@ -30,29 +30,32 @@ yum install httpd -y
 systemctl start httpd
 systemctl enable httpd
 ```
-3. 在浏览器中，访问 CentOS 云服务器实例公网 IP，查看 Apache 服务是否正常运行。
+3. 在浏览器中访问以下地址，查看 Apache 服务是否正常运行。
+```
+http://云服务器实例的公网 IP
+```
 显示如下，则说明 Apache 安装成功。
 ![](https://main.qcloudimg.com/raw/f9dc3992f4d6e7e94bb63330fd5cadfe.png)
 
 
 ### 步骤2：安装配置 MariaDB
-1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。
+1. 执行以下命令，查看系统中是否已安装 MariaDB。
 ```
 rpm -qa | grep -i mariadb
 ```
- - 返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 依次移除。
+ - 返回结果类似如下内容，则表示已存在 MariaDB。
  ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
- - 返回结果类似如下内容，则请执行 [步骤3](#step3) 开始安装 MariaDB。
-![](https://main.qcloudimg.com/raw/2695390041ffef31032739281c91c228.png)
-2. <span id="step2"></span>执行以下命令，删除 MariaDB 现有包。
+为避免安装版本不同造成冲突，请执行下面命令移除已安装的 MariaDB。
 ```
 yum -y remove 包名
 ```
-3. <span id="step3"></span>执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。 
+ - 若返回结果为空，则说明未预先安装，则执行下一步。
+2. 执行以下命令，删除 MariaDB 现有包。
+3. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。 
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式，并写入以下内容。
+4. 按 “**i**” 切换至编辑模式，并写入以下内容。
 ```
 # MariaDB 10.4 CentOS7-amd64
 [mariadb]  
@@ -79,6 +82,10 @@ mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
+9. 执行以下命令，退出 MariaDb。
+```
+\q
+```
 
 ### 步骤3：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
@@ -94,26 +101,26 @@ yum -y install php70w php70w-opcache php70w-mbstring php70w-gd php70w-xml php70w
 ```
 vi /etc/httpd/conf/httpd.conf
 ```
-按 “**i**” 或 “**Insert**” 切换至编辑模式：
- - 在 `ServerName www.example.com:80` 下另起一行，增加以下内容：
+按 “**i**” 切换至编辑模式：
+ 1. 在 `ServerName www.example.com:80` 下另起一行，增加以下内容：
 ```
 ServerName localhost:80
 ```
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/b0ea5d5cea2883a89890482b98b9e81d.png)
- - 将 `<Directory>` 中的 `Require all denied` 修改为以下内容：
+ 2. 将 `<Directory>` 中的 `Require all denied` 修改为以下内容：
 ```
 Require all granted
 ```
  修改完成后如下图所示：
  ![](https://main.qcloudimg.com/raw/5c4e2019b90e038d169ede1e1606dcba.png)
- - 将 `<IfModule dir_module>` 中内容替换为以下配置：
+ 3. 将 `<IfModule dir_module>` 中内容替换为以下配置：
 ```
 DirectoryIndex index.php index.html
 ```
  修改完成后如下图所示：
  ![](https://main.qcloudimg.com/raw/ae7ff73d2af51b3989474cb51971ddf0.png)
- - 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
+ 4. 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
 ```
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
