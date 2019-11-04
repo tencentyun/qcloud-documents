@@ -71,7 +71,7 @@ Content-Type: application/xml
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <Response>
     <RequestId>017F1B2D-2B5B-4441-ABBA-E0DC08F5AFEC</RequestId>
     <TotalCount>1</TotalCount>
