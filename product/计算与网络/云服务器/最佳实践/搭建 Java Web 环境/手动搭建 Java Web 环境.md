@@ -41,7 +41,7 @@ tar xzf jdk-8u221-linux-x64.tar.gz -C /usr/java
 ```
 vim /etc/profile
 ```
-5. 按 “**i**” 或 “**Insert**” 切换至编辑模式，在 `export PATH USER ...` 后另起一行，根据您实际使用的 JDK 版本添加以下内容。
+5. 按 “**i**” 切换至编辑模式，在 `export PATH USER ...` 后另起一行，根据您实际使用的 JDK 版本添加以下内容。
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_221（您的 JDK 版本）
 export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
@@ -82,7 +82,7 @@ mv apache-tomcat-x.x.xx /usr/local/tomcat/
 ```
 vim /usr/local/tomcat/conf/server.xml
 ```
-5. 找到 `<Host ... appBase="webapps">`，按 “**i**” 或 “**Insert**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
+5. 找到 `<Host ... appBase="webapps">`，按 “**i**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
 ```
 appBase="/usr/local/tomcat/webapps"
 ```
@@ -91,7 +91,7 @@ appBase="/usr/local/tomcat/webapps"
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-8. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
+8. 按 “**i**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8' 
 ```
