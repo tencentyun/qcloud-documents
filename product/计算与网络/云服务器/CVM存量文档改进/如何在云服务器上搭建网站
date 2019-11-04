@@ -11,10 +11,10 @@
 
 <table>
 	<tr>
-	<th>网站类型</th>
-	<th>搭建方式</th>
+	<th width="11%">网站类型</th>
+	<th width="18%">搭建方式</th>
 	<th>说明</th>
-	<th>使用镜像/详细配置</th>
+	<th width="30%">使用镜像/详细配置</th>
 	</tr>
 	<tr>
 	<td rowspan=2>WordPress</td>
