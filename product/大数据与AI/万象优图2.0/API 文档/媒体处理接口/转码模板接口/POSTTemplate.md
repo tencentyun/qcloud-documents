@@ -2,7 +2,7 @@
 创建自定义模板，包含容器格式、视频转码配置设置。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```shell
 POST /template HTTP/1.1
@@ -14,13 +14,13 @@ Content-Type: application/xml
 <body>
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 该请求操作的实现需要有如下请求体。
 
 ```shell
@@ -292,7 +292,7 @@ Container 类型 Video 的具体数据描述如下：
       <td>否</td>
       <td>medium</td>
       <td>
-        1. H.264支持该参数<br>
+        1. H.264 支持该参数<br>
         2. veryfast、fast、medium、slow、slower
       </td>
    </tr>
@@ -430,7 +430,7 @@ Container 类型 Video 的具体数据描述如下：
 |参数| 描述|
 |---|---|
 |动图相关参数|包括有 AnimateOnlyKeepKeyFrame、AnimateTimeIntervalOfFrame、AnimateFramesPerSecond。<br><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame<br><li>优先级高的设置生效，那么其他的忽略。要求有一个设置，其他两个为0|
-|Fps 帧率|用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。
+|Fps 帧率|用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率
 |Width Heidht|转码之后的宽高|
 |Quality 质量参数|webp 图像质量设定生效，gif 没有质量参数设置。默认输出为无限循环|
 
@@ -694,11 +694,11 @@ Container 类型 Snapshot 的具体数据描述如下：
 | PixFmt        | 支持  | 支持   | 不支持 |
 
 ## 响应
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
@@ -753,7 +753,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 </Response>
 ```
 
-### 错误码
+#### 错误码
 该请求操作可能会出现如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 错误码|描述|HTTP 状态码
