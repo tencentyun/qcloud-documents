@@ -89,40 +89,35 @@ chkconfig  nginx on
 
 
 ### 步骤二：安装数据库
-1. 执行以下命令，查看系统中是否存在 MySQL 现有包。
+1. 执行以下命令，查看系统中是否存在 MySQL 安装包。
 ```
 rpm -qa | grep -i mysql
 ```
- - 返回结果如下所示，则表示已存在 MySQL，请执行 [步骤2](#delete) 依次移除。
+返回结果如下所示，则表示已存在 MySQL 安装包，为避免安装版本不同造成冲突，请执行 `yum remove -y 包名` 命令依次移除。
+若返回结果为空，请跳过此步骤。
 ![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
- - 返回结果如下所示，请执行 [步骤3](#install) 开始安装 MySQL。
-![](https://main.qcloudimg.com/raw/41abe6eb40d523042c8b6593e6a61ac0.png)
-2. <span id="delete"></span>执行以下命令，删除 MySQL 现有包。
-```
-yum remove -y 包名
-```
-3. <span id="install"></span>执行以下命令，安装 MySQL。
+2. <span id="install"></span>执行以下命令，安装 MySQL。
 ```
 yum install -y mysql-devel.x86_64 mysql-server.x86_64 mysql-libs.x86_64
 ```
-4. 执行以下命令，启动 MySQL。
+3. 执行以下命令，启动 MySQL。
 ```
 service mysqld start 
 ```
-5. 依次执行以下命令，设置 MySQL 为开机自启动。
+4. 依次执行以下命令，设置 MySQL 为开机自启动。
 ```bash
 chkconfig --add mysqld
 ```
 ```
 chkconfig mysqld  on 
 ```
-6. 执行以下命令，验证 MySQL 是否安装成功。
+5. 执行以下命令，验证 MySQL 是否安装成功。
 ```
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/9c9347ad0264ddad5e98c8dd48adcc6a.png)
-7. 执行以下命令，退出 MySQL。
+6. 执行以下命令，退出 MySQL。
 ```
 \q
 ```
