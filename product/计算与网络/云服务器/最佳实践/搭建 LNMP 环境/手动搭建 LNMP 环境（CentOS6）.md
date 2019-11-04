@@ -89,7 +89,7 @@ chkconfig  nginx on
 
 
 ### 步骤二：安装数据库
-1. 执行以下命令，查看系统中是否存在 MySQL 安装包。
+1. 执行以下命令，查看系统中是否已存在 MySQL 安装包。
 ```
 rpm -qa | grep -i mysql
 ```
