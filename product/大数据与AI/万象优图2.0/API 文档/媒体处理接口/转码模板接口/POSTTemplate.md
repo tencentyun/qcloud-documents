@@ -205,9 +205,9 @@ Container 类型 Video 的具体数据描述如下：
       <td>high</td>
       <td>
         1. 支持 baseline、main、high<br>
-        2. baseline：适合移动设备；<br>
-        3. main：适合标准分辨率设备；<br>
-        4. high：适合高分辨率设备；<br>
+        2. baseline：适合移动设备<br>
+        3. main：适合标准分辨率设备<br>
+        4. high：适合高分辨率设备<br>
       </td>
    </tr>
    <tr>
@@ -701,7 +701,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <Response>
     <Name>Template Name</Name>
     <TemplateID></TemplateID>
