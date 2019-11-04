@@ -92,7 +92,7 @@ Content-Type: application/xml
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <Response>
     <Tag>Animation</Tag>
     <Name>Template Name</Name>
