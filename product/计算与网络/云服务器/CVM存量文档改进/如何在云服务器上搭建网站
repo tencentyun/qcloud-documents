@@ -12,7 +12,7 @@
 
 <table>
 	<tr>
-	<th width="11%">网站类型</th>
+	<th width="12%">网站类型</th>
 	<th width="18%">搭建方式</th>
 	<th>说明</th>
 	<th width="30%">使用镜像/详细配置</th>
