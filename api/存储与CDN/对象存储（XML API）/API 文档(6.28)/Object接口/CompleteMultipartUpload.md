@@ -65,7 +65,7 @@ Container 节点 Part 的内容：
 
 ## 响应
 
-### 响应头
+#### 响应头
 #### 公共响应头 
 该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
@@ -79,7 +79,7 @@ Container 节点 Part 的内容：
 | ---------------------------- | ---------------------------------------- | ------ |
 | x-cos-server-side-encryption | 指定将对象启用服务端加密的方式。<br/>使用 COS 主密钥加密：AES256 | String |
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 ```shell
 <CompleteMultipartUploadResult>
@@ -107,7 +107,7 @@ Container 节点 CompleteMultipartUploadResult 的内容：
 
 ## 实际案例
 
-### 请求
+#### 请求
 ```shell
 POST /exampleobject?uploadId=1484728886e63106e87d8207536ae8521c89c42a436fe23bb58854a7bb5e87b7d77d4ddc48 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
@@ -127,7 +127,7 @@ Content-Length: 138
 </CompleteMultipartUpload>
 ```
 
-### 响应
+#### 响应
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
