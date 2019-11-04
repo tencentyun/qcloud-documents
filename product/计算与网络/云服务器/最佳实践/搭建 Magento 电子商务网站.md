@@ -47,7 +47,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/b3d8041e70e3e2599f2ed8fa20f553c9.png)
 4. 环境检测通过后，单击【Next】进入下一步。如下图所示：
 ![](https://main.qcloudimg.com/raw/f54c130dbb2ea32a8aa2ff1526188ea0.png)
-5. 添加数据库信息，请输入 [步骤5](#password) 中获取的数据库密码，并单击【Next】。如下图所示：
+5. 添加数据库信息，请输入从 [修改密码](#password) 步骤中获取的数据库密码，并单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/82794a1e1495da4d8ce48e1805e4bb5d.png)
 6. <span id="admin"></span>将 Magento 管理员登录地址修改为 `admin` ，并单击【Next】。如下图所示：
 >?请记录您的商务网站地址及管理员登录地址。
