@@ -4,7 +4,7 @@
 ## 请求
 #### 请求示例
 
-```
+```shell
 POST /mediainfo HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
@@ -24,7 +24,7 @@ Content-type: application/xml
 #### 请求体
 该 API 接口请求的请求体具体节点内容为：
 
-```
+```shell
 <Request>
   <Input>
     <Object></Object>
@@ -59,7 +59,7 @@ Container 节点 Input 的内容：
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```
+```shell
 <Response>
   <MediaInfo>
     <Stream>
@@ -227,7 +227,7 @@ Container 节点 Subtitle 的内容：
 ## 实际案例
 
 #### 请求
-```
+```shell
 POST /mediainfo HTTP/1.1
 Host: bucket-1250000000.ci.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
@@ -243,7 +243,7 @@ Content-Type: application/xml
 ```
 
 #### 响应
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 666
