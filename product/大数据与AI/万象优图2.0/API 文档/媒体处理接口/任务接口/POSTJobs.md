@@ -223,7 +223,7 @@ Container 节点 Output 的内容：
 同上面请求中的 Request.Operation.Output 节点。
 
 Container 节点 MediaInfo 的内容：
-同 [GenerateMediaInfo](#插入GenerateMediaInfo文档链接) 接口中的 Response.MediaInfo 节点。
+同 [GenerateMediaInfo](https://cloud.tencent.com/document/product/460/38935) 接口中的 Response.MediaInfo 节点。
 
 ####  错误码
 常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
