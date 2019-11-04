@@ -2,7 +2,7 @@
 用来查询指定的任务。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```
 GET /jobs/<jobId> HTTP/1.1
@@ -12,23 +12,23 @@ Authorization: <Auth String>
 
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
+#### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-### 请求体
+#### 请求体
 该请求无请求体。
 
 
 ## 响应
-### 响应头
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
 
-### 响应体
+#### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```
@@ -51,13 +51,13 @@ Container 节点 Response 的内容：
 | JobsDetail | Response | 任务的详细信息，同 PostJobs 接口的 Response.JobsDetail 节点 |  Container |
 | NonExistJobIds | Response | 查询的 ID 中不存在的任务，所有任务都存在时不返回 |  String |
 
-### 错误码
+#### 错误码
 相关请求产生的错误码信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 GET /jobs/jabcsdssfeipplsdfwe HTTP/1.1
@@ -66,7 +66,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
