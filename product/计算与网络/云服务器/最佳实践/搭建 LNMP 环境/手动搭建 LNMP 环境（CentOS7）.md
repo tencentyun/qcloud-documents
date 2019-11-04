@@ -82,23 +82,22 @@ systemctl enable nginx
 
 
 ### 步骤二：安装数据库
-1. 执行以下命令，查看系统中是否存在 MariaDB 现有包。 
+1. 执行以下命令，查看系统中是否已安装 MariaDB。 
 ```
 rpm -qa | grep -i mariadb
 ```
- - 返回结果类似如下内容，则表示已存在 MariaDB，请执行 [步骤2](#step2) 依次移除。
+ - 返回结果类似如下内容，则表示已存在 MariaDB。
 ![](https://main.qcloudimg.com/raw/6fa7fb51de4a61f4da08eb036b6c3e85.png)
- - 返回结果类似如下内容，请执行 [步骤3](#step3) 开始安装 MariaDB。
-![](https://main.qcloudimg.com/raw/2695390041ffef31032739281c91c228.png)
-2. <span id="step2"></span>执行以下命令，删除 MariaDB 现有包。
+为避免安装版本不同造成冲突，请执行以下命令移除已安装的 MariaDB。
 ```
 yum -y remove 包名
 ```
-3. <span id="step3"></span>执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
+ - 若返回结果为空，则说明未预先安装，则执行下一步。
+2.  执行以下命令，在 `/etc/yum.repos.d/` 下创建 `MariaDB.repo` 文件。
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-4. 按 “**i**” 切换至编辑模式，写入以下内容。
+3. 按 “**i**” 切换至编辑模式，写入以下内容。
 ```
 # MariaDB 10.4 CentOS7-amd64
 [mariadb]  
@@ -108,26 +107,26 @@ gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 >?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-6. 执行以下命令，安装 MariaDB。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，安装 MariaDB。
 ```
 yum -y install MariaDB-client MariaDB-server
 ```
-7. 执行以下命令，启动 MariaDB 服务。
+6. 执行以下命令，启动 MariaDB 服务。
 ```
 systemctl start mariadb
 ```
-8. 执行以下命令，设置 MariaDB 为开机自启动。
+7. 执行以下命令，设置 MariaDB 为开机自启动。
 ```
 systemctl enable mariadb
 ```
-9. 执行以下命令，验证 MariaDB 是否安装成功。
+8. 执行以下命令，验证 MariaDB 是否安装成功。
 ```
 mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
-10. 执行以下命令，退出 MariaDB。
+9. 执行以下命令，退出 MariaDB。
 ```
 \q
 ```
