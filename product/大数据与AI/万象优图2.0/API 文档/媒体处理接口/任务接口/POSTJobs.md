@@ -225,13 +225,13 @@ Container 节点 Output 的内容：
 Container 节点 MediaInfo 的内容：
 同 [GenerateMediaInfo](#插入GenerateMediaInfo文档链接) 接口中的 Response.MediaInfo 节点。
 
-### 错误码
+####  错误码
 常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 POST /jobs HTTP/1.1
@@ -257,7 +257,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
