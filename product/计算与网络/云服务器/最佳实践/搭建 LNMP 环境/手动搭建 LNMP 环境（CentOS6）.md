@@ -93,9 +93,14 @@ chkconfig  nginx on
 ```
 rpm -qa | grep -i mysql
 ```
-返回结果如下所示，则表示已存在 MySQL，为避免安装版本不同造成冲突，请执行 `yum remove -y 包名` 命令依次移除。
-若返回结果为空，请跳过此步骤。
+ - 返回结果如下所示，则表示已存在 MySQL。
 ![](https://main.qcloudimg.com/raw/74e544638637d39209cc1e474083d11d.png)
+为避免安装版本不同造成冲突，请执行下面命令移除已安装的MySQL
+```
+yum remove -y 包名
+``` 
+ - 若返回结果为空，则说明未预先安装，则执行下一步。
+
 2. <span id="install"></span>执行以下命令，安装 MySQL。
 ```
 yum install -y mysql-devel.x86_64 mysql-server.x86_64 mysql-libs.x86_64
