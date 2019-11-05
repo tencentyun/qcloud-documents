@@ -42,7 +42,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 http://云服务器实例的公网 IP:8888
 ```
 显示结果如下图所示：
-![](https://main.qcloudimg.com/raw/6d2d36d2c192b7c8822fa2c8f64f95c8.png)
+![](https://main.qcloudimg.com/raw/eb92ded2d7fa118d009b7e30ba622ad0.png)
 3. 输入如下信息并单击【登录】。
  - 管理员帐号：默认 `admin`。
  - 管理员密码：默认 `cldera.com`。
