@@ -35,7 +35,8 @@ listening port 8080
 Example app listening on 8080
 ```
 在浏览器地址栏输入 `localhost:8080` 后访问，窗口显示 `Hello World!`，本地创建项目成功。
-7.  打包本地项目，准备上传。**您需要在项目的根路径（start.sh 所在路径）下执行打包**。您可以在 [这里](链接到tsf serverless使用须知的上传程序包要求) 查看程序包的要求。
+7.  打包本地项目，准备上传。
+**您需要在项目的根路径（start.sh 所在路径）下执行打包**。您可以在 [TSF  Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960#.E4.B8.8A.E4.BC.A0.E7.A8.8B.E5.BA.8F.E5.8C.85.E8.A6.81.E6.B1.82) 查看程序包的要求。
 ```bash
 zip code.zip * -r
 ```
@@ -64,7 +65,7 @@ zip code.zip * -r
 ![](https://main.qcloudimg.com/raw/211d0a9b418379440bba1821c4715ce8.png)
  * **名称**：填写部署组名称。
  * **选择程序包**：选择之前上传的程序包。
- * **开启访问VPC**：如果**您的程序需要访问VPC内云资源，例如访问VPC内的数据库**，那么您可以开启访问VPC，并配置 VPC 信息。
+ * **开启访问 VPC**：如果**您的程序需要访问 VPC 内云资源，例如访问 VPC 内的数据库**，那么您可以开启访问 VPC，并配置 VPC 信息。
 8. 部署组创建完成后，您可以在【访问管理】配置外网访问。
 ![](https://main.qcloudimg.com/raw/55c0ca30e160ac1d35fbc82452cb2cbb.png)
 TSF Serverless 的外网访问是通过关联创建 API 网关实现的。**您可以前往 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) 查看关联创建的 API 网关资源，并在 API 网关控制台使用其他高级功能，如自定义域名**。
@@ -76,7 +77,7 @@ TSF Serverless 的外网访问是通过关联创建 API 网关实现的。**您�
 11. 您可以单击【监控信息】来查看监控数据。当前支持以下维度的监控：
  * 请求数（次）：请求次数。
  * 请求耗时（ms）：请求的整体耗时，单位为 ms。
- * 前台错误数（次）：这里是API网关的概念，前台错误数是请求未到达后端Serverless应用即出 现的错误的请求数量（4xx、5xx）。
+ * 前台错误数（次）：这里是 API 网关的概念，前台错误数是请求未到达后端Serverless应用即出 现的错误的请求数量（4xx、5xx）。
  * 后台错误数（次）：这里是 API 网关的概念，后台错误数是由用户的业务代码直接返回错误的请求数量（4xx、5xx）。
  * 长连接数（条）：TCP 长连接数。
 
