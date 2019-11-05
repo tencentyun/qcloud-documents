@@ -6,19 +6,19 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 >!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
 
 ## 前提条件
-- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
+已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 
 ## 操作步骤
-当您登录 Linux 云服务器后，可以按照以下步骤分别安装 Nginx， MySQL 和 PHP。
+
 
 ### 步骤一：安装 Nginx
-1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
+1. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)  登录 Linux 云服务器，并记录云服务器的公网 IP。
+2. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
 vi /etc/yum.repos.d/nginx.repo
 ```
-2. 按 “**i**” 切换至编辑模式，写入以下内容。
+3. 按 “**i**” 切换至编辑模式，写入以下内容。
 ```
 [nginx] 
 name = nginx repo 
@@ -26,16 +26,16 @@ baseurl = https://nginx.org/packages/mainline/centos/7/$basearch/
 gpgcheck = 0 
 enabled = 1
 ```
-3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-4. 执行以下命令，安装 nginx。
+4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+5. 执行以下命令，安装 nginx。
 ```
 yum install -y nginx
 ```
-5. 执行以下命令，打开 `nginx.conf` 文件。
+6. 执行以下命令，打开 `nginx.conf` 文件。
 ```
 vim /etc/nginx/nginx.conf
 ```
-6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
+7. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 >?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
 >
@@ -67,16 +67,19 @@ server {
 	}
 }
 ```
-7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-8. 执行以下命令启动 Nginx。
+8. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+9. 执行以下命令启动 Nginx。
 ```
 systemctl start nginx
 ```
-9. 执行以下命令，设置 Nginx 为开机自启动。
+10. 执行以下命令，设置 Nginx 为开机自启动。
 ```
 systemctl enable nginx 
 ```
-10. 在浏览器中，输入云服务器实例公网 IP，查看 Nginx 服务是否正常运行。
+11. 在本地浏览器中访问以下地址，查看 Nginx 服务是否正常运行。
+```
+http://云服务器实例的公网 IP
+```
 显示如下，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
@@ -99,14 +102,15 @@ vi /etc/yum.repos.d/MariaDB.repo
 ```
 3. 按 “**i**” 切换至编辑模式，写入以下内容。
 ```
-# MariaDB 10.4 CentOS7-amd64
-[mariadb]  
-name = MariaDB  
-baseurl = http://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64/
-gpgkey = http://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
+# MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.4/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
->?腾讯云软件源站每天从各软件源的官网同步一次软件资源，请从 [MariaDB 软件源](http://mirrors.cloud.tencent.com/mariadb/yum/) 中获取最新地址。
+>?您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的安装信息。
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 5. 执行以下命令，安装 MariaDB。
 ```
@@ -166,7 +170,7 @@ echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
 systemctl restart nginx
 ```
-2. 在浏览器中访问如下地址，查看环境配置是否成功。
+2. 在本地浏览器中访问如下地址，查看环境配置是否成功。
 ```
 http://云服务器实例的公网 IP
 ```
