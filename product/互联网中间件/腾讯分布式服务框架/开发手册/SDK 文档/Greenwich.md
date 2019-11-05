@@ -1,8 +1,6 @@
-# Spring Cloud TSF Greenwich
-
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.1.6。
 
----
+
 
 ## 1.16.0-Greenwich-RELEASE（2019-11-5）
 
@@ -22,19 +20,19 @@
 
 #### 服务鉴权
 
-- 支持基于服务名和标签的鉴权设置。
+支持基于服务名和标签的鉴权设置。
 
 #### 链路跟踪 (spring-cloud-tsf-sleuth)
 
-- 支持微服务调用全链路跟踪
-- 支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链
-- 支持在调用链上设置标签和自定义 Metada
+- 支持微服务调用全链路跟踪。
+- 支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。
+- 支持在调用链上设置标签和自定义 Metada。
 
 #### 分布式配置 (spring-cloud-tsf-config)
 
-- 支持分布式配置功能
-- 配置回调
-- 配置加密 spring-cloud-tsf-encrypt
+- 支持分布式配置功能。
+- 配置回调。
+- 配置加密 spring-cloud-tsf-encrypt。
 
 #### API注册 (spring-cloud-tsf-swagger)
 
