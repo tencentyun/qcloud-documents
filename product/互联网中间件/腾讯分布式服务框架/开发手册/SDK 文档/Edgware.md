@@ -5,12 +5,12 @@
 
 #### 新特性
 - Kafka 的链路追踪能力。
-- 增加 swagger-ui 依赖包
+- 增加 swagger-ui 依赖包。
 
 #### 优化
 
-- 集成 spring-cloud-tsf-swagger 包后, 本地启动无需设置 tsf.swagger.enabled=false。
-- 集成 spring-cloud-tsf-swagger 包后, 支持本地使用 swagger-ui 进行调试。
+- 集成 spring-cloud-tsf-swagger 包后，本地启动无需设置 tsf.swagger.enabled=false。
+- 集成 spring-cloud-tsf-swagger 包后，支持本地使用 swagger-ui 进行调试。
 
 #### Bug 修复
 
