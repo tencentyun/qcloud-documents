@@ -5,7 +5,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 >!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
 
 ## 示例软件版本
-本文搭建的 LNMP 环境软件组成版本及说明如下，如果您想安装特定版本的软件，请确保对所安装软件的使用及兼容性比较了解。
+本文搭建的 LNMP 环境软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
 - Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
 - MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
