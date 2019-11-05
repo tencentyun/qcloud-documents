@@ -1,16 +1,22 @@
 ## 操作场景
-LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档以 CentOS 7.6 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 LNMP 环境。
+LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 LNMP 环境。
 
-## 技能要求
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 >!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+
+## 示例软件版本
+本文搭建的 LNMP 环境软件组成版本及说明如下，如果您想安装特定版本的软件，请确保对所安装软件的使用及兼容性比较了解。
+- Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
+- Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
+- MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
+- PHP：脚本语言，本文以 PHP 7.2.22 为例。
+
 
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 
 ## 操作步骤
-
 
 ### 步骤一：安装 Nginx
 1. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)  登录 Linux 云服务器，并记录云服务器的公网 IP。
