@@ -62,24 +62,24 @@ http://云服务器实例的公网 IP
 3. 单击【Start Readiness Check】，进行环境检测。如下图所示：
 ![](https://main.qcloudimg.com/raw/8e883ec4322f3f0d26fa181d62cebb82.png)
 4. 环境检测通过后，单击【Next】进入下一步。如下图所示：
-![](https://main.qcloudimg.com/raw/778703a93dc61a3450e77a5cf8e3909e.png)
+![](https://main.qcloudimg.com/raw/77e0ec4010c82232c26c4fe3a351ba93.png)
 5. 添加数据库信息，请输入从 [修改密码](#password) 步骤中获取的数据库密码，并单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/277d201ee1422c4db4e96ff6133c993f.png)
 6. <span id="admin"></span>将 Magento 管理员登录地址修改为 `admin` ，并单击【Next】。如下图所示：
 >?请记录您的商务网站地址及管理员登录地址。
 >
-![](https://main.qcloudimg.com/raw/70b58f8f5e756623ba6fe729f342d0bc.png)
+![](https://main.qcloudimg.com/raw/64f6941b18fdbbf969a865407af39d90.png)
 7. 根据您的实际情况设置语言、时区等信息，并单击【Next】。本文设置如下图所示：
-![](https://main.qcloudimg.com/raw/04680a23990f5e9602461ec88804a79a.png)
+![](https://main.qcloudimg.com/raw/d14949a09a8f8bd1d56268a386fc3e7f.png)
 8. 根据您的实际情况设置管理员登录账号及密码，并单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/6829620bc690ed45e567950d8e21d822.png)
+![](https://main.qcloudimg.com/raw/b73a4d1593e4250b944255b5d202e33a.png)
 9. 单击【Install Now】进行安装。
 10. 成功安装后请记录页面上的信息，并单击【Launch Magento Admin】。如下图所示：
-![](https://main.qcloudimg.com/raw/cec0f027b3100ddcc31c73dfd4890b78.png)
+![](https://main.qcloudimg.com/raw/a5d9c2fbe7f17c454a0cbae30217390b.png)
 11. 进入管理员登录页面，输入 [步骤8](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d196f04eec071c0ab27895698c75c88b.png)
 12. 登录成功后，即可进入管理员页面配置个人商务网站。如下图所示：
-![](https://main.qcloudimg.com/raw/ceb05283332f12e84358e3bd47ce8a25.png)
+![](https://main.qcloudimg.com/raw/897866cc646521b0d32ce09515dc4efc.png)
 
 
 ### 步骤四：验证配置
@@ -88,7 +88,7 @@ http://云服务器实例的公网 IP
 http://云服务器实例的公网 IP
 ```
 显示结果为 Magento 默认主页，则说明安装成功。如下图所示：
-![](https://main.qcloudimg.com/raw/bc9c493afe48623eb0ea3a22bf02a5b4.png)
+![](https://main.qcloudimg.com/raw/da502fe4310e49fae659310b3d778fa7.png)
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
