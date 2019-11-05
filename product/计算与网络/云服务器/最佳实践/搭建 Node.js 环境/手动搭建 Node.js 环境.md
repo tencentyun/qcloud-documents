@@ -28,12 +28,16 @@ tar xvf node-v10.16.3-linux-x64.tar.xz
 3. 依次执行以下命令，创建软链接。
 ```
 ln -s /root/node-v10.16.3-linux-x64/bin/node /usr/local/bin/node
+```
+```
 ln -s /root/node-v10.16.3-linux-x64/bin/npm /usr/local/bin/npm
 ```
 成功创建软链接后，即可在云服务器任意目录下使用 node 及 npm 命令。
 4. 依次执行以下命令，查看 Node.js 及 npm 版本。
 ```
 node -v
+```
+```
 npm -v
 ```
 
@@ -48,9 +52,12 @@ yum install -y git
 ```
 git clone https://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 ```
-3. 依次执行以下命令，配置 NVM 环境变量。
+3. 执行以下命令，配置 NVM 环境变量。
 ```
 echo ". ~/.nvm/nvm.sh" >> /etc/profile
+```
+4. 执行以下命令，读取环境变量。
+```
 source /etc/profile
 ```
 4. 执行以下命令，查看 Node.js 所有版本。
@@ -62,13 +69,15 @@ nvm list-remote
 >
 ```
 nvm install v6.9.5
+```
+```
 nvm install v10.16.3
 ```
 6. 执行以下命令，查看已安装的 Node.js 版本。
 ```
 nvm ls
 ```
-返回结果如下所示，则表示安装成功，且当前使用版本为 Node.js 10.16.3。
+返回结果如下所示，则表示安装成功，当前使用版本为 Node.js 10.16.3。
 ![](https://main.qcloudimg.com/raw/a315fe51314357fb44ec725f20c101ed.png)
 7. 执行以下命令，切换 Node.js 使用版本。
 ```
@@ -81,9 +90,11 @@ nvm use v6.9.5
 1. 依次执行以下命令，创建项目文件 `index.js`。
 ```
 cd ~
+```
+```
 vim index.js
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，并将以下内容输入 `index.js` 文件中。
+2. 按 “**i**” 切换至编辑模式，并将以下内容输入 `index.js` 文件中。
 ```
 const http = require('http');
 const hostname = '0.0.0.0';
