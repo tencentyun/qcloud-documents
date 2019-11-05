@@ -1,106 +1,103 @@
-## Spring Cloud TSF Edgware
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
 
 ### 1.16.0-Edgware-RELEASE（2019-10-11）
 
 #### 新特性
-- kafka的链路追踪能力。
-- 增加 swagger-ui依赖包
+- Kafka 的链路追踪能力。
+- 增加 swagger-ui 依赖包
 
 #### 优化
 
-- 集成spring-cloud-tsf-swagger包后, 本地启动无需设置tsf.swagger.enabled=false。
-- 集成spring-cloud-tsf-swagger包后, 支持本地使用swagger-ui进行调试。
+- 集成 spring-cloud-tsf-swagger 包后, 本地启动无需设置 tsf.swagger.enabled=false。
+- 集成 spring-cloud-tsf-swagger 包后, 支持本地使用 swagger-ui 进行调试。
 
 #### Bug 修复
 
-- 修复在自定义RedisTemplate中指定序列化方式时的错误。
-- 修复对StringRedisTemplate的支持。
-- 修复引入swagger包后, 低版本guava包引起冲突。
+- 修复在自定义 RedisTemplate 中指定序列化方式时的错误。
+- 修复对 StringRedisTemplate 的支持。
+- 修复引入 swagger 包后，低版本 guava 包引起冲突。
 - 配置回调功能空指针异常。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
 
 ### 1.14.2-Edgware-RELEASE（2019-09-10）
 
 #### Bug 修复
 
-- 限流Bug fix。
-- TsfContext.putTag覆盖bug fix。
+- 限流 Bug fix。
+- TsfContext.putTag覆盖 Bug fix。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.14.1-Edgware-RELEASE（2019-07-24）
 
 #### Bug 修复
 
-- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
-- 修复spring-cloud-tsf-ratelimit包限流不准确问题
-- 修复 spring-cloud-tsf-sleuth 包数据源和Mybatis兼容性问题
+- 修复 TSF SDK 依赖的 scheduler 和业务自身的 scheduler 相互影响的问题。
+- 修复 spring-cloud-tsf-ratelimit 包限流不准确问题。
+- 修复 spring-cloud-tsf-sleuth 包数据源和 Mybatis 兼容性问题。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
 
 ### 1.14.0-Edgware-RELEASE（2019-06-21）
 
 #### 新特性
 
-- 支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
+支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.12.4-Edgware-RELEASE（2019-08-15）
 
 #### Bug 修复
 
-- 修复tsf sdk依赖的scheduler和业务自身的scheduler相互影响的问题
-- 修复spring-cloud-tsf-ratelimit包限流不准确问题
+- 修复 TSF SDK 依赖的 scheduler 和业务自身的 scheduler 相互影响的问题。
+- 修复 spring-cloud-tsf-ratelimit 包限流不准确问题。
 
-### 版本建议
+#### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.12.2-Edgware-RELEASE（2019-04-22）
 
 #### Bug 修复
 
-- 修复 Edgware 版本自定义 tag 问题。
+修复 Edgware 版本自定义 tag 问题。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.12.1-Edgware-RELEASE（2019-03-25）
 
 #### Bug 修复
 
-- 修复配置回调功能未生效问题。
+修复配置回调功能未生效问题。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.12.0-Edgware-RELEASE（2019-03-13）
 
@@ -121,9 +118,9 @@
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
----
+
 
 ### 1.10.0-RELEASE（2018-11-12）
 
@@ -136,14 +133,14 @@
 
 #### Bug 修复
 
-- 解决 RestTemplate Bean 冲突问题。
+解决 RestTemplate Bean 冲突问题。
 
 #### 升级建议
 
 - 支持向后兼容。
 - 新功能建议全量升级。
 
----
+
 
 ### 1.1.1-RELEASE（2018-08-26）
 
@@ -158,8 +155,8 @@
 
 #### Bug 修复
 
-- 调用链 SDK 问题修复。
+ 调用链 SDK 问题修复。
 
 #### 升级建议
 
-- 全部建议升级。
+全部建议升级。
