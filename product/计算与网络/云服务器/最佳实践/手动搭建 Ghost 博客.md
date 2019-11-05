@@ -1,14 +1,21 @@
 ## 操作场景
-Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost 快速搭建博客，简化在线出版过程。本文档以 Ubuntu 18.04 的 Linux 操作系统的腾讯云云服务器（CVM）为例，手动搭建 Ghost 个人网站。
+Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost 快速搭建博客，简化在线出版过程。本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 Ghost 个人网站。
 
-## 技能要求
-进行 Ghost 网站搭建，您需要熟悉 Liunx 操作系统及命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令。
+进行 Ghost 网站搭建，您需要熟悉 Liunx 操作系统及命令，例如 [Ubuntu 环境下通过 Apt-get 安装软件](https://cloud.tencent.com/document/product/213/2123) 等常用命令。
+
+## 示例软件版本
+本文搭建 Ghost 博客使用的操作系统及软件版本及说明如下：
+- 操作系统：本文以 Ubuntu 18.04 为例。
+- Nginx：Web 服务器，本文以 为例。
+- MySQL：数据库
+- Ghost：
 
 
 ## 前提条件
-- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 已登录 Linux 云服务器。如果您还未登录，请准备好云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
-- 请通过腾讯域名注册购买域名并完成 [网站备案](https://cloud.tencent.com/product/ba)，当域名可使用后通过 [云解析](https://cloud.tencent.com/product/cns) 服务解析域名。
+- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+- 由于 Ghost 博客配置需要使用已完成备案，并且已解析到所使用云服务器的域名，请确保您已获得可用域名。
+腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过以上服务获得可使用域名。
+
 
 
 ## 操作步骤
