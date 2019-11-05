@@ -1,4 +1,7 @@
->?腾讯文智已于2019年7月09日正式发布新版 【[API3.0](https://cloud.tencent.com/document/product/271/35484)】，接口功能更全面，服务更加稳定，且公测期间免费试用。旧版产品将于近期内下线。
+>!
+- 腾讯自然语言处理已于2019年7月09日正式发布新版，接口功能更全面，服务更加稳定，且公测期间免费试用。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版 API](https://cloud.tencent.com/document/product/271/35484)，体验更优服务。
+
 ## 1. 接口描述
   域名：wenzhi.api.qcloud.com
   接口名: TextClassify
