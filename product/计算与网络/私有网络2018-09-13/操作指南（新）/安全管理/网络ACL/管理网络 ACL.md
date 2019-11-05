@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/62c052935777f47cef2a77fcee75fc3e.png)
 4. 在弹出框中，输入名称，选择所属的私有网络，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/7140c40f01c09ba07a900a39a0e5a49a.png)
-5. 在列表页中，单击对应的 ACL ID 即可进入详情页，查看 ACL 规则及其关联子网。
+5. 在列表页中，单击对应的 ACL ID 即可进入详情页，添加 ACL 规则、关联子网。
 
 ## 增加网络 ACL 规则
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
