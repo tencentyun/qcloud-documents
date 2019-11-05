@@ -49,7 +49,7 @@
 ```
 vim test.js
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将以下内容输入到文件中：
+4. 按 “**i**” 切换至编辑模式，将以下内容输入到文件中：
 ```
 const http = require('http');
 const hostname = '0.0.0.0';
