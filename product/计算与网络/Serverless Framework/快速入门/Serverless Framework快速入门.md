@@ -6,13 +6,13 @@
 - [Node.js 6.x 或以上的版本](#node)
 - [Serverless Framework CLI 1.47.0 或以上的版本](#cli)
 
-如果这些条件已经满足，您可以跳过此步骤，直接开始部署一个服务。
+如果这些条件已经满足，您可以跳过此步骤，直接 [开始部署一个服务](#buzhou)。
 
 
 <span id="node"></span>
 #### 安装 Node.js 和 NPM
 
-- 参考 [Node.js安装指南](https://nodejs.org/zh-cn/download/) 根据您的系统环境进行安装。
+- 参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/) 根据您的系统环境进行安装。
 - 安装完毕后，通过`node -v` 命令，查看安装好的 Node.js 版本信息：
 ```sh
 $ node -v
@@ -38,6 +38,7 @@ $ serverless -v
 x.x.x
 ```
 
+<span id="buzhou"></span>
 ## 操作步骤
 
 完成上述安装准备后，通过如下步骤开始部署一个 Serverless 服务。
@@ -60,7 +61,7 @@ $ npm install
 参考 [配置账号](https://cloud.tencent.com/document/product/1154/38811) 文档。
 
 #### 配置触发器
-云函数需要通过触发器的事件调用进行触发，因此可以在`serverless.yml`中增加对触发器的配置，以API网关触发器为例，配置如下：
+云函数需要通过触发器的事件调用进行触发，因此可以在`serverless.yml`中增加对触发器的配置，以 API 网关触发器为例，配置如下：
 ```yaml
 service: my-service # service name
 
