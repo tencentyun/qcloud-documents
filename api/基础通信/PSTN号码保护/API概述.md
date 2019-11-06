@@ -29,7 +29,7 @@
 
 | API       | 功能描述                          |
 | -------- | ----------------------------- |
-| [直拨绑定中间号](https://cloud.tencent.com/document/product/610/12009) | 用于直拨获取中间号（App 使用方发起） |
+| [直拨绑定中间号](https://cloud.tencent.com/document/product/610/12009) | 用于直拨绑定中间号（App 使用方发起） |
 | [直拨解绑中间号](https://cloud.tencent.com/document/product/610/12068) | 用于直拨解绑中间号（App 使用方发起） |
 | [直拨话单推送](https://cloud.tencent.com/document/product/610/12011) | 用于直拨话单推送 |
 | [直拨通话状态推送](https://cloud.tencent.com/document/product/610/12067) | 用于直拨通话状态推送 |
