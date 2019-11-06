@@ -38,7 +38,7 @@
 
 开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
-http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
+http://[bizid].liveplay.myqcloud.com/live/[streamid].flv
 ```
 
 其中 `bizid`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
@@ -46,15 +46,15 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 - bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
 ![](https://main.qcloudimg.com/raw/86cdab23f18d4c8369d2a908320e52aa.png)
 - 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
-- streamid：将“房间号”、“userId”和“流类型” 用下划线连接在一起，然后计算 MD5，得到的就是 streamId，也就是说，`streamid = MD5 (房间号_userId_流类型)`。
+- `streamid=bizid_MD5 (房间号_userId_流类型)`，即由`bizid`、`_`以及`“房间号_userId_流类型”计算 MD5 的结果`拼接而成。
 
 
 我们通过如下例子来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
 例如，bizid = 8888，进行旁路直播的房间号 = 12345、userId = userA，用户当前使用了摄像头。
 
-1. 以此计算 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
-2. 按规则将 bizid 与 streamid 进行拼接，则 userA 这一路的腾讯云 CDN 观看地址为：
+1. 计算 MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
+2. 将 bizid 与 MD5 计算结果进行拼接，则 userA 这一路的腾讯云 CDN 观看地址为：
  flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
  hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
 ```
