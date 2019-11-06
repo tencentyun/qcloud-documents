@@ -28,6 +28,8 @@ yum install httpd -y
 2. 依次执行以下命令，启动 Apache 并设置为开机自启动。
 ```
 systemctl start httpd
+```
+```
 systemctl enable httpd
 ```
 3. 在浏览器中访问以下地址，查看 Apache 服务是否正常运行。
@@ -74,6 +76,8 @@ yum -y install MariaDB-client MariaDB-server
 7. 依次执行以下命令，启动 MariaDB 服务，并设置为开机自启动。
 ```
 systemctl start mariadb
+```
+```
 systemctl enable mariadb
 ```
 8. 执行以下命令，验证 MariaDB 是否安装成功。
@@ -91,6 +95,8 @@ mysql
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
+```
+```
 rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 ```
 2. 执行以下命令，安装 PHP 7.0.33 所需要的包。
