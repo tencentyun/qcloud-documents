@@ -48,7 +48,7 @@ http://云服务器公网实例 IP:8888
 ![](https://main.qcloudimg.com/raw/6d2d36d2c192b7c8822fa2c8f64f95c8.png)
 2. 根据以下提示输入相关信息，并单击【登录】。
  - 管理员账号：`admin`。
- - 管理员密码：输入在 [安装 AMH](#info) 已配置的密码。
+ - 管理员密码：输入在 [安装 AMH](#info) 已配置的密码，本文以 `123456` 为例。
 3. 如下图所示则为登录成功：
 ![](https://main.qcloudimg.com/raw/9f8cd5e2914b0c2fde472c189a617f49.png)
 
