@@ -20,7 +20,7 @@
 
 ## 操作步骤
 ### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
 
 
 ### 步骤二：安装 JDK
@@ -61,7 +61,7 @@ java -version
 返回如下信息，则表示安装成功。
 ![](https://main.qcloudimg.com/raw/f12cfeed5d8aa15cccb9836637e9555f.png)
 
-### 步骤二：安装 Tomcat
+### 步骤三：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
 >?本文使用 Apache 官网提供下载网址，您可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
 >
