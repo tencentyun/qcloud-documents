@@ -1,26 +1,31 @@
 ## 操作场景
-本文档以 CentOS 7.6 的 Linux 操作系统为例的腾讯云云服务器（CVM）为例，手动部署 Node.js 环境并创建示例项目。
+本文档介绍如何在腾讯云云服务器（CVM）上手动部署 Node.js 环境，并创建示例项目。
 
-
-## 技能要求
 进行手动搭建 Node.js 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件使用、配置和兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 Node.js 环境，手动搭建 Node.js 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 Node.js 环境，手动搭建 Node.js 环境可能需要较长的时间。具体步骤可参考 [镜像部署 Node.js 环境](https://cloud.tencent.com/document/product/213/38236)。
 >
+
+## 示例软件版本
+本文搭建 Node.js 环境使用软件版本及组成说明如下：
+- 操作系统：Linux 系统，本文以 CentOS 7.6 为例。
+- Node.js：JavaScript 的运行环境，本文以 Node.js 10.16.3 及 Node.js 6.9.5 为例。
+- npm：Node.js 节点版本管理器，管理多个 Node.js 版本，本文以 npm 6.9.0 为例。
 
 ## 前提条件
-- 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
-- 已登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
+已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-当您登录 Linux 云服务器后，可按照以下步骤搭建 Node.js 环境。
+### 步骤一：登录 Linux 实例
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
 
-### 步骤一：安装 Node.js
+
+### 步骤二：安装 Node.js
 1. 执行以下命令，下载 Node.js Linux 64位二进制安装包。
->?本文以 Node.js 10.16.3 版本为例，请根据您的实际需求从 [Node.js 官网](https://nodejs.org/zh-cn/download/) 下载对应版本。
->
 ```
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
 ```
+>?您可前往 [Node.js 官网](https://nodejs.org/zh-cn/download/) 获取更多安装信息。
+>
 2. 执行以下命令，解压安装包。
 ```
 tar xvf node-v10.16.3-linux-x64.tar.xz
@@ -33,7 +38,7 @@ ln -s /root/node-v10.16.3-linux-x64/bin/node /usr/local/bin/node
 ln -s /root/node-v10.16.3-linux-x64/bin/npm /usr/local/bin/npm
 ```
 成功创建软链接后，即可在云服务器任意目录下使用 node 及 npm 命令。
-4. 依次执行以下命令，查看 Node.js 及 npm 版本。
+4. 依次执行以下命令，查看 Node.js 及 npm 版本信息。
 ```
 node -v
 ```
@@ -41,8 +46,8 @@ node -v
 npm -v
 ```
 
-### 步骤二：安装 Node.js 多版本（可选）
->?此步骤使用 NVM（Node Version Manager）Node.js 节点版本管理器，来管理多个 Node.js 版本，您可根据实际需求进行安装。
+### 步骤三：安装 Node.js 多版本（可选）
+>?此步骤通过 npm 安装多个版本的 Node.js，并可快速进行切换。适用于开发人员，您可根据实际需求进行安装。
 >
 1. 执行以下命令，安装 git。
 ```
@@ -65,8 +70,6 @@ source /etc/profile
 nvm list-remote
 ```
 5. 依次执行以下命令，安装多个版本的 Node.js。
->?本文以 Node.js 6.9.5 及 10.16.3 为例，您可根据实际需求进行安装。
->
 ```
 nvm install v6.9.5
 ```
@@ -86,8 +89,8 @@ nvm use v6.9.5
 返回结果如下图所示：
 ![](https://main.qcloudimg.com/raw/817fd96fef77f818e65ce41a3723e5bc.png)
 
-### 步骤三：创建 Node.js 项目
-1. 依次执行以下命令，创建项目文件 `index.js`。
+### 步骤四：创建 Node.js 项目
+1. 依次执行以下命令，在根目录创建项目文件 `index.js`。
 ```
 cd ~
 ```
@@ -115,7 +118,7 @@ server.listen(port, hostname, () => {
 ```
 node index.js
 ```
-5. 在浏览器中访问以下地址，查看项目是否正常运行。
+5. 在本地浏览器中访问以下地址，查看项目是否正常运行。
 ```
 http://云服务器实例的公网 IP:已配置的端口号
 ```
