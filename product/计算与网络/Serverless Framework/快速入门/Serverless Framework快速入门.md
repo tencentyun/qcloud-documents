@@ -3,8 +3,8 @@
 
 ## 前提条件
 在使用之前，请确保如下软件已经安装：
-- [Node.js 6.x 或以上的版本](#node)
-- [Serverless Framework CLI 1.47.0 或以上的版本](#cli)
+- [Node.js](#node)（6.x或以上的版本）
+- [Serverless Framework CLI](#cli)（1.47.0或以上的版本）
 
 如果这些条件已经满足，您可以跳过此步骤，直接 [开始部署一个服务](#buzhou)。
 
