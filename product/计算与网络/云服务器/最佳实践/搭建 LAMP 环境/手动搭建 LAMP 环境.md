@@ -116,7 +116,7 @@ ServerName localhost:80
 ```
  2. 将 `<Directory>` 中的 `Require all denied` 修改为 `Require all granted`。
  3. 将 `<IfModule dir_module>` 中内容替换为 `DirectoryIndex index.php index.html`。
- 4. 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
+ 4. 在 `AddType application/x-gzip .gz .tgz` 下另起一行，输入以下内容：
 ```
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
@@ -140,7 +140,7 @@ http://云服务器实例的公网 IP/index.php
 ![](https://main.qcloudimg.com/raw/64681fb76bad29072de9ddc3250e66d1.png)
 
 ## 相关操作
-在完成了 LAMP 环境搭建后，您可在此基础上进行 [手动搭建 Drupal 网站]() 实践，了解并掌握更多关于云服务器的相关功能。、
+在完成了 LAMP 环境搭建后，您可在此基础上进行 [手动搭建 Drupal 网站](https://cloud.tencent.com/document/product/213/38617) 实践，了解并掌握更多关于云服务器的相关功能。
 
 
 ## 常见问题
