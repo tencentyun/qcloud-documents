@@ -84,7 +84,7 @@ mysql
 ```
 显示结果如下，则成功安装。
 ![](https://main.qcloudimg.com/raw/bfe9a604457f6de09933206c21fde13b.png)
-9. 执行以下命令，退出 MariaDb。
+9. 执行以下命令，退出 MariaDB。
 ```
 \q
 ```
@@ -105,8 +105,15 @@ yum -y install php70w php70w-opcache php70w-mbstring php70w-gd php70w-xml php70w
 ```
 vi /etc/httpd/conf/httpd.conf
 ```
-4. 按 “**i**” 切换至编辑模式，并按照以下步骤调整配置。
- 1. 在 `ServerName www.example.com:80` 下另起一行，增加内容 `ServerName localhost:80`。
+4. 按 “**i**” 切换至编辑模式，并依次修改为如下图所示的内容。
+![](https://main.qcloudimg.com/raw/0b478ca5aa21124a531cfd5c8860cb70.png)
+![](https://main.qcloudimg.com/raw/aeeb6fff1af9cf71735cae558455ee94.png)
+![](https://main.qcloudimg.com/raw/cc840587150c3282c972a6b23e0c1a68.png)
+![](https://main.qcloudimg.com/raw/de36e94d0e4791d1d84f141120125456.png)
+ 1. 在 `ServerName www.example.com:80` 下另起一行，输入以下内容：
+ ```
+ServerName localhost:80
+```
  2. 将 `<Directory>` 中的 `Require all denied` 修改为 `Require all granted`。
  3. 将 `<IfModule dir_module>` 中内容替换为 `DirectoryIndex index.php index.html`。
  4. 在 `AddType application/x-gzip .gz .tgz` 后另起一行，输入以下内容：
@@ -114,8 +121,6 @@ vi /etc/httpd/conf/httpd.conf
 AddType application/x-httpd-php .php
 AddType application/x-httpd-php-source .phps
 ```
-全部修改完成后如下图所示：
-![](https://main.qcloudimg.com/raw/a3fe6e60b37e31902c67776c0b282de1.png)
 5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 6. 执行以下命令，重启 Apache 服务。
 ```
