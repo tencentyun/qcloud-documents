@@ -126,7 +126,7 @@ ghost install
  5. **Enter your database name**：输入 Ghost 使用的数据库，请输入在 [创建数据库](#database) 中已创建的 `ghost_data` 后按 “Enter” 。
  6. 后续设置请结合实际情况输入 “Y” 确认或 “n” 否认来完成配置。
  完成设置后，界面下方会输出 Ghost 的管理员访问地址。
-4. 使用浏览器访问 Ghost 的管理员访问地址，开始个人博客配置。如下图所示：
+4. 使用本地浏览器访问 Ghost 的管理员访问地址，开始个人博客配置。如下图所示：
 单击【Create your account】开始创建管理员账户。
 ![](https://main.qcloudimg.com/raw/e2eeacd71eec4c27660eeb4797f83f2a.png)
 5. 输入相关信息，并单击【Last step】。如下图所示：
@@ -134,7 +134,7 @@ ghost install
 6. 可邀请他人一起参与博客创建，也可跳过此步骤。
 7. 进入管理界面后，即可开始管理博客。如下图所示：
 ![](https://main.qcloudimg.com/raw/fd9071dba9748ce8125f8597be0d248a.png)
-配置完成后，访问已配置的 `www.xxxxxxxx.xx` 域名即可看到个人博客主页。如下图所示：
+配置完成后，使用本地浏览器访问已配置的 `www.xxxxxxxx.xx` 域名即可看到个人博客主页。如下图所示：
 ![](https://main.qcloudimg.com/raw/055decab4524eb9f2f5602fbd0502c7c.png)
 
 ## 常见问题
