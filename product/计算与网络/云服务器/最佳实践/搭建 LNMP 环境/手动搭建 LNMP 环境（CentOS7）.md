@@ -93,7 +93,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
-### 步骤二：安装数据库
+### 步骤三：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MariaDB。 
 ```
 rpm -qa | grep -i mariadb
@@ -145,7 +145,7 @@ mysql
 ```
 
 
-### 步骤三：安装配置 PHP
+### 步骤四：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
