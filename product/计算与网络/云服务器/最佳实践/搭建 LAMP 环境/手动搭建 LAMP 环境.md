@@ -132,7 +132,7 @@ systemctl restart httpd
 ```
 echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
 ```
-在本地浏览中访问以下地址，查看环境配置是否成功。
+2. 在本地浏览中访问以下地址，查看环境配置是否成功。
 ```
 http://云服务器实例的公网 IP/index.php
 ```
