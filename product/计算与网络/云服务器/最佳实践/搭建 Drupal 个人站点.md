@@ -27,16 +27,22 @@ Drupal 组成及版本使用说明：
 1. 依次执行以下命令，进入网站根目录并下载 Drupal 安装包。
 ```
 cd /var/www/html
+```
+```
 wget wget http://ftp.drupal.org/files/projects/drupal-8.1.1.zip
 ```
 2. 依次执行以下命令，解压安装包并重命名。
 ```
 unzip drupal-8.1.1.zip 
+```
+```
 mv drupal-8.1.1/ drupal/
 ```
 3. 依次执行以下命令，下载中文语言包。
 ```
 cd drupal/
+```
+```
 wget -P sites/default/files/translations https://ftp.drupal.org/files/translations/8.x/drupal/drupal-8.7.8.zh-hans.po
 ```
 
