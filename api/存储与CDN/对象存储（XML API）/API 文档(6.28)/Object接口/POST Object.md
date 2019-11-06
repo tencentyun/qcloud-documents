@@ -77,17 +77,17 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 
 签名流程如下：
 
-**1、准备工作**
+#### 1. 准备工作
 
 在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取 SecretId 和 SecretKey。
 
-**2、生成 KeyTime**
+#### 2. 生成 KeyTime
 
 a. 获取当前时间对应的 Unix 时间戳 StartTimestamp，Unix 时间戳是从 UTC（协调世界时，或 GMT 格林威治时间）1970年1月1日0时0分0秒（北京时间：1970年1月1日8时0分0秒）起至现在的总秒数。
 b. 根据上述时间戳和期望的签名有效时长算出签名过期时间对应的 Unix 时间戳 EndTimestamp。
 c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 KeyTime。
 
-**3、构造“策略”（Policy）**
+#### 3. 构造“策略”（Policy）
 
 策略为一个 JSON 文本，一个典型的策略如下：
 
@@ -137,19 +137,19 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 >! 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
 
-**4、生成 SignKey**
+#### 4. 生成 SignKey
 
 使用 HMAC-SHA1 以 SecretKey 为密钥，以 KeyTime 为消息，计算消息摘要（哈希值），即为 SignKey。
 
-**5、生成 StringToSign**
+#### 5. 生成 StringToSign
 
 使用 SHA1 对上文中构造的策略（Policy）文本计算消息摘要（哈希值），即为 StringToSign。
 
-**6、生成 Signature**
+#### 6. 生成 Signature
 
 使用 HMAC-SHA1 以 SignKey 为密钥，以 StringToSign 为消息，计算消息摘要，即为 Signature。
 
-**7、将签名附加到表单**
+#### 7. 将签名附加到表单
 
 将上述策略和签名相关信息，以下表中描述的方式附加到表单中：
 
