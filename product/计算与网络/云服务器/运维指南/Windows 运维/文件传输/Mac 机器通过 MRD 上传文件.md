@@ -14,7 +14,7 @@ Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac �
 ![](https://main.qcloudimg.com/raw/ea509a3a924e9cafc54af146acaa03d7.png)
 
 ### 上传文件
-1. 启动 RD Beta，并单击【Add Desktop】。如下图所示：
+1. 启动 MRD，并单击【Add Desktop】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7d077ef17157254a04fc2c1f15cb3ae.png)
 2. 在弹出的 “Add Desktop” 窗口中，按以下步骤选择需上传的文件夹并创建连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc241ce8e4744bde57476ea823fcef72.png)
