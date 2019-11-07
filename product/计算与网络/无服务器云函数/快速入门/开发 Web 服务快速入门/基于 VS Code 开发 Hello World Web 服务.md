@@ -32,8 +32,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 
 ### 配置插件
->如果您已经在 SCF CLI 中配置了账户信息，无需再次配置，请跳过此步骤。
-
+>?如果您已经在 SCF CLI 中配置了账户信息，无需再次配置，请跳过此步骤。
+>
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：  
     ![Alt text](https://main.qcloudimg.com/raw/fca11ef6e54287f2ad400d34123872c9.png)
@@ -42,9 +42,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 
 ### 创建函数
-1. 单击已配置账户函数列表上方的<img src="https://main.qcloudimg.com/raw/799da4ba342886d96d6a3e10681a2560.png" style="margin:-3px 0;">，在本地初始化新的函数项目。如下图所示：    
-![](https://main.qcloudimg.com/raw/efac261d279b49699fa69fd433c293d3.png)
-支持填入 git 仓库地址创建函数，仓库需要满足 cookiecutter 模板规则，若不满足规则请根据[ cookiecutter 示例模板](https://github.com/eviweb/cookiecutter-template) 进行修改。 
+1. 单击已配置账户函数列表上方的<img src="https://main.qcloudimg.com/raw/799da4ba342886d96d6a3e10681a2560.png" style="margin:-3px 0;">，在本地初始化新的函数项目。
 2. 根据提示依次选择函数运行时 runtime，并输入函数名。
 3. 函数信息录入成功后，将开始创建。
 4. 函数创建成功后，会跳转到工作区打开函数的入口文件。
@@ -106,6 +104,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 ```
 更多模板文件规范请参见 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。  
 2. 进入 Tencent Serverless 插件，单击击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
+>!如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
+>
 ![](https://main.qcloudimg.com/raw/15e5a8e036ae36fc23e73980f0c520a1.png)
 3. 函数上传完毕，单击云端函数右侧的<img src="https://main.qcloudimg.com/raw/6771f42abb5da560731e246810d71bf7.png" style="margin:-3px 0;">进行刷新，即可查看已上传的函数。（查看区域需切换到上传时选择的区域）如下图所示：   
 ![](https://main.qcloudimg.com/raw/715c67df166846c81321e83b2ade5ebb.png)  
@@ -119,6 +119,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 >- 使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。
 >- 现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动。
 >- 您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+
+
 
 
 ### 云端测试
@@ -188,9 +190,9 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 <span id="openCOS"></span>
 ### 设置开启 COS 上传
 1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
-![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
+    ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
 2. 在“Settings”页面，选择【Extensions】>【Scf】并勾选【Enable deployed by COS】。如下图所示：
-![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
+    ![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
 
 
 <span id="pythonpath"></span>
