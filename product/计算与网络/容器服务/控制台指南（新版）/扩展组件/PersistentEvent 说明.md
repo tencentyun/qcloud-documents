@@ -7,29 +7,31 @@ Kubernetes Events 包括了 Kuberntes 集群的运行和各类资源的调度情
 
 ### 部署在集群内 Kubernetes 对象
 
-在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 kubernetes 对象
+在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 Kubernetes 对象
 
 | Kubernetes 对象名称       | 类型         | 默认占用资源          | 所属 Namespaces|
 | -------------------- | ---------- | --------------- | ------------ |
-| tke-persistent-event | deployment | 0.2核CPU,100MB内存 | kube-system  |
+| tke-persistent-event | deployment | 0.2核CPU，100MB内存 | kube-system  |
 
 ## PersistentEvent 使用场景
 
 Kubernetes 事件是集群内部资源生命周期、资源调度、异常告警等情况产生的记录，可以通过事件深入了解集群内部发生的事情，例如调度程序做出的决策或者分析某些 pod 从节点中被逐出的原因。
 
-Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。 PersistentEvent 提供了将 Kubernetes 事件持久化存储的前置功能，允许您通过 PersistentEvent 将集群内事件导出到您自有的存储端。
+Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。PersistentEvent 提供了将 Kubernetes 事件持久化存储的前置功能，允许您通过 PersistentEvent 将集群内事件导出到您自有的存储端。
 
 ## PersistentEvent 限制条件
 - 安装 PersistentEvent 将占用集群0.2核 CPU 以及100MB内存的资源。
-- 仅在 1.8 版本以上的 Kubernetes 集群支持。
+- 仅支持 1.8 版本以上的 Kubernetes 集群。
 
 ## PersistentEvent 使用方法
 
 ### 安装并设置存储端
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方，选择需安装 PersistentEvent 的集群，并单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/c79ce21ffb5f3e52c8e371271c59124e.png)
+![](https://main.qcloudimg.com/raw/d087e46c782e0fe391bb0abd7d2af71d.png)
 3. 在“新建扩展组件”页面，选择【PersistentEvent 组件】并配置事件持久化存储端，单击【完成】即可安装成功。
+PersistentEvent 支持 [Elasticsearch](https://cloud.tencent.com/document/product/845/16478) 及 [日志服务 CLS](https://cloud.tencent.com/document/product/614/11254) 两种存储端选择，推荐使用日志服务 CLS。您可根据实际情况进行选择，本文以日志服务 CLS 为例。
+
 
 
 
