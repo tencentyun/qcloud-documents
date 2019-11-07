@@ -183,7 +183,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 
 ## 常见问题  
-安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过以下交流方式与我们联系。    
+安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [欢迎交流](#welcome) 与我们联系。    
 
 ## 相关操作
 
@@ -202,6 +202,6 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 
 
-## 欢迎交流
+## 欢迎交流<span id="welcome"></span>
 如果您对 Tencent Serverless 感兴趣，您可以加入QQ群（537539545）与我们交流。    
 ![Alt text](https://main.qcloudimg.com/raw/bc881547d1cd2043ecf1b286c70f7319.png)
