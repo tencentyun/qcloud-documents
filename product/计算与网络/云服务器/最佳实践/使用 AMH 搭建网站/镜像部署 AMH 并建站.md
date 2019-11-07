@@ -50,7 +50,7 @@ http://云服务器实例的公网 IP:8888
 4. 成功登录后，选择顶部导航栏的【虚拟主机】>【虚拟主机】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1df79c49c83ed087c18810367c748744.png)
 5. 将**已解析到云服务器**的域名填入【主机标识域名】及【绑定域名】中，其余设置保持默认，并单击【保存】。如下图所示：
->?本文使用域名以 `qcloudxxxxxx.com` 为例.
+>?本文使用域名以 `qcloudxxxxxx.com` 为例。
 >
 ![](https://main.qcloudimg.com/raw/f5e6eb2ce639175839b5f1d8249288d6.png)
 创建成功则如下图所示：
