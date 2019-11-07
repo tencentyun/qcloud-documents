@@ -98,3 +98,39 @@ chmod 0700 recovery
  ![](https://mc.qcloudimg.com/static/img/475867ab40e84bba76ba175d396c7670/11.png)
 
 
+
+### 10. 其他恢复方法
+同时，也可以手动导出数据，在windows和linux下，都同样适用，与物理文件所在的文件系统无关。
+可以现在腾讯云的虚拟机下 dump出数据，多个库时时使用pg_dumpall，例如：
+
+```
+pg_dump -h 10.20.3.7 -p 5432 -Utera   -f tera.sql -c -C postgres
+```
+在不指定文件格式的时候，默认导出的文件是文本文件(若数据较大，通过-Fc指定为二进制文件)，导出的文本文件形式如下：
+
+```
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.19
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SELECT pg_catalog.set_config('search_path', '', false);
+SET check_function_bodies = false;
+SET xmloption = content;
+SET client_min_messages = warning;
+SET row_security = off;
+```
+
+对于二进制文件，需要用pg_restore还原，而文本文件，就可以直接通过执行sql语句恢复，例如：
+
+```
+psql -U postgres <./tera.sql
+```
+注意：可能因为有pg_stat_error 等插件，会报错，但不影响数据导入。
+
+
