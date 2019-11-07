@@ -30,17 +30,17 @@ find . -name "virtio*"
 由此可得知，<code>initramfs</code> 已经包含了 <code>virtio_blk</code> 驱动，以及其所依赖的 <code>virtio.ko</code>、<code>virtio_pci.ko</code> 和 <code>virtio_ring.ko</code>，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 <a href="https://cloud.tencent.com/document/product/213/4945">导入镜像概述</a>。</br>
 如果 <code>initramfs</code> 或者 <code>initrd</code> 没有包含 <code>virtio</code> 驱动，请执行下一步。
 3. 根据操作系统的不同，选择相应操作重新配置 `initramfs` 文件。
- - CentOS 7/RedHat 7 操作系统
+ - CentOS 7/RedHat 7 操作系统：
 ```
 cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
 mkinitrd -f --with=virtio_blk --with=virtio_pci /boot/initramfs-$(uname -r).img $(uname -r)
 ```
- - RedHat 5/CentOS 5 操作系统
+ - RedHat 5/CentOS 5 操作系统：
 ```
 cp /boot/initrd-$(uname -r).img /boot/initrd-$(uname -r).img.bak
 mkinitrd -f --with=virtio_blk --with=virtio_pci /boot/initrd-$(uname -r).img $(uname -r)
 ```
- - Debian/Ubuntu 操作系统
+ - Debian/Ubuntu 操作系统：
 ```
 echo -e "virtio_pci\nvirtio_blk" >> /etc/initramfs-tools/modules
 update-initramfs  -u
