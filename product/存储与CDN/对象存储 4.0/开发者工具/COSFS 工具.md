@@ -169,7 +169,9 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 卸载存储桶示例：
 
 ```shell
-fusermount -u /mnt 或者 umount -l /mnt 或者 umount /mnt
+方式1：fusermount -u /mnt, fusermount 命令专用于卸载 FUSE 文件系统 
+方式2：umount -l /mnt, 当有程序引用文件系统中文件时，进行卸载不会报错，并在没程序引用时完成卸载
+方式3：umount /mnt， 当有程序引用文件系统中的文件时，进行卸载会报错
 ```
 
 ## 常用挂载选项
