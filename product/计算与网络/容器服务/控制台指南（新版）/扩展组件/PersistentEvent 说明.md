@@ -7,7 +7,7 @@ Kubernetes Events 包括了 Kuberntes 集群的运行和各类资源的调度情
 
 ### 部署在集群内 Kubernetes 对象
 
-在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 Kubernetes 对象
+在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 Kubernetes 对象：
 
 | Kubernetes 对象名称       | 类型         | 默认占用资源          | 所属 Namespaces|
 | -------------------- | ---------- | --------------- | ------------ |
@@ -49,7 +49,6 @@ PersistentEvent 支持 [Elasticsearch](https://cloud.tencent.com/document/produc
 4. 单击 PersistentEvent 所配置的日志集主题所在行右侧的【管理】，进入“日志主题”详情页。
 5. 选择【索引配置】页签，在页面中开启索引配置并单击【保存】，打开日志检索功能。如下图所示：
 ![](https://main.qcloudimg.com/raw/a804577fd5e6d638cd4921f2ce255579.png)
-6. 选择左侧导航栏中的【日志检索】，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务。
-7. 选择期望检索日志的时间段，并单击【检索日志】即可查看事件数据。如下图所示：
+6. 选择左侧导航栏中的【日志检索】，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务以及期望检索日志的时间段，单击【查询分析】即可查看事件数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b30875bb8f4e7bf057291d210dc0d0c.png)
 
