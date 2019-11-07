@@ -1,11 +1,11 @@
 ## 操作场景
-Microsoft Remote Desktop 是微软推出的适用于 Mac 机器的远程桌面应用程序， 本文档介绍 Mac 机器通过 RD 客户端测试版快速上传文件至 Windows 云服务器。 
+Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac 机器的远程桌面应用程序， 本文档介绍 Mac 机器通过 MRD 快速上传文件至 Windows 2012 操作系统的腾讯云云服务器（CVM）。 
+
 
 ## 前提条件
-- 本地计算机已下载并安装 [RD 客户端测试版](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/)。
-- RD 客户端支持 Mac OS 10.10 及以上版本，请确保使用支持的操作系统。
-- 已创建 Windows 云服务器。本文以 Windows 2012 操作系统的云服务器为例。
-
+- 本地计算机已下载并安装 MRD。如果您的 Apple 账号不具备下载权限，可前往 [MRD 测试版](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/) 进行下载。
+- MRD 支持 Mac OS 10.10 及以上版本，请确保使用支持的操作系统。
+- 已购买 Windows 云服务器。
 
 
 ## 操作步骤
@@ -16,7 +16,7 @@ Microsoft Remote Desktop 是微软推出的适用于 Mac 机器的远程桌面�
 ### 上传文件
 1. 启动 RD Beta，并单击【Add Desktop】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7d077ef17157254a04fc2c1f15cb3ae.png)
-2. 在弹出的“Add Desktop”窗口上按以下步骤选择需上传的文件夹。如下图所示：
+2. 在弹出的 “Add Desktop” 窗口中，按以下步骤选择需上传的文件夹并创建连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc241ce8e4744bde57476ea823fcef72.png)
   1. 在 “PC name” 处输入已获取的云服务器公网 IP。
   2. 单击【Folders】切换到选择文件夹列表。
