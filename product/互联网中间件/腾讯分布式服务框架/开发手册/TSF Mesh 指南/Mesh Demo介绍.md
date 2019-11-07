@@ -1,7 +1,10 @@
-虚拟机部署 Demo： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
-容器部署 Demo： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
+Python Demo (vm）： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
 
-Demo 提供了3个 Python 应用，对应的服务名和应用监听端口为：
+Python Demo（docker）： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
+
+.NET Demo（vm & docker）： [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) ，其中 REAME.md 介绍了程序包和镜像两种构建方式。
+
+下文以 Python Demo 来介绍。Python Demo 提供了3个 应用，对应的服务名和应用监听端口为：
 - user （8089）
 - shop （8090）
 - promotion （8091）
@@ -90,6 +93,3 @@ python ./userService.py 80 1>./logs/user.log 2>&1
 - 第3行：将`apis`目录拷贝到`/opt/tsf/app_config/`中。
 - 第5行：启动 user 应用。
 
-## 其他 Demo
-
-.NET Mesh Demo [下载](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) ，REAME.md 中介绍了程序包和镜像两种构建方式。
