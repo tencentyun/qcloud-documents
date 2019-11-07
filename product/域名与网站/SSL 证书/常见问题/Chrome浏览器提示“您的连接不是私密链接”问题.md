@@ -1,3 +1,4 @@
+### Chrome 浏览器提示“您的连接不是私密链接”问题如何处理？
 自2016年11月起，部分 Chrome 浏览器用户反馈访问 HTTPS 站点时出现 **NET::ERR_CERTIFICATE_TRANSPARENCY_REQUIRED** 错误情况，提示 “您的连接不是私密链接”。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/0fdf027303e53946698dcb377431597e/0.png)
 

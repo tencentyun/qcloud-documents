@@ -1,10 +1,10 @@
 ## IM SDK 基本概念
 **会话：**IM SDK 中会话（Conversation）分为两种，一种是 C2C 会话，表示单聊情况自己与对方建立的对话，读取消息和发送消息都是通过会话完成；另一种是群会话，表示群聊情况下，群内成员组成的会话，群会话内发送消息群成员都可接收到。如下图所示，一个会话表示与一个好友的对话。
-![](//mccdn.qcloud.com/static/img/6a12c1ea947e7b36a7abe25e55c33608/image.jpg)
+![](https://main.qcloudimg.com/raw/921a378c4157ad7cda2d87bfbe8ea21f.jpg)
 
 **消息：**IM SDK 中消息(Message)表示要发送给对方的内容，消息包括若干属性，如是否自己已读，是否已经发送成功，发送人帐号，消息产生时间等；一条消息由若干 Elem 组合而成，每种 Elem 可以是文本、图片、表情等等，消息支持多种 Elem 组合发送。
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151012094526_95348.png)
+![](https://main.qcloudimg.com/raw/e98740eedd17c6408c0f3cdcbdf83e8a.png)
 
 **群组 ID：**群组 ID 唯一标识一个群，由后台生成，创建群组时返回。
 

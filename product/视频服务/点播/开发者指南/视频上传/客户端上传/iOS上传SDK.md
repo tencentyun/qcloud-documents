@@ -12,8 +12,8 @@
     1. CoreTelephony.framework
     2. Foundation.framework
     3. SystemConfiguration.framework
-    4. libstdc++.tbd
-    ```	
+    4. libc++.tbd
+    ``` 
 3. 在 Build Settings 中设置 Other Linker Flags，加入参数`-ObjC`。
 
 ##  简单视频上传

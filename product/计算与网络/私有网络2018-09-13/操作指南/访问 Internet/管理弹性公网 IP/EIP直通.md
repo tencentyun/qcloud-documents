@@ -1,6 +1,6 @@
 ## 使用场景
 用户通过 EIP 访问外网时，可选 NAT 模式或 EIP 直通模式，当前默认 NAT 模式。
-- NAT 模式下 ，EIP 在本地不可见。
+- NAT 模式下，EIP 在本地不可见。
 - EIP 直通后，EIP 在本地可见，配置时无须每次手动加入 EIP 地址，可降低开发成本。
 
 >! 目前 EIP 直通通过白名单控制，仅支持 VPC 内的设备。
@@ -19,10 +19,15 @@
 1. 登录需要 EIP 直通的 CVM 云服务器。
 2. 运行 EIP 直通脚本。具体方法：
  - Linux 操作系统 CentOS 下：
-```
-eip_linux.sh install XX.XX.XX.XX 
-```
-其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
+	 - 添加执行权限
+	```
+	chmod +x eip_direct.sh
+	```
+	- 执行脚本
+	```
+	./eip_direct.sh install XX.XX.XX.XX 
+	```
+	其中，`XX.XX.XX.XX`为 EIP 地址，可选填。
  - Windows 操作系统下：
 ```
 eip_windows.bat XX.XX.XX.XX
@@ -32,7 +37,7 @@ eip_windows.bat XX.XX.XX.XX
 ### 步骤3：开启 EIP 直通
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
 2. 在左侧目录中，单击【弹性公网 IP】，进入管理页面。
-3. 在右侧操作栏中，单击【EIP 直通】开通即可。
+3. 在右侧操作栏中，单击【直通】开通即可。
 
 >!
 >- 脚本仅支持 eth0，暂不支持辅助网卡。

@@ -3,13 +3,15 @@
 
 ## 获取当前未读消息数量
 
-每次使用 [ getConversationList() ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationList) 时，会获得[ [Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
+每次使用 [ getConversationList() ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationList) 时，会获得[[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
 所有会话的未读计数，由所有会话的`unreadCount`相加所得。
 
 
 ## 已读上报
 
-当用户阅读某个会话的数据后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。建议在单击进行切换会话时进行消息的已读上报。
+当用户阅读某个会话的消息后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。建议在单击进行切换会话时进行消息的已读上报。
+
+>?已读上报只会改变会话的未读计数，不会向消息发送者推送回执状态。
 
 **接口**
 

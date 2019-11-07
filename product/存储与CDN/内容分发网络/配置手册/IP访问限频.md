@@ -3,10 +3,9 @@ CDN 为您提供了 IP 访问限频配置，通过对客户端 IP 在每一个�
 ## 配置指引
 
 ### 配置查看
-1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧目录中，单击【域名管理】，进入管理页面。
-2. 在列表中，找到您需要编辑的域名所在行，单击操作栏中的【管理】。
+1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的【域名管理】，进入管理页面，在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
 ![img](https://main.qcloudimg.com/raw/99e0c24b4530c30b9abe27325bb1b317.png)
-3. 单击【访问控制】选项卡，可以在 **IP 访问限频配置**模块进行配置。默认情况下，IP 访问限频配置为关闭状态。
+2. 单击【访问控制】选项卡，可以在 **IP 访问限频配置**模块进行配置。默认情况下，IP 访问限频配置为关闭状态。
 ![img](https://main.qcloudimg.com/raw/1c44d24f8c157868f3f20a9e17b62e5d.png)
 
 ### 修改限频配置

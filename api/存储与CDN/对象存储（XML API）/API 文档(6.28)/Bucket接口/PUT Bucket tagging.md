@@ -11,21 +11,24 @@ COS 支持为已存在的 Bucket 设置标签（Tag）。PUT Bucket tagging 接�
 ```http
 PUT /?tagging HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
-Date:date
+Date: GMT Date
 Authorization: Auth String
+Content-MD5: MD5
+Content-Length: Content Length
+Content-Type: application/xml
+
+[Request Body]
 ```
 
 >?Authorization: Auth String（详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
-#### 公共头部
+此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
+|名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	|描述	|类型	|是否必选|
+|---|---|---|---|
+|Content-MD5	|RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化	|string	|是|
 
 #### 请求体
 
@@ -61,13 +64,7 @@ Authorization: Auth String
 
 #### 响应头
 
-#### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
-
-#### 特有响应头
-
-该请求操作无特殊的响应头部信息。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -97,7 +94,7 @@ User-Agent: curl/7.29.0
 Accept: */*
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa873003759404
-Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
+Content-MD5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
 

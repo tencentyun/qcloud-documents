@@ -61,7 +61,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)
 
 ### Step4. 在应用管理中添加一个新的应用
-进入【直播控制台】>【直播SDK】>[【房间管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
+进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
 >?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
@@ -117,7 +117,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | :----: | :--------: | :----------------------------------------------------------- |
 | 第一步 |    观众    | 观众调用`requestJoinAnchor()`向主播发起连麦请求。            |
 | 第二步 |    主播    | 主播会收到`MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)`通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。 |
-| 第三步 |    主播    | 主播调用`reponseJoinAnchor()`确定是否接受观众的连麦请求。  |
+| 第三步 |    主播    | 主播调用`responseJoinAnchor()`确定是否接受观众的连麦请求。  |
 | 第四步 |    观众    | 观众会收到`MLVBLiveRoomDelegate.RequestJoinAnchorCallback`回调通知，得知请求是否被同意。 |
 | 第五步 |    观众    | 观众如果请求被同意，则调用 startLocalPreview() 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示用户授权摄像头和麦克风的使用权限。 |
 | 第六步 |    观众    | 观众调用`joinAnchor()`正式进入连麦状态。               |

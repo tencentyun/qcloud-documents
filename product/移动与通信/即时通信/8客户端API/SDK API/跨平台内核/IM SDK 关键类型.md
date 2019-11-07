@@ -1279,7 +1279,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipGetPendencyListParamType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只写 | 获取好友添加请求未决类型 |
-| kTIMFriendshipGetPendencyListParamStartSeq | uint64 | 只写 | 获取未决的起始 seq 未决列表序列号。建议客户端保存`seq`和未决列表，请求时填入`server`返回的seq。如果`seq`是`server`最新的，则不返回数据 |
+| kTIMFriendshipGetPendencyListParamStartSeq | uint64 | 只写 | 获取未决的起始 seq 未决列表序列号。建议客户端保存`seq`和未决列表，请求时填入`server`返回的 seq。如果`seq`是`server`最新的，则不返回数据 |
 | kTIMFriendshipGetPendencyListParamStartTime | uint64 | 只写 | 获取未决信息的开始时间戳 |
 | kTIMFriendshipGetPendencyListParamLimitedSize | int | 只写 | 获取未决信息列表，每页的数量 |
 

@@ -29,11 +29,11 @@ Hyperledger Fabric 提供了很多官方的智能合约样例，具体请参考 
 #### Init 函数示例
 Init 函数主要用于在智能合约实例化和升级的时候默认调用。在实现 Init 函数的过程中，可以使用 [Go 语言版本的合约 API](https://cloud.tencent.com/document/product/663/36243) 来对参数和账本进行操作。在这个示例中，通过调用 API GetFunctionAndParameters 获取到用户输入参数。在获取用户输入参数后，通过调用 API PutState 将数据写到账本中。
 ```
-//Init函数用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, //VALUE2， 其中VALUE1和VALUE2都是同态加密后的数据
-//在例子中，VALUE1是cipher1.pai的内容， VALUE2是ciphe2.pai的内容
+// Init函数用于初始化两个键值对，用户输入的参数为KEY1_NAME, VALUE1, KEY2_NAME, VALUE2,其中VALUE1和VALUE2都是同态加密后的数据
+// 在例子中，VALUE1是cipher1.pai的内容， VALUE2是ciphe2.pai的内容
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Init")
-  //调用API GetFunctionAndParameters 获取用户输入参数
+	// 调用API GetFunctionAndParameters 获取用户输入参数
 	_, args := stub.GetFunctionAndParameters()
 	var A, B string    // Entities
 	var Aval, Bval string // Asset holdings
@@ -50,7 +50,7 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 	B = args[2]
 	Bval = args[3]
 
-  // 调用API PutState把数据写入账本
+	// 调用API PutState把数据写入账本
 	// Write the state to the ledger
 	err = stub.PutState(A, []byte(Aval))
 	if err != nil {
@@ -69,10 +69,10 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface) pb.Response {
 #### Invoke 函数示例
 Invoke 函数可以对用户的不同的智能合约业务逻辑进行拆分。本示例通过调用 API GetFunctionAndParameters 获取到用户的具体业务类型和参数，再分别调用不同的函数，如 invoke 和 query 函数。
 ```
-//Invoke把用户调用的function细分到几个子function, 包含invoke和query
+// Invoke把用户调用的function细分到几个子function, 包含invoke和query
 func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 	fmt.Println("ex02 Invoke")
-  //调用API GetFunctionAndParameters获取用户输入的业务类型和参数
+	// 调用API GetFunctionAndParameters获取用户输入的业务类型和参数
 	function, args := stub.GetFunctionAndParameters()
 	if function == "invoke" {
 		// Make payment of X units from A to B
@@ -89,9 +89,8 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface) pb.Response {
 业务逻辑 invoke 函数主要用于实现业务逻辑中的资产转移。本示例中通过调用 API GetState 获取到 KEY 对应的同态加密资产总值，通过调用用户业务逻辑实现资产转移，通过调用 API PutState 将用户最终资产写入账本。
 在此过程中，调用了同态加密的接口 GetPublicKeyFromHex 用于获取同态公钥，GetCiphertextFromHex 用于获取同态加密数据，Sub 用于同态密文和明文相减，Add 用于同态密文和明文相加以及 GetCiphertextHex 用于获取同态加密后的16进制密文数据。
 ```
-//invoke实现两个键之间的value转移，输入为KEY1_NAME, KEY1_PUBKEYINHEX, KEY2_NAME，KEY2_PUBKEYINHEX，VALUE
-//在例子中，KEY1_PUBKEYINHEX是pk1.pai内容的base64, KEY2_PUBKEYINHEX是pk2.pai的内容base64
-// Transaction makes payment of X units from A to B
+// invoke实现两个键之间的value转移，输入为KEY1_NAME, KEY1_PUBKEYINHEX, KEY2_NAME，KEY2_PUBKEYINHEX，VALUE
+// 在例子中，KEY1_PUBKEYINHEX是pk1.pai内容的base64, KEY2_PUBKEYINHEX是pk2.pai的内容base64
 func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string) pb.Response {
 	var A, B string    // Entities
 	var Apkpem, Bpkpem []byte //public key in hex 
@@ -121,7 +120,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	}
 
 	// Get the state from the ledger
-  // API GetState获取对应账户的资产，这里的资产是同态加密后的数据
+	// API GetState获取对应账户的资产，这里的资产是同态加密后的数据
 	Avalbytes, err := stub.GetState(A)
 	if err != nil {
 		return shim.Error("Failed to get state")
@@ -140,26 +139,26 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	}
 	Bval = string(Bvalbytes)
   
-  //执行具体业务逻辑，这里是对应资产进行转移
+	// 执行具体业务逻辑，这里是对应资产进行转移
 	// Perform the execution
-	//调用同态接口GetPublicKeyFromHex获取公钥信息
+	// 调用同态接口GetPublicKeyFromHex获取公钥信息
 	Apk, err := paillier.GetPublicKeyFromHex(string(Apkpem))
 	if err != nil {
 		return shim.Error("Fail to get A public key in PublicKey")
 	}
-	//调用同态接口GetCiphertextFromHex获取同态密文信息
+	// 调用同态接口GetCiphertextFromHex获取同态密文信息
 	Acipher, err := paillier.GetCiphertextFromHex(Aval)
 	if err != nil {
 		return shim.Error("Fail to get Ciphertext for A")
 	}
 
 
-	//调用同态接口Sub执行密文和明文相减
+	// 调用同态接口Sub执行密文和明文相减
 	Aciphernew, err := paillier.Sub(Apk, Acipher, X.Text(10))
 	if err != nil {
 		return shim.Error("Fail to compute Aciphernew")
 	}
-	//调用同态接口GetCiphertextHex获取同态密文16进制string
+	// 调用同态接口GetCiphertextHex获取同态密文16进制string
 	Avalnew, err := paillier.GetCiphertextHex(Aciphernew)
 	if err != nil {
 		return shim.Error("Fail to get Avalnew")
@@ -174,7 +173,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 	if err != nil {
 		return shim.Error("Fail to get Ciphertext for B")
 	}
-	//调用同态接口Add执行密文和明文相加
+	// 调用同态接口Add执行密文和明文相加
 	Bciphernew, err := paillier.Add(Bpk, Bcipher, X.Text(10))
 	if err != nil {
 		return shim.Error("Fail to compute Bciphernew")
@@ -185,7 +184,7 @@ func (t *SimpleChaincode) invoke(stub shim.ChaincodeStubInterface, args []string
 		return shim.Error("Fail to get Bvalnew")
 	}
 
-  //API PutState将对应资产写入账本
+	// API PutState将对应资产写入账本
 	// Write the state back to the ledger
 	err = stub.PutState(A, []byte(Avalnew))
 	if err != nil {

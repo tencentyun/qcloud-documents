@@ -83,7 +83,13 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination  
 ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
 ```
-- 若返回结果 ICMP 对应规则被禁止，请启用该规则。
+- 若返回结果 ICMP 对应规则被禁止，请执行以下命令，启用对应规则。
+```
+#Chain INPUT
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+#Chain OUTPUT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+```
 
 <span id="CheckWindows"></span>
 #### 检查 Windows 防火墙设置

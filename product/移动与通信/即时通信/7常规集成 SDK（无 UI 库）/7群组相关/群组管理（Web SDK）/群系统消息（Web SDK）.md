@@ -42,7 +42,7 @@ var groupSystemNotifys = {
 
 **Demo 提供了查看群系统消息通知的入口： **
 
-![](//mccdn.qcloud.com/static/img/acf4d425d2353617a543784916396539/image.png)
+![](https://main.qcloudimg.com/raw/cb2b2db426a8cf9084f30dbab477f332.png)
 
 ## 申请加群
 
@@ -50,7 +50,7 @@ var groupSystemNotifys = {
 
 **Demo 提供了查看加群申请的入口：**
 
-![](//mccdn.qcloud.com/static/img/ccc1a4aa08e8141fb90d18be59b18b2a/image.png)
+![](https://main.qcloudimg.com/raw/987274f59e39fa431a5fb58667379d8c.png)
 
 **示例：**
 
@@ -277,7 +277,7 @@ function onRevokeGroupNotify(notify) {
 
 Demo 增加了发送自定义通知入口，在 Demo 中单击【菜单】-【群组】-【我的群组】。**发送自定义群通知如下图：**
 
-![](//mccdn.qcloud.com/static/img/b762e41a5b46b23ac72699bf330adb75/image.png)
+![](https://main.qcloudimg.com/raw/b242189b2c02927d326c8cadfc0796e7.png)
 
 **发送 Demo：**
 

@@ -44,7 +44,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [setOfflinePushToken](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#setofflinepushtoken) | 设置客户端 token 和证书 bussid。 |
 | [setOfflinePushSettings](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#setofflinepushsettings) | 初始化离线推送配置，需登录后设置才生效。 |
 | [getOfflinePushSettings](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#getofflinepushsettings) | 获取离线推送配置，需登录后才能获取。 |
-| [setOfflinePushListener](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#setofflinepushlistener) | 设置 App 在后台时的消息通知监听器。 |
+| [setOfflinePushListener](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#setofflinepushlistener) | 设置 App 在后台时的消息通知监听器（已废弃）。 |
 | [doBackground](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#dobackground) | 上报 App 应用退至后台。 |
 | [doForeground](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#doforeground) | 上报 App 应用切换回前台。 |
 
@@ -68,7 +68,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 ## TIMConversation
 
 一个会话对应一个聊天窗口，例如，与单个好友的 C2C 聊天或者一个聊天群都是一个会话。
-[TIMConversation](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMConversation.html#timconversation) 提供的接口函数都是围绕消息的相关操作，包括发送消息、获取历史消息、设置消息已读、撤回消息和删除删除等。
+[TIMConversation](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMConversation.html#timconversation) 提供的接口函数都是围绕消息的相关操作，包括发送消息、获取历史消息、设置消息已读、撤回消息和删除消息等。
 
 ### 发消息相关接口
 | API | 描述 |

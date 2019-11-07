@@ -105,6 +105,14 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 		<td>QueryResultsIterator&lt;KeyModification&gt; getHistoryForKey(String key)</td>
 		<td>返回对应键的所有历史值</td>
 	</tr>
+		<tr>
+		<td>void setStateValidationParameter(String key, byte[] value)</td>
+		<td>设置特定键的背书策略</td>
+	</tr>
+	<tr>
+		<td>byte[] getStateValidationParameter(String key)</td>
+		<td>获取特定键的背书策略</td>
+	</tr>
 	<tr>
 		<td>byte[] getPrivateData(String collection, String key)</td>
 		<td>获取指定私有数据集集中的键的值</td>
@@ -226,14 +234,6 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	<tr>
 		<td>ChaincodeEvent getEvent()</td>
 		<td>获取发送的事件</td>
-	</tr>
-	<tr>
-		<td>void setStateValidationParameter(String key, byte[] value)</td>
-		<td>设置特定键的背书策略</td>
-	</tr>
-	<tr>
-		<td>byte[] getStateValidationParameter(String key)</td>
-		<td>获取特定键的背书策略</td>
 	</tr>
 </table>
 	

@@ -132,7 +132,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
                     console.log('上传进度 ' + (Math.round(e.loaded / e.total * 10000) / 100) + '%');
                 };
                 xhr.onload = function () {
-                    if (xhr.status === 200 || xhr.status === 206) {
+                    if (/^2\d\d$/.test('' + xhr.status)) {
                         var ETag = xhr.getResponseHeader('etag');
                         callback(null, {url: url, ETag: ETag});
                     } else {
@@ -234,7 +234,7 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
             xhr.open('GET', url, true);
             xhr.onreadystatechange = function (e) {
                 if (xhr.readyState === 4) {
-                    if (xhr.status === 200) {
+                    if (/^2\d\d$/.test('' + xhr.status)) {
                         var credentials;
                         try {
                             credentials = (new Function('return ' + xhr.responseText))().credentials;

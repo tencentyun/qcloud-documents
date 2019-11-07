@@ -1,7 +1,10 @@
 ## 数据订阅 SDK 下载
-单击下载 [数据订阅 SDK Version 2.8.0](https://main.qcloudimg.com/raw/2e471276a1609b488776ae57d9ea6f83/binlogsdk-2.8.0-official.jar)。
+单击下载 [数据订阅 SDK Version 2.8.2](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/binlogsdk-2.8.2-jar-with-dependencies.jar)。
 
 ## 发布日志
+### Version 2.8.2
+1. 优化了 SDK 的内存占用。
+2. SDK 支持 VPC 内网鉴权，不再依赖公网。
 
 ### Version 2.8.0
 1. 优化了内部鉴权逻辑。
@@ -51,36 +54,35 @@ SDK 采用的是增量确认机制，可以重复确认，但不可以漏确认�
 ## 示例代码
 使用腾讯云 Binlog 订阅示例代码如下：
 ```java
+package com.qcloud.biz;
+import com.qcloud.dts.context.NetworkEnv;
 import com.qcloud.dts.context.SubscribeContext;
 import com.qcloud.dts.message.ClusterMessage;
 import com.qcloud.dts.message.DataMessage;
 import com.qcloud.dts.subscribe.ClusterListener;
 import com.qcloud.dts.subscribe.DefaultSubscribeClient;
 import com.qcloud.dts.subscribe.SubscribeClient;
-
 import java.util.List;
-
 public class Main {
-
     public static void main(String[] args) throws Exception {
-        //创建一个context
+        //创建一个 context
         SubscribeContext context=new SubscribeContext();
-
-        //用户secretId、secretKey
+        //用户 secretId、secretKey
         context.setSecretId("AKID-522dabxxxxxxxxxxxxxxxxxx");
         context.setSecretKey("AKEY-0ff4cxxxxxxxxxxxxxxxxxxxx");
-
-        // 设置channel所在的region，2.8.0以后的SDK推荐设置region参数
-        // region值参照：https://cloud.tencent.com/document/product/236/15833#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
-        context.setRegion("ap-beijing");
-        // 订阅的serviceIp和servicePort
-        // 注意：2.8.0以前的SDK需要设置Ip和Port两个参数，2.8.0以后的版本如果设置了region参数则可以省略
+        // 设置 channel 所在的 region，2.8.0以后的 SDK 必须设置 region 参数
+        // region 值参照：https://cloud.tencent.com/document/product/236/15833#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
+        context.setRegion("ap-chongqing");
+        // 订阅的 serviceIp 和 servicePort
+        // 注意：2.8.0以前的 SDK 需要设置 IP 和 Port 两个参数，2.8.0以后的版本如果设置了 region 参数则可以省略
         // context.setServiceIp("10.108.112.24");
         // context.setServicePort(50120);
-
+        
+        // 如果运行 SDK 的 CVM 不能访问外网，设置网络环境为内网;默认为外网。
+        context.setNetworkEnv(NetworkEnv.LAN);
         //创建客户端
         SubscribeClient client=new DefaultSubscribeClient(context);
-        //创建订阅listener
+        //创建订阅 listener
         ClusterListener listener= new ClusterListener() {
             @Override
             public void notify(List<ClusterMessage> messages) throws Exception {
@@ -90,6 +92,7 @@ public class Main {
                         if(f.getFieldname().equals("id")){
                             System.out.println("seq:"+f.getValue());
                         }
+                        DataMessage.Record record  = m.getRecord();
                     }
                     //消费完之后，确认消费
                     m.ackAsConsumed();
@@ -102,7 +105,7 @@ public class Main {
         //添加监听者
         client.addClusterListener(listener);
         //设置请求的订阅通道
-        client.askForGUID("dts-channel-B2eG8xbLvi472wV3");
+        client.askForGUID("dts-channel-r0M8kKsSyRZmSxQt");
         //启动客户端
         client.start();
     }
@@ -125,7 +128,6 @@ public class Main {
 ## SDK说明
 
 ### SubscribeContext 类
-
 #### 类说明
 主要用于设置用户 SDK 的配置信息，其中包括安全凭证 secretId、secretKey、订阅服务的 IP 和端口。
 
