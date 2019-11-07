@@ -10,8 +10,8 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 
 
 
-## 前提条件
-使用 AMH 搭建网站需要使用已完成备案，并且已解析到所使用云服务器的域名。
+## 注意事项<span id="note"></span>
+使用 AMH 搭建网站的过程中需要使用已完成备案，并且已解析到所使用云服务器的域名。
 腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
@@ -50,7 +50,7 @@ http://云服务器实例的公网 IP:8888
 4. 成功登录后，选择顶部导航栏的【虚拟主机】>【虚拟主机】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1df79c49c83ed087c18810367c748744.png)
 5. 将**已解析到云服务器**的域名填入【主机标识域名】及【绑定域名】中，其余设置保持默认，并单击【保存】。如下图所示：
->?本文使用域名以 `qcloudxxxxxx.com` 为例。
+>?本文使用域名以 `qcloudxxxxxx.com` 为例，您可参考 [注意事项](#note) 准备域名。
 >
 ![](https://main.qcloudimg.com/raw/f5e6eb2ce639175839b5f1d8249288d6.png)
 创建成功则如下图所示：
