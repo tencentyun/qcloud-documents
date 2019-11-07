@@ -21,7 +21,7 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
 
 * **Web 服务**
   TSF Serverless 和其他腾讯云云服务紧密结合，开发者能够轻松构建可弹性扩展的移动或 Web 应用程序、小程序应用、BFF（Backend For Frontend）应用。
-![](https://main.qcloudimg.com/raw/c07b1a63d2a3c9f47364ed1d72d05844.svg)
+![](https://main.qcloudimg.com/raw/1e662dd67ad987c5aae9607029ea0afa.svg)
 
 * **分布式系统**
   TSF Serverless 帮助用户屏蔽底层资源购买和运维细节，低门槛部署微服务应用，让企业聚焦核心业务本身。
