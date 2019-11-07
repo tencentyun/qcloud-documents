@@ -25,9 +25,9 @@ find . -name "virtio*"
 <li>Debian/Ubuntu 操作系统：
 <pre>lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio</pre></li>
 </ul>
-以 CentOS 7 为例，返回类似如下结果：
+返回类似如下结果：
 <img src="https://main.qcloudimg.com/raw/a5e22f75f48ce26a6b03f65588a52877.png" />
-由此可得知，<code>initramfs</code> 已经包含了 <code>virtio_blk</code> 驱动，以及其所依赖的 <code>virtio.ko</code>、<code>virtio_pci.ko</code> 和 <code>virtio_ring.ko</code>，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 <a href="https://cloud.tencent.com/document/product/213/4945">导入镜像概述</a>。</br>
+可得知，<code>initramfs</code> 已经包含了 <code>virtio_blk</code> 驱动，以及其所依赖的 <code>virtio.ko</code>、<code>virtio_pci.ko</code> 和 <code>virtio_ring.ko</code>，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 <a href="https://cloud.tencent.com/document/product/213/4945">导入镜像概述</a>。</br>
 如果 <code>initramfs</code> 或者 <code>initrd</code> 没有包含 <code>virtio</code> 驱动，请执行下一步。
 3. 根据操作系统的不同，选择相应操作重新配置 `initramfs` 文件。
  - CentOS 7/RedHat 7 操作系统：
