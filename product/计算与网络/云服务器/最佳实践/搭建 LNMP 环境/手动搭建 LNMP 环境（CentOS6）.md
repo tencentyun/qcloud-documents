@@ -3,7 +3,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 进行手动搭建 LNMP 环境，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 
->!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [使用镜像搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 LNMP 环境，手动搭建 LNMP 环境可能需要较长的时间。具体步骤可参考 [镜像部署 LNMP 环境](https://cloud.tencent.com/document/product/213/38053)。
 
 
 ## 示例软件版本
@@ -166,8 +166,6 @@ chkconfig php-fpm on
 
 
 ### 验证环境配置是否成功
-当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
-
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
