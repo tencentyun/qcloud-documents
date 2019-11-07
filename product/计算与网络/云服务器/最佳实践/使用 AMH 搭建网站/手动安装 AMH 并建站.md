@@ -50,7 +50,7 @@ http://云服务器公网实例 IP:8888
  - 管理员账号：`admin`。
  - 管理员密码：输入在 [安装 AMH](#info) 已配置的密码，本文以 `123456` 为例。
 3. 如下图所示则为登录成功：
-![](https://main.qcloudimg.com/raw/9f8cd5e2914b0c2fde472c189a617f49.png)
+![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
 
 ### 步骤四：搭建 PHP 网站
 搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357?!preview&!editLang=zh#.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
