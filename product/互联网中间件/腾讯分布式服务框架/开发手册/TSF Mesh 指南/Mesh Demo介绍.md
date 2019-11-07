@@ -4,7 +4,7 @@ Python Demo（docker）： [tsf_python_docker_demo](https://main.qcloudimg.com/r
 
 .NET Demo（vm & docker）： [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) ，其中 REAME.md 介绍了程序包和镜像两种构建方式。
 
-下文以 Python Demo 来介绍。Python Demo 提供了3个 应用，对应的服务名和应用监听端口为：
+下文以 Python Demo 来介绍。Python Demo 提供了3个应用，对应的服务名和应用监听端口为：
 - user （8089）
 - shop （8090）
 - promotion （8091）
