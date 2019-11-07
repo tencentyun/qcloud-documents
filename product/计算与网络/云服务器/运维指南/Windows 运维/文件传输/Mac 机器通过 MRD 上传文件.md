@@ -1,5 +1,5 @@
 ## 操作场景
-Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac 机器的远程桌面应用程序， 本文档介绍 Mac 机器通过 MRD 快速上传文件至 Windows 2012 操作系统的腾讯云云服务器（CVM）。 
+Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac 机器的远程桌面应用程序， 本文档介绍 Mac 机器通过 MRD 快速上传文件至 Windows Server 2012 R2 操作系统的腾讯云云服务器（CVM）。 
 
 
 ## 前提条件
