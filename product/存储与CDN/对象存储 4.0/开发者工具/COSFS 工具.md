@@ -169,7 +169,7 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 卸载存储桶示例：
 
 ```shell
-fusermount -u /mnt 或者 umount -l /mnt
+fusermount -u /mnt 或者 umount -l /mnt 或者 umount /mnt
 ```
 
 ## 常用挂载选项
