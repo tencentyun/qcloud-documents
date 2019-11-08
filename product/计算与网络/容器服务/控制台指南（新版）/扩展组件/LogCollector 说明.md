@@ -11,7 +11,7 @@
 
 | Kubernetes 对象名称 | 类型        | 默认占用资源              | 所属 Namespaces |
 | -------------- | --------- | ------------------- | ------------ |
-| log-collector  | DaemonSet | 每节点0.3核CPU，250MB内存 | kube-system  |
+| log-collector  | DaemonSet | 每节点0.3核 CPU，250MB内存 | kube-system  |
 
 ## 使用场景
 
@@ -25,12 +25,12 @@
 
 ### 组件安装
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择需安装 LogCollector 的集群，并单击【新建】。如下图所示：
+2. 在“扩展组件”管理页面上方，选择需安装 LogCollector 地域下的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
 2. 在“新建扩展组件”页面，选择【LogCollector 组件】后，单击【完成】即可安装成功。
 
 ### 设置日志采集规则
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【日志采集】。
-2. 在“日志采集”管理页面上方，选择已安装 LogCollector 组件的集群，并单击【新建】创建日志采集规则。如下图所示：
+2. 在“日志采集”管理页面上方，选择已安装 LogCollector 地域下的集群，并单击【新建】创建日志采集规则。如下图所示：
 ![](https://main.qcloudimg.com/raw/7285a504bcef8d1370e3f9e0abab1d0c.png)
 3. 在“新建日志采集规则”页面，参考 [日志采集](https://cloud.tencent.com/document/product/457/36771) 创建规则后开始使用。
