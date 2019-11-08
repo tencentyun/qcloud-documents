@@ -15,13 +15,13 @@ Kubernetes Events 包括了 Kuberntes 集群的运行和各类资源的调度情
 
 ## 使用场景
 
-Kubernetes 事件是集群内部资源生命周期、资源调度、异常告警等情况产生的记录，可以通过事件深入了解集群内部发生的事情，例如调度程序做出的决策或者分析某些 pod 从节点中被逐出的原因。
+Kubernetes 事件是集群内部资源生命周期、资源调度、异常告警等情况产生的记录，可以通过事件深入了解集群内部发生的事情，例如调度程序做出的决策或者分析某些 Pod 从节点中被逐出的原因。
 
-Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。PersistentEvent 提供了将 Kubernetes 事件持久化存储的前置功能，允许您通过 PersistentEvent 将集群内事件导出到您自有的存储端。
+Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。而 PersistentEvent 提供了将 Kubernetes 事件持久化存储的前置功能，允许您通过 PersistentEvent 将集群内事件导出到您自有的存储端。
 
 ## 限制条件
 - 安装 PersistentEvent 将占用集群0.2核 CPU 以及100MB内存的资源。
-- 仅支持 1.8 版本以上的 Kubernetes 集群。
+- 支持 1.8 版本以上的 Kubernetes 集群。
 
 ## 使用方法
 
@@ -43,12 +43,12 @@ PersistentEvent 支持 [Elasticsearch](https://cloud.tencent.com/document/produc
 
 ### 在 CLS 控制台检索事件
 1. 登录日志服务控制台，选择左侧导航栏中的【[日志集管理](https://console.cloud.tencent.com/cls/logset)】。
-2. 在“日志集管理”页面上方选择 PersistentEvent 所配置日志集所在地域。
+2. 在“日志集管理”页面上方，选择 PersistentEvent 所配置日志集所在地域。
 3. 在日志集列表中单击 PersistentEvent 所配置日志集名称，进入该日志集详情页。如下图所示：
 ![](https://main.qcloudimg.com/raw/adb6166a495c78580a1a2eacf42353cf.png)
 4. 单击 PersistentEvent 所配置的日志集主题所在行右侧的【管理】，进入“日志主题”详情页。
 5. 选择【索引配置】页签，在页面中开启索引配置并单击【保存】，打开日志检索功能。如下图所示：
 ![](https://main.qcloudimg.com/raw/a804577fd5e6d638cd4921f2ce255579.png)
-6. 选择左侧导航栏中的【日志检索】，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务以及期望检索日志的时间段，单击【查询分析】即可查看事件数据。如下图所示：
+6. 选择左侧导航栏中的【日志检索】，并在“日志集”和“日志主题”下拉框中选择 PersistentEvent 所配置的日志服务，以及期望检索日志的时间段，单击【查询分析】即可查看事件数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b30875bb8f4e7bf057291d210dc0d0c.png)
 
