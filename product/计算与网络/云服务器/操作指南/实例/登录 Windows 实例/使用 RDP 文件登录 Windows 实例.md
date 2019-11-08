@@ -74,12 +74,9 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
     3. 其余选项保持默认设置，完成创建连接。
     即可在窗口中查看已成功创建的连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/1c0eff28aa68a7f02e8f295917bb603b.png)
-4. 双击打开新创建的连接，并在弹出的窗口中根据提示，输入云服务器的帐号和密码，单击【Continue】。 
->?
->- 云服务器的帐号默认为 `Administrator`。
->- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
->- 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
->
+4. 双击打开新创建的连接，并在弹出的窗口中根据提示，输入云服务器的帐号和密码，单击【Continue】。
+ - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
+ - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 5. 在弹出的窗口中单击【Continue】确认连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/61b3d9566365183fcc1d92c2f6bc2e7b.png)
 成功连接后将打开 Windows 云服务器界面。如下图所示：
