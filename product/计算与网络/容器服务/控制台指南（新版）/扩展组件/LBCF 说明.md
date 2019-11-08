@@ -51,7 +51,7 @@ LBCF 对系统有以下要求：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方，选择需安装 LBCF 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
-3. 在集群中开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
+3. 开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
 
 
 
@@ -71,7 +71,7 @@ LBCF 对系统有以下要求：
 - 能够校验并拒绝非法参数。
 
 #### 部署 LBCF CLB driver
-1. 部署前需修改 YAML。您可使用 [附录](#other) 中已提供的 `yaml` 文件，并向 `deploy.yaml` 中填入以下信息：
+1. 请使用 [附录](#other) 中提供的 yaml 文件进行部署，部署前需修改 `deploy.yaml` 的以下信息：
 	- 镜像信息
 	- 所在地域
 	- 所在 vpcID，绑定 service NodePort 时用来查找节点对应的 instanceID。
@@ -95,7 +95,7 @@ kubectl apply -f deploy.yaml
 kubectl apply -f service.yaml
 ```
 
-#### 使用示例
+#### 具体示例
 - 使用已有四层 CLB。
 本例中使用了 ID 为 `lb-7wf394rv` 的负载均衡实例，监听器为四层监听器，端口号为20000，协议类型 TCP 。
 >!程序会以**端口号20000，协议类型 TCP** 为条件查询监听器，若不存在，则自动新建。
