@@ -1,4 +1,4 @@
-## PersistentEvent 简介
+## 简介
 
 ### 组件介绍
 
@@ -13,17 +13,17 @@ Kubernetes Events 包括了 Kuberntes 集群的运行和各类资源的调度情
 | -------------------- | ---------- | --------------- | ------------ |
 | tke-persistent-event | deployment | 0.2核CPU，100MB内存 | kube-system  |
 
-## PersistentEvent 使用场景
+## 使用场景
 
 Kubernetes 事件是集群内部资源生命周期、资源调度、异常告警等情况产生的记录，可以通过事件深入了解集群内部发生的事情，例如调度程序做出的决策或者分析某些 pod 从节点中被逐出的原因。
 
 Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。PersistentEvent 提供了将 Kubernetes 事件持久化存储的前置功能，允许您通过 PersistentEvent 将集群内事件导出到您自有的存储端。
 
-## PersistentEvent 限制条件
+## 限制条件
 - 安装 PersistentEvent 将占用集群0.2核 CPU 以及100MB内存的资源。
 - 仅支持 1.8 版本以上的 Kubernetes 集群。
 
-## PersistentEvent 使用方法
+## 使用方法
 
 ### 安装并设置存储端
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
