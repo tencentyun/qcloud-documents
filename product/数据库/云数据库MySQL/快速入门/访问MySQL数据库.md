@@ -58,7 +58,7 @@ mysql -h hostname -P port -u username -p
       - username：替换为外网访问用户名，用于外网访问，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
     2. 在提示`Enter password：`后输入外网访问用户名对应的密码。
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
-4. 在 `MySQL \[(none)]>` 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
+4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
