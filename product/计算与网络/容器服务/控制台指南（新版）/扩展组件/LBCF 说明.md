@@ -34,12 +34,12 @@ LBCF 对 Kubernetes 内部晦涩的运行机制进行了封装并以 Webhook 的
 
 ##  限制条件
 LBCF 对系统有以下要求： 
-- 支持 Kubernetes 1.10 及以上版本。
+- 支持 Kubernetes 1.10 及以上版本的集群。
 - 需开启 Dynamic Admission Control，并在 apiserver 中添加以下启动参数：
 ```
 -enable-admission-plugins=MutatingAdmissionWebhook,ValidatingAdmissionWebhook
 ```
-- Kubernetes 1.10 版本，需在 apiserver 中额外添加以下参数：
+- Kubernetes 1.10 版本，则需在 apiserver 中额外添加以下参数：
 ```
 --feature-gates=CustomResourceSubresources=true
 ```
@@ -47,7 +47,7 @@ LBCF 对系统有以下要求：
 >?推荐您在 [腾讯云容器服务](https://cloud.tencent.com/product/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
 
 ## 使用方法
-### 安装
+### 组件安装
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方，选择需安装 LBCF 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
@@ -66,7 +66,7 @@ LBCF 对系统有以下要求：
 - 使用已有负载均衡。
 - 创建新的负载均衡（四层/七层）。
 - 绑定 Service NodePort。
-- CLB 直通 POD（直接绑定 Pod 至 CLB，不通过 Service）。
+- CLB 直通 Pod（直接绑定 Pod 至 CLB，不通过 Service）。
 - 权重调整。
 - 能够校验并拒绝非法参数。
 
@@ -137,7 +137,7 @@ spec:
     policy: Always
 ```
 - 设定 backend 权重。
-本例展示了 Service NodePort 的绑定。被绑定 Service 的名称为 svc-test，service port 为80（TCP)，绑定到 CLB 的每个`Node:NodePort` 的权重都是 66 。
+本例展示了 Service NodePort 的绑定。被绑定 Service 的名称为 svc-test，service port 为80（TCP），绑定到 CLB 的每个`Node:NodePort` 的权重都是66 。
 ```
 apiVersion: lbcf.tke.cloud.tencent.com/v1beta1
 kind: BackendGroup
