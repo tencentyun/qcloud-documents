@@ -49,7 +49,7 @@ LBCF 对系统有以下要求：
 ## 使用方法
 ### 组件安装
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择需安装 LBCF 地域下的集群，并单击【新建】。如下图所示：
+2. 在“扩展组件”管理页面上方，选择地域及需安装 LBCF 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
 3. 开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
 
@@ -97,8 +97,8 @@ kubectl apply -f service.yaml
 
 #### 具体示例
 - 使用已有四层 CLB。
-本例中使用了 ID 为 `lb-7wf394rv` 的负载均衡实例，监听器为四层监听器，端口号为20000，协议类型 TCP 。
->!程序会以**端口号20000，协议类型 TCP** 为条件查询监听器，若不存在，则自动新建。
+本例中使用了 ID 为 `lb-7wf394rv` 的负载均衡实例，监听器为四层监听器，端口号为20000，协议类型 TCP。
+>!程序会以**端口号20000，协议类型 TCP** 为条件查询监听器，若不存在，将自动新建。
 >
 ```
 apiVersion: lbcf.tke.cloud.tencent.com/v1beta1
@@ -137,7 +137,7 @@ spec:
     policy: Always
 ```
 - 设定 backend 权重。
-本例展示了 Service NodePort 的绑定。被绑定 Service 的名称为 svc-test，service port 为80（TCP），绑定到 CLB 的每个`Node:NodePort` 的权重都是66 。
+本例展示了 Service NodePort 的绑定。被绑定 Service 的名称为 svc-test，service port 为80（TCP），绑定到 CLB 的每个`Node:NodePort` 的权重都是66。
 ```
 apiVersion: lbcf.tke.cloud.tencent.com/v1beta1
 kind: BackendGroup
