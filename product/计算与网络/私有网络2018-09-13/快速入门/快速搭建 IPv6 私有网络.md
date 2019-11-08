@@ -22,7 +22,7 @@
 ### 步骤2：为子网分配 IPv6 CIDR
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在需要开启 IPv6 的子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作，系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
-![](https://main.qcloudimg.com/raw/8f9eb15cc6ad71594551fe8f501d3c75.png)
+![](https://main.qcloudimg.com/raw/d3d8fcaa9c336dac11485d5f7ed95a92.png)
 
 ### 步骤3：弹性网卡获取 IPv6 地址
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
@@ -38,7 +38,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】，为 IPv6 开启公网并设置公网带宽。
 3. 单击操作栏下的【调整带宽】。
-![](https://main.qcloudimg.com/raw/9007bdd4fa3ca305e4654ada454d767f.png)
+![](https://main.qcloudimg.com/raw/dca3e6d40d5480793fffc2d8bcc042bf.png)
 4. 在弹框中设置公网带宽并单击【调整】。
 >?如果带宽设置不为0，则开通公网；如果带宽设置为0，则关闭公网。
 >
