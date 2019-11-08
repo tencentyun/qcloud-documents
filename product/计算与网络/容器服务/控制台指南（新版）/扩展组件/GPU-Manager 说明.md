@@ -3,7 +3,7 @@
 
 ### 组件介绍
 
-GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernets DevicePlugin 插件系统实现，该管理器提供了分配并共享 GPU、GPU 指标查询、容器运行前的 GPU 相关设备准备等功能，支持用户在 Kubernetes 集群中使用 GPU 设备。
+GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes DevicePlugin 插件系统实现，该管理器提供了分配并共享 GPU、GPU 指标查询、容器运行前的 GPU 相关设备准备等功能，支持用户在 Kubernetes 集群中使用 GPU 设备。
 
 管理器包含如下功能：
 - **拓扑分配**：提供基于 GPU 拓扑分配功能，当用户分配超过1张 GPU 卡的的应用，可以选择拓扑连接最快的方式分配 GPU 设备。
@@ -12,9 +12,9 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernets DeviceP
 
 ### 部署在集群内的 kubernetes 对象
 
-在集群内部署 GPU-Manager Add-on，将在集群内部署以下 Kubernets 对象
+在集群内部署 GPU-Manager Add-on，将在集群内部署以下 Kubernetes 对象：
 
-| Kubernets 对象名称        | 类型         | 默认占用资源 | 所属 Namespaces |
+| Kubernetes 对象名称        | 类型         | 默认占用资源 | 所属 Namespaces |
 | --------------------- | ---------- | ------ | ------------ |
 | gpu-manager-daemonset | DaemonSet  | /      | kube-system  |
 | gpu-quota-admission   | Deployment | /      | kube-system  |
