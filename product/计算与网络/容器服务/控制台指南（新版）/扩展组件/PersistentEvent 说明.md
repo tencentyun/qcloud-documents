@@ -27,7 +27,7 @@ Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。而 Persiste
 
 ### 安装并设置存储端
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择需安装 PersistentEvent 的集群，并单击【新建】。如下图所示：
+2. 在“扩展组件”管理页面上方，选择需安装 PersistentEvent 地域下的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d087e46c782e0fe391bb0abd7d2af71d.png)
 3. 在“新建扩展组件”页面，选择【PersistentEvent 组件】并配置事件持久化存储端，单击【完成】即可安装成功。
 PersistentEvent 支持 [Elasticsearch](https://cloud.tencent.com/document/product/845/16478) 及 [日志服务 CLS](https://cloud.tencent.com/document/product/614/11254) 两种存储端选择，推荐使用日志服务 CLS。您可根据实际情况进行选择，本文以日志服务 CLS 为例。
