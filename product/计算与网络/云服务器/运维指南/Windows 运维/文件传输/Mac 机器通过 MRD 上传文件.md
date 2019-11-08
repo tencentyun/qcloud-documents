@@ -23,7 +23,7 @@ Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac �
   2. 单击【Folders】切换到选择文件夹列表。
   3. 单击左下角的<img src="https://main.qcloudimg.com/raw/89e7a3ff040849307cd1eb8bd878a2db.png" style="margin:-3px 0px">，并在弹出窗口中选择需上传的文件夹。
   4. 完成选择后，可查看需上传文件夹列表，并单击【Add】确认创建。
-3.  其余选项保持默认设置，完成创建连接。
+  5. 其余选项保持默认设置，完成创建连接。
 即可在窗口中查看已成功创建的连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/1c0eff28aa68a7f02e8f295917bb603b.png)
 4. 双击打开新创建的连接，并在弹出的窗口中根据提示，输入云服务器的帐号和密码，单击【Continue】。
