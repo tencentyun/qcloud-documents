@@ -24,7 +24,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 在 Kubernetes 集群中运行 GPU 应用时，可以解决 AI 训练等场景中申请独立卡造成资源浪费的情况，让计算资源得到充分利用。
 
 ## 限制条件
-- 该组件基于 Kubernetes DevicePlugin 实现，可直接在 Kubernets 1.10 以上版本的集群使用。
+- 该组件基于 Kubernetes DevicePlugin 实现，可直接在 Kubernetes 1.10 以上版本的集群使用。
 -  每张 GPU 卡一共有100个单位的资源，仅支持0 - 1的小数卡，以及1的倍数的整数卡设置。显存资源是以256MiB为最小的一个单位的分配显存。
 - 使用 GPU-Manager 要求集群内包含 GPU 机型节点。
 
