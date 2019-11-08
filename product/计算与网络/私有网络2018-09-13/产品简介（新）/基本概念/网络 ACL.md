@@ -1,5 +1,5 @@
 网络访问控制列表（Access Control List，ACL）是一种子网级别的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。
-![](https://main.qcloudimg.com/raw/b052c7dccae49ab19702f1414b4ebb42.png)
+![](https://main.qcloudimg.com/raw/ece35157aa40118a18adb1a4885c14ce.png)
 
 ## 使用场景
 您可以为具有相同网络流量控制的子网关联同一个网络 ACL，通过设置出站和入站规则，对进出子网的流量进行精确控制。
