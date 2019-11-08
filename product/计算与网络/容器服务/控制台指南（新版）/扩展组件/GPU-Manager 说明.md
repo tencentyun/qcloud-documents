@@ -5,7 +5,7 @@
 
 GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes DevicePlugin 插件系统实现，该管理器提供了分配并共享 GPU、GPU 指标查询、容器运行前的 GPU 相关设备准备等功能，支持用户在 Kubernetes 集群中使用 GPU 设备。
 
-管理器包含如下功能：
+### 组件功能
 - **拓扑分配**：提供基于 GPU 拓扑分配功能，当用户分配超过1张 GPU 卡的的应用，可以选择拓扑连接最快的方式分配 GPU 设备。
 - **GPU 共享**：允许用户提交小于1张卡资源的的任务，并提供 QoS 保证。
 - **应用 GPU 指标的查询**：用户可以访问主机的端口（默认为 5678）的 `/metrics` 路径，可以为 Prometheus 提供 GPU 指标的收集功能， `/usage` 路径可以提供可读性的容器状况查询。
@@ -30,9 +30,9 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 
 ## 使用方法
 
-### 安装
+### 组件安装
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择需安装 GPU-Manage 的集群，并单击【新建】。如下图所示：
+2. 在“扩展组件”管理页面上方，选择地域及需安装 GPU-Manage 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d087e46c782e0fe391bb0abd7d2af71d.png)
 3. 在“新建扩展组件”页面，选择【GpuManagerr 组件】后，单击【完成】即可安装成功。
 
