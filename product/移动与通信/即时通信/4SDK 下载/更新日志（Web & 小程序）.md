@@ -1,6 +1,6 @@
 ### 2.1.4 @2019.11.7
 **变更**
-- SDK API 返回的 `Promise` 状态是 `rejected` 时，SDK 不再派发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) 事件。
+- SDK API 返回的`Promise`状态是`rejected`时，SDK 不再派发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) 事件。
 - 自己的 Profile（资料）有更新时，立即写入本地缓存。
 
 **修复**
