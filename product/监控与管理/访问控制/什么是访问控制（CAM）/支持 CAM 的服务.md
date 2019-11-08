@@ -256,6 +256,7 @@
 | -------------------------------------------------------- | ------ | -------- | ------- | ---- |	---- |	
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | &#10003;   | -  |  &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/634/14441)  |
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | &#10003;   | -  |  - | -  |
+| [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023)   | 服务级 | &#10003;  | -  |  -  | -  |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | &#10003;  | -  |  -  | -  |
 
 ## 区块链	
