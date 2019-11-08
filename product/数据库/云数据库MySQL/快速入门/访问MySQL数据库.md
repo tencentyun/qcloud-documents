@@ -33,12 +33,11 @@
 
 ## 从 Linux 系统登录 
 1. 登录到 Linux 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。
-1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
-执行以下命令安装 MySQL 客户端：
+1. 以 CentOS 7.2 64 位系统的 CVM 为例，执行以下命令安装 MySQL 客户端：
 ```
 yum install mysql
 ```
-提示 Complete! 说明 MySQL 客户端安装完成。
+提示`Complete!`说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/907e047fed90f6cf68752fb386382927.png)
 2. 根据访问方式选择执行以下操作：
  - **内网访问时：**
