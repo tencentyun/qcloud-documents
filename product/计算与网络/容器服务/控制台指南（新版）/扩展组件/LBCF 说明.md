@@ -75,8 +75,7 @@ LBCF 对系统有以下要求：
 	- 镜像信息
 	- 所在地域
 	- 所在 vpcID，绑定 service NodePort 时用来查找节点对应的 instanceID。
-	- secret-id
-	- secret-key
+	- secret-id 及 secret-key，可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
 ```
     spec:
       priorityClassName: "system-node-critical"
