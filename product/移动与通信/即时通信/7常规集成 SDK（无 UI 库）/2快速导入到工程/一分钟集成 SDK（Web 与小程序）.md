@@ -75,8 +75,8 @@ var tim = TIM.create(options);
 |:-------:|---------|----|
 |`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
 |`https://yun.tim.qq.com` | Web IM 业务域名 | 必须|
-|`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
 |`https://events.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
 
 将以下域名添加到 **uploadFile 合法域名**：
 
