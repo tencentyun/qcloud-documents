@@ -4,7 +4,7 @@
 - 自己的 Profile（资料）有更新时，立即写入本地缓存。
 
 **修复**
-- Angular 框架集成 SDK 报错。
+- Angular 框架的 zone.js 修改原型链导致集成 SDK 出错。
 - 群主创建 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组并加入，无法收到消息。
 - 群组列表过大导致的初始化出错。
 
