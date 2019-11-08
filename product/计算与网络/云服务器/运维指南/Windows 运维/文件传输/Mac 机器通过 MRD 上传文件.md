@@ -36,7 +36,7 @@ Microsoft Remote Desktop（以下简称 MRD） 是微软推出的适用于 Mac �
 ![](https://main.qcloudimg.com/raw/61b3d9566365183fcc1d92c2f6bc2e7b.png)
 成功连接后将打开 Windows 云服务器界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
-7. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">>【这台电脑】，即可看到已共享的文件夹。如下图所示：
+7. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> >【这台电脑】，即可看到已共享的文件夹。如下图所示：
 ![](https://main.qcloudimg.com/raw/b6a9fc9ef75131fab3549533187d24e3.png)
 8. 双击打开文件夹，并将需要上传的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
 例如，将文件夹中的 A 文件复制到 Windows 云服务器的 C: 盘中。
