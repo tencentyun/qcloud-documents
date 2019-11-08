@@ -36,9 +36,13 @@ LBCF 对 Kubernetes 内部晦涩的运行机制进行了封装并以 Webhook 的
 LBCF 对系统有以下要求： 
 - 支持 Kubernetes 1.10 及以上版本。
 - 需开启 Dynamic Admission Control，并在 apiserver 中添加以下启动参数：
- `-enable-admission-plugins=MutatingAdmissionWebhook,ValidatingAdmissionWebhook`
-- K8S 1.10 版本，需在 apiserver 中额外添加以下参数：
-  `--feature-gates=CustomResourceSubresources=true`
+```
+-enable-admission-plugins=MutatingAdmissionWebhook,ValidatingAdmissionWebhook
+```
+- Kubernetes 1.10 版本，需在 apiserver 中额外添加以下参数：
+```
+--feature-gates=CustomResourceSubresources=true
+```
 
 >?推荐您在 [腾讯云容器服务](https://cloud.tencent.com/product/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
 
@@ -47,7 +51,7 @@ LBCF 对系统有以下要求：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方，选择需安装 LBCF 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
-3. 在集群中开发或选择安装 LBCF Webhook 规范的要求，实现 Webhook 服务器。
+3. 在集群中开发或选择安装 LBCF Webhook 规范，实现 Webhook 服务器。
 
 
 
@@ -202,7 +206,7 @@ data:
     -----END CERTIFICATE-----
 ```
 
-#### Deployment
+#### Deploy
 ```yaml
 apiVersion: lbcf.tke.cloud.tencent.com/v1beta1
 kind: LoadBalancerDriver
