@@ -41,6 +41,7 @@
 
 
 ### Yaml 创建并使用 GameApp 工作负载
+#### 创建
 1. 创建  `GameApp`  资源时，指定需注入的 env，并指定更新策略为原地更新。yaml 文件内容如下所示：
 ```
 apiVersion: game.scr.ied.com/v1
@@ -85,7 +86,9 @@ spec:
   updateStrategy:
     type: StableUpdate # 指定策略为原地更新
 ```
-2. 执行以下命令，设置升级镜像和一次性参数。
+
+#### 使用
+1. <span id="step1"></span>执行以下命令，设置升级镜像和一次性参数。
 ```
 $ cat example/patch.yaml
 template:
@@ -98,17 +101,18 @@ template:
       name: c1
 $ kubectl patch gameapp test-gameapp --patch "$(cat patch.yaml)"
 ```
-
-3. 执行以下命令，验证 env 是否注入成功。
+2. 执行以下命令，验证 env 是否注入成功。
 ```
 kubectl exec test-gameapp-1 printenv clearSHM
 true
 ```
-4. 执行以下命令，设置升级镜像。
+执行结果返回 [步骤1](#step1) 中所设置的参数，则说明 env 注入成功。
+4. 执行以下命令，仅设置升级镜像。
 ```
 kubectl patch gameapp test-gameapp --type=json -p'[{"op":"replace","path":"/spec/template/spec/containers/0/image","value":"nginx:1.14"}]'
 ```
-5. 执行以下命令，查看是否无 env 注入。
+5. 再次执行以下命令，查看是否无 env 注入。
 ```
 kubectl exec test-gameapp-1 printenv clearSHM
 ```
+无返回值，则说明无 env 注入。
