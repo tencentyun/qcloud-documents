@@ -1,4 +1,8 @@
-![](https://main.qcloudimg.com/raw/d643781693d27439ad67048dd369f981.jpg)
+本文主要介绍如何从零开始，以最简单的方式搭建一个 Linux 云服务器。
+
+如果您之前没有搭建云服务器的经验，建议您按照本文介绍的方式来购买和配置您的第一台云服务器。
+
+云服务器按照系统的版本可以分为 Windows 云服务器和 Linux 云服务器，如果您想了解如何从零开始搭建一台 Windows 云服务器，可以参考 (零基础配置 Windows 云服务器)[https://cloud.tencent.com/document/product/213/2936]。
 
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
@@ -35,15 +39,13 @@
 
 ## 步骤四：使用云服务器
 当您登录云服务器后，即可在云服务器上进行您所需要的操作。常用的任务包括：
-- 将您本地的文件上传到云服务器上。
-- 在云服务器上搭建网站。
-- 在云服务器上安装软件。
+- [将您本地的文件上传到云服务器上](https://cloud.tencent.com/document/product/213/38221)。
+- [在云服务器上搭建网站](https://cloud.tencent.com/document/product/213/38248)。
 
 您可以根据需要，按照文档指引进行下一步操作。
 
 ## 出现问题？
 非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 以下是其他用户在使用云服务器的时出现的常见问题，建议您可以先参考文档进行问题定位和解决。
-- 用户注册不成功？ 
-- 忘记云服务器登录密码？
-- 登录不成功？如何定位问题？
+- 忘记云服务器登录密码？请参考 [重置密码](https://cloud.tencent.com/document/product/213/16566)。
+- 登录不成功？如何定位问题？请参考 [无法登录 Linux 实例](https://cloud.tencent.com/document/product/213/35574)
