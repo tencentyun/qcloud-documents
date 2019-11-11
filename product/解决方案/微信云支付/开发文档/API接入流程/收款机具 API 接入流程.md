@@ -148,7 +148,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 ![](https://main.qcloudimg.com/raw/ad059b755101589a7d3b9920879bd45c.png)
 刷卡支付接口：`https://pay.qcloud.com/cpay/brief_micro_pay`，详见 [9.6 刷卡支付](#9.6-.E5.88.B7.E5.8D.A1.E6.94.AF.E4.BB.98)。
 查询订单接口：`https://pay.qcloud.com/cpay/brief_query_order`，详见 [9.7 查询支付单](#9.7-.E6.9F.A5.E8.AF.A2.E6.94.AF.E4.BB.98.E5.8D.95)。
-- 支付方式：微信支付、支付宝支付、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
+- 支付方式：微信支付、支付宝支付（配置方法详见 [支付宝子商户配置](https://cloud.tencent.com/document/product/569/35716)）、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
 - 支付未知：网络请求超时和业务上的结果未知，详见 [9.11 其它消息体说明](#9.11-.E5.85.B6.E5.AE.83.E6.B6.88.E6.81.AF.E4.BD.93.E8.AF.B4.E6.98.8E) 中 Status 的说明。
 - 接口返回 status 为0，只表示业务请求成功。订单的支付结果需通过订单的状态（即应答中的 cts 字段）来判断。
 - 每次接口调用成功后等待2秒再查单，如果2分钟内查询不到结果，请到手机端管理系统查看交易明细确认支付结果。
@@ -1580,10 +1580,6 @@ return w.write(request);
 | 3      | 退款失败。     |
 | 4      | 退款处理中。   |
 | 5      | 订单不存在。   |
-
- 
-
- 
 
 
 ##  10 加解密相关说明

@@ -60,13 +60,24 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
  
 ###  MacOS 系统使用 RDP 登录
 
->? 以下操作以 Microsoft Remote Desktop for Mac 为例。该客户端为测试版客户端，由微软官方维护，推荐您优先使用此版本客户端。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。
+>?
+>- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。
+>- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。
 >
-1. 下载 [Microsoft Remote Desktop for Mac](https://rink.hockeyapp.net/apps/5e0c144289a51fca2d3bfa39ce7f2b06/)。
-2. 打开客户端工具，单击【Add Deskop】。如下图所示：
-![](https://main.qcloudimg.com/raw/d310a22009134182def49929625e6f1d.png)
-3. 在弹出的对话框中，输入 Windows 实例的公网 IP，单击【Add】，添加远程桌面。如下图所示：
-![](https://main.qcloudimg.com/raw/57d7f343e8d52d9365fcd4f4ada5d090.png)
-4. 双击打开新添加的远程桌面，输入实例的管理员帐号和对应的密码，远程连接到 Windows 云服务器。
+1. 下载 [Microsoft Remote Desktop for Mac](https://www.techspot.com/downloads/4698-microsoft-remote-desktop-for-mac.html) 并在本地进行安装。
+2. 启动 MRD，并单击【Add Desktop】。如下图所示：
+![](https://main.qcloudimg.com/raw/e69528d10e9a17dfa26119a090766c49.png)
+3. 弹出的 “Add Desktop” 窗口，按以下步骤创建连接。如下图所示：
+![](https://main.qcloudimg.com/raw/d8e20278dd7c8aed487be2c43986f5e4.png)
+    1. 在 “PC name” 处输入云服务器公网 IP。
+    2. 单击【Add】确认创建 。
+    3. 其余选项保持默认设置，完成创建连接。
+    即可在窗口中查看已成功创建的连接。如下图所示：
+![](https://main.qcloudimg.com/raw/1c0eff28aa68a7f02e8f295917bb603b.png)
+4. 双击打开新创建的连接，并在弹出的窗口中根据提示，输入云服务器的帐号和密码，单击【Continue】。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+5. 在弹出的窗口中单击【Continue】确认连接。如下图所示：
+![](https://main.qcloudimg.com/raw/61b3d9566365183fcc1d92c2f6bc2e7b.png)
+成功连接后将打开 Windows 云服务器界面。如下图所示：
+![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)

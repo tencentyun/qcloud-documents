@@ -16,7 +16,7 @@
 >
 1. 在实例的管理页面，单击【新建】。
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：
-![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
+![](https://main.qcloudimg.com/raw/3c558a8a9b03162bafe4700dce1591f5.png)
 3. 在弹出的【选择镜像】对话框中，选择【建站系统】>【Discuz X3.4 论坛系统】，单击【免费使用】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f9f7252f81bbb0e50b71fa89024c9ba3.png)
 更多此镜像详细信息，请参考 [镜像手册](http://www.websoft9.com/xdocs/discuz-image-guide)。

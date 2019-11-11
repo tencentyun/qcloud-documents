@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.1.2.1-release' //  TPNS 推送
+    implementation 'com.tencent.tpns:tpns:1.1.3.0-release' //  TPNS 推送
 
 }
 ```
@@ -61,7 +61,10 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             </intent-filter>
         </receiver>
     ```
-
+- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 
 
@@ -102,7 +105,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```xml
 <application>
     <!-- 应用的其它配置 -->
-
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
     <!-- 【必须】 腾讯移动推送默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">

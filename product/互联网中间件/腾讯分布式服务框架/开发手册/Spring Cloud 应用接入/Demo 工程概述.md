@@ -70,7 +70,7 @@ pom.xml 中定义了工程需要的依赖包（以下以基于 Spring Cloud Finc
 </parent>
 ```
 
-关于 Maven 环境安装以及 TSF SDK 下载，请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 更新日志](https://cloud.tencent.com/document/product/649/20230) 。
+关于 Maven 环境安装以及 TSF SDK 下载，请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231) 和 [SDK 更新日志](https://cloud.tencent.com/document/product/649/38983) 。
 
 ## Demo 功能
 
