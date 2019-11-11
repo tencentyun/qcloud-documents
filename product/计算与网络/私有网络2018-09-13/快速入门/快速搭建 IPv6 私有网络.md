@@ -34,7 +34,7 @@
 5. 系统将会为弹性网卡分配一个 IPv6 地址，如下图所示。
 ![](https://main.qcloudimg.com/raw/309e8e9d70b69ddb4c70a0ead71f7862.png)
 
-### 步骤4：为弹性网卡的 IPv6 开启公网
+### 步骤4：为弹性网卡的 IPv6 地址开启公网
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】，为 IPv6 开启公网并设置公网带宽。
 3. 单击操作栏下的【调整带宽】。
