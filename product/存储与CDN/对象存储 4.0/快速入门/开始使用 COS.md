@@ -1,5 +1,6 @@
 
-![](https://main.qcloudimg.com/raw/7ee5f9a40ef58f2f72e1bdc93ad5c62e.png)
+
+![](https://main.qcloudimg.com/raw/2e2e5e740db941c3c41b3299d13e2075.jpg)
 
 
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
