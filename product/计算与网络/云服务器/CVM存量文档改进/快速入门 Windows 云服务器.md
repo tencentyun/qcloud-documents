@@ -1,4 +1,4 @@
-![](https://main.qcloudimg.com/raw/1b9e4d10e9f2863e4eef8a901c5b4a6d.png)
+![](https://main.qcloudimg.com/raw/0eceff71e9ec1aca46a8154025802bee.png)
 
 
 ## 步骤一：注册腾讯云账号
