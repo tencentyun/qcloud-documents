@@ -2,7 +2,7 @@
 
 如果您之前没有搭建云服务器的经验，建议您按照本文介绍的方式来购买和配置您的第一台云服务器。
 
-云服务器按照系统的版本可以分为 Windows 云服务器和 Linux 云服务器，如果您想了解如何从零开始搭建一台 Windows 云服务器，可以参考 (零基础配置 Windows 云服务器)[https://cloud.tencent.com/document/product/213/2936]。
+云服务器按照系统的版本可以分为 Windows 云服务器和 Linux 云服务器，如果您想了解如何从零开始搭建一台 Windows 云服务器，可以参考 [零基础配置 Windows 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 步骤一：注册腾讯云账号
 如果已在腾讯云注册，可忽略此步骤。
