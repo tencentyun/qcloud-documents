@@ -5,7 +5,7 @@
 Kubernetes Events 包括了 Kubernetes 集群的运行和各类资源的调度情况，对维护人员日常观察资源的变更以及定位问题均有帮助。TKE 支持为您的所有集群配置事件持久化功能，开启本功能后，会将您的集群事件实时导出到配置的存储端。TKE 还支持使用腾讯云提供的 PAAS 服务或开源软件对事件流水进行检索。
 
 
-### 部署在集群内 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 Kubernetes 对象：
 
