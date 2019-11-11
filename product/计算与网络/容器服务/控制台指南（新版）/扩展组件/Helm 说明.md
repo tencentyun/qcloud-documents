@@ -4,7 +4,7 @@
 
 Helm 是管理 Kubernetes 应用程序的打包工具，详情请参见 [Helm 官网文档](https://helm.sh/)。TKE 集成 Helm 相关功能，提供了 Helm Chart 在指定集群内图形化的增删改查功能。
 
-### 部署在集群内 Kubernetes 对象
+### 部署在集群内的 Kubernetes 对象
 
 在集群内部署 Helm Add-on，将在集群内部署以下 Kubernetes 对象：
 
