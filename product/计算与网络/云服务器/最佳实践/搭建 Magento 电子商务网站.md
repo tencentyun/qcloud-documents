@@ -40,7 +40,7 @@ http://云服务器实例的公网 IP/phpmyadmin
 5. <span id="password"></span>在弹出的“修改密码”窗口中，选择自行设置或自动生成密码，并单击【执行】。如下图所示：
 >?本文使用自动生成密码，请记录您的数据库密码。
 >
-![](https://main.qcloudimg.com/raw/287a33f4b12b74a4c12d655096addc09.png)
+![](https://main.qcloudimg.com/raw/f7f4e146148fb8e3c6866ff996fce235.png)
 
 ### 步骤三：配置 Magento 客户端
 1. 在本地浏览器访问以下地址，进入 Magento 配置页面。
