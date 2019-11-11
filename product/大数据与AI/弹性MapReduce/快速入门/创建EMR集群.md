@@ -12,7 +12,7 @@
 - **版本和组件**：EMR 推荐了一些常用的 Hadoop 软件搭配，您也可以根据自身需求组合各软件。
 -  **[Kerberos 安全集群](https://cloud.tencent.com/document/product/589/35064)**：是否开启集群的 Kerberos 认证功能。一般的个人用户集群无需该功能，默认关闭。
 -  **[软件配置](https://cloud.tencent.com/document/product/589/35655)**：按照要求填写参数可实现自定义软件参数创建集群，同时兼容访问外部集群功能，在参数中正确配置访问地址信息即可读写外部集群的数据。
-![](https://main.qcloudimg.com/raw/dba21d539245584c4b1f148d4c68b1cf.jpg)
+![](https://main.qcloudimg.com/raw/0ccef784955c234cd7c0c5ded53d6493.png)
 单击软件配置处图标可查看相关说明。
 ![](https://main.qcloudimg.com/raw/194bd7106075245323c0c0fe50aeadbc.png)
 
@@ -23,8 +23,11 @@
 
 - **集群网络**：为保证 EMR 集群的安全性，我们将集群各节点放入了一个私有网络中，您需要设置一个私有网络以保证 EMR 集群的正确创建。
 ![](https://main.qcloudimg.com/raw/fa7221add4f199412f2cf9534c2d3abb.png)
-Core节点支持挂载多云盘
+Core 节点支持挂载多云盘。
 ![](https://main.qcloudimg.com/raw/a6082dbe259f3b1aa18d597b1a9bd203.png)
+- **标签**：您在创建时对集群或节点资源添加标签，以便于管理集群和节点资源，最多可绑定5条，标签键不可重复。
+![](https://main.qcloudimg.com/raw/a12d54893fde4a03cc1d91caa866b0d4.png)
+
 
 ### 3. 基础配置
 - **集群名称**：通过设置集群名称，来区分不同的 EMR 集群。
