@@ -2,7 +2,7 @@
 
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器或者弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
 ## 操作场景
-1. 云服务器启用 IPv6，和 VPC 内其他云服务器进行 IPv6 内网互通。
+1. 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
 2. 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
 ![](https://main.qcloudimg.com/raw/245f8acb1bea7b002035193b089bf1b7.png)
 
