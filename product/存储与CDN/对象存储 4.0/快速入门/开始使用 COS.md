@@ -1,9 +1,9 @@
+![](https://main.qcloudimg.com/raw/7fb64375ab03006abac7c74b8002b5bb.jpg)
+
 
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作流程如下：
-
-
 
 
 
@@ -37,8 +37,8 @@
 
 ## 步骤5：下载对象
 1. 在 exampleobjext.txt 右侧，单击【详情】，进入对象属性页。
-2. 在【基本信息】配置项中，单击【复制临时链接】。
-3. 将临时链接粘贴至浏览器地址栏，回车即可下载该对象。
+2. 在【基本信息】配置项中，单击【下载对象】即可下载，或单击【复制临时链接】，将链接粘贴至浏览器地址栏，回车即可下载该对象。
+
 
 
 
@@ -46,5 +46,7 @@
 
 非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。以下也是用户在使用云服务器的时出现的常见问题，建议您可以先参考文档进行问题定位和解决。
 
+
+[如何使文件直接在浏览器中下载，而不是预览？](https://cloud.tencent.com/document/product/436/30740#.E5.A6.82.E4.BD.95.E4.BD.BF.E6.96.87.E4.BB.B6.E7.9B.B4.E6.8E.A5.E5.9C.A8.E6.B5.8F.E8.A7.88.E5.99.A8.E4.B8.AD.E4.B8.8B.E8.BD.BD.EF.BC.8C.E8.80.8C.E4.B8.8D.E6.98.AF.E9.A2.84.E8.A7.88.EF.BC.9F)
 
 
