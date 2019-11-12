@@ -39,7 +39,7 @@ make install
 rdesktop
 ```
 
-### 指定共享文件夹
+### 上传文件
 1. 执行以下命令，指定共享给云服务器的文件夹。
 ```
 rdesktop 云服务器公网IP  -u 云服务器帐号 -p 云服务器登录密码 -r disk:指定共享文件夹名=本地文件夹路径
@@ -56,9 +56,7 @@ rdesktop 118.xx.248.xxx  -u Administrator -p 12345678 -r disk:share=/home
 成功共享后将打开 Windows 云服务器界面。
 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > 【这台电脑】，您可在云服务器系统界面查看已共享的文件夹。如下图所示：
 ![](https://main.qcloudimg.com/raw/85bbb5408d198b3ee2efc52cee86a639.png)
-
-### 上传文件
-双击打开共享文件夹，并将需要上传的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
+2. 双击打开共享文件夹，并将需要上传的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
 例如，将 `share` 文件夹中的 A 文件复制到 Windows 云服务器的 C: 盘中。
 
 ### 下载文件
