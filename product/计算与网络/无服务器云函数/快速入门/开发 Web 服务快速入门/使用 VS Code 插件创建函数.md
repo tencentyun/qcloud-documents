@@ -27,8 +27,8 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 1. 运行 VS Code IDE。
 2. 打开 VS Code 插件市场。
 3. 在搜索框中输入 “Tencent Serverless”，单击搜索框下方列表中的 Tencent Serverless 插件查看详情并选择【install】。如下图所示：      
-![](https://main.qcloudimg.com/raw/4d629d80bb03d4957213af44a4fb524c.png)    
-安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
+    ![](https://main.qcloudimg.com/raw/4d629d80bb03d4957213af44a4fb524c.png)    
+    安装完成后，左侧栏中会展示已安装完毕的 Tencent Serverless 插件。
 
 
 ### 配置插件
@@ -73,9 +73,34 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 >
 ![](https://main.qcloudimg.com/raw/23bd4100d4d720ab189d8c504f2cc4cd.png)
 
+
+
+### 断点调试
+
+#### 设置断点
+针对 Python 函数，可以在 VS Code 插件进行本地调试。
+>?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python) 。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里 [设置 Python path](#pythonpath)。
+>
+单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/063fc1d0d23c25144d8bd883a3a89185.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：  
+![](https://main.qcloudimg.com/raw/7bde25c17fe9c35d25ef6126a736a2bc.png)
+
+#### 设置调试模版
+单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/e2e619960ca0f19d1a6fd7ab1136ae8c.png" style="margin:-3px 0;">，进入调试页面（或 ctrl+shift+D）。新建调试配置文件，**并选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）**。如下图所示：
+>!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。     
+>
+![](https://main.qcloudimg.com/raw/fb49c3724b406f4ae15b7480d61580b9.png) 
+
+
+#### 开始调试
+单击<img src="https://main.qcloudimg.com/raw/fa6357932d0b31898ede19d74f129fb5.png" style="margin:-3px 0;">，即可看到调试信息。如下图所示：  
+>?目前插件是对当前工作区打开的函数文件进行调试，为保障调试正常进行，您需要确保目标函数文件已经当前窗口打开。
+>
+![](https://main.qcloudimg.com/raw/30ae89b7e45482253cc9ffa29973f67b.png)
+
 ### 部署函数（含配置触发器）
+
 1. 修改模板文件，配置触发器。
-由于我们的函数是基于 API 网关触发，所以需要在模板文件里（template.yaml）添加 API 网关触发事件。完整 `template.yaml` 如下：
+    由于我们的函数是基于 API 网关触发，所以需要在模板文件里（template.yaml）添加 API 网关触发事件。完整 `template.yaml` 如下：
 ```yaml
     Resources:
      default:
@@ -106,7 +131,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 2. 进入 Tencent Serverless 插件，单击击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
 >!如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
 >
-![](https://main.qcloudimg.com/raw/15e5a8e036ae36fc23e73980f0c520a1.png)
+![](https://main.qcloudimg.com/raw/15e5a8e036ae36fc23e73980f0c520a1.png)		          
 3. 函数上传完毕，单击云端函数右侧的<img src="https://main.qcloudimg.com/raw/6771f42abb5da560731e246810d71bf7.png" style="margin:-3px 0;">进行刷新，即可查看已上传的函数。（查看区域需切换到上传时选择的区域）如下图所示：   
 ![](https://main.qcloudimg.com/raw/715c67df166846c81321e83b2ade5ebb.png)  
 上传成功之后，可在 VS Code 查看部署详情。如下图所示：  
@@ -120,6 +145,32 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 >- 现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动。
 >- 您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
 
+### 忽略上传
+实际项目中，可以自定义不想上传的文件内容，SCF 插件将会忽略这些内容进行打包上传。
+1. 在代码路径下，新建 `ignore` 文件夹。
+2. 进入 `ignore` 文件夹，新建忽略配置文件 `FUNCTIONNAME.ignore`，并在该文件下描述忽略的内容。
+>?路径规范：以 template.yaml 里的 CodeUri 路径为基准 ，定义想要忽略的内容所在位置。
+>
+如下所示，template.yaml 里定义函数名为 hello，CodeUri 为`./`。
+```yaml
+Resources:
+  default:
+    Type: TencentCloud::Serverless::Namespace
+    hello:
+      Type: TencentCloud::Serverless::Function
+      Properties:
+        CodeUri: ./
+        Type: Event
+        Description: This is a template function
+        Handler: index.main_handler
+        MemorySize: 128
+        Runtime: Python3.6
+        Timeout: 3
+```
+则目录层级及 `HELLO.ignore` 如下图所示：
+![](https://main.qcloudimg.com/raw/1c7a316c1d79215f0594fefc8d03e59e.png)
+完成配置后，最终上传会**忽略 testmodule 目录**和**当前路径下所有 md 文件**。
+
 
 
 
@@ -127,47 +178,35 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 单击左侧列表右侧的<img src="https://main.qcloudimg.com/raw/fef0ef2e04f094c5b3a390e6d78672c0.png" style="margin:-3px 0;">，即可在页面中查看到函数在云端运行的相关信息。如下图所示：    
 ![](https://main.qcloudimg.com/raw/2c7fb7f915028f4187265af6aef44aaf.png)
 
+
+
 ### 更多功能
+
 #### 查看日志
+
 云端调用的日志会输出到 VS Code。如下图所示：  
 ![](https://main.qcloudimg.com/raw/83c56ff1d4e808488cffafea2867f4de.png)  
 您也可以前往控制台打开函数页面选择【运行日志】，查看所有历史日志，详情请参见 [函数日志](https://cloud.tencent.com/document/product/583/36143)。
 
-#### 导入本地  
->?如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数导入到本地。
->
+#### 下载函数
+
+如果您已经在 [云函数控制台](https://console.cloud.tencent.com/scf/list) 创建了函数，则可以在 VS Code 插件里直接将云端函数下载到本地。  
 1. 单击目标云端函数右侧的<img src="https://main.qcloudimg.com/raw/d98f76c38a8805eacb250bf40f00b695.png" style="margin:-3px 0;">，将函数导入到本地。如下图所示：   
-![](https://main.qcloudimg.com/raw/50ede722431a430dc3af2798130d2ad1.png)
-2. 单击右下角弹出框中的【Yes】，导入完成后会自动打开代码工作区。
-3. 在插件页，您也可以单击目标函数右侧的<img src="https://main.qcloudimg.com/raw/451d6f19dd2aa49b1499fd1f760bc6e1.png" style="margin:-3px 0;">，即可打开函数代码编辑视图。如下图所示：  
-![](https://main.qcloudimg.com/raw/81eabf5dae909402b09e6583dbddf78e.png)
+![](https://main.qcloudimg.com/raw/8740a082dc9b0ecd26f7a2d2d35f19ef.png)
+2. 选择函数下载的目标目录，下载完成后您可以选择在本窗口打开函数或者新建窗口打开。
 
 
 
 #### 测试模板
-本地调用时，可根据函数功能选择不同的测试模板，也可以自定义模板。如下图所示：  
-![](https://main.qcloudimg.com/raw/ff6b012bc6a8730704d35dcdc02efba7.png)
-更多测试模版相关内容，详情请参见 [触发器](https://cloud.tencent.com/document/product/583/9705)。
 
-#### 本地调试函数
-针对 Python 函数，可以在 VS Code 插件进行本地调试。
->?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python) 。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里 [设置 Python path](#pythonpath)。
->
-1. 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/063fc1d0d23c25144d8bd883a3a89185.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：  
-![](https://main.qcloudimg.com/raw/7bde25c17fe9c35d25ef6126a736a2bc.png)
-2. 单击左侧列表中的本地函数，打开函数基本信息页面。
-3. 单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/e2e619960ca0f19d1a6fd7ab1136ae8c.png" style="margin:-3px 0;">，进入调试页面（或 ctrl+shift+D）。新建调试配置文件，**并选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）**。如下图所示：
->!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。     
->
-![](https://main.qcloudimg.com/raw/fb49c3724b406f4ae15b7480d61580b9.png) 
-4. 单击<img src="https://main.qcloudimg.com/raw/fa6357932d0b31898ede19d74f129fb5.png" style="margin:-3px 0;">，即可看到调试信息。如下图所示：  
->?目前插件是对当前工作区打开的函数文件进行调试，为保障调试正常进行，您需要确保目标函数文件已经当前窗口打开。
->
-![](https://main.qcloudimg.com/raw/30ae89b7e45482253cc9ffa29973f67b.png)
+本地调用时，可根据函数功能选择不同的测试模板，也可以自定义模板。如下图所示：  
+![](https://main.qcloudimg.com/raw/8f99c4dd067506047368552ee24dc7aa.png)
+更多测试模版相关内容，详情请参见 [触发器](https://cloud.tencent.com/document/product/583/9705)。
 
 
 
 #### 查看监控
+
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏【函数服务】。
 2. 在“函数服务”页面上方选择已创建函数地域，并单击函数 ID。
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
@@ -177,12 +216,13 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 #### 配置告警
+
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：  
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。  
 
-
 ## 常见问题  
+
 安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [欢迎交流](#welcome) 与我们联系。    
 
 ## 相关操作
