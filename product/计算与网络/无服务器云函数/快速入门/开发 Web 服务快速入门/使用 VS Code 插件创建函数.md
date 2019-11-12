@@ -131,9 +131,9 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 2. 进入 Tencent Serverless 插件，单击击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
 >!如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
 >
-![](https://main.qcloudimg.com/raw/15e5a8e036ae36fc23e73980f0c520a1.png)		          
+![](https://main.qcloudimg.com/raw/ead00bf5b5b4d879229badfdd64f9aac.png)         
 3. 函数上传完毕，单击云端函数右侧的<img src="https://main.qcloudimg.com/raw/6771f42abb5da560731e246810d71bf7.png" style="margin:-3px 0;">进行刷新，即可查看已上传的函数。（查看区域需切换到上传时选择的区域）如下图所示：   
-![](https://main.qcloudimg.com/raw/715c67df166846c81321e83b2ade5ebb.png)  
+![](https://main.qcloudimg.com/raw/cd7fe796ea7b986e4bdb1bc3a9f38f70.png)
 上传成功之后，可在 VS Code 查看部署详情。如下图所示：  
 ![](https://main.qcloudimg.com/raw/b2ee7c648a68157d3a5e31c119916ea6.png)  
 您可以将 serviceId 复制到配置文件 template.yaml 中，之后部署就不会再创建新的 API 网关。
