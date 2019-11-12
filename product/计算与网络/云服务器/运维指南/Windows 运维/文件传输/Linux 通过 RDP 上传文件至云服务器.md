@@ -42,7 +42,7 @@ rdesktop
 ### 上传文件
 1. 执行以下命令，指定共享给云服务器的文件夹。
 ```
-rdesktop 云服务器公网IP  -u Administrator -p 云服务器登录密码 -r disk:指定共享文件夹名=本地文件夹路径
+rdesktop 云服务器公网IP  -u 云服务器帐号 -p 云服务器登录密码 -r disk:指定共享文件夹名=本地文件夹路径
 ```
 >?
 >- 云服务器的帐号默认为 `Administrator`。
