@@ -12,9 +12,9 @@
 2. 下载一个标准的 SQL 客户端。
 >?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
 >
-![](https://main.qcloudimg.com/raw/f82d66f0470813c6b972a7d0125043e1.png)
+![](https://main.qcloudimg.com/raw/25e78e6614b2967e8c70140b8849a6d6.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
-![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
+![](https://main.qcloudimg.com/raw/116d799255066bb8aa96d047b5960231.png)
 4. 在此台 CVM 上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
@@ -26,9 +26,9 @@
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
-![](https://main.qcloudimg.com/raw/1a6d56dd633d0329121dceabf9a4db86.png)
+![](https://main.qcloudimg.com/raw/8f2aeea985388e545ccf5da8fec908b7.png)
 6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](https://main.qcloudimg.com/raw/8f02e50fcc9c5c8dff33bcd2a83e3522.png)
+![](https://main.qcloudimg.com/raw/9ec2f9393a3652727acbb8dfc41ad5b7.png)
 
 ## 从 Linux 系统的 CVM 访问
 1. 登录到 Linux 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。
@@ -58,9 +58,8 @@ mysql -h hostname -P port -u username -p
       - port：替换为外网端口号。
       - username：替换为外网访问用户名，用于外网访问，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
     2. 在提示`Enter password：`后输入外网访问用户名对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
+    本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
 ![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
 4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
-
-
