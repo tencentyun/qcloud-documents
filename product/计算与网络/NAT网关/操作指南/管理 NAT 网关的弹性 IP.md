@@ -9,7 +9,7 @@
  单击【绑定弹性 IP】，在下拉框中选择需要绑定的弹性 IP，单击【保存】即可。
  ![](https://main.qcloudimg.com/raw/cf062dfa024c1589c916c1de7fea5296.png)
  - 解绑弹性 IP
- >?至少要保留一个弹性 IP。
+ >?至少要绑定一个弹性 IP。
  >
  在需要解绑的弹性 IP 操作栏中，单击【解绑】即可。
 ![](https://main.qcloudimg.com/raw/890050d5c9bb180ae0b76b15ea218d61.png)
