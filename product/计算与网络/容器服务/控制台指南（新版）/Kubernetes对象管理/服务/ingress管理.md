@@ -4,6 +4,10 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 
 ## Ingress 控制台操作指引
 
+### 注意事项
+- 确保您的容器业务不和 CVM 业务共用一个 CLB。
+- 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器、转发路径、证书和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
+
 ### 创建 Ingress
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
