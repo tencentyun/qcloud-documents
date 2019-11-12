@@ -34,6 +34,7 @@
 - [UCLOUD UFile 迁移](https://cloud.tencent.com/document/product/659/38003)
 - [金山云 KS3 迁移](https://cloud.tencent.com/document/product/659/38007)
 - [百度云 BOS 迁移](https://cloud.tencent.com/document/product/659/38006)
+- [AWS S3 迁移](https://cloud.tencent.com/document/product/659/38799)
 
 #### 操作技巧
 
