@@ -1,5 +1,5 @@
 ### GME 的实时语音服务计费模式有哪些？如何选择？
-实时语音服务支持两种计费模式：按语音 DAU 计费及按语音使用时长计费。详细价格可以进入 [购买指南](https://cloud.tencent.com/document/product/607/17808) 进行查询。
+实时语音服务，普通音质按语音 DAU 计费，高清音质按语音时长计费。更多详情可以进入 [购买指南](https://cloud.tencent.com/document/product/607/17808) 进行查询。
 
 ### GME 的实时语音服务 DAU 怎么计算？
 应用内用户进入房间即算作语音 DAU，语音 DAU 按照 UserId 去重计算（UserId 是应用内用户的唯一标识符，一个用户对应一个 UserId）。
