@@ -18,7 +18,7 @@ Service 支持以下类型：
   - 复用 CLB 的 Service 端口不能冲突
   - 不支持跨集群 Service 复用 CLB
   - 复用 CLB 的 Service 不支持开启 local 访问。
-  - 删除 Service，复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
+  - 删除 Service，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
 
 ### 创建 Service
 
