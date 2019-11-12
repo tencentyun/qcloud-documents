@@ -94,14 +94,12 @@
 	</tr>
 	<tr>
 	<td>Ghost</td>
-	<td><a href="">手动搭建 Ghost</a></td>
+	<td><a href="https://cloud.tencent.com/document/product/213/38620">手动搭建 Ghost</a></td>
 	<td>Ghost 是基于 Node.js 开发的开源博客平台。具备可快速部署，在线出版物流程简化等功能特点，用户可使用 Ghost 快速搭建个人博客。</td>
 	</tr>
 </table>
 
-<style>
-	.params{margin-bottom:0px !important;}
-</style>
+
 
 ## 相关操作
 个人网站需进行域名注册、网站备案、解析等操作后，网站才可在互联网中被外部访问。当您已在云服务器上部署好个人网站，并计划将网站发布到互联网时，请参考 [快速注册域名及实名认证](https://cloud.tencent.com/document/product/242/39039)、[如何快速备案您的网站](https://cloud.tencent.com/document/product/243/39038 ) 准备可用域名。
@@ -111,6 +109,8 @@
 
 
 
-## 遇到问题？
 
+<style>
+	.params{margin-bottom:0px !important;}
+</style>
 
