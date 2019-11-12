@@ -65,9 +65,9 @@ server {
 		#私钥文件名称
         ssl_certificate_key 2_www.domain.com.key; 
         ssl_session_timeout 5m;
-	    #请按照这个协议配置
+	    #请按照以下协议配置
         ssl_protocols TLSv1 TLSv1.1 TLSv1.2; 
-	    #请按照这个套件配置，配置加密套件，写法遵循 openssl 标准。
+	    #请按照以下套件配置，配置加密套件，写法遵循 openssl 标准。
         ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE; 
         ssl_prefer_server_ciphers on;
         location / {
