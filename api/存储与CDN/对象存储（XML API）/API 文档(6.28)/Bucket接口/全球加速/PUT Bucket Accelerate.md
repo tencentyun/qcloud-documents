@@ -40,7 +40,7 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ---------------------------------------------------- | --------- |
 | AccelerateConfiguration | 无                      | 全球加速的具体信息                                   | Container |
 | Status                  | AccelerateConfiguration | 说明全球加速功能是否开启，枚举值：Suspended、Enabled | Enum      |
-| Type                    | AccelerateConfiguration | 指定全球加速功能的类型，枚举值：Suspended、Enabled   | Enum      |
+
 
 ## 响应
 
