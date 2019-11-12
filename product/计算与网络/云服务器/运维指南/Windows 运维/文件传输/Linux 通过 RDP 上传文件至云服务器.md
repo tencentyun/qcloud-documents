@@ -39,7 +39,7 @@ make install
 rdesktop
 ```
 
-### 上传文件
+### 指定共享文件夹
 1. 执行以下命令，指定共享给云服务器的文件夹。
 ```
 rdesktop 云服务器公网IP  -u 云服务器帐号 -p 云服务器登录密码 -r disk:指定共享文件夹名=本地文件夹路径
@@ -49,12 +49,17 @@ rdesktop 云服务器公网IP  -u 云服务器帐号 -p 云服务器登录密码
 >- 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
 >- 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >
-例如，执行以下命令，共享本地计算机的 `/home`  文件夹，并指定共享到服务器的文件夹名为 `share`。
+例如，执行以下命令，将本地计算机的 `/home` 文件夹共享至指定云服务器中，并将共享文件夹重命名为 `share`。
 ```
 rdesktop 118.xx.248.xxx  -u Administrator -p 12345678 -r disk:share=/home
 ```
 成功共享后将打开 Windows 云服务器界面。
-2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > 【这台电脑】，即可看到已共享的文件夹。如下图所示：
+选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > 【这台电脑】，您可在云服务器系统界面查看已共享的文件夹。如下图所示：
 ![](https://main.qcloudimg.com/raw/85bbb5408d198b3ee2efc52cee86a639.png)
-3. 双击打开文件夹，并将需要上传的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
-例如，将文件夹中的 A 文件复制到 Windows 云服务器的 C: 盘中。
+
+### 上传文件
+双击打开共享文件夹，并将需要上传的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
+例如，将 `share` 文件夹中的 A 文件复制到 Windows 云服务器的 C: 盘中。
+
+### 下载文件
+如需将 Windows 云服务器中的文件下载至本地计算机，也可以参照上传文件的操作，将所需文件从 Windows 云服务器中复制到共享文件夹中，即可完成文件下载操作。
