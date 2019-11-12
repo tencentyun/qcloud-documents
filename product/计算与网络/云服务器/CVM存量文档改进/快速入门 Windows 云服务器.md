@@ -40,10 +40,11 @@
 	>! 您可以在 [站内信](https://console.cloud.tencent.com/message) 查找云服务器的初始密码，也可以通过 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 后再登录。
 3. 输入云服务器的用户名和密码，即可正常登录。
 
-## 步骤四：使用云服务器
+## 下一步操作：使用云服务器
+
 当您登录云服务器后，即可在云服务器上进行您所需要的操作。常用的任务包括：
-- [将您本地的文件上传到云服务器上](https://cloud.tencent.com/document/product/213/38221)。
-- [在云服务器上搭建网站](https://cloud.tencent.com/document/product/213/38248)。
+- [将您本地的文件上传到云服务器上](https://cloud.tencent.com/document/product/213/38221)
+- [在云服务器上搭建网站](https://cloud.tencent.com/document/product/213/38248)
 
 您可以根据需要，按照文档指引进行下一步操作。
 
@@ -51,4 +52,3 @@
 非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。以下也是用户在使用云服务器的时出现的常见问题，建议您可以先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？请参考 [重置密码](https://cloud.tencent.com/document/product/213/16566)。
 - 登录不成功？如何定位问题？请参考 [无法登录 Windows 实例](https://cloud.tencent.com/document/product/213/10339)。
-
