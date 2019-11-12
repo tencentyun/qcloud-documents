@@ -11,15 +11,14 @@ Service 支持以下类型：
 
 ### 注意事项
 
-- 建议您的容器业务不要和 CVM 业务共用一个 CLB。
-- 建议您不要在 CLB 控制台直接操作 TKE 自动管理的 CLB。
+- 确保您的容器业务不和 CVM 业务共用一个 CLB。
+- 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
 - 使用已有的 CLB 时：
   - 只能使用通过 CLB 控制台创建的负载均衡器，不支持复用由 TKE 自动创建的 CLB。
   - 复用 CLB 的 Service 端口不能冲突
   - 不支持跨集群 Service 复用 CLB
   - 复用 CLB 的 Service 不支持开启 local 访问。
-  - 删除 Service, 复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx 需自行清理
-- TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
+  - 删除 Service，复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
 
 ### 创建 Service
 
@@ -141,7 +140,7 @@ kubectl create -f Service YAML 文件名称
 例如，创建一个文件名为 my-service.yaml 的 Service YAML 文件，则执行以下命令：
  ```shell
 kubectl create -f my-service.yaml
-```
+ ```
 4. 执行以下命令，验证创建是否成功。
 ```shell
 kubectl get services
