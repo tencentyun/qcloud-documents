@@ -7,10 +7,7 @@ Service 支持以下类型：
 - VPC 内网访问：使用 Service 的 Loadbalance 模式，自动创建内网 CLB。指定 `annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx`，VPC 内网即可通过内网 IP 直接访问到后端的 Pod。
 - 集群内访问：使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。
 
-## Service 控制台操作指引
-
-### 注意事项
-
+## 注意事项<span id="annotations"></span>
 - 确保您的容器业务不和 CVM 业务共用一个 CLB。
 - 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
 - 使用已有的 CLB 时：
@@ -19,6 +16,11 @@ Service 支持以下类型：
   - 不支持跨集群 Service 复用 CLB
   - 复用 CLB 的 Service 不支持开启 local 访问。
   - 删除 Service，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
+
+
+## Service 控制台操作指引
+
+
 
 ### 创建 Service
 
@@ -81,13 +83,8 @@ spec:
 #### annotations: 使用已有负载均衡器创建公网/内网访问的 Service
 
 如果您已有的传统型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，或期望在集群内使用相同的CLB，您可以通过以下 annotations 进行设置：
->! 
-> - 只能使用通过CLB控制台创建的负载均衡器，不支持复用由TKE自动创建的CLB。
-> - 复用CLB的Service端口不能冲突
-> - 不支持跨集群Service复用CLB
-> - 复用CLB的Service不支持开启local访问。
-> - 删除Service, 复用CLB绑定的后端云主机需要自行解绑，同时会保留一个tag tke-clusterId: cls-xxxx 需自行清理。
-
+>?请了解 [注意事项](#annotations) 后开始使用。
+>
 ```Yaml
 metadata:
   annotations:
