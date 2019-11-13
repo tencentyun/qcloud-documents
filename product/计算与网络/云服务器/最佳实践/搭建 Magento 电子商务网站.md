@@ -67,7 +67,7 @@ http://云服务器实例的公网 IP
 9. 单击【Install Now】进行安装。
 10. 成功安装后请记录页面上的信息，并单击【Launch Magento Admin】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a5d9c2fbe7f17c454a0cbae30217390b.png)
-11. 进入管理员登录页面，输入 [步骤8](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
+11. 进入管理员登录页面，输入 [步骤6](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d196f04eec071c0ab27895698c75c88b.png)
 12. 登录成功后，即可进入管理员页面配置个人商务网站。如下图所示：
 ![](https://main.qcloudimg.com/raw/897866cc646521b0d32ce09515dc4efc.png)
