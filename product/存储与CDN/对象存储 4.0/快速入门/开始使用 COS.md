@@ -1,8 +1,3 @@
-
-
-![](https://main.qcloudimg.com/raw/2e2e5e740db941c3c41b3299d13e2075.jpg)
-
-
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作流程如下：
@@ -15,8 +10,6 @@
 
 ## 步骤2：开通 COS 服务
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cos5" target="_blank"  style="color: white; font-size:16px;">点此开通 COS 服务</a></div>
-
-
 
 
 
