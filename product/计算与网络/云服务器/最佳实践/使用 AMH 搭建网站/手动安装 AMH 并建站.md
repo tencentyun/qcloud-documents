@@ -15,17 +15,11 @@
 腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
-
-
-
-
-
-
 ## 操作步骤
-### 步骤一：登录 Linux 实例
+### 步骤1：登录 Linux 实例
 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
 
-### 步骤二：手动安装 AMH
+### 步骤2：手动安装 AMH
 1. 执行以下命令，下载并执行 AMH 安装脚本。
 ```
 wget http://amh.sh/file/AMH/4.2/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | tee amh.log
@@ -39,7 +33,7 @@ wget http://amh.sh/file/AMH/4.2/amh.sh && chmod 775 amh.sh && ./amh.sh 2>&1 | te
 3. 信息输入完成后，请等待 AMH 完成安装。
 
 
-### 步骤三：登录 AMH
+### 步骤3：登录 AMH
 1. 使用浏览器访问以下地址
 ```
 http://云服务器公网实例 IP:8888
@@ -52,11 +46,11 @@ http://云服务器公网实例 IP:8888
 3. 如下图所示则为登录成功：
 ![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
 
-### 步骤四：搭建 PHP 网站
+### 步骤4：搭建 PHP 网站
 搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
 
 
-### 步骤五：安装 PHP 网站
+### 步骤5：安装 PHP 网站
 安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
 
 ## 常见问题
