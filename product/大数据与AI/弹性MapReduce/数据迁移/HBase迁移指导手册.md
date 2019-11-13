@@ -13,14 +13,12 @@ hbase>snapshot 'myTable', 'myTableSnapshot'
 ```
 hbase> delete_snapshot 'myTableSnapshot'  
 ```
-3. 导出快照到目标集群。
-在源集群中导出快照到目标集群执行命令如下：
+3. 在源集群中导出快照到目标集群。
 ```
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot myTableSnapshot -copy-to hdfs://10.0.0.38:4007/hbase/snapshot/myTableSnapshot  
 ```
 这里`10.0.0.38:4007`是目标集群的`$activeip:$rpcport`，导出快照时系统级别会启动一个 mapreduce 的任务，可以在后面增加`-mappers 16 -bandwidth 200`来指定 mapper 和带宽。这里200指的是200MB/sec。
-4. 快照还原到目标集群的目标 HDFS。
-在目标集群中执行命令如下：
+4. 快照还原到目标集群的目标 HDFS，在目标集群中执行如下命令。
 ```
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot myTableSnapshot -copy-from /hbase/snapshot/myTableSnapshot -copy-to /hbase/  
 ```
