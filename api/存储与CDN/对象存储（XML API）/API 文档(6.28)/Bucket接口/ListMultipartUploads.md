@@ -86,7 +86,7 @@ Authorization: Auth String
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
-| ListMultipartUploadsResult |无| 用来表述所有分块上传的信息 | Container |
+| ListMultipartUploadsResult |无| 用来表述所有分块上传的信息。 | Container |
 
 Container 节点 ListMultipartUploadsResult 的内容：
 
