@@ -5,7 +5,7 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 
 ## 技能要求
 搭建 WordPress 个人博客，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [使用镜像搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [镜像部署 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
 
 
 
