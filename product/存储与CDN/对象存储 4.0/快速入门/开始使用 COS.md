@@ -46,7 +46,7 @@
 
 ## 出现问题？
 
-非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。以下也是用户在使用云服务器的时出现的常见问题，建议您可以先参考文档进行问题定位和解决。
+非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。以下也是用户在使用对象存储时出现的常见问题，建议您可以先参考文档进行问题定位和解决。
 
 
 [如何使文件直接在浏览器中下载，而不是预览？](https://cloud.tencent.com/document/product/436/30740#.E5.A6.82.E4.BD.95.E4.BD.BF.E6.96.87.E4.BB.B6.E7.9B.B4.E6.8E.A5.E5.9C.A8.E6.B5.8F.E8.A7.88.E5.99.A8.E4.B8.AD.E4.B8.8B.E8.BD.BD.EF.BC.8C.E8.80.8C.E4.B8.8D.E6.98.AF.E9.A2.84.E8.A7.88.EF.BC.9F)
