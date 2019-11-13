@@ -59,7 +59,7 @@ chmod +x eip_direct.sh
 
 
 #### 步骤1：下载 EIP 配置脚本
-下载 EIP 直通配置脚本到云服务器中。下载路径：[Windows 脚本下载]()。
+由于 EIP 直通过程会导致网络中断，请先下载 EIP 直通配置脚本到云服务器中。下载路径：[Windows 脚本下载]()。
 
 #### 步骤2：配置主网卡直通
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
