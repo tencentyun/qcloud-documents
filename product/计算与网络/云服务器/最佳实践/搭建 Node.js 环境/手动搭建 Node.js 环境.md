@@ -15,11 +15,11 @@
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
+### 步骤1：登录 Linux 实例
 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
 
 
-### 步骤二：安装 Node.js
+### 步骤2：安装 Node.js
 1. 执行以下命令，下载 Node.js Linux 64位二进制安装包。
 ```
 wget https://nodejs.org/dist/v10.16.3/node-v10.16.3-linux-x64.tar.xz
@@ -46,7 +46,7 @@ node -v
 npm -v
 ```
 
-### 步骤三：安装 Node.js 多版本（可选）
+### 步骤3：安装 Node.js 多版本（可选）
 >?此步骤通过 npm 安装多个版本的 Node.js，并可快速进行切换。适用于开发人员，您可根据实际需求进行安装。
 >
 1. 执行以下命令，安装 git。
@@ -89,7 +89,7 @@ nvm use v6.9.5
 返回结果如下图所示：
 ![](https://main.qcloudimg.com/raw/817fd96fef77f818e65ce41a3723e5bc.png)
 
-### 步骤四：创建 Node.js 项目
+### 步骤4：创建 Node.js 项目
 1. 依次执行以下命令，在根目录创建项目文件 `index.js`。
 ```
 cd ~
