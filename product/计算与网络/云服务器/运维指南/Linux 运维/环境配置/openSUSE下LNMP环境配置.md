@@ -48,20 +48,17 @@ vim /etc/nginx/nginx.conf
 server {
 	listen       80;
 	server_name  localhost;
-
 	#access_log  /var/log/nginx/host.access.log  main;
 	location / {
 			root   /srv/www/htdocs/;
 			index  index.php index.html index.htm;
 	}
-
 	#error_page  404              /404.html;
 	# redirect server error pages to the static page /50x.html
 	error_page   500 502 503 504  /50x.html;
 	location = /50x.html {
 			root   /srv/www/htdocs/;
 	}
-
 	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     location ~ \.php$ {
 			root           /srv/www/htdocs/;
@@ -100,7 +97,6 @@ zypper install -y mysql-community-server mysql-community-server-tools
 systemctl start mysql 
 systemctl enable mysql
 ```
-
 3. 执行以下命令，首次登录 MySQL。
 >? 首次登录 MySQL 时，系统将提示输入密码，若不进行输入密码的操作，可直接按 “**Enter**” 进入 MySQL。
 >
