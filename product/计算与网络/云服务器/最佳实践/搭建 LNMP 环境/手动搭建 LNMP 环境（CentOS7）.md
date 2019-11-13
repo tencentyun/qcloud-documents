@@ -165,7 +165,7 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-### 验证环境配置是否成功
+## 验证环境配置
 当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
 ```
