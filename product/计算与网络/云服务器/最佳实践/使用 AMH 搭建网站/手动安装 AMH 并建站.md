@@ -53,11 +53,11 @@ http://云服务器公网实例 IP:8888
 ![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
 
 ### 步骤四：搭建 PHP 网站
-搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357?!preview&!editLang=zh#.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
+搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
 
 
 ### 步骤五：安装 PHP 网站
-安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357?!preview&!editLang=zh#.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
+安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
