@@ -270,7 +270,7 @@ curl -u root:le201909 -X POST 172.16.345.14:9201/_rollup/ctsdb_rollup_task_test/
 	{
     	"expire_day": 365
     }
-}
+}'
 ```
 
 返回：

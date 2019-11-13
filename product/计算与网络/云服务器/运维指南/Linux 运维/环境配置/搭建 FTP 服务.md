@@ -44,7 +44,7 @@ telnet + 云服务器公网 IP + 21
 ```
 vi /etc/vsftpd/vsftpd.conf
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
+2. 按 “**i**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
 ![](//mc.qcloudimg.com/static/img/4e7770981eae42e7b16a2a5a7866a6a6/image.png)
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 
@@ -59,6 +59,9 @@ passwd ftpuser1
 ```
 创建用户、用户密码设置成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/eec9ba9d188bf8b82a846fed73e02b52.png)
+
+## 后续操作
+在完成了 FTP 服务搭建之后，您可在此基础上进行上传或下载文件。例如，[Windows 机器通过 FTP 上传文件](https://cloud.tencent.com/document/product/213/2132)。
 
 ## 常见问题
 ### FTP 客户端连接超时或者读取目录列表失败

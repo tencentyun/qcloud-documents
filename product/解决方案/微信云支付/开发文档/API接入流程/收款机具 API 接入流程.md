@@ -148,7 +148,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 ![](https://main.qcloudimg.com/raw/ad059b755101589a7d3b9920879bd45c.png)
 刷卡支付接口：`https://pay.qcloud.com/cpay/brief_micro_pay`，详见 [9.6 刷卡支付](#9.6-.E5.88.B7.E5.8D.A1.E6.94.AF.E4.BB.98)。
 查询订单接口：`https://pay.qcloud.com/cpay/brief_query_order`，详见 [9.7 查询支付单](#9.7-.E6.9F.A5.E8.AF.A2.E6.94.AF.E4.BB.98.E5.8D.95)。
-- 支付方式：微信支付、支付宝支付、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
+- 支付方式：微信支付、支付宝支付（配置方法详见 [支付宝子商户配置](https://cloud.tencent.com/document/product/569/35716)）、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
 - 支付未知：网络请求超时和业务上的结果未知，详见 [9.11 其它消息体说明](#9.11-.E5.85.B6.E5.AE.83.E6.B6.88.E6.81.AF.E4.BD.93.E8.AF.B4.E6.98.8E) 中 Status 的说明。
 - 接口返回 status 为0，只表示业务请求成功。订单的支付结果需通过订单的状态（即应答中的 cts 字段）来判断。
 - 每次接口调用成功后等待2秒再查单，如果2分钟内查询不到结果，请到手机端管理系统查看交易明细确认支付结果。
@@ -871,7 +871,7 @@ return w.write(request);
 
 #### 接口地址
 
-`https://pay.qcloud.com/cpay/device_info_report`
+`https://pay.qcloud.com/cpay/device_report`
 
 #### 请求参数
 
@@ -891,7 +891,7 @@ return w.write(request);
 | begin_timestamp         | 是   | Int            | 8          | 统计开始时间，UNIX 时间戳，单位为秒，如1568810504。 |
 | end_timestamp           | 是   | Int            | 8          | 统计结束时间，UNIX 时间戳，单位为秒，如1568810504。 |
 | sim_number              | 否   | String         |     -       | Sim 卡号，即 ICCID 号。                                |
-| cpu_usage               | 否   | Int            | 4          | 当前 CPU 使用率0-100                                |
+| cpu_usage               | 否   | Int            | 4          | 当前 CPU 使用率0-100。                                |
 | mem_max                 | 否   | Int            | 4          | 最大内存 KB。                                        |
 | mem_in_use              | 否   | Int            | 4          | 当前已用内存 KB。                                    |
 | disk_max                | 否   | Int            | 4          | 最大硬盘 KB。                                        |
@@ -899,11 +899,11 @@ return w.write(request);
 | network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
-| mcc                     | 否   | String         |     -       | 基站国家码。                                        |
-| mnc                     | 否   | String         |     -       | 基站网络码。                                        |
-| lac                     | 否   | String         |    -        | 基站小区号。                                        |
-| cellid                  | 否   | String         |     -       | 基站 ID。                                            |
-| rss                     | 否   | String         |      -      | 基站信号强度，单位 dbm。                             |
+| mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |
+| mnc                     | 否   | String         |     -       | 基站网络码，十进制数字字符串。                                      |
+| lac                     | 否   | String         |    -        | 基站小区号，十进制数字字符串。                                |
+| cellid                  | 否   | String         |     -       | 基站 ID，十进制数字字符串。                                 |
+| rss                     | 否   | String         |      -      | 基站信号强度，单位 dbm，十进制数字字符串。                      |
 | longitude               | 否   | String         |    -        | 经度。                                              |
 | latitude                | 否   | String         |      -      | 纬度。                                              |
 | wx_pay_count            | 是   | Int            | 4          | 累计微信支付笔数，上报后清零计数。                  |
@@ -1119,8 +1119,344 @@ request_str 即为 post 内容。
 	}
 }
 ```
+### 9.11 查询订单明细
 
-### 9.11 其它消息体说明
+####  接口地址
+
+`https://pay.qcloud.com/cpay/brief_query_order_list`
+
+#### 请求参数
+
+| 参数名 | 必填 | 类型           | 长度 | 说明                                                      |
+| ------ | ---- | -------------- | ---- | --------------------------------------------------------- |
+| r      | 是   | RequestContent |  -    | 请求内容，详见本节 RequestContent。                          |
+| a      | 是   | string         |  -    | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+
+**RequestContent 结构**
+
+| 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
+| ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
+| spps   | 否   | Int [] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填写这三个值即可。 |
+| osmi   | 是   | String | -          | out_sub_mch_id：云支付分配的商户 ID，绑定成功后可获取此 ID。     |
+| osi    | 是   | String | -          | out_shop_id：云支付分配的门店 ID，绑定成功后可获取此 ID。       |
+| di     | 是   | String | -          | device_id：云支付分配的设备ID，绑定后可获取此 ID。              |
+| ot     | 是   | Int    | 4          | order_type：单据类型，1：支付订单，2：退款单，3：全部单据。    |
+| st     | 是   | Int    | 8          | start_time：查询开始时间。                                     |
+| et     | 是   | Int    | 8          | end_time：查询结束时间。                                       |
+| pn     | 是   | Int    | 4          | page_num：页码，必需大于0。                                    |
+| ps     | 是   | Int    | 4          | page_size：单页条数，必需大于0。                               |
+| tt     | 否   | Int    | 4          | 交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。机具应填1。 |
+| ns     | 是   | String | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。                         |
+
+#### 应答参数
+
+| 参数名 | 必填 | 类型            | 长度(Byte) | 说明                                                      |
+| ------ | ---- | --------------- | ---------- | --------------------------------------------------------- |
+| rc     | 是   | ResponseContent | -          | 请求内容，详见本节 ResponseContent。                         |
+| a      | 是   | String          | 32         | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+
+**ResponseContent 结构**
+
+| 参数名                 | 必填 | 类型                        | 长度(Byte) | 说明                                |
+| ---------------------- | ---- | --------------------------- | ---------- | ----------------------------------- |
+| s                      | 是   | Int                         | 4          | 错误码。                              |
+| d                      | 是   | String                      | 最长128    | 即 description，错误信息。              |
+| li                     | 否   | Int                         | 4          | 即 log_id，消息 ID。                     |
+| is                     | 是   | Int                         | 4          | 具体说明见 internal_status 错误码表。 |
+| brief_query_order_list | 否   | BriefQueryOrderListResponse | -      | 详见本节 BriefQueryOrderListResponse。 |
+
+**BriefQueryOrderResponse**
+
+| 参数名 | 必填 | 类型           | 长度(Byte) | 说明                                 |
+| ------ | ---- | -------------- | ---------- | ------------------------------------ |
+| tc     | 是   | Int            | 4          | total_count：订单总数。                |
+| ods    | 否   | OrderDetail [] | -          | order_details：见 OrderDetail 说明。     |
+| ns     | 是   | String         | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。 |
+
+**OrderDetail**
+
+| 参数名 | 必填 | 类型             | 长度(Byte) | 说明                                   |
+| ------ | ---- | ---------------- | ---------- | -------------------------------------- |
+| bo     | 否   | BriefOrder       | -          | 订单结构体，见本节 BriefOrder。          |
+| bro    | 否   | BriefRefundOrder | -          | 退款单结构体， 见本节 BriefRefundOrder。 |
+
+order、refund_order 只包含一个。
+
+**BriefOrder**
+
+| 参数名  | 必填 | 类型   | 长度(Byte) | 说明                                                         |
+| ------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
+| spp     | 否   | Int    | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
+| tt      | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| otn     | 是   | String |      32      | out_trade_no：支付单号。                                       |
+| tf      | 否   |    Int    |        8    | total_fee：订单总金额。                                        |
+| ct      | 是   | Int    | 8          | create_time：订单创建时间。                                    |
+| wx_cts  | 否   | Int    | 4          | wxpay_current_trade_state：见枚举值定义 WxpayOrderState。      |
+| ali_cts | 否   | Int    | 4          | 支付宝订单状态，见枚举值定义 AlipayOrderState。                |
+
+**BriefRefundOrder**
+
+| 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
+| ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
+| spp    | 否   | Int    | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
+| tt     | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| otn    | 是   | String | 32         | out_trade_no：支付单号。                                       |
+| tf     | 是   | Int    | 8          | total_fee：订单总金额。                                        |
+| orn    | 是   | String | 32         | out_refund_no：退款单号。                                      |
+| rf     | 是   | Int    | 8          | refund_fee：本次退款总金额。                                   |
+| ct     | 是   | Int    | 8          | create_time：退款单创建时间。                                  |
+| wx_rs  | 否   | Int    | 4          | wxpay_refund_state：微信退款状态，见枚举值定义 WxpayRefundOrderState。 |
+| ali_rs | 否   | Int    | 4          | alipay_refund_state：支付宝退款状态，见枚举值定义 AlipayRefundOrderState。 |
+
+
+#### 示例说明
+**请求生成示例代码：**
+
+```
+Json::Value request_content;
+request_content["spps"].append(100);
+request_content["spps"].append(200);
+request_content["osmi"] = "sz0138zjfiwezee";
+request_content["osi"] = "sz01FzZfei91";
+request_content["di"] = "FzZfei91iefaefz";
+request_content["ot"] = 1;
+request_content["st"] = 1571817655;
+request_content["et"] = 1571817755;
+request_content["pn"] = 1;
+request_content["ps"] = 2;
+request_content["tt"] = 1;
+request_content["ns"] = generate_random_nonce_str();
+
+Json::FastWriter w;
+const std::string &rc = w.write(request_content);
+
+std::string authen_code = hmac_sha256(authen_key, rc); // 支付密钥计算签名
+
+Json::Value request;
+request["r"] = rc;
+request["a"] = authen_code;
+return w.write(request);
+```
+
+**请求内容示例：**
+
+```
+{	
+	"a":"6A664293966BECE1D72CA468F2B3CD8283113BE4CDF7BC0153C28F29C77054B8",
+	"r":"{
+		"spps":[100,200],
+		"osmi":"sz0138zjfiwezee",
+		"osi":"sz01FzZfei91",
+		"di":"FzZfei91iefaefz",
+		"ot":1,
+		"st":1571817655,
+		"et":1571817755,
+		"pn":1,
+		"ps":2,
+		"tt":1,
+		"ns":"faeofeifazfeijfi"
+	}"
+}
+```
+
+**应答内容示例：**
+
+```
+{
+	"a":"C6E3976196205719D36909D706206132EFDCFC6B672E45FC05CFDE5933BB8F18",
+	"rc":"{
+		"tc":102,
+		"ods":[
+			{
+				"bo":{
+					"spp":100,
+					"tt":1,
+					"otn":"110138591298768",
+					"spp":100,
+					"tt":1,
+					"otn":"110138591298768",
+					"tf":200,
+					"ct":1571817657,
+					"wx_cts":2
+				}
+			},
+			{
+				"bro":{
+					"spp":200,
+					"tt":1,
+					"otn":"110187443881321",
+					"tf":300,
+					"orn":"110187812300831",
+					"rf":100,
+					"ct":1571817660,
+					"ali_rs":2
+				}
+			}
+		],
+		"ns":"faeofeifazfeijfi"
+	}"
+}
+```
+
+### 9.12 查询订单汇总
+
+####  接口地址
+
+`https://pay.qcloud.com/cpay/brief_query_order_list_overview`
+
+#### 请求参数
+
+| 参数名 | 必填 | 类型           | 长度 | 说明                                                      |
+| ------ | ---- | -------------- | ---- | --------------------------------------------------------- |
+| r      | 是   | RequestContent |      | 请求内容，详见本节 RequestContent。                          |
+| a      | 是   | string         |      | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+
+**RequestContent 结构**
+
+| 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
+| ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
+| spps   | 否   | Int [] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填上这三个值就行。 |
+| osmi   | 是   | String | -          | out_sub_mch_id：云支付分配的商户 ID，绑定成功后可获取此 ID。     |
+| osi    | 是   | String | -          | out_shop_id：云支付分配的门店 ID，绑定成功后可获取此 ID。       |
+| di     | 是   | String | -          | device_id：云支付分配的设备 ID，绑定后可获取此 ID。              |
+| ot     | 是   | Int    | 4          | order_type: 单据类型，1：支付订单，2：退款单，3：全部单据。    |
+| st     | 是   | Int    | 8          | start_time：查询开始时间。                                     |
+| et     | 是   | Int    | 8          | end_time：查询结束时间。                                       |
+| tt     | 否   | Int    | 4          | 交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。机具应填1。 |
+| ns     | 是   | String | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。                        |
+
+#### 应答参数
+
+| 参数名 | 必填 | 类型            | 长度(Byte) | 说明                                                      |
+| ------ | ---- | --------------- | ---------- | --------------------------------------------------------- |
+| rc     | 是   | ResponseContent | -          | 请求内容，详见本节 ResponseContent。                         |
+| a      | 是   | String          | 32         | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+
+**ResponseContent 结构**
+
+| 参数名                 | 必填 | 类型                        | 长度(Byte) | 说明                                |
+| ---------------------- | ---- | --------------------------- | ---------- | ----------------------------------- |
+| s                      | 是   | Int                         | 4          | 错误码。                              |
+| d                      | 是   | String                      | 最长128    | 即 description，错误信息。              |
+| li                     | 否   | Int                         | 4          | 即 log_id，消息 ID。                     |
+| is                     | 是   | Int                         | 4          | 具体说明见 internal_status 错误码表。 |
+| brief_query_order_list | 否   | BriefQueryOrderListResponse | -          | 详见本节 BriefQueryOrderListResponse。 |
+
+**BriefQueryOrderResponse**
+
+| 参数名 | 必填 | 类型                   | 长度(Byte) | 说明                                 |
+| ------ | ---- | ---------------------- | ---------- | ------------------------------------ |
+| ovs    | 否   | OrderStatClientInfo [] | -          | overviews：见 OrderStatClientInfo 说明。 |
+| ns     | 是   | String                 | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。 |
+
+**OrderStatClientInfo**
+
+| 参数名 | 必填 | 类型 | 长度(Byte) | 说明                                                         |
+| ------ | ---- | ---- | ---------- | ------------------------------------------------------------ |
+| spp    | 否   | Int  | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
+| tt     | 否   | Int  | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| sc     | 是   | Int  | 8          | success_count：（交易量）不含撤单的，扣款成功交易笔数，有可能是负值。 |
+| sa     | 是   | Int  | 8          | success_amount：不含撤单的，扣款成功交易金额，有可能是负值。   |
+| sta    | 是   | Int  | 8          | settlement_amount：操作人扣款成功结算金额 - 操作人退款结算金额 - 操作人扣款成功撤单结算金额。 |
+| da     | 是   | Int  | 8          | discount_amount：必返回 net_amount - settle_amount。           |
+| psa    | 是   | Int  | 8          | pay_settle_amount，扣款成功结算金额。                          |
+| rsa    | 是   | Int  | 8          | refund_settle_amount，扣款成功结算金额。                       |
+| rcc    | 是   | Int  | 8          | refund_create_count，退款发起笔数。                            |
+| rca    | 是   | Int  | 8          | refund_create_amount，退款发起总额。                           |
+| pdg    | 是   | Int  | 8          | poundage，扣款成功手续费 - 撤单返还手续费 - 退款成功返还的手续费，有可能是负值。 |
+| ia     | 是   | Int  | 8          | income_amount，入账金额。                                      |
+| ora    | 是   | Int  | 8          | order_refunded_amount，订单已退金额。                          |
+
+#### 示例说明
+**请求生成示例代码：**
+
+```
+Json::Value request_content;
+request_content["spps"].append(100);
+request_content["spps"].append(200);
+request_content["osmi"] = "sz0138zjfiwezee";
+request_content["osi"] = "sz01FzZfei91";
+request_content["di"] = "FzZfei91iefaefz";
+request_content["ot"] = 1;
+request_content["st"] = 1571817655;
+request_content["et"] = 1571817755;
+request_content["tt"] = 1;
+request_content["ns"] = generate_random_nonce_str();
+
+Json::FastWriter w;
+const std::string &rc = w.write(request_content);
+
+std::string authen_code = hmac_sha256(authen_key, rc); // 支付密钥计算签名
+
+Json::Value request;
+request["r"] = rc;
+request["a"] = authen_code;
+return w.write(request);
+```
+**请求内容示例：**
+
+```
+{
+	"a":"156073D9F354BF8000E1EF82AC82EDB2836A9D6DF7CDFD33B05ED5DFE3407516",
+	"r":"{
+		"spps":[100,200],
+		"osmi":"sz0138zjfiwezee",
+		"osi":"sz01FzZfei91",
+		"di":"FzZfei91iefaefz",
+		"ot":1,
+		"st":1571817655,
+		"et":1571817755,
+		"tt":1,
+		"ns":"faeofeifazfeijfi"
+	}"
+}
+```
+
+**应答内容示例：**
+
+```
+{
+	"a":"883E4B4406668C45EECCC331A8967A4A64F07BA79B4F24395A39192F28D0F231",
+	"rc":"{
+		"ovs":[
+			{
+				"spp":200,
+				"tt":1,
+				"sc":4,
+				"sa":2400,
+				"sta":2400,
+				"da":0,
+				"psa":2400,
+				"rsa":2100,
+				"rcc":1,
+				"rca":300,
+				"pdg":200,
+				"ia":1900,
+				"ora":300
+			},
+			{
+				"spp":100,
+				"tt":1,
+				"sc":14,
+				"sa":9100,
+				"sta":9100,
+				"da":100,
+				"psa":9100,
+				"rsa":8100,
+				"rcc":1,
+				"rca":300,
+				"pdg":200,
+				"ia":8000,
+				"ora":500
+			}
+		],
+		"ns":"ZMEEOPPfeaeiwf122"
+	}"
+}
+```
+
+
+### 9.13 其它消息体说明
 
 #### WxpayOrderContentExt
 
@@ -1222,6 +1558,29 @@ request_str 即为 post 内容。
 | 1      | 微信支付。 |
 | 2      | 支付宝。   |
 | 3      | 会员卡。   |
+
+
+#### WxpayRefundOrderState 
+
+| 枚举值 | 说明                                                         |
+| ------ | ------------------------------------------------------------ |
+| 1      | 退款单初始态。                                                 |
+| 2      | 退款成功。                                                     |
+| 3      | 退款失败。                                                     |
+| 4      | 退款处理中。                                                   |
+| 5      | 转入代发，退款到银行发现用户的卡作废或冻结了，导致原路退款银行卡失败，资金回流到子商户的现金帐号，需要子商户人工干预，通过线下或者财付通转账的方式进行退款。 |
+| 6      | 作废状态，表示本地有，第三方支付平台没有的订单。               |
+
+#### AlipayRefundOrderState 
+
+| 枚举值 | 说明         |
+| ------ | ------------ |
+| 1      | 退款单初始态。 |
+| 2      | 退款成功。     |
+| 3      | 退款失败。     |
+| 4      | 退款处理中。   |
+| 5      | 订单不存在。   |
+
 
 ##  10 加解密相关说明
 ### 10.1 AES-128-CBC 解密说明
