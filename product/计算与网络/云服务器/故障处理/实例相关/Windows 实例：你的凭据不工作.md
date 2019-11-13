@@ -26,7 +26,7 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 1. 在 “本地组策略编辑器” 的左侧导航栏中，依次展开【计算机配置】>【管理模板】>【系统】>【凭据分配】目录。
 2. 找到并打开【凭据分配】中的【允许分配保存的凭据用于 NTLM 服务器身份验证】。如下图所示：
 ![](https://main.qcloudimg.com/raw/10eeb0291b2a4fd91c316c39b523370d.png)
-3. 在打开的 “” 窗口中，选择【已启用】，并在 “选项” 的【显示】中输入`TERMSRV/*`，单击【确定】。如下图所示：
+3. 在打开的窗口中，选择【已启用】，并在 “选项” 的【显示】中输入`TERMSRV/*`，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/98ae861b892233e481d5c52f89ccb333.png)
 4. 单击【确定】。
 5. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: 0;">，打开 “Windows PowerShell” 窗口。
