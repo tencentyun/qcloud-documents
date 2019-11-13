@@ -8,16 +8,13 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 腾讯云市场中提供了多个版本的 AMH 镜像，如果您不熟悉 Linux 命令的使用，建议您通过镜像部署 AMH 并建站。如果您对 Linux 的使用较为熟悉，也可参考 [手动安装 AMH 并建站](https://cloud.tencent.com/document/product/213/38362)。
 
 
-
-
 ## 注意事项<span id="note"></span>
 使用 AMH 搭建网站的过程中需要使用已完成备案，并且已解析到所使用云服务器的域名。
 腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
-
 ## 操作步骤
-### 步骤一：创建云服务器时使用 AMH 镜像
+### 步骤1：创建云服务器时使用 AMH 镜像
 >!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并参考 [手动安装 AMH](https://cloud.tencent.com/document/product/213/38362) 完成安装。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
@@ -32,7 +29,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
 
-### 步骤二：搭建 PHP 网站
+### 步骤2：搭建 PHP 网站
 
 <span id="create"></span>
 #### 创建虚拟主机
@@ -98,7 +95,7 @@ http://云服务器实例的公网 IP:8888
 11. 勾选 `upload.zip` 文件，并单击下方的【智能解压】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a8c20c04d5505441d38f31bb4ba3fa4a.png)
 
-### 步骤三：安装 PHP 网站
+### 步骤3：安装 PHP 网站
 1. 使用本地浏览器访问在 [创建虚拟机](#create) 中已配置的绑定域名。
 2. 勾选”我已经阅读并同意此协议“，并单击【继续】。如下图所示：
 ![](https://main.qcloudimg.com/raw/519761fdd468e44a851a1c34713b9d1b.png)
