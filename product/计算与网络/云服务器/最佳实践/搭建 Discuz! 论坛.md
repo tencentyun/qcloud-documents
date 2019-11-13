@@ -4,7 +4,7 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 具体操作方法如下：
 ![流程图2](https://main.qcloudimg.com/raw/f26817fd2a6719ccb43cbe744b0af2ed.png)
 
->? 本文主要介绍自主安装 LAMP 环境并搭建 Discuz! 论坛的方法，推荐具备相关论坛搭建经验和一定的命令操作基础的用户使用。如果您第一次搭建 Discuz! 论坛且不熟悉 Linux 命令，您可以参考 [使用镜像搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/9753)。
+>? 本文主要介绍自主安装 LAMP 环境并搭建 Discuz! 论坛的方法，推荐具备相关论坛搭建经验和一定的命令操作基础的用户使用。如果您第一次搭建 Discuz! 论坛且不熟悉 Linux 命令，您可以参考 [镜像部署 Discuz! 论坛](https://cloud.tencent.com/document/product/213/9753)。
 >
 
 ## 相关简介
