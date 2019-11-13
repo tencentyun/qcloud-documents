@@ -26,7 +26,7 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 > 本教程中以操作系统版本为 CentOS 7.5 的云服务器实例为例。
 > 
 1. 在实例的管理页面，单击【新建】，创建实例。
-具体操作请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+具体操作请参考 [零基础配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 云服务器创建成功后，返回至 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，查看和获取实例的以下信息。如下图所示：
 ![实例1](https://main.qcloudimg.com/raw/96a5f8e2eca54d4ea3ec56cb439b025a.png)
  - 云服务器实例用户名和密码
@@ -37,7 +37,7 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 对于 CentOS 系统，腾讯云提供与 CentOS 官方同步的软件安装源，包含的软件均为当前最稳定的版本，可直接通过 Yum 快速安装。
 
 #### 运行 PuTTY 连接 Linux 云服务器
-1. [下载 PuTTY ](https://www.putty.org/) 到您的电脑，并解压该文件。
+1. [下载 PuTTY](https://www.putty.org/) 到您的电脑，并解压该文件。
 2. 双击 “putty.exe”，弹出 “PuTTY Configuration” 对话框。
 3. 选择 “Session”，在 “Host Name (or IP address)” 输入框中输入欲访问的主机名或 IP。例如 “server1” 或 “192.168.2.XX”。
 >? 本教程输入的是云服务器实例的公网 IP，其他配置保持默认。
