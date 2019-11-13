@@ -13,10 +13,10 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
+### 步骤1：登录 Linux 实例
 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
 
-### 步骤二：配置镜像源
+### 步骤2：配置镜像源
 1. 登录云服务器。
 2. 执行以下命令，添加镜像源。
 ```
@@ -28,7 +28,7 @@ zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo
 zypper ref
 ```
 
-### 步骤三：安装配置 Nginx
+### 步骤3：安装配置 Nginx
 1. 执行以下命令，安装 Nginx。
 ``` 
 zypper install -y nginx
@@ -87,7 +87,7 @@ vi /srv/www/htdocs/index.html
 如下图所示，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/df09d1fe6baed50cebd89ef7402db4b2.png)
 
-### 步骤四：安装配置 MySQL
+### 步骤4：安装配置 MySQL
 1. 执行以下命令，安装 MySQL。
 ```
 zypper install -y mysql-community-server mysql-community-server-tools
@@ -118,13 +118,13 @@ flush privileges;
 \q
 ```
 
-### 步骤五：安装配置 PHP
+### 步骤5：安装配置 PHP
 执行以下命令，安装 PHP。
 ```
 zypper install -y php7 php7-fpm php7-mysql
 ```
 
-### 步骤六：Nginx 与 PHP-FPM 集成
+### 步骤6：Nginx 与 PHP-FPM 集成
 1. 依次执行以下命令，进入 `/etc/php7/fpm` 目录，将 `php-fpm.conf.default` 文件复制并重命名为 `php-fpm.conf` 文件。
 ```
 cd /etc/php7/fpm
@@ -141,7 +141,7 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-## 环境配置验证
+## 验证环境配置
 1. 执行以下命令，创建测试文件 index.php。
 ```
 vim /srv/www/htdocs/index.php
