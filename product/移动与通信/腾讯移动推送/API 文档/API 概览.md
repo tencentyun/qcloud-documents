@@ -13,7 +13,7 @@
 | 接口名称       |    接口功能       |                     
 | ------------- | -------------    |
 | device/tag        |          [标签绑定与解绑接口](https://cloud.tencent.com/document/product/548/39067) |
-| device tag/delete_all_device       |          [删除标签下所有设备接口](https://cloud.tencent.com/document/product/548/39068) |
+| device_tag/delete_all_device       |          [删除标签下所有设备接口](https://cloud.tencent.com/document/product/548/39068) |
 
 ## 账号相关接口
 
