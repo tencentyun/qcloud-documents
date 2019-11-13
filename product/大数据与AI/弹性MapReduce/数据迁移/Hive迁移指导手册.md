@@ -1,4 +1,4 @@
-Hive 迁移涉及两部分，数据迁移和元数据迁移。Hive 表数据主要存储在 HDFS 上，故数据的迁移主要在 HDFS 层，如上 HDFS 迁移。Hive 的元数据主要存储在关系型数据库，可平滑迁移到云上 CDB，并可保障高可用。
+Hive 迁移涉及两部分，数据迁移和元数据迁移。Hive 表数据主要存储在 HDFS 上，故数据的迁移主要在 HDFS 层，如上 HDFS 迁移。Hive 的元数据主要存储在关系型数据库，可平滑迁移到云上 TencentDB，并可保障高可用。
 
 ### Hive 元数据迁移
 
@@ -67,7 +67,7 @@ mysql> SELECT DB_LOCATION_URI from DBS;
     <value>hdfs://HDFS2648</value>  
 </property> 
 ```
-而`/usr/hive/warehouse`即是 Hive 表在 HDFS 中的默认存储路径，即是`hive-site.xml`中`hive.metastore.warehouse.dir`指定的值。
+`/usr/hive/warehouse`为 Hive 表在 HDFS 中的默认存储路径，也是`hive-site.xml`中`hive.metastore.warehouse.dir`指定的值。
 
  所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。
 
@@ -106,11 +106,11 @@ hive --service version
 ```
 hive 的升级脚本存放在`/user/local/service/hive/script/metastore/upgrade/mysql`目录下。
 
- hive 不支持跨版本升级，如 hive 从1.2升级到2.3.0需要依次执行：
+ hive 不支持跨版本升级，例如 hive 从1.2升级到2.3.0需要依次执行：
 ```
 upgrade-1.2.0-to-2.0.0.mysql.sql -> upgrade-2.0.0-to-2.1.0.mysql.sql -> upgrade-2.1.0-to-2.2.0.mysql.sql -> upgrade-2.2.0-to-2.3.0.mysql.sql
 ```
-升级脚本主要操作为建表、加字段、改内容。如果表或字段已经存在，则升级过程中字段已存在的异常可以忽略。例如，hive 从2.3.3升级至3.1.1。
+升级脚本主要操作为建表、加字段、改内容。如果表或字段已经存在，则升级过程中字段已存在的异常可以忽略。例如 hive 从2.3.3升级至3.1.1。
 ```
 mysql> source upgrade-2.3.0-to-3.0.0.mysql.sql;  
 mysql> source upgrade-3.0.0-to-3.1.0.mysql.sql;  
