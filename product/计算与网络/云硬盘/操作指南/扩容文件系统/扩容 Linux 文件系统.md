@@ -117,9 +117,7 @@ mount | grep '/dev/vdb'
 ```
 云硬盘上所有的分区文件系统均已解挂。如下图所示：
 ![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
-
-<span id="step4"></span>
-4. 执行以下命令，进入 parted 分区工具。
+4. <span id="step4"></span>执行以下命令，进入 parted 分区工具。
 ```
 parted '<磁盘路径>'
 ```
@@ -150,7 +148,8 @@ rm <分区 Number>
 ```
 回显信息如下图所示。
 ![](//mccdn.qcloud.com/static/img/3384eeada87ce75695e0e55125109eff/image.png)
-5. 执行以下命令，新建一个主分区。
+如果误删分区，可立即执行 `rescue` 命令，并根据提示输入 Start、End 值确认恢复分区。
+8. 执行以下命令，新建一个主分区。
 ```
 mkpart primary <原分区起始扇区> 100%
 ```
