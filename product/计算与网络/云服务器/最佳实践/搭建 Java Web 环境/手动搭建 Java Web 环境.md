@@ -101,7 +101,7 @@ JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Df
 显示结果如下，则成功启动。
 ![](https://main.qcloudimg.com/raw/64bdd25e734db46464655f15acae4c2f.png)
 
-### 验证环境配置
+## 验证环境配置
 1. 执行以下命令，创建测试文件。
 ```
 echo Hello World! > /usr/local/tomcat/webapps/ROOT/index.jsp
