@@ -1,13 +1,13 @@
-<h2 id="PushURL">推流 URL </h2>
+<h3 id="PushURL">如何生成推流 URL？ </h3>
 
-### 手动生成
+#### 方法1：手动生成
 
 1. 开通腾讯云直播服务：如果您尚未开通云直播服务，请单击 [申请开通](https://cloud.tencent.com/product/lvb)。
 2. 添加直播加速域名：如果您要使用云直播服务，则须要提供一个备案过的域名，并在云直播控制台中添加直播加速域名，详细请参见 [域名管理](https://cloud.tencent.com/document/product/267/30559)。
 3. 生成推流地址：首先登录 [云直播控制台](https://console.cloud.tencent.com/live/livestat)，选择【域名管理】，选择添加过的推流域名，在【管理】中选择【推流配置】 ，在“推流地址生成器”中单击【生成推流地址】来生成一个推流地址。其中 `rtmp://domain/live/test?xxx` 即为推流 URL。
 ![](https://main.qcloudimg.com/raw/8655758da7ba987edaee2a0fe6ec8fca.png)
 
-### 自动拼装
+#### 方法2：自动拼装
 
 实际产品中，您不可能为每一个主播手动创建推流和播放 URL，而是要由您的服务器自行拼装，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/8eae7d54b8cc5e26f41d4e70b453f924.png)
@@ -20,7 +20,7 @@
 
 
 
-<h2 id="PlayURL">拉流 URL </h2>
+<h3 id="PlayURL">如何生成拉流 URL？ </h3>
 
 腾讯云播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如：
 ```

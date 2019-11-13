@@ -44,7 +44,7 @@ telnet + 云服务器公网 IP + 21
 ```
 vi /etc/vsftpd/vsftpd.conf
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
+2. 按 “**i**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
 ![](//mc.qcloudimg.com/static/img/4e7770981eae42e7b16a2a5a7866a6a6/image.png)
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 

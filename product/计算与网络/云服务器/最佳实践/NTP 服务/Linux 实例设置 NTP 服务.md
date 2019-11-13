@@ -30,7 +30,7 @@ NTPD 默认为客户端运行方式。
 ```
 vi /etc/ntp.conf
 ```
-2. 按 **i** 或者 **Insert** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器，并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
+2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器，并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
 ![server设置](https://main.qcloudimg.com/raw/643dc5bbd2a42307ec10b5d38f756dda.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 

@@ -287,7 +287,7 @@ promise.then(function(imResponse) {
 **接口**
 
 ```javascript
-tim.createTextMessage(options)
+tim.createCustomMessage(options)
 ```
 
 **参数**

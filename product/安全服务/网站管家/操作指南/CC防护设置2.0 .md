@@ -6,22 +6,21 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 - 如果您使用的 Web 应用防火墙（网站管家）版本不支持 CC 防护设置2.0，请您参考 [旧版 CC 防护设置](https://cloud.tencent.com/document/product/627/35525)  进行配置。
 
 ## 配置步骤
-**示例一：智能 CC 防护配置**
+#### **示例一：智能 CC 防护配置**
 智能 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 
-1. 进入 [ Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，单击【防护配置】进入配置页面。
-![](https://main.qcloudimg.com/raw/3fe96b7770c8986506a73dc5c86a6736.png)
+1. 进入 [ Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+![](https://main.qcloudimg.com/raw/8d2e70ee68cef1033a381df3de954e5f.png)
 2. 单击【CC 防护设置2.0】，进行智能 CC 防护配置。
 ![](https://main.qcloudimg.com/raw/fd72e2267495cbf9ea3aa513e7a65135.png)
 **配置项说明：**
  **状态开关：** 当开启智能 CC 防护时，若网站遭大流量 CC 攻击会自动触发防护（网站 QPS 不低于1000QPS），无需人工参与。若无明确的防护路径，建议启用智能 CC 防护，可能会存在一定误报。可以在控制台进入 [IP管理-IP封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)，查看拦截 IP 信息，并及时处理。
-	
-	>>? 如果知晓明确的防护路径，建议使用自定义 CC 规则进行防护。
+	>? 如果知晓明确的防护路径，建议使用自定义 CC 规则进行防护。
 
-**示例二： 基于访问源 IP 的 CC 防护设置**
+#### **示例二： 基于访问源 IP 的 CC 防护设置**
 基于 IP 的 CC 防护策略，不需要对 SESSION 维度进行设置，直接配置即可。
-1. 进入 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，单击【防护配置】进入配置页面。
-![](https://main.qcloudimg.com/raw/3fe96b7770c8986506a73dc5c86a6736.png)
+1. 进入 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+![](https://main.qcloudimg.com/raw/8d2e70ee68cef1033a381df3de954e5f.png)
 2. 单击【CC 防护设置2.0】进行 CC 规则配置，单击【添加规则】填写相应信息。
 ![](https://main.qcloudimg.com/raw/587d2e546abf2809d12023fe54639495.png)
 3. 进入添加 CC 防护规则页面，填写相应信息。
@@ -35,18 +34,17 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 	 - **惩罚时长：**最短为1分钟，最长为一周。
 	 - **优先级：**请输入1 - 100的整数，数字越小，代表这条规则的执行优先级越高，相同优先级下，创建时间越晚，优先级越高。
 
-3. 规则操作，选择已经创建的规则，可以对规则进行关闭、修改和删除。
+4. 规则操作，选择已经创建的规则，可以对规则进行关闭、修改和删除。
 ![](https://main.qcloudimg.com/raw/5e6f39af9efcce9fd09c670c34db78ea.png)
 
-4. 根据规则设置，触发 CC 攻击行为。
-![](https://main.qcloudimg.com/raw/d5fa43ac17ab42057198cba8abed4463.png)
-5. 查看 IP 实时阻断信息。在左侧导航栏，选择【IP 管理】>【IP 封堵状态】 ，可以查看到实时阻断的 IP 信息 ,可以对 IP 进行加白或者加黑处理。
-![](https://main.qcloudimg.com/raw/fa3f56e2511f96dff04c4dc374588a5f.png)
+5. 根据规则设置，触发 CC 攻击行为。
+![](https://main.qcloudimg.com/raw/46867af97968b3ddd28b96645d9e91ae.png)
+6. 查看 IP 实时阻断信息。在左侧导航栏，选择【IP 管理】>【IP 封堵状态】 ，可以查看实时阻断的 IP 信息 ,并对 IP 进行加白或者加黑处理。
 
-**示例三： 基于 SESSION 的 CC 防护设置**
+#### **示例三： 基于 SESSION 的 CC 防护设置**
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
-1. 进入 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，单击【防护配置】进入配置页面。
-![](https://main.qcloudimg.com/raw/3fe96b7770c8986506a73dc5c86a6736.png)
+1. 进入 [ Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+![](https://main.qcloudimg.com/raw/8d2e70ee68cef1033a381df3de954e5f.png)
 2. 选择【CC 防护设置2.0】>【设置】，设置 SESSION 维度信息。
 ![](https://main.qcloudimg.com/raw/0b0537e50d15485a0f2f9ab587fd6ddf.png)
 3. 进入 SESSION 设置页面，此示例选择 COOKIE 作为测试内容，标识为 security，开始位置为0，结束位置为9，配置完成后单击【设置】。
@@ -71,8 +69,8 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 5. 进入 SESSION 设置页面，设置内容为 security = 0123456789……，后继 Web 应用防火墙（网站管家）将把 security 后面10位字符串作为 SESSION 标识，SESSION 信息也可以删除重新配置。
 ![](https://main.qcloudimg.com/raw/bf87f5f7037e7758d8c281151852ad70.png)
 6. 设置基于 SESSION 的 CC 防护策略，配置过程和示例一保持一致，识别模式选择 SESSION 即可。
-![](https://main.qcloudimg.com/raw/682b86ed46276e6cf32e5c76734e7363.png)
-配置完成，基于 SESSION 的 CC 防护策略生效。
+![](https://main.qcloudimg.com/raw/9e8ec2f34900d53081cf881f8a902327.png)
+7. 配置完成，基于 SESSION 的 CC 防护策略生效。
 >!使用基于 SESSION  的 CC 防护机制，无法在 IP 封堵状态中查看封堵信息。
 
 [上一步：DNS 劫持检测](/document/product/627/11708)

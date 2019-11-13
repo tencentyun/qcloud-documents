@@ -6,13 +6,16 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 - 已添加**播放域名**。
 
 ## 操作步骤
-### 第一步：进入控制台
- 选择左侧菜单栏的【域名管理】，单击需配置的**播放域名**或【管理】进入域名管理。
- ![](https://main.qcloudimg.com/raw/ba9fa1cab68838873a319f10729a1657.png)
+### 步骤1：编辑 HTTPS 配置
+1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或【管理】进入域名管理。
+2. 选择【高级配置】，查看【HTTPS 配置】标签。
+3. 单击【编辑】进入 HTTPS 配置页进行如下设置：
+	1. 单击开启 HTTPS 服务。
+	2. 输入证书名称、证书内容和私钥内容。
+	3. 单击【保存】即可开启 HTTPS 服务。
 
-### 第二步：编辑 HTTPS 配置
-在**高级配置**菜单栏下，单击 **HTTPS 配置**模块的【编辑】，开启 HTTPS 服务并输入证书名称、证书内容和私钥内容，保存后就可以开启 HTTPS 服务。
-![](https://main.qcloudimg.com/raw/679034a43612bd5bcb01d72d8b5eebd6.png)
+![](https://main.qcloudimg.com/raw/24a137812b0baefc2fb98ab8f275da98.png)
+
 - **证书名称**：自定义证书名称，便于标识证书。
 - **证书内容**：CA 提供的证书包括 Apache、IIS、Nginx 以及 Tomcat，云直播的加密服务使用 Nginx，故配置需选择 Nginx 文件中的内容。
   ![](https://main.qcloudimg.com/raw/f67e31bfa2c233cf8dc0c4a1e58cb6fc.png)
@@ -28,10 +31,10 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
   ![](https://main.qcloudimg.com/raw/fdfe6829c5910da0742e2c3d845a8447.png)
   请在 HTTPS 私钥内容输入框填写包含 -----BEGIN RSA PRIVATE KEY----- 和 -----END RSA PRIVATE KEY----- 的所有内容。
 
-### 第三步：验证配置
+### 步骤2：验证配置
 HTTPS 配置生效时间约2小时，请于提交证书后2小时左右访问该域名，若浏览器地址栏显示为 HTTPS 则说明配置成功。
 ![](https://main.qcloudimg.com/raw/b1f54ec35855e5d2adbaeae96a04ef13.png)
 
-### 第四步：修改配置
+### 步骤3：修改配置
 HTTPS 功能支持开启和关闭。关闭此服务后，云直播将不再为该域名提供 HTTPS 服务。若证书已过期，需更新为新的有效证书。
   
