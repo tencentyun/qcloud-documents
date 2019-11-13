@@ -5,12 +5,12 @@
 本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 [零基础配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 
-## 步骤一：注册腾讯云账号
+## 步骤1：注册腾讯云账号
 如果您已在腾讯云注册，可忽略此步骤。
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点此注册腾讯云账号</a></div>
 
 
-## 步骤二：购买 Windows 云服务器
+## 步骤2：购买 Windows 云服务器
 
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?tab=lite" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
@@ -26,7 +26,7 @@
 
 当您付费完成后，即完成了云服务器的购买。云服务器可以作为个人虚拟机或者您建站的服务器。接下来，您可以登录您购买的这台服务器。
 
-## 步骤三：登录云服务器
+## 步骤3：登录云服务器
 
 >! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<div style="background-color:#00A4FF; width: 160px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/message" target="_blank"  style="color: white; font-size:16px;">点此获取初始密码</a></div>
 >
