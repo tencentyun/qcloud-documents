@@ -48,6 +48,6 @@
 非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，也可以先参考相关文档进行问题定位和解决。
 以下是用户在使用云服务器的时出现的常见问题，建议您先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？
-请参考 [重置密码](https://cloud.tencent.com/document/product/213/16566)。
+请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 登录不成功？如何定位问题？
 请参考 [无法登录 Windows 实例](https://cloud.tencent.com/document/product/213/10339)。
