@@ -22,7 +22,7 @@
 
 #### 步骤1：下载 EIP 配置脚本
 由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本并上传至 CVM。步骤如下：
-（可选）1. 下载 EIP 直通配置脚本。下载路径：[Linux 脚本下载](https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip)。
+1. 下载 EIP 直通配置脚本。下载路径：[Linux 脚本下载](https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip)。（可选）
 2. Linux 脚本下载到本地后，上传至需要进行 EIP 直通的云服务器中。
 >?您也可登录云服务器，在云服务器中直接执行如下命令下载：
 ```
