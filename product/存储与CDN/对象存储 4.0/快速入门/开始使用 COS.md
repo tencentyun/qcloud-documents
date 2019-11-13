@@ -1,6 +1,6 @@
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
-通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作流程如下。
+通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作步骤如下：
 
 
 ## 步骤1：注册腾讯云账号
