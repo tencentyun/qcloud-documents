@@ -79,7 +79,7 @@ mysql> SELECT DB_LOCATION_URI from DBS;
 4. 停止目标 Hive 服务 MetaStore、HiveServer2、WebHcataLog。
 5. 备份目标 Hive 元数据库。
 ```
-mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hivemetastore > hivemetastore-src.sql  
+mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hivemetastore > hivemetastore-target.sql  
 # 如果 mysql 数据没有开启 GTID，请删除命令行中的 --set-gtid-purged=OFF  
 # X.X.X.X为数据库服务器地址  
 # XXXX为数据库密码  
