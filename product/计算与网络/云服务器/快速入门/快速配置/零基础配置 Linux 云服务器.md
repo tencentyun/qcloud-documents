@@ -39,8 +39,8 @@
 
 ## 下一步操作：使用云服务器
 当您登录云服务器后，即可在云服务器上进行您所需要的操作。常用的任务包括：
-- [将您本地的文件上传到云服务器上](https://cloud.tencent.com/document/product/213/38221)
-- [在云服务器上搭建网站](https://cloud.tencent.com/document/product/213/38248)
+- [将您本地的文件上传到云服务器上](https://cloud.tencent.com/document/product/213/39138)
+- [在云服务器上搭建网站](https://cloud.tencent.com/document/product/213/39130)
 
 您可以根据需要，按照文档指引进行下一步操作。
 
