@@ -127,7 +127,7 @@ AddType application/x-httpd-php-source .phps
 systemctl restart httpd
 ```
 
-### 验证环境配置
+## 验证环境配置
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /var/www/html/index.php
