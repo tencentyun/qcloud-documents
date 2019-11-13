@@ -1,27 +1,19 @@
 ## 操作场景
 WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 WordPress 搭建属于个人的博客平台。本文以 CentOS 7.6 操作系统的腾讯云云服务器为例，手动搭建 WordPress 个人站点。
 
-
-
 ## 技能要求
 搭建 WordPress 个人博客，您需要熟悉 Linux 命令，例如 [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
 >!腾讯云建议您可以通过云市场的镜像环境部署 WordPress 个人博客，手动搭建过程可能需要较长时间。具体步骤可参考 [镜像部署 WordPress 个人站点](https://cloud.tencent.com/document/product/213/9740)。
 
-
-
-
-
-
 ## 操作步骤 
-### 步骤一：登录云服务器
+### 步骤1：登录云服务器
 登录 Linux 云服务器。如果您还未登录，请准备好您云服务器的登录密码及公网 IP，参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录。
 
-### 步骤二：手动搭建 LNMP 环境
+### 步骤2：手动搭建 LNMP 环境
 LNMP 是 Linux、Nginx、MariaDB 和 PHP 的缩写，这个组合是最常见的 Web 服务器的运行环境之一。在创建并登录云服务器实例之后，您可参考 [手动搭建 LNMP 环境](https://cloud.tencent.com/document/product/213/38056) 完成基本环境搭建。
 
 
-
-### 步骤三：配置 WordPress 数据库<span id="database"></span>
+### 步骤3：配置 WordPress 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 MariaDB 官网。
 >
 1. 执行以下命令，进入 MariaDB。
@@ -49,7 +41,7 @@ FLUSH PRIVILEGES;
 \q
 ```
 
-### 步骤四：配置 root 帐户
+### 步骤4：配置 root 帐户
 1. 执行以下命令，进入 MariaDB。
 ```
 mysql
@@ -66,7 +58,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 ```
 
 
-### 步骤五：安装和配置 WordPress
+### 步骤5：安装和配置 WordPress
 #### 下载 WordPress
 >? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
@@ -80,7 +72,6 @@ cd /usr/share/nginx/html
 wget https://cn.wordpress.org/wordpress-5.0.4-zh_CN.tar.gz
 tar zxvf wordpress-5.0.4-zh_CN.tar.gz
 ```
-
 
 
 ####  修改 WordPress 配置文件
@@ -110,7 +101,7 @@ vim wp-config.php
 ```
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
-### 步骤六：验证 WordPress 安装
+### 步骤6：验证 WordPress 安装
 1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 wordpress 文件夹，例如：
 ```
 http://192.xxx.xxx.xx /wordpress
