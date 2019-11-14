@@ -18,7 +18,9 @@ Drupal 是使用 PHP 语言编写的开源内容管理框架（CMF），由内�
 
 ## 操作步骤
 ### 步骤1：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
 ### 步骤2：搭建 LAMP 环境
 当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402)。
