@@ -75,10 +75,10 @@ chmod +x eip_direct.sh
 在此步骤，您可以选择如下**任意一种**方式进行配置：
 >?由于手动配置较为复杂，推荐使用脚本自动配置。
 
-- [脚本自动配置](#auto)。
+- [脚本自动配置（推荐）](#auto)。
 - [手动配置](#hand)。
 
-#### 脚本自动配置 <span id="auto">
+#### 脚本自动配置（推荐） <span id="auto">
 双击步骤1中下载的脚本即可执行，需要输入如下参数：
 - eip：弹性公网 IP。 
 - master network card index：主网卡接口号，可通过执行 `netsh int ipv4 show int` 进行查询。
