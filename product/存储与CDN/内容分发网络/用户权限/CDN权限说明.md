@@ -12,7 +12,7 @@
 | ----------------------- | ---------------- | ---------------------- | ------------------------------------------------------------ |
 | DescribeCdnData         | 境内、境外均支持 | 查询访问监控数据明细   | 实时监控-访问监控部分数据曲线、汇总数据展示<br/>概览-数据曲线、汇总数据展示 |
 | DescribeOriginData      | 境内、境外均支持 | 查询回源监控数据明细   | 实时监控-回源监控部分数据曲线、汇总数据展示                  |
-| ListTopData             | 境内、境外均支持 | 多维度数据排序         | 实时监控-域名排序、TOP URL 排序、状态码占比图模块<br/>数据分析-省份/运营商/区域排名模块<br/>概览页-域名排序 |
+| ListTopData             | 境内、境外均支持 | 多维度数据排序         | 实时监控-域名排序、TOP URL 排序、状态码占比图模块<br/>数据分析-省份 / 运营商 / 区域排名模块<br/>概览页-域名排序 |
 | DescribeIpVisit         | 境内、境外均支持 | 独立 IP 访问明细查询   | 数据分析-独立 IP 访问数据曲线、汇总数据                        |
 | PurgeUrlsCache          | 境内、境外均支持 | 提交 URL 刷新          | 缓存刷新-URL 刷新提交模块                                    |
 | PurgePathCache          | 境内、境外均支持 | 提交目录刷新           | 缓存刷新-目录刷新提交模块                                    |
@@ -72,7 +72,7 @@
 | 刷新预热              | RefreshCdnDir<br/>RefreshCdnUrl<br/>GetCdnRefreshLog<br/>CdnPusherV2<br/>GetPushLogs<br/>CdnOverseaPushser | PurgeUrlsCache<br/>PurgePathCache<br/>DescribePurgeTasks<br/>PushUrlsCache<br/>DescribePushTasks | 是           |
 | 服务查询              | QueryCdnIp（无需授权）                                       | DescribeCdnIp                                                | 是           |
 
-控制台页面权限说明：
+**控制台页面权限说明：**
 - 查看消耗数据及统计量：若策略开启了【查看消耗数据及统计量】并关联项目，则可查看控制台以下模块信息：
   - 概览页：仅数据展示模块
   - 统计分析：实时监控
