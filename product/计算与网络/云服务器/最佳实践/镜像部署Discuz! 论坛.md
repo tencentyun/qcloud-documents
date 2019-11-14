@@ -4,17 +4,14 @@
 >! 本文档主要针对基本的 Discuz! 论坛搭建，适用于个人使用或学习。建议针对具有较高可扩展性需求要求不高的业务级网站使用本教程。要获取更高级的教程，请参阅 [手动搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/8043)。
 >
 
-## 前提条件
-
-已登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 
 ## 操作步骤
 
-### 创建云服务器
+### 创建云服务器使用 Discuz! 镜像
 
->! 此步骤针对全新购买云服务器。如果您已购买云服务器实例，可以通过重装系统选择 Discuz! 建站系统。
+>! 如果您想使用已购买的云服务器部署 Discuz!，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
 >
-1. 在实例的管理页面，单击【新建】。
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3c558a8a9b03162bafe4700dce1591f5.png)
 3. 在弹出的【选择镜像】对话框中，选择【建站系统】>【Discuz X3.4 论坛系统】，单击【免费使用】。如下图所示：
@@ -23,11 +20,9 @@
 4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 Discuz! 建站系统的购买。
 
 ### 安装并启动 Discuz! 论坛
->? 云服务器实例状态处于运行中时，即可测试 Discuz! 论坛。
->
-1. 在实例的管理页面，找到待启动的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
+1. 在实例的管理页面，找到运行中的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)
-2. 将**公网 IP** 粘贴到本地浏览器的地址栏中访问，进入Discuz！安装页面。如下图所示：
+2. 在本地浏览器中访问**公网 IP**，进入Discuz！安装页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/74cc99cb3aa75cb9f1d99b6d7feced72.png)
 3. 单击【我同意】，进入检查安装环境页面。如下图所示：
 ![安装2](//mc.qcloudimg.com/static/img/c5a521673ed6f1a3528ba67ca5886ee4/image.png)
@@ -43,4 +38,9 @@
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】，即可访问论坛。如下图所示：
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
 
+
+## 常见问题
+如果您在搭建 Discuz! 论坛的过程中遇到问题，可参考以下文档进行分析并解决问题：
+- 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+- 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 
