@@ -4,7 +4,7 @@
 >- IPv6 NAT64 负载均衡不支持获取 Client IP。
 >- 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈，另外在内测期间，不提供 SLA 保障。
 
-负载均衡支持创建 IPv6 NAT64 实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 VIP），该 VIP 会将来自 IPv6 客户端的请求转发给后端的 IPv4 云服务器。
+负载均衡支持创建 IPv6 NAT64 负载均衡实例，腾讯云会给实例分配一个 IPv6 公网地址（即 IPv6 版的 VIP），该 VIP 会将来自 IPv6 客户端的请求转发给后端的 IPv4 云服务器。
 
 ## 什么是 IPv6 NAT64 负载均衡
 IPv6 NAT64 负载均衡是基于 NAT64 IPv6 过渡技术实现的负载均衡器。通过 IPv6 NAT64 负载均衡器，后端云服务器无需做任何 IPv6 改造即可快速接入 IPv6 用户的访问。
