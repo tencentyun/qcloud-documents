@@ -3,7 +3,6 @@
 2. 单击左侧目录中的 【实例】，进入管理页面。
 2. 在列表中，找到需要修改的云服务器，单击实例 ID，进入详情页。
 3. 单击选项卡中的【弹性网卡】，在“弹性网卡”标签页的操作栏下，单击【修改主IP】。
-![1](https://main.qcloudimg.com/raw/6b1886aae29812aca569904790671ed5.png)
+![](https://main.qcloudimg.com/raw/71f5e45da54b5047bb515286773043a2.png)
 4. 在弹出框中，填写新的 IP，单击【确定】即可。
- ![2](https://main.qcloudimg.com/raw/9ebf49f2c619f5b1a0149543259ee349.png)
- 
+ ![2](https://main.qcloudimg.com/raw/b12d12eb1f678e4393bd2ec6b94e150a.png)

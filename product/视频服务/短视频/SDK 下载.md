@@ -346,12 +346,12 @@
   </tr>
   <tr align="center">
     <td>iOS 端源代码</td>
-    <td>6.5.7271 @ 2019-06-19</td>
+    <td>6.7.7754 @ 2019-10-15</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">
     <td>Android 端源代码</td>
-    <td>6.5.7272 @ 2019-06-19</td>
+    <td>6.7.7754 @ 2019-10-15</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
   </tr>
   <tr align="center">

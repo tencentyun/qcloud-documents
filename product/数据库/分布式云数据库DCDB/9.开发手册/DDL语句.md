@@ -1,4 +1,4 @@
-> 如果您期望阅读或下载全量开发文档，请参考 [《TDSQL开发指南》](https://cloud.tencent.com/document/product/557/7714)。
+如果您期望阅读或下载全量开发文档，请参考 [《TDSQL开发指南》](https://cloud.tencent.com/document/product/557/7714)。
 
 ### 创建分表
 

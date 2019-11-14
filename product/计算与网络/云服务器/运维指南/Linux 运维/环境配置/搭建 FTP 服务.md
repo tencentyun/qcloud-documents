@@ -2,14 +2,14 @@
 本文以 CentOS 7.2 64位系统为例，使用 vsftpd 作为 FTP 服务端，FileZilla 作为客户端。指导您如何在 Linux 云服务器上搭建 FTP 服务。
 
 ## 操作步骤
-### 安装 vsftpd
+### 步骤1：安装 vsftpd
 1. 登录 Linux 云服务器。
 2. 执行以下命令，安装 vsftpd。
 ``` 
 yum install vsftpd -y
 ```
 
-### 启动服务
+### 步骤2：启动服务
 1. 执行以下命令，启动服务。
 ```
 systemctl start vsftpd
@@ -21,7 +21,7 @@ netstat -tunlp
 返回类似如下信息，则表示 vsftpd 服务已经启动成功。
 ![](//mc.qcloudimg.com/static/img/6cc74de5689106ce763be98bfe7f5d24/image.png)
 
-### （可选）验证 vsftpd 服务
+### 步骤3：（可选）验证 vsftpd 服务
 >? 为了保证 FTP 服务端顺利完成配置，您还可以在本地计算机或其他云服务器上执行以下操作步骤，再次验证 vsftpd 服务是否启动成功。以下操作步骤以 Linux 操作系统的本地计算机为例。如果本地计算机为 Windows/Mac OS 操作系统，请确保该计算机已开启 telnet 功能。
 >
 1. 在本地计算机的操作系统界面，执行以下命令，安装 telnet 服务。
@@ -39,16 +39,16 @@ telnet + 云服务器公网 IP + 21
 
 <span id = "jump">  </span>
 
-### 配置 vsftpd
+### 步骤4：配置 vsftpd
 1. 执行以下命令，打开 vsftpd 配置文件。
 ```
 vi /etc/vsftpd/vsftpd.conf
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
+2. 按 “**i**” 切换至编辑模式，将文件中的`anonymous_enable=YES`改为`anonymous_enable=NO`。如下图所示：
 ![](//mc.qcloudimg.com/static/img/4e7770981eae42e7b16a2a5a7866a6a6/image.png)
 3. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 
-### 添加 FTP 用户
+### 步骤5：添加 FTP 用户
 1. 执行以下命令，添加用户`ftpuser1`。
 ``` 
 useradd -m -d /home/ftpuser1 -s /sbin/nologin ftpuser1
@@ -59,6 +59,9 @@ passwd ftpuser1
 ```
 创建用户、用户密码设置成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/eec9ba9d188bf8b82a846fed73e02b52.png)
+
+## 相关操作
+在完成了 FTP 服务搭建之后，您可在此基础上进行上传或下载文件。例如，[Windows 机器通过 FTP 上传文件](https://cloud.tencent.com/document/product/213/2132)。
 
 ## 常见问题
 ### FTP 客户端连接超时或者读取目录列表失败

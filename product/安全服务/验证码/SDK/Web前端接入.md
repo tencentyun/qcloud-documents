@@ -97,6 +97,7 @@ new TencentCaptcha(
 |ticket|String|验证成功的票据，当且仅当 ret = 0 时 ticket 有值。|
 |appid|String|场景 ID。|
 |bizState|Any|自定义透传参数。|
+|randstr|String|本次验证的随机串，请求后台接口时需带上。|
 
 ### 实例方法
 TencentCaptcha 的实例提供一些操作验证码的常用方法：

@@ -17,7 +17,7 @@
 | Android | 文件：[TRTCMainActivity.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/TRTCMainActivity.java)<br>函数： onClickButtonGetPlayUrl() | 文件：[TRTCMainActivity.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/TRTCMainActivity.java)<br>函数：updateCloudMixtureParams() |
 | Windows（C++） |  文件：[TRTCSettingViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCSettingViewController.cpp)<br>函数：NotifyOtherTab | 文件：[TRTCCloudCore.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/sdkinterface/TRTCCloudCore.cpp)<br>函数：updateMixTranCodeInfo() |
 | Windows（C#） |  文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：OnShareUrlLabelClick| 文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：UpdateMixTranCodeInfo() |
-| Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：setupTranscoding() |
+| Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：updateCloudMixtureParams() |
 
 ## 应用场景
 基于旁路直播特性，我们可以实现主流直播平台常见的主播连麦和直播 PK 功能：
@@ -38,7 +38,7 @@
 
 开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
-http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
+http://[bizid].liveplay.myqcloud.com/live/[streamid].flv
 ```
 
 其中 `bizid`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
@@ -46,15 +46,15 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 - bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
 ![](https://main.qcloudimg.com/raw/86cdab23f18d4c8369d2a908320e52aa.png)
 - 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
-- streamid：将“房间号”、“用户名”和“流类型” 用下划线连接在一起，然后计算 MD5，得到的就是 streamId，也就是说，`streamid = MD5 (房间号_用户名_流类型)`。
+- `streamid = bizid_MD5 (房间号_userId_流类型)`，即由`bizid`、`_`以及`“房间号_userId_流类型”计算 MD5 的结果`拼接而成。
 
 
-我们通过如下例子来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
+我们通过如下示例来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
-例如，bizid = 8888，进行旁路直播的房间号 = 12345、用户名 = userA，用户当前使用了摄像头。
+例如，bizid = 8888，进行旁路直播的房间号 = 12345、userId = userA，用户当前使用了摄像头。
 
-1. 以此计算 streamid = MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
-2. 按规则将 bizid 与 streamid 进行拼接，则 userA 这一路的腾讯云 CDN 观看地址为：
+1. 计算 MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
+2. 拼接后 userA 这一路的腾讯云 CDN 观看地址为：
  flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
  hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
 ```
@@ -95,15 +95,15 @@ http://[bizid].liveplay.myqcloud.com/live/[bizid]_[streamid].flv
 
 - **设置 TXLivePlayer 的播放模式为极速模式**
 可以通过设置 TXLivePlayerConfig 的三个参数来实现极速模式，以 [iOS](https://cloud.tencent.com/document/product/454/7880#Delay) 为例，设置代码如下：
-	```
-	// 设置 TXLivePlayer 的播放模式为极速模式
-	TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
-	config.bAutoAdjustCacheTime = YES;
-	config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
-	config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
-	[player setConfig:config];
-	// 启动直播播放
-	```
+    ```
+    // 设置 TXLivePlayer 的播放模式为极速模式
+    TXLivePlayerConfig * config = [[TXLivePlayerConfig alloc] init];
+    config.bAutoAdjustCacheTime = YES;
+    config.minAutoAdjustCacheTime = 1; // 最小缓冲1s
+    config.maxAutoAdjustCacheTime = 1; // 最大缓冲1s
+    [player setConfig:config];
+    // 启动直播播放
+    ```
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**

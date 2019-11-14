@@ -22,7 +22,7 @@ Hadoop-2.6.0及以上版本。
 
 #### 安装 Hadoop-COS 插件
 
-1. 将 dep 目录下的 cos_hadoop_api-5.2.6.jar 和 hadoop-cos-2.X.X.jar， 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
+1. 将 dep 目录下的 hadoop-cos-X.X.X-shaded.jar*， 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 
 > ?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
@@ -38,6 +38,8 @@ for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   fi
 done
 ```
+
+
 
 ## 使用方法
 
@@ -59,7 +61,7 @@ done
 |      fs.cosn.copy_thread_pool       | 目录拷贝操作时，可用于并发拷贝文件的线程数目。               |                       CPU核心数目 X 3                        |   否   |
 |    fs.cosn.read.ahead.block.size    | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
 |    fs.cosn.read.ahead.queue.size    | 预读队列的长度。                                             |                              8                               |   否   |
-|         fs.cosn.maxRetries          | 访问 COS 出现错误时，最多重试的次数。                        |                              3                               |   否   |
+|         fs.cosn.maxRetries          | 访问 COS 出现错误时，最多重试的次数。                        |                              200                               |   否   |
 |   fs.cosn.retry.interval.seconds    | 每次重试的时间间隔。                                         |                              3                               |   否   |
 
 ### Hadoop 配置

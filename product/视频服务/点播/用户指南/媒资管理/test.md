@@ -1,71 +1,77 @@
-## 简介
-客户端在发起上传前，需要向 App 服务器请求上传签名（背景请参考 [客户端上传指引](/document/product/266/9219)）。如果 App 服务器允许客户端上传，则应按照本文介绍的签名规则为客户端生成一个上传签名。客户端执行上传操作时，必须携带该签名，让腾讯云点播验证客户端的上传是否被授权。
-
-## 签名参数
- 
-
-| 参数名称 | 必选 | 类型 | 说明 |
-| --- | --- | --- | --- | 
-| secretId | 是 | String | 云 API 密钥中的 SecretId，获取方式参考 [客户端上传指引 - 获取云 API 密钥](https://cloud.tencent.com/document/product/266/9219#.E8.8E.B7.E5.8F.96.E4.BA.91-api-.E5.AF.86.E9.92.A5)。 |
-| currentTimeStamp | 是 | Integer | 当前 Unix 时间戳。 |
-| expireTime | 是 | Integer| 签名到期 Unix 时间戳。<br/>```expireTime = currentTimeStamp + 签名有效时长```<br/>签名有效时长最大取值为7776000 ，即90天。 |
-| random | 是 | Integer | 构造签名明文串的参数，无符号32位随机数。 |
-| classId | 否 | Integer | 视频文件分类，默认为0。 | 
-| procedure | 否 | String | 视频后续任务操作，详见 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。| 
-| taskPriority | 否 | Integer | 视频后续任务优先级（仅当指定了 procedure 时才有效），取值范围为[-10, 10]，默认为0。| 
-| taskNotifyMode | 否 | String | 任务流状态变更通知模式（仅当指定了 procedure 时才有效）。<li>Finish：只有当任务流全部执行完毕时，才发起一次事件通知。</li><li>Change：只要任务流中每个子任务的状态发生变化，都进行事件通知。</li><li>None：不接受该任务流回调。 </li>默认为 Finish。| 
-| sourceContext | 否 | String | 客户端上传附带信息，在 [事件通知 - 上传完成通知](/document/product/266/7830) 中可以根据该字段识别一次上传行为，参见 [客户端上传指引 - 事件通知](/document/product/266/9219#.E4.BA.8B.E4.BB.B6.E9.80.9A.E7.9F.A5)。 |
-| oneTimeValid | 否 | Integer | 签名是否单次有效，参见 [客户端上传指引 - 单次有效签名](/document/product/266/9219#.E5.8D.95.E6.AC.A1.E6.9C.89.E6.95.88.E7.AD.BE.E5.90.8D)，默认为0，表示不启用；1表示签名单次有效，相关错误码详见下文的单次有效签名相关部分。 | 
+本文档将指导您快速将本地视频上传至云点播，并使用云点播服务处理该视频，最终实现在自定义的 Web 播放器中播放多种清晰度可切换、且含水印的转码视频。以本地视频文件`腾讯云.mp4`为例。
 
 
-## 签名生成步骤
+## 步骤1：开通云点播
+1. 注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+2. 购买云点播服务，具体请参见 [计费概述](https://cloud.tencent.com/document/product/266/2838)。
+3. 选择【云产品】>【视频服务】>[【云点播】](https://console.cloud.tencent.com/vod)，进入云点播控制台。
 
-客户端上传签名的生成步骤：
-1. 获取 API 密钥。
-1. 拼接明文串。
-1. 将明文串转为最终签名。
-
->! 生成客户端签名代码较为复杂，点播提供了多种语言的签名生成示例代码，详细请参见 [多语言签名生成示例](#eg)。
-
-### 第一步：获取 API 密钥
-参考 [客户端上传指引 - 获取云 API 密钥](https://cloud.tencent.com/document/product/266/9219#.E8.8E.B7.E5.8F.96.E4.BA.91-api-.E5.AF.86.E9.92.A5) 获取或者创建一个 SecretId，并拿到其对应的 SecretKey。
-
-### 第二步：拼接明文串
-按照 URL QueryString 的格式要求生成签名明文串 Original，格式如下：
-```
-secretId=[secretId]&currentTimeStamp=[currentTimeStamp]&expireTime=[expireTime]&random=[random]
-```
->!签名明文串 Original 需要满足：
-* 至少包含 secretId, currentTimeStamp, expireTime 和 random 四个必选参数，可包含任意多个选填参数；
-* 参数值**必须**经过 UrlEncode，否则可能导致 QueryString 解析失败。
-* 直接操作字符串的方式生成 Original 很容易出错，大多数编程语言均提供了相关类库帮助开发者完成 QueryString  的拼接和编码。因此，建议开发者尽量使用标准的类库来构造 Original。
-
-### 第三步：将明文串转为最终签名
-生成签名明文串 Original 后，用已获取的 SecretKey 对明文串进行 [HMAC-SHA1](https://www.ietf.org/rfc/rfc2104.txt)加密，得到 SignatureTmp：
-```
-SignatureTmp = HMAC-SHA1(secretKey, Original) 
-```
-将密文串 SignatureTmp 放在明文串 Original 前面，拼接后进行 [Base64](https://tools.ietf.org/html/rfc4648) 编码，得到最终的签名 Signature：
-```
-Signature = Base64(append(SignatureTmp, Original)) 
-```
->!签名密文串 SignatureTmp 的输出结果是20字节的二进制串。
-
-## <span id = "eg"></span>多语言签名生成示例
-
-此处提供多种语言平台的客户端签名生成示例，App 可以根据开发语言的偏好参考对应的示例：
-- [PHP 示例](/document/product/266/10638#php-.E7.AD.BE.E5.90.8D.E7.A4.BA.E4.BE.8B)
-- [Node.js 示例](/document/product/266/10638#node.js-.E7.AD.BE.E5.90.8D.E7.A4.BA.E4.BE.8B)
-- [Java 示例](/document/product/266/10638#java-.E7.AD.BE.E5.90.8D.E7.A4.BA.E4.BE.8B)
-- [C# 示例](/document/product/266/10638#c.23-.E7.AD.BE.E5.90.8D.E7.A4.BA.E4.BE.8B)
-
-## 签名生成和校验工具
-此处提供了一组签名工具，帮助用户验证自己生成的签名是否正确：
-[点播客户端上传 - 签名生成工具](https://video.qcloud.com/signature/ugcgenerate.html)：在页面上填写签名所需要的参数和密钥，即可生成一个合法的签名。
-[点播客户端上传 - 签名校验工具](https://video.qcloud.com/signature/ugcdecode.html)：对一个合法的签名进行解析，获得生成签名时所使用的参数。
+>?若已开通云点播服务，请直接进入下一步骤。
 
 
-## 单次有效签名相关
 
-- 使用单次有效签名之后，签名服务器需要保证每次派发给用户的签名不相同（例如保证同一个时间点派发的签名的 random 不重复），否则会导致重复签名的错误。
-- 由签名错误导致的上传失败，如果需要重试，需要获取新的签名，否则签名重复将导致重试失败（Android 和 Java SDK 签名错误引起的错误状态码是1001）。
+## 步骤2：上传视频
+1. 单击左侧导航栏的[【媒资管理】](https://console.cloud.tencent.com/vod/media)。
+2. 单击【上传视频】，在该页面进行如下设置：
+	- 上传方式选择【本地上传】
+	- 单击【选择视频】，选择本地视频文件`腾讯云.mp4`
+	<img src="https://main.qcloudimg.com/raw/21bfdb05593033f9a568f60f31c94341.png" width ="750">
+	- 视频处理选择【暂不处理，直接上传】
+3. 设置完毕后，单击左下角的【开始上传】。
+
+## 步骤3：创建水印模板
+1. 在左侧导航栏选择【视频处理设置】>[【模板设置】](https://console.cloud.tencent.com/vod/video-process/template)。
+2. 在页签栏选择【水印模板】，单击【创建水印模板】，在该页面进行如下设置：
+	- 【模板名称】：p001
+	- 【水印图片】：单击【选择文件】，从本地选择一张图片（以腾讯企鹅 LOGO 为例）
+	- 【水印尺寸】：15%
+	- 其他选项为默认设置
+	<span></span><img src="https://main.qcloudimg.com/raw/3656d00de30967da95b93bf8488167ee.png" width ="750">
+3. 设置完毕后，单击【创建】。
+	
+## 步骤4：处理视频
+1. 在 [媒资管理](https://console.cloud.tencent.com/vod/media) 页签栏选择【已上传】。
+2. 选中`腾讯云.mp4`前的勾选框，单击【视频处理】。
+<img src="https://main.qcloudimg.com/raw/82af82fefe1d35d420ebba92894fae37.png" width ="800">
+3. 在视频处理弹框中进行如下设置：
+ - 处理类型：选择【转码】
+ - 转码模板：
+	 1. 单击左侧下拉框选择【选择转码模板】
+	 2. 单击右侧下拉框选择【MP4-标清-SD(20)】和【MP4-高清-HD(30)】（可勾选多个转码模板）
+ - 水印模板：
+	 1. 单击下拉框选择【选择水印模板】，右侧弹出下拉框
+	 2. 选择【p001】
+ - 视频封面：选择【使用首帧做封面】
+ <img src="https://main.qcloudimg.com/raw/346af73386af61e654f26ebe5e95ee6b.png" width ="750">
+4. 设置完毕后，单击【确定】。 
+
+## 步骤5：自定义 Web 播放器
+1. 在左侧导航栏选择【分发播放设置】>[【Web 播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)。
+2. 单击【新建播放器】，在弹框中进行如下设置并单击【下一步】：
+ 1. 基本设置
+	 - 播放器名称：player001
+	 - 默认画质：【标清】
+	 - 其他选项为默认设置
+ 2. 外观
+		- LOGO 图片：单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）
+		- 其他选项为默认设置
+ 3. 贴片
+		- 开启【暂停贴片】，单击【选择文件】，从本地选择一张图片（以腾讯视频 LOGO 为例）
+		- 其他选项为默认设置
+3. 设置完毕后，单击【确定】。  
+
+
+## <span id = "p1"></span>步骤6：生成 Web 播放器代码
+1. 在 [媒资管理](https://console.cloud.tencent.com/vod/media) 页签栏选择【已上传】。
+2. 单击`腾讯云.mp4`所在行操作栏的【管理】。
+3. 在页签栏选择【Web播放器代码生成】，在该页面进行如下设置：
+ - 参数设置：单击【修改】，选择【player001】
+ <img src="https://main.qcloudimg.com/raw/76c8d55601c3fb7fa3c603b10ae27fbe.png" width ="750">
+ - 其他选项为默认设置
+4. 设置完毕后，单击页面左下角的【复制代码】。
+
+## 步骤7：使用 Web 播放器播放视频
+1. 将 [步骤6](#p1) 生成的代码复制到 HTML 在线运行工具或您的 Web 前端开发工具（如 HBuilder 等）。
+2. 运行该代码，效果如下图：
+<img src="https://main.qcloudimg.com/raw/930f7e34fc51e004101286c83cd3bb92.jpg" width ="800">
+
