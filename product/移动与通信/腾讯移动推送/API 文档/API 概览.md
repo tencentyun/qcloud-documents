@@ -33,7 +33,7 @@
 | /statistics/get_push_record   |          [特定时间段所有推送信息查询](https://cloud.tencent.com/document/product/548/39075)|
 | /statistics/get_push_record   |          [单个任务推送信息查询](https://cloud.tencent.com/document/product/548/39076)|
 | /statistics/get_push_task_stat_channel   |          [单条任务推送统计信息查询](https://cloud.tencent.com/document/product/548/39077)|
-| /statistics/get_push_group_stat    |          [多条任务统计数据聚合查询](https://cloud.tencent.com/document/product/548/39078). |
+| /statistics/get_push_group_stat    |          [多条任务统计数据聚合查询](https://cloud.tencent.com/document/product/548/39078)|
 |/statistics/get_product_device_ratio_stat|         [设备数据同环比查询](https://cloud.tencent.com/document/product/548/39079) |
 
 
