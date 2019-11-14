@@ -1,4 +1,4 @@
-视频通话流程如下图所示。
+视频通话流程图如下：
 ![trtc demo](https://main.qcloudimg.com/raw/d097f4090d52a73c8ca6c82767b49b3d.png)
 
 1. 通过即时通信 IM SDK 对通信协议消息体进行发送以及接收处理。
