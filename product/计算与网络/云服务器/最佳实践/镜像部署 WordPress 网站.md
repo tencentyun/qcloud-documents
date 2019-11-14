@@ -8,7 +8,7 @@
 
 ## 操作步骤
 
-### 创建云服务器时使用 WordPress 镜像
+### 步骤1：创建云服务器时使用 WordPress 镜像
 
 >! 如果您想使用已购买的云服务器部署 WordPress，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
 >
@@ -19,13 +19,13 @@
 ![](https://main.qcloudimg.com/raw/b79bc585d2e1f45a2ff8d9f0334fb1c6.png)
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 WordPress 建站系统的购买。
 
-### 访问获取权限的引导页面
+### 步骤2：访问获取权限的引导页面
 1. 在实例的管理页面，找到运行中的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
 ![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)
 2. 在本地浏览器中访问**公网 IP**，打开【获取权限】引导页面。 如下图所示：
 <img src="//mc.qcloudimg.com/static/img/f7ea8180f0c49be0f422e88140bbafee/image.png" style="width: 65%;">
 
-### 启动 WordPress 网站
+### 步骤3：启动 WordPress 网站
 1. 在引导页面中，单击【获取权限】，下载该镜像的相关信息文档到本地。
 >! 该文档包含 WordPress 网站的相关重要信息，请注意保存。
 2. 打开文档，获取 WordPress 网站的管理员登录账号和密码。如下图所示：
