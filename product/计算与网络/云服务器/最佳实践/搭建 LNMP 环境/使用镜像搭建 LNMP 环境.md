@@ -10,7 +10,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 
 
 ## 操作步骤
-### 创建云服务器时部署 LNMP 环境
+### 步骤1：创建云服务器时部署 LNMP 环境
 >!如果您想使用已购买的云服务器部署 LNMP 环境，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
@@ -29,7 +29,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 
 
 
-### 环境配置验证
+### 步骤2：环境配置验证
 
 >!部署 LNMP 环境的系统镜像不同，验证步骤会有一定区别，请您根据实际情况进行调试。
 >
