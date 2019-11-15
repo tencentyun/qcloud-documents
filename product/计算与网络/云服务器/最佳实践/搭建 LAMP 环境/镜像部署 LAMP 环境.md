@@ -10,6 +10,10 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 
 ## 操作步骤
 ### 步骤1：创建云服务器时部署 LAMP 环境
+
+>! 如果您想使用已购买的云服务器部署 LAMP 环境，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402) 或者使用其他地域云服务器进行搭建。
+>
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
 弹出“选择镜像”窗口。
