@@ -45,7 +45,7 @@
    <tr>
       <td>x-cos-meta-[自定义内容]</td>
       <td>自定义内容</td>
-      <td>自定义内容</td>
+      <td>x-cos-meta-via: homepage</td>
    </tr>
 </table>
 
