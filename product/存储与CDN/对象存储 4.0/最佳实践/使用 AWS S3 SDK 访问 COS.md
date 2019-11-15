@@ -138,8 +138,8 @@ AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和�
 ```
 [default]  
 s3 =   
-    signature_version = s3
-    addressing_style = virtuall
+signature_version = s3
+addressing_style = virtuall
 ```
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
