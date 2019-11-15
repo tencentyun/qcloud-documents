@@ -19,7 +19,7 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 
 ### 启动服务
 在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【在线推理】，进入启动服务页面。
-![](https://main.qcloudimg.com/raw/b0b3010b3a2d4d4b2d8311f15cd995a8.png)
+![](https://main.qcloudimg.com/raw/4c47bdecf60c67292cf705b42ead9df7.png)
 **输入服务名称**：输入启动的服务名称。
 **选择资源组**：选择将要启动的资源组，这里选择已购买的专用资源组。
 **选择实例配置**：选择【CPU 配置】，实例配置填写为1核2G。
@@ -31,7 +31,6 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 
 ### 调用测试
 单击【模型服务】>【在线推理】页面选择 tfserving 模型服务，在对应的【操作】列单击【更多】>【调用】，选择公网地址访问，获得模型服务的公网访问地址和密钥 TOKEN。
-![](https://main.qcloudimg.com/raw/8b78c56dbce894b744966c5ba3c18dd8.png)
 使用 curl 工具为例，展示如何调用服务接口：
 ```shell
 curl -H "Content-Type: application/json" \
