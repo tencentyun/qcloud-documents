@@ -4,7 +4,7 @@
 | 接口名称                                                     | 功能描述                           |
 | ------------------------------------------------------------ | ---------------------------------- |
 | [上传结构化日志](https://cloud.tencent.com/document/product/614/16873) | 上传日志到指定的日志主题           |
-| [获取日志游标](https://cloud.tencent.com/document/product/614/16876) | 获取并下载指定日志主题下的日志游标 |
+| [获取下载日志游标](https://cloud.tencent.com/document/product/614/16876) | 获取并下载指定日志主题下的日志游标 |
 | [搜索日志](https://cloud.tencent.com/document/product/614/16875) | 根据指定的条件搜索日志内容         |
 | [下载日志](https://cloud.tencent.com/document/product/614/16874) | 使用游标下载日志                   |
 
