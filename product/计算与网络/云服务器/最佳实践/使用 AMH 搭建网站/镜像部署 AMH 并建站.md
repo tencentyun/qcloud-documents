@@ -5,7 +5,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 
 
 ## 技能要求
-腾讯云市场中提供了多个版本的 AMH 镜像，如果您不熟悉 Linux 命令的使用，建议您通过镜像部署 AMH 并建站。如果您对 Linux 的使用较为熟悉，也可参考 [手动安装 AMH 并建站](https://cloud.tencent.com/document/product/213/38362)。
+腾讯云市场中提供了多个版本的 AMH 镜像，如果您不熟悉 Linux 命令的使用，建议您通过镜像部署 AMH 并建站。如果您对 Linux 的使用较为熟悉，也可参考 [手动安装 AMH 和建站](https://cloud.tencent.com/document/product/213/38362)。
 
 
 ## 注意事项<span id="note"></span>
@@ -15,7 +15,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 
 ## 操作步骤
 ### 步骤1：创建云服务器时使用 AMH 镜像
->!此步骤针对全新购买云服务器。如果您已购买云服务器实例，可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并参考 [手动安装 AMH](https://cloud.tencent.com/document/product/213/38362) 完成安装。
+>! 如果您想使用已购买的云服务器使用 AMH 镜像，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动安装 AMH 和建站](https://cloud.tencent.com/document/product/213/38362) 或者使用其他地域云服务器进行搭建。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并选择【镜像市场】>【从镜像市场选择】。如下图所示：
