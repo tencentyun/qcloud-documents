@@ -4,9 +4,9 @@
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
-```
+```shell
 PUT /consumergroupcursor?topic_id=xxxx-xx-xx-xx-xxxx&consumer_group=cls_demo_consumer_group&partition_id=1 HTTP/1.1
 Host: <Region>.cls.myqcloud.com
 Content-Type: application/json
@@ -15,17 +15,17 @@ Authorization: <AuthorizationString>
 {"consumer_id": "cls_demo_consumer_1", "cursor": "FAjUjMtmELBo"}
 ```
 
-### 请求行
+#### 请求行
 
-```
+```shell
 PUT  /consumergroupcursor
 ```
 
-### 请求头
+#### 请求头
 
 除公共头部外，无特殊请求头部。
 
-### 请求参数
+#### 请求参数
 
 | 字段名         | 类型   | 位置  | 是否必须 | 含义                    |
 | -------------- | ------ | ----- | -------- | ----------------------- |
@@ -39,21 +39,21 @@ PUT  /consumergroupcursor
 
 ## 响应
 
-### 响应示例
+#### 响应示例
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 123
 ```
 
-### 响应头
+#### 响应头
 
 除公共响应头部外，无特殊响应头部。
 
-### 响应参数
+#### 响应参数
 
-无
+无。
 
 ## 错误码
 
