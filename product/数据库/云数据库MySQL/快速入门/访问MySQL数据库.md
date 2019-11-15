@@ -44,7 +44,7 @@ yum install mysql
 ```
 mysql -h hostname -u username -p
 ```
-      - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网或外网地址。
+      - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网地址。
 		- username：替换为默认的用户名 root。
     2. 在提示`Enter password：`后输出 root 帐号对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
     本例中提示`MySQL [(none)]>`说明成功登录到 MySQL。
