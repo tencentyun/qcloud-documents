@@ -99,43 +99,43 @@ public void setMotionTmpl(String tmplPath);
 
 ```
 // 大眼效果 0~9
-mTXCameraRecord.getBeautyManager().setEyeScaleLevel(mBeautyParams.mBigEyeLevel);
+mTXCameraRecord.getBeautyManager().setEyeScaleLevel(eyeLevel);
 // 瘦脸效果 0~9
-mTXCameraRecord.getBeautyManager().setFaceSlimLevel(mBeautyParams.mFaceSlimLevel);
+mTXCameraRecord.getBeautyManager().setFaceSlimLevel(faceSlimLevel);
 // V脸效果 0~9
- mTXCameraRecord.getBeautyManager().setFaceVLevel(mBeautyParams.mFaceVLevel);
+ mTXCameraRecord.getBeautyManager().setFaceVLevel(faceVLevel);
 // 下巴拉伸或收缩效果 0~9
-mTXCameraRecord.getBeautyManager().setChinLevel(mBeautyParams.mChinSlimLevel);
+mTXCameraRecord.getBeautyManager().setChinLevel(chinSlimLevel);
 // 缩脸效果 0~9
-mTXCameraRecord.getBeautyManager().setFaceShortLevel(mBeautyParams.mFaceShortLevel);
+mTXCameraRecord.getBeautyManager().setFaceShortLevel(faceShortLevel);
 // 瘦鼻效果 0~9
-mTXCameraRecord.getBeautyManager().setNoseSlimLevel(mBeautyParams.mNoseScaleLevel);
+mTXCameraRecord.getBeautyManager().setNoseSlimLevel(noseScaleLevel);
 // 亮眼效果 0~9
-mTXCameraRecord.getBeautyManager().setEyeLightenLevel(mBeautyParams.mEyeLightenLevel);
+mTXCameraRecord.getBeautyManager().setEyeLightenLevel(eyeLightenLevel);
 // 白牙效果 0~9
-mTXCameraRecord.getBeautyManager().setToothWhitenLevel(mBeautyParams.mToothWhitenLevel);
+mTXCameraRecord.getBeautyManager().setToothWhitenLevel(toothWhitenLevel);
 // 祛皱效果 0~9
-mTXCameraRecord.getBeautyManager().setWrinkleRemoveLevel(mBeautyParams.mWrinkleRemoveLevel);
+mTXCameraRecord.getBeautyManager().setWrinkleRemoveLevel(wrinkleRemoveLevel);
 // 祛眼袋效果 0~9
-mTXCameraRecord.getBeautyManager().setPounchRemoveLevel(mBeautyParams.mPounchRemoveLevel);
+mTXCameraRecord.getBeautyManager().setPounchRemoveLevel(pounchRemoveLevel);
 // 祛法令纹效果 0~9
-mTXCameraRecord.getBeautyManager().setSmileLinesRemoveLevel(mBeautyParams.mSmileLinesRemoveLevel);
+mTXCameraRecord.getBeautyManager().setSmileLinesRemoveLevel(smileLinesRemoveLevel);
 // 调整发际线 0~9
-mTXCameraRecord.getBeautyManager().setForeheadLevel(mBeautyParams.mForeheadLevel);
+mTXCameraRecord.getBeautyManager().setForeheadLevel(foreheadLevel);
 // 调整眼间距 0~9
-mTXCameraRecord.getBeautyManager().setEyeDistanceLevel(mBeautyParams.mEyeDistanceLevel);
+mTXCameraRecord.getBeautyManager().setEyeDistanceLevel(eyeDistanceLevel);
 // 调整眼角 0~9
-mTXCameraRecord.getBeautyManager().setEyeAngleLevel(mBeautyParams.mEyeAngleLevel);
+mTXCameraRecord.getBeautyManager().setEyeAngleLevel(eyeAngleLevel);
 // 调整嘴形 0~9
-mTXCameraRecord.getBeautyManager().setMouthShapeLevel(mBeautyParams.mMouthShapeLevel);
+mTXCameraRecord.getBeautyManager().setMouthShapeLevel(mouthShapeLevel);
 // 调整鼻翼 0~9
-mTXCameraRecord.getBeautyManager().setNoseWingLevel(mBeautyParams.mNoseWingLevel);
+mTXCameraRecord.getBeautyManager().setNoseWingLevel(noseWingLevel);
 // 调整鼻子位置 0~9
-mTXCameraRecord.getBeautyManager().setNosePositionLevel(mBeautyParams.mNosePositionLevel);
+mTXCameraRecord.getBeautyManager().setNosePositionLevel(nosePositionLevel);
 // 调整嘴唇厚度 0~9
-mTXCameraRecord.getBeautyManager().setLipsThicknessLevel(mBeautyParams.mLipsThicknessLevel);
+mTXCameraRecord.getBeautyManager().setLipsThicknessLevel(lipsThicknessLevel);
 // 调整脸型 0~9
-mTXCameraRecord.getBeautyManager().setFaceBeautyLevel(mBeautyParams.mFaceBeautyLevel);
+mTXCameraRecord.getBeautyManager().setFaceBeautyLevel(faceBeautyLevel);
 ```
 
 ### 4. 绿幕功能
