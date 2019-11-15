@@ -215,7 +215,8 @@ defaultConfig {
 ```
 -keep class com.tencent.** { *; }
 ```
-
+- 配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。
