@@ -4,19 +4,19 @@
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
-```
+```shell
 GET /partitions?topic_id=xxxx-xx-xx-xx-xxxx HTTP/1.1
 Host: <Region>.cls.myqcloud.com
 Authorization: <AuthorizationString>
 ```
 
-### 请求头
+#### 请求头
 
 除公共头部外，无特殊请求头部。
 
-### 请求参数
+#### 请求参数
 
 | 参数名   | 类型   | 位置  | 是否必须 | 描述        |
 | -------- | ------ | ----- | -------- | ----------- |
@@ -24,9 +24,9 @@ Authorization: <AuthorizationString>
 
 ## 响应
 
-### 响应示例
+#### 响应示例
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/json
 Content-Length: 21
@@ -51,16 +51,16 @@ Content-Length: 21
 }
 ```
 
-### 响应头
+#### 响应头
 
 除公共响应头部外，无特殊响应头部。
 
-### 响应参数
+#### 响应参数
 
 | 字段名              | 类型   | 是否必须 | 说明                                                |
 | ------------------- | ------ | -------- | --------------------------------------------------- |
 | partition_id        | int    | 是       | 主题分区编号                                        |
-| status              | string | 是       | 主题分区状态<br>readwrite：读写态；readonly：只读态 |
+| status              | string | 是       | 主题分区状态：<br><li>readwrite：读写态<br><li>readonly：只读态 |
 | inclusive_begin_key | string | 是       | 主题分区范围的起始位置                              |
 | exclusive_end_key   | string | 是       | 主题分区范围的结束位置                              |
 | create_time         | string | 是       | 主题分区的创建时间                                  |
