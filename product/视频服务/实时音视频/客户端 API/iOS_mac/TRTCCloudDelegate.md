@@ -89,7 +89,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | nullable NSString * | 错误信息。 |
 
 __介绍__
@@ -127,11 +127,11 @@ __介绍__
 
 
 ## 成员事件回调
-### onUserEnter
+### onRemoteUserEnterRoom
 
-有用户（主播）加入当前房间。
+有用户加入当前房间。
 ```
-- (void)onUserEnter:(NSString *)userId 
+- (void)onRemoteUserEnterRoom:(NSString *)userId 
 ```
 
 __参数__
@@ -142,15 +142,21 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。 通知参数中的 userid 也不一定都是开启视频的，可能只开启了声音的上行。
-如果要显示远程画面，更推荐监听 onUserVideoAvailable() 事件回调。
+出于性能方面的考虑，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCAppSceneVideoCall）：该场景下用户没有角色的区别，任何用户进入房间都会触发该通知。
+- 在线直播场景（TRTCAppSceneLIVE）：在线直播场景不限制观众的数量，如果任何用户进出都抛出回调会引起很大的性能损耗，所以该场景下只有主播进入房间时才会触发该通知，观众进入房间不会触发该通知。
 
 
-### onUserExit
 
-有用户（主播）离开当前房间。
+>?注意 onRemoteUserEnterRoom 和 onRemoteUserLeaveRoom 只适用于维护当前房间里的“成员列表”，如果需要显示远程画面，建议使用监听 onUserVideoAvailable() 事件回调。
+
+
+
+### onRemoteUserLeaveRoom
+
+有用户离开当前房间。
 ```
-- (void)onUserExit:(NSString *)userId reason:(NSInteger)reason 
+- (void)onRemoteUserLeaveRoom:(NSString *)userId reason:(NSInteger)reason 
 ```
 
 __参数__
@@ -158,7 +164,15 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户标识。 |
-| reason | NSInteger | 离开原因代码，用于区分用户正常离开或是由于网络断线等原因离开。 |
+| reason | NSInteger | 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。 |
+
+__介绍__
+
+与 onRemoteUserEnterRoom 相对应，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCAppSceneVideoCall）：该场景下用户没有角色的区别，任何用户的离开都会触发该通知。
+- 在线直播场景（TRTCAppSceneLIVE）：只有主播离开房间时才会触发该通知，观众离开房间不会触发该通知。
+
+
 
 
 ### onUserVideoAvailable
@@ -282,6 +296,48 @@ SDK 会在 enterRoom() 并 startLocalPreview() 成功后开始摄像头采集，
 __介绍__
 
 SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。 当 SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
+
+
+### onUserEnter
+
+废弃接口：有主播加入当前房间。
+```
+- (void)onUserEnter:(NSString *)userId DEPRECATED_ATTRIBUTE 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | NSString * | 用户标识。 |
+
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserEnterRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
+
+
+### onUserExit
+
+废弃接口： 有主播离开当前房间。
+```
+- (void)onUserExit:(NSString *)userId reason:(NSInteger)reason DEPRECATED_ATTRIBUTE 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | NSString * | 用户标识。 |
+| reason | NSInteger | 离开原因代码，用于区分用户正常离开或是由于网络断线等原因离开。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserLeaveRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
 
 
 
@@ -485,6 +541,69 @@ __介绍__
 当房间中的某个用户使用 sendSEIMsg 发送数据时，房间中的其它用户可以通过 onRecvSEIMsg 接口接收数据。
 
 
+
+## CDN 旁路转推回调
+### onStartPublishCDNStream
+
+启动旁路推流到 CDN 完成的回调。
+```
+- (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+__介绍__
+
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 startPublishCDNStream() 接口。
+
+>?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
+
+
+
+### onStopPublishCDNStream
+
+停止旁路推流到 CDN 完成的回调。
+```
+- (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
+```
+
+__介绍__
+
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 stopPublishCDNStream() 接口。
+
+
+### onSetMixTranscodingConfig
+
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 setMixTranscodingConfig() 接口。
+```
+- (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| err | int | 0表示成功，其余值表示失败。 |
+| errMsg | NSString * | 具体错误原因。 |
+
+
+
+## 音效回调
+### onAudioEffectFinished
+
+播放音效结束回调。
+```
+- (void)onAudioEffectFinished:(int)effectId code:(int)code 
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| effectId | int | 音效 ID。 |
+| code | int | 0表示播放正常结束；其他表示异常结束。 |
+
+
+
+## 屏幕分享回调
 ### onScreenCaptureStarted
 
 当屏幕分享开始时，SDK 会通过此回调通知。
@@ -536,64 +655,7 @@ __参数__
 
 
 
-## CDN 旁路转推回调
-### onStartPublishCDNStream
-
-启动旁路推流到 CDN 完成的回调。
-```
-- (void)onStartPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
-```
-
-__介绍__
-
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 startPublishCDNStream() 接口。
-
->?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
-
-
-
-### onStopPublishCDNStream
-
-停止旁路推流到 CDN 完成的回调。
-```
-- (void)onStopPublishCDNStream:(int)err errMsg:(NSString *)errMsg 
-```
-
-__介绍__
-
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 stopPublishCDNStream() 接口。
-
-
-### onSetMixTranscodingConfig
-
-设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 setMixTranscodingConfig() 接口。
-```
-- (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| err | int | 0表示成功，其余值表示失败。 |
-| errMsg | NSString * | 具体错误原因。 |
-
-## 音效回调
-### onAudioEffectFinished
-
-播放音效结束回调。
-```
-- (void)onAudioEffectFinished:(int)effectId code:(int)code 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| effectId | int | 音效 ID。 |
-| code | int | 0表示播放正常结束，其他表示异常结束。 |
-
-## TRTCVideoRenderDelegate
+## TRTCVideoRenderDelegate 
 
 __功能__
 
@@ -601,6 +663,7 @@ __功能__
 
 
 
+## 自定义视频渲染回调
 ### onRenderVideoFrame
 
 自定义视频渲染回调。
@@ -613,7 +676,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | frame | [TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32261#trtcvideoframe) *_Nonnull | 待渲染的视频帧信息。 |
-| userId | NSString *\__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以忽略。 |
+| userId | NSString *__nullable | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderDelegate），该参数可以忽略。 |
 | streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频源类型，例如，使用摄像头画面或屏幕分享画面等。 |
 
 
@@ -626,6 +689,7 @@ __功能__
 
 
 
+## 音频数据回调
 ### onCapturedAudioFrame
 
 本地麦克风采集到的音频数据回调。
@@ -698,6 +762,7 @@ __介绍__
 
 
 
+## Log 信息回调
 ### onLog
 
 有日志打印时的回调。
@@ -710,7 +775,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | log | nullable NSString * | 日志内容。 |
-| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 日志等级，参见 TRTCLogLevel。 |
 | module | nullable NSString * | 值暂无具体意义，目前为固定值 TXLiteAVSDK。 |
 
 
