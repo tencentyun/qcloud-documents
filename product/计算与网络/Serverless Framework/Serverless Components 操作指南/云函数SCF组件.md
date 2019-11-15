@@ -159,7 +159,3 @@ $ sls remove --debug
   1s › myFunction › done
 
 ```
-
-### 还支持哪些组件？
-
-可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
