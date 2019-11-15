@@ -16,7 +16,7 @@ TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 C
 ```
 pod 'TXIMSDK_TUIKit_iOS'
 ```
-2. 执行以下命令，安装 pod。
+2. 执行以下命令，安装 TUIKit。
 ```bash
 pod install
 ```
