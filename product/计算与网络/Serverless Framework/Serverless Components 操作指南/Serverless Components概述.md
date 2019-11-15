@@ -2,13 +2,22 @@
 
 ## 什么是Serverless Components？
 
+Serverless Components是支持多个云资源编排和组织的场景化解决方案，主要基于客户的具体场景，如Express框架支持，网站部署等。Serverless Components可以有效简化云资源的配置和管理，将网关，COS和CAM等产品联动起来，让客户更多关注场景和业务。
 
+
+## Serverless Components和 Serverless Framework CLI的区别是什么？
+Serverless Framework CLI是一个覆盖了测试/部署等步骤的工作流框架，主要围绕SCF云函数及其触发器进行配置，支持云函数平台的除Java外所有开发语言（Node.js, Python, PHP, Go等）。
+
+Serverless Components更多面向客户实现场景，支持对云上的多种资源进行部署和编排（COS，API网关，CAM，DB等），同时支持客户自定义对应资源的配置，目前Component主要用Node.js实现。
 
 ## 优势特性
 
-- 
-- 
-- 
+- 简便易用：
+Serverless Components更多的围绕客户场景进行构建，如网站，博客系统，支付服务，图像处理场景等。通过抽象了底层的基础设施配置信息，开发者可以通过十分简单的配置实现场景。
+- 可复用性：
+Serverless Components可以通过非常简单的`serverless.yml`创建和部署，但同时也支持用十分简单的语法对javascript库`serverless.js`进行扩展编写和复用。
+- 秒级部署：
+大多数Serverless Components比传统的配置工具部署快20倍左右，Components可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
 ## 最佳实践
 
