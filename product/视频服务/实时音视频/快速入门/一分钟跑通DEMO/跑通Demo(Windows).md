@@ -1,17 +1,12 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-#### Windows（C++）
+**Windows（C++）开发环境**
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
+- Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
 
-- 操作系统： Microsoft Windows 7及以上版本
-- 开发环境：Microsoft Visual Studio 2015及以上版本
-
-#### Windows（C#）
-
-- 操作系统： Microsoft Windows 7及以上版本
-- 开发环境：Microsoft Visual Studio 2015及以上版本
-- 开发框架：.Net Framework 4.0及以上版本
-
+**Windows（C#）开发环境**
+Microsoft Visual Studio 2017及以上版本，推荐使用 Microsoft Visual Studio 2017
 
 ## 操作步骤
 <span id="step1"></span>
@@ -71,10 +66,10 @@
 
 ### 步骤5：编译运行
 - **Windows(C++)**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`MFCDemo\TRTCMfcDemo.vcxproj`工程文件，编译并运行 Demo 工程即可。
+使用 Visual Stuido（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 - **Windows(C#)**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.csproj`工程文件，编译并运行 Demo 工程即可。
+使用 Visual Stuido（建议 VS2015）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
