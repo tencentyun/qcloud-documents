@@ -4,19 +4,19 @@
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
-```
+```shell
 DELETE /consumergroup?topic_id=xxxx-xx-xx-xx-xxxx&consumer_group=cls_demo_consumer_group HTTP/1.1
 Host: <Region>.cls.myqcloud.com
 Authorization: <AuthorizationString>
 ```
 
-### 请求头
+#### 请求头
 
 除公共头部外，无特殊请求头部。
 
-### 请求参数
+#### 请求参数
 
 | 字段名         | 类型   | 位置  | 是否必须 | 含义                      |
 | -------------- | ------ | ----- | -------- | ------------------------- |
@@ -25,20 +25,20 @@ Authorization: <AuthorizationString>
 
 ## 响应
 
-### 响应示例
+#### 响应示例
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Length: 0
 ```
 
-### 响应头
+#### 响应头
 
 除公共响应头部外，无特殊响应头部。
 
-### 响应参数
+#### 响应参数
 
-无
+无。
 
 ## 错误码
 
