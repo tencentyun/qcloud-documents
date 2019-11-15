@@ -54,7 +54,7 @@ mysql -h hostname -u username -p
 ```
 mysql -h hostname -P port -u username -p
 ```
-      - hostname：替换为目标 MySQL 数据库实例的外网地址，若外网地址未开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80) 开启。
+      - hostname：替换为目标 MySQL 数据库实例的外网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看外网地址。若外网地址未开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80) 开启。
       - port：替换为外网端口号。
       - username：替换为外网访问用户名，用于外网访问，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
     2. 在提示`Enter password：`后输入外网访问用户名对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
