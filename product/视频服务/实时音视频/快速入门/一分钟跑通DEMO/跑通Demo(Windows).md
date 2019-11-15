@@ -6,7 +6,8 @@
 - Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
 
 **Windows（C#）开发环境**
-Microsoft Visual Studio 2017及以上版本，推荐使用 Microsoft Visual Studio 2017
+- Microsoft Visual Studio 2017及以上版本，推荐使用 Microsoft Visual Studio 2017
+- .Net Framework 4.0及以上版本，推荐 .Net Framework 4.0
 
 ## 操作步骤
 <span id="step1"></span>
