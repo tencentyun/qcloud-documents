@@ -21,7 +21,8 @@
 ```
 {
  "version": "2.0",
- "statement": {
+ "statement": [
+ {
      "effect": "allow",
      "action": "cos:PutObject",
      "resource": "*",
@@ -34,5 +35,6 @@
          }
      }
  }
+ ]
 }
 ```

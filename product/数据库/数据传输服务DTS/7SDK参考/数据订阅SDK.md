@@ -74,7 +74,7 @@ public class Main {
         // region 值参照：https://cloud.tencent.com/document/product/236/15833#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
         context.setRegion("ap-chongqing");
         // 订阅的 serviceIp 和 servicePort
-        // 注意：2.8.0以前的 SDK 需要设置 Ip 和 Port 两个参数，2.8.0以后的版本如果设置了 region 参数则可以省略
+        // 注意：2.8.0以前的 SDK 需要设置 IP 和 Port 两个参数，2.8.0以后的版本如果设置了 region 参数则可以省略
         // context.setServiceIp("10.108.112.24");
         // context.setServicePort(50120);
         

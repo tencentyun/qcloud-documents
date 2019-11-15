@@ -9,8 +9,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 - 将本机数据上传至 COS，建议使用 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392) 或 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976)。
 
 ## 局限性
-**COSFS 基于 S3FS 构建， 仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
-
+**COSFS 基于 S3FS 构建， 读取和写入操作都经过磁盘中转，仅适合挂载后对文件进行简单的管理，不支持本地文件系统的一些功能用法，性能方面也无法代替云硬盘 CBS 或文件存储 CFS。** 需注意以下不适用的场景，例如：
 - 随机或者追加写文件会导致整个文件的下载以及重新上传，您可以使用与 Bucket 在同一个地域的 CVM 加速文件的上传下载。
 - 多个客户端挂载同一个 COS 存储桶时，依赖用户自行协调各个客户端的行为。例如避免多个客户端写同一个文件等。
 - 文件/文件夹的 rename 操作不是原子的。
@@ -170,7 +169,9 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 卸载存储桶示例：
 
 ```shell
-fusermount -u /mnt 或者 umount -l /mnt
+方式1：fusermount -u /mnt, fusermount 命令专用于卸载 FUSE 文件系统 
+方式2：umount -l /mnt, 当有程序引用文件系统中文件时，进行卸载不会报错，并在没程序引用时完成卸载
+方式3：umount /mnt， 当有程序引用文件系统中的文件时，进行卸载会报错
 ```
 
 ## 常用挂载选项
@@ -193,9 +194,9 @@ fusermount -u /mnt 或者 umount -l /mnt
 #### -opasswd_file=[path]
 该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为600。
 
-#### -odbglevel=[info|dbg]
+#### -odbglevel=[dbg|info|warn|err|crit]
 
-设置 COSFS 日志记录级别，可选 info、dbg。生产环境中建议设置为 info，调试时可以设置为 dbg。
+设置 COSFS 日志记录级别，可选 info、dbg、warn、err 和 crit。生产环境中建议设置为 info，调试时可以设置为 dbg。如果您的系统日志，未定期清理且由于访问量很大，生成大量日志，您可以设置为 err 或者 crit。
 
 #### -oumask=[perm]
 

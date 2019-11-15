@@ -198,7 +198,7 @@ if (IMFunc.isBrandVivo()) {
 
 以下为 Demo 中的示例代码：
 
-定义证书 ID 常量：
+- 定义证书 ID 常量：
 ```java
 /**
  * 我们先定义一些常量信息在 Constants.java
@@ -211,7 +211,8 @@ public static final String VIVO_PUSH_APPID = "1234512345123451234"; // 见清单
 public static final String VIVO_PUSH_APPKEY = "12345abcde"; // 见清单文件
 /****** vivo 离线推送参数 end ******/
 ```
-上报推送的证书 ID 及 regId：
+
+- 上报推送的证书 ID 及 regId：
 ```java
 /**
  * 在 ThirdPushTokenMgr.java 中对推送的证书 ID 及设备信息进行上报操作
@@ -353,16 +354,15 @@ public class ThirdPushTokenMgr {
 ### 如果应用使用了混淆，如何防止 vivo 离线推送功能异常？
 
 如果您的应用使用了混淆，为了防止 vivo 离线推送功能异常，您需要 keep 自定义的 BroadcastReceiver，参考添加以下混淆规则：
-如果您的应用使用了混淆，为了防止 vivo 离线推送功能异常，您需要 keep 自定义的 BroadcastReceiver，参考添加以下混淆规则：
->?以下代码仅为示例，请根据实际情况修改后再使用。
+>?以下代码为 vivo 官方示例，请根据实际情况修改后再使用。
 
 ```
-# 请将 com.tencent.qcloud.uipojo.thirdpus.VIVOPushMessageReceiverImpl 改成您 App 中定义的完整类名
+# 请将 com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl 改成您 App 中定义的完整类名
 # vivo 推送
 -dontwarn com.vivo.push.**
 -keep class com.vivo.push.**{*; }
 -keep class com.vivo.vms.**{*; }
--keep class com.tencent.qcloud.uipojo.thirdpus.VIVOPushMessageReceiverImpl{*;}
+-keep class com.tencent.qcloud.tim.demo.thirdpush.VIVOPushMessageReceiverImpl{*;}
 ```
 
 

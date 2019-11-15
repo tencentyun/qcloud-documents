@@ -1,4 +1,3 @@
-## IPv6 相关
 ### 腾讯云解析是否支持 IPv6-only 环境？  
 腾讯云 DNSPod 域名解析支持 IPv6-only 网络环境，并且在境内外均验证解析成功。
 
@@ -23,7 +22,6 @@ DNS 一般是通过 IP 地址库来实现 GEO 分地区解析，而 IPv6 没有�
 - 搭建环境验证  
 参考 [苹果官网文档](https://developer.apple.com/library/ios/documentation/NetworkingInternetWeb/Conceptual/NetworkingOverview/UnderstandingandPreparingfortheIPv6Transition/UnderstandingandPreparingfortheIPv6Transition.html#//apple_ref/doc/uid/TP40010220-CH213-SW1) 搭建 IPv6-only 的热点，使用 iPhone 连接热点测试。
 
-## 其他 IP 相关
 ### 腾讯云 DNSPod 能够隐藏 IP 解析吗？
 域名解析不能 IP 隐藏，域名解析是将域名映射为 IP。  
 

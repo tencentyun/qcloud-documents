@@ -1,6 +1,8 @@
 本文详细描述了通过 CDN 控制台，实现 CDN 加速 CVM 的整体操作流程和具体的操作方法。
 
->!执行本文所有操作之前，需完成腾讯云账号注册、实名认证、开通 CDN 服务和开通 CVM 服务。
+## 前提条件
+1. 完成腾讯云账号注册、实名认证。
+2. 开通 CVM 服务，详情请参见 [开始使用 CVM](https://cloud.tencent.com/document/product/213/3687)。
 
 
 ## 操作指南
@@ -20,8 +22,8 @@
 2. 选择域名的**所属项目**
 此处的项目为腾讯云所有产品共享，您可以在 [项目管理](https://console.cloud.tencent.com/project) 中添加项目。
 3. 选择**源站类型**并填写**源站设置**
-源站类型的详细说明请参阅 [CDN域名接入](https://cloud.tencent.com/document/product/228/5734)。
-源站设置中需填写您的**CVM外网地址**。
+源站类型的详细说明请参阅  [CDN 接入域名](https://cloud.tencent.com/document/product/228/5734)。
+源站设置中需填写您的 **CVM 外网地址**。
 
 ### 加速服务配置
 

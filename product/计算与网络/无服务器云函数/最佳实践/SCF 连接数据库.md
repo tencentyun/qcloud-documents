@@ -269,6 +269,9 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
+>?Node.js 已知 Bug 需要在函数返回前自行释放连接，在函数结束时调用 `connection.close()`，此 Bug 将在下一个版本修复。
+
+
 ### Python SDK
 ```Python
 from serverless_db_sdk import database

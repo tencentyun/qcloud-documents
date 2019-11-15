@@ -371,7 +371,7 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 
 ### 获取群成员列表
 
-获取群成员列表的接口为`getGroupMembers`，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
+获取群成员列表的接口为`getGroupMembers`，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **权限说明：**
 
@@ -582,7 +582,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 **说明：**
 
-默认拉取基本资料以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，5分钟后生效。
+默认拉取基本资料以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **原型：**
 

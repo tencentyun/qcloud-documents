@@ -21,7 +21,7 @@ json_value_init[kTIMSdkConfigDeviceInfo] = json_value_dev;
 TIMInit(sdk_app_id, json_value_init.toStyledString().c_str());
 ```
 
-SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/avc) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
+SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 创建应用后获取到。更多初始化操作请参考 [初始化](https://cloud.tencent.com/document/product/269/33546) 文档。
 
 
 ## 登录/登出

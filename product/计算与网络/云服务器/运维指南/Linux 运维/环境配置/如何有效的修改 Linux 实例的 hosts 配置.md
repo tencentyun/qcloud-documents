@@ -4,7 +4,7 @@
 Cloud-Init 在**每次启动**时会根据 `/etc/cloud/templates/hosts.${os_type}.tmpl` 模板生成一份新的 `/etc/hosts` 文件覆盖实例原有的 `/etc/hosts` 文件，导致用户在实例内部手动修改 `/etc/hosts` 配置并重启实例后， `/etc/hosts` 配置又变为原始默认配置。
 
 ## 前提条件
-腾讯云针对 Cloud-Init 的覆盖操作已经做了优化，**2018年9月后**创建的实例不会出现 `/etc/hosts` 配置在重启后被覆盖的问题。
+腾讯云针对 Cloud-Init 的覆盖操作已经做了优化，**2018年9月后使用公共镜像**创建的实例不会出现 `/etc/hosts` 配置在重启后被覆盖的问题。
 若您的实例创建于**2018年9月前**，请通过下面的解决方案进行修改。
 
 ## 操作步骤
@@ -40,7 +40,7 @@ hosts 模版文件如下图所示：
 ```
 vim /etc/cloud/templates/hosts.redhat.tmpl
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+2. 按 “**i**” 切换至编辑模式。
 3. 在文件末尾输入以下内容。
 ```
 127.0.0.1 test test
@@ -52,7 +52,7 @@ vim /etc/cloud/templates/hosts.redhat.tmpl
 ```
 vim /etc/hosts
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+2. 按 “**i**” 切换至编辑模式。
 3. 在文件末尾输入以下内容。
 ```
 127.0.0.1 test test

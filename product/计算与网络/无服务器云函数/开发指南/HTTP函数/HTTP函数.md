@@ -1,3 +1,5 @@
+>? HTTP 函数功能在全新升级中，后期会开放申请使用，您可以前往 [云函数介绍页](https://cloud.tencent.com/product/scf) 来了解最新进展。
+>
 ## 简介
 HTTP 函数（HTTP Function）是云函数的一种，区别于事件函数（Event Function）。HTTP 函数专注于优化 Web 服务场景，例如自带 URL 并通过发送 HTTP 请求到 URL 触发函数执行。
 
@@ -11,7 +13,7 @@ HTTP 函数（HTTP Function）是云函数的一种，区别于事件函数（Ev
 - HTTP 函数的编写体验更贴近编写原生 Web 服务，使用 Node.js 原生接口（[HTTP Request/Response 数据结构](http://nodejs.cn/api/http.html)）。
 - 丰富的框架支持，您可以使用常见的 Web 框架（如 Nodejs Web 框架：`Express`、`Koa`）编写 HTTP 函数。而 Web 框架内置的一些中间件（如 `cors`）也会极大的方便您的业务编写。
 
-HTTP 函数当前处于内测发布状态，请通过 [内测申请](https://cloud.tencent.com/apply/p/1zimo1hbjpu) 获得此功能。
+
 
 ## 使用限制
 - 当前 HTTP 函数目前仅支持 `Nodejs 8.9`，后续会支持多个 Runtime。

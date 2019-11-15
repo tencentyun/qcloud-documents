@@ -1,3 +1,4 @@
+### 什么是 CSR？
 CSR 即证书签名申请（Certificate Signing Request），获取 SSL 证书，需要先生成 CSR 文件并提交给证书颁发机构（CA）。CSR 包含了公钥和标识名称（Distinguished Name），通常从 Web 服务器生成 CSR，同时创建加解密的公钥私钥对。
 
 在创建 CSR 过程中，需要提供相关组织机构信息，web 服务器会根据提供的信息创建证书的标识名称，用来识别证书，内容如下：

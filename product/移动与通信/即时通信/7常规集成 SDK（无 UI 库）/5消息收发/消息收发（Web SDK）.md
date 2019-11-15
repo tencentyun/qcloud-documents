@@ -854,7 +854,7 @@ function sendFile(file,fileName) {
 
 **发送自定义消息入口：**
 
-![](//mccdn.qcloud.com/static/img/6ad98f6243363ced652f46a9fed727ba/image.png)
+![](https://main.qcloudimg.com/raw/90fa9575f83dd790e9f3e653616fef22.png)
 
 **示例：**
 
