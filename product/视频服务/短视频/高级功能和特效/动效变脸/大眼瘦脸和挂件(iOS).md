@@ -7,13 +7,7 @@
 单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)。
 
 ## 版本下载
-可以到 [RTMP SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码 & licence 在接入流程步骤获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
-
-> 区分特权版与非特权版，可以查看SDK的bundler id。bundler id为 com.tencent.TXRTMPSDK 表示非特权版，com.tencent.TXRTMPSDK.pitu 表示特权版。
->
-> 也可以通过体积直观判断，特权版SDK的体积也比非特权版大很多。
-
-
+可以到 [SDK 下载](https://cloud.tencent.com/document/product/584/9366) 页面下方下载商业版 SDK 压缩包，压缩包有加密（解压密码 & licence 在接入流程步骤获取）, 成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在SDK/Resource下。
 
 ## Xcode工程设置
 
@@ -21,11 +15,11 @@
 
 ### 1. 添加Framework
 
-特权版需要额外链接一些系统framework
-> 1. AssetsLibrary.framwork
-> 2. CoreMedia.framework
-> 3. Accelerate.framework
-> 4. Metal.framework 
+商业版需要额外链接以下 Framework
+> - AssetsLibrary.framwork
+> - CoreMedia.framework
+> - Accelerate.framework
+> - Metal.framework 
 
 ### 2. 添加链接参数
 
@@ -34,31 +28,22 @@
 
 ### 3. 添加动效资源
 
-将SDK/Resource下列文件添加到工程中
+将SDK/Resource下所有文件添加到工程中, 文件列表如下:
 
-> 1. 3DFace
-> 2. detector.bundle
-> 3. FilterEngine.bundle
-> 4. model  
-> 5. PE.dat
-> 6. poseest.bundle
-> 7. RPNSegmenter.bundle
-> 8. ufa.bundle
+> - AECore.metallib
+> - FilterEngine.bundle
+> - RPNSegmenter.bundle
+> - YTHandDetector.bundle
+> - detector.bundle
+> - e1
+> - o1
+> - poseest.bundle
+> - u1
+> - ufa.bundle
+> - v1
 
-
-将Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下的SegmentationShader.metal文件添加到工程中
-> 1. SegmentationShader.metal
-
-### 4. 添加动效资源示例
-
-将zip包中Resource里面的资源以groups refrence形式添加到工程中，这里需要注意的是handdetect,handtrack,res18_3M三个文件要以folder refrence形式添加，SegmentationShader.metal 文件在 Demo/TXLiteAVDemo/Resource/Beauty/pitu/data/ 下，您可以找到直接添加，具体操作如图所示：
-![](https://mc.qcloudimg.com/static/img/d9c501a923b7dbc08f9467da07595b58/image.png)  
-![](https://mc.qcloudimg.com/static/img/7a4c4c93298ba65b83fdd63b8b52de42/image.png)
-
-这些资源非常重要，否则切换到换脸类素材时会发生crash。
-
-### 5. 导入licence文件
-特权版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
+### 4. 导入licence文件
+商业版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费 30 天的调试用 licence。
 得到 licence 后，您需要将其命名为**YTFaceSDK.licence** ,然后如上图所示添加到工程。
 
 > 每个licence都有绑定具体的Bundle Identifier，修改app的Bundle Identifier会导致验证失败。
@@ -121,43 +106,167 @@
 
 ### 3. 美妆美容
 
+您可以通过 TXUGCRecord 的 beautyManager 方法获取 TXBeautyManager 对象来进行设置各项美颜参数，其方法如下。
+
 ```objective-c
-/* setEyeScaleLevel  设置大眼级别（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          eyeScaleLevel     : 大眼级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/**
+ * 设置美颜（磨皮）算法
+ *
+ * SDK 内部集成了两套风格不同的磨皮算法，一套我们取名叫“光滑”，适用于美女秀场，效果比较明显。
+ * 另一套我们取名“自然”，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
+ *
+ * @param beautyStyle 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。
  */
--(void) setEyeScaleLevel:(float)eyeScaleLevel;
+- (void)setBeautyStyle:(TXBeautyStyle)beautyStyle;
 
-/* setFaceScaleLevel  设置瘦脸级别（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          faceScaleLevel    : 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/**
+ * 设置美颜级别
+ * @param level 美颜级别，取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显。
  */
--(void) setFaceScaleLevel:(float)faceScaleLevel;
+- (void)setBeautyLevel:(float)level;
 
-/* setFaceVLevel  设置V脸（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          faceVLevel    : V脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/**
+ * 设置美白级别
+ *
+ * @param level 美白级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
  */
-- (void) setFaceVLevel:(float)faceVLevel;
+- (void)setWhitenessLevel:(float)level;
 
-/* setChinLevel  设置下巴拉伸或收缩（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          chinLevel    : 下巴拉伸或收缩取值范围 -9 ~ 9； 0 表示关闭 -9收缩 ~ 9拉伸。
+/**
+ * 设置红润级别
+ *
+ * @param level 红润级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
  */
-- (void) setChinLevel:(float)chinLevel;
+- (void)setRuddyLevel:(float)level;
 
-/* setFaceShortLevel  设置短脸（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          faceShortlevel    : 短脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/**
+ * 设置大眼级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 大眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
  */
-- (void) setFaceShortLevel:(float)faceShortlevel;
+- (void)setEyeScaleLevel:(float)level;
 
-/* setNoseSlimLevel  设置瘦鼻（增值版本有效，普通版本设置此参数无效）
- * 参数：
- *          noseSlimLevel    : 瘦鼻级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
+/**
+ * 设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 瘦脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
  */
-- (void) setNoseSlimLevel:(float)noseSlimLevel;
+- (void)setFaceSlimLevel:(float)level;
 
+/**
+ * 设置V脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level V脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceVLevel:(float)level;
+
+/**
+ * 设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 下巴拉伸或收缩级别，取值范围-9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。
+ */
+- (void)setChinLevel:(float)level;
+/**
+ * 设置短脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 短脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceShortLevel:(float)level;
+
+/**
+ * 设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 瘦鼻级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setNoseSlimLevel:(float)level;
+
+/**
+ * 设置亮眼 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 亮眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setEyeLightenLevel:(float)level;
+
+/**
+ * 设置白牙 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 白牙级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setToothWhitenLevel:(float)level;
+
+/**
+ * 设置祛皱 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 祛皱级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setWrinkleRemoveLevel:(float)level;
+
+/**
+ * 设置祛眼袋 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 祛眼袋级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setPounchRemoveLevel:(float)level;
+
+/**
+ * 设置法令纹 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 法令纹级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setSmileLinesRemoveLevel:(float)level;
+
+/**
+ * 设置发际线 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 发际线级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。
+ */
+- (void)setForeheadLevel:(float)level;
+
+/**
+ * 设置眼距 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 眼距级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setEyeDistanceLevel:(float)level;
+
+/**
+ * 设置眼角 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 眼角级别，取值范围-9 - 9；0表示关闭，小于0表示降低，大于0表示抬高。
+ */
+- (void)setEyeAngleLevel:(float)level;
+
+/**
+ * 设置嘴型 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 嘴型级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setMouthShapeLevel:(float)level;
+
+/**
+ * 设置鼻翼 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 鼻翼级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setNoseWingLevel:(float)level;
+
+/**
+ * 设置鼻子位置 （商用企业版有效，其它版本设置此参数无效）
+ * @param level 鼻子位置级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。
+ */
+- (void)setNosePositionLevel:(float)level;
+
+/**
+ * 设置嘴唇厚度 （商用企业版有效，其它版本设置此参数无效）
+ * @param level 嘴唇厚度级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setLipsThicknessLevel:(float)level;
+
+/**
+ * 设置脸型（商用企业版有效，其它版本设置此参数无效）
+ * @param   level 美型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceBeautyLevel:(float)level;
 ```
 
 ### 4. 绿幕功能
