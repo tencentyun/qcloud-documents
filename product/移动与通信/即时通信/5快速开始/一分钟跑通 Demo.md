@@ -84,7 +84,7 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 //更新 pod 本地库
 pod setup
 ```
-2. 终端执行以下命令，加载 ImSDK 库。
+2. 安装。
 ```
 //iOS
 cd iOS/TUIKitDemo
@@ -93,7 +93,11 @@ pod install
 cd Mac/TUIKitDemo
 pod install
 ```
-3. 编译运行：
+3. 如果安装失败，运行以下命令更新本地的 CocoaPods 仓库列表
+```bash
+ pod repo update
+```
+4. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 
