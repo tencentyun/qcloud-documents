@@ -7,7 +7,7 @@
 #### 请求示例
 
 ```shell
-GET /cursor?topic_id=xxxxxxxx-xxxx-xxxx-xxxx&partition_id=1>&from=end HTTP/1.1
+GET /cursor?topic_id=xxxxxxxx-xxxx-xxxx-xxxx&partition_id=1&from=end HTTP/1.1
 Host: <Region>.cls.myqcloud.com
 Authorization: <AuthorizationString>
 ```
