@@ -7,7 +7,7 @@
 |[语音验证码状态通知](https://cloud.tencent.com/document/product/1128/37724)	|通过回调业务 URL 的方式，通知业务方语音验证码下发的状态|
 |[语音通知状态通知](https://cloud.tencent.com/document/product/1128/37725)	|通过回调业务 URL 的方式，通知业务方语音通知下发的状态|
 |[语音通知按键通知](https://cloud.tencent.com/document/product/1128/37726)	|可以通过回调业务 URL 的方式，通知业务方用户按下的键|
-|[语音送达失败原因推送](https://cloud.tencent.com/document/product/1128/37727)	|对语音验证码、语音通知下发失败的号码推送下发失败的原因|
+|[语音送达失败原因通知](https://cloud.tencent.com/document/product/1128/37727)	|向语音验证码、语音通知下发失败的被叫号码推送下发失败原因|
 
 
 

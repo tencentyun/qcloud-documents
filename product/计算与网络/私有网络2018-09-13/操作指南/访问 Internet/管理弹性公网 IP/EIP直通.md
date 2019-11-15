@@ -16,7 +16,7 @@
 针对典型场景，我们提供了脚本，详细方法如下：
 ### Linux 系统
 >?
->- Linux 脚本支持系统版本 CentOS 6.x、CentOS 7 和 Ubuntu。
+>- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
 >- Linux 脚本仅支持 eth0，暂不支持辅助网卡。
 >- Linux 脚本针对的场景为：内网 IP 和外网 IP 均在 eth0 上，外网地址通过外网 IP 访问，内网地址通过内网 IP 访问。
 
