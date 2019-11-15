@@ -19,11 +19,11 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 
 ### 启动服务
 在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【在线推理】，进入启动服务页面。
-![](https://main.qcloudimg.com/raw/4c47bdecf60c67292cf705b42ead9df7.png)
+![](https://main.qcloudimg.com/raw/7dcb446b14ca77ef3783f377cdf3d5bd.png)
 **输入服务名称**：输入启动的服务名称。
 **选择资源组**：选择将要启动的资源组，这里选择已购买的专用资源组。
 **选择实例配置**：选择【CPU 配置】，实例配置填写为1核2G。
-![](https://main.qcloudimg.com/raw/3110eba6f6d8bf347d4a2a8f2114261a.png)
+![](https://main.qcloudimg.com/raw/0b00d6b36af05cacb2aae36f86034d6c.png)
 **实例调节策略**：选择【手动调节】，实例数量设置为1。
 **选择是否生成鉴权**：勾选生成鉴权，生成服务访问地址的鉴权密钥。
 全部设置完成后，单击【启动服务】，进行在线服务列表页面。
