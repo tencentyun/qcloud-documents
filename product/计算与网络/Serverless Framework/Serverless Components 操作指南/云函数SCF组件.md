@@ -1,31 +1,18 @@
-# 腾讯云云函数SCF组件
+## 操作场景
+云函数 SCF 组件是 serverless-tencent 组件库中的基础组件之一。通过云函数 SCF 组件，可以快速切方便地创建、配置和管理腾讯云的云函数 SCF。
 
-## 简介
-该组件是serverless-tencent组件库中的基础组件之一。通过云函数SCF组件，可以快速，方便的创建，配置和管理腾讯云的SCF云函数。
+## 操作步骤
 
-## 快速开始
-&nbsp;
+通过 SCF 组件，您可以对一个云函数进行完整的创建、配置、部署和删除等操作。支持命令如下：
 
-通过SCF组件，对一个云函数进行完整的创建，配置，部署和删除等操作。支持命令如下：
+#### 安装
 
-1. [安装](#1-安装)
-2. [创建](#2-创建)
-3. [配置](#3-配置)
-4. [部署](#4-部署)
-5. [移除](#5-移除)
-
-&nbsp;
-
-### 1. 安装
-
-通过npm安装serverless
-
+通过 npm 安装 Serverless：
 ```console
 $ npm install -g serverless
 ```
 
-### 2. 创建
-
+#### 创建
 ```
 $ mkdir my-function
 $ cd my-function
@@ -39,20 +26,18 @@ $ cd my-function
 |- .env      # your Tencent SecretId/Key/AppId
 ```
 
-在 `.env` 文件中配置腾讯云的APPID，SecretId和SecretKey信息并保存
-
-如果没有腾讯云账号，可以在此[注册新账号](https://cloud.tencent.com/register)。
-
-如果已有腾讯云账号，可以在[API密钥管理](https://console.cloud.tencent.com/cam/capi)中获取`APPID`, `SecretId` 和`SecretKey`.
+在 `.env` 文件中配置腾讯云的 APPID、SecretId 和 SecretKey 信息并保存：
 
 ```
 # .env
 TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
-
-对于该例子可以使用一下Demo，作为index.js：
-
+>?
+> - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+> - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 APPID、SecretId 和 SecretKey。
+ 
+对于该例子可以使用一下 Demo，作为 index.js：
 ```javascript
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -63,10 +48,9 @@ exports.main_handler = async (event, context, callback) => {
 ```
 
 
-### 3. 配置
+#### 配置
 
-在serverless.yml中进行如下配置
-
+在 serverless.yml 中进行如下配置：
 ```yml
 # serverless.yml
 myFunction1:
@@ -80,7 +64,7 @@ myFunction1:
     description: My Serverless Function
     memorySize: 128
     timeout: 20
-    # 打包zip时希望忽略的文件或者目录配置（可选）
+    # 打包 zip 时希望忽略的文件或者目录配置（可选）
     exclude:
       - .gitignore
       - .git/**
@@ -104,12 +88,12 @@ myFunction2:
 
 ```
 
-* [点击此处查看配置文档](https://github.com/serverless-tencent/tencent-scf/blob/master/docs/configure.md)
+* [查看详细配置文档>>](https://github.com/serverless-tencent/tencent-scf/blob/master/docs/configure.md)
 
 
-### 4. 部署
+#### 部署
 
-通过如下命令进行部署，并查看部署过程中的信息
+通过如下命令进行部署，并查看部署过程中的信息：
 ```console
 $ sls --debug
 
@@ -148,7 +132,7 @@ $ sls --debug
 
 ```
 
-### 5. 移除
+#### 移除
 
 ```console
 $ sls remove --debug
