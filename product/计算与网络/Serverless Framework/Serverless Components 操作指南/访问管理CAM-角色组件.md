@@ -1,52 +1,43 @@
-# 访问管理CAM-角色组件
+## 操作场景
+访问管理 CAM-角色（CAM-role）组件是 serverless-tencent 组件库中的基础组件之一。通过 CAM-role 组件，您可以快速且方便地创建、配置和管理腾讯云的 CAM 角色。
 
-## 简介
-该组件是serverless-tencent组件库中的基础组件之一。通过访问管理CAM-role组件，可以快速，方便的创建，配置和管理腾讯云的CAM角色
+## 操作步骤
 
-## 快速开始
+通过 CAM-role 组件，对一个 CAM 的角色进行完整的创建、配置、部署和删除等操作。支持命令如下：
 
-通过CAM-role组件，对一个CAM的角色进行完整的创建，配置，部署和删除等操作。支持命令如下：
 
-1. [安装](#1-安装)
-2. [创建](#2-创建)
-3. [配置](#3-配置)
-4. [部署](#4-部署)
-4. [移除](#5-移除)
+#### 安装
 
-### 1. 安装
-
-通过npm安装serverless
+通过 npm 安装 Serverless：
 
 ```console
 $ npm install -g serverless
 ```
 
-### 2. 创建
+#### 创建
 
-本地创建 `serverless.yml` 和 `.env` 两个文件
+本地创建 `serverless.yml` 和 `.env` 两个文件：
 
 ```console
 $ touch serverless.yml
 $ touch .env # 腾讯云的配置信息
 ```
 
-在 `.env` 文件中配置腾讯云的APPID，SecretId和SecretKey信息并保存
-
-如果没有腾讯云账号，可以在此[注册新账号](https://cloud.tencent.com/register)。
-
-如果已有腾讯云账号，可以在[API密钥管理
-](https://console.cloud.tencent.com/cam/capi)中获取`APPID`, `SecretId` 和`SecretKey`.
-
+在 `.env` 文件中配置腾讯云的 APPID、SecretId 和 SecretKey 信息并保存。
 ```
 # .env
 TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 TENCENT_APP_ID=123
 ```
+>?
+> - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+> - 如果已有腾讯云账号，可以在 [API 密钥管理
+](https://console.cloud.tencent.com/cam/capi) 中获取 APPID、SecretId 和 SecretKey。
 
-### 3. 配置
+#### 配置
 
-在serverless.yml中进行如下配置
+在 serverless.yml 中进行如下配置：
 
 ```yml
 # serverless.yml
@@ -64,15 +55,15 @@ myRole:
       policyName:
         - QCloudResourceFullAccess
         - QcloudAccessForCDNRole
- ```
+```
 
  
-* [点击此处查看配置文档](https://github.com/serverless-tencent/tencent-cam-role/blob/master/docs/configure.md)
+[查看详细配置文档>>](https://github.com/serverless-tencent/tencent-cam-role/blob/master/docs/configure.md)
 
  
-### 4. 部署
+#### 部署
 
-通过如下命令进行部署，并查看部署过程中的信息
+通过如下命令进行部署，并查看部署过程中的信息：
 
 ```shell
 $ sls --debug
@@ -109,10 +100,9 @@ $ sls --debug
 
 ```
 
-&nbsp;
 
-### 5. 移除
 
+####  移除
 ```shell
 $ sls remove --debug
 
@@ -124,5 +114,3 @@ $ sls remove --debug
 
 ```
 
-
-```
