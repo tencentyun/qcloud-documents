@@ -1134,7 +1134,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
 ### 消息是否已读
 
-通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 测进行的 [已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 侧进行的 [已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
 
 ```
 @interface TIMMessage : NSObject
