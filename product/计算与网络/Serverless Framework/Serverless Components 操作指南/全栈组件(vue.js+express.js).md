@@ -3,8 +3,8 @@
 
 此项目的完全基于腾讯云 Serverless 服务器，可大大缩减使用成本。 如果您正在寻找一个低开销的便捷轻量的 Serverless 服务管理框架，全栈组件（Vue.js+Express.js）将是很好的选择。
 
-该 Template 包括:
-* **serverless Express.js 后端**：由腾讯云 Servelress Cloud Function（无服务云函数SCF） 和腾讯云 API 网关提供相关能力，支持 express.js 框架，帮助开发者架构自己的项目和路由。
+该 Template 包括：
+* **serverless Express.js 后端**：由腾讯云 Servelress Cloud Function（云函数 SCF） 和腾讯云 API 网关提供相关能力，支持 express.js 框架，帮助开发者架构自己的项目和路由。
 * **serverless Vue.js 前端**：由腾讯云 Cloud Object Storage（对象存储 COS）提供相关存储能力，通过后端 API 传递到前端，并使用 Vue.js 做相关渲染。
 
 
@@ -35,7 +35,7 @@ TENCENT_APP_ID=123
 ```
 >?
 > - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 APPID、SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 APPID、SecretId 和 SecretKey。
  
 您也可以在部署之前手动将它们设置为环境变量。
 将 NPM 依赖项分别安装在  `dashboard` 和 `api` 两个文件目录：
