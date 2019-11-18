@@ -34,9 +34,9 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 - 将 [training.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/training.pt) 和 [test.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/test.pt) 一起保存到自建文件夹 processed 中，再将 processed 文件夹放置到 mnist 文件夹中（用户操作时注意此处保持文件夹名称一致），文件夹层级结构如下：
 ```
 --mnist
---processed
---training.pt
---test.pt
+    --processed
+        --training.pt
+        --test.pt
 ```
 
 - 将 mnist 文件夹上传至 [COS 存储桶](https://console.cloud.tencent.com/cos5/bucket#)中（此处上传数据集的存储桶位置需和控制台中工程所在的存储桶位置保持一致，不然会导致工作流无法读取数据集的报错）
@@ -73,7 +73,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 
 以上列表中的参数对应源代码 mnist.py 中以下部分：（用户可参考此处格式配置自定义代码中的参数）
 ![](https://main.qcloudimg.com/raw/91796af4363ab91ff58d709bdc859886.png)
->!若自定义代码中，用户给未给参数命名，则可在代码中可通过默认参数 args[0] 读取用户填写的第一个取值，args[1] 读取第二个取值，以次类推。
+>!若自定义代码中，用户给未给参数命名，则可在代码中可通过默认参数 args[0] 读取用户填写的第一个取值，args[1] 读取第二个取值，以此类推。
 
 4. 配置资源参数，用户可直接选择平台提供的默认值，也可根据自身代码调整资源分配。
 5. 运行工作流
