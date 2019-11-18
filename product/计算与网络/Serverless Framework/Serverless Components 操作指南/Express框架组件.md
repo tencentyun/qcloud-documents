@@ -1,5 +1,7 @@
 ## 操作场景
 Express 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件、SCF 组件等），快速且方便地在腾讯云创建、配置和管理一个 Express 框架。
+
+[Serverless Framework + 腾讯云 >>](http://serverless.com)
 <img align="right" width="400" src="https://scf-dev-tools-1253665819.cos.ap-guangzhou.myqcloud.com/express_demo_light_sm_resize.gif" />
 
 ## 操作步骤
@@ -9,7 +11,6 @@ Express 组件通过使用 serverless-tencent 的基础组件（如 API 网关�
 #### 安装
 
 通过 npm 安装 Serverless：
-
 ```console
 $ npm install -g serverless
 ```
