@@ -14,6 +14,7 @@ fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于�
 
 
 
+## 操作步骤
 
 <span id="Add"></span>
 ### 将扩容部分的容量划分至原有 MBR 分区
