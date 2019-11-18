@@ -27,7 +27,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 ![](https://main.qcloudimg.com/raw/556bf7bb8d2d9f9af14dd36c56564845.png)
 
 ## 详细流程
-### 一、数据集和自定义代码准备
+#### 一、数据集和自定义代码准备
 **1. 数据集准备**
 此步用户将所需数据集上传到 COS 中，以便在代码中通过 COS 路径访问该数据集。
 - 通过本文提供的链接下载 MNIST 数据集的 [training.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/training.pt) 和 [test.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/test.pt) 到本地
@@ -52,7 +52,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 在 [mnist.py](https://angelonk8s-cq-1256633383.cos.ap-chongqing.myqcloud.com/mnist.py) 源代码中，访问上传至 COS 中的数据集的示例代码片段如下，访问路径格式为：cos_person/mnist。
 ![](https://main.qcloudimg.com/raw/ddaa076bac4872898ac025caead804a0.png)
 
-### 二、利用 PyTorch 框架运行自定义代码
+#### 二、利用 PyTorch 框架运行自定义代码
 1. 在智能钛控制台的左侧导航栏中，选择【框架】>【深度学习】>【PyTorch】，并拖入画布中。
 ![](https://main.qcloudimg.com/raw/0ac8ab5528d3af0c19d4b288d2774bf2.png)
 2. 右键【PyTorch】，选择【重命名】，输入新名称：手写数字识别，单击【确定】。
@@ -80,7 +80,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 单击画布左上角的【运行】，即可开始运行工作流，待运行成功（运行大概需要 4 min）。
 ![](https://main.qcloudimg.com/raw/e2d7d37b2a3d5043daa420920db087c2.png)
 
-### 三、查看工作流运行状态和结果
+#### 三、查看工作流运行状态和结果
 1. 右键【手写数字识别】，单击【日志信息】>【PyTorch 控制台】可查看该工作流运行相关日志。
 ![](https://main.qcloudimg.com/raw/8b27c540eabfdcefdd82a97ac5c4ae5c.png)
 >!右键【手写数字识别】>【日志信息】>【查看日志】/【历史日志】是任务提交的后台日志，一般不用关注。
