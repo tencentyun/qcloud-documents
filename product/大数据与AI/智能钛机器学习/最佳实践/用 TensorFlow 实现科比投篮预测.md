@@ -49,7 +49,7 @@
 
 ## 整体流程 
 该 Demo 的整体流程如下： 
-![](https://main.qcloudimg.com/raw/e6f58a30f7eecfb9ad7340a094d457e1.png)
+![](https://main.qcloudimg.com/raw/c00fd14e7e4d2f5f14d7147b830deba9.png)
 
 ## 详细流程 
 #### 一. 上传数据
@@ -59,7 +59,8 @@
 3. 修改 COS 路径： 
 目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。 
 请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
-![](https://main.qcloudimg.com/raw/ee8b10f8352dd31fda934b035896a590.png)
+![](https://main.qcloudimg.com/raw/b1d91140cf7b3d1da9d4f04a6866c248.png)
+![](https://main.qcloudimg.com/raw/f5a45bade44051748c46de9484f0ca00.png)
  
 #### 二. 数据清洗
 此数据清洗功能由【案例相关材料】中的清洗代码 data_cleaning.py 提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
@@ -69,7 +70,7 @@
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。 
  - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
- ![](https://main.qcloudimg.com/raw/3e39be793c94416e319f32e79f1c9d04.png)
+![](https://main.qcloudimg.com/raw/39365bc8f7b5c442455b2537bbdf30e2.png)
 
 
 #### 三. 特征转换
@@ -79,7 +80,7 @@
  - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。 
  - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/c096108a8a9255fcdea0adf6be2bfdc3.png)
+![](https://main.qcloudimg.com/raw/fdb1dd43fad2041f71aa2e67e58506be.png)
 
 #### 四. 特征选择
 此特征选择功能亦由【案例相关材料】中的相关代码 feature_selection.py 提供： 
@@ -89,7 +90,7 @@
  - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。 
  - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/744308d1ca995f7362bb833fae2e546f.png)
+![](https://main.qcloudimg.com/raw/f26e78155ccf2700af19bc8d6c7ab851.png)
 
 #### 五. 分类器
 此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供： 
@@ -99,10 +100,10 @@
  - 程序脚本：上传文件 `classifier.py` 详见【案例相关材料】。 
  - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/ac5a059beece872735a5fb5252929321.png)
+![](https://main.qcloudimg.com/raw/1e352cfdcdf69d56236f1f0c7e895a96.png)
 
 #### 六. 模型评估
-1. 在智能钛机器学习平台控制台的左侧导航栏下方，搜索【二分类任务评估】，并拖入画布中。。 
+1. 在智能钛机器学习平台控制台的左侧导航栏下方，搜索【二分类任务评估】，并拖入画布中。 
 2. 单击【二分类任务评估】，在右侧弹框中单击【高级设置】，此处需要手动填写【输入数据】路径（请直接复制填写）：`${cos}/kobe_predict/result.csv`，其余路径根据 IO 连线自动生成。
 3. 填写算法 IO 参数：  
  - 标签列：0。 
@@ -111,7 +112,7 @@
  - 输入数据分隔符：空格。
  - 预测列：1。
  - 其余参数可默认。 
-![](https://main.qcloudimg.com/raw/01993aed84d9b2b8a1ed38901a0dbe2d.png)
+![](https://main.qcloudimg.com/raw/e47a6f66e6a5231835426da21946bde9.png)
 ![](https://main.qcloudimg.com/raw/d5feafd51b37fd376472f3234f95dd7d.png)
 
 #### 七. 运行调度及模型评估
