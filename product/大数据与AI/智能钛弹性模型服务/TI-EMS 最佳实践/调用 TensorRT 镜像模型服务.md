@@ -39,10 +39,10 @@ IP：通过单击模型服务页面的【服务调用】获取的服务访问地
 TI-EMS 模型服务支持以 gRPC 或 HTTP 访问，本示例使用 gRPC 访问模型服务。
 - 下载服务调用示例脚本
 ```shell 
-https://github.com/tencentyun/ti-ems-client-examples
+git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
 ```shell
-cd client-examples
+cd ti-ems-client-examples
 ```
 
 - 安装测试脚本依赖
