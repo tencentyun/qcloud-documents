@@ -36,6 +36,7 @@
 
 **数据集具体内容抽样展示如下（前八列）：** 
 ![](https://main.qcloudimg.com/raw/839e2d3e9b8bb72618302a470df46ad6.png) 
+
 ## 案例相关材料 
 相关材料下载链接：[Kobe 投篮预测 Demo 材料](https://main.qcloudimg.com/raw/c16f2f3c736e434b63341db6026d7425/kobe.zip)。 
 该材料包含以下文件： 
@@ -48,7 +49,8 @@
 
 ## 整体流程 
 该 Demo 的整体流程如下： 
-![](https://main.qcloudimg.com/raw/7b696c2745c1610ce6f0ad3c3e71193f.png) 
+![](https://main.qcloudimg.com/raw/e6f58a30f7eecfb9ad7340a094d457e1.png)
+
 ## 详细流程 
 #### 一. 上传数据
 本案例通过本地数据节点上传所需数据： 
@@ -56,10 +58,9 @@
 2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。 
 3. 修改 COS 路径： 
 目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。 
-请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。 
-![](https://main.qcloudimg.com/raw/65b53b22d3bb35f48a3fd2fb51559dbb.png)
-![](https://main.qcloudimg.com/raw/2ca958b17981ca9f72bd675842246eca.png)
-
+请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
+![](https://main.qcloudimg.com/raw/ee8b10f8352dd31fda934b035896a590.png)
+ 
 #### 二. 数据清洗
 此数据清洗功能由【案例相关材料】中的清洗代码 data_cleaning.py 提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
@@ -68,7 +69,8 @@
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。 
  - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/dcd97fe674174da579b2ec96cb89bc2c.png)
+ ![](https://main.qcloudimg.com/raw/3e39be793c94416e319f32e79f1c9d04.png)
+
 
 #### 三. 特征转换
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【组件】>【深度学习】>【 TensorFlow】。 
@@ -77,7 +79,7 @@
  - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。 
  - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/1fff4d15e3f0efeec33783cf871deb53.png)
+![](https://main.qcloudimg.com/raw/c096108a8a9255fcdea0adf6be2bfdc3.png)
 
 #### 四. 特征选择
 此特征选择功能亦由【案例相关材料】中的相关代码 feature_selection.py 提供： 
@@ -87,7 +89,7 @@
  - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。 
  - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/ecf0a1c0307c0b521ffdbe7d0f0da01f.png)
+![](https://main.qcloudimg.com/raw/744308d1ca995f7362bb833fae2e546f.png)
 
 #### 五. 分类器
 此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供： 
@@ -97,7 +99,7 @@
  - 程序脚本：上传文件 `classifier.py` 详见【案例相关材料】。 
  - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
- ![](https://main.qcloudimg.com/raw/cc7c6df4d11289d525c6fa699e1cc684.png)
+![](https://main.qcloudimg.com/raw/ac5a059beece872735a5fb5252929321.png)
 
 #### 六. 模型评估
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【算法】>【机器学习算法】>【评估算子】>【二分类任务评估】，并拖入画布中。 
@@ -109,7 +111,7 @@
  - 输入数据分隔符：空格。
  - 预测列：1。
  - 其余参数可默认。 
-![](https://main.qcloudimg.com/raw/ed13796c5f707a77b6f8c5075ab169f7.png)
+![](https://main.qcloudimg.com/raw/01993aed84d9b2b8a1ed38901a0dbe2d.png)
 ![](https://main.qcloudimg.com/raw/d5feafd51b37fd376472f3234f95dd7d.png)
 
 #### 七. 运行调度及模型评估
