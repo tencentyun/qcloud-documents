@@ -21,23 +21,22 @@ WIMP 环境是指在 Windows 系统下，由 IIS 服务 + MySQL + PHP 组成的�
 1. 下载并安装 [Microsoft Web 平台安装程序 5.0](https://www.microsoft.com/web/downloads/platform.aspx)。
 2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > <img src="https://main.qcloudimg.com/raw/3ad1de7c2eaef565dbd9c42dfdcedc12.png" style="margin:-3px 0px">，并在应用中单击运行 Web 平台安装程序。
 安装平台初始化时间较长，请耐心等待。
-3. 选择 Web 安装平台程序左上角的【产品】，并在右上角搜索框中输入 `MySQL`，按 “**Enter**” 开始搜索。
+3. 选择 Web 安装平台程序左上角的【产品】，并在右上角搜索框中输入 `MySQL`，按 “**Enter**” 进行搜索。
 4. 根据实际需求选择不同版本的数据库，并单击【添加】。如下图所示：
-![](https://main.qcloudimg.com/raw/af1698bbd2216aa4fb6ee8ffab120be0.png)
-5. 搜索 PHP，并选择版本添加到安装队列。如下图所示：
-![](https://main.qcloudimg.com/raw/92d2bd1d4237cd6f14a783a4e47a192b.png)
+![](https://main.qcloudimg.com/raw/4a6523e2c8f64b3fab8e4cb4ced241d2.png)
+5. 搜索 `PHP`，选择版本后添加到安装队列。如下图所示：
+![](https://main.qcloudimg.com/raw/62689fee50a0a5447dc31b5d932f308c.png)
 6. 单击【安装】。
 7. <span id="passwd"></span>在弹出的窗口中设置数据库帐号密码，并单击【继续】并接受许可条款即可开始安装。
-安装时间较长，请耐心等待。
+数据库帐号为 `root`，数据库密码请自行设置并记录，本文以 `123456` 为例。
 
 ### 验证环境配置
-1. 下载并安装 [Visual C++ Redistributable for Visual Studio 2012 Update 4 x86 包](http://www.microsoft.com/en-us/download/details.aspx?id=30679)。
-2. 参考相关操作中的 [展示文件扩展名](#show) 进行设置。
-3. 在 `C:\inetpub\wwwroot` 目录下新建 `phpinfo.php` 文件，写入以下内容并保存：
+1. 请参考相关操作中的 [展示文件扩展名](#show) 完成设置。
+2. 在 `C:\inetpub\wwwroot` 目录下新建 `phpinfo.php` 文件，写入以下内容并保存：
 ```
 <?php phpinfo(); ?>
 ```
-4. 在本地浏览器中访问以下地址，验证环境配置。
+3. 在本地浏览器中访问以下地址，验证环境配置。
 ```
 http://云服务器实例的公网 IP
 ```
@@ -56,7 +55,7 @@ http://云服务器实例的公网 IP
 1. 前往 [Perl Programming Language](https://www.perl.org/) 下载并安装 Perl。
 2. 在 `C:\Program Files\MySQL\MySQL Server 5.5\bin` 目录中打开 `mysql_secure_installation.pl` 文件。
 >?
->- 首次运行 `.pl` 文件，需通过【打开方式】> 选择 `C:\Perl64\bin\perl.exe` 程序方式。
+>- 首次运行 `.pl` 文件，需通过【打开方式】> 选择 `C:\Perl64\bin\perl.exe` 程序方式运行。
 >- `C:\Perl64` 为本文中 Perl 的安装路径。
 >
 3. 在弹出窗口中根据以下步骤禁用 MySQL  默认功能，提高安全性。
