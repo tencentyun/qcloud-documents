@@ -8,7 +8,7 @@
 ## 了解 CVM 云服务器
 
 在购买与使用云服务器之前，您需要首先完成  [注册与认证](https://cloud.tencent.com/document/product/213/6090)。 
-- 您可以单击 [价格计算器](https://buy.cloud.tencent.com/calculator/cvm) 查看您需要的产品组合的价格，估算资源成本，加入购买预算清单，更可实现一键购买。
+- 您可以单击 [价格计算器](https://buy.cloud.tencent.com/price/cvm/calculator) 查看您需要的产品组合的价格，估算资源成本，加入购买预算清单，更可实现一键购买。
 - 当您不懂云服务器如何计费时，[云服务器计费模式说明](https://cloud.tencent.com/document/product/213/2180) 帮您选择适合您业务场景的计费模式。
 - 当您面对丰富多样的机型不知如何选择时，[云服务器机型选择](https://cloud.tencent.com/document/product/213/11518) 助您了解不同机型的适用场景和性能，帮助您选择适合您业务场景的机型。
 - 当您不清楚在何地配置时，[地域与可用区](https://cloud.tencent.com/document/product/213/6091) 助您了解地域与可用区的最优选择方案。

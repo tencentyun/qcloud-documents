@@ -2,7 +2,7 @@
 
 ## 前提条件
 1. 完成腾讯云账号注册、实名认证。
-2. 开启 CDN 服务，详情请参见 [CDN 快速入门](https://cloud.tencent.com/document/product/228/38062)。
+2. 开启 CDN 服务，详情请参见 [CDN 快速入门](https://cloud.tencent.com/document/product/228/3149)。
 
 ## 操作指南
 
@@ -34,7 +34,7 @@
 (1) 在**自定义加速域名**模块单击【添加域名】，添加已备案的自定义域名
 ![](https://main.qcloudimg.com/raw/904d6d709039ecd111eed476cf05e877.png)
 （2）添加域名的配置如下：
-**域名**：输入待绑定的自定义域名（例如`www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/38066?!editLang=zh&!preview) 。
+**域名**：输入待绑定的自定义域名（例如`www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121) 。
 **回源鉴权**：对于私有读存储桶，请手动开启回源鉴权以保护源站。
 配置完成后，单击【保存】，即可完成对域名的添加。
 ![](https://main.qcloudimg.com/raw/cd6790e2d48e80e08ef3b9dc2e5b3e2e.png)

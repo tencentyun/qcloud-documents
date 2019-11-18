@@ -48,6 +48,7 @@
 | 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
 | 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
 | 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
+| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 ## 群组管理
 

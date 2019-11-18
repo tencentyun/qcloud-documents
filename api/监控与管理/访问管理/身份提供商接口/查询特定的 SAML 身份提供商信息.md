@@ -42,7 +42,7 @@ https://cam.api.qcloud.com/v2/index.php?Action=GetSAMLProvider
         "name": "idp",
         "desc": "SAML 身份提供商",
         "createTime": "2018-10-30 14:43:37",
-        "modifyTime": "2018-10-30 14:50:39",
+        "modifyTime": "2018-10-30 14:50:38",
         "SAMLMetadata": "U0FNTE1ldGFkYXRh"
     }
 }

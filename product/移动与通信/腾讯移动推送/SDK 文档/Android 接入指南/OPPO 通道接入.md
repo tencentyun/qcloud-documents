@@ -23,7 +23,7 @@ Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.co
 1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
 2. 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:oppo:1.1.2.1-release'//oppo推送
+implementation 'com.tencent.tpns:oppo:1.1.3.0-release'//oppo推送
 ```
 
 

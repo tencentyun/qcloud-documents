@@ -1,6 +1,5 @@
-
 ### 准备内容
-**1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)
+**1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)。
 >?已为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 
 **2. 测试图片：** [flower.jpg](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flower.jpg)
@@ -17,16 +16,22 @@ echo "{\"instances\":[{\"b64\": \"$(base64 -i flower.jpg)\"}]}" | tee flower.jso
 ![](https://main.qcloudimg.com/raw/cfa627f4e8f9c8dbf6391953f83f2fbf.png)
 单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/750a166db95a17801d4443960e9ec82f.png)
-选择模型资源配置，单击【普通配置】，选择1核 CPU，2048MB内存配置项。模型服务配置创建完成之后，单击【确定】，进入模型服务配置页面。
-![](https://main.qcloudimg.com/raw/9a6ff404c830e7af893fd1164a003469.png)
+
 ### 启动服务
-在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
-![](https://main.qcloudimg.com/raw/af95e25692913e32750c8b0ea1aca410.png)
-在启动服务页面选择手动调节实例，实例数量设为1，单击【启动服务】，进入模型服务列表页面。
-![](https://main.qcloudimg.com/raw/d28304ab7112e17e7f0bdb09746b9864.png)
+在模型服务配置页面找到 demo_tfserving 配置，单击配置卡片的【在线推理】，进入启动服务页面。
+![](https://main.qcloudimg.com/raw/b0b3010b3a2d4d4b2d8311f15cd995a8.png)
+**输入服务名称**：输入启动的服务名称。
+**选择资源组**：选择将要启动的资源组，这里选择已购买的专用资源组。
+**选择实例配置**：选择【CPU 配置】，实例配置填写为1核2G。
+![](https://main.qcloudimg.com/raw/0b00d6b36af05cacb2aae36f86034d6c.png)
+**实例调节策略**：选择【手动调节】，实例数量设置为1。
+**选择是否生成鉴权**：勾选生成鉴权，生成服务访问地址的鉴权密钥。
+全部设置完成后，单击【启动服务】，进行在线服务列表页面。
+![](https://main.qcloudimg.com/raw/9bafe1dcca5c041f90469a404640d518.png)
+
 ### 调用测试
-单击【启动模型服务】页面选择 demo_serving 模型服务，在对应的【操作】列单击【调用】，即可获得 demo_serving 模型服务的访问地址 IP 和密钥 TOKEN。
-![](https://main.qcloudimg.com/raw/35a25f37773217ab2fdc3a48f0679596.png)
+单击【模型服务】>【在线推理】页面选择 tfserving 模型服务，在对应的【操作】列单击【更多】>【调用】，选择公网地址访问，获得模型服务的公网访问地址和密钥 TOKEN。
+![](https://main.qcloudimg.com/raw/8b78c56dbce894b744966c5ba3c18dd8.png)
 使用 curl 工具为例，展示如何调用服务接口：
 ```shell
 curl -H "Content-Type: application/json" \
@@ -34,8 +39,8 @@ curl -H "Content-Type: application/json" \
 -X POST IP/v1/models/m:predict -d @flower.json
 ```
 **调用参数说明**
-TOKEN：通过单击模型服务页面的【服务调用】获取的密钥地址 token。
-IP：通过单击模型服务页面的【服务调用】获取的服务访问地址。
+TOKEN：通过单击模型服务页面的【调用】获取的密钥地址 token。
+IP：通过单击模型服务页面的【调用】获取的服务访问地址。
 **返回结果：**
 ```shell
 {

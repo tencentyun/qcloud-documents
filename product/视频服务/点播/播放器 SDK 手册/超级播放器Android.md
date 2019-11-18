@@ -55,12 +55,10 @@ allprojects {
 
 播放器主类为`SuperPlayerView`，创建后即可播放视频。
 ```java
-mSuperPlayerView = findViewById(R.id.main_super_player_view);
-//通过 fileid 方式的视频信息配置
 SuperPlayerModel model = new SuperPlayerModel();
-model.appid = 1252463788;   //AppId
-model.fileid = "5285890781763144364"; //视频 FileId
-// 开始播放
+model.appId = 1252463788;// 配置 AppId
+model.videoId = new SuperPlayerVideoId();
+model.videoId.fileId = "5285890781763144364"; // 配置 FileId
 mSuperPlayerView.playWithModel(model);
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。

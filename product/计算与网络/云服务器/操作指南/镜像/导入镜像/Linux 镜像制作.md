@@ -24,9 +24,6 @@ sudo ls /sys/firmware/efi
  - 若存在文件，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
  - 若不存在文件，请执行下一步。
 
-#### 检查网络配置
-目前服务迁移不支持 IPv6，不支持多网卡。依赖于 IPv6 和多网卡的服务都无法正常工作。
-
 #### 检查系统关键文件
 需检查的系统关键文件包括且不限于以下文件：
 >? 请遵循相关发行版的标准，确保系统关键文件位置和权限正确无误，可以正常读写。
