@@ -22,8 +22,9 @@ Ghost 是使用 Node.js 语言编写的开源博客平台，您可使用 Ghost �
 ## 操作步骤
 
 ### 步骤1：登录 Linux 实例
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-2. 请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
 ### 步骤2：创建新用户
 1. 当您登录 Ubuntu 操作系统的云服务器后，请参考 [Ubuntu 系统使用 root 用户登录](https://cloud.tencent.com/document/product/213/17278#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F) 切换为 root 用户。

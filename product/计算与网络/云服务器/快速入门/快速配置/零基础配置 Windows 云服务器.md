@@ -2,7 +2,7 @@
 
 如果您之前没有搭建云服务器的经验，建议您按照本文介绍的方式来购买和配置您的第一台云服务器。
 
-本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 [零基础配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 
 ## 步骤1：注册腾讯云账号

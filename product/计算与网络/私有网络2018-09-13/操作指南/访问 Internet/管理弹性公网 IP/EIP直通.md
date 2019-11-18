@@ -16,7 +16,7 @@
 针对典型场景，我们提供了脚本，详细方法如下：
 ### Linux 系统
 >?
->- Linux 脚本支持系统版本 CentOS 6.x、CentOS 7 和 Ubuntu。
+>- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
 >- Linux 脚本仅支持 eth0，暂不支持辅助网卡。
 >- Linux 脚本针对的场景为：内网 IP 和外网 IP 均在 eth0 上，外网地址通过外网 IP 访问，内网地址通过内网 IP 访问。
 
@@ -75,10 +75,10 @@ chmod +x eip_direct.sh
 在此步骤，您可以选择如下**任意一种**方式进行配置：
 >?由于手动配置较为复杂，推荐使用脚本自动配置。
 
-- [脚本自动配置](#auto)。
+- [脚本自动配置（推荐）](#auto)。
 - [手动配置](#hand)。
 
-#### 脚本自动配置 <span id="auto">
+#### 脚本自动配置（推荐） <span id="auto">
 双击步骤1中下载的脚本即可执行，需要输入如下参数：
 - eip：弹性公网 IP。 
 - master network card index：主网卡接口号，可通过执行 `netsh int ipv4 show int` 进行查询。

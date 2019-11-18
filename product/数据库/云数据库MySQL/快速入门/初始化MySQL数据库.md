@@ -2,15 +2,15 @@
 
 ## 步骤1：注册腾讯云账号
 如果已完成，可忽略此步骤。
-<div style="background-color:#5291F8; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点此注册腾讯云账号</a></div>
+<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点此注册腾讯云账号</a></div>
 
 ## 步骤2：完成实名认证
 如果已完成，可忽略此步骤。
 详细认证流程请参见 [实名认证介绍](https://cloud.tencent.com/document/product/378/3629)。
-<div style="background-color:#5291F8; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;">点此完成实名认证</a></div>
+<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;">点此完成实名认证</a></div>
 
 ## 步骤3：购买云数据库 MySQL
-<div style="background-color:#5291F8; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cdb" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cdb" target="_blank"  style="color: white; font-size:16px;">点此进入快速购买页面</a></div>
 </br>
 
 ![](https://main.qcloudimg.com/raw/4548e6acba4c064763c16096d25510c9.png)

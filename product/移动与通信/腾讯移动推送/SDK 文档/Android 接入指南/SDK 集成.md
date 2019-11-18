@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.1.3.0-release' //  TPNS 推送
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 
 }
 ```
