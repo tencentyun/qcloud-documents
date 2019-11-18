@@ -20,7 +20,7 @@
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
 >- 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
 >
-![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
+![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
  - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80)。
  - Port：内网（或外网）对应端口。
