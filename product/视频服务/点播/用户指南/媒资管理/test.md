@@ -2,7 +2,7 @@
 <html>  
 <head>  
 <meta charset="utf-8">  
-<title>短信</title>  
+<title>test</title>  
 <script type="text/javascript">
 	window.onload=function(){
 		window.alert(screen.width)
