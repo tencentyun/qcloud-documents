@@ -17,7 +17,7 @@ $ npm install -g serverless
 $ mkdir my-function
 $ cd my-function
 ```
-目录内容如下:
+目录内容如下：
 
 ```
 |- code
