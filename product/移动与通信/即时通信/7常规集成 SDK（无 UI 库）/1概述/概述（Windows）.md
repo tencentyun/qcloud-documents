@@ -53,7 +53,7 @@ TIMLogin(id, user_sig, [](int32_t code, const char* desc, const char* json_param
 
 
 **onUserSigExpired**
-每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 [用户票据过期](https://cloud.tencent.com/document/product/269/33551#timsetusersigexpiredcallback)。
+每一个 UserSig 都有一个过期时间，如果 UserSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 UserSig，参阅 [用户票据过期](https://cloud.tencent.com/document/product/269/33551#timsetusersigexpiredcallback)。
 
 
 ### 登出
