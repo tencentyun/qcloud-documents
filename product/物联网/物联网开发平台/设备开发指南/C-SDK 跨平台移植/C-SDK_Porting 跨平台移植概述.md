@@ -2,7 +2,7 @@
 
 本文档介绍如何将设备端 C-SDK 移植到目标硬件平台。C-SDK 采用模块化设计，分离核心协议服务与硬件抽象层，在进行跨平台移植时，一般只需对硬件抽象层进行修改适配即可。
 
-### C-SDK 架构
+## C-SDK 架构
 
 #### 架构图
 <img src="https://main.qcloudimg.com/raw/76fc3f15c4c91ea6cf7e496f25d5d572.jpg"  width="80%">
