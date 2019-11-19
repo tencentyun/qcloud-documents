@@ -28,7 +28,7 @@ Content-Length: 0
 Authorization: Auth String
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
 
 #### 请求参数
 
@@ -40,8 +40,8 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-copy-source | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本<br>例如`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是 |
-| x-cos-metadata-directive | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum | 否 |
+| x-cos-copy-source | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是 |
+| x-cos-metadata-directive | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息。<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息。<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum | 否 |
 | x-cos-copy-source-If-Modified-Since | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
 | x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
 | x-cos-copy-source-If-Match | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
@@ -58,7 +58,7 @@ Authorization: Auth String
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存 | string | 否 |
 | Content-Encoding | RFC 2616 中定义的编码格式，将作为对象元数据保存 | string | 否 |
 | Expires | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存 | string | 否 |
-| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB。<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否 |
+| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB。<br>**注意：**用户自定义元数据信息支持下划线`_`，但用户自定义元数据头部后缀不支持下划线，仅支持减号`-` | string | 否 |
 
 **目标对象访问控制列表（ACL）相关头部**
 
@@ -106,7 +106,7 @@ Authorization: Auth String
 
 **服务端加密（SSE）相关头部**
 
-如果在复制对象时使用了服务端加密，则此接口将返回服务端加密专用头部，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7729#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)
+如果在复制对象时使用了服务端加密，则此接口将返回服务端加密专用头部，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7729#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)。
 
 #### 响应体
 
