@@ -14,8 +14,10 @@
 ## 关闭公网
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
-3. 在弹性公网 IPv6 列表页，勾选需要关闭公网的 IPv6 地址，并单击【释放】，即可释放弹性公网 IPv6。释放弹性公网 IPv6 后，对应的 IPv6 地址将关闭公网访问。
+3. 在弹性公网 IPv6 列表页，勾选需要关闭公网的 IPv6 地址，并单击【释放】。
 ![](https://main.qcloudimg.com/raw/2acd79fecc8022c2853fd138dccb2675.png)
+4. 在弹窗中勾选【确定关闭以上 IP】并单击【确定】，即可释放弹性公网 IPv6。释放弹性公网 IPv6 后，对应的 IPv6 地址将关闭公网访问。
+
 
 ## 调整带宽
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
