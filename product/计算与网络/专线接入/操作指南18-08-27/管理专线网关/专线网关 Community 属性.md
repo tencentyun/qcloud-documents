@@ -1,5 +1,5 @@
 ## 前提条件
-为了获取 VPC 路由所在地域信息，专线网关和专用通道支持向 IDC 单向传递携带有地域信息的 Community 属性，条件如下：
+为了获取 VPC 路由所在地域信息，专线网关和专用通道支持向本地数据中心（IDC）单向传递携带有地域信息的 Community 属性，条件如下：
 - 专线网关：关联网络类型为云联网，且开启 Community 属性传递。
 - 专用通道：开启 Community 属性传递（功能灰度中，如有需要，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=664&source=0&data_title=专线接入&step=1)）。
 - 支持传递 Community 属性的路由：从云端通过专线网关发送给 IDC 侧的 VPC 子网的路由条目（从 IDC 侧发送给专线网关的路由，不支持传递 Community 属性）。
