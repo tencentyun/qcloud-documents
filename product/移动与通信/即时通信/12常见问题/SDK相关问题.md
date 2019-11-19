@@ -43,7 +43,7 @@
 
 ### 收发消息时返回错误码：20003？
 
-请检查用户帐号（Identifier）是否已在腾讯云导入，当 Identifier 无效或 Identifier 未导入腾讯即时通信 IM 时，会返回此错误码。
+请检查用户帐号（UserID）是否已在腾讯云导入，当 UserID 无效或 UserID 未导入腾讯即时通信 IM 时，会返回此错误码。
 
 ### 语音消息播放语音时返回错误码：6010？
 
@@ -51,7 +51,7 @@
 
 ### 帐号鉴权时返回错误码 70001 或 70003 或 70009 或 70013？
 
-这些状态码对应的原因是 Identifier 与 UserSig 不匹配，请检查 Identifier 及 UserSig 的有效性。其中，70001 定义为 UserSig 已过期，70003 定义为 UserSig 被截断导致校验失败，70009 定义为 UserSig 公钥校验不匹配，70013 定义为 Identifier 不匹配。
+这些状态码对应的原因是 UserID 与 UserSig 不匹配，请检查 UserID 及 UserSig 的有效性。其中，70001 定义为 UserSig 已过期，70003 定义为 UserSig 被截断导致校验失败，70009 定义为 UserSig 公钥校验不匹配，70013 定义为 UserID 不匹配。
 
 ### Web 端使用 IM SDK 时返回错误码-2或-5？
 
