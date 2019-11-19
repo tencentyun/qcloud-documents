@@ -59,6 +59,15 @@ Authorization: Auth String
 | x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息 | string |
 | x-cos-storage-class | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
 
+**归档类型对象相关头部**
+
+当对象为归档类型且使用 POST Object restore 请求进行恢复操作时，该 HEAD 请求将返回下列响应头部：
+
+| 名称 | 描述 | 类型 |
+| --- | --- | --- |
+| x-cos-restore | 指示当前恢复操作的状态<br><li>当恢复操作正在进行中时，该响应头部的值为`ongoing-request="true"`<li>当对象已经恢复时，该响应头部包含 COS 对象存储即将删除临时副本的时间，如`ongoing-request="false", expiry-date="Tue, 19 Nov 2019 16:00:00 GMT"` | string
+| x-cos-restore-status | 当恢复操作正在进行中时返回该响应头部，指示当前的恢复模式和恢复操作请求时间，如`tier="bulk"; request-date="Mon, 18 Nov 2019 09:34:50 GMT"`，有关恢复模式请参阅 [POST Object restore](https://cloud.tencent.com/document/product/436/12633#.E8.AF.B7.E6.B1.82) | string
+
 **版本控制相关头部**
 
 启用版本控制的存储桶内的对象将返回下列响应头部：
