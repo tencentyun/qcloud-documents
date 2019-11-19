@@ -44,7 +44,7 @@ SET SOURCE_REBALANCE = 'false';
 ```
 SET CHECKPOINT_INTERVAL = '10s';
 ```
-> ! SET CHECKPOINT_INERVAL 语句的优先级，高于网页面板上 Checkpoint 时间间隔设置。因此，如果 SQL 语句中存在这个命令，那么界面上设置的数值会无效。
+> ! SET CHECKPOINT_INTERVAL 语句的优先级，高于网页面板上 Checkpoint 时间间隔设置。因此，如果 SQL 语句中存在这个命令，那么界面上设置的数值会无效。
 
 ### 示例 5：主动忽略异常的数据
 
