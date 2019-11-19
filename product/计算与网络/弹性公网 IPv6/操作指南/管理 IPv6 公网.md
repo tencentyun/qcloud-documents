@@ -20,7 +20,6 @@
 ## 调整带宽
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
-5. 在弹性公网 IPv6 列表页，可以查看所有弹性公网 IPv6 信息。
 6. 在单个弹性公网 IPv6 的操作栏下，单击【调整带宽】。
 ![](https://main.qcloudimg.com/raw/6a229b67fd67f24fe896ac53517cbe29.png)
 7. 在弹窗中，修改该弹性公网 IPv6 的公网带宽上限并单击【调整】即可。
