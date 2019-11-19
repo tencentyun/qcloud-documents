@@ -62,7 +62,7 @@
 </tr>
 <tr>
 <td>找回 IP</td>
-<td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 申请指定 IP 地址</a>。</td>
+<td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 找回公网 IP 地址</a>。</td>
 </tr>
 </tbody></table>
 
