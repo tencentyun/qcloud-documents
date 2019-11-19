@@ -1,7 +1,8 @@
 >? 弹性公网 IPv6 即将开启内测，敬请期待。 
 
+## 开通公网
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】，为 IPv6 地址开启公网并设置公网带宽。
+2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
 3. 选择需要开通 IPv6 公网的地域，如“华东地区（上海）”，单击【申请】，进入管理页面。
 4. 勾选需要开通 IPv6 公网的 IPv6 地址、目标带宽上限	，单击【提交】。
 >?
@@ -9,10 +10,18 @@
 >- 单次操作可支持最多100个 IPv6 地址同时开通公网，如果超过100个 IPv6 地址需要开通公网，请分多次操作。
 >
 ![](https://main.qcloudimg.com/raw/0696340ecb4d2af0d68bd7436bf6a980.png)
+
+## 关闭公网
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
+2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
+3. 在弹性公网 IPv6 列表页，勾选需要关闭公网的 IPv6 地址，并单击【释放】，即可释放弹性公网 IPv6。释放弹性公网 IPv6 后，对应的 IPv6 地址将关闭公网访问。
+![](https://main.qcloudimg.com/raw/2acd79fecc8022c2853fd138dccb2675.png)
+
+## 调整带宽
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
+2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
 5. 在弹性公网 IPv6 列表页，可以查看所有弹性公网 IPv6 信息。
 6. 在单个弹性公网 IPv6 的操作栏下，单击【调整带宽】。
 ![](https://main.qcloudimg.com/raw/6a229b67fd67f24fe896ac53517cbe29.png)
 7. 在弹窗中，修改该弹性公网 IPv6 的公网带宽上限并单击【调整】即可。
 ![](https://main.qcloudimg.com/raw/a5570432079723d0728fcff0039766d2.png)
-8. 在弹性公网 IPv6 列表页，勾选需要关闭公网的 IPv6 地址，并单击【释放】，即可释放弹性公网 IPv6。释放弹性公网 IPv6 后，对应的 IPv6 地址将关闭公网访问。
-![](https://main.qcloudimg.com/raw/2acd79fecc8022c2853fd138dccb2675.png)
