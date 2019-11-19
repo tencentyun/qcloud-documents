@@ -11,7 +11,7 @@
 2.	将 JAR 包放置对应的目录下，对于 EMR 集群，可同步到所有节点的`/usr/local/service/hadoop/share/hadoop/common/lib/`目录下。
 3.	编辑 core-site.xml 文件，新增以下配置：
 ```
-<!--chdfs的实现类-->
+<!--chdfs 的实现类-->
 <property>
 		 <name>fs.AbstractFileSystem.ofs.impl</name>
 		 <value>com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter</value>
@@ -20,7 +20,7 @@
 		 <name>fs.chdfs.impl</name>
 		 <value>com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter</value>
 </property>
-<!--本地cache的临时目录, 对于读写数据, 当内存cache不足时会写入本地硬盘, 这个路径若不存在会自动创建-->
+<!--本地 cache 的临时目录, 对于读写数据, 当内存 cache 不足时会写入本地硬盘, 这个路径若不存在会自动创建-->
 <property>
 		 <name>fs.ofs.tmp.cache.dir</name>
 		 <value>/data/chdfs_tmp_cache</value>
