@@ -4,7 +4,7 @@
 ## 简介
 FreeRTOS 作为一个微内核系统，主要提供任务创建及调度和任务间通信等 OS 核心机制，在不同设备平台还需要搭配多个软件组件包括 C 运行库（例如 newlib 或者 ARM CMSIS 库）和 TCP/IP 网络协议栈（如 lwIP）才能形成完整的嵌入式运行平台。同时各个设备平台的编译开发环境也各不相同，因此在移植 C-SDK 时，需要根据不同设备的具体情况进行适配。
 
->?SDK 在 **platform/os/freertos** 里面提供了一个基于 **FreeRTOS+lwIP+newlib** 的参考实现，该实现已经在乐鑫 ESP8266 平台上验证测试过。
+>?SDK 在 **platform/os/freertos** 里提供了一个基于 **FreeRTOS+lwIP+newlib** 的参考实现，该实现已在乐鑫 ESP8266 平台上验证测试。
 
 
 ## 抽取代码
