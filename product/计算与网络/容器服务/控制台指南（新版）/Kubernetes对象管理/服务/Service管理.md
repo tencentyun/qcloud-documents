@@ -4,32 +4,43 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 
 <table>
 <tr>
-<th>访问方式</th>
+<th width="15%">访问方式</th>
 <th>说明</th>
 </tr>
 <tr>
 <td>提供公网访问</td>
 <td>
-使用 Service 的 Loadbalance 模式，公网 IP 可直接访问到后端的 Pod，适用于 Web 前台类的服务。<br>
-创建完成的服务可以通过<b>负载均衡 IP + 服务端口</b>直接访问。
+<ul class="params">
+<li>使用 Service 的 Loadbalance 模式，公网 IP 可直接访问到后端的 Pod，适用于 Web 前台类的服务。</li>
+<li>创建完成的服务可以通过<b>负载均衡 IP + 服务端口</b>直接访问。</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>仅在集群内访问</td>
-<td>使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。数据库类等服务如 MySQL 可以选择集群内访问，以保证服务网络隔离。<br>
-创建完成后的服务可以通过<b>服务 IP 或服务名称 + 服务端口</b>直接访问。
+<td>
+<ul class="params">
+<li>使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。数据库类等服务如 MySQL 可以选择集群内访问，以保证服务网络隔离。</li>
+<li>创建完成后的服务可以通过<b>服务 IP 或服务名称 + 服务端口</b>直接访问。</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>VPC  内网访问</td>
-<td>使用 Service 的 Loadbalance 模式，指定 <code>annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx</code>，即可通过内网 IP 直接访问到后端的 Pod。<br>
-创建完成后的服务可以通过<b>内网 LB 的 IP + 服务端口</b>直接访问。
+<td>
+<ul class="params">
+<li>使用 Service 的 Loadbalance 模式，指定 <code>annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx</code>，即可通过内网 IP 直接访问到后端的 Pod。</li>
+<li>创建完成后的服务可以通过<b>内网 LB 的 IP + 服务端口</b>直接访问。</li>
+</ul>
 </td>
 </tr>
 <tr>
 <td>主机端口访问</td>
-<td>提供一个主机端口映射到容器的访问方式，支持 TCP、UDP、Ingress。可用于业务定制上层 LB 转发到 Node。<br>
-创建完成后的服务可以通过<b>云服务器 IP + 主机端口</b>或<b>服务名+服务端口</b>直接访问。
+<td>
+<ul class="params">
+<li>提供一个主机端口映射到容器的访问方式，支持 TCP、UDP、Ingress。可用于业务定制上层 LB 转发到 Node。</li>
+<li>创建完成后的服务可以通过<b>云服务器 IP + 主机端口</b>或<b>服务名+服务端口</b>直接访问。</li>
+</ul>
 </td>
 </tr>
 </table>
@@ -195,3 +206,7 @@ kubectl create/apply
 ```
 kubectl delete service [NAME]
 ```
+
+<style>
+	.params{margin-bottom:0px !important;}
+</style>
