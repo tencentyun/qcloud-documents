@@ -1894,7 +1894,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | 10215 | 用户不存在 |
 | 10216 | Token 过期 |
 | 10217 | Sign 鉴权失败 |
-| 10218 | 登陆密码错误 |
+| 10218 | 登录密码错误 |
 
 
 #### 5.4 课堂
