@@ -26,20 +26,22 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 ![](https://main.qcloudimg.com/raw/5572affe444934bebd94cc716269724a.png)
 5. 在弹出窗口中设置 MySQL 数据库帐号密码，并单击【继续】。
 数据库帐号为 root，数据库密码请自行设置并记录，本文以`123456`为例。
-6. 接受许可条款即可开始安装，安装时间较长，请耐心等待。
+6. 在页面中接受许可条款，即可开始安装。
 
-### 步骤4：配置 WordPress
+
+### 步骤4：安装配置 WordPress
 1. 相关软件安装完成后，在配置页面上清除【“WordPress”应用程序】名称，并单击【继续】。如下图所示：
 ![](https://main.qcloudimg.com/raw/4088d09522c645dcf181e7af0a32dcdf.png)
 2. 在弹出的“覆盖”窗口中单击【是】。
 3. （可选）请参考 [配置 WordPress 安全密钥](#secretKey) 进行配置，提高网站安全性。
-4. 安装成功后，记录弹出窗口中的数据库、数据库帐号及数据库密码，并单击【完成】。
+4. <span id="Configuration"></span>安装完成后，可在窗口中查看软件详情，记录 WordPress 使用的数据库相关信息。如下图所示：
+![](https://main.qcloudimg.com/raw/605031cec813c1088a39bc2796cc5180.png)
 5. 在本地浏览器地址栏访问以下地址，进行 WorsPress 配置：
 ```
 http://云服务器实例公网 IP
 ```
 转至 WordPress 安装页，开始配置 WordPress。如下图所示：
-![](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)
+![](https://main.qcloudimg.com/raw/9259afb93dac100c81c910f6768ec92a.png)
 2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
 <table>
  <tbody><tr><th style="width: 18%;">所需信息</th>
@@ -92,13 +94,13 @@ http://云服务器实例公网 IP
 ```bash
 define('AUTH_KEY', '?Umz@%|H>3bS+&R gPDxWg,p5*c:VGc&|!s|%|9:ucA.aSMQ/4$D:.-(|!-!&0 A');
 ```
-请将 `('')` 内的文本输入到 `Authentication Key` 中。如下图所示：
+请将下列文本输入到 `Authentication Key` 中。如下图所示：
 ```bash
 ?Umz@%|H>3bS+&R gPDxWg,p5*c:VGc&|!s|%|9:ucA.aSMQ/4$D:.-(|!-!&0 A
 ```
 ![](https://main.qcloudimg.com/raw/91b66dd65c742c23c29fffec314dfc13.png)
 4. 将所有密钥配置完成后，单击【继续】。
-5. 请执行 [配置 WordPress]() 完成网站配置。
+5. 请执行 [安装配置 WordPress](#Configuration) 完成网站配置。
 
 
 ### 配置可用域名
