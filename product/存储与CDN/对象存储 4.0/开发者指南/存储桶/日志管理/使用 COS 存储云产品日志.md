@@ -35,7 +35,7 @@
 
 部分腾讯云产品拥有直接投递日志到 COS 的能力，您可以根据产品文档指引，配置日志投递规则，此后即可将日志存储于 COS 上。支持直接投递日志到 COS 的产品文档指引如下：
 
-| 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔         | 日志投递路径                                                 |
+| 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
 | --------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
 | 负载均衡 CLB    | [点此查阅](https://cloud.tencent.com/document/product/214/10329) | 60分钟               | `lb-id/timestamp`                                              |
 | 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | `instance id/topic id/timestamp`                               |
