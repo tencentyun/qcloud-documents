@@ -71,7 +71,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 
 ### 步骤5：安装和配置 WordPress
 #### 下载 WordPress
->? WordPress 可从 [WordPress 官方网站](https://cn.wordpress.org/download/releases/) 下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
+>? WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 1. 执行以下命令，删除网站根目录下用于测试 PHP-Nginx 配置的`index.php`文件。
 ```
