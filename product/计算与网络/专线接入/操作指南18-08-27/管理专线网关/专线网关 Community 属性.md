@@ -98,7 +98,7 @@
 </tr>
 </tbody></table>
 
-## 操作指南
+## 操作步骤
 ### 开启/关闭专线网关 Community 属性传递
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧导航栏中的【专线网关】。
