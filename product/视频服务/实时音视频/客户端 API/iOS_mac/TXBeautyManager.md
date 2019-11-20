@@ -80,7 +80,7 @@ __参数__
 
 ### setFaceVLevel
 
-设置V脸级别（商业版有效，其它版本设置此参数无效）。
+设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
 ```
 - (void)setFaceVLevel:(float)level
 ```
