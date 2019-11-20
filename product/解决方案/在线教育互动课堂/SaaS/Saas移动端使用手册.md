@@ -31,7 +31,7 @@
  >? 仅支持 Chrome 浏览器，暂时不支持 IE 或 Safari（近期将支持 IE 和 Safari）。
 
 2. **通过在线课堂 App 加入课堂**
- - 账号登陆
+ - 账号登录
 ![](https://main.qcloudimg.com/raw/effd7f5e0471c9a035ac4f9134f7d9ac.png)
 加入课堂时需要输入【机构ID】、【用户ID】、【用户密码】三个要素：
 <table>
