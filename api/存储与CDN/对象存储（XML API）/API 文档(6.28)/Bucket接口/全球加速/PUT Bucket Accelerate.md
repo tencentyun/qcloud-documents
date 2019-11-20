@@ -73,9 +73,9 @@ Authorization: authorization string
 Content-Type: text/plain
 Content-Length: 83
 
-<VersioningConfiguration>
+<AccelerateConfiguration>
     <Status>Enabled</Status>
-</VersioningConfiguration>
+</AccelerateConfiguration>
 ```
 
 #### 响应

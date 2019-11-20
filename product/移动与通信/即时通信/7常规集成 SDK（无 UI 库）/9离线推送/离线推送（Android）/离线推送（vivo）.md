@@ -326,7 +326,7 @@ public class ThirdPushTokenMgr {
 		<intent-filter>
 			<action android:name="android.intent.action.View" />
 			<data
-				android:host="com.tencent.qcloud"
+				android:host="com.tencent.qcloud.tim"
 				android:path="/detail"
 				android:scheme="pushscheme" />
 		</intent-filter>

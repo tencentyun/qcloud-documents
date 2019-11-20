@@ -1,16 +1,16 @@
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_v4_ir.tar](http://inception-v4-ir-1255502019.file.myqcloud.com/inception_v4_ir.tar)。
->?我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/OpenVINO/inception_v4_ir/1/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
+>?我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/OpenVINO/inception_v4_ir/1/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 
-**2. 测试图片：** [imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label为230的图片）
+**2. 测试图片：** [imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label 为230的图片）
 ### 创建模型服务配置
-在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_vino，单击【运行环境】，在弹出页面的【公共运行环境】栏选择 openvino。
+在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_openvino，单击【运行环境】，在弹出页面的【公共运行环境】栏选择 openvino。
 ![](https://main.qcloudimg.com/raw/16e3eefdd8afd7cb8bf158e8f47e6b84.png)
-单击【对象存储 cos 文件】，弹出 cos 文件选择页面，选择 inception_v4_ir 模型文件夹所在的路径，单击【确定】。
+单击【对象存储 COS 文件】，弹出 COS 文件选择页面，选择 inception_v4_ir 模型文件夹所在的路径，单击【确定】。
 ![](https://main.qcloudimg.com/raw/b07db8a21f4a7e76a181b6a601ef9e92.png)
 
 ### 启动服务
-在模型服务配置页面找到 demo_openvino 配置，单击配置卡片的【启动服务】按钮，进入启动服务页面。
+在模型服务配置页面找到 demo_openvino 配置，单击配置卡片的【在线推理】，进入启动服务页面。
 **输入服务名称**：输入启动的服务名称。
 **选择资源组**：选择将要启动的资源组，这里选择已购买的专用资源组。
 **选择实例配置**：选择【CPU 配置】，实例配置填写为2核4G。
@@ -34,10 +34,10 @@ IP：通过点击模型服务页面的【服务调用】获取的服务访问地
 TI-EMS 模型服务支持以 gRPC 或 HTTP 访问，本示例使用 gRPC 访问模型服务。
 - 下载服务调用示例脚本
 ```shell 
-https://github.com/tencentyun/ti-ems-client-examples
+git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
 ```shell
-cd client-examples
+cd ti-ems-client-examples
 ```
 
 - 安装测试脚本依赖

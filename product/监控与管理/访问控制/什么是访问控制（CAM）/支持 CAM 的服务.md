@@ -28,6 +28,7 @@
 | [弹性伸缩](https://cloud.tencent.com/document/product/377) | 资源级   | &#10003;      | -  | &#10003;    |	-    |	
 | [云函数](https://cloud.tencent.com/document/product/583)  | 资源级 | &#10003;        |  -  | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/583/9203)  |	
 | [批量计算](https://cloud.tencent.com/document/product/599)  | 资源级 | &#10003;         |  -  | -    |-    |	
+| [边缘计算机器](https://cloud.tencent.com/document/product/1108)  | 资源级 | &#10003;         |  -  | -    |-    |	
 > ?<sup>1</sup> 云服务器中 [GPU 服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
 
 ## 存储	
@@ -294,6 +295,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | -------------------------------------------------------- | ------ | -------- | ------- | ---- |	 ---- |	
+| [云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | &#10003;   | -  |  - | - |
 | [商业直播](https://cloud.tencent.com/document/product/1078)  | 操作级 | &#10003;   | -  |  - | - |
 | [企业微信云](https://cloud.tencent.com/document/product/1119)  | 资源级 | &#10003;   | -  |  - |[访问管理指南](https://cloud.tencent.com/document/product/1119/38419) |
 

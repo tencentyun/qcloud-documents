@@ -1,7 +1,7 @@
 视频通话流程图如下：
 ![trtc demo](https://main.qcloudimg.com/raw/d097f4090d52a73c8ca6c82767b49b3d.png)
 
-1. 通过即时通信 IM SDK 对通信协议消息体进行发送以及接收处理。
+1. 通过即时通信 IM SDK 对自定义的通信协议消息体进行发送以及接收处理。
 2. 通过 TUIKit 对自定义消息进行展示。
 3. 当用户取得进入视频房间条件时，通过实时音视频 TRTC 创建视频房间，开始进行视频通话或视频会议。
 
@@ -23,7 +23,7 @@ pod install
  系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
 
 ## 步骤3：增加视频聊天功能入口
-<ol><li>在 demo ChatViewController ViewDidLoad 中 \_chat.moreMenus = moreMenus 之前添加如下代码，绘制入口 UI。
+<ol><li>在 demo ChatViewController ViewDidLoad 中 _chat.moreMenus = moreMenus 之前添加如下代码，绘制入口 UI。
 <pre style="padding-top: 24px; padding-bottom: 24px;">
 <code>[moreMenus addObject:({
             TUIInputMoreCellData *data = [TUIInputMoreCellData new];
@@ -163,4 +163,4 @@ public class videoCallMessageData {
 ## 常见问题
 **1. 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，现需要同时集成 IM SDK 和 TRTC SDK，需要注意什么?**
 
- 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，即 SDKAppID 不一致场景，则二者帐号与鉴权才可复用，您需要生成实时音视频 SDKAppID 对应的 UserSig 进行鉴权。生成 UserSig 的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+ 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，即 SDKAppID 不一致场景，则二者帐号与鉴权不可复用，您需要生成实时音视频 SDKAppID 对应的 UserSig 进行鉴权。生成 UserSig 的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。

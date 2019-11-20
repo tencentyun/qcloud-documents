@@ -11,7 +11,7 @@
 
 ### 步骤1：创建云服务器使用 Discuz! 镜像
 
->! 如果您想使用已购买的云服务器部署 Discuz!，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
+>! 如果您想使用已购买的云服务器部署 Discuz!，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/8043) 或者使用其他地域云服务器进行搭建。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：

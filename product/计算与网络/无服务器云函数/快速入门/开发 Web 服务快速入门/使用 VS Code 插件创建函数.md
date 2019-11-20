@@ -117,7 +117,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
                ENV_SECOND: env2
            Handler: index.main_handler
            MemorySize: 128
-           Runtime: Pythonn2.7
+           Runtime: Python2.7
            Timeout: 3
            Events:
                  hello_world_apigw:   #${FunctionName} + '_apigw'
@@ -168,7 +168,7 @@ Resources:
         Timeout: 3
 ```
 则目录层级及 `HELLO.ignore` 如下图所示：
-![](https://main.qcloudimg.com/raw/1c7a316c1d79215f0594fefc8d03e59e.png)
+![](https://main.qcloudimg.com/raw/de40696a30602be512c16fcc13965edc.png)
 完成配置后，最终上传会**忽略 testmodule 目录**和**当前路径下所有 md 文件**。
 
 
@@ -230,15 +230,15 @@ Resources:
 <span id="openCOS"></span>
 ### 设置开启 COS 上传
 1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
-2. 在“Settings”页面，选择【Extensions】>【Scf】并勾选【Enable deployed by COS】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
+![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
+2. 在“Settings”页面，选择【Extensions】>【Tencent-SCF】并勾选【Enable deployed by COS】。如下图所示：
+![](https://main.qcloudimg.com/raw/438d40222bd6fcc481c890c052bb6865.png)
 
 
 <span id="pythonpath"></span>
 ### 设置 Python path
-如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Scf 设置即可。如下图所示：
-![](https://main.qcloudimg.com/raw/036d49a4388314a96880021b8a7aaff9.png)
+如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Tencent-SCF 设置即可。如下图所示：
+![](https://main.qcloudimg.com/raw/69e0a4b6652799c1c5069b977346b551.png)
 
 
 
