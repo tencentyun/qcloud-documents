@@ -118,5 +118,4 @@
 #### 七. 运行调度及模型评估
 单击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
 运行成功后，右键单击【二分类任务评估】>【评估指标】，即可查看模型效果。
-![](https://main.qcloudimg.com/raw/2b8cd6ecf444905d82e5f53733c4afa0.png)
 ![](https://main.qcloudimg.com/raw/2e2d3809a2bf48bba481a2393c7822da.png)

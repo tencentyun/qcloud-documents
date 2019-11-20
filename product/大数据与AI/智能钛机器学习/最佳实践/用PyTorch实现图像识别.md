@@ -67,9 +67,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 ![](https://main.qcloudimg.com/raw/e2d7d37b2a3d5043daa420920db087c2.png)
 
 #### 三、查看工作流运行状态和结果
-1. 右键【手写数字识别】，单击【日志信息】>【PyTorch 控制台】可查看该工作流运行相关日志。
-![](https://main.qcloudimg.com/raw/8b27c540eabfdcefdd82a97ac5c4ae5c.png)
->!右键【手写数字识别】>【日志信息】>【查看日志】/【历史日志】是任务提交的后台日志，一般不用关注。
+1. 右键【手写数字识别】，单击【PyTorch 控制台】可查看该工作流运行相关日志。
 2. 在弹框中， 选择单击 【stdout.log】即可在日志中查看手写数字识别任务的训练过程和测试结果。
 ![](https://main.qcloudimg.com/raw/8c2b1f0a386c8264b1283a4a1189d157.png)
 本案例实验结果展示了：手写数字识别任务一共训练了10个 Epoch，并详细输出了每个 Epoch 过程中各 batch_size 数据下的损失值 Loss 变化过程。在第10个 Epoch 训练后，模型在测试数据集上取得最佳准确率 98%。
