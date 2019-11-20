@@ -75,6 +75,6 @@
     		</tr>         
     		<tr>
     			<td colspan="2">SDK 种类</td>
-    			<td >12种：<br>Andriod、C、C++、C#、Go、iOS、Java、JavaScript、Node.js、PHP、Python、小程序 SDK</td>
+    			<td >12种：<br>Andriod、C、C++、.NET、Go、iOS、Java、JavaScript、Node.js、PHP、Python、小程序 SDK</td>
     </tr>
 </table>
