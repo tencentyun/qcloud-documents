@@ -37,7 +37,6 @@ CREATE TABLE KafkaSource1 (
 
 用户可以在`CREATE TABLE`的`WITH`参数中指定数据源或数据目的类型，例如`type = 'ckafka'`表明使用 CKafka、`type = 'mysql'`表明使用腾讯云 MySQL 作为数据源等。
 >!
->
 >- 等号后面的参数必须使用半角单引号，不允许使用双引号或者全角引号。
 - 通常情况下，字段名不区分大小写（例如 `type` 和 `TYPE` 等同），但单引号内部的字符串在引用外部值时要区分大小写（例如 `root` 和 `ROOT` 作为用户名时是不同的）。
 - 本文的所有时间戳，均以 UTC+8（北京时间）为准。
@@ -57,9 +56,9 @@ CREATE TABLE KafkaSource1 (
 | ignoreErrors | 可选项，默认为 true，表示跳过错误的行，如果设为 false 则遇到错误数据会导致程序直接终止。|否|
 
 >!
->- 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号(“”) 来替换每个出现的双引号。
+>- 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号（“”）来替换每个出现的双引号。
 >- CKafka 只支持 Append 类型流的写入，不支持 Upsert 流。如需写入 Upsert 流，请使用【云数据库 MySQL】、【云数据库 PostgreSQL】以及【Elasticsearch Service】等支持 Upsert 数据流的腾讯云服务作为 Sink。
->- CKafka Sink 表**单条**数据的限制为 5MB（5242880 Byte）。单条数据超出此大小时，数据会被丢弃。如果有特殊需求，欢迎联系我们。
+>- CKafka Sink 表单条数据的限制为 5MB（5242880 Byte）。单条数据超出此大小时，数据会被丢弃。如果有特殊需求，请联系我们。
 
 ### 云数据库 TencentDB
 
@@ -77,14 +76,11 @@ CREATE TABLE KafkaSource1 (
 | maxRecordBatch   | 可选参数，大于1则启用分批写入功能，即每若干条作为一批次写入数据库。启用后，可能极大的增加吞吐量。 | 否           |
 | maxRecordLatency | 可选参数，表示每批次最多等待的时间（毫秒）。如果提前达到了 maxRecordBatch 参数指定的条数，则会提前输出；如果超过本参数指定的时间，则即使该批次未达到 maxRecordBatch 参数指定的条数，也会向下游数据库发送数据。 | 否          |
 
-> ! 注意
->
-> 如果将 MySQL 数据库用作**数据源**（例如使用 QUERY_DB_STR 函数），则流计算作业中 CREATE TABLE 所定义的表名，必须和数据库中的实际表名（WITH 参数的 table 字段）保持严格一致，否则语法检查会报错。
->
-> 如果将 MySQL 数据库用作数据目的，则 CREATE TABLE 所定义的表名不受限制。
+> ! 
+>-  如果将 MySQL 数据库用作**数据源**（例如使用 QUERY_DB_STR 函数），则流计算作业中 CREATE TABLE 所定义的表名，必须和数据库中的实际表名（WITH 参数的 table 字段）保持严格一致，否则语法检查会报错。
+> - 如果将 MySQL 数据库用作数据目的，则 CREATE TABLE 所定义的表名不受限制。
 
 数据流分为 Tuple 和 Upsert 两类。Upsert 是 Update OR Insert 的简写，即对于一条数据，如果之前输出过与其同主键的记录，则更新该记录；否则插入新的数据。
-
 - Tuple 类型数据流，只能写入不设主键（即没有 PRIMARY KEY 语句）的数据表。
 - Upsert 类型数据流，只能写入含有主键（PRIMARY KEY 语句）的数据表。
 
