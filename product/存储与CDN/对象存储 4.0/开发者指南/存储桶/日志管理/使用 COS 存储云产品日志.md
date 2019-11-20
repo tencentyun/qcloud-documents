@@ -55,7 +55,7 @@
 | 容器服务 TKE         | [点此查阅](https://cloud.tencent.com/document/product/457/13659) |
 | 云直播 LVB           | [点此查阅](https://cloud.tencent.com/document/product/267/33996) |
 
-CLS 投递到 COS 支持如下三种方式的投递：
+CLS 投递到 COS 支持如下三种方式投递：
 
 - 通过分隔符格式投递：可以将数据按照分隔符格式投递到 COS，详情请参见 [分隔符格式投递](https://cloud.tencent.com/document/product/614/33814)。
 - 通过 JSON 格式投递：可以将数据按照 JSON 格式投递到 COS，详情请参见 [JSON 格式投递](https://cloud.tencent.com/document/product/614/33815)。
