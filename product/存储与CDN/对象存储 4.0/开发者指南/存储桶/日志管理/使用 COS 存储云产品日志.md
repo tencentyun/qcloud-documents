@@ -35,7 +35,7 @@
 
 部分腾讯云产品拥有直接投递日志到 COS 的能力，您可以根据产品文档指引，配置日志投递规则，此后即可将日志存储于 COS 上。支持直接投递日志到 COS 的产品文档指引如下：
 
-| 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
+| 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
 | --------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
 | 负载均衡 CLB    | [点此查阅](https://cloud.tencent.com/document/product/214/10329) | 60分钟               | `lb-id/timestamp`                                              |
 | 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | `instance id/topic id/timestamp`                               |
@@ -51,14 +51,14 @@
 | -------------------- | ------------------------------------------------------------ |
 | 云审计 CA            | [点此查阅](https://cloud.tencent.com/document/product/629/11985 ) |
 | Web 应用防火墙 WAF   | [点此查阅](https://cloud.tencent.com/document/product/627/38253) |
-| API 网关 API Gateway | [点此查阅](https://cloud.tencent.com/document/product/628/19552) |                                     |
+| API 网关 API Gateway | [点此查阅](https://cloud.tencent.com/document/product/628/19552) |                               
 | 容器服务 TKE         | [点此查阅](https://cloud.tencent.com/document/product/457/13659) |
 | 云直播 LVB           | [点此查阅](https://cloud.tencent.com/document/product/267/33996) |
 
 CLS 投递到 COS 支持如下三种方式的投递：
 
 - 通过分隔符格式投递：可以将数据按照分隔符格式投递到 COS，详情请参见 [分隔符格式投递](https://cloud.tencent.com/document/product/614/33814)。
-- 通过 JSON 格式投递：将数据按照 JSON 格式投递到 COS，详情请参见 [JSON 格式投递](https://cloud.tencent.com/document/product/614/33815)。
+- 通过 JSON 格式投递：可以将数据按照 JSON 格式投递到 COS，详情请参见 [JSON 格式投递](https://cloud.tencent.com/document/product/614/33815)。
 - 通过原文格式投递：可以将数据按照原文格式进行投递，支持单行全文、多行全文投递，部分支持 CSV 格式投递，详情请参见 [原文格式投递](https://cloud.tencent.com/document/product/614/33816)。
 
 通过 CLS 投递日志到 COS，您需要执行的操作如下：
