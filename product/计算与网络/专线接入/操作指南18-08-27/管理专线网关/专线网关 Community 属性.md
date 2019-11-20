@@ -1,8 +1,9 @@
-为了获取 VPC 路由所在地域信息，专线网关和专用通道支持向 IDC 单向传递携带有地域信息的 Community 属性，条件如下：
-- 专线网关：关联网络类型为云联网，且开启 Community 属性传递
+## 前提条件
+为了获取 VPC 路由所在地域信息，专线网关和专用通道支持向本地数据中心（IDC）单向传递携带有地域信息的 Community 属性，条件如下：
+- 专线网关：关联网络类型为云联网，且开启 Community 属性传递。
 - 专用通道：开启 Community 属性传递（功能灰度中，如有需要，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=664&source=0&data_title=专线接入&step=1)）。
-- 支持的传递 Community 属性的路由：目的端为子网的路由条目，不支持传递专线网关传入路由的 community 属性。
-- 支持地域： 北京、上海、广州、中国香港、美东、美西、日本、新加坡。
+- 支持传递 Community 属性的路由：从云端通过专线网关发送给 IDC 侧的 VPC 子网的路由条目（从 IDC 侧发送给专线网关的路由，不支持传递 Community 属性）。
+- 支持地域： 北京、上海、广州、中国香港、美国东部、美国西部、日本、新加坡。
 - Community 属性值如下表所示，不支持修改和删除。
 <table style="width:40%">
 <thead>
@@ -84,11 +85,11 @@
 <td>58835:7</td>
 </tr>
 <tr>
-<td>美西</td>
+<td>美国西部</td>
 <td>58835:1</td>
 </tr>
 <tr>
-<td>美东</td>
+<td>美国东部</td>
 <td>58835:804</td>
 </tr>
 <tr>
@@ -97,10 +98,10 @@
 </tr>
 </tbody></table>
 
-## 操作指南
+## 操作步骤
 ### 开启/关闭专线网关 Community 属性传递
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
+2. 单击左侧导航栏中的【专线网关】。
 3. 单击云联网类型的专线网关 ID，进入详情页。
 4. 选择【IDC网段】标签页。
 5. 单击 Community 属性开关并确定操作，开启或关闭专线网关 Community 属性传递。
@@ -108,6 +109,6 @@
 
 ### 查看专用通道 Community 属性传递状态
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)。
-2. 单击左侧导航栏中【专用通道】。
+2. 单击左侧导航栏中的【专用通道】。
 3. 选择专用通道 ID，进入详情页进行查看。
 ![](https://main.qcloudimg.com/raw/0e569c0f972281ac0902eb4b00fe530e.png)

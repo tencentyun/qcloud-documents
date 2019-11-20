@@ -18,7 +18,7 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 
 ## 整体流程
 利用智能钛机器学习平台完成手写数字识别任务，我们需要完成以下几个步骤：
-1. 将案例所需数据集上传到 COS 存储桶中。
+1. 准备案例所需数据集。
 2. 用户本地准备实现手写数字识别任务的自定义代码。
 3. 利用智能钛机器学习平台提供的 PyTorch 框架运行自定义代码。
 4. 查看工作流运行状态和结果。
@@ -29,28 +29,14 @@ PyTorch 是一个开源的深度学习框架，允许用户利用 GPU 或 CPU �
 ## 详细流程
 #### 一、数据集和自定义代码准备
 **1. 数据集准备**
-此步用户将所需数据集上传到 COS 中，以便在代码中通过 COS 路径访问该数据集。
-- 通过本文提供的链接下载 MNIST 数据集的 [training.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/training.pt) 和 [test.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/test.pt) 到本地
-- 将 [training.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/training.pt) 和 [test.pt](https://endy1-1256633383.cos.ap-chongqing.myqcloud.com/mnist/processed/test.pt) 一起保存到自建文件夹 processed 中，再将 processed 文件夹放置到 mnist 文件夹中（用户操作时注意此处保持文件夹名称一致），文件夹层级结构如下：
-```
---mnist
-    --processed
-        --training.pt
-        --test.pt
-```
-
-- 将 mnist 文件夹上传至 [COS 存储桶](https://console.cloud.tencent.com/cos5/bucket#)中（此处上传数据集的存储桶位置需和控制台中工程所在的存储桶位置保持一致，不然会导致工作流无法读取数据集的报错）
-![](https://main.qcloudimg.com/raw/81ec0260f1088adcc6036b22c2b27994.png)
-
-上传文件夹到 COS 存储桶后如下图：
-![](https://main.qcloudimg.com/raw/c150fed019f4f2cd67e98c6c1fa9ce10.png)
+为方便用户操作，我们将本案例所需数据集 [MNIST](http://yann.lecun.com/exdb/mnist/) 上传到公共访问路径下，用户在代码中可直接通过公共路径访问该数据集。
+>!上传到公共存储桶中文件的访问路径格式为`/cos_public/XXXX`，上传到个人存储桶中文件的访问路径为`cos_person/XXXX`。
 
 **2. 代码准备**
-本案例使用 PyTorch 框架搭建简单的卷积神经网络，以完成手写数字图像识别的任务。
-为方便用户直接进行后续工作流的搭建，本文提供案例源代码 [mnist.py](https://angelonk8s-cq-1256633383.cos.ap-chongqing.myqcloud.com/mnist.py) 供用户直接下载。
-
-在 [mnist.py](https://angelonk8s-cq-1256633383.cos.ap-chongqing.myqcloud.com/mnist.py) 源代码中，访问上传至 COS 中的数据集的示例代码片段如下，访问路径格式为：cos_person/mnist。
-![](https://main.qcloudimg.com/raw/ddaa076bac4872898ac025caead804a0.png)
+本案例使用 PyTorch 框架搭建简单的卷积神经网络来完成手写数字图像识别的任务。
+为方便用户直接进行后续工作流的搭建，本文提供案例源代码 [mnist.py](https://test-1255502019.cos.ap-shanghai.myqcloud.com/mnist.py) 供用户直接下载体验。
+在 mnist.py 源代码中，访问公共 COS 下 MNIST 数据集的示例代码片段如下，访问路径为：`/cos_public/mnist`。
+![](https://main.qcloudimg.com/raw/bb805639b4e5dcf1714a2281620d37d1.png)
 
 #### 二、利用 PyTorch 框架运行自定义代码
 1. 在智能钛控制台的左侧导航栏中，选择【框架】>【深度学习】>【PyTorch】，并拖入画布中。

@@ -11,7 +11,7 @@
 ## 操作步骤
 #### 安装
 
-1. 通过如下命令安装 [Serverless Framework](https://www.github.com/serverless/serverless):
+1. 通过如下命令安装 [Serverless Framework](https://www.github.com/serverless/serverless)：
 ```console
 $ npm i -g serverless
 ```

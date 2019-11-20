@@ -20,11 +20,11 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 
 ## 最佳实践
  
-- **[Express 框架组件](https://cloud.tencent.com/document/product/1154/39269)**
+- **[快速部署 Express 框架](https://cloud.tencent.com/document/product/1154/39269)**
 通过Express 组件，您无需对项目进行大量更改，就可以将现有服务轻松上云：只需短短几秒，便能在腾讯云 Serverless 架构上部署按需计费的 Express.js 应用程序。
-- **[静态网站组件](https://cloud.tencent.com/document/product/1154/39276)**
+- **[快速部署静态网站](https://cloud.tencent.com/document/product/1154/39276)**
 静态网站组件现已支持最新的 Web 框架和技术（例如：React 和 Vue.js 等应用程序），您可以在几秒钟内将自己的静态网站部署到对象存储 COS 中。
-- **[全栈组件（vue.js+express.js）](https://cloud.tencent.com/document/product/1154/39272)**
+- **[快速部署一个全栈应用（vue.js+express.js）](https://cloud.tencent.com/document/product/1154/39272)**
 结合 Express 组件和 Website 组件，构建完整前后端的 Serverless 应用。
 
 ## 基础组件
