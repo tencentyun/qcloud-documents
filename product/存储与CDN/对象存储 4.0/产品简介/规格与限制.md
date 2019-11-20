@@ -7,7 +7,7 @@
     <tr>
         <td>QPS</td>
     			<td>限制</td>
-    			<td>每个主账号默认为1200qps，如需更高 QPS，请参见 <a href="/document/product/436/13653">请求速率与性能优化</a> </td>
+    			<td>每个主账号默认为30000qps，如需更高 QPS，请参见 <a href="/document/product/436/13653">请求速率与性能优化</a> </td>
     </tr>
 		    <tr>
         <td>带宽</td>
