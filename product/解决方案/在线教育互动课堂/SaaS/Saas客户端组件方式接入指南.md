@@ -65,8 +65,7 @@ https://yourdomain.com/component.html#/:class_id/:user_id/:user_sig/:user_token
 示例如下：
 ```
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighere...../usertokenhere.....
-
-如果 usersig 已经通过控制台托管过给我们 则后面两个不用填
+如果 usersig 已经通过控制台托管过给我们，则后面两个不用填
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan
 ```
 - 参数描述。参数获取请参考 [调用参数](#jump)。
