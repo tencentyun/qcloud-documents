@@ -178,7 +178,7 @@ Request body
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729)文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
