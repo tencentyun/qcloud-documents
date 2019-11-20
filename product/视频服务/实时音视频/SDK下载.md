@@ -46,7 +46,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32397">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32178">DOC</a></td>
-      <td style="text-align:center">13.3M（C# x86）</td>
+      <td style="text-align:center">13.8M（C# x64）<br>13.3M（C# x86）</td>
    </tr>
      <tr>
       <td style="text-align:center">Mac</td>
@@ -59,11 +59,20 @@
    </tr>
      <tr>
       <td style="text-align:center">Web</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_H5_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32398">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/16863">DOC</a></td>
+      <td style="text-align:center">N/A</td>
+   </tr>
+   <tr>
+      <td style="text-align:center">Electron  </td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_wxmini_trtc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Electron_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
+      <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/38548">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/38549">DOC</a></td>
       <td style="text-align:center">N/A</td>
    </tr>
    <tr>
@@ -166,49 +175,49 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
   <tr>
     <td rowspan='2' style="text-align:center">直播推流</td>
     <td style="text-align:center">摄像头推流</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
    <tr>
     <td style="text-align:center">录屏推流</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='3' style="text-align:center">直播播放</td>
     <td style="text-align:center">RTMP 协议</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">HTTP - FLV</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
      <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">HLS(m3u8)</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='3' style="text-align:center">点播播放</td>
@@ -216,121 +225,121 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
    <tr>
     <td style="text-align:center">HLS(m3u8)</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
    <tr>
     <td style="text-align:center">DRM 加密</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='2' style="text-align:center">美颜滤镜</td>
     <td style="text-align:center">基础美颜</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">基础滤镜</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='2' style="text-align:center">直播连麦</td>
     <td style="text-align:center">连麦互动</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">跨房 PK</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='2' style="text-align:center">视频通话</td>
     <td style="text-align:center">双人通话</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">视频会议</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='4' style="text-align:center">短视频</td>
     <td style="text-align:center">录制和拍摄</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">裁剪拼接</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">“抖音”特效</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">视频上传</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td rowspan='4' style="text-align:center">AI 特效</td>
@@ -340,7 +349,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">V 脸隆鼻</td>
@@ -349,7 +358,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">动效贴纸</td>
@@ -358,7 +367,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
     <td style="text-align:center">绿幕抠图</td>
@@ -367,7 +376,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">✔</td>
+    <td style="text-align:center">&#10003;</td>
   </tr>
 </table>
 

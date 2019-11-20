@@ -1,6 +1,6 @@
 当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。如下图中，展示一条用户主动退群的提示消息。
 
-![](//mccdn.qcloud.com/static/img/26477a470aaa4149480fad643efea12d/image.png)
+![](https://main.qcloudimg.com/raw/0d5bab20589a598447fdc87124a661d8.png)
 
 **群提示消息类型定义如下：**
 

@@ -155,7 +155,175 @@ SDK.clearAction();
 SDK.exitAction();
 ```
 
-### logger 属性
+### SDK.logger 属性
 
 **描述**
 logger 是 SDK 提供的日志记录能力，可以使用 logger.debug、logger.info、logger.error 三种日志级别进行记录。记录的日志可以在 MGOBE 控制台的实时服务器页面查看。
+
+
+
+#### SDK.getRoomByRoomId 方法
+
+**描述**
+
+根据房间 ID 查询房间信息。
+
+**参数说明**
+
+|参数名|类型|描述|
+|:---|---|---|
+|getRoomByRoomIdPara|IGetRoomByRoomIdPara|请求参数|
+|callback|[ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)&lt;IGetRoomByRoomIdRsp&gt;|回调函数|
+
+IGetRoomByRoomIdPara 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomId|string|房间 ID|
+
+IGetRoomByRoomIdRsp 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomInfo|IRoomInfo|房间信息|
+
+**返回值说明**
+
+无。
+
+>?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+**使用示例**
+
+```
+const getRoomByRoomIdPara = { roomId: "xxx", };
+SDK.getRoomByRoomId(getRoomByRoomIdPara, event => {
+    console.log(event.code, event.data);
+});
+```
+
+#### SDK.changeRoom 方法
+
+**描述**
+修改指定房间的房间信息。
+
+**参数说明**
+
+|参数名|类型|描述|
+|:---|---|---|
+|changeRoomPara|IChangeRoomPara|请求参数|
+|callback|[ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)&lt;IChangeRoomRsp&gt;|回调函数|
+
+IChangeRoomPara 定义如下：
+
+|属性名|类型/值|描述|可选|
+|:---|---|---|---|
+|roomId|string|房间 ID||
+|roomName|string|房间名称|是|
+|owner|string|房主ID|是|
+|isPrivate|boolean|是否私有|是|
+|isForbidJoin|boolean|是否禁止加入房间|是|
+|customProperties|string|自定义房间属性|是|
+
+IChangeRoomRsp 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomInfo|IRoomInfo|房间信息|
+
+**返回值说明**
+
+无。
+
+>?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+**使用示例**
+
+```
+const changeRoomPara = { roomId: "xxx", roomName: "xxx" };
+SDK.changeRoom(changeRoomPara, event => {
+    console.log(event.code, event.data);
+});
+```
+
+#### SDK.changeCustomPlayerStatus 方法
+
+**描述**
+修改指定房间的玩家自定义状态。
+
+**参数说明**
+
+|参数名|类型|描述|
+|:---|---|---|
+|changeCustomPlayerStatusPara|IChangeCustomPlayerStatusPara|请求参数|
+|callback|[ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)&lt;IChangeCustomPlayerStatusRsp&gt;|回调函数|
+
+IChangeCustomPlayerStatusPara 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomId|string|房间 ID|
+|playerId|string|玩家 ID|
+|customPlayerStatus|number|玩家自定义状态|
+
+IChangeCustomPlayerStatusRsp 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomInfo|IRoomInfo|房间信息|
+
+**返回值说明**
+
+无。
+
+>?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+**使用示例**
+
+```
+const changeCustomPlayerStatusPara = { roomId: "xxx", playerId: "xxx", customPlayerStatus: 1 };
+SDK.changeCustomPlayerStatus(changeCustomPlayerStatusPara, event => {
+    console.log(event.code, event.data);
+});
+```
+
+#### SDK.removePlayer 方法
+
+**描述**
+在指定房间踢除玩家。
+
+**参数说明**
+
+|参数名|类型|描述|
+|:---|---|---|
+|removePlayerPara|IRemovePlayerPara|请求参数|
+|callback|[ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)&lt;IRemovePlayerRsp&gt;|回调函数|
+
+IRemovePlayerPara 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomId|string|房间 ID|
+|removePlayerId|string|玩家 ID|
+
+IRemovePlayerRsp 定义如下：
+
+|属性名|类型/值|描述|
+|:---|---|---|
+|roomInfo|IRoomInfo|房间信息|
+
+**返回值说明**
+
+无。
+
+>?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
+
+**使用示例**
+
+```
+const removePlayerPara = { roomId: "xxx", removePlayerId: "xxx" };
+SDK.removePlayer(removePlayerPara, event => {
+    console.log(event.code, event.data);
+});
+```
+

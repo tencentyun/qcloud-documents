@@ -26,18 +26,18 @@
 <td><li>NAT 网关可以用于多台云服务器访问公网。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/552/18179" target="_blank">调整 NAT 网关的带宽限制</a>。</li></td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/product/215/20078" target="_blank">公网网关</a></td>
-<td>一种开启了转发功能的云服务器。没有公网 IP 的云服务器，可以通过位于不同子网的公网网关访问公网。</td>
-<td><li>与具有普通公网 IP 的云服务器差别在于，公网网关可以转发其它子网内云服务器访问公网的流量，而有普通公网 IP 的云服务器只能满足自身访问公网的需求。</li><li>您只有在购买云服务器时可以选择是否将云服务器作为公网网关，如购买时未创建为公网网关，建议您使用 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</li></td>
-</tr>
-<tr>
 <td><a href="https://cloud.tencent.com/document/product/214" target="_blank">负载均衡</a></td>
 <td>通过将访问流量均衡分发到多台云服务器上的方式对外提供服务。</td>
 <td><li>基于端口提供四层和七层负载均衡功能，支持用户从公网通过负载均衡（CLB）访问云服务器。</li><li>可以消除单点故障，提升应用系统的可用性。</li></td>
 </tr>
+<tr>
+<td><a href="https://cloud.tencent.com/document/product/215/37875" target="_blank">公网网关</a></td>
+<td>一种开启了转发功能的云服务器。没有公网 IP 的云服务器，可以通过位于不同子网的公网网关访问公网。</td>
+<td><li>与具有普通公网 IP 的云服务器差别在于，公网网关可以转发其它子网内云服务器访问公网的流量，而有普通公网 IP 的云服务器只能满足自身访问公网的需求。</li><li>您只有在购买云服务器时可以选择是否将云服务器作为公网网关，如购买时未创建为公网网关，建议您使用 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</li></td>
+</tr>
 </tbody></table>
 
-## VPC 间通信
+## 连接其它 VPC
 您可使用如下产品或功能，实现 VPC 间的通信。
 
 | 产品 | 功能 | 特点 |
@@ -73,3 +73,10 @@
 </tr>
 </tbody></table>
 
+## 连接基础网络
+您可使用如下产品或功能，实现 VPC与基础网络的互联。
+
+| 产品 | 功能 | 特点 |
+|---------|---------|---------|
+| 基础网络互通| 将基础网络内的云服务器关联至指定私有网络，使基础网络中的云服务器可以与私有网络内的云服务器、数据库等云服务通信。 |<li>基础网络中的云服务器可以访问私有网络中的云服务器、云数据库、内网负载均衡、云缓存等云资源。</li> <li>私有网络内的云服务器，仅能访问互通的基础网络云服务器，无法访问基础网络中的其他计算资源。</li>|
+|终端连接|实现私有网络内实例通过内网与基础网络内非云服务器实例通信的功能。|<li>支持连接的基础网络产品包括：CLB、MySQL、Memcached、Redis、MongoDB。</li><li>终端连接不支持跨地域、跨账号，如您有建立终端连接的需要，请提交 <a href="https://console.cloud.tencent.com/workorder/category" target="_blank">工单申请</a>。</li>|

@@ -1,13 +1,16 @@
 ## 简介
-对象的 HTTP 头部（Header ）是服务器以 HTTP 协议传送 HTML 资料到浏览器前所送出的字符串。通过修改 HTTP 头部（Header ），可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间。修改对象的 HTTP 头部不会修改对象本身。
+对象的 HTTP 头部（Header ）是服务器以 HTTP 协议传送 HTML 资料到浏览器前所送出的字符串。通过修改 HTTP 头部（Header），可以改变页面的响应形式，或者传达配置信息，例如修改缓存时间。修改对象的 HTTP 头部不会修改对象本身。
+
 例如：修改了 Header 中的 Content-Encoding 为 gzip，但是文件本身没有提前用 gz 压缩过，会出现解码错误。
 
 ## 操作步骤
 1. 登录 [对象存储桶控制台](https://console.cloud.tencent.com/cos5)，选择左侧菜单栏【存储桶列表】，进入存储桶列表页面。单击对象所在的存储桶，进入存储桶。
-![](https://main.qcloudimg.com/raw/f0868afb4209d10b0c152b6e364fc460.jpg)
+![](https://main.qcloudimg.com/raw/8dccbc7b536de784e46edbd8de3c2464.jpg)
+
 2. 找到需要设置头部的对象，单击对象右侧的【详情】。
-![](https://main.qcloudimg.com/raw/ebbaf88db0cae88896e469926966556d.png)
-3. 在文件列表下方找到【自定义 Header】，然后单击【添加 Header】，选择需要设置的参数类型（自定义内容需输入自定义名称），输入对应的值。COS 提供了以下 6 种对象 HTTP 头部标识供配置。头部配置说明如下。配置完成后，单击【保存】即可。
+![](https://main.qcloudimg.com/raw/160b6e921d1e79de7b36f6533f4910c6.jpg)
+3. 在对象属性页面找到【自定义 Header】，然后单击【添加 Header】，选择需要设置的参数类型（自定义内容需输入自定义名称），输入对应的值。COS 提供了以下6种对象 HTTP 头部标识供配置。头部配置说明如下。配置完成后，单击【保存】即可。
+![](https://main.qcloudimg.com/raw/babe4e3591b0d63a866537a34de12d94.jpg)
 <table>
    <tr>
       <th>HTTP 头部</th>
@@ -42,11 +45,11 @@
    <tr>
       <td>x-cos-meta-[自定义内容]</td>
       <td>自定义内容</td>
-      <td>自定义内容</td>
+      <td>x-cos-meta-via: homepage</td>
    </tr>
 </table>
 
-	![](https://main.qcloudimg.com/raw/ce52b4ffee10a75eb12b1e780f678768.png)
+
 
 
 ## 示例
@@ -72,8 +75,9 @@ Last-Modified: Tue, 11 Jul 2017 15:30:35 GMT
 ```
 
 添加如下配置：
-![](https://main.qcloudimg.com/raw/0a7f4edb39dfd49bc007701e8c0a0d8c.jpg)
+![](https://main.qcloudimg.com/raw/3df9e3628c6d8b429842807771ff547e.jpg)
 再次发起请求，浏览器或客户端得到的对象头部范例如下：
+
 #### 请求
 ```sh
 GET /exampleobject.txt HTTP/1.1

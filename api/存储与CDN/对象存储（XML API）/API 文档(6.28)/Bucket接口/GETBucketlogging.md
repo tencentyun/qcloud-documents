@@ -38,8 +38,8 @@ Authorization: Auth String
 ```shell
 <BucketLoggingStatus>
   <LoggingEnabled>
-    <TargetBucket>logs</TargetBucket>
-    <TargetPrefix>logdir</TargetPrefix>
+    <TargetBucket>examplebucket-1250000000</TargetBucket>
+    <TargetPrefix>prefix</TargetPrefix>
   </LoggingEnabled>
 </BucketLoggingStatus>
 ```
@@ -60,7 +60,7 @@ Container 节点 LoggingEnabled 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | TargetBucket | LoggingEnabled | 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶  |  String |
-| TargetPrefix | LoggingEnabled | 存放日志的目标存储桶 指定路径 |  String |
+| TargetPrefix | LoggingEnabled | 日志存放在目标存储桶的指定路径 |  String |
 
 ## 实际案例
 
@@ -84,8 +84,8 @@ x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZT==
 
 <BucketLoggingStatus>
   <LoggingEnabled>
-    <TargetBucket>logs</TargetBucket>
-    <TargetPrefix>logdir</TargetPrefix>
+    <TargetBucket>examplebucket-1250000000</TargetBucket>
+    <TargetPrefix>prefix</TargetPrefix>
   </LoggingEnabled>
 </BucketLoggingStatus>
 ```

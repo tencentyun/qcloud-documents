@@ -9,3 +9,4 @@
  ![2](https://main.qcloudimg.com/raw/528373c391c718451acab0db9594ec04.png)
 正常情况下会看到只有短暂中断后网络又通了（若切换较快甚至看不到中断），业务不受影响。
  ![3](https://main.qcloudimg.com/raw/de5e3fd284d55c38c0a134efc1badf23.png)
+ 

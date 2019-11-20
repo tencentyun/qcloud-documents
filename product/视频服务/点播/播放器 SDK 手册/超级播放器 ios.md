@@ -46,8 +46,10 @@ _playerView.delegate = self;
 _playerView.fatherView = self.holderView;
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 //设置播放信息
-playerModel.appId = 1252463788;  //AppId
-playerModel.fileId = @"4564972819219071679";  //视频 FileId
+SuperPlayerVideoId *videoId = [[SuperPlayerVideoId alloc] init];
+video.appId = 1256993030;  //AppId
+video.fileId = @"7447398157015849771";  //视频 FileId
+model.videoId = videoId;
 // 开始播放
 [_playerView playWithModel:self.playerModel];
 ```
@@ -76,9 +78,9 @@ playerModel.fileId = @"4564972819219071679";  //视频 FileId
 
 小窗播放是指在 App 内，悬浮在主 Window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
-SuperPlayerWindowShared.superPlayer = _playerView; // 设置小窗显示的播放器
-SuperPlayerWindowShared.backController = self;  // 设置返回的 view controller
-[SuperPlayerWindowShared show]; // 悬浮显示
+[SuperPlayerWindow sharedInstance].superPlayer = _playerView; // 设置小窗显示的播放器
+[SuperPlayerWindow sharedInstance].backController = self;  // 设置返回的 view controller
+[[SuperPlayerWindow sharedInstance] show]; // 悬浮显示
 ```
 ![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)
 

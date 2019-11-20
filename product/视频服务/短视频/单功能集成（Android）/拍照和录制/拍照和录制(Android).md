@@ -205,7 +205,7 @@ mTXCameraRecord.setMute(isMute);
 ``` 
 // 设置全局水印
 // TXRect-水印相对于视频图像的归一化值，sdk内部会根据水印宽高比自动计算height
-// 比如视频图像大小为（540，960） TXRect三个参数设置为0.1，0.1，0.1,
+// 例如视频图像大小为（540，960） TXRect三个参数设置为0.1，0.1，0.1,
 // 水印的实际像素坐标为（540 * 0.1，960 * 0.1，540 * 0.1 ，
 // 540 * 0.1 * watermarkBitmap.height / watermarkBitmap.width）
 mTXCameraRecord.setWatermark(watermarkBitmap, txRect)

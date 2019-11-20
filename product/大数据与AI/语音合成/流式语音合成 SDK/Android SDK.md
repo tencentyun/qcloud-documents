@@ -62,7 +62,6 @@ public enum VoiceType {
     VOICE_TYPE_AFFNITY_FEMALE(0, "亲和女声(默认)"),
     VOICE_TYPE_AFFNITY_MALE(1, "亲和男声"),
     VOICE_TYPE_MATURE_MALE(2, "成熟男声"),
-    VOICE_TYPE_VIBRANT_MALE(3, "活力男声"),
     VOICE_TYPE_WARM_FEMALE(4, "温暖女声"),
     VOICE_TYPE_Emotional_FEMALE(5, "情感女声"),
     VOICE_TYPE_Emotional_MALE(6, "情感男声"),

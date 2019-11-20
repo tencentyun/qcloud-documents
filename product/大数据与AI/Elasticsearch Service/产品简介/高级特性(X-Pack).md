@@ -37,7 +37,7 @@
 ### 高级特性版本功能详细对比
 本章节对各版本的部分重点功能进行了对比说明，完整的功能对比，可查看官方介绍 [Elastic 各版本功能说明](https://www.elastic.co/cn/subscriptions)。
 
->?下表中![全部](https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg)、![部分](https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg)、![不包含](https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg)用于表示对应特性的功能完整度，![全部](https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg)：包含全部功能；![部分](https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg)：包含部分功能；![不包含](https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg)：不包含。
+>?下表中![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)、![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)、![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)用于表示对应特性的功能完整度，![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)：包含全部功能；![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)：包含部分功能；![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)：不包含。
 
 <table class="tg">
   <tr>
@@ -50,227 +50,227 @@
   <tr>
     <td class="tg-0lax" rowspan="6">Elasticsearch</td>
     <td class="tg-s268">可扩展性和弹性</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268">查询和分析</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268">数据扩充</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#manage_tool">管理和工具</a></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#Security">Security</a></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
 
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6">Kibana</td>
     <td class="tg-0lax">探索和可视化</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">堆栈管理和工具</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">堆栈监测</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">分享与合作</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Security</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine Learning</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="4">Beats</td>
     <td class="tg-0lax">数据收集</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据传输</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">模块</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="5">Logstash</td>
     <td class="tg-0lax">数据收集</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据扩充</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据传输</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">模块</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/5b61fea8a4000986a1e96d6ae30bd341.svg"  alt="包含部分" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6">ELASTIC APM</td>
     <td class="tg-0lax">APM 服务器</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">APM 代理</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Kibana 中的 APM 仪表板</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">APM UI</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">分布式追踪</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine  Learning 整合</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 日志</td>
     <td class="tg-0lax">日志采集器（Filebeat）</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">常用数据源的仪表板</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Logs UI</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 基础设施</td>
     <td class="tg-0lax">指标采集器（Metricbeat）</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">常用数据源的仪表板</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Infrastructure  UI</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 运行状态监控</td>
     <td class="tg-0lax">运行状态监测（Heartbeat）</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Kibana 里的运行状态仪表板</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">运行状态监测 UI</td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/4666c61c85137beae1a06016b6c6eca4.svg"  alt="不包含" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
-    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/30adf7e18709ebad92ccde7ca948c3ca.svg"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
 </table>
 

@@ -66,7 +66,7 @@ defaultConfig {
 
 | jar文件                           | 说明                      |
 | ---------------------------- | ----------------------- |
-| liteavsdk.jar                | 短视频 SDK android 核心库          |
+| liteavsdk.jar                | 短视频 SDK Android 核心库          |
 
 
 | so文件                           | 说明                      |
@@ -77,7 +77,7 @@ defaultConfig {
 | libtxsdl.so                  | ijkplayer 开源库，用于点播播放功能，解决一些视频格式的兼容问题        |
 
 ##### 3.2.2. 拷贝文件
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android studio 默认的 jni 加载目录。
 
 如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，参考 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)
 
@@ -101,7 +101,7 @@ dependencies {
 
  **2. 启动准备**
 
- 在用户启动 SDK 相关功能前，比如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
+ 在用户启动 SDK 相关功能前，例如开始播放视频之前，先用 loading 动画提示用户“正在加载相关的功能模块”。
 
  **3. 下载 SO 文件**
 
@@ -154,7 +154,7 @@ public class DemoApplication extends Application {
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上的  **log / tencent / liteav** 文件夹下。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上的  **Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。
 如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
@@ -215,7 +215,8 @@ defaultConfig {
 ```
 -keep class com.tencent.** { *; }
 ```
-
+- 配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。

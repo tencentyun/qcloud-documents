@@ -55,7 +55,7 @@ public class AsrBaseConfig {
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | ProjectId | 否 | Int | 项目 ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID:0 。|
-| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>3：活力男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
+| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
 | Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
@@ -64,7 +64,7 @@ public class AsrBaseConfig {
 **initBaseParameters**
 ```
 /*
-** 初始化基础参数, 请将下面的参数值配置成你自己的值。配置可中途修改，正常情况下立即生效。
+** 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
 ** 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
 */
 private static void initBaseParameters() {
@@ -77,7 +77,7 @@ private static void initBaseParameters() {
 	TtsConfig.VOLUME = 5; // 音量大小, 范围[0，10]，默认为0，表示正常音量。
 	// TtsConfig.REQUEST_ENCODE = RequestEncode.UTF_8; // 传入的文字所采用的编码，默认为utf-8
 	// TtsConfig.SPEED = 0; // 语速，范围[-2，2]. -2: 0.6倍; -1: 0.8倍; 0:1.0倍（默认）; 1: 1.2倍; 2: 1.5倍 。其他值：1.0 倍。
-	// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 3：活力男声 4：温暖女声 5：情感女声 6：情感男声
+	// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 4：温暖女声 5：情感女声 6：情感男声
 	// TtsConfig.SAMPLE_RATE = 16000;// 音频采样率： 16000：16k（默认）; 8000：8k
 	// TtsConfig.PRIMARY_LANGUAGE = 1;// 主语言类型： 1-中文（默认） 2-英文
 	// TtsConfig.CODEC = CodeC.PCM; // 无需修改。暂未支持Opus方式。
@@ -182,7 +182,7 @@ public class TtsRequestSample {
 	}
 
 	/**
-	 * 初始化基础参数, 请将下面的参数值配置成你自己的值。配置可中途修改，正常情况下立即生效。
+	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
 	 * 
 	 * 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
 	 */
@@ -196,7 +196,7 @@ public class TtsRequestSample {
 		TtsConfig.VOLUME = 5; // 音量大小, 范围[0，10]，默认为0，表示正常音量。
 		// TtsConfig.REQUEST_ENCODE = RequestEncode.UTF_8; // 传入的文字所采用的编码，默认为utf-8
 		// TtsConfig.SPEED = 0; // 语速，范围[-2，2]. -2: 0.6倍; -1: 0.8倍; 0:1.0倍（默认）; 1: 1.2倍; 2: 1.5倍 。其他值：1.0 倍。
-		// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 3：活力男声 4：温暖女声 5：情感女声 6：情感男声
+		// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 4：温暖女声 5：情感女声 6：情感男声
 		// TtsConfig.SAMPLE_RATE = 16000;// 音频采样率： 16000：16k（默认）; 8000：8k
 		// TtsConfig.PRIMARY_LANGUAGE = 1;// 主语言类型： 1-中文（默认） 2-英文
 		// TtsConfig.CODEC = CodeC.PCM; // 无需修改。暂未支持Opus方式。

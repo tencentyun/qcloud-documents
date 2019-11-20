@@ -72,3 +72,59 @@ exports.mgobexsCode = {
     gameServer
 };
 ```
+
+
+
+### onInitGameServer 属性
+
+#### 描述
+onInitGameServer 是 mgobexsCode 对象的一个属性，类型为 function。该函数在实时服务器初始化后会被调用，开发者可以在该函数内初始化 TCB 实例。
+
+#### 参数说明
+
+|参数名|类型|描述|
+|:---|---|---|
+|tcb|object|腾讯云云开发模块|
+
+#### 返回值说明
+无。
+
+#### 使用示例
+
+```
+exports.mgobexsCode = {
+    onInitGameServer: (tcb) => {
+        // 可以在此初始化 TCB
+        const tcbApp = tcb.init({
+            secretId: "请填写腾讯云API密钥ID",
+            secretKey: "请填写腾讯云API密钥KEY",
+            env: "请填写云开发环境ID",
+            serviceUrl: 'http://tcb-admin.tencentyun.com/admin',
+            timeout: 5000,
+        });
+    },
+    gameServer
+};
+```
+
+### gameInfo 属性
+
+#### 描述
+gameInfo 是 mgobexsCode 对象的一个属性，类型为 object。开发者如果需要在实时服务器调用 getRoomByRoomId、changeRoom、changeCustomPlayerStatus、removePlayer 方法需要实现该对象。该对象属性如下：
+
+|属性名|类型|描述|
+|:---|---|---|
+|gameId|string|游戏 ID，从控制台获取|
+|serverKey|string|后端密钥，从控制台获取|
+
+#### 使用示例
+
+```
+exports.mgobexsCode = {
+	gameInfo: {
+		gameId: "请填写游戏ID，从控制台获取",
+		serverKey: "请填写后端密钥，从控制台获取",
+	},
+    gameServer
+};
+```

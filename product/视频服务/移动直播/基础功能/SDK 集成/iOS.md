@@ -64,7 +64,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)
 
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”添加依赖库。
-![](https://main.qcloudimg.com/raw/c3d1a562a7259c668336f24f0525c2db.jpg)
+![](https://main.qcloudimg.com/raw/dffd804d78d3e5765add218cb228c842.png)
 
 4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 及其所需依赖库 :
 ```
@@ -73,8 +73,9 @@ libc++.tbd
 libresolv.tbd
 libsqlite3.tbd
 Accelerate.framework
+OpenAL.framework
 ```
-![](https://main.qcloudimg.com/raw/3ec85750893f4866fe634a5d8dc6d059.jpg)
+![](https://main.qcloudimg.com/raw/899f02c77d58f6e3b9a5d94995c767f8.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。

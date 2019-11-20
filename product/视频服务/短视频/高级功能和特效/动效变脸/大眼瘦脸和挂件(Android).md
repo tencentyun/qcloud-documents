@@ -24,20 +24,16 @@
 
 #### 使用jar包方式集成
 
-1.需要解压zip，把libs下的jar包和so拷贝到您的jni加载路径下。其中跟动效有关的jar包和so如下：
+1.需要解压zip，把libs下的so拷贝到您的jni加载路径下。其中跟动效有关的jar包和so如下：
 
-| jar                     |                          |                   |
-| ----------------------- | ------------------------ | ----------------- |
-| filterengine.bundle.jar | ptu_algo_cb6bc16f389.jar | segmenter-lib.jar |
-| video_module.jar        | YTCommon.jar             |                   |
-
-| so                     |                           |                        |
-| ---------------------- | ------------------------- | ---------------------- |
-| libalgo_rithm_jni.so   | libalgo_youtu_jni.so      | libformat_convert.so   |
-| libGestureDetectJni.so | libimage_filter_common.so | libimage_filter_gpu.so |
-| libnnpack.so           | libParticleSystem.so      | libpitu_tools.so       |
-| libsegmentern.so       | libsegmentero.so          | libYTCommon.so         |
-| libYTFaceTrackPro.so   | libYTHandDetector.so      | libYTIllumination.so   |
+| so                        |                      |                           |
+| ------------------------- | -------------------- | ------------------------- |
+| libYTCommon.so            | libnnpack.so         | libpitu_device.so         |
+| libpitu_tools.so          | libWXVoice.so        | libgameplay.so            |
+| libCameraFaceJNI.so       | libYTFaceTrackPro.so | libimage_filter_gpu.so    |
+| libimage_filter_common.so | libpitu_voice.so     | libvoicechanger_shared.so | 
+| libParticleSystem.so      | libYTHandDetector.so | libGestureDetectJni.so    |
+| libsegmentern.so          |
 
 2.把解压后的assets文件夹下的所有资源拷贝到工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
@@ -103,17 +99,43 @@ public void setMotionTmpl(String tmplPath);
 
 ```
 // 大眼效果 0~9
-mTXCameraRecord.setEyeScaleLevel(eyeScaleLevel);
+mTXCameraRecord.getBeautyManager().setEyeScaleLevel(eyeLevel);
 // 瘦脸效果 0~9
-mTXCameraRecord.setFaceScaleLevel(faceScaleLevel);
+mTXCameraRecord.getBeautyManager().setFaceSlimLevel(faceSlimLevel);
 // V脸效果 0~9
-mTXCameraRecord.setFaceVLevel(level)
+ mTXCameraRecord.getBeautyManager().setFaceVLevel(faceVLevel);
 // 下巴拉伸或收缩效果 0~9
-mTXCameraRecord.setChinLevel(scale)
+mTXCameraRecord.getBeautyManager().setChinLevel(chinSlimLevel);
 // 缩脸效果 0~9
-mTXCameraRecord.setFaceShortLevel(level)
+mTXCameraRecord.getBeautyManager().setFaceShortLevel(faceShortLevel);
 // 瘦鼻效果 0~9
-mTXCameraRecord.setNoseSlimLevel(scale)
+mTXCameraRecord.getBeautyManager().setNoseSlimLevel(noseScaleLevel);
+// 亮眼效果 0~9
+mTXCameraRecord.getBeautyManager().setEyeLightenLevel(eyeLightenLevel);
+// 白牙效果 0~9
+mTXCameraRecord.getBeautyManager().setToothWhitenLevel(toothWhitenLevel);
+// 祛皱效果 0~9
+mTXCameraRecord.getBeautyManager().setWrinkleRemoveLevel(wrinkleRemoveLevel);
+// 祛眼袋效果 0~9
+mTXCameraRecord.getBeautyManager().setPounchRemoveLevel(pounchRemoveLevel);
+// 祛法令纹效果 0~9
+mTXCameraRecord.getBeautyManager().setSmileLinesRemoveLevel(smileLinesRemoveLevel);
+// 调整发际线 0~9
+mTXCameraRecord.getBeautyManager().setForeheadLevel(foreheadLevel);
+// 调整眼间距 0~9
+mTXCameraRecord.getBeautyManager().setEyeDistanceLevel(eyeDistanceLevel);
+// 调整眼角 0~9
+mTXCameraRecord.getBeautyManager().setEyeAngleLevel(eyeAngleLevel);
+// 调整嘴形 0~9
+mTXCameraRecord.getBeautyManager().setMouthShapeLevel(mouthShapeLevel);
+// 调整鼻翼 0~9
+mTXCameraRecord.getBeautyManager().setNoseWingLevel(noseWingLevel);
+// 调整鼻子位置 0~9
+mTXCameraRecord.getBeautyManager().setNosePositionLevel(nosePositionLevel);
+// 调整嘴唇厚度 0~9
+mTXCameraRecord.getBeautyManager().setLipsThicknessLevel(lipsThicknessLevel);
+// 调整脸型 0~9
+mTXCameraRecord.getBeautyManager().setFaceBeautyLevel(faceBeautyLevel);
 ```
 
 ### 4. 绿幕功能
@@ -134,7 +156,7 @@ public void setGreenScreenFile(String path);
 
 ## 问题排查              
 ### 1. 工程运行过程中crash？  
- > 1. 检查build.gradle设置，abiFilters是否设置为armeabi，目前只支持armeabi架构
+ > 1. 检查build.gradle设置，目前只支持armeabi，armeabi-v7a，arm64-v8a架构
  > 2. 如果是jar集成方式，检查动效对应的so是否都拷到工程jniLibs目录下
      
 ### 2. 工程特效不生效？  

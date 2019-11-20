@@ -2,7 +2,7 @@
 POST Object restore 接口可以对一个通过 COS 归档为 archive 类型的对象进行恢复，恢复出的可读取对象是临时的，您可以设置需要保持可读，以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为 archive 类型对象的副本，被归档的源对象在此期间将始终存在。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```shell
 POST /<ObjectKey>?restore HTTP/1.1
@@ -11,16 +11,16 @@ Date: GMT Date
 Authorization: Auth String
 ```
  
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
+#### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
-### 请求体
+####  请求体
 该请求操作的实现需要有如下请求体。
 
 ```shell
@@ -65,7 +65,7 @@ Authorization: Auth String
    <tr>
       <td>Tier</td>
       <td>无</td>
-      <td>恢复数据时，Tier 可以指定为 CAS 支持的三种恢复模式，分别为 Standard（标准模式，恢复任务在3 - 5小时内完成）、Expedited（极速模式，恢复任务在15分钟内可完成）以及 Bulk（批量模式，恢复任务在5 - 12小时内完成）</td>
+      <td>恢复数据时，Tier 可以指定为 CAS 支持的三种恢复模式，分别为：<br> <li>Standard：标准模式，恢复任务在3 - 5小时内完成<br> <li>Expedited：极速模式，恢复任务在15分钟内可完成<br> <li> Bulk：批量模式，恢复任务在5 - 12小时内完成</td>
       <td>Enum</td>
       <td>是</td>
    </tr>
@@ -74,18 +74,18 @@ Authorization: Auth String
 
 
 ## 响应
-### 响应头
+####  响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
-### 响应体
+####  响应体
 该响应体为空。
 
-### 错误码
-该请求操作可能会出现如下错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+#### 错误码
+该请求操作可能会出现如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 错误码|描述|HTTP 状态码
 ---|---|---
@@ -95,7 +95,7 @@ RestoreAlreadyInProgress|对象已经在恢复中|409 [Conflict](https://tools.i
 
 ## 实际案例
 
-### 请求
+#### 请求
 
 ```shell
 POST /exampleobject?restore HTTP/1.1
@@ -113,7 +113,7 @@ Content-Type: application/x-www-form-urlencoded
 </RestoreRequest>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 202 Accepted

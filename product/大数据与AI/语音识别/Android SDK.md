@@ -4,7 +4,7 @@
 
 ### 接入须知
 + 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为**Android 4.0**及其以上版本。
++ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0.3** 及其以上版本。
 
 ### 开发环境
 1）**添加一句话识别 SDK aar**
@@ -12,7 +12,7 @@
 将 **qcloudasrsdk\_1.0\_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 
 ```
-  implementation(name: 'qcloudasrsdk_1.0_release', ext: 'aar')
+  implementation(name: 'qcloudasrsdk_2.0_release', ext: 'aar')
 ```
 
 2）**添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。

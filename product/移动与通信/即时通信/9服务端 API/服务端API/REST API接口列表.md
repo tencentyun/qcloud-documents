@@ -4,8 +4,11 @@
 |---------|---------|
 | 导入单个帐号 | [v4/im_open_login_svc/account_import](https://cloud.tencent.com/document/product/269/1608) |
 | 导入批量帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
-| 帐号删除接口  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 帐号删除  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 帐号校验  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
+
+
 
 ## 在线状态
 
@@ -45,6 +48,7 @@
 | 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
 | 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
 | 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
+| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 ## 群组管理
 
@@ -81,13 +85,7 @@
 | 设置全局禁言 |[ v4/openconfigsvr/setnospeaking](https://cloud.tencent.com/document/product/269/4230) |
 | 查询全局禁言 |[ v4/openconfigsvr/getnospeaking](https://cloud.tencent.com/document/product/269/4229) |
 
-## 脏字管理
 
-| 功能说明 | 接口 |
-|---------|---------|
-| 查询 App 自定义脏字  | [v4/openim_dirty_words/get](https://cloud.tencent.com/document/product/269/2396)|
-| 添加 App 自定义脏字   | [v4/openim_dirty_words/add](https://cloud.tencent.com/document/product/269/2397) |
-| 删除 App 自定义脏字  | [v4/openim_dirty_words/delete](https://cloud.tencent.com/document/product/269/2398) |
 
 ## 运营管理
 

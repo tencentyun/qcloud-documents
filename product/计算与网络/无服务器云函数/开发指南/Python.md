@@ -53,20 +53,29 @@ def main_handler(event, context):
 
 ### COS SDK
 
-云函数的运行环境内已包含 [COS 的 Python SDK](https://cloud.tencent.com/document/product/436/6275)，具体版本为 `cos_sdk_v4`。
+云函数的运行环境内已包含 [COS 的 Python SDK](https://cloud.tencent.com/document/product/436/12269)，具体版本为 `cos_sdk_v5`（推荐）和 `cos_sdk_v4`。
 
 可在代码内通过如下方式引入 COS SDK 并使用：
+- 对于 `cos_sdk_v5` 版本：
+```
+import qcloud_cos_v5
+```
+```
+from qcloud_cos_v5 import CosConfig 
+from qcloud_cos_v5 import CosS3Client
+```
+
+- 对于 `cos_sdk_v4` 版本：
 ```
 import qcloud_cos
 ```
-
 ```
-from qcloud_cos import CosClient
-from qcloud_cos import DownloadFileRequest
-from qcloud_cos import UploadFileRequest
+from qcloud_cos_v4 import CosClient
+from qcloud_cos_v4 import DownloadFileRequest
+from qcloud_cos_v4 import UploadFileRequest
 ```
 
-更详细的 COS SDK 使用说明见 [COS Python SDK 说明](https://cloud.tencent.com/document/product/436/6275)。
+更详细的 COS SDK 使用说明见 [COS Python SDK 说明](https://cloud.tencent.com/document/product/436/12269)。
 
 ## Python 2 或 3？
 您可以在函数创建时，通过选择运行环境中的 `Python 2.7` 或 `Python 3.6` 选择您所期望使用的运行环境。
@@ -74,6 +83,8 @@ from qcloud_cos import UploadFileRequest
 您可以在 [这里](https://wiki.python.org/moin/Python2orPython3) 查看 Python 官方对 Python 2 或 Python 3 语言选择的建议。
 
 Python 3 云端运行时已支持的库如下表：
+>?若您需要使用表中尚未支持的库，请在本地安装并打包上传后使用。
+>
 
 |库名称|版本|
 | -------------------------------- |---------------|

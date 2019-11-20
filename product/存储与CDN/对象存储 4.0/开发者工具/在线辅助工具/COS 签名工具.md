@@ -34,7 +34,7 @@ API 密钥中的信息均为必填项。
 在 “HTTP 参数” 栏中，填写相关参数。如下图所示：
 ![avatar](https://main.qcloudimg.com/raw/8fbc5566b31777e646aa457239468cda.png)
 主要参数如下：
-- **HttpMethod：**必选项。HTTP 请求方法，包括 GET，POST，PUT，DELETE 四种。
+- **HttpMethod：**必选项。HTTP 请求方法，包括 GET，POST，PUT，DELETE，HEAD。
 - **HttpURI：**必填项。HTTP 请求 URI 部分，即您需要发起请求的对象名称。
 - **HttpParameters：**可选项。HTTP 请求参数。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行 URLEncode，多个 key 以字典排序。
  例如，“prefix=abc” 代表指定访问对象前缀为 abc 的对象。
@@ -79,12 +79,12 @@ COS 签名工具将分别展示生成的最终签名及计算签名过程中的�
    -  当操作对象为文件夹时，filename 缺省。filename 中要包含文件后缀名。
    -  当 FilePath 为空时，生成的请求签名将适用于访问存储桶内所有对象。
  
-相关 HTTP 请求参数的详细描述，请参见 [请求签名](https://cloud.tencent.com/document/product/436/6054#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
+相关 HTTP 请求参数的详细描述，请参见 [签名算法](https://cloud.tencent.com/document/product/436/6054#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF)。
 
 #### 生成签名及查阅过程参数
 
 单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。
-COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/6054#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF2)。
+COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [签名算法](https://cloud.tencent.com/document/product/436/6054#.E8.8E.B7.E5.8F.96.E7.AD.BE.E5.90.8D.E6.89.80.E9.9C.80.E4.BF.A1.E6.81.AF2)。
 
 ## 注意事项
 - 本签名工具不识别和提示您填写的错误参数。如果您使用本工具计算请求签名并与 SDK 或其他工具的计算结果进行比较，本工具不会主动纠正您填写的错误参数。

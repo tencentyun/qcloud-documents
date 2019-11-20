@@ -3,13 +3,10 @@
 
 ## 1. 接口描述
 
-本接口 (AssociateAddress) 用于将[弹性公网IP](/document/product/213/1941)（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
-
-接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
-
-
+本接口 (AssociateAddress) 用于将 [弹性公网IP](https://cloud.tencent.com/document/product/213/5733)（简称 EIP）绑定到实例或弹性网卡的指定内网 IP 上。
+接口请求域名：eip.api.qcloud.com
 * 将 EIP 绑定到实例上，其本质是将 EIP 绑定到实例上主网卡的主内网 IP 上。
-* 将 EIP 绑定到主网卡的主内网IP上，绑定过程会把其上绑定的普通公网 IP 自动解绑并释放。
+* 将 EIP 绑定到主网卡的主内网 IP 上，绑定过程会把其上绑定的普通公网 IP 自动解绑并释放。
 * 如果指定网卡的内网 IP 已经绑定了 EIP，则必须先解绑该 EIP，才能再绑定新的。
 * EIP 如果欠费或被封堵，则不能被绑定。
 * 只有状态为 UNBIND 的 EIP 才能够被绑定。
@@ -17,15 +14,15 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/11650) 页面。
 
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
 | Version |String|是|表示 API 版本号，主要用于标识请求的不同 API 版本。 本接口第一版本可传：2017-03-12。|
 | AddressId | String| 是| 标识 EIP 的唯一 ID。EIP 唯一 ID 形如：`eip-11112222`。|
-| InstanceId| String| 否| 要绑定的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录[控制台](https://console.cloud.tencent.com/cvm)查询，也可通过 [DescribeInstances](/document/api/213/9389) 接口返回值中的`InstanceId`获取。
-| NetworkInterfaceId | String| 否| 要绑定的弹性网卡 ID。 弹性网卡 ID 形如：`eni-11112222`。`NetworkInterfaceId` 与 `InstanceId` 不可同时指定。弹性网卡 ID 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](/document/api/215/4814)接口返回值中的`networkInterfaceId`获取。|
-| PrivateIpAddress | String| 否| 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。指定弹性网卡的内网 IP 可通过登录[控制台](https://console.cloud.tencent.com/vpc/eni)查询，也可通过[DescribeNetworkInterfaces](/document/api/215/4814)接口返回值中的`privateIpAddress`获取。|
+| InstanceId| String| 否| 要绑定的实例 ID。实例 ID 形如：`ins-11112222`。可通过登录 [控制台](https://console.cloud.tencent.com/cvm) 查询，也可通过 [DescribeInstances](https://cloud.tencent.com/document/api/213/9389) 接口返回值中的`InstanceId`获取。
+| NetworkInterfaceId | String| 否| 要绑定的弹性网卡 ID。 弹性网卡 ID 形如：`eni-11112222`。`NetworkInterfaceId` 与 `InstanceId` 不可同时指定。弹性网卡 ID 可通过登录 [控制台](https://console.cloud.tencent.com/vpc/eni) 查询，也可通过 [DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/4814) 接口返回值中的`networkInterfaceId`获取。|
+| PrivateIpAddress | String| 否| 要绑定的内网 IP。如果指定了 `NetworkInterfaceId` 则也必须指定 `PrivateIpAddress` ，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。同时要确保指定的 `PrivateIpAddress` 是指定的 `NetworkInterfaceId` 上的一个内网 IP。指定弹性网卡的内网 IP 可通过登录 [控制台](https://console.cloud.tencent.com/vpc/eni) 查询，也可通过 [DescribeNetworkInterfaces](https://cloud.tencent.com/document/api/215/4814) 接口返回值中的`privateIpAddress`获取。|
 
 
 ## 3. 输出参数
@@ -37,7 +34,7 @@
 
 ## 4. 错误码
 
-以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/11657)。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/11657)。
 
 | 错误码 | 描述 |
 |---------|---------|
@@ -51,7 +48,7 @@
 |InvalidNetworkInterfaceId.NotFound|指定 `NetworkInterfaceId` 不存在或指定的 `PrivateIpAddress` 不在 `NetworkInterfaceId` 上。|
 |InvalidPrivateIpAddress.AlreadyBindEip|指定弹性网卡的指定内网 IP 已经绑定了 EIP，不能重复绑定。|
 |InvalidParameterConflict|指定的两个参数冲突，不能同时存在。 EIP 只能绑定在实例上或指定网卡的指定内网 IP 上。|
-|MissingParameter|参数依赖缺少。`NetworkInterfaceId` 和 `PrivateIpAddress` 必须同时指定，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上|
+|MissingParameter|参数依赖缺少。`NetworkInterfaceId` 和 `PrivateIpAddress` 必须同时指定，表示将 EIP 绑定到指定弹性网卡的指定内网 IP 上。|
 |MissingResourceId|绑定的实体缺失。`InstanceId` 或 `NetworkInterfaceId`、 `PrivateIpAddress` 必须指定一个。|
 
 
@@ -61,7 +58,7 @@
 
 ### 示例1
 
-> **绑定 EIP 到实例上：**<br>
+**绑定 EIP 到实例上：**
 
 
 #### 请求参数
@@ -70,7 +67,7 @@
   &Version=2017-03-12
   &AddressId=eip-ek0cdz1g
   &InstanceId=ins-1bmpb9tu
-  &<<a href="/document/api/213/11650">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数
@@ -85,7 +82,7 @@
 
 ### 示例2
 
-> **绑定 EIP 到指定网卡的指定内网 IP 上：**<br>
+**绑定 EIP 到指定网卡的指定内网 IP 上：**
 
 
 #### 请求参数
@@ -95,7 +92,7 @@
   &AddressId=eip-ek0cdz1g
   &NetworkInterfaceId=eni-8x55qvrh
   &PrivateIpAddress=10.0.0.2
-  &<<a href="/document/api/213/11650">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数
