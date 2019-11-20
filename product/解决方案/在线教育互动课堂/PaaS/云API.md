@@ -354,7 +354,7 @@
 
 ```json
 {
-    "teacher_id":"user"
+    "teacher_id":"user",
     "class_id": 1234354
 }
 ```
@@ -393,7 +393,7 @@
 请求：
 ```json
 {
-    "teacher_id":"user"
+    "teacher_id":"user",
     "class_id": 1234354
 }
 ```
