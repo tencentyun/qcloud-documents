@@ -1193,6 +1193,7 @@ order、refund_order 只包含一个。
 | ct      | 是   | Int    | 8          | create_time：订单创建时间。                                    |
 | wx_cts  | 否   | Int    | 4          | wxpay_current_trade_state：见枚举值定义 WxpayOrderState。      |
 | ali_cts | 否   | Int    | 4          | 支付宝订单状态，见枚举值定义 AlipayOrderState。                |
+ |card_cts  | 否  |int   |4  |card_current_trade_state：会员卡订单状态，见枚举值定义 CardOrderState。 |
 
 **BriefRefundOrder**
 
@@ -1207,7 +1208,7 @@ order、refund_order 只包含一个。
 | ct     | 是   | Int    | 8          | create_time：退款单创建时间。                                  |
 | wx_rs  | 否   | Int    | 4          | wxpay_refund_state：微信退款状态，见枚举值定义 WxpayRefundOrderState。 |
 | ali_rs | 否   | Int    | 4          | alipay_refund_state：支付宝退款状态，见枚举值定义 AlipayRefundOrderState。 |
-
+|card_rs | 否| int | 4 |card_refund_state：会员卡退款状态，见枚举值定义 CardRefundOrderState。|
 
 #### 示例说明
 **请求生成示例代码：**
@@ -1581,6 +1582,12 @@ return w.write(request);
 | 4      | 退款处理中。   |
 | 5      | 订单不存在。   |
 
+#### CardRefundOrderState
+| 枚举值 | 说明         |
+| ------ | ------------ |
+1| 退款单初始态。
+2| 退款成功。
+3 |退款失败。
 
 ##  10 加解密相关说明
 ### 10.1 AES-128-CBC 解密说明
