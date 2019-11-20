@@ -1942,5 +1942,5 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
 | 0 | int | 未设置布局|
-| 1 | int | 1-2路视频布局|
+| 1 | int | 1 - 2路视频布局|
 | 2 | int | 6路视频布局 |
