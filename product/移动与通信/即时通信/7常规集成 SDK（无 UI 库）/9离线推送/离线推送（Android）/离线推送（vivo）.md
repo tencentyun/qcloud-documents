@@ -315,7 +315,7 @@ public class ThirdPushTokenMgr {
 
 ### 打开应用内指定界面
 
-  1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
 	```
 	<activity
 		android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
@@ -334,7 +334,7 @@ public class ThirdPushTokenMgr {
 	</activity>
 	```
  
-  2. 获取 intent URL，方式如下：
+2. 获取 intent URL，方式如下：
     ```
     Intent intent = new Intent(this, ChatActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail?title=testTitle"));
@@ -346,7 +346,7 @@ public class ThirdPushTokenMgr {
     intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
     ```
 
-  3. 在 [添加证书](#Step2) 时选择【打开应用内指定界面】并输入上述打印结果。
+3. 在 [添加证书](#Step2) 时选择【打开应用内指定界面】并输入上述打印结果。
     ![](https://main.qcloudimg.com/raw/1ab25b8c52b953014786682bce43c2ed.png)
 
 ## 常见问题
