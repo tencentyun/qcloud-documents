@@ -21,7 +21,7 @@ Authorization: <AuthorizationString>
 | 字段名         | 类型   | 位置  | 是否必须 | 含义                      |
 | -------------- | ------ | ----- | -------- | ------------------------- |
 | topic_id       | string | query | 是       | 消费组所属的日志主题的 ID |
-| consumer_group | string | body  | 是       | 消费组名称                |
+| consumer_group | string | query  | 是       | 消费组名称                |
 
 ## 响应
 

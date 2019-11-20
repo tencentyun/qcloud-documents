@@ -40,7 +40,7 @@ Authorization: Auth String
 ```shell
 <AccelerateConfiguration xmlns="cos xmlns/"> 
   <Status>Enabled</Status> 
-  <Tyep>COS</Type>
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 
@@ -81,7 +81,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 <AccelerateConfiguration>
   <Status>Enabled</Status>
-  <Tyep>COS</Type>
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 
@@ -98,7 +98,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 <AccelerateConfiguration>
   <Status>Disabled</Status>
-  <Tyep>COS</Type>
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 

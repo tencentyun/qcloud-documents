@@ -20,9 +20,9 @@
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
 >- 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
 >
-![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
+![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
- - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址。若为外网地址，请确认是否已开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80)。
+ - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80)。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
@@ -44,7 +44,7 @@ yum install mysql
 ```
 mysql -h hostname -u username -p
 ```
-      - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网或外网地址。
+      - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网地址。
 		- username：替换为默认的用户名 root。
     2. 在提示`Enter password：`后输出 root 帐号对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
     本例中提示`MySQL [(none)]>`说明成功登录到 MySQL。
@@ -54,7 +54,7 @@ mysql -h hostname -u username -p
 ```
 mysql -h hostname -P port -u username -p
 ```
-      - hostname：替换为目标 MySQL 数据库实例的外网地址，若外网地址未开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80) 开启。
+      - hostname：替换为目标 MySQL 数据库实例的外网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80) 开启。
       - port：替换为外网端口号。
       - username：替换为外网访问用户名，用于外网访问，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
     2. 在提示`Enter password：`后输入外网访问用户名对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。

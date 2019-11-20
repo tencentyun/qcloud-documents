@@ -131,11 +131,11 @@ void onDisConnectOtherRoom(final int errCode, final String errMsg)
 
 
 ## 成员事件回调
-### onUserEnter
+### onRemoteUserEnterRoom
 
-有用户（主播）加入当前房间。
+有用户加入当前房间。
 ```
-void onUserEnter(String userId)
+void onRemoteUserEnterRoom(String userId)
 ```
 
 __参数__
@@ -146,15 +146,19 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音或视频上行。
-如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 事件回调。
+出于性能方面的考虑，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL）：该场景下用户没有角色的区别，任何用户进入房间都会触发该通知。
+- 在线直播场景（TRTCCloudDef.TRTC_APP_SCENE_LIVE）：在线直播场景不限制观众的数量，如果任何用户进出都抛出回调会引起很大的性能损耗，所以该场景下只有主播进入房间时才会触发该通知，观众进入房间不会触发该通知。
+
+>?注意 onRemoteUserEnterRoom 和 onRemoteUserLeaveRoom 只适用于维护当前房间里的“成员列表”，如果需要显示远程画面，建议使用监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 事件回调。
 
 
-### onUserExit
 
-有用户（主播）离开当前房间。
+### onRemoteUserLeaveRoom
+
+有用户离开当前房间。
 ```
-void onUserExit(String userId, int reason)
+void onRemoteUserLeaveRoom(String userId, int reason)
 ```
 
 __参数__
@@ -162,7 +166,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户标识。 |
-| reason | int | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
+| reason | int | 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。 |
+
+__介绍__
+
+与 onRemoteUserEnterRoom 相对应，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL）：该场景下用户没有角色的区别，任何用户的离开都会触发该通知。
+- 在线直播场景（TRTCCloudDef.TRTC_APP_SCENE_LIVE）：只有主播离开房间时才会触发该通知，观众离开房间不会触发该通知。
 
 
 ### onUserVideoAvailable
@@ -266,7 +276,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | int | 视频流类型，大画面、小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
@@ -283,6 +293,47 @@ void onSendFirstLocalAudioFrame()
 __介绍__
 
 SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。 当 SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
+
+
+### onUserEnter
+
+废弃接口：有主播加入当前房间。
+```
+void onUserEnter(String userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户标识。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserEnterRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
+
+
+### onUserExit
+
+废弃接口： 有主播离开当前房间。
+```
+void onUserExit(String userId, int reason)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户标识。 |
+| reason | int | 离开原因。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserLeaveRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
 
 
 

@@ -9,7 +9,7 @@
 
 ### 1. 创建 JAR 作业
 
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/scs)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
 > ? 如果这一步您没有可选的独享集群，请参见 [创建和管理集群](https://cloud.tencent.com/document/product/849/38380) 创建独享集群。
 
 ![新建JAR作业步骤1](https://main.qcloudimg.com/raw/97acd63eec13dcb9f12a3835263df950.png)
