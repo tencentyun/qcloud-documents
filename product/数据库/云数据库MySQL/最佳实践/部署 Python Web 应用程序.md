@@ -20,7 +20,7 @@ pip install --upgrade pip
 ```
 2. 通过 pip 安装 Django。
 ```
-pip install Django
+pip install Django==1.11
 ```
 3. 查看 Django 版本，测试 Django 是否安装完成。
 ```
