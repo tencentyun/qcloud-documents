@@ -1,4 +1,4 @@
-企业帐号CompanyExample（ownerUin 为12345678）下有一个子账号 Developer，该子账号需要拥有对企业帐号 CompanyExample 的 COS 服务的只读访问权限（访问 COS 的存储桶或者对象及对象列表等）。
+企业帐号 CompanyExample（ownerUin 为 12345678）下有一个子账号 Developer，该子账号需要拥有对企业帐号 CompanyExample 的 COS 服务的只读访问权限（访问 COS 的存储桶或者对象及对象列表等）。
 
 方案A：
 
@@ -6,11 +6,11 @@
 
 方案B：
 
-步骤 1：通过策略语法方式创建以下策略
+步骤 1：通过策略语法方式创建以下策略。
 ```
  {
     "version": "2.0",
-    "statement":
+    "statement":[
      {
          "effect": "allow",
          "action":  [
@@ -21,6 +21,7 @@
                 ],
          "resource": "*"
      }
+   ]
 }
 ```
-步骤 2：将该策略授权给子账号。授权方式请参考[授权管理](https://cloud.tencent.com/document/product/378/8961)。
+步骤 2：将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。

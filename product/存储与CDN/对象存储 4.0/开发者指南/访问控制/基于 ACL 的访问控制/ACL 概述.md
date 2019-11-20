@@ -37,7 +37,7 @@
 
 下表列出了支持在存储桶 ACL 中设置的操作列表：
 
-| 操作集       | 描述                 | 许可的行为                                                   |
+| 操作集       | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                | 许可的行为                                                   |
 | ------------ | -------------------- | ------------------------------------------------------------ |
 | READ         | 列出对象             | GetBucket，HeadBucket，GetBucketObjectVersions，ListMultipartUploads |
 | WRITE        | 上传、覆盖和删除对象 | PutObject，PutObjectCopy，PostObject，InitiateMultipartUpload， UploadPart，UploadPartCopy，CompleteMultipartUpload， DeleteObject |
@@ -56,7 +56,7 @@
 | READ         | 读取对象           | GetObject，GetObjectVersion，HeadObject |
 | READ_ACP     | 读取对象的 ACL     | GetObjectAcl，GetObjectVersionAcl       |
 | WRITE_ACP    | 写入对象的 ACL     | PutObjectAcl，PutObjectVersionAcl       |
-| FULL_CONTROL | 以上四种权限的集合 | 以上所有行为的集合                      |
+| FULL_CONTROL | 以上三种权限的集合 | 以上所有行为的集合                      |
 
 >?对象不支持授予 WRITE 操作集。
 

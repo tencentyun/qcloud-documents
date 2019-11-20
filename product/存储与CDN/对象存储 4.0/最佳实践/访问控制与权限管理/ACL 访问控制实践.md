@@ -14,9 +14,9 @@
 
 ## ACL 的控制元素
 当创建存储桶或对象时，其资源所属的主账号将具备对资源的全部权限，且不可修改或删除。您可以使用 ACL 赋予其他腾讯云账户的访问权限。
-如下提供了一个存储桶的 ACL 示例。其中的100000000001表示主账号，100000000011为主账号下的子账号，100000000002表示另一个主账号。ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了匿名的读取权限，其表述形式为 `http://cam.qcloud.com/groups/global/AllUsers`的 READ 权限。
+如下提供了一个存储桶的 ACL 示例。其中的100000000001表示主账号，100000000011为主账号下的子账号，100000000002表示另一个主账号。ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了匿名的读取权限，其表述形式为`http://cam.qcloud.com/groups/global/AllUsers`的 READ 权限。
 
-```xml
+```shell
 <AccessControlPolicy>
   <Owner>
     <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
@@ -87,9 +87,10 @@ COS 支持一系列的预定义授权，称之为标准 ACL，下表列出了标
 ## ACL 示例
 **对存储桶设置 ACL**
 以下示例表示允许另一个主账号对某个**存储桶**有读取权限：
-![](https://main.qcloudimg.com/raw/e7b54129bc975f7fb493a83bb57654e2.png)
+![](https://main.qcloudimg.com/raw/c3b0779ff37b47cc53b95bca308bca3f.png)
 
 **对对象设置 ACL**
 以下示例表示允许另一个主账号对某个**对象**有读取权限：
-![](https://main.qcloudimg.com/raw/39d1c178fe909bad9e536cd2a4778077.png)
+![](https://main.qcloudimg.com/raw/1c84df81f297a3e5b4bc7d92779310f5.png)
+
 >!如使用子账号访问存储桶或对象出现**无权限访问**的提示，请先通过主账号为子账号授权以便能够正常访问存储桶，操作步骤请参见 [子账号访问存储桶列表](https://cloud.tencent.com/document/product/436/17061)。

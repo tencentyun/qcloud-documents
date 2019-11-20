@@ -15,7 +15,7 @@ Loglistener 安装目录下的 bin 目录中的可执行文件只支持 Linux 64
 2. 确认安装执行命令。
 Tools 目录中的脚本文件为 bash 脚本，不支持 `sh install.sh` 的执行方式，推荐使用 `./install.sh` 或 `bash install.sh` 的方式，请务必按照 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档进行操作。
 3. 确认 Loglistener 版本。
-日志服务最新特性可能依赖新版 Loglistener，若确认是使用新特性异常，请下载 [Loglistener 最新版本](https://main.qcloudimg.com/raw/8656fcadd12ab9689674df09b510b52b/loglistener.2.2.2.tar.gz)。
+日志服务最新特性可能依赖新版 Loglistener，若确认是使用新特性异常，请下载 [Loglistener 最新版本](https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener.2.2.3.tar.gz)。
 4. 验证 Loglistener 成功安装。
 请查看确认 LogListener 进程是否正常运行，进入安装目录查看命令如下：
 ```shell

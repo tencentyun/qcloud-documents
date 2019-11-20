@@ -1,54 +1,62 @@
-云服务器系统内核需要支持virtio驱动（包括块设备驱动 `virtio_blk` 和网卡驱动 `virtio_net`）才能在腾讯云上正常运行，对于未编译进内核的`virtio_blk` 驱动，还需要包含在`initramfs(或者initrd)`文件中，云服务器才能正常工作，本文将说明导入镜像前如何检查以及修复镜像中对 virtio 驱动的支持。
+## 操作场景
+云服务器系统内核需要支持 Virtio 驱动（包括块设备驱动 `virtio_blk` 和网卡驱动 `virtio_net`）才能在腾讯云上正常运行。为避免导入自定义镜像后，创建的云服务器实例无法启动，您需要在导入镜像前，检查是否需要在源服务器中检查以及修复镜像中对 Virtio 驱动的支持。本文档以 CentOS 操作系统为例，指导您如何在导入镜像前进行检查以及修复镜像中对 Virtio 驱动的支持。
 
-## 内核支持virtio驱动检查
-以`Centos7`为例详细说明如何确定当前内核是否支持`virtio`驱动
+## 操作步骤
 
-（1）确认当前内核是否支持`virtio`驱动
+<span id="CheckVirtioForKernel"></span>
+### 步骤1：检查内核是否支持 Virtio 驱动
+执行以下命令，确认当前内核是否支持 Virtio 驱动。
 ```
 grep -i virtio /boot/config-$(uname -r)
 ```
-如下图所示：当前内核包含了`virtio_blk`和`virtio_net`驱动，并且是以模块形式编译的（`CONFIG_VIRTIO_BLK=m`，表示编译成为内核模块，等于y表示编译进内核），如果这一步没有找到`virtio_net`或`virtio_blk`的驱动信息，那么该镜像 *不支持* 导入腾讯云。
-![](//mc.qcloudimg.com/static/img/4f4c1b835ccc8a344c20fdf34183b48f/image.png)
+返回类似如下结果：
+![](https://main.qcloudimg.com/raw/8c32c3dd554700a0c17ff0c7e5675090.png)
+ - 如果返回结果中`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数取值为 `m`，请执行步骤2。
+ - 如果在返回结果中`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数取值为 `y`，表示该操作系统包含了 Virtio 驱动，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 [导入镜像概述](https://cloud.tencent.com/document/product/213/4945)。
+ - 如果在返回结果中没有`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数的信息，表示该操作系统**不支持**导入腾讯云。
 
-如果内核支持`virtio`驱动（`virtio_blk`和`virtio_net`都支持），且`virtio_blk`驱动编译进入了内核（即`CONFIG_VIRTIO_BLK=y`），则该内核支持导入，不需要后续确认，如果`virtio_blk`驱动是编译成内核模块的（即`CONFIG_VIRTIO_BLK=m`），则还需要继续后续确认步骤，确认`virtio_blk`驱动正确包含进了`initramfs（或initrd）`文件中。
-
-（2）确认`initramfs`中是否包含`virtio_blk`驱动
+<span id="CheckVirtioForInitramfs"></span>
+### 步骤2：检查临时文件系统是否包含 Virtio 驱动
+如果 [步骤1](#CheckVirtioForKernel) 的执行结果参数取值为 `m`，则需要进一步检查，确认临时文件系统 `initramfs` 或者 `initrd` 是否包含 `virtio` 驱动。请根据操作系统的不同，执行相应命令：
+- CentOS 6/CentOS 7/RedHat 6/RedHat 7 操作系统：
 ```
 lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
 ```
-如下图所示，`initramfs`中包含了`virtio_blk`驱动，以及其所依赖的`virtio.ko`、`virtio_pci.ko`、`virtio_ring.ko`，这样`initramfs`包含驱动正常，该镜像可以导入。
-![](//mc.qcloudimg.com/static/img/4bac7c12a585eea3cdbd4b27c6a8caa6/image.png)
-
-（3）如果`initramfs`中未找到相关的`virtio`信息，则需要重新制作`initramf`s文件
-
-1) CentOS 7 操作方法
-```
-cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
-mkinitrd -f --with=virtio_blk --with=virtio_pci /boot/initramfs-$(uname -r).img $(uname -r)
-```
-![](//mc.qcloudimg.com/static/img/559c71e11c197ea620a035b0ddd443cf/image.png)
-
-2) Redhat5/Centos5 操作方法
-a. 通过如下方式确定initrd文件中是否包含驱动信息
+- RedHat 5/CentOS 5 操作系统：
 ```
 mkdir -p /tmp/initrd && cd /tmp/initrd
 zcat /boot/initrd-$(uname -r).img | cpio -idmv
 find . -name "virtio*"
 ```
+- Debian/Ubuntu 操作系统：
+```
+lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
+```
 
-b. 如果需要重新制作`initrd`文件，执行以下命令
+返回类似如下结果：
+<img src="https://main.qcloudimg.com/raw/a5e22f75f48ce26a6b03f65588a52877.png" />
+可得知，<code>initramfs</code> 已经包含了 <code>virtio_blk</code> 驱动，以及其所依赖的 <code>virtio.ko</code>、<code>virtio_pci.ko</code> 和 <code>virtio_ring.ko</code>，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 <a href="https://cloud.tencent.com/document/product/213/4945">导入镜像概述</a>。
+如果 <code>initramfs</code> 或者 <code>initrd</code> 没有包含 <code>virtio</code> 驱动，请执行步骤3。
+
+<span id="ReconfigureInitramfs"></span>
+### 步骤3：重新配置临时文件系统
+如果 [步骤2](#CheckVirtioForInitramfs) 的执行结果显示临时文件系统 `initramfs` 或者 `initrd` 没有包含 `virtio` 驱动，则需要重新配置临时文件系统 `initramfs` 或者 `initrd`，使其包含 `virtio` 驱动。请根据操作系统的不同，选择相应操作：
+ - CentOS 6/CentOS 7/RedHat 6/RedHat 7 操作系统：
+```
+cp /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak
+mkinitrd -f --with=virtio_blk --with=virtio_pci /boot/initramfs-$(uname -r).img $(uname -r)
+```
+ - RedHat 5/CentOS 5 操作系统：
 ```
 cp /boot/initrd-$(uname -r).img /boot/initrd-$(uname -r).img.bak
 mkinitrd -f --with=virtio_blk --with=virtio_pci /boot/initrd-$(uname -r).img $(uname -r)
 ```
-
-3) Debian/Ubuntu 操作方法
-a. 检查virtio驱动情况
-```
-lsinitramfs /boot/initrd.img-$(uname -r) | grep virtio
-```
-b. 如果initramfs中未包含，则执行以下步骤修复
+ - Debian/Ubuntu 操作系统：
 ```
 echo -e "virtio_pci\nvirtio_blk" >> /etc/initramfs-tools/modules
 update-initramfs  -u
 ```
+
+
+
+

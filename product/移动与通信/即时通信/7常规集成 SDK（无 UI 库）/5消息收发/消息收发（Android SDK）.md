@@ -847,7 +847,7 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 TIMElem getElement(int i)
 
 //获取元素个数
-long    getElementCount()
+int getElementCount()
 ```
 
 **示例：**
@@ -1145,7 +1145,7 @@ video.getVideo(videoPath, new TIMCallBack() {
 
 ### 消息是否已读
 
-通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
+通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 侧进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
 
 **原型：**
 ```

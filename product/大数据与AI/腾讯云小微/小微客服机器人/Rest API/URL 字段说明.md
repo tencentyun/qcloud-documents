@@ -20,12 +20,10 @@ appid=$appid
 |appid	|用户的 APPID 信息，在控制台中可以获取。|
 |sdkappid	|业务 SDK_ID，用户开通业务时获取到的信息。|
 |identifier	|用户名，为第三方用户帐号 ID 信息, 需要管理员权限的操作必须填管理员。|
-|usersig	|用户名对应的签名，第三方后台使用腾讯工具结合用户 identifier 信息生成。生成方法详情见 [TLS后台API使用手册](https://cloud.tencent.com/document/product/269/1510) |
+|usersig	|用户名对应的签名，第三方后台使用腾讯工具结合用户 identifier 信息生成。 |
 |random	|标识当前请求的整数随机数参数。|
 
-
-### APPID 获取方式
+### AppID 获取方式
 如果您还没有腾讯云账号，您需要先注册腾讯云账号；
-如果您已有腾讯云账号，登录腾讯云小微机器人 [控制台](https://console.cloud.tencent.com/prophet/prophetlist/) 就能看到APPID 信息和业务 SDK_ID 信息了。
-
+如果您已有腾讯云账号，登录腾讯云小微机器人 [控制台](https://console.cloud.tencent.com/prophet/prophetlist/) 就能看到 AppID 信息和业务 SDK_ID 信息了。
 ![](//mc.qcloudimg.com/static/img/49f6d25112eacb7373a1f850629a4ec1/image.png)

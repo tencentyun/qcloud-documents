@@ -137,7 +137,7 @@
     "statement": [
         {
             "action": "cvm:*",
-            "resource": "qcs::cvm:gz::instance/ins-1",
+            "resource": "qcs::cvm:ap-guangzhou::instance/ins-1",
             "effect": "allow"
         }
     ]
@@ -157,7 +157,7 @@
     "statement": [
         {
             "action": "cvm:*",
-            "resource": "qcs::cvm:gz::*",
+            "resource": "qcs::cvm:ap-guangzhou::*",
             "effect": "allow"
         }
     ]

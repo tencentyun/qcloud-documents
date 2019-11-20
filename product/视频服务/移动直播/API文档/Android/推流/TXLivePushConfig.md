@@ -117,7 +117,7 @@ __介绍__
 
 接口说明：
 - 使用归一化坐标。
-- 假设推流分辨率为：540 × 960，x，y，width 分别设置为：(0.1， 0.1， 0.1)，那么水印的实际像素坐标为：(540 * 0.1， 960 * 0.1， 水印宽度 * 0.1， 水印高度会被自动计算)。
+- 假设推流分辨率为：540 × 960，x，y，width 分别设置为：（0.1， 0.1， 0.1），那么水印的实际像素坐标为：（540 * 0.1， 960 * 0.1， 水印宽度 * 0.1， 水印高度会被自动计算）。
 
 ***
 
@@ -543,7 +543,7 @@ __参数__
 __介绍__
 
 接口说明：
-- 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：　_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
+- 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：　\_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE；开启自定义音频采集：\_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
 - 其他值：详情见 TXLiveConstants 中 CUSTOM_MODE_XXX 。
 
 ***

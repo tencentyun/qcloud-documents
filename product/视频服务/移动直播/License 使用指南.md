@@ -1,6 +1,6 @@
 ## 申请测试 License
-您可以免费申请测试 License（基础版，有效期14天，可申请两次）体验测试，具体步骤如下：
-1. 登录腾讯云官网，进入 [移动直播 License](https://console.cloud.tencent.com/live/license)。
+您可以免费申请测试 License（基础版，免费测试有效期为14天，可续期1次，共28天）体验测试，具体步骤如下：
+1. 登录云直播控制台，在左侧菜单中选择 [【直播 SDK】>【License】](https://console.cloud.tencent.com/live/license)。
 2. 填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
 ![](https://main.qcloudimg.com/raw/cb1d13cbdd1dd661a3147172ff163fa0.jpg)
 3. 单击【免费创建】。
@@ -10,8 +10,9 @@
 <span id="buy"></span>
 ## 购买正式 License
 
-您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive) 免费获得一年 License 使用权限。
-![](https://main.qcloudimg.com/raw/52004efac93e7e6c8f446e53830816a3.png)
+您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限。
+
+![](https://main.qcloudimg.com/raw/a4b2ac2a7cbaac7b0d9e295d149e3d3f.png)
 
 > ! 购买“移动直播 SDK 套餐包”后，在 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面会出现【一键切换普通版】按钮。
 > 单击【一键切换普通版】后需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功将无法再修改 License 信息。

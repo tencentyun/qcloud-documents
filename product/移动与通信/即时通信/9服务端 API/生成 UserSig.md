@@ -2,12 +2,11 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 
 ## 获取密钥 
 
-1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
  >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
 2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
 3. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
- ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
 4. 单击【查看密钥】，拷贝并保存密钥信息。
  >!请妥善保管密钥信息，谨防泄露。
 
@@ -21,8 +20,8 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Objective-C | iOS | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) | 
 |Objective-C | Mac | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) |
 | C++ | Windows | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h) |
-| Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/js/debug/GenerateTestUserSig.js) |
-| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/debug/GenerateTestUserSig.js) | 
+| Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/dist/debug/GenerateTestUserSig.js) |
+| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/dist/wx/debug/GenerateTestUserSig.js) | 
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
@@ -40,7 +39,7 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Nodejs | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
 | Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
-
+| C++ | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
 
 ## 老版本算法
 
@@ -51,9 +50,9 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
-| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
 | PHP | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-php)|
 | Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
-| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
+| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|

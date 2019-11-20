@@ -3,7 +3,6 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 
 使用的软件环境为：CentOS7.2 | Python2.7  | Django1.11
 
-
 ### 登录到云服务器实例
 云服务器的购买和访问请参考 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
@@ -13,7 +12,11 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 ### 安装 Django
 1. 安装 pip。
 ```
-yum install python-pip -y
+yum install python-pip 
+```
+2. 更新 pip 包。
+```
+pip install --upgrade pip
 ```
 2. 通过 pip 安装 Django。
 ```
@@ -46,7 +49,7 @@ service httpd start
 3. 测试 Apache。
 >!此步骤需要您的云服务器在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参考 [安全组](https://cloud.tencent.com/document/product/213/12452)。
 >
-在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中`115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
+在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](https://main.qcloudimg.com/raw/a8708d09de9280c730f47eb8289f7c47.png)
 
 ### 安装 Apache 的 mod_wsgi 拓展作为 Django 的应用容器
@@ -96,7 +99,7 @@ def hello(request):
 6. 配置 URL，配置项目目录下的 urls.py 文件，删除原来的内容，添加内容如下。
 ```
 from django.conf.urls import *
-form testProject.view import hello
+from testProject.view import hello
 urlpatterns = [
     url(r'^hello/$',hello),
 ]
@@ -105,9 +108,9 @@ urlpatterns = [
 ```
 service httpd restart
 ```
-8. 在您本地的浏览器中输入`http://115.xxx.xxx.xxx/python/hello`（其中`115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），页面出现 “Hello world !” 表示项目环境搭建成功。
+8. 在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/python/hello`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），页面出现 “Hello world !” 表示项目环境搭建成功。
 
-### 在 Django 中配置云数据库 TencentDB（可选）
+### 在 Django 中配置 TencentDB（可选）
 1. 配置项目目录下的 settings.py 文件。
 ```
 DATABASES = {

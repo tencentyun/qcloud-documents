@@ -1,6 +1,4 @@
-为了满足视频平台 DRM 版权保护的需要，云点播目前提供了 [HLS 普通加密](https://cloud.tencent.com/document/product/266/9638) 方案。
-
-但是，HLS 普通加密方案在集成和使用上有一定的复杂性，主要原因如下：
+为了满足视频平台 DRM 版权保护的需要，云点播目前提供了 [HLS 普通加密](https://cloud.tencent.com/document/product/266/9638) 方案。但是 HLS 普通加密方案在集成和使用上有一定的复杂性，主要原因如下：
 
 * 处理解密密钥：您的密钥服务需要对 [获取视频解密密钥](https://cloud.tencent.com/document/product/266/9643) 中获取的解密密钥进行缓存。
 * 维护密钥获取地址：您需要调用 [创建 HLS 普通加密模板](https://cloud.tencent.com/document/product/266/35167) 等接口新增或修改密钥获取的地址。

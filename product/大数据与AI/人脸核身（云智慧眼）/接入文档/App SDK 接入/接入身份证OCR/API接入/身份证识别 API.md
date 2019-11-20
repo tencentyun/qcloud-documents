@@ -35,3 +35,4 @@
 |multiWarning	| String	| 正面多重告警码，详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)|
 |clarity	| String	| 图片清晰度|
 
+>?success：false 无意义，合作伙伴可忽略，无需处理。

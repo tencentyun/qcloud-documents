@@ -69,7 +69,7 @@ scp $localfile root@公网IP地址:$remotefolder
 - 通过 Hadoop 命令上传，指令如下：
 ```
 [hadoop@10 hadoop]$ hadoop fs -put test.txt cosn://$bucketname /
-[hadoop@10 hadoop]$ bin/hadoop fs -ls cosn:// $bucketname / test.txt
+[hadoop@10 hadoop]$ hadoop fs -ls cosn:// $bucketname / test.txt
 -rw-rw-rw- 1 hadoop hadoop 1366 2017-03-15 19:09 cosn://$bucketname / test.txt
 ```
 

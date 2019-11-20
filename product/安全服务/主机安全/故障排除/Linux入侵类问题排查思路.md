@@ -44,7 +44,7 @@
     * 解决方法：如发现有恶意进程，可使用`chkconfig 服务名 off`命令关闭，同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
     * 风险性：高。
 2. 进入 cron 文件目录，查看是否存在非法定时任务脚本。
-    * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可以脚本或程序。
+    * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可疑脚本或程序。
     * 解决方法：如发现有不认识的计划任务，可定位脚本确认是否正常业务脚本，如果非正常业务脚本，可直接注释掉任务内容或删除脚本。
     * 风险性：高。
 

@@ -1,39 +1,64 @@
 ## 操作场景
-本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）产品的命令行工具 SCF CLI 开发简单的 Hello World Web 服务。
+本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）产品的命令行工具 SCF CLI 开发简单的 Hello World Web 服务，您可通过此案例试用 SCF 的基础功能。
 
 
 ## 前提条件
-- 已注册腾讯云帐户。单击 [这里](https://cloud.tencent.com/register) 进入注册页面，注册指引请参见 [注册腾讯云](https://cloud.tencent.com/document/product/378/9603)。
-- 已安装 Python 2.7（及以上版本）或 Python 3.6（及以上版本）。
-- 已安装 pip。
+- 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
-- 已安装并启动 Docker （可选，仅针对 [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/33446#local)）。
+- (可选) 安装并启动 Docker（使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需要）。
 
-上述安装可参考 [安装与配置文档](https://cloud.tencent.com/document/product/583/33449)。
+
 
 ## 操作步骤
-### 安装 SCF CLI
-1. 执行以下命令，安装 SCF CLI。
+
+### 安装 CLI （Windows）
+
+#### 方式1
+1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
+2. 执行 `pip install scf` 命令，安装 CLI。
+3. 升级 CLI 可直接执行 `pip install -U scf` 命令。
+
+#### 方式2
+1. 前往 [CLI 下载](https://cloud.tencent.com/document/product/583/37940)，获取 SCF CLI 安装包。
+>?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
+>
+2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】进行安装。
+3. 执行 `scf --version` 命令，验证 CLI 是否安装成功。
 ```bash
-$ sudo pip install scf
-```
-2. 执行以下命令，验证 SCF CLI 是否安装成功。
-```bash
-$ scf --version
 scf CLI, version 0.0.1
 ```
 返回类似如上信息，则表示安装成功。
 
-<span id="configure"></span>
+
+
+### 安装 CLI （Mac / Linux）
+1. 执行以下命令，检查 Python 版本。
+```
+Python --version
+```
+Python 版本须为 2.7 或 3.6 + ，如果 Python 版本不符，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python) 进行安装。
+2. 执行以下命令，安装 SCF CLI。
+```bash
+pip install scf
+```
+3. 执行以下命令，验证 SCF CLI 是否安装成功。
+```bash
+scf --version
+```
+返回类似如下信息，则表示安装成功。
+```
+scf CLI, version 0.0.1
+```
+
+
+
+
 ### 配置 SCF CLI
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)。
-2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域。获取途径如下：
- - 账号的 APPID：通过访问控制台中的 [账号信息](https://console.cloud.tencent.com/developer)，可以查看您的 APPID。
- - SecretId 及 SecretKey：通过访问控制台中的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)，获取相关密钥或创建相关密钥。
- - 地域：地域列表及对应的英文写法可参见 [地域列表](https://cloud.tencent.com/document/product/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
-3. 执行 `scf configure set` 命令，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
+2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域，配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
+3. 执行以下命令，并按照提示，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
 例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
-您可以通过执行以下命令，按照提示输入对应信息，完成 SCF CLI 的配置：
+您可以通过执行 `scf configure set` 命令，按照提示输入对应信息，完成 SCF CLI 的配置：
 ```shell
 $ scf configure set
 TencentCloud appid(None): 1253970223
@@ -41,32 +66,29 @@ TencentCloud region(None): ap-guangzhou
 TencentCloud secret-id(********************************): AKIxxxxxxxxxx
 TencentCloud secret-key(****************************): uxxlxxxxxxxx
 Allow report information to help us optimize scfcli(Y/n):
+Deploy SCF function by COS, it will be faster(cur:false).  (y/n): y
 ```
+>?using-cos 是指在部署时是否通过 COS 部署。使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动信息。
 
 ### 编写函数
+
 1. 选择并进入到存放项目代码的目录。
-2. 执行以下命令，创建函数。
+2. 执行命令`scf init`，创建函数。
 >?此命令会在当前目录下创建 hello_world 函数。
 >
 ```bash
 $ scf init 
 [+] Initializing project...
-Template: /usr/local/lib/python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-python
+Template: /usr/local/lib/Python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-Python
 Output-Dir: .
 Project-Name: hello_world
-Runtime: python3.6
+Runtime: Python3.6
 [*] Project initialization is complete
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
->?
->此命令会在当前目录下创建 testscf 函数。
->
-3. 您可以根据实际需求执行以下命令，指定函数的 runtime 和名称。
-```bash
-$ scf init --runtime nodejs8.9 --name testscf
-```
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
-4. 将 hello_wolrd 目录中的 index.py 文件替换为如下内容：
+
+3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
 import sys
@@ -86,13 +108,17 @@ def main_handler(event, context):
     return response
 ```
 
-### 本地调用云函数 native invoke
-通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。当前 `native invoke` 仅支持 Node.js 及 Python 语言，更多关于本地调用云函数请参考 [本地调试 local invoke](https://cloud.tencent.com/document/product/583/35401)。
+### 本地测试
+通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。当前 `native invoke` 仅支持 Node.js 及 Python 语言，结合 Docker  进行本地调试请参考 [本地调试（local invoke）](https://cloud.tencent.com/document/product/583/35401)。
 1. 进入项目所在目录 `hello_world`。
-2. 执行 `scf native invoke --no-event` 命令，启动函数在本地运行。输出结果如下：
+2. 执行以下命令，启动函数在本地运行。
 ```
+$ cd hello_world 
 $ scf native invoke --no-event
-Run python3.6's cmd: python
+```
+输出结果如下：
+```
+Run Python3.6's cmd: Python
 START RequestId: 2f258903-95d0-4992-9321-0d720867a383
 Loading function
 start main handler
@@ -104,67 +130,10 @@ REPORT RequestId: 2f258903-95d0-4992-9321-0d720867a383 Duration: 0 ms Billed Dur
 通过输出内容可以看到，函数在本地运行完成后，输出了函数的打印日志、及函数返回内容。
 本地调用命令详情及了解更多命令参数信息，请参见 [本地调试（native invoke）](https://cloud.tencent.com/document/product/583/35402)。
 
-### 本地调用云函数 local invoke
-通过本地调用，您可以在本地使用模拟事件触发函数执行，实时调试函数代码。
->?
->在使用本地调用命令前，需要安装 docker 程序。
-
-1. 通过如下命令确保 docker 已安装并启动。
-```
-$ docker version
-Client: Docker Engine - Community
-Version:           18.09.1
-API version:       1.39
-Go version:        go1.10.6
-Git commit:        4c52b90
-Built:             Wed Jan  9 19:33:12 2019
-OS/Arch:           darwin/amd64
-Experimental:      false
-Server: Docker Engine - Community
-Engine:
-Version:          18.09.1
-API version:      1.39 (minimum version 1.12)
-Go version:       go1.10.6
-Git commit:       4c52b90
-Built:            Wed Jan  9 19:41:49 2019
-OS/Arch:          linux/amd64
-Experimental:     true
-```
-2. 执行以下命令，使用 cos post 模拟事件触发 testscf 项目中的 hello_world 函数。
-```
-$ scf local generate-event cos post | scf local invoke 
-read event from stdin
-pull image ccr.ccs.tencentyun.com/scfrepo/scfcli:python2.7......
-START RequestId: 5771eb61-dba7-4857-949a-2184c0b389d6
-END RequestId: 5771eb61-dba7-4857-949a-2184c0b389d6
-REPORT RequestId: 5771eb61-dba7-4857-949a-2184c0b389d6 Duration: 0 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 14 MB
-"hello world"
-```
-SCF 工具将会在本地使用容器方式启动函数代码，并将 `scf local generate-event cos post` 命令生成的模拟事件发送给函数作为入参。
-3. 修改 testscf 项目目录中的 hello_world 文件夹下的 main.py 文件，增加对 event 的打印。
-```python
-# -*- coding: utf8 -*-
-'use strict';
-exports.main_handler = async (event, context, callback) => {
- console.log("%j", event);
- return "hello world"
-};
-```
-4.执行以下命令，查看打印结果。
-```
-$ scf local generate-event cos post | scf local invoke 
-read event from stdin
-pull image ccr.ccs.tencentyun.com/scfrepo/scfcli:python2.7......
-START RequestId: 1271deb3-04ca-46e8-a85e-04cf016a0207
-{'Records': [{'cos': {'cosSchemaVersion': '1.0', 'cosObject': {'url': 'http://testpic-1253970026.cos.ap-guangzhou.myqcloud.com/testfile', 'meta': {'x-cos-request-id': 'NWMxOWY4MGFfMjViMjU4NjRfMTUyMV8yNzhhZjM=', 'Content-Type': ''}, 'vid': '', 'key': '/1253970026/testpic/testfile', 'size': 1029}, 'cosBucket': {'region': 'gz', 'name': 'testpic', 'appid': '1253970026'}, 'cosNotificationId': 'unkown'}, 'event': {'eventVersion': '1.0', 'eventName': 'cos:ObjectCreated:Post', 'eventTime': 1545205770, 'eventSource': 'qcs::cos', 'requestParameters': {'requestSourceIP': '59.37.125.38', 'requestHeaders': {'Authorization': 'q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14'}}, 'eventQueue': 'qcs:0:lambda:cd:appid/1253970026:default.printevent.$LATEST', 'reservedInfo': '', 'reqid': 179398952}}]}
-END RequestId: 1271deb3-04ca-46e8-a85e-04cf016a0207
-REPORT RequestId: 1271deb3-04ca-46e8-a85e-04cf016a0207 Duration: 2 ms Billed Duration: 100 ms Memory Size: 128 MB Max Memory Used: 14 MB
-"hello world"
-```
-本地调用命令详情及了解更多命令参数信息，请参见 [本地调试（local invoke）](https://cloud.tencent.com/document/product/583/35401)。
 
 ### 部署函数（含配置触发器）
-1. 修改模板文件，配置触发器。由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
+1. 修改模板文件，配置触发器。
+    由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
 ```yaml
 Resources:
   default:
@@ -192,7 +161,7 @@ Resources:
              HttpMethod: ANY
 ```
 更多模板文件规范请参阅 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。
-2. 在项目目录下执行以下命令，将本地代码包及函数配置部署到云端。
+2. 在项目目录下执行命令`scf deploy`，将本地代码包及函数配置部署到云端。
 ```bash
 $ scf deploy 
 Package name: default-hello_world-latest.zip, package size: 4.097 kb
@@ -216,7 +185,7 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
 ```
 部署完成后，您可以在终端输出信息中查看函数信息和网关信息，您可以将 serviceId 复制到 template.yaml，之后部署就不会再创建新的 API 网关。
 3. 完成部署后，您可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域下查看已成功部署的函数。
-部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
+    部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
 
 ### 云端测试
 完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
@@ -245,11 +214,17 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
-![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
-更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686) 
+>![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+>更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 
 ### 配置告警
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
-更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133) 。
+更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。
+
+
+
+## 常见问题
+
+工具安装或使用常见问题参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456)。

@@ -168,7 +168,7 @@ TIMFriendshipManager.getInstance().getUsersProfile(users, true, new TIMValueCall
 	public void onSuccess(List<TIMUserProfile> result){
         Log.e(tag, "getUsersProfile succ");
 		for(TIMUserProfile res : result){
-	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName();
+	        Log.e(tag, "identifier: " + res.getIdentifier() + " nickName: " + res.getNickName());
 		}
 	}
 });

@@ -88,7 +88,7 @@ array (
 {
     "code": 4000,
     "message": "(9177)域名已上线 cdn host online[host online]",
-    "codeDesc": 9177
+    "codeDesc": "InvalidParameter"
 }
 ```
 

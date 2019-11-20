@@ -1,4 +1,3 @@
-
 腾讯云 Elasticsearch 服务提供在用户 VPC 内通过私有网络 VIP 访问集群的方式，用户可以通过 Elasticsearch REST client 编写代码访问集群并将自己的数据导入到集群中，当然也可以通过官方提供的组件（如 logstash 和 beat）接入自己的数据。
 本文以官方的 logstash 和 beats 为例，介绍不同类型的数据源接入 ES 的方式。
 
@@ -24,7 +23,7 @@ yum install java-1.8.0-openjdk  java-1.8.0-openjdk-devel -y
 #### 自建 Docker 集群
 1. 拉取 logstash 官方镜像。
 ```
-	docker pull docker.elastic.co/logstash/logstash:5.6.9
+docker pull docker.elastic.co/logstash/logstash:5.6.9
 ```
 2. 根据数据源类型自定义配置文件 \*.conf，放置在 `/usr/share/logstash/pipeline/`目录下，目录可自定义。
 3. 运行 logstash。
@@ -62,8 +61,8 @@ filter {
 }
 output {
   elasticsearch {
-    hosts => ["http://172.16.0.89:9200"] # Elasticsearch集群的内网VIP地址和端口
-    index => "nginx_access-%{+YYYY.MM.dd}" # 自定义索引名称, 以日期为后缀，每天生成一个索引
+    hosts => ["http://172.16.0.89:9200"] # Elasticsearch 集群的内网 VIP 地址和端口
+    index => "nginx_access-%{+YYYY.MM.dd}" # 自定义索引名称，以日期为后缀，每天生成一个索引
  }
 }
 ```
@@ -80,15 +79,15 @@ input{
         group_id => "test"
         auto_offset_reset => "latest" #从最新的偏移量开始消费
         consumer_threads => 5
-        decorate_events => true #此属性会将当前topic、offset、group、partition等信息也带到message中
-        topics => ["test1","test2"] #数组类型，可配置多个topic
+        decorate_events => true #此属性会将当前 topic、offset、group、partition 等信息也带到 message 中
+        topics => ["test1","test2"] #数组类型，可配置多个 topic
         type => "test" #数据源标记字段
       }
 }
 
 output {
   elasticsearch {
-    hosts => ["http://172.16.0.89:9200"] # Elasticsearch集群的内网VIP地址和端口
+    hosts => ["http://172.16.0.89:9200"] # Elasticsearch 集群的内网 VIP 地址和端口
     index => "test_kafka"
  }
 }
@@ -105,7 +104,7 @@ input {
       # 用户名和密码
       jdbc_user => "root"
       jdbc_password => "Elastic123"
-      # 驱动jar包，如果自行安装部署logstash需要下载该jar，logstash默认不提供
+      # 驱动 jar 包，如果自行安装部署 logstash 需要下载该 jar，logstash 默认不提供
       jdbc_driver_library => "/usr/local/services/logstash-5.6.4/lib/mysql-connector-java-5.1.40.jar"
       # 驱动类名
       jdbc_driver_class => "com.mysql.jdbc.Driver"
@@ -134,7 +133,7 @@ output {
 
 ## 使用 Beats 接入 ES 集群
 Beats 包含多种单一用途的的采集器，这些采集器比较轻量，可以部署并运行在服务器中收集日志、监控等数据，相对 logstashBeats 占用系统资源较少。
-Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数据的 MetricBeat、 收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beat 组件。
+Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数据的 MetricBeat、收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beat 组件。
 
 ### CVM 中访问 ES 集群
 1. 安装部署 filebeat。
@@ -143,7 +142,7 @@ Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数�
 	tar xvf filebeat-5.6.4.tar.gz
 ```
 2. 配置 filebeat.yml。
-3. 执行filebeat。
+3. 执行 filebeat。
 ```
 	nohup ./filebeat 2>&1 >/dev/null &
 ```
@@ -173,7 +172,7 @@ filebeat.prospectors:
     paths:
     - /usr/local/services/testlogs/*.log
 
-// 输出到ES
+// 输出到 ES
 output.elasticsearch:
   # Array of hosts to connect to.
   hosts: ["172.16.0.39:9200"]

@@ -261,8 +261,8 @@ __介绍__
 有时候您可能需要为房间产生一些额外的信息，此接口可以将这些信息缓存到服务器。
 
 >?
->- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型
->- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型
+>- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型。
+>- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型。
 >- op 为 MLVBCommonDef.CustomFieldOp#DEC 时，value 是 Integer 类型。
 
 ***

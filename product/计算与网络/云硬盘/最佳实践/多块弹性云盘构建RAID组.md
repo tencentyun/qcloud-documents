@@ -56,7 +56,7 @@ RAID 可以将多个磁盘组合起来构成一个磁盘阵列组，提高数据
 >?本文以在 CentOS 云服务器中使用四块弹性云硬盘构建 RAID 0 为例。不同操作系统、不同 RAID 级别的操作可能不同，本文仅供参考，具体操作步骤和差异请参考对应操作系统的产品文档或 RAID 相关文档。
 
 Linux 内核提供用于管理 RAID 设备的 md 模块，可以直接使用 mdadm 工具来调用 md 模块创建 RAID 0。
-![](//mccdn.qcloud.com/static/img/9f42e96976ee6f3655090a4208f461c5/image.png)
+![](https://main.qcloudimg.com/raw/a7e717737b22456319cde4ec4bc0c8e1.png)
 
 1. 以 root 用户 [登录云服务器](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 mdadm。
@@ -64,7 +64,7 @@ Linux 内核提供用于管理 RAID 设备的 md 模块，可以直接使用 mda
 yum install mdadm -y
 ```
 安装成功结果如下图所示：
-![](//mccdn.qcloud.com/static/img/59896b0ee3f20cd0f20f2f3633e56a1f/image.png)
+![](https://main.qcloudimg.com/raw/9ae334a316638ebc8e8b95a587c6e8b5.png)
 3. 执行以下命令，使用 mdadm 创建 RAID 0。
 ```
 mdadm --create /dev/md0 --level=0 --raid-devices=4 /dev/vd[cdef]1
@@ -76,7 +76,7 @@ mdadm --create /dev/md0 --level=0 --raid-devices=4 /dev/vd[cdef]1
 mkfs.ext3 /dev/md0
 ```
 创建成功结果如下图所示：
-![](//mccdn.qcloud.com/static/img/e92608f31d914556a585e3190a009a64/image.png)
+![](https://main.qcloudimg.com/raw/ed6291597a03923a46914ff39005c90e.png)
 5. 依次执行以下命令，挂载文件系统。
 ```
 mkdir md0/
@@ -84,7 +84,7 @@ mount /dev/md0 md0/
 tree md0
 ```
 挂载成功结果如下图所示：
-![](//mccdn.qcloud.com/static/img/a4c36941609c64a3753648622392de65/image.png)
+![](https://main.qcloudimg.com/raw/c77863517336227b6dc5dc0180935e46.png)
 6. 执行以下命令，查看文件系统详情，并记录其 UUID（以`c5d8a204:c28853ba:3882e9f8:62d078de`为例）。如下图所示：
 ```
 mdadm --detail --scan

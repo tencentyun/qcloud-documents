@@ -43,7 +43,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) | 推流配置项，详情见  [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig)}。 |
+| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) | 推流配置项，详情见  [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig)。 |
 
 ***
 
@@ -231,7 +231,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
@@ -360,7 +360,7 @@ __返回__
 
 true：成功； false：失败。
 
->?当distance为1的时候为最远视角（正常镜头），当为 [getMaxZoom()](https://cloud.tencent.com/document/product/454/34772#getmaxzoom) 的时候为最近视角（放大镜头），最大值不要超过，超过后画面会模糊不清。
+>?当 distance 为1的时候为最远视角（正常镜头），当为 [getMaxZoom()](https://cloud.tencent.com/document/product/454/34772#getmaxzoom) 的时候为最近视角（放大镜头），最大值不要超过，超过后画面会模糊不清。
 
 
 ***
@@ -679,7 +679,7 @@ boolean resumeBGM()
 
 __返回__
 
-true：恢复播放成功； false:恢复播放失败。
+true：恢复播放成功； false：恢复播放失败。
 
 ***
 
@@ -863,7 +863,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| textureID | int | 视频纹理ID。 |
+| textureID | int | 视频纹理 ID。 |
 | w | int | 视频图像的宽度，不能大于 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 videoResolution 属性设定的宽度，否则会失败，小于时 SDK 会自动裁剪。 |
 | h | int | 视频图像的高度，不能大于 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771#txlivepushconfig) 中的 videoResolution 属性设定的宽度，否则会失败，小于时 SDK 会自动裁剪。 |
 
@@ -1101,8 +1101,7 @@ __参数__
 |-----|-----|-----|
 | str | String | 存入本地文件的 log。 |
 
->?
->- 此功能一般仅用在协助调试的情况下。
+>?此功能一般仅用在协助调试的情况下。
 
 ***
 

@@ -27,8 +27,8 @@
 | createdTime              | Timestamp      | 创建时间，按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ |
 | modifiedTime             | Timestamp      | 最后修改时间，按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ |
 | requestConfig            | Array          | API 的前端配置字典                              |
-| requestParameters        | List of Arrays | API 的前端参数数组                              |
-| serviceType              | Boolean        | API 的后端服务类型，现在支持三种：HTTP，MOCK，SCF          |
+| requestParameters        | Array | API 的前端参数数组                              |
+| serviceType              | String       | API 的后端服务类型，现在支持三种：HTTP，MOCK，SCF          |
 | serviceTimeout           | Int            | API 的后端服务超时时间，单位是 S                       |
 | serviceConfig            | Array          | API 的后端配置字典，只有后端服务类型是 HTTP 时才有此出参          |
 | serviceParameters        | List of Arrays | API 的后端服务参数数组。只有serviceType是 HTTP 才有此出参    |

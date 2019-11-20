@@ -19,7 +19,7 @@
 | 接口名           | Action Name                                                  | 功能描述                                                     | 鉴权配置       |
 | ---------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- |
 | 修改域名配置     | [UpdateCdnConfig](https://cloud.tencent.com/document/product/228/3933) | 修改域名加速配置，支持以下配置项修改：<br/>修改源站配置<br/>修改备站信息<br/>修改回源 host<br/>开启/关闭过滤参数<br/>修改 refer 黑白名单配置<br/>修改 IP 黑白名单配置<br/>开启/关闭视频拖拽<br/>修改缓存过期时间配置<br/>开启/关闭高级缓存过期配置<br/>开启/关闭中间源配置<br/>配置带宽封顶<br/>设置 response header<br/>设置 request header<br/>设置 SEO 优化<br/>设置 302 回源跟随<br/>设置 range 回源<br/>设置 IP 访问限频 | 支持子账号     |
-| HTTPS 配置        | [SetHttpsInfo](https://cloud.tencent.com/document/product/228/12965) | 支持上传证书配置 https 加速<br/>修改回源方式为协议跟随或 HTTP 回源<br/>HTTPS强制跳转配置修改 | 暂不支持子账号 |
+| HTTPS 配置        | [SetHttpsInfo](https://cloud.tencent.com/document/product/228/12965) | 支持上传证书配置 HTTPS 加速<br/>修改回源方式为协议跟随或 HTTP 回源<br/>HTTPS 强制跳转配置修改 | 暂不支持子账号 |
 | 切换域名所属项目 | [UpdateCdnProject](https://cloud.tencent.com/document/product/228/3935) | 修改域名所属项目                                             | 暂不支持子账号 |
 
 ## 配置查询

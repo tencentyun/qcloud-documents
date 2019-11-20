@@ -14,16 +14,16 @@
 | Instance | Instance |服务器实例 | 指代一台消息队列服务器。这里的一台消息队列服务器是逻辑上的概念，物理上是由多台物理机提供服务。|
 | Region | Region |[地域](https://cloud.tencent.com/doc/product/213/6091) | 表示资源所在的地域，每个地域包含一个或多个可用区。|
 | Zone | Zone | [可用区](https://cloud.tencent.com/doc/product/213/6091) | 指腾讯云在同一 [地域](https://cloud.tencent.com/doc/product/213/6091) 内电力和网络互相独立的物理数据中心。目标是能够保证可用区之间故障相互隔离，不出现故障扩散，使得用户的业务持续在线服务。 |
-|包年包月 | 包年包月 | 包年包月 |	一种计费模式，参看 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88)。|
-|包年包月| 包年包月| 按量计费 |	一种计费模式，参看 [计费模式说明](https://cloud.tencent.com/doc/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9)。|
+|包年包月 | 包年包月 | 包年包月 |	一种计费模式，参看 [计费模式](https://cloud.tencent.com/doc/product/213/2180)。|
+|按量计费| 按量计费| 按量计费 |	一种计费模式，参看 [计费模式](https://cloud.tencent.com/doc/product/213/2180)。|
 
 #### 输入参数与返回参数释义
 * Limit 和 Offset
 用来控制分页的参数；Limit 为单次返回的最多条目数量，Offset 为偏移量。当相应结果是列表形式时，如果数量超过了 Limit 所限定的值，那么只返回 Limit 个值。
 例如，参数 Offset=0&Limit=20返回第0到19项，Offset=20&Limit=20返回第20到39项，Offset=40&Limit=20返回第40到59项，以此类推。
 	
-* topic.N
-同时输入多个参数的格式。当遇到形如这样的格式时，那么该输入参数可以同时传多个，即该参数为数组参数，数组参数入参如下所示：
+* topic.N（数组参数）<span id="topic"></span>
+同时输入多个参数的格式。当遇到形如这样的格式（String Array）时，那么该输入参数可以同时传多个，即该参数为数组参数，数组参数入参如下所示：
 topic.0=test1&topic.1=test2&topic.2=test3，以此类推（以下标0开始）。
 
 
