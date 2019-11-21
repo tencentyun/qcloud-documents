@@ -49,11 +49,11 @@
 | [setRemoteViewFillMode](https://cloud.tencent.com/document/product/647/36778#setremoteviewfillmode) | 设置远端图像的渲染模式。 |
 | [setLocalViewRotation](https://cloud.tencent.com/document/product/647/36778#setlocalviewrotation) | 设置本地图像的顺时针旋转角度。 |
 | [setRemoteViewRotation](https://cloud.tencent.com/document/product/647/36778#setremoteviewrotation) | 设置远端图像的顺时针旋转角度。 |
-| [setVideoEncoderRotation](https://cloud.tencent.com/document/product/647/36778#setvideoencoderrotation) | 设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向。 |
+| [setVideoEncoderRotation](https://cloud.tencent.com/document/product/647/36778#setvideoencoderrotation) | 设置视频编码输出的（即远端用户所观看到的，以及服务器录制下来的）画面方向。 |
 | [setLocalViewMirror](https://cloud.tencent.com/document/product/647/36778#setlocalviewmirror) | 设置本地摄像头预览画面的镜像模式。 |
 | [setVideoEncoderMirror](https://cloud.tencent.com/document/product/647/36778#setvideoencodermirror) | 设置编码器输出的画面镜像模式。 |
 | [enableSmallVideoStream](https://cloud.tencent.com/document/product/647/36778#enablesmallvideostream) | 开启大小画面双路编码模式。 |
-| [setRemoteVideoStreamType](https://cloud.tencent.com/document/product/647/36778#setremotevideostreamtype) | 选定观看指定 userId 的大画面还是小画面。 |
+| [setRemoteVideoStreamType](https://cloud.tencent.com/document/product/647/36778#setremotevideostreamtype) | 选定观看指定 userId 的大画面或小画面。 |
 | [setPriorRemoteVideoStreamType](https://cloud.tencent.com/document/product/647/36778#setpriorremotevideostreamtype) | 设定观看方优先选择的视频质量。 |
 
 
@@ -100,7 +100,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [setBeautyStyle](https://cloud.tencent.com/document/product/647/36778#setbeautystyle) | 设置美颜、美白、红润效果级别。 |
+| [setBeautyStyle](https://cloud.tencent.com/document/product/647/36778#setbeautystyle) | 设置美颜、美白以及红润效果级别。 |
 | [setWaterMark](https://cloud.tencent.com/document/product/647/36778#setwatermark) | 设置水印。 |
 
 
@@ -111,7 +111,7 @@
 | [startRemoteSubStreamView](https://cloud.tencent.com/document/product/647/36778#startremotesubstreamview) | 开始渲染远端用户辅流画面。 |
 | [stopRemoteSubStreamView](https://cloud.tencent.com/document/product/647/36778#stopremotesubstreamview) | 停止显示远端用户的屏幕分享画面。 |
 | [setRemoteSubStreamViewFillMode](https://cloud.tencent.com/document/product/647/36778#setremotesubstreamviewfillmode) | 设置辅流画面的渲染模式。 |
-| [getScreenCaptureSources](https://cloud.tencent.com/document/product/647/36778#getscreencapturesources) | 枚举可共享的窗口列表，。 |
+| [getScreenCaptureSources](https://cloud.tencent.com/document/product/647/36778#getscreencapturesources) | 枚举可共享的窗口列表。 |
 | [selectScreenCaptureTarget](https://cloud.tencent.com/document/product/647/36778#selectscreencapturetarget) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
 | [startScreenCapture](https://cloud.tencent.com/document/product/647/36778#startscreencapture) | 启动屏幕分享。 |
 | [pauseScreenCapture](https://cloud.tencent.com/document/product/647/36778#pausescreencapture) | 暂停屏幕分享。 |
@@ -127,7 +127,7 @@
 |-----|-----|
 | [enableCustomVideoCapture](https://cloud.tencent.com/document/product/647/36778#enablecustomvideocapture) | 启用视频自定义采集模式。 |
 | [sendCustomVideoData](https://cloud.tencent.com/document/product/647/36778#sendcustomvideodata) | 向 SDK 投送自己采集的视频数据。 |
-| [enableCustomAudioCapture](https://cloud.tencent.com/document/product/647/36778#enablecustomaudiocapture) | 启用音频自定义采集模式 开启该模式后，SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/36778#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。 |
+| [enableCustomAudioCapture](https://cloud.tencent.com/document/product/647/36778#enablecustomaudiocapture) | 启用音频自定义采集模式。开启该模式后，SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](https://cloud.tencent.com/document/product/647/36778#sendcustomaudiodata) 不断地向 SDK 塞入自己采集的音频数据。 |
 | [sendCustomAudioData](https://cloud.tencent.com/document/product/647/36778#sendcustomaudiodata) | 向 SDK 投送自己采集的音频数据。 |
 | [setLocalVideoRenderCallback](https://cloud.tencent.com/document/product/647/36778#setlocalvideorendercallback) | 设置本地视频自定义渲染。 |
 | [setRemoteVideoRenderCallback](https://cloud.tencent.com/document/product/647/36778#setremotevideorendercallback) | 设置远端视频自定义渲染。 |
@@ -150,7 +150,7 @@
 | [stopBGM](https://cloud.tencent.com/document/product/647/36778#stopbgm) | 停止播放背景音乐。 |
 | [pauseBGM](https://cloud.tencent.com/document/product/647/36778#pausebgm) | 暂停播放背景音乐。 |
 | [resumeBGM](https://cloud.tencent.com/document/product/647/36778#resumebgm) | 继续播放背景音乐。 |
-| [getBGMDuration](https://cloud.tencent.com/document/product/647/36778#getbgmduration) | 获取音乐文件总时长，单位毫秒。 |
+| [getBGMDuration](https://cloud.tencent.com/document/product/647/36778#getbgmduration) | 获取音乐文件总时长，单位：毫秒。 |
 | [setBGMPosition](https://cloud.tencent.com/document/product/647/36778#setbgmposition) | 设置 BGM 播放进度。 |
 | [setMicVolumeOnMixing](https://cloud.tencent.com/document/product/647/36778#setmicvolumeonmixing) | 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。 |
 | [setBGMVolume](https://cloud.tencent.com/document/product/647/36778#setbgmvolume) | 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。 |
@@ -188,7 +188,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [setMixTranscodingConfig](https://cloud.tencent.com/document/product/647/36778#setmixtranscodingconfig) | 启动(更新)云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。 |
+| [setMixTranscodingConfig](https://cloud.tencent.com/document/product/647/36778#setmixtranscodingconfig) | 启动（更新）云端的混流转码：通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。 |
 | [startPublishCDNStream](https://cloud.tencent.com/document/product/647/36778#startpublishcdnstream) | 旁路转推到指定的推流地址。 |
 | [stopPublishCDNStream](https://cloud.tencent.com/document/product/647/36778#stoppublishcdnstream) | 停止旁路推流。 |
 
@@ -235,7 +235,7 @@
 | API | 描述 |
 |-----|-----|
 | [onRemoteUserEnterRoom](https://cloud.tencent.com/document/product/647/36779#onremoteuserenterroom) | 有用户加入当前房间。 |
-| [onRemoteUserLeaveRoom](https://cloud.tencent.com/document/product/647/36779#onremoteuserleaveroom) | 有用户离开当前房间，与 onuserEnterRoom 相对应。 |
+| [onRemoteUserLeaveRoom](https://cloud.tencent.com/document/product/647/36779#onremoteuserleaveroom) | 有用户离开当前房间。 |
 | [onUserVideoAvailable](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) | 用户是否开启摄像头视频。 |
 | [onUserSubStreamAvailable](https://cloud.tencent.com/document/product/647/36779#onusersubstreamavailable) | 用户是否开启屏幕分享。 |
 | [onUserAudioAvailable](https://cloud.tencent.com/document/product/647/36779#onuseraudioavailable) | 用户是否开启音频上行。 |
@@ -271,7 +271,7 @@
 |-----|-----|
 | [onCameraDidReady](https://cloud.tencent.com/document/product/647/36779#oncameradidready) | 摄像头准备就绪。 |
 | [onMicDidReady](https://cloud.tencent.com/document/product/647/36779#onmicdidready) | 麦克风准备就绪。 |
-| [onUserVoiceVolume](https://cloud.tencent.com/document/product/647/36779#onuservoicevolume) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](https://cloud.tencent.com/document/product/647/36779#onuservoicevolume) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDeviceChange](https://cloud.tencent.com/document/product/647/36779#ondevicechange) | 本地设备通断回调。 |
 | [onTestMicVolume](https://cloud.tencent.com/document/product/647/36779#ontestmicvolume) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](https://cloud.tencent.com/document/product/647/36779#ontestspeakervolume) | 扬声器测试音量回调。 |
@@ -323,7 +323,7 @@
 
 
 ### 自定义视频渲染回调
-跳转到 [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/36779#itrtcvideorendercallback)
+该回调接口通过 [ITRTCVideoRenderCallback](https://cloud.tencent.com/document/product/647/36779#itrtcvideorendercallback) 类定义。
 
 | API | 描述 |
 |-----|-----|
@@ -331,17 +331,17 @@
 
 
 ### 音频数据回调
-跳转到 [ITRTCAudioFrameCallback](https://cloud.tencent.com/document/product/647/36779#itrtcaudioframecallback)
+该回调接口通过 [ITRTCAudioFrameCallback](https://cloud.tencent.com/document/product/647/36779#itrtcaudioframecallback) 类定义。
 
 | API | 描述 |
 |-----|-----|
 | [onCapturedAudioFrame](https://cloud.tencent.com/document/product/647/36779#oncapturedaudioframe) | 本地麦克风采集到的音频数据回调。 |
-| [onPlayAudioFrame](https://cloud.tencent.com/document/product/647/36779#onplayaudioframe) | 混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。 |
+| [onPlayAudioFrame](https://cloud.tencent.com/document/product/647/36779#onplayaudioframe) | 混音前的每一路远程用户的音频数据（例如您需要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。 |
 | [onMixedPlayAudioFrame](https://cloud.tencent.com/document/product/647/36779#onmixedplayaudioframe) | 各路音频数据混合后送入喇叭播放的音频数据。 |
 
 
 ### 日志相关回调
-跳转到 [ITRTCLogCallback](https://cloud.tencent.com/document/product/647/36779#itrtclogcallback)
+该回调接口通过 [ITRTCLogCallback](https://cloud.tencent.com/document/product/647/36779#itrtclogcallback) 类定义。
 
 | API | 描述 |
 |-----|-----|
