@@ -194,7 +194,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 
 ### 创建群组
 
-以下示例创建一个叫 Windows-Group-01 公开群组，并且把用户 Windows_002 拉入群组。 
+以下示例创建一个叫 Windows-Group-Name 公开群组，并且把用户 Windows_002 拉入群组。 
 **示例：**
 
 ```c
