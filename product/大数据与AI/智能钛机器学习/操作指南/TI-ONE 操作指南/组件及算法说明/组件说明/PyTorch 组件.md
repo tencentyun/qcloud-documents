@@ -31,7 +31,6 @@ pip.main(['install', "package_name"])
 单击【保存】并运行工作流。
 5. **查看 PyTorch 控制台和日志**
 在 PyTorch 节点上单击右键菜单可查看任务状态和详细日志。
-![](https://main.qcloudimg.com/raw/8624254d83e02991dcf1cb3e1ff47367.png)
 详细日志如下：
 ![](https://main.qcloudimg.com/raw/d9339d4a8d678627a8ebf1dbc0275b4e.png)
 >?stdout.log 为全部日志，stderr.log 为错误日志。
