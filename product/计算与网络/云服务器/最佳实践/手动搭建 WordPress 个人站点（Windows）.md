@@ -34,15 +34,16 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 ![](https://main.qcloudimg.com/raw/4088d09522c645dcf181e7af0a32dcdf.png)
 2. 在弹出的“覆盖”窗口中单击【是】。
 3. （可选）请参考 [配置 WordPress 安全密钥](#secretKey) 进行配置，提高网站安全性。
+>?如果选择不配置安全密钥，则单击【继续】即可开始安装。
+>
 4. <span id="Configuration"></span>安装完成后，可在窗口中查看软件详情，并记录 WordPress 使用的数据库相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/605031cec813c1088a39bc2796cc5180.png)
-5. 在本地浏览器访问以下地址，进行 WorsPress 配置：
-```
-http://云服务器实例公网 IP
-```
-转至 WordPress 安装页，开始配置 WordPress。如下图所示：
+5. 单击【完成】，自动访问 WordPress 安装页。
+您也可以在本地浏览器访问 `http://云服务器实例公网 IP`，进行 WorsPress 配置。
+6. 根据 WordPress 安装页面提示，选择 WordPress 语言版本，单击【继续】开始配置 WordPress。
+7. 在 WordPress 安装页，开始配置 WordPress。如下图所示：
 ![](https://main.qcloudimg.com/raw/9259afb93dac100c81c910f6768ec92a.png)
-2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
+8. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
 <table>
  <tbody><tr><th style="width: 18%;">所需信息</th>
  <th style="width: 25%;">说明</th>
