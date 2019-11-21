@@ -17,7 +17,7 @@ tim.createTextMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -74,7 +74,7 @@ tim.createImageMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
@@ -159,7 +159,7 @@ tim.createAudioMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | --------------------- |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
@@ -238,7 +238,7 @@ tim.createFileMessage(options)
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
 | `to`               | `String` | 消息的接收方   |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器 |
 | `onProgress`          | `function` | 获取上传进度的回调函数 |
 
@@ -297,7 +297,7 @@ tim.createCustomMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -362,7 +362,7 @@ tim.createVideoMessage(options)
 | Name               | Type       | Description                                                |
 | ------------------ | ---------- | ---------------------------------------------------------- |
 | `to`               | `String`   | 消息的接收方                                               |
-| `conversationType` | `String`   | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object`   | 录制或者从相册选择的视频文件                               |
 | `onProgress`       | `function` | 获取上传进度的回调函数                                     |
 
