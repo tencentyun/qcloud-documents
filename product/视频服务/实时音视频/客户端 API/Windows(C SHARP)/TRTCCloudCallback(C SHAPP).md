@@ -61,7 +61,7 @@ __介绍__
 - 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
 - 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
->?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。 在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。
+>?在 Ver6.6 之前的版本，只有进房成功会抛出 onEnterRoom(result) 回调，进房失败由 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。在 Ver6.6 及之后改为：进房成功返回正的 result，进房失败返回负的 result，同时进房失败也会有 [onError()](https://cloud.tencent.com/document/product/647/36779#onerror) 回调抛出。
 
 
 
@@ -80,7 +80,7 @@ __参数__
 
 __介绍__
 
-调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/36779#onexitroom) 回调通知到您。
+调用 TRTCCloud 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/36779#onexitroom) 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/36779#onexitroom) 回调到来后再执行相关操作。否则可能会遇到例如摄像头、麦克风设备被强占等各种异常问题。
 
 
@@ -95,12 +95,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | string | 错误信息。 |
 
 __介绍__
 
-调用 TRTCCloud 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/36779#onswitchrole) 事件回调。
+调用 TRTCCloud 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程，待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/36779#onswitchrole) 事件回调。
 
 
 ### onConnectOtherRoom
@@ -115,12 +115,12 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | string | 要 PK 的目标主播 userId。 |
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | string | 错误信息。 |
 
 __介绍__
 
-调用 TRTCCloud 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/36779#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 回调。
+调用 TRTCCloud 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/36779#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/36779#onuservideoavailable) 回调。
 
 
 ### onDisconnectOtherRoom
@@ -193,7 +193,7 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userId， YES) 通知时，表示该路画面已经有可用的视频数据帧到达。 此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。 然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userId， YES) 通知时，表示该路画面已经有可用的视频数据帧到达。此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
 当您收到 onUserVideoAvailable(userId， NO) 通知时，表示该路远程画面已被关闭， 可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
 
 
@@ -211,7 +211,7 @@ __参数__
 | userId | string | 用户标识。 |
 | available | bool | 屏幕分享是否开启。 |
 
->?显示辅路画面使用的函数是 startRemoteSubStreamView() 而非 startRemoteView()。
+>?显示辅路画面使用的函数为 startRemoteSubStreamView()，而非 startRemoteView()。
 
 
 
@@ -241,16 +241,16 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | string | 本地或远程用户 ID，如果 userId == null 代表本地，userId != null 代表远程。 |
+| userId | string | 本地或远程用户 ID。userId == null 表示本地，userId != null 表示远程。 |
 | streamType | TRTCVideoStreamType | 视频流类型：摄像头或屏幕分享。 |
 | width | int | 画面宽度。 |
 | height | int | 画面高度。 |
 
 __介绍__
 
-如果 userId 为 null，表示开始渲染本地采集的摄像头画面，需要您先调用 startLocalPreview 触发。 如果 userId 不为 null，表示开始渲染远程用户的首帧画面，需要您先调用 startRemoteView 触发。
+如果 userId 为 null，表示开始渲染本地采集的摄像头画面，需要您先调用 startLocalPreview 触发。如果 userId 不为 null，表示开始渲染远程用户的首帧画面，需要您先调用 startRemoteView 触发。
 
->?只有当您调用 startLocalPreview()、startRemoteView() 或 startRemoteSubStreamView() 之后，才会触发该回调。
+>?当您调用 startLocalPreview()、startRemoteView() 或 startRemoteSubStreamView() 后，才会触发该回调。
 
 
 
@@ -283,7 +283,7 @@ __参数__
 
 __介绍__
 
-SDK 会在 enterRoom() 并 startLocalPreview() 成功后开始摄像头采集，并将采集到的画面进行编码。 当 SDK 成功向云端送出第一帧视频数据后，会抛出这个回调事件。
+SDK 会在 enterRoom() 并 startLocalPreview() 成功后开始摄像头采集，并将采集到的画面进行编码。SDK 成功向云端送出第一帧视频数据后，会抛出这个回调事件。
 
 
 ### onSendFirstLocalAudioFrame
@@ -295,7 +295,7 @@ void onSendFirstLocalAudioFrame()
 
 __介绍__
 
-SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。 当 SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
+SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
 
 
 ### onUserEnter
@@ -356,7 +356,7 @@ __参数__
 | remoteQuality | [TRTCQualityInfo](https://cloud.tencent.com/document/product/647/36780#trtcqualityinfo)[] | 下行网络质量。 |
 | remoteQualityCount | uint | 下行网络质量的数组大小。 |
 
->?userId == null 代表自己当前的视频质量。
+>?userId == null 表示自己当前的视频质量。
 
 
 ### onStatistics
@@ -374,7 +374,7 @@ __参数__
 
 __介绍__
 
-如果您是熟悉音视频领域相关术语，可以通过这个回调获取 SDK 的所有技术指标。 如果您是首次开发音视频相关项目，可以只关注 onNetworkQuality 回调。
+如果您熟悉音视频领域相关术语，可以通过这个回调获取 SDK 的所有技术指标。如果您是首次开发音视频相关项目，可以只关注 onNetworkQuality 回调。
 
 >?每2秒回调一次。
 
@@ -443,7 +443,7 @@ void onMicDidReady()
 
 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。
 ```
-void onUserVoiceVolume(TRTCVolumeInfo[]] userVolumes, uint userVolumesCount, uint totalVolume)
+void onUserVoiceVolume(TRTCVolumeInfo[] userVolumes, uint userVolumesCount, uint totalVolume)
 ```
 
 __参数__
@@ -456,7 +456,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调， 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调， 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 null 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 
@@ -595,7 +595,7 @@ __介绍__
 
 对应于 TRTCCloud 中的 startPublishCDNStream() 接口。
 
->?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
+>?如果 Start 回调成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，仍有可能会转推失败。
 
 
 
@@ -770,7 +770,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | string | 用户标识。 |
-| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型：即摄像头还是屏幕分享。 |
+| streamType | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/36780#trtcvideostreamtype) | 流类型，支持摄像头、屏幕分享。 |
 | frame | TRTCVideoFrame | 视频帧数据。 |
 
 __介绍__
@@ -803,7 +803,7 @@ __参数__
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
 >- 此接口回调出的音频数据支持修改。
->- 此接口回调出的音频时间帧长固定为0.02s。 由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。 以 SDK 默认的音频录制格式48000采样率、单声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
+>- 此接口回调出的音频时间帧长固定为0.02s。由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。以 SDK 默认的音频录制格式48000采样率、单声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 1 × 16bit = 15360bit = 1920字节】。
 >- 此接口回调出的音频数据包含背景音、音效、混响等前处理效果。
 
 
@@ -842,7 +842,7 @@ __参数__
 >?
 >- 请不要在此回调函数中做任何耗时操作，建议直接拷贝到另一线程进行处理，否则会导致各种声音问题。
 >- 此接口回调出的音频数据支持修改。
->- 此接口回调出的音频时间帧长固定为0.02s。 由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。 以 SDK 默认的音频播放格式48000采样率、双声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 2 × 16bit = 30720bit = 3840字节】。
+>- 此接口回调出的音频时间帧长固定为0.02s。由时间帧长转化为字节帧长的公式为【采样率 × 时间帧长 × 声道数 × 采样点位宽】。以 SDK 默认的音频播放格式48000采样率、双声道、16采样点位宽为例，字节帧长为【48000 × 0.02s × 2 × 16bit = 30720bit = 3840字节】。
 >- 此接口回调出的音频数据是各路音频播放数据的混合，不包含耳返的音频数据。
 
 
@@ -867,8 +867,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | log | string | 日志内容。 |
-| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/36780#trtcloglevel) | 日志等级 参见 TRTCLogLevel。 |
+| level | TRTCLogLevel | 日志等级，请参见 [TRTCLogLevel](https://cloud.tencent.com/document/product/647/36780#trtcloglevel)。 |
 | module | string | 暂无具体意义，目前为固定值 TXLiteAVSDK。 |
-
 
 
