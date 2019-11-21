@@ -670,7 +670,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 
 ### 消息解析
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点。
+收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点。
 
 **遍历 `Elem` 原型：**
 
