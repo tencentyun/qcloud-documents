@@ -311,7 +311,7 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
 	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
 	```
-- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount不再带有注册功能，推荐在 registerPush 成功的回调里调用bindAccount 或 appendAccount
+- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount 不再带有注册功能，推荐在 registerPush 成功的回调里调用 bindAccount 或 appendAccount。
 - 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
 	```java
 	/**
