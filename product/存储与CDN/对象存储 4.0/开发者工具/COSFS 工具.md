@@ -22,6 +22,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 主流的 Ubuntu、CentOS、SUSE、macOS 系统。
 
 ### 安装步骤
+
 #### 1. 安装依赖软件 
 COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS、SUSE 和 macOS 的依赖软件安装过程如下：
 
