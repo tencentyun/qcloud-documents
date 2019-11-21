@@ -220,6 +220,21 @@ __参数__
 
 ***
 
+### setVolume
+
+设置音量。
+```
+- (void)setVolume:(int)volume
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 音量大小，取值范围 0 - 100。 |
+
+***
+
 ### setAudioRoute
 
 设置声音播放模式（切换扬声器，听筒）。
@@ -235,6 +250,39 @@ __参数__
 
 ***
 
+### setAudioVolumeEvaluationListener
+
+设置音量大小回调接口。
+```
+- (void)setAudioVolumeEvaluationListener:(void(^)(int))volumeEvaluationListener
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volumeEvaluationListener | (void(^)(int)) | 音量大小回调接口。 |
+
+***
+
+### enableAudioVolumeEvaluation
+
+启用音量大小评估。
+```
+void enableAudioVolumeEvaluation(int intervalMs)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| intervalMs | int | intervalMs 决定了 volumeEvaluationListener 回调的触发间隔，单位为ms，最小间隔为 100ms，如果小于等于 0 则会关闭回调，建议设置为 300ms。 |
+
+__介绍__
+
+开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估
+
+***
 
 ## 直播时移相关接口
 ### prepareLiveSeek
@@ -395,6 +443,24 @@ __返回__
 
 ***
 
+### callExperimentalAPI
+
+调用实验性 API 接口。
+```
+- (void)callExperimentalAPI:(NSString*)jsonStr
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| jsonStr | NSString * | jsonStr 接口及参数描述的 JSON 字符串。 |
+
+__介绍__
+
+该接口用于调用一些实验性功能。
+
+***
 
 ## TX_Enum_PlayType
 
