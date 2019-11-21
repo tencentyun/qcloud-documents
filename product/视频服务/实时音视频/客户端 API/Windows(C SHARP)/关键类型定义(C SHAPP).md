@@ -559,8 +559,8 @@ Log 级别。
 | TRTCLogLevelNone | 不输出任何 SDK Log。 |
 | TRTCLogLevelVerbose | 输出所有级别的 Log。 |
 | TRTCLogLevelDebug | 输出 DEBUG，INFO，WARNING，ERROR 和 FATAL 级别的 Log。 |
-| TRTCLogLevelInfo | 输出 INFO，WARNNING，ERROR 和 FATAL 级别的 Log。 |
-| TRTCLogLevelWarn | 只输出 WARNNING，ERROR 和 FATAL 级别的 Log。 |
+| TRTCLogLevelInfo | 输出 INFO，WARNING，ERROR 和 FATAL 级别的 Log。 |
+| TRTCLogLevelWarn | 只输出 WARNING，ERROR 和 FATAL 级别的 Log。 |
 | TRTCLogLevelError | 只输出 ERROR 和 FATAL 级别的 Log。 |
 | TRTCLogLevelFatal | 只输出 FATAL 级别的 Log。 |
 
