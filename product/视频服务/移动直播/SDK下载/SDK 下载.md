@@ -42,7 +42,7 @@
 </table>
 
 >?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
-> ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
+> ![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
 
 <h2 id="Professional">专业版（Professional）</h2>
 
