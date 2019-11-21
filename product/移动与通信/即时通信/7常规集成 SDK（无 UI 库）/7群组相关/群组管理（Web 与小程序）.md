@@ -505,6 +505,31 @@ tim.getGroupMemberList(options);
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
+### 获取群成员资料
+
+**接口名**
+
+```js
+tim.getGroupMemberProfile(options);
+```
+
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称                      | 类型             | 属性          | 描述                                                         |
+| :------------------------ | :--------------- | :------------ | :----------------------------------------------------------- |
+| `groupID`                 | `String`         |               | 群组的 ID                                                    |
+| `userIDList`              | `Array.<String>` |               | 要查询的群成员用户 ID 列表                                   |
+| `memberCustomFieldFilter` | `Array.<String>` | `<optional> ` | 群成员自定义字段筛选。可选，若不填，则默认查询所有群成员自定义字段。 |
+
+**返回值**
+
+该接口返回`Promise`对象：
+
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为查询成功的群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+
 ### 添加群成员
 
 详细规则如下：
