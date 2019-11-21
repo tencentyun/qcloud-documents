@@ -11,7 +11,7 @@ TPC-C 是针对联机交易处理系统（OLTP）进行测试的规范。使用�
 TPC-C 使用 tpmC 值（Transactions per Minute）来衡量系统最大有效吞吐量（Max Qualified Throughput，MQTh），其中 Transactions 以 NewOrder Transaction 为准，即最终衡量单位为每分钟处理的新订单数。
 
 ## 前提条件
-已下载 BenchMarkSQL，并安装好 java 和 ant。
+已下载 BenchMarkSQL，并安装好 Java 和 Ant。
 
 ## 测试步骤
 TPC-C 的测试结果与 prop.pg 中的配置参数有关，请您基于业务场景来进行调整参数测试。
