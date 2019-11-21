@@ -20,6 +20,7 @@ __属性列表__
 | watermark | TXImage * | 水印图片，设为 nil 等同于关闭水印。 | - | - |
 | watermarkPos | CGPoint | 水印图片位置，水印大小为图片实际大小，待废弃，推荐使用 watermarkNormalization。 | - | - |
 | watermarkNormalization | CGRect | 水印图片相对于推流分辨率的归一化坐标。 | 假设推流分辨率为：540 x 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。 | watermarkNormalization 的优先级高于 watermarkPos。 |
+| localVideoMirrorType | int | 本地预览画面的镜像类型，默认值：LocalVideoMirrorType_Auto 即前置摄像头镜像，后置摄像头不镜像。 | - | - |
 | pauseTime | int | 垫片推流的最大持续时间，单位秒，默认值：300s。 | - | 调用 TXLivePusher 的 pausePush  接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。 |
 | pauseFps | int | 垫片推流时的视频帧率，取值范围3 - 8，默认值：5FPS。 | - | - |
 | pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 x 1920。 | - | - |
@@ -44,6 +45,8 @@ __属性列表__
 | enableAEC | BOOL | 是否开启回声抑制。 | NO：回声抑制会启用通话模式音量，导致音质变差，非连麦场景下请不要开启。 | 只有在连麦模式下才需要开启 AEC，如果是普通的直播，将主播的手机和观众的手机放在一起所产生的啸叫是正常现象。 |
 | enableHWAcceleration | BOOL | 开启视频硬件加速， 默认值：YES。 | - | - |
 | enableAudioAcceleration | BOOL | 开启音频硬件加速， 默认值：YES。 | - | - |
+| enableAGC | BOOL | 开启音频自动增益， 默认值：NO。 | - | - |
+| volumeType | TXSystemAudioVolumeType | 系统音量类型， 默认值：SYSTEM_VOLUME_TYPE_AUTO。 | - | - |
 | frontCamera | BOOL | 是否前置摄像头，待废弃，建议直接使用 TXLivePusher 的 frontCamera 属性和 switchCamera 函数。 | - | - |
 | beautyFilterDepth | float | 美颜强度，待废弃，建议直接使用 TXLivePusher 的 setBeautyStyle 函数。 | - | - |
 | whiteningFilterDepth | float | 美白强度，待废弃，建议直接使用 TXLivePusher 的 setBeautyStyle 函数。 | - | - |

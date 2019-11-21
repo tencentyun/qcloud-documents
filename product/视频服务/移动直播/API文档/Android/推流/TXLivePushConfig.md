@@ -121,6 +121,28 @@ __介绍__
 
 ***
 
+### setLocalVideoMirrorType
+
+设置本地预览画面的镜像类型。
+```
+void setLocalVideoMirrorType(int mirrorType)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| mirrorType | int | 镜像类型。 |
+
+__介绍__
+
+接口说明：
+- 默认值：TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_AUTO。
+- TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_AUTO 表示由 SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像。
+- TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_ENABLE 表示前置摄像头和后置摄像头都镜像。
+- TXLiveConstants#LOCAL_VIDEO_MIRROR_TYPE_DISABLE 表示前置摄像头和后置摄像头都不镜像。
+
+***
 
 ## 垫片推流
 ### setPauseImg
@@ -568,6 +590,71 @@ __介绍__
 接口说明：
 - 默认值：false。
 - 连麦时必须开启，非连麦时不要开启。
+
+***
+
+### enableAGC
+
+设置自动增益。
+```
+void enableAGC(boolean enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | boolean | true：开启自动增益； false：不开启。 |
+
+__介绍__
+
+接口说明：
+- 默认值：false。
+
+***
+
+### enableANS
+
+设置噪声抑制。
+```
+void enableANS(boolean enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | boolean | true：开启噪声抑制； false：不开启。 |
+
+__介绍__
+
+接口说明：
+- 默认值：false。
+
+***
+
+### setVolumeType
+
+设置系统音量类型。
+```
+void setVolumeType(int volumeType)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volumeType | int | 系统音量类型 |
+
+__介绍__
+
+接口说明：
+- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO，
+- 
+- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO，
+- TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO 表示通话音量类型。
+- TXLiveConstants#AUDIO_VOLUME_TYPE_MEDIA 表示媒体音量类型。
+
 
 ***
 

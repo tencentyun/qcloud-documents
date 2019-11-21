@@ -382,25 +382,17 @@ __参数__
 
 
 ## 美颜相关接口
-### setBeautyFilter
-
-设置美颜级别和美白级别。
+### getBeautyManager
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39379)
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
+>- 设置人脸挂件（素材）等动态效果
+>- 添加美妆
+>- 进行手势识别
 ```
-boolean setBeautyFilter(int style, int beautyLevel, int whiteningLevel, int ruddyLevel)
+public TXBeautyManager getBeautyManager()
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| style | int | 使用哪种磨皮算法，支持光滑和自然两种，光滑风格磨皮更加明显，适合秀场直播。见 TXLiveConstants 中的 BEAUTY_STYLE_XXX 定义。 |
-| beautyLevel | int | 美颜级别，取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显。 |
-| whiteningLevel | int | 美白级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-| ruddyLevel | int | 红润级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-__返回__
-
-true：设置成功； false：设置失败。
 
 ***
 
@@ -440,98 +432,6 @@ __介绍__
 
 ***
 
-
-## 商业版美颜和动效挂件
-### setEyeScaleLevel
-
-设置大眼级别（商业版有效，其它版本设置此参数无效）。
-```
-void setEyeScaleLevel(int eyeScaleLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| eyeScaleLevel | int | 大眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceSlimLevel
-
-设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
-```
-void setFaceSlimLevel(int faceScaleLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceScaleLevel | int | 瘦脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceVLevel
-
-设置V脸级别（商业版有效，其它版本设置此参数无效）。
-```
-void setFaceVLevel(int faceVLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceVLevel | int | V 脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
-```
-void setChinLevel(int chinLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | int | 下巴拉伸或收缩级别，取值范围：-9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸级别（商业版有效，其它版本设置此参数无效）。
-```
-void setFaceShortLevel(int faceShortlevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceShortlevel | int | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
-```
-void setNoseSlimLevel(int noseSlimLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | int | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
 ### setGreenScreenFile
 
 设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
@@ -550,42 +450,6 @@ __介绍__
 此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
 ***
-
-### setMotionTmpl
-
-选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
-```
-void setMotionTmpl(String motionPath)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| motionPath | String | 动效所在路径。 |
-
-***
-
-### setMotionMute
-
-设置动效静音（商业版有效，其它版本设置此参数无效）。
-```
-void setMotionMute(boolean motionMute)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| motionMute | boolean | true：静音；false：不静音。 |
-
-__介绍__
-
-有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
-
-***
-
-
 ## 音频相关接口
 ### setMute
 
@@ -709,7 +573,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| x | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| x | float | 音量大小，1为正常音量，范围是：[0 ~ 1] 之间的浮点数。 |
 
 __返回__
 
@@ -728,7 +592,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| x | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| x | float | 音量大小，1为正常音量，范围是：[0 ~ 1] 之间的浮点数。 |
 
 __返回__
 

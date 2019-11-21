@@ -221,7 +221,7 @@ __参数__
 
 设置当前房间的扩展信息字段。
 ```
-- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(NSString *)value completion:(void(^)(int errCode, NSString *custom))completion 
+- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void(^)(int errCode, NSString *custom))completion 
 ```
 
 __参数__
@@ -230,7 +230,7 @@ __参数__
 |-----|-----|-----|
 | op | MLVBCustomFieldOp | 执行动作。 |
 | key | NSString * | 自定义键。 |
-| value | NSString * | 数值。 |
+| value | id | 可选类型为 NSNumber 或者 NSString。 |
 | completion | void(^)(int errCode, NSString *custom) | 操作完成的回调。 |
 
 __介绍__
@@ -248,14 +248,14 @@ __介绍__
 
 获取当前房间的扩展信息字段。
 ```
-- (void)getCustomInfo:(void(^)(int errCode, NSString *errMsg, NSString *value))completion 
+- (void)getCustomInfo:(void(^)(int errCode, NSString *errMsg, NSDictionary *customInfo))completion 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| completion | void(^)(int errCode, NSString *errMsg, NSString *value) | 获取自定义值回调。 |
+| completion | void(^)(int errCode, NSString *errMsg, NSDictionary *customInfo) | 获取自定义值回调。 |
 
 ***
 
@@ -651,21 +651,19 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 
 ## 美颜滤镜相关接口函数
-### setBeautyStyle
+### getBeautyManager
 
-设置美颜、美白和红润效果级别。
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)
 ```
-- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel 
+- (TXBeautyManager *)getBeautyManager 
 ```
 
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商业版有效，普通版本设置此选项无效）。 |
-| beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
+>- 设置人脸挂件（素材）等动态效果
+>- 添加美妆
+>- 进行手势识别
 
 ***
 
@@ -702,96 +700,6 @@ __参数__
 
 ***
 
-### setEyeScaleLevel
-
-设置大眼级别（商业版有效，普通版本设置此参数无效）。
-```
-- (void)setEyeScaleLevel:(float)eyeScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| eyeScaleLevel | float | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceScaleLevel
-
-设置瘦脸级别（商业版有效，普通版本设置此参数无效）。
-```
-- (void)setFaceScaleLevel:(float)faceScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceScaleLevel | float | 瘦脸级别取值范围：0 - 9； 0 表示关闭1 - 9值越大 效果越明显。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceVLevel:(float)faceVLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceVLevel | float | V 脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setChinLevel:(float)chinLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | float | 下巴拉伸或收缩级别，取值范围：-9 - 9；0表示关闭，小于0表示收缩，大于0表示拉伸。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceShortLevel:(float)faceShortlevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceShortlevel | float | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setNoseSlimLevel:(float)noseSlimLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | float | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
 ### setGreenScreenFile
 
 设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
@@ -807,25 +715,7 @@ __参数__
 
 >?此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
-
 ***
-
-### selectMotionTmpl
-
-选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
-```
-- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| tmplName | NSString * | 动效名称。 |
-| tmplDir | NSString * | 动效所在目录。 |
-
-***
-
 
 ## 消息发送接口函数
 ### sendRoomTextMsg

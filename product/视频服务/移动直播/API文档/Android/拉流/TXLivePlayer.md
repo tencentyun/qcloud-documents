@@ -17,7 +17,7 @@ __介绍__
 ## SDK 基础函数
 ### TXLivePlayer
 
-创建 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 实例。
+创建 [TXLivePlayer](#txliveplayer) 实例。
 ```
  TXLivePlayer(Context context)
 ```
@@ -32,7 +32,7 @@ __参数__
 
 ### setConfig
 
-设置 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 播放配置项。
+设置 [TXLivePlayer](#txliveplayer) 播放配置项。
 ```
 void setConfig(TXLivePlayConfig config)
 ```
@@ -183,8 +183,8 @@ __参数__
 
 >?
 >- 目前仅支持硬解。
->- 使用该接口需要 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview) 传入 null。
->- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview)。
+>- 使用该接口需要 [setPlayerView(TXCloudVideoView)](#setplayerview) 传入 null。
+>- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](#setplayerview)。
 
 ***
 
@@ -204,7 +204,7 @@ __参数__
 
 >?
 >- Surface 大小变化后，需要重新设定。
->- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](https://cloud.tencent.com/document/product/454/34775#setplayerview)。
+>- 此功能为高级特性，除非您需要使用该特性，否则建议您使用 [setPlayerView(TXCloudVideoView)](#setplayerview)。
 
 ***
 
@@ -286,6 +286,21 @@ __参数__
 
 ***
 
+### setVolume
+
+设置音量。
+```
+void setVolume(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 音量大小，取值范围 0 - 100。 |
+
+***
+
 ### setAudioRoute
 
 设置声音播放模式。
@@ -325,6 +340,60 @@ __介绍__
 使用说明：
 - 必须是腾讯云的直播地址。
 - 必须是当前播放直播流的不同清晰度，切换到无关流地址可能会失败。
+
+***
+
+
+### setAudioVolumeEvaluationListener
+
+设置音量大小回调接口。
+```
+void setAudioVolumeEvaluationListener(ITXAudioVolumeEvaluationListener listener)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| listener | [ITXAudioVolumeEvaluationListener](#ITXAudioVolumeEvaluationListener) | 音量大小回调接口。 |
+
+***
+
+### enableAudioVolumeEvaluation
+
+启用音量大小评估。
+```
+void enableAudioVolumeEvaluation(int intervalMs)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| intervalMs | int | intervalMs 决定了 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 回调的触发间隔，单位为ms，最小间隔为 100ms，如果小于等于 0 则会关闭回调，建议设置为 300ms。 |
+
+__介绍__
+
+开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估
+
+***
+
+### callExperimentalAPI
+
+调用实验性 API 接口。
+```
+void callExperimentalAPI(final String jsonStr)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| jsonStr | String | jsonStr 接口及参数描述的 JSON 字符串。 |
+
+__介绍__
+
+该接口用于调用一些实验性功能。
 
 ***
 
@@ -392,7 +461,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXSnapshotListener](https://cloud.tencent.com/document/product/454/34775#itxsnapshotlistener) | 截图回调。 |
+| listener | [ITXSnapshotListener](#itxsnapshotlistener) | 截图回调。 |
 
 ***
 
@@ -444,7 +513,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXAudioRawDataListener](https://cloud.tencent.com/document/product/454/34775#itxaudiorawdatalistener) | 音频数据回调。 |
+| listener | [ITXAudioRawDataListener](#itxaudiorawdatalistener) | 音频数据回调。 |
 
 >?
 >- 音频播放器会在播放数据的前一刻，调用此函数，同步回调将要播放的数据。
@@ -653,6 +722,30 @@ __参数__
 | sampleRate | int | 采样率。 |
 | channels | int | 声道数。 |
 | bits | int | 采样点大小。 |
+
+***
+
+
+## ITXAudioVolumeEvaluationListener
+
+__功能__
+
+播放器音量大小回调。
+
+
+
+### onAudioVolumeEvaluationNotify
+
+播放器音量大小回调。
+```
+void onAudioVolumeEvaluationNotify(int volume)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 音量大小, 取值范围 [0, 100]。 |
 
 ***
 
