@@ -37,7 +37,7 @@
 
 | 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
 | --------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
-|云审计 CA |[点此查阅](https://cloud.tencent.com/document/product/629/11985) | 10-15分钟 |  audit|
+|云审计 CA |[点此查阅](https://cloud.tencent.com/document/product/629/11985) | 10-15分钟 |  cloudaudit/customprefix/timestamp|
 | 负载均衡 CLB    | [点此查阅](https://cloud.tencent.com/document/product/214/10329) | 60分钟               | lb-id/timestamp                                              |
 | 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | instance id/topic id/timestamp                           |
 | 对象存储 COS    | [点此查阅](https://cloud.tencent.com/document/product/436/17040) | 5分钟                | 路径前缀可自行指定，推荐设置可识别的路径，例如 cos_bucketname_access_log/timestamp |
