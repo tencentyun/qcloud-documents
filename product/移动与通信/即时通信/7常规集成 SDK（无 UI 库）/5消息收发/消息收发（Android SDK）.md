@@ -475,10 +475,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。
 
 >!
-> - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 > - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
-> - 文件大小限制 28MB。
+> - 文件大小限制28MB。
 
 **`TIMFileElem` 成员方法如下：**
 
