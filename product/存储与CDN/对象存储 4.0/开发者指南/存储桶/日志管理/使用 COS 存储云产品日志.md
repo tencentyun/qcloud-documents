@@ -21,8 +21,6 @@
 | ------------------- | ---------------------- | ---------------------- |
 | 云审计 CA           | 是                     | 否                     |
 | 负载均衡 CLB        | 是                     | 是                     |
-| 内容分发网络 CDN    | 否                     | 否                     |
-| Web 应用防火墙 WAF  | 否                     | 是                     |
 | 消息队列 CKafka     | 是                     | 否                     |
 | API 网关 APIGateway | 否                     | 是                     |
 | 无服务函数 SCF      | 否                     | 是                     |
@@ -50,7 +48,6 @@
 
 | 云产品名称           | 日志投递文档                                                 |
 | -------------------- | ------------------------------------------------------------ |
-| Web 应用防火墙 WAF   | [点此查阅](https://cloud.tencent.com/document/product/627/38253) |
 | API 网关 API Gateway | [点此查阅](https://cloud.tencent.com/document/product/628/19552) |                               
 | 容器服务 TKE         | [点此查阅](https://cloud.tencent.com/document/product/457/13659) |
 | 云直播 LVB           | [点此查阅](https://cloud.tencent.com/document/product/267/33996) |
