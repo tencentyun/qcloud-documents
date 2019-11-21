@@ -1,15 +1,15 @@
 ## Storm 简介
 
-  Storm 是一个分布式实时计算框架，能够对数据进行流式处理和提供通用性分布式 RPC 调用，可以实现处理事件亚秒级的延迟，适用于对延迟要求比较高的实时数据处理场景。
+Storm 是一个分布式实时计算框架，能够对数据进行流式处理和提供通用性分布式 RPC 调用，可以实现处理事件亚秒级的延迟，适用于对延迟要求比较高的实时数据处理场景。
 
 ## Storm 工作原理
-  在 Storm 的集群中有两种节点，控制节点`Master Node`和工作节点`Worker Node`。`Master Node`上运行`Nimbus`进程，用于资源分配与状态监控。`Worker Node`上运行`Supervisor`进程，监听工作任务，启动`executor`执行。整个 Storm 集群依赖`zookeeper`负责公共数据存放、集群状态监听、任务分配等功能。
+在 Storm 的集群中有两种节点，控制节点`Master Node`和工作节点`Worker Node`。`Master Node`上运行`Nimbus`进程，用于资源分配与状态监控。`Worker Node`上运行`Supervisor`进程，监听工作任务，启动`executor`执行。整个 Storm 集群依赖`zookeeper`负责公共数据存放、集群状态监听、任务分配等功能。
 
-  用户提交给 Storm 的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
+用户提交给 Storm 的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
 ![](https://mc.qcloudimg.com/static/img/93eb9e2621f5ad49fee536ab9d6e8799/image.png)
 
 ## Storm with ckafka
-  Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
+Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
 
 ### 测试环境
 **Centos6.8系统**
@@ -112,7 +112,7 @@ pom.xml配置如下
 
 ### 写入 CKafka 
 #### 使用 spout/bolt
-topology 代码
+topology 代码：
 ```java
 //TopologyKafkaProducerSpout.java
 import org.apache.storm.Config;
@@ -174,7 +174,7 @@ public class TopologyKafkaProducerSpout {
 }
 ```
 
-创建一个顺序生成消息的spout类
+创建一个顺序生成消息的 spout 类：
 
 ```java
 import org.apache.storm.spout.SpoutOutputCollector;
@@ -321,7 +321,7 @@ public class TopologyKafkaProducerTrident {
 }
 ```
 
-创建一个批量生成消息的spout类
+创建一个批量生成消息的 spout 类：
 
 ```java
 //TridentSerialSentenceSpout.java
