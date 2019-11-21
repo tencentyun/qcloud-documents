@@ -23,13 +23,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 ### 安装步骤
 
-#### 1. 获取源码 
-您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
-```shell
-git clone https://github.com/tencentyun/cosfs /usr/cosfs
-```
-
-#### 2. 安装依赖软件 
+#### 1. 安装依赖软件 
 COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS、SUSE 和 macOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
@@ -56,6 +50,14 @@ sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-de
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
 ```
+
+#### 2. 获取源码 
+您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
+```shell
+git clone https://github.com/tencentyun/cosfs /usr/cosfs
+```
+
+
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
