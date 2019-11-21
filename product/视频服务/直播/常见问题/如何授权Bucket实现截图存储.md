@@ -17,7 +17,7 @@
 	2. 存储桶访问权限设置 API 可参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
 2. 获取已授权 COS Bucket 信息。
 	1. 在存储桶的【基础配置】里即可查看到 COS 的所有信息。访问域名（源站域名）包含 bucket name、cos appid 和 bucket region。
-	![](https://main.qcloudimg.com/raw/fcc8d216705dc460bb1ced8a008761f0.png)
+	![](https://main.qcloudimg.com/raw/f442ced48355a2c94b858cebd8928cb5.png)
 	 - bucket name：buckettest123
 	 - cos appid：1259200900
 	 - bucket region：ap-chengdu
