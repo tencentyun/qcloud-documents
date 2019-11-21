@@ -90,13 +90,9 @@ http://云服务器实例公网 IP
 1. 使用 [WordPress 密钥生成服务](https://api.wordpress.org/secret-key/1.1/salt/) 生成密钥，并将生成的密钥文本粘贴进记事本。
 2. 由于 Windows 在安装 WordPress 时，无法使用密钥中的 `$`。请使用替换工具将文本中的 `$` 全部替换为 `S`。
 3. 将修改后的密钥粘贴进对应输入框。
-例如，修改后的 `AUTH_KEY` 行如下：
+例如，修改后的 `AUTH_KEY` 为如下内容，则将其输入到 `Authentication Key` 中。如下图所示：
 ```bash
 define('AUTH_KEY', '?Umz@%|H>3bS+&R gPDxWg,p5*c:VGc&|!s|%|9:ucA.aSMQ/4$D:.-(|!-!&0 A');
-```
-请将下列文本输入到 `Authentication Key` 中。如下图所示：
-```bash
-?Umz@%|H>3bS+&R gPDxWg,p5*c:VGc&|!s|%|9:ucA.aSMQ/4$D:.-(|!-!&0 A
 ```
 ![](https://main.qcloudimg.com/raw/91b66dd65c742c23c29fffec314dfc13.png)
 4. 将所有密钥配置完成后，单击【继续】。
