@@ -88,7 +88,7 @@
 >? 
 > - 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
 > - 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
-> ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
+>   ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
 > 
 
 <h2 id="Professional">专业版（Professional）</h2>
