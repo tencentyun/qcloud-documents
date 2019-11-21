@@ -3,10 +3,10 @@
 - 小程序支持创建发送视频消息 [createVideoMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)，视频消息全平台互通（需升级使用最新版本的 [TUIKit 以及 SDK](https://cloud.tencent.com/document/product/269/36887)）。
 - 查询群成员资料接口 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
 - 兼容 Native IM v3.x 发送的语音、文件消息。
-- 支持接收位置消息 [GeoPayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GeoPayload) 。
+- 支持接收位置消息 [GeoPayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GeoPayload)。
 
 **变更**
-最多向本地存储写入100个群组。长度超过 100 的群组列表不再全量写入。
+最多向本地存储写入100个群组。长度超过100的群组列表不再全量写入。
   
 **修复**
 - 登出后 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组的长轮询仍在运行。
