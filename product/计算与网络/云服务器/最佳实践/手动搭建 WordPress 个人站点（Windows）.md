@@ -13,20 +13,20 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 - [使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)
 - [使用 VNC 登录 Windows 实例](https://cloud.tencent.com/document/product/213/35704)
 
-### 步骤2：安装 PHP 依赖
-下载并安装32位版本的 [Visual C++ Redistributable 安装包](https://www.microsoft.com/en-us/download/details.aspx?id=30679)。
+### 步骤2：安装运行时组件
+下载并安装**32位版本**的 [Visual C++ Redistributable 安装包](https://www.microsoft.com/en-us/download/details.aspx?id=30679)。
 
 
 ### 步骤3：使用 WebPI 安装相关软件
-1. 下载并安装 [Microsoft Web 平台安装程序](https://www.microsoft.com/web/downloads/platform.aspx)。
-2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > <img src="https://main.qcloudimg.com/raw/3ad1de7c2eaef565dbd9c42dfdcedc12.png" style="margin:-3px 0px">，并在应用中打开 Web 平台安装程序。
+1. 下载并安装 [Microsoft WebPI](https://www.microsoft.com/web/downloads/platform.aspx)。
+2. 选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px"> > <img src="https://main.qcloudimg.com/raw/3ad1de7c2eaef565dbd9c42dfdcedc12.png" style="margin:-3px 0px">，并在应用中打开 WebPI。
 安装平台初始化时间较长，请耐心等待。
 3. 选择 Web 安装平台程序左上角的【应用程序】，并在右上角搜索框中输入`wordpress`，按 “**Enter**” 进行搜索。
 4. 选择 WordPress 所在行右侧的【添加】后，单击【安装】。如下图所示：
 ![](https://main.qcloudimg.com/raw/5572affe444934bebd94cc716269724a.png)
 5. 在弹出窗口中设置 MySQL 数据库帐号密码，并单击【继续】。
 数据库帐号为 root，数据库密码请自行设置并记录，本文以`123456`为例。
-6. 在页面中接受许可条款，即可开始安装。
+6. 在窗口中接受许可条款，即可开始安装。
 
 
 ### 步骤4：安装配置 WordPress
@@ -34,9 +34,9 @@ WordPress 是一款使用 PHP 语言开发的博客平台，您可使用通过 W
 ![](https://main.qcloudimg.com/raw/4088d09522c645dcf181e7af0a32dcdf.png)
 2. 在弹出的“覆盖”窗口中单击【是】。
 3. （可选）请参考 [配置 WordPress 安全密钥](#secretKey) 进行配置，提高网站安全性。
-4. <span id="Configuration"></span>安装完成后，可在窗口中查看软件详情，记录 WordPress 使用的数据库相关信息。如下图所示：
+4. <span id="Configuration"></span>安装完成后，可在窗口中查看软件详情，并记录 WordPress 使用的数据库相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/605031cec813c1088a39bc2796cc5180.png)
-5. 在本地浏览器地址栏访问以下地址，进行 WorsPress 配置：
+5. 在本地浏览器访问以下地址，进行 WorsPress 配置：
 ```
 http://云服务器实例公网 IP
 ```
@@ -100,6 +100,8 @@ define('AUTH_KEY', '?Umz@%|H>3bS+&R gPDxWg,p5*c:VGc&|!s|%|9:ucA.aSMQ/4$D:.-(|!-!
 ```
 ![](https://main.qcloudimg.com/raw/91b66dd65c742c23c29fffec314dfc13.png)
 4. 将所有密钥配置完成后，单击【继续】。
+>!若出现密钥不合规等错误信息，请使用 [WordPress 密钥生成服务](https://api.wordpress.org/secret-key/1.1/salt/) 重新生成密钥后再次尝试。
+>
 5. 请执行 [安装配置 WordPress](#Configuration) 完成网站配置。
 
 
