@@ -879,7 +879,7 @@ public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 **示例：**
 
 ```
-TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(groupid);
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setGroupName("Great Team")
 TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
