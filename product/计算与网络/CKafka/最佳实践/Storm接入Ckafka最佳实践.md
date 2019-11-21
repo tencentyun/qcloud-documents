@@ -128,7 +128,7 @@ import java.util.Properties;
 
 public class TopologyKafkaProducerSpout {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "9.94.61.25:9092";
+    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
     //指定要将消息写入的topic
     private final static String TOPIC = "storm-topology-test";
     public static void main(String[] args) throws Exception {
@@ -266,7 +266,7 @@ import java.util.Properties;
 
 public class TopologyKafkaProducerTrident {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "9.94.61.25:9092";
+    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
     //指定要将消息写入的topic
     private final static String TOPIC = "storm-trident-test";
     public static void main(String[] args) throws Exception {
@@ -410,7 +410,7 @@ import static org.apache.storm.kafka.spout.FirstPollOffsetStrategy.LATEST;
 
 public class TopologyKafkaConsumerSpout {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "9.94.61.25:9092";
+    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
     //指定要将消息写入的topic
     private final static String TOPIC = "storm-topology-test";
 
@@ -504,7 +504,7 @@ import static org.apache.storm.kafka.spout.FirstPollOffsetStrategy.LATEST;
 
 public class TopologyKafkaConsumerTrident {
     //申请的ckafka实例ip:port
-    private final static String BOOTSTRAP_SERVERS = "9.94.61.25:9092";
+    private final static String BOOTSTRAP_SERVERS = "111.230.216.45:9092";
     //指定要将消息写入的topic
     private final static String TOPIC = "storm-trident-test";
 
