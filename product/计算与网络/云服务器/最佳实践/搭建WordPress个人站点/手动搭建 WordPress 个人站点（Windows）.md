@@ -21,7 +21,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 您也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
 
 ### 步骤2：搭建 WIPM 环境
-参考 [手动搭建 WIPM 环境](https://cloud.tencent.com/document/product/213/39541)，逐步安装如下软件：
+参考 [手动搭建 WIPM 环境](https://cloud.tencent.com/document/product/213/39541) 进行如下操作：
 1. 安装 IIS 服务。
 2. 部署 PHP 5.6.20及之后版本环境。
 3. 安装 MySQL 5.6 及之后版本数据库。
