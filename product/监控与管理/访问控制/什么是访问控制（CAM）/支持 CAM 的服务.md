@@ -238,6 +238,7 @@
 | ------------------------------------------------------------  | ------ | -------- | -------- | ---- |	---- |	
 | [智聆口语评测](https://cloud.tencent.com/document/product/884)   | 操作级 | &#10003;  | -   |  -  |	-  |	
 | [题目结构化归档](https://cloud.tencent.com/document/product/1085)   | 操作级 | - | -   |  -  |	-  |	
+| [互动白板](https://cloud.tencent.com/document/product/1085)   | 操作级 | - | -   |  -  |	-  |	
 
 ## 移动服务	
 
