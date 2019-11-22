@@ -17,7 +17,7 @@ tim.createTextMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -74,7 +74,7 @@ tim.createImageMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
@@ -159,7 +159,7 @@ tim.createAudioMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | --------------------- |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
@@ -238,7 +238,7 @@ tim.createFileMessage(options)
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
 | `to`               | `String` | 消息的接收方   |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器 |
 | `onProgress`          | `function` | 获取上传进度的回调函数 |
 
@@ -297,7 +297,7 @@ tim.createCustomMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -341,6 +341,67 @@ promise.then(function(imResponse) {
 **返回**
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+
+
+### 创建视频消息
+
+创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 `createVideoMessage` 只支持在微信小程序环境使用。 微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
+
+> !全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+
+**接口**
+
+```javascript
+tim.createVideoMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type       | Description                                                |
+| ------------------ | ---------- | ---------------------------------------------------------- |
+| `to`               | `String`   | 消息的接收方                                               |
+| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object`   | 录制或者从相册选择的视频文件                               |
+| `onProgress`       | `function` | 获取上传进度的回调函数                                     |
+
+**示例**
+
+```javascript
+// 1. 调用小程序接口选择视频，接口详情请查阅 https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseVideo.html
+wx.chooseVideo({
+  sourceType: ['album', 'camera'], // 来源相册或者拍摄
+  maxDuration: 60, // 设置最长时间60s
+  camera: 'back', // 后置摄像头
+  success (res) {
+    // 2. 创建消息实例，接口返回的实例可以上屏
+    let message = tim.createVideoMessage({
+      to: 'user1',
+      conversationType: TIM.TYPES.CONV_C2C,
+      payload: {
+        file: res
+      },
+      onProgress: function(event) { console.log('video uploading:', event) }
+    })
+    // 3. 发送消息
+    let promise = tim.sendMessage(message);
+    promise.then(function(imResponse) {
+      // 发送成功
+      console.log(imResponse);
+    }).catch(function(imError) {
+      // 发送失败
+      console.warn('sendMessage error:', imError);
+    });
+  }
+})
+```
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+
+
 
 
 ### 发送消息
