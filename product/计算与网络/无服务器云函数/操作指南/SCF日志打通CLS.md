@@ -1,6 +1,6 @@
 ## 操作场景
 在使用云函数（SCF）进行函数计算时，会产生大量的函数运行日志。SCF 运行日志已打通腾讯云日志服务（CLS）平台，可实时采集函数运行日志至 CLS 平台。您可在 CLS 平台进行日志的实时检索、投递和消费等更多操作。如下图所示：
-![img](https://main.qcloudimg.com/raw/543a2fd9a8ec7939f6e01b2866a0fa38.jpg)
+![](https://main.qcloudimg.com/raw/b567f1c3df01998110d6ead314590f5d.jpg)
 
 
 ## 前提条件
