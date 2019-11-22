@@ -29,10 +29,9 @@
  - **用户名**：输入子用户名称，例如 Sub_user。
  - **邮箱**：您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
  - **访问方式**：选择编程访问和腾讯云控制台访问。
-![](https://main.qcloudimg.com/raw/e7e3af53b3c5b1cd60c32fc34a62d03f.jpg)
-4. 单击【下一步】，完成身份验证后，设置子用户权限。根据系统提供的策略选择，可配置简单的策略，例如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [对子账号授予权限](#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AF.B9.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.8E.88.E4.BA.88.E6.9D.83.E9.99.90) 步骤。
-![](https://main.qcloudimg.com/raw/ca9aa51a9517ebe241881964095f16e7.jpg)
-5. 确认输入的信息无误后，单击【完成】即可创建子账号。
+4. 填写用户信息完毕后，单击【下一步】，进行身份验证。
+5. 身份验证完毕，设置子用户权限。根据系统提供的策略选择，可配置简单的策略，例如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [步骤2：对子账号授予权限](#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AF.B9.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.8E.88.E4.BA.88.E6.9D.83.E9.99.90) 。
+6. 确认输入的用户信息无误后，单击【完成】即可创建子账号。
 
 
 <span id="对子账号授予权限"></span>
@@ -53,15 +52,17 @@
 COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
 当使用子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey，您可以在访问管理控制台生成子账号的 SecretId 和 SecretKey。
 
-1. 子账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)  。
-2. 在控制台右上方，将鼠标移至账号处，在下拉列表中，单击【切换用户身份】，切换对应的主账号（开发商账号）。
-3. 登录后，选择【访问密钥】>【API 密钥管理】，按照提示进入 API 密钥管理页面。
-4. 单击【新建密钥】，创建子账号的 SecretID 和 SecretKey，APPID 需由主账号提供。
+1. 主账号登录 [CAM 控制台](https://console.cloud.tencent.com/cam/capi)  。
+2. 选择【用户列表】，进入用户列表页面。
+3. 单击子账号用户名称，进入子账号信息详情页。
+4. 单击【API 密钥】页签，并单击【新建密钥】为该子账号创建 SecretId 和 SecretKey。
 
+
+至此您就可以通过子账号的 SecretId 和 SecretKey、主账号的 APPID，访问 COS 资源。 
 
 >!
-- 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
-- 子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey。
+>- 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+>- 子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey。
 
 #### 基于 XML 的 Java SDK 访问示例
 以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
