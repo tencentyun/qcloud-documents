@@ -20,18 +20,13 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 [使用 RDP 文件登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/5435)。
 您也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
 
-### 步骤2：安装 IIS 服务
-参考 [安装 IIS 服务（Windows 云服务器）](https://cloud.tencent.com/document/product/213/2755)，安装 IIS 服务。
+### 步骤2：搭建 WIPM 环境
+参考 [手动搭建 WIPM 环境](https://cloud.tencent.com/document/product/213/39541)，逐步安装如下软件：
+1. 安装 IIS 服务。
+2. 部署 PHP 5.6.20及之后版本环境。
+3. 安装 MySQL 5.6 及之后版本数据库。
 
-### 步骤3：搭建 PHP 环境
-
-参考 [搭建 PHP 环境（Windows 云服务器）](https://cloud.tencent.com/document/product/213/10182)，搭建 PHP 5.6.20及之后版本环境。
-
-<span id="Step04"></span>
-### 步骤4：搭建 MySQL 数据库
-参考 [搭建 MySQL（Windows 云服务器）](https://cloud.tencent.com/document/product/213/10190)，搭建 MySQL 5.6 及之后版本数据库。
-
-### 步骤5：安装和配置 WordPress
+### 步骤3：安装和配置 WordPress
 >? WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
 
@@ -65,7 +60,7 @@ create database wordpress;
  - 找到`extension_dir = "ext"`，取消前面的`;`。
 
 
-### 步骤6：验证 WordPress 配置
+### 步骤4：验证 WordPress 配置
 
 1. 使用浏览器访问 `http://localhost/wp-admin/install.php`，转至 WordPress 安装页，开始配置 WordPress。
 2. 根据 WordPress 安装向导提示输入以下安装信息，单击【安装 WordPress】，完成安装。
