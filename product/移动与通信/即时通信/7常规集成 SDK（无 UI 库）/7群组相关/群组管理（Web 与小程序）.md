@@ -521,7 +521,7 @@ tim.getGroupMemberProfile(options);
 | :------------------------ | :--------------- | :------------ | :----------------------------------------------------------- |
 | `groupID`                 | `String`         |               | 群组的 ID                                                    |
 | `userIDList`              | `Array.<String>` |               | 要查询的群成员用户 ID 列表                                   |
-| `memberCustomFieldFilter` | `Array.<String>` | `<optional> ` | 群成员自定义字段筛选。可选，若不填，则默认查询所有群成员自定义字段。 |
+| `memberCustomFieldFilter` | `Array.<String>` | `<optional> ` | 群成员自定义字段筛选。可选，若不填，则默认查询所有群成员自定义字段 |
 
 **返回值**
 
