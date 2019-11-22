@@ -465,7 +465,7 @@ __参数__
 
 ***
 
-
+<span id="addVideoRawData"></span>
 ## 自定义数据处理
 ### addVideoRawData
 
@@ -675,7 +675,7 @@ __参数__
 
 __介绍__
 
-需要在回调中再次调用 #addVideoRawData(byte[])，将 buffer 塞给 SDK 来填充下一帧 YUV 数据。
+需要在回调中再次调用 [addVideoRawData](#addVideoRawData)，将 buffer 塞给 SDK 来填充下一帧 YUV 数据。
 
 ***
 
