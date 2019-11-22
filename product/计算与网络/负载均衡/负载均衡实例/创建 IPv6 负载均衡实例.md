@@ -22,7 +22,8 @@ IPv6 负载均衡的架构如下图所示：
 - 易于使用：IPv6负载均衡兼容原 IPv4 负载均衡的操作流量，零学习成本，低门槛使用。
 - 端到端的 IPv6 通信：IPv6 负载均衡和云服务器之间通过 IPv6 通信，可以帮助部署在云服务器的应用快速进行 IPv6 改造，并实现端到端的 IPv6 通信。
 
-## 创建 IPv6 负载均衡实例
+## 操作指南
+### 创建 IPv6 负载均衡实例
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 请正确选择如下参数：
  - 计费模式：按量计费。
@@ -32,7 +33,7 @@ IPv6 负载均衡的架构如下图所示：
  - VPC 和子网：已获取 IPv6 CIDR 的 VPC 和子网。
 3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
 
-## 创建 IPv6 负载均衡监听器
+### 创建 IPv6 负载均衡监听器
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，单击 IPv6 负载均衡实例 ID，进入详情页。
 2. 选择【监听器管理】标签页，单击【新建】，如创建一个 TCP 监听器。
 >?支持创建四层 IPv6 负载均衡均衡监听器（TCP/UDP/TCP SSL）和七层 IPv6 负载均衡监听器（HTTP/HTTPS），详情请参见 [负载均衡监听器概述](https://cloud.tencent.com/document/product/214/6151)。
