@@ -1,7 +1,7 @@
 ## 发送消息
 
 ### 创建文本消息
-创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 
 **接口名**
@@ -58,7 +58,7 @@ promise.then(function(imResponse) {
 
 
 ### 创建图片消息
-创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 
 **接口**
@@ -142,7 +142,7 @@ wx.chooseImage({
 
 
 ### 创建音频消息
-创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 createAudioMessage 只支持在微信小程序环境使用。
 
 >!全平台互通音频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
 
@@ -221,7 +221,7 @@ recorderManager.start(recordOptions);
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 ### 创建文件消息
-创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 >!微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
 
@@ -281,7 +281,7 @@ promise.then(function(imResponse) {
 
 ### 创建自定义消息
 
-创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 当 SDK 提供的能力不能满足您的需求时，可以使用自定义消息进行个性化定制，例如投骰子功能。
 
 **接口**
@@ -345,9 +345,9 @@ promise.then(function(imResponse) {
 
 ### 创建视频消息
 
-创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 `createVideoMessage` 只支持在微信小程序环境使用。 微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
+创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 `createVideoMessage` 只支持在微信小程序环境使用。微信小程序录制视频或从相册选择视频文件，不会返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染时忽略缩图相关信息，自主处理。
 
-> !全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+>!全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
 
 **接口**
 
@@ -363,7 +363,7 @@ tim.createVideoMessage(options)
 | ------------------ | ---------- | ---------------------------------------------------------- |
 | `to`               | `String`   | 消息的接收方                                               |
 | `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object`   | 录制或者从相册选择的视频文件                               |
+| `payload`          | `Object`   | 录制或从相册选择的视频文件                               |
 | `onProgress`       | `function` | 获取上传进度的回调函数                                     |
 
 **示例**
