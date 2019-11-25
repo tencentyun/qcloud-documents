@@ -20,9 +20,8 @@ import base64
 
 //通过语音 URL 方式调用
 try: 
-    #重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	#https://cloud.tencent.com/document/product/441/6203
- 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+    #重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息
+    #请参考接口说明中的使用步骤1进行获取。
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()
     httpProfile.endpoint = "asr.tencentcloudapi.com"
@@ -58,9 +57,8 @@ import base64
 //通过本地语音上传方式调用    
 try: 
     
-    #重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	#https://cloud.tencent.com/document/product/441/6203
- 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+    #重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息
+    #请参考接口说明中的使用步骤1进行获取。
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()
     httpProfile.endpoint = "asr.tencentcloudapi.com"
