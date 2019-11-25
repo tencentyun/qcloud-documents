@@ -181,7 +181,8 @@ if (result) {
 ## 5. 注意事项
 
 1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
-    - 以 NSURLConnection 为例：
+
+- 以 NSURLConnection 为例：
 ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
 float timeOut = 设置的超时时间;
@@ -190,7 +191,8 @@ NSMutableURLRequest *mutableReq = [NSMutableURLRequest requestWithURL:httpDnsURL
 NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:mutableReq delegate:self];
 [connection start];
 ```
-    - 以 NSURLSession 为例：  
+
+- 以 NSURLSession 为例：  
  ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
 float timeOut = 设置的超时时间;
@@ -201,13 +203,13 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration del
 NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 [task resume];
 ```
-    - 以 curl 为例：  
+- 以 curl 为例：  
     
-	假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
+假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
 ```
 curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
-    - 以 Unity 的 WWW 接口 为例：  
+- 以 Unity 的 WWW 接口 为例：  
 ```    
 string httpDnsURL = "使用解析结果ip拼接的URL";
 Dictionary<string, string> headers = new Dictionary<string, string> ();
