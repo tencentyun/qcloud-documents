@@ -65,7 +65,7 @@ service: my-service # service name
 provider: # provider information
   name: tencent
   runtime: Nodejs8.9
-  credentials: ~/credentials  #如不使用二维码一键登录，密钥字段需要和credentials文件路径一致
+  credentials: ~/credentials  #如不使用二维码一键登录，密钥字段需要和 credentials 文件路径一致
 
 plugins:
   - serverless-tencent-scf
@@ -91,7 +91,7 @@ functions:
 serverless deploy
 ```
 
-如您的账号未[登陆](https://cloud.tencent.com/login)或[注册](https://cloud.tencent.com/register)腾讯云，您可以在运行该命令后，直接用`微信`扫描命令中弹出的二维码，对云账户进行授权登陆和注册。
+如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以在运行该命令后，直接用**微信**扫描命令中弹出的二维码，对云账户进行授权登录和注册。
 
 更多部署详情参考 [部署服务](https://cloud.tencent.com/document/product/1154/38814) 文档。
 
@@ -126,4 +126,4 @@ serverless remove
 ```
 
 #### 配置账户信息
-当前默认支持CLI扫描二维码登录，如您希望配置持久的环境变量/秘钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/38811) 文档。
+当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/38811) 文档。
