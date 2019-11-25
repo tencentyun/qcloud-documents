@@ -70,7 +70,7 @@ chmod +x eip_direct.sh
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 #### 步骤3：云服务器内配置 IP
-1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704))。
+1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)）。
 2. `Win+R` 组合键打开运行命令，输入 `firewall.cpl ` 按回车，打开“ Windows 防火墙”页面。
 ![](https://main.qcloudimg.com/raw/b0cd418caf7d0a95c7a39b75f4996e09.png)
 3. 单击【打开或关闭Windows防火墙】，进入“自定义设置”页面。
