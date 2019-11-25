@@ -203,7 +203,7 @@ NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 ```
 	- 以 curl 为例：
 
-假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
+	假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
 
 ```
 	curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
