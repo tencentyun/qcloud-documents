@@ -1,9 +1,9 @@
-## HTTPDNS iOS客户端接入文档（腾讯云客户专用） 
+## 1. HTTPDNS iOS 客户端接入文档（腾讯云客户专用） 
 **本接入文档仅供腾讯云客户参阅**。
 
 **腾讯内部业务，请参阅文档 [HTTPDNS iOS客户端接入文档（腾讯内部业务专用）.md](https://github.com/tencentyun/httpdns-ios-sdk/blob/master/HTTPDNS%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88%E8%85%BE%E8%AE%AF%E5%86%85%E9%83%A8%E4%B8%9A%E5%8A%A1%E4%B8%93%E7%94%A8%EF%BC%89.md)**。
 
-## GitHub目录结构说明
+## 2. GitHub 目录结构说明
 
 | 目录名称       | 说明           | 适用范围  |
 | ------------- |-------------| -------------|
@@ -16,10 +16,10 @@
 | README.md | HTTPDNS iOS 客户端接入文档 | 腾讯云客户 |
 | VERSION.md | HTTPDNS iOS SDK 历史版本修改记录 | SDK 开发维护人员 |
 
-## 1. 功能介绍
+## 3. 功能介绍
 HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
-## 2. 安装包结构
+## 4. 安装包结构
 压缩文件中包含 demo 工程，其中包含：
 
 | 名称       | 适用说明           |
@@ -27,12 +27,12 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 | MSDKDns.framework | 适用 “Build Setting->C++ Language Dialect” 配置为 **“GNU++98”**，“Build Setting->C++ Standard Library” 为 **“libstdc++(GNU C++ standard library)”** 的工程。 |
 | MSDKDns_C11.framework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
-## 3. SDK 集成
+## 5. SDK 集成
 HttpDns 提供两种集成方式供 iOS 开发者选择：
 - 通过 CocoaPods 集成。
 - 手动集成。
 
-### 3.1 通过 CocoaPods 集成
+### 5.1 通过 CocoaPods 集成
 在工程的 Podfile 里面添加以下代码：
 ```
 # 适用“Build Setting->C++ Language Dialect”配置为**“GNU++98”**，“Build Setting->C++ Standard Library”为**“libstdc++(GNU C++ standard library)”**的工程。
@@ -44,12 +44,12 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 
 >?关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
 
-### 3.2 手动集成
+### 5.2 手动集成
 
-#### 3.2.1 已接入灯塔（Beacon）的业务
+#### 5.2.1 已接入灯塔（Beacon）的业务
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
-#### 3.2.2 未接入灯塔（Beacon）的业务
+#### 5.2.2 未接入灯塔（Beacon）的业务
 灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK, HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据, 辅助定位问题。
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
@@ -73,9 +73,9 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 ```
 >!请在 Other linker flag 里加入 -ObjC 标志。
 
-## 4. API 及使用示例
+## 6. API 及使用示例
 
-### 4.1 设置业务基本信息
+### 6.1 设置业务基本信息
 
 #### 接口声明
 ```
@@ -99,7 +99,7 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 ```
 [[MSDKDns sharedInstance] WGSetDnsAppKey: @"业务appkey，由腾讯云官网申请获得" DnsID:dns解析id DnsKey:@"dns解析key" Debug:YES TimeOut:1000 UseHttp:YES];
 ```
-### 4.2 域名解析接口
+### 6.2 域名解析接口
 
 获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。
 
@@ -109,11 +109,10 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
 - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
 
->!使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`
-
-**使用建议：**
-1. ipv6 为0，直接使用 ipv4 地址连接。
-2. ipv6 地址不为0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
+>!
+>- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`
+>- ipv6 为0，直接使用 ipv4 地址连接。
+>- ipv6 地址不为0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
 
 #### 同步解析接口: WGGetHostByName
 
@@ -197,7 +196,7 @@ if (result) {
      - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
      - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
 
-## 5. 注意事项
+## 7. 注意事项
 
 1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
     - 以 NSURLConnection 为例：
@@ -266,9 +265,9 @@ NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 	}
 ```
 
-## 6. 实践场景 
+## 8. 实践场景 
 
-### 6.1 Unity 工程接入
+### 8.1 Unity 工程接入
 
 1. 将 HTTPDNSUnityDemo/Assets/Plugins/Scripts 下的 **HttpDns.cs** 文件拷贝到 Unity 对应 Assets/Plugins/Scripts 路径下。
 2. 在需要进行域名解析的部分，调用 HttpDns.GetAddrByName(string domain) 或者 HttpDns.GetAddrByNameAsync(string domain) 方法。
@@ -292,10 +291,10 @@ if (sArray != null && sArray.Length > 1) {
 ```
 3. 将 unity 工程打包为 xcode 工程后，引入所需依赖库。
 4. 将 HTTPDNSUnityDemo 下的 MSDKDnsUnityManager.h 及 MSDKDnsUnityManager.mm 文件导入到工程中，注意以下地方需要与 Unity 中对应的 GameObject 名称及回调函数名称一致：
-	![Unity接入图片1](HTTPDNSUnityDemo/Unity1.jpg) 
-	![Unity接入图片1](HTTPDNSUnityDemo/Unity2.jpg)  
+![](https://main.qcloudimg.com/raw/f9a10fb9306f73cfd99c6dde705fc956.jpg)
+![](https://main.qcloudimg.com/raw/5e34886a01bb50d17df72be53db03984.jpg)
 
-### 6.2 HTTPS 场景下（非 SNI）使用 HttpDns 解析结果
+### 8.2 HTTPS 场景下（非 SNI）使用 HttpDns 解析结果
 
 #### 原理
 
@@ -425,7 +424,7 @@ const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-### 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
+### 8.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
 
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
