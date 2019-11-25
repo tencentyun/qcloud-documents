@@ -25,7 +25,7 @@
 		 <name>fs.ofs.tmp.cache.dir</name>
 		 <value>/data/chdfs_tmp_cache</value>
 </property>
-<!—appId-->      
+<!--appId-->      
 <property>
 		 <name>fs.ofs.user.appid</name>
 		 <value>125000001</value>
