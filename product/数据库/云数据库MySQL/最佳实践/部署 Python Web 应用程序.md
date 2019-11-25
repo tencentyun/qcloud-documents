@@ -86,7 +86,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.realpath(__file__)), '..
 os.environ['DJANGO_SETTINGS_MODULE'] = 'projectname.settings'
 application = get_wsgi_application()
 ```
-4. 在 Apache 中添加支持，在`httpd.conf`添加如下内容，`httpd.conf`的路径为`/etc/httpd/conf/httpd.conf`。
+4. 添加 Apache 支持，在`httpd.conf`添加如下内容，`httpd.conf`的路径为`/etc/httpd/conf/httpd.conf`。
 ```
 WSGIScriptAlias /python "/usr/local/testProject/django.wsgi"
 ```
