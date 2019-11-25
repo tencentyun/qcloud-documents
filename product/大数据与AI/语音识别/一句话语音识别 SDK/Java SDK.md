@@ -30,7 +30,7 @@ public class SentenceRecognition
     public static void main(String [] args) throws IOException {
     	 // 采用语音URL方式调用
         try{
-    		  //重要：<Your SecretId>、<Your SecretKey>需要替换成客户自己的账号信息
+    		  //重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息
     		  //请参考接口说明中的使用步骤1进行获取。 
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
