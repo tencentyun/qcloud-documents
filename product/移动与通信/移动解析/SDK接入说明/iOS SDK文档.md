@@ -1,7 +1,7 @@
 ## HTTPDNS iOS客户端接入文档（腾讯云客户专用） 
 **本接入文档仅供腾讯云客户参阅**。
 
-**腾讯内部业务，请参阅文档 [HTTPDNS iOS客户端接入文档（腾讯内部业务专用）.md](https://github.com/tencentyun/httpdns-ios-sdk/blob/master/HTTPDNS%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88%E8%85%BE%E8%AE%AF%E5%86%85%E9%83%A8%E4%B8%9A%E5%8A%A1%E4%B8%93%E7%94%A8%EF%BC%89.md)**
+**腾讯内部业务，请参阅文档 [HTTPDNS iOS客户端接入文档（腾讯内部业务专用）.md](https://github.com/tencentyun/httpdns-ios-sdk/blob/master/HTTPDNS%20iOS%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3%EF%BC%88%E8%85%BE%E8%AE%AF%E5%86%85%E9%83%A8%E4%B8%9A%E5%8A%A1%E4%B8%93%E7%94%A8%EF%BC%89.md)**。
 
 ## GitHub目录结构说明
 
@@ -45,8 +45,10 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 >?关于 `CocoaPods` 的更多信息，请查看 [CocoaPods 官方网站](https://cocoapods.org/)。
 
 ### 3.2 手动集成
+
 #### 3.2.1 已接入灯塔（Beacon）的业务
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
+
 #### 3.2.2 未接入灯塔（Beacon）的业务
 灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK, HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据, 辅助定位问题。
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
@@ -102,18 +104,18 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。
 
 返回的地址格式为 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
-- ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]
-- ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]
-- 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]
+- ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]。
+- ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]。
+- 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
 - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
 
->!使用ipv6地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`
+>!使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`
 
 **使用建议：**
 1. ipv6 为0，直接使用 ipv4 地址连接。
 2. ipv6 地址不为0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
 
-#### 4.2.1 同步解析接口: WGGetHostByName
+#### 同步解析接口: WGGetHostByName
 
 ##### 接口声明
 ```
@@ -142,7 +144,7 @@ if (ipsArray && ipsArray.count > 1) {
 		}
 }
 ```
-#### 4.2.2 异步解析接口: WGGetHostByNameAsync
+#### 异步解析接口: WGGetHostByNameAsync
 
 ##### 接口声明
 ```
@@ -155,7 +157,7 @@ if (ipsArray && ipsArray.count > 1) {
 ```
 ##### 示例代码
 
-**接口调用示例1**：等待完整解析过程结束后，拿到结果，进行连接操作
+- 接口调用示例1：等待完整解析过程结束后，拿到结果，进行连接操作。
 ```
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
 		//等待完整解析过程结束后，拿到结果，进行连接操作
@@ -173,7 +175,7 @@ if (ipsArray && ipsArray.count > 1) {
 		}
 }];
 ```
-**接口调用示例2**：无需等待，可直接拿到缓存结果，如无缓存，则result为nil
+-   接口调用示例2：无需等待，可直接拿到缓存结果，如无缓存，则 result 为 nil。
 ```
 __block NSArray* result;
 [[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
@@ -186,17 +188,18 @@ if (result) {
 		//本次请求无缓存，业务可走原始逻辑
 }
 ```
+
 >!业务可根据自身需求，任选一种调用方式。
-- 示例1：
- - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
- - 缺点：异步接口的处理较同步接口稍显复杂。
-- 示例2：
- - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
- - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
+ - 示例1：
+     - 优点：可保证每次请求都能拿到返回结果进行接下来的连接操作。
+     - 缺点：异步接口的处理较同步接口稍显复杂。
+ - 示例2：
+     - 优点：对于解析时间有严格要求的业务，使用本示例，可无需等待，直接拿到缓存结果进行后续的连接操作，完全避免了同步接口中解析耗时可能会超过 100ms 的情况。
+     - 缺点：第一次请求时，result 一定会 nil，需业务增加处理逻辑。
 
 ## 5. 注意事项
 
-1. 如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 http 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 Http 头的 host 字段。
+1. 如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
     - 以 NSURLConnection 为例：
 ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
@@ -219,7 +222,7 @@ NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 ```
 	- 以 curl 为例：
 ```
-假设你要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
+假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
 	curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
 	- 以 Unity 的 WWW 接口为例：
@@ -422,7 +425,7 @@ const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-## 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
+### 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
 
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
