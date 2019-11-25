@@ -1,6 +1,6 @@
 ## 接入准备
 ### SDK获取
-一句话识别 Java SDK 获取，请参考 [Java SDK 依赖环境及获取安装说明](https://cloud.tencent.com/document/sdk/Java)。
+一句话识别 Java SDK 获取，请参考：[Java SDK 依赖环境及获取安装说明](https://cloud.tencent.com/document/sdk/Java)。
 
 ### 接入须知
 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
