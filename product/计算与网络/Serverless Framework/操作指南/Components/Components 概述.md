@@ -14,7 +14,7 @@ Serverless Components 是支持多个云资源编排和组织的场景化解决�
 - **简便易用**
 Serverless Components 更多的围绕客户场景进行构建，如网站、博客系统、支付服务、图像处理场景等。通过抽象了底层的基础设施配置信息，开发者可以通过十分简单的配置实现场景。
 - **可复用性**
-Serverless Components 可以通过非常简单的`serverless.yml`创建和部署，但同时也支持用十分简单的语法对 javascript 库`serverless.js`进行扩展编写和复用。
+Serverless Components 可以通过非常简单的`serverless.yml`创建和部署，但同时也支持用十分简单的语法对 JavaScript 库`serverless.js`进行扩展编写和复用。
 - **秒级部署**
 大多数 Serverless Components 比传统的配置工具部署快20倍左右，Components 可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
