@@ -5,7 +5,7 @@
 APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product/269/Apple推送证书申请)。
 
 ### 上传证书到控制台
-完成 APNs 证书申请以后，您需要登录腾讯云即时通信 IM [控制台](https://console.cloud.tencent.com/avc) 上传 iOS 证书（p.12）。
+完成 APNs 证书申请以后，您需要登录腾讯云即时通信 IM [控制台](https://console.cloud.tencent.com/im) 上传 iOS 证书（p.12）。
 在【应用列表】页面，单击目标应用所在列的【应用配置】，进入【基础配置】页面。单击 iOS 推送证书区域的【+添加证书】，选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击【确定】。
 
 >!

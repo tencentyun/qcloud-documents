@@ -1,3 +1,6 @@
+>!在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+
+
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
@@ -109,7 +112,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -160,7 +163,7 @@ API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]

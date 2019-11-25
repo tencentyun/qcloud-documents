@@ -4,7 +4,7 @@
 
 ## 群组消息
 
-群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照  [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)  部分。
+群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照 [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
 
 ## 群组管理
 
@@ -371,7 +371,7 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 
 ### 获取群成员列表
 
-获取群成员列表的接口为`getGroupMembers`，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
+获取群成员列表的接口为`getGroupMembers`，默认拉取内置字段以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) >【功能配置】> 【群成员维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **权限说明：**
 
@@ -582,7 +582,7 @@ public void getGroupMembersByFilter(@NonNull String groupId, long flags, @NonNul
 
 **说明：**
 
-默认拉取基本资料以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/avc) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，5分钟后生效。
+默认拉取基本资料以及自定义字段，自定义字段要通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) >【功能配置】> 【群维度自定义字段】配置相关的 key 和权限，5分钟后生效。
 
 **原型：**
 
@@ -879,7 +879,7 @@ public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 **示例：**
 
 ```
-TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(groupid);
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setGroupName("Great Team")
 TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
@@ -1839,7 +1839,7 @@ getOpUser	| 操作人，表示哪个用户的邀请
 
 **触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。
 
-当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以作为更新群列表的时机，本终端可以选择忽略。
+当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端收到该消息时可以更新群列表，本终端可以选择忽略。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
 

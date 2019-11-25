@@ -21,7 +21,7 @@ COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设
 
 ### COS 是否支持 CDN HTTPS 回源 COS？
 
-支持。
+支持。具体操作方法请参见 [设置回源](https://cloud.tencent.com/document/product/436/13310) 文档。
 
 ### 使用自定义域名是否必须通过腾讯云备案？
 目前 COS 使用自定义域名必须开启 CDN，请根据您的情况进行判断：

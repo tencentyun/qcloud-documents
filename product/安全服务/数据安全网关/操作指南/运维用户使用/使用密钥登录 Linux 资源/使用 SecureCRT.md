@@ -38,7 +38,7 @@
 <img src="https://main.qcloudimg.com/raw/a47db4ad1428ca4535c73fd925cf1e12.png"  width="80%">
 3. 将私钥文件加入到 Agent 服务中，即可生效进行目标设备的单点登录。
  <img src="https://main.qcloudimg.com/raw/17d01226a639c19a9353a406b44f7106.png"  width="80%"> 
->!SecureCRT 工具 Manage Agent Keys 组件添加私钥文件，关闭工具后失效，需每次单点登录前打开 SecureCRT 工具手动添加私钥文件并保持 SecureCRT 工具打开）
+>!SecureCRT 工具 Manage Agent Keys 组件添加私钥文件，关闭工具后失效，需每次单点登录前打开 SecureCRT 工具手动添加私钥文件，并保持 SecureCRT 工具运行。
 4. 打开浏览器，登录堡垒机。在登录界面，选择登录的账号和登录工具，单击【连接】。
  <img src="https://main.qcloudimg.com/raw/dcf204f21377e471d583085b31dca044.png"  width="80%">
 5. 即可实现单点登录。                                                                                                                                             

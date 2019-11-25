@@ -2,7 +2,7 @@
 
 ## 前提条件
 1. 完成腾讯云账号注册、实名认证。
-2. 创建 COS 存储桶，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/6232)。
+2. 创建 COS 存储桶，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 
 ## 操作指南
 ### 添加域名

@@ -123,7 +123,7 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 ![](https://main.qcloudimg.com/raw/c350c1587af72d8a3529bcd7a98da856.png)
 
 <span id="OtherOperations"></span>
-### 其它操作
+### 其他操作
 
 若上述步骤无法解决问题，请参考：
 - 域名 ping 不通，请检查您的网站配置。

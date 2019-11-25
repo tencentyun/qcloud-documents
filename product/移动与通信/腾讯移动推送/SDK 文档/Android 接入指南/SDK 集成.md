@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.1.2.1-release' //  TPNS 推送
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 
 }
 ```
@@ -61,7 +61,10 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             </intent-filter>
         </receiver>
     ```
-
+- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 
 
@@ -94,6 +97,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
 #### 组件和应用信息配置
@@ -101,7 +105,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```xml
 <application>
     <!-- 应用的其它配置 -->
-
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
     <!-- 【必须】 腾讯移动推送默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">
@@ -307,8 +311,7 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
 	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
 	```
-
-- registerPush 不再支持设置账号，需要注册账号的话，要单独调用 bindAccount 或 appendAccount，推荐在 registerPush 成功的回调里调用。
+- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount 不再带有注册功能，推荐在 registerPush 成功的回调里调用 bindAccount 或 appendAccount。
 - 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
 	```java
 	/**
