@@ -55,9 +55,9 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
 - 引入系统库：
-	- libz.tdb
-	- libsqlite3.tdb
-	- libc++.tdb
+	- libz.tbd
+	- libsqlite3.tbd
+	- libc++.tbd
 	- Foundation.framework
 	- CoreTelephony.framework
 	- SystemConfiguration.framework
@@ -199,7 +199,7 @@ if (result) {
 
 ## 5. 注意事项
 
-1. 如果客户端的业务是与 host 绑定的，比如是绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
+1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
     - 以 NSURLConnection 为例：
 ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
@@ -295,7 +295,7 @@ if (sArray != null && sArray.Length > 1) {
 	![Unity接入图片1](HTTPDNSUnityDemo/Unity1.jpg) 
 	![Unity接入图片1](HTTPDNSUnityDemo/Unity2.jpg)  
 
-### 6.2 Https 场景下（非 SNI）使用 HttpDns 解析结果
+### 6.2 HTTPS 场景下（非 SNI）使用 HttpDns 解析结果
 
 #### 原理
 
