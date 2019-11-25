@@ -25,6 +25,7 @@ COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，�
 - 依赖包：
  - [cos-python-sdk-v5](https://pypi.org/project/cos-python-sdk-v5/) （≥1.6.5）
  - [pyftpdlib](https://pypi.org/project/pyftpdlib/) （≥1.5.2）
+ - [psutil]()（>=5.6.1）
 
 
 #### 使用限制
