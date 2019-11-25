@@ -31,7 +31,7 @@ IPv6 负载均衡的架构如下图所示：
  - 地域：北京、上海、广州、上海金融、深圳金融。
  - IP 版本：IPv6。
  - 运营商类型：BGP。
- - VPC 和子网：请务必选择已获取 IPv6 CIDR 的 VPC 和子网。
+ - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
 3. 在购买页选择各项配置后，单击【立即购买】，返回至 [负载均衡实例列表页](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，即可查看已购的 IPv6 负载均衡。
 ![](https://main.qcloudimg.com/raw/b25a3156db7a73ffa1a3b835be0069e8.png)
 
