@@ -25,7 +25,7 @@ $ cd my-function
 |- serverless.yml
 ```
  
-对于该例子可以使用一下 Demo，作为 index.js：
+对于该例子可以使用以下 Demo，作为 index.js：
 ```javascript
 'use strict';
 exports.main_handler = async (event, context, callback) => {
