@@ -260,7 +260,7 @@ if (conn.error != null) {
 	- 如果使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。
 	
 并建议添加如下处理代码：
-   ``` 
+``` 
 string[] sArray=ipString.Split(new char[] {';'}); 
 if (sArray != null && sArray.Length > 1) {
 	if (!sArray[1].Equals("0")) {
