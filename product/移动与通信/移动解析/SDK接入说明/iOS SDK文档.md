@@ -201,52 +201,51 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration del
 NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 [task resume];
 ```
-	- 以 curl 为例：
-
+    - 以 curl 为例：  
+    
 	假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
-
 ```
-	curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
+curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
-	- 以 Unity 的 WWW 接口为例：
+    - 以 Unity 的 WWW 接口 为例：  
 ```    
-	string httpDnsURL = "使用解析结果ip拼接的URL";
-	Dictionary<string, string> headers = new Dictionary<string, string> ();
-	headers["host"] = "原域名";
-	WWW conn = new WWW (url, null, headers);
-	yield return conn;
-	if (conn.error != null) {
-		print("error is happened:"+ conn.error);
-	} else {
-		print("request ok" + conn.text);
-	}
+string httpDnsURL = "使用解析结果ip拼接的URL";
+Dictionary<string, string> headers = new Dictionary<string, string> ();
+headers["host"] = "原域名";
+WWW conn = new WWW (url, null, headers);
+yield return conn;
+if (conn.error != null) {
+	print("error is happened:"+ conn.error);
+} else {
+	print("request ok" + conn.text);
+}
 ```
 2. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析。
   - 检测是否使用了 HTTP 代理：
 ```    
-	- (BOOL)isUseHTTPProxy {
-		CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
-		const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
-		NSString *proxy = (__bridge NSString *)proxyCFstr;
-		if (proxy) {
-			return YES;
-		} else {
-			return NO;
-		}
+- (BOOL)isUseHTTPProxy {
+	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
+	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
+	NSString *proxy = (__bridge NSString *)proxyCFstr;
+	if (proxy) {
+		return YES;
+	} else {
+		return NO;
 	}
+}
 ```
  - 检测是否使用了 HTTPS 代理：
 ```
-	- (BOOL)isUseHTTPSProxy {
-		CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
-		const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPSProxy);
-		NSString *proxy = (__bridge NSString *)proxyCFstr;
-		if (proxy) {
-			return YES;
-		} else {
-			return NO;
-		}
+- (BOOL)isUseHTTPSProxy {
+	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
+	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPSProxy);
+	NSString *proxy = (__bridge NSString *)proxyCFstr;
+	if (proxy) {
+		return YES;
+	} else {
+		return NO;
 	}
+}
 ```
 
 ## 6. 实践场景 
@@ -288,113 +287,113 @@ if (sArray != null && sArray.Length > 1) {
 
 - **以 NSURLConnection 接口为例：**
 ```
-	#pragma mark - NSURLConnectionDelegate
-	- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
+#pragma mark - NSURLConnectionDelegate
+- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
 
-		//创建证书校验策略
-		NSMutableArray *policies = [NSMutableArray array];
-		if (domain) {
-			[policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
-		} else {
-			[policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
-		}
-
-		//绑定校验策略到服务端的证书上
-		SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
-
-		//评估当前serverTrust是否可信任，
-		//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
-		//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-		//关于SecTrustResultType的详细信息请参考SecTrust.h    
-		SecTrustResultType result;
-		SecTrustEvaluate(serverTrust, &result);
-		return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
+	//创建证书校验策略
+	NSMutableArray *policies = [NSMutableArray array];
+	if (domain) {
+		[policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
+	} else {
+		[policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
 	}
 
-	- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
-		if (!challenge) {
-			return;
-		}
+	//绑定校验策略到服务端的证书上
+	SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
-		//URL里面的host在使用HTTPDNS的情况下被设置成了IP，此处从HTTP Header中获取真实域名
-		NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
-		if (!host) {
-			host = self.request.URL.host;
-		}
+	//评估当前serverTrust是否可信任，
+	//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
+	//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
+	//关于SecTrustResultType的详细信息请参考SecTrust.h    
+	SecTrustResultType result;
+	SecTrustEvaluate(serverTrust, &result);
+	return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
+}
 
-		//判断challenge的身份验证方法是否是NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
-		//在没有配置身份验证方法的情况下进行默认的网络请求流程。
-		if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-			if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {        
-
-				//验证完以后，需要构造一个NSURLCredential发送给发起方    
-				NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-				[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
-			} else {
-				//验证失败，取消这次验证流程
-				[[challenge sender] cancelAuthenticationChallenge:challenge];
-			}
-		} else {
-
-			//对于其他验证方法直接进行处理流程
-			[[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
-		}
+- (void)connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge {
+	if (!challenge) {
+		return;
 	}
+
+	//URL里面的host在使用HTTPDNS的情况下被设置成了IP，此处从HTTP Header中获取真实域名
+	NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+	if (!host) {
+		host = self.request.URL.host;
+	}
+
+	//判断challenge的身份验证方法是否是NSURLAuthenticationMethodServerTrust（HTTPS模式下会进行该身份验证流程），
+	//在没有配置身份验证方法的情况下进行默认的网络请求流程。
+	if ([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+		if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {        
+
+			//验证完以后，需要构造一个NSURLCredential发送给发起方    
+			NSURLCredential *credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
+			[[challenge sender] useCredential:credential forAuthenticationChallenge:challenge];
+		} else {
+			//验证失败，取消这次验证流程
+			[[challenge sender] cancelAuthenticationChallenge:challenge];
+		}
+	} else {
+
+		//对于其他验证方法直接进行处理流程
+		[[challenge sender] continueWithoutCredentialForAuthenticationChallenge:challenge];
+	}
+}
 ```
 
 - **以 NSURLSession 接口为例：**
 ```
-	#pragma mark - NSURLSessionDelegate
-	- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
+#pragma mark - NSURLSessionDelegate
+- (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
 
-		//创建证书校验策略
-		NSMutableArray *policies = [NSMutableArray array];
-		if (domain) {
-			[policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
-		} else {
-			[policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
-		}
-
-		//绑定校验策略到服务端的证书上
-		SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
-
-		//评估当前serverTrust是否可信任，
-		//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
-		//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
-		//关于SecTrustResultType的详细信息请参考SecTrust.h    
-		SecTrustResultType result;
-		SecTrustEvaluate(serverTrust, &result);
-
-		return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
+	//创建证书校验策略
+	NSMutableArray *policies = [NSMutableArray array];
+	if (domain) {
+		[policies addObject:(__bridge_transfer id)SecPolicyCreateSSL(true, (__bridge CFStringRef)domain)];
+	} else {
+		[policies addObject:(__bridge_transfer id)SecPolicyCreateBasicX509()];
 	}
 
-	- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
-		if (!challenge) {
-			return;
-		}
+	//绑定校验策略到服务端的证书上
+	SecTrustSetPolicies(serverTrust, (__bridge CFArrayRef)policies);
 
-		NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-		NSURLCredential *credential = nil;
+	//评估当前serverTrust是否可信任，
+	//官方建议在result = kSecTrustResultUnspecified 或 kSecTrustResultProceed的情况下serverTrust可以被验证通过，
+	//https://developer.apple.com/library/ios/technotes/tn2232/_index.html
+	//关于SecTrustResultType的详细信息请参考SecTrust.h    
+	SecTrustResultType result;
+	SecTrustEvaluate(serverTrust, &result);
 
-		//获取原始域名信息
-		NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
-		if (!host) {
-			host = self.request.URL.host;
-		}
-		if ([challenge.protectionSpace.authenticationMethod  isEqualToString:NSURLAuthenticationMethodServerTrust]) {
-			if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {
-				disposition = NSURLSessionAuthChallengeUseCredential;
-				credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
-			} else {
-				disposition = NSURLSessionAuthChallengePerformDefaultHandling;
-			}
+	return (result == kSecTrustResultUnspecified || result == kSecTrustResultProceed);
+}
+
+- (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge completionHandler:(void (^)(NSURLSessionAuthChallengeDisposition disposition, NSURLCredential * __nullable credential))completionHandler {
+	if (!challenge) {
+		return;
+	}
+
+	NSURLSessionAuthChallengeDisposition disposition = NSURLSessionAuthChallengePerformDefaultHandling;
+	NSURLCredential *credential = nil;
+
+	//获取原始域名信息
+	NSString *host = [[self.request allHTTPHeaderFields] objectForKey:@"host"];
+	if (!host) {
+		host = self.request.URL.host;
+	}
+	if ([challenge.protectionSpace.authenticationMethod  isEqualToString:NSURLAuthenticationMethodServerTrust]) {
+		if ([self evaluateServerTrust:challenge.protectionSpace.serverTrust forDomain:host]) {
+			disposition = NSURLSessionAuthChallengeUseCredential;
+			credential = [NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust];
 		} else {
 			disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 		}
-
-		// 对于其他的challenges直接使用默认的验证方案
-		completionHandler(disposition,credential);
+	} else {
+		disposition = NSURLSessionAuthChallengePerformDefaultHandling;
 	}
+
+	// 对于其他的challenges直接使用默认的验证方案
+	completionHandler(disposition,credential);
+}
 ```
 - **以 Unity 的 WWW 接口为例：**
 将 Unity 工程导为 Xcode 工程后，打开 Classes/Unity/**WWWConnection.mm** 文件，修改下述代码：
