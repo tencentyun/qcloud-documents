@@ -154,7 +154,7 @@ public class DemoApplication extends Application {
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上的  **log / tencent / liteav** 文件夹下。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上的  **Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。
 如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
@@ -215,7 +215,8 @@ defaultConfig {
 ```
 -keep class com.tencent.** { *; }
 ```
-
+- 配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。

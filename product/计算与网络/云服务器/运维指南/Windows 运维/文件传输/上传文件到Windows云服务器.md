@@ -9,6 +9,9 @@
 ## 操作步骤
 >? 以下操作步骤以 Windows 7 操作系统的本地计算机为例，根据操作系统的不同，详细操作步骤略有区别。
 >
+### 获取公网 IP
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，在实例列表页面记录需上传文件云服务器的公网 IP。如下图所示：
+![](https://main.qcloudimg.com/raw/ea509a3a924e9cafc54af146acaa03d7.png)
 
 ### 上传文件
 1. 在本地计算机，使用快捷键【Windows + R】，打开【运行】窗口。

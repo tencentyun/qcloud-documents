@@ -5,22 +5,22 @@
 
 | 接口名称       |    接口功能       |                     
 | ------------- | -------------    |
-| push/app         |          [推送通知/应用内消息接口](https://cloud.tencent.com/document/product/548/39064) |
-| push/package/upload         |      [号码包上传接口](https://cloud.tencent.com/document/product/548/39065) |
+| /push/app         |          [推送通知/应用内消息接口](https://cloud.tencent.com/document/product/548/39064) |
+| /push/package/upload         |      [号码包上传接口](https://cloud.tencent.com/document/product/548/39065) |
 
 ## 标签相关接口
 
 | 接口名称       |    接口功能       |                     
 | ------------- | -------------    |
-| device/tag        |          [标签绑定与解绑接口](https://cloud.tencent.com/document/product/548/39067) |
-| device_tag/delete_all_device       |          [删除标签下所有设备接口](https://cloud.tencent.com/document/product/548/39068) |
+| /device/tag        |          [标签绑定与解绑接口](https://cloud.tencent.com/document/product/548/39067) |
+| /device/tag/delete_all_device       |          [删除标签下所有设备接口](https://cloud.tencent.com/document/product/548/39068) |
 
 ## 账号相关接口
 
 | 接口名称       |    接口功能       |                     
 | ------------- | -------------    |
-| device/account/batchoperate        |          [账号绑定与解绑接口](https://cloud.tencent.com/document/product/548/39070) |
-| device/account/query      |          [账号设备绑定查询接口](https://cloud.tencent.com/document/product/548/39071) |
+| /device/account/batchoperate        |          [账号绑定与解绑接口](https://cloud.tencent.com/document/product/548/39070) |
+| /device/account/query      |          [账号设备绑定查询接口](https://cloud.tencent.com/document/product/548/39071) |
 
 
 

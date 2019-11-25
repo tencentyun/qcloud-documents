@@ -41,3 +41,9 @@
 非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 
+
+## 相关文档
+
+了解更多对象存储 COS 控制台操作，例如设置存储桶访问权限、设置防盗链、设置日志管理等，请参见 [控制台指南](https://cloud.tencent.com/document/product/436/11365) 文档。
+
+

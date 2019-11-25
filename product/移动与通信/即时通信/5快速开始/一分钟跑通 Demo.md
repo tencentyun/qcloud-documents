@@ -3,7 +3,7 @@
 <span id="step1"></span>
 ## 步骤1：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
- >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](step2)。
+ >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
  >
 2. 单击【+添加新应用】。
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
@@ -84,7 +84,7 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 //更新 pod 本地库
 pod setup
 ```
-2. 终端执行以下命令，加载 ImSDK 库。
+2. 终端执行以下命令，安装依赖库。
 ```
 //iOS
 cd iOS/TUIKitDemo
@@ -92,6 +92,10 @@ pod install
 //Mac
 cd Mac/TUIKitDemo
 pod install
+```
+ 如果安装失败，执行以下命令更新本地的 CocoaPods 仓库列表。
+ ```bash
+ pod repo update
 ```
 3. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。

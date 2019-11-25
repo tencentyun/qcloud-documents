@@ -8,6 +8,9 @@ __介绍__
 
 只有该参数填写正确，才能顺利调用 enterRoom 进入 roomId 所指定的音视频房间。
 
+
+
+
 __属性列表__
 
 | 属性 | 类型 | 是否必填|字段含义 | 推荐取值 |
@@ -32,6 +35,8 @@ __功能__
 __介绍__
 
 该设置决定远端用户看到的画面质量（同时也是云端录制出的视频文件的画面质量）。
+
+
 
 
 __属性列表__
@@ -80,8 +85,6 @@ __介绍__
 表示视频质量的好坏，通过该参数值，您可以在 UI 界面上用图标表征 userId 的通话线路质量。
 
 
-
-
 __属性列表__
 
 | 属性 | 类型 | 字段含义 |
@@ -110,7 +113,7 @@ __属性列表__
 | 属性 | 类型 | 字段含义 |
 |-----|-----|-----|
 | userId | string | 说话者的 userId，字符编码格式为 UTF-8。 |
-| volume | uint | 说话者的音量， 取值范围0 - 100。 |
+| volume | uint | 说话者的音量，取值范围0 - 100。 |
 
 
 
@@ -189,7 +192,7 @@ __属性列表__
 | videoHeight | uint | 最终转码后的视频分辨率的高度（px）。 | - |
 | videoBitrate | uint | 最终转码后的视频分辨率的码率（kbps）。 | - |
 | videoFramerate | uint | 最终转码后的视频分辨率的帧率（FPS）。 | 15 |
-| videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（又称为 GOP），单位秒。 | 3 |
+| videoGOP | uint | 最终转码后的视频分辨率的关键帧间隔（又称为 GOP），单位为秒。 | 3 |
 | audioSampleRate | uint | 最终转码后的音频采样率。 | 48000 |
 | audioBitrate | uint | 最终转码后的音频码率（kbps）。 | 64 |
 | audioChannels | uint | 最终转码后的音频声道数。 | 2 |
@@ -236,7 +239,29 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 特别说明 |
 |-----|-----|-----|-----|
-| filePath | string | 文件路径（必填），录音文件的保存路径。该路径需要用户自行指定，请确保路径存在且可写。 | 该路径需精确到文件名及格式后缀，格式后缀决定录制文件的格式，例如：指定路径为`path/to/audio.aac`，则会生成一个 AAC 格式的文件。目前支持的格式有 PCM、WAV 和 AAC。 |
+| filePath | string | 文件路径（必填），录音文件的保存路径。该路径需要用户自行指定，请确保路径存在且可写。 | 该路径需精确到文件名及格式后缀，格式后缀决定录制文件的格式，目前支持的格式有 PCM、WAV 和 AAC。例如，指定路径为 path/to/audio.aac，则会生成一个 AAC 格式的文件。请指定一个有读写权限的合法路径，否则录音文件无法生成。 |
+
+
+
+
+## TRTCAudioEffectParam
+
+__功能__
+
+音效。
+
+
+
+
+__属性列表__
+
+| 属性 | 类型 | 字段含义 | 推荐取值 |
+|-----|-----|-----|-----|
+| effectId | int | 音效 ID， 【特殊说明】SDK 允许播放多路音效，因此需要音效 ID 进行标记，用于控制音效的开始、停止、音量等。 | - |
+| path | string | 音效路径。 | - |
+| loopCount | int | 循环播放次数。 | 取值范围为0 - 任意正整数，默认值：0。0表示播放音效一次；1表示播放音效两次；以此类推。 |
+| publish | bool | 音效是否上行。 | YES：音效在本地播放的同时，会上行至云端，因此远端用户也能听到该音效；NO：音效不会上行至云端，因此只能在本地听到该音效。默认值：NO。 |
+| volume | int | 音效音量。 | 取值范围为0 - 100；默认值：100。 |
 
 
 
@@ -328,11 +353,11 @@ __介绍__
 
 | 枚举 | 含义 |
 |-----|-----|
-| TRTCVideoResolution_120_120 | 宽高比1:1。 |
+| TRTCVideoResolution_120_120 | [C] 建议码率80kbps。 |
 | TRTCVideoResolution_160_160 | [C] 建议码率100kbps。 |
 | TRTCVideoResolution_270_270 | [C] 建议码率200kbps。 |
 | TRTCVideoResolution_480_480 | [C] 建议码率350kbps。 |
-| TRTCVideoResolution_160_120 | 宽高比4:3。 |
+| TRTCVideoResolution_160_120 | [C] 建议码率100kbps。 |
 | TRTCVideoResolution_240_180 | [C] 建议码率150kbps。 |
 | TRTCVideoResolution_280_210 | [C] 建议码率200kbps。 |
 | TRTCVideoResolution_320_240 | [C] 建议码率250kbps。 |
@@ -340,13 +365,13 @@ __介绍__
 | TRTCVideoResolution_480_360 | [C] 建议码率400kbps。 |
 | TRTCVideoResolution_640_480 | [C] 建议码率600kbps。 |
 | TRTCVideoResolution_960_720 | [C] 建议码率1000kbps。 |
-| TRTCVideoResolution_160_90 | 宽高比16:9。 |
+| TRTCVideoResolution_160_90 | [C] 建议码率150kbps。 |
 | TRTCVideoResolution_256_144 | [C] 建议码率200kbps。 |
 | TRTCVideoResolution_320_180 | [C] 建议码率250kbps。 |
 | TRTCVideoResolution_480_270 | [C] 建议码率350kbps。 |
 | TRTCVideoResolution_640_360 | [C] 建议码率550kbps。 |
 | TRTCVideoResolution_960_540 | [C] 建议码率850kbps。 |
-| TRTCVideoResolution_1280_720 | [C] 摄像头采集 - 建议码率1200kbps。 |
+| TRTCVideoResolution_1280_720 | [C] 摄像头采集 - 建议码率1200kbps [S] 屏幕分享 - 建议码率 低清：400kbps 高清：600kbps。 |
 | TRTCVideoResolution_1920_1080 | [S] 屏幕分享 - 建议码率800kbps。 |
 
 
@@ -359,7 +384,7 @@ __功能__
 __介绍__
 
 - 横屏分辨率：TRTCVideoResolution_640_360 + TRTCVideoResolutionModeLandscape = 640 × 360
-- 竖屏分辨率：TRTCVideoResolution_640_360 + TRTCVideoResolutionModePortrait = 360 × 640
+- 竖屏分辨率：TRTCVideoResolution_640_360 + TRTCVideoResolutionModePortrait = 360 × 640。
 
 | 枚举 | 含义 |
 |-----|-----|
@@ -534,8 +559,8 @@ Log 级别。
 | TRTCLogLevelNone | 不输出任何 SDK Log。 |
 | TRTCLogLevelVerbose | 输出所有级别的 Log。 |
 | TRTCLogLevelDebug | 输出 DEBUG，INFO，WARNING，ERROR 和 FATAL 级别的 Log。 |
-| TRTCLogLevelInfo | 输出 INFO，WARNNING，ERROR 和 FATAL 级别的 Log。 |
-| TRTCLogLevelWarn | 只输出 WARNNING，ERROR 和 FATAL 级别的 Log。 |
+| TRTCLogLevelInfo | 输出 INFO，WARNING，ERROR 和 FATAL 级别的 Log。 |
+| TRTCLogLevelWarn | 只输出 WARNING，ERROR 和 FATAL 级别的 Log。 |
 | TRTCLogLevelError | 只输出 ERROR 和 FATAL 级别的 Log。 |
 | TRTCLogLevelFatal | 只输出 FATAL 级别的 Log。 |
 

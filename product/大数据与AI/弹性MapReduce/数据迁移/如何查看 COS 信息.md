@@ -3,7 +3,7 @@
 - 单击左侧菜单栏【存储桶列表】，创建存储桶、查看存储桶列表
 ![](https://main.qcloudimg.com/raw/5cff289d361eb7338acab19a7d3daf20.png)
 - 查看存储桶的域名
-![查看域名](https://main.qcloudimg.com/raw/8832c679e4839020a73c13a97db8d2ee.png)
+![](https://main.qcloudimg.com/raw/ac6931d37f4de6bf0a12acba0aa8090a.png)
 - 查询密钥，单击左侧菜单栏【密钥管理】
 ![密钥管理](https://main.qcloudimg.com/raw/473d1ea869db415c1bc9b826df13fe59.png)
 单击【云 API 密钥】

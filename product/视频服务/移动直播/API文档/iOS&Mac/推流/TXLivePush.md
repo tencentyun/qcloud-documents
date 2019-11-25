@@ -18,14 +18,14 @@ __介绍__
 ## SDK 基础函数
 ### config
 
-设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。
+设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见`TXLivePushConfig.h`文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePushConfig * config
 ```
 ***
 ### delegate
 
-设置推流回调接口，见“TXLivePushListener.h”文件中的详细定义。
+设置推流回调接口，见`TXLivePushListener.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePushListener > delegate
 ```
@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。 |
+| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见`TXLivePushConfig.h`文件中的详细定义。 |
 
 ***
 
@@ -93,7 +93,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rtmpURL | NSString * | 推流地址，参考文档：[获取推流地址](https://cloud.tencent.com/document/product/267/32720)。 |
+| rtmpURL | NSString * | 推流地址，请参见 [获取推流地址](https://cloud.tencent.com/document/product/267/32720)。 |
 
 __返回__
 
@@ -187,7 +187,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。请参见 [设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 TXLivePusher 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
@@ -250,7 +250,7 @@ __参数__
 
 __介绍__
 
-该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，例如原来是540 x 960，希望变成960 x 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 homeOrientation 来实现。
+该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，例如原来是540 × 960，希望变成960 × 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 homeOrientation 来实现。
 
 
 <pre>
@@ -325,21 +325,19 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 
 ## 美颜相关接口
-### setBeautyStyle
+### getBeautyManager
 
-设置美颜级别和美白级别。
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。
 ```
-- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel 
+- (TXBeautyManager *)getBeautyManager 
 ```
 
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 使用哪种磨皮算法，支持光滑和自然两种，光滑风格磨皮更加明显，适合秀场直播。见“TXLiveSDKTypeDef.h”中的 TX_Enum_Type_BeautyStyle 定义。 |
-| beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭，1 - 9值越大，效果越明显。 |
-| whitenessLevel | float | 美白级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-| ruddinessLevel | float | 红润级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 
 ***
 
@@ -373,98 +371,6 @@ __介绍__
 
 ***
 
-
-## 商业版美颜和动效挂件
-### setEyeScaleLevel
-
-设置大眼级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setEyeScaleLevel:(float)eyeScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| eyeScaleLevel | float | 大眼级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceScaleLevel
-
-设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceScaleLevel:(float)faceScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceScaleLevel | float | 瘦脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceVLevel:(float)faceVLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceVLevel | float | V 脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setChinLevel:(float)chinLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | float | 下巴拉伸或收缩级别，取值范围：-9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceShortLevel:(float)faceShortlevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceShortlevel | float | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setNoseSlimLevel:(float)noseSlimLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | float | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
 ### setGreenScreenFile
 
 设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
@@ -483,43 +389,6 @@ __介绍__
 此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
 ***
-
-### selectMotionTmpl
-
-选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
-```
-- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| tmplName | NSString * | 动效名称。 |
-| tmplDir | NSString * | 动效所在目录。 |
-
-***
-
-### setMotionMute
-
-设置动效静音（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setMotionMute:(BOOL)motionMute 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| motionMute | BOOL | YES：静音；NO：不静音。 |
-
-__介绍__
-
-有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
-
-***
-
-
 ## 音频相关接口
 ### setMute
 
@@ -639,7 +508,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| volume | float | 音量大小，1为正常音量，范围是0 - 1之间的浮点数。 |
 
 __返回__
 
@@ -658,7 +527,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| volume | float | 音量大小，1为正常音量，范围是0 - 1之间的浮点数。 |
 
 __返回__
 
@@ -696,7 +565,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -715,7 +584,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 voiceChangerType 定义。 |
 
 __返回__
 
@@ -727,7 +596,7 @@ YES：成功；NO：失败。
 ## 本地录制接口
 ### recordDelegate
 
-录制回调接口，详见 "TXLiveRecordTypeDef.h" 中的 TXLiveRecordListener 定义。
+录制回调接口，详见`TXLiveRecordTypeDef.h`中的 TXLiveRecordListener 定义。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
@@ -793,7 +662,7 @@ __参数__
 
 __介绍__
 
-自定义视频采集和自定义视频处理不能同时开启，与自定义视频采集不同，自定义视频处理依然是由 SDK 采集摄像头的画面， 但 SDK 会通过 TXVideoCustomProcessDelegate（见“TXVideoCustomProcessDelegate.h”）回调将数据回调给您的 App 进行二次加工。
+自定义视频采集和自定义视频处理不能同时开启，与自定义视频采集不同，自定义视频处理依然是由 SDK 采集摄像头的画面， 但 SDK 会通过 TXVideoCustomProcessDelegate（见`TXVideoCustomProcessDelegate.h`）回调将数据回调给您的 App 进行二次加工。
 如果要开启自定义视频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_VIDEO_PREPROCESS 选项。
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
@@ -808,7 +677,7 @@ __介绍__
 
 __介绍__
 
-自定义音频采集和自定义音频处理不能同时开启，与自定义音频采集不同，自定义音频处理依然是由 SDK 采集麦克风的声音， 但 SDK 会通过 TXAudioCustomProcessDelegate（见“TXAudioCustomProcessDelegate.h”）回调将数据回调给您的 App 进行二次加工。
+自定义音频采集和自定义音频处理不能同时开启，与自定义音频采集不同，自定义音频处理依然是由 SDK 采集麦克风的声音， 但 SDK 会通过 TXAudioCustomProcessDelegate（见`TXAudioCustomProcessDelegate.h`）回调将数据回调给您的 App 进行二次加工。
 如果要开启自定义音频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_PREPROCESS 选项。
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
