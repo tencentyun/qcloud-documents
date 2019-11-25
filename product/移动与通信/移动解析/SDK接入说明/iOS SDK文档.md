@@ -48,7 +48,7 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
 #### 4.2.2 未接入灯塔（Beacon）的业务
-灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK, HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据, 辅助定位问题。
+灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
