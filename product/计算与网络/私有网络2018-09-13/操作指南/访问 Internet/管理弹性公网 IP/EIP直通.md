@@ -74,7 +74,7 @@ chmod +x eip_direct.sh
 2. 找到对应主网卡绑定的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
 
 #### 步骤4：云服务器内配置 IP
-1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704))。
+1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)）。
 2. `Win+R` 组合键打开运行命令，输入 `firewall.cpl ` 按回车，打开“ Windows 防火墙”页面。
 ![](https://main.qcloudimg.com/raw/b0cd418caf7d0a95c7a39b75f4996e09.png)
 3. 单击【打开或关闭Windows防火墙】，进入“自定义设置”页面。
