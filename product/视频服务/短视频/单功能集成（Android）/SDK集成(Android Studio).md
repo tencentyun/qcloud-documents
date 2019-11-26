@@ -221,7 +221,7 @@ defaultConfig {
 1. 创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2. 拷贝 SDK 开发包中的 videoediter、videorecord 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
+2. 拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
 	- videoediter：SDK开发包中短视频编辑 UI 组件
 	- videorecord：SDK开发包中短视频录制 UI 组件
 	- videojoiner：SDK开发包中短视频合成 UI 组件
@@ -230,7 +230,7 @@ defaultConfig {
 ```
 include ':app'
 # 拷贝这段代码起始位置
-include ':videorecord'
+include ':videorecorder'
 include ':videoediter'
 include ':videojoiner'
 # 拷贝这段代码结束位置
@@ -242,10 +242,10 @@ include ':videojoiner'
 apply plugin: 'com.android.application'
 
 android {
-	compileSdkVersion 25
-	buildToolsVersion "25.0.2"
+	compileSdkVersion rootProject.ext.compileSdkVersion
+        buildToolsVersion rootProject.ext.buildToolsVersion
 	defaultConfig {
-		applicationId "ugc.demo.com.ugc"
+		applicationId "com.tencent.liteav.demo"
 		minSdkVersion 15
 		targetSdkVersion 23
 		versionCode 1
@@ -307,7 +307,9 @@ allprojects {
 		jcenter()
 		 // 拷贝这段代码起始位置
 		flatDir {
-			dirs 'libs'
+			 dirs project(':videoediter').file('libs')
+            		 dirs project(':videojoiner').file('libs')
+         		 dirs project(':videorecorder').file('libs')
 		}
 		// 拷贝这段代码结束位置
 	}
@@ -318,14 +320,28 @@ task clean(type: Delete) {
 }
  // 拷贝这段代码起始位置
 ext {
-    compileSdkVersion = 29
-    buildToolsVersion = "29.0.0"
-    minSdkVersion = 16
-    targetSdkVersion = 23
+	compileSdkVersion = 28
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 16
+        targetSdkVersion = 23
+        supportSdkVersion = "26.0.0"
 }
 // 拷贝这段代码结束位置
 ```
-4. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
+4. 在拷贝的三个module："videoediter"，"videojoiner"，"videorecorder" 中 libs 文件夹拷贝最新sdk的aar，并在每个module的build.gradle配置sdk。如下示例"videoediter"
+```
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // 请修改为拷贝到libs下的sdk名称
+    compile(name: 'LiteAVSDK_Professional', ext: 'aar')
+
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportSdkVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportSdkVersion"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+}
+```
+
+5. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 
 ```
 The versions of the Android Gradle plugin and Gradle are not compatible.
@@ -335,7 +351,7 @@ The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
-5. License 配置
+6. License 配置
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 
 ```
@@ -363,7 +379,7 @@ public class DemoApplication extends Application {
 </application>
 ```
 
-6. 短视频模块的调用
+7. 短视频模块的调用
 在 activity_main.xml 中建立三个 Button。
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -429,7 +445,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	}
 }
 ```
-7. clean 工程，运行即可看到效果。
+8. clean 工程，运行即可看到效果。
 
 ### 相关文件简介
 #### 短视频录制
