@@ -39,9 +39,14 @@ IPv6 负载均衡的架构如下图所示：
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，单击 IPv6 负载均衡实例 ID，进入详情页。
 2. 选择【监听器管理】标签页，单击【新建】，如创建一个 TCP 监听器。
 >?支持创建四层 IPv6 负载均衡均衡监听器（TCP/UDP/TCP SSL）和七层 IPv6 负载均衡监听器（HTTP/HTTPS），详情请参见 [负载均衡监听器概述](https://cloud.tencent.com/document/product/214/6151)。
->
+
+3. 在“基本配置”中配置名称、监听协议端口和均衡方式，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/815c00aa93b5f23408bd78791ea5b7c3.png)
-3. 监听器创建完成后，选中该监听器，单击【绑定】。
+4. 配置健康检查，单击【下一步】
+![](https://main.qcloudimg.com/raw/19fbf68edcb9d4f06102ae61c2228b67.png)
+5. 配置会话保持，单击【提交】。
+![](https://main.qcloudimg.com/raw/9743537a93828dc8c0c10e6c943f7673.png)
+3. 监听器创建完成后，选中该监听器，在右侧单击【绑定】。
 >!请提前完成云服务器获取 IPv6 地址的操作。
 >
 ![](https://main.qcloudimg.com/raw/edf72af61361da4f833f2424a548040e.png)
