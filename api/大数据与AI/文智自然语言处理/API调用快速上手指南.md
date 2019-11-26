@@ -97,26 +97,26 @@
 
 ### 3.2 修改demo.php文件，修改点如下
 
-**a) **SecretId，SecretKey改为自己腾讯云上相应的值，这里查看：
+**a**SecretId，SecretKey改为自己腾讯云上相应的值，这里查看：
 
 http://manage.qcloud.com/capi/capiManage.php
 
-**b）**$package=array('offset'=>0, 'limit'=>3); 改为：
+**b**$package=array('offset'=>0, 'limit'=>3); 改为：
 
 $package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 	
 说明：这是文智情感分析接口的参数。
 
-**c）**$a=$cvm->DescribeInstances($package); 改为：
+**c**$a=$cvm->DescribeInstances($package); 改为：
 
 $a = $wenzhi->TextSentiment($package); 
 
   说明：这是文智模块的相关接口，具体请查看接口列表：
   http://cloud.tencent.com/wiki/v2/API
 	
-**d）**其他所有地方的$cvm改为$wenzhi，即替换为文智模块。
+**d**其他所有地方的$cvm改为$wenzhi，即替换为文智模块。
 
-**修改后的demo.php如下：**
+**修改后的 demo.php 如下：**
 
 ```
 <?php
