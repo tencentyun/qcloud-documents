@@ -25,7 +25,7 @@ __介绍__
 ## SDK 基础函数
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 MLVBLiveRoom sharedInstance(Context context)
 ```
@@ -38,7 +38,7 @@ __参数__
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例。
 
 >?可以调用 [MLVBLiveRoom#destroySharedInstance()](https://cloud.tencent.com/document/product/454/34776#destroysharedinstance) 销毁单例对象。
 
@@ -46,12 +46,12 @@ __返回__
 
 ### destroySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 void destroySharedInstance()
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#sharedinstance) 获取新实例。
 
 ***
 
@@ -66,11 +66,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) | 回调接口。 |
+| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) | 回调接口。 |
 
 __介绍__
 
-您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 的各种状态通知。
+您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 的各种状态通知。
 
 >?默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#setlistenerhandler)。
 
