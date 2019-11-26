@@ -17,7 +17,7 @@
 主账号可以创建一个或多个子用户，以为其分配特定的角色和策略。子用户有确定的身份 ID 和身份凭证，可登录控制台并完成设置，同时具有 API 访问权限。登录腾讯云控制台，进入 [访问管理](https://console.cloud.tencent.com/cam/) 页面，可新建用户，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/ba0f63ed813555c644a7846c678ae954.png)
-详细步骤请参见访问管理 [子用户](https://cloud.tencent.com/document/product/598/13674) 和 [用户组](https://cloud.tencent.com/document/product/598/10599)。
+详细步骤请参见访问管理 [子用户](https://cloud.tencent.com/document/product/598/13674) 和 [用户组](https://cloud.tencent.com/document/product/598/14985)。
 
 ### 第二步：为用户/用户组添加策略
 
