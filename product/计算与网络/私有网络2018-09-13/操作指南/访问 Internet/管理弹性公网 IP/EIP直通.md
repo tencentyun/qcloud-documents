@@ -80,12 +80,11 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 #### 步骤4：云服务器内配置 IP
 1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)）。
 2. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，输入 `firewall.cpl ` 按回车，打开“ Windows 防火墙”页面。
-3. 单击【打开或关闭Windows防火墙】，进入“自定义设置”页面。
-![](https://main.qcloudimg.com/raw/b3a3fdc9fc16cc8f2ee7986125c05047.png)
-4. 在“家庭或工作（专用）网络位置设置”和“公用网络位置设置”模块中分别选择【关闭 Windows 防火墙】，单击【确定】即可。
-![](https://main.qcloudimg.com/raw/841302b1c8d300dea2bdeb419e190028.png)
+3. 单击【启用或关闭 Windows 防火墙】，进入“自定义设置”页面。
+![](https://main.qcloudimg.com/raw/6525a0f3bc8e1e679ceb28894e059222.png)
+4. 在“专用网络设置”和“公用网络设置”模块中分别选择【关闭 Windows 防火墙】，单击【确定】即可。
+![](https://main.qcloudimg.com/raw/473ffef834aa17f5f6d239354a7919e6.png)
 5. 双击步骤1中下载的脚本即可执行，输入公网 IP 地址，连续回车两次即可。 
-
 
 >!直通成功后请勿给主网卡再配内网 IP，如果配上，则云服务器内无法上网。
 
