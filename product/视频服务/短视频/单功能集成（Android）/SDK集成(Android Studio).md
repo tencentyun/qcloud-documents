@@ -17,10 +17,10 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
 
 ##### 3.1.2. 拷贝文件
-将 aar 包放在工程 `app/libs` 目录下即可。
+将 aar 包放在工程 libs 目录下即可。
 
 ##### 3.1.3. 工程配置
-- 在工程目录下的 build.gradle 中，添加引用 aar 包的代码：
+- 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
