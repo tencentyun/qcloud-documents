@@ -43,7 +43,7 @@ __介绍__
 ***
 ### config
 
-设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见`TXLivePlayConfig.h`文件中的详细定义。
+设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760) 播放配置项，见`TXLivePlayConfig.h`文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePlayConfig * config
 ```
@@ -81,7 +81,7 @@ __参数__
 
 __介绍__
 
-变更历史：1.5.2版本将参数 frame 废弃，设置此参数无效，控件大小与参数 view 的大小保持一致，如需修改控件的大小及位置，请调整父 view 的大小及位置。 请参见 [绑定渲染界面](https://cloud.tencent.com/document/product/454/7880#step-2.3A-.E6.B8.B2.E6.9F.93-view)。
+变更历史：1.5.2版本将参数 frame 废弃，设置此参数无效，控件大小与参数 view 的大小保持一致，如需修改控件的大小及位置，请调整父 view 的大小及位置。 请参见 [绑定渲染界面](https://cloud.tencent.com/document/product/454/7880#step-2.EF.BC.9A.E6.B8.B2.E6.9F.93-view)。
 
 ***
 
