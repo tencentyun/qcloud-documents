@@ -182,7 +182,7 @@ if (result) {
 
 1. 如果客户端的业务是与 host 绑定的，例如绑定了 host 的 HTTP 服务或者是 cdn 的服务，那么在用 HTTPDNS 返回的 IP 替换掉 URL 中的域名以后，还需要指定下 HTTP 头的 host 字段。
 
-- 以 NSURLConnection 为例：
+ - 以 NSURLConnection 为例：
 ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
 float timeOut = 设置的超时时间;
@@ -192,7 +192,7 @@ NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:mutableRe
 [connection start];
 ```
 
-- 以 NSURLSession 为例：  
+ - 以 NSURLSession 为例：  
  ```
 NSURL *httpDnsURL = [NSURL URLWithString:@"使用解析结果ip拼接的URL"];
 float timeOut = 设置的超时时间;
@@ -203,13 +203,12 @@ NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration del
 NSURLSessionTask *task = [session dataTaskWithRequest:mutableReq];
 [task resume];
 ```
-- 以 curl 为例：  
-    
-假设您要访问www.qq.com，通过HTTPDNS解析出来的IP为192.168.0.111，那么通过这个方式来调用即可：
+ - 以 curl 为例：  
+假设您要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为192.168.0.111，那么通过这个方式来调用即可：
 ```
 curl -H "host:www.qq.com" http://192.168.0.111/aaa.txt.
 ```
-- 以 Unity 的 WWW 接口 为例：  
+ - 以 Unity 的 WWW 接口 为例：  
 ```    
 string httpDnsURL = "使用解析结果ip拼接的URL";
 Dictionary<string, string> headers = new Dictionary<string, string> ();
@@ -223,8 +222,9 @@ if (conn.error != null) {
 }
 ```
 2. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析。
-  - 检测是否使用了 HTTP 代理：
-```    
+ - 检测是否使用了 HTTP 代理：
+ 
+```
 - (BOOL)isUseHTTPProxy {
 	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
 	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
@@ -236,7 +236,7 @@ if (conn.error != null) {
 	}
 }
 ```
- - 检测是否使用了 HTTPS 代理：
+   - 检测是否使用了 HTTPS 代理：
 ```
 - (BOOL)isUseHTTPSProxy {
 	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
@@ -258,8 +258,7 @@ if (conn.error != null) {
 2. 在需要进行域名解析的部分，调用 HttpDns.GetAddrByName(string domain) 或者 HttpDns.GetAddrByNameAsync(string domain) 方法。
 	- 如使用同步接口 **HttpDns.GetAddrByName**，直接调用接口即可。
 	- 如果使用异步接口 **HttpDns.GetAddrByNameAsync**，还需设置回调函数 **onDnsNotify(string ipString)**，函数名可自定义。
-	
-并建议添加如下处理代码：
+ 并建议添加如下处理代码：
 ``` 
 string[] sArray=ipString.Split(new char[] {';'}); 
 if (sArray != null && sArray.Length > 1) {
@@ -287,7 +286,8 @@ if (sArray != null && sArray.Length > 1) {
 
 #### Demo 示例
 
-- **以 NSURLConnection 接口为例：**
+ - **以 NSURLConnection 接口为例：**
+ 
 ```
 #pragma mark - NSURLConnectionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
@@ -342,10 +342,10 @@ if (sArray != null && sArray.Length > 1) {
 	}
 }
 ```
-
 - **以 NSURLSession 接口为例：**
+
 ```
-#pragma mark - NSURLSessionDelegate
+ #pragma mark - NSURLSessionDelegate
 - (BOOL)evaluateServerTrust:(SecTrustRef)serverTrust forDomain:(NSString *)domain {
 
 	//创建证书校验策略
