@@ -161,7 +161,6 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-
 #### 3.6 编译运行
 
 在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
@@ -239,117 +238,132 @@ include ':videojoiner'
 # 拷贝这段代码结束位置
 ```
 
-	在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
+在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
 
-	```
-	apply plugin: 'com.android.application'
+```
+apply plugin: 'com.android.application'
 
-	android {
-			compileSdkVersion 25
-			buildToolsVersion "25.0.2"
-			defaultConfig {
-					applicationId "ugc.demo.com.ugc"
-					minSdkVersion 15
-					targetSdkVersion 23
-					versionCode 1
-					versionName "1.0"
-					// 拷贝这段代码起始位置
-					ndk {
-							abiFilters "armeabi", "armeabi-v7a"
-					}
-					// 拷贝这段代码结束位置
-					testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-			}
-			buildTypes {
-					release {
-							minifyEnabled false
-							proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-					}
-			}
-			// 拷贝这段代码起始位置
-			sourceSets {
-					main {
-							jniLibs.srcDirs = ['libs']
-					}
-			}
-			// 拷贝这段代码结束位置
+android {
+	compileSdkVersion 25
+	buildToolsVersion "25.0.2"
+	defaultConfig {
+		applicationId "ugc.demo.com.ugc"
+		minSdkVersion 15
+		targetSdkVersion 23
+		versionCode 1
+		versionName "1.0"
+		// 拷贝这段代码起始位置
+		ndk {
+			abiFilters "armeabi", "armeabi-v7a"
+		}
+		// 拷贝这段代码结束位置
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 	}
-
-	dependencies {
-			compile fileTree(dir: 'libs', include: ['*.jar'])
-			// 拷贝这段代码起始位置
-			compile project(':videoediter')
-			compile project(':videojoiner')
-			compile project(':videorecord')
-			// 拷贝这段代码结束位置
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
 	}
-	```
+	// 拷贝这段代码起始位置
+	sourceSets {
+		main {
+			jniLibs.srcDirs = ['libs']
+		}
+	}
+	// 集成短视频商业版需要添加 packagingOptions，非商业版不需要
+	packagingOptions {
+		pickFirst '**/libc++_shared.so'
+        	doNotStrip "*/armeabi/libYTCommon.so"
+        	doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        	doNotStrip "*/x86/libYTCommon.so"
+        	doNotStrip "*/arm64-v8a/libYTCommon.so"
+    	}
+	// 拷贝这段代码结束位置
+}
+
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	// 拷贝这段代码起始位置
+	compile project(':videoediter')
+	compile project(':videojoiner')
+	compile project(':videorecord')
+	// 拷贝这段代码结束位置
+}
+```
+
 3. 修改 Project:build.gradle 的配置 
 
-	```
-	buildscript {
-
-			repositories {
-					jcenter()
-			}
-			dependencies {
-					classpath 'com.android.tools.build:gradle:2.2.3'
-			}
+```
+buildscript {
+	repositories {
+		jcenter()
 	}
-
-	allprojects {
-			repositories {
-					jcenter()
-					 // 拷贝这段代码起始位置
-					flatDir {
-							dirs 'libs'
-					}
-					// 拷贝这段代码结束位置
-			}
+	dependencies {
+		classpath 'com.android.tools.build:gradle:2.2.3'
 	}
+}
 
-	task clean(type: Delete) {
-			delete rootProject.buildDir
+allprojects {
+	repositories {
+		jcenter()
+		 // 拷贝这段代码起始位置
+		flatDir {
+			dirs 'libs'
+		}
+		// 拷贝这段代码结束位置
 	}
-	```
+}
+
+task clean(type: Delete) {
+	delete rootProject.buildDir
+}
+ // 拷贝这段代码起始位置
+ext {
+    compileSdkVersion = 29
+    buildToolsVersion = "29.0.0"
+    minSdkVersion = 16
+    targetSdkVersion = 23
+}
+// 拷贝这段代码结束位置
+```
 4. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 
-	```
+```
 The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
 可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本
 
-	```
+```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
 5. License 配置
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 
-	```
-	//DemoApplication.java
-	import com.tencent.ugc.TXUGCBase;
+```
+//DemoApplication.java
+import com.tencent.ugc.TXUGCBase;
 
-	public class DemoApplication extends Application {
-			String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence";
-			String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";
+public class DemoApplication extends Application {
+	String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence";
+	String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";
 
-			@Override
-			public void onCreate() {
-					super.onCreate();
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		TXUGCBase.getInstance().setLicence(this, ugcLicenceUrl, ugcKey);
 
-					TXUGCBase.getInstance().setLicence(this, ugcLicenceUrl, ugcKey);
-
-					String string = TXUGCBase.getInstance().getLicenceInfo(this);
-					Log.i("SDK", "string=" + string);
-			}
+		String string = TXUGCBase.getInstance().getLicenceInfo(this);
+		Log.i("SDK", "string=" + string);
 	}
+}
 
-	// AndroidManifest.xml
-	<application
-					android:name=".DemoApplication"
-				 ...
-	</application>
-	```
+// AndroidManifest.xml
+<application
+	android:name=".DemoApplication"
+	 ...
+</application>
+```
 
 6. 短视频模块的调用
 在 activity_main.xml 中建立三个 Button。
@@ -382,43 +396,41 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
 在 MainActivity.java 中启动各模块的类即可。
 
-	```
-	public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+```
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-			@Override
-			protected void onCreate(Bundle savedInstanceState) {
-					super.onCreate(savedInstanceState);
-					setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-					Button button1 = (Button) findViewById(R.id.record);
-					Button button2 = (Button) findViewById(R.id.editer);
-					Button button3 = (Button) findViewById(R.id.joiner);
+		Button button1 = (Button) findViewById(R.id.record);
+		Button button2 = (Button) findViewById(R.id.editer);
+		Button button3 = (Button) findViewById(R.id.joiner);
 
-					button1.setOnClickListener(this);
-					button2.setOnClickListener(this);
-					button3.setOnClickListener(this);
-			}
-
-			@Override
-			public void onClick(View v) {
-					switch (v.getId()) {
-							case R.id.record:
-									Intent intent1 = new Intent(this, TCVideoSettingActivity.class);
-									startActivity(intent1);
-									break;
-							case R.id.editer:
-									Intent intent2 = new Intent(this, TCVideoEditChooseActivity.class);
-									startActivity(intent2);
-									break;
-							case R.id.joiner:
-									Intent intent3 = new Intent(this, TCVideoJoinChooseActivity.class);
-									startActivity(intent3);
-									break;
-					}
-			}
+		button1.setOnClickListener(this);
+		button2.setOnClickListener(this);
+		button3.setOnClickListener(this);
 	}
 
-	```
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.record:
+			Intent intent1 = new Intent(this, TCVideoSettingActivity.class)								startActivity(intent1)
+			break;
+		case R.id.editer:
+			Intent intent2 = new Intent(this, TCVideoEditChooseActivity.class);
+			startActivity(intent2);
+			break;
+		case R.id.joiner:
+			Intent intent3 = new Intent(this, TCVideoJoinChooseActivity.class);
+			startActivity(intent3);
+			break;
+		}
+	}
+}
+```
 7. clean 工程，运行即可看到效果。
 
 ### 相关文件简介
