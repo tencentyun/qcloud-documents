@@ -16,8 +16,8 @@
 ### Linux 系统
 >?
 >- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
->- Linux 脚本仅支持 eth0，暂不支持辅助网卡。
->- Linux 脚本针对的场景为：内网 IP 和外网 IP 均在 eth0 上，外网地址通过外网 IP 访问，内网地址通过内网 IP 访问。
+>- Linux 脚本仅支持主网卡（eth0)，暂不支持辅助网卡。
+>- Linux 脚本针对的场景为：内网 IP 和外网 IP 均在主网卡（eth0）上，外网地址通过外网 IP 访问，内网地址通过内网 IP 访问。
 >- 如果主网卡绑定的公网 IP 不是弹性公网 IP，需要先转换为弹性公网 IP。
 
 #### 步骤1：下载 EIP 配置脚本
@@ -59,7 +59,11 @@ chmod +x eip_direct.sh
 - 如果主网卡绑定的公网 IP 不是弹性公网 IP，需要先转换为弹性公网 IP。
 
 #### 步骤1：下载 EIP 配置脚本
-由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通配置脚本到云服务器中。下载路径：[Windows 脚本下载](https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat)。
+由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通配置脚本到云服务器中。
+请在云服务器的浏览器中打开如下链接进行配置脚本的下载：
+```
+https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
+```
 
 #### 步骤2：配置辅助网卡
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
