@@ -11,8 +11,9 @@ Moodle 是一个开源的在线教育系统，也被称为在线学习系统（L
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
- 弹出“选择镜像”窗口。
- ![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
+![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
 3. 在“选择镜像”窗口的左侧搜索框中，输入 moodle 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px;"/>。如下图所示：
 >?单击镜像名可查看镜像详情，本文使用 [Moodle LMS在线学习系统](https://market.cloud.tencent.com/products/708?productId=708&_ga=1.158416825.2093467297.1571788865)。
 >
