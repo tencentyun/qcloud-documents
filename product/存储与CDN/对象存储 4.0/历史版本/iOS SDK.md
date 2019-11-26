@@ -36,11 +36,10 @@ pod "QCloudCOSV4"
 git clone https://github.com/tencentyun/COS_iOS_SDK.git
 ```
 
-将目录**coslib**下面的文件拖入到工程中即可：
+将目录 **coslib** 下面的文件拖入到工程中即可：
+![](https://main.qcloudimg.com/raw/b14442ebe145e374cdc6171ae1000f4b.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fgm77ref66j30l0094dgv.jpg)
-
-将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
+将目录 **coslib** 下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
 
 并添加以下依赖库：
 
