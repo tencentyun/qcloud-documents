@@ -59,7 +59,7 @@ chmod +x eip_direct.sh
 - 如果主网卡绑定的公网 IP 不是弹性公网 IP，需要先转换为弹性公网 IP。
 
 #### 步骤1：下载 EIP 配置脚本
-由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通配置脚本到云服务器中。下载路径：[Windows 脚本下载]()。
+由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通配置脚本到云服务器中。下载路径：[Windows 脚本下载](https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat)。
 
 #### 步骤2：配置辅助网卡
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
