@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig)。 |
+| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
 
 ***
 
@@ -56,7 +56,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener)。 |
+| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773)。 |
 
 ***
 
