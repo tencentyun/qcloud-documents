@@ -84,7 +84,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 ### Step6. 获取房间列表（非必需）
 >? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
-不管是主播还是观众都需要有一个房间间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
+不管是主播还是观众都需要有一个房间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
 - 当主播通过`createRoom`创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
 - 当主播通过`exitRoom`退出房间时，房间列表中会移除该房间。
 
