@@ -13,7 +13,7 @@
 
 ### 2.1 通信协议和规则
 
-  详见[《通信协议》](https://cloud.tencent.com/document/api/271/2052#2.-.E9.80.9A.E4.BF.A1.E5.8D.8F.E8.AE.AE)
+详见[《通信协议》](https://cloud.tencent.com/document/api/271/2052#2.-.E9.80.9A.E4.BF.A1.E5.8D.8F.E8.AE.AE)
 	
 ### 2.2 公共参数
 
@@ -70,20 +70,19 @@
 
 
 
-  公共参数详见[《腾讯云公共参数》](http://cloud.tencent.com/wiki/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
+公共参数详见[《腾讯云公共参数》](http://cloud.tencent.com/wiki/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
 	
 ### 2.3 接口鉴权
 
 接口鉴权方法详见[《接口鉴权》](http://cloud.tencent.com/doc/api/307/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
->注意：在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
+>!在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
 
 ### 2.4 异步任务接口返回格式
-
-  详见[《腾讯云异步任务接口返回格式》](http://cloud.tencent.com/doc/api/307/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
+详见[《腾讯云异步任务接口返回格式》](http://cloud.tencent.com/doc/api/307/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
 	
 ### 2.5 错误码
 
-  详见[《调用方式-返回值-错误码》](http://cloud.tencent.com/doc/api/307/%E9%94%99%E8%AF%AF%E7%A0%81)
+详见[《调用方式-返回值-错误码》](http://cloud.tencent.com/doc/api/307/%E9%94%99%E8%AF%AF%E7%A0%81)
 	
 ## 3 调用示例
 
