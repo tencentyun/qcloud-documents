@@ -14,6 +14,8 @@
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png)
 4. 在弹出的【选择镜像】对话框中，选择【建站系统】> 【WordPress博客平台】，单击【免费使用】。如下图所示：
 ![](https://main.qcloudimg.com/raw/b79bc585d2e1f45a2ff8d9f0334fb1c6.png)
