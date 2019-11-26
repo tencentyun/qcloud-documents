@@ -57,7 +57,7 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 CosXmlConfig config = new CosXmlConfig.Builder()
   .SetConnectionTimeoutMs(60000)  //设置连接超时时间，单位毫秒，默认45000ms
   .SetReadWriteTimeoutMs(40000)  //设置读写超时时间，单位毫秒，默认45000ms
-  .IsHttps(true)  //设置默认 https 请求
+  .IsHttps(true)  //设置默认 HTTPS 请求
   .SetAppid("1250000000") //设置腾讯云账户的账户标识 APPID
   .SetRegion("ap-guangzhou") //设置一个默认的存储桶地域
   .Build();
