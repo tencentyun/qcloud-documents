@@ -482,7 +482,7 @@ client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NS
 
 | 参数名称 | 类型       | 是否必填 | 说明                 |
 | -------- | ---------- | -------- | -------------------- |
-| fileName | NSString * | 是       |                      |
+| fileName | NSString * | 是       |        -              |
 | bucket   | NSString * | 是       | 目录所属 bucket 名称 |
 | sign     | NSString * | 是       | 签名                 |
 | attrs    | NSString * | 否       | 用户自定义属性       |
