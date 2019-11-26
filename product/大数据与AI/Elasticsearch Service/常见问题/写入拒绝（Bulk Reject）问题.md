@@ -24,7 +24,7 @@ GET _cat/shards?index=index_name&v
 ![](https://main.qcloudimg.com/raw/551e6cb4aaccd8391f619f0ecef0129d.png)
 2. 检查分片数是否分布不均匀
 集群中的节点分片分布不均匀，有的节点分配的 shard 过多，有的分配的 shard 少。
- - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995#1023983810)。
+ - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995)。
  - 也可通过 curl 客户端，查看集群各个节点的分片个数。
 ```
 curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $8}' | sort | uniq -c | sort
