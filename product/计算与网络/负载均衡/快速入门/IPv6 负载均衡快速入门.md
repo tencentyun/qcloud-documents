@@ -79,3 +79,12 @@ vim  /etc/nginx/nginx.conf
 ![](https://main.qcloudimg.com/raw/475b9360540372bda5ad1987bf7aa6f5.png)
 3. 成功绑定云服务器后，请确认端口状态是否为“健康”；如果端口状态为“异常”，请确定监听器是否绑定了正确的云服务器端口，同时登录云服务器检查端口已经正常监听 IPv6。
 ![](https://main.qcloudimg.com/raw/5129d8dd60ccdec80b0136d64b7d5e2e.png)
+
+## 测试 IPv6 负载均衡
+配置完成负载均衡后，可以验证该架构是否生效，即验证通过一个 CLB 实例下不同的域名 + URL 访问不同的后端云服务器，也即验证内容路由（content-based routing） 的功能。
+
+使用具有 IPv6 公网能力的客户端，访问域名或者负载均衡的 IPv6 地址；如果能够正常访问云服务器的 Web 服务，则表明 IPv6 负载均衡工作正常。
+- 通过 Ping 域名来验证，如下图：
+![](https://main.qcloudimg.com/raw/9b0fdfd7b14fa59b8bd6447a9a953d0f.png)
+- 通过访问负载均衡的 IPv6 地址来验证，如下图：
+![](https://main.qcloudimg.com/raw/ffde1160855d7b4fa0d98c9b753589ab.png)
