@@ -75,7 +75,7 @@ try
   PreSignatureStruct preSignatureStruct = new PreSignatureStruct();
   preSignatureStruct.appid = "1250000000";//腾讯云账号 APPID
   preSignatureStruct.region = "ap-guangzhou"; //存储桶地域
-  preSignatureStruct.bucket = "example-1250000000"; //存储桶
+  preSignatureStruct.bucket = "examplebucket-1250000000"; //存储桶
   preSignatureStruct.key = "exampleobject"; //对象键
   preSignatureStruct.httpMethod = "PUT"; //HTTP 请求方法
   preSignatureStruct.isHttps = true; //生成 HTTPS 请求 URL
@@ -137,7 +137,7 @@ try
   PreSignatureStruct preSignatureStruct = new PreSignatureStruct();
   preSignatureStruct.appid = "1250000000";//腾讯云账号 APPID
   preSignatureStruct.region = "ap-guangzhou"; //存储桶地域
-  preSignatureStruct.bucket = "example-1250000000"; //存储桶
+  preSignatureStruct.bucket = "examplebucket-1250000000"; //存储桶
   preSignatureStruct.key = "exampleobject"; //对象键
   preSignatureStruct.httpMethod = "GET"; //HTTP 请求方法
   preSignatureStruct.isHttps = true; //生成 HTTPS 请求 URL
