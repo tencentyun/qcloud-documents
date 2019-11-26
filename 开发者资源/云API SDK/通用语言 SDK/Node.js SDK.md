@@ -1,6 +1,6 @@
 ## 简介
 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK3.0是云 API3.0 平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会接入进来。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，统一的错误码和返回包格式这些优点。
-为方便 NODEJS 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 NODEJS 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 NODEJS SDK 并开始调用。
+为方便 Node.js 开发者调试和接入腾讯云产品 API，这里向您介绍适用于 Node.js 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例。让您快速获取腾讯云 Node.js SDK 并开始调用。
 
 ## 支持 3.0 版本的产品列表
 
@@ -79,15 +79,15 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 
 ## 依赖环境
 
-1. NODEJS 7.10.1 版本及以上。
+1. Node.js 7.10.1 版本及以上。
 2. 从腾讯云 [控制台](https://console.cloud.tencent.com/) 开通相应产品。
 3. 获取 SecretID、SecretKey 以及调用地址（endpoint），endpoint 一般形式为 \*.tencentcloudapi.com，如 CVM 的调用地址为 cvm.tencentcloudapi.com，具体参考各产品说明。
 
 ## 获取安装
-安装 NODEJS SDK 前，先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey， SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+安装 Node.js SDK 前，先获取安全凭证。在第一次使用云 API 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey， SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 
 ### 通过 Npm 安装
-通过 npm 获取安装是使用 NODEJS SDK 的推荐方法，npm 是 NODEJS 的包管理工具。关于 npm 详细可参考[ npm 官网](https://www.npmjs.com/) 。
+通过 npm 获取安装是使用 Node.js SDK 的推荐方法，npm 是 Node.js 的包管理工具。关于 npm 详细可参考[ npm 官网](https://www.npmjs.com/) 。
 1. 执行以下安装命令：
 ```
 npm install tencentcloud-sdk-nodejs --save
@@ -136,4 +136,4 @@ client.DescribeZones(req, function(errMsg, response) {
 您可以在 GitHub 仓库中 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/tree/master/examples) 下找到更详细的示例。
 
 ## 旧版 SDK
-我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往 [GitHub 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。
+我们推荐使用新版 Node.js SDK，如果一定要用旧版 SDK，请前往 [GitHub 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。
