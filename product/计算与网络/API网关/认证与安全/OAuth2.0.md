@@ -72,8 +72,8 @@ API 网关已经对外提供了 OAuth 功能，实践一个 Auth 的 Demo 需要
 - 公钥：放在 API 网关，用于验证 JWT 签名。
 - 私钥： AS 保存。
 ![](https://main.qcloudimg.com/raw/b660f7e5858232ac083a0b70269a7d24.png)
-JSON 格式输出：
-![](https://main.qcloudimg.com/raw/7afc10190d41a4bfc20dcfed3711ab07.png)
+JSON 格式输出，满足JWT Header头部信息包含两部分，kty:代表token类型，这里使用的是RSA.alg:使用的Hash算法，这里使用的是RS256.
+{"kty":"RSA","alg":"RS256","e":"","n":"公钥内容"}
 
 #### 生成 id_token
 ![](https://main.qcloudimg.com/raw/14ae49322bf0768c0e0fadf268e3f27c.png)
