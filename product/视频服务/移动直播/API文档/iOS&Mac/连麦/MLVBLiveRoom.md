@@ -15,7 +15,7 @@ __介绍__
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762#txliveplayer) 两个组件，前者用于推流，后者用于拉流。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762) 两个组件，前者用于推流，后者用于拉流。
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
@@ -26,7 +26,7 @@ __介绍__
 ## SDK 基础函数
 ### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 的各种状态通知。
 ```
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
 ```
@@ -43,14 +43,14 @@ __介绍__
 ***
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (instancetype)sharedInstance
 ```
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例。
 
 >?可以调用 MLVBLiveRoom destroySharedInstance 销毁单例对象。
 
@@ -58,12 +58,12 @@ __返回__
 
 ### destorySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (void)destorySharedInstance
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
 
 ***
 
@@ -645,7 +645,7 @@ YES：打开成功；NO：打开失败。
 
 __介绍__
 
-SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己点击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
+SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己点击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
 
 ***
 
