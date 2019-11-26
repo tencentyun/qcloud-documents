@@ -84,7 +84,7 @@ public class SentenceRecognition
     	try{
             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	        //https://cloud.tencent.com/document/product/441/6203
- 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API 秘钥管理
+ 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API 密钥管理
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
             HttpProfile httpProfile = new HttpProfile();
