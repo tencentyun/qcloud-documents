@@ -222,32 +222,31 @@ if (conn.error != null) {
 }
 ```
 2. 检测本地是否使用了 HTTP 代理，如果使用了 HTTP 代理，建议不要使用 HTTPDNS 做域名解析。
- - 检测是否使用了 HTTP 代理：
- 
+  - 检测是否使用了 HTTP 代理：
 ```
-- (BOOL)isUseHTTPProxy {
-	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
-	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
-	NSString *proxy = (__bridge NSString *)proxyCFstr;
-	if (proxy) {
-		return YES;
-	} else {
-		return NO;
+	- (BOOL)isUseHTTPProxy {
+		CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
+		const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPProxy);
+		NSString *proxy = (__bridge NSString *)proxyCFstr;
+		if (proxy) {
+			return YES;
+		} else {
+			return NO;
+		}
 	}
-}
 ```
-   - 检测是否使用了 HTTPS 代理：
+ - 检测是否使用了 HTTPS 代理：
 ```
-- (BOOL)isUseHTTPSProxy {
-	CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
-	const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPSProxy);
-	NSString *proxy = (__bridge NSString *)proxyCFstr;
-	if (proxy) {
-		return YES;
-	} else {
-		return NO;
+	- (BOOL)isUseHTTPSProxy {
+		CFDictionaryRef dicRef = CFNetworkCopySystemProxySettings();
+		const CFStringRef proxyCFstr = (const CFStringRef)CFDictionaryGetValue(dicRef, (const void*)kCFNetworkProxiesHTTPSProxy);
+		NSString *proxy = (__bridge NSString *)proxyCFstr;
+		if (proxy) {
+			return YES;
+		} else {
+			return NO;
+		}
 	}
-}
 ```
 
 ## 6. 实践场景 
