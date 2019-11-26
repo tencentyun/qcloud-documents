@@ -103,14 +103,14 @@
 <td>bmeip:EipBmApply</td>
 <td>qcs::bmvpc:::unVpcId/vpc-xxx</td>
 	<td>创建黑石 EIP</td>
-	<td></td>	
+	<td>-</td>	
 </tr>
 
 <tr>
 <td>bmeip:DescribeEipBm</td>
-<td></td>
+<td>-</td>
 	<td>黑石 EIP 查询接口</td>
-	<td></td>
+	<td>-</td>
 	
 </tr>
 
@@ -175,7 +175,7 @@ for\_all\_value:string_equal\_if\_exist，用于 condition 有一个 key 多个 
 场景：调用 EipBmModifyCharge 修改 vpc-34cxlz7z 的任一 EIP 实例的别名。<br/>
 
 评估逻辑：
-1. 鉴权逻辑关联了 effect:allow 的策略且 action:bm:EipBmModifyCharge和resource:*，即允许修改任一实例的别名。
+1. 鉴权逻辑关联了 effect:allow 的策略且 action:bm:EipBmModifyCharge和resource:\*，即允许修改任一实例的别名。
 2. 但前提是，实例要在 vpc-34cxlz7z 里才能鉴权通过。
 
 
@@ -239,6 +239,6 @@ for\_all\_value:string_equal\_if\_exist，用于 condition 有一个 key 多个 
 ```
 
 评估逻辑：
-当调用 BindEip 时，CAM 会对传入的 instanceId 和 EipID 做鉴权，发现满足resource（*）的要求。
+当调用 BindEip 时，CAM 会对传入的 instanceId 和 EipID 做鉴权，发现满足resource（\*）的要求。
 但要求 instanceId 和 EipID在vpc-34cxlz7z 或者 vpc-muinpf9p 里，【是】则鉴权通过，【否】则鉴权失败。
 
