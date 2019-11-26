@@ -203,8 +203,6 @@ defaultConfig {
 
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
-        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
-        // abiFilters "armeabi",
     }
 }
 ```
@@ -287,7 +285,7 @@ dependencies {
 	// 拷贝这段代码起始位置
 	compile project(':videoediter')
 	compile project(':videojoiner')
-	compile project(':videorecord')
+	compile project(':videorecorder')
 	// 拷贝这段代码结束位置
 }
 ```
