@@ -17,15 +17,15 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 ![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
 
 ##### 3.1.2. 拷贝文件
-将 aar 包放在工程 libs 目录下即可。
+将 aar 包放在工程 `app/libs` 目录下即可。
 
 ##### 3.1.3. 工程配置
-- 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
+- 在工程目录下的 build.gradle 中，添加引用 aar 包的代码：
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // 导入短视频SDK aar，LiteAVSDK_UGC_x.x.xxxx 请自行修改为最新版本号
-    compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
+    compile(name: 'LiteAVSDK_UGC_6.8.7969', ext: 'aar')
 }
 ```
 
@@ -41,7 +41,7 @@ allprojects {
 }
 ```
 
-- 在工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
+- 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
 ```
 defaultConfig {
     applicationId "com.tencent.liteav.demo"
@@ -52,8 +52,6 @@ defaultConfig {
 
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
-        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
-        // abiFilters "armeabi",
     }
 }
 ```
@@ -226,20 +224,18 @@ defaultConfig {
 1. 创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2. 拷贝 SDK 开发包中的 lib_tccommon、lib_tcvideoediter、lib_tcvideorecord 及 lib_tcvideojoiner 四个 Android Studio module 放入新建的工程 UGC/ 下：
-	- lib_tccommon ： 资源公共库
-	- lib_tcvideoediter：SDK开发包中短视频编辑 UI 组件
-	- lib_tcvideorecord：SDK开发包中短视频录制 UI 组件
-	- lib_tcvideojoiner：SDK开发包中短视频合成 UI 组件
+2. 拷贝 SDK 开发包中的 videoediter、videorecord 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
+	- videoediter：SDK开发包中短视频编辑 UI 组件
+	- videorecord：SDK开发包中短视频录制 UI 组件
+	- videojoiner：SDK开发包中短视频合成 UI 组件
 	
  在新建的工程 UGC/settings.gradle 下指明引入这四个 module：
 ```
 include ':app'
 # 拷贝这段代码起始位置
-include ':lib_tcvideorecord'
-include ':lib_tcvideoediter'
-include ':lib_tcvideojoiner'
-include ':lib_tccommon'
+include ':videorecord'
+include ':videoediter'
+include ':videojoiner'
 # 拷贝这段代码结束位置
 ```
 
@@ -282,57 +278,13 @@ include ':lib_tccommon'
 	dependencies {
 			compile fileTree(dir: 'libs', include: ['*.jar'])
 			// 拷贝这段代码起始位置
-			compile project(':lib_tccommon')
-			compile project(':lib_tcvideoediter')
-			compile project(':lib_tcvideojoiner')
-			compile project(':lib_tcvideorecord')
+			compile project(':videoediter')
+			compile project(':videojoiner')
+			compile project(':videorecord')
 			// 拷贝这段代码结束位置
 	}
 	```
-3. 拷贝 sdk：/SDK/LiteAVSDK_UGC_1.1.10.aar 到新建的工程 UGC/lib_tccommon/libs/ 下，修改 lib_tccommon:build.gradle 中的 SDK 版本号：
-
-	```
-	apply plugin: 'com.android.library'
-
-	android {
-			compileSdkVersion 25
-			buildToolsVersion "25.0.2"
-
-			defaultConfig {
-					minSdkVersion 15
-					targetSdkVersion 23
-					versionCode 1
-					versionName "1.0"
-			}
-
-			buildTypes {
-					release {
-							minifyEnabled false
-							proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-					}
-			}
-			// 拷贝这段代码起始位置
-			sourceSets {
-					main {
-							jniLibs.srcDirs = ['libs']
-					}
-			}
-			// 拷贝这段代码结束位置
-	}
-
-	dependencies {
-			compile fileTree(include: ['*.jar'], dir: 'libs')
-			compile 'com.android.support:appcompat-v7:25.+'
-			// 拷贝这段代码起始位置
-			compile 'com.android.support:recyclerview-v7:25.+'
-			// 这里注意：根据拷贝的aar文件，修改sdk的版本号
-			compile(name: 'LiteAVSDK_UGC_1.1.10', ext: 'aar')
-			compile files('libs/glide-3.7.0.jar')
-			 // 拷贝这段代码结束位置
-	}
-	```
-
-4. 修改 Project:build.gradle 的配置，保证使用了 lib_tccommon 中的 sdk 版本：
+3. 修改 Project:build.gradle 的配置 
 
 	```
 	buildscript {
@@ -351,7 +303,6 @@ include ':lib_tccommon'
 					 // 拷贝这段代码起始位置
 					flatDir {
 							dirs 'libs'
-							dirs project(':lib_tccommon').file('libs')
 					}
 					// 拷贝这段代码结束位置
 			}
@@ -361,7 +312,7 @@ include ':lib_tccommon'
 			delete rootProject.buildDir
 	}
 	```
-5. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
+4. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 
 	```
 The versions of the Android Gradle plugin and Gradle are not compatible.
@@ -371,7 +322,7 @@ The versions of the Android Gradle plugin and Gradle are not compatible.
 	```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
-6. License 配置
+5. License 配置
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 
 	```
@@ -400,7 +351,7 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 	</application>
 	```
 
-7. 短视频模块的调用
+6. 短视频模块的调用
 在 activity_main.xml 中建立三个 Button。
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -468,13 +419,12 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 	}
 
 	```
-8. clean 工程，运行即可看到效果。
+7. clean 工程，运行即可看到效果。
 
 ### 相关文件简介
 #### 短视频录制
 
 ```
-lib_tcvideorecord
 └── videorecord
     ├── RecordDef.java(背景音选择接口)
     ├── TCBGMRecordAdapter.java(背景音列表适配器)
