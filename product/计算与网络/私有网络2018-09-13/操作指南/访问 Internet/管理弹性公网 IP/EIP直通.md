@@ -63,25 +63,26 @@ chmod +x eip_direct.sh
 
 #### 步骤2：配置辅助网卡
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
-2. 在云服务器列表中，单击需配置的云服务器 ID，进入详情页。
+2. 在云服务器列表中，单击所配置的云服务器 ID，进入详情页。
 3. 选择【弹性网卡】标签页，单击【绑定网卡】，新建一个与主网卡同一子网的网卡。
 ![](https://main.qcloudimg.com/raw/c8449f6bf0b9798464a34a8484dee25f.png)
 4. 在弹框中，选择【新建弹性网卡并绑定】，填写相关信息，选泽自动分配 IP ，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
-#### 步骤3：云服务器内配置 IP
-1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)）。
+#### 步骤3：配置主网卡直通
+1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
+2. 找到对应主网卡绑定的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
+
+#### 步骤4：云服务器内配置 IP
+1. 登录云服务器（由于操作过程中外网访问会中断，因此需使用[ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704))。
 2. `Win+R` 组合键打开运行命令，输入 `firewall.cpl ` 按回车，打开“ Windows 防火墙”页面。
 ![](https://main.qcloudimg.com/raw/b0cd418caf7d0a95c7a39b75f4996e09.png)
 3. 单击【打开或关闭Windows防火墙】，进入“自定义设置”页面。
 ![](https://main.qcloudimg.com/raw/b3a3fdc9fc16cc8f2ee7986125c05047.png)
-4. 在“家庭或工作（专用）网络位置设置”和“公用网络位置设置”模块中分别选择【关闭 Windows 防火墙】即可。
+4. 在“家庭或工作（专用）网络位置设置”和“公用网络位置设置”模块中分别选择【关闭 Windows 防火墙】，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/841302b1c8d300dea2bdeb419e190028.png)
-5. 双击步骤1中下载的脚本即可执行，输入公网 IP 地址，连续回车两次即可，此时公网已被断开。 
+5. 双击步骤1中下载的脚本即可执行，输入公网 IP 地址，连续回车两次即可。 
 
-#### 步骤4：配置主网卡直通
-1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
-2. 找到对应主网卡绑定的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
 
 >!直通成功后请勿给主网卡再配内网 IP，如果配上，则云服务器内无法上网。
 
