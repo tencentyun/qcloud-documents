@@ -38,7 +38,7 @@ create 'foo_table','cf'
 ```
 3. 运行 flume
 ```
-./bin/flume-ng agent --conf ./conf/-f hbase_kafka.properties -n agent -Dflume.root.logger=INFO,console
+./bin/flume-ng agent --conf ./conf/ -f hbase_kafka.properties -n agent -Dflume.root.logger=INFO,console
 ```
 4. 运行 kafka producer
 ```
