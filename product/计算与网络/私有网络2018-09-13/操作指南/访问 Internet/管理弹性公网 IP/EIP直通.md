@@ -23,7 +23,7 @@ Linux 脚本针对的场景为：内网 IP 和公网 IP 均在主网卡（eth0�
 
 #### 步骤1：下载 EIP 直通脚本
 由于 EIP 直通过程会导致网络中断，需先获取 EIP 直通脚本到云服务器中。您选择如下任意一种方式获取：
-- **方式一：上传 EIP 直通脚本**
+- **方式一： 上传 EIP 直通脚本**
  1. 下载 EIP 直通配置脚本。下载路径：[Linux 脚本下载](https://main.qcloudimg.com/raw/7d07d336030fb1324f3d55c891434612/eip_direct.zip)。
  2. Linux 脚本下载到本地后，上传至需要进行 EIP 直通的云服务器中。
 - **方法二：直接使用命令**
@@ -63,9 +63,9 @@ chmod +x eip_direct.sh
 #### 操作场景
 Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内网流量。
 
-#### 步骤1：下载 EIP 配置脚本 <span id="step1" />
-由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通配置脚本到云服务器中。
-请在云服务器的浏览器中打开如下链接进行配置脚本的下载：
+#### 步骤1：下载 EIP 直通脚本 <span id="step1" />
+由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中。
+请在云服务器的浏览器中打开如下链接进行 EIP 直通脚本的下载：
 ```
 https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 ```
