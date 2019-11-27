@@ -155,7 +155,7 @@ private IdentityCallback mListener = new IdentityCallback() {
 ```
 
 **2. 添加 jar 包和资源**
-参照 AuthDemo，将 AuthSDK.jar 添加到接入方 App 中的 libs 目录下，将 res 目录下的资源文件添加到接入方 App 的 res 下的相应目录下，以及 assets 目录下的文件添加到 APP的assets 下，将libcurl.so、libUlsFunction.so、libulsTracker_native.so 添加到 jniLibs 下。
+参照 AuthDemo，将 AuthSDK.jar 添加到接入方 App 中的 libs 目录下，将 res 目录下的资源文件添加到接入方 App 的 res 下的相应目录下，以及 assets 目录下的文件添加到 App 的assets 下，将libcurl.so、libUlsFunction.so、libulsTracker_native.so 添加到 jniLibs 下。
 
 **3. 初始化 SDK 及调用实名核身接口**
 具体流程跟上面 [aar 接入方式](#aar) 中的3 - 4步骤一致，此处不再赘述。
