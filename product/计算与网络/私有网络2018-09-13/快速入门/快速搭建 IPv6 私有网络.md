@@ -2,7 +2,7 @@
 
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器或者弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
 ## 操作场景
-1. 云服务器启用 IPv6，和 VPC 内云服务器 IPv6 双向通信。
+1. 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
 2. 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
 ![](https://main.qcloudimg.com/raw/245f8acb1bea7b002035193b089bf1b7.png)
 
@@ -22,7 +22,7 @@
 ### 步骤2：为子网分配 IPv6 CIDR
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在需要开启 IPv6 的子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作，系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
-![](https://main.qcloudimg.com/raw/8f9eb15cc6ad71594551fe8f501d3c75.png)
+![](https://main.qcloudimg.com/raw/d3d8fcaa9c336dac11485d5f7ed95a92.png)
 
 ### 步骤3：弹性网卡获取 IPv6 地址
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
@@ -34,11 +34,11 @@
 5. 系统将会为弹性网卡分配一个 IPv6 地址，如下图所示。
 ![](https://main.qcloudimg.com/raw/309e8e9d70b69ddb4c70a0ead71f7862.png)
 
-### 步骤4：为弹性网卡的 IPv6 开启公网
+### 步骤4：为弹性网卡的 IPv6 地址开启公网
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】，为 IPv6 开启公网并设置公网带宽。
 3. 单击操作栏下的【调整带宽】。
-![](https://main.qcloudimg.com/raw/9007bdd4fa3ca305e4654ada454d767f.png)
+![](https://main.qcloudimg.com/raw/dca3e6d40d5480793fffc2d8bcc042bf.png)
 4. 在弹框中设置公网带宽并单击【调整】。
 >?如果带宽设置不为0，则开通公网；如果带宽设置为0，则关闭公网。
 >
@@ -47,7 +47,7 @@
 ![](https://main.qcloudimg.com/raw/ebb907c22c5672c38e728e66f35272b1.png)
 
 ### 步骤5：登录云服务器，开启 IPv6
-不同云服务器开启 IPv6 的操作方法有差异，如下列举了几种典型的云服务器的操作方法，本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例：
+不同云服务器开启 IPv6 的操作方法有差异，如下列举了五种典型的云服务器的操作方法，本步骤以新购 CentOS 7.5 /新购 CentOS 7.6（2019年06月31日后购买） 开启 IPv6 为例：
 - [新购 CentOS 7.5/新购 CentOS 7.6 开启 IPv6](#新购CentOS7.5/CentOS7.6)
 - <a href="https://cloud.tencent.com/document/product/215/38861#CentOS6.8" target="_blank">CentOS 6.8 开启 IPv6</a>
 - <a href="https://cloud.tencent.com/document/product/215/38861#CentOS7.3" target="_blank">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 开启 IPv6</a>

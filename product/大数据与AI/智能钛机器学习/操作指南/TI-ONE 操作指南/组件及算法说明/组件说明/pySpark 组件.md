@@ -19,7 +19,7 @@ pip.main(['install', "package_name"])
 从左侧菜单栏中，选择【组件】>【机器学习】 列表下的 PySpark 节点，并将其拖拽至画布中。
 2. **配置参数**
  - 脚本及依赖包文件上传：
-  将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过依赖包文件框上传。
+    将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过依赖包文件框上传。
 ![](https://main.qcloudimg.com/raw/f502e40c73117cfddef50af122cec760.png)
  - 算法参数：指定您的 PySpark 应用程序所需的参数，即传给 PySpark 脚本的参数，可选项。
  - 配置资源：指定您的 PySpark 应用程序用到的配置文件，可选项。
@@ -36,10 +36,9 @@ pip.main(['install', "package_name"])
 单击【保存】并运行工作流。
 5. **查看 PySpark 控制台和日志**
 在 PySpark 节点上单击右键菜单，可查看任务状态和详细日志。
-![](https://main.qcloudimg.com/raw/3ec62ffb32a86b4bc57545098b219537.png)
 详细日志如下：
 ![](https://main.qcloudimg.com/raw/c06588803bf9f03e753d1d7a39642452.png)
- 
+
 
 ## 使用建议
 使用 PySpark 的目的是更好地借助其分布式计算的优势，以解决单机完成不了的计算。如果您在 PySpark 中仍然是调用常规的 Python 库做单机计算，那就失去了使用 PySpark 的意义。下面举例说明如何编写 PySpark 分布式计算代码。
@@ -71,7 +70,7 @@ PySpark的DataFrame 本身支持很多操作，直接基于它实现后续的业
  from sklearn import preprocessing
  data = np.array(rdd.collect(), dtype=np.float)
  normalized = preprocessing.normalize(data)
-```
+ ```
 上述代码实际上已退化为单机程序，如果数据量较大的话，collect 操作会把 Driver 的内存填满，甚至 OOM（超出内存），通常基于 RDD 或 DataFrame 的 API 可以满足大多数需求，例如标准化操作：
 ```
 from pyspark.ml.feature import Normalizer

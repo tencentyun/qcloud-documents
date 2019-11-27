@@ -80,14 +80,14 @@ mSuperPlayerView.playWithMode(model);
 代码中的`appid`是您的 AppId，`fileid`是您要播放的视频 ID，`playDefinition`是您播放时使用的 [播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF) ID，`version`固定填`SuperPlayerVideoId.FILE_ID_V3`。
 
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
-![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+<img src="https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png" width="550">
 
 ## 缩略图与打点
 
 在播放视频时，进度条上的“缩略图”和“打点信息”，有助于观众找到感兴趣的点。缩略图通过 [雪碧图](https://cloud.tencent.com/document/product/266/8101) 实现，视频打点需要 [修改媒资中的打点信息](https://cloud.tencent.com/document/product/266/31762#.E7.A4.BA.E4.BE.8B3-.E4.BF.AE.E6.94.B9.E5.AA.92.E4.BD.93.E6.96.87.E4.BB.B6.E8.A7.86.E9.A2.91.E6.89.93.E7.82.B9.E4.BF.A1.E6.81.AF)。
 
 为视频截取雪碧图，并添加打点信息后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">
 
 ## 播放 DRM 加密的视频
 
@@ -140,7 +140,7 @@ rect.width = 810;
 rect.height = 540;
 // ...其他配置
 ```
-<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="400">
+<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="350">
 
 ## 退出播放
 
@@ -152,4 +152,4 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![Android二维码下载](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
+<img src="https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png" width="150">

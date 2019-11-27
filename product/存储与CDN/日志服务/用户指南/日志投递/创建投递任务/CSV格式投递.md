@@ -1,6 +1,6 @@
 ## 概述
 
-您可以通过 [日志服务控制台](https://console.cloud.tencent.com/cls)，将数据按照 CSV 格式投递到对象存储 COS，下面将为您详细介绍如何创建 CSV 格式日志投递任务。
+您可以通过 [日志服务控制台](https://console.cloud.tencent.com/cls)，将数据按照分隔符格式投递到对象存储 COS，下面将为您详细介绍如何创建分隔符格式日志投递任务。
 
 
 ## 前提条件

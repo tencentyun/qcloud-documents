@@ -106,7 +106,7 @@ Gmtool 工具是国密算法的用户业务层工具，主要实现了公私钥�
 - **verify**
 执行以下命令，在控制台显示验签结果。通过则为 “Valid Signature”，不通过为 “Invalid Signature”。
 ```
-./gmtool verify -pkin=pk.sm2 -message=message -signature=cipher.sm2
+./gmtool verify -pkin=pk.sm2 -message=message -signature=sig.sm2
 ```
 
 ## Go 语言智能合约 gmssl 包接口说明

@@ -70,7 +70,7 @@ COS 服务的 JS SDK V4 版本的 [GitHub 地址](https://github.com/tencentyun/
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
 | appid          | int      | 是        | 无       | appid                                    |
-| bucket         | String   | 是        | 无       | bucket名称，bucket 创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6232) |
+| bucket         | String   | 是        | 无       | bucket名称，bucket 创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6245#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) |
 | region         | String   | 是        | 'gz'    | 地域信息，必填参数，华南地区填gz 华东填sh 华北填tj            |
 | getAppSign     | Function | 是        | 无       | 获取多次签名的函数，建议从服务器端获取签名字符串                 |
 | getAppSignOnce | Function | 是        | 无       | 获取单次签名的函数，建议从服务器端获取签名字符串                 |
@@ -284,7 +284,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 | data.filelen        | Int    | 是          | 文件已传输大小                                  |
 | data.sha            | String | 是          | 文件文件sha                                  |
 | data.access_url     | String | 是          | 生成的文件下载url                               |
-| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与bucket拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用bucket的权限 |
+| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与 bucket 拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用 bucket 的权限 |
 | data.custom_headers | String | 否          | 自定义header对象                              |
 
 

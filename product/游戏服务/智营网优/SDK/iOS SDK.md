@@ -54,7 +54,7 @@ mna->MNASetObserver(observer);
 ![](https://main.qcloudimg.com/raw/ab74542d85ccaada74f1e4677f4e49dd.png)
 1. 应用启动时，调用初始化`MNAInit`，并设置回调函数`MNASetObserver`。
 2. 应用登录成功后，需要调用`MNASetUserName`设置`openid`，可通过`MNASetZoneId`设置`zone id`。
-3. 对局开始前调用`MNAStartDiagnose`当游戏服务器IP发生变化时可调用`MNASetGameIp`来设置游戏服务器 IP，不发生变化时不需要调用；当应用切换到前台时，调用`MNAGoFront`;当应用切换到后台时，调用`MNAGoBack`。
+3. 对局开始前调用`MNAStartDiagnose`当游戏服务器 IP 发生变化时可调用`MNASetGameIp`来设置游戏服务器 IP，不发生变化时不需要调用；当应用切换到前台时，调用`MNAGoFront`;当应用切换到后台时，调用`MNAGoBack`。
 4. 对局结束时，先调用`MNAIsQosWork`函数获取 Qos 保障标识，再调用`MNAEndSpeed`结束当局加速，并上报网络质量数据。
 5. 进入游戏大厅后可通过调用`MNARealTimeQuery`函数来对网络进行诊断。
 

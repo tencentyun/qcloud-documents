@@ -62,7 +62,7 @@
 </tr>
 <tr>
 <td>找回 IP</td>
-<td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 申请指定 IP 地址</a>。</td>
+<td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 找回公网 IP 地址</a>。</td>
 </tr>
 </tbody></table>
 
@@ -78,4 +78,4 @@
 
 ### 相关操作
 - 获取实例的内网 IP 地址和设置 DNS，请参见 [获取内网 IP 地址和设置 DNS](https://cloud.tencent.com/document/product/213/17941)。
-- 修改私有网络中云服务器实例的内网 IP，详情请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
+- 修改私有网络中云服务器实例的内网 IP，请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。

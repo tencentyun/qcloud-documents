@@ -51,22 +51,6 @@ open TClass.app --args company_id class_id user_id user_token user_sig
 #### 下载组件
 Web 平台组件下载：[单击下载](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/saas/component/component.zip)。
 
-#### 配置
-解压后您可以看到根目录下的`config.js`文件。需要您根据自己的业务进行配置。
-```javascript
-var Config = {
-  companyId: 100001,
-  logo: 'https://tedu.qcloudtrtc.com/img/tic.643fc1ab.png',
-  loginUrl: 'https://www.qq.com'
-}
-```
-**配置说明**
-
-key | 含义 | 必填  | 说明
---------- | ---------| -----  | ---
-companyId |机构码| 是 | 腾讯云互动课堂后台为每个注册的企业的分配唯一标识码。
-logo |课堂 logo| 否 | logo 显示在左上角。
-loginUrl | 登出 URL | 是 | 上课完毕/上课期间多端登录被踢下线/登录态过期等异常情况，会跳转至该 URL。
 
 #### 部署
 - 组件代码需要部署到自己的服务器上。
@@ -81,6 +65,8 @@ https://yourdomain.com/component.html#/:class_id/:user_id/:user_sig/:user_token
 示例如下：
 ```
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighere...../usertokenhere.....
+如果 usersig 已经通过控制台托管过给我们，则后面两个不用填
+https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan
 ```
 - 参数描述。参数获取请参考 [调用参数](#jump)。
 
@@ -97,7 +83,7 @@ TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下�
 ```groovy
  dependencies {
     // TIC SaaS 组件
-    implementation "com.tencent.ticsaas:core:1.1.5.1"
+    implementation "com.tencent.ticsaas:core:1.1.5.3"
     // 实时音视频
     implementation "com.tencent.liteav:LiteAVSDK_TRTC:6.7.7734"
     // 即时通信 IM SDK
@@ -146,7 +132,7 @@ Manifest.permission.RECORD_AUDIO
 Manifest.permission.CAMERA
 Manifest.permission.WRITE_EXTERNAL_STORAGE
 ```
-更多详情请参见 [请求应用权限](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
+
 #### 调起 SaaS 组件
 只需传递5个参数，即可调起 SaaS 组件主页面，分别为机构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig。
 ```java

@@ -4,7 +4,7 @@
 
 ## 群组消息
 
-群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照  [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)  部分。
+群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照 [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
 
 ## 群组管理
 
@@ -879,7 +879,7 @@ public ModifyGroupInfoParam setSilenceAll(boolean silenceAll)
 **示例：**
 
 ```
-TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(groupid);
+TIMGroupManager.ModifyGroupInfoParam param = new TIMGroupManager.ModifyGroupInfoParam(getGroupId());
 param.setGroupName("Great Team")
 TIMGroupManager.getInstance().modifyGroupInfo(param, new TIMCallBack() {
 	@Override
@@ -1839,7 +1839,7 @@ getOpUser	| 操作人，表示哪个用户的邀请
 
 **触发时机：**当用户主动退出群组时，该用户会收到退群消息，只有退群的用户自己可以收到。
 
-当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端可以作为更新群列表的时机，本终端可以选择忽略。
+当用户调用 `QuitGroup` 时成功回调返回，表示已退出成功，此消息主要为了多终端同步，其他终端收到该消息时可以更新群列表，本终端可以选择忽略。
 
 **`TIMGroupSystemElem` 成员方法返回说明：**
 
