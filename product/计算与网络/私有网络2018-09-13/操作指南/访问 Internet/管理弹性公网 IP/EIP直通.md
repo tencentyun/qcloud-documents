@@ -85,6 +85,6 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 4. 在“专用网络设置”和“公用网络设置”模块中分别选择【关闭 Windows 防火墙】，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/473ffef834aa17f5f6d239354a7919e6.png)
 5. 双击步骤1中下载的脚本即可执行，输入公网 IP 地址，连续回车两次即可。 
-
+6. 在 powershell 中输入`ipconfig`按回车，可看到主网卡（eth0）上的 IPv4 地址变成公网地址。
 >!直通成功后请勿给主网卡再配内网 IP，如果配上，则云服务器内无法上网。
 
