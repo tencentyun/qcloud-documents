@@ -156,14 +156,14 @@ public class DemoApplication extends Application {
 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版 License** 按钮生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/b296f9e2324806f07e0f7c91c82542ef.png)
 
-#### 3.5 LOG 打印
+#### 3.5 log 打印
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，具体代码如下：
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
 设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上。 **Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。
 如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
-- **Log 文件的查看**
+- **log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 ```
 TXLiveBase.setConsoleEnabled(true);
@@ -207,7 +207,7 @@ defaultConfig {
     targetSdkVersion rootProject.ext.targetSdkVersion
     versionCode 1
     versionName "2.0"
-	
+		
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
     }
@@ -225,10 +225,10 @@ defaultConfig {
 文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中提供。
 
 ### 接入步骤
-1.创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
+**步骤1**：创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2.拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
+**步骤2**：拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
 - videoediter：SDK开发包中短视频编辑 UI 组件
 - videorecord：SDK开发包中短视频录制 UI 组件
 - videojoiner：SDK开发包中短视频合成 UI 组件
@@ -294,7 +294,7 @@ dependencies {
 	// 拷贝这段代码结束位置
 }
 ```
-3.修改 Project:build.gradle 的配置。 
+**步骤3**：修改 Project:build.gradle 的配置。 
 ```
 buildscript {
 	repositories {
@@ -331,7 +331,7 @@ ext {
 }
 // 拷贝这段代码结束位置
 ```
-4.在拷贝的三个 module："videoediter"，"videojoiner"，"videorecorder" 中 libs 文件夹拷贝最新 sdk 的 aar，并在每个 module 的 build.gradle 配置 sdk。如下示例"videoediter"。
+**步骤4**：在拷贝的三个 module："videoediter"，"videojoiner"，"videorecorder" 中 libs 文件夹拷贝最新 sdk 的 aar，并在每个 module 的 build.gradle 配置 sdk。如下示例"videoediter"。
 ```
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -343,15 +343,15 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 ```
-5.请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
+**步骤5**：请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 ```
 The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
-可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本
+可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本：
 ```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
-6.License 配置：
+**步骤6**：License 配置：
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 ```
 //DemoApplication.java
@@ -377,7 +377,7 @@ public class DemoApplication extends Application {
 	 ...
 </application>
 ```
-7.短视频模块的调用：
+**步骤7**：短视频模块的调用：
 在 activity_main.xml 中建立三个 Button。
 ```
 <?xml version="1.0" encoding="utf-8"?>
@@ -442,7 +442,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	}
 }
 ```
-8.clean 工程，运行即可看到效果。
+**步骤8**：clean 工程，运行即可看到效果。
 
 ### 相关文件简介
 #### 短视频录制
