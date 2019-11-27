@@ -83,7 +83,7 @@ vim  /etc/nginx/nginx.conf
 ![](https://main.qcloudimg.com/raw/df6d8776624118f278db0b1b05eb6022.png)
 
 ## 步骤4：测试 IPv6 负载均衡
-配置完成负载均衡后，可以验证该架构是否生效，即验证通过一个 CLB 实例下不同的域名 + URL 访问不同的后端云服务器，也即验证内容路由（content-based routing） 的功能是否可用。
+配置完成 IPv6 负载均衡后，可以验证该架构是否生效，即验证通过一个 CLB 实例下不同的域名 + URL 访问不同的后端云服务器，也即验证内容路由（content-based routing） 的功能是否可用。
 
 使用具有 IPv6 公网能力的客户端，访问域名或者负载均衡的 IPv6 地址，如果能够正常访问云服务器的 Web 服务，则表明 IPv6 负载均衡工作正常，有如下两种测试方法：
 - 方式一：通过 Ping 域名来验证，如下图：
