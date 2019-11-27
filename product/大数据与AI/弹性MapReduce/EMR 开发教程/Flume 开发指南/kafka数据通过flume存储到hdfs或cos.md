@@ -49,7 +49,7 @@ hello
 ```
 
 ## 测试
- - 在 kafka 生产者客户端数据信息并回车。
+ - 在 kafka 生产者客户端输入信息并回车。
  - 观察 hdfs 是否生成相应目录和文件`hadoop fs -ls /data/flume/kafka/`。
 
 ## 参考文档
