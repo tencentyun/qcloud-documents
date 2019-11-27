@@ -104,7 +104,7 @@ cp -ra /usr/local/service/hive/hcatalog/share/hcatalog/hive-hcatalog-streaming-2
 ```
 
 ## 测试
- - 在 kafka 生产者客户端数据信息并回车。
+ - 在 kafka 生产者客户端输入信息并回车。
  - 观察 hive 表中是否有相应数据。
 
 ## 参考文档
