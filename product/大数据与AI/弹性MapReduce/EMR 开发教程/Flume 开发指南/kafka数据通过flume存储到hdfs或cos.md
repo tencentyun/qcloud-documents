@@ -52,4 +52,4 @@ hello
  - 观察 hdfs 是否生成相应目录和文件`hadoop fs -ls /data/flume/kafka/`。
 
 ## 参考文档
-[kafka-source 配置说明]()
+[kafka-source 配置说明](https://flume.apache.org/FlumeUserGuide.html#kafka-source )
