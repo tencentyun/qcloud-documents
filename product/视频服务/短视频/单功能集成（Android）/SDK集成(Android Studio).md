@@ -1,6 +1,6 @@
 ## Android 工程配置
 ### 1. 系统要求
-SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( Android 4.3) API 18 以上的系统才能开启硬件编码。
+SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（Android 4.3）API 18 以上的系统才能开启硬件编码。
 
 ### 2. 开发环境
 以下是 SDK 的开发环境，App 开发环境不需要与 SDK 一致，但要保证兼容：
@@ -228,7 +228,7 @@ defaultConfig {
 **步骤1**：创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-**步骤2**：拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
+**步骤2**：拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下。
 - videoediter：SDK开发包中短视频编辑 UI 组件
 - videorecord：SDK开发包中短视频录制 UI 组件
 - videojoiner：SDK开发包中短视频合成 UI 组件
@@ -351,7 +351,7 @@ The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
-**步骤6**：License 配置：
+**步骤6**：License 配置。
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 ```
 //DemoApplication.java
@@ -377,7 +377,7 @@ public class DemoApplication extends Application {
 	 ...
 </application>
 ```
-**步骤7**：短视频模块的调用：
+**步骤7**：短视频模块的调用。
 在 activity_main.xml 中建立三个 Button。
 ```
 <?xml version="1.0" encoding="utf-8"?>
