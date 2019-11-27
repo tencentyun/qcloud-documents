@@ -102,7 +102,7 @@ cp -ra /usr/local/service/hive/hcatalog/share/hcatalog/hive-hcatalog-streaming-2
 1,hello
 2,hi
 ```
-4. 测试
+## 测试
  - 在 kafka 生产者客户端数据信息并回车。
  - 观察 hive 表中是否有相应数据。
 
