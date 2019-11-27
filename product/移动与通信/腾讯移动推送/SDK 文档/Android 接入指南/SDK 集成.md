@@ -342,7 +342,18 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	public abstract void onDeleteAccountResult(Context context, int errorCode,
 					String operateName);
 	```
-
+- 继承 XGPushBaseReceiver 的实现类在 AndroidManifest 文件配置时，前缀命名规则为 com.tencent.android.xg.vip.action.，区别于 4.x 版本的 com.tencent.android.tpush.action.
+TPNS 版本正确配置：
+```
+<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+          <intent-filter>
+              <!-- 接收消息透传 -->
+              <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+              <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+              <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+          </intent-filter>
+      </receiver>
+```			
 
 #### 获取 Token（非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
