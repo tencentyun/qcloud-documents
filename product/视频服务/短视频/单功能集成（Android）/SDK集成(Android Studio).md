@@ -25,7 +25,7 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有 ( A
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // 导入短视频SDK aar，LiteAVSDK_UGC_x.x.xxxx 请自行修改为最新版本号
-    compile(name: 'LiteAVSDK_UGC_3.9.2794', ext: 'aar')
+    compile(name: 'LiteAVSDK_UGC_6.8.7969', ext: 'aar')
 }
 ```
 
@@ -41,7 +41,7 @@ allprojects {
 }
 ```
 
-- 在工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
+- 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
 ```
 defaultConfig {
     applicationId "com.tencent.liteav.demo"
@@ -52,8 +52,6 @@ defaultConfig {
 
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
-        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
-        // abiFilters "armeabi",
     }
 }
 ```
@@ -163,7 +161,6 @@ TXLiveBase.setConsoleEnabled(true);
 TXLiveBase.setLogLevel(TXLiveConstants.LOG_LEVEL_DEBUG);
 ```
 
-
 #### 3.6 编译运行
 
 在工程中调用 SDK 接口，获取 SDK 版本信息，以验证工程配置是否正确。
@@ -206,8 +203,6 @@ defaultConfig {
 
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
-        // 如果您使用的是商业版，只能使用 armeabi 架构，即：
-        // abiFilters "armeabi",
     }
 }
 ```
@@ -226,179 +221,163 @@ defaultConfig {
 1. 创建一个空的 Android Studio 工程，工程名为 UGC，且包名与下方图片中包名(com.tencent.liteav.demo)一致，保证新建的空工程编译通过。这里注意，如果您不跟我们的包名保持一致，需要申请 License。 如果没有 License 依然可以完成以下步骤集成 UI，但部分功能会无法使用。
 ![](https://main.qcloudimg.com/raw/e6b08ecfca9d6d789da7cc99d501c69d.png)
 
-2. 拷贝 SDK 开发包中的 lib_tccommon、lib_tcvideoediter、lib_tcvideorecord 及 lib_tcvideojoiner 四个 Android Studio module 放入新建的工程 UGC/ 下：
-	- lib_tccommon ： 资源公共库
-	- lib_tcvideoediter：SDK开发包中短视频编辑 UI 组件
-	- lib_tcvideorecord：SDK开发包中短视频录制 UI 组件
-	- lib_tcvideojoiner：SDK开发包中短视频合成 UI 组件
+2. 拷贝 SDK 开发包中的 videoediter、videorecorder 及 videojoiner 三个 Android Studio module 放入新建的工程 UGC/ 下：
+	- videoediter：SDK开发包中短视频编辑 UI 组件
+	- videorecord：SDK开发包中短视频录制 UI 组件
+	- videojoiner：SDK开发包中短视频合成 UI 组件
 	
  在新建的工程 UGC/settings.gradle 下指明引入这四个 module：
 ```
 include ':app'
 # 拷贝这段代码起始位置
-include ':lib_tcvideorecord'
-include ':lib_tcvideoediter'
-include ':lib_tcvideojoiner'
-include ':lib_tccommon'
+include ':videorecorder'
+include ':videoediter'
+include ':videojoiner'
 # 拷贝这段代码结束位置
 ```
 
-	在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
+在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
 
-	```
-	apply plugin: 'com.android.application'
+```
+apply plugin: 'com.android.application'
 
-	android {
-			compileSdkVersion 25
-			buildToolsVersion "25.0.2"
-			defaultConfig {
-					applicationId "ugc.demo.com.ugc"
-					minSdkVersion 15
-					targetSdkVersion 23
-					versionCode 1
-					versionName "1.0"
-					// 拷贝这段代码起始位置
-					ndk {
-							abiFilters "armeabi", "armeabi-v7a"
-					}
-					// 拷贝这段代码结束位置
-					testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-			}
-			buildTypes {
-					release {
-							minifyEnabled false
-							proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-					}
-			}
-			// 拷贝这段代码起始位置
-			sourceSets {
-					main {
-							jniLibs.srcDirs = ['libs']
-					}
-			}
-			// 拷贝这段代码结束位置
+android {
+	compileSdkVersion rootProject.ext.compileSdkVersion
+        buildToolsVersion rootProject.ext.buildToolsVersion
+	defaultConfig {
+		applicationId "com.tencent.liteav.demo"
+		minSdkVersion 15
+		targetSdkVersion 23
+		versionCode 1
+		versionName "1.0"
+		// 拷贝这段代码起始位置
+		ndk {
+			abiFilters "armeabi", "armeabi-v7a"
+		}
+		// 拷贝这段代码结束位置
+		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 	}
+	buildTypes {
+		release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+		}
+	}
+	// 拷贝这段代码起始位置
+	sourceSets {
+		main {
+			jniLibs.srcDirs = ['libs']
+		}
+	}
+	// 集成短视频商业版需要添加 packagingOptions，非商业版不需要
+	packagingOptions {
+		pickFirst '**/libc++_shared.so'
+        	doNotStrip "*/armeabi/libYTCommon.so"
+        	doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        	doNotStrip "*/x86/libYTCommon.so"
+        	doNotStrip "*/arm64-v8a/libYTCommon.so"
+    	}
+	// 拷贝这段代码结束位置
+}
 
+dependencies {
+	compile fileTree(dir: 'libs', include: ['*.jar'])
+	// 拷贝这段代码起始位置
+	compile project(':videoediter')
+	compile project(':videojoiner')
+	compile project(':videorecorder')
+	// 拷贝这段代码结束位置
+}
+```
+
+3. 修改 Project:build.gradle 的配置 
+
+```
+buildscript {
+	repositories {
+		jcenter()
+	}
 	dependencies {
-			compile fileTree(dir: 'libs', include: ['*.jar'])
-			// 拷贝这段代码起始位置
-			compile project(':lib_tccommon')
-			compile project(':lib_tcvideoediter')
-			compile project(':lib_tcvideojoiner')
-			compile project(':lib_tcvideorecord')
-			// 拷贝这段代码结束位置
+		classpath 'com.android.tools.build:gradle:2.2.3'
 	}
-	```
-3. 拷贝 sdk：/SDK/LiteAVSDK_UGC_1.1.10.aar 到新建的工程 UGC/lib_tccommon/libs/ 下，修改 lib_tccommon:build.gradle 中的 SDK 版本号：
+}
 
-	```
-	apply plugin: 'com.android.library'
-
-	android {
-			compileSdkVersion 25
-			buildToolsVersion "25.0.2"
-
-			defaultConfig {
-					minSdkVersion 15
-					targetSdkVersion 23
-					versionCode 1
-					versionName "1.0"
-			}
-
-			buildTypes {
-					release {
-							minifyEnabled false
-							proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-					}
-			}
-			// 拷贝这段代码起始位置
-			sourceSets {
-					main {
-							jniLibs.srcDirs = ['libs']
-					}
-			}
-			// 拷贝这段代码结束位置
+allprojects {
+	repositories {
+		jcenter()
+		 // 拷贝这段代码起始位置
+		flatDir {
+			 dirs project(':videoediter').file('libs')
+            		 dirs project(':videojoiner').file('libs')
+         		 dirs project(':videorecorder').file('libs')
+		}
+		// 拷贝这段代码结束位置
 	}
+}
 
-	dependencies {
-			compile fileTree(include: ['*.jar'], dir: 'libs')
-			compile 'com.android.support:appcompat-v7:25.+'
-			// 拷贝这段代码起始位置
-			compile 'com.android.support:recyclerview-v7:25.+'
-			// 这里注意：根据拷贝的aar文件，修改sdk的版本号
-			compile(name: 'LiteAVSDK_UGC_1.1.10', ext: 'aar')
-			compile files('libs/glide-3.7.0.jar')
-			 // 拷贝这段代码结束位置
-	}
-	```
+task clean(type: Delete) {
+	delete rootProject.buildDir
+}
+ // 拷贝这段代码起始位置
+ext {
+	compileSdkVersion = 28
+        buildToolsVersion = "28.0.3"
+        minSdkVersion = 16
+        targetSdkVersion = 23
+        supportSdkVersion = "26.0.0"
+}
+// 拷贝这段代码结束位置
+```
+4. 在拷贝的三个module："videoediter"，"videojoiner"，"videorecorder" 中 libs 文件夹拷贝最新sdk的aar，并在每个module的build.gradle配置sdk。如下示例"videoediter"
+```
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // 请修改为拷贝到libs下的sdk名称
+    compile(name: 'LiteAVSDK_Professional', ext: 'aar')
 
-4. 修改 Project:build.gradle 的配置，保证使用了 lib_tccommon 中的 sdk 版本：
+    compile "com.android.support:appcompat-v7:$rootProject.ext.supportSdkVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportSdkVersion"
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+}
+```
 
-	```
-	buildscript {
-
-			repositories {
-					jcenter()
-			}
-			dependencies {
-					classpath 'com.android.tools.build:gradle:2.2.3'
-			}
-	}
-
-	allprojects {
-			repositories {
-					jcenter()
-					 // 拷贝这段代码起始位置
-					flatDir {
-							dirs 'libs'
-							dirs project(':lib_tccommon').file('libs')
-					}
-					// 拷贝这段代码结束位置
-			}
-	}
-
-	task clean(type: Delete) {
-			delete rootProject.buildDir
-	}
-	```
 5. 请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
 
-	```
+```
 The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
 可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本
 
-	```
+```
 distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
 6. License 配置
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
 
-	```
-	//DemoApplication.java
-	import com.tencent.ugc.TXUGCBase;
+```
+//DemoApplication.java
+import com.tencent.ugc.TXUGCBase;
 
-	public class DemoApplication extends Application {
-			String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence";
-			String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";
+public class DemoApplication extends Application {
+	String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence";
+	String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";
 
-			@Override
-			public void onCreate() {
-					super.onCreate();
+	@Override
+	public void onCreate() {
+		super.onCreate();
+		TXUGCBase.getInstance().setLicence(this, ugcLicenceUrl, ugcKey);
 
-					TXUGCBase.getInstance().setLicence(this, ugcLicenceUrl, ugcKey);
-
-					String string = TXUGCBase.getInstance().getLicenceInfo(this);
-					Log.i("SDK", "string=" + string);
-			}
+		String string = TXUGCBase.getInstance().getLicenceInfo(this);
+		Log.i("SDK", "string=" + string);
 	}
+}
 
-	// AndroidManifest.xml
-	<application
-					android:name=".DemoApplication"
-				 ...
-	</application>
-	```
+// AndroidManifest.xml
+<application
+	android:name=".DemoApplication"
+	 ...
+</application>
+```
 
 7. 短视频模块的调用
 在 activity_main.xml 中建立三个 Button。
@@ -431,50 +410,47 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 ```
 在 MainActivity.java 中启动各模块的类即可。
 
-	```
-	public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+```
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-			@Override
-			protected void onCreate(Bundle savedInstanceState) {
-					super.onCreate(savedInstanceState);
-					setContentView(R.layout.activity_main);
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
 
-					Button button1 = (Button) findViewById(R.id.record);
-					Button button2 = (Button) findViewById(R.id.editer);
-					Button button3 = (Button) findViewById(R.id.joiner);
+		Button button1 = (Button) findViewById(R.id.record);
+		Button button2 = (Button) findViewById(R.id.editer);
+		Button button3 = (Button) findViewById(R.id.joiner);
 
-					button1.setOnClickListener(this);
-					button2.setOnClickListener(this);
-					button3.setOnClickListener(this);
-			}
-
-			@Override
-			public void onClick(View v) {
-					switch (v.getId()) {
-							case R.id.record:
-									Intent intent1 = new Intent(this, TCVideoSettingActivity.class);
-									startActivity(intent1);
-									break;
-							case R.id.editer:
-									Intent intent2 = new Intent(this, TCVideoEditChooseActivity.class);
-									startActivity(intent2);
-									break;
-							case R.id.joiner:
-									Intent intent3 = new Intent(this, TCVideoJoinChooseActivity.class);
-									startActivity(intent3);
-									break;
-					}
-			}
+		button1.setOnClickListener(this);
+		button2.setOnClickListener(this);
+		button3.setOnClickListener(this);
 	}
 
-	```
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.record:
+			Intent intent1 = new Intent(this, TCVideoSettingActivity.class)								startActivity(intent1)
+			break;
+		case R.id.editer:
+			Intent intent2 = new Intent(this, TCVideoEditChooseActivity.class);
+			startActivity(intent2);
+			break;
+		case R.id.joiner:
+			Intent intent3 = new Intent(this, TCVideoJoinChooseActivity.class);
+			startActivity(intent3);
+			break;
+		}
+	}
+}
+```
 8. clean 工程，运行即可看到效果。
 
 ### 相关文件简介
 #### 短视频录制
 
 ```
-lib_tcvideorecord
 └── videorecord
     ├── RecordDef.java(背景音选择接口)
     ├── TCBGMRecordAdapter.java(背景音列表适配器)
