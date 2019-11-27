@@ -12,7 +12,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 登录 [腾讯云官网](https://cloud.tencent.com/) PC 端录入服务商、子商户、门店，详细操作请参见 [配置服务商](https://cloud.tencent.com/document/product/569/9796)、[配置子商户](https://cloud.tencent.com/document/product/569/9795)、[配置门店](https://cloud.tencent.com/document/product/569/9797)。
  **入驻流程**
  ![服务商/子商户入驻流程图](https://main.qcloudimg.com/raw/1d6b66c6c4ef61022510c7abbb8ff9ca.png)
->?流程图中的的 out_mch_id、out_sub_mch_id、out_shop_id、decive_id、staff_id、子商户订单前缀、认证 key、私钥在调用刷卡支付时需用到。
+>?流程图中的 out_mch_id、out_sub_mch_id、out_shop_id、decive_id、staff_id、子商户订单前缀、认证 key、私钥在调用刷卡支付时需用到。
 
 - **获取云支付服务商账号**
 登录 [云支付控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fcpay)，选择【服务商账户管理】，在服务商账号列表可查看云支付服务商账号。
