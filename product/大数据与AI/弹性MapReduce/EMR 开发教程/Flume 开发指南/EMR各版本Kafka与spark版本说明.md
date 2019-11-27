@@ -11,7 +11,7 @@
 
 ### 查找方法
 
-访问官网链接，输入版本号链接模板：
+1. 访问官网链接，输入版本号链接模板：
 ```
 https://spark.apache.org/docs/{spark.version}/streaming-kafka-integration.html
 ```
@@ -19,4 +19,5 @@ https://spark.apache.org/docs/{spark.version}/streaming-kafka-integration.html
 ```
 https://spark.apache.org/docs/2.0.2/streaming-kafka-integration.html
 ```
-
+2. 查看依赖，单击相应链接可看到详细说明。
+![](https://main.qcloudimg.com/raw/490029cb98805a5c1a861adbc1ec2f70.png)
