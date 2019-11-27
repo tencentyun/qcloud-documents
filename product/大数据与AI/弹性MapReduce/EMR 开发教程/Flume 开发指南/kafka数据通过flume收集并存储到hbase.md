@@ -2,8 +2,8 @@
 将 kafka 中的数据通过 flume 收集并存储到 hbase。
 
 ## 开发准备
-•	因为任务中需要访问腾讯云消息队列 CKafka，所以需要先创建一个 CKafka 实例，具体见 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
-•	确认您已开通腾讯云，且已创建一个 EMR 集群。创建 EMR 集群时需要在软件配置界面选择 Spark 组件。
+- 因为任务中需要访问腾讯云消息队列 CKafka，所以需要先创建一个 CKafka 实例，具体见 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
+- 确认您已开通腾讯云，且已创建一个 EMR 集群。创建 EMR 集群时需要在软件配置界面选择 Spark 组件。
 
 ## 在 EMR 集群使用 Kafka 工具包
 首先需要查看 CKafka 的内网 IP 与端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为9092。在 topic 管理界面新建一个 topic 为 kafka_test。
@@ -52,4 +52,4 @@ hbase_test
 - 观察 hbase 表中是否有相应数据。
 
 ## 参考文档
-[hbase-sink 配置说明]()
+[hbase-sink 配置说明](https://flume.apache.org/FlumeUserGuide.html#hbasesinks)
