@@ -20,7 +20,7 @@ HAVIP 的绑定与解绑，不是在腾讯云的控制台，而是配合第三�
 >?常见的 HA 软件有：Linux 下的 HeartBeat、keepalived、pacemaker，Windows下的 MSCS 等。
 
 ### 操作示例
-HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创建的 HAVIP 即可，如下在`virtual_ipaddress`设置可漂移 IP 时，输入 HAVIP。
+HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创建的 HAVIP 即可，示例如下：
 ```
 vrrp_instanceVI_1 {    
     state MASTER   
