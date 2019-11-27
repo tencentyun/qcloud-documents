@@ -65,7 +65,7 @@ mysql -h hostname -P port -u username -p
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
 <span id = "waiwang"></span>
-## 附录：开启外网地址
+## 附录：开启外网访问地址
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )。
 2. 在实例列表中，单击实例名或操作列的【管理】，进入实例详情页面。
 3. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
