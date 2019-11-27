@@ -39,7 +39,7 @@ agent.channels.mem_channel.transactionCapacity = 10000
 ```
 2. 运行 flume
 ```
-./bin/flume-ng agent --conf ./conf/-f kafka.properties -n agent -Dflume.root.logger=INFO,console
+./bin/flume-ng agent --conf ./conf/ -f kafka.properties -n agent -Dflume.root.logger=INFO,console
 ```
 3. 运行 kafka 
 ```
