@@ -94,7 +94,7 @@ cp -ra /usr/local/service/hive/hcatalog/share/hcatalog/hive-hcatalog-streaming-2
 ```
 5. 运行 flume
 ```
-./bin/flume-ng agent --conf ./conf/-f hive_kafka.properties -n agent -Dflume.root.logger=INFO,console
+./bin/flume-ng agent --conf ./conf/ -f hive_kafka.properties -n agent -Dflume.root.logger=INFO,console
 ```
 6. 运行 kafka producer
 ```
