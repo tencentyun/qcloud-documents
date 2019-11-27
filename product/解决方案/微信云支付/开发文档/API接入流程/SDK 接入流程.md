@@ -105,10 +105,10 @@ request_content 的内容是一个字符串，如下图，所以第2行和第7�
         order_client["device_id"]        = 1;
         order_client["spbill_create_ip"] = "10.15.244.75";
         order_client["staff_id"]         = "1003";
-        order_client["terminal_type"]    = 2;  // 平台 windows linux android pos
+        order_client["terminal_type"]    = 2;  // 平台 Windows Linux Android pos
         order_client["sub_terminal_type"]    = 1111; //设备型号，如商家的 pos 的 AXX01 型号，这个字段接入方自定义，保证自己设备型号的唯一性，可用于统计某一款设备的订单信息。
 
-        Json::Value request_content;     // 构造request_content
+        Json::Value request_content;     // 构造 request_content
         request_content["pay_mch_key"]   = pay_mch_key;
         request_content["pay_content"]   = pay_content;
         request_content["order_client"]  = order_client;
@@ -122,7 +122,7 @@ request_content 的内容是一个字符串，如下图，所以第2行和第7�
         authen["authen_type"] = 1; //hmac_sha256 为1
 
         Json::Value authen_info;
-        authen_info["a"] = authen;  //认证码，签名是s
+        authen_info["a"] = authen;  //认证码，签名是 s
 
         Json::Value request;       //构造最终发给服务器的请求
         request["request_content"] = request_content_str;
