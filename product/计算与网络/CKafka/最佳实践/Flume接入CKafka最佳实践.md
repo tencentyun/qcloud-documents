@@ -99,7 +99,7 @@ a1.sinks.k1.kafka.producer.acks = 1
 ```
 ./kafka-console-consumer.sh --bootstrap-server 172.16.16.12:9092 --topic flume_test --from-beginning --new-consumer
 ```
-可以看到刚刚的消息被消费出来。
+可以看到刚才的消息被消费出来。
  ![](https://mc.qcloudimg.com/static/img/ee394af9d8280bfef988d71ccc30f805/77.png)
 
 **使用 Ckafka 作为 Source**
