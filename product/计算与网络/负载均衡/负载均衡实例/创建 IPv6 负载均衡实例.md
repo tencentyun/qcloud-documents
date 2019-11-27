@@ -43,11 +43,9 @@ IPv6 负载均衡的架构如下图所示：
 ![](https://main.qcloudimg.com/raw/19fbf68edcb9d4f06102ae61c2228b67.png)
 5. 配置会话保持，单击【提交】。
 ![](https://main.qcloudimg.com/raw/9743537a93828dc8c0c10e6c943f7673.png)
-
-### 步骤3：绑定云服务器
+6. 监听器创建完成后，选中该监听器，在右侧单击【绑定】。
 >?绑定云服务器前，请确定该云服务器已获取 IPv6 地址。
 >
-1. 监听器创建完成后，选中该监听器，在右侧单击【绑定】。
 ![](https://main.qcloudimg.com/raw/edf72af61361da4f833f2424a548040e.png)
-2. 在弹出框中，选择需要通信的 IPv6 云服务器，并配置服务端口和权重，单击【确定】即可。
+7. 在弹出框中，选择需要通信的 IPv6 云服务器，并配置服务端口和权重，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/7eb363ea3170bbe7a881762be7968210.png)
