@@ -527,7 +527,7 @@ client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NS
 
 | 参数名称  | 类型       | 是否必填 | 说明                           |
 | --------- | ---------- | -------- | ------------------------------ |
-| filename  | NSString * | 是       |                                |
+| filename  | NSString * | 是       |         -                       |
 | bucket    | NSString * | 是       | 文件所属 bucket 名称           |
 | directory | NSString * | 是       | 目录路径（相对于bucket的路径） |
 | sign      | NSString * | 是       | 签名                           |
@@ -574,7 +574,7 @@ client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
 
 | 参数名称   | 类型          | 是否必填 | 说明                                      |
 | ---------- | ------------- | -------- | ----------------------------------------- |
-| filename   | NSString *    | 是       |                                           |
+| filename   | NSString *    | 是       |          -                                 |
 | bucket     | NSString *    | 是       | 文件所属 Bucket 名称                      |
 | directory  | NSString *    | 是       | 目录路径（相对于bucket的路径）            |
 | sign       | NSString *    | 是       | 签名                                      |
