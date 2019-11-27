@@ -71,7 +71,7 @@ uploader.done().then(function (doneResult) {
 ```
 
 >?
->- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](https://cloud.tencent.com/document/product/266/9239#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
+>- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
 >- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 
 ## 高级功能
