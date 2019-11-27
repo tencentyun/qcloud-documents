@@ -415,7 +415,7 @@ FOR UPDATE 导致被 SELECT 语句访问的表被锁定，就好像在做更新�
 为了防止该操作等待其他事务提交，可使用 NOWAIT。使用 NOWAIT 时，如果选中的行不能被立即锁定，该语句会报告错误而不是等待。
 注意 NOWAIT 只适合行级锁，所要求的 ROW SHARE 表级锁仍然会以常规的方式取得。如果想要不等待的表级锁，用户可以先使用带 NOWAIT 的 LOCK（见**LOCK**）。
 
-FOR SHARE 的行为相似，除了需要一个在表上的共享锁而不是排它锁。一个共享锁阻阻塞其它在表上执行 UPDATE、DELETE 或者 SELECT FOR UPDATE的事务，但是不禁止它们执行 SELECT FOR SHARE。
+FOR SHARE 的行为相似，除了需要一个在表上的共享锁而不是排它锁。一个共享锁阻塞其它在表上执行 UPDATE、DELETE 或者 SELECT FOR UPDATE的事务，但是不禁止它们执行 SELECT FOR SHARE。
 
 如果特定的表在 FOR UPDATE 或者 FOR SHARE 中，那么只有这些表被锁定；任何其它在 SELECT 中使用的表按照通常的方式进行读。一个不带表列表的 FOR UPDATE 或者 FOR SHARE 子句将会影响所有在命令中使用的表。如果 FOR UPDATE 或者 FOR SHARE 应用到了一个视图或者子查询上，那么它将影响所有在视图或者子查询中使用到的表。
 
@@ -549,7 +549,7 @@ SQL:1999 及其后的标准使用了一种略微不同的定义，它并不完�
 DISTINCT ON、LIMIT 以及 OFFSET 子句并没有在 SQL 标准中有定义。
 
 **STABLE 以及 VOLATILE 函数的限制使用**
-为了防止数据在在数据库的多个 segment 间不同步，任何一个定义为 STABLE 或者 VOLATILE 的函数不能在 Segment 级别执行（如果它包含了 SQL 或者修改了数据库）。
+为了防止数据在数据库的多个 segment 间不同步，任何一个定义为 STABLE 或者 VOLATILE 的函数不能在 Segment 级别执行（如果它包含了 SQL 或者修改了数据库）。
 
 ## 另见
 EXPLAIN
