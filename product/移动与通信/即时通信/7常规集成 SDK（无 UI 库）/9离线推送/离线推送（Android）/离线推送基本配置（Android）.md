@@ -26,7 +26,7 @@
      <td>华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301</td> 
    </tr> 
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">FCM 推送</a></td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">Google FCM 推送</a></td> 
      <td nowrap="nowrap">Android 4.1 及以上</td> 
      <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。</td> 
    </tr> 
