@@ -39,7 +39,7 @@
  * libz.tbd
  * CoreData.framework
  * CFNetwork.framework
- libc++.tbd
+ * libc++.tbd
 ```
 8. 添加完成后，库的引用如下：
 ![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
