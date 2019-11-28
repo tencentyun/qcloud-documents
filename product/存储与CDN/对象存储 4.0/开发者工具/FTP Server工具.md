@@ -113,7 +113,7 @@ passive_port = 60000,65535
 single_file_max_size = 21474836480
 
 [OPTIONAL]
-# 以下设置，如无特殊需要，建议保留 default 设置  如需设置，请合理填写一个整数
+# 以下设置，如无特殊需要，建议保留 default 设置。如需设置，请合理填写一个整数
 min_part_size       = default
 upload_thread_num   = default
 max_connection_num  = 512
