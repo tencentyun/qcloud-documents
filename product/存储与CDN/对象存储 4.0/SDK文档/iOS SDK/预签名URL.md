@@ -44,29 +44,29 @@
 
 #### 获取带预签名 URL 的示例
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```objective-c
+QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
+configuration.appID = @"1250000000";
+// 签名提供者，这里假设由当前实例提供
+configuration.signatureProvider = self;
+QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
+endpoint.regionName = @"ap-guangzhou";
+endpoint.useHTTPS = YES;
+configuration.endpoint = endpoint;
+
+[QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
+[QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
+
+// 构建请求
 QCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
-getPresignedURLRequest.bucket = @“examplebucket-1250000000”;
+getPresignedURLRequest.bucket = @"example-1250000000";
 getPresignedURLRequest.HTTPMethod = @"GET";
-getPresignedURLRequest.object = @"text.txt";
+getPresignedURLRequest.object = @"exampleobject";
+
 [getPresignedURLRequest setFinishBlock:^(QCloudGetPresignedURLResult * _Nonnull result, NSError * _Nonnull error) {
-if (nil == error) {
- NSString* presignedURL = result.presienedURL;
-}
-}
+    NSString* presignedURL = result.presienedURL;
+}];
+
 [[QCloudCOSXMLService defaultCOSXML] getPresignedURL:getPresignedURLRequest];
-
-```
-
-#### 使用带预签名 URL 的示例
-
-这里演示一个使用带预签名 URL 进行下载的例子。
-
-```objective-C
-NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"带预签名的URL"]];
-request.HTTPMethod = @"GET";
-request.HTTPBody = [@"文件内容" dataUsingEncoding:NSUTF8StringEncoding];
-[[[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    NSInteger statusCode = [(NSHTTPURLResponse*)response statusCode];
-}] resume];
 ```
