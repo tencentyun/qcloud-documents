@@ -34,7 +34,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 3. 根据 [步骤1](#Step1_3) 中获取的信息设置以下参数：
  - **推送平台**：选择 **vivo**
  - **AppKey**：填写 vivo 推送服务应用的 **APP key**
- - **APPID**：填写 vivo 推送服务应用的 **APP ID**
+ - **AppID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
  - **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#click)
  ![](https://main.qcloudimg.com/raw/ac890d834dd7f069f936094180634cd7.png)
