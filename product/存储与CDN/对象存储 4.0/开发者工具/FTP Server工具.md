@@ -100,10 +100,13 @@ authority=RW
 delete_enable=false
 
 [NETWORK]
-masquerade_address = XXX.XXX.XXX.XXX        # 如果 FTP SERVER 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP
-listen_port = 2121					   # Ftp Server 的监听端口，默认为2121，注意防火墙需要放行该端口
+# 如果 FTP SERVER 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP
+masquerade_address = XXX.XXX.XXX.XXX
+# Ftp Server 的监听端口，默认为2121，注意防火墙需要放行该端口
+listen_port = 2121			
+# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择，注意防火墙需要放行此区间端口
+passive_port = 60000,65535      
 
-passive_port = 60000,65535             # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择
 
 [FILE_OPTION]
 # 默认单文件大小最大支持到200G，不建议设置太大
