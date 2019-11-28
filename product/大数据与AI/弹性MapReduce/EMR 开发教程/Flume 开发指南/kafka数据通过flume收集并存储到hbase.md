@@ -1,5 +1,5 @@
 ## 场景说明
-将 kafka 中的数据通过 flume 收集并存储到 hbase。
+将 Kafka 中的数据通过 Flume 收集并存储到 Hbase。
 
 ## 开发准备
 - 因为任务中需要访问腾讯云消息队列 CKafka，所以需要先创建一个 CKafka 实例，具体见 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
