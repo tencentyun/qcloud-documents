@@ -57,9 +57,19 @@ SecretKey=kFpwo**************************
 python tcloud_tts.py
 ```
 ### Python 快速入门例子
-参考 python_tts_sdk/tcloud_tts.py
+参考 tcloud_tts.py
 
 ```
+# coding=UTF-8
+import requests
+import wave
+import json
+import base64
+import time
+import collections
+
+from request_util import request, authorization
+
 def task_process():
     req = request()
     req.init()
@@ -68,7 +78,7 @@ def task_process():
 
     #request_data = collections.OrderedDict()
     request_data = dict()
-    request_data['Action'] = req.Action
+    request_data['Action'] = 'TextToStreamAudio'
     request_data['AppId'] = auth.AppId
     request_data['Codec'] = req.Codec
     request_data['Expired'] = int(time.time()) + auth.Expired
@@ -89,7 +99,7 @@ def task_process():
         "Content-Type": "application/json",
         "Authorization": str(signature)
     }
-    url = "https://aai.cloud.tencent.com/tts"
+    url = "https://tts.cloud.tencent.com/stream"
 
     r = requests.post(url, headers=header, data=json.dumps(request_data), stream = True)
     '''
@@ -108,6 +118,9 @@ def task_process():
         wavfile.writeframes(chunk)
         
     wavfile.close()
+
+    
+task_process()
 ```
 
 
