@@ -64,7 +64,7 @@ done
 [hadoop@172 bin]$ hive
 ```
 用户也可以使用`-h`参数来获取 Hive 指令的基本信息。
-也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中，获得 hive server2 的连接端口 $port 和 host 地址 $hos：
+也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中，获得 hive server2 的连接端口 $port 和 host 地址 $host：
 
 ```
 <property>
