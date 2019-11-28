@@ -30,7 +30,6 @@
 1. 登录 [SCF 控制台](https://console.cloud.tencent.com/scf/)，在左侧导航菜单中，单击【函数服务】。
 2. 选择与静态内容相同的地域，单击【新建】创建函数。
 3. 在 “新建函数” 页面，选择 “空白函数”，输入函数名称（如 refresh_cdn），设置运行环境（示例代码使用 Node.js 语言，因此运行环境设置为 Nodejs 6.10），如下图所示：
-![](https://main.qcloudimg.com/raw/ce9f203ae9b15be8924b6566bceacd69.png)
 ![](https://main.qcloudimg.com/raw/7ae6cbd10b3b0f595158f9fb569f7789.jpg)
 4. 确认配置无误后，选择【下一步】>【完成】，即可创建 SCF 函数。
 
@@ -48,7 +47,6 @@
 2. 上传函数代码
 	1. 将修改好的代码和其他文件重新压缩打包为 zip 格式。
 	2. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择 【函数代码】 页签，将 "提交方法" 设置为 "本地上传 zip 包"，单击【上传】，选择此压缩的 zip 格式文件。如下图所示：
-![](https://main.qcloudimg.com/raw/0ff4e9179051ae3589ac193a7390da29.png)
 ![](https://main.qcloudimg.com/raw/21a892d12ba0ae7df8047c2a0fb7d245.jpg)
 3. 添加触发方式
  1. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择【触发方式】，单击【添加触发方式】。
@@ -59,7 +57,6 @@
 如果您同时需要对删除行为也进行自动刷新，则需再添加一种触发方式，并将 "事件类型" 设置为 "删除文件"。
 **前缀过滤**：前缀过滤通常用于过滤指定目录下的文件事件，例如前缀过滤为`test/`，则仅`test/`目录下的文件事件才可以触发函数，`hello/`目录下的文件事件不应该触发函数。
 **后缀过滤**：后缀过滤通常用于过滤指定类型或后缀的文件事件，例如后缀过滤为`.jpg`，则仅`.jpg`结尾的文件的事件才可以触发函数，`.png`结尾的文件不应该触发函数。
-![](https://main.qcloudimg.com/raw/e0bd1dcfd41d0102b0eb4207c9517057.png)
 ![](https://main.qcloudimg.com/raw/bbc4a0a908fb54684c9c413ca5d4ca86.jpg)
  3. 勾选立即启用。
  4. 确认配置信息无误后，单击【保存】。
