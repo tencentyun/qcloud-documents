@@ -102,9 +102,9 @@ delete_enable=false
 [NETWORK]
 # 如果 FTP SERVER 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP
 masquerade_address = XXX.XXX.XXX.XXX
-# Ftp Server 的监听端口，默认为2121，注意防火墙需要放行该端口
+# Ftp Server 的监听端口，默认为2121，注意防火墙需要放行该端口（例如您是将 FTP SERVER 工具部署在腾讯云 CVM，则需要在安全组放行该端口）
 listen_port = 2121			
-# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择，注意防火墙需要放行此区间端口
+# passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择，注意防火墙（例如 CVM 安全组）需要放行此区间端口
 passive_port = 60000,65535      
 
 
