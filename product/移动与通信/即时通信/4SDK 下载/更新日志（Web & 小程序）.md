@@ -1,3 +1,11 @@
+### 2.2.1 @2019.11.28
+**变更**
+- 完善拉群漫游消息的逻辑。
+
+**修复**
+- 群主修改音视频聊天室的群资料后 SDK 报 2901 错误码。
+- 群管理员处理完加群申请，刷新后仍能收到已处理过的申请。
+
 ### 2.2.0 @2019.11.21
 **新增**
 - 小程序支持创建发送视频消息 [createVideoMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)，视频消息全平台互通（需升级使用最新版本的 [TUIKit 以及 SDK](https://cloud.tencent.com/document/product/269/36887)）。
