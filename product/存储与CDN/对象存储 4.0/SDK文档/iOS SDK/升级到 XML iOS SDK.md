@@ -132,13 +132,13 @@ XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要�
 
 
 **存储桶 Bucket**
-XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `exampleobject-1250000000`，其中 `exampleobject` 为用户自定义字符串，`1250000000` 为 APPID。
+XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 ```
-NSString *bucket = "exampleobject-1250000000";
+NSString *bucket = "examplebucket-1250000000";
 ```
 
 **存储桶可用区域简称 Region**
