@@ -100,9 +100,9 @@ authority=RW
 delete_enable=false
 
 [NETWORK]
-# 如果 FTP SERVER 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP
+# 如果 FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP
 masquerade_address = XXX.XXX.XXX.XXX
-# Ftp Server 的监听端口，默认为2121，注意防火墙需要放行该端口（例如您是将 FTP SERVER 工具部署在腾讯云 CVM，则需要在安全组放行该端口）
+# FTP Server 的监听端口，默认为2121，注意防火墙需要放行该端口（例如您是将 FTP Server 工具部署在腾讯云 CVM，则需要在 CVM 安全组放行该端口）
 listen_port = 2121			
 # passive_port 可以设置 passive 模式下，端口的选择范围，默认在(60000, 65535)区间上选择，注意防火墙（例如 CVM 安全组）需要放行此区间端口
 passive_port = 60000,65535      
@@ -119,7 +119,7 @@ upload_thread_num   = default
 max_connection_num  = 512
 max_list_file       = 10000                # ls 命令最大可列出的文件数目，建议不要设置太大，否则 ls 命令延时会很高
 log_level           = INFO                 # 设置日志输出的级别
-log_dir             = log                  # 设置日志的存放目录，默认是在 ftp server 目录下的 log 目录中
+log_dir             = log                  # 设置日志的存放目录，默认是在 FTP Server 目录下的 log 目录中
 ```
 
 
