@@ -7,11 +7,11 @@
 >! 目前 EIP 直通通过白名单控制，仅支持 VPC 内的设备，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ## 操作步骤
-设置 EIP 直通后，需要在操作系统内将 IP 加到网卡上，然后根据业务需求配置操作系统内的路由，针对操作我们提供了脚本，由脚本来配置 IP 以及让内网外网流量分别走内网 IP 和公网 IP。
+EIP 直通不仅需要在控制台开启，也需要在操作系统内将 IP 加到网卡上，然后根据业务需求配置操作系统内的路由，为此我们提供了配置 IP 的脚本，让内网流量走内网 IP，外网流量走公网 IP。
 - NAT 网关可绑定开通直通模式的 EIP，但无直通效果。
 - 如果有其他业务场景，请根据具体业务场景配置路由。
 
-### Linux 系统配置 EIP 直通
+### 在 Linux 云服务器中配置 EIP 直通
 >?
 >- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
 >- Linux 脚本仅支持主网卡（eth0），暂不支持辅助网卡。
@@ -53,7 +53,7 @@ chmod +x eip_direct.sh
 2. 找到对应的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
 
 
-### Windows 系统配置 EIP 直通
+### 在 Windows 云服务器中配置 EIP 直通
 >?
 >- Windows 系统的 EIP 直通，需要内网 IP 和外网 IP 各一张网卡，仅需主网卡配公网 IP，辅助网卡仅需配内网 IP 即可。
 >- Windows 设置直通过程中，外网会中断，建议采用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)。
