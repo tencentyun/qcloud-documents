@@ -98,7 +98,7 @@ vim  /etc/nginx/nginx.conf
    - 记录值：填写负载均衡的 IPv6 地址。
    - TTL：设置为默认值“600s”。
  4. 添加完毕后，单击【保存】。
- 5. 云解析将该记录在 Internet 上传播需要一段时间，为测试域名是否解析正常，可以在添加完解析记录一段时间后，Ping 域名进行验证，如下图所示：
+ 5. 云解析将该记录在 Internet 上传播需要600秒即10分钟（TTL值），为测试域名是否解析正常，可以在添加完解析记录10分钟后，Ping 域名进行验证，如下图所示：
 ![](https://main.qcloudimg.com/raw/9b0fdfd7b14fa59b8bd6447a9a953d0f.png)
 - 方式二：通过访问负载均衡的 IPv6 地址来验证，如下图：
 ![](https://main.qcloudimg.com/raw/ffde1160855d7b4fa0d98c9b753589ab.png)
