@@ -229,7 +229,7 @@ Resources:
 如果您有多个账号，可按照以下步骤在 SCF 插件页中添加新账号并切换使用：
 1. 选择云端函数右侧的<img src="https://main.qcloudimg.com/raw/ae8b96f8ee48b4dc003cf8b5173e5b12.png" > > 【切换账号】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f2a93ff675883768ed326f7bd44353ee.png)
-2. 在弹出的菜单中选择【登陆新用户】，输入对应信息完成配置，即可使用多用户。
+2. 在弹出的菜单中选择【登录新用户】，输入对应信息完成配置，即可使用多用户。
 
 
 ## 常见问题  
