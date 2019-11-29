@@ -100,4 +100,4 @@ vim  /etc/nginx/nginx.conf
 5. 云解析将该记录在 Internet 上传播需要600秒即10分钟（TTL 值），为测试域名是否解析正常，可以在添加完解析记录10分钟后，Ping 域名进行验证，如下图：
 ![](https://main.qcloudimg.com/raw/9b0fdfd7b14fa59b8bd6447a9a953d0f.png)
 6. 再通过浏览器访问域名来验证，如下图：
-![](https://main.qcloudimg.com/raw/ffde1160855d7b4fa0d98c9b753589ab.png)
+![](https://main.qcloudimg.com/raw/77a28d46b830e44db2856b029f5f8697.png)
