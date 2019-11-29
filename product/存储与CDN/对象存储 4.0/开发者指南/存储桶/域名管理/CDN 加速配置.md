@@ -22,18 +22,18 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 
 ## 对默认加速域名配置 CDN 加速
 
-默认加速域名是 COS 为存储桶自动分配的一个 CDN 加速域名，形如` <BucketName-APPID>.file.mycloud.com`，用户可选择**开启**或**关闭**。
+默认加速域名是 COS 为存储桶自动分配的一个 CDN 加速域名，形如`<BucketName-APPID>.file.mycloud.com`，用户可选择**开启**或**关闭**。
 
 ### 开启功能
 #### 1. 选择存储桶
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，在左侧导航栏中，单击【存储桶列表】，单击需要加速的存储桶，进入存储桶。
-![](https://main.qcloudimg.com/raw/8a4ceacd4892f0f9f660a6f6fa9dacd0.png)
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5) ，在左侧导航栏中，单击【存储桶列表】，并单击需要加速的存储桶，进入存储桶管理页。
+![](https://main.qcloudimg.com/raw/7cdf5d7ab988cadf93a6caf4e77dd6e7.jpg)
 
 #### 2. 进入配置页面
->!从未使用过腾讯云 CDN 服务的用户将无法进入【域名管理】，需先单击外链进入 CDN 控制台开通 CDN 服务。
+>!从未使用过腾讯云 CDN 服务的用户将无法进入【域名管理】，需先单击外链进入 [CDN 控制台](https://console.cloud.tencent.com/cdn) 开通 CDN 服务。
 
-单击左侧的【域名管理】，默认加速域名的初始状态为**关闭**。单击【编辑】，将当前状态设置为**开启**。
-![](https://main.qcloudimg.com/raw/90169099da40a28451808e4f41d94f31.png)
+单击左侧的【域名管理】，找到【默认加速域名】配置项。默认加速域名的初始状态为**关闭**。单击【编辑】，将当前状态设置为**开启**。
+![](https://main.qcloudimg.com/raw/7ab9ab6d18d9ce3431b3f0feeb866778.jpg)
 **源站类型**：源站类型默认是**默认源站**，若作为源站的存储桶开启了静态网站，并且希望为静态网站加速，可以将源站类型设置为**静态网站源站**，具体详情请参阅 [CDN 加速概述](https://cloud.tencent.com/document/product/436/18669)。
 
 #### 3. 添加 CDN 服务授权（可选）
