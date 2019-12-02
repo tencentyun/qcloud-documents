@@ -1,6 +1,6 @@
 ## 1. 接口描述
 
-本接口（SetSSLVpnDomain）用于设置 sslVPN 域。
+本接口（SetSSLVpnDomain）用于设置 SSL VPN 域。
 接口请求域名：vpc.api.qcloud.com
 
  
@@ -12,12 +12,12 @@
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
 | vpcId | 是 | Int | 私有网络 ID 值，可使用 vpcId 或 unVpcId，建议使用 unVpcId。可通过<a href="http://cloud.tencent.com/doc/api/245/%E6%9F%A5%E8%AF%A2%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9C%E5%88%97%E8%A1%A8" title="DescribeVpcEx"> DescribeVpcEx </a>接口查询。 |
-| sslVpnId | 否 | Int | 系统分配的 SSLvpn 网关 ID，例如 vpngw-l2tlvgb9。可通过<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn"> DescribeSSLVpn </a>接口查询。 |
+| sslVpnId | 否 | Int | 系统分配的 SSL VPN 网关 ID，例如 vpngw-l2tlvgb9。可通过<a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2sslVPN?viewType=preview" title="DescribeSSLVpn"> DescribeSSLVpn </a>接口查询。 |
 | groupId | 是 | String |  域的工作组。|
-| ipPool.n | 否 | Array |  sslVPN 终端 IP 段。|
-| acl.n | 否 | Array |  acl 策略。|
-| acl.n.proto | 是 | String | acl 协议，例如 tcp。|
-| acl.n.action | 是 | String | ACL策略，0：允许，1：拒绝。|
+| ipPool.n | 否 | Array |  SSL VPN 终端 IP 段。|
+| acl.n | 否 | Array |  ACL 策略。|
+| acl.n.proto | 是 | String | ACL 协议，例如 tcp。|
+| acl.n.action | 是 | String | ACL 策略，0：允许，1：拒绝。|
 | acl.n.destinationPort | 是 | String | 目的端口。|
 | acl.n.sourceCidr | 是 | String | 源 IP 或源网段。|
 | acl.n.destinationCidr | 是 | String | 目的 IP 或目的网段。|
