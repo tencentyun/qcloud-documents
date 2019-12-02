@@ -421,7 +421,7 @@ tim.handleGroupApplication(options);
 | :-------------- | :--------------------- | :--------- | :----------------------------------------------- |
 | `handleAction`  | `String `               |       -     | 处理结果 Agree（同意） / Reject（拒绝）                          |
 | `handleMessage` | `String`                       | `<optional>` | 附言                                                         |
-| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |            | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
+| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |      -      | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
 
 **返回值**
 
