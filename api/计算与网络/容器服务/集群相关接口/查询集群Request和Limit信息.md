@@ -36,6 +36,9 @@ ccs.api.qcloud.com
 |totalMemLimit|集群整体内存的 Limit|Int|
 |totalGpuLimit|集群整体 GPU 的 Limit|Int|
 |requestLimitInfo.InstanceIp|集群内节点的 Request 和 Limit 的详细分配详细，结构内为实例内网 IP|Object|
+|totalCpu|集群整体 CPU 使用量| Int
+totalMem|集群整体内存 的 Limit| Int
+totalGpu|集群整体 GPU 使用量| Int
 
 data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 
