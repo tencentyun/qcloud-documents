@@ -1,4 +1,3 @@
-### 1.2.6 设置 HTTPS 访问【可选】
 >!该操作步骤非必选步骤，用户可根据需求进行设置。
   
 1. 准备证书。 需要企业用户提供相关 CA 证书，准备好后缀为 `*.crt` 和` *.key` 的证书。
@@ -10,7 +9,7 @@
 	- Windows服务器：假设御点安装目录为`C:\Program Files (x86)\Tencent\PCMgrEnterprise`，则文件位置为`C:\Program Files (x86)\Tencent\PCMgrEnterprise\Data\nginx_https.conf`。
 	- Linux服务器：文件位置为`/data/services/pcmgr_enterprise/data/nginx_https.conf`。
 	- 配置内容参考如下：
-	>!配置中的名称需要和实际证书的名称保持一致
+	>!配置中的名称需要和实际证书的名称保持一致。
 ![](https://main.qcloudimg.com/raw/8140bf2d150ddd0ceb3d18b5b1572349.png)
 >
 ```
@@ -65,7 +64,7 @@ proxy_pass http://node_cgi_list;
 5. 重启服务。
 	- Windows 服务器，以**管理员权限启动 cmd.exe**，输入`sc stop DaemonSrv`，单击【回车】，待加载完毕后，输入`sc start DaemonSrv`，单击【回车】，如图所示即可重启。
 	![](https://main.qcloudimg.com/raw/ac077f273751614aef24c5f2fec2f790.png)
-	- Linux 服务器，运行`sh` ，文件位置为`/data/services/pcmgr_enterprise/public/supervisor_restart.sh`，脚本运行完毕即可重启。也可通过以下命令运行：
+	- Linux 服务器，运行`sh` ，文件位置为`/data/services/pcmgr_enterprise/public/supervisor_restart.sh`，脚本运行完毕即可重启，也可通过以下命令运行：
 	```
 	 \[root@d2c2fce5c9e0 \~\]\# sh /data/services/pcmgr\_enterprise/public/supervisor\_restart.sh
 	 ```
