@@ -81,7 +81,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 | seo               | String | 是否开启 SEO 优化：<br/>"off"：表示未开启。<br/>"on"：表示开启。     |
 | capping           | Object | 带宽上限设置：<br/>"bandwidth"：设置的带宽封顶阈值。<br/>"uint"：设置带宽封顶阈值的单位。<br/>"hy"：yes 表示设置为请求回源。<br/>"active"：yes 表示开启带宽封顶。 |
 | status_code_cache | Object | 状态码缓存设置：<br/>"404"：404状态码缓存过期时间，单位为秒，设置为0表示不缓存。 |
-| safety_chain      | Object | 时间戳鉴权设置：<br/>"switch"：开关，on - 开启，off - 关闭。<br/>"key"：鉴权 key。<br/>"time_format"：时间戳格式，10 - 十进制，16 - 16进制。<br/>"ttl_time"：过期时间。<br/>更多配置说明可查看 [鉴权配置](https://cloud.tencent.com/document/product/228/13677)。 |
+| safety_chain      | Object | 时间戳鉴权设置：<br/>"switch"：开关，on - 开启，off - 关闭。<br/>"key"：鉴权 key。<br/>"time_format"：时间戳格式，10 - 十进制，16 - 16进制。<br/>"ttl_time"：过期时间。<br/>更多配置说明可查看 [鉴权配置](https://cloud.tencent.com/document/product/228/33115)。 |
 | host_config       | Object | 其他高级配置项，具体见下文 host_config 高级配置。                                   |
 
 ##### host_config 高级配置
