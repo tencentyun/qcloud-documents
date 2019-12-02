@@ -11,7 +11,7 @@ API 接入详情请参见 [人脸核身 API 文档](https://cloud.tencent.com/do
 | [获取动作顺序](https://cloud.tencent.com/document/api/1007/31822)| 活体检测使用动作模式时，需先调用该接口获取动作顺序。 |
 | [获取数字验证码](https://cloud.tencent.com/document/api/1007/31821) | 活体检测使用数字模式时，需先调用该接口获取数字验证码。 |
 | [自拍照+身份信息识别	API](https://cloud.tencent.com/document/product/1007/35918)   |上传照片与公安权威库比对（照片人脸核身）  |
-|[身份信息核验](https://cloud.tencent.com/document/api/1007/33188)| 传入姓名和身份证号，验证真实性和一致性 |
+|[身份信息认证](https://cloud.tencent.com/document/api/1007/33188)| 传入姓名和身份证号，验证真实性和一致性 |
 |[银行卡二要素核验](https://cloud.tencent.com/document/api/1007/35776)  | 传入姓名和银行卡号，验证真实性和一致性 |
 |[银行卡三要素核验](https://cloud.tencent.com/document/api/1007/33848)  | 传入姓名、开户证件号、银行卡号，验证真实性和一致性 |
 |[银行卡四要素核验](https://cloud.tencent.com/document/api/1007/35775)  | 传入姓名、开户证件号、银行卡号、手机号，验证真实性和一致性 |
