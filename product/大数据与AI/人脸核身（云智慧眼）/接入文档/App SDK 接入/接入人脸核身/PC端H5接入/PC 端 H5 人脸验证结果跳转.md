@@ -17,4 +17,4 @@
 |newSignature|	对 URL 参数 AppID、orderNo 和 SIGN ticket、code 的签名|String|	40|
 
 
-详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/655/31969)。	
+详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/1007/37307)。	
