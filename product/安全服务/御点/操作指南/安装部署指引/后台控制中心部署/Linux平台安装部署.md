@@ -31,7 +31,7 @@ supervisorctl status
 ![](https://main.qcloudimg.com/raw/df50eb3cb7bf7a383b3e8da4e6f40f65.png)
 
 ## 授权导入
-初次登录系统，会提示导入证书（证书申请，请参考[1.1 授权获取指引](#1.1-授权获取指引)）
+初次登录系统，会提示导入证书（证书申请，请参考[1.1 授权获取指引](#1.1-授权获取指引)）。
 ![](https://main.qcloudimg.com/raw/8d01ead486b3d0abd8a28868834132d6.png)
 
 当证书导入成功后，在页面右上角【产品信息】中，将展示证书详情。
