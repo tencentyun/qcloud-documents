@@ -49,7 +49,7 @@ hosts.0=www.test1.com&hosts.1=www.test2.com
 
 | 参数名称          | 类型   | 描述                                                         |
 | ----------------- | ------ | ------------------------------------------------------------ |
-| id                | Int    | 域名接入 CDN 后的的标识 ID。                                   |
+| id                | Int    | 域名接入 CDN 后的标识 ID。                                   |
 | app_id            | Int    | 域名所属账号的 AppID。                                         |
 | owner_uin         | Int    | 域名所属账号。                                                |
 | project_id        | Int    | 域名所属项目 ID。                                              |
