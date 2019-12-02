@@ -1,10 +1,4 @@
-## 操作场景
-该任务指导您通过 API 网关控制台，创建一个服务。
+1. 在服务页面的 API 管理标签页中，单击【新建】。
+![API管理](//mc.qcloudimg.com/static/img/d158bddcf804dd5ed670572d776d5ada/image.png)
 
-## 操作步骤
-1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧菜单栏中选择【服务】。
-2.  在服务列表页，单击【新建】。
-3.  填写服务名称和备注信息：
- - 服务名：必填。最长50个字符，支持 `a-z、A-Z、0-9、_`。
- - 备注：选填。
-4. 单击【提交】，完成创建。
+2. 进行 [前端配置](https://cloud.tencent.com/document/product/628/11776) 和 [后端配置](https://cloud.tencent.com/document/product/628/11983)。
