@@ -45,7 +45,7 @@
 |接口功能|Action ID| 功能描述|
 |---------|---------|---------|
 |[创建订阅](https://cloud.tencent.com/document/product/406/7414)| Subscribe |用于在用户账号下创建一个新订阅。|
-|[获取订阅列表](https://cloud.tencent.com/document/product/406/7415)| ListSubscriptionByTopic |用于列主主题下的订阅列表，可分页获取数据。|
+|[获取订阅列表](https://cloud.tencent.com/document/product/406/7415)| ListSubscriptionByTopic |用于列出主题下的订阅列表，可分页获取数据。|
 |[修改订阅属性](https://cloud.tencent.com/document/product/406/7416)| SetSubscriptionAttributes| 用于设置某个已创建订阅的属性。|
 |[获取订阅属性](https://cloud.tencent.com/document/product/406/7418)| GetSubscriptionAttributes |用于获取某个已创建订阅的属性。|
 |[删除订阅](https://cloud.tencent.com/document/product/406/7417)|Unsubscribe |用于删除一个已创建的订阅。|
