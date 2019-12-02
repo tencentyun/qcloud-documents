@@ -61,35 +61,27 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 ### 输出
 ```
 {
-    "data":{
-        "code":0,
-        "message":"",
-        "codeDesc":"Success",
-        "data":{
-            "totalCpuRequest":2.52,
-            "totalCpuLimit":4,
-            "totalMemRequest":2.13,
-            "totalMemLimit":4.32,
-            "totalGpuLimit":0,
-            "requestLimitInfo":{
-                "172.31.31.4":{
-                    "cpuRequest":0.52,
-                    "cpuLimit":0,
-                    "memRequest":0.13,
-                    "memLimit":0.32,
-                    "gpuLimit":0
-                },
-                "172.31.31.5":{
-                    "cpuRequest":2,
-                    "cpuLimit":4,
-                    "memRequest":2,
-                    "memLimit":4,
-                    "gpuLimit":0
-                }
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "totalCpuRequest": 0.26,
+        "totalCpuLimit": 0,
+        "totalMemRequest": 0.07,
+        "totalMemLimit": 0,
+        "totalGpuLimit": 0,
+        "requestLimitInfo": {
+            "172.27.0.7": {
+                "cpuRequest": 0.26,
+                "cpuLimit": 0,
+                "memRequest": 0.07,
+                "memLimit": 0,
+                "gpuLimit": 0
             }
-        }
-    },
-    "message":"",
-    "code":0
+        },
+        "totalCpu": 0.94,
+        "totalMem": 0.71,
+        "totalGpu": 0
+    }
 }
 ```
