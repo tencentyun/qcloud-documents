@@ -9,7 +9,7 @@
 
 >?
 - 在安装 TCCLI 工具时，**需要预先 [配置密钥和地域相关的用户信息](https://cloud.tencent.com/document/product/440/34012)**。
-- 在安装 COSCMD 时，**无需配置 COS 的相关信息**。下述脚本会自动完成对 COSCMD 的配置。
+- 在安装 COSCMD 时，**无需配置 COS 的相关信息**。下述操作步骤的脚本会自动完成对 COSCMD 的配置。
 
 
 ## 操作步骤
