@@ -12,13 +12,13 @@
 
 ### 账号配置
 
-Demo 的测试账号为公共账号，多人同时登陆会被强制退出，为保证您的顺利体验，请重新配置账号。
+Demo 的测试账号为公共账号，多人同时登录会被强制退出，为保证您的顺利体验，请重新配置账号。
 
 #### 1. 创建音视频应用
 
 Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用，请创建新应用。
 
-步骤一：登陆 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，单击【应用管理】->【创建应用】。
+步骤一：登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，单击【应用管理】->【创建应用】。
 
 步骤二：输入应用名称，单击【确定】，记录自动生成的应用标识 SDKAppID。
 
@@ -28,7 +28,7 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 在`创建音视频应用`后，会默认创建相同 SDKAppID 的即时通讯应用。
 
-步骤一：登陆 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
+步骤一：登录 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
 
 步骤二：单击【开发辅助工具】->【 UserSig 工具】，输入测试用户名，单击【生成签名（UserSig）】。
 
