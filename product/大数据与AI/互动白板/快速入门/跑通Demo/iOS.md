@@ -18,7 +18,7 @@
 
 Demo 的测试账号为公共账号，多人同时登录会被强制退出，为保证您的顺利体验，请重新配置账号。
 
-### 1. 创建音视频应用
+#### 1. 创建音视频应用
 
 Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用，请创建新应用。
 
@@ -28,7 +28,7 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 ![](https://main.qcloudimg.com/raw/287edbf8848919054e01d51704369aa3.jpg)
 
-### 2. 创建即时通讯应用
+#### 2. 创建即时通讯应用
 
 在`创建音视频应用`后，会默认创建相同 SDKAppID 的即时通讯应用。
 
@@ -38,7 +38,7 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 ![](https://main.qcloudimg.com/raw/a2f24861652c760cbec05087dfe0d5df.jpg)
 
-### 3. 配置测试账号
+#### 3. 配置测试账号
 
 打开 Demo Config 目录下的配置文件 config.json，替换新的 SDKAppID 以及新创建的 UserId 和 UserSig（UserToken）即可。
 
