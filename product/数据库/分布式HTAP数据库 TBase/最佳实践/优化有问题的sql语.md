@@ -136,7 +136,7 @@ postgres=# explain select count(1) from tbase_1;
                      ->  Parallel Seq Scan on tbase_1  (cost=0.00..12586.67 rows=416667 width=0)
 (6 rows)
 ```
-上面第一个查询没走并行，analyze 后走并行才是正确的，建议大数据量更新再执行 analyze。
+上面第一个查询没走并行，第二个查询 analyze 后走并行才是正确的，建议大数据量更新再执行 analyze。
 
 ## 查看各节点的执行计划是否一致
 ```
