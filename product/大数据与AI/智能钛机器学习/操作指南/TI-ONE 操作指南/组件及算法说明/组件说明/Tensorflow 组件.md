@@ -1,4 +1,4 @@
-Tensorflow 组件为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至组件进行算法训练。
+Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至组件进行算法训练。
 
 ## 版本说明
 Tensorflow 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
@@ -15,11 +15,10 @@ pip.main(['install', "package_name"])
 
 ## 操作步骤
 1. **添加组件**
- 从左侧菜单栏中，选择【组件】>【深度学习】列表下的 Tensorflow 节点，并将其拖拽至画布中。
+ 从左侧菜单栏中，选择【框架】>【深度学习】列表下的 Tensorflow 节点，并将其拖拽至画布中。
 2. **配置参数**
  - 脚本及依赖包文件上传 ：
     将任务脚本上传至 程序脚本 框。如果需要依赖文件，则压缩为zip文件后通过 依赖包文件 框上传。
-![](https://main.qcloudimg.com/raw/f502e40c73117cfddef50af122cec760.png)
  - 程序依赖：
     指定位于 COS 中的用户依赖文件路径，指定内容将被拷贝到程序脚本同一级目录下。支持目录或者文件依赖，若存在多个文件则以英文逗号分隔 。
  - 程序参数：
@@ -27,10 +26,8 @@ pip.main(['install', "package_name"])
  - TensorBoard 目录：
     指定 Tensorboard 保存路径。
  - Python 版本：指定 Tensorflow 运行的 Python 版本，支持 Python 2.7 和 Python 3.5 两个版本。
-![](https://main.qcloudimg.com/raw/1012cc3a97a1167ef922d291fa9c080a.png)
 3. **配置资源**
 在【资源参数】列表框配置任务的资源参数。
-![](https://main.qcloudimg.com/raw/3c14b0568ea191bcdf63219619b07c73.png)
 4. **运行**
 单击【保存】并运行工作流。
 5. **查看 Tensorflow 控制台和日志**
@@ -42,7 +39,7 @@ pip.main(['install', "package_name"])
 6. **查看 Tensorboard**
   组件处于“运行中”状态时，您可以右键单击任务栏，通过【Tesnorflow 控制台】>【Tensorboard】查看 Tensorboard 信息。
 
-#### 案例说明
+## 案例说明
 本案例提供了一段从文件读取 IRIS 数据集，训练基于神经网络的分类器，评估分类器的效果，并用训练好的分类器对新的数据进行预测代码，并展示如何让代码在智能钛平台上运行。
 代码修改自 Tensorflow [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
 ![](https://main.qcloudimg.com/raw/699578068afaa722ce193bb8c9c7d621.png)
