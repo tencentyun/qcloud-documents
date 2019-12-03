@@ -1,4 +1,5 @@
 本文为您介绍基于4.1.1版本的 BenchmarkSQL 对 TBase 数据库进行 TPC-C 测试的过程。
+>?您可根据实际情况选择对应版本的 BenchmarkSQL。
 
 TPC-C 是针对联机交易处理系统（OLTP）进行测试的规范。使用一个商品销售模型对 OLTP 系统进行测试，其中包含五类事务：
 - NewOrder：新订单的生成
