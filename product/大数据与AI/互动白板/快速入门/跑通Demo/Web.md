@@ -7,7 +7,7 @@
 
 #### 1. 安装 live-server
 
-> 假设你已经安装了 npm，如果还没有安装 npm，请自行 google 安装 npm。
+> 假设您已经安装了 npm，如果还没有安装 npm，请自行 google 安装 npm。
 
 ```
 npm install -g live-server
