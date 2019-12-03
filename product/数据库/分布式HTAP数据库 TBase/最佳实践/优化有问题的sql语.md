@@ -24,7 +24,7 @@ postgres=# explain select * from tbase_1 where f2=1;
 ```
 如上，第一个查询为非分布键查询，需要发往所有节点，这样最慢的节点决定了整个业务的速度，需要保持所有节点的响应性能一致，业务设计查询时尽可能带上分布键。
 
-## 查看是否使用上索引
+## 查看是否使用索引
 ```
 postgres=# create index tbase_2_f2_idx on tbase_2(f2); 
 CREATE INDEX
