@@ -1,16 +1,16 @@
-#  集成 SDK
+## 集成 SDK
 
 本文主要介绍如何快速的将腾讯云 互动白板 SDK 集成到您的项目中。
 
 ## 开发环境要求
 
-- Windows 7及以上版本Windows操作系统
-- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015
-- Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
+- Windows 7 及以上版本 Windows 操作系统
+- Microsoft Visual Studio 2015 及以上版本，推荐使用 Microsoft Visual Studio 2015
+- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1
 
 ## 集成 互动白板 SDK
 
-### 步骤1：下载  Windows SDK
+#### 步骤1：下载  Windows SDK
 
 [下载 SDK](https://tic-res-1259648581.file.myqcloud.com/demo/Windows.zip)，解压并打开文件，包含以下部分：
 
@@ -27,7 +27,7 @@
 本文示例中，您只需要使用 SDK/TEduBoard 目录下的 互动白板 SDK 文件即可。
 
 
-### 步骤2：导入 SDK 到项目
+#### 步骤2：导入 SDK 到项目
 
 在 Visual Studio 开发环境下，按如下步骤导入 SDK：
 
@@ -48,7 +48,7 @@
 ```
 
 
-### 步骤3：白板创建及销毁
+#### 步骤3：白板创建及销毁
 
 #### 白板控制器创建及初始化
 
@@ -62,8 +62,8 @@ boardCtrl->AddCallback(myCallback); // myCallback 为实例化 TEduBoardCallback
 
 // 初始化授权参数结构体
 TEduBoardAuthParam authParam;
-authParam.sdkAppId = SDK_APP_ID;    // 填写您的SDKAppID
-authParam.userId = USER_ID;         // 填写用户ID
+authParam.sdkAppId = SDK_APP_ID;    // 填写您的 SDKAppID
+authParam.userId = USER_ID;         // 填写用户 ID
 authParam.userSig = USER_SIG;       // 填写用户签名
 
 // 初始化白板控制器（配合腾讯云 IMSDK 4.0 以上版本使用时，initParam 参数可以不填）
@@ -121,7 +121,7 @@ DestroyTEduBoardController(&boardCtrl);
 ```
 
 
-### 步骤4：白板数据同步
+#### 步骤4：白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK支持两种不同的数据同步模式。
 
@@ -133,7 +133,7 @@ DestroyTEduBoardController(&boardCtrl);
 boardCtrl->Init(authParam, ROOM_ID); // ROOM_ID 为 IMSDK 所使用的群组号
 ```
 
-> 警告：您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于 ROOM_ID 所指定的群组内。
+>! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于 ROOM_ID 所指定的群组内。
 
 #### 使用自定义的数据通道同步数据
 
@@ -155,4 +155,4 @@ virtual void onTEBSyncData(const char * data) override {
 boardCtrl->AddSyncData(data);
 ```
 
-> 警告：实时录制功能在自定义数据通道模式下不可用
+>! 实时录制功能在自定义数据通道模式下不可用
