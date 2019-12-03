@@ -1454,8 +1454,8 @@ public void refuse(String msg, TIMCallBack cb)
 >注：聊天室（ChatRoom）和音视频聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
 
 如下图中，展示一条修改群名的事件消息。
+![](https://main.qcloudimg.com/raw/78865ba68ed75700137e5afbd2ac3e43.jpg)
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151014031645_92316.jpg)
 
 **`TIMGroupTipsElem` 成员方法：**
 
