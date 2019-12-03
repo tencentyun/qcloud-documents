@@ -12,9 +12,9 @@
 ## 快速接入
 `demo`文件夹下：`localRecordFileRequest.js` 以及`urlRequest.js` 为录音识别请求 demo，`recognizeResult.js` 为轮询识别结果的 demo。
 
-1. 通过下面的录音文件识别请求中的两种接入方式的 demo 或是直接运行 demo文件夹 下的js文件快速请求，进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
+1. 通过下面的录音文件识别请求中的两种接入方式的 demo 或是直接运行 demo 文件夹下的 js 文件快速请求，进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
 
-2. 然后通过运行 demo文件夹 下的js文件 或 在项目中使用以下的 demo，来快速获取识别结果。
+2. 然后通过运行 demo 文件夹下的 js 文件 或 在项目中使用以下的 demo，来快速获取识别结果。
 
 
 ### 录音识别请求
