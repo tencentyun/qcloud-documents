@@ -1,5 +1,5 @@
 ## 功能描述
-Upload Part - Copy  请求实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为1MB - 5GB）。
+Upload Part - Copy  请求用于实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为1MB - 5GB）。
 
 >!
 >- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过5GB，那么需要使用分块上传或者分块拷贝的接口来复制对象。
@@ -73,10 +73,10 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 
 #### 特有响应头
 
-名称|描述|类型
----|---|---
-x-cos-copy-source-version-id|如果已在源存储桶上启用版本控制，则复制源对象的版本|String
-x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256 | String
+|名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|描述|类型|
+|---|---|---|
+|x-cos-copy-source-version-id|如果已在源存储桶上启用版本控制，则复制源对象的版本|String|
+|x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存储对象，响应将包含此头部和所使用的加密算法的值，AES256 | String|
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -94,7 +94,7 @@ x-cos-server-side-encryption | 如果通过 COS 管理的服务端加密来存�
 | 名称          | 描述             | 类型     |
 | ---------- | ------------------- | ------ |
 | CopyPartResult | 返回复制结果信息           | String |
-| ETag             | 返回对象的 MD5 算法校验值。ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
+| ETag             | 返回对象的 MD5 算法校验值，ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
 | LastModified     | 返回对象最后修改时间，GMT 格式        | String |
 
 ## 实际案例
