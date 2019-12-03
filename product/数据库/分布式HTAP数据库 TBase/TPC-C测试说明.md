@@ -1,6 +1,5 @@
-本文为您介绍使用4.1.1版本的 BenchmarkSQL 对 TBase 数据库进行 TPC-C 测试的过程，下载地址请参见 [BenchmarkSQL 官网](https://sourceforge.net/projects/benchmarksql/)。
+本文为您介绍使用4.1.1版本的 BenchmarkSQL 对 TBase 数据库进行 TPC-C 测试的过程。
 
-## TPC-C 简介
 TPC-C 是针对联机交易处理系统（OLTP）进行测试的规范。使用一个商品销售模型对 OLTP 系统进行测试，其中包含五类事务：
 - NewOrder：新订单的生成
 - Payment：订单付款
@@ -11,7 +10,7 @@ TPC-C 是针对联机交易处理系统（OLTP）进行测试的规范。使用�
 TPC-C 使用 tpmC 值（Transactions per Minute）来衡量系统最大有效吞吐量（Max Qualified Throughput，MQTh），其中 Transactions 以 NewOrder Transaction 为准，即最终衡量单位为每分钟处理的新订单数。
 
 ## 前提条件
-已下载 BenchMarkSQL，并安装好 Java 和 Ant。
+已下载 BenchMarkSQL，并安装好 Java 和 Ant。如需安装，下载地址请参见 [BenchmarkSQL 官网](https://sourceforge.net/projects/benchmarksql/)。
 
 ## 测试步骤
 TPC-C 的测试结果与 prop.pg 中的配置参数有关，请您基于业务场景来进行调整参数测试。
