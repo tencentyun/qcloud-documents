@@ -72,7 +72,7 @@ dependencies {
 单击 Sync Now 按钮，完成 TEduBoard SDK 集成。
 
 
-## 配置 APP 权限
+## 配置 App 权限
 
 在 AndroidManifest.xml 中配置 App 的权限，TEduBoard SDK 需要以下权限：
 
