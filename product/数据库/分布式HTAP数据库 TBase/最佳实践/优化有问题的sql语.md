@@ -79,7 +79,7 @@ postgres=# explain  select tbase_1.* from tbase_1,tbase_2 where tbase_1.f2=tbase
                ->  Seq Scan on tbase_2  (cost=0.00..9225.64 rows=500564 width=4)
 (7 rows)
 ```
-第一查询需要数据重分布，而第二个不需要，分布键 join 查询性能会更高。
+第一个查询需要数据重分布，而第二个不需要，分布键 join 查询性能会更高。
 
 ## 查看 join 发生的节点
 ```
@@ -110,7 +110,7 @@ postgres=# explain  select tbase_1.* from tbase_1,tbase_2 where tbase_1.f1=tbase
                ->  Seq Scan on tbase_2  (cost=0.00..18.80 rows=880 width=4)
 (8 rows)
 ```
-上面 join 在 cn 节点执行，下面的在 dn 上重分布后再 join，业务设计上，一般 OLTP 类业务在 cn 上进行少数据量 join ，性能会更好。
+第一个 join 在 cn 节点执行，第二个在 dn 上重分布后再 join，业务设计上，一般 OLTP 类业务在 cn 上进行少数据量 join ，性能会更好。
 
 ## 查看并行的 worker 数
 ```
