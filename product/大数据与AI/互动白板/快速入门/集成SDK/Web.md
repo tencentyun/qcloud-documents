@@ -1,4 +1,4 @@
-# 集成 SDK
+## 集成 SDK
 
 本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。
 
@@ -13,7 +13,7 @@
 | Mac  | Safari | 8+ | -    |
 | Mac  | Firefox | 50+ | -    |
 | iOS          | - | 系统版本 8.1+ | - |
-| Android      | - | 系统版本 4.2+ | 推荐使用Chrome浏览器，微信浏览器，手机QQ浏览器 |
+| Android      | - | 系统版本 4.2+ | 推荐使用 Chrome 浏览器，微信浏览器，手机 QQ 浏览器 |
 
 ## 集成 TEduBoard SDK
 
