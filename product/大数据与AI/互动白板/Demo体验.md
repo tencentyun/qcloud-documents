@@ -45,10 +45,13 @@
 </tr>
 </table>
 
-**Mac OS / Windows**
+**Mac OS**
 
 ![](https://main.qcloudimg.com/raw/89b12ab1c38739de7ff3366e275f2ece.jpg)
 
+**Windows**
+
+![](https://main.qcloudimg.com/raw/5e3691859f5ef2694c99f1a0d487461d.jpg)
 
 **Web**
 
