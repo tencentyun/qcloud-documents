@@ -22,7 +22,7 @@
 touch create_app.sh
 ```
 
-赋予 startcli.sh 可执行权限：
+赋予 create_app.sh 可执行权限：
 ```shell
 chmod +x create_app.sh
 ```
@@ -139,7 +139,7 @@ fi
 touch deployment.sh
 ```
 
-赋予 restartcli.sh 可执行权限：
+赋予 deployment.sh 可执行权限：
 ```shell
 chmod +x deployment.sh
 ```
