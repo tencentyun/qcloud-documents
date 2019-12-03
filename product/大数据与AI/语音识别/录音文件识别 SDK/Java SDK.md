@@ -1,6 +1,6 @@
 ## 接入准备
 ### SDK获取
-录音文件语音识别 Java SDK 安装及相关环境说明 [Java SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/Java)。
+录音文件识别 Java SDK 获取，请参考：[Java SDK 依赖环境及获取安装](https://cloud.tencent.com/document/sdk/Java)。
 
 ### 接入须知
 开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
