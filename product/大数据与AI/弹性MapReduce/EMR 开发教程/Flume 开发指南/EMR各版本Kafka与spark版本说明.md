@@ -1,13 +1,13 @@
 ### 依赖关系
 
-| EMR 版本 | spark | kafka               | maven example                   |
+| EMR 版本 | Spark | Kafka               | maven example                   |
 | ------- | ----- | ------------------- | ------------------------------- |
 | v1.3.1  | 2.0.2 | 0.8.2.1 or   higher | spark-streaming-kafka-0-8_2.11  |
 | v2.0.1  | 2.2.1 | 0.8.2.1 or   higher | spark-streaming-kafka-0-8_2.11  |
 | v2.1.0  | 2.3.2 | 0.10.0 or   higher  | spark-streaming-kafka-0-10_2.11 |
 | v3.0.0  | 2.4.3 | 0.10.0 or   higher  | spark-streaming-kafka-0-10_2.12 |
 
->!从 spark2.3 起不再支持 kafka0.8.2。
+>!从 Spark2.3 起不再支持 Kafka0.8.2。
 
 ### 查找方法
 
@@ -15,7 +15,7 @@
 ```
 https://spark.apache.org/docs/{spark.version}/streaming-kafka-integration.html
 ```
-将`{spark.version}`替换为对应的 spark 版本。例如查看2.0.2版本的依赖关系，访问链接如下：
+将`{spark.version}`替换为对应的 Spark 版本。例如查看2.0.2版本的依赖关系，访问链接如下：
 ```
 https://spark.apache.org/docs/2.0.2/streaming-kafka-integration.html
 ```

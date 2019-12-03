@@ -110,7 +110,7 @@ cos.getObjectUrl({
     Key: 'picture.jpg',
     Sign: true
 }, function (err, data) {
-    if (!err) return console.log(err);
+    if (err) return console.log(err);
     var downloadUrl = data.Url + (data.Url.indexOf('?') > -1 ? '&' : '?') + 'response-content-disposition=attachment'; // 补充强制下载的参数
     window.open(downloadUrl); // 这里是新窗口打开 url，如果需要在当前窗口打开，可以使用隐藏的 iframe 下载，或使用 a 标签 download 属性协助下载
 });
@@ -128,7 +128,7 @@ cos.getObjectUrl({
     Key: '1.jpg',
     Sign: true
 }, function (err, data) {
-    if (!err) return console.log(err);
+    if (err) return console.log(err);
 
     console.log(data.Url);
     var xhr = new XMLHttpRequest();

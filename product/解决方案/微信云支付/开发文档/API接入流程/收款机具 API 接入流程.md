@@ -896,7 +896,7 @@ return w.write(request);
 | mem_in_use              | 否   | Int            | 4          | 当前已用内存 KB。                                    |
 | disk_max                | 否   | Int            | 4          | 最大硬盘 KB。                                        |
 | disk_in_use             | 否   | Int            | 4          | 当前已用硬盘 KB。                                    |
-| network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g等。          |
+| network_type            | 是   | String         |   -         | 支付所使用的网络类型：Wi-Fi	、2G、3G、4G 等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
 | mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |
@@ -930,7 +930,7 @@ return w.write(request);
 | 参数名           | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ---------------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
 | out_trade_no     | 是   | String |     -       | 支付时的订单号。                                               |
-| code             | 是   | Int    | 4          | 如果能正常获取 HTTP 的状态码（如200、404、405之类）则用状态码填充，其它情况：连接失败填（-2），接口获取应答超时填（-3），未知问题填（-4）。 |
+| code             | 是   | Int    | 4          | 如果能正常获取 HTTP 的状态码（如200、404、405）则用状态码填充，其它情况：连接失败填（-2），接口获取应答超时填（-3），未知问题填（-4）。 |
 | status           | 是   | Int    | 4          | brief_micro_pay 应答的一级错误码，应答中 s 字段。                  |
 | internal_status  | 是   | Int    | 4          | brief_micro_pay 应答的二级错误码，应答中 is 字段。                 |
 | delay_ms         | 是   | Int    | 4          | 从扫用户收款码开始到获取到 brief_micro_pay 接口应答中间的耗时，单位为毫秒。 |
@@ -1316,7 +1316,7 @@ return w.write(request);
 
 | 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
-| spps   | 否   | Int [] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填上这三个值就行。 |
+| spps   | 否   | Int[] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填写这三个值即可。 |
 | osmi   | 是   | String | -          | out_sub_mch_id：云支付分配的商户 ID，绑定成功后可获取此 ID。     |
 | osi    | 是   | String | -          | out_shop_id：云支付分配的门店 ID，绑定成功后可获取此 ID。       |
 | di     | 是   | String | -          | device_id：云支付分配的设备 ID，绑定后可获取此 ID。              |
@@ -1347,7 +1347,7 @@ return w.write(request);
 
 | 参数名 | 必填 | 类型                   | 长度(Byte) | 说明                                 |
 | ------ | ---- | ---------------------- | ---------- | ------------------------------------ |
-| ovs    | 否   | OrderStatClientInfo [] | -          | overviews：见 OrderStatClientInfo 说明。 |
+| ovs    | 否   | OrderStatClientInfo[] | -          | overviews，见 OrderStatClientInfo 说明。 |
 | ns     | 是   | String                 | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。 |
 
 **OrderStatClientInfo**

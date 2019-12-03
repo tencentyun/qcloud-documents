@@ -37,8 +37,10 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：  
     ![Alt text](https://main.qcloudimg.com/raw/fca11ef6e54287f2ad400d34123872c9.png)
-3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
+3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF)。
+已配置的账号信息将写入本地 `~/.tcli_config.ini` 文件，您也可以直接修改该文件中的账号信息，修改完成后需要重启 VS Code 配置才可生效。
 4. 为提升函数上传效率，您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+
 
 
 ### 创建函数
@@ -222,6 +224,13 @@ Resources:
 在已创建函数的详情页面，单击【前往新增告警】为云函数配置告警策略，对函数运行状态进行监控。如下图所示：  
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。  
+
+#### 切换账号
+如果您有多个账号，可按照以下步骤在 SCF 插件页中添加新账号并切换使用：
+1. 选择云端函数右侧的<img src="https://main.qcloudimg.com/raw/ae8b96f8ee48b4dc003cf8b5173e5b12.png" > > 【切换账号】。如下图所示：
+![](https://main.qcloudimg.com/raw/f2a93ff675883768ed326f7bd44353ee.png)
+2. 在弹出的菜单中选择【登录新用户】，输入对应信息完成配置，即可使用多用户。
+
 
 ## 常见问题  
 

@@ -1,5 +1,5 @@
 ## 微信云支付 SDK
-SDK 支持 C/C++/C#/JAVA。
+SDK 支持 C/C++/C#/Java。
 SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)。
 
 ## 接入场景

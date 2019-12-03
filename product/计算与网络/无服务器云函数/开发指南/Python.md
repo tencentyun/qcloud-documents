@@ -48,6 +48,10 @@ def main_handler(event, context):
 
 输出内容您可以在函数日志中的 `log` 位置查看。
 
+## 如何安装依赖
+
+请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780)。
+
 
 ## 已包含的库及使用方法
 

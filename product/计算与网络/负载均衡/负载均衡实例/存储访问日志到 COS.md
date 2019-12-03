@@ -1,8 +1,8 @@
 负载均衡支持配置七层（HTTP/HTTPS）访问日志（Access Log），访问日志可以帮助您了解客户端请求、辅助排查问题、分析梳理访问数据等。当前访问日志支持存储到 COS 中下载分析，支持的地域包括广州、上海、北京、香港、上海金融和北京金融。
 
 ## 开启访问日志
-1. 在“负载均衡实例详情”页面，开启访问日志。
-![](https://main.qcloudimg.com/raw/5643c9434476fdf6e0b18d3eb1c62801.png)
+1. 在“负载均衡基本信息”页面，开启访问日志。
+![](https://main.qcloudimg.com/raw/4929ec08f86278f8bdbc7cf2df48b25f.png)
 2. 选取相应的 COS 中 bucket，单击【提交】，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。选取完成后，单击 bucket 地址可以直接跳转到日志下载页面。
 ![](https://main.qcloudimg.com/raw/e8f3506ade5fe73c2267c3f294c957b4.png)
 >!如您没有创建对象存储的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。

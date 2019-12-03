@@ -89,7 +89,7 @@ object SparkPi {
 <img src="https://main.qcloudimg.com/raw/fdb71ce371ae1bb1415e9a4010a7c3c3.png" style="zoom:67%;" />
 
 #### 三、查看工作流运行状态和结果
-1. 单击右键【Spark】，点击【Spark 控制台】可查看该工作流运行相关日志。
+1. 单击右键【Spark】，单击【Spark 控制台】可查看该工作流运行相关日志。
 2. 单击【driver.log】 即可在日志中查看圆周率 PI 的计算结果。
 ![](https://main.qcloudimg.com/raw/c1a21f988bb1dc78bbc473800d3c28e7.png)
 

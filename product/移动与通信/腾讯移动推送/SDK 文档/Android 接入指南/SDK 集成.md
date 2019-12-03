@@ -104,9 +104,9 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 | 权限                                       | 是否必需 | 说明                           |
 | ---------------------------------------- | ---- | ---------------------------- |
 | android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
-| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前WiFi接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
 | android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
-| android.permission.WAKE_LOCK             | **必需**   | 允许程序在手机屏幕关闭后后台进程仍然运行         |
+| android.permission.WAKE_LOCK             | **必需**   | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
 | android.permission.VIBRATE               | **必需**   | 允许应用震动                       |
 | android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
 | android.permission.RECEIVE_USER_PRESENT  | 可选   | 允许应用可以接收点亮屏幕或解锁广播            |
@@ -354,7 +354,7 @@ TPNS 版本正确配置：
           </intent-filter>
       </receiver>
 ```			
-
+<span id="HQToken"></span>
 #### 获取 Token（非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 示例代码如下：

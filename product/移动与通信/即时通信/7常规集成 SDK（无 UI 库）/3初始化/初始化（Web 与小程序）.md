@@ -41,8 +41,13 @@ tim.setLogLevel(1);
 ## 事件绑定
 <pre>
 // 监听事件，例如：
+tim.on(TIM.EVENT.SDK_READY, function(event) {
+  // 收到离线消息和会话列表同步完毕通知，接入侧可以调用 sendMessage 等需要鉴权的接口
+  // event.name - TIM.EVENT.SDK_READY
+});
+
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
-  // 收到推送的单聊、群聊、群提示以及群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
+  // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
   // event.name - TIM.EVENT.MESSAGE_RECEIVED
   // event.data - 存储 Message 对象的数组 - [Message]
 });
@@ -62,7 +67,7 @@ tim.on(TIM.EVENT.GROUP_LIST_UPDATED, function(event) {
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, function(event) {
   // 收到新的群系统通知
   // event.name - TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED
-  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">operationType 枚举值说明</a>
+  // event.data.type - 群系统通知的类型，详情请参见 GroupSystemNoticePayload 的<a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload"> operationType 枚举值说明</a>
   // event.data.message - Message 对象，可将 event.data.message.content 渲染到到页面
 });
 
@@ -83,11 +88,6 @@ tim.on(TIM.EVENT.ERROR, function(event) {
   // event.name - TIM.EVENT.ERROR
   // event.data.code - 错误码
   // event.data.message - 错误信息
-});
-
-tim.on(TIM.EVENT.SDK_READY, function(event) {
-  // 收到离线消息和会话列表同步完毕通知，接入侧可以调用 login 等 API
-  // event.name - TIM.EVENT.SDK_READY
 });
 
 tim.on(TIM.EVENT.SDK_NOT_READY, function(event) {

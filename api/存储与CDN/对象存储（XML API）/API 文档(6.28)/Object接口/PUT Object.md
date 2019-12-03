@@ -3,6 +3,7 @@
 PUT Object 接口请求可以将本地的对象（Object）上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > ?
+> - PUT Object 接口最大支持上传5GB文件。如需上传大于5GB的文件，请使用 [分块上传](https://cloud.tencent.com/document/product/436/14112) 的 API 接口。
 > - 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但对象大小只等于 Content-Length 中定义的大小，其他数据将被丢弃。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时返回200 OK。
 
@@ -37,7 +38,7 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | Cache-Control | RFC 2616 中定义的缓存指令，将作为对象元数据保存 | string | 否 |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存 | string | 否 |
@@ -51,7 +52,7 @@ Authorization: Auth String
 
 在上传对象时可以通过指定下列请求头部来设置对象的访问权限：
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
 | x-cos-grant-read | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
