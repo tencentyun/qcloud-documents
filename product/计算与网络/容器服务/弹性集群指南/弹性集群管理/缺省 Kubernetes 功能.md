@@ -1,5 +1,5 @@
 ## 说明事项
-弹性容器集群（EKS）由于没有集群 Node，所以部分依赖 Node、Kubelet、Kube-proxy 的原生功能暂不支持。
+弹性容器集群（EKS）由于没有集群 Node，部分依赖 Node、Kubelet、Kube-proxy 的原生功能暂不支持。
 
 ## 暂不支持功能列表
 ### Kubernetes 版本
