@@ -222,8 +222,8 @@ string GetResponse();
 */
 int DescribeTaskStatus(int taskId, string &rsp);
 ```
-## 快速入门
-### 入门示例
+
+### 接入示例
 * demo运行
 
 ```
@@ -236,6 +236,7 @@ int DescribeTaskStatus(int taskId, string &rsp);
 ./run_describe_task 12345678
 ```
 ### 参考代码
+
 #### 识别请求demo
 ```
 #include "TCloudRecordASR.h"
