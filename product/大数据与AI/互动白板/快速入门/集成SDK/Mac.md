@@ -91,7 +91,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 其中 `_sdkAppId`、`_userId`、`_userSig`、`_classId`为需要您自己填写的参数。
 
-### 3. 白板窗口获取及显示
+#### 3. 白板窗口获取及显示
 在 `onTEBInit`  回调方法内，回调方法内，使用如下代码获取并显示白板视图：
 ```objc
 //（1）获取白板 NSView
