@@ -6,7 +6,7 @@
 开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
 
 ## 快速接入
-以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo以及，来帮助客户快速接入。
+以下分别是通过**语音 URL ** 和**本地语音上传**请求方式的 demo 以及轮询识别结果的 demo ，来帮助客户快速接入。
 
 + **通过语音 URL 方式请求**
 
@@ -34,8 +34,7 @@ public class CreateRecTask
         //采用音频URL方式
         try{
             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	        //https://cloud.tencent.com/document/product/441/6203
- 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+    	   //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
             HttpProfile httpProfile = new HttpProfile();
@@ -84,9 +83,8 @@ public class CreateRecTask
     public static void main(String [] args) throws IOException {
         //通过本地音频方式
         try{
-            //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	        //https://cloud.tencent.com/document/product/441/6203
- 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
+    	    //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("asr.tencentcloudapi.com");
@@ -137,8 +135,7 @@ public class DescribeTaskStatus
         try{
 
             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	        //https://cloud.tencent.com/document/product/441/6203
- 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+    	   //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
             HttpProfile httpProfile = new HttpProfile();
