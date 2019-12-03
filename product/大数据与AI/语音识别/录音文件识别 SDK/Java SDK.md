@@ -86,6 +86,7 @@ public class CreateRecTask
              //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
     	    //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
+            
             HttpProfile httpProfile = new HttpProfile();
             httpProfile.setEndpoint("asr.tencentcloudapi.com");
 
