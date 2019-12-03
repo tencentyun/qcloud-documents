@@ -224,7 +224,6 @@ int DescribeTaskStatus(int taskId, string &rsp);
 ```
 
 ### 接入示例
-* demo运行
 
 ```
 //进入demo文件夹
