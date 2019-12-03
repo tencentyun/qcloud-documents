@@ -55,7 +55,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 1. 单击下载 [TEduBoard SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/iOS.zip)。前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
 
-2. 打开您的 Xcode 工程项目，选择要运行的 target ， 选中 Build Phases 项。
+2. 打开您的 Xcode 工程项目，选择要运行的 target ，选中 Build Phases 项。
 
 3. 单击 Link Binary with Libraries 项展开，单击底下的“+”号图标去添加依赖库。
 
