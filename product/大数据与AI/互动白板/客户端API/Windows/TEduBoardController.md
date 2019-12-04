@@ -9,8 +9,8 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| disableCefInit | bool | 是否禁用CEF框架初始化，通常传默认值即可  |
-| cefRenderPath | const char * | 使用SDK内部的CEF初始化时，用于指定自定义Render进程可执行程序的路径，UTF8编码，为空或nullptr表示使用SDK内置Render进程  |
+| disableCefInit | bool | 是否禁用 CEF 框架初始化，通常传默认值即可  |
+| cefRenderPath | const char * | 使用 SDK 内部的 CEF 初始化时，用于指定自定义 Render 进程可执行程序的路径，UTF8 编码，为空或 nullptr 表示使用 SDK 内置 Render 进程  |
 
 #### 返回
 白板控制类实例指针 
@@ -18,7 +18,7 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 #### 警告
 该接口必须在主线程调用 
 
->? 由于SDK基于CEF框架(BSD-licensed)实现，若您的程序中也使用了CEF框架，可能会存在冲突，我们为您提供了冲突解决方案：
+>? 由于 SDK 基于 CEF 框架(BSD-licensed)实现，若您的程序中也使用了CEF框架，可能会存在冲突，我们为您提供了冲突解决方案：
 > 1. 选用以下两种方法中的一种来启用自己的Render进程
 > 	- 令 disableCefInit = false，cefRenderPath 指向您自己的Render进程
 > 	- 令 disableCefInit = true，自行实现CEF初始化
