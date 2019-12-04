@@ -17,7 +17,7 @@
 - CVM 中以单词 “Describe” 开头的所有操作和所有以单词 “Inquiry” 开头的所有操作。
 - VPC 中以单词 “Describe ”开头的所有操作、以单词 “Inquiry” 开头的所有操作和以单词 “Get” 开头的所有操作。
 - CLB 中以单词 “Describe” 开头的所有操作。
-- Monitor 中所有的的操作。
+- Monitor 中所有的操作。
 
 具体操作步骤如下：
 参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)，将预设策略 QcloudCVMReadOnlyAccess 授权给用户。

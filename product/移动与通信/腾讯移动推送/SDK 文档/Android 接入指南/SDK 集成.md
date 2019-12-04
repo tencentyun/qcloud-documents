@@ -100,6 +100,22 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
+
+| 权限                                       | 是否必需 | 说明                           |
+| ---------------------------------------- | ---- | ---------------------------- |
+| android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
+| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
+| android.permission.WAKE_LOCK             | **必需**   | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
+| android.permission.VIBRATE               | **必需**   | 允许应用震动                       |
+| android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
+| android.permission.RECEIVE_USER_PRESENT  | 可选   | 允许应用可以接收点亮屏幕或解锁广播            |
+| android.permission.WRITE_EXTERNAL_STORAGE | 可选   | 允许程序写入外部存储                   |
+| android.permission.RESTART_PACKAGES      | 可选   | 允许程序结束任务                     |
+| android.permission.GET_TASKS             | 可选   | 允许程序获取任务信息                   |
+
+
+
 #### 组件和应用信息配置
 
 ```xml
@@ -311,8 +327,7 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
 	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
 	```
-
-- registerPush 不再支持设置账号，需要注册账号的话，要单独调用 bindAccount 或 appendAccount，推荐在 registerPush 成功的回调里调用。
+- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount 不再带有注册功能，推荐在 registerPush 成功的回调里调用 bindAccount 或 appendAccount。
 - 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
 	```java
 	/**
@@ -327,8 +342,19 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	public abstract void onDeleteAccountResult(Context context, int errorCode,
 					String operateName);
 	```
-
-
+- 继承 XGPushBaseReceiver 的实现类在 AndroidManifest 文件配置时，前缀命名规则为 com.tencent.android.xg.vip.action.，区别于 4.x 版本的 com.tencent.android.tpush.action.
+TPNS 版本正确配置：
+```
+<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+          <intent-filter>
+              <!-- 接收消息透传 -->
+              <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+              <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+              <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+          </intent-filter>
+      </receiver>
+```			
+<span id="HQToken"></span>
 #### 获取 Token（非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 示例代码如下：

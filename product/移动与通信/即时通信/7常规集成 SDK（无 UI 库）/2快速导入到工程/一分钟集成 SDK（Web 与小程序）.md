@@ -1,40 +1,46 @@
 本文主要介绍如何快速地将腾讯云 IM SDK 集成到您的 Web 或者小程序项目中。
+- 您可以通过 NPM 和 Script 方式将 IM SDK 集成到您的 Web 项目中，推荐使用 NPM 集成。
+- 您可以通过 NPM 方式将 IM SDK 集成到您的小程序项目中。
 
 ## 准备工作
-在集成 Web SDK 前，请确保您已完成以下步骤，请参见 [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)。
 - 已创建即时通信 IM 应用并获取 SDKAppID。
 - 已获取密钥信息。
 
+
+## 相关文档
+- [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
+- [IM SDK（小程序） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/WXMini)
+- [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/H5)
+
 ## 集成 SDK
-您可以通过以下方式集成 SDK：
 
-### NPM 集成
-在您的项目中使用 npm 安装相应的 IM SDK 依赖。
 
-#### Web 项目：
+### NPM 集成（推荐）
+在您的项目中使用 NPM 安装相应的 IM SDK 依赖。
+
+- **Web 项目**
 ```javascript
 // IM Web SDK
 npm install tim-js-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
 npm install cos-js-sdk-v5 --save
 ```
-
-在项目脚本里引入模块。
-
-```javascript
+ 
+ 在项目脚本里引入模块。
+ ```javascript
 import TIM from 'tim-js-sdk';
 import COS from "cos-js-sdk-v5";
 ```
 
-#### 小程序项目：
+- **小程序项目**
 ```javascript
 // IM 小程序 SDK
 npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
 npm install cos-wx-sdk-v5 --save
 ```
-在项目脚本里引入模块，并初始化。
 
+ 在项目脚本里引入模块，并初始化。
 ```javascript
 import TIM from 'tim-wx-sdk';
 import COS from "cos-wx-sdk-v5";
@@ -45,7 +51,6 @@ import COS from "cos-wx-sdk-v5";
 ### Script 集成
 在您的项目中使用 script 标签引入 SDK，并初始化。
 
-#### 相关资源
 - IM Web SDK 下载地址：[IM Web SDK](https://github.com/tencentyun/TIMSDK/tree/master/H5)
 - 腾讯云 COS JS SDK 源码下载地址：[腾讯云 COS JS SDK](https://github.com/tencentyun/cos-js-sdk-v5)
 
@@ -76,6 +81,7 @@ var tim = TIM.create(options);
 |`https://webim.tim.qq.com` | Web IM 业务域名 | 必须|
 |`https://yun.tim.qq.com` | Web IM 业务域名 | 必须|
 |`https://events.tim.qq.com` | Web IM 业务域名 | 必须|
+|`https://grouptalk.c2c.qq.com`| Web IM 业务域名 | 必须|
 |`https://pingtas.qq.com` | Web IM 统计域名 | 必须|
 
 将以下域名添加到 **uploadFile 合法域名**：

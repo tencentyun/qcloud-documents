@@ -32,6 +32,6 @@
 腾讯云提供了类型丰富的 GPU 计算实例，满足不同业务应用场景的需求。如何结合实际需求选择合适的计算实例，可参考 [选型推荐](https://cloud.tencent.com/document/product/560/30130)。
 
 ## 支持范围
-- 支持 [包年包月](https://cloud.tencent.com/document/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) 和 [按量计费](https://cloud.tencent.com/document/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9) 。
+- 支持 [包年包月](https://cloud.tencent.com/document/product/213/2180#.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) 和 [按量计费](https://cloud.tencent.com/document/product/213/2180#.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9) 。
 - 支持在基础网络和 [私有网络](https://cloud.tencent.com/document/product/213/5227) 中启动。
 - 支持 [负载均衡](https://cloud.tencent.com/document/product/214/524) 等的业务对接，不增加额外的管理和运维成本，内网流量免费。

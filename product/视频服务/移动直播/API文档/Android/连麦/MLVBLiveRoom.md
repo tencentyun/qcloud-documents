@@ -25,7 +25,7 @@ __介绍__
 ## SDK 基础函数
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 MLVBLiveRoom sharedInstance(Context context)
 ```
@@ -38,7 +38,7 @@ __参数__
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例。
 
 >?可以调用 [MLVBLiveRoom#destroySharedInstance()](https://cloud.tencent.com/document/product/454/34776#destroysharedinstance) 销毁单例对象。
 
@@ -46,12 +46,12 @@ __返回__
 
 ### destroySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 void destroySharedInstance()
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#sharedinstance) 获取新实例。
 
 ***
 
@@ -66,11 +66,11 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) | 回调接口。 |
+| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) | 回调接口。 |
 
 __介绍__
 
-您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 的各种状态通知。
+您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 的各种状态通知。
 
 >?默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#setlistenerhandler)。
 
@@ -151,7 +151,7 @@ __参数__
 
 __介绍__
 
-该接口支持分页获取房间列表，可以用 index 和 count 两个参数控制列表分页的逻辑，
+该接口支持分页获取房间列表，可以用 index 和 count 两个参数控制列表分页的逻辑：
 - index = 0 & count = 10 代表获取第一页的10个房间。
 - index = 11 & count = 10 代表获取第二页的10个房间。
 
@@ -308,7 +308,7 @@ __介绍__
 5. 观众如果请求被同意，则调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 [joinAnchor()](https://cloud.tencent.com/document/product/454/34776#joinanchor) 正式进入连麦状态。
 7. 主播一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onanchorenter) 通知。
-8. 主播主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
+8. 主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
 9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***
@@ -675,23 +675,20 @@ __介绍__
 
 
 ## 美颜滤镜相关接口函数
-### setBeautyStyle
-
-设置美颜、美白及红润效果级别。
+### getBeautyManager
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39379)。
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 ```
-abstract boolean setBeautyStyle(int beautyStyle, int beautyLevel, int whitenessLevel, int ruddinessLevel)
+public TXBeautyManager getBeautyManager()
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | int | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：朦胧。 |
-| beautyLevel | int | 美颜级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | int | 美白级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | int | 红润级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
 
 ***
+
 
 ### setFilter
 
@@ -735,24 +732,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | image | Bitmap | 水印图片 null 表示清除水印。 |
-| x | float | 归一化水印位置的 X 轴坐标，取值[0,1]。 |
-| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1]。 |
-| width | float | 归一化水印宽度，取值[0,1]。 |
-
-***
-
-### setMotionTmpl
-
-设置动效贴图。
-```
-abstract void setMotionTmpl(String filePaht)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| filePaht | String | 动态贴图文件路径。 |
+| x | float | 归一化水印位置的 X 轴坐标，取值[0，1]。 |
+| y | float | 归一化水印位置的 Y 轴坐标，取值[0，1]。 |
+| width | float | 归一化水印宽度，取值[0，1]。 |
 
 ***
 
@@ -778,96 +760,6 @@ __介绍__
 目前图片支持 jpg/png，视频支持 mp4/3gp 等 Android 系统支持的格式。
 
 >?API 要求18。
-
-***
-
-### setEyeScaleLevel
-
-设置大眼效果。
-```
-abstract void setEyeScaleLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setFaceVLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | V 脸级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
-
-***
-
-### setFaceSlimLevel
-
-设置瘦脸效果。
-```
-abstract void setFaceSlimLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 瘦脸等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setFaceShortLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 短脸级别取值范围：0 - 9。 数值越大，效果越明显。默认值：0。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setChinLevel(int chinLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | int | 下巴拉伸或收缩级别取值范围：-9 - 9。数值越大，拉伸越明显。默认值：0。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setNoseSlimLevel(int noseSlimLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | int | 瘦鼻级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
 
 ***
 

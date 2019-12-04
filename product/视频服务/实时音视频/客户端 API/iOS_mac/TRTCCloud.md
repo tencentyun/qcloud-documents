@@ -1050,11 +1050,11 @@ __返回__
 
 
 ## 美颜滤镜相关接口函数
-### beautyManager
+### getBeautyManager
 
 获取美颜管理对象。
 ```
-- (TXBeautyManager *)beautyManager
+- (TXBeautyManager *)getBeautyManager
 ```
 
 __介绍__

@@ -1,25 +1,24 @@
 ## 1. 接口描述
-本接口（SetHttpsInfo）用于配置/删除域名的HTTPS配置。
+本接口（SetHttpsInfo）用于配置 / 删除域名的 HTTPS 配置。
 
 接口请求域名：cdn.api.qcloud.com
 
 
 ## 2. 输入参数
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的Action字段为 SetHttpsInfo。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://www.qcloud.com/doc/api/231/4473)页面。其中，此接口的 Action 字段为 SetHttpsInfo。
 
 | 参数名称        | 是否必选 | 类型     | 描述                                       |
 | ----------- | ---- | ------ | ---------------------------------------- |
 | host        | 是    | String | 需要配置证书的域名                                |
-| httpsType   | 是    | Int    | 配置类型设置，若设置为 0 ，表示清除https配置，此时无需填写证书及私钥参数；若设置为1，表示开启并http回源；若设置为2，表示开启并https回源；开启时需要传递证书及私钥； |
-| cert        | 否    | String | PEM格式证书                                  |
-| privateKey  | 否    | String | PEM格式私钥                                  |
-| forceSwitch | 否    | Int    | 强制跳转开关，若设置为1，则表示http强制跳转，设置-1关闭http强制跳转；若设置为2，则表示https强制跳转，设置-2关闭https强制跳转 |
+| httpsType   | 是    | Int    | 配置类型设置，若设置为0 ，表示清除 HTTPS 配置，此时无需填写证书及私钥参数；若设置为1，表示开启并 HTTP 回源；若设置为2，表示开启并 HTTPS 回源；开启时需要传递证书及私钥； |
+| cert        | 否    | String | PEM 格式证书                                  |
+| privateKey  | 否    | String | PEM 格式私钥                                  |
+| forceSwitch | 否    | Int    | 强制跳转开关，若设置为1，则表示 HTTP 强制跳转，设置-1关闭 HTTP 强制跳转；若设置为2，则表示 HTTPS 强制跳转，设置-2关闭 HTTPS 强制跳转 |
 
-**注意事项**
-
-+ COS源、FTP源域名暂时无法设置为Https回源
-+ 证书&私钥传递：请将证书、私钥内容按照base64编码后传输
-+ httpsType与forceSwith不可同时为空
+>!
++ COS 源、FTP 源域名暂时无法设置为 HTTPS 回源
++ 证书&私钥传递：请将证书、私钥内容按照 base64 编码后传输
++ httpsType 与 forceSwith 不可同时为空
 
 ## 3. 输出参数
 | 参数名称     | 类型     | 描述                                       |
@@ -32,13 +31,15 @@
 
 ## 4. 示例
 ### 4.1 输入示例
-> host: www.test.com
-> httpsType: 1
-> cert: 9Zs0K3FV+azvYI7eYYVqRd/ZvlyaI3ctzHnqVSuYk5UxELFobd5IQpUo9V5SviFQoBibyZLG4qvmh7VRD7G6yYOKzVzONm++yP5JJb1OvJyB/2bRS/aZLNAEJ4DAWFZpSSdajGSuM5TvV3q0MDYMkuSl3rW+ldTPdeLZopZVjfHQCfXdYetWdLxE1YVzRY+JMWPWztD2v9TSxxUNhKiCe3KvFrusU2mEZNFkReUDiakiCbwBryT4Yg+6zopvwD32eCxwK9zW0WCcBqMKsea5hXvyFJoLyUvhLb8V0ZHySuuneorUeVokszpPJpWIUAtajlIjK5lSPAvYUSUAHZk=
-> privateKey: 9Zs0K3FV+azvYI7eYYVqRd/ZvlyaI3ctzHnqVSuYk5UxELFobd5IQpUo9V5SviFQoBibyZLG4qvmh7VRD7G6yYOKzVzONm++yP5JJb1OvJyB/2bRS/aZLNAEJ4DAWFZpSSdajGSuM5TvV3q0MDYMkuSl3rW+ldTPdeLZopZVjfHQCfXdYetWdLxE1YVzRY+JMWPWztD2v9TSxxUNhKiCe3KvFrusU2mEZNFkReUDiakiCbwBryT4Yg+6zopvwD32eCxwK9zW0WCcBqMKsea5hXvyFJoLyUvhLb8V0ZHySuuneorUeVokszpPJpWIUAtajlIjK5lSPAvYUSUAHZk=
+<blockquote>
+host: www.test.com<br>
+httpsType: 1<br>
+cert: 9Zs0K3FV+azvYI7eYYVqRd/ZvlyaI3ctzHnqVSuYk5UxELFobd5IQpUo9V5SviFQoBibyZLG4qvmh7VRD7G6yYOKzVzONm++yP5JJb1OvJyB/2bRS/aZLNAEJ4DAWFZpSSdajGSuM5TvV3q0MDYMkuSl3rW+ldTPdeLZopZVjfHQCfXdYetWdLxE1YVzRY+JMWPWztD2v9TSxxUNhKiCe3KvFrusU2mEZNFkReUDiakiCbwBryT4Yg+6zopvwD32eCxwK9zW0WCcBqMKsea5hXvyFJoLyUvhLb8V0ZHySuuneorUeVokszpPJpWIUAtajlIjK5lSPAvYUSUAHZk=<br>
+privateKey: 9Zs0K3FV+azvYI7eYYVqRd/ZvlyaI3ctzHnqVSuYk5UxELFobd5IQpUo9V5SviFQoBibyZLG4qvmh7VRD7G6yYOKzVzONm++yP5JJb1OvJyB/2bRS/aZLNAEJ4DAWFZpSSdajGSuM5TvV3q0MDYMkuSl3rW+ldTPdeLZopZVjfHQCfXdYetWdLxE1YVzRY+JMWPWztD2v9TSxxUNhKiCe3KvFrusU2mEZNFkReUDiakiCbwBryT4Yg+6zopvwD32eCxwK9zW0WCcBqMKsea5hXvyFJoLyUvhLb8V0ZHySuuneorUeVokszpPJpWIUAtajlIjK5lSPAvYUSUAHZk=
+</blockquote>
 
 ### 4.2 GET 请求
-GET 请求需要将所有参数都加在 URL 后（key=value形式，value需要进行URL encode）：
+GET 请求需要将所有参数都加在 URL 后（key = value形式，value 需要进行 URL encode）：
 ```
 https://cdn.api.qcloud.com/v2/index.php?
 Action=SetHttpsInfo
@@ -53,7 +54,7 @@ Action=SetHttpsInfo
 ```
 
 ### 4.2 POST请求
-POST请求时，参数填充在HTTP Requestbody中，请求地址：
+POST 请求时，参数填充在 HTTP Requestbody 中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
@@ -75,7 +76,7 @@ array (
 
 ### 4.3 返回示例
 
-注意：示例中IP仅供参考。
+注意：示例中 IP 仅供参考。
 
 ```
 {

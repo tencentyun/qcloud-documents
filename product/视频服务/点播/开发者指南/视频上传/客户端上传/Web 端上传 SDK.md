@@ -38,7 +38,7 @@ function getSignature() {
 
 
 ```js
-// 通过 import 引入的话，new TcVod(opts) 即可。
+// 通过 import 引入的话，new TcVod(opts) 即可
 // new TcVod.default(opts) 是 script 引入 的用法
 const tcVod = new TcVod.default({
   getSignature: getSignature // 前文中所述的获取上传签名的函数
@@ -70,7 +70,9 @@ uploader.done().then(function (doneResult) {
 
 ```
 
->?上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
+>?
+>- `new TcVod(opts)`中的 opts 指该接口的相关参数，详细请参见 [TcVod 接口描述](#.E6.8E.A5.E5.8F.A3.E6.8F.8F.E8.BF.B0)。
+>- 上传方法根据用户文件的长度，自动选择普通上传以及分片上传，用户不用关心分片上传的每个步骤，即可实现分片上传。
 
 ## 高级功能
 
@@ -118,7 +120,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E7.89.87.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
+`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
 
 #### 取消上传
 

@@ -128,7 +128,7 @@ tim.createGroup(options);
 
 | 名称                | 类型           | 属性 | 描述                                                  |
 | :------------------ | :------------- | :--------- | :----------------------------------------------------------- |
-| `userID    `        | `String`         |            | 必填，群成员的 userID                                        |
+| `userID    `        | `String`         |      -      | 必填，群成员的 userID                                        |
 | `role  `            | `String`         | `<optional>` | 成员身份，可选值只有 Admin，表示添加该成员并设置为管理员      |
 | `memberCustomField` | `Array<Object>` | `<optional>` | 群成员维度的自定义字段，默认没有自定义字段，如需开通请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
@@ -418,10 +418,10 @@ tim.handleGroupApplication(options);
 参数`options`为`Object`类型，包含的属性值如下：
 
 | 名称            | 类型                                             | 属性       | 描述                                                         |
-| :-------------- | :-------------------------------------- | :--------- | :----------------------------------------------------------- |
+| :-------------- | :--------------------- | :--------- | :----------------------------------------------- |
 | `handleAction`  | `String `               |       -     | 处理结果 Agree（同意） / Reject（拒绝）                          |
 | `handleMessage` | `String`                       | `<optional>` | 附言                                                         |
-| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |            | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
+| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |      -      | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
 
 **返回值**
 
@@ -493,8 +493,8 @@ tim.getGroupMemberList(options);
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
 | 名称      | 类型     | 属性          | 默认值 | 描述                                                         |
-| :-------- | :------- | :------------ | :----- | :----------------------------------------------------------- |
-| `groupID` | `String` |               |        | 群组的 ID                                                    |
+| :-------- | :------- | :------------ | :----- | :--------------------------- |
+| `groupID` | `String` |      -         |   -     | 群组的 ID                                                    |
 | `count`   | `Number` | `<optional> ` | `15`   | 需要拉取的数量。最大值为100，避免回包过大导致请求失败。若传入超过100，则只拉取前100个 |
 | `offset`  | `Number` | `<optional> ` | `0`    | 偏移量，默认从0开始拉取                                      |
 
@@ -503,6 +503,31 @@ tim.getGroupMemberList(options);
 该接口返回`Promise`对象：
 
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+
+### 获取群成员资料
+
+**接口名**
+
+```js
+tim.getGroupMemberProfile(options);
+```
+
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称                      | 类型             | 属性          | 描述                                                         |
+| :------------------------ | :--------------- | :------------ | :----------------------------------------------------------- |
+| `groupID`                 | `String`         |         -     | 群组的 ID                                                    |
+| `userIDList`              | `Array.<String>` |         -     | 要查询的群成员用户 ID 列表                                   |
+| `memberCustomFieldFilter` | `Array.<String>` | `<optional> ` | 群成员自定义字段筛选。可选，若不填，则默认查询所有群成员自定义字段 |
+
+**返回值**
+
+该接口返回`Promise`对象：
+
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为查询成功的群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 ### 添加群成员

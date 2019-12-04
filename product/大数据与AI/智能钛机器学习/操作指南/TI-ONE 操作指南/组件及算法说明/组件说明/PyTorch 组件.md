@@ -16,9 +16,9 @@ pip.main(['install', "package_name"])
 1. **添加组件**
 从左侧菜单栏中，选择【框架】>【深度学习】列表下的 PyTorch 节点，将其拖拽至画布中。
 2. **配置参数**
-- 脚本及依赖包文件上传：
+ - 脚本及依赖包文件上传：
   将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过 依赖包文件 框上传。
-- 程序依赖：
+ - 程序依赖：
 指定位于 COS 中的用户依赖文件路径，指定内容将被拷贝到程序脚本同一级目录下。支持目录或者文件依赖，若存在多个文件则以英文逗号分隔 。
 - 程序参数：
 指定运行任务脚本的参数。
@@ -29,7 +29,7 @@ pip.main(['install', "package_name"])
 5. **查看 PyTorch 控制台和日志**
 在 PyTorch 节点上单击右键菜单可查看任务状态和详细日志。
 详细日志如下：
-![](https://main.qcloudimg.com/raw/d9339d4a8d678627a8ebf1dbc0275b4e.png)
+![](https://main.qcloudimg.com/raw/212ba63589e3e3e5dca34ae83b18fba7.png)
 >?stdout.log 为全部日志，stderr.log 为错误日志。
 
 
@@ -86,6 +86,7 @@ Net(
   (fc3): Linear(in_features=84, out_features=10, bias=True)
 )
 ```
+
 
 
 
