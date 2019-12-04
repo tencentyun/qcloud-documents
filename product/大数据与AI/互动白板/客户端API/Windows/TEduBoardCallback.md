@@ -12,8 +12,8 @@ virtual void onTEBError(TEduBoardErrorCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见TEduBoardErrorCode定义  |
-| msg | const char * | 错误信息，编码格式为UTF8  |
+| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
 ### onTEBWarning
@@ -25,8 +25,8 @@ virtual void onTEBWarning(TEduBoardWarningCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见TEduBoardWarningCode定义  |
-| msg | const char * | 错误信息，编码格式为UTF8  |
+| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
 
@@ -56,10 +56,10 @@ virtual void onTEBSyncData(const char *data)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| data | const char * | 白板同步数据（JSON格式字符串） |
+| data | const char * | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用AddSyncData接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云IMSDK进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。
 
 
 ### onTEBUndoStatusChanged
@@ -71,7 +71,7 @@ virtual void onTEBUndoStatusChanged(bool canUndo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canUndo | bool | 白板当前是否还能执行Undo操作  |
+| canUndo | bool | 白板当前是否还能执行 Undo 操作  |
 
 
 ### onTEBRedoStatusChanged
@@ -83,7 +83,7 @@ virtual void onTEBRedoStatusChanged(bool canRedo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canRedo | bool | 白板当前是否还能执行Redo操作  |
+| canRedo | bool | 白板当前是否还能执行 Redo 操作  |
 
 
 ### onTEBOffscreenPaint
@@ -95,7 +95,7 @@ virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t he
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| buffer | const void * | 白板像素数据，大小为width * height * 4，像素以白板左上方为原点从左到右从上到下按BGRA排列  |
+| buffer | const void * | 白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列  |
 | width | uint32_t | 白板像素数据的宽度  |
 | height | uint32_t | 白板像素数据的高度 |
 
@@ -115,8 +115,8 @@ virtual void onTEBImageStatusChanged(const char *boardId, const char *url, TEduB
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 白板ID  |
-| url | const char * | 白板图片URL  |
+| boardId | const char * | 白板 ID  |
+| url | const char * | 白板图片 URL  |
 | status | TEduBoardImageStatus | 新的白板图片状态  |
 
 
@@ -129,14 +129,14 @@ virtual void onTEBSetBackgroundImage(const char *url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 调用SetBackgroundImage时传入的URL |
+| url | const char * | 调用 SetBackgroundImage 时传入的URL |
 
 #### 介绍
-只有本地调用SetBackgroundImage时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来。 
 
 
 ### onTEBBackgroundH5StatusChanged
-设置白板背景H5状态改变回调 
+设置白板背景 H5 状态改变回调 
 ``` C++
 virtual void onTEBBackgroundH5StatusChanged(const char *boardId, const char *url, TEduBoardBackgroundH5Status status)
 ```
@@ -144,8 +144,8 @@ virtual void onTEBBackgroundH5StatusChanged(const char *boardId, const char *url
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 白板ID  |
-| url | const char * | 白板图片URL  |
+| boardId | const char * | 白板 ID  |
+| url | const char * | 白板图片 URL  |
 | status | TEduBoardBackgroundH5Status | 新的白板图片状态  |
 
 
@@ -161,8 +161,8 @@ virtual void onTEBAddBoard(const TEduBoardStringList *boardList, const char *fil
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | const TEduBoardStringList * | 增加的白板页ID列表（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
-| fileId | const char * | 增加的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardList | const TEduBoardStringList * | 增加的白板页 ID 列表（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | const char * | 增加的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### onTEBDeleteBoard
@@ -174,8 +174,8 @@ virtual void onTEBDeleteBoard(const TEduBoardStringList *boardList, const char *
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | const TEduBoardStringList * | 删除的白板页ID（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
-| fileId | const char * | 删除的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardList | const TEduBoardStringList * | 删除的白板页 ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | const char * | 删除的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### onTEBGotoBoard
@@ -187,8 +187,8 @@ virtual void onTEBGotoBoard(const char *boardId, const char *fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 跳转到的白板页ID  |
-| fileId | const char * | 跳转到的白板页所属的文件ID  |
+| boardId | const char * | 跳转到的白板页 ID  |
+| fileId | const char * | 跳转到的白板页所属的文件 ID  |
 
 
 ### onTEBGotoStep
@@ -231,7 +231,7 @@ virtual void onTEBAddTranscodeFile(const char *fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 增加的文件ID |
+| fileId | const char * | 增加的文件 ID |
 
 #### 介绍
 文件加载完成后才会触发该回调 
@@ -246,7 +246,7 @@ virtual void onTEBDeleteFile(const char *fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 删除的文件ID  |
+| fileId | const char * | 删除的文件 ID  |
 
 
 ### onTEBSwitchFile
@@ -258,7 +258,7 @@ virtual void onTEBSwitchFile(const char *fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 切换到的文件ID  |
+| fileId | const char * | 切换到的文件 ID  |
 
 
 ### onTEBFileUploadProgress
@@ -270,10 +270,10 @@ virtual void onTEBFileUploadProgress(const char *fileId, int currentBytes, int t
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 正在上传的文件ID  |
-| currentBytes | int | 当前已上传大小，单位bytes  |
-| totalBytes | int | 文件总大小，单位bytes  |
-| uploadSpeed | int | 文件上传速度，单位bytes  |
+| fileId | const char * | 正在上传的文件 ID  |
+| currentBytes | int | 当前已上传大小，单位 bytes  |
+| totalBytes | int | 文件总大小，单位 bytes  |
+| uploadSpeed | int | 文件上传速度，单位 bytes  |
 | percent | double | 文件上传进度，取值范围 [0, 1]  |
 
 
@@ -286,7 +286,7 @@ virtual void onTEBFileUploadStatus(const char *fileId, TEduBoardUploadStatus sta
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 正在上传的文件ID  |
+| fileId | const char * | 正在上传的文件 ID  |
 | status | TEduBoardUploadStatus | 文件上传状态  |
 | errorCode | int | 文件上传错误码  |
 | errorMsg | const char * | 文件上传错误信息  |
