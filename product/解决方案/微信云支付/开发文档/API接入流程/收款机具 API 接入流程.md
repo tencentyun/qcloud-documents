@@ -87,7 +87,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 6. **邮件发送加密文件**
 将加密文件发送到 [5.1 申请初始资源](#5.1-.E7.94.B3.E8.AF.B7.E5.88.9D.E5.A7.8B.E8.B5.84.E6.BA.90) 所述的接收加密文件的邮箱地址， 需要发送的文件有`sn_init_key.txt.encrypted`和`encrypt_key.txt.encrypted`。如果要将文件打包进行发送，则必须使用 zip 来压缩。邮件发送时，抄送人需添加厂商相关管理人员。
 7. **其它说明**
-以上所有文件都以 UTF-8 编码，发送前请先确认不能有可见/不可见的特殊字符。
+以上所有文件都以 UTF-8 无 BOM 编码，发送前请先确认不能有可见/不可见的特殊字符。
 邮件发送完成后，销毁`encrypt_key.txt`和`sn_init_key.txt`（无用时销毁）文件，同时需保管好`public.key`文件，这些文件禁止外泄。
 
 ## 7. 机具绑定相关流程说明
