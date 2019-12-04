@@ -12,8 +12,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见TEduBoardErrorCode定义  |
-| msg | NSString * | 错误信息，编码格式为UTF8  |
+| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
 ### onTEBWarning:msg:
@@ -25,8 +25,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见TEduBoardWarningCode定义  |
-| msg | NSString * | 错误信息，编码格式为UTF8  |
+| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
 
@@ -56,10 +56,10 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| data | NSString * | 白板同步数据（JSON格式字符串） |
+| data | NSString * | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用AddSyncData接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云IMSDK进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
 
 
 ### onTEBUndoStatusChanged:
@@ -71,7 +71,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canUndo | BOOL | 白板当前是否还能执行Undo操作  |
+| canUndo | BOOL | 白板当前是否还能执行 Undo 操作  |
 
 
 ### onTEBRedoStatusChanged:
@@ -83,7 +83,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canRedo | BOOL | 白板当前是否还能执行Redo操作  |
+| canRedo | BOOL | 白板当前是否还能执行 Redo 操作  |
 
 
 
@@ -98,8 +98,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 白板ID  |
-| url | NSString * | 白板图片URL  |
+| boardId | NSString * | 白板 ID  |
+| url | NSString * | 白板图片 URL  |
 | status | TEduBoardImageStatus | 新的白板图片状态  |
 
 
@@ -112,14 +112,14 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 调用SetBackgroundImage时传入的URL |
+| url | NSString * | 调用 SetBackgroundImage 时传入的 URL |
 
 #### 介绍
-只有本地调用SetBackgroundImage时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
 
 
 ### onTEBBackgroundH5StatusChanged:url:status:
-设置白板背景H5状态改变回调 
+设置白板背景 H5 状态改变回调 
 ``` Objective-C
 - (void)onTEBBackgroundH5StatusChanged:(NSString *)boardId url:(NSString *)url status:(TEduBoardBackgroundH5Status)status 
 ```
@@ -127,8 +127,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 白板ID  |
-| url | NSString * | 白板图片URL  |
+| boardId | NSString * | 白板 ID  |
+| url | NSString * | 白板图片 URL  |
 | status | TEduBoardBackgroundH5Status | 新的白板图片状态  |
 
 
@@ -144,8 +144,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardIds | NSArray * | 增加的白板页ID列表（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
-| fileId | NSString * | 增加的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardIds | NSArray * | 增加的白板页 ID 列表（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | NSString * | 增加的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### onTEBDeleteBoard:fileId:
@@ -157,8 +157,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardIds | NSArray * | 删除的白板页ID（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
-| fileId | NSString * | 删除的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
+| boardIds | NSArray * | 删除的白板页 ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
+| fileId | NSString * | 删除的白板页所属的文件 ID（目前版本只可能为::DEFAULT）  |
 
 
 ### onTEBGotoBoard:fileId:
@@ -170,8 +170,8 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 跳转到的白板页ID  |
-| fileId | NSString * | 跳转到的白板页所属的文件ID  |
+| boardId | NSString * | 跳转到的白板页 ID  |
+| fileId | NSString * | 跳转到的白板页所属的文件 ID  |
 
 
 ### onTEBGotoStep:totalStep:
@@ -214,7 +214,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 增加的文件ID |
+| fileId | NSString * | 增加的文件 ID |
 
 #### 介绍
 文件加载完成后才会触发该回调 
@@ -229,7 +229,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 删除的文件ID  |
+| fileId | NSString * | 删除的文件 ID  |
 
 
 ### onTEBSwitchFile:
@@ -241,7 +241,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 切换到的文件ID  |
+| fileId | NSString * | 切换到的文件 ID  |
 
 
 ### onTEBFileUploadProgress:currentBytes:totalBytes:uploadSpeed:percent:
@@ -253,10 +253,10 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 正在上传的文件ID  |
-| currentBytes | int | 当前已上传大小，单位bytes  |
-| totalBytes | int | 文件总大小，单位bytes  |
-| uploadSpeed | int | 文件上传速度，单位bytes  |
+| fileId | NSString * | 正在上传的文件 ID  |
+| currentBytes | int | 当前已上传大小，单位 bytes  |
+| totalBytes | int | 文件总大小，单位 bytes  |
+| uploadSpeed | int | 文件上传速度，单位 bytes  |
 | percent | float | 文件上传进度，取值范围 [0, 1]  |
 
 
@@ -269,7 +269,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 正在上传的文件ID  |
+| fileId | NSString * | 正在上传的文件 ID  |
 | status | TEduBoardUploadStatus | 文件上传状态  |
 | errorCode | int | 文件上传错误码  |
 | errorMsg | NSString * | 文件上传错误信息  |
@@ -284,7 +284,7 @@ H5文件状态回调
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 文件ID  |
+| fileId | NSString * | 文件 ID  |
 | status | TEduBoardH5FileStatus | 文件状态  |
 
 
@@ -297,10 +297,10 @@ H5文件状态回调
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 文件ID  |
+| fileId | NSString * | 文件 ID  |
 | status | TEduBoardVideoStatus | 文件状态  |
-| progress | CGFloat | 当前进度（秒）（仅支持mp4格式）  |
-| duration | CGFloat | 总时长（秒）（仅支持mp4格式）  |
+| progress | CGFloat | 当前进度（秒）（仅支持 mp4 格式）  |
+| duration | CGFloat | 总时长（秒）（仅支持 mp4 格式）  |
 
 
 
