@@ -7,7 +7,7 @@
 ## 快速接入
 
 以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
-1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
+1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
 
 2. 然后在项目中使用以下的 demo，来快速获取识别结果。
 + **通过语音 URL 方式请求**
@@ -21,11 +21,11 @@ use TencentCloud\Common\Profile\HttpProfile;
 use TencentCloud\Common\Exception\TencentCloudSDKException;
 use TencentCloud\Asr\V20190614\AsrClient;
 use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
-//通过音频URL方式请求
+//通过音频 URL 方式请求
 try {
     //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API 秘钥管理
     $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
@@ -64,7 +64,7 @@ use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
 try {
     //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API 秘钥管理
     $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
@@ -107,7 +107,7 @@ try {
 
     //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API 秘钥管理
      $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
