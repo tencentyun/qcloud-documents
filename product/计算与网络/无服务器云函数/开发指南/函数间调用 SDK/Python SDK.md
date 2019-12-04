@@ -6,7 +6,7 @@ Tencentserverless 是腾讯云云函数 SDK，集成云函数业务流接口，�
 Tencentserverless SDK 的功能特性可分为以下几点：
 
 * 高性能，低时延的进行函数调用。
-* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，secretId 等）。
+* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，SecretId 等）。
 * 支持内网域名的访问。
 * 支持 keepalive 能力。
 * 支持跨地域函数调用。
