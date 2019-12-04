@@ -8,7 +8,7 @@
 ##  快速接入
 以下分别是通过**语音 URL**和**本地语音上传**请求方式的 demo，以及**轮询接口**查询识别结果，来帮助客户快速接入。
 
-1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
+1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
 
 2. 然后在项目中使用以下的 demo，来快速获取识别结果。
 
@@ -23,11 +23,11 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 from tencentcloud.asr.v20190614 import asr_client, models 
 import base64
 
-#音频URL方式
+#音频 URL 方式
 try: 
     #重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	#https://cloud.tencent.com/document/product/441/6203
- 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()
     httpProfile.endpoint = "asr.tencentcloudapi.com"
@@ -40,7 +40,7 @@ try:
     req._deserialize(params)
     resp = client.CreateRecTask(req) 
     print(resp.to_json_string()) 
-    #windows系统使用下面一行替换上面一行
+    #windows 系统使用下面一行替换上面一行
     #print(resp.to_json_string().decode('UTF-8').encode('GBK') )
 
 except TencentCloudSDKException as err: 
@@ -62,7 +62,7 @@ import base64
 try: 
     #重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	#https://cloud.tencent.com/document/product/441/6203
- 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()
     httpProfile.endpoint = "asr.tencentcloudapi.com"
@@ -72,7 +72,7 @@ try:
     client = asr_client.AsrClient(cred, "ap-shanghai", clientProfile) 
 
 
-    #读取文件以及base64
+    #读取文件以及 base64
     fwave = open('./test.wav', mode='r')
     data = str(fwave.read())
     dataLen = len(data)
@@ -83,7 +83,7 @@ try:
     req._deserialize(params)
     resp = client.CreateRecTask(req) 
     print(resp.to_json_string()) 
-    #windows系统使用下面一行替换上面一行
+    #windows 系统使用下面一行替换上面一行
     #print(resp.to_json_string().decode('UTF-8').encode('GBK') )
 
 except TencentCloudSDKException as err: 
@@ -104,7 +104,7 @@ from tencentcloud.asr.v20190614 import asr_client, models
 try: 
     #重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
 	#https://cloud.tencent.com/document/product/441/6203
- 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问秘钥-->API秘钥管理
+ 	#具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
     cred = credential.Credential("Your SecretId", "Your SecretKey") 
     httpProfile = HttpProfile()
     httpProfile.endpoint = "asr.tencentcloudapi.com"
