@@ -8,10 +8,10 @@
 
 以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
 1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
-
 2. 然后在项目中使用以下的 demo，来快速获取识别结果。
 
-+ **通过语音 URL 方式请求**
+
+- **通过语音 URL 方式请求**
 
 ```
 <?php
@@ -50,7 +50,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-+ **通过本地语音上传方式请求**
+- **通过本地语音上传方式请求**
 
 ```
 <?php
@@ -93,7 +93,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-+ **查询识别结果**
+- **查询识别结果**
 
 ```
 <?php
