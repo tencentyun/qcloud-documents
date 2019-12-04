@@ -21,7 +21,7 @@ Authorization: Auth String
 [Object]
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
