@@ -31,7 +31,7 @@ import com.tencentcloudapi.asr.v20190614.models.CreateRecTaskResponse;
 public class CreateRecTask
 {
     public static void main(String [] args) throws IOException {
-        //采用音频URL方式
+        //采用音频 URL 方式
         try{
             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
     	   //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
