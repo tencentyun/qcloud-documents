@@ -12,8 +12,8 @@ function TEB_ERROR(TEduBoardErrorCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见TEduBoardErrorCode定义  |
-| msg | String | 错误信息，编码格式为UTF8  |
+| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| msg | String | 错误信息，编码格式为 UTF8  |
 
 
 ### TEB_WARNING
@@ -25,8 +25,8 @@ function TEB_WARNING(TEduBoardWarningCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见TEduBoardWarningCode定义  |
-| msg | String | 错误信息，编码格式为UTF8  |
+| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| msg | String | 错误信息，编码格式为 UTF8  |
 
 
 
@@ -59,7 +59,7 @@ function TEB_SYNCDATA(Object data)
 | data | Object | 白板同步数据 |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用AddSyncData接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云IMSDK进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。
 
 
 ### TEB_OPERATE_CANUNDO_STATUS_CHANGED
@@ -71,7 +71,7 @@ function TEB_OPERATE_CANUNDO_STATUS_CHANGED(Boolean canUndo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canUndo | Boolean | 白板当前是否还能执行Undo操作  |
+| canUndo | Boolean | 白板当前是否还能执行 Undo 操作  |
 
 
 ### TEB_OPERATE_CANREDO_STATUS_CHANGED
@@ -83,7 +83,7 @@ function TEB_OPERATE_CANREDO_STATUS_CHANGED(Boolean canRedo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canRedo | Boolean | 白板当前是否还能执行Redo操作  |
+| canRedo | Boolean | 白板当前是否还能执行 Redo 操作  |
 
 
 
@@ -127,7 +127,7 @@ function TEB_SETBACKGROUNDIMAGE(String fileName, String fileUrl, String userData
 | userData | String | 透传上传接口的 userData |
 
 #### 介绍
-只有本地调用setBackgroundImage时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+只有本地调用 setBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来。
 
 
 ### TEB_H5BACKGROUND_STATUS_CHANGED
@@ -165,7 +165,7 @@ function TEB_ADDBOARD(Array boardList, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | Array | 增加的白板页ID列表（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
+| boardList | Array | 增加的白板页ID列表（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
 | fileId | String | 增加的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
 
 
@@ -178,7 +178,7 @@ function TEB_DELETEBOARD(Array boardList, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardList | Array | 删除的白板页ID（使用后不需要自行调用Release方法释放，SDK内部自动释放）  |
+| boardList | Array | 删除的白板页ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
 | fileId | String | 删除的白板页所属的文件ID（目前版本只可能为::DEFAULT）  |
 
 
