@@ -13,7 +13,7 @@ COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设
 
 ### 如何使用自有域名访问对象？
 
-可通过绑定自定义域名实现。详情请参见 [自定义加速域名](https://cloud.tencent.com/document/product/436/18424#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.8A.A0.E9.80.9F.E5.9F.9F.E5.90.8D)。
+可通过绑定自定义域名实现。详情请参见 [自定义加速域名](https://cloud.tencent.com/document/product/436/36637)。
 
 ### COS 是否支持 HTTPS 访问？
 
@@ -21,7 +21,7 @@ COS 本身不支持自动刷新 CDN 缓存，您可以联合云函数 SCF 来设
 
 ### COS 是否支持 CDN HTTPS 回源 COS？
 
-支持。
+支持。具体操作方法请参见 [设置回源](https://cloud.tencent.com/document/product/436/13310) 文档。
 
 ### 使用自定义域名是否必须通过腾讯云备案？
 目前 COS 使用自定义域名必须开启 CDN，请根据您的情况进行判断：

@@ -104,6 +104,10 @@ exports.callback_handler = function(event, context, callback) {
 
 输出内容您可以在函数日志中的 `log` 位置查看。
 
+## 如何安装依赖
+
+请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780)。
+
 ## 已包含的库及使用方法
 
 ### COS SDK
@@ -123,7 +127,7 @@ var COS = require('cos-nodejs-sdk-v5');
 
 Node.js 6.10 云端运行时已支持的库如下表：
 
-|库名称|版本|
+| 库名称                  | 版本    |
 | ----------------------- | ------- |
 | base64-js               | 1.2.1   |
 | buffer                  | 5.0.7   |
@@ -148,8 +152,8 @@ Node.js 6.10 云端运行时已支持的库如下表：
 
 Node.js 8.9 云端运行时已支持的库如下表：
 
-|库名称|版本|
-| ----------------------- | ------- |
+| 库名称                  | 版本   |
+| ----------------------- | ------ |
 | cos-nodejs-sdk-v5       | 2.5.7  |
 | base64-js               | 1.2.1  |
 | buffer                  | 5.0.7  |

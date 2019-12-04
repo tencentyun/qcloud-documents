@@ -49,7 +49,7 @@
 | 获取服务的 yaml 文本信息    | [DescribeClusterServiceText](https://cloud.tencent.com/document/product/457/17557) | 用于获取服务的文本信息                                 |
 | 修改服务                    | [ModifyClusterService](https://cloud.tencent.com/doc/api/457/9434) | 用于更新服务                                           |
 | 修改服务描述                | [ModifyServiceDescription](https://cloud.tencent.com/doc/api/457/9435) | 用于修改服务描述                                       |
-| 修改服务镜像                | [ModifyClusterServiceImage](https://cloud.tencent.com/document/product/457/9630) | 用于修改服务的的镜像                                   |
+| 修改服务镜像                | [ModifyClusterServiceImage](https://cloud.tencent.com/document/product/457/9630) | 用于修改服务的镜像                                   |
 | 修改服务的标签（Label）信息 | [ModifyServiceLabels](https://cloud.tencent.com/document/product/457/17556) | 用于修改服务的标签(Label)信息                          |
 | 回滚服务                    | [RollBackClusterService](https://cloud.tencent.com/doc/api/457/9438) | 用于回滚服务至升级前的配置，只能回滚至上一个配置       |
 | 服务重部署                  | [RedeployClusterService](https://cloud.tencent.com/document/product/457/9685) | 用于将服务实例重新部署                                 |

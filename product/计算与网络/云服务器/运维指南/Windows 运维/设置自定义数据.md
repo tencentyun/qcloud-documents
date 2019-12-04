@@ -37,7 +37,7 @@
 ```
 vi script_text.ps1
 ```
-2. 按 **i** 或 **Insert** 切换至编辑模式，参考以下内容，写入并保存 “script_text.ps1” 脚本文件。
+2. 按 **i** 切换至编辑模式，参考以下内容，写入并保存 “script_text.ps1” 脚本文件。
 ```
 <powershell>
 "Hello Tencent Cloud." | Out-File  C:\tencentcloud.txt

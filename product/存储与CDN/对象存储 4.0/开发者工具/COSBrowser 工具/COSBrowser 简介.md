@@ -1,15 +1,51 @@
-COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前推出了桌面端和移动端两种，详情可参见：
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。目前 COSBrowser 有桌面端和移动端两种，详情可参见：
 
 - [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)
 - [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
+
+## 下载地址
+
+<table>
+   <tr>
+      <th>COSBrowser 分类</td>
+      <th>支持平台</td>
+      <th>系统要求</td>
+      <th>下载地址</td>
+   </tr>
+   <tr>
+      <td rowspan=3>桌面端</td>
+      <td>Windows</td>
+      <td>Windows 7 32/64位以上、Windows Server 2008 R2 64位以上</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe">Windows</a></td>
+   </tr>
+   <tr>
+      <td>macOS</td>
+      <td>macOS 10.13以上</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg">macOS</a></td>
+   </tr>
+   <tr>
+      <td>Linux</td>
+      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip">Linux</a></td>
+   </tr>
+   <tr>
+      <td rowspan=2>移动端</td>
+      <td>Android</td>
+      <td>Android 4.4以上</td>
+      <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
+   </tr>
+   <tr>
+      <td>iOS</td>
+      <td>iOS 11以上</td>
+      <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
+   </tr>
+</table>
 
 ## COSBrowser 桌面端
 
 COSBrowser 桌面端注重对资源的管理，用户可以通过 COSBrowser 批量的上传、下载数据。
 
-> !
-> COSBrowser 桌面端会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。
->
+> !COSBrowser 桌面端会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。
 > - Windows 用户可在操作系统的“Internet 选项”中查询。
 > - macOS 用户可在“网络偏好设置”中查询。
 > - Linux 用户可在系统设置 > 网络 > 网络代理中查询。
@@ -23,6 +59,7 @@ COSBrowser 桌面端支持以下功能：
 | [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶         |
 | [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地           |
 | [删除文件/文件夹](https://cloud.tencent.com/document/product/436/38103#delete) | 支持单个删除、批量删除存储桶中的文件或文件夹                 |
+|      [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)            	|                                                    支持将本地文件实时同步至存储桶中                   |   
 | [复制粘贴文件](https://cloud.tencent.com/document/product/436/38103#copy) | 支持单个复制、批量复制一个目录下的文件或文件夹至另一个目录   |
 | [文件重命名](https://cloud.tencent.com/document/product/436/38103#rename) | 支持重命名存储桶中的文件                                     |
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38103#newfolder) | 支持在存储桶中新建文件夹                                     |
@@ -67,10 +104,12 @@ COSBrowser 移动端支持以下功能：
 
 ## 更新日志
 
-- 查看 COSBrowser 桌面端更新日志：[changelog](https://github.com/tencentyun/cosbrowser/blob/master/changelog.md)。
-- 查看 COSBrowser 移动端更新日志： [changelog_mobile](https://github.com/tencentyun/cosbrowser/blob/master/changelog_mobile.md)。
+- 桌面端更新日志：[changelog](https://github.com/tencentyun/cosbrowser/blob/master/changelog.md)。
+- 移动端更新日志：[changelog_mobile](https://github.com/tencentyun/cosbrowser/blob/master/changelog_mobile.md)。
 
 ## 反馈和建议
 
-- 如您在使用 COSBrowser 桌面端时有任何疑问或建议，欢迎反馈给我们：[issues](https://github.com/tencentyun/cosbrowser/issues)。
-- 如您在使用 COSBrowser 移动端时有任何疑问或建议，欢迎反馈给我们：[issues_mobile](https://support.qq.com/embed/phone/67467)。
+如您在使用 COSBrowser 时有任何疑问或建议，欢迎反馈给我们：
+
+- 桌面端反馈：[issues](https://github.com/tencentyun/cosbrowser/issues)。
+- 移动端反馈：[issues_mobile](https://support.qq.com/embed/phone/67467)。

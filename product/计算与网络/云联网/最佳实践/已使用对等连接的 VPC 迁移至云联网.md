@@ -28,3 +28,4 @@ https://main.qcloudimg.com/raw/f25bfe0d73627404a6b081203baf4bc1.png)
  ![图片描述](https://main.qcloudimg.com/raw/de6869e6e4c07181574a0d88bbfdd685.png)
 - 情况三：云联网自动下发的路由与已有对等连接产生包含冲突，则云联网路由默认无效，但您可【启用】下一跳为该云联网的路由策略，启用后将根据最长掩码匹配原则转发。如果迁移后原对等连接不再使用，建议您【停用】原下一跳为对等连接的路由策略。
  ![图片描述](https://main.qcloudimg.com/raw/5cfd481eed906ccf1e2aa7ca2cc16e11.png)
+ 

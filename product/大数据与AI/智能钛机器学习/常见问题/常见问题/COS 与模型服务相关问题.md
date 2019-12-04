@@ -7,11 +7,11 @@
 4. 【角色名称】填写【TI_QCSRole】>【角色描述】选填【腾讯智能钛（TI）操作权限含列举对象存储（COS）文件，读取、删除、添加、修改文件内容等 】，单击【完成】，即手动完成 COS 授权。
 
 ### 当在创建模型或部署模型过程中报错“无法访问 COS 资源的权限”时怎么办？
-1.登录 [CAM 角色管理界面](https://console.cloud.tencent.com/cam/role)。
-2.检查是否完成 COS 授权给智能钛产品。
-3.若检查结果为已授权，存在角色：TI_QCSRole，建议删除此角色，重新完成 COS 授权。
+1. 登录 [CAM 角色管理界面](https://console.cloud.tencent.com/cam/role)。
+2. 检查是否完成 COS 授权给智能钛产品。
+3. 若检查结果为已授权，存在角色：TI_QCSRole，建议删除此角色，重新完成 COS 授权。
 ![](https://main.qcloudimg.com/raw/a08fabf2e8ba541e48238234e5425a94.png)
-4.如不存在角色：TI_QCSRole，请进行 COS 授权。
+4. 如不存在角色：TI_QCSRole，请进行 COS 授权。
 
 ### 查看中间结果时，如何根据页面上展示的 COS 路径查询到对应文件？
 复制蓝色底色中的文字至相应的存储桶的查询窗口，便可搜索到对应文件。

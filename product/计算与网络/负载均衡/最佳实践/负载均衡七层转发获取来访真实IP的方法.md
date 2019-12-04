@@ -10,26 +10,26 @@ CLB 的四层（TCP/UDP/TCP SSL）和七层（HTTP/HTTPS）服务均支持直接
 下文将对常见的应用服务器配置方案进行介绍。
 
 ## IIS 6 配置方案
-1. 安装插件 F5XForwardedFor.dll，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
 2. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键选择【属性】，打开属性页。
 3. 在属性页切换至【ISAPI 筛选器】，单击【添加】，弹出添加窗口。
 4. 在添加窗口“筛选器名称”中填写“F5XForwardedFor”，“可执行文件”填写`F5XForwardedFor.dll`的完整路径，单击【确定】。
 5. 重启 IIS 服务器，等待配置生效。
 
 ## IIS 7 配置方案
-1. 下载与安装插件 F5XForwardedFor 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C: \F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C: \F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
 2. 选择【IIS服务器】，双击【模块】功能。
-![](https://main.qcloudimg.com/raw/fe7f9a664fb6b8dca4d285b06e2f8c62.png)
+![](https://main.qcloudimg.com/raw/fd26a3b2e4bfd1f31ee71c9821639213.png)
 3. 单击【配置本机模块】。
-![](https://main.qcloudimg.com/raw/581cbd06e367e035f085ead0e0ee5b18.png)
+![](https://main.qcloudimg.com/raw/72fa2e2bd9a5c83c852a2debc6877f8e.png)
 4. 在弹出框中单击【注册】。
-![](https://main.qcloudimg.com/raw/8036eb425c320aa7f3fbbaed3b7999fb.png)
+![](https://main.qcloudimg.com/raw/be262498b081c68205618671f4086cbf.png)
 5. 添加下载的 DLL 文件，如下图所示：
-![](https://main.qcloudimg.com/raw/7686b58afd2635efb6fbcea4f3ab44a4.png)
+![](https://main.qcloudimg.com/raw/859107d872f77068ac9ce20f7732e184.png)
 6. 添加完成后，勾选并单击【确定】。
-![](https://main.qcloudimg.com/raw/438fcd398ddd2e2c5f688b57514b0cf3.png)
+![](https://main.qcloudimg.com/raw/3b2548c3279d838f800a034397e2d1cf.png)
 7. 在 “ISAPI 和 CGI 限制”添加如上两个 DLL ，并将限制设置为允许。
-![](https://main.qcloudimg.com/raw/3207b644311faa6ec2fbf9bbb2606a54.png)
+![](https://main.qcloudimg.com/raw/5fda5595af334605ffb1f4e76d152139.png)
 8. 重启 IIS 服务器，等待配置生效。
 
 ## Apache 配置方案

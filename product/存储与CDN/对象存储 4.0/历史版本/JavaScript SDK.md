@@ -70,8 +70,8 @@ COS 服务的 JS SDK V4 版本的 [GitHub 地址](https://github.com/tencentyun/
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
 | appid          | int      | 是        | 无       | appid                                    |
-| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6232) |
-| region         | String   | 是        | 'gz'    | 地域信息，必填参数 华南地区填gz 华东填sh 华北填tj            |
+| bucket         | String   | 是        | 无       | bucket名称，bucket 创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6245#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) |
+| region         | String   | 是        | 'gz'    | 地域信息，必填参数，华南地区填gz 华东填sh 华北填tj            |
 | getAppSign     | Function | 是        | 无       | 获取多次签名的函数，建议从服务器端获取签名字符串                 |
 | getAppSignOnce | Function | 是        | 无       | 获取单次签名的函数，建议从服务器端获取签名字符串                 |
 
@@ -100,7 +100,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 | ---------------- | -------- | -------- | ------- | ----------------------------------- |
 | successCallBack  | Function | 是        | 无       | 上传成功的回调                             |
 | errorCallBack    | Function | 是        | 无       | 上传失败的回调                             |
-| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，比如文件1M已经上传了100K则会回调进度0.1  |
+| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，例如文件1M已经上传了100K则会回调进度0.1  |
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
@@ -116,7 +116,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 | data.access_url    | String | 是          | 生成的文件CDN下载url              |
 | data.source_url    | String | 是          | 生成的文件COS源站url              |
 | data.url           | String | 是          | 操作文件的url                   |
-| data.resource_path | String | 是          | 资源路径. 格式:/appid/bucket/xxx |
+| data.resource_path | String | 是          | 资源路径，格式：/appid/bucket/xxx |
 
 #### 示例
 
@@ -141,8 +141,6 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 		cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, myFolder+file.name, file, 0);
 		return false;
 	});
-
-
 ```
 
 ### 大文件分片上传
@@ -152,9 +150,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 #### 方法原型
 
 ```js
-
 cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
-
 ```
 
 #### 参数说明
@@ -163,7 +159,7 @@ cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, pa
 | ---------------- | -------- | -------- | ------- | ----------------------------------- |
 | successCallBack  | Function | 是        | 无       | 上传成功的回调                             |
 | errorCallBack    | Function | 是        | 无       | 上传失败的回调                             |
-| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，比如文件1M已经上传了100K则会回调进度0.1  |
+| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，例如文件1M已经上传了100K则会回调进度0.1  |
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
@@ -288,7 +284,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 | data.filelen        | Int    | 是          | 文件已传输大小                                  |
 | data.sha            | String | 是          | 文件文件sha                                  |
 | data.access_url     | String | 是          | 生成的文件下载url                               |
-| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与bucket拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用bucket的权限 |
+| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与 bucket 拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用 bucket 的权限 |
 | data.custom_headers | String | 否          | 自定义header对象                              |
 
 

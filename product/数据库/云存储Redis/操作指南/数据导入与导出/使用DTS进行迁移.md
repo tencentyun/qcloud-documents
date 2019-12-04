@@ -1,4 +1,3 @@
-
 ## DTS 简介
 腾讯云数据传输服务（Data Transmission Service，DTS）是提供数据迁移、数据同步、数据订阅于一体的数据库数据传输服务。帮助您在业务不停服的前提下轻松完成数据库迁移，利用实时同步通道轻松构建异地容灾的高可用数据库架构，利用数据订阅提供的云数据库实时增量更新数据，用户可根据自身业务需求自由消费增量数据。 DTS for Redis 目前支持各种网络场景、各种版本的 Redis 数据迁移。
 
@@ -29,29 +28,29 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 其他云厂商 Redis 服务迁移：支持将其他云厂商提供的 Redis 数据迁移到腾讯云，前提条件是云厂商需要提供 SYNC 或者 PSYNC 命令权限。
 - 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：   
 <table>
+    <caption></caption>
     <tr>
-    <td  rowspan=2 align=center>源实例</td>
-    <td  colspan=3 align=cente>目标实例</td>
+<th style ="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top" ><div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th>
+            </div>
+        </th>
+    <th style="background-color:#f2f2f2;">2.8标准版</th>
+    <th style="background-color:#f2f2f2;">4.0标准版</th>
+    <th style="background-color:#f2f2f2;">4.0集群版</th>
     </tr>
     <tr>
-    <td>2.8标准版</td>
-    <td>4.0标准版</td>
-    <td>4.0集群版</td>
-    </tr>
-    <tr>
-    <td>2.8标准版</td>
+    <td style="background-color:#f2f2f2;">2.8标准版</td>
     <td>✓</td>
     <td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
-    <td>4.0标准版</td>
+    <td style="background-color:#f2f2f2;">4.0标准版</td>
     <td>x</td>
     <td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
-    <td>4.0集群版</td>
+    <td style="background-color:#f2f2f2;">4.0集群版</td>
     <td>x</td>
     <td>✓</td>
     <td>✓</td>
@@ -112,5 +111,3 @@ DTS 服务支持迁移中断告警，以便及时了解到迁移任务的异常�
 断开同步前，可在目标实例上验证数据，如果验证无误，即可完成迁移任务。
 当源实例和目标实例的 key 同步一致时，单击【完成】确定，即可完成数据同步操作。
 
-
- 

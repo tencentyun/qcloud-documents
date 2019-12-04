@@ -49,20 +49,34 @@ require_once '../TCloudAutoLoader.php';
 ## 示例
 
 ```
-setEndpoint("scf.tencentcloudapi.com");
+<?php
+require_once '/var/user/tencentcloud-sdk-php/TCloudAutoLoader.php'; #注意引用路径
+use TencentCloud\Common\Credential;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Profile\HttpProfile;
+use TencentCloud\Common\Exception\TencentCloudSDKException;
+use TencentCloud\Scf\V20180416\ScfClient;
+use TencentCloud\Scf\V20180416\Models\InvokeRequest;
+function main_handler($event, $context) {
+    print "good";
+    print "\n";
+    var_dump($event);
+    var_dump($context);
+	try {
+        // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+   	 	$cred = new Credential("用户的secretId", "用户的secretKey");
+   	 	$httpProfile = new HttpProfile();
+   		$httpProfile->setEndpoint("scf.tencentcloudapi.com");
       
     		$clientProfile = new ClientProfile();
     		$clientProfile->setHttpProfile($httpProfile);
     		// 实例化要请求产品的client对象，以及函数所在的地域
     		$client = new ScfClient($cred, "ap-shanghai", $clientProfile);
-
     		$req = new InvokeRequest();
             // 接口参数,输入需要调用的函数名，RequestResponse(同步) 和 Event(异步)
     		$params = '{"FunctionName":"test_python", "InvocationType":"RequestResponse"}';
     		$req->fromJsonString($params);
-
     		$resp = $client->Invoke($req);
-
    		print_r($resp->toJsonString());
 	}
 	catch(TencentCloudSDKException $e) {
@@ -70,7 +84,6 @@ setEndpoint("scf.tencentcloudapi.com");
 	}
     return "hello";
 }
-
 ?>
 ```
 ## 打包部署

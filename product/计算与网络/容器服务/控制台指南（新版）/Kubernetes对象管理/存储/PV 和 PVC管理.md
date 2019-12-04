@@ -20,12 +20,10 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
 3. 单击需要创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
-4. 选择 “存储” > “PersistentVolume”，进入 PersistentVolume 信息页面。如下图所示：
-   
-   ![PersistentVolume](https://main.qcloudimg.com/raw/f18366db7dce49824e0d43dc4aeee516.png)
+4. 选择 【存储】 > 【PersistentVolume】，进入 PersistentVolume 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/2960b551635dc61469fdea6f897ec9ef.png)
 5. 单击【新建】，进入 “新建PersistentVolume” 页面。如下图所示：
-   
-   ![新建PersistentVolume](https://main.qcloudimg.com/raw/98cbf4ace819438faa51fa9add33330a.png)
+![](https://main.qcloudimg.com/raw/824b8c76eef9ea43c3fea109c663d5b9.png)
 6. 根据实际需求，设置 PV 参数。关键参数信息如下：
    - 来源设置：根据实际需求进行选择，默认为 “静态创建”。
    - 名称：自定义。
@@ -40,17 +38,15 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
 3. 单击需要创建 PVC 的集群 ID，进入待创建 PVC 的集群管理页面。
-4. 选择 “存储” > “PersistentVolumeClaim”，进入 PersistentVolumeClaim 信息页面。如下图所示：
-   
-   ![PersistentVolumeClaim](https://main.qcloudimg.com/raw/76cbf067c2f12c6e257c07d86300c818.png)
+4. 选择【存储】 > 【PersistentVolumeClaim】，进入 PersistentVolumeClaim 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/6302fb6ee1e12b0f0bd9cf508da71c11.png)
 5. 单击【新建】，进入 “新建PersistentVolumeClaim” 页面。如下图所示：
-   
-   ![新建PersistentVolume](https://main.qcloudimg.com/raw/5b0c4d92f26e4c31d88a74435b52c6b5.png)
+![新建PersistentVolume](https://main.qcloudimg.com/raw/5b0c4d92f26e4c31d88a74435b52c6b5.png)
 6. 根据实际需求，设置 PVC 参数。关键参数信息如下：
    - 名称：自定义。
    - 命名空间：根据实际需求进行选择命名空间类型。
    - StorageClass：根据实际需求进行选择。
-   - 容量：根据实际需求进行设置。
+   - 容量：根据实际需求进行设置。云盘容量最小值由云硬盘产品规格决定，详情请参见[云硬盘对比](https://cloud.tencent.com/product/cbs/types)。
 7. 单击【创建PersistentVolumeClaim】，完成创建。
    
    > ? 若已有 PV 不足，系统将自动创建新的 PV。
@@ -60,16 +56,13 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
 3. 单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
-4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
-   
-   ![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
+4. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。例如，选择 【工作负载】> 【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：   
+![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
 5. 单击【新建】，进入 “新建Workload” 页面。
 6. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击【添加数据卷】，添加数据卷。如下图所示：
-   
-   ![添加数据卷](https://main.qcloudimg.com/raw/110d1c5754b97df1388f39546263aaee.png)
+ ![添加数据卷](https://main.qcloudimg.com/raw/110d1c5754b97df1388f39546263aaee.png)
 7. 选择 “使用已有PVC” 方式，填写名称，选择已有的 PVC。如下图所示：
-   
-   ![使用已有PVC](https://main.qcloudimg.com/raw/aa1e843d3ea02d6af12298b6566e552b.png)
+ ![使用已有PVC](https://main.qcloudimg.com/raw/aa1e843d3ea02d6af12298b6566e552b.png)
 8. 单击【创建Workload】，完成创建。
    
    > !使用 PVC 挂载模式，数据卷只能挂载到一台 node 主机上
@@ -120,9 +113,9 @@ spec:
       storage: 10Gi
 ```
 
-- 普通云盘大小必须是10的倍数，最小为10。
-- 高效云盘最小为50GB。
-- SSD 云硬盘最小为200GB，具体策略请参见 [云硬盘文档](https://cloud.tencent.com/document/product/362)。
+- 普通云盘大小必须是10的倍数，最小为10 GB。
+- 高性能云硬盘最小为50 GB。
+- SSD 云硬盘最小为100 GB，详情请参见 [云硬盘对比](https://cloud.tencent.com/product/cbs/types)。
 
 ### 使用 PVC
 

@@ -41,7 +41,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.1.0.2-release' //  TPNS 推送
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 
 }
 ```
@@ -61,7 +61,10 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             </intent-filter>
         </receiver>
     ```
-
+- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 
 
@@ -94,14 +97,31 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
+
+
+| 权限                                       | 是否必需 | 说明                           |
+| ---------------------------------------- | ---- | ---------------------------- |
+| android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
+| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
+| android.permission.WAKE_LOCK             | **必需**   | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
+| android.permission.VIBRATE               | **必需**   | 允许应用震动                       |
+| android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
+| android.permission.RECEIVE_USER_PRESENT  | 可选   | 允许应用可以接收点亮屏幕或解锁广播            |
+| android.permission.WRITE_EXTERNAL_STORAGE | 可选   | 允许程序写入外部存储                   |
+| android.permission.RESTART_PACKAGES      | 可选   | 允许程序结束任务                     |
+| android.permission.GET_TASKS             | 可选   | 允许程序获取任务信息                   |
+
+
 
 #### 组件和应用信息配置
 
 ```xml
 <application>
     <!-- 应用的其它配置 -->
-
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
     <!-- 【必须】 腾讯移动推送默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">
@@ -223,6 +243,31 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 <hr>
 
+
+
+#### 音视频富媒体使用方法（可选）
+1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
+2. 复制以下代码到文件中：
+```
+<?xml version="1.0" encoding="UTF-8"?>
+-<RelativeLayout android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_root_view" xmlns:android="http://schemas.android.com/apk/res/android">
+<!--通知的背景，id名字不能改变，其他可变-->
+<ImageView android:layout_height="match_parent" android:layout_width="match_parent" android:id="@+id/xg_notification_bg" android:scaleType="centerCrop"/>
+<!--通知的大图标，id名字不能改变，其他可变.必须-->
+<ImageView android:layout_height="48dp" android:layout_width="48dp" android:id="@+id/xg_notification_icon" android:scaleType="centerInside" android:layout_marginLeft="5dp" android:layout_centerVertical="true" android:layout_alignParentLeft="true"/>
+<!--通知的时间，id名字不能改变，其他可变.若不显示时间可以去掉此布局-->
+<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/xg_notification_date" android:textSize="12dp" android:layout_marginRight="5dp" android:layout_marginTop="5dp" android:layout_alignParentRight="true" android:layout_alignParentTop="true"/>
+<!--通知的标题，id名字不能改变，其他可变。必须-->
+<TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_notification_style_title" android:layout_marginLeft="10dp" android:layout_marginTop="20dp" android:singleLine="true" android:layout_toRightOf="@id/xg_notification_icon" android:layout_toLeftOf="@id/xg_notification_date"/>
+<!--通知的内容，id名字不能改变，其他可变。必须-->
+<TextView android:layout_height="wrap_content" android:layout_width="match_parent" android:id="@+id/xg_notification_style_content" android:layout_marginTop="1dp" android:singleLine="true" android:layout_toLeftOf="@id/xg_notification_date" android:layout_alignLeft="@+id/xg_notification_style_title" android:layout_below="@+id/xg_notification_style_title"/>
+<!--带音频的富媒体通知的音频播放按钮，id名字不能改变，其他可变。若没用到音频富媒体可以去掉此布局-->
+<ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_play" android:layout_alignLeft="@+id/xg_notification_style_title" android:visibility="gone" android:background="@android:drawable/ic_media_play" android:layout_alignParentBottom="true"/>
+<!--带音频的富媒体通知的音频停止播放按钮，id名字不能改变，其他可变.若没用到音频富媒体可以去掉此布局-->
+<ImageView android:layout_height="25dp" android:layout_width="25dp" android:id="@+id/xg_notification_audio_stop" android:layout_marginLeft="30dp" android:layout_toRightOf="@+id/xg_notification_audio_play" android:visibility="gone" android:background="@android:drawable/ic_media_pause" android:layout_alignParentBottom="true"/></RelativeLayout>
+```
+
+
 ### 调试及设备注册
 
 **开启 Debug 日志数据**
@@ -282,8 +327,7 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
 	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
 	```
-
-- registerPush 不再支持设置账号，需要注册账号的话，要单独调用 bindAccount 或 appendAccount，推荐在 registerPush 成功的回调里调用。
+- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount 不再带有注册功能，推荐在 registerPush 成功的回调里调用 bindAccount 或 appendAccount。
 - 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
 	```java
 	/**
@@ -298,8 +342,19 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 	public abstract void onDeleteAccountResult(Context context, int errorCode,
 					String operateName);
 	```
-
-
+- 继承 XGPushBaseReceiver 的实现类在 AndroidManifest 文件配置时，前缀命名规则为 com.tencent.android.xg.vip.action.，区别于 4.x 版本的 com.tencent.android.tpush.action.
+TPNS 版本正确配置：
+```
+<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+          <intent-filter>
+              <!-- 接收消息透传 -->
+              <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+              <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+              <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+          </intent-filter>
+      </receiver>
+```			
+<span id="HQToken"></span>
 #### 获取 Token（非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 示例代码如下：

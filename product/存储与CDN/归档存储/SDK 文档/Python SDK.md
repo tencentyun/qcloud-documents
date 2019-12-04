@@ -26,7 +26,7 @@ python setup.py install
 ```
 ### SDK 配置
 
-要使用归档存储的 API 服务，首先需要获取到：appid、secret_id，secret_key，[获取地址](https://console.cloud.tencent.com/capi)
+要使用归档存储的 API 服务，首先需要获取到：APPID、SecretId，SecretKey，[获取地址](https://console.cloud.tencent.com/capi)
 
 ```Python
 # 要使用CAS的API，首先需要初始化一个CAS的client对象，其中包含客户端访问CAS的必要信息，以及提供了http接口的底层次封装
@@ -41,14 +41,14 @@ cas_response = cas_api.list_vaults()                  # 返回CASResponse类型
 ...
 ```
 
-### 卸载SDK
+### 卸载 SDK
 
 使用 pip uninstall 删除 package。
 
 ## 低级接口描述
 
-CASClient 类中封装 Http API 的所有接口，包括文件库操作、档案操作和任务操作。
-由于CASClient 是对基本 Http API 的封装，因此所有接口的返回类型均为 HttpResponse 类型，可以方便地获取响应的 Header，Status 以及 Body 的内容。
+CASClient 类中封装 HTTP API 的所有接口，包括文件库操作、档案操作和任务操作。
+由于 CASClient 是对基本 HTTP API 的封装，因此所有接口的返回类型均为 HttpResponse 类型，可以方便地获取响应的 Header，Status 以及 Body 的内容。
 
 >?低级接口的所有方法签名同高级接口一致，返回类型同 API 接口一致，具体返回值可参考 [API 文档](https://cloud.tencent.com/document/product/572/8742)。
 
@@ -60,13 +60,13 @@ CAS 的高级接口主要是对低级接口的进一步封装，核心类为 Cas
 
 ### CASAPI类
 
-CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASClient 类完全一样，只是所有方法均为同步阻塞调用，同时具备异常抛出特性（异常的主要类型为：CASServerError 以及 CASClientError），方法的返回类型均为CASResponse，可以使用字典类操作直接取得返回体中的相应字段。（具体字段可参考 Http API 手册中对应方法的返回值部分）。
+CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASClient 类完全一样，只是所有方法均为同步阻塞调用，同时具备异常抛出特性（异常的主要类型为：CASServerError 以及 CASClientError），方法的返回类型均为CASResponse，可以使用字典类操作直接取得返回体中的相应字段。（具体字段可参考 HTTP API 手册中对应方法的返回值部分）。
 
 每个 CasAPI 对象都需要用正确的 CASClient 对象进行初始化。
 
 ### 文件库类
 
-文件库类中封装了所有基本的文件库操作，包括创建文件库、删除文件库、上传档案到文件库、删除文件库中的指定档案等，同时也可以获得文件库对象的metadata信息，它们存储在文件库类对象的成员变量中。
+文件库类中封装了所有基本的文件库操作，包括创建文件库、删除文件库、上传档案到文件库、删除文件库中的指定档案等，同时也可以获得文件库对象的 metadata 信息，它们存储在文件库类对象的成员变量中。
 
 #### 成员变量
 
@@ -119,7 +119,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 | cas_api    | CasAPI | 同上        | 是    |
 | vault_name | string | 要获取的文件库名称 | 是    |
 
-返回值：如果获取成功，则返回指定的Vault对象，否则抛出异常（具体参见异常说明）。
+返回值：如果获取成功，则返回指定的 Vault 对象，否则抛出异常（具体参见异常说明）。
 
 ##### 删除文件库
 
@@ -144,7 +144,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 | ------- | ------ | ---- | ---- |
 | cas_api | CasAPI | 同上   | 是    |
 
-返回值： 如果调用成功，则返回文件库列表,类型为 list，元素为 Vault 对象。否则，抛出异常（具体参见异常说明）。
+返回值： 如果调用成功，则返回文件库列表，类型为 list，元素为 Vault 对象。否则，抛出异常（具体参见异常说明）。
 
 
 #### 成员方法
@@ -153,14 +153,14 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 ##### 取回档案
 
 方法签名：get_archive(archive_id)
-方法说明：获取指定 id 的 Archive 对象
+方法说明：获取指定 ID 的 Archive 对象
 参数说明：
 
 | 参数名        | 类型     | 说明            | 必选   |
 | ---------- | ------ | ------------- | ---- |
-| archive_id | string | 要获取 Archive 的 id | 是    |
+| archive_id | string | 要获取 Archive 的 ID | 是    |
 
-返回值：指定 id 的 Archive 类型对象。
+返回值：指定 ID 的 Archive 类型对象。
 >!该方法默认 archive_id 为有效，如果实际的 archive_id 无效，则基于返回的 Archive 对象进行的所有后续操作均将失败。
 
 ##### 取回部分档案
@@ -171,7 +171,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 
 | 参数名        | 类型     | 说明                                       | 必选   |
 | ---------- | ------ | ---------------------------------------- | ---- |
-| archive_id | string | 要检索的 Archive 对象的 id                         | 是    |
+| archive_id | string | 要检索的 Archive 对象的 ID                         | 是    |
 | desc       | string | 检索任务的描述                                  | 否    |
 | byte_range | string | Archive 检索操作要检索的字节范围。其格式为“StartByteValue-EndByteValue”。如果未指定，则检索整个档案。 | 否    |
 | tier       | string | Archive 检索的检索类型。枚举值： Expedited ，Standard ，Bulk。默认值：Standard | 否    |
@@ -208,7 +208,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 
 | 参数名        | 类型     | 说明             | 必选   |
 | ---------- | ------ | -------------- | ---- |
-| archive_id | string | 要删除的 Archive 的 id | 是    |
+| archive_id | string | 要删除的 Archive 的 ID | 是    |
 
 返回值：如果删除成功，则返回 CASResponse 类型响应，status 为2XX。否则，抛出异常（具体参见异常说明）
 
@@ -228,7 +228,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 
 | 参数名       | 类型     | 说明                    | 必选   |
 | --------- | ------ | --------------------- | ---- |
-| upload_id | string | 当前正在进行的分段上传的 Upload Id | 是    |
+| upload_id | string | 当前正在进行的分段上传的 Upload ID | 是    |
 
 返回值：如果调用成功，则返回一个 MultipartUpload 对象。否则，抛出异常（具体参见异常说明）
 
@@ -250,7 +250,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 | 成员变量       | 变量类型   | 变量描述              |
 | ---------- | ------ | ----------------- |
 | vault      | Vault  | Archive 所属的 Vault对象 |
-| archive_id | string | 档案的 id             |
+| archive_id | string | 档案的 ID             |
 
 #### 构造方法
 
@@ -260,7 +260,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 | 参数名        | 类型     | 说明                | 必选   |
 | ---------- | ------ | ----------------- | ---- |
 | vault      | Vault  | Archive 所属的 Vault对象 | 是    |
-| archive_id | string | 档案的 id             | 是    |
+| archive_id | string | 档案的 ID             | 是    |
 
 #### 成员方法
 
@@ -293,7 +293,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 
 | 成员变量            | 变量类型   | 变量描述                                     |
 | --------------- | ------ | ---------------------------------------- |
-| id              | string | 任务的 id                                    |
+| id              | string | 任务的 ID                                    |
 | archive_id      | string | 在档案取回操作中请求的档案的 ID）                       |
 | archive_size    | int    | 档案取回任务请求的档案的大小                           |
 | archive_etag    | string | 档案取回操作的整个档案的 SHA256 树形哈希                   |
@@ -354,14 +354,14 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 ##### 从缓存池获取全部文件
 
 方法签名：download_to_file(file_path, chunk_size, block)
-方法说明：下载Job的输出到指定的文件路径
+方法说明：下载 Job 的输出到指定的文件路径
 参数说明：
 
 | 参数名        | 类型     | 说明                                       | 必选   |
 | ---------- | ------ | ---------------------------------------- | ---- |
 | file_path  | string | 文件下载的路径                                  | 是    |
 | chunk_size | int    | 每次读写的块大小，默认为1MB                          | 否    |
-| block      | bool   | 方法的调用模式，True 为同步阻塞模式，False 为异步调用模式（如果 Job 当前还未完成，则会抛出DownloadArchiveError 异常），默认为同步阻塞调用。 | 否    |
+| block      | bool   | 方法的调用模式，True 为同步阻塞模式，False 为异步调用模式（如果 Job 当前还未完成，则会抛出 DownloadArchiveError 异常），默认为同步阻塞调用 | 否    |
 
 返回值：无返回值。 调用失败会抛出异常（具体参见异常信息）
 

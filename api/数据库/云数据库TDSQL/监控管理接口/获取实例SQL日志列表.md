@@ -42,6 +42,7 @@
 | timestamp | Int | sql执行的unix时间| 
 | timeCostMs | Int | sql执行的时间耗时| 
 | resultCode | Int |  sql执行的返回码| 
+
 ## 4. 错误码表
 
 以下是本接口常见的错误码，如果有不在此列的错误请查阅[TDSQL错误码表](/doc/api/309/7150)
@@ -51,6 +52,7 @@
 | DbOperationFailed | DB内部失败 |
 | InstanceStatusAbnormal | 实例状态异常(非删除), 不能进行操作 |
 | ConnectKafkaFailed | 链接KAFKA错误 |
+
 ## 5. 示例
 输入
 <pre>

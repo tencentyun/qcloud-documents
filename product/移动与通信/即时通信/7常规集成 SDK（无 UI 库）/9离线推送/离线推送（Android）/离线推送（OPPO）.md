@@ -25,22 +25,20 @@ OPPO 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 
 <span id="Step2"></span>
 ### 步骤2：托管证书信息到即时通信 IM
-1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，选择您的即时通信 IM 应用，进入应用配置页面。
-2. 在基础配置页签中，单击应用平台右侧的【编辑】。
-3. 勾选【Android】，单击【保存】。
- ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
-4. 单击【Android 推送证书】区域的【添加证书】。
- >?如果您原来已有的证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
- > 
-5. 根据 [步骤1](#Step1_3) 中获取的信息设置以下参数：
+1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面。
+2. 单击【Android平台推送设置】区域的【添加证书】。
+ >?如果您原来已有证书只需变更信息，可以单击【Android平台推送设置】区域的【编辑】进行修改更新。
+ >
+ ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png)
+3. 根据 [步骤1](#Step1_3) 中获取的信息设置以下参数：
  - **推送平台**：选择 **OPPO**
  - **AppKey**：填写 OPPO 推送服务应用的 **AppKey**
- - **APPID**：填写 OPPO 推送服务应用的 **AppId**
+ - **AppID**：填写 OPPO 推送服务应用的 **AppId**
  - **MasterSecret**：填写 OPPO 推送服务应用的 **MasterSecret**
-![](https://main.qcloudimg.com/raw/3d45a37fefef558b299972f66df86a43.png)
-6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
-7. 待推送证书信息生成后，记录**`证书 ID`**。
- ![](https://main.qcloudimg.com/raw/51b5849e00534a72df64dadaae8f117d.png)
+![](https://main.qcloudimg.com/raw/8b94fde206c9fa8cd0dee774e12df0ac.png)
+4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
+5. 待推送证书信息生成后，记录证书的**`ID`**。
+ ![](https://main.qcloudimg.com/raw/23dc3500472be773bf5499299e511444.png)
 
 <span id="Step3"></span>
 ### 步骤3：集成推送 SDK

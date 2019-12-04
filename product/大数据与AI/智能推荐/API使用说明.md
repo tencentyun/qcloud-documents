@@ -46,7 +46,7 @@ MD5（BID&request_id&TOKEN）
 
 **接口描述**
 
-上报物料信息，包括物料 id、物料有效期、物料标签和物料池等信息。相同的 item_id 可以重复上报，字段信息以最后一次上报为准。
+上报物料信息，包括物料 ID、物料有效期、物料标签和物料池等信息。相同的 item_id 可以重复上报，字段信息以最后一次上报为准。
 
 开发者发送 http-post 获取服务结果，服务 URL：`http://data.dm.qcloud.com:8088`。
 
@@ -100,8 +100,8 @@ item 上报 JSON 数据格式：
 | MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
 | request_id   | string | Y | 请求标识，格式：毫秒级时间戳\_随机数，随机数建议三位以上  |
 | data_type  | integer | Y | 协议类型：1：item，2：action，物料上报取1 | 
-| bid  | string | Y | 业务 id，腾讯云分配的业务 ID，可以在控制台查询  | 
-| item_id  | string | Y | 物料 id，物料唯一标识，数值和字符串都可以  | 
+| bid  | string | Y | 业务 ID，腾讯云分配的业务 ID，可以在控制台查询  | 
+| item_id  | string | Y | 物料 ID，物料唯一标识，数值和字符串都可以  | 
 | publish  | integer | N | 1：上架（默认），0：下架  | 
 | describe  | string | N | 商品的描述信息，推荐系统会对商品的描述信息，使用 NLP 技术，进行分词、提取关键词，作为 item 的特征使用  | 
 | pool_id  | string | N | 物料池，多个物料用分号分割，注意不要使用0作为 pool_id，0表示全局 pool_id，任意物料我们都会加一个为0的 pool_id  | 
@@ -112,9 +112,9 @@ item 上报 JSON 数据格式：
 | score  | float | N | 物料打分，默认0.0，没有可以不填写；推荐这边，离线可以把 item 的 cvr 信息填写到 score，在 rerank 时，对排序进行加权  | 
 | price  | float | N | 物料价格，默认0.0  | 
 | platform  | nteger | N | 平台，0：全平台，1：Android （默认），2：iphone，3：pc  | 
-| big_type  | string | N | 大类，需要类目的中文，不能使用 id  | 
-| middle_type  | string | N | 中类，需要类目的中文，不能使用 id  | 
-| small_type  | string | N | 小类，需要类目的中文，不能使用 id  | 
+| big_type  | string | N | 大类，需要类目的中文，不能使用 ID  | 
+| middle_type  | string | N | 中类，需要类目的中文，不能使用 ID  | 
+| small_type  | string | N | 小类，需要类目的中文，不能使用 ID  | 
 | url  | string | N | 物料相关的 url。一个作用是使用 DNN 提取图片的特征，放入到模型使用；一个作用是：URL 的域名，本身就可以作为特征使用，有一定的区分性  | 
 | vender  | string | N | 可以传品牌、商家、店铺和广告主  | 
 | geo.latitude  | float | N | LBS 数据，有些 O2O 的商家，需要知道 item 可以在哪些商圈投放，因此需要填写 item 所属的商圈的经纬度数据；没有这个需求的，可以不填写  | 
@@ -138,7 +138,7 @@ item 上报返回 JSON 数据格式：
 
 **接口描述**
 
-上报某一用户在特定场景下的行为，用户的行为包括曝光、点击、转换、点赞等， 上报用户行为时，必须指定用户行为的会话 id。用户行为可以在客户端和服务端上报，建议在客户端上报，可控性更强些，遇到协议变更或者问题排查时，更容易处理。 
+上报某一用户在特定场景下的行为，用户的行为包括曝光、点击、转换、点赞等， 上报用户行为时，必须指定用户行为的会话 ID。用户行为可以在客户端和服务端上报，建议在客户端上报，可控性更强些，遇到协议变更或者问题排查时，更容易处理。 
 
 开发者发送 http-post 获取服务结果，服务 URL：`http://data.dm.qcloud.com:8088`。
 
@@ -160,7 +160,7 @@ action 上报 JSON 数据格式：
 	"scene_id":"1001", //广告展示场景。
 	"action_type":1, //行为类型。1：曝光（浏览）,2：点击（播放）,3：转化（购买）,4：点赞 
 	"source":"tx", //流量标记。tx：腾讯流量, bus：业务流量, def：默认流量
-	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪 id
+	"trace_id":"trace_id", //跟踪点击和曝光的自定义跟踪 ID
 	"action_time":"1386817569" , //行为发生秒级时间戳（默认当前时间） 
 	"geo":{
 		"latitude":-90.0~90.0,
@@ -185,11 +185,11 @@ action 上报 JSON 数据格式：
 | MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
 | request_id   | string | Y | 请求标识，格式：毫秒级时间戳\_随机数，随机数建议三位以上  |
 | data_type  | integer | Y | 协议类型，1：item，2：action，行为上报传2 | 
-| bid  | string | Y | 业务 id，腾讯云分配的业务 ID，可以在控制台查询  | 
+| bid  | string | Y | 业务 ID，腾讯云分配的业务 ID，可以在控制台查询  | 
 | uid_type  | integer | N | 0：qq，1：微信号，3：imei/idfa 或其他 md5（默认），4：手机号  | 
-| uid  | string | Y | qq，微信号，imei/idfa，手机号，如果是 imei 号，则是15位数字字符串；如果是 IFA 号，则是8-4-4-4-12，32个字符串；如果是 MD5（uid），则是32位的0-f的字符串，且需要是大写的 IDFA 进行的 MD5 | 
-| item_id  | string | Y | 物料 id，物料唯一标识，数值和字符串都可以  | 
-| scene_id  | string | Y | 推荐场景 ID，例如有“猜你喜欢”，“热门商品”等推荐模块，每一个模块都有一个 scene_id 来表示。场景创建和场景 id 查看在控制台操作  | 
+| uid  | string | Y | qq，微信号，imei/idfa，手机号，如果是 imei 号，则是15位数字字符串；如果是 IFA 号，则是8-4-4-4-12，32个字符串；如果是 MD5（uid），则是32位的0 - f的字符串，且需要是大写的 IDFA 进行的 MD5 | 
+| item_id  | string | Y | 物料 ID，物料唯一标识，数值和字符串都可以  | 
+| scene_id  | string | Y | 推荐场景 ID，例如有“猜你喜欢”，“热门商品”等推荐模块，每一个模块都有一个 scene_id 来表示。场景创建和场景 ID 查看在控制台操作  | 
 | action_type  | integer | Y | 用户行为，1：曝光，2：点击（播放），3：转换（购买），4：点赞  | 
 | source  | string | Y | 用于分流的标识字段；区分用户的行为是哪个算法，取值为 bus、tx、def 三者之一；其中：bus 表示业务自己的算法（business）；tx 为腾讯算法；def 为默认算法（default），可以理解为随机算法，或者对照组 | 
 | trace_id  | string | Y | 跟踪点击和曝光的自定义会话 ID，为了保证点击跟曝光是同一个用户对同一个 item 的操作行为；强烈建议每次曝光分配一个 trace_id | 
@@ -234,7 +234,7 @@ Post 报文 body 部分为 JSON 数据格式，如下所示：
 	"bid":"BID" , //腾讯云为该业务分配的业务标识
 	"uid_type":3, //0：QQ，1：微信号，3：设备号 imei/idfa 或其 MD5 值（默认），4：手机号
 	"uid":"userId", //QQ，微信号，imei/idfa 或其 MD5 值，手机号
-	"scene_id":"1001", //广告展示场景,请求服务时 scene_id 与上报数据时保持一致
+	"scene_id":"1001", //广告展示场景，请求服务时 scene_id 与上报数据时保持一致
 	"request_num":50, //物料优选个数。默认每次请求50个
 	"pool_id":"pool_id1;pool_id2", //物料池，多个池子用 ; 号隔开
 	"cid":"item_id", //当前物料（用于详情页推荐中指定当前物料）
@@ -255,13 +255,13 @@ Post 报文 body 部分为 JSON 数据格式，如下所示：
 | MD5  | string | Y | MD5(bid&request_id&TOKEN)  | 
 | request_id   | string | Y | 请求标识，格式：毫秒级时间戳\_随机数，随机数建议三位以上  |
 | service_type  | integer | Y | 服务场景，0：pCtr，1：流量优选，2：pCvr，3：智能推荐（默认），4：物料优选 | 
-| bid  | string | Y | 业务 id，腾讯云分配的业务 ID，可以在控制台查询  | 
+| bid  | string | Y | 业务 ID，腾讯云分配的业务 ID，可以在控制台查询  | 
 | uid_type  | integer | N | 0：qq，1：微信号，3：imei/idfa 或其他 md5（默认），4：手机号  | 
 | uid  | string | Y | qq，微信号，imei/idfa，手机号，如果是 imei 号，则是15位数字字符串；如果是 IFA 号，则是8-4-4-4-12，32个字符串；如果是 MD5（uid），则是32位的0 - f的字符串，且需要是大写的 IDFA 进行的 MD5 | 
-| scene_id  | string | Y | 推荐场景 ID，请求服务的场景 Id，需要跟行为上报时的 ID 一致  | 
+| scene_id  | string | Y | 推荐场景 ID，请求服务的场景 ID，需要跟行为上报时的 ID 一致  | 
 | request_num  | integer | N | 物料优选的结果， 默认50个，目前最多支持200个的 item 返回，如果返回个数更多，会影响性能，容易超时  | 
 | pool_id  | string | Y | 物料池，需要展示哪个 pool_id 下的商品，要跟上报的 item 的 pool_id 一致  | 
-| cid  | string | Y | 当前页面的物料 id， 用于详情页面 | 
+| cid  | string | Y | 当前页面的物料 ID， 用于详情页面 | 
 | geo.latitude  | float | N | 用户发生行为的经纬度地理位置  | 
 | geo.longitude | float | N | 用户发生行为的经纬度地理位置  | 
 | geo.country  | string | N | 用户行为相关的国家信息  | 
@@ -302,9 +302,9 @@ Post 报文 body 部分为 JSON 数据格式，如下所示：
 
 | 返回值名称 | 类型 |  含义 |
 |---------|---------|---------|
-| algid  | Integer | 算法 id，可以在后续的行为上报中回传，跟踪算法效果  | 
-| scene_id  |string | 场景 id  | 
-| data.item  | Istring | 推荐的物品 id，即 item 上报中的 item_id  | 
+| algid  | Integer | 算法 ID，可以在后续的行为上报中回传，跟踪算法效果  | 
+| scene_id  |string | 场景 ID  | 
+| data.item  | Istring | 推荐的物品 ID，即 item 上报中的 item_id  | 
 | data.weigth  | Integer | 推荐物品的权重，取值范围[0,1000000] | 
 
 错误返回如下所示：

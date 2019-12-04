@@ -1,6 +1,8 @@
 本文详细描述了通过 COS 控制台实现 CDN 加速 COS 的整体操作流程和具体的操作方法。
 
->!执行本文所有操作之前，需完成腾讯云账号注册、实名认证和开启 CDN 服务。
+## 前提条件
+1. 完成腾讯云账号注册、实名认证。
+2. 开启 CDN 服务，详情请参见 [CDN 快速入门](https://cloud.tencent.com/document/product/228/3149)。
 
 ## 操作指南
 
@@ -9,11 +11,10 @@
 
 ### 加速配置
 1. 创建好存储桶后直接进入该存储桶的配置管理页面，或在存储桶列表单击需要配置的存储桶操作栏的【配置管理】，进入配置管理页面，选择【域名管理】。
-![](https://main.qcloudimg.com/raw/be66e4260debe797ecf94b22b79e7be2.png)
 2. 开启**默认加速域名**
 **默认加速域名**是由系统默认生成的，经由 CDN 加速节点的域名，用户可选择开启或关闭。
 (1) 在默认加速域名模块下，单击【编辑】，手动开启当前状态，进入默认加速的配置
-![](https://main.qcloudimg.com/raw/6ce031315da4c8fae68b37cd5b64cbf5.png)
+![](https://main.qcloudimg.com/raw/43c7e0519355d9f9f4533aa71a8c3c1a.png)
 (2) 默认加速的配置：
 ![](https://main.qcloudimg.com/raw/02cd08243fc268dfe3e17665432c48d2.png)
 **源站类型**：通常默认为**默认源站**，如果作为源站的存储桶开启了静态网站，并且希望为静态网站加速，则选择为**静态网站源站**。
@@ -32,7 +33,7 @@
 (1) 在**自定义加速域名**模块单击【添加域名】，添加已备案的自定义域名
 ![](https://main.qcloudimg.com/raw/904d6d709039ecd111eed476cf05e877.png)
 （2）添加域名的配置如下：
-**域名**：输入待绑定的自定义域名（例如`www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/38066?!editLang=zh&!preview) 。
+**域名**：输入待绑定的自定义域名（例如`www.example.com`）。请确保输入的域名已备案，并已在 DNS 服务商处设置好对应的 CNAME，详情请参见 [CNAME 配置](https://cloud.tencent.com/document/product/228/3121) 。
 **回源鉴权**：对于私有读存储桶，请手动开启回源鉴权以保护源站。
 配置完成后，单击【保存】，即可完成对域名的添加。
 ![](https://main.qcloudimg.com/raw/cd6790e2d48e80e08ef3b9dc2e5b3e2e.png)
@@ -41,4 +42,4 @@
 (3) 保存后，**CDN 鉴权**栏将出现 CDN 鉴权功能开关，可手动开启自定义域名 CDN 鉴权。
 **CDN 鉴权：**开启时间戳鉴权配置，可防止恶意用户盗取内容，需在添加完域名后进行设置。
 
-关于在COS控制台实现CDN加速COS的更多内容，请参见 [COS域名管理概述](https://cloud.tencent.com/document/product/436/18424)。
+关于在 COS 控制台实现 CDN 加速 COS 的更多内容，请参见 [COS 域名管理概述](https://cloud.tencent.com/document/product/436/18424)。

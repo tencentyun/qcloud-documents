@@ -46,13 +46,15 @@ _playerView.delegate = self;
 _playerView.fatherView = self.holderView;
 SuperPlayerModel *playerModel = [[SuperPlayerModel alloc] init];
 //设置播放信息
-playerModel.appId = 1252463788;  //AppId
-playerModel.fileId = @"4564972819219071679";  //视频 FileId
+SuperPlayerVideoId *videoId = [[SuperPlayerVideoId alloc] init];
+video.appId = 1256993030;  //AppId
+video.fileId = @"7447398157015849771";  //视频 FileId
+model.videoId = videoId;
 // 开始播放
 [_playerView playWithModel:self.playerModel];
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
-![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+<img src="https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png" width="550">
 
 ### 选择 FileId
 
@@ -70,17 +72,17 @@ playerModel.fileId = @"4564972819219071679";  //视频 FileId
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">
 
 ## 小窗播放
 
 小窗播放是指在 App 内，悬浮在主 Window 上的播放器。使用小窗播放非常简单，只需要在适当位置调用下面代码即可：
 ```objective-c
-SuperPlayerWindowShared.superPlayer = _playerView; // 设置小窗显示的播放器
-SuperPlayerWindowShared.backController = self;  // 设置返回的 view controller
-[SuperPlayerWindowShared show]; // 悬浮显示
+[SuperPlayerWindow sharedInstance].superPlayer = _playerView; // 设置小窗显示的播放器
+[SuperPlayerWindow sharedInstance].backController = self;  // 设置返回的 view controller
+[[SuperPlayerWindow sharedInstance] show]; // 悬浮显示
 ```
-![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)
+<img src="https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg" width="300">
 
 ## 退出播放
 
@@ -92,4 +94,4 @@ SuperPlayerWindowShared.backController = self;  // 设置返回的 view controll
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![iOS二维码下载](https://main.qcloudimg.com/raw/b670e99ddb3f0d828798520e19f40fa7.png)
+<img src="https://main.qcloudimg.com/raw/b670e99ddb3f0d828798520e19f40fa7.png" width="150">

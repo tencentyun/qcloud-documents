@@ -68,37 +68,60 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 **XML SDK 的初始化方式如下：**
 >?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
-```
-- (void) signatureWithFields:(QCloudSignatureFields*)fileds
-                     request:(QCloudBizHTTPRequest*)request
-                  urlRequest:(NSURLRequest*)urlRequst
-                   compelete:(QCloudHTTPAuthentationContinueBlock)continueBlock
-{
-  /*向签名服务器请求临时的 Secret ID,Secret Key,Token*/
-   QCloudCredential* credential = [QCloudCredential new];
-   credential.secretID = @"从 CAM 系统获取的临时 Secret ID";
-   credential.secretKey = @"从 CAM 系统获取的临时 Secret Key";
-   credential.token = @"从 CAM 系统返回的 Token，为会话 ID"
-   /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
-   credential.startDate = /*返回的服务器时间*/
-   credential.expiretionDate	 = /*签名过期时间*/
-   QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] initWithCredential:credential];
-   QCloudSignature* signature =  [creator signatureForData:urlRequst];
-   continueBlock(signature, nil);
-
+[//]: # (.cssg-snippet-global-init)
+```objective-c
+//AppDelegate.m
+//第一步：注册默认的cos服务
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
+    configuration.appID = @"1250000000";
+    configuration.signatureProvider = self;
+    QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
+    endpoint.regionName = @"ap-guangzhou";//服务地域名称，可用的地域请参考注释
+    configuration.endpoint = endpoint;
+    [QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
+    [QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
+    return YES;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
-     configuration.appID = @"*****";
-     configuration.signatureProvider = self;
-     QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-     endpoint.regionName = @"ap-beijing";//服务地域名称，可用的地域请参考注释
-     configuration.endpoint = endpoint;
+//第二步：实现QCloudSignatureProvider协议
+//实现签名的过程，我们推荐在服务器端实现签名的过程，具体请参考接下来的 “生成签名” 这一章。
+```
 
-     [QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
-     [QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
+[//]: # (.cssg-snippet-global-init-fence-queue)
+```objective-c
+//AppDelegate.m
 
+// 这里定义一个成员变量 @property (nonatomic) QCloudCredentailFenceQueue* credentialFenceQueue;
+
+- (void) fenceQueue:(QCloudCredentailFenceQueue * )queue requestCreatorWithContinue:(QCloudCredentailFenceQueueContinue)continueBlock
+{
+    QCloudCredential* credential = [QCloudCredential new];
+    //在这里可以同步过程从服务器获取临时签名需要的secretID,secretKey,expiretionDate和token参数
+    credential.secretID = @"COS_SECRETID";
+    credential.secretKey = @"COS_SECRETKEY";
+    /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
+    credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"start-time"];
+    credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expire-time"];
+    credential.token = @"COS_TOKEN";
+    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] 
+        initWithCredential:credential];
+    continueBlock(creator, nil);
+}
+
+- (void) signatureWithFields:(QCloudSignatureFields*)fileds
+                     request:(QCloudBizHTTPRequest*)request
+                  urlRequest:(NSMutableURLRequest*)urlRequst
+                   compelete:(QCloudHTTPAuthentationContinueBlock)continueBlock
+{
+    [self.credentialFenceQueue performAction:^(QCloudAuthentationCreator *creator, NSError *error) {
+        if (error) {
+            continueBlock(nil, error);
+        } else {
+            QCloudSignature* signature =  [creator signatureForData:urlRequst];
+            continueBlock(signature, nil);
+        }
+    }];
 }
 ```
 
@@ -109,13 +132,13 @@ XML SDK 的存储桶名称和可用区域简称与 JSON SDK 的不同，需要�
 
 
 **存储桶 Bucket**
-XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `exampleobject-1250000000`，其中 `exampleobject` 为用户自定义字符串，`1250000000` 为 APPID。
+XML SDK 存储桶名称由两部分组成：用户自定义字符串 和 APPID，两者以中划线“-”相连。例如 `examplebucket-1250000000`，其中 `examplebucket` 为用户自定义字符串，`1250000000` 为 APPID。
 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过 [腾讯云控制台](https://console.cloud.tencent.com/) 在【账号信息】查看 APPID。
 
 在设置 Bucket 时，请参考下面的示例代码：
 ```
-NSString *bucket = "exampleobject-1250000000";
+NSString *bucket = "examplebucket-1250000000";
 ```
 
 **存储桶可用区域简称 Region**
@@ -140,24 +163,7 @@ XML SDK 的存储桶可用区域简称发生了变化，下表列出了不同区
 | 曼谷       | ap-bangkok     | 无 |
 | 莫斯科       | eu-moscow     | 无 |
 
-在初始化时，请将存储桶所在区域简称设置到 `QCloudServiceConfiguration`的 `regionName`中：
-
-```
-//AppDelegate.m
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
-     configuration.appID = @"*****";
-     configuration.signatureProvider = self;
-     QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-     endpoint.regionName = @"ap-beijing";//服务地域名称，可用的地域请参考注释
-     configuration.endpoint = endpoint;
-
-     [QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
-     [QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
-
-}
-```
+在初始化时，请将存储桶所在区域简称设置到 `QCloudServiceConfiguration`的 `regionName`中。
 
 **5. 更改 API**
 
@@ -185,42 +191,54 @@ API 变化有以下三点：
 
 使用 `QCloudCOSTransferMangerService`上传的示例代码：
 
-```
-  QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
-  NSURL* url = /*文件的URL*/;
-  put.object = @"文件名.jpg";
-  put.bucket = @"exampleobject-1250000000";
-  put.body =  url;
-  [put setSendProcessBlock:^(int64_t bytesSent, int64_t totalBytesSent, int64_t totalBytesExpectedToSend) {
-      NSLog(@"upload %lld totalSend %lld aim %lld", bytesSent, totalBytesSent, totalBytesExpectedToSend);
-  }];
-  [put setFinishBlock:^(id outputObject, NSError* error) {
+[//]: # (.cssg-snippet-transfer-upload-object)
+```objective-c
+QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
+configuration.appID = @"1250000000";
+// 签名提供者，这里假设由当前实例提供
+configuration.signatureProvider = self;
+QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
+endpoint.regionName = @"ap-guangzhou";
+endpoint.useHTTPS = YES;
+configuration.endpoint = endpoint;
 
-  }];
-  [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
+[QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
+[QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
 
-```
-使用 `QCloudCOSTransferMangerService`上传文件时断点续传示例代码：
-
-```
+// 构建请求
 QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
-  //•••设置一些上传的参数
-  put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * multipleUploadInitResult, QCloudCOSXMLUploadObjectResumeData resumeData) {
-	//在初始化分片上传完成以后会回调该block，在这里可以获取 resumeData，并且可以通过 resumeData 生成一个分片上传的请求
-	 QCloudCOSXMLUploadObjectRequest* request = [QCloudCOSXMLUploadObjectRequest requestWithRequestData:resumeData];
-  };
+put.object = @"exampleobject";
+put.bucket = @"example-1250000000";
+put.body = [@"testFileContent" dataUsingEncoding:NSUTF8StringEncoding];
+//设置一些上传的参数
+put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * multipleUploadInitResult, 
+    QCloudCOSXMLUploadObjectResumeData resumeData) {
+    //在初始化分块上传完成以后会回调该block，在这里可以获取 resumeData，
+    //并且可以通过 resumeData 生成一个分块上传的请求
+    QCloudCOSXMLUploadObjectRequest* request = [QCloudCOSXMLUploadObjectRequest 
+        requestWithRequestData:resumeData];
+};
+[put setSendProcessBlock:^(int64_t bytesSent, int64_t totalBytesSent, 
+    int64_t totalBytesExpectedToSend) {
+    NSLog(@"upload %lld totalSend %lld aim %lld", bytesSent, totalBytesSent, 
+        totalBytesExpectedToSend);
+}];
+[put setFinishBlock:^(id outputObject, NSError* error) {
+    //可以从 outputObject 中获取 response 中 etag 或者自定义头部等信息
+}];
 
-  [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
-  //•••在完成了初始化，并且上传没有完成前
-  NSError* error;
-  //这里是主动调用取消，并且产生 resumetData 的例子
-  resumeData = [put cancelByProductingResumeData:&error];
-  if (resumeData) {
-    QCloudCOSXMLUploadObjectRequest* request = [QCloudCOSXMLUploadObjectRequest requestWithRequestData:resumeData];
-  }
-  //生成的用于恢复上传的请求可以直接上传
-  [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:request];
+[[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
 
+//•••在完成了初始化，并且上传没有完成前
+NSError* error;
+//这里是主动调用取消，并且产生 resumetData 的例子
+QCloudCOSXMLUploadObjectResumeData resumeData = [put cancelByProductingResumeData:&error];
+QCloudCOSXMLUploadObjectRequest* request = nil;
+if (resumeData) {
+    request = [QCloudCOSXMLUploadObjectRequest requestWithRequestData:resumeData];
+}
+//生成的用于恢复上传的请求可以直接上传
+[[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:request];
 ```
 >!按照分片上传的运行原理，只有当一个分片上传完了，那么后台服务器才会将该分片记录下来，并且叠加进度。并且以下几种情况无法进行断点续传，而是重新开始一次上传过程：
  - 上传的文件小于1M，没有进行分片上传。

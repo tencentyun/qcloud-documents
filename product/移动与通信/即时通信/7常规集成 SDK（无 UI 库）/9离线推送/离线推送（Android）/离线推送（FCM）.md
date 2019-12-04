@@ -23,23 +23,20 @@
 
 <span id="Step2"></span>
 ### 步骤2：托管证书信息到即时通信 IM 
-1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，选择您的即时通信 IM 应用，进入应用配置页面。
-2. 在基础配置页签中，单击应用平台右侧的【编辑】。
-3. 勾选【Android】，单击【保存】。
-   ![](https://main.qcloudimg.com/raw/592a55c7a1c69df283010c3b19d1273e.png)
-4. 单击【Android 推送证书】区域的【添加证书】。
- >?如果您原来已有证书只需变更信息，可以单击【Android 推送证书】区域【编辑】进行修改更新。
- > 
-5. 根据 [Step1](#Step1) 中获取的信息设置以下参数：
+1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面。
+2. 单击【Android平台推送设置】区域的【添加证书】。
+ >?如果您原来已有证书只需变更信息，可以单击对应证书区域的【编辑】进行修改更新。
+ >
+ ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png)
+3. 根据 [Step1](#Step1) 中获取的信息设置以下参数：
  - **推送平台**：选择 **Google**
  - **应用包名称**：填写客户 App 的包名
  - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
- **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**和**跳转到自定义页面**，更多详情请参见 [配置点击通知栏消息事件](#click)
-  ![](https://main.qcloudimg.com/raw/1c1f43a53874a15cefe8b23612da43d3.png)
-6. 单击【确定】保存信息，证书信息保存后10分钟内生效。
-7. 待推送证书信息生成后，记录**`证书 ID`**。
- ![](https://main.qcloudimg.com/raw/4fc22d574cbca7aedb30c0a13e728a9f.png)
+  ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
+4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
+5. 待推送证书信息生成后，记录证书的**`ID`**。
+ ![](https://main.qcloudimg.com/raw/bb07b06f5ab9dee0ce17a3eee65101e8.png)
 	
 
 <span id="Step3"></span>

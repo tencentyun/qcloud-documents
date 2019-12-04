@@ -3,18 +3,16 @@
 
 ## 1. 接口描述
 
-本接口 (AllocateAddresses) 用于申请一个或多个[弹性公网IP](/document/product/213/1941)（简称 EIP）。
-
-接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
-
+本接口 (AllocateAddresses) 用于申请一个或多个 [弹性公网 IP](https://cloud.tencent.com/document/product/213/5733)（简称 EIP）。
+接口请求域名：eip.api.qcloud.com
 * EIP 是专为动态云计算设计的静态 IP 地址。借助 EIP，您可以快速将 EIP 重新映射到您的另一个实例上，从而屏蔽实例故障。
 * 您的 EIP 与腾讯云账户相关联，而不是与某个实例相关联。在您选择显式释放该地址，或欠费超过七天之前，它会一直与您的腾讯云账户保持关联。
-* 平台对用户每地域能申请的 EIP 最大配额有所限制，可参见 [EIP 产品简介](/document/product/213/5733)，上述配额可通过 [DescribeAddressQuota](/document/api/213/1378) 接口获取。
+* 平台对用户每地域能申请的 EIP 最大配额有所限制，可参见 [EIP 产品简介](https://cloud.tencent.com/document/product/213/5733)，上述配额可通过 [DescribeAddressQuota](https://cloud.tencent.com/document/api/213/1378) 接口获取。
 
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/11650) 页面。
 
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
@@ -30,7 +28,7 @@
 | AddressSet | array of Strings | 申请到的 EIP 的唯一 ID 列表。 |
 
 ## 4. 错误码
-以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见[公共错误码](/document/api/213/11657)。
+以下错误码表仅列出了该接口的业务逻辑错误码，更多错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/11657)。
 
 | 错误码 | 描述 |
 |---------|---------|
@@ -45,7 +43,7 @@
 https://eip.api.qcloud.com/v2/index.php?Action=AllocateAddresses
 &Version=2017-03-12
 &AddressCount=1
-&<<a href="/document/api/213/11650">公共请求参数</a>>
+&<<a href="https://cloud.tencent.com/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数

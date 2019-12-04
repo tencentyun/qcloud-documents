@@ -79,35 +79,8 @@ COSClient cos = new COSClient(context,appid,config,peristenceId);
 
 **XML SDK 的初始化方式如下：**
 
-```
-String appid = "1250000000";
-String region = "ap-guangzhou"; 
-
-//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
-CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-       .setAppidAndRegion(appid, region)
-       .builder();
-       
-/**
- * 获取授权服务的 url 地址
- */
-URL url = null; 
-try {
-    url = new URL("your_auth_server_url"); // 后台授权服务的 url 地址
-} catch (MalformedURLException e) {
-    e.printStackTrace();
-}
-
-/**
- * 初始化 {@link QCloudCredentialProvider} 对象，来给 SDK 提供临时密钥。
- */
-QCloudCredentialProvider credentialProvider = new SessionCredentialProvider(new HttpRequest.Builder<String>()
-                .url(url)
-                .method("GET")
-                .build());
-                
-                
-CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credentialProvider);
+[//]: # (.cssg-snippet-global-init)
+```java
 ```
 
 
@@ -123,7 +96,7 @@ XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和
 
 在设置 Bucket 时，请参考下面的示例代码：
 
-```
+```java
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject.doc";
 String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
@@ -156,7 +129,7 @@ XML Android SDK 的存储桶可用区域简称发生了变化，下列表格列�
 
 在初始化时，请将存储桶所在区域简称设置到 `CosXmlServiceConfig` 中：
 
-```
+```java
 String appid = "1250000000";
 String region = "ap-guangzhou"; 
 
@@ -193,74 +166,8 @@ API 变化有以下三点：
 
 使用 `TransferManager`上传的示例代码：
 
-```
-// 初始化 TransferConfig
-TransferConfig transferConfig = new TransferConfig.Builder().build();
-/**
-若有特殊要求，则可以如下进行初始化定制。如限定当文件 >= 2M 时，启用分片上传，且分片上传的分片大小为 1M, 当源文件大于 5M 时启用分片复制，且分片复制的大小为 5M。
-TransferConfig transferConfig = new TransferConfig.Builder()
-        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分片复制的文件最小大小
-        .setSliceSizeForCopy(5 * 1024 * 1024) //分片复制时的分片大小
-        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分片上传的文件最小大小
-        .setSliceSizeForCopy(1024 * 1024) //分片上传时的分片大小
-        .build();
-*/
-
-//初始化 TransferManager
-TransferManager transferManager = new TransferManager(cosXml, transferConfig);
-
-String bucket = "存储桶名称";
-String cosPath = "对象键"; // 即存储到 COS 上的绝对路径,格式如 cosPath = "exampleobject.doc";
-String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
-String uploadId = "分片上传的UploadId";//用于续传，若无，则为null.
-//上传文件
-COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
-//设置上传进度回调
-cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
-            @Override
-            public void onProgress(long complete, long target) {
-                float progress = 1.0f * complete / target * 100;
-                Log.d("TEST",  String.format("progress = %d%%", (int)progress));
-            }
-        });
-//设置返回结果回调
-cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
-            @Override
-            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-                Log.d("TEST",  "Success: " + result.printResult());
-            }
-
-            @Override
-            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
-            }
-        });
-//设置任务状态回调, 可以查看任务过程
-cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
-            @Override
-            public void onStateChanged(TransferState state) {
-                Log.d("TEST", "Task state:" + state.name());
-            }
-        });
-
-/**
-若有特殊要求，则可以如下操作：
- PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
- putObjectRequest.setRegion(region); //设置存储桶所在的地域
- putObjectRequest.setSign(600); //设置签名sign有效期
- putObjectRequest.setNeedMD5(true); //是否启用Md5校验
- COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
-*/
-
-//取消上传
-cosxmlUploadTask.cancel();
-
-
-//暂停上传
-cosxmlUploadTask.pause();
-
-//恢复上传
-cosxmlUploadTask.resume();
+[//]: # (.cssg-snippet-transfer-upload-object)
+```java
 ```
 
 **3）新增 API**

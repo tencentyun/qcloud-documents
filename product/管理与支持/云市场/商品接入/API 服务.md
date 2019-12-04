@@ -10,7 +10,7 @@
  
  
 ##  操作步骤     
->?发布 API 服务，请参考 [发布与访问概述](https://cloud.tencent.com/document/product/628/11808)  。
+
 
 1. 登录 [云市场服务商管理控制台](https://console.cloud.tencent.com/serviceprovider)，选择左侧菜单栏【商品管理】>【商品列表】。
 2. 进入商品列表页面，单击【新建商品】。

@@ -15,11 +15,11 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 ### aar 集成
 
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/app/libs/lib_tcsuperplayer.aar`到工程中去。
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/player/libs/libsuperplayer.aar`到工程中去。
 3. 在`app/build.gralde`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
-compile(name: 'lib_tcsuperplayer', ext: 'aar')
+compile(name: 'libsuperplayer', ext: 'aar')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
@@ -55,16 +55,14 @@ allprojects {
 
 播放器主类为`SuperPlayerView`，创建后即可播放视频。
 ```java
-mSuperPlayerView = findViewById(R.id.main_super_player_view);
-//通过 fileid 方式的视频信息配置
 SuperPlayerModel model = new SuperPlayerModel();
-model.appid = 1252463788;   //AppId
-model.fileid = "5285890781763144364"; //视频 FileId
-// 开始播放
-mSuperPlayerView.playWithMode(model);
+model.appId = 1252463788;// 配置 AppId
+model.videoId = new SuperPlayerVideoId();
+model.videoId.fileId = "5285890781763144364"; // 配置 FileId
+mSuperPlayerView.playWithModel(model);
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
-![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+<img src="https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png" width="550">
 
 ### 选择 FileId
 
@@ -82,7 +80,7 @@ mSuperPlayerView.playWithMode(model);
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">
 
 ## 小窗播放
 
@@ -100,7 +98,7 @@ rect.width = 810;
 rect.height = 540;
 // ...其他配置
 ```
-<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="400">
+<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="350">
 
 ## 退出播放
 
@@ -112,4 +110,5 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![Android二维码下载](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
+<img src="https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png" width="150">
+
