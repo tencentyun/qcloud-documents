@@ -4,14 +4,21 @@ DescribeJob 用于获取您配置的批量处理任务的参数和任务执行�
 
 ## 请求
 
-**请求示例**
+#### 请求示例
 
 ```shell
 GET /jobs/<JobId> HTTP/1.1
-x-cos-appid: <appid>
+Host: <UIN>.cos-control.<Region>.myqcloud.com
+Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
+Authorization: Auth String
+x-cos-appid: <APPID>
 ```
 
-**请求参数**
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+#### 请求参数
 
 调用 DescribeJob 所需的参数。该参数格式如下：
 
@@ -20,30 +27,20 @@ x-cos-appid: <appid>
 | JobId       | 任务 ID。                | 是   |
 | x-cos-appid | 用户的 APPID，长度为1 - 64字节。 | 是   |
 
-**请求头**
-
+#### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-**请求体**
+#### 请求体
 
 该请求无请求体。
 
 ## 响应
 
-**响应示例**
-
-```shell
-HTTP/1.1 200
-<DescribeJobResult>
-...
-</DescribeJobResult>
-```
-
-**响应头**
+#### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-**响应体**
+#### 响应体
 
 ```shell
 <DescribeJobResult>
@@ -157,11 +154,100 @@ HTTP/1.1 200
 
 其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-## 错误分析
+#### 错误码
 
 该请求可能会发生的一些常见的特殊错误如下，其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
-| 错误代码  | 描述                             | 状态码 | API         |
+| 错误码  | 描述                             | 状态码 | API         |
 | --------- | -------------------------------- | ------ | ----------- |
 | NoSuchJob | 指定任务不存在 | 404    | DescribeJob |
 
+## 实际案例
+
+#### 请求
+```
+GET /jobs/<JobId> HTTP/1.1
+Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:05 GMT
+Content-Type: application/xml
+Content-Length: 436
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+x-cos-appid: 1250000000
+
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 93
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+
+<DescribeJobResult>
+    <Job>
+        <ConfirmationRequired>boolean</ConfirmationRequired>
+        <CreationTime>timestamp</CreationTime>
+        <Description>string</Description>
+        <FailureReasons>
+            <JobFailure>
+                <FailureCode>string</FailureCode>
+                <FailureReason>string</FailureReason>
+            </JobFailure>
+        </FailureReasons>
+        <JobId>string</JobId>
+        <Manifest>
+            <Location>
+                <ETag>string</ETag>
+                <ObjectArn>string</ObjectArn>
+            </Location>
+            <Spec>
+                <Format>string</Format>
+            </Spec>
+        </Manifest>
+        <Operation>
+            <COSPutObjectCopy>
+                <CannedAccessControlList>string</CannedAccessControlList>
+                <MetadataDirective>string</MetadataDirective>
+                <NewObjectMetadata>
+                    <SSEAlgorithm>string</SSEAlgorithm>
+                    <UserMetadata>
+                        <member>
+                            <Key>string</Key>
+                            <Value>string</Value>
+                        </member>
+                        <member>
+                            <Key>string</Key>
+                            <Value>string</Value>
+                        </member>
+                    </UserMetadata>
+                </NewObjectMetadata>
+                <StorageClass>string</StorageClass>
+                <TargetResource>string</TargetResource>
+            </COSPutObjectCopy>
+        </Operation>
+        <Priority>integer</Priority>
+        <ProgressSummary>
+            <NumberOfTasksFailed>integer</NumberOfTasksFailed>
+            <NumberOfTasksSucceeded>integer</NumberOfTasksSucceeded>
+            <TotalNumberOfTasks>integer</TotalNumberOfTasks>
+        </ProgressSummary>
+        <Report>
+            <Bucket>string</Bucket>
+            <Enabled>boolean</Enabled>
+            <Format>string</Format>
+            <Prefix>string</Prefix>
+            <ReportScope>string</ReportScope>
+        </Report>
+        <RoleArn>string</RoleArn>
+        <Status>string</Status>
+        <StatusUpdateReason>string</StatusUpdateReason>
+        <SuspendedCause>string</SuspendedCause>
+        <SuspendedDate>timestamp</SuspendedDate>
+        <TerminationDate>timestamp</TerminationDate>
+    </Job>
+</DescribeJobResult>
+```
