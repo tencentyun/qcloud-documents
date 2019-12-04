@@ -13,7 +13,7 @@
  <img src="https://main.qcloudimg.com/raw/2c8483fe1ec3bf939276d71609a59fa4.png" />
 3. 执行安装，解压后得到一个目录 PCMgrEnterprise_SAAS，该目录为源码安装目录，执行以下命令进行安装。
 ```
-cd PCMgrEnterprise\_SAAS
+cd PCMgrEnterprise_SAAS
  sh install.sh
 ```
 <img src="https://main.qcloudimg.com/raw/9b5ab2fd0387c8fbda368f47dc29ef0c.png" />
