@@ -8,8 +8,15 @@ ListJobs 用于列出您的批量处理任务。有关批量处理任务的详�
 
 ```shell
 GET /jobs?jobStatuses=<JobStatuses>&maxResults=<MaxResults>&nextToken=<NextToken> HTTP/1.1
-x-cos-appid: <appid>
+Host: <UIN>.cos-control.<Region>.myqcloud.com
+Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
+Authorization: Auth String
+x-cos-appid: <APPID>
 ```
+
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 **请求参数**
 
@@ -31,14 +38,6 @@ x-cos-appid: <appid>
 
 ## 响应
 
-**响应示例**
-
-```shell
-HTTP/1.1 200
-<ListJobsResult>
-...
-</ListJobsResult>
-```
 
 **响应头**
 
@@ -71,7 +70,7 @@ HTTP/1.1 200
 具体内容描述如下：
 
 **ListJobsResult**
-包含COS返回的批量处理任务列表信息。
+包含 COS 返回的批量处理任务列表信息。
 
 | 节点名    | 父节点         | 描述                                                         | 类型        |
 | --------- | -------------- | ------------------------------------------------------------ | ----------- |
@@ -99,11 +98,11 @@ HTTP/1.1 200
 
 其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-## 错误分析
+#### 错误码
 
 该请求可能会发生的一些常见的特殊错误如下：
 
-| 错误代码        | 描述                             | 状态码 | API      |
+| 错误码        | 描述                             | 状态码 | API      |
 | --------------- | -------------------------------- | ------ | -------- |
 | InvalidArgument | Parameter jobStatuses is invalid | 400    | ListJobs |
 | InvalidArgument | maxResults 参数必须为整数        | 400    | ListJobs |
@@ -111,3 +110,49 @@ HTTP/1.1 200
 
 其他错误请参考 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
+## 实际案例
+#### 请求
+
+```
+GET /jobs?jobStatuses=<JobStatuses>&maxResults=<MaxResults>&nextToken=<NextToken> HTTP/1.1
+Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:05 GMT
+Content-Type: application/xml
+Content-Length: 436
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+x-cos-appid: 1250000000
+
+```
+
+
+#### 响应示例
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 93
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+
+<ListJobsResult>
+    <Jobs>
+        <member>
+            <CreationTime>timestamp</CreationTime>
+            <Description>string</Description>
+            <JobId>string</JobId>
+            <Operation>string</Operation>
+            <Priority>integer</Priority>
+            <ProgressSummary>
+                <NumberOfTasksFailed>integer</NumberOfTasksFailed>
+                <NumberOfTasksSucceeded>integer</NumberOfTasksSucceeded>
+                <TotalNumberOfTasks>integer</TotalNumberOfTasks>
+            </ProgressSummary>
+            <Status>string</Status>
+            <TerminationDate>timestamp</TerminationDate>
+        </member>
+    </Jobs>
+    <NextToken></NextToken>
+</ListJobsResult>
+```
