@@ -699,7 +699,7 @@ void applyFileTranscode(Object fileObj, TEduBoardTranscodeConfig config)
 fileObj参数格式如下： 
 ``` 
 {
-   data: document.getElementById('uploadFile').files[0], //取自input标签的fileObject对象
+   data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
    userData: 'xxx' //透传数据，会在文件转码进度回调中带回
 }
 ```
