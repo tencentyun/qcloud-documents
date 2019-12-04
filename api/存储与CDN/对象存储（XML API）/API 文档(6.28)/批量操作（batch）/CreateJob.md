@@ -216,7 +216,14 @@ x-cos-appid: 1250000000
 上述请求后，COS 返回以下响应，表明该清单任务已经成功设置完毕。
 
 ```shell
-HTTP/1.1 200
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 93
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+
 <CreateJobResult>
    <JobId>65f2e4cf-83f5-42f1-9aa2-14720613da29</JobId>
 </CreateJobResult>
