@@ -3,12 +3,12 @@
 1. 解压 zip 安装包。
 ```
 [root@localhost ft_local]# unzip
-PCMgr_Setup_Linux64_cfg\(192.168.126.190_80\).zip
+PCMgr_Setup_Linux64_cfg(192.168.126.190_80).zip
 Archive: PCMgr_Setup_Linux64_cfg(192.168.126.190_80).zip
 ```
 2. 获取 root 权限。执行 `su`命令，并输入 root 密码。
 3. 进入到安装目录。
-` [root@localhost ft_local]# cd linux64_\(2.0.138.146\)`
+` [root@localhost ft_local]# cd linux64_(2.0.138.146)`
 4. 修改文件权限。
 ` [root@localhost linux64_(2.0.138.146)]# chmod 777 *`
 5. 执行`./install.sh`。
