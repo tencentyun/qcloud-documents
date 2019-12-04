@@ -3,13 +3,13 @@ Django 是一个开放源代码的 Web 应用框架，由 Python 写成。
 
 使用的软件环境为：CentOS7.2 | Python2.7 | Django1.11
 
-### 登录到云服务器实例
+### 步骤1：登录到云服务器实例
 云服务器的购买和访问请参见 [快速入门 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
-### 安装 Python
+### 步骤2：安装 Python
 在 CentOS 中会默认安装 Python，您可通过 `python --version` 查看 Python 版本。
 
-### 安装 Django
+### 步骤3：安装 Django
 1. 安装 pip。
 ```
 yum install python-pip 
@@ -29,7 +29,7 @@ python # 进入python命令行
 >>> django.VERSION
 ```
 
-### 安装 MySQLdb 模块
+### 步骤4：安装 MySQLdb 模块
 安装 MySQL 的支持模块。
 ```
 yum install python-devel
@@ -37,7 +37,7 @@ yum install mysql-devel
 pip install MySQL-python
 ```
 
-### 安装 Apache 服务
+### 步骤5：安装 Apache 服务
 1. 在云服务器实例中使用`yum`安装 Apache。
 ```
 yum install httpd -y
@@ -52,7 +52,7 @@ service httpd start
 在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](https://main.qcloudimg.com/raw/a8708d09de9280c730f47eb8289f7c47.png)
 
-### 安装 Apache 的 mod_wsgi 拓展作为 Django 的应用容器
+### 步骤6：安装 Apache 的 mod_wsgi 拓展作为 Django 的应用容器
 1. 安装 httpd-devel。
 ```
 yum install -y httpd-devel
@@ -66,7 +66,7 @@ yum install -y mod_wsgi
 LoadModule wsgi_module modules/mod_wsgi.so
 ```
 
-### 创建项目测试 Django 环境
+### 步骤7：创建项目测试 Django 环境
 1. 在`/usr/local`下创建测试项目，运行`django-admin.py startproject projectname`来创建一个项目，其中 projectname 为项目名。
 ```
 cd /usr/local
@@ -110,7 +110,7 @@ service httpd restart
 ```
 8. 在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/python/hello`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），页面出现 “Hello world !” 表示项目环境搭建成功。
 
-### 在 Django 中配置 TencentDB（可选）
+### 步骤8：在 Django 中配置 TencentDB（可选）
 1. 配置项目目录下的`settings.py`文件。
 ```
 DATABASES = {
