@@ -45,22 +45,8 @@
 #### 获取带预签名 URL 的示例
 
 [//]: # (.cssg-snippet-get-presign-download-url)
-```objective-c
-QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
-configuration.appID = @"1250000000";
-// 签名提供者，这里假设由当前实例提供
-configuration.signatureProvider = self;
-QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-endpoint.regionName = @"ap-guangzhou";
-endpoint.useHTTPS = YES;
-configuration.endpoint = endpoint;
-
-[QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
-[QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
-
-// 构建请求
-QCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
-getPresignedURLRequest.bucket = @"example-1250000000";
+```objective-cQCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
+getPresignedURLRequest.bucket = @"examplebucket-1250000000";
 getPresignedURLRequest.HTTPMethod = @"GET";
 getPresignedURLRequest.object = @"exampleobject";
 
