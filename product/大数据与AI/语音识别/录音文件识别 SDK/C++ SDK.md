@@ -1,17 +1,17 @@
 ## 接入准备
-### SDK获取
-录音文件识别C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.zip)
+### SDK 获取
+录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.zip)
 
 ### 接入须知
 开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
 
 ### 开发环境
-**需要64位linux系统，如果用户使用的是32位系统，则需自行安装编译extern中的依赖库**。  
+**需要64位 linux 系统，如果用户使用的是32位系统，则需自行安装编译 extern 中的依赖库**。  
 
-* 编译demo，如果失败则参考对应的提示安装依赖工具。
+* 编译 demo，如果失败则参考对应的提示安装依赖工具。
 
 ```
-//下载sdk并解压
+//下载 sdk 并解压
 unzip c++_record_asr_sdk.zip
 cd c++_record_asr_sdk
 cmake ./
@@ -35,16 +35,16 @@ sudo make install
 * 安装 gcc g++
 
 ```
-1.RedHat系列系统:
+1.RedHat 系列系统:
 yum install -y gcc gcc-c++ make automake
 //安装 gcc 等必备程序包（已安装则略过此步）
 yum install -y wget
 
-2.Debian系列系统：
+2.Debian 系列系统：
 apt-get install gcc g++
 ```
 
-**编译安装extern依赖库（编译demo正常则跳过）**
+**编译安装 extern 依赖库（编译 demo 正常则跳过）**
 
 * 安装 curl  [下载地址](https://curl.haxx.se/download.html)
 
@@ -59,7 +59,7 @@ sudo make install
 * 安装 openssl [下载地址](http://www.openssl.org/source/openssl-1.0.2f.tar.gz)
 
 ```
-1.更新zlib
+1.更新 zlib
 RedHat 系列:yum install -y zlib
 Debian 系列:sudo apt-get install zlib1g zlib1g.dev
 
@@ -89,15 +89,15 @@ SecretKey=Your SecretKey
 ```
 #用户请求参数配置文件：request_parameter.ini
 #引擎类型。
-EngineModelType=16k_0
+EngineModelType = 16k_0
 #语音声道数。1：单声道；2：双声道（仅在电话 8k 通用模型下支持）。
-ChannelNum=1
+ChannelNum = 1
 #识别结果文本编码方式。0：UTF-8。
-ResTextFormat=0
+ResTextFormat = 0
 #语音数据来源。0：语音 URL；1：语音数据（post body）。
-SourceType=1 
-#回调 URL，用户自行搭建的用于接收识别结果的服务器地址， 长度小于2048字节。
-CallbackUrl=http://test.qq.com
+SourceType = 1 
+#回调 URL，用户自行搭建的用于接收识别结果的服务器地址，长度小于2048字节。
+CallbackUrl = http://test.qq.com
 ```
 
 * 创建和初始化请求
@@ -134,13 +134,13 @@ asrReq.CreateRecTask("http://***.wav");
 ```
 //获取请求结果
 string  taskRsp = asrReq.GetResponse();
-//成功请求则返回taskId,可根据taskId查询识别结果
+//成功请求则返回 taskId,可根据 taskId 查询识别结果
 ```
 
 * 查询识别结果（轮询方式）
 
 ```
-//根据taskId轮询查询识别结果
+//根据 taskId 轮询查询识别结果
 string strRsp;
 asrReq.DescribeTaskStatus(taskId, strRsp);
 ```
@@ -186,7 +186,7 @@ int InitAuth(string configPath);
 * TCloudRecordASR::SetSourceType
 
 ```
-/* 设置SourceType
+/* 设置 SourceType
 ** type 0 音频url， 1本地音频
 ** Output void
 */
@@ -197,7 +197,7 @@ void SetSourceType(int type);
 
 ```
 /* 创建识别请求
-** fileURI 音频的本地地址或者音频的URL链接 
+** fileURI 音频的本地地址或者音频的 URL 链接 
 ** Output int 返回结果
 */
 int CreateRecTask(string fileURI);
@@ -207,7 +207,7 @@ int CreateRecTask(string fileURI);
 
 ```
 /* 获取任务结果
-** Output string 任务返回json包
+** Output string 任务返回 json 包
 */
 string GetResponse();
 ```
@@ -216,7 +216,7 @@ string GetResponse();
 
 ```
 /* 轮询查询识别结果
-** taskId  任务Id
+** taskId  任务 Id
 ** rsp   查询结果
 ** Output int 返回结果
 */
@@ -226,7 +226,7 @@ int DescribeTaskStatus(int taskId, string &rsp);
 ### 接入示例
 
 ```
-//进入demo文件夹
+//进入 demo 文件夹
 //编译
 ./compile
 //创建任务 参数：sourceType fileURI
@@ -236,7 +236,7 @@ int DescribeTaskStatus(int taskId, string &rsp);
 ```
 ### 参考代码
 
-#### 识别请求demo
+#### 识别请求 demo
 ```
 #include "TCloudRecordASR.h"
 #include <iostream>
@@ -261,7 +261,7 @@ int main(int argc, char ** argv){
 }
 ```
 
-#### 轮询查询结果demo
+#### 轮询查询结果 demo
 ```
 #include "TCloudRecordASR.h"
 #include <iostream>
