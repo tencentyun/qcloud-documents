@@ -8,7 +8,8 @@
 ## 原因及触发场景
 
 ### 原因分析
-Ubuntu 16.04 系统默认安装 LXCFS 的 2.0.0 版本。由于 2.0.0 版本的 LXCFS 会在 `/run/lxcfs/controllers/` 下挂载 cgroups 子系统，导致 kubelet 会探测到此挂载点，并用来控制容器资源。而在未安装 LXCFS 2.0.0 版本的情况下，kubelet 使用 `/sys/fs/cgroup/` 下的挂载点。
+Ubuntu 16.04 系统默认安装 LXCFS 的 2.0.0 版本。
+由于 2.0.0 版本的 LXCFS 会在 `/run/lxcfs/controllers/` 下挂载 cgroups 子系统，导致 kubelet 会探测到此挂载点，并用来控制容器资源。而在未安装 LXCFS 2.0.0 版本的情况下，kubelet 使用 `/sys/fs/cgroup/` 下的挂载点。
 
 
 
@@ -16,7 +17,7 @@ Ubuntu 16.04 系统默认安装 LXCFS 的 2.0.0 版本。由于 2.0.0 版本的
 ### 触发场景说明
 在创建集群和节点后，若在节点上执行了系统升级命令 `sudo apt upgrade` 或者主动升级了 LXCFS 版本，那么 LXCFS 将升级到最新的 2.0.8 版本。
 
-2.0.8 版本的 LXCFS 架构较之前版本发生变化，即不再挂载和使用 `/run/lxcfs/controllers/` 下的 cgroups 子系统。但在升级时，为了满足 LXCFS 服务进程 ID 不变的需求及其安装包的设置，系统不会重启 LXCFS 服务（重启服务时会解挂挂载点），而会向运行中的 LXCFS 服务进程发送 USR1 信号，并在 LXCFS 使用计数为0时，重装相关 `.so` 模块。LXCFS 在 reload 时会解挂挂载点，导致 kubelet 在设置容器的 cgroups 资源时无法找到对应的目录和文件，最终导致容器崩溃。
+2.0.8 版本的 LXCFS 架构较之前版本发生变化，即不再挂载和使用 `/run/lxcfs/controllers/` 下的 cgroups 子系统。但在升级时，为了满足 LXCFS 服务进程 ID 不变的需求及其安装包的设置，系统不会重启 LXCFS 服务（重启服务时会解挂挂载点），而会向运行中的 LXCFS 服务进程发送 USR1 信号，并在 LXCFS 使用计数为0时，reload 相关 `.so` 模块。LXCFS 在 reload 时会解挂挂载点，导致 kubelet 在设置容器的 cgroups 资源时无法找到对应的目录和文件，最终导致容器崩溃。
 
 LXCFS 计数为0和 reload 的时间无法预估，如果在某个时间触发以上场景，会导致该节点上的容器崩溃无法提供服务。为了确保消除这个隐患，请按照以下修复措施进行修复。 
 
