@@ -12,7 +12,7 @@
 
 2. 然后在项目中使用以下的 demo，来快速获取识别结果。
 
-+ **通过语音 URL 方式请求**
+- **通过语音 URL 方式请求**
 
 ```
 # -*- coding: utf-8 -*-
@@ -47,7 +47,7 @@ except TencentCloudSDKException as err:
     print(err) 
 ```
 
-+ **通过本地语音上传方式请求**
+- **通过本地语音上传方式请求**
 
 ```
 # -*- coding: utf-8 -*-
@@ -93,7 +93,7 @@ except TencentCloudSDKException as err:
     print(err) 
 ```
 
-+ **查询录音文件识别结果**
+- **查询录音文件识别结果**
 
 ```
 from tencentcloud.common import credential
