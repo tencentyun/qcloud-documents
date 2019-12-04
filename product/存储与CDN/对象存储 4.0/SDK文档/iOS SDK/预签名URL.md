@@ -70,3 +70,9 @@ getPresignedURLRequest.object = @"exampleobject";
 
 [[QCloudCOSXMLService defaultCOSXML] getPresignedURL:getPresignedURLRequest];
 ```
+
+swift 示例：
+
+[//]: # (.cssg-snippet-swift-get-presign-download-url)
+```swift
+```
