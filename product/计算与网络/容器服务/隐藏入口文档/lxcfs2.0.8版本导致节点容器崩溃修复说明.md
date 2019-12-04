@@ -55,8 +55,8 @@ zgrep -B 4 "lxcfs" /var/log/apt/history.log*
 uptime -s
 ```
 3. 比较 LXCFS 升级时间与系统启动时间。
- - 如系统时间**晚于** LXCFS 升级时间，则节点无需修复。
- - 如系统时间**早于** LXCFS 升级时间，请按照 [具体修复步骤](#repair) 尽快修复。
+ - 如系统启动时间**晚于** LXCFS 升级时间，则节点无需修复。
+ - 如系统启动时间**早于** LXCFS 升级时间，请按照 [具体修复步骤](#repair) 尽快修复。
 
 
 
@@ -81,4 +81,4 @@ unzip -o upgrade-lxcfs.zip && chmod +x upgrade-lxcfs.sh
 - 如果 LXCFS 未升级，则升级到 2.0.8 版本。
 - 解挂 `/run/lxcfs/controllers/` 下的 cgroups 子系统。
 - 启动 kubelet 服务。
-- 给节点添加 `annotation cloud.tencent.com/node-lxcfs-upgraded=true`，以便统计升级情况。
+- 给节点添加 annotation `cloud.tencent.com/node-lxcfs-upgraded=true`，以便统计升级情况。
