@@ -25,6 +25,7 @@
 ![](https://main.qcloudimg.com/raw/8d01ead486b3d0abd8a28868834132d6.png)
 2. 当授权文件导入成功后，则会在页面右上角【产品信息】中，展示授权文件详情。
 ![](https://main.qcloudimg.com/raw/ac5d5772bfad2af141402cbbbc6ee2f1.png)
+
 ## 卸载过程
 
 如果不需要本系统，可执行卸载程序，在安装目录下找到`..\Public\ Uninst.exe`执行卸载。
