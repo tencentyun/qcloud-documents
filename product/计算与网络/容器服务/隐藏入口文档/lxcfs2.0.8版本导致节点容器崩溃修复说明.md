@@ -8,8 +8,7 @@
 ## 原因及触发场景
 
 ### 原因分析
-Ubuntu 16.04 系统默认安装 LXCFS 的 2.0.0 版本。
-由于 2.0.0 版本的 LXCFS 会在 `/run/lxcfs/controllers/` 下挂载 cgroups 子系统，导致 kubelet 会探测到此挂载点，并用来控制容器资源。而在未安装 LXCFS 2.0.0 版本的情况下，kubelet 使用 `/sys/fs/cgroup/` 下的挂载点。
+Ubuntu 16.04 系统默认安装 LXCFS 的 2.0.0 版本。由于 2.0.0 版本的 LXCFS 会在 `/run/lxcfs/controllers/` 下挂载 cgroups 子系统，导致 kubelet 会探测到此挂载点，并用来控制容器资源。而在未安装 LXCFS 2.0.0 版本的情况下，kubelet 使用 `/sys/fs/cgroup/` 下的挂载点。
 
 
 
