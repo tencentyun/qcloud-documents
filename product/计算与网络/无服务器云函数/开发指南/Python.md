@@ -35,7 +35,7 @@ Python 环境下的入参包括 event 和 context，两者均为 Python dict 类
 您可以在函数内使用 `raise Exception` 的方式抛出异常。抛出的异常会在函数运行环境中被捕捉到并在日志中以 `Traceback` 的形式展示。
 
 ## 日志
-您可以在程序中使用 `print` 或使用 `logging` 模块来完成日志输出。例如如下函数：
+您可以在程序中使用 `print` 或使用 `logging` 模块来完成日志输出。例如，如下函数：
 ```python
 import logging
 logger = logging.getLogger()
