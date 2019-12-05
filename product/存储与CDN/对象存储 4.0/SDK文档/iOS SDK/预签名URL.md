@@ -45,8 +45,7 @@
 #### 获取带预签名 URL 的示例
 
 [//]: # (.cssg-snippet-get-presign-download-url)
-```objective-c
-QCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
+```objective-cQCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
 getPresignedURLRequest.bucket = @"examplebucket-1250000000";
 getPresignedURLRequest.HTTPMethod = @"GET";
 getPresignedURLRequest.object = @"exampleobject";
