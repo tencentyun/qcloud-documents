@@ -65,8 +65,7 @@ https://yourdomain.com/component.html#/:class_id/:user_id/:user_sig/:user_token
 示例如下：
 ```
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighere...../usertokenhere.....
-
-如果 usersig 已经通过控制台托管过给我们 则后面两个不用填
+如果 usersig 已经通过控制台托管过给我们，则后面两个不用填
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan
 ```
 - 参数描述。参数获取请参考 [调用参数](#jump)。
@@ -133,7 +132,7 @@ Manifest.permission.RECORD_AUDIO
 Manifest.permission.CAMERA
 Manifest.permission.WRITE_EXTERNAL_STORAGE
 ```
-更多详情请参见 [请求应用权限](https://developer.android.com/training/permissions/requesting?hl=zh-cn)。
+
 #### 调起 SaaS 组件
 只需传递5个参数，即可调起 SaaS 组件主页面，分别为机构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig。
 ```java

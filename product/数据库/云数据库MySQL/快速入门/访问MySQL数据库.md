@@ -7,6 +7,7 @@
 >- 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
 
 
+下面分别介绍如何从 Windows 系统或 Linux 系统的 CVM 登录，以内外网两种不同的方式访问云数据库 MySQL。
 ## 从 Windows 系统的 CVM 访问
 1. 登录到 Windows 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a>。
 2. 下载一个标准的 SQL 客户端。
@@ -22,7 +23,7 @@
 >
 ![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
 5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
- - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80)。
+ - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](#waiwang)。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
@@ -38,7 +39,7 @@ yum install mysql
 ```
 提示`Complete!`说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/907e047fed90f6cf68752fb386382927.png)
-3. 根据访问方式选择执行如下操作：
+3. 根据不同访问方式，选择相应的操作：
  - **内网访问时：**
     1. 执行如下命令登录到 MySQL 数据库实例。
 ```
@@ -46,7 +47,7 @@ mysql -h hostname -u username -p
 ```
       - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网地址。
 		- username：替换为默认的用户名 root。
-    2. 在提示`Enter password：`后输出 root 帐号对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
+    2. 在提示`Enter password：`后输入 MySQL 实例的 root 帐号对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
     本例中提示`MySQL [(none)]>`说明成功登录到 MySQL。
 ![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
    - **外网访问时：**
@@ -54,7 +55,7 @@ mysql -h hostname -u username -p
 ```
 mysql -h hostname -P port -u username -p
 ```
-      - hostname：替换为目标 MySQL 数据库实例的外网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](https://cloud.tencent.com/document/product/236/9038#.E5.BC.80.E5.90.AF.E5.A4.96.E7.BD.91.E8.AE.BF.E9.97.AE.E5.9C.B0.E5.9D.80) 开启。
+      - hostname：替换为目标 MySQL 数据库实例的外网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](#waiwang) 开启。
       - port：替换为外网端口号。
       - username：替换为外网访问用户名，用于外网访问，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
     2. 在提示`Enter password：`后输入外网访问用户名对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
@@ -63,3 +64,13 @@ mysql -h hostname -P port -u username -p
 4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+
+<span id = "waiwang"></span>
+## 附录：开启外网访问地址
+1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )。
+2. 在实例列表中，单击实例名或操作列的【管理】，进入实例详情页面。
+3. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
+![](https://main.qcloudimg.com/raw/c1ef4d6d01fe9cd3f7e9caabae440fc6.png)
+4. 单击【确定】后，外网开通进入处理状态。
+5. 开启成功后，即可在基本信息中查看到外网地址。
+6. 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。

@@ -79,34 +79,34 @@ COSClient cos = new COSClient(context,appid,config,peristenceId);
 
 **XML SDK 的初始化方式如下：**
 
-```
-String appid = "1250000000";
-String region = "ap-guangzhou"; 
+[//]: # (.cssg-snippet-global-init)
+```java
+String region = "COS_REGION";
 
-//创建 CosXmlServiceConfig 对象，根据需要修改默认的配置参数
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-       .setAppidAndRegion(appid, region)
-       .builder();
-       
+        .setRegion(region)
+     .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
+        .builder();
+
 /**
- * 获取授权服务的 url 地址
+ * 获取授权服务的 URL 地址
  */
-URL url = null; 
+URL url = null; // 后台授权服务的 URL 地址
 try {
-    url = new URL("your_auth_server_url"); // 后台授权服务的 url 地址
+    url = new URL("your_auth_server_url");
 } catch (MalformedURLException e) {
     e.printStackTrace();
+    return;
 }
 
 /**
- * 初始化 {@link QCloudCredentialProvider} 对象，来给 SDK 提供临时密钥。
+ * 初始化 {@link QCloudCredentialProvider} 对象，来给 SDK 提供临时密钥
  */
 QCloudCredentialProvider credentialProvider = new SessionCredentialProvider(new HttpRequest.Builder<String>()
-                .url(url)
-                .method("GET")
-                .build());
-                
-                
+        .url(url)
+        .method("GET")
+        .build());
+
 CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, credentialProvider);
 ```
 
@@ -123,7 +123,7 @@ XML Android SDK 存储桶名称由两部分组成：用户自定义字符串 和
 
 在设置 Bucket 时，请参考下面的示例代码：
 
-```
+```java
 String bucket = "examplebucket-1250000000";
 String cosPath = "exampleobject.doc";
 String srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
@@ -156,7 +156,7 @@ XML Android SDK 的存储桶可用区域简称发生了变化，下列表格列�
 
 在初始化时，请将存储桶所在区域简称设置到 `CosXmlServiceConfig` 中：
 
-```
+```java
 String appid = "1250000000";
 String region = "ap-guangzhou"; 
 
@@ -193,28 +193,41 @@ API 变化有以下三点：
 
 使用 `TransferManager`上传的示例代码：
 
-```
+[//]: # (.cssg-snippet-transfer-upload-object)
+```java
 // 初始化 TransferConfig
 TransferConfig transferConfig = new TransferConfig.Builder().build();
-/**
-若有特殊要求，则可以如下进行初始化定制。如限定当文件 >= 2M 时，启用分片上传，且分片上传的分片大小为 1M, 当源文件大于 5M 时启用分片复制，且分片复制的大小为 5M。
-TransferConfig transferConfig = new TransferConfig.Builder()
-        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分片复制的文件最小大小
-        .setSliceSizeForCopy(5 * 1024 * 1024) //分片复制时的分片大小
-        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分片上传的文件最小大小
-        .setSliceSizeForCopy(1024 * 1024) //分片上传时的分片大小
+
+/*若有特殊要求，则可以如下进行初始化定制。例如限定当对象 >= 2M 时，启用分块上传，且分块上传的分块大小为1M，当源对象大于5M时启用分块复制，且分块复制的大小为5M。*/
+transferConfig = new TransferConfig.Builder()
+        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分块复制的最小对象大小
+        .setSliceSizeForCopy(5 * 1024 * 1024) // 分块复制时的分块大小
+        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分块上传的最小对象大小
+        .setSliceSizeForUpload(1024 * 1024) // 分块上传时的分块大小
         .build();
+
+// 初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXmlService, transferConfig);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString(); //本地文件的绝对路径
+String uploadId = null; //若存在初始化分块上传的 UploadId，则赋值对应的 uploadId 值用于续传；否则，赋值 null
+// 上传对象
+COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
+
+/**
+* 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
+* byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
+* cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
 */
 
-//初始化 TransferManager
-TransferManager transferManager = new TransferManager(cosXml, transferConfig);
+/**
+* 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
+* InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
+* cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
+*/
 
-String bucket = "存储桶名称";
-String cosPath = "对象键"; // 即存储到 COS 上的绝对路径,格式如 cosPath = "exampleobject.doc";
-String srcPath = "本地文件的绝对路径"; // 如 srcPath=Environment.getExternalStorageDirectory().getPath() + "/exampleobject.doc";
-String uploadId = "分片上传的UploadId";//用于续传，若无，则为null.
-//上传文件
-COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 //设置上传进度回调
 cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
             @Override
@@ -227,7 +240,8 @@ cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
             @Override
             public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-                Log.d("TEST",  "Success: " + result.printResult());
+    COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTask.COSXMLUploadTaskResult)result;
+                Log.d("TEST",  "Success: " + cOSXMLUploadTaskResult.printResult());
             }
 
             @Override
@@ -247,8 +261,7 @@ cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
  putObjectRequest.setRegion(region); //设置存储桶所在的地域
- putObjectRequest.setSign(600); //设置签名sign有效期
- putObjectRequest.setNeedMD5(true); //是否启用Md5校验
+ putObjectRequest.setNeedMD5(true); //是否启用 Md5 校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
 */
 
@@ -261,6 +274,7 @@ cosxmlUploadTask.pause();
 
 //恢复上传
 cosxmlUploadTask.resume();
+
 ```
 
 **3）新增 API**

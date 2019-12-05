@@ -19,7 +19,7 @@ sh.shardCollection("test.inventory", {"_id":"hashed"})
   <tbody>
    <tr>
     <td>
-     <span style="font-size:14px;"></span><br>
+     <span style="font-size:14px;">-</span><br>
     </td>
     <td>
      <span style="font-size:14px;">MongoDB</span><br>
@@ -150,8 +150,9 @@ where value->"$.item"="paper" limit 1
   </tbody>
 </table>
 
+
 ### QUERY Document
-||MongoDB|	TDSQL|
+|-|MongoDB|	TDSQL|
 |---- |-----| ----|
 |预先插入数据	|db.inventory.insertMany([ <br>&emsp;{ item: "canvas", qty: 100, size: { h: 28, w: 35.5, uom: "cm" }, status: "A" , tags: ["blank", "red"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "A", qty:, 5 }, { warehouse: "C", qty: 15 } ] } ,<br>&emsp;{ item: "journal", qty: 25, size: { h: 14, w: 21, uom: "cm" }, status: "A" , tags: ["red", "blank"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "C", qty: 5 } ] }, <br>&emsp;{ item: "mat", qty: 85, size: { h: 27.9, w: 35.5, uom: "cm" }, status: "D" , tags: ["red", "blank", "plain"], dim_cm: [ 14, 21 ] , instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 15 } ] },<br>&emsp;{ item: "mousepad", qty: 25, size: { h: 19, w: 22.85, uom: "cm" }, status: "P" , tags: ["blank", "red"], dim_cm: [ 22.85, 30 ] , instock: [ { warehouse: "A", qty: 40 }, { warehouse: "B", qty: 5 } ] },<br>&emsp;{ item: "notebook", qty: 50, size: { h: 8.5, w: 11, uom: "in" }, status: "P" , tags: ["blue"], dim_cm: [ 10, 15.25 ] , instock: [ { warehouse: "B", qty: 15 }, { warehouse: "C", qty: 35 } ] }]); |	insert into inventory(value) values<br>('{ "item": "canvas", "qty": 100, "size": { "h": 28, "w": 35.5, "uom": "cm" }, "status": "A" , "tags": ["blank", "red"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "A", "qty": 5 }, { "warehouse": "C", "qty": 15 } ] }'),<br>&emsp;('{ "item": "journal", "qty": 25, "size": { "h": 14, "w": 21, "uom": "cm" }, "status": "A" , "tags": ["red", "blank"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "C", "qty": 5 } ] }'),<br>&emsp;('{ "item": "mat", "qty": 85, "size": { "h": 27.9, "w": 35.5, "uom": "cm" }, "status": "D" , "tags": ["red", "blank", "plain"], "dim_cm": [ 14, 21 ] , "instock": [ { "warehouse": "A", "qty": 60 }, { "warehouse": "B", "qty": 15 } ] }'),<br>&emsp;('{ "item": "mousepad", "qty": 25, "size": { "h": 19, "w": 22.85, "uom": "cm" }, "status": "P" , "tags": ["blank", "red"], "dim_cm": [ 22.85, 30 ] , "instock": [ { "warehouse": "A", "qty": 40 }, { "warehouse": "B", "qty": 5 } ] }'),<br>&emsp;('{ "item": "notebook", "qty": 50, "size": { "h": 8.5, "w": 11, "uom": "in" }, "status": "P" , "tags": ["blue"], "dim_cm": [ 10, 15.25 ] , "instock": [ { "warehouse": "B", "qty": 15 }, { "warehouse": "C", "qty": 35 } ] }') |
 |通过路径语法实现对json内任意成员的访问|	支持	|支持|
@@ -168,12 +169,13 @@ where value->"$.item"="paper" limit 1
 |查询嵌入式文档数组|db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )<br>需要考虑字段(warehouse, qty)的顺序<br>db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )<br>不需要考虑字段(warehouse, qty)的顺序	|select * from inventory where json_contains(value->"$.instock", cast('{ "warehouse": "A", "qty": 5 }' as json))=1;<br>不需要考虑字段(warehouse, qty)的顺序|
 |在嵌入文档数组的字段中指定查询条件|db.inventory.find( { 'instock.qty': { $lte: 20 } } )|	//不支持（qty 是数组 instock内的 field， 只能通过 instock[index].qty 访问，instock.qty 这种访问方式mysql均不支持）|
 
+
 ### INDEXES
 <table>
   <tbody>
    <tr>
     <td>
-     <span style="font-size:14px;"></span><br>
+     <span style="font-size:14px;">-</span><br>
     </td>
     <td>
      <span style="font-size:14px;">MongoDB</span><br>
@@ -291,13 +293,15 @@ create FULLTEXT index full_idx on stores(value_name, value_description);<br>
   </tbody>
 </table>
 
+
 ### SHARDING
 
-||MongoDB|	TDSQL|
+|-|MongoDB|	TDSQL|
 |---- |-----| ----|
 |Ranged sharding	|支持	|不支持
 |Hashed sharding	|db.t1.createIndex({"key1":"hashed"})<br>sh.shardCollection("test.t1", {"key1":"hashed"})<br>db.t1.insertOne({"key1":"value1","key2":"value2"})|TDSQL不需要事先创建hashed index<br><br>create table t1(key1 varchar(20), value json) shardkey=key1;<br>insert into t1(key1, value) values("value1", '{"key2":"value2"}');<br><br>TDSQL目前不支持按照json内的任意字段进行hashed sharding，如有需要，需要将作为shardkey的字段单独提出作为一列。
 |将含有数据的非shard表修改为shard表|	支持	|不支持|
+
 MongoDB和TDSQL的shard（分布式）架构相似，因此在水平扩容、容灾等方面各有千秋，此处不做展开。
 
 ### SHARD INDEX
@@ -381,7 +385,7 @@ db.users.aggregate([{
 ]);
 
 ```
-相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
+相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见下面代码）
 ```
 插入数据
 create table users(id int primary key auto_increment, value json);

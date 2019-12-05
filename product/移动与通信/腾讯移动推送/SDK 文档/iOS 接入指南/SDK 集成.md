@@ -39,9 +39,10 @@
  * libz.tbd
  * CoreData.framework
  * CFNetwork.framework
+ * libc++.tbd
 ```
 8. 添加完成后，库的引用如下：
-![](https://main.qcloudimg.com/raw/e61961cd6db798d0f02d4b4c1a996fa0.png)
+![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
 9. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
 10. 添加编译参数 ```-ObjC``` 。
@@ -147,6 +148,8 @@
 ```
 >?在推送单个目标设备时请使用 XG 36位的 Token。
 
+
+<span id="QHToken"></span>
 #### 获取 Token （非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 

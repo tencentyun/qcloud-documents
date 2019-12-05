@@ -2,8 +2,8 @@
 本接口（CreateLocalSourceIPPortTranslationNatRule）用于添加专线网关本端源 IP 端口转换。
 接口请求域名：vpc.api.qcloud.com 
 
-1) 私有网络内源 IP 端口映射为指定 IP 池内随机 IP 的随机端口主动访问，只有 NAT 类型的专线网关支持。
-2) 转换后 IP 池内 IP 不能在 VPC 网段内，IP 池支持单个 IP、IP 段(例如183.63.0.1 - 183.63.0.10)和 CIDR 格式。
+1. 私有网络内源 IP 端口映射为指定 IP 池内随机 IP 的随机端口主动访问，只有 NAT 类型的专线网关支持。
+2. 转换后 IP 池内 IP 不能在 VPC 网段内，IP 池支持单个 IP、IP 段(例如183.63.0.1 - 183.63.0.10)和 CIDR 格式。
 
 
 ## 2. 输入参数

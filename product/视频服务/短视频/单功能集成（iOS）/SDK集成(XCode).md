@@ -98,6 +98,7 @@
    - Demo/TXLiteAVDemo/Common/Category
    - Demo/TXLiteAVDemo/Common/Color
    - Demo/TXLiteAVDemo/Common/Resource
+   - Demo/TXLiteAVDemo/Common/SmallButton
    - Demo/TXLiteAVDemo/Third/Masonry
    - Demo/TXLiteAVDemo/Third/AFNetworking
    - Demo/TXLiteAVDemo/Third/MBProgressHUD
@@ -134,6 +135,7 @@
         joinButton.center = center;
         
         for (UIButton *button in @[editButton, recordButton, joinButton]) {
+            button.bounds = CGRectMake(0, 0, 100, 30);
             [self.view addSubview:button];
         }
     }

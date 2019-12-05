@@ -13,12 +13,10 @@
 
 #### 位置
 在【框架】>【深度学习】>【TensorFlow PS】
-![](https://main.qcloudimg.com/raw/482e2bd2dd66ac8e961e55931c907d8a.png)
 
 ## 参数
 #### 组件参数
 组件参数与普通 TensorFlow 组件一样，框架提供了支持 py2 或 py3 的 TensorFlow 1.12 的镜像。
-![](https://main.qcloudimg.com/raw/2fe7862f139b7fa4a583fd8067a8ad70.png)
 ####  资源参数
 多机多卡的资源参数配置，如下图，则代表了2机16卡的训练资源（1机8卡 * 2，两个 worker 进程），并且在某一台机器上起了一个 PS 进程。
 ![](https://main.qcloudimg.com/raw/10ff99412e462fe172462e28199ec1f4.png)

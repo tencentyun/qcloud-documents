@@ -36,7 +36,7 @@ Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，
 
 ## 了解更多
 ### 停用词和用户词典导入
-停用词不会被 ES 检索，用户词典在分词的时候将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic)和[用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以通过 ES 集群详情页的【高级配置】>【更新词典】导入自己的停用词和用户词典。
+停用词不会被 ES 检索，用户词典在分词的时候将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic) 和 [用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以通过 ES 集群详情页的【高级配置】>【更新词典】导入自己的停用词和用户词典。
 ![image](https://main.qcloudimg.com/raw/ab9410ad5485ae8f279558606de6510f.png)
 
 ### 同义词配置

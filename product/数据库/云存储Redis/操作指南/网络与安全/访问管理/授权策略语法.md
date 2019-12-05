@@ -51,7 +51,7 @@ qcs:project_id:service_type:region:account:resource
 - **project_id**：描述项目信息，仅为了兼容 CAM 早期逻辑，无需填写。
 - **service_type**：产品简称，如 redis。
 - **region**：地域信息，如 bj。
-- **account**：资源拥有者的根帐号信息，如 uin/12345678。
+- **account**：资源拥有者的主帐号信息，如 uin/12345678。
 - **resource**：各产品的具体资源详情，如 instance/instance_id 或者 instance/*。
 
 例如，您可以使用特定实例（crs-psllioc8）在语句中指定它，如下所示：
@@ -69,7 +69,7 @@ qcs:project_id:service_type:region:account:resource
 "resource": ["*"]
 ```
 
-如果您想要在在一条指令中同时指定多个资源，请使用逗号将它们隔开，如下所示为指定两个资源的例子：
+如果您想要在一条指令中同时指定多个资源，请使用逗号将它们隔开，如下所示为指定两个资源的例子：
 ```
 "resource":["resource1","resource2"]
 

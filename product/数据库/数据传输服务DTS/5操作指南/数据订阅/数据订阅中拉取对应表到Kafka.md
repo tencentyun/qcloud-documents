@@ -1,4 +1,4 @@
-本文将以一个简单案例来说明数据订阅中拉取对应表到 Kafka 的功能，并且提供简易 [KaflkaDemo 下载](https://main.qcloudimg.com/raw/cf803ad5ddbb3f20534d98a5a0a23334/KafkaDemo.zip) 。以下操作将在 Centos 操作系统中完成。
+本文将以一个简单案例来说明数据订阅中拉取对应表到 Kafka 的功能，并且提供简易 [KaflkaDemo 下载](https://main.qcloudimg.com/raw/cf803ad5ddbb3f20534d98a5a0a23334/KafkaDemo.zip) 。以下操作将在 CentOS 操作系统中完成。
 
 ## 配置环境
 - Java环境配置 

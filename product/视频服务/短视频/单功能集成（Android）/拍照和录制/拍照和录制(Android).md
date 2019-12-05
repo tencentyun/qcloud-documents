@@ -268,7 +268,7 @@ mTXCameraRecord.setMotionMute(true);
 新版本的SDK增加了短视频license的校验，如果校验没通过，您可以通过该接口来查询license中具体信息
 
 ``` 
-mTXCameraRecord.getLicenceInfo();
+TXUGCBase.getInstance().getLicenceInfo(Context context);
 ```
 
 ## 高级功能

@@ -34,7 +34,7 @@ conversation = TIMManager.getInstance().getConversation(
 
 **消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151013075817_75666.png)
+![](https://main.qcloudimg.com/raw/5b109b81e56ac31a6c73ca6053a342ff.png)
 
 发消息通过 `TIMConversation` 的方法 `sendMessage` 实现。
 
@@ -475,10 +475,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。
 
 >!
-> - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 > - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
-> - 文件大小限制 28MB。
+> - 文件大小限制28MB。
 
 **`TIMFileElem` 成员方法如下：**
 
@@ -1281,7 +1280,7 @@ public TIMMessagePriority getPriority()
 
 ### 已读回执
 
-IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfig` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfig` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 时会发送已读回执给对方。
 
 通过 `TIMUserConfig` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 

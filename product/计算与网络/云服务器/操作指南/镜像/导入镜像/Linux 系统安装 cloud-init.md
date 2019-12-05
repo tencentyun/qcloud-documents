@@ -42,8 +42,8 @@ apt-get/yum install python-pip -y
 4. 执行以下命令，安装依赖包。
 >!  Cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行 `pip install 'requests<2.20.0'` 命令，安装 requests 2.20.0 版本以下的版本。
 >
- ```
-pip install -r cloud-init-17.1/requirements.txt
+```
+pip install -r requirements.txt
 ```
 4. 根据操作系统版本，安装 cloud-utils 组件。
  - Centos 6系列，执行以下命令：
