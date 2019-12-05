@@ -1,15 +1,20 @@
 ## Linux 云服务器配置 IPv6
 ### 自动配置（推荐）
-#### 未开启 IPv6 的云服务器
+请根据云服务器是否已开启 IPv6 选择配置方式：
+- [未开启 IPv6 的云服务器](#unopen)
+- [已开启 IPv6 的云服务器](#open)
+
+
+#### 未开启 IPv6 的云服务器 <span id="unopen" />
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
 - enable_ipv6 工具仅适用于 VPC 类型实例。
 - enable_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
-- Suse 在执行完本工具后，还需要用户手动配置 IP、SSH 等配置，详情请参见 [手动配置开启 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE.E5.BC.80.E5.90.AF-ipv6)。
-- 本工具不支持 FreeBSD，请参见 [手动配置开启 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE.E5.BC.80.E5.90.AF-ipv6) 进行操作。
+- Suse 在执行完本工具后，还需要用户手动配置 IP、SSH 等配置，详情请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE)。
+- 本工具不支持 FreeBSD，请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE) 进行操作。
 - CoreOS 执行本脚本要重启才生效。
-- Ubuntu18 在执行本脚本后如果重启网络，会丢失默认路由，如果经常重启网络，请参见 [手动配置开启 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE.E5.BC.80.E5.90.AF-ipv6)。
+- Ubuntu18 在执行本脚本后如果重启网络，会丢失默认路由，如果经常重启网络，请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE)。
 
 **操作步骤**
 1. 登录云服务器，在云服务器中直接执行如下命令下载 enable_ipv6 工具：
@@ -28,7 +33,7 @@ chmod +x ./enable_ipv6.sh
 
 >? 如果当前 CVM 已绑定IPv6地址，则会自动配置。 
 
-#### 已开启 IPv6 的云服务器
+#### 已开启 IPv6 的云服务器 <span id="open" />
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
@@ -81,14 +86,14 @@ $install_path eth0
 
 ### 手动配置
 如下列举了四种典型的 Linux 云服务器的操作方法：
-- [新购 CentOS 7.5/新购 CentOS 7.6 开启 IPv6](#新购CentOS7.5/CentOS7.6)
-- [CentOS 6.8 开启 IPv6](#CentOS6.8)
-- [CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 开启 IPv6](#CentOS7.3)
-- [Debian 8.2 开启 IPv6](#Debian8.2)
+- [新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6](#新购CentOS7.5/CentOS7.6)
+- [CentOS 6.8 配置 IPv6](#CentOS6.8)
+- [CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6](#CentOS7.3)
+- [Debian 8.2 配置 IPv6](#Debian8.2)
 
 <span id="新购CentOS7.5/CentOS7.6"/>
 
-#### 新购 CentOS7.5 /新购 CentOS7.6 开启 IPv6
+#### 新购 CentOS7.5 /新购 CentOS7.6 配置 IPv6
 >?本操作方法适用于2019年06月31日后购买的 CentOS7.5 和 CentOS7.6。
 >
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
@@ -130,7 +135,7 @@ netstat -tupln
 
 <span id="CentOS6.8"/>
 
-#### CentOS 6.8 开启 IPv6
+#### CentOS 6.8 配置 IPv6
 1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
@@ -213,7 +218,7 @@ netstat -tupln
 
 <span id="CentOS7.3"/>
 
-#### CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 开启 IPv6
+#### CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6
 1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
@@ -296,7 +301,7 @@ netstat -tupln
 21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
 <span id="Debian8.2"/>
 
-#### Debian 8.2 开启 IPv6
+#### Debian 8.2 配置 IPv6
 1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
