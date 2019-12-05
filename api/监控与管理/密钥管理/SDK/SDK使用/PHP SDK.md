@@ -179,7 +179,7 @@ public function enable_key($KeyId = NULL)
 |---------|---------|---------|---------|
 |KeyId|string|None|主密钥 Id|
 
-返回值 无
+返回值：无。
 
 #### 使用示例
 
@@ -229,11 +229,13 @@ public function encrypt($KeyId = NULL, $Plaintext=NULL,$EncryptionContext =NULL)
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |ciphertextBlob|string|表示生成的密文|
+
 #### 使用示例
 
 ```
 $CiphertextBlob = $kms_account->encrypt($KeyId,$Plaintext);
 ```
+
 ### 解密
 #### 方法原型
 
@@ -253,6 +255,7 @@ public function decrypt($CiphertextBlob = NULL,$EncryptionContext = NULL)
 |参数名|类型|参数描述|
 |---------|---------|---------|
 |plaintext|string|表示通过密文解密得到的明文|
+
 #### 使用示例
 
 ```
