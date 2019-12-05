@@ -130,7 +130,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
                              HttpMethod: ANY
 ```
 更多模板文件规范请参见 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。  
-2. 进入 Tencent Serverless 插件，单击击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
+2. 进入 Tencent Serverless 插件，单击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
 >!
 >- 如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
 >- 如果在部署时提示 Role 不存在，请前往 SCF 控制台并参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 添加 Role。
