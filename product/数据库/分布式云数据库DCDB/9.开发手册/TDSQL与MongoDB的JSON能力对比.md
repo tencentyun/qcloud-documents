@@ -150,6 +150,7 @@ where value->"$.item"="paper" limit 1
   </tbody>
 </table>
 
+
 ### QUERY Document
 |-|MongoDB|	TDSQL|
 |---- |-----| ----|
@@ -167,6 +168,7 @@ where value->"$.item"="paper" limit 1
 |查询元素的数组|db.inventory.find( { tags: "red" } )	|select * from inventory where json_contains(value->"$.tags",cast('"red"' as json))=1;|
 |查询嵌入式文档数组|db.inventory.find( { "instock": { warehouse: "A", qty: 5 } } )<br>需要考虑字段(warehouse, qty)的顺序<br>db.inventory.find( { "instock": { $elemMatch: { qty: 5, warehouse: "A" } } } )<br>不需要考虑字段(warehouse, qty)的顺序	|select * from inventory where json_contains(value->"$.instock", cast('{ "warehouse": "A", "qty": 5 }' as json))=1;<br>不需要考虑字段(warehouse, qty)的顺序|
 |在嵌入文档数组的字段中指定查询条件|db.inventory.find( { 'instock.qty': { $lte: 20 } } )|	//不支持（qty 是数组 instock内的 field， 只能通过 instock[index].qty 访问，instock.qty 这种访问方式mysql均不支持）|
+
 
 ### INDEXES
 <table>
@@ -291,6 +293,7 @@ create FULLTEXT index full_idx on stores(value_name, value_description);<br>
   </tbody>
 </table>
 
+
 ### SHARDING
 
 |-|MongoDB|	TDSQL|
@@ -298,6 +301,7 @@ create FULLTEXT index full_idx on stores(value_name, value_description);<br>
 |Ranged sharding	|支持	|不支持
 |Hashed sharding	|db.t1.createIndex({"key1":"hashed"})<br>sh.shardCollection("test.t1", {"key1":"hashed"})<br>db.t1.insertOne({"key1":"value1","key2":"value2"})|TDSQL不需要事先创建hashed index<br><br>create table t1(key1 varchar(20), value json) shardkey=key1;<br>insert into t1(key1, value) values("value1", '{"key2":"value2"}');<br><br>TDSQL目前不支持按照json内的任意字段进行hashed sharding，如有需要，需要将作为shardkey的字段单独提出作为一列。
 |将含有数据的非shard表修改为shard表|	支持	|不支持|
+
 MongoDB和TDSQL的shard（分布式）架构相似，因此在水平扩容、容灾等方面各有千秋，此处不做展开。
 
 ### SHARD INDEX
