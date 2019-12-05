@@ -1,4 +1,3 @@
-## SDK 下载
 
 |所属平台|ZIP 包| Github | 跑通 Demo| 集成 SDK|
 |:-:|:-:|:-:|:-:|:-:|
@@ -8,8 +7,6 @@
 |macOS|<a href="https://tic-res-1259648581.file.myqcloud.com/demo/macOS.zip">Download</a>|[Github](https://github.com/tencentyun/TIC/tree/master)|[Doc](https://cloud.tencent.com/document/product/1137/39905)|[Doc](https://cloud.tencent.com/document/product/1137/39914)|
 |Web|<a href="https://tic-res-1259648581.file.myqcloud.com/demo/Web.zip">Download</a>|[Github](https://github.com/tencentyun/TIC/tree/master)|[Doc](https://cloud.tencent.com/document/product/1137/39907)|[Doc](https://cloud.tencent.com/document/product/1137/39920)|
 |小程序|<a href="https://tic-res-1259648581.file.myqcloud.com/demo/小程序.zip">Download</a>|[Github](https://github.com/tencentyun/TIC/tree/master)|[Doc](https://cloud.tencent.com/document/product/1137/39909)|[Doc](https://cloud.tencent.com/document/product/1137/39921)|
-
-
 
 
 
