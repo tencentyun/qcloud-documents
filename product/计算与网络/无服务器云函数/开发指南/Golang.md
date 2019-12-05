@@ -139,3 +139,10 @@ Golang 开发语言仅支持通过使用 本地 zip 文件上传、COS 上传等
 ## 测试函数
 
 通过控制台右上角的测试按钮，可以打开测试界面，同步触发云函数并查看运行结果。针对代码例子，由于入参是 `DefineEvent` 数据结构，对应的 JSON 结构类似为 `{"key1":"value1"," key2":"value2"}`，因此在使用调试界面进行触发运行时，可以输入的测试模板为类似 `{"key1":"value1"," key2":"value2"}` 的数据结构。如需使用其他数据结构测试函数，或函数入参为自定义的其他数据结构，则在函数入参数据结构与测试模板 JSON 数据结构对应时，才可运行成功。
+
+
+## 更多指引
+您可参考以下文档，使用相关功能：
+- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
+- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
+- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)
