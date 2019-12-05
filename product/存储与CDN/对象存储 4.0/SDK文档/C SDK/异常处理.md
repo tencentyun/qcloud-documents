@@ -1,0 +1,87 @@
+## 简介
+
+SDK 调用失败时，结果信息包含在 API 返回的 cos_status_t 结构中。
+
+SDK 中使用每一个 API 的正确做法如下所示，为了简要，文档中范例不再给出具体异常的处理，仅给出 API 的使用范例。
+
+```cpp
+cos_status_t *s = NULL;
+s = cos_put_object_from_file(options, &bucket, &object, &file, &headers, &resp_headers);
+if (!s && !cos_status_is_ok(s)) {
+		// 按需要进行异常场景的日志输出和处理
+		cos_warn_log("failed to put object from file", buf);
+		if (s->error_code) cos_warn_log("status->error_code: %s", s->error_code);
+		if (s->error_msg) cos_warn_log("status->error_msg: %s", s->error_msg);
+		if (s->req_id) cos_warn_log("status->req_id: %s", s->req_id);
+}
+```
+
+## 客户端异常
+
+当 cos_status_t 结构中 code 成员值小于0时，表明发生 SDK 本地客户端错误，错误码信息参考枚举 cos_error_code_e 定义。
+
+```cpp
+typedef enum {
+		COSE_OK = 0,
+		COSE_OUT_MEMORY = -1000,
+		COSE_OVER_MEMORY = -999,
+		COSE_FAILED_CONNECT = -998,
+		COSE_ABORT_CALLBACK = -997,
+		COSE_INTERNAL_ERROR = -996,
+		COSE_REQUEST_TIMEOUT = -995,
+		COSE_INVALID_ARGUMENT = -994,
+		COSE_INVALID_OPERATION = -993,
+		COSE_CONNECTION_FAILED = -992,
+		COSE_FAILED_INITIALIZE = -991,
+		COSE_NAME_LOOKUP_ERROR = -990,
+		COSE_FAILED_VERIFICATION = -989,
+		COSE_WRITE_BODY_ERROR = -988,
+		COSE_READ_BODY_ERROR = -987,
+		COSE_SERVICE_ERROR = -986,
+		COSE_OPEN_FILE_ERROR = -985,
+		COSE_FILE_SEEK_ERROR = -984,
+		COSE_FILE_INFO_ERROR = -983,
+		COSE_FILE_READ_ERROR = -982,
+		COSE_FILE_WRITE_ERROR = -981,
+		COSE_XML_PARSE_ERROR = -980,
+		COSE_UTF8_ENCODE_ERROR = -979,
+		COSE_CRC_INCONSISTENT_ERROR = -978,
+		COSE_FILE_FLUSH_ERROR = -977,
+		COSE_FILE_TRUNC_ERROR = -976,
+		COSE_UNKNOWN_ERROR = -100
+} cos_error_code_e;
+```
+
+## 服务端异常
+
+当 cos_status_t 结构中 code 成员值大于0时，表明发生网络侧错误。
+
+以下是 cos_status_t 结构的描述：
+
+<table>
+   <tr>
+      <th nowrap="nowrap">cos_status_t 成员</th>
+      <th>描述</th>
+      <th>类型</th>
+   </tr>
+   <tr>
+      <td>code</td>
+      <td>response 的 status 状态码， 4xx 是指请求因客户端而失败， 5xx 是服务端异常导致的失败,详情请参阅 <a href="https://cloud.tencent.com/document/product/436/7730">错误码</a> 文档</td>
+      <td>Int</td>
+   </tr>
+   <tr>
+      <td>error_code</td>
+      <td>请求失败时 body 返回的 Error Code，详情请参阅 <a href="https://cloud.tencent.com/document/product/436/7730">错误码</a> 文档</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>error_msg</td>
+      <td>请求失败时 body 返回的 Error Message，详情请参阅 <a href="https://cloud.tencent.com/document/product/436/7730">错误码</a> 文档</td>
+      <td>String</td>
+   </tr>
+   <tr>
+      <td>req_id</td>
+      <td>请求 ID，用于标识用户唯一请求</td>
+      <td>String</td>
+   </tr>
+</table>

@@ -1,0 +1,73 @@
+
+
+
+## 接口说明
+**请求方式**：POST。
+**调用频率限制**：200次/小时。
+```shell
+https://api.tpns.tencent.com/v3/statistics/get_device_stat_overview
+```
+**接口功能**：查询应用某个时间段内每天的“日新增设备数”、“日联网设备数”和“历史累计设备数”。
+
+## 参数说明
+#### 请求参数
+
+| 参数名称  | 必选 | 类型   | 描述         | 备注                                            |
+| --------- | ---- | ------ | ------------ | ----------------------------------------------- |
+| startDate | 是   | string | 查询起始日期 | startDate 查询限制：只能查询最近3个月内的数据 |
+| endDate   | 是   | string | 查询截止日期 | -                                               |
+
+#### 应答参数
+
+| 参数名称                  | 类型      | 描述                                                |
+| ------------------------- | --------- | --------------------------------------------------- |
+| retCode                   | int       | 返回状态码                                          |
+| errMsg                    | string    | 错误信息                                            |
+| getDeviceStatOverviewData | JsonArray | 返回结果，getDeviceStatOverviewData 结构变量见下表 |
+
+#### getDeviceStatOverviewData
+
+| 参数名称 | 类型   | 说明           |
+| -------- | ------ | -------------- |
+| date     | int | 数据日期       |
+| accuUv   | int    | 累积设备量     |
+| newUv    | int    | 日新增设备量   |
+| activeUv | int    | 日在线设备峰值 |
+
+
+## 示例说明
+#### 请求示例
+```json
+{
+ "startDate": "20190724",
+ "endDate": "20190726"
+}
+```
+#### 应答示例
+```json
+{
+ "retCode": 0,
+ "errMsg": "",
+ "getDeviceStatOverviewData": [
+ {
+ "date": 20190724,
+ "accuUv": 0,
+ "newUv": 0,
+ "activeUv": 0
+ },
+ {
+ "date": 20190725,
+ "accuUv": 0,
+ "newUv": 5,
+ "activeUv": 0
+ },
+ {
+ "date": 20190726,
+ "accuUv": 5,
+ "newUv": 0,
+ "activeUv": 2
+ }
+ ]
+}
+```
+

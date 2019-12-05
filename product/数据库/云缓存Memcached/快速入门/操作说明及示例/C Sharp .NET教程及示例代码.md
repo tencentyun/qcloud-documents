@@ -126,7 +126,7 @@ namespace DemoApp
             //从cmem读取一条数据
             Console.WriteLine(mc.Get("csharp_key"));
 
-            //从cmem读取多条数据 only 1.2.4 supports it (windows version is at 1.2.1)
+            //从cmem读取多条数据 only 1.2.4 supports it (Windows version is at 1.2.1)
             List<string> keys = new List<string>();
 
             for (int i = 1; i < 100; i++)

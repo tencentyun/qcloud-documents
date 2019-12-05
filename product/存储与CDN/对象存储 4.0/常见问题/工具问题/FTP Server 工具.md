@@ -2,7 +2,7 @@
 
 对象存储是一种支持 Web 方式请求的持久化存储，不提供原生的 FTP 访问方式。使用 FTP 协议必须通过中转，**推荐您根据腾讯云官方提供的 [FTP Server 工具](https://www.qcloud.com/document/product/436/7214 ) ，自行搭建服务使用。**
 由于 FTP 协议老旧，无法校验数据完整性以及保障传输安全性，也无法与CAM权限系统对接，因此强烈不建议继续使用 FTP 协议访问，腾讯云亦不会对 FTP 协议和中转软件提供后续支持。 
-如需数据同步建议直接使用 [COS Migration 工具  ](https://www.qcloud.com/document/product/436/7133)或 [COSCMD 工具](https://www.qcloud.com/document/product/436/10976)。
+如需数据同步建议直接使用 [COS Migration 工具 ](https://cloud.tencent.com/document/product/436/15392)或 [COSCMD 工具](https://www.qcloud.com/document/product/436/10976)。
 
 ### 配置文件中的 masquerade_address 这个选项有何作用？何时需要配置 masquerade_address？
 
@@ -21,7 +21,7 @@
 
 ### 上传大文件的时候，中途取消，为什么 COS 上会留有已上传的文件？
 
-由于适用于 COS V5 版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
+由于适用于 COS 最新版本的 FTP Server 提供了完全的流式上传特性，用户文件上传的取消或断开，都会触发大文件的上传完成操作。因此，COS 会认为用户数据流已经上传完成，并将已经上传的数据组成一个完整的文件。 如果用户希望重新上传，可以直接以原文件名上传覆盖；也可手动删除不完整的文件，重新上传。
 
 ### 为什么 FTP Server 配置中要设置最大上传文件的限制？
 

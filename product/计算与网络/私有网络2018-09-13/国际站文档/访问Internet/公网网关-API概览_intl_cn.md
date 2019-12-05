@@ -1,0 +1,1 @@
+公网网关本质上一种云服务器实例，用户可以前往 <a href="https://cloud.tencent.com/doc/api/229/569" target="_blank">云服务器 API 概览</a> 查看相关 API，也可以使用 VPC、子网及路由表等 API 共同管理实现公网网关的配置，更多内容可以查看 <a href="https://cloud.tencent.com/doc/api/245/909" target="_blank">VPC  所有 API 概览</a>。

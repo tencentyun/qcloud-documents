@@ -28,6 +28,7 @@
 ![](https://main.qcloudimg.com/raw/f35cb27ac35bef4628df17427e46c912.jpg)
 - Dead：消费者组内无成员并且 Metadata 已经被移除。
 - Empty：消费分组内当前没有任何成员。如果组内所有 offset 都已过期，则会变为 Dead 状态。一般新创建的 Group 默认为 Empty 状态。
+开源 Kafka 0.10.x 版本规定，**当消费分组内没有任何成员且状态持续超过7天，此消费分组将会被自动删除**。
 - Stable：消费分组中各个消费者已经加入，处于稳定状态。
 
 ##  Rebalance 状态详解

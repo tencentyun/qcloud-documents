@@ -1,0 +1,172 @@
+
+
+## 接口说明
+**请求方式**：POST。
+```shell
+https://api.tpns.tencent.com/v3/device/account/batchoperate
+```
+**接口功能**：异步接口。本接口只负责任务下发，当前不支持实时操作。
+
+
+
+
+## 参数说明
+#### 请求参数
+
+| 参数名 | 类型 | 是否必需 | 参数说明 |
+| -------------- | ------- | ---- | ---------------------------------------- |
+| operator_type | int | 是 | 操作类型<br><li>Token 追加设置 account<li>Token 覆盖设置 account<li> Token 删除绑定的多个 account<li>Token 删除绑定的所有 account<li>account 删除绑定的所有 Token |
+| platform | string | 是 | 客户端平台类型<li>Android：安卓 <br><li>iOS：苹果 |
+| account_list | jsonArrary | 否 | 账号标识集合，当 operator_type = 5 时有效，且必填每个元素包含 account，以及 account_type 字段。 <br> 示例如下：<br>`[{"account":"926@126.com"},{"account":"1527000000"}]`|
+| token_list | jsonArrary | 否 | 设备标识集合， operator_type = 4 时有效，且必填|
+| token_accounts | jsonArrary | 否 | 当 operator_type = 1、2 、3 时有效且必须每次调用最多允许设置20个 Token。每个 Token_account 由1个 Token 和1个 account_list 组成。 具体示例如下：<br>`[{"token":"token1","account_list":[{"account":"926@126.com"},{"account":"1527000000"}],`<br>`{"token":"token2","account_list":[{"account":"926@163.com",{"account":"1527000001"}]}]` |
+
+
+#### 响应参数
+| 参数名 | 类型 | 参数说明 |
+| -------------- | ------- | ---------------------------------------- |
+| ret_code | int | 返回码 |
+| err_msg | String | 错误信息|
+| result | JsonArrary | 每一个 Token 或账号对应的操作状态码["0","1008006"] |
+
+
+## 示例说明
+#### 请求示例
+
+- Token 追加设置 Account
+```json
+{
+    "operator_type": 1,
+    "platform": "android",
+    "token_accounts": [
+        {
+            "token": "token1",
+            "account_list": [
+                {
+                    "account": "926@126.com"
+                },
+                {
+                    "account": "1527000000"
+                }
+            ]
+        },
+        {
+            "token": "token2",
+            "account_list": [
+                {
+                    "account": "926@163.com"
+                },
+                {
+                    "account": "1527000001"
+                }
+            ]
+        }
+    ]
+}
+```
+- Token 覆盖绑定 Account
+```json
+{
+    "operator_type": 2,
+    "platform": "android",
+    "token_accounts": [
+        {
+            "token": "token1",
+            "account_list": [
+                {
+                    "account": "926@126.com"
+                },
+                {
+                    "account": "1527000000"
+                }
+            ]
+        },
+        {
+            "token": "token2",
+            "account_list": [
+                {
+                    "account": "926@163.com"
+                },
+                {
+                    "account": "1527000001"
+                }
+            ]
+        }
+    ]
+}
+```
+- Token 删除绑定 Account
+```json
+{
+    "operator_type": 3,
+    "platform": "android",
+    "token_accounts": [
+        {
+            "token": "token1",
+            "account_list": [
+                {
+                    "account": "926@126.com"
+                },
+                {
+                    "account": "1527000000"
+                }
+            ]
+        },
+        {
+            "token": "token2",
+            "account_list": [
+                {
+                    "account": "926@163.com"
+                },
+                {
+                    "account": "1527000001"
+                }
+            ]
+        }
+    ]
+}
+```
+- Token 删除所有绑定 Account
+```json
+{
+    "operator_type": 4,
+    "platform": "android",
+    "token_list": [
+        "token1",
+        "token2",
+        "token3"
+    ]
+}
+```
+- Account 删除所有绑定 Token
+```json
+{
+    "operator_type": 5,
+    "platform": "android",
+    "account_list": [
+        {
+            "account": "926@126.com"
+        },
+        {
+            "account": "1527000000"
+        }
+    ]
+}
+```
+
+
+
+#### 返回示例
+
+Token 追加设置 Account
+``` json
+{
+    "result": [
+        "ok",
+        "ok"
+    ],
+    "ret_code": 0,
+    "err_msg": "ok"
+}
+```
+

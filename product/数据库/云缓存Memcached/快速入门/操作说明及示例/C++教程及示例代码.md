@@ -1,10 +1,10 @@
 ## 1 环境及依赖
 
-下载libmemcached [[libmemcached-1.0.18.tar.gz](https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz)].
+下载libmemcached [[libmemcached-1.0.18.tar.gz](https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz)]。
 
-安装libmemcached客户端.
+安装libmemcached客户端。
 
-将libmemcached.so文件所在目录加入到变量LD_LIBRARY_PATH中, 不同系统路径可能不一样, 请查看自己的安装目录并替换.
+将libmemcached.so文件所在目录加入到变量LD_LIBRARY_PATH中, 不同系统路径可能不一样, 请查看自己的安装目录并替换。
 
 #安装
 

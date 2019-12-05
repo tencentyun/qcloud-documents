@@ -31,7 +31,7 @@ Authorization: Auth
 
 ### 返回头部
 
-无特殊返回头部，其他头部请参见公共返回头部
+无特殊返回头部，其他头部请参见公共返回头部。
 
 ### 返回内容
 
@@ -46,11 +46,11 @@ Authorization: Auth
 
 ```JSON
 {
-  "CreationDate" : String,
-  "LastInventoryDate" : String,
-  "NumberOfArchives" : Number,
-  "SizeInBytes" : Number,
-  "VaultQCS" : String,
-  "VaultName" : String
+	"CreationDate": "String",
+	"LastInventoryDate": "String",
+	"NumberOfArchives": "Number",
+	"SizeInBytes": "Number",
+	"VaultQCS": "String",
+	"VaultName": "String"
 }
 ```

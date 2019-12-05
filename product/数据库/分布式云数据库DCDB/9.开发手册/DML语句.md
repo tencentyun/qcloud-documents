@@ -1,8 +1,7 @@
 
-> 如果您期望阅读或下载全量开发文档，请参考[《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)。
+如果您期望阅读或下载全量开发文档，请参考[《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)。
 
-
-### DML语句语法（部分）
+### DML 语句语法（部分）
 
 **SELECT**：建议在条件中带上 shardkey 字段，否则 TDSQL 无法判断 SQL 应该路由至哪些节点，需要进行全表扫描，然后在网关聚合，容易影响执行效率：
 ```

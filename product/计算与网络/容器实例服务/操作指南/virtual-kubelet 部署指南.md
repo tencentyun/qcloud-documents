@@ -22,11 +22,11 @@
     Memory = "100Gi"  
     Pods = "50"  
 ```
-其中，Region 和 Zone 的格式分别为`Region = "地域"`、`Zone = "可用区"`，上述代码以广州可用区 4 为例。
+其中，Region 和 Zone 的格式分别为`Region = "地域"`、`Zone = "可用区"`，上述代码以广州可用区4为例。
 更多可用区信息，参考 [地域和可用区](https://cloud.tencent.com/document/product/858/17806)。
 
 2. virtual-kubelet 10250 端口认证 certfile 及 keyfile：server.crt 和 server.key。  
-该 10250 端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 Pod 容器日志时，kube-apiserver 会访问节点的 10250 端口，获取日志的相关信息。
+该 10250 端口主要用于 kubectl logs 功能，当我们使用 kubectl logs 获取 Pod 容器日志时，kube-apiserver 会访问节点的10250端口，获取日志的相关信息。
 在腾讯云 TKE 服务中，我们没有设置 10250 的端口认证，但是 kube-apiserver 需要以 HTTPS 方式访问节点的 10250 端口，否则 kube-apiserver 端将报错。因此，这里需要设置假的 server.key 和 server.crt 用于实现 kubectl logs 功能。
 
 3. virtual-kubelet 的部署文件：

@@ -1,6 +1,6 @@
 
 ## 接口描述
-  GetAuditServiceStatus 用于查询是否开通 CloudAudit。
+GetAuditServiceStatus 用于查询是否开通跟踪集。
 接口访问域名：`cloudaudit.api.qcloud.com`
 
 ## 请求参数
@@ -21,7 +21,7 @@
 
 ```
 {
-   "ownerUin": Number
+   "ownerUin": "Number"
 }
 ```
 ### 响应

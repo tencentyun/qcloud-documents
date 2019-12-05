@@ -6,13 +6,13 @@
 /**
   * 设置滤镜特效开始时间
    * @param type      滤镜特效类型 
-   * @param startTime 滤镜特效开始时间(ms)
+   * @param startTime 滤镜特效开始时间（ms）
    */
 public void startEffect(int type, long startTime);
 /**
   * 设置滤镜特效结束时间
   * @param type    滤镜特效类型
-  * @param endTime 滤镜特效结束时间(ms)
+  * @param endTime 滤镜特效结束时间（ms）
 */
 public void stopEffect(int type, long endTime);
 ```
@@ -40,7 +40,7 @@ public void deleteAllEffect();
 ```
 
 完整示例如下：
-在1-2s 之间应用第一种滤镜特效；在 3-4s 之间应用第 2 种滤镜特效；删除 3-4s 设置的滤镜特效
+在1 - 2s之间应用第一种滤镜特效；在3 - 4s之间应用第2种滤镜特效；删除3 - 4s设置的滤镜特效
 
 ```
 //在1-2s之间应用第一种滤镜特效
@@ -99,7 +99,7 @@ mTXVideoEditer.setSpeedList(list);
 
 ## 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
-注意：**setTXVideoReverseListener()**  老版本(SDK4.5以前)首次监听是否倒放完成在新版本无需调用即可生效。
+注意：**setTXVideoReverseListener()**  老版本(SDK 4.5以前)首次监听需要手动调用，新版本不需要调用即可生效。
 
 Demo示例：
 ```

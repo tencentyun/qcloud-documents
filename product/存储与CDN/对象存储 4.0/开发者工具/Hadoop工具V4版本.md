@@ -2,16 +2,16 @@
 Hadoop cosn 插件实现了以腾讯云 COS 作为底层存储文件系统运行上层计算任务的功能，使用 Hadoop 大数据处理引擎，如 MapReduce，Hive、Spark、Tez 等，可以处理存储在腾讯云对象存储 COS 上的数据。  
 
 ## 使用限制
-只适用于 COS V4 版本
+只适用于 COS V4 版本。
 
 ## 使用环境
 ### 系统环境
-Linux 或 Windows 系统
+Linux 或 Windows 系统。
 
 ### 软件依赖
-Hadoop-2.7.2 及以上版本
+Hadoop-2.7.2 及以上版本。
 #### 安装及配置
-具体 Hadoop 安装与配置 请参考 [Hadoop 安装与测试](/doc/product/436/10867)。
+具体 Hadoop 安装与配置请参见 [Hadoop 安装与测试](/doc/product/436/10867)。
 ## 使用方法
 ### 安装 Maven
 - **Linux ：**
@@ -19,8 +19,8 @@ Hadoop-2.7.2 及以上版本
 sudo apt-get install maven
 ```
 - **Windows：**
-下载链接：[Maven](http://maven.apache.org/download.html)
-安装与配置请参考：[Windows 环境下 Maven 安装与环境变量配置](http://www.cnblogs.com/liuhongfeng/p/5057827.html) 
+下载链接：[Maven](http://maven.apache.org/download.html)。
+安装与配置请参见：[Windows 环境下 Maven 安装与环境变量配置](http://www.cnblogs.com/liuhongfeng/p/5057827.html) 。
 
 ### 获取 cos-java-sdk
 下载地址：[cos-java-sdk](https://github.com/tencentyun/cos-java-sdk-hadoop-v4)
@@ -93,8 +93,7 @@ done
 </configuration>
 ```
 
-> <font color="#0000cc">**注意：** </font>
-配置文件中含有 COS 的几个属性：
+>!配置文件中含有 COS 的几个属性：
 - fs.cos.userinfo.appid 属性： 填写您使用的 腾讯云账户的 APPID。可通过 [控制台-账号信息](https://console.cloud.tencent.com/developer) 查看。
 - fs.cos.userinfo.secretId/secretKey 属性：填写您账户的API 密钥信息。可通过 [云 API 密钥 控制台](https://console.cloud.tencent.com/capi) 查看。
 - fs.cosn.impl 为 cosn 的实现类，固定为 org.apache.hadoop.fs.cosnative.NativeCosFileSystem。
@@ -116,8 +115,7 @@ drwxrwxrwx   - example example         0 1970-01-01 08:00 cosn://example/mr
 drwxrwxrwx   - example example          0 1970-01-01 08:00 cosn://example/xx1
 ```
 #### 运行 MapReduce 自带的 wordcount
-> <font color="#0000cc">**注意：** </font>
-以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以 2.7.2 版本为例，如版本不同，请修改成对应的版本号。
+>!以下命令中 hadoop-mapreduce-examples-2.7.2.jar 是以 2.7.2 版本为例，如版本不同，请修改成对应的版本号。
 
 ```
 bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.2.jar wordcount cosn://example/mr/input cosn://example/mr/output3
