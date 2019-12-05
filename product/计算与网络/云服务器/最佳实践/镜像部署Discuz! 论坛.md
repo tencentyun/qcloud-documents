@@ -18,10 +18,15 @@
 >! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
 >
 ![](https://main.qcloudimg.com/raw/3c558a8a9b03162bafe4700dce1591f5.png)
-3. 在弹出的【选择镜像】对话框中，选择【建站系统】>【Discuz X3.4 论坛系统】，单击【免费使用】。如下图所示：
-![](https://main.qcloudimg.com/raw/f9f7252f81bbb0e50b71fa89024c9ba3.png)
+3. 在“选择镜像”窗口的左侧搜索框中，输入 discuz 并单击<img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示： 
+>?
+>-  本文以下图所示 Discuz X3.4 论坛系统镜像为例，您可根据实际需求进行选择。
+>- 单击镜像名可查看镜像详情。
+>
+![](https://main.qcloudimg.com/raw/ab715d68d765b744d5b0678f1928921d.png)
 更多此镜像详细信息，请参考 [镜像手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
-4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 Discuz! 建站系统的购买。
+4. 单击【免费使用】。
+5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
 ### 步骤2：安装并启动 Discuz! 论坛
 1. 在实例的管理页面，找到运行中的云服务器实例，并复制该云服务器实例的**公网 IP**。例如，需启动实例的公网 IP 为193.112.145.136，则只需复制该实例的公网 IP 即可。如下图所示：
@@ -33,14 +38,31 @@
 4. 确认当前状态正常，单击 【下一步】，进入设置运行环境页面。如下图所示：
 ![安装3](//mc.qcloudimg.com/static/img/11a44bd86bfdfcd1fe3dcce6e8f200e6/image.png)
 5. 选择全新安装，单击【下一步】，进入创建数据库页面。如下图所示：
-![安装4改](//mc.qcloudimg.com/static/img/5d5184cfb34f98d791c243273b910065/image.png)
-6. 根据页面提示，填写信息，为 Discuz! 创建一个数据库。
->! 请使用镜像默认的 MySQL 帐号和密码（默认为 root/123456）连接数据库。并设置好系统信箱、管理员帐号、密码和 Email。
-> 请记住自己的管理员帐号和密码。
+![](https://main.qcloudimg.com/raw/43b8a3afc79afce574efa0a7249031b5.png)
+6. 根据页面提示，填写信息，为 Discuz! 设置管理员密码及邮箱。
+>!
+>- 数据库信息请使用镜像默认设置，更多关于数据库操作请前往 [数据库管理](#mysql)。 
+>- 请记录数据库信息及管理员信息。
 >
 7. 单击【下一步】，开始安装。
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】，即可访问论坛。如下图所示：
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
+
+
+## 相关操作
+### 获取数据库信息<span id="mysql"></span>
+本文使用的 Discuz! X3.4 镜像中，数据库账户及密码保存在云服务器的 `/credentials/password.txt` 文件中，您可登录云服务器后获取。
+
+### 数据库管理
+1. 获取数据库账户及密码后，您可在本地浏览器中访问以下地址，前往 phpMyAdmin 管理平台。
+```
+http://云服务器实例的公网 IP/phpMyAdmin
+```
+2. 输入已获取的数据库帐号及密码，单击【执行】。如下图所示：
+![](https://main.qcloudimg.com/raw/248441d6cdd8895f93670d1fdc3af42c.png)
+登录成功后，即可进行数据库管理。
+
+
 
 
 ## 常见问题
