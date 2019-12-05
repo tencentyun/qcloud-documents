@@ -60,8 +60,7 @@ getPresignedURLRequest.object = @"exampleobject";
 #### swift 示例：
 
 [//]: # (.cssg-snippet-swift-get-presign-download-url)
-```swift
-let getPresign  = QCloudGetPresignedURLRequest.init();
+```swiftlet getPresign  = QCloudGetPresignedURLRequest.init();
 getPresign.bucket = "examplebucket-1250000000" ;
 getPresign.httpMethod = "GET";
 getPresign.object = "exampleobject";
