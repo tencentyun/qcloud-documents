@@ -51,7 +51,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调： 
 - 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
 - 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
@@ -74,7 +74,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。待资源释放完毕，SDK 会通过 onExitRoom() 回调通知到您。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。待资源释放完毕，SDK 会通过 onExitRoom() 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到音频设备（例如 iOS 里的 AudioSession）被占用等各种异常问题。
 
 
@@ -94,7 +94,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 onSwitchRole() 事件回调。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 onSwitchRole() 事件回调。
 
 
 ### onConnectOtherRoom
@@ -114,7 +114,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 onConnectOtherRoom() 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 onUserVideoAvailable() 回调。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 connectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 onConnectOtherRoom() 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 onUserVideoAvailable() 回调。
 
 
 ### onDisconnectOtherRoom
@@ -454,7 +454,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 nil 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 
@@ -552,7 +552,7 @@ __介绍__
 
 __介绍__
 
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 startPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 startPublishCDNStream() 接口。
 
 >?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
 
@@ -567,12 +567,12 @@ __介绍__
 
 __介绍__
 
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 stopPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 stopPublishCDNStream() 接口。
 
 
 ### onSetMixTranscodingConfig
 
-设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259#trtccloud) 中的 setMixTranscodingConfig() 接口。
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32259) 中的 setMixTranscodingConfig() 接口。
 ```
 - (void)onSetMixTranscodingConfig:(int)err errMsg:(NSString *)errMsg 
 ```
