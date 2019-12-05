@@ -250,7 +250,7 @@
    </tr>
    <tr>
       <td>字幕</td>
-      <td>添加字幕，可以选择字幕边框背景的样式，例如气泡等等，支持设置在视频画面中显示位置和起始时间。</td>
+      <td>添加字幕，可以选择字幕边框背景的样式，例如气泡等，支持设置在视频画面中显示位置和起始时间。</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">&#10003;</td>
       <td style="text-align:center">&#10003;</td>
