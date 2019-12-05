@@ -74,7 +74,6 @@
 1. 登录 [腾讯云购买页](http://manage.qcloud.com/shoppingcart/shop.php?tab=cvm&_ga=1.87370846.770173325.1571651505)。
 2. 选择机型时，选择支持 IPv6 的地域、网络。
 3. 设置主机时，选择支持 IPv6 的安全组，并勾选【免费分配 IPv6 地址】。
-如果您所选的网络或安全组未支持 IPv6，请参考 [快速搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/37946) 创建满足需求的私有网络和安全组。
 4. 核对购买的云服务器信息，并完成支付。
 
 ### 步骤3：云服务器配置 IPv6 地址
