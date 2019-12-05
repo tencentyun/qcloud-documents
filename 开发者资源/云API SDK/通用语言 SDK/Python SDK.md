@@ -29,7 +29,7 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
  </tr>
   <tr>
     <td><a href="https://cloud.tencent.com/document/api/237/16144">云数据库 MariaDB</a></td>
-<td><a href="https://cloud.tencent.com/document/api/557/16124">分布式数据库 DCDB</a></td>
+<td><a href="https://cloud.tencent.com/document/api/557/16124">分布式数据库 TDSQL</a></td>
  <td><a href="https://cloud.tencent.com/document/api/238/19927">云数据库 SQL Server</a></td>
   <td><a href="https://cloud.tencent.com/document/api/409/16761">云数据库 PostgreSQL</a></td>
    <td><a href="https://cloud.tencent.com/document/api/228/30974">内容分发网络</a></td>
@@ -72,7 +72,7 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
   <tr>
   <td><a href="https://cloud.tencent.com/document/api/1004/30607">数学作业批改</a></td>
    <td><a href="https://cloud.tencent.com/document/api/1000/30698">数字版权管理</a></td>
-<td>-</td>
+   <td><a href="https://cloud.tencent.com/document/api/866/33515">文字识别</a></td>
 <td>-</td>
 <td>-</td>
    </tr>
