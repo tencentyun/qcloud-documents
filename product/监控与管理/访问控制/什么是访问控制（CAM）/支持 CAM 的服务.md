@@ -250,7 +250,7 @@
 | ------------------------------------------------------------  | ------ | -------- | ------- | ---- |	---- |	
 | [云开发](https://cloud.tencent.com/document/product/876)   |服务级  | &#10003; | -   | &#10003;  |	-   |
 | [ 腾讯移动推送](https://cloud.tencent.com/document/product/548)   |操作级  | &#10003; | -   |  -   |	-   |
-| [ 正版曲库直通车（版权音乐助手）](https://cloud.tencent.com/document/product/548)   |服务级  | &#10003; | -   |  -   |	-   |
+| [ 正版曲库直通车（版权音乐助手）](https://cloud.tencent.com/document/product/1155)   |服务级  | &#10003; | -   |  -   |	-   |
 
 ## 云通信	
 
