@@ -69,42 +69,40 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 >?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
 [//]: # (.cssg-snippet-global-init)
-```objective-c
-//AppDelegate.m
-//第一步：注册默认的cos服务
+```objective-c//AppDelegate.m
+//第一步：注册默认的 COS 服务
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
     configuration.appID = @"1250000000";
     configuration.signatureProvider = self;
     QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-    endpoint.regionName = @"ap-guangzhou";//服务地域名称，可用的地域请参考注释
+    endpoint.regionName = @"COS_REGION";//服务地域名称，可用的地域请参考注释
     configuration.endpoint = endpoint;
     [QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
     [QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
     return YES;
 }
 
-//第二步：实现QCloudSignatureProvider协议
-//实现签名的过程，我们推荐在服务器端实现签名的过程，具体请参考接下来的 “生成签名” 这一章。
+//第二步：实现 QCloudSignatureProvider 协议
+//实现签名的过程，我们推荐在服务器端实现签名的过程，详情请参考接下来的 “生成签名” 这一章。
 ```
 
 [//]: # (.cssg-snippet-global-init-fence-queue)
-```objective-c
-//AppDelegate.m
+```objective-c//AppDelegate.m
 
-// 这里定义一个成员变量 @property (nonatomic) QCloudCredentailFenceQueue* credentialFenceQueue;
+//这里定义一个成员变量 @property (nonatomic) QCloudCredentailFenceQueue* credentialFenceQueue;
 
 - (void) fenceQueue:(QCloudCredentailFenceQueue * )queue requestCreatorWithContinue:(QCloudCredentailFenceQueueContinue)continueBlock
 {
     QCloudCredential* credential = [QCloudCredential new];
-    //在这里可以同步过程从服务器获取临时签名需要的secretID,secretKey,expiretionDate和token参数
+    //在这里可以同步过程从服务器获取临时签名需要的 secretID，secretKey，expiretionDate 和 token 参数
     credential.secretID = @"COS_SECRETID";
     credential.secretKey = @"COS_SECRETKEY";
     /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
     credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"start-time"];
     credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expire-time"];
     credential.token = @"COS_TOKEN";
-    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc] 
+    QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc]
         initWithCredential:credential];
     continueBlock(creator, nil);
 }
@@ -192,39 +190,25 @@ API 变化有以下三点：
 使用 `QCloudCOSTransferMangerService`上传的示例代码：
 
 [//]: # (.cssg-snippet-transfer-upload-object)
-```objective-c
-QCloudServiceConfiguration* configuration = [QCloudServiceConfiguration new];
-configuration.appID = @"1250000000";
-// 签名提供者，这里假设由当前实例提供
-configuration.signatureProvider = self;
-QCloudCOSXMLEndPoint* endpoint = [[QCloudCOSXMLEndPoint alloc] init];
-endpoint.regionName = @"ap-guangzhou";
-endpoint.useHTTPS = YES;
-configuration.endpoint = endpoint;
-
-[QCloudCOSXMLService registerDefaultCOSXMLWithConfiguration:configuration];
-[QCloudCOSTransferMangerService registerDefaultCOSTransferMangerWithConfiguration:configuration];
-
-// 构建请求
-QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
+```objective-cQCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 put.object = @"exampleobject";
-put.bucket = @"example-1250000000";
+put.bucket = @"examplebucket-1250000000";
 put.body = [@"testFileContent" dataUsingEncoding:NSUTF8StringEncoding];
 //设置一些上传的参数
-put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * multipleUploadInitResult, 
+put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * multipleUploadInitResult,
     QCloudCOSXMLUploadObjectResumeData resumeData) {
-    //在初始化分块上传完成以后会回调该block，在这里可以获取 resumeData，
+    //在初始化分块上传完成以后会回调该 block，在这里可以获取 resumeData，
     //并且可以通过 resumeData 生成一个分块上传的请求
-    QCloudCOSXMLUploadObjectRequest* request = [QCloudCOSXMLUploadObjectRequest 
+    QCloudCOSXMLUploadObjectRequest* request = [QCloudCOSXMLUploadObjectRequest
         requestWithRequestData:resumeData];
 };
-[put setSendProcessBlock:^(int64_t bytesSent, int64_t totalBytesSent, 
+[put setSendProcessBlock:^(int64_t bytesSent, int64_t totalBytesSent,
     int64_t totalBytesExpectedToSend) {
-    NSLog(@"upload %lld totalSend %lld aim %lld", bytesSent, totalBytesSent, 
+    NSLog(@"upload %lld totalSend %lld aim %lld", bytesSent, totalBytesSent,
         totalBytesExpectedToSend);
 }];
-[put setFinishBlock:^(id outputObject, NSError* error) {
-    //可以从 outputObject 中获取 response 中 etag 或者自定义头部等信息
+[put setFinishBlock:^(QCloudUploadObjectResult *result, NSError* error) {
+    //可以从 result 获取结果
 }];
 
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];

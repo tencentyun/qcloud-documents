@@ -34,102 +34,51 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 #### 上传请求示例
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
-try
-{
-	//使用临时密钥初始化 CosXmlService
-	Context context = getApplicationContext(); // application context
-	String bucket = "examplebucket-1250000000"; //存储桶名称
-	String region = Region.AP_Guangzhou.getRegion();
-	String appid = "1250000000";
-	//初始化 config
-	CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-		.isHttps(true)  //设置 https 请求, 默认 http 请求
-		.setAppid(appid)
-		.setRegion(region)
-		.setDebuggable(true)
-		.builder();
-	//使用临时密钥初始化QCloudCredentialProvider
-	QCloudCredentialProvider  qCloudCredentialProvider = new BasicLifecycleCredentialProvider() {
-          @Override
-          protected QCloudLifecycleCredentials fetchNewCredentials() throws QCloudClientException {
-							string secretId = "COS_SECRETID"; //临时密钥 SecretId
-							string secretKey = "COS_SECRETKEY"; //临时密钥 SecretKey
-							String sessionToken = "TOKEN"; // 临时密钥 Token
-							long startTime = 1555054436;  //临时密钥有效起始时间戳
-							long expiredTime = 1555055036;//临时密钥有效截止时间戳
-              return new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime);
-          }
-      };
-	//初始化CosXmlService
-	CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
+try {
 
-	String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
-	String method = "PUT"; //请求 HTTP 方法.
-	PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
-	    @Override
+ String bucket = "examplebucket-1250000000"; //存储桶名称
+ String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
+ String method = "PUT"; //请求 HTTP 方法
+ PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
+     @Override
         public RequestBodySerializer getRequestBody() throws CosXmlClientException {
-            //用于计算 put 等需要带上  body 的请求的签名URL
-            return RequestBodySerializer.string("text/plain", "this is test"); 
+            //用于计算 put 等需要带上 body 的请求的签名 URL
+            return RequestBodySerializer.string("text/plain", "this is test");
          }
-    };	
-	presignedUrlRequest.setRequestMethod(method);
-	
-	String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
+    };
+ presignedUrlRequest.setRequestMethod(method);
 
-	//String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
+ String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
-	string srcPath = Environment.getExternalStorageDirectory().getPath() + "/exampleobject";
-	PutObjectRequest putObjectRequest = new PutObjectRequest(null, null, srcPath);
-	//设置上传请求预签名 URL
-	putObjectRequest.setRequestURL(urlWithSign);
-	//设置进度回调
-	putObjectRequest.setProgressListener(new CosXmlProgressListener() {
-	    @Override
-	    public void onProgress(long progress, long max) {
-	        // todo Do something to update progress...
-	    }
-	});
-	// 使用同步方法上传
-	PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+ //String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
+
+ String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString();
+ PutObjectRequest putObjectRequest = new PutObjectRequest("examplebucket-1250000000", "exampleobject", srcPath);
+ //设置上传请求预签名 URL
+ putObjectRequest.setRequestURL(urlWithSign);
+ //设置进度回调
+ putObjectRequest.setProgressListener(new CosXmlProgressListener() {
+     @Override
+     public void onProgress(long progress, long max) {
+         // todo Do something to update progress...
+     }
+ });
+ // 使用同步方法上传
+ PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
 } catch (CosXmlClientException e) {
-	e.printStackTrace();
+ e.printStackTrace();
 } catch (CosXmlServiceException e) {
-	e.printStackTrace();
+ e.printStackTrace();
 }
+
 ```
 
 #### 下载请求示例
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
-try
-{
-	//使用临时密钥初始化 CosXmlService
-	Context context = getApplicationContext(); // application context
-	String bucket = "examplebucket-1250000000"; //存储桶名称
-	String region = Region.AP_Guangzhou.getRegion();
-	String appid = "1250000000";
-	//初始化 config
-	CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
-					.isHttps(true)  //设置 https 请求, 默认http请求
-					.setRegion(region)
-					.setDebuggable(true)
-					.builder();
-	//使用临时密钥初始化QCloudCredentialProvider
-	QCloudCredentialProvider  qCloudCredentialProvider = new BasicLifecycleCredentialProvider() {
-	@Override
-	protected QCloudLifecycleCredentials fetchNewCredentials() throws QCloudClientException {
-			String secretId = "COS_SECRETID"; //临时密钥 SecretId
-			String secretKey = "COS_SECRETKEY"; //临时密钥 SecretKey
-			String sessionToken = "TOKEN"; // 临时密钥 Token
-			long startTime = 1555054436;  //临时密钥有效起始时间戳
-			long expiredTime = 1555055036;//临时密钥有效截止时间戳
-			return new SessionQCloudCredentials(secretId, secretKey, sessionToken, startTime, expiredTime);
-	}
-	};
-	//初始化CosXmlService
-    CosXmlService cosXmlService = new CosXmlService(context, serviceConfig, qCloudCredentialProvider);
-
-    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
+try {
+    String bucket = "examplebucket-1250000000"; //存储桶名称
+    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
     String method = "GET"; //请求 HTTP 方法.
     PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
     presignedUrlRequest.setRequestMethod(method);
@@ -138,24 +87,26 @@ try
 
     //String urlWithSign = cosXmlService.getPresignedURL(getObjectRequest)； //直接使用 GetObjectRequest
 
-    String savePath = Environment.getExternalStorageDirectory().getPath()；//本地路径
+    String savePath = context.getExternalCacheDir().toString(); //本地路径
     String saveFileName = "exampleobject"; //本地文件名
-    GetObjectRequest getObjectRequest = new GetObjectRequest(null, null, savePath, saveFileName);
+    GetObjectRequest getObjectRequest = new GetObjectRequest("examplebucket-1250000000", "exampleobject", savePath, saveFileName);
 
-    //设置上传请求预签名 URL
+    // 设置上传请求预签名 URL
     getObjectRequest.setRequestURL(urlWithSign);
-    //设置进度回调
+    // 设置进度回调
     getObjectRequest.setProgressListener(new CosXmlProgressListener() {
             @Override
             public void onProgress(long progress, long max) {
                     // todo Do something to update progress...
             }
     });
-    // 使用同步方法下载
+         // 使用同步方法下载
     GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
-    } catch (CosXmlClientException e) {
+
+} catch (CosXmlClientException e) {
     e.printStackTrace();
-    } catch (CosXmlServiceException e) {
+} catch (CosXmlServiceException e) {
     e.printStackTrace();
 }
+
 ```
