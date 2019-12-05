@@ -33,7 +33,7 @@
 ![](https://main.qcloudimg.com/raw/3f015e2decf3a89e0fa03a5bf32e13a4.png)
 2. 在本地浏览器中访问**公网 IP**，进入Discuz！安装页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/74cc99cb3aa75cb9f1d99b6d7feced72.png)
-3. 单击【我同意】，进入检查安装环境页面。如下图所示：
+单击【我同意】，进入检查安装环境页面。如下图所示：
 ![安装2](//mc.qcloudimg.com/static/img/c5a521673ed6f1a3528ba67ca5886ee4/image.png)
 4. 确认当前状态正常，单击 【下一步】，进入设置运行环境页面。如下图所示：
 ![安装3](//mc.qcloudimg.com/static/img/11a44bd86bfdfcd1fe3dcce6e8f200e6/image.png)
@@ -41,28 +41,12 @@
 ![](https://main.qcloudimg.com/raw/43b8a3afc79afce574efa0a7249031b5.png)
 6. 根据页面提示，填写信息，为 Discuz! 设置管理员密码及邮箱。
 >!
->- 数据库信息请使用镜像默认设置，更多关于数据库操作请前往 [相关操作](#database)。 
+>- 数据库信息请使用镜像默认设置，更多关于镜像详细信息请前往 [云市场](https://market.cloud.tencent.com/categories/1009) 查看。 
 >- 请记录数据库信息及管理员信息。
 >
 7. 单击【下一步】，开始安装。
 6. 安装完成后，单击【您的论坛已完成安装，点此访问】，即可访问论坛。如下图所示：
 ![安装5](//mc.qcloudimg.com/static/img/41dab1ec86120a565bdd790238f271da/image.png)
-
-
-## 相关操作<span id="database"></span>
-### 获取数据库信息
-本文使用的 Discuz! X3.4 镜像中，数据库用户名及密码保存在云服务器的 `/credentials/password.txt` 文件中，您可登录云服务器后获取。
-
-### 数据库管理
-1. 获取数据库账户及密码后，您可在本地浏览器中访问以下地址，前往 phpMyAdmin 管理平台。
-```
-http://云服务器实例的公网 IP/phpMyAdmin
-```
-2. 输入已获取的数据库用户名及密码，单击【执行】。如下图所示：
-![](https://main.qcloudimg.com/raw/248441d6cdd8895f93670d1fdc3af42c.png)
-登录成功后，即可进行数据库管理。
-
-
 
 
 ## 常见问题
