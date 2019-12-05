@@ -91,11 +91,12 @@ $install_path eth0
 - [CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6](#CentOS7.3)
 - [Debian 8.2 配置 IPv6](#Debian8.2)
 
+>?
+>- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月31日**后**购买的云服务器。
+>- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月31日**前**购买的云服务器。
 <span id="新购CentOS7.5/CentOS7.6"/>
 
 #### 新购 CentOS7.5 /新购 CentOS7.6 配置 IPv6
->?本操作方法适用于2019年06月31日后购买的 CentOS7.5 和 CentOS7.6。
->
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
 ![](https://main.qcloudimg.com/raw/4d50f2b254367a77eb09724bdbff76f8.png)
 2. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
