@@ -385,7 +385,7 @@ db.users.aggregate([{
 ]);
 
 ```
-相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见见下面代码）
+相对 MongoDB，而 TDSQL 在非 shard 表下可以运用 json 的字段做各种条件 join，当在单个 shard 表下 TDSQL 允许 Join 操作，但是不支持在多个 shard 表。（详细操作见下面代码）
 ```
 插入数据
 create table users(id int primary key auto_increment, value json);
