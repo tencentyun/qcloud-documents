@@ -37,12 +37,12 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 try {
 
  String bucket = "examplebucket-1250000000"; //存储桶名称
- String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
- String method = "PUT"; //请求 HTTP 方法
+ String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
+ String method = "PUT"; //请求 HTTP 方法.
  PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
      @Override
         public RequestBodySerializer getRequestBody() throws CosXmlClientException {
-            //用于计算 put 等需要带上 body 的请求的签名 URL
+            //用于计算 put 等需要带上  body 的请求的签名URL
             return RequestBodySerializer.string("text/plain", "this is test");
          }
     };
@@ -78,7 +78,7 @@ try {
 ```java
 try {
     String bucket = "examplebucket-1250000000"; //存储桶名称
-    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
+    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。如 cosPath = "text.txt";
     String method = "GET"; //请求 HTTP 方法.
     PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
     presignedUrlRequest.setRequestMethod(method);
@@ -91,9 +91,9 @@ try {
     String saveFileName = "exampleobject"; //本地文件名
     GetObjectRequest getObjectRequest = new GetObjectRequest("examplebucket-1250000000", "exampleobject", savePath, saveFileName);
 
-    // 设置上传请求预签名 URL
+    //设置上传请求预签名 URL
     getObjectRequest.setRequestURL(urlWithSign);
-    // 设置进度回调
+    //设置进度回调
     getObjectRequest.setProgressListener(new CosXmlProgressListener() {
             @Override
             public void onProgress(long progress, long max) {

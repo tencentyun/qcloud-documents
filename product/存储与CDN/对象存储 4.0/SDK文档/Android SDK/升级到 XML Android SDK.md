@@ -85,13 +85,13 @@ String region = "COS_REGION";
 
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
         .setRegion(region)
-     .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
+     .isHttps(true) // 使用 https 请求, 默认 http 请求
         .builder();
 
 /**
- * 获取授权服务的 URL 地址
+ * 获取授权服务的 url 地址
  */
-URL url = null; // 后台授权服务的 URL 地址
+URL url = null; // 后台授权服务的 url 地址
 try {
     url = new URL("your_auth_server_url");
 } catch (MalformedURLException e) {
@@ -100,7 +100,7 @@ try {
 }
 
 /**
- * 初始化 {@link QCloudCredentialProvider} 对象，来给 SDK 提供临时密钥
+ * 初始化 {@link QCloudCredentialProvider} 对象，来给 SDK 提供临时密钥。
  */
 QCloudCredentialProvider credentialProvider = new SessionCredentialProvider(new HttpRequest.Builder<String>()
         .url(url)
@@ -198,22 +198,22 @@ API 变化有以下三点：
 // 初始化 TransferConfig
 TransferConfig transferConfig = new TransferConfig.Builder().build();
 
-/*若有特殊要求，则可以如下进行初始化定制。例如限定当对象 >= 2M 时，启用分块上传，且分块上传的分块大小为1M，当源对象大于5M时启用分块复制，且分块复制的大小为5M。*/
+/*若有特殊要求，则可以如下进行初始化定制。如限定当对象 >= 2M 时，启用分片上传，且分片上传的分片大小为 1M, 当源对象大于 5M 时启用分片复制，且分片复制的大小为 5M。*/
 transferConfig = new TransferConfig.Builder()
-        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分块复制的最小对象大小
-        .setSliceSizeForCopy(5 * 1024 * 1024) // 分块复制时的分块大小
-        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分块上传的最小对象大小
-        .setSliceSizeForUpload(1024 * 1024) // 分块上传时的分块大小
+        .setDividsionForCopy(5 * 1024 * 1024) // 是否启用分片复制的最小对象大小
+        .setSliceSizeForCopy(5 * 1024 * 1024) //分片复制时的分片大小
+        .setDivisionForUpload(2 * 1024 * 1024) // 是否启用分片上传的最小对象大小
+        .setSliceSizeForUpload(1024 * 1024) //分片上传时的分片大小
         .build();
 
-// 初始化 TransferManager
+//初始化 TransferManager
 TransferManager transferManager = new TransferManager(cosXmlService, transferConfig);
 
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
-String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString(); //本地文件的绝对路径
-String uploadId = null; //若存在初始化分块上传的 UploadId，则赋值对应的 uploadId 值用于续传；否则，赋值 null
-// 上传对象
+String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString();//"本地文件的绝对路径";
+String uploadId = null; //若存在初始化分片上传的 UploadId，则赋值对应的uploadId值用于续传;否则，赋值null。
+//上传对象
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 
 /**
@@ -261,7 +261,7 @@ cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
  putObjectRequest.setRegion(region); //设置存储桶所在的地域
- putObjectRequest.setNeedMD5(true); //是否启用 Md5 校验
+ putObjectRequest.setNeedMD5(true); //是否启用Md5校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
 */
 
