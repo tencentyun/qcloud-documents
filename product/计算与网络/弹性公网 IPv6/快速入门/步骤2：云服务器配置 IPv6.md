@@ -63,7 +63,7 @@ chmod +x ./config_ipv6.sh
 install_dir=/usr/sbin
 install_path="$install_dir"/config-ipv6
 if [ ! -f "$install_path" ]; then
-    tool_url="http://cvm-utils.tencentyun.com/ipv6/rhel/configipv6"
+    tool_url="https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh"
     # download the tool
     if ! wget "$tool_url" -O "$install_path"; then
         echo "[Error] download tool failed, code $?"
