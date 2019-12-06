@@ -90,6 +90,7 @@ $install_path eth0
 >?
 >- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月31日**后**购买的云服务器。
 >- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月31日**前**购买的云服务器。
+
 <span id="新购CentOS7.5/CentOS7.6"/>
 
 #### 新购 CentOS7.5 /新购 CentOS7.6 配置 IPv6
