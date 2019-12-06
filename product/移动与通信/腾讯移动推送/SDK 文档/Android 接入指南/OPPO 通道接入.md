@@ -43,6 +43,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 
 1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
 2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
+
 ```java
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
