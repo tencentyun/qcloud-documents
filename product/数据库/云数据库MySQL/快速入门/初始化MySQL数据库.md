@@ -9,7 +9,6 @@
 2. 已购买云数据库 MySQL。
 如需购买云数据库 MySQL：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cdb" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn3">点此进入购买页面</a></div>
-</br>
 
 ## 操作步骤
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)，在左侧导航选择【实例列表】页签。
