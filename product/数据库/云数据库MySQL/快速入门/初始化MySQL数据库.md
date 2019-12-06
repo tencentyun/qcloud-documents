@@ -2,8 +2,9 @@
 
 ## 前提条件
 1. 已注册腾讯云账号并完成实名认证。
-如需注册腾讯云账号并完成实名认证：
+如需注册腾讯云账号：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn1">点此注册腾讯云账号</a></div>
+如需完成实名认证：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
 2. 已购买云数据库 MySQL。
 如需购买云数据库 MySQL：
