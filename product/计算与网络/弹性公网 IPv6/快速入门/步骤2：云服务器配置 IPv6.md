@@ -32,7 +32,7 @@ chmod +x ./enable_ipv6.sh
 # 示例1：./enable_ipv6.sh eth0
 # 示例2：./enable_ipv6.sh eth1
 ``` 
-3. （CoreOS 系统必选）重启云服务器，使上述配置生效。
+3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 #### 已开启 IPv6 的云服务器 <span id="open" />
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
@@ -53,7 +53,7 @@ chmod +x ./config_ipv6.sh
 # 示例1：./config_ipv6.sh eth0
 # 示例2：./config_ipv6.sh eth1
 ```
-3. （CoreOS 系统必选）重启云服务器，使上述配置生效。
+3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 对于需要自动化配置 IPv6 实例的需求，例如，大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
 > ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
