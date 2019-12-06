@@ -20,21 +20,6 @@
 
 COS XML Android SDK Android SDK 发布在 [Bintray](https://bintray.com) 的 maven 包管理平台，推荐您使用自动集成方式进行更新。
 
-在您的项目根目录下的 build.gradle 文件中添加 maven 仓库，代码如下：
-
-```
-allprojects {
-
-    repositories {
-        ...
-        // 添加如下 maven 仓库地址
-        maven {
-            url "https://dl.bintray.com/tencentqcloudterminal/maven"
-        }
-    }
-}
-```
-
 在应用的根目录下的 build.gradle 中添加依赖，代码如下：
 
 ```
