@@ -14,7 +14,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
-- enable_ipv6 工具仅适用于 VPC 类型实例。
+- enable_ipv6 工具仅适用于 VPC 网络环境下。
 - enable_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 - Suse 在执行完本工具后，还需要用户手动配置 IP、SSH 等配置，详情请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE)。
 - 本工具不支持 FreeBSD，请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE) 进行操作。
@@ -38,7 +38,7 @@ chmod +x ./enable_ipv6.sh
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
-- config_ipv6 工具仅适用于VPC类型实例。
+- config_ipv6 工具仅适用于 VPC 网络环境下。
 - config_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 - 本工具不支持 FreeBSD/Suse，请参见 [手动配置 IPV6](#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE.E5.BC.80.E5.90.AF-ipv6) 进行操作。
 - CoreOS 执行本脚本后要重启才生效。
