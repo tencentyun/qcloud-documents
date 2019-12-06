@@ -2,7 +2,7 @@
 
 ## TDSQL 使用 JSON 注意事项
 1. json 字段不可以作为 shardkey（分表键）；
-2. json 类型的聚合操作( 如 orderby，groupby )不支持混合类型排序，例如，不能将 string 类型和 int 类型做比较或排序。且排序只支持数值类型，string 等类型排序不支持。
+2. json 类型的聚合操作（如 orderby，groupby）不支持混合类型排序，例如，不能将 string 类型和 int 类型做比较或排序。且排序只支持数值类型，string 等类型排序不支持。
 
 ## TDSQL 与 MongoDB 的 JSON 能力对比
 ### 建表语法
@@ -109,7 +109,7 @@ where value->"$.qty"<50 ;
    { item: "paper" },<br>
    { item: "paper", instock: [ { warehouse: "A", qty: 60 }, { warehouse: "B", qty: 40 } ] }
 )<br>
-)<br><br>不携带 shardkey 报错，携带 shardkey 可以正确执行
+<br>不携带 shardkey 报错，携带 shardkey 可以正确执行
 </span><br>
     </td>
     <td>
