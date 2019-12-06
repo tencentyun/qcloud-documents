@@ -7,10 +7,13 @@ string getAccessUrl(CosXmlRequest cosXmlRequest);
 ```
 
 ## 获取请求预签名 URL 
+
 ```java
 String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException;
 ```
+
 #### 参数说明
+
 |参数名称|类型|描述|
 |-----|-----|----|
 |cosXmlRequest|CosXmlRequest|请求对象|
@@ -19,6 +22,7 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 |checkHeaderListForSign  |`Set<String>`|签名中需要验证的请求参数|
 
 #### PresignedUrlRequest 结构体说明
+
 通过 PresignedUrlRequest 对象获取对应预签名请求 URL，用于发送请求。
 
 |参数名称|类型|描述|
@@ -32,6 +36,7 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 ## 预签名请求示例
 
 #### 上传请求示例
+
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
 try {
@@ -74,6 +79,7 @@ try {
 ```
 
 #### 下载请求示例
+
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
 try {
