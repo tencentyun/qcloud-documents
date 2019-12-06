@@ -356,7 +356,7 @@ ip -6 route add default dev eth0
 2. 在“以太网状态”弹窗中，单击【属性】。
 3. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-4. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工输入步骤3中弹性网卡获取到的 IPv6 地址并设置 DNS，单击【确定】。
+4. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工输入云服务器获取到的 IPv6 地址并设置 DNS，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
 5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 Ping 和远程桌面测试 IPv6 连通性。
 ```
