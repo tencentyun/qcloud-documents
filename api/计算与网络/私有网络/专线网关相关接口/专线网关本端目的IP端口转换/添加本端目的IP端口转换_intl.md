@@ -29,7 +29,7 @@ The following request parameter list only provides API request parameters. Commo
 | data | Array | Returned information |
 
  ## 4. Error Code List
-  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
+  The following error code list only provides the business logic error codes for this API. For additional common error codes, refer to <a href="https://intl.cloud.tencent.com/doc/api/245/4924" title="VPC Error Codes">VPC Error Codes</a>.
  
 | Error Code | Description |
 |---------|---------|
@@ -38,13 +38,13 @@ The following request parameter list only provides API request parameters. Commo
 | InvalidOriginalIP.NotInVpcCidr | Invalid original IP. The original IP is not in the VPC network segment. |
 | InvalidTranslationIP.InVpcCidr | Invalid translated IP. The translated IP is in the VPC network segment. |
 | InvalidTranslationIP.Duplicate | Invalid translated IP. Duplication of translated IP. The translated IP has already existed in the local IP Direct Connect rules of the gateway. Duplication of translated IP is not allowed. |
-| LocalDestinationIPPortTranslationLimitExceeded | The local destination IP port translation rules you added have reached the upper limit. Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://cloud.tencent.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>. |
+| LocalDestinationIPPortTranslationLimitExceeded | The local destination IP port translation rules you added have reached the upper limit. Please contact customer service for more resources. For more information on VPC resource restrictions, refer to <a href="https://intl.cloud.tencent.com/doc/product/215/537" title="VPC Usage Restrictions">VPC Usage Restrictions</a>. |
 
 ## 5. Example
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=CreateLocalDestinationIPPortTranslationNatRule
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://intl.cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &vpcId=vpc-csnmo39l
 &directConnectGatewayId=dcg-mm01ughx
 &localDestinationIPPortTranslation.0.originalIP=10.100.10.3
