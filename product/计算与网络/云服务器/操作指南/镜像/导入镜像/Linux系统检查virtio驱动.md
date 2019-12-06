@@ -149,7 +149,7 @@ make install
 find /lib/modules/"$(uname -r)"/ -name "virtio.*" | grep -E "virtio.*"
 grep -E "virtio.*" < /lib/modules/"$(uname -r)"/modules.builtin
 ```
-任一命令的返回结果输出 `virtio_blk`、`virtio_pci.virtio_console` 等文件列表，即表明您已经正确安装了 Virtio 驱动。
+如果任一命令的返回结果输出 `virtio_blk`、`virtio_pci.virtio_console` 等文件列表，即表明您已经正确安装了 Virtio 驱动。
 
 
 
