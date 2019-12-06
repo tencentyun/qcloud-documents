@@ -74,9 +74,9 @@
 | ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	---- |	
 | [全球应用加速](https://cloud.tencent.com/document/product/608)  | 资源级 | &#10003;  |  -   |  -  |-  |
 | [全站加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | &#10003;  |  - | -  |-  |
-| [内容分发网络](https://cloud.tencent.com/document/product/228)| 操作级<sup>1</sup> | &#10003;   |  -   | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/228/12722)  |
+| [内容分发网络](https://cloud.tencent.com/document/product/228)| 资源级 | &#10003;   |  -   | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/228/12722)  |
+| [海外加速](https://cloud.tencent.com/document/product/673)| 资源级 | &#10003;   |  -   |  -  | - |
 
-> ?<sup>1</sup> 内容分发网络暂不支持通过策略语法进行权限管理，支持使用项目进行权限管理，单击 [权限说明](https://cloud.tencent.com/document/product/228/12722) 了解更多。
 
 ## 中间件	
 
@@ -310,7 +310,7 @@
 
  | 服务                                                           | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | --------------------------------------------------- | ------ | -------- | --------- |  ---- |	 ---- |
-| [ CODING DevOps](https://cloud.tencent.com/product/coding)   | 服务级 | &#10003;   | -   | &#10003;   |-    |
+| [ CODING DevOps](https://cloud.tencent.com/product/coding)  <sup>1</sup> | 服务级 | &#10003;   | -   | &#10003;   |-    |
 > ?<sup>1</sup> CODING DevOps 中 [代码托管](https://cloud.tencent.com/document/product/1112)、[项目管理](https://cloud.tencent.com/document/product/1113)、[测试管理](https://cloud.tencent.com/document/product/1114)、[持续集成](https://cloud.tencent.com/document/product/1115)、[制品库](https://cloud.tencent.com/document/product/1116) 、[持续部署](https://cloud.tencent.com/document/product/1159) 均已支持使用 CAM。
 
 
