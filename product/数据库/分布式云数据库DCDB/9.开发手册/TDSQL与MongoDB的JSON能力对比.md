@@ -140,7 +140,7 @@ where value->"$.item"="paper" limit 1
     </td>
     <td>
      <span style="font-size:14px;">db.inventory.deleteMany({ status : "A" })
-)</span><br>
+</span><br>
     </td>
     <td>
      <span style="font-size:14px;">delete from inventory where value->"$.status"="A";
