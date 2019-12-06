@@ -306,13 +306,21 @@
 | [商业直播](https://cloud.tencent.com/document/product/1078)  | 操作级 | &#10003;   | -  |  - | - |
 | [企业微信云](https://cloud.tencent.com/document/product/1119)  | 资源级 | &#10003;   | -  |  - |[访问管理指南](https://cloud.tencent.com/document/product/1119/38419) |
 
+## 开发者工具
+
+ | 服务                                                           | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
+| --------------------------------------------------- | ------ | -------- | --------- |  ---- |	 ---- |
+| [ CODING DevOps](https://cloud.tencent.com/product/coding)   | 服务级 | &#10003;   | -   | &#10003;   |-    |
+> ?<sup>1</sup> CODING DevOps 中 [代码托管](https://cloud.tencent.com/document/product/1112)、[项目管理](https://cloud.tencent.com/document/product/1113)、[测试管理](https://cloud.tencent.com/document/product/1114)、[持续集成](https://cloud.tencent.com/document/product/1115)、[制品库](https://cloud.tencent.com/document/product/1116) 、[持续部署](https://cloud.tencent.com/document/product/1159) 均已支持使用 CAM。
+
+
 ## 管理与支持
 
  | 服务                                                           | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | --------------------------------------------------- | ------ | -------- | --------- |  ---- |	 ---- |
 | [渠道合作伙伴](https://cloud.tencent.com/document/product/563)| 操作级  | &#10003;  | -    |-    |[访问管理指南](https://cloud.tencent.com/document/product/563/31828)   |	
 | [开发者实验室](https://cloud.tencent.com/document/product/658/13897)   | -  | -   | -   | &#10003;   |	-    |	
-| [ CODING DevOps](https://cloud.tencent.com/product/coding)   | -  | -   | -   | &#10003;   |-    |	
+
 
 ## 第三方服务	
 
