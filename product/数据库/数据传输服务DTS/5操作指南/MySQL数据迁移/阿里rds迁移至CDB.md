@@ -19,7 +19,7 @@
 	
 ### 2. 创建腾讯云云数据库的 DTS 任务
 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页面，单击【新建任务】，跳转页面后，填写任务设置、源库设置和目标库设置。
-![](https://mc.qcloudimg.com/static/img/2ad6200dc53556f2c03f45e7a1af8320/image.png)
+
 
 #### 2.1 任务设置
 - 任务名称：为任务指定名称。

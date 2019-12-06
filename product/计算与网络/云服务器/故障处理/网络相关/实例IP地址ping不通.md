@@ -83,7 +83,13 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination  
 ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
 ```
-- 若返回结果 ICMP 对应规则被禁止，请启用该规则。
+- 若返回结果 ICMP 对应规则被禁止，请执行以下命令，启用对应规则。
+```
+#Chain INPUT
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+#Chain OUTPUT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+```
 
 <span id="CheckWindows"></span>
 #### 检查 Windows 防火墙设置
@@ -117,7 +123,7 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 ![](https://main.qcloudimg.com/raw/c350c1587af72d8a3529bcd7a98da856.png)
 
 <span id="OtherOperations"></span>
-### 其它操作
+### 其他操作
 
 若上述步骤无法解决问题，请参考：
 - 域名 ping 不通，请检查您的网站配置。

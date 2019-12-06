@@ -3,13 +3,13 @@
 ### Step 1. Sign up and log in
 You need to sign up for a Tencent Cloud account if you don't have one. For more information on sign-up, please see [Sign up for Tencent Cloud](https://cloud.tencent.com/document/product/378/9603).
 
-Log in to the Tencent Cloud VOD [Console](https://console.cloud.tencent.com/video). If this is your first login, you need to complete the identity verification and apply for activating the VOD service first.
+Log in to the Tencent Cloud VOD [Console](https://console.cloud.tencent.com/vod). If this is your first login, you need to complete the identity verification and apply for activating the VOD service first.
 If your account has not gone through identity verification, go to [Account Center](https://console.cloud.tencent.com/developer) for identity verification. For more information, please see [Identity Verification Guide](https://cloud.tencent.com/document/product/378/3629).
 
 ### Step 2. Activate VOD service
 Tencent Cloud Video on Demand (VOD) supports two billing methods: daily settlement (Postpaid) and package (Prepaid). For the purchase guide, please see [Price Overview](https://cloud.tencent.com/document/product/266/2838).
 
-If you have completed identity verification, you can go directly to the VOD [Console](https://console.cloud.tencent.com/video) to proceed to the next step.
+If you have completed identity verification, you can go directly to the VOD [Console](https://console.cloud.tencent.com/vod) to proceed to the next step.
 ![](https://mc.qcloudimg.com/static/img/dba813de6119f0825762b2d9abed41e6/image.png)
 
 ### Step 3. Activate Cloud Object Storage (COS)

@@ -28,7 +28,7 @@
 | 参数名       | 必选     | 类型           | 说明                               |
 | ------------- | ----------- | ------------- | ---------------------------------  |
 | appid         | 是         | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看.                 |
-| image         | 否   | Binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 HTTP Body 中会返回用户设置的 filename 值。 |
+| image         | 否   | Binary | 图片文件，支持多个。参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 HTTP body 中会按照该字符串的字典序排列。每张图片需指定 filename，filename 的值为可为空，响应 HTTP Body 中会返回用户设置的 filename 值。 |
 | url_list	    | 否  |	String 数组	    | 图片 url 列表，和 image 同时赋值时，则以 url 指定的图像作为输入。|
 
 ## 输出参数

@@ -428,7 +428,7 @@ function stopRecordVideo(){
 
 Videos recorded through audio/video communication SDK are stored in VOD service
 
-(1) Log in to VOD console (http://console.cloud.tencent.com/video) to manage recorded files
+(1) Log in to VOD console (http://console.cloud.tencent.com/vod) to manage recorded files
 (2) Users can also manage files using VOD API. Here is how to use API:
 https://cloud.tencent.com/doc/api/257/API%E6%A6%82%E8%A7%88
 (3) DescribeVodPlayInfo can obtain the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".

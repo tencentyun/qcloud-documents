@@ -1,13 +1,13 @@
 
-接口请求域名：aai.cloud.tencent.com/tts  
+接口请求域名：tts.cloud.tencent.com/stream  
 
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
 ## 开发环境
 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
-此版本 SDK 适用于 PHP5.4.16 及以上版本。
+此版本 SDK 适用于 PHP5.4.16 及以上版本。  
 **下载 SDK**
-流式语音合成 PHP SDK [下载地址](https://main.qcloudimg.com/raw/b526f7fee9af49c2d8c251d494c232f0/php_stream_tts_sdk_v1.0.tar.gz )。
+流式语音合成 PHP SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/php_stream_tts_sdk.tar.gz )。
 
 **安装 SDK**
 源码安装。
@@ -39,7 +39,7 @@ static $APPID = 1255*********;
 | Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改。 |
 | AppId  |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
 | SecretId | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
-| Text | 是 | String | 合成语音的源文本，最大支持800字符。|
+| Text | 是 | String | 合成语音的源文本。中文最大支持600个汉字（全角标点符号算一个汉字）；英文最大支持1800个字母（半角标点符号算一个字母）。包含空格等字符时需要 URL encode 再传输。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|

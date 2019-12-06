@@ -6,7 +6,7 @@
 ![](https://main.qcloudimg.com/raw/345bae7a0a1f5139c525e4d303b9f745.jpg)
 
 ### step1. 下载 App 源码
-单击 [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP) 可以下载到小视频 App 的源代码。
+单击 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81) 可以下载到小视频 App 的源代码。
 
 ### step2. 申请 SDK 用的 License
 请参考 [申请License](https://cloud.tencent.com/document/product/584/20333)
@@ -42,7 +42,7 @@
 
 ### step1. 开通点播服务（VOD）
 
-单击 [点播控制台](https://console.cloud.tencent.com/video) 开通点播服务，点播服务可以为小视频提供视频存储和在线播放的能力。
+单击 [点播控制台](https://console.cloud.tencent.com/vod) 开通点播服务，点播服务可以为小视频提供视频存储和在线播放的能力。
 在腾讯云点播控制台，【视频处理设置】下【回调配置】中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要 10 分钟左右能生效。
 ![](https://main.qcloudimg.com/raw/2790946cfc7cae82339385f5345fe3f5.png)
 
@@ -52,8 +52,7 @@
 
 - 2.1 登录 [腾讯云控制台](https://console.cloud.tencent.com/)。
 
-- 2.2 单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面，如下图所示：
-![](https://mccdn.qcloud.com/img568f5fb824757.png)
+- 2.2 单击【云产品】，选择【监控与管理】栏下的【云 API 密钥】，进入云 API 密钥管理页面。
 
 - 2.3 获取云 API 密钥，如下图所示。如果您尚未创建密钥，则单击【新建】即可创建一对 SecretId/SecretKey。
 ![](https://mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)

@@ -1,15 +1,15 @@
 ## 功能描述
 COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。生命周期配置包含一个或多个将应用于一组对象规则的规则集 (其中每个规则为 COS 定义一个操作)。
 这些操作分为以下两种：
-- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问) 存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内地域）。具体参数查看请求示例说明中 Transition 项。
+- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问）存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内地域）。具体参数查看请求示例说明中 Transition 项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
-### 细节分析
+#### 细节分析
 
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
 ## 请求
-### 请求示例
+#### 请求示例
 
 ```shell
 PUT /?lifecycle HTTP/1.1
@@ -19,12 +19,13 @@ Date: GMT Date
 Authorization: Auth String 
 Content-MD5: MD5
 ```
->Authorization： Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
 
-### 请求头
+>?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
+
+#### 请求头
 
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -36,7 +37,7 @@ Content-MD5: MD5
 | Content-MD5       | RFC 1864 中定义的经过 **Base64** 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。| String | 是    |
 
 
-### 请求体
+#### 请求体
 该 API 接口请求的请求体具体节点内容为：
 
 ```shell
@@ -111,29 +112,29 @@ Content-MD5: MD5
 
 
 ## 响应
-### 响应头
+#### 响应头
 
 #### 公共响应头 
-该响应使用公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
-### 响应体
+#### 响应体
 该响应体返回为空。
 
-### 错误码
-以下描述此请求可能会发生的一些特殊的且常见的错误情况。具体的错误原因可参考返回的 message 进行排查。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+#### 错误码
+以下描述此请求可能会发生的一些特殊的且常见的错误情况。具体的错误原因可参考返回的 message 进行排查。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 |错误码|HTTP 状态码|描述|
 |--------|--------|----------|
 |NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
 |MalformedXML|400 Bad Request| XML 格式不合法，请跟 restful api 文档仔细比对 |
-|InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示xml数据中的多条 rule 有相互冲突的部分。|
+|InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示 xml 数据中的多条 rule 有相互冲突的部分。|
 |InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同。|
 
 ## 实际案例
 
-### 请求
+#### 请求
 ```shell
 PUT /?lifecycle HTTP/1.1
 Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
@@ -168,7 +169,7 @@ Content-Type: application/x-www-form-urlencoded
 </LifecycleConfiguration>
 ```
 
-### 响应
+#### 响应
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml

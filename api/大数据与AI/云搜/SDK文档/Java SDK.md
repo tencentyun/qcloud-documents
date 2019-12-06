@@ -1,10 +1,10 @@
-qcloudapi-sdk-java是为了让Java开发者能够在自己的代码里更快捷方便的使用腾讯云的API而开发的SDK工具包。
+qcloudapi-sdk-java 是为了让 Java 开发者能够在自己的代码里更快捷方便的使用腾讯云的 API 而开发的 SDK 工具包。
 
 ### 快速入门
 1. 申请安全凭证
-在第一次使用云 API 之前，首先需要在腾讯云网站上申请安全凭证，安全凭证包括 SecretId 和 SecretKey, SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
+在第一次使用云 API 之前，首先需要在腾讯云网站上申请安全凭证，安全凭证包括 SecretId 和 SecretKey，SecretId 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥。SecretKey 必须严格保管，避免泄露。
 2. 使用 SDK
-下载 SDK，放入到程序目录，使用方法请参考下面的例子。
+[下载 SDK](https://github.com/QcloudApi/qcloudapi-sdk-java)，放入到程序目录，使用方法请参考下面的例子。
 
 ```
 import java.util.TreeMap;

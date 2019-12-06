@@ -25,8 +25,8 @@ Authorization: Auth String
 ```
 
 > ?
-> - Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - Host: 查询全部存储桶列表指定为 `service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为 `cos.<Region>.myqcloud.com`。
+> - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - Host: 查询全部存储桶列表指定为`service.cos.myqcloud.com`，查询特定地域下的存储桶列表指定为`cos.<Region>.myqcloud.com`。
 
 #### 请求参数
 
@@ -34,7 +34,7 @@ Authorization: Auth String
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 
@@ -44,7 +44,7 @@ Authorization: Auth String
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -88,7 +88,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                       | 描述                                                         | 类型   |
 | ------------------ | ---------------------------- | ------------------------------------------------------------ | ------ |
-| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为 `qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`，如 `qcs::cam::uin/100000000001:uin/100000000001` | string |
+| ID                 | ListAllMyBucketsResult.Owner | 存储桶持有者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string |
 | DisplayName        | ListAllMyBucketsResult.Owner | 存储桶持有者的名字                                           | string |
 
 **Container 节点 Buckets 的内容：**
@@ -101,13 +101,13 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                                | 描述                                                         | 类型   |
 | ------------------ | ------------------------------------- | ------------------------------------------------------------ | ------ |
-| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为 `<BucketName-APPID>`，如 `examplebucket-1250000000` | string |
-| Location           | ListAllMyBucketsResult.Buckets.Bucket | 存储桶所在地域。枚举值请参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum   |
-| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，如2019-05-24T10:56:40Z    | date   |
+| Name               | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的名称，格式为`<BucketName-APPID>`<br>例如 `examplebucket-1250000000` | string |
+| Location           | ListAllMyBucketsResult.Buckets.Bucket | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档<br>例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum   |
+| CreationDate       | ListAllMyBucketsResult.Buckets.Bucket | 存储桶的创建时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z    | date   |
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

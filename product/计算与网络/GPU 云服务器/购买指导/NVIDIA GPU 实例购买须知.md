@@ -17,12 +17,10 @@
 2. 网络：选择现有私有网络或创建新私有网络。
 
 3. 地域和可用区：目前 GPU GN10型云服务器仅支持 **广州三区** 。
+   ![](https://main.qcloudimg.com/raw/8f193b96b6303275b7b1f37a0c739218.png)
 
-   ![地狱和可用区](https://main.qcloudimg.com/raw/512c557f7507de2c3f03e6808008a879.png)
-
-4. 机型和配置：机型选择**【GPU计算型GN10】**，提供四种配置任用户选择。
-
-   ![机型和配置](https://main.qcloudimg.com/raw/de38f55d04ce5b52edb9adc6d78d6487.png)
+4. 机型和配置：机型选择**【GPU 计算型 GN10】**，提供四种配置任用户选择。
+![](https://main.qcloudimg.com/raw/a3c1ce240d22be89b3e2cde384f23292.png)
 
 设置完成后单击**【下一步：选择镜像】**。
 
@@ -33,9 +31,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 
 ![公共镜像](https://main.qcloudimg.com/raw/994bb130e221d59cea1a19911f2d5cf3.png)
 
-> **注意：**
-> **GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。**
-> 
+>!**GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 
 > - 如果您选择公有镜像安装，GPU 实例创建成功后，需要安装 GPU 驱动才可正常使用，相关驱动安装可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048)。
 > - 如果您选择镜像市场安装，可以选择预装了 GPU 驱动的镜像，可参考 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
 
@@ -51,14 +47,14 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
   1. 按带宽计费：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。
   2. 按使用流量计费：按实际使用流量收费。可限制峰值带宽，当瞬时带宽超过限制值时将丢包（适合网络波动较大的场景）。
 - 设置完成后单击**【下一步：设置安全组和主机】**。
-  ![选择存储和带宽](https://main.qcloudimg.com/raw/7fffb837df23610b891ce722eac80474.png)
+![](https://main.qcloudimg.com/raw/daed7088cecb6c2cfd78d3ebf934520a.png)
 
 ### 5. 设置安全组和主机
 
 在这个步骤需要：
 - 选择或配置安全组，控制端口的开放范围。
 - 设置登录密码。
-![设置安全组和主机](https://main.qcloudimg.com/raw/4857685271180e721f9c50aad970cb27.png)
+![](https://main.qcloudimg.com/raw/a42deddccc4c39cdf62831d62dfcdce5.png)
 
 设置完成后单击**【下一步：确认配置信息】**。
 
@@ -67,8 +63,7 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 在这个步骤需要：
 - 确认实例规格，镜像选择，存储和带宽选择以及安全组等配置项是否符合预期。
 - 选择购买数量和购买时长。
-
-![确认配置信息](https://main.qcloudimg.com/raw/78399979f79e35fed7b1b49cccbe1419.png)
+![](https://main.qcloudimg.com/raw/a3d50b84f14763166bbc835de169dec8.png)
 
 设置完成后单击**【立即购买】**。
 

@@ -58,7 +58,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 >?
 - 开通路由只影响接入时的验证方式，设置的 ACL 权限则是全局的。
-- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，则需要通过 API 为实例添加`ANONYMOUS`用户，并为 PLAINTEXT 需要访问的 Topic 添加`ANONYMOUS`用户的可读写的权限。
+- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，请为 PLAINTEXT 需要访问的 Topic 添加全部用户的可读写的权限。
 
 ###  连通性测试
 ####  Kafka 自带工具脚本

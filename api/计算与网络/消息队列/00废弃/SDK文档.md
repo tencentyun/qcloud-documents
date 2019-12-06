@@ -31,7 +31,7 @@ endpoint 是使用 CMQ 服务的访问地址，同时 endpoint 中也包含了�
 内网接口请求域名：http: //cmq-queue-{$region}.api.tencentyun.com
 
 #### region 说明
-{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+{$region}需用具体地域替换：gz（广州），sh（上海），bj（北京），shjr（上海金融），szjr（深圳金融），hk（中国香港），cd（成都），ca(北美)，usw（美西），sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 #### 内外网区别
 如果业务进程也部署在腾讯云的 CVM 子机上，强烈建议使用同地域的内网 endpoint，原因如下：

@@ -13,7 +13,7 @@
 | `TXUGCPartsManager.h`   | 视频片段管理类，用于视频的多段录制，回删等 |
 
 ## 使用说明
-视频录制的的基本使用流程如下：
+视频录制的基本使用流程如下：
 1. 配置录制参数；
 2. 启动画面预览；
 3. 设置录制效果；
@@ -228,7 +228,7 @@ recorder.videoProcessDelegate = delegate;
 ```objc
 // 设置全局水印
 // normalizationFrame : 水印相对于视频图像的归一化值，sdk内部会根据水印宽高比自动计算height
-// 比如视频图像大小为（540，960）  frame设置为（0.1，0.1，0.1, 0）
+// 例如视频图像大小为（540，960）  frame设置为（0.1，0.1，0.1, 0）
 // 水印的实际像素坐标为
 // (540*0.1, 960*0.1, 540*0.1, 540*0.1*waterMarkImage.size.height / waterMarkImage.size.width）
 [recorder setWaterMark:waterMarkImage normalizationFrame:frame)

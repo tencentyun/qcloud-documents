@@ -24,10 +24,9 @@
 ./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
 
-4. 新消费者持续消费 CKafka 集群中的数据，迁移完毕（如果消费者为云主机，此处也可以继续使用原有消费者进行消费）。
+4. 新消费者持续消费 CKafka 集群中的数据，迁移完毕（如果消费者为云服务器，此处也可以继续使用原有消费者进行消费）。
 
->**注意：**
->上文给出的是测试命令，正式业务的运行只需要修改相应应用程序配置的 broker 地址，然后重启相应的应用即可。
+>!上文给出的是测试命令，正式业务的运行只需要修改相应应用程序配置的 broker 地址，然后重启相应的应用即可。
 
 ## 不保证数据有序，迁移数据到 CKafka
 
@@ -54,5 +53,4 @@
 ./kafka-console-consumer.sh --bootstrap-server xxx.xxx.xxx.xxx:9092 --from-beginning --new-consumer --topic topicName --consumer.config ../config/consumer.properties
 ```
 
->**注意：**
->上文给出的是测试命令，正式业务的运行只需要修改相应应用程序配置的 broker 地址，然后重启相应的应用即可。
+>!上文给出的是测试命令，正式业务的运行只需要修改相应应用程序配置的 broker 地址，然后重启相应的应用即可。

@@ -20,7 +20,7 @@ Since MP4 and HLS (m3u8) formats are widely supported for both PC and mobile bro
 ### Step 1: Activate the service
 Sign up for a Tencent Cloud account at [Tencent Cloud official website](https://cloud.tencent.com/), and activate the **VOD** service.
 ### Step 2: Upload files
-After VOD service is activated, go to [VOD Management](https://console.cloud.tencent.com/video/videolist) to upload new video files. The activated VOD service is required for this step.
+After VOD service is activated, go to [VOD Management](https://console.cloud.tencent.com/vod/videolist) to upload new video files. The activated VOD service is required for this step.
 ### Step 3: Obtain fileID and appID
 After the video is uploaded and transcoded, you can find the fileID (the most basic information for the player to play videos) in the Video Management page. The appID can be found in the Video Management page. In the figure below, the ID on the left is the video fileID, while the other one is the appID.
 ![](//mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)

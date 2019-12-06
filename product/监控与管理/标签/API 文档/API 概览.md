@@ -1,7 +1,6 @@
 ## 写接口
-
 | 接口名称 | 接口功能 | 
-|---------|---------|
+|---------|----------|
 | [CreateTag](https://cloud.tencent.com/document/product/651/13563) | 创建标签 | 
 | [DeleteTag](https://cloud.tencent.com/document/product/651/13568) | 删除标签 | 
 | [UpdateResourceTagValue](https://cloud.tencent.com/document/product/651/13564) | 修改标签资源值 | 
@@ -12,7 +11,7 @@
 
 ## 读接口
 | 接口名称 | 接口功能 | 
-|---------|---------|
+|---------|----------|
 | [GetTagValues](https://cloud.tencent.com/document/product/651/13584) | 查询标签值  | 
 | [GetTags](https://cloud.tencent.com/document/product/651/13585) | 查询标签列表 | 
 | [GetTagKeys](https://cloud.tencent.com/document/product/651/13586)  | 查询标签键 | 

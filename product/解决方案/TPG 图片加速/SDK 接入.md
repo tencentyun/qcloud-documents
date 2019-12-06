@@ -91,7 +91,7 @@ public static final int IMAGE_MODE_Animation = 3;
 public static final int IMAGE_MODE_AnimationWithAlpha = 4;
 ```
 
-2. 如果图片为动图 `IMAGE_MODE_Animation` 或`IMAGE_MODE_AnimationWithAlpha`，参考 TPGDemo 里 TPGDecoder.java 中的`decodeOneFrame2 ()`函数的实现：
+2. 如果图片为动图 `IMAGE_MODE_Animation` 或`IMAGE_MODE_AnimationWithAlpha`，参考 TPGDemo 里 TPGDecoder.java 中的`decodeOneFrame2 ()`函数的实现。
 
  ```java
 public int decodeOneFrame2(int index, int[] outData, Bitmap bm,
@@ -115,7 +115,7 @@ public int decodeOneFrame2(int index, int[] outData, Bitmap bm,
 }
 ```
 
-  如果图片为非动图，参考 TPGDemo 里 TPGDecoder.java 中的 `decodeTPG2()`函数的实现：
+  如果图片为非动图，参考 TPGDemo 里 TPGDecoder.java 中的 `decodeTPG2()`函数的实现。
 
  ```java
 public Bitmap decodeTPG2(String tpgPath, int format, int dstWidth) {

@@ -1,5 +1,5 @@
 ## 操作场景
-在本文档示例中，我们用到了无服务器云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
+在本文档示例中，我们用到了云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
 
 ## 操作步骤
 <span id="step01"></span>
@@ -14,7 +14,7 @@
 
 <span id="step03"></span>
 ### 创建云函数 SCF
-1. 登录[【无服务器云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
+1. 登录[【云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
 2. 选择**北京**地域，单击【新建】，进入新建函数页面。
 3. 填写以下参数信息，单击【下一步】。如下图所示：
  - 创建方式：选择 “模板函数”。
@@ -39,7 +39,7 @@
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
 2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的 Bucket：loganalysis，单击【上传文件】。
 3. 在弹出的 “上传文件” 窗口中，选择下载好的 demo-scf1.txt，单击【确定上传】。
-4. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**运行日志**中可以看到打印出来的日志信息，如下图所示：
+4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。在**运行日志**中可以看到打印出来的日志信息，如下图所示：
 ![](https://main.qcloudimg.com/raw/72f4b02e3fcc76653d495e1d3c6c2272.jpg)
 5. 切换至 MySQL 管理界面，查看数据库中的分析结果。
 

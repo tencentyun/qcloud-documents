@@ -3,7 +3,7 @@
 
 ## 操作步骤
 
-1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录数据安全网关。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
 2. 在左侧导航栏中，单击【安全策略】，进入安全策略管理页面。
 3. 单击【RDP 行为审计】>【新建】，进入 RDP 行为审计策略编辑页面。您可根据实际需求，勾选审计范围，如下图所示。
 ![1](https://main.qcloudimg.com/raw/855dd5ed912d7ed7963e90f177085dca.png)

@@ -37,7 +37,7 @@ Privacy - Camera Usage Description
 }
 ```
 
-这里的 Licence 参数需要到 [短视频控制台](https://console.cloud.tencent.com/video/license) 去申请，提交申请后一般很快就会审批下来。然后页面上就会有相关的信息。
+这里的 Licence 参数需要到 [短视频控制台](https://console.cloud.tencent.com/vod/license) 去申请，提交申请后一般很快就会审批下来。然后页面上就会有相关的信息。
 
 1. 首先是声明与初始化。
     打开 ViewContorller.m，引用 SDK 并声明上述三个类的实例。另外这里播放、录制和合成视频都是异步操作，需要监听他们的事件，所以要加上实现 TXVideoJoinerListener, TXUGCRecordListener, TXVideoPreviewListener 这三个协议的声明。加好后如下所示：
@@ -229,4 +229,4 @@ Privacy - Camera Usage Description
     @end
     ```
 
-至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考  [小视频源码](https://cloud.tencent.com/document/product/584/9366#APP)。
+至此就完成了全部合唱的基础功能了，功能更加丰富的示例可以参考  [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。

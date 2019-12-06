@@ -164,7 +164,7 @@ var player = TCPlayer('player-container-id', {
 > - 在浏览器劫持视频播放的情况下，设置的 logo 将无法显示。
 
 ### 图片贴片功能
-点播超级播放器支持配置片头、片中暂停以及片尾显示图片贴片，并且可以添加超链接。可以在在[【Web播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)选定某个播放器配置，在【贴片】这一步设置贴片信息。
+点播超级播放器支持配置片头、片中暂停以及片尾显示图片贴片，并且可以添加超链接。可以在[【Web播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)选定某个播放器配置，在【贴片】这一步设置贴片信息。
 
 - 默认的贴片显示样式为水平垂直居中显示，如果图片的尺寸大于播放器显示区域，将按播放器的宽度等比缩放图片，水平居中显示图片，图片超出播放器区域部分将无法显示。
 - 可以通过 CSS 自定义贴片的显示样式。

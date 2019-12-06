@@ -5,7 +5,7 @@ CLAA 设备广泛应用于智能楼宇、智能工业、农业和环境等场景
 
 
 ## 操作步骤
-1. 登录物联网通信控制台，单击左侧菜单栏【[产品列表](https://console.cloud.tencent.com/iotcloud/products)】。  
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单栏【产品列表】。
 2. 进入产品列表页面，单击【创建新产品】。
 3. 按界面提示填写相关信息。
  - 所属地区：广州。

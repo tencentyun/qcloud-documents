@@ -36,7 +36,7 @@
 |11201|InvalidParameter|业务参数错误|
 |10701|InstanceNotExists|没有找到 serialId 对应的实例|
 |10707|InstanceLockedError|实例已被锁住，暂时不能执行该操作|
-|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中，已隔离，已删除）|
+|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（例如，流程中，已隔离，已删除）|
 |11058|PasswordRuleError|密码规则错误，密码必须是8-16位字符，且至少包含字母、数字和字符（`!@#%^*()`）中的两种|
 
 ## 5. 示例

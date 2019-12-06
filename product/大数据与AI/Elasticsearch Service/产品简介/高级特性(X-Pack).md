@@ -1,5 +1,5 @@
 ## 简介
-高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
+高级特性，是指 Elasticsearch 官方商业特性（原 X-Pack 商业版插件包含的特性），包含了安全（Security）、SQL、机器学习（Machine Learning）、监控（Monitor）等高级功能，可以为 Elasticsearch 服务的应用开发和运维管理，提供更有力的帮助。腾讯云 ES 已提供了包含高级特性的版本，您可以在创建购买集群时选择，下文介绍各版本详细功能。
 
 ## 购买指引
 ![](https://main.qcloudimg.com/raw/2a4012362412758e950aff249bf4e4a3.png)
@@ -7,7 +7,7 @@
 
 | 对比项            | 基础版 | 白金版 | 开源版 |
 | ----------------- | ------ | ------ | ------ |
-| 是否包含 X-Pack   | ✓      | ✓      | ✕      |
+| 是否包含 X-Pack   | &#10003;      | &#10003;     | ✕      |
 | X-Pack 功能完整度 | 部分   | 全部   | 无     |
 
 **购买推荐**  
@@ -22,10 +22,9 @@
 
 - **安全（Security）**  
 支持索引和字段级别，读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效地保障数据安全。
-![](https://main.qcloudimg.com/raw/ec7529df345ebbf27db0453292eafe8d.png)
+![](https://main.qcloudimg.com/raw/28a856412466b5b4a12ea743b3d6d397.png)
 - **机器学习（Machine Learning）**  
 在自定义数据告警的应用场景中，有时候不容易设置规则和阈值来定义的变化，这种情况下，就可以通过结合非监督型机器学习来预测数据的变化趋势和合理的波动范围，在数据偏离正常变化趋势时，发出告警通知。
-
 >!监控、SQL，白金版、基础版包含，开源版不包含。不过，SQL 支持方面，开源版集成了其他的 SQL 插件，详细了解和使用，可查看 [elasticsearch-sql](https://github.com/NLPchina/elasticsearch-sql)。
 
 - **监控**   
@@ -38,7 +37,7 @@
 ### 高级特性版本功能详细对比
 本章节对各版本的部分重点功能进行了对比说明，完整的功能对比，可查看官方介绍 [Elastic 各版本功能说明](https://www.elastic.co/cn/subscriptions)。
 
->?下表中 ⚫、◑、- 用于表示对应特性的功能完整度，⚫：包含全部功能；◑：包含部分功能；-：不包含。
+>?下表中![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)、![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)、![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)用于表示对应特性的功能完整度，![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)：包含全部功能；![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)：包含部分功能；![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)：不包含。
 
 <table class="tg">
   <tr>
@@ -51,245 +50,233 @@
   <tr>
     <td class="tg-0lax" rowspan="6">Elasticsearch</td>
     <td class="tg-s268">可扩展性和弹性</td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268">查询和分析</td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268">数据扩充</td>
-    <td class="tg-s6z2">⚫</td>
-    <td class="tg-s6z2">⚫</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#manage_tool">管理和工具</a></td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">◑</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-s268"><a href="#Security">Security</a></td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
 
   <tr>
     <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">-</td>
-    <td class="tg-s6z2">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">Kibana</td>
+    <td class="tg-0lax" rowspan="6">Kibana</td>
     <td class="tg-0lax">探索和可视化</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">堆栈管理和工具</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">堆栈监测</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">分享与合作</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">本地化 UI</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Security</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine Learning</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="4">Beats</td>
     <td class="tg-0lax">数据收集</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据传输</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">模块</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="5">Logstash</td>
     <td class="tg-0lax">数据收集</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据扩充</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">数据传输</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">模块</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+		<td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">监测和管理</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">◑</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png"  alt="包含部分" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax" rowspan="7">ELASTIC APM</td>
+    <td class="tg-0lax" rowspan="6">ELASTIC APM</td>
     <td class="tg-0lax">APM 服务器</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">APM 代理</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Kibana 中的 APM 仪表板</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">APM UI</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">分布式追踪</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-  </tr>
-  <tr>
-    <td class="tg-0lax">Alerting  整合</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Machine  Learning 整合</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 日志</td>
     <td class="tg-0lax">日志采集器（Filebeat）</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">常用数据源的仪表板</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Logs UI</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 基础设施</td>
     <td class="tg-0lax">指标采集器（Metricbeat）</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">常用数据源的仪表板</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Infrastructure  UI</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="3">ELASTIC 运行状态监控</td>
     <td class="tg-0lax">运行状态监测（Heartbeat）</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">Kibana 里的运行状态仪表板</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
     <td class="tg-0lax">运行状态监测 UI</td>
-    <td class="tg-baqh">-</td>
-    <td class="tg-baqh">⚫</td>
-    <td class="tg-baqh">⚫</td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
+    <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
 </table>
 
 **Elasticsearch 部分功能详细说明：**
 
->?下表中 ✓ 用于表示是否拥有对应特性的功能，✓：表示具备；-：表示不具备。
+>?下表中 &#10003; 用于表示是否拥有对应特性的功能，&#10003;：表示具备；-：表示不具备。
 
 <table class="tg">
   <tr>
@@ -302,143 +289,143 @@
   <tr>
     <td class="tg-0lax" rowspan="11"><a id="manage_tool">管理和工具</a></td>
     <td class="tg-s268">REST API</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">语言客户端</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">快照/恢复</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">_仅源快照</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">SQL 解释器 CLI</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">数据汇总</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">索引生命周期管理</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">冻结索引</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">升级助手 API</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">JDBC 客户端</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">ODBC 客户端</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6"><a id="Security">Security</a></td>
     <td class="tg-s268">加密通信</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">基于角色的访问控制</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">文件和原生身份验证</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">审核日志</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">字段和文档级别安全性</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-0lax" rowspan="6"><a id="machine_learning">机器学习</a></td>
     <td class="tg-s268">时序型异常监测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">输入/实体分析</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">日志消息分类</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">根本原因指示</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">异常情况警报</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
   <tr>
     <td class="tg-s268">时序型预测</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">✓</td>
+    <td class="tg-s268">&#10003;</td>
   </tr>
 </table>
 

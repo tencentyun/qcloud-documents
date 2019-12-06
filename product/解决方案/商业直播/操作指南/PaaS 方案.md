@@ -12,12 +12,15 @@
 - 使用小程序之前，请先阅读微信小程序提供的 [插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
 
 ## 推流及拉流
-
 1. 配置防盗链。
    直播防盗链用于对推流端/播放端身份的权限鉴定，通过使用加密算法对推流 URL 或者播放 URL 进行加密，防止非法用户恶意盗推或者盗播。您可以提供推流密钥/播放密钥到腾讯云为您配置推流防盗链/播放防盗链。
    默认情况下，为您自动开启推流防盗链配置。
 2. 生成推流/播放地址。
    打开`https://bizlive.myqcloud.com/tools/address.html?bizname=bizname`工具页面（URL 中的 bizname 参数为您的 bizname），您可以在工具页面中填写流名称以及鉴权密钥，自动生成推流地址以及播放地址。
+
+>!若已配置转码模板，需要播放地址播放模板中指定码率的直播，则需要在原来的`StreamName`加上`_模板名称`作为新的`StreamName`，重新生成新的播放地址。不能直接在已生成的播放地址中添加直接添加模板名称，否则播放地址不可用。
+
+商业直播的直播模板配置不能通过云直播进行关联，如有需要请提交 [工单](https://console.cloud.tencent.com/workorder/category) 或联系对接的商务同学处理。
 
 ## 使用插件
 1. 申请插件使用权限。
@@ -29,14 +32,14 @@
        ……
        "plugins": {
             "liveRoomPlugin": {
-                "version": "1.0.3",
+                "version": "1.1.3",
                 "provider": "wx95a7d2b78cf30f98"
             }
         }
     }
 ```
-1. 使用插件中的推、拉流组件。
-    1) 播放组件
+3. 使用插件中的推、拉流组件。
+**播放组件**
  - 在 page 的 .json 文件中定义需要引入的 live-room-play 组件，使用 plugin:// 协议。
 ```js
   {
@@ -56,7 +59,7 @@
   </view>
 ```
 
- 2) 推流组件
+ **推流组件**
  - 在 page 的 .json 文件中定义需要引入的 live-room-push 组件，使用 plugin:// 协议。
 ```js
   {
@@ -76,8 +79,8 @@
 </view>
 ```
 
- 3）直播播放相关的属性
-<table width="850px">
+ **直播播放相关的属性**
+ <table width="850px">
   <tr align="center">
     <th width="80px">属性</th>
     <th width="80px">类型</th>
@@ -129,7 +132,8 @@
     <td>播放状态变化事件回调</td>
   </tr>
 </table>
-4）直播推流组件相关属性说明
+
+ **直播推流组件相关属性说明**
 <table>
 <thead>
 <tr>

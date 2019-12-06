@@ -7,7 +7,7 @@
 | `TXVideoInfoReader`| 媒体信息获取 |
 | `TXVideoEditer` | 视频编辑 |
 
-##使用说明
+## 使用说明
 视频编辑的基本使用流程如下
 
 1. 设置视频路径
@@ -81,7 +81,7 @@ private TXVideoEditer.TXThumbnailListener mThumbnailListener = new TXVideoEditer
     };
 ```
 ##### 全功能导入获取缩略图
-参见下面视频导入
+参见下面 [视频导入](#p1)
 
 ### 2. 根据时间列表获取缩略图
 ```
@@ -111,7 +111,7 @@ txVideoEditer.getThumbnailList(list, 200, 200);
 ### 1. 快速导入
 快速导入视频，可以直接观看到视频编辑的预览效果，支持视频裁剪、时间特效（慢动作）、滤镜特效、滤镜风格、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能，不支持的功能有时间特效（重复、倒放）。
 
-### 2. 全功能导入
+### <span id ="p1"></span> 2. 全功能导入
 全功能导入，支持所有的功能，包括时间特效（重复、倒放）。需要为视频先预处理操作。
 经过全功能导入后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
 
@@ -172,7 +172,7 @@ public final static int PREVIEW_RENDER_MODE_FILL_SCREEN = 1;   // 填充模式�
 public final static int PREVIEW_RENDER_MODE_FILL_EDGE = 2;        // 适应模式，尽可能保持画面完整，但当宽高比不合适时会有黑边出现
 ```
 ### 2. 定点预览
-经过全功能导入的视频可以精确预览到某一个时间点的视频画面。
+经过 [全功能导入](#p1) 的视频可以精确预览到某一个时间点的视频画面。
 ```
 public void previewAtTime(long timeMs);
 ```
