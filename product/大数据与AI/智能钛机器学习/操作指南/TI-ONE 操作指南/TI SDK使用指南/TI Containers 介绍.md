@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 TI Containers 是一个帮助用户构建镜像的软件包，用户可以使用 TI Containers 来方便地创建一个可以在 TI 环境中运行的容器，目前 TI 预置的 Tensorflow、Pytorch 镜像都是利用 TI Containers 构建的。本文档将向您提供利用 TI Containers 构建容器以及可用环境变量的相关介绍。
 
 
