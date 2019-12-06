@@ -163,7 +163,7 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 
 ### 多 App 支持
 
-对于需要多 App 互通的场景，可在多个 App 中写同一个 `SDKAppID`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在即时通信 IM 上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.AE.9E.E7.8E.B0apns.E6.8E.A8.E9.80.81) 设置证书，并提供当前证书的编号。
+对于需要多 App 互通的场景，可在多个 App 中写同一个 `SDKAppID`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在即时通信 IM 上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154) 设置证书，并提供当前证书的编号。
 
 
 ## 推送声音
