@@ -279,4 +279,4 @@ module.exports = async function(req, res, next) {
 | 微信端       | 微信默认webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
-非本地环境必须使用 https 协议
+非本地环境必须使用 HTTPS 协议
