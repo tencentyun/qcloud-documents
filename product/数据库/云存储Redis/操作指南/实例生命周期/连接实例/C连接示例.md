@@ -37,7 +37,7 @@ if (argc < 4) {
     }
 	
 	/* AUTH */
-    reply = redisCommand(c, "AUTH %s:%s", instance_id, password);
+    reply = redisCommand(c, "AUTH %s", password);
     printf("AUTH: %s\n", reply->str);
     freeReplyObject(reply);
 
