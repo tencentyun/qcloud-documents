@@ -111,7 +111,8 @@ make menuconfig
 > - 按 “Tab” 或 “↑” “↓” 方向键移动光标。
 > - 按 “Enter” 选择或执行光标所选项目。
 > - 按空格键选中光标所选项目，“\*” 表示编译到内核，“M” 表示编译为模块。 
-> 
+>
+若未进入 “Linux Kernel vX.X.XX Configuration” 界面，请执行 [步骤18](#OptionalStep)。
 2. 按 “↓” 键将光标调到 “Virtualization”，并按空格键选中 “Virtualization”。
 3. 在 “Virtualization” 处按 “Enter”，进入 Virtualization 详情界面。
 4. 在 Virtualization 详情界面，确认是否勾选了 Kernel-based Virtual Machine （KVM）support 选项。如下图所示：
@@ -126,17 +127,21 @@ make menuconfig
 9. 按 “Esc” 返回 “Linux Kernel vX.X.XX Configuration” 主界面。
 10. 按 “↓” 键将光标调到 “Device Drivers”，并按 “Enter”，进入 Device Drivers 详情界面。
 11. 按 “↓” 键将光标调到 “Block devices”，并按 “Enter”，进入 Block devices 详情界面。
-13. 在 Block devices 详情界面，确认是否勾选了 “Virtio block driver (EXPERIMENTAL)”。如下图所示：
+12. 在 Block devices 详情界面，确认是否勾选了 “Virtio block driver (EXPERIMENTAL)”。如下图所示：
 ![](https://main.qcloudimg.com/raw/79f3e29a6d77224a164c6c716e41fa84.png)
 若未勾选，请按空格键选中 “Virtio block driver (EXPERIMENTAL)” 选项。
-14. 按 “Esc” 返回 Device Drivers 详情界面。
-15. 按 “↓” 键将光标调到 “Network device support”，并按 “Enter”，进入 Network device support 详情界面。
-16. 在 Network device support 详情界面，确认是否勾选了 “Virtio network driver (EXPERIMENTAL)”。如下图所示：
+13. 按 “Esc” 返回 Device Drivers 详情界面。
+14. 按 “↓” 键将光标调到 “Network device support”，并按 “Enter”，进入 Network device support 详情界面。
+15. 在 Network device support 详情界面，确认是否勾选了 “Virtio network driver (EXPERIMENTAL)”。如下图所示：
 ![](https://main.qcloudimg.com/raw/811388c89393882ea83bceb7a00bc1b7.png)
 若未勾选，请按空格键选中 “Virtio network driver (EXPERIMENTAL)” 选项。
-17. 按 “Esc” 退出内核配置界面，并根据弹窗提示，选择 “YES”，保存 `.config` 文件。
-18. 参考 [步骤1：检查内核是否支持 Virtio 驱动](#CheckVirtioForKernel)，验证 Virtio 驱动是否已经正确配置。
-若检查后，发现仍无 Virtio 驱动的相关配置信息，请执行以下命令，手动编辑 `.config` 文件。
+16. 按 “Esc” 退出内核配置界面，并根据弹窗提示，选择 “YES”，保存 `.config` 文件。
+17. 参考 [步骤1：检查内核是否支持 Virtio 驱动](#CheckVirtioForKernel)，验证 Virtio 驱动是否已经正确配置。
+18. <span id="OptionalStep"></span>（可选）执行以下命令，手动编辑 `.config` 文件。
+>? 如果您符合如下任一条件，建议执行此操作：
+> - 若检查后发现，内核仍无 Virtio 驱动的相关配置信息。
+> - 编译内核时，无法进入内核配置界面或者未成功保存 `.config` 文件。
+> 
 ```
 make oldconfig
 make prepare
@@ -150,12 +155,6 @@ find /lib/modules/"$(uname -r)"/ -name "virtio.*" | grep -E "virtio.*"
 grep -E "virtio.*" < /lib/modules/"$(uname -r)"/modules.builtin
 ```
 如果任一命令的返回结果输出 `virtio_blk`、`virtio_pci.virtio_console` 等文件列表，即表明您已经正确安装了 Virtio 驱动。
-
-
-
-
-
-
 
 
 
