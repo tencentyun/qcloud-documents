@@ -11,7 +11,7 @@ grep -i virtio /boot/config-$(uname -r)
 ```
 返回类似如下结果：
 ![](https://main.qcloudimg.com/raw/8c32c3dd554700a0c17ff0c7e5675090.png)
- - 如果返回结果中`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数取值为 `m`，请执行步骤2。
+ - 如果返回结果中`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数取值为 `m`，请执行 [步骤2](#CheckVirtioForInitramfs)。
  - 如果在返回结果中`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数取值为 `y`，表示该操作系统包含了 Virtio 驱动，您可以直接导入自定义的镜像到腾讯云。操作详情请参见 [导入镜像概述](https://cloud.tencent.com/document/product/213/4945)。
  - 如果在返回结果中没有`CONFIG_VIRTIO_BLK` 参数和`CONFIG_VIRTIO_NET` 参数的信息，表示该操作系统**不支持**导入腾讯云，请 [下载和编译内核](#DownloadCompileKernel)。
 
