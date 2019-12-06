@@ -17,7 +17,7 @@
 | 参数名称    | 描述                                                         | 类型      | 必填 |
 | ----------- | ------------------------------------------------------------ | --------- | ---- |
 | bucket      | 使用预签名请求的存储桶名，可在 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket) 上面看到，格式为&lt;BucketName-APPID&gt; ，例如 examplebucket-1250000000                                    | NSString* | 是   |
-| object      | 使用预签名请求的 Object。 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名`examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/text.txt` 中，对象键为`doc1/text.txt`。更详细的描述可以参考 [对象描述](https://cloud.tencent.com/document/product/436/13324) | NSString* | 是   |
+| object      | 使用预签名请求的 Object。 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名`examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/text.txt` 中，对象键为`doc1/text.txt`。详情请参见 [对象描述](https://cloud.tencent.com/document/product/436/13324) | NSString* | 是   |
 | HTTPMethod  | 使用预签名 URL 的请求的 HTTP 方法。有效值（大小写敏感）为：@"GET"、@"PUT"、@"POST"、@"DELETE" | NSString* | 是   |
 | contentType | 指定请求和响应的 HTTP body 内容编码类型        | NSString* | 否   |
 | contentMD5  | 文件的 MD5 值        | NSString* | 否   |
@@ -58,7 +58,7 @@ getPresignedURLRequest.object = @"exampleobject";
 [[QCloudCOSXMLService defaultCOSXML] getPresignedURL:getPresignedURLRequest];
 ```
 
-#### swift 示例：
+#### swift 示例
 
 [//]: # (.cssg-snippet-swift-get-presign-download-url)
 ```swift
