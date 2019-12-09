@@ -84,7 +84,6 @@ func hello(ctx context.Context, event DefineEvent)
 
 ```
 func hello()()
-func hello()(string, error)
 func hello()(error)
 func hello()(string, error)
 ```
