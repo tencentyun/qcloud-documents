@@ -64,7 +64,7 @@ input {
         group_id => "logstash_group"  // ckafka groupid 名称
         topics => ["logstash_test"] // ckafka topic 名字
         consumer_threads => 3 // 消费线程数，一般跟 ckafka 分区数一致
-        auto_offset_rest => "earliest"
+        auto_offset_reset => "earliest"
     }
 }
 output {
