@@ -43,8 +43,8 @@
 得到 Licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
 >!
 >- 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
->- YTFaceSDK.Licence的文件名固定，不可修改、且必须放在assets目录下。
->- iOS 和 Android 不需要重复申请 Licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的packageName。
+>- YTFaceSDK.Licence 的文件名固定，不可修改、且必须放在 assets 目录下。
+>- iOS 和 Android 不需要重复申请 Licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
 **从4.9版本开始，SDK 支持二合一的 Licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 Licence 对应的 key 和 url 后，设置方式和标准版 Licence 设置方式相同。**
