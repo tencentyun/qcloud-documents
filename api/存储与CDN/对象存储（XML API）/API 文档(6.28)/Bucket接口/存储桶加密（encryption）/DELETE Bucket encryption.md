@@ -60,6 +60,5 @@ Authorization: signatureValue
 HTTP/1.1 204 No Content
 Server: tencent-cos
 Date: Mon, 17 Jun 2019 08:37:36 GMT
-x-cos-id-2: 0dfafa/DAPDIFdafdsfDdfSFFfdfKKJdafasiuKJK2
 x-cos-request-id: NWQwNzUxNTBfMzdiMDJhMDlfOWM0Nl85NDFk****
 ```
