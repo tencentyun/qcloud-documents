@@ -5,6 +5,21 @@
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
 ## 开发环境
+**先编译静态库，如果报错再检查后续依赖库**
+
+```
+//下载后解压
+tar -xzf c++_stream_tts_sdk.tar.gz
+cd c++_stream_tts_sdk
+cmake ./
+//编译静态库和测试demo可执行文件
+//demo可执行文件在bin目录下，可直接运行测试demo
+//生成的库文件在lib目录下
+make
+//链接所有依赖静态库生成tts sdk，之后开发直接链接此库即可
+cd lib
+./build
+```
 **基础编译环境**
 安装gcc g++   
 
@@ -191,9 +206,8 @@ vector<string> SplitString(string strText, string model);
 前提已经更改用户正确的 AppId 信息
 
 ```
-cmake ./
-make 
-./tts_test
+cd bin
+./tts_demo
 ```
 
 **简单开发流程介绍**  
