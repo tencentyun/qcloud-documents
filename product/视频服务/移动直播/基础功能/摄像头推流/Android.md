@@ -1,7 +1,6 @@
 ## 功能概述
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-
-![](https://main.qcloudimg.com/raw/5243c1b2ce0637c48f76958d8307a297.jpg)
+![](https://main.qcloudimg.com/raw/2e38fc03bbd8a0963c880e468c38571a.jpg)
 
 ## 特别说明
 - **不绑定腾讯云**
@@ -89,7 +88,7 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 
 - **如何获取可用的推流 URL**
 >开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/d8cc87319b64a4f5f05614680ecb20d3.png)
+>![](https://main.qcloudimg.com/raw/7110d39cdb464b789bd68301f4de7ebe.png)
 
 - **返回 -5 的原因**
 >如果 `startPusher` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置 License 授权”中的工作是否有问题。
@@ -113,8 +112,7 @@ mLivePusher.startPusher(tRTMPURL.trim());
 
 ### 7. 设定画面清晰度
 调用 TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
-
-![](https://main.qcloudimg.com/raw/082b8cedd8d9f50afe23dbce723fc6d7.png)
+![](https://main.qcloudimg.com/raw/0c058cb8c8aa1033c99e6d551f3df1aa.png)
 
 ### 8. 美颜美白和红润特效
 调用 TXLivePush 中的`setBeautyFilter`接口可以设置美颜效果，SDK 中提供了三种磨皮算法（style），定义见 `TXLiveConstants.java` 文件：
@@ -125,7 +123,7 @@ mLivePusher.startPusher(tRTMPURL.trim());
 | TXLiveConstants.BEAUTY_STYLE_NATURE| 自然风格，算法更加注重保留皮肤细节，适合对真实性要求更高的主播。|
 | TXLiveConstants.BEAUTY_STYLE_HAZY| 朦胧风格，算法会更加侧重画面去噪，使整体画面风格偏柔和。|
 
-![](https://main.qcloudimg.com/raw/5c7873e1a88ced749028c11ec0bc58fb.jpg)
+![](https://main.qcloudimg.com/raw/a56fe175cd1f4fc7327865ba3e6d5786.jpg)
 
 ```java
  //style             美颜算法：  0：光滑  1：自然  2：朦胧
@@ -143,8 +141,7 @@ mLivePusher.startPusher(tRTMPURL.trim());
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
 从手机 QQ 和 Now 直播的经验来看，单纯通过 `setBeautyStyle` 调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多遍的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在了 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 中供您使用。
-
-![](https://main.qcloudimg.com/raw/b45831f91b3aaf43163148c1da4aeff7.jpg)
+![](https://main.qcloudimg.com/raw/5850b01bd4cac9c166f7a74a87538bda.jpg)
 
 ```java
 //选择期望的色彩滤镜文件
@@ -164,8 +161,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
 | setExposureCompensation | 设置曝光比例，取值范围从-1到1 | 负数表示调低曝光，-1是最小值，对应`getMinExposureCompensation`。正数表示调高曝光，1是最大值，对`getMaxExposureCompensation`。0表示不调整曝光，默认值为0。|
 
 除了 TXLivePusher，TXLivePushConfig 中也提供了一个叫做`setTouchFocus`的设置项，用于控制是手动对焦还是自动对焦。
-![](https://main.qcloudimg.com/raw/10d4fb60a2885ff4478af89345e64745.jpg)
-
+![](https://main.qcloudimg.com/raw/b84df5af90a04977987712e4107e4c48.jpg)
 ```java   
  TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();     
  TXLivePusher mLivePusher = new TXLivePusher(this); 
@@ -177,12 +173,11 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
 
 ### 11. 观众端的镜像效果
 调用 TXLivePusher 中的`setMirror`接口可以设置观众端的镜像效果。之所以说是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，自己看到的画面会被 SDK 默认反转，这时主播的体验跟自己照镜子时的体验是保持一致的。`setMirror`所影响的是观众端观看到的画面情况，如下图所示：
-
-![](https://main.qcloudimg.com/raw/7448f422eb7db068e9fbdf990feb30e8.jpg)
+![](https://main.qcloudimg.com/raw/29e793c537604e9093cf7544446e154b.jpg)
 
 ### 12. 横屏推流
 大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 x 540 这样的分辨率），如下图所示：
-![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
+![](https://main.qcloudimg.com/raw/b1e58275542aac52fb861745d95246cc.png)
 
 TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
 1. 设置 TXLivePushConfig 中的`setHomeOrientation`改变观众端看到的视频画面的宽高比方向。
@@ -205,15 +200,13 @@ public void onOrientationChange(boolean isPortrait) {
 
 >! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参见
 [CameraPusherActivity.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)  中的`setRotationForActivity`以及相关示例代码。
-![](//mc.qcloudimg.com/static/img/7255ffae57f3e9b7d929a5cb11f85c79/image.png)
-
+![](https://main.qcloudimg.com/raw/f72f665590b6676989dfa4187ef8e15d.png)
 
 
 ### 13. 隐私模式（垫片推流）
 
 有时候主播的一些动作不希望被观众看到，但直播过程中又不能下播，那就可以考虑进入隐私模式。在隐私模式下，SDK 可以暂停采集主播手机的摄像头画面以及麦克风声音，并使用一张默认图片作为替代图像进行推流，也就是所谓的“垫片”。
-
-![](https://main.qcloudimg.com/raw/dbb280bace017e407ada1fb3320223fb.jpg)
+![](https://main.qcloudimg.com/raw/d0fc9968c5d22f632f8f318b1d35406b.jpg)
 
 通过 TXLivePushConfig 中的`setPauseImg`接口可以设置垫片用的背景图片、垫片的最大时长以及视频帧率。
 通过 TXLivePushConfig 中的`setPauseFlag`接口可以设置是暂停视频采集、还是暂停声音采集，还是两者都暂停。
