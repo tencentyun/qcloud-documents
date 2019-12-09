@@ -1,6 +1,7 @@
 流式语音合成 C++ SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/c%2B%2B_stream_tts_sdk.tar.gz )。
 
 >! 此 SDK 目前仅支持在 Linux 平台上使用。 
+
 接口请求域名：tts.cloud.tencent.com/stream   
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
