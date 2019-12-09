@@ -44,7 +44,7 @@
 - object 权限用 COS 默认的私有读写权限。
 - 转储服务会占用一个 Group ID。
 - 文件名为存放的 timestamp，存放路径为 `instance ID/topic ID`。
-- 文件内容是 CKafka 消息里的 value 用 String 序列化拼接而成。
+- 文件内容是 CKafka 消息里的 value 用 utf-8 String 序列化拼接而成，暂不支持二进制的数据格式。
 - 当前 CKafka 消息到 COS 服务**免费**，COS 存储可享受一定 [免费额度](https://cloud.tencent.com/document/product/436/6240)，提供50GB免费存储空间。如您的消息量级较大，请及时清理数据。
 - 开启转 COS 的操作人必须对目标 COS Bucket 具备写权限。
 - 开启转发前，积压 Ckafka 消息不会被转存到 COS。
