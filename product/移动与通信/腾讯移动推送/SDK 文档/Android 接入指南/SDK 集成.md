@@ -156,14 +156,6 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         android:persistent="true"
         android:process=":xg_vip_service"></service>
 
-    <!-- 云控相关 -->
-    <receiver android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadReceiver">
-        <intent-filter>
-            <action android:name="com.tencent.android.xg.vip.action.cloudcontrol.action.DOWNLOAD_FILE_FINISH" />
-        </intent-filter>
-    </receiver>
-    <service android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadService" />
-
     <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
     <service android:name="com.tencent.android.tpush.rpc.XGRemoteService">
         <intent-filter>
