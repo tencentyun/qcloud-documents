@@ -7,7 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 基础方法
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 TRTCCloud 单例。
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -20,14 +20,14 @@ __参数__
 
 __返回__
 
-[TRTCCloud](#trtccloud) 实例。
+TRTCCloud 实例。
 
 >?可以调用 destroySharedInstance 销毁单例对象。
 
 
 ### destroySharedInstance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 TRTCCloud 单例。
 ```
 void destroySharedInstance()
 ```
@@ -35,26 +35,26 @@ void destroySharedInstance()
 
 ### setListener
 
-设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](#trtccloud) 的各种状态通知。
+设置回调接口 TRTCCloudListener，用户获得来自 TRTCCloud 的各种状态通知。
 ```
 abstract void setListener(TRTCCloudListener listener)
 ```
 
 __介绍__
 
-您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的定义。
+您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的定义。
 
 
 ### setListenerHandler
 
-设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调的队列。
+设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 回调的队列。
 ```
 abstract void setListenerHandler(Handler listenerHandler)
 ```
 
 __介绍__
 
-SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 的回调函数里操作 UI 是线程安全的。
+SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 的回调函数里操作 UI 是线程安全的。
 
 
 
@@ -75,7 +75,7 @@ __参数__
 
 __介绍__
 
-调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -90,8 +90,8 @@ abstract void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
-如果您要再次调用 [enterRoom()](#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等等。
+调用 [exitRoom()](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onExitRoom() 回调通知到您。
+如果您要再次调用 [enterRoom()](#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等。
 
 
 ### switchRole
@@ -153,7 +153,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](#connectotherroom) 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
@@ -216,7 +216,7 @@ __参数__
 
 __介绍__
 
-当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onFirstVideoFrame(null) 回调。
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onFirstVideoFrame(null) 回调。
 
 
 ### stopLocalPreview
@@ -1733,7 +1733,7 @@ __参数__
 |-----|-----|-----|
 | path | String | 存储日志路径。 |
 
->?日志文件默认保存在 /sdcard/log/tencent/liteav 下，如需修改， 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
+>?日志文件默认保存在 /sdcard/Android/data/应用包名/files/log/tencent/liteav/ 下，如需修改， 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
 
 
 

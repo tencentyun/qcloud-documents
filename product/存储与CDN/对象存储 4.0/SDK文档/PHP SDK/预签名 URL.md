@@ -20,7 +20,7 @@ try {
     $signedUrl = $cosClient->getPresignetUrl('putObject', array(
         'Bucket' => "examplebucket-1250000000", //存储桶，格式：BucketName-APPID
         'Key' => "exampleobject", //对象在存储桶中的位置，即对象键
-        'Body' => 'string'
+        'Body' => 'string' //可为空或任意字符串
     ), '+10 minutes'); //签名的有效时间
     // 请求成功
     echo ($signedUrl);

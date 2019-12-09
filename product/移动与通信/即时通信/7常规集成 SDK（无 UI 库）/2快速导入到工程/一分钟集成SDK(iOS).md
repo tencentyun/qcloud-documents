@@ -70,11 +70,9 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 
 #### 2. 创建工程
 **创建一个新工程**：
-![](//avc.qcloud.com/wiki2.0/im/imgs/20150928013356_56054.jpg)
-
+![](https://main.qcloudimg.com/raw/de4a148165dbfafd1f403e88018b0012.jpg)
 **填入工程名**（例如：IMDemo）：
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20150928013638_56711.jpg)
+![](https://main.qcloudimg.com/raw/d9aebb74fe2fb4740c88e7cbda31987a.jpg)
 
 #### 3. 集成 IM SDK
 
