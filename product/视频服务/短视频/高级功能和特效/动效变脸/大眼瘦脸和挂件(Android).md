@@ -6,7 +6,7 @@
 
 ## 接入流程
 
-单击此处 [申请商业版本 license](https://cloud.tencent.com/product/x-magic)。
+单击此处 [申请商业版本 License](https://cloud.tencent.com/product/x-magic)。
 
 ## 版本下载
 
