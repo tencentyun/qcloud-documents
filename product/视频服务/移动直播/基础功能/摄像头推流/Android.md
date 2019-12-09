@@ -343,7 +343,7 @@ mTXLivePusher.sendMessageEx(msg.getBytes("UTF-8"));
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) ，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) ，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 
 ### 2. 常规事件 
