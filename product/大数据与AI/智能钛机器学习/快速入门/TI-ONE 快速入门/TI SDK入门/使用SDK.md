@@ -1,6 +1,8 @@
 ## 操作场景
 本文档向您介绍如何使用 TI Python SDK 训练模型。
 
+我们在Notebook中内置了TI Python SDK的案例，您可以通过典型案例快速上手，详情请参考[使用内置案例](notebook使用内置案例的文档)。
+
 ## 操作步骤
 TI Python SDK 使用以下几个核心类实现TI的模型训练
 - Estimators： 对训练任务的抽象
