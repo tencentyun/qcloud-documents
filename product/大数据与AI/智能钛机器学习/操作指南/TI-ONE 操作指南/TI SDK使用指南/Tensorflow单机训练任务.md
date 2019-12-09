@@ -4,7 +4,7 @@
 
 ## 操作步骤
 
-使用mTI Python SDK 训练 Tensorflow 模型只需要三步：
+使用TI Python SDK 训练 Tensorflow 模型只需要三步：
 1. 准备训练脚本
 2. 构造一个 ti.tensorflow.Tensorflow Estimator
 3. 调用 Estimator 的 fit 方法
