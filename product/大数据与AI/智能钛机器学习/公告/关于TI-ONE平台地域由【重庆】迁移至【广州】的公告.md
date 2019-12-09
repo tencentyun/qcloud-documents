@@ -63,7 +63,7 @@ TI-EMS 模型服务除了支持 TI-ONE 原有的 TensorFlow 、 PMML 和 ANGEL �
 TI-EMS 模型部署后提供公网地址和 vpc 地址访问，用户可以在您的本地或生产环境中进行 API 调用。服务调用案例详情请见 [TI-EMS 文档](https://cloud.tencent.com/document/product/1120/36610)。
 - **用户使用 TI-EMS 的计费说明**
 TI-EMS 目前支持预付费的计费方式，支持 CPU 和 GPU 的包月服务，计费详情请见 [TI-EMS 文档]( https://cloud.tencent.com/document/product/1120/38717)。
-- **其他关于 TI-EMS 的使用方法请参考  [TI-EMS产品文档](https://cloud.tencent.com/document/product/1120)**
+- **其他关于 TI-EMS 的使用方法请参考  [TI-EMS 产品文档](https://cloud.tencent.com/document/product/1120)**
 TI-ONE 未来会整合云上各种资源，后续将推出一键部署到 TI-EMS 等功能，尽情期待。
 
 
