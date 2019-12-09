@@ -1,4 +1,4 @@
-﻿Analytics Zoo 为用户提供基于 LSTM 的算法，用于时间序列数据的异常检测。它将影响当前时间的一系列值（例如最近50个小时的数据）作为模型的输入来训练模型，然后使用训练好的模型预测下一个数据点。当实际值与模型预测值相距较大时，定义为异常。
+Analytics Zoo 作为一个数据分析 +AI 平台，能够帮助用户利用 Spark 的各种流水线、内置模型、特征操作等，构建基于大数据的深度学习端到端应用。 某种意义上它是 Spark 和 BigDL 的扩充，可以将 Spark、TensorFlow、Keras 和 BigDL 无缝合并到一个集成管道中，方便地扩展到企业已有的大型 Apache Hadoop/Spark 集群，进行分布式训练或推理。
 
 
 ## 操作步骤
@@ -20,7 +20,7 @@
 5.  查看 Spark 控制台和日志：在该节点上单击右键菜单，单击【Spark 控制台】，可查看任务状态和详细日志。
 
 ## 案例说明
-通过案例向您介绍 Analytics Zoo 的使用方法。
+Analytics Zoo为用户提供基于LSTM的算法，用于时间序列数据的异常检测。它将影响当前时间的一系列值（例如最近50个小时的数据）作为模型的输入来训练模型，然后使用训练好的模型预测下一个数据点。当实际值与模型预测值相距较大时，定义为异常。我们将通过一个异常检测的案例向您介绍 Analytics Zoo 的使用方法。
 
 #### 数据准备
 我们使用 [Numenta Anomaly Benchmark](https://raw.githubusercontent.com/numenta/NAB/master/data/realKnownCause/nyc_taxi.csv) 的一个数据集（NYC taxi passengers）作为案例的数据集。该数据集包含10320条样本，每条样本表示特定时间纽约市的出租车乘客总数。数据格式如下所示：

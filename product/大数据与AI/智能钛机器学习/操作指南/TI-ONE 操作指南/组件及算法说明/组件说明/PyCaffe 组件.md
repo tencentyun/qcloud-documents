@@ -1,4 +1,4 @@
-Caffe（Convolutional Architecture for Fast Embedding）是一种清晰且高效的深度学习框架，具有易上手、速度快、模块化、开放性和社区好等优势。
+Caffe（Convolutional Architecture for Fast Embedding）是一个高效的深度学习框架，具有易上手、速度快、效率高、社区好等优势。
 ## 版本说明
 Pycaffe 组件内核是 Caffe 1.0 版本。
 Pycaffe 组件中使用的 Python 版本和支持的第三方模块信息如下：
