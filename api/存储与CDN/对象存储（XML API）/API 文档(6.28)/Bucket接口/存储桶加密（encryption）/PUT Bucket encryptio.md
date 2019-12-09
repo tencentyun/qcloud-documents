@@ -91,6 +91,5 @@ Content-Type: application/xml
 Content-Length: 0
 Date: Mon, 17 Jun 2019 08:37:36 GMT
 Server: tencent-cos
-x-cos-id-2: 0dfafa/DAPDIFdafdsfDdfSFFfdfKKJdafasiuKJK2
 x-cos-request-id: NWQwNzUxNTBfMzdiMDJhMDlfOWM0Nl85NDFk****
 ```
