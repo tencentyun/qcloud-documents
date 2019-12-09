@@ -33,7 +33,7 @@
 | libCameraFaceJNI.so       | libYTFaceTrackPro.so | libimage_filter_gpu.so    |
 | libimage_filter_common.so | libpitu_voice.so     | libvoicechanger_shared.so | 
 | libParticleSystem.so      | libYTHandDetector.so | libGestureDetectJni.so    |
-| libsegmentern.so          |-|-|
+| libsegmentern.so          |||
 
 2.把解压后的assets文件夹下的所有资源拷贝到工程的assets目录下，包括asset根目录下的文件和camera文件夹下的文件
 
