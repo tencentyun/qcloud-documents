@@ -8,7 +8,7 @@
 
 ## 使用说明
 在[立即体验](http://tio.cloud.tencent.com/)之前，您需要完成[注册与开通服务](https://cloud.tencent.com/document/product/851/39086)，开通【广州】地域。
-- 您可以通过【**快速入门**】，了解如何使用 TI Python SDK，以及查看日志及监控的办法。
-- 您可以通过【**操作指南**】，进一步了解如何 [Tensorflow 单击训练模型](https://cloud.tencent.com/document/product/851/40123)，[使用 PyTorch 训练模型](https://cloud.tencent.com/document/product/851/40125)，[使用自定义镜像训练模型](https://cloud.tencent.com/document/product/851/40126) 等。
-- 如果您在使用过程中遇到问题，请查看[【**常见问题**】](https://cloud.tencent.com/document/product/851/38190)
+- 您可以通过**快速入门**，了解如何使用 TI Python SDK，以及查看日志及监控的办法。
+- 您可以通过**操作指南**，进一步了解如何 [Tensorflow 单击训练模型](https://cloud.tencent.com/document/product/851/40123)，[使用 PyTorch 训练模型](https://cloud.tencent.com/document/product/851/40125)，[使用自定义镜像训练模型](https://cloud.tencent.com/document/product/851/40126) 等。
+- 如果您在使用过程中遇到问题，请查看[**常见问题**](https://cloud.tencent.com/document/product/851/38190)。
 
