@@ -2,7 +2,7 @@
 
 GET Bucket encryption 接口用于查询指定存储桶下的默认加密配置。
 
-要执行此接口，必须拥有 GetEncryptionConfiguration 权限。默认情况下，Bucket  的持有者直接拥有权限使用该 API 接口，Bucket  持有者也可以将权限授予其他用户。
+要执行此接口，必须拥有 GetBucketEncryption 权限。默认情况下，Bucket  的持有者直接拥有权限使用该 API 接口，Bucket  持有者也可以将权限授予其他用户。
 
 ## 请求
 
