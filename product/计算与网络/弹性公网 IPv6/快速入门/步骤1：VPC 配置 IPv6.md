@@ -6,7 +6,7 @@
 4. 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 
 ## 操作步骤
->?如下步骤1 - 步骤5中的目标云服务器均指需开启 IPv6 的云服务器。
+>?如下步骤1 - 步骤5中的目标云服务器均指需配置 IPv6 的云服务器。
 >
 ### 步骤1：VPC 分配 IPv6 CIDR
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
