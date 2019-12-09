@@ -245,7 +245,7 @@ mLivePusher.resumePusher();
 > 隐私模式可以通过在 App 界面上加一个切换按钮来让主播自主进入，也可以编写代码，让 App 在切后台时自动进入，目前 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 就采用了 App 切后台时自动进入隐私模式的交互方案，注释掉源码中对`pausePusher()`和`resumePusher()`的调用就可以关闭这个特性。
 
 ### 14. 背景混音和混响
-![](https://main.qcloudimg.com/raw/603e0d726dbf5ac16202fb4febb06faa.jpg)
+![](https://main.qcloudimg.com/raw/e5c1b903cf5176f996a0b30dbb804032.jpg)
 
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
 
@@ -343,7 +343,7 @@ mTXLivePusher.sendMessageEx(msg.getBytes("UTF-8"));
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参见文档“ [错误码表](https://cloud.tencent.com/document/product/454/17246) ”，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 ITXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) ，也可以查阅`TXLiveConstants.java`代码文件。需要注意的是：**ITXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 
 ### 2. 常规事件 
