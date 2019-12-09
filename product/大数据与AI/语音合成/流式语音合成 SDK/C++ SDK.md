@@ -216,26 +216,29 @@ cd bin
 ```
 
 **简单开发流程介绍**  
-**以下存在多种方法的建议选择方法一，较优，其他方法供接入用户多选**
-创建请求 TCloudTTS ttsReq:  
 
-初始化用户信息  
+以下存在多种方法的建议，选择方法一较优，其他方法供接入用户多选
 
-方法一（推荐此方法）： 
+**创建请求 TCloudTTS ttsReq:**  
+
+1. 初始化用户信息  
+
+- 方法一（推荐此方法）： 
 调用 InitAuth 通过配置文件初始化，默认路径 conf/tcloud_auth.ini  
 
-方法二：
+- 方法二：
 调用 InitAuth 通过 TCloudTTSAuth 结构体初始化   
 参考 [TCloudTTS::InitAuth](#InitAuth) 接口。
 
-初始化请求参数  
+2. 初始化请求参数  
 
 公共请求参数大多只需要设置一次，除了Text，SessionId参数
-方法一（推荐此方法）：
+
+- 方法一（推荐此方法）：
 调用InitCommonParam通过配置文件 conf/request_parameter.ini  
 调用CreateRequest传入Text。  
 
-方法二：
+- 方法二：
 通过完整的请求结构体来初始化请求   
 调用 InitCommonParam 通过 TCloudTTSReq 请求体来初始化。  
 参考 [TCloudTTS::InitCommonParam](#Param) 接口。
