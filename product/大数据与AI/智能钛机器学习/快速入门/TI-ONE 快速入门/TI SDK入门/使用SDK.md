@@ -47,9 +47,6 @@ tf_estimator = TensorFlow(role=role,
 tf_estimator.fit('cos://bucket/path/to/training/data')
 ```
 
-Estimator 提供一些初始化参数
-class ti.estimator.EstimatorBase(args…)
-
 参数
 - `role`：str 用户在云控制台创建的角色，需要传递角色给 TI，授权 TI 服务访问用户的云资源。
 - `train_instance_count`：int 创建的算力实例数量。
