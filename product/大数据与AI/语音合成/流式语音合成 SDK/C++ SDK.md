@@ -5,6 +5,7 @@
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
 ## 开发环境
+
 **先编译静态库，如果报错再检查后续依赖库**
 
 ```
@@ -21,6 +22,7 @@ cd lib
 ./build
 ```
 **基础编译环境**
+
 安装gcc g++   
 
 ```
@@ -39,8 +41,8 @@ gmake
 gmake install
 ```
 **依赖库安装及编译**
-**curl**
-客户需自行安装版本大于7.44.0：
+
+**curl**需要客户需自行安装，版本大于7.44.0：
 下载 [curl 文件](https://curl.haxx.se/download.html) 解压进入源码目录。
 ```
 sudo ./configure
@@ -83,10 +85,12 @@ sudo make install
 
 ## <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**
+
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。 
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **更改用户信息配置文件**
+
 将查询到的用户信息更改到 conf/tcloud_auth.ini 配置文件中。
 
 ```
