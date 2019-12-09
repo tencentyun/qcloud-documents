@@ -43,13 +43,13 @@
   
 ### 模型服务迁移
 - **在 TI-ONE 获取模型文件夹的 COS 地址** 
-用户可以通过 【TensorFlow控制台】-【App 详情】或者 【Spark控制台】的日志里找到模型文件的 cos 路径，例如 `model_dir:/cephfs/tesla_common/deeplearning/model/100010875047/285382/`
+用户可以通过 【TensorFlow 控制台】>【App 详情】或者【Spark控制台】的日志里找到模型文件的 COS 路径，例如 `model_dir:/cephfs/tesla_common/deeplearning/model/100010875047/285382/`
 - **登录 TI-EMS**
 [单击登录](https://console.cloud.tencent.com/tiems) TI-EMS 控制台。
 - **用户对 TI-EMS 的授权**
 用户初次使用 TI-EMS 服务需要额外进行服务角色授权，如果您使用的是子账号，还需要主账户对子账号进行额外授权，操作详情见 [TI-EMS 文档](https://cloud.tencent.com/document/product/1120/38967) 。
 - **用户使用 TI-EMS 创建模型服务配置**
-TI-EMS 模型服务除了支持 TI-ONE 原有的 TensorFlow 、 PMML 和 ANGEL 外，还支持 TensorRT， OpenVINO 等框架，提供专业级的模型部署服务，只需要将 TI-ONE 中生成模型的 COS 地址，转换为 TI-EMS 支持的模型路径地址便可创建 TI-EMS 服务配置，操作详情见 [TI-EMS 文档](https://cloud.tencent.com/document/product/1120/36585)。
+TI-EMS 模型服务除了支持 TI-ONE 原有的 TensorFlow 、 PMML 和 ANGEL 外，还支持 TensorRT，OpenVINO 等框架，提供专业级的模型部署服务，只需要将 TI-ONE 中生成模型的 COS 地址，转换为 TI-EMS 支持的模型路径地址便可创建 TI-EMS 服务配置，操作详情见 [TI-EMS 文档](https://cloud.tencent.com/document/product/1120/36585)。
 
 模型地址转换示例如下：
 -  tione 模型文件的 COS 路径：`/cephfs/tesla_common/deeplearning/model/100010875047/285382/`
