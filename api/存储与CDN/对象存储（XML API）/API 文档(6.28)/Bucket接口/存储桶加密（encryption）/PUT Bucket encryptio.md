@@ -21,7 +21,7 @@ Authorization: Auth String
 
 **请求头**
 
-此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 **请求体**
 
