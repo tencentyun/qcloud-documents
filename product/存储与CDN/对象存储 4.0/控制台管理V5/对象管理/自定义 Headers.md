@@ -49,7 +49,6 @@
       <td>x-cos-meta-via: homepage</td>
    </tr>
 </table>
-
 4. 若您需要对多个对象进行批量自定义 Header 操作，可勾选多个对象，然后在【更多操作】下选择【自定义头部】即可。
 ![](https://main.qcloudimg.com/raw/f3c395a4cf1a8e29375c1722688642f3.png)
 
