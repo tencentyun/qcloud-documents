@@ -2,7 +2,7 @@
 
 GET Bucket encryption 接口用于查询指定存储桶下的默认加密配置。
 
-要执行此接口，必须拥有 GetEncryptionConfiguration 权限。默认情况下，Bucket  的持有者直接拥有权限使用该 API 接口，Bucket  持有者也可以将权限授予其他用户。
+要执行此接口，必须拥有 GetBucketEncryption 权限。默认情况下，Bucket  的持有者直接拥有权限使用该 API 接口，Bucket  持有者也可以将权限授予其他用户。
 
 ## 请求
 
@@ -42,7 +42,7 @@ Authorization: Auth String
 | ServerSideEncryptionConfiguration  | 无                                 | 包含默认加密的配置参数                                       | Container |
 | Rules                              | ServerSideEncryptionConfiguration  | 默认的服务端加密配置规则                                     | Container |
 | ApplyServerSideEncryptionByDefault | Rules                              | 服务端加密的默认配置信息                                     | Container |
-| SSEAlgorithm                       | ApplyServerSideEncryptionByDefault | 要使用的服务端加密算法，有以下两个值：AES256、cos:kms（暂无） | String    |
+| SSEAlgorithm                       | ApplyServerSideEncryptionByDefault | 要使用的服务端加密算法，枚举值：AES256 | String    |
 
 **错误码**
 

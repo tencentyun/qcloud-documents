@@ -2,7 +2,7 @@
 
 DELETE Bucket encryption 接口用于删除指定存储桶下的默认加密配置。
 
-要执行此接口，必须拥有 PutEncryptionConfiguration 权限。默认情况下，Bucket 的持有者直接拥有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+要执行此接口，必须拥有 DeleteBucketEncryption 权限。默认情况下，Bucket 的持有者直接拥有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
 
 ## 请求
 
@@ -60,6 +60,5 @@ Authorization: signatureValue
 HTTP/1.1 204 No Content
 Server: tencent-cos
 Date: Mon, 17 Jun 2019 08:37:36 GMT
-x-cos-id-2: 0dfafa/DAPDIFdafdsfDdfSFFfdfKKJdafasiuKJK2
 x-cos-request-id: NWQwNzUxNTBfMzdiMDJhMDlfOWM0Nl85NDFk****
 ```
