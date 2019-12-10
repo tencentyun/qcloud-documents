@@ -1,10 +1,7 @@
 ## 操作场景
+本文档将向您介绍如何在 Notebook 中访问 COS，进行文件的上传和下载操作。
 
-本文档将向您介绍如何在Notebook中访问COS，进行文件的上传和下载操作。
-
-
-
-##操作详情
+## 操作详情
 
 ```
 from qcloud_cos import CosConfig
