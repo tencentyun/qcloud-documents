@@ -59,7 +59,7 @@ dependencies {
 由于 tuikit 是以 lib 工程导入的，需要在 app/build.gradle 和 tuikit/build.gradle 中，添加引用 aar 包的代码。
  ![](https://main.qcloudimg.com/raw/53d530fd5ce0b66c88e678250b3d9386.png)
  ![](https://main.qcloudimg.com/raw/5175545f0e583fba7b7099ee94c721fa.png)
-- **第五步：指定App使用架构**
+- **第五步：指定 App 使用架构**
 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构（从 IM SDK 4.3.118 版本开始支持 armeabi-v7a，arm64-v8a，x86，x86_64）：
 ```
 defaultConfig {
@@ -109,21 +109,16 @@ defaultConfig {
 ```
 
 - **第六步：同步 SDK**
-单击【Sync Now】按钮，完成 IM SDK 的集成工作。
+单击【Sync Now】，完成 IM SDK 的集成工作。
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，IM SDK 需要以下权限：
 
 ```
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 ```
 
 ## 设置混淆规则

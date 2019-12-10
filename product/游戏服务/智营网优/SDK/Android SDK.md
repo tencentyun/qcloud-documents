@@ -159,10 +159,10 @@ public static void MNAStartSpeed(string vip, int vport, int htype, string hookMo
 
 |参数 | 含义 | 
 |---------|---------|
-| vip | 游戏服务器地址(ip或域名，强烈建议使用ip)。| 
+| vip | 游戏服务器地址（IP 或域名，强烈建议使用 IP）。| 
 | vport | 游戏服务器端口 | 
 | htype | 本参数决定 HOOK 的函数种类，取值有如下：<li>htype = 1：表示只处理`sendto()`和`recvfrom()`，用于核心协议是 UD 且使用这两个函数的游戏。<li>htype = 3：表示只处理`connect`和`send`函数，用于核心协议时 UDP 且使用这两个函数的游戏。 | 
-|  hookModules       |hookModules 指定要HOOK的动态链接库，多个库名用英文（半角）逗号分开。若使用apollo的网络通信模块，则填libapollo.so；若使用C#的网络通信模块，则填libmono.so。 |
+|  hookModules       |hookModules 指定要 HOOK 的动态链接库，多个库名用英文（半角）逗号分开。若使用 apollo 的网络通信模块，则填 libapollo.so；若使用 C# 的网络通信模块，则填 libmono.so。 |
 | stopMNA | 默认值为 0 ； 1 表示强制关闭加速功能，保留网络诊断功能 | 
 | timeout | 默认值为 0 ；设置启动阶段超时时间，单位为毫秒，当`timeout<=0`时，表示不设置启动超时 | 
 | pvpid | 游戏对局唯一 ID，应用直接填`"UNKNOWN"` | 

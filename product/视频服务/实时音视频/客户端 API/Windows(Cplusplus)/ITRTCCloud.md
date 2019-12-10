@@ -5,19 +5,19 @@ ITRTCCloud @ TXLiteAVSDK。
 
 ### getTRTCShareInstance
 
-用于动态加载 dll 时，获取 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 对象指针。
+用于动态加载 dll 时，获取 ITRTCCloud 对象指针。
 ```
 LITEAV_API ITRTCCloud * getTRTCShareInstance()
 ```
 
 __返回__
 
-返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+返回 ITRTCCloud 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
 
 
 ### destroyTRTCShareInstance
 
-释放 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象。
+释放 ITRTCCloud 单例对象。
 ```
 LITEAV_API void destroyTRTCShareInstance()
 ```

@@ -36,4 +36,4 @@
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/PHP-1.jpg)
+![](https://main.qcloudimg.com/raw/62e281a52fd9e18178866e70236c6755.jpg)

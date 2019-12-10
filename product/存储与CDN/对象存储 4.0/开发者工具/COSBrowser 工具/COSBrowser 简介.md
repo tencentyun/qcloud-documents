@@ -35,7 +35,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
    </tr>
    <tr>
-      <td>iOS 移动端</td>
+      <td>iOS</td>
       <td>iOS 11以上</td>
       <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
    </tr>

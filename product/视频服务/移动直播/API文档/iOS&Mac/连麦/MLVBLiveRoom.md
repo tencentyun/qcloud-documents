@@ -15,18 +15,18 @@ __介绍__
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762#txliveplayer) 两个组件，前者用于推流，后者用于拉流。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762) 两个组件，前者用于推流，后者用于拉流。
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
-参考文档：[直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
+请参见 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
 
 
 
 ## SDK 基础函数
 ### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 的各种状态通知。
 ```
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
 ```
@@ -43,27 +43,27 @@ __介绍__
 ***
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (instancetype)sharedInstance
 ```
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例。
 
->?可以调用 MLVBLiveRoom destroySharedInstance  销毁单例对象。
+>?可以调用 MLVBLiveRoom destroySharedInstance 销毁单例对象。
 
 ***
 
 ### destorySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (void)destorySharedInstance
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
 
 ***
 
@@ -174,7 +174,7 @@ __参数__
 __介绍__
 
 主播开播的正常调用流程是： 
-1. 主播调用 startLocalPreview  打开摄像头预览，此时可以调整美颜参数。 
+1. 主播调用 startLocalPreview 打开摄像头预览，此时可以调整美颜参数。 
 2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 completion 通知主播。
 
 ***
@@ -279,7 +279,7 @@ __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
-2. 主播会收到 MLVBLiveRoomDelegate onRequestJoinAnchor 的回调通知。
+2. 主播会收到 MLVBLiveRoomDelegate.onRequestJoinAnchor 的回调通知。
 3. 主播调用 responseJoinAnchor 确定是否接受观众的连麦请求。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
@@ -307,7 +307,7 @@ __参数__
 
 __介绍__
 
-主播在收到 MLVBLiveRoomDelegate onRequestJoinAnchor  回调之后会需要调用此接口来处理观众的连麦请求。
+主播在收到 MLVBLiveRoomDelegate.onRequestJoinAnchor 回调之后会需要调用此接口来处理观众的连麦请求。
 
 ***
 
@@ -326,7 +326,7 @@ __参数__
 
 __介绍__
 
-进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorEnter 通知。
+进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate.onAnchorEnter 通知。
 
 ***
 
@@ -345,7 +345,7 @@ __参数__
 
 __介绍__
 
-退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorExit 通知。
+退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate.onAnchorExit 通知。
 
 ***
 
@@ -364,7 +364,7 @@ __参数__
 
 __介绍__
 
-主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate onKickoutJoinAnchor 回调通知。
+主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate.onKickoutJoinAnchor 回调通知。
 
 ***
 
@@ -432,7 +432,7 @@ __参数__
 
 __介绍__
 
-当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate onQuitRoomPK 回调通知。
+当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate.onQuitRoomPK 回调通知。
 
 ***
 
@@ -645,7 +645,7 @@ YES：打开成功；NO：打开失败。
 
 __介绍__
 
-SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己点击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
+SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己单击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
 
 ***
 
@@ -653,17 +653,17 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 ## 美颜滤镜相关接口函数
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。
 ```
 - (TXBeautyManager *)getBeautyManager 
 ```
 
 >通过美颜管理，您可以使用以下功能：
 >- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
->- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
->- 设置人脸挂件（素材）等动态效果
->- 添加美妆
->- 进行手势识别
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 
 ***
 
@@ -785,7 +785,7 @@ __参数__
 |-----|-----|-----|
 | path | NSString * | 音乐文件路径，一定要是 `app` 对应的 `document` 目录下面的路径，否则文件会读取失败。 |
 | beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知。 |
-| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒。 |
+| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位：毫秒。 |
 | completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知。 |
 
 __返回__
@@ -881,7 +881,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pitch | float | 音调，默认值是0.0f，范围：-1 - 1之间的浮点数;。 |
+| pitch | float | 音调，默认值是0.0f，范围：-1 - 1之间的浮点数。 |
 
 __返回__
 
@@ -900,7 +900,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -919,7 +919,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 voiceChangerType 定义。 |
 
 __返回__
 

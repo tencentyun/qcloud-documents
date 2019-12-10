@@ -22,7 +22,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| homeOrientation | int | 采集的视频的旋转角度；取值请参考 TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
+| homeOrientation | int | 采集的视频的旋转角度；取值请参见 TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
 
 __介绍__
 
@@ -229,7 +229,7 @@ __介绍__
 
 接口说明：
 - 默认值：TXLiveConstants#VIDEO_RESOLUTION_TYPE_540_960 。
-- 其他值可参考 TXLiveConstants VIDEO_RESOLUTION_TYPE_XXX 。
+- 其他值可参见 TXLiveConstants VIDEO_RESOLUTION_TYPE_XXX 。
 
 ***
 
@@ -374,7 +374,7 @@ __介绍__
 
 接口说明：
 - 默认值： TXLiveConstants#AUTO_ADJUST_BITRATE_STRATEGY_1。
-- 其他值： 详情见 TXLiveConstants 类中 AUTO_ADJUST_XXX 。
+- 其他值： 请参见 TXLiveConstants 类中 AUTO_ADJUST_XXX 。
 
 ***
 
@@ -566,7 +566,7 @@ __介绍__
 
 接口说明：
 - 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）： 开启自定义视频采集：　\_config.customModeType |= CUSTOM_MODE_VIDEO_CAPTURE；开启自定义音频采集：\_config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE。
-- 其他值：详情见 TXLiveConstants 中 CUSTOM_MODE_XXX 。
+- 其他值：请参见 TXLiveConstants 中 CUSTOM_MODE_XXX 。
 
 ***
 
@@ -649,9 +649,9 @@ __参数__
 __介绍__
 
 接口说明：
-- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO，
+- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
 - 
-- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO，
+- 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
 - TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO 表示通话音量类型。
 - TXLiveConstants#AUDIO_VOLUME_TYPE_MEDIA 表示媒体音量类型。
 
@@ -697,155 +697,4 @@ __介绍__
 接口说明：
 - 默认值：true，此参数仅在开启硬件编码加速时有效。
 
-***
-
-
-## 待废弃设置项
-### setFrontCamera
-
-设置是否使用前置摄像头。
-```
-void setFrontCamera(boolean front)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| front | boolean | true：使用前置摄像头；false：使用后置摄像头。 |
-
-__介绍__
-
-待废弃，建议直接使用 [TXLivePusher#switchCamera()](https://cloud.tencent.com/document/product/454/34772#switchcamera)。
-
-***
-
-### setBeautyFilter
-
-设置美白和美颜效果。
-```
-void setBeautyFilter(int beautyLevel, int whiteningLevel, int ruddyLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyLevel | int | 美颜等级。 |
-| whiteningLevel | int | 美白等级。 |
-| ruddyLevel | int | 红润等级。 |
-
-__介绍__
-
-待废弃，建议直接使用 [TXLivePusher#setBeautyFilter(int， int， int， int)](https://cloud.tencent.com/document/product/454/34772#setbeautyfilter)。
-
-***
-
-### setEyeScaleLevel
-
-设置大眼效果。
-```
-void setEyeScaleLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 大眼等级。 |
-
-__介绍__
-
-待废弃，建议直接使用 [TXLivePusher#setEyeScaleLevel(int)](https://cloud.tencent.com/document/product/454/34772#seteyescalelevel)。
-
-***
-
-### setFaceSlimLevel
-
-设置瘦脸效果。
-```
-void setFaceSlimLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 瘦脸等级。 |
-
-__介绍__
-
-待废弃，建议直接使用 [TXLivePusher#setFaceSlimLevel(int)](https://cloud.tencent.com/document/product/454/34772#setfaceslimlevel)。
-
-***
-
-### setRtmpChannelType
-
-设置 RTMP 传输通道的类型。
-```
-void setRtmpChannelType(int type)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| type | int | 默认值 TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO。<br> flag = TXLiveConstants#RTMP_CHANNEL_TYPE_AUTO 自动。 <br>flag = TXLiveConstants#RTMP_CHANNEL_TYPE_STANDARD 标准的 RTMP 协议，网络层采用 TCP 协议。 <br>flag = TXLiveConstants#RTMP_CHANNEL_TYPE_PRIVATE 标准的 RTMP 协议，网络层采用私有通道传输（在 UDP 上封装的一套可靠快速的传输通道），能够更好地抵抗网络抖动。 |
-
-__介绍__
-
-待废弃，RTMP 传输通道的类型，默认值为：AUTO。
-
-***
-
-### enableNearestIP
-
-设置就近选路。
-```
-void enableNearestIP(boolean enable)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| enable | boolean | true：开启； false：关闭。 |
-
-__介绍__
-
-待废弃，默认值：true。
-
-***
-
-### setCustomVideoPreProcessLibrary
-
-设置用户自定义的视频预处理库。
-```
-void setCustomVideoPreProcessLibrary(String libraryPath, String funcName)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| libraryPath | String | 预处理库的路径。 |
-| funcName | String | 预处理库的函数名。 |
-
-***
-
-### setCustomAudioPreProcessLibrary
-
-设置用户自定义的音频预处理库。
-```
-void setCustomAudioPreProcessLibrary(String libraryPath, String funcName)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| libraryPath | String | 预处理库的路径。 |
-| funcName | String | 预处理库的函数名。 |
-
-***
 

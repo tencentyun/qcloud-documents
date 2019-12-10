@@ -50,7 +50,7 @@ CREATE TABLE `page_visits` (
   `topic` = 'page_visits'
 );
 ```
-您可以用同样的方式添加其他数据流如 CDB For MySQL 等。
+您可以用同样的方式添加其他数据流如 TencentDB For MySQL 等。
 
 ### 4. 调试 SQL 作业
 编写完代码后，可选择在发布之前先进行调试。我们为用户提供了一套独立的模拟环境，用户可以在该环境中上传数据，模拟运行并检查输出结果。

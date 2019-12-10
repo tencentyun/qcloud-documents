@@ -35,6 +35,7 @@
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 Ctrl-Alt-Delete 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
+
 <span id="CryptographicProblem"></span>
 ### 密码问题导致无法登录
 
@@ -76,7 +77,7 @@
 ![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 如果确定为安全组端口设置问题，可通过工具中的【一键放通】功能放通端口。
 ![](https://main.qcloudimg.com/raw/c6a26565610a1360f187ee10db12a634.png)
-如果您需要自定义设置安全组规则，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 重新配置安全组规则。
+如果您需要自定义设置安全组规则，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 重新配置安全组规则。
 
 
 <span id="LoginSecuritySoftware"></span>

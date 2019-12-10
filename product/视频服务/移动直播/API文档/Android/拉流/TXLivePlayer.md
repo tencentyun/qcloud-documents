@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig) | 播放器配置项了，详情见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig)。 |
+| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
 
 ***
 
@@ -56,7 +56,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener)。 |
+| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773)。 |
 
 ***
 
@@ -465,7 +465,7 @@ __参数__
 
 ***
 
-
+<span id="addVideoRawData"></span>
 ## 自定义数据处理
 ### addVideoRawData
 
@@ -546,7 +546,7 @@ __介绍__
 使用说明：
 - 非腾讯云直播地址不能时移。
 - 使用时移功能需在播放开始后调用此方法，否则时移失败。
-- 时移的使用请参见文档：[直播时移播放使用文档](https://cloud.tencent.com/document/product/881/20213#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
+- 时移的使用请参见 [直播时移播放使用文档](https://cloud.tencent.com/document/product/881/20213#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 ***
 
@@ -675,7 +675,7 @@ __参数__
 
 __介绍__
 
-需要在回调中再次调用 #addVideoRawData(byte[])}，将 buffer 塞给 SDK 来填充下一帧 YUV 数据。
+需要在回调中再次调用 [addVideoRawData](#addVideoRawData)，将 buffer 塞给 SDK 来填充下一帧 YUV 数据。
 
 ***
 
@@ -733,7 +733,7 @@ __功能__
 播放器音量大小回调。
 
 
-
+<span id="onAudioVolumeEvaluationNotify"></span>
 ### onAudioVolumeEvaluationNotify
 
 播放器音量大小回调。
@@ -745,7 +745,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 音量大小, 取值范围 [0, 100]。 |
+| volume | int | 音量大小, 取值范围 [0，100]。 |
 
 ***
 

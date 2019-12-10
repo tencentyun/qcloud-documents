@@ -14,7 +14,7 @@ __属性列表__
 
 | 属性 | 类型 | 字段含义 | 推荐取值 | 特别说明 |
 |-----|-----|-----|-----|-----|
-| homeOrientation | int | HOME 键所在方向，用来切换横竖屏推流，默认值：HOME_ORIENTATION_DOWN（竖屏推流）。 | - | 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755#txlivepush) 的 setRenderRotation 进行矫正。 |
+| homeOrientation | int | HOME 键所在方向，用来切换横竖屏推流，默认值：HOME_ORIENTATION_DOWN（竖屏推流）。 | - | 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755) 的 setRenderRotation 进行矫正。 |
 | touchFocus | BOOL | 是否允许点击曝光聚焦，默认值：NO。 | - | - |
 | enableZoom | BOOL | 是否允许双指手势放大预览画面，默认值：NO。 | - | - |
 | watermark | TXImage * | 水印图片，设为 nil 等同于关闭水印。 | - | - |
@@ -38,7 +38,7 @@ __属性列表__
 | enablePureAudioPush | BOOL | 是否为纯音频推流。 | NO | 如果希望实现纯音频推流的功能，需要在推流前就设置该参数，否则播放端会有兼容性问题。 |
 | connectRetryCount | int | 推流遭遇网络连接断开时 SDK 默认重试的次数，取值范围1 - 10，默认值：3。 | - | - |
 | connectRetryInterval | int | 网络重连的时间间隔，单位秒，取值范围3 - 30，默认值：3。 | - | - |
-| customModeType | int | 自定义采集和自定义处理开关。 | - | 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）：开启自定义视频采集：\_config.customModeType &#124;= CUSTOM_MODE_VIDEO_CAPTURE; 开启自定义音频采集：\_config.customModeType &#124;= CUSTOM_MODE_AUDIO_CAPTURE;。 |
+| customModeType | int | 自定义采集和自定义处理开关。 | - | 该字段需要使用与运算符进行级联操作（自定义采集和自定义处理不能同时开启）：开启自定义视频采集：\_config.customModeType &#124;= CUSTOM_MODE_VIDEO_CAPTURE；开启自定义音频采集：\_config.customModeType &#124;= CUSTOM_MODE_AUDIO_CAPTURE。 |
 | sampleBufferSize | CGSize | 仅开启自定义采集时有效，用于设置编码分辨率。 | - | 此值设置需与调用 sendVideoSampleBuffer 时传入的 SampleBuffer 的宽高比一致，否则会引起画面变形。 如果指定 autoSampleBufferSize 为 YES，则不需要设置该字段。 |
 | autoSampleBufferSize | BOOL | 仅开启自定义采集时有效，YES 代表编码分辨率等于输入的 SampleBuffer 的分辨率，默认值：NO。 | - | - |
 | enableNAS | BOOL | 是否开启噪声抑制（注意：早期版本引入了拼写错误，考虑到接口兼容一直没有修正，正确拼写应该是 ANS）。 | NO：ANS 对于直播环境中由其它设备外放的音乐是不友好的，通过 playBGM 设置的背景音不受影响。 | 如果直播场景只有主播在说话，ANS 有助于让主播的声音更清楚，但如果主播在吹拉弹唱，ANS 会损伤乐器的声音。 |
