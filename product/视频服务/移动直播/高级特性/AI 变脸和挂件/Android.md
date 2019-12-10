@@ -117,6 +117,17 @@ public class MApplication extends Application {
 
 ### 7.  配置 App 打包参数
 ![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+如上图所示，在 App 的 build.gradle 中配置
+
+```
+packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
 
 ## 功能接口
 
