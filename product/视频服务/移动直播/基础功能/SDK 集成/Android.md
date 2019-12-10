@@ -107,6 +107,9 @@ defaultConfig {
 - **第六步：同步 SDK**
   单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
 
+## 配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：
 
