@@ -42,7 +42,7 @@ Content-MD5:MD5
    </tr>
    <tr>
       <td>Content-MD5</td>
-      <td>RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化</td>
+      <td>RFC 1864中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化</td>
       <td>String</td>
       <td>是</td>
    </tr>
