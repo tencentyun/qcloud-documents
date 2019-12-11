@@ -31,8 +31,9 @@ systemctl start vsftpd
 netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
-此时 vsftpd 已默认开启匿名访问模式，您无需通过用户名和密码即可登录 FTP 服务器，但无权修改或上传文件。
 ![](https://main.qcloudimg.com/raw/2a7abf80253a8469c9340878d89b452a.png)
+此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
+
 
 ### 步骤3：配置 vsftpd<span id="user"></span>
 1. 执行以下命令，为 FTP 服务创建用户，本文以 ftpuser 为例。
@@ -79,6 +80,7 @@ pasv_address=xxx.xx.xxx.xx   #您的Linux云服务器公网IP
 pasv_min_port=40000          #被动模式下，建立数据传输可使用的端口范围的最小值
 pasv_max_port=45000          #被动模式下，建立数据传输可使用的端口范围的最大值
 ```
+按 **Esc** 后输入 **:wq** 保存后退出。
 7. 执行以下命令，创建 `chroot_list` 文件。<span id="create"></span>
 ```
 vim /etc/vsftpd/chroot_list
@@ -92,7 +94,7 @@ systemctl restart vsftpd
 ```
 
 ### 步骤4：设置安全组
-搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 云服务器放通**入站规则**，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)：
+搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 云服务器放通**入站规则**，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 - 主动模式：放通端口21。
 - 被动模式：放通端口21，及 [修改配置文件](#config) 中设置的 `pasv_min_port` 到 `pasv_max_port` 之间的所有端口，本文放通端口为40000 - 45000。
 
@@ -129,7 +131,7 @@ listen=YES               #监听IPv4 sockets
 allow_writeable_chroot=YES
 local_root=/var/ftp/test #设置本地用户登录后所在的目录
 ```
-请前往 [步骤7](#create) 完成 vsftpd 配置。
+按 **Esc** 后输入 **:wq** 保存后退出，并前往 [步骤7](#create) 完成 vsftpd 配置。
 
 ### FTP 客户端上传文件失败
 #### 问题描述
