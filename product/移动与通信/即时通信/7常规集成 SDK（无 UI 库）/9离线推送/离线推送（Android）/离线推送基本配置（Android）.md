@@ -1,6 +1,6 @@
 ## 概述
 
-即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级推送通道的相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
+即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
 即时通信 IM 目前已经支持了 APNs、小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送等厂商推送，具体如下：
 
@@ -16,9 +16,9 @@
      <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
    </tr> 
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
-     <td nowrap="nowrap">FuntouchOS</td> 
-     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
+     <td><a href="https://cloud.tencent.com/document/product/269/35000" target="_blank">小米推送</a></td> 
+     <td>MIUI</td> 
+     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
    </tr> 
    <tr> 
      <td><a href="https://cloud.tencent.com/document/product/269/34999" target="_blank">华为推送</a></td> 
@@ -26,9 +26,9 @@
      <td>华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301</td> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/35000" target="_blank">小米推送</a></td> 
-     <td>MIUI</td> 
-     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">Google FCM 推送</a></td> 
+     <td nowrap="nowrap">Android 4.1 及以上</td> 
+     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。</td> 
    </tr> 
    <tr> 
      <td><a href="https://cloud.tencent.com/document/product/269/35001" target="_blank">魅族推送</a></td> 
@@ -41,9 +41,9 @@
      <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。目前 OPPO 推送服务暂时只开放给已上架 OPPO 软件商店 A/B 等级的应用使用，因此 Demo 暂时没有 OPPO 推送的示例</td> 
    </tr>  
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">FCM 推送</a></td> 
-     <td nowrap="nowrap">Android 4.1 及以上</td> 
-     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
+     <td nowrap="nowrap">FuntouchOS</td> 
+     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
    </tr> 
 </table>
 

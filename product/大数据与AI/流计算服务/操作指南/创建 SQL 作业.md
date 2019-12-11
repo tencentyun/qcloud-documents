@@ -1,11 +1,11 @@
 SQL 作业是通过 SQL 语句直接编写业务逻辑的方式。对于流计算开发人员来说，是一种实现简单高效、体验友好的作业开发方式。
 
 ## 前提条件
-创建 SQL 作业时，需要先准备好上下游数据，具体请参见 [准备上下游数据](https://cloud.tencent.com/document/product/849/38287)。
+创建 SQL 作业时，需要先准备好上下游数据，具体请参见 [上下游数据一览](https://cloud.tencent.com/document/product/849/38374)。
 
 ## 操作步骤
 ### 1. 创建 SQL 作业
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/scs)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建SQL作业】，进入创建 SQL 作业页面，输入相关信息购买和创建作业。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建SQL作业】，进入创建 SQL 作业页面，输入相关信息购买和创建作业。
 ![新建SQL作业](https://main.qcloudimg.com/raw/9c7318af0075a8d3cf7353499cf260f2.png)
 
 相关信息如下：
@@ -13,20 +13,17 @@ SQL 作业是通过 SQL 语句直接编写业务逻辑的方式。对于流计�
 | 参数     | 说明                                                     |
 | -------- | -------------------------------------------------------- |
 | 地域     | 作业所在地域                                             |
-| 计算资源 | 用于计算的 CU 资源，参见 [术语表（待放url）](https://xxxx) |
+| 计算资源 | 用于计算的 CU 资源，参见 [词汇表](https://cloud.tencent.com/document/product/849/17740) |
 | 作业名称 | 给作业取一个名字                                         |
 
-### 2. 访问授权
-在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，弹出访问授权对话框如下。
+### 2. 流计算服务委托授权
+在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，在未授权时，弹出访问授权对话框如下。单击【前往授权】，授权流计算作业访问您的 CKafka、TencentDB 等资源。
 ![角色授权弹框](https://main.qcloudimg.com/raw/0810024f6f10d6fb8a4ce689a274537f.png)
-> ? 如果您之前已经确认过访问授权，则不会出现这一步。
 
-单击【前往授权】，会跳转到【角色管理】页面，授权流计算作业访问您的 CKafka、TencentDB 等资源。
-![访问管理控制台角色授权界面](https://main.qcloudimg.com/raw/dc76469d7e5e179aa87575813e3f5355.png)
-单击【同意授权】，即可完成授权操作。
+> ? 此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38288)。
 
 ### 3. 编写 SQL 语句
-在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，进入作业开发页。在代码编辑框输入 SQL 语句进行业务逻辑开发，SQL 语句编写请参见 [SQL 手册（待放url）](xxx)。单击【语法检查】检查语法是否完全正确，如果提示错误，请根据提示修改 SQL 语句。
+在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，进入作业开发页。在代码编辑框输入 SQL 语句进行业务逻辑开发，SQL 语句编写请参见 [SQL 手册-术语表](https://cloud.tencent.com/document/product/849/18149)。单击【语法检查】检查语法是否完全正确，如果提示错误，请根据提示修改 SQL 语句。
 
 编写 SQL 语句方式如下：
 1. 直接编写 SQL 语句
@@ -39,7 +36,7 @@ SQL 作业是通过 SQL 语句直接编写业务逻辑的方式。对于流计�
 单击代码编辑框上方的【选择数据流】，通过【添加数据流DDL】对话框自动生成 SQL 代码，然后编写计算逻辑。
 
  示例如下：类型选择 CKafka，实例 ID 选择您在准备工作中创建的 CKafka，Topic 选择作为数据源的 Topic，数据格式选择 json，输入字段结构，单击【预校验】来校验输入的字段结构是否与 CKafka 中一致，最后单击【添加】。
-![添加数据流DDL](https://main.qcloudimg.com/raw/9d1d1886541278e88bac0a5856248423.png)
+![添加数据流DDL](https://main.qcloudimg.com/raw/0df6e8e9fdb6517893a9294a44b91dba.png)
 添加完数据流以后，在代码编辑框中会生成如下代码：
 ```mysql
 CREATE TABLE `page_visits` (
@@ -48,12 +45,12 @@ CREATE TABLE `page_visits` (
   `page_id` VARCHAR
 ) WITH (
   `type` = 'ckafka',
-  `instanceId` = 'ckafka-2b6b5m11',
+  `instanceId` = 'ckafka-xxxxxxxx',
   `encoding` = 'json',
   `topic` = 'page_visits'
 );
 ```
-您可以用同样的方式添加其他数据流如 CDB For MySQL 等。
+您可以用同样的方式添加其他数据流如 TencentDB For MySQL 等。
 
 ### 4. 调试 SQL 作业
 编写完代码后，可选择在发布之前先进行调试。我们为用户提供了一套独立的模拟环境，用户可以在该环境中上传数据，模拟运行并检查输出结果。

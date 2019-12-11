@@ -64,7 +64,7 @@ constraints 对象未设置，或者都被设置为 false。
 ### 如何避免 dom tree 重绘引起的黑屏问题？
 如果您使用 react/vue/angular，video 与 stream 的关系是通过 js 来控制的。如果数据变化引起了页面的变化，您需要重新绑定 video 与 stream 的关系，否则会引发黑屏问题。
 
-### iOS 黑屏是什么原图？
+### iOS 黑屏是什么原因？
 - 如果您使用的是 react/vue/angular，动态创建的 video 无法在浏览器中自动播放。
 - 如果您使用了纯观众模式，不进行推流，iOS 不允许自动播放带声音的视频，远端视频流无法自动播放。需要在 onRemoteStreamUpdate 事件处理函数中，将远端流绑定到 video 标签后，加上 video.play()。
 

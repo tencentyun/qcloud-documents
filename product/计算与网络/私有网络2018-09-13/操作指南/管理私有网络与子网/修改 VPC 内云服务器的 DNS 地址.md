@@ -6,4 +6,4 @@
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/) ，选择【云产品】>【网络】>【私有网络】，进入私有网络控制台。
 2. 单击需要修改的私有网络 ID，进入详情页，即可在基本信息内配置 DNS 地址。
-![](https://main.qcloudimg.com/raw/3f682b0a7a780182a4b783cddd54de6e.png)
+![](https://main.qcloudimg.com/raw/1211217b16d76233ba7fa8d75e9d509a.png)

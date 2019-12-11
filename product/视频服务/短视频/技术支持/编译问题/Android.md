@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/b631f468aca6a2d1e83b868874631030.png)
 如果您使用的是 商用企业版，那么您只能使用 armeabi 架构，关闭其他架构，例如 armeabi-v7a。如果您使用的是其他版本，那么您可以使用 armeabi 和 armeabi-v7a 架构。
 ![](https://main.qcloudimg.com/raw/9d75515640b65d91ab8730991e4c2602.png)
-如上图所示，请在`app`的 build.gradle 中指定 abiFilters 为”armeabi“。
+如上图所示，请在`app`的 build.gradle 中指定 abiFilters 为“armeabi”。
 
 ### 同时集成两款以上 LiteAV 体系的 SDK 出现冲突怎么办？
 如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，这是由于 LiteAV 体系的 SDK 都使用了相同的基础模块。

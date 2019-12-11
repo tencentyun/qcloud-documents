@@ -1,3 +1,6 @@
+>!在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+
+
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
@@ -50,7 +53,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 | effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
 | action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(*)       |
-|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6..E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6(condition)) 说明  |
+|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6.-.E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6.EF.BC.88condition.EF.BC.89) 说明  |
 
 下面列出了各 COS API 设置授权策略的示例。
 
@@ -109,7 +112,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -160,7 +163,7 @@ API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]

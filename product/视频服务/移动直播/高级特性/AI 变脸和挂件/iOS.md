@@ -82,31 +82,169 @@ Metal.framework
 
 ## 功能接口
 
-### 美妆接口（大眼、瘦脸）
-
+### 美妆接口（大眼、瘦脸等）
+美妆接口的设置对象可以通过 TXLivePusher 的 getBeautyManager 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
 ```objective-c
 /**
- * 设置大眼级别
- * @param eyeScaleLevel 大眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ * 设置美颜（磨皮）算法
+ *
+ * SDK 内部集成了两套风格不同的磨皮算法，一套我们取名叫“光滑”，适用于美女秀场，效果比较明显。
+ * 另一套我们取名“自然”，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
+ *
+ * @param beautyStyle 美颜风格，光滑或者自然，光滑风格磨皮更加明显，适合娱乐场景。
  */
-- (void)setEyeScaleLevel:(float)eyeScaleLevel;
+- (void)setBeautyStyle:(TXBeautyStyle)beautyStyle;
 
-// 瘦脸
-- (void)setFaceScaleLevel:(float)faceScaleLevel;
+/**
+ * 设置美颜级别
+ * @param level 美颜级别，取值范围0 - 9； 0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setBeautyLevel:(float)level;
 
-// V 脸
-- (void)setFaceVLevel:(float)faceVLevel;
+/**
+ * 设置美白级别
+ *
+ * @param level 美白级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setWhitenessLevel:(float)level;
 
-// 调整下巴拉伸或收缩
-- (void)setChinLevel:(float)chinLevel;
+/**
+ * 设置红润级别
+ *
+ * @param level 红润级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setRuddyLevel:(float)level;
 
-// 短脸
-- (void)setFaceShortLevel:(float)faceShortlevel;
+/**
+ * 设置大眼级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 大眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setEyeScaleLevel:(float)level;
 
-// 瘦鼻
-- (void)setNoseSlimLevel:(float)noseSlimLevel;
+/**
+ * 设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 瘦脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceSlimLevel:(float)level;
+
+/**
+ * 设置V脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level V脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceVLevel:(float)level;
+
+/**
+ * 设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 下巴拉伸或收缩级别，取值范围-9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。
+ */
+- (void)setChinLevel:(float)level;
+/**
+ * 设置短脸级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 短脸级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceShortLevel:(float)level;
+
+/**
+ * 设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 瘦鼻级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setNoseSlimLevel:(float)level;
+
+/**
+ * 设置亮眼 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 亮眼级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setEyeLightenLevel:(float)level;
+
+/**
+ * 设置白牙 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 白牙级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setToothWhitenLevel:(float)level;
+
+/**
+ * 设置祛皱 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 祛皱级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setWrinkleRemoveLevel:(float)level;
+
+/**
+ * 设置祛眼袋 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 祛眼袋级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setPounchRemoveLevel:(float)level;
+
+/**
+ * 设置法令纹 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 法令纹级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setSmileLinesRemoveLevel:(float)level;
+
+/**
+ * 设置发际线 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 发际线级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。
+ */
+- (void)setForeheadLevel:(float)level;
+
+/**
+ * 设置眼距 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 眼距级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setEyeDistanceLevel:(float)level;
+
+/**
+ * 设置眼角 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 眼角级别，取值范围-9 - 9；0表示关闭，小于0表示降低，大于0表示抬高。
+ */
+- (void)setEyeAngleLevel:(float)level;
+
+/**
+ * 设置嘴型 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 嘴型级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setMouthShapeLevel:(float)level;
+
+/**
+ * 设置鼻翼 （商用企业版有效，其它版本设置此参数无效）
+ *
+ * @param level 鼻翼级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setNoseWingLevel:(float)level;
+
+/**
+ * 设置鼻子位置 （商用企业版有效，其它版本设置此参数无效）
+ * @param level 鼻子位置级别，取值范围-9 - 9；0表示关闭，小于0表示抬高，大于0表示降低。
+ */
+- (void)setNosePositionLevel:(float)level;
+
+/**
+ * 设置嘴唇厚度 （商用企业版有效，其它版本设置此参数无效）
+ * @param level 嘴唇厚度级别，取值范围-9 - 9；0表示关闭，小于0表示拉伸，大于0表示收缩。
+ */
+- (void)setLipsThicknessLevel:(float)level;
+
+/**
+ * 设置脸型（商用企业版有效，其它版本设置此参数无效）
+ * @param   level 美型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
+ */
+- (void)setFaceBeautyLevel:(float)level;
 ```
 
 ### AI 贴纸

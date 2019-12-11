@@ -5,11 +5,6 @@ SEO 优化配置是解决域名接入 CDN 后，因 CDN 频繁变更 IP 而影�
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧目录的【域名管理】，进入管理页面，在列表中找到您需要编辑的域名所在行，单击操作栏的【管理】。
 ![img](https://main.qcloudimg.com/raw/99e0c24b4530c30b9abe27325bb1b317.png)
 2. 单击【高级配置】，您可以看到 **SEO 优化配置**模块。默认情况下，搜索引擎自动回源为关闭状态。
-> ! SEO 优化配置功能只在域名接入方式为**自有源**时可使用。开启 SEO 优化配置功能后，若域名有多个源站地址，则默认回源地址为添加的第一个源站地址。
-> 
+>! SEO 优化配置功能只在域名接入方式为**自有源**时可使用。开启 SEO 优化配置功能后，若域名有多个源站地址，则默认回源地址为添加的第一个源站地址。
+>
 ![img](https://main.qcloudimg.com/raw/cd67f24a23eb2241ff4a35ab27777c6c.png)
-3. 若当前域名的 CNAME 为旧版 CNAME，还需更新为新版 CNAME 后才可使用 SEO 优化配置功能。
-	CNAME 更新的具体操作步骤如下：
-	1. 提交工单变更相应域名的 CNAME 为新版 CNAME。
-	2. 在您的域名解析服务商处将对应域名的 CNAME 解析切换为新版 CNAME。
-	![img](https://main.qcloudimg.com/raw/271a2ea8a13c7e9e6a02bf998497739b/seo3.png)

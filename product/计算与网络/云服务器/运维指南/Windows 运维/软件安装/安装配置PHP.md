@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文档以 Windows Server 2012 R2 操作系统云服务器为例，介绍在 Windows 云服务器中配置 PHP 7.0 及之前版本与 PHP 7.0 之后版本的 PHP。
+本文档以 Windows Server 2012 R2 操作系统云服务器为例，介绍在 Windows 云服务器中配置 PHP 5.3 及之前版本与 PHP 5.3 之后版本的 PHP。
 
 
 ## 前提条件
@@ -11,9 +11,9 @@
 ## 操作步骤
 
 <span id="jump1"></span>
-### PHP 7.0 及之前版本安装
+### PHP 5.3 及之前版本安装
 
->! [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 7.0 及之前版本的安装包下载，若仍需使用 PHP 7.0 及之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。以下操作步骤以 PHP 5.2.13 版本为例。
+>! [PHP 官网](http://windows.php.net/download/) 已不再提供 PHP 5.2 之前版本的安装包下载，若仍需使用 PHP 5.2 之前版本，可在云服务器中自行搜索和下载；也可在本地自行下载，再将其安装包上传至云服务器中。如何将文件上传到 Windows 云服务器，请参考 [上传文件到 Windows 云服务器](https://cloud.tencent.com/document/product/213/2761)。以下操作步骤以 PHP 5.2.13 版本为例。
 > 
 1. 在云服务器中打开 PHP 安装包。
 2. 按照安装界面的指引，单击【Next】。
@@ -34,9 +34,9 @@
 ![](https://main.qcloudimg.com/raw/0cdefc8707c4402e9ae5f9e6fa523ae1.png)
 
 <span id="jump"></span>
-### PHP 7.0 之后版本安装
+### PHP 5.3 之后版本安装
 
-PHP 7.0 之后的版本通过 zip 文件和 debug pack 两种方式进行安装。以下操作以使用 zip 文件方式在 Windows Server 2012 R2 环境下安装 PHP 为例。
+PHP 5.3 版本后取消了安装包模式，仅通过 zip 文件和 debug pack 两种方式进行安装。以下操作以使用 zip 文件方式在 Windows Server 2012 R2 环境下安装 PHP 为例。
 
 #### 软件下载
 
@@ -52,7 +52,7 @@ PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如
 <tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2017</a></td></tr>
 <tr><td>php-x.x.x-nts-Win32-VC14-x86.zip</td><td><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145">Microsoft Visual C++ Redistributable for Visual Studio 2015</a></td></tr>
 </table>
- 例如，下载的 PHP 安装包名称为 <code>PHP-7.0.6-nts-Win32-VC14-x86.zip</code>，则需下载和安装 Microsoft Visual C++ Redistributable for Visual Studio 2015 的安装包。
+ 例如，下载的 PHP 安装包名称为 <code>PHP-7.1.30-nts-Win32-VC14-x86.zip</code>，则需下载和安装 Microsoft Visual C++ Redistributable for Visual Studio 2015 的安装包。
 
 #### 安装配置
 1. 将已下载的 PHP zip 安装包解压缩。例如，解压缩至 `C:\PHP` 目录下。

@@ -2,15 +2,15 @@
 
 ## 前提条件
 - 需要根据业务需求情况，基于 Flink 的 API 开发好自己的 JAR 包。
-- 需要先创建好自己的独享集群，请参见 [准备独享集群](https://cloud.tencent.com/document/product/849/38283) 。
-- 需要准备好上下游数据，具体请参见 [准备上下游数据](https://cloud.tencent.com/document/product/849/38284)。
+- 需要先创建好自己的独享集群，请参见 [创建和管理集群](https://cloud.tencent.com/document/product/849/38380)。
+- 需要准备好上下游数据，具体请参见 [上下游数据一览](https://cloud.tencent.com/document/product/849/38374)。
 
 ## 操作步骤
 
 ### 1. 创建 JAR 作业
 
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/scs)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
-> ? 如果这一步您没有可选的独享集群，请参见 [准备独享集群](https://cloud.tencent.com/document/product/849/38283) 创建独享集群。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
+> ? 如果这一步您没有可选的独享集群，请参见 [创建和管理集群](https://cloud.tencent.com/document/product/849/38380) 创建独享集群。
 
 ![新建JAR作业步骤1](https://main.qcloudimg.com/raw/97acd63eec13dcb9f12a3835263df950.png)
 输入相关信息后单击【完成创建】，即可在【作业管理】页面看到新创建的作业。
@@ -23,15 +23,11 @@
 | 作业运行的集群 | 您在上一步选择的自己创建的独享集群             |
 | 算子默认并行度 | 请参见 [作业并行度设置](https://cloud.tencent.com/document/product/849/38377) |
 
-### 2. 访问授权
-
-在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，弹出访问授权对话框如下。
+### 2. 流计算服务委托授权
+在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，在未授权时，弹出访问授权对话框如下。单击【前往授权】，授权流计算作业访问您的 CKafka、TencentDB 等资源。
 ![角色授权弹框](https://main.qcloudimg.com/raw/0810024f6f10d6fb8a4ce689a274537f.png)
-> ? 如果您之前已经确认过访问授权，则不会出现这一步。
 
-单击【前往授权】，会跳转到【角色管理】页面，授权流计算作业访问您的 CKafka、TencentDB 等资源。
-![访问管理控制台角色授权界面](https://main.qcloudimg.com/raw/dc76469d7e5e179aa87575813e3f5355.png)
-单击【同意授权】，即可完成授权操作。
+> ? 此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38288)。
 
 ### 3. JAR 作业开发和发布
 

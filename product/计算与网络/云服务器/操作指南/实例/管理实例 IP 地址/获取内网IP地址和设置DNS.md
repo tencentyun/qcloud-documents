@@ -34,7 +34,7 @@ curl http://metadata.tencentyun.com/meta-data/local-ipv4
 ```
 vi /etc/resolv.conf
 ```
-3. 按 **i** 或 **Insert** 切换至编辑模式，并根据 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns) 列表中对应的不同地域，修改 DNS IP。
+3. 按 **i** 切换至编辑模式，并根据 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns) 列表中对应的不同地域，修改 DNS IP。
 例如，将内网 DNS IP 修改为北京地域的内网 DNS 服务器。
 ```
 nameserver 10.53.216.182

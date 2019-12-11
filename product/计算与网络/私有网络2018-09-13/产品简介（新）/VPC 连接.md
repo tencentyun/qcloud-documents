@@ -31,7 +31,7 @@
 <td><li>基于端口提供四层和七层负载均衡功能，支持用户从公网通过负载均衡（CLB）访问云服务器。</li><li>可以消除单点故障，提升应用系统的可用性。</li></td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/product/215/37875" target="_blank">公网网关</a></td>
+<td><a href="https://cloud.tencent.com/document/product/213/38839" target="_blank">公网网关</a></td>
 <td>一种开启了转发功能的云服务器。没有公网 IP 的云服务器，可以通过位于不同子网的公网网关访问公网。</td>
 <td><li>与具有普通公网 IP 的云服务器差别在于，公网网关可以转发其它子网内云服务器访问公网的流量，而有普通公网 IP 的云服务器只能满足自身访问公网的需求。</li><li>您只有在购买云服务器时可以选择是否将云服务器作为公网网关，如购买时未创建为公网网关，建议您使用 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</li></td>
 </tr>

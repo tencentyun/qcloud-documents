@@ -255,8 +255,8 @@ CHECK ( expression )
 REFERENCES table_name [ ( column_name [, ... ] ) ]
 [ key_match_type ] [ key_action ]
 FOREIGN KEY ( column_name [, ... ] )
-REFERENCES table_name [ ( column_name [, ... ] )
-[ key_match_type ] [ key_action [ key_checking_mode ]
+REFERENCES table_name [ ( column_name [, ... ] ) ]
+[ key_match_type ] [ key_action ] [ key_checking_mode ]
 该 REFERENCES 和 FOREIGN KEY 子句指定引用完整性约束（外键约束）。数据库接受 PostgreSQL 语法中指定的引用完整性约束，但是不执行他们。有关引用完整性约束的信息请参考 PostgreSQL 文档。
 
 WITH ( storage_option=value )

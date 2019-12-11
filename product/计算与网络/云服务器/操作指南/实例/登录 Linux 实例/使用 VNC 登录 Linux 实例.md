@@ -25,8 +25,11 @@ Windows，Linux 和 Mac OS 系统
 ![](https://main.qcloudimg.com/raw/b7f0594ddecad128707ee720502e10b0.png)
 3. 在弹出的【登录Linux实例】窗口，选择【其它方式（VNC）】，单击【立即登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6d4eb31a5c3e127f7214b31db263bc5a.png)
-4. 在弹出的对话框中，输入用户名和密码登录，即可完成登录。如下图所示：
+4. 在弹出的对话框中，在 “login” 后输入用户名，按 **Enter**。
+5. 在 “Password” 后输入密码，按 **Enter**。
+输入的密码默认不显示，如下图所示：
 ![](https://main.qcloudimg.com/raw/bab14d0f56db2f3bc1ab949e08fcc0f0.png)
+登录完成后，命令提示符左侧将显示当前登录云服务器的信息。
 
 ## 后续操作
 

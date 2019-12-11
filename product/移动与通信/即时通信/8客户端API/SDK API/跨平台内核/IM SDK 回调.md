@@ -1191,7 +1191,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十一、接口 [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [PendencyPage](https://cloud.tencent.com/document/product/269/33553#pendencypage)**
+**示例二十一、接口 [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) 的回调 TIMCommCallback 参数 json_params 的 JSON**
 
 ```c
 {
@@ -1225,7 +1225,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十三、接口 [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendshipCheckFriendTypeResult](https://cloud.tencent.com/document/product/269/33553#friendshipcheckfriendtyperesult)**
+**示例二十三、接口 [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) 的回调 TIMCommCallback 参数 json_params 的 JSON**
 
 ```c
 [
@@ -1257,7 +1257,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十五、接口 [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendGroupInfo](https://cloud.tencent.com/document/product/269/33553#friendgroupinfo)**
+**示例二十五、接口 [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) 的回调 TIMCommCallback 参数 json_params 的 JSON**
 
 ```c
 [

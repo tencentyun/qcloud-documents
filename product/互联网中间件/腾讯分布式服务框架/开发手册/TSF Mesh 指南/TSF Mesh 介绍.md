@@ -1,4 +1,4 @@
-TSF Service Mesh（以下简称为 TSF Mesh）是一个基础设施层，用于处理服务间的通信。TSF Mesh 是由一系列轻量级的网络代理组成，这些代理（又称 Sidecar）与应用程序部署在一起，而应用程序不感知 Sidecar 的存在。
+Mesh 微服务平台（Tencent Service Mesh Framework，以下简称 TSF Mesh）是一个基础设施层，用于处理服务间的通信。TSF Mesh 是由一系列轻量级的网络代理组成，这些代理（又称 Sidecar）与应用程序部署在一起，而应用程序不感知 Sidecar 的存在。
 TSF Mesh 是处于 TCP/IP 之上的一个抽象层。TCP 解决了网络端点间字节传输问题，TSF Mesh 解决服务节点间请求的路由问题。
 
 
