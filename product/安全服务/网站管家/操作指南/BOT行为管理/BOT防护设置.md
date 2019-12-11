@@ -119,7 +119,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 <tr><td>监控</td><td>符合匹配条件的会话请求将被放行，可在 BOT 详情中查看会话信息。</td></tr>
 <tr><td>验证码</td><td>仅用于浏览器访问场景，符合匹配条件的会话请求将进行验证码挑战，若挑战失败，执行拦截动作。若挑战成功，惩罚时长内正常访问。</td></tr>
 <tr><td>重定向</td><td>符合匹配条件的会话请求执行重定向，并且指定惩罚时长，将请求重定向到指定 URL，但只支持重定向到当前域名下的 URL。</td></tr>
-<tr><td>拦截</td><td>符合匹配条件的会话请求将执行拦截，惩罚时长：默认为30分钟，可设置5分钟 - 10080分钟（7天），拦截结果可在【<a href = "https://console.cloud.tencent.com/guanjia/waf/attack">攻击日志</a>】中查看，拦截 IP 的实时信息可在【<a href = "https://console.cloud.tencent.com/guanjia/ip/record">IP 封堵状态</a>】中查看。。</td></tr>
+<tr><td>拦截</td><td>符合匹配条件的会话请求将执行拦截，可设置惩罚时长，取值为：5分钟 - 10080分钟（7天），拦截结果可在【<a href = "https://console.cloud.tencent.com/guanjia/waf/attack">攻击日志</a>】中查看，拦截 IP 的实时信息可在【<a href = "https://console.cloud.tencent.com/guanjia/ip/record">IP 封堵状态</a>】中查看。</td></tr>
 </table>
 	- **自定义会话特征匹配条件说明如下：**
 	<table>
