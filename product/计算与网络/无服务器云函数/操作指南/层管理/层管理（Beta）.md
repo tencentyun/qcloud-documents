@@ -3,19 +3,16 @@
 
 
 
-## 前提条件
-已登录 [SCF 控制台](https://console.cloud.tencent.com/scf/index)。
-
 ## 说明事项
 - 层中的文件将会添加到 `/opt` 目录中，此目录在函数执行期间可访问。
-- 如果您的函数已绑定了多个层，这些层将按顺序合并到 `/opt` 目录中。如果同一个文件出现在多个层中，SCF 平台将会保留最新版本层里的文件。
+- 如果您的函数已绑定了多个层，这些层将按顺序合并到 `/opt` 目录中。如果同一个文件出现在多个层中，SCF 平台将会保留最大序号层里的文件。
 - 如果您正在使用层版本被删除，与该层版本绑定的函数将会继续运行。
 
 
 ## 操作步骤
 
 ### 创建层
-1. 选择左侧导航栏中的【[层](https://console.cloud.tencent.com/scf/layer)】，进入“层”列表页面。
+1. 登录 SCF 控制台，选择左侧导航栏中的【[层](https://console.cloud.tencent.com/scf/layer)】，进入“层”列表页面。
 2. 在页面上方选择需使用层的地域，并单击【新建】。
 3. 在“新建层版本”页面，根据实际需求设置层信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/1e77f5a6c8911f159ba1220c2b2bf501.png)
@@ -27,7 +24,7 @@
 4. 单击【确定】即可成功创建。
 
 ### 云函数绑定层
-1. 选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入“函数服务”列表页面。
+1. 登录 SCF 控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入“函数服务”列表页面。
 2. 选择需进行层管理的函数 ID，进入函数配置页面。
 3. 选择【层管理】页签，并单击【绑定层】。如下图所示：
 ![](https://main.qcloudimg.com/raw/485d1172edd541f602758ed94f76e5eb.png)
