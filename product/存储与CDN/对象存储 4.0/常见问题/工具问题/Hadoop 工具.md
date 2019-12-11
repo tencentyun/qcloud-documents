@@ -1,4 +1,4 @@
-### 在执行计算任务过程中抛出异常信息 com.qcloud.cos.exception: CosServiceException: Reduce your request rate. (Status Code: 503; Error Code: SlowDown; Request ID: NWXXXXXXXXXX，该如何处理？
+### 在执行计算任务过程中抛出异常信息 com.qcloud.cos.exception: CosServiceException: Reduce your request rate. (Status Code: 503; Error Code: SlowDown; Request ID: NWXXXXXXXXXX)，该如何处理？
 
 大数据计算任务通常会并行地读取 COS 存储桶中的数据，因而触发了访问频率的限制。COS 默认对每个账号有1200QPS的操作限制，建议增加`fs.cosn.maxRetries`配置值，使其通过多次重试来保证作业的正常运行。
 
