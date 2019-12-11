@@ -14,10 +14,10 @@ TI 中使用的训练脚本和标准的 PyTorch 脚本非常相似，只需少�
 
 可用的环境变量有：
 
-- `TM_MODEL_DIR`: string 类型，表示容器中模型的输出路径
+- `TM_MODEL_DIR`：string 类型，表示容器中模型的输出路径
 - `TM_NUM_GPUS`：整型，表示实例可用的 GPU 数
 - `TM_OUTPUT_DATA_DIR`：string 类型，表示容器中输出数据（例如 checkpoints、图像或其他文件，但不包括生成的模型）的路径
-- `TM_CHANNEL_XXXX`: string 类型，表示输入训练数据的路径，XXXX对应`fit`参数中通道的名字，如 train 和 test 两个通道对应的环境变量是`TM_CHANNEL_TRAIN` `TM_CHANNEL_TEST`.
+- `TM_CHANNEL_XXXX`：string 类型，表示输入训练数据的路径，XXXX对应`fit`参数中通道的名字，如 train 和 test 两个通道对应的环境变量是`TM_CHANNEL_TRAIN` `TM_CHANNEL_TEST`.
 
 一个典型训练脚本的工作流程是
 1. 读取环境变量指定的路径加载数据
