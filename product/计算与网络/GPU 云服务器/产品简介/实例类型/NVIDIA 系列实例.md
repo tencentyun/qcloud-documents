@@ -20,17 +20,12 @@
 ## 硬件规格
 基本硬件规格如下图所示：
 
-**前一代GPU实例**
-
+####  前一代GPU实例
 ![](https://main.qcloudimg.com/raw/c1ff9f6f5adf225699aa002f0ca97d44.jpg)
-
-
-
-**新一代GPU实例**
-
+#### 新一代GPU实例
 ![](https://main.qcloudimg.com/raw/2ab344c5a0f7d1e1ecdf7ff43c0d2518.jpg)
 
-**规格说明**：
+#### 规格说明
 
 - GPU 性能：主要指标为 GPU 的浮点运行能力，TF 代表 T Flops，SP 代表 single-precision 单精度浮点运算，DP 代表 double-precision 双精度浮点运算，INT8 代表 INT8 整数运算，DL 代表 Tensor Core 的深度学习加速能力（仅适用 V100）。
 - 存储/网络：存储列表展示了当前实例所支持购买的存储类型，增强型 SSD 云盘目前在内测阶段；网络带宽是指该类型实例所在物理机的网络带宽，某一类型具实例所分配的网络带宽详见购买页。
