@@ -66,7 +66,7 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 3. 设置训练相关的环境变量。
 4. 开始训练。
 
-如果 fit 方法指定了参数 wait=False，fit 方法立即返回，训练任务在后台异步执行。之后可以通过 attach 方法获得 Tensorflow Estimator，可以继续打印标准输出
+如果 fit 方法指定了参数 wait=False，fit 方法立即返回，训练任务在后台异步执行。之后可以通过 attach 方法获得 Tensorflow Estimator，可以继续打印标准输出。
 
 ```python
 tf_estimator.fit(your_input_data, wait=False)
