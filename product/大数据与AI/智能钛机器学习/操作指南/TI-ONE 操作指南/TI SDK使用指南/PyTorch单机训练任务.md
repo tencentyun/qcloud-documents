@@ -54,7 +54,7 @@ estimator.fit({'training': 'cos://path/to/input'})
 #### 必须参数
 - inputs： 存储训练数据集的 COS 路径，可以采用以下两种数据结构
   - `str`：例如 `cos://my-bucket/my-training-data`，COS URI，表示数据集的路径
-  - `dict[str, str]`: 例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集
+  - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集
 
 #### 可选参数
 
