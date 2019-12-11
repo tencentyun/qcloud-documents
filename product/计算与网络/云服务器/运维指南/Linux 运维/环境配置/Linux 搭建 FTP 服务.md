@@ -2,7 +2,7 @@
 Vsftpd（very secure FTP daemon）是众多 Linux 发行版中默认的 FTP 服务器。本文以 CentOS 7.6 64位操作系统的腾讯云服务器（CVM）为例，使用 vsftpd 软件搭建 Linux 云服务器的 FTP 服务。
 
 ## 示例软件版本
-本文搭建 FTP 服务组成版本及说明如下：
+本文搭建 FTP 服务组成版本如下：
 - Linux 操作系统：本文以公共镜像 CentOS 7.6 为例。
 - Vsftpd：本文以 vsftpd 3.0.2 为例。
 
@@ -31,7 +31,7 @@ systemctl start vsftpd
 netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
-此时 vsftpd 已默认开启匿名访问模式，您无需通过用户名和密码即可查看 Linux 云服务器的文件，但无权修改或上传文件。
+此时 vsftpd 已默认开启匿名访问模式，您无需通过用户名和密码即可登录 FTP 服务器，但无权修改或上传文件。
 ![](https://main.qcloudimg.com/raw/2a7abf80253a8469c9340878d89b452a.png)
 
 ### 步骤3：配置 vsftpd<span id="user"></span>
@@ -95,7 +95,7 @@ pasv_max_port=45000          #被动模式下，建立数据传输可使用的�
 ```
 vim /etc/vsftpd/chroot_list
 ```
-8. 按 **i** 进入编辑模式，您可输入指定用户名，该用户登录后可访问除 `/var/ftp/test` 外的其他目录。
+8. 按 **i** 进入编辑模式，您可输入指定用户名，指定的用户登录后可访问除 `/var/ftp/test` 外的其他目录。
 若不设置指定用户，按 **Esc** 后输入 **:wq** 保存后退出。
 9. 执行以下命令，重启 FTP 服务。
 ```
