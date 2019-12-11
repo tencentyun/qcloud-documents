@@ -7,7 +7,7 @@
 2. 构造一个 ti.tensorflow.Tensorflow Estimator。
 3. 调用 Estimator 的 fit 方法。
 
-TI 预置了1.14和2.0.0两个版本的 Tensorflow 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 [使用自定义镜像](https://cloud.tencent.com/document/product/851/40126)。
+TI 预置了1.14和2.0.0两个版本的 Tensorflow 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 [使用自定义镜像训练模型](https://cloud.tencent.com/document/product/851/40126)。
 
 ### 准备训练脚本
 TI 中使用的训练脚本和标准的 Tensorflow 脚本非常相似，只需少量的修改就可以将用户现有的 Tensorflow 训练脚本适配到 TI 中。训练脚本可以直接读取注入的环境变量和超级参数。
@@ -49,8 +49,8 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 
 #### 必须参数
 - inputs：存储训练数据集的 COS 路径，可以采用以下两种数据结构。
-  - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
-  - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
+- `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
+- `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
 
 #### 可选参数
 - `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False,`fit`立即返回，训练任务后台异步执行，后面仍可通过`attach`方法附加。
