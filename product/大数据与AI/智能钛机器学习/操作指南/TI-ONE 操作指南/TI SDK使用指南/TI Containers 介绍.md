@@ -3,7 +3,6 @@ TI Containers 是一个帮助用户构建镜像的软件包，用户可以使用
 
 
 ## 利用 TI Containers 构建容器
-
 ### 构建过程
 - Dockerfile
 以下是一个 DockerFile 例子，构建一个可以在 TI 中运行的容器，并定义了一个入口`train.py`
