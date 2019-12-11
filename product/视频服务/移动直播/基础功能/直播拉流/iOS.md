@@ -238,7 +238,7 @@ _config.maxAutoAdjustCacheTime = 5;
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [直播播放（播放防盗链）](https://cloud.tencent.com/document/product/267/7968#.E5.A6.82.E4.BD.95.E5.BC.80.E5.90.AF.E6.92.AD.E6.94.BE.E9.98.B2.E7.9B.97.E9.93.BE.EF.BC.9F)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
 ![](https://main.qcloudimg.com/raw/59a26f25727430cc14c85c7dd8c5e231.png)
 如果您的防盗链地址为：
@@ -246,6 +246,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`。
 
+>?这里的防盗链计算要用推流防盗链Key
 
 
 - **播放类型需要指定 ACC**
