@@ -1,5 +1,11 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
+## 1.16.1-Edgware-RELEASE（2019-12-3）
+
+### bug fix
+
+- API注册兼容从环境变量和启动参数中读取TSF参数信息.
+
 
 ### 1.16.0-Edgware-RELEASE（2019-10-11）
 
