@@ -1,3 +1,7 @@
+本示例提供了一个图像分类应用的样例，使用OpenVINO运行环境，帮助您快速熟悉使用TI-EMS发布模型服务的过程。此示例针对ImageNet标签为230的图像数据集，然后使用经典深度学习inception-v4的图像分类模型，将此模型部署为在线服务，部署完成后，用户可通过在线服务识别输入图片的图像种类。
+
+开始使用示例前，请仔细阅读准备内容罗列的要求，提前完成准备工作。
+
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_v4_ir.tar](http://inception-v4-ir-1255502019.file.myqcloud.com/inception_v4_ir.tar)。
 >?我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/OpenVINO/inception_v4_ir/1/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
