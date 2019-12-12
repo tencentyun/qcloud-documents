@@ -304,48 +304,9 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.bigdata.baseapi.** {*;}
 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
-
 ```
 
-<hr>
 
-### 接口变更
-与4.x对比，部分 API 接口做了变更。
-
-- 删除带账号注册的 API，设置账号只能通过 bindAccount 或 appendAccount 来设置。
-	```java
-	// 以下api被删除
-	XGPushManager.registerPush(Context context, String account)
-	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
-	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
-	```
-- 账号绑定和注册推送功能分开，bindAccount 和 appendAccount 不再带有注册功能，推荐在 registerPush 成功的回调里调用 bindAccount 或 appendAccount。
-- 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
-	```java
-	/**
-	 * 设置帐号结果处理函数
-	 */
-	public abstract void onSetAccountResult(Context context, int errorCode,
-					String operateName);
-
-	/**
-	 * 删除帐号结果处理函数
-	 */
-	public abstract void onDeleteAccountResult(Context context, int errorCode,
-					String operateName);
-	```
-- 继承 XGPushBaseReceiver 的实现类在 AndroidManifest 文件配置时，前缀命名规则为 com.tencent.android.xg.vip.action.，区别于 4.x 版本的 com.tencent.android.tpush.action.
-TPNS 版本正确配置：
-```
-<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
-          <intent-filter>
-              <!-- 接收消息透传 -->
-              <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
-              <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
-              <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
-          </intent-filter>
-      </receiver>
-```			
 
 ### 集成建议
 <span id="HQToken"></span>
