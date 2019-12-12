@@ -72,7 +72,7 @@ git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
 ```shell
 cd ti-ems-client-examples
-```<br>
+```
 2. 安装测试脚本依赖
 测试脚本需要在 Python 环境下运行，运行前需要配置环境，requirements.txt 是运行测试脚本所需要的依赖库清单：
 ```shell
@@ -87,7 +87,7 @@ preprocessing
 3. 使用如下命令行一键安装测试脚本所依赖的运行环境<br>
 ```shell
 pip install -r requirements.txt
-```<br>
+```
 请确保以上依赖安装成功。<br>
 4. 运行客户端脚本
 因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟。
