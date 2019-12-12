@@ -1,7 +1,7 @@
 >?此页面的 Notebook 常见问答，仅适用于重庆地域。
 
 ### 在平台 Notebook 里访问 COS 存储桶的数据文件，路径应该怎么填写？
-新建 otebook 的时候会选择 bucket，我们会把 bucket 里面的文件挂载到 Notebook 容器中的 /cos_person 目录下，访问的时候，在路径前面加上 /cos_person 就可以了。
+新建 Notebook 的时候会选择 bucket，我们会把 bucket 里面的文件挂载到 Notebook 容器中的 /cos_person 目录下，访问的时候，在路径前面加上 /cos_person 就可以了。
 
 ### 新建一个 Notebook，打开后却报502错误，应该怎么处理？
 此种情况很可能是您 COS 目录下的 Notebook 文件夹存在大数据文件，目前第一次启动 Notebook 容器时，会把 cos /Notebook 文件夹里的数据 copy 到容器里面的 /Notebook 目录里，数据量大的话就会卡住，从而报错。
