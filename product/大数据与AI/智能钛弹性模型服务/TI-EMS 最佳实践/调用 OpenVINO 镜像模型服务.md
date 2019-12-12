@@ -7,11 +7,21 @@
 >?我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/OpenVINO/inception_v4_ir/1/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 
 **2. 测试图片：** [imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label 为230的图片）
-### 创建模型服务配置
-在模型服务配置页面单击【新建】，进入模型服务配置新建页面，输入配置名称：demo_openvino，单击【运行环境】，在弹出页面的【公共运行环境】栏选择 openvino。
-![](https://main.qcloudimg.com/raw/16e3eefdd8afd7cb8bf158e8f47e6b84.png)
-单击【对象存储 COS 文件】，弹出 COS 文件选择页面，选择 inception_v4_ir 模型文件夹所在的路径，单击【确定】。
-![](https://main.qcloudimg.com/raw/b07db8a21f4a7e76a181b6a601ef9e92.png)
+### 步骤1：创建模型服务配置
+1. 在【模型服务配置】页面单击【新建】，进入【新建模型服务配置】页面
+2. **输入配置名称**：demo_openvino
+3. **选择地域**：地域为模型文件夹所在cos地域
+	>为您提供的cos访问地址地域为北京，如已将模型文件夹上传至到自己的cos存储桶，可选择自己cos存储桶所在地域
+4. **选择运行环境**：单击【运行环境】，在弹出页面的【公共运行环境】栏选择 openvino
+<center>
+![](https://main.qcloudimg.com/raw/4cee79efc4e2e8ffd8e79f685c1ea15d.png)
+</center>
+5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception_v3 模型文件夹所在的路径，单击【确定】
+<center>
+![](https://main.qcloudimg.com/raw/01e1b8e1886bf9de9a238506625bb09e.png)
+</center>
+6. **完成模型服务配置**：单击【确定】
+![](https://main.qcloudimg.com/raw/0559373163238a3509b123e3b0f89071.png)
 
 ### 启动服务
 在模型服务配置页面找到 demo_openvino 配置，单击配置卡片的【在线推理】，进入启动服务页面。

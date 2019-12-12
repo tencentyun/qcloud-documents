@@ -16,11 +16,17 @@
 3. **选择地域**：地域为模型文件夹所在cos地域
 	>为您提供的cos访问地址地域为北京，如已将模型文件夹上传至到自己的cos存储桶，可选择自己cos存储桶所在地域
 4. **选择运行环境**：单击【运行环境】，在弹出页面的【公共运行环境】栏选择 tensorrt
-![](https://main.qcloudimg.com/raw/2ec64b411f6aa2c671f51b93b65e4059.png =500x)
+<center>
+![](https://main.qcloudimg.com/raw/2ec64b411f6aa2c671f51b93b65e4059.png)
+</center>
 5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception_v3 模型文件夹所在的路径，单击【确定】
-![](https://main.qcloudimg.com/raw/bbec678b7252e153e5a5ccc1c622161f.png)
+<center>
+![](https://main.qcloudimg.com/raw/52e82a64e9ceaa4ab835b5205899883f.png)
+</center>
 6. **完成模型服务配置**：单击【确定】
-![](https://main.qcloudimg.com/raw/0559373163238a3509b123e3b0f89071.png)
+<center>
+![](https://main.qcloudimg.com/raw/3f170068ec4e1ccf6fdf253c426fed03.png)
+</center>
 
 ### 步骤2：购买创建专用资源组
 >此步骤为可选步骤，如已有可用资源组可跳过本步骤，模型服务可部署在专用资源组和公共资源组，公共资源组需要通过白名单[申请](https://cloud.tencent.com/apply/p/nx0bbybrhuf)开通，专用资源组可直接购买创建
@@ -51,7 +57,9 @@
 2. 在对应的【操作】列单击【更多】>【调用】，进入【服务调用】页面
 3. 选择【API网关公网调用】，初次使用，需要创建公网访问地址及密钥，展开【现在创建】，点击【一键创建】
 4. 创建完成后，获得模型服务的公网访问地址和密钥 TOKEN
-![](https://main.qcloudimg.com/raw/a4f18cb782f5e6b65d53abf39cb0d9e6.png)
+<center>
+![](https://main.qcloudimg.com/raw/79727fd9c1b66dcc7399e8a736995d17.png)
+</center>
 
 ### 步骤5：调用模型服务获取模型元数据
 以 Linux 系统为例，使用如下命令获取模型元数据：<br>
