@@ -50,7 +50,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 <tr><td>User-Agent 类别为 Tools。</td></tr>
 <tr><td>User-Agent 类别为 Framework。</td></tr>
 <tr><td>User-Agent 类别为 Scanner。</td></tr>
-<tr><td rowspan="8">HTTP 头部</td><td>Referer 空或不存在.</td></tr>
+<tr><td rowspan="8">HTTP 头部</td><td>Referer 为空或不存在.</td></tr>
 <tr><td>Referer 滥用(多个 UA 使用相同 Referer)。</td></tr>
 <tr><td>Cookie 滥用(多个 UA 使用相同 Cookie)。</td></tr>
 <tr><td>Cookie 为空或不存在。</td></tr>
