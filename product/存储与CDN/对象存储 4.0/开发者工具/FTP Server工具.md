@@ -143,7 +143,7 @@ log_dir             = log                  # 设置日志的存放目录，默�
 ftp 192.xxx.xx.103 2121
 ```
  - ftp 命令中，IP 的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **masquerade_address** 配置项。在本例中 IP 设置为 192.xxx.xx.103。
- - ftp 命令中，端口的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **listen_port ** 配置项。在本例中设置为 2121。
+ - ftp 命令中，端口的设置对应配置示例文件`conf/vsftpd.conf.example`中的 **listen_port** 配置项。在本例中设置为 2121。
 2. 运行上述命令后，出现 **Name**和 **Password** 待输入项 ，输入 COS FTP Server 配置项 ftp_login_user_name 和 ftp_login_user_password 中配置的内容， 即可连接成功。
  - **Name**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_name** 配置项 （需要进行配置）。
  - **Password**：对应配置示例文件`conf/vsftpd.conf.example`中的 **ftp_login_user_password** 配置项 （需要进行配置）。
