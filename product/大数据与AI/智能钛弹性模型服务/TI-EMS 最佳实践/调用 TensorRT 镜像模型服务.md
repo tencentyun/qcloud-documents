@@ -65,8 +65,8 @@ TOKEN：通过模型服务页面的【服务调用】获取的密钥地址 token
 IP：通过单击模型服务页面的【服务调用】获取的服务访问地址
 
 ### 步骤6：调用模型服务接口
-TI-EMS 模型服务支持以 HTTP 访问，本示例通过 HTTP 客户端脚本访问模型服务。<br>
-1. 下载服务调用示例脚本<br>
+TI-EMS 模型服务支持以 HTTP 访问，本示例通过 HTTP 客户端脚本访问模型服务。
+1. 下载服务调用示例脚本
 ```shell 
 git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
@@ -89,7 +89,7 @@ preprocessing
 pip install -r requirements.txt
 ```
 4. 运行客户端脚本
-因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟。
+因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟
 ```shell
 python http_client.py --server IP --token TOKEN --data_dir DATA_DIR
 ```
