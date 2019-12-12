@@ -65,16 +65,15 @@ TOKEN：通过模型服务页面的【服务调用】获取的密钥地址 token
 IP：通过单击模型服务页面的【服务调用】获取的服务访问地址
 
 ### 步骤6：调用模型服务接口
-TI-EMS 模型服务支持以 gRPC 或 HTTP 访问，本示例使用 gRPC 访问模型服务。
-- 下载服务调用示例脚本
+TI-EMS 模型服务支持以 HTTP 访问，本示例通过 HTTP 客户端脚本访问模型服务。<br>
+1. 下载服务调用示例脚本<br>
 ```shell 
 git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
 ```shell
 cd ti-ems-client-examples
-```
-
-- 安装测试脚本依赖
+```<br>
+2. 安装测试脚本依赖
 测试脚本需要在 Python 环境下运行，运行前需要配置环境，requirements.txt 是运行测试脚本所需要的依赖库清单：
 ```shell
 tensorflow-serving-api==1.13.0
@@ -83,20 +82,22 @@ grpcio==1.22.0
 requests==2.22.0
 numpy==1.16.3
 opencv-python==4.1.0.25
+preprocessing
 ```
-使用如下命令行一键安装测试脚本所依赖的运行环境
+3. 使用如下命令行一键安装测试脚本所依赖的运行环境<br>
 ```shell
 pip install -r requirements.txt
-```
-请确保以上依赖安装成功。
-- 运行客户端脚本
+```<br>
+请确保以上依赖安装成功。<br>
+4. 运行客户端脚本
 因为需要动态生成优化内核，TensorRT 镜像首次调用模型服务，根据模型大小不同可能需要等待0.5 - 5分钟。
 ```shell
-python grpc_client.py --server IP --token TOKEN --data_dir DATA_DIR
+python http_client.py --server IP --token TOKEN --data_dir DATA_DIR
 ```
-IP：服务访问地址。
-TOKEN：服务密钥。
-DATA_DIR：测试数据集所在路径。
->?不同模型输入的数据类型、数据 shape 可能不同，或对数据预处理要求不同。请根据具体模型，设计相应的访问程序。了解更多 [客户端程序](https://github.com/tencentyun/ti-ems-client-examples) 。
+>**调用参数说明：**<br>
+IP：通过单击模型服务页面的【服务调用】获取的服务访问地址<br>
+TOKEN：通过模型服务页面的【服务调用】获取的密钥地址 token<br>
+DATA_DIR：测试数据集所在路径<br>
+不同模型输入的数据类型、数据 shape 可能不同，或对数据预处理要求不同。请根据具体模型，设计相应的访问程序。了解更多 [客户端程序](https://github.com/tencentyun/ti-ems-client-examples) 
 
 TI-EMS 使用过程中如遇任何问题，欢迎加入 [智能钛 AI 开发者社区](https://cloud.tencent.com/developer/timl/ask)，与腾讯云 AI 专家和众多 AI 爱好者交流技术。
