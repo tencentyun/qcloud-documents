@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/0eb8fedc852592d0c204412a3fabc66e.png)
 
 ## 安装 GRID Driver
-1. 购买并创建一台计算型 GPU 实例（GN6/GN6S/GN8/G10X）。
+1. 购买并创建一台计算型 GPU 实例（GN6/GN6S/GN7/GN8/G10X）。
 2. 登录新建的计算型 GPU 实例，安装 GRID Driver，即安装 NVIDIA vGPU for Windows 驱动程序。
 3. 安装 VNC/Citrix HDX/PCoIP 等第三方桌面协议，使用户可通过远程桌面连接方式操作 GPU 实例的图形图像处理程序。
 4. 使用远程桌面连接方式登录 GPU 实例。
