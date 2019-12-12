@@ -6,11 +6,11 @@
 
 ### 配置文件中的 masquerade_address 这个选项有何作用？何时需要配置 masquerade_address？
 
-masquerade_address 是配置提供给客户端的服务器地址，当 FTP server 运行在一个通过 NAT 映射到外网 IP 的主机上时，此时需要配置 masquerade_address 选项为客户端可以访问的 FTP Server 外网 IP，以通知客户端使用该 IP 与服务端完成数据通信。
+masquerade_address 是配置提供给客户端的服务器地址。当 FTP server 运行在一个通过 NAT 映射到外网 IP 的主机上时，此时需要配置 masquerade_address 选项为客户端可以访问的 FTP Server 外网 IP，以通知客户端使用该 IP 与服务端完成数据通信。
 
 例如，在 FTP Server 运行的机器上，执行 ifconfig，得到映射到外网的网卡 IP 为10.xxx.xxx.xxx，它映射的外网 IP 假设为119.xxx.xxx.xxx。此时，若 FTP Server 未显式配置 masquerade_address 为客户端访问 server 时的外网 IP（119.xxx.xxx.xxx），则 FTP Server 在 Passive 模式下，给客户端回包可能会使用内网地址（10.xxx.xxx.xxx）。这时就会出现客户端就能够连上 FTP Server，但是却不能正常给客户端返回数据包的情况。
 
-因此，通常情况下，建议用户将 masquerade_address 都配置为客户端连接 Server时所使用的那个 IP 地址。
+因此，通常情况下，建议用户将 masquerade_address 都配置为客户端连接 Server 时所使用的那个 IP 地址。
 
 ### 正确配置了 masquerade_address 选项以后，ftp server 可以正常登录，但是执行 FTP 命令：list 或者 get 等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误，该如何处理？
 
