@@ -13,13 +13,9 @@
 3. **选择地域**：地域为模型文件夹所在cos地域
 	>为您提供的cos访问地址地域为北京，如已将模型文件夹上传至到自己的cos存储桶，可选择自己cos存储桶所在地域
 4. **选择运行环境**：单击【运行环境】，在弹出页面的【公共运行环境】栏选择 openvino
-<center>
 ![](https://main.qcloudimg.com/raw/4cee79efc4e2e8ffd8e79f685c1ea15d.png)
-</center>
 5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception_v3 模型文件夹所在的路径，单击【确定】
-<center>
 ![](https://main.qcloudimg.com/raw/01e1b8e1886bf9de9a238506625bb09e.png)
-</center>
 6. **完成模型服务配置**：单击【确定】
 ![](https://main.qcloudimg.com/raw/0559373163238a3509b123e3b0f89071.png)
 
