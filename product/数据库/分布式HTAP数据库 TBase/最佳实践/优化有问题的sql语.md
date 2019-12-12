@@ -22,9 +22,9 @@ postgres=# explain select * from tbase_1 where f2=1;
                Filter: (f2 = 1)
 (6 rows)
 ```
-如上，第一个查询为非分布键查询，需要发往所有节点，这样最慢的节点决定了整个业务的速度，需要保持所有节点的响应性能一致，业务设计查询时尽可能带上分布键。
+如上，第一个查询为非分布键查询，需要发往所有节点，这样最慢的节点决定了整个业务的速度，需要保持所有节点的响应性能一致，如第二个查询所示，业务设计查询时尽可能带上分布键。
 
-## 查看是否使用上索引
+## 查看是否使用索引
 ```
 postgres=# create index tbase_2_f2_idx on tbase_2(f2); 
 CREATE INDEX
@@ -79,7 +79,7 @@ postgres=# explain  select tbase_1.* from tbase_1,tbase_2 where tbase_1.f2=tbase
                ->  Seq Scan on tbase_2  (cost=0.00..9225.64 rows=500564 width=4)
 (7 rows)
 ```
-第一查询需要数据重分布，而第二个不需要，分布键 join 查询性能会更高。
+第一个查询需要数据重分布，而第二个不需要，分布键 join 查询性能会更高。
 
 ## 查看 join 发生的节点
 ```
@@ -110,7 +110,7 @@ postgres=# explain  select tbase_1.* from tbase_1,tbase_2 where tbase_1.f1=tbase
                ->  Seq Scan on tbase_2  (cost=0.00..18.80 rows=880 width=4)
 (8 rows)
 ```
-上面 join 在 cn 节点执行，下面的在 dn 上重分布后再 join，业务设计上，一般 OLTP 类业务在 cn 上进行少数据量 join ，性能会更好。
+第一个 join 在 cn 节点执行，第二个在 dn 上重分布后再 join，业务设计上，一般 OLTP 类业务在 cn 上进行少数据量 join ，性能会更好。
 
 ## 查看并行的 worker 数
 ```
@@ -136,7 +136,7 @@ postgres=# explain select count(1) from tbase_1;
                      ->  Parallel Seq Scan on tbase_1  (cost=0.00..12586.67 rows=416667 width=0)
 (6 rows)
 ```
-上面第一个查询没走并行，analyze 后走并行才是正确的，建议大数据量更新再执行 analyze。
+上面第一个查询没走并行，第二个查询 analyze 后走并行才是正确的，建议大数据量更新再执行 analyze。
 
 ## 查看各节点的执行计划是否一致
 ```

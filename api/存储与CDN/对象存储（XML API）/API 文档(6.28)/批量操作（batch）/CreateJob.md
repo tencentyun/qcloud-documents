@@ -10,12 +10,20 @@ CreateJob 用于在存储桶中创建批量处理任务。详细信息可参见 
 
 ```shell
 POST /jobs HTTP/1.1
-x-cos-appid: <appid>
+Host: <UIN>.cos-control.<Region>.myqcloud.com
+Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
+Authorization: Auth String
+x-cos-appid: <APPID>
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateJobRequest>
 ...
 </CreateJobRequest>
 ```
+
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -163,7 +171,13 @@ x-cos-appid: <appid>
 
 ```shell
 POST /jobs HTTP/1.1
+Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:05 GMT
+Content-Type: application/xml
+Content-Length: 436
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
 x-cos-appid: 1250000000
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateJobRequest>
     <ClientRequestToken>1829b6c7-3141-42f1-9fe4-17082b841646</ClientRequestToken>
@@ -202,7 +216,14 @@ x-cos-appid: 1250000000
 上述请求后，COS 返回以下响应，表明该清单任务已经成功设置完毕。
 
 ```shell
-HTTP/1.1 200
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 93
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+
 <CreateJobResult>
    <JobId>65f2e4cf-83f5-42f1-9aa2-14720613da29</JobId>
 </CreateJobResult>

@@ -308,7 +308,7 @@ __介绍__
 5. 观众如果请求被同意，则调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 [joinAnchor()](https://cloud.tencent.com/document/product/454/34776#joinanchor) 正式进入连麦状态。
 7. 主播一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onanchorenter) 通知。
-8. 主播主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
+8. 主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
 9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***

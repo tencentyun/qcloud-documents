@@ -47,19 +47,19 @@
 | initParam | TEduBoardInitParam * | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
-使用腾讯云IMSDK进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
+使用腾讯云 IMSDK 进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
 
 #### 介绍
-可用 initParam.timSync 指定是否使用腾讯云IMSDK进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云IMSDK作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持IMSDK 4.3.118及以上版本 
+可用 initParam.timSync 指定是否使用腾讯云IMSDK进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
 
 
 ### getBoardRenderView
-获取白板渲染View 
+获取白板渲染 View 
 ``` Objective-C
 - (TEView *)getBoardRenderView
 ```
 #### 返回
-白板渲染View 
+白板渲染 View 
 
 
 ### addSyncData:
@@ -74,7 +74,7 @@
 | data | NSString * | 接收到的房间内其他人发送的同步数据 |
 
 #### 介绍
-该接口用于多个白板间的数据同步，使用内置IM作为信令通道时，不需要调用该接口 
+该接口用于多个白板间的数据同步，使用内置 IM 作为信令通道时，不需要调用该接口 
 
 
 ### setDataSyncEnable:
@@ -119,7 +119,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| userId | NSString * | 远端用户ID  |
+| userId | NSString * | 远端用户 ID  |
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
@@ -141,7 +141,7 @@
 SDK版本号
 
 #### 介绍
-获取SDK版本号 返回值内存由SDK内部管理，用户不需要自己释放 
+获取SDK版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 
@@ -156,13 +156,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| users | NSArray< NSString * > * | 指定允许操作的用户集，为nullptr表示不加限制 |
+| users | NSArray< NSString * > * | 指定允许操作的用户集，为 nullptr 表示不加限制 |
 
 #### 介绍
 该接口会产生以下影响：
-1. ERASER 工具只能擦除users参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦
-2. POINTSELECT、SELECT 工具只能选中users参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦
-3. clear 接口只能用于清空选中涂鸦以及users参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦
+1. ERASER 工具只能擦除 users 参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦
+2. POINTSELECT、SELECT 工具只能选中 users 参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦
+3. clear 接口只能用于清空选中涂鸦以及 users 参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦
 4. 白板包含的其他功能未在本列表明确列出者都可以确定不受本接口影响 
 
 
@@ -226,7 +226,7 @@ SDK版本号
 | color | TEColor * | 要设置的背景色 |
 
 #### 介绍
-白板页创建以后的默认背景色由SetDefaultBackgroundColor接口设定 
+白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
 
 
 ### getBackgroundColor
@@ -247,15 +247,15 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 要设置的背景图片URL，编码格式为UTF8  |
+| url | NSString * | 要设置的背景图片 URL，编码格式为 UTF8  |
 | mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当URL是一个有效的本地文件地址时，该文件会被自动上传到COS 
+当URL是一个有效的本地文件地址时，该文件会被自动上传到 COS 
 
 
 ### setBackgroundH5:
-设置当前白板页的背景H5页面 
+设置当前白板页的背景 H5 页面 
 ``` Objective-C
 - (void)setBackgroundH5:(NSString *)url 
 ```
@@ -263,10 +263,10 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 要设置的背景H5页面URL |
+| url | NSString * | 要设置的背景 H5 页面 URL |
 
 #### 介绍
-该接口与SetBackgroundImage接口互斥 
+该接口与 SetBackgroundImage 接口互斥 
 
 
 ### setToolType:
@@ -511,13 +511,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 要使用的背景图片URL，编码格式为UTF8，为nullptr表示不指定背景图片  |
+| url | NSString * | 要使用的背景图片 URL，编码格式为 UTF8，为 nullptr 表示不指定背景图片  |
 
 #### 返回
 白板ID 
 
 #### 警告
-白板页会被添加到默认文件（文件ID为::DEFAULT)，自行上传的文件无法添加白板页
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页
 
 #### 介绍
 返回值内存由SDK内部管理，用户不需要自己释放 
@@ -532,14 +532,14 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 要删除的白板ID，为nullptr表示删除当前页  |
+| boardId | NSString * | 要删除的白板 ID，为 nullptr 表示删除当前页  |
 
 #### 警告
 只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
 
 
 ### prevStep
-上一步 每个Step对应PPT的一个动画效果，若当前没有已展示的动画效果，则该接口调用会导致向前翻页 
+上一步 每个 Step 对应 PPT 的一个动画效果，若当前没有已展示的动画效果，则该接口调用会导致向前翻页 
 ``` Objective-C
 - (void)prevStep
 ```
@@ -550,7 +550,7 @@ SDK版本号
 - (void)nextStep
 ```
 #### 介绍
-每个Step对应PPT的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
+每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
 
 ### preBoard
@@ -580,7 +580,7 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 要跳转到的白板页ID |
+| boardId | NSString * | 要跳转到的白板页 ID |
 
 #### 介绍
 允许跳转到任意文件的白板页 
@@ -595,7 +595,7 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| resetStep | BOOL | 指定翻到指定页以后是否重置PPT动画步数 |
+| resetStep | BOOL | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 若当前白板页为当前文件的第一页，则该接口调用无效 
@@ -610,7 +610,7 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| resetStep | BOOL | 指定翻到指定页以后是否重置PPT动画步数 |
+| resetStep | BOOL | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 若当前白板页为当前文件的最后一页，则该接口调用无效 
@@ -625,8 +625,8 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | NSString * | 要跳转到的白板页ID  |
-| resetStep | BOOL | 指定翻到指定页以后是否重置PPT动画步数 |
+| boardId | NSString * | 要跳转到的白板页 ID  |
+| resetStep | BOOL | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 允许跳转到任意文件的白板页 
@@ -674,7 +674,7 @@ SDK版本号
 - (NSString *)getBoardRatio
 ```
 #### 返回
-白板宽高比，格式与SetBoardRatio接口参数格式一致 
+白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
 
 
 ### setBoardScale:
@@ -737,14 +737,14 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| path | NSString * | 要转码的文件路径，编码格式为UTF8  |
+| path | NSString * | 要转码的文件路径，编码格式为 UTF8  |
 | config | TEduBoardTranscodeConfig * | 转码参数  |
 
 #### 警告
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起 
 
 #### 介绍
-支持 PPT、PDF、Word文件转码 PPT文档默认转为H5动画，能够还原PPT原有动画效果，其它文档转码为静态图片 PPT动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过onTEBFileTranscodeProgress回调返回，详情参见该回调说明文档 
+支持 PPT、PDF、Word 文件转码 PPT 文档默认转为H5动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### getFileTranscodeProgress:
@@ -756,13 +756,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| taskId | NSString * | 通过onTEBFileTranscodeProgress回调拿到的转码任务taskId  |
+| taskId | NSString * | 通过 onTEBFileTranscodeProgress 回调拿到的转码任务 taskId  |
 
 #### 警告
-该接口仅用于特殊业务场景下主动查询文件转码进度，调用ApplyFileTranscode后，SDK内部将会自动定期触发onTEBFileTranscodeProgress回调，正常情况下您不需要主动调用此接口 
+该接口仅用于特殊业务场景下主动查询文件转码进度，调用 ApplyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
 
 #### 介绍
-转码进度和结果将会通过onTEBFileTranscodeProgress回调返回，详情参见该回调说明文档 
+转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### addTranscodeFile:
@@ -780,11 +780,11 @@ SDK版本号
 文件ID 
 
 #### 警告
-当传入文件的URL重复时，文件ID返回为空字符串 
-在收到对应的onTEBAddTranscodeFile回调前，无法用返回的文件ID查询到文件信息 
+当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的title、resolution、url、pages字段 调用该接口后，SDK会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
 
 
 ### deleteFile:
@@ -796,10 +796,10 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 要删除的文件ID |
+| fileId | NSString * | 要删除的文件 ID |
 
 #### 介绍
-文件ID为nullptr时表示当前文件，默认文件无法删除 
+文件 ID 为 nullptr 时表示当前文件，默认文件无法删除 
 
 
 ### switchFile:
@@ -811,13 +811,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 要切换到的文件ID  |
+| fileId | NSString * | 要切换到的文件 ID  |
 
 #### 警告
-该接口仅可用于文件切换，如果传入的fileId为当前文件ID，SDK会忽略其它参数，不做任何操作
+该接口仅可用于文件切换，如果传入的 fileId 为当前文件 ID，SDK 会忽略其它参数，不做任何操作
 
 #### 介绍
-文件ID为必填项，为nullptr或空字符串将导致文件切换失败 
+文件 ID 为必填项，为 nullptr 或空字符串将导致文件切换失败 
 
 
 ### switchFile:boardId:stepIndex:
@@ -829,24 +829,24 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 要切换到的文件ID  |
+| fileId | NSString * | 要切换到的文件 ID  |
 | boardId | NSString * | 切换文件并跳转到这个白板页  |
 | stepIndex | NSInteger | 跳转到白板页并切换到这个动画  |
 
 #### 警告
-该接口仅可用于文件切换，如果传入的fileId为当前文件ID，SDK会忽略其它参数，不做任何操作
+该接口仅可用于文件切换，如果传入的 fileId 为当前文件 ID，SDK 会忽略其它参数，不做任何操作
 
 #### 介绍
-文件ID为必填项，为nullptr或空字符串将导致文件切换失败 
+文件 ID 为必填项，为 nullptr 或空字符串将导致文件切换失败 
 
 
 ### getCurrentFile
-获取当前文件ID 
+获取当前文件 ID 
 ``` Objective-C
 - (NSString *)getCurrentFile
 ```
 #### 返回
-当前文件ID 
+当前文件 ID 
 
 
 ### getFileInfo:
@@ -876,11 +876,11 @@ SDK版本号
 文件信息列表 
 
 #### 警告
-返回值不再使用时不需要自行delete，但是务必调用其release方法以释放内存占用 
+返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
 
 
 ### getFileBoardList:
-获取指定文件的白板ID列表 
+获取指定文件的白板 ID 列表 
 ``` Objective-C
 - (NSArray< NSString * > *)getFileBoardList:(NSString *)fileId 
 ```
@@ -888,13 +888,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 文件ID  |
+| fileId | NSString * | 文件 ID  |
 
 #### 返回
-白板ID列表 
+白板 ID 列表 
 
 #### 警告
-返回值不再使用时不需要自行delete，但是务必调用其release方法以释放内存占用 
+返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
 
 
 ### getThumbnailImages:
@@ -906,13 +906,13 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 文件ID  |
+| fileId | NSString * | 文件 ID  |
 
 #### 返回
-缩略图URL列表
+缩略图 URL 列表
 
 #### 介绍
-用户在调用rest api请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图url无效 
+用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 
 
 ### clearFileDraws:
@@ -924,7 +924,7 @@ SDK版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 文件ID  |
+| fileId | NSString * | 文件 ID  |
 
 
 ### addVideoFile:
@@ -942,7 +942,7 @@ SDK版本号
 文件ID
 
 #### 介绍
-移动端支持mp4/m3u8，桌面端支持mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
 
 
 ### showVideoControl:
@@ -957,7 +957,7 @@ SDK版本号
 | show | BOOL | 是否显示  |
 
 #### 警告
-全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的video控制栏，不同平台界面UI样式不同 
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
 
 
 ### playVideo
@@ -969,7 +969,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端回前台调用play（WebView默认行为） 
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端回前台调用 play（WebView 默认行为） 
 
 
 ### pauseVideo
@@ -981,7 +981,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用pause（WebView默认行为） 
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
 
 
 ### seekVideo:
@@ -1017,11 +1017,11 @@ SDK版本号
 全局控制项，对所有视频文件有效
 
 #### 介绍
-play/pause/seek接口以及控制栏事件的触发是否影响远端，默认为true 一般情况下学生设置为false，老师设置为true 
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
 
 
 ### startSyncVideoStatus:
-内部启动定时器，定时同步视频状态到远端（仅限于mp4） 
+内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
 ``` Objective-C
 - (void)startSyncVideoStatus:(NSInteger)interval 
 ```
@@ -1059,7 +1059,7 @@ play/pause/seek接口以及控制栏事件的触发是否影响远端，默认�
 | url | NSString * | 【必填】网页地址  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 只支持展示，不支持互动 

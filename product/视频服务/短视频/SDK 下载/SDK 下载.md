@@ -250,7 +250,7 @@
    </tr>
    <tr>
       <td>字幕</td>
-      <td>添加字幕，可以选择字幕边框背景的样式，例如气泡等等，支持设置在视频画面中显示位置和起始时间。</td>
+      <td>添加字幕，可以选择字幕边框背景的样式，例如气泡等，支持设置在视频画面中显示位置和起始时间。</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">&#10003;</td>
       <td style="text-align:center">&#10003;</td>
@@ -319,10 +319,10 @@
       <td rowspan='2'>License</td>
       <td>License 申请</td>
       <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">精简版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#2.-.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8Flicense">基础版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#6.-.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AClicense">商业版Pro</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E7.94.B3.E8.AF.B7.E6.B5.8B.E8.AF.95-license">精简版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F-license">基础版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">商业版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">商业版 Pro</a></td>
    </tr>
    <tr>
       <td>套餐价格</td>

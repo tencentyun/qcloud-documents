@@ -5,8 +5,10 @@
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
 >- 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
+>- 仅广州、上海、北京、成都、重庆、中国香港、新加坡、首尔、东京、硅谷的实例支持开启外网访问地址。
 
 
+下面分别介绍如何从 Windows 系统或 Linux 系统的 CVM 登录，以内外网两种不同的方式访问云数据库 MySQL。
 ## 从 Windows 系统的 CVM 访问
 1. 登录到 Windows 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a>。
 2. 下载一个标准的 SQL 客户端。
@@ -38,7 +40,7 @@ yum install mysql
 ```
 提示`Complete!`说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/907e047fed90f6cf68752fb386382927.png)
-3. 根据访问方式选择执行如下操作：
+3. 根据不同访问方式，选择相应的操作：
  - **内网访问时：**
     1. 执行如下命令登录到 MySQL 数据库实例。
 ```
@@ -69,7 +71,7 @@ mysql -h hostname -P port -u username -p
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb/ )。
 2. 在实例列表中，单击实例名或操作列的【管理】，进入实例详情页面。
 3. 在实例详情页下的基本信息里找到【外网地址】，单击【开启】。
-![](https://main.qcloudimg.com/raw/c1ef4d6d01fe9cd3f7e9caabae440fc6.png)
+![](https://main.qcloudimg.com/raw/9253a96d19c982a909e3e73e19f5d20c.png)
 4. 单击【确定】后，外网开通进入处理状态。
 5. 开启成功后，即可在基本信息中查看到外网地址。
 6. 通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网 IP 不变。

@@ -1,4 +1,4 @@
-#  集成 SDK
+## 集成 SDK
 
 本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。
 
@@ -21,8 +21,6 @@ TEduBoard SDK 和 TIMSDK 已经发布到 jcenter 库，您可以通过配置 gra
 ![](https://main.qcloudimg.com/raw/13352150cb8bb0a729c28500a05c338f.png)
 
 #### 1. 添加 SDK 依赖
-
-
 
 ```java
 dependencies {
@@ -74,7 +72,7 @@ dependencies {
 单击 Sync Now 按钮，完成 TEduBoard SDK 集成。
 
 
-## 配置 APP 权限
+## 配置 App 权限
 
 在 AndroidManifest.xml 中配置 App 的权限，TEduBoard SDK 需要以下权限：
 
@@ -89,7 +87,7 @@ dependencies {
 
 ## 使用 TEduBoard SDK
 
-### 1. `#import` SDK
+#### 1. `#import` SDK
 
 在项目需要使用 SDK API 的文件里，引入具体的头文件
 
@@ -97,7 +95,7 @@ dependencies {
 #import <TEduBoard/TEduBoard.h>
 ```
 
-### 2. 创建白板控制器
+#### 2. 创建白板控制器
 
 使用如下代码创建并初始化白板控制器：
 
@@ -116,7 +114,7 @@ mBoard.addCallback(callback);
 
 其中 `sdkAppId`、`userId`、`userSig`、`classId`为需要您自己填写的参数。
 
-### 3. 白板窗口获取及显示
+#### 3. 白板窗口获取及显示
 在 `onTEBInit`  回调方法内，使用如下代码获取并显示白板视图：
 
 ```java
@@ -138,9 +136,9 @@ container.addView(boardview, layoutParams);
 
 SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
 
-### 4. 白板数据同步
+#### 4. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK支持两种不同的数据同步模式。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
 
 **使用腾讯云 IMSDK 同步数据**
 
@@ -152,7 +150,7 @@ TEduBoardController.TEduBoardInitParam initParam = new TEduBoardController.TEduB
 initParam.timSync = true;
 ```
 
-> 警告：您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+>! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
 **使用自定义的数据通道同步数据**
 
@@ -173,4 +171,4 @@ initParam.timSync = false;
 mBoard.addSyncData(data);
 ```
 
-> 警告：实时录制功能在自定义数据通道模式下不可用
+>! 实时录制功能在自定义数据通道模式下不可用

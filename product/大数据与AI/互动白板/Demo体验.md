@@ -1,4 +1,4 @@
-# Demo 体验
+## Demo 体验
 
 <table>
 <tr>
@@ -25,7 +25,7 @@
 </tr>
 </table>
 
->iOS 和 Android 扫码后，请输入安装密码 `tiw` 后即可安装。
+>? iOS 和 Android 扫码后，请输入安装密码 `tiw` 后即可安装。
 
 **iOS**
 

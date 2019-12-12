@@ -175,3 +175,9 @@ Node.js 8.9 云端运行时已支持的库如下表：
 | uuid                    | 3.1.0  |
 | xml2js                  | 0.4.17 |
 | xmlbuilder              | 9.0.1  |
+
+## 更多指引
+您可参考以下文档，使用相关功能：
+- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
+- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
+- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)

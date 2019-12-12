@@ -13,7 +13,7 @@
  <img src="https://main.qcloudimg.com/raw/2c8483fe1ec3bf939276d71609a59fa4.png" />
 3. 执行安装，解压后得到一个目录 PCMgrEnterprise_SAAS，该目录为源码安装目录，执行以下命令进行安装。
 ```
-cd PCMgrEnterprise\_SAAS
+cd PCMgrEnterprise_SAAS
  sh install.sh
 ```
 <img src="https://main.qcloudimg.com/raw/9b5ab2fd0387c8fbda368f47dc29ef0c.png" />
@@ -31,11 +31,11 @@ supervisorctl status
 ![](https://main.qcloudimg.com/raw/df50eb3cb7bf7a383b3e8da4e6f40f65.png)
 
 ## 授权导入
-初次登录系统，会提示导入证书（证书申请，请参考[1.1 授权获取指引](#1.1-授权获取指引)）。
+1. 初次登录系统，会提示导入授权文件（授权文件申请，请参考[1.1 授权获取指引](#1.1-授权获取指引)）。
 ![](https://main.qcloudimg.com/raw/8d01ead486b3d0abd8a28868834132d6.png)
-
-当证书导入成功后，在页面右上角【产品信息】中，将展示证书详情。
+2. 当授权文件导入成功后，则会在页面右上角【产品信息】中，展示授权文件详情。
 ![](https://main.qcloudimg.com/raw/ac5d5772bfad2af141402cbbbc6ee2f1.png)
+
 ## 卸载过程
 
 如果不需要本系统，可执行卸载命令。卸载分为部分删除（不清理配置）和全部删除。

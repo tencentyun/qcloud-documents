@@ -73,7 +73,7 @@ postgres=# select * from t_jsonb;
 
 ## jsonb_set() 函数更新数据
 jsonb_set(target jsonb, path text[], new_value jsonb, [create_missing boolean]) 
-说明：target 指要更新的数据源，path 指路径，new_value 指更新后的键值，create_missing 值为 true 表示如果键不存在则添加，create_missing 值为 false 表示如果键不存在则不添加。
+说明：target 指要更新的数据源；path 指路径；new_value 指更新后的键值；create_missing 值为 true 表示如果键不存在则添加；create_missing 值为 false 表示如果键不存在则不添加。
 ```
 postgres=# update t_jsonb set f_jsonb = jsonb_set( f_jsonb , '{col}' , '"pgxz"' , true ) where id=1;
 UPDATE 1

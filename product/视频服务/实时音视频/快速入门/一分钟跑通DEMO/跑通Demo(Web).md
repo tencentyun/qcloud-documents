@@ -50,6 +50,10 @@ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 �
 ### 步骤5：运行 Demo
 使用 Chrome 浏览器打开 Demo 根目录下的`index.html`文件即可运行 Demo。
 
+>!
+> - 一般情况下体验 Demo 需要部署至服务器，通过`https://域名/xxx`访问，或者直接在本地搭建服务器，通过`localhost:端口`访问。
+> - 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+
 Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/d261de9f7d9a467afcbd26cf273149a4.png)
 - 单击【加入房间】加入音视频通话房间并且发布本地音视频流。

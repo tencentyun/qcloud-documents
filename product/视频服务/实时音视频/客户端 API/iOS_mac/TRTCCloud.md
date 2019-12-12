@@ -29,7 +29,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 TRTCCloud 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -37,7 +37,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 TRTCCloud 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -61,7 +61,7 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到来自 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onEnterRoom(result) 回调:
+如果加入成功，您会收到来自 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onEnterRoom(result) 回调:
 
 - 如果加入成功，result 会是一个正数（result > 0），表示加入房间的时间消耗，单位是毫秒（ms）。
 - 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。
@@ -144,7 +144,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
@@ -167,7 +167,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 
 __介绍__
 
-跨房通话的退出结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onDisconnectOtherRoom() 回调通知给您。
+跨房通话的退出结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onDisconnectOtherRoom() 回调通知给您。
 
 
 ### setDefaultStreamRecvMode
@@ -210,7 +210,7 @@ __参数__
 
 __介绍__
 
-当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### startLocalPreview
@@ -228,7 +228,7 @@ __参数__
 
 __介绍__
 
-在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
+在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### stopLocalPreview
@@ -1060,7 +1060,7 @@ __返回__
 __介绍__
 
 通过美颜管理，您可以使用以下功能：
-- 设置"美颜风格"、“美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+- 设置“美颜风格”、“美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
 - 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
 - 设置人脸挂件（素材）等动态效果
 - 添加美妆

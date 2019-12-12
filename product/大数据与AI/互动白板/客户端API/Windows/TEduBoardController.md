@@ -9,8 +9,8 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| disableCefInit | bool | 是否禁用CEF框架初始化，通常传默认值即可  |
-| cefRenderPath | const char * | 使用SDK内部的CEF初始化时，用于指定自定义Render进程可执行程序的路径，UTF8编码，为空或nullptr表示使用SDK内置Render进程  |
+| disableCefInit | bool | 是否禁用 CEF 框架初始化，通常传默认值即可  |
+| cefRenderPath | const char * | 使用 SDK 内部的 CEF 初始化时，用于指定自定义 Render 进程可执行程序的路径，UTF8 编码，为空或 nullptr 表示使用 SDK 内置 Render 进程  |
 
 #### 返回
 白板控制类实例指针 
@@ -18,14 +18,14 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 #### 警告
 该接口必须在主线程调用 
 
->? 由于SDK基于CEF框架(BSD-licensed)实现，若您的程序中也使用了CEF框架，可能会存在冲突，我们为您提供了冲突解决方案：
-> 1. 选用以下两种方法中的一种来启用自己的Render进程
-> 	- 令 disableCefInit = false，cefRenderPath 指向您自己的Render进程
-> 	- 令 disableCefInit = true，自行实现CEF初始化
-> 2. 按下面说明，在您的Render进程内调用SDK的RenderProcessHandler
-> 	- Render进程启动后调用接口获取一个sdkHandler实例，CefRefPtr<CefRenderProcessHandler> sdkHandler = (CefRenderProcessHandler*)GetTEduBoardRenderProcessHandler();
-> 	- 在Render进程的CefApp中重写GetRenderProcessHandler方法，每次都返回以上sdkHandler
-> 	- 若您需要自定义CefRenderProcessHandler，步骤B可返回自定义Handler，然后在自定义Handler的下面几个方法中，调用sdkHandler的对应方法
+>? 由于 SDK 基于 CEF 框架(BSD-licensed)实现，若您的程序中也使用了 CEF 框架，可能会存在冲突，我们为您提供了冲突解决方案：
+> 1. 选用以下两种方法中的一种来启用自己的 Render 进程
+> 	- 令 disableCefInit = false，cefRenderPath 指向您自己的 Render 进程
+> 	- 令 disableCefInit = true，自行实现 CEF 初始化
+> 2. 按下面说明，在您的 Render 进程内调用 SDK 的 RenderProcessHandler
+> 	- Render 进程启动后调用接口获取一个 sdkHandler 实例，CefRefPtr<CefRenderProcessHandler> sdkHandler = (CefRenderProcessHandler*)GetTEduBoardRenderProcessHandler();
+> 	- 在 Render 进程的 CefApp 中重写 GetRenderProcessHandler 方法，每次都返回以上 sdkHandler
+> 	- 若您需要自定义 CefRenderProcessHandler，步骤B可返回自定义 Handler，然后在自定义 Handler 的下面几个方法中，调用 sdkHandler 的对应方法
 > 		- OnBrowserCreated
 > 		- OnBrowserDestroyed
 > 		- OnContextCreated 
@@ -50,15 +50,15 @@ ppBoardController 指针会被自动置空
 ## 日志相关接口
 
 ### GetTEduBoardVersion
-获取SDK版本号 
+获取 SDK 版本号 
 ``` C++
 const EDUSDK_API char* GetTEduBoardVersion()
 ```
 #### 返回
-SDK版本号
+SDK 版本号
 
 #### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### SetTEduBoardLogFilePath
@@ -70,13 +70,13 @@ EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8编码，为空或nullptr表示使用默认路径  |
+| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8编码，为空或 nullptr 表示使用默认路径  |
 
 #### 返回
 设置白板日志文件路径是否成功 
 
 #### 警告
-该接口必须要在第一次调用CreateTEduBoardController之前调用才有效，否则将会失败
+该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败
 
 #### 介绍
 
@@ -96,22 +96,22 @@ EDUSDK_API bool EnableTEduBoardOffscreenRender()
 启用离屏渲染是否成功 
 
 #### 警告
-该接口必须要在第一次调用CreateTEduBoardController之前调用才有效，否则将会失败
+该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败
 
 #### 介绍
-启用离屏渲染时，SDK不再创建白板VIEW，而是通过onTEBOffscreenPaint回调接口将白板离屏渲染的像素数据抛出 
+启用离屏渲染时，SDK 不再创建白板 VIEW，而是通过 onTEBOffscreenPaint 回调接口将白板离屏渲染的像素数据抛出 
 
 
 ### GetTEduBoardRenderProcessHandler
-获取SDK内部的CefRenderProcessHandler 
+获取 SDK 内部的 CefRenderProcessHandler 
 ``` C++
 EDUSDK_API void* GetTEduBoardRenderProcessHandler()
 ```
 #### 返回
-SDK内部的CefRenderProcessHandler 
+SDK 内部的 CefRenderProcessHandler 
 
 #### 介绍
-本接口详细使用方法参见CreateTEduBoardController接口说明 
+本接口详细使用方法参见 CreateTEduBoardController 接口说明 
 
 
 
@@ -132,7 +132,7 @@ virtual void AddCallback(TEduBoardCallback *callback)=0
 | callback | TEduBoardCallback * | 事件回调监听  |
 
 #### 警告
-建议在Init之前调用该方法以支持错误处理 
+建议在 Init 之前调用该方法以支持错误处理 
 
 
 ### RemoveCallback
@@ -167,11 +167,11 @@ virtual void Init(const TEduBoardAuthParam &authParam, uint32_t roomId, const TE
 使用腾讯云IMSDK进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
 
 #### 介绍
-可用 initParam.timSync 指定是否使用腾讯云IMSDK进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云IMSDK作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持IMSDK 4.3.118及以上版本 
+可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持IMSDK 4.3.118及以上版本 
 
 
 ### GetBoardRenderView
-获取白板渲染View 
+获取白板渲染 View 
 ``` C++
 virtual WINDOW_HANDLE GetBoardRenderView()=0
 ```
@@ -191,7 +191,7 @@ virtual void AddSyncData(const char *data)=0
 | data | const char * | 接收到的房间内其他人发送的同步数据 |
 
 #### 介绍
-该接口用于多个白板间的数据同步，使用内置IM作为信令通道时，不需要调用该接口 
+该接口用于多个白板间的数据同步，使用内置 IM 作为信令通道时，不需要调用该接口 
 
 
 ### SetDataSyncEnable
@@ -228,7 +228,7 @@ virtual void Reset()=0
 
 
 ### SetBoardRenderViewPos
-设置白板渲染View的位置和大小 
+设置白板渲染 View 的位置和大小 
 ``` C++
 virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_t height)=0
 ```
@@ -236,13 +236,13 @@ virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| x | int32_t | 要设置的白板渲染View的位置X分量  |
-| y | int32_t | 要设置的白板渲染View的位置Y分量  |
-| width | uint32_t | 要设置的白板渲染View的宽度  |
-| height | uint32_t | 要设置的白板渲染View的高度 |
+| x | int32_t | 要设置的白板渲染 View 的位置X分量  |
+| y | int32_t | 要设置的白板渲染 View 的位置Y分量  |
+| width | uint32_t | 要设置的白板渲染 View 的宽度  |
+| height | uint32_t | 要设置的白板渲染 View 的高度 |
 
 #### 介绍
-白板渲染View有父窗口时，(x, y) 指定相对其父窗口的位置 
+白板渲染 View 有父窗口时，(x, y) 指定相对其父窗口的位置 
 
 
 ### GetSyncTime
@@ -263,7 +263,7 @@ virtual void SyncRemoteTime(const char *userId, uint64_t timestamp)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| userId | const char * | 远端用户ID  |
+| userId | const char * | 远端用户 ID  |
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
@@ -276,7 +276,7 @@ virtual const char* CallExperimentalAPI(const char *apiExp)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| apiExp | const char * | 要执行的白板相关JS代码  |
+| apiExp | const char * | 要执行的白板相关 JS 代码  |
 
 #### 返回
 JS执行后的返回值转换而来的字符串 
@@ -318,14 +318,14 @@ virtual void SetAccessibleUsers(const char **users, uint32_t userCount)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| users | const char ** | 指定允许操作的用户集，为nullptr表示不加限制  |
+| users | const char ** | 指定允许操作的用户集，为 nullptr 表示不加限制  |
 | userCount | uint32_t | 指定users参数包含的用户个数 |
 
 #### 介绍
 该接口会产生以下影响：
-1. ERASER 工具只能擦除users参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦
-2. POINTSELECT、SELECT 工具只能选中users参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦
-3. clear 接口只能用于清空选中涂鸦以及users参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦
+1. ERASER 工具只能擦除 users 参数列出的用户绘制的涂鸦，无法擦除其他人绘制的涂鸦
+2. POINTSELECT、SELECT 工具只能选中 users 参数列出的用户绘制的涂鸦，无法选中其他人绘制的涂鸦
+3. clear 接口只能用于清空选中涂鸦以及 users 参数列出的用户绘制的涂鸦，无法清空背景及其他人绘制的涂鸦
 4. 白板包含的其他功能未在本列表明确列出者都可以确定不受本接口影响 
 
 
@@ -771,7 +771,7 @@ virtual void SetBoardRatio(const char *ratio)=0
 virtual const char* GetBoardRatio()=0
 ```
 #### 返回
-白板宽高比，格式与SetBoardRatio接口参数格式一致 
+白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
 
 
 ### SetBoardScale
@@ -834,14 +834,14 @@ virtual void ApplyFileTranscode(const char *path, const TEduBoardTranscodeConfig
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| path | const char * | 要转码的文件路径，编码格式为UTF8  |
+| path | const char * | 要转码的文件路径，编码格式为 UTF8  |
 | config | const TEduBoardTranscodeConfig & | 转码参数  |
 
 #### 警告
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起 
 
 #### 介绍
-支持 PPT、PDF、Word文件转码 PPT文档默认转为H5动画，能够还原PPT原有动画效果，其它文档转码为静态图片 PPT动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过onTEBFileTranscodeProgress回调返回，详情参见该回调说明文档 
+支持 PPT、PDF、Word 文件转码 PPT 文档默认转为H5动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### GetFileTranscodeProgress
@@ -853,13 +853,13 @@ virtual void GetFileTranscodeProgress(const char *taskId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| taskId | const char * | 通过onTEBFileTranscodeProgress回调拿到的转码任务taskId  |
+| taskId | const char * | 通过 onTEBFileTranscodeProgress 回调拿到的转码任务 taskId  |
 
 #### 警告
-该接口仅用于特殊业务场景下主动查询文件转码进度，调用ApplyFileTranscode后，SDK内部将会自动定期触发onTEBFileTranscodeProgress回调，正常情况下您不需要主动调用此接口 
+该接口仅用于特殊业务场景下主动查询文件转码进度，调用 ApplyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
 
 #### 介绍
-转码进度和结果将会通过onTEBFileTranscodeProgress回调返回，详情参见该回调说明文档 
+转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### AddTranscodeFile
@@ -877,11 +877,11 @@ virtual const char* AddTranscodeFile(const TEduBoardTranscodeFileResult &result)
 文件ID 
 
 #### 警告
-当传入文件的URL重复时，文件ID返回为空字符串 
-在收到对应的onTEBAddTranscodeFile回调前，无法用返回的文件ID查询到文件信息 
+当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的title、resolution、url、pages字段 调用该接口后，SDK会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+本接口只处理传入参数结构体的 title、resolution、url、pages 字段，调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
 
 
 ### DeleteFile
@@ -893,10 +893,10 @@ virtual void DeleteFile(const char *fileId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 要删除的文件ID |
+| fileId | const char * | 要删除的文件 ID |
 
 #### 介绍
-文件ID为nullptr时表示当前文件，默认文件无法删除 
+文件 ID 为 nullptr 时表示当前文件，默认文件无法删除 
 
 
 ### SwitchFile
@@ -908,23 +908,23 @@ virtual void SwitchFile(const char *fileId, const char *boardId=nullptr, int32_t
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 要切换到的文件ID  |
+| fileId | const char * | 要切换到的文件 ID  |
 | boardId | const char * | 切换文件并跳转到这个白板页  |
 | stepIndex | int32_t | 跳转到白板页并切换到这个动画  |
 
 #### 警告
-该接口仅可用于文件切换，如果传入的fileId为当前文件ID，SDK会忽略其它参数，不做任何操作 
+该接口仅可用于文件切换，如果传入的 fileId 为当前文件 ID，SDK 会忽略其它参数，不做任何操作 
 
->? 文件ID为必填项，为nullptr或空字符串将导致文件切换失败 
+>? 文件 ID 为必填项，为 nullptr 或空字符串将导致文件切换失败 
 
 
 ### GetCurrentFile
-获取当前文件ID 
+获取当前文件 ID 
 ``` C++
 virtual const char* GetCurrentFile()=0
 ```
 #### 返回
-当前文件ID 
+当前文件 ID 
 
 
 ### GetFileInfo
@@ -954,11 +954,11 @@ virtual TEduBoardFileInfoList* GetFileInfoList()=0
 文件信息列表 
 
 #### 警告
-返回值不再使用时不需要自行delete，但是务必调用其release方法以释放内存占用 
+返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
 
 
 ### GetFileBoardList
-获取指定文件的白板ID列表 
+获取指定文件的白板 ID 列表 
 ``` C++
 virtual TEduBoardStringList* GetFileBoardList(const char *fileId)=0
 ```
@@ -966,13 +966,13 @@ virtual TEduBoardStringList* GetFileBoardList(const char *fileId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 文件ID  |
+| fileId | const char * | 文件 ID  |
 
 #### 返回
 白板ID列表 
 
 #### 警告
-返回值不再使用时不需要自行delete，但是务必调用其release方法以释放内存占用 
+返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
 
 
 ### GetThumbnailImages
@@ -989,7 +989,7 @@ virtual TEduBoardStringList* GetThumbnailImages(const char *fileId)=0
 #### 返回
 缩略图URL列表 
 
->? 用户在调用rest api请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图url无效 
+>? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 
 
 ### ClearFileDraws
@@ -1001,7 +1001,7 @@ virtual void ClearFileDraws(const char *fileId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 文件ID  |
+| fileId | const char * | 文件 ID  |
 
 
 

@@ -59,7 +59,7 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 ![](https://main.qcloudimg.com/raw/5ae67cf051ed20a4c1e509c3f7ac6fb9.png)
 7. 单击【创建Workload】，完成创建。
 
-#### 方法三：创建 Pod 时引用 Dockercgf 类型的 Secret（使用第三方镜像仓库）
+#### 方法三：使用第三方镜像仓库时引用
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在【工作负载】下，任意选择 Workload 类型，进入对应的信息页面。
@@ -164,7 +164,7 @@ apiVersion: v1
    restartPolicy: Never
 ```
 
-#### 方法三:创建 Pod 时引用 Secret
+#### 方法三：使用第三方镜像仓库时引用
 
 YAML 示例如下：
 ```Yaml
@@ -176,7 +176,7 @@ apiVersion: v1
    containers:
      - name: nginx
        image: nginx:latest
-       imagePullSecrets:
-         - name: demo
+   imagePullSecrets:
+   - name: test-secret ## 设置来源 Secret 文件名
    restartPolicy: Never
 ```

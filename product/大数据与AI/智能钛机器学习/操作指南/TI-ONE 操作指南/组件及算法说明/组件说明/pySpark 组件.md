@@ -1,4 +1,4 @@
-Spark 组件为使用 Python 的 Spark 用户提供服务，用户通过 Python 编写 Spark 应用程序，通过 PySpark 组件完成部署。本文介绍部分使用方法（更多用法请参考 [社区指引](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
+PySpark 组件为使用 Python 的 Spark 用户提供服务，用户通过 Python 编写 Spark 应用程序，通过 PySpark 组件完成部署。本文介绍部分使用方法（更多用法请参考 [社区指引](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
 
 PySpark 包含标准 Spark 的功能，同时支持上传 Python 脚本、实时修改脚本和 SQL 功能，更加灵活，推荐您使用 PySpark 进行数据预处理。
 
@@ -16,22 +16,19 @@ pip.main(['install', "package_name"])
 
 ## 操作步骤
 1. **添加组件**
-从左侧菜单栏中，选择【组件】>【机器学习】 列表下的 PySpark 节点，并将其拖拽至画布中。
+从左侧菜单栏中，选择【框架】>【机器学习】 列表下的 PySpark 节点，并将其拖拽至画布中。
 2. **配置参数**
  - 脚本及依赖包文件上传：
     将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过依赖包文件框上传。
-![](https://main.qcloudimg.com/raw/f502e40c73117cfddef50af122cec760.png)
  - 算法参数：指定您的 PySpark 应用程序所需的参数，即传给 PySpark 脚本的参数，可选项。
  - 配置资源：指定您的 PySpark 应用程序用到的配置文件，可选项。
-![](https://main.qcloudimg.com/raw/8a66c5933c95aabe787630f268cb669b.png)
 3. **配置资源**
   在【资源参数】列表框配置任务的资源参数。
- - num-executors：指定分配的 Executor 个数。
- - driver-memory：指定 Driver 需要的内存大小，单位为 GB。
- - executor-cores：指定每个 Executor 上需要的 CPU Core 数。
- - executor-memory：指定每个 Executor 上需要的内存大小，单位为 GB。
- - spark-conf：指定 Spark 的属性参数，换行分割，例如 spark.default.parallelism=200。
- ![](https://main.qcloudimg.com/raw/ee08ffcc7bc7c94e3db4bdc75ccf4790.png) 
+ - num-executors：指定分配的计算节点数目。
+ - driver-memory：指定主节点内存大小，上限为14GB。
+ - executor-cores：指定每个子节点分配的 CPU Core 数，推荐2 - 3。
+ - executor-memory：指定每个子节点分配的内存大小，上限为55GB，推荐单个 core 分配2 - 3GB。
+ - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。例如 spark.cores.max=1000。 
 4. **运行**
 单击【保存】并运行工作流。
 5. **查看 PySpark 控制台和日志**

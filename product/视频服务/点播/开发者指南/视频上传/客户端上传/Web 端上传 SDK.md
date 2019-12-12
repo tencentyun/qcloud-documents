@@ -120,7 +120,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E5.88.86.E7.89.87.E4.B8.8A.E4.BC.A0.E5.AF.B9.E8.B1.A1)。
+`xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
 
 #### 取消上传
 
