@@ -67,7 +67,7 @@
 &lt;live-player&gt; 的 RTC 模式支持500ms以内的超低时延链路，可以应用在视频通话和远程遥控等场景中，要使用超低时延播放，需要注意如下几点：
 （1）推流端如果是微信小程序，请使用 &lt;live-pusher&gt; 的 RTC 模式。
 （2）推流端如果是 iOS 或者 Android SDK，请使用 setVideoQuality 的 MAIN_PUBLISHER 模式。
-（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)。
+（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873)。
 （4）&lt;live-player&gt; 的 min-cache 和 max-cache 请不要自行设置，使用默认值。
 （5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的`rtmp://`地址，如下：
 
@@ -110,7 +110,7 @@ live 模式主要用于直播类场景，例如赛事直播、在线教育、远
 设置播放模式，可设值为：ear 与 speaker，ear 代表使用听筒播放， speaker 代表使用扬声器，默认为扬声器。
 
 - **debug**
- 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
+ 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946) 中有详细说明。
 
 
 ## 对象操作

@@ -3,12 +3,12 @@
 域名：`monitor.api.qcloud.com`
 接口：GetMonitorData
 
-云数据库 SQL Server 是腾讯云基于微软公司推出的 SQL Server 专业打造的云数据库。具体介绍请参考 <a href="/doc/product/238/产品概述" title="产品概述">云数据库SQL Server</a> 文档。
+云数据库 SQL Server 是腾讯云基于微软公司推出的 SQL Server 专业打造的云数据库。具体介绍请参考 <a href="/doc/product/238/产品概述" title="产品概述">云数据库 SQL Server</a> 文档。
 
-查询云数据库SQL Server产品监控数据，入参取值如下：
+查询云数据库 SQL Server 产品监控数据，入参取值如下：
 namespace：qce/sqlserver
 dimensions.0.name=resourceId 
-dimensions.0.value 为实例的资源 Id
+dimensions.0.value 为实例的资源 ID
 
 ## 2. 输入参数
 
@@ -21,9 +21,9 @@ dimensions.0.value 为实例的资源 Id
 | namespace          | 是    | String   | qce/cvm    | 命名空间，每个云产品会有一个命名空间，具体名称见输入内容一栏。          |
 | metricName         | 是    | String   | 具体的指标名称    | 指标名称，具体名称见2.2                            |
 | dimensions.0.name  | 是    | String   | resourceId | 入参必须为 resourceId                              |
-| dimensions.0.value | 是    | String   | 实例具体的资源 Id  | 输入实例的具体资源 Id，如 mssql-dh01nvsb              |
+| dimensions.0.value | 是    | String   | 实例具体的资源 ID  | 输入实例的具体资源 ID，如 mssql-dh01nvsb              |
 | period             | 否    | Int      | 60/300     | 监控统计周期，绝大部分指标支持60s统计粒度，部分指标仅支持300s统计粒度，统计粒度根据指标的不同而变。输入参数时可参考2.2的指标名称列表 |
-| startTime          | 否    | Datetime | 起始时间       | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
+| startTime          | 否    | Datetime | 起始时间       | 起始时间，如 “2016-01-01 10:25:00”。 默认时间为当天的 “00:00:00” |
 | endTime            | 否    | Datetime | 结束时间       | 结束时间，默认为当前时间，endTime 不能小于 startTime       |
 
 
@@ -79,7 +79,7 @@ dimensions.0.value 为实例的资源 Id
 | -505 | 参数缺失    | InvalidParameter.MissingParameter    |
 | -507 | 超出限制    | OperationDenied.ExceedLimit          |
 | -509 | 错误的维度组合 | InvalidParameter.DimensionGroupError |
-| -513 | DB操作失败  | InternalError.DBoperationFail        |
+| -513 | DB 操作失败  | InternalError.DBoperationFail        |
 
 ## 5. 示例
 

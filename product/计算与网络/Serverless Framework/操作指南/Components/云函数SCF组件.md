@@ -25,7 +25,7 @@ $ cd my-function
 |- serverless.yml
 ```
  
-对于该例子可以使用一下 Demo，作为 index.js：
+对于该例子可以使用以下 Demo，作为 index.js：
 ```javascript
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -37,7 +37,7 @@ exports.main_handler = async (event, context, callback) => {
 
 #### 配置
 
-本地创建 `serverless.yml` 文件，在其中进行如下配置
+本地创建 `serverless.yml` 文件，在其中进行如下配置：
 
 ```console
 $ touch serverless.yml
@@ -85,9 +85,9 @@ myFunction2:
 
 #### 部署
 
-如您的账号未[登陆](https://cloud.tencent.com/login)或[注册](https://cloud.tencent.com/register)腾讯云，您可以直接通过`微信`扫描命令行中的二维码进行授权登陆和注册。
+如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
+通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
 
 ```console
 $ sls --debug
@@ -141,7 +141,7 @@ $ sls remove --debug
 
 ####  账号配置（可选）
 
-当前默认支持CLI扫描二维码登录，如您希望配置持久的环境变量/秘钥信息，也可以本地创建 `.env` 文件
+当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
 ```console
 $ touch .env # 腾讯云的配置信息
@@ -155,5 +155,5 @@ TENCENT_SECRET_KEY=123
 ```
 >?
 > - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API密钥管理
+> - 如果已有腾讯云账号，可以在 [API 密钥管理
 ](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。

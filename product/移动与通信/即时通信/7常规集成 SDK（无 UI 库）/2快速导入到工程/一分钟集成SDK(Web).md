@@ -31,7 +31,7 @@ SDK 存放路径为 TIMSDK/TIMSDK/H5/sdk/，相关文件清单如下：
 | 步骤 | 对应函数 | 说明 |
 |---------|---------|---------|
 | SDK 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 SDK，需要传入当前用户信息，新消息通知回调函数等，注意，为了版本向下兼容，仍保留了老版本的初始化 init 接口，它和 login 是一样的，开发者调用其中一个即可。|
-| 监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息））|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 SDK。 |
+| 监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息）|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 SDK。 |
 | 上报已读消息|webim.setAutoRead(selSess, isOn, isResetAll);|设置聊天会话自动已读标识。|
 | 发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息（私聊和群聊）。 |
 | 获取消息 |webim.getC2CHistoryMsgs (options,cbOk, cbErr);|获取好友历史消息。 |

@@ -311,7 +311,7 @@ new Thread(new Runnable() {
 ```
 
 #### 设置状态监听器
-AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共有如下七个接口：
+AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有如下七个接口：
 
 | 方法 | 方法描述 | 
 |---------|---------|
@@ -323,7 +323,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共�
 | onVoiceVolume | 音量 | 
 
 #### 设置超时监听器
-AudioRecognizeTimeoutListener 可以用来监听语音识别的的超时，一共有如下两个接口：
+AudioRecognizeTimeoutListener 可以用来监听语音识别的超时，一共有如下两个接口：
 
 | 方法 | 方法描述 |
 |---------|---------|

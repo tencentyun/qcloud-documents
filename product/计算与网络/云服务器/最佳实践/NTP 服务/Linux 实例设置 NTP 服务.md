@@ -90,7 +90,7 @@ systemctl enable ntpd.service
 systemctl is-enabled chronyd.service
 ```
 如果 chrony 被设置为开机启动，请执行以下命令，将 chrony 从开机启动中移除。
-chrony 与 NTPD 冲突，可能引起 NTPD 开启启动失败。
+chrony 与 NTPD 冲突，可能引起 NTPD 开机启动失败。
 ```
 systemctl disable chronyd.service
 ```

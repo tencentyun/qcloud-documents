@@ -12,45 +12,42 @@
 
 您可以通过两种方式将腾讯云产品的日志存储在 COS 上：
 
-- 使用云产品自带的日志投递功能：例如对象存储 COS、负载均衡 CLB、云审计 CA 等产品。
+- 使用云产品自带的日志投递功能：例如对象存储 COS、负载均衡 CLB、云审计 CA 等产品，可直接将日志投递到 COS。
 - 使用日志服务 CLS 的投递功能：将投递到 CLS 的云产品日志，通过 CLS 投递到 COS 上进行持久化存储。
 
 目前腾讯云产品对这两种方式的支持情况如下：
 
 | 云产品名称          | 是否支持直接投递到 COS | 是否支持投递到 CLS     |
 | ------------------- | ---------------------- | ---------------------- |
-| 云审计 CA           | 否                     | 是                     |
+| 云审计 CA           | 是                     | 否                     |
 | 负载均衡 CLB        | 是                     | 是                     |
-| 内容分发网络 CDN    | 否                     | 否                     |
-| Web 应用防火墙 WAF  | 否                     | 是                     |
 | 消息队列 CKafka     | 是                     | 否                     |
 | API 网关 APIGateway | 否                     | 是                     |
 | 无服务函数 SCF      | 否                     | 是                     |
 | 容器服务 TKE        | 否                     | 是                     |
 | 云直播 LVB          | 否                     | 是                     |
-| 云开发 TCB          | 否                     | 是，但不支持投递到 COS |
-| 对象存储 COS        | 是                     | 否，即将支持           |
+| 云开发 TCB          | 否                     | 是，但不支持通过 CLS 投递到 COS |
+| 对象存储 COS        | 是                     | 否          |
 
 ### 直接投递日志到 COS
 
-部分腾讯云产品拥有直接投递日志到 COS 的能力，您可以根据产品文档指引，配置日志投递规则，此后即可将日志存储于 COS 上。支持直接投递日志到 COS 的产品文档指引如下：
+以下腾讯云产品拥有直接投递日志到 COS 的能力，您可以按照对应的产品文档指引，配置日志投递规则，将日志投递到 COS 。
 
 | 云产品名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      | 日志投递文档                                                 | 日志投递间隔&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        | 日志投递路径                                                 |
 | --------------- | ------------------------------------------------------------ | -------------------- | ------------------------------------------------------------ |
-| 负载均衡 CLB    | [点此查阅](https://cloud.tencent.com/document/product/214/10329) | 60分钟               | `lb-id/timestamp`                                              |
-| 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | `instance id/topic id/timestamp`                               |
-| 对象存储 COS    | [点此查阅](https://cloud.tencent.com/document/product/436/17040) | 5分钟                | 路径前缀可自行指定，推荐设置可识别的路径，例如`cos_bucketname_access_log/timestamp` |
+|云审计 CA |[点此查阅](https://cloud.tencent.com/document/product/629/11985) | 10-15分钟 |  cloudaudit/customprefix/timestamp|
+| 负载均衡 CLB    | [点此查阅](https://cloud.tencent.com/document/product/214/10329) | 60分钟               | lb-id/timestamp                                              |
+| 消息队列 CKafka | [点此查阅](https://cloud.tencent.com/document/product/597/17273) | 5分钟 - 60分钟<br>可指定投递间隔 | instance id/topic id/timestamp                           |
+| 对象存储 COS    | [点此查阅](https://cloud.tencent.com/document/product/436/17040) | 5分钟                | 路径前缀可自行指定，推荐设置可识别的路径，例如 cos_bucketname_access_log/timestamp |
 
-> ?消息队列支持投递该产品上产生的消息数据，如果您需要获取创建 CKafka 实例等行为日志，可以选择投递云审计产品的日志。
+>?消息队列支持投递该产品上产生的消息数据，如果您需要获取创建 CKafka 实例等行为日志，可以选择投递云审计产品的日志。
 
 ### 通过日志服务（CLS）投递日志到 COS
 
-目前腾讯云部分产品支持投递日志到日志服务 CLS 中，以便用户进行检索分析。日志服务同时提供了投递到 COS 的产品能力，方便用户持久化存储日志。对于支持投递日志到 CLS 的产品，您也可以通过在 CLS 处开启投递日志到 COS 的方式，将数据持久化存储以降低您的存储成本，方便进一步离线分析。当前支持直接投递日志到 CLS 的产品如下：
+以下腾讯云产品支持投递日志到日志服务 CLS 中，以便用户进行检索分析。日志服务同时提供了投递到 COS 的产品能力，方便用户持久化存储日志。对于支持投递日志到 CLS 的产品，您也可以通过在 CLS 处开启投递日志到 COS 的方式，将数据持久化存储以降低您的存储成本，方便进一步离线分析。当前支持直接投递日志到 CLS 的产品如下：
 
 | 云产品名称           | 日志投递文档                                                 |
 | -------------------- | ------------------------------------------------------------ |
-| 云审计 CA            | [点此查阅](https://cloud.tencent.com/document/product/629/11985 ) |
-| Web 应用防火墙 WAF   | [点此查阅](https://cloud.tencent.com/document/product/627/38253) |
 | API 网关 API Gateway | [点此查阅](https://cloud.tencent.com/document/product/628/19552) |                               
 | 容器服务 TKE         | [点此查阅](https://cloud.tencent.com/document/product/457/13659) |
 | 云直播 LVB           | [点此查阅](https://cloud.tencent.com/document/product/267/33996) |
@@ -94,7 +91,7 @@ CLS 投递到 COS 支持如下三种方式投递：
 
 ### 使用 COS Select 对日志进行分析
 
-您也可以通过 COS Select 功能直接检索分析存储在 COS 上的日志文件，前提是日志文件以 CSV 或者 JSON 格式存储。通过 COS Select 功能，您可以筛选出您所需要的日志字段，这将很大程度降低 COS 传输的日志数据量，以减小您的使用成本，同时提高您的数据获取效率。详细了解 COS Select 功能，请参见 [数据检索](https://cloud.tencent.com/document/product/436/37634) 开发者指南。
+您也可以通过 COS Select 功能直接检索和分析存储在 COS 上的日志文件，前提是日志文件以 CSV 或者 JSON 格式存储。通过 COS Select 功能，您可以筛选出您所需要的日志字段，这将很大程度降低 COS 传输的日志数据量，以减小您的使用成本，同时提高您的数据获取效率。如需详细了解 COS Select 功能，请参见 [Select 概述](https://cloud.tencent.com/document/product/436/37635)。
 
 目前您可以通过控制台或者 API 的方式使用 COS Select 功能：
 

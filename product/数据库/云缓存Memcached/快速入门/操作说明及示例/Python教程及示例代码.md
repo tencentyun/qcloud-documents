@@ -1,9 +1,9 @@
 ## 1 环境及依赖
-环境：在腾讯云CVM上安装对应的python [[下载地址](https://www.python.org/downloads/)]。
-依赖：本例使用python-memcached 1.5.4版本，在腾讯云CVM上安装此客户端 [[下载地址](https://pypi.python.org/pypi/python-memcached)]。
+环境：在腾讯云CVM上安装对应的Python [[下载地址](https://www.python.org/downloads/)]。
+依赖：本例使用Python-memcached 1.5.4版本，在腾讯云CVM上安装此客户端 [[下载地址](https://pypi.python.org/pypi/python-memcached)]。
 
 ## 2 使用步骤
-在腾讯云CVM上部署好python环境及python-memcached客户端。
+在腾讯云CVM上部署好Python环境及Python-memcached客户端。
 编写测试代码并运行。
 
 ## 3 代码示例 python-memcached-demo.py

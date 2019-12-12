@@ -6,7 +6,7 @@
 
 ## 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数可参考 [公共请求参数](/document/api/213/6976)。
+以下请求参数列表仅列出了接口请求参数，其它参数可参考 [公共请求参数](https://cloud.tencent.com/document/product/628/18814)。
 
 | 参数名称                                     | 是否必选 | 类型      | 描述                                       |
 | ---------------------------------------- | ---- | ------- | ---------------------------------------- |
@@ -24,9 +24,9 @@
 | requestParameters.n.defaultValue         | 否    | String  | API 的前端参数默认值。                             |
 | requestParameters.n.required             | 否    | Boolean | API 的前端参数是否必填，TRUE：表示必填，FALSE：表示可选。       |
 | requestParameters.n.desc                 | 否    | String  | API 的前端参数备注。                              |
-| serviceType                              | 是    | Boolean | API 的后端服务类型，现在支持三种：HTTP、MOCK、SCF。          |
+| serviceType                              | 是    | String | API 的后端服务类型，现在支持三种：HTTP、MOCK、SCF。          |
 | serviceTimeout                           | 是    | Int     | API 的后端服务超时时间，单位是秒。                       |
-| serviceConfig.url                        | 否    | String  | API 的后端服务 URL。如果 serviceType 是 HTTP，则此参数必传。   |
+| serviceConfig.url                        | 否    | String  | API 的后端服务 URL。如果 serviceType 是 HTTP，则此参数必传，例如 http://api.tencentcs.com/apigw。   |
 | serviceConfig.path                       | 否    | String  | API 的后端服务路径，如 /path。如果 serviceType 是 HTTP，则此参数必传。前后端的路径可不同。API 网关会对路径做映射。 |
 | serviceConfig.method                     | 否    | String  | API 的后端服务请求方法，如 GET。如果 serviceType 是 HTTP，则此参数必传。前后端的方法可不同。API 网关会对方法做映射。 |
 | serviceParameters.n.name                 | 否    | String  | API 的后端服务参数名称。只有 serviceType 是 HTTP 才会用到此参数。后端服务的参数名称可与前端参数名称不同。API 网关会对参数名称做映射。但后端参数值与前端参数值相同。 |
@@ -53,7 +53,7 @@
 ## 输出参数
 | 参数名称        | 类型        | 描述                                       |
 | ----------- | --------- | ---------------------------------------- |
-| code        | Int       | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。 |
+| code        | Int       | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 [公共错误码](https://cloud.tencent.com/document/product/628/18822)。 |
 | codeDesc    | String    | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。       |
 | message     | String    | 模块错误信息描述，与接口相关。                          |
 | apiId       | String    | API 接口唯一 ID。                               |
