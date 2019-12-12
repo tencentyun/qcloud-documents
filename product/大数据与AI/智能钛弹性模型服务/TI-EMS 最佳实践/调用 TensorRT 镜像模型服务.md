@@ -19,7 +19,7 @@
 ![](https://main.qcloudimg.com/raw/2ec64b411f6aa2c671f51b93b65e4059.png)
 5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception_v3 模型文件夹所在的路径，单击【确定】
 ![](https://main.qcloudimg.com/raw/52e82a64e9ceaa4ab835b5205899883f.png)
-6. **完成模型服务配置**：单击【确定】
+6. **完成模型服务配置**：单击【确定】<br>
 ![](https://main.qcloudimg.com/raw/3f170068ec4e1ccf6fdf253c426fed03.png)
 
 ### 步骤2：购买创建专用资源组
