@@ -26,8 +26,8 @@ pip.main(['install', "package_name"])
   在【资源参数】列表框配置任务的资源参数。
  - num-executors：指定分配的计算节点数目。
  - driver-memory：指定主节点内存大小，上限为14GB。
- - executor-cores：指定每个子节点分配的的 CPU Core 数，推荐2 - 3。
- - executor-memory：指定每个子节点分配的的内存大小，上限为55GB，推荐单个 core 分配2 - 3GB。
+ - executor-cores：指定每个子节点分配的 CPU Core 数，推荐2 - 3。
+ - executor-memory：指定每个子节点分配的内存大小，上限为55GB，推荐单个 core 分配2 - 3GB。
  - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。例如 spark.cores.max=1000。 
 4. **运行**
 单击【保存】并运行工作流。
