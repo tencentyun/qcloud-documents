@@ -1,3 +1,5 @@
+>?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC）。
 ## 操作须知
 1. 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。

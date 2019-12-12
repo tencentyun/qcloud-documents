@@ -45,27 +45,28 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
 
 ```
+<!--OPPO 推送服务必须权限-->
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+
 <application>
-   <!--
-    如果应用需要解析和处理Push消息（如透传消息），则继承PushService来处理，并在此申明
-    如果不需要处理Push消息，则直接申明PsuhService即可
-     -->
-<service
-                        android:name="com.heytap.mcssdk.PushService"
-                        android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-<intent-filter>
-                 <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-</intent-filter>
-</service>
-<service
-                         android:name="com.heytap.mcssdk.AppPushService"
-                         android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
-<intent-filter>
-                        <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-</intent-filter>
-        </service>
+    <!--OPPO 推送服务必须组件-->
+    <service
+        android:name="com.heytap.mcssdk.PushService"
+        android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+        <intent-filter>
+            <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+        </intent-filter>
+    </service>
+    
+    <service
+        android:name="com.heytap.mcssdk.AppPushService"
+        android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
+        <intent-filter>
+            <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+        </intent-filter>
+    </service>
+
 </application>
 ```
 
