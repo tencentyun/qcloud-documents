@@ -46,7 +46,7 @@ tim.registerPlugin({'cos-js-sdk': COS});
 </pre>
 
 #### **小程序项目**
-```javascript
+<pre>
 // IM 小程序 SDK
 npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
@@ -59,18 +59,18 @@ import TIM from 'tim-wx-sdk';
 import COS from "cos-wx-sdk-v5";
 
 let options = {
-  SDKAppID: 0 // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
+  SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
 // 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 let tim = TIM.create(options); // SDK 实例通常用 tim 表示
 
-// 设置 SDK 日志输出级别，详细分级请参见 setLogLevel 接口的说明
+// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
 tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
-// tim.setLogLevel(1); // release级别，SDK 输出关键信息，生产环境时建议使用
+// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
 
 // 注册 COS SDK 插件
 tim.registerPlugin({'cos-wx-sdk': COS});
-```
+</pre>
 
 更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
 
@@ -84,13 +84,13 @@ tim.registerPlugin({'cos-wx-sdk': COS});
 <script src="./cos-js-sdk-v5.min.js"></script>
 <script>
 var options = {
-  SDKAppID: 0 // 接入时需要将 0 替换为您的云通信应用的 SDKAppID
+  SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
 // 创建 SDK 实例，`TIM.create()`方法对于同一个 `SDKAppID` 只会返回同一份实例
 var tim = TIM.create(options);
 // 设置 SDK 日志输出级别，详细分级请参见 setLogLevel 接口的说明
 tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
-// tim.setLogLevel(1); // release级别，SDK 输出关键信息，生产环境时建议使用
+// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
 
 // 注册 COS SDK 插件
 tim.registerPlugin({'cos-js-sdk': COS});
@@ -98,6 +98,8 @@ tim.registerPlugin({'cos-js-sdk': COS});
 // 接下来可以通过 tim 进行事件绑定和构建 IM 应用
 </script>
 ```
+
+>?设置 SDK 日志输出级别，详细分级请参见 [setLogLevel 接口的说明](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel)。
 
 更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
 
