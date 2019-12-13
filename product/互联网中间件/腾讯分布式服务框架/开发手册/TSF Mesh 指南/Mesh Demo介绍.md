@@ -57,6 +57,8 @@ def do_GET(self):
 
 ```
 
+### Spring Cloud 应用和 Mesh 应用调用打通 tracing
+Spring Cloud 和 Mesh 应用相互调用时如果要打通 tracing 需要在请求中传递调用链相关的 header（参考上文）。
 
 
 
