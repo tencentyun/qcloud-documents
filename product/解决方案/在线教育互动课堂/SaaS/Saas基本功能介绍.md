@@ -34,4 +34,4 @@
 
 ### **设备测试**       
 支持设备检测。会自动检测外设、麦克风、摄像头和扬声器。支持多设备动态切换。
- ![](https://main.qcloudimg.com/raw/8203e127fbd442c9cb9c9e3f313b4b2f.png)
+![](https://main.qcloudimg.com/raw/f750db63af1ec78bb4b5d64e616cbe1c.png)
