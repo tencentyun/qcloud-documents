@@ -34,15 +34,11 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 #### 步骤2：运行 EIP 直通脚本
 1. 登录需要 EIP 直通的云服务器。
 2. 运行 EIP 直通脚本。具体方法：
- 1. 执行如下命令，解压文件。
-```
-unzip eip_direct.zip
-```
- 2. 执行如下命令，添加执行权限。
+ 1. 执行如下命令，添加执行权限。
 ```
 chmod +x eip_direct.sh
 ```
- 3. 执行如下命令，执行脚本。
+ 2. 执行如下命令，执行脚本。
 ```
 ./eip_direct.sh install XX.XX.XX.XX
 ```
