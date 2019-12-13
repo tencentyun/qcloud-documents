@@ -19,12 +19,13 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取对象下载的鉴权凭证：
 
+[//]: # (.cssg-snippet-get-authorization)
 ```js
 var Authorization = COS.getAuthorization({
     SecretId: 'COS_SECRETID',
     SecretKey: 'COS_SECRETKEY',
     Method: 'get',
-    Key: 'picture.jpg',
+    Key: 'exampleobject',
     Expires: 60,
     Query: {},
     Headers: {}
@@ -53,22 +54,24 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: 'picture.jpg',
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject',
     Sign: false
 });
 ```
 
 示例二：获取带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url-signed)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: 'picture.jpg'
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject'
 });
 ```
 
@@ -76,11 +79,12 @@ var url = cos.getObjectUrl({
 
 > ?如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: 'picture.jpg',
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject',
     Sign: false
 }, function (err, data) {
     console.log(err || data.Url);
@@ -89,11 +93,12 @@ cos.getObjectUrl({
 
 示例四：指定链接有效时间
 
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: 'picture.jpg',
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject',
     Sign: true,
     Expires: 3600, // 单位秒
 }, function (err, data) {
@@ -103,11 +108,12 @@ cos.getObjectUrl({
 
 示例五：获取对象的 Url 并下载对象
 
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: 'picture.jpg',
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject',
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);
@@ -120,12 +126,13 @@ cos.getObjectUrl({
 
 示例一：获取预签名 Put Object 上传 Url。
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
     Method: 'PUT',
-    Key: '1.jpg',
+    Key: 'exampleobject',
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);

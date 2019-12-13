@@ -39,14 +39,16 @@ XML  JavaScript SDK  存储桶名称由两部分组成：用户自定义字符�
 
 > ?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。您可通过腾讯云控制台，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
-设置 Bucket，请参考以下上传示例代码：
+查询 Bucket 的对象列表，请参考以下示例代码：
 
+[//]: # (.cssg-snippet-get-bucket)
 ```js
 cos.getBucket({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-}, function (err, data) {
-    console.log(err || data);
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Prefix: 'a/',           /* 非必须 */
+}, function(err, data) {
+    console.log(err || data.Contents);
 });
 ```
 
@@ -77,11 +79,12 @@ XML  JavaScript SDK  的存储桶可用区域简称发生了变化，不同区�
 
 在调用每个方法时，请将存储桶所在区域的简称设置到参数 `Region` 中：
 
-```java
+[//]: # (.cssg-snippet-head-bucket)
+```js
 cos.headBucket({
-    Bucket: 'examplebucket-1250000000,
-    Region: 'ap-beijing',
-}, function (err, data) {
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+}, function(err, data) {
     console.log(err || data);
 });
 ```
@@ -104,42 +107,28 @@ API 变化主要有以下变化：
 
 **2）使用临时密钥鉴权**
 
-由于密钥放在前端代码有安全风险，后端计算签名给前端权限不好控制，XML  JavaScript SDK 推荐您使用临时密钥的方式。具体代码参考以下完整上传示例：
+由于密钥放在前端代码有安全风险，后端计算签名给前端权限不好控制，XML  JavaScript SDK 推荐您使用临时密钥的方式。具体代码参考以下示例：
 
+[//]: # (.cssg-snippet-global-init-sts)
 ```js
-var Bucket = 'examplebucket-1250000000';
-var Region = 'ap-beijing';
+var COS = require('cos-js-sdk-v5');
 var cos = new COS({
+    // 必选参数
     getAuthorization: function (options, callback) {
-        var url = 'http://example.com/sts.php';
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onload = function (e) {
-            try {
-                var data = JSON.parse(e.target.responseText);
-                var credentials = data.credentials;
-            } catch (e) {
-            }
+        // 服务端 JS 和 PHP 例子：https://github.com/tencentyun/cos-js-sdk-v5/blob/master/server/
+        // 服务端其他语言参考 COS STS SDK ：https://github.com/tencentyun/qcloud-cos-sts-sdk
+        // STS 详细文档指引看：https://cloud.tencent.com/document/product/436/14048
+        $.get('http://example.com/server/sts.php', {
+            // 可从 options 取需要的参数
+        }, function (data) {
             callback({
-                TmpSecretId: credentials.tmpSecretId,
-                TmpSecretKey: credentials.tmpSecretKey,
-                XCosSecurityToken: credentials.sessionToken,
-                ExpiredTime: data.expiredTime,
+                TmpSecretId: data.TmpSecretId,
+                TmpSecretKey: data.TmpSecretKey,
+                XCosSecurityToken: data.XCosSecurityToken,
+                ExpiredTime: data.ExpiredTime, // SDK 在 ExpiredTime 时间前，不会再次调用 getAuthorization
             });
-        };
-        xhr.send();
+        });
     }
-});
-cos.putObject({
-    Bucket: Bucket,
-    Region: Region,
-    Key: file.name,
-    Body: file,
-    onProgress: function (progressData) {
-        console.log('上传中', JSON.stringify(progressData));
-    },
-}, function (err, data) {
-    console.log(err, data);
 });
 ```
 
@@ -149,12 +138,18 @@ cos.putObject({
 
 参数是一个对象，除了一些工具方法，接口格式都是通过一个回调返回错误信息或成功结果，如下示例：
 
+[//]: # (.cssg-snippet-put-object)
 ```js
 cos.putObject({
-    Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
-    Key: '1.txt',
-}, function (err, data) {
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: 'exampleobject',              /* 必须 */
+    StorageClass: 'STANDARD',
+    Body: file, // 上传文件对象
+    onProgress: function(progressData) {
+        console.log(JSON.stringify(progressData));
+    }
+}, function(err, data) {
     console.log(err || data);
 });
 ```
