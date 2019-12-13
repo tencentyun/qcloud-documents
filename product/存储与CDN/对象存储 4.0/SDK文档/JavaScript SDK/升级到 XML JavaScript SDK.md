@@ -154,7 +154,7 @@ cos.putObject({
 });
 ```
 
-**(4）新增 API**
+**（4）新增 API**
 
 XML  JavaScript SDK 新增 API，您可根据需求进行调用。包括：
 
