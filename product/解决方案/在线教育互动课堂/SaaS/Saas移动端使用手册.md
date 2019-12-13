@@ -8,7 +8,7 @@
 
 #### 加入课堂的方式
 1. **通过管理员分享的链接加入课堂**
-管理员通过 QQ 群或者微信群分享课堂链接时，点击链接后界面展示如下，单击【打开App】跳转至本地 App 的登陆界面。
+管理员通过 QQ 群或者微信群分享课堂链接时，点击链接后界面展示如下，单击【打开App】跳转至本地 App 的登录界面。
 ![](https://main.qcloudimg.com/raw/14d359fb689549710d0f204a1fab04cc.jpg)
 2. **通过在线课堂 App 加入课堂**
 ![](https://main.qcloudimg.com/raw/9b734ed1dae610b2b9c94c1daa15394c.jpg)
