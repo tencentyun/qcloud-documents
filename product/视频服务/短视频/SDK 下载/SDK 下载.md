@@ -339,29 +339,29 @@
 ## 全功能小视频 App（Demo）源代码
 
 <table width="850px">
-  <tr align="center">
+  <tr>
     <th width="140px">操作系统</th>
     <th width="120px">下载链接</th>
     <th width="70px">Github</th>
     <th width="50px">Gitee</th>
   </tr>
-  <tr align="center">
+  <tr>
     <td>iOS 端源代码</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
-    <td style="text-align:center"><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
-    <td style="text-align:center"><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
-  <tr align="center">
+  <tr>
     <td>Android 端源代码</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
-    <td style="text-align:center"><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
-    <td style="text-align:center"><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
-  <tr align="center">
+  <tr>
     <td>后台源代码</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaoshipin/vod-xiaoshipin-server-master.zip">DOWNLOAD</a></td>
     <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
-    <td style="text-align:center"><a href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a></td>
+    <td><a href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a></td>
   </tr>
 </table>
 
