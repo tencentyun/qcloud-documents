@@ -33,7 +33,7 @@ The following request parameter list only provides API request parameters. Commo
 |---------|---------|
 | InvalidVpc.NotFound | Invalid VPC. VPC resource does not exist. Please verify that the resource information you entered is correct. This can be queried via the <a href="https://cloud.tencent.com/doc/api/245/%e5%88%9b%e5%bb%ba%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c" title="Querying Virtual Private Cloud List">Query Virtual Private Cloud List</a> (DescribeVpcEx) API. |
 | InvalidDirectConnectGateway.NotFound | Invalid Direct Connect gateway. Direct Connect gateway resource does not exist. Please verify that the resource information you entered is correct. This can be queried via the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%b8%93%e7%ba%bf%e7%bd%91%e5%85%b3" title="Querying Direct Connect Gateway">Query Direct Connect Gateway</a> (DescribeDirectConnectGateway) API. |
-| InvalidPeerIPTranslation.NotFound | Invalid peer IP translation rules. Peer IP translation rule does not exist. Please verify that the resource information you entered is correct. This can be queried via the <a href="https://cloud.tencent.com/doc/api/245/%e6%9f%a5%e8%af%a2%e4%b8%93%e7%ba%bf%e7%bd%91%e5%85%b3%e5%af%b9%e7%ab%afIP%e8%bd%ac%e6%8d%a2" title="Querying Local IP Translation for Direct Connect Gateway">Query Peer IP Translation for Direct Connect Gateway</a> (DescribePeerIPTranslationNatRule) API. |
+| InvalidPeerIPTranslation.NotFound | Invalid peer IP translation rules. Peer IP translation rule does not exist. Please verify that the resource information you entered is correct. This can be queried via the <a href="https://intl.cloud.tencent.com/document/api/215" title="Querying Local IP Translation for Direct Connect Gateway">Query Peer IP Translation for Direct Connect Gateway</a> (DescribePeerIPTranslationNatRule) API. |
 | InvalidOriginalIP.Duplicate | Invalid original IP. Duplication of original IP. The original IP has already existed in the local IP Direct Connect rules of the gateway. The original IP must be unique. |
 | InvalidTranslationIP.InVpcCidr | Invalid translated IP. The translated IP is in the VPC network segment. |
 | InvalidTranslationIP.Duplicate | Invalid translated IP. Duplication of translated IP. The translated IP has already existed in the local IP Direct Connect rules of the gateway. The translated IP must be unique. |
@@ -42,7 +42,7 @@ The following request parameter list only provides API request parameters. Commo
 Input
 <pre>
 https://vpc.api.qcloud.com/v2/index.php?Action=ModifyPeerIPTranslationNatRule
-&<<a href="https://cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
+&<<a href="https://intl.cloud.tencent.com/doc/api/229/6976">Common request parameters</a>>
 &vpcId=vpc-dfgg190
 &directConnectGatewayId=dcg-ddf14d
 &oldOriginalIP=10.0.0.1
