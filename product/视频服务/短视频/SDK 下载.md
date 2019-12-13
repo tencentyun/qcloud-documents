@@ -343,21 +343,29 @@
     <th width="140px">操作系统</th>
     <th width="240px">版本说明</th>
     <th width="120px">下载链接</th>
+    <th width="70px">Github</th>
+    <th width="50px">Gitee</th>
   </tr>
   <tr align="center">
     <td>iOS 端源代码</td>
     <td>6.8.7958 @ 2019-11-15</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td style="text-align:center"><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
   <tr align="center">
     <td>Android 端源代码</td>
     <td>6.8.7961 @ 2019-11-15</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
+    <td style="text-align:center"><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td style="text-align:center"><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
   <tr align="center">
     <td>后台源代码</td>
-    <td>1.2 @ 2018-08-29</td>
+    <td>1.2 @ 2018-08-29</td> 
+    <td> </td>
     <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
+    <td> </td>
   </tr>
 </table>
 
