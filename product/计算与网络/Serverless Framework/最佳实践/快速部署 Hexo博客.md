@@ -50,11 +50,11 @@ $ hexo s   # server
 ```
 
 #### 配置
-在`hexo`目录下，创建`serverless.yml`文件，在其中进行如下配置：
+在`hexo`目录下，创建`serverless.yml`文件：
 ```
 $ touch serverless.yml
 ```
-
+在`serverless.yml`文件中进行如下配置：
 ```yml
 # serverless.yml
 
