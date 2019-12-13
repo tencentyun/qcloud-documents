@@ -46,7 +46,7 @@ tim.registerPlugin({'cos-js-sdk': COS});
 </pre>
 
 #### **小程序项目**
-<pre>
+```
 // IM 小程序 SDK
 npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
@@ -54,7 +54,7 @@ npm install cos-wx-sdk-v5 --save
 ```
 
  在项目脚本里引入模块，并初始化。
-```javascript
+<pre>
 import TIM from 'tim-wx-sdk';
 import COS from "cos-wx-sdk-v5";
 
