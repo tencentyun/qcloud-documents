@@ -2,9 +2,9 @@
 本接口（CreateLocalIPTranslationNatRule）用于添加专线网关本端 IP 转换。
 接口请求域名：vpc.api.qcloud.com 
 
-1) 私有网络内原 IP 映射为新 IP，并以新 IP 与专线对端进行网络互访，只有 NAT 类型网关才支持。
-2) 原 IP 必须在 VPC 网段内，转换后 IP 不能在 VPC 网段内。
-3) 同一个 NAT 网关下的本端IP转换规则原 IP 不能重复，转换后 IP 也不能重复。
+1. 私有网络内原 IP 映射为新 IP，并以新 IP 与专线对端进行网络互访，只有 NAT 类型网关才支持。
+2. 原 IP 必须在 VPC 网段内，转换后 IP 不能在 VPC 网段内。
+3. 同一个 NAT 网关下的本端IP转换规则原 IP 不能重复，转换后 IP 也不能重复。
 
 
 ## 2. 输入参数

@@ -1,4 +1,4 @@
-## 场景背景
+## 案例背景
 智能钛机器学习平台的 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至框架进行算法训练。
 
 本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒，训练完成后您可进行模型服务部署和在线测试。
@@ -166,7 +166,7 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
  - 程序脚本：
     - 单击此处上传用户的自定义代码。
-    - 在本文中，内容为上文代码。您可以点击上传本地文件，或选择【新建脚本】，贴入上段代码，将其命名为premade_estimator.py
+    - 在本文中，内容为上文代码。您可以单击上传本地文件，或选择【新建脚本】，贴入上段代码，将其命名为premade_estimator.py
 ![](https://main.qcloudimg.com/raw/1cb32b866c8ea97f996930ab8b368173.png)
 上传完成后如下图展示：
 ![](https://main.qcloudimg.com/raw/5aafdb0b029c2cbfc42e4071dbac9be1.png) 
@@ -189,7 +189,6 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 
 #### 三、运行调度及评估效果查看
 单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。运行成功后在组件上右击，单击【日志信息】>【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。
-![](https://main.qcloudimg.com/raw/2c231f21bd7d73b396468779e1bbc112.png)
 在 stdout.log 日志中我们可以看到模型效果。
 ![](https://main.qcloudimg.com/raw/a269a0e1e098e3a5b1512cf17d0c5cd0.png)
 模型效果如下图展示：
@@ -208,7 +207,7 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 成功导入后，模型将在【模型服务】中展示。
 
 2. 模型部署
-进入 【模型仓库】页面，点击【部署】按钮。在弹框中进行模型部署设置。
+进入 【模型仓库】页面，单击【部署】。在弹框中进行模型部署设置。
 ![](https://main.qcloudimg.com/raw/aaf4ca57b9dbf21e65d8aaa3470db9e4.png)
 
 模型部署配置如下：

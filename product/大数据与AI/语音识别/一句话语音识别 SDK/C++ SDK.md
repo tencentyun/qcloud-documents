@@ -52,7 +52,8 @@ sudo make install
 ```
 
 + **openssl**  
-本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
+
+本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 并执行以下命令：
 
 ```
 1. 更新 zlib

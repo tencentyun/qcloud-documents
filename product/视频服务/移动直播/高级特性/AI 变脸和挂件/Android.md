@@ -8,7 +8,7 @@
 
 登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
-![](https://main.qcloudimg.com/raw/66660d7082f1615b71b37f6fcea57642.png)
+![](https://main.qcloudimg.com/raw/db664311438d0449ef167776b9afcb42.png)
 
 ### 2. 下载商业版 SDK
 
@@ -38,11 +38,11 @@
  3.添加 LiteAVSDK 依赖：  
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/1511152637686ab9e6f46388ff879c76.png)
- 4.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 4.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi，armeabi-v7a，arm64-v8a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi" , "armeabi-v7a"
+            abiFilters "armeabi" , "armeabi-v7a" , "arm64-v8a"
         }
     }
 ```
@@ -62,11 +62,11 @@
   ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)			
  5.在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
- 6.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi  和 armeabi-v7a 架构，x64 架构还在开发中）。
+ 6.在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 商业版支持 armeabi，armeabi-v7a，arm64-v8a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
         ndk {
-            abiFilters "armeabi" , "armeabi-v7a"
+            abiFilters "armeabi" , "armeabi-v7a" , "arm64-v8a"
         }
     }
 ```
@@ -115,11 +115,25 @@ public class MApplication extends Application {
 -keep class com.tencent.** { *; }
 ```
 
+### 7.  配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+如上图所示，在 App 的 build.gradle 中配置
+
+```
+packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
+
 ## 功能接口
 
 ### 美妆接口（大眼、瘦脸）
 
-美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
+美妆接口使用 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
 ```java
 // 大眼
@@ -139,6 +153,45 @@ public void setFaceShortLevel(int faceShortlevel);
 
 // 瘦鼻
 public void setNoseSlimLevel(int noseSlimLevel);
+
+// 亮眼
+public void setEyeLightenLevel(int eyeLightenLevel);
+
+// 白牙
+public void setToothWhitenLevel(int toothWhitenLevel);
+
+// 祛皱
+public void setWrinkleRemoveLevel(int wrinkleRemoveLevel);
+
+// 祛眼袋
+public void setPounchRemoveLevel(int pounchRemoveLevel);
+
+// 祛法令纹
+public void setSmileLinesRemoveLevel(int smileLinesRemoveLevel);
+
+// 调整发际线
+public void setForeheadLevel(int foreheadLevel);
+
+// 调整眼距
+public void setEyeDistanceLevel(int eyeDistanceLevel);
+
+// 调整眼角
+public void setEyeAngleLevel(int eyeAngleLevel);
+
+// 调整嘴型
+public void setMouthShapeLevel(int mouthShapeLevel);
+
+// 调整鼻翼
+public void setNoseWingLevel(int noseWingLevel);
+
+// 调整鼻子位置
+public void setNosePositionLevel(int nosePositionLevel);
+
+// 调整嘴唇厚度
+public void setLipsThicknessLevel(int lipsThicknessLevel);
+
+// 调整脸型
+public void setFaceBeautyLevel(int faceBeautyLevel);
 ```
 
 ### AI 贴纸
@@ -176,11 +229,6 @@ public boolean setGreenScreenFile(String file) {
 ```
 
 ## 常见问题
-
-### LiteAVSDK 商业版是否支持 arm64 ？
-
-目前商业版 SDK 由于特效处理库尚不支持 arm64 下的一些汇编指令，所以暂时还不支持 arm64 架构，请注意指定 App 的架构配置。
->?x64 架构还在开发中。
 	
 ### Licence 是否正常使用中？
 

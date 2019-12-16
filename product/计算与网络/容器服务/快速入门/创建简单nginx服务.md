@@ -1,5 +1,5 @@
 ## 操作场景
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 nginx 服务。
+本文档旨在帮助大家了解如何快速创建一个容器集群内的 Nginx 服务。
 
 ## 前提条件
 >- 已 [注册腾讯云账户](https://cloud.tencent.com/register)。
@@ -37,14 +37,14 @@
  - **端口映射**：选择 TCP 协议，将容器端口和服务端口都设置为80 。
  ![](https://main.qcloudimg.com/raw/3f722201e228c2bebc63cad0ea3d76c7.png)
  >!服务所在集群的安全组需要放通节点网络及容器网络，同时需要放通30000 - 32768端口，否则可能会出现容器服务无法使用问题，详情请参见 [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
-8. 单击【创建Workload】，完成 nginx 服务的创建。
+8. 单击【创建Workload】，完成 Nginx 服务的创建。
 
 
 ### 访问 Nginx 服务
 
-可通过以下两种方式访问 nginx 服务。
+可通过以下两种方式访问 Nginx 服务。
 
-#### 通过**负载均衡 IP** 访问 nginx 服务
+#### 通过**负载均衡 IP** 访问 Nginx 服务
 
 1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
 2. 单击 Nginx 服务所在的集群 ID，选择【服务】>【Service】。
@@ -52,12 +52,12 @@
 ![](https://main.qcloudimg.com/raw/7e491f937ce63a099aa749c4e1947f5b.png)
 4. 在浏览器地址栏输入负载均衡 IP，按 “**Enter**” 即可访问服务。
 
-#### 通过服务名称访问 nginx 服务
+#### 通过服务名称访问 Nginx 服务
 
 集群内的其他服务或容器可以直接通过服务名称访问。
 
-### 验证 nginx 服务
-服务创建成功，访问服务时直接进入 nginx 服务器的默认欢迎页。如下图所示：
+### 验证 Nginx 服务
+服务创建成功，访问服务时直接进入 Nginx 服务器的默认欢迎页。如下图所示：
 ![](https://main.qcloudimg.com/raw/37246241fe0abd1d3796c080b1661217.png)
 
 ### 更多 Nginx 设置

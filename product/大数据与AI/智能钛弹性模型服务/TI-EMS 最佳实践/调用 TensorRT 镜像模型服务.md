@@ -1,6 +1,6 @@
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_v3.tar](http://inception-v3-1255502019.coscd.myqcloud.com/inception_v3.tar)。
->?我们已经为您准备好了上述inception模型的cos访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tensorRT/inception_v3/1/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
+>?我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tensorRT/inception_v3/1/`。您可以输入该 cos 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 
 **2. 测试图片：**[imagenet_230.tar](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/imagenet_230.tar)（ImageNet label 为230的图片）
 
@@ -11,12 +11,12 @@
 ![](https://main.qcloudimg.com/raw/bbec678b7252e153e5a5ccc1c622161f.png)
 
 ### 启动服务
-在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【在线服务】，进入启动服务页面。
+在模型服务配置页面找到 demo_tensorrt 配置，单击配置卡片的【在线推理】，进入启动服务页面。
 **输入服务名称**：输入启动的服务名称。
 **选择资源组**：选择将要启动的资源组，这里选择已购买的专用资源组。
 **选择实例配置**：选择【GPU 配置】，实例配置填写为4核8G1卡。
 
->!TensorRT 镜像一般要求：CPU 内存6GB以上，GPU 显存2G以上。
+>!TensorRT 镜像一般要求：CPU 内存6GB以上。
 
 **实例调节策略**：选择【手动调节】，实例数量设置为1。
 **选择是否生成鉴权**：勾选生成鉴权按钮，生成服务访问地址的鉴权密钥。
@@ -39,10 +39,10 @@ IP：通过单击模型服务页面的【服务调用】获取的服务访问地
 TI-EMS 模型服务支持以 gRPC 或 HTTP 访问，本示例使用 gRPC 访问模型服务。
 - 下载服务调用示例脚本
 ```shell 
-https://github.com/tencentyun/ti-ems-client-examples
+git clone https://github.com/tencentyun/ti-ems-client-examples
 ```
 ```shell
-cd client-examples
+cd ti-ems-client-examples
 ```
 
 - 安装测试脚本依赖

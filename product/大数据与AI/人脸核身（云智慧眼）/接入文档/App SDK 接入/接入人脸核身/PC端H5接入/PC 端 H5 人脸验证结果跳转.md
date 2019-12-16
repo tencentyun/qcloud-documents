@@ -4,7 +4,7 @@
 **请求方法：**GET
 >!
 >- `xxxx.com`为合作方上送的 URL。
-- 合作方根据[ 方式一：前端获取结果验证签名 ](https://cloud.tencent.com/document/product/1007/35897)或者 [方式二：服务端查询结果](https://cloud.tencent.com/document/product/1007/35898) 说明进行签名校验，确保返回结果的安全性。
+- 合作方根据方式一：[前端获取结果验证签名 ](https://cloud.tencent.com/document/product/1007/35897)或者方式二：[服务端验证结果](https://cloud.tencent.com/document/product/1007/35898) 说明进行签名校验，确保返回结果的安全性。
 
 ## 响应
 **响应参数：**
@@ -17,4 +17,4 @@
 |newSignature|	对 URL 参数 AppID、orderNo 和 SIGN ticket、code 的签名|String|	40|
 
 
-详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/655/31969)。	
+详情请参见 [签名算法说明](https://cloud.tencent.com/document/product/1007/37307)。	
