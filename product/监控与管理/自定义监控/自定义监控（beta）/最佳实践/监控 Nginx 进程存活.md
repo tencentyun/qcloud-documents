@@ -74,7 +74,7 @@ nohup ./test.sh &
 1. 确认用户消息通道已验证，可在 [CAM 鉴权](https://console.cloud.tencent.com/cam) 页面查看验证情况。
 ![](https://main.qcloudimg.com/raw/0f20a82b975918addf2858a13a67991f.jpg)
 2. 进入自定义监控 [指标视图](https://console.cloud.tencent.com/monitor/indicator-view) 页面，在指标视图右上角【配置告警】。
-![](https://main.qcloudimg.com/raw/96ec7d8d95fe24a5e20ac5499f52b986.png)
+![](https://main.qcloudimg.com/raw/e7d880dc8c7dc23fbb7719be863b4555.png)
 3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略](https://cloud.tencent.com/document/product/397/40222)。
 如图示例为：Nginx 进程数少于2个时发送短信告警，持续一个统计周期（1分钟），每5分钟告警一次。
  ![](https://main.qcloudimg.com/raw/c19be124dc514bad8fcfa8c6be769ba6.jpg)
