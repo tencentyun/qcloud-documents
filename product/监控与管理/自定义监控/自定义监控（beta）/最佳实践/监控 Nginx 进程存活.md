@@ -1,4 +1,4 @@
->!新版自定义监控目前为灰度测试阶段，如需使用请联系您的客户经理或 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+>!新版自定义监控目前为灰度测试阶段，如需使用请联系您的客户经理或 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=536&level2_id=539&source=0&data_title=%E4%BA%91%E7%9B%91%E6%8E%A7&level3_id=969&radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E7%9B%B8%E5%85%B3%E5%92%A8%E8%AF%A2&queue=15&scene_code=28297&step=2) 处理。
 
 本文介绍如何使用 shell 命令+CLI 方式上报 Nginx 进程存活数据至自定义监控，查看指标并配置告警。
 
@@ -74,7 +74,7 @@ nohup ./test.sh &
 ![](https://main.qcloudimg.com/raw/0f20a82b975918addf2858a13a67991f.jpg)
 2. 进入自定义监控 [指标视图](https://console.cloud.tencent.com/monitor/indicator-view) 页面，在指标视图右上角【配置告警】。
 ![](https://main.qcloudimg.com/raw/96ec7d8d95fe24a5e20ac5499f52b986.png)
-3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略]()。
+3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略](https://cloud.tencent.com/document/product/397/40222)。
 如图示例为：Nginx 进程数少于2个时发送短信告警，持续一个统计周期（1分钟），每5分钟告警一次。
  ![](https://main.qcloudimg.com/raw/c19be124dc514bad8fcfa8c6be769ba6.jpg)
 
