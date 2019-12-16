@@ -6,20 +6,20 @@
 **1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)
 >我们已经为您准备好了上述 inception 模型的 cos 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 cos 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹
 
-**2. 测试图片：** 
-**牛津花卉图片**我们已经为您准备好了测试数据集。您可以直接下载[花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)
-**base64 编码**
+**2. 测试图片：**
+<br>**牛津花卉图片**我们已经为您准备好了测试数据集。您可以直接下载[花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)
+<br>**base64 编码**
 将上述测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flowers.json`为经过编码的测试图片数据，或者您可以直接下载已经编码完成的 json 文件 [flowers.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/flowers.json)，跳过该图片编码步骤，直接进行下一步。
 ### 步骤1：创建模型服务配置
 1. 在【模型服务配置】页面单击【新建】，进入【新建模型服务配置】页面
 2. **输入配置名称**：demo_tfserving
 3. **选择地域**：地域为模型文件夹所在cos地域
 	>为您提供的cos访问地址地域为北京，如已将模型文件夹上传至到自己的cos存储桶，可选择自己cos存储桶所在地域
-4. **选择运行环境**：单击【运行环境】，在弹出页面的【公共运行环境】栏选择 tfserving
+4. **选择运行环境**：单击【运行环境】，在弹出页面的【公共运行环境】栏选择 tfserving<br>
 ![](https://main.qcloudimg.com/raw/8e1d8dd563b83c37c877536721b3dcb3.png)
-5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception 模型文件夹所在的路径，单击【确定】
+5. **提供模型文件地址**：直接输入cos访问地址或单击【对象存储cos文件】，弹出【对象存储cos文件】选择页面，选择 inception 模型文件夹所在的路径，单击【确定】<br>
 ![](https://main.qcloudimg.com/raw/59c9ee2f9ab825a4a56f34f303e7f7b6.png)
-6. **完成模型服务配置**：单击【确定】
+6. **完成模型服务配置**：单击【确定】<br>
 ![](https://main.qcloudimg.com/raw/c0d901d0b2278d0fa997d2125d34c29c.png)
 
 ### 步骤2：购买创建专用资源组
