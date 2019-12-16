@@ -46,9 +46,9 @@
 8. 调试 API。
 ![](https://main.qcloudimg.com/raw/e5729bb36b9d1a592cc4c67c4dfd9118.png)
 
->? 关于API 网关上的详细操作，请参考 [API 网关产品文档](https://cloud.tencent.com/document/product/628)。
-
-
+>? 
+>- 目前 API 网关只支持将请求转发到 TSF 同一种部署类型（虚拟机或容器）的服务实例上。如果一个服务下既有虚拟机部署、又有容器部署的微服务实例，则不支持将 API 网关作为请求入口。
+>- 关于 API 网关上的详细操作，请参考 [API 网关产品文档](https://cloud.tencent.com/document/product/628)。
 
 如果 API 调试时发生超时错误，可能是服务所在云服务器 CVM 的安全组限制所导致，检查安全组放通的端口中是否包含了微服务的端口（如 provider-demo 的端口是18081），参考 [CVM-安全组](https://cloud.tencent.com/document/product/213/12453)。
 
