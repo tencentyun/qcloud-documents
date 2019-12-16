@@ -94,7 +94,7 @@ Content-MD5: MD5
 |LifecycleConfiguration    |无    |生命周期配置    |Container    |是|
 |Rule|    LifecycleConfiguration    |规则描述    |Container|    是|
 |Filter    |LifecycleConfiguration.Rule    |Filter 用于描述规则影响的 Object 集合    |Container    |是|
-|Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |Container    |是|
+|Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |String   |是|
 |ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过255个字符    |String    |否|
 |Prefix    |LifecycleConfiguration.Rule.Filter    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |String    |否|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
