@@ -10,7 +10,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 - Windows：Windows 操作系统，本文以 Windows Server 2012 为例。
 - IIS：Web 服务器，本文以 IIS 8.5 为例。
 - MySQL：数据库，本文以 MySQL 5.6.46 为例。
-- PHP：脚本语言，本文以 PHP 7.2.24 为例。
+- PHP：脚本语言，本文以 PHP 7.3.12 为例。
 - WordPress：博客平台，本文以 WordPress 5.3 为例。
 
 
