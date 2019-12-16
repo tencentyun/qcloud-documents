@@ -19,21 +19,23 @@ service nginx start
 2. 访问该云服务器的公网 IP 地址，出现如下页面则表示 Nginx 部署完成：
 ![](https://main.qcloudimg.com/raw/8807f9fd819eb93d46c5646ba3572fac.png)
 3. Nginx 的默认根目录 root 是`/usr/share/nginx/html`，直接修改 html 下的 index.html 静态页面，用来标识这个页面的特殊性。
-```
+```bash
 vim /usr/share/nginx/html/index.html
-# 在页面中输入
+# 按“i”进入编辑模式，在页面中输入
 Hello nginx , This is rs-1!
 URL is index.html
+# 按 “Esc”，输入:wq 保存编辑
 ```
 4. 负载均衡（原“应用型负载均衡”）可以根据后端服务器的路径来进行请求转发，在`/image`路径下部署静态页面，相关命令如下：
-```
+```bash
 # 新建目录 image
 mkdir /usr/share/nginx/html/image
 cd /usr/share/nginx/html/image
 vim index.html
-# 在页面中输入
+# 按“i”进入编辑模式，在页面中输入
 Hello nginx , This is rs-1!
 URL is image/index.html
+# 按 “Esc”，输入:wq 保存编辑
 ```
 >!Nginx 的默认端口是`80`，如果想修改端口请修改配置文件并重启 Nginx。
 
