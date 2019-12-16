@@ -96,8 +96,7 @@ Content-MD5: MD5
 |Filter    |LifecycleConfiguration.Rule    |Filter 用于描述规则影响的 Object 集合    |Container    |是|
 |Status    |LifecycleConfiguration.Rule    |指明规则是否启用，枚举值：Enabled，Disabled     |Container    |是|
 |ID    |LifecycleConfiguration.Rule|用于唯一地标识规则，长度不能超过255个字符    |String    |否|
-|And    |LifecycleConfiguration.Rule.Filter    |用于组合 Prefix    |Container    |否|
-|Prefix    |LifecycleConfiguration.Rule.Filter<br>或 LifecycleConfiguration.Rule.Filter.And    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |Container    |否|
+|Prefix    |LifecycleConfiguration.Rule.Filter    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |String    |否|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
 |Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数，最大支持3650天    |Integer    |否|
