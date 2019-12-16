@@ -20,7 +20,7 @@ Authorization: Auth String
 Content-MD5: MD5
 ```
 
->?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -34,7 +34,7 @@ Content-MD5: MD5
 
 | 名称               | 描述      | 类型     | 必选   |
 | ---------------- | ----------- | ------ | ---- |
-| Content-MD5       | RFC 1864 中定义的经过 **Base64** 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化。| String | 是    |
+| Content-MD5       | RFC 1864中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化| String | 是    |
 
 
 #### 请求体
@@ -99,15 +99,15 @@ Content-MD5: MD5
 |Prefix    |LifecycleConfiguration.Rule.Filter    |指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个   |String    |否|
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
-|Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作，如果是 Transition，该字段有效值是非负整数；如果是 Expiration，该字段有效值为正整数，最大支持3650天    |Integer    |否|
+|Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天    |Integer    |否|
 |Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作    |String    |否|
 |ExpiredObjectDeleteMarker    |LifecycleConfiguration.Rule.Expiration    |删除过期对象删除标记，枚举值 true，false    |String    |否|
 |AbortIncompleteMultipartUpload    |LifecycleConfiguration.Rule    |设置允许分片上传保持运行的最长时间    |Container    |否|
 |DaysAfterInitiation    |LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|
 |NoncurrentVersionExpiration    |LifecycleConfiguration.Rule    |指明非当前版本对象何时过期    |Container    |否|
 |NoncurrentVersionTransition    |LifecycleConfiguration.Rule    |指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE   |Container   |否|
-|NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行，如果是 Transition，该字段有效值是非负整数；如果是Expiration，该字段有效值为正整数，最大支持3650天 |Integer   |否|
-|StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA, ARCHIVE   |String    |是|
+|NoncurrentDays    |LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition    |指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 |Integer   |否|
+|StorageClass    |LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition    |指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA，ARCHIVE   |String    |是|
 
 
 ## 响应
@@ -127,9 +127,9 @@ Content-MD5: MD5
 |错误码|HTTP 状态码|描述|
 |--------|--------|----------|
 |NoSuchBucket|404 Not Found|当访问的 Bucket 不存在|
-|MalformedXML|400 Bad Request| XML 格式不合法，请跟 restful api 文档仔细比对 |
-|InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示 xml 数据中的多条 rule 有相互冲突的部分。|
-|InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同。|
+|MalformedXML|400 Bad Request| XML 格式不合法，请跟 RESTful API 文档仔细比对 |
+|InvalidRequest|400 Bad Reques|请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示 xml 数据中的多条 rule 有相互冲突的部分|
+|InvalidArgument|400 Bad Reques|请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同|
 
 ## 实际案例
 
