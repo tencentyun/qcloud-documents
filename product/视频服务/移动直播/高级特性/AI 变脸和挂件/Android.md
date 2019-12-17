@@ -8,7 +8,7 @@
 
 登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
-![](https://main.qcloudimg.com/raw/66660d7082f1615b71b37f6fcea57642.png)
+![](https://main.qcloudimg.com/raw/db664311438d0449ef167776b9afcb42.png)
 
 ### 2. 下载商业版 SDK
 
@@ -117,12 +117,23 @@ public class MApplication extends Application {
 
 ### 7.  配置 App 打包参数
 ![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+如上图所示，在 App 的 build.gradle 中配置
+
+```
+packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
 
 ## 功能接口
 
 ### 美妆接口（大眼、瘦脸）
 
-美妆接口使用 TXBeautyManager，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
+美妆接口使用 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
 ```java
 // 大眼

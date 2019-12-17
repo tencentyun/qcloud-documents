@@ -13,6 +13,7 @@
 
 >!Mesh 的调用链通过头传递实现。如果用户想要串联整个服务调用关系，需要在访问其他服务时，带上父调用的9个相关调用链头，具体示例如下：
 
+<jump id="header"></jump>
 ```
 // 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
 traceHeaders = ['x-request-id',
@@ -37,7 +38,7 @@ def build_trace_headers(handler):
 // 访问 shop 服务的端口，使用默认的80，或者 shop 的真实端口8090
 sidecarPort = 80
 def do_GET(self):
-    // 调用shop服务时填充父调用的调用链相关头
+    // 调用 shop 服务时填充父调用的调用链相关头
     if self.path == '/api/v6/user/create':
         print "headers are %s" % self.headers.keys()
         logger.info("headers are %s" % self.headers.keys())
@@ -57,6 +58,8 @@ def do_GET(self):
 
 ```
 
+#### Spring Cloud 应用和 Mesh 应用调用打通 tracing
+Spring Cloud 应用和 Mesh 应用相互调用时，如果要打通 tracing，需要在请求中传递调用链相关的 header（参考 [上文](#header)）。
 
 
 

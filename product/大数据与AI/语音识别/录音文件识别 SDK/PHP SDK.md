@@ -24,9 +24,7 @@ use TencentCloud\Asr\V20190614\AsrClient;
 use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
 //通过音频 URL 方式请求
 try {
-    //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
     $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
@@ -63,9 +61,7 @@ use TencentCloud\Asr\V20190614\AsrClient;
 use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
 //通过本地音频方式请求
 try {
-    //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
     $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
@@ -105,11 +101,8 @@ use TencentCloud\Common\Exception\TencentCloudSDKException;
 use TencentCloud\Asr\V20190614\AsrClient;
 use TencentCloud\Asr\V20190614\Models\DescribeTaskStatusRequest;
 try {
-
-    //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
-	//https://cloud.tencent.com/document/product/441/6203
- 	//具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
-     $cred = new Credential("Your SecretId", "Your SecretKey");
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    $cred = new Credential("Your SecretId", "Your SecretKey");
     $httpProfile = new HttpProfile();
     $httpProfile->setEndpoint("asr.tencentcloudapi.com");
       

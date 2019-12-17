@@ -14,10 +14,10 @@ TPC-C 使用 tpmC 值（Transactions per Minute）来衡量系统最大有效吞
 已下载 BenchMarkSQL，并安装好 Java 和 Ant。如需安装，下载地址请参见 [BenchmarkSQL 官网](https://sourceforge.net/projects/benchmarksql/)。
 
 ## 测试步骤
-TPC-C 的测试结果与 prop.pg 中的配置参数有关，请您基于业务场景来进行调整参数测试。
+TPC-C 的测试结果与 props.pg 中的配置参数有关，请您基于业务场景来进行调整参数测试。
 
-### 步骤1：修改 prop.pg
-登录与 TBase 处于同一 VPC 的云服务器 CVM，请参见 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。修改 prop.pg 文件，其中：
+### 步骤1：修改 props.pg
+登录与 TBase 处于同一 VPC 的云服务器 CVM，请参见 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。修改 props.pg 文件，其中：
 - localhost:5866：替换为 TBase 的 VIP 和 VPORT。
 - user：替换为 TBase 的用户帐号。
 - password：替换为 user 帐号对应的密码。

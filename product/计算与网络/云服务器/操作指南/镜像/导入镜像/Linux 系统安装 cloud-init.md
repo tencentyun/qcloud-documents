@@ -46,12 +46,12 @@ apt-get/yum install python-pip -y
 pip install -r requirements.txt
 ```
 4. 根据操作系统版本，安装 cloud-utils 组件。
- - Centos 6系列，执行以下命令：
+ - CentOS 6系列，执行以下命令：
 ```
 yum install cloud-utils-growpart dracut-modules-growroot -y
 dracut -f
 ```
- - Centos 7系列，执行以下命令：
+ - CentOS 7系列，执行以下命令：
 ```
 yum install cloud-utils-growpart -y
 ```
@@ -81,7 +81,7 @@ useradd syslog
 
 #### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
- 1. **针对 ubuntu 或 debian 操作系统，需执行以下命令。**
+ 1. **针对 Ubuntu 或 Debian 操作系统，需执行以下命令。**
 ```
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
 ```
@@ -100,7 +100,7 @@ systemctl status cloud-init.service
 systemctl status cloud-config.service
 systemctl status cloud-final.service
 ```
- 3. **针对 centos 和 redhat 操作系统，需执行以下命令。**
+ 3. **针对 CentOS 和 Redhat 操作系统，需执行以下命令。**
  将 /lib/systemd/system/cloud-init-local.service 文件替换为如下内容：
 ```
 [Unit]

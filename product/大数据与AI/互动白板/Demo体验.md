@@ -10,8 +10,8 @@
 <th style="text-align:center">Web</th>
 </tr>
 <tr>
-<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/cd2145e71c50374ddafae1714ee9f6e8.png" width="150"/></td>
-<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/1e40ee772f79317b14a0a55587343ae7.png" width="150"/></td>
+<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/6cf3b2864c6ad847f380e4877f56ed93.png" width="150"/></td>
+<td style="text-align:center"><img src="https://main.qcloudimg.com/raw/98569a546d085544b5171670e6e60c11.png" width="150"/></td>
 <td style="text-align:center"><img src="https://main.qcloudimg.com/raw/b660a6c57aecebf6a0c749a1daf8532a.jpg" width="150"/></td>
 <td style="text-align:center">
 <input type="button" value="单击下载" style="background-color: #46a4f8; border: none; color: white; padding: 12px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://tic-res-1259648581.file.myqcloud.com/demo/tic/TICDemo_Mac.zip')" />
@@ -24,6 +24,8 @@
 </td>
 </tr>
 </table>
+
+>? iOS 和 Android 扫码后，请输入安装密码 `tiw` 后即可安装。
 
 **iOS**
 
@@ -45,10 +47,13 @@
 </tr>
 </table>
 
-**Mac OS / Windows**
+**Mac OS**
 
 ![](https://main.qcloudimg.com/raw/89b12ab1c38739de7ff3366e275f2ece.jpg)
 
+**Windows**
+
+![](https://main.qcloudimg.com/raw/5e3691859f5ef2694c99f1a0d487461d.jpg)
 
 **Web**
 
