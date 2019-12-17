@@ -7,7 +7,7 @@ TRTCCloud @ TXLiteAVSDK。
 ## 基础方法
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 TRTCCloud 单例。
 ```
 TRTCCloud sharedInstance(Context context)
 ```
@@ -20,14 +20,14 @@ __参数__
 
 __返回__
 
-[TRTCCloud](#trtccloud) 实例。
+TRTCCloud 实例。
 
 >?可以调用 destroySharedInstance 销毁单例对象。
 
 
 ### destroySharedInstance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 TRTCCloud 单例。
 ```
 void destroySharedInstance()
 ```
@@ -35,26 +35,26 @@ void destroySharedInstance()
 
 ### setListener
 
-设置回调接口 TRTCCloudListener，用户获得来自 [TRTCCloud](#trtccloud) 的各种状态通知。
+设置回调接口 TRTCCloudListener，用户获得来自 TRTCCloud 的各种状态通知。
 ```
 abstract void setListener(TRTCCloudListener listener)
 ```
 
 __介绍__
 
-您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的定义。
+您可以通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 获得来自 SDK 的各种状态通知，详见 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的定义。
 
 
 ### setListenerHandler
 
-设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调的队列。
+设置驱动 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 回调的队列。
 ```
 abstract void setListenerHandler(Handler listenerHandler)
 ```
 
 __介绍__
 
-SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 的回调函数里操作 UI 是线程安全的。
+SDK 默认会采用 Main Thread 作为驱动 TRTCCloudListener，也就是说，如果您不指定自己的 listenerHandler， SDK 的 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 回调都将由 Main Thread 来调用。此时您在 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 的回调函数里操作 UI 是线程安全的。
 
 
 
@@ -75,7 +75,7 @@ __参数__
 
 __介绍__
 
-调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+调用接口后，您会收到来自 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -90,8 +90,8 @@ abstract void exitRoom()
 
 __介绍__
 
-调用 [exitRoom()](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onExitRoom() 回调通知到您。
-如果您要再次调用 [enterRoom()](#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等等。
+调用 [exitRoom()](#exitroom) 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onExitRoom() 回调通知到您。
+如果您要再次调用 [enterRoom()](#enterroom) 或者切换到其他的音视频 SDK，请等待 onExitRoom() 回调到来之后再执行相关操作。 否则可能会遇到摄像头或麦克风被占用等各种异常问题，例如常见的 Android 媒体音量和通话音量切换问题等。
 
 
 ### switchRole
@@ -105,7 +105,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| role | int | 目标角色。 |
+| role | int | 目标角色，默认为主播。 |
 
 __介绍__
 
@@ -153,7 +153,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 [ConnectOtherRoom()](#connectotherroom) 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
@@ -176,6 +176,28 @@ __介绍__
 跨房通话的退出结果会通过 TRTCCloudListener.java 中的 onDisconnectOtherRoom 回调通知给您。
 
 
+### setDefaultStreamRecvMode
+
+设置音视频数据接收模式（需要在进房前设置才能生效）。
+```
+abstract void setDefaultStreamRecvMode(boolean autoRecvAudio, boolean autoRecvVideo)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| autoRecvAudio | boolean | true：自动接收音频数据；false：需要调用 muteRemoteAudio 进行请求或取消。默认值：true。 |
+| autoRecvVideo | boolean | true：自动接收视频数据；false：需要调用 startRemoteView/stopRemoteView 进行请求或取消。默认值：true。 |
+
+__介绍__
+
+为实现进房秒开的绝佳体验，SDK 默认进房后自动接收音视频。即在您进房成功的同时，您将立刻收到远端所有用户的音视频数据。 若您没有调用 startRemoteView，视频数据将自动超时取消。 若您主要用于语音聊天等没有自动接收视频数据需求的场景，您可以根据实际需求选择接收模式。
+
+>?需要在进房前设置才能生效。
+
+
+
 
 ## 视频相关接口函数
 ### startLocalPreview
@@ -194,7 +216,7 @@ __参数__
 
 __介绍__
 
-当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265#trtccloudlistener) 中的 onFirstVideoFrame(null) 回调。
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudListener](https://cloud.tencent.com/document/product/647/32265) 中的 onFirstVideoFrame(null) 回调。
 
 
 ### stopLocalPreview
@@ -216,7 +238,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：屏蔽；false：开启。 |
+| mute | boolean | true：屏蔽；false：开启，默认值：false。 |
 
 __介绍__
 
@@ -351,7 +373,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTC_VIDEO_RENDER_MODE_FILL。 |
 
 
 ### setRemoteViewFillMode
@@ -366,7 +388,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTC_VIDEO_RENDER_MODE_FILL。 |
 
 
 ### setLocalViewRotation
@@ -380,7 +402,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | rotation 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度。 |
+| rotation | int | rotation 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度，默认值：TRTC_VIDEO_ROTATION_0。 |
 
 
 ### setRemoteViewRotation
@@ -395,7 +417,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度。 |
+| rotation | int | 支持 TRTC_VIDEO_ROTATION_90、TRTC_VIDEO_ROTATION_180、TRTC_VIDEO_ROTATION_270 旋转角度，默认值：TRTC_VIDEO_ROTATION_0。 |
 
 
 ### setVideoEncoderRotation
@@ -409,7 +431,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | int | 目前支持 TRTC_VIDEO_ROTATION_0 和 TRTC_VIDEO_ROTATION_180 两个旋转角度。 |
+| rotation | int | 目前支持 TRTC_VIDEO_ROTATION_0 和 TRTC_VIDEO_ROTATION_180 两个旋转角度，默认值：TRTC_VIDEO_ROTATION_0。 |
 
 __介绍__
 
@@ -427,7 +449,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像。 TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像。 TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 |
+| mirrorType | int | mirrorType TRTC_VIDEO_MIRROR_TYPE_AUTO：SDK 决定镜像方式：前置摄像头镜像，后置摄像头不镜像。 TRTC_VIDEO_MIRROR_TYPE_ENABLE：前置摄像头和后置摄像头都镜像。 TRTC_VIDEO_MIRROR_TYPE_DISABLE：前置摄像头和后置摄像头都不镜像。 默认值：TRTC_VIDEO_MIRROR_TYPE_AUTO。 |
 
 
 ### setVideoEncoderMirror
@@ -441,7 +463,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | boolean | true：镜像；false：不镜像；默认是 false。 |
+| mirror | boolean | true：镜像；false：不镜像；默认值：false。 |
 
 __介绍__
 
@@ -459,7 +481,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | int | 重力感应模式，详情请参考 TRTC_GSENSOR_MODE 的定义。 |
+| mode | int | 重力感应模式，详情请参考 TRTC_GSENSOR_MODE 的定义，默认值：TRTC_GSENSOR_MODE_UIFIXLAYOUT。 |
 
 
 ### enableEncSmallVideoStream
@@ -473,12 +495,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否开启小画面编码。 |
+| enable | boolean | 是否开启小画面编码，默认值：false。 |
 | smallVideoEncParam | [TRTCCloudDef.TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32266#trtcvideoencparam) | 小流的视频参数。 |
 
 __返回__
 
-0:成功；-1:大画面已经是最低画质。
+0：成功；-1：大画面已经是最低画质。
 
 __介绍__
 
@@ -503,7 +525,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户 ID。 |
-| streamType | int | 视频流类型，即选择看大画面或小画面。 |
+| streamType | int | 视频流类型，即选择看大画面或小画面，默认为大画面。 |
 
 __介绍__
 
@@ -521,7 +543,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 默认观看大画面或小画面。 |
+| streamType | int | 默认观看大画面或小画面，默认为大画面。 |
 
 __介绍__
 
@@ -569,7 +591,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：屏蔽；false：开启。 |
+| mute | boolean | true：屏蔽；false：开启，默认值：false。 |
 
 __介绍__
 
@@ -587,7 +609,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | int | 音频路由，即声音由哪里输出（扬声器、听筒），请参考 [TRTCCloudDef.TRTC_AUDIO_ROUTE_SPEAKER](https://cloud.tencent.com/document/product/647/32266#TRTC_AUDIO_ROUTE)。 |
+| route | int | 音频路由，即声音由哪里输出（扬声器、听筒），请参考 [TRTCCloudDef.TRTC_AUDIO_ROUTE_SPEAKER](https://cloud.tencent.com/document/product/647/32266#TRTC_AUDIO_ROUTE)，默认值：TRTC_AUDIO_ROUTE_SPEAKER。 |
 
 __介绍__
 
@@ -687,9 +709,30 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | int | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32266#TRTCSystemVolumeType)。 |
+| type | int | 系统音量类型，请参考 [TRTCSystemVolumeType](https://cloud.tencent.com/document/product/647/32266#TRTCSystemVolumeType)，默认值：TRTCSystemVolumeTypeAuto。 |
 
 >?需要在调用 [startLocalAudio()](#startlocalaudio) 之前调用该接口。
+
+
+
+### enableAudioEarMonitoring
+
+开启耳返。
+```
+abstract void enableAudioEarMonitoring(boolean enable)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | boolean | true：开启；false：关闭。 |
+
+__介绍__
+
+开启后会在耳机里听到自己的声音。
+
+>?仅在戴耳机时有效。
 
 
 
@@ -749,7 +792,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false：关闭。 |
+| enable | boolean | true：开启；false：关闭，默认值：false。 |
 
 
 ### isCameraFocusPositionInPreviewSupported
@@ -785,6 +828,23 @@ abstract boolean isCameraAutoFocusFaceModeSupported()
 
 
 ## 美颜滤镜相关接口函数
+### getBeautyManager
+
+获取美颜管理对象。
+```
+abstract TXBeautyManager getBeautyManager()
+```
+
+__介绍__
+
+通过美颜管理，您可以使用以下功能：
+- 设置“美颜风格”、“美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
+- 设置人脸挂件（素材）等动态效果
+- 添加美妆
+- 进行手势识别。
+
+
 ### setBeautyStyle
 
 设置美颜、美白、红润效果级别。
@@ -868,7 +928,7 @@ __介绍__
 
 ### setEyeScaleLevel
 
-setEyeScaleLevel 设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
+设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
 ```
 abstract void setEyeScaleLevel(int eyeScaleLevel)
 ```
@@ -1050,7 +1110,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户的 ID。 |
-| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | int | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTC_VIDEO_RENDER_MODE_FIT。 |
 
 __介绍__
 
@@ -1070,7 +1130,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否启用 true：启用；false：关闭。 |
+| enable | boolean | 是否启用 true：启用；false：关闭，默认值：false。 |
 
 __介绍__
 
@@ -1155,8 +1215,11 @@ __返回__
 
 __介绍__
 
-此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。 实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
+此方法同 setLocalVideoRenderListener，区别在于一个是本地画面的渲染回调，一个是远程画面的渲染回调。
 参考文档：[自定义采集和渲染](https://cloud.tencent.com/document/product/647/34066)。
+
+>?实际使用时，需要先调用 startRemoteView(userid， null) 启动远程视频流的拉取，并将 view 设置为 null， 否则 SDK 不会启动自定义渲染流程，该 listener 的回调函数不会被触发。
+
 
 
 ### enableCustomAudioCapture
@@ -1170,7 +1233,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | 是否启用 true：启用；false：关闭。 |
+| enable | boolean | 是否启用 true：启用；false：关闭，默认值：false。 |
 
 __介绍__
 
@@ -1408,7 +1471,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | int | 混响类型，详见 TRTC_REVERB_TYPE。 |
+| reverbType | int | 混响类型，详见 TRTC_REVERB_TYPE，默认值：TRTC_REVERB_TYPE_0。 |
 
 
 ### setVoiceChangerType
@@ -1422,7 +1485,9 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE。 |
+| voiceChangerType | int | 变声类型, 详见 TRTC_VOICE_CHANGER_TYPE，默认值：TRTC_VOICE_CHANGER_TYPE_0。 |
+
+
 
 ## 音效相关接口函数
 ### playAudioEffect
@@ -1440,12 +1505,14 @@ __参数__
 
 __介绍__
 
-每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。 若您想同时播放多个音效，请分配不同的 ID 进行播放。如果使用同一个 ID 播放不同音效，SDK 会先停止播放旧的音效，再播放新的音效。
+每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。
+
+>?若您想同时播放多个音效，请分配不同的 ID 进行播放。如果使用同一个 ID 播放不同音效，SDK 会先停止播放旧的音效，再播放新的音效。
 
 
 ### setAudioEffectVolume
 
-设置指定音效的音量。
+设置音效的音量。
 ```
 abstract void setAudioEffectVolume(int effectId, int volume)
 ```
@@ -1618,7 +1685,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | int | 请参见 [TRTC_LOG_LEVEL](https://cloud.tencent.com/document/product/647/32266#4.2-log-.E7.BA.A7.E5.88.AB)。 |
+| level | int | 请参见 [TRTC_LOG_LEVEL](https://cloud.tencent.com/document/product/647/32266#4.2-log-.E7.BA.A7.E5.88.AB)，默认值：TRTC_LOG_LEVEL_NULL。 |
 
 
 ### setConsoleEnabled
@@ -1632,7 +1699,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | boolean | 指定是否启用。 |
+| enabled | boolean | 指定是否启用，默认为禁止状态。 |
 
 
 ### setLogCompressEnabled
@@ -1646,7 +1713,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | boolean | 指定是否启用。 |
+| enabled | boolean | 指定是否启用，默认为启用状态。 |
 
 __介绍__
 
@@ -1666,7 +1733,7 @@ __参数__
 |-----|-----|-----|
 | path | String | 存储日志路径。 |
 
->?日志文件默认保存在 /sdcard/log/tencent/liteav 下，如需修改， 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
+>?日志文件默认保存在 /sdcard/Android/data/应用包名/files/log/tencent/liteav/ 下，如需修改， 必须在所有方法前调用，并且保证目录存在及应用有目录的读写权限。
 
 
 
@@ -1680,7 +1747,7 @@ void setLogListener(final TRTCCloudListener.TRTCLogListener logListener)
 
 ### showDebugView
 
-显示仪表。
+显示仪表盘。
 ```
 abstract void showDebugView(int showType)
 ```
@@ -1689,7 +1756,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| showType | int | 0：不显示；1：显示精简版；2：显示全量版。 |
+| showType | int | 0：不显示；1：显示精简版；2：显示全量版，默认为不显示。 |
 
 __介绍__
 

@@ -2,7 +2,7 @@
 本文介绍如何在腾讯云云服务器（CVM）上手动安装 AMH 并搭建 PHP 网站。
 
 进行手动安装 AMH，您需要熟悉 Linux 命令，例如  [CentOS 环境下通过 YUM 安装软件](https://cloud.tencent.com/document/product/213/2046) 等常用命令，并对所安装软件的使用及版本兼容性比较了解。
->!腾讯云建议您可以通过云市场的镜像环境部署 AMH，手动安装 AMH需要较长的时间。具体步骤可参考 [镜像部署 AMH 并建站](https://cloud.tencent.com/document/product/213/38357)。
+>!腾讯云建议您可以通过云市场的镜像环境部署 AMH，手动安装 AMH需要较长的时间。具体步骤可参考 [镜像部署 AMH 和建站](https://cloud.tencent.com/document/product/213/38357)。
 >
 
 ## 示例软件版本
@@ -49,11 +49,11 @@ http://云服务器公网实例 IP:8888
 ![](https://main.qcloudimg.com/raw/c8233e94cb8ebffe146a05c244098de7.png)
 
 ### 步骤4：搭建 PHP 网站
-搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
+搭建 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [搭建 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.90.AD.E5.BB.BA-php-.E7.BD.91.E7.AB.99)。
 
 
 ### 步骤5：安装 PHP 网站
-安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
+安装 PHP 网站步骤与镜像部署 AMH 并建站中的步骤相同，详情请参见 [安装 PHP 网站](https://cloud.tencent.com/document/product/213/38357#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E5.AE.89.E8.A3.85-php-.E7.BD.91.E7.AB.99)。
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：

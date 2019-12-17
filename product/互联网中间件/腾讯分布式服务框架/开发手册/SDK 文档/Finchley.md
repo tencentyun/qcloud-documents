@@ -1,12 +1,11 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.16.1-Finchley-RELEASE（2019-12-3）
+### 1.16.1-Finchley-RELEASE（2019-12-3）
 
-### bug fix
-
-- 增加使用jedis作为redis客户端的调用链追踪功能。
-- 修复因为kafka生产者、消费者使用sdk版本不匹配导致的错误。
-- API注册兼容从环境变量和启动参数中读取TSF参数信息.
+#### Bug 修复
+- 增加使用 Jedis 作为 Redis 客户端的调用链追踪功能。
+- 修复因为 Kafka 生产者、消费者使用 SDK 版本不匹配导致的错误。
+- API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
 
 ### 1.16.0-Finchley-RELEASE（2019-10-11）
 

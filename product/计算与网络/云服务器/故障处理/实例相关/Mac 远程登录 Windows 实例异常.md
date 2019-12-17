@@ -21,7 +21,7 @@
 
 ### 修改实例本地组策略
 
-1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;">，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略略编辑器”。
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;">，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略编辑器”。
 >? 也可使用 “Win+R” 快捷键打开运行界面。
 >
 2. 在左侧导航树中，选择【计算机配置】>【管理模板】>【Windows组件】>【远程桌面服务】>【远程桌面会话主机】>【安全】，双击【远程（RDP）连接要求使用指定的安全层】。如下图所示：
