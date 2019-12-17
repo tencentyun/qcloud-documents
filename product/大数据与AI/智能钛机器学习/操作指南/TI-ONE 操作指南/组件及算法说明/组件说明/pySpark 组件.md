@@ -1,5 +1,3 @@
-PySpark 框架为使用 Python 的 Spark 用户提供服务，用户通过 Python 编写 Spark 应用程序，通过 PySpark 框架完成部署。本文介绍部分使用方法（更多用法请参考 [社区指引](http://spark.apache.org/docs/latest/sql-programming-guide.html)）。
-
 PySpark 包含标准 Spark 的功能，同时支持上传 Python 脚本、实时修改脚本和 SQL 功能，更加灵活，我们推荐您使用 PySpark 进行数据预处理。
 
 ## 版本说明

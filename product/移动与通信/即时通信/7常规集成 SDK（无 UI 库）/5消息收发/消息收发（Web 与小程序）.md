@@ -81,7 +81,7 @@ tim.createImageMessage(options)
 
 | Name | Type                        | Description                                                  |
 | ---- | --------------------------- | ------------------------------------------------------------ |
-| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
+| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者 File 对象（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
 
 **Web 示例**
 
@@ -246,7 +246,7 @@ tim.createFileMessage(options)
 
 | Name   | Type     | Description  |
 | ------ | -------- | ------------ |
-| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点，SDK 会读取其中的数据并上传文件。 |
+| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点（Web）或者 File 对象（Web），SDK 会读取其中的数据并上传文件。 |
 
 **示例**
 
@@ -401,7 +401,60 @@ wx.chooseVideo({
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
+### 创建表情消息
 
+创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+
+**接口**
+
+```javascript
+tim.createFaceMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type     | Description                                            |
+| ------------------ | -------- | ------------------------------------------------------ |
+| `to`               | `String` | 消息的接收方                                           |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object` | 消息内容的容器                                         |
+
+`payload`的描述如下表所示：
+
+| Name   | Type     | Description  |
+| ------ | -------- | ------------ |
+| `index` | `Number` | 表情索引，用户自定义 |
+| `data` | `String` | 额外数据 |
+
+**示例**
+
+```javascript
+// 发送表情消息，Web端与小程序端相同。
+// 1. 创建消息实例，接口返回的实例可以上屏
+let message = tim.createFaceMessage({
+  to: 'user1',
+  conversationType: TIM.TYPES.CONV_C2C,
+  payload: {
+    index: 1, // Number 表情索引，用户自定义
+    data: 'tt00' // String 额外数据
+  }
+});
+// 2. 发送消息
+let promise = tim.sendMessage(message);
+promise.then(function(imResponse) {
+  // 发送成功
+  console.log(imResponse);
+}).catch(function(imError) {
+  // 发送失败
+  console.warn('sendMessage error:', imError);
+});
+```
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
 ### 发送消息
@@ -410,8 +463,10 @@ wx.chooseVideo({
 - [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
 - [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
-- [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
+- [创建视频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
+- [创建表情消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceVMessage)
+- [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 
 >!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
 - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。

@@ -1,6 +1,7 @@
->!新版自定义监控目前为灰度测试阶段，如需使用请联系您的客户经理或 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+>!新版自定义监控目前为灰度测试阶段，如需使用请联系您的客户经理或 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=536&level2_id=539&source=0&data_title=%E4%BA%91%E7%9B%91%E6%8E%A7&level3_id=969&radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E7%9B%91%E6%8E%A7%E7%9B%B8%E5%85%B3%E5%92%A8%E8%AF%A2&queue=15&scene_code=28297&step=2) （需附上腾讯云主账号 UIN）。如有任何体验问题和使用意见，可加入自定义监控交流 QQ 群（793979710）咨询讨论。
 
-本文介绍如何使用 shell 命令+CLI 方式上报 Nginx 进程存活数据至自定义监控，查看指标并配置告警。
+
+本文介绍如何使用 Shell 命令+CLI 方式上报 Nginx 进程存活数据至自定义监控，查看指标并配置告警。
 
 ## 实践背景
 
@@ -8,14 +9,14 @@
 
 ## 前提条件
 
-- 购买了腾讯云 CVM 服务器，有登录服务器权限。
+- 购买了腾讯云 CVM 服务器。
 - 安装 Python 2.7以上环境和 pip 工具。
 
 ## 数据上报
 
 ### 步骤1：准备上报环境
 
-参看 [CLI 方式上报数据](https://cloud.tencent.com/document/product/397/40208) 的第一和第二步，进行 TCCLI 工具的安装和配置。
+参看 [CLI 方式上报数据](https://cloud.tencent.com/document/product/397/40208#cli-.E6.96.B9.E5.BC.8F.E4.B8.8A.E6.8A.A5.E6.95.B0.E6.8D.AE) 的第一和第二步，进行 TCCLI 工具的安装和配置。
 
 ### 步骤2：确定监控指标
 
@@ -27,9 +28,9 @@ ps aux|grep nginx|grep -v grep|wc -l
 ```
 
 
-### 步骤3：编写 shell
+### 步骤3：编写 Shell
 
-根据步骤2中获取监控指标的系统命令来编写 shell 脚本，如下示例：
+根据步骤2中获取监控指标的系统命令来编写 Shell 脚本，如下示例：
 
 ```shell
 #!/bin/bash
@@ -53,9 +54,9 @@ done
 ```
 
 
-### 步骤4：执行 shell 文件完成数据持续上报
+### 步骤4：执行 Shell 文件完成数据持续上报
 
-将步骤3中的示例保存为 test.sh 后，在当前目录下执行以下命令，即可通过 shell 脚本在后台进行目标指标的持续上报。
+将步骤3中的示例保存为 test.sh 后，在当前目录下执行以下命令，即可通过 Shell 脚本在后台进行目标指标的持续上报。
 
 ```shell
 chmod +x test.sh
@@ -73,8 +74,8 @@ nohup ./test.sh &
 1. 确认用户消息通道已验证，可在 [CAM 鉴权](https://console.cloud.tencent.com/cam) 页面查看验证情况。
 ![](https://main.qcloudimg.com/raw/0f20a82b975918addf2858a13a67991f.jpg)
 2. 进入自定义监控 [指标视图](https://console.cloud.tencent.com/monitor/indicator-view) 页面，在指标视图右上角【配置告警】。
-![](https://main.qcloudimg.com/raw/96ec7d8d95fe24a5e20ac5499f52b986.png)
-3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略]()。
+![](https://main.qcloudimg.com/raw/e7d880dc8c7dc23fbb7719be863b4555.png)
+3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
 如图示例为：Nginx 进程数少于2个时发送短信告警，持续一个统计周期（1分钟），每5分钟告警一次。
  ![](https://main.qcloudimg.com/raw/c19be124dc514bad8fcfa8c6be769ba6.jpg)
 
@@ -93,7 +94,4 @@ APPID：125xxxxxxx
 告警策略：视图告警
 触发事件：2019-12-09 22:36:00（UTC+08:00）
 ```
-
-
-
 

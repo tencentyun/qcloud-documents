@@ -1,3 +1,23 @@
+### 2.3.1 @2019.12.13
+**新增**
+- [createImageMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage) 和 [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) 接口支持传入 [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 对象。
+- 创建表情消息接口 [createFaceMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceMessage)。
+- 优化 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组的消息通知效率，大幅提升使用体验。
+
+**变更**
+- 发消息失败时，SDK 返回实际的错误码和错误信息。
+- 调用 [logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 时只登出当前实例的消息通道。
+- 对接入侧传入的回调函数做安全性封装，如果回调函数逻辑有误，可捕获异常快速定位问题。
+- 遇到 [IM 服务端的错误码](https://cloud.tencent.com/document/product/269/1671#.EF.BC.88.E4.BA.8C.EF.BC.89.E6.9C.8D.E5.8A.A1.E7.AB.AF.E7.9A.84.E9.94.99.E8.AF.AF.E7.A0.81) 时 SDK 输出中文错误信息。
+
+**修复**
+- 微信小程序环境长时间切后台再切回前台偶现消息丢失。
+- 发一次消息触发多次 [TIM.EVENT.CONVERSATION_LIST_UPDATED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.CONVERSATION_LIST_UPDATED)。
+- 未调用 [registerPlugin](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#registerPlugin) 或者接口传参有误，上传图片等文件时 SDK 报错。
+- 解散 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组后长轮询未停止。
+- 开启了“多实例”或“多终端”登录，一个 Web 实例登出后其它实例或者其它端收不到消息。
+- 偶现的由于拉取的会话列表结构问题导致 SDK 报错。
+
 ### 2.2.1 @2019.11.28
 **变更**
 完善拉群漫游消息的逻辑。

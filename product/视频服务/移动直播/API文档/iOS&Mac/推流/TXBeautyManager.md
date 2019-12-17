@@ -11,7 +11,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | TXBeautyStyle | 美颜风格，TXBeautyStyleSmooth表示光滑；TXBeautyStyleNature表示自然；TXBeautyStylePitu表示朦胧 |
+| level | TXBeautyStyle | 美颜风格，TXBeautyStyleSmooth表示光滑；TXBeautyStyleNature表示自然；TXBeautyStylePitu表示朦胧。 |
 
 ### setBeautyLevel
 
