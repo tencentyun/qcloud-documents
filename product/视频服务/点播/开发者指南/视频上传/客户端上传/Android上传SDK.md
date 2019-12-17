@@ -18,7 +18,7 @@
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>``
 	<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
 		<intent-filter>
-			<!--检测网络变化的 acton-->
+			<!--检测网络变化的 action-->
 			<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 			<category android:name="android.intent.category.DEFAULT" />
 		</intent-filter>
