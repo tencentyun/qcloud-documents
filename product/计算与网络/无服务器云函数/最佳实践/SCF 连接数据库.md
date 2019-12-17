@@ -6,7 +6,9 @@
 
 ## 前提条件
 已创建数据库。
->?此最佳实践适用于 [MySQL](https://cloud.tencent.com/document/product/236/5160)，[CynosDB](https://cloud.tencent.com/document/product/1003/30505)，[TDSQL](https://cloud.tencent.com/document/product/557/10236)。推荐使用腾讯云提供的 Serverless 数据库（CynosDB）。
+>?本文档提供了 SCF 连接 [MySQL](https://cloud.tencent.com/document/product/236/5160)、[CynosDB](https://cloud.tencent.com/document/product/1003/30505) 及 [TDSQL](https://cloud.tencent.com/document/product/557/10236) 三种关系型数据库的示例，推荐您使用腾讯云提供的 Serverless 数据库（CynosDB）。
+
+
 
 
 

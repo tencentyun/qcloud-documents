@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 本文档将向您介绍如何使用 TI Python SDK 实现 Pytorch 分布式训练。
 
 ## 使用 Horovod 训练

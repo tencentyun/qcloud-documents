@@ -282,7 +282,7 @@ int main(){
     //将 pcm 音频保存为 wave 格式
     FILE *f = fopen("./test.wav", "wb");
     unsigned char *wav_buffer = (unsigned char *) malloc(4 * 1024 * 1024);
-    //添加wave头
+    //添加 wave 头
     pcm16le_to_wave_buf((const int16_t *)strRsp.c_str(), strRsp.size(), 1, 16000, wav_buffer);
     fwrite(wav_buffer, sizeof(char), strRsp.size() + 44, f);
     fclose(f);
