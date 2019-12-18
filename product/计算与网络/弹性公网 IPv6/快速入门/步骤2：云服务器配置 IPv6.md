@@ -29,8 +29,8 @@ wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
 ```bash
 chmod +x ./enable_ipv6.sh
 ./enable_ipv6.sh [网卡名称]  
-# 示例1：./enable_ipv6.sh eth0
-# 示例2：./enable_ipv6.sh eth1
+# 示例 1：./enable_ipv6.sh eth0
+# 示例 2：./enable_ipv6.sh eth1
 ``` 
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
@@ -50,8 +50,8 @@ wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
 ```bash
 chmod +x ./config_ipv6.sh  
 ./config_ipv6.sh [网卡名称] 
-# 示例1：./config_ipv6.sh eth0
-# 示例2：./config_ipv6.sh eth1
+# 示例 1：./config_ipv6.sh eth0
+# 示例 2：./config_ipv6.sh eth1
 ```
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
