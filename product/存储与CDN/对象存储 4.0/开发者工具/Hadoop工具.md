@@ -63,6 +63,8 @@ done
 |    fs.cosn.read.ahead.queue.size    | 预读队列的长度。                                             |                              8                               |   否   |
 |         fs.cosn.maxRetries          | 访问 COS 出现错误时，最多重试的次数。                        |                              200                               |   否   |
 |   fs.cosn.retry.interval.seconds    | 每次重试的时间间隔。                                         |                              3                               |   否   |
+|fs.cosn.server-side-encryption.algorithm | 配置COS服务端加密算法，支持SSE-C和SSE-COS，默认为空，不加密 | 无| 否 |
+|fs.cosn.server-side-encryption.key | 当开启COS的SSE-C服务端加密算法时，必须配置SSE-C的密钥，密钥格式为base64编码的AES-256密钥，默认为空，不加密| 无 | 否|
 
 ### Hadoop 配置
 
@@ -177,6 +179,18 @@ done
       <value>3</value>
       <description>The number of seconds to sleep between each COS retry.</description>
     </property>
+   
+    <property>
+    	<name>fs.cosn.server-side-encryption.algorithm</name>
+        <value></value>
+        <description>The server side encryption algorithm.</description>
+    </property>	
+	
+     <property>
+    	<name>fs.cosn.server-side-encryption.key</name>
+        <value></value>
+        <description>The SSE-C server side encryption key.</description>
+    </property> 
       
 </configuration>
 ```
