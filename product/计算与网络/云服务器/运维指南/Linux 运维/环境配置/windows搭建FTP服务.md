@@ -50,7 +50,7 @@
 2. 在 C 盘下，选择并右键单击 `test` 文件夹，选择【属性】。
 3.  在“test 属性”窗口中，选择【安全】标签。
 4.  选择 `Everyone` 用户并单击【编辑】。如下图所示：
-如果用户名中没有 `Everyone`，请参考 [添加 Everyone 用户](#add) 进行添加。
+如果“组或用户名”中没有 `Everyone`，请参考 [添加 Everyone 用户](#add) 进行添加。
 ![](https://main.qcloudimg.com/raw/bb4512359271255fbe00e5950483d714.png)
 5. <span id="step5"></span>在“test 的权限”界面中，按需设置 `Everyone` 用户的权限并单击【确定】。如下图所示：
 本文以授予 `Everyone` 用户所有权限为例。
