@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/beec7ae5fcbdf3e413f133296e53f2df.png)
 5. 在“选择服务器角色”界面中，勾选【Web 服务器(IIS)】，在弹出的窗口中单击【添加功能】，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f160096425be05330fc7bc39e3d81b22.png)
-6. 连续单击【下一步】，进入“选择角色服务”界面。
+6. 连续单击两次【下一步】，进入“选择角色服务”界面。
 7. 在“选择角色服务”界面，勾选【FTP 服务】及【FTP 扩展】并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e8efaf069e2f2d2a2e632d0f2eeec4a4.png)
 8. 单击【安装】，开始安装 FTP 服务。
@@ -47,7 +47,7 @@
 >?需要为 FTP 站点设置共享文件夹，本为以 `C:\test` 文件夹为例，文件夹中已包含需共享的文件 `test.txt`。
 >
 1. 单击云服务器界面底部任务栏中的<img src="https://main.qcloudimg.com/raw/863967bab67b6cd83ce5f0924e1b19c8.png" style="margin:-3px 0px">，进入“这台电脑”页面。
-2. 进入 C 盘，选择 `test` 文件夹并单击鼠标右键，选择【属性】。
+2. 在 C 盘下，选择并右键单击 `test` 文件夹，选择【属性】。
 3. 在“test 属性”窗口中，选择【安全】标签并单击【编辑】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1792e5b5ff508f809091e786c229893c.png)
 4. 在“test 权限”界面中，单击【添加】。
@@ -89,7 +89,7 @@
 
 ### 步骤6：设置安全组及防火墙
 搭建好 FTP 站点后，您需要给 Windows 云服务器放通端口为21的**入站规则**，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
-您可参考 [微软官方文档](https://docs.microsoft.com/en-us/previous-versions/orphan-topics/ws.11/hh831655(v=ws.11)) 配置 FTP 站点的防火墙支持，使 FTP 服务器能够接受来自防火墙的被动连接。如果选用其他端口，则需在安全组中添加放通对应端口的入站规则。
+>?您可参考 [微软官方文档](https://docs.microsoft.com/en-us/previous-versions/orphan-topics/ws.11/hh831655(v=ws.11)) 配置 FTP 站点的防火墙支持，使 FTP 服务器能够接受来自防火墙的被动连接。如果选用其他端口，则需在安全组中添加放通对应端口的入站规则。
 
 ### 步骤7：测试 FTP 站点
 您可通过 FTP 客户端软件、浏览器或文件资源管理器等工具验证 FTP 服务，本文以客户端的文件资源管理器为例。
@@ -110,7 +110,7 @@ ftp://云服务器公网IP:21
 ## 附录
 ### 服务器证书制作<span id="ssl"></span>
 1. 在“服务器管理器”窗口中，选择右上角导航栏中的【工具】>【Internet Information Services (IIS)管理器 】。
-2. 选择左侧导航栏中的服务器，双击右侧界面中的【服务器证书】。如下图所示：
+2. 在弹出的“Internet Information Services (IIS)管理器”窗口中，选择左侧导航栏中的服务器，双击右侧界面中的【服务器证书】。如下图所示：
 ![](https://main.qcloudimg.com/raw/041a945541b3c94cc8206c8093df84c8.png)
 3. 选择右侧操作栏中的【创建自签名证书】。
 4. 在弹出的“创建自签名证书”窗口中，设置证书名称及存储类型。如下图所示：
