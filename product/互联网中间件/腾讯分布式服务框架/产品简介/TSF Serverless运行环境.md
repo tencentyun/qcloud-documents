@@ -25,5 +25,5 @@ TSF serverless 提供各个版本的demo示例包与 start.sh 书写规范，可
 ## 更多指引
 您可参考以下文档，使用相关功能：
 - [TSF Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960)
-- [使用 CLI 快速创建并部署 Serverless 应用](<https://cloud.tencent.com/document/product/649/39890>)
 - [Express Hello World 示例](<https://cloud.tencent.com/document/product/649/38963>)
+- [使用 CLI 快速创建并部署 Serverless 应用](<https://cloud.tencent.com/document/product/649/39890>)
