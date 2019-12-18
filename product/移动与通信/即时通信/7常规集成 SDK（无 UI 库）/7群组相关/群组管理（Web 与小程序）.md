@@ -69,7 +69,6 @@ tim.getGroupProfile(options);
 | :---------------------- | :------------- | :--- | :----------------------------------------------------------- |
 | `groupID  `               | `String`         |-  | 群组 ID                                                       |
 | `groupCustomFieldFilter`  | `Array<String>` | `<optional>` | 群组的自定义字段过滤器，指定需要获取的群组的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
-| `memberCustomFieldFilter` | `Array<String>` | `<optional>` | 群成员的自定义字段过滤器，指定需要获取的群成员的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 **返回值**
 
@@ -82,8 +81,7 @@ tim.getGroupProfile(options);
 ```js
 let promise = tim.getGroupProfile({
   groupID: 'group1',
-  groupCustomFieldFilter: ['key1','key2'],
-  memberCustomFieldFilter: ['key1', 'key2']
+  groupCustomFieldFilter: ['key1','key2']
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group);
