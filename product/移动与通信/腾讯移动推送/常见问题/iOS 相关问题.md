@@ -97,4 +97,4 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 ### iOS13 在的开发环境下，注册偶现不返回 DeviceToken？
-此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决，详情请参见 [文档](https://stackoverflow.com/questions/58264338/not-getting-apns-device-token-on-ios-13）。
+此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决，详情请参见 [文档](https://stackoverflow.com/questions/58264338/not-getting-apns-device-token-on-ios-13) 。
