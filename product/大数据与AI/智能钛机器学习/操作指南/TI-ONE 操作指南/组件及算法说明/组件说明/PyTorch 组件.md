@@ -1,5 +1,4 @@
-PyTorch 是一个设计精良的深度学习框架。它是由 Facebook 的人工智能研究小组在2016年开发，更多详细介绍可参考 [PyTorch 文档](https://pytorch.org/)。
-
+PyTorch是一个设计精良的深度学习框架。它由Facebook的人工智能研究小组在2016年开发，更多详细介绍您可参考 [PyTorch 文档](https://pytorch.org/)。
 ## 版本说明
 PyTorch 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
 - Python 3.6
@@ -14,7 +13,7 @@ pip.main(['install', "package_name"])
 
 ## 操作步骤
 1. **添加组件**
-从左侧菜单栏中，选择【框架】>【深度学习】列表下的 PyTorch 节点，将其拖拽至画布中。
+从左侧菜单栏中，选择【框架】>【深度学习】列表下的【PyTorch】节点，将其拖拽至画布中。
 2. **配置参数**
  - 脚本及依赖包文件上传：
     将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过 依赖包文件 框上传。
@@ -28,11 +27,6 @@ pip.main(['install', "package_name"])
 单击【保存】并运行工作流。
 5. **查看 PyTorch 控制台和日志**
 在 PyTorch 节点上单击右键菜单可查看任务状态和详细日志。
-详细日志如下：
-![](https://main.qcloudimg.com/raw/212ba63589e3e3e5dca34ae83b18fba7.png)
->?stdout.log 为全部日志，stderr.log 为错误日志。
-
-
 
 ## 代码示例
 以下代码展示了在 PyTorch 框架中，调用 torch.nn 构建一个典型神经网络（NN）的方法。

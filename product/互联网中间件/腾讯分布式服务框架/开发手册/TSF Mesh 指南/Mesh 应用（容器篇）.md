@@ -1,3 +1,4 @@
+<span id="zb"></span>
 ## 准备工作
 1. 下载 TSF 提供的 Python Mesh Demo（docker）（该步骤预计耗时1min）。
 2. 解压 Demo 压缩包，分别进入二级目录（如 `demo-mesh-promotion` 目录），执行 `docker build` 命令制作容器镜像。
@@ -20,7 +21,7 @@
 ### 2. 将镜像推送到仓库
 
 2.1  在左侧导航，单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】，进入镜像列表页。首次使用时，您需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像（参考 **准备工作** 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像（参考 [准备工作](#zb) 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
 
 
 

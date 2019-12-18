@@ -2,6 +2,7 @@ Caffe（Convolutional Architecture for Fast Embedding）是一个高效的深度
 ## 版本说明
 Pycaffe 组件内核是 Caffe 1.0 版本。
 Pycaffe 组件中使用的 Python 版本和支持的第三方模块信息如下：
+
 - Python 2.7.12
 - SciPy 0.17.0
 - NumPy 1.11.0
@@ -31,15 +32,10 @@ pip.main(['install', "package_name"])
 单击【保存】并运行工作流。
 5. **查看 PyCaffe 控制台和日志**
 在 PyCaffe 节点上单击右键，可查看任务状态和详细日志。
-详细日志如下：
-![](https://main.qcloudimg.com/raw/8bf1c9c51ceb77015ec07784f4a6bb4e.png)
->?stdout.log 为全部日志，stderr.log 为错误日志。
-
-
 
 ## 代码示例
 
-以下代码展示了在 PyCaffe 框架中，训练 mnist 手写数字识别。
+以下代码将向您展示，在 PyCaffe 框架中训练 mnist 手写数字识别的方法。
 
 ```
 import os
