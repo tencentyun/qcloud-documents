@@ -23,7 +23,7 @@ service nginx start
 ```bash
 vim /usr/share/nginx/html/index.html
 ```
-		2. 按“i”进入编辑模式，请在`<body></body>`标签内输入：
+   2. 按“i”进入编辑模式，请在`<body></body>`标签内输入：
 ```bash
 # 建议直接在<body>下方输入
 Hello nginx , This is rs-1!
