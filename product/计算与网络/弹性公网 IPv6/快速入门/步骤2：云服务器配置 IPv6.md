@@ -26,7 +26,7 @@ enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
 ```
 2. 赋予执行权限后使用管理员权限执行：
-```
+```bash
 chmod +x ./enable_ipv6.sh
 ./enable_ipv6.sh [网卡名称]  
 # 示例1：./enable_ipv6.sh eth0
@@ -47,7 +47,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
 ```
 2. 赋予执行权限后使用管理员权限执行：
-```
+```bash
 chmod +x ./config_ipv6.sh  
 ./config_ipv6.sh [网卡名称] 
 # 示例1：./config_ipv6.sh eth0
@@ -58,7 +58,7 @@ chmod +x ./config_ipv6.sh
 对于需要自动化配置 IPv6 实例的需求，例如，大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
 > ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
 > 
-```
+```bash
 #!/bin/sh
 install_dir=/usr/sbin
 install_path="$install_dir"/config-ipv6
