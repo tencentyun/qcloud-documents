@@ -79,3 +79,7 @@ DataX 是一个开源的命令行工具，支持将 TencentDB 中全量或增量
 **参数说明：**
 1. writer 需选择 gpdbwriter。使用 postgresqlwriter 也可写入 Snova，但插入效率会很低。
 2. 参数具体含义和调优可以参考 [DataX](https://github.com/HashDataInc/DataX)。
+
+**工具安装：**
+1. 在 [DataX 官网](https://github.com/HashDataInc/DataX) 下载源码进行编译。
+2. 直接使用已编译好的版本，[datax-v1.0.3-hashdata.tar.gz](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/datax/datax-v1.0.3-hashdata.tar.gz)。
