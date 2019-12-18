@@ -1,3 +1,6 @@
+### TUIKit 源码是否支持 Androidx？
+TUIKit 源码暂不支持 Androidx。
+
 ### 登录报错 6012 或  TLSSDK exchange ticket fail ？
 
 - 初始化接口和登录接口要分开调用，不能连续调用（因为初始化方法中有异步操作）；

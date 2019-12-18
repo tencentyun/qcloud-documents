@@ -95,4 +95,4 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 -keep class com.heytap.mcssdk.** {*;}
 ```
 
-
+>?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。
