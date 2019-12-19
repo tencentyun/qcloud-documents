@@ -7,31 +7,33 @@ SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.
 
 ## 2.	数据准备
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云度武器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
+
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 文件夹：
 ```
 [root@172 ~]# su hadoop
 [hadoop@172 ~]# cd /usr/local/service/hive
 ```
-新建文件 cos.txt，并且添加数据如下所示：
+新建文件 cos.txt，并添加数据如下：
 ```
 5,cos_patrick
 6,cos_stone
 ```
-使用 HDFS 指令把文件上传到 COS 中去：
+使用 HDFS 指令把文件上传到 COS 中。其中 $bucketname 为您创建的存储桶的名字和路径。
 ```
 [hadoop@172 hive]# hdfs dfs –put cosn://$bucketname/
 ```
-其中 $bucketname 为您创建的存储桶的名字和路径。
-再新建一个文件 lzo.txt，并且在其中添加数据如下所示：
+再新建文件 lzo.txt，并添加数据如下：
 ```
 10,lzo_pop
 11,lzo_tim
 ```
-将其压缩成 .lzo 文件：
+将其压缩为 .lzo 文件：
 ```
 [hadoop@172 hive]$ lzop -v lzo.txt
 compressing hive_test.data into lzo.txt.lzo
 ```
+
+>!压缩 lzo 文件需要先安装 lzo 和 lzop，安装执行命令：`yum -y install lzo lzop`。
 
 ## 3.	新建 Hive 表并使用 Presto 查询
 这里使用了一个脚本文件来生产进行 Hive 数据库和表的创建。新建一个脚本文件 presto_on_cos_test.sql，并添加以下程序：
