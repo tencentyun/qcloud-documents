@@ -90,7 +90,7 @@ find data -type d -exec chmod 770 {} \;
 ```
 /etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian/Ubuntu）
 ```
-  >!当修改端口时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机的安全组配置，在其入站规则中，放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
+  >!当修改端口时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机安全组配置，在其入站规则中放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
 3. 如果必须使用 SSH 密码进行管理，选择一个好密码。
  * 无论应用程序管理后台（网站、中间件、tomcat 等）、远程 SSH、远程桌面、数据库，都建议设置复杂且不一样的密码。
  * 下面是一些好密码的实例（可以使用空格）：
