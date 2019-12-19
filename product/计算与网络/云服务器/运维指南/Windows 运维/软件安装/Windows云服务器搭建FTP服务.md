@@ -46,7 +46,7 @@
 ### 步骤4：设置共享文件夹权限
 >?需要为 FTP 站点设置共享文件夹，本为以 `C:\test` 文件夹为例，文件夹中已包含需共享的文件 `test.txt`。
 >
-1. 单击云服务器界面底部任务栏中的<img src="https://main.qcloudimg.com/raw/863967bab67b6cd83ce5f0924e1b19c8.png" style="margin:-3px 0px">，进入“这台电脑”页面。
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/863967bab67b6cd83ce5f0924e1b19c8.png" style="margin:-3px 0px">，打开“这台电脑”窗口。
 2. 在 C 盘下，选择并右键单击 `test` 文件夹，选择【属性】。
 3.  在“test 属性”窗口中，选择【安全】标签。
 4.  选择 `Everyone` 用户并单击【编辑】。如下图所示：
