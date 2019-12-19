@@ -299,7 +299,7 @@
 | ------------------------------------------------------------  | ------ | -------- | ----- | ---- |	---- |
 | [云监控](https://cloud.tencent.com/document/product/248) | 操作级 | &#10003;  | -  |  - |	- |	
 | [密钥管理服务](https://cloud.tencent.com/document/product/573) | 资源级   | &#10003;  | -  |  -     |[访问管理指南](https://cloud.tencent.com/document/product/573/10126) |	
-| [迁移服务平台](https://cloud.tencent.com/document/product/659)  | -   | -  | -   |&#10003;    |	- |	
+| [迁移服务平台](https://cloud.tencent.com/document/product/659)  | 服务级   | &#10003; | -   |&#10003;    |	- |	
 
 ## 解决方案	
 
