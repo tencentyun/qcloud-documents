@@ -1,4 +1,4 @@
-﻿## 步骤一：QA 管理
+## 步骤一：QA 管理
 #### 新增或选择已有 BOT
 - 新增 BOT
 在 [腾讯智能对话平台](https://console.cloud.tencent.com/tbp) 控制台主页面单击【新建 Bot】，在弹出的对话框中输入 Bot 标识名。
