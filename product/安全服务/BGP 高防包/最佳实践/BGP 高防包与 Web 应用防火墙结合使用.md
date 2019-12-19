@@ -25,7 +25,7 @@ DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
 4. 单击【保存】。
 
 ### 配置 DDoS 高防包
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【资产列表】。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防包】>【资产列表】。
  - 若您的 DDoS 高防包实例是独享包，则选择【独享包】页签。
  - 若您的 DDoS 高防包实例是共享包，则选择【共享包】页签。
 2. 选择目的高防包实例所在地域，单击目的高防包实例所在行的操作项【绑定设备】。
