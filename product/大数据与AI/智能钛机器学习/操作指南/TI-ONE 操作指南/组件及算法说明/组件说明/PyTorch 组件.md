@@ -1,4 +1,4 @@
-PyTorch是一个设计精良的深度学习框架。它由Facebook的人工智能研究小组在2016年开发，更多详细介绍您可参考 [PyTorch 文档](https://pytorch.org/)。
+PyTorch 是一个设计精良的深度学习框架。它由 Facebook 的人工智能研究小组在2016年开发，更多详细介绍您可参考 [PyTorch 文档](https://pytorch.org/)。
 ## 版本说明
 PyTorch 组件中使用的 Python 版本和支持的第三方模块版本信息如下：
 - Python 3.6

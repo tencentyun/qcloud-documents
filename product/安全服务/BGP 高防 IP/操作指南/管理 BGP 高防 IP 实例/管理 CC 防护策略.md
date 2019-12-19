@@ -1,5 +1,5 @@
-BGP 高防 IP 支持 HTTP/HTTPS CC 防护功能。当高防 IP 统计的 HTTP/HTTPS 请求量超过设定的【http/https 请求数阈值】时，将自动触发 HTTP/HTTPS CC 防护。
-BGP 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和防护需求，通过自定义防护策略实现更精准的 CC 攻击拦截。同时，还支持 URL 白名单、IP 白名单和 IP 黑名单策略配置：
+DDoS 高防 IP 支持 HTTP/HTTPS CC 防护功能。当高防 IP 统计的 HTTP/HTTPS 请求量超过设定的【http/https 请求数阈值】时，将自动触发 HTTP/HTTPS CC 防护。
+DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和防护需求，通过自定义防护策略实现更精准的 CC 攻击拦截。同时，还支持 URL 白名单、IP 白名单和 IP 黑名单策略配置：
 -  白名单中的 URL，其访问请求将无需执行 CC 攻击检测，直接被放行。
 -  白名单中 IP，其 HTTP/HTTPS 访问请求将无需执行 CC 攻击检测，直接被放行。
 -  黑名单中 IP，其 HTTP/HTTPS 访问请求将直接被拒绝。
