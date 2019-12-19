@@ -1,6 +1,6 @@
 本节将基于腾讯云对象存储 COS 展示 Hive 连接器更多使用方法，数据来源于直接插入数据、COS 数据和 lzo 压缩数据。
 ## 1.	开发准备
-- 因为任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/6232)。
+- 因为任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Presto 组件，并且在基础配置页面勾选“开启COS”，在下方填写自己的 SecretId 和 SecretKey。
 SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
 - Presto 等相关软件安装在路径 EMR 云服务器的` /usr/local/service/`路径下。
