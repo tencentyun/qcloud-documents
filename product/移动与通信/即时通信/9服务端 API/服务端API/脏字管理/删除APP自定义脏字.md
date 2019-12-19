@@ -27,7 +27,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/delete?sdkappid=88888888&identi
 
 
 ### 最高调用频率
-100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api-.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
+200次/秒。
 ### 请求包示例
 支持批量删除 App 自定义的脏字，单次最多可以删除50个脏字。
 ```

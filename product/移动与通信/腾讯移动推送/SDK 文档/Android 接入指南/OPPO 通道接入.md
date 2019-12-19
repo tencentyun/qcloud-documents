@@ -17,13 +17,22 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.com/) > 配置管理 > 应用配置页面，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
 
 
+
+### 配置推送通道
+为兼容 OPPO 手机安卓10以上的通道配置，用户需在 OPPO 管理台上，创建一个 TPNS 推送的默认通道。详情请参见 [OPPO 官方文档](https://open.oppomobile.com/wiki/doc/#id=10198)。
+具体内容为：
+- “通道 ID”：“default_message”
+- “通道名称”：“默认通知”
+        
+
+
 ###  配置内容
 #### AndroidStudio 集成方法
 
 1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
 2. 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:oppo:1.1.3.0-release'//oppo推送
+implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 ```
 
 
@@ -35,22 +44,28 @@ implementation 'com.tencent.tpns:oppo:1.1.3.0-release'//oppo推送
 1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
 2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
 
-```xml
+```
+<!--OPPO 推送服务必须权限-->
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+<uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 
 <application>
-	<!--
-	如果应用需要解析和处理Push消息（如透传消息），则继承PushService来处理，并在此申明
-	如果不需要处理Push消息，则直接申明PsuhService即可
-	 -->
-	<service
-		android:name="
-com.tencent.android.oppopush.PushMessageService"
-		android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-		<intent-filter>
-			<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-		</intent-filter>
-	</service>
+    <!--OPPO 推送服务必须组件-->
+    <service
+        android:name="com.heytap.mcssdk.PushService"
+        android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+        <intent-filter>
+            <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+        </intent-filter>
+    </service>
+    
+    <service
+        android:name="com.heytap.mcssdk.AppPushService"
+        android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
+        <intent-filter>
+            <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+        </intent-filter>
+    </service>
 
 </application>
 ```
@@ -77,7 +92,7 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 ### 代码混淆
 ```xml
 -keep public class * extends android.app.Service
--keep class com.coloros.mcssdk.**  {*;}
+-keep class com.heytap.mcssdk.** {*;}
 ```
 
-
+>?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。

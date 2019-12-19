@@ -1,10 +1,10 @@
 
 ## 操作场景
-MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux，可以快速验证是否可以与 IoT Cloud 进行连接并发布或订阅消息，本文主要介绍 MQTT.fx 如何与腾讯云 IoT Cloud 交互。本文以 MQTT.fx 1.7.0 for Mac 版本为例。
+MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Linux 操作系统，可以快速验证是否可与 IoT Cloud 进行连接，并发布或订阅消息。更多 MQTT 协议介绍请参见 [MQTT 协议介绍](https://mcxiaoke.gitbooks.io/mqtt-cn/content/mqtt/01-Introduction.html)。本文档主要介绍 MQTT.fx 如何与腾讯云 IoT Cloud 交互。本文以 MQTT.fx 1.7.0 for Mac 版本为例。
 
 ## 操作步骤
 ### 连接 IoT Cloud
-1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
+1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本，下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
 ![](https://main.qcloudimg.com/raw/245072a611287b1ec54c5f81780e0a57.png)

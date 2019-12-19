@@ -15,10 +15,12 @@ LAMP 环境是指 Linux 系统下，由 Apache  + MariaDB + PHP 及其它相关�
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
-### 步骤二：安装 Apache
+### 步骤2：安装 Apache
 1. 执行以下命令，安装 Apache。
 ```
 yum install httpd -y
@@ -38,7 +40,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/f9dc3992f4d6e7e94bb63330fd5cadfe.png)
 
 
-### 步骤三：安装配置 MariaDB
+### 步骤3：安装配置 MariaDB
 1. 执行以下命令，查看系统中是否已安装 MariaDB。
 ```
 rpm -qa | grep -i mariadb
@@ -89,7 +91,7 @@ mysql
 \q
 ```
 
-### 步骤四：安装配置 PHP
+### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm 
@@ -127,7 +129,7 @@ AddType application/x-httpd-php-source .phps
 systemctl restart httpd
 ```
 
-### 环境配置验证
+## 验证环境配置
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /var/www/html/index.php

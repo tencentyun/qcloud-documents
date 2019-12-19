@@ -95,7 +95,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | const char * | 错误信息。 |
 
 __介绍__
@@ -115,7 +115,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 要 PK 的目标主播 userId。 |
-| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请查阅[错误码表](https://cloud.tencent.com/document/product/647/32257)。 |
+| errCode | TXLiteAVError | 错误码，ERR_NULL 代表切换成功，其他请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。 |
 | errMsg | const char * | 错误信息。 |
 
 __介绍__
@@ -133,11 +133,11 @@ void onDisconnectOtherRoom(TXLiteAVError errCode, const char * errMsg)
 
 
 ## 成员事件回调
-### onUserEnter
+### onRemoteUserEnterRoom
 
-有用户（主播）加入当前房间。
+有用户加入当前房间。
 ```
-void onUserEnter(const char * userId)
+void onRemoteUserEnterRoom(const char * userId)
 ```
 
 __参数__
@@ -148,15 +148,19 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音上行，但不一定已开启视频。
-如果需要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 事件回调。
+出于性能方面的考虑，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCAppSceneVideoCall）：该场景下用户没有角色的区别，任何用户进入房间都会触发该通知。
+- 在线直播场景（TRTCAppSceneLIVE）：在线直播场景不限制观众的数量，如果任何用户进出都抛出回调会引起很大的性能损耗，所以该场景下只有主播进入房间时才会触发该通知，观众进入房间不会触发该通知。
+
+>?注意 onRemoteUserEnterRoom 和 onRemoteUserLeaveRoom 只适用于维护当前房间里的“成员列表”，如果需要显示远程画面，建议使用监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32270#onuservideoavailable) 事件回调。
 
 
-### onUserExit
 
-有用户（主播）离开当前房间。
+### onRemoteUserLeaveRoom
+
+有用户离开当前房间，与 onuserEnterRoom 相对应。
 ```
-void onUserExit(const char * userId, int reason)
+void onRemoteUserLeaveRoom(const char * userId, int reason)
 ```
 
 __参数__
@@ -164,7 +168,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户标识。 |
-| reason | int | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
+| reason | int | 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。 |
+
+__介绍__
+
+与 onRemoteUserEnterRoom 相对应，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCAppSceneVideoCall）：该场景下用户没有角色的区别，任何用户的离开都会触发该通知。
+- 在线直播场景（TRTCAppSceneLIVE）：只有主播离开房间时才会触发该通知，观众离开房间不会触发该通知。
 
 
 ### onUserVideoAvailable
@@ -183,8 +193,9 @@ __参数__
 
 __介绍__
 
-当您收到 onUserVideoAvailable(userId， YES) 通知时，代表该路画面已经有可用的视频数据帧到达。此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
-当您收到 onUserVideoAvailable(userId， NO) 通知时，代表该路远程画面已经被关闭，可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
+当您收到 onUserVideoAvailable(userId， YES) 通知时，表示该路画面已经有可用的视频数据帧到达。 此时，您需要调用 startRemoteView(userId) 接口加载该用户的远程画面。 然后，您还会收到名为 onFirstVideoFrame(userId) 的首帧画面渲染回调。
+当您收到 onUserVideoAvailable(userId， NO) 通知时，表示该路远程画面已被关闭， 可能由于该用户调用了 muteLocalVideo() 或 stopLocalPreview()。
+
 
 ### onUserSubStreamAvailable
 
@@ -200,7 +211,7 @@ __参数__
 | userId | const char * | 用户标识。 |
 | available | bool | 屏幕分享是否开启。 |
 
->?显示辅路画面使用的函数不是 startRemoteView() 而是 startRemoteSubStreamView()。
+>?显示辅路画面使用的函数是 startRemoteSubStreamView() 而非 startRemoteView()。
 
 
 
@@ -285,6 +296,47 @@ void onSendFirstLocalAudioFrame()
 __介绍__
 
 SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。 当 SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
+
+
+### onUserEnter
+
+废弃接口：有主播加入当前房间。
+```
+void onUserEnter(const char * userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | const char * | 用户标识。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserEnterRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
+
+
+### onUserExit
+
+废弃接口： 有主播离开当前房间。
+```
+void onUserExit(const char * userId, int reason)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | const char * | 用户标识。 |
+| reason | int | 离开原因。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserLeaveRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
 
 
 
@@ -404,7 +456,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调，如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 TRTCCloud 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 需要注意的是，调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调， 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 null 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 

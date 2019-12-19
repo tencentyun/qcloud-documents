@@ -9,10 +9,15 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 
 
 ## 操作步骤
-### 创建云服务器时部署 LAMP 环境
+### 步骤1：创建云服务器时部署 LAMP 环境
+
+>! 如果您想使用已购买的云服务器部署 LAMP 环境，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402) 或者使用其他地域云服务器进行搭建。
+>
+
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
 3. 在“选择镜像”窗口的左侧搜索框中，输入 LAMP 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px">。如下图所示：
 >?
@@ -25,7 +30,7 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 
 
 
-### 修改数据库密码
+### 步骤2：修改数据库密码
 >!镜像中默认数据库密码较为简单，为提高数据库安全性，建议执行此步骤修改默认密码。
 >
 1. 在本地浏览器中访问以下地址，进入 phpMyAdmin 管理平台。
@@ -43,7 +48,7 @@ http://云服务器实例的公网 IP/phpmyadmin
 ![](https://main.qcloudimg.com/raw/c0d842586c7f805efd89f100a8cc194a.png)
 
 
-### 环境验证配置
+### 步骤3：环境验证配置
 >!搭建 LAMP 环境的系统镜像不同，验证步骤会有一定区别，请您根据实际情况进行调试。
 >
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：

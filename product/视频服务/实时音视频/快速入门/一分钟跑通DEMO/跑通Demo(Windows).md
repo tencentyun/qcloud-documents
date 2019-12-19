@@ -1,17 +1,13 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-#### Windows（C++）
+**Windows（C++）开发环境**
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
+- Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
 
-- 操作系统： Microsoft Windows 7及以上版本
-- 开发环境：Microsoft Visual Studio 2015及以上版本
-
-#### Windows（C#）
-
-- 操作系统： Microsoft Windows 7及以上版本
-- 开发环境：Microsoft Visual Studio 2015及以上版本
-- 开发框架：.Net Framework 4.0及以上版本
-
+**Windows（C#）开发环境**
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2017
+- .Net Framework 4.0及以上版本，推荐使用 .Net Framework 4.0
 
 ## 操作步骤
 <span id="step1"></span>
@@ -70,16 +66,16 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤5：编译运行
-- **Windows(C++)**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`MFCDemo\TRTCMfcDemo.vcxproj`工程文件，编译并运行 Demo 工程即可。
+- **Windows（C++）**
+使用 Visual Stuido（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
-- **Windows(C#)**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.csproj`工程文件，编译并运行 Demo 工程即可。
+- **Windows（C#）**
+使用 Visual Stuido（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275?!preview&!editLang=zh#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95) ECDSA-SHA256。
 
 ### 2. 两台手机同时运行 Demo，为什么看不到彼此的画面？
 请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。

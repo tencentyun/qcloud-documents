@@ -12,7 +12,7 @@
 - 部分场景需要具有源实例的 super 权限。
 
 ### 源实例 super 权限
-大部分场景对源实例无 super 权限要求，仅以下场景中需具有源实例的 super 权限（考虑到账号安全性等因素，TencentDB 暂不支持 super 自助提权服务，如有需要请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请）。
+大部分场景对源实例无 super 权限要求，仅以下场景中需具有源实例的 super 权限。
 - 用户在“数据一致性检测”中选择了“全量检测”校验模式。
 - 若在 binlog 同步过程中，用户在源实例创建了 Event，且这个 Event 指定了非用于 DTS 数据迁移的账号做 DEFINER，此时不具备 super 权限将会报错。
 

@@ -1,5 +1,5 @@
 ## 操作场景
-BGP 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超过设定的【http 请求数阈值】时，自动触发 CC 防护。同时，BGP 高防包还支持 URL 白名单、IP 白名单和 IP 黑名单策略：
+DDoS 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超过设定的【http 请求数阈值】时，自动触发 CC 防护。同时，DDoS 高防包还支持 URL 白名单、IP 白名单和 IP 黑名单策略：
 - 白名单中的 URL，其访问请求将无需执行 CC 攻击检测，直接被放行。
 - 白名单中 IP，其 HTTP 访问请求将无需执行 CC 攻击检测，直接被放行。
 - 黑名单中 IP，其 HTTP 访问请求将直接被拒绝。
@@ -7,7 +7,7 @@ BGP 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超过
 用户可根据业务特点和防护需求，自定义防护策略实现更精准的 CC 攻击拦截。
 
 ## 操作步骤
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】，在【CC 攻击防护】页签，选择目标地域和高防包实例，进行 CC 防护配置。
+1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【防护配置】，在【CC 防护】页签，选择目标地域和高防包实例，进行 CC 防护配置。
 ![](https://main.qcloudimg.com/raw/ec16ed5e0a454ed99be648fc901054f5.png)
 1. 单击【CC 防护】右侧的<img src="https://main.qcloudimg.com/raw/cd0f9c22bb255091a244938a6bfbefaa.png"  style="margin:0;">开启 CC 防护。
 >?

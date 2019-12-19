@@ -18,10 +18,12 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 ## 操作步骤
 
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
-### 步骤二：安装 Nginx
+### 步骤2：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
 vi /etc/yum.repos.d/nginx.repo
@@ -44,8 +46,9 @@ yum install -y nginx
 vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
+7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
+>? 若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加如下内容。
 >
 ```
 server {
@@ -92,7 +95,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
-### 步骤三：安装数据库
+### 步骤3：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MariaDB。 
 ```
 rpm -qa | grep -i mariadb
@@ -144,7 +147,7 @@ mysql
 ```
 
 
-### 步骤四：安装配置 PHP
+### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
@@ -165,10 +168,7 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-
-
-
-### 验证环境配置是否成功
+## 验证环境配置
 当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
 ```

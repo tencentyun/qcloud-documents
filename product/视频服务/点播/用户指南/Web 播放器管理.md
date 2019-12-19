@@ -7,7 +7,7 @@
 1. 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，选择左侧导航栏的【分发播放设置】>【Web播放器管理】，进入“Web 播放器管理”页面。
 >?该页面展示为一个播放器列表，您可以新建并维护最多10个自定义播放器。
 2. 单击左上角的【新建播放器】，弹出“新增播放器”对话框，按提示进行以下设置：
-![](https://main.qcloudimg.com/raw/920fab6d5e661c854fd13b5ebbfa9c94.png)
+![](https://main.qcloudimg.com/raw/19df12286ce87efb2d01b3c33f86299b.png)
 	- 基本设置：您可以配置播放器名称、描述及默认画质。
 		- 播放器名称：输入格式支持汉字、英文字母、数字及下划线，长度不超过20个字符。
 		- 描述：长度不超过50个字。
@@ -26,7 +26,7 @@
 	
 >?
 >- 在播放器列表中，只有一个播放器可以被设置为默认播放器。
->- 如果所选择的播放器与视频文件存在关联，则无法删除播放器，需要在 [Web 播放器代码生成](https://cloud.tencent.com/document/product/266/36452#web-.E6.92.AD.E6.94.BE.E5.99.A8.E4.BB.A3.E7.A0.81.E7.94.9F.E6.88.90.E6.AD.A5.E9.AA.A4) 中修改播放器解除关联，即可删除。
+>- 如果所选择的播放器与视频文件存在关联，则无法删除播放器，需要在 [媒资管理](https://console.cloud.tencent.com/vod/media) 中修改已关联的播放器解除关联，即可删除，相关文档请参见 [Web 播放器代码生成步骤](https://cloud.tencent.com/document/product/266/36452#web-.E6.92.AD.E6.94.BE.E5.99.A8.E4.BB.A3.E7.A0.81.E7.94.9F.E6.88.90.E6.AD.A5.E9.AA.A4)。
 
 
 
