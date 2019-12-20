@@ -8,8 +8,15 @@ ListJobs 用于列出您的批量处理任务。有关批量处理任务的详�
 
 ```shell
 GET /jobs?jobStatuses=<JobStatuses>&maxResults=<MaxResults>&nextToken=<NextToken> HTTP/1.1
-x-cos-appid: <appid>
+Host: <UIN>.cos-control.<Region>.myqcloud.com
+Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
+Authorization: Auth String
+x-cos-appid: <APPID>
 ```
+
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 **请求参数**
 
@@ -31,14 +38,6 @@ x-cos-appid: <appid>
 
 ## 响应
 
-**响应示例**
-
-```shell
-HTTP/1.1 200
-<ListJobsResult>
-...
-</ListJobsResult>
-```
 
 **响应头**
 
@@ -71,7 +70,7 @@ HTTP/1.1 200
 具体内容描述如下：
 
 **ListJobsResult**
-包含COS返回的批量处理任务列表信息。
+包含 COS 返回的批量处理任务列表信息。
 
 | 节点名    | 父节点         | 描述                                                         | 类型        |
 | --------- | -------------- | ------------------------------------------------------------ | ----------- |
@@ -99,11 +98,11 @@ HTTP/1.1 200
 
 其他元素请参见 [批量处理功能公共元素](https://cloud.tencent.com/document/product/436/38607)。
 
-## 错误分析
+#### 错误码
 
 该请求可能会发生的一些常见的特殊错误如下：
 
-| 错误代码        | 描述                             | 状态码 | API      |
+| 错误码        | 描述                             | 状态码 | API      |
 | --------------- | -------------------------------- | ------ | -------- |
 | InvalidArgument | Parameter jobStatuses is invalid | 400    | ListJobs |
 | InvalidArgument | maxResults 参数必须为整数        | 400    | ListJobs |
@@ -111,3 +110,62 @@ HTTP/1.1 200
 
 其他错误请参考 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
+## 实际案例
+#### 请求
+
+```
+GET /jobs?maxResults=2 HTTP/1.1
+Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
+Date: Fri, 20 Dec 2019 03:31:41 GMT
+x-cos-appid: 1250000000
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1576812701;1576819901&q-key-time=1576812701;1576819901&q-header-list=date;host;x-cos-appid&q-url-param-list=maxresults&q-signature=432bc3f2116d579e257742596c31528c0d72****
+Connection: close
+
+```
+
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 1166
+Connection: close
+Date: Fri, 20 Dec 2019 03:31:41 GMT
+Server: tencent-cos
+x-cos-request-id: NWRmYzQwOWRfNWFiMjU4NjRfNmU1M18xMTFh****
+
+<ListJobsResult>
+	<Jobs>
+		<member>
+			<CreationTime>2019-12-19T11:05:40Z</CreationTime>
+			<Description>example-job</Description>
+			<JobId>021140d8-67ca-4e89-8089-0de9a1e40943</JobId>
+			<Operation>COSPutObjectCopy</Operation>
+			<Priority>10</Priority>
+			<ProgressSummary>
+				<NumberOfTasksFailed>0</NumberOfTasksFailed>
+				<NumberOfTasksSucceeded>10</NumberOfTasksSucceeded>
+				<TotalNumberOfTasks>10</TotalNumberOfTasks>
+			</ProgressSummary>
+			<Status>Complete</Status>
+			<TerminationDate>2019-12-19T11:05:56Z</TerminationDate>
+		</member>
+		<member>
+			<CreationTime>2019-12-19T11:07:05Z</CreationTime>
+			<Description>example-job</Description>
+			<JobId>066d919e-49b9-429e-b844-e17ea7b16421</JobId>
+			<Operation>COSPutObjectCopy</Operation>
+			<Priority>10</Priority>
+			<ProgressSummary>
+				<NumberOfTasksFailed>0</NumberOfTasksFailed>
+				<NumberOfTasksSucceeded>10</NumberOfTasksSucceeded>
+				<TotalNumberOfTasks>10</TotalNumberOfTasks>
+			</ProgressSummary>
+			<Status>Complete</Status>
+			<TerminationDate>2019-12-19T11:07:21Z</TerminationDate>
+		</member>
+	</Jobs>
+	<NextToken>066d919e-49b9-429e-b844-e17ea7b16421</NextToken>
+</ListJobsResult>
+```
