@@ -122,7 +122,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 主要参数信息如下：
  - **镜像版本（Tag）**：使用默认值 v1。
  - **镜像拉取策略**：提供以下3种策略，请按需选择，本文以不进行设置使用默认策略为例。
-若不设置镜像拉取策略，当镜像版本为空或 `:latest` 时，使用 Always 策略，否则使用 IfNotPresent 策略。
+若不设置镜像拉取策略，当镜像版本为空或 `latest` 时，使用 Always 策略，否则使用 IfNotPresent 策略。
     - **Always**：总是从远程拉取该镜像。
     - **IfNotPresent**：默认使用本地镜像，若本地无该镜像则远程拉取该镜像。
     - **Never**：只使用本地镜像，若本地没有该镜像将报异常。
