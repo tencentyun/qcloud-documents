@@ -91,7 +91,7 @@ x-cos-appid: <APPID>
 | Description     | member | 任务描述。长度限制为0 - 256字节。                              | String                 |
 | JobId           | member | 任务 ID。长度限制为1 - 64字节。                                 | String                 |
 | Operation       | member | 批量处理任务中对对象执行的操作。例如 COSPutObjectCopy         | String                 |
-| Priority        | member | 任务优先级。值越大的任务将会被优先执行。优先级大小限制为0 - 2147483647。 | Integer                |
+| Priority        | member | 任务优先级。值越大的任务将会被优先执行。<br>优先级大小限制为0 - 2147483647。 | Integer                |
 | ProgressSummary | member | 任务执行状况概述。描述您此项任务中所执行的操作总数，成功的操作数量以及失败的操作数量。 | ProgressSummary Object |
 | Status          | member | 任务执行状态。合法参数值包括 Active、Cancelled、Cancelling、Complete、Completing、Failed、Failing、New、Paused、Pausing、Preparing、Ready、Suspended。 | String                 |
 | TerminationDate | member | 批量处理任务的结束时间。                                     | Timestamp              |
@@ -108,19 +108,18 @@ x-cos-appid: <APPID>
 | InvalidArgument | maxResults 参数必须为整数        | 400    | ListJobs |
 | InvalidArgument | nextToken 参数无效               | 400    | ListJobs |
 
-其他错误请参考 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
+其他错误请参见 [批量处理功能错误响应](https://cloud.tencent.com/document/product/436/38610)。
 
 ## 实际案例
 #### 请求
 
-```
+```shell
 GET /jobs?maxResults=2 HTTP/1.1
 Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
 Date: Fri, 20 Dec 2019 03:31:41 GMT
 x-cos-appid: 1250000000
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1576812701;1576819901&q-key-time=1576812701;1576819901&q-header-list=date;host;x-cos-appid&q-url-param-list=maxresults&q-signature=432bc3f2116d579e257742596c31528c0d72****
 Connection: close
-
 ```
 
 
