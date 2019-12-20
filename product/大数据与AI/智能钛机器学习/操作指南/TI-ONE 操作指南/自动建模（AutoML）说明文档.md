@@ -1,8 +1,7 @@
-
 #### 半自动建模
 1. 登录【智能钛机器学习平台】，拖拽所选组件置于画布中。
 2. 单击组件，单击画布右侧参数配置区上方工具栏的【自动调参】，启动算法自动调参模式。
- ![](https://main.qcloudimg.com/raw/0ce9ac944af306e6ba1f12255f2758ea.png)
+![](https://main.qcloudimg.com/raw/0ce9ac944af306e6ba1f12255f2758ea.png)
 3. 配置算法参数，确定模型评估方法。
 3.1 调参算法目前 TI 支持贝叶斯调参、网格调参、随机调参三种调参方式：
  - 贝叶斯调参：
@@ -32,8 +31,6 @@
 ![](https://main.qcloudimg.com/raw/468b39c81a31fbadb2f780bd5c41de32.jpg)
 导出后的节点默认直接与数据源进行连接，节点参数将默认填充迭代的具体值。
 ![](https://main.qcloudimg.com/raw/cf3db5b9f321bac507f55fd77d4aded3.png)
-
-
 
 
 #### 全自动建模
