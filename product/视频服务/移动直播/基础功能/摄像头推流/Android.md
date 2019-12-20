@@ -74,7 +74,7 @@ public class MApplication extends Application {
 如果已经启动了摄像头预览，就可以调用 TXLivePusher 中的`startPusher`接口开始推流。
 ```java
 String rtmpURL = "rtmp://test.com/live/xxxxxx"; //此处填写您的 rtmp 推流地址
-int ret = mLivePusher.startPusher(tRTMPURL.trim());
+int ret = mLivePusher.startPusher(rtmpURL.trim());
 if (ret == -5) {
     Log.i(TAG, "startRTMPPush: license 校验失败");
 }     
