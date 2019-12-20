@@ -1,5 +1,5 @@
 ## 操作场景
-本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115) 。
+本文档旨在帮助大家了解如何快速创建一个容器集群内的 Hello World 的 Node.js 版的服务。更多关于如何构建 Docker 镜像的教程可参阅 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
 
 ## 前提条件
 
@@ -49,7 +49,7 @@ curl 127.0.0.1:80
 
 
 #### 创建 Docker 镜像
->?更多 Docker 镜像请参见 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115) 。
+>?更多 Docker 镜像请参见 [如何构建 docker 镜像](https://cloud.tencent.com/document/product/457/9115)。
 >
 1. 依次执行以下命令，在 hellonode 文件夹下，创建 Dockerfile 文件。
 ```
@@ -79,8 +79,7 @@ docker images
 
 
 #### 上传该镜像到 qcloud 镜像仓库
->!
->上传镜像需满足以下条件：
+>!上传镜像需满足以下条件：
 >- 已在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/space) 创建命名空间。
 >- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/457/9117#.E7.99.BB.E5.BD.95.E5.88.B0.E8.85.BE.E8.AE.AF.E4.BA.91-registry)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
 
@@ -102,7 +101,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 ### 通过该镜像创建 Hello World 服务
 >!在创建使用 Hello World 服务之前，您必须拥有：
 >- 已注册腾讯云账户，请前往 [注册页面](https://cloud.tencent.com/register) 填写相关信息注册腾讯云账户。
->- 已创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189) 。
+>- 已创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 在“集群管理”页面，选择需创建服务的集群 ID，进入集群的工作负载 “Deployment” 页面并单击【新建】。如下图所示：
