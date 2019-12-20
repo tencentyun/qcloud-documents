@@ -122,14 +122,14 @@ x-cos-appid: <APPID>
 
 | 节点名             | 父节点 | 描述                                                         | 类型                   |
 | ------------------ | ------ | ------------------------------------------------------------ | ---------------------- |
-| ClientRequestToken | Job    | 每个请求唯一的 token，用于避免前端重复发起同一批处理任务。长度为1 - 64字节，建议使用 UUID。 | String                 |
+| ClientRequestToken | Job    | 每个请求唯一的 token，用于避免前端重复发起同一批处理任务。<br>长度为1 - 64字节，建议使用 UUID。 | String                 |
 | CreationTime       | Job    | 任务创建时间。                                               | Timestamp              |
-| Description        | Job    | 任务描述。若您在创建任务时配置了此信息，则会返回该项内容。长度范围为1 - 256字节。 | String                 |
+| Description        | Job    | 任务描述。若您在创建任务时配置了此信息，则会返回该项内容。<br>长度范围为1 - 256字节。 | String                 |
 | FailureReasons     | Job    | 如果任务失败，描述失败的原因。                               | FailureReasons Object  |
 | JobId              | Job    | 创建任务成功后，生成的任务 ID。长度1 - 64字节。                 | String                 |
 | Manifest           | Job    | 待处理的对象清单。您需要将需要处理的对象记录在此对象清单内。 | Manifest Object        |
 | Operation          | Job    | 您需要对清单内的对象批量执行的操作。                         | Operation Object       |
-| Priority           | Job    | 任务优先级。越高的数值代表此项任务的优先级越高。优先级数值范围为0 - 2147483647 | Integer                |
+| Priority           | Job    | 任务优先级。越高的数值代表此项任务的优先级越高。<br>优先级数值范围为0 - 2147483647。 | Integer                |
 | ProgressSummary    | Job    | 任务执行状况概述。描述您此项任务中所执行的操作总数，成功的操作数量以及失败的操作数量。 | ProgressSummary Object |
 | Report             | Job    | 指定清单报告的相关配置。                                     | Report Object          |
 | RoleArn            | Job    | 您为该任务分配的角色的标识符。长度1 - 1024字节。               | String                 |
@@ -165,7 +165,7 @@ x-cos-appid: <APPID>
 ## 实际案例
 
 #### 请求
-```
+```shell
 GET /jobs/53dc6228-c50b-46f7-8ad7-65e7159f1aae HTTP/1.1
 Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
 Date: Thu, 19 Dec 2019 18:01:11 GMT
