@@ -166,14 +166,12 @@ x-cos-appid: <APPID>
 
 #### 请求
 ```
-GET /jobs/<JobId> HTTP/1.1
+GET /jobs/53dc6228-c50b-46f7-8ad7-65e7159f1aae HTTP/1.1
 Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
-Date: Wed, 21 Aug 2019 12:04:05 GMT
-Content-Type: application/xml
-Content-Length: 436
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+Date: Thu, 19 Dec 2019 18:01:11 GMT
 x-cos-appid: 1250000000
-
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1576778471;1576785671&q-key-time=1576778471;1576785671&q-header-list=date;host;x-cos-appid&q-url-param-list=&q-signature=b1dfedd04199a1875904d0aed79cdb839c8d****
+Connection: close
 ```
 
 #### 响应
@@ -181,73 +179,59 @@ x-cos-appid: 1250000000
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 93
+Content-Length: 1555
 Connection: close
-Date: Wed, 21 Aug 2019 12:04:04 GMT
+Date: Thu, 19 Dec 2019 18:01:11 GMT
 Server: tencent-cos
-x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+x-cos-request-id: NWRmYmJhZTdfNGQ5ZTU4NjRfMzQwYl9mZGY2****
 
 <DescribeJobResult>
-    <Job>
-        <ConfirmationRequired>boolean</ConfirmationRequired>
-        <CreationTime>timestamp</CreationTime>
-        <Description>string</Description>
-        <FailureReasons>
-            <JobFailure>
-                <FailureCode>string</FailureCode>
-                <FailureReason>string</FailureReason>
-            </JobFailure>
-        </FailureReasons>
-        <JobId>string</JobId>
-        <Manifest>
-            <Location>
-                <ETag>string</ETag>
-                <ObjectArn>string</ObjectArn>
-            </Location>
-            <Spec>
-                <Format>string</Format>
-            </Spec>
-        </Manifest>
-        <Operation>
-            <COSPutObjectCopy>
-                <CannedAccessControlList>string</CannedAccessControlList>
-                <MetadataDirective>string</MetadataDirective>
-                <NewObjectMetadata>
-                    <SSEAlgorithm>string</SSEAlgorithm>
-                    <UserMetadata>
-                        <member>
-                            <Key>string</Key>
-                            <Value>string</Value>
-                        </member>
-                        <member>
-                            <Key>string</Key>
-                            <Value>string</Value>
-                        </member>
-                    </UserMetadata>
-                </NewObjectMetadata>
-                <StorageClass>string</StorageClass>
-                <TargetResource>string</TargetResource>
-            </COSPutObjectCopy>
-        </Operation>
-        <Priority>integer</Priority>
-        <ProgressSummary>
-            <NumberOfTasksFailed>integer</NumberOfTasksFailed>
-            <NumberOfTasksSucceeded>integer</NumberOfTasksSucceeded>
-            <TotalNumberOfTasks>integer</TotalNumberOfTasks>
-        </ProgressSummary>
-        <Report>
-            <Bucket>string</Bucket>
-            <Enabled>boolean</Enabled>
-            <Format>string</Format>
-            <Prefix>string</Prefix>
-            <ReportScope>string</ReportScope>
-        </Report>
-        <RoleArn>string</RoleArn>
-        <Status>string</Status>
-        <StatusUpdateReason>string</StatusUpdateReason>
-        <SuspendedCause>string</SuspendedCause>
-        <SuspendedDate>timestamp</SuspendedDate>
-        <TerminationDate>timestamp</TerminationDate>
-    </Job>
+	<Job>
+		<ConfirmationRequired>false</ConfirmationRequired>
+		<CreationTime>2019-12-19T18:00:30Z</CreationTime>
+		<Description>example-job</Description>
+		<FailureReasons>
+			<JobFailure>
+				<FailureCode/>
+				<FailureReason/>
+			</JobFailure>
+		</FailureReasons>
+		<JobId>53dc6228-c50b-46f7-8ad7-65e7159f1aae</JobId>
+		<Manifest>
+			<Location>
+				<ETag>&quot;15150651828fa9cdcb8356b6d1c7638b&quot;</ETag>
+				<ObjectArn>qcs::cos:ap-chengdu::sourcebucket-1250000000/manifests/batch-copy-manifest.csv</ObjectArn>
+			</Location>
+			<Spec>
+				<Fields>
+					<member>Bucket</member>
+					<member>Key</member>
+				</Fields>
+				<Format>COSBatchOperations_CSV_V1</Format>
+			</Spec>
+		</Manifest>
+		<Operation>
+			<COSPutObjectCopy>
+				<TargetResource>qcs::cos:ap-chengdu::destinationbucket-1250000000</TargetResource>
+			</COSPutObjectCopy>
+		</Operation>
+		<Priority>10</Priority>
+		<ProgressSummary>
+			<NumberOfTasksFailed>0</NumberOfTasksFailed>
+			<NumberOfTasksSucceeded>10</NumberOfTasksSucceeded>
+			<TotalNumberOfTasks>10</TotalNumberOfTasks>
+		</ProgressSummary>
+		<Report>
+			<Bucket>qcs::cos:ap-chengdu::sourcebucket-1250000000</Bucket>
+			<Enabled>true</Enabled>
+			<Format>Report_CSV_V1</Format>
+			<Prefix>job-result</Prefix>
+			<ReportScope>AllTasks</ReportScope>
+		</Report>
+		<RoleArn>qcs::cam::uin/100000000001:roleName/COS_Batch_QcsRole</RoleArn>
+		<Status>Complete</Status>
+		<StatusUpdateReason>Job complete</StatusUpdateReason>
+		<TerminationDate>2019-12-19T18:00:42Z</TerminationDate>
+	</Job>
 </DescribeJobResult>
 ```
