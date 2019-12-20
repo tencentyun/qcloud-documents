@@ -105,7 +105,7 @@ TXLivePusher mLivePusher = new TXLivePusher(this);
 mLivePushConfig.enablePureAudioPush(true); 
 mLivePusher.setConfig(mLivePushConfig);
 String rtmpURL = "rtmp://test.com/live/xxxxxx"; 
-mLivePusher.startPusher(tRTMPURL.trim());
+mLivePusher.startPusher(rtmpURL.trim());
 ```
 
 如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
