@@ -114,45 +114,58 @@ x-cos-appid: <APPID>
 #### 请求
 
 ```
-GET /jobs?jobStatuses=<JobStatuses>&maxResults=<MaxResults>&nextToken=<NextToken> HTTP/1.1
+GET /jobs?maxResults=2 HTTP/1.1
 Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
-Date: Wed, 21 Aug 2019 12:04:05 GMT
-Content-Type: application/xml
-Content-Length: 436
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+Date: Fri, 20 Dec 2019 03:31:41 GMT
 x-cos-appid: 1250000000
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1576812701;1576819901&q-key-time=1576812701;1576819901&q-header-list=date;host;x-cos-appid&q-url-param-list=maxresults&q-signature=432bc3f2116d579e257742596c31528c0d72****
+Connection: close
 
 ```
 
 
-#### 响应示例
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 93
+Content-Length: 1166
 Connection: close
-Date: Wed, 21 Aug 2019 12:04:04 GMT
+Date: Fri, 20 Dec 2019 03:31:41 GMT
 Server: tencent-cos
-x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+x-cos-request-id: NWRmYzQwOWRfNWFiMjU4NjRfNmU1M18xMTFh****
 
 <ListJobsResult>
-    <Jobs>
-        <member>
-            <CreationTime>timestamp</CreationTime>
-            <Description>string</Description>
-            <JobId>string</JobId>
-            <Operation>string</Operation>
-            <Priority>integer</Priority>
-            <ProgressSummary>
-                <NumberOfTasksFailed>integer</NumberOfTasksFailed>
-                <NumberOfTasksSucceeded>integer</NumberOfTasksSucceeded>
-                <TotalNumberOfTasks>integer</TotalNumberOfTasks>
-            </ProgressSummary>
-            <Status>string</Status>
-            <TerminationDate>timestamp</TerminationDate>
-        </member>
-    </Jobs>
-    <NextToken></NextToken>
+	<Jobs>
+		<member>
+			<CreationTime>2019-12-19T11:05:40Z</CreationTime>
+			<Description>example-job</Description>
+			<JobId>021140d8-67ca-4e89-8089-0de9a1e40943</JobId>
+			<Operation>COSPutObjectCopy</Operation>
+			<Priority>10</Priority>
+			<ProgressSummary>
+				<NumberOfTasksFailed>0</NumberOfTasksFailed>
+				<NumberOfTasksSucceeded>10</NumberOfTasksSucceeded>
+				<TotalNumberOfTasks>10</TotalNumberOfTasks>
+			</ProgressSummary>
+			<Status>Complete</Status>
+			<TerminationDate>2019-12-19T11:05:56Z</TerminationDate>
+		</member>
+		<member>
+			<CreationTime>2019-12-19T11:07:05Z</CreationTime>
+			<Description>example-job</Description>
+			<JobId>066d919e-49b9-429e-b844-e17ea7b16421</JobId>
+			<Operation>COSPutObjectCopy</Operation>
+			<Priority>10</Priority>
+			<ProgressSummary>
+				<NumberOfTasksFailed>0</NumberOfTasksFailed>
+				<NumberOfTasksSucceeded>10</NumberOfTasksSucceeded>
+				<TotalNumberOfTasks>10</TotalNumberOfTasks>
+			</ProgressSummary>
+			<Status>Complete</Status>
+			<TerminationDate>2019-12-19T11:07:21Z</TerminationDate>
+		</member>
+	</Jobs>
+	<NextToken>066d919e-49b9-429e-b844-e17ea7b16421</NextToken>
 </ListJobsResult>
 ```
