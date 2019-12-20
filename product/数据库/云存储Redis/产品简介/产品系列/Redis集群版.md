@@ -54,6 +54,7 @@ Redis 集群版兼容 Jediscluster 等智能客户端，为兼容 Jedis cluster 
 #### 跨 Slot 命令支持
 集群版目前支持跨 Slot 访问的命令，包括 MGET、MSET、DEL，其他多 KEY 命令的跨 SLOT 访问暂不支持。
 
+<span id = "ziding"></span>
 #### 自定义命令
 Redis 集群版通过 VIP 封装，在集群模式下提供了单机版的使用体验，对业务的使用带来的极大的便利，但是对运维不够透明，因此通过自定义命令来弥补这块空缺，支持集群中每个节点的访问，支持方式为在原有命令的参数列表最右边新增一个参数【节点ID】，COMMAND arg1 arg2 ... [节点ID]，节点 ID 可通过 cluster nodes 命令，或者在控制台中获取：
 ```
