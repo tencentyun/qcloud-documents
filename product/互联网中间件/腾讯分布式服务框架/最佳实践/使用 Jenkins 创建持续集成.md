@@ -2,89 +2,15 @@
 
 TSF 应用可以使用 Jenkins 构建持续集成方案。
 
-## 前提条件
+## 准备工作
 
 在开始持续集成之前，需要完成下述的准备工作。
 
-1. 安装 Jenkins 的机器上，保证 Python 版本不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
-
-2. 获取腾讯云的访问密钥 [SecretId 和 SecretKey](https://cloud.tencent.com/document/product/598/37140) 。
+1. 参考 [使用Python脚本部署应用]() 获取部署脚本及使用方法的说明。
+   
+2. 安装 [Jenkins](https://jenkins.io) ，确保 Jenkins 安装机器上的 Python 不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
 
 3. 在 TSF 平台创建了[虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524)或[容器应用部署组](https://cloud.tencent.com/document/product/649/15525)。
-
-4. 了解并使用 Jenkins。关于 Jenkins 的更多详细信息请参考 [Jenkins 官网](https://jenkins.io)。
-
-5. 了解 Python 脚本使用。
-
-## 虚拟机应用部署准备
-
-1. 安装 Jenkins 的机器上，保证 Python 版本不低于2.7.14版本，并已安装 PIP 等 Python 包管理工具。
-2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_virtual_machine_deploy.py) 下载虚拟机Python脚本。
-3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥。
-
-   ```Python
-   secret_id = "改为您的 SecretId"
-   secret_key = "改为您的 SecretKey。"
-   region = "改为您的服务所在地域，如 ap-guangzhou"
-   ```
-
-4. 安装脚本依赖包。
-
-   ```Shell
-   pip install requests cos-python-sdk-v5
-   ```
-
-5. 准备脚本参数，要严格保证参数顺序  
-   - `path` : 本地文件路径，可以是针对脚本的相对路径,支持 `.tar.gz`,`.jar`,`.war`,`.zip` 结尾的文件。  
-   - `applicationId` : 应用 ID。在 TSF 控制台左侧导航栏【应用管理】，选择目标应用第一列的应用 ID（如`application-qab76pxv`)。
-   - `pkg_version` : 程序包版本，最长32个字符，支持 a-z，A-Z，0-9，横杠(-)、下划线(_)。  
-   - `appId` : 用户 APPID。在腾讯云控制台账号中心>账号信息中获取 APPID（如`1300555551`)。
-   - `group_id` : 部署组ID。在 TSF 控制台，单击目标应用ID，进入详情页，在【部署组】标签页中获取部署组的ID（如`group-gvk5pbdv`)。
-   - `startup_params` : 启动参数。用户视情况可以自定义。
-
-   ```Shell
-   -Xms128m -Xmx512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m
-   ```
-    >**注意**：执行的脚本参数中如果版本号不变时，脚本会选择 TSF 平台已有的 jar 包进行再次部署。
-6. 将以上参数按照顺序整理待用，格式形如下
-
-   ```shell
-   python2.7.14 upload_virtual_machine_deploy.py ./consumer-demo/target/consumer-demo-1.10.0-RELEASE.jar application-qab76pxv v001 1300555551 group-gvk5pbdv '-Xms128m -Xmx512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m'
-   ```
-
-## 容器应用部署准备
-
-1. 安装 Jenkins 的机器上，能够构建、上传镜像（镜像及Dockerfile编写参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007)，仓库使用请参考 [镜像仓库](https://cloud.tencent.com/document/product/649/16695)）。保证  Python 版本不低于 2.7.14 版本，并已安装 PIP 等 Python 包管理工具。
-2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_container_deploy.py) 下载容器部署Python脚本。
-3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥。修改脚本中的 docker_build_command、docker_push_command 为 实际的 docker build 和 push 命令。
-
-   ```Python
-   secret_id = "改为Access Key ID"
-   secret_key = "改为Access Key Secret。"
-   docker_build_command = "改为 docker build 命令(如 docker build . -t ccr.ccs.tencentyun.com/tsf_100011913960/zsf-tsf-docker:v1）"
-   docker_push_command = "改为 docker push 命令（如docker push ccr.ccs.tencentyun.com/tsf_100011913960/zsf-tsf-docker:v1）"
-   region = "改为您的服务所在地域，如 ap-guangzhou"
-   ```
-
-4. 安装脚本依赖包
-
-   ```Shell
-   pip install tencentcloud-sdk-python
-   ```
-
-5. 准备脚本参数，要严格保证参数顺序  
-
-   - `group_id` : 部署组ID。在 TSF 控制台，单击目标应用ID，进入详情页，在【部署组】标签页中获取部署组的ID(如`group-zvw397wa`)。
-
-   - `tag_name` : 镜像版本名称,如v1。
-
-6. 将以上参数按照顺序整理，并且加入第一步中用户自己的 docker build 、push命令待用，格式形如下
-
-   ```shell
-   python2.7.14 upload_container_deploy.py group-zvw397wa v1
-   ```
-
-> **注意：** docker 相关命令必须按照 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007), [镜像仓库](https://cloud.tencent.com/document/product/649/16695) 调整为用户自己的账号和应用名。
 
 ## 安装和配置 Jenkins
 
@@ -121,10 +47,6 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    ii.容器如下
 
    ```shell
-   docker build . -t ccr.ccs.tencentyun.com/tsf_100011913960/zsf-tsf-docker:v1
-
-   docker push ccr.ccs.tencentyun.com/tsf_100011913960/zsf-tsf-docker:v1
-
    python2.7.14 upload_container_deploy.py group-zvw397wa v1
    ```
 
