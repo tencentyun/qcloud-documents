@@ -74,11 +74,11 @@ chown postgres:postgres /var/lib/pgsql/10/recovery -R
 
 ### 8.（可选）应用增量备份文件
 如果跳过该步骤，则数据库的内容为开始做全量备份时数据库的内容。
->?将 xlog 文件放入 /var/lib/pgsql/10/recovery/pg_wal 文件夹下，pg 会自动重放 xlog 日志。例如12:00时做的全量备份，如果在该全量备份的基础上，在 pg_wal 文件夹下放置12:00至13:00的所有 xlog，则数据库能恢复到13:00时的数据内容。
+>?将 xlog 文件放入 /var/lib/pgsql/10/recovery/pg_wal 文件夹下（如版本为9.x，则为pg_xlog目录），pg 会自动重放 xlog 日志。例如12:00时做的全量备份，如果在该全量备份的基础上，在 pg_wal 文件夹下放置12:00至13:00的所有 xlog，则数据库能恢复到13:00时的数据内容。
 >
 下载增量备份文件（xlog）：
 ![](https://mc.qcloudimg.com/static/img/775b3a63d1fa37e1815ab13c100f8b40/4.png)
-执行如下命令解压日志至 pg_wal 文件夹下：
+执行如下命令解压日志至 pg_wal（pg_xlog） 文件夹下：
 ```
 tar -xf 20170904010214_20170905010205.tar.gz
 ```
