@@ -7,13 +7,13 @@ DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 
 ## 开启CC防护
 **HTTP CC 防护**
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中选择【BGP 高防 IP】>【防护配置】，在防护配置页面下，单击【CC 防护】，选择目标实例。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中选择【DDoS 高防 IP】>【防护配置】，在防护配置页面下，单击【CC 防护】，选择目标实例。
 1. 在【HTTP CC 防护】区域，单击【防护状态】右侧的<img src="https://main.qcloudimg.com/raw/9d7bb2c60a2b375acb45614f39e4986f.png"  style="margin:0;"> 开启 HTTP CC 防护，单击【http 请求数阈值】右侧的下拉框选择合适的阈值即可。
 ![](https://main.qcloudimg.com/raw/ca2bd6306d3a29cf32a834dccc8816bb.png)
 >?CC 防护状态默认关闭。防护状态开启后，才可设置 HTTP 请求数阈值。
 
 **HTTPS CC 防护**
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中选择【BGP 高防 IP】>【防护配置】，在防护配置页面下，单击【CC 防护】，选择目标实例。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中选择【DDoS 高防 IP】>【防护配置】，在防护配置页面下，单击【CC 防护】，选择目标实例。
 2. 在【HTTPS CC】区域，选择防护域名，单击【防护状态】右侧的<img src="https://main.qcloudimg.com/raw/9d7bb2c60a2b375acb45614f39e4986f.png"  style="margin:0;"> 开启 HTTPS CC 防护，单击【https 请求数阈值】右侧的下拉框选择合适的阈值。
 ![](https://main.qcloudimg.com/raw/452ead2f4b71df2dc06f3a978ffeb5b6.png)
 >?CC 防护状态默认关闭。防护状态开启后，才可设置 HTTPS 请求数阈值。
@@ -26,7 +26,7 @@ DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 -  **匹配模式下**，每个自定义策略最多可以设置**4**个策略条件进行特征控制，且多个条件之间是“与”的关系，需要所有条件全部匹配策略才生效。
 -  **限速模式下**，每个自定义策略只允许设置**1**条策略条件。
 
-1. 登录  [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【BGP 高防 IP】>【防护配置】，进入防护配置也页面，单击【CC 防护】，选择地域和线路，选择目的实例，单击【添加策略】。
+1. 登录  [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【DDoS 高防 IP】>【防护配置】，进入防护配置也页面，单击【CC 防护】，选择地域和线路，选择目的实例，单击【添加策略】。
 2. 在【添加自定义策略】弹出框，根据实际业务需求设置以下参数，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/e625c87b845bc66f169004e01f3a538c.png)
 	- 策略名称
@@ -47,6 +47,6 @@ DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 仅当选择【匹配模式】时，需要设置该参数。表示策略匹配后，需执行的处理动作，包括拦截和验证码。
 
 ## 设置黑白名单
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【BGP 高防 IP】>【防护配置】，进入防护配置也页面，单击【CC 防护】，选择地域和线路，选择目的实例。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【DDoS 高防 IP】>【防护配置】，进入防护配置也页面，单击【CC 防护】，选择地域和线路，选择目的实例。
 2. 勾选页面右侧【HTTP】或【HTTPS】，选择【URL 白名单】、【IP 白名单】或【IP 黑名单】，进行黑白名单设置，支持添加、修改，也支持批量导入导出。
 ![](https://main.qcloudimg.com/raw/aa6affedb8ef027a9b5d316c04a892f2.png)

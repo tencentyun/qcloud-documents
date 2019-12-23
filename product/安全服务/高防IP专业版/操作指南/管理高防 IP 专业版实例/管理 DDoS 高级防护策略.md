@@ -18,7 +18,7 @@ DDoS 高防 IP 专业版提供面向 DDoS 攻击的高级防护策略功能，�
 
 > !高级安全防护策略功能具有一定专业性，建议有相关经验的用户在阅读以下操作指南后根据实际情况进行配置。
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击【添加新策略】。根据实际业务需求设置以下参数，单击【确定】。
 ![](https://main.qcloudimg.com/raw/efec7f445c64395f9e2b99bdc45746a7.png)
 - **策略名称**
   输入策略名称，长度为1 - 32个字符，不限制字符类型。
@@ -84,17 +84,17 @@ TCP/UDP 防护端口最多可以配置5个端口段；不同端口段不可以�
 
 ## 绑定与解绑资源
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【绑定资源】。
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【绑定资源】。
 
 - 绑定资源：在弹出的【绑定资源】对话框中，根据实际业务需求勾选一个或多个资源，单击【确定】。
 - 解绑资源：在弹出的【绑定资源】对话框中，根据实际业务需求单击【已选择】区域中已选资源右侧的<img src="https://main.qcloudimg.com/raw/f452deeefbca4c66f34b7db71ec0daca.png"  style="margin:0;">，单击【确定】。
 ![解绑资源](https://main.qcloudimg.com/raw/156a2cfa944ec7493cd4d0966ac303e7.png)
 
 ##  **客户端接入水印**
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【水印客户端文件下载】，线下完成客户端的接入。
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【水印客户端文件下载】，线下完成客户端的接入。
 
 ##  **添加、删除或停用/启用水印密钥**
-登录[ DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【水印密钥配置】。
+登录[ DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【水印密钥配置】。
  - **添加密钥**：在弹出的【密钥信息】对话框中，单击【添加密钥】即刻生成新密钥。
  - **停用/启用密钥**：支持对密钥进行停用或启用操作。在弹出的【密钥信息】对话框中，单击目的密钥所在行的【停用】；如需重新开启则单击【启用】即可。
  - **删除密钥**：只能对已停用的密钥进行删除。在弹出的【密钥信息】对话框中，单击目的密钥所在行的【删除】即可。
@@ -103,7 +103,7 @@ TCP/UDP 防护端口最多可以配置5个端口段；不同端口段不可以�
 ![密钥](https://main.qcloudimg.com/raw/0bedf4e2ee46f65ca89e2a0c834fc94d.png)
 ## 配置策略
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【配置】。根据实际业务需求更新以下参数，单击【确定】保存修改。
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【配置】。根据实际业务需求更新以下参数，单击【确定】保存修改。
 
 - 策略名称
 - 黑白名单
@@ -119,5 +119,5 @@ TCP/UDP 防护端口最多可以配置5个端口段；不同端口段不可以�
 
 > ?未绑定资源的策略可直接删除。已绑定资源的策略需要先将所有资源解绑再执行删除操作。若已开启 UDP 水印剥离开关，则删除策略会同步关闭 UDP 水印剥离开关，请确认业务客户端和服务器已完成相应的配置或者变更后，再执行删除操作。策略删除后不可恢复，请谨慎操作。
 
-登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【删除】。在弹出的对话框中，单击【确定】。
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防 IP 专业版】>【防护配置】。在【DDoS 高级防护策略】页签，单击目标策略所在行的【删除】。在弹出的对话框中，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f471121ef7384a46ae72a6fe74d37ff5.png)

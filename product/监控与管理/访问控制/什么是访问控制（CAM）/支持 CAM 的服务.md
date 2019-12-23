@@ -129,6 +129,7 @@
  | 服务                                                         | 授权粒度  | 控制台  | 根据标签进行授权 | 服务角色 |  参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | ------- | ---- | ---- | 
 | [验证码](https://cloud.tencent.com/document/product/1110)    | 服务级  | &#10003; | -   |  - | - |
+| [营销号码安全](https://cloud.tencent.com/document/product/1127)    | 操作级  | - | -   |  - | - |
 
 ## 安全管理
 
@@ -270,6 +271,7 @@
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | &#10003;   | -  |  - | -  |
 | [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023)   | 服务级 | &#10003;  | -  |  -  | -  |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | &#10003;  | -  |  -  | -  |
+| [ 物联网智能视频服务](https://cloud.tencent.com/document/product/1131)   | -  | -  | -  |  &#10003;  | -  |
 
 ## 区块链	
 
@@ -297,7 +299,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------  | ------ | -------- | ----- | ---- |	---- |
-| [云监控](https://cloud.tencent.com/document/product/248) | 操作级 | &#10003;  | -  |  - |	- |	
+| [云监控](https://cloud.tencent.com/document/product/248) | 操作级 | &#10003;  | -  |  &#10003; |	- |	
 | [密钥管理服务](https://cloud.tencent.com/document/product/573) | 资源级   | &#10003;  | -  |  -     |[访问管理指南](https://cloud.tencent.com/document/product/573/10126) |	
 | [迁移服务平台](https://cloud.tencent.com/document/product/659)  | 服务级   | &#10003; | -   |&#10003;    |	- |	
 
