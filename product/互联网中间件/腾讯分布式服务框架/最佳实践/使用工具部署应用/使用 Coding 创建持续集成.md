@@ -25,22 +25,18 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 >!用户需要修改示例代码中的 Python 部署脚本，替换其中访问密钥、地域等信息，参考  [使用 Python 脚本部署应用](https://cloud.tencent.com/document/product/649/40407)。
 
 
-### 二、创建构建任务并配置流程
-
-### 2.1 创建构建任务
-1. 单击 Coding 控制台左侧导航栏【构建与部署】> 【构建】。
+### 步骤二：创建构建任务
+1. 单击 Coding 控制台左侧导航栏【构建与部署】>【构建】。
 2. 单击【新建】。
-
 3. 填写新建信息，选择代码仓库 `provider-demo`，使用静态配置的 Jenkinsfile ，选择简易模板。
-
 
 #### 设置环境变量
 单击【变量与缓存】选项卡，输入环境变量：
 - PKG_VERSION：程序包/镜像版本号
-- TSF_GROUP_ID: TSF 平台的部署组ID
-- TSF_APPLICATION_ID: TSF 平台的应用ID （仅适用于虚拟机应用部署）
-- TSF_APPID: 用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
-- TSF_STARTUP_PARAM: Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
+- TSF_GROUP_ID: TSF 平台的部署组 ID
+- TSF_APPLICATION_ID：TSF 平台的应用ID （仅适用于虚拟机应用部署）
+- TSF_APPID：用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
+- TSF_STARTUP_PARAM：Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
 
 ![](https://main.qcloudimg.com/raw/3f974f69630f465e741db590ce759665/coding_add_env.png)
 
