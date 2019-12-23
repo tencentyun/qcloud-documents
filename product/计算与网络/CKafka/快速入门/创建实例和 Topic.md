@@ -28,15 +28,6 @@
 如果超过了购买的最大分区个数，单击【提交】时会有如下提示：
 ![](https://main.qcloudimg.com/raw/eeb3b9aa16ef7b5ae6370d56affed865.png)
 
-## 升配实例
->?通过控制台直接提升实例规格包括峰值带宽、磁盘容量、Topic个数、Partition个数，也可以仅提升磁盘容量。实例规格的升配的操作为平滑升级，您的服务不会中断。
-
-1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-2. 在 CKafka 实例列表页，列表数据，在操作栏选择【更多】-【升配】进入升配页。
-3. 在 CKafka 实例升配页  ，选择目标升配规格。
- - 产品规格：根据峰值带宽和磁盘容量选择对应的型号。
- - 实例价格：升配按天补足差价，具体请参考 [包年包月与产品配置升级说明](https://cloud.tencent.com/document/product/555/13001 )。
-
 
 
 ## 查看实例
