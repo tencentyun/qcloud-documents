@@ -23,7 +23,7 @@ TSF 应用可以使用 Coding 构建持续集成方案。腾讯云 Coding 持续
 ## Coding 平台操作
 ### 一、创建代码仓库并提交代码
 1. 登录 Coding 控制台，进入示例项目。
-3. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo` 。 
+3. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo` )。 
 ![](https://main.qcloudimg.com/raw/934766be434586df56d2ffc40861bdc7/create-code-repo.png)
 3. [下载](https://github.com/tencentyun/tsf-snippet) 演示工程源码，上传到 Coding 的 `provider-demo` 代码仓库中。
 ![](https://main.qcloudimg.com/raw/a57f805f9ba2be274d3fb94540225e45/coding_code_project.png)   
@@ -33,9 +33,10 @@ TSF 应用可以使用 Coding 构建持续集成方案。腾讯云 Coding 持续
 >**注意**：用户需要修改示例代码中的 Python 部署脚本，替换其中访问密钥、地域等信息，参考  [使用Python脚本部署应用]()。
 
 ### 二、创建构建任务并配置流程
+
 ### 2.1 创建构建任务
-1. 单击 Coding 控制台左侧导航栏【构建与部署】> 【构建】
-2. 单击【新建】
+1. 单击 Coding 控制台左侧导航栏【构建与部署】> 【构建】。
+2. 单击【新建】。
 3. 填写新建信息，选择代码仓库 `provider-demo`，使用静态配置的 Jenkinsfile ，选择简易模板。
 
 
@@ -43,9 +44,9 @@ TSF 应用可以使用 Coding 构建持续集成方案。腾讯云 Coding 持续
 1. 单击【变量与缓存】选项卡，输入环境变量：
 - PKG_VERSION：程序包/镜像版本号
 - TSF_GROUP_ID: TSF 平台的部署组ID
-- TSF_APPLICATION_ID: TSF 平台的应用ID
-- TSF_APPID: 用户在腾讯云上的 APPID
-- TSF_STARTUP_PARAM: Java 应用启动参数，注意**不要**带上引号。
+- TSF_APPLICATION_ID: TSF 平台的应用ID （仅适用于虚拟机应用部署）
+- TSF_APPID: 用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
+- TSF_STARTUP_PARAM: Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
 
 ![](https://main.qcloudimg.com/raw/3f974f69630f465e741db590ce759665/coding_add_env.png)
 
@@ -71,7 +72,7 @@ TSF 应用可以使用 Coding 构建持续集成方案。腾讯云 Coding 持续
 
    ii. 容器应用部署脚本命令:
    ```shell
-   python upload_container_deploy.py group-zvw397wa ${PKG_VERSION}
+   python upload_container_deploy.py ${TSF_GROUP_ID} ${PKG_VERSION}
    ```
 
 ## 四、执行构建任务

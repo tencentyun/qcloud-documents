@@ -74,6 +74,8 @@ TSF 应用可以使用 Python 脚本来部署。
 
    - `tag_name` : 镜像版本名称,如v1。
 
+> **注意**：目前容器应用部署脚本只将 group_id和tag_name 作为参数，但实际上用户可以修改脚本，将其他字段（如JVM启动参数 JvmOpts 等）作为脚本参数，参考 [容器应用部署 API](https://cloud.tencent.com/document/product/649/36071)。
+
 6. 将以上参数按照顺序整理，并且加入第一步中用户自己的 docker build 、push命令待用，格式形如下
 
    ```shell
