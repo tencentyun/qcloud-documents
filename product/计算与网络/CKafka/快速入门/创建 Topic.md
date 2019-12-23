@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您通过 CKafka 控制台，在已有实例下创建 Topic。
+该任务指导您通过 CKafka 控制台，在已有实例下创建和查看 Topic。
 
 ## 前提条件
 已完成 [创建实例](https://cloud.tencent.com/document/product/597/30931)。
