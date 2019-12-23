@@ -17,7 +17,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需创建 PV 的集群 ID，进入待创建 PV 的集群管理页面。
 3. 选择【存储】>【PersistentVolume】，进入 PersistentVolume 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/2960b551635dc61469fdea6f897ec9ef.png)
+![](https://main.qcloudimg.com/raw/3a34484015631e655b62a346ef44a125.png)
 4. 单击【新建】，进入 “新建PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7be60ba6a46605cc350f325fcdc203de.png)
 5. 根据实际需求，设置 PV 参数。主要参数信息如下：
