@@ -13,21 +13,24 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 3. 获取 TSF 私服地址，详情请参见 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)。  
 4. 腾讯云主账号已开通 [CODING DevOps](https://console.cloud.tencent.com/coding)，并创建 CODING 项目、代码仓库等基础环境。
    
-  
+
 ## CODING 平台操作
 ### 步骤一：创建代码仓库并提交代码
 1. 登录 [CODING DevOps 控制台](https://console.cloud.tencent.com/coding)，进入示例项目。
-3. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo` 。 
-![](https://main.qcloudimg.com/raw/934766be434586df56d2ffc40861bdc7/create-code-repo.png)
+2. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo` )。
+    ![](https://main.qcloudimg.com/raw/934766be434586df56d2ffc40861bdc7/create-code-repo.png)
 3. [下载](https://github.com/tencentyun/tsf-snippet) 演示工程源码，上传到 Coding 的 `provider-demo` 代码仓库中。
-![](https://main.qcloudimg.com/raw/a57f805f9ba2be274d3fb94540225e45/coding_code_project.png)   
+    ![](https://main.qcloudimg.com/raw/a57f805f9ba2be274d3fb94540225e45/coding_code_project.png)   
 更多关于如何创建代码仓库，以及如何提交代码的说明请参考 [Coding 代码托管](https://help.coding.net/docs/host/introduce.html)。
 >!用户需要修改示例代码中的 Python 部署脚本，替换其中访问密钥、地域等信息，参考  [使用 Python 脚本部署应用](https://cloud.tencent.com/document/product/649/40407)。
 
-### 步骤二：创建构建任务
-#### 创建构建任务
-1. 单击 Coding 控制台左侧导航栏【构建与部署】> 【构建】
-2. 单击【新建】
+
+### 二、创建构建任务并配置流程
+
+### 2.1 创建构建任务
+1. 单击 Coding 控制台左侧导航栏【构建与部署】> 【构建】。
+2. 单击【新建】。
+
 3. 填写新建信息，选择代码仓库 `provider-demo`，使用静态配置的 Jenkinsfile ，选择简易模板。
 
 
@@ -35,9 +38,9 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 单击【变量与缓存】选项卡，输入环境变量：
 - PKG_VERSION：程序包/镜像版本号
 - TSF_GROUP_ID: TSF 平台的部署组ID
-- TSF_APPLICATION_ID: TSF 平台的应用ID
-- TSF_APPID: 用户在腾讯云上的 APPID
-- TSF_STARTUP_PARAM: Java 应用启动参数，注意**不要**带上引号。
+- TSF_APPLICATION_ID: TSF 平台的应用ID （仅适用于虚拟机应用部署）
+- TSF_APPID: 用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
+- TSF_STARTUP_PARAM: Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
 
 ![](https://main.qcloudimg.com/raw/3f974f69630f465e741db590ce759665/coding_add_env.png)
 
@@ -64,7 +67,7 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 
 	b. 容器应用部署脚本命令:
    ```shell
-   python upload_container_deploy.py group-zvw397wa ${PKG_VERSION}
+   python upload_container_deploy.py ${TSF_GROUP_ID} ${PKG_VERSION}
    ```
 
 ### 步骤四：执行构建任务
