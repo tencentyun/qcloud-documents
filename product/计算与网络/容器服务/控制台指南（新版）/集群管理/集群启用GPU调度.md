@@ -32,7 +32,7 @@
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
 2. 在需要创建 GPU 云服务器的集群行中，单击【新建节点】。
 3. 在 “选择机型” 页面，将 “实例族” 设置为 “**GPU机型**”，并选择 GPU 计算型的实例类型。如下图所示：
-![](https://main.qcloudimg.com/raw/4cb5eb503fb90aecc83911c84390bedf.png)
+![](https://main.qcloudimg.com/raw/b87afa4e56553e00d4f77ac59a0cdb45.png)
 4. 按照页面提示逐步操作，完成创建。
  >? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
@@ -62,7 +62,7 @@
 ![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
 4. 单击【新建】，进入 “新建Workload” 页面。
 5. 根据页面信息，设置工作负载名、命名空间等信息。并在 “GPU限制” 中，设置 GPU 限制的数量。如下图所示：
-![](https://main.qcloudimg.com/raw/a768a0610894587528573f959277ab9f.png)
+![](https://main.qcloudimg.com/raw/8f0fa686061fbc11a1d1abf11107a03d.png)
 6. 单击【创建Workload】，完成创建。
 
 <span id="appOrKubectlCreate"></span>
