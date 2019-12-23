@@ -15,7 +15,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
 ## 安装和配置 Jenkins
 
 1. 进入 [Jenkins 官网](https://jenkins.io)下载安装 Jenkins。  
-2. 安装 Maven 并配置TSF私服地址，请参见 [SDK篇](https://cloud.tencent.com/document/product/649/20231)。  
+2. 安装 Maven 并配置TSF私服地址，请参见 [SDK篇](https://cloud.tencent.com/document/product/649/2023)。  
 3. 在 Jenkins 控制台的菜单栏中选择系统管理 > 插件管理，安装 Maven Integration plugin 插件,已安装请忽略。
 4. 创建Jenkins项目  
    4.1 在 Jenkins 首页左侧导航栏中单击新建，创建 Jenkins 任务，并选择构建一个自由风格的软件项目。
