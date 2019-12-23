@@ -148,7 +148,6 @@ rm <分区 Number>
 ```
 回显信息如下图所示。
 ![](//mccdn.qcloud.com/static/img/3384eeada87ce75695e0e55125109eff/image.png)
-如果误删分区，可立即执行 `rescue` 命令，并根据提示输入 Start、End 值确认恢复分区。
 8. 执行以下命令，新建一个主分区。
 ```
 mkpart primary <原分区起始扇区> 100%
@@ -393,7 +392,7 @@ fdisk <硬盘路径>
 ```
 fdisk /dev/xvdc
 ```
-按照界面的提示，依次输入”p”（查看现有分区信息）、“n”（新建分区）、“p”（新建主分区）、“2”（新建第2个主分区），两次回车（使用默认配置），输入 “w”（保存分区表），开始分区。如下图所示：
+按照界面的提示，依次输入“p”（查看现有分区信息）、“n”（新建分区）、“p”（新建主分区）、“2”（新建第2个主分区），两次回车（使用默认配置），输入 “w”（保存分区表），开始分区。如下图所示：
 ![](//mccdn.qcloud.com/static/img/8c35d6f4dfb367e74edc27ce6822c317/image.png)
 >? 本文以创建一个分区为例，您也可以根据实际需求创建多个分区。
 5. 执行以下命令，查看新分区。
@@ -434,16 +433,12 @@ df -h
 ```
 返回如下图所示信息则说明挂载成功，即可以查看到数据盘。
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
-
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
-
-<span id="AddNewPartINFOstep10"></span>
-10. 执行以下命令，添加信息。
+10. <span id="AddNewPartINFOstep10"></span>执行以下命令，添加信息。
 ```
 echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab
 ```
-<span id="AddNewPartINFOstep11"></span>
-11. 执行以下命令，查看信息。
+11. <span id="AddNewPartINFOstep11"></span>执行以下命令，查看信息。
 ```
 cat /etc/fstab
 ```

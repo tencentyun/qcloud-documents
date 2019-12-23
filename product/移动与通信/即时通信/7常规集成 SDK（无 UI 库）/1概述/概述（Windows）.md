@@ -26,7 +26,7 @@ SDKAppID 可以在即时通信 IM [控制台](https://console.cloud.tencent.com/
 
 ## 登录/登出
 ### 登录
-- 用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 identifier、userSig。详细请参阅 [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 文档。
+- 用户登录腾讯后台服务器后才能正常收发消息，登录需要用户提供 UserID、UserSig。详细请参阅 [登录鉴权](https://cloud.tencent.com/document/product/269/31999) 文档。
 - 登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。登录成功或者失败会主动调用提供的回调。
 
 **示例：**
@@ -53,7 +53,7 @@ TIMLogin(id, user_sig, [](int32_t code, const char* desc, const char* json_param
 
 
 **onUserSigExpired**
-每一个 userSig 都有一个过期时间，如果 userSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 userSig，参阅 [用户票据过期](https://cloud.tencent.com/document/product/269/33551#timsetusersigexpiredcallback)。
+每一个 UserSig 都有一个过期时间，如果 UserSig 过期，`login` 将会返回 `70001` 错误码，如果您收到这个错误码，可以向您的业务服务器重新请求新的 UserSig，参阅 [用户票据过期](https://cloud.tencent.com/document/product/269/33551#timsetusersigexpiredcallback)。
 
 
 ### 登出
@@ -83,7 +83,7 @@ TIMLogout([](int32_t code, const char* desc, const char* json_param, const void*
 会话是指面向一个人或者一个群组的对话，通过与单个人或群组之间会话收发消息，发消息时首先需要先获取会话，获取会话需要指定会话类型（群组或者单聊），以及会话对方标志（对方帐号或者群号）。
 
 
-**获取对方 `identifier` 为 Windows-02 的单聊会话示例：**
+**获取对方 `UserID` 为 Windows-02 的单聊会话示例：**
 
 ```c
 const void* user_data = nullptr; // 回调函数回传
@@ -177,7 +177,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 }, user_data);
 ```
 
-更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timsetrecvnewmsgcallback)。
+更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timaddrecvnewmsgcallback)。
 
 ## 群组管理
 
@@ -194,7 +194,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 
 ### 创建群组
 
-以下示例创建一个叫 Windows-Group-01 公开群组，并且把用户 Windows_002 拉入群组。 
+以下示例创建一个叫 Windows-Group-Name 公开群组，并且把用户 Windows_002 拉入群组。 
 **示例：**
 
 ```c
@@ -229,7 +229,7 @@ int ret = TIMGroupCreate(json_param.c_str(), [](int32_t code, const char* desc, 
 }, user_data))
 ```
 
-更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/33550)。
+更多群组操作请参考 [群组相关接口文档](https://cloud.tencent.com/document/product/269/33550)。
 
 ### 群组消息
 群组消息与 C2C （单聊）消息相同，仅在发送时填写群组的 ID 和类型`kTIMConv_Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/33549) 部分。

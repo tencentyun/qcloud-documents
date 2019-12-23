@@ -8,7 +8,7 @@
 
 ### 使用规则
 
-- 弹性公网 IP 地址同时适用于基础网络和私有网络的实例，以及私有网络中的 [NAT 网关](https://cloud.tencent.com/document/product/215/20079) 实例。
+- 弹性公网 IP 地址同时适用于基础网络和私有网络的实例，以及私有网络中的 [NAT 网关](https://cloud.tencent.com/document/product/552) 实例。
 - 弹性 IP 地址与 CVM 实例绑定时，实例的当前公网 IP 地址会被释放。
 - 销毁 CVM/NAT 网关实例，会断开与弹性 IP 地址的关联。
 - 弹性公网 IP 计费规则请参考 [弹性公网 IP 计费](https://cloud.tencent.com/document/product/213/17156)。

@@ -2,11 +2,13 @@
 如果您需要在云函数中使用关系型数据库，您可使用连接池或云函数团队提供的 SDK 来连接关系型数据库。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
 
 ## 注意事项
-由于云函数单实例同时处理的请求数均为1，以及为了防止连接数设置过大导致高并发下数据库连接耗尽，在使用连接池时，建议将最大连接数设置为1。
+由于云函数单实例同时处理的请求数均为1， 详情请参见 [函数并发量](https://cloud.tencent.com/document/product/583/9694#.E5.87.BD.E6.95.B0.E5.B9.B6.E5.8F.91.E9.87.8F)。以及为了防止连接数设置过大导致高并发下数据库连接耗尽，在使用连接池时，建议将最大连接数设置为1。
 
 ## 前提条件
 已创建数据库。
->?此最佳实践适用于 [MySQL](https://cloud.tencent.com/document/product/236/5160)，[CynosDB](https://cloud.tencent.com/document/product/1003/30505)，[TDSQL](https://cloud.tencent.com/document/product/557/10236)。推荐使用腾讯云提供的 Serverless 数据库（CynosDB）。
+>?本文档提供了 SCF 连接 [MySQL](https://cloud.tencent.com/document/product/236/5160)、[CynosDB](https://cloud.tencent.com/document/product/1003/30505) 及 [TDSQL](https://cloud.tencent.com/document/product/557/10236) 三种关系型数据库的示例，推荐您使用腾讯云提供的 Serverless 数据库（CynosDB）。
+
+
 
 
 

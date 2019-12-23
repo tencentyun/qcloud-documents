@@ -1,25 +1,25 @@
 ## 简介
 用户可通过自有域名（自定义域名，例如`test.cos.com`）访问存储桶（Bucket）下的对象（Object）。具体操作指引如下：
-- [开启 CDN 加速时配置自定义域名支持 HTTPS 访问](#开启CDN加速)
-- [关闭 CDN 加速时配置自定义域名支持 HTTPS 访问](#关闭CDN加速)
+- [开启 CDN 加速时配置自定义域名支持 HTTPS 访问](#.E5.BC.80.E5.90.AF-cdn-.E5.8A.A0.E9.80.9F)
+- [关闭 CDN 加速时配置自定义域名支持 HTTPS 访问](#.E5.85.B3.E9.97.AD-cdn-.E5.8A.A0.E9.80.9F)
 
 
 ## 操作步骤
-<span id="开启CDN加速"></span>
+
 ### 开启 CDN 加速
 
 #### 1. 绑定自定义域名。
-将存储桶绑定到您的自有域名，开启 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/6252#%E5%BC%80%E5%90%AFCDN%E5%8A%A0%E9%80%9F) 文档中的配置自定义域名部分。
+将存储桶绑定到您的自有域名，开启 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/36637) 文档中的配置自定义域名部分。
 #### 2. 配置 HTTPS 访问。
 在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/6295)。
 
 
-<span id="关闭CDN加速"></span>
+
 ### 关闭 CDN 加速
 本章节主要以示例的形式介绍在 COS 中通过反向代理配置自定义域名（关闭 CDN 加速）支持 HTTPS 访问的操作步骤。本示例将实现不开启 CDN 加速的情况下，直接通过自定义域名`https://test.cos.com`访问所属地域为华南、名称为 testhttps-12345678 的存储桶，具体操作步骤如下：
 
 #### 1. 绑定自定义域名。
-将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/6252#%E5%85%B3%E9%97%ADCDN%E5%8A%A0%E9%80%9F) 文档中的配置自定义域名部分。
+将存储桶 testhttps 绑定到域名`https://test.cos.com`，关闭 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/36637) 文档中的配置自定义域名部分。
 #### 2. 为域名配置反向代理。
 在服务器上为域名`https://test.cos.com`配置反向代理。具体配置参考如下（以下 Nginx 配置仅供参考）：
 ```shell

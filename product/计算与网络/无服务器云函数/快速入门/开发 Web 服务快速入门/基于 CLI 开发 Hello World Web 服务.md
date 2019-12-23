@@ -14,7 +14,7 @@
 ### 安装 CLI （Windows）
 
 #### 方式1
-1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli) 进行安装。
+1. 安装 Python 2.7 或 3.6+ 版本，您可以参考[ Python 安装教程](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python) 进行安装。
 2. 执行 `pip install scf` 命令，安装 CLI。
 3. 升级 CLI 可直接执行 `pip install -U scf` 命令。
 
@@ -55,7 +55,7 @@ scf CLI, version 0.0.1
 
 ### 配置 SCF CLI
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com)。
-2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域，配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
+2. 获取账号的 APPID，SecretId，SecretKey 以及产品期望所属的地域，配置信息获取途径请参见 [配置账号信息](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF)。
 3. 执行以下命令，并按照提示，将 APPID，SecretId，SecretKey 以及产品期望所属的地域配置到 SCF 中。
 例如，您希望在**广州**地区使用云函数，并获取到账号 ID 为1253970223，SecretId 和 SecretKey 分别为 AKIxxxxxxxxxx，uxxlxxxxxxxx。
 您可以通过执行 `scf configure set` 命令，按照提示输入对应信息，完成 SCF CLI 的配置：

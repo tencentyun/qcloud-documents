@@ -2,7 +2,7 @@
 
 ## 前提条件
 1. 完成腾讯云账号注册、实名认证。
-2. 开通 CVM 服务，详情请参见 [开始使用 CVM](https://cloud.tencent.com/document/product/213/3687)。
+2. 开通 CVM 服务，详情请参见 [开始使用 CVM](https://cloud.tencent.com/document/product/213/2936)。
 
 
 ## 操作指南

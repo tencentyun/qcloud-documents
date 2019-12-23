@@ -69,8 +69,7 @@ int templateId = 7839; // NOTE: 这里的模板 ID`7839`只是示例，真实的
 String smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
 ```
 
-
-<a id="指定模板单发短信"></a>
+<span id="指定模板单发短信"></span>
 - **指定模板 ID 单发短信**
 ```java
 import com.github.qcloudsms.SmsSingleSender;
@@ -96,7 +95,7 @@ try {
 }
 ```
 
-<a id="指定模板群发短信" ></a>
+<span id="指定模板群发短信"></span>
 - **指定模板 ID 群发短信**
 ```java
 import com.github.qcloudsms.SmsMultiSender;
@@ -122,7 +121,7 @@ try {
 }
 ```
 
-<a id="拉取短信回执" > </a>
+<span id="拉取短信回执"></span>
 - **拉取短信回执以及回复**
 ```java
 import com.github.qcloudsms.SmsStatusPuller;
