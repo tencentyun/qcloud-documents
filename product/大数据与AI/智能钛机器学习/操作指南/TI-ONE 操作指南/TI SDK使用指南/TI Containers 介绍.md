@@ -2,8 +2,7 @@
 TI Containers 是一个帮助用户构建镜像的软件包，用户可以使用 TI Containers 来方便地创建一个可以在 TI 环境中运行的容器，目前 TI 预置的 Tensorflow、Pytorch 镜像都是利用 TI Containers 构建的。本文档将向您提供利用 TI Containers 构建容器以及可用环境变量的相关介绍。
 
 
-## 利用TI Containers构建容器
-
+## 利用 TI Containers 构建容器
 ### 构建过程
 - Dockerfile
 以下是一个 DockerFile 例子，构建一个可以在 TI 中运行的容器，并定义了一个入口`train.py`
@@ -27,8 +26,8 @@ docker build -t tf-2.0 .
 
 ### 执行过程
 
-训练脚本必须放在容器内`/opt/ml/code`下，可以通过环境变量TI_PROGRAM访问该目录
-训练脚本支持python(.py)和shell两种语言
+训练脚本必须放在容器内`/opt/ml/code`下，可以通过环境变量 TI_PROGRAM 访问该目录
+训练脚本支持 Python(.py) 和 shell 两种语言
 训练开始时，会执行以下语句
 
 ```shell
@@ -38,7 +37,7 @@ python train.py
 ### 使用超级参数
 
 超级参数可以以启动参数的形式被传递给训练脚本
-举例，有以下json格式的超级参数
+举例，有以下 JSON 格式的超级参数
 ```json
 {
   "HyperParameters": 
@@ -67,7 +66,7 @@ estimator.fit({'training': 'cos://bucket/path/to/training/data',
                'testing': 'cos://bucket/path/to/testing/data'})
 ```
 
-用户的训练脚本可以使用TM_CHANNEL_{channel_name}来获取路径信息
+用户的训练脚本可以使用 TM_CHANNEL_{channel_name} 来获取路径信息
 
 ```python
 import argparse
@@ -127,7 +126,7 @@ comminicator = os.environ['TM_HP_COMMUNICATOR']
 
 - TM_CURRENT_HOST：当前 Host
 - TM_HOSTS：所有 Host
-- TM_NUM_GPUS：GPU卡数
+- TM_NUM_GPUS：GPU 卡数
 - TM_NUM_CPUS：CPU 核数
 - TM_LOG_LEVEL：日志登记
 - TM_USER_ARGS：用户自定义参数
@@ -142,7 +141,7 @@ TM_INPUT_CONFIG_DIR：输入配置目录
 ```shell
 TM_INPUT_CONFIG_DIR=/opt/ml/input/config
 ```
-TI启动任务时会在`TM_INPUT_CONFIG_DIR`创建以下三个文件：
+TI 启动任务时会在`TM_INPUT_CONFIG_DIR`创建以下三个文件：
 	`hyperparameters.json`：超级参数
 	`inputdataconfig.json`：输入数据
 	`resourceconfig.json`：资源配置

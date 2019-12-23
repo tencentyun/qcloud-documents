@@ -1,12 +1,12 @@
 ## 操作场景
 本文档向您介绍如何使用 TI Python SDK 训练模型。
 
-我们在Notebook中内置了TI Python SDK的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+在 Notebook 中内置了 TI Python SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 
 ## 操作步骤
-TI Python SDK 使用以下几个核心类实现TI的模型训练
+TI Python SDK 使用以下几个核心类实现 TI 的模型训练
 - Estimators： 对训练任务的抽象。
-- Session：使用TI资源的方法集合。
+- Session：使用 TI 资源的方法集合。
 
 使用 TI Python SDK 训练模型需要以下三个步骤：
 1. 准备一个训练脚本。
@@ -14,11 +14,11 @@ TI Python SDK 使用以下几个核心类实现TI的模型训练
 3. 调用 Estimator 的 fit 方法。
 
 #### 准备训练脚本
-训练脚本必须在 Python2.7 或3.6环境下执行。TI 提供了很高的兼容性，只需要少部分改动就可以将外部环境运行的训练脚本适配到 TI 中，同时TI提供了许多环境变量定义训练环境各种资源和参数，在训练脚本中可以直接访问这些环境变量获取相关属性，包括：
+训练脚本必须在 Python2.7 或3.6环境下执行。TI 提供了很高的兼容性，只需要少部分改动就可以将外部环境运行的训练脚本适配到 TI 中，同时 TI 提供了许多环境变量定义训练环境各种资源和参数，在训练脚本中可以直接访问这些环境变量获取相关属性，包括：
 - `TM_MODEL_DIR`：string 类型，表示容器中模型的输出路径，设置为`/opt/ml/model`。
 - `TM_NUM_GPUS`：整型，表示实例可用的 GPU 数。
-- `TM_OUTPUT_DATA_DIR`：string类型，表示容器中输出数据（例如 checkpoints、图像或其他文件，但不包括生成的模型）的路径。
-- `TM_CHANNEL_XXXX`：string类型，表示输入训练数据的路径，XXXX对应`fit`参数中通道的名字，如 train 和 test 两个通道对应的环境变量是`TM_CHANNEL_TRAIN` `TM_CHANNEL_TEST`
+- `TM_OUTPUT_DATA_DIR`：string 类型，表示容器中输出数据（例如 checkpoints、图像或其他文件，但不包括生成的模型）的路径。
+- `TM_CHANNEL_XXXX`：string 类型，表示输入训练数据的路径，XXXX对应`fit`参数中通道的名字，如 train 和 test 两个通道对应的环境变量是`TM_CHANNEL_TRAIN` `TM_CHANNEL_TEST`
 - `TM_HPS`：json 格式的超级参数。
 
 一个典型的训练脚本处理流程如下：
