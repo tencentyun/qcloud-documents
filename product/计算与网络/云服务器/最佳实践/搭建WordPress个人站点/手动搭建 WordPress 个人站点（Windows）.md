@@ -55,10 +55,10 @@ create database wordpress;
  - 应用程序池：选择为【DefaultAppPool】。
  - 物理路径：选择为 WordPress 解压后的存放路径，例如 `C:\wordpress`。
 13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，修改以下配置参数。
- - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，取消前面的`;`。
- - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，取消前面的`;`。
- - 找到`extension_dir = "ext"`，取消前面的`;`。
-
+ - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，删除前面的`;`。
+ - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，删除前面的`;`。
+ - 找到`extension_dir = "ext"`，删除前面的`;`。
+14. 保存已完成修改的 `php.ini` 文件。
 
 ### 步骤4：验证 WordPress 配置
 
