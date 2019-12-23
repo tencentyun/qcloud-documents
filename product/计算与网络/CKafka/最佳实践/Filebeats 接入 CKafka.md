@@ -21,6 +21,7 @@ filebeat.prospectors:
 
 #------------------ kafka -------------------------------------
 output.kafka:
+  version:0.10.2 // 根据不同CKafka实例开源版本配置
   # 设置为实例地址
   hosts: ["127.1.2.3:9092"]
   # 设置目标topic
@@ -60,4 +61,30 @@ echo ckafka3 >> testlog
 # sasl需要配置下列信息，如果不需要则下面两个选项可不配置
   username: "instance-will#user"
   password: "password"
+```
+
+### 常见问题
+filebeat日志（默认路径/var/log/filebeat/filebeat），发现有大量INFO日志，例如：
+```
+2019-03-20T08:55:02.198+0800    INFO    kafka/log.go:53 producer/broker/544 starting up
+2019-03-20T08:55:02.198+0800    INFO    kafka/log.go:53 producer/broker/544 state change to [open] on wp-news-filebeat/4
+2019-03-20T08:55:02.198+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/4 selected broker 544
+2019-03-20T08:55:02.198+0800    INFO    kafka/log.go:53 producer/broker/478 state change to [closing] because EOF
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 Closed connection to broker bitar1d12:9092
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/5 state change to [retrying-3]
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/4 state change to [flushing-3]
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/5 abandoning broker 478
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/2 state change to [retrying-2]
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/2 abandoning broker 541
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/leader/wp-news-filebeat/3 state change to [retrying-2]
+2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/broker/478 shut down
+```
+
+怀疑可能是filebeat版本的问题，因为elastic家族的产品发版速度很频繁，而且不同大版本有很多不兼容。
+例如：6.5.x默认kafka的版本是1.0.0，而5.6.x默认的是0.8.2.0。
+
+配置时，请注意版本配置
+```
+output.kafka:
+  version:0.10.2 // 根据不同CKafka实例开源版本配置
 ```
