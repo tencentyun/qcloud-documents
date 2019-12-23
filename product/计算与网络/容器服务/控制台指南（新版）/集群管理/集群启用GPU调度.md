@@ -42,7 +42,7 @@
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
 2. 在需要添加已有 GPU 云服务器的集群行中，单击【添加已有节点】。
 3. 在 “选择节点” 页面，勾选已有的 GPU 节点，单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/cd222f6e694f281662ccc8df289816c6.png)
+![](https://main.qcloudimg.com/raw/7080762e4f9f211ab7a4ef34e0db5a94.png)
 4. 按照页面提示逐步操作，完成添加。
  >? 在进行 “云服务器配置” 时，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。
 
@@ -58,8 +58,8 @@
 
 1. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=4)】，进入 “集群管理” 页面。
 2. 单击需要创建工作负载的集群 ID/名称，进入待创建工作负载的集群管理页面。
-3. 在 “工作负载” 下，任意选择工作负载类型，进入对应的信息页面。例如，选择 “工作负载” > “DaemonSet”，进入 DaemonSet 信息页面。如下图所示：
-![](https://main.qcloudimg.com/raw/73b214fcb0cf26e569310894dd44c512.png)
+3. 在 “工作负载” 下，任意选择工作负载类型，进入对应的信息页面。例如，选择【工作负载】>【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/6729777e09dba0fc65228fdbb2f9191c.png)
 4. 单击【新建】，进入 “新建Workload” 页面。
 5. 根据页面信息，设置工作负载名、命名空间等信息。并在 “GPU限制” 中，设置 GPU 限制的数量。如下图所示：
 ![](https://main.qcloudimg.com/raw/8f0fa686061fbc11a1d1abf11107a03d.png)
@@ -69,4 +69,4 @@
 #### 通过应用或 Kubectl 命令创建
 
 您可以通过应用或 Kubectl 命令创建，在 YAML 文件中添加 GPU 字段。如下图所示：
-![](https://main.qcloudimg.com/raw/2f2b3a751fd4bc0a3d443d7495fb1050.png)
+![](https://main.qcloudimg.com/raw/4dcfc0516d8d7871ce224437c4bfac4b.png)
