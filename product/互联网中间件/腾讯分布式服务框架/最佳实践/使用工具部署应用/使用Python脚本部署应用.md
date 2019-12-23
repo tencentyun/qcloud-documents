@@ -15,8 +15,8 @@ TSF 应用可以使用 Python 脚本来部署。
 ## 虚拟机应用部署准备
 
 1. 机器上保证安装的 Python 版本不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
-2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_virtual_machine_deploy.py) 下载虚拟机Python脚本。
-3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥。
+2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_virtual_machine_deploy.py) 下载虚拟机部署 Python 脚本。
+3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥, region 为 TSF 服务所在地域。
 
    ```Python
    secret_id = "改为您的 SecretId"
@@ -52,7 +52,7 @@ TSF 应用可以使用 Python 脚本来部署。
 
 1. 保证机器上能够构建、上传镜像（镜像及Dockerfile编写参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007)，仓库使用请参考 [镜像仓库](https://cloud.tencent.com/document/product/649/16695)）。保证  Python 版本不低于 2.7.14 版本，并已安装 PIP 等 Python 包管理工具。
 2. 从 [GitHub仓库](https://github.com/tencentyun/tsf-snippet/blob/master/upload_container_deploy.py) 下载容器部署Python脚本。
-3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥。修改脚本中的 docker_build_command、docker_push_command 为 实际的 docker build 和 push 命令。
+3. 修改脚本中的secret_id 、secret_key 为腾讯云访问密钥, region 为 TSF 服务所在地域。修改脚本中的 docker_build_command、docker_push_command 为 实际的 docker build 和 push 命令。
 
    ```Python
    secret_id = "改为Access Key ID"
