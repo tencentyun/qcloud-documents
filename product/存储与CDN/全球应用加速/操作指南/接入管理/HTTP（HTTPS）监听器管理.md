@@ -1,6 +1,6 @@
 ## 新增HTTP/HTTPS 监听器
 1. 登录 [全球应用加速控制台](https://console.cloud.tencent.com/gaap)，进入“接入管理”页面，单击指定通道的【ID/通道名】。
-2. 进入到下一级页面，选择【HTTP 监听器管理】/【HTTPS 监听器管理】>【新增】，可选的协议有 HTTP 和 HTTPS，具体配置如下：
+2. 进入到下一级页面，选择【HTTP/HTTPS 监听器管理】>【新增】，可选的协议有 HTTP 和 HTTPS，具体配置如下：
  - 当选中 HTTP 时，仅需要输入端口即可，监听器会默认按照 HTTP 协议进行转发。
  ![](https://main.qcloudimg.com/raw/df272654d597b8d63358d0fc075f6864.png)
  - 当选中 HTTPS 时，则需要额外配置证书和其他信息，如下图：
