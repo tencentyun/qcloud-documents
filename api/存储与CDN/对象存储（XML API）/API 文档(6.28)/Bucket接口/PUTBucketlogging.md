@@ -61,10 +61,8 @@ Container 节点 LoggingEnabled 的内容：
 ## 响应
 
 #### 响应头
-#### 公共响应头
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-#### 特殊响应头
-该响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+
 
 #### 响应体
 该响应体返回为空。
