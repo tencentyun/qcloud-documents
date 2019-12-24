@@ -6,7 +6,7 @@ DDoS 高防包为腾讯云公网 IP 提供更高的 DDoS 防护能力，可支�
 在更换防护对象，您需要成功 [购买 DDoS 高防包实例](https://cloud.tencent.com/document/product/1021/31479) 并已为其 [绑定防护对象 IP](https://cloud.tencent.com/document/product/1021/31463)。
 
 ## 操作步骤
-1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【BGP 高防包】>【资产列表】，选择地域。
+1. 登录 [DDoS 防护（大禹）管理控制台](https://console.cloud.tencent.com/dayu/overview)，选择【DDoS 高防包】>【资产列表】，选择地域。
  - 若您的 DDoS 高防包实例是独享包，则选择【独享包】页签。
  - 若您的 DDoS 高防包实例是共享包，则选择【共享包】页签。
 2. 单击目标 DDoS 高防包实例所在行的【更换设备】。

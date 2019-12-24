@@ -3,7 +3,7 @@
 
 ## 操作步骤
 1. 在工作流画布中拖入一个**自定义脚本**的组件，单击“执行脚本”输入框。
-![](https://main.qcloudimg.com/raw/5fa2fbabd7e054343c33630106d2c646.png)
+![](https://main.qcloudimg.com/raw/07158d1147ea74ff5fea298b806f091a.png)
 2. 弹出**选择脚本**弹窗，单击右下角的 **Notebook** 图标。
 ![](https://main.qcloudimg.com/raw/153c2f0248b44e860b4fc96201e23b62.png)
 3. 选择需要导入到任务流的 Notebook 文件，并单击**导入**。

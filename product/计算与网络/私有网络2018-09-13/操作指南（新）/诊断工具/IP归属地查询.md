@@ -1,7 +1,7 @@
 >?目前 IP 归属地查询功能处于内测中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9CVPC&step=1)。
 >
-IP 归属地查询功能可以帮助您查询公网 IP 地址（支持 IPv4 地址和 IPv6 地址）的归属地和运营商。
-例如，查询`111.111.111.111`，其归属地在日本，运营商是 `kddi.com`。
+IP 归属地查询功能可以帮助您查询公网 IP 地址（包括 IPv4 地址和 IPv6 地址）的物理归属地和运营商。
+例如，查询`123.123.123.123`，其物理归属地在北京，运营商是中国联通。
 
 
 ## 使用场景
@@ -12,6 +12,7 @@ IP 归属地查询功能可以帮助您查询公网 IP 地址（支持 IPv4 地�
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【IP 与网卡】>【IP 归属地查询】，进入管理页面。
 3. 输入您要查询的 IP 地址，单击 <img src="https://main.qcloudimg.com/raw/38242f38a7e37d681899fe37dfbc6423.png" style="margin:-3px 0px"> 即可查询。
-![](https://main.qcloudimg.com/raw/c32a4f2ab579d797f9abba2337460fa6.png)
+>?如果查询结果不准确，您可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9CVPC&step=1) 反馈。
+>
+![](https://main.qcloudimg.com/raw/b13f9a3c020e59e437c609359cadde41.png)
 
->?如果查询结果不准确，您可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9CVPC&step=1) 反馈。
