@@ -3,15 +3,15 @@
 ## 简单视频上传
 
 ### 引入 SDK
->?SDK 依赖 Promise，请在低版本浏览器中自行引入。
-#### script 引入
-未使用 webpack 的情况下，可通过 script 标签方式引入。该方式会暴露全局的`TcVod`变量，script 引入有下面两种方式：
+
+#### script 引入方式
+未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的`TcVod`变量。script 引入有下面两种方式：
 - **下载到本地**
 	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，按以下方式引入：
 ```html
 <script src="./vod-js-sdk-v6.js"></script>
 ```
->!引入路径请自行调整为您本地保存的路径。
+>?引入路径请自行调整为您本地保存的路径。
 - **使用公共库 cdn**
 	使用在线公共库 cdn，按以下方式引入：
 ```html
@@ -20,7 +20,7 @@
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
 
-#### npm 引入
+#### npm 引入方式
 使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入：
 ```js
 // npm install vod-js-sdk-v6 之后，在页面中直接 import 引入
@@ -28,6 +28,8 @@ import TcVod from 'vod-js-sdk-v6'
 ```
 
 请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo) 查看 npm 方式引入的 Demo 源码。
+
+>!SDK 依赖 Promise，请在低版本浏览器中自行引入。
 
 
 ###  定义获取上传签名的函数
