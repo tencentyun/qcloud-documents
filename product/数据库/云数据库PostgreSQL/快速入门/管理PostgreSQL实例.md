@@ -1,5 +1,6 @@
 ## 实例列表页
 在 [云数据库 PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql) 的实例列表页可查看实例相关信息，以及管理实例。
+![](https://main.qcloudimg.com/raw/f967647b45df4f8368aaf11a9cd17349.png)
 
 ### 实例升级
 在【实例列表】页面，单击操作列的【升级】，可对数据库实例进行配置升级，如升级规格，升级磁盘容量。
@@ -13,6 +14,7 @@
 
 ## 实例管理页
 云数据库 PostgreSQL 初始化完成后，在 [实例列表](https://console.cloud.tencent.com/pgsql) 单击实例名，或在操作列单击【管理】，可以进入实例管理页面。您可以进行实例详情查看、实例监控、数据库管理等操作。
+![](https://main.qcloudimg.com/raw/33b2f22f24deddd1d9602e064c7b1a9a.png)
 
 ### 实例详情
 在【实例详情】页面，您可以查看和操作数据库的各种基本信息，其中外网地址默认关闭，如有需要，请手动开启。
