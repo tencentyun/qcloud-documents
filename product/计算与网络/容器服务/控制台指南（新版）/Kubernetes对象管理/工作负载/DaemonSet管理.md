@@ -106,7 +106,7 @@ spec:
 - **metadata.annotations**：DaemonSet 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 - **spec.template**：DaemonSet 管理的 Pod 的详细模板配置。
 
-更多可查看 [Kubernetes DaemonSet 官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
+更多可查看 [Kubernetes DaemonSet 官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)。
 
 ### Kubectl 创建 DaemonSet
 
