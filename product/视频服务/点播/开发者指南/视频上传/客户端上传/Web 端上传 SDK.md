@@ -15,7 +15,7 @@
 - **使用公共库 cdn**
 	使用在线公共库 cdn，按以下方式引入：
 ```html
-<script src="//cdn.jsdelivr.net/npm/vod-js-sdk-v6/dist/vod-js-sdk-v6.js></script>
+<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js></script>
 ```
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
