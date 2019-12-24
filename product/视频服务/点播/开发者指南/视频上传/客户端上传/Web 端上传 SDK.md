@@ -7,15 +7,15 @@
 #### script 引入方式
 未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的`TcVod`变量。script 引入有下面两种方式：
 - **下载到本地**
-	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，按以下方式引入：
+	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，然后按以下方式引入：
 ```html
 <script src="./vod-js-sdk-v6.js"></script>
 ```
 >?引入路径请自行调整为您本地保存的路径。
-- **使用公共库 cdn**
-	使用在线公共库 cdn，按以下方式引入：
+- **使用 CDN 资源**
+	使用 CDN 资源，可直接按以下方式引入：
 ```html
-<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js></script>
+<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
 ```
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
