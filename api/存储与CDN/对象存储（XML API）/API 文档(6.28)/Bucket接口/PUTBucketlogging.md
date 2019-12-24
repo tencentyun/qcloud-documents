@@ -24,9 +24,9 @@ Authorization: Auth String
 
 该请求操作的实现需要用 Content-MD5 的请求头来验证消息的完整性，具体内容如下。其他公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-|名称|描述|类型|必选 |
+|名称|描述|类型|是否必选 |
 |:---|:-- |:--|:--|
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值，此头部用来校验文件内容是否发生变化。 | String| 是 |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | String| 是 |
 
 #### 请求体
 该请求操作的实现需要有请求体。带所有节点的请求体内容示例如下：
@@ -61,10 +61,8 @@ Container 节点 LoggingEnabled 的内容：
 ## 响应
 
 #### 响应头
-#### 公共响应头
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-#### 特殊响应头
-该响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+
 
 #### 响应体
 该响应体返回为空。
