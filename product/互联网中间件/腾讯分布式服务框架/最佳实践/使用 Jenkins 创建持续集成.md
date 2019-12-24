@@ -21,7 +21,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
    ![add username](https://main.qcloudimg.com/raw/3b129735c76cdae1799c17625ed2324e/add_username.png)
    4.3 单击【构建触发器】页签，勾选【Build when a change is pushed to GitLab】。 GitLab webhook URL 中的 IP 要确保能通过 GitLab 访问。
    ![GitLab hook](https://main.qcloudimg.com/raw/9d572d105e3180dea218047dc2e3246d/add_gitlib_hook.png)
-   4.4 单击【构建环境】页签，勾选【Add timestamps to the Console Output】（为控制台输出的信息添加时间戳）。  
+   4.4 单击【构建环境】页签，勾选【Add timestamps to the Console Output】，为控制台输出的信息添加时间戳。  
    ![add timestamps](https://main.qcloudimg.com/raw/dec56acb45abcd738117cbde1c7c895b/add_timestamps.png)
    4.5 单击【构建】页签，然后单击【增加构建步骤】，选择【Invoke top-level Maven targets】。
    ![maven targets](https://main.qcloudimg.com/raw/ac6fb1792129776c6ee1da0c84cc611c/invoke%20maven.png)
@@ -63,7 +63,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
 配置正确后，进行下一步操作（提交变更到  GitLab）
 
 ## 提交变更到 GitLab
-如果上述步骤配置正确，这次提交会触发一次 GitLab Hook。 Jenkins 在接受到这个 Hook 后会构建您的 Maven 项目，并在构建过程中触发Python脚本自动部署TSF应用。
+如果上述步骤配置正确，这次提交会触发一次 GitLab Hook。 Jenkins 在接受到这个 Hook 后会构建您的 Maven 项目，并在构建过程中触发 Python 脚本自动部署 TSF 应用。
 1. 虚拟机提交部署成功输出的日志信息（Build Number > 控制台输出）。
     ```Shell
     15:12:40 + python2.7.14 upload_virtual_machine_deploy.py ./consumer-demo/target/consumer-demo-1.10.0-RELEASE.jar application-qab76pxv v001 1300555551 group-gvk5pbdv '-Xms128m -Xmx512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m'
@@ -101,7 +101,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
     15:12:41 {"Response":{"RequestId":"86c93d7e-ee44-4c8d-8d34-537a0dbe6871","Result":{"TaskId":"task-76l2v6m7"}}}
     15:12:41 Finished: SUCCESS
     ```
-您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID,进入应用详情页的【变更记录】中，查看虚拟机部署变更记录。
+您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID，进入应用详情页的【变更记录】中，查看虚拟机部署变更记录。
  ![](https://main.qcloudimg.com/raw/78e281d72a81387fa51e990b0216c0a2.png)
 
 2. 容器部署成功日志信息
@@ -112,7 +112,7 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
     16:32:31 Finished: SUCCESS
     ```
 
-您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID,进入应用详情页的【变更记录】中，查看容器部署变更记录。
+您可以在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用的 ID，进入应用详情页的【变更记录】中，查看容器部署变更记录。
 		![](https://main.qcloudimg.com/raw/94af219b1278ae8a104bd444d6c81fde.png)
 		
 3. 容器部署成功日志信息 如果部署失败，需要分析 Jenkins console 日志。

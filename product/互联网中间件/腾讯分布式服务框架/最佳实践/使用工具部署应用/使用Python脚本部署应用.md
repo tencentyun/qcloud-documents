@@ -4,7 +4,7 @@ TSF 应用可以使用 Python 脚本来部署。
 
 在开始持续集成之前，需要完成下述的准备工作：
 1. 保证机器上安装的 Python 版本不低于 `2.7.14` 版本，并已安装 PIP 等 Python 包管理工具。
-2. 获取腾讯云的访问密钥 [SecretId 和 SecretKey](https://cloud.tencent.com/document/product/598/37140) 。
+2. 获取腾讯云的 [访问密钥](https://cloud.tencent.com/document/product/598/37140)（SecretId 和 SecretKey）。
 3. 在 TSF 平台创建了[虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524) 或 [容器应用部署组](https://cloud.tencent.com/document/product/649/15525)。
 4. 了解 Python 脚本使用。
 
