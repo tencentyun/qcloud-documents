@@ -86,19 +86,17 @@ XGPushConfig.enableOppoNotification(getApplicationContext(), true);
 
 ### 开启 OPPO 推送
 在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，调用以下代码：
-
 ```java
-XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); // 注意这里填入的是Oppo的AppKey
-XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的APP_SECRET"); // 注意这里填入的是Oppo的APP_SECRET，不是AppKey
-// 打开
+// 注意这里填入的是 Oppo 的 AppKey，不是AppId
+XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); 
+// 注意这里填入的是 Oppo 的 AppSecret，不是 AppKey
+XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的AppSecret");
 //打开第三方推送
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
-
 //注册成功的日志如下
- I/XINGE: [XGOtherPush] other push token is : CN_93394e648ee5a73f5c5a0835b2a7e3d5  other push type: oppo
- I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0114d716bfe01d75f861d05a920cca8c8226 otherPushType = oppo otherPushToken = CN_93394e648ee5a73f5c5a0835b2a7e3d5
- 
+I/XINGE: [XGOtherPush] other push token is : CN_93394e648ee5a73f5c5a0835b2a7e3d5  other push type: oppo
+I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0114d716bfe01d75f861d05a920cca8c8226 otherPushType = oppo otherPushToken = CN_93394e648ee5a73f5c5a0835b2a7e3d5
 ```
 
 
