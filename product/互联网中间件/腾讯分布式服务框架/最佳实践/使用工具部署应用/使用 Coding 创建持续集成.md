@@ -25,7 +25,8 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 >!用户需要修改示例代码中的 Python 部署脚本，替换其中访问密钥、地域等信息，参考  [使用 Python 脚本部署应用](https://cloud.tencent.com/document/product/649/40407)。
 
 
-### 步骤二：创建构建任务
+### 步骤二：创建并配置构建任务
+#### 创建构建任务
 1. 单击 Coding 控制台左侧导航栏【构建与部署】>【构建】。
 2. 单击【新建】。
 3. 填写新建信息，选择代码仓库 `provider-demo`，使用静态配置的 Jenkinsfile ，选择简易模板。
@@ -40,7 +41,6 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 
 ![](https://main.qcloudimg.com/raw/3f974f69630f465e741db590ce759665/coding_add_env.png)
 
-### 步骤三：配置流程
 #### 流程配置-构建
 1. 在【流程配置】选项卡【图形化编辑器】中，选中【构建】阶段方块。
 2. 单击【执行 Shell 脚本】按钮。
@@ -66,14 +66,14 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
    python upload_container_deploy.py ${TSF_GROUP_ID} ${PKG_VERSION}
    ```
 
-### 步骤四：执行构建任务
+### 步骤三：执行构建任务
 构建任务可以通过代码提交等方式自动触发，也可以手动执行。
 1. 选中目标构建任务，单击【立即构建】。
 ![](https://main.qcloudimg.com/raw/3fe1b4ad1858a5e2b3786947d6b495c1/coding_start_job.png)
 2. 填写环境变量，将【值】替换为用户自己的参数，单击【立即构建】。
 ![](https://main.qcloudimg.com/raw/ed692037a9621ac9b98d894b89518f5e/coding_start_job2.png)
 
-### 步骤五：验证构建结果
+### 步骤四：验证构建结果
 1. 构建任务通常会执行几分钟，查看构建任务的结果。
 ![](https://main.qcloudimg.com/raw/fedbc7ee95028b4c138dec24e6103262/coding_job_result.png)
 2. 在 TSF 控制台，查看对应部署组的状态。
