@@ -61,7 +61,7 @@ ChatLayout chatLayout = findViewById(R.id.chat_layout);
 chatLayout.initDefault();
 // 传入 ChatInfo 的实例，这个实例必须包含必要的聊天信息，一般从调用方传入
 chatLayout.setChatInfo(mChatInfo);
-// 构造 mChatInfo 可以参考 <a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/menu/StartC2CChatActivity.java">StartC2CChatActivity.java</a> 的方法 startConversation
+// 构造 mChatInfo 可参考 <a href="https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/menu/StartC2CChatActivity.java">StartC2CChatActivity.java</a> 的方法 startConversation
 </pre>
 </li></ol>
 
