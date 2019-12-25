@@ -6,8 +6,7 @@
 
 ## 使用限制
 - 目前 EIP 直通通过白名单控制，仅支持 VPC 内的设备，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-- 云服务器的 EIP 直通不能与 NAT 网关同时使用。
-- 如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能。您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
+- 云服务器的 EIP 直通不能与 NAT 网关同时使用。如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能；您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
 - NAT 网关可绑定开通直通模式的 EIP，但无直通效果。
 
 ## 操作步骤
