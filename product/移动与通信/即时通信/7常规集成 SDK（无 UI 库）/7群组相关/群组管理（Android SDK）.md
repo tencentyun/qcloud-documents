@@ -1,10 +1,10 @@
 ## 群组综述
 
-即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
-群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，请参考 [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)。
+群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，请参见 [消息发送](https://cloud.tencent.com/document/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)。
 
 ## 群组管理
 
