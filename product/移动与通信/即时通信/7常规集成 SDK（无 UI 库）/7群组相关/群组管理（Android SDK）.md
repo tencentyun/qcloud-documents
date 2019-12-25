@@ -297,7 +297,7 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManager` 提供。
+函数参数信息与加入群组相同，删除群组成员的接口由 `TIMGroupManager` 提供。
 
 **权限说明：**
 详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
