@@ -10,3 +10,5 @@
 
 ### 杜绝钓鱼网站
 HTTPS 地址栏绿色图标可以帮助用户识别出钓鱼网站，保障用户和企业的利益不受损害，增强用户信任。
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1413-19077?ADTAG=gw.doc.media&withPoster=1&notip=1"></iframe></div>
