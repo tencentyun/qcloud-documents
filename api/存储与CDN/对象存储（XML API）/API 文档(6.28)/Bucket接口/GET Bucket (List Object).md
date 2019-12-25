@@ -103,7 +103,7 @@ Authorization: Auth String
 | EncodingType | ListBucketResult | 编码格式，对应请求中的 encoding-type 参数，且仅当请求中指定了 encoding-type 参数才会返回该节点 | string |
 | Prefix | ListBucketResult | 对象键匹配前缀，对应请求中的 prefix 参数 | string |
 | Marker | ListBucketResult | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目，对应请求中的 marker 参数 | string |
-| MaxKeys | ListBucketResult | 单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数 | integer |
+| MaxKeys | ListBucketResult | 单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数。<br>**注意：**如果由于您设置了 max-keys 参数导致单次响应中未列出所有对象，COS 会返回一项 nextmarker 参数作为您下次 List 请求的入参，以便您后续进行列出对象。 | integer |
 | Delimiter | ListBucketResult | 分隔符，对应请求中的 delimiter 参数，且仅当请求中指定了 delimiter 参数才会返回该节点 | string |
 | IsTruncated | ListBucketResult | 响应条目是否被截断，布尔值，例如 true 或 false | boolean |
 | NextMarker | ListBucketResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 marker 参数传入 | string |
