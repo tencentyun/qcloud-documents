@@ -1,7 +1,9 @@
 ## 获取 Demo
 
- [Demo 下载 >> ](https://alon-deployment-gz-1257356411.cos.ap-guangzhou.myqcloud.com/tsf-demo-simple-1.16.0.zip) 
-
+-  [Demo (1.18.0-Edgware-Release）下载 >> ](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/tsf-demo-simple-release_1.18.0.zip) 
+- [Demo (1.18.0-Finchley-Release）下载 >> ](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/tsf-demo-simple-release_1.18.0-finchley.zip) 
+- [Demo (1.18.0-Greenwich-Release）下载 >> ](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/tsf-demo-simple-release_1.18.0-greenwich.zip) 
+ 
 
 ## 工程目录
 
@@ -10,13 +12,15 @@
 ```
 |- consumer-demo：服务消费者
 |- provider-demo：服务提供者
-|- scg-demo：基于 Spring Cloud Gateway 的微服务网关示例（仅适用于 Finchley 版本 ）
-|- zuul-demo：基于 Zuul 的微服务网关示例
+|- scg-demo：基于开源 Spring Cloud Gateway 的微服务网关示例（不适用于 Edgware 版本 ）
+|- zuul-demo：基于开源 Zuul 的微服务网关示例
 |- cmq-producer-demo：CMQ 消息队列消息生产者示例
 |- cmq-consumer-demo：CMQ 消息队列消息消费者示例
+|- kafka-demo：Kafka 消息队列示例，包含了消息消费者和生产者 
 |- mongodb-demo：调用 MongoDB 的微服务示例
 |- mysql-demo：调用 MySQL 的微服务示例
 |- redis-demo：调用 Redis 的微服务示例
+|- msgw-demo：基于 TSF SDK 的微服务网关示例
 |- pom.xml
 ```
 
