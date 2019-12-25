@@ -194,6 +194,35 @@ done
       
 </configuration>
 ```
+### 支持服务端加密
+Hadoop-COS 默认不进行加密。Hadoop-COS 可通过在 $HADOOP_HOME/etc/hadoop/core-site.xml 中配置加密项支持服务端加密。Hadoop-COS目前支持多种服务端加密方式：SSE-COS 和 SSE-C。用户可以自行选择合适的加密方式对存放到 COS 中的数据进行加密。
+#### SSE-COS 加密
+SSE-COS：即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密钥和管理数据。在Hadoop-COS中，用户可以 $HADOOP_HOME/etc/hadoop/core-site.xml 文件中，增加以下配置来进行实现 Hadoop-COS 的 SSE-COS 加密方式。
+```shell
+<property>
+    	<name>fs.cosn.server-side-encryption.algorithm</name>
+        <value>SSE-COS</value>
+        <description>The server side encryption algorithm.</description>
+</property>
+
+#### SSE-C 加密
+SSE-C：即用户自定义密钥的服务端加密。加密密钥由用户自己提供，用户在上传对象时，COS 将使用用户提供的加密密钥对用户的数据进行 AES-256 加密。在Hadoop-COS中，用户可以 $HADOOP_HOME/etc/hadoop/core-site.xml 文件中，增加以下配置来进行实现 Hadoop-COS 的 SSE-COS 加密方式。
+``` shell
+<property>
+        <name>fs.cosn.server-side-encryption.algorithm</name>
+        <value>SSE-C</value>
+        <description>The server side encryption algorithm.</description>
+ </property>		
+ <property>
+  	<name>fs.cosn.server-side-encryption.key</name>
+        <value></value> #用户需要自行配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥。
+        <description>The SSE-C server side encryption key.</description>
+ </property> 
+
+>!
+> -  Hadoop-COS 是基于腾讯云对象存储 COS 实现了标准的 Hadoop 文件系统。Hadoop-COS 的 SSE-C 服务端加密依赖于 COS 的 SSE-C 服务端加密。因此，Hadoop-COS 不存储用户提供的加密密钥。同时需要值得注意的是 COS 的 SSE-C 服务端加密方式不存储用户提供的加密密钥，而是存储加密密钥添加了随机数据的 HMAC 值，该值用于验证用户访问对象的请求。COS 无法使用随机数据的 HMAC 值来推导出加密密钥的值或解密加密对象的内容。因此，如果用户丢失了加密密钥，则无法再次获取到该对象。
+> - Hadoop-COS 配置了 SSE-C 服务端加密算法时，必须在 fs.cosn.server-side-encryption.key 配置项中配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥。
+
 
 ### 使用示例
 
