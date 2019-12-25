@@ -33,4 +33,14 @@ CAM 中可对日志资源进行授权的操作名称（action）如下：
 | deleteShipper      | 删除投递配置                   |
 | listShipperTask    | 列出投递任务列表               |
 | modifyShipperTask  | 重试失败的投递任务             |
+|consumerGroupHeartBeat|消费者心跳|
+|createConsumerGroup|创建消费组|
+|getConsumerGroupCursor|获取消费组游标|
+|pullLogs|消费数据|
+|updatePartition|分裂/合并主题分区|
+|deleteConsumerGroup|删除消费组|
+|modifyConsumerGroup|修改消费组|
+|listConsumerGroup|获取消费组列表|
+|modifyConsumerGroupCursor|修改消费组游标|
+|listPartitions|获取主题分区列表|
 

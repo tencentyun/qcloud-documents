@@ -1,11 +1,15 @@
 
 
 ## 操作场景
-OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上，推送消息能够通过 OPPO 的系统通道抵达终端，并且无需打开应用就能够收到推送，而且在 Color OS 3.1 手机上，App 只要注册 OPPO 推送，即可自动打开通知接收权限，否则默认是关闭的，需要用户手动设置开启。详情请参见 [OPPO 推送官网](https://push.oppo.com/)。
+OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上，推送消息能够通过 OPPO 的系统通道抵达终端，无需打开应用就能够收到推送。详情请参见 [OPPO 推送官网](https://push.oppo.com/)。
+
 
 >?
 - OPPO 通道暂不支持应用内消息的发送，此类型的消息会以通知的形式展示。
 - OPPO 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 自建通道进行补推发送。
+- OPPO 通道需要 OPPO 手机系统 ColorOS V3.1 及以上支持。
+- 应用安装在 OPPO 手机上时，默认通知栏权限是关闭的，可以选择调用 [通知栏权限请求](#qqtz) 接口或自行在应用内引导用户手动开启。
+
 
 ## 操作步骤
 ### 开通权限
@@ -29,8 +33,7 @@ Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.co
 ###  配置内容
 #### AndroidStudio 集成方法
 
-1. 在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需要的配置后，再增加以下节点：
-2. 导入 OPPO 推送相关依赖。示例代码如下：
+导入 OPPO 推送相关依赖。示例代码如下：
 ```js
 implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 ```
@@ -70,22 +73,30 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 </application>
 ```
 
+<span id="qqtz"></span>
+### 请求通知栏权限
+1. 在调用腾讯移动推送 `XGPushManager.registerPush`前，调用以下代码：
+```java
+XGPushConfig.enableOppoNotification(getApplicationContext(), true);
+```
+在应用首次启动时弹出通知栏权限请求窗口，应用安装周期内，提示弹窗仅展示一次。需 TPNS-OPPO 依赖包版本在 1.1.5.1 及以上支持，系统 ColorOS 5.0 以上有效。
+
+
+
 
 ### 开启 OPPO 推送
 在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，调用以下代码：
-
 ```java
-XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); // 注意这里填入的是Oppo的AppKey
-XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的APP_SECRET"); // 注意这里填入的是Oppo的APP_SECRET，不是AppKey
-// 打开
+// 注意这里填入的是 Oppo 的 AppKey，不是AppId
+XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); 
+// 注意这里填入的是 Oppo 的 AppSecret，不是 AppKey
+XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的AppSecret");
 //打开第三方推送
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
-
 //注册成功的日志如下
- I/XINGE: [XGOtherPush] other push token is : CN_93394e648ee5a73f5c5a0835b2a7e3d5  other push type: oppo
- I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0114d716bfe01d75f861d05a920cca8c8226 otherPushType = oppo otherPushToken = CN_93394e648ee5a73f5c5a0835b2a7e3d5
- 
+I/XINGE: [XGOtherPush] other push token is : CN_93394e648ee5a73f5c5a0835b2a7e3d5  other push type: oppo
+I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0114d716bfe01d75f861d05a920cca8c8226 otherPushType = oppo otherPushToken = CN_93394e648ee5a73f5c5a0835b2a7e3d5
 ```
 
 
@@ -95,4 +106,4 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 -keep class com.heytap.mcssdk.** {*;}
 ```
 
-
+>?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。

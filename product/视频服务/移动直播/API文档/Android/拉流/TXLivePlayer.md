@@ -355,7 +355,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXAudioVolumeEvaluationListener](#ITXAudioVolumeEvaluationListener) | 音量大小回调接口。 |
+| listener | [ITXAudioVolumeEvaluationListener](#itxaudiovolumeevaluationlistener) | 音量大小回调接口。 |
 
 ***
 

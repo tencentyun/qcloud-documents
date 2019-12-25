@@ -74,7 +74,6 @@
 					didReceiveRemoteNotification:(NSDictionary *)userInfo 
 							fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
 			{
-				[[XGPush defaultManager] reportXGNotificationInfo:userInfo];
 				completionHandler(UIBackgroundFetchResultNewData);
 		}
 		// iOS 10 新增回调 API
@@ -96,7 +95,6 @@
 					 willPresentNotification:(UNNotification *)notification 
 							 withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
 							 {
-									 [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
 									 completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 		}
 		#endif

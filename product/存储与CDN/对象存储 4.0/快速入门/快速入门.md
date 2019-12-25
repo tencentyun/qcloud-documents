@@ -25,7 +25,7 @@
  - 名称：存储桶名称，此处我们输入 examplebucket。
  - 所属地域：存储桶存放地域，选择与您最近的一个地区，例如我在 “深圳”，地域可以选择 “广州”。
  - 访问权限：存储桶访问权限，此处我们选择“私有读写”。
-![](https://main.qcloudimg.com/raw/38addaf41a18eab91259469c30af7b0e.jpg)
+![](https://main.qcloudimg.com/raw/403185f7cc974daf2cb962a45474747d.jpg)
 3. 单击【确定】，即可创建存储桶。
 
 
@@ -43,9 +43,9 @@
 
 
 
-## 出现问题？
+## 遇到问题？
 
-非常抱歉您在使用时出现问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+非常抱歉您在使用时遇到问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 
 

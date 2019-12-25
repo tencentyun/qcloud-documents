@@ -10,7 +10,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 - Windows：Windows 操作系统，本文以 Windows Server 2012 为例。
 - IIS：Web 服务器，本文以 IIS 8.5 为例。
 - MySQL：数据库，本文以 MySQL 5.6.46 为例。
-- PHP：脚本语言，本文以 PHP 7.2.24 为例。
+- PHP：脚本语言，本文以 PHP 7.3.12 为例。
 - WordPress：博客平台，本文以 WordPress 5.3 为例。
 
 
@@ -54,11 +54,12 @@ create database wordpress;
  - 网站名称：用户自定义，例如 wordpress。
  - 应用程序池：选择为【DefaultAppPool】。
  - 物理路径：选择为 WordPress 解压后的存放路径，例如 `C:\wordpress`。
-13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，修改以下配置参数。
- - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，取消前面的`;`。
- - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，取消前面的`;`。
- - 找到`extension_dir = "ext"`，取消前面的`;`。
-
+13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，并修改以下内容。
+ 1. 根据 PHP 版本不同，修改相应的配置参数：
+     - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，删除前面的`;`。
+     - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，删除前面的`;`。
+ 2. 找到`extension_dir = "ext"`，删除前面的`;`。
+14. 保存 `php.ini` 文件。
 
 ### 步骤4：验证 WordPress 配置
 

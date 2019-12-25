@@ -3,7 +3,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 
 ## 硬件 MFA 设备
 硬件 MFA 设备如下图所示，正面的6位数动态安全码30秒更新一次，背面有该硬件 MFA 设备的序列号。目前该设备仅开放给内测用户使用。
-![](https://main.qcloudimg.com/raw/efbf89cf14546aaf0b775df9af863b8a.png)
+![](https://main.qcloudimg.com/raw/00e6a241a9091978fbb2e11a9e126a88.png)
 
 
 
@@ -12,7 +12,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 2. 进入安全设置页面后，选择【基本设置】>【MFA 设备】，单击【绑定】。
 3. 在弹出的身份验证页面中，根据页面提示，完成身份验证。
 4. 选择硬件 MFA 设备，填写序列号和安全码，依照页面指引进行绑定操作。
-![](https://main.qcloudimg.com/raw/d4bced6b358dfeaa585a42a11628e15d.png)
+![](https://main.qcloudimg.com/raw/4c2976ae7084a5c84df9ac2e63807643.png)
 5. 单击【提交】，完成硬件 MFA 设备绑定。
 
 

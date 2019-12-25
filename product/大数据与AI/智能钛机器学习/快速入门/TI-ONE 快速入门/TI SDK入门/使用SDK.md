@@ -1,14 +1,14 @@
 ## 操作场景
-本文档向您介绍如何使用 TI Python SDK 训练模型。
+本文档向您介绍如何使用 TI SDK 训练模型。
 
-在 Notebook 中内置了 TI Python SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 
 ## 操作步骤
-TI Python SDK 使用以下几个核心类实现 TI 的模型训练
+TI SDK 使用以下几个核心类实现 TI 的模型训练
 - Estimators： 对训练任务的抽象。
 - Session：使用 TI 资源的方法集合。
 
-使用 TI Python SDK 训练模型需要以下三个步骤：
+使用 TI SDK 训练模型需要以下三个步骤：
 1. 准备一个训练脚本。
 2. 构造一个 Estimator。
 3. 调用 Estimator 的 fit 方法。

@@ -10,7 +10,7 @@
 登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
 
-![](https://main.qcloudimg.com/raw/66660d7082f1615b71b37f6fcea57642.png)
+![](https://main.qcloudimg.com/raw/b817277d40d37fcb6bdd86e851ad5caa.png)
 
 ### 2. 下载商业版 SDK
 
@@ -83,7 +83,7 @@ Metal.framework
 ## 功能接口
 
 ### 美妆接口（大眼、瘦脸等）
-美妆接口的设置对象可以通过 TXLivePusher 的 getBeautyManager 方法获取。
+美妆接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
 ```objective-c
@@ -282,7 +282,7 @@ Metal.framework
 ## 问题排查
 
 ### 工程编译不过？  
-检查`AssetsLibrary.framwork`、`CoreMedia.framework`、`Accelerate.framework`和`Metal.framework` 依赖库是否已添加成功。
+检查`AssetsLibrary.framwork`、`CoreMedia.framework`、`Accelerate.framework`和`Metal.framework`依赖库是否已添加成功。
                  
 
 ### 工程运行过程中 Crash？  
@@ -291,7 +291,7 @@ Metal.framework
 
 ### 工程特效不生效？  
 - 检查是否已调用`+[TXLiveBase setLicenceURL:key:]`方法，以及参数是否正确。
-- 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含 `pituLicense` 字段。
+- 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含`pituLicense`字段。
 - 检查 pitu 资源是否添加正确，尤其要注意 `handdetect`，`handtrack`，`res18_3M`三个文件夹要以 folder refrence 形式添加，最简单的方法就是比对您工程中添加的动效文件是否和 demo 添加的完全一致  。
 - SDK 会把 Licence 下载到沙盒的 Documents 目录当中, 可以在开发过程中使用 Xcode 菜单中 “Window > Devices and Simulators” 工具导出并使用 [License 校验工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 查看有效期。
 
