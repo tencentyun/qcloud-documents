@@ -28,7 +28,7 @@ postgresql10-contrib-10.11-2PGDG.rhel7.x86_64
 postgresql10-10.11-2PGDG.rhel7.x86_64
 ```
 
-### 2. 创建恢复目录
+### 2. 使用 postgres 用户创建恢复目录
 切换为 postgres 用户，在云服务器中创建恢复目录。
 ```
 mkdir /var/lib/pgsql/10/recovery
