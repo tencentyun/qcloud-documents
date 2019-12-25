@@ -47,7 +47,6 @@
 ```
 ! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user --upgrade pip 
 ! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user tensorflow  
-
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.examples.tutorials.mnist import input_data

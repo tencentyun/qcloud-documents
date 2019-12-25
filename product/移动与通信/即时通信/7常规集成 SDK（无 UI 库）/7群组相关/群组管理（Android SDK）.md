@@ -1,10 +1,10 @@
 ## 群组综述
 
-即时通信 IM 有多种群组类型，其特点以及限制因素可参考 [群组系统](/doc/product/269/群组系统)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
+即时通信 IM 有多种群组类型，其特点以及限制因素请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。群组使用唯一 ID 标识，通过群组 ID 可以进行不同操作。
 
 ## 群组消息
 
-群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，可参照 [消息发送](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 部分。
+群组消息与 C2C 消息相同，仅在获取 Conversation 时的会话类型不同，请参见 [消息发送](https://cloud.tencent.com/document/product/269/9232#.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)。
 
 ## 群组管理
 
@@ -22,12 +22,12 @@ public static TIMGroupManager getInstance()
 
 ### 创建群组
 
-即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](/doc/product/269/群组系统#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（例如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
 
->!自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](/doc/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84-id)。
+>!自定义群组 ID 的时候，需要遵循一定的规则，具体请参考 [自定义群组 ID](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84-id)。
 
 **原型：**
 
@@ -142,9 +142,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 
 **权限说明：**
 
-- **私有群：**群成员无需受邀用户同意，直接将其拉入群中。
-- **公开群/聊天室：**不允许群成员邀请他人入群。只能由 App 管理员通过 REST API 邀请他人入群。
-- **音视频聊天室：**不允许任何人（包括 App 管理员）邀请他人入群。
+详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
@@ -220,9 +218,7 @@ TIMGroupManager.getInstance().inviteGroupMember(
 
 **权限说明：**
 
-- **私有群：**不能由用户主动申请入群。
-- **公开群和聊天室：**可以主动申请进入， 如果群组设置为需要审核，申请后管理员和群主会受到申请入群系统消息，需要等待管理员或者群主审核，如果群组设置为任何人可加入，则直接入群成功。
-- **直播大群：**可以任意加入群组。
+详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -263,6 +259,8 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
 - **私有群：**全员可退出群组。
 - **公开群、聊天室和直播大群：**群主不能退出。
 
+详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+
 **原型：**
 
 ```
@@ -299,13 +297,10 @@ TIMGroupManager.getInstance().quitGroup(
 
 ### 删除群组成员
 
-群组成员也可以删除其他成员，函数参数信息与加入群组相同。删除群组成员的接口由 `TIMGroupManager` 提供。
+函数参数信息与加入群组相同，删除群组成员的接口由 `TIMGroupManager` 提供。
 
 **权限说明：**
-
-**私有群：**只有创建者可删除群组成员。
-**公开群和聊天室：**只有管理员和群主可以踢人。
-**直播大群：**不能踢人。
+详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -378,6 +373,8 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 - **任何群组类型：**可以获取成员列表。
 - **直播大群：**只能拉取部分成员列表，包括群主、管理员和部分成员。
 
+详情请参见 [群组操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+
 **原型：**
 
 ```
@@ -421,7 +418,7 @@ TIMGroupManager.getInstance().getGroupMembers(
 
 **权限说明：**
 
-- **私有群、公开群和聊天室：**支持使用本接口获取用户加入的群组。
+- **私有群、公开群和聊天室：**支持使用本接口获取用户加入的公开群、聊天室、已激活的私有群信息。
 - **音视频聊天室和在线成员广播大群：**因为内部实现的差异，获取用户加入的群组时不会获取到这两种类型的群组。
 
 **原型：**
@@ -501,9 +498,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
  解散群组的接口由`TIMGroupManager`提供。
 
 **权限说明：**
-
-- **对于私有群：**任何人都无法解散群组。
-- **对于公开群、聊天室和直播大群：**群主可以解散群组。
+详情请参见 [群组操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
@@ -1449,9 +1444,9 @@ public void refuse(String msg, TIMCallBack cb)
 
 ## 群事件消息
 
-当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生有提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（参见 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。另外，除了从**新消息通知**中获取群事件消息，还可以在**登录前**通过 `TIMUserConfig` 中的 `setGroupEventListener` 接口设置群事件监听器来统一监听相应的事件。另外，**从群事件消息中可以拿到当前群成员数**。
+当有用户被邀请加入群组，或者有用户被移出群组时，群内会产生提示消息，调用方可以根据需要展示给群组用户，或者忽略。提示消息使用一个特殊的 `Elem` 标识，通过新消息回调返回消息（请参见 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)）。除了可以从新消息通知中获取群事件消息外，还可以在**登录前**通过 `TIMUserConfig` 中的 `setGroupEventListener` 接口设置群事件监听器来统一监听相应的事件（请参见 [初始化（Android）](https://cloud.tencent.com/document/product/269/9229#.E7.94.A8.E6.88.B7.E9.85.8D.E7.BD.AE)）。
 
->注：聊天室（ChatRoom）和音视频聊天室（AVChatRoom）类型的群组的群组事件消息不会通过**新消息通知**下发，只能通过注册群事件监听器对相应群事件进行监听。
+>!聊天室（ChatRoom）和音视频聊天室（AVChatRoom）的群组事件消息不会通过新消息通知下发，只能通过注册群事件监听器对相应群事件进行监听。
 
 如下图中，展示一条修改群名的事件消息。
 ![](https://main.qcloudimg.com/raw/78865ba68ed75700137e5afbd2ac3e43.jpg)
