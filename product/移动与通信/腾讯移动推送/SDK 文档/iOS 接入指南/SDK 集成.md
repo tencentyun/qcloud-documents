@@ -86,7 +86,6 @@
 					didReceiveNotificationResponse:(UNNotificationResponse *)response 
 					withCompletionHandler:(void (^)(void))completionHandler 
 					{
-							[[XGPush defaultManager] reportXGNotificationResponse:response];
 							completionHandler();
 		}
 
