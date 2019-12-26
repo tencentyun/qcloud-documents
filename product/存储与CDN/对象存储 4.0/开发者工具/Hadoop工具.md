@@ -1,6 +1,6 @@
 ## 功能说明
 
-Hadoop-COS 基于腾讯云对象存储COS 实现了标准的 Hadoop 文件系统，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持，使其能够跟访问 HDFS 文件系统时相同，读写存储在 COS 上的数据。
+Hadoop-COS 基于腾讯云对象存储 COS 实现了标准的 Hadoop 文件系统，可以为 Hadoop、Spark 以及 Tez 等大数据计算框架集成 COS 提供支持，使其能够跟访问 HDFS 文件系统时相同，读写存储在 COS 上的数据。
 
 Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 CosN 文件系统。
 
@@ -22,13 +22,10 @@ Hadoop-2.6.0及以上版本。
 
 #### 安装 Hadoop-COS 插件
 
-1. 将 dep 目录下的 hadoop-cos-X.X.X-shaded.jar*， 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
-
-> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
-
+1. 将 dep 目录下的`hadoop-cos-X.X.X-shaded.jar*`， 拷贝到`$HADOOP_HOME/share/hadoop/tools/lib`下。
+>?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 2. 修改 hadoop_env.sh 文件。
    进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
-
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
   if [ "$HADOOP_CLASSPATH" ]; then
@@ -48,7 +45,7 @@ done
 |               属性键                | 说明                                                         |                            默认值                            | 必填项 |
 | :---------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
 | fs.cosn.userinfo.secretId/secretKey | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
-|    fs.cosn.credentials.provider     | 配置 secret id 和 secret key 的获取方式。当前支持三种获取方式：1.org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`。<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 secret id 和 secret key。<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取。 | 如果不指定改配置项，默认会按照以下顺序读取：<br>1.org.apache.hadoop.fs.auth.SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider |   否   |
+|    fs.cosn.credentials.provider     | 配置 SecretId 和 SecretKey 的获取方式。当前支持三种获取方式：<br>1.org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`。<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey。<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取。 | 如果不指定改配置项，默认会按照以下顺序读取：<br>1.org.apache.hadoop.fs.auth.SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider |   否   |
 |            fs.cosn.impl             | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
 |   fs.AbstractFileSystem.cosn.impl   | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
 |        fs.cosn.bucket.region        | 请填写待访问 bucket 的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，例如	ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
@@ -63,8 +60,8 @@ done
 |    fs.cosn.read.ahead.queue.size    | 预读队列的长度。                                             |                              8                               |   否   |
 |         fs.cosn.maxRetries          | 访问 COS 出现错误时，最多重试的次数。                        |                              200                               |   否   |
 |   fs.cosn.retry.interval.seconds    | 每次重试的时间间隔。                                         |                              3                               |   否   |
-|fs.cosn.server-side-encryption.algorithm | 配置COS服务端加密算法，支持SSE-C和SSE-COS，默认为空，不加密 | 无| 否 |
-|fs.cosn.server-side-encryption.key | 当开启COS的SSE-C服务端加密算法时，必须配置SSE-C的密钥，密钥格式为base64编码的AES-256密钥，默认为空，不加密| 无 | 否|
+|fs.cosn.server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密 | 无| 否 |
+|fs.cosn.server-side-encryption.key | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密| 无 | 否|
 
 ### Hadoop 配置
 
@@ -197,11 +194,11 @@ done
 
 ### 服务端加密
 
-Hadoop-COS 默认不进行加密。Hadoop-COS 可通过在 $HADOOP_HOME/etc/hadoop/core-site.xml 中配置加密项支持服务端加密。Hadoop-COS 目前支持多种服务端加密方式：SSE-COS 和 SSE-C。用户可以自行选择合适的加密方式对存放到 COS 中的数据进行加密。
+Hadoop-COS 默认不进行加密。Hadoop-COS 可通过在`$HADOOP_HOME/etc/hadoop/core-site.xml`中配置加密项支持服务端加密。Hadoop-COS 目前支持多种服务端加密方式：SSE-COS 和 SSE-C。用户可以自行选择合适的加密方式对存放到 COS 中的数据进行加密。
 
 #### SSE-COS 加密
 
-SSE-COS：即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密钥和管理数据。当使用 Hadoop-COS 时，用户可以在 $HADOOP_HOME/etc/hadoop/core-site.xml 文件中，增加以下配置来进行实现 SSE-COS 加密。
+SSE-COS 加密即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密钥和管理数据。当使用 Hadoop-COS 时，用户可以在`$HADOOP_HOME/etc/hadoop/core-site.xml`文件中，增加以下配置来进行实现 SSE-COS 加密。
 
 ```shell
 <property>
@@ -213,7 +210,7 @@ SSE-COS：即 COS 托管密钥的服务端加密，由腾讯云 COS 托管主密
 
 #### SSE-C 加密
 
-SSE-C：即用户自定义密钥的服务端加密。加密密钥由用户自己提供，用户在上传对象时，COS 将使用用户提供的加密密钥对用户的数据进行 AES-256 加密。当使用 Hadoop-COS 时，用户可以在 $HADOOP_HOME/etc/hadoop/core-site.xml 文件中，增加以下配置来进行实现 SSE-C 加密。
+SSE-C 加密即用户自定义密钥的服务端加密。加密密钥由用户自己提供，用户在上传对象时，COS 将使用用户提供的加密密钥对用户的数据进行 AES-256 加密。当使用 Hadoop-COS 时，用户可以在`$HADOOP_HOME/etc/hadoop/core-site.xml`文件中，增加以下配置来进行实现 SSE-C 加密。
 
 ``` shell
 <property>
