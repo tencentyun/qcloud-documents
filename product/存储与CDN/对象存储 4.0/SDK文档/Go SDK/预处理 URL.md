@@ -23,6 +23,7 @@ func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, a
 
 #### 上传请求示例
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```go
 ak := "COS_SECRETID"
 sk := "COS_SECRETKEY"
@@ -67,6 +68,7 @@ if err != nil {
 
 #### 下载请求示例
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```go
 ak := "COS_SECRETID"
 sk := "COS_SECRETKEY"
