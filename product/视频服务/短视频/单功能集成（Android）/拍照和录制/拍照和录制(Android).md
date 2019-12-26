@@ -59,7 +59,6 @@ TXUGCRecord（位于 TXUGCRecord.java） 负责小视频的录制功能，我们
 TXUGCRecord mTXCameraRecord = TXUGCRecord.getInstance(this.getApplicationContext());
 mTXCameraRecord.setVideoRecordListener(this);					// 设置录制回调
 mVideoView = (TXCloudVideoView) findViewById(R.id.video_view);	// 准备一个预览摄像头画面的
-mVideoView.enableHardwareDecode(true);
 TXRecordCommon.TXUGCSimpleConfig param = new TXRecordCommon.TXUGCSimpleConfig();
 //param.videoQuality = TXRecordCommon.VIDEO_QUALITY_LOW;		// 360p
 //param.videoQuality = TXRecordCommon.VIDEO_QUALITY_MEDIUM;		// 540p

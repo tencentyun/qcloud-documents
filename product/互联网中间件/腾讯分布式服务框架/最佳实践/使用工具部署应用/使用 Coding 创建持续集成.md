@@ -17,7 +17,7 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 ## CODING 平台操作
 ### 步骤一：创建代码仓库并提交代码
 1. 登录 [CODING DevOps 控制台](https://console.cloud.tencent.com/coding)，进入示例项目。
-2. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo` )。
+2. 单击左侧导航栏【代码仓库】> 【代码浏览】，单击顶部导航栏，创建代码仓库（如 `provider-demo`）。
 ![](https://main.qcloudimg.com/raw/6080d4953c1c88265aed6021406e22c8.png)
 3. [下载](https://github.com/tencentyun/tsf-snippet) 演示工程源码，上传到 Coding 的 `provider-demo` 代码仓库中。
   ![](https://main.qcloudimg.com/raw/be8ddefc4dd61b61569d2317789937a2.png)
@@ -36,7 +36,7 @@ TSF 应用可以使用 CODING 构建持续集成方案。腾讯云 CODING 持续
 单击【变量与缓存】选项卡，输入环境变量：
 - PKG_VERSION：程序包/镜像版本号
 - TSF_GROUP_ID: TSF 平台的部署组 ID
-- TSF_APPLICATION_ID：TSF 平台的应用ID （仅适用于虚拟机应用部署）
+- TSF_APPLICATION_ID：TSF 平台的应用 ID （仅适用于虚拟机应用部署）
 - TSF_APPID：用户在腾讯云上的 APPID （仅适用于虚拟机应用部署）
 - TSF_STARTUP_PARAM：Java 应用启动参数，注意**不要**带上引号。（仅适用于虚拟机应用部署）
 

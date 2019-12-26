@@ -33,7 +33,7 @@ XML Python SDK 新增 CosConfig 对象来管理您访问 COS 的配置，您可�
 
 JSON Python SDK 的初始化方式如下：
 
-```
+```python
 secret_id = u'COS_SECRETID'      # 替换为用户的 secretId
 secret_key = u'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'sh'                # 替换为用户的 Region
@@ -43,7 +43,7 @@ cos_client = CosClient(appid, secret_id, secret_key, region=region)
 
 XML Python SDK 的初始化方式如下：
 
-```
+```python
 # appid 已在配置中移除,请在参数 Bucket 中带上 appid。Bucket 由 bucketname-appid 组成
 # 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
 # -*- coding=utf-8
@@ -75,7 +75,7 @@ XML Python SDK 存储桶名称由两部分组成：用户自定义字符串 和 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可登录腾讯云控制台后，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket ，请参考以下示例代码：
-```
+```python
 bucket = "examplebucket-1250000000"
 file_name = "test.txt"
 local_path = 'local.txt'
@@ -131,7 +131,7 @@ API 变化有以下四点：
 
 使用高级上传接口断点续传示例代码如下：
 
-```
+```python
 response = client.upload_file(
     Bucket='examplebucket-1250000000',
     LocalFilePath='local.txt',

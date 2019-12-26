@@ -46,11 +46,12 @@ XML SDK 存储桶名称由两部分组成：用户自定义字符串和 APPID，
 
 设置 Bucket，请参考以下示例代码：
 
+[//]: # (.cssg-snippet-put-bucket-complete)
 ```java
 COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
 // 采用了新的 region 名字，可用 region 的列表可以在官网文档中获取，也可以参考下面的 XML SDK 和 JSON SDK 的地域对照表
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
-COSClient cosclient = new COSClient(cred, clientConfig);
+COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶名称，格式为：BucketName-APPID
 String bucketName = "examplebucket-1250000000";
 
@@ -61,17 +62,17 @@ PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localF
 // 设置存储类型：标准存储（Standard）, 低频存储（Standard_IA）和归档存储（ARCHIVE）。默认是标准存储（Standard）
 putObjectRequest.setStorageClass(StorageClass.Standard_IA);
 try {
-	PutObjectResult putObjectResult = cosclient.putObject(putObjectRequest);
-	// putobjectResult 会返回文件的 etag
+    PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
+    // putobjectResult 会返回文件的 etag
     String etag = putObjectResult.getETag();
 } catch (CosServiceException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 } catch (CosClientException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
 
 // 关闭客户端
-cosclient.shutdown();
+cosClient.shutdown();
 ```
 
 **存储桶可用区域简称 Region**
@@ -100,7 +101,7 @@ XML SDK 的存储桶可用区域简称发生了变化，不同区域在 JSON SDK
 
 ```java
 ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
-COSClient cosclient = new COSClient(cred, clientConfig);
+COSClient cosClient = new COSClient(cred, clientConfig);
 ```
 
 **3. 更改 API**
@@ -115,6 +116,7 @@ API 主要有以下变化：
 例如：您上传了四个对象 `project/folder1/picture.jpg`、`project/folder2/text.txt`、`project/folder2/music.mp3`、`project/video.mp4`。
 在 Java SDK 中，您可以调用 listObjects 方法，指定 prefix 为`project/`和 delimiter 为`/`，调用返回对象的 getCommonPrefixes 方法， 获取到具有相同前缀的「目录」：
 
+[//]: # (.cssg-snippet-put-and-list-objects)
 ```java
 cosClient.putObject(bucketName, "project/folder1/picture.jpg", "content");
 cosClient.putObject(bucketName, "project/folder2/text.txt", "content");
@@ -134,15 +136,15 @@ for(;;) {
     // getCommonPrefixes + getObjectSummaries 返回条目数 <= maxKeys
     // 两次循环会输出 project/folder1/ 和 project/folder2/
     for(String prefix: objectListing.getCommonPrefixes()) {
-		System.out.println(prefix);
+        System.out.println(prefix);
     }
     // 两次循环会输出 project/video.mp4
     for(COSObjectSummary object: objectListing.getObjectSummaries()) {
-		System.out.println(object.getKey());
+        System.out.println(object.getKey());
     }
     // 判断是否还有条目
     if(!objectListing.isTruncated()) {
-		break;
+        break;
     }
     // 一次未获取完毕，以 nextMarker 作为下一次 listObjects 请求的 marker
     nextMarker = objectListing.getNextMarker();
@@ -161,8 +163,9 @@ for(;;) {
 
 使用`TransferManager`上传的示例代码：
 
+[//]: # (.cssg-snippet-transfer-upload-object-complete)
 ```java
-TransferManager transferManager = new TransferManager(cosclient, threadPool);
+TransferManager transferManager = new TransferManager(cosClient, threadPool);
 
 String key = "docs/exampleobject.doc";
 File localFile = new File("src/test/resources/len30M.txt");
@@ -187,7 +190,7 @@ try {
 }
 
 transferManager.shutdownNow();
-cosclient.shutdown();
+cosClient.shutdown();
 ```
 
 **3）签名算法不同**
