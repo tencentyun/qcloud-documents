@@ -4,7 +4,7 @@
 
 #### 新特性
 - 服务治理支持全局命名空间。
-- 新增 spring-cloud-tsf-gateway 微服务网关（zuul1版）SDK，基于此 SDK 二次研发，无缝集成 TSF 平台服务治理能力。
+- 新增 spring-cloud-tsf-gateway 微服务网关（zuul1 版）SDK，基于此 SDK 二次研发，无缝集成 TSF 平台服务治理能力。
 - 新增自定义日志配置需要的 Converter 和 Layout 类，支持用户使用自定义 logback\log4j\log4j2 日志配置。
 
 #### 优化
