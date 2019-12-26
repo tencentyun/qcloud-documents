@@ -1,6 +1,26 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.18.0-Greenwich-RELEASE（2019-12-25）
 
+### bug fix
+
+- spring-cloud-tsf-sleuth 修复JdbcDataSourceBeanPostProcessor NPE bug问题。
+- spring-cloud-tsf-consul-discovery 修复ConsulProperties中同时使用@Value 和 @ConfigurationProperties方式进行属性注入, 先后顺序导致的bug问题。
+- spring-cloud-tsf-sleuth 修复监控日志可能出现的NPE bug问题。
+
+
+### 新特性
+
+- 服务治理支持全局命名空间。
+- 新增自定义日志配置需要的Converter和Layout类，支持用户使用自定义logback\log4j\log4j2日志配置。
+
+### 优化
+
+- spring-cloud-tsf-sleuth 优化TraceStatementProxyHandler  JDBC代理过程内部异常处理逻辑: 非代理异常、非SDK产生的异常，直接抛出; 代理异常或SDK产生的异常，直接调用服务不经过调用链逻辑。
+
+#### 版本建议
+
+- 支持向后兼容，建议全量升级。
 
 ## 1.16.0-Greenwich-RELEASE（2019-11-5）
 
