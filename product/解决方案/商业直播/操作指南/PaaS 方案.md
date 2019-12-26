@@ -104,7 +104,6 @@
 | autoplay                  | Boolean     | false      | 否   | 是否自动播放                                                 |
 | autopause                 | Boolean     | true       | 否   | 页面跳转时是否自动暂停                                       |
 | sdkAppId                  | String      | ""         | 否   | IM 应用的 appid，如果不需要启用内置 IM，可以不填                |
-| ~~accountType~~           | String      | "not set"  | 否   | 账户类型，已废弃                                             |
 | userID                    | String      | "not set"  | 否   | 用户在 IM 内的唯一 ID                                           |
 | userSig                   | String      | "not set"  | 否   | 用户的 IM 登录签名，签名一般由服务端根据 IM 应用的公私钥生成     |
 | roomID                    | String      | "not set"  | 否   | 房间 ID                                                       |
@@ -141,7 +140,6 @@
 | mirror            | Boolean     | false      | 否   | 是否镜像反转                                                 |
 | autopush          | Boolean     | true       | 否   | 是否自动推流                                                 |
 | sdkAppId          | String      | ""         | 否   | IM 应用的 appid，如果不需要启用内置 IM，可以不填                |
-| ~~accountType~~   | String      | "not set"  | 否   | 账户类型，已废弃                                             |
 | userID            | String      | "not set"  | 否   | 用户在 IM 内的唯一 ID                                           |
 | userSig           | String      | "not set"  | 否   | 用户的 IM 登录签名，签名一般由服务端根据 IM 应用的公私钥生成     |
 | roomID            | String      | "not set"  | 否   | 房间 ID                                                       |
@@ -182,7 +180,7 @@ var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 ```
 
 ### 获取 live-room-push 组件实例
-同上。
+具体步骤同上 [获取 live-room-play 组件实例](#.E8.8E.B7.E5.8F.96-live-room-play-.E7.BB.84.E4.BB.B6.E5.AE.9E.E4.BE.8B)。
 
 ## 组件接口
 ### live-room-play 组件提供如下接口
