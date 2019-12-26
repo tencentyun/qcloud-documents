@@ -1,10 +1,9 @@
 ## 获取 Demo
 
 [Demo 下载地址 >>](https://github.com/tencentyun/tsf-simple-demo)
-
 - release/<版本号>：对应 Spring Cloud Edgware 系列的 Demo
 - release/<版本号>-finchley：对应 Spring Cloud Finchley 系列的 Demo
-- release/<版本号>-greenwich: 对应 Spring Cloud Greenwich 系列的 Demo
+- release/<版本号>-greenwich：对应 Spring Cloud Greenwich 系列的 Demo
 
 ![](https://main.qcloudimg.com/raw/3ceb421e4fc1ead076ff0686558ef865.png)
 
