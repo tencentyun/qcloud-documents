@@ -27,7 +27,7 @@ npm install cos-js-sdk-v5 --save
 ```
  >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
 >```
-># 切换 cnpm 源
+>// 切换 cnpm 源
 >npm config set registry http://r.cnpmjs.org/
 >```
  
@@ -59,7 +59,7 @@ npm install cos-wx-sdk-v5 --save
 ```
 >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
 >```
-># 切换 cnpm 源
+>// 切换 cnpm 源
 >npm config set registry http://r.cnpmjs.org/
 >```
 
