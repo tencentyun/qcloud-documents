@@ -3,7 +3,7 @@
 <span id="step1"></span>
 ## 步骤1：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
- >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](step2)。
+ >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
  >
 2. 单击【+添加新应用】。
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
@@ -58,7 +58,7 @@
   >
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
- ![](https://main.qcloudimg.com/raw/bfbe25b15b7aa1cc34be76d7388562aa.png)
+ ![](https://main.qcloudimg.com/raw/e7f6270bcbc68c51595371bd48c40af7.png)
 
 
 >!本文提到的获取 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -84,7 +84,8 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 //更新 pod 本地库
 pod setup
 ```
-2. 安装。
+
+2. 终端执行以下命令，安装依赖库。
 ```
 //iOS
 cd iOS/TUIKitDemo
@@ -93,11 +94,11 @@ pod install
 cd Mac/TUIKitDemo
 pod install
 ```
-3. 如果安装失败，运行以下命令更新本地的 CocoaPods 仓库列表
-```bash
+ 如果安装失败，执行以下命令更新本地的 CocoaPods 仓库列表。
+ ```bash
  pod repo update
 ```
-4. 编译运行：
+3. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 

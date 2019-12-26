@@ -5,19 +5,19 @@ ITRTCCloud @ TXLiteAVSDK。
 
 ### getTRTCShareInstance
 
-用于动态加载 dll 时，获取 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 对象指针。
+用于动态加载 dll 时，获取 ITRTCCloud 对象指针。
 ```
 LITEAV_API ITRTCCloud * getTRTCShareInstance()
 ```
 
 __返回__
 
-返回 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象的指针，delete ITRTCCloud\*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
+返回 ITRTCCloud 单例对象的指针，注意：delete ITRTCCloud*会编译错误，需要调用 destroyTRTCCloud 释放单例指针对象。
 
 
 ### destroyTRTCShareInstance
 
-释放 [ITRTCCloud](https://cloud.tencent.com/document/product/647/32269#itrtccloud) 单例对象。
+释放 ITRTCCloud 单例对象。
 ```
 LITEAV_API void destroyTRTCShareInstance()
 ```
@@ -54,7 +54,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) * | 事件回调指针。 |
+| callback | [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270) * | 事件回调指针。 |
 
 
 
@@ -105,7 +105,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32271#trtcroletype) | 目标角色。 |
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32271#trtcroletype) | 目标角色，默认为主播。 |
 
 __介绍__
 
@@ -175,7 +175,29 @@ void disconnectOtherRoom()
 
 __介绍__
 
-跨房通话的退出结果会通过 TRTCCloudCallback 中的 onDisconnectOtherRoom() 回调通知给您。
+跨房通话的退出结果会通过 TRTCCloudCallback 中的 onDisconnectOtherRoom() 回调通知您。
+
+
+### setDefaultStreamRecvMode
+
+设置音视频数据接收模式（需要在进房前设置才能生效）。
+```
+void setDefaultStreamRecvMode(bool autoRecvAudio, bool autoRecvVideo)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| autoRecvAudio | bool | true：自动接收音频数据；false：需要调用 muteRemoteAudio 进行请求或取消。默认值：true。 |
+| autoRecvVideo | bool | true：自动接收视频数据；false：需要调用 startRemoteView/stopRemoteView 进行请求或取消。默认值：true。 |
+
+__介绍__
+
+为实现进房秒开的绝佳体验，SDK 默认进房后自动接收音视频。即在您进房成功的同时，您将立刻收到远端所有用户的音视频数据。 若您没有调用 startRemoteView，视频数据将自动超时取消。 若您主要用于语音聊天等没有自动接收视频数据需求的场景，您可以根据实际需求选择接收模式。
+
+>?需要在进房前设置才能生效。
+
 
 
 
@@ -217,7 +239,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | bool | true：屏蔽；false：开启。 |
+| mute | bool | true：屏蔽；false：开启，默认值：false。 |
 
 __介绍__
 
@@ -352,7 +374,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTCVideoFillMode_Fit。 |
 
 
 ### setRemoteViewFillMode
@@ -367,7 +389,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTCVideoFillMode_Fit。 |
 
 
 ### setLocalViewRotation
@@ -381,7 +403,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度，默认值：TRTCVideoRotation0。 |
 
 
 ### setRemoteViewRotation
@@ -396,7 +418,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度。 |
+| rotation | TRTCVideoRotation | 支持 TRTCVideoRotation90 、 TRTCVideoRotation180 以及 TRTCVideoRotation270 旋转角度，默认值：TRTCVideoRotation0。 |
 
 
 ### setVideoEncoderRotation
@@ -410,7 +432,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度。 |
+| rotation | TRTCVideoRotation | 目前支持 TRTCVideoRotation0 和 TRTCVideoRotation180 旋转角度，默认值：TRTCVideoRotation0。 |
 
 
 ### setLocalViewMirror
@@ -438,7 +460,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | bool | 是否开启远端镜像, true：远端画面镜像；false：远端画面非镜像。默认值为 false。 |
+| mirror | bool | 是否开启远端镜像, true：远端画面镜像；false：远端画面非镜像。默认值：false。 |
 
 __介绍__
 
@@ -456,7 +478,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | bool | 是否开启小画面编码。 |
+| enable | bool | 是否开启小画面编码，默认值：false。 |
 | smallVideoParam | const [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32271#trtcvideoencparam) & | 小流的视频参数。 |
 
 __介绍__
@@ -479,7 +501,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户 ID。 |
-| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 视频流类型，即选择看大画面还是小画面。 |
+| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 视频流类型，即选择看大画面还是小画面，默认为 TRTCVideoStreamTypeBig。 |
 
 __介绍__
 
@@ -497,7 +519,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 默认观看大画面还是小画面。 |
+| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32271#trtcvideostreamtype) | 默认观看大画面还是小画面，默认为 TRTCVideoStreamTypeBig。 |
 
 __介绍__
 
@@ -544,7 +566,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | bool | true：屏蔽；false：开启。 |
+| mute | bool | true：屏蔽；false：开启，默认值：false。 |
 
 __介绍__
 
@@ -752,7 +774,7 @@ __介绍__
 
 ### getCurrentMicDeviceVolume
 
-获取当前麦克风设备音量。
+获取系统当前麦克风设备音量。
 ```
 uint32_t getCurrentMicDeviceVolume()
 ```
@@ -764,7 +786,7 @@ __返回__
 
 ### setCurrentMicDeviceVolume
 
-设置麦克风设备的音量。
+设置系统当前麦克风设备的音量。
 ```
 void setCurrentMicDeviceVolume(uint32_t volume)
 ```
@@ -842,7 +864,7 @@ __返回__
 
 扬声器音量，范围0 - 100。
 
->?查询的不是系统扬声器的音量大小。
+>?查询的是系统扬声器的音量大小。
 
 
 
@@ -859,7 +881,7 @@ __参数__
 |-----|-----|-----|
 | volume | uint32_t | 设置的扬声器音量，范围0 - 100。 |
 
->?设置的不是系统扬声器的音量大小。
+>?设置的是系统扬声器的音量大小。
 
 
 
@@ -965,7 +987,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | const char * | 用户的 ID。 |
-| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32271#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTCVideoFillMode_Fit。 |
 
 __介绍__
 
@@ -1111,7 +1133,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | bool | 是否启用。 |
+| enable | bool | 是否启用，默认值：false。 |
 
 __介绍__
 
@@ -1161,7 +1183,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | bool | 是否启用。 |
+| enable | bool | 是否启用，默认值：false。 |
 
 
 ### sendCustomAudioData
@@ -1490,7 +1512,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| effect | [TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32271#trtcaudioeffectparam) * | - |
+| effect | [TRTCAudioEffectParam](https://cloud.tencent.com/document/product/647/32271#trtcaudioeffectparam) * | 音效。 |
 
 __介绍__
 
@@ -1499,7 +1521,7 @@ __介绍__
 
 ### setAudioEffectVolume
 
-设置单个音效音量。
+设置音效音量。
 ```
 void setAudioEffectVolume(int effectId, int volume)
 ```
@@ -1509,7 +1531,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | effectId | int | 音效 ID。 |
-| volume | int | 取值范围：0 - 100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
 >?会覆盖通过 setAllAudioEffectsVolume 指定的整体音效音量。
 
@@ -1538,7 +1560,7 @@ void stopAllAudioEffects()
 
 ### setAllAudioEffectsVolume
 
-设置所有音效音量。
+设置所有音效的音量。
 ```
 void setAllAudioEffectsVolume(int volume)
 ```
@@ -1547,9 +1569,10 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | int | 取值范围：0 - 100。 |
+| volume | int | 音量大小，取值范围为0 - 100；默认值：100。 |
 
->?会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
+>?该操作会覆盖通过 setAudioEffectVolume 指定的单独音效音量。
+
 
 
 
@@ -1763,7 +1786,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32271#trtcloglevel) | 参见 TRTCLogLevel。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32271#trtcloglevel) | 参见 TRTCLogLevel，默认值：TRTCLogLevelNone。 |
 
 
 ### setConsoleEnabled
@@ -1777,7 +1800,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | bool | 指定是否启用。 |
+| enabled | bool | 指定是否启用，默认为禁止状态。 |
 
 
 ### setLogCompressEnabled
@@ -1791,7 +1814,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | bool | 指定是否启用。 |
+| enabled | bool | 指定是否启用，默认为禁止状态。 |
 
 __介绍__
 
@@ -1840,7 +1863,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| showType | int | 0：不显示；1：显示精简版；2：显示全量版。 |
+| showType | int | 0：不显示；1：显示精简版；2：显示全量版，默认为不显示。 |
 
 __介绍__
 

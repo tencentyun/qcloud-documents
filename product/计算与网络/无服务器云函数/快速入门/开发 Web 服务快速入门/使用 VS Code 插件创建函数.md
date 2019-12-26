@@ -37,8 +37,10 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 1. 单击左侧导航栏的<img src="https://main.qcloudimg.com/raw/4395057dfb3a8f4a92c90ba7dff9b1c1.png" style="margin:-3px 0;">，打开已安装好的 Tencent Serverless 插件。
 2. 单击创建一个腾讯云用户凭证。如下图所示：  
     ![Alt text](https://main.qcloudimg.com/raw/fca11ef6e54287f2ad400d34123872c9.png)
-3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE-scf-cli)。
+3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF)。
+已配置的账号信息将写入本地 `~/.tcli_config.ini` 文件，您也可以直接修改该文件中的账号信息，修改完成后需要重启 VS Code 配置才可生效。
 4. 为提升函数上传效率，您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+
 
 
 ### 创建函数
@@ -117,7 +119,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
                ENV_SECOND: env2
            Handler: index.main_handler
            MemorySize: 128
-           Runtime: Pythonn2.7
+           Runtime: Python2.7
            Timeout: 3
            Events:
                  hello_world_apigw:   #${FunctionName} + '_apigw'
@@ -128,8 +130,10 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
                              HttpMethod: ANY
 ```
 更多模板文件规范请参见 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。  
-2. 进入 Tencent Serverless 插件，单击击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
->!如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
+2. 进入 Tencent Serverless 插件，单击本地函数列表目标函数右侧的<img src="https://main.qcloudimg.com/raw/cfd7dc52f54c97eaee9025b85a4f9830.png" style="margin:-3px 0;">。如下图所示：
+>!
+>- 如果您的函数有使用第三方依赖，则需要将依赖包放至函数目录下然后执行上传。Python 依赖安装方法可 [参考此处](<https://cloud.tencent.com/developer/article/1443081>)。
+>- 如果在部署时提示 Role 不存在，请前往 SCF 控制台并参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 添加 Role。
 >
 ![](https://main.qcloudimg.com/raw/ead00bf5b5b4d879229badfdd64f9aac.png)         
 3. 函数上传完毕，单击云端函数右侧的<img src="https://main.qcloudimg.com/raw/6771f42abb5da560731e246810d71bf7.png" style="margin:-3px 0;">进行刷新，即可查看已上传的函数。（查看区域需切换到上传时选择的区域）如下图所示：   
@@ -168,7 +172,7 @@ Resources:
         Timeout: 3
 ```
 则目录层级及 `HELLO.ignore` 如下图所示：
-![](https://main.qcloudimg.com/raw/1c7a316c1d79215f0594fefc8d03e59e.png)
+![](https://main.qcloudimg.com/raw/de40696a30602be512c16fcc13965edc.png)
 完成配置后，最终上传会**忽略 testmodule 目录**和**当前路径下所有 md 文件**。
 
 
@@ -221,6 +225,13 @@ Resources:
 ![](https://main.qcloudimg.com/raw/6850e40bca71bfe7ca976004388294c8.png)
 更多关于配置告警请参见 [告警配置说明](https://cloud.tencent.com/document/product/583/30133)。  
 
+#### 切换账号
+如果您有多个账号，可按照以下步骤在 SCF 插件页中添加新账号并切换使用：
+1. 选择云端函数右侧的<img src="https://main.qcloudimg.com/raw/ae8b96f8ee48b4dc003cf8b5173e5b12.png" > > 【切换账号】。如下图所示：
+![](https://main.qcloudimg.com/raw/f2a93ff675883768ed326f7bd44353ee.png)
+2. 在弹出的菜单中选择【登录新用户】，输入对应信息完成配置，即可使用多用户。
+
+
 ## 常见问题  
 
 安装或使用过程中有遇到问题，可参考 [SCF 工具类常见问题](https://cloud.tencent.com/document/product/583/33456) 解决，您也可以通过 [欢迎交流](#welcome) 与我们联系。    
@@ -230,15 +241,15 @@ Resources:
 <span id="openCOS"></span>
 ### 设置开启 COS 上传
 1. 选择左下角的<img src="https://main.qcloudimg.com/raw/20fd46098cf037eb003dc41f1f913313.png" style="margin:-3px 0px;"/> >【Settings】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
-2. 在“Settings”页面，选择【Extensions】>【Scf】并勾选【Enable deployed by COS】。如下图所示：
-    ![](https://main.qcloudimg.com/raw/05ca88747213e5a102747683dc20233a.png)
+![](https://main.qcloudimg.com/raw/e9e1f63819d29d86d8f9cae9cbb9e31a.png)
+2. 在“Settings”页面，选择【Extensions】>【Tencent-SCF】并勾选【Enable deployed by COS】。如下图所示：
+![](https://main.qcloudimg.com/raw/438d40222bd6fcc481c890c052bb6865.png)
 
 
 <span id="pythonpath"></span>
 ### 设置 Python path
-如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Scf 设置即可。如下图所示：
-![](https://main.qcloudimg.com/raw/036d49a4388314a96880021b8a7aaff9.png)
+如果您有安装多个 Python 版本，可根据当前要调试的 runtime 将 Python 2 或 Python 3 的对应路径填入 Tencent-SCF 设置即可。如下图所示：
+![](https://main.qcloudimg.com/raw/69e0a4b6652799c1c5069b977346b551.png)
 
 
 

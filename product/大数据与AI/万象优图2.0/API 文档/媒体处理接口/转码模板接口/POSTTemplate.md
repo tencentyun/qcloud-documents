@@ -193,7 +193,7 @@ Container 类型 Video 的具体数据描述如下：
       <td>String</td>
       <td>否</td>
       <td>H.264</td>
-      <td>可选值为：H.264、H.265、GIF、WEBP
+      <td>可选值为：GIF、WEBP
       </td>
    </tr>
    <tr>

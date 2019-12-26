@@ -23,7 +23,7 @@ Authorization: <AuthorizationString>
 | topic_id     | string | query | 是       | 日志主题 ID                                    |
 | partition_id | int    | query | 是       | 消费的主题分区编号                             |
 | cursor       | string | query | 是       | 游标值，base64 编码，表示从当前位置开始读取数据 |
-| count        | int    | query | 是       | 单次消费的 LogGroup 个数，最多1000个           |
+| count        | int    | query | 是       | 单次消费的 LogGroup 个数，最多1000个（一个 LogGroup 会包含多条日志，LogGroup 定义参考 [上传结构化日志](https://cloud.tencent.com/document/product/614/16873) 文档）           |
 
 
 
@@ -45,7 +45,7 @@ x-cls-count: 10
 
 | Header名     | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| x-cls-cursor | 当前日志读取的游标位置，供下次继续消费使用                   |
+| x-cls-cursor | 游标值，base64 编码，表示下次从当前位置开始读取数据，供继续消费使用                  |
 | x-cls-count  | 当前请求返回的 LogGroup 个数（一个 LogGroup 会包含多条日志，LogGroup 定义参考 [上传结构化日志](https://cloud.tencent.com/document/product/614/16873) 文档） |
 
 #### 响应参数

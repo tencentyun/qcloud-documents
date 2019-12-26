@@ -42,8 +42,7 @@ TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
 内部原理上，播放器并不是直接把画面渲染到您提供的 view （示例代码中的 \_myView）上，而是在这个 view 之上创建一个用于 OpenGL 渲染的子视图（subView）。
 
 如果您要调整渲染画面的大小，只需要调整您所常见的 view 的大小和位置即可，SDK 会让视频画面跟着您的 view 的大小和位置进行实时的调整。
-
-![](https://main.qcloudimg.com/raw/b5b8a6a7679a6f701f6c43ffd6e8e4a1.png)
+ ![](https://main.qcloudimg.com/raw/39a02a8525a20fd861c69c42d2b3ab14.png)
  
 > **如何做动画？**
 > 针对 view 做动画是比较自由的，不过请注意此处动画所修改的目标属性应该是 transform 属性而不是 frame 属性。
@@ -89,8 +88,7 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 | RENDER_ROTATION_PORTRAIT | 正常播放（Home 键在画面正下方） | 
 | RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转270度（Home 键在画面正左方） | 
 
-![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
-
+![](https://main.qcloudimg.com/raw/f3c65504a98c38857ff3e78bcb6c9ae9.jpg)
 
 ### step 5：暂停播放
 对于直播播放而言，并没有真正意义上的暂停，所谓的直播暂停，只是**画面冻结**和**关闭声音**，而云端的视频源还在不断地更新着，所以当您调用 resume 的时候，会从最新的时间点开始播放，这是和点播对比的最大不同点（点播播放器的暂停和继续与播放本地视频文件时的表现相同）。
@@ -138,13 +136,11 @@ NSString* flvUrl = @"http://2157.liveplay.myqcloud.com/live/2157_xxxx.flv";
 
 ### step 8： 屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 iOS 的系统 API 来实现。
-
-![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
+![](https://main.qcloudimg.com/raw/d86e665e3fc709c07d170e2ab3e2a7ef.jpg)
 
 ### step 9： 截流录制
 截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如云点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
-
-![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
+![](https://main.qcloudimg.com/raw/4de11a9f9f82589c7effe3ad4bee2130.png)
 
 ```objectivec
 //如下代码用于展示直播播放场景下的录制功能
@@ -242,14 +238,15 @@ _config.maxAutoAdjustCacheTime = 5;
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [直播播放（播放防盗链）](https://cloud.tencent.com/document/product/267/7968#.E5.A6.82.E4.BD.95.E5.BC.80.E5.90.AF.E6.92.AD.E6.94.BE.E9.98.B2.E7.9B.97.E9.93.BE.EF.BC.9F)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
-![](https://main.qcloudimg.com/raw/521bdb80c4fedfe8c140d47793dd9013/bizid.png)
+![](https://main.qcloudimg.com/raw/59a26f25727430cc14c85c7dd8c5e231.png)
 如果您的防盗链地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34`。
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`。
 
+>?这里的防盗链计算要用推流防盗链Key
 
 
 - **播放类型需要指定 ACC**
@@ -342,7 +339,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 |	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
 |	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
 |	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位kbps|
+|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
 |	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为 0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 

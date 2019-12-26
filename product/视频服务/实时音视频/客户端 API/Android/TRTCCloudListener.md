@@ -54,7 +54,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 enterRoom() 接口执行进房操作后，会收到来自 SDK 的 onEnterRoom(result) 回调：
 - 如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位为毫秒（ms）。
 - 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
 
@@ -78,7 +78,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调通知到您。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 exitRoom() 接口会执行退出房间的相关逻辑，例如释放音视频设备资源和编解码器资源等。 待资源释放完毕，SDK 会通过 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调通知到您。
 如果您要再次调用 enterRoom() 或者切换到其他的音视频 SDK，请等待 [onExitRoom()](https://cloud.tencent.com/document/product/647/32265#onexitroom) 回调到来之后再执行相关操作。 否则可能会遇到音频设备被占用等各种异常问题。
 
 
@@ -98,7 +98,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/32265#onswitchrole) 事件回调。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 switchRole() 接口会切换主播和观众的角色，该操作会伴随一个线路切换的过程， 待 SDK 切换完成后，会抛出 [onSwitchRole()](https://cloud.tencent.com/document/product/647/32265#onswitchrole) 事件回调。
 
 
 ### onConnectOtherRoom
@@ -118,7 +118,7 @@ __参数__
 
 __介绍__
 
-调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 ConnectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32265#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 回调。
+调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 ConnectOtherRoom() 接口会将两个不同房间中的主播拉通视频通话，也就是所谓的“主播PK”功能。 调用者会收到 [onConnectOtherRoom()](https://cloud.tencent.com/document/product/647/32265#onconnectotherroom) 回调来获知跨房通话是否成功， 如果成功，两个房间中的所有用户都会收到 PK 主播的 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 回调。
 
 
 ### onDisConnectOtherRoom
@@ -131,11 +131,11 @@ void onDisConnectOtherRoom(final int errCode, final String errMsg)
 
 
 ## 成员事件回调
-### onUserEnter
+### onRemoteUserEnterRoom
 
-有用户（主播）加入当前房间。
+有用户加入当前房间。
 ```
-void onUserEnter(String userId)
+void onRemoteUserEnterRoom(String userId)
 ```
 
 __参数__
@@ -146,15 +146,19 @@ __参数__
 
 __介绍__
 
-没有开启音视频上行的观众在加入房间时不会触发该通知，只有开启音视频上行的主播加入房间时才会触发该通知。通知参数中 userId 对应的用户一定已开启声音或视频上行。
-如果要显示远程画面，更推荐监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 事件回调。
+出于性能方面的考虑，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL）：该场景下用户没有角色的区别，任何用户进入房间都会触发该通知。
+- 在线直播场景（TRTCCloudDef.TRTC_APP_SCENE_LIVE）：在线直播场景不限制观众的数量，如果任何用户进出都抛出回调会引起很大的性能损耗，所以该场景下只有主播进入房间时才会触发该通知，观众进入房间不会触发该通知。
+
+>?注意 onRemoteUserEnterRoom 和 onRemoteUserLeaveRoom 只适用于维护当前房间里的“成员列表”，如果需要显示远程画面，建议使用监听 [onUserVideoAvailable()](https://cloud.tencent.com/document/product/647/32265#onuservideoavailable) 事件回调。
 
 
-### onUserExit
 
-有用户（主播）离开当前房间。
+### onRemoteUserLeaveRoom
+
+有用户离开当前房间。
 ```
-void onUserExit(String userId, int reason)
+void onRemoteUserLeaveRoom(String userId, int reason)
 ```
 
 __参数__
@@ -162,7 +166,13 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 用户标识。 |
-| reason | int | 离开原因代码，区分用户是正常离开，还是由于网络断线等原因离开。 |
+| reason | int | 离开原因，0表示用户主动退出房间，1表示用户超时退出，2表示被踢出房间。 |
+
+__介绍__
+
+与 onRemoteUserEnterRoom 相对应，在两种不同的应用场景下，该通知的行为会有差别：
+- 视频通话场景（TRTCCloudDef.TRTC_APP_SCENE_VIDEOCALL）：该场景下用户没有角色的区别，任何用户的离开都会触发该通知。
+- 在线直播场景（TRTCCloudDef.TRTC_APP_SCENE_LIVE）：只有主播离开房间时才会触发该通知，观众离开房间不会触发该通知。
 
 
 ### onUserVideoAvailable
@@ -266,7 +276,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| streamType | int | 视频流类型，大画面还是小画面或辅流画面（屏幕分享）。 |
+| streamType | int | 视频流类型，大画面、小画面或辅流画面（屏幕分享）。 |
 
 __介绍__
 
@@ -283,6 +293,47 @@ void onSendFirstLocalAudioFrame()
 __介绍__
 
 SDK 会在 enterRoom() 并 startLocalAudio() 成功后开始麦克风采集，并将采集到的声音进行编码。 当 SDK 成功向云端送出第一帧音频数据后，会抛出这个回调事件。
+
+
+### onUserEnter
+
+废弃接口：有主播加入当前房间。
+```
+void onUserEnter(String userId)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户标识。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserEnterRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
+
+
+### onUserExit
+
+废弃接口： 有主播离开当前房间。
+```
+void onUserExit(String userId, int reason)
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户标识。 |
+| reason | int | 离开原因。 |
+
+__介绍__
+
+该回调接口可以被看作是 onRemoteUserLeaveRoom 的废弃版本，不推荐使用。请使用 onUserVideoAvailable 或 onRemoteUserEnterRoom 进行替代。
+
+>?该接口已被废弃，不推荐使用。
 
 
 
@@ -408,7 +459,7 @@ __参数__
 
 __介绍__
 
-您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
+您可以通过调用 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 enableAudioVolumeEvaluation 接口来开关这个回调或者设置它的触发间隔。 调用 enableAudioVolumeEvaluation 开启音量回调后，无论频道内是否有人说话，都会按设置的时间间隔调用这个回调; 如果没有人说话，则 userVolumes 为空，totalVolume 为0。
 
 >?userId 为 null 时表示自己的音量，userVolumes 内仅包含正在说话（音量不为0）的用户音量信息。
 
@@ -490,7 +541,7 @@ void onStartPublishCDNStream(int err, String errMsg)
 
 __介绍__
 
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 startPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 startPublishCDNStream() 接口。
 
 >?Start 回调如果成功，只能说明转推请求已经成功告知给腾讯云，如果目标 CDN 有异常，还是有可能会转推失败。
 
@@ -505,12 +556,12 @@ void onStopPublishCDNStream(int err, String errMsg)
 
 __介绍__
 
-对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 stopPublishCDNStream() 接口。
+对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 stopPublishCDNStream() 接口。
 
 
 ### onSetMixTranscodingConfig
 
-设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264#trtccloud) 中的 setMixTranscodingConfig() 接口。
+设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://cloud.tencent.com/document/product/647/32264) 中的 setMixTranscodingConfig() 接口。
 ```
 void onSetMixTranscodingConfig(int err, String errMsg)
 ```
@@ -558,7 +609,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 视频源的 userId，如果是本地视频回调（setLocalVideoRenderListener），该参数可以不用理会。 |
-| streamType | int | 视频流类型，例如是摄像头画面还是屏幕分享画面等等。 |
+| streamType | int | 视频流类型，例如是摄像头画面还是屏幕分享画面等。 |
 | frame | [TRTCCloudDef.TRTCVideoFrame](https://cloud.tencent.com/document/product/647/32266#trtcvideoframe) | 待渲染视频帧。 |
 
 

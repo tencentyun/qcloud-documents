@@ -1,5 +1,5 @@
 ## 使用非网站业务转发规则
-BGP 高防 IP 使用非网站业务转发规则时，源站需使用 toa 模块获取客户端的真实 IP。
+DDoS 高防 IP 使用非网站业务转发规则时，源站需使用 toa 模块获取客户端的真实 IP。
 业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，可以使用如下 TOA 的方案。在业务服务的 Linux 服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
 ### TOA 原理
@@ -142,7 +142,7 @@ rpm -hiv kernel-xxxx.rpm --force
 11. 重启，加载 toa 模块。
 
 ## 使用网站业务转发规则
-BGP 高防 IP 使用网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
+DDoS 高防 IP 使用网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
 X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可以识别通过代理等方式链接的客户端真正的 IP。
 格式为：
 `X-Forwareded-For：Client，proxy1，proxy2，proxy3……  `

@@ -20,7 +20,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 
 ### 客户端实现 APNs 推送
 
-客户端要实现接收 APNs 推送，需要实现4个部分：**向苹果后台请求 DeviceToken**、**登录 IM SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[即时通信 iOS IM SDK 离线推送集成](https://qcloud.com/course/detail/80)。
+客户端要实现接收 APNs 推送，需要实现4个部分：**向苹果后台请求 DeviceToken**、**登录 IM SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[即时通信 iOS IM SDK 离线推送集成](https://cloud.tencent.com/edu/learning/learn-1059-1112)。
 
 **向苹果后台请求 DeviceToken**：
 
@@ -163,7 +163,7 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 
 ### 多 App 支持
 
-对于需要多 App 互通的场景，可在多个 App 中写同一个 `SDKAppID`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在即时通信 IM 上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154#.E5.AE.A2.E6.88.B7.E7.AB.AF.E5.AE.9E.E7.8E.B0apns.E6.8E.A8.E9.80.81) 设置证书，并提供当前证书的编号。
+对于需要多 App 互通的场景，可在多个 App 中写同一个 `SDKAppID`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在即时通信 IM 上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154) 设置证书，并提供当前证书的编号。
 
 
 ## 推送声音

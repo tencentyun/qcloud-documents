@@ -29,7 +29,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### sharedInstance
 
-创建 [TRTCCloud](#trtccloud) 单例。
+创建 TRTCCloud 单例。
 ```
 + (instancetype)sharedInstance
 ```
@@ -37,7 +37,7 @@ SDK 默认会采用 Main Queue 作为驱动 TRTCCloudDelegate。如果您不指�
 
 ### destroySharedIntance
 
-销毁 [TRTCCloud](#trtccloud) 单例。
+销毁 TRTCCloud 单例。
 ```
 + (void)destroySharedIntance
 ```
@@ -61,7 +61,12 @@ __参数__
 
 __介绍__
 
-如果加入成功，您会收到来自 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onEnterRoom(result) 回调：如果加入成功，result 会是一个正数（result > 0），表示加入房间所消耗的时间，单位是毫秒（ms）。 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见 [错误码](https://cloud.tencent.com/document/product/647/32257)。
+如果加入成功，您会收到来自 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onEnterRoom(result) 回调:
+
+- 如果加入成功，result 会是一个正数（result > 0），表示加入房间的时间消耗，单位是毫秒（ms）。
+- 如果加入失败，result 会是一个负数（result < 0），表示进房失败的错误码。 进房失败的错误码含义请参见[错误码](https://cloud.tencent.com/document/product/647/32257)。
+
+
 
 >?不管进房是否成功，enterRoom 都必须与 exitRoom 配对使用，在调用 exitRoom 前再次调用 enterRoom 函数会导致不可预期的错误问题。
 
@@ -91,7 +96,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32261#trtcroletype) | 目标角色。 |
+| role | [TRTCRoleType](https://cloud.tencent.com/document/product/647/32261#trtcroletype) | 目标角色，默认为主播。 |
 
 __介绍__
 
@@ -139,7 +144,7 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 - userId：房间“001”中的主播 A 要跟房间“002”中的主播 B 连麦，主播 A 调用 connectOtherRoom() 时 userId 应指定为 B 的 userId。
 
 
-跨房通话的请求结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onConnectOtherRoom() 回调通知给您。
+跨房通话的请求结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onConnectOtherRoom() 回调通知给您。
 
 
 <pre>
@@ -162,7 +167,29 @@ TRTC 中两个不同音视频房间中的主播，可以通过“跨房通话”
 
 __介绍__
 
-跨房通话的退出结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onDisconnectOtherRoom() 回调通知给您。
+跨房通话的退出结果会通过 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onDisconnectOtherRoom() 回调通知给您。
+
+
+### setDefaultStreamRecvMode
+
+设置音视频数据接收模式（需要在进房前设置才能生效）。
+```
+- (void)setDefaultStreamRecvMode:(BOOL)autoRecvAudio video:(BOOL)autoRecvVideo
+```
+
+__参数__
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| autoRecvAudio | BOOL | YES：自动接收音频数据；NO：需要调用 muteRemoteAudio 进行请求或取消。默认值：YES。 |
+| autoRecvVideo | BOOL | YES：自动接收视频数据；NO：需要调用 startRemoteView/stopRemoteView 进行请求或取消。默认值：YES。 |
+
+__介绍__
+
+为实现进房秒开的绝佳体验，SDK 默认进房后自动接收音视频。即在您进房成功的同时，您将立刻收到远端所有用户的音视频数据。 若您没有调用 startRemoteView，视频数据将自动超时取消。 若您主要用于语音聊天等没有自动接收视频数据需求的场景，您可以根据实际需求选择接收模式。
+
+>?需要在进房前设置才能生效。
+
 
 
 
@@ -183,7 +210,7 @@ __参数__
 
 __介绍__
 
-当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
+当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### startLocalPreview
@@ -201,7 +228,7 @@ __参数__
 
 __介绍__
 
-在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263#trtcclouddelegate) 中的 onFirstVideoFrame(nil) 回调。
+在调用该方法前，可以先调用 setCurrentCameraDevice 选择使用 Mac 自带摄像头或外接摄像头。当开始渲染首帧摄像头画面时，您会收到 [TRTCCloudDelegate](https://cloud.tencent.com/document/product/647/32263) 中的 onFirstVideoFrame(nil) 回调。
 
 
 ### stopLocalPreview
@@ -223,7 +250,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | BOOL | YES：屏蔽；NO：开启。 |
+| mute | BOOL | YES：屏蔽；NO：开启，默认值：NO。 |
 
 __介绍__
 
@@ -386,7 +413,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 支持90、180以及270旋转角度。 |
+| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 支持90、180以及270旋转角度，默认值：TRTCVideoRotation_0。 |
 
 
 ### setRemoteViewRotation
@@ -401,7 +428,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户 ID。 |
-| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 支持90、180以及270旋转角度。 |
+| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 支持90、180以及270旋转角度，默认值：TRTCVideoRotation_0。 |
 
 
 ### setVideoEncoderRotation
@@ -415,7 +442,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 目前支持0和180两个旋转角度。 |
+| rotation | [TRTCVideoRotation](https://cloud.tencent.com/document/product/647/32261#trtcvideorotation) | 目前支持0和180两个旋转角度，默认值：TRTCVideoRotation_0。 |
 
 __介绍__
 
@@ -447,7 +474,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mirror | BOOL | 镜像模式，默认值为 YES。 |
+| mirror | BOOL | 镜像模式，默认值：YES。 |
 
 
 ### setVideoEncoderMirror
@@ -479,7 +506,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mode | [TRTCGSensorMode](https://cloud.tencent.com/document/product/647/32261#trtcgsensormode) | 重力感应模式，详情请参考 TRTCGSensorMode 的定义。 |
+| mode | [TRTCGSensorMode](https://cloud.tencent.com/document/product/647/32261#trtcgsensormode) | 重力感应模式，详情请参考 TRTCGSensorMode 的定义，默认值：TRTCGSensorMode_UIAutoLayout。 |
 
 
 ### enableEncSmallVideoStream
@@ -493,7 +520,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | 是否开启小画面编码。 |
+| enable | BOOL | 是否开启小画面编码，默认值：NO。 |
 | smallVideoEncParam | [TRTCVideoEncParam](https://cloud.tencent.com/document/product/647/32261#trtcvideoencparam) * | 小流的视频参数。 |
 
 __返回__
@@ -522,7 +549,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户 ID。 |
-| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，即选择看大画面或小画面。 |
+| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 视频流类型，即选择看大画面或小画面，默认为大画面。 |
 
 __介绍__
 
@@ -540,7 +567,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 默认观看大画面或小画面。 |
+| type | [TRTCVideoStreamType](https://cloud.tencent.com/document/product/647/32261#trtcvideostreamtype) | 默认观看大画面或小画面，默认为大画面。 |
 
 __介绍__
 
@@ -588,12 +615,12 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | BOOL | YES：屏蔽；NO：开启。 |
+| mute | BOOL | YES：屏蔽；NO：开启，默认值：NO。 |
 
 __介绍__
 
 当静音本地音频后，房间里的其它成员会收到 onUserAudioAvailable(NO) 回调通知。
-与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放，因此在对录制质量要求很高的场景中，建议选择 muteLocalAudio，从而录制出兼容性更好的 MP4 文件。
+与 stopLocalAudio 不同之处在于，muteLocalAudio 并不会停止发送音视频数据，而是继续发送码率极低的静音包。由于 MP4 等视频文件格式，对于音频的连续性是要求很高的，使用 stopLocalAudio 会导致录制出的 MP4 不易播放。因此在对录制质量要求很高的场景中，建议选择 muteLocalAudio，从而录制出兼容性更好的 MP4 文件。
 
 ### setAudioRoute
 
@@ -606,7 +633,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| route | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 音频路由，即声音由哪里输出（扬声器、听筒）。 |
+| route | [TRTCAudioRoute](https://cloud.tencent.com/document/product/647/32261#trtcaudioroute) | 音频路由，即声音由哪里输出（扬声器、听筒），默认值：TRTCAudioModeSpeakerphone。 |
 
 __介绍__
 
@@ -722,7 +749,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | YES：开启；NO：关闭。 |
+| enable | BOOL | YES：开启；NO：关闭，默认值：NO。 |
 
 __介绍__
 
@@ -787,7 +814,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | YES：开启；NO：关闭。 |
+| enable | BOOL | YES：开启；NO：关闭，默认值：NO。 |
 
 
 ### isCameraFocusPositionInPreviewSupported
@@ -831,7 +858,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | YES：开启；NO：关闭。 |
+| enable | BOOL | YES：开启；NO：关闭，默认值：YES。 |
 
 
 ### getCameraDevicesList
@@ -1023,11 +1050,28 @@ __返回__
 
 
 ## 美颜滤镜相关接口函数
+### getBeautyManager
+
+获取美颜管理对象。
+```
+- (TXBeautyManager *)getBeautyManager
+```
+
+__介绍__
+
+通过美颜管理，您可以使用以下功能：
+- 设置“美颜风格”、“美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”
+- 设置人脸挂件（素材）等动态效果
+- 添加美妆
+- 进行手势识别。
+
+
 ### setBeautyStyle
 
 设置美颜、美白以及红润效果级别。
 ```
-- (void)setBeautyStyle:(TRTCBeautyStyle)beautyStyle beautyLevel:(NSInteger)beautyLevel whitenessLevel:(NSInteger)whitenessLevel ruddinessLevel:(NSInteger)ruddinessLevel 
+- (void)setBeautyStyle:(TRTCBeautyStyle)beautyStyle beautyLevel:(NSInteger)beautyLevel whitenessLevel:(NSInteger)whitenessLevel ruddinessLevel:(NSInteger)ruddinessLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1100,14 +1144,14 @@ __介绍__
 - height：是不用设置的，SDK 内部会根据水印图片的宽高比自动计算一个合适的高度。
 
 
-例如，如果当前编码分辨率是540 × 960，rect 设置为（0.1，0.1，0.2，0.0）。那么水印的左上坐标点就是 (540 × 0.1，960 × 0.1)即 (54，96)，水印的宽度是 540 × 0.2 = 108px，高度自动计算。
+例如，如果当前编码分辨率是540 × 960，rect 设置为（0.1，0.1，0.2，0.0）。 那么水印的左上坐标点就是（540 × 0.1，960 × 0.1）即（54，96），水印的宽度是 540 × 0.2 = 108px，高度自动计算。
 
 
 ### setEyeScaleLevel
 
 设置大眼级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setEyeScaleLevel:(float)eyeScaleLevel 
+- (void)setEyeScaleLevel:(float)eyeScaleLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1121,7 +1165,7 @@ __参数__
 
 设置瘦脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setFaceScaleLevel:(float)faceScaleLevel 
+- (void)setFaceScaleLevel:(float)faceScaleLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1135,7 +1179,7 @@ __参数__
 
 设置V脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setFaceVLevel:(float)faceVLevel 
+- (void)setFaceVLevel:(float)faceVLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1149,7 +1193,7 @@ __参数__
 
 设置下巴拉伸或收缩（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setChinLevel:(float)chinLevel 
+- (void)setChinLevel:(float)chinLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1163,7 +1207,7 @@ __参数__
 
 设置短脸级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setFaceShortLevel:(float)faceShortlevel 
+- (void)setFaceShortLevel:(float)faceShortlevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1177,7 +1221,7 @@ __参数__
 
 设置瘦鼻级别（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setNoseSlimLevel:(float)noseSlimLevel 
+- (void)setNoseSlimLevel:(float)noseSlimLevel TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1198,7 +1242,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4，nil 表示关闭特效。 |
+| file | NSURL * | 视频文件路径。支持 MP4; nil 表示关闭特效。 |
 
 __介绍__
 
@@ -1209,7 +1253,7 @@ __介绍__
 
 选择使用哪一款 AI 动效挂件（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)selectMotionTmpl:(NSString *)tmplPath 
+- (void)selectMotionTmpl:(NSString *)tmplPath TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1223,7 +1267,7 @@ __参数__
 
 设置动效静音（商用企业版有效，其它版本设置此参数无效）。
 ```
-- (void)setMotionMute:(BOOL)motionMute 
+- (void)setMotionMute:(BOOL)motionMute TRTC_DEPRECAETD_BEAUTY_API
 ```
 
 __参数__
@@ -1287,7 +1331,7 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | NSString * | 用户的 ID。 |
-| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32261#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边）。 |
+| mode | [TRTCVideoFillMode](https://cloud.tencent.com/document/product/647/32261#trtcvideofillmode) | 填充（画面可能会被拉伸裁剪）或适应（画面可能会有黑边），默认值：TRTCVideoFillMode_Fit。 |
 
 __介绍__
 
@@ -1440,7 +1484,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | 是否启用。 |
+| enable | BOOL | 是否启用，默认值：NO。 |
 
 __介绍__
 
@@ -1546,7 +1590,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | BOOL | 是否启用, true：启用；false：关闭。 |
+| enable | BOOL | 是否启用, true：启用；false：关闭，默认值：NO。 |
 
 __介绍__
 
@@ -2037,7 +2081,7 @@ __介绍__
 >?关于旁路转推的注意事项：
 >- 默认只支持转推到腾讯云的 rtmp [推流地址](https://cloud.tencent.com/document/product/267/32720) 上，转推其他云的需求请通过工单联系我们。
 >- 调用该函数的用户，默认只会转推自己这一路画面到指定的 rtmp 推流地址上，因此通常需要配合 setMixTranscodingConfig 同时使用。
->- 在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能后， 房间里的每一路画面都有一路默认的腾讯云 CDN 地址，因此仅当您需要适配多家 CDN 服务商时，才需要关注该功能。
+>- 在实时音视频 [控制台](https://console.cloud.tencent.com/rav/) 中的功能配置页开启了“启动自动旁路直播”功能后，房间里的每一路画面都有一路默认的腾讯云 CDN 地址，因此仅当您需要适配多家 CDN 服务商时，才需要关注该功能。
 
 ### stopPublishCDNStream
 
@@ -2068,7 +2112,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 参见 TRTCLogLevel。 |
+| level | [TRTCLogLevel](https://cloud.tencent.com/document/product/647/32261#trtcloglevel) | 参见 TRTCLogLevel，默认值：TRTC_LOG_LEVEL_NULL。 |
 
 
 ### setConsoleEnabled
@@ -2082,7 +2126,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | BOOL | 指定是否启用。 |
+| enabled | BOOL | 指定是否启用，默认为禁止状态。 |
 
 
 ### setLogCompressEnabled
@@ -2096,7 +2140,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enabled | BOOL | 指定是否启用。 |
+| enabled | BOOL | 指定是否启用，默认为启动状态。 |
 
 __介绍__
 

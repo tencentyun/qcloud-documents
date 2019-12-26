@@ -28,7 +28,7 @@ spec:
 ```
 
 -  服务配置没有挂载到正确的位置
-  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录(可选)，拷贝到挂载路径`/opt/tsf/app_config`下面。
+  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录（可选），拷贝到挂载路径`/opt/tsf/app_config`下面。
   - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录（可选），如果没有，则需要修改。
   - 通用排查方法：
     1. 检查 pilot-agent 加载配置文件的绝对目录。
@@ -126,7 +126,7 @@ in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 curl http://127.0.0.1:15000/config_dump -o config.json
 ```
 
-通过 vi 打开 config.json 文件，并查找 in#8080#reporttimeb（本地 cluster，格式为 in#port#serviceName），查看配置中的服务地址(address)、端口(port_value）是否正确。
+通过 vi 打开 config.json 文件，并查找 in#8080#reporttimeb（本地 cluster，格式为 in#port#serviceName），查看配置中的服务地址（address）、端口（port_value）是否正确。
 健康检查信息 health_checks、熔断配置 circuit_breakers 是否正确。如果不正确，且确认服务没有被熔断，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 ```json
 "dynamic_active_clusters": [

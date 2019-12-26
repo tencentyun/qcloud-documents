@@ -79,7 +79,7 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。用�
    </tr>
    <tr>
       <td>smallFileExecutorNum</td>
-      <td>小文件并文度，默认值为64。<br>如果是通过外网来连接 COS，且带宽较小，请减小该并发度。</td>
+      <td>小文件并发度，默认值为64。<br>如果是通过外网来连接 COS，且带宽较小，请减小该并发度。</td>
    </tr>
    <tr>
       <td>executeTimeWindow</td>
