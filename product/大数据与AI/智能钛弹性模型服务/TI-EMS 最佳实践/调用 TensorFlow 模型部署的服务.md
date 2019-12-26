@@ -4,9 +4,9 @@
 
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)
->我们已经为您准备好了上述 inception 模型的 COS 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 COS 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹
+>我们已经为您准备好了上述 inception 模型的 COS 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 COS 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
 **2. 测试图片：** 
-**牛津花卉图片**我们已经为您准备好了测试数据集。您可以直接下载[花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)
+**牛津花卉图片**我们已经为您准备好了测试数据集。您可以直接下载 [花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)。
 **base64 编码**
 将上述测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flowers.json`为经过编码的测试图片数据，或者您可以直接下载已经编码完成的 JSON 文件 [flowers.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/flowers.json)，跳过该图片编码步骤，直接进行下一步。
 ### 步骤1：创建模型服务配置

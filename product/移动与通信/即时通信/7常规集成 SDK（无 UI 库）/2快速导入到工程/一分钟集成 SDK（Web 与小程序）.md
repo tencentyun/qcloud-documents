@@ -25,6 +25,11 @@ npm install tim-js-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
 npm install cos-js-sdk-v5 --save
 ```
+ >?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>```
+>// 切换 cnpm 源
+>npm config set registry http://r.cnpmjs.org/
+>```
  
  在项目脚本里引入模块。
 <pre>
@@ -52,6 +57,11 @@ npm install tim-wx-sdk --save
 // 发送图片、文件等消息需要的 COS SDK
 npm install cos-wx-sdk-v5 --save
 ```
+>?若同步依赖过程中出现问题，请切换 npm 源后再次重试。
+>```
+>// 切换 cnpm 源
+>npm config set registry http://r.cnpmjs.org/
+>```
 
  在项目脚本里引入模块，并初始化。
 <pre>
