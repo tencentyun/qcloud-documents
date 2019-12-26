@@ -29,7 +29,7 @@ pip install requests cos-python-sdk-v5
    - `applicationId`：应用 ID。在 【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，选择目标应用第一列的应用 ID（如`application-qab76pxv`）。
    - `pkg_version`：程序包版本，最长32个字符，支持 a-z、A-Z、0-9、横杠（-）、下划线（_）。  
    - `appId`：用户 APPID。在腾讯云控制台【[账号中心](https://console.cloud.tencent.com/developer)】>【账号信息】中获取 APPID（如`1300555551`)。
-   - `group_id`：部署组 ID。在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用 ID，进入详情页，在【部署组】标签页中获取部署组的 ID（如`group-gvk5pbdv`)。
+   - `group_id`：部署组 ID。在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用 ID，进入详情页，在【部署组】标签页中获取部署组的 ID（如`group-gvk5pbdv`）。
    - `startup_params`：启动参数。用户视情况可以自定义。
 ```Shell
 -Xms128m -Xmx512m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m
@@ -59,7 +59,7 @@ pip install tencentcloud-sdk-python
 5. 准备脚本参数，要严格保证参数顺序。  
    - `group_id`：部署组 ID。在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【应用管理】中，单击目标应用 ID，进入详情页，在【部署组】标签页中获取部署组的 ID（如`group-zvw397wa`）。
    - `tag_name`：镜像版本名称，如v1。
-  >!目前容器应用部署脚本只将 group_id和tag_name 作为参数，但实际上用户可以修改脚本，将其他字段（如JVM启动参数 JvmOpts 等）作为脚本参数，参考 [容器应用部署 API](https://cloud.tencent.com/document/product/649/36071)。
+  >!目前容器应用部署脚本只将 group_id和tag_name 作为参数，但实际上用户可以修改脚本，将其他字段（如 JVM 启动参数 JvmOpts 等）作为脚本参数，参考 [容器应用部署 API](https://cloud.tencent.com/document/product/649/36071)。
 6. 将以上参数按照顺序整理，并且加入第一步中用户自己的 docker build 、push 命令待用，格式如下：
 ```shell
 python2.7.14 upload_container_deploy.py group-zvw397wa v1
