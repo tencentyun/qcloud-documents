@@ -194,7 +194,7 @@ done
 
 ### 服务端加密
 
-Hadoop-COS 默认不进行加密。Hadoop-COS 可通过在`$HADOOP_HOME/etc/hadoop/core-site.xml`中配置加密项支持服务端加密。Hadoop-COS 目前支持多种服务端加密方式：SSE-COS 和 SSE-C。用户可以自行选择合适的加密方式对存放到 COS 中的数据进行加密。
+Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管密钥方式（SSE-COS）和用户自定义密钥方式（SSE-C），Hadoop-COS 的加密功能默认为关闭状态，用户可以选择开启，通过以下方式进行配置。
 
 #### SSE-COS 加密
 
