@@ -99,12 +99,12 @@
 	
 #### 相关代码
 - Logic：
-	   - TCUserInfoMgr：用户资料管理类，负责资料的存储和修改，并负责将操作同步到服务器，或者向服务器查询用户资料。	   
+	 - TCUserInfoMgr：用户资料管理类，负责资料的存储和修改，并负责将操作同步到服务器，或者向服务器查询用户资料。	   
 - UI：
-	   - TCEditUserInfoController：用户资料修改页面，可在此页面修改用户头像，昵称，性别信息。
-	   - TCUserInfoController：用户信息展示界面，在这里可以展示头像，昵称，用户 ID 信息。
-	   - TCUserInfoTableViewCell：用于绘制展示用户个人信息界面的 tableview。
-	   - TCEditUserInfoTableViewCell：用于绘制编辑个人信息页面的 tableview，用于可直接在此 tableview 内编辑个人信息。
+	 - TCEditUserInfoController：用户资料修改页面，可在此页面修改用户头像，昵称，性别信息。
+	 - TCUserInfoController：用户信息展示界面，在这里可以展示头像，昵称，用户 ID 信息。
+	 - TCUserInfoTableViewCell：用于绘制展示用户个人信息界面的 tableview。
+	 - TCEditUserInfoTableViewCell：用于绘制编辑个人信息页面的 tableview，用于可直接在此 tableview 内编辑个人信息。
 
 
   
