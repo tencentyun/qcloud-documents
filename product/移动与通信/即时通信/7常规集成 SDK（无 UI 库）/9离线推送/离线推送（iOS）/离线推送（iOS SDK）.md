@@ -188,10 +188,6 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
  *  Group 消息声音,不设置传入 nil
  */
 @property(nonatomic,retain) NSString * groupSound;
-/**
- *  Video 声音,不设置传入 nil
- */
-@property(nonatomic,retain) NSString * videoSound;
 @end
 @interface TIMManager : NSObject
 /**
@@ -215,7 +211,14 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 | succ | 成功回调 |
 | fail | 失败回调 |
 
-### 获取自己的推送声音
+其中 c2cSound 和 groupSound 的详细设置步骤如下：
+1，把音频文件集成到工程中，详情见下图所示：
+<img src="//main.qcloudimg.com/raw/c0aca90f7de2f67d815ddfcf13f9fcfc.png" width=480 />
+
+2，在登录成功后调用 `setToken` 接口设置 token 和 busiId 信息，成功后调用 `setAPNS` 接口设置音频文件信息，注意，这里只需要设置音频文件的文件名称（带后缀）即可，详情见下图所示：
+<img src="//main.qcloudimg.com/raw/76005ecd34b9cabf23536d77828f2de7.png" width=480 />
+
+### 获取自己的推送设置
 
 界面展示如果需要获取推送声音，可使用 `getAPNSConfig` 获取，此接口每次都从服务器同步数据，不会进行本地缓存。
 
