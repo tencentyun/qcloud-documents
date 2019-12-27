@@ -259,8 +259,10 @@ srcCosPath=/
 [migrateUpyun]
 # 从又拍迁移
 bucket=xxx
-accessKeyId=xxx           #又拍云操作员的 ID
-accessKeySecret=xxx       #又拍云操作员的密码
+#又拍云操作员的 ID
+accessKeyId=xxx
+#又拍云操作员的密码     
+accessKeySecret=xxx       
 prefix=
 
 #又拍云 sdk 限制，这个 proxy 会被设置成全局的 proxy
