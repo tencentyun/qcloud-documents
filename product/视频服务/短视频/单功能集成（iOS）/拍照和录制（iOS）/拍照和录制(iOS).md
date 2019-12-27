@@ -83,11 +83,11 @@
 ```
 
 ## 画面预览
-TXUGCRecord（位于 TXUGCRecord.h） 负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
+TXUGCRecord（位于 TXUGCRecord.h）负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
 ### 1. 启动预览
 ```objc
 TXUGCRecord *record = [TXUGCRecord sharedInstance];
-record.recordDelegate = self; //设置录制回调, 回调方法见TXUGCRecordListener
+record.recordDelegate = self; //设置录制回调, 回调方法见 TXUGCRecordListener
 
 //配置相机及启动预览
 TXUGCSimpleConfig * param = [[TXUGCSimpleConfig alloc] init];
@@ -109,7 +109,7 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 ### 2. 调整预览参数
 
-如果在相机启动后，可以通过以下方法修改:
+如果在相机启动后，可以通过以下方法修改：
 ```objc
 // 切换视频录制分辨率到540p
 [recorder setVideoResolution: VIDEO_RESOLUTION_540_960];
@@ -153,21 +153,19 @@ recorder.videoProcessDelegate = delegate;
 
 录制的过程和结果是通过 TXUGCRecordListener（位于 TXUGCRecordListener.h 中定义）协议进行回调：
 
-- onRecordProgress 用于反馈录制的进度，参数millisecond表示录制时长，单位毫秒:
+- onRecordProgress 用于反馈录制的进度，参数 millisecond 表示录制时长，单位毫秒。
 ```
   @optional
    (void)onRecordProgress:(NSInteger)milliSecond;
 ```
 
 - onRecordComplete 反馈录制的结果，TXRecordResult 的 retCode 和 descMsg 字段分别表示错误码和错误描述信息，videoPath 表示录制完成的小视频文件路径，coverImage 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
-
 ```
   @optional
    (void)onRecordComplete:(TXUGCRecordResult*)result;
 ```
 
-- onRecordEvent 录制事件回调预留的接口，暂未使用
-
+- onRecordEvent 录制事件回调预留的接口，暂未使用。
 ```
   @optional
    (void)onRecordEvent:(NSDictionary*)evt;
@@ -205,19 +203,19 @@ recorder.videoProcessDelegate = delegate;
 ### 3. 声音设置
 ```
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
-// 音量大小,1为正常音量,建议值为0~2,如果需要调大音量可以设置更大的值.
+// 音量大小,1为正常音量,建议值为0-2,如果需要调大音量可以设置更大的值.
 [recorder setMicVolume:volume];
 
-// 设置录制是否静音 参数isMute代表是否静音，默认不静音
+// 设置录制是否静音 参数 isMute 代表是否静音，默认不静音
 [recorder setMute:isMute];
 ```
 
 ## 拍照
 
 ```objc
-// 截图/拍照，startCameraSimplePreview或者startCameraCustomPreview 之后调用有效
+// 截图/拍照，startCameraSimplePreview 或者 startCameraCustomPreview 之后调用有效
 [recorder snapshot:^(UIImage *image) {
-    // image为截图结果
+    // image 为截图结果
 }];
 ```
 
@@ -227,8 +225,8 @@ recorder.videoProcessDelegate = delegate;
 ### 1. 水印效果
 ```objc
 // 设置全局水印
-// normalizationFrame : 水印相对于视频图像的归一化值，sdk内部会根据水印宽高比自动计算height
-// 例如视频图像大小为（540，960）  frame设置为（0.1，0.1，0.1, 0）
+// normalizationFrame : 水印相对于视频图像的归一化值，sdk 内部会根据水印宽高比自动计算 height
+// 例如视频图像大小为（540，960）  frame 设置为（0.1，0.1，0.1, 0）
 // 水印的实际像素坐标为
 // (540*0.1, 960*0.1, 540*0.1, 540*0.1*waterMarkImage.size.height / waterMarkImage.size.width）
 [recorder setWaterMark:waterMarkImage normalizationFrame:frame)
@@ -238,8 +236,8 @@ recorder.videoProcessDelegate = delegate;
 ```
 //设置风格滤镜
 // 设置颜色滤镜：浪漫、清新、唯美、粉嫩、怀旧...
-// filterImage : 指定滤镜用的颜色查找表。注意：一定要用png格式
-// demo用到的滤镜查找表图片位于FilterResource.bundle中
+// filterImage : 指定滤镜用的颜色查找表。注意：一定要用 png 格式
+// demo 用到的滤镜查找表图片位于 FilterResource.bundle 中
 [recorder setFilter:filterImage];
 
  // 用于设置滤镜的效果程度，从0到1，越大滤镜效果越明显，默认取值0.5
@@ -251,7 +249,7 @@ recorder.videoProcessDelegate = delegate;
 // mRightBitmap     右侧滤镜
 // rightIntensity  右侧滤镜强度
 // leftRadio       左侧图片占的比例大小
-// 可以此接口实现滑动切换滤镜的效果，详见demo。
+// 可以此接口实现滑动切换滤镜的效果，详见 demo。
 [recorder setFilter:leftFilterImgage leftIntensity:leftIntensity rightFilter:rightFilterImgage rightIntensity:rightIntensity leftRatio:leftRatio];
 ```
 
@@ -262,7 +260,7 @@ recorder.videoProcessDelegate = delegate;
 // typedef NS_ENUM(NSInteger, TXVideoBeautyStyle) {
 //    VIDOE_BEAUTY_STYLE_SMOOTH     = 0,    // 光滑
 //    VIDOE_BEAUTY_STYLE_NATURE     = 1,    // 自然
-//    VIDOE_BEAUTY_STYLE_PITU       = 2,    // pitu美颜, 需要购买商业版
+//    VIDOE_BEAUTY_STYLE_PITU       = 2,    // pitu 美颜, 需要购买商业版
 // };
 // 级别的范围为0-9 0为关闭， 1-9值越大，效果越明显
 [recorder setBeautyStyle:beautyStyle beautyLevel:beautyLevel whitenessLevel:whitenessLevel ruddinessLevel:ruddinessLevel];
