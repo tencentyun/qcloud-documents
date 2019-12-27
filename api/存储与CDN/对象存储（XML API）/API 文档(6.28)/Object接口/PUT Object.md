@@ -189,7 +189,41 @@ x-cos-request-id: NWQwY2EyNTNfN2JiMTJhMDlfNDM2ZF85OTA1****
 x-cos-server-side-encryption: AES256
 ```
 
-#### 案例四：使用服务端加密 SSE-C
+#### 案例四：使用服务端加密 SSE-KMS
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 25 Dec 2019 09:01:19 GMT
+Content-Type: image/jpeg
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+x-cos-server-side-encryption-context: eyJhdXRob3IiOiJmeXNudGlhbiIsImNvbXBhbnkiOiJUZW5jZW50In0=
+Content-Length: 13
+Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577264479;1577271679&q-key-time=1577264479;1577271679&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=e6974082ffeeadb5f462a30fe4f016bc7484****
+Connection: close
+
+[Object Content]
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: close
+Date: Wed, 25 Dec 2019 09:01:19 GMT
+ETag: "fa8a7921998a9b9ed489d7ad39d35c91"
+Server: tencent-cos
+x-cos-request-id: NWUwMzI1NWZfN2RjODJhMDlfMzUyMDhfMWZm****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+```
+
+#### 案例五：使用服务端加密 SSE-C
 
 #### 请求
 
@@ -223,7 +257,7 @@ x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
-#### 案例五：启用版本控制
+#### 案例六：启用版本控制
 
 #### 请求
 
@@ -253,7 +287,7 @@ x-cos-request-id: NWQwY2EyNWRfYThjMDBiMDlfMTA1MDlfYTQ1****
 x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
 ```
 
-#### 案例六：暂停版本控制
+#### 案例七：暂停版本控制
 
 #### 请求
 
@@ -282,7 +316,7 @@ Server: tencent-cos
 x-cos-request-id: NWQzN2M3YjBfN2ViMTJhMDlfYTkxMl9iY2Fj****
 ```
 
-#### 案例七：使用 chunked 传输编码分块传输
+#### 案例八：使用 chunked 传输编码分块传输
 
 本案例请求中使用 Transfer-Encoding: chunked 编码，案例描述的是 HTTP 请求中的原始数据，在使用过程中根据不同语言和库将有不同的调用方法，请开发者查阅语言和库的相关文档。
 
