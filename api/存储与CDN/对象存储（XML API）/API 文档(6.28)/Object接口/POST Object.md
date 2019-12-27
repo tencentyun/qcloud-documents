@@ -137,7 +137,9 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 | q-ak | 上文所述的 SecretId | 完全 | 是 |
 | q-sign-time | 上文所生成的 KeyTime | 完全 | 是 |
 
->! 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
+>! 
+>- “策略”（Policy）中限定的除 bucket 以外的字段都必须出现在表单字段中，例如限定了`{ "acl": "default" }`，那么表单中必须出现 acl 且值为 default。
+>- 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
 
 #### 4. 生成 SignKey
 
