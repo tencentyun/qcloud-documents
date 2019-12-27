@@ -269,23 +269,23 @@ UGC
 │   ├── VideoEditViewController (编辑主界面)
 │   ├── VideoEditor.xcassets (编辑界面图片资源)
 │   ├── VideoPasterViewController (贴纸编辑)
-│   ├── VideoTextViewController     (字幕编辑)
+│   ├── VideoTextViewController (字幕编辑)
 │   └── Views
 │       ├── BottomTabBar 编辑界面底部工具菜单
 │       ├── EffectSelectView 效果选择工具栏
 │       ├── FilterSettingView 编辑滤镜选择工具栏
-│       ├── MusicCollectionCell 音乐选择cell
+│       ├── MusicCollectionCell 音乐选择 cell
 │       ├── MusicMixView        背景音乐设置工具栏界面
 │       ├── PasterAddView       贴纸设置工具栏界面“贴纸选项”
 │       ├── PasterSelectView    贴纸选择界面
 │       ├── TXCVEFColorPalette  颜色板，用于给不同特效的时间线及按钮设定一个颜色
 │       ├── TextAddView         字幕添加界面
-│       ├── TextCollectionCell  字幕背景cell
+│       ├── TextCollectionCell  字幕背景 cell
 │       ├── TimeSelectView      字幕背设置工具栏界面
 │       ├── TransitionView      图片转场设置界面
 │       ├── VideoCutView        带缩略图的视频裁剪界面，包含了视频裁剪、按时间片段染色等功能
-│       ├── VideoPasterView     贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，用于VideoPasterViewController
-│       └── VideoRangeSlider    用于VideoCutView, 显示缩图、给时间段染色
+│       ├── VideoPasterView     贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，用于 VideoPasterViewController
+│       └── VideoRangeSlider    用于 VideoCutView, 显示缩图、给时间段染色
 ├── Join
 │   ├── VideoEditPrevController (视频拼接预览界面)
 │   ├── VideoJoiner.xcassets     (视频拼接图片资源)
@@ -297,7 +297,7 @@ UGC
 │   ├── VideoRecord.xcassets  (录制界面图片资源)
 │   ├── VideoRecordConfigViewController  (录制参数设置界面)
 │   └── VideoRecordViewController (录制界面)
-└── VideoLoading (用于从iCloud下载图片)
+└── VideoLoading (用于从 iCloud 下载图片)
 ```
 
 #### 使用到的公有模块
@@ -306,8 +306,8 @@ Demo 中使用到的公有模块及第三方库如下所示：
 ```
 Common
 ├── BeautySettingPanel (美颜设置控件)
-├── Catetory (UIKit扩展)
-├── ForEnterprise (商业版AI动效资源)
+├── Catetory (UIKit 扩展)
+├── ForEnterprise (商业版 AI 动效资源)
 ├── Resource
 │   ├── Common.xcassets (返回按钮等公用资源)
 │   └── Filter (滤镜资源包)
@@ -315,12 +315,12 @@ Common
 └── UGC (短视频各子模块的公有类)
 
 Third
-├── AFNetworking (HTTP网络封装，商业版用于下载动态贴纸资源)
-├── MBProgressHUD (界面Toast提示)
+├── AFNetworking (HTTP 网络封装，商业版用于下载动态贴纸资源)
+├── MBProgressHUD (界面 Toast 提示)
 ├── Masonry (自动布局)
 ├── QBImagePicker (图片选取)
 ├── V8HorizontalPickerView (水平滚动界面，用于编辑界面滤镜选则)
-└── ZipArchive  (zip封装，商业版中用于解压动态贴纸资源)
+└── ZipArchive (zip 封装，商业版中用于解压动态贴纸资源)
 ```
 
 
