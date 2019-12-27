@@ -15,11 +15,11 @@ COS Migration 是一个集成了 COS 数据迁移功能的一体化工具。通�
 >- 使用该工具上传同名文件，会覆盖较旧的同名文件，不支持校对是否存在同名文件的功能。
 
 ## 使用环境
-### 系统环境
+#### 系统环境
 Windows、Linux 和 macOS 系统。
 
-### 软件依赖
-- JDK 1.8 X64或以上，有关 JDK 的安装与配置请参阅 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+#### 软件依赖
+- JDK 1.8 X64或以上，有关 JDK 的安装与配置请参见 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
 ## 使用方法
 ### 1. 获取工具
@@ -259,7 +259,7 @@ srcCosPath=/
 [migrateUpyun]
 # 从又拍迁移
 bucket=xxx
-accessKeyId=xxx           #又拍云的用户 id
+accessKeyId=xxx           #又拍云的用户 ID
 accessKeySecret=xxx       #又拍云的密码
 prefix=
 
@@ -270,10 +270,10 @@ proxyPort=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|bucket|阿里云 OSS  Bucket 名称|
+|bucket|又拍云 Bucket 名称|
 |accessKeyId|替换为又拍云的用户 ID|
 |accessKeySecret| 替换为又拍云的密码|
-|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
+|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
 
