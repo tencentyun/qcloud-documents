@@ -9,12 +9,12 @@
 | `TXVideoEditer.h` | 视频编辑 |
 
 ## 使用说明
-视频编辑的基本使用流程如下
+视频编辑的基本使用流程如下：
 
-1. 设置视频路径
-2. 添加效果
-3. 生成视频到指定文件
-4. 监听生成事件
+1. 设置视频路径。
+2. 添加效果。
+3. 生成视频到指定文件。
+4. 监听生成事件。
 
 #### 示例
 ```
@@ -190,7 +190,6 @@ TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>
 ### 5. 美颜滤镜
 您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了多种滤镜选择，对应的滤镜资源在 Common/Resource/Filter/FilterResource.bundle 中，同时也可以设置自定义的滤镜。  
 设置滤镜的方法为：
-
 ```
 - (void) setFilter:(UIImage *)image;
 ```
@@ -226,7 +225,7 @@ UIImage *image = [UIImage imageNamed:@"watermark"];
 - (void) setTailWaterMark:(UIImage *)tailWaterMark normalizationFrame:(CGRect)normalizationFrame 
                           duration:(CGFloat)duration;
 ```  
-其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1，duration 为水印的持续时长
+其中 tailWaterMark 表示片尾水印图片，normalizationFrame 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为0 - 1，duration 为水印的持续时长。
 Demo 示例：设置水印在片尾中间，持续时间1s。
 
 ```
