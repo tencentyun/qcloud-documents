@@ -332,4 +332,4 @@ Third
 - [视频拼接](https://cloud.tencent.com/document/product/584/9370)
 - [视频上传](https://cloud.tencent.com/document/product/584/15534)
 - [视频播放](https://cloud.tencent.com/document/product/584/9372)
-- [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/13509)
+- [动效变脸（商业版）](https://cloud.tencent.com/document/product/584/13509)
