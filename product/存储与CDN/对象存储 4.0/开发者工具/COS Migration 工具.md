@@ -259,8 +259,8 @@ srcCosPath=/
 [migrateUpyun]
 # 从又拍迁移
 bucket=xxx
-accessKeyId=xxx           #又拍云的用户 ID
-accessKeySecret=xxx       #又拍云的密码
+accessKeyId=xxx           #又拍云操作员的 ID
+accessKeySecret=xxx       #又拍云操作员的密码
 prefix=
 
 #又拍云 sdk 限制，这个 proxy 会被设置成全局的 proxy
@@ -271,8 +271,8 @@ proxyPort=
 | 配置项 | 描述 |
 | ------| ------ |
 |bucket|又拍云 USS Bucket 名称|
-|accessKeyId|替换为又拍云的用户 ID|
-|accessKeySecret| 替换为又拍云的密码|
+|accessKeyId|替换为又拍云操作员的 ID|
+|accessKeySecret| 替换为又拍云操作员的密码|
 |prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
 |proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
 |proxyPort|代理的端口|
