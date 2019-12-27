@@ -79,6 +79,7 @@ type=migrateLocal
 | migrateQiniu| 从七牛迁移至 COS |
 | migrateUrl| 下载 URL 迁移到 COS |
 | migrateBucketCopy| 从源 Bucket 复制到目标 Bucket|
+|migrateUpyun  | 从又拍云迁移到 COS |
 
 #### 3.2 配置迁移任务
 用户根据实际的迁移需求进行相关配置，主要包括迁移至目标 COS 信息配置及迁移任务相关配置。
@@ -251,6 +252,30 @@ srcCosPath=/
 |srcSecretKey|源 Bucket 隶属的用户的密钥 secret_key，可在 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 查看。如果是同一用户的数据，则 srcSecretKey 和 common 中的 secretKey 相同，否则是跨账号 Bucket 拷贝|
 |srcCosPath|要迁移的 COS 路径，表示该路径下的文件要迁移至目标 Bucket|
 
+**3.3.7 配置又拍云数据源 migrateUpyun**
+若从又拍云迁移至 COS，则进行该部分配置，具体配置项及说明如下：
+
+```
+[migrateUpyun]
+# 从又拍迁移
+bucket=xxx
+accessKeyId=xxx           #又拍云的用户 id
+accessKeySecret=xxx       #又拍云的密码
+prefix=
+
+#又拍云 sdk 限制，这个 proxy 会被设置成全局的 proxy
+proxyHost=
+proxyPort=
+```
+
+| 配置项 | 描述 |
+| ------| ------ |
+|bucket|阿里云 OSS  Bucket 名称|
+|accessKeyId|替换为又拍云的用户 ID|
+|accessKeySecret| 替换为又拍云的密码|
+|prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据, 则 prefix 为空|
+|proxyHost|如果要使用代理进行访问，则填写代理 IP 地址|
+|proxyPort|代理的端口|
 
 ### 4. 运行迁移工具
 #### Windows
