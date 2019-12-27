@@ -270,7 +270,7 @@ proxyPort=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|bucket|又拍云 Bucket 名称|
+|bucket|又拍云 USS Bucket 名称|
 |accessKeyId|替换为又拍云的用户 ID|
 |accessKeySecret| 替换为又拍云的密码|
 |prefix|要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空|
