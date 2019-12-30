@@ -1,32 +1,24 @@
-## 微服务网关 JWT插件
+## JWT 原理
+JWT（JSON Web Token）本质是一个 Token，是一种紧凑的 URL 安全方法，用于在网络通信的双方之间传递声明。
+JWT 的原理是，客户端通过 JWT 认证服务器认证以后，会返回给客户端一个 JWT 令牌（Token），示例如下（真实长度会更长）：
+![](https://main.qcloudimg.com/raw/1c85a220f3e0f2543f93ec8b030774be.png)
+JWT 分为三部分：Header（头部）、Payload（负载）、Signature（签名），中间用点（`.`）分隔成三个部分。
+此后，客户端与服务端通信的时候，都要携带这个 JWT 令牌（Token）。微服务网关 JWT 插件凭此令牌（Token）来校验客户端权限，服务端就不再保存任何 session 数据，此时服务端变成无状态了，比较容易实现横向扩展
 
-### JWT原理
-
-JWT 的原理是，客户端通过JWT 认证服务器认证以后，会返回给客户端一个 JWT令牌（token），示例如下（真实长度会更长）。
-
-![image-20191224220239213](https://main.qcloudimg.com/raw/04292c3804c9d93eb7de66c72834e11f.png)
-
-JWT 分为三部分，Header（头部）、Payload（负载）、Signature（签名），中间用点（`.`）分隔成三个部分。
-
-此后，客户端与服务端通信的时候，都要携带这个JWT令牌（token）。微服务网关JWT插件凭此令牌（token）来校验客户端权限，服务端就不再保存任何 session 数据，此时服务端变成无状态了，比较容易实现横向扩展。
-
-#### Header
-
-Header 部分是一个 JSON 对象，描述 JWT 的元数据，示例如下。
-
+### Header
+Header 部分是一个 JSON 对象，描述 JWT 的元数据，示例如下：
 ```javascript
 {
    "alg": "HS256",
    "typ": "JWT"
 }
 ```
+- `alg`属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）。
+- `typ`属性表示这个令牌（token）的类型（type），JWT 令牌统一写为`JWT`。
 
-上面代码中，`alg`属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）；`typ`属性表示这个令牌（token）的类型（type），JWT 令牌统一写为`JWT`。
+最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，即为 JWT 令牌中的 Header 部分。
 
-最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，即为JWT 令牌中的Header 部分。
-
-#### Payload 
-
+### Payload 
 Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据，包括官方定义的字段和用户自定义字段。
 
 | 参数 | 英文全称 | 是否必选 | 说明 | 取值要求 |
@@ -43,7 +35,6 @@ Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据
 | azp | Authorized party | 否 | 结合 aud 使用。只有在被认证的一方和受众（sud）不一致时才使用此值，一般情况下很少使用。 | - |
 
 下面是一个典型数据格式的示例，供参考：
-
 ```json
 {
     "iss": "https://cloud.tencent.com/tsf/msgw/jwt",
@@ -59,10 +50,9 @@ Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据
     "email": "anaya@example.com"
 }
 ```
+最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，即为 JWT 令牌中的 Payload 部分。
 
-最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，即为JWT令牌中的Payload 部分。
-
-#### Signature
+### Signature
 
 Signature 部分是对前两部分的签名，防止数据篡改。
 
@@ -77,10 +67,9 @@ HMACSHA256(
 
 算出签名以后，把 Header、Payload、Signature 三个部分拼成一个字符串，每个部分之间用"点"（`.`）分隔，即为JWT 令牌（token），最后返回客户端。
 
-## 使用Java生成JWT令牌（token）
-
-1. 添加JWT的pom依赖。微服务网关使用 jose4j 来实现。在pom文件中添加依赖：
-
+## 使用 Java 生成 JWT 令牌（Token）
+1. 添加 JWT 的 pom 依赖。
+微服务网关使用 jose4j 来实现。在 pom 文件中添加以下依赖：
 ```xml
 <!-- jwt -->
 <dependency>
@@ -89,9 +78,7 @@ HMACSHA256(
     <version>0.6.5</version>
 </dependency>
 ```
-
-2. 编写生成令牌的Java代码。
-
+2. 编写生成令牌的 Java 代码。
 ```java
 // 下面省略了无关代码
 import org.jose4j.json.JsonUtil;
@@ -171,22 +158,14 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
 ```
 
 
-##  JWT插件配置
-
+##  JWT 插件配置方法
 ### 1. 新建插件
-
-微服务网关已经对外提供了 JWT认证功能，用户可在微服务网关->插件管理页面创建JWT类型插件。
-
-![image-20191224212651192](https://main.qcloudimg.com/raw/1612b0866f5b3658275d00dcd3979606.png)
-
-* 校验参数值：指用户存放JWT令牌（token）参数名称，例子中参数名为`token`。
-
-* 校验参数携带位置：指用户存放JWT令牌（token）的位置，目前支持Query和Header两种携带方式，例子中为Query方式。
-
-* 公钥对kid：密钥 ID（“kid”），用来标识此密钥。
-
-* 公钥对JSON串：公钥对，例子中值为：
-
+微服务网关已经对外提供了 JWT 认证功能，用户可在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【微服务网关】>【插件管理】页面创建 JWT 类型插件。
+![](https://main.qcloudimg.com/raw/c5a490b04b9168b1d2ee56b9df2e25a1.png)
+* 校验参数值：指用户存放 JWT 令牌（Token）参数名称，示例中参数名为`token`。
+* 校验参数携带位置：指用户存放 JWT 令牌（Token）的位置，目前支持 Query 和 Header 两种携带方式，示例中为 Query 方式。
+* 公钥对 kid：密钥 ID（“kid”），用来标识此密钥。
+* 公钥对 JSON 串：公钥对，示例中值为：
   ```json
   {
       "kty": "RSA",
@@ -195,9 +174,7 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
       "e": "AQAB"
   }
   ```
-
-* claim参数映射关系JSON：指JWT令牌（token）中claim携带的数据是否需要透传（可配置多组），例子中值为：
-
+* claim 参数映射关系 JSON：指 JWT 令牌（Token）中 claim 携带的数据是否需要透传（可配置多组），示例中值为：
   ```json
   [{
       "parameterName":"email",
@@ -205,11 +182,12 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
       "location":"header"
   }]
   ```
+该示例表示，将 claim 中参数为`email`的值，通过放入 HTTP header 透传给下游，并重新命名为`new_email`。
+ - `parameterName`属性表示 claim 数据中待透传参数的名称；
+ - `mappingParameterName` 属性表示需要转换的参数名称；
+ - `location`属性表示透传此值的位置。
+  
+### 2. 插件绑定对象  
+微服务网关插件通过绑定分组或API来生效。 
+![](https://main.qcloudimg.com/raw/0bfe7c09a5c98059a52e886ef8f4b8c2.png)
 
-  上面配置中，`parameterName`属性表示claim数据中待透传参数的名称，`mappingParameterName` 属性表示需要转换的参数名称，`location`属性表示透传此值的位置。例子意思为，将claim中参数为`email`的值，通过放入HTTP header透传给下游，并重新命名为`new_email`。
-  
-  ### 2. 插件绑定对象
-  
-  微服务网关插件通过绑定分组或API来生效。
-  
-  ![image-20191224215028558](https://main.qcloudimg.com/raw/e56119b18aa75514804e36fb550dfc34.png)
