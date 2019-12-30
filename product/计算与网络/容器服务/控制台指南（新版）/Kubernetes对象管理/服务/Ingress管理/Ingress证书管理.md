@@ -1,6 +1,5 @@
 ## 简介
-
-在创建 Ingress 选用 Https 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
+创建 Ingress 选用 Https 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
 
 - `kubernetes.io/ingress.http-rules`
 - `kubernetes.io/ingress.https-rules`
@@ -11,7 +10,7 @@
 
 - Ingress Annotation 中的 `qcloud_cert_id` 是只读的，可快速了解当前 Ingress 对应的证书 ID。
 - Secret 证书资源必须和 Ingress 资源放置在同一个 Namespace 下。
-- 由于控制台默认会创建同名 Secret 证书资源，所以当 Secret 资源已存在时，Ingress 将无法创建。
+- 由于控制台默认会创建同名 Secret 证书资源，若 Secret 资源已存在，Ingress 将无法创建。
 - 默认情况下，TKE Ingress 不会复用 Secret 资源。但 Secret 证书资源被允许复用于 Ingress ，需注意更新 Secret 的同时，会使所有 Ingress 的证书得到更新。 
 
 ## 操作步骤
@@ -24,12 +23,12 @@
 
 >?
 > -  当控制台创建的 Ingress 开启 Https 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
-> - 当控制台修改证书时，会修改当前 Ingress 对应的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会一起变更。
+> - 当控制台修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会一起变更。
 
 
 ### Kubectl 操作指引
 
-#### 配置证书并创建一个 Https 服务<span ID=“CreatingSecret”></span>
+#### 配置证书并创建一个 Https 服务<span id="CreatingSecret"></span>
 1. 创建 Secret 资源。
  - Base64 手动编码
 ```yaml
@@ -78,7 +77,7 @@ spec:
 
 #### 修改证书
 
-1. 执行以下命令，使用默认编辑器打开需要修改的 Secret。
+1. 执行以下命令，使用默认编辑器打开需修改的 Secret。
 ```
 kubectl edit secrets
 ```
@@ -86,8 +85,8 @@ kubectl edit secrets
 ```
 kubectl edit secrets tencent-com-cert
 ```
-2. 修改 Secret 资源，将 `qcloud_cert_id` 的值设置更新为新的证书 ID 。
->! 与创建 Secret 相同，修改 Secret 证书 ID 需要进行 Base64 编码，请根据实际需求选择 Base64 手动编码或者指定 `stringData` 进行Base64 自动编码。
+2. 修改 Secret 资源，将 `qcloud_cert_id` 的值修改为新的证书 ID。
+>! 与创建 Secret 相同，修改 Secret 证书 ID 需要进行 Base64 编码，请根据实际需求选择 Base64 手动编码或者指定 `stringData` 进行 Base64 自动编码。
 
 
 #### 混合规则配置
@@ -95,12 +94,12 @@ kubectl edit secrets tencent-com-cert
 TKE Ingress Controller 支持混合配置 Http/Https 规则，步骤如下：
 1. 开启混合规则
 将 `kubernetes.io/ingress.rule-mix` 设置为 True。
-当 Ingress 模板未配置 TLS 时，则不会提供证书资源，所有规则都将以 Http 服务暴露，上述注解将不会生效。
+当 Ingress 模板未配置 TLS 时，不会提供证书资源，所有规则都将以 Http 服务暴露，上述注解将不会生效。
 2. 规则匹配
 将 Ingress 中的每一条规则与 `kubernetes.io/ingress.http-rules` 、 `kubernetes.io/ingress.https-rules` 进行匹配并添加到对应规则集中。若 Ingress 中的规则未匹配，则默认添加到 Https 规则集中。
 3. 校验匹配项
-匹配时请注意校验 Host、Path、ServiceName、ServicePort（Host 默认为 `VIP`、Path 默认为 `/`）。
-注意 IPv6 的 CLB 不具备提供默认域名的功能。（链接到IPv6相关）
+匹配时请注意校验 Host、Path、ServiceName、ServicePort（其中 Host 默认为 `VIP`、Path 默认为 `/`）。
+请注意 [IPv6](https://cloud.tencent.com/document/product/1142/38134) 的 CLB 不具备提供默认域名的功能。
 
 #### YAML 示例
 
@@ -134,10 +133,10 @@ spec:
 - 是否能修改 Ingress 中的 `tls.secretName` ，指向另一个 Secret 资源？
 可以。新的 Secret 证书资源中指定的证书将很快得到同步到 Ingress 对应的 CLB 上。
 
-- 怎样获取证书 ID ？
+- 如何获取证书 ID ？
 登录 CLB 控制台，选择左侧导航栏中的 [【证书管理】](https://console.cloud.tencent.com/clb/cert)，在证书管理详情页进行获取。
 
-## 相关参考
+## 相关资料
 
 更多内容请参考 Kubenetes 官网文档 [Secret](https://kubernetes.io/zh/docs/concepts/configuration/secret/)。
 
