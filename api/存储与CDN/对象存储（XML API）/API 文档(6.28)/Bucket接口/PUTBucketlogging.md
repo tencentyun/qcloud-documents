@@ -3,7 +3,7 @@ PUT Bucket Logging 接口用于为源存储桶开启日志记录，将源存储�
 
 >!
 >- 只有源存储桶拥有者才可进行该请求操作。
->- 开启访问日志功能，需要授予日志服务（CLS）产品写入 COS 的权限，授权流程请参见 [使用 API](https://cloud.tencent.com/document/product/436/16920#.E5.90.AF.E7.94.A8.E6.97.A5.E5.BF.97.E7.AE.A1.E7.90.86)。
+>- 开启访问日志功能，需要授予日志服务（CLS）产品写入 COS 的权限，授权流程请参见 [启用日志管理](https://cloud.tencent.com/document/product/436/16920#.E5.90.AF.E7.94.A8.E6.97.A5.E5.BF.97.E7.AE.A1.E7.90.86)。
 
 ## 请求
 
