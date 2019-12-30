@@ -103,7 +103,7 @@ TKE Ingress Controller 支持混合配置 Http/Https 规则，步骤如下：
 
 #### YAML 示例
 
-请参照下述 YAML 示例开启混合规则，同时配置后端服务暴露 Http/Https 服务。
+请参照下述 YAML 示例开启混合规则，同时配置后端服务为暴露 Http/Https 服务。
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -131,10 +131,10 @@ spec:
 
 ## 常见问题
 - 是否能修改 Ingress 中的 `tls.secretName` ，指向另一个 Secret 资源？
-可以。新的 Secret 证书资源中指定的证书将很快得到同步到 Ingress 对应的 CLB 上。
+可以。更新后的 Secret 证书资源中指定的证书将很快同步到 Ingress 对应的 CLB。
 
-- 如何获取证书 ID ？
-登录 CLB 控制台，选择左侧导航栏中的 [【证书管理】](https://console.cloud.tencent.com/clb/cert)，在证书管理详情页进行获取。
+- 如何获取证书 ID？
+登录 CLB 控制台，选择左侧导航栏中的 [【证书管理】](https://console.cloud.tencent.com/clb/cert)，在“证书管理”页面获取。
 
 ## 相关资料
 
