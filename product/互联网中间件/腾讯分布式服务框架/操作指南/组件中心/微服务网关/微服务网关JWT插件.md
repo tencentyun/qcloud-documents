@@ -183,11 +183,11 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
   }]
   ```
 该示例表示，将 claim 中参数为`email`的值，通过放入 HTTP header 透传给下游，并重新命名为`new_email`。
- - `parameterName`属性表示 claim 数据中待透传参数的名称；
- - `mappingParameterName` 属性表示需要转换的参数名称；
+ - `parameterName`属性表示 claim 数据中待透传参数的名称。
+ - `mappingParameterName` 属性表示需要转换的参数名称。
  - `location`属性表示透传此值的位置。
   
 ### 2. 插件绑定对象  
-微服务网关插件通过绑定分组或API来生效。 
+微服务网关插件通过绑定分组或 API 来生效。 
 ![](https://main.qcloudimg.com/raw/0bfe7c09a5c98059a52e886ef8f4b8c2.png)
 
