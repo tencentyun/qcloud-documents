@@ -266,14 +266,14 @@ mLivePusher.resumePusher();
 通过 TXLivePushConfig 中的`setWatermark`接口可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由该接口函数的后三个参数决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.02f，0.25f，0.2f），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.2，水印高度会被自动计算）。
+- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.1，0.1，0.1），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```java
 //设置视频水印
 TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();
 //四个参数依次是水印图片的 Bitmap、水印位置的 X 轴坐标，水印位置的 Y 轴坐标，水印宽度。后面三个参数取值范围是[0, 1]
 Bitmap waterBmp = decodeResource(getResources(), R.drawable.filter_water);
-mLivePushConfig.setWatermark(waterBmp, 0.02f, 0.05f, 0.2f);
+mLivePushConfig.setWatermark(waterBmp, 0.1f, 0.1f, 0.1f);
 mLivePusher.setConfig(mLivePushConfig);
 ```
 

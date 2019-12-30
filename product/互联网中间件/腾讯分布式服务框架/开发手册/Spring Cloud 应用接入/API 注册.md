@@ -9,7 +9,7 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
 ### 1.15.0-`Series`-RELEASE 以及之后版本
 `Series` 代指 Edgware、Finchley、Greenwich。
 
-向工程中添加 `spring-cloud-tsf-starter` 依赖并开启 `@EnableTsf` 注解，参考文档 [快速入门](https://cloud.tencent.com/document/product/649/20261)。
+向工程中添加 `spring-cloud-tsf-starter` 依赖并开启 `@EnableTsf` 注解，详情请参考 [快速入门](https://cloud.tencent.com/document/product/649/20261) 文档。
 
 ### 1.15.0-Edgware-RELEASE/1.15.0-Finchley-RELEASE 之前版本
 
