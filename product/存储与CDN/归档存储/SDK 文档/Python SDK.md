@@ -294,7 +294,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 | 成员变量            | 变量类型   | 变量描述                                     |
 | --------------- | ------ | ---------------------------------------- |
 | id              | string | 任务的 ID                                    |
-| archive_id      | string | 在档案取回操作中请求的档案的 ID）                       |
+| archive_id      | string | 在档案取回操作中请求的档案的 ID                     |
 | archive_size    | int    | 档案取回任务请求的档案的大小                           |
 | archive_etag    | string | 档案取回操作的整个档案的 SHA256 树形哈希                   |
 | description     | string | 任务的描述                                    |
@@ -323,7 +323,7 @@ CasAPI 类是对低级接口的高层次抽象，类中的方法签名与 CASCli
 ##### 修改文件分块的大小
 
 方法签名：calc_part_size(size_total)
-方法说明：计算 size_total 大小的内容进行分段以后，每个分段的大小
+方法说明：计算 size_total 大小的内容进行分段以后，每个分段的大小。
 参数说明：
 
 | 参数名        | 类型     | 说明        | 必选   |
