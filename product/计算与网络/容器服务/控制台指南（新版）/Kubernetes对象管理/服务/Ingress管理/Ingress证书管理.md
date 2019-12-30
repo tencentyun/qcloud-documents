@@ -18,7 +18,7 @@
 ### 控制台使用证书操作指引
 
 1. 登录 CLB 控制台，选择左侧导航栏中的 [【证书管理】](https://console.cloud.tencent.com/clb/cert)，在“证书管理”页面新建证书。
-2. 参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 的完成 Ingress 新建。
+2. 参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建。
 其中监听端口勾选【Http:443】，并选择合适的服务器证书。
 
 >?
