@@ -2,9 +2,6 @@
 慢 SQL 分析对实例中慢 SQL 记录和执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、抽样、聚合。针对聚合后的 SQL 语句、执行计划、综合资源消耗、扫描和返回集合大小、索引使用合理性等，对慢 SQL 的性能进行分析，并给出优化建议。本文将介绍如何使用慢SQL分析对slow log进行优化。
 >?慢 SQL 分析目前仅支持云数据库 MySQL 实例。
 
-## 前提条件
-DBbrain 目前处于内测期间，如有需要，请提 [内测申请](https://cloud.tencent.com/apply/p/hf28d7bu4zw)。
-
 ## 操作步骤
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【慢 SQL 分析】页，【Slow Log】栏展示实例的慢查询数和 CPU 使用率，可调整时间范围查看任意时间段的慢 SQL 视图。若实例中有慢 SQL，视图中会显示慢 SQL 产生的时间点和个数。
 ![](https://main.qcloudimg.com/raw/f5b5e2d4015909294fe9acf68f12a649.png)
