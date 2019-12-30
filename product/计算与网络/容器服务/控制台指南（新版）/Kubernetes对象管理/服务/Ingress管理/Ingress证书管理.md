@@ -30,7 +30,7 @@
 
 #### 配置证书并创建一个 Https 服务<span id="CreatingSecret"></span>
 1. 创建 Secret 资源。
- - Base64 手动编码
+ - Base64 手动编码。YAML 示例如下：
 ```yaml
 apiVersion: v1
 data:
