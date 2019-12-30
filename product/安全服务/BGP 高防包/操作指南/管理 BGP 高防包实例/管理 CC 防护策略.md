@@ -33,4 +33,5 @@ DDoS 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超�
 		-    当选择【限速模式】时，对每个源 IP 访问进行限速处理。只允许设置1个策略条件。
 ![](https://main.qcloudimg.com/raw/4722af1ff5b4eed7da5448d09a18f1f0.png)
 
-1. 单击【URL 白名单】、【IP 白名单】或【IP 黑名单】页签，进行黑白名单配置，支持添加、删除。
+5. 单击【URL 白名单】、【IP 白名单】或【IP 黑名单】页签，进行黑白名单配置，支持添加、删除。
+>?DDoS 高防包添加 URL 白名单时，可以带 HTTP 协议头信息，也可以不用带 HTTP 协议头信息，但 DDoS 高防包仅支持 HTTP 协议。例如可以填写 `http://test.com/index.php`或`www.test.com/index.php`。
