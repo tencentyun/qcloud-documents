@@ -8,7 +8,7 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
->!同一条生命周期规则中不可同时支持过期删除和降冷操作，即同一个 Rule 中不支持同时传入 Expiration 和 Transition 参数；过期删除和降冷操作请分成两条规则分别传入，具体请参见如下 [实际案例](https://cloud.tencent.com/document/product/436/8280#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
+>!同一条生命周期规则中不可同时支持过期删除和降冷操作，即同一个 Rule 中不支持同时传入 Expiration 和 Transition 参数；过期删除和降冷操作请分成两条规则分别传入，具体请参见下文 [实际案例](#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
 
 ## 请求
 #### 请求示例
