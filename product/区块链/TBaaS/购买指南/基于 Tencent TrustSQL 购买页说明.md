@@ -1,5 +1,5 @@
 ## 操作场景
-本文档指导用户创建 FISCO BCOS 引擎下的区块链网络。
+本文档指导用户创建 Tencent TrustSQL 引擎下的区块链网络。
 
 ## 前提条件
 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
@@ -9,7 +9,7 @@
 ![](https://main.qcloudimg.com/raw/000b120c8a3f90660ca3c1a52be8772e.png)
 2. 单击【新建】，进入“区块链服务TBaaS-TrustSQL”购买页。
 3. 请按照页面提示填写基本信息及节点配置，单击【立即购买】即可成功创建一个区块链网络。如下图所示：
-![](https://main.qcloudimg.com/raw/94dd1e4d7e221e1a28c5047fae53dc2a.png)
+![](https://main.qcloudimg.com/raw/156480f04bca69ebcc4ba0aadb0ff0f4.png)
 主要参数信息如下：
  - **联盟**：选择所属联盟。区块链网络购买成功后，所属联盟不能更换。
  - **区块链网络名称**：长度为4 - 60个字符，不可重复。
