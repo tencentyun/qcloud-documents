@@ -10,7 +10,7 @@ GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至�
 
 #### 归档存储类型
 
-如果该 GET 请求操作的对象为**归档（ARCHIVE）存储类型**且没有使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 进行恢复（或恢复后的副本已被过期删除），那么该请求将返回 HTTP 响应码403（Forbidden），同时在响应体中包含错误信息，其中错误码（Code）为 InvalidObjectState，表示对象的当前状态无法被 GET 请求操作，需要首先经过恢复。
+如果该 GET 请求操作的对象为**归档（ARCHIVE）存储类型**，且没有使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 进行恢复（或恢复后的副本已被过期删除），那么该请求将返回 HTTP 响应码403（Forbidden），同时在响应体中包含错误信息，其中错误码（Code）为 InvalidObjectState，表示对象的当前状态无法被 GET 请求操作，需要先经过恢复。
 
 ## 请求
 
