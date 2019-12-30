@@ -30,10 +30,10 @@ DDoS 高防包支持 CC 防护功能，当高防包统计的 HTTP 请求量超�
 		-    当选择【匹配模式】时，支持从 HTTP 报文的 host 参数、CGI 参数、Referer 和 User-Agent 等多个特征进行组合，组合逻辑包括包含、不包含和等于。最多可以设置4个策略条件进行特征控制，字段描述如下：
 		<table>
 		<tr><th>匹配字段</th><th>字段描述</th><th>适用的逻辑符</th></tr>
-		<tr><td>host</td><td>访问请求的域名。</td><td>包含、不包含、等于</td></tr>
-		<tr><td>CGI</td><td>访问请求的 URL 地址。</td><td>包含、不包含、等于</td></tr>
-		<tr><td>Referer</td><td>访问请求的来源网址，表示该访问请求是从哪个页面跳转产生的。</td><td>包含、不包含、等于</td></tr>
-		<tr><td>User-Agent</td><td>发起访问请求的客户端浏览器标识等相关信息。</td><td>包含、不包含、等于</td></tr>
+		<tr><td>host</td><td>访问请求的域名。</td><td>包含、不包含、等于。</td></tr>
+		<tr><td>CGI</td><td>访问请求的 URL 地址。</td><td>包含、不包含、等于。</td></tr>
+		<tr><td>Referer</td><td>访问请求的来源网址，表示该访问请求是从哪个页面跳转产生的。</td><td>包含、不包含、等于。</td></tr>
+		<tr><td>User-Agent</td><td>发起访问请求的客户端浏览器标识等相关信息。</td><td>包含、不包含、等于。</td></tr>
 		</table>
 		- 当选择【限速模式】时，对每个源 IP 访问进行限速处理。只允许设置1个策略条件。
 ![](https://main.qcloudimg.com/raw/35cdb14d297b741c897d5350dc1a1443.png)
