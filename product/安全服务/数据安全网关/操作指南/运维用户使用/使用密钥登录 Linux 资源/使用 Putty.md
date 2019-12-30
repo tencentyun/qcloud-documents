@@ -24,7 +24,7 @@
  <img src="https://main.qcloudimg.com/raw/e0b3f575f35421d93807821542466a2e.png"  width="70%">
  - 方式2：运行 PuTTY 安装目录下 pageant.exe， 选择【Add Key】，将私钥导入该服务。
 <img src="https://main.qcloudimg.com/raw/d63caf6d5ea167baf5b5aea06075a0c4.png"  width="70%"> 
->?pageant 程序导入的私钥需使用特定格式的文件，其他格式文件会出现错误，如需转换格式请参见 [格式转换](#step4)。）
+>?pageant 程序导入的私钥需使用特定格式的文件，其他格式文件会出现错误，如需转换格式请参见 [格式转换](#step4)。
 4. 至此，您就可以使用 Putty 实现密钥直连登录。
 
 ### 步骤3：实现密钥单点登录
