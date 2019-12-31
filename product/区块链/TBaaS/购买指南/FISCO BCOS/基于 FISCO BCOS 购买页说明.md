@@ -5,7 +5,7 @@
 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
 
 ## 操作步骤
-1. 在 [TBaaS 购买页]()，单击 FISCO BCOS 中的【立即购买】进入 “[区块链服务TBaaS-BCOS](https://buy.cloud.tencent.com/tbaas_blockchain?engine=1)” 购买页。
+1. 在 [TBaaS 购买页](https://cloud.tencent.com/product/tbaas)，单击 FISCO BCOS 中的【立即购买】进入 “[区块链服务TBaaS-BCOS](https://buy.cloud.tencent.com/tbaas_blockchain?engine=1)” 购买页。
 2. 请按照页面提示填写基本信息、组织与节点配置，单击【立即购买】即可成功创建一个区块链网络。如下图所示：
 ![](https://main.qcloudimg.com/raw/ee098e87339360f15fdc8320e9e53214.png)
 主要参数信息如下：
