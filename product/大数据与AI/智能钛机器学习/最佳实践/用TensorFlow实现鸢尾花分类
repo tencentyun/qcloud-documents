@@ -1,7 +1,7 @@
 ## 案例背景
 智能钛机器学习平台的 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至框架进行算法训练。
 
-本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒，训练完成后您可进行模型服务部署和在线测试。
+本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒。
 
 ## 数据集介绍
 本案例代码修改自 Tensorflow [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
@@ -17,7 +17,6 @@ SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 1.数据与代码准备。
 2.利用 TensorFlow 框架搭建分类模型。
 3.运行自定义代码及评估效果查看。
-4.模型部署及在线测试。
 工作流示意图如下：
 ![](https://main.qcloudimg.com/raw/4b326182a9123aad246122ec0f747e57.png)
 
@@ -161,7 +160,6 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - NumPy 1.14.0
 
 1. 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
-![](https://main.qcloudimg.com/raw/abf4a19d08cea703419b41025b754e09.png)
 2. 单击该组件，在右侧弹窗中配置组件参数和资源参数。
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
  - 程序脚本：
@@ -183,48 +181,14 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - TensorBoard 目录：指定 Tensorboard 保存路径。本案例此处无需填写。
  - 程序依赖：指定存储于cos上的依赖文件的路径，指定内容将被拷贝到程序脚本同一级目录下。本案例此处无需填写。
  - Python 版本：3.5
- - GPUs：深度学习网络用到了 GPU 资源， 可以极大地提高训练速度。 单击该选项，在对话框中选择合适的显卡型号和数量，此处默认0。
- - CPUs：1
- - Memory（m）：2560
+ - 资源类型：TI.GN10X.2XLARGE40.1xV100
 
 #### 三、运行调度及评估效果查看
-单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。运行成功后在组件上右击，单击【日志信息】>【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。
+单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。运行成功后在组件上右击，在【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。
 在 stdout.log 日志中我们可以看到模型效果。
-![](https://main.qcloudimg.com/raw/a269a0e1e098e3a5b1512cf17d0c5cd0.png)
 模型效果如下图展示：
 ![](https://main.qcloudimg.com/raw/715f546ff695d3965ec4e5f69d0e6a9a.png)
-#### 四、模型部署及在线预测
-智能钛平台支持 TensorFlow 的模型部署，用户在 TensorFlow 代码中生成模型后，可在模型仓库页面进行部署。
-1.模型导入
-前往【模型仓库】页面，单击【导入模型】。
-![](https://main.qcloudimg.com/raw/6cda4c3e323a7f56241dd3bd734ddd31.png)
-按照页面弹窗提示输入所需要的信息。
-![](https://main.qcloudimg.com/raw/7a95ca361dce64a33543add01b6cd7e0.png)
 
- - COS 路径：模型导入需要上传 .pmml/.pb/.zip 格式的文件，TensorFlow 的模型文件储存在 COS 中，我们在 COS 存储桶中找到此前创建的【tf_model】文件夹，将其中的两个模型文件下载并压缩成 .zip 格式，单击【本地上传】。
- - 模型名称：tfmodel
-![](https://main.qcloudimg.com/raw/e83ebfa2a6f156e6c8eff4498f4b223a.png)
-成功导入后，模型将在【模型服务】中展示。
+至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码的全部流程。
 
-2. 模型部署
-进入 【模型仓库】页面，单击【部署】。在弹框中进行模型部署设置。
-![](https://main.qcloudimg.com/raw/aaf4ca57b9dbf21e65d8aaa3470db9e4.png)
 
-模型部署配置如下：
- - 模型服务名称：tfmodel
- - 运行环境：tfserving/1.12
- - 其他参数可默认
-![](https://main.qcloudimg.com/raw/3af56bd71a1be7441e6796508ec3030f.png)
-  
-3. 在线测试
-模型部署完成后，可以在【模型服务】页面进行查看和在线测试。在此模型的【操作】栏中选择【更多】>【测试】。
-![](https://main.qcloudimg.com/raw/109ce64e70d741c304df689d25ac3a68.png)
-
-测试方法选择【JSON】，输入符合规范的 json 代码即可在线预测。
-
-我们已为您准备好了如下测试案例，输入鸢尾花的四个特征，预测该花朵属于哪一类别。将如下代码输入弹框中，单击【测试】，即可得到测试结果。
-
-`{"inputs": ["5.1", "3.3", "1.7", "0.5"]}`
-
-![](https://main.qcloudimg.com/raw/01e2bf186a1b0bdc16b13da1f738a464.png)
-由上图可知，该鸢尾花分别属于三种类别的概率，以此判断该花朵的种类是 0，即 Setosa 。至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码以及模型部署和在线预测的全部流程。

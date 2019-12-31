@@ -47,8 +47,8 @@ mTIMSdkConfig.setLogListener(new TIMLogListener() {
 在权限允许的情况下，IM SDK 的日志默认会写到日志文件中。通过 `TIMSdkConfig` 中的 `setLogLevel` 接口修改 IM SDK 内部写日志级别可以控制 IM SDK 的文件日志输出。
 
 >!
-> * 设置写日志等级， **必须在 IM SDK 初始化之前调用**，在 IM SDK 初始化之后设置无效。
-> * 可以通过设置日志级别为 `TIMLogLevel.OFF` 来关闭 IM SDK 的文件日志输出，提升性能，建议在开发期间打开日志，方便排查问题。
+>- 设置写日志等级， **必须在 IM SDK 初始化之前调用**，在 IM SDK 初始化之后设置无效。
+>- 可以通过设置日志级别为 TIMLogLevel.OFF 来关闭 IM SDK 的文件日志输出，建议打开日志，方便排查问题。
 
 **原型：**
 
