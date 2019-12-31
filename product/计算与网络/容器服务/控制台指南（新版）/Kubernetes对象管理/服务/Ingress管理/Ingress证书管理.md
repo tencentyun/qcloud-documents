@@ -34,22 +34,22 @@
 ```yaml
 apiVersion: v1
 data:
-	qcloud_cert_id: XczRzegn ## 配置证书 ID 为 `XczRzegn`
+       qcloud_cert_id: XczRzegn ## 配置证书 ID 为 `XczRzegn`
 kind: Secret
 metadata:
-	name: tencent-com-cert
-	namespace: default
+       name: tencent-com-cert
+       namespace: default
 type: Opaque
 ```
  - Base64 自动编码：创建时使用 `stringData` 进行声明，避免手工进行 Base64 编码。YAML 示例如下：
 ```yaml
 apiVersion: v1
 stringData:
-	qcloud_cert_id: XczRzegn
+       qcloud_cert_id: XczRzegn
 kind: Secret
 metadata:
-	name: tencent-com-cert
-	namespace: default
+       name: tencent-com-cert
+       namespace: default
 type: Opaque
 ```
 2. 创建 Ingress 资源。
@@ -58,21 +58,21 @@ type: Opaque
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-	annotations:
-		kubernetes.io/ingress.class: qcloud
-		qcloud_cert_id: XczRzegn
-	name: sample-ingress
-	namespace: default
+ annotations:
+     kubernetes.io/ingress.class: qcloud
+     qcloud_cert_id: XczRzegn
+ name: sample-ingress
+ namespace: default
 spec:
-	rules:
-	- http:
-			paths:
-			- backend:
-					serviceName: sample-service
-					servicePort: 80
-				path: /
-	tls:
-	- secretName: tencent-com-cert
+ rules:
+ - http:
+   paths:
+   - backend:
+       serviceName: sample-service
+       servicePort: 80
+     path: /
+ tls:
+ - secretName: tencent-com-cert
 ```
 
 #### 修改证书
