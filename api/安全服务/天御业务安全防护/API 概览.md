@@ -1,4 +1,4 @@
-## 1. 天御相关接口
+## 天御相关接口
 接口功能 | Action ID
 ---|--- 
 后台获取验证码 API | [CaptchaIframeQuery](https://cloud.tencent.com/document/product/295/6620)
