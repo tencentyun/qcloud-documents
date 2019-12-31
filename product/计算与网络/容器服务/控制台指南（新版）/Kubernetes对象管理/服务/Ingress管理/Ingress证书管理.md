@@ -34,7 +34,7 @@
 ```yaml
 apiVersion: v1
 data:
-       qcloud_cert_id: XczRzegn ## 配置证书 ID 为 `XczRzegn`
+       qcloud_cert_id: XczRzegn ## 配置证书 ID 为 XczRzegn
 kind: Secret
 metadata:
        name: tencent-com-cert
