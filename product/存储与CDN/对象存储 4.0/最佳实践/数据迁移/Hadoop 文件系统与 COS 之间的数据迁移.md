@@ -22,12 +22,16 @@ hadoop fs -ls cosn://examplebucket-1250000000/
 ![](https://main.qcloudimg.com/raw/e20dce07b83846362d02b3c6a1987558.jpg)
 
 1. 执行如下命令启动迁移：
+
 ```shell
 hadoop distcp hdfs://10.0.0.3:9000/test cosn://hdfs-test-1250000000/
 ```
+
 Hadoop Distcp 会启动 MapReduce 作业来执行文件复制任务，完成后会输出简单报表信息，如下图所示：
 ![](https://main.qcloudimg.com/raw/39e84dcb98386f343ad81fcc48f78af1.jpg)
+
 2. 执行`hadoop fs -ls -R cosn://hdfs-test-1250000000/`命令可以列出刚才已迁移到存储桶 hdfs-test-1250000000 的目录和文件。
+
 ![](https://main.qcloudimg.com/raw/ca34582214652ad77afe99322e6894fc.png)
 
 ### 将 COS 中存储桶的文件复制到本地 HDFS 集群
@@ -40,5 +44,5 @@ hadoop distcp cosn://hdfs-test-1250000000/test hdfs://10.0.0.3:9000/
 
 ## Hadoop distcp 的扩展参数
 
-Hadoop distcp 工具支持丰富的运行参数，例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档页面：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)
+Hadoop distcp 工具支持丰富的运行参数，例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
 
