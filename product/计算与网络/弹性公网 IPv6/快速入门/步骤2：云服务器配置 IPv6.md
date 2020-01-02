@@ -16,7 +16,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <th width="28%" ><strong>镜像类型</strong></th>
 <th width="19%" ><strong>购买时间</strong></th>
 <th width="15%" ><strong>是否已开启 IPv6</strong></th>
-<th width="18%" ><strong>适用的配置方式</strong></th>
+<th width="18%" ><strong>配置方式</strong></th>
 </tr>
 </thead>
 <tbody>
