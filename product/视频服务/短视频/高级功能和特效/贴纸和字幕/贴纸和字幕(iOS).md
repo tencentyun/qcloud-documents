@@ -133,12 +133,12 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
  [_ugcEditer setSubtitleList:subtitles];          //设置字幕列表
 ```
 ### 2. 如何自定义气泡字幕？
-1. **气泡字幕所需要的参数**
-	* 文字区域大小： top、left、right、bottom。
-	* 默认的字体大小。
-	* 宽、高。
+#### 气泡字幕所需要的参数
+	* 文字区域大小： top、left、right、bottom
+	* 默认的字体大小
+	* 宽、高
  >?以上单位均为 px。
-2. **封装格式**
+#### 封装格式
   由于气泡字幕中携带参数较多，我们建议您可以在 Demo 层封装相关的参数。如腾讯云 Demo 中使用的 json 格式封装：
 ```
 {
