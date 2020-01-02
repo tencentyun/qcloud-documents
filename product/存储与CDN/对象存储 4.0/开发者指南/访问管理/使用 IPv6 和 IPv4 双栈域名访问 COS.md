@@ -1,6 +1,6 @@
 ## 概述
 
-随着互联网的蓬勃发展，IPv4 地址数量已经日益枯竭。由 IANA（Internet Assigned Numbers Authority，互联网数字分配机构）管理的 IPv4 位址，于2011年1月31日完全用尽。其他五个区域的可核发地址也将陆续枯竭，各大区域可分配的 IPv4 地址最迟于2020年底枯竭。
+随着互联网网络的蓬勃发展，IPv4 地址数量已经日益枯竭。由 IANA（Internet Assigned Numbers Authority，互联网数字分配机构）管理的 IPv4 位址，于2011年1月31日完全用尽。其他五个区域的可核发地址也将陆续枯竭，各大区域可分配的 IPv4 地址最迟于2020年底枯竭。
 
 因此，IETF（Internet Engineering Task Force，互联网工作小组）规划了 IPv4的下一代网络协议，即 IPv6（Internet Protocol version 6）。经过近10年的讨论，最终于1998年12月以互联网标准规范（[RFC 2460](https://tools.ietf.org/html/rfc2460)）的方式正式公布。相比 IPv4，IPv6 具有以下两点显著的优势：
 
