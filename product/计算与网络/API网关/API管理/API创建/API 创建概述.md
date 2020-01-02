@@ -11,5 +11,5 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
 4. 单击【新建】，进行后续配置。
 
 >?
->- 通用 API：适用于一般情况（后端业务未实现在 TSF 中），创建过程请参考：[API 基础信息配置](https://cloud.tencent.com/document/product/628/11796)。
->- 微服务 API：适用于后端业务实现在 TSF 中的情况，创建过程请参考：[创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
+>- 通用 API：适用于一般情况（后端业务未实现在 TSF 中），创建过程请参考 [API 基础信息配置](https://cloud.tencent.com/document/product/628/11796)。
+>- 微服务 API：适用于后端业务实现在 TSF 中的情况，创建过程请参考 [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
