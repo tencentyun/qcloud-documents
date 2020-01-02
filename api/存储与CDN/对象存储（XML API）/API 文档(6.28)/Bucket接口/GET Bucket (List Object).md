@@ -25,7 +25,7 @@ Authorization: Auth String
 | delimiter | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string | 否 |
 | encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，例如“腾讯云”将被编码为`%E8%85%BE%E8%AE%AF%E4%BA%91` | string | 否 |
 | marker | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目 | string | 否 |
-| max-keys | 单次返回最大的条目数量，默认值为1000，最大为1000<br>**注意：**该参数会限制每一次 List 操作返回的最大条目数，COS 在每次 List 操作中将返回不超过 max-keys 所设定数值的条目。 | integer | 否 |
+| max-keys | 单次返回最大的条目数量，默认值为1000，最大为1000<br>**注意：**该参数会限制每一次 List 操作返回的最大条目数，COS 在每次 List 操作中将返回不超过 max-keys 所设定数值的条目| integer | 否 |
 
 #### 请求头
 
