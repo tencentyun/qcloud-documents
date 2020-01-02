@@ -71,7 +71,7 @@ chroot_list_enable=YES
 chroot_list_file=/etc/vsftpd/chroot_list
 listen=YES
 ```
-  2. 注释以下配置参数，关闭监听 IPv6 sockets。
+  2. 在行首添加 `#`，注释 `listen_ipv6=YES` 配置参数，关闭监听 IPv6 sockets。
 ```
 #listen_ipv6=YES
 ```
