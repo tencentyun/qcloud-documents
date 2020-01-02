@@ -12,26 +12,26 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 请根据云服务器是否已开启 IPv6 选择对应的配置方式：
 <table>
 <thead>
-<tr>
-<th width="30%" style="text-align:center;">镜像类型</th>
-<th width="20%" style="text-align:center;">购买时间</th>
-<th width="10%" style="text-align:center;">是否已开启 IPv6</th>
-<th width="20%" style="text-align:center;">适用的配置方式</th>
+<tr style="text-align:center;">
+<th width="28%" >镜像类型</th>
+<th width="19%" >购买时间</th>
+<th width="13%" >是否已开启 IPv6</th>
+<th width="20%" >适用的配置方式</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr style="text-align:center;">
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
 <td>2019-06-31前购买</td>
 <td>否</td>
 <td><a href="#unopen">未开启 IPv6 的云服务器</a></td>
 </tr>
-<tr>
+<tr style="text-align:center;">
 <td>2019-06-31后购买</td>
 <td>是</td>
 <td><a href="#open">已开启 IPv6 的云服务器</a></td>
 </tr>
-<tr>
+<tr style="text-align:center;">
 <td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
 Ubuntu14.04/Ubuntu 12.04<br>
 Debian 8/9<br>
@@ -42,7 +42,7 @@ Tencent Linux<br>
 <td>否</td>
 <td><a href="#unopen">未开启 IPv6 的云服务器</a></td>
 </tr>
-<tr>
+<tr style="text-align:center;">
 <td>2019-11-13 01:00后购买</td>
 <td>是</td>
 <td><a href="#open">已开启 IPv6 的云服务器</a></td>
