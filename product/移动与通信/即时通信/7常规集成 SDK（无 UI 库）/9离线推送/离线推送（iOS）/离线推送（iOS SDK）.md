@@ -1,28 +1,28 @@
-## 推送原理
-如想要接收 APNs 离线消息通知，需要在腾讯云管理平台提交 Push 证书，在客户端每次登录时，获取并通过 API 接口上报 Token。APNs 推送功能只用于通知用户，如果 App 在前台，以 `onNewMessage` 回调获取新消息为准，`didReceiveRemoteNotification` 获取到的消息由于不可控，可以忽略。详细推送原理可参阅：[Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
+<span id="配置推送"></span>
+## 配置离线推送
+如想要接收 APNs 离线消息通知，需要在腾讯云管理平台提交 Push 证书，在客户端每次登录时，获取并通过 API 接口上报 Token。APNs 推送功能只用于通知用户，如果 App 在前台，以 `onNewMessage` 回调获取新消息为准，`didReceiveRemoteNotification` 获取到的消息可以忽略。详细推送原理请参见 [Apple Push Notification Service](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 
-### 证书申请流程
-APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product/269/Apple推送证书申请)。
+### 申请 APNs 证书
+申请 APNs 证书的具体操作步骤请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 
 ### 上传证书到控制台
-完成 APNs 证书申请以后，您需要登录腾讯云即时通信 IM [控制台](https://console.cloud.tencent.com/im) 上传 iOS 证书（p.12）。
-在【应用列表】页面，单击目标应用所在列的【应用配置】，进入【基础配置】页面。单击 iOS 推送证书区域的【+添加证书】，选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击【确定】。
-
->!
->- 添加证书前，需确认应用平台已设置为【iOS】，若不是，可单击应用平台右侧的【编辑】进行修改。
->- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
->- 上传证书生效时间为10分钟左右。
->- 上传证书需要设置密码，无密码收不到推送。
->- 注意生产环境的选择，发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
->- 上传的 p12 证书必须是自己申请的真实有效的证书。
-
-![](https://main.qcloudimg.com/raw/056192a3111023b410370331be653988.png)
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
+2. 单击目标应用卡片，进入应用的基础配置页面。
+3. 单击【iOS平台推送设置】右侧的【添加证书】。
+4. 选择证书类型，上传 iOS 证书（p.12），设置证书密码，单击【确认】。
+ >!
+ >- 上传证书名最好使用全英文（尤其不能使用括号等特殊字符）。
+ >- 上传证书需要设置密码，无密码收不到推送。
+ >- 发布 App Store 的证书需要设置为生产环境，否则无法收到推送。
+ >- 上传的 p12 证书必须是自己申请的真实有效的证书。
+ >
+5. 待推送证书信息生成后，记录证书的 ID。
 
 ### 客户端实现 APNs 推送
 
-客户端要实现接收 APNs 推送，需要实现4个部分：**向苹果后台请求 DeviceToken**、**登录 IM SDK 后上传 Token 到腾讯云**、**App 进入后台时上报切后台事件**、**App 进入前台时上报切前台事件**。具体操作可参考视频：[即时通信 iOS IM SDK 离线推送集成](https://cloud.tencent.com/edu/learning/learn-1059-1112)。
+客户端要实现接收 APNs 推送，需要实现以下几个步骤，更详细的操作步骤可参考 [即时通信 iOS IM SDK 离线推送视频](https://cloud.tencent.com/edu/learning/learn-1059-1112)。
 
-**向苹果后台请求 DeviceToken**：
+#### 向苹果后台请求 DeviceToken
 
 ```
 - (void)registNotification
@@ -47,10 +47,9 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 }
 ```
 
-**登录 IM SDK 后上传 Token 到腾讯云：**
+#### 登录 IM SDK 后上传 Token 到腾讯云
 
-> **注意：**
-> busiId 需要和控制台分配的证书 ID 保持一致。
+>!busiId 需要与控制台分配的证书 ID 保持一致。
 
 ```
   __weak typeof(self) ws = self;
@@ -81,7 +80,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
   }
 ```
 
-**App 进入后台时上报切后台事件：**
+#### App 进入后台时上报切后台事件
 
 ```
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -114,7 +113,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 }
 ```
 
-**App 进入前台时上报切前台事件：**
+#### App 进入前台时上报切前台事件
 
 ```
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -127,8 +126,7 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 ```
 
 ## 推送格式 
-**推送格式示例：**
-
+推送格式示例如下图所示。
 <img src="//main.qcloudimg.com/raw/d23be65b4c481beb71db993045b4fec9.png" width=480 />
 
 
@@ -139,37 +137,33 @@ APNs 证书申请流程可参考文档：[Apple 推送证书申请](/doc/product
 昵称:内容
 ```
 
-对于群聊消息，APNs 推送规则如下，其中名称为群名片或者发送者昵称，优先级为『群名片』>『群名』。
+对于群聊消息，APNs 推送规则如下，其中名称为群名片或者发送者昵称，优先级为`群名片`>`群名`。
 
 ```
 名称(群名):内容
 ```
 
 ### 不同类型消息推送规则
-APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用关心是否托管帐号还是独立帐号，只要设置了昵称或者群名推送消息就会带上。 
-
-> 注：
->- 一条消息中包含文本 `Elem` 和图片 `Elem`，文本内容为 Test，最终显示的内容为：`Test[图片]`。
->- 另外一条消息中内容为空，则不进行下发，例如如果消息中只有自定义 `Elem`，并且 `desc` 为空，则不进行下发。
-
+APNs 推送内容部分由消息体中各个 `Elem` 内容组成，不同 `Elem` 的离线消息展示效果如下表所示。
 
 | 参数 | 说明 |
 | --- | --- |
 | 文本 Elem | 直接显示内容 |
-| 语音 Elem | 显示 [语音] |
-| 文件 Elem | 显示 [文件] |
-| 图片 Elem | 显示 [图片] |
-| 自定义 Elem | 显示 desc 字段内容 |
-
-### 多 App 支持
-
-对于需要多 App 互通的场景，可在多个 App 中写同一个 `SDKAppID`，可实现消息互通，由于多个 App 推送证书不同，所以需要在控制台上提交多个证书，每个证书在即时通信 IM 上生成一个编号，可参考 [客户端流程](https://cloud.tencent.com/document/product/269/9154) 设置证书，并提供当前证书的编号。
+| 语音 Elem | 显示`[语音]` |
+| 文件 Elem | 显示`[文件]` |
+| 图片 Elem | 显示`[图片]` |
+| 自定义 Elem | 显示 `desc` 字段内容，若自定义消息 `desc` 为空，则该消息不进行离线推送 |
 
 
-## 推送声音
-### 设置自己的推送声音
+### 多 App 互通
 
-不同用户可能想使用不同的推送声音，IM SDK 提供了设置用户声音的接口，可实现单聊声音、群组声音、音视频（暂不支持）声音的设置，也可在用户级别设置是否接收推送。
+如果将多个 App 中的 `SDKAppID` 设置为相同值，则可以实现多 App 互通。不同 App 需要使用不同的推送证书，您需要为每一个 App [申请 APNs 证书](https://cloud.tencent.com/document/product/269/3898) 并完成 [离线推送配置](#配置推送)。
+
+
+## 推送提示音
+### 设置自定义推送提示音
+
+IM SDK 提供了设置用户声音的接口，可按需自定义设置单聊消息提示音和群组消息提示音，也可在用户级别设置是否接收推送。
 
 ```
 /**
@@ -188,10 +182,6 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
  *  Group 消息声音,不设置传入 nil
  */
 @property(nonatomic,retain) NSString * groupSound;
-/**
- *  Video 声音,不设置传入 nil
- */
-@property(nonatomic,retain) NSString * videoSound;
 @end
 @interface TIMManager : NSObject
 /**
@@ -207,17 +197,26 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 @end
 ```
 
-**参数说明：**
+**参数说明**
 
 | 参数 | 说明 |
 | --- | --- |
-| config | openPush：是否开启推送（0：不进行设置 1：开启推送 2：关闭推送）<br>c2cSound：单聊声音，文件名<br>groupSound：群组声音，文件名<br>videoSound：音视频邀请声音，文件名
+| config | openPush：是否开启推送。0表示不进行设置，1表示开启推送，2表示关闭推送<br>c2cSound：表示单聊消息提示音，需设置为文件名（含后缀）<br>groupSound：表示群组消息提示音，需设置为文件名（含后缀）|
 | succ | 成功回调 |
 | fail | 失败回调 |
 
-### 获取自己的推送声音
+**操作步骤**
+1. 把音频文件集成到工程中。
+ <img src="//main.qcloudimg.com/raw/c0aca90f7de2f67d815ddfcf13f9fcfc.png" width=480 />
+2. 登录成功后调用 `setToken` 接口设置 token 和 busiId 信息。
+3. 调用 `setAPNS` 接口设置音频文件信息。
+ >?只需要设置音频文件的**文件名称（含后缀）**即可。
+ >
+<img src="//main.qcloudimg.com/raw/76005ecd34b9cabf23536d77828f2de7.png" width=480 />
 
-界面展示如果需要获取推送声音，可使用 `getAPNSConfig` 获取，此接口每次都从服务器同步数据，不会进行本地缓存。
+### 获取推送消息提示音
+
+如需获取推送消息提示音，可使用 `getAPNSConfig` 获取，此接口每次都从服务器同步数据，不会进行本地缓存。
 
 ```
 @interface TIMManager : NSObject
@@ -233,16 +232,16 @@ APNs 推送内容部分为消息体中各个 `Elem` 内容组合。这里不用�
 @end
 ```
 
-**参数说明：**
+参数说明如下表所示：
 
 | 参数 | 说明 |
 | --- | --- |
 | succ | 成功回调，返回 TIMAPNSConfig 结构体 |
 | fail | 失败回调 |
 
-## 每条离线推送属性
+## 自定义离线消息属性
 
-如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置 `TIMOfflinePushInfo`，此条消息在推送时，会替换用户原有的默认属性。可实现每条消息定制化推送。填入 `kIOSOfflinePushNoSound` 到 `sound` 属性时接收端强制为静音提示。
+如果需要定制每条消息的展示文本、扩展字段、提示音、是否推送属性，可以在消息设置 `TIMOfflinePushInfo`，此条消息在推送时，会替换用户原有的默认属性，实现每条消息定制化推送。例如，填入 `kIOSOfflinePushNoSound` 到 `sound` 属性时接收端强制为静音提示。
 
 ```
 /**

@@ -28,7 +28,7 @@ postgresql10-contrib-10.11-2PGDG.rhel7.x86_64
 postgresql10-10.11-2PGDG.rhel7.x86_64
 ```
 
-### 2. 创建恢复目录
+### 2. 使用 postgres 用户创建恢复目录
 切换为 postgres 用户，在云服务器中创建恢复目录。
 ```
 mkdir /var/lib/pgsql/10/recovery
@@ -44,7 +44,7 @@ mkdir /var/lib/pgsql/9.5/recovery
 2. 选择【备份管理】页，在备份列表中，根据备份时间选择需要恢复的备份版本，单击操作列的【下载】。
 3. 根据提供的 VPC 网络地址或外网地址链接下载备份文件。
 >?
->- 使用 VPC 网络地址下载备份时，云数据库须与云服务器处于同一 VPC。
+>- 使用 VPC 网络地址下载备份时，云数据库须与云服务器处于同一 VPC，备份需下载至`/var/lib/pgsql/10/recovery`目录。
 >- 使用外网地址下载备份时，下载后需将备份文件上传至云服务器中的`/var/lib/pgsql/10/recovery`目录，请参见 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 >
 上传完示例如下：
@@ -99,12 +99,15 @@ chown postgres:postgres /var/lib/pgsql/10/recovery -R
 
 ### 8.（可选）应用增量备份文件
 如跳过该步骤，则数据库的内容为开始做全量备份时数据库的内容。
-将 xlog 文件放入`/var/lib/pgsql/10/recovery/pg_wal`文件夹下，如版本为9.x，则为`pg_xlog`目录，如下载的备份中不包含`pg_wal`目录，请`pg_xlog`目录修改为`pg_wal`，pg 会自动重放 xlog 日志。
+将 xlog 文件放入`/var/lib/pgsql/10/recovery/pg_wal`文件夹下，如下载的备份中不包含`pg_wal`目录，请将`pg_xlog`目录修改为`pg_wal`，pg 会自动重放 xlog 日志。
 例如12:00时做的全量备份，如果在该全量备份的基础上，在`pg_wal`文件夹下放置12:00至13:00的所有 xlog，则数据库能恢复到13:00时的数据内容。
+>?PostgreSQL 版本为 9.x 时，则为`/var/lib/pgsql/9.x/recovery/pg_xlog`文件夹。
+>
 
-1. 下载增量备份文件（xlog）。
+1. 在控制台【备份管理】页，获取 xlog 下载地址，下载增量备份文件（xlog）。
+下载后如下图：
 ![](https://main.qcloudimg.com/raw/2f7bc19401dc01363de4df37d9624536.png)
-2. 解压日志至 pg_wal（pg_xlog） 文件夹。
+2. 解压日志至`pg_wal`文件夹。
 ```
 tar -xf 20170904010214_20170905010205.tar.gz
 ```
@@ -117,13 +120,17 @@ tar -xf 20170904010214_20170905010205.tar.gz
 ![](https://main.qcloudimg.com/raw/33f99c711355ecb9c400b80a27214e66.png)
 
 ### 10.	登录数据库验证
-1. 登录数据库。
+1. 登录 PostgreSQL  数据库。
 ```
 export PGDATA=/var/lib/pgsql/10/recovery
 psql
 ```
 ![](https://main.qcloudimg.com/raw/bcc5757ce2bca7246601e22d3714d3af.png)
-2. 验证数据库是否运行,如提示"server is running",则代表数据库正在运行。
+2. 验证数据库是否运行。
+```
+/usr/pgsql-10/bin/pg_ctl status -D /var/lib/pgsql/10/recovery
+```
+如提示"server is running"，则代表数据库正在运行。
 ![](https://main.qcloudimg.com/raw/52466f7ac534d4d27863868a739a1647.png)
 
 ## 通过手动导出数据进行恢复

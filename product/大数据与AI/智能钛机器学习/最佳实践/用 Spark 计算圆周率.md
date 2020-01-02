@@ -8,7 +8,7 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
 3. 查看工作流运行状态和结果。
 
 整体工作流如下：
-![](https://main.qcloudimg.com/raw/5cc167dabb65b8fe99abb866934b105d.png)
+<img src="https://main.qcloudimg.com/raw/cc3b3d871a4fd1e5eeac3da1a23f04a6.png" style="zoom:50%;" />
 
 ## 详细流程
 #### 一、本地准备
@@ -88,5 +88,6 @@ object SparkPi {
 #### 三、查看工作流运行状态和结果
 1. 单击右键【Spark】，单击【Spark 控制台】可查看该工作流运行相关日志。
 2. 单击【stdout】 即可在日志中查看圆周率 PI 的计算结果。
-<img src="https://main.qcloudimg.com/raw/ee99b227a300a3eda7769f8b9d8f15fc.png" style="zoom:50%;" />
+![](https://main.qcloudimg.com/raw/5247942cf3191e8ae317babf3d0e6872.png)
+
 

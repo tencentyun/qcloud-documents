@@ -74,7 +74,6 @@
 					didReceiveRemoteNotification:(NSDictionary *)userInfo 
 							fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
 			{
-				[[XGPush defaultManager] reportXGNotificationInfo:userInfo];
 				completionHandler(UIBackgroundFetchResultNewData);
 		}
 		// iOS 10 新增回调 API
@@ -87,7 +86,6 @@
 					didReceiveNotificationResponse:(UNNotificationResponse *)response 
 					withCompletionHandler:(void (^)(void))completionHandler 
 					{
-							[[XGPush defaultManager] reportXGNotificationResponse:response];
 							completionHandler();
 		}
 
@@ -96,7 +94,6 @@
 					 willPresentNotification:(UNNotification *)notification 
 							 withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
 							 {
-									 [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
 									 completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
 		}
 		#endif
@@ -154,6 +151,10 @@
 
 
 ## 集成建议
+#### 通知服务扩展功能
+为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息，强烈建议您实现此接口，接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
+
+
 <span id="QHToken"></span>
 #### 获取 Token （非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
