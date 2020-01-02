@@ -1,3 +1,6 @@
+## 前提条件
+已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
+
 
 ## 查看区块链信息
 1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
@@ -15,17 +18,20 @@
 ## 编译及部署合约
 >?合约需要先编译后部署，且编译成功后才能部署。
 >
+1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
 1. 选择资源 ID 进入区块链网络概览页，单击【合约管理】。
 2. 单击需编译合约行右侧【编译】，并在弹出窗口上单击【编辑】即可开始编译合约。
 3. 编译完成后单击【部署】，即可部署合约。
 合约部署完毕后即可调用合约发交易。
 
 ## 节点信息
+1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
 1. 选择资源 ID ，进入区块链网络概览页。
 2. 单击【节点查看】，进入“节点查看”页面。
 2. 在“节点查看”页面，您可查看该网络下节点的相关信息，包括节点名称、节点 IP、节点块高和节点状态等信息。
 
 ## 组织信息
+1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
 1. 选择资源 ID ，进入区块链网络概览页。
 2. 单击【网络组织】，进入“网络组织”页面。
 2. 在“网络组织”页面中，您可查看该网络的组织相关信息，包括组织名称、联盟 ID 和时间。
