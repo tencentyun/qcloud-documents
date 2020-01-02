@@ -6,8 +6,8 @@ Serverless Components 是支持多个云资源编排和组织的场景化解决�
 
 | 对比项 | 功能描述 | 配置说明 | 支持的语言 |
 |---------|---------|---------|---------|
-| Serverless Components | 覆盖了测试/部署等步骤的工作流框架 | 主要围绕云函数 SCF 及其触发器进行配置 | 支持云函数平台的除 Java 外所有开发语言（Node.js、Python、PHP、Go 等） |
-| Serverless Framework | 面向客户实现场景，支持对云上的多种资源进行部署和编排（COS，API 网关、CAM、DB 等） | 支持客户自定义对应资源的配置| Component 本身由 Node.js 开发，但使用时支持多种语言及开发框架  |
+| Serverless Framework | 覆盖了测试/部署等步骤的工作流框架 | 主要围绕云函数 SCF 及其触发器进行配置 | 支持云函数平台的除 Java 外所有开发语言（Node.js、Python、PHP、Go 等） |
+| Serverless Components | 面向客户实现场景，支持对云上的多种资源进行部署和编排（COS、API 网关、CAM、DB 等） | 支持客户自定义对应资源的配置| Component 本身由 Node.js 开发，但使用时支持多种语言及开发框架  |
 
 ## 优势特性
 

@@ -2,7 +2,7 @@
 | 接口名称                   | 功能描述                                 |
 | -------------------------- | ---------------------------------------- |
 | [ShieldGetServiceStatistics](https://cloud.tencent.com/document/product/1022/31410) | 获取棋牌盾的历史使用天数和防御 DDoS 次数 |
-| [ShieldIPRename](https://cloud.tencent.com/document/product/1022/31406)             | 修改指定棋牌盾 IP 名称                   |
+| [ShieldIPRename](https://cloud.tencent.com/document/product/1022/31406)             | 修改指定的棋牌盾 IP 名称                   |
 | [ShieldIPAddTransRules](https://cloud.tencent.com/document/product/1022/31405)      | 为指定棋牌盾 IP 添加转发规则             |
 | [ShieldIPEditTransRules](https://cloud.tencent.com/document/product/1022/31404)     | 编辑指定转发规则                         |
 | [ShieldIPDeleteTransRules](https://cloud.tencent.com/document/product/1022/31403)   | 删除指定转发规则                         |

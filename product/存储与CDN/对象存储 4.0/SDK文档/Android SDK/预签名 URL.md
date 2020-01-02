@@ -75,7 +75,6 @@ try {
 } catch (CosXmlServiceException e) {
  e.printStackTrace();
 }
-
 ```
 
 #### 下载请求示例
@@ -114,5 +113,4 @@ try {
 } catch (CosXmlServiceException e) {
     e.printStackTrace();
 }
-
 ```

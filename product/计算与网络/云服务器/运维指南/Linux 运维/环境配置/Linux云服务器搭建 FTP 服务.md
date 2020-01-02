@@ -58,27 +58,29 @@ chown -R ftpuser:ftpuser /var/ftp/test
 vim /etc/vsftpd/vsftpd.conf
 ```
 6. 按 **i** 切换至编辑模式，根据实际需求选择 FTP 模式，修改配置文件 `vsftpd.conf`：<span id="config"></span>
->!
->- FTP 可通过主动模式和被动模式与客户端机器进行连接并传输数据。由于大多数客户端机器的防火墙设置及无法获取真实 IP 等原因，建议您选择**被动模式**搭建 FTP 服务。
->- 如需选择主动模式，请前往 [设置 FTP 主动模式](#port)。
+>! FTP 可通过主动模式和被动模式与客户端机器进行连接并传输数据。由于大多数客户端机器的防火墙设置及无法获取真实 IP 等原因，建议您选择**被动模式**搭建 FTP 服务。如下修改以设置被动模式为例，您如需选择主动模式，请前往 [设置 FTP 主动模式](#port)。
 >
-被动模式需修改的配置如下，其余配置保持默认设置：
+ 1. 修改以下配置参数，设置匿名用户和本地用户的登录权限，设置指定例外用户列表文件的路径，并开启监听 IPv4 sockets。
 ```
-anonymous_enable=NO          #禁止匿名用户登录
-local_enable=YES             #支持本地用户登录
-chroot_local_user=YES        #全部用户被限制在主目录
-chroot_list_enable=YES       #启用例外用户名单
-chroot_list_file=/etc/vsftpd/chroot_list  #指定例外用户列表文件，该列表中用户不被锁定在主目录
-listen=YES                   #监听IPv4 sockets
-#在行首添加#注释掉以下参数
-#listen_ipv6=YES             #关闭监听IPv6 sockets
-#添加下列参数
-local_root=/var/ftp/test     #设置本地用户登录后所在目录
+anonymous_enable=NO
+local_enable=YES
+chroot_local_user=YES
+chroot_list_enable=YES
+chroot_list_file=/etc/vsftpd/chroot_list
+listen=YES
+```
+  2. 在行首添加 `#`，注释 `listen_ipv6=YES` 配置参数，关闭监听 IPv6 sockets。
+```
+#listen_ipv6=YES
+```
+  3.  添加以下配置参数，开启被动模式，设置本地用户登录后所在目录，以及云服务器建立数据传输可使用的端口范围值。
+```
+local_root=/var/ftp/test
 allow_writeable_chroot=YES
-pasv_enable=YES              #开启被动模式
-pasv_address=xxx.xx.xxx.xx   #您的Linux云服务器公网IP
-pasv_min_port=40000          #被动模式下，建立数据传输可使用的端口范围的最小值
-pasv_max_port=45000          #被动模式下，建立数据传输可使用的端口范围的最大值
+pasv_enable=YES
+pasv_address=xxx.xx.xxx.xx #请修改为您的 Linux 云服务器公网 IP
+pasv_min_port=40000
+pasv_max_port=45000
 ```
 7. 按 **Esc** 后输入 **:wq** 保存后退出。
 8. 执行以下命令，创建并编辑 `chroot_list` 文件。<span id="create"></span>
