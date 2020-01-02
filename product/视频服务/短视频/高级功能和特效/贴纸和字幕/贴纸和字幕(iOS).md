@@ -110,8 +110,8 @@ TXSubtitle 的参数如下：
 - endTime：字幕作用的结束时间。  
 
 因为字幕这一块的 UI 逻辑比较复杂，我们已经在 demo 层有一整套的实现方法，推荐客户直接参考 demo 实现， 可以大大降低您的接入成本。
-Demo 示例：
 
+Demo 示例：
 ```
 @interface VideoTextInfo : NSObject
 @property (nonatomic, strong) VideoTextFiled* textField;
@@ -134,10 +134,11 @@ videoTextInfos = @[VideoTextInfo1, VideoTextInfo2 ...];
 ```
 ### 2. 如何自定义气泡字幕？
 #### 气泡字幕所需要的参数
-	* 文字区域大小： top、left、right、bottom
-	* 默认的字体大小
-	* 宽、高
- >?以上单位均为 px。
+* 文字区域大小： top、left、right、bottom
+* 默认的字体大小
+* 宽、高
+ 
+>?以上单位均为 px。
 #### 封装格式
   由于气泡字幕中携带参数较多，我们建议您可以在 Demo 层封装相关的参数。如腾讯云 Demo 中使用的 json 格式封装：
 ```
