@@ -5,8 +5,7 @@
 
 ## 操作原理
 
-通过 DaemonSet 在集群的每个节点上部署一个 hostNetwork 的 Pod，该 Pod 是 node-cache，可以缓存本节点上 Pod 的 DNS 请求。如果存在 cache misses ，该 Pod 将会通过 TCP 请求上游 kube-dns 服务进行获取。
-原理图如下：
+通过 DaemonSet 在集群的每个节点上部署一个 hostNetwork 的 Pod，该 Pod 是 node-cache，可以缓存本节点上 Pod 的 DNS 请求。如果存在 cache misses ，该 Pod 将会通过 TCP 请求上游 kube-dns 服务进行获取。原理图如下所示：
 ![](https://main.qcloudimg.com/raw/451a029491f3f3aff9d6add821ba578e.png)
 >!NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMpa error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
 
@@ -166,7 +165,7 @@ kubectl -n kube-system get services kube-dns -o jsonpath="{.spec.clusterIP}"
 							- key: Corefile
 								path: Corefile.base
 	```
-3. 将 kubelet 的指定 dns 解析访问地址设置为[ 步骤 2 ](#StepTwo)中创建的 lcoal dns cache。本文提供以下两种配置方法，请根据实际情况进行选择：
+3. 将 kubelet 的指定 dns 解析访问地址设置为[ 步骤2 ](#StepTwo)中创建的 lcoal dns cache。本文提供以下两种配置方法，请根据实际情况进行选择：
  -  依次执行以下命令，修改 kubelet 启动参数并重启。
 ```
 sed -i '/CLUSTER_DNS/c\CLUSTER_DNS="--cluster-dns=169.254.20.10"' /etc/kubernetes/kubelet
@@ -175,10 +174,10 @@ sed -i '/CLUSTER_DNS/c\CLUSTER_DNS="--cluster-dns=169.254.20.10"' /etc/kubernete
 systemctl restart kubelet
 ```
  - 根据需求配置单个 Pod 的 dnsconfig 后重启。YAML 核心部分参考如下：
-    - 需要将 nameserver 配置为 169.254.20.10 。
+    - 需要将 nameserver 配置为169.254.20.10。
     - 为确保集群内部域名能够被正常解析，需要配置 searches。
     - 适当降低 ndots 值有利于加速集群外部域名访问。
-    - 当 Pod 没有使用带有多个 dots 的集群内部域名的情况下，建议将值设为 2 。
+    - 当 Pod 没有使用带有多个 dots 的集群内部域名的情况下，建议将值设为2。
 	```
 	dnsConfig:
 	  nameservers: ["169.254.20.10"]
