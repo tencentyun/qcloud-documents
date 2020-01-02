@@ -149,21 +149,21 @@ spec:
 	         mountPath: /etc/coredns
 	       - name: kube-dns-config
 	         mountPath: /etc/kube-dns
-	       volumes:
-	       - name: xtables-lock
-	         hostPath:
-	         path: /run/xtables.lock
-	         type: FileOrCreate
-	       - name: kube-dns-config
-	         configMap:
-	         name: kube-dns
-	         optional: true
-	       - name: config-volume
-	         configMap:
-	           name: node-local-dns
-	           items:
-	             - key: Corefile
-	               path: Corefile.base
+	   volumes:
+	   - name: xtables-lock
+	     hostPath:
+	       path: /run/xtables.lock
+	       type: FileOrCreate
+	   - name: kube-dns-config
+	     configMap:
+	       name: kube-dns
+	       optional: true
+	   - name: config-volume
+	     configMap:
+	       name: node-local-dns
+	       items:
+	         - key: Corefile
+	           path: Corefile.base
 	```
 3. 将 kubelet 的指定 dns 解析访问地址设置为[ 步骤2 ](#StepTwo)中创建的 lcoal dns cache。本文提供以下两种配置方法，请根据实际情况进行选择：
  -  依次执行以下命令，修改 kubelet 启动参数并重启。
