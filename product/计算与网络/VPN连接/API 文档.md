@@ -3,5 +3,5 @@ VPN 连接 API 文档请参见 [VPN 网关接口](https://cloud.tencent.com/docu
 您可通过如下视频了解 VPN 连接 API 3.0 的简介以及在线调试工具的使用方法。	
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1786-20146?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-您可通过如下视频了解 VPN 连接 SDK 3.0 的使用方法。	
+您可通过如下视频了解 VPN 连接 SDK 3.0 的简介以及使用方法。	
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1786-20147?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
