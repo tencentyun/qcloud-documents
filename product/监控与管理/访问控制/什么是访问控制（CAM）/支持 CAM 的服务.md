@@ -150,6 +150,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | -------- | ---- |	---- |	
+| [实时音视频](https://cloud.tencent.com/document/product/647)   | 服务级| &#10003; | -  |  - |	-|	
 | [云直播](https://cloud.tencent.com/document/product/267)   | 资源级| &#10003; | &#10003;  |  &#10003;  |	[访问管理指南](https://cloud.tencent.com/document/product/267/34301) |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 资源级   | &#10003;  | -    |  -  |	[访问管理指南](https://cloud.tencent.com/document/product/266/39337)  |	
 | [视频处理](https://cloud.tencent.com/document/product/862)    | 服务级   | &#10003;  | -    |   &#10003;   |	-  |	
@@ -269,6 +270,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |
 | -------------------------------------------------------- | ------ | -------- | ------- | ---- |	---- |	
+| [即时通信](https://cloud.tencent.com/document/product/269)   | 服务级 | &#10003;   | -  |  - | - |
 | [物联网通信](https://cloud.tencent.com/document/product/634)   | 服务级 | &#10003;   | -  |  &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/634/14441)  |
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | &#10003;   | -  |  - | -  |
 | [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023)   | 服务级 | &#10003;  | -  |  -  | -  |

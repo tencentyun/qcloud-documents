@@ -73,12 +73,10 @@ CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
      .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
         .builder();
 
-/**
- * 获取授权服务的 URL 地址
- */
-URL url = null; // 后台授权服务的 URL 地址
+URL url = null;
 try {
-    url = new URL("your_auth_server_url");
+    // URL 是后台临时密钥服务的地址，如何搭建服务请参考（https://cloud.tencent.com/document/product/436/14048）
+    url = new URL("https://your_auth_server_url");
 } catch (MalformedURLException e) {
     e.printStackTrace();
     return;
@@ -259,7 +257,6 @@ cosxmlUploadTask.pause();
 
 //恢复上传
 cosxmlUploadTask.resume();
-
 ```
 
 **（3）新增 API**
