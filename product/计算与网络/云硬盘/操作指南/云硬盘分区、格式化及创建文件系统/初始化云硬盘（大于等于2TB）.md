@@ -300,4 +300,6 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
 ## 相关操作
-[初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
+- [初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
+- 更多关于云硬盘使用参考请参见 [云硬盘使用上有什么注意事项？](https://cloud.tencent.com/document/product/362/17819#.E4.BA.91.E7.A1.AC.E7.9B.98.E4.BD.BF.E7.94.A8.E4.B8.8A.E6.9C.89.E4.BB.80.E4.B9.88.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9.EF.BC.9F)
+
