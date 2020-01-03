@@ -40,8 +40,8 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 | 远程访问 URL       | 存储桶的**访问域名**，例如`https://examplebucket-1250000000.cos.ap-beijing.myqcloud.com` |
 | FTP 传输超时时间   | 保持默认的0                                                  |
 
-<img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="100%"></img>
-<img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="100%"></img>
+<img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="90%"></img>
+<img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="90%"></img>
 4. 单击【测试远程附件】，如果提示“远程附件设置一切正常”，说明设置成功。
 <img src="https://main.qcloudimg.com/raw/38c8232f60577691da78d93925e9b0fa.png" width="90%"></img>
 5. 保存配置。
