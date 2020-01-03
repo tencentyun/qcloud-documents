@@ -6,7 +6,7 @@
 ## 操作原理
 
 通过 DaemonSet 在集群的每个节点上部署一个 hostNetwork 的 Pod，该 Pod 是 node-cache，可以缓存本节点上 Pod 的 DNS 请求。如果存在 cache misses ，该 Pod 将会通过 TCP 请求上游 kube-dns 服务进行获取。原理图如下所示：
-![](https://main.qcloudimg.com/raw/451a029491f3f3aff9d6add821ba578e.png)
+![](https://main.qcloudimg.com/raw/f40abea3e536d3583c8e84370811e22a.png)
 >?NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMpa error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
 
 ## 前提条件
@@ -193,7 +193,7 @@ systemctl restart kubelet
 ## 配置验证
 本次测试集群为 Kubernetes 1.14 版本集群。在通过上述步骤完成 NodeLocal DNSCache 组件部署之后，可以参照以下方法进行验证：
 1. 选择一个 debug pod，调整 kubelet 参数或者配置 dnsConfig 后重启。
-2. dig 外网域名，尝试在 coredns pod 上抓包。
+2. Dig 外网域名，尝试在 coredns pod 上抓包。
 3. 显示169.254.20.10正常工作即可证明 NodeLocal DNSCache 组件部署成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/8990eecaa4497f006da9878c8b736e62.png)
 
