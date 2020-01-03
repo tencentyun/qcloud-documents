@@ -37,20 +37,20 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 | FTP 密码           | COS FTP Server 工具中配置的 FTP 密码                         |
 | 被动模式(pasv)连接 | 是                                                           |
 | 远程附件目录       | 保持默认的半角句号(.)                                        |
-| 远程访问 URL       | 存储桶的**访问域名**，注意将 **https** 修改为 **http**，如`http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com` |
+| 远程访问 URL       | 存储桶的**访问域名**，例如`https://examplebucket-1250000000.cos.ap-beijing.myqcloud.com` |
 | FTP 传输超时时间   | 保持默认的0                                                  |
 
-<img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="80%"></img>
-<img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="80%"></img>
+<img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="90%"></img>
+<img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="90%"></img>
 4. 单击【测试远程附件】，如果提示“远程附件设置一切正常”，说明设置成功。
-<img src="https://main.qcloudimg.com/raw/38c8232f60577691da78d93925e9b0fa.png" width="80%"></img>
+<img src="https://main.qcloudimg.com/raw/38c8232f60577691da78d93925e9b0fa.png" width="90%"></img>
 5. 保存配置。
 6. 发帖测试。
-<img src="https://main.qcloudimg.com/raw/5d984846af7d99780b21d4f1b6ca4045.png" width="80%" ></img>
+<img src="https://main.qcloudimg.com/raw/5d984846af7d99780b21d4f1b6ca4045.png" width="90%" ></img>
 7. 单击附件图片，单击右上角的**在新窗口打开**图标。
-<img src="https://main.qcloudimg.com/raw/25175e71eac8738097f5c66c26489d7e.png" width="80%"></img>
+<img src="https://main.qcloudimg.com/raw/25175e71eac8738097f5c66c26489d7e.png" width="90%"></img>
 8. 查看附件图片的 URL，确认附件图片的 URL 指向腾讯云 COS。
-<img src="https://main.qcloudimg.com/raw/28803b68fd3cc513c5a26d8a160579fe.png" width="80%" ></img>
+<img src="https://main.qcloudimg.com/raw/28803b68fd3cc513c5a26d8a160579fe.png" width="90%" ></img>
 
 
 ## 使用 CDN 加速访问
