@@ -1,4 +1,4 @@
-基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.1.6。
+基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
 ## 1.18.0-Greenwich-RELEASE（2019-12-25）
 
