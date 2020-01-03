@@ -27,7 +27,7 @@
  - 录制设置渲染模式为自适应模式，在9:16的宽高比时能等比例缩放。
  - Android 的录制需要设置静音，否则会造成与跟拍视频的“二重唱”。
  
-```
+ ```
 // 录制的界面
 mVideoView = mVideoViewFollowShotRecord;
 // 播放的视频
