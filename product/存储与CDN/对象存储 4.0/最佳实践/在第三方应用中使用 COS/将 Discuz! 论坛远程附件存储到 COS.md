@@ -43,7 +43,7 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 <img src="https://main.qcloudimg.com/raw/0c49e755be38e71393f71d51974e06be.jpg" width="80%"></img>
 <img src="https://main.qcloudimg.com/raw/e8deab38f87844e947a2cc8fd0a74986.jpg" width="80%"></img>
 4. 单击【测试远程附件】，如果提示“远程附件设置一切正常”，说明设置成功。
-<img src="https://main.qcloudimg.com/raw/2d1afb1be17b8be4c15b4d59fdbb3811.png" width="80%"></img>
+<img src="https://main.qcloudimg.com/raw/38c8232f60577691da78d93925e9b0fa.png" width="80%"></img>
 5. 保存配置。
 6. 发帖测试。
 <img src="https://main.qcloudimg.com/raw/5d984846af7d99780b21d4f1b6ca4045.png" width="80%" ></img>
