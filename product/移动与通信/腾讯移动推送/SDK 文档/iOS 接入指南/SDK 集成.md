@@ -6,7 +6,7 @@
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
-- demo 文件夹：主要包含样例工程，腾讯移动推送 SDK。 
+- demo 文件夹：主要包含样例工程，腾讯移动推送 SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 
 
