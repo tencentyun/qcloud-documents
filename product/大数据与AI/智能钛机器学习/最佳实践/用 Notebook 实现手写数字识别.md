@@ -43,14 +43,10 @@
 ![](https://main.qcloudimg.com/raw/21fe51c6350e640b07aa5d873b2889d7.png)
 
 #### 利用 TensorFlow 实现 MNIST 手写数字识别
-1. 在 Notebook 中安装并导入所需依赖包，您可直接复制以下所有代码块到 Notebook 中运行。
+1. 在 Notebook 中导入所需依赖包，您可直接复制以下所有代码块到 Notebook 中运行。
 ```
-! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user --upgrade pip 
-! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user tensorflow  
-
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.examples.tutorials.mnist import input_data
 ```
 

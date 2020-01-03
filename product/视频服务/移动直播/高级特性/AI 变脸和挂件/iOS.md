@@ -19,7 +19,6 @@
 | 目录名称                         | 目录内容                      |
 | -------------------------------- | ----------------------------- |
 | TXLiteAVSDK_Enterprise.framework | 商业版 SDK                    |
-| GPUImage.framework               | 开源库                        |
 | Resource                         | 商业版本 SDK 所需要的特效资源 |
 
 ### 3. 将 SDK 导入您的工程
@@ -35,13 +34,10 @@ libc++.tbd
 libresolv.tbd
 libsqlite3.tbd
 Accelerate.framework
-GPUImage.framework
 AssetsLibrary.framwork
 CoreMedia.framework
 Metal.framework
 ```
-
- ![](https://main.qcloudimg.com/raw/cffafa84fe82b4dadb94aa22de1724a0.jpg)
 
 4. 添加链接参数：
   在工程【Build Setting】>【Other Link Flags】中，增加【-ObjC】选项。
@@ -50,11 +46,9 @@ Metal.framework
  >!请正确添加下述资源，否则切换到换脸类素材时会发生 Crash 等问题。
  >
   将 SDK/Resource 下的文件以`groups`的形式添加到工程中。
-  ![](https://main.qcloudimg.com/raw/cd4e159c5f90988e91406eebcb388475.jpg)
-  其中，`handdetect`，`handtrack`，`res18_3M`三个文件要以`folder refrence`形式添加：
-  ![](https://main.qcloudimg.com/raw/f2e346478eb0b8c6077f42bc4805fb38.jpg)
+  ![](https://main.qcloudimg.com/raw/9b5be44e52ac02c9a877a19157d67e55.jpg)
   添加完成后，效果如图所示：
-  ![](https://main.qcloudimg.com/raw/689140af9fb384923b81c2e08c1ced50.jpg)
+  ![](https://main.qcloudimg.com/raw/36848f4b6b7cb1a34368c9bc38b11ffe.jpg)
   
 6. 授权摄像头和麦克风使用权限：
   在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。

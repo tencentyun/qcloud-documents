@@ -45,7 +45,7 @@
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
 3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为默认安装目录，请根据实际情况操作）下。
->? 若无 `/usr/local/nginx/conf` 目录，可通过执行 `mkdir /usr/local/nginx/conf` 命令行创建。
+>? 若无 `/usr/local/nginx/conf` 目录，可通过执行 `mkdir -p /usr/local/nginx/conf` 命令行创建。
 4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
