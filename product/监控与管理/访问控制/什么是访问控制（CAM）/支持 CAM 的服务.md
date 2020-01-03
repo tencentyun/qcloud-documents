@@ -265,6 +265,7 @@
 | ------------------------------------------------------------ | ------ | -------- | ----- | ---- |	---- |
 | [短信](https://cloud.tencent.com/document/product/382) | 操作级 | &#10003; | -   | -  |	-  |	
 | [语音消息](https://cloud.tencent.com/document/product/1128) | 操作级 | &#10003; |-  | -  |	-  |	
+| [号码保护](https://cloud.tencent.com/document/product/610) | 服务级 | - |-  | -  |	-  |	
 
 ## 物联网	
 
