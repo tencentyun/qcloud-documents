@@ -7,7 +7,7 @@
 
 通过 DaemonSet 在集群的每个节点上部署一个 hostNetwork 的 Pod，该 Pod 是 node-cache，可以缓存本节点上 Pod 的 DNS 请求。如果存在 cache misses ，该 Pod 将会通过 TCP 请求上游 kube-dns 服务进行获取。原理图如下所示：
 ![](https://main.qcloudimg.com/raw/451a029491f3f3aff9d6add821ba578e.png)
->!NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMpa error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
+>?NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMpa error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
 
 ## 前提条件
 已通过 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster) 创建了 Kubernetes 版本为 1.14 及以上的集群，且该集群中存在节点。
