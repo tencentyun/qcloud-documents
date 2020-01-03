@@ -247,7 +247,7 @@ x-cos-request-id: NWQ3MjEyMmNfYjNjMjJhMDlfYjk4NV9mNjRk****
 
 #### 案例四：修改对象存储类型
 
-本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储的对象回热才能使用该接口请求转换存储类型。
+本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储的对象回热，才能使用该接口请求转换存储类型。
 
 #### 请求
 
