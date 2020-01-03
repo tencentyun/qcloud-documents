@@ -1,11 +1,11 @@
 
 ## 操作场景
 
-本文档介绍如何在命令行中使用 `docker login` 命令登录腾讯云容器镜像服务 (Tencent Container Registry，TCR) 中的实例。
+本文档介绍如何在命令行中使用 `docker login` 命令登录腾讯云容器镜像服务（Tencent Container Registry，TCR）中的实例。
 
 ## 前提条件
 
-在登录实例前，您需要完成以下工作：
+在登录实例前，您需要完成以下准备工作：
 - 已 [创建实例](https://cloud.tencent.com/document/product/378/17985)，且实例状态为“运行中”。
 - 已在访问控制中放通访问客户端所在的网络环境。
 - 已在访问客户端上安装 docker。
