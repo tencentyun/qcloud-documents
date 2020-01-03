@@ -108,6 +108,9 @@ $ cd hello_world/
 ```
 $ scf deploy
 ```
+>?成功部署函数后，SCF CLI 会在您的腾讯云账号下自动创建 COS bucket。您可在返回信息中查看 bucket 名称，并前往 [存储桶列表](https://console.cloud.tencent.com/cos5/bucket) 查看。
+>若 SCF CLI 未能自动创建 COS bucket，请您按照返回信息中的 bucket 名称，参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 创建同名 bucket。 
+
 
 
 ### 领取代金券
