@@ -1,5 +1,5 @@
 ## 操作场景
-本文档将向您介绍如何使用 TI Python SDK 实现 Tensorflow 分布式训练。
+本文档将向您介绍如何使用 TI SDK 实现 Tensorflow 分布式训练。
 
 TI 支持**参数服务器**和 **Horovod** 两种类型的分布式训练框架。使用`distributions`参数配置分布式训练策略。
 

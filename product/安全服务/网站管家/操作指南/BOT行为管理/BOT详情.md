@@ -2,7 +2,7 @@
 通过 BOT 详情，用户可以查看域名正常请求和 BOT 请求次数的访问趋势，查看未知类型 BOT、公开类型 BOT和自定义类型BOT详情，同时可以了解 WAF 检测检出的 BOT 会话详情。
 ## 使用说明
 ### 概览查看
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。
 2. 在页面左上角单击域名筛选框，进行域名选择或搜索。
 ![](https://main.qcloudimg.com/raw/6324805b1238981b6fe367864c18113b.png)
 3. 选择 BOT 来源分布，单击【全球】或【全国】切换查看不同的地图类型，单击【全球】时，统计精确到国家，单击【全国】时，统计精确到省份。
@@ -16,7 +16,7 @@
 	- **BOT 来源分布：**统计不同 BOT 类型来源（基于 IP）的中国省份和国家统计。
 
 ### 类型详情
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。可选择查看【未知类型】、【自定义类型】和【公开类型】，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。可选择查看【未知类型】、【自定义类型】和【公开类型】，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
 ![](https://main.qcloudimg.com/raw/a304769ac2e6c55afa27e65b5375a485.png)
 2. 未知类型 BOT 说明。未知类型 BOT 是 WAF 通过追踪目标会话，并结合会话行为特征模型和 AI 检测模型检测出的 BOT 行为。
 ![](https://main.qcloudimg.com/raw/022a899a20ae12a52301324e4da77adc.png)

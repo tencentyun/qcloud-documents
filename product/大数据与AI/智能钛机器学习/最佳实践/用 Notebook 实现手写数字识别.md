@@ -43,16 +43,11 @@
 ![](https://main.qcloudimg.com/raw/21fe51c6350e640b07aa5d873b2889d7.png)
 
 #### 利用 TensorFlow 实现 MNIST 手写数字识别
-1. 在 Notebook 中安装并导入所需依赖包
+1. 在 Notebook 中导入所需依赖包，您可直接复制以下所有代码块到 Notebook 中运行。
 ```
- <!--您可直接复制以下所有代码块到 Notebook 中运行-->
- ! pip install --user --upgrade pip
- ! pip install --user tensorflow
- 
-  import matplotlib.pyplot as plt
-  import tensorflow as tf
-  from tensorflow.examples.tutorials.mnist import input_data
-  from tensorflow.examples.tutorials.mnist import input_data
+import matplotlib.pyplot as plt
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
 ```
 
 2. 加载 MNIST 数据集
@@ -66,10 +61,10 @@
 
 为更直接查看数据图像内容，我们可将数据 reshape 成28 * 28的矩阵，然后打印一个黑白图片（Greys），同时输出查看该图片的标签（数字“8”的标签会在10维向量中第9位设置为1，其余为0）
 ```text
-  im = mnist.train.images[0].reshape(28, 28)
-  plt.imshow(im, cmap='Greys')
-  plt.show()
-  print(mnist.train.labels[0])
+im = mnist.train.images[0].reshape(28, 28)
+plt.imshow(im, cmap='Greys')
+plt.show()
+print(mnist.train.labels[0])
 ```
 
 ![](https://main.qcloudimg.com/raw/52f9418ea4d2c891a08761f12a3148a9/1568184594782.png)

@@ -4,14 +4,52 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 - 工具配置通过工具一键配置 IPv6。
 - 手动配置需要您对 Linux 命令有一定的熟练掌握程度。
 
-请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置IPv6地址。
+请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
+<table>
+<thead>
+<tr style="text-align:center;">
+<th width="28%" ><strong>镜像类型</strong></th>
+<th width="19%" ><strong>购买时间</strong></th>
+<th width="15%" ><strong>是否已开启 IPv6</strong></th>
+<th width="18%" ><strong>配置方式</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr style="text-align:center;">
+<td rowspan="2">CentOS 7.5/CentOS 7.6</td>
+<td>2019-06-31前购买</td>
+<td>否</td>
+<td rowspan="4">
+<li><a href="#.E5.B7.A5.E5.85.B7.E9.85.8D.E7.BD.AE">工具配置</a></li>
+<li><a href="#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE">手动配置</a></li></td>
+</tr>
+<tr style="text-align:center;">
+<td>2019-06-31后购买</td>
+<td>是</td>
+</tr>
+<tr style="text-align:center;">
+<td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
+Ubuntu14.04/Ubuntu 12.04<br>
+Debian 8/Debian 9<br>
+CoreOS 17<br>
+Tencent Linux<br>
+</td>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+</tr>
+<tr style="text-align:center;">
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
 ### 工具配置
 >? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
 >
-2019年06月31日后新购的 CentOS 7.5/CentOS 7.6 云服务器均已开启 IPv6，其他云服务器未开启 IPv6，请根据云服务器是否已开启 IPv6 选择对应的配置方式：
+请根据云服务器是否已开启 IPv6 选择对应的配置方式：
 - [未开启 IPv6 的云服务器](#unopen)
 - [已开启 IPv6 的云服务器](#open)
+
 
 #### 未开启 IPv6 的云服务器 <span id="unopen" />
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
@@ -26,11 +64,11 @@ enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/enable_ipv6.sh
 ```
 2. 赋予执行权限后使用管理员权限执行：
-```
+```bash
 chmod +x ./enable_ipv6.sh
 ./enable_ipv6.sh [网卡名称]  
-# 示例1：./enable_ipv6.sh eth0
-# 示例2：./enable_ipv6.sh eth1
+# 示例 1：./enable_ipv6.sh eth0
+# 示例 2：./enable_ipv6.sh eth1
 ``` 
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
@@ -47,18 +85,18 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 wget https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh
 ```
 2. 赋予执行权限后使用管理员权限执行：
-```
+```bash
 chmod +x ./config_ipv6.sh  
 ./config_ipv6.sh [网卡名称] 
-# 示例1：./config_ipv6.sh eth0
-# 示例2：./config_ipv6.sh eth1
+# 示例 1：./config_ipv6.sh eth0
+# 示例 2：./config_ipv6.sh eth1
 ```
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
 对于需要自动化配置 IPv6 实例的需求，例如，大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
 > ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
 > 
-```
+```bash
 #!/bin/sh
 install_dir=/usr/sbin
 install_path="$install_dir"/config-ipv6
@@ -152,7 +190,7 @@ vi /etc/modprobe.d/ipv6.conf
 options ipv6 disable=0
 ```
 ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png)
-5.  按“Esc”，输入 “:wq”，保存文件并返回。
+5.  按 “Esc”，输入 “:wq”，保存文件并返回。
 6.  执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
 ```
 vim /etc/sysctl.conf.first
@@ -162,7 +200,7 @@ vim /etc/sysctl.conf.first
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
 ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
-8. 按“Esc”，输入 “:wq”，保存文件并返回。
+8. 按 “Esc”，输入 “:wq”，保存文件并返回。
 9. <span id="step9" />执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
 ```
 vi /etc/sysconfig/network
@@ -173,7 +211,7 @@ NETWORKING_IPV6=yes
 DHCPV6C=yes
 ```
 ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
-11. 按“Esc”，输入 “:wq”，保存文件并返回。
+11. 按 “Esc”，输入 “:wq”，保存文件并返回。
 12. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
@@ -183,7 +221,7 @@ vim /etc/sysconfig/network-scripts/route6-eth0
 default dev eth0
 ```
 ![](https://main.qcloudimg.com/raw/7bac4ad80fed5cebcdef1fb6ae07cf1b.png)
-14. 按“Esc”，输入 “:wq”，保存文件并返回。
+14. 按 “Esc”，输入 “:wq”，保存文件并返回。
 15. 重启云服务器，仅通过 `service network restart`，IPv6 无法正常加载。
 16. 执行如下命令查看重启后 IPv6 是否已经正常加载。
 ```

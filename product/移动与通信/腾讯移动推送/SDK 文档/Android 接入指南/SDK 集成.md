@@ -107,8 +107,8 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 | android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
 | android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
 | android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
-| android.permission.WAKE_LOCK             | **必需**   | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
-| android.permission.VIBRATE               | **必需**   | 允许应用震动                       |
+| android.permission.WAKE_LOCK             | 可选  | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
+| android.permission.VIBRATE               | 可选   | 允许应用震动                       |
 | android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
 | android.permission.RECEIVE_USER_PRESENT  | 可选   | 允许应用可以接收点亮屏幕或解锁广播            |
 | android.permission.WRITE_EXTERNAL_STORAGE | 可选   | 允许程序写入外部存储                   |

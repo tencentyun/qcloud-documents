@@ -1,3 +1,31 @@
+### 2.4.0 @2020.1.3
+**新增**
+- 撤回消息 [revokeMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage)。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `isRevoked` 属性，值为 `true` 时标识被撤回的消息。
+- 消息被撤回的事件通知 [TIM.EVENT.MESSAGE_REVOKED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_REVOKED)。
+- 被踢下线的事件通知 [TIM.EVENT.KICKED_OUT](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.KICKED_OUT) 增加被踢下线类型：[多终端登录被踢](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.KICKED_OUT_MULT_ACCOUNT) 和 [UserSig 失效被踢](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.KICKED_OUT_USERSIG_EXPIRED)。
+
+**变更**
+- [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) 上传文件大小由20M调整为100M。
+- [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload) 的 `msgMemberInfo` 和 `shutupTime` 即将废弃，请使用 `memberList` 和 `muteTime` 代替。
+- 控制台新增 [IM 智能客服入口](https://cloud.tencent.com/act/event/smarty-service?from=im-doc)。
+
+**修复**
+- 调用 [off](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#off) 接口无法取消监听事件。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 的 `isRead` 属性值和类型不准确。
+- 发送视频消息，视频文件超过最大限制后的错误码和错误信息有误。
+- 偶现更新自定义字段后字段内容不准确。
+- 登录后加入音视频聊天室类型的群组偶现 [JOIN_STATUS_ALREADY_IN_GROUP](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.JOIN_STATUS_ALREADY_IN_GROUP)。
+- core-js 导致的潜在性能问题。
+
+
+### 2.3.2 @2019.12.18
+**变更**
+[getUserProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getUserProfile) 和 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 支持 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。
+
+**修复**
+[getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 获取的组合消息丢失消息。
+
 ### 2.3.1 @2019.12.13
 **新增**
 - [createImageMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage) 和 [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) 接口支持传入 [File](https://developer.mozilla.org/zh-CN/docs/Web/API/File) 对象。

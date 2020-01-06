@@ -172,42 +172,45 @@ x-cos-appid: <APPID>
 ```shell
 POST /jobs HTTP/1.1
 Host: 100000000001.cos-control.ap-chengdu.myqcloud.com
-Date: Wed, 21 Aug 2019 12:04:05 GMT
-Content-Type: application/xml
-Content-Length: 436
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+Date: Thu, 19 Dec 2019 18:00:29 GMT
 x-cos-appid: 1250000000
+Content-Type: application/xml
+Content-Length: 1056
+Content-MD5: hHcgq5mu8s0YP4WTGiQ+uA==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1576778429;1576785629&q-key-time=1576778429;1576785629&q-header-list=content-length;content-md5;content-type;date;host;x-cos-appid&q-url-param-list=&q-signature=8e0db6883376b5df713819f878da5020c5b6****
+Connection: close
 
-<?xml version="1.0" encoding="UTF-8"?>
 <CreateJobRequest>
-    <ClientRequestToken>1829b6c7-3141-42f1-9fe4-17082b841646</ClientRequestToken>
-    <ConfirmationRequired>false</ConfirmationRequired>
-    <Description>example job</Description>
-    <Manifest>
-        <Location>
-            <ETag>ec75a30f3af000e9b31d62bed75cbcad</ETag>
-            <ObjectArn>qcs::cos:ap-chengdu::manifest-1250000000/1250000000/source/manifest/20190715/manifest.json</ObjectArn>
-        </Location>
-        <Spec>
-            <Format>COSInventoryReport_CSV_V1</Format>
-        </Spec>
-    </Manifest>
-    <Operation>
-        <COSPutObjectCopy>
-            <MetadataDirective>Copy</MetadataDirective>
-            <StorageClass>STANDARD</StorageClass>
-            <TargetResource>qcs::cos:ap-chengdu::target-1250000000</TargetResource>
-        </COSPutObjectCopy>
-    </Operation>
-    <Priority>10</Priority>
-    <Report>
-        <Bucket>qcs::cos:ap-beijing::result-1250000000</Bucket>
-        <Enabled>true</Enabled>
-        <Format>Report_CSV_V1</Format>
-        <Prefix>example-job-result</Prefix>
-        <ReportScope>AllTasks</ReportScope>
-    </Report>
-    <RoleArn>qcs::cam::uin/100000000001:roleName/examplerole</RoleArn>
+	<ClientRequestToken>184ce261-18af-5e3d-3e30-253723cfd937</ClientRequestToken>
+	<ConfirmationRequired>false</ConfirmationRequired>
+	<Description>example-job</Description>
+	<Manifest>
+		<Location>
+			<ETag>"15150651828fa9cdcb8356b6d1c7638b"</ETag>
+			<ObjectArn>qcs::cos:ap-chengdu::sourcebucket-1250000000/manifests/batch-copy-manifest.csv</ObjectArn>
+		</Location>
+		<Spec>
+			<Fields>
+				<member>Bucket</member>
+				<member>Key</member>
+			</Fields>
+			<Format>COSBatchOperations_CSV_V1</Format>
+		</Spec>
+	</Manifest>
+	<Operation>
+		<COSPutObjectCopy>
+			<TargetResource>qcs::cos:ap-chengdu::destinationbucket-1250000000</TargetResource>
+		</COSPutObjectCopy>
+	</Operation>
+	<Priority>10</Priority>
+	<Report>
+		<Bucket>qcs::cos:ap-chengdu::sourcebucket-1250000000</Bucket>
+		<Enabled>true</Enabled>
+		<Format>Report_CSV_V1</Format>
+		<Prefix>job-result</Prefix>
+		<ReportScope>AllTasks</ReportScope>
+	</Report>
+	<RoleArn>qcs::cam::uin/100000000001:roleName/COS_Batch_QcsRole</RoleArn>
 </CreateJobRequest>
 ```
 
@@ -218,14 +221,14 @@ x-cos-appid: 1250000000
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 93
+Content-Length: 89
 Connection: close
-Date: Wed, 21 Aug 2019 12:04:04 GMT
+Date: Thu, 19 Dec 2019 18:00:30 GMT
 Server: tencent-cos
-x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+x-cos-request-id: NWRmYmJhYmRfMjViMjU4NjRfNmIzYV8xMDE2****
 
 <CreateJobResult>
-   <JobId>65f2e4cf-83f5-42f1-9aa2-14720613da29</JobId>
+	<JobId>53dc6228-c50b-46f7-8ad7-65e7159f1aae</JobId>
 </CreateJobResult>
 ```
 

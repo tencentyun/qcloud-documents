@@ -5,8 +5,7 @@ SQL 透视对数据库实例进行深层次的 SQL 分析，以数据库一段�
 >?SQL 透视目前仅支持云数据库 MySQL 实例。
 
 ## 前提条件
-- DBbrain 目前处于内测期间，如有需要，请提 [内测申请](https://cloud.tencent.com/apply/p/hf28d7bu4zw)。
-- 实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
+实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
 ![](https://main.qcloudimg.com/raw/fc001ac870f1bed1cb301c29baaca47f.png)
 
 

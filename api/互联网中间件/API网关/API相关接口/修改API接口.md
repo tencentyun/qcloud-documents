@@ -12,7 +12,6 @@
 | serviceId                                | 是    | String  | API 所在的服务唯一 ID。                            |
 | apiId                                    | 是    | String  | API 接口唯一 ID。                               |
 | apiName                                  | 否    | String  | 用户自定义的 API 名称。                             |
-| apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
 | authRequired                             | 否    | String  | 是否需要签名认证，TRUE 表示需要，FALSE 表示不需要。            |
 | enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。            |
 | apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |

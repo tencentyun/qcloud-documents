@@ -1,8 +1,8 @@
 ## 操作场景
-本文档将向您介绍如何使用 TI Python SDK 训练 Tensorflow 模型。
+本文档将向您介绍如何使用 TI SDK 训练 Tensorflow 模型。
 
 ## 操作步骤
-使用 TI Python SDK 训练 Tensorflow 模型只需要三步：
+使用 TI SDK 训练 Tensorflow 模型只需要三步：
 1. 准备训练脚本。
 2. 构造一个 ti.tensorflow.Tensorflow Estimator。
 3. 调用 Estimator 的 fit 方法。
