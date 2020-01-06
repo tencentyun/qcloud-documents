@@ -59,8 +59,8 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | [on](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#on) | 监听客户端对象事件。 |
 | [getRemoteMutedState](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteMutedState)| 获取当前房间内远端用户音视频 mute 状态列表。 |
 | [setDefaultMuteRemoteStreams](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#setDefaultMuteRemoteStreams) | 设置是否默认接收远端流。该方法可在 [join()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) 调用前使用，若在进房后调用，会接收不到后续进房的远端用户音视频流。 |
-| [getLocalAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalAudioStats) | 获取当前已发布本地流的音频统计数据。该方法需要在 [publish()]((https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish)) 后调用。 |
-| [getLocalVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalVideoStats) | 获取当前已发布本地流的视频统计数据。该方法需要在 [publish()]((https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish)) 后调用。 |
+| [getLocalAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalAudioStats) | 获取当前已发布本地流的音频统计数据。该方法需要在 [publish()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) 后调用。 |
+| [getLocalVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalVideoStats) | 获取当前已发布本地流的视频统计数据。该方法需要在 [publish()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) 后调用。 |
 | [getRemoteAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteAudioStats) | 获取当前所有远端流的音频统计数据。 |
 | [getRemoteVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteVideoStats) | 获取当前所有远端流的视频统计数据。 |
 
