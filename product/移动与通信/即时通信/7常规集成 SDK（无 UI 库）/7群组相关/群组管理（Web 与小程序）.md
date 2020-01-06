@@ -683,6 +683,7 @@ let promise = tim.setGroupMemberMuteTime({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberMuteTime error:', imError); // 禁言失败的相关信息
 });
@@ -726,6 +727,7 @@ let promise = tim.setGroupMemberRole({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberRole error:', imError); // 错误信息
 });
@@ -768,6 +770,7 @@ tim.setGroupMemberNameCard(options)
 let promise = tim.setGroupMemberNameCard({ groupID: 'group1', userID: 'user1', nameCard: '用户名片' });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberNameCard error:', imError); // 设置群成员名片失败的相关信息
 });
@@ -814,6 +817,7 @@ tim.setGroupMemberCustomField(options)
 let promise = tim.setGroupMemberCustomField({ groupID: 'group1', memberCustomField: [{key: 'group_member_test', value: 'test'}]});
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberCustomField error:', imError); // 设置群成员自定义字段失败的相关信息
 });
