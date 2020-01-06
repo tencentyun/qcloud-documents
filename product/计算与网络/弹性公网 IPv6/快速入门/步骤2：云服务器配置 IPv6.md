@@ -5,11 +5,6 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 - 手动配置需要您对 Linux 命令有一定的熟练掌握程度。
 
 请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
-
-### 工具配置
->? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
->
-请根据云服务器是否已开启 IPv6 选择对应的配置方式：
 <table>
 <thead>
 <tr style="text-align:center;">
@@ -24,12 +19,13 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
 <td>2019-06-31前购买</td>
 <td>否</td>
-<td><a href="#unopen">未开启 IPv6 的云服务器</a></td>
+<td rowspan="4">
+<li><a href="#.E5.B7.A5.E5.85.B7.E9.85.8D.E7.BD.AE">工具配置</a></li>
+<li><a href="#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE">手动配置</a></li></td>
 </tr>
 <tr style="text-align:center;">
 <td>2019-06-31后购买</td>
 <td>是</td>
-<td><a href="#open">已开启 IPv6 的云服务器</a></td>
 </tr>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
@@ -40,14 +36,20 @@ Tencent Linux<br>
 </td>
 <td>2019-11-13 01:00前购买</td>
 <td>否</td>
-<td><a href="#unopen">未开启 IPv6 的云服务器</a></td>
 </tr>
 <tr style="text-align:center;">
 <td>2019-11-13 01:00后购买</td>
 <td>是</td>
-<td><a href="#open">已开启 IPv6 的云服务器</a></td>
 </tr>
 </tbody></table>
+
+### 工具配置
+>? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
+>
+请根据云服务器是否已开启 IPv6 选择对应的配置方式：
+- [未开启 IPv6 的云服务器](#unopen)
+- [已开启 IPv6 的云服务器](#open)
+
 
 #### 未开启 IPv6 的云服务器 <span id="unopen" />
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
