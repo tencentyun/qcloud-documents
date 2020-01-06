@@ -66,7 +66,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 
 ## LocalStream
 
-LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) 创建。是 [Stream](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html) 的子类。
+LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) 创建，是 [Stream](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html) 的子类。
 
 | API | 描述 |
 | --- | --- |
