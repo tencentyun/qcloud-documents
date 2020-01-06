@@ -34,7 +34,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
 Ubuntu14.04/Ubuntu 12.04<br>
-Debian 8/9<br>
+Debian 8/Debian 9<br>
 CoreOS 17<br>
 Tencent Linux<br>
 </td>
