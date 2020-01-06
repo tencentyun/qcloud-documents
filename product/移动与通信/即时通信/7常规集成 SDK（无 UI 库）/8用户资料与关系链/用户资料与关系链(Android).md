@@ -377,7 +377,7 @@ TIMFriendshipManager.getInstance().modifyFriend(identifier, hashMap, new TIMCall
         });
 ```
 
-> 修改好友自定义资料，需先通过 Server 配置关系链自定义字段，才能修改成功。
+>?修改好友自定义资料，需先通过 Server 配置关系链自定义字段，才能修改成功。
 
 ### 添加好友
 
