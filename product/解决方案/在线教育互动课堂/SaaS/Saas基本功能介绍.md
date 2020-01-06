@@ -26,7 +26,7 @@
  
 ###  **课堂学生管理**   
 老师可以对课堂中的学生权限进行控制，例如打开关闭麦克风和摄像头，将某个学生禁言（禁止发送 IM 消息）或强制退出课堂。本区域内容可以根据具体需求扩展。
-![](https://main.qcloudimg.com/raw/e4cef0bbec19b8057a7b0da6739942d7.png)
+![](https://main.qcloudimg.com/raw/7a198380117363ac913ce8a76e96257b.png)
 
 ### **群组聊天**      
 老师和学生在课堂中还可以通过文字聊天，类似一个简单版微信群功能。群组最大支持2000人同时在线聊天。
@@ -34,4 +34,5 @@
 
 ### **设备测试**       
 支持设备检测。会自动检测外设、麦克风、摄像头和扬声器。支持多设备动态切换。
-![](https://main.qcloudimg.com/raw/f750db63af1ec78bb4b5d64e616cbe1c.png)
+ ![](https://main.qcloudimg.com/raw/8203e127fbd442c9cb9c9e3f313b4b2f.png)
+
