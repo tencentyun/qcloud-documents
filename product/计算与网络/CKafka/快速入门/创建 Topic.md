@@ -1,8 +1,7 @@
-Topic主题是某一种分类的名字，消息在此可以被存储和发布。CKafka对外使用topic的概念，生产者往topic里写消息，消费者从Topic中读消息。为了做到水平扩展，一个topic实际是由多个partition组成的，遇到瓶颈时，可以通过增加partition的数量来进行横向扩容。
-
-
 ## 操作场景
 该任务指导您通过 CKafka 控制台，在已有实例下创建和查看 Topic。
+
+Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存储和发布。CKafka 对外使用 Topic 的概念，生产者往 Topic 中写消息，消费者从 Topic 中读消息。为了做到水平扩展，一个 Topic 实际是由多个 [Partition（分区）](https://cloud.tencent.com/document/product/597/32544#F)组成，遇到瓶颈时，可以通过增加 Partition 的数量进行横向扩容。
 
 ## 前提条件
 已完成 [创建实例](https://cloud.tencent.com/document/product/597/30931)。
@@ -28,9 +27,10 @@ Topic主题是某一种分类的名字，消息在此可以被存储和发布。
 2. 在实例详情页，单击【Topic 管理】标签页，可查看 Topic 的监控、分区数、白名单等信息。
 
 ### 删除 Topic
-1. 在 CKafka 实例列表页，单击目标实例的“ID/名称”，进入实例详情页。
-2. 在实例详情页，单击页面顶部的【Topic 管理】
-3. 在 Topic 管理页，配置项【操作】单击【删除】或通过接口[删除主题]（https://cloud.tencent.com/document/product/597/10099）
-
->?删除Topic的同时未被消费的消息也将同时被删除，请谨慎操作。
+>!删除 Topic 的同时未被消费的消息也将同时被删除，请谨慎操作。
 Topic删除是异步操作，配置删除成功后，ZooKeeper配置将会在1分钟后生效。若此期间创建同名Topic，系统会提示错误码[4000]10011，届时请您稍后重试。
+
+1. 在 CKafka 实例列表页，单击目标实例的“ID/名称”，进入实例详情页。
+2. 在实例详情页，单击页面顶部的【Topic 管理】。
+3. 在 Topic 管理页，单击操作列的【删除】，或通过接口 [删除主题](https://cloud.tencent.com/document/product/597/10099)。 
+
