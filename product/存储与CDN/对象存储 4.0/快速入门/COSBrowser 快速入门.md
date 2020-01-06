@@ -1,44 +1,60 @@
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
-通过对象存储控制台，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作步骤如下：
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。
+通过 COSBrowser，您可以快速进行创建存储桶、上传/下载对象等操作，基本操作步骤如下：
 
 
-## 步骤1：注册腾讯云账号
-如果已在腾讯云注册，可忽略此步骤。
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;">点此注册腾讯云账号</a></div>
+## 前提条件
 
-## 步骤2：完成实名认证
-如果已完成，可忽略此步骤。
-详细认证流程请参见 <a href="https://cloud.tencent.com/document/product/378/3629">实名认证介绍</a>。
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
+拥有已开通 COS 服务的腾讯云账号。
 
 
 
-## 步骤3：开通 COS 服务
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cos5" target="_blank"  style="color: white; font-size:16px;">点此开通 COS 服务</a></div>
+
+## 步骤1：下载 COSBrowser 客户端
+
+<table>
+   <tr>
+      <th>COSBrowser 分类</td>
+      <th>支持平台</td>
+      <th>系统要求</td>
+      <th>下载地址</td>
+   </tr>
+   <tr>
+      <td rowspan=3>桌面端</td>
+      <td>Windows</td>
+      <td>Windows 7 32/64位以上、Windows Server 2008 R2 64位以上</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe">Windows</a></td>
+   </tr>
+   <tr>
+      <td>macOS</td>
+      <td>macOS 10.13以上</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg">macOS</a></td>
+   </tr>
+   <tr>
+      <td>Linux</td>
+      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip">Linux</a></td>
+   </tr>
+   <tr>
+      <td rowspan=2>移动端</td>
+      <td>Android</td>
+      <td>Android 4.4以上</td>
+      <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
+   </tr>
+   <tr>
+      <td>iOS</td>
+      <td>iOS 11以上</td>
+      <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
+   </tr>
+</table>
 
 
+## 步骤2：获取 API 密钥 
+COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥 
 
-## 步骤4：创建存储桶
-1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 左侧导航栏中单击【存储桶列表】，进入存储桶管理页。
-2. 单击【创建存储桶】，输入存储桶信息。
- - 名称：存储桶名称，此处我们输入 examplebucket。
- - 所属地域：存储桶存放地域，选择与您最近的一个地区，例如我在 “深圳”，地域可以选择 “广州”。
- - 访问权限：存储桶访问权限，此处我们选择“私有读写”。
-![](https://main.qcloudimg.com/raw/403185f7cc974daf2cb962a45474747d.jpg)
-3. 单击【确定】，即可创建存储桶。
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此获取 API 密钥</a></div>
 
-
-## 步骤5：上传对象
-1. 单击存储桶名称，进入存储桶列表页。
-2. 选择【上传文件】>【选择文件】，选择需要上传至存储桶的文件，例如 exampleobjext.txt。
-3. 单击【上传】，即可将 exampleobjext.txt 上传至存储桶。
-
-
-
-## 步骤6：下载对象
-1. 在 exampleobjext.txt 文件右侧，单击【详情】，进入对象属性页。
-2. 在【基本信息】配置项中，单击【下载对象】即可下载，或单击【复制临时链接】，将链接粘贴至浏览器地址栏，回车下载该对象。
 
 
 
