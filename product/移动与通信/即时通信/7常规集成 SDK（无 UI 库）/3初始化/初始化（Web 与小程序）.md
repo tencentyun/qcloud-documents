@@ -111,7 +111,7 @@ tim.on(TIM.EVENT.SDK_NOT_READY, function(event) {
 tim.on(TIM.EVENT.KICKED_OUT, function(event) {
   // 收到被踢下线通知
   // event.name - TIM.EVENT.KICKED_OUT
-  // event.data.type - 被踢下线的原因，例如 :
+  // event.data.type - 被踢下线的原因，例如:
   //    - TIM.TYPES.KICKED_OUT_MULT_ACCOUNT 多实例登录被踢
   //    - TIM.TYPES.KICKED_OUT_MULT_DEVICE 多终端登录被踢
   //    - TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED 签名过期被踢
