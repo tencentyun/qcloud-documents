@@ -92,9 +92,7 @@ TICSaaS 组件已经发布到 jcenter，您可以通过配置 gradle 自动下�
     implementation "com.tencent.teduboard:TEduBoardSdk:2.4.0.292"
 }
 ```
-
 TICSaaS 组件默认引用的是普通版的 TRTC，如果您需要集成的是 TRTC 专业版，那需要先把 TICSaaS 组件依赖的 TRTC 剔除掉，TRTC 则改为引用专业版本。可参考以下内容：
-
 ```groovy
  dependencies {
     // TIC SaaS 组件
