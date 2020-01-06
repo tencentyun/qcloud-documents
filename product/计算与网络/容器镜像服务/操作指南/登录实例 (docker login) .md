@@ -11,8 +11,8 @@
 - 已在访问客户端上安装 docker。
 
 ## 操作步骤
-1. 登录腾讯云官网控制台，选择【云产品】>【计算】>【[容器镜像服务](https://cloud.tencent.com/product/tcr)】，进入容器镜像服务控制台。
-2. 选择左侧导航栏中的【[实例列表](https://console.cloud.tencent.com/tcr/instance)】，进入“实例列表”页面。
+1. 登录腾讯云官网控制台，选择【云产品】>【计算】>【容器镜像服务】，进入容器镜像服务控制台。
+2. 选择左侧导航栏中的【实例列表】，进入“实例列表”页面。
 3. 选择需登录的实例名称，进入实例详情页面，并记录“访问域名”。如下图所示：
 本文访问域名以 `demo-tcr.tencentcloudcr.com` 为例。
 ![](https://main.qcloudimg.com/raw/54e137fa2a7fa9a340ea08a5e4c5a0bb.png)
