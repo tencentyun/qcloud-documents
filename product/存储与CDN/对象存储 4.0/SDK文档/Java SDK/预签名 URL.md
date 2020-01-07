@@ -112,7 +112,7 @@ cosClient.shutdown();
 // 初始化用户身份信息, 匿名身份不用传入 SecretId、SecretKey 等密钥信息
 COSCredentials cred = new AnonymousCOSCredentials();
 // 设置 bucket 的区域，COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
-ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing"));
+ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
 // 生成 cos 客户端
 COSClient cosClient = new COSClient(cred, clientConfig);
 // bucket 名需包含 appid
