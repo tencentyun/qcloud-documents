@@ -64,8 +64,8 @@
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| &#10003; | -  | - |[访问管理指南](https://cloud.tencent.com/document/product/239/38687) |	
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | &#10003; | -   |&#10003;|[访问管理指南](https://cloud.tencent.com/document/product/240/38703) |	
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/241/38708) |	
-| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130)|	
-| [数据传输服务](https://cloud.tencent.com/document/product/1130/39344)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
+| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
+| [数据传输服务](https://cloud.tencent.com/document/product/1130)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
 | [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |	
 
 ## CDN 与加速	
