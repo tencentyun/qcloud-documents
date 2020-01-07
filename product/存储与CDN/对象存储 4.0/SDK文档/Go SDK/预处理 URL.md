@@ -38,27 +38,26 @@ c := cos.NewClient(b, &http.Client{
 
 name := "test/objectPut.go"
 ctx := context.Background()
-// NewReader create file content
 f := strings.NewReader("test")
 
-// 1.Normal add auth header way to put object
+// 1. 使用普通方式上传对象
 _, err := c.Object.Put(ctx, name, f, nil)
 if err != nil {
 	panic(err)
 }
-// Get presigned
+// 获取预签名URL
 presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
 if err != nil {
 	panic(err)
 }
-// 2.Put object content by presinged url
+// 2. 通过预签名URL的方式上传对象
 data := "test upload with presignedURL"
 f = strings.NewReader(data)
 req, err := http.NewRequest(http.MethodPut, presignedURL.String(), f)
 if err != nil {
 	panic(err)
 }
-// Can set request header.
+// 用户可以自行设置请求header
 req.Header.Set("Content-Type", "text/html")
 _, err = http.DefaultClient.Do(req)
 if err != nil {
@@ -83,19 +82,19 @@ c := cos.NewClient(b, &http.Client{
 
 name := "test"
 ctx := context.Background()
-// 1.Normal add auth header way to get object
+// 1. 使用普通方式下载对象
 resp, err := c.Object.Get(ctx, name, nil)
 if err != nil {
 	panic(err)
 } 
 bs, _ := ioutil.ReadAll(resp.Body)
 resp.Body.Close()
-// Get presigned
+// 获取预签名URL
 presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
 if err != nil {
 	panic(err)
 } 
-// 2.Get object content by presinged url
+// 2. 通过预签名URL下载对象
 resp2, err := http.Get(presignedURL.String())
 if err != nil {
 	panic(err)
