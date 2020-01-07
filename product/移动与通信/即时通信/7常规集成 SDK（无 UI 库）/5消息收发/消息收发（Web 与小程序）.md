@@ -60,6 +60,8 @@ promise.then(function(imResponse) {
 ### 创建图片消息
 创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
+>! v2.3.1版本开始支持传入 File 对象，使用前需要将SDK升级至v2.3.1或以上。
+
 
 **接口**
 
@@ -223,7 +225,10 @@ recorderManager.start(recordOptions);
 ### 创建文件消息
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
->!微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
+>!
+>! v2.3.1版本开始支持传入 File 对象，使用前需要将SDK升级至v2.3.1或以上。
+>! v2.4.0版本起，上传文件大小最大值调整为100M。
+>! 微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
 
 **接口**
 
@@ -347,7 +352,9 @@ promise.then(function(imResponse) {
 
 创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 `createVideoMessage` 只支持在微信小程序环境使用。微信小程序录制视频或从相册选择视频文件，不会返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染时忽略缩图相关信息，自主处理。
 
->!全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+>!
+>! 全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+>- 使用该接口前，需要将SDK版本升级至v2.2.0或以上。
 
 **接口**
 
@@ -404,6 +411,8 @@ wx.chooseVideo({
 ### 创建表情消息
 
 创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+
+>! 使用该接口前，需要将SDK版本升级至v2.3.1或以上。
 
 **接口**
 
@@ -514,6 +523,7 @@ promise.then(function(imResponse) {
 撤回单聊消息或者群聊消息。撤回成功后，消息对象的 `isRevoked` 属性值为 `true`。
 
 >!
+>- 使用该接口前，需要将SDK版本升级至v2.4.0或以上。
 >- 消息可撤回时间默认为2分钟。可通过 [控制台](https://console.cloud.tencent.com/im-detail/login-message) 调整消息可撤回时间。
 >- 被撤回的消息，可以调用 [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
 >- 可使用 REST API [撤回单聊消息](https://cloud.tencent.com/document/product/269/38980) 或 [撤回群聊消息](https://cloud.tencent.com/document/product/269/12341)。

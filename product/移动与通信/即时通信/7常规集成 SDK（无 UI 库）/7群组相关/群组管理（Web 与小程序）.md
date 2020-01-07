@@ -505,6 +505,8 @@ tim.getGroupMemberList(options);
 
 ### 获取群成员资料
 
+>! 使用该接口前，需要将SDK版本升级至v2.2.0或以上。
+
 **接口名**
 
 ```js
