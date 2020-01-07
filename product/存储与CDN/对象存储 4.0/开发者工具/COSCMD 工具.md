@@ -272,7 +272,6 @@ coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-meta-example':'
 coscmd upload -r <localpath> <cospath>
 #操作示例
 coscmd upload -r /data/examplefolder data/examplefolder
-coscmd upload -r /data/examplefolder data/examplefolder
 #cos上的存储路径为 examplefolder2/examplefolder
 coscmd upload -r /data/examplefolder examplefolder2/
 #上传到 bucket 根目录
