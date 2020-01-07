@@ -104,7 +104,7 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 
 API 主要有以下变化：
 
-**1）没有单独的目录接口**
+**（1）没有单独的目录接口**
 
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
 
@@ -147,7 +147,7 @@ for (; ; ) {
 }
 ```
 
-**2）TransferManager**
+**（2）TransferManager**
 
 在 XML Java SDK 中，我们封装了上传、下载和复制操作，命名为`TransferManager`，优化了 API 设计和传输性能，建议您直接使用。
 
@@ -189,11 +189,11 @@ System.out.println(uploadResult.getETag());
 transferManager.shutdownNow();
 ```
 
-**3）签名算法不同**
+**（3）签名算法不同**
 
 通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参见 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
 
-**4）新增 API**
+**（4）新增 API**
 
 XML Java SDK 新增 API，您可根据需求进行调用。包括：
 
