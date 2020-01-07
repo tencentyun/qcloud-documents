@@ -75,24 +75,27 @@ Deploy SCF function by COS, it will be faster(cur:False).  (y/n): y
 >?using-cos 是指在部署时是否通过 COS 部署。使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动信息。
 
 ### 编写函数
-
 1. 选择并进入到存放项目代码的目录。
-2. 执行命令`scf init`，创建函数。
+2. 在 cmd 中执行以下命令，创建函数。
+```
+scf init
+```
 >?此命令会在当前目录下创建 hello_world 函数。
 >
+返回信息如下所示，则函数创建成功：
 ```bash
-$ scf init 
 [+] Initializing project...
 Template: /usr/local/lib/Python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-Python
 Output-Dir: .
 Project-Name: hello_world
-Runtime: Python3.6
+Type: Event
+Runtime: python3.6
 [*] Project initialization is complete
+[*] You could 'cd hello_world', and start this project.
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
-
-3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
+3. 将本地 hello_wolrd 函数目录中的 `index.py` 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
 import sys
