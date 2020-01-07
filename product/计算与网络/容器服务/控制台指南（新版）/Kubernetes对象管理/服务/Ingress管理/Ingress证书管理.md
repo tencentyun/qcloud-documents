@@ -1,5 +1,5 @@
 ## 简介
-创建 Ingress 选用 Https 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
+创建 Ingress 选用 HTTPS 监听协议时，选用合适的服务器证书能够确保访问安全。本文档介绍 Ingress 证书使用相关的内容，与证书相关的 Annotation 如下：
 
 - `kubernetes.io/ingress.http-rules`
 - `kubernetes.io/ingress.https-rules`
@@ -22,13 +22,13 @@
 其中监听端口勾选【Http:443】，并选择合适的服务器证书。
 
 >?
-> -  当控制台创建的 Ingress 开启 Https 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
+> -  当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
 > - 当控制台修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会一起变更。
 
 
 ### Kubectl 操作指引
 
-#### 配置证书并创建一个 Https 服务<span id="CreatingSecret"></span>
+#### 配置证书并创建一个 HTTPS 服务<span id="CreatingSecret"></span>
 1. 创建 Secret 资源。
  - Base64 手动编码。YAML 示例如下：
 ```yaml
@@ -92,19 +92,19 @@ kubectl edit secrets tencent-com-cert
 
 #### 混合规则配置
 
-TKE Ingress Controller 支持混合配置 Http/Https 规则，步骤如下：
+TKE Ingress Controller 支持混合配置 HTTP/HTTPS 规则，步骤如下：
 1. 开启混合规则
 将 `kubernetes.io/ingress.rule-mix` 设置为 True。
-当 Ingress 模板未配置 TLS 时，不会提供证书资源，所有规则都将以 Http 服务暴露，上述注解将不会生效。
+当 Ingress 模板未配置 TLS 时，不会提供证书资源，所有规则都将以 HTTP 服务暴露，上述注解将不会生效。
 2. 规则匹配
-将 Ingress 中的每一条规则与 `kubernetes.io/ingress.http-rules` 、 `kubernetes.io/ingress.https-rules` 进行匹配并添加到对应规则集中。若 Ingress 中的规则未匹配，则默认添加到 Https 规则集中。
+将 Ingress 中的每一条规则与 `kubernetes.io/ingress.http-rules` 、 `kubernetes.io/ingress.https-rules` 进行匹配并添加到对应规则集中。若 Ingress 中的规则未匹配，则默认添加到 HTTPS 规则集中。
 3. 校验匹配项
 匹配时请注意校验 Host、Path、ServiceName、ServicePort（其中 Host 默认为 `VIP`、Path 默认为 `/`）。
 请注意 [IPv6](https://cloud.tencent.com/document/product/1142/38134) 的 CLB 不具备提供默认域名的功能。
 
 #### YAML 示例
 
-请参照下述 YAML 示例开启混合规则，同时配置后端服务为暴露 Http/Https 服务。
+请参照下述 YAML 示例开启混合规则，同时配置后端服务为暴露 HTTP/HTTPS 服务。
 ```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

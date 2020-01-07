@@ -18,7 +18,7 @@
 3. 在【Create - Server】对话框中，填写名称、主机 IP 地址、端口号、用户名和密码等后，单击【Save】。
  - 主机 IP 地址和端口号：可至 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)， 实例详情页中的【内网地址】或【外网地址】查看。若外网地址未开启，请参见 [开启外网地址](#kqww) 开启。
 >?这里的内网地址为 VIP，是通过接入网关集群统一访问数据库实例，而非直接连接到数据库实例物理机上，因此当主机发生故障或主备切换时，内网 IP 都不会变化。
- - 用户名和密码：使用初始化实例时设置的数据库管理员用户名与密码，如忘记密码，可至控制台的帐号管理页重置密码。
+ - 用户名和密码：使用初始化实例时设置的数据库管理员用户名与密码，如忘记密码，可至 [控制台](https://console.cloud.tencent.com/pgsql) 的帐号管理页重置密码。
 ![](https://main.qcloudimg.com/raw/ef6b1975a212ee352adda4dd4e1159e7.png)
 4. 登录数据库后，在左侧导航选择【Databases】>【postgres】，可看到连接好的服务器（数据库实例）。
 ![](https://main.qcloudimg.com/raw/ede1361fb76d38deaf9cf22d3a43e8f3.png)

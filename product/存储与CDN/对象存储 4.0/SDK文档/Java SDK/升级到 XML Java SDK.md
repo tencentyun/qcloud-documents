@@ -50,26 +50,21 @@ XML SDK 存储桶名称由两部分组成：用户自定义字符串和 APPID，
 ```java
 COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
 // 采用了新的 region 名字，可用 region 的列表可以在官网文档中获取，也可以参考下面的 XML SDK 和 JSON SDK 的地域对照表
-ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing-1"));
+ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶名称，格式为：BucketName-APPID
 String bucketName = "examplebucket-1250000000";
 
 // 以下是向这个存储桶上传一个文件的示例
-String key = "docs/exampleobject.doc";
-File localFile = new File("src/test/resources/len10M.txt");
+String key = "exampleobject";
+File localFile = new File(localFilePath);
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
 // 设置存储类型：标准存储（Standard）, 低频存储（Standard_IA）和归档存储（ARCHIVE）。默认是标准存储（Standard）
 putObjectRequest.setStorageClass(StorageClass.Standard_IA);
-try {
-    PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
-    // putobjectResult 会返回文件的 etag
-    String etag = putObjectResult.getETag();
-} catch (CosServiceException e) {
-    e.printStackTrace();
-} catch (CosClientException e) {
-    e.printStackTrace();
-}
+
+PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
+// putobjectResult 会返回文件的 etag
+String etag = putObjectResult.getETag();
 
 // 关闭客户端
 cosClient.shutdown();
@@ -109,7 +104,7 @@ COSClient cosClient = new COSClient(cred, clientConfig);
 
 API 主要有以下变化：
 
-**1）没有单独的目录接口**
+**（1）没有单独的目录接口**
 
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹或目录的概念的，对象存储不会因为上传对象`project/text.txt`而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中，通过调用 GETBucket 接口，并指定 prefix 和 delimiter，模拟「文件夹」或「目录」的展示方式。
 
@@ -118,6 +113,7 @@ API 主要有以下变化：
 
 [//]: # (.cssg-snippet-put-and-list-objects)
 ```java
+String bucketName = "examplebucket-1250000000";
 cosClient.putObject(bucketName, "project/folder1/picture.jpg", "content");
 cosClient.putObject(bucketName, "project/folder2/text.txt", "content");
 cosClient.putObject(bucketName, "project/folder2/music.mp3", "content");
@@ -130,20 +126,20 @@ listObjectsRequest.setDelimiter("/");
 // 实际使用，您可以将 maxKeys 设为最大值 1000，以减少请求次数
 listObjectsRequest.setMaxKeys(2);
 String nextMarker = "";
-for(;;) {
+for (; ; ) {
     listObjectsRequest.setMarker(nextMarker);
     ObjectListing objectListing = cosClient.listObjects(listObjectsRequest);
     // getCommonPrefixes + getObjectSummaries 返回条目数 <= maxKeys
     // 两次循环会输出 project/folder1/ 和 project/folder2/
-    for(String prefix: objectListing.getCommonPrefixes()) {
+    for (String prefix : objectListing.getCommonPrefixes()) {
         System.out.println(prefix);
     }
     // 两次循环会输出 project/video.mp4
-    for(COSObjectSummary object: objectListing.getObjectSummaries()) {
+    for (COSObjectSummary object : objectListing.getObjectSummaries()) {
         System.out.println(object.getKey());
     }
     // 判断是否还有条目
-    if(!objectListing.isTruncated()) {
+    if (!objectListing.isTruncated()) {
         break;
     }
     // 一次未获取完毕，以 nextMarker 作为下一次 listObjects 请求的 marker
@@ -151,7 +147,7 @@ for(;;) {
 }
 ```
 
-**2）TransferManager**
+**（2）TransferManager**
 
 在 XML Java SDK 中，我们封装了上传、下载和复制操作，命名为`TransferManager`，优化了 API 设计和传输性能，建议您直接使用。
 
@@ -165,39 +161,39 @@ for(;;) {
 
 [//]: # (.cssg-snippet-transfer-upload-object-complete)
 ```java
+ExecutorService threadPool = Executors.newFixedThreadPool(1);
 TransferManager transferManager = new TransferManager(cosClient, threadPool);
 
-String key = "docs/exampleobject.doc";
-File localFile = new File("src/test/resources/len30M.txt");
+String key = "exampleobject";
+File localFile = new File(localFilePath);
+String bucketName = "examplebucket-1250000000";
 PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, key, localFile);
-try {
-    // 返回一个异步结果 Upload, 可同步的调用 waitForUploadResult 等待 upload 结束, 成功返回 UploadResult, 失败抛出异常.
-    Upload upload = transferManager.upload(putObjectRequest);
-    Thread.sleep(10000);
-    // 暂停任务
-    PersistableUpload persistableUpload = upload.pause();
-    // 恢复上传
-    upload = transferManager.resumeUpload(persistableUpload);
-    // 等待上传任务完成
-    UploadResult uploadResult = upload.waitForUploadResult();
-    System.out.println(uploadResult.getETag());
-} catch (CosServiceException e) {
-    e.printStackTrace();
-} catch (CosClientException e) {
-    e.printStackTrace();
-} catch (InterruptedException e) {
-    e.printStackTrace();
-}
+// 返回一个异步结果 Upload, 可同步的调用 waitForUploadResult 等待 upload 结束, 成功返回 UploadResult, 失败抛出异常.
+Upload upload = transferManager.upload(putObjectRequest);
+Thread.sleep(1000);
+
+// 暂停任务，获取 PersistableUpload
+PersistableUpload persistableUpload = upload.pause();
+//也可通过如下方式，获取PersistableUpload
+// while(persistableUpload == null) {
+//     persistableUpload = upload.getResumeableMultipartUploadId();
+//     System.out.println(System.currentTimeMillis());
+//     Thread.sleep(100);
+// }
+// 恢复上传
+upload = transferManager.resumeUpload(persistableUpload);
+// 等待上传任务完成
+UploadResult uploadResult = upload.waitForUploadResult();
+System.out.println(uploadResult.getETag());
 
 transferManager.shutdownNow();
-cosClient.shutdown();
 ```
 
-**3）签名算法不同**
+**（3）签名算法不同**
 
 通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参见 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
 
-**4）新增 API**
+**（4）新增 API**
 
 XML Java SDK 新增 API，您可根据需求进行调用。包括：
 

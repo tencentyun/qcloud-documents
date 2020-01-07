@@ -23,11 +23,15 @@
 >?选择此方式，升级 CLI 需获取最新安装包并重新进行安装。
 >
 2. 对已下载的 “scfcli.exe” 文件单击右键，选择【以管理员身份运行】进行安装。
-3. 执行 `scf --version` 命令，验证 CLI 是否安装成功。
+3. 执行以下命令，验证 CLI 是否安装成功。
+```
+scf --version
+```
+返回类似如下信息，则表示安装成功。
 ```bash
 scf CLI, version 0.0.1
 ```
-返回类似如上信息，则表示安装成功。
+
 
 
 
@@ -65,30 +69,33 @@ TencentCloud appid(None): 1253970223
 TencentCloud region(None): ap-guangzhou
 TencentCloud secret-id(********************************): AKIxxxxxxxxxx
 TencentCloud secret-key(****************************): uxxlxxxxxxxx
-Allow report information to help us optimize scfcli(Y/n):
-Deploy SCF function by COS, it will be faster(cur:false).  (y/n): y
+Show the command information without color(cur:False). (y/n):n
+Deploy SCF function by COS, it will be faster(cur:False).  (y/n): y
 ```
 >?using-cos 是指在部署时是否通过 COS 部署。使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动信息。
 
 ### 编写函数
-
-1. 选择并进入到存放项目代码的目录。
-2. 执行命令`scf init`，创建函数。
+1. 在命令行中选择并进入到存放项目代码的目录。
+2. 执行以下命令，创建函数。
+```
+scf init
+```
 >?此命令会在当前目录下创建 hello_world 函数。
 >
+返回信息如下所示，则函数创建成功：
 ```bash
-$ scf init 
 [+] Initializing project...
 Template: /usr/local/lib/Python3.7/site-packages/tcfcli/cmds/init/templates/tcf-demo-Python
 Output-Dir: .
 Project-Name: hello_world
-Runtime: Python3.6
+Type: Event
+Runtime: python3.6
 [*] Project initialization is complete
+[*] You could 'cd hello_world', and start this project.
 ```
 此时默认创建了名称为 hello_world，runtime 为 Python 3.6 的函数。
 了解更多关于初始化命令，详情请参见 [初始化示例项目](https://cloud.tencent.com/document/product/583/33450)。
-
-3. 将 hello_wolrd 函数目录中的 index.py 文件替换为如下内容：
+3. 将本地 hello_wolrd 函数目录中的 `index.py` 文件替换为如下内容：
 ```python
 # -*- coding: utf-8 -*-
 import sys
@@ -188,7 +195,7 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
     部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
 
 ### 云端测试
-完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
+完成云函数部署后，复制终端输出的访问路径，使用浏览器访问该路径进行测试。
 显示如下，即为成功部署函数。
 ![](https://main.qcloudimg.com/raw/bcaffcaa34e2e75988c01a7d8df923c0.png)
 

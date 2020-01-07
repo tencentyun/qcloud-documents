@@ -4,7 +4,8 @@
 
 
 ## 前提条件
-已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
+- 金融安全版仅限金融专区用户，如需购买请先 [申请金融专区](https://cloud.tencent.com/document/product/304/2768)。
+- 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
 
 ## 操作步骤
 1. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
