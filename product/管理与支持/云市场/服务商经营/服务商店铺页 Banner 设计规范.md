@@ -12,7 +12,7 @@
 - 自定义背景图时，需在配图两侧增加渐变蒙版，让配图与背景填充色**#181C35**衔接自然。
 - Banner 最终只需要输出背景图，无需带文字。
 - 移动端 Banner，会在 PC 背景图的基础上，**自动居中截图750px宽度**的图片展示，不需要重新输出图片。
-- 具体规范请参考下图所示，如需查看详情详情请下载 [设计规范文档](https://main.qcloudimg.com/raw/b7db2fba3a394f9d2337f01097885ed2.pdf)，下图按100%比例展示。
+- 具体规范请参考下图所示，如需查看详情请下载 [设计规范文档](https://main.qcloudimg.com/raw/b7db2fba3a394f9d2337f01097885ed2.pdf)，下图按100%比例展示。
 
 ![](https://main.qcloudimg.com/raw/d605522e3eb385b13ecaa0115aba42de.png)
 
