@@ -615,7 +615,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 
 ### TIMCommCallback
 
-接口回调定义。
+接口通用回调的定义。
 
 **原型**
 
