@@ -75,8 +75,8 @@ Deploy SCF function by COS, it will be faster(cur:False).  (y/n): y
 >?using-cos 是指在部署时是否通过 COS 部署。使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动信息。
 
 ### 编写函数
-1. 选择并进入到存放项目代码的目录。
-2. 在 cmd 中执行以下命令，创建函数。
+1. 在命令行中选择并进入到存放项目代码的目录。
+2. 执行以下命令，创建函数。
 ```
 scf init
 ```
