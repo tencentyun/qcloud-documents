@@ -195,7 +195,7 @@ Package name: default-hello_world-latest.zip, package size: 4.097 kb
     部署命令详情及了解更多命令参数信息，请参见 [打包部署](https://cloud.tencent.com/document/product/583/33451)。
 
 ### 云端测试
-完成云函数部署后，复制终端输出的 subDomain 访问路径，使用浏览器访问该路径进行测试。
+完成云函数部署后，复制终端输出的访问路径，使用浏览器访问该路径进行测试。
 显示如下，即为成功部署函数。
 ![](https://main.qcloudimg.com/raw/bcaffcaa34e2e75988c01a7d8df923c0.png)
 
