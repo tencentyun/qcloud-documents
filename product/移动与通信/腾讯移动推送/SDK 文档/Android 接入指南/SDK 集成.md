@@ -63,6 +63,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         </receiver>
     ```
 - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+- 请勿在 receiver  里处理耗时操作。
 ```
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
@@ -158,12 +159,13 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         android:process=":xg_vip_service"></service>
 
     <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
-    <service android:name="com.tencent.android.tpush.rpc.XGRemoteService">
-        <intent-filter>
-            <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
-            <action android:name="应用包名.XGVIP_PUSH_ACTION" />
-        </intent-filter>
-    </service>
+        <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="false">
+            <intent-filter>
+                <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
+                <action android:name="应用包名.XGVIP_PUSH_ACTION" />
+            </intent-filter>
+        </service>
 
     <!-- 【必须】 【注意】authorities修改为 包名.XGVIP_PUSH_AUTH -->
     <provider
