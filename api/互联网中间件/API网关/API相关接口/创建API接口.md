@@ -45,10 +45,8 @@
 | responseSuccessExample                   | 否    | String  | 自定义响应配置成功响应示例（此配置仅用于生成 API 文档提示调用者） 。     |
 | responseFailExample                      | 否    | String  | 自定义响应配置失败响应示例（此配置仅用于生成 API 文档提示调用者） 。     |
 | responseErrorCodes.n.code                | 否    | Int     | 自定义响应配置原始错误码（此配置仅用于生成 API 文档提示调用者）。        |
-| responseErrorCodes.n.convertedCode       | 否    | Int     | 自定义响应配置映射错误码（此配置仅用于生成 API 文档提示调用者）。
-|
-| responseErrorCodes.n.needConvert         | 否    | String  | 自定义响应配置是否开启映射（此配置仅用于生成 API 文档提示调用者）。
-|
+| responseErrorCodes.n.convertedCode       | 否    | Int     | 自定义响应配置映射错误码（此配置仅用于生成 API 文档提示调用者）。|
+| responseErrorCodes.n.needConvert         | 否    | String  | 自定义响应配置是否开启映射（此配置仅用于生成 API 文档提示调用者）。|
 | responseErrorCodes.n.msg                 | 否    | String  | 自定义响应配置错误信息（此配置仅用于生成 API 文档提示调用者）。         |
 | responseErrorCodes.n.desc                | 否    | String  | 自定义响应配置错误码备注（此配置仅用于生成 API 文档提示调用者）。        |
 
