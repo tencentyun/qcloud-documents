@@ -374,7 +374,7 @@ __参数__
 
 __介绍__
 
-开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估
+开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估。
 
 ***
 
