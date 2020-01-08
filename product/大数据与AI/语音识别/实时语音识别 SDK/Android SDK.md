@@ -29,7 +29,7 @@ iOS/Android SDK 接入请观看视频：
 		```
 	
 + 添加相关依赖
-  okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
+  okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加:
 	```
 	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 	implementation 'com.squareup.okio:okio:1.11.0'
