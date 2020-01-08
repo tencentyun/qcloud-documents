@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
+| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
 
 ***
 
