@@ -11,7 +11,7 @@
  - **serverless**：该目录为工程的服务端代码，包括小游戏联机对战引擎的实时服务器框架。
 ![](https://main.qcloudimg.com/raw/e1a7c850e115bfb4a4e9c5c97273fd6b.png)
 3. 进入 Cocos Creator 主界面，单击顶部工具栏的“![](https://main.qcloudimg.com/raw/09071d4fabcf9239a2ce8f2d96972dac.png)”按键，运行当前 DEMO。通过浏览器打开的界面如下图所示：
-![](https://main.qcloudimg.com/raw/3a828cd3813a0c4bf6b5236154ee6930.png)
+![](https://main.qcloudimg.com/raw/3d69120bb52b0719ef65cc56b7d5fe0b.png)
  >!
  - 由于当前 DEMO 演示联机功能，请您复制地址，在两个浏览器窗口运行当前 DEMO，以便您体验通信同步效果。
  - 当前窗口展示的游戏 ID、游戏 Key、域名，为体验 DEMO 专用的游戏信息，当同时体验的用户较多时，可能产生通信延迟或卡顿。为了更好的体验效果，建议您替换为私有的游戏 ID、游戏 Key、域名。
