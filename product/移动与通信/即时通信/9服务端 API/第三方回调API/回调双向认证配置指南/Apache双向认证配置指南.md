@@ -3,7 +3,7 @@
 以第三方开发者域名 `www.example.com` 为例，有如下两种情况：
 
 - **第三方开发者已有权威第三方签发的证书**
- - 开发者准备权威第三方为 `www.example.com` 签发的证书 `www.example.com.crt` 和派发的私钥  `www.example.com.key`，注意必须是权威的第三方机构（如天威、globalsign 等）签发的证书。
+ - 开发者准备权威第三方为 `www.example.com` 签发的证书 `www.example.com.crt` 和派发的私钥  `www.example.com.key`，注意必须是权威的第三方机构（例如天威、globalsign 等）签发的证书。
  - 即时通信 IM 给开发者后台提供用于验证请求方（即时通信 IM）证书的 CA 证书 [TencentQQAuthCA.crt](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TencentQQAuthCA.crt.zip)。
  - 参照下文 Apache HTTPS 双向认证配置参考进行配置。
 
