@@ -98,15 +98,15 @@ spec:
        imagePullPolicy: Always  
        env:  
        - name: KUBELET_PORT  
-       value: "10250"  
+         value: "10250"  
        - name: APISERVER_CERT_LOCATION  
-       value: /etc/virtual-kubelet/server.crt  
+         value: /etc/virtual-kubelet/server.crt  
        - name: APISERVER_KEY_LOCATION  
-       value: /etc/virtual-kubelet/server.key  
+         value: /etc/virtual-kubelet/server.key  
        - name: VKUBELET_POD_IP  
-       valueFrom:  
-         fieldRef:  
-           fieldPath: status.podIP  
+         valueFrom:  
+           fieldRef:  
+             fieldPath: status.podIP  
        volumeMounts:  
         - name: credentials  
           mountPath: "/etc/virtual-kubelet"  
