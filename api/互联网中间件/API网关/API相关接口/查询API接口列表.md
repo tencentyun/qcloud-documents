@@ -36,7 +36,7 @@
 | apiName      | String    | API 接口的名称。                                |
 | apiType      | String    | API 接口的类型，当前只有 NORMAL，后续还会增加其他类型的 API。      |
 | path         | String    | API 请求 path。                               |
-| method       | Int       | API 请求方式。                                 |
+| method       | String    | API 请求方式。                                 |
 | createdTime  | Timestamp | 创建时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。 |
 | modifiedTime | Timestamp | 最后修改时间。按照 ISO8601 标准表示，并且使用 UTC 时间。格式为：YYYY-MM-DDThh:mm:ssZ。 |
 | authRequired | String    | 是否需要签名认证，TRUE 表示需要，FALSE 表示不需要。            |

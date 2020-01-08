@@ -266,14 +266,14 @@ mLivePusher.resumePusher();
 通过 TXLivePushConfig 中的`setWatermark`接口可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由该接口函数的后三个参数决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.02f，0.25f，0.2f），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.2，水印高度会被自动计算）。
+- `setWatermark`中后三个参数设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，后三个参数 x、y 和 width 被分别设置为：（0.1，0.1，0.1），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```java
 //设置视频水印
 TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();
 //四个参数依次是水印图片的 Bitmap、水印位置的 X 轴坐标，水印位置的 Y 轴坐标，水印宽度。后面三个参数取值范围是[0, 1]
 Bitmap waterBmp = decodeResource(getResources(), R.drawable.filter_water);
-mLivePushConfig.setWatermark(waterBmp, 0.02f, 0.05f, 0.2f);
+mLivePushConfig.setWatermark(waterBmp, 0.1f, 0.1f, 0.1f);
 mLivePusher.setConfig(mLivePushConfig);
 ```
 
@@ -296,8 +296,10 @@ public interface ITXVideoRecordListener {
 ```
 
 >! 
->1. 录制过程中请勿动态切换视频分辨率和软硬编，这会导致生成的视频异常。
->2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参见 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>1. 只有启动推流后才能开始录制，非推流状态下启动录制无效。
+>2. 出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>3. 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
+>4. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 17. 主播端弱网提醒
 手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。

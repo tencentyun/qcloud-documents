@@ -1,5 +1,49 @@
 ## 调整详情
-智能钛 TI-ONE 平台【重庆】地域将于12月31日下线，为避免造成数据的丢失，请您在下线前将重要数据迁移至广州地域。具体迁移方法请参考以下**迁移指南**。
+智能钛 TI-ONE 平台【重庆】地域将于2019年12月31日无法新增任务，于2020年3月31日正式下线。为避免造成数据的丢失，请您在下线前将重要数据迁移至广州地域。具体迁移方法请参考以下**迁移指南**。
+<table>
+     <tr>
+         <th colspan="2" align="center">重庆地域下线功能模块</th>  
+     </tr>
+  <tr>      
+         <td rowspan="3">工程列表</td>   
+      <td>新建工程</td>   
+     </tr> 
+  <tr>
+ <td>新建工作流</td> 
+     </tr> 
+  <tr>      
+			<td>运行已有的工作流</td>   
+     </tr> 
+		   <tr>      
+         <td rowspan="3">Notebook</td>   
+      <td>新增容器</td>   
+     </tr> 
+  <tr>
+ <td>打开运行中的容器</td> 
+     </tr> 
+  <tr>      
+			<td>启动已终止的容器</td>   
+     </tr> 
+<tr>      
+       <td rowspan="2">模型仓库</td>   
+      <td>部署模型</td>   
+     </tr> 
+  <tr>
+ <td>离线批量预测</td> 
+     </tr> 
+		<td rowspan="4">模型服务-在线服务</td>   
+      <td>获取模型访问地址及密钥</td>   
+     </tr> 
+  <tr>
+ <td>测试</td> 
+     </tr> 
+  <tr>      
+			<td>升级/回退</td>   
+     </tr>  
+<tr>      
+			<td>负载均衡</td>   
+     </tr> 
+</table>
 
 ## 迁移指南
 ### 数据迁移
@@ -64,7 +108,5 @@ TI-EMS 模型部署后提供公网地址和 vpc 地址访问，用户可以在�
 TI-EMS 目前支持预付费的计费方式，支持 CPU 和 GPU 的包月服务，计费详情请见 [TI-EMS 文档]( https://cloud.tencent.com/document/product/1120/38717)。
 - **其他关于 TI-EMS 的使用方法请参考  [TI-EMS 产品文档](https://cloud.tencent.com/document/product/1120)**
 TI-ONE 未来会整合云上各种资源，后续将推出一键部署到 TI-EMS 等功能，尽情期待。
-
-
 
 

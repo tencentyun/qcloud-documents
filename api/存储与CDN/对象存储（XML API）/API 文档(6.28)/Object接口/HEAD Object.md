@@ -90,6 +90,8 @@ Authorization: Auth String
 
 ## 实际案例
 
+#### 案例一：简单案例（未启用版本控制）
+
 #### 请求
 
 ```shell
@@ -112,4 +114,201 @@ ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Last-Modified: Fri, 09 Aug 2019 10:20:56 GMT
 Server: tencent-cos
 x-cos-request-id: NWQ0ZDQ5MGRfNmRjMDJhMDlfOThjMl8xNzE2****
+```
+
+#### 案例二：使用服务端加密 SSE-COS
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 03 Jan 2020 03:15:45 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1578021345;1578028545&q-key-time=1578021345;1578028545&q-header-list=date;host&q-url-param-list=&q-signature=fce853999e9887979144772897191918f222****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Fri, 03 Jan 2020 03:15:45 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Fri, 03 Jan 2020 03:15:38 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZWIxZTFfNTZiODJhMDlfMWI3ZDVfMTE4****
+x-cos-server-side-encryption: AES256
+```
+
+#### 案例三：使用服务端加密 SSE-KMS
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 03 Jan 2020 03:15:52 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1578021352;1578028552&q-key-time=1578021352;1578028552&q-header-list=date;host&q-url-param-list=&q-signature=85c65724701a653ec6f539b01497ca77b112****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Fri, 03 Jan 2020 03:15:52 GMT
+ETag: "e5177e1f7894ababc290c23851e6b2a7"
+Last-Modified: Fri, 03 Jan 2020 03:15:46 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZWIxZThfNjRiODJhMDlfMTU1NjFfMTFk****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+```
+
+#### 案例四：使用服务端加密 SSE-C
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 03 Jan 2020 03:19:12 GMT
+x-cos-server-side-encryption-customer-algorithm: AES256
+x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1578021552;1578028752&q-key-time=1578021552;1578028752&q-header-list=date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=9fd7bb651ba253f522a544d75f4acaeff1d9****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Fri, 03 Jan 2020 03:19:12 GMT
+ETag: "492b458ec33eaf0a824e7dd1bdd403b3"
+Last-Modified: Fri, 03 Jan 2020 03:19:06 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZWIyYjBfNjFjODJhMDlfMTFjNTdfMjFi****
+x-cos-server-side-encryption-customer-algorithm: AES256
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+```
+
+#### 案例五：请求对象最新版本（启用版本控制）
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 03 Jan 2020 03:16:19 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1578021379;1578028579&q-key-time=1578021379;1578028579&q-header-list=date;host&q-url-param-list=&q-signature=7efe66664752371b87d36eb117206009d85a****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 15
+Connection: close
+Date: Fri, 03 Jan 2020 03:16:19 GMT
+ETag: "60c7644eb1ae8918a7fe7e13a352712c"
+Last-Modified: Fri, 03 Jan 2020 03:16:13 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZWIyMDNfZThiOTJhMDlfMTMwNjZfMTQ0****
+x-cos-version-id: MTg0NDUxNjYwNTIzMzU4NjY5MDk
+```
+
+#### 案例六：请求对象指定版本（启用版本控制）
+
+#### 请求
+
+```shell
+HEAD /exampleobject?versionId=MTg0NDUxNjYwNTIxNTA5MDIyMDg HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 03 Jan 2020 03:19:25 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1578021565;1578028765&q-key-time=1578021565;1578028765&q-header-list=date;host&q-url-param-list=versionid&q-signature=91b0fe614247694bb7611a69f05c4aad0f16****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Fri, 03 Jan 2020 03:19:25 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Fri, 03 Jan 2020 03:19:18 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZWIyYmNfMzJiMDJhMDlfN2YzOF8zOWRl****
+x-cos-version-id: MTg0NDUxNjYwNTIxNTA5MDIyMDg
+```
+
+#### 案例七：归档存储正在恢复中
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 27 Dec 2019 08:19:35 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577434775;1577441975&q-key-time=1577434775;1577441975&q-header-list=date;host&q-url-param-list=&q-signature=72408a09a5fc00d77d389559a0cfa5c98e31****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Fri, 27 Dec 2019 08:19:35 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Fri, 27 Dec 2019 08:19:23 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwNWJlOTdfN2VjODJhMDlfOGI1N18yYjYz****
+x-cos-restore: ongoing-request="true"
+x-cos-restore-status: tier="expedited"; request-date="Fri, 27 Dec 2019 08:19:29 GMT"
+x-cos-storage-class: ARCHIVE
+```
+
+#### 案例八：归档存储已恢复
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 02 Jan 2020 18:09:51 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577988591;1577995791&q-key-time=1577988591;1577995791&q-header-list=date;host&q-url-param-list=&q-signature=ff23b3a44945f019916450add646e963c29b****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Date: Thu, 02 Jan 2020 18:09:51 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Thu, 02 Jan 2020 18:09:40 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZTMxZWZfZWZiOTJhMDlfMTE1ZDhfMTI1****
+x-cos-restore: ongoing-request="false", expiry-date="Sat, 04 Jan 2020 16:00:00 GMT"
+x-cos-storage-class: ARCHIVE
 ```

@@ -1,29 +1,29 @@
-本文为您介绍商业直播小程序插件解决方案的制定。
+本文为您介绍小程序云直播插件解决方案的制定。
 
-## 1 注册腾讯云账号
+## 注册腾讯云账号
 注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。注册完成后，提供腾讯云账号 APPID 和 bizname。bziname 为您的唯一品牌标识，将会在域名前缀等被使用。bziname 一旦确定不可变更。
 
-## 2 注册小程序
+## 注册小程序
 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序。小程序类目请根据您的实际场景选择。
 
-## 3 安装微信小程序开发工具
+## 安装微信小程序开发工具
 下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
 ![](https://main.qcloudimg.com/raw/366e52aa9cc84949271b87a4678da636.png)
 
-## 4 推流及拉流
+## 推流及拉流
 1. 配置防盗链
 直播防盗链用于对推流端/播放端身份的权限鉴定，通过使用加密算法对推流 URL 或者播放 URL 进行加密，防止非法用户恶意盗推或者盗播。您可以提供推流密钥/播放密钥到腾讯云为您配置推流防盗链/播放防盗链。默认情况下，为您自动开启推流防盗链配置。
 2. 生成推流/播放地址
 打开`https://bizlive.myqcloud.com/tools/address.html?bizname=bizname`工具页面（URL 中的 bizname 参数为您的 bizname），您可以在工具页面中填写流名称和鉴权密钥，自动生成推流和播放地址。
 
-## 5 什么是小程序插件？
+## 什么是小程序插件？
  使用前，请先阅读微信小程序提供的 [插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
 
-## 6 如何使用插件？
-### 1. 申请插件使用权限
+## 如何使用插件？
+### 申请插件使用权限
 在小程序管理后台的"设置-第三方设置"中选择"添加插件"，在弹出的面板中搜索"腾讯云直播助手"，选中插件并添加。
 
-### 2. 在小程序中引入插件代码
+### 在小程序中引入插件代码
 在小程序中引入插件代码，可参考 [demo 源码](https://bizlive-1258550678.cos.ap-chengdu.myqcloud.com/plugin-demo.zip)。使用插件前需在小程序工程的`app.json`中声明要使用的插件，例如：
 ```
 {
@@ -37,7 +37,7 @@
 }
 ```
 
-### 3. 小程序使用插件中的播放组件
+### 小程序使用插件中的播放组件
 ####  播放组件
 在 page 的`.json`文件中定义需要引入的`live-room-play`组件，使用`plugin://`协议。
 ```js
@@ -104,7 +104,6 @@
 | autoplay                  | Boolean     | false      | 否   | 是否自动播放                                                 |
 | autopause                 | Boolean     | true       | 否   | 页面跳转时是否自动暂停                                       |
 | sdkAppId                  | String      | ""         | 否   | IM 应用的 appid，如果不需要启用内置 IM，可以不填                |
-| ~~accountType~~           | String      | "not set"  | 否   | 账户类型，已废弃                                             |
 | userID                    | String      | "not set"  | 否   | 用户在 IM 内的唯一 ID                                           |
 | userSig                   | String      | "not set"  | 否   | 用户的 IM 登录签名，签名一般由服务端根据 IM 应用的公私钥生成     |
 | roomID                    | String      | "not set"  | 否   | 房间 ID                                                       |
@@ -141,7 +140,6 @@
 | mirror            | Boolean     | false      | 否   | 是否镜像反转                                                 |
 | autopush          | Boolean     | true       | 否   | 是否自动推流                                                 |
 | sdkAppId          | String      | ""         | 否   | IM 应用的 appid，如果不需要启用内置 IM，可以不填                |
-| ~~accountType~~   | String      | "not set"  | 否   | 账户类型，已废弃                                             |
 | userID            | String      | "not set"  | 否   | 用户在 IM 内的唯一 ID                                           |
 | userSig           | String      | "not set"  | 否   | 用户的 IM 登录签名，签名一般由服务端根据 IM 应用的公私钥生成     |
 | roomID            | String      | "not set"  | 否   | 房间 ID                                                       |
@@ -163,10 +161,10 @@
 | userId   | String | ""     | 是   | 用户登录 IM 的唯一标识 |
 | userSig  | String | ""     | 是   | 用户登录 IM 所需的签名 |
 
-### 4. 在播放区域叠加额外展示信息
+### 在播放区域叠加额外展示信息
 组件提供了一个`<slot>`节点，用于承载组件引用时提供的子节点。本功能受限于微信，只能在组件上叠加`cover-image`、`cover-view`和`canvas`。
 
-## 7 组件实例化
+## 组件实例化
 
 ### 获取 live-room-play 组件实例
 #### 为什么要获取 live-room-play 组件实例？
@@ -182,9 +180,9 @@ var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 ```
 
 ### 获取 live-room-push 组件实例
-同上。
+具体步骤同上 [获取 live-room-play 组件实例](#.E8.8E.B7.E5.8F.96-live-room-play-.E7.BB.84.E4.BB.B6.E5.AE.9E.E4.BE.8B)。
 
-## 8 组件接口
+## 组件接口
 ### live-room-play 组件提供如下接口
 - start
 开始播放。调用之后会启动播放。在开始播放之前，`playUrl`也要保证已经设置到组件属性中。
@@ -391,7 +389,7 @@ tx_board.addTICMessageListener(this)
 tx_board.removeTICMessageListener(this)
 ```
 
-## 9 组件事件
+## 组件事件
 
 ### 播放事件
 播放事件分为：

@@ -6,6 +6,7 @@ Beats 有多种采集器，您可以根据自身的需求下载对应的采集�
 
 ## 操作步骤
 ### 配置文件
+按照以下步骤配置监控文件：
 ```
 #======= Filebeat prospectors ==========
 filebeat.prospectors:

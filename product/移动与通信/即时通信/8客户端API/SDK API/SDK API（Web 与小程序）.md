@@ -39,6 +39,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [createFaceMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceMessage) | 创建表情消息。 |
 | [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) | 创建文件消息。 |
 | [sendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) | 发送消息。 |
+| [revokeMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#resendMessage) | 重发消息。 |
 | [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) | 获取消息列表。  |
 | [setMessageRead](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setMessageRead) | 设置消息已读。  |

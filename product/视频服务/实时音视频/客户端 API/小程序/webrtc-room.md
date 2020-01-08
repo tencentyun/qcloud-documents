@@ -57,7 +57,7 @@ webrtcroom.pause();
 ```
 #### sendC2CTextMsg
 
-> 发送C2C文本消息
+发送 C2C 文本消息。
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -68,7 +68,7 @@ fail | Function | 否 | 发送失败的回调
 
 #### sendC2CCustomMsg
 
-> 发送C2C自定义消息
+发送 C2C 自定义消息。
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -79,7 +79,7 @@ fail | Function | 否 | 发送失败的回调
 
 #### sendGroupTextMsg
 
-发送群组文本消息
+发送群组文本消息。
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -89,7 +89,7 @@ fail | Function | 否 | 发送失败的回调
 
 #### sendGroupCustomMsg
 
-发送群组自定义消息
+发送群组自定义消息。
 
 参数	| 类型	| 是否必填 | 描述
 --------- | --------- | ----- | --------- |
@@ -200,10 +200,10 @@ Page({
 **&lt;webrtc-room&gt;** 并非微信小程序原生提供的标签，而是一个自定义组件，所以您需要额外的代码来支持这个标签。单击 [小程序 Demo 源码](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini) 下载源码包。
 
 ### step2: 在工程中引入组件
-- 在 page 目录下的 json 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。
+- 在 page 目录下的 JSON 配置文件内引用组件，这一步是必须的，因为 &lt;webrtc-room&gt; 并非原生标签。
 ```json
  "usingComponents": {
-    "webrtc-room": "/pages/webrtc-room/webrtc-room"
+    "webrtc-room": "/pages/components/webrtc-room/webrtc-room"
   }
 ```
 
