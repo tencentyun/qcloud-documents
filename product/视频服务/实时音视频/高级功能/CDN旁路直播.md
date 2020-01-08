@@ -13,7 +13,7 @@
 
 | 所属平台 | 计算 CDN 观看地址 | 设置云端混流参数 |
 |---------|---------|---------|
-| iOS | 文件： [TRTCMoreViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMoreViewController.m) <br>函数：onBtnClick() | 文件：[TRTCMainViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMainViewController.m)<br>函数：updateCloudMixtureParams() |
+| iOS | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m) <br>函数：getCdnUrlOfUser() | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m)<br>函数：updateCloudMixtureParams() |
 | Android | 文件：[CdnPlayManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/cdn/CdnPlayManager.java)<br>函数：initPlayUrl() | 文件：[TRTCRemoteUserManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/remoteuser/TRTCRemoteUserManager.java)<br>函数：updateCloudMixtureParams() |
 | Windows（C++） |  文件：[TRTCSettingViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCSettingViewController.cpp)<br>函数：NotifyOtherTab | 文件：[TRTCCloudCore.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/sdkinterface/TRTCCloudCore.cpp)<br>函数：updateMixTranCodeInfo() |
 | Windows（C#） |  文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：OnShareUrlLabelClick| 文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：UpdateMixTranCodeInfo() |
@@ -27,12 +27,17 @@
 4. 主播进入连麦或者 PK 状态后，通过 TRTCCloud 中的 `setMixTranscodingConfig()` 接口，可通知云端进行视频混流（即将多路视频画面混合成一路），使原 CDN 地址中的视频画面从单人画面变成多人混合画面。过程中，一直观看的观众无需切换直播 CDN 地址。
 5. 当连麦结束后，主播可以再次调用 `setMixTranscodingConfig()` 接口关闭混流，将 CDN 地址中的视频画面恢复为单人画面。
 
+## 前提条件
+已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
+
 ## 使用步骤
 
 ### 步骤1：开通服务
 
-登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击目标应用卡片，选择【功能配置】，您可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
-![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)。
+2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【功能配置】。
+3. 单击【启动自动旁路直播】右侧的<img src="https://main.qcloudimg.com/raw/8f08eba741586e96dbe3b30c6804e9b6.png"  style="margin:0;">，在弹出的【开启自动旁路直播】对话框中，单击【确定】。
+4. 在弹出的【选择旁路直播类型】对话框中，选择合适的直播类型，单击【确定】保存设置。
 
 ### 步骤2：独立画面
 
@@ -59,7 +64,7 @@ http://[bizid].liveplay.myqcloud.com/live/[streamid].flv
  hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
 ```
 
->! 上述示例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
+>! 上述示例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，您需要登录 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面添加播放域名。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
 
 ### 步骤3：混合画面
 

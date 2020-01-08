@@ -130,7 +130,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 <tr><td>会话总次数</td><td>一个 BOT 会话发生的总访问次数。</td></tr>
 <tr><td>会话持续时间</td><td>BOT 会话的持续时间。</td></tr>
 <tr><td>会话存在 Robots.txt</td><td>会话请求中访问 Robots.txt 文件。</td></tr>
-<tr><td>会话发生在凌晨</td><td>会话请求发生在凌晨。</td></tr>
+<tr><td>会话发生在凌晨</td><td>会话请求发生在凌晨2:00 - 5:00之间。</td></tr>
 <tr><td rowspan="3">IP 特征</td><td>访问源 IP</td><td>访问源 IP。</td></tr>
 <tr><td>IP 类型</td><td>IP 的类型信息，类型为 IDC 或基站(运营商基站)，当 IP 为 IDC 类型时疑似存在异常。</td></tr>
 <tr><td>IP 所有者</td><td>IP 所有者信息，例如 tencent.com，可以在 BOT 详情中查看，当 IP 类型为 IDC 时有效。</td></tr>

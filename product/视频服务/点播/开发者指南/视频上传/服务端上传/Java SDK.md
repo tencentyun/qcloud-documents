@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.qcloud</groupId>
     <artifactId>vod_api</artifactId>
-    <version>2.1.1</version>
+    <version>2.1.2</version>
 </dependency>
 ```
 
@@ -20,7 +20,7 @@
 
 | jar 文件         | 说明    |
 | ------------ | ------------ | 
-| vod_api-2.1.1.jar | 云点播 SDK。 |
+| vod_api-2.1.2.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
 | tencentcloud-sdk-java-3.0.58.jar             | 腾讯云 API SDK。                        |
