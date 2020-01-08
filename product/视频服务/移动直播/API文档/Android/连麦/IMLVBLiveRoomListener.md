@@ -94,7 +94,7 @@ __介绍__
 
 房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 [MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startremoteview) 显示该主播的视频画面。
 
->?直播间里的普通观众不会收到主播加入和推出的通知。
+>?直播间里的普通观众不会收到主播加入和退出的通知。
 
 
 ***
@@ -116,7 +116,7 @@ __介绍__
 
 房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom#stopRemoteView(AnchorInfo)](https://cloud.tencent.com/document/product/454/34776#stopremoteview) 关闭该主播的视频画面。
 
->?直播间里的普通观众不会收到主播加入和推出的通知。
+>?直播间里的普通观众不会收到主播加入和退出的通知。
 
 
 ***
@@ -195,7 +195,7 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求 如果同意 PK ，您需要调用 MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback) 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startremoteview) 接口播放邀约主播的流。
 
 ***
 
@@ -412,7 +412,7 @@ __参数__
 
 __功能__
 
-创建房间的结果回调接口。
+进入房间的结果回调接口。
 
 
 
@@ -572,7 +572,7 @@ void onSuccess()
 
 __功能__
 
-进入连麦的结果回调接口。
+退出连麦的结果调用接口。
 
 
 

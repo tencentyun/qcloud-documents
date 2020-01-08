@@ -1346,6 +1346,7 @@ public TIMMessageLocator getMessageLocator()
 ### 获取所有会话
 
 通过 `TIMManager` 的 `getConversationList` 获取当前会话数量，从而得到所有本地会话。
+>!SDK 会在内部不断更新会话列表，每次更新后都会通过 `TIMRefreshListener.onRefresh` 回调，请**在 `onRefresh` 之后再调用 `getConversationList`** 更新会话列表。
 
 **原型：**
 

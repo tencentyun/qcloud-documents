@@ -1,4 +1,4 @@
-本文档描述互动课堂后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况，在使用云API进行上课时请先进行账号注册。
+本文档主要介绍了互动课堂的后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况。使用云 API 上课时，请先注册账号。
 
 ## 账号模块
 ###  创建账号
@@ -14,11 +14,11 @@
 | :------ | :--- | :---- | :--------: | :-----: |
 | list | Array | 需要注册的用户列表 | 是 | - |
 | user_id | string | 用户 ID | 是 | - |
-| password | string | 密码，长度4-18，规则：数字/大小写字母/特殊字符(!@#$%^&*()-+=.[]{}:;,?/) | 是 |-
+| password | string | 密码，长度4 - 18，规则：数字/大小写字母/特殊字符（!@#$%^&\*()-+=.[]{}:;,?/） | 是 |-
 | role | string | 用户角色 | 是 | - |
 | nickname | string | 用户昵称 | 否 | 用户 ID |
 | gender | string | 用户性别 | 否 | 男 |
-| avatar | string | 头像的 URL 地址，头像规则参考附录 | 否 | 互动课堂后台随机选择一个头像 |
+| avatar | string | 头像的 URL 地址，头像规则可参考 [附录4：用户头像规则](#.E9.99.84.E5.BD.954.EF.BC.9A.E7.94.A8.E6.88.B7.E5.A4.B4.E5.83.8F.E8.A7.84.E5.88.99) | 否 | 互动课堂后台随机选择一个头像 |
 | phone_no | string | 手机号 | 否 |- |
 | e_mail | string | 邮箱 | 否 | -|
 
@@ -92,8 +92,7 @@
 | error_msg | string | 错误信息 | 是 | - |
 
 #### 举例
-需要修改哪个字段，就在请求体中设置该字段的值，不需要修改的字段，不要在请求体中设置。
-本例修改用户昵称。
+需要修改哪个字段，就在请求体中设置该字段的值，不需要修改的字段，不要在请求体中设置。本例为修改用户昵称。
 请求：
 ```
 {
@@ -273,9 +272,6 @@
 }
 ```
 
-
-本文档描述互动课堂后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况。
-
 ## 课堂模块
 ### 预约课堂
 #### 接口
@@ -299,16 +295,16 @@
 | settings | settings | 课堂配置信息 | 否 |- |
 | resolution | string | 设置课堂的分辨率（320x240/800x600/1024x768）  | 否 | 1024x768 |
 | fps | int | 设置课堂的帧率| 否 | 15 |
-| auto_create_im | int | 是否由后台创建并管理 IM 群组，并记录 IM 历史消息（0-不创建/1-创建），若要开启服务端录制则改字段必填为1| 否 | 1 |
+| auto_create_im | int | 是否由后台创建并管理 IM 群组，并记录 IM 历史消息（0-不创建/1-创建）。若要开启服务端录制，则该字段填写为1| 否 | 1 |
 | record_types | Array | 字符串数组，选定录制类型，如果填写了`remote`，<br>在开始上课时，会自动开启服务端录制 | 否 | local | 
 | auto_open_mic  | int | 是否自动打开麦克风（0-不打开/1-打开）| 否 | 0 |
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
 | enable_all_silence  | int | 是否开启了全员禁言（0-否/1-是）| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
-| layout | int | 课堂的布局风格（具体参见 Layout 附录）| 否 | 0 |
+| layout | int | 课堂的布局风格，具体可参见 [Layout 附录](#.E9.99.84.E5.BD.956.EF.BC.9A.E5.B8.83.E5.B1.80.E7.B1.BB.E5.9E.8B-layout)| 否 | 0 |
 | members | Array | 课堂预约成员列表 | 否 |  教师 ID 默认在成员列表中 |
-| role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
-| user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
+| role | string | 角色信息，本接口中全部填“student”。需要设置 members 时，此字段必填 | 否 | - |
+| user_id | string | 学生 ID。需要设置 members 时，此字段必填 | 否 | - |
 | max_member_limit | int |最大上麦人数| 否 | - |
 |max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
 
@@ -485,7 +481,7 @@
 | auto_open_camera  | int | 是否自动打开摄像头（0-不打开/1-打开）| 否 | 0 |
 | enable_all_silence  | int | 是否开启了全员禁言（0-否/1-是）| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
-| layout | int | 课堂的布局风格（具体参见附录）| 否 | 0 |
+| layout | int | 课堂的布局风格，具体可参见 [Layout 附录](#.E9.99.84.E5.BD.956.EF.BC.9A.E5.B8.83.E5.B1.80.E7.B1.BB.E5.9E.8B-layout)| 否 | 0 |
 | members | Array | 课堂预约成员列表 | 是 | - |
 | role | string | 成员角色信息 | 是 | - |
 | user_id | string | 成员 ID | 是 | - |
@@ -555,8 +551,8 @@
 | size | int | 分段拉取分页大小（最大100） | 否 | 100 |
 | user_id | string | 如果设置了 user_id 参数，则只查询 user_id 所在的课堂列表 | 否 | 空字符串|
 | create_time_desc | bool | 是否按创建课堂时间倒序拉取 true-倒序/false-升序| 是 | true |
-| class_status | Array  | 课堂的状态，默认拉取所有课堂；不传此字段或字段是空数组，也是拉取所有课堂 | 否 | ["will","ing","end"] |
-| class_type | Array  | 课堂的类型，默认拉取所有课堂；不传此字段或字段是空数组，也是拉取所有课堂 | 否 | ["public","1v1","1vN"] |
+| class_status | Array  | 课堂的状态，默认拉取所有课堂。不传此字段或字段是空数组时，也是拉取所有课堂 | 否 | ["will","ing","end"] |
+| class_type | Array  | 课堂的类型，默认拉取所有课堂。不传此字段或字段是空数组时，也是拉取所有课堂 | 否 | ["public","1v1","1vN"] |
 
 
 #### 响应参数
@@ -1090,7 +1086,7 @@ transport_progress
 | error_code | int | 错误码 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | timestamp | int | 进度发生改变的真正时间戳，单位秒 | 是 | - |
-| status | string | 任务状态`queued`-正在排队/`processing`-转码中/`finished`-转码完成 | 是 | - |
+| status | string | 任务状态，`queued`-正在排队/`processing`-转码中/`finished`-转码完成 | 是 | - |
 | progress | int64 | 0-100的整数表示转码当前进度 | 是 | - |
 | h5_url | string | 转码完成后 H5 的 URL | 是 | - |
 | resolution | string | PPT 的分辨率 | 是 | - |
@@ -1109,25 +1105,20 @@ transport_progress
   "title": "PPT名字"
 }
 ```
+
 ### 进入课堂回调
-
-
-
 **event**
-
 ```
 join_class
 ```
-
 **data**
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | join_time | int64 | 进入课堂的时间 | 是 | - |
 | user_id | string | 进入课堂的用户 | 是 | - |
 | role | int64 | 进入课堂用户的角色 | 是 | - |
-
 
 ```
 {
@@ -1137,25 +1128,20 @@ join_class
 "role":student,
 }
 ```
+
 ### 退出课堂回调
-
-
-
 **event**
-
 ```
 quit_class
 ```
-
 **data**
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | quit_time | int64 | 退出课堂的时间 | 是 | - |
 | user_id | string | 退出课堂的用户 | 是 | - |
 | role | int64 |退出入课堂用户的角色 | 是 | - |
-
 
 ```
 {
@@ -1165,10 +1151,10 @@ quit_class
 "role":student,
 }
 ```
-## 企业模块
 
+## 企业模块
 ### 修改企业信息
-需要修改的字段填写在请求体中，不需要修改的字段不要设置，如果某个字段设置为空，则会覆盖已有数据。
+需要修改的字段填写在请求体中，不需要修改的字段不要设置。如果某个字段设置为空，则会覆盖已有数据。
 #### 接口
 - 接口名称：`/business/modify`
 - 接口方法：`POST`
@@ -1187,9 +1173,8 @@ quit_class
 | project_id | int | 企业腾讯云账号下的项目 ID（需要 ai 功能时才设置） | 否 | - |
 | secret_id | string | 企业腾讯云账号下的密钥 ID（需要 ai 功能时才设置）| 否 | - |
 | secret_key | string | 企业腾讯云账号下的密钥 key（需要 ai 功能时才设置） | 否 | - |
-| im_admin | string | 企业腾讯云账号im的管理员账号 | 否 | - |
-| private_key | string | 企业腾讯云账号im的密钥 key | 否 | - |
-
+| im_admin | string | 企业腾讯云账号 IM 的管理员账号 | 否 | - |
+| private_key | string | 企业腾讯云账号 IM 的密钥 key | 否 | - |
 | call_back_url | string | 接收互动课堂的事件回调地址 | 否 | - |
 
 #### 响应参数
@@ -1509,7 +1494,7 @@ quit_class
 | avatar | string | 用户头像 URL | 是 | - |
 | enter_time | int64 | 用户进房时间 | 是 | - |
 | role | string | 用户角色 | 是 | - |
-| Status | Object | 用户的一些状态信息 | 是 | - |
+| Status | Object | 用户的部分状态信息 | 是 | - |
 | camera | int | 用户摄像头状态1-打开/0-关闭 | 是 | - |
 | mic | int | 用户麦克风状态1-打开/0-关闭 | 是 | - |
 | speaker | int | 用户扬声器状态1-打开/0-关闭 | 是 | - |
@@ -1593,7 +1578,7 @@ quit_class
 
 ### 获取课堂历史成员列表
 历史成员与实时成员的区别：
-1. 历史成员中不包含`游客`。
+1. 历史成员中不包含“游客”。
 2. 历史成员信息中有“退房时间”。
 3. 历史成员信息中**没有**“成员状态信息”。
 
@@ -1713,12 +1698,12 @@ quit_class
 | 参数名 | 类型 | 描述 |
 | :------ | :--- | :---- |
 | sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 SDKAppID |
-| random | int | 一个随机数，用于区分不同的请求，过滤日志等 |
+| random | int | 一个随机数，用于区分不同的请求、过滤日志等 |
 | sign | string | API 鉴权字符串 |
 | expire_time | int64 | 请求签名串过期时间戳 |
 
 **举例：**
-预约课堂的完整 API：
+预约课堂的完整 API。
 ```
 https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37926&expire_time=1548247837&sign=xxxxxxx
 ```
@@ -1730,7 +1715,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 |参数    |类型    | 描述|
 |:---- | :---| :--- |
 | tic_key | string | 创建企业时，下发的互动课堂 API 鉴权 KEY |
-| expire_time    | int64 |    签名的过期时间戳：当前时间戳 + 签名有效时间；每个请求包体中都必须带此字段 |
+| expire_time    | int64 |    签名的过期时间戳：当前时间戳 + 签名有效时间，每个请求包体中都必须带此字段 |
 
 **举例：**
 1. 当前时间戳是`1548247717`。
@@ -1746,7 +1731,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
 | superadmin | string | 超级管理员（申请创建企业时，设置的超级管理员） |
-| admin | string | 普通管理员（需要使用腾讯云互动课堂控制台时需要关注） |
+| admin | string | 普通管理员（需要使用腾讯云互动课堂控制台需要关注） |
 | teacher | string | 教师 |
 | assistant | string | 助教 |
 | student | string | 学生 |
@@ -1754,8 +1739,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | visitor | string | 游客 |
 
 #### 附录3.2 录制类型-record_type
-
-在约课时设置此字段，如果设置为 remote，在`上课`后，后台会自动发起云端录制，录制结束后，会自动发起结束录制回调。
+在约课时设置此字段，如果设置为 remote，在`上课`后，后台会自动发起云端录制。录制结束后，会自动发起结束录制回调。
 
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
@@ -1798,7 +1782,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 
 
 #### 附录3.5 设备开关
-设备包括：camera、mic、speaker 等。
+设备包括 camera、mic、speaker 等。
 
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
@@ -1855,8 +1839,8 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | packet_loss_mutation |  string | 丢包突变 |
 | rate_mutation |  string | 码率突变 |
 
-### 附录4: 用户头像规则
-如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像
+### 附录4：用户头像规则
+若未设置用户头像，互动课堂后台会随机设置一个默认的头像。
 
 | 格式 | 大小 |
 | :-----  | :--- |

@@ -48,7 +48,7 @@ TXLiveBase.getInstance().getLicenceInfo();
 ## License 的有效期与续费
 
 您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，
-正式版 License 有效期一般为一年。License 到期后您可以在 [移动直播 License](https://console.cloud.tencent.com/live/license)  页面再次购买。
+正式版 License 有效期一般为一年。License 到期后您可以在 [移动直播套餐选购](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tbe)  页面再次购买。
 
 ## 企业版 License
 相比于专业版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，更多详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
