@@ -48,10 +48,6 @@ XML SDK 存储桶名称由两部分组成：用户自定义字符串和 APPID，
 
 [//]: # (.cssg-snippet-put-bucket-complete)
 ```java
-COSCredentials cred = new BasicCOSCredentials("COS_SECRETID", "COS_SECRETKEY");
-// 采用了新的 region 名字，可用 region 的列表可以在官网文档中获取，也可以参考下面的 XML SDK 和 JSON SDK 的地域对照表
-ClientConfig clientConfig = new ClientConfig(new Region("COS_REGION"));
-COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶名称，格式为：BucketName-APPID
 String bucketName = "examplebucket-1250000000";
 
@@ -65,9 +61,6 @@ putObjectRequest.setStorageClass(StorageClass.Standard_IA);
 PutObjectResult putObjectResult = cosClient.putObject(putObjectRequest);
 // putobjectResult 会返回文件的 etag
 String etag = putObjectResult.getETag();
-
-// 关闭客户端
-cosClient.shutdown();
 ```
 
 **存储桶可用区域简称 Region**
@@ -161,9 +154,6 @@ for (; ; ) {
 
 [//]: # (.cssg-snippet-transfer-upload-object-complete)
 ```java
-ExecutorService threadPool = Executors.newFixedThreadPool(1);
-TransferManager transferManager = new TransferManager(cosClient, threadPool);
-
 String key = "exampleobject";
 File localFile = new File(localFilePath);
 String bucketName = "examplebucket-1250000000";
@@ -185,8 +175,6 @@ upload = transferManager.resumeUpload(persistableUpload);
 // 等待上传任务完成
 UploadResult uploadResult = upload.waitForUploadResult();
 System.out.println(uploadResult.getETag());
-
-transferManager.shutdownNow();
 ```
 
 **3）签名算法不同**
