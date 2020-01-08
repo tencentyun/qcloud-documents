@@ -3,27 +3,29 @@
 
 ## 前提条件
 在使用此组件之前，需要先初始化一个 Flask 项目，具体步骤如下：
-#### Flask安装与配置
-您可在全局或虚拟环境中完成Flask安装，首先创建项目目录：
+#### Flask 安装与配置
+您可以在全局或虚拟环境中完成 Flask 安装。
+1. 创建项目目录：
 ```shell
 $ mkdir myapp
 $ cd myapp
 ```
-在项目目录中生成依赖文件 `requiements.txt`：
+2. 在项目目录中生成依赖文件 `requiements.txt`：
 ```shell
 $ pip freeze > requirements.txt
 ```
-然后将 `Flask` 和 `werkzeug` 添加到依赖文件 `requiements.txt` 中：
+3. 将 `Flask` 和 `werkzeug` 添加到依赖文件 `requiements.txt` 中：
 ```txt
 Flask==1.0.2
 werkzeug==0.16.0
 ```
-完成Flask安装:
+4. 完成 Flask 安装：
 ```shell
 $ pip install -r requirements.txt
 ```
+
 #### 创建应用服务
-新增 API 服务 `app.py`，下面代码仅供参考：
+新增 API 服务 `app.py`，以下代码仅供参考：
 ```python
 from flask import Flask, jsonify
 app = Flask(__name__)
