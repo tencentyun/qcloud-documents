@@ -1,3 +1,6 @@
+iOS/Android SDK 接入请观看视频：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20716?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 接入准备
 ### SDK 获取
 实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)。
