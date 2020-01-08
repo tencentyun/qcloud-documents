@@ -1397,6 +1397,8 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 @end
 ```
 
+>!SDK 会在内部不断更新会话列表，每次更新后都会通过 `TIMRefreshListener.onRefresh` 回调，请**在 `onRefresh` 之后再调用 `getConversationList`** 更新会话列表。
+
 **示例：**
 
 ```

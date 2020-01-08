@@ -77,12 +77,12 @@
 
 >? 根据您具体使用的服务，使用专业版需先购买对应产品授权，您可按需选购：
 >1. 使用移动直播请购买  [移动直播 License](https://cloud.tencent.com/document/product/454/34750#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F-license)。
->1. 使用短视频请购买 [短视频 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F-license)。
+>1. 使用短视频请购买 [短视频 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 >1. 使用实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
-企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请联系腾讯云商务获取。
+企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请 [联系腾讯云商务](https://cloud.tencent.com/document/product/616/11235) 获取。
 
 <table>
    <tr>

@@ -2,11 +2,10 @@
 SQL 透视对数据库实例进行深层次的 SQL 分析，以数据库一段时间内产生的审计日志为基础，对全量的 SQL 以及执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、抽样、聚合。
 
 针对聚合后的 SQL 语句，根据其执行计划的结果，综合资源消耗、扫描和返回集合大小、索引使用合理性等，对 SQL 的性能进行分析，并针对低质量 SQL 结合索引情况、库表设计，给出优化建议。本文将介绍如何进行全量 SQL 分析，及查看分析详情。
->?SQL 透视目前仅支持云数据库 MySQL 实例。
+>?SQL 透视目前仅支持云数据库 MySQL 主实例。
 
 ## 前提条件
-- DBbrain 目前处于内测期间，如有需要，请提 [内测申请](https://cloud.tencent.com/apply/p/hf28d7bu4zw)。
-- 实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
+实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
 ![](https://main.qcloudimg.com/raw/fc001ac870f1bed1cb301c29baaca47f.png)
 
 
