@@ -1,6 +1,6 @@
 ## 简介
 ### 组件介绍
-Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，它可帮助您容器集群中使用腾讯云对象存储。
+Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您容器集群中使用腾讯云对象存储。
 
 
 ### 在集群内部署的 Kubernetes 对象
@@ -24,7 +24,7 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，它可帮助您容�
 
 - 支持 Kubernetes 1.10 以上版本的集群。
 - Kubernetes 1.12 版本的集群需要增加 kubelet 配置：`--feature-gates=KubeletPluginsWatcher=false`。
-- COSFS 本身限制，详情请参见[ COSFS 局限性](https://cloud.tencent.com/document/product/436/6883)。
+- COSFS 本身限制，详情请参见[ COSFS 局限性](https://cloud.tencent.com/document/product/436/6883#.E5.B1.80.E9.99.90.E6.80.A7)。
 - 在 TKE 中使用 COS，需要在集群内安装该扩展组件，将占用一定的系统资源。
 
 ## 使用方法
@@ -39,7 +39,7 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，它可帮助您容�
 
 ### 创建 Secret<span ID="StepTwo"></span>
 您可通过控制台及 kubectl 两种方式创建能够挂载 COS 访问凭证的 Secret。
->?以下两种创建方式中所需要的 SecretId 和 SecretKey 的值，可前往腾讯云访问管理控制台中的 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取。
+>?以下两种创建方式中所需的 SecretId 和 SecretKey 值，可前往腾讯云访问管理控制台中的 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取。
 
 
 #### 通过控制台创建 
@@ -87,7 +87,7 @@ data:
   - **读写权限**：请按需选择。
   - **Secret**：选择 [ 创建 Secret ](#StepTwo) 中已创建的 Secret 。
   - **存储桶**：根据实际需求进行选择。当没有合适的存储桶可用时，请参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档前往对象存储 [存储桶列表页](https://console.cloud.tencent.com/cos5/bucket) 进行新建。
-4. 单击【创建PersistentVolume】，完成创建。
+4. 单击【创建PersistentVolume】，即可完成创建。
 
 ### 创建 PersistentVolumeClaim<span ID="StepFour"></span>
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
