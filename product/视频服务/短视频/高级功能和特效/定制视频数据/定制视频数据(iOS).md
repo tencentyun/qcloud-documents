@@ -11,7 +11,7 @@
 - (GLuint)onPreProcessTexture:(GLuint)texture width:(CGFloat)width height:(CGFloat)height;
 
 /**
- * 人脸数据回调（商业版接口）
+ * 人脸数据回调（企业版接口）
  * @prama points 人脸坐标
  * 说明：使用了人脸识别的相关功能如人脸识别贴纸、大眼或者瘦脸等。此回调在 onPreProcessTexture:width:height: 之前会被调用
  */

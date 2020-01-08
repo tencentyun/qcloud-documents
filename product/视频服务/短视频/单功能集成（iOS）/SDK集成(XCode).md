@@ -56,7 +56,7 @@ SDK 支持 iOS 8.0 以上系统。
 
 - 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版 License**按钮生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/c877efe3f57e853615e68a35e20fd8b9.png)
-- 商业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
+- 企业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
 #### 4. Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
@@ -307,7 +307,7 @@ Demo 中使用到的公有模块及第三方库如下所示：
 Common
 ├── BeautySettingPanel (美颜设置控件)
 ├── Catetory (UIKit 扩展)
-├── ForEnterprise (商业版 AI 动效资源)
+├── ForEnterprise (企业版 AI 动效资源)
 ├── Resource
 │   ├── Common.xcassets (返回按钮等公用资源)
 │   └── Filter (滤镜资源包)
@@ -315,12 +315,12 @@ Common
 └── UGC (短视频各子模块的公有类)
 
 Third
-├── AFNetworking (HTTP 网络封装，商业版用于下载动态贴纸资源)
+├── AFNetworking (HTTP 网络封装，企业版用于下载动态贴纸资源)
 ├── MBProgressHUD (界面 Toast 提示)
 ├── Masonry (自动布局)
 ├── QBImagePicker (图片选取)
 ├── V8HorizontalPickerView (水平滚动界面，用于编辑界面滤镜选则)
-└── ZipArchive (zip 封装，商业版中用于解压动态贴纸资源)
+└── ZipArchive (zip 封装，企业版中用于解压动态贴纸资源)
 ```
 
 
@@ -332,4 +332,4 @@ Third
 - [视频拼接](https://cloud.tencent.com/document/product/584/9370)
 - [视频上传](https://cloud.tencent.com/document/product/584/15534)
 - [视频播放](https://cloud.tencent.com/document/product/584/9372)
-- [动效变脸（商业版）](https://cloud.tencent.com/document/product/584/13509)
+- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13509)
