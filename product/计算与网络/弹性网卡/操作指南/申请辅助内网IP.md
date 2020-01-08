@@ -35,16 +35,35 @@ ipconfig /all
 4. 在“以太网属性”弹窗中，选中【Internet 协议版本4（TCP/IPv4）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/b224af9ef0d18ca24f8e799f9c5023df.png)
 5. 在 “Internet 协议版本4（TCP/IPv4）属性”弹窗中，填写如下信息：
-
-| 参数名 | 参数值 | 
-|---------|---------|
-| IP 地址 | 上述 [步骤1](#step1) 中的 IPv4 地址。 | 
-| 子网掩码 | 上述 [步骤1](#step1) 中的子网掩码。 | 
-| 默认网关 | 上述 [步骤1](#step1) 中的默认网关地址。 | 
-| 首选 DNS 服务器 | 上述 [步骤1](#step1) 中的 DNS 服务器。 | 
-| 备用 DNS 服务器 | 上述 [步骤1](#step1) 中的备用 DNS 服务器。如果未列出备用 DNS 服务器，则无需填写此参数。 | 
-
-![](https://main.qcloudimg.com/raw/26fca0d8901235e7be62234c3e684e17.png)
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>IP 地址</td>
+<td>上述 <a href="#step1">步骤1</a> 中的 IPv4 地址。</td>
+</tr>
+<tr>
+<td>子网掩码</td>
+<td>上述 <a href="#step1">步骤1</a> 中的子网掩码。</td>
+</tr>
+<tr>
+<td>默认网关</td>
+<td>上述 <a href="#step1">步骤1</a> 中的默认网关地址。</td>
+</tr>
+<tr>
+<td>首选 DNS 服务器</td>
+<td>上述 <a href="#step1">步骤1</a> 中的 DNS 服务器。</td>
+</tr>
+<tr>
+<td>备用 DNS 服务器</td>
+<td>上述 <a href="#step1">步骤1</a> 中的备用 DNS 服务器。如果未列出备用 DNS 服务器，则无需填写此参数。</td>
+</tr>
+</tbody></table>
+<img src="https://main.qcloudimg.com/raw/26fca0d8901235e7be62234c3e684e17.png" />
 6. 单击【高级】，配置辅助内网 IP。
 7. 在“高级 TCP/IP 设置”弹窗中的 “IP 地址”模块下，单击【添加】。
 8. 在 “TCP/IP 地址”弹窗中，填写辅助内网 IP，上述 [步骤1](#step1) 中的子网掩码，单击【确定】，如下图所示。 
@@ -54,4 +73,3 @@ ipconfig /all
 11. 在“以太网状态”弹窗中，单击【详细信息】，可查看已配置的 IP 信息，如下图所示。
 ![](https://main.qcloudimg.com/raw/172cb1189fe0886d6b0b6483a924f8cd.png)
 		
- 
