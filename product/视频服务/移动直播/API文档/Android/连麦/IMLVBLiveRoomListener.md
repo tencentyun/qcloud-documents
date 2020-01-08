@@ -195,7 +195,7 @@ __参数__
 
 __介绍__
 
-主播收到其他房间主播的 PK 请求 如果同意 PK ，您需要调用 MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback) 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom#startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startremoteview) 接口播放邀约主播的流。
 
 ***
 
