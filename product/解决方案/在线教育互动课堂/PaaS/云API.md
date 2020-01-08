@@ -1086,7 +1086,7 @@ transport_progress
 | error_code | int | 错误码 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | timestamp | int | 进度发生改变的真正时间戳，单位秒 | 是 | - |
-| status | string | 任务状态`queued`-正在排队/`processing`-转码中/`finished`-转码完成 | 是 | - |
+| status | string | 任务状态，`queued`-正在排队/`processing`-转码中/`finished`-转码完成 | 是 | - |
 | progress | int64 | 0-100的整数表示转码当前进度 | 是 | - |
 | h5_url | string | 转码完成后 H5 的 URL | 是 | - |
 | resolution | string | PPT 的分辨率 | 是 | - |
@@ -1105,25 +1105,20 @@ transport_progress
   "title": "PPT名字"
 }
 ```
+
 ### 进入课堂回调
-
-
-
 **event**
-
 ```
 join_class
 ```
-
 **data**
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | join_time | int64 | 进入课堂的时间 | 是 | - |
 | user_id | string | 进入课堂的用户 | 是 | - |
 | role | int64 | 进入课堂用户的角色 | 是 | - |
-
 
 ```
 {
@@ -1133,25 +1128,20 @@ join_class
 "role":student,
 }
 ```
+
 ### 退出课堂回调
-
-
-
 **event**
-
 ```
 quit_class
 ```
-
 **data**
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | quit_time | int64 | 退出课堂的时间 | 是 | - |
 | user_id | string | 退出课堂的用户 | 是 | - |
 | role | int64 |退出入课堂用户的角色 | 是 | - |
-
 
 ```
 {
@@ -1161,10 +1151,10 @@ quit_class
 "role":student,
 }
 ```
-## 企业模块
 
+## 企业模块
 ### 修改企业信息
-需要修改的字段填写在请求体中，不需要修改的字段不要设置，如果某个字段设置为空，则会覆盖已有数据。
+需要修改的字段填写在请求体中，不需要修改的字段不要设置。如果某个字段设置为空，则会覆盖已有数据。
 #### 接口
 - 接口名称：`/business/modify`
 - 接口方法：`POST`
@@ -1183,9 +1173,8 @@ quit_class
 | project_id | int | 企业腾讯云账号下的项目 ID（需要 ai 功能时才设置） | 否 | - |
 | secret_id | string | 企业腾讯云账号下的密钥 ID（需要 ai 功能时才设置）| 否 | - |
 | secret_key | string | 企业腾讯云账号下的密钥 key（需要 ai 功能时才设置） | 否 | - |
-| im_admin | string | 企业腾讯云账号im的管理员账号 | 否 | - |
-| private_key | string | 企业腾讯云账号im的密钥 key | 否 | - |
-
+| im_admin | string | 企业腾讯云账号 IM 的管理员账号 | 否 | - |
+| private_key | string | 企业腾讯云账号 IM 的密钥 key | 否 | - |
 | call_back_url | string | 接收互动课堂的事件回调地址 | 否 | - |
 
 #### 响应参数
@@ -1505,7 +1494,7 @@ quit_class
 | avatar | string | 用户头像 URL | 是 | - |
 | enter_time | int64 | 用户进房时间 | 是 | - |
 | role | string | 用户角色 | 是 | - |
-| Status | Object | 用户的一些状态信息 | 是 | - |
+| Status | Object | 用户的部分状态信息 | 是 | - |
 | camera | int | 用户摄像头状态1-打开/0-关闭 | 是 | - |
 | mic | int | 用户麦克风状态1-打开/0-关闭 | 是 | - |
 | speaker | int | 用户扬声器状态1-打开/0-关闭 | 是 | - |
@@ -1589,7 +1578,7 @@ quit_class
 
 ### 获取课堂历史成员列表
 历史成员与实时成员的区别：
-1. 历史成员中不包含`游客`。
+1. 历史成员中不包含“游客”。
 2. 历史成员信息中有“退房时间”。
 3. 历史成员信息中**没有**“成员状态信息”。
 
@@ -1709,12 +1698,12 @@ quit_class
 | 参数名 | 类型 | 描述 |
 | :------ | :--- | :---- |
 | sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 SDKAppID |
-| random | int | 一个随机数，用于区分不同的请求，过滤日志等 |
+| random | int | 一个随机数，用于区分不同的请求、过滤日志等 |
 | sign | string | API 鉴权字符串 |
 | expire_time | int64 | 请求签名串过期时间戳 |
 
 **举例：**
-预约课堂的完整 API：
+预约课堂的完整 API。
 ```
 https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37926&expire_time=1548247837&sign=xxxxxxx
 ```
@@ -1726,7 +1715,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 |参数    |类型    | 描述|
 |:---- | :---| :--- |
 | tic_key | string | 创建企业时，下发的互动课堂 API 鉴权 KEY |
-| expire_time    | int64 |    签名的过期时间戳：当前时间戳 + 签名有效时间；每个请求包体中都必须带此字段 |
+| expire_time    | int64 |    签名的过期时间戳：当前时间戳 + 签名有效时间，每个请求包体中都必须带此字段 |
 
 **举例：**
 1. 当前时间戳是`1548247717`。
@@ -1742,7 +1731,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
 | superadmin | string | 超级管理员（申请创建企业时，设置的超级管理员） |
-| admin | string | 普通管理员（需要使用腾讯云互动课堂控制台时需要关注） |
+| admin | string | 普通管理员（需要使用腾讯云互动课堂控制台需要关注） |
 | teacher | string | 教师 |
 | assistant | string | 助教 |
 | student | string | 学生 |
@@ -1750,8 +1739,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | visitor | string | 游客 |
 
 #### 附录3.2 录制类型-record_type
-
-在约课时设置此字段，如果设置为 remote，在`上课`后，后台会自动发起云端录制，录制结束后，会自动发起结束录制回调。
+在约课时设置此字段，如果设置为 remote，在`上课`后，后台会自动发起云端录制。录制结束后，会自动发起结束录制回调。
 
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
@@ -1794,7 +1782,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 
 
 #### 附录3.5 设备开关
-设备包括：camera、mic、speaker 等。
+设备包括 camera、mic、speaker 等。
 
 | 常量值 | 类型 | 描述 |
 | -- | -- | -- |
@@ -1851,8 +1839,8 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | packet_loss_mutation |  string | 丢包突变 |
 | rate_mutation |  string | 码率突变 |
 
-### 附录4: 用户头像规则
-如果没有设置用户头像，互动课堂后台会随机设置一个默认的头像
+### 附录4：用户头像规则
+若未设置用户头像，互动课堂后台会随机设置一个默认的头像。
 
 | 格式 | 大小 |
 | :-----  | :--- |
