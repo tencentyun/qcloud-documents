@@ -70,7 +70,7 @@ String region = "COS_REGION";
 
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
         .setRegion(region)
-     .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
+        .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
         .builder();
 
 URL url = null;
@@ -200,53 +200,51 @@ String uploadId = null; //若存在初始化分块上传的 UploadId，则赋值
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 
 /**
-* 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
-* byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
-* cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
-*/
+ * 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
+ * byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
+ * cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
+ */
 
 /**
-* 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
-* InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
-* cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
-*/
+ * 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
+ * InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
+ * cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
+ */
 
 //设置上传进度回调
 cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
-            @Override
-            public void onProgress(long complete, long target) {
-                float progress = 1.0f * complete / target * 100;
-                Log.d("TEST",  String.format("progress = %d%%", (int)progress));
-            }
-        });
+    @Override
+    public void onProgress(long complete, long target) {
+        // todo Do something to update progress...
+    }
+});
 //设置返回结果回调
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
-            @Override
-            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-    COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTask.COSXMLUploadTaskResult)result;
-                Log.d("TEST",  "Success: " + cOSXMLUploadTaskResult.printResult());
-            }
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTask.COSXMLUploadTaskResult) result;
+    }
 
-            @Override
-            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
-            }
-        });
+    @Override
+    public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
+        // todo Upload failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
 //设置任务状态回调, 可以查看任务过程
 cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
-            @Override
-            public void onStateChanged(TransferState state) {
-                Log.d("TEST", "Task state:" + state.name());
-            }
-        });
+    @Override
+    public void onStateChanged(TransferState state) {
+        // todo notify transfer state
+    }
+});
 
 /**
-若有特殊要求，则可以如下操作：
+ 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
  putObjectRequest.setRegion(region); //设置存储桶所在的地域
  putObjectRequest.setNeedMD5(true); //是否启用 Md5 校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
-*/
+ */
 
 //取消上传
 cosxmlUploadTask.cancel();

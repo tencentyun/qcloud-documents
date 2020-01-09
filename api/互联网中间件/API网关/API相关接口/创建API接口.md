@@ -1,4 +1,3 @@
-
 ## 接口描述
 
 本接口（CreateApi）用于创建 API 接口，创建 API 前，用户需要先创建服务，每个 API 都有自己归属的服务。
@@ -42,18 +41,20 @@
 | serviceScfFunctionName                   | 否    | String  | API 的后端SCF函数名称。如果serviceType是Scf，则此参数必传。  |
 | serviceScfIsIntegratedResponse                   | 否    | String  | 是否启用 SCF 集成响应，TRUE 表示开启，FALSE 表示关闭。只有后端是 SCF 类型此参数才有效，默认为 FALSE。  |
 | serviceScfFunctionQualifier                  | 否    | String  | SCF 版本号，默认为 $LATEST。  |
-| responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持 HTML、JSON、TEST、BINARY、XML。（此配置仅用于生成 API 文档提示调用者） |
-| responseSuccessExample                   | 否    | String  | 自定义响应配置成功响应示例。（此配置仅用于生成 API 文档提示调用者）       |
-| responseFailExample                      | 否    | String  | 自定义响应配置失败响应示例。（此配置仅用于生成 API 文档提示调用者）       |
-| responseErrorCodes.n.code                | 否    | Int     | 自定义响应配置错误码。（此配置仅用于生成 API 文档提示调用者）          |
-| responseErrorCodes.n.msg                 | 否    | String  | 自定义响应配置错误信息。（此配置仅用于生成 API 文档提示调用者）         |
-| responseErrorCodes.n.desc                | 否    | String  | 自定义响应配置错误码备注。（此配置仅用于生成 API 文档提示调用者）        |
+| responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持 HTML、JSON、TEST、BINARY、XML（此配置仅用于生成 API 文档提示调用者）。 |
+| responseSuccessExample                   | 否    | String  | 自定义响应配置成功响应示例（此配置仅用于生成 API 文档提示调用者） 。     |
+| responseFailExample                      | 否    | String  | 自定义响应配置失败响应示例（此配置仅用于生成 API 文档提示调用者） 。     |
+| responseErrorCodes.n.code                | 否    | Int     | 自定义响应配置原始错误码（此配置仅用于生成 API 文档提示调用者）。        |
+| responseErrorCodes.n.convertedCode       | 否    | Int     | 自定义响应配置映射错误码（此配置仅用于生成 API 文档提示调用者）。|
+| responseErrorCodes.n.needConvert         | 否    | String  | 自定义响应配置是否开启映射（此配置仅用于生成 API 文档提示调用者）。|
+| responseErrorCodes.n.msg                 | 否    | String  | 自定义响应配置错误信息（此配置仅用于生成 API 文档提示调用者）。         |
+| responseErrorCodes.n.desc                | 否    | String  | 自定义响应配置错误码备注（此配置仅用于生成 API 文档提示调用者）。        |
 
 
 ## 输出参数
 | 参数名称        | 类型        | 描述                                       |
 | ----------- | --------- | ---------------------------------------- |
-| code        | Int       | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 [公共错误码](https://cloud.tencent.com/document/product/628/18822)。 |
+| code        | Int       | 公共错误码，0表示成功，其他值表示失败。详见错误码页面的 [公共错误码](https://cloud.tencent.com/document/product/628/18822)。 |
 | codeDesc    | String    | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。       |
 | message     | String    | 模块错误信息描述，与接口相关。                          |
 | apiId       | String    | API 接口唯一 ID。                               |

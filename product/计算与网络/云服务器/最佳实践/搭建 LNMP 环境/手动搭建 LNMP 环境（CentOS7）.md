@@ -111,7 +111,9 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-3. 按 “**i**” 切换至编辑模式，写入以下内容。
+3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
+>? 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
@@ -121,7 +123,6 @@ baseurl = http://yum.mariadb.org/10.4/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
->?您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的安装信息。
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 5. 执行以下命令，安装 MariaDB。
 ```
