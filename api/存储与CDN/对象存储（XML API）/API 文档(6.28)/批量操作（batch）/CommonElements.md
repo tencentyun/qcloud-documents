@@ -1,6 +1,4 @@
-
 本文提供以下批量处理功能的公共元素。
-
 
 ## Manifest
 
@@ -9,7 +7,7 @@
 | Location | Manifest | 对象清单的位置信息。                                         | Location Object | 是       |
 | Spec     | Manifest | 描述对象清单的格式信息。如果为 CSV 文件，此元素将描述清单中包含的字段。 | Spec Object     | 是       |
 
-## Location
+### Location
 
 | 节点名          | 父节点   | 描述                                             | 类型   | 是否必选 |
 | --------------- | -------- | ------------------------------------------------ | ------ | -------- |
@@ -17,7 +15,7 @@
 | ObjectArn       | Location | 指定对象清单的唯一资源标识符，长度为1 - 1024字节。 | String | 是       |
 | ObjectVersionId | Location | 指定对象清单的版本 ID，长度为1 - 1024字节。        | String | 否       |
 
-## Spec
+### Spec
 
 | 节点名 | 父节点 | 描述                                                         | 类型             | 是否必选 |
 | ------ | ------ | ------------------------------------------------------------ | ---------------- | -------- |
@@ -26,13 +24,14 @@
 
 ## Operation 
 
-Operation 包含多种操作，但同时您只能指定一种操作，目前我们仅支持`PUT Object-Copy`操作，所以您只能包含 COSPutObjectCopy 元素。
+Operation 包含多种操作，但同时您只能指定一种操作。
 
-| 节点名           | 父节点    | 描述                                       | 类型                    | 是否必选 |
-| ---------------- | --------- | ------------------------------------------ | ----------------------- | -------- |
-| COSPutObjectCopy | Operation | 指定对清单内的对象批量复制操作的具体参数。 | COSPutObjectCopy Object | 否       |
+| 节点名                   | 父节点    | 描述                                               | 类型                     | 是否必选 |
+| ------------------------ | --------- | -------------------------------------------------- | ------------------------ | -------- |
+| COSPutObjectCopy         | Operation | 指定对清单内的对象批量复制操作的具体参数。         | COSPutObjectCopy Object  | 否       |
+| COSInitiateRestoreObject | Operation | 指定对清单内的归档存储类型对象批量恢复操作的具体参数。 | COSInitiateRestoreObject | 否       |
 
-## COSPutObjectCopy
+### COSPutObjectCopy
 
 | 节点名                    | 父节点           | 描述                                                         | 类型                       | 是否必选 |
 | ------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------- | -------- |
@@ -45,20 +44,27 @@ Operation 包含多种操作，但同时您只能指定一种操作，目前我�
 | StorageClass              | COSPutObjectCopy | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
 | TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-beijing::result-1250000000` | String                     | 是       |
 
+### COSInitiateRestoreObject
+
+| 节点名           | 父节点                   | 描述                                                    | 类型                       | 是否必选 |
+| ---------------- | ------------------------ | ------------------------------------------------------- | -------------------------- | -------- |
+| ExpirationInDays | COSInitiateRestoreObject | 设置副本在多少天后自动过期删除，设置范围为1~365的整数。 | AccessControlGrants Object | 是       |
+| JobTier          | COSInitiateRestoreObject | 归档恢复模式选择，可选值：Bulk、Standard。                  | String                     | 是       |
+
 ## AccessControlGrants
 
 | 节点名   | 父节点              | 描述               | 类型            | 是否必选 |
 | -------- | ------------------- | ------------------ | --------------- | -------- |
 | COSGrant | AccessControlGrants | 配置一项权限控制。 | COSGrant Object | 否       |
 
-## COSGrant
+### COSGrant
 
 | 节点名     | 父节点   | 描述                                                       | 类型           | 是否必选 |
 | ---------- | -------- | ---------------------------------------------------------- | -------------- | -------- |
 | Grantee    | COSGrant | 指定将权限授予给哪个用户。                                 | Grantee Object | 是       |
 | Permission | COSGrant | 指定要授予的某项权限。枚举值：READ，WRITE，FULL_CONTROL 。 | String         | 是       |
 
-## Grantee
+#### Grantee
 
 | 节点名         | 父节点  | 描述                                                         | 类型   | 是否必选 |
 | -------------- | ------- | ------------------------------------------------------------ | ------ | -------- |
