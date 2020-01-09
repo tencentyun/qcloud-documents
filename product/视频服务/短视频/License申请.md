@@ -15,8 +15,8 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 |---------|---------|
 | [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366) | [点播套餐精简版](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366) | [点播套餐基础版1或基础版2](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
-| [商业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366) | 参见 [申请商业版本 License](#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
-| [商业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366) | 参见 [申请商业版本 License](#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
+| [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366) | 参见 [申请企业版本 License](#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
+| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366) | 参见 [申请企业版本 License](#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
 
 >!**购买点播套餐包后，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 测试 License 信息下面会有一键切换正式 License 按钮，当单击切换的时候，会再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请进行修改，一旦切换成功，License 信息不能再做修改。**
 
@@ -50,11 +50,11 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 
 
 
-## 关于商业版本 License
+## 关于企业版本 License
 
-使用商业版本 License 可以开启优图实验室的 AI 功能，License 设置方法同上, 工程需要额外进行配置，具体配置请参见 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
+使用企业版本 License 可以开启优图实验室的 AI 功能，License 设置方法同上, 工程需要额外进行配置，具体配置请参见 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
-[单击此处](https://cloud.tencent.com/product/x-magic) 申请商业版本 License。
+[单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
 ## License 常见问题 FQA
 
