@@ -83,7 +83,7 @@ data:
 ![](https://main.qcloudimg.com/raw/6b2bf55296d2fbfd557a09e691e1f568.png)
   - **来源设置**：本文以选择【静态创建】为例。
   - **名称**：输入自定义名称，本文以 test 为例。
-  - **Provisioner**：本文以选择【对象存储COS】为例。
+  - **Provisioner**：本文选择【对象存储COS】。
   - **读写权限**：请按需选择。
   - **Secret**：选择 [ 创建 Secret ](#StepTwo) 中已创建的 Secret。
   - **存储桶**：根据实际需求进行选择。当没有合适的存储桶可用时，请参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档前往对象存储 [存储桶列表页](https://console.cloud.tencent.com/cos5/bucket) 进行新建。
