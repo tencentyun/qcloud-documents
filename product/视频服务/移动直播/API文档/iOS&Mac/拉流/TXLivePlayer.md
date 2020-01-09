@@ -280,7 +280,7 @@ __参数__
 
 __介绍__
 
-开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估
+开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估。
 
 ***
 
@@ -468,7 +468,7 @@ __功能__
 
 支持的直播和点播类型。
 
->?新版本的点播 SDK，推荐参考 TXVodPlayer.h。
+>?点播播放请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 播放器，具体请参见头文件 TXVodPlayer.h。
 
 | 枚举 | 含义 |
 |-----|-----|
