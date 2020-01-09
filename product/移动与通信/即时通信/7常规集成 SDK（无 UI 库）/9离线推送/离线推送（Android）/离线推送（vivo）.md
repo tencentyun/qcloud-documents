@@ -220,23 +220,12 @@ public class ThirdPushTokenMgr {
 
     private String mThirdPushToken;
 
-    private boolean mIsTokenSet = false;
-    private boolean mIsLogin = false;
-
     public static ThirdPushTokenMgr getInstance () {
         return ThirdPushTokenHolder.instance;
     }
 
     private static class ThirdPushTokenHolder {
         private static final ThirdPushTokenMgr instance = new ThirdPushTokenMgr();
-    }
-
-    public void setIsLogin(boolean isLogin){
-        mIsLogin = isLogin;
-    }
-
-    public String getThirdPushToken() {
-        return mThirdPushToken;
     }
 
     public void setThirdPushToken(String mThirdPushToken) {
@@ -299,7 +288,7 @@ public class ThirdPushTokenMgr {
 >- 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
 <span id="click"></span>
-## 配置点击通知栏消息事件
+## 配置点击通知栏消息事件及透传自定义内容
 您可以选择点击通知栏消息后**打开应用**、**打开网页**或**打开应用内指定界面**。
 
 ### 打开应用
@@ -330,7 +319,7 @@ public class ThirdPushTokenMgr {
 		   
 	</activity>
 	```
- 
+
 2. 获取 intent URL，方式如下：
     ```
     Intent intent = new Intent(this, ChatActivity.class);
@@ -338,13 +327,39 @@ public class ThirdPushTokenMgr {
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
     Log.i(TAG, "intentUri = " + intentUri);
-   
+      
     // 打印结果
     intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
     ```
 
 3. 在 [添加证书](#Step2) 时选择【打开应用内指定界面】并输入上述打印结果。
     ![](https://main.qcloudimg.com/raw/1ab25b8c52b953014786682bce43c2ed.png)
+
+### 透传自定义内容
+
+- 发送端设置自定义内容
+
+  在发消息前设置每条消息的通知栏自定义内容。
+  Android 端示例：
+
+  ```
+  String extContent = "ext content";
+  TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
+  settings.setExt(extContent.getBytes());
+  timMessage.setOfflinePushSettings(settings);
+  mConversation.sendMessage(false, timMessage, callback);
+  ```
+
+  [服务端示例参考](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
+
+- 接收端获取自定义内容
+
+  在控制台选择设置点击通知打开应用或打开应用指定界面后，当点击通知栏的消息时，会触发 vivo 推送 SDK 的  `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)`  回调，自定义内容可以从 `upsNotificationMessage` 中获取。
+
+  ```
+  Map<String, String> paramMap = upsNotificationMessage.getParams();
+  String extContent = paramMap.get("ext");
+  ```
 
 ## 常见问题
 
