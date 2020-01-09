@@ -1,5 +1,5 @@
 ### 接口描述
-本接口（AssumeRoleWithSAML）用于根据 SAML 断言申请角色临时凭证。
+本接口（AssumeRoleWithSAML）用于根据 SAML 断言申请角色临时凭证
 请求域名：sts.api.qcloud.com
 请求方式：HTTP POST
 
