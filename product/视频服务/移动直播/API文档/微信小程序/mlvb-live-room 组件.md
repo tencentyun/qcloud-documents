@@ -5,8 +5,8 @@
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | 'float'  | 必要，标识组件使用的界面模版。 |
-| roomID    | String  | 您来指定               | 可选，房间号（role = audience 时，roomID 不能为空）。    |
-| roomName  | String  | 您来指定            | 可选，房间名。  |
+| roomID    | String  | 自定义               | 可选，房间号（role = audience 时，roomID 不能为空）。    |
+| roomName  | String  | 自定义            | 可选，房间名。  |
 | role         | String  | ‘anchor’，'audience' | 必要，anchor 代表主播，audience 代表观众。 |
 | pureaudio | Boolean | true，false             | 可选，默认 false，是否开启纯音频推流。               |
 | beauty    | Number  | 0 - 5                     | 可选，默认5，美颜级别0 - 5。  |
