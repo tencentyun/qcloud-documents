@@ -47,7 +47,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
 ```
 
-## Serverless Components 支持的组件
+## Serverless Components 支持列表
 
 当前 Serverless Components 支持丰富的多语言开发框架和应用，如下所示：
 
@@ -73,4 +73,4 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@twn39/tencent-fastify](https://github.com/twn39/tencent-fastify) - 快速部署基于 fastify.js 的后端服务到腾讯云函数的组件
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
-此外，所有的 Serverless Components 都可在 [Github 仓库](https://github.com/serverless-components/) 中查看。
+此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components/) 中查看。
