@@ -50,10 +50,8 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容�
 ![](https://main.qcloudimg.com/raw/d66e7a5713ac31e7b0dc8b3eb1067c3c.png)
 5. 在 “新建Secret” 页面，请按需参考以下信息进行设置：
  - **名称**：请输入自定义名称，本文以 demo 为例。
- - **Secret类型**：支持以下类型，请按需选择，本文选择 【Opaque】类型。
-    - **Opaque**：适用于保存秘钥证书和配置文件，Value 将以 base64 格式编码。
-    - **Dockercfg**：用于保存私有 Docker Registry 的认证信息。
- - **生效范围**：本文选择【指定命名空间】，以当前集群下命名空间 kube-system 为例。
+ - **Secret类型**：本文选择 【Opaque】类型，该类型适用于保存秘钥证书和配置文件，Value 将以 base64 格式编码。
+ - **生效范围**：勾选【指定命名空间】，选择当前集群下命名空间 kube-system。
  - **内容**：设置 `SecretId` 和 `SecretKey` 两个变量。
 6. 单击【创建Secret】，即可完成创建。
 
@@ -83,7 +81,7 @@ data:
 ![](https://main.qcloudimg.com/raw/6b2bf55296d2fbfd557a09e691e1f568.png)
   - **来源设置**：本文以选择【静态创建】为例。
   - **名称**：输入自定义名称，本文以 test 为例。
-  - **Provisioner**：本文以选择【对象存储COS】为例。
+  - **Provisioner**：本文选择【对象存储COS】。
   - **读写权限**：请按需选择。
   - **Secret**：选择 [ 创建 Secret ](#StepTwo) 中已创建的 Secret。
   - **存储桶**：根据实际需求进行选择。当没有合适的存储桶可用时，请参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档前往对象存储 [存储桶列表页](https://console.cloud.tencent.com/cos5/bucket) 进行新建。
