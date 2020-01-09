@@ -305,7 +305,7 @@ __返回__
 
 __介绍__
 
-使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [超级播放器](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [时移播放](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 >!非腾讯云直播地址不能时移。
 
