@@ -39,7 +39,7 @@
 | [文件存储](https://cloud.tencent.com/document/product/582) | 资源级 | &#10003;        | -  |  &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/582/14679)   |	
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  |  -    |	-    |
 | [云 HDFS](https://cloud.tencent.com/document/product/1105) | 资源级 |&#10003;       | -  | -    |	[访问管理指南](https://cloud.tencent.com/document/product/1105/37238)    |	
-| [存储网关](https://cloud.tencent.com/document/product/581) | 服务级 |&#10003;       | -  | -    |	 |	
+| [存储网关](https://cloud.tencent.com/document/product/581) | 服务级 |&#10003;       | -  | -    |	 - |	
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | &#10003;       | &#10003;  |  -    |-    |	
 | [云数据迁移](https://cloud.tencent.com/document/product/623)  | 服务级 | &#10003;        | -  |  - | - |	
 | [日志服务](https://cloud.tencent.com/document/product/614)  | 资源级 | &#10003;        | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/614/35564)    |	
