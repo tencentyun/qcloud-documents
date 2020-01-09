@@ -8,11 +8,11 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容�
 
 | Kubernetes 对象名称             | 类型                       | 默认占用资源 | 所属 Namespaces |
 | -------------------------- | ------------------------ | ------ | ------------ |
-| csi-cosplugin-external-runner  | StatefulSet | \      | \            |kube-system |
-| csi-coslauncher        | DaemonSet       | \      | kube-system             |
-| csi-cosplugin        | DaemonSet              | \      | kube-system            |
-| csi-cosplugin-external-runner	          | Service           | \      | kube-system       |
-| csi-cos-tencentcloud-token | Secret              | \  | kube-system      |
+| csi-cosplugin-external-runner  | StatefulSet | -     | -           |kube-system |
+| csi-coslauncher        | DaemonSet       | -    | kube-system             |
+| csi-cosplugin        | DaemonSet              | -     | kube-system            |
+| csi-cosplugin-external-runner	          | Service           | -      | kube-system       |
+| csi-cos-tencentcloud-token | Secret              | -  | kube-system      |
 
 ## 使用场景
 
@@ -85,14 +85,14 @@ data:
   - **名称**：输入自定义名称，本文以 test 为例。
   - **Provisioner**：本文以选择【对象存储COS】为例。
   - **读写权限**：请按需选择。
-  - **Secret**：选择 [ 创建 Secret ](#StepTwo) 中已创建的 Secret 。
+  - **Secret**：选择 [ 创建 Secret ](#StepTwo) 中已创建的 Secret。
   - **存储桶**：根据实际需求进行选择。当没有合适的存储桶可用时，请参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档前往对象存储 [存储桶列表页](https://console.cloud.tencent.com/cos5/bucket) 进行新建。
 4. 单击【创建PersistentVolume】，即可完成创建。
 
 ### 创建 PersistentVolumeClaim<span ID="StepFour"></span>
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需使用 COS 的集群 ID，进入待创建 Secret 集群的 “Deployment” 页面。
-3. 选择左侧导航栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 管理页面并参考 [创建PVC](https://cloud.tencent.com/document/product/457/31712#.E5.88.9B.E5.BB.BA-pvc) 步骤进行创建。
+3. 选择左侧导航栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 管理页面并参考 [创建 PVC](https://cloud.tencent.com/document/product/457/31712#.E5.88.9B.E5.BB.BA-pvc) 步骤进行创建。
 在 “新建PersistentVolume” 页面，根据实际需求，进行如下参数设置。如下图所示：
 >?其中 “**Provisioner**” 选择 【对象存储COS】，“**PersistentVolume**” 选择在 [创建 PersistentVolume](#StepThree) 中已创建的 PV。
 >
