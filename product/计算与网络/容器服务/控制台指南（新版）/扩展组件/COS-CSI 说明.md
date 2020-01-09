@@ -50,10 +50,8 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容�
 ![](https://main.qcloudimg.com/raw/d66e7a5713ac31e7b0dc8b3eb1067c3c.png)
 5. 在 “新建Secret” 页面，请按需参考以下信息进行设置：
  - **名称**：请输入自定义名称，本文以 demo 为例。
- - **Secret类型**：支持以下类型，请按需选择，本文选择 【Opaque】类型。
-    - **Opaque**：适用于保存秘钥证书和配置文件，Value 将以 base64 格式编码。
-    - **Dockercfg**：用于保存私有 Docker Registry 的认证信息。
- - **生效范围**：本文选择【指定命名空间】，以当前集群下命名空间 kube-system 为例。
+ - **Secret类型**：本文选择 【Opaque】类型，该类型适用于保存秘钥证书和配置文件，Value 将以 base64 格式编码。
+ - **生效范围**：勾选【指定命名空间】，选择当前集群下命名空间 kube-system。
  - **内容**：设置 `SecretId` 和 `SecretKey` 两个变量。
 6. 单击【创建Secret】，即可完成创建。
 
