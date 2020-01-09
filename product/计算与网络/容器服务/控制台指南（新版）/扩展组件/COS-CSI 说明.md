@@ -1,6 +1,6 @@
 ## 简介
 ### 组件介绍
-Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您容器集群中使用腾讯云对象存储。
+Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容器集群中使用腾讯云对象存储 COS。
 
 
 ### 在集群内部署的 Kubernetes 对象
@@ -18,7 +18,7 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您容器�
 
 对象存储（Cloud Object Storage，COS）是腾讯云提供的一种存储海量文件的分布式存储服务，用户可通过网络随时存储和查看数据。腾讯云 COS 使所有用户都能使用具备高扩展性、低成本、可靠和安全的数据存储服务。
 
-通过 COS-CSI 扩展组件，您可以快速在容器集群中通过标准原生 Kubernetes 以 COSFS 的形式使用 COS，详情请参见 [ COSFS 工具介绍](https://cloud.tencent.com/document/product/436/6883)。
+通过 COS-CSI 扩展组件，您可以快速的在容器集群中通过标准原生 Kubernetes 以 COSFS 的形式使用 COS，详情请参见 [ COSFS 工具介绍](https://cloud.tencent.com/document/product/436/6883)。
 
 ## 限制条件
 
@@ -33,7 +33,7 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您容器�
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. “扩展组件”管理页面上方，选择地域及需使用 COS 的集群，并单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1f8b6617a0c351b91bd40c8f093e86c6.png)
-3. 在“新建扩展组件”页面，选择【COS】后，单击【完成】即可安装成功。
+3. 在“新建扩展组件”页面，选择【COS】，并单击【完成】即可安装成功。
 
 
 
@@ -46,7 +46,7 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您容器�
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需使用 COS 的集群 ID，进入待创建 Secret 集群的 “Deployment” 页面。
 3. 选择左侧导航栏中的【配置管理】>【Secret】，进入 “Secret” 管理页面。
-4. 在 “Secret” 管理页面，单击【新建】，进入 “新建Secret” 页面。如下图所示：
+4. 在 “Secret” 管理页面，单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d66e7a5713ac31e7b0dc8b3eb1067c3c.png)
 5. 在 “新建Secret” 页面，请按需参考以下信息进行设置：
  - **名称**：请输入自定义名称，本文以 demo 为例。
