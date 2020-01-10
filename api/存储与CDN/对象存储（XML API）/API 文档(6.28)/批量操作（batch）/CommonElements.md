@@ -42,13 +42,13 @@
 | UnModifiedSinceConstraint | COSPutObjectCopy | 当 Object 在指定时间后未被修改，则执行操作，否则返回412。    | Timestamp                  | 否       |
 | NewObjectMetadata         | COSPutObjectCopy | 配置 Object 的元数据                                         | NewObjectMetadata Object   | 否       |
 | StorageClass              | COSPutObjectCopy | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
-| TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-beijing::result-1250000000` | String                     | 是       |
+| TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000` | String                     | 是       |
 
 ### COSInitiateRestoreObject
 
 | 节点名           | 父节点                   | 描述                                                    | 类型                       | 是否必选 |
 | ---------------- | ------------------------ | ------------------------------------------------------- | -------------------------- | -------- |
-| ExpirationInDays | COSInitiateRestoreObject | 设置副本在多少天后自动过期删除，设置范围为1~365的整数。 | AccessControlGrants Object | 是       |
+| ExpirationInDays | COSInitiateRestoreObject | 设置副本在多少天后自动过期删除，设置范围为1 - 365的整数。 | AccessControlGrants Object | 是       |
 | JobTier          | COSInitiateRestoreObject | 归档恢复模式选择，可选值：Bulk、Standard。                  | String                     | 是       |
 
 ## AccessControlGrants
@@ -96,8 +96,8 @@
 
 ## ProgressSummary
 
-| 节点名                 | 父节点          | 描述               | 类型    |
-| ---------------------- | --------------- | ------------------ | ------- |
-| NumberOfTasksFailed    | ProgressSummary | 当前失败的操作数。 | Integer |
-| NumberOfTasksSucceeded | ProgressSummary | 当前成功的操作数。 | Integer |
-| TotalNumberOfTasks     | ProgressSummary | 总操作数。         | Integer |
+| 节点名                 | 父节点          | 描述               | 类型    |是否必选    |
+| ---------------------- | --------------- | ------------------ | ------- |------- |
+| NumberOfTasksFailed    | ProgressSummary | 当前失败的操作数。 | Integer |是    |
+| NumberOfTasksSucceeded | ProgressSummary | 当前成功的操作数。 | Integer |是    |
+| TotalNumberOfTasks     | ProgressSummary | 总操作数。         | Integer |是    |
