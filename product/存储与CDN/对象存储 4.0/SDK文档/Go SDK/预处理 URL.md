@@ -27,41 +27,33 @@ func (s *ObjectService) GetPresignedURL(ctx context.Context, httpMethod, name, a
 ```go
 ak := "COS_SECRETID"
 sk := "COS_SECRETKEY"
-u, _ := url.Parse("http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
-b := &cos.BaseURL{BucketURL: u}
-c := cos.NewClient(b, &http.Client{
-   Transport: &cos.AuthorizationTransport{
-      SecretID:  ak,
-      SecretKey: sk,
-   },
-})
 
-name := "test/objectPut.go"
+name := "exampleobject"
 ctx := context.Background()
 f := strings.NewReader("test")
 
-// 1. 使用普通方式上传对象
-_, err := c.Object.Put(ctx, name, f, nil)
+// 1. 通过普通方式上传对象
+_, err := client.Object.Put(ctx, name, f, nil)
 if err != nil {
-	panic(err)
+  panic(err)
 }
-// 获取预签名 URL
-presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
+// 获取预签名URL
+presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodPut, name, ak, sk, time.Hour, nil)
 if err != nil {
-	panic(err)
+  panic(err)
 }
-// 2. 通过预签名 URL 的方式上传对象
+// 2. 通过预签名方式上传对象
 data := "test upload with presignedURL"
 f = strings.NewReader(data)
 req, err := http.NewRequest(http.MethodPut, presignedURL.String(), f)
 if err != nil {
-	panic(err)
+  panic(err)
 }
-// 用户可以自行设置请求 header
+// 用户可自行设置请求头部
 req.Header.Set("Content-Type", "text/html")
 _, err = http.DefaultClient.Do(req)
 if err != nil {
-	panic(err)
+  panic(err)
 }
 ```
 
@@ -71,36 +63,28 @@ if err != nil {
 ```go
 ak := "COS_SECRETID"
 sk := "COS_SECRETKEY"
-u, _ := url.Parse("http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com")
-b := &cos.BaseURL{BucketURL: u}
-c := cos.NewClient(b, &http.Client{
-   Transport: &cos.AuthorizationTransport{
-      SecretID:  ak,
-      SecretKey: sk,
-   },
-})
-
-name := "test"
+name := "exampleobject"
 ctx := context.Background()
-// 1. 使用普通方式下载对象
-resp, err := c.Object.Get(ctx, name, nil)
+// 1. 通过普通方式下载对象
+resp, err := client.Object.Get(ctx, name, nil)
 if err != nil {
-	panic(err)
-} 
+  panic(err)
+}
 bs, _ := ioutil.ReadAll(resp.Body)
 resp.Body.Close()
-// 获取预签名 URL
-presignedURL, err := c.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
+// 获取预签名URL
+presignedURL, err := client.Object.GetPresignedURL(ctx, http.MethodGet, name, ak, sk, time.Hour, nil)
 if err != nil {
-	panic(err)
-} 
-// 2. 通过预签名 URL 下载对象
+  panic(err)
+}
+// 2. 通过预签名URL下载对象
 resp2, err := http.Get(presignedURL.String())
 if err != nil {
-	panic(err)
-}                    
+  panic(err)
+}
 bs2, _ := ioutil.ReadAll(resp2.Body)
 resp2.Body.Close()
-fmt.Printf("result2 is : %s\n", string(bs2))
-fmt.Printf("%v\n\n", bytes.Compare(bs2, bs) == 0)
+if bytes.Compare(bs2, bs) != 0 {
+  panic(errors.New("content is not consistent"))
+}
 ```
