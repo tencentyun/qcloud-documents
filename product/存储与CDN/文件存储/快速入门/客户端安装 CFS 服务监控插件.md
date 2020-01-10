@@ -62,11 +62,11 @@ wget http://mirrors.tencentyun.com/install/cfs/cfs_barad_plugin_installer_releas
 ```
 
 <span id="step2"></span>
-#### 修改插件格式
-通过以下命令，将 CFS 服务监控插件修改为可执行类型。
+#### 赋予安装程序可执行权限
+通过以下命令，赋予 CFS 服务监控插件安装程序可执行权限：
 
 ```sh
-## 修改文件类型
+## 赋予安装程序可执行权限
 chmod +x cfs_barad_plugin_installer_release_v11
 ```
 
