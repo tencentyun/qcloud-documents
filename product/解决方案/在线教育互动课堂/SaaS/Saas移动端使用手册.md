@@ -74,4 +74,4 @@
 ![](https://main.qcloudimg.com/raw/7d8f0c7baa7551a585a333981ab7f26d.png)
 答题效果：
 ![](https://main.qcloudimg.com/raw/855a592cad5c9359b7175ac6310fa840.png)
-布局的设置在控制台或者云 API 新建课堂时设定，详情可参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505) 或 [云 API](https://cloud.tencent.com/document/product/680/37540) 课堂模块部分。
+布局的设置在控制台或者云 API 新建课堂时设定，详情可参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505) 或 [云 API-课堂模块](https://cloud.tencent.com/document/product/680/37540#.E8.AF.BE.E5.A0.82.E6.A8.A1.E5.9D.97) 部分。
