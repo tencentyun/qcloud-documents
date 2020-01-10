@@ -5,7 +5,7 @@
 已 [下载并安装 Cocos Creator](https://www.cocos.com/products#CocosCreator)。
 
 ## 操作步骤
-1. 打开 Cocos Creator，新建一个“腾讯云联机对战游戏范例”工程。（您也可下载 [游戏范例工程代码](https://www.cocos.com/creator)，自行导入工程）
+1. 打开 Cocos Creator，新建一个“腾讯云联机对战游戏范例”工程。（您也可下载 [游戏范例工程代码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cocos-mgobe.zip)，自行导入工程）
 ![](https://main.qcloudimg.com/raw/7d64a73714f259c1b588521f57c45361.png)
 2. 新建完成后，您将得到一个工程包，结构如下图所示：
  - **assets**：该目录下为所有客户端代码，小游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
