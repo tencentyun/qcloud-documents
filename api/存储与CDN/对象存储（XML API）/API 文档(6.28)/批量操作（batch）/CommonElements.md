@@ -40,7 +40,7 @@
 | MetadataDirective         | COSPutObjectCopy | 是否拷贝源文件的元数据，枚举值：Copy，Replaced。默认值 Copy。<br><li>假如标记为 Copy，则拷贝源文件的元数据。<br><li>假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。 | String                     | 否       |
 | ModifiedSinceConstraint   | COSPutObjectCopy | 当对象在指定时间后被修改，则执行操作，否则返回412。      | Timestamp                  | 否       |
 | UnModifiedSinceConstraint | COSPutObjectCopy | 当对象在指定时间后未被修改，则执行操作，否则返回412。    | Timestamp                  | 否       |
-| NewObjectMetadata         | COSPutObjectCopy | 配置对象的元数据                                         | NewObjectMetadata Object   | 否       |
+| NewObjectMetadata         | COSPutObjectCopy | 配置对象的元数据。                                         | NewObjectMetadata Object   | 否       |
 | StorageClass              | COSPutObjectCopy | 设置对象的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
 | TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000` | String                     | 是       |
 
@@ -76,13 +76,13 @@
 
 | 节点名             | 父节点            | 描述                                                | 类型                   | 是否必选 |
 | ------------------ | ----------------- | --------------------------------------------------- | ---------------------- | -------- |
-| CacheControl       | NewObjectMetadata | RFC 2616 中定义的缓存指令，将作为对象元数据保存     | String                 | 否       |
-| ContentDisposition | NewObjectMetadata | RFC 2616 中定义的文件名称，将作为对象元数据保存     | String                 | 否       |
-| ContentEncoding    | NewObjectMetadata | RFC 2616 中定义的编码格式，将作为对象元数据保存     | String                 | 否       |
-| ContentType        | NewObjectMetadata | RFC 2616 中定义的内容类型，将作为对象元数据保存     | String                 | 否       |
-| HttpExpiresDate    | NewObjectMetadata | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存 | String                 | 否       |
-| SSEAlgorithm       | NewObjectMetadata | 服务端加密算法，目前仅支持 AES256                   | String                 | 否       |
-| UserMetadata       | NewObjectMetadata | 包括用户自定义元数据                                | Array of Key and Value | 否       |
+| CacheControl       | NewObjectMetadata | RFC 2616 中定义的缓存指令，将作为对象元数据保存。     | String                 | 否       |
+| ContentDisposition | NewObjectMetadata | RFC 2616 中定义的文件名称，将作为对象元数据保存。     | String                 | 否       |
+| ContentEncoding    | NewObjectMetadata | RFC 2616 中定义的编码格式，将作为对象元数据保存。     | String                 | 否       |
+| ContentType        | NewObjectMetadata | RFC 2616 中定义的内容类型，将作为对象元数据保存。     | String                 | 否       |
+| HttpExpiresDate    | NewObjectMetadata | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存。 | String                 | 否       |
+| SSEAlgorithm       | NewObjectMetadata | 服务端加密算法，目前仅支持 AES256。                   | String                 | 否       |
+| UserMetadata       | NewObjectMetadata | 包括用户自定义元数据。                                | Array of Key and Value | 否       |
 
 ## Report
 
