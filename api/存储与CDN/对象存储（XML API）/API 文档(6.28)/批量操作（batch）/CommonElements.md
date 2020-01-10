@@ -35,13 +35,13 @@
 
 | 节点名                    | 父节点           | 描述                                                         | 类型                       | 是否必选 |
 | ------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------- | -------- |
-| AccessControlGrants       | COSPutObjectCopy | 控制 Object 的具体访问权限。                                 | AccessControlGrants Object | 否       |
-| CannedAccessControlList   | COSPutObjectCopy | 定义 Object 的 ACL 属性。有效值：private，public-read        | String                     | 否       |
+| AccessControlGrants       | COSPutObjectCopy | 控制对象的具体访问权限。                                 | AccessControlGrants Object | 否       |
+| CannedAccessControlList   | COSPutObjectCopy | 定义对象的 ACL 属性。有效值：private，public-read        | String                     | 否       |
 | MetadataDirective         | COSPutObjectCopy | 是否拷贝源文件的元数据，枚举值：Copy，Replaced。默认值 Copy。<br><li>假如标记为 Copy，则拷贝源文件的元数据。<br><li>假如标记为 Replaced，则按本次请求的 Header 信息修改元数据。 | String                     | 否       |
-| ModifiedSinceConstraint   | COSPutObjectCopy | 当 Object 在指定时间后被修改，则执行操作，否则返回412。      | Timestamp                  | 否       |
-| UnModifiedSinceConstraint | COSPutObjectCopy | 当 Object 在指定时间后未被修改，则执行操作，否则返回412。    | Timestamp                  | 否       |
-| NewObjectMetadata         | COSPutObjectCopy | 配置 Object 的元数据                                         | NewObjectMetadata Object   | 否       |
-| StorageClass              | COSPutObjectCopy | 设置 Object 的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
+| ModifiedSinceConstraint   | COSPutObjectCopy | 当对象在指定时间后被修改，则执行操作，否则返回412。      | Timestamp                  | 否       |
+| UnModifiedSinceConstraint | COSPutObjectCopy | 当对象在指定时间后未被修改，则执行操作，否则返回412。    | Timestamp                  | 否       |
+| NewObjectMetadata         | COSPutObjectCopy | 配置对象的元数据                                         | NewObjectMetadata Object   | 否       |
+| StorageClass              | COSPutObjectCopy | 设置对象的存储级别，枚举值：STANDARD，STANDARD_IA。默认值：STANDARD | String                     | 否       |
 | TargetResource            | COSPutObjectCopy | 设置 Copy 的目标存储桶。请使用 qcs 指定，例如`qcs::cos:ap-chengdu:uid/1250000000:examplebucket-1250000000` | String                     | 是       |
 
 ### COSInitiateRestoreObject
@@ -96,8 +96,8 @@
 
 ## ProgressSummary
 
-| 节点名                 | 父节点          | 描述               | 类型    |是否必选    |
-| ---------------------- | --------------- | ------------------ | ------- |------- |
-| NumberOfTasksFailed    | ProgressSummary | 当前失败的操作数。 | Integer |是    |
-| NumberOfTasksSucceeded | ProgressSummary | 当前成功的操作数。 | Integer |是    |
-| TotalNumberOfTasks     | ProgressSummary | 总操作数。         | Integer |是    |
+| 节点名                 | 父节点          | 描述               | 类型    |
+| ---------------------- | --------------- | ------------------ | ------- |
+| NumberOfTasksFailed    | ProgressSummary | 当前失败的操作数。 | Integer |
+| NumberOfTasksSucceeded | ProgressSummary | 当前成功的操作数。 | Integer |
+| TotalNumberOfTasks     | ProgressSummary | 总操作数。         | Integer |
