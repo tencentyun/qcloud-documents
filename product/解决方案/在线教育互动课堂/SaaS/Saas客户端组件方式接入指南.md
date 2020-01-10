@@ -50,7 +50,7 @@ https://yourdomain.com/component.html#/:class_id/:user_id/:user_sig/:user_token
 示例如下：
 ```
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan/encryptusersighere...../usertokenhere.....
-如果 usersig 已经通过控制台托管过给我们，则后面两个不用填
+如果 IM 私钥已经通过控制台托管过给我们，则后面两个不用填
 https://tedu.qcloudtrtc.com/component.html#/1000713668/zhangsan
 ```
 - 参数描述。参数获取请参考 [调用参数](#jump)。
@@ -162,9 +162,9 @@ SDK 中暴露的公开头文件如下表：
  课堂配置类，加入课堂时需传入这些信息
  */
 @interface TICClassroomConfig : NSObject
-@property (nonatomic, copy) NSString *classID;  // 课堂 ID
-@property (nonatomic, copy) NSString *userID;   // 用户 ID
-@property (nonatomic, copy) NSString *userToken;// 用户密码
+@property (nonatomic, copy) NSString *classID;  // 课堂编号
+@property (nonatomic, copy) NSString *userID;   // 账号
+@property (nonatomic, copy) NSString *userToken;// 密码
 @property (nonatomic, strong) NSNumber *companyID;  // 机构码（腾讯云互动课堂后台为每个注册企业的分配唯一标识码）
 @property (nonatomic, copy) NSString *userSig;  // 用户签名（没有在腾讯云互动课堂后台设置 IM 私钥的，必填；设置了 IM 私钥的填 nil）
 @end
@@ -188,7 +188,7 @@ config.userSig = userSig;
     NSLog(@"加入课堂失败：%d %@", code, errMsg);
 }];
 ```
->!`TICClassroomViewController`要使用指定的初始化方法进行初始化`initWithClassId:`并传入课堂 ID。`TICClassroomViewController` 课堂主页控制器只支持横屏展示。
+>!`TICClassroomViewController`要使用指定的初始化方法进行初始化`initWithClassId:`并传入课堂编号。`TICClassroomViewController` 课堂主页控制器只支持横屏展示。
 >
 成功唤起课堂主页控制器后，即可使用课堂内的业务和功能。
 
