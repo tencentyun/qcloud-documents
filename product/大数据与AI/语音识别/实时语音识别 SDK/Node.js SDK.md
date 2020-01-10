@@ -1,4 +1,4 @@
-﻿## 接入准备
+## 接入准备
 ### SDK获取
 实时语音识别 Node.js SDK 以及 Demo 的下载地址： [Node.js SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/nodejs_realtime_asr_sdk_v1.zip) 
 ### 接入须知
