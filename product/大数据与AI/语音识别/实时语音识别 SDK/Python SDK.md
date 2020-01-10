@@ -14,7 +14,7 @@
 方法2：先下载 [requests](https://2.python-requests.org//zh_CN/latest/user/install.html#install)，然后进入下载目录执行：python setup.py install 。
 
 ## 快速接入
-1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 并将```Python_realtime_asr_sdk/src/Config.py```中的配置项按需改成自己的值。
+1. 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 并将```Python_realtime_asr_sdk/src/Config.py```中的配置项按需改成自己的值。
 2. 参考 ```Python_realtime_asr_sdk/src/RasrClient.py``` 接入： 
 
 ```
