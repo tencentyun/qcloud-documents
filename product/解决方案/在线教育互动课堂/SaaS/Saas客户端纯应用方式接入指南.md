@@ -38,7 +38,7 @@ https://tedu.qcloudtrtc.com/#/class/company_id/:class_id/:user_id?/:user_sig?/:u
 ```
 示例如下：
 ```
-https://tedu.qcloudtrtc.com/#/class/机构 ID/房间 ID/用户 ID（可选）/用户 Sig（可选）/用户 token（可选） 
+https://tedu.qcloudtrtc.com/#/class/机构编号/课堂编号/账号（可选）/用户签名（可选）/密码（可选） 
 例如：
 https://tedu.qcloudtrtc.com/#/class/100001/1000776477
 或者：
@@ -61,7 +61,7 @@ https://tedu.qcloudtrtc.com/#/class/company_id/:class_id/:user_id?/:user_sig?/:u
 #### example - 不带登录态
 ```
 company_id(机构码) => 100001
-class_id（课堂id） => 1000713668
+class_id（课堂编号） => 1000713668
 ```
 
 单击 [登录互动课堂](https://tedu.qcloudtrtc.com/#/class/100001/1000713668)。
