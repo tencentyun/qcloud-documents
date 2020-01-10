@@ -325,14 +325,12 @@
   "teacher_id":"user_00",
   "assistant_id":"user_01",
   "class_topic": "课堂主题",
-  "class_type":"public",
   "start_time": 1558350988,
   "stop_time": 1558350988,
   "admin_id":"即时通信IM管理员ID",
   "admin_sig":"即时通信IM管理员鉴权sig",
   "max_member_limit":6,
   "max_member_num": 0,
-  class_live_type:"window",
   "members": [
     {
       "role": "student",
