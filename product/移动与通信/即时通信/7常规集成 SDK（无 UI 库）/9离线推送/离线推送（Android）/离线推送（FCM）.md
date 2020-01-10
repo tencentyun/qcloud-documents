@@ -1,6 +1,6 @@
 >!使用 FCM 离线推送需要手机端安装 Google Play Services 且在中国大陆地区以外使用。
 
-## 流程说明
+## 离线推送流程
 
 实现离线消息推送的过程如下：
 1. 开发者到厂商的平台注册账号，并通过开发者认证后，申请开通推送服务。
@@ -10,7 +10,7 @@
 5. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
 6. 当客户端 App 在即时通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，即时通信 IM 服务端将通过消息推送进行提醒。
 
-## 操作步骤
+## 配置离线推送
 <span id="Step1"></span>
 ### 步骤1：设置 Firebase 和 FCM SDK
 >?本步骤中的网址为 Firebase 官方网址，需要在中国大陆地区以外才能访问。
@@ -117,11 +117,9 @@ public class ThirdPushTokenMgr {
 
 ## 透传自定义内容
 
-- 发送端设置自定义内容
-
-  在发消息前设置每条消息的通知栏自定义内容。
-
-  Android 端示例：
+### 步骤1：发送端设置自定义内容
+在发消息前设置每条消息的通知栏自定义内容。
+- Android 端示例如下：
 
   ```
   String extContent = "ext content";
@@ -132,11 +130,10 @@ public class ThirdPushTokenMgr {
   mConversation.sendMessage(false, timMessage, callback);
   ```
 
-  [服务端示例参考](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
+- 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
-- 接收端获取自定义内容
-
-  当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容。
+### 步骤2：接收端获取自定义内容
+当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容。
 
   ```
   Bundle bundle = getIntent().getExtras();
