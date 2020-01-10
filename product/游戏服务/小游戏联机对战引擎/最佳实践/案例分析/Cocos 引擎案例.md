@@ -6,6 +6,7 @@
 
 ## 操作步骤
 1. 打开 Cocos Creator，新建一个命名为腾讯云联机对战游戏范例的文件。（您也可下载 [游戏范例工程代码](https://www.cocos.com/creator)，自行导入工程）
+![](https://main.qcloudimg.com/raw/55282c98af16927ef659b6b4b0878fcc.png)
 2. 新建完成后，您将得到一个工程包，结构如下图所示：
  - **assets**：该目录下为所有客户端代码，小游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
  - **serverless**：该目录为工程的服务端代码，包括小游戏联机对战引擎的实时服务器框架。
