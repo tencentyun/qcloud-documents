@@ -6,7 +6,7 @@
 
 ## 操作步骤
 1. 打开 Cocos Creator，新建一个命名为腾讯云联机对战游戏范例的文件。（您也可下载 [游戏范例工程代码](https://www.cocos.com/creator)，自行导入工程）
-![](https://main.qcloudimg.com/raw/55282c98af16927ef659b6b4b0878fcc.png)
+![](https://main.qcloudimg.com/raw/0b098f4635d3c5e2dc93f31bb6602ed9.png)
 2. 新建完成后，您将得到一个工程包，结构如下图所示：
  - **assets**：该目录下为所有客户端代码，小游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
  - **serverless**：该目录为工程的服务端代码，包括小游戏联机对战引擎的实时服务器框架。
@@ -26,7 +26,7 @@
    ![](https://main.qcloudimg.com/raw/8946cc788fa5ede3b239c4dccc040c54.png)
    选择“房间内发消息“，输入文字并发送，在两个浏览器窗口可以看到消息发送的同步效果。（只有房主可以切换房间内的消息通信方式）  
   - **体验实时服务器状态同步功能**         
-  ![](https://main.qcloudimg.com/raw/46c0474c316c270395c477e265c85272.png)
+  ![](https://main.qcloudimg.com/raw/f46b29242433a5e5c291b07f075147ba.png)
     1. 选择“实时服务器状态同步”，当前页面有4个方向按键，可以控制玩家运动。此处运动逻辑在服务端进行计算，默认的运动逻辑为一次点击运动一格。您可在 serverless 框架下查看修改实时服务器代码。
     2. 如需体验修改实时服务器逻辑代码，可将 DEMO 首页的游戏信息替换为您的私有游戏信息，并修改实时服务器代码，通过 Cocos Creator 服务面板一键发布，或在腾讯云控制台发布您的实时服务器代码。
    -  **体验帧同步功能**  
