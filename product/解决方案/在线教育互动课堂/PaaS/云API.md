@@ -13,10 +13,10 @@
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | list | Array | 需要注册的用户列表 | 是 | - |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | password | string | 密码，长度4 - 18，规则：数字/大小写字母/特殊字符（!@#$%^&\*()-+=.[]{}:;,?/） | 是 |-
 | role | string | 用户角色 | 是 | - |
-| nickname | string | 用户昵称 | 否 | 用户 ID |
+| nickname | string | 用户昵称 | 否 | 账号 |
 | gender | string | 用户性别 | 否 | 男 |
 | avatar | string | 头像的 URL 地址，头像规则可参考 [附录4：用户头像规则](#.E9.99.84.E5.BD.954.EF.BC.9A.E7.94.A8.E6.88.B7.E5.A4.B4.E5.83.8F.E8.A7.84.E5.88.99) | 否 | 互动课堂后台随机选择一个头像 |
 | phone_no | string | 手机号 | 否 |- |
@@ -29,8 +29,8 @@
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | user_list | Array |创建成功后，每个用户对应生成一个 user_token，用于唤起组件 | 是 | 空数组 |
-| user_token | string | 用户票据，每个用户 ID 对应一个 user_token，等同于控制台的密码 | 是 | - |
-| repeats | Array | 出现重复 ID 时，会报错，且返回重复 user_id 列表 | 是 | 空数组 |
+| user_token | string | 用户票据，每个用户账号对应一个 user_token，等同于控制台的密码 | 是 | - |
+| repeats | Array | 出现重复账号时，会报错，且返回重复 user_id 列表 | 是 | 空数组 |
 
 #### 举例
 请求：
@@ -76,7 +76,7 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | role | int | 角色 | 否 | - |
 | nickname | string | 昵称 | 否 | - |
 | gender | string | 用户性别 | 否 | - |
@@ -120,7 +120,7 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 
 #### 响应参数
 
@@ -157,7 +157,7 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 
 #### 响应参数
 
@@ -166,7 +166,7 @@
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
 | user_info | Object | 用户对象 | 是 | - |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
 | gender | string | 用户性别 | 是 | - |
 | avatar | string | 用户头像 | 是 | - |
@@ -216,7 +216,7 @@
 | index | int | 分段拉取分页索引 | 否 | 0
 | size | int | 分段拉取分页大小（最大100） | 否 | 100
 | roles | Array | 用户角色，用作过滤（不填此字段或字段为空数组均获取所有角色） | 否 | 所有角色
-| prefix | string | 用户 ID 的前缀，用做模糊过滤 | 否 | 空字符串
+| prefix | string | 账号的前缀，用做模糊过滤 | 否 | 空字符串
 
 #### 响应参数
 
@@ -227,7 +227,7 @@
 | finish | bool | 是否拉取完所有用户 | 是 | - |
 | total | string | 用户总数 | 是 | - |
 | list | Array | 用户数组 | 是 | 空数组 |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | role | string | 用户角色 | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
 | gender | string | 用户性别 | 是 | - |
@@ -284,13 +284,13 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| teacher_id | string | 教师 ID | 是 | - |
-| assistant_id | string | 助教 ID | 否 | - |
-| class_topic | string | 课堂主题/课堂名字 | 否 | 课堂 ID 的字符串形式 |
+| teacher_id | string | 教师账号 | 是 | - |
+| assistant_id | string | 助教账号 | 否 | - |
+| class_topic | string | 课堂主题/课堂名字 | 否 | 课堂编号的字符串形式 |
 | start_time | int64 | 课堂预计开始时间戳 | 否 | 约课时的时间 | 
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
 | password | string  | 进房密码 | 否 | |
-| admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 否 | - |
+| admin_id | string | 即时通信 IM 管理员账号，互动课堂用它来创建 IM 群组 | 否 | - |
 | admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 否 | - |
 | settings | settings | 课堂配置信息 | 否 |- |
 | resolution | string | 设置课堂的分辨率（320x240/800x600/1024x768）  | 否 | 1024x768 |
@@ -302,9 +302,9 @@
 | enable_all_silence  | int | 是否开启了全员禁言（0-否/1-是）| 否 | 0 |
 | bitrate | int | 设置课堂的码率| 否 | 850 |
 | layout | int | 课堂的布局风格，具体可参见 [Layout 附录](#.E9.99.84.E5.BD.956.EF.BC.9A.E5.B8.83.E5.B1.80.E7.B1.BB.E5.9E.8B-layout)| 否 | 0 |
-| members | Array | 课堂预约成员列表 | 否 |  教师 ID 默认在成员列表中 |
+| members | Array | 课堂预约成员列表 | 否 |  教师账号默认在成员列表中 |
 | role | string | 角色信息，本接口中全部填“student”。需要设置 members 时，此字段必填 | 否 | - |
-| user_id | string | 学生 ID。需要设置 members 时，此字段必填 | 否 | - |
+| user_id | string | 学生账号。需要设置 members 时，此字段必填 | 否 | - |
 | max_member_limit | int |最大上麦人数| 否 | - |
 |max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
 
@@ -314,7 +314,7 @@
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| class_id | int | 课堂 ID | 否 | - |
+| class_id | int | 课堂编号 | 否 | - |
 | url | string | 进房地址，成功时下发 | 否 | - |
 
 #### 举例
@@ -380,7 +380,7 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 
 #### 响应参数
 
@@ -452,7 +452,7 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 否 | - |
+| class_id | int | 课堂编号 | 否 | - |
 
 #### 响应参数
 
@@ -460,11 +460,11 @@
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | class_topic | string | 课堂主题/课堂名字 | 是 | - |
 | class_type | string | 课堂类型 | 是 | - |
 | class_status | string | 课堂状态 | 是 | - |
-| teacher_id | string | 教师 ID | 是 | - |
+| teacher_id | string | 教师账号 | 是 | - |
 | create_time | int64 | 课堂的创建时间 | 是 | - | 
 | start_time | int64 | 课堂预计开始时间 | 是 | - | 
 | stop_time | int64 | 课堂预计结束时间 | 是 | - |
@@ -484,7 +484,7 @@
 | layout | int | 课堂的布局风格，具体可参见 [Layout 附录](#.E9.99.84.E5.BD.956.EF.BC.9A.E5.B8.83.E5.B1.80.E7.B1.BB.E5.9E.8B-layout)| 否 | 0 |
 | members | Array | 课堂预约成员列表 | 是 | - |
 | role | string | 成员角色信息 | 是 | - |
-| user_id | string | 成员 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 |max_member_limit|int|最大上麦人数|否|-|
 
 #### 举例
@@ -610,8 +610,8 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| teacher_id | string | 教师 ID | 是 | - |
-| class_id | int | 课堂 ID | 是 | - |
+| teacher_id | string | 教师账号 | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 
 #### 响应参数
 
@@ -651,8 +651,8 @@
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| teacher_id | string | 教师 ID | 是 | - |
-| class_id | int | 课堂 ID | 是 | - |
+| teacher_id | string | 教师账号 | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 
 #### 响应参数
 
@@ -953,7 +953,7 @@ class_begin
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | real_start_time | int64 | 课堂开始的真正时间 | 是 | - |
 
 ```
@@ -974,7 +974,7 @@ class_over
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | real_stop_time | int64 | 课堂真正结束的时间 | 是 | - |
 
 ```
@@ -997,7 +997,7 @@ online_record_start
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | timestamp | int64 | 互动课堂后台时间戳 | 是 | - |
 
 ```
@@ -1023,8 +1023,8 @@ online_record_stop
 | timestamp | int | 互动课堂后台，单位秒 | 是 | - |
 | start_time | int | 实际开始录制时间，Unix 时间戳，单位秒 | 是 | - |
 | stop_time | int | 实际停止录制时间，Unix 时间戳，单位秒 | 是 | - |
-| class_id | int | 课堂 ID | 是 | - |
-| video_info | []VideoInfo | 录制的视频信息 | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
+| video_info | VideoInfo[] | 录制的视频信息 | 是 | - |
 
 **VideoInfo 对象格式：**
 
@@ -1036,8 +1036,8 @@ online_record_stop
 | video_duration | int | 文件播放时长（单位 s） | 是 | - |
 | video_url | string | 录制文件 url | 是 | - |
 | video_id | string | 点播后台返回的 fileId 字段 | 是 | - |
-| video_type | int    | 视频流类型0：摄像头视频，1：屏幕分享视频，2：白板视频 | 是 | - |
-| user_id | string | 视频所属用户的 ID，白板视频时，user_id 为空 | 是 | - |
+| video_type | int    | 视频流类型，0：摄像头视频，1：屏幕分享视频，2：白板视频 | 是 | - |
+| user_id | string | 视频所属用户的账号，白板视频时，user_id 为空 | 是 | - |
 
 ```
 {
@@ -1115,7 +1115,7 @@ join_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | join_time | int64 | 进入课堂的时间 | 是 | - |
 | user_id | string | 进入课堂的用户 | 是 | - |
 | role | int64 | 进入课堂用户的角色 | 是 | - |
@@ -1138,7 +1138,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | quit_time | int64 | 退出课堂的时间 | 是 | - |
 | user_id | string | 退出课堂的用户 | 是 | - |
 | role | int64 |退出入课堂用户的角色 | 是 | - |
@@ -1217,7 +1217,7 @@ quit_class
 | :------ | :--- | :---- | :--------: | :-----: |
 | error_code | int | 错误码，0-成功/非0-失败 | 是 | - |
 | error_msg | string | 错误信息 | 是 | - |
-| enterprise_id | string | 机构 ID | 是 | - |
+| enterprise_id | string | 机构编号 | 是 | - |
 | sdkappid | int | 腾讯云账号下开通 TRTC 后，会得到一个唯一的项目标识 SDKAppID | 是 | - |
 | busi_type | string | 业务类型 | 是 | - |
 | name | string | 企业名字 | 是 | - |
@@ -1282,9 +1282,9 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | list | Array[info] | 要增加的成员数组，数组中是用户信息 | 是 | - |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | role | string | 用户角色 | 是 | - |
 
 #### 响应参数
@@ -1330,7 +1330,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
 | list | Array[string] | 要删除的成员数组，数组中是成员 ID | 是 | - |
 
 #### 响应参数
@@ -1371,8 +1371,8 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
-| user_id | string | 用户 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | password | string | 课堂密码 | 否 | - |
 | camera | int | 摄像头状态1-打开/0-关闭 | 否 | 0 |
 | mic | int | 麦克风状态1-打开/0-关闭 | 否 | 0 |
@@ -1438,8 +1438,8 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | - |
-| user_id | string | 用户 ID | 是 | - |
+| class_id | int | 课堂编号 | 是 | - |
+| user_id | string | 账号 | 是 | - |
 
 #### 响应参数
 
@@ -1475,7 +1475,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | 0
+| class_id | int | 课堂编号 | 是 | 0
 | index | int | 分段拉取分页索引 | 否 | 0
 | size | int | 分段拉取分页大小（最大100） | 否 | 100
 
@@ -1488,7 +1488,7 @@ quit_class
 | finish | bool | 是否拉取完所有成员 | 是 | - |
 | total | string | 实时成员总数 | 是 | - |
 | list | Array | 成员信息数组 | 是 | 空数组 |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
 | gender | string | 用户性别 | 是 | - |
 | avatar | string | 用户头像 URL | 是 | - |
@@ -1550,7 +1550,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | 0
+| class_id | int | 课堂编号 | 是 | 0
 
 #### 响应参数
 
@@ -1592,7 +1592,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | 0
+| class_id | int | 课堂编号 | 是 | 0
 | index | int | 分段拉取分页索引 | 否 | 0
 | size | int | 分段拉取分页大小（最大100） | 否 | 100
 
@@ -1605,7 +1605,7 @@ quit_class
 | finish | bool | 是否拉取完所有成员 | 是 | - |
 | total | string | 历史成员总数 | 是 | - |
 | list | Array | 成员信息数组 | 是 | 空数组 |
-| user_id | string | 用户 ID | 是 | - |
+| user_id | string | 账号 | 是 | - |
 | nickname | string | 用户昵称 | 是 | - |
 | gender | string | 用户性别 | 是 | - |
 | avatar | string | 用户头像 URL | 是 | - |
@@ -1667,7 +1667,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂 ID | 是 | 0
+| class_id | int | 课堂编号 | 是 | 0
 
 #### 响应参数
 
@@ -1888,7 +1888,7 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 | :--- | :--- |
 | 10220 | 获取课程表失败 |
 | 10221 | 没有任何课程 |
-| 10222 | 生成课堂 ID 失败 |
+| 10222 | 生成课堂编号失败 |
 | 10223 | 更新/删除课堂信息失败，课堂正在进行 |
 | 10224 | 由于课堂已结束导致无法加入课堂 |
 | 10225 | 课堂密码错误 |
