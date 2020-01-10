@@ -98,9 +98,9 @@
 
 挂载前，请确保系统已经启动 NFS 服务。
 1.1 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
-![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
+<img src="https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png" width="80%">
 1.2 选择【控制面板】>【程序】>【打开或关闭 Windows 功能】>【特性】页签中勾选【NFS 客户端】，勾选【NFS 客户端】即可开启 Windows NFS 客户端服务。
-![](https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png)
+<img src="https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png" width="80%">
 
 #### 2. 验证 NFS 服务是否启动
 
@@ -108,7 +108,8 @@
 ```bash
 mount -h
 ```
-![](https://mc.qcloudimg.com/static/img/4e4f9db217874ccec91ac1f888c8e451/image.png)
+<img src="https://mc.qcloudimg.com/static/img/4e4f9db217874ccec91ac1f888c8e451/image.png" width="80%">
+
 
 #### 3. 添加匿名访问用户和用户组
 
@@ -182,7 +183,7 @@ mount 10.10.0.12:/z3r6k95r X:
    ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
 3. 验证读写
    确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
-   ![](https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png)
+	 <img src="https://mc.qcloudimg.com/static/img/60b9388885536ec7d81b1cf7f76c39d5/image.png" width="80%">
 
 #### 通过命令行挂载文件系统
 请使用 FSID 进行挂载文件系统，挂载命令如下。
@@ -196,7 +197,7 @@ net use X: \\10.10.11.12\fjie120
 ```
 
 > ! FSID 可以到【控制台】>【文件系统详情】>【挂载点信息】中获取。
-> ![](https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png)
+> <img src="https://main.qcloudimg.com/raw/939aafe4bca9907bc391d41e8798c4a6.png" width="80%">
 
 
 
@@ -204,7 +205,7 @@ net use X: \\10.10.11.12\fjie120
 #### 通过图形界面卸载共享目录
 
 要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
-![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
+ <img src="https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png" width="80%">
 
 #### 通过 CMD 命令卸载 NFS 共享目录 
 
