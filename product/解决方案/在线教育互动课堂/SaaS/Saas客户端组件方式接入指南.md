@@ -270,7 +270,7 @@ Manifest.permission.WRITE_EXTERNAL_STORAGE
 ```
 
 #### 调起 SaaS 组件
-只需传递5个参数就可调起 SaaS 组件主页面，分别为机构 ID、课堂 ID、用户 ID、用户 Token 和用户 Sig。
+只需传递5个参数就可调起 SaaS 组件主页面，分别为机构编号、课堂编号、账号、密码和用户签名。
 ```java
     private void launchInActivity(int companyID, int classID, String userID, String userToken, String userSig) {
         Intent intent = new Intent(this, InClassActivity.class);
