@@ -33,7 +33,7 @@
  - **应用包名称**：填写客户 App 的包名
  - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
-  ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
+    ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
 4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
 5. 待推送证书信息生成后，记录证书的**`ID`**。
  ![](https://main.qcloudimg.com/raw/bb07b06f5ab9dee0ce17a3eee65101e8.png)
@@ -63,11 +63,8 @@ public static final long GOOGLE_FCM_PUSH_BUZID = 6768;
  */
 public class ThirdPushTokenMgr {
     private static final String TAG = "ThirdPushTokenMgr";
-
     private String mThirdPushToken;
-
-    private boolean mIsTokenSet = false;
-
+  
     public static ThirdPushTokenMgr getInstance () {
         return ThirdPushTokenHolder.instance;
     }
@@ -85,10 +82,6 @@ public class ThirdPushTokenMgr {
     }
 
     public void setPushTokenToTIM(){
-        if(mIsTokenSet){
-            QLog.i(TAG, "setPushTokenToTIM mIsTokenSet true, ignore");
-            return;
-        }
         String token = ThirdPushTokenMgr.getInstance().getThirdPushToken();
         if(TextUtils.isEmpty(token)){
             QLog.i(TAG, "setPushTokenToTIM third token is empty");
@@ -122,7 +115,36 @@ public class ThirdPushTokenMgr {
 > - FCM 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 FCM 推送服务有关。
 > - 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
+## 透传自定义内容
+
+- 发送端设置自定义内容
+
+  在发消息前设置每条消息的通知栏自定义内容。
+
+  Android 端示例：
+
+  ```
+  String extContent = "ext content";
+  
+  TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
+  settings.setExt(extContent.getBytes());
+  timMessage.setOfflinePushSettings(settings);
+  mConversation.sendMessage(false, timMessage, callback);
+  ```
+
+  [服务端示例参考](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
+
+- 接收端获取自定义内容
+
+  当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容。
+
+  ```
+  Bundle bundle = getIntent().getExtras();
+  String value = bundle.getString("ext"); 
+  ```
+
 ## 常见问题
+
 ### 能否自定义配置推送提示音？
 目前 FCM 推送不支持自定义的提示音。
 
