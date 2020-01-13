@@ -73,8 +73,8 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
   <td><a href="https://cloud.tencent.com/document/api/1004/30607">数学作业批改</a></td>
    <td><a href="https://cloud.tencent.com/document/api/1000/30698">数字版权管理</a></td>
    <td><a href="https://cloud.tencent.com/document/api/866/33515">文字识别</a></td>
-<td>-</td>
-<td>-</td>
+   <td><a href="https://cloud.tencent.com/document/api/649/36036">腾讯微服务平台 TSF</a></td>
+   <td><a href="https://cloud.tencent.com/document/api/597/40822">消息队列 CKafka</a></td>
    </tr>
   </table>
 
