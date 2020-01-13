@@ -50,7 +50,7 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 <td><a href="https://cloud.tencent.com/document/api/884/19310">智聆口语评测</a></td>
  </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/api/853/18384">腾讯优评</a></td>
+<td><a href="https://cloud.tencent.com/document/api/1122/40638">企业收付平台</a></td>
   <td><a href="https://cloud.tencent.com/document/api/845/30620">Elasticsearch Service</a></td>
 <td><a href="https://cloud.tencent.com/document/api/382/38764">短信</a></td>
 <td><a href="https://cloud.tencent.com/document/api/634/19469">物联网通信</a></td>
@@ -66,7 +66,7 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
   <tr>
   <td><a href="https://cloud.tencent.com/document/api/1007/31320">人脸核身-云智慧眼</a></td>
    <td><a href="https://cloud.tencent.com/document/api/1013/31737">威胁情报云查</a></td>
- <td><a href="https://cloud.tencent.com/document/api/1012/31720">样本智能分析平台</a></td>
+ <td><a href="https://cloud.tencent.com/document/api/647/37077">实时音视频</a></td>
    <td><a href="https://cloud.tencent.com/document/api/670/31052">人脸融合</a></td>
     <td><a href="https://cloud.tencent.com/document/api/867/32770">人脸识别</a></td>
    </tr>
