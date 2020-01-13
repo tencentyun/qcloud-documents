@@ -879,7 +879,7 @@ String addVideoFile(String url)
 | url | String | 【必填】文件地址  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 需要引入以下 js 文件 
@@ -902,7 +902,7 @@ String addVODFile(String appId, String vodId, String extParam)
 | --- | --- | --- |
 | appId | String | 点播应用ID  |
 | vodId | String | 点播文件ID  |
-| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [https://cloud.tencent.com/document/product/266/14603](https://cloud.tencent.com/document/product/266/14603)  |
+| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603)  |
 
 #### 返回
 白板文件 ID 
@@ -920,7 +920,7 @@ String addVODFile(String appId, String vodId, String extParam)
 
 
 ### setVODExtParam
-设置点播视频的额外参数，如 plugins、hlsConfig 等，具体请参考 [https://cloud.tencent.com/document/product/266/14603](https://cloud.tencent.com/document/product/266/14603) 
+设置点播视频的额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603) 
 ``` Javascript
 String setVODExtParam(String fileId, Object extParam)
 ```
@@ -1027,7 +1027,7 @@ void stopSyncVideoStatus()
 
 
 ### addH5File
-添加H5页面 
+添加 H5 页面 
 ``` Javascript
 String addH5File(String url)
 ```
@@ -1038,7 +1038,7 @@ String addH5File(String url)
 | url | String | 【必填】网页地址  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 只支持展示，不支持互动 
@@ -1053,7 +1053,7 @@ void addImageElement(String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | String | 【必填】要设置的图片元素URL，编码格式为 UTF8 |
+| url | String | 【必填】要设置的图片元素 URL，编码格式为 UTF8 |
 
 #### 介绍
 除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时url参数可以传一个 Object 类型，格式如下： 
