@@ -248,8 +248,8 @@ virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| x | int32_t | 要设置的白板渲染 View 的位置X分量  |
-| y | int32_t | 要设置的白板渲染 View 的位置Y分量  |
+| x | int32_t | 要设置的白板渲染 View 的位置 X 分量  |
+| y | int32_t | 要设置的白板渲染 View 的位置 Y 分量  |
 | width | uint32_t | 要设置的白板渲染 View 的宽度  |
 | height | uint32_t | 要设置的白板渲染 View 的高度 |
 
@@ -608,7 +608,7 @@ virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
 | mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当URL是一个有效的本地文件地址时，该文件会被自动上传到COS 
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
 
 
 ### SetBackgroundH5
