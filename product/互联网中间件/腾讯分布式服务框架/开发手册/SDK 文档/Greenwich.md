@@ -17,6 +17,12 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler JDBC 代理过程内�
 #### 版本建议
 支持向后兼容，建议全量升级。
 
+## 1.16.1-Greenwich-RELEASE（2019-12-3）
+
+### bug fix
+
+- API注册兼容从环境变量和启动参数中读取TSF参数信息。
+
 ## 1.16.0-Greenwich-RELEASE（2019-11-5）
 
 ### 新特性
