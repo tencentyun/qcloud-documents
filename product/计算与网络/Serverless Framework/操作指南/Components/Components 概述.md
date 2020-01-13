@@ -50,8 +50,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 ## Serverless Components 支持列表
 
 当前 Serverless Components 支持丰富的多语言开发框架和应用，如下所示：
-
-[![Serverless Components Tencent](https://img.serverlesscloud.cn/20191213/1576236739852-Component%20Gallery.png)](https://github.com/serverless-components/)
+![](https://main.qcloudimg.com/raw/fb863fbfe72526360c0cd7fc4caa1d98.png)
 
 基础组件：
 - [@serverless/tencent-apigateway](https://cloud.tencent.com/document/product/1154/39268) - 腾讯云 API 网关组件
