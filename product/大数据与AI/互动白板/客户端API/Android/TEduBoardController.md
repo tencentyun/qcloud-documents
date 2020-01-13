@@ -960,7 +960,7 @@ String addVideoFile(String url)
 文件 ID 
 
 #### 警告
-在TBS环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
 
 
 ### showVideoControl
@@ -975,7 +975,7 @@ void showVideoControl(boolean show)
 | show | boolean | 是否显示  |
 
 #### 警告
-全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面UI样式不同 
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
 
 
 ### playVideo
