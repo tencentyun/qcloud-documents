@@ -268,7 +268,7 @@ virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus st
 
 
 ### onTEBH5FileStatusChanged
-H5文件状态回调 
+H5 文件状态回调 
 ``` C++
 virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus status)
 ```
