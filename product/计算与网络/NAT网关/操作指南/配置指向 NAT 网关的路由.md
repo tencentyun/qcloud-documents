@@ -1,5 +1,5 @@
 创建 NAT 网关后，需要配置路由规则，将子网流量指向 NAT 网关。
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航栏的【路由表】。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧目录中单击【路由表】。
 2. 在路由表列表中，单击需要访问 Internet 的子网所关联的路由表 ID 进入详情页。
 ![](https://main.qcloudimg.com/raw/d9149a32b451867c5ccd4c171f58d963.png)
 3. 单击【+新增路由策略】。
