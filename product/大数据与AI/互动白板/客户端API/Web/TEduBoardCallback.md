@@ -345,7 +345,7 @@ function TEB_FILEUPLOADPROGRESS(Object data)
 | data | Object | 进度相关信息 |
 
 #### 介绍
-data参数格式如下： 
+data 参数格式如下： 
 ``` 
 {
      loaded: 50,     //已经上传的文件部分大小，以字节（bytes）为单位
