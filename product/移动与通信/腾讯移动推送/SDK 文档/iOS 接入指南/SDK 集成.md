@@ -21,7 +21,7 @@
  ``` 
  pod 'TPNS-iOS' 
  ```
- >?由于仓库变动，首次下载需要登录 [网址](git.code.tencent.com)，并设置账号密码，然后在 terminal 输入一次账号密码；后续即可正常使用。
+ >?由于仓库变动，首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并设置账号密码，然后在 terminal 输入一次账号密码；后续即可正常使用。
  - **方式二：carthage 导入**
  在 Cartfile 文件中指明依赖的第三方库：
  ```
