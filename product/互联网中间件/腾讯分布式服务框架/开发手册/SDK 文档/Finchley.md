@@ -1,8 +1,8 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.18.1-Finchley-RELEASE（2020-01-14）
+### 1.18.1-Finchley-RELEASE（2020-01-14）
 
-### Bug 修复
+#### Bug 修复
 - spring-cloud-tsf-route 修复路由权重不准的问题。
 - spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
 
