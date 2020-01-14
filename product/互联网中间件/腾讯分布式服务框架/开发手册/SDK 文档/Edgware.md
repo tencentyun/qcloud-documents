@@ -1,5 +1,16 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
+## 1.18.1-Edgware-RELEASE（2020-01-14）
+
+### bug fix
+
+- spring-cloud-tsf-route 修复路由权重不准的问题。
+- spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
+
+#### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ### 1.18.0-Edgware-RELEASE（2019-12-25）
 
 #### 新特性
