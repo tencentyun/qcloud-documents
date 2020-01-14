@@ -5,9 +5,9 @@ TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Gre
 
 | Spring Cloud | Spring Boot | 最新 TSF SDK 版本|
 | ------------ | ----------- | -----------------------------|
-| Edgware      | 1.5.x       | 1.18.0-Edgware-RELEASE |
-| Finchley     | 2.0.x       | 1.18.0-Finchley-RELEASE |
-| Greenwich     | 2.1.x       | 1.18.0-Greenwich-RELEASE |
+| Edgware      | 1.5.x       | 1.18.1-Edgware-RELEASE |
+| Finchley     | 2.0.x       | 1.18.1-Finchley-RELEASE |
+| Greenwich     | 2.1.x       | 1.18.1-Greenwich-RELEASE |
  
 [SDK 版本更新日志 >>](https://cloud.tencent.com/document/product/649/38983) 
 
