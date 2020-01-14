@@ -4,9 +4,9 @@
 
 ## 调用方式
 
-1. **登录前所使用的 API  `url` 为 `https://iot.cloud.tencent.com/api/exploreropen/appapi`**。
+1. **登录前所使用的 API URL 为 `https://iot.cloud.tencent.com/api/exploreropen/appapi`**。
 其中公共参数有： Action，RequestId，AppKey，Signature，Timestamp，Nonce。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议提供该参数值；AppKey 为应用的密钥； Signature 为本次请求的签名，具体计算方法见本文下方示例；Timestamp  为本次请求的 UNIX 秒级时间戳； Nonce 为随机正整数，用于和时间戳一起，防范 API 重放攻击。
-2. **登录后所使用的 API `url` 为 `https://iot.cloud.tencent.com/api/exploreropen/tokenapi`**。
+2. **登录后所使用的 API URL 为 `https://iot.cloud.tencent.com/api/exploreropen/tokenapi`**。
 其中公共参数有: Action，RequestId，AccessToken。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议使用该参数值。AccessToken 用于标识一个已经登录的用户；
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
