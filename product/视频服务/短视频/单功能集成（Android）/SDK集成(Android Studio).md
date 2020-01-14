@@ -97,7 +97,7 @@ defaultConfig {
 2. **拷贝文件**
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android studio 默认的 jni 加载目录。
 
-	如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
+	如果您使用的是企业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
 3. **工程配置**
 在工程 App 目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
 ```
@@ -138,8 +138,8 @@ dependencies {
 ```
 #### 3.4 License 设置
 请参考 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
-![](https://main.qcloudimg.com/raw/cfbf370ecc3db1429e2d3ecf582a100c.png)
-在您的应用中使用短视频功能之前（建议在 - Application onCreate() 中）进行如下设置：
+![](https://main.qcloudimg.com/raw/c48435846e63a66f6b80453b4c356e7e.png)
+在您的应用中使用短视频功能之前，建议在 - Application onCreate() 中进行如下设置：
 ```
 public class DemoApplication extends Application {
     String ugcLicenceUrl = "http://xxxxxxxx.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的 licence url
@@ -154,15 +154,14 @@ public class DemoApplication extends Application {
 ```
 
 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版 License** 按钮生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
-![](https://main.qcloudimg.com/raw/b296f9e2324806f07e0f7c91c82542ef.png)
+![](https://main.qcloudimg.com/raw/570c3a7bb4b6c8b2cf7fe162572b1c48.png)
 
 #### 3.5 log 打印
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，具体代码如下：
 - **setConsoleEnabled**
 设置是否在 Android Studio 的控制台打印 SDK 的相关输出。
 - **setLogLevel**
-设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上。 **Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。
-如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
+设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到 sdcard 上，**Android/data/com.tencent.liteav.demo/files/log/tencent/liteav** 文件夹下。如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
 ```
@@ -274,7 +273,7 @@ android {
 			jniLibs.srcDirs = ['libs']
 		}
 	}
-	// 集成短视频商业版需要添加 packagingOptions，非商业版不需要
+	// 集成短视频企业版需要添加 packagingOptions，非企业版不需要
 	packagingOptions {
 		pickFirst '**/libc++_shared.so'
         	doNotStrip "*/armeabi/libYTCommon.so"
@@ -520,4 +519,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 - [视频拼接](https://cloud.tencent.com/document/product/584/9503)
 - [视频上传](https://cloud.tencent.com/document/product/584/15535)
 - [视频播放](https://cloud.tencent.com/document/product/584/9373)
-- [动效变脸（商业版）](https://cloud.tencent.com/document/product/584/13510)
+- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13510)

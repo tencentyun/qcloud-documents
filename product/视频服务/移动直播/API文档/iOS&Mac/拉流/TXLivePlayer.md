@@ -280,7 +280,7 @@ __参数__
 
 __介绍__
 
-开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估
+开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估。
 
 ***
 
@@ -305,7 +305,7 @@ __返回__
 
 __介绍__
 
-使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [超级播放器](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [时移播放](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 >!非腾讯云直播地址不能时移。
 
@@ -468,7 +468,7 @@ __功能__
 
 支持的直播和点播类型。
 
->?新版本的点播 SDK，推荐参考 TXVodPlayer.h。
+>?点播播放请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 播放器，具体请参见头文件 TXVodPlayer.h。
 
 | 枚举 | 含义 |
 |-----|-----|

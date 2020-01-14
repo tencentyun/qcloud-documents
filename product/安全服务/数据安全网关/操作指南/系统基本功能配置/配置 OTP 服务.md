@@ -18,7 +18,7 @@
 3. 勾选 OTP 服务开关，单击【本地 OTP 服务】，如下图所示。
 ![](https://main.qcloudimg.com/raw/3f663acb77e687c677eee37e30c524ea.png)
 4. 单击【保存】，即可完成本地 OTP 服务配置。
-5. 用户认证配置及如何使用“数盾OTP“小程序，请参见 [OTP 认证](https://cloud.tencent.com/document/product/1025/35133#.E8.AE.BE.E7.BD.AE.E7.94.A8.E6.88.B7.E8.AE.A4.E8.AF.81.E6.96.B9.E5.BC.8F)。
+5. 用户认证配置及如何使用“数盾OTP”小程序，请参见 [OTP 认证](https://cloud.tencent.com/document/product/1025/35133#.E8.AE.BE.E7.BD.AE.E7.94.A8.E6.88.B7.E8.AE.A4.E8.AF.81.E6.96.B9.E5.BC.8F)。
 
 
 

@@ -8,6 +8,8 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
+>!同一条生命周期规则中不可同时支持 Days 和 Date 参数，请分成两条规则分别传入，具体请参见下文 [实际案例](#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
+
 ## 请求
 #### 请求示例
 
@@ -100,7 +102,7 @@ Content-MD5: MD5
 |Expiration    |LifecycleConfiguration.Rule    |规则过期属性    |Container    |否|
 |Transition    |LifecycleConfiguration.Rule    |规则转换属性，对象何时转换为 Standard_IA 或 Archive   |Container    |否|
 |Days    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天    |Integer    |否|
-|Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作    |String    |否|
+|Date    |LifecycleConfiguration.Rule.Transition<br>或 Expiration    |指明规则对应的动作在何时操作，支持`2007-12-01T12:00:00.000Z`和`2007-12-01T00:00:00+08:00`这两种格式    |String    |否|
 |ExpiredObjectDeleteMarker    |LifecycleConfiguration.Rule.Expiration    |删除过期对象删除标记，枚举值 true，false    |String    |否|
 |AbortIncompleteMultipartUpload    |LifecycleConfiguration.Rule    |设置允许分片上传保持运行的最长时间    |Container    |否|
 |DaysAfterInitiation    |LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload    |指明分片上传开始后多少天内必须完成上传    |Integer    |是|

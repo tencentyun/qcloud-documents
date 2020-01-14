@@ -245,7 +245,43 @@ x-cos-request-id: NWQ3MjEyMmNfYjNjMjJhMDlfYjk4NV9mNjRk****
 </CopyObjectResult>
 ```
 
-#### 案例四：将未加密的对象复制为使用 SSE-COS 加密的目标对象
+#### 案例四：修改对象存储类型
+
+本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储的对象回热，才能使用该接口请求转换存储类型。
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 02 Jan 2020 09:39:27 GMT
+x-cos-metadata-directive: Replaced
+x-cos-storage-class: ARCHIVE
+x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject
+Content-Length: 0
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577957967;1577965167&q-key-time=1577957967;1577965167&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-metadata-directive;x-cos-storage-class&q-url-param-list=&q-signature=83849b245f8cd64825a158487ee83ccb2512****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 181
+Connection: close
+Date: Thu, 02 Jan 2020 09:39:27 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZGJhNGZfNDVjODJhMDlfNjk4Yl8xYzNk****
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+	<ETag>"b62e10bcab55a88240bd9c436cffdcf9"</ETag>
+	<LastModified>2020-01-02T09:37:11Z</LastModified>
+</CopyObjectResult>
+```
+
+#### 案例五：将未加密的对象复制为使用 SSE-COS 加密的目标对象
 
 #### 请求
 
@@ -279,7 +315,44 @@ x-cos-server-side-encryption: AES256
 </CopyObjectResult>
 ```
 
-#### 案例五：复制 SSE-C 加密的对象并更换密钥
+#### 案例六：将未加密的对象复制为使用 SSE-KMS 加密的目标对象
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 02 Jan 2020 09:39:44 GMT
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+x-cos-server-side-encryption-context: eyJhdXRob3IiOiJmeXNudGlhbiIsImNvbXBhbnkiOiJUZW5jZW50In0=
+x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg
+Content-Length: 0
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577957984;1577965184&q-key-time=1577957984;1577965184&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=ffbec73d5c3d688fa6fbb1c003ee756f0e24****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 181
+Connection: close
+Date: Thu, 02 Jan 2020 09:39:45 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZGJhNjBfZjhjODBiMDlfMWFkN2VfMzZh****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+	<ETag>"8612144fec2e2e271856b1c49c4b408f"</ETag>
+	<LastModified>2020-01-02T09:37:30Z</LastModified>
+</CopyObjectResult>
+```
+
+#### 案例七：复制 SSE-C 加密的对象并更换密钥
 
 #### 请求
 
@@ -319,7 +392,7 @@ x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 </CopyObjectResult>
 ```
 
-#### 案例六：将 SSE-C 加密的对象修改为不加密
+#### 案例八：将 SSE-C 加密的对象修改为不加密
 
 #### 请求
 
@@ -355,7 +428,7 @@ x-cos-request-id: NWQ3MjE5ZGNfMjljOTBiMDlfMjQ1OWJfZmMw****
 </CopyObjectResult>
 ```
 
-#### 案例七：指定源对象的版本
+#### 案例九：指定源对象的版本
 
 #### 请求
 
@@ -388,7 +461,7 @@ x-cos-request-id: NWQ3MjM2ZmFfZjhjMDBiMDlfOTliZF9mYmNi****
 </CopyObjectResult>
 ```
 
-#### 案例八：复制对象到启用版本控制的存储桶
+#### 案例十：复制对象到启用版本控制的存储桶
 
 #### 请求
 

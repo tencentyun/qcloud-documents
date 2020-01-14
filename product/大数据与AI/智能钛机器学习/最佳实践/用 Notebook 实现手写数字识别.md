@@ -22,7 +22,7 @@
 
 ## 详细流程
 #### 新建 Notebook 容器
-1. 登录智能钛机器学习平台控制台后，单击顶层菜单栏的【Notebook】，页面跳转至 Notebook 容器列表页面。单击【新增】，配置容器参数（以下以广州地域为例说明）：
+1. 登录智能钛机器学习平台控制台后，单击菜单栏的【Notebook】，页面跳转至 Notebook 容器列表页面。新增实例，配置容器参数（以下以广州地域为例说明）：
    - Notebook名称：mnist
    - 资源选择：后付费/TI.MEDIUM4.2core4g
    - 卷大小：10
@@ -43,14 +43,10 @@
 ![](https://main.qcloudimg.com/raw/21fe51c6350e640b07aa5d873b2889d7.png)
 
 #### 利用 TensorFlow 实现 MNIST 手写数字识别
-1. 在 Notebook 中安装并导入所需依赖包，您可直接复制以下所有代码块到 Notebook 中运行。
+1. 在 Notebook 中导入所需依赖包，您可直接复制以下所有代码块到 Notebook 中运行。
 ```
-! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user --upgrade pip 
-! pip install -i http://mirrors.tencentyun.com/pypi/simple --trusted-host mirrors.tencentyun.com  --user tensorflow  
-
 import matplotlib.pyplot as plt
 import tensorflow as tf
-from tensorflow.examples.tutorials.mnist import input_data
 from tensorflow.examples.tutorials.mnist import input_data
 ```
 
