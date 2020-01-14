@@ -109,8 +109,7 @@
 </table>
 
 ## 各版本差异对照表
-
-![](https://main.qcloudimg.com/raw/76d9d6f854ba4cc8cf3b3c18ed230a35.png)
+![](https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png)
 
 <table>
   <tr>
@@ -148,7 +147,7 @@
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
   </tr>

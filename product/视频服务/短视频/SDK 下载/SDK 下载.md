@@ -302,7 +302,7 @@
       <td style="text-align:center">&#10003;</td>
    </tr>
    <tr>
-      <td rowspan='2'>SDK 下载</td>
+      <td rowspan='2' id = "sdk">SDK 下载</td>
       <td>Android</td>
 	  <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
           <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_Android_latest.zip">DOWNLOAD</a> </td>
@@ -321,8 +321,8 @@
       <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 Pro</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 Pro</a></td>
    </tr>
    <tr>
       <td>套餐价格</td>

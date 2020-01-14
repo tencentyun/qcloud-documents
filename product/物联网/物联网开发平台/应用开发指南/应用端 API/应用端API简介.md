@@ -1,5 +1,5 @@
 ## 简介
-应用端API是开发平台为了满足智能家居场景，为用户开发自有品牌的小程序或APP而提供的云端服务，用户无需实现用户管理、设备管理、设备定时、家庭管理等基础能力，可通过调用应用端API快速完成移动应用端的开发。
+应用端 API 是开发平台为了满足智能家居场景，为用户开发自有品牌的小程序或 App 而提供的云端服务，用户无需实现用户管理、设备管理、设备定时、家庭管理等基础能力，可通过调用应用端 API 快速完成移动应用端的开发。
 
 
 ## 调用方式
@@ -13,11 +13,11 @@
 
 ## 应用 API 签名算法
 
-### 获取应用 AppKey 和 AppSecret
+#### 获取应用 AppKey 和 AppSecret
 
 如果用户不使用腾讯官方的“腾讯连连”小程序，用户也可通过平台开放能力开发自有品牌小程序。在创建应用的时候，平台会为用户生成小程序对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
 
-### 生成签名串
+#### 生成签名串
 
 有了安全凭证 AppKey 和 AppSecret 后，就可以生成签名串了。下面给出了一个生成签名串的详细过程。
 
@@ -43,14 +43,13 @@
 | Password         | String    | 密码       | password              |
 | VerificationCode | String    | 短信验证码 | 123456                   |
 
-请求参数中的公共请求参数有: RequestId, Action, AppKey, Timestamp, Nonce,Signature.
-AppCreateCellphoneUser 接口特有参数：CountryCode、PhoneNumber、Password、VerificationCode。
+>?
+- 请求参数中的公共请求参数有：RequestId, Action, AppKey, Timestamp, Nonce,Signature.
+- AppCreateCellphoneUser 接口特有参数：CountryCode、PhoneNumber、Password、VerificationCode。
 
 而参数 Signature（签名串）正是由上述参数共生成的，具体步骤如下：
-
 1. 对参数排序
-   首先对所有请求参数按参数名做字典序升序排列，所谓字典序升序排列，直观上就如同在字典中排列单词一样排序，按照字母表或数字表里递增顺序的排列次序，即先考虑第一个 “字母”，在相同的情况下考虑第二个 “字母”，依此类推。您可以借助编程语言中的相关排序函数来实现这一功能，如 PHP 中的 ksort 函数。上述示例参数的排序结果如下：
-
+对所有请求参数按参数名做字典序升序排列，所谓字典序升序排列，直观上就如同在字典中排列单词一样排序，按照字母表或数字表里递增顺序的排列次序，即先考虑第一个 “字母”，在相同的情况下考虑第二个 “字母”，依此类推。您可以借助编程语言中的相关排序函数来实现这一功能，例如 PHP 中的 ksort 函数。上述示例参数的排序结果如下：
 ```
 {
     Action=AppCreateCellphoneUser,
@@ -68,32 +67,26 @@ AppCreateCellphoneUser 接口特有参数：CountryCode、PhoneNumber、Password
 使用其它程序设计语言开发时, 可对上面示例中的参数进行排序，得到的结果一致即可。
 
 2. 拼接请求字符串
-   此步骤生成请求字符串。
-   将把上一步排序好的请求参数格式化成“参数名称”=“参数值”的形式，如对 Action 参数，其参数名称为 "Action"，参数值为 "AppCreateCellphoneUser"，因此格式化后就为 Action=AppCreateCellphoneUser
-   > - “参数值” 为原始值而非 URL 编码后的值。
-   > - 若输入参数中包含下划线，则需要将其转换为 “.”。
+将把上一步排序好的请求参数格式化成“参数名称”=“参数值”的形式，如对 Action 参数，其参数名称为 "Action"，参数值为 "AppCreateCellphoneUser"，因此格式化后就为 Action=AppCreateCellphoneUser
+  - “参数值” 为原始值而非 URL 编码后的值。
+  - 若输入参数中包含下划线，则需要将其转换为 “.”。
 
-之后将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为：
-
+将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为：
 ```
 Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
 ```
 
 3. 生成签名串
-   首先使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
-   具体代码如下，以 PHP 语言为例：
-
+使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
+具体代码如下，以 PHP 语言为例：
 ```
 $secretKey = 'NcbHqkdiUyITTCGbKnQH';
 $srcStr = 'Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
 ```
-
 最终得到的签名串为：
-
 ```
 CKu55Y3ZD6RuxpjPySM6U99imbs=
 ```
-
-使用其它程序设计语言开发时, 可用上面示例中的原文进行签名验证, 得到的签名串与例子中的一致即可。
+使用其它程序设计语言开发时，可用上面示例中的原文进行签名验证，得到的签名串与例子中的一致即可。
