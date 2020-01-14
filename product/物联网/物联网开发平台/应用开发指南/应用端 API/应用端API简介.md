@@ -11,7 +11,7 @@
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
 
-## 应用 API 签名算法
+## 签名算法
 
 #### 获取应用 AppKey 和 AppSecret
 
