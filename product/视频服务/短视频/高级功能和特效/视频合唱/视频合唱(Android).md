@@ -15,27 +15,26 @@
 
 ## 代码部分
 
-对于合唱功能主要使用三大块功能: 播放、录制、以及录制后和原视频进行合成，这三个功能对应到 SDK 的类为： TXVideoEditer、TXUGCRecord、TXVideoJoiner，其中播放也可以换成 TXVodPlayer 去播放。
+对于合唱功能主要使用三大块功能：播放、录制、以及录制后和原视频进行合成，这三个功能对应到 SDK 的类为： TXVideoEditer、TXUGCRecord、TXVideoJoiner，其中播放也可以换成 TXVodPlayer 去播放。
 
-1. 从小视频主页的视频列表中，选择一个视频进入播放界面TCVodPlayerActivity，单击右下角的“合拍”按钮
-首先会下载该视频到本地 sdcard 中，并获取该视频的音频采样率以及fps等信息后进入录制界面。
+1. 从小视频主页的视频列表中，选择一个视频进入播放界面 TCVodPlayerActivity，单击右下角的“合拍”按钮。
+首先会下载该视频到本地 sdcard 中，并获取该视频的音频采样率以及 fps 等信息后进入录制界面。
 
-2. 进入录制界面 TCVideoRecordActivity 进行合唱
-需要注意几点：
- - 录制进度条以跟拍视频的进度为最大长度
- - 保证录制视频的帧率和合唱视频的帧率一致，否则可能出现音画不同步的现象
- - 保证录制视频的音频采样率和合唱视频的音频采样率一致，否则可能出现音画不同步的现象
- - 录制设置渲染模式为自适应模式，在9：16的宽高比时能等比例缩放
- - Android的录制需要设置静音，否则会造成与跟拍视频的“二重唱”
+2. 进入录制界面 TCVideoRecordActivity 进行合唱。需要注意以下几点：
+ - 录制进度条以跟拍视频的进度为最大长度。
+ - 保证录制视频的帧率和合唱视频的帧率一致，否则可能出现音画不同步的现象。
+ - 保证录制视频的音频采样率和合唱视频的音频采样率一致，否则可能出现音画不同步的现象。
+ - 录制设置渲染模式为自适应模式，在9:16的宽高比时能等比例缩放。
+ - Android 的录制需要设置静音，否则会造成与跟拍视频的“二重唱”。
  
-```
+ ```
 // 录制的界面
 mVideoView = mVideoViewFollowShotRecord;
 // 播放的视频
 mFollowShotVideoPath = intent.getStringExtra(TCConstants.VIDEO_EDITER_PATH);
 mFollowShotVideoDuration = (int)(intent.getFloatExtra(TCConstants.VIDEO_RECORD_DURATION, 0) * 1000);
 initPlayer();
-// 录制进度条以跟拍视频的进度为最大长度，fps以跟拍视频的fps为准
+// 录制进度条以跟拍视频的进度为最大长度，fps 以跟拍视频的 fps 为准
 mMaxDuration = (int)mFollowShotVideoDuration;
 mFollowShotVideoFps = intent.getIntExtra(TCConstants.RECORD_CONFIG_FPS, 20);
 mFollowShotAudioSampleRateType = intent.getIntExtra(TCConstants.VIDEO_RECORD_AUDIO_SAMPLE_RATE_TYPE, TXRecordCommon.AUDIO_SAMPLERATE_48000);
@@ -44,7 +43,7 @@ mTXVideoJoiner = new TXVideoJoiner(this);
 mTXVideoJoiner.setVideoJoinerListener(this);
 ```
 ```objc
-// 播放器初始化，这里使用TXVideoEditer，也可以使用TXVodPlayer
+// 播放器初始化，这里使用 TXVideoEditer，也可以使用 TXVodPlayer
 mTXVideoEditer = new TXVideoEditer(this);
 mTXVideoEditer.setVideoPath(mFollowShotVideoPath);
 TXVideoEditConstants.TXPreviewParam param = new TXVideoEditConstants.TXPreviewParam();
@@ -94,7 +93,7 @@ private void prepareToJoiner(){
     List<TXVideoEditConstants.TXAbsoluteRect> list = new ArrayList<>();
     list.add(rect1);
     list.add(rect2);
-    mTXVideoJoiner.setSplitScreenList(list, recordVideoInfo.width + followVideoWidth, recordVideoInfo.height); //第2，3个param：两个视频合成画布的宽高
+    mTXVideoJoiner.setSplitScreenList(list, recordVideoInfo.width + followVideoWidth, recordVideoInfo.height); //第2、3个 param：两个视频合成画布的宽高
     mTXVideoJoiner.splitJoinVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mFollowShotVideoOutputPath);
 }
 ```

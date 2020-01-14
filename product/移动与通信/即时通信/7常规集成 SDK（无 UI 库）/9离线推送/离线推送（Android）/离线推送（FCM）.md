@@ -1,6 +1,6 @@
 >!使用 FCM 离线推送需要手机端安装 Google Play Services 且在中国大陆地区以外使用。
 
-## 流程说明
+## 离线推送流程
 
 实现离线消息推送的过程如下：
 1. 开发者到厂商的平台注册账号，并通过开发者认证后，申请开通推送服务。
@@ -10,7 +10,7 @@
 5. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
 6. 当客户端 App 在即时通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，即时通信 IM 服务端将通过消息推送进行提醒。
 
-## 操作步骤
+## 配置离线推送
 <span id="Step1"></span>
 ### 步骤1：设置 Firebase 和 FCM SDK
 >?本步骤中的网址为 Firebase 官方网址，需要在中国大陆地区以外才能访问。
@@ -28,12 +28,12 @@
  >?如果您原来已有证书只需变更信息，可以单击对应证书区域的【编辑】进行修改更新。
  >
  ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png)
-3. 根据 [Step1](#Step1) 中获取的信息设置以下参数：
+3. 根据 [步骤1](#Step1) 中获取的信息设置以下参数：
  - **推送平台**：选择 **Google**
  - **应用包名称**：填写客户 App 的包名
  - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
  - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
-  ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
+    ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
 4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
 5. 待推送证书信息生成后，记录证书的**`ID`**。
  ![](https://main.qcloudimg.com/raw/bb07b06f5ab9dee0ce17a3eee65101e8.png)
@@ -63,11 +63,8 @@ public static final long GOOGLE_FCM_PUSH_BUZID = 6768;
  */
 public class ThirdPushTokenMgr {
     private static final String TAG = "ThirdPushTokenMgr";
-
     private String mThirdPushToken;
-
-    private boolean mIsTokenSet = false;
-
+  
     public static ThirdPushTokenMgr getInstance () {
         return ThirdPushTokenHolder.instance;
     }
@@ -85,10 +82,6 @@ public class ThirdPushTokenMgr {
     }
 
     public void setPushTokenToTIM(){
-        if(mIsTokenSet){
-            QLog.i(TAG, "setPushTokenToTIM mIsTokenSet true, ignore");
-            return;
-        }
         String token = ThirdPushTokenMgr.getInstance().getThirdPushToken();
         if(TextUtils.isEmpty(token)){
             QLog.i(TAG, "setPushTokenToTIM third token is empty");
@@ -122,7 +115,33 @@ public class ThirdPushTokenMgr {
 > - FCM 推送可能会有一定延时，通常与 App 被 kill 的时机有关，部分情况下与 FCM 推送服务有关。
 > - 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
+## 透传自定义内容
+
+### 步骤1：发送端设置自定义内容
+在发消息前设置每条消息的通知栏自定义内容。
+- Android 端示例如下：
+
+  ```
+  String extContent = "ext content";
+  
+  TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
+  settings.setExt(extContent.getBytes());
+  timMessage.setOfflinePushSettings(settings);
+  mConversation.sendMessage(false, timMessage, callback);
+  ```
+
+- 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)。
+
+### 步骤2：接收端获取自定义内容
+当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容。
+
+  ```
+  Bundle bundle = getIntent().getExtras();
+  String value = bundle.getString("ext"); 
+  ```
+
 ## 常见问题
+
 ### 能否自定义配置推送提示音？
 目前 FCM 推送不支持自定义的提示音。
 

@@ -1,3 +1,6 @@
+Android SDK 接入请观看视频：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20717?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 开发准备
 
 ### SDK 下载

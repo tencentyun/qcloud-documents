@@ -24,7 +24,6 @@
 ![](https://main.qcloudimg.com/raw/8075b27c01188b3dd19ec671cfebcbec.png)
 **入参**包含了来源于 Header、Query、Path 的参数。其中 Path 参数对应于在 URL 路径中定义的动态参数。
 任一参数均需要指定参数名、参数类型和参数数据类型，同时可以指明是否必填、默认值、示例数据和描述说明。利用这些配置，API 网关可以协助您完成入参的文档化和初步校验。
-您也可以根据需要，在参数上加入更多更详细验证配置，例如最大最小值、最大最小长度、枚举值、甚至正则表达式。
 在调用时需要传入 X-NameSpace-Code 和 X-MicroService-Name 两个必选参数，这两个参数控制 API 网关的请求发往哪个微服务，可放置在 Header、Path、Query 中，若放在 Path 中，则与通用 API 类似，需要在路径中配置路径参数，例如 `/{X-NameSpace-Code}/{X-MicroService-Name}`，若变量 X-NameSpace-Code=crgt，X-MicroService-Name=coupon-activity，则访问的 URL 为`https://访问域名/crgt/coupon-activity/`。除了这两个固定参数。其他参数配置均与通用 API 一致。
  - X-NameSpace-Code 路径参数是配置中选择的命名空间在 [腾讯微服务平台](https://console.cloud.tencent.com/tsf/namespace) 命名空间中配置的 code 值。
  - X-MicroService-Name 路径参数是 配置中选择的集群在 [腾讯微服务平台](https://console.cloud.tencent.com/tsf/service) 服务治理中配置的微服务名称。
