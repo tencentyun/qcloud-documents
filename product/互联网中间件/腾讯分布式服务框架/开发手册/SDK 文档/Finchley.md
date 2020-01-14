@@ -28,7 +28,7 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK
 #### 版本建议
 支持向后兼容，建议全量升级。
 
-### 1.16.1-Finchley-RELEASE（2019-12-3）
+### 1.16.1-Finchley-RELEASE（2019-12-03）
 
 #### Bug 修复
 - 增加使用 Jedis 作为 Redis 客户端的调用链追踪功能。
