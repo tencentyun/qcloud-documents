@@ -2,7 +2,7 @@
 
 ### 1.18.1-Edgware-RELEASE（2020-01-14）
 
-#### bug fix
+#### Bug 修复
 - spring-cloud-tsf-route 修复路由权重不准的问题。
 - spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
 
