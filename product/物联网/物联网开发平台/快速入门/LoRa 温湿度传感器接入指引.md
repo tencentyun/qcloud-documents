@@ -5,7 +5,7 @@
 ## 前提条件
 为了通过下面的步骤快速理解该业务场景，需要做好以下准备工作：
 - 申请物联网开发平台服务。
-- 意法半导体(ST) P-Nucleo-LRWAN3 开发套件。
+- 意法半导体 (ST) P-Nucleo-LRWAN3 开发套件。
 - 拥有一台物理或虚拟的 Windows 环境，并根据 [基于 TencentOS tiny 的 LoRaWAN 开发入门指南](https://github.com/Tencent/TencentOS-tiny/blob/master/doc/16.TencentOS_tiny_LoRaWAN_Getting_Started_Guide.md) 的介绍完成开发环境搭建，包括 MDK 软件的安装及配置、ST-Link 驱动安装、串口软件的安装。
 
 
