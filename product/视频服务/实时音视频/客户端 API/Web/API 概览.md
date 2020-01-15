@@ -90,7 +90,6 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getId) | 获取 Stream 唯一标识 ID。 |
 | [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioOutput) | 设置声音输出设备。 |
-| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
 | [hasAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#hasAudio) | 是否包含音频轨道。 |
 | [hasVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#hasVideo) | 是否包含视频轨道。 |
@@ -119,7 +118,7 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getId) | 获取 Stream 唯一标识 ID。 |
 | [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioOutput) | 设置声音输出设备。 |
-| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
+| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioVolume) | 设置播放音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
 | [hasAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#hasAudio) | 是否包含音频轨道。 |
 | [hasVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#hasVideo) | 是否包含视频轨道。 |
