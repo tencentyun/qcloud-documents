@@ -12,7 +12,7 @@
 ## 互动课堂 App 使用
 ### 加入课堂
 1. **通过在线课堂 App 加入课堂**
-页面显示如下图，加入课堂时需要输入【机构ID】、【课堂ID】、【用户ID】、【用户密码】四个要素。登录成功后，直接跳转至课中页面，详见 [课中页面介绍](#.E8.AF.BE.E4.B8.AD.E9.A1.B5.E9.9D.A2.E4.BB.8B.E7.BB.8D)。
+页面显示如下图，加入课堂时需要输入【机构编号】、【课堂编号】、【用户名】、【密码】四个要素。登录成功后，直接跳转至课中页面，详见 [课中页面介绍](#.E8.AF.BE.E4.B8.AD.E9.A1.B5.E9.9D.A2.E4.BB.8B.E7.BB.8D)。
 ![](https://main.qcloudimg.com/raw/be232e94451967f1dd1819016144b063.png)
 <table>
 <tr>
@@ -20,19 +20,19 @@
 <th>说明</th>
 </tr>
 <tr>
-<td>机构 ID</td>
+<td>机构编号</td>
 <td>由管理员告知。腾讯云互动课堂分配的公司编号。</td>
 </tr>
 <tr>
-<td>课堂 ID </td>
+<td>课堂编号</td>
 <td>由管理员告知。约好的课程编号。</td>
 </tr>
 <tr> 
-<td>用户 ID</td>
+<td>用户名</td>
 <td> 由管理员告知。登录 App 的账号，仅管理员可修改。</td>
 </tr>
 <tr>
-<td>用户密码</td>
+<td>密码</td>
 <td>由管理员告知。登录 App 的密码，仅管理员可修改。</td>
 </tr>
 </table>
@@ -74,4 +74,4 @@
 ![](https://main.qcloudimg.com/raw/7d8f0c7baa7551a585a333981ab7f26d.png)
 答题效果：
 ![](https://main.qcloudimg.com/raw/855a592cad5c9359b7175ac6310fa840.png)
-布局的设置在控制台或者云 API 新建课堂时设定，详情可参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505) 或 [云 API](https://cloud.tencent.com/document/product/680/37540) 课堂模块部分。
+布局的设置在控制台或者云 API 新建课堂时设定，详情可参考 [控制台使用手册](https://cloud.tencent.com/document/product/680/37505) 或 [云 API-课堂模块](https://cloud.tencent.com/document/product/680/37540#.E8.AF.BE.E5.A0.82.E6.A8.A1.E5.9D.97) 部分。

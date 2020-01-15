@@ -90,7 +90,7 @@ data:
 ### 创建 PersistentVolumeClaim<span ID="StepFour"></span>
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需使用 COS 的集群 ID，进入待创建 Secret 集群的 “Deployment” 页面。
-3. 选择左侧导航栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 管理页面并参考 [创建 PVC](https://cloud.tencent.com/document/product/457/31712#.E5.88.9B.E5.BB.BA-pvc) 步骤进行创建。
+3. 选择左侧导航栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 管理页面并参考 [创建 PVC](https://cloud.tencent.com/document/product/457/31712#.E5.88.9B.E5.BB.BA-pvc.3Cspan-id.3D.22createpvc2.22.3E.3C.2Fspan.3E) 步骤进行创建。
 在 “新建PersistentVolume” 页面，根据实际需求，进行如下参数设置。如下图所示：
 >?其中 “**Provisioner**” 选择 【对象存储COS】，“**PersistentVolume**” 选择在 [创建 PersistentVolume](#StepThree) 中已创建的 PV。
 >

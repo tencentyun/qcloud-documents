@@ -123,7 +123,7 @@ AJAX 上传需要浏览器支持基本的 HTML5 特性，当前方案使用 [PUT
 
                 var auth = info.Authorization;
                 var XCosSecurityToken = info.XCosSecurityToken;
-                var url = prefix + camSafeUrlEncode(Key).replace(/%2F/, '/');
+                var url = prefix + camSafeUrlEncode(Key).replace(/%2F/g, '/');
                 var xhr = new XMLHttpRequest();
                 xhr.open('PUT', url, true);
                 xhr.setRequestHeader('Authorization', auth);

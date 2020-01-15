@@ -14,12 +14,12 @@ Magento 是使用 PHP 语言开发的开源电子商务平台，是国际电子�
 >! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
 >
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 Magento 并单击<image src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px"/>。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 Magento 并单击 <image src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px"/>。如下图所示：
 >?
 >- 本文以下图所示的 Magento开源电子商务系统为例，您可根据实际需求进行选择。
 >- 单击镜像名可查看镜像详情。
 >
-![](https://main.qcloudimg.com/raw/7adadb8a4f4f2d99a5803535b3e4dbbd.png)
+<img src="https://main.qcloudimg.com/raw/fffcdcd863e85aaee62faecad688fcc4.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 CVM 的购买。
 

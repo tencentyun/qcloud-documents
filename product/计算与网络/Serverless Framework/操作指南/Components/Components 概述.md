@@ -41,7 +41,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-react-application
 ```
 
-- [部署 Serverless 全栈 WEB 应用（Vue.js）](https://cloud.tencent.com/document/product/1154/39272)
+- [部署 Serverless 全栈 Web 应用（Vue.js）](https://cloud.tencent.com/document/product/1154/39272)
 本示例以 Vue 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
@@ -49,12 +49,10 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 
 ## Serverless Components 支持列表
 
-如下所示，当前 Serverless Components 支持丰富的多语言开发框架和应用：
-
-[![Serverless Components Tencent](https://img.serverlesscloud.cn/20191213/1576236739852-Component%20Gallery.png)](https://github.com/serverless-components/)
+当前 Serverless Components 支持丰富的多语言开发框架和应用，如下所示：
+![](https://main.qcloudimg.com/raw/fb863fbfe72526360c0cd7fc4caa1d98.png)
 
 基础组件：
-
 - [@serverless/tencent-apigateway](https://cloud.tencent.com/document/product/1154/39268) - 腾讯云 API 网关组件
 - [@serverless/tencent-cos](https://cloud.tencent.com/document/product/1154/39273) - 腾讯云对象存储组件
 - [@serverless/tencent-scf](https://cloud.tencent.com/document/product/1154/39271) - 腾讯云云函数组件
@@ -63,7 +61,6 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@serverless/tencent-cam-policy](https://cloud.tencent.com/document/product/1154/39274) - 腾讯云 CAM 策略组件
 
 高阶组件：
-
 - [@serverless/tencent-express](https://cloud.tencent.com/document/product/1154/39269) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-egg](https://cloud.tencent.com/document/product/1154/40492) - 快速部署基于 Egg.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-koa](https://cloud.tencent.com/document/product/1154/40493) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
@@ -75,5 +72,4 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@twn39/tencent-fastify](https://github.com/twn39/tencent-fastify) - 快速部署基于 fastify.js 的后端服务到腾讯云函数的组件
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
-此外，所有的 Serverless Components 可都在Serverless Components
- 的 [Github 仓库](https://github.com/serverless-components/) 中查看。
+此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components/) 中查看。
