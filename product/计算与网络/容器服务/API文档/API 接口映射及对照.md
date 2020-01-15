@@ -1,6 +1,6 @@
 **[容器服务 API 2.0 ](https://cloud.tencent.com/document/product/457/9458) 将于2020年3月下线， 建议您使用 [容器服务 API 3.0](https://cloud.tencent.com/document/product/457/31853)。3.0版本接口定义更加规范，访问时延下降显著，您可参考下文 API 接口对照映射表开始使用。**
 
->?下表中部分容器服务 API 3.0 接口及文档将于近期上线，请注意官方文档变化。
+>?下表中部分容器服务 API 3.0 接口及 kubernetes api 文档将于近期上线，请注意官方文档变化。
 
 <table>
 	<tr>		<th colspan=2>模块</th>		<th>API 2.0</th>		<th>API 3.0</th>	</tr>
@@ -349,7 +349,9 @@
 </table>
 
 
-
+<style>
+	.params{margin-bottom:0px !important;}
+</style>
 
 
 
