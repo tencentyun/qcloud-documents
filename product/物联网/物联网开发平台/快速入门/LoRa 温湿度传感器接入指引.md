@@ -30,11 +30,11 @@
 
 ### 创建数据模板
 选择“温湿度传感器”类型后，自定义产品功能。
-![](https://main.qcloudimg.com/raw/d444b79a353584857b8765be38830be1.png)
+![](https://main.qcloudimg.com/raw/532a06687e5d53b7cb5148747e3e9d36.png)
 
 ### 配置 LoRaWAN 参数
 在设备开发页面中，按需调整 LoRaWAN 参数配置。本示例中使用默认的 OTAA 配置。
-![](https://main.qcloudimg.com/raw/fd535100ac9bed531776a8aae3db1984.png)
+![](https://main.qcloudimg.com/raw/a830f63360ce2c450236158b6fc56b61.png)
 
 ### 设备数据解析
 在设备开发页面中，按需调整设备数据解析。由于 LoRa 类资源有限设备不适合直接传输 JSON 格式数据，使用“设备数据解析”可以将设备原始数据转化为产品 JSON 数据。
