@@ -18,7 +18,7 @@
 >
 ![](https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png)
 3. 在弹出的【选择镜像】对话框中，选择【建站系统】> 【WordPress博客平台】，单击【免费使用】。如下图所示：
-![](https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png)
+<img src="https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png" style="width: 88%;"></img>
 4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 WordPress 建站系统的购买。
 
 ### 步骤2：访问获取权限的引导页面
