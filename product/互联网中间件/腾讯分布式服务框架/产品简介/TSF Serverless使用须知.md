@@ -84,7 +84,7 @@ zip code.zip * -r
 2. 新建Serverless应用
 ![](https://main.qcloudimg.com/raw/69940f64bed2f94ec1953abd94cef6c9.png)
 3. 上传程序包
-注意:本次程序包上传必须同时包含start.sh，stop.sh，cmdline,，详见 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)
+注意:本次程序包上传必须同时**包含start.sh，stop.sh，cmdline**，详见 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359)
 ![](https://main.qcloudimg.com/raw/44dbab3118490a90bf3be3eee54d6bc6.png)
 4. 新建Serverless部署组
 ![](https://main.qcloudimg.com/raw/66e93be226b92ffc65be7b4ed2ee7790.png)
