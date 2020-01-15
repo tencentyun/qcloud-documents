@@ -1389,7 +1389,7 @@ quit_class
 |history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|-1
 |history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是（已废弃）|-1
 |history_enable_draw|int|用户在该课堂上一次授权状态（0：未授权，1：授权，-1：未知）|是（已废弃）|-1
-|member_permission_list|int|摄像头麦克风权限列表|是|
+|member_permission_list|int|摄像头麦克风权限列表|是|-
 
 
 #### 举例
