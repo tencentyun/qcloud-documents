@@ -27,7 +27,7 @@
 
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤3](#step2) 中下载的源码包，找到并打开`Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件，配置下列参数：
+1. 解压 [步骤3](#step2) 中下载的源码包，找到并打开`Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件，配置下列参数：
   - SDKAPPID：设置为对应的 **SDKAppID**。
   - SECRETKEY：设置为对应的**密钥**。
   ![](https://main.qcloudimg.com/raw/7f1c7345b4019984553fae9480fde461.png)
