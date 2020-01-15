@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/18159">校验 CIDR（ CheckClusterCIDR ）</a></td>
-		<td>校验 CIDR（ CheckClusterCIDR ）</td>
+		<td>检查集群的 CIDR 是否冲突（ CheckClusterCIDR ）</td>
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/18321">查询加入集群的主机列表（ DescribeExistedCvmForAddClusterInstances ）</a></td>
@@ -200,7 +200,7 @@
 	<tr>
         <td rowspan=8  colspan=2>日志相关</td>
         <td><a href="https://cloud.tencent.com/document/product/457/17551">启用集群日志收集服务（ GetLogDaemonStatus ）</a></td>
-        <td rowspan=8>接口下线</td>
+        <td rowspan=8>功能下线</td>
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/17548">创建集群日志收集规则（ CreateLogCollector ）</a></td>
@@ -240,7 +240,7 @@
     </tr>
     <tr>
         <td><a href="https://cloud.tencent.com/document/product/457/14643">修改密码（ ChangePassword ）</a></td>
-        <td >修改个人用户登陆密码（ ModifyUserPasswordPersonal ）</td>
+        <td >修改个人用户登录密码（ ModifyUserPasswordPersonal ）</td>
     </tr>
     <tr>
     	<td rowspan=4>命名空间</td>
