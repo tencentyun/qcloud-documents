@@ -1,0 +1,264 @@
+
+## 操作场景
+假设一款 LoRa 温湿度传感器 接入到物联网开发平台，通过物联网开发平台可以远程查看传感器的温度、湿度，并可远程配置传感器的上报周期。本文档主要指导您如何在物联网开发平台控制台接入 LoRa 温湿度传感器。
+
+## 前提条件
+为了通过下面的步骤快速理解该业务场景，需要做好以下准备工作：
+- 申请物联网开发平台服务。
+- 意法半导体(ST) P-Nucleo-LRWAN3 开发套件。
+- 拥有一台物理或虚拟的 Windows 环境，并根据 [基于 TencentOS tiny 的 LoRaWAN 开发入门指南](https://github.com/Tencent/TencentOS-tiny/blob/master/doc/16.TencentOS_tiny_LoRaWAN_Getting_Started_Guide.md) 的介绍完成开发环境搭建，包括 MDK 软件的安装及配置、ST-Link 驱动安装、串口软件的安装。
+
+
+## 控制台操作 LoRa 节点
+
+### 创建项目和产品
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【新建项目】。
+2. 在新建项目页面，填写项目基本信息。
+    - 项目名称：输入“LoRa 温湿度传感器演示”或其他名称。
+    - 项目描述：按照实际需求填写项目描述。
+3. 项目新建成功后，即可新建产品。
+
+### 新建产品
+1. 进入该项目的产品列表页面，单击【新建产品】。
+2. 在新建产品页面，填写产品基本信息。
+    - 产品名称：输入“LoRa 温湿度传感器”或其他产品名称。
+    - 产品类型：选择“温湿度传感器”。
+    - 认证方式：选择“密钥认证”。
+    - 通信方式：选择“LoRaWAN”。
+![](https://main.qcloudimg.com/raw/29c3b1ed9fee61e8552b0a7ab8aa0a62.png)
+3. 产品新建成功后，您可在产品列表页查看“LoRa 温湿度传感器”。
+
+### 创建数据模板
+选择“温湿度传感器”类型后，自定义产品功能。
+![](https://main.qcloudimg.com/raw/532a06687e5d53b7cb5148747e3e9d36.png)
+
+### 配置 LoRaWAN 参数
+在设备开发页面中，按需调整 LoRaWAN 参数配置。本示例中使用默认的 OTAA 配置。
+![](https://main.qcloudimg.com/raw/a830f63360ce2c450236158b6fc56b61.png)
+
+### 设备数据解析
+在设备开发页面中，按需调整 设备数据解析。由于 LoRa 类资源有限设备不适合直接传输 JSON 格式数据，使用“设备数据解析”可以将设备原始数据转化为产品 JSON 数据。
+
+#### 设备数据协议
+在本示例中，设备上行数据共4字节：第1字节为温度，第2字节为相对湿度，第3、4字节表示上报周期（单位秒）；设备下行数据为2字节：上报周期（单位秒）。
+
+#### 数据解析脚本
+- 在上行数据解析部分，javascript 示例代码如下：
+```javascript
+function RawToProtocol(fPort, bytes) {
+    var data = {
+        "method": "report",
+        "clientToken" : new Date(),
+        "params" : {}
+    };
+    data.params.temperature = bytes[0];
+    data.params.humidity = bytes[1];
+    data.params.period = bytes[2] | (bytes[3] << 8);
+    return data;
+}
+```
+- 在下行数据解析部分，javascript 示例代码如下：
+```javascript
+function ProtocolToRaw(obj) {
+    var data = new Array();
+    data[0] = 5;// fport=5
+    data[1] = 0;// unconfirmed mode
+    data[2] = obj.params.period & 0x00FF;
+    data[3] = (obj.params.period >> 8) & 0x00FF;
+    return data;
+}
+```
+![](https://main.qcloudimg.com/raw/83318c5e53ecd928ee960ba4a20ca63c.png)
+
+#### 脚本模拟测试
+这里也可以使用数据解析页面下方的模拟调试工具，如果开发更多的功能，这个模拟脚本将会提供很大帮助。
+
+- 上行消息
+设备原始数据为 0x113DB80B，我们将其转化为数组，即上行模拟数据为：[17,69,30,0]，填入设备上行数据的编辑框中。单击【运行】，即可在模拟调试界面右侧查看结果。
+![](https://main.qcloudimg.com/raw/5acd842a170a06f68610629715d238d7.png)
+
+- 下行消息
+模拟测试数据如下，将其填入设备下行数据的编辑框中：
+```json
+{
+  "params": {
+    "period": 15
+  }
+}
+```
+![](https://main.qcloudimg.com/raw/55fb6d32d23f3f3a26e01316c7c2025c.png)
+
+
+### 创建测试设备
+
+在设备调试页面中，单击【新建设备】，设备名为 dev001。
+
+DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
+![](https://main.qcloudimg.com/raw/752a79d280e63031c93e343e3fdea442.png)
+
+## 控制台操作 LoRa 网关
+
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择上文 “控制台操作 LoRa 节点” 中对应的项目。
+2. 在左侧工具列表中，选择【服务中心】>【LoRa 网关管理】。
+3. 进入 LoRa 网关管理页面，选择【添加网关】。
+![](https://main.qcloudimg.com/raw/3b890f0808be53222386fc16e5e9ed13.png)
+4. 在新建网关页面，填写网关基本信息。
+    - 网关名称：本示例中填写 GW1。
+    - GwEUI：为网关唯一 ID。本例中根据 ST NUCLEO LoRa GW 背部的 MAC 地址，将6字节 MAC 地址的中间补足 0xffff。  
+![](https://main.qcloudimg.com/raw/4942c0663367a38f5ef090c62fcba5b3.png)
+    - 是否公开：选择“是”，表示社区开发者可在社区网络中看到该网关，并可通过这个网关进行LoRa节点接入。我们鼓励开发者们公开自己的网关，尽可能帮助到其他开发者。选择“否”，则只有用户自己才能看到该网关。
+![](https://main.qcloudimg.com/raw/b44ce2fc39c939fd84e590e19682dac1.png)
+5. 网关新建成功后，您可在网关列表页查看“GW1”。
+
+
+
+## LoRa 网关实物操作
+
+### 硬件连接
+
+整个系统搭建需要由 LRWAN_GS_LF1 网关（网关模组和 STM32F746 Nucleo核心板）、5V 适配器和电脑组成。
+
+1. 先使用 5V 适配器通过 USB 线连接到 LRWAN_GS_LF1 网关的网关模组上的 Micro USB 接口，给整个网关供电。
+2. Nucleo 核心板上的 Micro USB 口（非以太网口那边的 Micro USB 口），通过 USB 线连接到 PC 端，可以实现虚拟串口的功能。
+3. 网关开发板通过网线连接到上一级路由器的 LAN 口，从而可以实现 DHCP 的方式连接以太网。
+![](https://main.qcloudimg.com/raw/a9bb54a371621a5085f2b1632bb71262.png)
+
+### 串口准备
+
+硬件连接成功后，打开 PC 上的设备管理器，即可查看网关所对应的串口。
+>!请确保已安装 stlink 驱动。
+
+![](https://main.qcloudimg.com/raw/5219609aac65729562a9bdf9bbf7906d.png)
+打开串口工具，做好相应配置后，打开串口。
+   - 端口号。本例中为 COM5。
+   - 波特率。本例中为 115200。
+![](https://main.qcloudimg.com/raw/081f8a32d59736f2184a82eaf94f7ff4.png)
+
+当您第一次使用该网关时，串口会打印以下默认配置信息：
+```
+    _/_/_/    _/_/_/    _/_/_/  _/_/_/  _/      _/    _/_/_/  _/    _/  _/_/_/
+   _/    _/    _/    _/          _/    _/_/    _/  _/        _/    _/  _/     
+  _/_/_/      _/      _/_/      _/    _/  _/  _/  _/  _/_/  _/_/_/_/  _/_/_/  
+ _/    _/    _/          _/    _/    _/    _/_/  _/    _/  _/    _/  _/       
+_/    _/  _/_/_/  _/_/_/    _/_/_/  _/      _/    _/_/_/  _/    _/  _/        
+
+Powered by RisingHF & STMicroelectronics
+-------------------------------------------------------------------------------
+           VERSION: 2.1.7, Nov  6 2018
+               LOG: OFF
+           AT ECHO: ON
+          BAUDRATE: 115200bps
+           MACADDR: 00:80:E1:01:55:42
+          ETHERNET: DHCP
+              DNS1: 114.114.114.114
+              DNS2: 8.8.8.8
+        NTP SERVER: 1.ubuntu.pool.ntp.org
+       EUI PADDING: {3, FF}, {4, FF}
+        GATEWAY ID: 0080E1FFFF015542
+           LORAWAN: Public
+    LORAWAN SERVER: cn1.loriot.io
+   UPLINK UDP PORT: 1780
+ DOWNLINK UDP PORT: 1780
+          CHANNEL0: 471500000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL1: 471700000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL2: 471900000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL3: 472100000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL4: 472300000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL5: 472500000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL6: 472700000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL7: 472900000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
+          CHANNEL8: OFF                                 (LORA_STANDARD)
+          CHANNEL9: OFF                                 (FSK)
+-------------------------------------------------------------------------------
+Concentrator starting...
+Concentrator Radio A type SX1255
+Concentrator Radio B type SX1255
+Concentrator started (2926ms)
+ST LoRa GW V2
+Ethernet starting...
+Ethernet started
+DHCP IP: 192.168.3.249
+Downlink UDP Connected
+Uplink UDP Connected
+```
+
+### 配置修改
+
+请按照如下步骤完成相关配置：
+1. 按照上图完成硬件连接和系统搭建。  
+2. 配置服务器地址。本示例中设置的是腾讯云物联网开发平台的 LoRa 服务器地址（接入域名：loragw.things.qcloud.com，接入端口：1700）。 
+```
+AT+PKTFWD=loragw.things.qcloud.com,1700,1700  
+```
+3. 配置频率计划。调整频点信息到486.3MHz - 487.7 MHz，指令修改如下（需要逐条发送）：
+```
+AT+CH=0,486.3,A
+AT+CH=1,486.5,A
+AT+CH=2,486.7,A
+AT+CH=3,486.9,A
+AT+CH=4,487.1,B
+AT+CH=5,487.3,B
+AT+CH=6,487.5,B
+AT+CH=7,487.7,B
+AT+CH=8,OFF
+AT+CH=9,OFF
+```
+4. 其他指令。  
+ - 通过“AT+log=on”打开网关日志。  
+ - 通过“AT+EUI”查询网关的 ID。  
+![](https://main.qcloudimg.com/raw/d47c4a4eb317be8eaf7d6580f7693ec6.png)
+
+### 运行
+
+通过 AT+Reset 即可复位网关，开始服务器连接。
+
+从串口日志查看：
+```
+LORAWAN SERVER: loragw.things.qcloud.com 
+```
+表明服务器地址修改成功。
+```
+Ethernet started
+DHCP IP: 192.168.3.249
+Downlink UDP Connected
+Uplink UDP Connected
+```
+表明网关 DHCP入网成功，网络连接正常。
+
+
+## 查看设备状态
+
+1. 保持 LoRa 节点和 LoRa 网关 为运行状态。
+2. 进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "dev001" 。
+3. 单击【调试】，可进入设备详情页。
+![](https://main.qcloudimg.com/raw/a70b6ff4bdb001e8579e7b2c33a870a7.png)
+4. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
+ - 设备属性的最新值：会显示设备上报的最新数据。
+ - 设备属性的更新时间：显示数据的更新时间。
+![](https://blog-1251625522.cos.ap-chengdu.myqcloud.com/LoRa/explorer_guide_5_1_dev_property_new.png)
+5. 单击【查看】，可查看某个属性的历史上报数据。
+
+## 查看设备通信日志
+
+单击【设备日志】，可查询该设备某段时间范围的所有上下行数据。
+ - 上行：上行指设备端上报到开发平台的数据。
+ - 下行：下行指从开发平台下发到设备的数据。
+![](https://main.qcloudimg.com/raw/36159398adef700e88b8740d45c5b129.png)
+
+## 在线调试
+
+1. 当 LoRa 节点 成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
+2. 将“上报周期”设置为15秒，单击【发送】。
+![](https://main.qcloudimg.com/raw/734c684a361c53bcd0c038e0f4573ad6.png)
+3. 查看 LoRa 节点的串口日志，可查看已成功接收到下发的数据。
+ >?
+ - 由于本示例中 LoRa 节点 是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
+ - 因此在 LoRa 节点上报数据之后，才能查看下发的周期调整命令。
+4. LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
+```
+rhf76_incoming_data_process 4: 0F00
+len: 2
+data[0]: 15
+data[1]: 0
+report_period: 15
+```
