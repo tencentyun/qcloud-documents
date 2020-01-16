@@ -16,14 +16,14 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择需要管理的环境。
 2. 单击左侧菜单栏【云函数】，进入云函数页面。
 3. 选中需要配置的函数，编辑【函数配置】，配置访问路径。
-![](https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg)
+<img src="https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg" width="80%"></img>
 
 
 ### 绑定自定义域名
 
 1. 单击左侧菜单栏【云函数】，进入云函数页面。
 2. 单击【HTTP 触发】，在 HTTP 触发配置窗口中进行配置。
-![](https://main.qcloudimg.com/raw/282f3c60ebd6f6c631c1c9d6f8e16c92.jpg)
+![](https://main.qcloudimg.com/raw/d57783a65d625708f45f628eddbe9139.jpg)
 
 注意事项如下：
 - 每个环境最多绑定5个自定义域名。
@@ -32,7 +32,7 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 
 ### 通过 HTTP 访问云函数
 
-- 可以通过 `https://${envId}.service.tcloudbase.com/${path}` 直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
+- 可以通过`https://${envId}.service.tcloudbase.com/${path}`直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
 ```sh
 $ curl https://${env}.service.tcloudbase.com/${path}
 ```
@@ -82,7 +82,7 @@ $ curl https://${env}.service.tcloudbase.com/${path}
 
 ### 云函数的返回值
 
-云函数可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#返回集成响应)，随后云接入会将返回值转化为正常的 HTTP 响应。
+云函数可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#Integrationresponse)，随后云接入会将返回值转化为正常的 HTTP 响应。
 
 #### 返回字符串或数字
 
@@ -105,7 +105,7 @@ hello gateway
 
 #### 返回 Object
 
-返回的 `Object` 会被转换为JSON，同时 HTTP 响应的 `content-type` 会被设置为 `application/json`）：
+返回的`Object`会被转换为 JSON，同时 HTTP 响应的`content-type`会被设置为 `application/json`：
 
 ```js
 module.exports.main = function() {
@@ -125,6 +125,7 @@ content-length: 13
 {"foo":"bar"}
 ```
 
+<span id="Integrationresponse"></span>
 #### 返回集成响应
 
 云函数可以返回如下这样特殊结构的**集成响应**，来自由地控制响应体：
@@ -140,7 +141,7 @@ content-length: 13
 
 ##### 使用集成响应返回 HTML
 
-将 `content-type` 设置为 `text/html`，即可在 `body` 中返回 HTML，会被浏览器自动解析：
+将`content-type`设置为`text/html`，即可在`body`中返回 HTML，会被浏览器自动解析：
 
 ```js
 module.exports.main = function() {
