@@ -111,7 +111,7 @@ function ProtocolToRaw(obj) {
 在设备调试页面中，单击【新建设备】，设备名为 dev001。
 
 DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
-![](https://main.qcloudimg.com/raw/752a79d280e63031c93e343e3fdea442.png)
+![](https://main.qcloudimg.com/raw/67a62104fada6a28c72271b18dd9e31d.png)
 
 ## 控制台操作 LoRa 网关
 
