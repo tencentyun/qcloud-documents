@@ -25,7 +25,7 @@
     - 产品类型：选择“温湿度传感器”。
     - 认证方式：选择“密钥认证”。
     - 通信方式：选择“LoRaWAN”。
-![](https://main.qcloudimg.com/raw/29c3b1ed9fee61e8552b0a7ab8aa0a62.png)
+![](https://main.qcloudimg.com/raw/eb63cd37ed0f7ef4e6e5f6ce73e74961.png)
 3. 产品新建成功后，您可在产品列表页查看“LoRa 温湿度传感器”。
 
 ### 创建数据模板
