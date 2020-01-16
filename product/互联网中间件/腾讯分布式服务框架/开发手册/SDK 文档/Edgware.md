@@ -1,6 +1,7 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
-## 1.19.0-Edgware-RELEASE（2020-01-16）
+
+### 1.19.0-Edgware-RELEASE（2020-01-16）
 
 #### 新特性
 
