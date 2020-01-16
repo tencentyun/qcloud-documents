@@ -262,9 +262,9 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 ![](https://main.qcloudimg.com/raw/734c684a361c53bcd0c038e0f4573ad6.png)
 3. 查看 LoRa 节点的串口日志，可查看已成功接收到下发的数据。
  >?
- - 由于本示例中 LoRa 节点 是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
+ - 由于本示例中 LoRa 节点是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。
  - 因此在 LoRa 节点上报数据之后，才能查看下发的周期调整命令。
-4. LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
+LoRa 节点的串口会显示如下日志，表示成功下发了指令到设备端。
 ```
 rhf76_incoming_data_process 4: 0F00
 len: 2
