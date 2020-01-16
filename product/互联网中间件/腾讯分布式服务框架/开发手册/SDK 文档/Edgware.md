@@ -1,5 +1,16 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
+
+### 1.19.0-Edgware-RELEASE（2020-01-16）
+
+#### 新特性
+
+新增服务熔断、容错功能。
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ### 1.18.1-Edgware-RELEASE（2020-01-14）
 
 #### Bug 修复
