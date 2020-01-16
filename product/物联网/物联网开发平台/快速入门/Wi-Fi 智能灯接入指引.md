@@ -125,7 +125,7 @@ softAp boarding and connection success
 ![](https://main.qcloudimg.com/raw/3fe0342aae76eb6e1da4eb108eae1b34.png)
 
 ### 查看设备通信日志
-单击【设备通信日志】，可查询该设备某段时间范围的所有上下行数据。
+单击【设备日志】，可查询该设备某段时间范围的所有上下行数据。
   - 上行：上行指设备端上报到开发平台的数据。
   - 下行：下行指从开发平台下发到设备的数据。
 ![](https://main.qcloudimg.com/raw/545c7b1615cd3214fbc27033362a0e17.png)
