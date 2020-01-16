@@ -30,7 +30,7 @@
 
 ### 创建数据模板
 选择“温湿度传感器”类型后，自定义产品功能。
-![](https://main.qcloudimg.com/raw/532a06687e5d53b7cb5148747e3e9d36.png)
+![](https://main.qcloudimg.com/raw/ab908e72c372289da329aac252da51ed.png)
 
 ### 配置 LoRaWAN 参数
 在设备开发页面中，按需调整 LoRaWAN 参数配置。本示例中使用默认的 OTAA 配置。
