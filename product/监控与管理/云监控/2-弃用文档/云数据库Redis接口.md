@@ -36,10 +36,10 @@
 
 #### 2.1.2 各维度对应参数总览
 
-| 参数名称                       | 维度名称   | 维度解释     | 格式                                     |
-| ------------------------------ | ---------- | ------------ | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | redis_uuid | 实例的 ID    | String类型维度名称：redis_uuid           |
-| Instances.N.Dimensions.0.Value | redis_uuid | 具体实例的id | 输入实例的具体redis实例 ID，如crs-123456 |
+| 参数名称                       | 维度名称   | 维度解释      | 格式                                     |
+| ------------------------------ | ---------- | ------------- | ---------------------------------------- |
+| Instances.N.Dimensions.0.Name  | redis_uuid | 实例的 ID     | String类型维度名称：redis_uuid           |
+| Instances.N.Dimensions.0.Value | redis_uuid | 具体实例的 ID | 输入实例的具体redis实例 ID，如crs-123456 |
 
 ### 2.2 指标名称
 
