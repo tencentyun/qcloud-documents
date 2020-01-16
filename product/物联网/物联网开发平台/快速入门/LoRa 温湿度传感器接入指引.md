@@ -233,7 +233,7 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 2. 当您看到串口打印如下日志，即说明 LoRa 节点已经通过网关成功入网。
 ```
 --->+JOIN: Network joined
---->+JOIN: NetID 000000 DevAddr 01:4E:F6:1D
+--->+JOIN: NetID 000035 DevAddr 6B:CC:9B:5D
 ```
 
 ## 查看设备状态
