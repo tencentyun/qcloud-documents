@@ -214,7 +214,7 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 ```c
 #define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,0-7\r\n"
 ```
-3. 由于本示例中计划使用80 - 87信道，因此调整为：
+由于本示例中计划使用80 - 87信道，因此调整为：
 ```c
 #define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,80-87\r\n"
 ```
