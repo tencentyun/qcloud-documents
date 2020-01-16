@@ -23,7 +23,7 @@
  ```
  >?
     - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中设置账号和密码，然后在 Terminal 输入对应的账号和密码。后续即可正常使用，当前 PC 不需要再次登录。
-    - 由于仓库地址变更，pod 提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令更新仓库并确认版本：
+    - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库并确认版本：
 ``` 
 pod repo update
 pod search TPNS-iOS
