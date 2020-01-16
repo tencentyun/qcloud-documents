@@ -1,41 +1,49 @@
-HTTP 触发 是云开发为开发者提供的 HTTP 访问服务，让开发者可以通过 HTTP 访问到自己的云开发资源。
+## 操作场景
+
+HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可以通过 HTTP 访问到自己的云开发资源。
 
 >!当开启某一函数的 HTTP 访问后，只要根据 HTTP 即可访问到函数，开发者需要关注业务和资源安全。
-- 安全：为了保障业务安全性，开发者需在代码中做好权限控制和安全防护，避免未授权访问触发敏感操作；
-- 计费：云函数开启了 HTTP 访问后，如果遇到大量恶意访问，消耗云函数资源，开发者可以将触发路径设置为空或关掉该环境的HTTP触发，停止 HTTP 访问支持。
+- 安全：为了保障业务安全性，开发者需在代码中做好权限控制和安全防护，避免未授权访问触发敏感操作。
+- 计费：云函数开启了 HTTP 访问后，如果遇到大量恶意访问，消耗云函数资源，开发者可以将触发路径设置为空或关掉该环境的 HTTP 触发，停止 HTTP 访问支持。
 
-## 操作场景
+
 本文档主要指导您如何在腾讯云云开发控制台管理和使用云函数 HTTP 访问。
+
 ## 操作步骤
+
 ### 设置云函数 HTTP 触发路径
-登录腾讯云[云开发控制台](https://console.cloud.tencent.com/tcb)，选择需要管理的环境，单击左侧菜单栏【云函数】，进入云函数页面，选中需要配置的函数，编辑【函数配置】，配置访问路径。
-![HTTP触发路径](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5e1dab0b6f0b9316e241893c)
+
+1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择需要管理的环境。
+2. 单击左侧菜单栏【云函数】，进入云函数页面。
+3. 选中需要配置的函数，编辑【函数配置】，配置访问路径。
+![](https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg)
+
+
 ### 绑定自定义域名
-单击左侧菜单栏【云函数】，进入云函数页面，点击【HTTP触发】，打开管理界面，进行配置。
-![绑定自定义域名](https://yunpan.oa.tencent.com/note/api/file/getImage?fileId=5e1daa376f0b9316e2418861)
+
+1. 单击左侧菜单栏【云函数】，进入云函数页面。
+2. 单击【HTTP 触发】，在 HTTP 触发配置窗口中进行配置。
+![](https://main.qcloudimg.com/raw/282f3c60ebd6f6c631c1c9d6f8e16c92.jpg)
 
 注意事项如下：
-
-- 每个环境最多绑定5个自定义域名；
-- 云开发提供默认域名供体验和测试该特性，域名规范如：${envId}.service.tcloudbase.com；
-
-- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为${envId}.service.tcloudbase.com，CNAME 记录不存在时会导致域名绑定失；
+- 每个环境最多绑定5个自定义域名。
+- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
+- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
 
 ### 通过 HTTP 访问云函数
 
-可以通过 `https://${envId}.service.tcloudbase.com/${path}` 直接访问函数，其中 `${envId}` 是环境 ID，${path}是配置的函数触发路径。
-
+- 可以通过 `https://${envId}.service.tcloudbase.com/${path}` 直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
 ```sh
 $ curl https://${env}.service.tcloudbase.com/${path}
 ```
 
-也可以直接在浏览器内打开 `https://${env}.service.tcloudbase.com/${path}`。
+- 也可以直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
 
 ### 云函数的入参
 
-使用HTTP访问云函数时，HTTP 请求会被转化为特殊的结构体，称之为**集成请求**，结构如下：
+使用 HTTP 访问云函数时，HTTP 请求会被转化为特殊的结构体，称之为**集成请求**，结构如下：
 
-```js
+```shell
 {
     path: 'HTTP请求路径，如 /hello',
     httpMethod: 'HTTP请求方法，如 GET',
@@ -48,7 +56,7 @@ $ curl https://${env}.service.tcloudbase.com/${path}
 ```
 
 下面是一个示例：
-```js
+```shell
 {
     path: '/',
     httpMethod: 'GET',
@@ -71,15 +79,14 @@ $ curl https://${env}.service.tcloudbase.com/${path}
 }
 ```
 
-------------
+
 ### 云函数的返回值
 
-云函数可以返回 `string`、`object`、`number` 等类型的数据，或者返回[集成响应](#返回集成响应)，随后云接入会将返回值转化为正常的 HTTP 响应。
+云函数可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#返回集成响应)，随后云接入会将返回值转化为正常的 HTTP 响应。
 
 #### 返回字符串或数字
 
-云函数返回字符串，那么
-
+云函数返回字符串，那么：
 ```js
 module.exports.main = function() {
     return 'hello gateway'
@@ -87,7 +94,7 @@ module.exports.main = function() {
 ```
 
 最终 HTTP 响应为：
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: text/plain; charset=utf-8
@@ -148,7 +155,7 @@ module.exports.main = function() {
 ```
 
 最终 HTTP 响应为：
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: text/html; charset=utf-8
@@ -159,7 +166,7 @@ content-length: 14
 
 ##### 使用集成响应返回 JS 文件
 
-将 `content-type` 设置为 `application/javascript`，即可在 `body` 中返回 JavaScript 文件：
+将`content-type`设置为`application/javascript`，即可在`body`中返回 JavaScript 文件：
 
 ```js
 module.exports.main = function() {
@@ -174,7 +181,7 @@ module.exports.main = function() {
 ```
 
 最终 HTTP 响应为：
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: application/javascript; charset=utf-8
@@ -185,7 +192,7 @@ console.log("Hello!")
 
 ##### 使用集成响应返回二进制文件
 
-如果返回体是诸如图片、音视频这样的二进制文件，那么可以将 `isBase64Encoded` 设置为 `true`，并且将二进制文件内容转为 Base64 编码的字符串，例如：
+如果返回体是诸如图片、音视频这样的二进制文件，那么可以将`isBase64Encoded`设置为`true`，并且将二进制文件内容转为 Base64 编码的字符串，例如：
 
 ```js
 module.exports.main = function() {
@@ -202,7 +209,7 @@ module.exports.main = function() {
 
 最终 HTTP 响应为一张 PNG 图片：
 
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: image/png
