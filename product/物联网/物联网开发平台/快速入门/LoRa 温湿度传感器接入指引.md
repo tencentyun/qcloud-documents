@@ -41,13 +41,19 @@
 
 #### 设备数据协议
 在本示例中，设备上行数据共4字节：
-- 第1字节为温度。
-- 第2字节为相对湿度。
-- 第3、4字节表示上报周期（单位秒）。
+- 第1字节：温度。
+- 第2字节：相对湿度。
+- 第3、4字节：表示上报周期（单位秒）。
 - 设备下行数据为2字节：上报周期（单位秒）。
 
 #### 数据解析脚本
-- 在上行数据解析部分，javascript 示例代码如下：
+上行数据解析的脚本主函数为 RawToProtocol，其带有 fPort、bytes 两个入参：
+- fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段，
+- bytes：设备上报的 LoRaWAN 协议数据的 FRMPayload 字段。
+
+脚本主函数的出参为产品数据模版协议格式的对象。
+
+在上行数据解析部分，javascript 示例代码如下：
 ```javascript
 function RawToProtocol(fPort, bytes) {
     var data = {
@@ -61,7 +67,14 @@ function RawToProtocol(fPort, bytes) {
     return data;
 }
 ```
-- 在下行数据解析部分，javascript 示例代码如下：
+
+下行数据解析的脚本主函数为 ProtocolToRaw，其入参为产品数据模版协议格式的对象，其出参为至少3个字节的数组：
+
+- 第1字节：下发给设备的 LoRaWAN 协议数据的 FPort 字段。
+- 第2字节：bytes 为下发给设备的 LoRaWAN 协议数据的 MType（0表示 Unconfirmed Data Down，1表示 Confirmed Data Down）。
+- 第3字节：开始为下发给设备的 LoRaWAN 协议数据的 FRMPayload 字段。
+
+在下行数据解析部分，javascript 示例代码如下：
 ```javascript
 function ProtocolToRaw(obj) {
     var data = new Array();
@@ -129,61 +142,14 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 
 ### 串口准备
 
-硬件连接成功后，打开 PC 上的设备管理器，即可查看网关所对应的串口（请确保已安装 stlink 驱动）。
+1. 硬件连接成功后，打开 PC 上的设备管理器，即可查看网关所对应的串口（请确保已安装 stlink 驱动）。
 ![](https://main.qcloudimg.com/raw/5219609aac65729562a9bdf9bbf7906d.png)
-
-打开串口工具，做好相应配置后，打开串口。
+2. 打开串口工具，做好相应配置后，打开串口。
    - 端口号。本例中为 COM5。
    - 波特率。本例中为 115200。
 ![](https://main.qcloudimg.com/raw/081f8a32d59736f2184a82eaf94f7ff4.png)
 
-当您第一次使用该网关时，串口会打印以下默认配置信息：
-```
-    _/_/_/    _/_/_/    _/_/_/  _/_/_/  _/      _/    _/_/_/  _/    _/  _/_/_/
-   _/    _/    _/    _/          _/    _/_/    _/  _/        _/    _/  _/     
-  _/_/_/      _/      _/_/      _/    _/  _/  _/  _/  _/_/  _/_/_/_/  _/_/_/  
- _/    _/    _/          _/    _/    _/    _/_/  _/    _/  _/    _/  _/       
-_/    _/  _/_/_/  _/_/_/    _/_/_/  _/      _/    _/_/_/  _/    _/  _/        
 
-Powered by RisingHF & STMicroelectronics
--------------------------------------------------------------------------------
-           VERSION: 2.1.7, Nov  6 2018
-               LOG: OFF
-           AT ECHO: ON
-          BAUDRATE: 115200bps
-           MACADDR: 00:80:E1:01:55:42
-          ETHERNET: DHCP
-              DNS1: 114.114.114.114
-              DNS2: 8.8.8.8
-        NTP SERVER: 1.ubuntu.pool.ntp.org
-       EUI PADDING: {3, FF}, {4, FF}
-        GATEWAY ID: 0080E1FFFF015542
-           LORAWAN: Public
-    LORAWAN SERVER: cn1.loriot.io
-   UPLINK UDP PORT: 1780
- DOWNLINK UDP PORT: 1780
-          CHANNEL0: 471500000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL1: 471700000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL2: 471900000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL3: 472100000, A, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL4: 472300000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL5: 472500000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL6: 472700000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL7: 472900000, B, SF7/SF12, BW125KHz    (LORA_MULTI_SF)
-          CHANNEL8: OFF                                 (LORA_STANDARD)
-          CHANNEL9: OFF                                 (FSK)
--------------------------------------------------------------------------------
-Concentrator starting...
-Concentrator Radio A type SX1255
-Concentrator Radio B type SX1255
-Concentrator started (2926ms)
-ST LoRa GW V2
-Ethernet starting...
-Ethernet started
-DHCP IP: 192.168.3.249
-Downlink UDP Connected
-Uplink UDP Connected
-```
 
 ### 配置修改
 
