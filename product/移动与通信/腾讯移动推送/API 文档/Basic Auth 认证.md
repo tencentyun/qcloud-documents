@@ -1,4 +1,7 @@
-本文主要介绍腾讯移动推送的鉴权认证方法。
+本文主要介绍腾讯移动推送 Basic Auth 的鉴权认证方法。
+
+采用 AccessId 和 SecretKey 进行 Basic Auth 认证鉴权，密钥容易被获取，安全性不高，推荐使用 [签名认证](https://cloud.tencent.com/document/product/548/41046)。
+
 
 
 ## 获取密钥

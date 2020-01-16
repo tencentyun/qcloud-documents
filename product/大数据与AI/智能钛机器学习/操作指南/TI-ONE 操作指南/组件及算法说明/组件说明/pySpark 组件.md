@@ -6,10 +6,18 @@ PySpark 框架中使用的 Python 版本和支持的第三方模块版本信息�
  - SciPy 0.12.1
  - NumPy 1.7.1
 
-如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
+如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装。
+python2 安装示例如下，其中 tqdm 是示例包名，您可以替换成自己需要的包。
+
+```
+from pip._internal import main
+main(['install', '-i', 'http://mirrors.tencentyun.com/pypi/simple', '--trusted-host', 'mirrors.tencentyun.com', 'tqdm'])
+```
+
+python3 安装示例如下。
 ```
 import pip
-pip.main(['install', "package_name"])
+pip.main(['install', '-i', 'http://mirrors.tencentyun.com/pypi/simple', '--trusted-host', 'mirrors.tencentyun.com', 'tqdm'])
 ```
 
 ## 操作步骤

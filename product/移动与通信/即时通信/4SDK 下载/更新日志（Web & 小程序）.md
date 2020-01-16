@@ -1,3 +1,14 @@
+### 2.4.1 @2020.1.14
+
+**变更**
+匿名用户（或游客）只允许加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组。
+
+**修复**
+- 偶发拉取在线消息缺失。
+- 收到 AVChatRoom 的群系统通知未派发 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+- 部分场景下撤回群聊消息结果不准确。
+- 其它已知问题。
+
 ### 2.4.0 @2020.1.3
 **新增**
 - 撤回消息 [revokeMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage)。

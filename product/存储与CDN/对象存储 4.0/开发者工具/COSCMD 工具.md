@@ -516,7 +516,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 ### Debug 模式执行命令
 
-在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
+在各命令前加上`-d`或者`--debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
 
 ```shell
 #显示 upload 的详细操作信息，命令格式：

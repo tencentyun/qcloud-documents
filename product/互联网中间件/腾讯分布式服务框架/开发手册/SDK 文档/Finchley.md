@@ -10,17 +10,14 @@
 
 - 支持向后兼容，建议全量升级。
 
+### 1.18.1-Finchley-RELEASE（2020-01-14）
 
-## 1.18.1-Finchley-RELEASE（2020-01-14）
-
-### bug fix
-
+#### Bug 修复
 - spring-cloud-tsf-route 修复路由权重不准的问题。
 - spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
 
 #### 版本建议
-
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 ### 1.18.0-Finchley-RELEASE（2019-12-25）
 
@@ -41,7 +38,7 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK
 #### 版本建议
 支持向后兼容，建议全量升级。
 
-### 1.16.1-Finchley-RELEASE（2019-12-3）
+### 1.16.1-Finchley-RELEASE（2019-12-03）
 
 #### Bug 修复
 - 增加使用 Jedis 作为 Redis 客户端的调用链追踪功能。
