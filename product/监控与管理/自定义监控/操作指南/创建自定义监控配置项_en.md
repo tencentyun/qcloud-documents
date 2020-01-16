@@ -2,4 +2,4 @@
 
 2) Select region, enter custom namespace, dimension, metric, metric name and unit, and then click "OK" to complete the creation of CCM configuration items.
 
-![](https://main.qcloudimg.com/raw/34e6e74572253f92027f13c74818a86e.png)
+![](https://main.qcloudimg.com/raw/6b2ea94da70e16cb77149a4ff263b829.png)
