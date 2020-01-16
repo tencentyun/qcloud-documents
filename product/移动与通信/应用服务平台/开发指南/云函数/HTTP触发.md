@@ -32,12 +32,12 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 
 ### 通过 HTTP 访问云函数
 
-- 可以通过`https://${envId}.service.tcloudbase.com/${path}`直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
+- 方式一：通过`https://${envId}.service.tcloudbase.com/${path}`直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
 ```sh
 $ curl https://${env}.service.tcloudbase.com/${path}
 ```
 
-- 也可以直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
+-方式二：直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
 
 ### 云函数的入参
 
@@ -116,7 +116,7 @@ module.exports.main = function() {
 ```
 
 最终 HTTP 响应为：
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: application/json; charset=utf-8
