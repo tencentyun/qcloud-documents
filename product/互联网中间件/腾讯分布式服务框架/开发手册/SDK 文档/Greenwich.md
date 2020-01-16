@@ -1,12 +1,12 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
-## 1.19.0-Greenwich-RELEASE（2020-01-16）
+### 1.19.0-Greenwich-RELEASE（2020-01-16）
 
-### 新特性
+#### 新特性
 
-- 新增`服务熔断`功能
+- 新增服务熔断、容错功能
 
-### 版本建议
+#### 版本建议
 
 - 支持向后兼容，建议全量升级。
 
