@@ -60,7 +60,7 @@ def API(client,instanceName,MetricName,Value):
     return resp.to_json_string()
 
 def main_handler(event, context):
-    client = MONITOR("AKIDzkobDZMQwPdcKlDnPkobATVGkxtavDKD", "NYVDyYWYNvMDoAF5f15tQgfsoUu3xsZ2")
+    client = MONITOR("secretId", "secretKey")
     if 'key1' in event.keys():
         #scf的名称需要包含namespace和函数名称，中间用"|"分割
         print(API(client,"default|scf_monitor_Test","scf_suc_count",1))
