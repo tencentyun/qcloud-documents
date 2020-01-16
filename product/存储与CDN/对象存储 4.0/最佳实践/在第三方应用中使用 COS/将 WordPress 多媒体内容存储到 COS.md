@@ -57,19 +57,21 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 <td>格式为<code>cos.&lt;Region&gt;.myqcloud.com</code>，其中 &lt;Region&gt; 为存储桶<strong>所属地域</strong>的地域简称。例如广州地域的地域简称为 ap-guangzhou，则该配置项填<code>cos.ap-guangzhou.myqcloud.com</code></td>
 </tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/5b868dcb79709983dc6c2bfbacb96700.jpg"></img>
+<img src="https://main.qcloudimg.com/raw/cc7d9766d5148873fa5fe6ba3eeee2b2.jpg"></img>
+
 6. 此时，Media Cloud 将测试配置是否正确，单击【START TESTS】开始测试，测试全部成功后单击【NEXT】。
 	 ![](https://main.qcloudimg.com/raw/db2aba4cd987b9114b9165ae72106e3f.jpg)
 7. Media Cloud 提示已就绪，单击【ADVANCED SETTINGS】关闭配置向导。
-	 <img src="https://main.qcloudimg.com/raw/5f838b8215ace7fa20150110f8f7d313.jpg" width="80%"></img>
+<img src="https://main.qcloudimg.com/raw/5f838b8215ace7fa20150110f8f7d313.jpg" width="100%"></img>
 
 ## 测试多媒体内容
 
 1. 撰写文章，添加多媒体内容并发布。
-<img src="https://main.qcloudimg.com/raw/5a9780e676903fcc1f8c4b6b708a34d8.png" width="80%"></img>
-2. 复制文章中的图片地址，或通过浏览器调试工具检视图片路径，可以看到图片地址为腾讯云 COS 对象存储上的地址。
-3. 查看文章附件的下载地址，可以看到下载地址亦指向腾讯云 COS 对象存储上的地址。
-<img src="https://main.qcloudimg.com/raw/1ee879f9ecd168a8db11e590984f7311.png" width="90%"></img>
+<img src="https://main.qcloudimg.com/raw/5a9780e676903fcc1f8c4b6b708a34d8.png" width="100%"></img>
+2. 复制文章中的图片地址，或通过浏览器调试工具检视图片路径，可以看到图片地址为腾讯云 COS 对象存储上的地址（步骤3图中的1号处）。
+3. 查看文章附件的下载地址，可以看到下载地址亦指向腾讯云 COS 对象存储上的地址（下图中的2号处）。
+<img src="https://main.qcloudimg.com/raw/84f1caebf2d689baf30775171b422c16.png" width="100%"></img>
+
 
 ## 使用腾讯云 CDN
 
