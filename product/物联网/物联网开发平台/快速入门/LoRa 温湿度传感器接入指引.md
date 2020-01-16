@@ -147,7 +147,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 2. 打开串口工具，做好相应配置后，打开串口。
    - 端口号。本例中为 COM5。
    - 波特率。本例中为 115200。
-![](https://main.qcloudimg.com/raw/081f8a32d59736f2184a82eaf94f7ff4.png)
+![](https://main.qcloudimg.com/raw/0ddf029ee09642f8a24f20e0d5fa7e50.png)
 
 
 
