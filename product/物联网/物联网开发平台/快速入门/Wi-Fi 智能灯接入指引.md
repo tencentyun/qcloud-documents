@@ -135,7 +135,7 @@ softAp boarding and connection success
 ### 在线调试
 
 1. 当模组成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
-![](https://main.qcloudimg.com/raw/90bd61f5b43e4733572b9577d4425f6d.png)
+![](https://main.qcloudimg.com/raw/290c3580de8d7e7d0a89c3da7544c996.png)
 2. 将亮度设置为50，颜色设置为“Red”，单击【发送】。
 3. 通信日志会显示如下日志，表示成功下发了指令到设备端。
 ![](https://main.qcloudimg.com/raw/720b6dfb2047d7766cb2490089ec570f.png)
