@@ -98,9 +98,9 @@ function ProtocolToRaw(obj) {
 模拟测试数据如下，将其填入设备下行数据的编辑框中：
 ```json
 {
-"params": {
-"period": 15
-}
+  "params": {
+    "period": 15
+  }
 }
 ```
 ![](https://main.qcloudimg.com/raw/55fb6d32d23f3f3a26e01316c7c2025c.png)
