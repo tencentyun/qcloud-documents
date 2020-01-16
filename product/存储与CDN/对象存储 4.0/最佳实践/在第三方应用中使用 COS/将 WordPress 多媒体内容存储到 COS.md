@@ -10,12 +10,10 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 ## 准备工作
 
 1. 搭建 WordPress 。
-
-- 您可在 [WordPress 官方下载页面](https://wordpress.org/download/) 下载 WordPress 的最新版并查看安装说明。
-- 您也可以在 [腾讯云市场](https://market.cloud.tencent.com/) 中搜索使用已经预装 WordPress 程序的 CVM 镜像。
-
-2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 WordPress 的 CVM 相同，创建指引可参阅 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-3. 在存储桶列表中找到刚刚创建的存储桶，记录**存储桶名称**和**所属地域**的地域简称，有关地域简称的进一步说明，可参阅 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档。
+	- 您可在 [WordPress 官方下载页面](https://wordpress.org/download/) 下载 WordPress 的最新版并查看安装说明。
+	- 您也可以在 [腾讯云市场](https://market.cloud.tencent.com/) 中搜索使用已经预装 WordPress 程序的 CVM 镜像。
+2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 WordPress 的 CVM 相同，创建指引可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
+3. 在存储桶列表中找到刚刚创建的存储桶，记录**存储桶名称**和**所属地域**的地域简称，有关地域简称的进一步说明，可参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档。
    ![](https://main.qcloudimg.com/raw/e97ff4ae4c2fbf4c314bf11ffc736890.png)
 4. 进入 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)，记录密钥中的 **SecretId** 和 **SecretKey**。
    ![](https://main.qcloudimg.com/raw/9a328839005ea842f917fcd04acdd118.png)
@@ -23,7 +21,7 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 ## 安装并配置 WordPress 插件
 
 1. 登录并进入 WordPress **仪表盘**。
-2. 在**安装插件**页面，搜索并安装 **Media Cloud** 插件。
+2. 在【安装插件】页面，搜索并安装 **Media Cloud** 插件。
    ![](https://main.qcloudimg.com/raw/9c43d1ca979d852b51721bb8f2f63984.png)
 3. 启用 **Media Cloud** 插件，此时会自动打开配置向导，然后单击 **NEXT**。
    ![](https://main.qcloudimg.com/raw/346e4bb3b28ee8b763de43b59e915a8f.png)
