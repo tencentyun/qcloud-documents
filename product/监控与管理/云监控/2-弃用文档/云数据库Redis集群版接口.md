@@ -12,13 +12,13 @@
 查询云数据库REDIS监控数据，入参取值如下：<br>
 &Namespace=QCE/REDIS<br>
 &Instances.N.Dimensions.0.Name=instanceid<br>
-&Instances.N.Dimensions.0.Value为实例的id<br>
+&Instances.N.Dimensions.0.Value 为实例的 ID<br>
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数和部分公共参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/api/248/4478)页面。
+以下请求参数列表仅列出了接口请求参数和部分公共参数，正式调用时需要加上公共请求参数，见 [公共请求参数](https://cloud.tencent.com/document/api/248/4478) 页面。
 
-### 2.1输入参数
+### 2.1 输入参数
 
 #### 2.1.1 输入参数总览
 
@@ -26,92 +26,92 @@
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Action      | 是       | String                                                       | 公共参数，本接口取值：GetMonitorData                         |
 | Version     | 是       | String                                                       | 公共参数，本接口取值： 2018-07-24                            |
-| Region      | 否       | String                                                       | 公共参数，表示查询的是哪个地域实例的监控数据；支持的地域可查看云服务器支持的[地域列表](https://cloud.tencent.com/document/api/213/15692) |
-| Namespace   | 是       | String                                                       | 命名空间，每个云产品会有一个命名空间，API 3.0接口版本的必须是大写，如：  QCE/REDIS |
+| Region      | 否       | String                                                       | 公共参数，表示查询的是哪个地域实例的监控数据；支持的地域可查看云服务器支持的 [地域列表](https://cloud.tencent.com/document/api/213/15692) |
+| Namespace   | 是       | String                                                       | 命名空间，每个云产品会有一个命名空间，API 3.0接口版本的必须是大写，如：QCE/REDIS |
 | MetricName  | 是       | String                                                       | 指标名称，具体名称见2.2                                      |
 | Instances.N | 是       | Array of [Instance](https://cloud.tencent.com/document/product/248/30354) | 实例对象的维度组合                                           |
 | Period      | 否       | Integer                                                      | 监控统计周期。默认为取值为300，单位为s                       |
 | StartTime   | 否       | Timestamp                                                    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
-| EndTime     | 否       | Timestamp                                                    | 结束时间，默认为当前时间。 endTime不能小于startTime          |
+| EndTime     | 否       | Timestamp                                                    | 结束时间，默认为当前时间。 endTime 不能小于 startTime        |
 
 #### 2.1.2 各维度对应参数总览
 
-| 参数名称                       | 维度名称   | 维度解释     | 格式                                                         |
-| ------------------------------ | ---------- | ------------ | ------------------------------------------------------------ |
-| Instances.N.Dimensions.0.Name  | instanceid | 实例的id     | String类型维度名称：instanceid                               |
-| Instances.N.Dimensions.0.Value | instanceid | 具体实例的id | 输入实例的具体redis实例id，如tdsql-123456 也即是实例串号，如crs-ifmymj41，可通过[查询CRS实例列表接口](https://cloud.tencent.com/document/api/239/1384)查询 |
-| Instances.N.Dimensions.1.Name  | clusterid  | 分片的id     | String类型维度名称：clusterid ，如果拉取总信息，不传此值，如拉取分片信息，入参必现是clusterid |
-| Instances.N.Dimensions.1.Value | clusterid  | 具体分片的id | 分片id，通过命令cluster nodes等获取，如tdsql-123456          |
+| 参数名称                       | 维度名称   | 维度解释      | 格式                                                         |
+| ------------------------------ | ---------- | ------------- | ------------------------------------------------------------ |
+| Instances.N.Dimensions.0.Name  | instanceid | 实例的 ID     | String 类型维度名称：instanceid                              |
+| Instances.N.Dimensions.0.Value | instanceid | 具体实例的 ID | 输入实例的具体 redis 实例 ID，如 tdsql-123456 也即是实例串号，如 crs-ifmymj41，可通过 [查询CRS实例列表接口](https://cloud.tencent.com/document/api/239/1384) 查询 |
+| Instances.N.Dimensions.1.Name  | clusterid  | 分片的 ID     | String 类型维度名称：clusterid ，如果拉取总信息，不传此值，如拉取分片信息，入参必现是clusterid |
+| Instances.N.Dimensions.1.Value | clusterid  | 具体分片的 ID | 分片 ID，通过命令 cluster nodes 等获取，如tdsql-123456       |
 
 ### 2.2 指标名称
 
-每个指标对应的统计粒度（Period）及维度 (dimension) 可取值不一定相同，可通过[DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351)接口获取每个指标支持的统计粒度及维度信息。
+每个指标对应的统计粒度（Period）及维度（dimension）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度及维度信息。
 
 #### 2.2.1 实例总信息指标名称
 
-| 指标名称           | 含义           | 单位    |
-| ------------------ | -------------- | ------- |
-| CmdstatGetMin      | get命令数      | 次/分钟 |
-| CmdstatGetbitMin   | getbit命令数   | 次/分钟 |
-| CmdstatGetrangeMin | getrange命令数 | 次/秒   |
-| CmdstatHgetMin     | hget命令数     | 次/分钟 |
-| CmdstatHgetallMin  | hgetall命令数  | 次/分钟 |
-| CmdstatHmgetMin    | hmget命令数    | 次/分钟 |
-| CmdstatHmsetMin    | hmset命令数    | 次/分钟 |
-| CmdstatHsetMin     | hset命令数     | 次/分钟 |
-| CmdstatHsetnxMin   | hsetnx命令数   | 次/分钟 |
-| CmdstatLsetMin     | lset命令数     | 次/分钟 |
-| CmdstatMgetMin     | mget命令数     | 次/分钟 |
-| CmdstatMsetMin     | mset命令数     | 次/分钟 |
-| CmdstatMsetnxMin   | msetnx命令数   | 次/分钟 |
-| CmdstatSetMin      | set命令数      | 次/分钟 |
-| CmdstatSetbitMin   | setbit命令数   | 次/分钟 |
-| CmdstatSetexMin    | setex命令数    | 次/分钟 |
-| CmdstatSetnxMin    | setnx命令数    | 次/分钟 |
-| CmdstatSetrangeMin | setrange命令数 | 次/分钟 |
-| QpsMin             | 每秒执行命令数 | 次/分钟 |
-| ConnectionsMin     | 连接数         | 个      |
-| CpuUsMin           | cpu利用率      | %       |
-| InFlowMin          | 内网入流量     | Mb/分钟 |
-| KeysMin            | key总数        | 个      |
-| OutFlowMin         | 内网出流量     | Mb/分钟 |
-| StatGetMin         | 所有get命令数  | 次/分钟 |
-| StatSetMin         | 所有set命令数  | 次/分钟 |
-| StorageMin         | 已使用容量     | MB/分钟 |
-| StorageUsMin       | 容量使用率     | %       |
+| 指标名称           | 含义            | 单位    |
+| ------------------ | --------------- | ------- |
+| CmdstatGetMin      | get 命令数      | 次/分钟 |
+| CmdstatGetbitMin   | getbit 命令数   | 次/分钟 |
+| CmdstatGetrangeMin | getrange 命令数 | 次/秒   |
+| CmdstatHgetMin     | hget 命令数     | 次/分钟 |
+| CmdstatHgetallMin  | hgetall 命令数  | 次/分钟 |
+| CmdstatHmgetMin    | hmget 命令数    | 次/分钟 |
+| CmdstatHmsetMin    | hmset 命令数    | 次/分钟 |
+| CmdstatHsetMin     | hset 命令数     | 次/分钟 |
+| CmdstatHsetnxMin   | hsetnx 命令数   | 次/分钟 |
+| CmdstatLsetMin     | lset 命令数     | 次/分钟 |
+| CmdstatMgetMin     | mget 命令数     | 次/分钟 |
+| CmdstatMsetMin     | mset 命令数     | 次/分钟 |
+| CmdstatMsetnxMin   | msetnx 命令数   | 次/分钟 |
+| CmdstatSetMin      | set 命令数      | 次/分钟 |
+| CmdstatSetbitMin   | setbit 命令数   | 次/分钟 |
+| CmdstatSetexMin    | setex 命令数    | 次/分钟 |
+| CmdstatSetnxMin    | setnx 命令数    | 次/分钟 |
+| CmdstatSetrangeMin | setrange 命令数 | 次/分钟 |
+| QpsMin             | 每秒执行命令数  | 次/分钟 |
+| ConnectionsMin     | 连接数          | 个      |
+| CpuUsMin           | CPU 利用率      | %       |
+| InFlowMin          | 内网入流量      | Mb/分钟 |
+| KeysMin            | key 总数        | 个      |
+| OutFlowMin         | 内网出流量      | Mb/分钟 |
+| StatGetMin         | 所有 get 命令数 | 次/分钟 |
+| StatSetMin         | 所有 set 命令数 | 次/分钟 |
+| StorageMin         | 已使用容量      | MB/分钟 |
+| StorageUsMin       | 容量使用率      | %       |
 
 #### 2.2.1 实例分片信息指标名称
 
-| 指标名称               | 含义           | 单位    |
-| ---------------------- | -------------- | ------- |
-| CmdstatGetNodeMin      | get命令数      | 次/分钟 |
-| CmdstatGetbitNodeMin   | getbit命令数   | 次/分钟 |
-| CmdstatGetrangeNodeMin | getrange命令数 | 次/分钟 |
-| CmdstatHgetNodeMin     | hget命令数     | 次/分钟 |
-| CmdstatHgetallNodeMin  | hgetall命令数  | 次/分钟 |
-| CmdstatHmgetNodeMin    | hmget命令数    | 次/分钟 |
-| CmdstatHmsetNodeMin    | hmset命令数    | 次/分钟 |
-| CmdstatHsetNodeMin     | hset命令数     | 次/分钟 |
-| CmdstatHsetnxNodeMin   | hsetnx命令数   | 次/分钟 |
-| CmdstatLsetNodeMin     | lset命令数     | 次/分钟 |
-| CmdstatMgetNodeMin     | mget命令数     | 次/分钟 |
-| CmdstatMsetNodeMin     | mset命令数     | 次/分钟 |
-| CmdstatMsetnxNodeMin   | msetnx命令数   | 次/分钟 |
-| CmdstatSetNodeMin      | set命令数      | 次/分钟 |
-| CmdstatSetbitNodeMin   | setbit命令数   | 次/分钟 |
-| CmdstatSetexNodeMin    | setex命令数    | 次/分钟 |
-| CmdstatSetnxNodeMin    | setnx命令数    | 次/分钟 |
-| CmdstatSetrangeNodeMin | setrange命令数 | 次/分钟 |
-| QpsNodeMin             | 每秒执行命令数 | 次/分钟 |
-| ConnectionsNodeMin     | 连接数         | 个      |
-| CpuUsNodeMin           | cpu利用率      | %       |
-| InFlowNodeMin          | 内网入流量     | Mb/分钟 |
-| KeysNodeMin            | key总数        | 个      |
-| OutFlowNodeMin         | 内网出流量     | Mb/分钟 |
-| StatGetNodeMin         | 所有get命令数  | 次/分钟 |
-| StatSetNodeMin         | 所有set命令数  | 次/分钟 |
-| StorageNodeMin         | 已使用容量     | Mb/分钟 |
-| StorageUsNodeMin       | 容量使用率     | %       |
+| 指标名称               | 含义            | 单位    |
+| ---------------------- | --------------- | ------- |
+| CmdstatGetNodeMin      | get 命令数      | 次/分钟 |
+| CmdstatGetbitNodeMin   | getbit 命令数   | 次/分钟 |
+| CmdstatGetrangeNodeMin | getrange 命令数 | 次/分钟 |
+| CmdstatHgetNodeMin     | hget 命令数     | 次/分钟 |
+| CmdstatHgetallNodeMin  | hgetall 命令数  | 次/分钟 |
+| CmdstatHmgetNodeMin    | hmget 命令数    | 次/分钟 |
+| CmdstatHmsetNodeMin    | hmset 命令数    | 次/分钟 |
+| CmdstatHsetNodeMin     | hset 命令数     | 次/分钟 |
+| CmdstatHsetnxNodeMin   | hsetnx 命令数   | 次/分钟 |
+| CmdstatLsetNodeMin     | lset 命令数     | 次/分钟 |
+| CmdstatMgetNodeMin     | mget 命令数     | 次/分钟 |
+| CmdstatMsetNodeMin     | mset 命令数     | 次/分钟 |
+| CmdstatMsetnxNodeMin   | msetnx 命令数   | 次/分钟 |
+| CmdstatSetNodeMin      | set 命令数      | 次/分钟 |
+| CmdstatSetbitNodeMin   | setbit 命令数   | 次/分钟 |
+| CmdstatSetexNodeMin    | setex 命令数    | 次/分钟 |
+| CmdstatSetnxNodeMin    | setnx 命令数    | 次/分钟 |
+| CmdstatSetrangeNodeMin | setrange 命令数 | 次/分钟 |
+| QpsNodeMin             | 每秒执行命令数  | 次/分钟 |
+| ConnectionsNodeMin     | 连接数          | 个      |
+| CpuUsNodeMin           | CPU 利用率      | %       |
+| InFlowNodeMin          | 内网入流量      | Mb/分钟 |
+| KeysNodeMin            | key 总数        | 个      |
+| OutFlowNodeMin         | 内网出流量      | Mb/分钟 |
+| StatGetNodeMin         | 所有 get 命令数 | 次/分钟 |
+| StatSetNodeMin         | 所有 set 命令数 | 次/分钟 |
+| StorageNodeMin         | 已使用容量      | Mb/分钟 |
+| StorageUsNodeMin       | 容量使用率      | %       |
 
 ## 3. 输出参数
 
@@ -122,7 +122,7 @@
 | EndTime    | Timestamp             | 数据点结束时间                                               |
 | Period     | Integer               | 数据统计周期                                                 |
 | DataPoints | Array of PointsObject | 监控数据列表                                                 |
-| RequestId  | String                | 唯一请求ID，每次请求都会返回。定位问题时需要提供该次请求的RequestId。 |
+| RequestId  | String                | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 |
 
 ## 4. 错误码表
 
@@ -137,9 +137,9 @@
 
 ## 5. 示例
 
-### 示例1 拉取单个云数据库REDIS的get命令数监控数据示例
+### 示例1 拉取单个云数据库 REDIS 的 get 命令数监控数据示例
 
-拉取某个云数据库REDIS某段时间内统计周期为60秒的get命令数监控数据
+拉取某个云数据库 REDIS 某段时间内统计周期为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -195,9 +195,9 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 }
 ```
 
-### 示例2 拉取多个云数据库REDIS的数据get命令数监控数据示例
+### 示例2 拉取多个云数据库 REDIS 的数据 get 命令数监控数据示例
 
-拉取多个云数据库REDIS某段时间内统计周期为60秒的get命令数监控数据
+拉取多个云数据库 REDIS 某段时间内统计周期为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -279,9 +279,9 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 }
 ```
 
-### 示例3 拉取单个云数据库REDIS的实例分片信息get命令数监控数据示例
+### 示例3 拉取单个云数据库 REDIS 的实例分片信息 get 命令数监控数据示例
 
-拉取某个云数据库REDIS实例分片信息某段时间内统计周期为60秒的get命令数监控数据
+拉取某个云数据库 REDIS 实例分片信息某段时间内统计周期为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
@@ -342,9 +342,9 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 }
 ```
 
-### 示例4 拉取多个云数据库REDIS的实例分片信息数据get命令数监控数据示例
+### 示例4 拉取多个云数据库 REDIS 的实例分片信息数据 get 命令数监控数据示例
 
-拉取多个云数据库REDIS实例分片信息某段时间内统计周期为60秒的get命令数监控数据
+拉取多个云数据库 REDIS 实例分片信息某段时间内统计周期为60秒的 get 命令数监控数据。
 
 #### 输入示例
 
