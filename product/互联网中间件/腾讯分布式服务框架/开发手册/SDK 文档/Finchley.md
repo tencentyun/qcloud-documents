@@ -1,6 +1,6 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.19.0-Finchley-RELEASE（2020-01-16）
+### 1.19.0-Finchley-RELEASE（2020-01-16）
 
 ### 新特性
 
