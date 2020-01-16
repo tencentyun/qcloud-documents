@@ -48,7 +48,7 @@
 
 #### 数据解析脚本
 上行数据解析的脚本主函数为 RawToProtocol，其带有 fPort、bytes 两个入参：
-- fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段，
+- fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段。
 - bytes：设备上报的 LoRaWAN 协议数据的 FRMPayload 字段。
 
 脚本主函数的出参为产品数据模版协议格式的对象。
