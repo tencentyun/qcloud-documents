@@ -172,10 +172,11 @@ AT+CH=7,487.7,B
 AT+CH=8,OFF
 AT+CH=9,OFF
 ```
+![](https://main.qcloudimg.com/raw/d47c4a4eb317be8eaf7d6580f7693ec6.png)
 4. 其他指令。  
  - 通过“AT+log=on”打开网关日志。  
  - 通过“AT+EUI”查询网关的 ID。  
-![](https://main.qcloudimg.com/raw/d47c4a4eb317be8eaf7d6580f7693ec6.png)
+
 
 ### 运行
 
@@ -194,6 +195,44 @@ Uplink UDP Connected
 ```
 表明网关 DHCP入网成功，网络连接正常。
 
+### 编译及下载
+
+#### Step 1. 下载 LoRaWAN 例程
+1. 请下载 TencentOS tiny 官方开源仓 [下载源码](https://github.com/Tencent/TencentOS-tiny) 。
+2. 进入`<TencentOS-tiny\board\NUCLEO_STM32L073RZ\KEIL\lorawan>`目录，打开 TencentOS_tiny.uvprojx 工程。
+3. 示例工程包含 STM32L073 外设驱动、TencentOS tiny 内核、AT 框架、RHF76 LoRaWAN 模组驱动、LoRaWAN 示例案例。
+
+#### Step 2. 代码修改
+1. 请先修改 \examples\LoRaWAN\lora_demo.c.。
+```c
+tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72");
+```
+2. 填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
+3. 修改 \devices\rhf76_lora\RHF76.h。
+```c
+#define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,0-7\r\n"
+```
+4. 由于本示例中计划使用80 - 87信道，因此调整为：
+```c
+#define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,80-87\r\n"
+```
+
+#### Step 3. 编译
+单击 MDK 工具栏【Rebuild All】，编译整个工程。
+
+
+#### Step 4. 下载
+单击 MDK 工具栏【Download】，下载编译好的固件。
+
+### 查看运行结果
+
+1. 节点下载好固件后，会自动重启运行，从串口即可查看设备的运行日志。
+![](https://blog-1251625522.cos.ap-chengdu.myqcloud.com/LoRa/explorer_guide_2_node_run.png)
+2. 当您看到串口打印如下日志，即说明 LoRa 节点已经通过网关成功入网。
+```
+--->+JOIN: Network joined
+--->+JOIN: NetID 000000 DevAddr 01:4E:F6:1D
+```
 
 ## 查看设备状态
 
