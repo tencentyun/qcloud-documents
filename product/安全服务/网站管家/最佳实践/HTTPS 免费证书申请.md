@@ -8,4 +8,4 @@ Web 应用防火墙提供域名 HTTPS 接入配置和防护能力，如果您的
 ![](https://main.qcloudimg.com/raw/0462e4ff8f1d785ba4c04f87336526a0.png)
 5. 开启 HTTPS 强制跳转开关，选择 “HTTPS 回源方式”为 HTTP，其他接入流程完成后，您的网站将支持 HTTPS 访问。
 ![](https://main.qcloudimg.com/raw/6bc4cc021c6b70968f628868e77f948e.png)
->!如需开启 HTTPS 强制跳转开关，需同时勾选 HTTP 和 HTTPs 访问协议。
+>!如需开启 HTTPS 强制跳转开关，需同时勾选 HTTP 和 HTTPS 访问协议。
