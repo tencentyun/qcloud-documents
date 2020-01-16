@@ -234,11 +234,11 @@ Uplink UDP Connected
 1. 保持 LoRa 节点和 LoRa 网关 为运行状态。
 2. 进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "dev001" 。
 3. 单击【调试】，可进入设备详情页。
-![](https://main.qcloudimg.com/raw/a70b6ff4bdb001e8579e7b2c33a870a7.png)
+![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 4. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
  - 设备属性的最新值：会显示设备上报的最新数据。
  - 设备属性的更新时间：显示数据的更新时间。
-![](https://blog-1251625522.cos.ap-chengdu.myqcloud.com/LoRa/explorer_guide_5_1_dev_property_new.png)
+![](https://main.qcloudimg.com/raw/1feec8668680ca8008f9608b79514549.png)
 5. 单击【查看】，可查看某个属性的历史上报数据。
 
 ## 查看设备通信日志
