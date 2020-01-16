@@ -193,7 +193,7 @@ DHCP IP: 192.168.3.249
 Downlink UDP Connected
 Uplink UDP Connected
 ```
-表明网关 DHCP入网成功，网络连接正常。
+表明网关 DHCP 入网成功，网络连接正常。
 
 
 ## LoRa 节点实物操作
@@ -229,7 +229,7 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 ### 查看运行结果
 
 1. 节点下载好固件后，会自动重启运行，从串口即可查看设备的运行日志。
-![](https://blog-1251625522.cos.ap-chengdu.myqcloud.com/LoRa/explorer_guide_2_node_run.png)
+![](https://main.qcloudimg.com/raw/00be29ef29119f368e393784800762ce.png)
 2. 当您看到串口打印如下日志，即说明 LoRa 节点已经通过网关成功入网。
 ```
 --->+JOIN: Network joined
