@@ -24,11 +24,10 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 1. 单击左侧菜单栏【云函数】，进入云函数页面。
 2. 单击【HTTP 触发】，在 HTTP 触发配置窗口中进行配置。
 ![](https://main.qcloudimg.com/raw/d57783a65d625708f45f628eddbe9139.jpg)
-
-注意事项如下：
-- 每个环境最多绑定5个自定义域名。
-- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
-- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
+>!
+>- 每个环境最多绑定5个自定义域名。
+>- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
+>- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
 
 ### 通过 HTTP 访问云函数
 
@@ -37,7 +36,7 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 $ curl https://${env}.service.tcloudbase.com/${path}
 ```
 
--方式二：直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
+- 方式二：直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
 
 ### 云函数的入参
 
