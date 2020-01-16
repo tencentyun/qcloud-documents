@@ -96,13 +96,13 @@ function ProtocolToRaw(obj) {
 
 - 下行消息
 模拟测试数据如下，将其填入设备下行数据的编辑框中：
-```json
-{
-"params": {
-"period": 15
-}
-}
-```
+    ```json
+    {
+    "params": {
+    "period": 15
+    }
+    }
+    ```
 ![](https://main.qcloudimg.com/raw/55fb6d32d23f3f3a26e01316c7c2025c.png)
 
 
@@ -209,12 +209,12 @@ Uplink UDP Connected
 ```c
 tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72");
 ```
-2. 填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
-3. 修改 \devices\rhf76_lora\RHF76.h。
+填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
+2. 修改 \devices\rhf76_lora\RHF76.h。
 ```c
 #define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,0-7\r\n"
 ```
-4. 由于本示例中计划使用80 - 87信道，因此调整为：
+3. 由于本示例中计划使用80 - 87信道，因此调整为：
 ```c
 #define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,80-87\r\n"
 ```
