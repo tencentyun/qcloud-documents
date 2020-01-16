@@ -108,7 +108,7 @@ softAp boarding and connection success
 
 
 ### 查看设备状态
-1. 登录物联网开发平台控制台，选择【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示模组已成功连接上开发平台。
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示模组已成功连接上开发平台。
 2. 单击【调试】，可进入设备详情页。
 ![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 3. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
