@@ -9,7 +9,7 @@
 
 若您需要调用的指标、对象较多，可能存在因限频出现拉取失败的情况，建议尽量将请求按时间维度均摊。
 
-查询消息队列CMQ队列服务监控数据，入参取值如下：<br>
+查询消息队列 CMQ 队列服务监控数据，入参取值如下：<br>
 &Namespace= QCE/CMQ<br>
 &Instances.N.Dimensions.0.Name=queueId<br>
 &Instances.N.Dimensions.0.Value=为 CMQ 队列实例 ID<br>
@@ -18,7 +18,7 @@
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数和部分公共参数，正式调用时需要加上公共请求参数，见[公共请求参数](https://cloud.tencent.com/document/api/248/4478)页面。
+以下请求参数列表仅列出了接口请求参数和部分公共参数，正式调用时需要加上公共请求参数，见 [公共请求参数](https://cloud.tencent.com/document/api/248/4478) 页面。
 
 ### 2.1输入参数
 
@@ -28,26 +28,26 @@
 | ----------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Action      | 是       | String                                                       | 公共参数，本接口取值：GetMonitorData                         |
 | Version     | 是       | String                                                       | 公共参数，本接口取值： 2018-07-24                            |
-| Region      | 否       | String                                                       | 公共参数，表示查询的是哪个地域实例的监控数据；支持的地域可查看云服务器支持的[地域列表](https://cloud.tencent.com/document/api/213/15692) |
-| Namespace   | 是       | String                                                       | 命名空间，每个云产品会有一个命名空间，API 3.0接口版本的必须是大写，如：    QCE/CMQ |
+| Region      | 否       | String                                                       | 公共参数，表示查询的是哪个地域实例的监控数据；支持的地域可查看云服务器支持的 [地域列表](https://cloud.tencent.com/document/api/213/15692) |
+| Namespace   | 是       | String                                                       | 命名空间，每个云产品会有一个命名空间，API 3.0接口版本的必须是大写，如：QCE/CMQ |
 | MetricName  | 是       | String                                                       | 指标名称，具体名称见2.2                                      |
 | Instances.N | 是       | Array of [Instance](https://cloud.tencent.com/document/product/248/30354) | 实例对象的维度组合                                           |
 | Period      | 否       | Integer                                                      | 监控统计周期。默认为取值为300，单位为s                       |
 | StartTime   | 否       | Timestamp                                                    | 起始时间，如"2016-01-01 10:25:00"。 默认时间为当天的”00:00:00” |
-| EndTime     | 否       | Timestamp                                                    | 结束时间，默认为当前时间。 endTime不能小于startTime          |
+| EndTime     | 否       | Timestamp                                                    | 结束时间，默认为当前时间。 endTime 不能小于 startTime        |
 
 #### 2.1.2 各维度对应参数总览
 
 | 参数名称                       | 维度名称  | 维度解释                | 格式                                |
 | ------------------------------ | --------- | ----------------------- | ----------------------------------- |
-| Instances.N.Dimensions.0.Name  | queueId   | 入参为 CMQ 队列实例 ID  | String类型维度名称：queueId         |
+| Instances.N.Dimensions.0.Name  | queueId   | 入参为 CMQ 队列实例 ID  | String 类型维度名称：queueId        |
 | Instances.N.Dimensions.0.Value | queueId   | 具体的 CMQ 队列实例 ID  | 输入具体 queueId，如 queue-3abkyggi |
-| Instances.N.Dimensions.1.Name  | queueName | 入参为 CMQ 队列实例名称 | String类型维度名称：queueName       |
-| Instances.N.Dimensions.1.Value | queueName | 具体的 CMQ 队列实例名称 | 输入具体 queueName如 test1          |
+| Instances.N.Dimensions.1.Name  | queueName | 入参为 CMQ 队列实例名称 | String 类型维度名称：queueName      |
+| Instances.N.Dimensions.1.Value | queueName | 具体的 CMQ 队列实例名称 | 输入具体 queueName 如 test1         |
 
 ### 2.2 指标名称
 
-每个指标对应的统计粒度（Period）及维度 (dimension) 可取值不一定相同，可通过[DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351)接口获取每个指标支持的统计粒度及维度信息。
+每个指标对应的统计粒度（Period）及维度 (dimension) 可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度及维度信息。
 
 | 指标名称             | 含义                 | 单位 | 维度               |
 | -------------------- | -------------------- | ---- | ------------------ |
@@ -79,7 +79,7 @@
 | EndTime    | Timestamp             | 数据点结束时间                                               |
 | Period     | Integer               | 数据统计周期                                                 |
 | DataPoints | Array of PointsObject | 监控数据列表                                                 |
-| RequestId  | String                | 唯一请求ID，每次请求都会返回。定位问题时需要提供该次请求的RequestId。 |
+| RequestId  | String                | 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的RequestId。 |
 
 ## 4. 错误码表
 
@@ -94,9 +94,9 @@
 
 ## 5. 示例
 
-### 示例1 拉取单个消息队列CMQ队列服务的队列不可见消息数量监控数据示例
+### 示例1 拉取单个消息队列 CMQ 队列服务的队列不可见消息数量监控数据示例
 
-拉取某个消息队列CMQ队列服务某段时间内统计周期为300秒的队列不可见消息数量监控数据
+拉取某个消息队列 CMQ 队列服务某段时间内统计周期为300秒的队列不可见消息数量监控数据。
 
 #### 输入示例
 
@@ -152,9 +152,9 @@ https://monitor.tencentcloudapi.com/?Action=GetMonitorData
 }
 ```
 
-### 示例2 拉取多个消息队列CMQ队列服务的队列不可见消息数量监控数据示例
+### 示例2 拉取多个消息队列 CMQ 队列服务的队列不可见消息数量监控数据示例
 
-拉取多个消息队列CMQ队列服务某段时间内统计周期为300秒的队列不可见消息数量监控数据
+拉取多个消息队列 CMQ 队列服务某段时间内统计周期为300秒的队列不可见消息数量监控数据。
 
 #### 输入示例
 
