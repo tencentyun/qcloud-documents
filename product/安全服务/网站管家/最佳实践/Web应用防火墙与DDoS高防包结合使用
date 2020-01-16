@@ -1,9 +1,7 @@
-DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全防护。
-- DDoS 高防包一键提供上百 Gbps DDoS 防护能力，轻松应对 DDoS 攻击，保障业务稳定运行。
-- Web 应用防火墙实时防护，有效拦截 Web 攻击行为，保障用户业务的数据和信息安全。
-
-## 部署方案
-![](https://main.qcloudimg.com/raw/ee33e9c7fc15fdb97cfe784dade3a20f.png)
+## 应用场景
+Web 应用防火墙具备 CC 防护能力，针对非 HTTP 请求，Web 应用防火墙支持和 DDoS 高防包联动，为用户提供全方位的安全防护。
+- DDoS 高防包可以实现一键提供上百 Gbps 的 DDoS 防护能力，轻松应对 DDoS 攻击，保障业务稳定运行。
+- Web 应用防火墙提供实时防护能力，可有效拦截 Web 攻击，保障用户业务的数据和信息安全。
 
 ## 配置过程
 ### 配置 Web 应用防火墙
@@ -34,4 +32,3 @@ DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
  ![](https://main.qcloudimg.com/raw/6a9cfb91b61adaca6ca19829596b7f6a.png)
  
 4. 设置完成后，单击【确定】即可。
-
