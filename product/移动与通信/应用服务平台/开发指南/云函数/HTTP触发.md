@@ -28,15 +28,17 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 >- 每个环境最多绑定5个自定义域名。
 >- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
 >- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
+>- 单个环境可支持被访问的最大 QPS 为5000，单个云函数可支持被访问的最大 QPS 为2000（具体频次受函数并发限制）。
+>- 默认域名可支持被访问的最大 QPS 为200，推荐您绑定自定义域名以获取更大的访问频次。
 
 ### 通过 HTTP 访问云函数
 
 - 方式一：通过`https://${envId}.service.tcloudbase.com/${path}`直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
 ```sh
-$ curl https://${env}.service.tcloudbase.com/${path}
+$ curl https://${envId}.service.tcloudbase.com/${path}
 ```
 
-- 方式二：直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
+- 方式二：直接在浏览器内打开`https://${envId}.service.tcloudbase.com/${path}`。
 
 ### 云函数的入参
 
