@@ -215,6 +215,10 @@ put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * mult
 }];
 
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
+//舍弃一个分块上传并删除已上传的块
+[put abort:^(id outputObject, NSError *error) {
+//
+}];
 
 //•••在完成了初始化，并且上传没有完成前
 NSError* error;
