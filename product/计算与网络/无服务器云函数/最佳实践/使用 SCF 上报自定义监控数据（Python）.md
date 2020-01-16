@@ -106,6 +106,7 @@ zip project.zip * -r
   3. 单击【保存】即可上传代码。
   上传成功后，界面自动展示 `index.py` 文件的代码内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/aedb8b14a9fdecebd5debc8d2fba46d5.png)
+ 4. 再次单击【保存】，完成项目代码上传。 
 
 
 ### 步骤6：触发调试
