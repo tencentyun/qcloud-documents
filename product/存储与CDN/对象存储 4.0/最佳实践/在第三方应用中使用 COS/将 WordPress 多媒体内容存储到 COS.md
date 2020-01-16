@@ -14,34 +14,52 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 	- 您也可以在 [腾讯云市场](https://market.cloud.tencent.com/) 中搜索使用已经预装 WordPress 程序的 CVM 镜像。
 2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 WordPress 的 CVM 相同，创建指引可参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 3. 在存储桶列表中找到刚刚创建的存储桶，记录**存储桶名称**和**所属地域**的地域简称，有关地域简称的进一步说明，可参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档。
-   ![](https://main.qcloudimg.com/raw/e97ff4ae4c2fbf4c314bf11ffc736890.png)
+	 ![](https://main.qcloudimg.com/raw/5cd16813e305bbab338c9784a86d72f4.jpg)
 4. 进入 [访问管理控制台](https://console.cloud.tencent.com/cam/capi)，记录密钥中的 **SecretId** 和 **SecretKey**。
    ![](https://main.qcloudimg.com/raw/9a328839005ea842f917fcd04acdd118.png)
 
 ## 安装并配置 WordPress 插件
 
 1. 登录并进入 WordPress **仪表盘**。
-2. 在【安装插件】页面，搜索并安装 **Media Cloud** 插件。
+2. 在**安装插件**页面，搜索并安装 **Media Cloud** 插件。
    ![](https://main.qcloudimg.com/raw/9c43d1ca979d852b51721bb8f2f63984.png)
-3. 启用 **Media Cloud** 插件，此时会自动打开配置向导，然后单击 **NEXT**。
-   ![](https://main.qcloudimg.com/raw/346e4bb3b28ee8b763de43b59e915a8f.png)
-
-> ? 如果未能自动打开配置向导，可在 WordPress 左侧菜单中选择 **Media Cloud**，并单击 **Cloud Storage** 下方的 **Setup Wizard**。
+3. 启用 **Media Cloud** 插件，此时会自动打开配置向导，然后单击【NEXT】。
+>? 如果未能自动打开配置向导，可在 WordPress 左侧菜单中选择【Media Cloud】，并单击【Cloud Storage】下方的 【Setup Wizard】。
 > ![](https://main.qcloudimg.com/raw/cf9caa71b2c3ab9ff726b7a3294ab61a.png)
+4. 在存储提供商界面选择【S3 Compatible】，并单击【NEXT】。
+	 ![](https://main.qcloudimg.com/raw/b0697ba2c8ee9b98a41bc0a2cffd2479.jpg)
+5. 在随后的表单中配置如下内容，配置完成后单击 【NEXT】：
+<table>
+<thead>
+<tr>
+<th nowrap="nowrap">配置项</th>
+<th>配置值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td nowrap="nowrap">ACCESS KEY</td>
+<td>访问密钥中的 <strong>SecretId</strong></td>
+</tr>
+<tr>
+<td>SECRET</td>
+<td>访问密钥中的 <strong>SecretKey</strong></td>
+</tr>
+<tr>
+<td>BUCKET</td>
+<td><strong>存储桶名称</strong></td>
+</tr>
+<tr>
+<td>REGION</td>
+<td>选择 <strong>Automatic</strong></td>
+</tr>
+<tr>
+<td>CUSTOM ENDPOINT</td>
+<td>格式为<code>cos.&lt;Region&gt;.myqcloud.com</code>，其中 &lt;Region&gt; 为存储桶<strong>所属地域</strong>的地域简称。例如广州地域的地域简称为 ap-guangzhou，则该配置项填<code>cos.ap-guangzhou.myqcloud.com</code></td>
+</tr>
+</tbody></table>
+<img src="https://main.qcloudimg.com/raw/5b868dcb79709983dc6c2bfbacb96700.jpg"></img>
 
-4. 在存储提供商界面选择 **S3 Compatible**，再单击 **NEXT**。
-   ![](https://main.qcloudimg.com/raw/e0b8169e12f8027c4fdbc71db66f1d62.png)
-5. 在随后的表单中配置如下内容，配置完成后单击 **NEXT**：
 
-| 配置项          | 配置值                                                       |
-| --------------- | ------------------------------------------------------------ |
-| ACCESS KEY      | 访问密钥中的 **SecretId**                                    |
-| SECRET          | 访问密钥中的 **SecretKey**                                   |
-| BUCKET          | **存储桶名称**                                               |
-| REGION          | 选择 **Automatic**                                           |
-| CUSTOM ENDPOINT | 格式为`cos.<Region>.myqcloud.com`，其中 &lt;Region&gt; 为存储桶**所属地域**的地域简称。例如广州地域的地域简称为 ap-guangzhou，则该配置项填`cos.ap-guangzhou.myqcloud.com` |
-
-![](https://main.qcloudimg.com/raw/a90009adde183ede6c14058b2e582fb7.png)
 
 6. 此时，Media Cloud 将测试配置是否正确，单击 **START TESTS** 开始测试，测试全部成功后单击 **NEXT**。
    ![](https://main.qcloudimg.com/raw/eeb347dbb1050b477ab9dc54945a43f3.png)
