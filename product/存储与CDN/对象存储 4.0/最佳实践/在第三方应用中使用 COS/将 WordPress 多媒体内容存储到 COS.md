@@ -58,7 +58,6 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 </tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/cc7d9766d5148873fa5fe6ba3eeee2b2.jpg"></img>
-
 6. 此时，Media Cloud 将测试配置是否正确，单击【START TESTS】开始测试，测试全部成功后单击【NEXT】。
 	 ![](https://main.qcloudimg.com/raw/db2aba4cd987b9114b9165ae72106e3f.jpg)
 7. Media Cloud 提示已就绪，单击【ADVANCED SETTINGS】关闭配置向导。
