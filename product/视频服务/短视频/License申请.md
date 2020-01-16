@@ -6,15 +6,14 @@
 ![](https://main.qcloudimg.com/raw/2368a0969c19cd1884ef28de153d5039.png)
 
 ## 购买正式版 License
-当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 购买正式 License，其属于点播套餐包，根据不同的点播套餐包，我们会赠送您对应版本的 SDK 使用 License。
-![](https://main.qcloudimg.com/raw/0ff40bb210ddcdc46b4703307cf2a4d2.png)
+当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 创建正式 License，License 需和流量资源包绑定后才可以创建。您购买的流量资源包-10T、流量资源包-50T、流量资源包-200T中的任意一种都可以用来绑定 License。
 
 SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 
 | SDK 版本 | 套餐包 |
 |---------|---------|
-| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播套餐精简版](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
-| [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播套餐基础版1或基础版2](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
+| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) |点播流量资源包-10TB| 
+| [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) |点播流量资源包50TB或200TB | 
 | [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
 | [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license) | 
 
