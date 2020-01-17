@@ -13,15 +13,15 @@
 
 ### 创建项目和产品
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【新建项目】。
-2. 在新建项目页面，填写项目基本信息。
+2. 在新建项目页面，填写项目基本信息后，单击【保存】
     - 项目名称：输入“LoRa 温湿度传感器演示”或其他名称。
     - 项目描述：按照实际需求填写项目描述。
 3. 项目新建成功后，即可新建产品。
 
 ### 新建产品
 1. 进入该项目的产品列表页面，单击【新建产品】。
-2. 在新建产品页面，填写产品基本信息。
-    - 产品名称：输入“LoRa 温湿度传感器”或其他产品名称。
+2. 在新建产品页面，填写产品基本信息后，单击【保存】。
+    - 产品名称：输入“温湿度传感器”或其他产品名称。
     - 产品类型：选择“温湿度传感器”。
     - 认证方式：选择“密钥认证”。
     - 通信方式：选择“LoRaWAN”。
@@ -29,7 +29,7 @@
 3. 产品新建成功后，您可在产品列表页查看“LoRa 温湿度传感器”。
 
 ### 创建数据模板
-选择“温湿度传感器”类型后，自定义产品功能。
+单击产品名称，进入产品配置页，在【自定义功能】配置项下，单击【新建功能】，自定义产品功能。
 ![](https://main.qcloudimg.com/raw/ab908e72c372289da329aac252da51ed.png)
 
 ### 配置 LoRaWAN 参数
@@ -124,7 +124,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
     - GwEUI：为网关唯一 ID。本例中根据 ST NUCLEO LoRa GW 背部的 MAC 地址，将6字节 MAC 地址的中间补足 0xffff。  
 ![](https://main.qcloudimg.com/raw/4942c0663367a38f5ef090c62fcba5b3.png)
     - 是否公开：选择“是”，表示社区开发者可在社区网络查看该网关，并可通过这个网关进行 LoRa 节点接入；选择“否”，则仅用户自己能查看该网关。
-![](https://main.qcloudimg.com/raw/b44ce2fc39c939fd84e590e19682dac1.png)
+![](https://main.qcloudimg.com/raw/a915874bc229f0a47f7de484fd42f9d5.png)
 5. 网关新建成功后，您可在网关列表页查看“GW1”。
 
 
@@ -133,7 +133,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 
 ### 硬件连接
 
-整个系统搭建需要由 LRWAN_GS_LF1 网关（网关模组和 STM32F746 Nucleo核心板）、5V 适配器和电脑组成。
+整个系统搭建需要由 LRWAN_GS_LF1 网关（网关模组和 STM32F746 Nucleo 核心板）、5V 适配器和电脑组成。
 
 1. 先使用 5V 适配器通过 USB 线连接到 LRWAN_GS_LF1 网关的网关模组上的 Micro USB 接口，给整个网关供电。
 2. Nucleo 核心板上的 Micro USB 口（非以太网口那边的 Micro USB 口），通过 USB 线连接到 PC 端，可以实现虚拟串口的功能。
@@ -155,7 +155,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 
 请按照如下步骤完成相关配置：
 1. 按照上图完成硬件连接和系统搭建。  
-2. 配置服务器地址。本示例中设置的是腾讯云物联网开发平台的 LoRa 服务器地址（接入域名：loragw.things.qcloud.com，接入端口：1700）。 
+2. 配置服务器地址。本示例中设置的是腾讯云物联网开发平台的 LoRa 服务器地址（接入域名：`loragw.things.qcloud.com`，接入端口：1700）。 
 ```
 AT+PKTFWD=loragw.things.qcloud.com,1700,1700  
 ```
@@ -172,6 +172,7 @@ AT+CH=7,487.7,B
 AT+CH=8,OFF
 AT+CH=9,OFF
 ```
+示例截图如下所示：
 ![](https://main.qcloudimg.com/raw/d47c4a4eb317be8eaf7d6580f7693ec6.png)
 4. 其他指令。  
  - 通过“AT+log=on”打开网关日志。  
@@ -205,12 +206,12 @@ Uplink UDP Connected
 3. 示例工程包含 STM32L073 外设驱动、TencentOS tiny 内核、AT 框架、RHF76 LoRaWAN 模组驱动、LoRaWAN 示例案例。
 
 #### Step 2. 代码修改
-1. 请先修改 \examples\LoRaWAN\lora_demo.c.。
+1. 请先修改`\examples\LoRaWAN\lora_demo.c.`。
 ```c
 tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72");
 ```
 填入节点相应的 DevEUI 和 AppKEY，可从 LoRa 节点开发板背面贴纸上获取。
-2. 修改 \devices\rhf76_lora\RHF76.h。
+2. 修改`\devices\rhf76_lora\RHF76.h`。
 ```c
 #define RHF76_ATCMD_SET_CHANNEL                 "at+ch=num,0-7\r\n"
 ```

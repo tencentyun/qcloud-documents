@@ -12,7 +12,7 @@
 
 为了通过下面的步骤快速理解该业务流程，需要做好以下准备工作：
 - 申请物联网开发平台服务。
-- 安装 python3 和 pyserial/paho-mqtt 模块。
+- 安装 Python3 和 pyserial/paho-mqtt 模块。
 - 准备一个 ESP8266 腾讯云定制模组，详情请参见 [腾讯云 IoT AT ESP8266 定制固件及说明](https://github.com/tencentyun/qcloud-iot-esp-wifi)。
 - 下载 [腾讯云 IoT AT 指令模组测试工具](https://github.com/tencentyun/qcloud-iot-esp-wifi/tree/master/qcloud-iot-at-esp8266/QCloud_IoT_AT_Test_Tool)。
 
@@ -108,7 +108,7 @@ softAp boarding and connection success
 
 
 ### 查看设备状态
-1. 登录物联网开发平台控制台，选择【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示模组已成功连接上开发平台。
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示模组已成功连接上开发平台。
 2. 单击【调试】，可进入设备详情页。
 ![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 3. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
@@ -125,7 +125,7 @@ softAp boarding and connection success
 ![](https://main.qcloudimg.com/raw/3fe0342aae76eb6e1da4eb108eae1b34.png)
 
 ### 查看设备通信日志
-单击【设备通信日志】，可查询该设备某段时间范围的所有上下行数据。
+单击【设备日志】，可查询该设备某段时间范围的所有上下行数据。
   - 上行：上行指设备端上报到开发平台的数据。
   - 下行：下行指从开发平台下发到设备的数据。
 ![](https://main.qcloudimg.com/raw/545c7b1615cd3214fbc27033362a0e17.png)
@@ -135,7 +135,7 @@ softAp boarding and connection success
 ### 在线调试
 
 1. 当模组成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
-![](https://main.qcloudimg.com/raw/90bd61f5b43e4733572b9577d4425f6d.png)
+![](https://main.qcloudimg.com/raw/290c3580de8d7e7d0a89c3da7544c996.png)
 2. 将亮度设置为50，颜色设置为“Red”，单击【发送】。
 3. 通信日志会显示如下日志，表示成功下发了指令到设备端。
 ![](https://main.qcloudimg.com/raw/720b6dfb2047d7766cb2490089ec570f.png)
