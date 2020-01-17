@@ -11,7 +11,10 @@
 	6. 单击【生成地址】即可生成对应的推流/播放 URL。
 ![](https://main.qcloudimg.com/raw/e447230e5a0254e1b20c7cfa268a2f5e.png)
 
->?更多直播基础相关问题，请参见 [常见问题-直播基础相关问题](https://cloud.tencent.com/document/product/267/7968)。
+>?
+>- 生成的推流/播放地址由以下4部分组成：
+![](https://main.qcloudimg.com/raw/714f5dba41877e5c2900ec73472c0326.png)
+>- 更多直播基础相关问题，请参见 [常见问题-直播基础相关问题](https://cloud.tencent.com/document/product/267/7968)。
 
 ### 如何自动拼装推拉流 URL？
 实际产品中，您不可能为每一个主播手动创建推流和播放 URL，而是要由您的服务器自行拼装，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
