@@ -7,7 +7,7 @@
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页中，选择【本端 IP 转换】选项卡，进行本端 IP 转换配置，操作如下：
-  1. **配置本端 IP 转换规则**
+  1. **配置本端 IP 转换地址**
     - **新增**
        1. 在 IP 映射页左上角，单击【新增】。
  ![](https://main.qcloudimg.com/raw/272179c4b42889d1135b425b1d258262.png)
