@@ -12,8 +12,9 @@
 
 ##  前提条件
 - 了解 [云函数](https://cloud.tencent.com/document/product/583)，或直接参考示例代码。
-- 已具备一台设备用于构建项目及打包代码，且该设备已安装 Python 2.7。本文以操作系统为 CentOS 的 [腾讯云服务器](https://cloud.tencent.com/product/cvm) 为例。
-您可参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip) 安装所需环境。
+- 已具备一台设备用于构建项目及打包代码，且该设备已安装 Python 2.7。您可参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip) 安装所需环境。
+本文以操作系统为 CentOS 的 [腾讯云服务器](https://cloud.tencent.com/product/cvm) 为例。
+
 
 
 ##  操作步骤
@@ -60,7 +61,7 @@ def API(client,instanceName,MetricName,Value):
     return resp.to_json_string()
 
 def main_handler(event, context):
-    client = MONITOR("secretId", "secretKey")
+    client = MONITOR("yourSecretId", "youSecretKey")
     if 'key1' in event.keys():
         #scf的名称需要包含namespace和函数名称，中间用"|"分割
         print(API(client,"default|scf_monitor_Test","scf_suc_count",1))
@@ -68,6 +69,8 @@ def main_handler(event, context):
     	print(API(client,"default|scf_monitor_Test","scf_fail_count",1))
     return "hello from scf"  #return
 ```
+>?请将示例代码中的 `yourSecretId`、`youSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
+>
 
 
 ### 步骤3：安装自定义监控 SDK
@@ -128,7 +131,7 @@ zip project.zip * -r
 
 ### 步骤7：查看监控视图
 进入 [自定义监控](https://console.cloud.tencent.com/monitor/indicator-view) 查看已触发上报的指标视图。如下图所示：
-![](https://main.qcloudimg.com/raw/6ec43068b3633da7e41174c4a0bbd283.png)
+![](https://main.qcloudimg.com/raw/a87ba4b124d5f38a1a0636dbb237f13f.png)
 
 ### 步骤8：配置告警
 您可参考 [配置告警策略](https://cloud.tencent.com/document/product/397/40223) 为函数配置告警。
