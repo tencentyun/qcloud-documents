@@ -2,10 +2,13 @@
 
 
 #### 方法1：手动生成	
-1. 开通腾讯云直播服务：如果您尚未开通云直播服务，请单击 [申请开通](https://cloud.tencent.com/product/lvb)。	
-2. 添加直播域名：如果您要使用云直播服务，则须要提供一个备案过的域名，并在云直播控制台中添加直播域名，详细请参见 [域名管理](https://cloud.tencent.com/document/product/267/20381)。	
-3. 生成推流地址：登录云直播控制台,选择[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选择添加过的推流域名，在【管理】中选择【推流配置】 ，通过【推流地址生成器】选择过期时间，填写流名称 StreamName，单击【生成推流地址】来生成一个推流地址。其中 `rtmp://domain/live/test?xxx` 即为推流 URL。	
- ![](https://main.qcloudimg.com/raw/a59798b6759d5eea5f6721d200ca4eb1.png)	
+1. 开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。	
+2. 前往【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】，添加您已备案完成的域名。
+3. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择生成类型为**推流域名**，选择对应的域名，填写自定义的流名称 StreamName，选择地址过期时间单击【生成地址】即可生成对应的推流 URL。
+![](https://main.qcloudimg.com/raw/b92179a1020d676d5e93e7ea4bfd6c37.png)
+ >? 
+ >- AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。若要自定义须 [提交工单](https://console.cloud.tencent.com/workorder/category) 开通配置，AppName 仅支持英文字母、数字和符号。
+ >- 除上述方法，您还可以在云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中，选择推流域名单击【管理】，选择【推流配置】，输入推流地址的过期时间和自定义的流名称 StreamName，单击【生成推流地址】即可生成推流地址。
 
 #### 方法2：自动拼装	
 实际产品中，您不可能为每一个主播手动创建推流和播放 URL，而是要由您的服务器自行拼装，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：	
