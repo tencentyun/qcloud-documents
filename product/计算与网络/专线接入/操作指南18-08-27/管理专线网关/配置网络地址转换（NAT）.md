@@ -3,7 +3,7 @@
 ## 配置 IP 转换
 ### 配置本端 IP 转换
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
+2. 在左侧导航栏中，单击【专线网关】。
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页中，选择【本端 IP 转换】选项卡，进行本端 IP 转换配置，操作如下：
@@ -50,7 +50,7 @@ ACL 规则支持 TCP 和 UDP 协议，本端 IP 映射 ACL 规则支持源端口
 
 ### 配置对端 IP 转换
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
+2. 在左侧导航栏中，单击【专线网关】。
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页中，选择【对端 IP 转换】选项卡，进行对端 IP 转换配置，操作如下：
@@ -74,7 +74,7 @@ ACL 规则支持 TCP 和 UDP 协议，本端 IP 映射 ACL 规则支持源端口
 ## 配置 IP 端口转换
 ### 配置本端源 IP 端口转换
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
+2. 在左侧导航栏中，单击【专线网关】。
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页中，选择【本端源 IP 端口转换】选项卡，进行本端源 IP 端口转换配置，操作如下：
@@ -120,7 +120,7 @@ ACL 规则支持配置协议（支持 TCP 或 UDP）、源 IP、源端口、目�
 >
 ### 配置本端目的 IP 端口转换
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
+2. 在左侧导航栏中，单击【专线网关】。
 3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页，选择【本端目的 IP 端口转换】选项卡，进行本端目的 IP 端口转换配置，操作如下：
