@@ -69,7 +69,7 @@ def main_handler(event, context):
     	print(API(client,"default|scf_monitor_Test","scf_fail_count",1))
     return "hello from scf"  #return
 ```
->?请将示例代码中的 `yourSecretId`、`youSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
+>?请将示例代码中的 `yourSecretId`、`yourSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
 >
 
 
@@ -99,8 +99,8 @@ zip project.zip * -r
 3. 在“新建函数”页面的“基础信息”步骤中，根据以下信息创建函数，并单击【下一步】。如下图所示：
  - **函数名称**：输入自定义函数名，本文以 `scf_monitor_Test` 为例。
  - **运行环境**：选择【Python 2.7】。
- - **创建方式**：选择【空白函数】。
-![](https://main.qcloudimg.com/raw/f11e808463b48ba2cb39f9c9170e33b9.png)
+ - **创建方式**：选择【模板函数】，并选择 helloworld 模板。
+![](https://main.qcloudimg.com/raw/6b510988be5a4025b6b29c6e7eb712dc.png)
 4. 在“函数配置”步骤中，保持默认设置并单击【完成】即可开始创建。
 5. 在函数管理页面，选择【函数代码】页签，按照以下步骤上传代码。如下图所示：
 ![](https://main.qcloudimg.com/raw/fa7c3bd1931e05b988c326c6053c2cdc.png)
