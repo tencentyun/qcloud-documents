@@ -80,7 +80,7 @@ Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password
 使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
 具体代码如下，以 PHP 语言为例：
 ```
-$secretKey = 'NcbHqkdiUyITTCGbKnQH';
+$secretKey = 'NcbHq*****CGbKnQH';
 $srcStr = 'Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
