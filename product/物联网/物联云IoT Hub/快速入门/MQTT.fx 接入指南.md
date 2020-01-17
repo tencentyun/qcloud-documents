@@ -37,7 +37,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 
 | 文件                      | 说明                                       |
 | ----------------------- | ---------------------------------------- |
-| ca.crt                  | 根证书，单击 [ca.crt](https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt) 链接下载文件。 |
+| CA File                  | 根证书，单击 [ca.crt](https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt) 链接下载文件。| 
 | Client Certificate File | 客户端证书文件，即设备证书，在证书认证产品中创建设备时下载，详情请查看 [设备接入准备](https://cloud.tencent.com/document/product/634/14442)。 |
 | Client Key File         | 客户端密钥文件，即设备密钥，在证书认证产品中创建设备时下载，详情请查看 [设备接入准备](https://cloud.tencent.com/document/product/634/14442)。 |
 | PEM Formatted           | 由于物联网通信根证书、设备证书、设备密钥均由 openssl 生成使用 PEM 格式，而 MQTT.fx 是 Java 客户端，所以不识别 PEM 证书，这里需要勾选由该客户端自动转换为 Java 识别的 JKS 格式。 |
