@@ -1,12 +1,12 @@
 本文主要介绍如何快速运行腾讯云 TRTC Web SDK Demo。
 
->?TRTC Web SDK Demo 主要面向开发者，如您想快速体验 TRTC Web SDK 功能，可直接访问 [官网体验 Ddemo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html)。
+>?TRTC Web SDK Demo 主要面向开发者，如您想快速体验 TRTC Web SDK 功能，可直接访问 [官网体验 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html)。
 在开始体验之前，建议您先了解 [TRTC Web SDK API 概览](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 和 [基础音视频通话教程](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)。
 
 <span id="requirements"></span>
 ## 环境要求
 - 请使用最新版本的 Chrome 浏览器。
-- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Ddemo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
+- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
  - TCP 端口：8687
  - UDP 端口：8000，8800，843，443
  - 域名：qcloud.rtc.qq.com
