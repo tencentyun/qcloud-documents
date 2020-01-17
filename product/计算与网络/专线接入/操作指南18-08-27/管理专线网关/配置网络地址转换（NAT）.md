@@ -55,9 +55,9 @@ ACL 规则支持 TCP 和 UDP 协议，本端 IP 映射 ACL 规则支持源端口
 ![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
 4. 在专线网关详情页中，选择【对端 IP 转换】选项卡，进行对端 IP 转换配置，操作如下：
  - **新增**
-  1. 在 IP 映射页左上角，单击【新增】。
+    1. 在 IP 映射页左上角，单击【新增】。
 ![](https://main.qcloudimg.com/raw/b19fdd3168a490a73ad2ed5e1fa1b494.png)
-  2. 在弹框中，输入原 IP、映射 IP 及备注（可选），单击【确定】即可。
+    2. 在弹框中，输入原 IP、映射 IP 及备注（可选），单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/362404885ef7e18b2ae2d3af7883f779.png)
  - **修改**：单击 IP 转换规则所在行右侧的【修改 IP 映射】，即可修改对端 IP 转换规则的原 IP、映射 IP 和备注（可选），单击【确定】后 IP 转换生效。
  ![](https://main.qcloudimg.com/raw/7d9190677c7b27476bc5219fc3fe2089.png)
