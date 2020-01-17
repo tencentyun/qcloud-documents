@@ -126,7 +126,7 @@ zip project.zip * -r
 ```
 3. 模板创建成功后，在【函数代码】页签中选择该模板，并单击【测试】。
 返回结果如下，则表示监控数据上报成功：
-![](https://main.qcloudimg.com/raw/4f797b5d412346c5cba80ad943462e33.png)
+![](https://main.qcloudimg.com/raw/1eb3a7947b3615ff4e5a2839dc3e1b51.png)
 
 
 ### 步骤7：查看监控视图
