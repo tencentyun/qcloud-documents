@@ -44,7 +44,7 @@
 | VerificationCode | String    | 短信验证码 | 123456                   |
 
 >?
-- 请求参数中的公共请求参数有：RequestId, Action, AppKey, Timestamp, Nonce,Signature.
+- 请求参数中的公共请求参数有：RequestId、Action、AppKey、Timestamp、Nonce、Signature。
 - AppCreateCellphoneUser 接口特有参数：CountryCode、PhoneNumber、Password、VerificationCode。
 
 而参数 Signature（签名串）正是由上述参数共生成的，具体步骤如下：
@@ -73,7 +73,7 @@
 
 将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为：
 ```
-Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
+Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
 ```
 
 3. 生成签名串
@@ -81,7 +81,7 @@ Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=7108
 具体代码如下，以 PHP 语言为例：
 ```
 $secretKey = 'NcbHqkdiUyITTCGbKnQH';
-$srcStr = 'Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
+$srcStr = 'Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
 ```
