@@ -54,7 +54,7 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 </tr>
 <tr>
 <td>CUSTOM ENDPOINT</td>
-<td>格式为<code>cos.&lt;Region&gt;.myqcloud.com</code>，其中 &lt;Region&gt; 为存储桶<strong>所属地域</strong>的地域简称。例如广州地域的地域简称为 ap-guangzhou，则该配置项填<code>cos.ap-guangzhou.myqcloud.com</code></td>
+<td>格式为<code>cos.&lt;Region&gt;.myqcloud.com</code>，其中 &lt;Region&gt; 为存储桶<strong>所属地域</strong>的地域简称。例如，广州地域的地域简称为 ap-guangzhou，则该配置项填<code>cos.ap-guangzhou.myqcloud.com</code></td>
 </tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/cc7d9766d5148873fa5fe6ba3eeee2b2.jpg"></img>
@@ -81,4 +81,4 @@ WordPress 可以通过第三方插件将多媒体内容保存在腾讯云 COS上
 3. 将 **CDN SETTINGS** 中的 **CDN Base URL** 设置为您的 CDN 域名，例如 COS 的默认加速域名`https://wordpress-1250000000.file.myqcloud.com/`或您的自定义加速域名`https://static.foo.bar/`。
 ![](https://main.qcloudimg.com/raw/95ea60db11ce736159a888ec8864ff6f.png)
 4. 检查先前发布的文章中的多媒体内容，可以看到相关的地址已经指向您配置的 CDN 域名。
-![](https://main.qcloudimg.com/raw/e3649f1b4d063d0f709c8c595a5dd5da.png)
+![](https://main.qcloudimg.com/raw/e0c3e9b987154c1def4e67676ef736e1.png)
