@@ -1,9 +1,4 @@
 您可为网关类型为 NAT 型的专线网关配置 IP 转换和配置 IP 端口转换，具体操作如下：
-1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
-2. 单击左侧导航栏中【专线网关】。
-3. 单击网关类型为 NAT 型专线网关 ID，进入详情页。
-![](https://main.qcloudimg.com/raw/61ed3ea77cf82597f5bd525fee500dad.png)
-4. 在此，您可[ 配置 IP 转换](#.E9.85.8D.E7.BD.AE-ip-.E8.BD.AC.E6.8D.A2) 和 [配置 IP 端口转换](#.E9.85.8D.E7.BD.AE-ip-.E7.AB.AF.E5.8F.A3.E8.BD.AC.E6.8D.A2)。
 
 ## 配置 IP 转换
 ### 配置本端 IP 转换
