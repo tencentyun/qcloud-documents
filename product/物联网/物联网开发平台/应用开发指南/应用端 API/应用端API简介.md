@@ -4,14 +4,14 @@
 
 ## 调用方式
 
-1. **登录前所使用的 API  `url` 为 `https://iot.cloud.tencent.com/api/exploreropen/appapi`**。
-其中公共参数有： Action，RequestId，AppKey，Signature，Timestamp，Nonce。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议提供该参数值；AppKey 为应用的密钥； Signature 为本次请求的签名，具体计算方法见本文下方示例；Timestamp  为本次请求的 unix 秒级时间戳； Nonce 为随机正整数，用于和时间戳一起，防范 API 重放攻击。
-2. **登录后所使用的 API `url` 为 `https://iot.cloud.tencent.com/api/exploreropen/tokenapi`**。
-其中公共参数有: Action，RequestId，AccessToken。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议使用该参数值。AccessToken 用于标识一个已经登录的用户；
+1. **登录前所使用的 API URL 为 `https://iot.cloud.tencent.com/api/exploreropen/appapi`**。
+其中公共参数有： Action，RequestId，AppKey，Signature，Timestamp，Nonce。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议提供该参数值；AppKey 为应用的密钥； Signature 为本次请求的签名，具体计算方法见本文下方示例；Timestamp  为本次请求的 UNIX 秒级时间戳； Nonce 为随机正整数，用于和时间戳一起，防范 API 重放攻击。
+2. **登录后所使用的 API URL 为 `https://iot.cloud.tencent.com/api/exploreropen/tokenapi`**。
+其中公共参数有: Action，RequestId，AccessToken。其中 Action 用于标识请求的方法名称；RequestId 用于标识一个唯一请求，推荐使用 uuid 作为参数值，定位问题时建议使用该参数值。AccessToken 用于标识一个已经登录的用户。
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
 
-## 应用 API 签名算法
+## 签名算法
 
 #### 获取应用 AppKey 和 AppSecret
 
@@ -36,7 +36,7 @@
 | Action           | String    | 公共参数，调用的接口方法名称     | AppCreateCellphoneUser   |
 | AppKey           | String    |公共参数，应用 AppKey ，用于标识对应的 App。   | ahPxdK******TGrejd        |
 | Signature        | String    | 公共参数，请求的签名   | CKu55Y3Z******ySM6U99imbs |
-| Timestamp        | Int64     | 公共参数，当前的 unix 时间戳（秒级） | 1546315200               |
+| Timestamp        | Int64     | 公共参数，当前的  UNIX 时间戳（秒级） | 1546315200               |
 | Nonce            | Int       | 公共参数，随机正整数，与时间戳一起，用于 API 防重放。 | 71087795                 |
 | CountryCode      | String    | 国家区码     | 86                       |
 | PhoneNumber      | String    | 手机号码     | 13900000000              |
@@ -44,7 +44,7 @@
 | VerificationCode | String    | 短信验证码 | 123456                   |
 
 >?
-- 请求参数中的公共请求参数有：RequestId, Action, AppKey, Timestamp, Nonce,Signature.
+- 请求参数中的公共请求参数有：RequestId、Action、AppKey、Timestamp、Nonce、Signature。
 - AppCreateCellphoneUser 接口特有参数：CountryCode、PhoneNumber、Password、VerificationCode。
 
 而参数 Signature（签名串）正是由上述参数共生成的，具体步骤如下：
@@ -53,7 +53,7 @@
 ```
 {
     Action=AppCreateCellphoneUser,
-    AppKey=ahPxdKWywfNTGrejd,
+    AppKey=ahPxdK*****NT*****,
     CountryCode=86,
     Nonce=71087795,
     Password=My!P@ssword,
@@ -73,15 +73,15 @@
 
 将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为：
 ```
-Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
+Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
 ```
 
 3. 生成签名串
 使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
 具体代码如下，以 PHP 语言为例：
 ```
-$secretKey = 'NcbHqkdiUyITTCGbKnQH';
-$srcStr = 'Action=AppCreateCellphoneUser&AppKey=ahPxdKWywfNTGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
+$secretKey = 'NcbHq*****CGbKnQH';
+$srcStr = 'Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
 ```

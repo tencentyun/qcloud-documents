@@ -55,7 +55,7 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 #### 可选参数
 - `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False,`fit`立即返回，训练任务后台异步执行，后面仍可通过`attach`方法附加。
 - `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在`wait`为 True 时才生效。
-- `run_tensorboard_locally (bool)`：（暂不支持）默认为 False。如果设置为 True，将打印 Tensorboard。
+- `run_tensorboard_locally (bool)`：如果设置为 True，将打印 Tensorboard。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
 #### 工作流程
