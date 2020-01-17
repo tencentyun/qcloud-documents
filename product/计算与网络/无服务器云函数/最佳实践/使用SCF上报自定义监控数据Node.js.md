@@ -105,7 +105,7 @@ exports.main_handler = (event,context,callback) => {
     main()
 }
 ```
->?请将示例代码中的 `yourSecretId`、`youSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
+>?请将示例代码中的 `yourSecretId`、`yourSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
 >
 
 
