@@ -23,11 +23,11 @@
 
 腾讯云播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如：	
 ```	
-http://domain/AppName/StreamName.flv?txSecret=xxxxxxxx&txTime=xxxxxx 	
-rtmp://domain/AppName/StreamName?txSecret=xxxxxxxx&txTime=xxxxxx	
-http://domain/AppName/StreamName.m3u8?txSecret=xxxxxxxx&txTime=xxxxxx	
-https://domain/AppName/StreamName.m3u8?txSecret=xxxxxxxx&txTime=xxxxxx	
-https://domain/AppName/StreamName.flv?txSecret=xxxxxxxx&txTime=xxxxxx	
+http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time) 	
+rtmp://domain/AppName/StreamName?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)	
+http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)	
+https://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)	
+https://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)	
 ```	
 
 - **播放前缀**	
@@ -47,6 +47,6 @@ https://domain/AppName/StreamName.flv?txSecret=xxxxxxxx&txTime=xxxxxx
 流名称（StreamName）是指每路直播流的唯一标识符。	
 
 - **鉴权参数（非必需）**	
-鉴权参数：`txSecret=xxxxxxxx&txTime=xxxxxx`。	
+鉴权参数：`txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time)`。	
 
 >! 鉴权参数非必需项目，主要用于防范自己的直播内容被恶意盗播。
