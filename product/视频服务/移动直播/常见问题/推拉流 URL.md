@@ -4,7 +4,7 @@
 #### 方法1：手动生成	
 1. 开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。	
 2. 前往【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】，添加您已备案完成的域名。
-3. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择生成类型为**推流域名**，选择对应的域名，填写自定义的流名称 StreamName，选择地址过期时间单击【生成地址】即可生成对应的推流 URL。
+3. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择生成类型为**推流域名**，选择对应的域名，填写自定义的流名称 StreamName，选择地址过期时间单击【生成地址】即可。其中`rtmp://domain/live/test?xxx`即为推流 URL。
 ![](https://main.qcloudimg.com/raw/b92179a1020d676d5e93e7ea4bfd6c37.png)
  >? 
  >- AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。若要自定义须 [提交工单](https://console.cloud.tencent.com/workorder/category) 开通配置，AppName 仅支持英文字母、数字和符号。
