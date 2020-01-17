@@ -53,7 +53,7 @@
 ```
 {
     Action=AppCreateCellphoneUser,
-    AppKey=ahPxdKWywfNTGrejd,
+    AppKey=ahPxdK*****NT*****,
     CountryCode=86,
     Nonce=71087795,
     Password=My!P@ssword,
