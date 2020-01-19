@@ -8,7 +8,7 @@
  - 原 IP 唯一不可以重复，即私有网络内1个 IP 只能唯一映射为1个 IP。
  - 映射 IP 唯一不可以重复，即不支持多个私有网络 IP 映射为同1个 IP。
  - 原目的 IP 不支持广播地址（255.255.255.255）、D 类地址（224.0.0.0 - 239.255.255.255）、E 类地址（240.0.0.0 - 255.255.255.254）。
- - 专线网关的本端 IP 转换规则数上限为100条，每个本端 IP 转换最大支持20条 ACL 规则（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
+ - 专线网关的本端 IP 转换最大支持100个 IP 映射，每个IP 映射最大支持20条 ACL 规则（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
 
 #### 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
@@ -20,7 +20,7 @@
 ![](https://main.qcloudimg.com/raw/272179c4b42889d1135b425b1d258262.png)
 6. 在弹框中，输入原 IP、映射 IP 及备注，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/42172589f8ebd012cc9f2a6a3eec556a.png)
-7. （可选）新增本端 IP 映射时，默认添加了 ALL PASS 的 ACL 规则，即本端 IP 转换对所有专用通道生效，您可以编辑本端 IP 转换的 ACL 规则，以改变本端 IP 转换的适用范围。
+7. （可选）新增本端 IP 映射时，默认添加了允许所有进出流量通过的 ACL 规则，即本端 IP 转换对所有专用通道生效，您可以编辑本端 IP 转换的 ACL 规则，以改变本端 IP 转换的适用范围。
 >?
 >- 当专线网关同时配置对端 IP 转换时，本端 IP 转换 ACL 规则的**目的 IP** 需要填写**对端 IP 转换的映射 IP** ，而不是原 IP。
 >- 本端 IP 转换 ACL 规则支持配置协议（支持 TCP 或 UDP）、源端口、目的 IP、目的端口，其中，端口、IP 不填代表 ALL；当协议选择 ALL 时，端口和 IP 默认均选择 ALL。
@@ -41,7 +41,7 @@
 - 原 IP 唯一不可以重复，即专线对端1个 IP 只能唯一映射为1个 IP。
 - 映射 IP 唯一不可以重复，即不支持多个专线对端 IP 映射为同1个 IP。
 - 原目的 IP 不支持广播地址（255.255.255.255）、D 类地址（224.0.0.0 - 239.255.255.255）、E 类地址（240.0.0.0 - 255.255.255.254）。
-- 专线网关的对端 IP 转换规则数上限为100条（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
+- 专线网关的对端 IP 转换最大支持100个 IP 映射（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
 
 #### 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
@@ -79,7 +79,7 @@
 ![](https://main.qcloudimg.com/raw/51e5c340f4cbbc6d8027763eb2fef678.png)
 6. 在弹框中，输入映射 IP 池（支持 IP 或 IP 段，IP 段格式为 “A - B”）和备注，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/d6eb837b6e564195a2baab5eb77696ff.png) 
-7. 新增映射 IP 池的 ACL 规则为 ALL DROP，需要额外编辑 ACL 规则才可以实现网络转换。
+7. 新增映射 IP 池的 ACL 规则为拒绝所有进出流量通过，需要额外编辑 ACL 规则才可以实现网络转换。
 >? 
 >- 当专线网关同时配置对端 IP 转换时，本端源 IP 端口转换 ACL 规则的**目的 IP** 需要填写**对端 IP 转换的映射 IP**，而不是原 IP。
 >- 本端源 IP 端口转换 ACL 规则支持配置协议（支持 TCP 或 UDP）、源 IP、源端口、目的 IP、目的端口。
