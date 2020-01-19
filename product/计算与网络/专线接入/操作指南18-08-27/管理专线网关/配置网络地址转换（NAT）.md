@@ -31,7 +31,7 @@
  3. （可选）在 ACL 规则编辑状态下，您可对已有的 ACL 规则进行修改或删除，完成操作后，单击【保存】即可。
  4. （可选）您也可在 IP 映射页中，直接单击<img src="https://main.qcloudimg.com/raw/b2347f733a56962b935f57d086824290.png" style="margin:-3px 0px;width:15px">展开 IP 映射规则，单击规则所在行右侧的【修改】或【删除】，操作完成后，确认操作即可。
 ![](https://main.qcloudimg.com/raw/286d67a50a7bd5b88ba7ea2d2ae1f4b7.png)
-8. （可选）如果您需修改本端 IP 映射，可在 IP 映射页中，单击 IP 映射所在行右侧的【修改 IP 映射】，即可修改本端 IP 映射的原 IP、映射 IP 和备注，单击【确定】 后，IP 映射生效。
+8. （可选）如果您需修改本端 IP 映射，可在 IP 映射页中，单击 IP 映射所在行右侧的【修改 IP 映射】，即可修改本端 IP 映射的原 IP、映射 IP 和备注，单击【确定】后，IP 映射生效。
 ![](https://main.qcloudimg.com/raw/3c494598938fed7c420eca5fb8bed248.png)
 9. （可选）如果您需删除本端 IP 映射，可在 IP 映射页中，单击 IP 映射所在行右侧的【删除】，并确认操作即可，IP 映射删除后将联动删除该 IP 映射下的 ACL 规则。
 
