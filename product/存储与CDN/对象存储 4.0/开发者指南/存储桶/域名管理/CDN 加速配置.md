@@ -153,12 +153,7 @@ CDN 回源鉴权、CDN 鉴权配置会影响 CDN 加速域名和 COS 域名对�
 ### 关闭功能
 在自定义加速域名管理界面，单击【编辑】可更改域名状态，将域名状态由**已上线**改为**已下线**，单击【保存】后等待部署，时间大约为5分钟即可关闭功能， CDN 控制台上相对应的自定义加速域名的状态由**已启动**改为**已关闭**。
 
->!如果要删除自定义域名，在自定义域名状态为**已上线**时，无法直接删除域名的，必须将状态改为**已下线**才可删除域名。
->![](https://main.qcloudimg.com/raw/129b16d92fd976239a328291f9e2469a.jpg)
-
-
-在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以对域名进行关闭或删除操作，详情请参见 [域名操作](https://cloud.tencent.com/document/product/228/5736)。
-![](https://main.qcloudimg.com/raw/760a33c6a0272674e8ac252ddcb29a45.jpg)
+>!如果要删除自定义域名，在自定义域名状态为**已上线**时，无法直接删除域名的，必须将状态改为**已下线**才可删除域名。您可在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 对域名进行关闭或删除操作，详情请参见 [域名操作](https://cloud.tencent.com/document/product/228/5736)。
 
 
 
