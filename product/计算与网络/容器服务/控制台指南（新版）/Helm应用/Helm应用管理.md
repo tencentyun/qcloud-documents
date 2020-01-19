@@ -17,7 +17,7 @@
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【Helm 应用】。
 2. 在 “Helm应用” 页面上方，选择**所在地域**及**运行集群**，并单击【新建】。
 3. 在 “新建 Helm 应用” 页面，根据实际需求填写以下参数。如下图所示：
-![](https://main.qcloudimg.com/raw/c9a0bbcae77df69b519363d42112d177.png)
+![](https://main.qcloudimg.com/raw/ef7f1a35ed5518f8af6a19b2e12b8465.png)
 	- **应用名**：自定义。
 	- **来源**：支持选择第三方仓库，可以是 Helm 官方或自建 Helm Repo 仓库。
 	- **下载地址**：根据实际需求填写具体 Chart 的下载地址，注意必须设置为以 `http` 开头，以 `tgz` 结尾的参数值。
