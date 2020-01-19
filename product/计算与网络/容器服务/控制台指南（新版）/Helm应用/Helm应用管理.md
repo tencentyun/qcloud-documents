@@ -7,23 +7,26 @@
 - 已在集群内开通 Helm 应用管理功能。
 - 仅支持 kubernetes 1.8 以上版本的集群。
 
->? 
-> - 若未开通 Helm 应用管理功能，请在 [Helm 应用](https://console.cloud.tencent.com/tke2/helm) 中申请开通。
-> - 开通 Helm 应用管理功能后，将在集群内安装 Helm tiller 相关组件。
+## 说明事项
+- 若未开通 Helm 应用管理功能，请在 [Helm 应用](https://console.cloud.tencent.com/tke2/helm) 中申请开通。
+- 开通 Helm 应用管理功能后，将在集群内安装 Helm tiller 相关组件。
 
 ## 操作步骤
 
 ### 创建 Helm 应用
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【Helm 应用】。
 2. 在 “Helm应用” 页面上方，选择**所在地域**及**运行集群**，并单击【新建】。
-3. 在 “新建 Helm 应用” 页面，根据实际需求填写以下参数。如下图所示：
-![](https://main.qcloudimg.com/raw/ef7f1a35ed5518f8af6a19b2e12b8465.png)
-	- **应用名**：自定义。
-	- **来源**：支持选择第三方仓库，可以是 Helm 官方或自建 Helm Repo 仓库。
-	- **下载地址**：根据实际需求填写具体 Chart 的下载地址，注意必须设置为以 `http` 开头，以 `tgz` 结尾的参数值。
-	- **类型**：提供公有和私有两种类型，请根据实际情况进行选择。
-	- **Key-Value**：可通过设置自定义参数替换 Chart 包的默认配置，如：`image.repository = nginx`。
+3. 单击【新建】，进入 “新建 Helm 应用” 页面。
+4. 在 “新建 Helm 应用” 页面，根据实际需求填写以下参数。如下图所示：
+ ![](https://main.qcloudimg.com/raw/b662048d70667b37e75e2952acdbad0a.png)
+ Helm Chart 来源主要分为以下两种：
+ - **TencentHub**：可选择公开和私有两种。详情请参见 [TencentHub Helm Chart 操作指引](https://cloud.tencent.com/document/product/857/31683)。
+ - **其他**：选择 Helm 官方或自建 Helm Repo 仓库。
+>!
+>- TencentHub 预计将于2020年3月正式下线，目前仅存量用户可使用此功能，同时已不支持新用户开通使用。建议所有用户再次新建 Helm 应用时请选择第三方仓库来源进行创建。
+>- 当您选择 “其他” 类型来源时，Chart_url 属性必须设置为以 `http` 开头 `tgz` 结尾的参数值。
 5. 单击【完成】，即可新建成功。
+
 
 ### 更新 Helm 应用
 
