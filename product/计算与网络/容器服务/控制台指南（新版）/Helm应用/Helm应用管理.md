@@ -23,7 +23,7 @@
    - **TencentHub**：可选择公开和私有两种。详情请参见 [TencentHub Helm Chart](https://cloud.tencent.com/document/product/857/31683) 操作指引。
    >?TencentHub 预计将于2020年3月正式下线，目前仅存量用户可使用此功能，同时已不支持新用户开通使用。建议所有用户再次新建 Helm 应用时请选择第三方仓库来源进行创建。
      - **第三方仓库**：可以是 Helm 官方或自建 Helm Repo 仓库。
-	- **下载地址**：根据实际需求填写具体 Chart 的下载地址，注意必须设置为以 `http` 开头 `tgz` 结尾的参数值。
+		- **下载地址**：根据实际需求填写具体 Chart 的下载地址，注意必须设置为以 `http` 开头 `tgz` 结尾的参数值。
 	- **类型**：提供公有和私有两种类型，请根据实际情况进行选择。
 	- **Key-Value**：可通过设置自定义参数替换 Chart 包的默认配置，如 `image.repository = nginx`。
 5. 单击【完成】，即可新建成功。
