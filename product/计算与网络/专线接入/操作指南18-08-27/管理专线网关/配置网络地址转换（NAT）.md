@@ -8,7 +8,7 @@
  - 原 IP 唯一不可以重复，即私有网络内1个 IP 只能唯一映射为1个 IP。
  - 映射 IP 唯一不可以重复，即不支持多个私有网络 IP 映射为同1个 IP。
  - 原目的 IP 不支持广播地址（255.255.255.255）、D 类地址（224.0.0.0 - 239.255.255.255）、E 类地址（240.0.0.0 - 255.255.255.254）。
- - 专线网关的本端 IP 转换最大支持100个 IP 映射，每个IP 映射最大支持20条 ACL 规则（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
+ - 专线网关的本端 IP 转换最大支持100个 IP 映射，每个 IP 映射最大支持20条 ACL 规则（如需提升配额，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)）。
 
 #### 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
