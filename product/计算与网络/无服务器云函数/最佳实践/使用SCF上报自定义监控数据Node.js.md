@@ -153,7 +153,7 @@ zip newnodeproject.zip * -r
 ### 步骤6：触发调试
 在【函数代码】页签中，单击界面下方的【测试】，“当前测试模板”使用默认【Hello World事件模板】测试即可。
 返回结果如下，则表示监控数据上报成功：
-![](https://main.qcloudimg.com/raw/0f43683a8f9a072d5fafde9b720219af.png)
+![](https://main.qcloudimg.com/raw/16b4d049cfcb5869fe1d406bc2c35b34.png)
 
 ### 步骤7：查看监控视图
 进入 [自定义监控](https://console.cloud.tencent.com/monitor/indicator-view) 查看已触发上报的指标视图。如下图所示：
