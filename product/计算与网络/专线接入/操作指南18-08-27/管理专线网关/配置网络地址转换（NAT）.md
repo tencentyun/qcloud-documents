@@ -13,7 +13,7 @@
  ![](https://main.qcloudimg.com/raw/272179c4b42889d1135b425b1d258262.png)
        2. 在弹框中，输入原 IP、映射 IP 及备注（可选），单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/42172589f8ebd012cc9f2a6a3eec556a.png)
- >?新增本端 IP 转换规则，默认添加了 ALL PASS 的 ACL 规则，即本端 IP 转换对所有专用通道生效，您可以编辑本端 IP 转换的 ACL 规则，以改变本端 IP 转换的适用范围。
+ >?新增本端 IP 转换地址，默认添加了 ALL PASS 的 ACL 规则，即本端 IP 转换对所有专用通道生效，您可以编辑本端 IP 转换的 ACL 规则，以改变本端 IP 转换的适用范围。
 >
     - **修改**
 在 IP 映射页中，单击 IP 转换规则所在行右侧的【修改 IP 映射】，即可编辑本端 IP 转换规则的原 IP、映射 IP 和备注（可选），单击【确认】 后，IP 转换生效。
