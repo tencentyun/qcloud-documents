@@ -1,24 +1,24 @@
-﻿本文介绍如何使用无服务器的云函数（SCF）上报数据至自定义监控，查看指标并配置告警。
+## 简介
 
-## 背景：
+本文介绍如何使用无服务器的 [云函数 SCF](https://cloud.tencent.com/document/product/583) 上报数据至自定义监控，查看指标并配置告警。
 
 云函数可帮助您在无需购买和管理服务器的情况下运行代码。云函数的配套监控功能覆盖了云函数自身的指标监控，如：函数被调用次数，错误次数，消耗内存等。
 
 自定义监控可以帮助您监控业务逻辑，如：某个逻辑错误的次数，红包活动中用户发送红包的数量，领取红包的数量等。您可以直接在代码内打点上报业务指标，系统自动汇聚后实时生成监控图表。可以针对上报指标配置告警，查看指标趋势变化。
 
-## 示例逻辑：
+## 示例逻辑
 
-- 每次请求判断是否存在‘key1’字符传入，如有，则成功次数(suc_counts)+1，如无，则失败次数(fail_counts)+1
-- 本示例基于python2.7环境演示
+- 每次请求判断是否存在`‘key1’`字符传入：如有，则成功次数`(suc_counts)+1`；如无，则失败次数`(fail_counts)+1`。
+- 本示例基于 Python2.7 环境演示。
 
-## 前提条件：
+## 准备工作
 
-- 在使用SCF上报数据之前，请先了解[云函数（SCF）](https://cloud.tencent.com/document/product/583)
-- 有一台本地设备或[腾讯云服务器](https://cloud.tencent.com/product/cvm)，用于构建项目、打包代码
+- 在使用SCF上报数据之前，请先了解 [云函数（SCF）](https://cloud.tencent.com/document/product/583)
+- 有一台本地设备或 [腾讯云服务器](https://cloud.tencent.com/product/cvm)，用于构建项目、打包代码。
 
 ## 操作流程：
 
-### 步骤1： 新建本地项目
+### 步骤1：新建本地项目
 
 ```
 [root@VM_0_3_centos /data]# mkdir MyProject
@@ -26,7 +26,7 @@
 
 ### 步骤2：编写业务逻辑
 
-新建一个index.py，内容如下：
+新建一个`index.py`，内容如下：
 
 ```
 # -*- coding: utf8 -*-
@@ -35,10 +35,10 @@ import urllib2
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
 from tencentcloud.monitor.v20180724 import monitor_client, models
-#自定义监控初始化函数，指定region和secrecId、secretKey
+# 自定义监控初始化函数，指定region和secrecId、secretKey
 def MONITOR(secretId,secretKey):
     try:
-        # 获取region地区，这里填写云函数所在的地域
+        # 获取 region 地区，这里填写云函数所在的地域
         region = "ap-guangzhou"
 
         cred = credential.Credential(secretId,secretKey )
@@ -47,7 +47,7 @@ def MONITOR(secretId,secretKey):
     except TencentCloudSDKException as err:
         print(err)
     return client
-#自定义监控上报函数，传入函数名称，指标名称，指标值
+# 自定义监控上报函数，传入函数名称，指标名称，指标值
 def API(client,instanceName,MetricName,Value):
     req = models.PutMonitorDataRequest() 
     req.AnnounceInstance = instanceName
@@ -61,16 +61,14 @@ def API(client,instanceName,MetricName,Value):
 def main_handler(event, context):
     client = MONITOR("yourSecretId", "yourSecretKey")
     if 'key1' in event.keys():
-        #scf的名称需要包含namespace和函数名称，中间用"|"分割
+        # SCF 的名称需要包含 namespace 和函数名称，中间用"|"分割
         print(API(client,"default|scf_monitor_Test","scf_suc_count",1))
     else:
     	print(API(client,"default|scf_monitor_Test","scf_fail_count",1))
     return "hello from scf"  #return
-
-
 ```
 
-### 步骤3：安装自定义监控SDK
+### 步骤3：安装自定义监控 SDK
 
 将自定义监控的SDK以及相关依赖安装到项目目录中
 
@@ -89,60 +87,50 @@ drwxr-xr-x 99 root root    4096 Dec 16 20:40 tencentcloud
 drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dist-info
 ```
 
-> ?
-> Python语言SDK下载链接：[Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)
+> ?Python 语言 SDK 下载链接：[Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)
 
 ### 步骤4：打包项目文件
 
-将整个项目目录打包成zip文件
+执行如下命令，将整个项目目录打包成 ZIP 文件：
 
 ```
 [root@VM_0_3_centos /data/MyProject]# zip project.zip * -r
 ```
 
-文件打包完后，下载文件到本地，后续需把整个项目上传到云函数
+文件打包完后，下载文件到本地，后续需把整个项目上传到云函数。
 
 ### 步骤5：上传项目压缩包至云函数
 
-1.新建云函数
-
+1. 新建云函数
 - 进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，选择云函数所在的区域
-  ![](https://main.qcloudimg.com/raw/6d1065c77c130e910e3bf43f2c2d6169.png)
+	![](https://main.qcloudimg.com/raw/6d1065c77c130e910e3bf43f2c2d6169.png)
 - 点击【新建】，填写完基础信息后，点击【下一步】
-  ![](https://main.qcloudimg.com/raw/2b052b10320259b6529ea373823b0534.png)
+	![](https://main.qcloudimg.com/raw/2b052b10320259b6529ea373823b0534.png)
 - 进入函数配置页，使用默认设置即可，点击【完成】
-  ![](https://main.qcloudimg.com/raw/7864f41579e9cff9790da7c60239ad47.png)
-
-2.上传步骤4打包好的项目zip文件
-
-- 在云函数详情页，点击【函数代码】
-- 选择本地上传zip包
-
+	![](https://main.qcloudimg.com/raw/7864f41579e9cff9790da7c60239ad47.png)
+2. 上传步骤4打包好的项目 ZIP 文件。
+	- 在云函数详情页，单击【函数代码】
+	- 选择本地上传 ZIP 包
 ![](https://main.qcloudimg.com/raw/7a6ec890265d6659a9045c4eadb381ec.png)
-
 - 上传成功后，系统会自动解压并展示index.py文件内的代码内容
   ![](https://main.qcloudimg.com/raw/d3b7ca7a1561828005205303ac79f989.png)
 - 点击【保存】即可完成项目上传
 
 ### 步骤6：触发调试
 
-1.新建测试模板
-
-- 在函数代码页，选择【新建模板】
+1. 新建测试模板
+2. 在函数代码页，选择【新建模板】
   ![](https://main.qcloudimg.com/raw/861fb66bfeb3030cebe0503493496129.png)
-- 基于代码逻辑填入测试内容：
-
+3. 基于代码逻辑填入测试内容：
 ```
 {
   "key1": "test value 1",
   "key2": "test value 2"
 }
 ```
-
 ![](https://main.qcloudimg.com/raw/d2a9d8fae909a79d5b06840d45668436.png)
-
-- 点击【提交】，选择scf_monitor_test测试模板进行测试
-  ![](https://main.qcloudimg.com/raw/978e57490f1891c4050cda7570fc0e47.png)
+4. 单击【提交】，选择 scf_monitor_test 测试模板进行测试
+![](https://main.qcloudimg.com/raw/978e57490f1891c4050cda7570fc0e47.png)
 
 ### 步骤7：查看监控视图
 
@@ -151,4 +139,4 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 
 ### 步骤8：配置告警
 
-参阅[“配置告警策略”](https://cloud.tencent.com/document/product/397/40223)
+详情请参见 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
