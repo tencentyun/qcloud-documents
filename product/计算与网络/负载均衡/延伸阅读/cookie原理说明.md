@@ -10,7 +10,7 @@ Cookie 就是这样一个用来标识每一次请求的状态位。经过多年�
 ## Cookie 的工作原理
 ![](https://main.qcloudimg.com/raw/8a63cf99b3b83521817aa472257b6c95.png)
 
-1. 当首次向腾讯云发起请求时，HTTP 请求头如下：
+1. 当客户端首次向腾讯云的服务器发起请求时，HTTP 请求头如下：
 ```
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8 
 Accept-Encoding:gzip, deflate, sdch 
@@ -24,8 +24,9 @@ Set-Cookie:BD_HOME=1; path=/
 Set-Cookie:__bsi=14934756243064632384_00_0_I_R_174_0303_C02F_N_I_I_0; expires=Thu, 19-Nov-15 14:14:50 GMT; domain=www.qcloud; path=/ 
 Set-Cookie:BDSVRTM=172; path=/
 ```
-3. 当客户端浏览器接收到响应头以后，会将 Cookie 信息写入本地进行管理。
-4. 再次向服务器发起请求时，客户端通过发送一个带有 Cookie: name=value; name2=value2 的 HTTP 请求头将之前存在本地的 Cookie 一起发送过去。请求的头部信息为：
+3. 腾讯云的服务器向客户端返回响应结果。
+4. 当客户端接收到响应头以后，会读取 Cookie 信息并写入本地进行管理。
+5. 再次向服务器发起请求时，客户端通过发送一个带有 Cookie: name=value; name2=value2 的 HTTP 请求头将之前存在本地的 Cookie 一起发送过去。请求的头部信息为：
 ```
 Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,/;q=0.8 
 Accept-Encoding:gzip, deflate, sdch 
@@ -34,7 +35,7 @@ Connection:keep-alive
 Cookie:BD_HOME=1; BDSVRTM=0; BD_LAST_QID=1507196234531915875957057 
 Host:cloud.tencent.com
 ```
-5. 服务器接收到请求以后，从请求头中获得 Cookie 信息，分析 Cookie 数据后向客户端返回响应。
+6. 服务器接收到请求以后，从请求头中获得 Cookie 信息，分析 Cookie 数据后向客户端返回响应。
 
 如上所述是 Cookie 在客户端和服务器之间进行传递信息的基本过程。
 
