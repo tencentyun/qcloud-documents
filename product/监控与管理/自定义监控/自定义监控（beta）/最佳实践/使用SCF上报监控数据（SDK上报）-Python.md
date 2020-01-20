@@ -13,7 +13,7 @@
 
 ## 准备工作
 
-- 在使用SCF上报数据之前，请先了解 [云函数（SCF）](https://cloud.tencent.com/document/product/583)
+- 在使用SCF上报数据之前，请先了解 [云函数 SCF ](https://cloud.tencent.com/document/product/583)。
 - 有一台本地设备或 [腾讯云服务器](https://cloud.tencent.com/product/cvm)，用于构建项目、打包代码。
 
 ## 操作流程：
@@ -70,7 +70,7 @@ def main_handler(event, context):
 
 ### 步骤3：安装自定义监控 SDK
 
-将自定义监控的SDK以及相关依赖安装到项目目录中
+将自定义监控的 SDK 以及相关依赖安装到项目目录中。
 
 ```
 [root@VM_0_3_centos /data/MyProject]# pip install tencentcloud-sdk-python -t .
@@ -87,8 +87,9 @@ drwxr-xr-x 99 root root    4096 Dec 16 20:40 tencentcloud
 drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dist-info
 ```
 
-> ?Python 语言 SDK 下载链接：[Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)
+> ?Python 语言 SDK 下载链接：[Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)。
 
+<span id="step4"></span>
 ### 步骤4：打包项目文件
 
 执行如下命令，将整个项目目录打包成 ZIP 文件：
@@ -102,19 +103,18 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 ### 步骤5：上传项目压缩包至云函数
 
 1. 新建云函数
-- 进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，选择云函数所在的区域
-	![](https://main.qcloudimg.com/raw/6d1065c77c130e910e3bf43f2c2d6169.png)
-- 点击【新建】，填写完基础信息后，点击【下一步】
-	![](https://main.qcloudimg.com/raw/2b052b10320259b6529ea373823b0534.png)
-- 进入函数配置页，使用默认设置即可，点击【完成】
-	![](https://main.qcloudimg.com/raw/7864f41579e9cff9790da7c60239ad47.png)
-2. 上传步骤4打包好的项目 ZIP 文件。
-	- 在云函数详情页，单击【函数代码】
-	- 选择本地上传 ZIP 包
-![](https://main.qcloudimg.com/raw/7a6ec890265d6659a9045c4eadb381ec.png)
-- 上传成功后，系统会自动解压并展示index.py文件内的代码内容
-  ![](https://main.qcloudimg.com/raw/d3b7ca7a1561828005205303ac79f989.png)
-- 点击【保存】即可完成项目上传
+	1. 进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，选择云函数所在的区域。
+		![](https://main.qcloudimg.com/raw/cc955704c81dd7768278a6165470c239.jpg)
+	2. 单击【新建】，填写完基础信息后，单击【下一步】。
+		![](https://main.qcloudimg.com/raw/1758adaad8119f597cb98bc4f246154d.jpg)
+	3. 进入函数配置页，使用默认设置即可，单击【完成】。
+2. 上传 [步骤4](#step4) 打包好的项目 ZIP 文件。
+	1. 在云函数详情页，单击【函数代码】，进入函数编辑页面。
+	2. 选择本地上传 ZIP 包。
+![](https://main.qcloudimg.com/raw/eab27a56361beddb650429e52f495ccc.jpg)
+	3. 上传成功后，系统会自动解压并展示`index.py`文件内的代码内容。
+		![](https://main.qcloudimg.com/raw/d4bcd548ab85d0a9f9c987063de007f5.jpg)
+	4. 单击【保存】即可完成项目上传
 
 ### 步骤6：触发调试
 
