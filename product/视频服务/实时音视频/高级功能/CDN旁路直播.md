@@ -49,7 +49,7 @@ http://播放域名/live/[streamid].flv
 其中 `播放域名`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
 
 - 流类型：一般情况下，摄像头画面的流类型是 main，屏幕分享的流类型是 aux
- >!由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main。
+ >!WebRTC 端同时只支持一路上行，因此 WebRTC 上屏幕分享的流类型是 main。
 - `streamid = urlencode(sdkappid_房间号_userId_流类型)`，即由`sdkappid_房间号_userId_流类型`计算的流 ID 经过 URL 编码而成。
 - sdkappid：请在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 选择已经创建的应用，在“应用信息”中获取。 
  ![](https://main.qcloudimg.com/raw/5d54378547d8bb38c60ae153039da196.png)
