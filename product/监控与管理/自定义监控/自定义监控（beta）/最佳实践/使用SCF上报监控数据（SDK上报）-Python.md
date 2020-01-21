@@ -16,7 +16,7 @@
 - 在使用SCF上报数据之前，请先了解 [云函数 SCF ](https://cloud.tencent.com/document/product/583)。
 - 有一台本地设备或 [腾讯云服务器](https://cloud.tencent.com/product/cvm)，用于构建项目、打包代码。
 
-## 操作流程：
+## 操作步骤
 
 ### 步骤1：新建本地项目
 
@@ -118,25 +118,27 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 
 ### 步骤6：触发调试
 
-1. 新建测试模板
-2. 在函数代码页，选择【新建模板】
-  ![](https://main.qcloudimg.com/raw/861fb66bfeb3030cebe0503493496129.png)
-3. 基于代码逻辑填入测试内容：
+#### 新建测试模板
+1. 在函数代码页面，选择【新建模板】。
+![](https://main.qcloudimg.com/raw/180b138c45e7b8012105151342d99216.jpg)
+2. 基于代码逻辑填入测试内容：
 ```
 {
-  "key1": "test value 1",
-  "key2": "test value 2"
+		"key1": "test value 1",
+		"key2": "test value 2"
 }
 ```
-![](https://main.qcloudimg.com/raw/d2a9d8fae909a79d5b06840d45668436.png)
-4. 单击【提交】，选择 scf_monitor_test 测试模板进行测试
+![](https://main.qcloudimg.com/raw/f8d6266d3e25e5945815e9210cf295c6.jpg)
+3. 单击【提交】，提交测试模板
+4. 选择 scf_monitor_test 测试模板，单击【测试】进行测试。若测试结果出现`{"RequestId": "xxxxxxx"}`，即表示监控数据上报成功。
 ![](https://main.qcloudimg.com/raw/978e57490f1891c4050cda7570fc0e47.png)
 
 ### 步骤7：查看监控视图
 
-进入 [自定义监控](https://console.cloud.tencent.com/monitor/indicator-view) 查看步骤6触发上报的指标视图
-![](https://main.qcloudimg.com/raw/6ec43068b3633da7e41174c4a0bbd283.png)
+进入 [自定义监控](https://console.cloud.tencent.com/monitor/indicator-view) 查看步骤6触发上报的指标视图。
+![](https://main.qcloudimg.com/raw/8fb2e5bef9fb66d6565f6bb53ec172b7.jpg)
+
 
 ### 步骤8：配置告警
 
-详情请参见 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
+详细的告警配置步骤请参见 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
