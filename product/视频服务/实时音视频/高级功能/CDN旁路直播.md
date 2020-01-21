@@ -28,7 +28,8 @@
 5. 当连麦结束后，主播可以再次调用 `setMixTranscodingConfig()` 接口关闭混流，将 CDN 地址中的视频画面恢复为单人画面。
 
 ## 前提条件
-已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。应国家相关部门的要求，直播播放必须配置播放域名，请在直播控制台页面添加，具体参考文档[添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。应国家相关部门的要求，直播播放必须配置播放域名，具体操作请参考 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+
 ## 使用步骤
 
 ### 步骤1：开通服务
@@ -47,10 +48,11 @@ http://播放域名/live/[streamid].flv
 
 其中 `播放域名`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
 
-- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
-- `streamid = urlencode(sdkappid_房间号_userId_流类型)`，即由`sdkappid_房间号_userId_流类型`计算的流id经过url编码而成。
-- sdkappid：请在[实时音视频控制台](https://console.cloud.tencent.com/trtc/app)选择已经创建的应用，在“应用信息”中获取。 
-![](https://main.qcloudimg.com/raw/5705ab35bc16ab3f0681b92d1ef4d78f.png)
+- 流类型：一般情况下，摄像头画面的流类型是 main，屏幕分享的流类型是 aux
+ >!由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main。
+- `streamid = urlencode(sdkappid_房间号_userId_流类型)`，即由`sdkappid_房间号_userId_流类型`计算的流 ID 经过 URL 编码而成。
+- sdkappid：请在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 选择已经创建的应用，在“应用信息”中获取。 
+ ![](https://main.qcloudimg.com/raw/5705ab35bc16ab3f0681b92d1ef4d78f.png)
 
 我们通过如下示例来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
