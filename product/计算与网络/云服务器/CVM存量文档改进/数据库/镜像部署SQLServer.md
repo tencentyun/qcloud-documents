@@ -24,6 +24,29 @@
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
-### 步骤2：登录 SQL Server 数据库
+### 步骤2：连接 SQL Server 数据库<sapn id="Step2"></span>
 1. 参考 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435) 登录云服务器。
-2. 双击 Windows 云服务器界面中的 “” 快捷方式。
+2. 双击 Windows 云服务器界面中的 “SQL Server Management Studio” 快捷方式，打开数据库控制面板。
+3. 在弹出的“连接到服务器”窗口中，参考以下信息连接到数据库。如下图所示：
+主要参数信息如下，其余配置请保持默认设置：
+![](https://main.qcloudimg.com/raw/42581bbace6881dbd36abab63644706d.png)
+  - **登录名**：sa。
+  - **密码**：本文使用镜像初始密码默认为 `websoft9!`。为保证数据库安全性，请参考 [步骤3](#Step3) 设置自定义密码。
+4. 单击【连接】即可成功连接数据库。如下图所示：
+![](https://main.qcloudimg.com/raw/f05a7557389ca26ded8a059a5f1dbcb0.png)
+
+### 步骤3：修改数据库连接密码<span id="Step3"></sapn>
+1. 成功连接数据库后，选择左侧导航栏中的【安全性】>【登录名】>【sa】。
+2. 右键单击【sa】，并选择【属性】。如下图所示：
+![](https://main.qcloudimg.com/raw/ffa7876f04ba3e2be31567f098c264eb.png)
+3. 在弹出的 “登录属性 - sa” 窗口中，在“密码”中重新输入新密码，并在“确认密码”中再次输入确认密码。
+4. 单击【确定】即可成功修改密码。如下图所示：
+![](https://main.qcloudimg.com/raw/94b1abbeffcbb4dff84a4118513c9398.png)
+5. 当您再次打开此数据库控制面板时，即可参考 [步骤2](#Step2) 使用新密码连接数据库。
+
+
+## 常见问题
+如果您在部署 SQL Server 数据库的过程中遇到问题，可参考以下文档进行分析并解决问题：
+
+- 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+- 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
