@@ -52,7 +52,7 @@ http://播放域名/live/[streamid].flv
  >!由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main。
 - `streamid = urlencode(sdkappid_房间号_userId_流类型)`，即由`sdkappid_房间号_userId_流类型`计算的流 ID 经过 URL 编码而成。
 - sdkappid：请在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 选择已经创建的应用，在“应用信息”中获取。 
- ![](https://main.qcloudimg.com/raw/5705ab35bc16ab3f0681b92d1ef4d78f.png)
+ ![](https://main.qcloudimg.com/raw/5d54378547d8bb38c60ae153039da196.png)
 
 我们通过如下示例来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
 ```
