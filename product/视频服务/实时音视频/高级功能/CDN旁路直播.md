@@ -58,7 +58,7 @@ http://播放域名/live/[streamid].flv
 ```
 例如，sdkappid = 12345678，进行旁路直播的房间号 = 12345、userId = userA，用户当前使用了摄像头。
 
-1. streamid = urlencode(12345678\_12345\_userA_main) = 12345678\_12345\_userA\_main
+1. streamid = urlencode(12345678_12345_userA_main) = 12345678_12345_userA_main
 2. 拼接后 userA 这一路的腾讯云 CDN 观看地址为：
  flv 协议：http://播放域名/live/12345678_12345_userA_main.flv
  hls 协议：http://播放域名/live/12345678_12345_userA_main.m3u8
