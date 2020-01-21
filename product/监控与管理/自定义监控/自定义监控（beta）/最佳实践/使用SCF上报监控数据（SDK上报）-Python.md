@@ -13,7 +13,7 @@
 
 ## 准备工作
 
-- 在使用SCF上报数据之前，请先了解 [云函数 SCF ](https://cloud.tencent.com/document/product/583)。
+- 在使用 SCF 上报数据之前，请先了解 [云函数 SCF ](https://cloud.tencent.com/document/product/583)。
 - 有一台本地设备或 [腾讯云服务器](https://cloud.tencent.com/product/cvm)，用于构建项目、打包代码。
 
 ## 操作步骤
@@ -73,7 +73,7 @@ def main_handler(event, context):
 将自定义监控的 SDK 以及相关依赖安装到项目目录中。
 
 ```
-[root@VM_0_3_centos /data/MyProject]# pip install tencentcloud-sdk-python -t .
+[root@VM_0_3_centos /data/MyProject]# pip install tencentcloud-sdk-python -t
 ```
 
 安装完成后，项目根目录文件如下：
@@ -129,7 +129,7 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 }
 ```
 ![](https://main.qcloudimg.com/raw/f8d6266d3e25e5945815e9210cf295c6.jpg)
-3. 单击【提交】，提交测试模板
+3. 单击【提交】，提交测试模板。
 4. 选择 scf_monitor_test 测试模板，单击【测试】进行测试。若测试结果出现`{"RequestId": "xxxxxxx"}`，即表示监控数据上报成功。
 ![](https://main.qcloudimg.com/raw/978e57490f1891c4050cda7570fc0e47.png)
 
