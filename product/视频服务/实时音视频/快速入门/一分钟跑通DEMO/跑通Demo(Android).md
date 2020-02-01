@@ -24,11 +24,11 @@
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `./debug/GenerateTestUserSig.js`文件。
+2. 找到并打开`Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/ec5cfa0864772fb484266603a4b5c1d0.png">
+	<img src="https://main.qcloudimg.com/raw/f3b4d062f641476f4eca16fa5e06aaad.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
