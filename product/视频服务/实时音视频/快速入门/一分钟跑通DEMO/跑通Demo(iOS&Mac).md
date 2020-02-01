@@ -16,7 +16,10 @@
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/265114e89df7875be101506a77d60803.png)
+ - iOS:
+  ![](https://main.qcloudimg.com/raw/bcf0b69f1f5606add61ef1deb5889256.png)
+ - Mac:
+  ![](https://main.qcloudimg.com/raw/dae59b4be01fa68579b3cccbc2a90a42.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
