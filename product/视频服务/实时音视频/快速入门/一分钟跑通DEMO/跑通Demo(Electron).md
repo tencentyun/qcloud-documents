@@ -43,7 +43,7 @@ Demo 源码工程中的`GenerateTestUserSig.js`文件可以通过 HMAC-SHA256 �
 3. 设置`GenerateTestUserSig.h`文件中的相关参数：
   - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
   - PRIVATEKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
-  ![](https://main.qcloudimg.com/raw/9275a5f99bf00467eac6c34f6ddd3ca5.jpg)
+  ![](https://main.qcloudimg.com/raw/f27d322f58e4040008d2ea773a59c490.png)
 
 <span id="step5"></span>
 ### 步骤5：编译运行
