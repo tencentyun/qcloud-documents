@@ -16,18 +16,14 @@
 ## 操作步骤
 <span id="step1"></span>
 ### 步骤1：创建新的应用
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)。
- - 若是首次登录，直接单击【立即开始】。
-  ![](https://main.qcloudimg.com/raw/063eb714daa9ab9076b20663bd4c78b7.png)
- - 否则需先单击【+创建应用并跑通Demo】，再点击【立即开始】。
-  ![](https://main.qcloudimg.com/raw/fb5ca0967f09d4970b2dc610f17d5b2c.png)
-2. 输入应用名称，例如`TestTRTC`，单击【创建应用】。
- ![](https://main.qcloudimg.com/raw/da7b1535b37c4d0b3e63ce49598149fe.png)
+1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
+2. 单击【立即开始】,输入应用名称，例如`TestTRTC`，单击【创建应用】。
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】。
+ ![](https://main.qcloudimg.com/raw/265114e89df7875be101506a77d60803.png)
+2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 
 <span id="step3"></span>
@@ -35,9 +31,9 @@
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开 `./debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
-  - SDKAPPID：请设置为实际的 SDKAppID。
-  - SECRETKEY：请设置为实际密钥信息。
-  	![](https://main.qcloudimg.com/raw/441332d053cbf16cc04a68dbfdae23d8.png)
+  - SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+  - SECRETKEY：默认为空字符串，请设置为实际的密钥信息。 
+ ![](https://main.qcloudimg.com/raw/3c43f7d2d9a0f0141416300354536891.png)
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
@@ -49,14 +45,14 @@
 - 小程序推拉流标签不支持个人小程序，只支持企业类小程序。
 - 小程序推拉流标签使用权限暂时只开放给有限 [类目](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html)。
 - 符合类目要求的小程序，需要在【[微信公众平台](https://mp.weixin.qq.com)】>【开发】>【接口设置】中自助开通该组件权限，如下图所示：
- ![](https://main.qcloudimg.com/raw/a5a9c121cd2dda0f879f97ba01922e15.png)
+ ![](https://main.qcloudimg.com/raw/ad87091aaae2db6ad412136297886c15.png)
 
 ### 步骤5：编译运行
 1. 打开微信开发者工具，选择【小程序】，单击新建图标，选择【导入项目】。
 2. 填写您微信小程序的 AppID，单击【导入】。
  >!此处应输入您微信小程序的 AppID，而非 SDKAppID。
  >
- ![](https://main.qcloudimg.com/raw/b4eefa2896672e132f827fea79a2608b.jpg)
+ ![](https://main.qcloudimg.com/raw/b4eefa2896672e132f827fea79a2608b.jpg)   
 3. 单击【预览】，生成二维码，通过手机微信扫码二维码即可进入小程序。
 
 >! 
