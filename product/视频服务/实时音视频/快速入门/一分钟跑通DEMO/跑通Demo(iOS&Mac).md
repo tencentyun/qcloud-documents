@@ -15,17 +15,29 @@
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- - iOS:
+1. 鼠标移动至对应卡片，下载相关 SDK 及配套的 Demo 源码。
+ - **iOS：**单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip?_ga=1.195966252.185644906.1567570704)】）
   ![](https://main.qcloudimg.com/raw/bcf0b69f1f5606add61ef1deb5889256.png)
- - Mac:
+ - **Mac：**单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2?_ga=1.195966252.185644906.1567570704)】）
   ![](https://main.qcloudimg.com/raw/dae59b4be01fa68579b3cccbc2a90a42.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `./debug/GenerateTestUserSig.js`文件。
+2. 找到并打开`GenerateTestUserSig.h`文件：
+ <table><tr>
+      <th nowrap="nowrap">适用平台</th>
+      <th nowrap="nowrap">文件相对路径</th>
+  </tr>
+<tr>
+      <td>iOS</td>
+<td>iOS/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+  </tr>
+<tr>
+    <td>Mac</td>
+    <td>Mac/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+  </tr></table>
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
