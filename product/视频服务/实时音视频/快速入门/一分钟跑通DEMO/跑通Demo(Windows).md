@@ -41,6 +41,7 @@
 	     <td>Windows(C#)</td>   
 	     <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
      </tr> 
+ </table>
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -48,34 +49,10 @@
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
-
-<h3 id="CopyKey">步骤4：配置 Demo 工程文件</h3>
- Demo 源码工程中的`GenerateTestUserSig`文件可以通过 HMAC-SHA256 算法在本地计算 UserSig，用于快速跑通 Demo。
-
-1. 在 [步骤2](#step2) 中解压的 Demo 源码包目录中，找到并打开 `GenerateTestUserSig`文件。
-  <table>
-     <tr>
-         <th nowrap="nowrap">适用平台</th>  
-         <th nowrap="nowrap">文件相对路径</th>  
-     </tr>
-	 <tr>      
-         <td>Windows(C++)</td>   
-	     <td>Windows/DuilibDemo/GenerateTestUserSig.h</td>   
-     </tr> 
-	 <tr>
-	     <td>Windows(C#)</td>   
-	     <td>Windows/CSharpDemo/GenerateTestUserSig.cs</td>
-     </tr> 
-</table>
-2. 设置`GenerateTestUserSig`文件中的相关参数，下图以 Windows(C++) 为例作为参考：
-  - SDKAppID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
-  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
-    ![](https://main.qcloudimg.com/raw/c8dd14631e8f976944376ba58e9c1079.png)
-
 >!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-### 步骤5：编译运行
+### 步骤4：编译运行
 - **Windows（C++）**
 使用 Visual Stuido（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
