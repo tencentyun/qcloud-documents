@@ -44,7 +44,7 @@ brew install node
 
 在 TRTC_Electron_Demo 目录下执行以下命令：
 ```js
-npm install  //下载npm包
+npm install  //下载 npm 包
 npm start    //开始运行
 ```
 
