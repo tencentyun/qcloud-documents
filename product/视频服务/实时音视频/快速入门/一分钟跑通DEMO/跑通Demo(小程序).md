@@ -27,7 +27,6 @@
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
-  ![](https://main.qcloudimg.com/raw/363243119b9faf74f8585ee08d01e5a9.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】。
 
 
@@ -36,8 +35,8 @@
 1. 解压 [步骤2](#step2) 中下载的源码包。
 2. 找到并打开 `./debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
-  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际 SDKAppID。
-  - SECRETKEY：请设置为 [步骤3](#step3) 中获取的实际密钥信息。
+  - SDKAPPID：请设置为实际的 SDKAppID。
+  - SECRETKEY：请设置为实际密钥信息。
   ![](https://main.qcloudimg.com/raw/74b82ded221f8e2e91e4f918da6b5932.png)
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
