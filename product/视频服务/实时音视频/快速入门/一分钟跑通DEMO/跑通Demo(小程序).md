@@ -37,7 +37,7 @@
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   - SDKAPPID：请设置为实际的 SDKAppID。
   - SECRETKEY：请设置为实际密钥信息。
-  ![](https://main.qcloudimg.com/raw/74b82ded221f8e2e91e4f918da6b5932.png)
+  	![](https://main.qcloudimg.com/raw/441332d053cbf16cc04a68dbfdae23d8.png)
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
