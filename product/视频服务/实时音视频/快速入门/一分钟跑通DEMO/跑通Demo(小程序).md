@@ -32,7 +32,7 @@
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `./debug/GenerateTestUserSig.js`文件。
+2. 找到并打开`./debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
