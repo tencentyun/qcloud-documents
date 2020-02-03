@@ -50,16 +50,14 @@
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
 >- 此操作可通过执行 `vim /usr/local/nginx/conf/nginx.conf` 命令行编辑该文件。
->- 由于版本问题，配置文件可能存在不同的写法。例如：使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >
 ```
 server {
         #SSL 访问端口号为 443
-        listen 443; 
+        listen 443 ssl; 
 	    #填写绑定证书的域名
         server_name www.domain.com; 
-		#启用 SSL 功能
-        ssl on;
 		#证书文件名称
         ssl_certificate 1_www.domain.com_bundle.crt; 
 		#私钥文件名称
@@ -96,10 +94,9 @@ server {
  - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `rewrite ^(.*) https://$host$1 permanent;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 ```
 server {
-    listen 443;
+   listen 443 ssl;
 	#填写绑定证书的域名
     server_name www.domain.com; 
-    ssl on;
 	#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
     root /var/www/www.domain.com; 
     index index.html index.htm;   
