@@ -6,7 +6,7 @@
 
 ## 接入流程
 
-[单击此处](https://cloud.tencent.com/product/x-magic) 申请商业版本 License。
+[单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
 ## 版本下载
 
@@ -20,7 +20,7 @@
 
 #### 使用 aar 方式集成
 
-直接替换工程中的非商业版的 aar，并在 app 目录下的 build.gradle 中修改对应的名称即可。
+直接替换工程中的非企业版的 aar，并在 app 目录下的 build.gradle 中修改对应的名称即可。
 
 #### 使用 jar 包方式集成
 

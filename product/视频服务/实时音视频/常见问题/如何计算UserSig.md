@@ -33,7 +33,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 |:---------:|:---------:|:---------:|
 | iOS | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCDemo/TRTC/GenerateTestUserSig.h)|iOS/TRTCDemo/TRTC/GenerateTestUserSig.h|
 | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac/TRTCDemo/TRTC/GenerateTestUserSig.h)|Mac/TRTCDemo/TRTC/GenerateTestUserSig.h|
-| Android | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) | Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java |
+| Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java) | Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java |
 | Windows(C++) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)| Windows/DuilibDemo/GenerateTestUserSig.h |
 | Windows(C#) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/CSharpDemo/GenerateTestUserSig.cs)| Windows/CSharpDemo/GenerateTestUserSig.cs |
 | Web | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Web/js/debug/GenerateTestUserSig.js)| Web/js/debug/GenerateTestUserSig.js |

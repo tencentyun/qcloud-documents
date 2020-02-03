@@ -2,17 +2,23 @@
 
 ActionArgs 是一个模板类型，其 TypeScript 定义如下：
 ```
-interface ActionArgs<T> {
+export interface ActionArgs<T> {
     sender: string;
     actionData: T;
     gameData: GameData;
     room: IRoomInfo;
     exports: { data: GameData; };
     SDK: {
-        sendData: (data: { playerIdList: string[]; data: UserDefinedData; }) => void;
+        sendData: (data: { playerIdList: string[]; data: UserDefinedData; }, resendConf?: { timeout: number; maxTry: number; }) => void;
         dispatchAction: (actionData: UserDefinedData) => void;
         clearAction: () => void;
         exitAction: () => void;
+
+        getRoomByRoomId: (getRoomByRoomIdPara: IGetRoomByRoomIdPara, callback?: ReqCallback<IGetRoomByRoomIdRsp>) => void;
+        changeRoom: (changeRoomPara: IChangeRoomPara, callback?: ReqCallback<IChangeRoomRsp>) => void;
+        changeCustomPlayerStatus: (changeCustomPlayerStatusPara: IChangeCustomPlayerStatusPara, callback?: ReqCallback<IChangeCustomPlayerStatusRsp>) => void;
+        removePlayer: (removePlayerPara: IRemovePlayerPara, callback?: ReqCallback<IRemovePlayerRsp>) => void;
+
         logger: {
             debug: (...args: any[]) => void;
             info: (...args: any[]) => void;

@@ -29,6 +29,7 @@
 | [云函数](https://cloud.tencent.com/document/product/583)  | 资源级 | &#10003;        |  -  | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/583/9203)  |	
 | [批量计算](https://cloud.tencent.com/document/product/599)  | 资源级 | &#10003;         |  -  | -    |[访问管理指南](https://cloud.tencent.com/document/product/599/40011)   |	
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108)  | 资源级 | &#10003;         |  -  | -    |-    |	
+| [容器镜像服务](https://cloud.tencent.com/document/product/1141)  | 资源级 | &#10003;         |  -  | &#10003;     |[访问管理指南](https://cloud.tencent.com/document/product/1141/40718)    |	
 > ?<sup>1</sup> 云服务器中 [GPU 服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
 
 ## 存储	
@@ -39,6 +40,7 @@
 | [文件存储](https://cloud.tencent.com/document/product/582) | 资源级 | &#10003;        | -  |  &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/582/14679)   |	
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  |  -    |	-    |
 | [云 HDFS](https://cloud.tencent.com/document/product/1105) | 资源级 |&#10003;       | -  | -    |	[访问管理指南](https://cloud.tencent.com/document/product/1105/37238)    |	
+| [存储网关](https://cloud.tencent.com/document/product/581) | 服务级 |&#10003;       | -  | -    |	 - |	
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | &#10003;       | &#10003;  |  -    |-    |	
 | [云数据迁移](https://cloud.tencent.com/document/product/623)  | 服务级 | &#10003;        | -  |  - | - |	
 | [日志服务](https://cloud.tencent.com/document/product/614)  | 资源级 | &#10003;        | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/614/35564)    |	
@@ -98,6 +100,7 @@
  | 服务                                                         | 授权粒度| 控制台 | 根据标签进行授权  | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | --------| ----- | ---- |	---- |	
 | [网站备案](https://cloud.tencent.com/document/product/243)   | 服务级    | &#10003;   | -   |  - |	- |	
+| [SSL证书](https://cloud.tencent.com/document/product/400)   | 资源级    | &#10003;   | -   |  - |	[访问管理指南](https://cloud.tencent.com/document/product/400/40432) |	
 
 ## 网络安全	
 
@@ -166,11 +169,12 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849)  | 服务级   | &#10003;     | -  | &#10003;  | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)  | 操作级   | &#10003; | -   |  -  |	 [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 
-## 云智大数据应用
+## 云智大数据可视化
 
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | -------- | ---- |	 ---- |	
 | [商业智能分析](https://cloud.tencent.com/document/product/590) | 服务级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/590/19284) |	
+| [腾讯云图](https://cloud.tencent.com/document/product/665) | 资源级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/665/40956) |	
 
 ## 云智大数据应用
 
