@@ -1,4 +1,4 @@
-## 流程说明
+## 离线推送流程
 实现离线消息推送的过程如下：
 1. 开发者到厂商的平台注册账号，并通过开发者认证后，申请开通推送服务。
 2. 创建推送服务，并绑定应用信息，获取推送证书、密码、密钥等信息。
@@ -7,7 +7,7 @@
 5. 集成即时通信 IM SDK 到项目后，将证书 ID、设备信息等上报至即时通信 IM 服务端。
 6. 当客户端 App 在即时通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，即时通信 IM 服务端将通过消息推送进行提醒。
 
-## 操作步骤
+## 配置离线推送
 
 vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权限管理很严格，默认情况下第三方 App 都不会在系统的自启动白名单内，App 在后台时容易被系统 kill，因此推荐在 vivo 设备上集成 vivo 推送，vivo 推送 是 vivo 设备的系统级服务，推送到达率较高。目前，**即时通信 IM 仅支持 vivo 推送的通知栏消息**。
 
@@ -37,6 +37,7 @@ vivo 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
  - **AppID**：填写 vivo 推送服务应用的 **APP ID**
  - **AppSecret**：填写 vivo 推送服务应用的 **APP secret**
  - **点击通知后**：选择点击通知栏消息后的响应操作，支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#click)
+  当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#section4)。
  ![](https://main.qcloudimg.com/raw/ac890d834dd7f069f936094180634cd7.png)
 4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
 5. 待推送证书信息生成后，记录证书的**`ID`**。
@@ -220,23 +221,12 @@ public class ThirdPushTokenMgr {
 
     private String mThirdPushToken;
 
-    private boolean mIsTokenSet = false;
-    private boolean mIsLogin = false;
-
     public static ThirdPushTokenMgr getInstance () {
         return ThirdPushTokenHolder.instance;
     }
 
     private static class ThirdPushTokenHolder {
         private static final ThirdPushTokenMgr instance = new ThirdPushTokenMgr();
-    }
-
-    public void setIsLogin(boolean isLogin){
-        mIsLogin = isLogin;
-    }
-
-    public String getThirdPushToken() {
-        return mThirdPushToken;
     }
 
     public void setThirdPushToken(String mThirdPushToken) {
@@ -330,7 +320,7 @@ public class ThirdPushTokenMgr {
 		   
 	</activity>
 	```
- 
+
 2. 获取 intent URL，方式如下：
     ```
     Intent intent = new Intent(this, ChatActivity.class);
@@ -338,13 +328,39 @@ public class ThirdPushTokenMgr {
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
     Log.i(TAG, "intentUri = " + intentUri);
-   
+      
     // 打印结果
     intent://com.tencent.qcloud.tim/detail?title=testTitle#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
     ```
 
 3. 在 [添加证书](#Step2) 时选择【打开应用内指定界面】并输入上述打印结果。
     ![](https://main.qcloudimg.com/raw/1ab25b8c52b953014786682bce43c2ed.png)
+
+<span id="section4"></span>
+## 透传自定义内容
+[添加证书](#Step2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
+
+### 步骤1：发送端设置自定义内容
+在发消息前设置每条消息的通知栏自定义内容。
+- Android 端示例如下：
+
+  ```
+  String extContent = "ext content";
+  TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
+  settings.setExt(extContent.getBytes());
+  timMessage.setOfflinePushSettings(settings);
+  mConversation.sendMessage(false, timMessage, callback);
+  ```
+
+- 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E)。
+
+### 步骤2：接收端获取自定义内容
+点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取。
+
+  ```
+  Map<String, String> paramMap = upsNotificationMessage.getParams();
+  String extContent = paramMap.get("ext");
+  ```
 
 ## 常见问题
 

@@ -6,8 +6,8 @@
 API 创建完成后，您需要使用 “使用计划” 功能将密钥对与 API 或 API所在服务进行绑定。配置详情请参考 [使用计划](https://cloud.tencent.com/document/product/628/11815)。
 
 ## 密钥内容
-【secret_id】示例：AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
-【secret_key】示例：ZxF2whO0RhuwnVCj5JMMAuqcDcN2oPrC  用于签名计算，传递过程中无体现。
+【secret_id】示例：`AKIDCg*****j548pN`  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
+【secret_key】示例：`ZxF2wh*****N2oPrC`  用于签名计算，传递过程中无体现。
 
 ## 计算方法
 ### 最终发送内容

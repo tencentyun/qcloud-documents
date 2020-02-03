@@ -28,7 +28,7 @@ ip addr add 辅助内网IP/CIDR位数 dev eth0
 ipconfig /all
 ```
  2. 记录输出的网络接口信息中的 IPv4 地址、子网掩码、默认网关和 DNS 服务器值。
-![](https://main.qcloudimg.com/raw/023fa868c97895f605cd5c2dc6c61592.png)
+![](https://main.qcloudimg.com/raw/1a4a6f0557ff809a27607fee24549eb3.png)
 2. 进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
 ![](https://main.qcloudimg.com/raw/56b44bec57750b8e86a9c7f7aba40041.png)
 3. 在“以太网状态”弹窗中，单击【属性】。

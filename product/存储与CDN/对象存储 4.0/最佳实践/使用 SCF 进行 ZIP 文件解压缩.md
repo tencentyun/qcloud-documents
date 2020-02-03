@@ -12,9 +12,9 @@
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 创建一个源存储桶，用于存放上传的 zip 文件，命名为 zip-upload，并选择**北京**地域，访问权限选择**私有读写**。
-![](https://main.qcloudimg.com/raw/70e0d03964281641a27e4e2ec5ce54a5.png)
+![](https://main.qcloudimg.com/raw/d891c3a95eb1b571a5f3e02087fa04b9.jpg)
 3. 创建一个目标存储桶，用于存放解压后的文件，命名为 unzip，并选择**北京**地域，访问权限选择**私有读写**。
-![](https://main.qcloudimg.com/raw/283cd2ed9b76a5a89bed467f321a90ab.png)
+![](https://main.qcloudimg.com/raw/9c342898393aae2917b2341f6fba7fc5.jpg)
 
 >?了解创建存储桶和为存储桶设置访问权限，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 和 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。 
 
@@ -30,16 +30,16 @@
 	- **模板搜索**：输入搜索关键词“解压”，选择“ZIP包解压”模板（本模板目前仅支持 zip 格式，如需处理 rar 或 7z 等其他格式，需自行扩展代码），此时将鼠标移至模板函数上，可单击【查看详情】查看模板函数详情，模板函数代码支持下载操作。
 ![](https://main.qcloudimg.com/raw/f2392dede2fddfaa55331567708bae9b.png)
 4. 配置完成后，单击【下一步】。进入函数配置页面，保持默认配置即可，单击【完成】，完成函数的创建。
-![](https://main.qcloudimg.com/raw/a55c8bf5c39fd6a409680ade4969e0be.png)
+![](https://main.qcloudimg.com/raw/f640c5c8f1dc9acc117f0ec1505b24ea.jpg)
 5. 单击【函数代码】，此时需要在函数代码编辑器中，按照注释修改以下参数，修改完成后单击【保存】即可。
  - appid：可在 [账号信息](https://console.cloud.tencent.com/developer) 中获取。
  - secret_id、secret_key：可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
  - region：目标存储桶的所属地域，此处为 ap-beijing。
  - bucket_upload：此处应填 unzip-125xxxxxxx。
  - password：压缩包的解压密码，若不设解压密钥则留空。
-![](https://main.qcloudimg.com/raw/b7db6e5bb53189a2f1cf60e715cc772b.png)
+![](https://main.qcloudimg.com/raw/c448e5521352f7243f7f4d70ed703484.jpg)
 6. 单击【函数配置】，修改函数的超时时间为100秒，最后单击【保存】。在实际运行过程中，如果有遇到函数执行超时，可以根据实际情况加大超时时间。
-![](https://main.qcloudimg.com/raw/6206dc7cf55b0d77896720c6dd08f6ce.png)
+![](https://main.qcloudimg.com/raw/8f6985571b142370cc965ed2fa17ee08.jpg)
 
 <span id="step03"></span>
 

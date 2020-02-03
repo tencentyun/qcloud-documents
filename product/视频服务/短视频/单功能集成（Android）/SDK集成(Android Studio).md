@@ -97,7 +97,7 @@ defaultConfig {
 2. **拷贝文件**
 如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android studio 默认的 jni 加载目录。
 
-	如果您使用的是商业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
+	如果您使用的是企业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
 3. **工程配置**
 在工程 App 目录下的 build.gradle 中，添加引用 jar 包和 so 库的代码。
 ```
@@ -273,7 +273,7 @@ android {
 			jniLibs.srcDirs = ['libs']
 		}
 	}
-	// 集成短视频商业版需要添加 packagingOptions，非商业版不需要
+	// 集成短视频企业版需要添加 packagingOptions，非企业版不需要
 	packagingOptions {
 		pickFirst '**/libc++_shared.so'
         	doNotStrip "*/armeabi/libYTCommon.so"
@@ -519,4 +519,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 - [视频拼接](https://cloud.tencent.com/document/product/584/9503)
 - [视频上传](https://cloud.tencent.com/document/product/584/15535)
 - [视频播放](https://cloud.tencent.com/document/product/584/9373)
-- [动效变脸（商业版）](https://cloud.tencent.com/document/product/584/13510)
+- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13510)
