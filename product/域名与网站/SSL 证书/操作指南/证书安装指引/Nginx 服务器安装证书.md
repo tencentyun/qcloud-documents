@@ -50,7 +50,7 @@
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
 >- 此操作可通过执行 `vim /usr/local/nginx/conf/nginx.conf` 命令行编辑该文件。
->- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >
 ```
 server {
