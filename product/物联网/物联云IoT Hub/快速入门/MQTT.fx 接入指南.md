@@ -29,7 +29,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 | ------------------- | ---------------------------------------- |
 | Profile Name        | 配置文件保存为的名称。                               |
 | Broker Address      | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com，这里 PRODUCT_ID 为变量参数，用户需填入创建产品时自动生成的产品 ID，例如 9B17RZW2EZ.iotcloud.tencentdevices.com |
-| Broker Port         | MQTT 服务器连接端口，填入：8883。 本文主要针对证书认证类型的产品，端口必须是8883；如果您想通过1883接口接入，建议使用密钥认证型产品自行接入，请参考 [设备基于 MQTT 接入](https://cloud.tencent.com/document/product/634/32546) 进行接入。  |                 
+| Broker Port         | MQTT 服务器连接端口，填入：8883。 本文主要针对证书认证类型的产品，端口必须是8883；如果您想通过1883接口接入，建议使用密钥认证型产品自行接入，详情请参考 [设备基于 MQTT 接入](https://cloud.tencent.com/document/product/634/32546) 进行接入。  |                 
 | Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，例如："9B17RZW2EZgate_dev01 "，9B17RZW2EZ 是产品 ID，gate_dev01 是设备名。 |
 | Connection Timeout  | 连接超时时间秒。                                 |
 | Keep Alive Interval | 心跳间隔时间秒。                                 |
