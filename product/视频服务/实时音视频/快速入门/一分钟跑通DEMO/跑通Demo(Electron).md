@@ -25,7 +25,7 @@ brew install node
 
 <span id="step2"></span>
 ### 步骤2：下载 Demo 源码
-1. [下载](https://gitee.com/vqcloud/Trtc_Electron_Demo.git) Demo 源码。
+1. [下载](https://github.com/tencentyun/TRTCSDK/tree/master/Electron) Demo 源码。
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
