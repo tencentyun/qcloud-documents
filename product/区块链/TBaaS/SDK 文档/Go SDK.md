@@ -37,7 +37,7 @@ go get -u github.com/tencentcloud/tencentcloud-sdk-go
 | GetTransactionDetailForUser | 获取交易详情 |
 | ApplyUserCert | 申请用户证书 |
 | DownloadUserCert | 下载用户证书 |
-| SrvInvoke | trustsql服务统一接口 |
+| SrvInvoke | trustsql 服务统一接口 |
 | BlockByNumberHandler | 按块高查询区块信息 |
 | DeployDynamicContractHandler | 动态部署合约 |
 | GetBlockListHandler | 查询区块列表 |
