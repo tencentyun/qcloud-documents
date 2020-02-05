@@ -31,6 +31,21 @@ $ python setup.py install
 | Invoke | 新增交易（支持同步模式和异步模式） |
 | Query | 查询交易 |
 | GetInvokeTx | 查询 Invoke 异步调用结果 |
+| GetBlockList | 查询区块列表 |
+| GetBlockTransactionListForUser | 获取区块内的交易列表 |
+| GetClusterSummary | 获取区块链网络概要 |
+| GetLatesdTransactionList | 获取最新交易列表 |
+| GetTransactionDetailForUser | 获取交易详情 |
+| ApplyUserCert | 申请用户证书 |
+| DownloadUserCert | 下载用户证书 |
+| SrvInvoke | trustsql 服务统一接口 |
+| BlockByNumberHandler | 按块高查询区块信息 |
+| DeployDynamicContractHandler | 动态部署合约 |
+| GetBlockListHandler | 查询区块列表 |
+| GetTransByHashHandler | 根据交易哈希查询交易信息 |
+| GetTransListHandler | 查询交易列表 |
+| SendTransactionHandler | 发送交易 |
+| TransByDynamicContractHandler | 根据动态部署的合约发送交易 |
 
 ## 示例
 以新增交易（Invoke）接口为例：
@@ -58,7 +73,7 @@ try:
     client = tbaas_client.TbaasClient(cred, "ap-guangzhou", clientProfile) 
 
     # 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-    params = '{\"Module\":\"transaction\",\"Operation\": \"invoke\",\"ClusterId\" : \"251005746ctestenv\",\"Peers\":[{\"PeerName\":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"},{\"PeerName\": \"peer0.youtucorg.ctestenv\",\"OrgName\": \"youtucOrg\"},],\"ChannelName\" : \"pettyc1\",\"ChaincodeName\" : \"pettycc1\",\"FuncName\" : \"invoke\",\"Args\" : [\"b\",\"a\",\"25\"],\"AsyncFlag\" : 0}'
+    params = '{"Module":"transaction","Operation":"invoke","ClusterId":"251005746ctestenv","ChaincodeName":"pettycc1","ChannelName":"pettyc1","Peers":[{"PeerName":"peer0.pettycorg.ctestenv","OrgName":"pettycOrg"}],"FuncName":"invoke","Args":["a","b","10"],"AsyncFlag":0,"GroupName":"pettycOrg"}'
     req = models.InvokeRequest()
     # 调用InvokeRequest的from_json_string方法，使用params初始化req对象
     req.from_json_string(params)
