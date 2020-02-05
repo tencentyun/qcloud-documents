@@ -400,7 +400,6 @@ ifconfig
 >!操作前请确认云服务器绑定的弹性网卡已获取到 IPv6 地址，如未获取，请参见 [VPC 配置 IPv6 - 步骤3：弹性网卡获取 IPv6 地址](https://cloud.tencent.com/document/product/215/40043#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E5.BC.B9.E6.80.A7.E7.BD.91.E5.8D.A1.E8.8E.B7.E5.8F.96-ipv6-.E5.9C.B0.E5.9D.80) 进行获取。
 >
 如下操作以 Windows 2012 为例： 
-![](https://main.qcloudimg.com/raw/3ac69cc510a0cca6bc0ea744073cd226.png)
 1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
 ![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)
 2. 在“以太网状态”弹窗中，单击【属性】。
