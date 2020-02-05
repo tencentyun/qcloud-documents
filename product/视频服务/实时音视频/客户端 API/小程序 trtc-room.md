@@ -1,11 +1,76 @@
-## 组件详解
 
-### 组件说明
 **&lt;trtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 TRTC 互通的自定义组件。
 
-### 属性
 
-&lt;trtc-room&gt; 只有一个 config 属性，通过该属性可以传入以下参数
+<h2 id="API">API 概览</h2>
+
+**基础方法**
+
+| API | 描述 |
+|-----|-----|
+| [selectComponent](#selectcomponent) | 创建 &lt;trtc-room&gt; 组建的实例。 |
+| [on(EventCode, handler, context)](#on(eventcode.2C-handler.2C-context)) | 用于监听组件派发的事件，详细事件请参考 [事件表](#Event)。 |
+| [off(EventCode, handler)](#off(eventcode.2C-handler))|取消事件监听。|
+| [enterRoom(params)](#enterroom(params)) | 进入房间。|
+| [exitRoom()](#exitroom()) | 停止推流和取消订阅所有远端音视频，并退出房间。|
+
+**发布订阅**
+
+| API | 描述 |
+|-----|-----|
+| [publishLocalVideo()](#publishlocalvideo()) | 发布本地视频，即开启本地摄像头采集并启动视频推流。 |
+| [unpublishLocalVideo()](#unpublishlocalvideo()) | 取消发布本地视频，关闭本地视频推流。 |
+| [publishLocalAudio()](#publishlocalaudio())|发布本地音频，即开启本地麦克风采集并启动音频推流。|
+| [unpublishLocalAudio()](#unpublishlocalaudio()) | 取消发布本地音频，关闭本地音频推流。|
+| [subscribeRemoteVideo(params)](#subscriberemotevideo(params)) | 订阅远端用户的视频流并进行播放。|
+| [unsubscribeRemoteVideo(params)](#unsubscriberemotevideo(params)) | 取消订阅远端用户的视频并停止播放。|
+| [subscribeRemoteAudio(params)](#subscriberemoteaudio(params)) | 订阅远端用户的音频并进行播放。|
+| [unsubscribeRemoteAudio(params)](#unsubscriberemoteaudio(params)) | 取消订阅远端用户的音频并且进行播放。|
+| [getRemoteUserList()](#getremoteuserlist()) | 获取远端用户列表。|
+
+**视图控制**
+
+| API | 描述 |
+|-----|-----|
+| [enterFullscreen(params)](#enterfullscreen(params)) | 将远端视频切换为全屏播放，辅路（即屏幕分享）的画面一般适合全屏播放。 |
+| [exitFullscreen(params)](#exitfullscreen(params)) | 取消远端视频的全屏模式。 |
+| [setViewOrientation(params)](#setvieworientation(params))|设置指定远端画面的显示方向。|
+| [setViewFillMode(params)](#setviewfillmode(params))|设置指定远端画面的填充模式。|
+| [setViewVisible(params)](#setviewvisible(params))|显示或者隐藏某一路视频画面。|
+| [setViewRect(params)](#setviewrect(params))|设置指定视频画面的坐标和尺寸。|
+| [setViewZIndex(params)](#setviewzindex(params))|设置指定视频画面的层级。|
+
+**背景音乐**
+
+| API | 描述 |
+|-----|-----|
+| [playBGM(params)](#playbgm(params)) | 播放背景音乐。背景音乐会同麦克风采集的人声混合在一起发布到云端，即“背景混音”。 |
+| [stopBGM()](#stopbgm()) | 停止播放背景音乐。 |
+| [pauseBGM()](#pausebgm()) | 暂停播放背景音乐。 |
+| [resumeBGM()](#resumebgm()) | 恢复播放背景音乐。 |
+| [setBGMVolume(params)](#setbgmvolume(params))|设置混音中背景音乐的音量。|
+| [setMICVolume(params)](#setmicvolume(params))|设置混音中麦克风采集的音量。|
+
+**消息收发**
+消息收发功能需开通 [即时通信 IM](https://cloud.tencent.com/product/im) 服务并将 [属性表](#Config) 中的 enableIM 选项设置为 true 才有效。
+
+| API | 描述 |
+|-----|-----|
+| [sendC2CTextMessage(params)](#sendc2ctextmessage(params)) | 发送 C2C（即定向发给某个人）文本消息。 |
+| [sendC2CCustomMessage(params)](#sendc2ccustommessage(params)) | 发送 C2C 自定义消息，自定义消息可以用来发送控制信令（例如邀请发言、申请上麦等）。 |
+| [sendGroupTextMessage(params)](#sendgrouptextmessage(params)) | 发送群组文本消息。 |
+| [sendGroupCustomMessage(params)](#sendgroupcustommessage(params)) | 发送群组自定义消息。 |
+
+**其他功能**
+
+| API | 描述 |
+|-----|-----|
+| [switchCamera()](#switchcamera()) | 切换本地前后摄像头。|
+| [snapshot()](#snapshot(params)) | 截取指定远端视频或本地视频的图像，并保存到系统相册中。|
+
+
+<h2 id="Config">属性表</h2>
+&lt;trtc-room&gt; 只有一个 config 属性，通过该属性可以传入以下参数：
 
 | 参数                 | 类型    | 默认值    | 说明         |
 |:---------------------|:--------|:----------|:-------------|
@@ -32,11 +97,12 @@
 | videoAspect          | String  | 9:16      | 宽高比，可选值：3:4 或 9:16。  |
 | frontCamera          | String  | front     | 设置前置还是后置摄像头，可选值：front 或 back。 |
 | enableRemoteMirror   | Boolean | false     | 设置观众端看到的画面的镜像效果，该属性的变化不会影响到本地画面，仅影响观众端看到的画面效果。 |
-| localMirror          | String  | auto      | 设置主播本地摄像头预览画面的镜像效果，支持如下取值：<li>auto:前置摄像头镜像，后置摄像头不镜像（系统相机的表现）。</li><li>enable:前置摄像头和后置摄像头都镜像。</li><li>disable: 前置摄像头和后置摄像头都不镜像。</li>|
+| localMirror          | String  | auto      | 设置主播本地摄像头预览画面的镜像效果，支持如下取值：<li>auto：前置摄像头镜像，后置摄像头不镜像（系统相机的表现）。</li><li>enable：前置摄像头和后置摄像头都镜像。</li><li>disable： 前置摄像头和后置摄像头都不镜像。</li>|
 | enableBackgroundMute | Boolean | false     | 设置主播端小程序切入后台时是否暂停声音的采集。 |
 | audioQuality         | String  | high      | 高音质（48KHz）或低音质（16KHz），可选值：high 或 low。 |
 | audioVolumeType      | String  | voicecall | 系统音量类型，可选值为：<li>media：媒体音量。</li><li>voicecall：通话音量。</li>|
 | audioReverbType      | Number  | 0         | 音频混响类型，可选值为： 0：关闭，1：KTV，2：小房间，3：大会堂，4：低沉，5：洪亮，6：金属声，7：磁性。|
+| enableIM             | Boolean | false     | 是否启用即时通信功能|
 
 
 示例代码：
@@ -55,10 +121,10 @@ trtcConfig = {
 }
 ```
 
-### 方法
+## 组件方法
 
-#### 获取组件实例
-组件实例提供了以下 API，通过小程序提供的 this.selectComponent() 方法获取组件实例后即可调用。
+### selectComponent()
+您可以通过小程序提供的 this.selectComponent() 方法获取组件实例。
 
 示例代码：
 
@@ -67,7 +133,7 @@ let trtcRoomContext = this.selectComponent('#trtcroom')
 trtcRoomContext.enterRoom({roomID: 2233})
 ```
 
-#### on(EventCode, handler, context)
+### on(EventCode, handler, context)
 
 **说明：**
 
@@ -94,7 +160,7 @@ function onLocalJoin(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.LOCAL_JOIN, onLocalJoin, this)
 ```
 
-#### off(EventCode, handler)
+### off(EventCode, handler)
 
 **说明：**
 
@@ -119,7 +185,7 @@ function onLocalJoin(event) {
 trtcRoomContext.off(trtcRoomContext.EVENT.LOCAL_JOIN, onLocalJoin)
 ```
 
-#### enterRoom(params)
+### enterRoom(params)
 
 **说明：**
 进入房间，调用参数必须传入 roomID。
@@ -141,7 +207,7 @@ trtcRoomContext.enterRoom({roomID: 2233}).catch((error)=>{
 })
 ```
 
-#### exitRoom()
+### exitRoom()
 **说明：**
 
 停止推流和取消订阅所有远端音视频，并退出房间。
@@ -161,7 +227,7 @@ trtcRoomContext.exitRoom().then(()=>{
 })
 ```
 
-#### publishLocalVideo()
+### publishLocalVideo()
 **说明：**
 
 发布本地视频，即开启本地摄像头采集并启动视频推流。一般要配合 `publishLocalAudio()` 一起使用。
@@ -181,7 +247,7 @@ trtcRoomContext.publishLocalVideo().then(()=>{
 })
 ```
 
-#### unpublishLocalVideo()
+### unpublishLocalVideo()
 **说明：**
 
 取消发布本地视频，关闭本地视频推流。
@@ -201,7 +267,7 @@ trtcRoomContext.unpublishLocalVideo().then(()=>{
 })
 ```
 
-#### publishLocalAudio()
+### publishLocalAudio()
 **说明：**
 
 发布本地音频，即开启本地麦克风采集并启动音频推流。如果是纯音频沟通场景，则不需要调用`publishLocalVideo()`。 
@@ -221,7 +287,7 @@ trtcRoomContext.publishLocalAudio().then(()=>{
 })
 ```
 
-#### unpublishLocalAudio()
+### unpublishLocalAudio()
 **说明：**
 
 取消发布本地音频，关闭本地音频推流。
@@ -241,7 +307,7 @@ trtcRoomContext.unpublishLocalAudio().then(()=>{
 })
 ```
 
-#### subscribeRemoteVideo(params)
+### subscribeRemoteVideo(params)
 **说明：**
 
 订阅远端用户的视频流并进行播放。
@@ -304,7 +370,7 @@ function onRemoteVideoRemove(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_VIDEO_REMOVE, onRemoteVideoRemove)
 ```
 
-#### subscribeRemoteAudio(params)
+### subscribeRemoteAudio(params)
 **说明：**
 
 订阅远端用户的音频并进行播放。
@@ -333,7 +399,7 @@ function onRemoteAudioAdd(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioAdd)
 ```
 
-#### unsubscribeRemoteAudio(params)
+### unsubscribeRemoteAudio(params)
 **说明：**
 
 取消订阅远端用户的音频并且进行播放。
@@ -362,7 +428,7 @@ function onRemoteAudioRemove(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioRemove)
 ```
 
-#### switchCamera()
+### switchCamera()
 **说明：**
 
 切换本地前后摄像头。
@@ -380,7 +446,7 @@ trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioRemove)
 trtcRoomContext.switchCamera()
 ```
 
-#### getRemoteUserList()
+### getRemoteUserList()
 **说明：**
 
 获取远端用户列表。
@@ -408,7 +474,7 @@ let userList = trtcRoomContext.getRemoteUserList()
 // ]
 ```
 
-#### enterFullscreen(params)
+### enterFullscreen(params)
 **说明：**
 
 将远端视频切换为全屏播放，辅路（也就是屏幕分享）的画面一般适合全屏播放。
@@ -418,14 +484,15 @@ let userList = trtcRoomContext.getRemoteUserList()
 | 参数名     | 类型   | 默认值 | 说明                                                              |
 |:-----------|:-------|:-------|:----------------------------------------------------------------|
 | userID     | String | -      | 必填参数，用户 ID。 |
-| streamType | String | -      | 必填参数，流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。|
+| streamType | String | -     | 必填参数，流类型，可选值：<li>main：主流。</li> <li>aux：辅流（屏幕分享）。</li>|
 
 **返回值：**
 
 Promise
 
 **示例代码：**
-```
+
+```javascript
 trtcRoomContext.enterFullscreen({
   userID: 'xxx',
   streamType: 'main'
@@ -436,7 +503,8 @@ trtcRoomContext.enterFullscreen({
 })
 ```
 
-#### exitFullscreen(params)
+### exitFullscreen(params)
+
 **说明：**
 
 取消远端视频的全屏模式。
@@ -464,7 +532,7 @@ trtcRoomContext.exitFullscreen({
 })
 ```
 
-#### setViewOrientation(params)
+### setViewOrientation(params)
 **说明：**
 
 设置指定远端画面的显示方向。
@@ -492,7 +560,7 @@ trtcRoomContext.setViewOrientation({
 })
 ```
 
-#### setViewFillMode(params)
+### setViewFillMode(params)
 **说明：**
 
 设置指定远端画面的填充模式。
@@ -520,7 +588,7 @@ trtcRoomContext.setViewFillMode({
 })
 ```
 
-#### setViewVisible(params)
+### setViewVisible(params)
 **说明：**
 显示或者隐藏某一路视频画面。
 >!该方法只有在使用组件内置的画面排版模式时才有效，例如 template:'grid' 、 template:'1v1' 或 template:"custom"。
@@ -548,7 +616,7 @@ trtcRoomContext.setViewVisible({
 })
 ```
 
-#### setViewRect(params)
+### setViewRect(params)
 **说明：**
 
 设置指定视频画面的坐标和尺寸。
@@ -583,7 +651,7 @@ trtcRoomContext.setViewRect({
 })
 ```
 
-#### setViewZIndex(params)
+### setViewZIndex(params)
 **说明：**
 
 设置指定视频画面的层级。
@@ -614,7 +682,7 @@ trtcRoomContext.setViewZIndex({
 })
 ```
 
-#### playBGM(params)
+### playBGM(params)
 **说明：**
 
 播放背景音乐。背景音乐会同麦克风采集的人声混合在一起发布到云端，即“背景混音”。
@@ -640,7 +708,7 @@ trtcRoomContext.playBGM({
 })
 ```
 
-#### stopBGM()
+### stopBGM()
 **说明：**
 
 停止播放背景音乐。
@@ -658,7 +726,7 @@ trtcRoomContext.playBGM({
 trtcRoomContext.stopBGM()
 ```
 
-#### pauseBGM()
+### pauseBGM()
 **说明：**
 
 暂停播放背景音乐。
@@ -676,7 +744,7 @@ trtcRoomContext.stopBGM()
 trtcRoomContext.pauseBGM()
 ```
 
-#### resumeBGM()
+### resumeBGM()
 **说明：**
 
 恢复播放背景音乐。
@@ -694,7 +762,7 @@ trtcRoomContext.pauseBGM()
 trtcRoomContext.resumeBGM()
 ```
 
-#### setBGMVolume(params)
+### setBGMVolume(params)
 **说明：**
 
 设置混音中背景音乐的音量。
@@ -716,7 +784,7 @@ trtcRoomContext.setBGMVolume({
 })
 ```
 
-#### setMICVolume(params)
+### setMICVolume(params)
 **说明：**
 
 设置混音中麦克风采集的音量。
@@ -738,7 +806,7 @@ trtcRoomContext.setMICVolume({
 })
 ```
 
-#### snapshot(params)
+### snapshot(params)
 **说明：**
 
 截取指定远端视频或本地视频的图像，并保存到系统相册中。
@@ -747,8 +815,8 @@ trtcRoomContext.setMICVolume({
 
 | 参数名     | 类型   | 默认值 | 说明                                                              |
 |:-----------|:-------|:-------|:----------------------------------------------------------------|
-| userID     | String | -      | 必填，用户 ID。 |
-| streamType | String | -      | 必填，流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li> 本地视频流类型仅支持 main。|
+| userID     | String | -      | 必填参数，用户 ID。 |
+| streamType | String | -      | 必填参数，流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li> 本地视频流类型仅支持 main。|
 
 **返回值：**
 
@@ -770,6 +838,127 @@ trtcRoomContext.snapshot({
   streamType: 'main'        // 本地用户流类型仅支持 'main'：主流 
 }).then((event)=>{
   // 截图成功
+})
+```
+
+### sendC2CTextMessage(params)
+**说明：**
+
+发送 C2C（即定向发给某个人）文本消息，需开通 [即时通信 IM](https://cloud.tencent.com/product/im) 服务并将 [属性表](#Config) 中的 enableIM 选项设置为 true 才有效。
+
+**参数：**
+
+| 参数名  | 类型   | 默认值 | 说明                     |
+|:--------|:-------|:-------|:-----------------------|
+| userID  | String | -      | 必填参数，消息接收方的 ID。 |
+| message | String | -      | 必填参数，需要发送的文本消息。  |
+
+**返回值：**
+
+Promise
+
+**示例代码：**
+```
+trtcRoomContext.sendC2CTextMessage({
+  userID: 'xxx',
+  message: 'Hello!'
+})
+```
+
+
+### sendC2CCustomMessage(params)
+**说明：**
+
+发送 C2C 自定义消息，自定义消息可以用来发送控制信令（例如邀请发言、申请上麦等）。
+需开通 [即时通信 IM](https://cloud.tencent.com/product/im) 服务并将 [属性表](#Config) 中的 enableIM 选项设置为 true 才有效。
+
+**参数：**
+
+| 参数名  | 类型   | 默认值 | 说明                  |
+|:--------|:-------|:-------|:--------------------|
+| userID  | String | -      | 必填参数，消息接收方的 ID。  |
+| payload | Object | -      | 必填参数，自定义消息的载体。 |
+
+payload 支持三个参数：
+
+| 参数名      | 类型   | 默认值 | 说明                 |
+|:------------|:-------|:-------|:-------------------|
+| data        | String | -      | 自定义消息的数据字段。 |
+| description | String | -      | 自定义消息的说明字段。 |
+| extension   | String | -      | 自定义消息的扩展字段。 |
+
+**返回值：**
+
+Promise
+
+**示例代码：**
+```
+trtcRoomContext.sendC2CCustomMessage({
+  userID: 'xxx',
+  payload: {
+    data: '自定义消息的数据字段'，
+    description: '自定义消息的说明字段'，
+    extension: '自定义消息的扩展字段' 
+})
+```
+
+### sendGroupTextMessage(params)
+**说明：**
+
+发送群组文本消息，需开通 [即时通信 IM](https://cloud.tencent.com/product/im) 服务并将 [属性表](#Config) 中的 enableIM 选项设置为 true 才有效。
+
+**参数：**
+
+| 参数名  | 类型   | 默认值 | 说明                     |
+|:--------|:-------|:-------|:-----------------------|
+| roomID  | String | -      | 必填参数，房间 ID。    |
+| message | String | -      | 必填参数，需要发送的文本消息。  |
+
+**返回值：**
+
+Promise
+
+**示例代码：**
+```
+trtcRoomContext.sendGroupTextMessage({
+  roomID: 'xxx', // 房间 ID
+  message: 'Hello!'
+})
+```
+
+
+### sendGroupCustomMessage(params)
+**说明：**
+
+发送群组自定义消息，需开通 [即时通信 IM](https://cloud.tencent.com/product/im) 服务并将 [属性表](#Config) 中的 enableIM 选项设置为 true 才有效。
+
+**参数：**
+
+| 参数名  | 类型   | 默认值 | 说明                  |
+|:--------|:-------|:-------|:--------------------|
+| roomID  | String | -      | 必填参数，房间 ID。  |
+| payload | Object | -      | 必填参数，自定义消息的载体。 |
+
+payload 支持三个参数：
+
+| 参数名      | 类型   | 默认值 | 说明                 |
+|:------------|:-------|:-------|:-------------------|
+| data        | String | -      | 自定义消息的数据字段。 |
+| description | String | -      | 自定义消息的说明字段。 |
+| extension   | String | -      | 自定义消息的扩展字段。 |
+
+**返回值：**
+
+Promise
+
+**示例代码：**
+```
+trtcRoomContext.sendGroupCustomMessage({
+  roomID: 'xxx', // 房间 ID
+  payload: {
+    data: '自定义消息的数据字段'，
+    description: '自定义消息的说明字段'，
+    extension: '自定义消息的扩展字段'
 })
 ```
 
