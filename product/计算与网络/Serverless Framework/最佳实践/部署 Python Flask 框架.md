@@ -1,6 +1,8 @@
 ## 操作场景
 腾讯云 [Flask](https://github.com/pallets/flask) Serverless Component，支持 Restful API 服务的部署，不支持 Flask Command。
 
+> 注 ：任何支持 WSGI(Web Server Gateway Interface) 的 Python 服务端框架都可以通过该组件进行部署，例如 Falcon 框架等。
+
 ## 前提条件
 在使用此组件之前，需要先初始化一个 Flask 项目，具体步骤如下：
 #### Flask 安装与配置
