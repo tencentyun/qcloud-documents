@@ -6,7 +6,7 @@
 
 ## 操作步骤
 ### 授权访问
-1. 登录物联网通信控制台，选择【产品列表】>【消息队列】，单击【授权访问消息队列（CKafka）】。
+1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择【产品列表】>【消息队列】，单击【授权访问消息队列（CKafka）】。
 2. 授权成功之后会进入配置消息队列页面。
 ![](https://main.qcloudimg.com/raw/ff1e07b612bdb2313a06c7069343e4fc.png)
 
