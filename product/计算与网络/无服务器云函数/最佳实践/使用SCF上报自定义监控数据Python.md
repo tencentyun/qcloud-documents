@@ -12,8 +12,9 @@
 
 ##  前提条件
 - 了解 [云函数](https://cloud.tencent.com/document/product/583)，或直接参考示例代码。
-- 已具备一台设备用于构建项目及打包代码，且该设备已安装 Python 2.7。本文以操作系统为 CentOS 的 [腾讯云服务器](https://cloud.tencent.com/product/cvm) 为例。
-您可参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip) 安装所需环境。
+- 已具备一台设备用于构建项目及打包代码，且该设备已安装 Python 2.7。您可参考 [安装 Python 及 pip](https://cloud.tencent.com/document/product/583/33449#.E5.AE.89.E8.A3.85-python-.E5.8F.8A-pip) 安装所需环境。
+本文以操作系统为 CentOS 的 [腾讯云服务器](https://cloud.tencent.com/product/cvm) 为例。
+
 
 
 ##  操作步骤
@@ -60,7 +61,7 @@ def API(client,instanceName,MetricName,Value):
     return resp.to_json_string()
 
 def main_handler(event, context):
-    client = MONITOR("secretId", "secretKey")
+    client = MONITOR("yourSecretId", "yourSecretKey")
     if 'key1' in event.keys():
         #scf的名称需要包含namespace和函数名称，中间用"|"分割
         print(API(client,"default|scf_monitor_Test","scf_suc_count",1))
@@ -68,6 +69,8 @@ def main_handler(event, context):
     	print(API(client,"default|scf_monitor_Test","scf_fail_count",1))
     return "hello from scf"  #return
 ```
+>?请将示例代码中的 `yourSecretId`、`yourSecretKey` 分别替换为您实际使用账户的 SecretId 及 SecretKey，可前往【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】 获取。
+>
 
 
 ### 步骤3：安装自定义监控 SDK
@@ -96,13 +99,13 @@ zip project.zip * -r
 3. 在“新建函数”页面的“基础信息”步骤中，根据以下信息创建函数，并单击【下一步】。如下图所示：
  - **函数名称**：输入自定义函数名，本文以 `scf_monitor_Test` 为例。
  - **运行环境**：选择【Python 2.7】。
- - **创建方式**：选择【空白函数】。
-![](https://main.qcloudimg.com/raw/f11e808463b48ba2cb39f9c9170e33b9.png)
+ - **创建方式**：选择【模板函数】，并选择 helloworld 模板。
+![](https://main.qcloudimg.com/raw/6b510988be5a4025b6b29c6e7eb712dc.png)
 4. 在“函数配置”步骤中，保持默认设置并单击【完成】即可开始创建。
 5. 在函数管理页面，选择【函数代码】页签，按照以下步骤上传代码。如下图所示：
 ![](https://main.qcloudimg.com/raw/fa7c3bd1931e05b988c326c6053c2cdc.png)
   1. 在**提交方法**中，选择【本地上传zip包】。
-  2. 单击【上传】，并在弹出的目录中选择 [步骤4](#Step4) 中已准备好的 `Project.zip` 文件。  
+  2. 单击【上传】，并在弹出的目录中选择 [步骤4](#Step4) 中已准备好的 `project.zip` 文件。  
   3. 单击【保存】即可上传代码。
   上传成功后，界面自动展示 `index.py` 文件的代码内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/aedb8b14a9fdecebd5debc8d2fba46d5.png)
@@ -123,12 +126,12 @@ zip project.zip * -r
 ```
 3. 模板创建成功后，在【函数代码】页签中选择该模板，并单击【测试】。
 返回结果如下，则表示监控数据上报成功：
-![](https://main.qcloudimg.com/raw/4f797b5d412346c5cba80ad943462e33.png)
+![](https://main.qcloudimg.com/raw/1eb3a7947b3615ff4e5a2839dc3e1b51.png)
 
 
 ### 步骤7：查看监控视图
 进入 [自定义监控](https://console.cloud.tencent.com/monitor/indicator-view) 查看已触发上报的指标视图。如下图所示：
-![](https://main.qcloudimg.com/raw/6ec43068b3633da7e41174c4a0bbd283.png)
+![](https://main.qcloudimg.com/raw/a87ba4b124d5f38a1a0636dbb237f13f.png)
 
 ### 步骤8：配置告警
 您可参考 [配置告警策略](https://cloud.tencent.com/document/product/397/40223) 为函数配置告警。

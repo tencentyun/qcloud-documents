@@ -48,7 +48,7 @@
 
 | 节点名           | 父节点                   | 描述                                                    | 类型                       | 是否必选 |
 | ---------------- | ------------------------ | ------------------------------------------------------- | -------------------------- | -------- |
-| ExpirationInDays | COSInitiateRestoreObject | 设置副本在多少天后自动过期删除，设置范围为1 - 365的整数。 | AccessControlGrants Object | 是       |
+| ExpirationInDays | COSInitiateRestoreObject | 设置副本在多少天后自动过期删除，设置范围为1 - 365的整数。 | Integer | 是       |
 | JobTier          | COSInitiateRestoreObject | 归档恢复模式选择，可选值：Bulk、Standard。                  | String                     | 是       |
 
 ## AccessControlGrants

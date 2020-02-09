@@ -22,7 +22,6 @@
 有了安全凭证 AppKey 和 AppSecret 后，就可以生成签名串了。下面给出了一个生成签名串的详细过程。
 
 假设用户的 AppKey 和 AppSecret 分别是：
-
 - AppKey： `ahPxdK*****TGrejd`
 - AppSecret： `NcbHqk******TCGbKnQH`
 
@@ -32,12 +31,12 @@
 
 | 参数名称          | 类型      |  描述      |  参考数值                 |
 | ---------------- | --------- | --------- | ------------------------ |
-| RequestId        | String    | 公共参数，唯一请求ID，可自行生成，推荐使用 uuid。定位问题时需要提供该次请求的 RequestId。  | 8b8d499bbba1ac28b6da21b4 |
+| RequestId        | String    | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需要提供该次请求的 RequestId  | 8b8d499bbba1ac28b6da21b4 |
 | Action           | String    | 公共参数，调用的接口方法名称     | AppCreateCellphoneUser   |
-| AppKey           | String    |公共参数，应用 AppKey ，用于标识对应的 App。   | ahPxdK******TGrejd        |
-| Signature        | String    | 公共参数，请求的签名   | CKu55Y3Z******ySM6U99imbs |
+| AppKey           | String    |公共参数，应用 AppKey ，用于标识对应的 App  | ahPxdk****TGrejd   |
+| Signature        | String    | 公共参数，请求的签名   | CKu55Y###imbs |
 | Timestamp        | Int64     | 公共参数，当前的  UNIX 时间戳（秒级） | 1546315200               |
-| Nonce            | Int       | 公共参数，随机正整数，与时间戳一起，用于 API 防重放。 | 71087795                 |
+| Nonce            | Int       | 公共参数，随机正整数，与时间戳一起，用于 API 防重放 | 71087795                 |
 | CountryCode      | String    | 国家区码     | 86                       |
 | PhoneNumber      | String    | 手机号码     | 13900000000              |
 | Password         | String    | 密码       | password              |

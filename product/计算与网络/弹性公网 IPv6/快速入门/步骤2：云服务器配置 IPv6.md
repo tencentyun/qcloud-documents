@@ -167,7 +167,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-11. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+11. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
 
 <span id="CentOS6.8"/>
 
@@ -250,7 +250,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-23. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+23. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
 
 <span id="CentOS7.3"/>
 
@@ -334,7 +334,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
 <span id="Debian8.2"/>
 
 #### Debian 8.2 配置 IPv6
@@ -376,26 +376,9 @@ netstat -tupln
 ```
 ip -6 route add default dev eth0
 ```
-10. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+10. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
 
-
-## Windows 云服务器配置 IPv6
-如下操作以 Windows 2012 为例： 
-1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
-![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)
-2. 在“以太网状态”弹窗中，单击【属性】。
-3. 在“以太网属性”弹窗中，选中【Internet 协议版本6（TCP/IPv6）】并单击【属性】。
-![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-4. 在“Internet 协议版本6（TCP/IPv6）属性”弹窗中，手工输入云服务器获取到的 IPv6 地址并设置 DNS，单击【确定】。
-![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
-5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 Ping 和远程桌面测试 IPv6 连通性。
-```
-netsh interface ipv6 add route ::/0 "以太网"
-ipconfig
-```
-![](https://main.qcloudimg.com/raw/eec1e647837d6b096ef9e022c3bafa7e.png)
-
-## 测试 Linux 云服务器 IPv6 的连通性
+#### 附录：测试 Linux 云服务器 IPv6 的连通性
 可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
 - **步骤1：**通过 Ping 进行测试，操作如下：
  - 如果弹性网卡的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
@@ -410,3 +393,21 @@ ifconfig
 ![](https://main.qcloudimg.com/raw/16838301e15e59ec20f8d3ffb1dd5a69.png)
 成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
+
+## Windows 云服务器配置 IPv6
+如下操作以 Windows 2012 为例： 
+1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
+![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)
+2. 在“以太网状态”弹窗中，单击【属性】。
+3. 在“以太网属性”弹窗中，选中【Internet 协议版本 6（TCP/IPv6）】并单击【属性】。
+![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
+4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入云服务器的 IPv6 地址并设置 DNS，单击【确定】。
+![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
+5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 Ping 和远程桌面测试 IPv6 连通性。
+```
+netsh interface ipv6 add route ::/0 "以太网"
+ipconfig
+```
+![](https://main.qcloudimg.com/raw/eec1e647837d6b096ef9e022c3bafa7e.png)
+
+

@@ -285,7 +285,7 @@
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#aaa74021e5fd2564afb2df50e25eedeff) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#afdac7dee94451913a4dc9982badc8035) | 麦克风准备就绪。 |
 | [onAudioRouteChanged](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a1a608275247d2912e26bd83f648d6378) | 音频路由发生变化，音频路由即声音由哪里输出（扬声器或听筒）。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a4e3b79968ccbb86de5b79e326a2daafa) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a4e3b79968ccbb86de5b79e326a2daafa) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 
 
 ### 自定义消息的接收回调
