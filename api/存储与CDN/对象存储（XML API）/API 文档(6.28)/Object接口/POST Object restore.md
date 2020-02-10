@@ -80,7 +80,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口的特殊错误信息如下所述，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口的特殊错误信息如下所述，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                   | 描述                               | HTTP 状态码  |
 | ------------------------ | ---------------------------------- | ------------ |
