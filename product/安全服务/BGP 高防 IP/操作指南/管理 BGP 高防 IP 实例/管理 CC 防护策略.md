@@ -1,5 +1,5 @@
 DDoS 高防 IP 支持 HTTP/HTTPS CC 防护功能。当高防 IP 统计的 HTTP/HTTPS 请求量超过设定的【http/https 请求数阈值】时，将自动触发 HTTP/HTTPS CC 防护。
-DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和防护需求，通过自定义防护策略实现更精准的 CC 攻击拦截。同时，还支持 URL 白名单、IP 白名单和 IP 黑名单策略配置：
+DDoS 高防 IP 提供设置访问控制策略功能。同时支持开启 HTTP/HTTPS CC 防护功能，用户可以使用常见 HTTP/HTTPS 报文的字段（如 host 参数、CGI 参数、Referer 和 User-Agent 等）设置匹配条件，对公网用户的访问请求进行管控，对命中条件的请求执行阻断、人机识别动作。用户也可以设置限速规则，对访问 IP 执行限速处理。同时 DDoS 高防 IP 还支持 URL 白名单、IP 白名单和 IP 黑名单策略配置：
 -  白名单中的 URL，其访问请求将无需执行 CC 攻击检测，直接被放行。
 -  白名单中 IP，其 HTTP/HTTPS 访问请求将无需执行 CC 攻击检测，直接被放行。
 -  黑名单中 IP，其 HTTP/HTTPS 访问请求将直接被拒绝。
@@ -40,6 +40,13 @@ DDoS 高防 IP 提供自定义 CC 防护策略，用户可根据业务特点和�
 		- 限速模式：对源 IP 访问进行限速处理，**HTTPS 协议不支持选择限速模式**。
 	- 策略
 		- **当选择【匹配模式】时，协议是 HTTP**，支持从 HTTP 报文的 host 参数、CGI 参数、Referer 和 User-Agent 多个特征进行组合，组合逻辑包括包含、不包含和等于。最多可以设置4个策略条件进行特征控制。若**协议是 HTTPS 时**，支持从 HTTPS 报文的 CGI 参数、Referer 和 User-Agent 多个特征进行组合，组合逻辑包括包含、不包含和等于。最多可以设置3个策略条件进行特征控制。
+		<table>
+		<tr><th>匹配字段</th><th>字段描述</th><th>适用的逻辑符</th></tr>
+		<tr><td>host</td><td>访问请求的域名。</td><td>包含、不包含、等于</td></tr>
+		<tr><td>CGI</td><td>访问请求的 URI 地址。</td><td>包含、不包含、等于</td></tr>
+		<tr><td>Referer</td><td>访问请求的来源网址，表示该访问请求是从哪个页面跳转产生的。</td><td>包含、不包含、等于</td></tr>
+		<tr><td>User-Agent</td><td>发起访问请求的客户端浏览器标识等相关信息。</td><td>包含、不包含、等于</td></tr>
+		</table>
 		- 当选择【限速模式】时，对每个源 IP 访问进行限速处理。只允许设置1个策略条件。
 ![](https://main.qcloudimg.com/raw/55907e363ea9230f4258bd499f43f7a1.png)
 
