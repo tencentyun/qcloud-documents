@@ -56,8 +56,8 @@ region="ap-guangzhou"
 >- Region：地域，可查询可用 [地域列表](https://cloud.tencent.com/document/product/397/40208#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 >- SecretId 和 SecretKey，请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
 >- uploadToMonitor.py 和 uploadMySQLStatusToMonitor.sh 两个 Demo 也可放到其它目录下。本文以放`/usr/local/bin`为例。
-3. 输入 shell 命令，即可完成监控指标数据持续上报。
-```
+3. 输入 Shell 命令，即可完成监控指标数据持续上报。
+```shell
 chmod a+x  /usr/local/bin/uploadMySQLStatusToMonitor.sh uploadToMonitor.py
 bash uploadMySQLStatusToMonitor.sh
 crontab -l > /tmp/cron.bak
