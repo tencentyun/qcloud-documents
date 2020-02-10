@@ -34,29 +34,90 @@ grant select on *.* to monitor@'x.x.x.x' identified by 'monitor!@#asd';
 
 ### 步骤3：上报数据
 
-1. 单击下载 [uploadToMonitor.py]() 和 [uploadMySQLStatusToMonitor.sh]() 两个文件。并放到`/usr/local/bin`目录下。
-2. 编辑下载文件中的 uploadMySQLStatusToMonitor.sh 脚本文件，需修改内容如下：
-```
-#需要采集数据的 MySQL 地址
-MYSQLHOST="1.1.1.1"
-#需要采集数据的 MySQL 端口
-MYSQLPORT=3306
-#需要采集数据的访问用户名
-MYSQLUSER="monitor"
-#需要采集数据的 MySQL 访问密码
-MYSQLPWD="monitor!@#asdxx"
-#用户专属的 SecretId
-SecretId="xxxxxxxxx"
-#用户专属的 SecretKey
-SecretKey="xxxxxxxx"
-#需要上报到监控系统所属区域
-region="ap-guangzhou"
-```
->?
+1. 在`/usr/local/bin`目录下新建如下两个文件:
+	1. 新建 ToMonitor.py，代码如下：
+	```
+	from tencentcloud.common import credential
+	from tencentcloud.common.profile.client_profile import ClientProfile
+	from tencentcloud.common.profile.http_profile import HttpProfile
+	from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+	from tencentcloud.monitor.v20180724 import monitor_client, models
+	import sys,json
+	try:
+			SecretId = sys.argv[1]
+			SecretKey = sys.argv[2]
+			region = sys.argv[3]
+			metricList = json.loads(sys.argv[4])
+			cred = credential.Credential(SecretId, SecretKey)
+			httpProfile = HttpProfile()
+			httpProfile.endpoint = "monitor.tencentcloudapi.com"
+
+			clientProfile = ClientProfile()
+			clientProfile.httpProfile = httpProfile
+			client = monitor_client.MonitorClient(cred, region , clientProfile)
+
+			req = models.PutMonitorDataRequest()
+			paramList = []
+			for single in metricList:
+				 for MetricName,metricValue in single.items():
+						newParams = {}
+						newParams["MetricName"] = MetricName
+						newParams["Value"] = int(metricValue)
+						paramList.append(newParams)
+			params = '{"Metrics":%s}' %json.dumps(paramList)
+			req.from_json_string(params)
+
+			resp = client.PutMonitorData(req)
+			print(resp.to_json_string())
+
+	except TencentCloudSDKException as err:
+			print(err)
+	```
+	2. 新建 MySQLStatusToMonitor.sh 文件，代码如下：
+	```
+	#!/bin/bash
+
+	#需要采集数据的 MySQL 地址
+	MYSQLHOST="1.1.1.1"
+	#需要采集数据的 MySQL 端口
+	MYSQLPORT=3306
+	#需要采集数据的访问用户名
+	MYSQLUSER="monitor"
+	#需要采集数据的 MySQL 访问密码
+	MYSQLPWD="monitor!@#asdxxxx"
+	#用户专属的 SecretId
+	SecretId="xxxxxxxxx"
+	#用户专属的 SecretKey
+	SecretKey="xxxxxxxx"
+	#需要上报到监控系统所属区域
+	region="ap-guangzhou"
+
+	function Log()
+	{
+	msg=$1
+	logType=$2
+	logFile="./uploadMySQLStatusToMonitor.log"
+	echo "["`date +"%Y-%m-%d %X"`"]$msg" >> $logFile
+	}
+	MYSQLCON="/usr/bin/mysql -h$MYSQLHOST -P$MYSQLPORT -u$MYSQLUSER -p$MYSQLPWD"
+
+	#采集
+	NEEDEDMYSQLSTATUS=`$MYSQLCON -e "show status;"|grep -Ew "Aborted_connects|Innodb_row_lock_current_waits|Uptime"`
+
+	#记录相关参数
+	AbConnections=`echo "$NEEDEDMYSQLSTATUS"|awk '/Aborted_connects/{print $2}'`
+	InnodbRLCW=`echo "$NEEDEDMYSQLSTATUS"|awk '/Innodb_row_lock_current_waits/{print $2}'`
+	MYSQLUptime=`echo "$NEEDEDMYSQLSTATUS"|awk '/Uptime/{print $2}'`
+	Log "uploading Aborted_connects:$AbConnections,Innodb_row_lock_current_waits:$InnodbRLCW,MySQL_uptime:$MYSQLUptime."
+
+	#上报到自定义监控
+	/bin/python uploadToMonitor.py "$SecretId" "$SecretKey" "$region" '[{"AbConnections":'$AbConnections'},{"InnodbRLCW":'$InnodbRLCW'}, {"MYSQLUptime":'$MYSQLUptime'}]'
+	```
+>?代码中：MYSQLHOST、MYSQLPORT、MYSQLUSER、MYSQLPWD、SecretId、SecretKey、Region 字段需根据您的实际情况修改
 >- Region：地域，可查询可用 [地域列表](https://cloud.tencent.com/document/product/397/40208#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 >- SecretId 和 SecretKey，请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
 >- uploadToMonitor.py 和 uploadMySQLStatusToMonitor.sh 两个 Demo 也可放到其它目录下。本文以放`/usr/local/bin`为例。
-3. 输入 Shell 命令，即可完成监控指标数据持续上报。
+2. 输入 Shell 命令，即可完成监控指标数据持续上报。
 ```shell
 chmod a+x  /usr/local/bin/uploadMySQLStatusToMonitor.sh uploadToMonitor.py
 bash uploadMySQLStatusToMonitor.sh
