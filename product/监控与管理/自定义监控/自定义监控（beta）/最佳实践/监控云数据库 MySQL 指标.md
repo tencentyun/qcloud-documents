@@ -96,7 +96,7 @@ grant select on *.* to monitor@'x.x.x.x' identified by 'monitor!@#asd';
 	{
 	msg=$1
 	logType=$2
-	logFile="./uploadMySQLStatusToMonitor.log"
+	logFile="./MySQLStatusToMonitor.log"
 	echo "["`date +"%Y-%m-%d %X"`"]$msg" >> $logFile
 	}
 	MYSQLCON="/usr/bin/mysql -h$MYSQLHOST -P$MYSQLPORT -u$MYSQLUSER -p$MYSQLPWD"
@@ -111,7 +111,7 @@ grant select on *.* to monitor@'x.x.x.x' identified by 'monitor!@#asd';
 	Log "uploading Aborted_connects:$AbConnections,Innodb_row_lock_current_waits:$InnodbRLCW,MySQL_uptime:$MYSQLUptime."
 
 	#上报到自定义监控
-	/bin/python uploadToMonitor.py "$SecretId" "$SecretKey" "$region" '[{"AbConnections":'$AbConnections'},{"InnodbRLCW":'$InnodbRLCW'}, {"MYSQLUptime":'$MYSQLUptime'}]'
+	/bin/python ToMonitor.py "$SecretId" "$SecretKey" "$region" '[{"AbConnections":'$AbConnections'},{"InnodbRLCW":'$InnodbRLCW'}, {"MYSQLUptime":'$MYSQLUptime'}]'
 	```
 >?代码中：MYSQLHOST、MYSQLPORT、MYSQLUSER、MYSQLPWD、SecretId、SecretKey、Region 字段需根据您的实际情况修改
 >- Region：地域，可查询可用 [地域列表](https://cloud.tencent.com/document/product/397/40208#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
