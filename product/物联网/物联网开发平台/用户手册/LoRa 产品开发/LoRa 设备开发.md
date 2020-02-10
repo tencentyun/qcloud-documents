@@ -9,3 +9,4 @@
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已创建的产品，单击【设备开发】。
 2. 选择设备开发方式，并单击右上角【编辑】，按照您的需求调整 LoRaWAN 参数配置。
 3. 在弹出的页面中，调整完参数后，单击【保存】，完成 LoRaWAN 参数配置。
+![](https://main.qcloudimg.com/raw/e4ac768eacdf46336cb1a2965c2395bc.png)
