@@ -35,7 +35,7 @@
 如果您的 Notebook 额外配置了不带有 Internet 访问权限的子网时，可以考虑：
 - 首先将所需的第三方依赖包从外部网络下载。
 - 其次，上传依赖包，单击“上传文件”，将依赖包上传。上传大小限制300MB。
-![](https://main.qcloudimg.com/raw/bc5538a2a37cce1900a68b9bc1f617f7.png)
+![](https://main.qcloudimg.com/raw/9f79c6a00fe9749277d075c3c25124e9.png)
 - 最后，新建 Notebook 文件，在对应内核的命令框中通过 pip install 命令安装上传的外部包。
 - 上述步骤成功后，您才能通过 import 命令使用。
 
