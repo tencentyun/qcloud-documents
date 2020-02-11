@@ -58,9 +58,9 @@ Elasticsearch 从某个版本开始支持用户权限认证，以提升集群访
 
 ## 升级注意事项
 ### Elasticsearch 5.x 版本与 6.x 版本兼容及使用说明
-1. index 多 type
+1. index 多 type。
 Elasticsearch 从 6.x 版本开始，不再支持一个索引多个 type。从 5.x 版本升级到 6.x 版本后，新建多 type 的索引将会报错，原有在 5.x 版本创建的多 type 索引，不受影响，可以正常写入。
-2. curl 访问集群    
+2. curl 访问集群。 
 使用 curl 访问集群时，需要增加请求`header -H 'Content-Type: application/json'`。
 ```
 	curl -XPUT http://10.0.0.2:9200/china/city/beijing -H 'Content-Type: application/json' -d'
@@ -77,7 +77,7 @@ Elasticsearch 从 6.x 版本开始，不再支持一个索引多个 type。从 5
 		"cityNo":1
 	}
 ```
-3. 配置项兼容   
+3. 配置项兼容。
 Elasticsearch 不同版本之间会存在一些不兼容的配置，如果您有设置，升级后可能会影响集群的使用。ES 升级功能提供了配置项的检查流程，也提供了调整说明，见下文 <a href="#update_check">升级检查</a>。
 4. 更多说明请参考 [Breaking changes in 6.0](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/breaking-changes-6.0.html)。
 
