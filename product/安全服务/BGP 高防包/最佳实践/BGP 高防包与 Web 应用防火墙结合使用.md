@@ -3,8 +3,7 @@ DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
 - Web 应用防火墙实时防护，有效拦截 Web 攻击行为，保障用户业务的数据和信息安全。
 
 ## 部署方案
-![](https://main.qcloudimg.com/raw/ee33e9c7fc15fdb97cfe784dade3a20f.png)
-
+![](https://main.qcloudimg.com/raw/5cf47d62a98ffd71bfa4e349ceae5d3d.png)
 ## 配置过程
 ### 配置 Web 应用防火墙
 如需快速接入 Web 应用防火墙，详情请参见 [ Web 应用防火墙快速入门](https://cloud.tencent.com/document/product/627/18635)。
