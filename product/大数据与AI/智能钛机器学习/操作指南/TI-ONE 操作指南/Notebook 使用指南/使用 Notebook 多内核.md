@@ -5,18 +5,18 @@
 ### 选择适合自己的 Notebook 多内核环境
 目前平台提供了 9 种内核选择，包括
 + 纯净的 python 环境
-- python3 : conda_python3
-- python2 : conda_python2
+ - python3 : conda_python3
+ - python2 : conda_python2
 + TensorFlow 环境
-- TensorFlow 1.14 + python3 : conda_tensorflow_py3
-- TensorFlow 1.14 + python2 : conda_tensorflow_py2
-- TensorFlow 2.0.0 + python3 : conda_tensorflow2_py3
+ - TensorFlow 1.14 + python3 : conda_tensorflow_py3
+ - TensorFlow 1.14 + python2 : conda_tensorflow_py2
+ - TensorFlow 2.0.0 + python3 : conda_tensorflow2_py3
 + PyTorch 环境
-- Pytorch 1.2.0 + python3 : conda_pytorch_py3
-- Pytorch 1.2.0 + python2 : conda_pytorch_py2
+ - Pytorch 1.2.0 + python3 : conda_pytorch_py3
+ - Pytorch 1.2.0 + python2 : conda_pytorch_py2
 + MxNet 环境
-- MxNet 1.5.0 + python3 : conda_mxnet_py3
-- MxNet 1.5.0 + python2 : conda_mxnet_py2
+ - MxNet 1.5.0 + python3 : conda_mxnet_py3
+ - MxNet 1.5.0 + python2 : conda_mxnet_py2
 
 ![](https://main.qcloudimg.com/raw/097aa1eb7127f31e2659ab89d2d18f8b.png)
 
