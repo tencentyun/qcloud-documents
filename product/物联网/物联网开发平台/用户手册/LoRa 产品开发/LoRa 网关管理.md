@@ -13,6 +13,7 @@
 
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，单击某一个已新建产品的项目。
 2. 进入项目列表页，在左侧导航【LoRa 网关管理】页面中，单击【添加网关】。
+![](https://main.qcloudimg.com/raw/3b890f0808be53222386fc16e5e9ed13.png)
 3. 在新建网关页面，填写网关基本信息。
     - 网关名称，本示例中填写 GW1。
     - GwEUI，为网关唯一 ID。
