@@ -51,7 +51,7 @@ import TRTC from 'trtc-js-sdk';
 
 ## 相关资源
 
-SDK 下载地址：[单击下载](http://trtc-1252463788.cosgz.myqcloud.com/web/sdk/trtc.js)
+SDK 下载地址：[单击下载](https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip)
 
 更详细的初始化流程和 API 使用介绍请参见以下指引：
 
