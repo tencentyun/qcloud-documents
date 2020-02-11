@@ -107,7 +107,7 @@ require '/path/to/sdk/vendor/autoload.php';
 ```php
 $secretId = "COS_SECRETID"; //"云 API 密钥 SecretId";
 $secretKey = "COS_SECRETKEY"; //"云 API 密钥 SecretKey";
-$region = "ap-beijing"; //设置一个默认的存储桶地域
+$region = "COS_REGION"; //设置一个默认的存储桶地域
 $cosClient = new Qcloud\Cos\Client(
     array(
         'region' => $region,
