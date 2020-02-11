@@ -7,20 +7,7 @@ DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
 
 ## 配置过程
 ### 配置 Web 应用防火墙
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航中，选择【Web 应用防火墙】>【防护设置】。
-2. 在防护设置页面，单击【添加域名】，并根据实际情况设置以下参数。
- - 【域名配置】
-    - 域名：输入需要防护的域名。
-    - 协议类型：按实际情况选择。
-    - 开启 HTTP2.0：按实际情况选择。
-    - 服务器端口：按实际情况选择。
-    - 源站地址：输入需要防护网站的真实 IP 源站地址，即源站的公网 IP 地址。
- - 【其他配置】
-    - 代理情况，请选择【是】。
-    - 开启 WebSocket、负载均衡策略：按实际情况选择。
- ![](https://main.qcloudimg.com/raw/9dbd07bff87fb60c37d537a69b62fc4e.png)
-3. 设置完成后，单击【保存】即可。
-
+如需快速接入 Web 应用防火墙，详情请参见 [ Web 应用防火墙快速入门](https://cloud.tencent.com/document/product/627/18635)。
 ### 配置 DDoS 高防包
 1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【DDoS 高防包】>【资产列表】。
  - 若您的 DDoS 高防包实例是独享包，则选择【独享包】页签。
