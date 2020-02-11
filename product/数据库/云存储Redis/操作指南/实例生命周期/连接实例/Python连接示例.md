@@ -25,4 +25,4 @@ print r.get('name')
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Pythpon-1.png)
+![](https://main.qcloudimg.com/raw/b819ac84617439c8dcb107b0d7f4c641.png)

@@ -8,4 +8,4 @@
 | 入包量   | NAT 网关平均每秒入包量 | 个/s  | NAT网关 |
 | 连接数   | NAT 网关的实时并发数  | 个/s  | NAT网关 |
 
-有关更多如何使用 NAT 网关的监控指标内容，可以查看云监控 API 中的 [读取 NAT 网关监控指标接口](https://cloud.tencent.com/document/api/248/10991)。
+有关更多如何使用 NAT 网关的监控指标内容，可参见云监控 API 中的 [读取 NAT 网关监控指标接口](https://cloud.tencent.com/document/api/248/10991)。

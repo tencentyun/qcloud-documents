@@ -1,7 +1,6 @@
 ## 功能概述
 摄像头推流，是指采集手机摄像头的画面以及麦克风的声音，进行编码之后再推送到直播云平台上。腾讯云 LiteAVSDK 通过 TXLivePusher 接口提供摄像头推流能力，如下是 LiteAVSDK 的简单版 Demo 中演示摄像头推流的相关操作界面：
-
-![](https://main.qcloudimg.com/raw/5243c1b2ce0637c48f76958d8307a297.jpg)
+![](https://main.qcloudimg.com/raw/9ad8f513454a058635bbe572755303c6.jpg)
 
 ## 特别说明
 - **不绑定腾讯云**
@@ -90,7 +89,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 
 -  **如何获取可用的推流 URL**
 >开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/35d5b0bb095fce48f5b268de91a818d8.png)
+>![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
 
 - **返回 -5 的原因**
 >如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置   License 授权”中的工作是否有问题。
@@ -112,8 +111,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 ### 7. 设定画面清晰度
 调用 TXLivePush 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参考 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
-
-![](https://main.qcloudimg.com/raw/082b8cedd8d9f50afe23dbce723fc6d7.png)
+![](https://main.qcloudimg.com/raw/8fc91a05e4e96c39a9fdcf45247fb988.png)
 
 ### 8. 美颜美白和红润特效
 调用 TXLivePush 中的`setBeautyStyle`接口可以设置美颜效果，SDK 中提供了两种磨皮算法（beautyStyle）：
@@ -123,7 +121,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 | BEAUTY_STYLE_SMOOTH | 光滑风格，算法更加注重皮肤的光滑程度，适合秀场直播类场景下使用。 |
 | BEAUTY_STYLE_NATURE| 自然风格，算法更加注重保留皮肤细节，适合对真实性要求更高的主播。|
 
-![](https://main.qcloudimg.com/raw/621edbaaaee868d166381a387feeb987.jpg)
+![](https://main.qcloudimg.com/raw/61ef817e3c12944665f1b7098c584ee3.jpg)
 
 ```objectivec
 //     beautyStyle     : 美颜算法，目前支持 自然 和 光滑 两种。
@@ -139,9 +137,8 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
-从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多遍的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
-
-![](https://main.qcloudimg.com/raw/850bb60b66c487029e197b0b5dab9e2d.jpg)
+从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
+![](https://main.qcloudimg.com/raw/51623e68291ef31a462318414e0a50e6.jpg)
 
 ```objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
@@ -164,12 +161,11 @@ TXLivePush 提供了一组 API 用户控制摄像头的行为：
 
 ### 11. 观众端的镜像效果
 调用 TXLivePush 中的`setMirror`接口可以设置观众端的镜像效果。之所以说是观众端的镜像效果，是因为当主播在使用前置摄像头直播时，自己看到的画面会被 SDK 默认反转，这时主播的体验跟自己照镜子时的体验是保持一致的。`setMirror`所影响的是观众端观看到的画面情况，如下图所示：
-
-![](https://main.qcloudimg.com/raw/7448f422eb7db068e9fbdf990feb30e8.jpg)
+![](https://main.qcloudimg.com/raw/45ef7c9d0f1ecfc9bfab7735d92ec641.jpg)
 
 ### 12. 横屏推流
 大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 x 540 这样的分辨率），如下图所示：
-![](//mc.qcloudimg.com/static/img/cae1940763d5fd372ad962ed0e066b91/image.png)
+![](https://main.qcloudimg.com/raw/d42f32ad9deef5b3eba3ccb271fe05e8.png)
 
 TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
 1. 设置 TXLivePushConfig 中的`homeOrientation`可以改变观众端看到的视频画面宽高比方向。
@@ -192,11 +188,10 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 有时候主播的一些动作不希望被观众看到，但直播过程中又不能下播，那就可以考虑进入隐私模式。在隐私模式下，SDK 可以暂停采集主播手机的摄像头画面以及麦克风声音，并使用一张默认图片作为替代图像进行推流，也就是所谓的“垫片”。
 
 该功能也常用于 App 被切到后台时：在 iOS 系统中，当 App 切到后台以后，操作系统不再允许该 App 继续采集摄像头画面。 此时就可以通过调用`pausePush`进入垫片状态。因为对于大多数直播 CDN 而言，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器就会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
-
-![](https://main.qcloudimg.com/raw/5985b8c837ad62c05550fc0380489a69.jpg)
+![](https://main.qcloudimg.com/raw/bdc0e50690ff8d721d924d9570fc682f.jpg)
 
 - **step1: 开启 XCode 中的 Background 模式**
-![](https://main.qcloudimg.com/raw/64e1d95634ebed1de71ad3b84492f37e.jpg)
+![](https://main.qcloudimg.com/raw/8aeeee0ec6b5294cecf5dadd3e32f075.jpg)
 
 - **step2: 设置 TXLivePushConfig 中的相关参数**
 在开始推流前，使用 LivePushConfig 的`pauseImg`、`pauseFps`和`pauseTime`接口可以设置垫片推流的详细参数：
@@ -239,7 +234,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 ### 14. 背景混音
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
-![](https://main.qcloudimg.com/raw/f3c5a92ddcafc81f854d502c08f78db9.jpg)
+![](https://main.qcloudimg.com/raw/dea3d833cd284f79a1cc0818fa97d566.jpg)
 
 | 接口 | 说明 |
 |-------|---------|
@@ -255,7 +250,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 调用 TXLivePushConfig 中的`enableAudioPreview`选项可以开启耳返功能，“耳返”指的是当主播带上耳机来唱歌时，耳机中要能实时反馈主播的声音。
 调用 TXLivePush 中的`setReverbType`接口可以设置混响效果，例如 KTV、会堂、磁性、金属等，这些效果也会作用到观众端。
 调用 TXLivePush 中的`setVoiceChangerType`接口可以设置变调效果，例如“萝莉音”，“大叔音”等，用来增加直播和观众互动的趣味性，这些效果也会作用到观众端。
-![](//mc.qcloudimg.com/static/img/fca1094c93126ad5b61d962ec22ad0d5/image.png)
+![](https://main.qcloudimg.com/raw/a90a110e2950568b9d7cd6bef8e0893b.png)
 
 ### 16. 设置 Logo 水印
 设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由`watermarkNormalization`选项决定。
@@ -279,15 +274,15 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 ```
 
 >! 
->1. 录制过程中请勿动态切换视频分辨率和软硬编，这会导致生成的视频异常。
->2. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>1. 只有启动推流后才能开始录制，非推流状态下启动录制无效。
+>2. 出于安装包体积的考虑，仅专业版和企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>3. 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
+>4. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 18. 主播端弱网提醒
 
 手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。
-
-
-![](https://main.qcloudimg.com/raw/0d0ccb1fca6cc847d51499a4f9e37e18.jpg)
+![](https://main.qcloudimg.com/raw/36b97591cedf5b80b3c85c7ac758f4f5.jpg)
 
 通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。
 
@@ -325,7 +320,7 @@ NSString* msg = @"test";
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表可以参考文档 “[错误码表](https://cloud.tencent.com/document/product/454/17246) ”。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) 。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件有（例如，收到1003就意味着摄像头的画面开始渲染）：

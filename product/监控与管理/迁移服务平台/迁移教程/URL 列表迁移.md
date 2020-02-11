@@ -41,12 +41,12 @@
 您可以使用本功能限制数据迁移的速度上限，从而避免额外的 CDN 带宽成本。实际迁移速度受网络波动影响会在设定值上下波动。
 ![](https://main.qcloudimg.com/raw/b5ec9c811a1fba7e82e2d30a7110de83.jpg)
 6. 选择要迁移到的目标位置。
-在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。目标对象存储桶列表可在填入密钥后点击下拉框右侧刷新按钮获取。
+ 在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击下拉框右侧刷新按钮，即可获取目标对象存储桶列表。
 ![](https://main.qcloudimg.com/raw/822a116d325c52d12416cb30c93e7477.jpg)
 7. 指定迁移到目标桶的指定目录。
  - 保存到根目录： 直接将源桶中的文件按原始相对路径保存到目标桶的根目录。
  - 保存到指定目录：将源桶中的文件保持原始相对路径保存到指定目录中。
-![](https://main.qcloudimg.com/raw/6140d72ef3af1be40b9ae31e5d03d627.jpg)
+![](https://main.qcloudimg.com/raw/cf367aec7c4b1af7c385280b1b98148d.png)
 例如：
 源桶中的文件`/a.txt`，`/dir/b.txt`两个文件，文本框中填写“dest”，那么迁移后这两个文件在目标桶中的路径为：`/dest/a.txt`，`/dest/dir/b.txt`。
 如果文本框中填写`dest/20180901`，那么迁移后这两个文件在目标桶中的路径为：`/dest/20180901/a.txt`，`/dest/20180901/dir/b.txt`。

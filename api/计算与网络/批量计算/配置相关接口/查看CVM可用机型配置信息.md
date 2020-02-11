@@ -18,8 +18,8 @@
 ## 3. 输出参数
 | 参数名称| 类型| 是否必选| 描述|
 |---------|---------|---------|---------|
-| RequestId | String | 唯一请求ID。每次请求都会返回RequestId。当用户调用接口失败找后台研发人员处理时需提供该RequestId。 |
-| InstanceTypeConfigSet | array of InstanceTypeConfig objects | 实例机型配置列表。 |
+| RequestId | String | 唯一请求ID。每次请求都会返回RequestId。当用户调用接口失败找后台研发人员处理时需提供该RequestId。 |-|
+| InstanceTypeConfigSet | array of InstanceTypeConfig objects | 实例机型配置列表。 |-|
 
 ```
 # 输出样例

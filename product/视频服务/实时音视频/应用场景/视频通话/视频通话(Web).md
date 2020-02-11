@@ -5,7 +5,7 @@
 - Stream 对象，代表一个音视频流对象，包括本地音视频流对象 [LocalStream](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html) 和远端音视频流对象 [RemoteStream](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html)。Stream 类的方法主要提供音视频流对象的行为，包括音频和视频的播放控制。
 
 基本音视频通话的 API 调用流程如下图所示：
-![](https://trtc-1252463788.file.myqcloud.com/web/docs/assets/api-call-sequence.png)
+![](https://main.qcloudimg.com/raw/8ffc08d1face5a69ecd2bfff3afbc765.png)
 
 ## 步骤1：创建 Client 对象
 

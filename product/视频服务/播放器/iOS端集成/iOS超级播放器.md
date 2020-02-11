@@ -85,7 +85,7 @@ playerModel.videoId = videoId;
 
 ## FileId 播放
 设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 一般是在视频上传后，由服务器返回：
-1. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9367#8..E5.8F.91.E5.B8.83.E7.BB.93.E6.9E.9C) 到客户端。
+1. 客户端视频发布后，服务器会返回 fileId 到客户端。
 2. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 

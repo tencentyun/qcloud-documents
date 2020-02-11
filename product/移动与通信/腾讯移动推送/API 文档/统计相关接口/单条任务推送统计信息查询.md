@@ -1,0 +1,145 @@
+## 接口说明
+**请求方式**：POST。
+**调用频率限制**：200次/小时。
+```shell
+https://api.tpns.tencent.com/v3/statistics/get_push_task_stat_channel
+```
+**接口功能**：查询每个推送任务的详细统计, 包含所有通道信息及汇总结果。pushStatDataAll 里的通道类型会变化，根据 iOS/Android 和推送通道的不同而不同。
+
+
+
+## 参数说明
+#### 请求参数
+
+| 参数名称 | 必选 | 类型   | 描述   |
+| -------- | ---- | ------ | ------ |
+| pushId   | 是   | string | 消息 ID |
+
+#### 应答参数
+
+| 参数名称        | 类型   | 描述                                                         |
+| --------------- | ------ | ------------------------------------------------------------ |
+| retCode         | int    | 返回状态码                                                   |
+| errMsg          | string | 错误信息                                                     |
+| pushStatDataAll | Json   | 返回结果：由 channel 和 pushStat 组成，channel 是通道名。PushStatDataAll 结构变量见下表 |
+
+#### PushStatDataAll（Android）
+
+| 参数名称     | 类型   | 说明     |
+| ------------ | ------ | -------- |
+| pushActiveUv | int    | 计划发送 |
+| pushOnlineUv | int    | 实际发送 |
+| verifySvcUv  | int    | 抵达设备 |
+| verifyUv     | int    | 展示     |
+| clickUv      | int    | 点击     |
+| cleanupUv    | int    | 清除     |
+
+#### PushStatOverviewData（iOS&macOS）
+
+| 参数名称     | 类型   | 说明         |
+| ------------ | ------ | ------------ |
+| pushActiveUv | int    | 计划发送     |
+| pushOnlineUv | int    | APNs 成功接收 |
+| verifySvcUv  | int    | 抵达 |
+| clickUv      | int    | 点击         |
+
+
+
+## 示例说明
+#### 请求示例
+
+```json
+{
+ "pushId": "130248"
+}
+```
+
+#### 应答示例
+
+```json
+
+{
+ "retCode": 0,
+ "errMsg": "NO_ERROR",
+ "pushStatDataAll": [
+ {
+ "channel": "mz",
+ "pushState": {
+ "pushActiveUv": 11,
+ "pushOnlineUv": 0,
+ "verifySvcUv": 0,
+ "verifyUv": 0,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "oppo",
+ "pushState": {
+ "pushActiveUv": 3,
+ "pushOnlineUv": 2,
+ "verifySvcUv": 2,
+ "verifyUv": 2,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "rog",
+ "pushState": {
+ "pushActiveUv": 3,
+ "pushOnlineUv": 2,
+ "verifySvcUv": 1,
+ "verifyUv": 1,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "oppo",
+ "pushState": {
+ "pushActiveUv": 1,
+ "pushOnlineUv": 0,
+ "verifySvcUv": 0,
+ "verifyUv": 0,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "xg",
+ "pushState": {
+ "pushActiveUv": 3,
+ "pushOnlineUv": 2,
+ "verifySvcUv": 1,
+ "verifyUv": 1,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "xm",
+ "pushState": {
+ "pushActiveUv": 7,
+ "pushOnlineUv": 0,
+ "verifySvcUv": 0,
+ "verifyUv": 0,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ },
+ {
+ "channel": "all",
+ "pushState": {
+ "pushActiveUv": 28,
+ "pushOnlineUv": 6,
+ "verifySvcUv": 1,
+ "verifyUv": 1,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+ }
+ ]
+}
+```
+

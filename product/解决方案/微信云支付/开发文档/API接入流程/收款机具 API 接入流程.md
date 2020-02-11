@@ -87,7 +87,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 6. **邮件发送加密文件**
 将加密文件发送到 [5.1 申请初始资源](#5.1-.E7.94.B3.E8.AF.B7.E5.88.9D.E5.A7.8B.E8.B5.84.E6.BA.90) 所述的接收加密文件的邮箱地址， 需要发送的文件有`sn_init_key.txt.encrypted`和`encrypt_key.txt.encrypted`。如果要将文件打包进行发送，则必须使用 zip 来压缩。邮件发送时，抄送人需添加厂商相关管理人员。
 7. **其它说明**
-以上所有文件都以 UTF-8 编码，发送前请先确认不能有可见/不可见的特殊字符。
+以上所有文件都以 UTF-8 无 BOM 编码，发送前请先确认不能有可见/不可见的特殊字符。
 邮件发送完成后，销毁`encrypt_key.txt`和`sn_init_key.txt`（无用时销毁）文件，同时需保管好`public.key`文件，这些文件禁止外泄。
 
 ## 7. 机具绑定相关流程说明
@@ -148,7 +148,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 ![](https://main.qcloudimg.com/raw/ad059b755101589a7d3b9920879bd45c.png)
 刷卡支付接口：`https://pay.qcloud.com/cpay/brief_micro_pay`，详见 [9.6 刷卡支付](#9.6-.E5.88.B7.E5.8D.A1.E6.94.AF.E4.BB.98)。
 查询订单接口：`https://pay.qcloud.com/cpay/brief_query_order`，详见 [9.7 查询支付单](#9.7-.E6.9F.A5.E8.AF.A2.E6.94.AF.E4.BB.98.E5.8D.95)。
-- 支付方式：微信支付、支付宝支付、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
+- 支付方式：微信支付、支付宝支付（配置方法详见 [支付宝子商户配置](https://cloud.tencent.com/document/product/569/35716)）、会员卡支付，云支付后台通过顾客付款码区分顾客的支付方式。
 - 支付未知：网络请求超时和业务上的结果未知，详见 [9.11 其它消息体说明](#9.11-.E5.85.B6.E5.AE.83.E6.B6.88.E6.81.AF.E4.BD.93.E8.AF.B4.E6.98.8E) 中 Status 的说明。
 - 接口返回 status 为0，只表示业务请求成功。订单的支付结果需通过订单的状态（即应答中的 cts 字段）来判断。
 - 每次接口调用成功后等待2秒再查单，如果2分钟内查询不到结果，请到手机端管理系统查看交易明细确认支付结果。
@@ -896,7 +896,7 @@ return w.write(request);
 | mem_in_use              | 否   | Int            | 4          | 当前已用内存 KB。                                    |
 | disk_max                | 否   | Int            | 4          | 最大硬盘 KB。                                        |
 | disk_in_use             | 否   | Int            | 4          | 当前已用硬盘 KB。                                    |
-| network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g等。          |
+| network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g 等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
 | mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |
@@ -930,7 +930,7 @@ return w.write(request);
 | 参数名           | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ---------------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
 | out_trade_no     | 是   | String |     -       | 支付时的订单号。                                               |
-| code             | 是   | Int    | 4          | 如果能正常获取 HTTP 的状态码（如200、404、405之类）则用状态码填充，其它情况：连接失败填（-2），接口获取应答超时填（-3），未知问题填（-4）。 |
+| code             | 是   | Int    | 4          | 如果能正常获取 HTTP 的状态码（如200、404、405）则用状态码填充，其它情况：连接失败填（-2），接口获取应答超时填（-3），未知问题填（-4）。 |
 | status           | 是   | Int    | 4          | brief_micro_pay 应答的一级错误码，应答中 s 字段。                  |
 | internal_status  | 是   | Int    | 4          | brief_micro_pay 应答的二级错误码，应答中 is 字段。                 |
 | delay_ms         | 是   | Int    | 4          | 从扫用户收款码开始到获取到 brief_micro_pay 接口应答中间的耗时，单位为毫秒。 |
@@ -1193,6 +1193,7 @@ order、refund_order 只包含一个。
 | ct      | 是   | Int    | 8          | create_time：订单创建时间。                                    |
 | wx_cts  | 否   | Int    | 4          | wxpay_current_trade_state：见枚举值定义 WxpayOrderState。      |
 | ali_cts | 否   | Int    | 4          | 支付宝订单状态，见枚举值定义 AlipayOrderState。                |
+ |card_cts  | 否  |int   |4  |card_current_trade_state：会员卡订单状态，见枚举值定义 CardOrderState。 |
 
 **BriefRefundOrder**
 
@@ -1207,7 +1208,7 @@ order、refund_order 只包含一个。
 | ct     | 是   | Int    | 8          | create_time：退款单创建时间。                                  |
 | wx_rs  | 否   | Int    | 4          | wxpay_refund_state：微信退款状态，见枚举值定义 WxpayRefundOrderState。 |
 | ali_rs | 否   | Int    | 4          | alipay_refund_state：支付宝退款状态，见枚举值定义 AlipayRefundOrderState。 |
-
+|card_rs | 否| int | 4 |card_refund_state：会员卡退款状态，见枚举值定义 CardRefundOrderState。|
 
 #### 示例说明
 **请求生成示例代码：**
@@ -1308,14 +1309,14 @@ return w.write(request);
 
 | 参数名 | 必填 | 类型           | 长度 | 说明                                                      |
 | ------ | ---- | -------------- | ---- | --------------------------------------------------------- |
-| r      | 是   | RequestContent |      | 请求内容，详见本节 RequestContent。                          |
-| a      | 是   | string         |      | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
+| r      | 是   | RequestContent |    -  | 请求内容，详见本节 RequestContent。                          |
+| a      | 是   | string         |   64   | 使用支付密钥计算的认证码，目前只支持 hmac-sha256 计算认证码。 |
 
 **RequestContent 结构**
 
 | 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
-| spps   | 否   | Int [] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填上这三个值就行。 |
+| spps   | 否   | Int[] | 单个元素4  | sub_pay_platforms：子支付平台列表，100：普通微信支付，200：普通支付宝，300：会员卡，机具填写这三个值即可。 |
 | osmi   | 是   | String | -          | out_sub_mch_id：云支付分配的商户 ID，绑定成功后可获取此 ID。     |
 | osi    | 是   | String | -          | out_shop_id：云支付分配的门店 ID，绑定成功后可获取此 ID。       |
 | di     | 是   | String | -          | device_id：云支付分配的设备 ID，绑定后可获取此 ID。              |
@@ -1346,7 +1347,7 @@ return w.write(request);
 
 | 参数名 | 必填 | 类型                   | 长度(Byte) | 说明                                 |
 | ------ | ---- | ---------------------- | ---------- | ------------------------------------ |
-| ovs    | 否   | OrderStatClientInfo [] | -          | overviews：见 OrderStatClientInfo 说明。 |
+| ovs    | 否   | OrderStatClientInfo[] | -          | overviews，见 OrderStatClientInfo 说明。 |
 | ns     | 是   | String                 | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。 |
 
 **OrderStatClientInfo**
@@ -1581,10 +1582,12 @@ return w.write(request);
 | 4      | 退款处理中。   |
 | 5      | 订单不存在。   |
 
- 
-
- 
-
+#### CardRefundOrderState
+| 枚举值 | 说明         |
+| ------ | ------------ |
+1| 退款单初始态。
+2| 退款成功。
+3 |退款失败。
 
 ##  10 加解密相关说明
 ### 10.1 AES-128-CBC 解密说明

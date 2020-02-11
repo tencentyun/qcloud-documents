@@ -6,7 +6,10 @@
 
 ## 操作步骤
 
-堡垒机支持 [本地 OTP 服务](#.E6.9C.AC.E5.9C.B0-otp-.E6.9C.8D.E5.8A.A1) 和 [第三方 OTP 服务](#.E7.AC.AC.E4.B8.89.E6.96.B9-otp-.E6.9C.8D.E5.8A.A1)。本地 OTP 服务为堡垒机系统内建 OTP 服务，第三方 OTP 服务需要额外的 OTP 服务器。
+堡垒机支持 [本地 OTP 服务](#.E6.9C.AC.E5.9C.B0-otp-.E6.9C.8D.E5.8A.A1) 和 [第三方 OTP 服务](#.E7.AC.AC.E4.B8.89.E6.96.B9-otp-.E6.9C.8D.E5.8A.A1)。本地 OTP 服务为堡垒机系统内建 OTP 服务，并提供微信小程序“数盾OTP”用于获取登录口令。第三方 OTP 服务需要额外的 OTP 服务器。
+
+
+
 
 #### 本地 OTP 服务
 
@@ -15,6 +18,7 @@
 3. 勾选 OTP 服务开关，单击【本地 OTP 服务】，如下图所示。
 ![](https://main.qcloudimg.com/raw/3f663acb77e687c677eee37e30c524ea.png)
 4. 单击【保存】，即可完成本地 OTP 服务配置。
+5. 用户认证配置及如何使用“数盾OTP”小程序，请参见 [OTP 认证](https://cloud.tencent.com/document/product/1025/35133#.E8.AE.BE.E7.BD.AE.E7.94.A8.E6.88.B7.E8.AE.A4.E8.AF.81.E6.96.B9.E5.BC.8F)。
 
 
 

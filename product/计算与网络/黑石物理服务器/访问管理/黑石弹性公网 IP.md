@@ -26,7 +26,7 @@
 以下表格，罗列了在配置黑石弹性公网 IP 的策略时，需要用到的 action、resource、condition。相关概念请参考 [访问管理](https://cloud.tencent.com/document/product/598/10603) 章节。
 
  - Action，即操作，对应的是 API。编写策略时，您可以复制表格里内容并粘贴在 Action 字段中。关联该策略后，即可获得特定 API 的调用权限。
- - Resource，即云资源，当列表中 ACtion 的鉴权参数不为空时，则表示在调用 API 需要指定云资源，否则则不需要指定。编写策略时，您可以复制表格里内容并粘贴在策略生成器的 Resource 字段中，但请记得替换 $eipId、$InstanceId 为真实的实例 ID；关联该策略后，即可获得特定资源的操作权限。 
+ - Resource，即云资源，当列表中 ACtion 的鉴权参数不为空时，则表示在调用 API 需要指定云资源，否则不需要指定。编写策略时，您可以复制表格里内容并粘贴在策略生成器的 Resource 字段中，但请记得替换 $eipId、$InstanceId 为真实的实例 ID；关联该策略后，即可获得特定资源的操作权限。 
  > 注意：
  > 部分 API 鉴权时需要两种类型的实例 ID，例如绑定 EIP，分别需要被绑定的黑石服务器以及用于绑定的黑石弹性公网 IP 的实例 ID，这时需要把两种云产品的资源描述都写在 Resource 里。
  - Condition,即生效条件。换句话说 Action 和 Resource 需要在特定的生效条件下，才能鉴权通过。您可以灵活使用 condtion 以做到 VPC 或者 Subnet 粒度的权限管理，例如授权人员管理特定VPC内的所有黑石服务器。
@@ -103,14 +103,14 @@
 <td>bmeip:EipBmApply</td>
 <td>qcs::bmvpc:::unVpcId/vpc-xxx</td>
 	<td>创建黑石 EIP</td>
-	<td></td>	
+	<td>-</td>	
 </tr>
 
 <tr>
 <td>bmeip:DescribeEipBm</td>
-<td></td>
+<td>-</td>
 	<td>黑石 EIP 查询接口</td>
-	<td></td>
+	<td>-</td>
 	
 </tr>
 
@@ -175,7 +175,7 @@ for\_all\_value:string_equal\_if\_exist，用于 condition 有一个 key 多个 
 场景：调用 EipBmModifyCharge 修改 vpc-34cxlz7z 的任一 EIP 实例的别名。<br/>
 
 评估逻辑：
-1. 鉴权逻辑关联了 effect:allow 的策略且 action:bm:EipBmModifyCharge和resource:*，即允许修改任一实例的别名。
+1. 鉴权逻辑关联了 effect:allow 的策略且 action:bm:EipBmModifyCharge和resource:\*，即允许修改任一实例的别名。
 2. 但前提是，实例要在 vpc-34cxlz7z 里才能鉴权通过。
 
 
@@ -239,6 +239,6 @@ for\_all\_value:string_equal\_if\_exist，用于 condition 有一个 key 多个 
 ```
 
 评估逻辑：
-当调用 BindEip 时，CAM 会对传入的 instanceId 和 EipID 做鉴权，发现满足resource（*）的要求。
+当调用 BindEip 时，CAM 会对传入的 instanceId 和 EipID 做鉴权，发现满足resource（\*）的要求。
 但要求 instanceId 和 EipID在vpc-34cxlz7z 或者 vpc-muinpf9p 里，【是】则鉴权通过，【否】则鉴权失败。
 

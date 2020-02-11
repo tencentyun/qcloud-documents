@@ -1,15 +1,17 @@
-导入Windows类型镜像并创建云服务器后，用户请通过 [控制台云服务器列表](https://console.cloud.tencent.com/cvm) 后的【登录】按钮登录刚创建的云服务器并进行网络配置。
+## 操作场景
+创建实例时，如果您选择的镜像为导入的 Windows 类型镜像，创建实例后您需要进行网络配置。本文档指导您在该实例上进行配置网络。
 
-Windows机器网络配置信息保存在文件`C:\qcloud-network-config.ini`中，打开该配置文件，结构如下：
-
+## 操作步骤
+1. 登录云服务器。
+2. 在操作系统界面，找到并打开`C:\qcloud-network-config.ini`配置文件。
+其文件内容结构如下：
 ```
 [ip]
 ip= x.x.x.x
 mask = x.x.x.x
 gateway = x.x.x.x
- 
 [dns]
 dns = x.x.x.x
 ```
+3. 根据实际需求，修改该配置文件，并保存。
 
-请根据此配置文件信息修改网络

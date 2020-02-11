@@ -34,7 +34,7 @@ conversation = TIMManager.getInstance().getConversation(
 
 **消息发送：**通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 对象简介](/doc/product/269/9227#2.1-imsdk.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151013075817_75666.png)
+![](https://main.qcloudimg.com/raw/5b109b81e56ac31a6c73ca6053a342ff.png)
 
 发消息通过 `TIMConversation` 的方法 `sendMessage` 实现。
 
@@ -313,10 +313,12 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 /**
  * 下载语音文件到指定的保存路径
+ *
  * @param path 指定保存路径
- * @param callback 回调
+ * @param progressCb 下载进度回调
+ * @param cb   回调
  */
-public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
+ public void getSoundToFile(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb) 
 
 /**
  * 获取需要发送的语音文件的路径，只对发送方有效
@@ -475,10 +477,9 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。
 
 >!
-> - 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误 1，添加不生效。
 > -  语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示，而且语音和文件 `Elem` 也不保证按照发送的 `Elem` 顺序排序。 
 > - `path` 不支持 `file://` 开头的文件路径，需要去掉 `file://` 前缀。
-> - 文件大小限制 28MB。
+> - 文件大小限制28MB。
 
 **`TIMFileElem` 成员方法如下：**
 
@@ -834,9 +835,10 @@ public boolean copyFrom(@NonNull TIMMessage srcMsg)
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
+用户需要感知新消息的通知时，只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过回调中的 `onNewMessages` 抛出。 注册方法请参考 [新消息通知](/doc/product/269/9229#.E6.96.B0.E6.B6.88.E6.81.AF.E9.80.9A.E7.9F.A5)。
 
 >!通过 `onNewMessages` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，IM SDK 会拉取 C2C 离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
+群系统消息、关系链变化、好友资料变更也会通过该回调 `onNewMessages` 抛出。
 
 ### 消息解析
 
@@ -944,13 +946,15 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 ```
 /**
  * 下载语音文件到指定的保存路径
+ *
  * @param path 指定保存路径
- * @param callback 回调
+ * @param progressCb 下载进度回调
+ * @param cb   回调
  */
-public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
+ public void getSoundToFile(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb) 
 ```
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，例如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
 
 **原型：**
 ```
@@ -1145,7 +1149,7 @@ video.getVideo(videoPath, new TIMCallBack() {
 
 ### 消息是否已读
 
-通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 则进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
+通过 `TIMMessage` 的方法 `isRead` 可以获取消息是否已读。这里已读与否取决于 App 侧进行的 [已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。消息是否已读的原型如下。
 
 **原型：**
 ```
@@ -1185,7 +1189,7 @@ public boolean isSelf()
 
 可以通过 `TIMMessage` 的方法 `getSender` 获取发送用户的 ID。
 **对于单聊消息**，可以通过 `TIMMessage` 的 `getConversation` 获取到对应会话，会话的 `getPeer` 即可得到正在聊天的用户及其相关资料。
-**对于群消息**，可以通过 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。如需拉取自定义字段，需在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236#.E8.AE.BE.E7.BD.AE.E6.8B.89.E5.8F.96.E5.AD.97.E6.AE.B5) 。
+**对于群消息**，可以通过 `getSenderProfile` 和 `getSenderGroupMemberProfile` 获取发送者的资料和所在群的资料。如需拉取自定义字段，需在登录 IM SDK 之前 [设置拉取字段](https://cloud.tencent.com/document/product/269/9236) 。
  >!此字段是消息发送时获取用户资料写入消息体，如后续用户资料更新，此字段不会相应变更，只有产生的新消息中才会带最新的昵称。
  >只有接收到的群消息才能获取到相应的资料。
 
@@ -1281,7 +1285,7 @@ public TIMMessagePriority getPriority()
 
 ### 已读回执
 
-IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfig` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 的时候发送已读回执会给聊天对方。
+IM SDK 提供**针对于 C2C 消息**的已读回执功能。通过 `TIMUserConfig` 中的 `enableReadReceipt` 接口可以启用消息已读回执功能。启用已读回执功能后，在进行 [消息已读上报](https://cloud.tencent.com/document/product/269/9226#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5) 时会发送已读回执给对方。
 
 通过 `TIMUserConfig` 的接口 `setMessageReceiptListener` 可以注册已读回执监听器。通过 `TIMMessage` 中的 `isPeerReaded` 可以查询当前消息对方是否已读。
 
@@ -1347,6 +1351,7 @@ public TIMMessageLocator getMessageLocator()
 ### 获取所有会话
 
 通过 `TIMManager` 的 `getConversationList` 获取当前会话数量，从而得到所有本地会话。
+>!SDK 会在内部不断更新会话列表，每次更新后都会通过 `TIMRefreshListener.onRefresh` 回调，请**在 `onRefresh` 之后再调用 `getConversationList`** 更新会话列表。
 
 **原型：**
 

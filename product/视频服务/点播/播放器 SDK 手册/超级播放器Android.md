@@ -62,7 +62,7 @@ model.videoId.fileId = "5285890781763144364"; // 配置 FileId
 mSuperPlayerView.playWithModel(model);
 ```
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
-![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+<img src="https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png" width="550">
 
 ### 选择 FileId
 
@@ -80,7 +80,7 @@ mSuperPlayerView.playWithModel(model);
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">
 
 ## 小窗播放
 
@@ -98,7 +98,7 @@ rect.width = 810;
 rect.height = 540;
 // ...其他配置
 ```
-<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="400">
+<img src="https://main.qcloudimg.com/raw/2cab897e43e4a01ee5f8e48372ce79a3.jpg" width="350">
 
 ## 退出播放
 
@@ -110,4 +110,5 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![Android二维码下载](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
+<img src="https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png" width="150">
+

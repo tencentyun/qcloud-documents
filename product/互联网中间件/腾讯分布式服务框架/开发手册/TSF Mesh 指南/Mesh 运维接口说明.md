@@ -42,7 +42,7 @@ ISTIO_REDIRECT  tcp  --  0.0.0.0/0            9.77.7.28            tcp dpt:8089
 Chain ISTIO_OUTPUT (1 references)
 target     prot opt source               destination         
 RETURN     all  --  0.0.0.0/0            0.0.0.0/0            owner UID match 1000
-DNAT       tcp  --  0.0.0.0/0            {特定ip}        to:9.77.7.28:15001
+DNAT       tcp  --  0.0.0.0/0            {特定 IP}        to:9.77.7.28:15001
 
 Chain ISTIO_REDIRECT (1 references)
 target     prot opt source               destination         

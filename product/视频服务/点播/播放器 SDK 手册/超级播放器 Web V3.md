@@ -38,10 +38,9 @@
 ### Step1. 开通服务
 在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，然后开通云点播。
 ### Step2. 上传视频并转码
-云点播开通之后，需要 [上传视频](https://cloud.tencent.com/document/product/266/2841#.E4.B8.8A.E4.BC.A0.E8.A7.86.E9.A2.91)，并进行 [转码处理](https://cloud.tencent.com/document/product/266/2841#.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91)。
+云点播开通之后，需要 [上传视频](https://cloud.tencent.com/document/product/266/2841)，并进行 [转码处理](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4)。
 ### Step3. 获取 ID 与 APPID
-1. 获取 ID（fileID）：视频上传后，通过媒资管理可以 [查看视频 ID](https://cloud.tencent.com/document/product/266/2841#.E5.BF.AB.E6.8D.B7.E6.9F.A5.E7.9C.8B.E8.A7.86.E9.A2.91.E4.BF.A1.E6.81.AF)。
-
+1. 获取 ID（fileID）：视频上传后，通过媒资管理可以 [查看视频 ID](https://cloud.tencent.com/document/product/266/36451)。
 2. 获取 APPID：在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查看。
 
 ### Step4. 转自适应码流，获取 playDefinition
@@ -164,7 +163,7 @@ var player = TCPlayer('player-container-id', {
 > - 在浏览器劫持视频播放的情况下，设置的 logo 将无法显示。
 
 ### 图片贴片功能
-点播超级播放器支持配置片头、片中暂停以及片尾显示图片贴片，并且可以添加超链接。可以在在[【Web播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)选定某个播放器配置，在【贴片】这一步设置贴片信息。
+点播超级播放器支持配置片头、片中暂停以及片尾显示图片贴片，并且可以添加超链接。可以在[【Web播放器管理】](https://console.cloud.tencent.com/vod/distribute-play/web-player)选定某个播放器配置，在【贴片】这一步设置贴片信息。
 
 - 默认的贴片显示样式为水平垂直居中显示，如果图片的尺寸大于播放器显示区域，将按播放器的宽度等比缩放图片，水平居中显示图片，图片超出播放器区域部分将无法显示。
 - 可以通过 CSS 自定义贴片的显示样式。

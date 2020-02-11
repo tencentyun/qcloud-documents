@@ -83,7 +83,7 @@ mSuperPlayerView.playWithModel(model);
 
 ## 多清晰度
 
-上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放放的直播流，进入详情。
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放的直播流，进入详情。
 
 ![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
 
@@ -143,7 +143,7 @@ model.videoId.fileId = "5285890781763144364"; // 配置FileId
 mSuperPlayerView.playWithModel(model);
 ```
 
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考此篇文档：[点播超级播放器使用文档 - key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.3Cspan-id-.3D-.22zm.22-.3E.3C.2Fspan.3E.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)）。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考此篇文档：[点播超级播放器使用文档 - key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
 ## 雪碧图和打点信息
 

@@ -44,7 +44,7 @@ TIMConversation * grp_conversation = [[TIMManager sharedInstance] getConversatio
 
 #### 消息发送
 
-通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 对象简介](/doc/product/269/1565#.E5.AF.B9.E8.B1.A1.E7.AE.80.E4.BB.8B)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。发消息通过 `TIMConversation` 的成员 `sendMessage` 实现，有两种方式实现，一种使用闭包，另一种调用方实现 `protocol` 回调。
+通过 `TIMManager` 获取会话 `TIMConversation` 后，可发送消息和获取会话缓存消息。IM SDK 中消息的解释可参阅 [IM SDK 基本概念](https://cloud.tencent.com/document/product/269/9147)。IM SDK 中的消息由 `TIMMessage` 表达， 一个 `TIMMessage` 由多个 `TIMElem` 组成，每个 `TIMElem` 可以是文本和图片，也就是说每一条消息可包含多个文本和多张图片。发消息通过 `TIMConversation` 的成员 `sendMessage` 实现，有两种方式实现，一种使用闭包，另一种调用方实现 `protocol` 回调。
 
 ![](https://main.qcloudimg.com/raw/6bf979993ac8490ce53f68256e05ef01.png)
 
@@ -352,9 +352,7 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 
 文件消息由 `TIMFileElem` 定义，另外还可以提供额外的显示文件名信息。
 
->!
->- 一条消息只能有一个语音 `Elem`，添加多条语音 `Elem` 时，`AddElem` 函数返回错误1，添加不生效。
->- 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示。
+>! 语音和文件 `Elem` 不一定会按照添加时的顺序获取，建议逐个判断 `Elem` 类型展示。
 
 ```
 /**
@@ -556,7 +554,7 @@ videoElem.videoPath = @"/xxx/videoPath.mp4";
 videoElem.video = [[TIMVideo alloc] init];
 videoElem.video.type = @"mp4";
 videoElem.video.duration = 10;
-videoElem.snapshotPath = @"/xxx/snapshotPath.jgp";
+videoElem.snapshotPath = @"/xxx/snapshotPath.jpg";
 videoElem.snapshot = [[TIMSnapshot alloc] init];
 videoElem.snapshot.type = @"jpg";
 videoElem.snapshot.width = 100;
@@ -626,7 +624,11 @@ videoElem.snapshot.height = 200;
 
 ## 接收消息
 
-在多数情况下，用户需要感知新消息的通知，这时只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过此方法抛出，另外需要注意，通过 `onNewMessage` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，IM SDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息（如消息文本，语音数据，图片等等）可参阅 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)部分。
+用户需要感知新消息的通知时，只需注册新消息通知回调 `TIMMessageListener`，如果用户是登录状态，IM SDK 收到新消息会通过回调中的  `onNewMessage` 抛出。回调消息内容通过参数 `TIMMessage` 传递，通过 `TIMMessage` 可以获取消息和相关会话的详细信息（例如消息文本，语音数据，图片等等），详情请参见 [消息解析](#.E6.B6.88.E6.81.AF.E8.A7.A3.E6.9E.90)。
+
+>!通过 `onNewMessage` 抛出的消息不一定是未读的消息，只是本地曾经没有过的消息（例如在另外一个终端已读，拉取最近联系人消息时可以获取会话最后一条消息，如果本地没有，会通过此方法抛出）。在用户登录之后，IM SDK 会拉取离线消息，为了不漏掉消息通知，需要在登录之前注册新消息通知。
+群系统消息、关系链变化、好友资料变更也会通过该回调 `onNewMessage` 抛出。
+
 
 **原型：**
 
@@ -670,7 +672,7 @@ TIMMessageListenerImpl * impl = [[TIMMessageListenerImpl alloc] init];
 
 ### 消息解析
 
-收到消息后，可用过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点。
+收到消息后，可通过 `getElem` 从 `TIMMessage` 中获取所有的 `Elem` 节点。
 
 **遍历 `Elem` 原型：**
 
@@ -1134,7 +1136,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 
 ### 消息是否已读
 
-通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 测进行的 [已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
+通过消息属性 `isReaded` 是否消息已读。这里已读与否取决于 App 侧进行的 [已读上报](/doc/product/269/未读消息计数（iOS%20SDK）#.E5.B7.B2.E8.AF.BB.E4.B8.8A.E6.8A.A5)。
 
 ```
 @interface TIMMessage : NSObject
@@ -1398,6 +1400,8 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 -(NSArray*) getConversationList;
 @end
 ```
+
+>!SDK 会在内部不断更新会话列表，每次更新后都会通过 `TIMRefreshListener.onRefresh` 回调，请**在 `onRefresh` 之后再调用 `getConversationList`** 更新会话列表。
 
 **示例：**
 

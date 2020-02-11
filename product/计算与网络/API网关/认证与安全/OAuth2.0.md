@@ -72,8 +72,15 @@ API 网关已经对外提供了 OAuth 功能，实践一个 Auth 的 Demo 需要
 - 公钥：放在 API 网关，用于验证 JWT 签名。
 - 私钥： AS 保存。
 ![](https://main.qcloudimg.com/raw/b660f7e5858232ac083a0b70269a7d24.png)
-JSON 格式输出：
-![](https://main.qcloudimg.com/raw/7afc10190d41a4bfc20dcfed3711ab07.png)
+
+JSON 格式输出，满足 JWT Header 头部信息包含两部分：
+- kty：代表 Token 类型，这里使用的是 RSA。
+- alg：使用 Hash 算法，这里使用的是 RS256。
+
+```
+{"kty":"RSA","alg":"RS256","e":"","n":"公钥内容"}
+```
+
 
 #### 生成 id_token
 ![](https://main.qcloudimg.com/raw/14ae49322bf0768c0e0fadf268e3f27c.png)
@@ -91,24 +98,16 @@ JSON 格式输出：
 
 #### 演示
 先将 AS 服务部署到后台服务器并跑起来，注意如果是部署到 CVM，需要在安全组中开放端口。
-
 - 在 API 管理平台创建授权 API
 ![](https://main.qcloudimg.com/raw/4c84a7cb40d9878c2020f4011ded148c.png)
-
 - 填入公钥等 OAuth 信息
 ![](https://main.qcloudimg.com/raw/a9c0d2ff616c005466a66b9a79e99a2d.png)
-
-
 - 在 API 网关平台创建业务 API，关联授权 API
 ![](https://main.qcloudimg.com/raw/40bde382b2b56c9bdcee812c6aa2848d.png)
 - 发布 API
 ![](https://main.qcloudimg.com/raw/9dc65429e6bbba8096d21826eedebd49.png)
-
-
 - 调用授权 API 拿到 id_token
 ![](https://main.qcloudimg.com/raw/85d98d401e6120297eda0f460e3f0eba.png)
-
-
 - 使用 id_token 访问业务 API
 ![](https://main.qcloudimg.com/raw/5c8f2a2d901e79e16e8588ffa5519d75.png)
 

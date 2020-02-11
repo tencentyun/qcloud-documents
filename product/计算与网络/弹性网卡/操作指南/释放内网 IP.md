@@ -4,7 +4,7 @@
 ![](https://main.qcloudimg.com/raw/4075af8d7e9655ab5306e5152e1a79ce.png)
 3. 单击需要查看的实例 ID，进入详情页。
 4. 单击选项卡中的【IPv4 地址管理】，查看已绑定的内网 IP 和弹性公网 IP。
-![](https://main.qcloudimg.com/raw/6b185f4c86bf7dde4ef942985487748e.png)
+![](https://main.qcloudimg.com/raw/c360781a44e6a7f976c5fd3bf0b87bd0.png)
 5. 找到需要释放的内网 IP 所在行，单击操作栏中的【释放】。
 6. 在弹框中单击【确定】完成操作。
 ![](https://main.qcloudimg.com/raw/de8b915dc8b2ac99bab3335117f9687d.png)

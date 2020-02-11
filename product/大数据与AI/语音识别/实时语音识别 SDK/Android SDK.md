@@ -1,3 +1,6 @@
+Android SDK 接入请观看视频：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20716?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 接入准备
 ### SDK 获取
 实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)。
@@ -26,7 +29,7 @@
 		```
 	
 + 添加相关依赖
-  okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
+  okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加:
 	```
 	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 	implementation 'com.squareup.okio:okio:1.11.0'
@@ -311,7 +314,7 @@ new Thread(new Runnable() {
 ```
 
 #### 设置状态监听器
-AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共有如下七个接口：
+AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有如下七个接口：
 
 | 方法 | 方法描述 | 
 |---------|---------|
@@ -323,7 +326,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的的状态，一共�
 | onVoiceVolume | 音量 | 
 
 #### 设置超时监听器
-AudioRecognizeTimeoutListener 可以用来监听语音识别的的超时，一共有如下两个接口：
+AudioRecognizeTimeoutListener 可以用来监听语音识别的超时，一共有如下两个接口：
 
 | 方法 | 方法描述 |
 |---------|---------|
@@ -482,5 +485,4 @@ public static void enableInfo();
 public static void enableWarn();
 public static void enableError();
 ```
-
 

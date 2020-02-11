@@ -5,14 +5,13 @@
 
 ## 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数可参考 [公共请求参数](/document/api/213/6976)。
+以下请求参数列表仅列出了接口请求参数，其它参数可参考 [公共请求参数](https://cloud.tencent.com/document/product/628/18814)。
 
 | 参数名称                                     | 是否必选 | 类型      | 描述                                       |
 | ---------------------------------------- | ---- | ------- | ---------------------------------------- |
 | serviceId                                | 是    | String  | API 所在的服务唯一 ID。                            |
 | apiId                                    | 是    | String  | API 接口唯一 ID。                               |
 | apiName                                  | 否    | String  | 用户自定义的 API 名称。                             |
-| apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
 | authRequired                             | 否    | String  | 是否需要签名认证，TRUE 表示需要，FALSE 表示不需要。            |
 | enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。            |
 | apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
@@ -53,7 +52,7 @@
 ## 输出参数
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 <a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。 |
+| code     | Int    | 公共错误码, 0 表示成功，其他值表示失败。详见错误码页面的 [公共错误码](https://cloud.tencent.com/document/product/628/18822)。 |
 | codeDesc | String | 业务侧错误码。成功时返回 Success，错误时返回具体业务错误原因。       |
 | message  | String | 模块错误信息描述，与接口相关。                          |
 

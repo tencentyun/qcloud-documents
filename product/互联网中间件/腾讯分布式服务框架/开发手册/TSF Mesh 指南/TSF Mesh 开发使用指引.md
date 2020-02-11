@@ -63,7 +63,7 @@ spec:
 
 >!
 - healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。
-- `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 nginx 配置的 server_name），则需将 local-service 加到白名单。
+- `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 Nginx 配置的 server_name），则需将 local-service 加到白名单。
 
 
 

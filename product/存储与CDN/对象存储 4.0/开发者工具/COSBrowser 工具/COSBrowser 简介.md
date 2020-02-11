@@ -25,7 +25,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
    </tr>
    <tr>
       <td>Linux</td>
-      <td>需带有图形界面并支持 AppImage</td>
+      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
       <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip">Linux</a></td>
    </tr>
    <tr>
@@ -35,7 +35,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
    </tr>
    <tr>
-      <td>iOS 移动端</td>
+      <td>iOS</td>
       <td>iOS 11以上</td>
       <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
    </tr>
@@ -59,6 +59,7 @@ COSBrowser 桌面端支持以下功能：
 | [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶         |
 | [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地           |
 | [删除文件/文件夹](https://cloud.tencent.com/document/product/436/38103#delete) | 支持单个删除、批量删除存储桶中的文件或文件夹                 |
+|      [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)            	|                                                    支持将本地文件实时同步至存储桶中                   |   
 | [复制粘贴文件](https://cloud.tencent.com/document/product/436/38103#copy) | 支持单个复制、批量复制一个目录下的文件或文件夹至另一个目录   |
 | [文件重命名](https://cloud.tencent.com/document/product/436/38103#rename) | 支持重命名存储桶中的文件                                     |
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38103#newfolder) | 支持在存储桶中新建文件夹                                     |

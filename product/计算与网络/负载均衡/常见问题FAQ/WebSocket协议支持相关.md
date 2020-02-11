@@ -20,7 +20,7 @@ WebSocket 的主要优点包括：
 CLB 默认支持 WS/WSS，不收取额外费用。
 
 ## 产品实施
-### 如何在CLB上开启 WS/WSS？
+### 如何在 CLB 上开启 WS/WSS？
 **默认开启，无需额外配置**。
 监听器监听在 HTTP，则默认支持 WS；监听器监听 HTTPS，则默认支持 WSS。
 使用 WSS 时，CLB 会进行 SSL 卸载。

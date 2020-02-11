@@ -73,7 +73,7 @@ SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要�
 
 原因与解决办法：
 
- a. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网(内网域名解析出的 IP 是10、100、169网段，有关 COS 域名请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)，如果是通过公网确认出口带宽是否较小，或者是否有其他程序占用带宽资源。
+ a. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网（内网域名解析出的 IP 是10、100、169网段，有关 COS 域名请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)），如果是通过公网确认出口带宽是否较小，或者是否有其他程序占用带宽资源。
  b. 确保在生产环境中的日志级别不是 DEBUG，推荐使用 INFO 日志。
  c. 目前简单上传速度可达10MB，高级 API 在32并发的情况下速度可达60MB,如果速度远低于此两个值，请参考 a 和 b。
  d. 如果 WARN 日志打印 IOException 可以忽略，SDK 会进行重试. IOException 的原因可能是网速过慢，原因可参考 a 和 b。
@@ -158,3 +158,6 @@ clientConfig .setEndpointBuilder(selfDefinedEndpointBuilder);
 COSClient cosClient = new COSClient(cred, clientConfig);
 ```
 
+### SDK 的上传、下载、批量删除等操作中，使用的 key 值是否需要添加 '/' 前缀？
+对象存储的 key 值无需携带 '/' 前缀。例如，您将对象 key 值设置为 exampleobject 上传的对象，可以通过 URL： `http://cos.ap-guangzhou.myqcloud.com/exampleobject`进行访问。
+>!在批删请求中，请勿传入 '/' 前缀的 key，这将导致对象删除失败。

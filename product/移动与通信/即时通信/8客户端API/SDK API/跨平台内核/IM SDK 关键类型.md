@@ -576,7 +576,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMProfileChangeElemChangeType |  uint [TIMProfileChangeType](#timprofilechangetype)  | 只读 | 资料变更类型 |
-| kTIMProfileChangeElemFromIndentifier | string | 只读 | 资料变更用户的 identifier |
+| kTIMProfileChangeElemFromIndentifier | string | 只读 | 资料变更用户的 UserID |
 | kTIMProfileChangeElemUserProfileItem |  object [UserProfileItem](#userprofileitem)  | 只读 | 具体的变更信息，只有当`change_type`为`kTIMProfileChange_Profile`时有效 |
 
 ### TIMFriendChangeType
@@ -600,7 +600,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendProfileUpdateIdentifier | string | 只写 | 资料更新的好友的 identifier |
+| kTIMFriendProfileUpdateIdentifier | string | 只写 | 资料更新的好友的 UserID |
 | kTIMFriendProfileUpdateItem |  object [FriendProfileItem](#friendprofileitem)  | 只写 | 资料更新的 Item |
 
 ### FriendChangeElem
@@ -608,13 +608,13 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendChangeElemChangeType |  uint [TIMFriendChangeType](#timfriendchangetype)  | 只读 | 资料变更类型 |
-| kTIMFriendChangeElemFriendAddIdentifierArray |  array string | 只读 | 新增的好友 identifier 列表，只有当`change_type`为`kTIMFriendChange_FriendAdd`时有效 |
-| kTIMFriendChangeElemFriendDelIdentifierArray |  array string | 只读 | 删除的好友 identifier 列表，只有当`change_type`为`kTIMFriendChange_FriendDel`时有效 |
+| kTIMFriendChangeElemFriendAddIdentifierArray |  array string | 只读 | 新增的好友 UserID 列表，只有当`change_type`为`kTIMFriendChange_FriendAdd`时有效 |
+| kTIMFriendChangeElemFriendDelIdentifierArray |  array string | 只读 | 删除的好友 UserID 列表，只有当`change_type`为`kTIMFriendChange_FriendDel`时有效 |
 | kTIMFriendChangeElemFriendAddPendencyItemArray |  array [FriendAddPendency](#friendaddpendency)  | 只读 | 好友添加未决信息列表，只有当`change_type`为`kTIMFriendChange_PendencyAdd`时有效 |
 | kTIMFriendChangeElemPendencyDelIdentifierArray |  array string | 只读 | 好友未决信息删除列表，只有当`change_type`为`kTIMFriendChange_PendencyDel`时有效 |
 | kTIMFriendChangeElemPendencyReadedReportTimestamp | uint64 | 只读 | 未决已读上报时间戳，只有当`change_type`为`kTIMFriendChange_PendencyReadedReport`时有效 |
-| kTIMFriendChangeElemBlackListAddIdentifierArray |  array string | 只读 | 新增的黑名单 identifier 列表，只有当`change_type`为`kTIMFriendChange_BlackListAdd`时有效 |
-| kTIMFriendChangeElemBlackListDelIdentifierArray |  array string | 只读 | 删除的黑名单 identifier 列表，只有当`change_type`为`kTIMFriendChange_BlackListDel`时有效 |
+| kTIMFriendChangeElemBlackListAddIdentifierArray |  array string | 只读 | 新增的黑名单 UserID 列表，只有当`change_type`为`kTIMFriendChange_BlackListAdd`时有效 |
+| kTIMFriendChangeElemBlackListDelIdentifierArray |  array string | 只读 | 删除的黑名单 UserID 列表，只有当`change_type`为`kTIMFriendChange_BlackListDel`时有效 |
 | kTIMFriendChangeElemFreindProfileUpdateItemArray |  array [FriendProfileUpdate](#friendprofileupdate)  | 只读 | 好友资料更新列表，只有当`change_type`为`kTIMFriendChange_FriendProfileUpdate`时有效 |
 | kTIMFriendChangeElemFriendGroupAddIdentifierArray |  array string | 只读 | 新增的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupAdd`时有效 |
 | kTIMFriendChangeElemFriendGroupDelIdentifierArray |  array string | 只读 | 删除的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupDel`时有效 |
@@ -1123,7 +1123,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendShipGetProfileListParamIdentifierArray |  array string | 只写 | 想要获取目标用户资料的 identifier 列表 |
+| kTIMFriendShipGetProfileListParamIdentifierArray |  array string | 只写 | 想要获取目标用户资料的 UserID 列表 |
 | kTIMFriendShipGetProfileListParamForceUpdate | bool | 只写 | 是否强制更新。false 表示优先从本地缓存获取，获取不到则去网络上拉取。true 表示直接去网络上拉取资料。默认值为 false |
 
 ### TIMGenderType
@@ -1205,7 +1205,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendProfileIdentifier | string | 只读 | 好友 identifier |
+| kTIMFriendProfileIdentifier | string | 只读 | 好友 UserID |
 | kTIMFriendProfileGroupNameArray |  array string | 只读 | 好友分组名称列表 |
 | kTIMFriendProfileRemark | string | 只读 | 好友备注，最大96字节，获取自己资料时，该字段为空 |
 | kTIMFriendProfileAddWording | string | 只读 | 好友申请时的添加理由 |
@@ -1235,7 +1235,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendshipAddFriendParamIdentifier | string | 只写 | 请求加好友对应的 identifier |
+| kTIMFriendshipAddFriendParamIdentifier | string | 只写 | 请求加好友对应的 UserID |
 | kTIMFriendshipAddFriendParamFriendType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 请求添加好友的好友类型 |
 | kTIMFriendshipAddFriendParamRemark | string | 只写 | 预备注 |
 | kTIMFriendshipAddFriendParamGroupName | string | 只写 | 预分组名 |
@@ -1254,14 +1254,14 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendshipModifyFriendProfileParamIdentifier | string | 只写 | 被修改的好友的 Identifier |
+| kTIMFriendshipModifyFriendProfileParamIdentifier | string | 只写 | 被修改的好友的 UserID |
 | kTIMFriendshipModifyFriendProfileParamItem |  object [FriendProfileItem](#friendprofileitem)  | 只写 | 修改的好友资料各个选项 |
 
 ### FriendAddPendency
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendAddPendencyIdentifier | string | 只读 | 添加好友请求方的 identifier |
+| kTIMFriendAddPendencyIdentifier | string | 只读 | 添加好友请求方的 UserID |
 | kTIMFriendAddPendencyNickName | string | 只读 | 添加好友请求方的昵称 |
 | kTIMFriendAddPendencyAddSource | string | 只读 | 添加好友请求方的来源 |
 | kTIMFriendAddPendencyAddWording | string | 只读 | 添加好友请求方的附言 |
@@ -1297,7 +1297,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendAddPendencyInfoType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只读 | 好友添加请求未决类型 |
-| kTIMFriendAddPendencyInfoIdentifier | string | 只读 | 好友添加请求未决的 identifier |
+| kTIMFriendAddPendencyInfoIdentifier | string | 只读 | 好友添加请求未决的 UserID |
 | kTIMFriendAddPendencyInfoNickName | string | 只读 | 好友添加请求未决的昵称 |
 | kTIMFriendAddPendencyInfoAddTime | uint64 | 只读 | 好友添加请求未决的请求添加时间 |
 | kTIMFriendAddPendencyInfoAddSource | string | 只读 | 好友添加请求未决的添加来源 |
@@ -1308,7 +1308,7 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipDeletePendencyParamType |  uint [TIMFriendPendencyType](#timfriendpendencytype)  | 只读 | 删除好友添加请求未决的类型 |
-| kTIMFriendshipDeletePendencyParamIdentifierArray |  array string | 只读 | 删除好友未决请求的 Identifier 列表 |
+| kTIMFriendshipDeletePendencyParamIdentifierArray |  array string | 只读 | 删除好友未决请求的 UserID 列表 |
 
 ### TIMFriendResponseAction
 
@@ -1322,7 +1322,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendResponeIdentifier | string | 只写（必填） | 响应好友添加的 Identifier |
+| kTIMFriendResponeIdentifier | string | 只写（必填） | 响应好友添加的 UserID |
 | kTIMFriendResponeAction |  uint [TIMFriendResponseAction](#timfriendresponseaction)  | 只写（必填） | 响应好友添加的动作 |
 | kTIMFriendResponeRemark | string | 只写（选填） | 好友备注 |
 | kTIMFriendResponeGroupName | string | 只写（选填） | 好友分组列表 |
@@ -1332,14 +1332,14 @@ UUID 类型。
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipDeleteFriendParamFriendType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 删除好友，指定删除的好友类型 |
-| kTIMFriendshipDeleteFriendParamIdentifierArray |  array string | 只写（选填） | 删除好友 identifier 列表 |
+| kTIMFriendshipDeleteFriendParamIdentifierArray |  array string | 只写（选填） | 删除好友 UserID 列表 |
 
 ### FriendGroupInfo
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipCreateFriendGroupParamNameArray |  array string | 只写 | 创建分组的名称列表 |
-| kTIMFriendshipCreateFriendGroupParamIdentifierArray |  array string | 只写 | 要放到创建的分组的好友 Identifier 列表 |
+| kTIMFriendshipCreateFriendGroupParamIdentifierArray |  array string | 只写 | 要放到创建的分组的好友 UserID 列表 |
 
 ### FriendGroupInfo
 
@@ -1347,7 +1347,7 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMFriendGroupInfoName | string | 只读 | 分组名称 |
 | kTIMFriendGroupInfoCount | uint64 | 只读 | 当前分组的好友个数 |
-| kTIMFriendGroupInfoIdentifierArray |  array string | 只读 | 当前分组内好友 Identifier 列表 |
+| kTIMFriendGroupInfoIdentifierArray |  array string | 只读 | 当前分组内好友 UserID 列表 |
 
 ### FriendshipModifyFriendGroupParam
 
@@ -1355,15 +1355,15 @@ UUID 类型。
 |-----|-----|-----|-----|
 | kTIMFriendshipModifyFriendGroupParamName | string | 只写 | 要修改的分组名称 |
 | kTIMFriendshipModifyFriendGroupParamNewName | string | 只写（选填） | 修改后的分组名称 |
-| kTIMFriendshipModifyFriendGroupParamDeleteIdentifierArray |  array string | 只写（选填） | 要从当前分组删除的好友 identifier 列表 |
-| kTIMFriendshipModifyFriendGroupParamAddIdentifierArray |  array string | 只写（选填） | 当前分组要新增的好友 identifier 列表 |
+| kTIMFriendshipModifyFriendGroupParamDeleteIdentifierArray |  array string | 只写（选填） | 要从当前分组删除的好友 UserID 列表 |
+| kTIMFriendshipModifyFriendGroupParamAddIdentifierArray |  array string | 只写（选填） | 当前分组要新增的好友 UserID 列表 |
 
 ### FriendshipCheckFriendTypeParam
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMFriendshipCheckFriendTypeParamCheckType |  uint [TIMFriendType](#timfriendtype)  | 只写 | 要检测的好友类型 |
-| kTIMFriendshipCheckFriendTypeParamIdentifierArray |  array string | 只写 | 要检测的好友 Identifier 列表 |
+| kTIMFriendshipCheckFriendTypeParamIdentifierArray |  array string | 只写 | 要检测的好友 UserID 列表 |
 
 ### TIMFriendCheckRelation
 
@@ -1378,7 +1378,7 @@ UUID 类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMFriendshipCheckFriendTypeResultIdentifier | string | 只读 | 被检测的好友 Identifier |
+| kTIMFriendshipCheckFriendTypeResultIdentifier | string | 只读 | 被检测的好友 UserID |
 | kTIMFriendshipCheckFriendTypeResultRelation |  uint [TIMFriendCheckRelation](#timfriendcheckrelation)  | 只读 | 检测成功时返回的二者之间的关系 |
 | kTIMFriendshipCheckFriendTypeResultCode |  int [错误码](https://cloud.tencent.com/document/product/269/1671)  | 只读 | 检测的结果 |
 | kTIMFriendshipCheckFriendTypeResultDesc | string | 只读 | 检测好友失败的描述信息 |

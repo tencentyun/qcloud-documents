@@ -18,16 +18,14 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 ![img](https://main.qcloudimg.com/raw/1de2e0e330cc65ced62bd5d351379d43.png)
 4. 开启【强制跳转 HTTPS】后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问。默认情况下，跳转方式为302。
 ![image](https://main.qcloudimg.com/raw/9d5fb1d152c3aa781b0f1eaca1f3211a.png)
-可点击【编辑】修改跳转方式：
+可单击【编辑】修改跳转方式：
 ![image](https://main.qcloudimg.com/raw/cbd93a57a01478d44f9a6ec067e91e83.png)
 
 ## HTTP2.0 配置
 
 在成功为域名配置了 HTTPS 证书后，可以开启 HTTP2.0。
-![img](https://main.qcloudimg.com/raw/c31cd21a730ef4ee57c2d31ed3dad0be.png)
+![img](https://main.qcloudimg.com/raw/e55814078f908119c2876cd545c62b4d.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
-
-> ? `.myqcloud.com`后缀加速域名暂不支持 Http2.0
 
 ## OCSP 装订配置
 **功能说明**

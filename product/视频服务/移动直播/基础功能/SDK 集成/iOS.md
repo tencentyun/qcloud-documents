@@ -58,7 +58,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 
 
 ### 手动集成
-1. 下载 [LiveAVSDK ](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
+1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
 
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)

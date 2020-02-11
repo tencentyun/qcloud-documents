@@ -1,6 +1,6 @@
 ## 功能描述
 
-POST Object 接口请求可以将本地的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
+POST Object 接口请求可以将本地不超过5GB的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > !
 > - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
@@ -65,29 +65,31 @@ Content-Length: Content Length
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-server-side-encryption | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-COS 时，此字段为必选项 |
-| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256 | string | 使用 SSE-C 时，此字段为必选项 |
-| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时，此字段为必选项 |
-| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption | 服务端加密算法，支持 AES256、cos/kms | string | 使用 SSE-COS 或 SSE-KMS 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-algorithm | 服务端加密算法，支持 AES256 | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-cos-kms-key-id | 当 x-cos-server-side-encryption 值为 cos/kms 时，用于指定 kms 的用户主密钥 CMK，如不指定则使用 COS 默认创建的 CMK，更多详细信息可参见 [SSE-KMS 加密](https://cloud.tencent.com/document/product/436/18145#sse-kms-.E5.8A.A0.E5.AF.86) | string | 否 |
+| x-cos-server-side-encryption-context | 当 x-cos-server-side-encryption 值为 cos/kms 时，用于指定加密上下文，值为 JSON 格式加密上下文键值对的 Base64 编码<br>例如`eyJhIjoiYXNkZmEiLCJiIjoiMTIzMzIxIn0=` | string | 否 |
+| x-cos-server-side-encryption-customer-key | 服务端加密密钥的 Base64 编码<br/>例如`MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=` | string | 使用 SSE-C 时，此字段为必选项 |
+| x-cos-server-side-encryption-customer-key-MD5 | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码<br/>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 使用 SSE-C 时，此字段为必选项 |
 
 <span id="id1"></span>
-**签名保护**
+#### 签名保护
 
 POST Object 接口要求在请求中携带签名相关字段，COS 服务器端收到消息后，进行身份验证，验证成功则可接受并执行请求，否则将会返回错误信息并丢弃此请求。
 
 签名流程如下：
 
-**准备工作**
+#### 1. 准备工作
 
 在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取 SecretId 和 SecretKey。
 
-**生成 KeyTime**
+#### 2. 生成 KeyTime
 
-1. 获取当前时间对应的 Unix 时间戳 StartTimestamp，Unix 时间戳是从 UTC（协调世界时，或 GMT 格林威治时间）1970年1月1日0时0分0秒（北京时间：1970年1月1日8时0分0秒）起至现在的总秒数。
-2. 根据上述时间戳和期望的签名有效时长算出签名过期时间对应的 Unix 时间戳 EndTimestamp。
-3. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 KeyTime。
+a. 获取当前时间对应的 Unix 时间戳 StartTimestamp，Unix 时间戳是从 UTC（协调世界时，或 GMT 格林威治时间）1970年1月1日0时0分0秒（北京时间：1970年1月1日8时0分0秒）起至现在的总秒数。
+b. 根据上述时间戳和期望的签名有效时长算出签名过期时间对应的 Unix 时间戳 EndTimestamp。
+c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 KeyTime。
 
-**构造策略（Policy）**
+#### 3. 构造“策略”（Policy）
 
 策略为一个 JSON 文本，一个典型的策略如下：
 
@@ -135,27 +137,29 @@ POST Object 接口要求在请求中携带签名相关字段，COS 服务器端�
 | q-ak | 上文所述的 SecretId | 完全 | 是 |
 | q-sign-time | 上文所生成的 KeyTime | 完全 | 是 |
 
->! 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
+>! 
+>- “策略”（Policy）中限定的除 bucket 以外的字段，都必须出现在表单字段中。例如限定了`{ "acl": "default" }`，那么表单中必须出现 acl 且值为 default。
+>- 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
 
-**生成 SignKey**
+#### 4. 生成 SignKey
 
 使用 HMAC-SHA1 以 SecretKey 为密钥，以 KeyTime 为消息，计算消息摘要（哈希值），即为 SignKey。
 
-**生成 StringToSign**
+#### 5. 生成 StringToSign
 
 使用 SHA1 对上文中构造的策略（Policy）文本计算消息摘要（哈希值），即为 StringToSign。
 
-**生成 Signature**
+#### 6. 生成 Signature
 
 使用 HMAC-SHA1 以 SignKey 为密钥，以 StringToSign 为消息，计算消息摘要，即为 Signature。
 
-**将签名附加到表单**
+#### 7. 将签名附加到表单
 
 将上述策略和签名相关信息，以下表中描述的方式附加到表单中：
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| policy | 经过 Base64 编码的策略（Policy）内容 | string | 是 |
+| policy | 经过 Base64 编码的“策略”（Policy）内容 | string | 是 |
 | q-sign-algorithm | 签名哈希算法，固定为 sha1 | string | 是 |
 | q-ak | 上文所述的 SecretId | string | 是 |
 | q-key-time | 上文所生成的 KeyTime | string | 是 |

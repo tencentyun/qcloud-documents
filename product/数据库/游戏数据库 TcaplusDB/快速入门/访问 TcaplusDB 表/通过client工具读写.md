@@ -1,20 +1,19 @@
-以下是通过 client 工具访问 TcaplusDB 表的步骤。
+
+本文为您介绍通过 client 工具访问 TcaplusDB 表的操作。
 
 tcaplus_client 是在 TcaplusServiceAPI 发布包 bin 目录中的一个 TcaplusDB 表访问工具，它本身也是 TcaplusServiceAPI 的一个应用程序。
 
-Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，接下来的演示将基于 Linux x86_64 版本的工具进行。
+Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，本文示例基于 Linux x86_64 版本的工具进行。
 
->!相关操作需要在用户腾讯云账号下申请的 CVM 中进行。
+>?相关操作需要在用户腾讯云账号下申请的云服务器 CVM 中进行。
 
-在本例中，假设用户获取到如下访问点信息，并且在 ZoneId 为1的部署单元中创建了表 tb_online
-
-* 接入ID：2
-* 连接密码：3aa84dd773826cd655e9f24a249d68bb
-* 内网地址:内网端口：10.125.32.21:9999
-* 部署单元ID：1
+本例中，访问点信息如下，并且在部署单元ID为1的部署单元中创建了表 tb_online。
+- 接入ID：2
+- 连接密码：3aa84dd773826cd655e9f24a249d68bb
+- 内网地址:内网端口：10.125.32.21:9999
+- 部署单元ID：1
 
 ## 权限操作
-
 首先需要给 tcaplus_client 工具赋予可执行权限，当直接执行 ./tcaplus_client 不带任何参数时，会打印连接所需的参数信息，用户可以根据自己的游戏业务进行填写。
 
 ```
@@ -46,10 +45,8 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的
 --------------------------------------------------------------------------------
 ```
 
-## 连接
-
+## 连接 TcaplusDB
 使用命令连接 TcaplusDB。
-
 ```
 ./tcaplus_client -a 2 -z 1 -s "3aa84dd773826cd655e9f24a249d68bb" -d 10.125.32.21:9999
 +------------------------------------------------------------------------------+
@@ -61,7 +58,7 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的
 tcaplus>
 ```
 
-在提示符之后输入 help，可以看到进一步的帮助信息，通过 `> help 具体命令` 可以查看具体的使用方法。
+在提示符之后输入 help，可看到进一步的帮助信息，通过 `> help 具体命令` 可以查看具体使用方法。
 
 ```
 tcaplus>help
@@ -104,10 +101,9 @@ tcaplus>help
 --------------------------------------------------------------------------------
 ```
 
-接下来将演示如何分别通过 Update 和 Select 命令执行写和读操作。
+下文演示分别通过 Update 和 Select 命令执行写和读操作。
 
 ## 写操作
-
 使用 update 命令写入记录。
 
 ```
@@ -119,8 +115,7 @@ update time: 5593 us
 ```
 
 ## 读操作
-
-使用 select 命令将刚刚写入的数据读出来。
+使用 select 命令将刚写入的数据读出来。
 
 ```
 tcaplus>select gamesvrid, logintime from tb_online where uin=1024 and name="tcaplus_user" and region=10;

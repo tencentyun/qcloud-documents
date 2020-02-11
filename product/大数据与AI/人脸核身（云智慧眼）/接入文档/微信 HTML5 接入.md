@@ -11,12 +11,14 @@
 * 物流：快递、邮政、物流
 
 使用流程：
-![图片](https://main.qcloudimg.com/raw/db44c1a56a56f066fc6148fb9055dcfb.png)
+<img src="https://main.qcloudimg.com/raw/2515b816e41a5c0babf50ade4762d454.png" style="zoom:50%;" />
+
 
 ### 通用 HTML5
 微信公众号是使用腾讯云人脸核身产品的主要场景之一，腾讯云人脸核身产品为您提供用于微信公众号的 HTML5接口。
 使用流程：
-![图片](https://main.qcloudimg.com/raw/7a2cc25e7e5cbfc7bab3c815d7d53838.png)
+<img src="https://main.qcloudimg.com/raw/7055437cce81fa81ca61a50432680390.png" style="zoom:50%;" />
+
 
 ## HTML5接入流程
 ![](https://main.qcloudimg.com/raw/e6140897733e231526aae3c5aae4a701.png)

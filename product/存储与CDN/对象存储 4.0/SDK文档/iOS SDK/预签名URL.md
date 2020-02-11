@@ -16,8 +16,8 @@
 
 | 参数名称    | 描述                                                         | 类型      | 必填 |
 | ----------- | ------------------------------------------------------------ | --------- | ---- |
-| bucket      | 使用预签名请求的存储桶名，可在 [COS V5 控制台](https://console.cloud.tencent.com/cos5/bucket) 上面看到，格式为&lt;BucketName-APPID&gt; ，例如 examplebucket-1250000000                                    | NSString* | 是   |
-| object      | 使用预签名请求的 Object。 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/text.txt 中，对象键为 doc1/text.txt。更详细的描述可以参考 [对象描述](https://cloud.tencent.com/document/product/436/13324) | NSString* | 是   |
+| bucket      | 使用预签名请求的存储桶名，可在 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket) 上面看到，格式为&lt;BucketName-APPID&gt; ，例如 examplebucket-1250000000                                    | NSString* | 是   |
+| object      | 使用预签名请求的 Object。 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名`examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/text.txt` 中，对象键为`doc1/text.txt`。详情请参见 [对象描述](https://cloud.tencent.com/document/product/436/13324) | NSString* | 是   |
 | HTTPMethod  | 使用预签名 URL 的请求的 HTTP 方法。有效值（大小写敏感）为：@"GET"、@"PUT"、@"POST"、@"DELETE" | NSString* | 是   |
 | contentType | 指定请求和响应的 HTTP body 内容编码类型        | NSString* | 否   |
 | contentMD5  | 文件的 MD5 值        | NSString* | 否   |
@@ -44,29 +44,31 @@
 
 #### 获取带预签名 URL 的示例
 
+[//]: # (.cssg-snippet-objc-get-presign-download-url)
 ```objective-c
 QCloudGetPresignedURLRequest* getPresignedURLRequest = [[QCloudGetPresignedURLRequest alloc] init];
-getPresignedURLRequest.bucket = @“examplebucket-1250000000”;
+getPresignedURLRequest.bucket = @"examplebucket-1250000000";
 getPresignedURLRequest.HTTPMethod = @"GET";
-getPresignedURLRequest.object = @"text.txt";
-[getPresignedURLRequest setFinishBlock:^(QCloudGetPresignedURLResult * _Nonnull result, NSError * _Nonnull error) {
-if (nil == error) {
- NSString* presignedURL = result.presienedURL;
-}
-}
-[[QCloudCOSXMLService defaultCOSXML] getPresignedURL:getPresignedURLRequest];
+getPresignedURLRequest.object = @"exampleobject";
 
+[getPresignedURLRequest setFinishBlock:^(QCloudGetPresignedURLResult * _Nonnull result, NSError * _Nonnull error) {
+    NSString* presignedURL = result.presienedURL;
+}];
+
+[[QCloudCOSXMLService defaultCOSXML] getPresignedURL:getPresignedURLRequest];
 ```
 
-#### 使用带预签名 URL 的示例
+#### swift 示例
 
-这里演示一个使用带预签名 URL 进行下载的例子。
-
-```objective-C
-NSMutableURLRequest* request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:@"带预签名的URL"]];
-request.HTTPMethod = @"GET";
-request.HTTPBody = [@"文件内容" dataUsingEncoding:NSUTF8StringEncoding];
-[[[NSURLSession sharedSession] downloadTaskWithRequest:request completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-    NSInteger statusCode = [(NSHTTPURLResponse*)response statusCode];
-}] resume];
+[//]: # (.cssg-snippet-swift-get-presign-download-url)
+```swift
+let getPresign  = QCloudGetPresignedURLRequest.init();
+getPresign.bucket = "examplebucket-1250000000" ;
+getPresign.httpMethod = "GET";
+getPresign.object = "exampleobject";
+getPresign.setFinish { (result, error) in
+    if error == nil{
+        print(result?.presienedURL as Any);
+    }}
+QCloudCOSXMLService.defaultCOSXML().getPresignedURL(getPresign);
 ```

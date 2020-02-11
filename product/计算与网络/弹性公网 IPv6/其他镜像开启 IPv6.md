@@ -5,7 +5,7 @@
 ```
 vi /etc/modprobe.d/ipv6.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的内核参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的内核参数设置为0。
 ```
 options ipv6 disable=0
 ```
@@ -15,7 +15,7 @@ options ipv6 disable=0
 ```
 vim /etc/sysctl.conf.first
 ```
-5. 按 “i” 或 “Insert” 切换至编辑模式，将如下的配置文件参数设置为0。
+5. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
@@ -25,14 +25,21 @@ net.ipv6.conf.all.disable_ipv6 = 0
 ```
 vi /etc/sysconfig/network
 ```
-8. 按 “i” 或 “Insert” 切换至编辑模式，增加`NETWORKING_IPV6=yes`和`DHCPV6C=yes`。
+8. 按 “i” 切换至编辑模式，增加如下内容。
+```
+NETWORKING_IPV6=yes
+DHCPV6C=yes
+```
 ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
 9. 按“Esc”，输入 “:wq”，保存文件并返回。
-10. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+10. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-11. 按 “i” 或 “Insert” 切换至编辑模式，增加`default dev eth0`，为网卡的 IPv6 添加默认出口。
+11. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```
+default dev eth0
+```
 ![](https://main.qcloudimg.com/raw/7bac4ad80fed5cebcdef1fb6ae07cf1b.png)
 12. 按“Esc”，输入 “:wq”，保存文件并返回。
 13. 重启云服务器，仅通过 `service network restart`，IPv6 无法正常加载。
@@ -47,8 +54,23 @@ dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
-
-16.测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+14. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+```
+vim /etc/ssh/sshd_config
+```
+15. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
+16. 按 “Esc”，输入 “:wq”，保存文件并返回。
+17. 执行如下命令，重启 ssh 进程。
+```
+service sshd restart
+```
+18. 执行如下命令，查看 ssh 是否已经监听 IPv6。
+```
+netstat -tupln
+```
+![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
+16. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 
 <span id="CentOS7.3"/>
 
@@ -57,9 +79,9 @@ ifconfig
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
-net.ipv6.conf.all.disableipv6 = 0
+net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
@@ -76,18 +98,24 @@ sysctl -a | grep ipv6 | grep disable
 显示结果如下，则已成功修改。
 ![](https://main.qcloudimg.com/raw/b1294c92045d0dc5c688c6afc970a412.png)
 
-6. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+6. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-7. 按 “i” 或 “Insert” 切换至编辑模式，增加`DHCPV6C=yes`。
+7. 按 “i” 切换至编辑模式，增加如下内容。
+```
+DHCPV6C=yes
+```
 ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
 8. 按 “Esc”，输入 “:wq”，保存文件并返回。
 9. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-10. 按 “i” 或 “Insert” 切换至编辑模式，增加`default dev eth0`，为网卡的 IPv6 添加默认出口。
+10. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```
+default dev eth0
+```
 ![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
 11. 按 “Esc”，输入 “:wq”，保存文件并返回。
 12. 执行如下命令，重新启动网卡。
@@ -106,10 +134,19 @@ ifconfig
 ```
 vim /etc/ssh/sshd_config
 ```
-15. 按 “i” 或 “Insert” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+15. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
 16. 按 “Esc”，输入 “:wq”，保存文件并返回。
-17. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+17. 执行如下命令，重启 ssh 进程。
+```
+service sshd restart
+```
+18. 执行如下命令，查看 ssh 是否已经监听 IPv6。
+```
+netstat -tupln
+```
+![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
+19. 测试连通性，请参见 <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 <span id="Debian8.2"/>
 
 ## Debian 8.2 开启 IPv6
@@ -117,7 +154,7 @@ vim /etc/ssh/sshd_config
 ```
 vim /etc/sysctl.conf
 ```
-2. 按 “i” 或 “Insert” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
@@ -133,10 +170,16 @@ dhclient -6
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
-6. 执行如下命令，配置默认路由，并测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
+6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
+```
+netstat -tupln
+```
+![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
+7. 执行如下命令，配置默认路由。
 ```
 ip -6 route add default dev eth0
 ```
+8. 测试连通性，请参见  <a href="https://cloud.tencent.com/document/product/1142/38130#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7" target="_blank">步骤6：测试 IPv6 的连通性</a>。
 
 <span id="Windows2012"/>
 

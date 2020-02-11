@@ -50,7 +50,7 @@ bar:
    ruby: scissorses 
 ```
 
-转换为 javascript 代码后
+转换为 JavaScript 代码后：
 
 ```javascript
 { foo: 'whatever',
@@ -116,7 +116,7 @@ that: >
   Bar
 ```
 
-转换为 javascript 代码：
+转换为 JavaScript 代码：
 
 ```javascript
 { this: 'Foo\nBar\n', that: 'Foo Bar\n' }

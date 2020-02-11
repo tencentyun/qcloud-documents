@@ -3,6 +3,7 @@
 PUT Object 接口请求可以将本地的对象（Object）上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > ?
+> - PUT Object 接口最大支持上传5GB文件。如需上传大于5GB的文件，请使用 [分块上传](https://cloud.tencent.com/document/product/436/14112) 的 API 接口。
 > - 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但对象大小只等于 Content-Length 中定义的大小，其他数据将被丢弃。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时返回200 OK。
 
@@ -37,7 +38,7 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | Cache-Control | RFC 2616 中定义的缓存指令，将作为对象元数据保存 | string | 否 |
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存 | string | 否 |
@@ -51,7 +52,7 @@ Authorization: Auth String
 
 在上传对象时可以通过指定下列请求头部来设置对象的访问权限：
 
-| 名称 | 描述 | 类型 | 是否必选 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
 | x-cos-acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
 | x-cos-grant-read | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
@@ -188,7 +189,41 @@ x-cos-request-id: NWQwY2EyNTNfN2JiMTJhMDlfNDM2ZF85OTA1****
 x-cos-server-side-encryption: AES256
 ```
 
-#### 案例四：使用服务端加密 SSE-C
+#### 案例四：使用服务端加密 SSE-KMS
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 25 Dec 2019 09:01:19 GMT
+Content-Type: image/jpeg
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+x-cos-server-side-encryption-context: eyJhdXRob3IiOiJmeXNudGlhbiIsImNvbXBhbnkiOiJUZW5jZW50In0=
+Content-Length: 13
+Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577264479;1577271679&q-key-time=1577264479;1577271679&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=e6974082ffeeadb5f462a30fe4f016bc7484****
+Connection: close
+
+[Object Content]
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: close
+Date: Wed, 25 Dec 2019 09:01:19 GMT
+ETag: "fa8a7921998a9b9ed489d7ad39d35c91"
+Server: tencent-cos
+x-cos-request-id: NWUwMzI1NWZfN2RjODJhMDlfMzUyMDhfMWZm****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+```
+
+#### 案例五：使用服务端加密 SSE-C
 
 #### 请求
 
@@ -222,7 +257,7 @@ x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```
 
-#### 案例五：启用版本控制
+#### 案例六：启用版本控制
 
 #### 请求
 
@@ -252,7 +287,7 @@ x-cos-request-id: NWQwY2EyNWRfYThjMDBiMDlfMTA1MDlfYTQ1****
 x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
 ```
 
-#### 案例六：暂停版本控制
+#### 案例七：暂停版本控制
 
 #### 请求
 
@@ -281,7 +316,7 @@ Server: tencent-cos
 x-cos-request-id: NWQzN2M3YjBfN2ViMTJhMDlfYTkxMl9iY2Fj****
 ```
 
-#### 案例七：使用 chunked 传输编码分块传输
+#### 案例八：使用 chunked 传输编码分块传输
 
 本案例请求中使用 Transfer-Encoding: chunked 编码，案例描述的是 HTTP 请求中的原始数据，在使用过程中根据不同语言和库将有不同的调用方法，请开发者查阅语言和库的相关文档。
 

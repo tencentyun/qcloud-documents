@@ -42,6 +42,16 @@
 | [删除 ACL 策略](https://cloud.tencent.com/document/product/597/32988) | DeleteAcl | 用于为实例的用户删除 ACL 策略。
 | [枚举 ACL 策略](https://cloud.tencent.com/document/product/597/32989) | ListAcl | 用于为实例的用户删除 ACL 策略。|
 
+## 数据同步相关接口
+| 接口功能 | Action ID | 功能描述 |
+|---------|---------|---------|
+| [创建数据同步任务](https://cloud.tencent.com/document/product/597/36273) | AddConnector | 用于创建数据同步任务。|
+| [启动数据同步任务](https://cloud.tencent.com/document/product/597/36274) | ResumeConnector | 用于启动数据同步服务。|
+| [暂停数据同步任务](https://cloud.tencent.com/document/product/597/36275) | PauseConnector | 用于暂停数据同步服务。|
+| [删除数据同步任务](https://cloud.tencent.com/document/product/597/36276) | DeleteConnector | 用于删除数据同步服务。|
+| [获取数据同步任务列表](https://cloud.tencent.com/document/product/597/36277) | ListConnector | 用于获取数据同步任务列表。|
+| [获取数据同步任务状态](https://cloud.tencent.com/document/product/597/36278) | GetConnectorStatus | 用于查询数据同步任务状态。|
+| [获取数据同步任务配置](https://cloud.tencent.com/document/product/597/36279) | GetConnectorConfigs | 用于查询数据同步任务配置。|
 
 
 

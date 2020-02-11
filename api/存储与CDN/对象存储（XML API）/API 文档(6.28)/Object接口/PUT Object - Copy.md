@@ -40,13 +40,13 @@ Authorization: Auth String
 
 | 名称 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-copy-source | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本<br>例如`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是 |
-| x-cos-metadata-directive | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum | 否 |
-| x-cos-copy-source-If-Modified-Since | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
-| x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
-| x-cos-copy-source-If-Match | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
-| x-cos-copy-source-If-None-Match | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否 |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum | 否 |
+| x-cos-copy-source | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是 |
+| x-cos-metadata-directive | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息。<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息。<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced。 | Enum | 否 |
+| x-cos-copy-source-If-Modified-Since | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否 |
+| x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否 |
+| x-cos-copy-source-If-Match | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否 |
+| x-cos-copy-source-If-None-Match | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否 |
+| x-cos-storage-class | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD。 | Enum | 否 |
 
 **目标对象元数据相关头部**
 
@@ -58,7 +58,7 @@ Authorization: Auth String
 | Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存 | string | 否 |
 | Content-Encoding | RFC 2616 中定义的编码格式，将作为对象元数据保存 | string | 否 |
 | Expires | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存 | string | 否 |
-| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB。<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否 |
+| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB。<br>**注意：**用户自定义元数据信息支持下划线`_`，但用户自定义元数据头部后缀不支持下划线，仅支持减号`-` | string | 否 |
 
 **目标对象访问控制列表（ACL）相关头部**
 
@@ -84,7 +84,7 @@ Authorization: Auth String
 
 **目标对象服务端加密（SSE）相关头部**
 
-在复制对象时可以使用服务端加密，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7728#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)
+在复制对象时可以使用服务端加密，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7728#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)。
 
 #### 请求体
 
@@ -106,7 +106,7 @@ Authorization: Auth String
 
 **服务端加密（SSE）相关头部**
 
-如果在复制对象时使用了服务端加密，则此接口将返回服务端加密专用头部，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7729#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)
+如果在复制对象时使用了服务端加密，则此接口将返回服务端加密专用头部，请参见 [服务端加密专用头部](https://cloud.tencent.com/document/product/436/7729#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.8A.A0.E5.AF.86.E4.B8.93.E7.94.A8.E5.A4.B4.E9.83.A8)。
 
 #### 响应体
 
@@ -131,8 +131,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| ETag | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化<br>例如`“8e0b617ca298a564c3331da28dcb50df”`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
-| LastModified | CopyObjectResult | 对象最后修改时间，为 ISO8601 格式，例如2019-05-24T10:56:40Z | date |
+| ETag | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化。<br>例如`8e0b617ca298a564c3331da28dcb50df`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同。 | string |
+| LastModified | CopyObjectResult | 对象最后修改时间，为 ISO8601 格式，例如`2019-05-24T10:56:40Z` | date |
 | VersionId | CopyObjectResult | 对象的版本 ID，仅当目标存储桶启用了版本控制时才返回该元素 | string |
 
 #### 错误码
@@ -245,7 +245,43 @@ x-cos-request-id: NWQ3MjEyMmNfYjNjMjJhMDlfYjk4NV9mNjRk****
 </CopyObjectResult>
 ```
 
-#### 案例四：将未加密的对象复制为使用 SSE-COS 加密的目标对象
+#### 案例四：修改对象存储类型
+
+本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储的对象回热，才能使用该接口请求转换存储类型。
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 02 Jan 2020 09:39:27 GMT
+x-cos-metadata-directive: Replaced
+x-cos-storage-class: ARCHIVE
+x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject
+Content-Length: 0
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577957967;1577965167&q-key-time=1577957967;1577965167&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-metadata-directive;x-cos-storage-class&q-url-param-list=&q-signature=83849b245f8cd64825a158487ee83ccb2512****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 181
+Connection: close
+Date: Thu, 02 Jan 2020 09:39:27 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZGJhNGZfNDVjODJhMDlfNjk4Yl8xYzNk****
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+	<ETag>"b62e10bcab55a88240bd9c436cffdcf9"</ETag>
+	<LastModified>2020-01-02T09:37:11Z</LastModified>
+</CopyObjectResult>
+```
+
+#### 案例五：将未加密的对象复制为使用 SSE-COS 加密的目标对象
 
 #### 请求
 
@@ -279,7 +315,44 @@ x-cos-server-side-encryption: AES256
 </CopyObjectResult>
 ```
 
-#### 案例五：复制 SSE-C 加密的对象并更换密钥
+#### 案例六：将未加密的对象复制为使用 SSE-KMS 加密的目标对象
+
+#### 请求
+
+```shell
+PUT /exampleobject HTTP/1.1
+Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 02 Jan 2020 09:39:44 GMT
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+x-cos-server-side-encryption-context: eyJhdXRob3IiOiJmeXNudGlhbiIsImNvbXBhbnkiOiJUZW5jZW50In0=
+x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg
+Content-Length: 0
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577957984;1577965184&q-key-time=1577957984;1577965184&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=ffbec73d5c3d688fa6fbb1c003ee756f0e24****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 181
+Connection: close
+Date: Thu, 02 Jan 2020 09:39:45 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwZGJhNjBfZjhjODBiMDlfMWFkN2VfMzZh****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+
+<?xml version="1.0" encoding="UTF-8"?>
+<CopyObjectResult>
+	<ETag>"8612144fec2e2e271856b1c49c4b408f"</ETag>
+	<LastModified>2020-01-02T09:37:30Z</LastModified>
+</CopyObjectResult>
+```
+
+#### 案例七：复制 SSE-C 加密的对象并更换密钥
 
 #### 请求
 
@@ -319,7 +392,7 @@ x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 </CopyObjectResult>
 ```
 
-#### 案例六：将 SSE-C 加密的对象修改为不加密
+#### 案例八：将 SSE-C 加密的对象修改为不加密
 
 #### 请求
 
@@ -355,7 +428,7 @@ x-cos-request-id: NWQ3MjE5ZGNfMjljOTBiMDlfMjQ1OWJfZmMw****
 </CopyObjectResult>
 ```
 
-#### 案例七：指定源对象的版本
+#### 案例九：指定源对象的版本
 
 #### 请求
 
@@ -388,7 +461,7 @@ x-cos-request-id: NWQ3MjM2ZmFfZjhjMDBiMDlfOTliZF9mYmNi****
 </CopyObjectResult>
 ```
 
-#### 案例八：复制对象到启用版本控制的存储桶
+#### 案例十：复制对象到启用版本控制的存储桶
 
 #### 请求
 

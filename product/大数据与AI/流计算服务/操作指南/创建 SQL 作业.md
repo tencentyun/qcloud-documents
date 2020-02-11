@@ -5,7 +5,7 @@ SQL 作业是通过 SQL 语句直接编写业务逻辑的方式。对于流计�
 
 ## 操作步骤
 ### 1. 创建 SQL 作业
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/scs)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建SQL作业】，进入创建 SQL 作业页面，输入相关信息购买和创建作业。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建SQL作业】，进入创建 SQL 作业页面，输入相关信息购买和创建作业。
 ![新建SQL作业](https://main.qcloudimg.com/raw/9c7318af0075a8d3cf7353499cf260f2.png)
 
 相关信息如下：
@@ -50,7 +50,7 @@ CREATE TABLE `page_visits` (
   `topic` = 'page_visits'
 );
 ```
-您可以用同样的方式添加其他数据流如 CDB For MySQL 等。
+您可以用同样的方式添加其他数据流如 TencentDB For MySQL 等。
 
 ### 4. 调试 SQL 作业
 编写完代码后，可选择在发布之前先进行调试。我们为用户提供了一套独立的模拟环境，用户可以在该环境中上传数据，模拟运行并检查输出结果。

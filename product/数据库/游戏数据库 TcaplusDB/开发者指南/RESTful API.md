@@ -838,7 +838,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 limit和offset是用于记录部分返回控制的参数。
 
->! 请求的变量必须通过urlencode编码，请将url中的空格编码为“%20”而不是“+””；请在HEADER中通过`x-tcaplus-index-name`指定想要访问的索引名，索引名在表定义文件中可以找到。
+>! 请求的变量必须通过 urlencode 编码，请将 url 中的空格编码为“%20”而不是“+”；请在 HEADER中 通过`x-tcaplus-index-name`指定想要访问的索引名，索引名在表定义文件中可以找到。
 
 |名称            |类型             |取值 |
 | -----------------|-------------- | ------------ |

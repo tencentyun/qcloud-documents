@@ -1,6 +1,5 @@
 <h2 id="TRTC">精简版（TRTC）</h2>
-
-精简版体积最小，适合仅集成 TRTC 实时音视频功能的客户。
+精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
 
 <table>
    <tr>
@@ -28,7 +27,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32166">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32175">DOC</a></td>
-      <td style="text-align:center">jar：820K<br> so(armeabi)：5.1M<br> so(armv7)：4.8M<br>so(arm64)：5.7M</td>
+      <td style="text-align:center">jar：820K<br> so(armv7)：4.8M<br>so(arm64)：5.7M</td>
    </tr>
      <tr>
       <td style="text-align:center">Windows(C++)  </td>
@@ -86,15 +85,16 @@
    </tr>
 </table>
 
->? 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
+>? 
+> - 阅读文档 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400) 了解如何减少 SDK 带来的安装包体积增量。
+> - 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
+>   ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
+> 
 
-<h2 id="Professional">专业版（Professional）</h2>
+<span id="Professional"></span>
+## 专业版（Professional）
 
-TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我们基于 LiteAV 框架还研发了 [超级播放器 SDK](https://cloud.tencent.com/product/player)、[移动直播 SDK](https://cloud.tencent.com/product/mlvb) 和 [短视频 SDK](https://cloud.tencent.com/product/ugsv) 等其他终端产品。
-
-由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题。
-
-要避免符号冲突问题，正确的做法是不要同时集成两个 SDK，而是集成一个具备完整功能的专业版 SDK：
+专业版集合了包含 TRTC 在内的多个音视频相关的核心功能，包括 [超级播放器（Player+）](https://cloud.tencent.com/product/player)、[移动直播（MLVB）](https://cloud.tencent.com/product/mlvb) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
 
 <table>
    <tr>
@@ -123,12 +123,13 @@ TRTC SDK 是隶属于腾讯视频云 LiteAV 框架下的一款终端产品，我
    </tr>
 </table>
 
->? Windows 和 Mac 版本的 SDK 暂时只有一个版本，没有做精简版、专业版和企业版的区分。
+>? 
+>- Windows 和 Mac 版本的 SDK 暂时只有一个版本，没有做精简版、专业版和企业版的区分。
+>- 由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题，解决方法是只集成一个专业版的 LiteAVSDK。
 
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
-
-LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+企业版除包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
 
 <table>
    <tr>
@@ -197,7 +198,7 @@ LiteAVSDK 的企业版，除了包含专业版的所有功能以外，还集成�
     <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
+    <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">&#10003;</td>
     <td style="text-align:center">&#10003;</td>
   </tr>

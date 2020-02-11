@@ -2,10 +2,9 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表上方，选择地域和私有网络，单击【+新建】。
-![](https://main.qcloudimg.com/raw/62c052935777f47cef2a77fcee75fc3e.png)
 4. 在弹出框中，输入名称，选择所属的私有网络，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/7140c40f01c09ba07a900a39a0e5a49a.png)
-5. 在列表页中，单击对应的 ACL ID 即可进入详情页，查看 ACL 规则及其关联子网。
+5. 在列表页中，单击对应的 ACL ID 即可进入详情页，添加 ACL 规则、关联子网。
 
 ## 增加网络 ACL 规则
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
@@ -24,13 +23,12 @@
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要删除的网络 ACL，单击其 ID，进入"基本信息"页面。
 4. 单击【入站规则】或【出站规则】选项卡，进入"规则列表"页面。
-![1](https://main.qcloudimg.com/raw/82eb2e498aee5d82d1a6d7a321610fac.png)
-5. 单击【编辑】。删除入站规则与删除出站规则步骤一致，本文以删除入站规则为例。
+5. 单击【编辑】，删除入站规则与删除出站规则步骤一致，本文以删除入站规则为例。
 ![](https://main.qcloudimg.com/raw/2cfa0c2dea110d2f2fe830e6b4208430.png)
 6. 在列表中，找到需要删除的规则所在行，单击操作栏下的【删除】。
 >?此时本条 ACL 规则置灰。若本次删除属于误操作，您可单击操作栏下的【恢复删除】，将其恢复。
 >
-![3](https://main.qcloudimg.com/raw/693c4ea822673f9c29e61320f8a8e772.png)
+![](https://main.qcloudimg.com/raw/fa645dfacbbfd522e93fc31101e02447.png)
 7. 单击【保存】，保存上述操作。
 >!ACL规则的删除或恢复删除操作，必须保存后才会生效。
 

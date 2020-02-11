@@ -34,9 +34,12 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | [createTextMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage) | 创建文本消息。 |
 | [createImageMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage) | 创建图片消息。 |
 | [createAudioMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage) | 创建音频消息。 |
-| [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) | 创建文件消息。 |
+| [createVideoMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage) | 创建视频消息。 |
 | [createCustomMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage) | 创建自定义消息。 |
+| [createFaceMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceMessage) | 创建表情消息。 |
+| [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) | 创建文件消息。 |
 | [sendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) | 发送消息。 |
+| [revokeMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage) | 撤回消息。 |
 | [resendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#resendMessage) | 重发消息。 |
 | [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) | 获取消息列表。  |
 | [setMessageRead](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setMessageRead) | 设置消息已读。  |
@@ -77,6 +80,7 @@ TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [
 | API | 描述 |
 | --- | --- |
 | [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) | 获取群成员列表。 |
+| [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) | 获取群成员资料。 |
 | [addGroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#addGroupMember) | 添加群成员。 |
 | [deleteGroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#deleteGroupMember) | 删除群成员。 |
 | [setGroupMemberMuteTime](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setGroupMemberMuteTime) |设置群成员的禁言时间。|

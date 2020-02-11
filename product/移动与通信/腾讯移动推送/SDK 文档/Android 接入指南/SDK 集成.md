@@ -9,8 +9,9 @@ Android SDK 是腾讯移动推送服务为客户端实现消息推送而提供�
 
 >!在配置 SDK 前，确保已创建 Android 平台的应用。
 
-1. 进入 [应用列表页面](https://console.cloud.tencent.com/tpns/applist)， 获取应用的包名、AccessID、AccessKey。
-2. 在 app build.gradle 文件下，配置 以下内容：
+1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
+2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
+3. 在 app build.gradle 文件下，配置以下内容：
 
 ```
 android {
@@ -41,7 +42,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:1.1.2.1-release' //  TPNS 推送
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
 
 }
 ```
@@ -50,7 +51,7 @@ dependencies {
 >!
 - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
 NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin。  则在 Project 根目录的 gradle.properties 文件中添加  android.useDeprecatedNdk=true。
-- 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容：
+- 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
     ```xml
     <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
             <intent-filter>
@@ -61,7 +62,10 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             </intent-filter>
         </receiver>
     ```
-
+- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
 
 
@@ -97,12 +101,28 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
+
+| 权限                                       | 是否必需 | 说明                           |
+| ---------------------------------------- | ---- | ---------------------------- |
+| android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
+| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
+| android.permission.WAKE_LOCK             | 可选  | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
+| android.permission.VIBRATE               | 可选   | 允许应用震动                       |
+| android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
+| android.permission.RECEIVE_USER_PRESENT  | 可选   | 允许应用可以接收点亮屏幕或解锁广播            |
+| android.permission.WRITE_EXTERNAL_STORAGE | 可选   | 允许程序写入外部存储                   |
+| android.permission.RESTART_PACKAGES      | 可选   | 允许程序结束任务                     |
+| android.permission.GET_TASKS             | 可选   | 允许程序获取任务信息                   |
+
+
+
 #### 组件和应用信息配置
 
 ```xml
 <application>
     <!-- 应用的其它配置 -->
-
+    <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
     <!-- 【必须】 腾讯移动推送默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">
@@ -137,21 +157,14 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         android:persistent="true"
         android:process=":xg_vip_service"></service>
 
-    <!-- 云控相关 -->
-    <receiver android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadReceiver">
-        <intent-filter>
-            <action android:name="com.tencent.android.xg.vip.action.cloudcontrol.action.DOWNLOAD_FILE_FINISH" />
-        </intent-filter>
-    </receiver>
-    <service android:name="com.tencent.android.tpush.cloudctr.network.CloudControlDownloadService" />
-
     <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
-    <service android:name="com.tencent.android.tpush.rpc.XGRemoteService">
-        <intent-filter>
-            <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
-            <action android:name="应用包名.XGVIP_PUSH_ACTION" />
-        </intent-filter>
-    </service>
+        <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="false">
+            <intent-filter>
+                <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
+                <action android:name="应用包名.XGVIP_PUSH_ACTION" />
+            </intent-filter>
+        </service>
 
     <!-- 【必须】 【注意】authorities修改为 包名.XGVIP_PUSH_AUTH -->
     <provider
@@ -293,39 +306,12 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.bigdata.baseapi.** {*;}
 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
-
 ```
 
-<hr>
-
-### 接口变更
-与4.x对比，部分 API 接口做了变更。
-
-- 删除带账号注册的 API，设置账号只能通过 bindAccount 或 appendAccount 来设置。
-	```java
-	// 以下api被删除
-	XGPushManager.registerPush(Context context, String account)
-	XGPushManager.registerPush(Context context, String account, final XGIOperateCallback callback)
-	XGPushManager.registerPush(Context context, String account,String url, String payload, String otherToken, final XGIOperateCallback callback)
-	```
-
-- registerPush 不再支持设置账号，需要注册账号的话，要单独调用 bindAccount 或 appendAccount，推荐在 registerPush 成功的回调里调用。
-- 继承 XGPushBaseReceiver 时需要多实现以下两个函数。
-	```java
-	/**
-	 * 设置帐号结果处理函数
-	 */
-	public abstract void onSetAccountResult(Context context, int errorCode,
-					String operateName);
-
-	/**
-	 * 删除帐号结果处理函数
-	 */
-	public abstract void onDeleteAccountResult(Context context, int errorCode,
-					String operateName);
-	```
 
 
+### 集成建议
+<span id="HQToken"></span>
 #### 获取 Token（非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 示例代码如下：

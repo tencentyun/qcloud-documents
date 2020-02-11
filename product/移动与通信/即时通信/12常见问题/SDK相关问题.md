@@ -1,3 +1,7 @@
+
+### TUIKit 源码是否支持 Androidx？
+TUIKit 源码暂不支持 Androidx。
+
 ### 登录报错 6012 或  TLSSDK exchange ticket fail ？
 
 - 初始化接口和登录接口要分开调用，不能连续调用（因为初始化方法中有异步操作）；
@@ -43,20 +47,23 @@
 
 ### 收发消息时返回错误码：20003？
 
-请检查用户帐号（Identifier）是否已在腾讯云导入，当 Identifier 无效或 Identifier 未导入腾讯即时通信 IM 时，会返回此错误码。
+请检查用户帐号（UserID）是否已在腾讯云导入，当 UserID 无效或 UserID 未导入腾讯即时通信 IM 时，会返回此错误码。
 
 ### 语音消息播放语音时返回错误码：6010？
 
-通常情况是语音消息超过了漫游保存有效期，请求失败导致，可申请 [延长漫游消息时间](https://cloud.tencent.com/document/product/269/3916#.E8.B0.83.E6.95.B4.E5.8D.95.E8.81.8A.E6.B6.88.E6.81.AF.E6.BC.AB.E6.B8.B8.E6.97.B6.E9.95.BF) 或获取语音文件到本地播放（已过期的文件无法恢复）。
+通常情况是语音消息超过了漫游保存有效期，请求失败导致，可 [延长漫游消息时间](https://cloud.tencent.com/document/product/269/38656#.E5.8E.86.E5.8F.B2.E6.B6.88.E6.81.AF.E5.AD.98.E5.82.A8.E6.97.B6.E9.95.BF.E9.85.8D.E7.BD.AE) 或获取语音文件到本地播放（已过期的文件无法恢复）。但不同版本的 SDK 支持延长历史消息存储时长的消息类型不同，详情请参见 [消息存储](https://cloud.tencent.com/document/product/269/3571#MsgType)。
 
 ### 帐号鉴权时返回错误码 70001 或 70003 或 70009 或 70013？
 
-这些状态码对应的原因是 Identifier 与 UserSig 不匹配，请检查 Identifier 及 UserSig 的有效性。其中，70001 定义为 UserSig 已过期，70003 定义为 UserSig 被截断导致校验失败，70009 定义为 UserSig 公钥校验不匹配，70013 定义为 Identifier 不匹配。
+这些状态码对应的原因是 UserID 与 UserSig 不匹配，请检查 UserID 及 UserSig 的有效性。其中，70001 定义为 UserSig 已过期，70003 定义为 UserSig 被截断导致校验失败，70009 定义为 UserSig 公钥校验不匹配，70013 定义为 UserID 不匹配。
 
 ### Web 端使用 IM SDK 时返回错误码-2或-5？
 
 - \-2：Web 端请求服务器失败，通常为网络问题，Web 端使用 HTTP Long Polling 方式向服务端请求，网络存在问题时会返回此状态码，请检查网络或重试。
 - \-5：登录操作未完成，SDK 未获取到服务器返回的 a2key 和 tinyID 时，直接调用其它接口会出现“tinyid或a2为空”的错误提示信息和-5的错误码。
+
+### 在 armeabi 平台上 SDK 报"java.lang.UnsatisfiedLinkError: No implementation found for"错误该如何处理？
+拷贝 imsdk 的 aar 里面的 jni/armeabi-v7a/libImSDK.so 到源码工程的 src/main/jniLibs/armeabi 目录里，并在 build.gradle 中加载即可。
 
 ### 上架 App Store 时，出现 x86_64, i386 架构错误该如何解决？
 该问题是由于 App Store 不支持 x86_64, i386 架构引起的，具体解决方法如下：

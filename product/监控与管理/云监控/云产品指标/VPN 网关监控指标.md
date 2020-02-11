@@ -7,4 +7,4 @@
 | 出包量   | VPN 网关平均每秒出包量 | 个 / s  | VPN 网关 |
 | 入包量   | VPN 网关平均每秒入包量 | 个 / s  | VPN 网关 |
 
-有关更多如何使用 VPN 网关的监控指标内容，可以查看云监控 API 中的 [VPN 网关接口文档](https://cloud.tencent.com/document/api/248/10988)。
+有关更多如何使用 VPN 网关的监控指标内容，可以查看云监控 API 中的 [VPN 网关接口](https://cloud.tencent.com/document/api/248/10988) 文档。

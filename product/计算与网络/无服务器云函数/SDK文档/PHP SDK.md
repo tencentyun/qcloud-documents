@@ -49,20 +49,34 @@ require_once '../TCloudAutoLoader.php';
 ## 示例
 
 ```
-setEndpoint("scf.tencentcloudapi.com");
+<?php
+require_once '/var/user/tencentcloud-sdk-php/TCloudAutoLoader.php'; #注意引用路径
+use TencentCloud\Common\Credential;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Profile\HttpProfile;
+use TencentCloud\Common\Exception\TencentCloudSDKException;
+use TencentCloud\Scf\V20180416\ScfClient;
+use TencentCloud\Scf\V20180416\Models\InvokeRequest;
+function main_handler($event, $context) {
+    print "good";
+    print "\n";
+    var_dump($event);
+    var_dump($context);
+	try {
+        // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+   	 	$cred = new Credential("用户的secretId", "用户的secretKey");
+   	 	$httpProfile = new HttpProfile();
+   		$httpProfile->setEndpoint("scf.tencentcloudapi.com");
       
     		$clientProfile = new ClientProfile();
     		$clientProfile->setHttpProfile($httpProfile);
     		// 实例化要请求产品的client对象，以及函数所在的地域
     		$client = new ScfClient($cred, "ap-shanghai", $clientProfile);
-
     		$req = new InvokeRequest();
             // 接口参数,输入需要调用的函数名，RequestResponse(同步) 和 Event(异步)
     		$params = '{"FunctionName":"test_python", "InvocationType":"RequestResponse"}';
     		$req->fromJsonString($params);
-
     		$resp = $client->Invoke($req);
-
    		print_r($resp->toJsonString());
 	}
 	catch(TencentCloudSDKException $e) {
@@ -70,7 +84,6 @@ setEndpoint("scf.tencentcloudapi.com");
 	}
     return "hello";
 }
-
 ?>
 ```
 ## 打包部署
@@ -78,4 +91,4 @@ setEndpoint("scf.tencentcloudapi.com");
 
 - 注意在控制台创建函数时的执行方法，需要和 zip 文件里的代码文件和执行函数对应。
 - 最终生成的 zip 包如果大于50MB，需要通过 COS 上传。
-- 云 API 默认限频为每秒20次，如果需要开大并发，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。
+- 云 API 默认限频为每秒20次，如需提升并发上限，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。

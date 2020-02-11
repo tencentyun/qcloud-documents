@@ -37,7 +37,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 具体参数配置可见 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html)。
 ### 准备工作
-- Java 版本：java 8
+- Java 版本：Java 8
 - Logstash 版本：5.5.2 （August 17, 2017）
 - Ckafka 实例，并且创建相应 topic
 
@@ -64,7 +64,7 @@ input {
         group_id => "logstash_group"  // ckafka groupid 名称
         topics => ["logstash_test"] // ckafka topic 名字
         consumer_threads => 3 // 消费线程数，一般跟 ckafka 分区数一致
-        auto_offset_rest => "earliest"
+        auto_offset_reset => "earliest"
     }
 }
 output {
@@ -88,7 +88,7 @@ output {
 3. 启动 Logstash，进行消息生产。
 ![](https://mc.qcloudimg.com/static/img/c95bbc69c3f0ca36fa42efbb911b0a36/99.png)
 
-4. 校验刚刚的生产数据。
+4. 校验上一步的生产数据。
 ![](https://mc.qcloudimg.com/static/img/ae85758a90a497235a90511770f959d2/10.png)
 
 关于 Kafka 作为 output 的配置更多参数请参考 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html)。

@@ -31,9 +31,9 @@
 
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详情请参见错误码页面 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| code     | Int    | 公共错误码，0表示成功，其他值表示失败。<br/>详情请参见错误码页面 [公共错误码](https://cloud.tencent.com/document/api/228/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。|
 | message  | String | 模块错误信息描述，与接口相关。                          |
-| codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详情请参见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。 |
+| codeDesc | String | 英文错误信息，或业务侧错误码。<br/>详情请参见错误码页面 [业务错误码](https://cloud.tencent.com/document/product/228/5078#2.-.E6.A8.A1.E5.9D.97.E9.94.99.E8.AF.AF.E7.A0.81)。|
 
 ## 调用案例
 

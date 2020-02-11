@@ -1,7 +1,7 @@
 ## 发送消息
 
 ### 创建文本消息
-创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 
 **接口名**
@@ -17,7 +17,7 @@ tim.createTextMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -58,7 +58,9 @@ promise.then(function(imResponse) {
 
 
 ### 创建图片消息
-创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
+
+>! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
 
 
 **接口**
@@ -74,14 +76,14 @@ tim.createImageMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
 
 | Name | Type                        | Description                                                  |
 | ---- | --------------------------- | ------------------------------------------------------------ |
-| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
+| file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者 File 对象（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
 
 **Web 示例**
 
@@ -142,7 +144,7 @@ wx.chooseImage({
 
 
 ### 创建音频消息
-创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 createAudioMessage 只支持在微信小程序环境使用。
 
 >!全平台互通音频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
 
@@ -159,7 +161,7 @@ tim.createAudioMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | --------------------- |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `paylaod`的描述如下表所示：
@@ -221,9 +223,12 @@ recorderManager.start(recordOptions);
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 ### 创建文件消息
-创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
->!微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
+>!
+>! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
+>! v2.4.0版本起，上传文件大小最大值调整为100M。
+>! 微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
 
 **接口**
 
@@ -238,7 +243,7 @@ tim.createFileMessage(options)
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
 | `to`               | `String` | 消息的接收方   |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器 |
 | `onProgress`          | `function` | 获取上传进度的回调函数 |
 
@@ -246,7 +251,7 @@ tim.createFileMessage(options)
 
 | Name   | Type     | Description  |
 | ------ | -------- | ------------ |
-| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点，SDK 会读取其中的数据并上传文件。 |
+| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点（Web）或者 File 对象（Web），SDK 会读取其中的数据并上传文件。 |
 
 **示例**
 
@@ -281,7 +286,7 @@ promise.then(function(imResponse) {
 
 ### 创建自定义消息
 
-创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+创建自定义消息实例的接口，此接口返回一个消息实例，可以在需要发送自定义消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 当 SDK 提供的能力不能满足您的需求时，可以使用自定义消息进行个性化定制，例如投骰子功能。
 
 **接口**
@@ -297,7 +302,7 @@ tim.createCustomMessage(options)
 | Name               | Type     | Description                                            |
 | ------------------ | -------- | ------------------------------------------------------ |
 | `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`tim.TYPES.CONV_C2C`或`tim.TYPES.CONV_GROUP` |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
 
 `payload`的描述如下表所示：
@@ -343,14 +348,134 @@ promise.then(function(imResponse) {
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 
+### 创建视频消息
+
+创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 `createVideoMessage` 只支持在微信小程序环境使用。微信小程序录制视频或从相册选择视频文件，不会返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染时忽略缩图相关信息，自主处理。
+
+>!
+>! 全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+>- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+
+**接口**
+
+```javascript
+tim.createVideoMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type       | Description                                                |
+| ------------------ | ---------- | ---------------------------------------------------------- |
+| `to`               | `String`   | 消息的接收方                                               |
+| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object`   | 录制或从相册选择的视频文件                               |
+| `onProgress`       | `function` | 获取上传进度的回调函数                                     |
+
+**示例**
+
+```javascript
+// 1. 调用小程序接口选择视频，接口详情请查阅 https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseVideo.html
+wx.chooseVideo({
+  sourceType: ['album', 'camera'], // 来源相册或者拍摄
+  maxDuration: 60, // 设置最长时间60s
+  camera: 'back', // 后置摄像头
+  success (res) {
+    // 2. 创建消息实例，接口返回的实例可以上屏
+    let message = tim.createVideoMessage({
+      to: 'user1',
+      conversationType: TIM.TYPES.CONV_C2C,
+      payload: {
+        file: res
+      },
+      onProgress: function(event) { console.log('video uploading:', event) }
+    })
+    // 3. 发送消息
+    let promise = tim.sendMessage(message);
+    promise.then(function(imResponse) {
+      // 发送成功
+      console.log(imResponse);
+    }).catch(function(imError) {
+      // 发送失败
+      console.warn('sendMessage error:', imError);
+    });
+  }
+})
+```
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+
+### 创建表情消息
+
+创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
+
+>! 使用该接口前，需要将 SDK 版本升级至v2.3.1或以上。
+
+**接口**
+
+```javascript
+tim.createFaceMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type     | Description                                            |
+| ------------------ | -------- | ------------------------------------------------------ |
+| `to`               | `String` | 消息的接收方                                           |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object` | 消息内容的容器                                         |
+
+`payload`的描述如下表所示：
+
+| Name   | Type     | Description  |
+| ------ | -------- | ------------ |
+| `index` | `Number` | 表情索引，用户自定义 |
+| `data` | `String` | 额外数据 |
+
+**示例**
+
+```javascript
+// 发送表情消息，Web端与小程序端相同。
+// 1. 创建消息实例，接口返回的实例可以上屏
+let message = tim.createFaceMessage({
+  to: 'user1',
+  conversationType: TIM.TYPES.CONV_C2C,
+  payload: {
+    index: 1, // Number 表情索引，用户自定义
+    data: 'tt00' // String 额外数据
+  }
+});
+// 2. 发送消息
+let promise = tim.sendMessage(message);
+promise.then(function(imResponse) {
+  // 发送成功
+  console.log(imResponse);
+}).catch(function(imError) {
+  // 发送失败
+  console.warn('sendMessage error:', imError);
+});
+```
+
+**返回**
+
+消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
+
+
 ### 发送消息
 
 发送消息的接口，需先调用下列的创建消息实例的接口获取消息实例后，再调用该接口发送消息实例。
 - [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
 - [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
-- [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
+- [创建视频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)
 - [创建自定义消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage)
+- [创建表情消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFaceVMessage)
+- [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 
 >!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
 - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
@@ -393,8 +518,69 @@ promise.then(function(imResponse) {
 
 **Type** : `Promise`
 
+### 撤回消息
 
+撤回单聊消息或者群聊消息。撤回成功后，消息对象的 `isRevoked` 属性值为 `true`。
 
+>!
+>- 使用该接口前，需要将 SDK 版本升级至v2.4.0或以上。
+>- 消息可撤回时间默认为2分钟。可通过 [控制台](https://console.cloud.tencent.com/im-detail/login-message) 调整消息可撤回时间。
+>- 被撤回的消息，可以调用 [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
+>- 可使用 REST API [撤回单聊消息](https://cloud.tencent.com/document/product/269/38980) 或 [撤回群聊消息](https://cloud.tencent.com/document/product/269/12341)。
+
+**接口**
+
+```javascript
+tim.revokeMessage(options)
+```
+
+**参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| Name               | Type     | Description    |
+| ------------------ | -------- | -------------- |
+| `message`               | `Message` | 消息实例   |
+
+**示例**
+
+```javascript
+// 主动撤回消息
+let promise = tim.revokeMessage(message);
+promise.then(function(imResponse) {
+  // 消息撤回成功
+}).catch(function(imError) {
+  // 消息撤回失败
+  console.warn('revokeMessage error:', imError);
+});
+```
+
+```javascript
+// 收到消息被撤回的通知
+tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
+  // event.name - TIM.EVENT.MESSAGE_REVOKED
+  // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
+});
+```
+
+```javascript
+// 获取会话的消息列表时遇到被撤回的消息
+let promise = tim.getMessageList({conversationID: 'C2Ctest', count: 15});
+promise.then(function(imResponse) {
+  const messageList = imResponse.data.messageList; // 消息列表
+  messageList.forEach(function(message) {
+    if (message.isRevoked) {
+      // 处理被撤回的消息
+    } else {
+      // 处理普通消息
+    }
+  });
+});
+```
+
+**返回**
+
+**Type** : `Promise`
 
 ### 重发消息
 

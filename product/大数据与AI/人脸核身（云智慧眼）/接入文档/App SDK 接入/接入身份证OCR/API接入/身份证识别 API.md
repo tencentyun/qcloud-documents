@@ -29,9 +29,38 @@
 |nation	| String	| 身份证识别结果：民族|
 |birth	| String	| 身份证识别结果：出生日期|
 |idcard	| String	| 身份证识别结果：身份证号|
-|address	| String	| 身份证识别结果：住址<br>如果用户没有正确上传身份证反面，则没有该字段|
-|authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传身份证反面，则没有该字段|
-|validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传身份证反面，则没有该字段|
+|address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
+|authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
+|validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
 |multiWarning	| String	| 正面多重告警码，详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)|
 |clarity	| String	| 图片清晰度|
 
+**响应示例：**
+```
+{
+    "code": "0",
+    "msg": "请求成功",
+    "bizSeqNo": "19112020001015300a17301200020263",
+    "result": {
+        "bizSeqNo": "19112020001015300a17301200020263",
+        "transactionTime": "20191120173015",
+        "ocrId": "15ad08ddd9c55157ffd1040a18412266",
+        "orderNo": "order19959248596551",
+        "name": "***",
+        "sex": "男",
+        "nation": "汉",
+        "birth": "19880731",
+        "address": "*****",
+        "idcard": "***",
+        "warning": "00000000",
+        "sign": "5060AD347D015D8FD7DAC034977B28137204E8E6",
+        "clarity": "78",
+        "multiWarning": "00000000",
+        "retry": "1",
+        "success": false
+    },
+    "transactionTime": "20191120173015"
+}
+```
+
+>?success：false 无意义，合作伙伴可忽略，无需处理。

@@ -47,12 +47,12 @@ import com.tencent.tersafe2.TP2Sdk;
 ```
 
 ### 初始化函数
-** 函数原型 **
+**函数原型**
 ```
 public static int initEx(int gameId, String appKey);
 ```
 
-** 参数说明 **
+**参数说明**
 
 | 参数 | 是否必须 | 说明 |
 |---------|---------|---------|
@@ -63,12 +63,12 @@ public static int initEx(int gameId, String appKey);
 - ** 返回值 **：0 表示调用成功。
 
 ### 用户登录接口
-** 函数原型 **
+**函数原型**
 ```
 public static native int onUserLogin(int accountType, int worldId, String openId, String roleId);
 ```
 
-** 参数说明 **
+**参数说明**
 
 | 参数 | 标题 2 |
 |---------|---------|
@@ -91,22 +91,22 @@ ENTRY_ID_OTHERS = 99, // 其他平台
 };
 ```
 - world_id 由游戏自定义，如果游戏没有分区可填 0。
-- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填””。
+- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填""。
 - open_id 由所在运营平台分配，用于唯一区分用户。
-** 返回值 **：0 表示调用成功。
+**返回值**：0 表示调用成功。
 
 ### 前台切换到后台接口
-** 函数原型 **
+**函数原型**
 ```
 int onAppPause ();
 ```
 程序由前台切换到后台，表明游戏当前为非活动状态。
-** 返回值 **：0 表示调用成功。
+**返回值**：0 表示调用成功。
 
 ### 后台切换到前台接口
-** 函数原型 **
+**函数原型**
 程序由后台切换到前台，表明游戏当前为活动状态。
-** 返回值 **：0 表示调用成功。
+**返回值**：0 表示调用成功。
 
 ### 调用时机
 1. TP2Sdk.initEx 在游戏启动的第一时间调用，参数为游戏 ID 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。
@@ -153,7 +153,7 @@ TP2Sdk.onResume();
 4. 运行游戏并登录用户，查看 / data/data/log 目录会生成日志文件 tp2.log 和 tlog.log，如图：
 ![](https://mc.qcloudimg.com/static/img/3ce91cbdb15cdb72998fbfcc2bdf074e/image.png)
 如果没有生成日志，请检查 / sdcard/sdk 和 enable.log 是否有读写权限。少部分机型无法读写这个目录，可更换机型测试或将 / sdcard/sdk 改为 / data/data/log（需要 root）。
->**注意：**enable.log 只用于测试使用。
+>!enable.log 只用于测试使用。
 5. 打开 tp2.log 文件，检查日志中是否包含三个接口（native）信息 **tp2_sdk_init_ex，tp2_setuserinfo，setgamestatus** 以及 jar 包版本号 **jar_ver**。以上条件必须都满足才能正确运行安全 SDK。setgamestatus:1 表示当前进程运行在前台，setgamestatus:2 表示当前进程运行在后台。
 请测试 App 切换前后台，查看接口调用是否正确。除了接口调用，还要检查用户信息 (userinfo) 是否填写正确。
 ![](https://mc.qcloudimg.com/static/img/75eef4a35cf89e8e1d02be304403377b/image.png)

@@ -15,18 +15,18 @@ __介绍__
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762#txliveplayer) 两个组件，前者用于推流，后者用于拉流。
+- LiteAVSDK：使用了其中的 TXLivePusher 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34762) 两个组件，前者用于推流，后者用于拉流。
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 
-参考文档：[直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
+请参见 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
 
 
 
 ## SDK 基础函数
 ### delegate
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 的各种状态通知。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调，您可以通过 MLVBLiveRoomDelegate 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 的各种状态通知。
 ```
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
 ```
@@ -43,27 +43,27 @@ __介绍__
 ***
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (instancetype)sharedInstance
 ```
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例。
 
->?可以调用 MLVBLiveRoom destroySharedInstance  销毁单例对象。
+>?可以调用 MLVBLiveRoom destroySharedInstance 销毁单例对象。
 
 ***
 
 ### destorySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 单例对象。
 ```
 + (void)destorySharedInstance
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763#mlvbliveroom) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 实例不能再使用，需要重新调用 [sharedInstance](https://cloud.tencent.com/document/product/454/34763#sharedinstance) 获取新实例。
 
 ***
 
@@ -174,7 +174,7 @@ __参数__
 __介绍__
 
 主播开播的正常调用流程是： 
-1. 主播调用 startLocalPreview  打开摄像头预览，此时可以调整美颜参数。 
+1. 主播调用 startLocalPreview 打开摄像头预览，此时可以调整美颜参数。 
 2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 completion 通知主播。
 
 ***
@@ -221,7 +221,7 @@ __参数__
 
 设置当前房间的扩展信息字段。
 ```
-- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(NSString *)value completion:(void(^)(int errCode, NSString *custom))completion 
+- (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void(^)(int errCode, NSString *custom))completion 
 ```
 
 __参数__
@@ -230,7 +230,7 @@ __参数__
 |-----|-----|-----|
 | op | MLVBCustomFieldOp | 执行动作。 |
 | key | NSString * | 自定义键。 |
-| value | NSString * | 数值。 |
+| value | id | 可选类型为 NSNumber 或者 NSString。 |
 | completion | void(^)(int errCode, NSString *custom) | 操作完成的回调。 |
 
 __介绍__
@@ -248,14 +248,14 @@ __介绍__
 
 获取当前房间的扩展信息字段。
 ```
-- (void)getCustomInfo:(void(^)(int errCode, NSString *errMsg, NSString *value))completion 
+- (void)getCustomInfo:(void(^)(int errCode, NSString *errMsg, NSDictionary *customInfo))completion 
 ```
 
 __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| completion | void(^)(int errCode, NSString *errMsg, NSString *value) | 获取自定义值回调。 |
+| completion | void(^)(int errCode, NSString *errMsg, NSDictionary *customInfo) | 获取自定义值回调。 |
 
 ***
 
@@ -279,7 +279,7 @@ __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 requestJoinAnchor 向主播发起连麦请求。
-2. 主播会收到 MLVBLiveRoomDelegate onRequestJoinAnchor 的回调通知。
+2. 主播会收到 MLVBLiveRoomDelegate.onRequestJoinAnchor 的回调通知。
 3. 主播调用 responseJoinAnchor 确定是否接受观众的连麦请求。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 startLocalPreview 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
@@ -307,7 +307,7 @@ __参数__
 
 __介绍__
 
-主播在收到 MLVBLiveRoomDelegate onRequestJoinAnchor  回调之后会需要调用此接口来处理观众的连麦请求。
+主播在收到 MLVBLiveRoomDelegate.onRequestJoinAnchor 回调之后会需要调用此接口来处理观众的连麦请求。
 
 ***
 
@@ -326,7 +326,7 @@ __参数__
 
 __介绍__
 
-进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorEnter 通知。
+进入连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate.onAnchorEnter 通知。
 
 ***
 
@@ -345,7 +345,7 @@ __参数__
 
 __介绍__
 
-退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate onAnchorExit 通知。
+退出连麦成功后，主播和其他连麦观众会收到 MLVBLiveRoomDelegate.onAnchorExit 通知。
 
 ***
 
@@ -364,7 +364,7 @@ __参数__
 
 __介绍__
 
-主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate onKickoutJoinAnchor 回调通知。
+主播调用此接口踢除连麦观众后，被踢连麦观众会收到 MLVBLiveRoomDelegate.onKickoutJoinAnchor 回调通知。
 
 ***
 
@@ -432,7 +432,7 @@ __参数__
 
 __介绍__
 
-当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate onQuitRoomPK 回调通知。
+当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 MLVBLiveRoomDelegate.onQuitRoomPK 回调通知。
 
 ***
 
@@ -645,27 +645,25 @@ YES：打开成功；NO：打开失败。
 
 __介绍__
 
-SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己点击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
+SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己单击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
 
 ***
 
 
 ## 美颜滤镜相关接口函数
-### setBeautyStyle
+### getBeautyManager
 
-设置美颜、美白和红润效果级别。
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。
 ```
-- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel 
+- (TXBeautyManager *)getBeautyManager 
 ```
 
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：【天天P图】版美颜（商业版有效，普通版本设置此选项无效）。 |
-| beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | float | 美白级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | float | 红润级别，取值范围：0 - 9； 0表示关闭， 1 - 9值越大，效果越明显。 |
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 
 ***
 
@@ -702,96 +700,6 @@ __参数__
 
 ***
 
-### setEyeScaleLevel
-
-设置大眼级别（商业版有效，普通版本设置此参数无效）。
-```
-- (void)setEyeScaleLevel:(float)eyeScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| eyeScaleLevel | float | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceScaleLevel
-
-设置瘦脸级别（商业版有效，普通版本设置此参数无效）。
-```
-- (void)setFaceScaleLevel:(float)faceScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceScaleLevel | float | 瘦脸级别取值范围：0 - 9； 0 表示关闭1 - 9值越大 效果越明显。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceVLevel:(float)faceVLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceVLevel | float | V 脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setChinLevel:(float)chinLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | float | 下巴拉伸或收缩级别，取值范围：-9 - 9；0表示关闭，小于0表示收缩，大于0表示拉伸。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceShortLevel:(float)faceShortlevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceShortlevel | float | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setNoseSlimLevel:(float)noseSlimLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | float | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
 ### setGreenScreenFile
 
 设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
@@ -807,25 +715,7 @@ __参数__
 
 >?此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
-
 ***
-
-### selectMotionTmpl
-
-选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
-```
-- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| tmplName | NSString * | 动效名称。 |
-| tmplDir | NSString * | 动效所在目录。 |
-
-***
-
 
 ## 消息发送接口函数
 ### sendRoomTextMsg
@@ -895,7 +785,7 @@ __参数__
 |-----|-----|-----|
 | path | NSString * | 音乐文件路径，一定要是 `app` 对应的 `document` 目录下面的路径，否则文件会读取失败。 |
 | beginNotify | void(^)(NSInteger errCode) | 音乐播放开始的回调通知。 |
-| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位毫秒。 |
+| progressNotify | void(^)(NSInteger progressMS, NSInteger durationMS) | 音乐播放的进度通知，单位：毫秒。 |
 | completeNotify | void(^)(NSInteger errCode) | 音乐播放结束的回调通知。 |
 
 __返回__
@@ -991,7 +881,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| pitch | float | 音调，默认值是0.0f，范围：-1 - 1之间的浮点数;。 |
+| pitch | float | 音调，默认值是0.0f，范围：-1 - 1之间的浮点数。 |
 
 __返回__
 
@@ -1010,7 +900,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -1029,7 +919,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 voiceChangerType 定义。 |
 
 __返回__
 

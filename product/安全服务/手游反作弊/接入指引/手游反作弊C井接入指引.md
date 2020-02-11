@@ -44,26 +44,27 @@ Assets/Plugins/Android/libs/x86/
 
 ## SDK 接口调用
 ### 初始化函数
-** 函数原型 **
+**函数原型**
 ```
 void Tp2SdkInitEx (int gameId, string appKey);
 ```
-** 参数说明 **
+**参数说明**
 
 | 参数 | 是否必须 | 说明 |
 |---------|---------|---------|
 | gameId | 是 | 由腾讯云官网分配的 game_id  |
 | appKey | 是 | 由腾讯云官网分配 game_key，与 game_id 对应  |
+
 gameId 和 appKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
-- ** 返回值 **：0 表示调用成功。
+**返回值**：0 表示调用成功。
 
 ### 设置用户信息
-** 函数原型 **
+**函数原型**
 ```
 void Tp2UserLogin (int accountType, int worldId, String openId, String roleId);
 ```
 
-** 参数说明 **
+**参数说明**
 
 | 参数 | 标题 2 |
 |---------|---------|
@@ -91,17 +92,17 @@ ENTRY_ID_OTHERS = 99, // 其他平台
 - ** 返回值 **：0 表示调用成功。
 
 ### 设置游戏状态
-** 函数原型 **
+**函数原型**
 ```
 void Tp2SetGamestatus (Tp2Status status);
 ```
-** 参数说明 **
+**参数说明**
 
 | 参数 | 说明 |
 |---------|---------|
 | status | 前台 Tp2Status. FRONTEND<br> 后台 Tp2Status. BACKEND |
 
-** 枚举类型 **
+**枚举类型**
 ```
 public enum Tp2Status
 {
@@ -109,7 +110,7 @@ FRONTEND = 1, // 前台
 BACKEND = 2 // 后台
 }
 ```
-** 返回值 **：0 表示调用成功。
+**返回值**：0 表示调用成功。
 
 ### 调用时机
 1. Tp2SdkInitEx 在游戏启动的第一时间调用，参数为游戏 ID 和 appKey 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。

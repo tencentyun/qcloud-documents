@@ -23,13 +23,7 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 ### 安装步骤
 
-#### 1. 获取源码 
-您首先需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
-```shell
-git clone https://github.com/tencentyun/cosfs /usr/cosfs
-```
-
-#### 2. 安装依赖软件 
+#### 1. 安装依赖软件 
 COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS、SUSE 和 macOS 的依赖软件安装过程如下：
 
 - Ubuntu 系统下安装依赖软件：
@@ -56,6 +50,15 @@ sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-de
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
 ```
+
+#### 2. 获取源码 
+
+您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
+```shell
+git clone https://github.com/tencentyun/cosfs /usr/cosfs
+```
+
+
 #### 3. 编译和安装 COSFS 
 进入安装目录，执行如下命令进行编译和安装：
 ```shell
@@ -89,7 +92,7 @@ ldconfig   #更新动态链接库
 pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse 2.9.4 安装成功 
 ```
 SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
->!安装时，需要注释掉 example/fusexmp.c 文件下第222行内容，否则 make 会报错。注释方法为 `/*content*/` 。
+>!安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
 
 	```shell
 	zypper remove fuse libfuse2
@@ -120,19 +123,21 @@ export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根�
 ### COSFS 使用方法
 
 #### 1. 配置密钥文件
-在文件 /etc/passwd-cosfs 中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成640，配置 /etc/passwd-cosfs 密钥文件的命令格式如下：
+在文件`/etc/passwd-cosfs`中，写入您的存储桶名称（格式为 &lt;BucketName-APPID&gt;），以及该存储桶对应的 &lt;SecretId&gt; 和 &lt;SecretKey&gt;，三项之间使用半角冒号隔开。并且为了防止密钥泄露，COSFS 要求您将密钥文件的权限设置成640，配置`/etc/passwd-cosfs`密钥文件的命令格式如下：
 ```shell
-sudo su # 切换到 root 身份，以修改 /etc/passwd-cosfs 文件；如果已经为 root 用户，无需执行该条命令。
+sudo su  # 切换到 root 身份，以修改 /etc/passwd-cosfs 文件；如果已经为 root 用户，无需执行该条命令。
 echo <BucketName-APPID>:<SecretId>:<SecretKey> > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
+
 >!您需要将 &lt;BucketName-APPID&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
->Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。&lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
+>- Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>- &lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
+>此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
 
 **示例：**
 
 ```shell
-
 echo examplebucket-1250000000:AKIDHTVVaVR6e3:PdkhT9e2rZCfy6 > /etc/passwd-cosfs
 chmod 640 /etc/passwd-cosfs
 ```
@@ -144,7 +149,7 @@ chmod 640 /etc/passwd-cosfs
 cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
 ```
 其中：
-- &lt;MountPoint&gt; 为本地挂载目录（例如 /mnt）。
+- &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
 - &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 
@@ -169,7 +174,9 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 卸载存储桶示例：
 
 ```shell
-fusermount -u /mnt 或者 umount -l /mnt
+方式1：fusermount -u /mnt, fusermount 命令专用于卸载 FUSE 文件系统 
+方式2：umount -l /mnt, 当有程序引用文件系统中文件时，进行卸载不会报错，并在没程序引用时完成卸载
+方式3：umount /mnt， 当有程序引用文件系统中的文件时，进行卸载会报错
 ```
 
 ## 常用挂载选项

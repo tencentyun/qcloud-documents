@@ -27,13 +27,15 @@ CREATE RESOURCE QUEUE name WITH (queue_attribute=value [, ... ])
 
 带有 ACTIVE_STATEMENTS 阈值的资源队列在查询数量上做了最大限制，该查询能够被分配到该队列上的角色所执行。它（阈值）控制了活跃查询的数量，活跃查询是在同一时间允许运行的查询。ACTIVE_STATEMENTS 的值应当是一个大于0的值。
 
-带有 MAX_COST 阈值的资源队列在查询总代价上设置了一个最大限制，该查询能够被分配到该队列上的角色所执行。代价是按照数据库查询计划器（正如查询的 EXPLAIN 输出显示的）确定的查询的\*估计总成本*来进行衡量的。
-因此，管理员必须熟悉系统典型执行的查询，以对队列设置一个合适的代价阈值。代价是以磁盘页的提取为单位进行衡量的。1.0等于一个顺序的磁盘页面的读取。MAX_COST 的值被指定为浮点数（例如100.0）或者也可以被指定为指数（例如1e + 2）。
+带有 MAX_COST 阈值的资源队列在查询总代价上设置了一个最大限制，该查询能够被分配到该队列上的角色所执行。代价是按照数据库查询计划器（正如查询的 EXPLAIN 输出显示的）确定的查询的**估计总成本**来进行衡量的。
+
+因此，管理员必须熟悉系统典型执行的查询，对队列设置一个合适的代价阈值。代价是以磁盘页的提取为单位进行衡量的。1.0等于一个顺序的磁盘页面的读取。MAX_COST 的值被指定为浮点数（例如100.0）或者也可以被指定为指数（例如1e + 2）。
+
 如果基于成本阈值限制资源队列，则管理员可以允许 COST_OVERCOMMIT = TRUE（默认值）。这意味着超过成本阈值的查询将被允许查询，但只有当系统空闲的时候才行。如果指定 COST_OVERCOMMIT = FALSE，超过成本限制的查询将始终被拒绝，从不允许执行。对 MIN_COST 指定一个值，这将允许管理员定义小查询的成本，低于该成本的小查询将免除排队的烦恼。
 
-如果没有给 ACTIVE_STATEMENTS 或者 MAX_COST设定值，将被设置为默认值 -1（意味着没有限制）。在定义了资源队列之后，用户必须使用 [ALTER ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/ALTER_ROLE.html#topic1) 或者 [CREATE ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/CREATE_ROLE.html#topic1) 命令向队列分配角色。
+如果没有给 ACTIVE_STATEMENTS 或者 MAX_COST设定值，将被设置为默认值-1（意味着没有限制）。在定义了资源队列之后，用户必须使用 [ALTER ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/ALTER_ROLE.html#topic1) 或者 [CREATE ROLE](https://gp-docs-cn.github.io/docs/ref_guide/sql_commands/CREATE_ROLE.html#topic1) 命令向队列分配角色。
 
-用户可以选择性的分配 PRIORITY 给一个资源队列来控制与（和其他资源队列相关的）队列相关查询使用的可用 CPU 资源的相对份额。如果没有指定 PRIORITY的值，则和队列相关的查询默认优先级为 MEDIUM。
+用户可以选择性的分配 PRIORITY 给一个资源队列来控制与（和其他资源队列相关的）队列相关查询使用的可用 CPU 资源的相对份额。如果没有指定 PRIORITY 的值，则和队列相关的查询默认优先级为 MEDIUM。
 
 带有可选择的 MEMORY_LIMIT 阈值的资源队列对内存数量上设置了最大限制。该内存是 Segment 主机上被所有通过资源队列提交的查询所使用的。这决定了在 Segment 主机上，在一次查询执行中，一个查询的所有工作进程所能消耗的总内存的数量。推荐 MEMORY_LIMIT 和 ACTIVE_STATEMENTS 联合使用而不是和 MAX_COST。
 基于语句的队列每个查询分配的默认内存量为：MEMORY_LIMIT / ACTIVE_STATEMENTS。
@@ -94,7 +96,7 @@ CREATE RESOURCE QUEUE 不能再事务中运行。
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=20);
 ```
 
-创建一个活跃查询限制为20的资源队列并且总内存限制为2000MB （在执行时，每个查询会被分配100MB端主机内存)：
+创建一个活跃查询限制为20的资源队列并且总内存限制为2000MB（在执行时，每个查询会被分配100MB端主机内存）：
 
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=20, 
@@ -107,7 +109,7 @@ CREATE RESOURCE QUEUE myqueue WITH (ACTIVE_STATEMENTS=20,
 CREATE RESOURCE QUEUE myqueue WITH (MAX_COST=3000.0);
 ```
 
-创建一个查询代价限制为310 的资源队列（或者 30000000000.0）并且不允许复写。允许500以下的小查询立即运行：
+创建一个查询代价限制为310的资源队列（或者 30000000000.0）并且不允许复写。允许500以下的小查询立即运行：
 
 ```sql
 CREATE RESOURCE QUEUE myqueue WITH (MAX_COST=3e+10, 

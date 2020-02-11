@@ -28,7 +28,7 @@ const gameInfo = {
     openId: Util.mockOpenId(),
     // 替换 为控制台上的“游戏ID”
     gameId: "xxxxxx",
-    // 替换 为控制台上的“密钥”
+    // 替换 为控制台上的“游戏Key”
     secretKey: 'xxxxxxxxxxxxxxxxxxx',
 };
 
