@@ -1,5 +1,26 @@
+## 组件介绍
 
-**&lt;trtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 TRTC 互通的自定义组件。
+**&lt;trtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 TRTC 互通的自定义组件，支持多种应用场景：
+
+**视频通话&语音通话（scene = "rtc"）**
+- 适合1对1语音通话、1对1视频通话、多人语音聊天、在线狼人杀、视频客服、视频面试、在线医疗、在线理赔等50人以内的在线低延时沟通场景。
+- 侧重视频流畅度和语音清晰度。
+- 使用时需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **rtc**。
+
+**互动直播&语音聊天室（scene = "live"）**
+- 适合直播连麦、直播 PK、在线教育、互动课堂、远程培训、大型会议等单一房间人数较多的沟通场景。	
+- 支持十万人级别观众同时播放，播放延时低至1000ms。
+- 支持平滑上下麦，切换过程无需等待，主播延时小于300ms。
+- 使用时需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **live**。
+
+<table>
+<tr>
+<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvoiceroom.gif"/></td>
+<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvideocall.gif"/></td>
+<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting1.gif"/></td>
+<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting2.gif"/></td>
+</tr>
+</table>
 
 
 <h2 id="API">API 概览</h2>
@@ -8,7 +29,6 @@
 
 | API | 描述 |
 |-----|-----|
-| [selectComponent](#selectcomponent) | 创建 &lt;trtc-room&gt; 组建的实例。 |
 | [on(EventCode, handler, context)](#on(eventcode.2C-handler.2C-context)) | 用于监听组件派发的事件，详细事件请参考 [事件表](#Event)。 |
 | [off(EventCode, handler)](#off(eventcode.2C-handler))|取消事件监听。|
 | [enterRoom(params)](#enterroom(params)) | 进入房间。|
@@ -74,12 +94,11 @@
 
 | 参数                 | 类型    | 默认值    | 说明         |
 |:---------------------|:--------|:----------|:-------------|
+| scene                | String  | rtc       | rtc：实时通话，采用优质线路，同一房间中的人数不适宜超过20人。 <br>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在20人以内）。  |
 | sdkAppID             | String  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
 | userID               | String  | -         | 必填参数，用户 ID，可以由您的帐号体系指定。 |
 | userSig              | String  | -         | 必填参数，身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。    |
-| template             | String  | custom    | 必填参数，组件内置的画面排版模式，支持如下三种模式：<li>1V1：大小画面上下叠加。</li><li>grid：网格模版，画面间相互重叠，最多显示6路画面。</li><li>custom：自定义，需要您通过 setViewRect 和 setViewZIndex 等接口自行处理。</li>  |
-| debugMode            | Boolean | false     | 是否打开组件的调试模式，开启后视频画面上会有一个半透明浮层展示音视频数据指标。    |
-| scene                | String  | rtc       | rtc：实时通话，采用优质线路，同一房间中的人数不适宜超过20人。 <br>live：直播模式，采用混合线路，房间人数无上限。  |
+| template             | String  | custom    | 必填参数，组件内置的画面排版模式，支持如下三种模式：<li>"1v1"：大小画面上下叠加。</li><li>"grid"：网格模版，画面间相互重叠，最多显示6路画面。</li><li>"custom"：自定义，需要您通过 setViewRect 和 setViewZIndex 等接口自行处理或者修改组件的 custom 模版</li>  |
 | enableCamera         | Boolean | true      | 是否开启摄像头   |
 | enableMic            | Boolean | true      | 是否开启麦克风    |
 | enableAgc            | Boolean | false     | 是否开启音频自动增益，该特性可以补偿部分手机麦克风音量太小的问题，但也会放大噪音，建议配合 ANS 同时开启。|
@@ -102,13 +121,14 @@
 | audioQuality         | String  | high      | 高音质（48KHz）或低音质（16KHz），可选值：high 或 low。 |
 | audioVolumeType      | String  | voicecall | 系统音量类型，可选值为：<li>media：媒体音量。</li><li>voicecall：通话音量。</li>|
 | audioReverbType      | Number  | 0         | 音频混响类型，可选值为： 0：关闭，1：KTV，2：小房间，3：大会堂，4：低沉，5：洪亮，6：金属声，7：磁性。|
-| enableIM             | Boolean | false     | 是否启用即时通信功能|
+| enableIM             | Boolean | false     | 是否启用即时通信功能 |
+| debugMode            | Boolean | false     | 是否打开组件的调试模式，开启后视频画面上会有一个半透明浮层展示音视频数据指标。    |
 
 
 示例代码：
 ``` 
  // index.wxml
-<trtc-room id="trtcroom" config="{{trtcConfig}}"></trtc-room>
+<trtc-room id="trtcroom" config="{{trtcConfig}}"></trtc-room>
 ```
 
 ```
@@ -969,7 +989,14 @@ trtcRoomContext.sendGroupCustomMessage({
 ```
 let EVENT = trtcRoomContext.EVENT
 trtcRoomContext.on(EVENT.REMOTE_VIDEO_ADD,(event)=>{
-    // 远端视频流添加事件，当远端用户取消发布音频流后会收到该通知
+    // 远端视频流添加事件，当远端用户发布视频流后会收到该通知
+})
+
+// 接收 IM 消息
+trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
+  let messageEvent = event.data
+  // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 messageEvent.data 获取消息列表数据并渲染到页面
+  // messageEvent.data - 存储 Message 对象的数组
 })
 ```
 | CODE                       | 说明                                                     |
@@ -991,7 +1018,10 @@ trtcRoomContext.on(EVENT.REMOTE_VIDEO_ADD,(event)=>{
 | BGM_PLAY_PROGRESS          | BGM 播放时间戳变更通知。                                     |
 | BGM_PLAY_COMPLETE          | BGM 播放结束通知。                                           |
 | ERROR                      | 本地推流出现错误、渲染错误事件等。                           |
-
+| IM_READY                   | IM 就绪的通知，收到该通知后可以进行收发消息操作。            |
+| IM_MESSAGE_RECEIVED        | 收到 IM 消息的通知。[Message 对象文档](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)|
+| IM_NOT_READY               | IM 未就绪的通知，收到该通知后不可以进行收发消息操作。            |
+| IM_ERROR                   | IM 错误事件。[IM 错误码对照表](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#%E9%94%99%E8%AF%AF%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8)                                             |
 
 ## 错误码
 ERROR 事件触发时会返回响应的错误码，错误码含义如下
