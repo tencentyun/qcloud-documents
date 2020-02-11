@@ -59,7 +59,7 @@
 3. （可选）设置数据卷，要指定容器挂载至指定路径时，单击【添加数据卷】，详情查看 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。如下图所示：
 >!源路径不指定时将默认分配临时路径。
 > 
- - 类型：支持使用临时目录、主机路径、NFS盘、已有VPC、腾讯云硬盘、ConfigMap、Secret七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - 类型：支持使用临时目录、主机路径、NFS盘、已有PVC、腾讯云硬盘、ConfigMap、Secret七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
  - 名称：数据卷的名称。
 ![](https://main.qcloudimg.com/raw/7d69d00f2b00b4d0d3a12c49fbbabaa7.png)
 4. 设置**实例內容器**。如下图所示：
