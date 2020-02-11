@@ -1,7 +1,7 @@
 ### 出现 Yarn nodemanager 节点不健康问题怎么处理？
 
 #### 问题现象
-Core 节点磁盘利用率超过90%，nodemanager 会置为不健康状态(Unhealthy Nodes)。
+Core 节点磁盘利用率超过90%，nodemanager 会置为不健康状态（Unhealthy Nodes）。
 
 #### 解决方案
 1. 建议添加云监控，设置 EMR 子机磁盘利用率定在80% - 85%时告警，避免节点磁盘利用率超过90%时，nodemanager 节点状态不健康。
