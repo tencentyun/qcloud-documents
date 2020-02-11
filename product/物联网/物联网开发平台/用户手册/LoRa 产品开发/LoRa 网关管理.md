@@ -21,7 +21,7 @@
      - 选择“是”，表示社区开发者可在社区网络中看到该网关，并可通过这个网关进行 LoRa 节点接入。
      - 选择“否”，则只有用户自己才能查看该网关。
 
-![](https://main.qcloudimg.com/raw/a915874bc229f0a47f7de484fd42f9d5.png)
+![](https://main.qcloudimg.com/raw/8741b32299278865574836463ea89fc3.jpg)
 4. 网关新建成功后，您可在网关列表页查看到“GW1”。
 
 
