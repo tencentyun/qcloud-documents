@@ -1,8 +1,8 @@
-## TKE-Optimized 系列镜像说明
+
 TKE-Optimized 系列 OS 是 TKE 基于 [TencentOS-kernel](https://github.com/Tencent/TencentOS-kernel) 制作的 Kubernetes 集群节点 OS。针对容器场景全面优化，提供了更高的安全性、稳定性。由腾讯云团队维护定制内核，支持热补丁升级，建议作为您 TKE 集群节点的首选 OS。
 
 
-## TKE-Optimized 系列镜像的优势
+### TKE-Optimized 系列镜像的优势
 
 <table>
 	<tr><th> 优势 </th><th> 内容 </th></tr>
