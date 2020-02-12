@@ -117,7 +117,7 @@ server {
 	#填写绑定证书的域名
     server_name www.domain.com; 
 	#把http的域名请求转成https
-    rewrite ^(.*)$ https://$host$1 permanent; 
+    return 301 https://$host$request_uri; 
 }
 ``` 
 >?未添加注释的配置语句，您按照上述配置即可。
