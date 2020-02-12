@@ -125,7 +125,7 @@ Container 类型 Input 的具体数据描述如下：
 
 Container 类型 Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 必选 |
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
 | Animation          | Request.Operation | 当 Tag 为 Animation 时有效，指定该任务的参数                 | Container | 否   |
 | Snapshot           | Request.Operation | 当 Tag 为 Snapshot 时有效，指定该任务的参数，同 POSTTemplate 中的 Request.Snapshot | Container | 否   |
@@ -137,7 +137,7 @@ Container 类型 Operation 的具体数据描述如下：
 
 Container 类型 Animation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                      | 描述                                      | 类型      | 必选 |
+| 节点名称（关键字） | 父节点                      | 描述                                      | 类型      | 是否必选 |
 | ------------------ | :-------------------------- | ----------------------------------------- | --------- | ---- |
 | Container          | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Container    | Container | 否   |
 | Video              | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Video        | Container | 否   |
@@ -145,7 +145,7 @@ Container 类型 Animation 的具体数据描述如下：
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 必选 |
+| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
 | Region             | Request.Operation.Output | 存储桶的地域                                                 | String | 是   |
 | Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是   |
