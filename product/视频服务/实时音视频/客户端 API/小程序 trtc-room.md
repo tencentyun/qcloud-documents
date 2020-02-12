@@ -98,7 +98,7 @@
 | sdkAppID             | String  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
 | userID               | String  | -         | 必填参数，用户 ID，可以由您的帐号体系指定。 |
 | userSig              | String  | -         | 必填参数，身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。    |
-| template             | String  | custom    | 必填参数，组件内置的画面排版模式，支持如下三种模式：<li>"1v1"：大小画面上下叠加。</li><li>"grid"：网格模版，画面间相互重叠，最多显示6路画面。</li><li>"custom"：自定义，需要您通过 setViewRect 和 setViewZIndex 等接口自行处理或者修改组件的 custom 模版</li>  |
+| template             | String  | custom    | 必填参数，组件内置的画面排版模式，支持如下三种模式：<li>"1v1"：大小画面上下叠加。</li><li>"grid"：网格模版，画面间相互重叠，最多显示9路画面。</li><li>"custom"：自定义，需要您通过 setViewRect 和 setViewZIndex 等接口自行处理或者修改组件的 custom 模版</li>  |
 | enableCamera         | Boolean | true      | 是否开启摄像头   |
 | enableMic            | Boolean | true      | 是否开启麦克风    |
 | enableAgc            | Boolean | false     | 是否开启音频自动增益，该特性可以补偿部分手机麦克风音量太小的问题，但也会放大噪音，建议配合 ANS 同时开启。|
