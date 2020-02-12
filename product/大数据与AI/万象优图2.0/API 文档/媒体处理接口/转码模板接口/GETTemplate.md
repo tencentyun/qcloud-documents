@@ -196,10 +196,9 @@ Container 节点 TransTpl 的内容：
 ```shell
 GET /template?templateIds=A,B,C HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
-
 ```
 
 #### 响应
