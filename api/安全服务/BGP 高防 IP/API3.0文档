@@ -5,5 +5,5 @@
 
 >!
 >- 请确保在使用这些接口前，已充分了解了 DDoS 高防 IP [产品概述](https://cloud.tencent.com/document/product/1014/31091)。
->- 调用高防产品区别在于参数 [Business]()，即 DDoS 防护子产品代号 bgpip 表示高防 IP。
+>- 调用高防产品区别在于参数 Business，即 DDoS 防护子产品代号 bgpip 表示高防 IP。
 >- 本接口文档中云服务器 API 接口均为最新 API 3.0 接口，后续 DDoS 高防 IP 相关新增功能都会在 API 3.0 章节更新。我们强烈推荐您使用最新 API3.0 接口。
