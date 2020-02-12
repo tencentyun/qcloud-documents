@@ -1,6 +1,3 @@
-
-## iOS SDK 类问题
-
 ### 手动集成 SDK 后，设置QCloudCOSXMLEndPoint实例的regionName会crash`：[__NSCFConstantString matchesRegularExpression:]: unrecognized selector sent to instance xxx`
 
 原因：
