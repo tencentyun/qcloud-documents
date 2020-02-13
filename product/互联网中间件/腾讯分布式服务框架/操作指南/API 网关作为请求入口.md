@@ -34,15 +34,15 @@
 前置条件：已经在 TSF 平台上部署了`provider-demo`应用，并在微服务所属命名空间中配置 Code，名称为`tsf-code`。
 
 在 API 网关上，创建微服务 API 的流程如下：
-1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index)。
-2. 单击【新建】按钮，创建 API 服务。
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index)，在左侧导航栏中单击【服务】。
+2. 在服务列表页，单击【新建】，创建 API 服务。
 3. 选择【服务名】，进入服务详情页。
-4. 在服务详情页，单击【API管理】标签页中的【微服务API】，单击【新建】按钮，创建微服务 API。
+4. 在服务详情页，单击【管理API】标签页中的【微服务API】，单击【新建】，创建微服务 API。
 5. 前置配置，各字段详情含义参考 [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
 ![](https://main.qcloudimg.com/raw/502249689f131ebc8c23aa001d0c626d.png)
 6. 后置配置，各字段详细含义参考 [创建微服务 API](https://cloud.tencent.com/document/product/628/17561)。
 ![](https://main.qcloudimg.com/raw/edf10a3eb00cc9742d07327f3881099d.png)
-7. 预览微服务 API 信息，单击右侧【API 调试】。
+7. 预览微服务 API 信息，单击右侧【API调试】。
 8. 调试 API。
 ![](https://main.qcloudimg.com/raw/e5729bb36b9d1a592cc4c67c4dfd9118.png)
 

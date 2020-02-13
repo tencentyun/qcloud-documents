@@ -64,7 +64,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@serverless/tencent-express](https://cloud.tencent.com/document/product/1154/39269) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-egg](https://cloud.tencent.com/document/product/1154/40492) - 快速部署基于 Egg.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-koa](https://cloud.tencent.com/document/product/1154/40493) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
-- [@serverless/tencent-flask](https://cloud.tencent.com/document/product/1154/40495) - 腾讯云 Python Flask RESTful API 组件
+- [@serverless/tencent-flask](https://cloud.tencent.com/document/product/1154/40495) - 腾讯云 Python Flask RESTful API 组件（任何支持 WSGI 的 Python 服务端框架都可以基于该组件进行部署，例如 Falcon 框架等）
 - [@serverless/tencent-laravel](https://cloud.tencent.com/document/product/1154/40494) - 腾讯云 PHP Laravel RESTful API 组件
 - [@serverless/tencent-website](https://cloud.tencent.com/document/product/1154/39276) - 快速部署静态网站到腾讯云的组件
 

@@ -313,10 +313,12 @@ conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息
 ```
 /**
  * 下载语音文件到指定的保存路径
+ *
  * @param path 指定保存路径
- * @param callback 回调
+ * @param progressCb 下载进度回调
+ * @param cb   回调
  */
-public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
+ public void getSoundToFile(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb) 
 
 /**
  * 获取需要发送的语音文件的路径，只对发送方有效
@@ -944,13 +946,15 @@ for(int i = 0; i < msg.getElementCount(); ++i) {
 ```
 /**
  * 下载语音文件到指定的保存路径
+ *
  * @param path 指定保存路径
- * @param callback 回调
+ * @param progressCb 下载进度回调
+ * @param cb   回调
  */
-public void getSoundToFile(@NonNull final String path, @NonNull TIMCallBack callback)
+ public void getSoundToFile(@NonNull final String path, final TIMValueCallBack<ProgressInfo> progressCb, @NonNull final TIMCallBack cb) 
 ```
 
-**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
+**语音消息已读状态：**语音是否已经播放，可使用 [消息自定义字段](/doc/product/269/9232#.E6.B6.88.E6.81.AF.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) 实现，例如 `customInt` 的值 0 表示未播放，1 表示播放，当用户单击播放后可设置 `customInt` 的值为 1。以下为设置自定义整数， 默认为 0。
 
 **原型：**
 ```
@@ -1412,8 +1416,7 @@ con.getLocalMessage(10, //获取此会话最近的 10 条消息
         for(TIMMessage msg : msgs) {
             lastMsg = msg;
             //可以通过 timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
-            Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
-
+            Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.getSeq());
         }
     }
 });

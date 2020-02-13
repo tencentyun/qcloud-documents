@@ -7,7 +7,7 @@
 ```shell
 composer create-project --prefer-dist laravel/laravel serverless-laravel
 ```
->!Laravel 使用 Coposer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
+>!Laravel 使用 Composer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
 
 #### 修改 Laravel 项目
 由于云函数在执行时，只有 `/tmp` 可读写的，所以我们需要将 `laravel` 框架运行时的 `storage` 目录写到该目录下，为此需要修改 `bootstrap/app.php` 文件，在 `$app = new Illuminate\Foundation\Application` 后添加：
