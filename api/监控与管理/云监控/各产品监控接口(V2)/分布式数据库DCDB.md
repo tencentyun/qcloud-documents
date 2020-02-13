@@ -3,25 +3,21 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-DCDB 是部署在腾讯云公有云上的一种支持自动水平拆分的 share nothing 架构的分布式数据库。分布式数据库即业务获取是完整的逻辑库表，后端却将库表均匀的拆分到多个物理分片节点。目前，DCDB 默认部署主备架构且提供了容灾、备份、恢复、监控、迁移等方面的全套解决方案，适用于 TB 或 PB 级的海量数据库场景。具体介绍请参考<a href="/document/product/557/7700" title="产品概述">分布式数据库 DCDB 简介</a>页面。
+分布式数据库 TDSQL（ TencentDB for TDSQL，TDSQL） 是部署在腾讯云公有云上的一种支持自动水平拆分的 share nothing 架构的分布式数据库。分布式数据库即业务获取是完整的逻辑库表，后端却将库表均匀的拆分到多个物理分片节点。目前，TDSQL 默认部署主备架构且提供了容灾、备份、恢复、监控、迁移等方面的全套解决方案，适用于 TB 或 PB 级的海量数据库场景。具体介绍请参见 [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/7700)。
 
 查询分布式数据库监控数据，入参取值如下：
 namespace：qce/dcdb
 
 维度名称取值：instanceId,topicId
-
 dimensions.0.name=uuid
-
 dimensions.0.value=实例 ID
-
 dimensions.1.name=shardId
-
 dimensions.1.value=实例下具体的分片 ID
 
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a>页面。其中，此接口的 Action 字段为 GetMonitorData。
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/405/公共请求参数" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 GetMonitorData。
 
 ### 2.1 输入参数
 
@@ -78,7 +74,7 @@ dimensions.1.value=实例下具体的分片 ID
 
 | 参数名称       | 类型       | 描述                  |
 | ---------- | -------- | ------------------- |
-| code       | Int      | 错误码, 0: 成功, 其他值表示失败 |
+| code       | Int      | 错误码，0: 成功, 其他值表示失败 |
 | message    | String   | 返回信息                |
 | startTime  | Datetime | 起始时间                |
 | endTime    | Datetime | 结束时间                |
@@ -101,7 +97,8 @@ dimensions.1.value=实例下具体的分片 ID
 ## 5. 示例
 
 ### 5.1 查询实例汇总监控数据
-输入
+
+#### 输入
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
@@ -114,7 +111,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &endTime=2018-05-23 17:20:00
 </pre>
 
-输出
+#### 输出
 
 ```
 {
@@ -135,7 +132,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 ```
 
 ### 5.2 查询实例分片监控数据
-输入
+#### 输入
 
 <pre>
 https://monitor.api.qcloud.com/v2/index.php?
@@ -150,7 +147,7 @@ https://monitor.api.qcloud.com/v2/index.php?
 &endTime=2018-05-23 17:20:00
 </pre>
 
-输出
+#### 输出
 
 ```
 {
