@@ -2,7 +2,8 @@
 
 >? 智能弹幕和画质重生需要提交申请通过后对接使用，具体请参见 [智能弹幕入门](https://cloud.tencent.com/document/product/1183/41081?!preview&!editLang=zh)、[画质重生入门](https://cloud.tencent.com/document/product/1183/41082?!preview&!editLang=zh)。
 
-## 公共调用方式
+## 调用方式
+云直播、云点播和视频处理的 API 调用方式相同，其相关说明如下所示：
 
 - [请求结构](https://cloud.tencent.com/document/product/267/20458)
 - [公共参数](https://cloud.tencent.com/document/product/267/20459)
