@@ -3,7 +3,7 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-云数据库 MariaDB（TencentDB for MariaDB）（曾用名金融级数据库 TDSQL） 定位于 OLTP 场景下高安全性的企业级云数据库，十余年来一直应用于腾讯计费业务，MariaDB 兼容 MySQL 语法，拥有诸如线程池、审计、异地容灾等高级功能，同时具有云数据库的易扩展性、简单性和性价比。具体介绍请参见 [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/1054)。
+云数据库 MariaDB（TencentDB for MariaDB）（曾用名：金融级数据库 TDSQL） 定位于 OLTP 场景下高安全性的企业级云数据库，十余年来一直应用于腾讯计费业务，MariaDB 兼容 MySQL 语法，拥有诸如线程池、审计、异地容灾等高级功能，同时具有云数据库的易扩展性、简单性和性价比。具体介绍请参见 [云数据库 MariaDB](https://cloud.tencent.com/document/product/237/1054)。
 
 查询云数据库 MariaDB 产品监控数据，入参取值如下：
 namespace：qce/tdsql
