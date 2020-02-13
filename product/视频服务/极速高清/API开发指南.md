@@ -2,14 +2,17 @@
 
 >? 智能弹幕和画质重生需要提交申请通过后对接使用，具体请参见 [智能弹幕入门](https://cloud.tencent.com/document/product/1183/41081?!preview&!editLang=zh)、[画质重生入门](https://cloud.tencent.com/document/product/1183/41082?!preview&!editLang=zh)。
 
-## 云直播极速高清转码 API
-### 调用方式
+## 公共调用方式
 
 - [请求结构](https://cloud.tencent.com/document/product/267/20458)
 - [公共参数](https://cloud.tencent.com/document/product/267/20459)
 - [接口鉴权V3](https://cloud.tencent.com/document/product/267/30661)
 - [接口鉴权](https://cloud.tencent.com/document/product/267/20460)
 - [返回结果](https://cloud.tencent.com/document/product/267/20461)
+
+
+## 云直播极速高清转码 API
+
 
 ### 直播转码相关接口
 - [创建转码规则](https://cloud.tencent.com/document/product/267/32647)
