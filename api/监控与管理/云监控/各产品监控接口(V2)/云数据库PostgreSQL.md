@@ -3,7 +3,7 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-云数据库 PostgreSQL 是腾讯云基于开源数据库 PostgreSQL 专业打造的云数据库。具体介绍请参见 [云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409/4989) 。
+云数据库 PostgreSQL 是腾讯云基于开源数据库 PostgreSQL 专业打造的云数据库。具体介绍请参见 [云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409/4989)。
 
 查询云数据库 PostgreSQL 产品监控数据，入参取值如下：
 namespace：qce/postgres
