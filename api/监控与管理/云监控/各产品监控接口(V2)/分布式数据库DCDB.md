@@ -3,7 +3,7 @@
 域名：monitor.api.qcloud.com
 接口：GetMonitorData
 
-分布式数据库 TDSQL（ TencentDB for TDSQL，TDSQL） 是部署在腾讯云公有云上的一种支持自动水平拆分的 share nothing 架构的分布式数据库。分布式数据库即业务获取是完整的逻辑库表，后端却将库表均匀的拆分到多个物理分片节点。目前，TDSQL 默认部署主备架构且提供了容灾、备份、恢复、监控、迁移等方面的全套解决方案，适用于 TB 或 PB 级的海量数据库场景。具体介绍请参见 [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/7700)。
+分布式数据库 TDSQL（ TencentDB for TDSQL，TDSQL）（曾用名：分布式数据库 DCDB）是部署在腾讯云公有云上的一种支持自动水平拆分的 share nothing 架构的分布式数据库。分布式数据库即业务获取是完整的逻辑库表，后端却将库表均匀的拆分到多个物理分片节点。目前，TDSQL 默认部署主备架构且提供了容灾、备份、恢复、监控、迁移等方面的全套解决方案，适用于 TB 或 PB 级的海量数据库场景。具体介绍请参见 [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557/7700)。
 
 查询分布式数据库监控数据，入参取值如下：
 namespace：qce/dcdb
