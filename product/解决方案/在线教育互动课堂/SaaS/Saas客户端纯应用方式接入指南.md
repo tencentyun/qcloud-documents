@@ -11,7 +11,7 @@
 
 参数 ID|参数类型|解释|获取方式
 :--:|:--:|:--:|:--
-company_id|int|机构码：获取机构的信息（机构名称，应用图标等）的唯一标识。|申请 SaaS 服务邮件获取。具体请参见 [邮件获取方式](https://cloud.tencent.com/document/product/680/34356)。
+company_id|int|机构码：获取机构的信息（机构名称，应用图标等）的唯一标识。|申请 SaaS 服务邮件获取。具体请参见 [开通指南-使用 SaaS 方案](https://cloud.tencent.com/document/product/680/34356)。
 class_id|int|课堂编号：获取课堂信息的唯一标识。|通过云 API 预约课堂获取。具体请参见 [云 API-预约课堂](https://cloud.tencent.com/document/product/680/37540#.E9.A2.84.E7.BA.A6.E8.AF.BE.E5.A0.82)。
 user_id|string|帐号。|通过云 API 创建账号获取。具体请参见 [云 API-创建账号](https://cloud.tencent.com/document/product/680/37540#.E5.88.9B.E5.BB.BA.E8.B4.A6.E5.8F.B7)。
 user_token|string|用户签名。|通过云 API 创建账号获取。具体请参见 [云 API-创建账号](https://cloud.tencent.com/document/product/680/37540#.E5.88.9B.E5.BB.BA.E8.B4.A6.E5.8F.B7)。
