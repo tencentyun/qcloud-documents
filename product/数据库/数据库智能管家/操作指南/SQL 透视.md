@@ -8,6 +8,8 @@ SQL 透视对数据库实例进行深层次的 SQL 分析，以数据库一段�
 实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
 ![](https://main.qcloudimg.com/raw/fc001ac870f1bed1cb301c29baaca47f.png)
 
+通过如下视频，您可以了解 DBbrain SQL 透视功能的详细操作：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1915-22594?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作步骤
 ### SQL 视图
