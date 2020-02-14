@@ -51,7 +51,7 @@ http://播放域名/live/[Streamid].flv
  >
 - Streamid 计算方法：
  - 2020年01月09日及此后新建的应用，或此前已创建但从未使用过的应用，`Streamid = urlencode(SDKAppID_房间号_userId_流类型)`，即由`SDKAppID_房间号_userId_流类型`计算的流 ID 经过 URL 编码而成。
- - 2020年01月09日前创建且使用过的应用，`streamID = MD5(房间号_userId_流类型)`
+ - 2020年01月09日前创建且使用过的应用，`streamID = bizid_MD5(房间号_userId_流类型)`
 - SDKAppID：请在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 选择已经创建的应用，在“应用信息”中获取。 
  ![](https://main.qcloudimg.com/raw/5d54378547d8bb38c60ae153039da196.png)
 
