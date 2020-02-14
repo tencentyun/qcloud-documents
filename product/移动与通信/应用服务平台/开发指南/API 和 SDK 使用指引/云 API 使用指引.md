@@ -18,7 +18,8 @@
 - 云存储，为云开发提供底层存储能力。
 
 云开发对外提供服务，整体架构如下：
-![alt 云开发架构简介](https://main.qcloudimg.com/raw/85228392c7e500ebeee75626f13ace04.jpg)
+<img src="https://main.qcloudimg.com/raw/85228392c7e500ebeee75626f13ace04.jpg" width="80%">
+
 
 如需了解整个产品概况，点击 [了解更多](https://cloud.tencent.com/document/product/876/18431)。
 
@@ -40,7 +41,8 @@ API Center 是云开发提供通过云开发 API 网管服务访问**云函数�
 - 业务只需关注云开发即可。
 
 调用情况如下图所示：
-![调用路径](https://main.qcloudimg.com/raw/c4b4bd2bde4e0269b5615a507a15377c.jpg)
+<img src="https://main.qcloudimg.com/raw/c4b4bd2bde4e0269b5615a507a15377c.jpg" width="80%">
+
 
 云开发提供一个通用的云 API 接口 **CommonServiceAPI**，可查看 [文档说明](https://cloud.tencent.com/document/api/876/41230)，具体的使用方式如下：
 - 云函数、云数据库、云存储**各自的 API 能力**。
