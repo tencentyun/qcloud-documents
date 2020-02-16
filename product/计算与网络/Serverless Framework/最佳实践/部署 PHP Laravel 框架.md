@@ -5,7 +5,7 @@
 #### 初始化 Laravel 项目
 在使用此组件之前，您需要先初始化一个 `laravel` 项目：
 ```shell
-composer create-project --prefer-dist laravel/laravel serverless-laravel
+php composer create-project --prefer-dist laravel/laravel serverless-laravel
 ```
 >!Laravel 使用 Composer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
 
@@ -77,6 +77,36 @@ MyComponent:
 通过 `sls` 命令进行部署，并添加 `--debug` 参数查看部署过程中的信息：
 ```shell
 $ sls --debug
+
+  DEBUG ─ Resolving the template's static variables.
+  DEBUG ─ Collecting components from the template.
+  DEBUG ─ Downloading any NPM components found in the template.
+  DEBUG ─ Analyzing the template's components dependencies.
+  DEBUG ─ Creating the template's components graph.
+  DEBUG ─ Syncing template state.
+  DEBUG ─ Executing the template's components graph.
+  DEBUG ─ Compressing function laravel-function file to /Users/Downloads/serverless-laravel/.serverless/laravel-function.zip.
+  DEBUG ─ Compressed function laravel-function file successful
+  DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-guangzhou-code]. sls-cloudfunction-default-laravel-function-1581888194.zip
+  DEBUG ─ Uploaded package successful /Users/Downloads/serverless-laravel/.serverless/laravel-function.zip
+  DEBUG ─ Creating function laravel-function
+  DEBUG ─ Created function laravel-function successful
+  DEBUG ─ Setting tags for function laravel-function
+  DEBUG ─ Creating trigger for function laravel-function
+  DEBUG ─ Deployed function laravel-function successful
+  DEBUG ─ Starting API-Gateway deployment with name MyComponent.TencentApiGateway in the ap-guangzhou region
+  DEBUG ─ Service with ID service-ok334ism created.
+  DEBUG ─ API with id api-l7cppn6s created.
+  DEBUG ─ Deploying service with id service-ok334ism.
+  DEBUG ─ Deployment successful for the api named MyComponent.TencentApiGateway in the ap-guangzhou region.
+
+  MyComponent: 
+    region:              ap-guangzhou
+    functionName:        laravel-function
+    apiGatewayServiceId: service-ok334ism
+    url:                 http://service-ok334ism-1258834142.gz.apigw.tencentcs.com/release/
+
+  192s › MyComponent › done
 ```
 
 >? `sls` 是 `serverless` 命令的简写。
@@ -86,6 +116,16 @@ $ sls --debug
 通过以下命令移除部署的 API 网关：
 ```shell
 $ sls remove --debug
+
+  DEBUG ─ Flushing template state and removing all components.
+  DEBUG ─ Removing function
+  DEBUG ─ Request id
+  DEBUG ─ Removed function laravel-function successful
+  DEBUG ─ Removing any previously deployed API. api-l7cppn6s
+  DEBUG ─ Removing any previously deployed service. service-ok334ism
+
+  18s › MyComponent › done
+  
 ```
 
 #### 账号配置（可选）
