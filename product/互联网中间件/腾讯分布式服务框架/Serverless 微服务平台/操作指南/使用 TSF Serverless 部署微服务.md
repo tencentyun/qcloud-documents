@@ -53,3 +53,10 @@
 2. 选择 **步骤3** 中已上传成功的程序包后，单击【提交】。
 3. 应用部署成功后，部署组中**运行实例数**的数值发生变化。
 ![](https://img.serverlesscloud.cn/2020216/1581842608213-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216164321.png)
+
+
+## 相关文档
+您可参考以下文档，使用相关功能：
+- [TSF Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960)
+- [Spring Cloud 概述](https://cloud.tencent.com/document/product/649/36285)
+- [Spring Cloud 快速入门](https://cloud.tencent.com/document/product/649/20261)
