@@ -23,7 +23,7 @@
 | zip      | 云服务器上的 agent 会解压压缩包，使用解压目录下的`start.sh`脚本启动应用程序。 |
 
 
-## start.sh / stop.sh / cmdline 说明
+start.sh / stop.sh / cmdline 说明
 以一个 Python 应用的压缩包为示例，解压后的文件目录如下：
 - promotionService.py
 - start.sh
@@ -76,7 +76,9 @@ MacOS 系统压缩软件说明
 ![](https://main.qcloudimg.com/raw/55dd0e931b437bf058fbdb83e55a32cf.png)
 
 
-南北向调用 , tar.gz 和 zip 压缩包中也同样需要包含以下内容，**请确保文件名正确**：
+南北向调用说明
+
+tar.gz 和 zip 压缩包中也同样需要包含以下内容，**请确保文件名正确**：
 
 - 业务代码**（必选）**：压缩包中需要包含程序运行所需的**全部依赖包（eg. node_modules）**。您的程序必须**监听8080端口**。
 - start.sh**（必选）**：启动脚本。我们会通过运行启动脚本拉起您的程序。您可以把启动服务所需的参数填入启动脚本。需要注意的是，启动脚本需要放在**压缩包的根路径下**。以下是一个示例启动脚本：
