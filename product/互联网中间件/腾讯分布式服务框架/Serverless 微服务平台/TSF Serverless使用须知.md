@@ -21,7 +21,7 @@
 | tar.gz   | 云服务器上的 agent 会解压压缩包，使用解压目录下的`start.sh`脚本启动应用程序。 |
 | zip      | 云服务器上的 agent 会解压压缩包，使用解压目录下的`start.sh`脚本启动应用程序。 |
 
-详情说明请参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359) 。
+更多说明请参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359) 。
 
 ## 本地临时存储
 - 如果您需要在本地写临时文件，只能写到`/tmp`路径下，其他路径下写操作会失败。
