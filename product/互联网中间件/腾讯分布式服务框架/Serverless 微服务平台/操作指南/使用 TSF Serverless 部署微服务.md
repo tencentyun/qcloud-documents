@@ -1,49 +1,6 @@
-## 创建 Nodejs Express 项目
-1. 根据实际需求，选择目录路径，并在该路径下创建新的目录，用作于项目目录。
-   例如，创建一个名称为 helloexpress 的项目目录。
-2. 进入 helloexpress 目录，并在该目录下执行以下命令，初始化 node 项目。
-```bash
-npm init
-```
->? 命令执行后所有选项均保持默认即可。
-3. 执行以下命令，安装 Express 包。
-```bash
-npm install express --save
-```
-4. 在项目目录下创建 index.js 文件，并输入以下内容：
-```javascript
-const express = require('express')
-const app = express()
-app.get('/', (req, res) => res.send('Hello World!'))
-const port = 8080
-console.log('listening port',port)
-app.listen(port, () => console.log('Example app listening on',port))
-```
->?服务需要监听8080端口。
-5.  在项目目录下创建 start.sh 启动脚本文件，并输入以下内容：
-```bash
-#! /bin/bash
-node index.js
-```
-6.  执行以下命令，进行项目的本地验证。
-```bash
-/bin/bash start.sh
-```
-显示结果如下，则说明服务已启动。
-```bash
-listening port 8080
-Example app listening on 8080
-```
-在浏览器地址栏输入 `localhost:8080` 后访问，窗口显示 `Hello World!`，本地创建项目成功。
-7.  打包本地项目，准备上传。
-**您需要在项目的根路径（start.sh 所在路径）下执行打包**。您可以在 [TSF  Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960#.E4.B8.8A.E4.BC.A0.E7.A8.8B.E5.BA.8F.E5.8C.85.E8.A6.81.E6.B1.82) 查看程序包的要求。
-```bash
-zip code.zip * -r
-```
+## 步骤1：创建Serverless集群
 
-## 创建 Hello World 服务
-
-### 步骤1：新建Serverless集群
+### 新建Serverless集群
 
 首先您需要创建Serverless集群。集群是实例，Serverless等云资源的集合。
 
@@ -57,16 +14,16 @@ zip code.zip * -r
  - **集群描述**：集群的描述，不超过200个字符。
 
 
-### 步骤2：创建Serverless应用
+## 步骤2：创建Serverless应用
 
 1. 在左侧导航栏，单击【[应用管理](https://console.cloud.tencent.com/tsf/app?rid=1)】，进入应用列表。
 2. 在应用列表上方单击【新建应用】。
 3. 设置应用信息后，单击【提交】。
    - 部署方式：选择 **Serverless部署**
-   - 运行环境：选择 **Nodejs** 
-   
+   - 运行环境：选择 **Java8** （目前仅Java8支持微服务应用）
 
-### 步骤3：上传程序包
+
+## 步骤3：上传程序包
 
 1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
 2. 在应用详情页的上方，单击**程序包管理**标签页，单击【上传程序包】。
@@ -77,7 +34,7 @@ zip code.zip * -r
   - 备注：填写备注  
 5. 单击【提交】，程序包上传成功后出现在程序包列表中。
 
-### 步骤4：创建部署组并添加实例
+## 步骤4：创建部署组
 
 1. 在【应用详情页>部署组】标签页的上方，单击【新建部署组】。
 2. 设置部署组相关信息。
@@ -87,7 +44,7 @@ zip code.zip * -r
  - 日志配置项：应用的日志配置项用于指定 TSF 采集应用的日志路径。参考 [日志服务](https://cloud.tencent.com/document/product/649/13697)。
 3. 单击【提交】。
 
-### 步骤5：部署应用
+## 步骤5：部署应用
 
 1. 在上步操作中点击下一步即可完成部署，如部署失败，可在部署组列表页的右侧，单击【部署应用】重试。
 ![](https://img.serverlesscloud.cn/2020216/1581842529888-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216164201.png)
@@ -96,4 +53,8 @@ zip code.zip * -r
 ![](https://img.serverlesscloud.cn/2020216/1581842608213-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216164321.png)
 
 
-
+## 相关文档
+您可参考以下文档，使用相关功能：
+- [TSF Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960)
+- [Spring Cloud 概述](https://cloud.tencent.com/document/product/649/36285)
+- [Spring Cloud 快速入门](https://cloud.tencent.com/document/product/649/20261)
