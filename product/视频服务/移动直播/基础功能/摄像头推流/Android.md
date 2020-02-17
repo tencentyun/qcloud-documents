@@ -14,7 +14,7 @@
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
 | iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/anchor/screen/TCScreenAnchorActivity.java ) | TCScreenAnchorActivity.java |
 
 
 ## 功能对接
@@ -378,4 +378,49 @@ SDK 发现了一些问题，但这并不意味着推流无法继续，SDK 会在
 |PUSH_WARNING_DNS_FAIL            |  3001 |  RTMP-DNS 解析失败（会触发重试流程）。     |	
 |PUSH_WARNING_SEVER_CONN_FAIL     |  3002|  RTMP 服务器连接失败（会触发重试流程）。  |	
 |PUSH_WARNING_SHAKE_FAIL          |  3003|  RTMP 服务器握手失败（会触发重试流程）。  |	
-|PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）。  |
+|PUSH_WARNING_SERVER_DISCONNECT      |  3004|  RTMP 服务器主动断开连接（会触发重试流程）。  |void onRecordEvent(final int event, final Bundle param);	
+        void onRecordProgress(long milliSecond);	
+        void onRecordComplete(TXRecordResult result);	
+}	
+```	
+
+>! 	
+>1. 只有启动推流后才能开始录制，非推流状态下启动录制无效。	
+>2. 出于安装包体积的考虑，仅专业版和企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。	
+>3. 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。	
+>4. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。	
+### 17. 主播端弱网提醒	
+手机连接 Wi-Fi 网络不一定就非常好，如果 Wi-Fi 信号差或者出口带宽很有限，可能网速不如4G，如果主播在推流时遇到网络很差的情况，需要有一个友好的提示，提示主播应当切换网络。	
+
+![](https://main.qcloudimg.com/raw/0d0ccb1fca6cc847d51499a4f9e37e18.jpg)	
+
+通过 TXLivePushListener 里的 onPlayEvent 可以捕获 **PUSH_WARNING_NET_BUSY** 事件，它代表当前主播的网络已经非常糟糕，出现此事件即代表观众端会出现卡顿。此时就可以像上图一样在 UI 上弹出一个“弱网提示”。	
+
+```objectiveC	
+@Override	
+    public void onPushEvent(int event, Bundle param) {	
+        if (event == TXLiveConstants.PUSH_ERR_NET_DISCONNECT	
+                || event == TXLiveConstants.PUSH_ERR_INVALID_ADDRESS	
+                || event == TXLiveConstants.PUSH_ERR_OPEN_CAMERA_FAIL	
+                || event == TXLiveConstants.PUSH_ERR_OPEN_MIC_FAIL) {	
+            // 遇到以上错误，则停止推流	
+            //...	
+        } else if (event == TXLiveConstants.PUSH_WARNING_NET_BUSY) {	
+            //您当前的网络环境不佳，请尽快更换网络保证正常直播	
+            showNetBusyTips();	
+        }	
+    }	
+```	
+
+### 18. 发送 SEI 消息 	
+调用 TXLivePush 中的`sendMessageEx`接口可以发送 SEI 消息。所谓 SEI，是视频编码数据中规定的一种附加增强信息，平时一般不被使用，但我们可以在其中加入一些自定义消息，这些消息会被直播 CDN 转发到观众端。使用场景有：	
+
+1. 答题直播：推流端将**题目**下发到观众端，可以做到“音-画-题”完美同步。	
+2. 秀场直播：推流端将**歌词**下发到观众端，可以在播放端实时绘制出歌词特效，因而不受视频编码的降质影响。	
+3. 在线教育：推流端将**激光笔**和**涂鸦**操作下发到观众端，可以在播放端实时地划圈划线。	
+
+由于自定义消息是直接被塞入视频数据中的，所以不能太大（几个字节比较合适），一般常用于塞入自定义的时间戳等信息。	
+
+```java	
+//Android 示例代码	
+String msg = "test
