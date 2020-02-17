@@ -124,7 +124,7 @@ $ sls --debug
     apiGatewayServiceId: service-rf5pzbfy
     url:                 http://service-rf5pzbfy-1258834142.gz.apigw.tencentcs.com/release/
 
-  75s › MyComponent › done。
+  75s › MyComponent › done
 ```
 
 >?`sls` 是 `serverless` 命令的简写。
