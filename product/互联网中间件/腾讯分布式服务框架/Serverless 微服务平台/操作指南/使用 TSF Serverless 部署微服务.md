@@ -1,8 +1,11 @@
-## 步骤1：创建Serverless集群
+## 操作场景
+本文指导您通过 TSF 控制台，完成TSF Serverless 部署微服务的整体操作流程。
 
-### 新建Serverless集群
+## 操作步骤
 
-首先您需要创建Serverless集群。集群是实例，Serverless等云资源的集合。
+### 步骤1：创建 Serverless 集群
+
+首先您需要创建 Serverless 集群。集群是实例、Serverless 等云资源的集合。
 
 1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)。
 2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tsf/cluster?rid=1)】，进入集群列表页。
@@ -14,7 +17,7 @@
  - **集群描述**：集群的描述，不超过200个字符。
 
 
-## 步骤2：创建Serverless应用
+### 步骤2：创建 Serverless 应用
 
 1. 在左侧导航栏，单击【[应用管理](https://console.cloud.tencent.com/tsf/app?rid=1)】，进入应用列表。
 2. 在应用列表上方单击【新建应用】。
@@ -23,38 +26,38 @@
    - 运行环境：选择 **Java8** （目前仅Java8支持微服务应用）
 
 
-## 步骤3：上传程序包
+### 步骤3：上传程序包
 
 1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
 2. 在应用详情页的上方，单击**程序包管理**标签页，单击【上传程序包】。
-![](https://img.serverlesscloud.cn/2020216/1581842308515-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216163803.png)
+![](https://main.qcloudimg.com/raw/2be5327d84d9b323e016d84085bbd36f.png)
 4. 在**上传程序包**对话框中填写相关参数。
   - 上传程序包：单击【选择文件】，选择编译为 jar 格式的程序包
   - 程序包版本：填写版本号，或单击【用时间戳作为版本号】
   - 备注：填写备注  
 5. 单击【提交】，程序包上传成功后出现在程序包列表中。
 
-## 步骤4：创建部署组
+### 步骤4：创建部署组
 
-1. 在【应用详情页>部署组】标签页的上方，单击【新建部署组】。
-2. 设置部署组相关信息。
+ 1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
+ 2. 单击【新建部署组】，设置部署组相关信息：
  - 部署组名称：部署组的名称，不超过60个字符。
- - 集群：选择 **步骤1** 中创建的集群。
+ - 集群：选择**步骤1**中创建的集群。
  - 命名空间：选择集群关联的系统命名空间。
  - 日志配置项：应用的日志配置项用于指定 TSF 采集应用的日志路径。参考 [日志服务](https://cloud.tencent.com/document/product/649/13697)。
 3. 单击【提交】。
 
-## 步骤5：部署应用
+### 步骤5：部署应用
 
-1. 在上步操作中点击下一步即可完成部署，如部署失败，可在部署组列表页的右侧，单击【部署应用】重试。
-![](https://img.serverlesscloud.cn/2020216/1581842529888-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216164201.png)
-2. 选择 **步骤3** 中已上传成功的程序包后，单击【提交】。
+1. 在上步操作中单击【下一步】即可完成部署，如部署失败，可在部署组列表页的右侧，单击【部署应用】重试。
+![](https://main.qcloudimg.com/raw/ee0e779344c6f058fd181fb24c8582bc.png)
+2. 选择**步骤3**中已上传成功的程序包后，单击【提交】。
 3. 应用部署成功后，部署组中**运行实例数**的数值发生变化。
-![](https://img.serverlesscloud.cn/2020216/1581842608213-%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200216164321.png)
+![](https://main.qcloudimg.com/raw/8071674f9caf0a623058be7d5844e8e8.png)
 
 
 ## 相关文档
-您可参考以下文档，使用相关功能：
+您可参考以下文档，使用 TSF Serverles 相关功能：
 - [TSF Serverless 使用须知](https://cloud.tencent.com/document/product/649/38960)
 - [Spring Cloud 概述](https://cloud.tencent.com/document/product/649/36285)
 - [Spring Cloud 快速入门](https://cloud.tencent.com/document/product/649/20261)
