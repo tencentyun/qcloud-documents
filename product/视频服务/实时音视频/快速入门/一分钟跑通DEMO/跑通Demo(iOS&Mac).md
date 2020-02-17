@@ -17,9 +17,9 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，下载相关 SDK 及配套的 Demo 源码。
  - **iOS：**单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip?_ga=1.195966252.185644906.1567570704)】）
-  ![](https://main.qcloudimg.com/raw/bcf0b69f1f5606add61ef1deb5889256.png)
+  ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
  - **Mac：**单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Mac)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2?_ga=1.195966252.185644906.1567570704)】）
-  ![](https://main.qcloudimg.com/raw/dae59b4be01fa68579b3cccbc2a90a42.png)
+  ![](https://main.qcloudimg.com/raw/65b9538a23789b1a728674ea3646062c.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
@@ -41,7 +41,7 @@
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/a9fd8c11ad01594a416443074a5edeb9.png">
+	<img src="https://main.qcloudimg.com/raw/15d986c5f4bc340e555630a070b90d63.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 

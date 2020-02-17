@@ -6,7 +6,7 @@
 
 前往 [下载地址](https://nodejs.org/en/download/)，选择 Windows 32-bit 版本，安装 node 环境。
 
->!trtc electron sdk 目前仅支持 Windows 32-bit 版本。
+>!TRTC Electron SDK 目前仅支持 Windows 32-bit 版本。
 
 #### Mac
 
@@ -23,9 +23,10 @@ brew install node
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 单击【立即开始】，输入应用名称，例如`TestTRTC`，单击【创建应用】。
 
-<span id="step2"></span>
-### 步骤2：下载 Demo 源码
-1. [下载](https://gitee.com/vqcloud/Trtc_Electron_Demo.git) Demo 源码。
+<span id="step2"></span>
+### 步骤2：下载 SDK 和 Demo 源码
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Electron_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
+ ![](https://main.qcloudimg.com/raw/6273f79193eb7af25eff64020a0ea476.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
@@ -35,7 +36,7 @@ brew install node
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/f27d322f58e4040008d2ea773a59c490.png">
+	<img src="https://main.qcloudimg.com/raw/a82e1c7c3b4edde3b9ac1326b2556147.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 

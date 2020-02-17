@@ -554,7 +554,7 @@ videoElem.videoPath = @"/xxx/videoPath.mp4";
 videoElem.video = [[TIMVideo alloc] init];
 videoElem.video.type = @"mp4";
 videoElem.video.duration = 10;
-videoElem.snapshotPath = @"/xxx/snapshotPath.jgp";
+videoElem.snapshotPath = @"/xxx/snapshotPath.jpg";
 videoElem.snapshot = [[TIMSnapshot alloc] init];
 videoElem.snapshot.type = @"jpg";
 videoElem.snapshot.width = 100;
@@ -1390,7 +1390,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 ### 获取所有会话
 
 ```
-@interface TIMMessage : NSObject
+@interface TIMManager : NSObject
 
 /**
  *  获取会话（TIMConversation*）列表

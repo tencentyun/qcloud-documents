@@ -12,17 +12,38 @@ dimensions.0.value=视查询维度而定
 下面来说明下 dimensions.0.value 的取值。
 腾讯云提供的 MongoDB 是集群服务，通过本 API 可以查询“整个集群”、“某个副本集”、“某个节点”三个维度的监控数据。
 其中：
-“整个集群”代表了您所购买的某一个 MongoDB 实例，这个维度可以查询整个实例的读写请求次数、容量使用率、超时请求等。
-“某个副本集”维度可查询集群下的某一个副本集内部的容量使用率和主从延迟。副本集实例本身只包含一个副本集，分片实例的每一片都是一个副本。
-“某个节点”维度可以查询集群内的任意节点的 CPU、内存等信息。
+- “整个集群”：代表了您所购买的某一个 MongoDB 实例，这个维度可以查询整个实例的读写请求次数、容量使用率、超时请求等。
+- “某个副本集”：维度可查询集群下的某一个副本集内部的容量使用率和主从延迟。副本集实例本身只包含一个副本集，分片实例的每一片都是一个副本。
+- “某个节点”：维度可以查询集群内的任意节点的 CPU、内存等信息。
 
 dimensions.0.value 取值参照表
 
-| 取值类型  | 取值示例                                     | 描述                                       |
-| ----- | ---------------------------------------- | ---------------------------------------- |
-| 实例 ID  | cmgo-6ielucen                            | 实例 ID 一个 MongoDB 实例的唯一标识；可以在 [MongoDB控制台](https://console.cloud.tencent.com/mongodb) 查询到；或者调用 MognoDB 的 API 也可以获取 |
-| 副本集 ID | cmgo-6ielucen_0cmgo-6ielucen_2           | 在实例 ID 后面拼接“索引号”可以得到副本集 ID；“索引号”从0开始，最大值为副本集个数-1；副本集实例只有一个副本集，所以固定拼接“0”即可；分片实例有多个片，每一片都是副本集，举例：第3个片的副本集ID就是拼接“2” |
-| 节点ID  | cmgo-6ielucen_0-node-primarycmgo-6ielucen_1-node-slave0cmgo-6ielucen_3-node-slave2 | 在副本集ID后面拼接 “-node-primary” 得到该副本集的主节点 ID；拼接 “-node-slave 从节点索引号”可得到对应的从节点的 ID，“从节点索引号”从0开始，最大值为从节点个数-1 |
+
+<table>
+<thead>
+<tr>
+<th>取值类型</th>
+<th>取值示例</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实例 ID</td>
+<td nowrap="nowrap">cmgo-6ielucen</td>
+<td>实例 ID 一个 MongoDB 实例的唯一标识；可以在 <a href="https://console.cloud.tencent.com/mongodb">MongoDB控制台</a> 查询到；或者调用 MognoDB 的 API 也可以获取</td>
+</tr>
+<tr>
+<td nowrap="nowrap">副本集 ID</td>
+<td nowrap="nowrap">cmgo-6ielucen_0<br>cmgo-6ielucen_2</td>
+<td>在实例 ID 后面拼接“索引号”可以得到副本集 ID；“索引号”从0开始，最大值为副本集个数-1；副本集实例只有一个副本集，所以固定拼接“0”即可；分片实例有多个片，每一片都是副本集，举例：第3个片的副本集ID就是拼接“2”</td>
+</tr>
+<tr>
+<td>节点 ID</td>
+<td nowrap="nowrap">cmgo-6ielucen_0-node-primary<br>cmgo-6ielucen_1-node-slave0<br>cmgo-6ielucen_3-node-slave2</td>
+<td>在副本集 ID 后面拼接 “-node-primary” 得到该副本集的主节点 ID；拼接 “-node-slave 从节点索引号”可得到对应的从节点的 ID，“从节点索引号”从0开始，最大值为从节点个数-1</td>
+</tr>
+</tbody></table>
+
 
 ## 2. 输入参数
 
