@@ -65,19 +65,19 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 </thead>
 <tbody>
 <tr>
-<td>服务提供商/存储服务提供商/提供商/Service Provider/Storage Provider/Provider 等</td>
-<td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
+<td>服务提供商/存储服务提供商/提供商/Service&nbsp;Provider/Storage Provider/Provider 等</td>
+<td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务</li></td>
 </tr>
 <tr>
-<td>服务端点/服务地址/服务 URL/Endpoint/Custom Endpoint/Server URL 等</td>
-<td>这里用于填写 S3 兼容服务的服务地址，在使用 COS 服时，这里填写 COS 的服务地址，形式为 <code>cos.&lt;Region&gt;.myqcloud.com</code> 或 <code>https://cos.&lt;Region&gt;.myqcloud.com</code>。是否需要填写 <code>https://</code>，根据具体的应用有所不同，您可以自行尝试。其中 <code>&lt;Region&gt;</code> 代表 COS 的可用地域，在应用中，您只能在服务地址中指定的地域创建或选择存储桶。例如您的存储桶在广州地域，那么服务地址应当配置为 <code>cos.ap-guangzhou.myqcloud.com</code>，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。</td>
+<td>服务端点/服务地址/服务&nbsp;URL/Endpoint/Custom Endpoint/Server URL 等</td>
+<td>这里用于填写 S3 兼容服务的服务地址，在使用 COS 服时，这里填写 COS 的服务地址，形式为<code>cos.&lt;Region&gt;.myqcloud.com</code>或<code>https://cos.&lt;Region&gt;.myqcloud.com</code>。<br>是否需要填写<code>https://</code>，根据具体的应用有所不同，您可以自行尝试。其中<code>&lt;Region&gt;</code>代表 COS 的可用地域，在应用中，您只能在服务地址中指定的地域创建或选择存储桶。例如您的存储桶在广州地域，那么服务地址应当配置为 <code>cos.ap-guangzhou.myqcloud.com</code>，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。</td>
 </tr>
 <tr>
 <td>Access Key/Access Key ID 等</td>
 <td>这里填写 <a href="#step4">步骤4</a> 中记录的 <strong>SecretId</strong>。</td>
 </tr>
 <tr>
-<td>Secret Key/Secret/Secret Access Key 等</td>
+<td>Secret Key/Secret/<br>Secret Access Key 等</td>
 <td>这里填写 <a href="#step4">步骤4 </a>中记录的 <strong>SecretKey</strong>。</td>
 </tr>
 <tr>
