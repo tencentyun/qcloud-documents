@@ -24,7 +24,7 @@ hdfs dfsadmin -fs 10.0.0.9(standby节点IP):4007 -safemode leave 离开安全模
  - standby 节点配置升级，master 的 active 和 standby 节点配置统一。
 >!如果客户集群是非 HA 的，也就是非高可用的，那么升级肯定会有一段时间集群不可用。
 2. Spark 提交任务默认模式是 client，driver 在 master 执行。可以将其模式 mode 改为 master 后提交任务。
-3. 关于 Hive 组件，启用 Router 节点，将 HiveServer2 迁移到 Router，然后关闭 master 上的 Hive 组件，操作流程可参考 [HiveServer2 迁移到 Router](document/product/589/41198)。
+3. 关于 Hive 组件，启用 Router 节点，将 HiveServer2 迁移到 Router，然后关闭 master 上的 Hive 组件，操作流程可参考 [HiveServer2 迁移到 Router](https://cloud.tencent.com/document/product/589/41198)。
 4. 停用 master 上不常用的组件，或将 Hue 迁移到 Router 节点上。
 关于 Hue 迁移 Router 操作流程：
  - 进入 EMR 控制台，云硬件管理扩容 Router 节点，选中 Hue 组件。
