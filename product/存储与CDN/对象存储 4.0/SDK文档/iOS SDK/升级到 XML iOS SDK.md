@@ -68,7 +68,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 **XML SDK 的初始化方式如下：**
 >?示例代码中给出的是通过使用临时密钥的方式获取签名：强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确
 
-[//]: # (.cssg-snippet-global-init)
+[//]: # (.cssg-snippet-objc-global-init)
 ```objective-c
 //AppDelegate.m
 //第一步：注册默认的 COS 服务
@@ -88,7 +88,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
 //实现签名的过程，我们推荐在服务器端实现签名的过程，详情请参考接下来的 “生成签名” 这一章。
 ```
 
-[//]: # (.cssg-snippet-global-init-fence-queue)
+[//]: # (.cssg-snippet-objc-global-init-fence-queue)
 ```objective-c
 //AppDelegate.m
 
@@ -101,8 +101,8 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
     credential.secretID = @"COS_SECRETID";
     credential.secretKey = @"COS_SECRETKEY";
     /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
-    credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"start-time"];
-    credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expire-time"];
+    credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"startTime"]; // 单位是秒
+    credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expiredTime"];
     credential.token = @"COS_TOKEN";
     QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc]
         initWithCredential:credential];
@@ -191,7 +191,7 @@ API 变化有以下三点：
 
 使用 `QCloudCOSTransferMangerService`上传的示例代码：
 
-[//]: # (.cssg-snippet-transfer-upload-object)
+[//]: # (.cssg-snippet-objc-transfer-upload-object)
 ```objective-c
 QCloudCOSXMLUploadObjectRequest* put = [QCloudCOSXMLUploadObjectRequest new];
 put.object = @"exampleobject";
@@ -215,6 +215,10 @@ put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * mult
 }];
 
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
+//舍弃一个分块上传并删除已上传的块
+[put abort:^(id outputObject, NSError *error) {
+//
+}];
 
 //•••在完成了初始化，并且上传没有完成前
 NSError* error;

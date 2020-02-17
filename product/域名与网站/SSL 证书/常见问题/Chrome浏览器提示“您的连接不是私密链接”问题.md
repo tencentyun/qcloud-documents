@@ -1,4 +1,4 @@
-### Chrome 浏览器提示“您的连接不是私密链接”问题如何处理？
+### Chrome 浏览器提示 “您的连接不是私密链接” 问题如何处理？
 自2016年11月起，部分 Chrome 浏览器用户反馈访问 HTTPS 站点时出现 **NET::ERR_CERTIFICATE_TRANSPARENCY_REQUIRED** 错误情况，提示 “您的连接不是私密链接”。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/0fdf027303e53946698dcb377431597e/0.png)
 
@@ -12,4 +12,4 @@ Symantec 官方声明：	https://www.symantec.com/connect/blogs/chrome-53-bug-af
 
 以及 Chrome 官方公告：https://bugs.chromium.org/p/chromium/issues/detail?id=664177
 
-另外，使用了 Chromium 53 内核的 QQ 浏览器也会存在这个问题，已经在新版本中修复，建议使用旧版本 QQ 浏览器的用户更新到最新版本。
+另外，使用 Chromium 53 内核的 QQ 浏览器也会存在这个问题，该问题已经在新版本中修复，建议使用旧版本 QQ 浏览器的用户更新到最新版本。

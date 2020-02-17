@@ -2,7 +2,7 @@
 
 - 官网体验 Demo 请直接访问：[即时通信 IM Web Demo ](http://avc.qcloud.com/demo/webim/index.html)
 - Demo 运行指引请访问：[一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
-- 
+ 
 
 ### 下载 IM SDK
 
@@ -99,7 +99,7 @@ IM SDK 函数使用顺序，如下：
 |IM SDK 登录 | webim.login(loginInfo, listeners,opts,cbOk,cbErr);| 登录 IM SDK，需要传入当前用户信息，新消息通知回调函数等，注意，为了版本向下兼容，仍保留了老版本的初始化init接口，它和 login 是一样的，开发者调用其中一个即可。|
 |监听新消息|Demo 中使用的监听函数是 onMsgNotify（监听新消息）、groupSystemNotifys（监听群系统消息）|业务自定义监听函数，包括好友消息，群普通消息，群提示消息和群系统消息，登录时传给 IM SDK |
 |上报已读消息|webim.setAutoRead(selSess, isOn, isResetAll);|设置聊天会话自动已读标识|
-|发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息(私聊和群聊) |
+|发消息 |webim.sendMsg(options,cbOk, cbErr); |发送消息（私聊和群聊） |
 |获取消息 |webim.getC2CHistoryMsgs (options,cbOk, cbErr);|获取好友历史消息 |
 |获取消息 |webim.syncGroupMsgs(options,cbOk, cbErr);|获取群历史消息 |
 |资料管理 |webim.getProfilePortrait(options,cbOk, cbErr);|查询个人资料 |
@@ -112,8 +112,8 @@ IM SDK 函数使用顺序，如下：
 
 ### 支持版本
 
-- IM SDK 支持 IE 7+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
-- Demo 支持 IE 8+ ( Windows XP / Vista 除外)，Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- IM SDK 支持 IE 7+ （Windows XP / Vista 除外），Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
+- Demo 支持 IE 8+ （Windows XP / Vista 除外），Chrome 7+，FireFox 3.6+，Opera 12+ 和 Safari 6+。
 
 ## IM SDK 基本概念
 
@@ -164,7 +164,7 @@ IM SDK 对象主要分为常量对象和类对象，具体的含义参见下表�
      </tr> 
 	 <tr>      
          <td>webim.GROUP_SYSTEM_TYPE</td>   
-	     <td>群系统消息类型，取值范围：<br>1.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST，申请加群请求（只有管理员会收到）<br>2.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT，申请加群被同意（只有申请人能够收到）<br>3.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE，申请加群被拒绝（只有申请人能够收到）<br>4.webim.GROUP_SYSTEM_TYPE.KICK，被管理员踢出群（只有被踢者接收到）<br>5.webim.GROUP_SYSTEM_TYPE.DESTORY，群被解散(全员接收)<br>6.webim.GROUP_SYSTEM_TYPE.CREATE，创建群（创建者接收, 不展示）<br>7.webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST，邀请加群（被邀请者接收）<br>8.webim.GROUP_SYSTEM_TYPE.QUIT，主动退群（主动退出者接收, 不展示）<br>9.webim.GROUP_SYSTEM_TYPE.SET_ADMIN，设置管理员（被设置者接收）<br>10.webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN，取消管理员（被取消者接收）<br>11.webim.GROUP_SYSTEM_TYPE.REVOKE，群已被回收（全员接收, 不展示）<br>12.webim.GROUP_SYSTEM_TYPE.CUSTOM，用户自定义通知（默认全员接收）</td>   
+	     <td>群系统消息类型，取值范围：<br>1.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REQUEST，申请加群请求（只有管理员会收到）<br>2.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_ACCEPT，申请加群被同意（只有申请人能够收到）<br>3.webim.GROUP_SYSTEM_TYPE.JOIN_GROUP_REFUSE，申请加群被拒绝（只有申请人能够收到）<br>4.webim.GROUP_SYSTEM_TYPE.KICK，被管理员踢出群（只有被踢者接收到）<br>5.webim.GROUP_SYSTEM_TYPE.DESTORY，群被解散（全员接收）<br>6.webim.GROUP_SYSTEM_TYPE.CREATE，创建群（创建者接收, 不展示）<br>7.webim.GROUP_SYSTEM_TYPE.INVITED_JOIN_GROUP_REQUEST，邀请加群（被邀请者接收）<br>8.webim.GROUP_SYSTEM_TYPE.QUIT，主动退群（主动退出者接收, 不展示）<br>9.webim.GROUP_SYSTEM_TYPE.SET_ADMIN，设置管理员（被设置者接收）<br>10.webim.GROUP_SYSTEM_TYPE.CANCEL_ADMIN，取消管理员（被取消者接收）<br>11.webim.GROUP_SYSTEM_TYPE.REVOKE，群已被回收（全员接收, 不展示）<br>12.webim.GROUP_SYSTEM_TYPE.CUSTOM，用户自定义通知（默认全员接收）</td>   
 	     <td>区分群系统消息类型</td>   
      </tr> 
 	 <tr>      
@@ -343,7 +343,7 @@ webim.Msg.Elem(type,content)
 | 名称 | 说明 | 类型 |
 |---------|---------|---------|
 |type	|元素类型，具体请参考 webim.MSG_ELEMENT_TYPE|	String|
-|content	|元素内容对象|	Object，可能为<br/>1）Msg.Elem.Text<br/>2）Msg.Elem.Face<br/>3）Msg.Elem.Images<br/>4）Msg.Elem.Location<br/>5）Msg.Elem.Sound<br/>6）Msg.Elem.File<br/>7）Msg.Elem.Custom<br/>8）Msg.Elem.GroupTip|
+|content	|元素内容对象|	Object，可能为<br/><li>Msg.Elem.Text</li><li>Msg.Elem.Face</li><li>Msg.Elem.Images</li><li>Msg.Elem.Location</li><li>Msg.Elem.Sound</li><li>Msg.Elem.File</li><li>Msg.Elem.Custom</li><li>Msg.Elem.GroupTip</li>|
 
 **对象方法：**
 
@@ -517,7 +517,7 @@ webim.Msg.Elem.Location(longitude,latitude,desc)
 
 
 
-### 消息元素对象(语音)
+### 消息元素对象（语音）
 
 **对象名：**
 

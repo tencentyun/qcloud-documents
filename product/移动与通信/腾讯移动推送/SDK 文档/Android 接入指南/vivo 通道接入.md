@@ -93,4 +93,4 @@ I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [ac
 
 ```
 
-
+>?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。

@@ -2,6 +2,7 @@
 - Python Demo（vm）： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
 - Python Demo（docker）： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
 - .NET Demo（vm & docker）： [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) ，其中 REAME.md 介绍了程序包和镜像两种构建方式。
+- Java Demo（vm）：[tsf_mesh_demo_java](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-demo-java.zip)
 
 ## 调用说明
 下文以 Python Demo 为例进行介绍。Python Demo 提供了3个应用，对应的服务名和应用监听端口为：
@@ -13,6 +14,7 @@
 
 >!Mesh 的调用链通过头传递实现。如果用户想要串联整个服务调用关系，需要在访问其他服务时，带上父调用的9个相关调用链头，具体示例如下：
 
+<jump id="header"></jump>
 ```
 // 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
 traceHeaders = ['x-request-id',
@@ -37,7 +39,7 @@ def build_trace_headers(handler):
 // 访问 shop 服务的端口，使用默认的80，或者 shop 的真实端口8090
 sidecarPort = 80
 def do_GET(self):
-    // 调用shop服务时填充父调用的调用链相关头
+    // 调用 shop 服务时填充父调用的调用链相关头
     if self.path == '/api/v6/user/create':
         print "headers are %s" % self.headers.keys()
         logger.info("headers are %s" % self.headers.keys())
@@ -57,6 +59,8 @@ def do_GET(self):
 
 ```
 
+#### Spring Cloud 应用和 Mesh 应用调用打通 tracing
+Spring Cloud 应用和 Mesh 应用相互调用时，如果要打通 tracing，需要在请求中传递调用链相关的 header（参考 [上文](#header)）。
 
 
 

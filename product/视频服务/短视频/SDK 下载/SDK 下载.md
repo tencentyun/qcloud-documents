@@ -7,8 +7,8 @@
       <th width="0px"  style="text-align:center">功能简介</td>
       <th width="92px" style="text-align:center">精简版</td>
       <th width="92px" style="text-align:center">基础版</td>
-      <th width="92px" style="text-align:center">商业版</td>
-      <th width="92px" style="text-align:center">商业版 Pro</td>
+      <th width="92px" style="text-align:center">企业版</td>
+      <th width="92px" style="text-align:center">企业版 Pro</td>
    </tr>
    <tr>
       <td>界面</td>
@@ -302,31 +302,31 @@
       <td style="text-align:center">&#10003;</td>
    </tr>
    <tr>
-      <td rowspan='2'>SDK 下载</td>
+      <td rowspan='2' id = "sdk">SDK 下载</td>
       <td>Android</td>
 	  <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
-          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_Android_latest.zip">DOWNLOAD</a> </td>
-	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a> </td>
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_Android_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">企业版 SDK DOWNLOAD</a> </td>
    </tr>
    <tr>
       <td>iOS</td>
       <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
-     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_iOS_latest.zip">DOWNLOAD</a> </td>
-      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a> </td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_iOS_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">企业版 SDK DOWNLOAD</a> </td>
    </tr>
    
    <tr>
       <td rowspan='2'>License</td>
       <td>License 申请</td>
       <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E7.94.B3.E8.AF.B7.E6.B5.8B.E8.AF.95-license">精简版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F-license">基础版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">商业版</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E5.95.86.E4.B8.9A.E7.89.88.E6.9C.AC-license">商业版 Pro</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 Pro License</a></td>
    </tr>
    <tr>
       <td>套餐价格</td>
-      <td>包含 SDK 的一年使用权和云点播流量套餐。</td>
+      <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
       <td style="text-align:center">￥2345/年</td>
       <td style="text-align:center">￥10050/年</td>
       <td style="text-align:center">￥35W/年 </td>
@@ -339,25 +339,29 @@
 ## 全功能小视频 App（Demo）源代码
 
 <table width="850px">
-  <tr align="center">
+  <tr>
     <th width="140px">操作系统</th>
-    <th width="240px">版本说明</th>
     <th width="120px">下载链接</th>
+    <th width="70px">Github</th>
+    <th width="50px">Gitee</th>
   </tr>
-  <tr align="center">
+  <tr>
     <td>iOS 端源代码</td>
-    <td>6.8.7969 @ 2019-11-25</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
-  <tr align="center">
+  <tr>
     <td>Android 端源代码</td>
-    <td>6.8.7969 @ 2019-11-25</td>
     <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
   </tr>
-  <tr align="center">
+  <tr>
     <td>后台源代码</td>
-    <td>1.2 @ 2018-08-29</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaoshipin/vod-xiaoshipin-server-master.zip">DOWNLOAD</a></td>
     <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
+    <td><a href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a></td>
   </tr>
 </table>
 

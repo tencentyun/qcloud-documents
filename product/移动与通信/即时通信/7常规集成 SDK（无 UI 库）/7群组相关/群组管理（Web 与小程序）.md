@@ -69,7 +69,6 @@ tim.getGroupProfile(options);
 | :---------------------- | :------------- | :--- | :----------------------------------------------------------- |
 | `groupID  `               | `String`         |-  | 群组 ID                                                       |
 | `groupCustomFieldFilter`  | `Array<String>` | `<optional>` | 群组的自定义字段过滤器，指定需要获取的群组的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
-| `memberCustomFieldFilter` | `Array<String>` | `<optional>` | 群成员的自定义字段过滤器，指定需要获取的群成员的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 **返回值**
 
@@ -82,8 +81,7 @@ tim.getGroupProfile(options);
 ```js
 let promise = tim.getGroupProfile({
   groupID: 'group1',
-  groupCustomFieldFilter: ['key1','key2'],
-  memberCustomFieldFilter: ['key1', 'key2']
+  groupCustomFieldFilter: ['key1','key2']
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group);
@@ -128,7 +126,7 @@ tim.createGroup(options);
 
 | 名称                | 类型           | 属性 | 描述                                                  |
 | :------------------ | :------------- | :--------- | :----------------------------------------------------------- |
-| `userID    `        | `String`         |      -      | 必填，群成员的 userID                                        |
+| `userID    `        | `String`         |      -      | 必填，群成员的 UserID                                        |
 | `role  `            | `String`         | `<optional>` | 成员身份，可选值只有 Admin，表示添加该成员并设置为管理员      |
 | `memberCustomField` | `Array<Object>` | `<optional>` | 群成员维度的自定义字段，默认没有自定义字段，如需开通请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
@@ -202,7 +200,7 @@ tim.updateGroupProfile(options);
 
 | 名称               | 类型           | 属性       | Default                              | 描述                                                         |
 | :----------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
-| `groupID`          | `Object`         |       -     |                    -                  |                                                              |
+| `groupID`          | `Object`         |       -     |                    -                  |   群组 ID                                                      |
 | `name`             | `Object`         | `<optional>` |                -                      | 群名称，最长30字节                                           |
 | `avatar`           | `Object`         | `<optional>` |                -                      | 群头像 URL，最长100字节                                       |
 | `introduction`     | `Object`         | `<optional>` |                       -               | 群简介，最长240字节                                          |
@@ -507,6 +505,8 @@ tim.getGroupMemberList(options);
 
 ### 获取群成员资料
 
+>! 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+
 **接口名**
 
 ```js
@@ -685,6 +685,7 @@ let promise = tim.setGroupMemberMuteTime({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberMuteTime error:', imError); // 禁言失败的相关信息
 });
@@ -728,6 +729,7 @@ let promise = tim.setGroupMemberRole({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberRole error:', imError); // 错误信息
 });
@@ -770,6 +772,7 @@ tim.setGroupMemberNameCard(options)
 let promise = tim.setGroupMemberNameCard({ groupID: 'group1', userID: 'user1', nameCard: '用户名片' });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberNameCard error:', imError); // 设置群成员名片失败的相关信息
 });
@@ -816,6 +819,7 @@ tim.setGroupMemberCustomField(options)
 let promise = tim.setGroupMemberCustomField({ groupID: 'group1', memberCustomField: [{key: 'group_member_test', value: 'test'}]});
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberCustomField error:', imError); // 设置群成员自定义字段失败的相关信息
 });

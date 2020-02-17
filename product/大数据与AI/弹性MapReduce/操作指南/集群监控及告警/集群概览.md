@@ -1,17 +1,14 @@
-## 操作场景
-腾讯云 EMR 提供集群概览功能，能够对指定的 EMR 集群的各个状态进行监控。
+集群概览展示集群运行状态的总体视图，可以获取集群运行状态、核心服务指标、核心主机指标以及主机负载 TOP10 情况。
 
-## 操作步骤
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在左侧栏选择【集群概览】页。
-2. 在集群概览页，可查看集群状态、组件状态、硬件状态、资源状态和监控指标。
- - 选择“项目下拉列表”，可以按照项目筛选集群。
- - 选择“地域下拉列表”，可以按照地域筛选集群。
- - 选择“集群名称下拉列表”，可以选择要概览的集群的名字。
- - 【集群状态】可以显示当前集群是否健康。
- - 【组件状态】能够查看所选 EMR 集群的所有组件当前的状态。
- - 【硬件状态】能够显示集群的 HDFS、Yarn、Hbase 和元数据库的状态。
- - 【资源状态】能够查看 Yarn 和 HDFS 当前的资源使用状况。
- - 【监控指标】能够对集群中的 Yarn、HDFS 和 Hbase 的各项指标进行监控，如 CPU 利用率、Yarn 应用阻塞数、HDFS 已用存储空间和 Hbase 存储量等。
-在右下角单击【导出数据】，能够把对 EMR 集群的监控数据导出到本地的 Excel 表格。
-![](https://main.qcloudimg.com/raw/bfe8931e87966daae0a370b77c76dfd3.png)
-![](https://main.qcloudimg.com/raw/9e9ae8503cc70539cb96f9d821fb8579.png)
+## 查看集群概览
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，选择左侧栏【集群监控】>【集群概览】，可直接查看当前集群总体情况。
+2. 在【集群概览】页中，提供了四部分集群维度的监控视图，分别为集群总体情况、集群重要指标、集群部署状态、集群主机负载 TOP10。
+ - 【集群总体情况】可直接查看当前集群状态是否异常，组件数量、主机数量、元数据是否在线。
+![](https://main.qcloudimg.com/raw/92251b1f1b0dac1ad949211c995dc835.png)
+ - 【集群重要指标】可直观查看当前集群 HDFS、YARN、CPU 总使用率、内存总使用率、磁盘总使用率以及网络总流量情况，且每个使用情况可单击右上角【查看趋势】，选择对应时间段进行查看。
+ ![](https://main.qcloudimg.com/raw/1c221821c9a1065c1fbfbb97df387bc9.png)![](https://main.qcloudimg.com/raw/38428acbcccc52b6237958ed5de8113c.png)
+ - 【集群部署状态】可直接查看当前集群部署节点类型中部署进程是否异常、缺失、非法和节点数量，以便于正确调整。
+![](https://main.qcloudimg.com/raw/bbf0c8b0b572c964a0f8149e7d5df42d.png)
+ - 【集群主机负载 TOP10】可查看核心指标下当前集群中节点负载趋势变化情况，可选择多个主机对同一指标的负载趋势进行比较。
+ ![](https://main.qcloudimg.com/raw/d045b7938aade13bd9eab05062ce1777.png)
+ ![](https://main.qcloudimg.com/raw/19a4fd7cfe36545f003e5f1068c22b54.png)

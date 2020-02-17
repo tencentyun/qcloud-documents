@@ -9,7 +9,7 @@
 >?通过 wx.getSystemInfo 可以获取当前基础库版本信息。
 
 ## 使用限制
-出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
+出于政策和合规的考虑，微信暂时没有放开所有小程序对[ &lt;live-pusher&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 和 [&lt;live-player&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html) 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
 
@@ -28,7 +28,7 @@
 
 - 符合类目要求的小程序，需要在小程序管理后台的【设置】>【接口设置】中自助开通该组件权限，如下图所示：
 
-![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+![](https://main.qcloudimg.com/raw/6fd7e3b1f42f0bb6cbb6f61f81bf0e27.png)
 
 >!如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
@@ -79,7 +79,7 @@
 
 ## 属性详解
 - **src**
-用于音视频下行的播放 URL，支持 RTMP 协议（URL 以 “rtmp://” 打头）和 FLV 协议（URL 以 “http://” 打头且以 “.flv” 结尾） ，腾讯云推流 URL 的获取方法见 [DOC](https://cloud.tencent.com/document/product/454/7915)。
+用于音视频下行的播放 URL，支持 RTMP 协议（URL 以`rtmp://`打头）和 FLV 协议（URL 以`http://`打头且以`.flv`结尾） ，腾讯云推流 URL 的获取方法见 [如何生成推流 URL](https://cloud.tencent.com/document/product/454/7915)。
 >? &lt;live-player&gt; 标签是不支持 HLS（m3u8）协议的，因为 &lt;video&gt; 已经支持 HLS（m3u8）播放协议了。但直播观看不推荐使用 HLS（m3u8）协议，延迟要比 RTMP 和 FLV 协议高一个数量级。
 
 - **mode**

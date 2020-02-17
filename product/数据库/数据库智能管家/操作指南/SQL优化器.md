@@ -2,9 +2,10 @@ SQL 优化器为用户提供一键优化 SQL 语句功能，并给出对应执�
 
 您可手动输入 SQL 语句，执行分析得到该语句的性能评估结果以及优化建议。
 
->?
->- DBbrain 目前处于内测期间，如有需要，请提 [内测申请](https://cloud.tencent.com/apply/p/hf28d7bu4zw)。
->- SQL 优化器目前仅支持云数据库 MySQL 实例。
+>?SQL 优化器目前仅支持云数据库 MySQL 主实例。
+
+通过如下视频，您可以了解 DBbrain SQL 优化器功能的详细操作：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1915-22597?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 优化器执行
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【SQL 优化器】页。

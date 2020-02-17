@@ -44,11 +44,10 @@ defaultConfig {
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
 
 - **第一步：下载 LiteAVSDK**
-   单击 [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) 下载最新版本的 SDK：
-    ![](https://main.qcloudimg.com/raw/bf07b11e65a4bc550a807e2c7e844910.png)
+   下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
   
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
-  将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下：
+  将下载解压缩之后 `SDK` 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
   
 - **第三步：指定本地仓库路径**
@@ -76,8 +75,10 @@ defaultConfig {
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
 
 - **第一步：下载解压 LiteAVSDK**
-  单击 [Github](https://github.com/tencentyun/MLVBSDK/blob/master/SDK%E4%B8%8B%E8%BD%BD.md) 下载最新版本的 jar 压缩包，文件名一般为 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
-  ![](https://main.qcloudimg.com/raw/25045f7cad24fcf9f7ec2cb4516fe57b.png)
+  下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。在 `SDK` 目录下找到 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
+
+  ![](https://main.qcloudimg.com/raw/aae5879bccd31e8c082eebc24aa4ff7c.png)
+
   解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
   ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
 
@@ -105,6 +106,9 @@ defaultConfig {
 
 - **第六步：同步 SDK**
   单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
+
+## 配置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：

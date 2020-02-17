@@ -51,7 +51,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ```
 http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8 播放地址
 ```
-![](//mc.qcloudimg.com/static/img/7923a14be5525bd37719c18d54243403/image.png)
+![](https://main.qcloudimg.com/raw/f5444cbd256ace4033e37bb1206bc90d.png)
 如果要在手机浏览器上播放该 URL 的视频，则 Javascript 代码如下：
 ```javascript
 var player = new TcPlayer('id_test_video', {
@@ -131,7 +131,7 @@ style 支持的样式如下：
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
 同腾讯视频，Web 播放器支持多清晰度，如下图所示：
-![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
+![](https://main.qcloudimg.com/raw/6badb0db35edb9c11cea363b6c8bcbe2.png)
 **播放器本身是没有能力去改变视频清晰度的**，视频源只有一种清晰度，称之为原画，而原画视频的编码格式和封装格式多种，Web 端无法支持播放所有的视频格式，如点播支持以 H.264 为视频编码，MP4 和 FLV 为封装格式的视频。
 
 **多清晰度的实现依赖于视频云**：
@@ -164,10 +164,9 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
 正常情况将看到如下效果：
-![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
+![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
  - **PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
  - **以上示例链接仅用于文档演示，请勿用于生产环境**
@@ -334,9 +333,10 @@ volumechange
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
-![移动端](//mc.qcloudimg.com/static/img/ddf4e9ff5998dc84b1887fba0e94d446/image.png)
+![](https://main.qcloudimg.com/raw/f0bf0532e253c6f14f8c65dc5fd3a5c2.png)
+
 **PC Flash：**
-![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
+![](https://main.qcloudimg.com/raw/0ff02cdc2ef70b2f8917decddec3cab8.png)
 >?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
 事件监听函数返回的 msg 对象介绍：

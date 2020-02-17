@@ -3,6 +3,8 @@
 ### 获取我的个人资料
 获取个人资料，更多详情请参见 [Profile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Profile.html)。
 
+>! v2.3.2版本开始支持自定义资料字段，使用前需要将 SDK 升级至v2.3.2或以上。
+
 **接口名**
 
 ```js
@@ -28,7 +30,12 @@ promise.then(function(imResponse) {
 
 
 
-### 获取用户资料
+### 获取其他用户资料
+此接口会同时获取标配资料和 [自定义资料](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。
+
+>!
+>! v2.3.2版本开始支持自定义资料字段，使用前需要将 SDK 升级至v2.3.2或以上。
+>! 如果您没有配置自定义资料字段，或者配置了自定义资料字段但未设置 value，此接口将不会返回自定义资料的内容。
 
 **接口名**
 
@@ -67,6 +74,8 @@ promise.then(function(imResponse) {
 
 ### 更新个人资料
 
+>! v2.3.2版本开始支持自定义资料字段，使用前需要将 SDK 升级至v2.3.2或以上。
+
 **接口名**
 
 ```js
@@ -91,6 +100,7 @@ tim.updateMyProfile(options)
 | `adminForbidType` | `String` | 管理员禁止加好友标识：<li>TIM.TYPES.FORBID_TYPE_NONE 表示允许加好友，默认值</li><li>TIM.TYPES.FORBID_TYPE_SEND_OUT 表示禁止该用户发起加好友请求</li> |
 | `level`           | `Number` | 等级，建议拆分以保存多种角色的等级信息                        |
 | `role`            | `Number` | 角色，建议拆分以保存多种角色信息                              |
+| `profileCustomField` | `Array<Object>` | [自定义资料](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) 键值对集合，可根据业务侧需要使用|
 
 **返回值**
 
@@ -101,6 +111,7 @@ tim.updateMyProfile(options)
 **示例**
 
 ```js
+// 修改个人标配资料
 let promise = tim.updateMyProfile({
   nick: '我的昵称',
   avatar: 'http(s)://url/to/image.jpg',
@@ -115,7 +126,48 @@ promise.then(function(imResponse) {
 });
 ```
 
+```js
+// 修改个人自定义资料
+// 自定义资料字段需要预先在控制台配置，详细请参考：https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5
+let promise = tim.updateMyProfile({
+  // 这里要求您已在即时通信 IM 控制台>【应用配置】>【功能配置】 申请了自定义资料字段 Tag_Profile_Custom_Test1
+  // 注意：即使只有一个自定义资料字段，profileCustomField 也需要用数组类型
+  profileCustomField: [
+    {
+      key: 'Tag_Profile_Custom_Test1',
+      value: '我的自定义资料1'
+    }
+  ]
+});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 更新资料成功
+}).catch(function(imError) {
+  console.warn('updateMyProfile error:', imError); // 更新资料失败的相关信息
+});
+```
 
+```js
+// 修改个人标配资料和自定义资料
+let promise = tim.updateMyProfile({
+  nick: '我的昵称',
+  // 这里要求您已在即时通信 IM 控制台>【应用配置】>【功能配置】 申请了自定义资料字段 Tag_Profile_Custom_Test1 和 Tag_Profile_Custom_Test2
+  profileCustomField: [
+    {
+      key: 'Tag_Profile_Custom_Test1',
+      value: '我的自定义资料1'
+    },
+    {
+      key: 'Tag_Profile_Custom_Test2',
+      value: '我的自定义资料2'
+    },
+  ]
+});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 更新资料成功
+}).catch(function(imError) {
+  console.warn('updateMyProfile error:', imError); // 更新资料失败的相关信息
+});
+```
 
 ## 黑名单
 

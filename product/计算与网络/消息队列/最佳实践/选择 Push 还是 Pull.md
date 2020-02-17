@@ -1,4 +1,4 @@
-消息队列 CMQ 支持 [Pull（队列）](https://cloud.tencent.com/document/product/406/6902) 和 [Push（主题）](https://cloud.tencent.com/document/product/406/6902) 两种方式：
+消息队列 CMQ 支持 [Pull（队列）](https://cloud.tencent.com/document/product/406/6902) 和 [Push（主题）](https://cloud.tencent.com/document/product/406/6907) 两种方式：
 - Push 模型：当 Producer 发出的消息到达后，服务端马上将这条消息投递给 Consumer。
 - Pull 模型：当服务端收到这条消息后什么也不做，只是等着 Consumer 主动到自己这里来读，即 Consumer 这里有一个“拉取”的动作。
 

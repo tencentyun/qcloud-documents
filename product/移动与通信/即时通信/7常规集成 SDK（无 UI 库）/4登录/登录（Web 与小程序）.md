@@ -42,7 +42,10 @@ promise.then(function(imResponse) {
 
 ## 登出
 该接口通常在切换帐号时调用，清除登录态以及内存中的所有数据。
->!在多实例被踢时（同一设备，多个页面登录同一账号），SDK 内部会执行登出流程，再抛出 [KICKED_OUT ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.KICKED_OUT)事件。接入侧可在事件触发时，跳转到登录页面。
+>!
+>- 调用此接口的实例会发布 [SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY) 事件，此时该实例下线，无法收发消息。
+>- 如果您在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 配置的“Web端实例同时在线个数”大于 1，且同一帐号已登录`a1`和`a2`两个实例（含小程序端），执行`a1.logout()`后，`a1`会下线，无法收发消息。而`a2`实例不会受影响。<br/>
+>- 多实例被踢：如果“Web端实例同时在线个数”配置为2，且您的某一帐号已登录`a1`和`a2`两个实例，当使用此帐号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发）。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出 [KICKED_OUT](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.KICKED_OUT) 事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`和`a3`实例可以正常运行。
 
 **接口名**
 

@@ -20,4 +20,4 @@
 - 不支持部署非 Headless 的 ClusterIP 类型的服务。
 
 ### Volume
-不支持共享卷（emptyDir）的 linux filesystem event（INOTIFY）特性。
+不支持共享卷（emptyDir）的 Linux filesystem event（INOTIFY）特性。

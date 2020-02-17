@@ -14,7 +14,7 @@
 1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
-4. 产品创建完成后，选择【应用管理】>【[应用列表](https://console.cloud.tencent.com/tpns/applist)】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
+4. 产品创建完成后，选择左侧菜单【配置管理】，在应用信息一栏中获取应用`Access ID` 和 `SECRET KEY`。
 5. 导入 SDK：
  - **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：

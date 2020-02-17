@@ -38,10 +38,9 @@
 ### Step1. 开通服务
 在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，然后开通云点播。
 ### Step2. 上传视频并转码
-云点播开通之后，需要 [上传视频](https://cloud.tencent.com/document/product/266/2841#.E4.B8.8A.E4.BC.A0.E8.A7.86.E9.A2.91)，并进行 [转码处理](https://cloud.tencent.com/document/product/266/2841#.E5.A4.84.E7.90.86.E8.A7.86.E9.A2.91)。
+云点播开通之后，需要 [上传视频](https://cloud.tencent.com/document/product/266/2841)，并进行 [转码处理](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4)。
 ### Step3. 获取 ID 与 APPID
-1. 获取 ID（fileID）：视频上传后，通过媒资管理可以 [查看视频 ID](https://cloud.tencent.com/document/product/266/2841#.E5.BF.AB.E6.8D.B7.E6.9F.A5.E7.9C.8B.E8.A7.86.E9.A2.91.E4.BF.A1.E6.81.AF)。
-
+1. 获取 ID（fileID）：视频上传后，通过媒资管理可以 [查看视频 ID](https://cloud.tencent.com/document/product/266/36451)。
 2. 获取 APPID：在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查看。
 
 ### Step4. 转自适应码流，获取 playDefinition

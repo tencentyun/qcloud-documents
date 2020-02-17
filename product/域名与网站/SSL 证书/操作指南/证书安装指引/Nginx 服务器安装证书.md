@@ -45,21 +45,19 @@
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
 3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为默认安装目录，请根据实际情况操作）下。
->? 若无 `/usr/local/nginx/conf` 目录，可通过执行 `mkdir /usr/local/nginx/conf` 命令行创建。
+>? 若无 `/usr/local/nginx/conf` 目录，可通过执行 `mkdir -p /usr/local/nginx/conf` 命令行创建。
 4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
 >- 此操作可通过执行 `vim /usr/local/nginx/conf/nginx.conf` 命令行编辑该文件。
->- 由于版本问题，配置文件可能存在不同的写法。例如：使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
 >
 ```
 server {
         #SSL 访问端口号为 443
-        listen 443; 
+        listen 443 ssl; 
 	    #填写绑定证书的域名
         server_name www.domain.com; 
-		#启用 SSL 功能
-        ssl on;
 		#证书文件名称
         ssl_certificate 1_www.domain.com_bundle.crt; 
 		#私钥文件名称
@@ -96,10 +94,9 @@ server {
  - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `rewrite ^(.*) https://$host$1 permanent;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 ```
 server {
-    listen 443;
+   listen 443 ssl;
 	#填写绑定证书的域名
     server_name www.domain.com; 
-    ssl on;
 	#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
     root /var/www/www.domain.com; 
     index index.html index.htm;   
@@ -120,7 +117,7 @@ server {
 	#填写绑定证书的域名
     server_name www.domain.com; 
 	#把http的域名请求转成https
-    rewrite ^(.*)$ https://$host$1 permanent; 
+    return 301 https://$host$request_uri; 
 }
 ``` 
 >?未添加注释的配置语句，您按照上述配置即可。

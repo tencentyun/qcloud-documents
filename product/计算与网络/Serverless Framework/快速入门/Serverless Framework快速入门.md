@@ -1,5 +1,8 @@
 ## 操作场景
-您可以通过如下几步，使用 Serverless Framework 开源 CLI 在腾讯云上部署一个服务，完成配置、创建、测试、部署等步骤。
+该任务指导您使用 Serverless Framework 开源 CLI 在腾讯云上部署一个服务，并完成配置、创建、测试、部署等步骤。
+>?
+>- 通过 Serverless Framework 创建的资源，您可以在资源自身的控制台进行查看和管理，例如 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)、[API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) 等。
+>- 预计2020年3月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
 
 ## 前提条件
 在使用之前，请确保如下软件已经安装：
@@ -82,8 +85,10 @@ functions:
              serviceId:
              httpMethod: ANY
 ```
+>?
+>- 您可以通过 [详细配置文档](https://github.com/serverless-tencent/serverless-tencent-scf/blob/master/docs/zh/yaml.md)，查看`serverless.yml`中所有可用属性的属性列表。
+>- Serverless Framework 会为控制台中实际部署的函数增加前缀组成函数名称，前缀规范为`service-stage-function`，默认的stage为`dev`。以上述配置为例，配置文件中的函数名称`hello_world`在控制台中的函数名称对应为`my-service-dev-hello_world`。
 
->!Serverless Framework 会为控制台中实际部署的函数增加前缀组成函数名称，前缀规范为`service-stage-function`，默认的stage为`dev`。以上述配置为例，配置文件中的函数名称`hello_world`在控制台中的函数名称对应为`my-service-dev-hello_world`。
 
 #### 部署服务
 通过该命令部署或更新您创建的函数和触发器，资源配置会和`serverless.yml`中保持一致。

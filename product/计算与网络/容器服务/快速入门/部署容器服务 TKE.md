@@ -10,7 +10,7 @@
 3. 在“创建集群”页面，设置集群的基本信息，并单击【下一步】。如下图所示：
  - **集群名称**：输入要创建的集群的名称，不超过60个字符。
  - **新增资源所属项目**：根据实际需求进行选择，新增的资源将会自动分配到该项目下。
- - **Kubernetes版本**：提供多个 Kubernetes 版本选择，单击 [这里](https://kubernetes.io/docs/home/supported-doc-versions/) 查看各版本特性对比。
+ - **Kubernetes版本**：提供多个 Kubernetes 版本选择，前往 [Supported Versions of the Kubernetes Documentation](https://kubernetes.io/docs/home/supported-doc-versions/) 查看各版本特性对比。
  - **运行时组件**：提供 “docker” 和 “containerd” 两种选择，详情请参见 [如何选择 Containerd 和 Docker](https://cloud.tencent.com/document/product/457/35747)。
  - **所在地域**：建议您根据所在地理位置选择靠近的地域。可降低访问延迟，提高下载速度。
  - **集群网络**：为集群内主机分配在节点网络地址范围内的 IP 地址。具体操作请参阅 [容器及节点网络设置](https://cloud.tencent.com/document/product/457/9083)。
@@ -59,7 +59,7 @@
 3. （可选）设置数据卷，要指定容器挂载至指定路径时，单击【添加数据卷】，详情查看 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。如下图所示：
 >!源路径不指定时将默认分配临时路径。
 > 
- - 类型：支持使用临时目录、主机路径、NFS盘、已有VPC、腾讯云硬盘、ConfigMap、Secret七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - 类型：支持使用临时目录、主机路径、NFS盘、已有PVC、腾讯云硬盘、ConfigMap、Secret七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
  - 名称：数据卷的名称。
 ![](https://main.qcloudimg.com/raw/7d69d00f2b00b4d0d3a12c49fbbabaa7.png)
 4. 设置**实例內容器**。如下图所示：

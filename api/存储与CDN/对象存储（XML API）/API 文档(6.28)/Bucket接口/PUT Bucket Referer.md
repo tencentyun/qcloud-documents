@@ -15,7 +15,7 @@ Content-Length:length
 Content-MD5:MD5
 ```
 
->?Authorization：Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
 
 #### 请求头
 
@@ -42,7 +42,7 @@ Content-MD5:MD5
    </tr>
    <tr>
       <td>Content-MD5</td>
-      <td>RFC 1864中定义的经过 Base64 编码的 128-bit 内容的 MD5 校验值，此头部用来校验文件内容是否发生变化</td>
+      <td>RFC 1864中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化</td>
       <td>String</td>
       <td>是</td>
    </tr>

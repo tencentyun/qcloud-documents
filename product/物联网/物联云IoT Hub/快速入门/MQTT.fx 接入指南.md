@@ -1,10 +1,10 @@
 
 ## 操作场景
-MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux，可以快速验证是否可以与 IoT Cloud 进行连接并发布或订阅消息，本文主要介绍 MQTT.fx 如何与腾讯云 IoT Cloud 交互。本文以 MQTT.fx 1.7.0 for Mac 版本为例。
+MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Linux 操作系统，可以快速验证是否可与 IoT Cloud 进行连接，并发布或订阅消息。更多 MQTT 协议介绍请参见 [MQTT 协议介绍](https://mcxiaoke.gitbooks.io/mqtt-cn/content/mqtt/01-Introduction.html)。本文档主要介绍 MQTT.fx 如何与腾讯云 IoT Cloud 交互。本文以 MQTT.fx 1.7.0 for Mac 版本为例。
 
 ## 操作步骤
 ### 连接 IoT Cloud
-1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本下载并安装 MQTT.fx 客户端。
+1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本，下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
 3. 进入设置页面，并单击【+】，创建一个新的配置文件。
 ![](https://main.qcloudimg.com/raw/245072a611287b1ec54c5f81780e0a57.png)
@@ -29,7 +29,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 | ------------------- | ---------------------------------------- |
 | Profile Name        | 配置文件保存为的名称。                               |
 | Broker Address      | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com，这里 PRODUCT_ID 为变量参数，用户需填入创建产品时自动生成的产品 ID，例如 9B17RZW2EZ.iotcloud.tencentdevices.com |
-| Broker Port         | MQTT 服务器连接端口，填入：8883。                     |
+| Broker Port         | MQTT 服务器连接端口，填入：8883。 本文主要针对证书认证类型的产品，端口必须是8883；如果您想通过1883接口接入，建议使用密钥认证型产品自行接入，详情请参考 [设备基于 MQTT 接入](https://cloud.tencent.com/document/product/634/32546) 进行接入。  |                 
 | Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，例如："9B17RZW2EZgate_dev01 "，9B17RZW2EZ 是产品 ID，gate_dev01 是设备名。 |
 | Connection Timeout  | 连接超时时间秒。                                 |
 | Keep Alive Interval | 心跳间隔时间秒。                                 |
@@ -37,7 +37,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows, Mac, Linux�
 
 | 文件                      | 说明                                       |
 | ----------------------- | ---------------------------------------- |
-| ca.crt                  | 根证书，单击 [ca.crt](https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt) 链接下载文件。 |
+| CA File                  | 根证书，单击 [ca.crt](https://main.qcloudimg.com/raw/9aa774ea8c09f98811df361c741df38c/ca.crt) 链接下载文件。| 
 | Client Certificate File | 客户端证书文件，即设备证书，在证书认证产品中创建设备时下载，详情请查看 [设备接入准备](https://cloud.tencent.com/document/product/634/14442)。 |
 | Client Key File         | 客户端密钥文件，即设备密钥，在证书认证产品中创建设备时下载，详情请查看 [设备接入准备](https://cloud.tencent.com/document/product/634/14442)。 |
 | PEM Formatted           | 由于物联网通信根证书、设备证书、设备密钥均由 openssl 生成使用 PEM 格式，而 MQTT.fx 是 Java 客户端，所以不识别 PEM 证书，这里需要勾选由该客户端自动转换为 Java 识别的 JKS 格式。 |

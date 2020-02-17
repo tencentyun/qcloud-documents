@@ -1,6 +1,7 @@
 
 ## 功能介绍
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端 App 演示等需要手机屏幕画面的场景。
+>?直播中叠加摄像头预览，即通过在手机上添加浮框，显示摄像头预览画面。录屏的时候会把浮框预览画面一并录制下来，达到叠加摄像头预览的效果。具体实现方法可参见  [小直播源码](https://github.com/tencentyun/MLVBSDK/blob/master/Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/anchor/screen/widget/FloatingCameraView.java)。
 
 ![](https://main.qcloudimg.com/raw/c8b39da129043f471c44bdb4396111c4.jpg)
 
@@ -9,12 +10,11 @@
 - 悬浮窗在部分手机和系统上需要通过手动设置打开。
 - 录屏直播时，请先关闭小米的**神隐模式**。
 
-![](https://main.qcloudimg.com/raw/7bf7dd45946ab06a7fbffe5c45ea5294.jpg)
-
+![](https://main.qcloudimg.com/raw/2574ba9cf80d92fec94f59bcd1a94607.jpg)
 
 
 ## 对接攻略
-
+<span id="step_1"></span>
 ### 步骤 1：添加 Activity
 在 manifest 文件中黏贴进如下一个 activity。
 ```xml
@@ -23,6 +23,7 @@
     android:theme="@android:style/Theme.Translucent"/>
 ```
 
+<span id="step_2"></span>
 ### 步骤 2：创建 Pusher 对象
 创建一个 **TXLivePusher** 对象，我们后面主要用它来完成推流工作。
 
@@ -37,7 +38,7 @@ mLivePusher.setConfig(mLivePushConfig);
 ```
 
 ### 步骤 3：启动推流
-经过**步骤 1**和**步骤 2**的准备之后，用下面这段代码就可以启动推流了：
+经过 [步骤 1](#step_1) 和 [步骤 2](#step_2) 的准备之后，用下面这段代码就可以启动推流了：
 ```java
 String rtmpUrl = "rtmp://2157.livepush.myqcloud.com/live/xxxxxx";
 mLivePusher.startPusher(rtmpUrl);
@@ -48,7 +49,7 @@ mLivePusher.startScreenCapture();
 
 ### 步骤 4：隐私模式
 隐私模式是录屏直播的一项基础功能：主播在录屏直播过程中，如果有些操作不希望观众看到（例如输入游戏的账号密码等等），那么此时主播可以启动**隐私模式**。在隐私模式下，主播的推流还是持续的，观众也一直能看到画面，只是看到的画面是一张提示“主播正在操作隐私内容哦~”的等待中画面。
-![](//mc.qcloudimg.com/static/img/558efb32484da9813253620c0c4b1165/image.png)
+![](https://main.qcloudimg.com/raw/5f8f56261955821c0f74ad1d47794560.png)
 
 要实现这样功能，您可以按如下步骤进行对接：
 - **4.1) 设置 pauseImg**

@@ -8,7 +8,7 @@ NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进�
  - 使用 `systemctl is-active ntpd.service` 命令，可查看 NTPD 是否正在运行。
  - 使用 `systemctl is-enabled ntpd.service` 命令，可查看 NTPD 是否开机自启动。
 - NTP 服务的通信端口为 UDP 123，设置 NTP 服务之前，请确保您已经开放 UDP 123 端口。
-若未开放该端口，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 进行放行。
+若未开放该端口，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 进行放行。
 
 ## 操作步骤
 ### 安装 NTPD

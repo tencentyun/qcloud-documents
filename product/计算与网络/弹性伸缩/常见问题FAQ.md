@@ -32,7 +32,7 @@
 
 ### 需要某个时间段扩容一批 CVM，该如何设置？
 用户可以设置一对定时任务：一个定时任务定义扩容操作，将期望实例数设为您所要扩容的数量；另一个定时任务定义缩容操作，将期望实例数设置到所要缩容的数量。
-详见[最佳实践示例 >>](https://cloud.tencent.com/document/product/377/8617#step-5.-.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.81.EF.BC.89)
+详见 [最佳实践示例 >>](https://cloud.tencent.com/document/product/377/8617#.E6.AD.A5.E9.AA.A45.EF.BC.9A.E8.AE.BE.E7.BD.AE.E6.89.A9.E7.BC.A9.E5.AE.B9.E7.AD.96.E7.95.A5.EF.BC.88.E9.87.8D.E7.82.B9.EF.BC.89)
 
 ### 伸缩组移出策略的具体规则是什么？
 腾讯云弹性伸缩提供两种移出策略：
