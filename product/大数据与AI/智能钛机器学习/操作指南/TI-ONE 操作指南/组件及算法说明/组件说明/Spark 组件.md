@@ -11,11 +11,10 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
  - 配置文件：指定您的 Spark 应用程序用到的配置文件，可选项。
 3. **配置资源**
   在资源参数列表配置任务的资源参数。
- - num-executors：指定分配的计算节点数目。
- - driver-memory：指定主节点内存大小，上限为14GB。
- - executor-cores：指定每个子节点分配的的 CPU Core 数，推荐2 - 3。
- - executor-memory：指定每个子节点分配的的内存大小，上限为55 GB，推荐单个 core 分配2 3GB。
- - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。例如 spark.cores.max=1000。
+ - drver节点资源类型：请选择合适的drive节点机型。
+ - executor节点资源类型：请选择合适的executor节点机型。
+ - num-executors：分配计算节点数目。
+ - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。
 4. **运行**
 单击【保存】并运行工作流。
 5. **查看 Spark 控制台和日志**
