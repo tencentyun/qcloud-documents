@@ -65,7 +65,7 @@ Amazon Simple Storage Service (Amazon S3，下文简称 S3) 是 AWS 最早推出
 </thead>
 <tbody>
 <tr>
-<td>提供商/服务提供商/<br>存储服务提供商/<br>Service&nbsp;Provider/<br>Storage Provider/Provider 等</td>
+<td>提供商/服务提供商/<br>存储服务提供商/<br>Service&nbsp;Provider/<br>Storage&nbsp;Provider/<br>Provider 等</td>
 <td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项。<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明。<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明。<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
 </tr>
 <tr>
