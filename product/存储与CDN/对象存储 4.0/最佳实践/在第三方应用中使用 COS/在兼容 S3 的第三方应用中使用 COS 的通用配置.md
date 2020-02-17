@@ -32,6 +32,8 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 
 在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取并记录 **APPID**、**SecretId** 和 **SecretKey**。
 
+
+<span id="step5"></span>
 #### 步骤5：创建存储桶
 
 部分应用内置创建存储桶的过程，如果您希望由应用去创建存储桶，您可以忽略此步骤。
@@ -76,7 +78,7 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 </tr>
 <tr>
 <td>Secret Key/Secret/Secret Access Key 等</td>
-<td>这里填写 <a href="#step4">步骤4</a>中记录的 <strong>SecretKey</strong>。</td>
+<td>这里填写 <a href="#step4">步骤4 </a>中记录的 <strong>SecretKey</strong>。</td>
 </tr>
 <tr>
 <td>地域/Region 等</td>
@@ -84,7 +86,7 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 </tr>
 <tr>
 <td>存储桶/Bucket 等</td>
-<td>选择或输入现有的存储桶名称，格式为<code>&lt;BucketName-APPID&gt;</code>，例如<code>examplebucket-1250000000</code>，其中 <code>BucketName</code> 为 [步骤5](#step5) 中创建存储桶时填写的存储桶名称，<code>APPID</code> 为 [步骤4](#step4) 中记录的 <strong>APPID</strong>。如上文所描述，这里的存储桶将限定在服务地址所指定的地域中，其他地域的存储桶将不会被列出或无法正常使用。如果您需要创建新的存储桶，那么新创建的存储桶名字也需要符合前面所讲的 <code>&lt;BucketName-APPID&gt;</code> 格式，否则就无法正常创建存储桶。</td>
+<td>选择或输入现有的存储桶名称，格式为<code>&lt;BucketName-APPID&gt;</code>，例如<code>examplebucket-1250000000</code>，其中 <code>BucketName</code> 为 <a href="#step5">步骤5</a> 中创建存储桶时填写的存储桶名称，<code>APPID</code> 为 <a href="#step4">步骤4</a> 中记录的 <strong>APPID</strong>。<br>如上文所描述，这里的存储桶将限定在服务地址所指定的地域中，其他地域的存储桶将不会被列出或无法正常使用。如果您需要创建新的存储桶，那么新创建的存储桶名字也需要符合前面所讲的<code>&lt;BucketName-APPID&gt;</code> 格式，否则就无法正常创建存储桶。</td>
 </tr>
 </tbody></table>
 
