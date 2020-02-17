@@ -490,7 +490,7 @@ let userList = trtcRoomContext.getRemoteUserList()
 //     userID:'xxx',       // 该用户 ID 
 //     hasMainVideo: true, // 该用户是否有主流视频
 //     hasMainAudio: true, // 该用户是否有主流音频
-//     hasAudVideo: false  // 该用户是否有辅流（屏幕分享）视频
+//     hasAuxVideo: false  // 该用户是否有辅流（屏幕分享）视频
 //   }
 //   ...
 // ]
@@ -687,7 +687,7 @@ trtcRoomContext.setViewRect({
 |:-----------|:-------|:-------|:------------------------------------------------------------------|
 | userID     | String | -      | 必填参数，用户 ID。                                                        |
 | streamType | String | -      | 设置远端用户时必填，远端用户的流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li>   |
-| zindex     | Number | -      | 必填参数，视图的层级，必须为整数。                                          |
+| zIndex     | Number | -      | 必填参数，视图的层级，必须为整数。                                          |
 
 **返回值：**
 
@@ -698,7 +698,7 @@ Promise
 trtcRoomContext.setViewZIndex({
   userID: 'xxx',
   streamType: 'main',
-  zindex: 10
+  zIndex: 10
 }).then((event)=>{
   // 设置成功
 })
@@ -1012,7 +1012,7 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
 | REMOTE_AUDIO_ADD           | 远端音频流添加事件，当远端用户发布音频流后会收到该通知。 |
 | REMOTE_AUDIO_REMOVE        | 远端音频流移除事件，当远端用户取消发布音频流后会收到该通知。 |
 | REMOTE_STATE_UPDATE        | 远端用户播放状态变更通知。                                   |
-| LOCAL_NET_STATE_UPDATE     | 本地推流网络状态变更通知。                                   |
+| LOCAL_NET_STATE_UPDATE     | 本地推流的网络状态变更通知。                                   |
 | REMOTE_NET_STATE_UPDATE    | 远端用户网络状态变更通知。                                   |
 | LOCAL_AUDIO_VOLUME_UPDATE  | 本地音量变更通知。                                           |
 | REMOTE_AUDIO_VOLUME_UPDATE | 远端用户音量变更通知。                                       |
