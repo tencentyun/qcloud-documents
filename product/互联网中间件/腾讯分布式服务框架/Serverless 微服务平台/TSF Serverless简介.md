@@ -10,7 +10,7 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
 ## 产品功能
 
 * **微服务的应用托管平台**
-  主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh），与部分南北向 Web 能力（如 Express、Koa）。
+  主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
 
 * **精益成本，不为闲置资源付费**
   无需提前为业务峰值准备资源，按需使用、按量计费，无需为闲置资源付费。
