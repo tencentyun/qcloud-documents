@@ -69,7 +69,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 ### step 4: 画面调整
 
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 [step1](step_1) 中添加的`video_view`控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
 

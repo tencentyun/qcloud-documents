@@ -45,7 +45,7 @@ $ touch serverless.yml
 MyComponent:
   component: "@serverless/tencent-egg"
   inputs:
-    region: ap-guangzhou 
+    region: ap-beijing 
     functionName: egg-function
     code: ./
     functionConf:
@@ -69,11 +69,43 @@ MyComponent:
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
 通过 `sls` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息：
-```shell
-$ sls --debug
-```
-
 >?`sls` 是 `serverless` 命令的简写。
+
+```shell
+$ sls --debug    
+
+  DEBUG ─ Resolving the template's static variables.
+  DEBUG ─ Collecting components from the template.
+  DEBUG ─ Downloading any NPM components found in the template.
+  DEBUG ─ Analyzing the template's components dependencies.
+  DEBUG ─ Creating the template's components graph.
+  DEBUG ─ Syncing template state.
+  DEBUG ─ Executing the template's components graph.
+  DEBUG ─ Compressing function egg-function file to /Users/tina/Desktop/live/egg-proj/.serverless/egg-function.zip.
+  DEBUG ─ Compressed function egg-function file successful
+  DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-beijing-code]. sls-cloudfunction-default-egg-function-1581335565.zip
+  DEBUG ─ Uploaded package successful /Users/tina/Desktop/live/egg-proj/.serverless/egg-function.zip
+  DEBUG ─ Creating function egg-function
+  DEBUG ─ Updating code... 
+  DEBUG ─ Updating configure... 
+  DEBUG ─ Created function egg-function successful
+  DEBUG ─ Setting tags for function egg-function
+  DEBUG ─ Creating trigger for function egg-function
+  DEBUG ─ Deployed function egg-function successful
+  DEBUG ─ Starting API-Gateway deployment with name MyComponent.TencentApiGateway in the ap-beijing region
+  DEBUG ─ Service with ID service-n5m5e8x3 created.
+  DEBUG ─ API with id api-cmkhknda created.
+  DEBUG ─ Deploying service with id service-n5m5e8x3.
+  DEBUG ─ Deployment successful for the api named MyComponent.TencentApiGateway in the ap-beijing region.
+
+  MyComponent: 
+    region:              ap-beijing
+    functionName:        egg-function
+    apiGatewayServiceId: service-n5m5e8x3
+    url:                 https://service-n5m5e8x3-1251971143.bj.apigw.tencentcs.com/release/
+
+  32s › MyComponent › done
+```
 
 #### 移除
 
