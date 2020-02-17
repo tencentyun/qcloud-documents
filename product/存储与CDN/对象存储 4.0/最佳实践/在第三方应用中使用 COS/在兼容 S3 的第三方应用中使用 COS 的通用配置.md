@@ -27,6 +27,7 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cos5" target="_blank"  style="color: white; font-size:16px;">点此开通 COS 服务</a></div>
 
+<span id="step4"></span>
 #### 步骤4：准备 APPID 和访问密钥
 
 在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取并记录 **APPID**、**SecretId** 和 **SecretKey**。
@@ -52,21 +53,49 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 
 > ? 如果您在配置过程中有任何疑问，也可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
 
-| 配置项的常见名称                                             | 相关说明                                                     |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 服务提供商/存储服务提供商/提供商/Service Provider/Storage Provider/Provider 等 | 这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项<br><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明<br><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明<br><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。 |
-| 服务端点/服务地址/服务 URL/Endpoint/Custom Endpoint/Server URL 等 | 这里用于填写 S3 兼容服务的服务地址，在使用 COS 服时，这里填写 COS 的服务地址，形式为 `cos.<Region>.myqcloud.com` 或 `https://cos.<Region>.myqcloud.com`。是否需要填写 `https://`，根据具体的应用有所不同，您可以自行尝试。其中 `<Region>` 代表 COS 的可用地域，在应用中，您只能在服务地址中指定的地域创建或选择存储桶。例如您的存储桶在广州地域，那么服务地址应当配置为 `cos.ap-guangzhou.myqcloud.com`，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。 |
-| Access Key/Access Key ID 等                                  | 这里填写 **步骤4** 中记录的 **SecretId**。                   |
-| Secret Key/Secret/Secret Access Key 等                       | 这里填写 **步骤4** 中记录的 **SecretKey**。                  |
-| 地域/Region 等                                               | 选择默认、自动、Auto 或 Automatic。                          |
-| 存储桶/Bucket 等                                             | 选择或输入现有的存储桶名称，格式为 `<BucketName-APPID>`，例如 `examplebucket-1250000000`，其中 `BucketName` 为 **步骤5** 中创建存储桶时填写的存储桶名称，`APPID` 为 **步骤4** 中记录的 **APPID**。如上文所描述，这里的存储桶将限定在服务地址所指定的地域中，其他地域的存储桶将不会被列出或无法正常使用。如果您需要创建新的存储桶，那么新创建的存储桶名字也需要符合前面所讲的 `<BucketName-APPID>` 格式，否则就无法正常创建存储桶。 |
+
+<table>
+<thead>
+<tr>
+<th>配置项的常见名称</th>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>服务提供商/存储服务提供商/提供商/Service Provider/Storage Provider/Provider 等</td>
+<td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
+</tr>
+<tr>
+<td>服务端点/服务地址/服务 URL/Endpoint/Custom Endpoint/Server URL 等</td>
+<td>这里用于填写 S3 兼容服务的服务地址，在使用 COS 服时，这里填写 COS 的服务地址，形式为 <code>cos.&lt;Region&gt;.myqcloud.com</code> 或 <code>https://cos.&lt;Region&gt;.myqcloud.com</code>。是否需要填写 <code>https://</code>，根据具体的应用有所不同，您可以自行尝试。其中 <code>&lt;Region&gt;</code> 代表 COS 的可用地域，在应用中，您只能在服务地址中指定的地域创建或选择存储桶。例如您的存储桶在广州地域，那么服务地址应当配置为 <code>cos.ap-guangzhou.myqcloud.com</code>，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。</td>
+</tr>
+<tr>
+<td>Access Key/Access Key ID 等</td>
+<td>这里填写 <a href="#step4">步骤4</a> 中记录的 <strong>SecretId</strong>。</td>
+</tr>
+<tr>
+<td>Secret Key/Secret/Secret Access Key 等</td>
+<td>这里填写 <a href="#step4">步骤4</a>中记录的 <strong>SecretKey</strong>。</td>
+</tr>
+<tr>
+<td>地域/Region 等</td>
+<td>选择默认、自动、Auto 或 Automatic。</td>
+</tr>
+<tr>
+<td>存储桶/Bucket 等</td>
+<td>选择或输入现有的存储桶名称，格式为<code>&lt;BucketName-APPID&gt;</code>，例如<code>examplebucket-1250000000</code>，其中 <code>BucketName</code> 为 [步骤5](#step5) 中创建存储桶时填写的存储桶名称，<code>APPID</code> 为 [步骤4](#step4) 中记录的 <strong>APPID</strong>。如上文所描述，这里的存储桶将限定在服务地址所指定的地域中，其他地域的存储桶将不会被列出或无法正常使用。如果您需要创建新的存储桶，那么新创建的存储桶名字也需要符合前面所讲的 <code>&lt;BucketName-APPID&gt;</code> 格式，否则就无法正常创建存储桶。</td>
+</tr>
+</tbody></table>
+
+
 
 ### 其他项与高级配置说明
 
 部分应用除了上述基本配置外，还有一些其他项与高级配置，下面将提供部分 COS 的功能说明，以便您更好的在应用中使用 COS 服务。
 
 - 服务端口与协议
-  COS 服务支持 http 协议和 https 协议，均使用协议默认的 80 和 443 端口，基于安全考虑，我们建议您优先通过 https 协议使用 COS 服务。
+  COS 服务支持 HTTP 协议和 HTTPS 协议，均使用协议默认的80和443端口，基于安全考虑，我们建议您优先通过 HTTPS 协议使用 COS 服务。
 - Path-Style 与 Virtual Hosted-Style
   COS 同时支持两种使用风格。
 - AWS V2 签名与 AWS V4 签名
