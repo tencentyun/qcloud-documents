@@ -7,7 +7,6 @@
 ## 上传程序包要求
 
 目前 Serverless 应用支持的程序包格式包括 **jar、war、tar.gz 和 zip**。
-
 - jar： FatJar 格式的程序包，用户可以参考 [如何打 FatJar 包](https://cloud.tencent.com/document/product/649/16934)。
 - war： war 格式的程序包，在部署 war 包时，TSF 会自动安装 Tomcat 环境。示例 [demo 下载](https://alon-deployment-gz-1257356411.cos.ap-guangzhou.myqcloud.com/sample.war) ，示例 demo 部署成功后，使用 `http://<IP>:8080/sample` 访问，其中 IP 可以是实例的外网 IP。
 - tar.gz 、zip ： 压缩包中**必须**包含三个文件，**确保文件名正确**：
@@ -22,7 +21,7 @@
 | tar.gz   | 云服务器上的 agent 会解压压缩包，使用解压目录下的`start.sh`脚本启动应用程序。 |
 | zip      | 云服务器上的 agent 会解压压缩包，使用解压目录下的`start.sh`脚本启动应用程序。 |
 
-更多详见： [上传程序包要求](https://cloud.tencent.com/document/product/649/30359) 
+详情说明请参考 [上传程序包要求](https://cloud.tencent.com/document/product/649/30359) 。
 
 ## 本地临时存储
 - 如果您需要在本地写临时文件，只能写到`/tmp`路径下，其他路径下写操作会失败。
