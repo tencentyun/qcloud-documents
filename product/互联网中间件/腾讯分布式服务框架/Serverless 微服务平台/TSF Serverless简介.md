@@ -25,7 +25,7 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
 ![](https://main.qcloudimg.com/raw/d2448b5f9428021cb38dd2109d442af1.svg)
 
 * **应用发布和管理**
-  相对于传统的应用发布需要运维人员登录到每一台服务器进行发布和部署，TSF Serverless 针对分布式系统的应用发布和管理，提供了简单易用的可视化控制台。用户通过控制台可以发布应用，包括创建、部署、启动应用，也支持查看应用的部署状态，用户无需关心底层机器。
+传统的应用发布需要运维人员登录到每一台服务器进行发布和部署，TSF Serverless 针对分布式系统的应用发布和管理，提供了简单易用的可视化控制台。用户可以通过控制台发布应用（包括创建、部署、启动应用），并可以查看应用的部署状态，无需关心底层机器。
   ![](https://mc.qcloudimg.com/static/img/a538773e2fdc97105b2fb1841c22e74b/image.png)
   
   
