@@ -1,11 +1,11 @@
-Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
+Amazon Simple Storage Service (Amazon S3，下文简称 S3) 是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
 
 ## 准备工作
 
 ### 确认应用是否可以使用 COS 服务
 
-- 如果您在应用的说明中看到类似 `S3 Compatible` 字样，那么大多数情况是可以使用 COS 服务的。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
-- 如果您的应用只说明支持 `Amazon S3`，这表明该应用可以使用 S3 服务，但能否使用 COS 服务，还要在相关的配置中进一步尝试，本文也会在后续的配置说明中做进一步的说明。
+- 如果您在应用的说明中看到类似`S3 Compatible`字样，那么大多数情况是可以使用 COS 服务的。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+- 如果您的应用只说明支持`Amazon S3`，这表明该应用可以使用 S3 服务，但能否使用 COS 服务，还要在相关的配置中进一步尝试，本文也会在后续的配置说明中做进一步的说明。
 
 ### 准备 COS 服务
 
@@ -65,7 +65,7 @@ Amazon Simple Storage Service (Amazon S3, 下文简称 S3) 是 AWS 最早推出�
 </thead>
 <tbody>
 <tr>
-<td>提供商/服务提供商/存储服务提供商/Service&nbsp;Provider/<br>Storage Provider/Provider 等</td>
+<td>提供商/服务提供商/<br>存储服务提供商/Service&nbsp;Provider/<br>Storage Provider/Provider 等</td>
 <td>这里主要是选择应用应使用哪种存储，可能存在以下几种情况：<br><li>如果该选项中有类似 S3 兼容存储/S3 Compatible等字样的选项，那么优先使用这个选项。<br></li><li>如果只有 amazon web services/AWS/Amazon S3 等字样，那么先使用这个选项，但是在后面的配置中需留意我们的进一步说明。<br></li><li>如果没有类似选项，但是在应用的说明中有提到支持 S3 服务或 S3 兼容服务，那么您可以继续后面的配置，但同样需要留意我们的进一步说明。<br></li><li>如果是其他情况，很抱歉，该应用可能不能使用 COS 服务。</li></td>
 </tr>
 <tr>
