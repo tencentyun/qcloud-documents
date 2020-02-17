@@ -113,7 +113,7 @@ $ sls --debug
 
 #### 移除
 
-通过以下命令移除部署的 API 网关：
+通过以下命令移除部署的 API 网关和云函数：
 ```shell
 $ sls remove --debug
 
