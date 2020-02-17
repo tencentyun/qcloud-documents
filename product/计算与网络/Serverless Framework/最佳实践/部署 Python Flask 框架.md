@@ -124,11 +124,12 @@ $ sls --debug
     apiGatewayServiceId: service-rf5pzbfy
     url:                 http://service-rf5pzbfy-1258834142.gz.apigw.tencentcs.com/release/
 
-  75s › MyComponent › done
+  75s › MyComponent › done。
 ```
 
+>?`sls` 是 `serverless` 命令的简写。
 #### 移除
-通过以下命令移除部署的 API 网关：
+通过以下命令移除部署的 API 网关和云函数：
 ```shell
 $ sls remove --debug
 
@@ -140,7 +141,6 @@ $ sls remove --debug
   DEBUG ─ Removing any previously deployed service. service-rf5pzbfy
 
   17s › MyComponent › done
-
 ```
 
 #### 账号配置（可选）
