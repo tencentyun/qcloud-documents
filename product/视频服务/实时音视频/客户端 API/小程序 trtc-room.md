@@ -3,15 +3,17 @@
 **&lt;trtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 TRTC 互通的自定义组件，支持多种应用场景：
 
 **视频通话&语音通话（scene = "rtc"）**
-- 适合1对1语音通话、1对1视频通话、多人语音聊天、在线狼人杀、视频客服、视频面试、在线医疗、在线理赔等50人以内的在线低延时沟通场景。
-- 侧重视频流畅度和语音清晰度。
-- 使用时需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **rtc**。
+- 视频通话场景，支持720P、1080P高清画质。
+- 视频通话场景，支持48kHz全频带，支持双声道。
+- 单个房间最多支持300人同时在线，最高支持50人同时发言。
+- 适用场景：1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等。
+- 使用方法：需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **rtc**。
 
 **互动直播&语音聊天室（scene = "live"）**
-- 适合直播连麦、直播 PK、在线教育、互动课堂、远程培训、大型会议等单一房间人数较多的沟通场景。	
 - 支持十万人级别观众同时播放，播放延时低至1000ms。
 - 支持平滑上下麦，切换过程无需等待，主播延时小于300ms。
-- 使用时需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **live**。
+- 适用场景：视频低延时直播、十万人互动课堂、视频相亲、在线教育、远程培训、超大型会议等。
+- 使用方法：使用时需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **live**。
 
 <table>
 <tr>
@@ -94,7 +96,7 @@
 
 | 参数                 | 类型    | 默认值    | 说明         |
 |:---------------------|:--------|:----------|:-------------|
-| scene                | String  | rtc       | 必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不适宜超过20人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在20人以内）。</li>  |
+| scene                | String  | rtc       | 必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在20人以内）。</li>  |
 | sdkAppID             | String  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
 | userID               | String  | -         | 必填参数，用户 ID，可以由您的帐号体系指定。 |
 | userSig              | String  | -         | 必填参数，身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。    |
@@ -488,7 +490,7 @@ let userList = trtcRoomContext.getRemoteUserList()
 //     userID:'xxx',       // 该用户 ID 
 //     hasMainVideo: true, // 该用户是否有主流视频
 //     hasMainAudio: true, // 该用户是否有主流音频
-//     hasAudVideo: false  // 该用户是否有辅流（屏幕分享）视频
+//     hasAuxVideo: false  // 该用户是否有辅流（屏幕分享）视频
 //   }
 //   ...
 // ]
@@ -497,7 +499,7 @@ let userList = trtcRoomContext.getRemoteUserList()
 ### enterFullscreen(params)
 **说明：**
 
-将远端视频切换为全屏播放，辅路（也就是屏幕分享）的画面一般适合全屏播放。
+将远端视频切换为全屏播放，辅路（即屏幕分享）的画面一般适合全屏播放。
 
 **参数：**
 
@@ -685,7 +687,7 @@ trtcRoomContext.setViewRect({
 |:-----------|:-------|:-------|:------------------------------------------------------------------|
 | userID     | String | -      | 必填参数，用户 ID。                                                        |
 | streamType | String | -      | 设置远端用户时必填，远端用户的流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li>   |
-| zindex     | Number | -      | 必填参数，视图的层级，必须为整数。                                          |
+| zIndex     | Number | -      | 必填参数，视图的层级，必须为整数。                                          |
 
 **返回值：**
 
@@ -696,7 +698,7 @@ Promise
 trtcRoomContext.setViewZIndex({
   userID: 'xxx',
   streamType: 'main',
-  zindex: 10
+  zIndex: 10
 }).then((event)=>{
   // 设置成功
 })
@@ -1010,18 +1012,17 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
 | REMOTE_AUDIO_ADD           | 远端音频流添加事件，当远端用户发布音频流后会收到该通知。 |
 | REMOTE_AUDIO_REMOVE        | 远端音频流移除事件，当远端用户取消发布音频流后会收到该通知。 |
 | REMOTE_STATE_UPDATE        | 远端用户播放状态变更通知。                                   |
-| LOCAL_NET_STATE_UPDATE     | 本地推流网络状态变更通知。                                   |
+| LOCAL_NET_STATE_UPDATE     | 本地推流的网络状态变更通知。                                   |
 | REMOTE_NET_STATE_UPDATE    | 远端用户网络状态变更通知。                                   |
-| LOCAL_AUDIO_VOLUME_UPDATE  | 本地音量变更通知。                                           |
 | REMOTE_AUDIO_VOLUME_UPDATE | 远端用户音量变更通知。                                       |
 | VIDEO_FULLSCREEN_UPDATE    | 远端视图全屏状态变更通知。                                   |
 | BGM_PLAY_PROGRESS          | BGM 播放时间戳变更通知。                                     |
 | BGM_PLAY_COMPLETE          | BGM 播放结束通知。                                           |
 | ERROR                      | 本地推流出现错误、渲染错误事件等。                           |
 | IM_READY                   | IM 就绪的通知，收到该通知后可以进行收发消息操作。            |
-| IM_MESSAGE_RECEIVED        | 收到 IM 消息的通知。[Message 对象文档](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)|
+| IM_MESSAGE_RECEIVED        | 收到 IM 消息的通知，详情请参见 [Message 对象文档](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。|
 | IM_NOT_READY               | IM 未就绪的通知，收到该通知后不可以进行收发消息操作。            |
-| IM_ERROR                   | IM 错误事件。[IM 错误码对照表](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#%E9%94%99%E8%AF%AF%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8)                                             |
+| IM_ERROR                   | IM 错误事件，详情请参见 [即时通信 IM 错误码](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#%E9%94%99%E8%AF%AF%E7%A0%81%E5%AF%B9%E7%85%A7%E8%A1%A8) 。|                                            |
 
 ## 错误码
 ERROR 事件触发时会返回响应的错误码，错误码含义如下

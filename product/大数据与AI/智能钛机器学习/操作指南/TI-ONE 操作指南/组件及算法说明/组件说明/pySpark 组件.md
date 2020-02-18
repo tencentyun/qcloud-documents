@@ -29,19 +29,15 @@ pip.main(['install', '-i', 'http://mirrors.tencentyun.com/pypi/simple', '--trust
  - 算法参数：指定您的 PySpark 应用程序所需的参数，即传给 PySpark 脚本的参数，可选项。
  - 配置资源：指定您的 PySpark 应用程序用到的配置文件，可选项。
 3. **配置资源**
-  在【资源参数】列表框配置任务的资源参数。
- - num-executors：指定分配的计算节点数目。
- - driver-memory：指定主节点内存大小，上限为14GB。
- - executor-cores：指定每个子节点分配的 CPU Core 数，推荐2 - 3。
- - executor-memory：指定每个子节点分配的内存大小，上限为55GB，推荐单个 core 分配2 - 3GB。
- - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。例如 spark.cores.max=1000。 
+在【资源参数】列表框配置任务的资源参数。
+ - drver 节点资源类型：请选择合适的 drive 节点机型。
+ - executor 节点资源类型：请选择合适的 executor 节点机型。
+ - num-executors：分配计算节点数目。
+ - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。
 4. **运行**
-  单击【保存】并运行工作流。
-
+单击【保存】并运行工作流。
 5. **查看 PySpark 控制台和日志**
 在 PySpark 节点上单击右键菜单，可查看任务状态和详细日志。
-
-
 
 
 ## 使用建议

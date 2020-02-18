@@ -141,3 +141,61 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 ### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
 高版本魅族手机不再需要设置状态栏图标，如果安卓 SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
 
+
+### 集成华为推送通道时遇到组件依赖冲突如何解决?
+项目使用了华为游戏、支付、账号等其他服务组件，集成华为推送通道时遇到组件依赖冲突时，请按照以下步骤集成华为厂商推送服务：
+1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
+2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
+3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
+修改前：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
+    }
+}
+```
+修改后：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        String s = "";
+        try {
+            s = Integer.toHexString(object.hashCode());
+        } catch (Throwable e) {
+        }
+        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
+    }
+}
+```
+4. 新增继承自华为推送回调广播 PushReceiver 的广播接收者类 HWPushMessageReceiver.java，并按如下方式重写接口 onToken，以存储华为 token 至本地，供 TPNS 调用：
+```java
+public class HWPushMessageReceiver extends PushReceiver {
+    @Override
+    public void onToken(Context context, String token, Bundle extras) {
+        if(token != null && token.length() != 0) {
+            SharedPreferences sp = context.getApplicationContext().getSharedPreferences("tpush.vip.shareprefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putString("huawei_token", token);
+            editor.commit();
+        }
+    }
+}
+```
+5. 在 AndroidManifest.xml 增加 HWPushMessageReceiver 配置， 配置如下：
+```xml
+<receiver android:name="com.tencent.android.hwpush.HWPushMessageReceiver" >
+  <intent-filter>
+       <!-- 必须,用于接收TOKEN -->
+       <action android:name="com.huawei.android.push.intent.REGISTRATION" />
+       <!-- 必须，用于接收消息 -->
+       <action android:name="com.huawei.android.push.intent.RECEIVE" />
+       <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
+       <action android:name="com.huawei.android.push.intent.CLICK" />
+       <!-- 可选，查看PUSH通道是否连接，不查看则不需要 -->
+       <action android:name="com.huawei.intent.action.PUSH_STATE" />
+  </intent-filter>
+</receiver>
+``` 
