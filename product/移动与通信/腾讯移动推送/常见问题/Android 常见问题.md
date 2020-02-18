@@ -142,8 +142,8 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 高版本魅族手机不再需要设置状态栏图标，如果安卓 SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
 
 
-### 项目使用了华为游戏、支付、账号等其他服务组件，集成华为推送通道时遇到组件依赖冲突如何解决?
-请按照以下步骤集成华为厂商推送服务：
+### 集成华为推送通道时遇到组件依赖冲突如何解决?
+项目使用了华为游戏、支付、账号等其他服务组件，集成华为推送通道时遇到组件依赖冲突时，请按照以下步骤集成华为厂商推送服务：
 1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
 2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
 3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
