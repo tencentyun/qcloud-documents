@@ -1,5 +1,5 @@
 ## 操作场景
-本文指导您通过 TSF 控制台，完成TSF Serverless 部署微服务的整体操作流程。
+本文指导您通过 TSF 控制台，完成 TSF Serverless 部署微服务的整体操作流程。
 
 ## 操作步骤
 
@@ -11,7 +11,7 @@
 2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tsf/cluster?rid=1)】，进入集群列表页。
 3. 在集群列表页，单击【新建集群】。
 4. 设置集群的基本信息。
- - **集群类型**：选择 **Serverless集群**。
+ - **集群类型**：选择 **Serverless 集群**。
  - **集群名称**：集群名称，不超过60个字符。
  - **集群网络**：为集群内主机分配在云服务器网络地址范围内的 IP 地址。参阅 [私有网络和子网](https://cloud.tencent.com/document/product/215/20046)。
  - **集群描述**：集群的描述，不超过200个字符。
@@ -22,13 +22,13 @@
 1. 在左侧导航栏，单击【[应用管理](https://console.cloud.tencent.com/tsf/app?rid=1)】，进入应用列表。
 2. 在应用列表上方单击【新建应用】。
 3. 设置应用信息后，单击【提交】。
-   - 部署方式：选择 **Serverless部署**
-   - 运行环境：选择 **Java8** （目前仅Java8支持微服务应用）
+   - 部署方式：选择 **Serverless 部署**
+   - 运行环境：选择 **Java8** （目前仅 Java8 支持微服务应用）
 
 
 ### 步骤3：上传程序包
 
-1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
+1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的 **ID/应用名**，进入应用详情页。
 2. 在应用详情页的上方，单击**程序包管理**标签页，单击【上传程序包】。
 ![](https://main.qcloudimg.com/raw/2be5327d84d9b323e016d84085bbd36f.png)
 4. 在**上传程序包**对话框中填写相关参数。
@@ -39,7 +39,7 @@
 
 ### 步骤4：创建部署组
 
-1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
+1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的 **ID/应用名**，进入应用详情页。
 2. 单击【新建部署组】，设置部署组相关信息：
   - 部署组名称：部署组的名称，不超过60个字符。
   - 集群：选择**步骤1**中创建的集群。
