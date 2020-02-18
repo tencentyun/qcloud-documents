@@ -25,7 +25,7 @@
 #### 配置 MySQL 服务
 
 1. 在 “Product Configuration” 配置界面，单击【Next】。
-2. 在 “Hight Availability” 界面，选择【Standalone MySQL Sever / Classic MySQL Replication】，单击【Next】。如下图所示：
+2. 在 “Hight Availability” 界面，选择【Standalone MySQL Server / Classic MySQL Replication】，单击【Next】。如下图所示：
 ![](https://main.qcloudimg.com/raw/5355f286598388f9e9846bf8122e6d98.png)
 3. 在 “Type and Networking” 配置界面，保持默认配置，单击【Next】。如下图所示：
 >? 
