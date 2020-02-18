@@ -10,7 +10,7 @@ Notebook 作为一个灵活的交互式开发工具，非常适合于数据准�
 - 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) 及 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 - 您可以参考**最佳实践** [用 Notebook 实现手写数字识别](https://cloud.tencent.com/document/product/851/38030)，体验使用 Notebook 建模的完整流程。
 - 您可以通过**操作指南**，进一步了解如何 [使用 Notebook 多内核](https://cloud.tencent.com/document/product/851/40119)，[在 Notebook 中访问 COS](https://cloud.tencent.com/document/product/851/40143) 等。
-- 如果您在使用过程中遇到问题，请查看 [常见问题](https://cloud.tencent.com/document/product/851/40072)。
+- 如果您在使用过程中遇到问题，请查看常见问题。
 
 
 
