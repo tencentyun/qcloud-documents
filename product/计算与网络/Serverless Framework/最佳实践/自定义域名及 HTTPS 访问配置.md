@@ -8,9 +8,9 @@
 
 
 
-## 方案一：通过 CDN 加速配置支持自定义域名的 HTTPS 访问
+## 方案一：通过 CDN 加速配置
 
-配置前，需要确保账号实名并已经 [开通 CDN 服务](https://console.cloud.tencent.com/cdn)。
+通过 CDN 加速配置支持自定义域名的 HTTPS 访问前，需要确保账号实名并已经 [开通 CDN 服务](https://console.cloud.tencent.com/cdn)。
 
 ### 增加配置
 
