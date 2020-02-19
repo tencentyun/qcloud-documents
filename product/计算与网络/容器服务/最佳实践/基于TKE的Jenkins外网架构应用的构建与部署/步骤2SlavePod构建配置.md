@@ -36,10 +36,10 @@
 ![](https://main.qcloudimg.com/raw/61afccdf7cf4ac178b57955d1ebfea43.png)
 
 ### 源码管理配置
-在“源码管理”模块中，勾选【Git】，并进行以下信息配置。如下图所示：
+在“源码管理”模块中，选择【Git】，并进行以下信息配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/1ccb5cfefb0f8843e53e30e1b44af652.png)
 - **Repositories**：
-  - **Repository URL**：输入您的 gitlab 地址。例如 `https://gitlab.com/user-name/demo.git`。
+  - **Repository URL**：输入您的 gitlab 地址，例如 `https://gitlab.com/user-name/demo.git`。
   - **Credentials**：选择已在 [添加 gitlab 认证](https://cloud.tencent.com/document/product/457/41396#addGitlab) 步骤中创建的认证凭据。
 - **Branches to build**：
   - **指定分支（为空时代表any）**：输入`$mbranch`，用于动态获取分支，其值与 Git Parameter 参数中定义的 `mbranch` 值对应。
