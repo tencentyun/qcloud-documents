@@ -47,7 +47,7 @@
 <tr><td>server_addr</td><td> 请求的目的 IP </td></tr>
 <tr><td>server_port</td><td>请求的目的端口</td></tr>
 <tr><td>server_name</td><td> 规则的 server_name，即服务器名称</td></tr>
-<tr><td>remote_addr</td><td> client ip</td></tr>
+<tr><td>remote_addr</td><td> client IP</td></tr>
 <tr><td>remote_port</td><td> client port</td></tr>
 <tr><td>status</td><td> CLB 返回给 client 的状态码 </td></tr>
 <tr><td>upstream_addr</td><td> RS 地址</td></tr>
