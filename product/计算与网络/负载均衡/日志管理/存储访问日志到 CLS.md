@@ -69,4 +69,4 @@
 <tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间 </td></tr>
 <tr><td>ssl_cipher</td><td> 加密套件</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的vpcId </td></tr></tbody></table>
+<tr><td>vip_vpcid</td><td>负载均衡 VIP 的 vpcId </td></tr></tbody></table>
