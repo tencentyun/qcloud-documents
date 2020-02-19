@@ -7,7 +7,7 @@
 1. 打开腾讯会议 App，认真阅读服务协议和隐私政策后，单击【同意】。
 2. 单击【注册/登录】，输入您的手机号（中国大陆号码），并单击【获取验证码】。
 3. 正确输入短信接收的6位数验证码后，单击【登录】。（如果您是第一次使用，则会要求您设置密码并默认为您创建账号）
-![](https://main.qcloudimg.com/raw/9c80d9b9693cd495e3a81da671daaebc.png)
+<img src="https://main.qcloudimg.com/raw/0a2f39c0a7991ba3b07e42602c0e45c6.jpg" width="30%">
 
 
 
@@ -16,8 +16,7 @@
 ### 预定会议
 1. 打开腾讯会议App，单击手机界面【预定会议】。
 2. 进入预定会议编辑页面，设置相关信息。
- <img src="https://main.qcloudimg.com/raw/90515461c276e11ab48b167349fdefbc.jpg" width="40%">
- 
+ <img src="https://main.qcloudimg.com/raw/90515461c276e11ab48b167349fdefbc.jpg" width="30%">
  - 会议主题：填写会议主题。
  - 开始时间：会议开始的时间。
  - 结束时间：会议结束的时间。
@@ -30,7 +29,7 @@
 
 ### 快速会议
 打开腾讯会议 App，点击手机界面【快速会议】，即可快速加入会议。
-![](https://main.qcloudimg.com/raw/3d56394ddecd07704d1549c5b86c70a4.jpg)
+<img src="https://main.qcloudimg.com/raw/3d56394ddecd07704d1549c5b86c70a4.jpg" width="30%">
 
 
 
