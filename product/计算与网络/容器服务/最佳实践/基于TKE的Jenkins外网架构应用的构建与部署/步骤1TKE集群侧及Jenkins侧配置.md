@@ -63,7 +63,7 @@ cat /etc/hosts
 1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】。
 2. 在打开的“管理Jenkins” 面板中，单击【全局安全配置】。
 2. 在全局安全配置页中，设置入站代理的 TCP 端口为“指定端口 50000”。如下图所示：
-![](https://main.qcloudimg.com/raw/91b2ff110d3d3015011a8efe35704871.png)
+![](https://main.qcloudimg.com/raw/78bcd4551ee5bd35bc92ea4ec5aca93e.png)
 4. 其他配置项保持默认状态，并单击页面下方的【保存】。
 
 ### 添加 TKE 集群 token<span id="addToken"></span>
@@ -71,18 +71,18 @@ cat /etc/hosts
 2. 在打开的“系统”面板中，选择【全局凭据 (unrestricted)】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb761bc624d5e60462a57607ff6f88aa.png)
 3. 在“全局凭据 (unrestricted)”页中，单击左侧菜单栏中的【添加凭据】，根据以下提示设置凭据基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/60e67ea807683d7d2b33407bcb8e4e63.png)
+![](https://main.qcloudimg.com/raw/c32f572ba76674c09c6550c68f1835de.png)
   - **类型**：选择【Secret text】。
   - **范围**：默认为【全局（Jenkins,nodes,items,all child items,etc）】。
   - **Secret**：填写[ 获取集群凭证 ](#proof)步骤中记录的**集群 Token**。
   - **ID**：默认不填写。
   - **描述**：填写该凭据相关信息，该内容将被显示为凭据名称及描述信息，本文以 `tke-token` 为例。
 3. 单击【确定】即可添加，添加成功后该凭据将显示在凭据列表中。如下图所示：
-![](https://main.qcloudimg.com/raw/dce14ed319bbae8380ced0efc0971277.png)
+!![](https://main.qcloudimg.com/raw/7f5e00bb12c27c7efc085c8c94b5dc71.png)
 
 ### 添加 gitlab 认证
 1. 在“全局凭据 (unrestricted)”页中，单击左侧菜单栏中的【添加凭据】，并根据以下提示设置凭据基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5679fd6d3e7acc77b88da0777021f2b3.png)
+![](https://main.qcloudimg.com/raw/ce8f9e2ca7f8d87d96c23f889ff72450.png)
  - **类型**：选择【Username with password】。
  - **范围**：默认为【全局（Jenkins,nodes,items,all child items,etc）】。
  - **用户名**：gitlab 用户名。
