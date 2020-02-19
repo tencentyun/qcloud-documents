@@ -1,125 +1,120 @@
-## TKE 集群侧配置
-此步骤中介绍了开启集群访问入口，以及获取配置 Jenkins 时所需的集群访问地址、token 及集群 CA 证书信息。
-
-### 获取集群凭证<span id="proof"></span>
-1. 登录 [TKE 控制台](https://console.cloud.tencent.com/tke2) 并单击左侧导航栏中的【集群】，进入集群管理界面。
-2. 选择目标集群所在行右侧的【更多】>【查看集群凭证】，进入集群基本信息页。
-3. 在“集群APIServer信息”中，执行以下操作。如下图所示：
-![](https://main.qcloudimg.com/raw/72185a6b90135fb10e93698a0f103718.png)
-   - 查看并记录集群的**访问地址**及 Kubeconfig 中 **token**。
-   - 开启内网访问，需配置子网为 Jenkins Master 和 TKE node 共同的 VPC 子网。
 
 
-### 获取集群 CA 证书<span id="getCA"></span>
-1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录目标集群的 node 节点。
-2. 执行以下命令，查看集群 CA 证书。
-```
-cat /etc/kubernetes/cluster-ca.crt
-```
-3. 请记录并保存查询所得证书信息。如下图所示：
-![](https://main.qcloudimg.com/raw/ff2816b2f47182a54830c5fc290843a7.png)
-
-### 授权 docker.sock 
-
-TKE 集群中的每个 node 节点系统里都有一个 `docker.sock` 文件，slave pod 在执行 `docker build` 时将会连接该文件。在此之前，需逐个登录到每个节点上，依次执行以下命令对 `docker build` 进行授权：
-```
-chmod 666 /var/run/docker.sock
-```
-```
-ls -l /var/run/docker.sock
-```
 
 
-## Jenkins 侧配置
+### Slave pod 构建配置<span id="slavepod"></span>
 
-### 添加 TKE 内网访问地址
+#### 步骤1：创建新任务
+1. 登录 Jenkins 后台，单击【新建任务】或【创建一个新任务】。如下图所示：
+![](https://main.qcloudimg.com/raw/9d55abf0cd2e3b37fa84b0d7b56952c3.png)
+2. 在新建任务页，设置任务的基本信息。如下图所示：
+![](https://main.qcloudimg.com/raw/b4837f27503003894a512f52e9bfacaa.png)
+ - **输入一个任务名称**：自定义，本文以 `test` 为例。
+ - **类型**：选择【构建一个自由风格的软件软件项目】。
+3. 单击【确定】，进入任务参数配置页，进行基本信息配置。如下图所示：
+![](https://main.qcloudimg.com/raw/d4bba762fca6727fdee4fd62b8151faf.png)
+ - **描述**：自定义填写任务的相关信息，本文以 slave pod test 为例。
+ - **参数化构建过程**：勾选此项，并选择【添加参数】>【Git Parameter】。
 
-1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录 Jenkins Master 节点。
-2. 执行以下命令，配置访问域名。
-```
-sudo sed -i '$a 10.x.x.x cls-ixxxelli.ccs.tencent-cloud.com' /etc/hosts
-```
-> ? 该命令可在集群开启内网访问后，从集群基本信息页面中的“集群APIServer” 中获取，详情请参见 [获取集群凭证](#proof)。 
-> 
-3. 执行以下命令，查看是否配置成功。
-```
-cat /etc/hosts
-```
-如下图所示即为配置成功：
-![](https://main.qcloudimg.com/raw/2e1bd6f1df51f150e9064d68f01e1754.png)
-               
-### Jenkins 安装必备插件
-1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】。
-2. 在打开的“管理Jenkins” 面板中，单击【插件管理】。
-3. 选择插件管理页面中【可选插件】，勾选 Locale、Kubernetes、Git Parameter 和 Extended Choice Parameter。
- - **Locale**：汉化语言插件，安装该插件可使 Jenkins 界面默认设置为中文版。
- - **Kubernetes**：kubernetes-plugin 插件。
- - **Git Parameter** 和 **Extended Choice Parameter**：用于构建打包时传参。
-   以 Kubernetes 插件为例，如下图所示：
-![](https://main.qcloudimg.com/raw/81941906a99def8fc11bfcc581af8183.png)
-4. 单击【直接安装】，并重启 Jenkins 即可完成插件安装。
 
-### 开启 jnlp 端口
-1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】。
-2. 在打开的“管理Jenkins” 面板中，单击【全局安全配置】。
-2. 在全局安全配置页中，入站代理的 TCP 端口设置为“指定端口 50000”。如下图所示：
-![](https://main.qcloudimg.com/raw/91b2ff110d3d3015011a8efe35704871.png)
-4. 其他配置项保持默认状态，并单击页面下方的【保存】。
-
-### 添加 TKE 集群 token<span id="addToken"></span>
-1. 登录 Jenkins 后台，选择左侧导航栏中的【凭据】>【系统】。
-2. 在打开的“系统”面板中，选择【全局凭据 (unrestricted)】。如下图所示：
-![](https://main.qcloudimg.com/raw/da1dede7f685f802987b4e2e6b6be023.png)
-2. 在“全局凭据 (unrestricted)”页，单击左侧菜单栏中的【添加凭据】，根据以下提示设置凭据基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/528feb63d0256189452ec1272dfe09b2.png)
-  - **类型**：选择【Secret text】。
-  - **范围**：默认为【全局（Jenkins,nodes,items,all child items,etc）】。
-  - **Secret**：填写[ 获取集群凭证 ](#proof)步骤中记录的**集群 Token**。
-  - **ID**：默认不填写。
-  - **描述**：填写该凭据相关信息，该内容将被显示为凭据名称及描述信息，本文以 `tke-token` 为例。
-3. 单击【确定】即可添加，该凭据将显示在凭据列表中。如下图所示：
-![](https://main.qcloudimg.com/raw/fbdef67cc90024469e1a74cbc685e086.png)
-
-### 添加 gitlab 认证
-1. 在“全局凭据 (unrestricted)”页，单击左侧菜单栏中的【添加凭据】，并根据以下提示设置凭据基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/5679fd6d3e7acc77b88da0777021f2b3.png)
- - **类型**：选择【Username with password】。
- - **范围**：默认为【全局（Jenkins,nodes,items,all child items,etc）】。
- - **用户名**：gitlab 用户名。
- - **密码**：gitlab 登录密码。
- - **ID**：默认不填写。
- - **描述**：填写该凭据相关信息，该内容将被显示为凭据名称及描述信息，本文以 `gitlab-password` 为例。
-2. 单击【确定】即可添加成功。
-
-### 配置 slave pod 模板<span id="PodTemplates"></span>
-1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】。
-2. 在打开的“管理Jenkins” 面板中，单击【系统配置】。
-3. 在“系统配置”面板最下方，选择“云”模块下的【新增一个云】>【Kubernetes】。如下图所示：
-![](https://main.qcloudimg.com/raw/f23401c33207fa861ce61b6544327662.png)
-3. 单击【Kubernetes Cloud details...】，设置 Kubernetes 以下基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/ca45217d23b37d2df7ef47c147a42eef.png)
-主要参数配置如下，其余选项请保持默认设置：
-    - **名称**：自定义。
-    - **Kubernetes 地址**：TKE 集群访问地址，可参考[ 获取集群凭证 ](#proof)步骤进行获取。
-    - **Kubernetes 服务证书 Key**：集群 CA 证书，可参考 [获取集群 CA 证书](#getCA) 步骤进行获取。
-    - **凭据**：选择[ 添加 TKE 集群 token ](#addToken)步骤中所创建的凭据 `tke-token`。并单击【连接测试】，若连接成功则会提示 Connection test succeessful。
-    - **Jenkins 地址**：填写为 Jenkins 内网地址，例如`http://10.x.x.x:8080`。
-5. 选择【Pod Templates】>【添加 Pod 模板】>【Pod Templates details...】，设置 Pod 模板基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/b3d925ce962a9e8dfb397beaca3aff5f.png)
+#### 步骤2： 任务参数配置
+1. 在打开的 “Git Parameter” 面板中，依次设置以下参数。如下图所示：
+![](https://main.qcloudimg.com/raw/a6422d4faedba25661fb648f7bf71ab8.png)
 主要参数信息如下，其余选项请保持默认设置：
- - **名称**：自定义，本文以 `jnlp-agent` 为例。
- - **标签列表**：定义标签名称，构建时可根据该标签选择 Pod ，本文以 `jnlp-agent` 为例。
-  - **用法**：选择【尽可能的使用这个节点】。
-6. 在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/e1d466e36656a60a80952c7509e26a41.png)
-    - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
-    - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。
-    其余选项保持默认设置即可。
-7. 在“卷”中按照以下步骤添加卷，为 slave pod 配置 docker 命令。如下图所示：
-![](https://main.qcloudimg.com/raw/32d0b85b4412e0347df991c089bb38ca.png)
-  1. 选择【添加卷】>【Host Path Volume】，主机和挂载路径均填写 `/usr/bin/docker`。
-   2. 选择【添加卷】>【Host Path Volume】，主机和挂载路径均填写`/var/run/docker.sock`。
-8. 单击页面下方的【保存】，即可完成 slave pod 模板配置。
+ - **Name**：输入 `mbranch`，该参数可用于匹配获取分支。
+ - **Parameter Type**：选择【Branch or Tag】。
+2. 选择【添加参数】>【Extended Choice Parameter】，在打开的 “Extended Choice Parameter” 面板中设置以下参数。如下图所示：
+![](https://main.qcloudimg.com/raw/f1ea047aaf190e3273dbfa2c937d4c42.png)
+主要参数信息如下，其余选项请保持默认设置：
+  - **Name**：输入 `name`，该参数可用于获取镜像名称。
+  - **Basic Parameter Types**：选择此项。
+  - **Parameter Type**：选择【Check Boxes】 。
+  - **Value**：选择此项，并输入自定义镜像名称，该值将传递给变量 `name`，本文以 `nginx.php` 为例。
+3. 选择【添加参数】>【Extended Choice Parameter】，在打开的 “Extended Choice Parameter” 面板中设置以下参数。如下图所示：
+![](https://main.qcloudimg.com/raw/b1cf3b28eb257c944591f63a64319959.png)
+主要参数信息如下，其余选项请保持默认设置：
+ - **Name**：输入 `version`，该参数用于获取镜像版本变量。
+ - **Basic Parameter Types**：选择此项。
+ - **Parameter Type**：选择【Text Boxe】 ，表示以文本形式获取镜像值，并传递给变量 `version`。
+4. 勾选【限制项目的运行节点】，标签表达式填写[ 配置 slave pod 模板 ](#PodTemplates)步骤中已设置的 Pod 标签  `jnlp-agent`。如下图所示：
+![](https://main.qcloudimg.com/raw/14af6a18f81bdd91657d7b91869ad1ed.png)
 
-## 后续操作
-请前往 [步骤2：Slave pod 构建配置](https://cloud.tencent.com/document/product/457/41397) 创建新任务及配置任务参数。
+#### 步骤3：源码管理配置
+在“源码管理”模块中，勾选【Git】，并进行以下信息配置。如下图所示：
+![](https://main.qcloudimg.com/raw/0cac3f82568d7dda39154d191305c336.png)
+- **Repositories**：
+  - **Repository URL**：输入您的 gitlab 地址。例如 `https://gitlab.com/user-name/demo.git`。
+  - **Credentials**：选择已在 [添加 gitlab 认证](#addGitlab) 步骤中创建的认证凭据。
+- **Branches to build**：
+  - **指定分支（为空时代表any）**：输入`$mbranch`，用于动态获取分支，其值与 Git Parameter 参数中定义的 `mbranch` 值对应。
+
+
+#### 步骤4：shell 打包脚本配置
+1. 在“构建”模块中，选择【增加构建步骤】>【执行 shell】。如下图所示：
+![](https://main.qcloudimg.com/raw/6c65ffbe6209bba313b8e82ad6c1da72.png)
+2. 将以下脚本内容复制粘贴至“命令”输入框中，并单击【保存】。
+>! 脚本中 gitlab 地址、TKE 镜像地址、镜像仓库用户名及密码等信息为示例使用，请根据实际需求进行更换。
+>
+```
+	echo " gitlab 地址为：https://gitlab.com/[user]/[project-name]].git" 
+	echo "选择的分支（镜像）为:"$mbranch，"设置的分支（镜像）版本为:"$version
+	echo " TKE 镜像地址：hkccr.ccs.tencentyun.com/[namespace]/[ImageName]"
+
+	echo "1.登录 TKE 镜像仓库"
+	docker login --username=[username] -p [password] hkccr.ccs.tencentyun.com
+
+	echo "2.基于源代码 Docker build 构建打包："
+	cd /home/Jenkins/workspace/test && docker build -t $name:$version .
+
+	echo "3.Docker镜像上传至TKE仓库："
+	docker tag $name:$version hkccr.ccs.tencentyun.com/[namespace]/[ImageName]:$name-$version
+	docker push hkccr.ccs.tencentyun.com/[namespace]/[ImageName]:$name-$version
+```
+该脚本提供以下功能：
+    - 获取选择的分支、镜像名称及镜像版本。
+    - 将与代码合并构建后的 docker 镜像推送至 TKE 镜像仓库。
+
+
+### 构建测试
+
+#### 步骤1：构建配置<span id="buildConfiguration"></span>
+1. 登录 Jenkins 后台，单击任务列表中已在 [slave pod 构建配置](#slavepod) 步骤所创建的任务 test。如下图所示：
+![](https://main.qcloudimg.com/raw/a20c4abc886959dac79199857354dd68.png)
+2. 单击左侧菜单栏中的【Build with Parameters】，打开“工程 test ”面板，进行以下参数设置。如下图所示：
+![](https://main.qcloudimg.com/raw/bf1ebecd4bc6a39da60a94f1afd7e749.png)
+  - **mbranch**：选择构建所需分支，本文以 `origin/nginx` 为例。
+  - **name**：根据实际需求选择所构建镜像的名称，本文以 `nginx.php`为例。
+  - **version**：自定义输入镜像版本号，本文以 `v1` 为例。
+3. 单击【开始构建】。
+构建成功即前往 TKE 控制台 >【镜像仓库】>【[我的镜像](https://console.cloud.tencent.com/tke2/registry/user)】中进行查看。如下图所示：
+![](https://main.qcloudimg.com/raw/8692532e791aaea3d964145b854ca627.png)
+
+#### 步骤2：控制台发布
+1. 登录 TKE 控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+2. 选择目标集群 ID，进入待创建 “Deployment” 的集群管理页面。如下图所示：
+![](https://main.qcloudimg.com/raw/8f231ef9688d171d4bcc6489cc26905c.png)
+3. 单击【新建】，进入 “新建Workload ” 页面，参考 [ 创建 Deployment ](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 进行关键参数设置。
+ 在“实例内容器”中，可选择【选择镜像】>【我的镜像】，选择上述构建过程中已成功上传的镜像。如下图所示：
+![](https://main.qcloudimg.com/raw/e992f2edade27b658d9e46a6a6dd589d.png)
+4. 单击【保存】即可完成部署。
+在【Pod 管理页】中，nginx pod 正常运行且为 Runing 状态即为部署成功。如下图所示：
+![](https://main.qcloudimg.com/raw/fc6026a4a27234f9e9c6b1e3926d39b5.png)
+
+
+## 相关操作
+### 批量构建设置
+1. 登录 Jenkins 后台，选择左侧导航栏中的【系统管理】，在打开的“管理Jenkins” 面板中单击【系统配置】。如下图所示：
+![](https://main.qcloudimg.com/raw/e79a2e78e69de69954c75f4cf4c6feeb.png)
+2. 在“系统配置”页，自定义修改“执行者数量”，本文以数量10为例。
+>?执行者数量为10 ，则表示可以同时执行10 个 Job。
+>
+3. 其他配置项保持[ 配置 slave pod 模板 ](#PodTemplates)步骤中所设置的内容。
+4. 参考[ Slave pod 构建配置 ](#slavepod)步骤，根据实际需求依次新建10个 test。如下图所示：
+![](https://main.qcloudimg.com/raw/f4e63d7e897ceb84a68322104d6db571.png)
+5. 参考 [构建配置](#buildConfiguration) 步骤依次执行多个任务构建。
+6. 成功构建后，您可登录 node 节点，执行以下命令查看 job pod。
+```
+kubectl get pod
+``` 
+返回类似如下结果，则表示调用成功。
+![](https://main.qcloudimg.com/raw/025eef4ec97671da2cc71508f4946820.png)
