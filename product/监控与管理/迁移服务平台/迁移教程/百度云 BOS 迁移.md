@@ -41,7 +41,7 @@
 ![](https://main.qcloudimg.com/raw/9709f9932688e7f639c0b3d080ace061.jpg)
 任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 3. 设置要迁移的文件来源。
-此处迁移源服务提供商应选择百度云 BOS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的百度云子用户 AccessKeyID，AccessKeySecret。源对象存储桶列表可在填入密钥后单击下拉框右侧刷新按钮获取。
+此处迁移源服务提供商应选择百度云 BOS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的百度云子用户 AccessKeyID，AccessKeySecret。填入密钥后，单击下拉框右侧**刷新**按钮，即可获取源对象存储桶列表。
 ![](https://main.qcloudimg.com/raw/352390f9b4d102479604a52a91e1b2ae.png)
 4. 选择文件存储方式。
 根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
