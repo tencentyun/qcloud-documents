@@ -5,7 +5,7 @@
 
 ## 步骤二：注册/登录
 您可以使用验证码或账号密码两种方式进行登录。
-<img src="https://main.qcloudimg.com/raw/0a2f39c0a7991ba3b07e42602c0e45c6.jpg" width="40%">
+<img src="https://main.qcloudimg.com/raw/94157793f12495b2bc54bd6e8adcc08f.jpg" width="40%">
 
 
 ### 使用验证码登录
