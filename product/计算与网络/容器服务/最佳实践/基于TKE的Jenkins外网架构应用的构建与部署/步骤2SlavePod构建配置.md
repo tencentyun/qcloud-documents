@@ -2,7 +2,7 @@
 
 ### 创建新任务
 1. 登录 Jenkins 后台，单击【新建任务】或【创建一个新任务】。如下图所示：
-![](https://main.qcloudimg.com/raw/3e67aec9ed8aa656f62a1c45c3a11b3e.png)
+![](https://main.qcloudimg.com/raw/da3556c52bf25aae776bf2abd8579bde.png)
 2. 在新建任务页，设置任务的基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/d53e134d4dc437dd13f3280fd8380f4f.png)
  - **输入一个任务名称**：自定义，本文以 `test` 为例。
@@ -15,7 +15,7 @@
 
 ### 任务参数配置
 1. 在打开的 “Git Parameter” 面板中，依次设置以下参数。如下图所示：
-![](https://main.qcloudimg.com/raw/d3a22f304b4fe6cecd5c307d5eaee6bc.png)
+![](https://main.qcloudimg.com/raw/cf7228b5f51ab399fd4ec297bc0a1a5d.png)
 主要参数信息如下，其余选项请保持默认设置：
  - **Name**：输入 `mbranch`，该参数可用于匹配获取分支。
  - **Parameter Type**：选择【Branch or Tag】。
@@ -37,7 +37,7 @@
 
 ### 源码管理配置
 在“源码管理”模块中，选择【Git】，并进行以下信息配置。如下图所示：
-![](https://main.qcloudimg.com/raw/1ccb5cfefb0f8843e53e30e1b44af652.png)
+![](https://main.qcloudimg.com/raw/ca82a5744b9f14d1cbeba2040f852cfc.png)
 - **Repositories**：
   - **Repository URL**：输入您的 gitlab 地址，例如 `https://gitlab.com/user-name/demo.git`。
   - **Credentials**：选择已在 [添加 gitlab 认证](https://cloud.tencent.com/document/product/457/41396#addGitlab) 步骤中创建的认证凭据。
@@ -71,4 +71,4 @@
     - 将与代码合并构建后的 docker 镜像推送至 TKE 镜像仓库。
 
 ### 后续操作
-至此您已成功将镜像推送至 TKE 镜像仓库，请前往 [构建测试](https://cloud.tencent.com/document/product/457/41398) 进行验证操作。
+至此您已成功构建 slave pod，请前往 [构建测试](https://cloud.tencent.com/document/product/457/41398) 进行推送镜像及验证操作。
