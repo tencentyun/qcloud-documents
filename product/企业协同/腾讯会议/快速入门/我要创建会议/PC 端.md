@@ -23,10 +23,10 @@
 
 
 ## 步骤三：创建会议
-### [点击查看预定会议](https://cloud.tencent.com/document/product//1095/41381#预定会议)
+### [点击查看预定会议](https://cloud.tencent.com/document/product/1095/41381#预定会议)
 
 
-### [点击查看快速会议](https://cloud.tencent.com/document/product//1095/41381#快速会议)
+### [点击查看快速会议](https://cloud.tencent.com/document/product/1095/41381#快速会议)
 
 
 
