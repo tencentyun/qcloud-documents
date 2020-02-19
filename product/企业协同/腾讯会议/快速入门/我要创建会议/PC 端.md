@@ -16,8 +16,7 @@
 ### 预定会议
 1. 打开腾讯会议App，单击手机界面【预定会议】。
 2. 进入预定会议编辑页面，设置相关信息。
- ![](https://main.qcloudimg.com/raw/90515461c276e11ab48b167349fdefbc.jpg)
- <img src="https://main.qcloudimg.com/raw/90515461c276e11ab48b167349fdefbc.jpg" width="50%">
+ <img src="https://main.qcloudimg.com/raw/90515461c276e11ab48b167349fdefbc.jpg" width="40%">
  
  - 会议主题：填写会议主题。
  - 开始时间：会议开始的时间。
