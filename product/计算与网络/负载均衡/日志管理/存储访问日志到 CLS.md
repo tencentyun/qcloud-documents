@@ -36,8 +36,8 @@
 ### 检索访问日志
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航中，选择【日志检索】，进入“检索分析 ”页面。
-3. 在“检索分析 ”页面中，选择日志集和日志主题，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
-![](https://main.qcloudimg.com/raw/8fc64241fd239212f101aaa9b0e7729d.png)
+3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
+![](https://main.qcloudimg.com/raw/7e188685ec28459a44ec67137e573d2c.png)
 
 ## 日志变量说明
 <table class="table"><thead><tr><th>变量名</th><th>说明</th></tr></thead>
