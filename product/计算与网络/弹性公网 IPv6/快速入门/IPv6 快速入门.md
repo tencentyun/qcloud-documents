@@ -89,7 +89,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <a href="#unopen">enable_ipv6 工具</a>
 </td>
 <td rowspan="4">
-目前暂时仅列举了如下四种手动配置操作方法，如无您所需要的，请选择工具配置进行配置：
+目前暂时仅列举了如下四种手动配置操作方法，如不符合您的实际需求，请选择工具配置进行配置：
 <li><a href="#新购CentOS7.5/CentOS7.6">新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6</a></li>
 <li><a href="#CentOS6.8">CentOS 6.8 配置 IPv6</a></li>
 <li><a href="#CentOS7.3">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6</a></li>
