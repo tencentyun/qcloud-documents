@@ -200,7 +200,7 @@ public class HWPushMessageReceiver extends PushReceiver {
 </receiver>
 ``` 
 
-### 使用插件集成时出现异常，如何解决？
+### 使用控制台快速集成时出现异常，如何解决？
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
 ```
 ./gradlew --rerun-tasks :app:processReleaseManifest 
