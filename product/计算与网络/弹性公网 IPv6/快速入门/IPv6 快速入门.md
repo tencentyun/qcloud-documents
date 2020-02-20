@@ -25,7 +25,7 @@
 3. 在步骤1中的 VPC 所属子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作，系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/d3d8fcaa9c336dac11485d5f7ed95a92.png)
 
-### 步骤3：购买云服务器并配置云服务器的 IPv6
+### <span id="step3" />步骤3：购买云服务器并配置云服务器的 IPv6
 为 VPC 和子网分配 IPv6 CIDR 后，您可以创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。因为 IPv6 地址目前还不支持自动下发到网卡，所以从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
 1. 登录 [云服务器购买页](https://buy.cloud.tencent.com/cvm?tab=cvm)。
 2. 选择机型时，请注意如下参数：
@@ -466,9 +466,7 @@ ifconfig
 2. 在“以太网状态”弹窗中，单击【属性】。
 3. 在“以太网属性”弹窗中，选中【Internet 协议版本 6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入云服务器的 IPv6 地址并设置 DNS，单击【确定】。
->?云服务器的 IPv6 地址可在 [云服务器实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1)  中进行查看。
->
+4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入 [步骤3](#step3) 中云服务器获取到的 IPv6 地址并设置 DNS，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
 5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 Ping 和远程桌面测试 IPv6 连通性。
 ```
