@@ -61,7 +61,7 @@
 	docker login --username=[username] -p [password] hkccr.ccs.tencentyun.com
 
 	echo "2.基于源代码 Docker build 构建打包："
-	cd /home/Jenkins/workspace/test && docker build -t $name:$version .
+	cd /home/Jenkins/agent/workspace/[project-name] && docker build -t $name:$version .
 
 	echo "3.Docker镜像上传至TKE仓库："
 	docker tag $name:$version hkccr.ccs.tencentyun.com/[namespace]/[ImageName]:$name-$version
