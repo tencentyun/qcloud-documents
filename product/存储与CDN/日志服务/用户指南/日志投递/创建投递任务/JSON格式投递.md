@@ -18,7 +18,7 @@
 4. 找到需要投递的日志主题，在其操作栏中，单击【管理配置】>【投递对象存储配置】，进入投递配置页面。
 <img src="https://main.qcloudimg.com/raw/f2ae55d386797b52d2fca31eae783df1.png" width="90%">
 5. 单击【添加投递配置】，进入**投递至 COS** 配置页面，依次填写配置信息。
-<img src="https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png" width="80%">
+<img src="https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png">
 
 **配置项说明如下：**
 
@@ -76,7 +76,7 @@
 | bucket_test | logset/  | %Y%m%d/log | bucket_test:logset/20180731/log_{random}_{index} |
 
 6. 单击【下一步】，进入高级配置，选择投递格式为 json，依次填写相关配置参数。
-	 <img src="https://main.qcloudimg.com/raw/3711401cfd70d3f583bb82dae1970331.png" width=80%>
+	 <img src="https://main.qcloudimg.com/raw/3711401cfd70d3f583bb82dae1970331.png">
 
 **配置项说明如下：**
 
