@@ -2,9 +2,9 @@
 <table>
 <thead>
 <tr>
-<th align="left" >API 名称及描述</th>
-<th align="left" >资源<br>类型</th>
-<th align="left" >资源六段式示例</th>
+<th align="left"  style="width:41%">API 名称及描述</th>
+<th align="left" style="width:1%">资源<br>类型</th>
+<th align="left" style="width:58%">资源六段式示例</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -23,9 +23,9 @@
 <table>
 <thead>
 <tr>
-<th align="left">API 名称及描述</th>
-<th align="left">资源类型</th>
-<th align="left">资源六段式示例</th>
+<th align="left" style="width:49%">API 名称及描述</th>
+<th align="left" style="width:1%">资源<br>类型</th>
+<th align="left" style="width:49%">资源六段式示例</th>
 </tr>
 </thead>
 <tbody><tr>
