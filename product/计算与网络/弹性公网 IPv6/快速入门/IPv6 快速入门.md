@@ -72,7 +72,8 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 
 请根据您的实际情况选择对应的方式，推荐您使用更高效的自动配置工具配置 IPv6 地址。
 <table>
-<thead>
+<tbody>
+<tr>
 <tr style="text-align:center;">
 <th width="20%" ><strong>镜像类型</strong></th>
 <th width="18%" ><strong>购买时间</strong></th>
@@ -80,8 +81,6 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <th width="16%" ><strong>工具配置<br>（推荐）</strong></th>
 <th width="16%" ><strong>手动配置</strong></th>
 </tr>
-</thead>
-<tbody>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
 <td>2019-06-31前购买</td>
