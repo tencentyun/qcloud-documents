@@ -28,6 +28,8 @@
 | serviceConfig.url                        | 否    | String  | API 的后端服务 URL。如果 serviceType 是 HTTP，则此参数必传，例如 http://api.tencentcs.com/apigw。   |
 | serviceConfig.path                       | 否    | String  | API 的后端服务路径，如 /path。如果 serviceType 是 HTTP，则此参数必传。前后端的路径可不同。API 网关会对路径做映射。 |
 | serviceConfig.method                     | 否    | String  | API 的后端服务请求方法，如 GET。如果 serviceType 是 HTTP，则此参数必传。前后端的方法可不同。API 网关会对方法做映射。 |
+| serviceConfig.uniqVpcId                  | 否    | String  | 使用VPC时需填写，代表唯一 vpcId。 |
+| serviceConfig.product                    | 否    | String  | 和 uniqVpcId 同时使用，目前仅支持 clb 场景，填写 “clb” |
 | serviceParameters.n.name                 | 否    | String  | API 的后端服务参数名称。只有 serviceType 是 HTTP 才会用到此参数。后端服务的参数名称可与前端参数名称不同。API 网关会对参数名称做映射。但后端参数值与前端参数值相同。 |
 | serviceParameters.n.position             | 否    | String  | API 的后端服务参数位置，如 head。只有 serviceType 是 HTTP 才会用到此参数。后端服务的位置名称可与前端参数位置不同。API 网关会对参数位置做映射。 |
 | serviceParameters.n.relevantRequestParameterName | 否    | String  | API 的后端服务参数对应的前端参数名称。只有 serviceType 是 HTTP 才会用到此参数。 |
