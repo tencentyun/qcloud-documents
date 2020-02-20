@@ -30,7 +30,7 @@ Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP �
 
 >?
 >- Anycast CLB 由 Anycast EIP 绑定内网负载均衡来提供 Anycast 能力。
->- Anycast EIP 支持绑定内网负载均衡，不支持传统型内网负载均衡。
+>- Anycast EIP 支持绑定内网负载均衡，不支持绑定传统型内网负载均衡。
 >
 ## Anycast CLB 使用场景
 ### 全球同服
