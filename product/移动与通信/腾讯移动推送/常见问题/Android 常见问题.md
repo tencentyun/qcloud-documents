@@ -199,3 +199,17 @@ public class HWPushMessageReceiver extends PushReceiver {
   </intent-filter>
 </receiver>
 ``` 
+
+### 使用插件集成时出现异常，如何解决？
+1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
+```
+./gradlew --rerun-tasks :app:processReleaseManifest 
+```
+并通过` "TpnsPlugin" `关键字进行分析。
+2. 点击 sync projects。
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+
+3. 在项目的 External Libraries 中查看是否有相关依赖。
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
+
