@@ -1,7 +1,8 @@
 ## 操作场景
 
 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
-如果您在 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，云服务器及云硬盘状态符合下表中的情形，请执行对应操作：<table>
+如果您在 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，云服务器及云硬盘状态符合下表中的情形，请执行对应操作：
+<table>
 	<tr>
 	<th>云服务器状态</th><th>云硬盘状态</th><th>需执行操作</th>
 	</tr>
