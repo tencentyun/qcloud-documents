@@ -1,6 +1,6 @@
 >? 目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 
-本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器或者弹性网卡开启 IPv6，实现 IPv6 的内外网通信。
+本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器开启 IPv6，实现 IPv6 的内外网通信。
 ## 操作场景
 1. 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
 2. 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
@@ -34,7 +34,7 @@
  - IPv6 地址：勾选【免费分配 IPv6 地址】。
 3. 完成云服务器各种配置操作后，核对购买的云服务器信息，并进行支付。
 4. 云服务器购买成功后，即可在 [云服务器实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1)  查看到 IPv6 地址信息。
-![](https://main.qcloudimg.com/raw/80d670ad016824b3f26fb80f8a2ab49a.png)
+![](https://main.qcloudimg.com/raw/02ce609ddc0d97fd1b6e82a2e165df7f.png)
 >?
 >- 如果云服务器在购买时未分配 IPv6 地址，可在对应云服务器实例所在行的操作栏下，选择【更多】>【IP 和网卡】>【管理 IPv6】，为主网卡分配 IPv6 地址。
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
@@ -42,14 +42,14 @@
 >
 5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见 [Linux云服务器配置 IPv6](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 和 [Window 云服务器配置 IPv6](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)。
 
-### 步骤4：为弹性网卡的 IPv6 地址开通公网（可选）
+### 步骤4：为云服务器的 IPv6 地址开通公网（可选）
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
-3. 选择需要开通 IPv6 公网的地域，如“华南地区（广州）”，单击【申请】，进入管理页面。
-4. 勾选已绑定目标云服务器的 IPv6 地址、设置目标带宽上限	，单击【提交】即可。
+3. 选择云服务器的所在地域，单击【申请】，进入管理页面。
+4. 勾选云服务器的 IPv6 地址、设置目标带宽上限	，单击【提交】即可。
 >?
->- 弹性网卡申请了 IPv6 地址后，默认关闭了公网访问能力，可通过弹性公网 IPv6 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141) 能力。
->- 当运营商类型为 BGP 时，弹性公网 IPv6 地址即为弹性网卡获取到的 IPv6 地址，所以请确保弹性网卡已经获取到 IPv6 地址。
+>- 云服务器申请了 IPv6 地址后，默认关闭了公网访问能力，可通过弹性公网 IPv6 [管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141) 能力。
+>- 当运营商类型为 BGP 时，弹性公网 IPv6 地址即为云服务器获取到的 IPv6 地址，所以请确保云服务器已经获取到 IPv6 地址。
 >- 单次操作可支持最多100个 IPv6 地址同时开通公网，如果超过100个 IPv6 地址需要开通公网，请分多次操作。
 >
 ![](https://main.qcloudimg.com/raw/f66f01c4b1a0791f956663188e2b702b.png)
@@ -58,7 +58,7 @@
 >?出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录下选择【安全】>【安全组】，在列表页中单击目标云服务器绑定的安全组 ID，进入详情页。
+2. 在左侧目录下选择【安全】>【安全组】，在列表页中单击云服务器绑定的安全组 ID，进入详情页。
 3. 选择【入站规则】并单击【添加规则】，添加 IPv6 的入方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/73ff04af93a1f13eef92d4f74ac30fc2.png)
 4. 选择【出站规则】并单击【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
@@ -446,9 +446,9 @@ ip -6 route add default dev eth0
 #### 测试 Linux 云服务器 IPv6 的连通性
 可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
 - **步骤1：**通过 Ping 进行测试，操作如下：
- - 如果弹性网卡的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
+ - 如果云服务器的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
 ![](https://main.qcloudimg.com/raw/6202b3ebe7e946884d0342d6ec2ca16d.png)
- - 如果弹性网卡的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试，如下图所示：
+ - 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试，如下图所示：
 ![](https://main.qcloudimg.com/raw/da1521a5885aeb8ddbe7f593033aae56.png)
 - **步骤2：**从公网 IPv6 地址 ssh 云服务器，操作如下：
 执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 ssh 到云服务器。
