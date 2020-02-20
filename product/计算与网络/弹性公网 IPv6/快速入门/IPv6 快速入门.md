@@ -74,10 +74,11 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <table>
 <thead>
 <tr style="text-align:center;">
-<th width="28%" ><strong>镜像类型</strong></th>
-<th width="19%" ><strong>购买时间</strong></th>
-<th width="15%" ><strong>是否已开启 IPv6</strong></th>
-<th width="18%" ><strong>配置方式</strong></th>
+<th width="20%" ><strong>镜像类型</strong></th>
+<th width="18%" ><strong>购买时间</strong></th>
+<th width="10%" ><strong>是否已开启 IPv6</strong></th>
+<th width="16%" ><strong>工具配置<br>（推荐）</strong></th>
+<th width="16%" ><strong>手动配置</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -85,13 +86,23 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
 <td>2019-06-31前购买</td>
 <td>否</td>
+<td >
+<a href="#unopen">enable_ipv6 工具</a>
+</td>
 <td rowspan="4">
-<li><a href="#.E5.B7.A5.E5.85.B7.E9.85.8D.E7.BD.AE">工具配置</a></li>
-<li><a href="#.E6.89.8B.E5.8A.A8.E9.85.8D.E7.BD.AE">手动配置</a></li></td>
+目前暂时仅列举了如下四种手动配置操作方法，如无您所需要的，请选择工具配置进行配置：
+<li><a href="#新购CentOS7.5/CentOS7.6">新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6</a></li>
+<li><a href="#CentOS6.8">CentOS 6.8 配置 IPv6</a></li>
+<li><a href="#CentOS7.3">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6</a></li>
+<li><a href="#Debian8.2">Debian 8.2 配置 IPv6</a></li>
+</td>
 </tr>
 <tr style="text-align:center;">
 <td>2019-06-31后购买</td>
 <td>是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
 </tr>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
@@ -102,10 +113,16 @@ Tencent Linux<br>
 </td>
 <td>2019-11-13 01:00前购买</td>
 <td>否</td>
+<td >
+<a href="#unopen">enable_ipv6 工具</a>
+</td>
 </tr>
 <tr style="text-align:center;">
 <td>2019-11-13 01:00后购买</td>
 <td>是</td>
+<td >
+<a href="#open">config_ipv6 工具</a>
+</td>
 </tr>
 </tbody></table>
 
@@ -113,10 +130,10 @@ Tencent Linux<br>
 >? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
 >
 请根据云服务器是否已开启 IPv6 选择对应的配置方式：
-- [未开启 IPv6 的云服务器](#unopen)
-- [已开启 IPv6 的云服务器](#open)
+- 未开启 IPv6 的云服务器：[enable_ipv6 工具配置](#unopen)。
+- 已开启 IPv6 的云服务器：[config_ipv6 工具配置](#open)。
 
-#### 未开启 IPv6 的云服务器 <span id="unopen" />
+#### enable_ipv6 工具配置 <span id="unopen" />
 enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
@@ -137,7 +154,7 @@ chmod +x ./enable_ipv6.sh
 ``` 
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
-#### 已开启 IPv6 的云服务器 <span id="open" />
+#### config_ipv6 工具配置 <span id="open" />
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例一键配置 IPv6 地址。
 
 **使用限制**
