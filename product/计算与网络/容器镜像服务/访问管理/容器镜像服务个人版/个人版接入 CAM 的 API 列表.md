@@ -2,7 +2,7 @@
 <table>
 <thead>
 <tr>
-<th align="left"  style="width:41%">API 名称及描述</th>
+<th align="left"  style="width:39%">API 名称及描述</th>
 <th align="left" style="width:1%">资源<br>类型</th>
 <th align="left" style="width:58%">资源六段式示例</th>
 </tr>
