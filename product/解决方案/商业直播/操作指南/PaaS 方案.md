@@ -1,7 +1,7 @@
 本文为您介绍小程序云直播插件解决方案的制定。
 
 ## 注册腾讯云账号
-注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。注册完成后，提供腾讯云账号 APPID 和 bizname。bziname 为您的唯一品牌标识，将会在域名前缀等被使用。bziname 一旦确定不可变更。
+注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，并完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)。注册完成后，提供腾讯云账号 APPID 和 bizname。bizname 为您的唯一品牌标识，将会在域名前缀等被使用。bizname 一旦确定不可变更。
 
 ## 注册小程序
 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序。小程序类目请根据您的实际场景选择。

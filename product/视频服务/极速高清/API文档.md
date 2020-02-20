@@ -7,7 +7,7 @@
 
 - [请求结构](https://cloud.tencent.com/document/product/267/20458)
 - [公共参数](https://cloud.tencent.com/document/product/267/20459)
-- [接口鉴权V3](https://cloud.tencent.com/document/product/267/30661)
+- [接口鉴权 v3](https://cloud.tencent.com/document/product/267/30661)
 - [接口鉴权](https://cloud.tencent.com/document/product/267/20460)
 - [返回结果](https://cloud.tencent.com/document/product/267/20461)
 

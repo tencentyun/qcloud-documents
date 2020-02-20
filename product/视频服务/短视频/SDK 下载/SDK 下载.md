@@ -327,8 +327,8 @@
    <tr>
       <td>套餐价格</td>
       <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
-      <td style="text-align:center">￥2345/年</td>
-      <td style="text-align:center">￥10050/年</td>
+      <td style="text-align:center">￥1699元/年</td>
+      <td style="text-align:center">￥8399元/年</td>
       <td style="text-align:center">￥35W/年 </td>
       <td style="text-align:center">￥50W/年 </td>
    </tr>
