@@ -11,8 +11,8 @@
 | CreateRepository      | CreateRepositoryPersonal        | 创建个人版镜像仓库       | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
 | DeleteRepository      | DeleteRepositoryPersonal        | 删除个人版镜像仓库       | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
 | BatchDeleteRepository | BatchDeleteRepositoryPersonal   | 批量删除个人版镜像仓库   | `qcs::tcr:$region:$account:repo/$namespace/*`     |
-| DeleteTag             | DeleteImagePersonal             | 删除个人版镜像版本       | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
-| BatchDeleteTag        | BatchDeleteImagePersonal        | 批量删除个人版镜像版本   | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
+| DeleteTag             | DeleteImagePersonal             | 删除个人版仓库tag       | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
+| BatchDeleteTag        | BatchDeleteImagePersonal        | 批量删除个人版仓库tag   | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
 | pull                  | PullRepositoryPersonal          | 拉取个人版镜像仓库内镜像 | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
 | push                  | PushRepositoryPersonal          | 推送个人版镜像仓库内镜像 | `qcs::tcr:$region:$account:repo/$namespace/$repo` |
 
