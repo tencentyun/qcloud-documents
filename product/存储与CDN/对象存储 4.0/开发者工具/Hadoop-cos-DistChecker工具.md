@@ -1,4 +1,4 @@
-# Hadoop-cos-DistChecker
+
 
 
 
@@ -21,7 +21,7 @@ NOTE：这里 hadoop-cos 依赖需要选择最新版本（GitHub Tag 为5.8.2以
 
 ### 参数概念
 
-- **源文件路径列表**
+#### **源文件路径列表**
 
 源文件列表是用户使用`hadoop fs -ls -R hdfs://host:port/{source_dir} | awk '{print $8}' > check_list.txt`导出待检查的子目录和文件列表。示例格式如下：
 
@@ -39,13 +39,13 @@ NOTE：这里 hadoop-cos 依赖需要选择最新版本（GitHub Tag 为5.8.2以
 
 ```
 
-- **源目录**
+#### **源目录**
 
 源文件列表所在的目录，这个目录通常也是`distcp`命令进行数据迁移时的源路径。例如，`hadoop distcp hdfs://host:port/source_dir cosn://bucket-appid/dest_dir`，则`hdfs://host:port/source_dir`为源目录。
 
 这个路径也是源文件路径列表中公共父目录，例如：上述的源文件列表的公共父目录就是：`/benchmarks`
 
-- **目的目录**
+#### **目的目录**
 
 待比较目的目录。
 
@@ -64,18 +64,17 @@ hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.d
 首先，执行`hadoop fs -ls -R hdfs://10.0.0.3:9000/benchmarks | awk '{print $8}' > check_list.txt`，将待检查源路径导出到一个check_list.txt的文件中，这个文件里面保存的就是源文件路径列表了：
 
 
-![](https://main.qcloudimg.com/raw/b53c77df3bc8cc2da2bd5757ba0e8514.png)
 
-![](https://main.qcloudimg.com/raw/721c664437e04edf2f57f55bd8c1d2fe.png)
+![](https://main.qcloudimg.com/raw/a2a853be2646b6558983303de805c04e.png)
 
-然后，将 check_list.txt 放到HDFS中：`hadoop fs -put check_list.txt hdfs://10.0.0.3:9000/`；
+![](https://main.qcloudimg.com/raw/216d90b20d383e233e50f497e83c24c3.png)
+
+然后，将 check_list.txt 放到 HDFS 中：`hadoop fs -put check_list.txt hdfs://10.0.0.3:9000/`；
+
+![](https://main.qcloudimg.com/raw/e5b79519dfeac808b64f29e04c35e9a4.png)
 
 
-![](https://main.qcloudimg.com/raw/c21b20f41aa495bf58bbed6c0030f6f5.png)
-
-
-
-最后，执行 Hadoop-cos-DistChecker，将 hdfs://10.0.0.3:9000/benchmarks://hdfs-test-1250000000/benchmarks 进行对比，然后输出结果保存到 cosn://hdfs-test-1250000000/check_result路径下，命令格式如下：
+最后，执行 Hadoop-cos-DistChecker，将 hdfs://10.0.0.3:9000/benchmarks://hdfs-test-1250000000/benchmarks 进行对比，然后输出结果保存到 cosn://hdfs-test-1250000000/check_result 路径下，命令格式如下：
 
 
 
@@ -84,13 +83,15 @@ hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.d
 ```
 
 
-![](https://main.qcloudimg.com/raw/7527e3fbda1f17264f1a11285bbd0f81.png)
-
-distchecker会读取源文件列表和源目录执行MapReduce作业，进行分布式地检查，最后的检查报告会输出到`cosn://bucket-appid/check_result`路径下。
+![](https://main.qcloudimg.com/raw/8356bebae88dae96aaecf03ea202df0d.png)
 
 
+distchecker 会读取源文件列表和源目录执行 MapReduce 作业，进行分布式地检查，最后的检查报告会输出到`cosn://bucket-appid/check_result`路径下。
 
-![](https://main.qcloudimg.com/raw/e5fa0c49d1f6189fba38a3844d03166c.png)
+
+
+
+![](https://main.qcloudimg.com/raw/b49000f8613e41a659df31c19bdab2fa.png)
 
 检查报告如下：
 
@@ -114,19 +115,18 @@ hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_write/part-00000	hdfs://10.0.0.3:90
 检查报告是以如下格式展示：
 
 ```TEXT
-check_list.txt中的源文件路径 源文件绝对路径,目的文件绝对路径,Checksum算法,源文件的checksum值,目的文件的checksum值,检查结果,检查结果描述
-
+check_list.txt中的源文件路径 源文件绝对路径,目的文件绝对路径,Checksum 算法,源文件的 checksum 值,目的文件的 checksum 值,检查结果,检查结果描述
 ```
 
 其中检查结果分为以下7种：
 
-- SUCCESS：表示源文件和目的文件都存在，且一致；
-- MISMATCH：表示源文件和目的文件都存在，但不一致；
-- UNCONFIRM：无法确认源文件和目的文件是否一致，这种状态主要是由于COS上的文件可能是CRC64校验码特性上线前就存在的文件，无法获取到其CRC64的校验值
-- UNCHECKED：未检查。这种状态主要是由于源文件无法读取或无法源文件的checksum值
-- SOURCE_FILE_MISSING：源文件不存在
-- TARGET_FILE_MISSING：目的文件不存在
-- TARGET_FILESYSTEM_ERROR：目的文件系统不是CosN文件系统；
+- SUCCESS：表示源文件和目的文件都存在，且一致。
+- MISMATCH：表示源文件和目的文件都存在，但不一致。
+- UNCONFIRM：无法确认源文件和目的文件是否一致，这种状态主要是由于 COS 上的文件可能是 CRC64 校验码特性上线前就存在的文件，无法获取到其 CRC64 的校验值。
+- UNCHECKED：未检查。这种状态主要是由于源文件无法读取或无法源文件的 checksum 值。
+- SOURCE_FILE_MISSING：源文件不存在。
+- TARGET_FILE_MISSING：目的文件不存在。
+- TARGET_FILESYSTEM_ERROR：目的文件系统不是 CosN 文件系统。
 
 
 
