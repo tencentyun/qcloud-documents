@@ -21,12 +21,12 @@
  - **Name**：输入 `mbranch`，该参数可用于匹配获取分支。
  - **Parameter Type**：选择【Branch or Tag】。
 2. 选择【添加参数】>【Extended Choice Parameter】，在打开的 “Extended Choice Parameter” 面板中设置以下参数。如下图所示：
-![](https://main.qcloudimg.com/raw/2c9c3c00272766ef219393e5d4dcbfdb.png)
+![](https://main.qcloudimg.com/raw/8287b6baae8da7bb181b96c6ab5bedf5.png)
 主要参数信息如下，其余选项请保持默认设置：
   - **Name**：输入 `name`，该参数可用于获取镜像名称。
   - **Basic Parameter Types**：选择此项。
   - **Parameter Type**：选择【Check Boxes】。
-  - **Value**：选择此项，并输入自定义镜像名称，该值将传递给变量 `name`，本文以 `nginx.php` 为例。
+  - **Value**：选择此项，并输入自定义镜像名称，该值将传递给变量 `name`，本文以 `nginx,php` 为例。
 3. 选择【添加参数】>【Extended Choice Parameter】，在打开的 “Extended Choice Parameter” 面板中设置以下参数。如下图所示：
 ![](https://main.qcloudimg.com/raw/c9a5bb698e624bb98d0a2b00ff93d749.png)
 主要参数信息如下，其余选项请保持默认设置：
@@ -50,7 +50,9 @@
 1. 在“构建”模块中，选择【增加构建步骤】>【执行 shell】。如下图所示：
 ![](https://main.qcloudimg.com/raw/6c65ffbe6209bba313b8e82ad6c1da72.png)
 2. 将以下脚本内容复制粘贴至“命令”输入框中，并单击【保存】。
->! 脚本中 gitlab 地址、TKE 镜像地址、镜像仓库用户名及密码等信息为示例使用，请根据实际需求进行更换。
+>! 
+>- 脚本中 gitlab 地址、TKE 镜像地址、镜像仓库用户名及密码等信息为示例使用，请根据实际需求进行更换。
+>- 请确保基于源代码 Docker build 构建打包处，`cd /home/Jenkins/agent/workspace/[project-name]` 与“容器列表”中的 Container Template 工作目录一致。
 >
 ```
 	echo " gitlab 地址为：https://gitlab.com/[user]/[project-name]].git" 
