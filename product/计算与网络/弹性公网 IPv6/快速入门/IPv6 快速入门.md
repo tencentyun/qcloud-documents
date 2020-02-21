@@ -248,7 +248,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-11. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+11. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
 <span id="CentOS6.8"/>
 
@@ -331,7 +331,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-23. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+23. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
 <span id="CentOS7.3"/>
 
@@ -415,7 +415,7 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 <span id="Debian8.2"/>
 
 #### Debian 8.2 配置 IPv6
@@ -457,9 +457,9 @@ netstat -tupln
 ```
 ip -6 route add default dev eth0
 ```
-10. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#.E9.99.84.E5.BD.95.EF.BC.9A.E6.B5.8B.E8.AF.95-linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8-ipv6-.E7.9A.84.E8.BF.9E.E9.80.9A.E6.80.A7)。
+10. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
-#### 测试 Linux 云服务器 IPv6 的连通性
+#### <span id="test-Linux" />测试 Linux 云服务器 IPv6 的连通性
 可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
 - **步骤1：**通过 Ping 进行测试，操作如下：
  - 如果云服务器的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
