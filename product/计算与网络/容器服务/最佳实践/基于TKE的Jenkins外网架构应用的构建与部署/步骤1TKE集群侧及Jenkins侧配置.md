@@ -114,6 +114,7 @@ cat /etc/hosts
 ![](https://main.qcloudimg.com/raw/6a5e619f36709cc9af76ee555ee8e984.png)
     - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
     - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。
+    - **工作目录**：保持默认设置，请记录工作目录，将用于 shell 脚本处构建打包。
     - 其余选项保持默认设置即可。
 7. 在“卷”中按照以下步骤添加卷，为 slave pod 配置 docker 命令。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd098fee9954a62c9c6e2328e9912314.png)
