@@ -74,7 +74,7 @@ hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.d
 ![](https://main.qcloudimg.com/raw/e5b79519dfeac808b64f29e04c35e9a4.png)
 
 
-最后，执行 Hadoop-cos-DistChecker，将 hdfs://10.0.0.3:9000/benchmarks://hdfs-test-1250000000/benchmarks 进行对比，然后输出结果保存到 cosn://hdfs-test-1250000000/check_result 路径下，命令格式如下：
+最后，执行 Hadoop-cos-DistChecker，将 hdfs://10.0.0.3:9000/benchmarks 和 cosn://hdfs-test-1250000000/benchmarks  进行对比，然后输出结果保存到 cosn://hdfs-test-1250000000/check_result 路径下，命令格式如下：
 
 
 
@@ -115,18 +115,19 @@ hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_write/part-00000	hdfs://10.0.0.3:90
 检查报告是以如下格式展示：
 
 ```TEXT
-check_list.txt中的源文件路径 源文件绝对路径,目的文件绝对路径,Checksum 算法,源文件的 checksum 值,目的文件的 checksum 值,检查结果,检查结果描述
+check_list.txt中的源文件路径 源文件绝对路径,目的文件绝对路径,Checksum算法,源文件的checksum值,目的文件的checksum值,检查结果,检查结果描述
+
 ```
 
 其中检查结果分为以下7种：
 
-- SUCCESS：表示源文件和目的文件都存在，且一致。
-- MISMATCH：表示源文件和目的文件都存在，但不一致。
-- UNCONFIRM：无法确认源文件和目的文件是否一致，这种状态主要是由于 COS 上的文件可能是 CRC64 校验码特性上线前就存在的文件，无法获取到其 CRC64 的校验值。
-- UNCHECKED：未检查。这种状态主要是由于源文件无法读取或无法源文件的 checksum 值。
-- SOURCE_FILE_MISSING：源文件不存在。
-- TARGET_FILE_MISSING：目的文件不存在。
-- TARGET_FILESYSTEM_ERROR：目的文件系统不是 CosN 文件系统。
+- SUCCESS：表示源文件和目的文件都存在，且一致；
+- MISMATCH：表示源文件和目的文件都存在，但不一致；
+- UNCONFIRM：无法确认源文件和目的文件是否一致，这种状态主要是由于COS上的文件可能是CRC64校验码特性上线前就存在的文件，无法获取到其CRC64的校验值
+- UNCHECKED：未检查。这种状态主要是由于源文件无法读取或无法源文件的checksum值
+- SOURCE_FILE_MISSING：源文件不存在
+- TARGET_FILE_MISSING：目的文件不存在
+- TARGET_FILESYSTEM_ERROR：目的文件系统不是CosN文件系统；
 
 
 
