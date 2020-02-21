@@ -110,7 +110,7 @@ cat /etc/hosts
  - **名称**：自定义，本文以 `jnlp-agent` 为例。
  - **标签列表**：定义标签名称，构建时可根据该标签选择 Pod ，本文以 `jnlp-agent` 为例。
   - **用法**：选择【尽可能的使用这个节点】。
-6. 在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
+6. <span id="container"></span>在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6a5e619f36709cc9af76ee555ee8e984.png)
     - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
     - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。
