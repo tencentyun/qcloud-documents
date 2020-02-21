@@ -43,7 +43,7 @@ NOTE：这里 hadoop-cos 依赖需要选择最新版本（GitHub Tag 为5.8.2以
 
 源文件列表所在的目录，这个目录通常也是`distcp`命令进行数据迁移时的源路径。例如，`hadoop distcp hdfs://host:port/source_dir cosn://bucket-appid/dest_dir`，则`hdfs://host:port/source_dir`为源目录。
 
-这个路径也是源文件路径列表中公共父目录，例如：上述的源文件列表的公共父目录就是：`/benchmarks`
+这个路径也是源文件路径列表中公共父目录，例如：上述的源文件列表的公共父目录就是：`/benchmarks`。
 
 #### **目的目录**
 
@@ -74,7 +74,7 @@ hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.d
 ![](https://main.qcloudimg.com/raw/e5b79519dfeac808b64f29e04c35e9a4.png)
 
 
-最后，执行 Hadoop-cos-DistChecker，将 hdfs://10.0.0.3:9000/benchmarks 和 cosn://hdfs-test-1250000000/benchmarks 进行对比，然后输出结果保存到 cosn://hdfs-test-1250000000/check_result 路径下，命令格式如下：
+最后，执行 Hadoop-cos-DistChecker，将`hdfs://10.0.0.3:9000/benchmarks`和 `cosn://hdfs-test-1250000000/benchmarks`进行对比，然后输出结果保存到`cosn://hdfs-test-1250000000/check_result`路径下，命令格式如下：
 
 
 
@@ -136,7 +136,7 @@ check_list.txt中的源文件路径 源文件绝对路径,目的文件绝对路�
 
 #### 1. 为什么检查报告的 CRC64 值出现负数？
 
-因为 CRC64 值，有可能是20位的值，此时已超过 Java long 型的表示范围，但是其底层字节是一致的，而打印 long 型时，会出现负数表示；
+因为 CRC64 值，有可能是20位的值，此时已超过 Java long 型的表示范围，但是其底层字节是一致的，而打印 long 型时，会出现负数表示。
 
 #### 2. 为什么既有MD5值校验又有 CRC64 值校验？
 
