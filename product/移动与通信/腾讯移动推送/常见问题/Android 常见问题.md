@@ -139,7 +139,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 
 ### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果安卓 SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
 
 
 ### 集成华为推送通道时遇到组件依赖冲突如何解决?
@@ -199,3 +199,17 @@ public class HWPushMessageReceiver extends PushReceiver {
   </intent-filter>
 </receiver>
 ``` 
+
+### 使用控制台快速集成时出现异常，如何解决？
+1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
+```
+./gradlew --rerun-tasks :app:processReleaseManifest 
+```
+并通过` "TpnsPlugin" `关键字进行分析。
+2. 点击 sync projects。
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+
+3. 在项目的 External Libraries 中查看是否有相关依赖。
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
+
