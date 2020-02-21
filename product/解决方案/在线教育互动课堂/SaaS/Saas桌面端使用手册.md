@@ -2,15 +2,15 @@
 
 ## 如何加入课堂
 ### 下载 SaaS 客户端
-- Mac平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Saas.dmg)。
-- Win平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Setup_Saas.exe)。
+- Mac 平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Saas.dmg)。
+- Win 平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Setup_Saas.exe)。
 
 ### 桌面版配置
 >?影响性能的原因较多，以下配置仅供参考。如遇到绘制白板卡顿问题，可在约课时设置较低的分辨率。
 >
-- Intel i7-6700级别 鲁大师cpu跑分70000以上 6路视频时分辨率推荐1280\*720
-- Intel i5-7500级别 鲁大师cpu跑分52000以上 6路视频时分辨率推荐960\*540
-- Intel i5-3330级别 鲁大师cpu跑分42000以上 6路视频时分辨率推荐320\*240
+- Intel i7-6700级别 鲁大师 cpu 跑分70000以上 6路视频时分辨率推荐1280\*720
+- Intel i5-7500级别 鲁大师 cpu 跑分52000以上 6路视频时分辨率推荐960\*540
+- Intel i5-3330级别 鲁大师 cpu 跑分42000以上 6路视频时分辨率推荐320\*240
 
 #### 版本更新说明
 当前版本是1.2.0版本。
