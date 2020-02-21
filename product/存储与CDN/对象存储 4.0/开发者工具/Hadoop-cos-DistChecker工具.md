@@ -1,7 +1,4 @@
 
-
-
-
 ## 功能说明
 
 
@@ -15,7 +12,7 @@ Hadoop-cos-DistChecker 是一个在使用`hadoop distcp`命令从 HDFS 迁移数
 - [hadoop-cos-2.x.x-shaded.jar](https://github.com/tencentyun/hadoop-cos/tree/master/dep)
 - Hadooop MapReduce 的运行环境
 
-NOTE：这里 hadoop-cos 依赖需要选择最新版本（GitHub Tag 为5.8.2以上）才能支持 CRC64 校验码的获取。
+>!这里 hadoop-cos 依赖需要选择最新版本（GitHub Tag 为5.8.2以上）才能支持 CRC64 校验码的获取。
 
 ## 使用说明
 
