@@ -7,25 +7,22 @@
 >?
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持访问日志的存储和下载，四层协议（TCP/UDP/TCP SSL）不支持访问日志的存储和下载。
 - 负载均衡访问日志无需额外付费，您仅需要支付日志服务的费用。
-- 当前访问日志存入 CLS 支持的地域包括：广州、成都、多伦多，可直接在控制台使用或通过 API 配置；北京和上海灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+- 当前访问日志存入 CLS 支持的地域包括：成都、多伦多，可直接在控制台使用或通过 API 配置；广州、北京和上海灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+- 目前 [日志服务](https://cloud.tencent.com/document/product/614) 处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
 
 ## 开启访问日志
->? 目前日志服务处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
->
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
 2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
 3. 在“日志访问”模块，编辑日志服务 CLS。
 ![](https://main.qcloudimg.com/raw/163c20ca7cb4326005c9ecf9fb43a39f.png)
-4. 在弹出框中，开启访问日志，并选择存储访问日志的日志集和日志主题。
->?如您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
->
+4. 在弹出框中，开启访问日志，并选择存储访问日志的日志集和日志主题。如您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
 ![](https://main.qcloudimg.com/raw/ad6a8f33dbec8eec9ce0e84de859a845.png)
 5. 单击【提交】，访问日志会被收集在对应的主题中。
 6. 配置完成后单击日志集或日志主题将跳转到 CLS 的日志检索页面。
 
+>?若想关闭访问日志，请再次编辑进行关闭即可。
+
 ## 查询访问日志
->?目前日志服务处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
->
 ### 步骤1：配置日志主题的索引
 >?日志主题必须配置索引，否则检索不到日志。
 
@@ -44,6 +41,7 @@
 2. 在左侧导航中，选择【日志检索】，进入“检索分析 ”页面。
 3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 ![](https://main.qcloudimg.com/raw/57f74355eb469e59fca7efbe1994d9d0.png)
+
 ## 日志变量说明
 <table class="table"><thead><tr><th>变量名</th><th>说明</th></tr></thead>
 <tbody><tr><td>stgw_request_id</td><td> 请求 ID。 </td></tr>
