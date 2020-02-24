@@ -2,7 +2,16 @@
 
 PUT Bucket 接口请求可以在指定账号下创建一个存储桶。该 API 接口不支持匿名请求，您需要使用带 Authorization 签名认证的请求才能创建新的 Bucket 。创建存储桶的用户默认成为存储桶的持有者。
 
->? 创建存储桶时，如果没有指定访问权限，则默认使用私有读写（private）权限。
+> ? 
+>
+> - 创建存储桶时，如果没有指定访问权限，则默认使用私有读写（private）权限。
+> - 如需为创建的新存储桶配置多 AZ，请在请求中添加以下：
+
+```
+<CreateBucketConfiguration>
+     <BucketAZConfig>MAZ|OAZ</BucketAZConfig>
+</CreateBucketConfiguration>
+```
 
 ## 请求
 
@@ -16,7 +25,7 @@ Content-Length: 0
 Authorization: Auth String
 ```
 
->? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
