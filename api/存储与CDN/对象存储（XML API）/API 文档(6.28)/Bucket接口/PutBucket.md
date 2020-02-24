@@ -6,7 +6,6 @@ PUT Bucket 接口请求可以在指定账号下创建一个存储桶。该 API �
 >
 > - 创建存储桶时，如果没有指定访问权限，则默认使用私有读写（private）权限。
 > - 如需为创建的新存储桶配置多 AZ，请在请求中添加以下：
-
 ```
 <CreateBucketConfiguration>
      <BucketAZConfig>MAZ|OAZ</BucketAZConfig>
