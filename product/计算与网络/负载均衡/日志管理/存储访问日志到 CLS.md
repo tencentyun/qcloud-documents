@@ -16,7 +16,7 @@
 3. 在“日志访问”模块，编辑日志服务 CLS。
 ![](https://main.qcloudimg.com/raw/163c20ca7cb4326005c9ecf9fb43a39f.png)
 4. 在弹出框中，开启访问日志，并选择存储访问日志的日志集和日志主题。如您没有创建日志集或日志主题，请 [新建相关资源](https://console.cloud.tencent.com/cls/logset) 后，再选取具体的存储位置。
-![](https://main.qcloudimg.com/raw/ad6a8f33dbec8eec9ce0e84de859a845.png)
+![](https://main.qcloudimg.com/raw/33ccb8c1bcf3b200716a4a2f1751f0c1.png)
 5. 单击【提交】，访问日志会被收集在对应的主题中。
 6. 配置完成后单击日志集或日志主题将跳转到 CLS 的日志检索页面。
 
