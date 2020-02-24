@@ -9,7 +9,7 @@ from qcloud_cos import CosConfig
 from qcloud_cos import CosS3Client
 from ti.utils import get_temporary_secret_and_token
 
-#### 指定本地文件路径，可根据需要修改，关于 Notebook 中数据持久化请参考 使用指南中的-数据持久化
+#### 指定本地文件路径，可根据需要修改。
 local_file = "/home/tione/notebook/data"
 
 #### 用户的存储桶，修改为存放所需数据文件的存储桶，存储桶获取参考腾讯云对象存储
