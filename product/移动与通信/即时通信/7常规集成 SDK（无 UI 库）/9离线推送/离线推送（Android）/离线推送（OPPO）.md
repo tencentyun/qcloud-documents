@@ -179,8 +179,8 @@ public class ThirdPushTokenMgr {
 1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据。
 ```
 <intent-filter>
- <action android:name="android.intent.action.View" />
- <category android:name="android.intent.category.DEFAULT" />
+		<action android:name="android.intent.action.View" />
+		<category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 ```
 2. 在控制台上填入 `android.intent.action.View`。
@@ -220,7 +220,7 @@ public class ThirdPushTokenMgr {
   Set<String> set = bundle.keySet();
   if (set != null) {
       for (String key : set) {
-      		// 其中 key 和 value 分别为发送端设置的 extKey 和 ext content
+      	// 其中 key 和 value 分别为发送端设置的 extKey 和 ext content
           String value = bundle.getString(key);
           Log.i("oppo push custom data", "key = " + key + ":value = " + value);
       }
