@@ -43,7 +43,7 @@
 >
 5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见 [Linux云服务器配置 IPv6](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 和 [Window 云服务器配置 IPv6](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)。
 
-### 步骤4：为云服务器的 IPv6 地址开通公网（可选）
+### 步骤四：为云服务器的 IPv6 地址开通公网（可选）
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
 3. 选择云服务器的所在地域，单击【申请】，进入管理页面。
@@ -55,7 +55,7 @@
 >
 ![](https://main.qcloudimg.com/raw/f66f01c4b1a0791f956663188e2b702b.png)
 
-### 步骤5：配置 IPv6 的安全组规则
+### 步骤五：配置 IPv6 的安全组规则
 >?出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
