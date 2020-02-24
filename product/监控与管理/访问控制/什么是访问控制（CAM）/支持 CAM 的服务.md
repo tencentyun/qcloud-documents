@@ -262,7 +262,7 @@
  | 服务                                                        | 授权粒度  | 控制台 | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ------------------------------------------------------------  | ------ | -------- | ------- | ---- |	---- |	
 | [云开发](https://cloud.tencent.com/document/product/876)   |服务级  | &#10003; | -   | &#10003;  |	-   |
-| [ 腾讯移动推送](https://cloud.tencent.com/document/product/548)   |操作级  | &#10003; | -   |  -   |	-   |
+| [ 腾讯移动推送](https://cloud.tencent.com/document/product/548)   |资源级  | &#10003; | -   |  -   |	[访问管理指南](https://cloud.tencent.com/document/product/548/41370)   |
 | [ 正版曲库直通车（版权音乐助手）](https://cloud.tencent.com/document/product/1155)   |服务级  | &#10003; | -   |  -   |	-   |
 
 ## 云通信	
