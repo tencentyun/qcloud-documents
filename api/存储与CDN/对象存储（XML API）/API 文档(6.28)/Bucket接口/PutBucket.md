@@ -24,7 +24,7 @@ Content-Length: 0
 Authorization: Auth String
 ```
 
-> ? Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -36,7 +36,7 @@ Authorization: Auth String
 
 | 名称                     | 描述                                                         | 类型   | 是否必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                | 定义存储桶的访问控制列表（ACL）属性。枚举值请参阅 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中存储桶的预设 ACL 部分，如 private，public-read 等，默认为 private | Enum   | 否       |
+| x-cos-acl                | 定义存储桶的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中存储桶的预设 ACL 部分，如 private，public-read 等，默认为 private | Enum   | 否       |
 | x-cos-grant-read         | 赋予被授权者读取存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-write        | 赋予被授权者写入存储桶的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-read-acp     | 赋予被授权者读取存储桶的访问控制列表（ACL）和存储桶策略（Policy）的权限，格式为 id="[OwnerUin]"，如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，如 `id="100000000001",id="100000000002"` | string | 否       |
@@ -51,7 +51,7 @@ Authorization: Auth String
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -59,7 +59,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口的特殊错误信息如下所述，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口的特殊错误信息如下所述，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                  | 描述                               | HTTP 状态码  |
 | ----------------------- | ---------------------------------- | ------------ |
