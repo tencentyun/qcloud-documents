@@ -7,7 +7,7 @@
 
 ### 系统可用性
 <table>
-	<th>类别</th><th>评估项目</th><th>类型</th><th>影响说明</th><th>评估参考</th>
+	<th style="width:10%">类别</th><th style="width:32%">评估项目</th><th style="5%">类型</th><th style="width:38%">影响说明</th><th style="width:15%">评估参考</th>
     <tr>
         <td rowspan="6">集群</td>
 				<td>创建集群前，结合业务场景提前规划节点网络和容器网络，避免后续业务扩容受限。</td>
@@ -41,11 +41,10 @@
 				<td><li><a href="https://cloud.tencent.com/document/product/457/32187">集群概述</a></li><li><a href="https://cloud.tencent.com/document/product/457/31013">集群的托管模式说明</a></li></td>
     </tr>
     <tr>
-        <td rowspan="4">工作负载</td>
+        <td rowspan="4">工作<br>负载</td>
 				<td>创建工作负载时需设置 CPU 和内存的限制范围，提高业务的健壮性。</td>
 				<td>部署</td>
-				<td>同一个节点上部署多个应用，当未设置资源上下限的应用出现应用异常资源泄露问题时，将会导致其它应用分配不到资源而异常。未设置资源上下限的应用，其监控信息将会出现误差。</td><td><a href="https://cloud.tencent.com/document/product/457/32813">设置工作负载的资源限制</a></td><td></td>
-    </tr>
+				<td>同一个节点上部署多个应用，当未设置资源上下限的应用出现应用异常资源泄露问题时，将会导致其它应用分配不到资源而异常。未设置资源上下限的应用，其监控信息将会出现误差。</td><td><a href="https://cloud.tencent.com/document/product/457/32813">设置工作负载的资源限制</a></td>    </tr>
     <tr>
         <td>创建工作负载时可设置容器健康检查：“容器存活检查”和“容器就绪检查”。</td><td>可靠性</td><td>容器健康检查未配置，会导致用户业务出现异常时 Pod 无法感知，从而导致不会自动重启恢复业务，最终将会出现 Pod 状态正常，但是 Pod 中的业务异常的现象。</td><td><a href="https://cloud.tencent.com/document/product/457/9094">服务健康检查设置</a></td>
     </tr>
@@ -64,7 +63,7 @@
 
 ### 数据可靠性
 <table>
-	<th>类别</th><th>评估项目</th><th>类型</th><th>影响说明</th><th>评估参考</th>
+	<th style="width:10%">类别</th><th style="width:32%">评估项目</th><th style="5%">类型</th><th style="width:38%">影响说明</th><th style="width:15%">评估参考</th>
     <tr>
         <td>容器数据持久化</td><td>应用 Pod 数据存储，根据实际需求选择合适的数据卷类型。</td><td>可靠性</td><td>节点异常无法恢复时，存在本地磁盘中的数据无法恢复，而云存储此时可以提供极高的数据可靠性。</td><td><a href="https://cloud.tencent.com/document/product/457/31713">Volume 管理</a></td>
     </tr>
@@ -72,7 +71,7 @@
 
 ### 运维稳定性
 <table>
-    <th>类别</th><th>评估项目</th><th>类型</th><th>影响说明</th><th>评估参考</th>
+   	<th style="width:10%">类别</th><th style="width:32%">评估项目</th><th style="5%">类型</th><th style="width:38%">影响说明</th><th style="width:15%">评估参考</th>
     <tr>
         <td rowspan="2">工程</td><td>CVM、VPC、子网及 CBS 等资源配额是否满足客户需求。</td><td>部署</td><td>配额不足将会导致创建资源失败，对于配置了自动扩容的用户尤其需要保障所使用的云服务配额充足。</td><td><li><a href="https://cloud.tencent.com/document/product/457/9087">购买集群配额限制</a></li><li><a href="https://cloud.tencent.com/document/product/215/20093">配额限制</a></li></td>
     </tr>
@@ -80,6 +79,6 @@
         <td>集群的节点上不建议用户随意修改内核参数、系统配置、集群核心组件版本、安全组及 LB 相关参数等。</td><td>部署</td><td>可能会导致 TKE 集群功能异常或安装在节点上的 Kubernetes 组件异常，节点状态变成不可用，无法部署应用到此节点。</td><td><a href="https://cloud.tencent.com/document/product/457/39539">容器服务高危操作</a></td>
     </tr>
 	<tr>
-        <td>主动运维</td><td>容器服务提供多维度的监控和告警功能，同时结合云监控提供的基础资源监控，能保证更细的指标覆盖。配置监控告警，以便于异常时及时收到告警和故障定位。</td><td>监控</td><td>未配置监控告警，将无法建立容器集群性能的正常标准，在出现异常时无法及时收到告警，需要人工巡检环境。</td><td><li><a href="https://cloud.tencent.com/document/product/457/34182">设置告警</a></li><li><a href="https://cloud.tencent.com/document/product/457/34181">查看监控数据</a></li><li><a href="https://cloud.tencent.com/document/product/457/34183">监控及告警指标列表</a></li></td>
+        <td>主动<br>运维</td><td>容器服务提供多维度的监控和告警功能，同时结合云监控提供的基础资源监控，能保证更细的指标覆盖。配置监控告警，以便于异常时及时收到告警和故障定位。</td><td>监控</td><td>未配置监控告警，将无法建立容器集群性能的正常标准，在出现异常时无法及时收到告警，需要人工巡检环境。</td><td><li><a href="https://cloud.tencent.com/document/product/457/34182">设置告警</a></li><li><a href="https://cloud.tencent.com/document/product/457/34181">查看监控数据</a></li><li><a href="https://cloud.tencent.com/document/product/457/34183">监控及告警指标列表</a></li></td>
     </tr>
 </table>
