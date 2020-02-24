@@ -16,28 +16,29 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择需要管理的环境。
 2. 单击左侧菜单栏【云函数】，进入云函数页面。
 3. 选中需要配置的函数，编辑【函数配置】，配置访问路径。
-![](https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg)
+<img src="https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg" width="80%"></img>
 
 
 ### 绑定自定义域名
 
 1. 单击左侧菜单栏【云函数】，进入云函数页面。
 2. 单击【HTTP 触发】，在 HTTP 触发配置窗口中进行配置。
-![](https://main.qcloudimg.com/raw/282f3c60ebd6f6c631c1c9d6f8e16c92.jpg)
-
-注意事项如下：
-- 每个环境最多绑定5个自定义域名。
-- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
-- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
+![](https://main.qcloudimg.com/raw/d57783a65d625708f45f628eddbe9139.jpg)
+>!
+>- 每个环境最多绑定5个自定义域名。
+>- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
+>- 绑定自定义域名之前，请先设置您默认域名的 CNAME 记录值为`${envId}.service.tcloudbase.com`，CNAME 记录不存在时会导致域名绑定失。
+>- 单个环境可支持被访问的最大 QPS 为5000，单个云函数可支持被访问的最大 QPS 为2000（具体频次受函数并发限制）。
+>- 默认域名可支持被访问的最大 QPS 为200，推荐您绑定自定义域名以获取更大的访问频次。
 
 ### 通过 HTTP 访问云函数
 
-- 可以通过 `https://${envId}.service.tcloudbase.com/${path}` 直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
+- 方式一：通过`https://${envId}.service.tcloudbase.com/${path}`直接访问函数，其中`${envId}`是环境 ID，`${path}`是配置的函数触发路径。
 ```sh
-$ curl https://${env}.service.tcloudbase.com/${path}
+$ curl https://${envId}.service.tcloudbase.com/${path}
 ```
 
-- 也可以直接在浏览器内打开`https://${env}.service.tcloudbase.com/${path}`。
+- 方式二：直接在浏览器内打开`https://${envId}.service.tcloudbase.com/${path}`。
 
 ### 云函数的入参
 
@@ -82,7 +83,7 @@ $ curl https://${env}.service.tcloudbase.com/${path}
 
 ### 云函数的返回值
 
-云函数可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#返回集成响应)，随后云接入会将返回值转化为正常的 HTTP 响应。
+云函数可以返回`string`、`object`、`number`等类型的数据，或者返回 [集成响应](#Integrationresponse)，随后云接入会将返回值转化为正常的 HTTP 响应。
 
 #### 返回字符串或数字
 
@@ -105,7 +106,7 @@ hello gateway
 
 #### 返回 Object
 
-返回的 `Object` 会被转换为JSON，同时 HTTP 响应的 `content-type` 会被设置为 `application/json`）：
+返回的`Object`会被转换为 JSON，同时 HTTP 响应的`content-type`会被设置为 `application/json`：
 
 ```js
 module.exports.main = function() {
@@ -116,7 +117,7 @@ module.exports.main = function() {
 ```
 
 最终 HTTP 响应为：
-```
+```shell
 HTTP/1.1 200 OK
 date: Mon, 16 Dec 2019 08:35:31 GMT
 content-type: application/json; charset=utf-8
@@ -125,6 +126,7 @@ content-length: 13
 {"foo":"bar"}
 ```
 
+<span id="Integrationresponse"></span>
 #### 返回集成响应
 
 云函数可以返回如下这样特殊结构的**集成响应**，来自由地控制响应体：
@@ -140,7 +142,7 @@ content-length: 13
 
 ##### 使用集成响应返回 HTML
 
-将 `content-type` 设置为 `text/html`，即可在 `body` 中返回 HTML，会被浏览器自动解析：
+将`content-type`设置为`text/html`，即可在`body`中返回 HTML，会被浏览器自动解析：
 
 ```js
 module.exports.main = function() {

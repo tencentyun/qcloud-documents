@@ -1,7 +1,6 @@
->?该功能从2019年3月30日开始公测，公测期间仅对白名单用户开放。
+>?仅对白名单用户开放。
 
 ## SSL 连接加密简介
-
 ### SSL 连接加密背景
 当使用非加密方式连接数据库时，在网络中传输的所有信息都是明文，因此存在被非法用户窃听、篡改、冒充的三大风险；而 SSL/TLS 协议是为解决这三大风险而设计的，理论上可达到：
 1. 所有信息都是加密传播，第三方无法窃听。
@@ -33,7 +32,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 ## 配置 SSL 连接加密
 
 ### 开启 SSL 连接加密
-为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 左侧栏的【实例管理】>【数据安全】>【连接安全】中启用 SSL（Secure Sockets Layer）加密。
+为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 实例管理页的【数据安全性】>【连接安全】中启用 SSL（Secure Sockets Layer）加密。
 
 >?由于启用 SSL 加密依赖当前 SQL 引擎版本，如果 SQL 引擎不匹配，后台会先进行**静默升级**（静默升级优先确保现有连接和实例稳定影响，业务无感知升级过程，升级过程可能历时1 - 2小时或更长）。
 
@@ -57,9 +56,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 
 
 ## 连接启用连接加密的实例
-
 ### MySQL/MariaDB 客户端
-
 - 方案一（取决于当前客户端默认配置）：
 ```
 mysql -h9.30.17.168 -P24082  -utest -ptest123 
@@ -75,7 +72,6 @@ mysql -h9.30.17.168 -P24082  -utest -ptest123 --tls-version=TLSv1.2
 
 ### JDBC 等连接程序示例
 如果实例开启 SSL 连接加密，但 JDBC&ODBC 没有配置 SSL 加密，业务会报 WARN 错误。
-
 ```
 JDBC 连接串添加 useSSL 参数：
 
@@ -90,4 +86,3 @@ properties.setProperty("useSSL", "true");
 -Djavax.net.debug=all -Djdk.tls.client.protocols="TLSv1.2" -Dhttps.protocols="TLSv1.2"
 
 ```
-

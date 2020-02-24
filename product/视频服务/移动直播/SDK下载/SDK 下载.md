@@ -82,7 +82,7 @@
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
-企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请 [联系腾讯云商务](https://cloud.tencent.com/document/product/616/11235) 获取。
+企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 获取。
 
 <table>
    <tr>

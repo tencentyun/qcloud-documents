@@ -129,7 +129,8 @@
 
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
-企业版除包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 license 才能运行，解码密码和授权 license 请联系腾讯云商务获取。
+
+企业版除包含专业版的所有功能以外，还集成了 AI 美颜特效组件，支持大眼、瘦脸、美容和动效贴纸、挂件等 AI 美颜特效能力。AI 美颜特效属于增值服务，由 [美颜特效 SDK](https://cloud.tencent.com/document/product/616) 收取相关费用，计费详情请参见 [美颜特效 SDK 价格总览](https://cloud.tencent.com/document/product/616/36807)。企业版下载后需要美颜特效 SDK 的解压密码和授权 License 才能运行，解码密码和授权 License 请根据 [美颜特效 SDK 购买流程](https://cloud.tencent.com/document/product/616/11235) 获取。
 
 <table>
    <tr>
@@ -155,7 +156,7 @@
    </tr>
 </table>
 
->? Windows 和 Mac 版的 SDK 暂无 AI 特效组件，没有做精简版、专业版和企业版的区分。
+>?Windows 和 Mac 版的 SDK 暂无 AI 美颜特效组件，没有做精简版、专业版和企业版的区分。
 
 
 ## 各版本差异对照表
@@ -343,7 +344,7 @@
     <td style="text-align:center">&#10003;</td>
   </tr>
   <tr>
-    <td rowspan='4' style="text-align:center">AI 特效</td>
+    <td rowspan='4' style="text-align:center">AI 美颜特效</td>
     <td style="text-align:center">大眼瘦脸</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>

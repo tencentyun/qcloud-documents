@@ -7,7 +7,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ## 示例软件版本
 本文搭建的 LNMP 环境软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
+- Nginx：Web 服务器，本文以  Nginx 1.17.7 为例。
 - MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
 - PHP：脚本语言，本文以 PHP 7.2.22 为例。
 
