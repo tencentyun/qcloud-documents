@@ -5,7 +5,7 @@
 - 日志存储和查询，按当前使用的存储服务来提供服务保障 SLA。
 
 >?
->- 当前负载均衡仅七层协议（HTTP/HTTPS）支持访问日志的存储和下载，四层协议（TCP/UDP/TCP SSL）不支持访问日志的存储和下载。
+>- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡访问日志无需额外付费，您仅需要支付日志服务的费用。
 - 当前配置访问日志到 CLS 支持的地域包括：成都、多伦多，可直接在控制台使用或通过 API 配置；广州、北京和上海灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 - 目前 [日志服务](https://cloud.tencent.com/document/product/614) 处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
