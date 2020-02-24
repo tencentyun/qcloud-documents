@@ -53,42 +53,42 @@
 ### 各类数据卷挂载配置
 该表展示了不同数据卷的使用细节，您可参照以下内容进行数据卷的添加以及挂载点的设置：
 <table>
-	<tr>
-		<th rowspan="4">数据卷</th>
-	</tr>
-	<tr>
-		<th>类型</th>
-		<td>临时路径</td><td>主机路径</td><td>NFS 盘</td><td>已有 PVC</td><td>腾讯云硬盘</td><td>ConfigMap</td><td>Secret</td>
-	</tr>
-	<tr>
-		<th>名称</th>
-		<td colspan=7>自定义</td>
+    <tbody><tr>
+        <th rowspan="4">数据卷</th>
+    </tr>
+    <tr>
+        <th>类型</th>
+        <th style="width:10%">临时路径</th><th style="width:20%">主机路径</th><th style="width:20%">NFS 盘</th><th style="width:20%">已有 PVC</th><th style="width:10%">腾讯云硬盘</th><th style="width:10%">ConfigMap</th><th style="width:10%">Secret</th>
+    </tr>
+    <tr>
+        <th>名称</th>
+        <td colspan="7">自定义</td>
   </tr>
-	<tr>
-		<th>其他</th>
-		<td>/</td>
-		<td>设置主机路径。<li>主机路径：该路径不能为空，例如当该容器需要访问 Docker 时主机路径可设置为<code>/var/lib/docker</code>。</li><li>检查类型：TKE 为您提供 NoChecks、DirectoryOrCreate 等多种检查类型，请仔细查阅控制台上每种类型介绍，并根据实际需求进行选择。</li></td>
-		<td>NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在【挂载点信息】页签的 “Linux 下挂载目录”中获取。</li></td>
-		<td>请选择 PVC：根据实际需求进行选择。</td>
-		<td>选择云硬盘：请根据实际需求进行选择。</td>
-		<td colspan=2><li>选择 ConfigMap：根据实际需求进行。</li><li>选项：提供“全部”和“指定部分Key”两种选择。</li><li>Items：当选择“指定部分Key” 选项时，可以通过添加 item 向特定路径挂载，如挂载点是 <code>/data/config</code>，子路径是 <code>dev</code>，最终会存储在 <code>/data/config/dev</code> 下。</li></td>
-	</tr>
-	<tr>
-		<th rowspan=4>挂载点</th>
-	</tr>
-	<tr>
-		<th>目标路径</th>
-		<td colspan=8>请根据实际需求进行填写，示例如 <code>/cache</code>。</td>
-	</tr>
-	<tr>
-		<th>挂载子路径</th>
-		<td colspan=8>仅挂载选中数据卷中的子路径或单一文件，示例如 <code>/data</code> 或 <code>/test.txt</code>。</td>
-	</tr>
-	<tr>
-		<th>读写权限</th>
-		<td colspan=8>请根据实际需求进行选择。<li>只读：只允许读取该容器路径数据卷，数据修改只允许在宿主机上操作。</li><li>读写：允许读取以及将修改保存到该容器路径数据卷。</li></td>
-	</tr>
-</table>
+    <tr>
+        <th>其他</th>
+        <td>/</td>
+        <td>设置主机路径。<li>主机路径：该路径不能为空，例如当该容器需要访问 Docker 时主机路径可设置为<code>/var/lib/docker</code>。</li><li>检查类型：TKE 为您提供 NoChecks、DirectoryOrCreate 等多种检查类型，请仔细查阅控制台上每种类型介绍，并根据实际需求进行选择。</li></td>
+        <td>NFS 路径：填写文件系统 CFS 或自建 NFS 地址。<li>如需创建文件系统，请参看<a herf="https://cloud.tencent.com/document/product/582/9132">创建文件系统及挂载点。</a></li><li> NFS 路径示例如<code>10.0.0.161:/</code>。该路径可登录 <a href="https://console.cloud.tencent.com/cfs" target="_blank">文件系统控制台</a>，单击目标文件系统 ID ，在【挂载点信息】页签的 “Linux 下挂载目录”中获取。</li></td>
+        <td>请选择 PVC：根据实际需求进行选择。</td>
+        <td>选择云硬盘：请根据实际需求进行选择。</td>
+        <td colspan="2"><li>选择 ConfigMap：根据实际需求进行。</li><li>选项：提供“全部”和“指定部分Key”两种选择。</li><li>Items：当选择“指定部分Key” 选项时，可以通过添加 item 向特定路径挂载，如挂载点是 <code>/data/config</code>，子路径是 <code>dev</code>，最终会存储在 <code>/data/config/dev</code> 下。</li></td>
+    </tr>
+    <tr>
+        <th rowspan="4">挂载点</th>
+    </tr>
+    <tr>
+        <th>目标路径</th>
+        <td colspan="8">请根据实际需求进行填写，示例如 <code>/cache</code>。</td>
+    </tr>
+    <tr>
+        <th>挂载子路径</th>
+        <td colspan="8">仅挂载选中数据卷中的子路径或单一文件，示例如 <code>/data</code> 或 <code>/test.txt</code>。</td>
+    </tr>
+    <tr>
+        <th>读写权限</th>
+        <td colspan="8">请根据实际需求进行选择。<li>只读：只允许读取该容器路径数据卷，数据修改只允许在宿主机上操作。</li><li>读写：允许读取以及将修改保存到该容器路径数据卷。</li></td>
+    </tr>
+</tbody></table>
 
 ### 创建工作负载挂载数据卷
 
