@@ -475,7 +475,7 @@ gameServer.onDestroyRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/349)&lt;IStartFrameSyncBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IStartFrameSyncBst&gt;|回调参数|
 
 IStartFrameSyncBst 定义如下：
 
