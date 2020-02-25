@@ -49,14 +49,14 @@
 
 #### 登录 IM SDK 后上传 Token 到腾讯云
 
->!busiId 需要与控制台分配的证书 ID 保持一致。
+>!busiID 需要与控制台分配的证书 ID 保持一致。
 
 ```
   __weak typeof(self) ws = self;
  //这里如果使用了 TUIKit，请在 TUKit 登录回调里面设置 Token，如果没有使用，请在 TIMManager 的 login 回调里面设置 Token。
  [[TUIKit sharedInstance] loginKit:identifier userSig:userSig succ:^{
     TIMTokenParam *param = [[TIMTokenParam alloc] init];
-/* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiId 参数中。*/
+/* 用户自己到苹果注册开发者证书，在开发者帐号中下载并生成证书(p12 文件)，将生成的 p12 文件传到腾讯证书管理控制台，控制台会自动生成一个证书 ID，将证书 ID 传入一下 busiID 参数中。*/
 #if kAppStoreVersion
 // App Store 版本
 #if DEBUG
@@ -208,7 +208,7 @@ IM SDK 提供了设置用户声音的接口，可按需自定义设置单聊消�
 **操作步骤**
 1. 把音频文件集成到工程中。
  <img src="//main.qcloudimg.com/raw/c0aca90f7de2f67d815ddfcf13f9fcfc.png" width=480 />
-2. 登录成功后调用 `setToken` 接口设置 token 和 busiId 信息。
+2. 登录成功后调用 `setToken` 接口设置 token 和 busiID 信息。
 3. 调用 `setAPNS` 接口设置音频文件信息。
  >?只需要设置音频文件的**文件名称（含后缀）**即可。
  >
