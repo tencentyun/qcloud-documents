@@ -114,6 +114,18 @@ UserDefinedData 即玩家的消息类型，类型为 object。开发者可以根
 const gameServer = {};
 gameServer.mode = "sync";
 gameServer.onRecvFromClient = args => {
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的数据
+    const actionData = args.actionData;
+    // 发送消息的玩家ID为
+    const sender = args.sender;
+
+    // 可以调用 args.SDK.sendData 方法发消息给客户端
     args.SDK.sendData({ playerIdList: [], data: { msg: "hello" } });
     args.SDK.exitAction();
 };
@@ -129,13 +141,13 @@ gameServer.onRecvFromClient = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;ICreateRoomBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;ICreateRoomBst&gt;|回调参数|
 
 ICreateRoomBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -146,7 +158,17 @@ ICreateRoomBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onCreateRoom = args => {
-    args.SDK.logger.debug("onCreateRoom");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 ICreateRoomBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onCreateRoom", bst.roomInfo);
 };
 ```
 
