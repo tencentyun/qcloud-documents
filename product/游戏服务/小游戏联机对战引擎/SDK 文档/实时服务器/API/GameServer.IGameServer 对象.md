@@ -182,13 +182,13 @@ gameServer.onCreateRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IJoinRoomBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IJoinRoomBst&gt;|回调参数|
 
 IJoinRoomBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 |joinPlayerId|string|加房玩家 ID|
 
 **返回值说明**
@@ -198,9 +198,18 @@ IJoinRoomBst 定义如下：
 **使用示例**
 
 ```
-const gameServer = {};
 gameServer.onJoinRoom = args => {
-    args.SDK.logger.debug("onJoinRoom");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IJoinRoomBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onJoinRoom", bst.joinPlayerId);
 };
 ```
 
@@ -214,13 +223,13 @@ gameServer.onJoinRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;ILeaveRoomBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;ILeaveRoomBst&gt;|回调参数|
 
 ILeaveRoomBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 |leavePlayerId|string|退房玩家 ID|
 
 **返回值说明**
@@ -232,7 +241,17 @@ ILeaveRoomBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onLeaveRoom = args => {
-    args.SDK.logger.debug("onLeaveRoom");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 ILeaveRoomBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onLeaveRoom", bst.leavePlayerId);
 };
 ```
 
@@ -246,13 +265,13 @@ gameServer.onLeaveRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IRemovePlayerBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IRemovePlayerBst&gt;|回调参数|
 
 IRemovePlayerBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 |removePlayerId|string|被移除玩家 ID|
 
 **返回值说明**
@@ -264,7 +283,17 @@ IRemovePlayerBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onRemovePlayer = args => {
-    args.SDK.logger.debug("onRemovePlayer");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IRemovePlayerBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onRemovePlayer", bst.removePlayerId);
 };
 ```
 
@@ -278,13 +307,13 @@ gameServer.onRemovePlayer = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IChangeRoomBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IChangeRoomBst&gt;|回调参数|
 
 IChangeRoomBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -295,7 +324,17 @@ IChangeRoomBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onChangeRoom = args => {
-    args.SDK.logger.debug("onChangeRoom");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IChangeRoomBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onChangeRoom", bst.roomInfo);
 };
 ```
 
@@ -309,7 +348,7 @@ gameServer.onChangeRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IChangeCustomPlayerStatusBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IChangeCustomPlayerStatusBst&gt;|回调参数|
 
 IChangeCustomPlayerStatusBst 定义如下：
 
@@ -317,7 +356,7 @@ IChangeCustomPlayerStatusBst 定义如下：
 |:---|---|---|
 |changePlayerId|string|玩家 ID|
 |customPlayerStatus|number|玩家状态|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -328,7 +367,17 @@ IChangeCustomPlayerStatusBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onChangeCustomPlayerStatus = args => {
-    args.SDK.logger.debug("onChangeCustomPlayerStatus");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IChangeCustomPlayerStatusBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onChangeCustomPlayerStatus", bst.changePlayerId);
 };
 ```
 
@@ -342,7 +391,7 @@ gameServer.onChangeCustomPlayerStatus = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IChangePlayerNetworkStateBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IChangePlayerNetworkStateBst&gt;|回调参数|
 
 IChangePlayerNetworkStateBst 定义如下：
 
@@ -350,7 +399,7 @@ IChangePlayerNetworkStateBst 定义如下：
 |:---|---|---|
 |changePlayerId|string|玩家 ID|
 |networkState|NetworkState|网络状态，有四种情况，参考 [枚举类型](https://cloud.tencent.com/document/product/1038/33333) 一节|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -361,7 +410,17 @@ IChangePlayerNetworkStateBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onChangePlayerNetworkState = args => {
-    args.SDK.logger.debug("onChangePlayerNetworkState");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IChangePlayerNetworkStateBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onChangePlayerNetworkState", bst.changePlayerId);
 };
 ```
 
@@ -375,13 +434,13 @@ gameServer.onChangePlayerNetworkState = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IDestroyRoomBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IDestroyRoomBst&gt;|回调参数|
 
 IDestroyRoomBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -392,7 +451,17 @@ IDestroyRoomBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onDestroyRoom = args => {
-    args.SDK.logger.debug("onDestroyRoom");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IDestroyRoomBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onDestroyRoom", bst.roomInfo);
 };
 ```
 
@@ -406,13 +475,13 @@ gameServer.onDestroyRoom = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IStartFrameSyncBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/349)&lt;IStartFrameSyncBst&gt;|回调参数|
 
 IStartFrameSyncBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|MGOBE.types.RoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 无。
@@ -422,7 +491,17 @@ IStartFrameSyncBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onStartFrameSync = args => {
-    args.SDK.logger.debug("onStartFrameSync");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IStartFrameSyncBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onStartFrameSync", bst.roomInfo);
 };
 ```
 
@@ -436,13 +515,13 @@ gameServer.onStartFrameSync = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;IStopFrameSyncBst&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IStopFrameSyncBst&gt;|回调参数|
 
 IStopFrameSyncBst 定义如下：
 
 |字段名|类型|描述|
 |:---|---|---|
-|roomInfo|MGOBE.types.RoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 无。
@@ -452,6 +531,16 @@ IStopFrameSyncBst 定义如下：
 ```
 const gameServer = {};
 gameServer.onStopFrameSync = args => {
-    args.SDK.logger.debug("onStopFrameSync");
+
+    // 当前房间信息
+    const room = args.room;
+    // 游戏数据
+    const gameData = args.gameData;
+
+    // 收到的广播内容
+    // args.actionData 类型为 IStopFrameSyncBst
+    const bst = args.actionData;
+
+    args.SDK.logger.debug("onStopFrameSync", bst.roomInfo);
 };
 ```
