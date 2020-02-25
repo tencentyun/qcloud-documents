@@ -96,7 +96,7 @@ gameServer.onInitGameData = args => {
 
 |参数名|类型|描述|
 |:---|---|---|
-|args|ActionArgs&lt;UserDefinedData&gt;|回调参数|
+|args|[ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;UserDefinedData&gt;|回调参数|
 
 ActionArgs 定义请参考 [ActionArgs 对象](https://cloud.tencent.com/document/product/1038/34992)。
 
