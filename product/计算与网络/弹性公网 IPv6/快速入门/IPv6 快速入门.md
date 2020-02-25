@@ -41,7 +41,7 @@
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
 ](https://cloud.tencent.com/document/product/576/37972) 进行操作。
 >
-5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见 [Linux 云服务器配置 IPv6](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 和 [Window 云服务器配置 IPv6](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)。
+5. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见 [Linux 云服务器配置 IPv6](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 和 [Windows 云服务器配置 IPv6](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)。
 
 ### 步骤四：为云服务器的 IPv6 地址开通公网（可选）
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
@@ -64,6 +64,30 @@
 ![](https://main.qcloudimg.com/raw/73ff04af93a1f13eef92d4f74ac30fc2.png)
 4. 选择【出站规则】并单击【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
+
+### 步骤六：测试 IPv6 的连通性
+#### Linux 云服务器
+可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
+- **步骤1：**通过 Ping 进行测试，操作如下：
+ - 如果云服务器的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
+![](https://main.qcloudimg.com/raw/6202b3ebe7e946884d0342d6ec2ca16d.png)
+ - 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试，如下图所示：
+![](https://main.qcloudimg.com/raw/da1521a5885aeb8ddbe7f593033aae56.png)
+- **步骤2：**通过 IPv6 地址 ssh 云服务器，操作如下：
+执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 ssh 到云服务器。
+```
+ifconfig
+```
+![](https://main.qcloudimg.com/raw/16838301e15e59ec20f8d3ffb1dd5a69.png)
+成功结果如下图所示：
+![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
+
+#### Windows 云服务器
+通过 Ping 和远程桌面测试 IPv6 连通性。
+- **步骤1**：通过 Ping 进行测试，操作如下：
+在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行`ping -6 240c::6666`进行测试，如下图所示：
+![](https://main.qcloudimg.com/raw/51c8b10298aa8cdca15b4f67ff54396c.png)
+- **步骤2**：通过 IPv6 地址进行远程桌面，操作如下：
 
 ## 附录
 ### Linux 云服务器配置 IPv6
@@ -249,7 +273,6 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-11. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
 <span id="CentOS6.8"/>
 
@@ -332,7 +355,6 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-23. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
 <span id="CentOS7.3"/>
 
@@ -416,7 +438,6 @@ service sshd restart
 netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
-21. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 <span id="Debian8.2"/>
 
 #### Debian 8.2 配置 IPv6
@@ -458,7 +479,6 @@ netstat -tupln
 ```
 ip -6 route add default dev eth0
 ```
-10. 测试连通性，请参见 [测试 Linux 云服务器 IPv6 的连通性](#test-Linux)。
 
 #### <span id="test-Linux" />测试 Linux 云服务器 IPv6 的连通性
 可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
@@ -485,9 +505,9 @@ ifconfig
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
 4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入 [步骤三](#step3) 中云服务器获取到的 IPv6 地址并设置 DNS，单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
-5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址，并通过 Ping 和远程桌面测试 IPv6 连通性。
+5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
 ```
 netsh interface ipv6 add route ::/0 "以太网"
 ipconfig
 ```
-![](https://main.qcloudimg.com/raw/eec1e647837d6b096ef9e022c3bafa7e.png)
+![](https://main.qcloudimg.com/raw/ba325fb98c4efe86a1f3a4bcd55f77be.png)
