@@ -1,5 +1,5 @@
 当选择部署 Hive 组件时，Hive 元数据库提供了两种存储方式；第一种集群默认， Hive 元数据存储于集群独立购买 MetaDB；第二种是关联外部 Hive 元数据库 ，可选择关联 EMR-MetaDB 或自建 MySQL 数据库，元数据将存储于关联的数据库中，不随集群销毁而销毁。
-集群默认是独立自动购买一个MetaDB云数据库实例存储单元作为元数据存储地，与其余组件元数据一起存储，并随集群销毁而销毁MetaDB云数据库，若需保存元数据，需提前前往云数据库中手动保存元数据。
+集群默认是独立自动购买一个 MetaDB 云数据库实例存储单元作为元数据存储地，与其余组件元数据一起存储，并随集群销毁而销毁MetaDB云数据库，若需保存元数据，需提前前往云数据库中手动保存元数据。
 
 >!
 >1. Hive 元数据与 Sqoop、Hue、Ranger、Oozie、Presto 组件元数据一起存储。
@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/5c58a791c3a4fe0d6f854b44c92c2b13.png)
 ![](https://main.qcloudimg.com/raw/56837d31dfe5ebf11ef2cf7737bd1bcf.png)
 > !
->1. 可用 MateDB 实列 ID 为同一账号下 EMR 集群中已有的 MateDB。
+>1. 可用 MateDB 实例 ID 为同一账号下 EMR 集群中已有的 MateDB。
 >2. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MateDB 用于除 Hive 外的元数据存储。
 >3. 要销毁关联的 EMR-MateDB 需前往云数据库销毁，销毁后 Hive 元数据库将无法恢复。
 >4. 需保持关联的 EMR-MateDB 网络与当前新建集群在同一网络环境下。
