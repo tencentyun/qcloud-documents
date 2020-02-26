@@ -13,7 +13,7 @@
 - 不支持 hostPath 作为数据卷。
 
 ### Service
-- 不支持部署 NodePort 类型的服务。
+不支持部署 NodePort 类型的服务。
 
 ### Volume
 不支持共享卷（emptyDir）的 Linux filesystem event（INOTIFY）特性。
