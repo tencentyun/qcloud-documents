@@ -67,13 +67,11 @@
 
 ### 步骤六：测试 IPv6 的连通性
 #### Linux 云服务器
-可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
-- **步骤1：**通过 Ping 进行测试，操作如下：
- - 如果云服务器的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
-![](https://main.qcloudimg.com/raw/6202b3ebe7e946884d0342d6ec2ca16d.png)
- - 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试，如下图所示：
-![](https://main.qcloudimg.com/raw/da1521a5885aeb8ddbe7f593033aae56.png)
-- **步骤2：**通过 IPv6 地址 ssh 云服务器，操作如下：
+- 如果云服务器的 IPv6 地址已开通公网，可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
+ - **步骤1：**通过 Ping 进行测试，操作如下：
+ 在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
+![](https://main.qcloudimg.com/raw/de0f8028e1ab3c670428ce65e47c7c63.png)
+ - **步骤2：**通过 IPv6 地址 ssh 云服务器，操作如下：
 执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 ssh 到云服务器。
 ```
 ifconfig
@@ -81,13 +79,15 @@ ifconfig
 ![](https://main.qcloudimg.com/raw/16838301e15e59ec20f8d3ffb1dd5a69.png)
 成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
+- 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试。
 
 #### Windows 云服务器
-通过 Ping 和远程桌面测试 IPv6 连通性。
-- **步骤1**：通过 Ping 进行测试，操作如下：
+- 如果云服务器的 IPv6 地址已开通公网，可通过 Ping 和远程桌面测试 IPv6 连通性。
+ - **步骤1**：通过 Ping 进行测试，操作如下：
 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行`ping -6 240c::6666`进行测试，如下图所示：
 ![](https://main.qcloudimg.com/raw/51c8b10298aa8cdca15b4f67ff54396c.png)
-- **步骤2**：通过 IPv6 地址进行远程桌面，操作如下：
+ - **步骤2**：通过 IPv6 地址进行远程桌面，远程桌面操作详情请参见 [使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
+- 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试。
 
 ## 附录
 ### Linux 云服务器配置 IPv6
@@ -503,7 +503,7 @@ ifconfig
 2. 在“以太网状态”弹窗中，单击【属性】。
 3. 在“以太网属性”弹窗中，选中【Internet 协议版本 6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入 [步骤三](#step3) 中云服务器获取到的 IPv6 地址并设置 DNS，单击【确定】。
+4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入 [步骤三](#step3) 中云服务器获取到的 IPv6 地址并设置 DNS（推荐使用`240c::6666`），单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
 5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
 ```
