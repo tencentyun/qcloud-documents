@@ -46,6 +46,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 COSBrowser 桌面端注重对资源的管理，用户可以通过 COSBrowser 批量的上传、下载数据。
 
 > !COSBrowser 桌面端会使用系统配置的代理来尝试网络连接，请确保您的代理配置正常或请停用无法连接互联网的代理配置。
+>
 > - Windows 用户可在操作系统的“Internet 选项”中查询。
 > - macOS 用户可在“网络偏好设置”中查询。
 > - Linux 用户可在系统设置 > 网络 > 网络代理中查询。
@@ -56,10 +57,15 @@ COSBrowser 桌面端支持以下功能：
 
 | 功能                                                         | 功能说明                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [创建/删除存储桶](跳转链接)                                  | 支持创建、删除存储桶                                         |
+| [查看存储桶详情](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持查看存储桶基本信息                                       |
+| [修改存储桶访问权限](跳转链接)                               | 支持修改存储桶的公共访问权限                                 |
+| [设置版本控制](跳转链接)                                     | 支持开启、暂停存储桶版本控制                                 |
+| [添加访问路径](跳转链接)                                     | 支持添加访问路径                                             |
 | [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶         |
 | [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地           |
 | [删除文件/文件夹](https://cloud.tencent.com/document/product/436/38103#delete) | 支持单个删除、批量删除存储桶中的文件或文件夹                 |
-|      [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization)            	|                                                    支持将本地文件实时同步至存储桶中                   |   
+| [文件同步](https://cloud.tencent.com/document/product/436/38103#synchronization) | 支持将本地文件实时同步至存储桶中                             |
 | [复制粘贴文件](https://cloud.tencent.com/document/product/436/38103#copy) | 支持单个复制、批量复制一个目录下的文件或文件夹至另一个目录   |
 | [文件重命名](https://cloud.tencent.com/document/product/436/38103#rename) | 支持重命名存储桶中的文件                                     |
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38103#newfolder) | 支持在存储桶中新建文件夹                                     |
@@ -69,7 +75,6 @@ COSBrowser 桌面端支持以下功能：
 | [搜索文件](https://cloud.tencent.com/document/product/436/38103#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
 | [搜索存储桶](https://cloud.tencent.com/document/product/436/38103#searchbuckete) | 支持搜索已创建的存储桶                                       |
 | [查看多版本文件](https://cloud.tencent.com/document/product/436/38103#viewfiles) | 支持在已开启版本控制的存储桶中，查看文件的历史版本           |
-| [查看存储桶详情](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持查看存储桶基本信息                                       |
 | [设置网络代理](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置网络代理来访问 COS                                   |
 | [设置传输并发数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件上传、下载的传输并发数                           |
 | [设置传输分块数](https://cloud.tencent.com/document/product/436/38103#sets) | 支持设置文件分块上传、下载的分块数                           |
@@ -95,6 +100,7 @@ COSBrowser 移动端支持以下功能：
 | [文件重命名](https://cloud.tencent.com/document/product/436/38105#rename) | 支持重命名存储桶中的文件                                     |
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38105#newfolder) | 支持在存储桶中新建文件夹                                     |
 | [查看文件详情](https://cloud.tencent.com/document/product/436/38105#view) | 支持查看存储桶中的文件基本信息                               |
+| [文件预览](跳转链接)                                         | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
 | [生成文件链接](https://cloud.tencent.com/document/product/436/38105#generatelinks) | 支持通过请求临时签名的方式，生成带有时效的文件访问链接       |
 | [搜索文件](https://cloud.tencent.com/document/product/436/38105#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
 | [搜索存储桶](https://cloud.tencent.com/document/product/436/38105#searchbuckete) | 支持搜索已创建的存储桶                                       |
