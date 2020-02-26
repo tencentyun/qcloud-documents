@@ -10,7 +10,7 @@
 集群创建时系统会拉取云上可用的 MetaDB，用于新集群 Hive 组件存储元数据，无需单独购买 MetaDB 存储 Hive 元数据节约成本；并且 Hive 元数据不会随当前集群的销毁而销毁。
 > !
 >1. 可用 MetaDB 实例 ID 为同一账号下 EMR 集群中已有的 MetaDB。
->2. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
+>2. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的组件元数据存储。
 >3. 要销毁关联的 EMR-MetaDB 需前往云数据库销毁，销毁后 Hive 元数据库将无法恢复。
 >4. 需保持关联的 EMR-MetaDB 网络与当前新建集群在同一网络环境下。
 >
