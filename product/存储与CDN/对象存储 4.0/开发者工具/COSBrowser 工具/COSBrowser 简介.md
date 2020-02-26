@@ -57,11 +57,11 @@ COSBrowser 桌面端支持以下功能：
 
 | 功能                                                         | 功能说明                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [创建/删除存储桶](跳转链接)                                  | 支持创建、删除存储桶                                         |
+| [创建/删除存储桶](https://cloud.tencent.com/document/product/436/38103#createordelete)                                  | 支持创建、删除存储桶                                         |
 | [查看存储桶详情](https://cloud.tencent.com/document/product/436/38103#viewbucket) | 支持查看存储桶基本信息                                       |
-| [修改存储桶访问权限](跳转链接)                               | 支持修改存储桶的公共访问权限                                 |
-| [设置版本控制](跳转链接)                                     | 支持开启、暂停存储桶版本控制                                 |
-| [添加访问路径](跳转链接)                                     | 支持添加访问路径                                             |
+| [修改存储桶访问权限](https://cloud.tencent.com/document/product/436/38103#)                               | 支持修改存储桶的公共访问权限                                 |
+| [设置版本控制](https://cloud.tencent.com/document/product/436/38103#)                                     | 支持开启、暂停存储桶版本控制                                 |
+| [添加访问路径](https://cloud.tencent.com/document/product/436/38103#addaccess)                                     | 支持添加访问路径                                             |
 | [上传文件/文件夹](https://cloud.tencent.com/document/product/436/38103#upload) | 支持单个上传、批量上传、增量上传文件或文件夹至存储桶         |
 | [下载文件/文件夹 ](https://cloud.tencent.com/document/product/436/38103#download) | 支持单个下载、批量下载、增量下载文件或文件夹至本地           |
 | [删除文件/文件夹](https://cloud.tencent.com/document/product/436/38103#delete) | 支持单个删除、批量删除存储桶中的文件或文件夹                 |
