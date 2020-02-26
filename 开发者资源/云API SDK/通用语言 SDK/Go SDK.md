@@ -33,10 +33,10 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 <td><a href="https://cloud.tencent.com/document/api/557/16124">分布式数据库 TDSQL</a></td>
  <td><a href="https://cloud.tencent.com/document/api/238/19927">云数据库 SQL Server</a></td>
   <td><a href="https://cloud.tencent.com/document/api/409/16761">云数据库 PostgreSQL</a></td>
-   <td><a href="https://cloud.tencent.com/document/api/228/30974">内容分发网络</a></td>
+   <td><a href="https://cloud.tencent.com/document/product/1130/39547">数据库智能管家 DBbrain</a></td>
    </tr>
-   <tr>
-<td><a href="https://cloud.tencent.com/document/api/296/19825">主机安全</a></td>
+   <tr>     
+   <td><a href="https://cloud.tencent.com/document/product/596/39648">游戏数据库 TcaplusDB</a></td>
   <td><a href="https://cloud.tencent.com/document/api/692/16733">漏洞扫描服务</a></td>
    <td><a href="https://cloud.tencent.com/document/api/283/17742">移动应用安全</a></td>
    <td><a href="https://cloud.tencent.com/document/api/266/31753">云点播</a></td>
@@ -77,6 +77,13 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
    <td><a href="https://cloud.tencent.com/document/api/649/36037">腾讯微服务平台 TSF</a></td>
    <td><a href="https://cloud.tencent.com/document/api/597/40823">消息队列 CKafka</a></td>
    </tr>
+  <tr>   
+   <td><a href="https://cloud.tencent.com/document/api/228/30974">内容分发网络</a></td>
+<td><a href="https://cloud.tencent.com/document/api/296/19825">主机安全</a></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+     </tr>
   </table>
 
 ## API Explorer

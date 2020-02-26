@@ -42,7 +42,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 ### 设置 APNs 推送
 | API | 描述 |
 | --- | --- |
-| [setToken](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMManager.html#settoken) | 设置客户端 Token 和证书 busiId。 |
+| [setToken](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMManager.html#settoken) | 设置客户端 Token 和证书 busiID。 |
 | [setAPNS](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMManager.html#setapns) | 配置 APNS。 |
 | [getAPNSConfig](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMManager.html#getapnsconfig) | 获取 APNS 配置。 |
 | [doBackground](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMManager.html#dobackground) | 上报 App 应用退至后台。 |

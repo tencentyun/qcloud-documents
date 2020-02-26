@@ -87,7 +87,6 @@ pod install //安装SDK
 		// iOS 10 新增回调 API
 		// App 用户点击通知
 		// App 用户选择通知中的行为
-		// App 用户在通知中心清除消息
 		// 无论本地推送还是远程推送都会走这个回调
 	#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 	__IPHONE_10_0
 		- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center 

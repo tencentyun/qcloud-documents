@@ -2,7 +2,6 @@
 本文档将向您介绍如何在 Notebook 中进行文件的上传与下载操作。
 
 
-
 ## 操作详情
 
 ### 小文件的上传与下载
@@ -20,7 +19,7 @@
 
 以下是通过COS下载文件的操作示例，其他操作请参考 [COS SDK](https://cloud.tencent.com/document/product/436/12269) 文档。
 
-```python
+
 #### 导入依赖包
 import os
 from qcloud_cos import CosConfig

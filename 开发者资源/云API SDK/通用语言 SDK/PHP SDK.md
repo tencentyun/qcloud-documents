@@ -33,10 +33,10 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
 <td><a href="https://cloud.tencent.com/document/api/557/16124">分布式数据库 TDSQL</a></td>
  <td><a href="https://cloud.tencent.com/document/api/238/19927">云数据库 SQL Server</a></td>
   <td><a href="https://cloud.tencent.com/document/api/409/16761">云数据库 PostgreSQL</a></td>
-   <td><a href="https://cloud.tencent.com/document/api/228/30974">内容分发网络</a></td>
+   <td><a href="https://cloud.tencent.com/document/product/1130/39547">数据库智能管家 DBbrain</a></td>
    </tr>
-   <tr>
-<td><a href="https://cloud.tencent.com/document/api/296/19825">主机安全</a></td>
+   <tr>     
+   <td><a href="https://cloud.tencent.com/document/product/596/39648">游戏数据库 TcaplusDB</a></td>
   <td><a href="https://cloud.tencent.com/document/api/692/16733">漏洞扫描服务</a></td>
    <td><a href="https://cloud.tencent.com/document/api/283/17742">移动应用安全</a></td>
    <td><a href="https://cloud.tencent.com/document/api/266/31753">云点播</a></td>
@@ -77,6 +77,13 @@ SDK3.0支持全部 API3.0下的产品，本列表可能滞后于实际代码，�
    <td><a href="https://cloud.tencent.com/document/api/649/36037">腾讯微服务平台 TSF</a></td>
    <td><a href="https://cloud.tencent.com/document/api/597/40823">消息队列 CKafka</a></td>
    </tr>
+  <tr>   
+   <td><a href="https://cloud.tencent.com/document/api/228/30974">内容分发网络</a></td>
+<td><a href="https://cloud.tencent.com/document/api/296/19825">主机安全</a></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+     </tr>
   </table>
 
 
@@ -112,7 +119,12 @@ require 'vendor/autoload.php';
 ```
 
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-php) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
+1. 下载源码压缩包：
+ - **方法一**：通过 git clone 下载源码。
+ ```
+git clone https://github.com/tencentcloud/tencentcloud-sdk-php
+```
+ - **方法二**：访问 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 添加以下引用代码，引用方法可参考示例。
 ```

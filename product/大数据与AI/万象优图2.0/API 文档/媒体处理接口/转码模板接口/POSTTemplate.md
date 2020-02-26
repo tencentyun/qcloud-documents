@@ -13,10 +13,11 @@ Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
+
 <body>
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -292,46 +293,6 @@ Container 类型 Video 的具体数据描述如下：
    </tr>
 </table>
 
-Container 类型 Audio 的具体数据描述如下(预留节点):
-
-<table width="100%">
-   <tr>
-      <th nowrap="nowrap">节点名称（关键字）</th>
-      <th>父节点</th>
-      <th>描述</th>
-      <th>类型</th>
-      <th>是否必选</th>
-      <th>默认值</th>
-      <th>限制</th>
-   </tr>
-   <tr>
-      <td>Remove</td>
-      <td>Request.Audio</td>
-      <td>是否删除音频流</td>
-      <td>String</td>
-      <td>否</td>
-      <td>无</td>
-      <td>
-        1. true、false<br>
-        2. 预留节点
-      </td>
-   </tr>
-</table>
-
-Container 类型 TransConfig 的具体数据描述如下(预留节点)：
-
-<table width="100%">
-   <tr>
-      <th nowrap="nowrap">节点名称（关键字）</th>
-      <th>父节点</th>
-      <th>描述</th>
-      <th>类型</th>
-      <th>是否必选</th>
-      <th>默认值</th>
-      <th>限制</th>
-   </tr>
-</table>
-
 Container 类型 TimeInterval 的具体数据描述如下：
 
 <table width="100%">
@@ -491,11 +452,6 @@ Container 类型 Snapshot 的具体数据描述如下：
          <Fps>1-60</Fps>
          <Remove>false</Remove>
       </Video>
-      <Audio>
-         <Remove>true</Remove>
-      </Audio>
-      <TransConfig>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
@@ -542,15 +498,6 @@ Content-Type: application/xml
         <Fps>1-60</Fps>
         <Remove>false</Remove>
     </Video>
-    <Audio>
-        <Remove>true</Remove>
-    </Audio>
-    <TransConfig>
-        <TransMode>onepass</TransMode>
-        <IsCheckReso>true</IsCheckReso>
-        <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-        <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-    </TransConfig>
     <TimeInterval>
         <Start></Start>
         <Duration></Duration>
@@ -584,11 +531,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
          <Fps>1-60</Fps>
          <Remove>false</Remove>
       </Video>
-      <Audio>
-         <Remove>true</Remove>
-      </Audio>
-      <TransConfig>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
@@ -606,7 +548,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 ```shell
 POST /template HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:examplebucketbucket-1250000000.ci.ap-beijing.myqcloud.com
+Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
