@@ -100,7 +100,7 @@ COSBrowser 移动端支持以下功能：
 | [文件重命名](https://cloud.tencent.com/document/product/436/38105#rename) | 支持重命名存储桶中的文件                                     |
 | [新建文件夹](https://cloud.tencent.com/document/product/436/38105#newfolder) | 支持在存储桶中新建文件夹                                     |
 | [查看文件详情](https://cloud.tencent.com/document/product/436/38105#view) | 支持查看存储桶中的文件基本信息                               |
-| [文件预览](跳转链接)                                         | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
+| [文件预览](https://cloud.tencent.com/document/product/436/38105#filepreview)                                         | 支持预览存储桶中的媒体文件（图片、视频、音频）               |
 | [生成文件链接](https://cloud.tencent.com/document/product/436/38105#generatelinks) | 支持通过请求临时签名的方式，生成带有时效的文件访问链接       |
 | [搜索文件](https://cloud.tencent.com/document/product/436/38105#searchfile) | 支持以前缀搜索的方式对存储桶中的文件进行搜索                 |
 | [搜索存储桶](https://cloud.tencent.com/document/product/436/38105#searchbuckete) | 支持搜索已创建的存储桶                                       |
