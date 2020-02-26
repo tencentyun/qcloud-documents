@@ -246,16 +246,18 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         // 其他安卓组件
         <meta-data
             android:name="XG_GUID_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer" /> //香港地区设置为https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer  
+            android:value="https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer" /> 
+						//香港地区设置为https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer  
         <meta-data
             android:name="XG_STAT_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/log/statistics/push" />  //香港地区请设置为 https://api.tpns.hk.tencent.com/log/statistics/push  
+            android:value="https://api.tpns.sgp.tencent.com/log/statistics/push" /> 
+						//香港地区请设置为 https://api.tpns.hk.tencent.com/log/statistics/push  
         <meta-data
             android:name="XG_LOG_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/v3/mobile/log/upload" /> //香港地区请设置为https://api.tpns.hk.tencent.com/v3/mobile/log/upload  
+            android:value="https://api.tpns.sgp.tencent.com/v3/mobile/log/upload" /> 
+						//香港地区请设置为https://api.tpns.hk.tencent.com/v3/mobile/log/upload  
 </application>
 ```
-
 
 
 #### 音视频富媒体使用方法（可选）
