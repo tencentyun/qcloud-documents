@@ -166,7 +166,7 @@ npm install tencentcloud-sdk-nodejs --save
 
 <span id="example"></span>
 ## 示例
-本文以查询可用区接口为例，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/tree/master/examples)。
+本文以云服务器查询可用区接口为例，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/tree/master/examples)。
 
 ```js
 const tencentcloud = require("../../../../tencentcloud-sdk-nodejs");
