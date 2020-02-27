@@ -137,7 +137,7 @@ require_once '../TCloudAutoLoader.php';
 
 <span id="example"></span>
 ## 示例
-本文以查询可用区接口为例，开发者可以在 GitHub 仓库 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples) 下查看更多更详细的示例。
+本文以查询可用区接口为例，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples)。
 
 ```php
 <?php
@@ -149,7 +149,7 @@ use TencentCloud\Cvm\V20170312\Models\DescribeZonesRequest;
 use TencentCloud\Common\Exception\TencentCloudSDKException;
 use TencentCloud\Common\Credential;
 try {
-    // 实例化一个证书对象，入参需要传入腾讯云账户 SecretID，SecretKey
+    // 实例化一个证书对象，入参需要传入腾讯云账户 secretId，secretKey
     $cred = new Credential("secretId", "secretKey");
 
     // 实例化要请求产品(以 CVM 为例)的 client 对象
