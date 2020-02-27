@@ -1,36 +1,34 @@
 ## 版本迁移指南
-如您接入的免费版2.x的版本，请参考[SDK集成文档](https://cloud.tencent.com/document/product/548/36663)接入。
-为保障迁移后的正常使用，请您升级至iOS V1.2.5.3及以上版本，以下是针对从信鸽免费版本3.x迁移到腾讯云TPNS iOS V1.2.5.3及以上版本的变更说明：
+如您接入的免费版2.x的版本，请参考 [SDK集成文档](https://cloud.tencent.com/document/product/548/36663) 接入。
+为保障迁移后的正常使用，请您升级至 iOS V1.2.5.3 及以上版本，以下是针对从信鸽免费版本 3.x 迁移到腾讯云 TPNS iOS V1.2.5.3 及以上版本的变更说明：
 
 ## 自动集成方式
-
 ### Pod名称变更
- 通过Cocoapods 下载地址：
- ```pod 'TPNS-iOS' ```
+ 通过 Cocoapods 下载地址：
+ `pod 'TPNS-iOS' `
 
 
 ### 托管仓库变更
-因仓库地址变更为腾讯工蜂首次通过 pod 下载需要注册登录[工蜂地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中设置账号和密码，然后在 Terminal 中设置腾讯工蜂的账号和密码。后续即可正常使用，当前 PC 不需要再次登录。
+因仓库地址变更为腾讯工蜂首次通过 pod 下载需要注册登录 [工蜂地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中设置账号和密码，然后在 Terminal 中设置腾讯工蜂的账号和密码。后续即可正常使用，当前 PC 不需要再次登录。
 
 
 ### 新增支持 Carthage 导入
 在 Cartfile 文件中指明依赖的第三方库：
-``` github "xingePush/carthage-TPNS-iOS" ```
+` github "xingePush/carthage-TPNS-iOS" `
 
 ## 手动导入
-
 ### SDK包下载
-请前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload)下载 iOS SDK 压缩包、解压。
+请前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload) 下载 iOS SDK 压缩包、解压。
 
 ###工程文件变更
 
 变更前：
 
-```XGPush.h``` 、 ```libXG-SDK.a```
+`XGPush.h` 、 `libXG-SDK.a`
 
 变更后：
 
-```XGPush.h``` 、``` libXG-SDK-Cloud.a```、 ```XGMTACloud.framework```
+`XGPush.h` 、` libXG-SDK-Cloud.a`、 `XGMTACloud.framework`
 
 
 
@@ -43,7 +41,7 @@
  * CoreTelephony.framework
  * SystemConfiguration.framework
  * UserNotifications.framework
- * libXG-SDK.a 
+ * libXG-SDK.a
  * libz.tbd
  * libsqlite3.0.tbd
 ```
@@ -53,7 +51,7 @@
 * CoreTelephony.framework
 * SystemConfiguration.framework
 * UserNotifications.framework
-* libXG-SDK-Cloud.a 
+* libXG-SDK-Cloud.a
 * libz.tbd
 * CoreData.framework
 * CFNetwork.framework
@@ -63,7 +61,7 @@
 
 与免费版本对比，部分 API 接口做了以下变更：
 
-不推荐再调用 reportXGNotification* 数据统计上报接口，SDK已内部自动处理。
+不推荐再调用 reportXGNotification* 数据统计上报接口，SDK 已内部自动处理。
 
 变更前：
 ``` object-c
@@ -73,9 +71,9 @@
      @param userInfo 推送时指定的参数
      @param completionHandler 完成回调
      */
-    - (void)application:(UIApplication *)application 
-        didReceiveRemoteNotification:(NSDictionary *)userInfo 
-            fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
+    - (void)application:(UIApplication *)application
+        didReceiveRemoteNotification:(NSDictionary *)userInfo
+            fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
     {
         [[XGPush defaultManager] reportXGNotificationInfo:userInfo];
         completionHandler(UIBackgroundFetchResultNewData);
@@ -86,9 +84,9 @@
     // App 用户在通知中心清除消息
     // 无论本地推送还是远程推送都会走这个回调
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >=     __IPHONE_10_0
-    - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center 
-        didReceiveNotificationResponse:(UNNotificationResponse *)response 
-        withCompletionHandler:(void (^)(void))completionHandler 
+    - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
+        didReceiveNotificationResponse:(UNNotificationResponse *)response
+        withCompletionHandler:(void (^)(void))completionHandler
         {
             [[XGPush defaultManager] reportXGNotificationResponse:response];
             completionHandler();
@@ -96,7 +94,7 @@
 
     // App 在前台弹通知需要调用这个接口
     - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
-         willPresentNotification:(UNNotification *)notification 
+         willPresentNotification:(UNNotification *)notification
              withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
              {
                  [[XGPush defaultManager] reportXGNotificationInfo:notification.request.content.userInfo];
@@ -112,9 +110,9 @@
   @param userInfo 推送时指定的参数
   @param completionHandler 完成回调
   */
- - (void)application:(UIApplication *)application 
-             didReceiveRemoteNotification:(NSDictionary *)userInfo 
-                     fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler 
+ - (void)application:(UIApplication *)application
+             didReceiveRemoteNotification:(NSDictionary *)userInfo
+                     fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
      {
          completionHandler(UIBackgroundFetchResultNewData);
  }
@@ -124,16 +122,16 @@
  // App 用户在通知中心清除消息
  // 无论本地推送还是远程推送都会走这个回调
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >=     __IPHONE_10_0
- - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center 
-             didReceiveNotificationResponse:(UNNotificationResponse *)response 
-             withCompletionHandler:(void (^)(void))completionHandler 
+ - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
+             didReceiveNotificationResponse:(UNNotificationResponse *)response
+             withCompletionHandler:(void (^)(void))completionHandler
              {
                      completionHandler();
  }
 
  // App 在前台弹通知需要调用这个接口
  - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
-              willPresentNotification:(UNNotification *)notification 
+              willPresentNotification:(UNNotification *)notification
                       withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler
                       {
                               completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
@@ -146,7 +144,7 @@
 
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息，需要您实现此接口，接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
 
-*注意 :如果未集成此接口，则统计数据中消息『抵达数』与『点击数』一致。*
+>!如果未集成此接口，则统计数据中消息『抵达数』与『点击数』一致。
 
 ## 测试
 
@@ -167,14 +165,3 @@
 //获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
-
-
-
-
-
-
-
-
-
-
-
