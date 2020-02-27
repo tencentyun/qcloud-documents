@@ -16,11 +16,11 @@
 
 ### 鉴权方式
 
-免费版本使用 `AppId + secretkey` 进行 `Basic Auth` 鉴权。([免费版本鉴权说明](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html#%E9%89%B4%E6%9D%83%E6%96%B9%E5%BC%8F))
+免费版本使用 `AppId + SecretKey` 进行 `Basic Auth` 鉴权。([免费版本鉴权说明](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html#%E9%89%B4%E6%9D%83%E6%96%B9%E5%BC%8F))
 
-腾讯云版本使用 `AccessId + secretKey` 进行 `Basic Auth` 鉴权。([腾讯云版本鉴权说明](https://cloud.tencent.com/document/product/548/39062))
+腾讯云版本使用 `AccessId + SecretKey` 进行 `Basic Auth` 鉴权。([腾讯云版本鉴权说明](https://cloud.tencent.com/document/product/548/39062))
 
->?**腾讯云版本没有对应 AppId 字段， 需要使用对应的应用 id `AccessId` 和密钥``secretkey ``进行鉴权**。
+>?**腾讯云版本没有对应 AppId 字段， 需要使用对应的应用 id `AccessId` 和密钥 `SecretKey ` 进行鉴权**。
 
 
 ### 推送接口
