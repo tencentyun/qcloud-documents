@@ -44,7 +44,7 @@
 
 ### 账号查询接口
 
-[腾讯云账号查询协议格式](https://cloud.tencent.com/document/product/548/39071) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html#账号-设备绑定查询（批量操作）) 基本相同，主要区别如下：
+[腾讯云版本账号查询协议格式](https://cloud.tencent.com/document/product/548/39071) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html#账号-设备绑定查询（批量操作）) 基本相同，主要区别如下：
 
 **响应参数变动说明**
 
@@ -77,12 +77,12 @@ V2 版本对应的V3 版本接口参考如下：
 
 | V2接口 | V2接口url | V3 接口 | V3 接口url | 接口定义说明 |
 | ---------------- | -------------------------------- | ---------------------------- | -------------- | ------------------------------------------------------------ |
-| 全量推送 | /v2/push/all\_device | 推送接口 | /v3/push/app | [参考推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
-| 标签推送 | /v2/push/tags\_device | 推送接口 | /v3/push/app | [参考推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
-| 账号群推 | /v2/push/account\_list | 推送接口 | /v3/push/app | [参考推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
-| 设备单推 | /v2/push/single\_device | 推送接口 | /v3/push/app | [参考推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
-| 账号单推 | /v2/push/single\_account | 推送接口 | /v3/push/app | [参考推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
+| 全量推送 | /v2/push/all\_device | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
+| 标签推送 | /v2/push/tags\_device | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
+| 账号群推 | /v2/push/account\_list | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
+| 设备单推 | /v2/push/single\_device | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
+| 账号单推 | /v2/push/single\_account | 推送接口 | /v3/push/app | 参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
 | 超大批量账号推送 | /v2/push/account\_list\_multiple | 不支持，可使用号码包推送替代 | | |
 | 超大批量设备推送 | v2/push/device\_list\_multiple | 不支持，可使用号码包推送替代 | | |
-| 批量新增标签 | /v2/tags/batch\_set | 标签绑定接口 | /v3/device/tag | [参考标签接口文档](https://cloud.tencent.com/document/product/548/39067) |
-| 批量删除标签 | /v2/tags/batch\_del | 标签绑定接口 | /v3/device/tag | [参考标签接口文档](https://cloud.tencent.com/document/product/548/39067) |
+| 批量新增标签 | /v2/tags/batch\_set | 标签绑定接口 | /v3/device/tag | 参考 [标签接口文档](https://cloud.tencent.com/document/product/548/39067) |
+| 批量删除标签 | /v2/tags/batch\_del | 标签绑定接口 | /v3/device/tag |参考 [标签接口文档](https://cloud.tencent.com/document/product/548/39067) |
