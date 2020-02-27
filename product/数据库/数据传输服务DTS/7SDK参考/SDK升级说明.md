@@ -33,7 +33,7 @@ public class Main {
         context.setSecretId("AKID-522dabxxxxxxxxxxxxxxxxxx");
         context.setSecretKey("AKEY-0ff4cxxxxxxxxxxxxxxxxxxxx");
         /*****************程序改动点 BEGIN ****************/
-        // ! Important API 2.0 接口已下线，如果不设置 region 参数，将会使用 API 2.0 做鉴权
+        // API 2.0 接口下线后，如果不设置 region 参数，将会使用 API 2.0 做鉴权
         // API 2.0 下线后鉴权会失效，SDK 也不能正常使用。
         // 设置订阅 channel 所属的 region。
         context.setRegion("ap-chongqing");
