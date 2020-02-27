@@ -110,7 +110,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 
 ## 示例
 每个接口都有一个对应的 Request 结构和一个 Response 结构。例如，查询可用区 DescribeZones 有对应的请求结构体 DescribeZonesRequest 和返回结构体 DescribeZonesResponse 。
-本文以查询可用区为例，介绍 SDK 的基础用法，更多示例参见 [examples](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples) 目录。
+本文以查询可用区为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples)。
 >?对于复杂接口的 Request 初始化示例，可以参考 examples/cvm/v20170312/run_instances.go。对于使用 JSON 字符串初始化 Request 的示例，可以参考 examples/cvm/v20170312/describe_instances.go。
 
 
