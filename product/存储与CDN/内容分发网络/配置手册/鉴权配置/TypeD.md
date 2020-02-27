@@ -9,9 +9,7 @@ http://DomainName/FileName?sign=md5hash&t=timestamp
 - md5hash：MD5（自定义密钥 + 文件路径 + timestamp）。
 
 **请求示例**
-```
-http://cloud.tenloud.tencent.com/test.jpg?sign=0f8201d814dfaf64cf54e74c5f7dbcb0&t=1582791032
-```
+`http://cloud.tenloud.tencent.com/test.jpg?sign=0f8201d814dfaf64cf54e74c5f7dbcb0&t=1582791032`
 
 > !计算 MD5 时，若请求路径为`http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`。
 
