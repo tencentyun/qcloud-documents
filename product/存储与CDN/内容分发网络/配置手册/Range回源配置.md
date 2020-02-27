@@ -13,7 +13,7 @@
 ![](https://main.qcloudimg.com/raw/432dd0c9c4e89a1a7ebcd0fe51cbf704.png)
 
 ### 修改配置
-通过单击开关，可对 Range 回源配置进行开启 / 关闭操作，开启 Range 回源配置时，需要确认源站已经支持 Range 请求，否则可能会导致回源失败。
+通过单击开关，可对 Range 回源配置进行开启或关闭操作，开启 Range 回源配置时，需要确认源站已经支持 Range 请求，否则可能会导致回源失败。
 ![](https://main.qcloudimg.com/raw/725ae7fabccfb1a3de205968c56a2951.png)
 
 > !若您的加速域名服务区域为全球加速，设置的 Range 回源配置 全球生效，不支持境内、境外差异化配置
