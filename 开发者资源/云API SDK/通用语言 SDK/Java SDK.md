@@ -153,7 +153,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 
 ### 通过 Maven 安装（推荐）
 [Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
-1. 访问 [Maven官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
+1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
 2. 为您的项目添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
 ```xml
 <dependency>
