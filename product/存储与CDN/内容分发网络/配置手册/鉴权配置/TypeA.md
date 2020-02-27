@@ -13,7 +13,7 @@
 http://cloud.tencent.com/test/test.jpg?sign=1582791032-im1acp76sx9sdqe601v-0-dd63f95e739ed4b47427a129d21ef4e3
 ```
 
-> !计算 MD5 时，若请求路径为 `http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`
+> !计算 MD5 时，若请求路径为 `http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`。
 
 ## 配置指南
 ### 参数说明
