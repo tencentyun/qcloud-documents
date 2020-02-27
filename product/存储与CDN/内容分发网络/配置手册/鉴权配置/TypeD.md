@@ -1,8 +1,6 @@
 ## 算法说明
 **访问 URL 格式**
-```
-http://DomainName/FileName?sign=md5hash&t=timestamp
-```
+`http://DomainName/FileName?sign=md5hash&t=timestamp`
 
 **算法说明**
 - timestamp：十进制 / 十六进制（UNIX 时间戳）可选。
