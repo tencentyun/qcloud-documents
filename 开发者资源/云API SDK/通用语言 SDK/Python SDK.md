@@ -149,14 +149,14 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 
 ## 获取安装
 
-### 通过 Pip 安装（推荐）
+### 通过 pip 安装（推荐）
 您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。
 通过 pip 方式安装请在命令行中执行以下命令：
 ```bash
 pip install tencentcloud-sdk-python
 ```
 ### 通过源码包安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码。
 2. 解压后依次执行以下命令安装。
 ```
     $ cd tencentcloud-sdk-python
@@ -164,7 +164,7 @@ pip install tencentcloud-sdk-python
 ```
 
 ## 示例
-本文以查询可用区接口为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples)。
+本文以云服务器查询可用区接口为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples)。
 
 ```python
 # -*- coding: utf-8 -*-
