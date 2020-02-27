@@ -3,12 +3,17 @@
 请及时按照如下方法升级您通过 SDK 进行消费的程序，避免受到 API 2.0 接口下线影响。
 
 ## 步骤1：确认 SDK 版本
-- 确认您之前在 [数据订阅 SDK](https://cloud.tencent.com/document/product/571/8776) 文档下载并已使用的的 SDK 包，若包为2.8.0及以下版本，请进行升级。包名类似于`binlogsdk-2.8.0-jar-with-dependencies.jar`，其中包含了版本号信息。
-- 若该包已被重命名，请使用解压命令`unzip` 将 SDK 包解压，再查看其中的`tencentSubscribe.properties`文件，`SDK_VERSION`标识了 SDK 版本号。
+确认您之前在 [数据订阅 SDK](https://cloud.tencent.com/document/product/571/8776) 文档下载并已使用的 SDK 版本。
+SDK 版本判断方法如下：
+ - 查看使用的 SDK 压缩包名：包名类似于`binlogsdk-2.8.0-jar-with-dependencies.jar`，其中包含了版本号信息。
+ - 查看 SDK_VERSION 版本号：若 SDK 包已被重命名，请使用解压命令`unzip` 将 SDK 包解压，再查看其中的`tencentSubscribe.properties`文件，`SDK_VERSION`标识了 SDK 版本号。
 
-## 步骤2：升级 SDK 
-1. 在 [数据订阅 SDK](https://cloud.tencent.com/document/product/571/8776) 文档下载最新的 SDK，并替换2.8.0及以下版本的数据订阅 SDK。
-2. 替换数据订阅 SDK 后，参考如下代码中“程序改动点”， 增加一行代码即可。
+若数据订阅 SDK 版本为2.8.0及以下，请执行 [步骤2](#Step2)。
+
+<span id="Step2"></span>
+## 步骤2：升级 SDK 版本
+1. 在 [数据订阅 SDK](https://cloud.tencent.com/document/product/571/8776#.E6.95.B0.E6.8D.AE.E8.AE.A2.E9.98.85-sdk-.E4.B8.8B.E8.BD.BD) 下载最新的 SDK 版本，并替换2.8.0及以下版本的数据订阅 SDK。
+2. 替换数据订阅 SDK 版本后，参考如下代码中“程序改动点”， 增加设置订阅 channel 所属 region 的一行代码即可。
 
 ```java
 package com.qcloud.biz;
