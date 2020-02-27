@@ -173,7 +173,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 <span id="example"></span>
 ## 示例
 
-本文以查询可用区接口为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples)。
+本文以云服务器查询可用区接口为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples)。
 
 ```java
 import com.tencentcloudapi.common.Credential;
