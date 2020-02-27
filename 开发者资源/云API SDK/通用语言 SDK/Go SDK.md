@@ -154,12 +154,12 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 ```
 
 ### 通过源码安装
-1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码
+1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-go) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-go/tencentcloud-sdk-go.zip) 下载最新代码。
 2. 解压后安装到 `$GOPATH/src/github.com/tencentcloud` 目录下。
 
 ## 示例
 每个接口都有一个对应的 Request 结构和一个 Response 结构。例如，查询可用区 DescribeZones 有对应的请求结构体 DescribeZonesRequest 和返回结构体 DescribeZonesResponse 。
-本文以查询可用区为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples)。
+本文以云服务器查询可用区为例，介绍 SDK 的基础用法，更多示例请参考 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-go/tree/master/examples)。
 >?对于复杂接口的 Request 初始化示例，可以参考 examples/cvm/v20170312/run_instances.go。对于使用 JSON 字符串初始化 Request 的示例，可以参考 examples/cvm/v20170312/describe_instances.go。
 
 
