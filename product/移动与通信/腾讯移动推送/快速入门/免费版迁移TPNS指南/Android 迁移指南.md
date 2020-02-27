@@ -1,4 +1,4 @@
-为保障迁移后的正常使用，请您升级至Android V1.1.5.4及以上版本，以下是针对从信鸽免费版本4.x版本迁移到腾讯云Android V1.1.5.4及以上版本的变更说明：
+为保障迁移后的正常使用，请您升级至 Android V1.1.5.4 及以上版本，以下是针对从信鸽免费版本 4.x 版本迁移到腾讯云 Android V1.1.5.4 及以上版本的变更说明。
 
 ## 自动集成方式
 #### 依赖变更
@@ -199,7 +199,7 @@ TPNS 版本正确配置：
               <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
           </intent-filter>
       </receiver>
-```	
+```
 
 ## 厂商通道集成变更
 厂商通道变更只需做以下变更：
@@ -219,17 +219,18 @@ implementation 'com.tencent.tpns:xiaomi:[VERSION]-release'
 implementation 'com.tencent.tpns:meizu:[VERSION]-release'
 implementation 'com.tencent.tpns:huawei:[VERSION]-release'
 //fcm
-implementation 'com.tencent.tpns:fcm:[VERSION]-release' 
+implementation 'com.tencent.tpns:fcm:[VERSION]-release'
 implementation  'com.google.firebase:firebase-messaging:17.6.0'
 ```     
 - 手动集成的方式需要替换 .jar 文件
 前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、并解压目录 Other-Push-jar 下，找到对应厂商通道所需 .jar 文件，替换信鸽 4.x 版本使用的厂商通道 .jar 文件。
 
+
 ## 代码混淆保留变更
 如果您的项目中使用 proguard 等工具做了代码混淆，请将以下混淆保留选项：
 
 变更前：
-``` 
+```
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
@@ -246,4 +247,3 @@ implementation  'com.google.firebase:firebase-messaging:17.6.0'
 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
-
