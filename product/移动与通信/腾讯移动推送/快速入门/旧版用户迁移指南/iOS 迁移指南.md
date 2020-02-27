@@ -20,7 +20,7 @@
 ### SDK包下载
 请前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload) 下载 iOS SDK 压缩包、解压。
 
-###工程文件变更
+### 工程文件变更
 
 变更前：
 
