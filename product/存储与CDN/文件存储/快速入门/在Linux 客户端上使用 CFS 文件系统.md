@@ -66,7 +66,7 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```shell
-sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目录>
+sudo mount -t nfs -o vers=4.0 <挂载点IP>:/ <待挂载目录>
 ```
 
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
@@ -79,11 +79,11 @@ sudo mount -t nfs -o vers=4 <挂载点IP>:/ <待挂载目录>
 示例：
 - 挂载 CFS 根目录：
 ```shell
-sudo mount -t nfs -o vers=4 10.0.24.4:/ /localfolder
+sudo mount -t nfs -o vers=4.0 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录：
 ```shell
-sudo mount -t nfs -o vers=4 10.0.24.4:/subfolder /localfolder 
+sudo mount -t nfs -o vers=4.0 10.0.24.4:/subfolder /localfolder 
 ```
 
 **NFS v3.0 挂载**
@@ -140,7 +140,7 @@ mkdir /local/test
 mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
-- 目前默认挂载使用文件系统的FSID。 
+- 目前默认挂载使用文件系统的 FSID。 
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
 >!`<FSID>`与`/<待挂载目标目录>`之间有一个空格。

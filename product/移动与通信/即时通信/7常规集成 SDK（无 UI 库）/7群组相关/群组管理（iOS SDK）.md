@@ -326,7 +326,7 @@ typedef NS_ENUM(NSInteger, TIMGroupMemberStatus) {
 
 ### 申请加入群组
 
-`TIMGroupManager` 的接口 `joinGroup` 可以主动申请进入群组。此操作只对公开群和聊天室有效。
+`TIMGroupManager` 的接口 `joinGroup` 可以主动申请进入群组。此操作只对公开群、聊天室和音视频聊天室。
 
 **权限说明：**
 详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。

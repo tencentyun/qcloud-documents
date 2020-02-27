@@ -80,7 +80,7 @@ cat /etc/hosts
 3. 单击【确定】即可添加，添加成功后该凭据将显示在凭据列表中。如下图所示：
 !![](https://main.qcloudimg.com/raw/7f5e00bb12c27c7efc085c8c94b5dc71.png)
 
-### 添加 gitlab 认证
+### 添加 gitlab 认证<span id="addGitlab"></span>
 1. 在“全局凭据 (unrestricted)”页中，单击左侧菜单栏中的【添加凭据】，并根据以下提示设置凭据基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/ce8f9e2ca7f8d87d96c23f889ff72450.png)
  - **类型**：选择【Username with password】。
@@ -110,10 +110,11 @@ cat /etc/hosts
  - **名称**：自定义，本文以 `jnlp-agent` 为例。
  - **标签列表**：定义标签名称，构建时可根据该标签选择 Pod ，本文以 `jnlp-agent` 为例。
   - **用法**：选择【尽可能的使用这个节点】。
-6. 在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
+6. <span id="ContainerTemplate"></span>在“容器列表”中，选择【添加容器】>【Container Template】，设置以下容器相关信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6a5e619f36709cc9af76ee555ee8e984.png)
     - **名称**：自定义容器名称，本文以 `jnlp-agent` 为例。
     - **Docker 镜像**：输入镜像地址 `jenkins/jnlp-slave:alpine`。
+    - **工作目录**：保持默认设置，请记录工作目录，将用于 shell 脚本处构建打包。
     - 其余选项保持默认设置即可。
 7. 在“卷”中按照以下步骤添加卷，为 slave pod 配置 docker 命令。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd098fee9954a62c9c6e2328e9912314.png)
