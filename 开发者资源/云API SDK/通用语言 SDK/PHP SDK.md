@@ -1,10 +1,10 @@
 ## 简介
-欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0是云 API 3.0平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会陆续接入。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同和返回包格式相同等优点。
-为方便 PHP 开发者调试和接入腾讯云产品 API，本文主要介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例，让您快速获取腾讯云 PHP SDK 并开始调用。
+欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0是云 API 3.0平台的配套工具。目前已经支持 CVM、VPC、CBS 等产品，后续所有的云服务产品都会陆续接入。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
+本文主要介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例，让 PHP 开发者快速掌握如何调试和接入腾讯云产品 API。
 
-## 支持3.0版本的产品列表
+## 支持3.0版本的云产品列表
 
-SDK 3.0支持全部 API 3.0下的产品，本列表可能滞后于实际代码，如有疑问请咨询具体的产品。
+SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代码，如有疑问请咨询具体的云产品。
 
 <table>
   <tr>
@@ -94,11 +94,11 @@ SDK 3.0支持全部 API 3.0下的产品，本列表可能滞后于实际代码�
 
 ## 依赖环境
 - PHP 5.6.33 版本及以上。
-- 从腾讯云 [控制台](https://console.cloud.tencent.com/) 开通相应产品。
+- 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 开通相应云产品。
 - 获取 SecretID、SecretKey 以及调用地址（endpoint）。
  - SecretID 用于标识 API 调用者的身份。
- - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 必须严格保管，避免泄露**。
- - endpoint 一般形式为`*.tencentcloudapi.com`，例如 CVM 的调用地址为`cvm.tencentcloudapi.com`，具体地址请参考各产品说明。
+ - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
+ - endpoint 一般形式为`*.tencentcloudapi.com`，例如 CVM 的调用地址为`cvm.tencentcloudapi.com`，具体地址请参考各云产品说明。
 
 ## 获取安装
 
@@ -137,7 +137,8 @@ require_once '../TCloudAutoLoader.php';
 
 <span id="example"></span>
 ## 示例
-以查询可用区接口为例:
+本文以查询可用区接口为例，开发者可以在 GitHub 仓库 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples) 下查看更多更详细的示例。
+
 ```php
 <?php
 require_once '../../../TCloudAutoLoader.php';
@@ -166,10 +167,5 @@ catch(TencentCloudSDKException $e) {
     echo $e;
 }
 ```
-
-## 更多示例
-
-您可以在 GitHub 仓库中 [examples 目录](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples) 下找到更详细的示例。
-
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请参考 [旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。
