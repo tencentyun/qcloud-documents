@@ -94,10 +94,10 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 ### 开通云产品并获取密钥
 
 - 登录 [腾讯云控制台](https://console.cloud.tencent.com/) 开通相应云产品。
-- 获取 SecretID、SecretKey 以及调用地址（endpoint）。
+- 在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
- - endpoint 一般形式为`*.tencentcloudapi.com`，例如 CVM 的调用地址为`cvm.tencentcloudapi.com`，具体地址请参考各云产品说明。
+- 获取调用地址（endpoint），endpoint 一般格式为`*.tencentcloudapi.com`，例如 CVM 的调用地址为`cvm.tencentcloudapi.com`，具体地址请参考各云产品说明。
 
 
 ### 编译器
@@ -160,7 +160,7 @@ sudo make install
 ```
 
 ## 示例
-本文以 CVM 的 DescribeInstances 接口为例，开发者可以在 GitHub 仓库 [example 目录](https://github.com/TencentCloud/tencentcloud-sdk-cpp/tree/master/example) 下查看更多更详细的示例。
+本文以 CVM 的 DescribeInstances 接口为例，更多示例请参考 [example 目录](https://github.com/TencentCloud/tencentcloud-sdk-cpp/tree/master/example)。
 
 源码如下：
 ```
