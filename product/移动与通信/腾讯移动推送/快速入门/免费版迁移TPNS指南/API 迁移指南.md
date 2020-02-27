@@ -1,6 +1,6 @@
 # 概览
 
-本文主要介绍了信鸽免费版本到腾讯云版本的接口迁移说明，包括V3和V2的推送接口、账号接口和标签接口的差异。
+本文主要介绍了信鸽免费版本到腾讯云版本的接口迁移说明，包括 V3 和 V2 的推送接口、账号接口和标签接口的差异。
 
 ## 请求域名地址变动说明
 
@@ -12,21 +12,22 @@
 
 ## V3 接口协议变动说明
 
-[腾讯云版本V3接口协议格式](https://cloud.tencent.com/document/product/548/39061)对比[免费版本V3接口协议格式](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html)基本相同。
+[腾讯云版本 V3 接口协议格式](https://cloud.tencent.com/document/product/548/39061) 对比 [免费版本V3接口协议格式](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html)基本相同。
 协议中部分字段格式以及命名有变化，具体差异如下：
 
 ### 鉴权方式
 
-免费版本使用`AppId + secretkey` 进行` Basic Auth` 鉴权。([免费版本鉴权说明](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html#%E9%89%B4%E6%9D%83%E6%96%B9%E5%BC%8F))
+免费版本使用 `AppId + secretkey` 进行 `Basic Auth` 鉴权。([免费版本鉴权说明](https://xg.qq.com/docs/server_api/v3/rest_api_summary.html#%E9%89%B4%E6%9D%83%E6%96%B9%E5%BC%8F))
 
-腾讯云版本使用`AccessId + secretKey` 进行`Basic Auth` 鉴权。([腾讯云版本鉴权说明](https://cloud.tencent.com/document/product/548/39062))
+腾讯云版本使用 `AccessId + secretKey` 进行 `Basic Auth` 鉴权。([腾讯云版本鉴权说明](https://cloud.tencent.com/document/product/548/39062))
 
-**腾讯云版本没有对应AppId 字段， 需要使用对应的应用id `AccessId` 和密钥``secretkey ``进行鉴权**
+>?**腾讯云版本没有对应 AppId 字段， 需要使用对应的应用 id `AccessId` 和密钥``secretkey ``进行鉴权**。
+
 
 ### 推送接口
 
 
-[腾讯云版本推送接口协议](https://cloud.tencent.com/document/product/548/39064)格式和[免费版本](https://xg.qq.com/docs/server_api/v3/push_api_v3.html)基本相同, 主要区别如下:
+[腾讯云版本推送接口协议](https://cloud.tencent.com/document/product/548/39064) 格式和 [免费版本](https://xg.qq.com/docs/server_api/v3/push_api_v3.html) 基本相同, 主要区别如下:
 
 **请求参数变动说明**
 
@@ -39,23 +40,23 @@
 
 ### 账号绑定接口
 
-[腾讯云版本账号绑定查询协议格式](https://cloud.tencent.com/document/product/548/39070)和[免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html)完全相同，无需特别改动。
+[腾讯云版本账号绑定查询协议格式](https://cloud.tencent.com/document/product/548/39070) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html) 完全相同，无需特别改动。
 
 
 ### 账号查询接口
 
-[腾讯云账号查询协议格式](https://cloud.tencent.com/document/product/548/39071)和[免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html#账号-设备绑定查询（批量操作）)基本相同，主要区别如下：
+[腾讯云账号查询协议格式](https://cloud.tencent.com/document/product/548/39071) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html#账号-设备绑定查询（批量操作）) 基本相同，主要区别如下：
 
 **响应参数变动说明**
 
 | 协议字段 | 字段含义说明 | 变动说明 |
 | --------- | ------------ | ------------------- |
-| ret\_code | 操作返回码 | 字段名变更为retCode |
-| err\_msg | 操作响应消息 | 字段名变更为errMsg |
+| ret\_code | 操作返回码 | 字段名变更为 retCode |
+| err\_msg | 操作响应消息 | 字段名变更为 errMsg |
 
 ### 标签绑定接口
 
-[腾讯云版本标签绑定协议格式](https://cloud.tencent.com/document/product/548/39067)和[免费版本](https://xg.qq.com/docs/server_api/v3/tag_api_v3.html)基本相同，主要区别如下:
+[腾讯云版本标签绑定协议格式](https://cloud.tencent.com/document/product/548/39067) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/tag_api_v3.html) 基本相同，主要区别如下:
 
 **请求参数变动说明**
 
