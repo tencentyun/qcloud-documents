@@ -240,7 +240,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
 
 #### 境外集群接入方法
-如需将推送集群切换为新加坡或者香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
+如需将推送集群切换为新加坡或者中国香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
 <application>
         // 其他安卓组件
