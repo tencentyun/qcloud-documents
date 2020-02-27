@@ -7,9 +7,7 @@
 - md5hash：MD5（自定义密钥 + 文件路径 + timestamp）。
 
 **请求示例**
-```
-http://cloud.tencent.com/8fe9b5597c809d7ace147468c7c7eadb/5e577978/test/test.jpg
-```
+`http://cloud.tencent.com/8fe9b5597c809d7ace147468c7c7eadb/5e577978/test/test.jpg`
 
 > !计算 MD5 时，若请求路径为`http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`。
 
