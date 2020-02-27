@@ -39,7 +39,7 @@
 
 ### 账号绑定接口
 
-[腾讯云版本账号绑定查询协议格式](https://cloud.tencent.com/document/product/548/39070) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html) 完全相同，无需特别改动。
+[腾讯云版本账号绑定协议格式](https://cloud.tencent.com/document/product/548/39070) 和 [免费版本](https://xg.qq.com/docs/server_api/v3/account-api.html) 完全相同，无需特别改动。
 
 
 ### 账号查询接口
