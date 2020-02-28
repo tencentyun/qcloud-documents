@@ -1,4 +1,4 @@
-1. 在左侧导航导航栏中，单击【[弹性公网IP](https://console.cloud.tencent.com/cvm/eip)】，进入弹性公网 IP 管理页面。
+1. 登录 [弹性公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在弹性公网 IP 管理页面，单击【申请】。
 3. 在弹出的 “申请弹性公网IP” 窗口中，选择地域，设置 IP 地址类型、计费模式以及带宽上限，并填写数量。
 4. 单击【确定】，完成弹性公网 IP 的申请。
