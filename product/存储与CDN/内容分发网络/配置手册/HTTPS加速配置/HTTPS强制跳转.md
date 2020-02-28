@@ -9,4 +9,4 @@
 ![](https://main.qcloudimg.com/raw/f0b2fab0919635c6ba3c4784083cf942.png)
 ![](https://main.qcloudimg.com/raw/ba7f5a597ae182e019cb13704fbad9ef.png)
 
-> !若域名的服务区域为全球，则配置的 Https 强制跳转会全球生效，暂不支持境内、境外分别配置。
+> !若域名的服务区域为全球，则配置的 HTTPS 强制跳转会全球生效，暂不支持境内、境外分别配置。
