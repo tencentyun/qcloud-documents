@@ -4,24 +4,24 @@
 - 支持在微信小程序插件环境运行。
 
 **变更**
-- 减少优化[错误码](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html)。
+减少优化 [错误码](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html)。
 
 **修复**
 - 在 [控制台](https://console.cloud.tencent.com/im) 创建音视频聊天室（AVChatRoom）并指定群主，群主加入此群后，群内其他人发的信息在群主侧重复。
-- 在 [控制台](https://console.cloud.tencent.com/im) 或者用 RESTAPI，频繁创建销毁群组，SDK 没有派发 [TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 事件。
+- 在 [控制台](https://console.cloud.tencent.com/im) 或者用 REST API 频繁创建销毁群组，SDK 没有派发 [TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 事件。
 - [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 偶发拉不到群消息列表。
 
 
 ### 2.4.2 @2020.2.7
 
 **新增**
-- 群组消息支持设置[消息优先级](https://cloud.tencent.com/document/product/269/3663#.E7.BE.A4.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7)，[枚举值](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.MSG_PRIORITY_HIGH)，[使用示例](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)。
+群组消息支持设置 [消息优先级](https://cloud.tencent.com/document/product/269/3663#.E7.BE.A4.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7)，[枚举值](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.MSG_PRIORITY_HIGH)，[使用示例](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)。
 
 
 ### 2.4.1 @2020.1.14
 
 **变更**
-- 匿名用户（或游客）只允许加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组。
+匿名用户（或游客）只允许加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组。
 
 **修复**
 - 偶发拉取在线消息缺失。
