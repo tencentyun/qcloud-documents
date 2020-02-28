@@ -66,12 +66,11 @@
 - **3.4：付款后生成云服务器**。
 单击登录可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
 ![](http://mc.qcloudimg.com/static/img/0f29fd40aae5fdac10d3f6262eb6a03e/image.png)
-
-- **3.5：修改云服务器配置信息**
-- 将如下脚本中的`appId`、`SecretId`和`SecretKey`配置**2.2**中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
+- **3.5：修改云服务器配置信息**。
+将如下脚本中的`appId`、`SecretId`和`SecretKey`配置**2.2**中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
 >! 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
 
-```
+	```
   echo '{
       "dbconfig":{
           "host":"127.0.0.1",
@@ -97,7 +96,7 @@
       }
   }' > /home/ubuntu/vod-xiaoshipin-server/conf/localconfig.json
 ```
-- 在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
+在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
   启动服务：
 ```
   cd /home/ubuntu/vod-xiaoshipin-server/;pm2 start app.js --name 'litvideo';
@@ -111,7 +110,7 @@
 ```
   pm2 delete litvideo;
 ```
-- 查看**3.4**中云服务器的公网 IP，在浏览器中输入`http://IP`查看服务是否启动成功。
+查看**3.4**中云服务器的公网 IP，在浏览器中输入`http://IP`查看服务是否启动成功。
 
 ### step4. 替换终端源代码中的后台地址
 - **iOS** 
