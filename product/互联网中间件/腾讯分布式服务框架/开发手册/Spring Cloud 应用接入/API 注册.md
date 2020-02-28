@@ -51,7 +51,7 @@ public class ProviderController {
 
     @Autowired
     private ProviderNameConfig providerNameConfig;
-    @ApiOperation(value= "/echo/{param}", notes = "示例描述") // notes 对应 API 描述
+    @ApiOperation(value= "/echo/{param}", notes = "notes") // notes 对应 API 描述
     @RequestMapping(value = "/echo/{param}", method = RequestMethod.GET)
     public String echo(@PathVariable String param) {
         LOG.info("provider-demo -- request param: [" + param + "]");

@@ -61,7 +61,7 @@ CKafka 监控 API 详情可参见如下文档：
 状态改变而导致告警触发后，您可以及时进行相应的预防或补救措施。合理地创建告警能帮助您提高应用程序的健壮性和可靠性。有关告警的更多信息，请参考 [云监控创建告警](https://cloud.tencent.com/document/product/248/6215) 。
 
 ## CKafka 推荐监控告警策略
-影响业务数据稳定性的指标请参考 [CKafka数 据可靠性说明](https://cloud.tencent.com/document/product/597/36186)。
+影响业务数据稳定性的指标请参考 [CKafka 数据可靠性说明](https://cloud.tencent.com/document/product/597/36186)。
 
 根据历史用户反馈统计，建议对 CKafka 以下3个维度（共6项指标）配置监控和告警策略，请您根据实际情况合理配置监控和告警策略。
 

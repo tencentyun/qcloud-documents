@@ -59,7 +59,7 @@ function TEB_SYNCDATA(Object data)
 | data | Object | 白板同步数据 |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用AddSyncData接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云IMSDK进行实时数据同步时，不会收到该回调。
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调。 
 
 
 ### TEB_OPERATE_CANUNDO_STATUS_CHANGED
@@ -127,7 +127,24 @@ function TEB_SETBACKGROUNDIMAGE(String fileName, String fileUrl, String userData
 | userData | String | 透传上传接口的 userData |
 
 #### 介绍
-只有本地调用setBackgroundImage时会收到该回调，收到该回调表示背景图片已经上传或下载成功，并且显示出来。
+只有本地调用 setBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+
+
+### TEB_ADDIMAGEELEMENT
+设置白板背景图片回调 
+``` C++
+function TEB_ADDIMAGEELEMENT(String fileName, String fileUrl, String userData)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileName | String | 文件名  |
+| fileUrl | String | 文件的下载地址  |
+| userData | String | 透传上传接口的 userData |
+
+#### 介绍
+只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
 
 
 ### TEB_H5BACKGROUND_STATUS_CHANGED
@@ -191,8 +208,8 @@ function TEB_GOTOBOARD(String boardId, String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | String | 跳转到的白板页ID  |
-| fileId | String | 跳转到的白板页所属的文件ID  |
+| boardId | String | 跳转到的白板页 ID  |
+| fileId | String | 跳转到的白板页所属的文件 ID  |
 
 
 ### TEB_GOTOSTEP
@@ -311,6 +328,32 @@ data 参数格式如下：
      fileUrl: "http://xxx",      //文件的下载地址
      picUrls: ["xx", "xx"],      //文件的转码后每一页预览地址
      userData: "xx",             //透传上传接口的 userData
+}
+```
+ 
+
+
+### TEB_FILEUPLOADPROGRESS
+文件上传进度回调 
+``` C++
+function TEB_FILEUPLOADPROGRESS(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | 进度相关信息 |
+
+#### 介绍
+data 参数格式如下： 
+``` 
+{
+     loaded: 50,     //已经上传的文件部分大小，以字节（bytes）为单位
+     total: 100,     //整个文件的大小，以字节（bytes）为单位
+     speed: 10,      //文件的上传速度，以字节/秒（bytes/s）为单位
+     percent: 0.5,   //文件的上传百分比，以小数形式呈现，例如：下载50%即为0.5
+     userData: "xx", //透传上传接口的 userData
+     fid: "xxx"      //文件 ID
 }
 ```
  

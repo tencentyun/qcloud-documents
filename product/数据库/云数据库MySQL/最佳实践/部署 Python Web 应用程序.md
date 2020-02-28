@@ -47,7 +47,7 @@ yum install httpd -y
 service httpd start
 ```
 3. 测试 Apache。
->!此步骤需要您的云服务器在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参见 [安全组操作](https://cloud.tencent.com/document/product/213/18197)。
+>!此步骤需要您的云服务器在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。关于安全组的配置方法请参见 [安全组操作](https://cloud.tencent.com/document/product/213/12452)。
 >
 在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](https://main.qcloudimg.com/raw/a8708d09de9280c730f47eb8289f7c47.png)

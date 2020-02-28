@@ -17,7 +17,7 @@ API 详情按照【应用名/版本号】划分显示了 API 的详细信息，�
 
 ### API 调试
 
-1. 在 API 详情页，单击【调试】，进入API 调试页面。
+1. 在 API 详情页，单击【调试】，进入 API 调试页面。
 ![](https://main.qcloudimg.com/raw/9fd5e16766a052ff35ecd5ed065596ab.png)
 2. 填写调用 API 的默认参数，单击【发送请求】。
 ![](https://main.qcloudimg.com/raw/46ab294adb80f8787aaa0aadec277373.png)
