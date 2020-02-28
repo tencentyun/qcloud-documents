@@ -5,7 +5,7 @@
 
 ## 添加依赖
 在 pom.xml 文件中添加如下 dependency。
->?使用任务调度 SDK 前，请确保 SDK 版本高于包含1.20。
+>?使用任务调度 SDK 前，请确保 SDK 版本高于包含1.20.0。
 
  ```xml
 <dependency>
