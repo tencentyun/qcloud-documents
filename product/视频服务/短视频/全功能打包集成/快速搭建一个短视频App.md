@@ -45,25 +45,33 @@
 
 在腾讯云点播控制台的[【回调配置】](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要10分钟左右能生效。
 
+![](https://main.qcloudimg.com/raw/2790946cfc7cae82339385f5345fe3f5.png)
+
 ### step2. 获取云 API 密钥
 
 小视频 App 在上传视频时，需要使用腾讯云密钥，即 SecretId 和 SecretKey，这两个 Key 要从腾讯云控制台中获取并配置到业务服务器上。
 - **2.1**：登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
 - **2.2**：获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。
 
+![](https://mc.qcloudimg.com/static/img/23f95aaa97adf3eeae3bf90470fe5122/image.png)
 
 ### step3. 在云服务器上部署后台代码
 
-- **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)** 。
+- **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)** 。  
+![](http://mc.qcloudimg.com/static/img/53d7df9e5a8bc5141e55231076cbfd74/image.png)
 - **3.2：选择【自定义配置】，进入镜像市场选取镜像**。
+![](https://main.qcloudimg.com/raw/798e32b00c84a3809fdbfe7de30ad73d.png)
 - **3.3：配置硬盘和网络，以及云服务器访问密码，妥善保管好密码，然后设置安全组**。
+![](https://main.qcloudimg.com/raw/d81d282ab01ce1309ac704c5aa61a544.png)
 - **3.4：付款后生成云服务器**。
 单击登录可以通过腾讯云的网页 shell 进行访问，也可以用 **putty** 或 **SecretCRT** 采用 ssh 登录到云服务器。
+![](http://mc.qcloudimg.com/static/img/0f29fd40aae5fdac10d3f6262eb6a03e/image.png)
+
 - **3.5：修改云服务器配置信息**
 - 将如下脚本中的`appId`、`SecretId`和`SecretKey`配置**2.2**中获取到的 APPID、SecretId 和 SecretKey。然后登录云服务器，直接在云服务器上执行修改后的脚本。
 >! 请在本地修改以下配置并复制，然后登录云服务器在控制台粘贴回车执行。
 
-	```
+```
   echo '{
       "dbconfig":{
           "host":"127.0.0.1",
@@ -91,26 +99,27 @@
 ```
 - 在服务器输入启动服务命令直接启动服务，服务启动默认端口为：`8001`。
   启动服务：
-  ```
+```
   cd /home/ubuntu/vod-xiaoshipin-server/;pm2 start app.js --name 'litvideo';
-  ```
+```
   如需关闭或者重启服务，可以使用以下命令：
    重启服务：
-  ```
+```
   pm2 restart litvideo;
-  ```
+```
   关闭服务：
-  ```
+```
   pm2 delete litvideo;
-  ```
+```
 - 查看**3.4**中云服务器的公网 IP，在浏览器中输入`http://IP`查看服务是否启动成功。
 
 ### step4. 替换终端源代码中的后台地址
 - **iOS** 
-源码包解压后在 TXXiaoShiPinDemo/Classes/App/ 目录下有一个 **TCConstants.h** 文件，将文件里的 `kHttpServerAddr` 改成您的云服务器公网 IP 地址。
+源码包解压后在 iOS/Demo/XiaoShiPin/TCConstants.h，将文件里的 `kHttpServerAddr` 改成您的云服务器公网 IP 地址。
 
 - **Android** 
-源码包解压后在 app/src/main/java/com/tencent/qcloud/xiaoshipin/common/utils/ 目录下有一个 **TCConstants.java** 文件，将文件里的 `APP_SVR_URL` 改成您的云服务器公网 IP 地址。
+源码包解压后在 XiaoShiPin_Professional_Android/Demo/ugckit/src/main/java/com/tencent/qcloud/ugckit/UGCKitConstants.java ，将文件里的 `APP_SVR_URL` 改成您的云服务器公网 IP 地址。
 
 >! 如果服务器没有配置证书，这里的云服务器地址需要用 HTTP，而不能用 HTTPS。
 
+至此小视频的服务器模式配置完成，您可以运行 App 体验小视频的各项功能。
