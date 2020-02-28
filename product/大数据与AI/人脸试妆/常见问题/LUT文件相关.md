@@ -1,4 +1,4 @@
-﻿### 什么是 LUT 文件？
+### 什么是 LUT 文件？
 LUT（Look Up Table），指颜色查找表，主要通过 Photoshop（PS）等软件生成。  
 
 ### 如何通过 PS 设计 LUT 文件？
