@@ -28,7 +28,7 @@
 
 #### 3. 回源方式
 
-除了在接入加速域名时进行回源方式设置，在配置证书时也可进行回源协议的调整，腾讯云 CDN 支持以下三种回源协议：
+除了在接入加速域名时或在源站配置模块进行回源方式设置，在配置证书时也可进行回源协议的调整，腾讯云 CDN 支持以下三种回源协议：
 + HTTP 回源：所有请求均使用 HTTP 回源。
 + HTTPS 回源：所有请求均使用 HTTPS 回源。
 + 协议跟随：根据请求协议进行回源，HTTPS 请求使用 HTTPS 回源，HTTP 请求使用 HTTP 回源。
@@ -54,7 +54,7 @@
 ![](https://main.qcloudimg.com/raw/89ad35a4fb3a5b30c0736c88bb06cf37.png)
 
 #### 3. 回源方式
-除了在接入加速域名时进行回源方式设置，在批量配置证书时也可进行批量回源协议的调整，腾讯云 CDN 支持以下三种回源协议：
+除了在接入加速域名时或在源站配置模块进行回源方式设置，在批量配置证书时也可进行批量回源协议的调整，腾讯云 CDN 支持以下三种回源协议：
 + HTTP 回源：所有请求均使用 HTTP 回源。
 + HTTPS 回源：所有请求均使用 HTTPS 回源。
 + 协议跟随：根据请求协议进行回源，HTTPS 请求使用 HTTPS 回源，HTTP 请求使用 HTTP 回源
@@ -79,5 +79,5 @@
 ![](https://main.qcloudimg.com/raw/23192c43c0611c34d07490f19ea7dfb0.png)
 在域名【高级配置】中，也可看见两份配置：
 ![](https://main.qcloudimg.com/raw/febb17a67f10eb81941013895e67913f.png)
-若您的加速域名存在此类特殊配置，且需要更改其中某一个证书，请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
+若您的加速域名存在此类特殊配置，且需要更改其中某一个证书，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行修改。
 
