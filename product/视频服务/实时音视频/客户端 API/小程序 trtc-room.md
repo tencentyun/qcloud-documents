@@ -1014,7 +1014,6 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
 | REMOTE_STATE_UPDATE        | 远端用户播放状态变更通知。                                   |
 | LOCAL_NET_STATE_UPDATE     | 本地推流的网络状态变更通知。                                   |
 | REMOTE_NET_STATE_UPDATE    | 远端用户网络状态变更通知。                                   |
-| LOCAL_AUDIO_VOLUME_UPDATE  | 本地音量变更通知。                                           |
 | REMOTE_AUDIO_VOLUME_UPDATE | 远端用户音量变更通知。                                       |
 | VIDEO_FULLSCREEN_UPDATE    | 远端视图全屏状态变更通知。                                   |
 | BGM_PLAY_PROGRESS          | BGM 播放时间戳变更通知。                                     |
