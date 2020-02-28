@@ -14,29 +14,27 @@
 
 ## ACL 的控制元素
 当创建存储桶或对象时，其资源所属的主账号将具备对资源的全部权限，且不可修改或删除。您可以使用 ACL 赋予其他腾讯云账户的访问权限。
-如下提供了一个存储桶的 ACL 示例。其中的100000000001表示主账号，100000000011为主账号下的子账号，100000000002表示另一个主账号。ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了匿名的读取权限，其表述形式为`http://cam.qcloud.com/groups/global/AllUsers`的 READ 权限。
+如下提供了一个存储桶的 ACL 示例。其中的100000000001表示主账号，100000000011为主账号下的子账号，100000000002表示另一个主账号。ACL 包含了识别该存储桶所有者的 Owner 元素，该存储桶所有者具备该存储桶的全部权限。同时 Grant 元素授予了全部用户的读取权限，其表述形式为`http://cam.qcloud.com/groups/global/AllUsers`的 READ 权限。
 
-```shell
+```xml
 <AccessControlPolicy>
-  <Owner>
-    <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-    <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
-  </Owner>
-  <AccessControlList>
-    <Grant>
-      <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="RootAccount">
+    <Owner>
         <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-        <DisplayName>qcs::cam::uin/100000000001:uin/100000000001</DisplayName>
-      </Grantee>
-      <Permission>FULL_CONTROL</Permission>
-    </Grant>
-    <Grant>
-      <Grantee xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:type=\"Group\">
-        <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-      </Grantee>
-      <Permission>READ</Permission>
-    </Grant>
-  </AccessControlList>
+    </Owner>
+    <AccessControlList>
+        <Grant>
+            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+                <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+            </Grantee>
+            <Permission>READ</Permission>
+        </Grant>
+        <Grant>
+            <Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+                <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+            </Grantee>
+            <Permission>FULL_CONTROL</Permission>
+        </Grant>
+    </AccessControlList>
 </AccessControlPolicy>
 ```
 
@@ -45,20 +43,26 @@
 #### 权限被授予者
 **主账号**
 您可以对其他主账号授予用户访问权限，使用 CAM 中对委托人（principal）的定义进行授权。描述为：
-```bash
-qcs::cam::uin/100000000002:uin/100000000002
+```xml
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+    <ID>qcs::cam::uin/100000000002:uin/100000000002</ID>
+</Grantee>
 ```
 
 **子账号**
-您可以对您的主账号下的子账号（如100000000011），或其他主账号下的子账号授权，使用 CAM 中对委托人（principal）的定义进行授权。描述为：
-```bash
-qcs::cam::uin/100000000001:uin/100000000011
+您可以对您的主账号下的子账号（如100000000011），使用 CAM 中对委托人（principal）的定义进行授权。描述为：
+```xml
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+    <ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
+</Grantee>
 ```
 
-**匿名用户**
-您可以对匿名用户授予访问权限，使用 CAM 中对委托人（principal）的定义进行授权。描述为：
-```bash
-http://cam.qcloud.com/groups/global/AllUsers
+**所有用户**
+您可以对所有用户授予访问权限，使用 CAM 中对委托人（principal）的定义进行授权。描述为：
+```xml
+<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+    <URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+</Grantee>
 ```
 
 #### 权限操作组
@@ -81,8 +85,8 @@ COS 支持一系列的预定义授权，称之为标准 ACL，下表列出了标
 | ----------------- | --------------------------------------- |
 | (空)               | 此为默认策略，其他人无权限，资源继承上级权限                 |
 | private           | 其他人没有权限                               |
-| public-read       | 匿名用户组具备 READ 权限                        |
-| public-read-write | 匿名用户组具备 READ 和 WRITE 权限，通常不建议在存储桶赋予此权限 |
+| public-read       | 所有用户具备 READ 权限                        |
+| public-read-write | 所有用户具备 READ 和 WRITE 权限，通常不建议在存储桶赋予此权限 |
 
 ## ACL 示例
 **对存储桶设置 ACL**
