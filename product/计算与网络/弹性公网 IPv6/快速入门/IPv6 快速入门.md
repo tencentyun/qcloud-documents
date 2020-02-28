@@ -115,8 +115,8 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <td >
 <a href="#unopen">enable_ipv6 工具</a>
 </td>
-<td rowspan="4">
-目前暂时仅列举了如下四种手动配置操作方法，如不符合您的实际需求，请选择工具配置进行配置：
+<td rowspan="6">
+如下列举了四种常用镜像的操作方法，若不满足您的需求，请提交 <a href="">工单申请</a>：
 <li><a href="#新购CentOS7.5/CentOS7.6">新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6</a></li>
 <li><a href="#CentOS6.8">CentOS 6.8 配置 IPv6</a></li>
 <li><a href="#CentOS7.3">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6</a></li>
@@ -149,11 +149,19 @@ Tencent Linux<br>
 <td >
 <a href="#open">config_ipv6 工具</a>
 </td>
+<tr style="text-align:center;">
+<td rowspan="2" >FreeBSD、Suse、Ubuntu18
+</td>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+<td rowspan="2">不支持</td>
+</tr>
+<tr style="text-align:center;">
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
 </tbody></table>
 
 #### 工具配置
->? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
->
 请根据云服务器是否已开启 IPv6 选择对应的配置方式：
 - 未开启 IPv6 的云服务器：[enable_ipv6 工具配置](#unopen)。
 - 已开启 IPv6 的云服务器：[config_ipv6 工具配置](#open)。
@@ -226,7 +234,7 @@ $install_path eth0
 
 
 #### 手动配置
-如下列举了四种典型的 Linux 云服务器的操作方法：
+如下列举了四种常用的 Linux 云服务器的操作方法：
 - [新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6](#新购CentOS7.5/CentOS7.6)
 - [CentOS 6.8 配置 IPv6](#CentOS6.8)
 - [CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6](#CentOS7.3)
