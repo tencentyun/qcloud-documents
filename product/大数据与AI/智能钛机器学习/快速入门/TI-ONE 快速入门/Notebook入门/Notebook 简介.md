@@ -52,9 +52,9 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 ## 使用说明
 
 在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
-- 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) ，[管理实例](新文档链接)， [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+- 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) ，[管理实例](https://cloud.tencent.com/document/product/851/41626)， [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 - 您可以参考**最佳实践** [用 Notebook 实现手写数字识别](https://cloud.tencent.com/document/product/851/38030)，体验使用 Notebook 建模的完整流程。
-- 您可以通过**操作指南**，进一步了解如何 [设置内核](新文档链接)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传与下载](新文档链接) 等操作。
+- 您可以通过**操作指南**，进一步了解如何 [设置内核](https://cloud.tencent.com/document/product/851/41627)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传与下载](https://cloud.tencent.com/document/product/851/40143) 等操作。
 - 如果您在使用过程中遇到问题，请查看常见问题。
 
 
