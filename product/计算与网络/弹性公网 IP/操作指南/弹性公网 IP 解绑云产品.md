@@ -3,4 +3,5 @@
 1. 登录 [弹性公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在弹性公网 IP 管理页面，选择需要解绑云产品的 EIP，单击【更多】>【解绑】。
 3. 在弹出的 “解绑弹性公网IP” 窗口中，确认解绑信息，单击【确定】。
+![](https://main.qcloudimg.com/raw/b9d6544d4e357629d4b117e4524359de.png)
 4. 在弹出的 “解绑弹性公网IP” 提示框中，单击【确定】，即可完成与云产品的解绑。
