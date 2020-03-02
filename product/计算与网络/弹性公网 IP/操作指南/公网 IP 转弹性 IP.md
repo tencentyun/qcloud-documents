@@ -3,4 +3,4 @@
 2. 在实例管理页面，选择需转换为 EIP 的实例，单击 <img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px;"></img>。
 ![](https://main.qcloudimg.com/raw/f703e131edd5235521b6797cdfd3f9f1.png)
 3. 在弹出的 “转换为弹性公网IP” 窗口，单击【确定转换】即可。
-![](https://main.qcloudimg.com/raw/9205edc5c3e75452396752cd418b116d.png)
+![](https://main.qcloudimg.com/raw/29b368e16bcf388067be3f869ee3935a.png)
