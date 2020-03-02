@@ -1,5 +1,29 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
 
+### 1.20.0-Edgware-RELEASE（2020-03-02）
+
+#### 新特性
+
+- 新增`分布式任务调度`功能
+
+#### bug fix
+
+- spring-cloud-tsf-gateway 修复tag plugin中header类型取值大小写敏感的问题。
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.51版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.51版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.51版本。
+  - 升级org.apache.tomcat.tomcat-annotations-api到8.5.51版本。
+- 修复application/x-www-form-urlencoded类型请求，通过zuul网关代理访问provider时，服务端不到请求参数的问题。  
+
+#### 优化
+
+- spring-cloud-tsf-gateway 新增tag plugin中 path 类型取值。
+
+#### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 
 ### 1.19.0-Edgware-RELEASE（2020-01-16）
 
