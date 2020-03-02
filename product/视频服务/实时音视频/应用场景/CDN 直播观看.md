@@ -10,10 +10,12 @@ TRTC 虽然支持 WebRTC 协议接入，但主要用于 Chrome 桌面版浏览�
 
 ## 原理解析
 腾讯云会使用一批旁路转码集群，将 TRTC 中的音视频数据旁路到直播 CDN 系统中，该集群负责将 TRTC 所使用的 UDP 协议转换为标准的直播 RTMP 协议。
+<span id="directCDN"></span>
 **单路画面的旁路直播**
 当 TRTC 房间中只有一个主播时，TRTC 的旁路推流跟标准的 RTMP 协议直推功能相同，不过 TRTC 的 UDP 相比于 RTMP 有更强大的弱网络抗性。
 ![](https://main.qcloudimg.com/raw/b682b1493a81bc8a53aea6a07f375ba2.gif)
 
+<span id="mixCDN"></span>
 **混合画面的旁路直播**
 TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时有多个主播，而 CDN 观看端只希望拉取一路音视频画面，就需要使用 [云端混流服务](https://cloud.tencent.com/document/product/647/16827) 将多路画面合并成一路，其原理如下图所示：
 ![](https://main.qcloudimg.com/raw/f2feaaaac176bb4fe7dd1c318490f9e1.gif)
@@ -40,7 +42,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 3. 单击【添加域名】，输入您已经备案过的播放域名，选择域名类型为【播放域名】，选择加速区域（默认为【中国大陆】），单击【确定】即可。
 4. 域名添加成功后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀）。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。具体操作请参见 [CNAME 配置](https://cloud.tencent.com/document/product/267/19908)。
 
-![](https://main.qcloudimg.com/raw/fb14848bcd76b374fcd0c9ce76485c1c.png)
+![](https://main.qcloudimg.com/raw/97b24ee2a758b311ba8dea23db04c3ae.png)
 
 >! **不需要添加推流域名**，在 [步骤1](step1) 中开启旁路直播功能后，腾讯云会默认在您的云直播控制台中增加一个格式为  `xxxxx.livepush.myqcloud.com` 的推流域名，该域名名腾讯云直播服务和 TRTC 服务之间约定的一个默认推流域名，暂时不支持修改。
 
@@ -79,11 +81,24 @@ param.streamId = @"stream1001";  // 流 ID
   - streamType： 摄像头画面为 main，屏幕分享为 aux （WebRTC 由于同时只支持一路上行，因此 WebRTC 上屏幕分享的流类型是 main）。
 
 - **拼装 streamId 的计算规则**
+ <table>
+<tr>
+<th>拼装</th>
+<th>2020年01月09日及此后新建的应用</th>
+<th>2020年01月09日前创建且使用过的应用</th>
+</tr>
+<tr>
+<td>拼装规则</td>
+<td>streamId = urlencode(sdkAppId_roomId_userId_streamType)</td>
+<td>StreamId = bizid_MD5(roomId_userId_streamType)</td>
+</tr>
+<tr>
+<td>计算样例</td>
+<td>例如：sdkAppId = 12345678，roomId = 12345，userId = userA，用户当前使用了摄像头。<br>那么：streamId = 12345678_12345_userA_main</td>
+<td>例如：bizid = 1234，roomId = 12345，userId = userA，用户当前使用了摄像头。<br>那么：streamId = 1234_MD5(12345_userA_main) = 1234_8D0261436C375BB0DEA901D86D7D70E8</td>
+</tr>
+</table>
 
-| 拼装 | 2020年01月09日及此后新建的应用 | 2020年01月09日前创建且使用过的应用 |
-|-|--------------------------------------------|-------------------------------------------------|
-| 拼装规则 | streamId = urlencode(sdkAppId_roomId_userId_streamType) | StreamId = bizid_MD5(roomId_userId_streamType) |
-| 计算样例 | 例如：sdkAppId = 12345678，roomId = 12345，userId = userA，用户当前使用了摄像头。<br>那么：streamId = 12345678_12345_userA_main | 例如：bizid = 1234，roomId = 12345，userId = userA，用户当前使用了摄像头。<br>那么：streamId = 1234_MD5(12345_userA_main) = 1234_8D0261436C375BB0DEA901D86D7D70E8 |
 
 <span id="step4"></span>
 ### 步骤4：控制多路画面的混合方案
@@ -92,7 +107,8 @@ param.streamId = @"stream1001";  // 流 ID
  - 各个子画面的摆放位置和大小。
  - 混合画面的画面质量和编码参数。
 
-详细配置方法请参考 [云端混流转码](https://cloud.tencent.com/document/product/647/16827)。
+画面布局的详细配置方法请参考 [云端混流转码](https://cloud.tencent.com/document/product/647/16827)，整个流程所涉及的各模块关系可以参考 [原理解析](#mixCDN)。
+
 >! `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，并在云端服务器进行混流和转码。由于混流和转码都需要对原来的音视频数据进行解码和二次编码，所以需要更长的处理时间。因此，混合画面的实际观看时延要比独立画面的多出1s - 2s。
 
 <span id="step5"></span>
