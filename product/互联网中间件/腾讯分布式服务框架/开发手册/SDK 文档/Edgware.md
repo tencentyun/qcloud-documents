@@ -4,25 +4,25 @@
 
 #### 新特性
 
-- 新增`分布式任务调度`功能
+新增分布式任务调度功能。
 
-#### bug fix
+#### Bug 修复
 
-- spring-cloud-tsf-gateway 修复tag plugin中header类型取值大小写敏感的问题。
-- 处理tomcat组件开源漏洞风险。
-  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.51版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.51版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.51版本。
-  - 升级org.apache.tomcat.tomcat-annotations-api到8.5.51版本。
-- 修复application/x-www-form-urlencoded类型请求，通过zuul网关代理访问provider时，服务端不到请求参数的问题。  
+- spring-cloud-tsf-gateway 修复 tag plugin 中 header 类型取值大小写敏感的问题。
+- 处理 tomcat 组件开源漏洞风险。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.51版本。
+  - 升级 org.apache.tomcat.tomcat-annotations-api 到8.5.51版本。
+- 修复 application/x-www-form-urlencoded 类型请求，通过 zuul 网关代理访问 provider 时，服务端不到请求参数的问题。  
 
 #### 优化
 
-- spring-cloud-tsf-gateway 新增tag plugin中 path 类型取值。
+spring-cloud-tsf-gateway 新增 tag plugin 中 path 类型取值。
 
 #### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 
 ### 1.19.0-Edgware-RELEASE（2020-01-16）
