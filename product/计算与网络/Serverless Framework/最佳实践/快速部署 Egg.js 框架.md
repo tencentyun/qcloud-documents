@@ -91,7 +91,7 @@ $ touch serverless.yml
 MyComponent:
   component: "@serverless/tencent-egg"
   inputs:
-    region: ap-guangzhou 
+    region: ap-beijing 
     functionName: egg-function
     code: ./
     functionConf:
