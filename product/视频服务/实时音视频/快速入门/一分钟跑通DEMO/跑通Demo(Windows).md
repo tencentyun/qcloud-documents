@@ -27,7 +27,7 @@
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开`GenerateTestUserSig.js`文件：
+2. 找到并打开`GenerateTestUserSig`文件：
  <table>
      <tr>
          <th nowrap="nowrap">适用平台</th>  
