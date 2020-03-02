@@ -17,6 +17,8 @@
 3. 在“日志访问”模块，编辑日志存入 COS。
 ![](https://main.qcloudimg.com/raw/4929ec08f86278f8bdbc7cf2df48b25f.png)
 4. 在弹出框中，开启访问日志，并选择相应 COS 中的存放 bucket。如您没有创建COS 的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
+>?由于跨地域存储比同地域存储延时大，因此建议选择与负载均衡地域一致的 bucket。
+>
 ![](https://main.qcloudimg.com/raw/e8f3506ade5fe73c2267c3f294c957b4.png)
 5. 单击【提交】，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。
 6. 配置完成后，单击 bucket 地址可以直接跳转到日志下载页面。
