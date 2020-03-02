@@ -1,5 +1,20 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+### 1.20.0-Greenwich-RELEASE（2020-03-02）
+
+#### 新特性
+
+- 新增`分布式任务调度`功能
+- spring-cloud-tsf-sleuth 支持`kafka`和`rocketmq`链路追踪功能。
+
+#### bug fix
+
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到9.0.31版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到9.0.31版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到9.0.31版本。
+
+
 ### 1.19.0-Greenwich-RELEASE（2020-01-16）
 
 #### 新特性

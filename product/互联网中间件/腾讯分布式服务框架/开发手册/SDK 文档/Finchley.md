@@ -1,5 +1,27 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+### 1.20.0-Finchley-RELEASE（2020-03-02）
+
+#### 新特性
+
+- 新增`分布式任务调度`功能
+
+#### bug fix
+
+- spring-cloud-tsf-gateway 修复tag plugin中header类型取值大小写敏感的问题。
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.51版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.51版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.51版本。
+
+#### 优化
+
+- spring-cloud-tsf-gateway  新增tag plugin中path类型取值。
+
+#### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ### 1.19.0-Finchley-RELEASE（2020-01-16）
 
 #### 新特性
