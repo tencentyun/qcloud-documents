@@ -1,5 +1,6 @@
 ### 什么是 LUT 文件？
-LUT（Look Up Table），指颜色查找表，主要通过 Photoshop（PS）等软件生成。  
+LUT（Look Up Table），指颜色查找表，主要通过 Photoshop（PS）等软件生成。 实际的 LUT 文件如下图：
+![](https://main.qcloudimg.com/raw/0983bdde028f69cd1a86fac8c76d4648.png)
 
 ### 如何通过 PS 设计 LUT 文件？
 - 打开 PS 软件，吸取口红色卡颜色，再打开照片滤镜，将吸取的颜色值输入颜色框中。
