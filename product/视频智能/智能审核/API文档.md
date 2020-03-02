@@ -22,13 +22,6 @@
 
 
 
-## 任务管理相关接口
-
-- [查询任务详情](https://cloud.tencent.com/document/product/862/37614)
-- [获取任务列表](https://cloud.tencent.com/document/product/862/37613)
-- [任务管理](https://cloud.tencent.com/document/product/862/40947)
-
-
 
 ## 参数模板相关接口
 - [创建内容审核模板](https://cloud.tencent.com/document/api/862/39435)
