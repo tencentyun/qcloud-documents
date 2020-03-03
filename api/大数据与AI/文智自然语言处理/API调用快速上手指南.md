@@ -1,14 +1,19 @@
+>!
+- 腾讯文智自然语言处理已于2019年7月09日全新升级为 [新版](https://cloud.tencent.com/document/product/271/3317)，接口功能更全面，服务更加稳定，且公测期间免费使用。
+- 老版本接口将不再继续维护，将于2019年11月16日零点下线，建议您使用 [新版 API ](https://cloud.tencent.com/document/product/271/35484)，体验更优服务。
+- 接口切换过程中，若您有相关问题，可加入官方 QQ 群（330130409）详细咨询。
+
 ## 1 介绍
 
 腾讯文智自然语言处理（Natural Language Processing）基于并行计算、分布式爬虫系统，结合独特的语义分析技术，一站满足NLP、转码、抽取、数据抓取等需求。基于文智API可实现搜索、推荐、舆情、挖掘等功能。文智同时支持定制化语义分析方案。
 
 腾讯云文智中文语义平台以SDK模块的方式提供服务，多种编程语言都可以轻松使用。在正式使用之前，您需要首先在腾讯云上注册文智账号。
 
-## 2 API调用概述
+## 2 API 调用概述
 
 ### 2.1 通信协议和规则
 
-  详见[《腾讯云通信协议和规则》](http://cloud.tencent.com/doc/api/307/%E8%AF%B7%E6%B1%82%E7%BB%93%E6%9E%84)
+详见[《通信协议》](https://cloud.tencent.com/document/api/271/2052#2.-.E9.80.9A.E4.BF.A1.E5.8D.8F.E8.AE.AE)
 	
 ### 2.2 公共参数
 
@@ -31,7 +36,7 @@
 		<tr>
 			<td style="text-align: center; width: 87px;">Region</td>
 			<td style="text-align: center; width: 75px;">String</td>
-			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
+			<td style="text-align: center; width: 509px;">区域参数，用来标识希望操作哪个区域的实例。可选: gz:广州; sh:上海;hk:中国香港;等部分云产品并非每个区域都有提供, 获取产品对应的地域列表可以使用<a href="http://cloud.tencent.com/wiki/v2/DescribeProductRegionList" target="_blank">/v2/DescribeProductRegionList</a></td>
 			<td style="text-align: center; width: 76px;">是</td>
 		</tr>
 		<tr>
@@ -65,20 +70,19 @@
 
 
 
-  公共参数详见[《腾讯云公共参数》](http://cloud.tencent.com/wiki/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
+公共参数详见[《腾讯云公共参数》](http://cloud.tencent.com/wiki/%E5%85%AC%E5%85%B1%E5%8F%82%E6%95%B0)
 	
 ### 2.3 接口鉴权
 
 接口鉴权方法详见[《接口鉴权》](http://cloud.tencent.com/doc/api/307/%E6%8E%A5%E5%8F%A3%E9%89%B4%E6%9D%83)
->注意：在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
+>!在生成签名的过程中，需要将加密字符串中包含的“_”改写成“.”，从而加密产生签名。
 
 ### 2.4 异步任务接口返回格式
-
-  详见[《腾讯云异步任务接口返回格式》](http://cloud.tencent.com/doc/api/307/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
+详见[《腾讯云异步任务接口返回格式》](http://cloud.tencent.com/doc/api/307/%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E6%A0%BC%E5%BC%8F)
 	
 ### 2.5 错误码
 
-  详见[《调用方式-返回值-错误码》](http://cloud.tencent.com/doc/api/307/%E9%94%99%E8%AF%AF%E7%A0%81)
+详见[《调用方式-返回值-错误码》](http://cloud.tencent.com/doc/api/307/%E9%94%99%E8%AF%AF%E7%A0%81)
 	
 ## 3 调用示例
 
@@ -92,26 +96,26 @@
 
 ### 3.2 修改demo.php文件，修改点如下
 
-**a) **SecretId，SecretKey改为自己腾讯云上相应的值，这里查看：
+**a** SecretId，SecretKey改为自己腾讯云上相应的值，这里查看：
 
 http://manage.qcloud.com/capi/capiManage.php
 
-**b）**$package=array('offset'=>0, 'limit'=>3); 改为：
+**b** $package=array('offset'=>0, 'limit'=>3); 改为：
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 	
 说明：这是文智情感分析接口的参数。
 
-**c）**$a=$cvm->DescribeInstances($package); 改为：
+**c** $a=$cvm->DescribeInstances($package); 改为：
 
 $a = $wenzhi->TextSentiment($package); 
 
   说明：这是文智模块的相关接口，具体请查看接口列表：
   http://cloud.tencent.com/wiki/v2/API
 	
-**d）**其他所有地方的$cvm改为$wenzhi，即替换为文智模块。
+**d** 其他所有地方的$cvm改为$wenzhi，即替换为文智模块。
 
-**修改后的demo.php如下：**
+**修改后的 demo.php 如下：**
 
 ```
 <?php
@@ -125,7 +129,7 @@ $config = array('SecretId'        => '您在腾讯云上的SecretId',
 
 $wenzhi = QcloudApi::load(QcloudApi::MODULE_WENZHI, $config);
 
-$package = array("content"=>"李亚鹏挺王菲：加油！孩儿他娘。");
+$package = array("content"=>"李三挺王四：加油！孩儿他娘。");
 
 $a = $wenzhi->TextSentiment($package);
 

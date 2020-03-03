@@ -4,7 +4,7 @@ TDSQL接口的错误码分为两类：
 
 | 错误码 | 描述 |
 |---------|---------|
-| ServiceUnavailable | 没有地区提过 tdsql 服务 |
+| ServiceUnavailable | 没有地区提供 tdsql 服务 |
 | NoServiceAvailableForThisRegionId | 请求的 regionId 不提供 tdsql 服务 |
 | NoServiceAvailableForThisZoneId | 请求的 zoneId 不提供tdsql服务 |
 | ReachThememSizeLimit | 申请的 tdsql 超过最大/最小容量限制 |
@@ -18,7 +18,7 @@ TDSQL接口的错误码分为两类：
 | InstanceStatusAbnormal | 实例状态异常(非删除), 不能进行操作 |
 | SameSpecId | 扩容时指定的specid和实例的specid一样 |
 | SpecIdIllegal | 扩容时指定的specid非法, 不在spec列表中 |
-| EmptyIP | 更改接入机ip时，接入机ip为空 |
+| EmptyIP | 更改接入机IP时，接入机IP为空 |
 | UserNotInTheWhiteList | 用户不在白名单中 |
 | SuperUserForbidden | 不允许操作超级用户tdsql |
 | DbNameIllegal | 数据库名称不合法 |
@@ -41,7 +41,7 @@ TDSQL接口的错误码分为两类：
 | RuleStatusError | 规则状态错误 |
 | RuleParamsError | 规则参数错误 |
 | StrategyNameExists | 策略名称存在 |
-| SessionIdExpired | 会话Id过期 |
+| SessionIdExpired | 会话ID过期 |
 | PriorityIDError | PriorityID不一致 |
 | RulesNotExist | 规则不存在 |
 | StrategyNotExist | 策略名称不存在 |
@@ -84,8 +84,8 @@ TDSQL接口的错误码分为两类：
 | BadUserType | 错误的用户类型 |
 | BadUserRight | 错误的用户权限 |
 | OSSGetInstanceError | OSS获取实例信息错误 |
-| CDBError | CDB接口失败 |
-| CDBMasterError | CDB MASTER失败 |
+| CDBError | TencentDB接口失败 |
+| CDBMasterError | TencentDB MASTER失败 |
 | CNSAuthFailed | CNS鉴权失败 |
 | CNSNSFailed | CNS NS错误 |
 | VPCError | VPC错误 |
@@ -105,16 +105,16 @@ TDSQL接口的错误码分为两类：
 | MigrateTaskAlreadySuccess | 迁移任务已经成功 |
 | MigrateTaskNotTunning | 迁移任务不再运行中 |
 | MigrateTaskParamError | 迁移任务参数错误 |
-| MigrateTaskNoCdbInstance | 没有对应的CDB实例 |
+| MigrateTaskNoCdbInstance | 没有对应的TencentDB实例 |
 | OssTaskStatusNotOk | 迁移任务oss任务状态没ok |
-| MigrateTaskNoCvmInstance | 没有对应的cvm实例 |
-| VpcMigrateNotSupport | vpc迁移不支持 |
-| CvmIpNotCorrect | cvm ip不对 |
+| MigrateTaskNoCvmInstance | 没有对应的CVM实例 |
+| VpcMigrateNotSupport | VPC迁移不支持 |
+| CvmIpNotCorrect | CVM IP不对 |
 | MigrateTaskCheckFailed | 迁移任务校验失败, 不能启动 |
 | MigratTaskUnchecked | 迁移任务未校验, 不能启动 |
-| MigrateCheckIdInvalid | 迁移任务校验任务id无效 |
+| MigrateCheckIdInvalid | 迁移任务校验任务ID无效 |
 | DfwError | DFW接口错误 |
-| CDBOSSFailed | CDB OSS错误 |
+| CDBOSSFailed | TencentDB OSS错误 |
 | LogDBFailed | logDB接口错误 |
 | TgwApplyRuleFailed | TGW规则应用错误 |
 | TGWOpRsFailed | TGW操作实体机失败 |

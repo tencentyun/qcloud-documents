@@ -8,7 +8,7 @@
 ![img](https://main.qcloudimg.com/raw/55fef40ccaca75443eb78c25c58ba742.png)
 2. 在左边的导航栏里，单击【设置】。
 ![img](https://main.qcloudimg.com/raw/ed6a13e406c9b4a868015941790b96a1.png)
-3. 在左边的导航栏里，单击【高级设置】，然后点击右边的【网络回调钩子】。
+3. 在左边的导航栏里，单击【高级设置】，然后单击右边的【网络回调钩子】。
 ![img](https://main.qcloudimg.com/raw/a145a007a061ad9c46a98e70226374e0.png)
 4. 根据具体情况，设置好需要填写的信息，单击【创建网络回调钩子】即可。
 ![img](https://main.qcloudimg.com/raw/ef5e8f45fefcfee72284a35c0e5fbf4d.png)

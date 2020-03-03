@@ -1,78 +1,102 @@
-LVM（Logical Volume Manager，逻辑卷管理）通过在硬盘和分区之上建立一个逻辑层，可以将磁盘或分区划分为相同大小的PE（Physical Extents）单元，不同的磁盘或分区可以划归到同一个卷组（VG，Volume Group），在VG上可以创建逻辑卷（LV，Logical Volume），在LV上可以创建文件系统。可以简单的把卷组与磁盘，逻辑卷与分区的概念对应起来。但是相对于直接使用磁盘分区的方式，LVM的重点在于弹性调整文件系统的容量：
+## LVM 简介
+逻辑卷管理（Logical Volume Manager，LVM）通过在硬盘和分区之上建立一个逻辑层，将磁盘或分区划分为相同大小的 PE（Physical Extents）单元，不同的磁盘或分区可以划归到同一个卷组（VG，Volume Group），在 VG 上可以创建逻辑卷（LV，Logical Volume），在 LV 上可以创建文件系统。
+相较于直接使用磁盘分区的方式，LVM 的优势在于弹性调整文件系统的容量：
+- 文件系统不再受限于物理磁盘的大小，可以分布在多个磁盘中。
+例如，您可以购买3块4TB的弹性云硬盘并使用 LVM 创建一个将近12TB的超大文件系统。
+- 可以动态调整逻辑卷大小，不需要对磁盘重新分区。
+当 LVM 卷组的空间无法满足您的需求时，您可以单独购买弹性云硬盘并挂载到相应的云服务器上，然后将其添加到 LVM 卷组中进行扩容操作。
 
-- 文件系统不再受限于物理磁盘的大小，可以分布在多个磁盘上：比如您可以购买3个4TB的弹性云盘并使用LVM创建一个将近12TB的超大文件系统
-- 可以动态调整逻辑卷大小，不需要重新对磁盘重新分区：当LVM卷组的空间无法满足您的需求时，您可以单独购买弹性云盘并将其挂载在相应的云服务器上，然后参考下边的指引将其添加到LVM卷组中进行扩容操作
-....
+## 构建 LVM
+>?本文以使用3块弹性云硬盘通过 LVM 创建可动态调整大小的文件系统为例。如下图所示：
+![](https://main.qcloudimg.com/raw/81086e80477ff7e374e7c3f0fe9d2788.png)
 
-下面介绍如何使用三块腾讯云弹性云硬盘通过LVM创建可以动态调整大小的文件系统。
-
-![](//mccdn.qcloud.com/static/img/a22b0e07c2430684faedc44a9bf3f2c2/image.png)
-
-## 创建物理卷（PV）
-执行以下命令创建一个物理卷：
-
+### 步骤 1  创建物理卷 PV
+1. 以 root 用户 [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
+2. 执行以下命令，创建一个 物理卷（Physical Volume， PV）。
 ```
-pvcreate 磁盘路径1 ... 磁盘路径N
+pvcreate <磁盘路径1> ... <磁盘路径N>
 ```
-
-![](//mccdn.qcloud.com/static/img/6bda1d27a97c2bc4a2f6ecc12d5ce407/image.png)
-
-执行 `pvscan` 、 `lvmdiskscan` 、 `pvs` 、 `pvdisplay 物理卷路径`等命令查看现在系统中的物理卷：
-
-![](//mccdn.qcloud.com/static/img/89b9329aee52edbd46098da4d8eba8c8/image.png)
-
-## 创建卷组（VG）
-执行以下命令创建卷组：
-
+本文以 `/dev/vdc`、`/dev/vdd` 和 `/dev/vde` 为例，则执行：
 ```
-vgcreate [-s 指定PE大小] 卷组名 物理卷路径
+pvcreate /dev/vdc /dev/vdd /dev/vde
 ```
-![](//mccdn.qcloud.com/static/img/b6bef868d56920544969fb3de29278a9/image.png)
-
-创建完成后可以使用`vgextend 卷组名 新物理卷路径`来向卷组中添加新的物理卷：
-![](//mccdn.qcloud.com/static/img/5a6e292aa42c06da83faeafb64ff4634/image.png)
-
-使用`vgs`、`vgdisplay`等命令查看当前系统中的卷组：
-![](//mccdn.qcloud.com/static/img/a5939970bb877134961aa57cac492082/image.png)
-
-## 创建逻辑卷（LV）
-创建出大卷组后，接下来可以开始建立分割区（LV）了，执行以下命令创建逻辑卷：
-
+创建成功则如下图所示：
+![](https://main.qcloudimg.com/raw/5b92a6c7878e22906599af48bfa09d95.png)
+3. 执行以下命令，查看现在系统中的物理卷。
 ```
-lvcreate [-L 逻辑卷大小][ -n 逻辑卷名称] VG名称
+lvmdiskscan | grep LVM
 ```
-![](//mccdn.qcloud.com/static/img/6a333909caf1197979f433b5144725ea/image.png)
-这里创建了一个8G的名为“lv_0”的逻辑卷。
+![](https://main.qcloudimg.com/raw/1de75af4a49c2deea689a2576eb075d9.png)
 
-此时使用`pvs`命令可以发现只有vdc的PE被使用了：
-![](//mccdn.qcloud.com/static/img/0de6857e273bf94736e601d691aff855/image.png)
-
-## 创建文件系统
-执行以下命令在创建好的逻辑卷上创建文件系统：
-
+### 步骤 2 创建卷组 VG
+1. 执行以下命令，创建 VG。
 ```
-mkfs
+vgcreate [-s <指定PE大小>] <卷组名> <物理卷路径>
 ```
-
-![](//mccdn.qcloud.com/static/img/910be0713d9e6a216d5a114ab6cae5d4/image.png)
-
-使用`mount`命令挂载该文件系统：
-![](//mccdn.qcloud.com/static/img/72f94b557077a76cbbf6dffe95bbc994/image.png)
-
-## 动态扩展逻辑卷及文件系统大小
-当VG容量有剩余时，LV容量可动态扩展。执行以下命令扩展逻辑卷大小：
-
+本文以创建一个名为 “lvm_demo0” 的卷组为例，则执行：
 ```
-lvextend [-L +/- 增减容量] 逻辑卷路径
+vgcreate lvm_demo0 /dev/vdc /dev/vdd
 ```
+创建成功则如下图所示：
+![](https://main.qcloudimg.com/raw/3b8dba3329f62e85d2075fad10898632.png)
+ 当提示 “Volume group “<卷组名>” successfully created” 时，表示卷组创建成功。
+ - 卷组创建完成后，可执行以下命令，向卷组中添加新的物理卷。
+```
+vgextend 卷组名 新物理卷路径
+```
+添加成功则如下图所示：
+![](https://main.qcloudimg.com/raw/105e5a77472f173ffd4a58624f20a863.png)
+ - 卷组创建完成后，可执行`vgs`、`vgdisplay`等命令查看当前系统中的卷组信息。如下图所示：
+![](https://main.qcloudimg.com/raw/309c991d32cf4b801ddbe8d898f1bfbb.png)
 
-![](//mccdn.qcloud.com/static/img/a56f7ab937831f3bef2ba68962a543fc/image.png)
-这里对名为“lv_0”的逻辑卷扩展了4G大小的空间。
+### 步骤 3 创建逻辑卷 LV
+1. 执行以下命令，创建 LV。
+```
+lvcreate [-L <逻辑卷大小>][ -n <逻辑卷名称>] <VG名称>
+```
+本文以创建一个8GB的名为 “lv_0” 的逻辑卷为例，则执行：
+```
+lvcreate -L 8G -n lv_0 lvm_demo0
+```
+创建成功则如下图所示：
+![](https://main.qcloudimg.com/raw/ed6d2f827ae7c4a4630bf17e24d90df2.png)
+>?执行 `pvs` 命令，可查看到此时只有 `/dev/vdc` 被使用了8GB。如下图所示：
+>![](https://main.qcloudimg.com/raw/2718d08f7c74b7b469a23473a1398dfe.png)
 
-此时使用`pvs`命令可以发现vdc已被完全使用，vdd被使用了2G空间：
-![](//mccdn.qcloud.com/static/img/59a3c0ce8fa6c004144eb2c8ea8d12cc/image.png)
+### 步骤 4 创建并挂载文件系统
+1. 执行以下命令，在创建好的逻辑卷上创建文件系统。
+```
+mkfs.ext3 /dev/lvm_demo0/lv_0
+```
+2. 执行以下命令，挂载文件系统。
+```
+mount /dev/lvm_demo0/lv_0 vg0/
+```
+挂载成功则如下图所示：
+![](https://main.qcloudimg.com/raw/2a7701636c2604d67e0743de4f9a6af1.png)
 
-此时只是扩展的逻辑卷的大小，在其之上的文件系统也要随之进行扩展才能使用，这里使用`resize2fs`来扩展文件系统大小：
+### 步骤 5 动态扩展逻辑卷及文件系统大小
+>!仅当 VG 容量有剩余时，LV 容量可动态扩展。扩展 LV 容量后，需一并扩展创建在该 LV 上的文件系统的大小。
 
-![](//mccdn.qcloud.com/static/img/3b39782a7826c8c262f1500d083682ce/image.png)
-此时使用`df`命令可以看到lv_0的大小已被修改为12G了。
+1. 执行以下命令，扩展逻辑卷大小。
+```
+lvextend [-L +/- <增减容量>] <逻辑卷路径>
+```
+本文以向逻辑卷 “lv_0” 扩展4GB容量为例，则执行：
+```
+lvextend -L +4G /dev/lvm_demo0/lv_0
+```
+扩展成功则如下图所示：
+![](https://main.qcloudimg.com/raw/eccd7d6aec587eb90ec655a384367595.png)
+>?执行 `pvs` 命令，可查看到此时 `/dev/vdc` 已被完全使用，`/dev/vdd` 被使用了2GB。如下图所示：
+>![](https://main.qcloudimg.com/raw/189155ca377ef9550c4587ca78ab5b27.png)
+2. 执行以下命令，扩展文件系统。
+```
+resize2fs /dev/lvm_demo0/lv_0
+```
+扩展成功则如下图所示：
+![](https://main.qcloudimg.com/raw/2e37f35678014ab1ca398fe5470a754b.png)
+扩展成功后，可执行以下命令，查看逻辑卷的容量是否变为12GB。
+```
+df -h
+```

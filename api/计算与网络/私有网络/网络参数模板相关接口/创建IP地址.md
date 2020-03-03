@@ -4,7 +4,6 @@
 接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
 
 
-
 ## 2. 请求参数
 
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 CreateAddress
@@ -13,11 +12,7 @@
 |---------|---------|---------|---------|
 | addressName | 是 | String | IP 地址名称 。|
 | address | 是 | Array| IP 地址列表。 |
-| address.n | 是 | String | IP 地址，支持多种格式，详见 <a href='https://cloud.tencent.com/document/product/215/9882#.E7.AE.80.E4.BB.8B' title='参数模板产品文档'>参数模板产品文档</a>。|
-
-
-
-
+| address.n | 是 | String | IP 地址，支持多种格式，详见 [参数模板产品文档](https://cloud.tencent.com/document/product/215/20090)。|
 
 
 ## 3. 输出参数

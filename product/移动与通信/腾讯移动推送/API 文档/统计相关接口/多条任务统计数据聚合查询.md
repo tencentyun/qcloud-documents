@@ -1,0 +1,74 @@
+## 接口说明
+**请求方式**：POST。
+**调用频率限制**：200次/小时。
+```shell
+https://api.tpns.tencent.com/v3/statistics/get_push_group_stat
+```
+**接口功能**：可根据 GroupID 来查询**最近3天内相同 GroupID** 的所有已推送任务的聚合统计数据。
+
+
+## 参数说明
+#### 请求参数
+
+| 参数名称  | 必选 | 类型         | 描述                                                         |
+| --------- | ---- | ------------ | ------------------------------------------------------------ |
+| groupId   | 是   | string       | 多条任务聚合统计的字段，对应推送参数中的“group_Id”           |
+| startDate | 是   | string       | 查询开始日期<li>格式：YYYY-MM-DD<li>限制：只能聚合统计最近7天的推送任务 |
+| endDate   | 是   | string | 查询截止日期，格式：YYYY-MM-DD                               |
+
+#### 应答参数
+
+| 参数名称     | 类型   | 描述                                   |
+| ------------ | ------ | -------------------------------------- |
+| retCode      | int    | 返回状态码                             |
+| errMsg       | string | 错误信息                               |
+| pushStatData | Json   | 返回结果。pushStatData 结构变量见下表 |
+
+#### pushStatData（Android）
+
+| 参数名称     | 类型   | 说明     |
+| ------------ | ------ | -------- |
+| pushActiveUv | int    | 计划发送 |
+| pushOnlineUv | int    | 实际发送 |
+| verifySvcUv  | int    | 抵达设备 |
+| verifyUv     | int    | 展示     |
+| clickUv      | int    | 点击     |
+| cleanupUv    | int    | 清除     |
+
+#### pushStatData（iOS）
+
+| 参数名称     | 类型   | 说明     |
+| ------------ | ------ | -------- |
+| pushActiveUv | int    | 计划发送 |
+| pushOnlineUv | int    | APNs 成功接收 |
+| verifySvcUv  | int    | 抵达 |
+| clickUv      | int    | 点击     |
+
+
+## 示例说明
+#### 请求示例
+
+```json
+{
+ "groupid": "pt:testGroup",
+ "startDate": "20190912",
+ "endDate": "20190912"
+}
+```
+
+#### 应答示例
+
+```json
+{
+ "retCode": 0,
+ "errMsg": "NO_ERROR",
+ "pushStatData": {
+ "pushActiveUv": 14,
+ "pushOnlineUv": 9,
+ "verifySvcUv": 8,
+ "verifyUv": 8,
+ "clickUv": 0,
+ "cleanupUv": 0
+ }
+}
+```

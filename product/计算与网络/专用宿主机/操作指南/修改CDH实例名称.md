@@ -4,7 +4,7 @@
 
 1. 登录 [专用宿主机控制台](https://console.cloud.tencent.com/cvm/cdh)。
 2. 选择相应的地域，勾选需要修改名称的专用宿主机，单击列表顶部【更多操作】>【改名】。
-   ![改名入口](https://main.qcloudimg.com/raw/f068a513ebe225a4eb4becf4730ee034.png)
+   ![](https://main.qcloudimg.com/raw/8b5051da4c0c0b76bd43f634ec08d5f1.png)
 3. 在改名操作弹窗中，输入新宿主机名称，单击【确定】完成操作。
    ![改名操作框](https://main.qcloudimg.com/raw/a676b65fc702ff29846355bf37cfefb5.png)
 

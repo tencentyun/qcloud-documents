@@ -1,7 +1,13 @@
+>!
+- 腾讯文智自然语言处理已于2019年7月09日全新升级为 [新版](https://cloud.tencent.com/document/product/271/3317)，接口功能更全面，服务更加稳定，且公测期间免费使用。
+- 老版本接口将不再继续维护，将于2019年11月16日零点下线，建议您使用 [新版 API ](https://cloud.tencent.com/document/product/271/35484)，体验更优服务。
+- 接口切换过程中，若您有相关问题，可加入官方 QQ 群（330130409）详细咨询。
+
 ## 1. 接口描述
 域名：wenzhi.api.qcloud.com
 接口名: TextSensitivity <br />
 识别信息的色情、政治等敏感程度。可用于敏感信息过滤，舆情监控等。
+>?敏感词库自动更新，暂不支持客户自定义。
 
 ## 2. 输入参数
 <table class="t">
@@ -50,7 +56,7 @@ https://wenzhi.api.qcloud.com/v2/index.php?
 	&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 	&Timestamp=1408704141
 	&Signature=HgIYOPcx5lN6gz8JsCFBNAWp2oQ
-	&content=六四事件是一个历史问题
+	&content=***********
 	&type=2
 ```
 

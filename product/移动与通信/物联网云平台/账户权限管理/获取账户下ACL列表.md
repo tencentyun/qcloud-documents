@@ -57,15 +57,14 @@ array (
 **获取成功**
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "totalCount": 1,
-    "acls": [
-        {
-            "access": 3,
-            "topic": "hello/tencent"
-        }
+	"code": 0,
+	"message": "",
+	"codeDesc": "Success",
+	"totalCount": 1,
+	"acls": [{
+		"access": 3,
+		"topic": "hello/tencent"
+	}]
 }
 
 ```

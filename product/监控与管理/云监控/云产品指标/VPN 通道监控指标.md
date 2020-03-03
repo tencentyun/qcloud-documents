@@ -10,4 +10,4 @@
 | 时延    | VPN 探测一分钟的平均时延 | ms   |VPN 通道|
 | 通道不通  | VPN 通道实时连通状态   | 0/1  |VPN 通道|
 
-有关更多如何使用 VPN 通道的监控指标内容，可以查看云监控 API 中的 [读取 VPN 通道监控指标接口](https://cloud.tencent.com/document/api/248/10989)。
+有关更多如何使用 VPN 通道的监控指标内容，可参见云监控 API 中的 [读取 VPN 通道监控指标接口](https://cloud.tencent.com/document/api/248/10989)。

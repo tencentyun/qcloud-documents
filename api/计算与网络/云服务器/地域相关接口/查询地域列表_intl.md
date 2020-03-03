@@ -61,7 +61,7 @@ Output
             },
             {
                 "Region": "ap-hongkong",
-                "RegionName": "Southeast Asia (Hong Kong)",
+                "RegionName": "South China (Hong Kong)",
                 "RegionState": "AVAILABLE"
             },
             {

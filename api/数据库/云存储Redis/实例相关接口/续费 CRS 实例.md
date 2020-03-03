@@ -3,13 +3,12 @@
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
 
-
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='/doc/api/372/4153' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为RenewRedis。
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| redisId | 是 | String | 实例串号,可通过[查询CRS实例列表接口](http://cloud.tencent.com/doc/api/260/1384)查询|
+| redisId | 是 | String | 实例串号,可通过[查询 Redis 实例列表接口](http://cloud.tencent.com/doc/api/260/1384)查询|
 | period | 是 | UInt | 购买时长，单位：月，取值范围 [1,2,3,4,5,6,7,8,9,10,11,12,24,36]|
 
 

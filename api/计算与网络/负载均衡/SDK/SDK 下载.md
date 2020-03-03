@@ -14,3 +14,4 @@ GitHub 地址如下：
 ## SDK 使用注意事项
 
 使用 SDK 前至少要获取 [secretId](https://console.cloud.tencent.com/capi)， [secretkey](https://console.cloud.tencent.com/capi) 作为请求合法性的唯一条件。
+

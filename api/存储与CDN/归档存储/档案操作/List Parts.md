@@ -50,18 +50,17 @@ Authorization: Auth
 
 ```JSON
 {
-    "ArchiveDescription" : String,
-    "CreationDate" : String,
-    "Marker": String,
-    "MultipartUploadId" : String,
-    "PartSizeInBytes" : Number,
-    "Parts" : 
-    [ {
-      "RangeInBytes" : String,
-      "SHA256TreeHash" : String
-      },
-      ...
-     ],
-    "VaultQCS" : String
+	"ArchiveDescription": "String",
+	"CreationDate": "String",
+	"Marker": "String",
+	"MultipartUploadId": "String",
+	"PartSizeInBytes": "Number",
+	"Parts": [{
+			"RangeInBytes": "String",
+			"SHA256TreeHash": "String"
+		},
+		...
+	],
+	"VaultQCS": "String"
 }
 ```

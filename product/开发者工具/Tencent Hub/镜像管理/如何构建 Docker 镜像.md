@@ -5,11 +5,11 @@
 - 由于企业环境的多样性，并非所有应用都能在  DockerHub 找到对应的镜像来使用。 您可以通过以下教程了解到如何将应用打包成 Docker 镜像。
 
 Docker 生成镜像目前有两种方式：
-1、 通过 Dockerfile 自动构建镜像；
-2、 通过容器操作，并执行 Commit 打包生成镜像。
+1. 通过 Dockerfile 自动构建镜像；
+2. 通过容器操作，并执行 Commit 打包生成镜像。
 
 ## Dockerfile 自动编译生成（推荐使用）
-以 Dockerhub 官方提供的 WordPress 为例，[转到 github 查看详情 >>](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)
+以 Dockerhub 官方提供的 WordPress 为例，[转到 github 查看详情 ](https://github.com/docker-library/wordpress/blob/7d40c4237f01892bb6dbc67d1a82f5b15f807ca1/php5.6/apache/Dockerfile)。
 
 其 Dockfile 源码如下：
    

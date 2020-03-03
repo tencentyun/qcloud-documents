@@ -25,7 +25,7 @@
 ## 3. 查看配置类接口
 | 接口功能 | Action ID | 功能描述 |
 |---------|---------|---------|
-| 查看CVM可用机型配置信息 | [DescribeAvailableCvmInstanceTypes](/document/product/599/12701) | 查看批量计算可用的CVM机型配置信息 |
+| 查看CVM可用机型配置信息 | [DescribeAvailableCvmInstanceTypes](/document/product/599/12701) | 查看批量计算可用的 CVM 机型配置信息 |
 
 ## 4. 任务模板相关接口
 | 接口功能 | Action ID | 功能描述 |

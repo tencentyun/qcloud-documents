@@ -12,7 +12,7 @@ URL 路径：`http://接口域名/v2/application/get_app_account_tokens?params`
 在通用返回结果参数中，result 字段的 json 如下：
 ```
 {
- “tokens”:[“token1”,”token2”]
+ "tokens":["token1","token2"]
 }
 ```
 ### 示例
