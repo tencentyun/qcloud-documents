@@ -2,7 +2,7 @@
 
 ## 配置头文件
 1. 请参考 [配置文档](https://cloud.tencent.com/document/product/607/19068)，完成 GME 工程配置。
-2. 将文件 tmg_adv_win.h 放置在GME SDK(For Windows)的其他头文件同一目录下。
+2. 将文件 tmg_adv_win.h 放置在 GME SDK（For Windows）下，与其他头文件保持同一目录。
 3. 单击 [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/pubilc/GME_Accompany_Plugin.zip)，下载两个 dll 文件，路径与其他库文件一致。导出可执行文件后，应与可执行文件同目录。
 
 
