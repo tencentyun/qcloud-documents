@@ -1,5 +1,3 @@
-本文描述互动课堂 SaaS 组件使用方法，可以依照 [开通指南](https://cloud.tencent.com/document/product/680/41461) 开通互动课堂。
-
 ## 如何加入课堂
 ### 下载 SaaS 客户端
 - Mac 平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Saas.dmg)。
