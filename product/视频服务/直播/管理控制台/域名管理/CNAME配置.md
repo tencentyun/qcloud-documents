@@ -15,7 +15,7 @@
 3. 进入指定域名的域名解析页，单击【添加记录】
 4. 在该新增列填写域名前缀为主机记录，选择记录类型为 CNAME，填写 CNAME 域名为记录值。
 	- 记录类型：选择`CNAME`。
-	- 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
+	- 主机记录：填写子域名的前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
 	- 解析路线：建议选择`默认`。
 	- 记录值：填写腾讯云控制台[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
 	- TTL：建议填写10分钟。
