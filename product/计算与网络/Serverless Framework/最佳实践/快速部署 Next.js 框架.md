@@ -1,6 +1,5 @@
 ## 操作场景
- 快速部署基于 Next.js 框架到腾讯云函数的组件
-腾讯云 [Next.js](https://github.com/zeit/next.js) Serverless Component。
+腾讯云 [Next.js](https://github.com/zeit/next.js) Serverless Component，支持 Restful API 服务的部署。
 
 ## 前提条件
 #### 初始化 Next.js 项目
