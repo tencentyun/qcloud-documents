@@ -276,11 +276,12 @@ coscmd upload -r /data/examplefolder data/examplefolder
 coscmd upload -r /data/examplefolder examplefolder2/
 #上传到 bucket 根目录
 coscmd upload -r /data/examplefolder/ /
-#同步上传，跳过md5相同的文件
+#同步上传，跳过 md5 相同的文件
 coscmd upload -rs /data/examplefolder data/examplefolder
+#同步上传，删除本地已经删除的文件
+coscmd upload -rs --delete /data/examplefolder data/examplefolder
 #忽略 .txt 和 .doc 的后缀文件
 coscmd upload -rs /data/examplefolder data/examplefolder --ignore *.txt,*.doc
-
 ```
 
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
@@ -320,9 +321,10 @@ coscmd download -r data/examplefolder/ /data/
 coscmd download -rf / /data/examplefolder
 #同步下载当前 bucket 根目录下所有的文件，跳过 md5校验相同的文件
 coscmd download -rs / /data/examplefolder
+#同步下载当前 bucket 根目录下所有的文件，同时删除云上删除但本地未删除的文件
+coscmd download -rs --delete / /data/examplefolder
 #忽略 .txt 和 .doc 的后缀文件
-coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc 
-
+coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc
 ```
 
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。

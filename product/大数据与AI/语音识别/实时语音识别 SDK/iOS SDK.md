@@ -286,5 +286,3 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 
 ```
 
-## 视频讲解
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-12769?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

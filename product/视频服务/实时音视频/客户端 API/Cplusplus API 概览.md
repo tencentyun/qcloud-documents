@@ -285,7 +285,7 @@
 |-----|-----|
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a13a9ad0933b7ab872987e432f005e8ad) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a0ba02a5d9009ebb9c4e80c0c43c80bca) | 麦克风准备就绪。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a61df1f9eec0bfcebf421be865275ffc5) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a61df1f9eec0bfcebf421be865275ffc5) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDeviceChange](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#ac86c1b0d445a33f6340394b3b78490bd) | 本地设备通断回调。 |
 | [onTestMicVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a9f0101fa8222c6163f1b23fcce81e22b) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a04bb10b06af17cdc43b7831336736539) | 扬声器测试音量回调。 |

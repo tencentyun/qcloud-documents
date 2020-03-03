@@ -48,7 +48,7 @@
 
 参数|说明
 ---|---
-param | 登录参数，详细信息参见 TIMLoginParam 结构说明
+param | 登录参数，详细信息参见 [TIMLoginParam](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMLoginParam.html) 结构说明
 succ | 登录成功回调
 fail | 登录失败回调
 
@@ -91,8 +91,7 @@ UserSig 正确的签发方式请参考 [登录鉴权](https://cloud.tencent.com/
 
 **示例：**
 
-> **注意：**
-> 在需要切换帐号时，需要 `logout` 回调成功或者失败后才能再次 `login`，否则 `login` 可能会失败。
+>!在需要切换帐号时，需要 `logout` 回调成功或者失败后才能再次 `login`，否则 `login` 可能会失败。
 
 ```
 [[TIMManager sharedInstance] logout:^() {

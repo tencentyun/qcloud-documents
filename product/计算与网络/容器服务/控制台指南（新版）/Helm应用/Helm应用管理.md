@@ -1,33 +1,32 @@
 ## 操作场景
 
-您可以通过控制台管理 Helm 应用的创建、删除、修改等操作，也可以通过本地安装 Helm 客户端连接到集群后，通过 Helm 命令行进行操作。
+您可以通过控制台进行 Helm 应用的创建、删除、修改等操作，也可以通过本地安装 Helm 客户端并连接到集群后，通过 Helm 命令行进行操作。
 
 ## 前提条件
-
-- 已有腾讯云 TKE 集群，且拥有0.28核 CPU，180MiB内存的资源。
+- 已有腾讯云 TKE 集群，且至少拥有0.28核 CPU，180MiB内存的资源。
 - 已在集群内开通 Helm 应用管理功能。
 - 仅支持 kubernetes 1.8 以上版本的集群。
 
->? 
-> - 若未开通 Helm 应用管理功能，请在 [Helm 应用](https://console.cloud.tencent.com/tke2/helm) 中，申请开通。
-> - 开通 Helm 应用管理功能后，将在集群内安装 Helm tiller 相关组件。
-
- ![](https://main.qcloudimg.com/raw/5a0a28f215950ad6e666de6a855ed741.png)
+## 说明事项
+- 若未开通 Helm 应用管理功能，请在 [Helm 应用](https://console.cloud.tencent.com/tke2/helm) 中申请开通。
+- 开通 Helm 应用管理功能后，将在集群内安装 Helm tiller 相关组件。
 
 ## 操作步骤
 
 ### 创建 Helm 应用
-
-1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，选择【应用中心】，单击【[Helm 应用](https://console.cloud.tencent.com/tke2/helm)】，进入 Helm 应用管理页面。
-3. 单击【新建】，进入 “新建 Helm 应用” 页面。
-4. 输入应用名，选择 “所在地域”、“运行集群” 以及需要安装的 Helm Chart 和对应的版本。如下图所示：
- ![](https://main.qcloudimg.com/raw/b662048d70667b37e75e2952acdbad0a.png)
- Helm Chart 来源主要分为以下两种：
- - TencentHub：可选择公开和私有两种。详情请参见 [TencentHub Helm Chart 操作指引](https://cloud.tencent.com/document/product/857/31683)。
- - 其他：选择 Helm 官方或自建 Helm Repo 仓库。
->!  当您选择 “其他” 类型来源时，Chart_url 属性必须设置为以 http 开头 tgz 结尾的参数值。
-5. 单击【完成】。
+1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【Helm 应用】。
+2. 在 “Helm应用” 页面上方，选择**所在地域**及**运行集群**，并单击【新建】。
+4. 在 “新建 Helm 应用” 页面，根据实际需求填写以下参数。如下图所示：
+![](https://main.qcloudimg.com/raw/b806bcd27f12261d2662e35c9992e8c6.png)
+	- **应用名**：自定义。
+	- **来源**：主要提供 TencentHub 和第三方仓库两种来源，请根据实际情况进行选择：
+   - **TencentHub**：可选择公开和私有两种。详情请参见 [TencentHub Helm Chart](https://cloud.tencent.com/document/product/857/31683) 操作指引。
+   >?TencentHub 预计将于2020年3月正式下线，目前仅存量用户可使用此功能，同时已不支持新用户开通使用。建议所有用户再次新建 Helm 应用时请选择第三方仓库来源进行创建。
+     - **第三方仓库**：可以是 Helm 官方或自建 Helm Repo 仓库。
+		- **下载地址**：根据实际需求填写具体 Chart 的下载地址，注意必须设置为以 `http` 开头 `tgz` 结尾的参数值。
+	- **类型**：提供公有和私有两种类型，请根据实际情况进行选择。
+	- **Key-Value**：可通过设置自定义参数替换 Chart 包的默认配置，如 `image.repository = nginx`。
+5. 单击【完成】，即可新建成功。
 
 ### 更新 Helm 应用
 
