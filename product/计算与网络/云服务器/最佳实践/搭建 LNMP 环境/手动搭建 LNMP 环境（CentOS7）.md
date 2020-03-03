@@ -7,7 +7,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ## 示例软件版本
 本文搭建的 LNMP 环境软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
+- Nginx：Web 服务器，本文以  Nginx 1.17.7 为例。
 - MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
 - PHP：脚本语言，本文以 PHP 7.2.22 为例。
 
@@ -48,7 +48,7 @@ vim /etc/nginx/nginx.conf
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
 7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。
 用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->? 若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加如下内容。
+>? 您可使用 `Ctrl+F` 向下翻页、`Ctrl+B`向上翻页查看文件。若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加如下内容。
 >
 ```
 server {

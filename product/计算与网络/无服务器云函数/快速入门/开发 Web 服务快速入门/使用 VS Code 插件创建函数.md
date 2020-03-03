@@ -39,7 +39,7 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 ![Alt text](https://main.qcloudimg.com/raw/f657198718f1ebc03257718785246477.png)
 3. 根据提示依次输入账号的 APPID，SecretId 及 SecretKey 信息，作为插件调用云 API 时的认证信息。并在认证成功后，选择您希望部署函数的地域。配置信息获取途径请参见 [配置 SCF CLI](https://cloud.tencent.com/document/product/583/33449#.E9.85.8D.E7.BD.AE.E8.B4.A6.E5.8F.B7.E4.BF.A1.E6.81.AF)。
 已配置的账号信息将写入本地 `~/.tcli_config.ini` 文件，您也可以直接修改该文件中的账号信息，修改完成后需要重启 VS Code 配置才可生效。
-4. 为提升函数上传效率，您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+4. 为提升函数上传效率，您可以在 VS Code 中 [设置开启 COS 上传](#openCOS)。
 
 
 
@@ -81,13 +81,13 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 
 #### 设置断点
 针对 Python 函数，可以在 VS Code 插件进行本地调试。
->?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python) 。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里 [设置 Python path](#pythonpath)。
+>?本地调试目前支持 Python 和 Node.js ，调试 Python 项目需要先安装 [Python 插件](https://marketplace.visualstudio.com/items?itemName=ms-Python.Python)。如果您有安装多个 Python 版本，可根据当前要调试的 runtime 在 VS Code 里 [设置 Python path](#pythonpath)。
 >
 单击左侧导航栏中的<img src="https://main.qcloudimg.com/raw/5c3bec3934e5d5a2dbdbf53ec105d6bd.png" style="margin:-3px 0;">，进入本地编辑页面，给函数设置断点。如下图所示：  
 ![](https://main.qcloudimg.com/raw/a112a7af7dd57e7f7a4e1de20f7c4db3.png)
 
 #### 设置调试模版
-单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 ctrl+shift+D）。新建调试配置文件，**并选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）**。如下图所示：
+单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。新建调试配置文件，**并选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）**。如下图所示：
 >!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。     
 >
 ![](https://main.qcloudimg.com/raw/ab797f48bd2f835c24a99e18aa958b64.png) 
@@ -143,11 +143,11 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 `template.yaml` 文件中 ServiceId 为空时，SCF 将会为您重新创建该函数的 API 网管触发器。您可以将已获取的 ServiceId 复制到配置文件 `template.yaml` 中，之后部署就不会再创建新的 API 网关。如何获取 ServiceId 请参见 [查看 API 网关触发器](#api)。
 4. 完成部署后，可使用浏览器访问 VS Code 输出的访问路径，显示结果如下：  
 ![](https://main.qcloudimg.com/raw/2a14a48452c33341a0c82b46203a7656.png)  
-您也可以登录 [云函数控制台](https://console.cloud.tencent.com/scf)，到相应地域查看已成功部署的函数。
+您也可以登录 [SCF 控制台](https://console.cloud.tencent.com/scf)，到相应地域查看已成功部署的函数。
 >?
 >- 使用 COS 部署函数最高能提升80%的速率，大大提高了工作效率。但在部署频次、部署包很大时，可能会产生 COS 计费。
 >- 现 SCF 与 COS 联合发布限时活动，开启 COS 部署即可领取代金券，请前往 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1?from=fromdoc) 查看活动。
->- 您可以在 VS Code 中 [设置开启 COS 上传](#openCOS) 。
+>- 您可以在 VS Code 中 [设置开启 COS 上传](#openCOS)。
 
 ### 忽略上传
 实际项目中，可以自定义不想上传的文件内容，SCF 插件将会忽略这些内容进行打包上传。

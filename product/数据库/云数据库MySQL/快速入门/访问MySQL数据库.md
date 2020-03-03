@@ -66,7 +66,7 @@ mysql -h hostname -P port -u username -p
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
 
-<div class="doc-video-mod"><iframe src="	https://cloud.tencent.com/edu/learning/quick-play/1630-11812?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 
 <span id = "waiwang"></span>
 ## 附录：开启外网访问地址

@@ -15,7 +15,7 @@ kube-router 的三大功能：
 - IPVS/LVS based service proxy  
 - Network Policy Controller 
 
-在腾讯云 TKE 上，Pod Networking 的功能由基于 IAAS 层 VPC 的高性能容器网络实现，service proxy 功能由 kube-proxy 所支持的 ipvs/iptalbes 两种模式来提供。建议在 TKE 上，只使用 kube-router 的 Network Policy 功能。
+在腾讯云 TKE 上，Pod Networking 的功能由基于 IAAS 层 VPC 的高性能容器网络实现，service proxy 功能由 kube-proxy 所支持的 ipvs/iptables 两种模式来提供。建议在 TKE 上，只使用 kube-router 的 Network Policy 功能。
 
 ## 在 TKE 上部署 kube-router
 

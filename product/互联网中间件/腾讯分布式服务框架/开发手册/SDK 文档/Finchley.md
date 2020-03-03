@@ -1,4 +1,45 @@
-基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
+基于 Spring Cloud Finchley 版本 SDK，支持 Spring Boot 2.0.x。
+
+### 1.20.0-Finchley-RELEASE（2020-03-02）
+
+#### 新特性
+
+新增分布式任务调度功能。
+
+#### Bug 修复
+
+- spring-cloud-tsf-gateway 修复 tag plugin 中 header 类型取值大小写敏感的问题。
+- 处理 tomcat 组件开源漏洞风险。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.51版本。
+
+#### 优化
+
+spring-cloud-tsf-gateway 新增 tag plugin 中 path 类型取值。
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
+### 1.19.0-Finchley-RELEASE（2020-01-16）
+
+#### 新特性
+
+新增服务熔断、容错功能。
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
+### 1.18.1-Finchley-RELEASE（2020-01-14）
+
+#### Bug 修复
+- spring-cloud-tsf-route 修复路由权重不准的问题。
+- spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
 
 ### 1.18.0-Finchley-RELEASE（2019-12-25）
 
@@ -19,7 +60,7 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK
 #### 版本建议
 支持向后兼容，建议全量升级。
 
-### 1.16.1-Finchley-RELEASE（2019-12-3）
+### 1.16.1-Finchley-RELEASE（2019-12-03）
 
 #### Bug 修复
 - 增加使用 Jedis 作为 Redis 客户端的调用链追踪功能。

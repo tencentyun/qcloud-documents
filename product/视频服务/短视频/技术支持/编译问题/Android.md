@@ -3,7 +3,7 @@
 ### 集成遇到异常怎么办？
 
 ![](https://main.qcloudimg.com/raw/b631f468aca6a2d1e83b868874631030.png)
-如果您使用的是 商用企业版，那么您只能使用 armeabi 架构，关闭其他架构，例如 armeabi-v7a。如果您使用的是其他版本，那么您可以使用 armeabi 和 armeabi-v7a 架构。
+如果您使用的是企业版，那么您只能使用 armeabi 架构，关闭其他架构，例如 armeabi-v7a。如果您使用的是其他版本，那么您可以使用 armeabi 和 armeabi-v7a 架构。
 ![](https://main.qcloudimg.com/raw/9d75515640b65d91ab8730991e4c2602.png)
 如上图所示，请在`app`的 build.gradle 中指定 abiFilters 为“armeabi”。
 
@@ -47,6 +47,6 @@
 
 请先申请 License，SDK 有两种版本和两种授权 License。
 
-- SDK 版本分为基础版和商业版，区别在于 AI 特效的有无。
-- License 分为基础版和商用版，基础版需要申请基础功能的 License；商业版除了要申请基础功能的 License 外，还需要申请 AI 动效的 License；两种都可申请试用版的 License。
+- SDK 版本分为基础版和企业版，区别在于 AI 特效的有无。
+- License 分为基础版和商用版，基础版需要申请基础功能的 License；企业版除了要申请基础功能的 License 外，还需要申请 AI 动效的 License；两种都可申请试用版的 License。
 - 详细价格请参考 [价格文档](https://cloud.tencent.com/document/product/584/9368)。

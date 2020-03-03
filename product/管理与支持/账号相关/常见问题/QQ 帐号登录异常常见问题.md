@@ -14,4 +14,4 @@
 
 为了保障您的腾讯云账号登录不受 QQ 安全策略影响，加强腾讯云账号安全，建议您为腾讯云账号绑定微信或邮箱登录方式，具体操作指引可以参考以下文档：
 - [关联账号邮箱](https://cloud.tencent.com/document/product/378/14607)
-- [第三方登录方式](https://cloud.tencent.com/document/product/378/14608)
+- [绑定登录方式](https://cloud.tencent.com/document/product/378/14608)

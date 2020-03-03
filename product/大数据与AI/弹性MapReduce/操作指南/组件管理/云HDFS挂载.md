@@ -3,7 +3,7 @@
 
 ## 操作步骤
 ### 场景一：新集群挂载云 HDFS
->?新集群：2019年12月31日当日及之后创建的集群。
+>?新集群：2019年12月31日当日及之后创建的集群，EMR 默认 chdfs 挂载地址为`/data/emr/chdfs`。
 
 1. 设置云 HDFS 与 EMR 集群连通性
 EMR 集群已自动适配云 HDFS，[创建云 HDFS](https://cloud.tencent.com/document/product/1105/37234) 并合理设置权限，使云 HDFS 与 EMR 集群网络互通。
