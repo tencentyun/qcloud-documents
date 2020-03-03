@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 
 [Next.js](https://nextjs.org/) 是一款 React 框架，支持服务端渲染（SSR），本文将介绍如何将 Next.js 应用托管至云开发。
 
