@@ -1,6 +1,4 @@
 UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户的行为分析，用户包括您的主账号、子账号、协作者。
-## UBA初始化配置
-UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户的行为分析，用户包括您的主账号、子账号、协作者。
 ## 前提条件
  UBA 功能目前正在试用中，[开通高级版](https://cloud.tencent.com/document/product/664/41641)的用户可获得试用资格。
 ## 操作步骤
