@@ -81,4 +81,4 @@ cloudbase hosting:deploy
 命令上传网站文件（如 html/css/图片等）。
 
 3. 使用 envId.tcloudbaseapp.com 访问您的网站。
-详情请参考 [静态网站托管(https://cloud.tencent.com/document/product/876/41813) 相关文档
+详情请参考 [静态网站托管](https://cloud.tencent.com/document/product/876/41813) 相关文档
