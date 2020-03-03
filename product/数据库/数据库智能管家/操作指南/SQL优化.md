@@ -8,7 +8,7 @@ SQL 优化器为用户提供一键优化 SQL 语句功能，并给出对应执�
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1915-22597?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 优化器执行
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【SQL 优化器】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【诊断优化】，在上方选择【SQL 优化】页。
 2. 选择数据库实例、数据库名（Database）。
 3. 在输入框输入（或粘贴）需要优化的具体 SQL，可单击【格式化】美化格式。
 4. 单击【执行分析】，查看 SQL 预执行详情和优化方案。
