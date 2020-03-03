@@ -65,11 +65,20 @@ $ npx serve
 ```
 即可打开一个本地静态服务器，然后访问：http://localhost:5000。如果 SDK 成功使用匿名身份登录，那么您应该可以看到一个弹窗。
 
-登录成功后，便可以访问和使用云开发的各类资源，详情请参阅  Web SDK 文档：
+登录成功后，便可以访问和使用云开发的各类资源，详情请参阅 Web SDK 文档：
 
 - [登录授权](https://cloud.tencent.com/document/product/876/34660)。
 - [云函数](https://cloud.tencent.com/document/product/876/34661)。
 - [数据库](https://cloud.tencent.com/document/product/876/34662)。
 - [文件存储](https://cloud.tencent.com/document/product/876/34663)。
 
+### 步骤5：使用云开发部署静态页面
+1. 登录腾讯云云开发控制台，开通 [静态网站服务](https://console.cloud.tencent.com/tcb/hosting)。
+2. 在项目根目录下运行：
+```
+cloudbase hosting:deploy
+```
+命令上传网站文件（如 html/css/图片等）。
 
+3. 使用 envId.tcloudbaseapp.com 访问您的网站。
+详情请参考 [静态网站托管(https://cloud.tencent.com/document/product/876/41813) 相关文档
