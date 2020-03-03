@@ -37,7 +37,7 @@ import 'package:cloudbase_function/cloudbase_function.dart';
 
 // 初始化 CloudBase
 CloudBaseCore core = CloudBaseCore.init({
-    // 填写你的云开发 env
+    // 填写您的云开发环境 ID env
     'env': 'your-env-id'
 });
 
