@@ -1,7 +1,7 @@
-﻿本文将指导您使用云接入+云函数托管 Node.js 服务端程序。
+本文将指导您使用云接入+云函数托管 Node.js 服务端程序。
 
 ## 准备工作
-准备一个基础项目目录，详细可参考 [快速开始]()。
+准备一个基础项目目录，详细可参考 [快速开始](https://cloud.tencent.com/document/product/876/41774)。
 
 ## 创建简单的 Hello World
 在工作目录下执行以下命令，创建一个最简单的 Node.js Server：
@@ -21,7 +21,7 @@ exports.main = serverless((req, res) => {
 });
 ```
 
->?此处使用了 [serverless-http](https://github.com/dougmoscrop/serverless-http)，把 [集成请求]() 转化为 Node.js Server 能接收的 [IncommingMessage](https://nodejs.org/dist/latest-v13.x/docs/api/http.html#http_class_http_incomingmessage)，同时把返回的 [ServerResponse](https://nodejs.org/dist/latest-v13.x/docs/api/http.html#http_class_http_serverresponse) 转化为集成请求。
+>?此处使用了 [serverless-http](https://github.com/dougmoscrop/serverless-http)，把 [集成请求](https://cloud.tencent.com/document/product/876/41776#xiangying) 转化为 Node.js Server 能接收的 [IncommingMessage](https://nodejs.org/dist/latest-v13.x/docs/api/http.html#http_class_http_incomingmessage)，同时把返回的 [ServerResponse](https://nodejs.org/dist/latest-v13.x/docs/api/http.html#http_class_http_serverresponse) 转化为集成请求。
 
 
 `functions/server/package.json` 的内容如下：
