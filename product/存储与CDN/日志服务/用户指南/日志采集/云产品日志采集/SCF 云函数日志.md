@@ -31,3 +31,18 @@
 3. 单击【搜索】，即可检索日志。
    如图示例：检索包含 Memory 的日志数据：
    ![](https://main.qcloudimg.com/raw/0137def3872bbce2911cfeef416d3a83.png)
+
+
+##  SCF 日志字段说明
+
+| 字段                                                         | 含义     | 类型   |
+| ------------------------------------------------------------ | -------- | ------ |
+| SCF_RequestId                                                | 请求 ID   | string |
+| SCF_Namespace                                                | 命名空间 | string |
+| SCF_FunctionName                                             | 函数名   | string |
+| SCF_Qualifier                                                | 版本     | string |
+| SCF_StartTime                                                | 起始时间 | long   |
+| SCF_Message                                                  | 日志内容 | string |
+| SCF_Level                                                    | 日志级别 | string |
+| SCF_Index                                                    | 日志行号 | long   |
+| SCF_Alias                                                    | 函数别名 | string |
