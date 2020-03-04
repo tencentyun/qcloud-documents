@@ -11,7 +11,7 @@ UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户�
 ![](https://main.qcloudimg.com/raw/b67c7263d0611d78d2d58d2c48258dc3.png)
 		2. 在云审计控制台，左侧操作栏中，单击【跟踪集】，在跟踪集页面，单击【创建】，打开创建跟踪集页面。
 		![](https://main.qcloudimg.com/raw/98ab88c79330a5c33c54608ec4ae4c49.png)
-		3. 在创建跟踪集页面，填写跟踪集名称、管理事件（选择全部）及 cos 存储桶位置，填写完成后，单击【完成创建】即可。
+		3. 在创建跟踪集页面，填写跟踪集名称、管理事件（选择全部，包含只读和只写）及 cos 存储桶位置，填写完成后，单击【完成创建】即可。
 		![](https://main.qcloudimg.com/raw/9ba869f1ec824f953369a9e39b2cd7fd.png)
 	<span id="fuzhi"></span>
 	2. **查看跟踪集存储桶 ID**
