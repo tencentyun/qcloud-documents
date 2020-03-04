@@ -33,5 +33,5 @@ TypeB 所需配置如下：
 开启了 TypeB 鉴权模式的域名，访问格式为：
 `http://DomainName/timestamp/md5hash/FileName`
 
-鉴权通过后，若未命中 CDN 节点，节点会发起回源请求，**回源请求会去掉路径中的 md5hash 及 timestamp **，源站无需做特殊处理。
+鉴权通过后，若未命中 CDN 节点，节点会发起回源请求，**回源请求会去掉路径中的 md5hash 及 timestamp**，源站无需做特殊处理。
 
