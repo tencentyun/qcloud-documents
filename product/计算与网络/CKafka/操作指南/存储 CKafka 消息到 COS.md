@@ -36,7 +36,7 @@
 4. 单击【完成】，创建的角色将显示在角色列表中。
 ![](https://main.qcloudimg.com/raw/a3d60e97288278d3cb6266e153a5979b.png)
 5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
-![](https://main.qcloudimg.com/raw/5b9a909731c654c927bb08f217330458.png)
+![](https://main.qcloudimg.com/raw/d956ce9ec5f09e3dd5d8e2fd6b6f39ec.png)
 
 <span id="limit"></span>
 ## 产品限制和费用计算
