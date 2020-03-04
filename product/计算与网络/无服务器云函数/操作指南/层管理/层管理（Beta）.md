@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 创建层
+### 创建层<span id="create"></span>
 1. 登录 SCF 控制台，选择左侧导航栏中的【[层](https://console.cloud.tencent.com/scf/layer)】，进入“层”列表页面。
 2. 在页面上方选择需使用层的地域，并单击【新建】。
 3. 在“新建层版本”页面，根据实际需求设置层信息。如下图所示：
@@ -24,7 +24,7 @@
  - **兼容运行环境**：该层的兼容运行环境，最多可设置5个。
 4. 单击【确定】即可成功创建。
 
-### 云函数绑定层
+### 云函数绑定层<span id="bind"></span>
 1. 登录 SCF 控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入“函数服务”列表页面。
 2. 选择需进行层管理的函数 ID，进入函数配置页面。
 3. 选择【层管理】页签，并单击【绑定层】。如下图所示：
@@ -35,31 +35,35 @@
 
 
 
+### 使用层
+本步骤以 Node.js 为例，创建层并绑定本地上传的函数后使用层。
 
-
-
-
-
-##使用层
-
-层中的文件会被放在 /opt 目录中，在函数执行期间可访问。如果您的函数有绑定多个层，这些层将按照序号顺序被合并到 /opt 目录中。如果同一文件出现在多个层中，将会保留最高序号层里的文件。
-
-| 相关环境变量 | 路径                                                         |
-| ----------------------- | ------------------------------------------------------------ |
-| PYTHONPATH              | /var/user:/opt                                               |
-| CLASSPATH               | /var/runtime/java8:/var/runtime/java8/lib/*:/opt             |
-| NODE_PATH               | /var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules |
-
-
-###以 Node.js 为例
-1. 参照创建层的流程将 node_modules 打包上传生成层，并且绑定云函数。
-![](https://main.qcloudimg.com/raw/9c61d9afbbbef83d9dc5bd73cf1573ce.png)
-
-
-2. 函数代码上传打包时，排除 node_modules 文件夹。
-![](https://main.qcloudimg.com/raw/3593c35e3a438d8b5f55662d75199ffc.png)
-
-3. 函数使用时，由于 NODE_PATH 环境变量包含 /opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
-![](https://main.qcloudimg.com/raw/5ab54f5d146c037e8ed6b5a5a28dcf28.png)
+1. 参考 [创建层](#create) 步骤将 `node_modules` 上传生成层。本地函数目录结构如下图所示：
+![](https://main.qcloudimg.com/raw/88a8477d8668610dd150887b326628a4.png)
+2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传。
+>?打包时请排除 `node_modules` 文件夹。
+>
+3. 参考 [绑定云函数](#bind) 步骤，将已创建的层绑定至部署好的函数。 
+3. 在函数使用时，由于 NODE_PATH 环境变量包含 `/opt/node_modules` 路径，函数运行时可以查找到层中的依赖，您使用依赖的方式和原来一样，无需修改代码，本文以使用 `cos-nodejs-sdk-v5` 依赖为例。如下图所示：
+![](https://main.qcloudimg.com/raw/6167eb686aeeadacd646beb998e19136.png)
+Python、Java、Node.js 环境变量见下表：
+<table>
+	<tr>
+	<th>相关环境变量</th>
+	<th>路径</th>
+	</tr>
+	<tr>
+	<td>PYTHONPATH</td>
+	<td><code>/var/user:/opt </code></td>
+	</tr>
+	<tr>
+	<td>CLASSPATH</td>
+	<td><code> /var/runtime/java8:/var/runtime/java8/lib/*:/opt   </code></td>
+	</tr>
+	<tr>
+	<td>NODE_PATH</td>
+	<td><code>/var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules</code></td>
+	</tr>
+</table>
 
 
