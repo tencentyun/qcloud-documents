@@ -44,7 +44,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 
 ![](https://main.qcloudimg.com/raw/97b24ee2a758b311ba8dea23db04c3ae.png)
 
->! **不需要添加推流域名**，在 [步骤1](step1) 中开启旁路直播功能后，腾讯云会默认在您的云直播控制台中增加一个格式为  `xxxxx.livepush.myqcloud.com` 的推流域名，该域名为腾讯云直播服务和 TRTC 服务之间约定的一个默认推流域名，暂时不支持修改。
+>! **不需要添加推流域名**，在 [步骤1](#step1) 中开启旁路直播功能后，腾讯云会默认在您的云直播控制台中增加一个格式为  `xxxxx.livepush.myqcloud.com` 的推流域名，该域名为腾讯云直播服务和 TRTC 服务之间约定的一个默认推流域名，暂时不支持修改。
 
 <span id="step3"></span>
 ### 步骤3：关联 TRTC 的音视频流到直播 streamId
