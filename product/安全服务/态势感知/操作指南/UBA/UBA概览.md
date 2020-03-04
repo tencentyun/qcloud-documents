@@ -1,5 +1,5 @@
 ## 前提条件
- - UBA 功能目前正在试用中，[开通高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
+ - UBA 功能目前正在试用中，[开通安全运营中心高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
  - 在使用 UBA 功能前，需进行 [UAB 初始化配置]()。
 
 ## 操作步骤
