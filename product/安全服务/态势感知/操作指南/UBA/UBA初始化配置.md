@@ -15,7 +15,7 @@ UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户�
 		![](https://main.qcloudimg.com/raw/9ba869f1ec824f953369a9e39b2cd7fd.png)
 	<span id="fuzhi"></span>
 	2. **查看跟踪集存储桶 ID**
-		1. 在查看跟踪集存储桶 ID 页面，单击【立即前往】，进入 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)。
+		1. 查看跟踪集存储桶 ID，单击【立即前往】，进入 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)。
 		![](https://main.qcloudimg.com/raw/6cb155c15c49842a65b3b58522de747b.png)
 		2. 在对象存储控制台，左侧导航中，单击【存储桶列表】。
 		3. 在存储桶列表中，找到在创建跟踪集时填写的 cos 存储桶，并复制该存储桶名称。
@@ -23,4 +23,4 @@ UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户�
 	3. **填写对象存储桶 ID**
 	在填写对象存储桶 ID 页面，填写 [第二步](#fuzhi) 中复制的存储桶名称（即存储桶 ID），填写完成后，单击【完成】即可。
 	![](https://main.qcloudimg.com/raw/75b314613318e730c9e13a9432cbb9d6.png)
-3. UBA 初始化配置完成后，进入 [UBA 概览]() 及 [UBA 列表]() 中。
+3. UBA 初始化配置完成后，进入 [UBA 概览](https://cloud.tencent.com/document/product/664/41791) 及 [UBA 列表](https://cloud.tencent.com/document/product/664/41792) 中。
