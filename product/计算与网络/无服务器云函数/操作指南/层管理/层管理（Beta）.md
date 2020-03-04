@@ -43,6 +43,15 @@
 | CLASSPATH               | /var/runtime/java8:/var/runtime/java8/lib/*:/opt             |
 | NODE_PATH               | /var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules |
 
-```
-以Node.js为例，将文件夹 node_modules 打成 ZIP 包，通过上述方法创建一个层，并配置绑定此层后，函数上传时可以不上传 node_modules 文件夹，由于 NODE_PATH 环境变量包含 /opt:/opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
-```
+
+###以 Node.js 为例
+1. 参照创建层的流程将 node_modules 打包上传生成层，并且绑定云函数。
+![](https://main.qcloudimg.com/raw/9c61d9afbbbef83d9dc5bd73cf1573ce.png)
+
+
+2. 函数代码上传打包时，排除 node_modules 文件夹。
+![](https://main.qcloudimg.com/raw/3593c35e3a438d8b5f55662d75199ffc.png)
+
+3. 函数使用时，由于 NODE_PATH 环境变量包含 /opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
+![](https://main.qcloudimg.com/raw/bba3c1168e2c5a1b1474dfc3592b9587.png)
+
