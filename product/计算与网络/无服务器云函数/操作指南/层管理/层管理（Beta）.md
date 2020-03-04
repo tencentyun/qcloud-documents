@@ -37,3 +37,29 @@
 
 
 
+
+
+
+##使用层
+
+层中的文件会被放在 /opt 目录中，在函数执行期间可访问。如果您的函数有绑定多个层，这些层将按照序号顺序被合并到 /opt 目录中。如果同一文件出现在多个层中，将会保留最高序号层里的文件。
+
+| 相关环境变量 | 路径                                                         |
+| ----------------------- | ------------------------------------------------------------ |
+| PYTHONPATH              | /var/user:/opt                                               |
+| CLASSPATH               | /var/runtime/java8:/var/runtime/java8/lib/*:/opt             |
+| NODE_PATH               | /var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules |
+
+
+###以 Node.js 为例
+1. 参照创建层的流程将 node_modules 打包上传生成层，并且绑定云函数。
+![](https://main.qcloudimg.com/raw/9c61d9afbbbef83d9dc5bd73cf1573ce.png)
+
+
+2. 函数代码上传打包时，排除 node_modules 文件夹。
+![](https://main.qcloudimg.com/raw/3593c35e3a438d8b5f55662d75199ffc.png)
+
+3. 函数使用时，由于 NODE_PATH 环境变量包含 /opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
+![](https://main.qcloudimg.com/raw/5ab54f5d146c037e8ed6b5a5a28dcf28.png)
+
+
