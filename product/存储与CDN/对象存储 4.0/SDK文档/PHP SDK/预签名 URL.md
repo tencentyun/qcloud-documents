@@ -4,6 +4,7 @@ PHP SDK 提供获取请求预签名 URL 接口，请求示例如下。
 ## 永久密钥预签名请求示例
 
 ### 上传请求示例
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```php
 $secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
 $secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
@@ -46,6 +47,7 @@ try {
 ```
 
 ### 下载请求示例
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```php
 $secretId = "COS_SECRETID"; //替换为您的永久密钥 SecretId
 $secretKey = "COS_SECRETKEY"; //替换为您的永久密钥 SecretKey
@@ -86,6 +88,7 @@ try {
 ## 临时密钥预签名请求示例
 
 ### 上传请求示例
+[//]: # (.cssg-snippet-get-presign-sts-upload-url)
 ```php
 $tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
 $tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey
@@ -129,6 +132,7 @@ try {
 ```
 
 ### 下载请求示例
+[//]: # (.cssg-snippet-get-presign-sts-download-url)
 ```php
 $tmpSecretId = "COS_SECRETID"; //替换为您的临时密钥 SecretId
 $tmpSecretKey = "COS_SECRETKEY"; //替换为您的临时密钥 SecretKey

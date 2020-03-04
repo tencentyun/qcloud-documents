@@ -2,6 +2,7 @@
 Upload Part - Copy  请求用于实现将一个对象的分块内容从源路径复制到目标路径。通过指定 x-cos-copy-source 来指定源对象，x-cos-copy-source-range 指定字节范围（允许分块的大小为1MB - 5GB）。
 
 >!
+>- 使用 Upload Part - Copy 接口前，需先使用 [Initiate Multipart Upload](https://cloud.tencent.com/document/product/436/7746) 接口初始化分块上传任务并指定目标路径。
 >- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过5GB，那么需要使用分块上传或者分块拷贝的接口来复制对象。
 >- 使用上传分块对象，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。
 
@@ -24,7 +25,7 @@ x-cos-copy-source-if-unmodified-since: time_stamp
 x-cos-copy-source-if-modified-since: time_stamp
 ```
 
->?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头

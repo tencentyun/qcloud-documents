@@ -2,7 +2,7 @@
 ## 工程配置
 ### 支持平台
 
-+ SDK 支持 iOS 8.0 以上系统。
+SDK 支持 iOS 8.0 以上系统。
 
 ### 开发环境
 
@@ -12,17 +12,15 @@
 ### 设置步骤
 
 #### 1.链接 SDK 及系统库
-1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中的 TXLiteAVSDK_ 开头的 framework(如 TXLiteAVSDK_UGC.framework)复制到工程所在文件夹,并拖动到工程当中。
-
-2. 选中当工程的 Target，添加以下系统库
-    1. Accelerate.framework
-    2. SystemConfiguration.framework
-    3. libc++.tbd
-    4. libsqlite3.tbd
-
-    添加完毕后，工程库依赖如下图所示：![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
-    
-3. 选中工程的Target，在Build Settings中搜索bitcode, 将Enable Bitcode设置为NO
+1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中 TXLiteAVSDK\_ 开头的 framework（如 TXLiteAVSDK_UGC.framework）复制到工程所在文件夹，并拖动到工程当中。
+2. 选中工程的 Target，添加以下系统库：
+	1. Accelerate.framework
+	2. SystemConfiguration.framework
+	3. libc++.tbd
+	4. libsqlite3.tbd
+添加完毕后，工程库依赖如下图所示：
+![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
+3. 选中工程的 Target，在 Build Settings 中搜索 bitcode，将 Enable Bitcode 设置为 NO。
 
 #### 2. 配置 App 权限
 应用会需要相册及相册的访问权限，需要在 Info.plist 中添加对应项，可以通过在 Info.plist 中右键选 Open as / Source Code 粘贴并修改以下内容进行配置。
@@ -40,9 +38,9 @@
 ```
 
 #### 3. SDK License 设置与基本信息获取
-请参考 [License申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
-![](https://main.qcloudimg.com/raw/1124501484177029a7c0e084dfe16ed6.png)
-  在您的应用中使用短视频功能之前（建议在 `- [AppDelegate application:didFinishLaunchingWithOptions:]` 中）进行如下设置
+通过 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
+![](https://main.qcloudimg.com/raw/a4c1de10918d04b0b425febe9d0a009b.png)
+在您的应用中使用短视频功能之前，建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中进行如下设置：
 
 ```objc
 @import TXLiteAVSDK_UGC;
@@ -56,31 +54,27 @@
 @end
 ```
 
-- 对于使用 4.7 版本 license 的用户，如果您升级了 SDK 到 4.9 版本，您可以登录控制台，单击下图的 **切换到新版License** 按钮生成对应的 key 和 url，切换后的 License 必须使用 4.9 及更高的版本，切换后按照上述操作集成即可。
- ![](https://main.qcloudimg.com/raw/2da38ac76074377702ff383aeba50f0a.png)
-
-- 商业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
+- 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版 License**按钮生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+![](https://main.qcloudimg.com/raw/c877efe3f57e853615e68a35e20fd8b9.png)
+- 企业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
 #### 4. Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
 - **setConsoleEnabled**
 设置是否在 xcode 的控制台打印 SDK 的相关输出。
-
 - **setLogLevel**
 设置是否允许 SDK 打印本地 log，SDK 默认会将 log 写到当前 App 的 **Documents/logs** 文件夹下。
 如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
-
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
-
-  ```	objc
+```	objc
   [TXLiveBase setConsoleEnabled:YES];
   [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
   ```
 
 #### 5. 编译运行
 
-如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息。
+如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息：
 
 > 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
 
@@ -259,7 +253,7 @@
      }
      ```
 
-6. 运行项目
+6. 运行项目。
 
 
 ### 相关文件简介
@@ -275,23 +269,23 @@ UGC
 │   ├── VideoEditViewController (编辑主界面)
 │   ├── VideoEditor.xcassets (编辑界面图片资源)
 │   ├── VideoPasterViewController (贴纸编辑)
-│   ├── VideoTextViewController     (字幕编辑)
+│   ├── VideoTextViewController (字幕编辑)
 │   └── Views
 │       ├── BottomTabBar 编辑界面底部工具菜单
 │       ├── EffectSelectView 效果选择工具栏
 │       ├── FilterSettingView 编辑滤镜选择工具栏
-│       ├── MusicCollectionCell 音乐选择cell
+│       ├── MusicCollectionCell 音乐选择 cell
 │       ├── MusicMixView        背景音乐设置工具栏界面
 │       ├── PasterAddView       贴纸设置工具栏界面“贴纸选项”
 │       ├── PasterSelectView    贴纸选择界面
 │       ├── TXCVEFColorPalette  颜色板，用于给不同特效的时间线及按钮设定一个颜色
 │       ├── TextAddView         字幕添加界面
-│       ├── TextCollectionCell  字幕背景cell
+│       ├── TextCollectionCell  字幕背景 cell
 │       ├── TimeSelectView      字幕背设置工具栏界面
 │       ├── TransitionView      图片转场设置界面
 │       ├── VideoCutView        带缩略图的视频裁剪界面，包含了视频裁剪、按时间片段染色等功能
-│       ├── VideoPasterView     贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，用于VideoPasterViewController
-│       └── VideoRangeSlider    用于VideoCutView, 显示缩图、给时间段染色
+│       ├── VideoPasterView     贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，用于 VideoPasterViewController
+│       └── VideoRangeSlider    用于 VideoCutView, 显示缩图、给时间段染色
 ├── Join
 │   ├── VideoEditPrevController (视频拼接预览界面)
 │   ├── VideoJoiner.xcassets     (视频拼接图片资源)
@@ -303,7 +297,7 @@ UGC
 │   ├── VideoRecord.xcassets  (录制界面图片资源)
 │   ├── VideoRecordConfigViewController  (录制参数设置界面)
 │   └── VideoRecordViewController (录制界面)
-└── VideoLoading (用于从iCloud下载图片)
+└── VideoLoading (用于从 iCloud 下载图片)
 ```
 
 #### 使用到的公有模块
@@ -312,8 +306,8 @@ Demo 中使用到的公有模块及第三方库如下所示：
 ```
 Common
 ├── BeautySettingPanel (美颜设置控件)
-├── Catetory (UIKit扩展)
-├── ForEnterprise (商业版AI动效资源)
+├── Catetory (UIKit 扩展)
+├── ForEnterprise (企业版 AI 动效资源)
 ├── Resource
 │   ├── Common.xcassets (返回按钮等公用资源)
 │   └── Filter (滤镜资源包)
@@ -321,21 +315,21 @@ Common
 └── UGC (短视频各子模块的公有类)
 
 Third
-├── AFNetworking (HTTP网络封装，商业版用于下载动态贴纸资源)
-├── MBProgressHUD (界面Toast提示)
+├── AFNetworking (HTTP 网络封装，企业版用于下载动态贴纸资源)
+├── MBProgressHUD (界面 Toast 提示)
 ├── Masonry (自动布局)
 ├── QBImagePicker (图片选取)
 ├── V8HorizontalPickerView (水平滚动界面，用于编辑界面滤镜选则)
-└── ZipArchive  (zip封装，商业版中用于解压动态贴纸资源)
+└── ZipArchive (zip 封装，企业版中用于解压动态贴纸资源)
 ```
 
 
 ### 详细介绍
-以下为各模块的详细说明
+以下为各模块的详细说明：
 
-1. [视频录制](https://cloud.tencent.com/document/product/584/9367)；
-2. [视频编辑](https://cloud.tencent.com/document/product/584/9375)；
-3. [视频拼接](https://cloud.tencent.com/document/product/584/9370)；
-4. [视频上传](https://cloud.tencent.com/document/product/584/15534)；
-5. [视频播放](https://cloud.tencent.com/document/product/584/9372)；
-6. [动效变脸(商业版)](https://cloud.tencent.com/document/product/584/13509)；
+- [视频录制](https://cloud.tencent.com/document/product/584/9367)
+- [视频编辑](https://cloud.tencent.com/document/product/584/9375)
+- [视频拼接](https://cloud.tencent.com/document/product/584/9370)
+- [视频上传](https://cloud.tencent.com/document/product/584/15534)
+- [视频播放](https://cloud.tencent.com/document/product/584/9372)
+- [动效变脸（企业版）](https://cloud.tencent.com/document/product/584/13509)

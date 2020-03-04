@@ -22,7 +22,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 **推送证书排查**
-腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书说明](https://cloud.tencent.com/document/product/548/36664)。
+腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
 
 
 
@@ -34,7 +34,6 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 ### 终端出现未找到应用程序的 “aps-environment” 的授权字符串错误？
-
 请检查 Xcode 工程中配置的 bundle id 是否和设置的 Provision Profile 文件匹配，且对应 App 的 Provision Profile 文件是否已配置了消息推送能力。
 
 
@@ -59,7 +58,7 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 	```objective-c
 	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 	```
- - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，在 iOS XG SDK3.1.0 之后的版本，腾讯移动推送 SDK 对新增的框架进行了封装，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
+ - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
 	```objective-c
 	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
 		NSLog(@"[XGDemo] click notification");
@@ -88,8 +87,7 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 ### 为何 iOS 没有抵达数据？
 - iOS 9.x 之前的版本，操作系统未提供 API 接口来监听消息抵达终端，故而无法统计。  
-- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达，但目前腾讯移动推送 iOS 消息统计数据未计算这部分数据。
-
+- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。
 
 
 ### 使用腾讯移动推送服务端 SDK ，如何创建静默推送？
@@ -99,6 +97,4 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 ### iOS13 在的开发环境下，注册偶现不返回 DeviceToken？
-此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决。
-
-
+此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决，详情请参见 [文档](https://stackoverflow.com/questions/58264338/not-getting-apns-device-token-on-ios-13) 。

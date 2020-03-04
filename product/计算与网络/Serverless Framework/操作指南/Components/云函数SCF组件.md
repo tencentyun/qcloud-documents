@@ -37,12 +37,12 @@ exports.main_handler = async (event, context, callback) => {
 
 #### 配置
 
-本地创建 `serverless.yml` 文件，在其中进行如下配置：
+本地创建`serverless.yml`文件：
 
 ```console
 $ touch serverless.yml
 ```
-
+在`serverless.yml`中进行如下配置：
 ```yml
 # serverless.yml
 myFunction1:
@@ -79,8 +79,7 @@ myFunction2:
     codeUri: ./code
 
 ```
-
-* [查看详细配置文档>>](https://github.com/serverless-tencent/tencent-scf/blob/master/docs/configure.md)
+>?您可以通过 [详细配置文档](https://github.com/serverless-tencent/serverless-tencent-scf/blob/master/docs/zh/yaml.md)，查看`serverless.yml`中所有可用属性的属性列表。
 
 
 #### 部署

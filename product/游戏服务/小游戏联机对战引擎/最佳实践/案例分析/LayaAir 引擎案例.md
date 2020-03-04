@@ -4,7 +4,7 @@
 ## 帧同步开发实践 -《猪猪对战》
 开发实践帧同步的双人对战小游戏《猪猪对战》。
 
-1. 立即下载 [猪猪对战游戏源码](http://95s.pw/2g)，解压得源码文件。
+1. 立即下载 [猪猪对战游戏源码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/%E7%8C%AA%E7%8C%AA%E5%AF%B9%E6%88%98.zip)，解压得源码文件。
 2. 在小游戏联机对战引擎控制台，开通小游戏联机对战引擎服务，获取游戏 ID、游戏 KEY、域名等。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
 3. 在小游戏联机对战引擎控制台，新建匹配、创建匹配规则，获取匹配 code。详情请参见 [匹配配置](https://cloud.tencent.com/document/product/1038/34949)。
 4. 使用 LayaAir 直接打开源码文件 Demo，即可快速构建猪猪对战游戏。详细的构建步骤见猪猪对战 [视频教程](https://cloud.tencent.com/document/product/1038/38114)。
@@ -17,7 +17,7 @@
 
                                 
 
-1. 立即下载 [题题对题游戏源码](http://95s.pw/2k)，解压得源码文件。
+1. 立即下载 [题题对战游戏源码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/%E9%A2%98%E9%A2%98%E5%AF%B9%E6%88%98.zip)，解压得源码文件。
 2. 在小游戏联机对战引擎控制台，开通小游戏联机对战引擎服务，获取游戏 ID、游戏 KEY、域名等。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
 3. 在小游戏联机对战引擎控制台，新建匹配、创建匹配规则，获取匹配 code。详情请参见 [匹配配置](https://cloud.tencent.com/document/product/1038/34949)。
 4. 在小游戏联机对战引擎控制台，开通 [自定义服务逻辑](https://cloud.tencent.com/document/product/1038/34950)，创建实时服务器，上传开发者代码，发布服务，最终实现游戏的状态同步。

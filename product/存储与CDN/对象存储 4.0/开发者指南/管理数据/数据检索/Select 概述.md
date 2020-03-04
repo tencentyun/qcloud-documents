@@ -8,7 +8,7 @@ COS Select 功能目前支持检索以 CSV、JSON 格式存储的对象，支持
 
 >?
 >- COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
->- 目前检索功能在成都、重庆地域公测中，其他地域暂不支持此功能。
+>- 目前检索功能仅支持中国大陆公有云地域，其他地域暂不支持此功能。
 
 ## 使用限制
 

@@ -6,11 +6,11 @@
 
 ## 接入流程
 
-单击此处 [申请商业版本 License](https://cloud.tencent.com/product/x-magic)。
+[单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
 ## 版本下载
 
-可以到 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码&Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
+在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
 
 ## 工程设置
 
@@ -20,7 +20,7 @@
 
 #### 使用 aar 方式集成
 
-直接替换工程中的非商业版的 aar，并在 app 目录下的 build.gradle 中修改对应的名称即可。
+直接替换工程中的非企业版的 aar，并在 app 目录下的 build.gradle 中修改对应的名称即可。
 
 #### 使用 jar 包方式集成
 
@@ -37,17 +37,17 @@
 
 2. 把解压后的 assets 文件夹下的所有资源拷贝到工程的 assets 目录下，包括 asset 根目录下的文件和 camera 文件夹下的文件。
 
-### 导入 Licence 文件
+### 导入 licence 文件
 
-商用版需要 Licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 Licence。
-得到 Licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
+商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
+得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
 >!
->- 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
->- YTFaceSDK.Licence 的文件名固定，不可修改、且必须放在 assets 目录下。
->- iOS 和 Android 不需要重复申请 Licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+>- 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+>- YTFaceSDK.licence 的文件名固定，不可修改、且必须放在 assets 目录下。
+>- iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 Licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 Licence 对应的 key 和 url 后，设置方式和标准版 Licence 设置方式相同。**
+**从4.9版本开始，SDK 支持二合一的 licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
 
 ## 功能调用
 
@@ -76,7 +76,7 @@ public void setMotionTmpl(String tmplPath);
 
 示例：
 ![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
-需要下载AI抠背的资源，接口跟动效接口相同。
+需要下载 AI 抠背的资源，接口跟动效接口相同。
 
 ```
 /**
@@ -152,8 +152,7 @@ public void setGreenScreenFile(String path);
      
 ### 2. 工程特效不生效？  
  > 1. 检查是否调用了`TXUGCBase.getInstance().setLicence(Context context, String url, String key)`方法, 以及参数是否正确。 
- > 2. 调用 TXUGCBase 的 getLicenseInfo 方法，带有动效的 Licence 会包含`pituLicense`字段。
- > 3. 如果是 jar 集成方式，检查 pitu 资源是否添加正确（SDK 解压出来的 assets 目录内容都要拷贝到工程的 assets 目录下）；
- > 4. SDK 会把 P 图的 Licence 保存到`/sdcard/android/data/您的应用包名/files/YTFaceSDK.licence`，可以查询 Licence 的有效期（下载 [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 或 [联系我们](https://cloud.tencent.com/document/product/584/9374))，另外如果工程更换了 Licence，请先 clean 工程，删除本地安装包，重新编译。       
- 
-##### [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
+ > 2. 调用 TXUGCBase 的 getLicenseInfo 方法，带有动效的 licence 会包含`pituLicense`字段。
+ > 3. 如果是 jar 集成方式，检查 pitu 资源是否添加正确（SDK 解压出来的 assets 目录内容都要拷贝到工程的 assets 目录下）。
+ > 4. SDK 会把 P 图的 licence 保存到`/sdcard/android/data/您的应用包名/files/YTFaceSDK.licence`，可以查询 licence 的有效期（下载 [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 或 [联系我们](https://cloud.tencent.com/document/product/584/9374))，另外如果工程更换了 licence，请先 clean 工程，删除本地安装包，重新编译。       
+ [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。

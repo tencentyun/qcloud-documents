@@ -1,16 +1,16 @@
 ## 操作场景
-本文档将向您介绍如何使用 TI Python SDK 训练 PyTorch 模型。
+本文档将向您介绍如何使用 TI SDK 训练 Pytorch 模型。
 
 ## 操作步骤
-使用 TI Python SDK 训练 PyTorch 模型只需要三步
+使用 TI SDK 训练 Pytorch 模型只需要三步
 1. 准备训练脚本
-2. 构造一个 ti.pytorch.PyTorch Estimator
+2. 构造一个 ti.pytorch.Pytorch Estimator
 3. 调用 Estimator 的 fit 方法
 
-TI 预置了1.1版本 PyTorch 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 【使用自定义镜像】
+TI 预置了1.1版本 Pytorch 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 【使用自定义镜像】
 
 ### 准备训练脚本
-TI 中使用的训练脚本和标准的 PyTorch 脚本非常相似，只需少量的修改就可以将用户现有的 PyTorch 训练脚本适配到TI中。训练脚本可以直接读取注入的环境变量和超级参数。
+TI 中使用的训练脚本和标准的 Pytorch 脚本非常相似，只需少量的修改就可以将用户现有的 Pytorch 训练脚本适配到TI中。训练脚本可以直接读取注入的环境变量和超级参数。
 
 可用的环境变量有：
 
@@ -59,14 +59,14 @@ estimator.fit({'training': 'cos://path/to/input'})
 #### 可选参数
 
 - `wait (bool)`：默认为 True，是否阻塞直到训练完成。如果设置为 False，`fit`立即返回，训练任务后台异步执行，后面仍可通过`attach`方法附加。
-- `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在`wait`为True时才生效。
+- `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在`wait`为 True 时才生效。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成一个默认名字。
 
 #### 工作流程
 调用 fit 方法启动训练任务后，TI 后台会执行以下操作：
 - 启动`train_instance_count`数量的`train_instance_type`对应的算力
 在每台实例上，执行以下步骤
-1. 拉取预置 PyTorch 镜像启动容器
+1. 拉取预置 Pytorch 镜像启动容器
 2. 下载训练数据集
 3. 设置训练相关的环境变量
 4. 开始训练

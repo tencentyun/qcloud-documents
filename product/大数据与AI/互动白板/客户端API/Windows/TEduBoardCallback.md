@@ -129,10 +129,25 @@ virtual void onTEBSetBackgroundImage(const char *url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 调用 SetBackgroundImage 时传入的URL |
+| url | const char * | 调用 SetBackgroundImage 时传入的 URL |
 
 #### 介绍
-只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来。 
+只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+
+
+### onTEBAddImageElement
+添加白板图片元素回调 
+``` C++
+virtual void onTEBAddImageElement(const char *url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 调用 AddImageElement 时传入的 URL |
+
+#### 介绍
+只有本地调用 AddImageElement 时会收到该回调 收到该回调表示图片已经上传或下载成功，并且显示出来 
 
 
 ### onTEBBackgroundH5StatusChanged
@@ -237,6 +252,34 @@ virtual void onTEBAddTranscodeFile(const char *fileId)
 文件加载完成后才会触发该回调 
 
 
+### onTEBVideoStatusChanged
+视频文件状态回调 
+``` C++
+virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus status, double progress, double duration)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件 ID  |
+| status | TEduBoardVideoStatus | 文件状态  |
+| progress | double | 当前进度（秒）（仅支持 mp4 格式）  |
+| duration | double | 总时长（秒）（仅支持 mp4 格式）  |
+
+
+### onTEBH5FileStatusChanged
+H5 文件状态回调 
+``` C++
+virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus status)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件 ID  |
+| status | TEduBoardH5FileStatus | 文件状态  |
+
+
 ### onTEBDeleteFile
 删除文件回调 
 ``` C++
@@ -264,13 +307,13 @@ virtual void onTEBSwitchFile(const char *fileId)
 ### onTEBFileUploadProgress
 文件上传进度回调 
 ``` C++
-virtual void onTEBFileUploadProgress(const char *fileId, int currentBytes, int totalBytes, int uploadSpeed, double percent)
+virtual void onTEBFileUploadProgress(const char *path, int currentBytes, int totalBytes, int uploadSpeed, double percent)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 正在上传的文件 ID  |
+| path | const char * | 正在上传的文件路径  |
 | currentBytes | int | 当前已上传大小，单位 bytes  |
 | totalBytes | int | 文件总大小，单位 bytes  |
 | uploadSpeed | int | 文件上传速度，单位 bytes  |
@@ -280,13 +323,13 @@ virtual void onTEBFileUploadProgress(const char *fileId, int currentBytes, int t
 ### onTEBFileUploadStatus
 文件上传状态回调 
 ``` C++
-virtual void onTEBFileUploadStatus(const char *fileId, TEduBoardUploadStatus status, int errorCode, const char *errorMsg)
+virtual void onTEBFileUploadStatus(const char *path, TEduBoardUploadStatus status, int errorCode, const char *errorMsg)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 正在上传的文件 ID  |
+| path | const char * | 正在上传的文件路径  |
 | status | TEduBoardUploadStatus | 文件上传状态  |
 | errorCode | int | 文件上传错误码  |
 | errorMsg | const char * | 文件上传错误信息  |

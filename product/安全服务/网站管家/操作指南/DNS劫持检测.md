@@ -3,7 +3,7 @@ DNS 劫持检测功能可用于检测域名是否被劫持，并且能实时监�
 
 ## 配置示例
 #### 保护网站主页不被篡改
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia
 )，在左侧导航栏中，选择【Web 安全检测】>【DNS 劫持检测】，进入 DNS 劫持检测页面，单击【基础设置】。
  ![](https://main.qcloudimg.com/raw/29057745ae5684c02c1f09f23ab9955e.png)
 2. 单击【添加域名】，弹出域名信息填写窗口。 输入待检测的域名及域名对应的权威 IP 地址，单击【添加】即可。若有多个权威 IP 地址，请单击【+添加一行】进行添加。

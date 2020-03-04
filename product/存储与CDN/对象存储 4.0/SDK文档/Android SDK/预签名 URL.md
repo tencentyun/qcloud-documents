@@ -41,41 +41,40 @@ String getPresignedURL(CosXmlRequest cosXmlRequest) throws CosXmlClientException
 ```java
 try {
 
- String bucket = "examplebucket-1250000000"; //存储桶名称
- String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
- String method = "PUT"; //请求 HTTP 方法
- PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath){
-     @Override
+    String bucket = "examplebucket-1250000000"; //存储桶名称
+    String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。例如 cosPath = "text.txt";
+    String method = "PUT"; //请求 HTTP 方法
+    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath) {
+        @Override
         public RequestBodySerializer getRequestBody() throws CosXmlClientException {
             //用于计算 put 等需要带上 body 的请求的签名 URL
             return RequestBodySerializer.string("text/plain", "this is test");
-         }
+        }
     };
- presignedUrlRequest.setRequestMethod(method);
+    presignedUrlRequest.setRequestMethod(method);
 
- String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
+    String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest); //上传预签名 URL (使用永久密钥方式计算的签名 URL )
 
- //String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
+    //String urlWithSign = cosXmlService.getPresignedURL(putObjectRequest)； //直接使用PutObjectRequest
 
- String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString();
- PutObjectRequest putObjectRequest = new PutObjectRequest("examplebucket-1250000000", "exampleobject", srcPath);
- //设置上传请求预签名 URL
- putObjectRequest.setRequestURL(urlWithSign);
- //设置进度回调
- putObjectRequest.setProgressListener(new CosXmlProgressListener() {
-     @Override
-     public void onProgress(long progress, long max) {
-         // todo Do something to update progress...
-     }
- });
- // 使用同步方法上传
- PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
+    String srcPath = new File(context.getExternalCacheDir(), "exampleobject").toString();
+    PutObjectRequest putObjectRequest = new PutObjectRequest("examplebucket-1250000000", "exampleobject", srcPath);
+    //设置上传请求预签名 URL
+    putObjectRequest.setRequestURL(urlWithSign);
+    //设置进度回调
+    putObjectRequest.setProgressListener(new CosXmlProgressListener() {
+        @Override
+        public void onProgress(long progress, long max) {
+            // todo Do something to update progress...
+        }
+    });
+    // 使用同步方法上传
+    PutObjectResult putObjectResult = cosXmlService.putObject(putObjectRequest);
 } catch (CosXmlClientException e) {
- e.printStackTrace();
+    e.printStackTrace();
 } catch (CosXmlServiceException e) {
- e.printStackTrace();
+    e.printStackTrace();
 }
-
 ```
 
 #### 下载请求示例
@@ -101,18 +100,17 @@ try {
     getObjectRequest.setRequestURL(urlWithSign);
     // 设置进度回调
     getObjectRequest.setProgressListener(new CosXmlProgressListener() {
-            @Override
-            public void onProgress(long progress, long max) {
-                    // todo Do something to update progress...
-            }
+        @Override
+        public void onProgress(long progress, long max) {
+            // todo Do something to update progress...
+        }
     });
-         // 使用同步方法下载
-    GetObjectResult getObjectResult =cosXmlService.getObject(getObjectRequest);
+    // 使用同步方法下载
+    GetObjectResult getObjectResult = cosXmlService.getObject(getObjectRequest);
 
 } catch (CosXmlClientException e) {
     e.printStackTrace();
 } catch (CosXmlServiceException e) {
     e.printStackTrace();
 }
-
 ```

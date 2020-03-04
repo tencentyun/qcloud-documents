@@ -31,8 +31,9 @@ systemctl start vsftpd
 netstat -antup | grep ftp
 ```
 显示结果如下，则说明 FTP 服务已成功启动。
-此时 vsftpd 已默认开启匿名访问模式，您无需通过用户名和密码即可登录 FTP 服务器，但无权修改或上传文件。
 ![](https://main.qcloudimg.com/raw/2a7abf80253a8469c9340878d89b452a.png)
+此时，vsftpd 已默认开启匿名访问模式，无需通过用户名和密码即可登录 FTP 服务器。使用此方式登录 FTP 服务器的用户没有权修改或上传文件的权限。
+
 
 ### 步骤3：配置 vsftpd<span id="user"></span>
 1. 执行以下命令，为 FTP 服务创建用户，本文以 ftpuser 为例。
@@ -79,20 +80,21 @@ pasv_address=xxx.xx.xxx.xx   #您的Linux云服务器公网IP
 pasv_min_port=40000          #被动模式下，建立数据传输可使用的端口范围的最小值
 pasv_max_port=45000          #被动模式下，建立数据传输可使用的端口范围的最大值
 ```
-7. 执行以下命令，创建 `chroot_list` 文件。<span id="create"></span>
+7. 按 **Esc** 后输入 **:wq** 保存后退出。
+8. 执行以下命令，创建并编辑 `chroot_list` 文件。<span id="create"></span>
 ```
 vim /etc/vsftpd/chroot_list
 ```
-8. 按 **i** 进入编辑模式，请按照实际需求设置例外用户：
- - 需设置例外用户：输入用户名，一个用户名占据一行，设置完成后按 **Esc** 并输入 **:wq** 保存后退出。
- - 不设置例外用户：按 **Esc** 后输入 **:wq** 保存后退出。
-9. 执行以下命令，重启 FTP 服务。
+9. 按 **i** 进入编辑模式，输入用户名，一个用户名占据一行，设置完成后按 **Esc** 并输入 **:wq** 保存后退出。
+您若没有设置例外用户的需求，可跳过此步骤，输入 **:wq** 退出文件。
+10. 执行以下命令，重启 FTP 服务。
 ```
 systemctl restart vsftpd
 ```
 
 ### 步骤4：设置安全组
-搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 云服务器放通**入站规则**，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)：
+搭建好 FTP 服务后，您需要根据实际使用的 FTP 模式给 Linux 云服务器放通**入站规则**，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
+大多数客户端机器在局域网中，IP 地址是经过转换的。如果您选择了 FTP 主动模式，请确保客户端机器已获取真实的 IP 地址，否则可能会导致客户端无法登录 FTP 服务器。
 - 主动模式：放通端口21。
 - 被动模式：放通端口21，及 [修改配置文件](#config) 中设置的 `pasv_min_port` 到 `pasv_max_port` 之间的所有端口，本文放通端口为40000 - 45000。
 
@@ -113,8 +115,6 @@ ftp://云服务器公网IP:21
 
 ## 附录
 ### 设置 FTP 主动模式<span id="port"></span>
->!大多数客户端机器在局域网中，IP 地址是经过转换的。选择 FTP 主动模式时，请确保客户端机器已获取真实的 IP 地址。
->
 主动模式需修改的配置如下，其余配置保持默认设置：
 ```
 anonymous_enable=NO      #禁止匿名用户登录
@@ -129,7 +129,7 @@ listen=YES               #监听IPv4 sockets
 allow_writeable_chroot=YES
 local_root=/var/ftp/test #设置本地用户登录后所在的目录
 ```
-请前往 [步骤7](#create) 完成 vsftpd 配置。
+按 **Esc** 后输入 **:wq** 保存后退出，并前往 [步骤8](#create) 完成 vsftpd 配置。
 
 ### FTP 客户端上传文件失败
 #### 问题描述

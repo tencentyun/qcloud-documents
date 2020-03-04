@@ -33,24 +33,24 @@ Authorization: Auth String
 **必选头部**
 该请求操作需要请求头使用必选头部，具体内容如下：
 
-| 名称             | 描述                            | 类型     | 必选   |
+| 名称             | 描述                            | 类型     | 是否必选   |
 | :------------- | :---------------------------- | :----- | :--- |
 | Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节） | String | 是    |
 
 **推荐头部**
 该请求操作推荐请求头使用推荐头部，具体内容如下：
 
-| 名称          | 描述                                       | 类型     | 必选   |
+| 名称          | 描述                                       | 类型     | 是否必选   |
 | :---------- | :--------------------------------------- | :----- | :--- |
 | Expect      | RFC 2616 中定义的 HTTP 请求内容长度（字节）            | String | 否    |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化 | String | 否    |
+| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | String | 否    |
 
 #### 请求参数
 具体内容如下：
 
-| 参数名称       | 描述                                       | 类型     | 必选   |
+| 参数名称       | 描述                                       | 类型     | 是否必选   |
 | :--------- | :--------------------------------------- | :----- | :--- |
-| partNumber | 标识本次分块上传的编号                              | String | 是    |
+| partNumber | 标识本次分块上传的编号，partNumber 需要大于等于1                              | String | 是    |
 | uploadId   | 标识本次分块上传的 ID，使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 | String | 是    |
 
 
@@ -86,7 +86,7 @@ Authorization: Auth String
 PUT /exampleobject?partNumber=1&uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed，18 Jan 2017 16:17:03 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484727403;32557623403&q-key-time=1484727403;32557623403&q-header-list=host&q-url-param-list=partNumber;uploadId&q-signature=bfc54518ca8fc31b3ea287f1ed2a0dd8c8e88a1d
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj****&q-sign-time=1484727403;32557623403&q-key-time=1484727403;32557623403&q-header-list=host&q-url-param-list=partNumber;uploadId&q-signature=bfc54518ca8fc31b3ea287f1ed2a0dd8c8e8****
 Content-Length: 10485760
 
 [Object]

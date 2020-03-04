@@ -1,6 +1,6 @@
 访问云数据库 MySQL 的方式如下：
-- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。CVM 和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
->?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的 CVM 和数据库，内网连接方式请参见  [对等连接](https://cloud.tencent.com/document/product/553/18827)。
+- **内网访问**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种访问方式使用内网高速网络，延迟低。云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
+>?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见  [对等连接](https://cloud.tencent.com/document/product/553/18827)。
 - **外网访问**：通过外网地址访问云数据库 MySQL。
 >!
 >- 外网访问需要开启数据库实例的外网地址，此操作会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问的方式来登录数据库。 
@@ -8,16 +8,16 @@
 >- 仅广州、上海、北京、成都、重庆、中国香港、新加坡、首尔、东京、硅谷的实例支持开启外网访问地址。
 
 
-下面分别介绍如何从 Windows 系统或 Linux 系统的 CVM 登录，以内外网两种不同的方式访问云数据库 MySQL。
-## 从 Windows 系统的 CVM 访问
-1. 登录到 Windows 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a>。
+下面分别介绍如何从 Windows 云服务器或 Linux 云服务器登录，以内外网两种不同的方式访问云数据库 MySQL。
+## 从 Windows 云服务器访问
+1. 登录到 Windows 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">快速配置 Windows 云服务器</a>。
 2. 下载一个标准的 SQL 客户端。
 >?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
 >
 ![](https://main.qcloudimg.com/raw/25e78e6614b2967e8c70140b8849a6d6.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
-![](https://main.qcloudimg.com/raw/116d799255066bb8aa96d047b5960231.png)
-4. 在此台 CVM 上安装 MySQL Workbench。
+![](https://main.qcloudimg.com/raw/f98f84df777a8f8927bec3375781f517.png)
+4. 在此台云服务器上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
 >- 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
@@ -32,9 +32,9 @@
 6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
 ![](https://main.qcloudimg.com/raw/9ec2f9393a3652727acbb8dfc41ad5b7.png)
 
-## 从 Linux 系统的 CVM 访问
-1. 登录到 Linux 系统的 CVM，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门</a>。
-2. 以 CentOS 7.2 64 位系统的 CVM 为例，执行如下命令安装 MySQL 客户端：
+## 从 Linux 云服务器访问
+1. 登录到 Linux 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">快速配置 Linux 云服务器</a>。
+2. 以 CentOS 7.2 64 位系统的云服务器为例，执行如下命令安装 MySQL 客户端：
 ```
 yum install mysql
 ```
@@ -65,6 +65,8 @@ mysql -h hostname -P port -u username -p
 4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+
+
 
 <span id = "waiwang"></span>
 ## 附录：开启外网访问地址

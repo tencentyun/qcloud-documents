@@ -14,7 +14,7 @@
 
 ### 弹性公网 IP 如何停止扣费？
 - 当您不再需要扣费中的弹性公网 IP 时，可以将其释放掉，释放后的弹性公网 IP 便不再扣费。
-具体操作详情可参见 [释放 EIP](https://cloud.tencent.com/document/product/215/20147)。
+具体操作详情可参见 [释放 EIP](https://cloud.tencent.com/document/product/213/16586#.E9.87.8A.E6.94.BE.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip)。
 - 当您需要保留某个弹性公网 IP 又需要停止扣费时，您可以将其绑定在设备（CVM，NAT）上，绑定状态下的弹性公网 IP 便不再扣费。
 
 ### 云服务器没有公网 IP 如何实现公网访问？

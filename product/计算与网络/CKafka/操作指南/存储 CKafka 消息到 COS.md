@@ -4,6 +4,7 @@
 ## 前提条件
 该功能目前处于灰度测试阶段，如需试用请通过[ 提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
 
+<span id="operation"></span>
 ## 操作步骤
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
@@ -15,6 +16,7 @@
 
 如果您还未创建对象存储的 Bucket，请在 [新建 Bucket](https://console.cloud.tencent.com/cos/bucket) 后选取相应的存储位置。
 
+<span id="postconditions"></span>
 ## 后置条件
 开启【存储消息到 COS】功能后，CKafka 服务会在【访问管理】>【角色】中增加一个【cosCkafka_QCSRole】角色用来授权消息存储到 COS 服务。
 - 如果您不再需要此项功能，请在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/index?rid=1) >【实例列表】>【topic 管理】中，单击操作列的【存储消息到 COS】，禁用此功能并删除其角色。
@@ -36,6 +38,7 @@
 5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
 ![](https://main.qcloudimg.com/raw/5b9a909731c654c927bb08f217330458.png)
 
+<span id="limit"></span>
 ## 产品限制和费用计算
 - 该功能适用于少量数据备份到 COS 的场景，不保证数据能100%成功同步到 COS 中。
 - 当前 COS 文件聚合粒度为5 - 60分钟不等，允许用户指定。

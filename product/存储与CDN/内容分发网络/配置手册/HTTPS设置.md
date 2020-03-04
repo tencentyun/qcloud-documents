@@ -24,10 +24,8 @@ HTTPS 是指超文本传输安全协议（Hypertext Transfer Protocol Secure）�
 ## HTTP2.0 配置
 
 在成功为域名配置了 HTTPS 证书后，可以开启 HTTP2.0。
-![img](https://main.qcloudimg.com/raw/c31cd21a730ef4ee57c2d31ed3dad0be.png)
+![img](https://main.qcloudimg.com/raw/e55814078f908119c2876cd545c62b4d.png)
 了解更多 HTTP2.0 相关特性，请参见 [HTTP2.0 的新特性](https://cloud.tencent.com/community/article/541321)。
-
-> ? `.myqcloud.com`后缀加速域名暂不支持 HTTP2.0
 
 ## OCSP 装订配置
 **功能说明**

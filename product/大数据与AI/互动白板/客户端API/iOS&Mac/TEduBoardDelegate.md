@@ -118,6 +118,21 @@
 只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
 
 
+### onTEBAddImageElement:
+添加图片元素回调 
+``` Objective-C
+- (void)onTEBAddImageElement:(NSString *)url 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | NSString * | 调用 SetBackgroundImage 时传入的 URL |
+
+#### 介绍
+只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+
+
 ### onTEBBackgroundH5StatusChanged:url:status:
 设置白板背景 H5 状态改变回调 
 ``` Objective-C
@@ -247,13 +262,13 @@
 ### onTEBFileUploadProgress:currentBytes:totalBytes:uploadSpeed:percent:
 文件上传进度回调 
 ``` Objective-C
-- (void)onTEBFileUploadProgress:(NSString *)fileId currentBytes:(int)currentBytes totalBytes:(int)totalBytes uploadSpeed:(int)uploadSpeed percent:(float)percent 
+- (void)onTEBFileUploadProgress:(NSString *)path currentBytes:(int)currentBytes totalBytes:(int)totalBytes uploadSpeed:(int)uploadSpeed percent:(float)percent 
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 正在上传的文件 ID  |
+| path | NSString * | 正在上传的文件路径  |
 | currentBytes | int | 当前已上传大小，单位 bytes  |
 | totalBytes | int | 文件总大小，单位 bytes  |
 | uploadSpeed | int | 文件上传速度，单位 bytes  |
@@ -263,13 +278,13 @@
 ### onTEBFileUploadStatus:status:errorCode:errorMsg:
 文件上传状态回调 
 ``` Objective-C
-- (void)onTEBFileUploadStatus:(NSString *)fileId status:(TEduBoardUploadStatus)status errorCode:(int)errorCode errorMsg:(NSString *)errorMsg 
+- (void)onTEBFileUploadStatus:(NSString *)path status:(TEduBoardUploadStatus)status errorCode:(int)errorCode errorMsg:(NSString *)errorMsg 
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * | 正在上传的文件 ID  |
+| path | NSString * | 正在上传的文件路径  |
 | status | TEduBoardUploadStatus | 文件上传状态  |
 | errorCode | int | 文件上传错误码  |
 | errorMsg | NSString * | 文件上传错误信息  |

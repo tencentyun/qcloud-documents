@@ -1,5 +1,5 @@
 ## 本文背景
-客户压测 CLB 时，常会遇到了一些客户端 timewait 过多，端口被快速占满，导致 connect 失败的问题，下面会说明原因和解决方案。
+客户压测 CLB 时，常会遇到一些客户端 timewait 过多，端口被快速占满，导致 connect 失败的问题，下面会说明原因和解决方案。
 
 ## Linux 参数介绍
 **tcp_timestamps ：** 是否开启 tcp timestamps 选项，timestamps 是在 tcp 三次握手过程中协商的，任意一方不支持，该连接就不会使用 timestamps 选项。
