@@ -5,16 +5,28 @@
 ## 前提条件
 
 #### 初始化 Egg 项目
-
 ```shell
 $ mkdir egg-example && cd egg-example
 $ npm init egg --type=simple
 $ npm i
 ```
 
+#### 新增初始化文件
+
+在项目根目录下新建`sls.js`文件，内容如下：
+```js
+const { Application } = require('egg')
+
+const app = new Application({
+  env: 'prod'
+})
+
+module.exports = app
+```
+
 #### 修改 Egg 配置
 
-由于云函数在执行时，只有 `/tmp` 可读写的，所以我们需要将 `egg.js` 框架运行尝试的日志写到该目录下，为此需要修改 `config/config.default.js` 中的配置如下：
+由于云函数在执行时，只有`/tmp`可读写的，所以我们需要将`egg.js`框架运行尝试的日志写到该目录下，为此需要修改`config/config.default.js`中的配置如下：
 
 ```js
 const config = exports = {
@@ -26,6 +38,35 @@ const config = exports = {
 };
 ```
 
+#### 注意事项
+
+由于`egg`的`egg-static`静态资源插件是默认开启的，所以在启动应用时，会尝试创建`app/public`目录，但是云函数执行环境只有`/tmp`可读写，所以需要本地创建，并添加`.gitkeep`文件（内容为空）。
+
+如果您不需要使用静态资源，可以通过修改`config/plugin.js`禁用静态资源功能：
+```js
+module.exports = {
+  static: {
+    enable: false
+  }
+}
+```
+
+如果您需要开启静态资源功能，并且 public 已经存在，且里面包含静态资源。此时需要配置`binaryTypes`，修改`sls.js`文件如下：
+```js
+const { Application } = require('egg')
+
+const app = new Application({
+  env: 'prod'
+})
+
+// 这里可以根据实际情况来配置
+// 如果您的站点开启 gzip，那么所有返回类型都应该是二进制类型，所以应该是 app.binaryTypes = ['*/*']
+app.binaryTypes = ['image/*']
+
+module.exports = app
+```
+
+
 ## 操作步骤
 #### 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
@@ -34,7 +75,7 @@ $ npm install -g serverless
 ```
 
 #### 配置
-在项目根目录创建 `serverless.yml` 文件：
+在项目根目录创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
 ```
@@ -58,7 +99,8 @@ MyComponent:
         subnetId: ''
         vpcId: ''
     apigatewayConf:
-      protocol: https
+      protocols:
+        - https
       environment: release
 ```
 
