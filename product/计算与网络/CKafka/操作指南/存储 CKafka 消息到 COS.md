@@ -20,7 +20,7 @@
 ## 后置条件
 开启【存储消息到 COS】功能后，CKafka 服务会在【访问管理】>【角色】中增加一个【cosCkafka_QCSRole】角色用来授权消息存储到 COS 服务。
 - 如果您不再需要此项功能，请在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka/index?rid=1) >【实例列表】>【topic 管理】中，单击操作列的【存储消息到 COS】，禁用此功能并删除其角色。
-![](https://main.qcloudimg.com/raw/cbdfa1ba141d9f3f50d9f8b639173325.png)
+![](https://main.qcloudimg.com/raw/90bfbefc512b95d9e1345f2a9e58e136.png)
 
 - 如果您需要一直使用此功能，但误删除了【cosCkafka_QCSRole】角色，将会影响消息存储到 COS，请及时重新创建角色。
 
