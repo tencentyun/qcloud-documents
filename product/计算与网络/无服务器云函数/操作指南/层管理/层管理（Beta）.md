@@ -53,5 +53,5 @@
 ![](https://main.qcloudimg.com/raw/3593c35e3a438d8b5f55662d75199ffc.png)
 
 3. 函数使用时，由于 NODE_PATH 环境变量包含 /opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
-![](https://main.qcloudimg.com/raw/bba3c1168e2c5a1b1474dfc3592b9587.png)
+![](https://main.qcloudimg.com/raw/5ab54f5d146c037e8ed6b5a5a28dcf28.png)
 
