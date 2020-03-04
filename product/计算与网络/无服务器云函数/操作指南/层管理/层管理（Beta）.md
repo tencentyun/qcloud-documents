@@ -33,6 +33,16 @@
 
 
 
+##使用层
+
 层中的文件会被放在 /opt 目录中，在函数执行期间可访问。如果您的函数有绑定多个层，这些层将按照序号顺序被合并到 /opt 目录中。如果同一文件出现在多个层中，将会保留最高序号层里的文件。
 
-如果您使用的层版本被删除，您的函数将继续运行，就好像层版本仍然存在一样。
+| 相关环境变量 | 路径                                                         |
+| ----------------------- | ------------------------------------------------------------ |
+| PYTHONPATH              | /var/user:/opt                                               |
+| CLASSPATH               | /var/runtime/java8:/var/runtime/java8/lib/*:/opt             |
+| NODE_PATH               | /var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules |
+
+```
+以Node.js为例，将文件夹 node_modules 打成 ZIP 包，通过上述方法创建一个层，并配置绑定此层后，函数上传时可以不上传 node_modules 文件夹，由于 NODE_PATH 环境变量包含 /opt:/opt/node_modules 路径，Node.js 运行时启动时可以查找到层中的依赖，您使用依赖的方式和原来一样，不需要修改代码。
+```
