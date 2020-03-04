@@ -18,7 +18,7 @@
 
 ####  Client 端配置
 1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
-![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
+![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
