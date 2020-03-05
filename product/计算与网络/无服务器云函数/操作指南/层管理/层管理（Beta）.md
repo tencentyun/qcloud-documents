@@ -40,7 +40,11 @@
 
 1. 参考 [创建层](#create) 步骤将 `node_modules` 上传生成层。本地函数目录结构如下图所示：
 ![](https://main.qcloudimg.com/raw/88a8477d8668610dd150887b326628a4.png)
-2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传，打包时请排除 `node_modules` 文件夹。如下图所示：
+2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传，打包时执行以下命令排除 `node_modules` 文件夹。
+```
+zip -r 包名.zip . -x "node_modules/*"
+```
+如下图所示：
 ![](https://main.qcloudimg.com/raw/31c531fbc98d0a5cc5c542b7e3721c9d.png)
 3. 参考 [绑定云函数](#bind) 步骤，将已创建的层绑定至部署好的函数。 
 4. 完成上述步骤后，即可开始在函数中使用层。
