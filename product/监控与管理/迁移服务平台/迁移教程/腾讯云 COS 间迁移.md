@@ -35,23 +35,25 @@
 任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 3. 设置要迁移的文件来源。
 此处迁移源服务提供商应选择腾讯云 COS，并在下方 AccessKey，SecretKey 文本框中输入先前新建用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击下拉框右侧**刷新**按钮，即可获取源对象存储桶列表。
-![](https://main.qcloudimg.com/raw/8189f701c6202c1d69963461dfa2f335.png)
+![](https://main.qcloudimg.com/raw/769626792485a7a43de77619fe0a7c53.jpg)
 4. 选择文件存储方式。
 根据迁移的需求，设定迁移后文件的存储方式，可以选择：标准存储、低频存储、保持原存储属性、归档存储。
-![](https://main.qcloudimg.com/raw/8301bfa06c4d01e0ddc6e5d107c5ce05.jpg)
-5. 选择 Header 设置。
+![](https://main.qcloudimg.com/raw/074df9f883a6e2819fad680d1a7490ff.jpg)
+5. Header 设置。
 如果源桶中的文件设定了 Header/Tag 并且需要在迁移后保留，请选择保留或设置替换规则。
-![](https://main.qcloudimg.com/raw/595409fec3f8094f71c7694a9c3f9ef2.jpg)
+![](https://main.qcloudimg.com/raw/123017d76b3823f85d7096d19c39c91a.jpg)
 6. 设定迁移规则。
 选择对指定桶中的全部文件进行迁移，或仅迁移指定前缀的文件。
-7. 指定迁移任务的开始时间。
-如需在指定时间开始迁移，开启此开关并设定开始时间。
+![](https://main.qcloudimg.com/raw/50d5e4c411e5a31dd4f0969c9fe7f0c4.jpg)
+7. 设定时间范围。
+开启时间范围，只迁移指定时间范围内新增或变更的文件。
+![](https://main.qcloudimg.com/raw/94fce7cc7c9b2402d0e28babc0050e9a.jpg)
 8. 设定最高并发数。
 各公有云厂商的对象存储都有最高并发限制。为确保业务稳定，请在迁移前与源厂商确认并设置最高迁移可用 QPS。
-![](https://main.qcloudimg.com/raw/4dbb0d2ed39b847ce62e4637584ab37d.jpg)
+![](https://main.qcloudimg.com/raw/2513f469473762a802b90d95eb54cb6e.jpg)
 9.	选择要迁移到的目标位置。
 在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击下拉框右侧**刷新**按钮，即可获取目标对象存储桶列表。
-![](https://main.qcloudimg.com/raw/822a116d325c52d12416cb30c93e7477.jpg)
+![](https://main.qcloudimg.com/raw/0b92939c9a50636395da7e4713dbded9.jpg)
 10. 指定迁移到目标桶的指定目录。
 	- 保存到根目录： 直接将源桶中的文件按原始相对路径保存到目标桶的根目录。
 	- 保存到指定目录：将源桶中的文件保持原始相对路径保存到指定目录中。
