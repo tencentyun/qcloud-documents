@@ -496,7 +496,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当URL是一个有效的本地文件地址时，该文件会被自动上传到 COS 
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
 
 
 ### setBackgroundH5
@@ -544,7 +544,7 @@ String addBoard(String url)
 白板 ID 
 
 #### 警告
-白板页会被添加到默认文件（文件ID为::DEFAULT)，自行上传的文件无法添加白板页 
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页 
 
 
 ### deleteBoard
@@ -559,7 +559,7 @@ void deleteBoard(String boardId)
 | boardId | String | 要删除的白板 ID，为 null 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### prevStep
@@ -574,7 +574,7 @@ void prevStep()
 void nextStep()
 ```
 #### 介绍
-每个Step对应PPT的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
+每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
 
 ### prevBoard
@@ -657,12 +657,12 @@ void gotoBoard(String boardId, boolean resetStep)
 
 
 ### getCurrentBoard
-获取当前白板页ID 
+获取当前白板页 ID 
 ``` Java
 String getCurrentBoard()
 ```
 #### 返回
-当前白板页ID 
+当前白板页 ID 
 
 
 ### getBoardList
@@ -765,7 +765,7 @@ void applyFileTranscode(final String path, final TEduBoardTranscodeConfig config
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起 
 
 #### 介绍
-支持 PPT、PDF、Word文件转码 PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+支持 PPT、PDF、Word 文件转码 PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### getFileTranscodeProgress
@@ -798,14 +798,26 @@ String addTranscodeFile(final TEduBoardTranscodeFileResult result)
 | result | final TEduBoardTranscodeFileResult | 文件转码结果  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件ID返回为空字符串 
+当传入文件的 URL 重复时，文件 ID 返回为空字符串 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
 本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+
+
+### addImageElement
+添加图片资源 
+``` Java
+void addImageElement(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
 
 
 ### deleteFile
@@ -851,9 +863,9 @@ void switchFile(String fileId, String boardId, int stepIndex)
 | stepIndex | int | 跳转到白板页并切换到这个动画  |
 
 #### 警告
-该接口仅可用于文件切换，如果传入的 fileId为 当前文件 ID，SDK 会忽略其它参数，不做任何操作 
+该接口仅可用于文件切换，如果传入的 fileId 为当前文件 ID，SDK 会忽略其它参数，不做任何操作 
 
->? 文件ID为必填项，为null或空字符串将导致文件切换失败 
+>? 文件 ID 为必填项，为 null 或空字符串将导致文件切换失败 
 
 
 ### getCurrentFile
@@ -931,6 +943,144 @@ List<String> getThumbnailImages(String fileId)
 缩略图 URL 列表 
 
 >? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
+
+
+### addVideoFile
+添加视频文件 
+``` Java
+String addVideoFile(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 文件播放地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+
+
+### showVideoControl
+显示或隐藏视频控制栏 
+``` Java
+void showVideoControl(boolean show)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| show | boolean | 是否显示  |
+
+#### 警告
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
+
+
+### playVideo
+播放视频 
+``` Java
+void playVideo()
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端回前台调用 play（WebView 默认行为） 
+
+
+### pauseVideo
+暂停视频 
+``` Java
+void pauseVideo()
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
+
+
+### seekVideo
+跳转（仅支持点播视频） 
+``` Java
+void seekVideo(float time)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| time | float | 播放进度，单位秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+
+
+### setSyncVideoStatusEnable
+是否同步本地视频操作到远端 
+``` Java
+void setSyncVideoStatusEnable(boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | boolean | 【必填】是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效
+
+#### 介绍
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
+
+
+### startSyncVideoStatus
+内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
+``` Java
+void startSyncVideoStatus(String interval)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| interval | String | 【选填】同步间隔，例如设置5秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+一般在老师端视频加载完成后调用，切换文件后内部自动销毁定时器， 
+
+
+### stopSyncVideoStatus
+停止同步视频状态 
+``` Java
+void stopSyncVideoStatus()
+```
+#### 警告
+只对当前文件有效 
+
+
+### addH5File
+添加 H5 页面 
+``` Java
+String addH5File(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】网页地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+只支持展示，不支持互动 
 
 
 

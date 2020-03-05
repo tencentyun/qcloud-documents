@@ -71,7 +71,7 @@ TRTC V1 版本中，使用了 BeautySDK 来实现美颜及动效等功能，TRTC
 | BeautySDK 基本版（不带 P 图版本） | 您仅需在 Xcode 工程配置 BeautySDK 的头文件搜索路径，并取消链接 BeautySDK。 |
 | BeautySDK 高级版（带 P 图版本）    | 您需要使用 LiteAVSDK 企业版，并在 Xcode 工程配置 BeautySDK 的头文件搜索路径，同时取消链接 BeautySDK（LiteAVSDK 企业版中带有 P 图组件，可以直接使用您之前购买的 P 图 licence，您无须再次付费）。 |
 
-## Windows 端 LiteAVSDK 和 iLiveSDK 兼容方案
+### Windows 端 LiteAVSDK 和 iLiveSDK 兼容方案
 
 Windows 端的 LiteAVSDK 和 iLiveSDK 都使用到了 TRAE 来进行回声消除和降噪等音频处理，但 LiteAVSDK 使用的 TRAE 版本更新，且在功能使用上有差异，因此不能直接替换，您可以按以下方法进行处理。
 

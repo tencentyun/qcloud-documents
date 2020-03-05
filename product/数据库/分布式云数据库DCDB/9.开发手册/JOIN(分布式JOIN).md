@@ -1,5 +1,4 @@
-
-如果您期望阅读或下载全量开发文档，请参考 [《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)
+如您需要阅读或下载全量开发文档，请参见 [TDSQL开发指南](https://cloud.tencent.com/document/product/557/7714)。
 
 由于 TDSQL 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 JOIN，一般叫做分布式 JOIN。
 
@@ -37,6 +36,7 @@
 	+---+------+---------+---+------+---------------+
 	2 rows in set (0.03 sec)
 ```
+
 ### shardkey 不等条件（性能有损失）
 ```
 
@@ -52,13 +52,13 @@
         4 rows in set (0.06 sec)
 
 ```
-### 对于广播表和单表（普通表）相关的 join
 
+### 对于广播表和单表（普通表）相关的 join
 如果是单表（普通表）与单表（普通表）JOIN，相当于单机 JOIN，性能无损失。
 如果是广播表与分表 JOIN，相当于单机 JOIN，性能无损失。
 广播表与广播表 JOIN，相当于单机 JOIN，性能无损失。
 
->**目前暂不支持“单表（普通表）”和“分表”进行 join 操作；**
+>?目前暂不支持“单表（普通表）”和“分表”进行 join 操作。
 
 ```
 	mysql> create table noshard_table ( a int, b int key);

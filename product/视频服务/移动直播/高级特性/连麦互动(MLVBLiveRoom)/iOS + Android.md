@@ -7,7 +7,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - 两个不同房间的主播 PK 互动。
 - 每一个直播间都有一个不限制房间人数的聊天室，支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物。
 
-![](https://main.qcloudimg.com/raw/3e140620deb9058a2e8aba03ab26f280.gif)
+<img src="https://main.qcloudimg.com/raw/3e140620deb9058a2e8aba03ab26f280.gif" width="830px">
 
 ## 功能体验
 
@@ -20,7 +20,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **微信小程序**
   打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
 
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/aacdf8cdfa825f64f34af9c3c3e4154e.jpg" />
+![](https://main.qcloudimg.com/raw/5b6184f8857bdfb1501632951403f8d0.jpg)
 
 ## 代码对接
 
@@ -36,7 +36,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 | 所属平台 |   LiteAVSDK   |     TIMSDK     |  MLVBLiveRoom 组件    |   示例代码  |
 | :------: | :---------: | :-----------: | :------------: | :----------: |
 |   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
-| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
+| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
 
 
 ### Step2. 申请 License 
@@ -149,7 +149,8 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 - 直播采用标准的 HTTP-FLV 协议，使用标准 CDN 线路，没有并发观看人数的限制，且带宽成本很低，但延迟一般在3s以上。
 - 连麦采用 UDP 协议，使用专用加速线路，延迟一般在500ms以内，但由于线路成本较高，因此采用连麦时长进行计费。
 
-![](https://main.qcloudimg.com/raw/ca3441a2671fda6b336edf9921b4cd8a.png)
+![](https://main.qcloudimg.com/raw/5d906e44288028ee8fc929b719ea3884.png)
+
 
 |     通道     |                           直播通道                           |                           连麦通道                           |
 | :----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |

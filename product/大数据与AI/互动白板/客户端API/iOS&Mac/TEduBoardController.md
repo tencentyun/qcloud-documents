@@ -15,7 +15,7 @@
 | delegate | id< TEduBoardDelegate > | 事件回调监听  |
 
 #### 警告
-建议在Init之前调用该方法以支持错误处理 
+建议在 Init 之前调用该方法以支持错误处理 
 
 
 ### removeDelegate:
@@ -43,7 +43,7 @@
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | TEduBoardAuthParam * | 授权参数  |
-| roomId | UInt32 | 课堂ID  |
+| roomId | UInt32 | 课堂 ID  |
 | initParam | TEduBoardInitParam * | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -138,10 +138,10 @@
 + (NSString *)getVersion
 ```
 #### 返回
-SDK版本号
+SDK 版本号
 
 #### 介绍
-获取SDK版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
+获取 SDK 版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 
@@ -535,7 +535,7 @@ SDK版本号
 | boardId | NSString * | 要删除的白板 ID，为 nullptr 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### prevStep
@@ -633,15 +633,15 @@ SDK版本号
 
 
 ### getCurrentBoard
-获取当前白板页ID 
+获取当前白板页 ID 
 ``` Objective-C
 - (NSString *)getCurrentBoard
 ```
 #### 返回
-当前白板页ID
+当前白板页 ID
 
 #### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### getBoardList
@@ -689,7 +689,7 @@ SDK版本号
 | scale | UInt32 | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale/100 
+支持范围: [100，300]，实际缩放比为: scale / 100 
 
 
 ### getBoardScale
@@ -698,7 +698,7 @@ SDK版本号
 - (UInt32)getBoardScale
 ```
 #### 返回
-白板缩放比例，格式与SetBoardScale接口参数格式一致 
+白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
 
 ### setBoardContentFitMode:
@@ -723,6 +723,18 @@ SDK版本号
 ```
 #### 返回
 白板内容自适应模式 
+
+
+### addImageElement:
+添加图片资源 
+``` Objective-C
+- (void)addImageElement:(NSString *)url 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | NSString * | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
 
 
 
@@ -939,10 +951,10 @@ SDK版本号
 | url | NSString * | 文件播放地址  |
 
 #### 返回
-文件ID
+文件 ID
 
 #### 介绍
-移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChanged 
 
 
 ### showVideoControl:
@@ -981,7 +993,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
+触发状态改变回调 onTEBVideoStatusChanged，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
 
 
 ### seekVideo:
@@ -999,7 +1011,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+触发状态改变回调 onTEBVideoStatusChanged，一般在使用自定义视频控制栏时使用 
 
 
 ### setSyncVideoStatusEnable:
@@ -1048,7 +1060,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 
 
 ### addH5File:
-添加H5页面 
+添加 H5 页面 
 ``` Objective-C
 - (NSString *)addH5File:(NSString *)url 
 ```

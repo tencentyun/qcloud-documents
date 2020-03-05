@@ -20,8 +20,8 @@
 | ----------- | -------- | ------ | ------------------------------------------------------------ |
 | host        | 是       | String | 需要配置证书的域名。                                           |
 | httpsType   | 否       | Int    | 配置类型设置<br/>"0" ：清除 HTTPS 配置，无需填写证书及私钥参数。<br/>"1"：上传自有证书，并 HTTP 回源。<br/>"2"：上传自有证书，并协议跟随回源。<br/>"3"：使用托管证书，并 HTTP 回源。<br/>"4"：使用托管证书，并 协议跟随回源。<br/>1&2 域名未配置证书或配置的是自有证书，则 必须上传 cert 及 privateKey。<br/>3&4 域名未配置证书或配置的是托管证书，则必须传递 certId。 |
-| cert        | 否       | String | PEM 格式证书。                                                  |
-| privateKey  | 否       | String | PEM 格式私钥。                                                  |
+| cert        | 否       | String | PEM 格式证书（Base64 编码）。                                                  |
+| privateKey  | 否       | String | PEM 格式私钥（Base64 编码）。                                                  |
 | forceSwitch | 否       | Int    | 强制跳转开关<br/>"1"：HTTP 强制跳转。<br/>"-1"：关闭 HTTP 强制跳转。<br/>"2"：开启 HTTPS 强制跳转（302）。<br/>"-2"：关闭 HTTPS 强制跳转（302）。<br/>"3"：开启 HTTPS 强制跳转（301）。<br/>"-3"：关闭 HTTPS 强制跳转（301）。 |
 | http2       | 否       | String | HTTP2.0 开关<br/>"on"：开启 HTTP2.0。<br/>"off"：关闭 HTTP2.0。  |
 | certId      | 否       | String | 证书 ID，可通过接口 [查询托管证书列表](https://cloud.tencent.com/document/product/228/12543) 获取。 |

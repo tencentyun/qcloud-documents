@@ -2,7 +2,7 @@
 通过 BOT 详情，用户可以查看域名正常请求和 BOT 请求次数的访问趋势，查看未知类型 BOT、公开类型 BOT和自定义类型BOT详情，同时可以了解 WAF 检测检出的 BOT 会话详情。
 ## 使用说明
 ### 概览查看
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。
 2. 在页面左上角单击域名筛选框，进行域名选择或搜索。
 ![](https://main.qcloudimg.com/raw/6324805b1238981b6fe367864c18113b.png)
 3. 选择 BOT 来源分布，单击【全球】或【全国】切换查看不同的地图类型，单击【全球】时，统计精确到国家，单击【全国】时，统计精确到省份。
@@ -16,22 +16,22 @@
 	- **BOT 来源分布：**统计不同 BOT 类型来源（基于 IP）的中国省份和国家统计。
 
 ### 类型详情
-1. 登录 [Web 应用防火墙（网站管家）控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。可选择查看【未知类型】、【自定义类型】和【公开类型】，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。可选择查看【未知类型】、【自定义类型】和【公开类型】，进行类型查看。在左上角单击域名筛选框，进行域名选择或搜索。
 ![](https://main.qcloudimg.com/raw/a304769ac2e6c55afa27e65b5375a485.png)
 2. 未知类型 BOT 说明。未知类型 BOT 是 WAF 通过追踪目标会话，并结合会话行为特征模型和 AI 检测模型检测出的 BOT 行为。
 ![](https://main.qcloudimg.com/raw/022a899a20ae12a52301324e4da77adc.png)
 **未知类型 BOT 列表项说明：**
-	- **访问源 IP：**BOT 的访问 IP。
+	- **访问源 IP：**BOT 请求 IP。
 	- **预测标签：**算法自动预测的疑似行为，包括12种类型，如疑似恶意注册、疑似规律性爬虫、疑似刷短信接口等，支持过滤。
-	- **异常特征：**BOT 引擎检测的异常特征。
+	- **异常特征：**BOT 引擎检出的异常特征。
 	- **动作：**未知类型 BOT 处理动作，默认为监控。
 	- **BOT 得分：**BOT 智能分析引擎对会话给出的 BOT 得分，得分越高判定为 BOT 可能性越大，支持排序。
 	- **会话总次数：**BOT 会话请求总次数，支持排序。
 	- **会话持续时间：**BOT 会话持续时间，支持排序。
 	- **平均速率：**等于会话请求总次数 / 会话持续时间，单位为：次/分钟，支持排序。
 	- **最新检测时间：**最近一次检测到 BOT 会话请求的时间，支持排序。
-	- **操作：**支持【加黑】和【查看详情】操作，将访问源 IP 添加到 IP 黑名单。查看 BOT 详细信息，单击未知类型 BOT 条目，在左侧操作栏中，单击【加黑】，可以将当前 BOT IP 添加至【IP 管理】>【[IP 黑白名单](https://console.cloud.tencent.com/guanjia/ip/list)】模块的黑名单中。
-3. 自定义类型 BOT 说明。自定义类型 BOT 是 WAF 根据用户自定义会话策略（包括预定义策略或自定义策略），检测出的 BOT 行为。
+	- **操作：**支持【加黑】和【查看详情】操作，将访问源 IP 添加到 IP 黑名单。查看 BOT 详细信息，单击未知类型 BOT 条目，在右侧操作栏中，单击【加黑】，可以将当前 BOT IP 添加至【IP 管理】>【[IP 黑白名单](https://console.cloud.tencent.com/guanjia/ip/list)】模块的黑名单中。
+3. 自定义类型 BOT 说明。自定义类型 BOT 是 WAF 根据用户设置的自定义会话策略检测出的 BOT 行为。
 ![](https://main.qcloudimg.com/raw/674c67cee110e46aee095e4a6d1e7368.png)
 **自定义类型列表项说明：**
 	- **访问源 IP：**BOT 请求 IP。

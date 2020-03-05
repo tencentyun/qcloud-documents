@@ -1,5 +1,5 @@
 ## 操作场景
-本文档将向您介绍如何使用 TI Python SDK 实现 Pytorch 分布式训练。
+本文档将向您介绍如何使用 TI SDK 实现 Pytorch 分布式训练。
 
 ## 使用 Horovod 训练
 Horovod 是一个基于 MPI 的分布式训练框架，容器内设置 MPI 环境并执行 mpirun 命令，可以运行任何 Horovod 训练脚本。

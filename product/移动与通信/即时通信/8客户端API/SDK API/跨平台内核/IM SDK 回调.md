@@ -587,7 +587,7 @@ typedef void (*TIMLogCallback)(enum TIMLogLevel level, const char* log, const vo
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | level | enum TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  |
-| log | const char\* | 日子字符串 |
+| log | const char\* |日志字符串 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
 ### TIMMsgUpdateCallback
@@ -615,7 +615,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 
 ### TIMCommCallback
 
-接口回调定义。
+接口通用回调的定义。
 
 **原型**
 

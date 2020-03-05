@@ -10,7 +10,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 - Windows：Windows 操作系统，本文以 Windows Server 2012 为例。
 - IIS：Web 服务器，本文以 IIS 8.5 为例。
 - MySQL：数据库，本文以 MySQL 5.6.46 为例。
-- PHP：脚本语言，本文以 PHP 7.2.24 为例。
+- PHP：脚本语言，本文以 PHP 7.3.12 为例。
 - WordPress：博客平台，本文以 WordPress 5.3 为例。
 
 
@@ -54,11 +54,12 @@ create database wordpress;
  - 网站名称：用户自定义，例如 wordpress。
  - 应用程序池：选择为【DefaultAppPool】。
  - 物理路径：选择为 WordPress 解压后的存放路径，例如 `C:\wordpress`。
-13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，修改以下配置参数。
- - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，取消前面的`;`。
- - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，取消前面的`;`。
- - 找到`extension_dir = "ext"`，取消前面的`;`。
-
+13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，并修改以下内容。
+ 1. 根据 PHP 版本不同，修改相应的配置参数：
+     - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，删除前面的`;`。
+     - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，删除前面的`;`。
+ 2. 找到`extension_dir = "ext"`，删除前面的`;`。
+14. 保存 `php.ini` 文件。
 
 ### 步骤4：验证 WordPress 配置
 
@@ -80,7 +81,7 @@ create database wordpress;
 如果您已有域名或者想要通过域名来访问您的博客，请参考以下步骤：
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
 2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
-域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，一般审核时间约为20天。
+域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
 3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
 ## 常见问题

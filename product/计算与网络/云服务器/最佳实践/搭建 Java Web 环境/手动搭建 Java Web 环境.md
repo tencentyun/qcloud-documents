@@ -71,7 +71,7 @@ wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.47/bin/apac
 ```
 tar xzf apache-tomcat-8.5.47.tar.gz
 ```
-3. 执行以下命令，将解压后的源码包移动到 `/usr/local/tomcat/` 目录下。
+3. 执行以下命令，将解压后的文件夹下的文件移动到 `/usr/local/tomcat/` 目录下。
 ```
 mv apache-tomcat-8.5.47 /usr/local/tomcat/
 ```

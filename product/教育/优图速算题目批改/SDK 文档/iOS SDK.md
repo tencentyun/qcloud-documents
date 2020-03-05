@@ -10,7 +10,7 @@ TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，�
 
 ### 1. 导入 SDK
 从 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 中获取 SDK 并导入到工程。
-![](http://dldir1.qq.com/hudongzhibo/taisdk/document/taisdk_ios_1.png)
+![](https://main.qcloudimg.com/raw/ae5557cc5aea1795ca2ffc18032e5f4c/20191231002.png)
 
 
 ### 2. 调用接口
