@@ -29,7 +29,7 @@
 ### YAML 操作指引
 
 #### YAML 示例
-
+直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，示例中的 annotation 即代表是否开启直连 Pod 模式。
 ```
 kind: Service
 apiVersion: v1
@@ -46,10 +46,8 @@ spec:
     targetPort: 9376
   type: LoadBalancer
 ```
-直连 Pod 模式 Service 的 YAML 配置与普通 Service YAML 配置相同，上述示例中的 annotation 即代表是否开启直连 Pod 模式。
-```
-service.cloud.tencent.com/direct-access: true
-```
+
+
 
 ####  annotation 扩展
 负载均衡 CLB 的相关配置，建议您搭配 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895) 进行设置。其中相关 annotation 配置如下：
