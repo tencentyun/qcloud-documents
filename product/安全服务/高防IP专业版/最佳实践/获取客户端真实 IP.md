@@ -46,7 +46,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 			modprobe toa
 6. 可用下面的命令开启自动加载 toa 模块
 <pre>
-		echo "modprobe toa" >> /etc/rc.d/rc.local
+			echo "modprobe toa" >> /etc/rc.d/rc.local
 </pre>
 			
 			
