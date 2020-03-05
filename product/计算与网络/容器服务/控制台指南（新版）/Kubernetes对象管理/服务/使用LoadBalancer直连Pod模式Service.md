@@ -50,7 +50,7 @@ spec:
 
 
 ####  annotation 扩展
-负载均衡 CLB 的相关配置，建议您搭配 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895) 进行设置。其中相关 annotation 配置如下：
+负载均衡 CLB 的相关配置，建议您参考 [TKEServiceConfig 介绍](https://cloud.tencent.com/document/product/457/41895) 进行设置。其中相关 annotation 配置如下：
 ```
 service.cloud.tencent.com/tke-service-config: [tke-service-configName]
 ```
