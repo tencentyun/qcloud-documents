@@ -42,8 +42,8 @@
  1. 下载  [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/757b646eb68e9b9a5b2fc4bf0fed2492/scf_about_cdn_refresh.zip)。
  2. 解压所有文件，找到其中的 index.js 文件并打开。
  3. 在代码里修改替换成您的具备调用 CDN 刷新接口权限的 SecretId、SecretKey 和需要刷新的域名。如下图所示：
-![](https://main.qcloudimg.com/raw/b2b0eba560e3229fc402490f0737712b.png)
- 4. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的 `RefreshCdnUrl` 修改为 `RefreshCdnOverSeaUrl`。
+![](https://main.qcloudimg.com/raw/e7de25a2d410e7733d9cc3a9e5dfb79a.png)
+ 4. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的`RefreshCdnUrl`修改为`RefreshCdnOverSeaUrl`。
 2. 上传函数代码
 	1. 将修改好的代码和其他文件重新压缩打包为 zip 格式。
 	2. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择 【函数代码】 页签，将 "提交方法" 设置为 "本地上传 zip 包"，单击【上传】，选择此压缩的 zip 格式文件。如下图所示：
