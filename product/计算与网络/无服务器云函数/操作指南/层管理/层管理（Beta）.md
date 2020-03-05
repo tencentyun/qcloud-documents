@@ -40,7 +40,8 @@
 
 1. 参考 [创建层](#create) 步骤将 `node_modules` 上传生成层。本地函数目录结构如下图所示：
 ![](https://main.qcloudimg.com/raw/88a8477d8668610dd150887b326628a4.png)
-2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传，打包时请排除 `node_modules` 文件夹。
+2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传，打包时请排除 `node_modules` 文件夹。如下图所示：
+![](https://main.qcloudimg.com/raw/31c531fbc98d0a5cc5c542b7e3721c9d.png)
 3. 参考 [绑定云函数](#bind) 步骤，将已创建的层绑定至部署好的函数。 
 4. 完成上述步骤后，即可开始在函数中使用层。
 由于 NODE_PATH 环境变量包含 `/opt/node_modules` 路径，函数运行时可以查找到层中的依赖，您使用依赖的方式和原来一样，无需修改代码，本文以使用 `cos-nodejs-sdk-v5` 依赖为例。如下图所示：
