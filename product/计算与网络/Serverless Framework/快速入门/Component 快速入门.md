@@ -75,7 +75,7 @@ exports.main_handler = async (event, context, callback) => {
 $ touch serverless.yml
 ```
 
-```yml
+```yaml
 # serverless.yml
 myFunction:
   component: "@serverless/tencent-scf"
