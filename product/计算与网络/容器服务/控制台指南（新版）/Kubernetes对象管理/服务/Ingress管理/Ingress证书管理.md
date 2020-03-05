@@ -23,7 +23,7 @@
 
 >!
 > -  当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
-> - 当在容器服务控制台修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应负载均衡的证书会一起变更。
+> - 在容器服务控制台修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应负载均衡的证书会一起变更。
 > - 当您直接在负载均衡控制台修改证书后，请务必参照[ 修改证书 ](#ModifySecret)步骤，及时修改使用该证书创建 Ingress 时控制台默认生成的同名 Secret 证书资源。否则 Ingress 配置的证书仍保持旧版本，将会导致您的证书更新失效。
 
 
@@ -107,7 +107,7 @@ TKE Ingress Controller 支持混合配置 HTTP/HTTPS 规则，步骤如下：
 将 `kubernetes.io/ingress.rule-mix` 设置为 True。
 当 Ingress 模板未配置 TLS 时，不会提供证书资源，所有规则都将以 HTTP 服务暴露，上述注解将不会生效。
 2. 规则匹配
-将 Ingress 中的每一条规则与 `kubernetes.io/ingress.http-rules` 、 `kubernetes.io/ingress.https-rules` 进行匹配并添加到对应规则集中。若 Ingress 中的规则未匹配，则默认添加到 HTTPS 规则集中。
+将 Ingress 中的每一条规则与 `kubernetes.io/ingress.http-rules` 、`kubernetes.io/ingress.https-rules` 进行匹配并添加到对应规则集中。若 Ingress 中的规则未匹配，则默认添加到 HTTPS 规则集中。
 3. 校验匹配项
 匹配时请注意校验 Host、Path、ServiceName、ServicePort（其中 Host 默认为 `VIP`、Path 默认为 `/`）。
 请注意 [IPv6](https://cloud.tencent.com/document/product/1142/38134) 的 CLB 不具备提供默认域名的功能。
