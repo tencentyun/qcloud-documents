@@ -118,9 +118,8 @@ Login successful for TencentCloud.
   DEBUG ─ Compressing function myFunction file to /Users/tina/Desktop/live/scfcomponent/my-function/.serverless/myFunction.zip.
   DEBUG ─ Compressed function myFunction file successful
   DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-guangzhou-code]. sls-cloudfunction-default-myFunction-1582797244.zip
-  myFunction [░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░] 0% | ETA: 0s | Speed: {speed}k/s  DEBUG ─ Uploaded package successful /Users/tina/Desktop/live/scfcomponent/my-function/.serverless/myFunction.zip
+  DEBUG ─ Uploaded package successful /Users/tina/Desktop/live/scfcomponent/my-function/.serverless/myFunction.zip
   DEBUG ─ Creating function myFunction
-  myFunction [████████████████████████████████████████] 100% | ETA: 0s | Speed: 8.04k/s
   DEBUG ─ Created function myFunction successful
   DEBUG ─ Setting tags for function myFunction
   DEBUG ─ Creating trigger for function myFunction
