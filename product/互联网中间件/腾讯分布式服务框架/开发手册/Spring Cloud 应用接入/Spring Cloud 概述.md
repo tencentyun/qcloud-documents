@@ -1,4 +1,6 @@
 TSF 支持原生 Spring Cloud 微服务框架，开发者只需要添加依赖和修改配置即可使用服务注册、调用链、分布式配置等能力。
+以下视频将为您介绍 Spring Cloud 框架及相关原理：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2037-24357?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 版本配套关系说明
 TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Greenwich 三个版本。Spring Cloud 、Spring Boot 及 TSF SDK 版本之间的关系如下表所示。
