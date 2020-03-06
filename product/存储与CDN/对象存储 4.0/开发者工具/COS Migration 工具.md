@@ -234,6 +234,8 @@ urllistPath=D:\\folder\\urllist.txt
 **3.3.6 配置 Bucket 相互复制 migrateBucketCopy**
 
 若从 COS 的一个指定 Bucket 迁移至另一个 Bucket，则进行该部分配置，具体配置项及说明如下：
+>!发起迁移的账号，需具备源读权限、目的写权限。
+
 <pre>
 # 从源 Bucket 迁移到目标 Bucket 配置分节
 [migrateBucketCopy]

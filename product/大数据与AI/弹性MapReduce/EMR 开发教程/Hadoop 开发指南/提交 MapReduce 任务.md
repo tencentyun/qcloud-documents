@@ -5,9 +5,8 @@
 - 相关日志路径在 `/data/emr` 下。
 
 ## 1. 开发准备
-- 由于任务中需要访问腾讯云对象存储 COS，所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/6232)。
-
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候在基础配置页面勾选【开启 COS】，并在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
+- 由于任务中需要访问腾讯云对象存储 COS，所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/13309)。
+- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时在基础配置页面勾选了【开启 COS】，并在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
 
 ## 2. 登录 EMR 服务器
 在做相关操作前需要登录到 EMR 集群中的任意一个机器，建议登录到 Master 节点。EMR 是建立在 Linux 操作系统的腾讯云服务器 CVM 上的，所以在命令行模式下使用 EMR 需要登录 CVM 服务器。
@@ -31,6 +30,7 @@
 scp $localfile root@公网IP地址:$remotefolder
 ```
 其中，$localfile 是您的本地文件的路径加名称；root 为 CVM 服务器用户名；公网 IP 地址可以在 EMR 控制台的节点信息中或者在云服务器控制台查看；$remotefolder 是您要存放文件的 CVM 服务器路径。
+
 上传成功后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 ```
 [hadoop@172 hadoop]$ ls –l
@@ -72,7 +72,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 
 ## 4. 通过 MapReduce 提交任务
-本次提交的任务是 Hadoop 集群自带的例程 wordcount。wordcount 已经被压缩成 jar 包上传到了创建好的 Hadoop 中，用户可以直接调来使用。
+本次提交的任务是 Hadoop 集群自带的例程 wordcount。wordcount 已被压缩为 jar 包上传到了创建好的 Hadoop 中，用户可以直接调来使用。
 
 ### 统计 HDFS 中的文本文件
 进入 `/usr/local/service/hadoop` 目录，和数据准备中一样。通过如下命令来提交任务：

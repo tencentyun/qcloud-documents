@@ -59,12 +59,12 @@
 3. （可选）设置数据卷，要指定容器挂载至指定路径时，单击【添加数据卷】，详情查看 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。如下图所示：
 >!源路径不指定时将默认分配临时路径。
 > 
- - 类型：支持使用临时目录、主机路径、NFS盘、已有VPC、腾讯云硬盘、ConfigMap、Secret七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - 类型：支持使用临时目录、主机路径、NFS盘、已有PVC、腾讯云硬盘、ConfigMap、Secret 七种类型的数据卷。相关详细介绍请参阅 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
  - 名称：数据卷的名称。
 ![](https://main.qcloudimg.com/raw/7d69d00f2b00b4d0d3a12c49fbbabaa7.png)
 4. 设置**实例內容器**。如下图所示：
  - **名称**：输入要创建容器的名称。
- - **镜像**：单击【选择镜像】，可在我的镜像、我的收藏、TencentHub 镜像、DockerHub 镜像和其他镜像下选择。
+ - **镜像**：单击【选择镜像】，可在我的镜像、我的收藏、公有镜像及 Docker Hub镜像下选择。
  - **镜像版本（Tag）**：容器服务默认选择版本。如果您需要使用镜像的其它版本，单击版本显示框选择。
  - **CPU/内存限制**：Request 用于预分配资源，当集群中的节点没有 request 所要求的资源数量时，容器会创建失败。Limit 用于设置容器使用资源的最大上限，避免异常情况下节点资源消耗过多。
  - **GPU限制**：根据实际需要设置。

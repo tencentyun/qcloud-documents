@@ -1,7 +1,9 @@
 ## 功能描述
-搜索指定状态的自定义模板。
+
+该接口用于搜索转码模板。
 
 ## 请求
+
 #### 请求示例
 
 ```shell
@@ -11,17 +13,17 @@ Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
-<body>
+
 ```
 
->?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-
+> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
+
 该请求的请求体为空。
 
 #### 请求参数
@@ -72,21 +74,24 @@ Content-Type: application/xml
 </table>
 
 
+
 ## 响应
+
 #### 响应头
+
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
 
 #### 响应体
+
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
 ```shell
 <Response>
-    <RequestId>017F1B2D-2B5B-4441-ABBA-E0DC08F5AFEC</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
     <TemplateList>
-        <Template>
             <TemplateID>A</TemplateID>
             <Name>Template Name</Name>
             <Tag>Animation</Tag>
@@ -134,31 +139,66 @@ Content-Type: application/xml
             </TransTpl>
             <CreateTime></CreateTime>
             <UpdateTime></UpdateTime>
-        </Template>
     </TemplateList>
 </Response>
 ```
 
-#### 错误码
-该请求操作可能会出现如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+具体的数据内容如下：
 
-错误码|描述|HTTP 状态码
----|---|---
-InternalErrror|服务端内部错误|500 Internal Server
-AccessDenied|签名或者权限不正确，拒绝访问|403 Forbidden
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
+
+Container 节点 Response 的内容：
+
+| 节点名称（关键字） | 父节点   | 描述                            | 类型      |
+| :----------------- | :------- | :------------------------------ | :-------- |
+| RequestId          | Response | 请求的唯一 ID                   | String    |
+| TotalCount         | Response | 模版总数                        | Int       |
+| PageNumber         | Response | 当前页数，同请求中的 pageNumber | Int       |
+| PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
+| TemplateList       | Response | 模版数组                        | Container |
+
+Container 节点 TemplateList 的内容：
+
+| 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
+| :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
+| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
+| Name               | Response.TemplateList | 模版名称                                                     | String    |
+| BucketId           | Response.TemplateList | 模版所属存储桶                                               | String    |
+| Category           | Response.TemplateList | 模版属性，Custom 或者 Official                               | String    |
+| Tag                | Response.TemplateList | 模版类型，Snapshot 或者 Animation                            | String    |
+| UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
+| CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
+| Snapshot           | Response.TemplateList | Tag 为 Snapshot 时存在，其详细的模版参数，同 POSTTemplate 中的 Request.Snapshot | Container |
+| TransTpl           | Response.TemplateList | Tag 为 Animation 时存在，其详细的模版参数                    | Container |
+
+Container 节点 TransTpl 的内容：
+
+| 节点名称（关键字） | 父节点                         | 描述                                      | 类型      |
+| :----------------- | :----------------------------- | :---------------------------------------- | :-------- |
+| TimeInterval       | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.TimeInterval | Container |
+| Container          | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Container    | Container |
+| Video              | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Video        | Container |
+| Audio              | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Audio        | Container |
+| TransConfig        | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.TransConfig  | Container |
+
+#### 错误码
+
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
 
 ## 实际案例
 
 ### 获取模板列表
+
 #### 请求
 
 ```shell
 GET /template?templateIds=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
-Content-Length: 1666
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Content-Length: 0
 Content-Type: application/xml
-
 ```
 
 #### 响应
@@ -170,10 +210,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>017F1B2D-2B5B-4441-ABBA-E0DC08F5AFEC</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TemplateList>
         <TemplateID>A</TemplateID>
         <Name>Template Name</Name>
@@ -236,9 +276,9 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 ```shell
 GET /template?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
-Content-Length: 1666
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Content-Length: 0
 Content-Type: application/xml
 
 ```
@@ -252,10 +292,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>017F1B2D-2B5B-4441-ABBA-E0DC08F5AFEC</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>

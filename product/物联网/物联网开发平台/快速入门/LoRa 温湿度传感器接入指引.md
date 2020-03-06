@@ -22,7 +22,7 @@
 1. 进入该项目的产品列表页面，单击【新建产品】。
 2. 在新建产品页面，填写产品基本信息后，单击【保存】。
     - 产品名称：输入“温湿度传感器”或其他产品名称。
-    - 产品类型：选择“温湿度传感器”。
+    - 产品类型：选择“用户自定义”。
     - 认证方式：选择“密钥认证”。
     - 通信方式：选择“LoRaWAN”。
 ![](https://main.qcloudimg.com/raw/eb63cd37ed0f7ef4e6e5f6ce73e74961.png)
@@ -124,7 +124,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
     - GwEUI：为网关唯一 ID。本例中根据 ST NUCLEO LoRa GW 背部的 MAC 地址，将6字节 MAC 地址的中间补足 0xffff。  
 ![](https://main.qcloudimg.com/raw/4942c0663367a38f5ef090c62fcba5b3.png)
     - 是否公开：选择“是”，表示社区开发者可在社区网络查看该网关，并可通过这个网关进行 LoRa 节点接入；选择“否”，则仅用户自己能查看该网关。
-![](https://main.qcloudimg.com/raw/a915874bc229f0a47f7de484fd42f9d5.png)
+![](https://main.qcloudimg.com/raw/8fa4b51d45f3de44ba9bdde5262aaa05.png)
 5. 网关新建成功后，您可在网关列表页查看“GW1”。
 
 

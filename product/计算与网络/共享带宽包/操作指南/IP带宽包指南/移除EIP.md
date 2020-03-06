@@ -1,7 +1,5 @@
-您可以移出共享带宽实例中的 EIP。EIP 移出共享带宽实例后，EIP 将恢复为加入共享带宽实例前的带宽峰值和计费方式。
-
 >?
->- 目前共享带宽包处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/act/apply/bwp_apply)。
+>- 目前共享带宽包处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8)。
 >- 带宽包内的 EIP 移除后，计费模式将统一变更为按流量计费。
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。

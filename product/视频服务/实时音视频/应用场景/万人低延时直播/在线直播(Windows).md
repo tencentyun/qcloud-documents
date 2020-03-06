@@ -3,6 +3,7 @@
 - 本文仅提及最基本的几个功能，如果您希望了解更多高级功能，请参见 [高级功能](https://cloud.tencent.com/document/product/647/16826)。
 - 本文仅罗列最常用的几个接口，如果您希望了解更多的接口函数，请参见 [API 文档](https://cloud.tencent.com/document/product/647/32258)。
 
+
 ## 示例代码
 
 | 所属平台 | 示例代码 | 
@@ -71,7 +72,7 @@ TRTCMainViewController::~TRTCMainViewController()
     }
 }
 
-// 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+// 错误通知是需要监听的，错误通知意味着 SDK 无法继续运行
 virtual void TRTCMainViewController::onError(TXLiteAVError errCode, const char* errMsg, void* arg)
 {
     if (errCode == ERR_ROOM_ENTER_FAIL) {
@@ -117,7 +118,7 @@ public partial class TRTCMainForm : Form, ITRTCCloudCallback, ITRTCLogCallback
     	...
     }
     ...
-    // 错误通知是要监听的，错误通知意味着 SDK 不能继续运行了
+    // 错误通知是需要监听的，错误通知意味着 SDK 无法继续运行
     public void onError(TXLiteAVError errCode, string errMsg, IntPtr arg)
     {
          if (errCode == TXLiteAVError.ERR_ROOM_ENTER_FAIL) {
@@ -133,15 +134,15 @@ public partial class TRTCMainForm : Form, ITRTCCloudCallback, ITRTCLogCallback
 
 TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字段：sdkAppId、userId、userSig 和 roomId。
 
-- **sdkAppId**
-进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 sdkAppId。
+- **SDKAppID**
+进入腾讯云实时音视频 [控制台](https://console.cloud.tencent.com/rav)，如果您还没有应用，请创建一个，即可看到 SDKAppID。
 ![](https://main.qcloudimg.com/raw/e42c76fd9d4fd3e3e5d80e8fb2763134.png)
 
 - **userId**
   您可以随意指定，由于是字符串类型，可以直接跟您现有的账号体系保持一致，但请注意，**同一个音视频房间里不应该有两个同名的 userId**。
 
 - **userSig**
-  基于 sdkAppId 和 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
+  基于 SDKAppID 和 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 - **roomId**
   房间号是数字类型，您可以随意指定，但请注意，**同一个应用里的两个音视频房间不能分配同一个 roomId**。
@@ -149,7 +150,9 @@ TRTCParams 是 SDK 最关键的一个参数，它包含如下四个必填的字�
 ### 3. 主播预览摄像头画面
 TRTC SDK 并不会默认打开本地的摄像头采集，`startLocalPreview` 可以开启本地的摄像头并显示预览画面，`stopLocalPreview` 则会关闭。
 
-启动本地预览前，可调用 `setLocalViewFillMode` 指定视频显示模式为 `Fill` 或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：`Fill` 模式优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉； `Fit` 模式则优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
+启动本地预览前，可调用 `setLocalViewFillMode` 指定视频显示模式为 `Fill` 或 `Fit` 模式。两种模式下视频尺寸都是等比缩放，区别在于：
+- `Fill` 模式优先保证视窗被填满。如果缩放后的视频尺寸与显示视窗尺寸不一致，多出的视频将被截掉。
+- `Fit` 模式则优先保证视频内容全部显示。如果缩放后的视频尺寸与显示视窗尺寸不一致，未被填满的视窗区域将使用黑色填充。
 
 C++ 版：
 
@@ -162,7 +165,7 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
     
     if(m_pTRTCSDK)
     {
-        // 调用SDK接口设置渲染模式和渲染窗口。
+        // 调用 SDK 接口设置渲染模式和渲染窗口。
         m_pTRTCSDK->setLocalViewFillMode(TRTCVideoFillMode_Fit);
         m_pTRTCSDK->startLocalPreview(hwnd);
     }
@@ -193,7 +196,7 @@ public void onEnterRoom(int result)
 
 TRTC SDK 并不会默认打开本地的麦克风采集，主播调用 `startLocalAudio` 可以开启本地的声音采集并将音视频数据广播出去，`stopLocalAudio` 则会关闭。您可以在 `startLocalPreview` 之后继续调用 `startLocalAudio`。
 
->`startLocalAudio` 会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
+>?`startLocalAudio` 会检查麦克风使用权限，如果没有麦克风权限，SDK 会向用户申请开启。
 
 ### 5. 主播创建新房间开播
 
@@ -201,8 +204,8 @@ TRTC SDK 并不会默认打开本地的麦克风采集，主播调用 `startLoca
 
 `appScene` 参数指定 SDK 的应用场景，本文档中我们使用 `TRTCAppSceneLIVE`（在线直播）。
 
-- 如创建成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed` 代表进入耗时，单位：ms。
-- 如创建失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
+- 如果创建成功，SDK 会回调 `onEnterRoom` 接口，参数：`elapsed` 代表进入耗时，单位：ms。
+- 如果创建失败，SDK 会回调 `onError` 接口，参数：`errCode`（错误码 `ERR_ROOM_ENTER_FAIL`，错误码可参考 `TXLiteAVCode.h`）、`errMsg`（错误原因）、`extraInfo`（保留参数）。
 
 C++ 版：
 
@@ -211,7 +214,7 @@ C++ 版：
 
 void TRTCMainViewController::startBroadCasting()
 {
-    // TRTCParams 定义参考头文件TRTCCloudDef.h
+    // TRTCParams 定义参考头文件 TRTCCloudDef.h
     TRTCParams params;
     params.sdkAppId = sdkappid;
     params.userId   = userid;
@@ -229,7 +232,7 @@ void TRTCMainViewController::onError(TXLiteAVError errCode, const char* errMsg, 
     if(errCode == ERR_ROOM_ENTER_FAIL)
     {
         LOGE(L"onError errorCode[%d], errorInfo[%s]", errCode, UTF82Wide(errMsg).c_str());
-        // 检查userSig是否合法、网络是否正常等
+        // 检查 userSig 是否合法、网络是否正常等
     }
 }
 
@@ -239,7 +242,7 @@ void TRTCMainViewController::onEnterRoom(uint64_t elapsed)
 {
     LOGI(L"onEnterRoom elapsed[%lld]", elapsed);
     
-	// 启动本地的视频预览，请参考下面 设置视频编码参数 和 预览本地摄像头画面 的内容
+	// 启动本地的视频预览，请参考下文设置视频编码参数和预览本地摄像头画面的内容
 }
 ```
 
@@ -270,7 +273,7 @@ public void onError(TXLiteAVError errCode, string errMsg, IntPtr arg)
     if(errCode == TXLiteAVError.ERR_ROOM_ENTER_FAIL)
     {
         Log.E(String.Format("errCode : {0}, errMsg : {1}, arg = {2}", errCode, errMsg, arg));
-        // 检查userSig是否合法、网络是否正常等
+        // 检查 userSig 是否合法、网络是否正常等
     }
 }
 
@@ -278,7 +281,7 @@ public void onError(TXLiteAVError errCode, string errMsg, IntPtr arg)
 
 public void onEnterRoom(int result)
 {
-    // 启动本地的视频预览，请参考下面 设置视频编码参数 和 预览本地摄像头画面 的内容
+    // 启动本地的视频预览，请参考下文设置视频编码参数和预览本地摄像头画面的内容
 }
 ```
 
@@ -347,7 +350,7 @@ void TRTCMainViewController::onUserVideoAvailable(const char* userId, bool avail
         
         // 设置远端用户视频的渲染模式。
         m_pTRTCSDK->setRemoteViewFillMode(TRTCVideoFillMode_Fill);
-        // 调用SDK接口播放远端用户流。
+        // 调用 SDK 接口播放远端用户流。
         m_pTRTCSDK->startRemoteView(userId， hwnd);
     } else {
         m_pTRTCSDK->stopRemoteView(userId);
@@ -401,7 +404,7 @@ void TRTCMainViewController::exitRoom()
 ....
 void TRTCMainViewController::onExitRoom(int reason)
 {
-	// 退房成功，reason参数保留，暂未使用。
+	// 退房成功，reason 参数保留，暂未使用。
 
 }
 ```

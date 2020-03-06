@@ -389,4 +389,4 @@ public class ThirdPushTokenMgr {
 3. 确认您的项目 [集成 vivo 推送 SDK](#Step3) 的配置正确，并正常获取到了 regId。
 4. 确认您已将正确的 [推送信息上报](#Step4) 至即时通信 IM 服务端。
 5. 在设备中手动 kill App，发送若干条消息，确认是否能在一分钟内接收到通知。
-6. 若通过上述步骤后仍然接收不到推送，可以将您的问题`时间点`、`SDKAppID`、`证书 ID`、`接收推送的 UserID` [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+
