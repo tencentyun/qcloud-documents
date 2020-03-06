@@ -1,5 +1,5 @@
 ### 接口描述
-本接口（GetGameServerSessionId）用来获取游戏服务器会话 ID。		
+本接口（GetGameServerSessionId）用于获取游戏服务器会话 ID。		
 
 ### 参数描述
 无参数。
