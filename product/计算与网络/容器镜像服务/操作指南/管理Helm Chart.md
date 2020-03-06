@@ -11,12 +11,13 @@
 
 ## 操作步骤
 ### 安装并配置 Helm 客户端
-1. 从 Helm 官方项目中下载并安装指定的 [Helm 客户端](https://github.com/helm/helm/releases)。
+1. 从 Helm 官方项目中下载并安装指定的 [Helm 客户端](https://github.com/helm/helm/releases)，本文以在容器服务 TKE 集群节点上安装为例。
 >?
->- 若您当前希望在容器服务 TKE 中使用 Helm，请选择 v2.10.0 版本。可执行 `helm version -c` 命令查看已安装的客户端版本。
->- 本文以在 Linux 平台安装为例，如在其他平台安装请下载对应安装包。 
+>- 若您当前希望在容器服务 TKE 中使用 Helm，请选择 Helm v2.10.0 版本。可执行 `helm version -c` 命令查看已安装的客户端版本。
+>- 本文以 Linux 操作系统的节点为例，如在其他平台安装请下载对应安装包。 
 >
-2. 依次执行以下命令，解压安装包并移动至指定位置。
+2. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录节点。
+3. 在节点上依次执行以下命令，解压安装包并移动至指定位置。
 ```
 tar -zxvf helm-v2.10.0-linux-amd64.tgz
 ```
@@ -45,24 +46,24 @@ helm plugin install https://github.com/chartmuseum/helm-push
 1. 登录 [容器镜像服务控制台](https://console.cloud.tencent.com/tcr)，在“实例列表”页面选择实例名称，进入实例详情页。
 2. <span id="Step2"></span>选择【访问凭证】页签，获取用户名及临时密码，与 Docker Login 使用的凭证一致。如下图所示：
 ![](https://main.qcloudimg.com/raw/cf2d7e34d98baeda628de7f473e4b310.png)
-3. 执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
+3. 在节点上执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
 >!执行命令的机器需确保已在对应实例的公网白名单中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)。
 >
 ```
 helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrepo/$namesapce --username $username --password $instance-token
 ```
- - `$instance-$namespace`：为 helm repo 名称，建议使用实例名称+命名空间名称组合的方式命名，以便于区分各个实例及命名空间。
+ - `$instance-$namespace`：为 helm repo 名称，建议使用**实例名称+命名空间名称**组合的方式命名，以便于区分各个实例及命名空间。
  - `https://$instance.tencentcloudcr.com/chartrepo/$namesapce`：为 helm repo 的远端地址。
     - `$username`：为 [步骤2](#Step2) 中已获取的用户名。
     - `$instance-token`：为 [步骤2](#Step2) 中已获取的临时密码。
-4. 如添加成功将提示以下信息。
+如添加成功将提示以下信息。
 ```
 "$instance-$namespace" has been added to your repositories
 ```
 
 ### 推送 Helm Chart
 已安装的 Helm-push 插件支持使用 `helm push` 指令推送 helm chart 至指定 repo，支持上传目录及压缩包。此步骤以将 tcr-chart-demo 1.0.0 版本上传至已添加的仓库为例。
-1. 执行以下命令，创建一个 Chart。
+1. 在节点上执行以下命令，创建一个 Chart。
 ```
 helm create tcr-chart-demo
 ```
@@ -83,7 +84,7 @@ helm push tcr-chart-demo-1.0.0.tgz $instance-$namespace
 
 
 ### 拉取 Helm Chart
-1. 执行以下命令，获取最新的 Chart 信息。
+1. 在节点上执行以下命令，获取最新的 Chart 信息。
 ```
 helm repo update
 ```
