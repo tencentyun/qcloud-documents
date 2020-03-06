@@ -32,8 +32,8 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 
 1. 下载 WordPress，并将 WordPress 安装包解压至云服务器中。
 例如，将 WordPress 安装包解压至 `C:\wordpress` 目录下。
-2. 右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;">，选择【运行】，输入 **cmd**，按 **Enter**，打开命令行工具。
-3. 在命令行工具中，执行以下命令，创建 WordPress 数据库。
+2. 单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >  <img src="https://main.qcloudimg.com/raw/ca83b4e70e201fe9ff98dc1f2b207cee.png" style="margin: 0;"> > 【MySQL 5.6 Command Line Client】，打开 MySQL 命令行客户端。
+3. 在 MySQL 命令行客户端中，执行以下命令，创建 WordPress 数据库。
 例如，创建 “wordpress” 数据库。
 ```
 create database wordpress;
