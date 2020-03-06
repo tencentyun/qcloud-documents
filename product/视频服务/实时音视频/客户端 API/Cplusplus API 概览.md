@@ -229,7 +229,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a9724da0b3da9b2eca5736fa8e54aa410) | 错误回调，SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
+| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a9724da0b3da9b2eca5736fa8e54aa410) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
 | [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a53169ea41d90506cccbff507ba1932a4) | 警告回调，用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
 
 
@@ -258,7 +258,7 @@
 | [onSendFirstLocalVideoFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a454ea7e7103b2838440cafba3e524433) | 首帧本地视频数据已经被送出。 |
 | [onSendFirstLocalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a0bd950cb774fd40cfdc2fbff885295d2) | 首帧本地音频数据已经被送出。 |
 | [onUserEnter](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#ad606b861a3545832fb4821a7e0230925) | 废弃接口：有主播加入当前房间。 |
-| [onUserExit](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#abbc4fe2ccac90f77c80f55d46d6c8951) | 废弃接口： 有主播离开当前房间。 |
+| [onUserExit](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#abbc4fe2ccac90f77c80f55d46d6c8951) | 废弃接口：有主播离开当前房间。 |
 
 
 ### 统计和质量回调
