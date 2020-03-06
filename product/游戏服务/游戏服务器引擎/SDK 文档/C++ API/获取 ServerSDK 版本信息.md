@@ -1,5 +1,5 @@
 ### 接口描述
-本接口（GetSdkVersion）用来获取 ServerSDK 版本信息。
+本接口（GetSdkVersion）用于获取 ServerSDK 版本信息。
 
 
 ### 参数描述
