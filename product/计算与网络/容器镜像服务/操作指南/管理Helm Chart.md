@@ -1,7 +1,7 @@
 ## 操作场景
 腾讯云容器镜像服务（Tencent Container Registry，TCR）支持托管 Helm Chart，满足用户对云原生应用托管分发的需要。用户可在同个命名空间内同时管理容器镜像及 Helm Chart，实现在业务项目内同时使用容器镜像和 Helm Chart 云原生交付物。
 
-目前仅企业版实例支持托管 Helm Chart，支持使用 Helm 客户端实现 Chart 的上传及下载。Helm Chart 仓库继承其所属的命名空间的公开及私有属性，无需额外配置。在权限管理上，Helm Chart 与容器镜像共用 **repository** 资源类型，即 `qcs::tcr:$region:$account:repository/tcr-xxxxxx/project-a/*` 资源描述将包含命名空间 project-a 内全部镜像仓库及 Helm Chart，用户可在进行资源权限管理时灵活使用。 
+目前仅企业版实例支持托管 Helm Chart，支持使用 Helm 客户端实现 Chart 的上传及下载。Helm Chart 仓库继承其所属的命名空间的公开及私有属性，无需额外配置。在权限管理上，Helm Chart 与容器镜像共用 **repository** 资源类型，即<b> qcs::tcr:$region:$account:repository/tcr-xxxxxx/project-a/*</b> 资源描述将包含命名空间 project-a 内全部镜像仓库及 Helm Chart，用户可在进行资源权限管理时灵活使用。 
 
 
 ## 前提条件
