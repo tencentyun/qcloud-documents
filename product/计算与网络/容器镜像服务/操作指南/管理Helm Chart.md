@@ -43,7 +43,7 @@ helm plugin install https://github.com/chartmuseum/helm-push
 				
 ### 添加 Helm 仓库
 1. 登录 [容器镜像服务控制台](https://console.cloud.tencent.com/tcr)，在“实例列表”页面选择实例名称，进入实例详情页。
-2. <span id="Step2"></span>选择【访问凭证】页签，获取用户名及临时密码，与 Docker Login 使用的凭证一致。。如下图所示：
+2. <span id="Step2"></span>选择【访问凭证】页签，获取用户名及临时密码，与 Docker Login 使用的凭证一致。如下图所示：
 ![](https://main.qcloudimg.com/raw/cf2d7e34d98baeda628de7f473e4b310.png)
 3. 执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
 >!执行命令的机器需确保已在对应实例的公网白名单中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)。
@@ -71,7 +71,7 @@ helm create tcr-chart-demo
 helm push tcr-chart-demo $instance-$namespace
 ```
 其中 `$instance-$namespace` 为已添加的本地仓库名称。
-3. 执行一下敏玲，将已创建的 Chart 压缩。
+3. 执行以下命令，将已创建的 Chart 压缩。
 ```
 tar zcvf tcr-chart-demo-1.0.0.tgz tcr-chart-demo/
 ```
