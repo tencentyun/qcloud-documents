@@ -70,8 +70,8 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 #### 步骤2：配置辅助网卡
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
 2. 在云服务器列表中，单击所配置的云服务器 ID，进入详情页。
-3. 选择【弹性网卡】标签页，单击【绑定网卡】，新建一个与主网卡同一子网的网卡。
-![](https://main.qcloudimg.com/raw/c8449f6bf0b9798464a34a8484dee25f.png)
+3. 选择【弹性网卡】标签页，单击【绑定弹性网卡】，新建一个与主网卡同一子网的网卡。
+![](https://main.qcloudimg.com/raw/db30871822a0e38ca5cb6fbca142960b.png)
 4. 在弹框中，选择【新建弹性网卡并绑定】，填写相关信息，选泽自动分配 IP ，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
