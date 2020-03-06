@@ -216,7 +216,7 @@ TRTCVideoCall.shared.openCamera(frontCamera: true, view: localPreView)
 
 IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标准。
 
-1. 申请 apple 推送证书，具体操作请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
+1. 申请 Apple 推送证书，具体操作请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 2. 在后台及客户端配置离线推送，具体操作请参见 [离线推送（iOS）](https://cloud.tencent.com/document/product/269/9154)。
 3. 修改 login 函数中的 param.busiId 为对应证书 ID。
 
