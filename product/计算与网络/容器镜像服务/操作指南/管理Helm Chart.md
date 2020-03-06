@@ -11,12 +11,11 @@
 
 ## 操作步骤
 ### 安装并配置 Helm 客户端
-1. 从 Helm 官方项目中下载并安装指定的 [Helm 客户端](https://github.com/helm/helm/releases)，本文以在容器服务 TKE 集群节点上安装为例。
+1. 登录节点，并从 Helm 官方项目中下载指定的 [Helm 客户端](https://github.com/helm/helm/releases)。
 >?
 >- 若您当前希望在容器服务 TKE 中使用 Helm，请选择 Helm v2.10.0 版本。可执行 `helm version -c` 命令查看已安装的客户端版本。
->- 本文以 Linux 操作系统的节点为例，如在其他平台安装请下载对应安装包。 
+>- 本文以在容器服务 TKE 集群的 Linux  操作系统的节点上安装为例，如在其他平台安装请下载对应安装包。 
 >
-2. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录节点。
 3. 在节点上依次执行以下命令，解压安装包并移动至指定位置。
 ```
 tar -zxvf helm-v2.10.0-linux-amd64.tgz
