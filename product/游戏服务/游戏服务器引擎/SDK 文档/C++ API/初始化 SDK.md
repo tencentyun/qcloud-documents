@@ -8,7 +8,7 @@
 
 
 ### 返回值说明
-如果成功，返回 [InitSdkOutcome](https://cloud.tencent.com/document/product/1165/42020) 对象。
+如果成功，返回 [InitSdkOutcome](https://cloud.tencent.com/document/product/1165/42020#jtlx) 对象。
 
 
 ### 使用示例
