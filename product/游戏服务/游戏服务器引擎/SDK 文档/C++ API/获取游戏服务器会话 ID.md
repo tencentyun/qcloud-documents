@@ -2,7 +2,7 @@
 本接口（GetGameServerSessionId）用来获取游戏服务器会话 ID。		
 
 ### 参数描述
-无参数
+无参数。
 
 
 
