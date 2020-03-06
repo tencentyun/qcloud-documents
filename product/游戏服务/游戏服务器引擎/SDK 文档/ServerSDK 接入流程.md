@@ -10,7 +10,7 @@
 
 ### API 调用流程
 
-1. 初始化，调用 InitSDK。具体操作请参见 [初始化 SDK](http://www.baidu.com)。  
+1. 初始化，调用 InitSDK。具体操作请参见 [初始化 SDK](https://cloud.tencent.com/document/product/1165/42008)。  
 
 ```
 TencentCloud::Gse::Server::InitSDKOutcome initOutcome =               
@@ -21,7 +21,7 @@ if (!initOutcome.IsSuccess())
 } 
 ```  
 
-2. 进程启动准备就绪，调用 ProcessReady，务必实现3个回调函数。具体操作请参见 [进程准备](http://www.baidu.com)。 
+2. 进程启动准备就绪，调用 ProcessReady，务必实现3个回调函数。具体操作请参见 [进程准备](https://cloud.tencent.com/document/product/1165/42009)。 
  - onStartGameSession  
  - onProcessTerminate  
  - onHealthCheck  
@@ -76,7 +76,7 @@ void GseManager::onProcessTerminate()
 ```
 
 
-3. 客户端连接时，通过 AcceptPlayerSession 检查该连接是否预留位置。具体操作请参见 [接受玩家会话](http://www.baidu.com)。  
+3. 客户端连接时，通过 AcceptPlayerSession 检查该连接是否预留位置。具体操作请参见 [接受玩家会话](https://cloud.tencent.com/document/product/1165/42011)。  
 
 ```
 //当客户端连上来时，调用AcceptPlayerSession检查该连接的合法性
@@ -91,7 +91,7 @@ else
         //拒绝连接
 } 
 ```
-4. 玩家退出游戏服务器会话 RemovePlayerSession。具体操作请参见 [移除玩家会话](http://www.baidu.com)。
+4. 玩家退出游戏服务器会话 RemovePlayerSession。具体操作请参见 [移除玩家会话](https://cloud.tencent.com/document/product/1165/42012)。
 
 ```
 //玩家退出游戏服务器会话调用
@@ -103,10 +103,10 @@ if (outcome.IsSuccess())
        // 后续处理
 }
 ```
-5. 游戏服务器会话结束 TerminateGameSession。具体操作请参见 [结束游戏服务器会话](http://www.baidu.com)。  
+5. 游戏服务器会话结束 TerminateGameSession。具体操作请参见 [结束游戏服务器会话](https://cloud.tencent.com/document/product/1165/42015)。  
 
 ```
-//游戏服务器会话主动结束或者被动结束了，比如没有人了需要缩容的时候，可以结束。
+//游戏服务器会话主动结束或者被动结束了，例如没有人了需要缩容时，可以结束。
 TencentCloud::Gse::GenericOutcome outcome = 
 	TencentCloud::Gse::Server::TerminateGameSession();
 
@@ -115,7 +115,7 @@ if (outcome.IsSuccess())
        // 后续处理
 }
 ```
-6. 进程结束 ProcessEnding。具体操作请参见 [结束进程](http://www.baidu.com)。   
+6. 进程结束 ProcessEnding。具体操作请参见 [结束进程](https://cloud.tencent.com/document/product/1165/42016)。   
 
 ```
 
