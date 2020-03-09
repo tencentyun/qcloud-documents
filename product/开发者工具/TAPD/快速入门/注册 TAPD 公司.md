@@ -9,7 +9,7 @@
 ![](https://main.qcloudimg.com/raw/86f7031bc89a4ed6fc30efc308bcd98e.png)
 4. 授权访问 TAPD 注册页面。
 ![](https://main.qcloudimg.com/raw/96a5ab31fb3f72f9fd577cf424311617.png)
-5. 按照提示完善公司信息和个人信息注册 TAPD 敏捷研发版本。
+5. 按照提示完善公司信息和个人信息注册 TAPD 专业版。
 ![](https://main.qcloudimg.com/raw/adb0353ea7ded2a358a3d3973dd0541a.png)
 6. 进入邮箱查收激活邮件，单击验证完成注册。注册成功后，您将成为该公司的管理员。
 ![](https://main.qcloudimg.com/raw/a507eb13eac9863ca508cafeb523f30f.png)
