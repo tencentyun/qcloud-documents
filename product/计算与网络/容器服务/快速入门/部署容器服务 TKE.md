@@ -31,7 +31,7 @@
  - **安全组**：安全组具有防火墙的功能，用于设置云服务器的网络访问控制。支持以下设置：
     - 新建并绑定默认安全组，可预览默认安全组规则。
     - 根据业务需要，可单击【添加安全组】自定义配置安全组规则。
-    更多详情请参见  [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084) 。
+    更多详情请参见  [容器服务安全组设置](https://cloud.tencent.com/document/product/457/9084)。
  - **登录方式**：提供三种登录方式：
     - **立即关联密钥**：密钥对是通过算法生成的一对参数，是一种比常规密码更安全的登录云服务器的方式。详情请参见 [SSH 密钥](https://cloud.tencent.com/document/product/213/6092)。
     - **自动生成密码**：自动生成的密码将通过 [站内信](https://console.cloud.tencent.com/message) 发送给您。 
