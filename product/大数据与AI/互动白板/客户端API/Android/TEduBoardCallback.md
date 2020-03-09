@@ -303,6 +303,21 @@ void onTEBH5FileStatusChanged(String fileId, int status)
 | status | int | 文件状态  |
 
 
+### onTEBAddImagesFile
+增加批量图片文件回调 
+``` Java
+void onTEBAddImagesFile(String fileId)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | String | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后才会触发该回调 
+
+
 ### onTEBVideoStatusChanged
 视频文件状态回调 
 ``` Java
