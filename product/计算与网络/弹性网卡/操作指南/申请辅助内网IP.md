@@ -66,7 +66,7 @@ ipconfig /all
 <img src="https://main.qcloudimg.com/raw/26fca0d8901235e7be62234c3e684e17.png" />
 6. 单击【高级】，配置辅助内网 IP。
 7. 在“高级 TCP/IP 设置”弹窗中的 “IP 地址”模块下，单击【添加】。
-8. 在 “TCP/IP 地址”弹窗中，填写辅助内网 IP，上述 [步骤1](#step1) 中的子网掩码，单击【确定】，如下图所示。 
+8. 在 “TCP/IP 地址”弹窗中，填写辅助内网 IP，上述 [步骤1](#step1) 中的子网掩码，单击【添加】，如下图所示。 
 ![](https://main.qcloudimg.com/raw/1fdcb2fa24e45057c5874dfbb20652bc.png)
 9. 在 “Internet 协议版本4（TCP/IPv4）属性”弹窗中，单击【确定】。
 10. 在“以太网属性”弹窗中，单击【确定】即可完成配置。
