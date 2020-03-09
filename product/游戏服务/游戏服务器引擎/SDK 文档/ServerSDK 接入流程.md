@@ -21,7 +21,7 @@ if (!initOutcome.IsSuccess())
 } 
 ```  
 
-2. 进程启动准备就绪，调用 ProcessReady，务必实现3个回调函数。具体操作请参见 [进程准备](https://cloud.tencent.com/document/product/1165/42009)。 
+2. 进程启动准备就绪，调用 ProcessReady，务必实现3个回调函数。具体操作请参见 [进程准备就绪](https://cloud.tencent.com/document/product/1165/42009)。 
  - onStartGameSession  
  - onProcessTerminate  
  - onHealthCheck  
