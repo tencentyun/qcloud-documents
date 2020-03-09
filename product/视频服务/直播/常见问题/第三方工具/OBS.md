@@ -19,7 +19,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 URL：rtmp://push.livetest.myqcloud.com/live/
 流名称：StreamName?txSecret=xxxxx&txTime=5C1E5F7F
 ```
-推流地址获取请参见如何 [快速获得推流地址](https://cloud.tencent.com/document/product/267/32833)。
+推流地址获取请参见 [如何快速获得推流地址](https://cloud.tencent.com/document/product/267/32833)。
 
  2. **<span id="step2">进行推流引导设置</span>**
 在底部工具栏的【来源】框处，单击【+】选择输入源，此时如无需进行其他如码率、录像等配置，则直接单击工具栏的【控件】>【开始推流】，即可将视频流推送到设置的推流地址。
