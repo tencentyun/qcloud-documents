@@ -7,7 +7,7 @@
 1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中的【集群】。
 2. 在“集群管理”页面中，单击集群列表上方的【新建】。
 3. 在“创建集群”页面，设置集群的基本信息，并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/553a35ca0e2c852195516c1c12743df7.png)
+![](https://main.qcloudimg.com/raw/683f3c0a47e248214b21db453c369a43.png)
  - **集群名称**：输入要创建的集群名称，不超过60个字符。
  - **新增资源所属项目**：根据实际需求进行选择，新增的资源将会自动分配到该项目下。
  - **Kubernetes版本**：提供多个 Kubernetes 版本选择，前往 [Supported Versions of the Kubernetes Documentation](https://kubernetes.io/docs/home/supported-doc-versions/) 查看各版本特性对比。
@@ -20,13 +20,13 @@
  - **高级设置**：可设置 ipvs。
  ipvs 适用于将在集群中运行大规模服务的场景，开启后不能关闭。详情请参见 [集群启用 IPVS](https://cloud.tencent.com/document/product/457/32193)。
 4. 参考以下信息选择机型，并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/8613fdcb28f1238bb011cfec7e7524ac.png)
+![](https://main.qcloudimg.com/raw/ca7ce4445afb62fc6df35ab38673e5ca.png)
  - **节点来源**：提供【新增节点】和【已有节点】两个选项，请根据实际需求进行选择。
  - **Master 节点** ：Master 的部署方法决定了您集群的管理模式，我们提供【平台托管】和【独立部署】两种集群模式选择。详情请参见 [集群类型](https://cloud.tencent.com/document/product/457/32187#.E9.9B.86.E7.BE.A4.E7.B1.BB.E5.9E.8B)。
  - **计费模式**：提供【按量计费】和【包年包月】两种计费模式。详情请参见 [计费模式](https://cloud.tencent.com/document/product/213/2180)。
  - **Worker 配置**：此处以“**节点来源**”选择为【新增节点】为例，该板块下所有设置项默认如下，您可根据实际需求进行更改。
 5. 参考以下信息进行云服务器配置，并单击 【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/c15437dec692b849715123d8afe5df66.png)
+![](https://main.qcloudimg.com/raw/a025b303078b2b89b7d80f69143f7138.png)
  - **容器目录**：默认不勾选。勾选即可设置容器和镜像存储目录，建议存储到数据盘。
  - **安全组**：安全组具有防火墙的功能，用于设置云服务器的网络访问控制。支持以下设置：
     - 新建并绑定默认安全组，可预览默认安全组规则。
@@ -44,21 +44,21 @@
 至此已成功创建了集群，此步骤介绍如何创建服务。服务是由多个相同配置的容器和访问这些容器的规则组成的微服务。
 1. 在“集群管理”页面，单击需要创建服务的集群 ID。
 2. 在该集群的工作负载 “Deployment” 管理页，单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/616cf8e1a9c920c1e8c1cd7f73811b07.png)
+![](https://main.qcloudimg.com/raw/ded44992dca3d00cb28bc709d404a41f.png)
 3. 在“新建Workload” 页面，设置工作负载基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/589f05a48aae5cd31a4e1687c00b3d85.png)
+![](https://main.qcloudimg.com/raw/5334616b90812d45387ab5656973436a.png)
  - **工作负载名**：输入需创建工作负载的名称。
  - **描述**：输入工作负载的相关信息。
  - **标签**：`key = value` 键值对，本文中标签默认值为 `k8s-app = 工作负载名`。
  - **命名空间**：根据实际需求进行选择。
  - **类型**：根据实际需求进行选择。
 4. （可选）设置数据卷，如需指定容器挂载至指定路径时，单击【添加数据卷】。详情请参见 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。如下图所示：
-![](https://main.qcloudimg.com/raw/4f5ce231d03dfafcec82543617bf0824.png)
+![](https://main.qcloudimg.com/raw/2e1f6d4676833ea4e03777f90910e85a.png)
 >!源路径不指定时将默认分配临时路径。
 > 
  - **类型**：支持使用临时目录、主机路径、NFS盘、已有PVC、腾讯云硬盘、ConfigMap、Secret 七种类型的数据卷。详情请参见 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
 5. 参考以下信息设置实例內容器。如下图所示：
-![](https://main.qcloudimg.com/raw/4ed051c1a0b36e036470bac7ff343a4c.png)
+![](https://main.qcloudimg.com/raw/d667edcdbfa9db500ac218b46fb89b11.png)
  - **名称**：输入需创建容器的名称。
  - **镜像**：单击【选择镜像】，可在我的镜像、我的收藏、公有镜像及 Docker Hub镜像下选择。
  - **镜像版本（Tag）**：容器服务默认选择版本。如需使用该镜像的其它版本，可在单击输入框并在列表中选择。
@@ -66,11 +66,11 @@
  - **GPU限制**：根据实际需求设置。
  - **环境变量**：变量名只能包含大小写字母、数字及下划线，并且不能以数字开头。
 6. 参考以下信息设置实例数量。如下图所示：
-![](https://main.qcloudimg.com/raw/52504a9a6fb130253637e158256c4c5c.png)
+![](https://main.qcloudimg.com/raw/b31d3d7bfddc343e0e476eb76e22b364.png)
  - **手动调节**：设定实例数量，本文实例数量设置为1。可单击`+`或`-`控制实例数量。
  - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [自动伸缩基本操作](https://cloud.tencent.com/document/product/457/37384)。
 7. 参考以下信息进行访问设置。如下图所示：
-![](https://main.qcloudimg.com/raw/a58a92578f9b7faefa40e3769c00bf7f.png)
+![](https://main.qcloudimg.com/raw/e8dadd68e7d1a3b34376a3fa68ee4f99.png)
  - **Service**：勾选【启用】。
  - **服务访问方式**：服务的访问方式决定该服务的网络属性，不同访问方式的服务可提供不同网络能力。详情请参见 [Service 管理](https://cloud.tencent.com/document/product/457/31710#.E7.AE.80.E4.BB.8B.3Cspan-id.3D.22introduction.22.3E.3C.2Fspan.3E)。
  - **负载均衡器**：根据实际需求进行选择。
@@ -93,7 +93,7 @@
 ### 查看服务
 1. 单击左侧导航栏中【集群】，在“集群管理”页面选择集群 ID。
 2. 在 “Deployment” 管理页面，选择【服务】>【Service】。如下图所示：
-![](https://main.qcloudimg.com/raw/03c549a95f58fdad2771f137607bc85a.png)
+![](https://main.qcloudimg.com/raw/94ddcaede56a5a2d22ca76f6c3a2653a.png)
 3. 选择 “Service” 列表页中的服务名称，进入服务详情页。可查看以下信息：
  - **详情**：显示 Service 基本信息及高级设置信息。
  - **事件**：显示 Service 最近1小时内发生的事件信息。
@@ -107,13 +107,13 @@
 1. 选择左侧导航栏中【集群】，进入“集群管理”页面并单击需删除服务的集群 ID。
 2. 在 “Deployment” 管理页面中，选择【服务】>【Service】。
 4. 在 “Service” 管理页面，单击 Service 所在行右侧的【删除】。如下图所示：
-![](https://main.qcloudimg.com/raw/a7fe979bed0ba9607c26c5c65b391318.png)
+![](https://main.qcloudimg.com/raw/4e36c248ea9e496ae39fd26bd5900533.png)
 5. 在弹出框中单击【确定】，即可删除服务。
 
 
 #### 删除集群
 1. 选择左侧导航栏中的【集群】，在“集群管理”页面选择需删除集群所在行右侧【更多】>【删除】。如下图所示：
-![](https://main.qcloudimg.com/raw/0ea89b7765669959c05a2a9eef8aefe9.png)
+![](https://main.qcloudimg.com/raw/ac7d0e9ab98d35c9e07d3c9b9ff9ea7b.png)
 2. 在弹出框中确认信息后，单击【确定】即可删除集群。
 >!
 >- 集群在删除期间，无法对外提供服务，请提前做好准备，以免造成影响。
