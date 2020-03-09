@@ -1,0 +1,58 @@
+基于云开发快速搭建 web 网站和小程序，轻松实现多端同步，帮助开发者轻松开启云上开发之旅。
+## 扩展工作模式
+当你使用这个扩展时：
+1.云函数渲染web页面；
+2.web页面和小程序监听页面内容输入变更并同步；
+
+## 前置要求
+已经开通云开发。
+## 扩展配置信息
+你可以通过以下配置参数：
+
+- 环境ID：选择要部署的环境，在哪个环境下使用
+
+## 计费
+此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
+
+- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb)及[使用明细](https://console.cloud.tencent.com/tcb)）
+- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb)及[使用明细](https://console.cloud.tencent.com/tcb)）
+
+当你使用云开发扩展时，你只需要为你使用的云资源付费；云开发与云上其他资源分开计费，你可以在[费用中心](https://console.cloud.tencent.com/expense/bill/overview)查看具体信息。
+
+## 创建的资源
+-  __Type:__  Cloud Function
+ __Description:__  借用云开发 http service 能力，渲染 web 页面，方便开发者体验云开发能力。
+-  __Type:__  Cloud DB
+ __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
+
+## 怎么安装扩展
+### 使用云开发控制台
+
+你可以通过云开发控制台，来安装和管理扩展。
+
+## 怎么使用扩展
+1.进入扩展安装环境（以下 custom_env 替代）的管理页，打开【用户管理】，进入【登录设置】 tab 页：
+- 打开【匿名登录】开关，允许应用中可以使用匿名登录的方式访问云开发；
+- 在【WEB 安全域名】中添加云函数 HTTP 触发默认域名： `service.tcloudbase.com` ，允许在该域名的页面下调用 web 云开发；
+- 在【移动应用安全来源】中注册 `touristappid`，添加成功后获取凭证信息备用；
+
+2.打开 custom_env 环境下的【云数据】，找到 `tcb_hello_world` 集合进入详情，进入【权限设置】 tab 页，点击【切换到安全规则】，输入：
+```json
+{
+    "read": true,
+    "write": true
+}
+```
+3.web 网站：使用浏览器可访问  `https://${custom_env}.service.cloudbase.com/tcb_hello_world`  ；
+4.微信小程序：访问 [Hello World](https://developers.weixin.qq.com/s/4Lj90qmS76fS) 获取代码片段，一键导入代码到微信开发者IDE中（不要配置 `AppID`）；在项目  `app.js`  中更新如下配置：
+```javascript
+const cloud = tcb.init({
+    env: "custom_env", // 当前环境的ID
+    appSign: "touristappid",
+    appSecret: {
+    	appAccessKeyId: "移动应用安全来源 版本", // 步骤1.3中获取的版本
+    	appAccessKey: "移动应用安全来源 凭证" // 步骤1.3中获取的凭证
+    }
+});
+```
+5.在 web 或小程序中拖动数字，即可在另一端看到相同的变化。
