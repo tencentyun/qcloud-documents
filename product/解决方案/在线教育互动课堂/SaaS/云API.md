@@ -315,7 +315,7 @@
 | screen_fps|int |设置屏幕分享的帧率 |否 |默认15 |
 | screen_bitrate| int|设置屏幕分享码率(400,900,1500) |否 | 默认1200 |
  
->!screen_resolution、screen_fps、screen_bitrate 这三个参数必须要按组填写，如320x240/15/400。
+>!screen_resolution、screen_fps、screen_bitrate 这三个参数必须要按组填写，其中，只有320x240/15/400、800x600/15/900、1280x720/15/1500组合才能在控制台展示出来。
 
 
 #### 响应参数
