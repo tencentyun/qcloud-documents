@@ -1,23 +1,22 @@
 基于云开发快速搭建 web 网站和小程序，轻松实现多端同步，帮助开发者轻松开启云上开发之旅。
 ## 扩展工作模式
-当你使用这个扩展时：
-1.云函数渲染web页面；
-2.web页面和小程序监听页面内容输入变更并同步；
+当您使用这个扩展时：
+1. 云函数渲染web页面；
+2. web页面和小程序监听页面内容输入变更并同步；
 
 ## 前置要求
 已经开通云开发。
 ## 扩展配置信息
-你可以通过以下配置参数：
-
-- 环境ID：选择要部署的环境，在哪个环境下使用
+您可以通过以下配置参数：
+- 环境ID：选择要部署的环境，在哪个环境下使用。
 
 ## 计费
 此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
 
-- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb)及[使用明细](https://console.cloud.tencent.com/tcb)）
-- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb)及[使用明细](https://console.cloud.tencent.com/tcb)）
+- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
 
-当你使用云开发扩展时，你只需要为你使用的云资源付费；云开发与云上其他资源分开计费，你可以在[费用中心](https://console.cloud.tencent.com/expense/bill/overview)查看具体信息。
+当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
 
 ## 创建的资源
 -  __Type:__  Cloud Function
@@ -38,7 +37,7 @@
 ## 怎么安装扩展
 ### 使用云开发控制台
 
-你可以通过云开发控制台，来安装和管理扩展。
+您可以通过云开发控制台，来安装和管理扩展。
 
 ## 怎么使用扩展
 1.进入扩展安装环境（以下 custom_env 替代）的管理页，打开【用户管理】，进入【登录设置】 tab 页：
