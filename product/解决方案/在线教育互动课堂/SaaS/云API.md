@@ -310,7 +310,13 @@
 | role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
 | user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
 | max_member_limit | int |最大上麦人数| 否 | - |
-|max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
+| max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
+| screen_resolution |string | 设置屏幕分享的分辨率（320x240/800x600/1280x720）| 否|默认1280x720 |
+| screen_fps|int |设置屏幕分享的帧率 |否 |默认15 |
+| screen_bitrate| int|设置屏幕分享码率(400,900,1500) |否 | 默认1200 |
+ 
+>!screen_resolution、screen_fps、screen_bitrate 这三个参数必须要按组填写，如320x240/15/400。
+
 
 #### 响应参数
 
