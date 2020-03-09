@@ -336,6 +336,23 @@ handler：查询结果的返回方法。
 [[XGPush defaultManager] uploadLogCompletionHandler:nil];
 ```
 
+## 免费集群反注册
+
+#### 接口说明
+背景：App 如果从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。因此需要调用此接口，SDK 会把设备信息在免费集群进行反注册。  
+引入头文件：XGForFreeVersion.h，在startXGWithAppID 之前调用
+```
+@property uint32_t freeAccessId;
+```
+#### 参数说明
+-  @freeAccessId 免费集群的 accessId（SDK1.2.5.3+）。
+
+#### 示例代码
+```
+[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
+```
+
+
 
 ## 本地推送
 本地推送相关功能请参考 [苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1)。
