@@ -26,7 +26,7 @@
  - **计费模式**：提供【按量计费】和【包年包月】两种计费模式。详情请参见 [计费模式](https://cloud.tencent.com/document/product/213/2180)。
  - **Worker 配置**：此处以“**节点来源**”选择为【新增节点】为例，该板块下所有设置项默认如下，您可根据实际需求进行更改。
 5. 参考以下信息进行云服务器配置，并单击 【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/66cd672035165c4b97a8740af990d42a.png)
+![](https://main.qcloudimg.com/raw/06694d868d4277c5e6e2ae898c45527c.png)
  - **容器目录**：默认不勾选。勾选即可设置容器和镜像存储目录，建议存储到数据盘。
  - **安全组**：安全组具有防火墙的功能，用于设置云服务器的网络访问控制。支持以下设置：
     - 新建并绑定默认安全组，可预览默认安全组规则。
@@ -46,7 +46,7 @@
 2. 在该集群的工作负载 “Deployment” 管理页，单击【新建】。如下图所示：
 ![](https://main.qcloudimg.com/raw/ded44992dca3d00cb28bc709d404a41f.png)
 3. 在“新建Workload” 页面，设置工作负载基本信息。如下图所示：
-![](https://main.qcloudimg.com/raw/a1fb720feb22f46604fd212a1ffdcbcf.png)
+![](https://main.qcloudimg.com/raw/ddd687631623f6f48c478b3f0b7a14d1.png)
  - **工作负载名**：输入需创建工作负载的名称。
  - **描述**：输入工作负载的相关信息。
  - **标签**：`key = value` 键值对，本文中标签默认值为 `k8s-app = 工作负载名`。
@@ -66,11 +66,11 @@
  - **GPU限制**：根据实际需求设置。
  - **环境变量**：变量名只能包含大小写字母、数字及下划线，并且不能以数字开头。
 6. 参考以下信息设置实例数量。如下图所示：
-![](https://main.qcloudimg.com/raw/b31d3d7bfddc343e0e476eb76e22b364.png)
+![](https://main.qcloudimg.com/raw/2baa747066705996593844b673299587.png)
  - **手动调节**：设定实例数量，本文实例数量设置为1。可单击`+`或`-`控制实例数量。
  - **自动调节**：满足任一设定条件，则自动调节实例（pod）数目。详情请参见 [自动伸缩基本操作](https://cloud.tencent.com/document/product/457/37384)。
 7. 参考以下信息进行访问设置。如下图所示：
-![](https://main.qcloudimg.com/raw/e8dadd68e7d1a3b34376a3fa68ee4f99.png)
+![](https://main.qcloudimg.com/raw/5e85be690f723ec75980c3da25eacc01.png)
  - **Service**：勾选【启用】。
  - **服务访问方式**：服务的访问方式决定该服务的网络属性，不同访问方式的服务可提供不同网络能力。详情请参见 [Service 管理](https://cloud.tencent.com/document/product/457/31710#.E7.AE.80.E4.BB.8B.3Cspan-id.3D.22introduction.22.3E.3C.2Fspan.3E)。
  - **负载均衡器**：根据实际需求进行选择。
