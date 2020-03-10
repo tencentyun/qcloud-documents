@@ -989,7 +989,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 文件 ID
 
 #### 介绍
-移动端支持 mp4/m3u8/hls，触发状态改变回调 onTEBVideoStatusChanged 
+支持 mp4/m3u8/hls，触发状态改变回调 onTEBVideoStatusChanged 
 
 
 ### showVideoControl:
@@ -1121,7 +1121,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | NSArray< NSString * > * | 要使用的背景图片URL列表，编码格式为 UTF8  |
+| urls | NSArray< NSString * > * | 要使用的背景图片 URL 列表，编码格式为 UTF8  |
 
 #### 返回
 新增加文件Id 
