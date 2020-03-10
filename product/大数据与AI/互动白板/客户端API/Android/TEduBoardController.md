@@ -68,6 +68,18 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
 
 
+### uninit
+反初始化白板，释放内部资源. 
+``` Java
+void uninit()
+```
+#### 警告
+用户退出课堂时，记得调用此接口。 
+
+#### 介绍
+在销毁白板对象后，将会结束计费。 
+
+
 ### getBoardRenderView
 获取白板渲染 View 
 ``` Java
@@ -88,9 +100,6 @@ View getBoardRenderView()
 ``` Java
 void refresh()
 ```
-#### 返回
-毫秒级时间戳 
-
 
 ### addSyncData
 添加白板同步数据 
@@ -526,6 +535,30 @@ void undo()
 void redo()
 ```
 
+### setHandwritingEnable
+设置白板是否开启笔锋 
+``` Java
+void setHandwritingEnable(boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | boolean | 【必填】是否开启，true 表示开启，false 表示关闭 |
+
+#### 介绍
+白板创建后默认为关闭 
+
+
+### isHandwritingEnable
+获取白板是否开启笔锋 
+``` Java
+boolean isHandwritingEnable()
+```
+#### 返回
+是否开启笔锋 
+
+
 
 ## 白板页操作接口
 
@@ -749,6 +782,21 @@ int getBoardContentFitMode()
 
 ## 文件操作接口
 
+### addImagesFile
+批量导入图片 
+``` Java
+String addImagesFile(List< String > urls)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| urls | List< String > | 要使用的图片URL列表，编码格式为 UTF8  |
+
+#### 返回
+新增加文件Id 
+
+
 ### applyFileTranscode
 发起文件转码请求 
 ``` Java
@@ -805,7 +853,9 @@ String addTranscodeFile(final TEduBoardTranscodeFileResult result)
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+TEduBoardTranscodeFileResult 的字段信息主要来自：
+1. 使用客户端 ApplyFileTranscode 转码，直接将转码结果用于调用此接口
+2. （推荐）使用服务端 REST API 转码，只需传入转码回调结果的四个字段（title，resolution，url，pages），其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
 
 
 ### addImageElement
@@ -1041,13 +1091,13 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 ### startSyncVideoStatus
 内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
 ``` Java
-void startSyncVideoStatus(String interval)
+void startSyncVideoStatus(int interval)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| interval | String | 【选填】同步间隔，例如设置5秒  |
+| interval | int | 【选填】同步间隔，例如设置5秒  |
 
 #### 警告
 只对当前文件有效

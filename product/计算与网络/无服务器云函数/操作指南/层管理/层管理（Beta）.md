@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 创建层
+### 创建层<span id="create"></span>
 1. 登录 SCF 控制台，选择左侧导航栏中的【[层](https://console.cloud.tencent.com/scf/layer)】，进入“层”列表页面。
 2. 在页面上方选择需使用层的地域，并单击【新建】。
 3. 在“新建层版本”页面，根据实际需求设置层信息。如下图所示：
@@ -24,7 +24,7 @@
  - **兼容运行环境**：该层的兼容运行环境，最多可设置5个。
 4. 单击【确定】即可成功创建。
 
-### 云函数绑定层
+### 云函数绑定层<span id="bind"></span>
 1. 登录 SCF 控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，进入“函数服务”列表页面。
 2. 选择需进行层管理的函数 ID，进入函数配置页面。
 3. 选择【层管理】页签，并单击【绑定层】。如下图所示：
@@ -35,5 +35,39 @@
 
 
 
+### 使用层
+本步骤以 Node.js 为例，创建层并绑定本地上传的函数后使用层。
+
+1. 参考 [创建层](#create) 步骤将 `node_modules` 上传生成层。本地函数目录结构如下图所示：
+![](https://main.qcloudimg.com/raw/88a8477d8668610dd150887b326628a4.png)
+2. 参考 [部署函数](https://cloud.tencent.com/document/product/583/9702) 将本地函数代码打包上传，打包时执行以下命令排除 `node_modules` 文件夹。
+```
+zip -r 包名.zip . -x "node_modules/*"
+```
+如下图所示：
+![](https://main.qcloudimg.com/raw/31c531fbc98d0a5cc5c542b7e3721c9d.png)
+3. 参考 [绑定云函数](#bind) 步骤，将已创建的层绑定至部署好的函数。 
+4. 完成上述步骤后，即可开始在函数中使用层。
+由于 NODE_PATH 环境变量包含 `/opt/node_modules` 路径，函数运行时可以查找到层中的依赖，您使用依赖的方式和原来一样，无需修改代码，本文以使用 `cos-nodejs-sdk-v5` 依赖为例。如下图所示：
+![](https://main.qcloudimg.com/raw/6167eb686aeeadacd646beb998e19136.png)
+Python、Java、Node.js 环境变量见下表：
+<table>
+	<tr>
+	<th>相关环境变量</th>
+	<th>路径</th>
+	</tr>
+	<tr>
+	<td>PYTHONPATH</td>
+	<td><code>/var/user:/opt </code></td>
+	</tr>
+	<tr>
+	<td>CLASSPATH</td>
+	<td><code> /var/runtime/java8:/var/runtime/java8/lib/*:/opt   </code></td>
+	</tr>
+	<tr>
+	<td>NODE_PATH</td>
+	<td><code>/var/user:/var/user/node_modules:/var/lang/node6/lib/node_modules:/opt:/opt/node_modules</code></td>
+	</tr>
+</table>
 
 

@@ -261,7 +261,8 @@ DHCPV6C=yes
 4. 按 “Esc”，输入 “:wq”，保存文件并返回。
 5. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/25ccd3b27744ad0f056de14a39465724.png)
@@ -344,7 +345,8 @@ sysctl -a | grep ipv6 | grep disable
 ![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
 17. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
@@ -427,7 +429,8 @@ systemctl restart network
 ```
 15. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
@@ -475,7 +478,8 @@ sysctl -p
 ```
 7. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)

@@ -2,7 +2,8 @@
 腾讯云 Django Serverless Component，支持 Restful API 服务的部署。
 
 ## 前提条件
-**1. 新建一个 Django 服务**（参考 [Django 官方文档](https://docs.djangoproject.com/zh-hans/3.0/)），并创建一个 app（mytest）：view.py
+**1. 新建一个 Django 服务，并通过 Django 创建一个 app**（本实践中创建了名为 mytest 的 app）。创建方法请参考 [Django 官方文档](https://docs.djangoproject.com/zh-hans/3.0/)。
+创建后可以查看 view.py 内的信息：
 ```python
 from django.shortcuts import render
 from django.http import HttpResponse

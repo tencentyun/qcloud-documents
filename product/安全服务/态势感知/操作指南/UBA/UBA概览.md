@@ -1,10 +1,10 @@
 ## 前提条件
- - UBA 功能目前正在试用中，[开通高级版](https://cloud.tencent.com/document/product/664/41641) 的用户可获得试用资格。
- - 在使用 UBA 功能前，需进行 [UAB 初始化配置]()。
+ - UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
+ - 在使用 UBA 功能前，需已完成 [UAB 初始化配置](https://cloud.tencent.com/document/product/664/41790)。
 
 ## 操作步骤
 1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/account)，在左侧导航栏，单击【UBA】，在 UBA 页面中，单击【概览】，进入 UBA 概览页。
-3. 在 UBA 概览页，您可以查看用户总数、异常操作用户数、异常登录用户数、用户近七天操作趋势、用户近七天登录趋势、用户操作路径、用户登录来源、用户操作云产品类型 Top5、用户操作行为类型 Top5。
+3. 在 UBA 概览页，您可以查看用户总览、用户近七天操作趋势、用户近七天登录趋势、用户操作路径、用户登录来源、用户操作云产品类型 Top5、用户操作行为类型 Top5。
 	- **用户总览**
 	用户总览展示了用户总数（即账号主体下面的主账号、子账号及协作者）、异常操作用户数及异常登录用户数。
 	![](https://main.qcloudimg.com/raw/c3cdf7c30e5cd9da206a72bdb47862d4.png)
@@ -16,7 +16,6 @@
 ![](https://main.qcloudimg.com/raw/eb5651bc32e2dde824e29780b74d341c.png)
 	- **用户操作路径**
 		- 用户操作路径按用户、区域、所属网络及云产品方式，展示近200条记录，将鼠标悬浮于任意路径，将出现相关信息。
-![](https://main.qcloudimg.com/raw/a7178c010cb719e87bc4c1d1af93b51f.png)
 		- 在用户操作路径模块右上角，单击【管理】，在用户管理弹窗中，选择用户进行配置，已选择用户的操作路径，将会在用户操作路径上体现。
 ![](https://main.qcloudimg.com/raw/94e0539c6d64e4d506fb71d304ae64d4.png)
 	- **用户登录来源**

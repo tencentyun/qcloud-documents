@@ -15,12 +15,12 @@
 2. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，在左侧导航栏中，单击【函数服务】，进入函数服务列表页。
 3. 单击需要实时采集日志的函数名，进入**函数配置**页面，单击右上角的【编辑】，编辑函数信息。
 4. 在**函数配置**中，为该函数服务配置步骤1创建好的日志集和日志主题，并单击【保存】。
- ![](https://main.qcloudimg.com/raw/567e0889f2777caa4f1b15a82be6ef6b.jpg)
+   ![](https://main.qcloudimg.com/raw/567e0889f2777caa4f1b15a82be6ef6b.jpg)
 5. 至此您已成功接入日志服务平台。如需进行日志检索，需要手动开启索引。
    请您登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，单击【日志集管理】，并依次进入目标日志集、日志主题，在日志主题选项卡中，在日志主题右侧的操作栏中，选择【管理配置】>【索引配置】，进入索引配置页面。
    ![](https://main.qcloudimg.com/raw/9e0c82b2e14b0dafc7aceb2deb21af5b.png)
 6. 单击右上角的【编辑】，打开索引状态，开启全文索引，单击【保存】。
-![](https://main.qcloudimg.com/raw/8e7c084d37b9c9e46750a949d66f231b.png)
+   ![](https://main.qcloudimg.com/raw/8e7c084d37b9c9e46750a949d66f231b.png)
    > ?如需进行更多操作如日志实时检索，日志投递消费等，请登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。更多功能请参见 [日志服务](https://cloud.tencent.com/document/product/614) 文档。
 
 ## 实时检索示例
@@ -30,21 +30,21 @@
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏单击【日志检索】，进入到日志检索页。
 2. 选择检索的时间范围和日志主题，在输入框填写检索语法（语法支持关键词检索、模糊检索、范围检索等方式，详情请参见 [语法规则](https://cloud.tencent.com/document/product/614/16982)）。
 3. 单击【搜索】，即可检索日志。
-示例1：
-![](https://main.qcloudimg.com/raw/f687223e9a19f89c2de1878ebb009ce9.png)
-示例2:
-![](https://main.qcloudimg.com/raw/2243f7f8e3844ce638bbec7e71d72b59.png)
+   示例1：
+   ![](https://main.qcloudimg.com/raw/f687223e9a19f89c2de1878ebb009ce9.png)
+   示例2:
+   ![](https://main.qcloudimg.com/raw/2243f7f8e3844ce638bbec7e71d72b59.png)
 
 ## SCF 日志字段说明
 
-| 字段             | 含义     | 类型   |
-| ---------------- | -------- | ------ |
-| SCF_RequestId    | 请求 ID  | string |
-| SCF_Namespace    | 命名空间 | string |
-| SCF_FunctionName | 函数名   | string |
-| SCF_Qualifier    | 版本     | string |
-| SCF_StartTime    | 起始时间 | long   |
-| SCF_Message      | 日志内容 | string |
-| SCF_Level        | 日志级别 | string |
-| SCF_Index        | 日志行号 | long   |
-| SCF_Alias        | 函数别名 | string |
+| 字段             | 含义     | 类型 |
+| ---------------- | -------- | ---- |
+| SCF_RequestId    | 请求 ID  | text |
+| SCF_Namespace    | 命名空间 | text |
+| SCF_FunctionName | 函数名   | text |
+| SCF_Qualifier    | 版本     | text |
+| SCF_StartTime    | 起始时间 | long |
+| SCF_Message      | 日志内容 | text |
+| SCF_Level        | 日志级别 | text |
+| SCF_Index        | 日志行号 | long |
+| SCF_Alias        | 函数别名 | text |

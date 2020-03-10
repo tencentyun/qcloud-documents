@@ -23,7 +23,7 @@ pod init
 
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式：
--  方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
+- 方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
 ```
   platform :ios, '8.0'
   
@@ -32,7 +32,7 @@ pod init
   end
 ```
 
--  方式二：使用 CocoaPod 官方源，支持选择版本号。
+- 方式二：使用 CocoaPod 官方源，支持选择版本号。
 ```
    platform :ios, '8.0'
    source 'https://github.com/CocoaPods/Specs.git'
@@ -58,11 +58,11 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 手动集成
 1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
-![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
+ ![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
-![](https://main.qcloudimg.com/raw/2e3b382fccadb0fe9e1038fffa1ef12f.jpg)
+ ![](https://main.qcloudimg.com/raw/2e3b382fccadb0fe9e1038fffa1ef12f.jpg)
 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++** 。
-![](https://main.qcloudimg.com/raw/0327c1ab6562e0f6e7f17b2e0fbe96dd.jpg)
+ ![](https://main.qcloudimg.com/raw/0327c1ab6562e0f6e7f17b2e0fbe96dd.jpg)
 
 
 ## 授权摄像头和麦克风使用权限

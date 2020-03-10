@@ -1,4 +1,4 @@
-本文档描述互动课堂后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况，在使用云API进行上课时请先进行账号注册。
+本文档描述互动课堂后端接口，客户通过使用下述接口为组件提供必要信息，并获取组件的运行状况，在使用云 API 进行上课时请先进行账号注册。
 
 ## 账号模块
 ###  创建账号
@@ -293,7 +293,7 @@
 | class_topic | string | 课堂主题/课堂名字 | 否 | 课堂 ID 的字符串形式 |
 | start_time | int64 | 课堂预计开始时间戳 | 否 | 约课时的时间 | 
 | stop_time | int64 | 课堂预计结束时间戳 | 否 | start_time + 2小时 |
-| password | string  | 进房密码 | 否 | |
+| password | string  | 进房密码 | 否 | -|
 | admin_id | string | 即时通信 IM 管理员 ID，互动课堂用它来创建 IM 群组 | 否 | - |
 | admin_sig | string | 即时通信 IM 管理员 Sig，互动课堂用它来创建 IM 群组 | 否 | - |
 | settings | settings | 课堂配置信息 | 否 |- |
@@ -310,7 +310,45 @@
 | role | string | 角色信息，本接口中全部填“student”。需要设置 members 时此字段必填 | 否 | - |
 | user_id | string | 学生 ID。需要设置 members 时此字段必填 | 否 | - |
 | max_member_limit | int |最大上麦人数| 否 | - |
-|max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
+| max_member_num|int|课堂允许进入的最大人数，0表示无限制|否|false|
+| screen_resolution |string | 设置屏幕分享的分辨率（320x240/800x600/1280x720）| 否|默认1280x720 |
+| screen_fps|int |设置屏幕分享的帧率 |否 |默认15 |
+| screen_bitrate| int|设置屏幕分享码率(400,900,1500) |否 | 默认1200 |
+ 
+>?screen_resolution、screen_fps、screen_bitrate 这三个参数必须要按组填写，仅如下组合才能在控制台展示出来。
+```
+  '720p': {
+    resolution: '1280x720',
+    fps: 5,
+    bitrate: 800
+  },
+  '720p_2': {
+    resolution: '1280x720',
+    fps: 10,
+    bitrate: 1200
+  },
+  '720p_3': {
+    resolution: '1280x720',
+    fps: 15,
+    bitrate: 1200
+  },
+  '1080p': {
+    resolution: '1920x1080',
+    fps: 5,
+    bitrate: 1600
+  },
+  '1080p_2': {
+    resolution: '1920x1080',
+    fps: 10,
+    bitrate: 1600
+  },
+  '1080p_3': {
+    resolution: '1920x1080',
+    fps: 15,
+    bitrate: 1600
+  }
+```
+
 
 #### 响应参数
 
@@ -987,7 +1025,7 @@ class_over
 
 #### 3. 在线录制开始
 
-如果在约课时，录制类型设置了云端录制`remote`, 则在`老师开始上课`时，会自动发起云端录制，并回调`在线录制开始`事件。
+如果在约课时，录制类型设置了云端录制`remote`，则在`老师开始上课`时，会自动发起云端录制，并回调`在线录制开始`事件。
 **event**
 ```
 online_record_start
@@ -1120,7 +1158,7 @@ join_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | join_time | int64 | 进入课堂的时间 | 是 | - |
 | user_id | string | 进入课堂的用户 | 是 | - |
 | role | int64 | 进入课堂用户的角色 | 是 | - |
@@ -1148,7 +1186,7 @@ quit_class
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | quit_time | int64 | 退出课堂的时间 | 是 | - |
 | user_id | string | 退出课堂的用户 | 是 | - |
 | role | int64 |退出入课堂用户的角色 | 是 | - |
@@ -1176,7 +1214,7 @@ local_record_callback
 
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
-| class_id | int | 课堂ID | 是 | - |
+| class_id | int | 课堂 ID | 是 | - |
 | class_topic | string | 课堂主题/课堂名字 | 否 | 课堂 ID 的字符串形式 |
 | teacher_id | string | 教师 ID | 是 | - |
 | assistant_id | string | 助教 ID | 是 | - |
@@ -1184,9 +1222,9 @@ local_record_callback
 | stop_time | int | 视频结束时间 | 是 | - |
 | class_start_time | int | 课堂开始时间 | 是 | - |
 | class_stop_time | int | 课堂结束时间 | 是 | - |
-| user_id | int | 录制者id | 是 | - |
-| record_type | string | 录制类型（online_record:在线录制，local_record:本地录制） | 是 | - |
-| file_id | int | 视频文件id | 是 | - |
+| user_id | int | 录制者 id | 是 | - |
+| record_type | string | 录制类型（online_record：在线录制，local_record：本地录制） | 是 | - |
+| file_id | int | 视频文件 id | 是 | - |
 | file_format | int | 视频文件格式 | 是 | - |
 | file_size | int | 视频文件大小 | 是 | - |
 | file_url | int | 视频文件地址 | 是 | - |
@@ -1456,7 +1494,7 @@ local_record_callback
 |history_silence|int|用户在该课堂上一次禁言状态（0：未禁言，1：禁言，-1：未知）|是|-1
 |history_hand_up|int|用户在该课堂上一次举手状态（0：未举手，1：举手，-1：未知）|是（已废弃）|-1
 |history_enable_draw|int|用户在该课堂上一次授权状态（0：未授权，1：授权，-1：未知）|是（已废弃）|-1
-|member_permission_list|int|摄像头麦克风权限列表|是|
+|member_permission_list|int|摄像头麦克风权限列表|是|-
 
 
 #### 举例
@@ -1772,8 +1810,8 @@ local_record_callback
 | 参数名 | 类型 | 描述 | 是否必填 | 默认值 |
 | :------ | :--- | :---- | :--------: | :-----: |
 | class_id | int | 课堂 ID | 是 | 0
-| user_id | string | 录制用户id | 否 | 0
-| task_id | string | 录制任务id，本地录制拼接成功返回给客户端的id | 否 | 0
+| user_id | string | 录制用户 ID | 否 | 0
+| task_id | string | 录制任务 ID，本地录制拼接成功返回给客户端的 ID | 否 | 0
 | Index | int | 分页拉取时，页面起始数据位置 | 是 | 0
 | size | int | 分页拉取时，页面数据个数 | 是 | 0
 
@@ -1852,9 +1890,9 @@ https://iclass.api.qcloud.com/paas/v1/class/create?sdkappid=1400127140&random=37
 **举例：**
 1. 当前时间戳是`1548247717`。
 2. 签名有效时间是120秒，则过期时间戳是`1548247717+120=1548247837`。
-3. `tic_key` 是 `DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU`。
-4. 将过期时间拼在tic_key后面DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU1548247837
-5. `sign=md5(DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU1548247837)=28374bd8cff400ac4906414780fbe387`。
+3. `tic_key`是`DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU`。
+4. 将过期时间拼在`tic_key`后面`DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU1548247837`。
+5.`sign=md5(DzXpbluRsmo1JkoFxzKMNg5ifrA4GRlU1548247837)=28374bd8cff400ac4906414780fbe387`。
 6. 在请求体中，带上 expire_time 字段，值为`1548247837`。
 7. 在请求 url 的参数中，带上`sign=28374bd8cff400ac4906414780fbe387`。
 

@@ -18,7 +18,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32173">DOC</a></td>
-      <td style="text-align:center">1.90M（arm64）</td>
+      <td style="text-align:center">2.9M（arm64）</td>
    </tr>
      <tr>
       <td style="text-align:center">Android</td>
