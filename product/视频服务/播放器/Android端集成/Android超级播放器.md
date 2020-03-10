@@ -1,30 +1,27 @@
 ## 简介
 
-Android 播放器 SDK 是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能。包括横竖屏切换、清晰度选择、手势和小窗等基础功能，还支持视频缓存，软硬解切换，倍速播放等特殊功能。相比系统播放器，支持 FLV、MP4 及 HLS 多种播放格式，兼容性更好，功能更强大。同时还支持直播流（FLV + RTMP）播放，具备首屏秒开、低延迟的优点，清晰度无缝切换、直播时移等高级能力。
+Android 播放器 SDK 是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能。包括横竖屏切换、清晰度选择、手势和小窗等基础功能，还支持视频缓存，软硬解切换，倍速播放等特殊功能。相比系统播放器，支持 FLV、MP4 及 HLS 多种播放格式，兼容性更好，功能更强大。同时还支持直播流（FLV + RTMP）播放，具备首屏秒开、低延迟的优点，以及清晰度无缝切换、直播时移等高级能力。
 
-Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，可以放心使用。
+Android 播放器 SDK 完全免费开源，不对播放地址来源做限制，请放心使用。
 
 ## 阅读对象
 
-本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
+本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可 [注册账号](https://cloud.tencent.com/document/product/378/17985) 免费试用。
 
 ## 快速集成
 
 ### aar 集成
 
-1. 下载 SDK + Demo 开发包，下载地址为 （[Android](https://cloud.tencent.com/document/product/881/20205)）。
-2. 导入 `SDK/LiteAVSDK_XXX.aar` 以及  `Demo/player/libs/libsuperplayer.aar`到工程中去。
-3. 在 `app/build.gradle` 中添加依赖：
-
+1. 下载 SDK + Demo 开发包，下载地址请参见：[SDK 下载 - Android](https://cloud.tencent.com/document/product/881/20205)。
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/player/libs/libsuperplayer.aar`到工程中。
+3. 在`app/build.gradle`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')
 compile(name: 'libsuperplayer', ext: 'aar')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
-
 4. 在项目`build.gradle`中添加：
-
 ```
 ...
 allprojects {
@@ -37,30 +34,20 @@ allprojects {
 }
 ...
 ```
-
 5. 权限声明
-
 ```java
 <!--网络权限-->
-
 <uses-permission android:name="android.permission.INTERNET" />
-
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-
 <!--点播播放器悬浮窗权限-->
-
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-
 <!--存储-->
-
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
 
->!`lib_tcsuperplayer.aar` 以 module 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
+>!`lib_tcsuperplayer.aar`以 module 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
 
 
 
@@ -84,8 +71,7 @@ mSuperPlayerView.playWithModel(model);
 ## 多清晰度
 
 上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放的直播流，进入详情。
-
-![](https://main.qcloudimg.com/raw/e3ee4765b25a9ada89dea341b9cb5cfd.png)
+![](https://main.qcloudimg.com/raw/dbb76ea89261f17ec7aeab7282e87b9d.png)
 
 这里有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
@@ -102,7 +88,7 @@ mSuperPlayerView.playWithModel(model);
 
 在播放器中即可看到这几个清晰度，单击即可立即切换。
 
-![直播清晰度](https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg)
+<img src="https://main.qcloudimg.com/raw/8cb10273fe2b6df81b36ddb79d0f4890.jpeg" width="670"/>
 
 ## 时移播放
 
@@ -112,11 +98,11 @@ mSuperPlayerView.playWithModel(model);
 playerModel.appId = 1252463788;
 ```
 
->? appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查到。
+>? appId 在【腾讯云控制台】>【[账号信息](https://console.cloud.tencent.com/developer)】中查看。
 
 播放的直播流就能在下面看到进度条。往后拖动即可回到指定位置，单击【返回直播】可观看最新直播流。
 
-![](https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg)
+<img src="https://main.qcloudimg.com/raw/a3a4a18819aed49b919384b782a13957.jpeg" width="670"/>
 
 >! 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
 
@@ -131,19 +117,17 @@ playerModel.appId = 1252463788;
 
 如果文件已存在腾讯云，则可以进入 [媒资管理](https://console.cloud.tencent.com/vod/media)，找到对应的文件。点开后在右侧视频详情中，可以看到 appId 和 fileId。
 
-![视频管理](https://mc.qcloudimg.com/static/img/fcad44c3392b229f3a53d5f8b2c52961/image.png)
-
 播放 fileId 的代码如下：
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
-model.appId = 1252463788;// 配置AppId
+model.appId = 1252463788;// 配置 AppId
 model.videoId = new SuperPlayerVideoId();
-model.videoId.fileId = "5285890781763144364"; // 配置FileId
+model.videoId.fileId = "5285890781763144364"; // 配置 FileId
 mSuperPlayerView.playWithModel(model);
 ```
 
-视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.3Cspan-id-.3D-.22zm.22-.3E.3C.2Fspan.3E.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)）。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考此篇文档：[点播超级播放器使用文档 - key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
+视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.3Cspan-id-.3D-.22zm.22-.3E.3C.2Fspan.3E.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)）。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考文档：[点播超级播放器使用文档 - Key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
 ## 雪碧图和打点信息
 
@@ -153,7 +137,7 @@ mSuperPlayerView.playWithModel(model);
 - [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
 
 任务执行成功后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="670"/>
 
 ## 小窗播放
 
@@ -173,11 +157,11 @@ rect.height = 540;
 // ...其他配置
 ```
 
-![](https://main.qcloudimg.com/raw/d6783a450e339526e0ca0b2ed3ef6142.png)
+<img src="https://main.qcloudimg.com/raw/d6783a450e339526e0ca0b2ed3ef6142.png" width="400"/>
 
 ## 退出播放
 
-当不需要播放器时，调用 `resetPlayer` 清理播放器内部状态，释放内存。
+当不需要播放器时，调用`resetPlayer`清理播放器内部状态，释放内存。
 
 ```java
 mSuperPlayerView.resetPlayer();
@@ -186,5 +170,4 @@ mSuperPlayerView.resetPlayer();
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-
-![Android二维码下载](https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png)
+<img src="https://main.qcloudimg.com/raw/344d9d41fc5e305a17e22e104b9305da.png" width="150"/>
