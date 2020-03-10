@@ -1,6 +1,6 @@
 ## 功能描述
 
-COS 支持为已存在的 Bucket 设置标签（Tag）。DELETE Bucket tagging 接口用于删除指定存储桶下已有的存储桶标签。
+COS 支持为已存在的 Bucket 删除标签（Tag）。DELETE Bucket tagging 接口用于删除指定存储桶下已有的存储桶标签。
 
 >?如您使用子账号调用此项接口，请确保您已经在主账号处获取了`DELETE Bucket tagging `这个接口的权限。
 
