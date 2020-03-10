@@ -291,7 +291,7 @@
 
 
 ### onTEBH5FileStatusChanged:status:
-H5文件状态回调 
+H5 文件状态回调 
 ``` Objective-C
 - (void)onTEBH5FileStatusChanged:(NSString *)fileId status:(TEduBoardH5FileStatus)status 
 ```
@@ -316,6 +316,21 @@ H5文件状态回调
 | status | TEduBoardVideoStatus | 文件状态  |
 | progress | CGFloat | 当前进度（秒）（仅支持 mp4 格式）  |
 | duration | CGFloat | 总时长（秒）（仅支持 mp4 格式）  |
+
+
+### onTEBAddImagesFile:
+增加批量图片文件回调 
+``` Objective-C
+- (void)onTEBAddImagesFile:(NSString *)fileId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | NSString * | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后会触发该回调 
 
 
 

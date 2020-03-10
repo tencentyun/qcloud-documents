@@ -21,9 +21,9 @@
 
 ```html
 <!-- Axios SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/thirdpart/axios/axios.min.js"></script>
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/axios/axios.min.js"></script>
 <!-- COS SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/thirdpart/cos/5.1.0/cos.min.js"></script>
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
 <script src="https://resources-tiw.qcloudtrtc.com/board/2.3.7/TEduBoard.min.js"></script>
 ```
