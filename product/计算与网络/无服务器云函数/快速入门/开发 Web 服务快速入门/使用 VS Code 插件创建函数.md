@@ -15,7 +15,7 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 	- VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
 - 请确保您当前使用的腾讯云账户已完成了以下授权操作：
  1. 参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 完成 SCF 默认角色配置。
- 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 预设策略关联。
+ 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 完成预设策略关联。
 
 
 ## 操作步骤
