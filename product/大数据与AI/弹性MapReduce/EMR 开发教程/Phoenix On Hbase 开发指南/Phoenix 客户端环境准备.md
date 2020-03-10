@@ -10,5 +10,5 @@ EMR Phoenix 编译的是4.8.1版本，首先下载一个 phoenix-4.8.1-HBase-1.2
 ``` 
 ./sqlline.py
 ```
-成功显示如下：
+执行成功后显示如下：
 ![配置成功](https://mc.qcloudimg.com/static/img/18a364f4f014c8df2edcd89ded877e34/5-4-1.png)
