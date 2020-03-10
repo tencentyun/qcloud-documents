@@ -2,7 +2,7 @@
 ## 终端部分
 
 按照如下三步操作，可以用 XCode 或者 Android Studio 编译和调试小视频 App 的客户端代码，运行效果如下：
-<img src="https://main.qcloudimg.com/raw/345bae7a0a1f5139c525e4d303b9f745.jpg" width="650"/>
+<img src="https://main.qcloudimg.com/raw/345bae7a0a1f5139c525e4d303b9f745.jpg" width="800"/>
 
 ### step1. 下载 App 源码
 单击 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81) 可以下载到小视频 App 的源代码。
@@ -44,7 +44,7 @@
 登录 [云点播控制台](https://console.cloud.tencent.com/vod) 开通云点播服务，云点播服务可以为小视频提供视频存储和在线播放的能力。
 
 在云点播控制台的[【回调设置】](https://console.cloud.tencent.com/vod/callback)中设置回调模式为可靠回调，【事件回调配置】中选择上传完成回调，该配置需要10分钟左右能生效。
-![](https://main.qcloudimg.com/raw/fe55d80402a0ae03ad3e45592eb68b39.png)
+<img src="https://main.qcloudimg.com/raw/fe55d80402a0ae03ad3e45592eb68b39.png" width="800"/>
 
 ### step2. 获取云 API 密钥
 
@@ -52,12 +52,12 @@
 - **2.1**：登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入“API 密钥管理”页面。
 - **2.2**：获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。
 
-![](https://main.qcloudimg.com/raw/fb0490e2553cd5bc314a4ca9e1fc6913.png)
+<img src="https://main.qcloudimg.com/raw/fb0490e2553cd5bc314a4ca9e1fc6913.png" width="800"/>
 
 ### step3. 在云服务器上部署后台代码
 
 - **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)** 。  
-![](https://main.qcloudimg.com/raw/85a4ee15e56253b838e5fe30ecaf4655.png)
+<img src="https://main.qcloudimg.com/raw/85a4ee15e56253b838e5fe30ecaf4655.png" width="800"/>
 - **3.2：选择【自定义配置】，进入镜像市场选取镜像**。
 ![](https://main.qcloudimg.com/raw/baa3c6b05d431393bb08f0431678e284.png)
 ![](https://main.qcloudimg.com/raw/e74f5eba3cb02f5838d27ea26090bd62.png)
@@ -121,4 +121,4 @@
 
 >! 如果服务器没有配置证书，这里的云服务器地址需要用 HTTP，而不能用 HTTPS。
 
-至此小视频的服务器模式配置完成，您可以运行 App 体验小视频的各项功能。
+至此，小视频的服务器模式配置完成，您可以运行 App 体验小视频的各项功能。
