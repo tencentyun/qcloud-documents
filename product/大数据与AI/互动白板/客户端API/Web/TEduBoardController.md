@@ -1093,10 +1093,10 @@ void addImageElement(String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | String | 【必填】要设置的图片元素URL，编码格式为 UTF8 |
+| url | String | 【必填】要设置的图片元素 URL，编码格式为 UTF8 |
 
 #### 介绍
-除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时url参数可以传一个 Object 类型，格式如下： 
+除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时 url参数可以传一个 Object 类型，格式如下： 
 ``` 
 {
    data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
