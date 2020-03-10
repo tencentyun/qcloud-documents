@@ -2,7 +2,7 @@
 ## 终端部分
 
 按照如下三步操作，可以用 XCode 或者 Android Studio 编译和调试小视频 App 的客户端代码，运行效果如下：
-<img src="https://main.qcloudimg.com/raw/345bae7a0a1f5139c525e4d303b9f745.jpg width="650"/>
+<img src="https://main.qcloudimg.com/raw/345bae7a0a1f5139c525e4d303b9f745.jpg" width="650"/>
 
 ### step1. 下载 App 源码
 单击 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81) 可以下载到小视频 App 的源代码。
