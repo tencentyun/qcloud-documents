@@ -383,7 +383,7 @@ function TEB_VIDEO_STATUS_CHANGED(Object data)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| data | Object | 回调数据 data参数格式如下： 
+| data | Object | 回调数据 data 参数格式如下： 
 ``` 
    {
         fileId: '',     //文件ID
