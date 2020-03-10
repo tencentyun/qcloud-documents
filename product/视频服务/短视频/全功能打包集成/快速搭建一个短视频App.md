@@ -56,7 +56,7 @@
 
 ### step3. 在云服务器上部署后台代码
 
-- **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)** 。  
+- **3.1：[新建 CVM 云服务器](https://console.cloud.tencent.com/cvm)**。  
 <img src="https://main.qcloudimg.com/raw/85a4ee15e56253b838e5fe30ecaf4655.png" width="800"/>
 - **3.2：选择【自定义配置】，进入镜像市场选取镜像**。
 ![](https://main.qcloudimg.com/raw/baa3c6b05d431393bb08f0431678e284.png)
