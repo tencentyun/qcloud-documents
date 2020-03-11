@@ -1,7 +1,7 @@
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
-COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。
-通过 COSBrowser，您可以快速进行创建存储桶、上传/下载对象等操作，本文以 Windows 平台的 COSBrowser 为例，详细步骤如下。
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。
+本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传对象、以及分享对象。
 
 
 ## 前提条件
@@ -9,53 +9,16 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 腾讯云账号已开通 COS 服务。
 
 
-## 步骤1：下载安装COSBrowser
+## 步骤1：下载安装 COSBrowser
 
 
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe" target="_blank"  style="color: white; font-size:16px;">点此下载 COSBrowser</a></div>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe" target="_blank"  style="color: white; font-size:16px;">点此下载 COSBrowser</a></div><br>
 
-<br>
+
 
 >?
 >- 系统要求：Windows 7 32/64位以上、Windows Server 2008 R2 64位以上。
 >- 其它系统的 COSBrowser 客户端，请前往  [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366) 下载。
-
-
-<table>
-   <tr>
-      <th>COSBrowser 分类</td>
-      <th>支持平台</td>
-      <th>系统要求</td>
-      <th>下载地址</td>
-   </tr>
-   <tr>
-      <td rowspan=3>桌面端</td>
-      <td>Windows</td>
-      <td>Windows 7 32/64位以上、Windows Server 2008 R2 64位以上</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe">Windows</a></td>
-   </tr>
-   <tr>
-      <td>macOS</td>
-      <td>macOS 10.13以上</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest.dmg">macOS</a></td>
-   </tr>
-   <tr>
-      <td>Linux</td>
-      <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest-linux.zip">Linux</a></td>
-   </tr>
-   <tr>
-      <td rowspan=2>移动端</td>
-      <td>Android</td>
-      <td>Android 4.4以上</td>
-      <td><a href="https://sj.qq.com/myapp/detail.htm?apkName=com.qcloud.cos.client">Android</a></td>
-   </tr>
-   <tr>
-      <td>iOS</td>
-      <td>iOS 11以上</td>
-      <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
-   </tr>
-</table>
 
 ## 步骤2：获取 API 密钥 
 COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥 
@@ -79,16 +42,24 @@ COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥
 3. 单击【确定】，即可创建存储桶。
 
 
-## 步骤5：上传对象
+## 步骤5：上传文件
 
 1. 单击步骤4创建的存储桶名称，进入存储桶管理页。
 2. 选择【上传】>【选择文件】，选择需要上传至存储桶的文件，例如 exampleobjext.txt。
 3. 单击【上传】，即可将 exampleobjext.txt 上传至存储桶。
 
 
-## 步骤6：生成分享链接
+## 步骤6：生成文件链接
 
 
+1. 在文件的右侧，单击【**...**】，在下拉菜单中，单击【分享】。
+![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
+>?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图切换按钮，进行切换。
+2. 在弹出的自定义复制链接窗口中，配置文件链接。
+	- 若文件为公有读权限，则链接不带签名且永久有效。
+	- 若文件为私有读权限，则链接带签名，在指定的时间内，链接有效。
+![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
+3. 单击【复制】，即可复制文件链接。
 
 
 
@@ -102,7 +73,7 @@ COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥
 
 ## 相关文档
 
-
+了解更多 COSBrowser 功能，例如设置存储桶访问权限、设置版本控制等，请查看以下文档。
 - [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)
 - [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)
 - [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
