@@ -1,5 +1,5 @@
 ## SDK 说明
-本 SDK 提供信鸽服务端接口的 Java 封装，与腾讯移动推送后台通信。使用时引用 XingeApp 包即可, 本 sdk 封装的主要是 V3 推送相关接口。
+本 SDK 提供 TPNS 服务端接口的 Java 封装，与腾讯移动推送后台通信。使用时引用 XingeApp 包即可, 本 sdk 封装的主要是 V3 推送相关接口。
 ## 集成方式
 Maven  依赖引用方式：
 资源库配置
@@ -23,7 +23,7 @@ Maven  依赖引用方式：
 
 ## 使用方法
 ### XingeApp 接口说明
-该类提供与信鸽后台交互的接口。由 XingeApp.Builder 进行构建，对应参数如下
+该类提供与 TPNS 后台交互的接口。由 XingeApp.Builder 进行构建，对应参数如下
 
 | 参数名 | 类型 | 必需 | 默认值 | 参数描述 |
 | --- | --- | --- | --- | --- |
@@ -32,7 +32,7 @@ Maven  依赖引用方式：
 | proxy | Proxy | 否 | Proxy.NO\_PROXY | 如果需要设置代理可以设定该参数 |
 | connectTimeOut | int | 否 | 10s | 链接超时时间设置 |
 | readTimeOut | int | 否 | 10s | 请求超时时间设置 |
-| domainUrl | String | 否 | https://openapi.xg.qq.com | 请求接口服务域名地址默认请求信鸽免费集群接口地址，使用时需要更改为 https://api.tpns.tencent.com|
+| domainUrl | String | 否 | https://openapi.xg.qq.com | 请求接口服务域名地址默认请求 TPNS 免费集群接口地址，使用时需要更改为 https://api.tpns.tencent.com|
 
 ### 示例
 ``` java
