@@ -6,7 +6,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 
 
 ## 前提条件
 
-腾讯云账号已开通 COS 服务。
+腾讯云账号已开通 COS 服务。若未开通 COS 服务，请前往 [COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通。
 
 
 ## 步骤1：下载安装 COSBrowser
@@ -53,16 +53,18 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。以下是生成对象链接的两种方式：
 
-#### 方法一
-
-1. 在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">，COSBrowser 工具将生成有效期两小时的临时访问链接。
-2. 您即可通过该链接访问文件。
-
-#### 方法二
-
-1. 在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">，在下拉菜单中，单击【分享】。
-![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 >?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图切换按钮，进行切换。
+
+#### 方式一
+
+1. 在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">。
+2. COSBrowser 工具顶部显示【临时访问链接已复制，有效期两个小时】，则说明链接生成成功。您即可通过该链接访问文件。
+>?通过方式一生成的对象链接，只有两个小时的有效期，若您需要自定义有效期，可通过方式二实现。
+
+#### 方式二
+
+1. 在文件的右侧，单击【**...**】，在下拉菜单中，单击【分享】。
+![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
 3. 单击【复制】，复制文件链接。您即可通过该链接访问文件。
