@@ -82,7 +82,7 @@
 | 服务                                                      | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |	
 | ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	---- |	
 | [云函数](https://cloud.tencent.com/document/product/583)  | 资源级 | &#10003;        |  -  | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/583/9203)  |	
-| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | - |  -   |  -  |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
+| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | - |  -   |  &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
 
 
 ## 中间件	
