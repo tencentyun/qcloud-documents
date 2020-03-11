@@ -53,11 +53,13 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。
 
-
+#### 方法一
 
 1. 在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">，COSBrowser 工具将生成有效期两小时的临时访问链接。
+2. 您即可通过该链接访问文件。
 
-3. 
+#### 方法二
+
 4. ，在下拉菜单中，单击【分享】。
 ![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 >?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图切换按钮，进行切换。
