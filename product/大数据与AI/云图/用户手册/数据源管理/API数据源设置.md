@@ -10,11 +10,10 @@
 
 ### 接口的实现
 返回 HTTP 响应头以支持浏览器端跨域发起请求。
-- Access-Control-Allow-Credentials: true
-勾选需要 Cookie，需要返回。
-- Access-Control-Allow-Origin: `http://yuntu.cloud.tencent.com`
-需要按照 http 请求的协议头 Origin 来源返回，如果请求来自`https://v.yuntus.com` 页面（Origin: `https://v.yuntus.com`），则需要对应返回 Access-Control-Allow-Origin: `https://v.yuntus.com`。
+- `Access-Control-Allow-Credentials: true`：勾选【需要 Cookie】，需要返回。
+- `Access-Control-Allow-Origin: http://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
 ![](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
+
 **返回数据**
 返回数据需要满足以下条件：
 - JSON格式。
@@ -22,8 +21,7 @@
 
 ![](https://main.qcloudimg.com/raw/e3d99babe5d85c4346ef9faa0de3a89c.png)
 示例代码：
-接口` http://127.0.0.1:3000/api `的 NodeJs 示例代码（ node 8 及以上版本运行通过）：
-
+接口`http://127.0.0.1:3000/api`的 NodeJs 示例代码（ 支持 node 8 及以上版本运行）：
 ```
 const express = require('express')
 const app = express()
@@ -81,15 +79,15 @@ app.listen(PORT)
 由服务器端发起请求，接口响应数据格式与浏览器端发起请求一致，但需要接口支持外网访问，且勾选“需要 Cookie”无效（无法传递接口域名下 Cookie）。
 ![](https://main.qcloudimg.com/raw/1d345001057a22af1f92c5be55f0879d.png)
 
-## 使用访问秘钥
+## 使用访问密钥
 如果 API 是公网地址，会导致 API 暴露在公网，如何解决其他人能调用接口查看数据的隐患呢？这里有两种办法：
 1. 如果是**服务器端发起请求**，可以设置数据代理 IP 白名单。
-2. 使用访问秘钥，在 API 里实现鉴权。
+2. 使用访问密钥，在 API 里实现鉴权。
 
-### 创建秘钥
+### 创建密钥
 登录 [腾讯云图控制台](http://yuntu.cloud.tencent.com/#/access-key)，单击【新建访问密钥】，新建成功后即可得到 SecretId 和 SecretKey。
 ![](https://main.qcloudimg.com/raw/43145c939ee0a226ae5712ed7b8fdf8f.png)
-### 选择访问秘钥
+### 选择访问密钥
 ![](https://main.qcloudimg.com/raw/514a8947997b78ffb116f7371236d883.png)
 ### 计算并比较签名
 可以通过浏览器开发工具看到，服务器使用计算出的签名向设置的 API 发起了请求。
@@ -97,7 +95,7 @@ app.listen(PORT)
 上图中请求签名后的 API URL 如下：
 
 ```
-http://127.0.0.1:3000/api?TcvSecretId=zUYUtjPu2Kob9jarBhTGxrbkau3FEq6pqxe6&TcvSignature=Ds3cyyhQCo%2FTvdyUi3%2BmuPj2DQKZXMpIRwTqvMXPiRE%3D&TcvTimestamp=1583399912&TcvNonce=302190
+http://127.0.0.1:3000/api?TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvSignature=Ds3cyyhQCo%2FTvdyUi3%2BmuPj2DQKZXMpIRwTqvMXPiRE%3D&TcvTimestamp=1583399912&TcvNonce=302190
 ```
 参数拆分如下：
 - TcvSecretId
@@ -108,13 +106,13 @@ http://127.0.0.1:3000/api?TcvSecretId=zUYUtjPu2Kob9jarBhTGxrbkau3FEq6pqxe6&TcvSi
 ### 计算签名内容
 将非 TcvSignature 的参数按照名称升序排列拼接，格式为 key1=value1&key2=value2&key3=value3，这里排序后如下：
 ```
-TcvNonce=302190&TcvSecretId=zUYUtjPu2Kob9jarBhTGxrbkau3FEq6pqxe6&TcvTimestamp=1583399912
+TcvNonce=302190&TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvTimestamp=1583399912
 ```
 ### 计算签名
 使用 HMAC-SHA256 算法计算签名，NodeJs 的计算代码如下：
 ```
-const signStr='TcvNonce=302190&TcvSecretId=zUYUtjPu2Kob9jarBhTGxrbkau3FEq6pqxe6&TcvTimestamp=1583399912' // 计算的签名内容
-const secretKey = 'xrck1Mgi0IxVjS08B3HsECajO01RYfGW'// 刚才获取的签名秘钥
+const signStr='TcvNonce=302190&TcvSecretId=zUYUtjPu2Kob9xxxxxxxxrbkau3FEq6pqxe6&TcvTimestamp=1583399912' // 计算的签名内容
+const secretKey = 'xrck1Mgi0IxVjS08B3HsECajxxxxxxxx'// 刚才获取的签名密钥
 const signature = crypto.createHmac('sha256', SecretKey).update(signStr).digest().toString('base64’)
 // 将 signature 与 TcvSignature 对比，结果一致则确认是来自云图的请求
 ```
