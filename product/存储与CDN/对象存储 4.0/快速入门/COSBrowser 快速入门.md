@@ -12,7 +12,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 
 ## 步骤1：下载安装 COSBrowser
 
 
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe" target="_blank"  style="color: white; font-size:16px;">点此下载 COSBrowser</a></div>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe" target="_blank"  style="color: white; font-size:16px;">点此下载 COSBrowser</a></div><br>
 
 Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Server 2008 R2 64位以上。其它系统版本 COSBrowser ，请前往  [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366) 下载。
 
@@ -20,7 +20,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 ## 步骤2：获取 API 密钥 
 
 
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此获取 API 密钥</a></div>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此获取 API 密钥</a></div><br>
 
 
 COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥，请先创建 API 密钥。
