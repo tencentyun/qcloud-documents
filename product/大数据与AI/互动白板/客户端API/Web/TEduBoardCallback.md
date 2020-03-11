@@ -393,7 +393,7 @@ function TEB_VIDEO_STATUS_CHANGED(Object data)
 
   
    只有本地调用 addH5File 时会收到该回调
-  /
+  
 function TEB_H5FILE_STATUS_CHANGED(Object data);
 
 ```
