@@ -89,5 +89,5 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 5. 双击 [步骤1](#step1) 中下载的脚本即可执行，输入公网 IP 地址，连续回车两次即可。 
 6.  在 “Windows PowerShell” 窗口中输入`ipconfig`按回车，可看到主网卡上的 IPv4 地址变成公网地址。
 
->!直通成功后请勿给主网卡再配内网 IP，如果配置，则云服务器无法访问公网。
+>!直通成功后请勿给主网卡再配内网 IP，如果配置会导致云服务器无法访问公网。
 
