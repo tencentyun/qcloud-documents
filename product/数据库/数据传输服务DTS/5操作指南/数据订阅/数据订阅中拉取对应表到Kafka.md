@@ -50,7 +50,7 @@ Created topic "testtop".
 
 
 ##  编译操作与检验
-1. 
+1. 编译客户端程序 KafkaDemo.java。
 ```
 javac -classpath binlogsdk-2.6.0-release.jar:slf4j-api-1.7.25.jar:slf4j-log4j12-1.7.2.jar:kafka-clients-1.1.0.jar -encoding UTF-8 KafkaDemo.java 
 ```
@@ -61,7 +61,6 @@ java -XX:-UseGCOverheadLimit -Xms2g -Xmx2g  -classpath .:binlogsdk-2.6.0-release
 3. 通过对表 alantest 插入一条数据，发现在 Kafka 订阅的 testtop 里面能看到已经有数据过来了。
 
 ```
-
 MySQL [test]> insert into alantest values(123456,'alan');
 Query OK, 1 row affected (0.02 sec)
 
@@ -87,6 +86,5 @@ Field name: name
 Field type: 253
 Field length: 4
 Field value: alan
-
 ```
 
