@@ -447,7 +447,7 @@ function onRemoteAudioRemove(event) {
   })
 }
 
-trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioRemove)
+trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 ```
 
 ### switchCamera()
