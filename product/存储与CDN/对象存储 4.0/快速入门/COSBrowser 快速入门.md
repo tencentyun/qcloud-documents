@@ -1,6 +1,6 @@
 初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
-COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互轻松实现对 COS 资源的查看、传输和管理。
+COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互，轻松实现对 COS 资源的查看、传输和管理。
 本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传文件、以及生成文件链接。
 
 
@@ -58,7 +58,7 @@ COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥，请先创�
 >?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图切换按钮，进行切换。
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
-3. 单击【复制】，即可复制文件链接。您即可通过该链接访问文件。
+3. 单击【复制】，复制文件链接。您即可通过该链接访问文件。
 
 
 
