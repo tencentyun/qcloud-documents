@@ -20,10 +20,10 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 ## 步骤2：获取 API 密钥 
 
 
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此获取 API 密钥</a></div><br>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此创建 API 密钥</a></div><br>
 
 
-COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥，请先创建 API 密钥。
+COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可直接复制 API 密钥。
 
 
 ## 步骤3：登录 COSBrowser
@@ -53,7 +53,12 @@ COSBrowser 工具使用 API 密钥登录，若未创建 API 密钥，请先创�
 
 存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。
 
-1. 在文件的右侧，单击【**...**】，在下拉菜单中，单击【分享】。
+
+
+1. 在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">，COSBrowser 工具将生成有效期两小时的临时访问链接。
+
+3. 
+4. ，在下拉菜单中，单击【分享】。
 ![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 >?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图切换按钮，进行切换。
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
