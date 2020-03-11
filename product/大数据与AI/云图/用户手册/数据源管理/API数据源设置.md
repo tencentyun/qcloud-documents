@@ -1,4 +1,4 @@
-腾讯云图支持用户通过自己的 API 提供实时数据，支持浏览器端发起请求和服务器端发起请求两种。
+腾讯云图支持用户通过自己的 API 提供实时数据，支持**浏览器端发起请求**和**服务器端发起请求**两种。
 
 ## 浏览器端发起请求
 >!由浏览器端发起的请求为跨域请求，接口的实现需要满足下文的要求。
@@ -14,13 +14,13 @@
 - `Access-Control-Allow-Origin: http://yuntu.cloud.tencent.com`：需要按照 HTTP 请求的协议头 Origin 来源返回，如果请求`https://v.yuntus.com`页面（Origin: `https://v.yuntus.com`），则需要对应返回`Access-Control-Allow-Origin: https://v.yuntus.com`。
 ![](https://main.qcloudimg.com/raw/165b0e11d9eba0fe5d9084e0c159cbb0.png)
 
-**返回数据**
+#### 返回数据
 返回数据需要满足以下条件：
 - JSON格式。
 - 仅包含完整数据（不包含返回码）。
 
 ![](https://main.qcloudimg.com/raw/e3d99babe5d85c4346ef9faa0de3a89c.png)
-示例代码：
+#### 示例代码：
 接口`http://127.0.0.1:3000/api`的 NodeJs 示例代码（ 支持 node 8 及以上版本运行）：
 ```
 const express = require('express')
@@ -74,13 +74,13 @@ app.listen(PORT)
 ```
 
 ## 服务器端发起请求
-如果接口不支持跨域可勾选“服务器发起请求”。
+>!接口不支持跨域，需勾选【服务器发起请求】。已勾选【服务器发起请求】时，勾选【需要 Cookie】无效（无法传递接口域名下的 Cookie）。
 
-由服务器端发起请求，接口响应数据格式与浏览器端发起请求一致，但需要接口支持外网访问，且勾选“需要 Cookie”无效（无法传递接口域名下 Cookie）。
-![](https://main.qcloudimg.com/raw/1d345001057a22af1f92c5be55f0879d.png)
+由服务器端发起请求，接口响应数据格式与**浏览器端发起请求**一致，但需要接口支持外网访问。
+![](https://main.qcloudimg.com/raw/71a647acdf8146ac86cf146f1866db89.png)
 
 ## 使用访问密钥
-如果 API 是公网地址，会导致 API 暴露在公网，如何解决其他人能调用接口查看数据的隐患呢？这里有两种办法：
+如果 API 是公网地址，会导致 API 暴露在公网，下面有两种方法可解决其他人能调用接口查看数据的隐患。
 1. 如果是**服务器端发起请求**，可以设置数据代理 IP 白名单。
 2. 使用访问密钥，在 API 里实现鉴权。
 
