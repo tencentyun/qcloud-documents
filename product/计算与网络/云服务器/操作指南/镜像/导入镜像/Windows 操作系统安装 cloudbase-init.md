@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文档以 Windows Server 2012 R2 64位 操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
+本文档以 Windows Server 2012 R2 64位操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
 
 <span id="PreparationSoftware"></span>
 ## 准备软件
