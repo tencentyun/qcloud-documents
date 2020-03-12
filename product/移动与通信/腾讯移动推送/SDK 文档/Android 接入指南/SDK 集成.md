@@ -247,7 +247,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         <meta-data
             android:name="XG_GUID_SERVER"
             android:value="https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer" /> 
-        //中国香港地区设置为https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer  
+        //中国香港地区设置为https://api.tpns.hk.tencent.com/guid/api/GetGuidAndMqttServer  
         
         <meta-data
             android:name="XG_STAT_SERVER"
