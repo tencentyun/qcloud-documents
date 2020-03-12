@@ -58,7 +58,7 @@ Authorization: Auth
 | ArchiveId             | 在档案取回操作中请求的档案的 ID                        | String   |
 | ArchiveSizeInBytes    | 档案取回任务请求的档案的大小                           | Number   |
 | ArchiveSHA256TreeHash | 档案取回操作的整个档案的 SHA256 树形哈希                 | String   |
-| RetrievalByteRange    | 档案取回任务所取回的字节范围，格式为“*StartByteValue*-*EndByteValue*”。如果没有在档案取回中指定范围，则取回整个档案，并且 *StartByteValue* 等于 0，*EndByteValue* 等于档案大小减去 1 | String   |
+| RetrievalByteRange    | 档案取回任务所取回的字节范围，格式为“StartByteValue-EndByteValue”。如果没有在档案取回中指定范围，则取回整个档案，并且 StartByteValue 等于 0，EndByteValue 等于档案大小减去 1 | String   |
 | SHA256TreeHash        | 档案请求范围的 SHA256 树形哈希值。 当指定未以树形哈希对齐的范围的档案取回任务，该值为Null； 当指定不等于整个档案的范围并且任务状态为InProgress的档案任务，该值为Null，任务完成后，SHA256TreeHash字段将具有值。 | String   |
 | Tier                  | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk` | String   |
 
