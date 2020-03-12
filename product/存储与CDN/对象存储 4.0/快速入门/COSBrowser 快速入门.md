@@ -55,13 +55,17 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 >?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图按钮<img src="https://main.qcloudimg.com/raw/f6f1ccddf378880d0c208a13d8fb9a24.jpg" style="margin:0;">，进行切换。
 
-#### 方式一
 
+
+
+#### 方式一
 
 
 1. 列表视图下，在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
 2. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。您即可通过该链接访问文件。
 >?通过方式一生成的对象链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
+
+
 
 #### 方式二
 
@@ -69,9 +73,8 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 ![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
-3. 单击【复制】，复制文件链接。您即可通过该链接访问文件。
-
-
+3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
+>?了解更多文件链接有关说明，或需要配置有效期永久的链接，请参见桌面端使用说明文档中的 [生成文件链接](https://cloud.tencent.com/document/product/436/38103#generatelinks) 部分。
 
 
 
