@@ -23,7 +23,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此创建 API 密钥</a></div><br>
 
 
-COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可复制 API 密钥用于登录 COSBrowser。
+COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可直接复制 API 密钥。
 
 
 ## 步骤3：登录 COSBrowser
@@ -59,7 +59,7 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 
 
-1. 列表视图下，在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/ec25194cd8055c69308e89caba9d97a0.jpg"  style="margin:0;">。
+1. 列表视图下，在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
 2. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。您即可通过该链接访问文件。
 >?通过方式一生成的对象链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
 
