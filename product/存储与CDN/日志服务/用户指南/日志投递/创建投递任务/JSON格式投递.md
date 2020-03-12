@@ -104,11 +104,13 @@ a. 您需要先指定一个 key，通过设置过滤规则对其进行正则提�
  b. 用“()”捕获需要和 value 进行匹配的对象，并在 value 处填上所要匹配的值。系统会先根据投递规则中的正则表达式进行一次匹配，提取出捕获组“()”的内容，并和 value 值进行比较，当捕获出来的内容=value 时，则该条日志数据将会投递。
 **示例1：**
 指定字段名为 status，该键值对形如 status:404，若要投递 status 字段为404的日志，则过滤规则为：`(.*)`。
-<img src="https://main.qcloudimg.com/raw/0f16cb0d2590d3498535749b931e9631.png" width="100%">
+![](https://main.qcloudimg.com/raw/0f16cb0d2590d3498535749b931e9631.png)
+
 
 **示例2：**
 指定字段名为 http_host，该键值对形如 http_host:172.16.19.20，若要投递 http_host 字段为172.16开头的日志，则过滤规则为：`^(\d+\.\d+)\..*`。
-<img src="https://main.qcloudimg.com/raw/34655096ff4bcaf5bf74e4fe7042dc06.png" width="100%">
+![](https://main.qcloudimg.com/raw/34655096ff4bcaf5bf74e4fe7042dc06.png)
+
 
 7. 单击【确定】，即可看到投递状态已开启。
    <img src="https://main.qcloudimg.com/raw/f3b59a24524ba51f6bc6c14f9fdfbdba.png" width="90%">
