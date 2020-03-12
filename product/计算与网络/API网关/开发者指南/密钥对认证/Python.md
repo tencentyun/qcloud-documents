@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 
 该任务指导您使用 Python 语言，通过密钥对鉴权来对您的 API 进行认证管理。
 
@@ -10,10 +10,10 @@
 5. 将使用计划与 API 或 API 所在服务进行绑定。
 6. 参考 [示例代码](#example)，使用 Python 语言生成签名内容。
 
-<span id="example"></span>
 ## 环境依赖
-- Python 为2.7版本。
+Python 2.7版本。
 
+<span id="example"></span>
 ## 示例代码
 ```
 # -*- coding: utf-8 -*-
