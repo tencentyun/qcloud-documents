@@ -7,14 +7,10 @@
 - Push 的方式有：
  - WebSocket
 
-Push 的方式是实时的，如果您需要实时更新大屏，可以选择将数据源设置为 WebSocket。
-
-下面将介绍 WebSocket 的使用。
+Push 的方式是实时的，如果您需要实时更新大屏，可以选择将数据源设置为 WebSocket。下面将介绍 WebSocket 的使用。
 
 ## 快速搭建 WebSocket 服务端
-这里以 NodeJs 举例，使用到了 ws 这个 WebSocket 库，配合 HTTP 框架 express 进行使用。
-
-使用 NodeJs 运行这段代码，便启动了一个 WebSocket。访问地址是：`ws://127.0.0.1:3000`，代码如下：
+以 NodeJs 举例，使用到了 ws 这个 WebSocket 库，同时配合 HTTP 框架 express 进行使用。使用 NodeJs 运行以下代码，便启动了一个 WebSocket。访问地址是：`ws://127.0.0.1:3000`，代码如下：
 ```
 const http = require('http')
 const WebSocket = require('ws')
@@ -37,7 +33,7 @@ server.listen(3000)
 ![](https://main.qcloudimg.com/raw/d8a92bf1389263126b041cf23ceb77d6.png)
 格式示例如下：
 ![](https://main.qcloudimg.com/raw/95bea557d0ddf1c134c6a42e52461d11.png)
-将“WebSocket 发送数据格式示例”中的内容复制出来，稍作修改，然后使用示例中的代码实现一个消息发送接口。当浏览器访问`http://127.0.0.1:3000/refresh-chart`将会向 WebSocket 客户端发送数据刷新组件。
+复制并修改“WebSocket 发送数据格式示例”中的内容，然后使用示例中的代码实现一个消息发送接口。当浏览器访问`http://127.0.0.1:3000/refresh-chart`时，将会向 WebSocket 客户端发送数据刷新组件。
 
 ```
 const BAR_DATA_MAX = 120
@@ -87,7 +83,7 @@ app.get('/refresh-chart', (req, res, next) => {
   })
 })
 ```
-现在浏览器每访问一次`http://127.0.0.1:3000/refresh-chart`便会实时刷新柱状图。因为消息中的 body 是数组，因此可以同时发送多个图表组件的数据，刷新多个图表组件。
+浏览器每访问一次`http://127.0.0.1:3000/refresh-chart`便会实时刷新柱状图。因为消息中的 body 是数组，因此可以同时发送多个图表组件的数据，刷新多个图表组件。
 >!大屏中只用设置一个图表组件的 WebSocket 数据源，便可以控制大屏中所有的图表组件。图表组件的 ID 可以右键编辑界面中的图表组件，单击菜单中的【复制 ID】获取。
 
 ## 使用 WebSocket 控制联动
