@@ -79,7 +79,7 @@ exports.main_handler = async (event,context,callback)=>{
 	- **region**：**被调用**云函数所在地域，本文以 [步骤1](#Step1) 中的北京地域为例。
 	- **functionName**：**被调用**云函数名称，本文以 [步骤1](#Step1) 中已创建的 `FuncInvoked` 函数为例。
 	- **qualifier**：**被调用**云函数版本，如未指定则默认使用 `$LATEST`。详情请参见 [查看版本](https://cloud.tencent.com/document/product/583/31211)。
-	- **namepace**：**被调用**云函数所在命名空间， 如未指定则默认 `default`。详情请参见 [命名空间管理](https://cloud.tencent.com/document/product/583/35913)。
+	- **namespace**：**被调用**云函数所在命名空间， 如未指定则默认 `default`。详情请参见 [命名空间管理](https://cloud.tencent.com/document/product/583/35913)。
 	- **data**：传递给**被调用**云函数的数据，被调用的云函数可以从 event 入参中读取此数据。
 3. 创建一个地域为【成都】，名称为 “NodejsInvokeTest”，并用于**调用**的 Node.js 云函数。该云函数主要设置信息如下：
  - 执行方法：选择【index.main_handler】。
