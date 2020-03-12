@@ -7,7 +7,7 @@
 ## 版本更新
 2.5版本更新如下：
 
-<<table>
+<table>
 <thead>
 <tr>
 <th width="20%">功能名称</th>
