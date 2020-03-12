@@ -74,7 +74,13 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
 3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
->?了解更多文件链接有关说明，或需要配置有效期永久的链接，请参见桌面端使用说明文档中的 [生成文件链接](https://cloud.tencent.com/document/product/436/38103#generatelinks) 部分。
+>?了解更多文件链接有关说明，或需要配置有效期永久的链接，请参见 COSBrowser 桌面端使用说明文档中的 [生成文件链接](https://cloud.tencent.com/document/product/436/38103#generatelinks) 部分。
+
+
+
+## 后续步骤
+
+使用 COSBrowser 其他功能，例如本地文件同步到 COS、修改存储桶或文件权限等功能，请参见 [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
 
 
 
@@ -84,11 +90,12 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 
 
+
 ## 相关文档
 
-了解更多 COSBrowser 功能，例如设置存储桶访问权限、设置版本控制等，请参见以下文档。
+了解移动端（iOS、Android）的 COSBrowser ，请参见以下文档。
+
 - [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)
-- [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103)
 - [移动端使用说明](https://cloud.tencent.com/document/product/436/38105)
 
 
