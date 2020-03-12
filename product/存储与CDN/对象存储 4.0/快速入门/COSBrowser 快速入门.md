@@ -23,7 +23,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此创建 API 密钥</a></div><br>
 
 
-COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可直接复制 API 密钥。
+COSBrowser 工具需要使用 API 密钥登录，如果已创建 API 密钥，则可直接复制 API 密钥。
 
 
 ## 步骤3：登录 COSBrowser
