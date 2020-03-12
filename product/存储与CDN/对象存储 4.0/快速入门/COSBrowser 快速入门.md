@@ -59,7 +59,8 @@ COSBrowser 工具需要使用 API 密钥登录，如果已创建 API 密钥，�
 
 1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
 2. 在文件右侧的操作栏下，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
-2. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。您即可通过该链接访问文件。通过此方式生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
+3. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。
+4. 您即可通过该链接访问文件。通过此方式生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
 
 #### 方式二
 
