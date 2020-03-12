@@ -75,7 +75,7 @@ exports.main_handler = async (event,context,callback)=>{
       return 'Already invoked a function!'
 }
 ```
-其中部分主要参数获取途径如下：
+其中主要参数获取途径如下：
 	- **region**：**被调用**云函数所在地域，本文以 [步骤1](#Step1) 中的北京地域为例。
 	- **functionName**：**被调用**云函数名称，本文以 [步骤1](#Step1) 中已创建的 `FuncInvoked` 函数为例。
 	- **qualifier**：**被调用**云函数版本，如未指定则默认使用 `$LATEST`。详情请参见 [查看版本](https://cloud.tencent.com/document/product/583/31211)。
