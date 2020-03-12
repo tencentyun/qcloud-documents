@@ -51,25 +51,20 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 
 ## 步骤6：生成文件链接
 
+
 存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。以下是生成对象链接的两种方式：
-
->?COSBrowser 支持以网格和列表两种视图展示文件，您可单击右上角的视图按钮<img src="https://main.qcloudimg.com/raw/f6f1ccddf378880d0c208a13d8fb9a24.jpg" style="margin:0;">，进行切换。
-
-
 
 
 #### 方式一
 
-
-1. 列表视图下，在文件的右侧，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
-2. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。您即可通过该链接访问文件。
->?通过方式一生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
-
-
+1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
+2. 在文件右侧的操作栏下，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
+2. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。您即可通过该链接访问文件。通过此方式生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
 
 #### 方式二
 
-1. 列表视图下，在文件的右侧，单击【**...**】，在下拉菜单中，单击【分享】。
+1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
+1. 在文件右侧的操作栏下，单击【**...**】，在下拉菜单中，单击【分享】。
 ![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
 ![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
@@ -86,8 +81,6 @@ COSBrowser 工具使用 API 密钥登录，如果已创建 API 密钥，则可�
 ## 遇到问题？
 
 非常抱歉您在使用时遇到问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
-
-
 
 
 ## 相关文档
