@@ -106,4 +106,4 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 使用企业级签名证书构建并发布App，体验者可以通过企业内部开放的渠道下载安装App。
 2. AppStore 发布证书签名
 使用当前 AppStore 的发布签名证书，发布方式如下：
-TestFlight 发布预览版，先将 ipa 包上传到 App Store Connect，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
+TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
