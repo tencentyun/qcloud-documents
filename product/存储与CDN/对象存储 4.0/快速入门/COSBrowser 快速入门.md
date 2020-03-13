@@ -7,7 +7,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 
 ## 前提条件
 
 1. 腾讯云账号需开通 COS 服务。若未开通 COS 服务，请前往 [COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通。
-2. 创建 API 密钥，用于登录 COSBrowser。请前往 [ API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面进行创建。
+2. COSBrowser 工具使用 API 密钥登录，您需要先前往 [ API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面创建 API 密钥。
 
 
 ## 步骤1：下载安装 COSBrowser
@@ -21,7 +21,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 步骤2：登录 COSBrowser
 
-使用 API 密钥，登录 COSBrowser。
+使用 [API 密钥](https://console.cloud.tencent.com/cam/capi)，登录 COSBrowser。
 
 
 ## 步骤3：创建存储桶
@@ -35,14 +35,14 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 3. 单击【确定】，即可创建存储桶。
 
 
-## 步骤4：上传文件
+## 步骤4：上传对象
 
 1. 单击步骤4创建的存储桶名称，进入存储桶管理页。
 2. 选择【上传】>【选择文件】，选择需要上传至存储桶的文件，例如 exampleobjext.txt。
 3. 单击【上传】，即可将 exampleobjext.txt 上传至存储桶。
 
 
-## 步骤5：下载文件
+## 步骤5：下载对象
 
 
 
