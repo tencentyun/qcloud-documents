@@ -16,7 +16,7 @@
 ## 示例代码
 #### Base64.java
 
-```
+```Java
 package apigatewayDemo;
 
 import java.io.UnsupportedEncodingException;
@@ -143,9 +143,9 @@ public class SignAndSend {
     public static String sign(String secret, String timeStr) 
     		throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException 
     {
-        //get signStr
+        //获取签名字符串
         String signStr = "date: "+timeStr+"\n"+"source: "+"source";
-        //get sig
+        //获取接口签名
         String sig = null;
         Mac mac1 = Mac.getInstance(HMAC_ALGORITHM);
         byte[] hash;
@@ -159,7 +159,7 @@ public class SignAndSend {
     public static String sendGet(String url, String secretId, String secretKey) {
         String result = "";
         BufferedReader in = null;
-    	//get current GMT time
+    	//获取当前 GMT 时间
         Calendar cd = Calendar.getInstance();  
         SimpleDateFormat sdf = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss 'GMT'", Locale.US);  
         sdf.setTimeZone(TimeZone.getTimeZone("GMT")); 
