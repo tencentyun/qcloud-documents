@@ -14,7 +14,7 @@
   - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.51版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.51版本。
   - 升级 org.apache.tomcat.tomcat-annotations-api 到8.5.51版本。
-- 修复 application/x-www-form-urlencoded 类型请求，通过 zuul 网关代理访问 provider 时，服务端不到请求参数的问题。  
+- 修复 application/x-www-form-urlencoded 类型请求，通过 zuul 网关代理访问 provider 时，服务端获取不到请求参数的问题。  
 
 #### 优化
 
