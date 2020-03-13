@@ -84,7 +84,6 @@ ifconfig
 成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
 
->?若无法连通，请参见 [弹性公网 IPv6-运维指南](https://cloud.tencent.com/document/product/1142/38959) 进行排查。
 
 #### Windows 云服务器
 Windows 云服务器可通过 Ping 或远程桌面测试 IPv6 连通性。
