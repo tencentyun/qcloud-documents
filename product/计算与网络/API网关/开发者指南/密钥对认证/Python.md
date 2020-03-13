@@ -36,8 +36,8 @@ def getSimpleSign(source, SecretId, SecretKey) :
     sign = auth + sign + "\""
     return sign, dateTime
 
-SecretId = 'your SecretId' // 密钥对的secretId
-SecretKey = 'your SecretKey' // 密钥对的secretKey
+SecretId = 'your SecretId' // 密钥对的 SecretId
+SecretKey = 'your SecretKey' // 密钥对的 SecretKey
 url = 'http://service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/xxx' // 用户 API 的访问路径
 
 #header = {}
