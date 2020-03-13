@@ -112,7 +112,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </tr>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
-<td>2019-06-31前购买</td>
+<td>2019-06-30前购买</td>
 <td>否</td>
 <td >
 <a href="#unopen">enable_ipv6 工具</a>
@@ -126,7 +126,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </td>
 </tr>
 <tr style="text-align:center;">
-<td>2019-06-31后购买</td>
+<td>2019-06-30后购买</td>
 <td>是</td>
 <td >
 <a href="#open">config_ipv6 工具</a>
@@ -243,8 +243,8 @@ $install_path eth0
 - [Debian 8.2 配置 IPv6](#Debian8.2)
 
 >?
->- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月31日**后**购买的云服务器。
->- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月31日**前**购买的云服务器。
+>- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月30日**后**购买的云服务器。
+>- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月30日**前**购买的云服务器。
 >
 <span id="新购CentOS7.5/CentOS7.6"/>
 
