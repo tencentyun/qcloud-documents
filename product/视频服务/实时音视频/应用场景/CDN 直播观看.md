@@ -69,6 +69,7 @@ param.role     = TRTCRoleAnchor; // 角色：主播
 param.streamId = @"stream1001";  // 流 ID
 [trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE]; // 请使用 LIVE 模式
 ```
+userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 #### 方式二：系统指定 streamId
 开启自动旁路直播后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
