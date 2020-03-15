@@ -42,8 +42,6 @@ TENCENT_APP_ID=123
 ```yml
 # serverless.yml
 
-# serverless.yml
-
 myRole:
   component: "@serverless/tencent-cam-role"
   inputs:
