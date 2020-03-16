@@ -9,7 +9,7 @@
 
 | 所属平台 | 示例代码 | 
 |---------|---------|
-| iOS | [TRTCMainViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMainViewController.m) | 
+| iOS | [VideoCallMainViewController.swift](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TRTCScenesDemo/TRTCVideoCallDemo/ui/VideoCallMainViewController.swift) | 
 | Mac OS | [TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m) | 
 | Android |[TRTCVideoRoomActivity.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCScenesDemo/trtcvideoroom/src/main/java/com/tencent/liteav/demo/trtc/TRTCVideoRoomActivity.java) | 
 | Windows（MFC） | [TRTCMainViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/MFCDemo/TRTCMainViewController.cpp) |

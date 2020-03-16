@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于查询该存储桶是否已开通媒体处理功能。
+DescribeMediaBuckets 接口用于查询存储桶是否已开通媒体处理功能。
 
 ## 请求
 
@@ -107,7 +107,7 @@ Container 节点 Response 的内容：
 | PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
 | MediaBucketList    | Response | 媒体 Bucket 列表                | Container |
 
-Container节点MediaBucketList的内容：
+Container 节点 MediaBucketList 的内容：
 
 | 节点名称（关键字） | 父节点                   | 描述                    | 类型   |
 | :----------------- | :----------------------- | :---------------------- | :----- |

@@ -1,12 +1,13 @@
-初次使用对象存储 COS，建议您先了解 COS [基本概念](https://cloud.tencent.com/document/product/436/6222)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
+初次使用对象存储 COS，建议您先了解 COS [存储桶](https://cloud.tencent.com/document/product/436/13312)、[对象](https://cloud.tencent.com/document/product/436/13324)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互，轻松实现对 COS 资源的查看、传输和管理。
-本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传文件、以及生成文件链接。
+本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传对象、以及下载对象。
 
 
 ## 前提条件
 
-腾讯云账号需开通 COS 服务。若未开通 COS 服务，请前往 [COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通。
+1. 腾讯云账号需开通 COS 服务。若未开通 COS 服务，请前往 [COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通。
+2. COSBrowser 工具使用 API 密钥登录，您需要先前往 [ API 密钥](https://console.cloud.tencent.com/cam/capi) 管理页面创建 API 密钥。
 
 
 ## 步骤1：下载安装 COSBrowser
@@ -18,24 +19,12 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 
 
+## 步骤2：登录 COSBrowser
 
-## 步骤2：创建 API 密钥 
-
-
-COSBrowser 工具需要使用 API 密钥登录，如果已创建 API 密钥，则可直接复制 API 密钥。
-
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/cam/capi" target="_blank"  style="color: white; font-size:16px;">点此创建 API 密钥</a></div><br>
+使用 [API 密钥](https://console.cloud.tencent.com/cam/capi)，登录 COSBrowser。
 
 
-
-
-
-## 步骤3：登录 COSBrowser
-
-使用 API 密钥，登录 COSBrowser。
-
-
-## 步骤4：创建存储桶
+## 步骤3：创建存储桶
 
 1. 单击左上角的【添加桶】。
 2. 在弹出的窗口中，输入存储桶信息。
@@ -46,40 +35,37 @@ COSBrowser 工具需要使用 API 密钥登录，如果已创建 API 密钥，�
 3. 单击【确定】，即可创建存储桶。
 
 
-## 步骤5：上传文件
+## 步骤4：上传对象
 
 1. 单击步骤4创建的存储桶名称，进入存储桶管理页。
 2. 选择【上传】>【选择文件】，选择需要上传至存储桶的文件，例如 exampleobjext.txt。
 3. 单击【上传】，即可将 exampleobjext.txt 上传至存储桶。
 
 
-## 步骤6：生成文件链接
+## 步骤5：下载对象
 
-
-存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。以下是生成对象链接的两种方式：
 
 
 #### 方式一
 
+
 1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
-2. 在文件右侧的操作栏下，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
-3. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。
-4. 您即可通过该链接访问文件。通过此方式生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
+2. 在文件右侧的操作栏下，单击<img src="https://main.qcloudimg.com/raw/0631f784902fb5e146ac0d0f6befe346.jpg"  style="margin:0;">，即可下载文件。
+
 
 #### 方式二
 
-1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
-1. 在文件右侧的操作栏下，单击【**...**】，在下拉菜单中，单击【分享】。
-![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
-2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
-![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
-3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
+1. 鼠标右键单击文件，在下拉菜单中，单击【高级下载】。
+2. COSBrowser 工具将弹出高级下载窗口，根据实际需求选择“重命名”、“覆盖” 或 “跳过”。
+![](https://main.qcloudimg.com/raw/ff43f89b0e5817ebc0c4ff59973c0fb6.jpg)
+3. 单击【立即下载】， COSBrowser 工具将按照您的选择下载文件。
+
 
 
 
 ## 后续步骤
 
-配置有效期永久的文件链接，或了解更多 COSBrowser 功能，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
+您还可以通过临时文件链接访问文件，了解临时文件链接及其他功能，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
 
 
 

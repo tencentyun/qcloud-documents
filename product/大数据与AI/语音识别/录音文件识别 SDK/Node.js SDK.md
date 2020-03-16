@@ -1,6 +1,6 @@
 ## 接入准备
 ### SDK获取
-录音文件识别 Node.js SDK 以及 Demo 的下载地址：[Node.js SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/nodejs_record_asr_sdk_v3.zip) 
+录音文件识别 Node.js SDK 以及 Demo 的下载地址：[Node.js SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/nodejs_record_asr_sdk_v3.zip) 
 ### 接入须知
 开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解**接口要求**和**接口使用步骤**。
 ### 开发环境

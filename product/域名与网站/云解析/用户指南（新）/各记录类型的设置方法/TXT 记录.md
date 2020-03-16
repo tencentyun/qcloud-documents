@@ -2,7 +2,7 @@
 如果希望对域名进行标识和说明，可以使用 TXT 记录，绝大多数的 TXT 记录是用来做 SPF 记录（反垃圾邮件）。本文档指导您如何添加 TXT 记录。
 
 ## 操作步骤
-1. 登录 [腾讯云云解析控制台](https://console.cloud.tencent.com/cns)。
+1. 登录 [腾讯云 DNS 解析控制台](https://console.cloud.tencent.com/cns)。
 2. 在 “域名解析列表” 中，选择需要进行 TXT 记录设置的域名，单击操作栏的【解析】，进入该域名的【记录管理】页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/b6eda1cb37c81229a3494b7dda19bba8.png)
 3. 单击【添加记录】，填写以下记录信息。如下图所示：
