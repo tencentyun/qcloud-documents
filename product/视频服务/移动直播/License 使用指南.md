@@ -11,7 +11,7 @@
 
 <span id="buy"></span>
 ## 购买正式 License
-1. 您可以通过购买 [移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限。具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+1. 您可通过购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，赠送1年有效期的正式直播基础版 License 使用权限。具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 ![](https://main.qcloudimg.com/raw/42b838a60f9ba786d1c0031db43790c3.png)
 2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，单击【新增 License】按钮，选择已购买的流量包绑定有效期，并单击【确定并继续完成 License 设置】。
 ![](https://main.qcloudimg.com/raw/5c2f910243424005ff29fb33dac79379.png)
@@ -28,7 +28,7 @@
 
 
 ## 续期正式 License
-1. 您可以通过购买 [移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+1. 您可通过购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，赠送1年有效期的正式直播基础版 License 使用权限。具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，选择您需续费的正式 License，单击右侧的【续费】。
 3. 选择已购买的流量包绑定有效期，单击【确认】即可。
 ![](https://main.qcloudimg.com/raw/f2c4ce2c8ebcb0f1176ccc2882b6987b.png)
