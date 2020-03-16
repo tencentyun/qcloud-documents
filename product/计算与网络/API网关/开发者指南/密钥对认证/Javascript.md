@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务指导您使用 Javascript 语言，通过密钥对鉴权来对您的 API 进行认证管理。
+该任务指导您使用 JavaScript 语言，通过密钥对鉴权来对您的 API 进行认证管理。
 
 ## 操作步骤
 1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，创建一个 API，选择鉴权类型为“密钥对鉴权”（参考 [创建 API 概述](https://cloud.tencent.com/document/product/628/11795)）。
