@@ -11,17 +11,31 @@
 
 <span id="buy"></span>
 ## 购买正式 License
-1. 您可以通过 [购买移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限。
+1. 您可以通过购买 [移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限。具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 ![](https://main.qcloudimg.com/raw/42b838a60f9ba786d1c0031db43790c3.png)
-2. 购买指定规格的直播流量包后，进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) 。
-3. 单击【新增 License】按钮，选择已购买的流量包，绑定有效期。
+2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，单击【新增 License】按钮，选择已购买的流量包绑定有效期，并单击【确定并继续完成 License 设置】。
 ![](https://main.qcloudimg.com/raw/5c2f910243424005ff29fb33dac79379.png)
 >! 
 >- **选择流量包仅用于直播基础版 License 绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
 	例如：客户的标准直播服务是日结流量计费，在2020年1月1日购买了10TB的直播流量包，为直播 App创建了直播 License A；在2020年2月1日购买了50TB的直播流量包，为另一个直播App创建了直播 License B。
 则A和B可共用 60TB的流量，其中10TB流量包和 License A 都在2021年1月1日到期，50TB流量包和 License B 都在2021年2月1日到期。
->- 单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
->- 若您在续费 License 时需要修改 License 信息，请单击【新增 License】按钮重新新增，正式 License 不支持信息修改功能。
+4. 填写正式 License 的信息，【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
+![](https://main.qcloudimg.com/raw/dedb33e2cc556a9381c5d0497bf0551a.png)
+
+>?
+>-  单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
+>- 若您需要修改 License 信息，购买资源包后请勿用于续期 License，正式 License 不支持信息修改，请单击【新增 License】按钮重新新增License 绑定新的包名信息。
+>- 若您需要修改 License 信息，购买资源包后请勿用于续期 License，正式 License 不支持信息修改，请单击【新增 License】按钮重新新增License 绑定新的包名信息。
+
+
+## 续期正式 License
+1. 您可以通过购买 [移动直播套餐](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb) 免费获得一年 License 使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，选择您需续费的正式 License，单击右侧的【续费】。
+3. 选择已购买的流量包绑定有效期，单击【确认】即可。
+![](https://main.qcloudimg.com/raw/f2c4ce2c8ebcb0f1176ccc2882b6987b.png)
+>! 
+>- **选择流量包仅用于直播基础版 License 绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
+	例如：客户的标准直播服务是日结流量计费，在2020年1月1日购买了10TB的直播流量包，为直播APP创建了直播License C；在2020年5月1日购买了50TB的直播流量包，则该流量包可用于新增License D，或者将 License C 的有效期更新为2020年5月1日~ 2021年5月1日。
 
 
 
