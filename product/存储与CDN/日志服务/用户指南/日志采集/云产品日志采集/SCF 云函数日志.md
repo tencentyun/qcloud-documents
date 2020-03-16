@@ -6,7 +6,7 @@
 ## 接入步骤
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，创建日志集以及日志主题（日志集地域请选择函数服务所在地域，暂不支持跨地域日志推送），详情请参见  [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
-2. 至此您已成功接入日志服务平台。如需进行日志检索，需要手动开启索引，如已开启，可跳过2 - 5步骤。
+2. 如需进行日志检索，需要手动开启索引，如已开启，可跳过2 - 5步骤。
    请您登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，单击【日志集管理】，并进入目标日志集详情，在目标日志主题的右侧单击【管理】，进入到日志主题详情页。
 	 ![](https://main.qcloudimg.com/raw/2a893c050df77744420146457fc73376.jpg)
 3. 单击【索引配置】页签，进入索引配置页面。
@@ -83,6 +83,6 @@
 3. 单击【搜索】，即可检索日志。
    示例1： `SCF_StartTime:1583233118007`查询时间等于1583233118007的日志
    ![](https://main.qcloudimg.com/raw/f687223e9a19f89c2de1878ebb009ce9.png)
-   示例2: `SCF_Index:2` 查询index等2的日志
+   示例2: `SCF_Index:2` 查询 Index 等于2的日志
    ![](https://main.qcloudimg.com/raw/2243f7f8e3844ce638bbec7e71d72b59.png)
 
