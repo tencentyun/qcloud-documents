@@ -1,4 +1,3 @@
-## 通过会议 ID 查询
 **GET      /v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}**
 用会议 ID 查询一个会议内容
 
