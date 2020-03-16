@@ -6,7 +6,7 @@
 
 ### 查看 DNS 服务器
 您可以通过以下步骤查看 DNS 服务器是否正确：
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择 “云产品 > 域名与网站 > 云解析”，进入 “域名解析列表” 页面。
+1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择 “云产品 > 域名与网站 > DNS 解析 DNSPod”，进入 “域名解析列表” 页面。
 2. 选择需要查看的域名，进入该域名的管理页面。
 3. 选择 “记录管理” 页签。若存在如下提示，说明 DNS 服务器不正确。您可复制 DNS 地址到该域名的管理页面进行修改。如下图所示：
 ![1](https://main.qcloudimg.com/raw/1334ffff245ca5ecebea8521d6df5d65.png)
