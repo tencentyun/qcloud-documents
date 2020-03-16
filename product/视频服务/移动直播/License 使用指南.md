@@ -25,7 +25,6 @@
 >?
 >-  单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 >- 若您需要修改 License 信息，购买资源包后请勿用于续期 License，正式 License 不支持信息修改，请单击【新增 License】按钮重新新增License 绑定新的包名信息。
->- 若您需要修改 License 信息，购买资源包后请勿用于续期 License，正式 License 不支持信息修改，请单击【新增 License】按钮重新新增License 绑定新的包名信息。
 
 
 ## 续期正式 License
