@@ -118,7 +118,7 @@ public class Base64 {
 }
 ```
 
-#### SignAndSend.py
+#### SignAndSend.java
 
 ```
 package apigatewayDemo;
