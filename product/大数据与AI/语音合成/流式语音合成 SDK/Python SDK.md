@@ -1,4 +1,4 @@
-流式语音合成 Python3 SDK [下载地址](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_stream_tts_sdk_v3.tar.gz)、Python2 SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/python_stream_tts_sdk.tar.gz )。
+流式语音合成 Python3 SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/python_stream_tts_sdk_v3.zip)、Python2 SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/python_stream_tts_sdk_v2.zip)。
 
 接口请求域名：tts.cloud.tencent.com/stream  
 
