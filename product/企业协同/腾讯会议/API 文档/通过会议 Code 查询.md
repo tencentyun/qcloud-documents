@@ -14,7 +14,12 @@ X-TC-Signature: {signature}
 无
 ## HTTP Response 参数
 HTTP Status Code: 200
-和按会议ID查询相同。
+会议查询成功
+
+| 参数名称 |参数类型 | 参数描述 |
+|---------|---------|---------|
+| meeting_number | integer | 会议数量。  |
+|meeting_info_list  | Array | 会议列表。  |
 
 ## HTTP Response 示例
 
