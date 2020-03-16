@@ -84,7 +84,7 @@ Container 类型 Request 的具体数据描述如下：
       <td>管道 ID</td>
       <td>String</td>
       <td>是</td>
-      <td></td>
+      <td>-</td>
    </tr>
    <tr>
       <td>State</td>
