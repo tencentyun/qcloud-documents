@@ -1,7 +1,7 @@
 
 ## TKE kubernetes 1.16.3 revisions
 <table><thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -24,7 +24,7 @@
 ## TKE kubernetes 1.14.3 revisions
 <table>
 <thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -73,7 +73,7 @@
 
 <table>
 <thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -157,7 +157,7 @@
 
 <table>
 <thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody><tr>
 	<td>2020-01-13</td>
@@ -250,7 +250,7 @@
 
 <table>
 <thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
 <tr>
@@ -289,7 +289,7 @@
 
 <table>
 <thead>
-<tr><th width="11%">时间</th><th width="13%">版本</th><th width="76%">更新内容</th></tr>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
 <tr>
