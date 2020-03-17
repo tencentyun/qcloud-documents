@@ -76,8 +76,7 @@ IPlayerInfo 定义如下：
 GameData 默认为 object 类型，开发者可以根据需要进行自定义。
 
 >?
-- dismissRoom 调用结果将在 callback 中异步返回。解散成功后，房间内全部成员均会收到一条房间被解散广播 onDismissRoom，roomInfo 属性将更新。
-- 只有房主有权限解散房间。
+onInitGameData 方法是在收到任意广播时检查 gameData，如果 gameData 为空，先执行 onInitGameData 再执行广播回调函数。
 
 **使用示例**
 
