@@ -79,7 +79,7 @@
 <tr>
 	<td>2020-01-13</td>
 	<td>v1.12.4-tke.16</td>
-	<td><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新assumed pod 的调度。</li></td>
+	<td><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新 assumed pod 的调度。</li></td>
 </tr>
 <tr>
 	<td>2019-12-23</td>
