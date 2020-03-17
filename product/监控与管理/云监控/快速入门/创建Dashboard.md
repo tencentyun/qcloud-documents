@@ -1,4 +1,4 @@
-本文主要介绍 Dashboard 的功能和操作步骤，方便你快速创建 Dashboard。
+本文主要介绍 Dashboard 的功能和操作步骤，方便您快速创建 Dashboard。
 
 ## 功能介绍
 
