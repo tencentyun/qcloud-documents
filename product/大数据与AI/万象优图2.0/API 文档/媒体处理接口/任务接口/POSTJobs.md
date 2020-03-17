@@ -128,7 +128,7 @@ Container 类型 Operation 的具体数据描述如下：
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | -------- |
 | Animation          | Request.Operation | 当 Tag 为 Animation 时有效，指定该任务的参数                 | Container | 否       |
-| Snapshot           | Request.Operation | 当 Tag 为 Snapshot 时有效，指定该任务的参数，同 POSTTemplate 中的 Request.Snapshot | Container | 否       |
+| Snapshot           | Request.Operation | 当 Tag 为 Snapshot 时有效，指定该任务的参数，同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Snapshot | Container | 否       |
 | SmartCover         | Request.Operation | 当 Tag 为 SmartCover 时有效，目前为空                    | Container | 否       |
 | TemplateId         | Request.Operation | 指定的模版 ID                                                | String    | 否       |
 | Output             | Request.Operation | 结果输出地址                                                 | Container | 是       |
@@ -139,9 +139,9 @@ Container 类型 Animation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                      | 类型      | 是否必选 |
 | ------------------ | :-------------------------- | ----------------------------------------- | --------- | -------- |
-| Container          | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Container    | Container | 否       |
-| Video              | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Video        | Container | 否       |
-| TimeInterval       | Request.Operation.Animation | 同 POSTTemplate 中的 Request.TimeInterval | Container | 否       |
+| Container          | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Container    | Container | 否       |
+| Video              | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Video        | Container | 否       |
+| TimeInterval       | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.TimeInterval | Container | 否       |
 
 Container 类型 Output 的具体数据描述如下：
 
