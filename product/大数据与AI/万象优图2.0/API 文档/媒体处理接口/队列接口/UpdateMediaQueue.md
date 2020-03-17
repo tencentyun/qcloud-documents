@@ -192,7 +192,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                                              | 类型      |
 | :----------------- | :------- | :------------------------------------------------ | :-------- |
 | RequestId          | Response | 请求的唯一 ID                                     | String    |
-| Queue              | Response | 队列信息，详情同 GETQueue 中的 Response.QueueList | Container |
+| Queue              | Response | 队列信息，详情同 [DescribeMediaQueues](https://cloud.tencent.com/document/product/460/38913) 中的 Response.QueueList | Container |
 
 #### 错误码
 
