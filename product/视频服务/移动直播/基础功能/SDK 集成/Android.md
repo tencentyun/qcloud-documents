@@ -87,8 +87,7 @@ defaultConfig {
 
 - **第三步：引用 jar 库**
   在 app/build.gradle 中，添加引用 jar 库的代码。
-  ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
-
+![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
 ```
 dependencies{
 		implementation fileTree(dir:'libs',include:['*.jar'])
