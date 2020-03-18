@@ -38,10 +38,3 @@
 >! **选择流量包仅用于直播基础版 License 绑定流量包的有效期，流量包的流量可用于当前账号所有 License 直播流量消耗。**
 	例如：客户的标准直播服务是日结流量计费，在2020年01月01日购买了10TB的直播流量包，为直播 App 创建了直播License C；在2020年05月01日购买了50TB的直播流量包，则该流量包可用于新增 License D，或者将 License C 的有效期更新为2020年5月1日 - 2021年5月1日。
 
-
-## 企业版 License
-相比于专业版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，更多详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
-使用企业版本 License 时，License 设置方法同 [配置 License](#config)，但工程需要额外进行配置，具体操作请参见：
-- [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
-- [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
-
