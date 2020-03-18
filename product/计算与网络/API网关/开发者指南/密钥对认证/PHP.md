@@ -30,7 +30,7 @@ $url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/
 $headers = array( 
 	'Host:service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', // 用户 API 所在服务的域名
 	'Accept:text/html, */*; q=0.01',
-	'Source: yousali',
+	'Source: xxxxxx',
 	'Date: '.$dateTime,
 	'Authorization: '.$Authen,
 	'X-Requested-With: XMLHttpRequest',
