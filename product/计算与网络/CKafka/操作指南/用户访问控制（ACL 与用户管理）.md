@@ -5,7 +5,7 @@
 - ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
+该功能目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 操作步骤
 
