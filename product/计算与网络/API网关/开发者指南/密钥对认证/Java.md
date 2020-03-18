@@ -181,6 +181,11 @@ public class SignAndSend {
             httpUrlCon.setRequestProperty("Authorization",authen);
             httpUrlCon.setRequestProperty("X-Requested-With","XMLHttpRequest");
             httpUrlCon.setRequestProperty("Accept-Encoding","gzip, deflate, sdch");
+	    
+	    // 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+	    httpUrlCon.setRequestProperty("X-NameSpace-Code","testmic");
+	    httpUrlCon.setRequestProperty("X-MicroService-Name","provider-demo");
+	    
             // 建立实际的连接
             httpUrlCon.connect();
             // 获取所有响应头字段
