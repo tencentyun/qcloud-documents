@@ -4,15 +4,20 @@ WAF 通过反向代理的方式实现网站安全防护，用户访问 WAF 防�
 场景二：用户＞CDN > WAF＞源站，X-Forwarded-For 记录为： `X-Forwarded-For:用户真实 IP,X-Forwarded-For:CDN 回源地址`。
 >?负载均衡型 WAF 接入，请参见负载均衡中 [如何获取客户端真实 IP](https://cloud.tencent.com/document/product/214/3728)。
 
-下文将对常见的应用服务器 X-Forwarded-For 配置方案进行介绍。
+下文将对常见的应用服务器 X-Forwarded-For 配置方案进行介绍：
+- [IIS 7 配置方案](#IIS7)
+- [Apache 配置方案](#Apache)
+- [Nginx 配置方案](#Nginx)
+
+<span id="IIS7"></span>
 ## IIS 7 配置方案
-1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C:\F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C:\F5XForwardedFor`，确保 IIS 进程对该目录有读取权限。
 2. 选择【IIS 服务器】，双击【模块】功能。
 ![](https://main.qcloudimg.com/raw/1682f2fd88f83f059d871013f5e76451.png)
 3. 单击【配置本机模块】。
 ![](https://main.qcloudimg.com/raw/bdc74f95150f9d3d88dcbb0f5e81ec9e.png)
 4. 在弹出框中单击【注册】。
-![](https://main.qcloudimg.com/raw/be262498b081c68205618671f4086cbf.png)
+![](https://main.qcloudimg.com/raw/3638128094c12515cb30de141524bfd0.png)
 5. 添加下载的 DLL 文件，如下图所示：
 ![](https://main.qcloudimg.com/raw/9f8fac869d34ac4e308bd3c428da10af.png)
 6. 添加完成后，勾选并单击【确定】。
@@ -21,6 +26,7 @@ WAF 通过反向代理的方式实现网站安全防护，用户访问 WAF 防�
 ![](https://main.qcloudimg.com/raw/57243f4da04233238db2de9690ed7f1d.png)
 8. 重启 IIS 服务器，等待配置生效。
 
+<span id="Apache"></span>
 ## Apache 配置方案
 1. 安装 Apache 第三方模块“mod_rpaf”，需执行如下命令：
 ```
@@ -42,6 +48,7 @@ RPAFheader X-Forwarded-For
 /usr/sbin/apachectl restart
 ```
 
+<span id="Nginx"></span>
 ## Nginx 配置方案
 1. 当 Nginx 作为服务器时，获取客户端真实 IP，需使用 http_realip_module 模块，默认安装的 Nginx 是没有安装 http_realip_module 模块的，需要重新编译 Nginx 增加 --with-http_realip_module。
 ```
