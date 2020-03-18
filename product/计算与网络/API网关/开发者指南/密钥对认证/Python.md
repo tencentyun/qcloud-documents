@@ -54,6 +54,7 @@ sign, dateTime = getSimpleSign(Source, SecretId, SecretKey)
 header['Authorization'] = sign
 header['Date'] = dateTime
 header['Source'] = Source
+
 // 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
 header['X-NameSpace-Code'] = 'testmic'
 header['X-MicroService-Name'] = 'provider-demo'
