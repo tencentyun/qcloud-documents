@@ -27,6 +27,7 @@
 
 
 ## 续期正式 License
+您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，若您的正式 License 已到期，可进行如下操作：
 1. 您可通过购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，赠送1年有效期的正式直播基础版 License 使用权限。具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，选择您需续费的正式版 License，单击右侧的【续费】。
 3. 选择已购买的流量包绑定有效期，单击【确定】即可。
@@ -35,57 +36,9 @@
 	例如：客户的标准直播服务是日结流量计费，在2020年01月01日购买了10TB的直播流量包，为直播 App 创建了直播License C；在2020年05月01日购买了50TB的直播流量包，则该流量包可用于新增 License D，或者将 License C 的有效期更新为2020年5月1日 - 2021年5月1日。
 
 
-
-
-<span id="config"></span>
-## 配置 License
-
-在调用 SDK 的相关接口前，您需要调用如下方法配置 License：
-
-- iOS
- 建议在 `[AppDelegate application:didFinishLaunchingWithOptions:]` 中添加：
-```
-[TXLiveBase setLicenceURL:LicenceUrl key:Key];
-```
-- Android
- 建议在 application 中添加：
-```
-TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
-```
-
-##  查看 License 信息
-License 设置成功后（需稍等一段时间，具体时间长短依据网络情况而定），您可以通过调用以下方法查看 License 信息：
-
-- iOS
-```
-NSLog(@"%@", [TXLiveBase getLicenceInfo]);
-```
-- Android
-```
-TXLiveBase.getInstance().getLicenceInfo();
-```
-
-## License 的有效期与续费
-
-您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，
-正式版 License 有效期一般为一年。License 到期后您可以在 [移动直播套餐选购](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)  页面再次购买。
-
 ## 企业版 License
 相比于专业版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，更多详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。
 使用企业版本 License 时，License 设置方法同 [配置 License](#config)，但工程需要额外进行配置，具体操作请参见：
 - [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
 - [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
 
-## License 常见问题
-
-### 测试 License 到期后是否可以延期？
-测试 License 试用期最多28天，不支持延期，到期后请尽快 [购买正式 License](#buy)。
-
-### 测试 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
-测试 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。具体操作：登录控制台，单击测试 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
-
-### 正式 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
-正式 License 不能更改 Package Name 和 Bundle ID。
-
-### License 可以同时支持多个 App 吗？
-一个 License 只能对应一个 Package Name 和一个 Bundle ID，若多个 App 使用 SDK 功能，需要购买多个资源包新增多个License。
