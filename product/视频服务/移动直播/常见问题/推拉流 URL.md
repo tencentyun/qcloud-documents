@@ -20,7 +20,7 @@
 
 
 ### <span id="PlayURL">如何生成拉流 URL？ </span>	
-拉流 URL 即播放地址，您可通过进入云直播控制台的【辅助工具】>【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】生成，具体操作可参见 [直播播放](https://cloud.tencent.com/document/product/267/32733#.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
+拉流地址（又称播放地址），您可通过进入云直播控制台的【辅助工具】>【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】生成，具体操作可参见 [直播播放](https://cloud.tencent.com/document/product/267/32733#.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
 腾讯云播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如：	
 ```	
 http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time) 	
