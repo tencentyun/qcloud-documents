@@ -26,15 +26,14 @@ Dashboard 提供了自定义监控面板的服务，您可以在监控面板中�
  2. 在数据视图中，选择数据展示的图示。
  3. 在页面右侧，选择需要监控的实例。
  4. 在页面左侧，输入图标名称和选择监控指标。
-![](https://main.qcloudimg.com/raw/ee84fc3f4242149d52dd110578208b80.png)
+![](https://main.qcloudimg.com/raw/d7f0ffeb773b6d34195cba6fb9e58b78.png)
 3. 完成后单击【确定】，即完成视图创建。
 >?更多详细的步骤和说明请参见 [配置 Dashboard](https://cloud.tencent.com/document/product/248/13119)。
 
 ### 步骤3：查看监控图表
-:在您完成监控图表的创建后，在 Dashboard 管理页面中可以查看。
-![](https://main.qcloudimg.com/raw/f7d860201c491f70f64a21ff4a9283c0.png)
-
->更多详细的步骤和说明请点击[查看Dashboard](https://cloud.tencent.com/document/product/248/13119)
+在您完成监控图表的创建后，在 Dashboard 管理页面中可以查看。
+![](https://main.qcloudimg.com/raw/6f498d035d35c1066cf7852136eb1b53.png)
+>?更多详细的步骤和说明，请参见 [查看 Dashboard](https://cloud.tencent.com/document/product/248/13120)。
 
 ## 其它操作
 #### 重命名和删除面板
