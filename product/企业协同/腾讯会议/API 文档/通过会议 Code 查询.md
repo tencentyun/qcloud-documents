@@ -1,5 +1,5 @@
 **GET      /v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instantceid}**
-用会议ID查询一个会议内容
+用会议Code查询一个会议内容
 ## Authorization
 X-TC-Signature: {signature}
 ## HTTP Request Path 参数
@@ -31,8 +31,8 @@ HTTP Status Code: 200
 |password   |String | 会议密码。  |
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
-|start_time  |String | 预约的开始时间(RFC 3339, section 5.6 定义的时间格式) 。 |
-|end_time  |String | 预约的结束时间 。  |
+|start_time  |String | 会议开始时间戳(单位秒) 。 |
+|end_time  |String | 会议结束时间戳(单位秒) 。  |
 |settings   |会议媒体参数对象 |会议的配置，可为缺省配置 。|
 
 会议媒体参数对象
