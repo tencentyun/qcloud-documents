@@ -26,7 +26,7 @@ dependencies {
 dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
 }
- ```
+```
 - **第二步：指定 App 使用架构**
   在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
 ```
@@ -87,11 +87,18 @@ defaultConfig {
 
 - **第三步：引用 jar 库**
   在 app/build.gradle 中，添加引用 jar 库的代码。
-  ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
+![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
+```
+dependencies{
+		implementation fileTree(dir:'libs',include:['*.jar'])
+}
+```
+
 
 - **第四步：引用 so 库**
   在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
+
 
 - **第五步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
@@ -108,6 +115,16 @@ defaultConfig {
 
 ## 配置 App 打包参数
 ![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+
+```
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+    } 
+```
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：

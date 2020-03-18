@@ -155,16 +155,16 @@ Container 节点 TemplateList 的内容：
 | Tag                | Response.TemplateList | 模版类型，Snapshot 或者 Animation                            | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| Snapshot           | Response.TemplateList | Tag 为 Snapshot 时存在，其详细的模版参数，同 POSTTemplate 中的 Request.Snapshot | Container |
+| Snapshot           | Response.TemplateList | Tag 为 Snapshot 时存在，其详细的模版参数，同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Snapshot | Container |
 | TransTpl           | Response.TemplateList | Tag 为 Animation 时存在，其详细的模版参数                    | Container |
 
 Container 节点 TransTpl 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                      | 类型      |
 | :----------------- | :----------------------------- | :---------------------------------------- | :-------- |
-| TimeInterval       | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.TimeInterval | Container |
-| Container          | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Container    | Container |
-| Video              | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Video        | Container |
+| TimeInterval       | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.TimeInterval | Container |
+| Container          | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Container    | Container |
+| Video              | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Video        | Container |
 
 #### 错误码
 

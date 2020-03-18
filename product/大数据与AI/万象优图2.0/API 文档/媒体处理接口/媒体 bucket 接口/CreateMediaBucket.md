@@ -57,7 +57,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
 | RequestId          | Response | 请求的唯一 ID                                                | String    |
-| MediaBucket        | Response | 媒体 Bucket 详情，同 GETMediaBucket 中的 Response.MediaBucketList | Container |
+| MediaBucket        | Response | 媒体 Bucket 详情，同 [DescribeMediaBuckets](https://cloud.tencent.com/document/product/460/38914) 中的 Response.MediaBucketList | Container |
 
 #### 错误码
 

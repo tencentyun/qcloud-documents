@@ -2,7 +2,7 @@
 消息队列 CKafka 支持用户存储消息的能力，您可以将消息存储到 COS 中，并下载分析。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过[ 提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+该功能目前处于灰度测试阶段，如需试用请通过[ 提交内测申请](https://cloud.tencent.com/apply/p/cdp2ygatv8b) 的方式开通白名单。
 
 <span id="operation"></span>
 ## 操作步骤
