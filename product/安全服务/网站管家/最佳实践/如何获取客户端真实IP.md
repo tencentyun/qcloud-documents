@@ -1,7 +1,7 @@
 ## WAF 获取客户端真实 IP 说明
 WAF 通过反向代理的方式实现网站安全防护，用户访问 WAF 防护的域名时，会在 HTTP 头部字段中添加一条 X-Forwarded-For 记录，用于记录用户真实 IP，其记录格式为 `X-Forwarded-For:用户 IP`。如果用户访问域名存在多级代理，WAF 将记录靠近 WAF 上一条的代理服务器 IP。例如：
 场景一：用户＞WAF＞源站，X-Forwarded-For 记录为：`X-Forwarded-For:用户真实 IP`
-场景二：用户＞CDN > WAF＞源站，X-Forwarded-For 记录为： `X-Forwarded-For:用户真实 IP,X-Forwarded-For:CDN 会源地址`。
+场景二：用户＞CDN > WAF＞源站，X-Forwarded-For 记录为： `X-Forwarded-For:用户真实 IP,X-Forwarded-For:CDN 回源地址`。
 >?负载均衡型 WAF 接入，请参见负载均衡中 [如何获取客户端真实 IP](https://cloud.tencent.com/document/product/214/3728)。
 
 下文将对常见的应用服务器 X-Forwarded-For 配置方案进行介绍。
