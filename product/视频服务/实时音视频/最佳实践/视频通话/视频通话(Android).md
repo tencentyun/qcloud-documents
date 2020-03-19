@@ -71,13 +71,12 @@ dependencies {
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32267) 接口创建`TRTCCloud`实例。
-2. 设置 setListener 属性注册事件回调，并监听相关事件和错误通知。
 ```
 // 创建 trtcCloud 实例
 mTRTCCloud = TRTCCloud.sharedInstance(getApplicationContext());
 mTRTCCloud.setListener(new TRTCCloudListener());
 ```
-监听
+2. 设置`setListener`属性注册事件回调，并监听相关事件和错误通知。
 ```
 // 错误通知监听，错误通知意味着 SDK 不能继续运行
 @Override
@@ -111,7 +110,8 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
  - 视频通话，请设置为`TRTC_APP_SCENE_VIDEOCALL`。
  - 语音通话，请设置为`TRTC_APP_SCENE_AUDIOCALL`。
-3. 如果进房成功，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+3. 进房成功后，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+
 ```
 public void enterRoom() {
     TRTCCloudDef.TRTCParams trtcParams = new TRTCCloudDef.TRTCParams();
@@ -121,6 +121,7 @@ public void enterRoom() {
     trtcParams.userSig = 908;
     mTRTCCloud.enterRoom(trtcParams, TRTC_APP_SCENE_VIDEOCALL);
 }
+
 @Override
 public void onEnterRoom(long result) {
     if (result > 0) {
