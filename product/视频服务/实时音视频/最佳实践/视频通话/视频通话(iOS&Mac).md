@@ -26,7 +26,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 >
 ```
 target 'Your Project' do
-    pod 'TXLiteAVSDK_TRTC'
+        pod 'TXLiteAVSDK_TRTC'
 end
 ```
 3. 执行以下命令安装 **TRTC SDK** 。
@@ -61,9 +61,9 @@ trtcCloud.delegate = self
 ```swift
 // 错误通知是要监听的，需要捕获并通知用户
 func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
-    if ERR_ROOM_ENTER_FAIL == errCode {
-        toastTip("进房失败[\(errMsg ?? "")]")
-        exitRoom()
+      if ERR_ROOM_ENTER_FAIL == errCode {
+           toastTip("进房失败[\(errMsg ?? "")]")
+           exitRoom()
     }
 }
 ```
@@ -139,7 +139,7 @@ func onUserVideoAvailable(_ userId: String, available: Bool) {
 }
 ```
 
->? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在1s - 3s后停止接收来自远端的视频数据。
+>? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在5s内停止接收来自远端的视频数据。
 
 #### 手动订阅模式
 您可以通过 [setDefaultStreamRecvMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) 接口将 SDK 指定为手动订阅模式。在手动订阅模式下，SDK 不会自动接收房间中其他用户的音视频数据，需要您手动通过 API 函数触发。
