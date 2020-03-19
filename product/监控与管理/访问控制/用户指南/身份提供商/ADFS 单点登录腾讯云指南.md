@@ -3,13 +3,13 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 本教程为 ADFS 单点登录至腾讯云的配置指南。
 
 ## 前提条件
-> - 拥有一台 Windows Server 2003 R2 云服务器，如您需要购买服务器，清参阅 [云服务器-购买指南](https://cloud.tencent.com/document/product/213/2179)。
+> - 拥有一台 Windows Server 2003 R2 云服务器。如您需要购买服务器，清参阅 [云服务器-购买指南](https://cloud.tencent.com/document/product/213/2179)。
 - 已进入服务器管理-仪表板页面。
-- 拥有一个已完成实名认证的域名，如您需要购买域名，请参阅 [域名-购买指南](https://cloud.tencent.com/document/product/242/18873)。
+- 拥有一个已完成实名认证的域名。如您需要购买域名，请参阅 [域名-购买指南](https://cloud.tencent.com/document/product/242/18873)。
 
 ## 操作步骤
 ### 安装 AD 域服务和 DNS 服务
-1. 在仪表板管理页面，单击【添加角色和功能】，保持页面默认信息，一直单击【下一步】，进入添加角色和功能向导页面</span>。
+1. 在仪表板管理页面，单击【添加角色和功能】，保持页面默认信息，一直单击【下一步】，进入添加角色和功能向导页面。
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318184337488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 2. 在添加角色和功能向导页面， 保持页面默认信息，一直单击【下一步】，<span id="step1">在服务器角色信息栏勾选 Active Directory 域服务、DNS 服务器。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318184422382.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
@@ -23,16 +23,14 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318185526743.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 7. 完成 AD 域服务、DNS 服务安装，并将服务器提升为域控制器完毕。
 
-## 安装 Web 服务器
-1. 在仪表板管理页面，单击【添加角色和功能】，保持页面默认信息，一直单击【下一步】，进入添加角色和功能向导页面。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318184337488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-
-2. 在添加角色和功能向导页面， 保持页面默认信息，一直单击【下一步】，在服务器角色信息栏勾选 Web 服务器。如下图所示：
+### 安装 Web 服务器
+1.参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，在服务器角色信息栏勾选 Web 服务器。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318190638764.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-3. 保持页面默认信息不变，一直单击【下一步】>【安装】，完成 Web 服务器安装。
+2. 保持页面默认信息不变，一直单击【下一步】>【安装】，完成 Web 服务器安装。
 
-## 申请证书
-如您已拥有 SSL 证书，可直接进行 安装 ASDCS（AD 证书服务器）操作。
+### 申请证书
+如您已拥有 SSL 证书，可直接进行 [安装 ADFS](#step0) 操作。
+
 1. 单击左下角【Windows图标】，在搜索框输入“mmc”命令，回车执行，进入控制台1-[控制台根节点]页面。如下图所示：
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318191733112.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
  
@@ -60,21 +58,19 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 9. 单击【确认】>【下一步】，选择需要保存的目录，保存证书，单击完成。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318192512859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 
-## 安装 ADC(AD证书服务器)
-1. 在仪表板管理页面，单击【添加角色和功能】，保持页面默认信息，一直单击【下一步】，进入添加角色和功能向导页面。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318184337488.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-2. 在添加角色和功能向导页面， 保持页面默认信息，一直单击【下一步】，在服务器角色信息栏勾选 Active Directory 证书服务器。如下图所示：
+### 安装 ADC(AD证书服务器)
+1. 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，在服务器角色信息栏勾选 Active Directory 证书服务器。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318194846791.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-3. 保持默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
+2. 保持默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020031819494054.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
- 4. 单击【安装】，在完成安装成功界面，单击右上角![](https://main.qcloudimg.com/raw/32f3dcf3b4c58c0acb3485f2dab0f9a7.png)，单击【配置目标服务器的 Active Directory 证书服务】。如下图所示：
+ 3. 单击【安装】，在完成安装成功界面，单击右上角![](https://main.qcloudimg.com/raw/32f3dcf3b4c58c0acb3485f2dab0f9a7.png)，单击【配置目标服务器的 Active Directory 证书服务】。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318201736746.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-5.保持页面默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
+4.保持页面默认信息，一直单击【下一步】，在角色服务栏勾选证书颁发机构、证书颁发机构 Web 注册。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318201930415.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
-6. 保持页面默认信息，一直单击【下一步】，单击【配置】，完成安装 ADC。如下图所示：
+5. 保持页面默认信息，一直单击【下一步】，单击【配置】，完成安装 ADC。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020031820211244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 
-## 生成 SSL 证书
+### 生成 SSL 证书
 1. 访问访问 http://localhost/certsrv， 单击【申请证书】。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318202315283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 2. 在申请一个证书页面，单击【高级证书申请】。如下图所示：
@@ -96,8 +92,8 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318214811676.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318214838629.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 
-## 安装 ADFS
-1. 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，勾选 Active Directory 联合身份验证服务。如下图所示：
+### 安装 ADFS
+1.<span id="step0"> 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，勾选 Active Directory 联合身份验证服务。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318191433342.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 2. 保持页面默认信息，一直单击【下一步】>【完成】，在结果页面，单击【在此服务器上配置联合身份验证服务】。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318191612493.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
