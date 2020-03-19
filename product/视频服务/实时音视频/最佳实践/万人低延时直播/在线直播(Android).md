@@ -134,8 +134,8 @@ mTRTCCloud.startLocalAudio();
 
 1. 主播端调用 [getBeautyManager()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) 可以获取美颜设置接口 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
 2. 主播端调用 [setBeautyStyle()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a46ffe2b60f916a87345fb357110adf10) 可以设置美颜风格：
- - Smooth：类抖音的网红风格。
- - Nature：更加自然的风格。
+ - Smooth：光滑，效果比较明显，类似网红风格。
+ - Nature：自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
  - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
 3. 主播端调用 [setBeautyLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#a7f388122cf319218b629fb8e192a2730) 可以设置磨皮的级别，一般设置为5即可。
 4. 主播端调用 [setWhitenessLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#aa4e57d02a4605984f4dc6d3508987746) 可以设置美白级别，一般设置为5即可。
