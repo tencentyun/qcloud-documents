@@ -3,10 +3,11 @@
 __功能__
 
 腾讯云移动直播 - 连麦直播间。
+>! 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 __介绍__
 
-基于腾讯云直播（LVB）、点播（VOD） 和云通信（IM）三大 PAAS 服务组合而成，支持：
+基于腾讯云直播（LVB）、云点播（VOD） 和即时通信（IM）三大 PAAS 服务组合而成，支持：
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
 - 两个不同房间的主播 PK 互动。
@@ -25,7 +26,7 @@ __介绍__
 ## SDK 基础函数
 ### sharedInstance
 
-获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+获取 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 MLVBLiveRoom sharedInstance(Context context)
 ```
@@ -38,20 +39,20 @@ __参数__
 
 __返回__
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例。
 
->?可以调用 [MLVBLiveRoom#destroySharedInstance()](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23destroysharedinstance) 销毁单例对象。
+>?可以调用 [MLVBLiveRoom#destroySharedInstance()](https://cloud.tencent.com/document/product/454/34776#destroysharedinstance) 销毁单例对象。
 
 ***
 
 ### destroySharedInstance
 
-销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 单例对象。
+销毁 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 单例对象。
 ```
 void destroySharedInstance()
 ```
 
->?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23sharedinstance.28context) 获取新实例。
+>?销毁实例后，外部缓存的 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 实例不能再使用，需要重新调用 [MLVBLiveRoom#sharedInstance(Context)](https://cloud.tencent.com/document/product/454/34776#sharedinstance) 获取新实例。
 
 ***
 
@@ -66,13 +67,13 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) | 回调接口。 |
+| listener | [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) | 回调接口。 |
 
 __介绍__
 
-您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom) 的各种状态通知。
+您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) 获得 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 的各种状态通知。
 
->?默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#mlvbliveroom.23setlistenerhandler.28handler)。
+>?默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [MLVBLiveRoom#setListenerHandler(Handler)](https://cloud.tencent.com/document/product/454/34776#setlistenerhandler)。
 
 ***
 
@@ -151,7 +152,7 @@ __参数__
 
 __介绍__
 
-该接口支持分页获取房间列表，可以用 index 和 count 两个参数控制列表分页的逻辑，
+该接口支持分页获取房间列表，可以用 index 和 count 两个参数控制列表分页的逻辑：
 - index = 0 & count = 10 代表获取第一页的10个房间。
 - index = 11 & count = 10 代表获取第二页的10个房间。
 
@@ -261,8 +262,8 @@ __介绍__
 有时候您可能需要为房间产生一些额外的信息，此接口可以将这些信息缓存到服务器。
 
 >?
->- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型
->- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型
+>- op 为 MLVBCommonDef.CustomFieldOp#SET 时，value 可以是 String 或者 Integer 类型。
+>- op 为 MLVBCommonDef.CustomFieldOp#INC 时，value 是 Integer 类型。
 >- op 为 MLVBCommonDef.CustomFieldOp#DEC 时，value 是 Integer 类型。
 
 ***
@@ -302,13 +303,13 @@ __介绍__
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 1. 观众调用 [requestJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#requestjoinanchor) 向主播发起连麦请求。
-2. 主播会收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestjoinanchor.28anchorinfo.2C+string) 的回调通知。
+2. 主播会收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#onrequestjoinanchor) 的回调通知。
 3. 主播调用 [responseJoinAnchor()](https://cloud.tencent.com/document/product/454/34776#responsejoinanchor) 确定是否接受观众的连麦请求。
 4. 观众会收到 [IMLVBLiveRoomListener.RequestJoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777#requestjoinanchorcallback) 回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 [startLocalPreview()](https://cloud.tencent.com/document/product/454/34776#startlocalpreview) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 [joinAnchor()](https://cloud.tencent.com/document/product/454/34776#joinanchor) 正式进入连麦状态。
-7. 主播一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onanchorenter.28anchorinfo) 通知。
-8. 主播主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
+7. 主播一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onanchorenter) 通知。
+8. 主播调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 就可以看到连麦观众的视频画面。
 9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ***
@@ -334,7 +335,7 @@ __返回__
 
 __介绍__
 
-主播在收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestjoinanchor.28anchorinfo.2C+string) 回调之后会需要调用此接口来处理观众的连麦请求。
+主播在收到 [IMLVBLiveRoomListener#onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#onrequestjoinanchor) 回调之后会需要调用此接口来处理观众的连麦请求。
 
 ***
 
@@ -353,7 +354,7 @@ __参数__
 
 __介绍__
 
-进入连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onanchorenter.28anchorinfo) 通知。
+进入连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener#onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onanchorenter) 通知。
 
 ***
 
@@ -372,7 +373,7 @@ __参数__
 
 __介绍__
 
-退出连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener#onAnchorExit(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onanchorexit.28anchorinfo) 通知。
+退出连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener#onAnchorExit(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onanchorexit) 通知。
 
 ***
 
@@ -391,7 +392,7 @@ __参数__
 
 __介绍__
 
-主播调用此接口踢除连麦观众后，被踢连麦观众会收到 [IMLVBLiveRoomListener#onKickoutJoinAnchor()](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onkickoutjoinanchor) 回调通知。
+主播调用此接口踢除连麦观众后，被踢连麦观众会收到 [IMLVBLiveRoomListener#onKickoutJoinAnchor()](https://cloud.tencent.com/document/product/454/34777#onkickoutjoinanchor) 回调通知。
 
 ***
 
@@ -415,7 +416,7 @@ __介绍__
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B，他们之间的跨房 PK 流程如下：
 1. 主播 A 调用 [requestRoomPK()](https://cloud.tencent.com/document/product/454/34776#requestroompk) 向主播 B 发起连麦请求。
-2. 主播 B 会收到 [IMLVBLiveRoomListener#onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onrequestroompk.28anchorinfo) 回调通知。
+2. 主播 B 会收到 [IMLVBLiveRoomListener#onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onrequestroompk) 回调通知。
 3. 主播 B 调用 [responseRoomPK()](https://cloud.tencent.com/document/product/454/34776#responseroompk) 确定是否接受主播 A 的 PK 请求。
 4. 主播 B 如果接受了主播 A 的要求，可以直接调用 [startRemoteView()](https://cloud.tencent.com/document/product/454/34776#startremoteview) 来显示主播 A 的视频画面。
 5. 主播 A 会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#requestroompkcallback) 回调通知，可以得知请求是否被同意。
@@ -463,7 +464,7 @@ __参数__
 
 __介绍__
 
-当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 [IMLVBLiveRoomListener#onQuitRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#imlvbliveroomlistener.23onquitroompk.28anchorinfo) 回调通知。
+当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 [IMLVBLiveRoomListener#onQuitRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onquitroompk) 回调通知。
 
 ***
 
@@ -675,23 +676,20 @@ __介绍__
 
 
 ## 美颜滤镜相关接口函数
-### setBeautyStyle
-
-设置美颜、美白及红润效果级别。
+### getBeautyManager
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39379)。
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 ```
-abstract boolean setBeautyStyle(int beautyStyle, int beautyLevel, int whitenessLevel, int ruddinessLevel)
+public TXBeautyManager getBeautyManager()
 ```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | int | 美颜风格，三种美颜风格：0 ：光滑；1：自然；2：朦胧。 |
-| beautyLevel | int | 美颜级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| whitenessLevel | int | 美白级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
-| ruddinessLevel | int | 红润级别，取值范围：0 - 9； 0 表示关闭， 1 - 9值越大，效果越明显。 |
 
 ***
+
 
 ### setFilter
 
@@ -735,24 +733,9 @@ __参数__
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | image | Bitmap | 水印图片 null 表示清除水印。 |
-| x | float | 归一化水印位置的 X 轴坐标，取值[0,1]。 |
-| y | float | 归一化水印位置的 Y 轴坐标，取值[0,1]。 |
-| width | float | 归一化水印宽度，取值[0,1]。 |
-
-***
-
-### setMotionTmpl
-
-设置动效贴图。
-```
-abstract void setMotionTmpl(String filePaht)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| filePaht | String | 动态贴图文件路径。 |
+| x | float | 归一化水印位置的 X 轴坐标，取值[0，1]。 |
+| y | float | 归一化水印位置的 Y 轴坐标，取值[0，1]。 |
+| width | float | 归一化水印宽度，取值[0，1]。 |
 
 ***
 
@@ -778,96 +761,6 @@ __介绍__
 目前图片支持 jpg/png，视频支持 mp4/3gp 等 Android 系统支持的格式。
 
 >?API 要求18。
-
-***
-
-### setEyeScaleLevel
-
-设置大眼效果。
-```
-abstract void setEyeScaleLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 大眼等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setFaceVLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | V 脸级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
-
-***
-
-### setFaceSlimLevel
-
-设置瘦脸效果。
-```
-abstract void setFaceSlimLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 瘦脸等级取值为0 - 9。取值为0时代表关闭美颜效果。默认值：0。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setFaceShortLevel(int level)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| level | int | 短脸级别取值范围：0 - 9。 数值越大，效果越明显。默认值：0。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setChinLevel(int chinLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | int | 下巴拉伸或收缩级别取值范围：-9 - 9。数值越大，拉伸越明显。默认值：0。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻（特权版本有效，普通版本设置此参数无效）。
-```
-abstract void setNoseSlimLevel(int noseSlimLevel)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | int | 瘦鼻级别取值范围：0 - 9。数值越大，效果越明显。默认值：0。 |
 
 ***
 
@@ -1066,5 +959,4 @@ __介绍__
 该接口用于混音处理，例如将背景音乐与麦克风采集到的声音混合后播放。
 
 ***
-
 

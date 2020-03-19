@@ -43,7 +43,7 @@ SQL 标准定义的四个事务隔离级别：READ COMMITTED、READ UNCOMMITTED�
 
 READ WRITE
 READ ONLY
-决定事务是读/写还是只读。读/写是默认模式。当一个事务是只读的，下面的SQL命令：INSERT、UPDATE、DELETE 和 COPY FROM 执行将被禁止，如果他们将要写的表不是临时表。也不允许 CREATE、ALTER 和 DROP命令执行。不允许执行 GRANT、REVOKE、TRUNCATE。同时 EXPLAIN ANALYZE 和 EXECUTE要执行的命令是上诉命令之一也会不允许执行。
+决定事务是读/写还是只读。读/写是默认模式。当一个事务是只读的，下面的SQL命令：INSERT、UPDATE、DELETE 和 COPY FROM 执行将被禁止，如果他们将要写的表不是临时表。也不允许 CREATE、ALTER 和 DROP命令执行。不允许执行 GRANT、REVOKE、TRUNCATE。同时 EXPLAIN ANALYZE 和 EXECUTE要执行的命令是上述命令之一也会不允许执行。
 
 ## 注解
 如果执行 SET TRANSACTION 之前没有 START TRANSACTION 或者 BEGIN，它会发出一个警告并且不会有任何效果。

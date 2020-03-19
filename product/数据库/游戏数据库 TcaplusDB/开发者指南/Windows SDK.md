@@ -29,7 +29,7 @@ Tcaplus_PbAPI_3.32.0.171987_Win64Vc14MT_Release_20180413
 
 ### 准备
 1. 请确保已经在 [腾讯云 TcaplusDB](https://cloud.tencent.com/product/tcaplus) 开通了游戏业务，并且已经获取到对应的 App 信息（例如：AppId、ZoneId、AppKey）。
-2. 解压缩依赖包并安装，本文以`TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip`依赖包为例。
+2. 解压缩依赖包并安装，本文以`TSF4G_BASE-2.7.28.164975_Win64Vc14Mt_Release.zip`依赖包为例，实际以  [Windows 平台依赖包下载](https://cloud.tencent.com/document/product/596/31925#windows-.E5.B9.B3.E5.8F.B0.E4.BE.9D.E8.B5.96.E5.8C.85.E4.B8.8B.E8.BD.BD) 提供的依赖包为准。
 假设安装的根路径是 `D:\Tencent\tsf4gMT`，相关文件将会被安装到 `D:\Tencent\tsf4gMT\win64vc14MT`路径下。
 3. 编译并安装`Porotbuf-3.5.1`。
   - [源码地址](https://github.com/google/protobuf/releases/) 
@@ -120,13 +120,5 @@ Tcaplus Pb API 支持多种类型操作，支持异步和协程模式，用户�
 |FIELDSET   |通过指定一条记录的所有主键修改指定字段，只传输指定字段的值。减轻网络流量。如果数据记录存在，将执行更新操作，否则将会返回错误。|
 |FIELDINC      |通过指定一条记录的所有主键对指定的字段进行自增操作，此命令字仅支持 int32，int64，uint32 和 uint64 类型字段。特性与 FIELDSET 类似。|
 |GETBYPARTKEY  |通过指定部分主键，查询符合条件的多条数据，主键集合必须在建表的时候创建了索引，否则会返回错误。|
-
-
-
-
-
-
-
-
 
 

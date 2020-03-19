@@ -1,8 +1,0 @@
-您在使用 EIP 时，可能碰到诸如申请 EIP、修改 EIP 名称、绑定 EIP等问题。本文将介绍使用 EIP 以及与其相关的产品的常用操作，供您参考。
-## 常用操作
-- [申请 EIP](https://cloud.tencent.com/document/product/215/20143)
-- [修改 EIP 名称](https://cloud.tencent.com/document/product/215/20144)
-- [绑定 EIP](https://cloud.tencent.com/document/product/215/20145)
-- [解绑 EIP](https://cloud.tencent.com/document/product/215/20146)
-- [释放 EIP](https://cloud.tencent.com/document/product/215/20147)
-- [EIP 直通](https://cloud.tencent.com/document/product/215/20407)

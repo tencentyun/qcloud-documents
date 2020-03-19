@@ -95,9 +95,9 @@ If you need to reference external package of Maven Central, you can add dependen
   
   <dependencies>
     <dependency>
-      <groupId>com.qcloud</groupId>
-      <artifactId>qcloud-java-sdk</artifactId>
-      <version>2.0.1</version>
+      <groupId>com.tencentcloudapi</groupId>
+      <artifactId>scf-java-events</artifactId>
+      <version>0.0.1</version>
     </dependency>
   </dependencies>
 

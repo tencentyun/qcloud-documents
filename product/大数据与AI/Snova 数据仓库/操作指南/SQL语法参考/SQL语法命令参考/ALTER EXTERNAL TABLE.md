@@ -12,7 +12,7 @@ ALTER EXTERNAL TABLE name SET SCHEMA new_schema
 ALTER EXTERNAL TABLE name action [, ... ]
 ```
 
-其中action是下列之一：
+其中 action 是下列之一：
 
 ```sql
   ADD [COLUMN] column_name type
@@ -23,7 +23,7 @@ ALTER EXTERNAL TABLE name action [, ... ]
 ```
 
 ## 描述
-ALTER EXTERNAL TABLE更改一个现有外部表的定义。有几种子形式：
+ALTER EXTERNAL TABLE 更改一个现有外部表的定义。有几种子形式：
 
 **ADD COLUMN**
 向外部表定义添加一个新列。
@@ -32,7 +32,7 @@ ALTER EXTERNAL TABLE更改一个现有外部表的定义。有几种子形式：
 从外部表定义中删除一列。请注意，如果用户删除可读的外部表列，它只会更改数据库中的表定义。外部数据文件不会更改。
 
 **ALTER COLUMN TYPE**
-更改表的列的数据类型。可选的USING子句指定如何从旧数据计算新的列值。如果省略，则默认转换与从旧数据类型转换为新的转换相同。USING必须被提供，如果没有从旧类型到新类型的隐式或赋值转换。
+更改表的列的数据类型。可选的 USING 子句指定如何从旧数据计算新的列值。如果省略，则默认转换与从旧数据类型转换为新的转换相同。USING 必须被提供，如果没有从旧类型到新类型的隐式或者复制转换，必须提供 USING 子句。
 
 **OWNER** 
 将外部表的所有者更改为指定的用户。
@@ -43,9 +43,9 @@ ALTER EXTERNAL TABLE更改一个现有外部表的定义。有几种子形式：
 **SET SCHEMA** 
 将外部表移动到另一个模式。
 
-用户必须拥有外部表才能使用ALTER EXTERNAL TABLE。要更改外部表的模式，用户还必须对新模式具有CREATE权限。要更改所有者，用户还必须是新拥有角色的直接或间接成员，该角色必须对外部表的模式具有CREATE特权。超级用户自动拥有这些权限。
+用户必须拥有外部表才能使用 ALTER EXTERNAL TABLE。要更改外部表的模式，用户还必须对新模式具有 CREATE 权限。要更改所有者，用户还必须是新拥有角色的直接或间接成员，该角色必须对外部表的模式具有 CREATE 特权。超级用户自动拥有这些权限。
 
-在此版本中，ALTER EXTERNAL TABLE不能修改外部表类型，数据格式或外部数据的位置。要修改此信息，用户必须删除并重新创建外部表定义。
+在此版本中，ALTER EXTERNAL TABLE 不能修改外部表类型，数据格式或外部数据的位置。要修改此信息，用户必须删除并重新创建外部表定义。
 
 ## 参数
 name
@@ -95,7 +95,7 @@ ALTER EXTERNAL TABLE ext_leads SET SCHEMA marketing;
 ```
 
 ## 兼容性
-ALTER EXTERNAL TABLE是数据库的一个扩展。没有ALTER EXTERNAL TABLE语句在SQL标准或常规PostgreSQL。
+ALTER EXTERNAL TABLE 是数据库的一个扩展。在 SQL 标准或者常规 PostgreSQL 中，没有 ALTER EXTERNAL TABLE 语法。
 
 ## 另见
 CREATE EXTERNAL TABLE、DROP EXTERNAL TABLE

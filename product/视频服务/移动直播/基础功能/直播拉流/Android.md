@@ -7,19 +7,25 @@
 - **点播（VOD）**的视频源是云端的一个视频文件，只要未被从云端移除，视频就可以随时播放， 播放中您可以通过进度条控制播放位置，腾讯视频和优酷、土豆等视频网站上的视频观看就是典型的点播场景。
 
 #### **协议的支持**
-通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址(以“http”开头，以“.flv”结尾)：
-![](//mc.qcloudimg.com/static/img/94c348ff7f854b481cdab7f5ba793921/image.jpg)
+通常使用的直播协议如下，App 端推荐使用 FLV 协议的直播地址（以“http”开头，以“.flv”结尾）：
+
+| 直播协议 | 优点 | 缺点 | 播放延迟 |
+|---------|---------|---------|---------|
+| FLV | 成熟度高、高并发无压力 | 需集成 SDK 才能播放 | 2s - 3s |
+| RTMP | 优质线路下理论延迟最低 | 高并发情况下表现不佳 | 1s - 3s |
+| HLS（m3u8） | 手机浏览器支持度高 | 延迟非常高 | 10s - 30s |
+
 
 ## 特别说明
 - **是否有限制？**
-视频云 SDK <font color='red'>**不会对**</font> 播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
+视频云 SDK **不会对**播放地址的来源做限制，即您可以用它来播放腾讯云或非腾讯云的播放地址。但视频云 SDK 中的播放器只支持 FLV 、RTMP 和 HLS（m3u8）三种格式的直播地址，以及 MP4、 HLS（m3u8）和 FLV 三种格式的点播地址。
 
 - **历史因素**
 SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，但是由于点播功能越做越多，我们最终在 SDK 3.5 版本开始，将点播功能单独分离出来，交由 TXVodPlayer 负责。但是为了保证编译通过，您在 TXLivePlayer 中依然可以看到类似 seek 等点播才具备的功能。
 
 
 ## 对接攻略
-
+<span id="step_1"></span>
 ### step 1: 添加 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入如下一段代码：
 ```xml
@@ -32,7 +38,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 ```
 
 ### step 2: 创建 Player
-视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将这它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
+视频云 SDK 中的 **TXLivePlayer** 模块负责实现直播播放功能，并使用 **setPlayerView** 接口将它与我们刚刚添加到界面上的 **video_view** 控件进行关联。
 ```java
 //mPlayerView 即 step1 中添加的界面 view
 TXCloudVideoView mView = (TXCloudVideoView) view.findViewById(R.id.video_view);
@@ -63,7 +69,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 ### step 4: 画面调整
 
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 step1 中添加的 “video_view” 控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
 
@@ -86,7 +92,7 @@ mLivePlayer.setRenderMode(TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
 mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
 ```
 
-![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
+![](https://main.qcloudimg.com/raw/89e7b5b2b6b944fe8377cf9f2bcff573.jpg)
 
 
 ### step 5: 暂停播放
@@ -100,9 +106,9 @@ mLivePlayer.resume();
 ```
 
 ### step 6: 结束播放
-结束播放时 <font color='red'>**记得销毁 view 控件**</font> ，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
+结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
 
-同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和 <font color='red'> “Receiver not registered” </font>报警。
+同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和“Receiver not registered”报警。
 ```java
 @Override
 public void onDestroy() {
@@ -154,9 +160,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 
 ### step 8: 屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
-
-![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
-
+![](https://main.qcloudimg.com/raw/1439eff8e2b9629abf92960e1b784f56.jpg)
 ```java
 mLivePlayer.snapshot(new ITXSnapshotListener() {
     @Override
@@ -169,9 +173,8 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
 ```
 
 ### step 9: 截流录制
-截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（比如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
-
-![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
+截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
+![](https://main.qcloudimg.com/raw/c5277659170dccb7e317f4386e75c265.png)
 
 ```java
 //指定一个 ITXVideoRecordListener 用于同步录制的进度和结果
@@ -198,7 +201,7 @@ mLivePlayer.stopRecord();
 // 现切换到码率为900kbps的新流上
 mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv");
 ```
-
+当 switchStream() 方法没有回调时，则需要检查返回值，如果 URL 相同或上一个切换没完成，则切换时会返回错误。
 
 ### step 11: 直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
@@ -220,7 +223,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 1. 录制：配置时移时长、时移储存时长。
 2. 播放：时移获取元数据。
 
-时移功能处于公测申请阶段，如您需要可提交工单申请使用。
+时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
 
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
@@ -230,7 +233,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 | 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
 |---------|---------|---------| ------ | ----- |
 | 极速模式 | 较流畅偏高 | 2s - 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | ≥ 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（比如绝地求生）非常适合，卡顿率最低|
+| 流畅模式 | 卡顿率最低 | ≥ 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低|
 | 自动模式 | 网络自适应 | 2s - 8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
 
 
@@ -258,26 +261,34 @@ mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
 ```
 
-> 更多关于卡顿和延迟优化的技术知识，可以阅读 [视频卡顿怎么办？](https://cloud.tencent.com/document/product/454/7946)
+> 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 
-支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，比如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
+支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **该功能是不需要开通的**
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名，防盗链签名的计算方法见 [派发 URL（防盗链签名）](https://cloud.tencent.com/document/product/454/9875)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
+bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
+![](https://main.qcloudimg.com/raw/d4bae92945f16569ab5446d320fcf663.png)
+如果您的防盗链地址为：
+`rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34`
+则加速流地址为：
+`rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`
+
+>?这里的防盗链计算要用推流防盗链Key
 
 - **播放类型需要指定 ACC**
-在调用 startPlay 函数时，需要指定 type 为 <font color='red'>**PLAY_TYPE_LIVE_RTMP_ACC**</font>，SDK 会使用 RTMP-UDP 协议拉取直播流。
+在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
 
 - **该功能有并发播放限制**
-目前最多同时<font color="red"> 10 路 </font>并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（比如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
+目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
 
 - **Obs 的延时是不达标的**
-推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
+推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
 
 - **该功能按播放时长收费**
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
@@ -306,8 +317,8 @@ mLivePlayer.setConfig(mPlayConfig);
 | PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
 | PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
->**<font color='red'>不要在收到 PLAY_LOADING 后隐藏播放画面</font>**
->因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是 5s 也可能是 5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
+>**不要在收到 PLAY_LOADING 后隐藏播放画面**
+>因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
 ### 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -315,7 +326,7 @@ mLivePlayer.setConfig(mPlayConfig);
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放 | 
 
-> **<font color='red'>如何判断直播已结束？</font>**
+> **如何判断直播已结束？**
 > RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
 >
 > 所以`2006`和`-2301`都要监听，用来作为直播结束的判定事件。
@@ -328,7 +339,7 @@ mLivePlayer.setConfig(mPlayConfig);
 | :-------------------  |:-------- |  :------------------------ | 
 | PLAY_WARNING_VIDEO_DECODE_FAIL   |  2101  | 当前视频帧解码失败  |
 | PLAY_WARNING_AUDIO_DECODE_FAIL   |  2102  | 当前音频帧解码失败  |
-| PLAY_WARNING_RECONNECT           |  2103  | 网络断连, 已启动自动重连 (重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT 了) |
+| PLAY_WARNING_RECONNECT           |  2103  | 网络断连，已启动自动重连（重连超过三次就直接抛送 PLAY_ERR_NET_DISCONNECT）|
 | PLAY_WARNING_RECV_DATA_LAG       |  2104  | 网络来包不稳：可能是下行带宽不足，或由于主播端出流不均匀|
 | PLAY_WARNING_VIDEO_PLAY_LAG      |  2105  | 当前视频播放出现卡顿|
 | PLAY_WARNING_HW_ACCELERATION_FAIL|  2106  | 硬解启动失败，采用软解   |

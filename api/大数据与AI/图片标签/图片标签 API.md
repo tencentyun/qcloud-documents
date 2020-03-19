@@ -1,3 +1,7 @@
+>? 
+本文档是旧版图像标签文档，图像标签已经升级为使用更先进的深度学习技术、覆盖范围更广的图像分析- [图像标签](https://cloud.tencent.com/document/api/865/35471) 服务，支持8个大类、六十多个二级分类、数千个标签，涵盖各种场景、事件、日常物品、动物、证件文档等。
+建议使用新版，开通方法详见 [图像分析入门](https://cloud.tencent.com/product/tiia/getting-started) 。旧版图像标签在2019年内会继续提供稳定的服务，但不会进行算法升级。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/v1/detection/imagetag_detect`
 本接口（imagetag_detect）用于识别图片内容信息，并以标签的形式显示。
@@ -10,7 +14,7 @@
 
 | 参数名            | 必选|值                          | 描述                       |
 | -------------- | -----|--------------------- | ------------------------ |
-| host           | 是|recognition.image.myqcloud.com | 腾讯云图片标签服务器域名。           |
+| host           | 是|recognition.image.myqcloud.com | 腾讯云图片分析服务器域名。           |
 | content-length | 否|包体总长度                  | 整个请求包体内容的总长度，单位：字节（Byte）。 |
 | content-type   | 是|application/json 或  multipart/form-data   | 根据不同接口选择：<br/>1. 使用图片 url，选择 application/json。<br/>2. 使用图片文件，选择 multipart/form-data。  |
 | authorization  | 是|鉴权签名                    | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](/document/product/865/17723)。     |
@@ -36,8 +40,8 @@
 
 | 字段             | 类型     | 说明                            |
 | -------------- | ------ | ----------------------------- |
-| tag_name       | String | 返回的图像标签名字。                     |
-| tag_confidence | Int    | 图像标签的置信度，取值范围[0， 100]，数值越大置信度越高。 |
+| tag_name       | String | 返回的图像分析名字。                     |
+| tag_confidence | Int    | 图像分析的置信度，取值范围[0， 100]，数值越大置信度越高。 |
 
 
 ## 示例

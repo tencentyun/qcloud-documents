@@ -6,7 +6,7 @@ Tencent Cloud VOD package is divided into the following three types:
 - **Video transcoding package:** Package for Tencent Cloud VOD transcoding, which contains and is sold by the duration of video transcoding.
 - **Video acceleration package:** Package for Tencent Cloud VOD acceleration, which contains and is sold by the CDN traffic.
 
-You can view the consumed and remaining usage of Tencent Cloud VOD package on the [console](https://console.cloud.tencent.com/video).
+You can view the consumed and remaining usage of Tencent Cloud VOD package on the [console](https://console.cloud.tencent.com/vod).
 >VOD packages are only available to users who are billed on a daily basis.
 
 ### Video Storage Package

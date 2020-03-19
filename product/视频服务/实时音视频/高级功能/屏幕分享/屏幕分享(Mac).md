@@ -5,7 +5,7 @@
 
 | iOS | Android | Mac OS | Windows | 微信小程序 | Chrome 浏览器|
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-|     ✖  |    ✖    |    ✔   |    ✔    |    ✖     |   ✔     |
+|  × |   × |  &#10003;  |   &#10003;  |   ×   |  &#10003;  |
 
 ## 获取分享目标
 通过 `getScreenCaptureSourcesWithThumbnailSize` 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
@@ -24,9 +24,7 @@ Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 t
 | icon | NSImage | 窗口图标 |
 
 有了上面这些信息，您就可以实现一个简单的列表页面，将可以分享的目标罗列出来供用户选择，如下图：
-
-![](https://main.qcloudimg.com/raw/c7b5a938135b78d50f26e7f1180164f7.jpg)
-
+![](https://main.qcloudimg.com/raw/ae43c4ec148a0e25368fea0ea20063b7.jpg)
 
 ## 选择分享目标
 TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 来指定：
@@ -35,10 +33,10 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 即把整个屏幕窗口分享出去，支持多显示器分屏的情况。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 rect 设为 { 0, 0, 0, 0 }。
 
 - **指定区域分享**：
-即把屏幕的某个区域分享出去，需要用户圈定区域的位置坐标。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 captureRect 设为非 NULL，比如 { 100, 100, 300, 300 }。
+即把屏幕的某个区域分享出去，需要用户圈定区域的位置坐标。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 captureRect 设为非 NULL，例如 { 100, 100, 300, 300 }。
 
 - **指定窗口分享**：
-即把目标窗口的内容分享出去，需要用户选择要分享的是哪一个窗口。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 captureRect 设为 { 0, 0, 0, 0 }。
+即把目标窗口的内容分享出去，需要用户选择要分享的是哪一个窗口。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeWindow` 的 screenSource 参数 ，并将 captureRect 设为 { 0, 0, 0, 0 }。
 
 
 >? 两个额外参数：
@@ -83,9 +81,9 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 | 清晰度级别 | 分辨率 | 帧率 | 码率 | 
 |:-------------:|:---------:|:---------:| :---------: | 
-| 高清 | 1920 x 1080 | 10 | 800kbps |
-| 标清 | 1280 x 720 | 10 | 600kbps |
-| 低清 | 1280 x 720 | 10 | 400kbps |
+| 超高清（HD+） | 1920 × 1080 | 10 | 800kbps |
+| 高清（HD） | 1280 × 720 | 10 | 600kbps |
+| 标清（SD） | 960 × 720 | 10 | 400kbps |
 
 ## 观看屏幕分享
 当房间里有一个用户启动了屏幕分享之后，房间里的其他用户会通过 TRTCCloudDelegate 的 `onUserSubStreamAvailable` 获得这个通知。
@@ -109,7 +107,3 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
 不会跟着变化，当窗口大小变化时，窗口画面会被等比例缩放到目标分辨率上。
-
-
-
-

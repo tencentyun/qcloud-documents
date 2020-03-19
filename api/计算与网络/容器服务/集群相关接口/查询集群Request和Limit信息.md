@@ -1,3 +1,5 @@
+>?当前页面接口为旧版 API，未来可能停止维护。容器服务 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [容器服务 API 3.0](https://cloud.tencent.com/document/api/457/31853)。
+>
 ## 接口描述
 本接口 ( DescribeClusterRequestLimitInfo ) 用于查询集群 CPU、内存的 Request 和 Limit 信息。
 
@@ -34,6 +36,9 @@ ccs.api.qcloud.com
 |totalMemLimit|集群整体内存的 Limit|Int|
 |totalGpuLimit|集群整体 GPU 的 Limit|Int|
 |requestLimitInfo.InstanceIp|集群内节点的 Request 和 Limit 的详细分配详细，结构内为实例内网 IP|Object|
+|totalCpu|集群整体 CPU 使用量| Int
+totalMem|集群整体内存 的 Limit| Int
+totalGpu|集群整体 GPU 使用量| Int
 
 data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 
@@ -56,35 +61,27 @@ data 字段中的 requestLimitInfo.InstanceIp 字段结构如下：
 ### 输出
 ```
 {
-    "data":{
-        "code":0,
-        "message":"",
-        "codeDesc":"Success",
-        "data":{
-            "totalCpuRequest":2.52,
-            "totalCpuLimit":4,
-            "totalMemRequest":2.13,
-            "totalMemLimit":4.32,
-            "totalGpuLimit":0,
-            "requestLimitInfo":{
-                "172.31.31.4":{
-                    "cpuRequest":0.52,
-                    "cpuLimit":0,
-                    "memRequest":0.13,
-                    "memLimit":0.32,
-                    "gpuLimit":0
-                },
-                "172.31.31.5":{
-                    "cpuRequest":2,
-                    "cpuLimit":4,
-                    "memRequest":2,
-                    "memLimit":4,
-                    "gpuLimit":0
-                }
+    "code": 0,
+    "message": "",
+    "codeDesc": "Success",
+    "data": {
+        "totalCpuRequest": 0.26,
+        "totalCpuLimit": 0,
+        "totalMemRequest": 0.07,
+        "totalMemLimit": 0,
+        "totalGpuLimit": 0,
+        "requestLimitInfo": {
+            "172.27.0.7": {
+                "cpuRequest": 0.26,
+                "cpuLimit": 0,
+                "memRequest": 0.07,
+                "memLimit": 0,
+                "gpuLimit": 0
             }
-        }
-    },
-    "message":"",
-    "code":0
+        },
+        "totalCpu": 0.94,
+        "totalMem": 0.71,
+        "totalGpu": 0
+    }
 }
 ```

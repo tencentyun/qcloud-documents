@@ -2,23 +2,22 @@
 
 您可以通过 [日志服务控制台](https://console.cloud.tencent.com/cls)，将数据按照 JSON 格式投递到对象存储 COS，下面将为您详细介绍如何创建 JSON 格式日志投递任务。
 
-
 ## 前提条件
 
 1. 开通日志服务，创建日志集与日志主题，并成功采集到日志数据。
-2. 开通腾讯云对象存储服务（COS），并且在待投递日志主题的地域已创建存储桶，详细配置您可参阅 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
-3. 确保当前操作账号拥有配置投递的权限，子账号/协作者投递权限问题请参阅 [子账号配置投递](https://cloud.tencent.com/document/product/614/33098) 文档。
+2. 开通腾讯云对象存储服务（COS），并且在待投递日志主题的地域已创建存储桶，详细配置请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
+3. 确保当前操作账号拥有配置投递的权限，子账号/协作者投递权限问题请参见 [子账号配置投递](https://cloud.tencent.com/document/product/614/33098) 文档。
 
 ## 操作步骤
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航栏中，单击【日志集管理】。
 3. 单击需要设置投递任务的日志集 ID/名称，进入日志集详情页。
-![](https://main.qcloudimg.com/raw/637f191003d50812d117bd32b84b4b0d.png)
+<img src="https://main.qcloudimg.com/raw/637f191003d50812d117bd32b84b4b0d.png" width="80%">
 4. 找到需要投递的日志主题，在其操作栏中，单击【管理配置】>【投递对象存储配置】，进入投递配置页面。
-![](https://main.qcloudimg.com/raw/f2ae55d386797b52d2fca31eae783df1.png)
+<img src="https://main.qcloudimg.com/raw/f2ae55d386797b52d2fca31eae783df1.png" width="80%">
 5. 单击【添加投递配置】，进入**投递至 COS** 配置页面，依次填写配置信息。
-   ![img](https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png)
+<img src="https://main.qcloudimg.com/raw/c588bcb6e91bb9849003532968edac44.png">
 
 **配置项说明如下：**
 
@@ -44,12 +43,12 @@
    <tr>
       <td>目录前缀</td>
       <td>日志服务支持自定义目录前缀，日志文件会投递至对象存储 Bucket 的该目录下。目前默认是直接放在存储桶下，文件路径为 <code>{COS 存储桶}{目录前缀}{分区格式}_{random}_{index}.{type}</code>，其中<code>{random}_{index}</code>是一个随机数。</td>
-      <td>非/开头</td>
+			<td>非<code>/</code>开头</td>
       <td>可选</td>
    </tr>
    <tr>
       <td nowrap="nowrap">分区格式</td>
-      <td>将投递任务创建时间按照 strftime 的语法自动生成目录 ，其中斜线/表示一级 COS 目录。</td>
+      <td>将投递任务创建时间按照 strftime 的语法自动生成目录 ，其中斜线<code>/</code>表示一级 COS 目录。</td>
       <td>strftime 格式</td>
       <td>必填</td>
    </tr>
@@ -76,7 +75,7 @@
 | bucket_test | logset/  | %Y%m%d/log | bucket_test:logset/20180731/log_{random}_{index} |
 
 6. 单击【下一步】，进入高级配置，选择投递格式为 json，依次填写相关配置参数。
-   ![img](https://main.qcloudimg.com/raw/3711401cfd70d3f583bb82dae1970331.png)
+   <img src="https://main.qcloudimg.com/raw/3711401cfd70d3f583bb82dae1970331.png">
 
 **配置项说明如下：**
 
@@ -89,16 +88,30 @@
    </tr>
    <tr>
       <td nowrap="nowrap">压缩投递</td>
-      <td>是否对日志文件进行压缩后投递，在投递时的未压缩文件大小上限为10GB 。目前支持的压缩方式有 gzip 和 lzop。</td>
+      <td>是否对日志文件进行压缩后投递，在投递时的未压缩文件大小上限为10GB 。目前支持的压缩方式有 gzip 和 lzop，snappy。</td>
       <td nowrap="nowrap">开/关</td>
       <td nowrap="nowrap">必填</td>
    </tr>
 </table>
 
 **高级选项（可选）**
-日志投递还支持根据日志内容进行过滤投递，您可以打开高级选项进行配置。
-您可以指定一个 key，对该键值所对应的值进行正则提取，并设定提取出的部分需要匹配的值。只有当日志数据匹配您的配置后，该日志可以投递。没有匹配的日志不进行投递。
-如下图所示，指定 action 字段，该字段为 write 时，日志进行投递。投递过滤规则最多支持5条。
-![img](https://main.qcloudimg.com/raw/fa774d5a865c2129f707465c55e416c7.png)
+日志投递还支持根据日志内容进行过滤投递的功能，您可以打开高级选项进行配置。
+
+> ?投递过滤规则最多支持5条，多条规则之间是“与”逻辑，即每条规则都满足的情况下才能投递成功。
+
+
+a. 您需要先指定一个 key，通过设置过滤规则对其进行正则提取过滤。
+ b. 用“()”捕获需要和 value 进行匹配的对象，并在 value 处填上所要匹配的值。系统会先根据投递规则中的正则表达式进行一次匹配，提取出捕获组“()”的内容，并和 value 值进行比较，当捕获出来的内容=value 时，则该条日志数据将会投递。
+**示例1：**
+指定字段名为 status，该键值对形如 status:404，若要投递 status 字段为404的日志，则过滤规则为：`(.*)`。
+![](https://main.qcloudimg.com/raw/0f16cb0d2590d3498535749b931e9631.png)
+
+
+**示例2：**
+指定字段名为 http_host，该键值对形如 http_host:172.16.19.20，若要投递 http_host 字段为172.16开头的日志，则过滤规则为：`^(\d+\.\d+)\..*`。
+![](https://main.qcloudimg.com/raw/34655096ff4bcaf5bf74e4fe7042dc06.png)
+
+
 7. 单击【确定】，即可看到投递状态已开启。
-![img](https://main.qcloudimg.com/raw/f3b59a24524ba51f6bc6c14f9fdfbdba.png)
+   <img src="https://main.qcloudimg.com/raw/f3b59a24524ba51f6bc6c14f9fdfbdba.png" width="90%">
+

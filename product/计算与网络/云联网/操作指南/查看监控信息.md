@@ -1,5 +1,6 @@
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧目录中的【云联网】，进入云联网管理页面。
 3. 在列表中，单击要调整的云联网 ID，进入详情页。
-4. 单击【监控】标签页，进入详情页，即可查看监控信息。
- ![](https://main.qcloudimg.com/raw/cc366dc1edc26c6c02782ca9b391c2f8.png)
+4. 单击【监控】标签页，进入详情页，
+5. 选择【地域间监控】和要查看的地域，即可查看监控信息。
+![](https://main.qcloudimg.com/raw/b491d16ca9ef0d81e389dfaa41b21c27.png)

@@ -1,13 +1,13 @@
->?该功能目前处于灰度测试阶段，如需要在控制台试用，请通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式开通白名单。
+
 
 ## 1. 接口描述
-本接口（DeleteAcl）用于为实例的用户删除 ACL 策略。
 
 接口请求域名：`ckafka.api.qcloud.com`
+本接口（DeleteAcl）用于为实例的用户删除 ACL 策略。
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/406/5883) 页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/product/597/10084) 页面。
 
 | 参数名称 | 必选 | 类型 | 描述 |
 | --- | --- | --- | --- |

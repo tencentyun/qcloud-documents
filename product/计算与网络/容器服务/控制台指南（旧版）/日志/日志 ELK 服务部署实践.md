@@ -1,3 +1,5 @@
+>?容器服务旧版控制台目前已下线，文档已停止维护。新版控制台已进行了一系列模块的调整，建议参考 [新版用户指南](https://cloud.tencent.com/document/product/457/31697) 使用。可 [点此](https://cloud.tencent.com/document/product/457/36772) 进入新版自助搭建 ELK 日志服务实践。
+
 ## 为什么部署容器服务需要配置日志收集功能？
 
 通常我们习惯登录服务器使用 Linux 命令查看应用日志。但面对大规模分布式应用，一个服务的负载分布在多个服务器上，这种方式的效率就非常低下了，于是就产生了日志统一收集展示的需求。
@@ -7,8 +9,8 @@
 腾讯云容器服务已经集成了腾讯云日志服务，支持配置收集规则将容器服务日志自动收集上报。当然，我们也支持用户使用 ELK （Elasticsearch＋Logstash＋Kibana）自建可视化日志收集服务。本文档介绍如何在容器服务里部署 ELK。
 
 ## ELK 部署指导
+本文档介绍使用腾讯云容器服务提供的基础模版，部署一套从 Kafka 读取日志数据的 ELK，以模版中实际使用版本为例。请确保部署前请保证集群有足够资源。
 
-本篇使用腾讯云容器服务提供的基础模版，以部署一套从 Kafka 读取日志数据的 ELK 为例。部署前请保证集群有足够资源。
 
 ### 第一步：部署 Elasticsearch + Kibana 进行日志展示与检索
 
@@ -75,4 +77,4 @@ Logstash 是开源的日志分析处理程序，能够从多种源采集转换�
 [1]:https://mc.qcloudimg.com/static/img/da4ea19aa75ffbf94b38e39a6e781082/ccs-log.jpeg
 [2]:https://mc.qcloudimg.com/static/img/a233130efb256ef5836b294e9ec65a35/ccs-log-visual.jpeg
 [3]:https://main.qcloudimg.com/raw/3a4f6c4ed288c4b5f80a720254751f74.png
-[4]:https://main.qcloudimg.com/raw/84058baffe25a116e0bf40c250227665.png
+[4]:https://main.qcloudimg.com/raw/2ebaab9ee812eecbe5490c0b83cbf145.png

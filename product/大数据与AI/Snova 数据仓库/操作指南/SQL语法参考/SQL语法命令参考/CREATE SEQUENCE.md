@@ -60,11 +60,11 @@ increment
 
 minvalue
 NO MINVALUE
-决定该序列所能生成的最小的值，如果没有提供该子句或者指定了 NO MINVALUE，则使用默认值。该升序，降序默认值分别为1和-263-1。
+决定该序列所能生成的最小的值，如果没有提供该子句或者指定了 NO MINVALUE，则使用默认值。该升序，降序默认值分别为1和<typora>-2^63-1。
 
 maxvalue
 NO MAXVALUE
-决定该序列产生的最大值，如果没有提供该子句或者指定了 NO MAXVALUE，则将使用默认值。该升序，降序的默认值分别为263-1和-1。
+决定该序列产生的最大值，如果没有提供该子句或者指定了 NO MAXVALUE，则将使用默认值。该升序，降序的默认值分别为<typora>2^63-1和-1。
 
 start
 允许序列能在任何地方开始，该升序的默认开始值为 minvalue，降序的默认开始值为 maxvalue。
@@ -83,7 +83,7 @@ OWNED BY NONE
 ## 注意
 序列是基于 bigint 的算术，所以该范围不能超过8字节整数的范围（-9223372036854775808到9223372036854775807）。
 
-尽管保证多个会话来分配不同的序列值，但当考虑所有会话时必须保证该值按序列所出。例如会话A保留值1..10，并且返回 nextval=1，然后会话B可能在会话A生成nextval=2之前保留值11..20，并且返回 nextval=11。因此，用户应该只假设 nextval 都是不同的，而不是纯粹按顺序生成。此外，last_value 会反应任何会话保留的最新值。无论其是否已被 nextval返回。
+尽管保证多个会话来分配不同的序列值，但当考虑所有会话时必须保证该值按序列所出。例如会话A保留值1..10，并且返回 nextval=1，然后会话 B 可能在会话 A 生成 nextval=2 之前保留值11..20，并且返回 nextval=11。因此，用户应该只假设 nextval 都是不同的，而不是纯粹按顺序生成。此外，last_value 会反应任何会话保留的最新值。无论其是否已被 nextval 返回。
 
 ## 示例
 
@@ -93,7 +93,7 @@ OWNED BY NONE
 CREATE SEQUENCE myseq START 101;
 ```
 
-使用next value向表中插入一行数据：
+使用 next value 向表中插入一行数据：
 
 ```sql
 INSERT INTO distributors VALUES (nextval('myseq'), 'acme'); 
@@ -115,7 +115,7 @@ INSERT INTO product VALUES (setval('myseq', 201), 'gizmo');
 
 CREATE SEQUENCE 遵循 SQL 标准，但是以下除外：
 - 不支持该在 SQL 标准中指定的 AS data_type 表达式。
-- 使用 nextval() 函数替代SQL标准中指定的 NEXT VALUE FOR 表达式获得下一个值。
+- 使用 nextval() 函数替代 SQL 标准中指定的 NEXT VALUE FOR 表达式获得下一个值。
 - 该 OWNED BY 子句是数据库扩展。
 
 ## 另见
