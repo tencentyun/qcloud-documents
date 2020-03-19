@@ -52,14 +52,12 @@ pod install
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32258) 接口创建`TRTCCloud`实例。
-2. 设置`delegate`属性注册事件回调，并监听相关事件和错误通知。
-
 ```swift
 // 创建 trtcCloud 实例
 let trtcCloud: TRTCCloud = TRTCCloud.sharedInstance()
 trtcCloud.delegate = self
 ```
-
+2. 设置`delegate`属性注册事件回调，并监听相关事件和错误通知。
 ```swift
 // 错误通知是要监听的，需要捕获并通知用户
 func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
@@ -89,7 +87,8 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
  - 视频通话，请设置为`TRTCAppScene.videoCall`。
  - 语音通话，请设置为`TRTCAppScene.audioCall`。
-3. 如果进房成功，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+3. 进房成功后，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+
 ```swift
 func enterRoom() {
     let params = TRTCParams.init()
@@ -99,6 +98,7 @@ func enterRoom() {
     params.roomId   = 908
     trtcCloud.enterRoom(params, appScene: TRTCAppScene.videoCall)
 }
+
 func onEnterRoom(_ result: Int) {
     if result > 0 {
         toastTip("进房成功，总计耗时[\(result)]ms")
@@ -109,7 +109,7 @@ func onEnterRoom(_ result: Int) {
 ```
 
 >! 
->- 如进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/32257)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
+>- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/32257)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
 
 <span id="step6"> </span>
