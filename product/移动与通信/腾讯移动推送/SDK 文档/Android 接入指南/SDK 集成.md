@@ -256,7 +256,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 </application>
 ```
 **境外域名如下：**
-香港：`https://api.tpns.hk.tencent.com`
+中国香港：`https://api.tpns.hk.tencent.com`
 新加坡：`https://api.tpns.sgp.tencent.com`
 
 #### 音视频富媒体使用方法（可选）
