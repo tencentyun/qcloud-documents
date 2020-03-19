@@ -14,9 +14,9 @@
 
 >?测试版 License 有效期内可单击右侧的【编辑】，进入修改 Bundle ID 和 Package Name 信息，单击【确定】即可保存。
 
-### 续费测试 License
+### 续费测试版 License
 测试版 License 有效期为**28天**，申请后满14天，您可通过单击测试版 License 右侧的【编辑】进入修改界面，单击【确定】重新保存即可续期14天。
->! 测试版 License 只能延期一次，若您需继续使用，请购买正式 License。
+>! 测试版 License 只能延期一次，若您需继续使用，请购买正式版 License。
 
 <span id="buy"></span>
 ## 正式版 License
@@ -37,7 +37,7 @@
 
 
 ### 续期正式版 License
-您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，若您的正式 License 已到期，可进行如下操作进行续费：
+您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，若您的正式版 License 已到期，可进行如下操作进行续费：
 1. 购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，赠送1年有效期的正式直播基础版 License 使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 2. 进入[【移动直播 License】](https://console.cloud.tencent.com/live/license) ，选择您需续费的正式版 License，单击右侧的【续费】。
 3. 选择已购买的流量包绑定有效期，单击【确定】即可。
