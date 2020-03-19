@@ -44,9 +44,9 @@ Metal.framework
   ![](https://main.qcloudimg.com/raw/41cb5945d9298763319e8ebba597f345.jpg)
 5. 添加动效资源：
  >!请正确添加下述资源，否则切换到换脸类素材时会发生 Crash 等问题。
- >
+ 
   将 SDK/Resource 下的文件以`groups`的形式添加到工程中。
-  ![](https://main.qcloudimg.com/raw/9b5be44e52ac02c9a877a19157d67e55.jpg)
+ ![](https://main.qcloudimg.com/raw/222ead2a8eef518ab7d0893a233715cb.png)
   添加完成后，效果如图所示：
   ![](https://main.qcloudimg.com/raw/36848f4b6b7cb1a34368c9bc38b11ffe.jpg)
   
