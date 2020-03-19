@@ -28,7 +28,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 >
 ```
 target 'Your Project' do
-    pod 'TXLiteAVSDK_TRTC'
+        pod 'TXLiteAVSDK_TRTC'
 end
 ```
 3. 执行以下命令安装 **TRTC SDK** 。
@@ -64,8 +64,8 @@ trtcCloud.delegate = self
 // 错误通知是要监听的，需要捕获并通知用户
 func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
     if ERR_ROOM_ENTER_FAIL == errCode {
-        toastTip("进房失败[\(errMsg ?? "")]")
-        exitRoom()
+           toastTip("进房失败[\(errMsg ?? "")]")
+           exitRoom()
     }
 }
 ```
