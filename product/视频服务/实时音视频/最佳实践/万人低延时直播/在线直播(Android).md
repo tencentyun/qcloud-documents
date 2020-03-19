@@ -147,7 +147,7 @@ mTRTCCloud.startLocalAudio();
 2. 主播端调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可创建 TRTCParams 参数中字段`roomId`的值为房间号的音视频房间，并指定**`appScene`**参数：
  - TRTCCloudDef.TRTC_APP_SCENE_LIVE：视频互动直播模式，本文以该模式为例。
  - TRTCCloudDef.TRTC_APP_SCENE_VOICE_CHATROOM：语音互动直播模式。
-3. 房间创建成功后，主播端同步开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#abf0525c3433cbd923fd1f13b42c416a2)  事件，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+3. 房间创建成功后，主播端开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#abf0525c3433cbd923fd1f13b42c416a2)  事件，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
 ```java
 public void enterRoom() {
