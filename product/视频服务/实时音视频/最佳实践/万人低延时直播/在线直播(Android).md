@@ -177,7 +177,7 @@ public void onEnterRoom(long result) {
  - TRTCCloudDef.TRTC_APP_SCENE_VOICE_CHATROOM：语音互动直播模式。
 3. 观看主播的画面：
  - 如果观众端事先知道主播的 userId，直接在进房成功后使用主播`userId`调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示主播的画面。
- - 如果观众端不知道主播的 userId，观众端在进房成功后会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知，使用回调中获得的主播`userId`调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 便可显示主播的画面。
+ - 如果观众端不知道主播的 userId，观众端在进房成功后会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知，使用回调中获取的主播`userId`调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 便可显示主播的画面。
 
 <span id="step9"> </span>
 ### 步骤9：观众跟主播连麦
@@ -204,8 +204,8 @@ mTrtcCloud.stopLocalPreview();
 TRTC 中两个不同音视频房间中的主播，可以在不退出原来的直播间的场景下，通过“跨房通话”功能拉通连麦通话功能进行“跨房连麦 PK”。
 
 1. 主播 A 调用 [connectOtherRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac1ab7e4a017b99bb91d89ce1b0fac5fd) 接口，目前接口参数采用 JSON 格式，需要将主播 B 的`roomId`和`userId`拼装成格式为`{"roomId": "978","userId": "userB"}`的参数传递给接口函数。
-2. 如果跨房成功，主播 A 会收到 [onConnectOtherRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac9fd524ab9de446f4aaf502f80859e95)  事件回调。同时，两个直播房间里的所有用户均会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05)  和 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac474bbf919f96c0cfda87c93890d871f) 事件通知。
- 例如，当房间“001”中的主播 A 通过`connectOtherRoom()`跟房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户都会收到主播 B 的`onUserVideoAvailable(B, true)`回调和`onUserAudioAvailable(B, true)`回调。 房间“002”中的用户都会收到主播 A 的`onUserVideoAvailable(A, true)` 回调和`onUserAudioAvailable(A, true)`回调。
+2. 跨房成功后，主播 A 会收到 [onConnectOtherRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac9fd524ab9de446f4aaf502f80859e95)  事件回调。同时，两个直播房间里的所有用户均会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05)  和 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac474bbf919f96c0cfda87c93890d871f) 事件通知。
+ 例如，当房间“001”中的主播 A 通过`connectOtherRoom()`与房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户会收到主播 B 的`onUserVideoAvailable(B, true)`回调和`onUserAudioAvailable(B, true)`回调。 房间“002”中的用户会收到主播 A 的`onUserVideoAvailable(A, true)` 回调和`onUserAudioAvailable(A, true)`回调。
 3. 两个房间里的用户通过调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示另一房间里主播的画面，声音会自动播放。
 
 ```java
