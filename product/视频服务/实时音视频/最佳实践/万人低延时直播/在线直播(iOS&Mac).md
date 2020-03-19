@@ -63,10 +63,10 @@ trtcCloud.delegate = self
 ```swift
 // 错误通知是要监听的，需要捕获并通知用户
 func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
-    if ERR_ROOM_ENTER_FAIL == errCode {
-        toastTip("进房失败[\(errMsg ?? "")]")
+        if ERR_ROOM_ENTER_FAIL == errCode {
+                toastTip("进房失败[\(errMsg ?? "")]")
         exitRoom()
-    }
+        }
 }
 ```
 
