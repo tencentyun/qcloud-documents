@@ -39,7 +39,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |meeting_info_list  |Bool| 静音自解除允许 。  |
 
 ## 示例
-### 输入示例
+#### 输入示例
 
 ```
 GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667?userid=tester1&instanceid=1
