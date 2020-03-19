@@ -202,6 +202,6 @@ public void onExitRoom(int reason) {
 }
 ```
 
->! 如果您的 App 中同时集成了多个音视频 SDK，请在收到 onExitRoom 回调后再启动其它音视频 SDK，否则可能会遇到硬件占用问题。
+>! 如果您的 App 中同时集成了多个音视频 SDK，请在收到`onExitRoom`回调后再启动其它音视频 SDK，否则可能会遇到硬件占用问题。
 
 
