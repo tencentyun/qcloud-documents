@@ -18,7 +18,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ## 使用步骤
 <span id="step1"> </span>
 ### 步骤1：集成 SDK
-可以选择以下方式将 **TRTC SDK** 集成到项目中。
+您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
 您只需用 Android Studio 打开待集成 SDK 的工程（TRTCSimpleDemo 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 app/build.gradle 文件，即可完成 SDK 集成：
