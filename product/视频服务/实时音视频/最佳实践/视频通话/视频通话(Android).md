@@ -21,7 +21,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-您只需用 Android Studio 打开待集成 SDK 的工程（TRTCSimpleDemo 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改 app/build.gradle 文件，即可完成 SDK 集成：
+您只需用 Android Studio 打开待集成 SDK 的工程（TRTCSimpleDemo 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改`app/build.gradle`文件，即可完成 SDK 集成：
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
@@ -101,17 +101,17 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 | sdkAppId | 数字 | 应用 ID，您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。 |1400000123 | 
 | userId | 字符串 | 只允许包含大小写英文字母（a-z、A-Z）、数字（0-9）及下划线和连词符。 |test_user_001 | 
 | userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。| eJyrVareCeYrSy1SslI... |
-| roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会拖慢进房速度，如果您确实需要支持字符串类型的房间号，请通过工单联系我们。 | 29834 |
+| roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
 >!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
 
 <span id="step5"> </span>
 ### 步骤5：创建并进入房间
-1. 调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可加入 TRTCParams 参数中 `roomId` 所代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
+1. 调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
- - 视频通话，请设置为 `TRTC_APP_SCENE_VIDEOCALL`。
- - 语音通话，请设置为 `TRTC_APP_SCENE_AUDIOCALL`。
-3. 如果进房成功，SDK 会回调 `onEnterRoom（result）` 事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+ - 视频通话，请设置为`TRTC_APP_SCENE_VIDEOCALL`。
+ - 语音通话，请设置为`TRTC_APP_SCENE_AUDIOCALL`。
+3. 如果进房成功，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 ```
 public void enterRoom() {
     TRTCCloudDef.TRTCParams trtcParams = new TRTCCloudDef.TRTCParams();
@@ -131,12 +131,12 @@ public void onEnterRoom(long result) {
 }
 ```
 >! 
->- 如果进房失败，SDK 同时还会回调 `onError` 事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/38307)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
->- 如果已在某一个房间中，则必须先调用 `exitRoom()` 退出当前房间，才能进入下一个房间。
+>- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/38307)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
+>- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
 
 <span id="step6"> </span>
 ### 步骤6：订阅远端的音视频流
-SDK 支持自动订阅和手动订阅两种模式：
+SDK 支持自动订阅和手动订阅。
 
 #### 自动订阅模式（默认）
 在自动订阅模式下，进入某个房间后，SDK 会自动接收房间中其他用户的音频流，从而达到最佳的“秒开”效果：
@@ -161,7 +161,7 @@ public void onUserVideoAvailable(String userId, boolean available) {
 }
 ```
 
->? 如果您在收到 `onUserVideoAvailable()` 事件回调后没有立即调用 `startRemoteView()` 订阅视频流，SDK 将会在进房1s - 3s后停止接收来自远端的视频数据。
+>? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在1s - 3s后停止接收来自远端的视频数据。
 
 #### 手动订阅模式
 您可以通过 [setDefaultStreamRecvMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b8d004665d5003ce1d9a48a9ab551b3) 接口将 SDK 指定为手动订阅模式。在手动订阅模式下，SDK 不会自动接收房间中其他用户的音视频数据，需要您手动通过 API 函数触发。
