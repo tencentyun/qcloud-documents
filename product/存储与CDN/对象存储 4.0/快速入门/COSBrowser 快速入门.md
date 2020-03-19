@@ -63,9 +63,33 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 
 
-## 后续步骤
+## 步骤6：分享对象
 
-您还可以通过临时文件链接访问文件，了解临时文件链接及其他功能，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
+存在 COS 中的每个文件均可通过特定的链接来进行访问，若文件是私有读权限，则可通过请求临时签名的方式生成带有时效的临时访问链接。以下是生成对象链接的两种方式：
+
+#### 方式一
+
+1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
+2. 在文件右侧的操作栏下，单击<img src="https://main.qcloudimg.com/raw/37acaeb370eb77e1bb0c792d542792e2.jpg"  style="margin:0;">。
+3. COSBrowser 工具顶部显示【临时链接复制成功，链接2小时有效】，则说明链接生成并复制成功。
+4. 您即可通过该链接访问文件。通过此方式生成的文件链接，有效期为两个小时，若您需要自定义有效期，可通过方式二实现。
+
+
+#### 方式二
+
+1. 单击 COSBrowser 工具右上角的<img src="https://main.qcloudimg.com/raw/b3de2bc7284b5aaba9b4f9af6c408205.jpg" style="margin:0;">，切换到列表视图（若已是在列表视图下，则无需进行此步骤）。
+1. 在文件右侧的操作栏下，单击【**...**】，在下拉菜单中，单击【分享】。
+![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
+2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
+![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
+3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
+
+
+
+
+## 更多功能
+
+了解 COSBrowser 其它功能，例如修改存储桶访问权限，文件预览等，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
 
 
 
