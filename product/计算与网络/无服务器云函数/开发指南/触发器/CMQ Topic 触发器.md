@@ -6,7 +6,7 @@ CMQ Topic 主题队列触发器具有以下特点：
 - **异步调用**：CMQ Topoic 主题队列始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
 ## CMQ Topic 主题队列触发器属性
-** CMQ Topic（必选）**：配置的 CMQ Topic 主题队列，仅支持选择同地域下的 CMQ 队列。
+**CMQ Topic（必选）**：配置的 CMQ Topic 主题队列，仅支持选择同地域下的 CMQ 队列。
 
 ## CMQ Topic 触发器绑定限制
  
@@ -15,7 +15,7 @@ CMQ Topic 主题队列触发器具有以下特点：
 同时，目前 CMQ Topic 触发器仅支持同地域 CMQ Topic 消息触发，即广州区创建的云函数，在配置 CMQ Topic 触发器时，仅支持选择广州地区（华南）的 CMQ Topic。如果您想要使用特定地域的 CMQ Topic 消息来触发云函数，可以通过在对应地域下创建函数来实现。
 
 ## CMQ Topic 触发器的事件消息结构
-在指定的 CMQ Topic 主题队列接受到消息时，会将类似以下的 JSON 格式事件数据发送给绑定的 SCF 函数。
+在指定的 CMQ Topic 主题队列接受到消息时，会将类似以下的 JSON 格式事件数据发送给绑定的云函数。
 
 ```
 {
