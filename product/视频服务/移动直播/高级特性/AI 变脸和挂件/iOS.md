@@ -76,7 +76,7 @@ Metal.framework
 
 ## 功能接口
 
-### 美妆接口（大眼、瘦脸等）
+### 高级美颜接口（大眼、瘦脸等）
 美妆接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
