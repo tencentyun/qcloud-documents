@@ -89,7 +89,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 更多功能
 
-了解 COSBrowser 其它功能，例如修改存储桶访问权限，文件预览等，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
+若需要配置有效期永久的文件链接，或了解 COSBrowser 其它功能，例如修改存储桶访问权限，文件预览等，请参见 COSBrowser [桌面端使用说明](https://cloud.tencent.com/document/product/436/38103) 文档。
 
 
 
