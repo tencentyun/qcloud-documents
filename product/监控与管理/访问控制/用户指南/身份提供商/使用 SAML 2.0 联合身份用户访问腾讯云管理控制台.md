@@ -14,11 +14,13 @@
 
 从用户的角度来看，整个流程以透明的方式进行：用户在您企业组织的内部门户网站开始操作，在腾讯云管理控制台结束操作，无需提供任何腾讯云凭证。有关如何配置此行为的概述以及指向详细步骤的链接，请参阅以下章节。
 ### <span id="step配置身份提供商"></span>在企业组织中配置基于 SAML 2.0 的身份提供商
-在您的企业组织中，配置身份存储（例如 Azure Active Directory）以使用基于 SAML 2.0 的身份提供商，例如 Azure Active Directory、OneLogin、Okta 等。通过使用身份提供商，可以生成一个元数据文档。该文档将您的企业组织描述为包含身份验证密钥的身份提供商，会把您企业组织的门户网站配置为将访问腾讯云管理控制台的用户请求路由至腾讯云终端节点，以便使用 SAML 2.0 断言进行身份验证。如何配置您的身份提供商来生成 metadata.xml 文件取决于您的身份提供商。请参阅您的 IdP 文档以获得指示，或参阅以下文档。 
+在您的企业组织中，配置身份存储（例如 Azure Active Directory）以使用基于 SAML 2.0 的身份提供商，例如 Azure Active Directory、OneLogin、Okta 等。通过使用身份提供商，可以生成一个元数据文档。该文档将您的企业组织描述为包含身份验证密钥的身份提供商，会把您企业组织的门户网站配置为将访问腾讯云管理控制台的用户请求路由至腾讯云终端节点，以便使用 SAML 2.0 断言进行身份验证。如何配置您的身份提供商来生成 metadata.xml 文件取决于您的身份提供商。请参阅您的 IdP 文档以获得指示，或参阅以下文档。
+
 >- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
 >- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
 >- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
 >- [ADFS 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/42702)
+>
 ### 在 CAM 中创建 SAML 身份提供商
 您可以在访问管理（CAM）控制台创建一个 SAML 2.0 身份提供商，该身份提供商是访问管理（CAM）中的一个实体，可以认为是外部授信账号集合。基于 SAML 2.0 联合身份验证的身份提供商描述了支持 SAML 2.0（安全断言标记语言 2.0）标准的身份提供商服务。在创建过程中，您可以上传在 [在企业组织中配置基于 SAML 2.0 的身份提供商](#step配置身份提供商) 中的身份提供商的元数据文档。详细请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。 
 ### 在腾讯云中为 SAML 提供商用户配置权限
@@ -26,6 +28,7 @@
 
 ### 配置身份提供商的单一登录
 下载并保存腾讯云联合元数据 XML文档：http://cloud.tencent.com/saml.xml， 将您企业组织中的身份提供商属性映射到腾讯云的属性，建立您企业组织中的身份提供商和腾讯云的互信关系。安装该文件的方式取决于您的身份提供商。一些提供商为您提供了键入该 URL 的选项，此时，身份提供商将为您获取并安装该文件。另一些提供商则要求您从该 URL 处下载该文件，然后将其作为本地文件提供。请参阅您的 IdP 文档以获得指示，或参阅以下文档。 
+
 >- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
 >- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
 >- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
