@@ -154,15 +154,15 @@ SDK 支持自动订阅和手动订阅。
 public void onUserVideoAvailable(String userId, boolean available) {
     TXCloudVideoView remoteView = remoteViewDic[userId];
     if (available) {
-        trtcCloud.startRemoteView(userId, remoteView);
-        trtcCloud.setRemoteViewFillMode(userId, TRTC_VIDEO_RENDER_MODE_FIT);
+        mTRTCCloud.startRemoteView(userId, remoteView);
+        mTRTCCloud.setRemoteViewFillMode(userId, TRTC_VIDEO_RENDER_MODE_FIT);
     } else {
-        trtcCloud.stopRemoteView(userId);
+        mTRTCCloud.stopRemoteView(userId);
     }
 }
 ```
 
->? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在1s - 3s后停止接收来自远端的视频数据。
+>? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将在5s内停止接收来自远端的视频数据。
 
 #### 手动订阅模式
 您可以通过 [setDefaultStreamRecvMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b8d004665d5003ce1d9a48a9ab551b3) 接口将 SDK 指定为手动订阅模式。在手动订阅模式下，SDK 不会自动接收房间中其他用户的音视频数据，需要您手动通过 API 函数触发。
@@ -182,9 +182,9 @@ public void onUserVideoAvailable(String userId, boolean available) {
 4. 调用 [setVideoEncoderParam()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
 ```java
 //示例代码：发布本地的音视频流
-trtcCloud.setLocalViewFillMode(TRTC_VIDEO_RENDER_MODE_FIT);
-trtcCloud.startLocalPreview(mIsFrontCamera, mLocalView);
-trtcCloud.startLocalAudio();
+mTRTCCloud.setLocalViewFillMode(TRTC_VIDEO_RENDER_MODE_FIT);
+mTRTCCloud.startLocalPreview(mIsFrontCamera, mLocalView);
+mTRTCCloud.startLocalAudio();
 ```
 
 <span id="step8"> </span>
@@ -194,7 +194,7 @@ trtcCloud.startLocalAudio();
 
 ```java
 // 调用退房后请等待 onExitRoom 事件回调
-trtcCloud.exitRoom()
+mTRTCCloud.exitRoom()
 
 @Override
 public void onExitRoom(int reason) {
