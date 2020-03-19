@@ -9,4 +9,4 @@
 正式版 License 不能更改 Package Name 和 Bundle ID。
 
 ### License 可以同时支持多个 App 吗？
-一个 License 只能对应一个 Package Name 和一个 Bundle ID，若多个 App 使用 SDK 功能，需要购买多个资源包新增多个License。
+一个 License 只能对应一个 Package Name 和一个 Bundle ID，若多个 App 使用 SDK 功能，需要购买多个资源包新增多个 License。
