@@ -16,24 +16,3 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 ## API Explorer
 [API Explorer](https://console.cloud.tencent.com/api/explorer) 提供了在线调用、签名验证、 SDK 代码生成和快速检索接口等能力，能显著降低使用云 API 的难度。
 
-
-
-## 旧版 SDK
-推荐使用新版 SDK，旧版 SDK 将不再维护更新，PHP、Python、.Net、Node.js 和 Java 的旧版 SDK 使用指引如下：
-- 旧版 PHP SDK
- 详细使用说明请参考 [旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)。
-- 旧版 Python SDK
- 详细使用说明请参考 [旧版 Python SDK ](https://github.com/QcloudApi/qcloudapi-sdk-python)。
-- 旧版 .Net SDK
- 详细使用说明请参考 [旧版 .Net SDK](https://github.com/qcloudapi/qcloudapi-sdk-dotnet)。
-- 旧版 Node.js SDK
- 详细使用说明请参考 [旧版 Node.js SDK](https://github.com/CFETeam/qcloudapi-sdk)。
-- 旧版 Java SDK
- 在您的 Maven pom.xml 添加以下依赖项即可：
-```xml
-<dependency>
-<groupId>com.qcloud</groupId>
-<artifactId>qcloud-java-sdk</artifactId>
-<version>2.0.6</version>
-</dependency>
-```
