@@ -19,7 +19,7 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 
 
 ## 查看方法
-License 设置成功后（需稍等一段时间，具体时间长短依据网络情况而定），您可以通过调用以下方法查看 License 信息：
+License 设置成功后（需稍等一段时间，具体时间长短依据网络情况而定），您可以通过调用如下方法查看 License 信息：
 
 - **iOS**
 ```
