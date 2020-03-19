@@ -27,7 +27,7 @@ TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
 dependencies {
-  compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+      compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
