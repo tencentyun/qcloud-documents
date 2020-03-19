@@ -220,7 +220,7 @@ mTRTCCloud.ConnectOtherRoom(String.format("{\"roomId\":%s,\"userId\":\"%s\"}", r
 
 ```java
 // 调用退房后请等待 onExitRoom 事件回调
-trtcCloud.exitRoom()
+mTRTCCloud.exitRoom()
 
 @Override
 public void onExitRoom(int reason) {
