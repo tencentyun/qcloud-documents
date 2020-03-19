@@ -140,9 +140,9 @@ exports.callback_handler = function(event, context, callback) {
 
 ## 关闭事件循环等待
 
-由于部分外部引入的库的原因，可能会导致事件循环持续不为空。这种情况将会在某些条件下导致函数无法返回直至超时。为了避免外部库的影响，可以通过关闭事件循环等待来自行控制函数的返回时机。通过如下两种方式，可以修改默认的回调行为，避免等待事件循环为空。
+由于部分外部引入的库的原因，可能会导致事件循环持续不为空。这种情况将会在某些条件下导致函数无法返回直至超时。为了避免外部库的影响，可以通过关闭事件循环等待来自行控制函数的返回时机。通过如下方式，可以修改默认的回调行为，避免等待事件循环为空。
 * 设置 `context.callbackWaitsForEmptyEventLoop` 为 false。
-* 通过在 callback 回调执行前设置 `context.callbackWaitsForEmptyEventLoop = false;` ，可以使云函数后台在 callback 回调被调用后立刻冻结进程，不再等待事件循环内的事件，而在同步过程完成后立刻返回。
+通过在 callback 回调执行前设置 `context.callbackWaitsForEmptyEventLoop = false;` ，可以使云函数后台在 callback 回调被调用后立刻冻结进程，不再等待事件循环内的事件，而在同步过程完成后立刻返回。
 
 ## 日志
 
