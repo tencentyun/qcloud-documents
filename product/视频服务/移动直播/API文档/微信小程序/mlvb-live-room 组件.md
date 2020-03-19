@@ -19,6 +19,7 @@
 ## 操作接口
 
 **&lt;mlvb-live-room&gt;** 组件包含如下操作接口，您需要先通过 selectComponent 获取 &lt;mlvb-live-room&gt; 标签的引用，之后就可以进行相应的操作。
+>! 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 | 函数名                                          | 说明         |
 |--------------------------------------------|--------------|
