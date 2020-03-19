@@ -3,7 +3,7 @@
 
 ## 测试版 License
 ### 申请测试版 License
-您可以免费申请测试 License（基础版，免费测试有效期为14天，可续期1次，共28天）体验测试，具体步骤如下：
+您可以免费申请测试版 License（基础版，免费测试有效期为14天，可续期1次，共28天）体验测试，具体步骤如下：
 1. 登录云直播控制台，在左侧菜单中选择 【直播 SDK】>[【License】](https://console.cloud.tencent.com/live/license)。
 ![](https://main.qcloudimg.com/raw/e16e131d2a235c6f902b9337da1742ec.png)
 2. 单击【立即申请】，填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
@@ -12,11 +12,11 @@
  创建成功后，页面会显示生成的 License 信息。请记录 Key 和 LicenseUrl，便于在 SDK 初始化时使用。
 ![](https://main.qcloudimg.com/raw/06454ee5f8fa11377fadb67cd04a0291.png)
 
->?测试 License 有效期内可单击右侧的【编辑】，进入修改 Bundle ID 和 Package Name 信息，单击【确定】即可保存。
+>?测试版 License 有效期内可单击右侧的【编辑】，进入修改 Bundle ID 和 Package Name 信息，单击【确定】即可保存。
 
 ### 续费测试 License
-测试版 License 有效期为**28天**，申请后满14天，您可通过单击测试 License 右侧的【编辑】进入修改界面，单击【确定】重新保存即可续期14天。
->! 测试 License 只能延期一次，若您需继续使用，请购买正式 License。
+测试版 License 有效期为**28天**，申请后满14天，您可通过单击测试版 License 右侧的【编辑】进入修改界面，单击【确定】重新保存即可续期14天。
+>! 测试版 License 只能延期一次，若您需继续使用，请购买正式 License。
 
 <span id="buy"></span>
 ## 正式版 License
@@ -33,7 +33,7 @@
 ![](https://main.qcloudimg.com/raw/c52b885a82ca1f8ff2e58e0114831c99.png)
 >?
 >-  单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
->- 若您需要修改 License 信息，购买资源包后请勿用于续期 License，正式 License 不支持信息修改，请单击【新增 License】按钮重新新增 License 绑定新的包名信息。
+>- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击【新增 License】按钮重新新增 License 绑定新的包名信息。
 
 
 ### 续期正式版 License
