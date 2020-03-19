@@ -81,6 +81,10 @@ func main () {
 	req.Header.Set("Source", source)
 	req.Header.Set("X-Date", dateTime)
 	req.Header.Set("Authorization", sign)
+	
+	// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+	req.Header.set("x-NameSpace-Code", "testmic")
+	req.Header.set("x-MicroService-Name", "provider-demo")
 
 	resp, err := client.Do(req)
 	if err != nil {

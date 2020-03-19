@@ -30,11 +30,15 @@ $url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/
 $headers = array( 
 	'Host:service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', // 用户 API 所在服务的域名
 	'Accept:text/html, */*; q=0.01',
-	'Source: yousali',
+	'Source: xxxxxx',
 	'Date: '.$dateTime,
 	'Authorization: '.$Authen,
 	'X-Requested-With: XMLHttpRequest',
-	'Accept-Encoding: gzip, deflate, sdch'
+	'Accept-Encoding: gzip, deflate, sdch',
+	
+	// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+	'X-NameSpace-Code: testmic',
+	'X-MicroService-Name: provider-demo'
 );
 $ch = curl_init(); 
 curl_setopt($ch, CURLOPT_URL,$url); 
