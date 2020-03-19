@@ -71,7 +71,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2020031820211244.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 
 ### 生成 SSL 证书
-1. 访问访问 http://localhost/certsrv， 单击【申请证书】。如下图所示：
+1. 访问 http://localhost/certsrv， 单击【申请证书】。如下图所示：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318202315283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)
 2. 在申请一个证书页面，单击【高级证书申请】。如下图所示：
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318202328820.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L1RIRUFOQVJLSA==,size_16,color_FFFFFF,t_70)、
