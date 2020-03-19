@@ -32,14 +32,14 @@ exports.main_handler = (event, context, callback) => {
 
 ## 执行方法
 
-在创建云函数 SCF 时，均需要指定执行方法。在使用 Node.js 开发语言时，执行方法类似 `index.main_handler`，此处 `index`表示执行的入口文件为 `index.js` ，`main_handler` 表示执行的入口函数为 `main_handler` 函数。在使用 本地 zip 文件上传、COS 上传等方法提交代码 zip 包时，请确认 zip 包的根目录下包含有指定的入口文件，文件内有定义指定的入口函数，文件名和函数名和执行方法处填写的能够对应，避免因为无法查找到入口文件和入口函数导致的执行失败。
+在创建云函数 SCF 时，均需要指定执行方法。在使用 Node.js 开发语言时，执行方法类似 `index.main_handler`，此处 `index` 表示执行的入口文件为 `index.js` ，`main_handler` 表示执行的入口函数为 `main_handler` 函数。在使用本地 zip 文件上传、COS 上传等方法提交代码 zip 包时，请确认 zip 包的根目录下包含有指定的入口文件，文件内有定义指定的入口函数，文件名和函数名和执行方法处填写的能够对应，避免因为无法查找到入口文件和入口函数导致的执行失败。
 
 ## 入参
 
 Node.js 环境下的入参包括 event、context 和 callback，其中 callback 为可选参数。
 * **event**：使用此参数传递触发事件数据。
 * **context**：使用此参数向您的处理程序传递运行时信息。
-* **callback**：使用此参数用于将您所希望的信息返回给调用方。在 Node.js 8.9 和 6.10 版本中，均可以使用 callback 来返回。在 Node.js 10.15 中，使用了 async 描述的入口函数，需要使用 return 关键字返回，非 async 模式的入口函数，需要使用 callback 入参返回。
+* **callback（可选）**：使用此参数用于将您所希望的信息返回给调用方。在 Node.js 8.9 和 6.10 版本中，均可以使用 callback 来返回。在 Node.js 10.15 中，使用 async 描述的入口函数，需要使用 return 关键字返回，非 async 模式的入口函数，需要使用 callback 入参返回。
 
 ## 返回和异常
 
@@ -69,16 +69,16 @@ callback(Error error, Object result);
 * 入口函数的同步执行过程完成及返回后，云函数的调用将立刻返回，并将代码的返回信息返回给函数调用方。
 * 同步流程处理并返回后，代码中的异步逻辑可以继续执行和处理，直到异步事件执行完成后，云函数的实际执行过程才完成和退出。
 
->?在这个过程中，由于云函数的日志是在整个执行过程完成后才进行收集和处理，因此在同步执行过程完成并返回时，云函数的返回信息中暂时无法提供日志、运行信息包括耗时、内存消耗等内容。具体信息可以在函数实际执行过程完成后，通过 Request Id 在日志中查询。
-
-云函数的运行时长，将按照异步事件执行完成后进行计算。如果异步事件队列一直无法清空或执行完成，将会导致函数超时。这种情况下，调用方可能已经获得了函数的正确响应结果，但是云函数的运行状态将标注为由于超时而失败，同时运行时长按超时时间统计。
+>!
+>- 在这个过程中，由于云函数的日志是在整个执行过程完成后才进行收集和处理，因此在同步执行过程完成并返回时，云函数的返回信息中暂时无法提供日志、运行信息包括耗时、内存消耗等内容。具体信息可以在函数实际执行过程完成后，通过 Request Id 在日志中查询。
+>- 云函数的运行时长，将按照异步事件执行完成后进行计算。如果异步事件队列一直无法清空或执行完成，将会导致函数超时。这种情况下，调用方可能已经获得了函数的正确响应结果，但是云函数的运行状态将标注为由于超时而失败，同时运行时长按超时时间统计。
 
 Node.js 10.15 的同步和异步运行特性、返回时间及运行时长示例如下图所示：
-![node10.15feature](https://main.qcloudimg.com/raw/22624281cb1a1a35bec4c6262f2e7a6e.png)
+![node10.15feature](https://main.qcloudimg.com/raw/ae2aaa71e19d73e6f782abf715e1ec18.png)
 
 ### Node.js 10.15 函数内异步特性示例
 
-使用示例代码创建函数，可以看到代码中使用 setTimeout 方法设置了一个2秒后执行的函数：
+使用如下示例代码创建函数，其中使用 setTimeout 方法设置了一个2秒后执行的函数：
 ```
 'use strict';
 exports.main_handler = (event, context, callback) => {
@@ -140,7 +140,7 @@ exports.callback_handler = function(event, context, callback) {
 
 ## 关闭事件循环等待
 
-由于部分外部引入的库的原因，可能会导致事件循环持续不为空。这种情况将会在某些条件下导致函数无法返回，直到超时。为了避免外部库的影响，可以通过关闭事件循环等待来自行控制函数的返回时机。通过如下两种方式，可以修改默认的回调行为，避免等待事件循环为空。
+由于部分外部引入的库的原因，可能会导致事件循环持续不为空。这种情况将会在某些条件下导致函数无法返回直至超时。为了避免外部库的影响，可以通过关闭事件循环等待来自行控制函数的返回时机。通过如下两种方式，可以修改默认的回调行为，避免等待事件循环为空。
 * 设置 `context.callbackWaitsForEmptyEventLoop` 为 false。
 * 通过在 callback 回调执行前设置 `context.callbackWaitsForEmptyEventLoop = false;` ，可以使云函数后台在 callback 回调被调用后立刻冻结进程，不再等待事件循环内的事件，而在同步过程完成后立刻返回。
 
@@ -173,84 +173,281 @@ var COS = require('cos-nodejs-sdk-v5');
 
 ### 环境内的内置库
 
-Node.js 10.15 运行时内已支持的库如下表：
+- Node.js 10.15 运行时内已支持的库如下表：
+<table><thead>
+<tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
+</thead>
+<tbody><tr>
+<td>cos-nodejs-sdk-v5</td>
+<td>2.5.14</td>
+</tr>
+<tr>
+<td>base64-js</td>
+<td>1.3.1</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>5.4.3</td>
+</tr>
+<tr>
+<td>crypto-browserify</td>
+<td>3.12.0</td>
+</tr>
+<tr>
+<td>ieee754</td>
+<td>1.1.13</td>
+</tr>
+<tr>
+<td>imagemagick</td>
+<td>0.1.3</td>
+</tr>
+<tr>
+<td>isarray</td>
+<td>2.0.5</td>
+</tr>
+<tr>
+<td>jmespath</td>
+<td>0.15.0</td>
+</tr>
+<tr>
+<td>lodash</td>
+<td>4.17.15</td>
+</tr>
+<tr>
+<td>microtime</td>
+<td>3.0.0</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>6.4.1</td>
+</tr>
+<tr>
+<td>punycode</td>
+<td>2.1.1</td>
+</tr>
+<tr>
+<td>puppeteer</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td>qcloudapi-sdk</td>
+<td>0.2.1</td>
+</tr>
+<tr>
+<td>querystring</td>
+<td>0.2.0</td>
+</tr>
+<tr>
+<td>request</td>
+<td>2.88.0</td>
+</tr>
+<tr>
+<td>sax</td>
+<td>1.2.4</td>
+</tr>
+<tr>
+<td>scf-nodejs-serverlessdb-sdk</td>
+<td>1.0.1</td>
+</tr>
+<tr>
+<td>tencentcloud-sdk-nodejs</td>
+<td>3.0.104</td>
+</tr>
+<tr>
+<td>url</td>
+<td>0.11.0</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>3.3.3</td>
+</tr>
+<tr>
+<td>xml2js</td>
+<td>0.4.22</td>
+</tr>
+<tr>
+<td>xmlbuilder</td>
+<td>13.0.2</td>
+</tr>
+</tbody></table>
 
-| 库名称                  | 版本   |
-| ----------------------- | ------ |
-| cos-nodejs-sdk-v5       | 2.5.14 |
-| base64-js               | 1.3.1  |
-| buffer                  | 5.4.3  |
-| crypto-browserify       | 3.12.0 |
-| ieee754                 | 1.1.13 |
-| imagemagick             | 0.1.3  |
-| isarray                 | 2.0.5  |
-| jmespath                | 0.15.0 |
-| lodash                  | 4.17.15|
-| microtime               | 3.0.0  |
-| npm                     | 6.4.1  |
-| punycode                | 2.1.1  |
-| puppeteer               | 2.0.0  |
-| qcloudapi-sdk           | 0.2.1  |
-| querystring             | 0.2.0  |
-| request                 | 2.88.0 |
-| sax                     | 1.2.4  |
-| scf-nodejs-serverlessdb-sdk|1.0.1|
-| tencentcloud-sdk-nodejs | 3.0.104|
-| url                     | 0.11.0 |
-| uuid                    | 3.3.3  |
-| xml2js                  | 0.4.22 |
-| xmlbuilder              | 13.0.2 |
+- Node.js 8.9 运行时内已支持的库如下表：
+<table>
+<thead>
+<tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
+</thead>
+<tbody><tr>
+<td>cos-nodejs-sdk-v5</td>
+<td>2.5.7</td>
+</tr>
+<tr>
+<td>base64-js</td>
+<td>1.2.1</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>5.0.7</td>
+</tr>
+<tr>
+<td>crypto-browserify</td>
+<td>3.11.1</td>
+</tr>
+<tr>
+<td>ieee754</td>
+<td>1.1.8</td>
+</tr>
+<tr>
+<td>imagemagick</td>
+<td>0.1.3</td>
+</tr>
+<tr>
+<td>isarray</td>
+<td>2.0.2</td>
+</tr>
+<tr>
+<td>jmespath</td>
+<td>0.15.0</td>
+</tr>
+<tr>
+<td>lodash</td>
+<td>4.17.4</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>5.6.0</td>
+</tr>
+<tr>
+<td>punycode</td>
+<td>2.1.0</td>
+</tr>
+<tr>
+<td>puppeteer</td>
+<td>1.14.0</td>
+</tr>
+<tr>
+<td>qcloudapi-sdk</td>
+<td>0.1.5</td>
+</tr>
+<tr>
+<td>querystring</td>
+<td>0.2.0</td>
+</tr>
+<tr>
+<td>request</td>
+<td>2.87.0</td>
+</tr>
+<tr>
+<td>sax</td>
+<td>1.2.4</td>
+</tr>
+<tr>
+<td>tencentcloud-sdk-nodejs</td>
+<td>3.0.52</td>
+</tr>
+<tr>
+<td>url</td>
+<td>0.11.0</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>3.1.0</td>
+</tr>
+<tr>
+<td>xml2js</td>
+<td>0.4.17</td>
+</tr>
+<tr>
+<td>xmlbuilder</td>
+<td>9.0.1</td>
+</tr>
+</tbody></table>
 
-Node.js 8.9 运行时内已支持的库如下表：
-
-| 库名称                  | 版本   |
-| ----------------------- | ------ |
-| cos-nodejs-sdk-v5       | 2.5.7  |
-| base64-js               | 1.2.1  |
-| buffer                  | 5.0.7  |
-| crypto-browserify       | 3.11.1 |
-| ieee754                 | 1.1.8  |
-| imagemagick             | 0.1.3  |
-| isarray                 | 2.0.2  |
-| jmespath                | 0.15.0 |
-| lodash                  | 4.17.4 |
-| npm                     | 5.6.0  |
-| punycode                | 2.1.0  |
-| puppeteer               | 1.14.0 |
-| qcloudapi-sdk           | 0.1.5  |
-| querystring             | 0.2.0  |
-| request                 | 2.87.0 |
-| sax                     | 1.2.4  |
-| tencentcloud-sdk-nodejs | 3.0.52 |
-| url                     | 0.11.0 |
-| uuid                    | 3.1.0  |
-| xml2js                  | 0.4.17 |
-| xmlbuilder              | 9.0.1  |
-
-Node.js 6.10 运行时内已支持的库如下表：
-
-| 库名称                  | 版本    |
-| ----------------------- | ------- |
-| base64-js               | 1.2.1   |
-| buffer                  | 5.0.7   |
-| cos-nodejs-sdk-v5       | 2.0.7   |
-| crypto-browserify       | 3.11.1  |
-| ieee754                 | 1.1.8   |
-| imagemagick             | 0.1.3   |
-| isarray                 | 2.0.2   |
-| jmespath                | 0.15.0  |
-| lodash                  | 4.17.4  |
-| npm                     | 3.10.10 |
-| punycode                | 2.1.0   |
-| qcloudapi-sdk           | 0.1.5   |
-| querystring             | 0.2.0   |
-| request                 | 2.87.0  |
-| sax                     | 1.2.4   |
-| tencentcloud-sdk-nodejs | 3.0.10  |
-| url                     | 0.11.0  |
-| uuid                    | 3.1.0   |
-| xml2js                  | 0.4.17  |
-| xmlbuilder              | 9.0.1   |
+- Node.js 6.10 运行时内已支持的库如下表：
+<table>
+<thead>
+<tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
+</thead>
+<tbody><tr>
+<td>base64-js</td>
+<td>1.2.1</td>
+</tr>
+<tr>
+<td>buffer</td>
+<td>5.0.7</td>
+</tr>
+<tr>
+<td>cos-nodejs-sdk-v5</td>
+<td>2.0.7</td>
+</tr>
+<tr>
+<td>crypto-browserify</td>
+<td>3.11.1</td>
+</tr>
+<tr>
+<td>ieee754</td>
+<td>1.1.8</td>
+</tr>
+<tr>
+<td>imagemagick</td>
+<td>0.1.3</td>
+</tr>
+<tr>
+<td>isarray</td>
+<td>2.0.2</td>
+</tr>
+<tr>
+<td>jmespath</td>
+<td>0.15.0</td>
+</tr>
+<tr>
+<td>lodash</td>
+<td>4.17.4</td>
+</tr>
+<tr>
+<td>npm</td>
+<td>3.10.10</td>
+</tr>
+<tr>
+<td>punycode</td>
+<td>2.1.0</td>
+</tr>
+<tr>
+<td>qcloudapi-sdk</td>
+<td>0.1.5</td>
+</tr>
+<tr>
+<td>querystring</td>
+<td>0.2.0</td>
+</tr>
+<tr>
+<td>request</td>
+<td>2.87.0</td>
+</tr>
+<tr>
+<td>sax</td>
+<td>1.2.4</td>
+</tr>
+<tr>
+<td>tencentcloud-sdk-nodejs</td>
+<td>3.0.10</td>
+</tr>
+<tr>
+<td>url</td>
+<td>0.11.0</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>3.1.0</td>
+</tr>
+<tr>
+<td>xml2js</td>
+<td>0.4.17</td>
+</tr>
+<tr>
+<td>xmlbuilder</td>
+<td>9.0.1</td>
+</tr>
+</tbody></table>
 
 
 ## 相关操作
