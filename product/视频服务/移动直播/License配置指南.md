@@ -13,11 +13,9 @@
 TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
->! 
->- 推流端需要配置 License，播放端不需要配置 License。
->- 使用企业版本 License 时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
-	- [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
-	- [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
+>!使用企业版本 License 时，License 设置方法如上，但工程需要额外进行配置，具体操作请参见：
+- [AI 变脸和挂件（iOS）](https://cloud.tencent.com/document/product/454/9018) 
+- [AI 变脸和挂件（Android）](https://cloud.tencent.com/document/product/454/9020)
 
 
 ## 查看方法
