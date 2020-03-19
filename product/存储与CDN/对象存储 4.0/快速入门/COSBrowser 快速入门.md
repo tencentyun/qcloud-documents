@@ -1,7 +1,7 @@
 初次使用对象存储 COS，建议您先了解 COS [存储桶](https://cloud.tencent.com/document/product/436/13312)、[对象](https://cloud.tencent.com/document/product/436/13324)、[规格与限制](https://cloud.tencent.com/document/product/436/14518) 和  [常见问题](https://cloud.tencent.com/document/product/436/30748)。
 
 COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，提供 Windows、macOS、Linux、Android 和 iOS 版本，让您可以使用更简单的交互，轻松实现对 COS 资源的查看、传输和管理。
-本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传对象、以及下载对象。
+本文以 Windows 平台的 COSBrowser 为例，为您详细介绍如何创建存储桶、上传对象、下载对象以及如何分享对象。
 
 
 ## 前提条件
