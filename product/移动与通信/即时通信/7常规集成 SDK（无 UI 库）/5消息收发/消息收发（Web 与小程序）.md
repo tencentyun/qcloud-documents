@@ -78,7 +78,7 @@ tim.createImageMessage(options)
 | `to`               | `String` | 消息的接收方                                           |
 | `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `payload`          | `Object` | 消息内容的容器                                         |
-| onProgress | `function` | 获取上传进度的回调函数 |
+| `onProgress` | `function` | 获取上传进度的回调函数 |
 
 `paylaod`的描述如下表所示：
 
