@@ -174,7 +174,7 @@ Content-Type: "application/json"
 | --------- | ---- | ------------ | ---------------------------------------- |
 | appid     | 是    | String         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
 | card_type | 否    | Int          | 0为身份证有照片的一面，1为身份证有国徽的一面；如果未指定，默认为0。     |
-| image     | 是    | Binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image     | 是    | Binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 HTTP body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 HTTP body 中会返回用户设置的 filename 值。 |
 
 ### 输出参数
 

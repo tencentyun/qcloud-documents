@@ -1,12 +1,12 @@
 ## API 与其他 SDK 问题
 
-### 调用 API 接口时，出现“Time out”等错误信息，该如何处理？
+### 调用 API 接口时，出现“Request has expired”等错误信息，该如何处理？
 
 出现该提示，存在两种可能：
 - 一是因为您发起请求的时间超过了签名的有效时间。
-- 二是您的本地系统时间与北京时间不一致。
+- 二是您本地系统时间和所在时区的时间不一致。
 
-针对第一种可能，建议重新获取有效的请求签名再进行 API 操作。若是第二种可能，请将您的本地系统时间按照北京时间进行校正。
+针对第一种可能，建议重新获取有效的请求签名再进行 API 操作。若是第二种可能，请将您的本地系统时间按照所在时区的时间进行校正。
 
 ### 如何调用 API 删除掉未完成上传文件？
 
@@ -51,7 +51,7 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 
 ### 小程序里请求多个域名，或者存储桶名称不确定，怎么解决白名单配置和限制问题？
 
-SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下`https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>`后缀式请求，在签名时会存储桶名称`/<BucketName-APPID>`也会加入签名计算。
+SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要真正请求 url 格式如下`https://cos-ap-beijing.myqcloud.com/<BucketName-APPID>/<Key>`后缀式请求，在签名时存储桶名称`/<BucketName-APPID>`也会加入签名计算。
 
 ### 小程序如何保存图片到本地？
 
@@ -73,7 +73,7 @@ SDK 实例化时，使用`ForcePathStyle:true`可以打开后缀式，只需要�
 
 原因与解决办法：
 
- a. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网(内网域名解析出的 IP 是10、100、169网段，有关 COS 域名请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)，如果是通过公网确认出口带宽是否较小，或者是否有其他程序占用带宽资源。
+ a. 首先确认下是否是通过公网访问 COS，目前同地域 CVM 访问 COS 走内网（内网域名解析出的 IP 是10、100、169网段，有关 COS 域名请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)），如果是通过公网确认出口带宽是否较小，或者是否有其他程序占用带宽资源。
  b. 确保在生产环境中的日志级别不是 DEBUG，推荐使用 INFO 日志。
  c. 目前简单上传速度可达10MB，高级 API 在32并发的情况下速度可达60MB,如果速度远低于此两个值，请参考 a 和 b。
  d. 如果 WARN 日志打印 IOException 可以忽略，SDK 会进行重试. IOException 的原因可能是网速过慢，原因可参考 a 和 b。
@@ -132,3 +132,32 @@ clientConfig.setHttpProxyPort(8080);
 COSClient cosClient = new COSClient(cred, clientConfig);
 ```
 
+### 如何设置自定义 EndpointBuilder？
+您的场景也许需要指定 API 请求的 Endpoint，此时，您需要实现 EndpointBuilder 接口中的 buildGeneralApiEndpoint 和 buildGetServiceApiEndpoint 中的两个函数，分别为普通 API 请求和 GETService 请求指定远端的 Endpoint。使用示例如下：
+```
+// 步骤1：实现 EndpointBuilder 接口中的两个函数
+class SelfDefinedEndpointBuilder implements EndpointBuilder {
+    @Override
+    public String buildGeneralApiEndpoint(String bucketName) {
+        return String.format("%s.%s", bucketName, "mytest.com");
+    }
+
+    @Override
+    public String buildGetServiceApiEndpoint() {
+        return "service.mytest.com";
+    }
+}
+
+// 步骤2：初始化客户端
+String secretId = "COS_SECRETID";
+String secretKey = "COS_SECRETKEY";
+COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
+SelfDefinedEndpointBuilder selfDefinedEndpointBuilder = new SelfDefinedEndpointBuilder();
+ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing"));
+clientConfig .setEndpointBuilder(selfDefinedEndpointBuilder);
+COSClient cosClient = new COSClient(cred, clientConfig);
+```
+
+### SDK 的上传、下载、批量删除等操作中，使用的 key 值是否需要添加 '/' 前缀？
+对象存储的 key 值无需携带 '/' 前缀。例如，您将对象 key 值设置为 exampleobject 上传的对象，可以通过 URL： `http://cos.ap-guangzhou.myqcloud.com/exampleobject`进行访问。
+>!在批删请求中，请勿传入 '/' 前缀的 key，这将导致对象删除失败。

@@ -1,8 +1,8 @@
 ## 操作场景
 本文指导您在需要对实例重置密码时，通过云数据库 MongoDB 控制台进行重置操作。
 
-## 操作步骤
 
+## 操作步骤
 1. 登录 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb)，实例列表中，选择需要重置密码的实例，在【操作】列，选择【更多】>【管理】。
 2. 在实例管理页，单击【帐号管理】进入帐号管理页，选择需要重置密码的帐号，单击【修改密码】。
    ![](https://main.qcloudimg.com/raw/9eec4d8b65ea50cfdf4b8deeb9631084.png)

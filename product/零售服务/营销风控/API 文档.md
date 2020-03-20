@@ -17,13 +17,13 @@
       <td>accountType</td>
       <td>必须</td>
       <td>Uint</td>
-      <td>用户账号类型：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。 </li><li>4：手机号 （暂仅支持国内手机号）。</li><li>10004： 手机号 MD5。</li></td>
+      <td>用户账号类型（QQ 开放帐号、微信开放账号需要 <a href =https://console.cloud.tencent.com/workorder/category >提交工单</a> 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li></td>
    </tr>
    <tr>
       <td>uid</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户 ID 值，如微信或QQ openid，或手机号等（如15912345687）。</td>
+      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。</td>
    </tr>
    <tr>
       <td>userIp</td>
@@ -125,7 +125,7 @@
       <td>loginSource</td>
       <td>可选</td>
       <td>UInt</td>
-      <td>登录来源：<li>0：其他 。</li><li>1：PC网页。</li><li>2：移动页面。</li><li>3：APP。</li><li>4：微信公众号。</li></td>
+      <td>登录来源：<li>0：其他 。</li><li>1：PC 网页。</li><li>2：移动页面。</li><li>3：App。</li><li>4：微信公众号。</li></td>
    </tr>
    <tr>
       <td>wxSubType</td>
@@ -184,7 +184,7 @@
    <tr>
       <td>uid</td>
       <td>String</td>
-      <td>用户 ID，accountType 不同对应不同的用户 ID。如果是 QQ 或微信用户则填入对应的 openId（对应输入参数）。</td>
+      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。</td>
    </tr>
    <tr>
       <td>userIp</td>

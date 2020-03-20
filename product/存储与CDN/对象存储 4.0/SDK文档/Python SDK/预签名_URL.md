@@ -15,6 +15,7 @@ get_auth(Method, Bucket, Key, Expired=300, Headers={}, Params={})
 
 #### 上传请求示例
 
+[//]: # (.cssg-snippet-get-authorization-upload)
 ```python
 response = client.get_auth(
     Method='PUT',
@@ -25,6 +26,7 @@ response = client.get_auth(
 
 #### 下载请求示例
 
+[//]: # (.cssg-snippet-get-authorization-download)
 ```python
 response = client.get_auth(
     Method='GET',
@@ -72,6 +74,7 @@ response = client.get_auth(
 
 #### 上传请求示例
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```python
 response = client.get_presigned_url(
     Method='PUT',
@@ -82,6 +85,7 @@ response = client.get_presigned_url(
 
 #### 下载请求示例
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```python
 response = client.get_presigned_url(
     Method='GET',
@@ -141,6 +145,7 @@ get_presigned_download_url(Bucket, Key, Expired=300, Params={}, Headers={})
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-presign-download-url-alias)
 ```python
 response = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',

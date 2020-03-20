@@ -15,6 +15,7 @@ QuerySimpleAesTemplate
 #### 参数说明
 | 参数名称 | 必填 | 类型 | 说明 |
 |---------|---------|---------|---------|
+| SubAppId | 否 | Integer | 点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID；否则无需填写该字段。 |
 | COMMON_PARAMS | 是 | - | 请参见 [公共参数](/document/api/213/6976)。 |
 
 #### 请求示例

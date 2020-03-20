@@ -6,7 +6,7 @@
 
 <table>
    <tr>
-      <th>Header 名称</th>
+      <th >Header 名称</th>
       <th>描述</th>
       <th>类型</th>
    </tr>
@@ -41,6 +41,11 @@
       <td>string</td>
    </tr>
    <tr>
+      <td nowrap="nowrap">Transfer-Encoding</td>
+      <td>RFC 2616 中定义的传输编码格式。</td>
+      <td>string</td>
+   </tr>
+   <tr>
       <td nowrap="nowrap">x-cos-request-id</td>
       <td>每次请求发送时，服务端将会自动为请求生成一个 ID。</td>
       <td>string</td>
@@ -71,6 +76,13 @@
       <td>string</td>
    </tr>
 </table>
+
+### SSE-KMS
+
+| Header 名称                                 | 描述                                                         | 类型   |
+| ------------------------------------------- | ------------------------------------------------------------ | ------ |
+| x-cos-server-side-encryption                | 当上传对象时使用了 SSE-KMS，或者下载经过 SSE-KMS 加密的对象时，请求的响应均会返回此头部，用于表明对象上传时使用的服务端加密算法。 | string |
+| x-cos-server-side-encryption-cos-kms-key-id | 返回 KMS 的用户主密钥 CMK，如未指定，则返回 COS 默认创建的 CMK。        | string |
 
 ### SSE-C
 

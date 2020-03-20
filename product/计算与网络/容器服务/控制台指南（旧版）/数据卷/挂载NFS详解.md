@@ -29,3 +29,5 @@
 2. 设置挂载点。
 单击运行容器下的【显示高级设置】。填写挂载点的相关信息。
 ![](//mc.qcloudimg.com/static/img/1e6f5c80d5f78e58fb475d82676f9e88/image.png)
+
+

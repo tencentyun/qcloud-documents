@@ -22,7 +22,7 @@ none'>cPeeringConnection</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
-  <td height=3D324 style=3D'height:243.0pt' >-</td>
+  <td height=3D324 style=3D'height:243.0pt' >—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -35,7 +35,7 @@ none'>cPeeringConnection</span></td>
 
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
-  <td height=3D216 style=3D'height:162.0pt'>-</td>
+  <td height=3D216 style=3D'height:162.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc 资源<br>
     qcs::vpc:$region:$account:vpc/*<br>
     qcs::vpc:$region:$account:vpc/$vpcId(接收方 vpcId)</td>
@@ -59,7 +59,7 @@ none'>cPeeringConnectionEx</span></td>
 
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
-  <td height=3D180 style=3D'height:135.0pt'>-</td>
+  <td height=3D180 style=3D'height:135.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc 资源<br>
     qcs::vpc:$region:$account:vpc/*<br>
     qcs::vpc:$region:$account:vpc/$vpcId</td>
@@ -76,7 +76,7 @@ none'>nnEx</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
-  <td height=3D216 style=3D'height:162.0pt'>-</td>
+  <td height=3D216 style=3D'height:162.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpn 网关资源<br>
     qcs::vpc:$region:$account:vpngw/*<br>
     qcs::vpc:$region:$account:vpngw/$vpnGwId</td>
@@ -87,14 +87,14 @@ none'>nnEx</span></td>
 
  </tr>
  <tr height=3D108 style=3D'height:81.0pt'>
-  <td height=3D108 style=3D'height:81.0pt'>-</td>
+  <td height=3D108 style=3D'height:81.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对端网关资源<br>
     qcs::vpc:$region:$account:cgw/*</td>
   <td>vpc:regi<span style=3D'display:none'>on</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
-  <td height=3D198 style=3D'height:148.5pt'>-</td>
+  <td height=3D198 style=3D'height:148.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpn 通道资源<br>
     qcs::vpc:$region:$account:vpnx/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -142,7 +142,7 @@ none'>eRouteTable</span></td>
 
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
-  <td height=3D216 style=3D'height:162.0pt'>-</td>
+  <td height=3D216 style=3D'height:162.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>路由表资源<br>
     qcs::vpc:$region:$account:rtb/*<br>
     qcs::vpc:$region:$account:rtb/$routeTableId</td>
@@ -162,7 +162,7 @@ none'>assicLinkVpc</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
-  <td height=3D234 style=3D'height:175.5pt'>-</td>
+  <td height=3D234 style=3D'height:175.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
@@ -184,7 +184,7 @@ none'>tworkInterface</span></td>
 
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
-  <td height=3D234 style=3D'height:175.5pt'>-</td>
+  <td height=3D234 style=3D'height:175.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
@@ -202,7 +202,7 @@ none'>dAttachNetworkInterface</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
-  <td height=3D234 style=3D'height:175.5pt'>-</td>
+  <td height=3D234 style=3D'height:175.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
@@ -211,7 +211,7 @@ none'>dAttachNetworkInterface</span></td>
 。</td>
  </tr>
  <tr height=3D198 style=3D'height:148.5pt'>
-  <td height=3D198 style=3D'height:148.5pt'>-</td>
+  <td height=3D198 style=3D'height:148.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>弹性网卡资源<br>
     qcs::vpc:$region:$account:eni/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -232,7 +232,7 @@ none'>rectConnectGateway</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>专线网关资源<br>
     qcs::vpc:$region:$account:dcg/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -323,7 +323,7 @@ none'>tGateway</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>nat 网关资源<br>
     qcs::vpc:$region:$account:nat/*<br>
     </td>
@@ -343,7 +343,7 @@ none'>tworkAcl</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>网络 acl 资源<br>
     qcs::vpc:$region:$account:acl/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -362,7 +362,7 @@ none'>tworkInterface</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
-  <td height=3D216 style=3D'height:162.0pt'>-</td>
+  <td height=3D216 style=3D'height:162.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>子网资源<br>
     qcs::vpc:$region:$account:subnet/*<br>
     qcs::vpc:$region:$account:subnet/$subnetId</td>
@@ -373,7 +373,7 @@ none'>tworkInterface</span></td>
 
  </tr>
  <tr height=3D180 style=3D'height:135.0pt'>
-  <td height=3D180 style=3D'height:135.0pt'>-</td>
+  <td height=3D180 style=3D'height:135.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>弹性网卡资源<br>
     qcs::vpc:$region:$account:eni/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -406,7 +406,7 @@ none'>uteTable</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>路由表资源<br>
     qcs::vpc:$region:$account:rtb/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -425,7 +425,7 @@ none'>bnet</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>子网网关资源<br>
     qcs::vpc:$region:$account:subnet/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -447,7 +447,7 @@ none'>bnetAclRule</span></td>
 
  </tr>
  <tr height=3D126 style=3D'height:94.5pt'>
-  <td height=3D126 style=3D'height:94.5pt'>-</td>
+  <td height=3D126 style=3D'height:94.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>子网网关资源<br>
     qcs::vpc:$region:$account:subnet/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:vpc<br>
@@ -466,7 +466,7 @@ none'>cPeeringConnection</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
-  <td height=3D324 style=3D'height:243.0pt'>-</td>
+  <td height=3D324 style=3D'height:243.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc<br>
@@ -487,7 +487,7 @@ none'>cPeeringConnectionEx</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D432 style=3D'height:324.0pt'>
-  <td height=3D432 style=3D'height:324.0pt'>-</td>
+  <td height=3D432 style=3D'height:324.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>vpc:accepter_vpc<br>
@@ -737,7 +737,7 @@ none'>assicLinkVpc</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
-  <td height=3D234 style=3D'height:175.5pt'>-</td>
+  <td height=3D234 style=3D'height:175.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId</td>
@@ -756,7 +756,7 @@ none'>tworkInterface</span></td>
 。</td>
  </tr>
  <tr height=3D234 style=3D'height:175.5pt'>
-  <td height=3D234 style=3D'height:175.5pt'>-</td>
+  <td height=3D234 style=3D'height:175.5pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>弹性网卡资源<br>
     qcs::vpc:$region:$account:eni/*<br>
     qcs::vpc:$region:$account:eni/$networkInterfaceId</td>
@@ -781,7 +781,7 @@ none'>bnetAclRule</span></td>
 
  </tr>
  <tr height=3D216 style=3D'height:162.0pt'>
-  <td height=3D216 style=3D'height:162.0pt'>-</td>
+  <td height=3D216 style=3D'height:162.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>网络 acl 资源<br>
     qcs::vpc:$region:$account:acl/*<br>
     qcs::vpc:$region:$account:acl/$networkAclId</td>
@@ -827,7 +827,7 @@ none'>cPeeringConnection</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
-  <td height=3D324 style=3D'height:243.0pt'>-</td>
+  <td height=3D324 style=3D'height:243.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -850,7 +850,7 @@ none'>cPeeringConnectionEx</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D432 style=3D'height:324.0pt'>
-  <td height=3D432 style=3D'height:324.0pt'>-</td>
+  <td height=3D432 style=3D'height:324.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -879,7 +879,7 @@ none'>etworkInterface</span></td>
 
  </tr>
  <tr height=3D288 style=3D'height:216.0pt'>
-  <td height=3D288 style=3D'height:216.0pt'>-</td>
+  <td height=3D288 style=3D'height:216.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>云服务器资源<br>
     qcs::cvm:$region:$account:instance/*<br>
     qcs::cvm:$region:$account:instance/$instanceId(迁移前后的都需要授权)</t=
@@ -1104,7 +1104,7 @@ none'>cPeeringConnection</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
-  <td height=3D324 style=3D'height:243.0pt'>-</td>
+  <td height=3D324 style=3D'height:243.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -1127,7 +1127,7 @@ none'>cPeeringConnectionEx</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D432 style=3D'height:324.0pt'>
-  <td height=3D432 style=3D'height:324.0pt'>-</td>
+  <td height=3D432 style=3D'height:324.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -1179,7 +1179,7 @@ none'>cPeeringConnection</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D324 style=3D'height:243.0pt'>
-  <td height=3D324 style=3D'height:243.0pt'>-</td>
+  <td height=3D324 style=3D'height:243.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>
@@ -1202,7 +1202,7 @@ none'>cPeeringConnectionEx</span></td>
   <td colspan=3D3 style=3D'mso-ignore:colspan'>vpc:region 表示 vpc 所在地域。</td>
  </tr>
  <tr height=3D432 style=3D'height:324.0pt'>
-  <td height=3D432 style=3D'height:324.0pt'>-</td>
+  <td height=3D432 style=3D'height:324.0pt'>—</td>
   <td class=3Dxl65 width=3D72 style=3D'width:54pt'>对等连接资源<br>
     qcs::vpc:$region:$account:pcx/*<br>
     qcs::vpc:$region:$account:pcx/$peeringConnectionId</td>

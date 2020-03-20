@@ -2,7 +2,7 @@ TcaplusDB 使用 Google Protobuf 文件定义业务数据表，支持 proto2 和
 
 ## proto2 加表文件规范
 
-以下是一个符合 proto2 语法规范的加表文件示例
+以下是一个符合 proto2 语法规范的加表文件示例：
 
 ```
 syntax = "proto2";                      // 指明符合proto2语法规范

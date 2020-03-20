@@ -50,7 +50,7 @@ bar:
    ruby: scissorses 
 ```
 
-转换为 javascript 代码后
+转换为 JavaScript 代码后：
 
 ```javascript
 { foo: 'whatever',
@@ -116,7 +116,7 @@ that: >
   Bar
 ```
 
-转换为 javascript 代码：
+转换为 JavaScript 代码：
 
 ```javascript
 { this: 'Foo\nBar\n', that: 'Foo Bar\n' }
@@ -126,7 +126,7 @@ that: >
 
 ## 工具
 
-- [Online YAML Parser](http://yaml-online-parser.appspot.com/) 提供了一个 YAML 的 playground，不确定的语法可以在这里进行验证。
+- 提供了一个 [YAML 的格式校验工具](http://www.bejson.com/validators/yaml/)，供参考
 - [YAML 和 Properties 格式互转工具](http://www.toyaml.com/)
 
 ## 参考

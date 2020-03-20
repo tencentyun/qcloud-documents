@@ -6,8 +6,8 @@
 API 创建完成后，您需要使用 “使用计划” 功能将密钥对与 API 或 API所在服务进行绑定。配置详情请参考 [使用计划](https://cloud.tencent.com/document/product/628/11815)。
 
 ## 密钥内容
-【secret_id】示例：AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
-【secret_key】示例：ZxF2whO0RhuwnVCj5JMMAuqcDcN2oPrC  用于签名计算，传递过程中无体现。
+【secret_id】示例：`AKIDCg*****j548pN`  用于标识所使用的哪个密钥，并参与签名计算，传输过程中体现。
+【secret_key】示例：`ZxF2wh*****N2oPrC`  用于签名计算，传递过程中无体现。
 
 ## 计算方法
 ### 最终发送内容
@@ -24,7 +24,7 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 【ID】其值为密钥内的 secret_id 的值。
 【algorithm】加密算法，当前支持的是 hmac-sha1。
 【headers】参与签名计算的 header，按实际计算时的顺序排列。
-【signature】计算签名后得到的签名。
+【signature】计算签名后得到的签名，signing_str 是签名内容。
 
 ### 签名计算方法
 签名由两部分并根据指定加密算法进行计算，以 hmac-sha1 算法举例：
@@ -37,7 +37,7 @@ header 按如下要求转换后按顺序排列：
 * 然后附加 header 值。
 * 如果不是最后一条需构造签名的 header，附上**ascii 换行字符`\n`**。
 
-例如有两个 header 参与构建签名内容：
+例如有两个 header 参与构建签名内容（仅为示例，请根据业务实际情况填写字段）：
 ```
 Date:Fri, 09 Oct 2015 00:00:00 GMT
 Source:AndriodApp

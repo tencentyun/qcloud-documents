@@ -14,7 +14,7 @@
 
 | 参数名称 | 是否必选  | 类型 | 描述 |
 |---------|---------|---------|---------|
-| zoneId | 是 | UInt | 实例所属的可用区id |
+| zoneId | 是 | UInt | 实例所属的可用区ID |
 | typeId | 是 | UInt | 实例类型：1 – 集群版，2 – 主从版 |
 | memSize | 是 | UInt | 实例容量，单位MB， 取值大小以 [查询售卖规格](http://cloud.tencent.com/doc/api/260/4974)接口返回的规格为准， 取值范围[data.types.minMemSize, data.types.maxMemSize] |
 | goodsNum | 是 | UInt | 实例数量，单次购买实例数量以 [查询售卖规格](http://cloud.tencent.com/doc/api/260/4974)接口返回的规格为准， 取值范[data.types.minBuyNum, data.types.maxBuyNum]|
@@ -23,8 +23,8 @@
 | vpcId | 否 | UInt | 历史原因，仍保留该参数，推荐使用下面参数unVpcId。 私有网络ID，如果不传则默认选择基础网络。|
 | unVpcId | 否 | String | 私有网络ID，如果不传则默认选择基础网络，请使用[私有网络列表](https://cloud.tencent.com/doc/api/245/1372) 查询 返回的unVpcId为准，如：vpc-kd7d06of|
 | subnetId | 否 | UInt | 历史原因，仍保留该参数，推荐使用下面参数unSubnetId。私有网络下的子网ID，如果设置了 vpcId，则 subnetId 必填。|
-| unSubnetId | 否 | String | 基础网络下， subnetId无效； vpc子网下，取值以查询[查询子网列表](https://cloud.tencent.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
-| projectId | 否 | UInt | 项目id，取值以用户账户>用户账户相关接口查询>[项目列表](https://cloud.tencent.com/doc/api/403/4400)返回的projectId为准|
+| unSubnetId | 否 | String | 基础网络下， subnetId无效； VPC子网下，取值以查询[查询子网列表](https://cloud.tencent.com/document/product/215/1371) 返回的unSubnetId为准，如：subnet-3lzrkspo|
+| projectId | 否 | UInt | 项目ID，取值以用户账户>用户账户相关接口查询>[项目列表](https://cloud.tencent.com/doc/api/403/4400)返回的projectId为准|
 
 
 ## 3. 输出参数
@@ -55,8 +55,8 @@ data 数组的结构：
 |11065|PeriodExceedMaxLimit|购买时长超过最大时长限制|
 |11066|PeriodLessThanMinLimit|购买时长小于最小时长限制|
 |11064|GoodsNumNotInRange| 一次购买的实例数超过售卖数量限制（请用[查询售卖规格](http://cloud.tencent.com/doc/api/260/4974)接口查询购买实例数限制）|
-|11067|OnlyVPCOnSpecZoneId|请求的地区目前只提供vpc网络下的redis服务|
-|11054|InvalidSubnetId|vpc网络下的子网id不存在|
+|11067|OnlyVPCOnSpecZoneId|请求的地区目前只提供VPC网络下的redis服务|
+|11054|InvalidSubnetId|VPC网络下的子网ID不存在|
 |10501|PasswordEmpty|密码为空|
 |11058|PasswordRuleError|密码规则错误，密码必须是8-16位字符，且至少包含字母、数字和字符（!@#%^*()）中的两种|
 |100207|OperationConstraints.AccountBalanceNotEnough|账号余额不足，请充值|

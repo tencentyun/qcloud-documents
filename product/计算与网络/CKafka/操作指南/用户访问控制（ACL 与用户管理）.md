@@ -5,7 +5,7 @@
 - ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+该功能目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 操作步骤
 
@@ -18,7 +18,7 @@
 
 ####  Client 端配置
 1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
-![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
+![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
@@ -58,7 +58,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 >?
 - 开通路由只影响接入时的验证方式，设置的 ACL 权限则是全局的。
-- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，则需要通过 API 为实例添加`ANONYMOUS`用户，并为 PLAINTEXT 需要访问的 Topic 添加`ANONYMOUS`用户的可读写的权限。
+- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，请为 PLAINTEXT 需要访问的 Topic 添加全部用户的可读写的权限。
 
 ###  连通性测试
 ####  Kafka 自带工具脚本

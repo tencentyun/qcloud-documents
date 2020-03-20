@@ -4,7 +4,7 @@
 
 | iOS | Android | Mac OS | Windows | 微信小程序 | Chrome 浏览器|
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-|     ✖  |    ✖    |    ✔   |    ✔    |    ✖     |   ✔     |
+|  ×  |  ×  |   &#10003; |   &#10003; |  ×    |  &#10003; |
 
 ## 获取分享目标
 通过 `getScreenCaptureSources` 可以枚举可共享的窗口列表，列表通过出参 sourceInfoList 返回。
@@ -35,7 +35,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 即分享整个屏幕窗口，支持多显示器分屏的情况。需要指定一个 sourceInfoList 中 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 source 参数 ，并将 captureRect 设为 { 0, 0, 0, 0 }。
 
 - **指定区域分享**：
-即分享屏幕的某个区域，需要用户圈定区域的位置坐标。需要指定一个 sourceInfoList 中 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 source 参数 ，并将 captureRect 设为非 NULL，比如 { 100, 100, 300, 300 }。
+即分享屏幕的某个区域，需要用户圈定区域的位置坐标。需要指定一个 sourceInfoList 中 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 source 参数 ，并将 captureRect 设为非 NULL，例如 { 100, 100, 300, 300 }。
 
 - **指定窗口分享**：
 即分享目标窗口的内容，需要用户选择要分享的窗口。需要指定一个 sourceInfoList 中 type 为 `TRTCScreenCaptureSourceTypeWindow` 的 source 参数，并将 captureRect 设为 { 0, 0, 0, 0 }。
@@ -80,9 +80,9 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 | 清晰度级别 | 分辨率 | 帧率 | 码率 | 
 |:-------------:|:---------:|:---------:| :---------: | 
-| 高清 | 1920 × 1080 | 10 | 800kbps |
-| 标清 | 1280 × 720 | 10 | 600kbps |
-| 低清 | 1280 × 720 | 10 | 400kbps |
+| 超高清（HD+） | 1920 × 1080 | 10 | 800kbps |
+|  高清（HD） | 1280 × 720 | 10 | 600kbps |
+| 标清（SD） | 960 × 720 | 10 | 400kbps |
 
 ## 观看屏幕分享
 当房间里有一个用户启动了屏幕分享，房间里的其他用户会通过  TRTCCloudCallback 的 `onUserSubStreamAvailable` 获得这个通知。

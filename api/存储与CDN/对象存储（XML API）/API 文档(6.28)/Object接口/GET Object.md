@@ -2,11 +2,15 @@
 
 GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至本地。该 API 的请求者需要对目标对象有读取权限，或者目标对象向所有人开放了读取权限（公有读）。
 
->? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
+> ? 如果使用了 response-* 请求参数，那么该请求操作不支持匿名请求，必须携带签名。
 
 #### 版本控制
 
-当启用版本控制时，该 GET 操作返回对象的最新版本。要返回对象的历史版本，请使用 versionId 参数。
+当启用版本控制时，该 GET 操作可以使用 versionId 请求参数指定要返回的版本 ID，此时将返回对象的指定版本。若指定版本为删除标记，则返回 HTTP 响应码404（Not Found），否则将返回指定对象的最新版本。
+
+#### 归档存储类型
+
+如果该 GET 请求操作的对象为**归档（ARCHIVE）存储类型**，且没有使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 进行恢复（或恢复后的副本已被过期删除），那么该请求将返回 HTTP 响应码403（Forbidden），同时在响应体中包含错误信息，其中错误码（Code）为 InvalidObjectState，表示对象的当前状态无法被 GET 请求操作，需要先经过恢复。
 
 ## 请求
 
@@ -19,31 +23,31 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
-| 名称 | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- |
-| response-cache-control | 设置响应中的 Cache-Control 头部的值 | string | 否 |
-| response-content-disposition | 设置响应中的 Content-Disposition 头部的值 | string | 否 |
-| response-content-encoding | 设置响应中的 Content-Encoding 头部的值 | string | 否 |
-| response-content-language | 设置响应中的 Content-Language 头部的值 | string | 否 |
-| response-content-type | 设置响应中的 Content-Type 头部的值 | string | 否 |
-| response-expires | 设置响应中的 Expires 头部的值 | string | 否 |
-| versionId | 指定要下载的对象的版本 ID | string | 否 |
+| 名称                         | 描述                                                         | 类型   | 是否必选 |
+| ---------------------------- | ------------------------------------------------------------ | ------ | -------- |
+| response-cache-control       | 设置响应中的 Cache-Control 头部的值                          | string | 否       |
+| response-content-disposition | 设置响应中的 Content-Disposition 头部的值                    | string | 否       |
+| response-content-encoding    | 设置响应中的 Content-Encoding 头部的值                       | string | 否       |
+| response-content-language    | 设置响应中的 Content-Language 头部的值                       | string | 否       |
+| response-content-type        | 设置响应中的 Content-Type 头部的值                           | string | 否       |
+| response-expires             | 设置响应中的 Expires 头部的值                                | string | 否       |
+| versionId                    | 当启用版本控制时，指定要下载的版本 ID，如不指定则下载对象的最新版本 | string | 否       |
 
 #### 请求头
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称 | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- |
-| Range | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据。如果不指定，则表示下载整个对象 | string | 否 |
-| If-Modified-Since | 当对象在指定时间后被修改，则返回对象，否则返回304（Not Modified） | string | 否 |
-| If-Unmodified-Since | 当对象在指定时间后未被修改，则返回对象，否则返回412（Precondition Failed） | string | 否 |
-| If-Match | 当对象的 ETag 与指定的值一致，则返回对象，否则返回412（Precondition Failed） | string | 否 |
-| If-None-Match | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回304（Not Modified） | string | 否 |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
+| Range                                                        | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据，此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。如果不指定，则表示下载整个对象 | string | 否       |
+| If-Modified-Since                                            | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
+| If-Unmodified-Since                                          | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-Match                                                     | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| If-None-Match                                                | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
 
 **服务端加密相关头部**
 
@@ -59,21 +63,22 @@ Authorization: Auth String
 
 此接口除返回公共响应头部外，还返回以下响应头部，了解公共响应头部详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-| 名称 | 描述 | 类型 |
-| --- | --- | --- |
-| Cache-Control | RFC 2616 中定义的缓存指令，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
-| Content-Disposition | RFC 2616 中定义的文件名称，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
-| Content-Encoding | RFC 2616 中定义的编码格式，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
-| Expires | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
-| x-cos-meta-\* | 包括用户自定义元数据头部后缀和用户自定义元数据信息 | string |
-| x-cos-storage-class | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，如：STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ |
+| Cache-Control                                                | RFC 2616 中定义的缓存指令，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Content-Disposition                                          | RFC 2616 中定义的文件名称，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Content-Encoding                                             | RFC 2616 中定义的编码格式，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| Content-Range                                                | RFC 2616 中定义的返回内容的字节范围，仅当请求中指定了 Range 请求头部时才会返回该头部 | string |
+| Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
+| x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
+| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 
 **版本控制相关头部**
 
-使用版本控制的对象将返回下列响应头部：
+启用版本控制的存储桶内的对象将返回下列响应头部：
 
-| 名称 | 描述 | 类型 |
-| --- | --- | --- |
+| 名称             | 描述          | 类型   |
+| ---------------- | ------------- | ------ |
 | x-cos-version-id | 对象的版本 ID | string |
 
 **服务端加密相关头部**
@@ -180,7 +185,38 @@ x-cos-server-side-encryption: AES256
 [Object Content]
 ```
 
-#### 案例四：使用服务端加密 SSE-C
+#### 案例四：使用服务端加密 SSE-KMS
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 26 Dec 2019 18:09:48 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577383788;1577390988&q-key-time=1577383788;1577390988&q-header-list=date;host&q-url-param-list=&q-signature=9fdee83e4267194b58d4c2e81c08e111a926****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: image/jpeg
+Content-Length: 13
+Connection: close
+Accept-Ranges: bytes
+Date: Thu, 26 Dec 2019 18:09:48 GMT
+ETag: "7e7c4a8998f14baebefd4b155ec6499e"
+Last-Modified: Thu, 26 Dec 2019 18:09:43 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwNGY3NmNfMTBiODJhMDlfMWFmMzlfNGE4****
+x-cos-server-side-encryption: cos/kms
+x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+
+[Object Content]
+```
+
+#### 案例五：使用服务端加密 SSE-C
 
 #### 请求
 
@@ -214,7 +250,7 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 [Object Content]
 ```
 
-#### 案例五：使用版本控制，下载对象最新版本
+#### 案例六：下载对象最新版本（启用版本控制）
 
 #### 请求
 
@@ -244,7 +280,7 @@ x-cos-version-id: MTg0NDUxODE3NzYyODMxOTg0OTg
 [Object Content]
 ```
 
-#### 案例六：使用版本控制，下载对象指定版本
+#### 案例七：下载对象指定版本（启用版本控制）
 
 #### 请求
 
@@ -273,3 +309,69 @@ x-cos-version-id: MTg0NDUxODE3NzYyODg0ODI2MjA
 
 [Object Content]
 ```
+
+#### 案例八：指定 Range 请求头部下载部分内容
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Fri, 09 Aug 2019 04:02:17 GMT
+Range: bytes=2-4
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1565323337;1565330537&q-key-time=1565323337;1565330537&q-header-list=date;host;range&q-url-param-list=&q-signature=8b3b4427bbbe15c5cfba9c458c9b3c85d0e3****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 206 Partial Content
+Content-Type: image/jpeg
+Content-Length: 3
+Connection: close
+Accept-Ranges: bytes
+Content-Range: bytes 2-4/13
+Date: Fri, 09 Aug 2019 04:02:18 GMT
+ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Last-Modified: Fri, 09 Aug 2019 04:02:12 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ0Y2YwNGFfNDhiNDBiMDlfMmU2ZTFfMTc0MGVl****
+
+[Object Content]
+```
+
+#### 案例九：下载未经恢复的归档（ARCHIVE）存储类型的对象
+
+#### 请求
+
+```shell
+GET /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 26 Dec 2019 11:57:24 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577361444;1577368644&q-key-time=1577361444;1577368644&q-header-list=date;host&q-url-param-list=&q-signature=d975dc7097b2dbffcf2ba001e6dec25dd80a****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 403 Forbidden
+Content-Type: application/xml
+Content-Length: 513
+Connection: close
+Date: Thu, 26 Dec 2019 11:57:24 GMT
+Server: tencent-cos
+x-cos-request-id: NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****
+x-cos-storage-class: ARCHIVE
+
+<?xml version='1.0' encoding='utf-8' ?>
+<Error>
+	<Code>InvalidObjectState</Code>
+	<Message>The operation is not valid for the object storage class.</Message>
+	<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
+	<RequestId>NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****</RequestId>
+	<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTBjNjIyOGVlZmJlNDg4NDQ1MzAzMjA2ZDg4OGQ3MDhlMjIzYjI1ZWUwODY5YjdlMTBjY2EwNTgyZWMyMjc0Mjc=</TraceId>
+</Error>
+```
+

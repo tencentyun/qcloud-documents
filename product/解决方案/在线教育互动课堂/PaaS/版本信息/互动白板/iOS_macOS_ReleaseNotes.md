@@ -1,5 +1,80 @@
 # Release Notes - iOS & macOS
 
+## 2.3.6 @ 2019.11.18
+
+- 删除接口
+    - -(NSString *)addFile:(NSString *)path
+    - -(NSString *)addH5PPTFile:(NSString *)url
+- 删除回调
+    - -(void)onTEBAddFile:(NSString *)fileId
+    - -(void)onTEBAddH5PPTFile:(NSString *)fileId
+- 增加接口
+    - -(void)switchFile:(NSString *)fileId boardId:(NSString *)boardId stepIndex:(NSInteger)stepIndex
+    - -(void)applyFileTranscode:(NSString *)path config:(TEduBoardTranscodeConfig *)config
+    - -(void)getFileTranscodeProgress:(NSString *)taskId
+- 增加回调
+    - -(void)onTEBFileTranscodeProgress:(TEduBoardTranscodeFileResult *)result path:(NSString *)path errorCode:(NSString *)errorCode errorMsg:(NSString *)errorMsg
+
+
+## 2.3.5 @ 2019.10.30
+
+- 新增接口getThumbnailImages获取文件缩略图
+- 新增步数回调onTEBGotoStep
+- 修复白板放大到一定比例，涂鸦失效问题
+- 修复白板放大后精度丢失各端画面不对齐的问题
+
+## 2.3.4 @ 2019.09.25
+
+- 涂鸦屏蔽多指触摸
+- ppt点击事件透传
+- 移动端ppt翻页交互支持左右滑动翻页
+
+## 2.3.3 @ 2019.08.19
+
+- 增加接口
+    - (uint64_t)getSyncTime支持大房间方案获取对时时间戳
+    - (void)syncRemoteTime:(NSString *)userId timestamp:(uint64_t)timestamp设置远程时间戳
+    
+- bug修复
+    - 修复getFileInfo返回错误的问题
+
+## 2.3.2 @ 2019.08.07
+
+- 废弃接口
+    - addFile
+    - addH5PPTFile
+    - setTextFamily
+    - getTextFamily
+    - TEduBoardAuthParam.textFamily
+- 废弃回调
+    - onTEBAddFile
+    - onTEBAddH5PPTFile
+- 增加接口
+    - addTranscodeFile 添加转码文件
+    - setLineStyle 设置直线样式（虚线/箭头）
+    - getLineStyle 获取直线样式
+    - setOvalDrawMode 设置椭圆绘制模式
+    - getOvalDrawMode 获取椭圆绘制模式
+- 增加回调
+    - onTEBAddTranscodeFile 添加转码文件回调
+
+## 2.3.1 @ 2019.08.01
+- 激光笔优化
+- 修复iOS8背景图片白板涂鸦闪屏问题
+- 修复iOS8背景图片和H5背景切换放大问题
+- 增加html资源加载重试逻辑
+
+## 2.3.0 @ 2019.07.18
+性能优化
+- 首屏渲染优化
+
+## 2.2.2 @ 2019.07.04
+接口修改
+- addFile/addH5PPTFile返回文件Id
+- onTEBFileUploadProgress/onTEBFileUploadStatus回调接口修改
+功能更新
+- 支持画出白板再画入
+
 ## 2.2.1 @ 2019.06.21
 回调接口修改
 - onTEBAddBoard回调boardId数组

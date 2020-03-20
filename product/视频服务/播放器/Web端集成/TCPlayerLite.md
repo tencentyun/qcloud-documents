@@ -23,12 +23,13 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
+>! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
 ## 对接攻略
 
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.1.js" charset="utf-8"></script>;
+<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -45,12 +46,12 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 编写 Javascript 代码，作用是去指定的 URL 地址拉取音视频流，并将视频画面呈现到添加的容器内。
 
 #### 3.1 简单播放
-如下是一个直播格式的 URL 地址，使用 HLS（M3U8）协议，如果主播在直播中，则用 VLC 等播放器是可以直接打开该 URL 进行观看的：
+如下是一个 [直播格式的 URL 地址](https://cloud.tencent.com/document/product/267/32733)，使用 HLS（M3U8）协议，如果主播在直播中，则用 VLC 等播放器是可以直接打开该 URL 进行观看的：
 
 ```
 http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8 播放地址
 ```
-![](//mc.qcloudimg.com/static/img/7923a14be5525bd37719c18d54243403/image.png)
+![](https://main.qcloudimg.com/raw/f5444cbd256ace4033e37bb1206bc90d.png)
 如果要在手机浏览器上播放该 URL 的视频，则 Javascript 代码如下：
 ```javascript
 var player = new TcPlayer('id_test_video', {
@@ -81,7 +82,7 @@ var player =  new TcPlayer('id_test_video', {
 #### 3.3 无法播放怎么办？
 如果您发现视频无法播放，可能存在如下原因：
 -  **原因一：视频源有问题**
-如果是直播 URL，则需要检查主播是否已经停止推流，可以用浮窗提示观众：“主播已经离开”。
+如果是直播 URL，则需要检查主播是否已经停止推流，可以用浮窗提示观众：“主播已经离开”。请参见 [直播推流](https://cloud.tencent.com/document/product/267/32732)。
 如果是点播 URL，则需要检查要播放的文件是否还存在于服务器上（如播放地址是否已经从点播系统移除）。
 
 - **原因二：本地网页调试**
@@ -100,7 +101,7 @@ PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做�
 
 ### Step4. 给播放器设置封面
 设置封面涉及到 poster 属性，下面将详细介绍 poster 属性的使用方法。
->!**封面功能在部分移动端播放环境下可能失效，因为移动端视频播放环境相对比较复杂，各种浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，所以如果遇到功能失效的情况，请 [联系我们](https://cloud.tencent.com/document/product/881/20218)。**
+>!**封面功能在部分移动端播放环境下可能失效，通常是由于移动端 webview 劫持视频播放造成的，需要 webview 支持 video 叠加元素或者放开劫持视频播放**。相关详细说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)。
 
 #### 4.1 简单设置封面
 poster 支持传入图片地址作为播放器的封面，在播放器区域内居中，并且以图片的实际分辨率进行显示。
@@ -122,15 +123,15 @@ style 支持的样式如下：
 #### 4.3 实现用例
 
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-cover.html
-```
->!**在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
+[视频封面](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-poster.html)
+>!
+>- **在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
+>- **以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
 同腾讯视频，Web 播放器支持多清晰度，如下图所示：
-![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
+![](https://main.qcloudimg.com/raw/6badb0db35edb9c11cea363b6c8bcbe2.png)
 **播放器本身是没有能力去改变视频清晰度的**，视频源只有一种清晰度，称之为原画，而原画视频的编码格式和封装格式多种，Web 端无法支持播放所有的视频格式，如点播支持以 H.264 为视频编码，MP4 和 FLV 为封装格式的视频。
 
 **多清晰度的实现依赖于视频云**：
@@ -163,14 +164,12 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-clarity.html?autoplay=true
-```
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
 正常情况将看到如下效果：
-![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
-**PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
+![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
+>!
+ - **PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
+ - **以上示例链接仅用于文档演示，请勿用于生产环境**
 
 ### Step6. 定制错误提示语
 Web 播放器支持提示语定制。
@@ -193,8 +192,9 @@ var player = new TcPlayer('id_test_video', {
 视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http://2527.vod.myqcloud.com/2527_b393eb1.f230.av.m3u8
+https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 ```
+>!**以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 #### 6.3 错误码表
 | Code  | 提示语|说明                                       |
@@ -219,15 +219,8 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?m3u8=http:/
 
 ## 源码参考
 如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true
-```
-
-您可以用它来测试播放器的效果，在链接后面加上需要播放的视频地址，刷新后就会播放如下视频地址：
-
-```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=true&m3u8=http%3A%2F%2F1251132611.vod2.myqcloud.com%2F4126dd3evodtransgzp1251132611%2F8a592f8b9031868222950257296%2Ff0.f240.m3u8
-```
+[播放示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer.html)
+>!**以上示例链接仅用于文档演示，请勿用于生产环境。**
 
 ## 参数列表
 播放器支持的所有参数，如下所示：
@@ -252,7 +245,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>- default 居中1：1显示。 <br>- stretch 拉伸铺满播放器区域，图片可能会变形。 <br>- cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-consoles.html)）  <br> 示例："system"|
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-consoles.html)）  <br> 示例："system"|
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
@@ -297,7 +290,7 @@ http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer.html?autoplay=tr
 ### ES Module
 TCPlayerLite 提供了 ES Module 版本，module name 为`TcPlayer`，下载地址：
 ```
-http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.3.1.js
+http://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-module-2.3.2.js
 ```
 ### 开启优先 H5 播放模式
 TCPlayerLite 采用 H5`<video>`和 Flash 相结合的方式来进行视频播放，根据不同的播放环境，播放器会选择默认最合适的播放方案。
@@ -340,9 +333,10 @@ volumechange
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
-![移动端](//mc.qcloudimg.com/static/img/ddf4e9ff5998dc84b1887fba0e94d446/image.png)
+![](https://main.qcloudimg.com/raw/f0bf0532e253c6f14f8c65dc5fd3a5c2.png)
+
 **PC Flash：**
-![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
+![](https://main.qcloudimg.com/raw/0ff02cdc2ef70b2f8917decddec3cab8.png)
 >?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
 
 事件监听函数返回的 msg 对象介绍：
@@ -355,7 +349,7 @@ volumechange
 | timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
-应用案例：通过事件监听，可以进行播放失败重连，[单击访问](http://imgcache.qq.com/open/qcloud/video/vcplayer/demo/tcplayer-reconnect.html) 在线案例。
+应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-reconnect.html) 在线案例。
 
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
@@ -371,3 +365,4 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 | 2018.12.17       | 2.2.3    | 1. 优化播放逻辑。<br> 2. 解决 iOS 微信没有播放事件触发的情况下，出现 loading 动画的问题。 <br> 3. 修复其他已知问题。|
 | 2019.04.19        | 2.3.0    | 1. 增加部分功能参数选项。 <br> 2. 参数 coverpic 改为 poster。 <br> 3. destroy 销毁 flv.js 实例。<br> 4. 修复其他已知问题。|
 | 2019.04.26        | 2.3.1    | 1. 增加 fivConfig 参数。 <br> 2. 默认加载 flv.1.5.js。 <br> 3. 修复其他已知问题。|
+| 2019.08.20        | 2.3.2    | 1. 修改默认 hls 版本为0.12.4。 <br> 2. 修复其他已知问题。|

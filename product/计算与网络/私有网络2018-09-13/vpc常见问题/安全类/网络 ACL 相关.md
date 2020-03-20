@@ -2,7 +2,7 @@
 - 网络 ACL（Access Control List，访问控制列表）是一个子网级别无状态的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。
 - 安全组提供 CVM 实例级别的有状态的流量控制。
 
-二者除控制层面不同外，状态和启用也有所不同，详情请参见 [安全组与网络 ACL 的区别](https://cloud.tencent.com/document/product/215/20088#.E5.AE.89.E5.85.A8.E7.BB.84.E4.B8.8E.E7.BD.91.E7.BB.9C-acl-.E7.9A.84.E5.8C.BA.E5.88.AB)
+二者除控制层面不同外，状态和启用也有所不同，详情请参见 [安全组与网络 ACL 的区别](https://cloud.tencent.com/document/product/215/20088#.E5.AE.89.E5.85.A8.E7.BB.84.E4.B8.8E.E7.BD.91.E7.BB.9C-acl-.E7.9A.84.E5.8C.BA.E5.88.AB)。
 
 ### 什么是网络 ACL 的无状态？
 - 网络 ACL“无状态”：制定出数据流规则后，必须同时明确允许返回数据流，否则将无法返回。

@@ -1,3 +1,6 @@
+>!在给子用户或协作者授予 API 操作权限时，请务必根据业务需要，按照最小权限原则进行授权。如果您直接授予子用户或者协作者所有资源`(resource:*)`，或所有操作`(action:*)`权限，则存在由于权限范围过大导致数据安全风险。
+
+
 ## 概述
 对象存储 COS 使用临时密钥服务时，不同的 COS API 操作需要不同的操作权限，而且可以同时指定一个操作或一序列操作。
 
@@ -13,6 +16,8 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 				"name/cos:PostObject",
 				//分块上传：初始化分块操作 
 				"name/cos:InitiateMultipartUpload",
+				//分块上传：List 进行中的分块上传
+				"name/cos:ListMultipartUploads",
 				//分块上传：List 已上传分块操作 
 				"name/cos:ListParts",
 				//分块上传：上传分块块操作 
@@ -50,7 +55,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 | effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
 | action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(*)       |
-|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6..E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6(condition)) 说明  |
+|condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6.-.E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6.EF.BC.88condition.EF.BC.89) 说明  |
 
 下面列出了各 COS API 设置授权策略的示例。
 
@@ -86,7 +91,7 @@ API 接口为 GET Service，若授予其操作权限，则策略的 action 为 n
 Bucket API 策略的 resource 可以归纳为以下几种情况：
 
 - 可操作任意地域的存储桶，策略的 resource 为`*`。
-- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶，则策略的 resource 为 `qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
 - 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶， 则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
 
 Bucket API 策略的 action 则因操作不同而取值不同，以下列举所有 Bucket API 授权策略。
@@ -109,7 +114,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -160,7 +165,7 @@ API 接口为 GET Bucket，若授予其操作权限，则策略的 action 为 na
       ],
       "effect": "allow",
       "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*"
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
       ]
     }
   ]
@@ -458,7 +463,7 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
 
 ### 分块上传 
 
-分块上传包含 Initiate Multipar tUpload，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为 `"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
+分块上传包含 Initiate Multipart Upload，List Multipart Uploads，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为： `"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUploads","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
 
 #### 示例 
 
@@ -471,6 +476,7 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
     {
       "action": [
         "name/cos:InitiateMultipartUpload",
+        "name/cos:ListMultipartUploads",
         "name/cos:ListParts",
         "name/cos:UploadPart",
         "name/cos:CompleteMultipartUpload",
@@ -598,7 +604,7 @@ API 接口为 Put Object Copy，若授予其操作权限，则策略的目标对
 
 ### 复制分块
 
-API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
+API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUploads","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
 
 #### 示例 
 
@@ -611,6 +617,7 @@ API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标
     {
       "action": [
         "name/cos:InitiateMultipartUpload",
+        "name/cos:ListMultipartUploads",
         "name/cos:ListParts",
         "name/cos:PutObject",
         "name/cos:CompleteMultipartUpload",

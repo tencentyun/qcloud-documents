@@ -16,6 +16,7 @@
     * 检查系统所用的管理端口（SSH、FTP、MySQL、Redis 等）是否为默认端口，这些默认端口往往被容易自动化的工具进行爆破成功。
     * 解决方法：
         1. 在服务器内编辑`/etc/ssh/sshd_config`文件中的 Port 22，将22修改为非默认端口，修改之后需要重启 ssh 服务。
+        >!当对端口进行修改时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机的安全组配置，在其入站规则中，放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
         2. 运行`/etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian / Ubuntu）`命令重启是配置生效。
         3. 修改 FTP、MySQL、Redis 等的程序配置文件的默认监听端口21、3306、6379为其他端口。
         4. 限制远程登录的 IP，编辑`/etc/hosts.deny` 、`/etc/hosts.allow`两个文件来限制 IP。
@@ -44,7 +45,7 @@
     * 解决方法：如发现有恶意进程，可使用`chkconfig 服务名 off`命令关闭，同时检查`/etc/rc.local`中是否有异常项目，如有请注释掉。
     * 风险性：高。
 2. 进入 cron 文件目录，查看是否存在非法定时任务脚本。
-    * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可以脚本或程序。
+    * 检查说明：查看`/etc/crontab`，`/etc/cron.d`，`/etc/cron.daily`，`cron.hourly/`，`cron.monthly`，`cron.weekly/`是否存在可疑脚本或程序。
     * 解决方法：如发现有不认识的计划任务，可定位脚本确认是否正常业务脚本，如果非正常业务脚本，可直接注释掉任务内容或删除脚本。
     * 风险性：高。
 
@@ -89,6 +90,7 @@ find data -type d -exec chmod 770 {} \;
 ```
 /etc/init.d/sshd restart（CentOS）或 /etc/init.d/ssh restart（Debian/Ubuntu）
 ```
+  >!当修改端口时，需同时在 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 上修改对应主机安全组配置，在其入站规则中放行对应端口，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
 3. 如果必须使用 SSH 密码进行管理，选择一个好密码。
  * 无论应用程序管理后台（网站、中间件、tomcat 等）、远程 SSH、远程桌面、数据库，都建议设置复杂且不一样的密码。
  * 下面是一些好密码的实例（可以使用空格）：
@@ -107,7 +109,7 @@ netstat -anltp
 7. 修复系统提权漏洞与运行在 root 权限下的**程序漏洞**，以免恶意软件通过漏洞提权获得 root 权限传播后门。
     * 及时更新系统或所用应用程序的版本，如 Struts2、Nginx，ImageMagick、Java 等。
     * 关闭应用程序的远程管理功能，如 Redis、NTP 等，如果无远程管理需要，可关闭对外监听端口或配置。
-8. 定期**备份**云主机业务数据。
+8. 定期**备份**云服务器业务数据。
     * 对重要的业务数据进行异地备份或云备份，避免主机被入侵后无法恢复。
     * 除了您的 home，root 目录外，您还应当备份 /etc 和可用于取证的 /var/log 目录。
-9. 安装腾讯云**主机安全（云镜） Agent**，在发生攻击后，可以了解自身风险情况。
+9. 安装腾讯云**主机安全 Agent**，在发生攻击后，可以了解自身风险情况。
