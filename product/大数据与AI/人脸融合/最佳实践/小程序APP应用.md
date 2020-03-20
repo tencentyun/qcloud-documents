@@ -9,7 +9,7 @@
 ## 实践示例
 ### 步骤一：确定玩法、创意构思与设计
 输出场景设计稿、人脸融合主题素材设计图。以下为小程序页面设计参考：
-<img src="https://main.qcloudimg.com/raw/c1612f2dffaf8c561573c99f92ceb9bb.png" style="zoom:87%;" /><img src="https://main.qcloudimg.com/raw/e73b3ec47fb57ac169fe7ebc053d13ce.png" style="zoom:88%;" />
+![](https://main.qcloudimg.com/raw/5c49d52a9c763bec7bcd0152b48664b5.png)
 1. 这里需要确定需要素材张数，建议参考 [素材额度说明](https://tcloud-doc.isd.com/document/product/670/39097)，以换脸为主要功能的小程序 / App 一般为长期应用型，需要的素材张数及替换更新较快，建议购买套餐3（1000张素材/年）类型。
 2. 素材设计规范可参考如下：
  - 图片要求：尺寸不超过1080×1080，大小不超过500K，格式支持 jpg 或 png。
