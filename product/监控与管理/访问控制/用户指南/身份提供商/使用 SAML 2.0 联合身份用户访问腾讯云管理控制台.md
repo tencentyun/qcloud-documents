@@ -36,7 +36,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 2. 在控制台1-[控制台根节点]页面，单击【文件】>【添加/删除管理单元】，在弹出的窗口中选择证书，单击【添加】>【完成】。如下图所示：
 ![](https://main.qcloudimg.com/raw/18ff77b7fa95202761a4a0aa5cae1ac8.png)
 
-3. 单击【证书】，在展开的目录中，右键单击【个人】，单击【所有任务】>【高级操作】>【创建自定义请求】。如下图所示：
+3. 单击【证书】，<span id="step3">在展开的目录中，右键单击【个人】，单击【所有任务】>【高级操作】>【创建自定义请求】。如下图所示：
 ![](https://main.qcloudimg.com/raw/313fe9dad2800ad49175a5079cd31655.png)
 
 4. 保持页面默认信息，一直单击【下一步】，进入证书注册页面，单击【不使用注册策略继续】，如下图所示：
@@ -80,13 +80,13 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/e7df649fe3184e9e9a046f19fafe29d4.png)
 4. 将申请证书保存的证书文件内容复制之后补充至以下输入框，证书模板选择 Web 服务器，单击【提交】。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c4b4690d0b760a3ebae699533851c7.png)
-5. 申请成功，单击【下载】（两种格式均需下载）。如下图所示：
+5. 申请成功，单击【下载】（两种格式均需下载）<span id="step5">。如下图所示：
 ![](https://main.qcloudimg.com/raw/b3579f3cdfd49db5ead182a6c27e44f6.png)
  
-6. 参考申请证书的第 3 步，右键单击【个人】，单击【所有任务】>【导入】。如下图所示：
+6. 参考申请证书的 [步骤 3](#step3)，右键单击【个人】，单击【所有任务】>【导入】。如下图所示：
 ![](https://main.qcloudimg.com/raw/72ca12debb15a4122d5f7ba72bcc2a7e.png)
-7. 选择第 5 步保存的证书文件，保持页面默认信息，一直单击【下一步】>【完成】。
-8. 参考申请证书的第 3 步，右键单击【个人】，单击【所有任务】>【导出】。如下图所示：
+7. 选择 [步骤 5](#step5) 保存的证书文件，保持页面默认信息，一直单击【下一步】>【完成】。
+8. 参考申请证书的 [步骤 3](#step3)，右键单击【个人】，单击【所有任务】>【导出】。如下图所示：
 ![](https://main.qcloudimg.com/raw/460d0c31c83acc14e4b80a708bf994e4.png)
 9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
