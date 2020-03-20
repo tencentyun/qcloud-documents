@@ -14,7 +14,7 @@
 
 
 ## Android SDK 代码托管
-- 自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-android) 托管 Android 设备 SDK 代码。
+自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-android) 托管 Android 设备 SDK 代码。
 
 
 ## C SDK 使用说明
