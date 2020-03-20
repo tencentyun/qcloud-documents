@@ -1,3 +1,7 @@
+>?
+>- 目前 HAVIP 产品处于灰度优化中，上海地域新用户暂停使用，非上海地域新用户如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
+>- 上海地域切换延时可能达1 - 2分钟，建议使用腾讯云 [CLB](https://cloud.tencent.com/document/product/214)、[TDaTa](https://cloud.tencent.com/document/product/643/12573) 等产品以满足需要。
+
 ## 创建 HAVIP
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择【IP 与网卡】>【高可用虚拟 IP】。
 2. 在 HAVIP 管理页面，选择所在地域，单击【申请】。
