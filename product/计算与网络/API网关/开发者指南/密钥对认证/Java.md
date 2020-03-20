@@ -7,7 +7,7 @@
 2. 将 API 所在服务发布至发布环境（参考 [服务发布与下线](https://cloud.tencent.com/document/product/628/11809)）。
 3. 在控制台密钥管理界面创建密钥对。
 4. 在控制台使用计划界面创建使用计划，并将使用计划与已创建的密钥对绑定（参考 [使用计划示例](https://cloud.tencent.com/document/product/628/11816)）。
-5. 将使用计划与 API 或 API 所在服务进行绑定
+5. 将使用计划与 API 或 API 所在服务进行绑定。
 6. 参考 [示例代码](#example)，使用 Java 语言生成签名内容。
 
 
@@ -182,9 +182,9 @@ public class SignAndSend {
             httpUrlCon.setRequestProperty("X-Requested-With","XMLHttpRequest");
             httpUrlCon.setRequestProperty("Accept-Encoding","gzip, deflate, sdch");
 	    
-	    // 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
-	    httpUrlCon.setRequestProperty("X-NameSpace-Code","testmic");
-	    httpUrlCon.setRequestProperty("X-MicroService-Name","provider-demo");
+			// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+			httpUrlCon.setRequestProperty("X-NameSpace-Code","testmic");
+			httpUrlCon.setRequestProperty("X-MicroService-Name","provider-demo");
 	    
             // 建立实际的连接
             httpUrlCon.connect();

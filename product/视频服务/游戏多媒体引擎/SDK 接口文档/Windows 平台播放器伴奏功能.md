@@ -65,22 +65,22 @@ virtual int GetAccompanyVolumeDynamic(int* pVolume) = 0;
 调用此参数，设置采集设备声音音量，默认数值为100，数值范围为0到100，0代表静音。
 
 #### 函数原型
-virtual int SetMicDeviceVolume(int vol)=0;
+virtual int SetMicDeviceVolume(int vol) = 0;
 
 ### 获取采集设备音量
 调用此参数，将获取采集设备声音音量。
 
 #### 函数原型
-virtual int GetMicDeviceVolume()=0;
+virtual int GetMicDeviceVolume() = 0;
 	
 ### 设置播放设备音量
 调用此参数，设置播放设备声音音量，默认数值为100，数值范围为0到100，0代表静音。
 
 #### 函数原型
-virtual int SetSpeakerDeviceVolume(int vol)=0;
+virtual int SetSpeakerDeviceVolume(int vol) = 0;
 
 ### 获取播放设备音量
 调用此参数，将获取播放设备声音音量。
 
 #### 函数原型
-virtual int GetSpeakerDeviceVolume()=0;
+virtual int GetSpeakerDeviceVolume() = 0;

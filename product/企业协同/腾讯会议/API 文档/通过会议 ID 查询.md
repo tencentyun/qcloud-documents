@@ -1,10 +1,10 @@
-**GET      /v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}**
-用会议 ID 查询一个会议内容
-
-### Authorization
-X-TC-Signature: {signature}
-
-### HTTP Request Path 参数
+## 接口描述
+描述：通过会议 ID 查询会议详情。
+接口请求域名：
+```
+https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}
+```
+## 输入参数
 
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
 |---------|---------|---------|---------|
@@ -12,13 +12,7 @@ X-TC-Signature: {signature}
 | userid | 是 | String| 调用 API 的用户 ID。  |
 | instanceid | 是 | Integer| 用户的终端设备类型。  |
 
-### HTTP Request Body 参数
-无
-
-### HTTP Response 参数
-HTTP Status Code: 200
-会议查询成功
-
+## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
@@ -34,8 +28,8 @@ HTTP Status Code: 200
 |password   |String | 会议密码。  |
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
-|start_time  |String | 预约的开始时间(RFC 3339, section 5.6 定义的时间格式) 。 |
-|end_time  |String | 预约的结束时间 。  |
+|start_time  |String | 会议开始时间戳(单位秒) 。 |
+|end_time  |String | 会议结束时间戳(单位秒) 。  |
 |settings   |会议媒体参数对象 |会议的配置，可为缺省配置 。|
 
 会议媒体参数对象
@@ -45,7 +39,14 @@ HTTP Status Code: 200
 |mute_enable_join  |Bool | 加入静音状态。  |
 |meeting_info_list  |Bool| 静音自解除允许 。  |
 
-### Response 示例
+## 示例
+#### 输入示例
+
+```
+GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&instanceid=1
+```
+
+#### 输出示例
 
 ```
 {  
@@ -60,7 +61,7 @@ HTTP Status Code: 200
       "start_time": "1572085800",      
       "end_time": "1572089400",      
       "hosts": [        
-        "mumliu"      
+        "tester"      
       ],      
       "participants": [        
         "test1"      

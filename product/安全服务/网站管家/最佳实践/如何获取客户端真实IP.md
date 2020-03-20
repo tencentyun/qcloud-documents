@@ -40,8 +40,10 @@ cd mod_rpaf-0.6
 LoadModule rpaf_module modules/mod_rpaf-2.0.so
 RPAFenable On
 RPAFsethostname On
+<font color="red">
 RPAFproxy_ips IP地址   //IP 地址为 WAF 防护域名的回源 IP 地址，可以在 <a href="https://console.cloud.tencent.com/guanjia/waf/config">Web应用防火墙控制台</a>，防护配置域名列表中的回源 IP 地址中查看，也可以在服务器后台的日志中查看，只需要将所有需要查看的 IP 都填写上即可。
 RPAFheader X-Forwarded-For
+</font>
 </pr>
 3. 添加完成后，重启 Apache。
 ```

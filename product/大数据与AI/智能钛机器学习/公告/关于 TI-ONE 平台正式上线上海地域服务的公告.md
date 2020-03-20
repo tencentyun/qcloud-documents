@@ -7,5 +7,5 @@
 - [TI SDK](https://cloud.tencent.com/document/product/851/40077)
 - [模型仓库](https://cloud.tencent.com/document/product/851/39401)
 
-上海地域的更多功能，欢迎您在 [上海地域控制台](https://console.cloud.tencent.com/tione/project/list) 体验。
+上海地域的更多功能，欢迎您在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 体验。
 

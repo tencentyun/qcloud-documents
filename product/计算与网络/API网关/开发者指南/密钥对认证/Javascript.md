@@ -47,8 +47,8 @@ var instance = axios.create({
                 "Authorization":sign
                 
                 // 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
-                "X-NameSpace-Code": "testmic",
-		"X-MicroService-Name": "provider-demo",
+				"X-NameSpace-Code": "testmic",
+				"X-MicroService-Name": "provider-demo",
     },
     withCredentials: true
 });

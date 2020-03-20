@@ -79,7 +79,7 @@ myFunction2:
     codeUri: ./code
 
 ```
->?您可以通过 [详细配置文档](https://github.com/serverless-tencent/serverless-tencent-scf/blob/master/docs/zh/yaml.md)，查看`serverless.yml`中所有可用属性的属性列表。
+>?您可以通过 [详细配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)，查看`serverless.yml`中所有可用属性的属性列表。
 
 
 #### 部署
