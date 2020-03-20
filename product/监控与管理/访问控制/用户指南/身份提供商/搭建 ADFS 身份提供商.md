@@ -16,7 +16,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/9a42db98e9175262e89b6557e302dc0e.png)
 4. 单击【提升为域控制器】，进入部署配置页面，填写域名，本文中示例为：example.com。如下图所示：
 ![](https://main.qcloudimg.com/raw/87e596a7352c2b785ffea6996ed02196.png)
-5. 单击【下一步】，完成安装后，输入密码。保持页面默认信息不变，一直单击【下一步】。如下图所示：
+5. 单击【下一步】，完成安装后，输入密码。保持页面默认信息，一直单击【下一步】。如下图所示：
  ![](https://main.qcloudimg.com/raw/dd0bdc5a15909f22a0ce1a04c67e679a.png)
 6. 单击【安装】，安装完成后重启服务器。如下图所示：
 ![](https://main.qcloudimg.com/raw/ad13922f6efa740ccb21998a46a4696f.png)
@@ -25,7 +25,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ### 安装 Web 服务器
 1.参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，在服务器角色信息栏勾选 Web 服务器。如下图所示：
 ![](https://main.qcloudimg.com/raw/ef45cf538ef55d86e98cbf8972379f0c.png)
-2. 保持页面默认信息不变，一直单击【下一步】>【安装】，完成 Web 服务器安装。
+2. 保持页面默认信息，一直单击【下一步】>【安装】，完成 Web 服务器安装。
 
 ### 申请证书
 如您已拥有 SSL 证书，可直接进行 [安装 ADFS](#step0) 操作。
@@ -39,7 +39,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 3. 单击【证书】，在展开的目录中，右键单击【个人】，单击【所有任务】>【高级操作】>【创建自定义请求】。如下图所示：
 ![](https://main.qcloudimg.com/raw/313fe9dad2800ad49175a5079cd31655.png)
 
-4. 保持页面默认信息不变，一直单击【下一步】，进入证书注册页面，单击【不使用注册策略继续】，如下图所示：
+4. 保持页面默认信息，一直单击【下一步】，进入证书注册页面，单击【不使用注册策略继续】，如下图所示：
 ![](https://main.qcloudimg.com/raw/ab888353e868ee66f7a3918c9adbfa09.png)
 
 5. 在自定义请求页面，选择以下信息，如下图所示：
