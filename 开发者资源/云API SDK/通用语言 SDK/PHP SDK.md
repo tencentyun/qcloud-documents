@@ -215,5 +215,20 @@ catch(TencentCloudSDKException $e) {
     echo $e;
 }
 ```
+
+## 相关配置
+### 代理
+在有代理的环境下，需要设置系统环境变量 `https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+
+### 证书问题
+如果 PHP 环境证书有问题，遇到类似`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`报错，请尝试参照以下步骤解决：
+1. 下载证书文件 [cacert.pem](https://curl.haxx.se/ca/cacert.pem)，将其保存到 PHP 安装路径下。
+2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
+3. 重启依赖 PHP 的服务。
+
+### php_curl 扩展
+SDK 依赖的 GuzzleHttp 需要开启 php_curl 扩展，查看环境上的`php.ini`环境确认是否已启用。
+例如，在 Linux 环境下，PHP 7.1 版本，托管在 apache 下的服务，可以打开`/etc/php/7.1/apache2/php.ini`中查看`extension=php_curl.dll`配置项是否被注释，请删除该项配置前的注释符并重启 apache。
+
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请参考 [旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。

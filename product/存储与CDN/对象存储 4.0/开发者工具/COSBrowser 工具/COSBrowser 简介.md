@@ -16,17 +16,17 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td rowspan=3>桌面端</td>
       <td>Windows</td>
       <td>Windows 7 32/64位以上、Windows Server 2008 R2 64位以上</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-setup-latest.exe">Windows</a></td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-setup-latest.exe">Windows</a></td>
    </tr>
    <tr>
       <td>macOS</td>
       <td>macOS 10.13以上</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest.dmg">macOS</a></td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest.dmg">macOS</a></td>
    </tr>
    <tr>
       <td>Linux</td>
       <td>需带有图形界面并支持 <a href="https://appimage.org">AppImage</a> 格式</td>
-      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/releases/cosbrowser-latest-linux.zip">Linux</a></td>
+      <td><a href="https://cos5.cloud.tencent.com/cosbrowser/cosbrowser-latest-linux.zip">Linux</a></td>
    </tr>
    <tr>
       <td rowspan=2>移动端</td>

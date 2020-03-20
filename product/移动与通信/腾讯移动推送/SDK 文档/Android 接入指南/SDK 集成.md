@@ -246,20 +246,18 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         // 其他安卓组件
         <meta-data
             android:name="XG_GUID_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer" /> 
-        //中国香港地区设置为https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer  
-        
+            android:value="境外域名/guid/api/GetGuidAndMqttServer" />           
         <meta-data
             android:name="XG_STAT_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/log/statistics/push" /> 
-        //中国香港地区请设置为 https://api.tpns.hk.tencent.com/log/statistics/push  
-        
+            android:value="境外域名/log/statistics/push" />        
         <meta-data
             android:name="XG_LOG_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/v3/mobile/log/upload" /> 
-        //中国香港地区请设置为https://api.tpns.hk.tencent.com/v3/mobile/log/upload  
+            android:value="境外域名/v3/mobile/log/upload" /> 
 </application>
 ```
+**境外域名如下：**
+中国香港：`https://api.tpns.hk.tencent.com`
+新加坡：`https://api.tpns.sgp.tencent.com`
 
 #### 音视频富媒体使用方法（可选）
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。

@@ -3,7 +3,7 @@
 
 >!默认情况下，不支持多实例登录，即如果此帐号已在其他页面登录，若继续在当前页面登录成功，有可能会将其他页面踢下线。用户被踢下线时会触发事件`TIM.EVENT.KICKED_OUT`，用户可在监听到事件后做相应处理。多端登录监听示例如下：
 ```javascript
-let onKickedOut = funciton (event) {
+let onKickedOut = function (event) {
   console.log(event.data.type); // mutipleAccount(同一设备，同一帐号，多页面登录被踢)
 };
 tim.on(TIM.EVENT.KICKED_OUT, onKickedOut);

@@ -1,7 +1,7 @@
 分布式任务调度实现了与 TSF 框架的无缝集成，您仅需要引用 SDK，按照规范编写并配置任务，即可实现任务触发、执行、停止等多种管理。
 
 ## 准备工作
-开始使用分布式任务调度之前，请确保正确配置 [Maven 环境](https://cloud.tencent.com/document/product/649/20231)。
+开始使用分布式任务调度之前，请确保正确配置 Maven 环境（参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)）。
 
 ## 添加依赖
 在 pom.xml 文件中添加如下 dependency。
@@ -15,6 +15,14 @@
 </dependency>
 ```
 
+## 添加配置
+在 application.yml 文件中添加如下配置，启用任务调度 SDK。
+
+```xml
+tct
+  // 默认是false 不启用。
+  enabled: true
+```
 
 ## 编写任务
 #### 1. 编写简单任务
@@ -182,16 +190,16 @@ tct:
 SDK 中存在一些参数可以允许通过配置方式进行调配，如下所示：
 ```xml
 tct:
-  // 是否开启任务调度功能，默认true开启， false则关闭。
+  // 是否开启任务调度功能，默认false关闭，true则开启。
   enabled: true
   client:
     properties:
-	  // 任务执行的线程总数，默认200
-	  task.max.threads: 200
-	  // 线程池核心线程数量，默认CPU核数+1
-	  task.core.threads: <CPU核数+1>
-	  // 线程类型: FIXED，CACHED,LIMITED, EAGER
-	  thread.pool.type: FIXED
+      // 任务执行的线程总数，默认200
+      task.max.threads: 200
+      // 线程池核心线程数量，默认CPU核数+1
+      task.core.threads: <CPU核数+1>
+      // 线程类型: FIXED，CACHED,LIMITED, EAGER
+      thread.pool.type: FIXED
 ```
 
 

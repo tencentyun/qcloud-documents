@@ -33,7 +33,7 @@
 | 协议字段 | 字段含义说明 | 免费版 | 腾讯云版 |
 | --------------- | -------------------------------------------------- | ------------------------------------------------------------ | -------------------------------- |
 | custom\_content | Android 推送自定义参数 | 字段格式： json | 字段格式：json string |
-| custom | iOS 推送自定义参数 | 字段格式： json | 字段格式：json string |
+| custom\_content | iOS 推送自定义参数 | 字段格式： json | 字段格式：json string |
 | push\_id | 账号列表推送和设备列表推送时，需要填写的推送任务ID | 账号列表推送和设备列表推送时，<br/>第一次推送该值填0，系统会创建<br/>对应的推送任务，并且返回对应的<br/>pushid：123，后续推送push\_id填<br/>123(同一个文案）表示使用与123 id 对应的文案进行推送 | 不再支持该字段对应功能 |
 
 
@@ -82,7 +82,7 @@ V2 版本对应的V3 版本接口参考如下：
 | 账号群推 | /v2/push/account\_list | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
 | 设备单推 | /v2/push/single\_device | 推送接口 | /v3/push/app |参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
 | 账号单推 | /v2/push/single\_account | 推送接口 | /v3/push/app | 参考 [推送接口文档](https://cloud.tencent.com/document/product/548/39064) |
-| 超大批量账号推送 | /v2/push/account\_list\_multiple | 不支持，可使用号码包推送替代 | | |
-| 超大批量设备推送 | v2/push/device\_list\_multiple | 不支持，可使用号码包推送替代 | | |
+| 超大批量账号推送 | /v2/push/account\_list\_multiple | 不支持，可使用号码包推送替代 |- | -|
+| 超大批量设备推送 | v2/push/device\_list\_multiple | 不支持，可使用号码包推送替代 |- |- |
 | 批量新增标签 | /v2/tags/batch\_set | 标签绑定接口 | /v3/device/tag | 参考 [标签接口文档](https://cloud.tencent.com/document/product/548/39067) |
 | 批量删除标签 | /v2/tags/batch\_del | 标签绑定接口 | /v3/device/tag |参考 [标签接口文档](https://cloud.tencent.com/document/product/548/39067) |

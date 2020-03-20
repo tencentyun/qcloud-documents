@@ -1,4 +1,4 @@
-流式语音合成 Java SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/java_stream_tts_sdk.tar.gz )。
+流式语音合成 Java SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/java_stream_tts_sdk.zip)。
 
 接口请求域名：tts.cloud.tencent.com/stream。
 

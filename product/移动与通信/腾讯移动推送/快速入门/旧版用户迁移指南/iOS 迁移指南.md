@@ -64,7 +64,7 @@
 不推荐再调用 reportXGNotification* 数据统计上报接口，SDK 已内部自动处理。
 
 变更前：
-``` object-c
+``` objective-c
  /**
      收到推送的回调
      @param application  UIApplication 实例
@@ -103,7 +103,7 @@
     #endif
 ```
 变更后：(如果没有自定义处理需求，则不再需要实现以下回调)
-```objcet-c
+```objective-c
 /**
   收到推送的回调
   @param application  UIApplication 实例
@@ -164,4 +164,26 @@
 ```objective-c
 //获取 TPNS 生成的 Token
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
+```
+
+## 注销免费服务
+
+如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。因此需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册，从而使得在两个集群同时推送时，避免出现重复消息。
+
+#### 接口
+
+```objective-c
+// 免费集群的 accessId(支持免费 SDK V2、V3版本)
+@property uint32_t freeAccessId;
+```
+
+#### 用法
+
+- 引入头文件: `XGForFreeVersion.h` 
+
+- 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
+
+```objective-c
+[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
+[[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```

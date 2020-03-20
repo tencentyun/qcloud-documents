@@ -66,11 +66,13 @@ exports.main_handler = async (event, context, callback) => {
 ```
 
 #### 配置服务
-1. 在本地创建`serverless.yml`文件，
+在本地创建`serverless.yml`文件，
 ```bash
 $ touch serverless.yml
 ```
-2. 在`serverless.yml`中进行如下配置：
+
+在`serverless.yml`中进行如下配置：
+
 ```yaml
 # serverless.yml
 myFunction:

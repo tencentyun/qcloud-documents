@@ -12,7 +12,7 @@
  - 对端地域：选择您购买的 DMask 实例所处地域。
  >!地域如果不在同一区域需要额外费用。
  - 对端账户：固定填写`100008373108`。
- - 对端网络：广州填写`vpc-dcwrrj73`，上海填写`vpc-1b08zb34`，北京填写`vpc-lczv7zs6`，成都填写`vpc-54fen6hq`，重庆填写`vpc-m7pzgzo9`，深圳金融填写`vpc-r0xq0u8i`，上海金融填写`vpc-c5zsy1r7`。
+ - 对端网络：广州填写`vpc-dcwrrj73`，上海填写`vpc-1b08zb34`，北京填写`vpc-lczv7zs6`，成都填写`vpc-54fen6hq`，重庆填写`vpc-m7pzgzo9`，深圳金融填写`vpc-r0xq0u8i`，上海金融填写`vpc-c5zsy1r7`，南京填写`vpc-83hyuk73`。
 ![](https://main.qcloudimg.com/raw/b2fda694da2a5b423ad80cf1d1db26fc.png)
 
 ## 配置路由表

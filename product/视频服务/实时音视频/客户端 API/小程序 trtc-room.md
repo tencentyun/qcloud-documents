@@ -447,7 +447,7 @@ function onRemoteAudioRemove(event) {
   })
 }
 
-trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioRemove)
+trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_REMOVE, onRemoteAudioRemove)
 ```
 
 ### switchCamera()
@@ -1032,10 +1032,4 @@ trtcRoomContext.on(EVENT.ERROR,(event)=>{
   console.log(event.data.code)
 })
 ```
-| CODE  | 说明           |
-|-------|--------------|
-| -1301 | 打开摄像头失败 |
-| -1302 | 打开麦克风失败 |
-| -1303 | 视频编码失败   |
-| -1304 | 音频编码失败   |
-| -1307 | 推流连接断开   |
+错误码详细信息请参见 [错误码](https://cloud.tencent.com/document/product/647/38313)。

@@ -17,13 +17,13 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 选择支持 IPv6 的地域，在 VPC 所在行的操作栏下，单击【编辑 CIDR】。
 3. 在弹框中的 IPv6 CIDR 单击【获取】并确认操作，系统将为 VPC 分配一个`/56`的 IPv6 地址段，您可以在列表里看到 IPv6 地址段的详细信息。
-![](https://main.qcloudimg.com/raw/06cc0c14dc28e511492d5f1b5cb01f32.png)
+![](https://main.qcloudimg.com/raw/4ac306328f5b5549a340b0dde56f143a.png)
 
 ### <span id="step2" />步骤二：为子网分配 IPv6 CIDR
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【子网】，进入管理页面。
 3. 在 [步骤一](#step1) 中的 VPC 所属子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作，系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
-![](https://main.qcloudimg.com/raw/d3d8fcaa9c336dac11485d5f7ed95a92.png)
+![](https://main.qcloudimg.com/raw/9b32564f2bc5df09ec198716b46f7cc2.png)
 
 ### <span id="step3" />步骤三：购买云服务器并配置云服务器的 IPv6
 为 VPC 和子网分配 IPv6 CIDR 后，您可在该子网下创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。因为 IPv6 地址目前还不支持自动下发到网卡，所以从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
@@ -35,7 +35,7 @@
  - IPv6 地址：勾选【免费分配 IPv6 地址】。
 4. 完成云服务器各种配置操作后，核对购买的云服务器信息，并进行支付。
 5. 云服务器购买成功后，即可在 [云服务器实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1)  查看到 IPv6 地址信息。
-![](https://main.qcloudimg.com/raw/02ce609ddc0d97fd1b6e82a2e165df7f.png)
+![](https://main.qcloudimg.com/raw/a427545faa7aa68ae6d5f6d80a93aa9e.png)
 >?
 >- 如果云服务器在购买时未分配 IPv6 地址，可在对应云服务器实例所在行的操作栏下，选择【更多】>【IP 和网卡】>【管理 IPv6】，为主网卡分配 IPv6 地址。
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
@@ -84,6 +84,7 @@ ifconfig
 成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
 
+
 #### Windows 云服务器
 Windows 云服务器可通过 Ping 或远程桌面测试 IPv6 连通性。
  - **方式1**：通过 Ping 进行测试，操作如下：
@@ -110,7 +111,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </tr>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
-<td>2019-06-31前购买</td>
+<td>2019-06-30前购买</td>
 <td>否</td>
 <td >
 <a href="#unopen">enable_ipv6 工具</a>
@@ -124,7 +125,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </td>
 </tr>
 <tr style="text-align:center;">
-<td>2019-06-31后购买</td>
+<td>2019-06-30后购买</td>
 <td>是</td>
 <td >
 <a href="#open">config_ipv6 工具</a>
@@ -241,8 +242,8 @@ $install_path eth0
 - [Debian 8.2 配置 IPv6](#Debian8.2)
 
 >?
->- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月31日**后**购买的云服务器。
->- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月31日**前**购买的云服务器。
+>- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月30日**后**购买的云服务器。
+>- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月30日**前**购买的云服务器。
 >
 <span id="新购CentOS7.5/CentOS7.6"/>
 
@@ -287,7 +288,7 @@ netstat -tupln
 <span id="CentOS6.8"/>
 
 #### CentOS 6.8 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6
@@ -370,7 +371,7 @@ netstat -tupln
 <span id="CentOS7.3"/>
 
 #### CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6
@@ -453,7 +454,7 @@ netstat -tupln
 <span id="Debian8.2"/>
 
 #### Debian 8.2 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6

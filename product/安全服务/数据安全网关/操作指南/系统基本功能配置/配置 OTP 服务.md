@@ -14,7 +14,8 @@
 #### 本地 OTP 服务
 
 1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
-2. 单击<img src=" https://main.qcloudimg.com/raw/82dfc809b5df76ff939d996ea3136a43.png"  style="margin:0;">，选择【安全认证设置】>【OTP认证配置】，进入 OTP 认证配置页面。
+2. 单击页面右上角的<img src=" https://main.qcloudimg.com/raw/82dfc809b5df76ff939d996ea3136a43.png"  style="margin:0;">，进入系统管理页面。
+3. 选择【安全设置】>【OTP认证配置】，进入 OTP 认证配置页面。
 3. 在 OTP 认证配置页面，勾选【本地OTP服务】，单击【保存】，即可开启本地 OTP 服务。
 ![](https://main.qcloudimg.com/raw/0474fe4d42c180ed78413f74c29461c4.png)
 4. 用户认证配置及如何使用“数盾OTP”小程序，请参见 [OTP 认证](https://cloud.tencent.com/document/product/1025/35133#.E8.AE.BE.E7.BD.AE.E7.94.A8.E6.88.B7.E8.AE.A4.E8.AF.81.E6.96.B9.E5.BC.8F)。
@@ -24,7 +25,8 @@
 #### 第三方 OTP 服务
 
 1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
-2. 单击<img src=" https://main.qcloudimg.com/raw/82dfc809b5df76ff939d996ea3136a43.png"  style="margin:0;">，选择【安全认证设置】>【OTP认证配置】，进入 OTP 认证配置页面。
+2. 单击页面右上角的<img src=" https://main.qcloudimg.com/raw/82dfc809b5df76ff939d996ea3136a43.png"  style="margin:0;">，进入系统管理页面。
+3. 选择【安全设置】>【OTP认证配置】，进入 OTP 认证配置页面。
 3. 在 OTP 认证配置页面，勾选【第三方OTP服务】，输入相关第三方OTP服务器地址,认证端口，认证方法等信息。
  - **OTP 服务器主机地址**：填写真实的 OTP 服务器主机地址。
  - **OTP 服务器备机地址**：OTP 备机地址，可不填。

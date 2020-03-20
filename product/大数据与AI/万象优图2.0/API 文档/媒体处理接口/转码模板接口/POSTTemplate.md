@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于新增转码模板。
+CreateMediaTemplate 接口用于新增转码模板。
 
 ## 请求
 
@@ -17,7 +17,7 @@ Content-Type: application/xml
 <body>
 ```
 
-> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -59,7 +59,6 @@ Content-Type: application/xml
       <Count></Count>
    </Snapshot>
 </Request>
-
 ```
 
 具体数据描述如下：
@@ -150,7 +149,7 @@ Container 类型 Container 的具体数据描述如下：
       <th>父节点</th>
       <th>描述</th>
       <th>类型</th>
-      <th>必选</th>
+      <th>是否必选</th>
       <th>默认值</th>
       <th>限制</th>
    </tr>
@@ -464,9 +463,9 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                                      | 类型      |
-| :----------------- | :----- | :-------------------------------------------------------- | :-------- |
-| Response           | 无     | 保存结果的容器，同 GETTemplate 中的 Response.TemplateList | Container |
+| 节点名称（关键字） | 父节点 | 描述                                                         | 类型      |
+| :----------------- | :----- | :----------------------------------------------------------- | :-------- |
+| Response           | 无     | 保存结果的容器，同 DescribeMediaTemplates 中的 Response.TemplateList | Container |
 
 #### 错误码
 

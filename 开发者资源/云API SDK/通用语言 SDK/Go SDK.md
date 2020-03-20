@@ -207,3 +207,26 @@ func main() {
         fmt.Printf("%s", response.ToJsonString())
 }
 ```
+
+## 相关配置
+### 代理
+在有代理的环境下，需要设置系统环境变量 `https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+
+### 开启 DNS 缓存
+若 GO SDK 直接请求 DNS 服务器，而非使用 nscd 的缓存，您可以通过导出环境变量`GODEBUG=netdns=cgo`，或在`go build`编译时指定参数`-tags 'netcgo'`控制读取 nscd 缓存。
+
+### 忽略服务器证书校验
+使用 SDK 调用公有云服务时，必须校验服务器证书，以识破他人伪装的服务器，确保请求的安全。 
+某些极端情况下，例如测试时，如果您需要忽略自签名的服务器证书，您可以采用以下方式：
+```
+import "crypto/tls"
+...
+    client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
+    tr := &http.Transport{
+        TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+    }
+    client.WithHttpTransport(tr)
+...
+```
+
+>!请不要**轻易尝试关闭服务器证书校验**，除非您明白在做什么，并清楚由此带来的风险。

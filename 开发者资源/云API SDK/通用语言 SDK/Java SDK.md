@@ -210,7 +210,24 @@ public class DescribeZones
 
 }
 ```
+## 相关配置
+您可以通过以下方式指定代理：
 
+**方式一**：指定代理访问（版本>=3.0.96），目前仅支持 HTTP 代理：
+```
+HttpProfile httpProfile = new HttpProfile();
+httpProfile.setProxyHost("真实代理 IP");
+httpProfile.setProxyPort(真实代理端口);
+```
+**方式二**：设置系统代理，请求发起前，您可以代码中设置：
+```
+System.setProperty("https.proxyHost", "真实代理 IP");
+System.setProperty("https.proxyPort", "真实代理端口");
+```
+**方式三**：运行程序时在启动参数中设置。
+
+## 其他问题
+SDK 3.1.x版本中`Integer`字段的已改为`Long`类型，SDK 从3.0.x版本升级到3.1.x版本时需要重新编译项目。
 
 ## 旧版 SDK
 我们推荐您使用新版 SDK， 如果需要旧版 SDK，请在您的 Maven pom.xml 添加以下依赖项即可：

@@ -1,3 +1,14 @@
+### 2.5.2 @2020.3.13
+
+**变更**
+
+[searchGroupByID](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#searchGroupByID) 失败时日志级别降为 Warning，并修改提示文案。
+
+**修复**
+
+- 匿名用户（或游客）加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组失败及统计问题。
+- 其它已知问题。
+
 ### 2.5.1 @2020.3.5
 
 **变更**
