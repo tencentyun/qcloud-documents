@@ -20,6 +20,7 @@
 - [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
 - [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
 - [ADFS 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/42702)
+
 ### 在 CAM 中创建 SAML 身份提供商
 您可以在访问管理（CAM）控制台创建一个 SAML 2.0 身份提供商，该身份提供商是访问管理（CAM）中的一个实体，可以认为是外部授信账号集合。基于 SAML 2.0 联合身份验证的身份提供商描述了支持 SAML 2.0（安全断言标记语言 2.0）标准的身份提供商服务。在创建过程中，您可以上传在 [在企业组织中配置基于 SAML 2.0 的身份提供商](https://github.com/tencentyun/qcloud-documents/blob/0f06944f278357e26788a34c4151c16dcc8a4a46/product/%E7%9B%91%E6%8E%A7%E4%B8%8E%E7%AE%A1%E7%90%86/%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/%E7%94%A8%E6%88%B7%E6%8C%87%E5%8D%97/%E8%BA%AB%E4%BB%BD%E6%8F%90%E4%BE%9B%E5%95%86/%E4%BD%BF%E7%94%A8%20SAML%202.0%20%E8%81%94%E5%90%88%E8%BA%AB%E4%BB%BD%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE%E8%85%BE%E8%AE%AF%E4%BA%91%E7%AE%A1%E7%90%86%E6%8E%A7%E5%88%B6%E5%8F%B0.md#step%E9%85%8D%E7%BD%AE%E8%BA%AB%E4%BB%BD%E6%8F%90%E4%BE%9B%E5%95%86) 中的身份提供商的元数据文档。详细请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 
