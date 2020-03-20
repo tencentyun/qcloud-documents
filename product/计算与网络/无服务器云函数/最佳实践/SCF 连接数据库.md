@@ -178,7 +178,8 @@ Maven 依赖如下：
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击已创建的 MySQL 数据库 ID。
 2. 在数据库详情页，获取该数据库的**内网地址**、**所属网络**。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
-> 如果您使用自建的MySQL实例，请根据实际情况填写**内网地址**、**所属网络**。
+>!如果您使用自建的MySQL实例，请根据实际情况填写**内网地址**、**所属网络**。
+>
 3. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 4. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**参考以下表格填写。如下图所示：
@@ -297,9 +298,10 @@ def main_handler(event, context):
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
-	>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
-	>- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
-	>
+>!
+>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
+>- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
+>
 <table>
 <tr>
 <th>key</th>
