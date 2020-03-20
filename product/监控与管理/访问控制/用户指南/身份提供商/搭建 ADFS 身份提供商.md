@@ -1,8 +1,8 @@
 ## 操作场景
-Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows Server 2003 R2 活动目录联合服务 (ADFS). ADFS是一种能够用于一次会话过程中多个Web应用用户认证的新技术。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 ADFS 与腾讯云进行集成，从而实现 ADFS 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源，不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
+Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows Server 活动目录联合服务 (ADFS). ADFS是一种能够用于一次会话过程中多个Web应用用户认证的新技术。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 ADFS 与腾讯云进行集成，从而实现 ADFS 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源，不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
 
 ## 前提条件
-> - 拥有一台 Windows Server 2003 R2 云服务器。如您需要购买服务器，清参阅 [云服务器-购买指南](https://cloud.tencent.com/document/product/213/2179)。
+> - 拥有一台 Windows Server 云服务器。如您需要购买服务器，清参阅 [云服务器-购买指南](https://cloud.tencent.com/document/product/213/2179)。
 - 已进入服务器管理-仪表板页面。
 - 拥有一个已完成实名认证的域名。如您需要购买域名，请参阅 [域名-购买指南](https://cloud.tencent.com/document/product/242/18873)。
 
