@@ -18,7 +18,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 | 字段                     | 类型   | 属性 | 说明                                                         |
 | ------------------------ | ------ | ---- | ------------------------------------------------------------ |
 | AddFriendItem            | Array  | 必填 | 好友结构体对象                                               |
-| AddFriendItem.To_Account | String | 必填 | 好友的 Identifier                                            |
+| AddFriendItem.To_Account | String | 必填 | 好友的 UserID                                            |
 | AddFriendItem.Remark     | String | 选填 | To_Account 的好友备注，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.GroupName  | String | 选填 | To_Account 的分组信息，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
 | AddFriendItem.AddSource  | String | 必填 | 加好友来源字段，详情可参见 [标配好友字段](https://cloud.tencent.com/document/product/269/1501#.E6.A0.87.E9.85.8D.E5.A5.BD.E5.8F.8B.E5.AD.97.E6.AE.B5) |
@@ -31,7 +31,7 @@ applyAddFriend: function(options, cbOk, cbErr) {},
 | 字段                  | 类型   | 说明                                                      |
 | --------------------- | ------ | --------------------------------------------------------- |
 | ResultItem            | Array  | 批量加好友的结果对象数组                                  |
-| ResultItem.To_Account | String | 请求添加的好友的 Identifier                               |
+| ResultItem.To_Account | String | 请求添加的好友的 UserID                               |
 | ResultItem.ResultCode | Number | 批量加好友中单个好友的处理结果，0表示成功，非0表示失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空               |
 | Fail_Account          | Array  | 返回处理失败的用户列表。成功时响应体无该字段              |
@@ -275,7 +275,7 @@ getAllFriend: function(options, cbOk, cbErr) {},
 | TimeStampNow                  | Number              | 本次拉取的时间戳，客户端需要保存该时间，下次请求时通过 TimeStamp 字段返回给后台 |
 | StartIndex                    | Number              | 下页拉取的起始位置                                           |
 | InfoItem                      | Array               | 好友对象数组，每一个好友对象都包括了 Info_Account 和 SnsProfileItem，若无该字段返回则表示没有好友 |
-| InfoItem.Info_Account         | String              | 好友的 Identifier                                            |
+| InfoItem.Info_Account         | String              | 好友的 UserID                                            |
 | InfoItem.SnsProfileItem       | Array               | 好友的详细信息数组，数组每一个元素都包括 Tag 和 Value        |
 | InfoItem.SnsProfileItem.Tag   | String              | 好友的资料字段或好友字段的名称                               |
 | InfoItem.SnsProfileItem.Value | String/Number/Array | 好友的资料字段或好友字段的值，详情可参见 [关系链字段](https://cloud.tencent.com/document/product/269/1501#.E5.85.B3.E7.B3.BB.E9.93.BE.E5.AD.97.E6.AE.B5) 及 [资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) |
@@ -373,7 +373,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 
 | 字段       | 类型   | 属性 | 说明                                                         |
 | ---------- | ------ | ---- | ------------------------------------------------------------ |
-| To_Account | Array  | 必填 | 待删除的好友的 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
+| To_Account | Array  | 必填 | 待删除的好友的 UserID 列表，单次请求的 To_Account 数不得超过 1000 |
 | DeleteType | String | 选填 | 删除模式，详情请参考 [删除好友](https://cloud.tencent.com/document/product/269/1501#.E5.88.A0.E9.99.A4.E5.A5.BD.E5.8F.8B) |
 
 ### 响应参数说明
@@ -381,7 +381,7 @@ deleteFriend: function(options, cbOk, cbErr) {},
 | 字段                  | 类型   | 说明                                                     |
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量删除好友的结果对象数组                               |
-| ResultItem.To_Account | String | 请求删除的好友的 Identifier                              |
+| ResultItem.To_Account | String | 请求删除的好友的 UserID                              |
 | ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account列表，成功时响应体无该字段      |
@@ -459,14 +459,14 @@ addBlackList: function(options, cbOk, cbErr) {},
 
 | 字段       | 类型  | 属性 | 说明                                                         |
 | ---------- | ----- | ---- | ------------------------------------------------------------ |
-| To_Account | Array | 必填 | 待添加为黑名单的用户 Identifier 列表，单次请求的 To_Account 数不得超过 1000 |
+| To_Account | Array | 必填 | 待添加为黑名单的用户 UserID 列表，单次请求的 To_Account 数不得超过 1000 |
 
 ### 响应参数说明
 
 | 字段                  | 类型   | 说明                                                     |
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量添加黑名单的结果对象数组                             |
-| ResultItem.To_Account | String | 请求添加为黑名单的用户 Identifier                        |
+| ResultItem.To_Account | String | 请求添加为黑名单的用户 UserID                        |
 | ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
@@ -543,7 +543,7 @@ getBlackList: function(options, cbOk, cbErr) {},
 | 字段                            | 类型   | 说明                                                         |
 | ------------------------------- | ------ | ------------------------------------------------------------ |
 | BlackListItem                   | Array  | 黑名单对象数组，每一个黑名单对象都包括了 To_Account 和 AddBlackTimeStamp。若无该字段返回则表示没有用户在黑名单中 |
-| BlackListItem.To_Account        | String | 黑名单的 Identifier                                          |
+| BlackListItem.To_Account        | String | 黑名单的 UserID                                          |
 | BlackListItem.AddBlackTimeStamp | Number | 添加黑名单的时间                                             |
 | StartIndex                      | Number | 下页拉取的起始位置，0表示已拉完                             |
 | CurruentSequence                | Number | 黑名单最新的 Seq                                             |
@@ -610,14 +610,14 @@ deleteBlackList: function(options, cbOk, cbErr) {},
 
 | 字段       | 类型  | 属性 | 说明                                                         |
 | ---------- | ----- | ---- | ------------------------------------------------------------ |
-| To_Account | Array | 必填 | 待删除的黑名单的 Identifier 列表，单次请求的 To_Account 数不得超过1000 |
+| To_Account | Array | 必填 | 待删除的黑名单的 UserID 列表，单次请求的 To_Account 数不得超过1000 |
 
 ### 响应参数说明
 
 | 字段                  | 类型   | 说明                                                     |
 | --------------------- | ------ | -------------------------------------------------------- |
 | ResultItem            | Array  | 批量删除黑名单的结果对象数组                             |
-| ResultItem.To_Account | String | 请求删除的黑名单的 Identifier                            |
+| ResultItem.To_Account | String | 请求删除的黑名单的 UserID                            |
 | ResultItem.ResultCode | Number | To_Account 的处理结果，0表示删除成功，非0表示删除失败 |
 | ResultItem.ResultInfo | String | To_Account 的错误描述信息，成功时该字段为空              |
 | Fail_Account          | Array  | 返回处理失败的 To_Account 列表                           |
