@@ -183,7 +183,7 @@ public class ThirdPushTokenMgr {
 		<category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 ```
-2. 在控制台上填入 `android.intent.action.View`。
+2. 在控制台上填入 `android.intent.action.VIEW`。
 
 
 <span id="Trans"></span>
