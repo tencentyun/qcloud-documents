@@ -128,6 +128,7 @@ https://域名/adfs/ls/idpinitiatedSignOn.htm
 ![](https://main.qcloudimg.com/raw/f4f59f90d2b90974428faa31cb4c6df6.png)
 10.在添加信赖方信任向导页面，选择“声明感知”，单击【启动】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a90385d09c006b220c22d0fa342bca1b.png)
+
 11.访问以下链接下载腾讯云身份提供商的 XML 文件。
 
 ```
@@ -139,9 +140,19 @@ https://cloud.tencent.com/saml.xml
 14.单击【信赖方信任】>【添加规则】>【编辑声明颁发策略】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
 15.在选择规则模板页面，单击【选择规则类型】>【下一步】。如下图所示：
+>?
+
+```
+<Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">
+                <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
+</AttributeValue>
+            </Attribute>
+            <Attribute Name="键名">
+                <AttributeValue>RoleName</AttributeValue>
+            </Attribute>
+```
 ![](https://main.qcloudimg.com/raw/8909284cac7bc78f80a35bd677f5701c.png)
 ![](https://main.qcloudimg.com/raw/f69d20624306819ddb282c38956037c7.png)
-![](https://main.qcloudimg.com/raw/79c8d72f4fa0551808db43dc2874a74b.png)
 
 ### 在腾讯云创建身份提供商
 >?您可以通过本步骤配置 ADFS 和腾讯云之间的信任关系使之相互信任。
