@@ -179,7 +179,7 @@ public class ThirdPushTokenMgr {
 1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据。
 ```
 <intent-filter>
-		<action android:name="android.intent.action.View" />
+		<action android:name="android.intent.action.VIEW" />
 		<category android:name="android.intent.category.DEFAULT" />
 </intent-filter>
 ```
