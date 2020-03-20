@@ -16,11 +16,11 @@ download_url?exif
 
 | 参数         | 含义                                                         |
 | ------------ | ------------------------------------------------------------ |
-| download_url | 文件的访问链接，具体构成为 `<BucketName-APPID>.<picture region>.<domain>.com/<picture name>`，例如 `examplebucket-1250000000.picsh.myqcloud.com/picture.jpeg` |
+| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如 `examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
 
 
 ## 示例
 ```
-http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?exif
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
 ```
 
