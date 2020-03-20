@@ -141,8 +141,7 @@ https://cloud.tencent.com/saml.xml
 ![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
 15.在选择规则模板页面，单击【选择规则类型】>【下一步】。如下图所示：
 >?
-
-```
+>```
 <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">
                 <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
 </AttributeValue>
