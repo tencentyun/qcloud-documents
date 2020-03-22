@@ -54,7 +54,7 @@ mna->MNASetObserver(observer);
 ![](https://main.qcloudimg.com/raw/ab74542d85ccaada74f1e4677f4e49dd.png)
 1. 应用启动时，调用初始化`MNAInit`，并设置回调函数`MNASetObserver`。
 2. 应用登录成功后，需要调用`MNASetUserName`设置`openid`，可通过`MNASetZoneId`设置`zone id`。
-3. 对局开始前调用`MNAStartDiagnose`当游戏服务器IP发生变化时可调用`MNASetGameIp`来设置游戏服务器 IP，不发生变化时不需要调用；当应用切换到前台时，调用`MNAGoFront`;当应用切换到后台时，调用`MNAGoBack`。
+3. 对局开始前调用`MNAStartDiagnose`当游戏服务器 IP 发生变化时可调用`MNASetGameIp`来设置游戏服务器 IP，不发生变化时不需要调用；当应用切换到前台时，调用`MNAGoFront`;当应用切换到后台时，调用`MNAGoBack`。
 4. 对局结束时，先调用`MNAIsQosWork`函数获取 Qos 保障标识，再调用`MNAEndSpeed`结束当局加速，并上报网络质量数据。
 5. 进入游戏大厅后可通过调用`MNARealTimeQuery`函数来对网络进行诊断。
 
@@ -129,7 +129,7 @@ void MNASetGameIp(const char *gameip);
 |---------|---------|
 | gameIp | 游戏服务器地址| 
 
-当游戏在对局中因为网络或者别的原因导致游戏服务器 IP 发生改变时，直接调用该接口设置游戏服务器 IP 即可，当对局中 IP 不会发生变化时不需要接入，目前主要是境外业务需要调用该接口，国内业务不用接。
+当游戏在对局中因为网络或者别的原因导致游戏服务器 IP 发生改变时，直接调用该接口设置游戏服务器 IP 即可，当对局中 IP 不会发生变化时不需要接入，目前主要是境外业务需要调用该接口，中国内地（大陆）业务不用接。
 
 #### 通知加速引擎：游戏目前在前台
 ```

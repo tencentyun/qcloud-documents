@@ -177,7 +177,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 }, user_data);
 ```
 
-更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timsetrecvnewmsgcallback)。
+更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timaddrecvnewmsgcallback)。
 
 ## 群组管理
 
@@ -194,7 +194,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 
 ### 创建群组
 
-以下示例创建一个叫 Windows-Group-01 公开群组，并且把用户 Windows_002 拉入群组。 
+以下示例创建一个叫 Windows-Group-Name 公开群组，并且把用户 Windows_002 拉入群组。 
 **示例：**
 
 ```c
@@ -229,7 +229,7 @@ int ret = TIMGroupCreate(json_param.c_str(), [](int32_t code, const char* desc, 
 }, user_data))
 ```
 
-更多群组操作请参考 SDK 文档 [群组管理](https://cloud.tencent.com/document/product/269/33550)。
+更多群组操作请参考 [群组相关接口文档](https://cloud.tencent.com/document/product/269/33550)。
 
 ### 群组消息
 群组消息与 C2C （单聊）消息相同，仅在发送时填写群组的 ID 和类型`kTIMConv_Group`，可参阅 SDK 文档 [消息发送](https://cloud.tencent.com/document/product/269/33549) 部分。

@@ -17,7 +17,7 @@ Protobuf 是 Google 推出的一种混合语言数据标准，是一种轻便的
  - g++
  - unzip
 
-2. 下载 Protobuf（syntax=”proto2”）源码安装包。
+2. 下载 Protobuf（syntax=“proto2”）源码安装包。
 [SDK 下载](https://github.com/protocolbuffers/protobuf/releases)。
 3. 解压源码安装包，并进入源码根目录下，以下为命令行操作。
 ```

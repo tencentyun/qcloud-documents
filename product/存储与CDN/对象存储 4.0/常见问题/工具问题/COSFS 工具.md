@@ -106,7 +106,7 @@ umount -l /path/to/mnt_dir
 cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
-如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](https://cloud.tencent.com/document/product/436/6883#compile) 部分更新 fuse 版本或安装最新版本的 COSFS。
+如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您参见 [COSFS 工具](https://cloud.tencent.com/document/product/436/6883#.E5.AE.89.E8.A3.85.E5.92.8C.E4.BD.BF.E7.94.A8) 文档更新 fuse 版本或安装最新版本的 COSFS。
 
 ### 通过 COSFS 上传的文件 Content-Type 被变为 "application/octet-stream"怎么办？
 
@@ -207,7 +207,7 @@ ln -s /usr/local/util-linux-ng/bin/mount /bin
 可以使用`-ononempty`参数挂载到非空目录，但不建议您挂载到非空目录，当挂载点中和原目录中存在相同路径的文件时，可能出现问题。
 
 ### 在 COSFS 的目录中执行 ls 命令，为什么命令返回需要很久的时间？
-在挂载目录中有很多文件的情况下，执行 ls 命令需要对目录中的每一个文件执行 HEAD 操作，因此，会耗费较多时时间读取目录系统调用才会返回。
+在挂载目录中有很多文件的情况下，执行 ls 命令需要对目录中的每一个文件执行 HEAD 操作，因此，会耗费较多时间读取目录系统调用才会返回。
 >!建议您不要开启 IO hung，导致不必要的重启。
 
 

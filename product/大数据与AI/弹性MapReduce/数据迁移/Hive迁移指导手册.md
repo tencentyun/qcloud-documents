@@ -104,7 +104,7 @@ mysql -hX.X.X.X -uroot -pXXXX hivemetastore < hivemetastore-src.sql
 ```
 hive --service version 
 ```
-hive 的升级脚本存放在`/user/local/service/hive/script/metastore/upgrade/mysql`目录下。
+hive 的升级脚本存放在`/usr/local/service/hive/scripts/metastore/upgrade/mysql/`目录下。
 
  hive 不支持跨版本升级，例如 hive 从1.2升级到2.3.0需要依次执行：
 ```

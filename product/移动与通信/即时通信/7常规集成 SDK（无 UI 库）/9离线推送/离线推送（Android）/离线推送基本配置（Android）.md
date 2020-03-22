@@ -16,9 +16,9 @@
      <td>iOS 系统推送通道，也是唯一的 iOS 推送通道</td> 
    </tr> 
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
-     <td nowrap="nowrap">FuntouchOS</td> 
-     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
+     <td><a href="https://cloud.tencent.com/document/product/269/35000" target="_blank">小米推送</a></td> 
+     <td>MIUI</td> 
+     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
    </tr> 
    <tr> 
      <td><a href="https://cloud.tencent.com/document/product/269/34999" target="_blank">华为推送</a></td> 
@@ -26,9 +26,9 @@
      <td>华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301</td> 
    </tr> 
    <tr> 
-     <td><a href="https://cloud.tencent.com/document/product/269/35000" target="_blank">小米推送</a></td> 
-     <td>MIUI</td> 
-     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">Google FCM 推送</a></td> 
+     <td nowrap="nowrap">Android 4.1 及以上</td> 
+     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。</td> 
    </tr> 
    <tr> 
      <td><a href="https://cloud.tencent.com/document/product/269/35001" target="_blank">魅族推送</a></td> 
@@ -36,14 +36,14 @@
      <td>使用魅族推送 push-internal:3.6.+</td> 
    </tr> 
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/9234" target="_blank">OPPO 推送</a></td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37729" target="_blank">OPPO 推送</a></td> 
      <td>ColorOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。目前 OPPO 推送服务暂时只开放给已上架 OPPO 软件商店 A/B 等级的应用使用，因此 Demo 暂时没有 OPPO 推送的示例</td> 
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送，SDK 版本 mcssdk-2.0.2.jar</td> 
    </tr>  
    <tr> 
-     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/37317" target="_blank">FCM 推送</a></td> 
-     <td nowrap="nowrap">Android 4.1 及以上</td> 
-     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。</td> 
+     <td nowrap="nowrap"><a href="https://cloud.tencent.com/document/product/269/34998" target="_blank">vivo 推送</a></td> 
+     <td nowrap="nowrap">FuntouchOS</td> 
+     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
    </tr> 
 </table>
 
@@ -269,6 +269,7 @@ public void setNotifyMode(NotifyMode mode)
 ```
 
 **TIMMessageOfflinePushSettings.NotifyMode：**
+
 ```java
 /**
  * 普通通知栏消息模式，离线消息下发后，单击通知栏消息直接启动应用，不会给应用进行回调

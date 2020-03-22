@@ -1,22 +1,22 @@
 ### 公网 IP 地址是什么？
 
-请参考 [公网服务](https://cloud.tencent.com/document/product/213/5224) **公网 IP 地址** 部分。
+请参考 [公网服务](https://cloud.tencent.com/document/product/213/5224) **公网 IP 地址**部分。
 
 ### 内网 IP 地址是什么？
 
-请参考 [内网服务](https://cloud.tencent.com/document/product/213/5225) **内网 IP 地址** 部分。
+请参考 [内网服务](https://cloud.tencent.com/document/product/213/5225) **内网 IP 地址**部分。
 
 ### 如何获取实例的公网 IP 地址？
 
-请参考 [公网服务](https://cloud.tencent.com/document/product/213/5224) **获取实例的公网 IP 地址** 部分。
+请参考 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 
 ### 如何获取实例的内网 IP 地址？
 
-请参考 [内网服务](https://cloud.tencent.com/document/product/213/5225) **获取实例的内网 IP 地址** 部分。
+请参考 [获取实例的内网 IP 地址](https://cloud.tencent.com/document/product/213/17941#.E8.8E.B7.E5.8F.96.E5.AE.9E.E4.BE.8B.E7.9A.84.E5.86.85.E7.BD.91-ip-.E5.9C.B0.E5.9D.80)。
 
 ### 如何更换实例公网 IP？
 
-请参考 [更换实例公网 IP 操作指南](https://cloud.tencent.com/document/product/213/16642)。
+请参考 [更换公网 IP 地址](https://cloud.tencent.com/document/product/213/16642)。
 
 ### 公网网关和带有公网 IP 的云服务器有何区别？
 

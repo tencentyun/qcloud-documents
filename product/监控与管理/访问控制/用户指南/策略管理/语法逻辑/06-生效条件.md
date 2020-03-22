@@ -48,7 +48,7 @@
   ]  
 }
 ```
-2.  以下示例描述允许 VPC 绑定指定的 NAT 网关， VPC 的地域必须是上海。
+2.  以下示例描述允许 VPC 绑定指定的对等连接， VPC 的地域必须是上海。
 ```
 {
     "version": "2.0",
@@ -79,15 +79,15 @@
 | string_equal_ignore_case | 字符串等于(不区分大小写) | qcs:tag |{"string_equal_ignore_case":{"qcs:tag/tag_name1":"tag_value1"}} |
 |string_not_equal_ignore_case|字符串不等于(不区分大小写)|qcs:tag|{"string_not_equal_ignore_case":{"qcs:tag/tag_name1":"tag_value1"}}|
 | string_like | 字符串匹配(区分大小写) | qcs:tag |{"string_like":{"qcs:tag/tag_name1":"tag_value1"}} |
-|string_not_like|字符串不匹配等于(区分大小写)|qcs:tag|{"string_not_like":{"qcs:tag/tag_name1":"tag_value1"}}|
+|string_not_like|字符串不匹配(区分大小写)|qcs:tag|{"string_not_like":{"qcs:tag/tag_name1":"tag_value1"}}|
 |date_not_equal|时间不等于|qcs:current_time|{"date_not_equal":{"qcs:current_time":"2016-06-01T00:01:00Z"}}|
 |date_greater_than|时间大于|qcs:current_time|{" date_greater_than ":{"qcs:current_time":"2016-06-01T00:01:00Z"}}|
 |date_greater_than_equal|时间大于等于|qcs:current_time|{" date_greater_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}}|
 |date_less_than|时间小于|qcs:current_time|{" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}}|
 |date_less_than_equal|时间小于等于|qcs:current_time|{" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}}|
 |date_less_than_equal|时间小于等于|qcs:current_time|{"date_less_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}}|
-|ip_equal|ip等于|qcs:ip|{"ip_equal":{"qcs:ip ":"10.121.2.10/24"}}|
-|ip_not_equal|ip不等于|qcs:ip|{"ip_not_equal":{"qcs:ip ":["10.121.2.10/24", "10.121.2.20/24"]}}|
+|ip_equal|IP 等于|qcs:ip|{"ip_equal":{"qcs:ip ":"10.121.2.10/24"}}|
+|ip_not_equal|IP 不等于|qcs:ip|{"ip_not_equal":{"qcs:ip ":["10.121.2.10/24", "10.121.2.20/24"]}}|
 |numeric_not_equal|数值不等于|qcs:mfa|{" numeric_not_equal":{"mfa":1}}|
 |numeric_greater_than|数值大于|-|{"numeric_greater_than ":{"cvm_system_disk_size":10}}|
 |numeric_greater_than_equal|数值大于等于|-|{"numeric_greater_than_equal ":{"cvm_system_disk_size":10}}|

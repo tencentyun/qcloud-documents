@@ -67,7 +67,7 @@ const shareClient = TRTC.createClient({ mode: 'videoCall', sdkAppId, userId: sha
 
 // 指明该 shareClient 默认不接收任何远端流 （它只负责发送屏幕分享流）
 shareClient.setDefaultMuteRemoteStreams(true);
-shareClient.join().then(() => {
+shareClient.join(roomId).then(() => {
   console.log('shareClient join success');
   // 创建屏幕分享流
   const localStream = TRTC.createStream({ audio: false, screen: true });

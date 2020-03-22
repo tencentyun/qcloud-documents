@@ -43,13 +43,13 @@
 | networkAclEntrySet.ingress.n.ipProtocol | String | 协议，例如 TCP。 |
 | networkAclEntrySet.ingress.n.cidrIp | String | 源IP或者源网段，支持 IP 或者 CIDR，例如：10.20.3.0或者10.0.0.2/24。 |
 | networkAclEntrySet.ingress.n.portRange | String | 源端口，支持单个接口或者端口段，例如：80或者90-100。 |
-| networkAclEntrySet.ingress.n.action | Int | 策略，1:允许，0:拒绝。 |
+| networkAclEntrySet.ingress.n.action | Int | 策略，0:允许，1:拒绝。 |
 | networkAclEntrySet.egress.n | Array | 网络 ACL 出站规则。 |
 | networkAclEntrySet.egress.n.desc | String | 备注。 |
 | networkAclEntrySet.egress.n.ipProtocol | String | 协议，例如 TCP。 |
 | networkAclEntrySet.egress.n.cidrIp | String | 源IP或者源网段，支持 IP 或者 CIDR，例如：10.20.3.0或者10.0.0.2/24。 |
 | networkAclEntrySet.egress.n.portRange | String | 源端口，支持单个接口或者端口段，例如：80或者90 - 100。 |
-| networkAclEntrySet.egress.n.action | Int | 策略，1:允许，0:拒绝。 |
+| networkAclEntrySet.egress.n.action | Int | 策略，0:允许，1:拒绝。 |
 
  ## 4. 错误码表
   以下错误码表仅列出了该接口的业务逻辑错误码，更多公共错误码详见<a href="https://cloud.tencent.com/doc/api/245/4924" title="VPC错误码"> VPC错误码</a>。

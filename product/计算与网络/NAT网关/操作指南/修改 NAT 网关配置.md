@@ -1,8 +1,7 @@
 NAT 网关创建后，您可以对其属性进行修改。
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【私有网络】进入私有网络控制台，在左侧目录中单击【NAT 网关】。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，在左侧目录中单击【NAT 网关】。
 2. 在列表中单击需要修改的 NAT 网关 ID 进入详情页，在详情页可以完成如下操作。
  - 修改网关的自定义名称。
  - 修改网关类型，更改后实时设定，实时生效（变更类型不会中断原网络连接）。
- - 修改带宽上限。
- 
-![1](https://main.qcloudimg.com/raw/44ca3bc895ce850a3c79956e066059e9.png)
+ - 修改出带宽上限。
+![](https://main.qcloudimg.com/raw/bdc2fe2a9581120679f8006c33a61e74.png)

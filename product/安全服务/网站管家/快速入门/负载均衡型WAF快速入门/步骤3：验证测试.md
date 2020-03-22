@@ -1,0 +1,7 @@
+1. 确保本地电脑可以正常访问 Web 站点。
+2. 在浏览器中输入网址`http://wow.qcloudwaf.com/?test=alert(123)`并访问。
+>!`wow.qcloudwaf.com` 为本案例中域名，此处需要将域名替换为实际添加的域名。
+3. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/attack)，在左侧导航栏中，选择【Web 应用防火墙】>【攻击详情】，进入攻击日志查询页面，单击【负载均衡型】，进行负载均衡型日志查询。
+4. 选择添加防护的域名，单击【查询】。若看到攻击类型为 “XSS 攻击”，说明 WAF 配置已经生效。
+![](https://main.qcloudimg.com/raw/02c681b1624a804d85c72f4ac97b91ec.png)
+>?如果域名未配置 DNS，可参见 SaaS 型 WAF 快速入门的 [步骤2：本地测试](https://cloud.tencent.com/document/product/627/18632) 进行接入有效性验证。

@@ -14,7 +14,7 @@
 
 #### 步骤2：创建 API 密钥: 
 1. 单击子账号名称，进入子账号详情页。
-2. 选择【API 密钥】>【新建密钥】，即可创建 SecketId 和 SecretKey，通过该 API 密钥用来访问 KMS。
+2. 选择【API 密钥】>【新建密钥】，即可创建 SecretId 和 SecretKey，通过该 API 密钥用来访问 KMS。
 ![](https://main.qcloudimg.com/raw/ac96f4b2db57dbf6f4d6994444b7b79b.jpg)
 
 #### 步骤3：授权子账号

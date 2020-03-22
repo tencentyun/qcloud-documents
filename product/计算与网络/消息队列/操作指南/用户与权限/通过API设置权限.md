@@ -76,7 +76,7 @@
 
  ![](https://main.qcloudimg.com/raw/c6d7be9b98c8021d1ffc2fac6e4d2522.png)
 
-#### 子账户关联/移除策略（OperateCamStrategy
+#### 子账户关联/移除策略（OperateCamStrategy）
 此接口可给用户或者用户组联/移除策略。
 
 - 策略示例：将 UIN 为“123456”的用户关联到策略 ID 为“666”的策略。

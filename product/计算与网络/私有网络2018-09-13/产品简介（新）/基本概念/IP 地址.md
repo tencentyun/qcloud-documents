@@ -1,4 +1,4 @@
-腾讯云有两类 IP 地址，公网 IP 地址和内网 IP 地址。
+腾讯云有两类 IP 地址，公网 IP 地址和内网 IP 地址。如果您不主动做解绑、更换操作，公网 IP 和内网 IP 都不会改变。
 
 ## 公网 IP 地址
 公网 IP 地址是 Internet 上的非保留地址，有公网 IP 地址的云服务器可以和 Internet 上的其他计算机互相访问。
@@ -46,7 +46,7 @@
 <tr>
 <td rowspan="4" >操作</td>
 <td>转换 IP</td>
-<td>可转换，详情请参见 <a href="https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip" target="_blank"> 普通公网 IP 转换为弹性公网 IP</a>。</td>
+<td>可转换，详情请参见 <a href="https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip" target="_blank"> 普通公网 IP 转换为弹性公网 IP</a>。<br>普通公网 IP 转换为弹性公网 IP 后，仅 IP 属性改变，IP 地址不变。</td>
 <td>弹性公网 IP 不可转换为普通公网 IP。</td>
 </tr>
 <tr>

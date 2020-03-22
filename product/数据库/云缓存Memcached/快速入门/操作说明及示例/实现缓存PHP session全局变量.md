@@ -1,6 +1,6 @@
 ## 1 使用场景
 
-Session是WEB程序中常用的功能，默认情况下其数据是以文件方式存储，对大访问量的场景，其处理能力较低。Memcache是高性能的基于内存的Key=>Value存储系统, 能大大改善处理session的能力。
+Session是Web程序中常用的功能，默认情况下其数据是以文件方式存储，对大访问量的场景，其处理能力较低。Memcache是高性能的基于内存的Key=>Value存储系统, 能大大改善处理session的能力。
 
 ## 2 使用PHP-Memcache扩展的实现方法
 

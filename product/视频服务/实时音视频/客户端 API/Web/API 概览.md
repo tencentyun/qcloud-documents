@@ -59,14 +59,14 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | [on](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#on) | 监听客户端对象事件。 |
 | [getRemoteMutedState](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteMutedState)| 获取当前房间内远端用户音视频 mute 状态列表。 |
 | [setDefaultMuteRemoteStreams](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#setDefaultMuteRemoteStreams) | 设置是否默认接收远端流。该方法可在 [join()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) 调用前使用，若在进房后调用，会接收不到后续进房的远端用户音视频流。 |
-| [getLocalAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalAudioStats) | 获取当前已发布本地流的音频统计数据。该方法需要在 [publish()]((https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish)) 后调用。 |
-| [getLocalVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalVideoStats) | 获取当前已发布本地流的视频统计数据。该方法需要在 [publish()]((https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish)) 后调用。 |
+| [getLocalAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalAudioStats) | 获取当前已发布本地流的音频统计数据。该方法需要在 [publish()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) 后调用。 |
+| [getLocalVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getLocalVideoStats) | 获取当前已发布本地流的视频统计数据。该方法需要在 [publish()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) 后调用。 |
 | [getRemoteAudioStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteAudioStats) | 获取当前所有远端流的音频统计数据。 |
 | [getRemoteVideoStats](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#getRemoteVideoStats) | 获取当前所有远端流的视频统计数据。 |
 
 ## LocalStream
 
-LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) 创建。是 [Stream](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html) 的子类。
+LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.createStream) 创建，是 [Stream](https://trtc-1252463788.file.myqcloud.com/web/docs/Stream.html) 的子类。
 
 | API | 描述 |
 | --- | --- |
@@ -90,7 +90,6 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getId) | 获取 Stream 唯一标识 ID。 |
 | [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioOutput) | 设置声音输出设备。 |
-| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
 | [hasAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#hasAudio) | 是否包含音频轨道。 |
 | [hasVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/LocalStream.html#hasVideo) | 是否包含视频轨道。 |
@@ -119,7 +118,7 @@ LocalStream 本地音视频流，通过 [createStream](https://trtc-1252463788.f
 | [getId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getId) | 获取 Stream 唯一标识 ID。 |
 | [getUserId](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getUserId) | 获取该流所属的用户 ID。 |
 | [setAudioOutput](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioOutput) | 设置声音输出设备。 |
-| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioVolume) | 设置音量大小。主要用于调节远端流的音量大小。 |
+| [setAudioVolume](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#setAudioVolume) | 设置播放音量大小。 |
 | [getAudioLevel](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#getAudioLevel) | 获取当前音量大小。只有当本地流或远端流中有音频数据才有效。 |
 | [hasAudio](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#hasAudio) | 是否包含音频轨道。 |
 | [hasVideo](https://trtc-1252463788.file.myqcloud.com/web/docs/RemoteStream.html#hasVideo) | 是否包含视频轨道。 |

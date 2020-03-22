@@ -1,5 +1,6 @@
 ## 操作场景
 本文介绍在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单查询的操作。
+>?云服务器和云数据库须是同一账号，且同一个 VPC 内（保障同一个地域）。
 
 ## 操作步骤
 1. 登录 [云数据库 SQL Server](https://console.cloud.tencent.com/sqlserver) 实例详情页，查看实例内网 IP 及端口号。该内网 IP 及端口号会在连接云数据库时使用。
@@ -20,6 +21,5 @@ select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](//mc.qcloudimg.com/static/img/fbf64c03c7addda9c80fdd3dac7bbebb/image.png)
-
 
 

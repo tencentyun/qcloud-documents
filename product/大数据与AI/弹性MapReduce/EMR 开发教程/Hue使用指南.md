@@ -48,30 +48,29 @@ Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的
 | insert into hive_sample select 1, "a";|
 | select * from hive_sample;|
 ```
-将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。
-具体路径：`/usr/local/service/hive/conf/hive-site.xml`，复制一个 hive-site.xml 文件。
+将以上内容保存为 hive_sample.sql 文件，Hive 工作流还需要一个 hive-site.xml 配置文件，这个配置文件可以在集群中安装了 Hive 组件的节点上找到。具体路径：`/usr/local/service/hive/conf/hive-site.xml`，复制一个 hive-site.xml 文件。
 上传 Hive script 文件和 hive-site.xml 到 hdfs 的目录，例如`/user/hadoop`。
 2. **创建工作流**
- 1. 切换到 hadoop 用户，在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
+ - 切换到 hadoop 用户，在 Hue 页面上方，选择【Query】>【Scheduler】>【Workflow】。
 ![](https://main.qcloudimg.com/raw/17e2c9e91bef6c67d7f6721eeb1a490e.png)
- 2. 在工作流编辑页面中拖一个 Hive Script。
+ - 在工作流编辑页面中拖一个 Hive Script。
 ![](https://main.qcloudimg.com/raw/128170644bbef8f40743ea0f72a35a0e.png)
- 3. 选择刚刚上传的 Hive scipt 文件和 hive-site.xml 文件。
+ - 选择刚刚上传的 Hive scipt 文件和 hive-site.xml 文件。
 ![](https://main.qcloudimg.com/raw/1bdf334d89fa1be9fcee003d8328ff4d.png)
- 4. 单击【Add】之后，还需在 FILES 中指定 hive script 文件。
+ - 单击【Add】后，还需在 FILES 中指定 hive script 文件。
 ![](https://main.qcloudimg.com/raw/f36e5b22f40b2832f018d0091c8a382c.png)
- 5. 单击右上角【保存】，然后单击【执行】，运行 workflow。
+ - 单击右上角【保存】，然后单击【执行】，运行 workflow。
 ![](https://main.qcloudimg.com/raw/418083ee1956ea3d2faea6afcd520834.png)
 3. **创建定时调度任务**
 Hue 的定时调度任务是 schedule，类似于 Linux 的 crontab，支持的调度粒度可以到分钟级别。
- 1. 选择【Query】>【Scheduler】>【Schedule】，创建 Schedule。
+ - 选择【Query】>【Scheduler】>【Schedule】，创建 Schedule。
 ![](https://main.qcloudimg.com/raw/d0bde8f4b97341f43aaa9ca8ab9b2440.png)
- 2. 单击【Choose a workflow...】，选择一个创建好的工作流。
+ - 单击【Choose a workflow...】，选择一个创建好的工作流。
 ![](https://main.qcloudimg.com/raw/3e9439fc36547531af9e49462e2880dd.png)
- 3. 选择需要调度的时间点和时间间隔、时区、调度任务的开始时间和结束时间，然后单击【Save】保存。
+ - 选择需要调度的时间点和时间间隔、时区、调度任务的开始时间和结束时间，然后单击【Save】保存。
 ![](https://main.qcloudimg.com/raw/097fcba6a4c5c6e27efe342079beae46.png)
 4. **执行定时调度任务**
- 1. 单击右上角的【提交】提交调度任务。
+ -  单击右上角的【提交】提交调度任务。
 ![](https://main.qcloudimg.com/raw/d42cc1d0d4e2cbe3bdfa77065e5bd8c1.png)
- 2. 在 schedulers 的监控页面可以查看任务调度情况。
+ - 在 schedulers 的监控页面可以查看任务调度情况。
 ![](https://main.qcloudimg.com/raw/03eca980d7e0cf72b81af89da25f09f2.png)

@@ -19,7 +19,9 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取文件下载的鉴权凭证：
 
+[//]: # (.cssg-snippet-get-authorization)
 ```js
+var COS = require('cos-nodejs-sdk-v5');
 var Authorization = COS.getAuthorization({
     SecretId: 'COS_SECRETID',
     SecretKey: 'COS_SECRETKEY',
@@ -53,10 +55,11 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名 Object Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: false
 });
@@ -64,20 +67,22 @@ var url = cos.getObjectUrl({
 
 示例二：获取带签名 Object Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-signed)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg'
 });
 ```
 
 示例三：如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: false
 }, function (err, data) {
@@ -87,10 +92,11 @@ cos.getObjectUrl({
 
 示例四：指定链接有效时间。
 
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: true,
     Expires: 3600, // 单位秒
@@ -101,12 +107,13 @@ cos.getObjectUrl({
 
 示例五：获取文件 Url 并下载文件。
 
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: true
 }, function (err, data) {
@@ -124,12 +131,13 @@ cos.getObjectUrl({
 
 示例一：获取预签名 Put Object 上传 Url。
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Method: 'PUT',
     Key: '1.jpg',
     Sign: true

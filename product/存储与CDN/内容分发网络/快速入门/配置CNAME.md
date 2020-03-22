@@ -14,7 +14,7 @@
 
 若您的 DNS 服务商为腾讯云，您可通过如下步骤添加 CNAME 记录。
 1. 登录 [域名服务](https://console.cloud.tencent.com/domain) 控制台，在列表中，找到需要添加 CNAME 记录的域名所在行，单击操作栏的【解析】。
-![CNAME配置](https://main.qcloudimg.com/raw/a317ab5eb1a9e384336b273db5366f7d.png)
+![CNAME配置](https://main.qcloudimg.com/raw/5687364cbdec038240c9b37373524d39.png)
 2. 在跳转到的页面中，单击【添加记录】。
  ![](https://main.qcloudimg.com/raw/88a0cda619aeaf1a88120ad5294250fa.png)
 3. 在 **主机记录** 处填写域名前缀（如：www），将 **记录类型** 设置为 CNAME，在 **记录值** 处填写 CNAME 域名，单击【保存】，即可添加 CNAME 记录。
@@ -22,7 +22,7 @@
 
 <span ID ="m2"></span>
 ### DNSPod 设置方法
-若您的 DNS 服务商为 DNSPod，您可通过如下步骤添加 CNAME 记录。
+若您的 DNS 服务商为 DNSPod，登录 [DNSPod 域名服务控制台](https://console.dnspod.cn/dns/list)，在列表中，找到需要添加 CNAME 记录的域名所在行，单击对应域名名称，跳转至“添加记录”界面，通过如下步骤添加 CNAME 记录。
 ![](https://main.qcloudimg.com/raw/c5e256fcc42261105b674151aa6561a3.png)
 1. 主机记录处填子域名（例如需要添加`www.123.com`的解析，只需要在主机记录处填写`www`即可。如果只是想添加`123.com`的解析，主机记录直接留空，系统会自动填一个“@”到输入框内，@的 CNAME 会影响到 MX 记录的正常解析，添加时慎重考虑）。
 2. 记录类型为 CNAME。

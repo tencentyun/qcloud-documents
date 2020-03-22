@@ -208,7 +208,7 @@ case WEB_IM_GROUP_TIP_TYPE.SET_ADMIN://设置管理员
 
 ## 用户被取消管理员身份 
 
-**触发时机：**当有用户被被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN`。 
+**触发时机：**当有用户被取消管理员身份时，群组内会由系统发出通知。如果界面有显示是否管理员，此时可更新管理员标识。收到的消息 type 为 `WEB_IM_GROUP_TIP_TYPE.CANCEL_ADMIN`。 
 
 **`Msg.Elem.GroupTip` 成员方法：**
 

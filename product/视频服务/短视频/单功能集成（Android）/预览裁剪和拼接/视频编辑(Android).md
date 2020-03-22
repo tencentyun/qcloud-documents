@@ -8,18 +8,18 @@
 | `TXVideoEditer` | 视频编辑 |
 
 ## 使用说明
-视频编辑的基本使用流程如下
+视频编辑的基本使用流程如下：
 
-1. 设置视频路径
-2. 视频导入
-3. 添加效果
-4. 生成视频到指定文件
-5. 监听生成事件
-6. 资源释放
+1. 设置视频路径。
+2. 视频导入。
+3. 添加效果。
+4. 生成视频到指定文件。
+5. 监听生成事件。
+6. 资源释放。
 
 
 ## 视频信息获取
-**TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息, 相关接口如下
+**TXVideoInfoReader** 的 **getVideoFileInfo** 方法可以获取指定视频文件的一些基本信息, 相关接口如下：
 ```
 /**
   * 获取视频信息
@@ -28,14 +28,14 @@
   */
 public TXVideoEditConstants.TXVideoInfo getVideoFileInfo(String videoPath);
 ```
-返回的TXVideoInfo定义如下
+返回的 TXVideoInfo 定义如下：
 
 ```
 public final static class TXVideoInfo {
         public Bitmap coverImage;                                // 视频首帧图片
         public long duration;                                         // 视频时长(ms)
         public long fileSize;                                          // 视频大小(byte)
-        public float fps;                                                // 视频fps
+        public float fps;                                                // 视频 fps
         public int bitrate;                                              // 视频码率 (kbps)
         public int width;                                               // 视频宽度
         public int height;                                               // 视频高度
@@ -44,14 +44,14 @@ public final static class TXVideoInfo {
 ```
 完整示例如下：
 ```
-//sourcePath为视频源路径
+//sourcePath 为视频源路径
 String sourcePath = Environment.getExternalStorageDirectory() + File.separator + "temp.mp4";
 TXVideoEditConstants.TXVideoInfo info = TXVideoInfoReader.getInstance().getVideoFileInfo(sourcePath);
 ```
 ## 缩略图获取
 缩略图的接口主要用于生成视频编辑界面的预览缩略图，或获取视频封面等。
 ### 1. 按个数平分时间获取缩略图
-##### 快速导入生成精准缩略图
+#### 快速导入生成精准缩略图
 调用接口如下：
 ```
 /**
@@ -65,9 +65,10 @@ TXVideoEditConstants.TXVideoInfo info = TXVideoInfoReader.getInstance().getVideo
 public void getThumbnail(int count, int width, int height, boolean fast, TXThumbnailListener listener)
 ```
 
-说明：参数@param fast 可以使用两种模式
-1、快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数true
-2、精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数false
+参数 @param fast 可以使用两种模式：
+>- 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
+>- 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
+
 完整示例如下：
 ```
 mTXVideoEditer.getThumbnail(TCVideoEditerWrapper.mThumbnailCount, 100, 100, false, mThumbnailListener);
@@ -80,8 +81,8 @@ private TXVideoEditer.TXThumbnailListener mThumbnailListener = new TXVideoEditer
         }
     };
 ```
-##### 全功能导入获取缩略图
-参见下面 [视频导入](#p1)
+#### 全功能导入获取缩略图
+参见下面 [视频导入](#p1)。
 
 ### 2. 根据时间列表获取缩略图
 ```
@@ -103,9 +104,9 @@ txVideoEditer.setThumbnailListener(new TXVideoEditer.TXThumbnailListener() {
 });
 txVideoEditer.getThumbnailList(list, 200, 200);
 ```
-注意
-- List中时间点不能超出视频总时长，对于超出总时长的返回最后一张图片
-- 设置的时间点单位是毫秒(ms)
+>!
+>- List 中时间点不能超出视频总时长，对于超出总时长的返回最后一张图片。
+>- 设置的时间点单位是毫秒（ms）。
 
 ## 视频导入
 ### 1. 快速导入
@@ -116,14 +117,14 @@ txVideoEditer.getThumbnailList(list, 200, 200);
 经过全功能导入后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
 
 全功能导入步骤及调用接口如下：
-1、设置精确输出缩略图
+1. 设置精确输出缩略图。
 ```
 /**
   * 设置预处理输出的缩略图
   */
 public void setThumbnail(TXVideoEditConstants.TXThumbnail thumbnail)
 ```
-2、设置输出缩略图的回调
+2. 设置输出缩略图的回调。
 ```
 /**
   * 设置预处理输出缩略图回调
@@ -131,9 +132,8 @@ public void setThumbnail(TXVideoEditConstants.TXThumbnail thumbnail)
   */
 public void setThumbnailListener(TXThumbnailListener listener)
 ```
-注意：缩略图的宽高最好不要设置视频宽高，SDK内部缩放效率更高
-
-3、设置视频预处理回调接口
+>!缩略图的宽高最好不要设置视频宽高，SDK 内部缩放效率更高。
+3. 设置视频预处理回调接口。
 ```
 /**
   * 设置视频预处理回调
@@ -141,10 +141,11 @@ public void setThumbnailListener(TXThumbnailListener listener)
   */
 public void setVideoProcessListener(TXVideoProcessListener listener)
 ```
-4、进行视频预处理
+4. 进行视频预处理。
 ```
 public void processVideo();
 ```
+
 完整示例如下：
 ```
 int thumbnailCount = 10;  //可以根据视频时长生成缩略图个数
@@ -160,9 +161,9 @@ mTXVideoEditer.processVideo();                                               // 
 ```
 
 ## 编辑预览
-视频编辑提供了 定点预览（将视频画面定格在某一时间点）与区间预览（循环播放某一时间段 A <=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
+视频编辑提供了 定点预览（将视频画面定格在某一时间点）与区间预览（循环播放某一时间段 A<=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。
 
-### 1. 设置预览播放的Layout
+### 1. 设置预览播放的 Layout
 ```
 public void initWithPreview(TXVideoEditConstants.TXPreviewParam param)
 ```
@@ -176,10 +177,10 @@ public final static int PREVIEW_RENDER_MODE_FILL_EDGE = 2;        // 适应模�
 ```
 public void previewAtTime(long timeMs);
 ```
-### 3.区间预览
-TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段A <=>B内的视频片段。
+### 3. 区间预览
+TXVideoEditer 的 startPlayFromTime 函数用于循环播放某一时间段 A<=>B 内的视频片段。
 ```
-// 播放某一时间段的视频，从startTime到endTime的视频片段
+// 播放某一时间段的视频，从 startTime 到 endTime 的视频片段
 public void startPlayFromTime(long startTime, long endTime);
 ```
 ### 4. 预览的暂停与恢复
@@ -195,7 +196,7 @@ public void stopPlay();
 ```
 
 ### 5. 美颜滤镜
-您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了 16 种滤镜选择，同时也可以设置自定义的滤镜。
+您可以给视频添加滤镜效果，例如美白、浪漫、清新等滤镜，demo 提供了16种滤镜选择，同时也可以设置自定义的滤镜。
 
 设置滤镜的方法为：
 ```
@@ -206,24 +207,24 @@ void setFilter(Bitmap bmp)
 ```
 void setSpecialRatio(float specialRatio)
 ```
-该接口可以调整滤镜程度值，一般为0.0 ~ 1.0。
+该接口可以调整滤镜程度值，一般为0.0 - 1.0。
 
 ```
 void setFilter(Bitmap leftBitmap, float leftIntensity, Bitmap rightBitmap, float rightIntensity, float leftRatio)
 ```
-该接口能够实现组合滤镜，即左右可以添加不同的滤镜。leftBitmap为左侧滤镜、leftIntensity为左侧滤镜程度值；rightBitmap为右侧滤镜、rightIntensity为右侧滤镜程度值；leftRatio为左侧滤镜所占的比例,一般为0.0 ~ 1.0。当leftBitmap或rightBitmap为null，则该侧清除滤镜效果。
+该接口能够实现组合滤镜，即左右可以添加不同的滤镜。leftBitmap 为左侧滤镜、leftIntensity 为左侧滤镜程度值；rightBitmap 为右侧滤镜、rightIntensity 为右侧滤镜程度值；leftRatio 为左侧滤镜所占的比例，一般为0.0 - 1.0。当 leftBitmap 或 rightBitmap 为 null，则该侧清除滤镜效果。
 
 ### 6. 水印
-##### 1. 设置全局水印
-您可以为视频设置水印图片，并且可以指定图片的位置
+#### 1. 设置全局水印
+您可以为视频设置水印图片，并且可以指定图片的位置。
 
 设置水印的方法为：
 ```
 public void setWaterMark(Bitmap waterMark, TXVideoEditConstants.TXRect rect);
 ```
-其中 waterMark 表示水印图片，rect 是相对于视频图像的归一化 frame，frame 的 x，y，width，height 的取值范围都为 0 ~ 1。
+其中 waterMark 表示水印图片，rect 是相对于视频图像的归一化 frame，frame 的 x、y、width、height 的取值范围都为 0 - 1。
 
-Demo示例：
+Demo 示例：
 ```
 TXVideoEditConstants.TXRect rect = new TXVideoEditConstants.TXRect();
 rect.x = 0.5f;
@@ -231,7 +232,7 @@ rect.y = 0.5f;
 rect.width = 0.5f;
 mTXVideoEditer.setWaterMark(mWaterMarkLogo, rect);
 ```
-##### 2. 设置片尾水印
+#### 2. 设置片尾水印
 您可以为视频设置片尾水印，并且可以指定片尾水印的位置。
 设置片尾水印的方法为：
 
@@ -239,8 +240,8 @@ mTXVideoEditer.setWaterMark(mWaterMarkLogo, rect);
 setTailWaterMark(Bitmap tailWaterMark, TXVideoEditConstants.TXRect txRect, int duration);
 ```
 
-其中 tailWaterMark 表示片尾水印图片，txRect 是相对于视频图像的归一化 txRect，txRect 的 x, y, width 取值范围都为0~1，duration 水印的持续时长，单位秒。
-Demo 实例：设置水印在片尾中间，持续 3 秒
+其中 tailWaterMark 表示片尾水印图片，txRect 是相对于视频图像的归一化 txRect，txRect 的 x、y、width 取值范围都为0 - 1，duration 为水印的持续时长，单位：秒。
+Demo 实例：设置水印在片尾中间，持续3秒
 ```
 Bitmap tailWaterMarkBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.tcloud_logo);
 TXVideoEditConstants.TXRect txRect = new TXVideoEditConstants.TXRect();
@@ -252,7 +253,7 @@ mTXVideoEditer.setTailWaterMark(tailWaterMarkBitmap, txRect, 3);
 
 ## 压缩裁剪
 ### 视频码率设置
-目前支持自定义视频的码率，这里建议设置的范围 600-12000kbps，如果设置了这个码率，SDK最终压缩视频时会优先选取这个码率，注意码率不要太大或太小，码率太大，视频的体积会很大，码率太小，视频会模糊不清。
+目前支持自定义视频的码率，这里建议设置的范围600 - 12000kbps，如果设置了这个码率，SDK 最终压缩视频时会优先选取这个码率，注意码率不要太大或太小，码率太大，视频的体积会很大，码率太小，视频会模糊不清。
 ```
 public void setVideoBitrate(int videoBitrate);
 ```
@@ -272,24 +273,21 @@ public void setCutFromTime(long startTime, long endTime)
 public void generateVideo(int videoCompressed, String videoOutputPath)
 ```
 
-参数videoCompressed在TXVideoEditConstants中可选常量
+参数 videoCompressed 在 TXVideoEditConstants 中可选常量。
 ```
 VIDEO_COMPRESSED_360P ——压缩至360P分辨率（360*640）
 VIDEO_COMPRESSED_480P ——压缩至480P分辨率（640*480）
 VIDEO_COMPRESSED_540P ——压缩至540P分辨率 (960*540)
 VIDEO_COMPRESSED_720P ——压缩至720P分辨率 (1280*720)
 ```
-如果源视频的分辨率小于设置的常量对应的分辨率，按照原视频的分辨率；
-如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率
+如果源视频的分辨率小于设置的常量对应的分辨率，按照原视频的分辨率。
+如果源视频的分辨率大于设置的常量对象的分辨率，进行视频压缩至相应分辨率。
 
 ## 资源释放
-当您不再使用mTXVideoEditer对象时，一定要记得调用 **release()** 释放它。
+当您不再使用 mTXVideoEditer 对象时，一定要记得调用 **release()** 释放它。
 
 ## 高级功能
-[类抖音特效](https://cloud.tencent.com/document/product/584/20324)
-
-[设置背景音乐](https://cloud.tencent.com/document/product/584/20316)
-
-[贴纸字幕](https://cloud.tencent.com/document/product/584/20326)
-
-[图片编辑](https://cloud.tencent.com/document/product/584/20328)
+- [类抖音特效](https://cloud.tencent.com/document/product/584/20324)
+- [设置背景音乐](https://cloud.tencent.com/document/product/584/20316)
+- [贴纸字幕](https://cloud.tencent.com/document/product/584/20326)
+- [图片编辑](https://cloud.tencent.com/document/product/584/20328)

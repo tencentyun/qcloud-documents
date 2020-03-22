@@ -12,7 +12,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 <td>
 <ul class="params">
 <li>使用 Service 的 Loadbalance 模式，公网 IP 可直接访问到后端的 Pod，适用于 Web 前台类的服务。</li>
-<li>创建完成的服务可以通过<b>负载均衡 IP + 服务端口</b>直接访问。</li>
+<li>创建完成后的服务在集群外可通过<b>负载均衡域名或 IP + 服务端口</b>访问服务，集群内可通过<b>服务名 + 服务端口</b>访问服务。</li>
 </ul>
 </td>
 </tr>
@@ -21,7 +21,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 <td>
 <ul class="params">
 <li>使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。数据库类等服务如 MySQL 可以选择集群内访问，以保证服务网络隔离。</li>
-<li>创建完成后的服务可以通过<b>服务 IP 或服务名称 + 服务端口</b>直接访问。</li>
+<li>创建完成后的服务可以通过<b>服务名 + 服务端口</b>访问服务。</li>
 </ul>
 </td>
 </tr>
@@ -30,7 +30,7 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 <td>
 <ul class="params">
 <li>使用 Service 的 Loadbalance 模式，指定 <code>annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx</code>，即可通过内网 IP 直接访问到后端的 Pod。</li>
-<li>创建完成后的服务可以通过<b>内网 LB 的 IP + 服务端口</b>直接访问。</li>
+<li>创建完成后的服务在集群外可通过<b>负载均衡域名或 IP + 服务端口</b>访问服务，集群内可通过<b>服务名 + 服务端口</b>访问服务。</li>
 </ul>
 </td>
 </tr>
@@ -39,12 +39,16 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
 <td>
 <ul class="params">
 <li>提供一个主机端口映射到容器的访问方式，支持 TCP、UDP、Ingress。可用于业务定制上层 LB 转发到 Node。</li>
-<li>创建完成后的服务可以通过<b>云服务器 IP + 主机端口</b>或<b>服务名+服务端口</b>直接访问。</li>
+<li>创建完成后的服务可以通过<b>云服务器 IP+主机端口</b>或<b>服务名 + 服务端口</b>访问服务。</li>
 </ul>
 </td>
 </tr>
 </table>
 
+>?集群内进行 Service 访问时，建议不要通过负载均衡 IP 进行访问，以避免出现访问不通的情况。
+
+一般情况下，4层负载均衡（LB）会绑定多台 Node 作为 real server（rs） ，使用时需要限制 client 和 rs 不能存在于同一台云服务器上，否则会有一定概率导致报文回环出不去。
+当 Pod 去访问 LB 时，Pod 就是源 IP，当其传输到内网时 LB 也不会做 snat 处理将源 IP 转化成 Node IP，那么 LB 收到报文也就不能判断是从哪个 Node 发送的，LB 的避免回环策略也就不会生效，所有的 rs 都可能被转发。当转发到 client 所在的 Node 上时，LB 就无法收到回包，从而导致访问不通。
 
 ## 注意事项<span id="annotations"></span>
 - 确保您的容器业务不和 CVM 业务共用一个 CLB。
@@ -120,7 +124,7 @@ spec:
 
 #### annotations: 使用已有负载均衡器创建公网/内网访问的 Service
 
-如果您已有的传统型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，或期望在集群内使用相同的CLB，您可以通过以下 annotations 进行设置：
+如果您已有的应用型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，或期望在集群内使用相同的CLB，您可以通过以下 annotations 进行设置：
 >?请了解 [注意事项](#annotations) 后开始使用。
 >
 ```Yaml

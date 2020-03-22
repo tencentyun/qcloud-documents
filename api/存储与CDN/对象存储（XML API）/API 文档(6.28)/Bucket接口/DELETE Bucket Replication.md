@@ -34,12 +34,12 @@ Authorization: Auth String
 
 #### 请求
 
-下述请求示例展示了从存储桶`originBucet-1250000000`中删除跨地域配置信息。
+下述请求示例展示了从存储桶`originbucket-1250000000`中删除跨地域配置信息。
 ```shell
 DELETE /?replication HTTP/1.1
 Date: Fri, 14 Apr 2019 07:47:35 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503901499;1503901859&q-key-time=1503901499;1503901859&q-header-list=host&q-url-param-list=replication&q-signature=761f3f6449c6a11684464f4b09c6f292f0a4e7e0
-Host: originBucet-1250000000.cos.ap-chengdu.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503901499;1503901859&q-key-time=1503901499;1503901859&q-header-list=host&q-url-param-list=replication&q-signature=761f3f6449c6a11684464f4b09c6f292f0a4****
+Host: originbucket-1250000000.cos.ap-chengdu.myqcloud.com
 ```
 
 #### 响应
@@ -50,6 +50,6 @@ Content-Length: 0
 Connection: keep-alive
 Date: Fri, 14 Apr 2019 07:47:35 GMT
 Server: tencent-cos
-x-cos-request-id: NWQwMzUxMTdfMjBiNDU4NjRfNWZlZF84MjdmZTE=
-x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4MzUyZTg1NGRhNWY0NTJiOGUyNTViYzgyNzgxZTEwOTY=
+x-cos-request-id: NWQwMzUxMTdfMjBiNDU4NjRfNWZlZF84Mjdm****
+x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4MzUyZTg1NGRhNWY0NTJiOGUyNTViYzgyNzgxZTEw****
 ```

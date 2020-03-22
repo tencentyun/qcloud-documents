@@ -7,7 +7,7 @@
 
 ### 为何注册成功，无法收到推送？
 - 请查看当前应用包名，是否与注册腾讯移动推送应用时填写的应用包名不一致。如果不一致，推送时，建议开启多包名推送。
-- 检查手机网络是是否异常，切换4G网络，进行测试。
+- 检查手机网络是否异常，切换4G网络，进行测试。
 - 腾讯移动推送分为通**知栏消息**和**应用内消息**（透传消息），通知栏消息可以展示到通知栏，应用内消息不能展示到通知栏。
 - 确认手机当前模式是正常模式，部分手机在低电量，勿扰模式，省电模式下，会对后台腾讯移动推送进程进行一系列网络和活动的限制。
 - 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
@@ -139,5 +139,49 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 
 ### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果安卓 SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+
+
+### 集成华为推送通道时遇到组件依赖冲突如何解决?
+项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
+1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
+2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
+3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
+修改前：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
+    }
+}
+```
+修改后：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        String s = "";
+        try {
+            s = Integer.toHexString(object.hashCode());
+        } catch (Throwable e) {
+        }
+        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
+    }
+}
+```
+
+
+### 使用控制台快速集成时出现异常，如何解决？
+1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
+```
+./gradlew --rerun-tasks :app:processReleaseManifest 
+```
+并通过` "TpnsPlugin" `关键字进行分析。
+2. 点击 sync projects。
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+
+3. 在项目的 External Libraries 中查看是否有相关依赖。
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
 

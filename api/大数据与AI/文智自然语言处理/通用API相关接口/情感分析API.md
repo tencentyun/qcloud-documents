@@ -19,7 +19,7 @@
 <td> content </td><td> 是 </td><td> String </td><td> 待分析的文本（只能为 utf8编码）
 </td></tr><tr>
 <td> type</td><td> 否 </td><td>Int </td><td> （可选参数，默认为4）
-1：电商；2：APP；3：美食；4：酒店和其他。
+1：电商；2：App；3：美食；4：酒店和其他。
 </td></tr></table>
 
 ## 3. 输出参数

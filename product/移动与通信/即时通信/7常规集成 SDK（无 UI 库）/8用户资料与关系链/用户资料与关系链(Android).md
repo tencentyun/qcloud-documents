@@ -361,8 +361,9 @@ TIM_FRIEND_PROFILE_TYPE_KEY_CUSTOM_PREFIX | String、int | 自定义字段前缀
 示例：设置好友『Android_002』的备注为『002 remark』 
 
 ```
+String identifier = "Android_002";
 HashMap<String, Object> hashMap = new HashMap<>();
-hashMap.put(TIMFriend.TIM_FRIEND_PROFILE_TYPE_KEY_REMARK, "Android_002");
+hashMap.put(TIMFriend.TIM_FRIEND_PROFILE_TYPE_KEY_REMARK, "002 remark");
 TIMFriendshipManager.getInstance().modifyFriend(identifier, hashMap, new TIMCallBack() {
             @Override
             public void onError(int i, String s) {
@@ -376,7 +377,7 @@ TIMFriendshipManager.getInstance().modifyFriend(identifier, hashMap, new TIMCall
         });
 ```
 
-> 修改好友自定义资料，需先通过 Server 配置关系链自定义字段，才能修改成功。
+>?修改好友自定义资料，需先通过 Server 配置关系链自定义字段，才能修改成功。
 
 ### 添加好友
 
@@ -1190,14 +1191,14 @@ addWording | 添加好友附言
 
 **触发时机：**
 
-当申请对方为好友，申请审核被拒后，自己会收到删除未决请求消息，表示之前的申请被拒绝。
+当申请对方为好友，申请审核通过或者被拒后，自己会收到删除未决请求消息。
 
 **参数说明：**
 
 参数 | 说明
 --- | ---
 subType | TIM_SNS_SYSTEM_DEL_FRIEND_REQ 
-delFriendAddPendencyList | 被拒绝的加好友未决列表
+delFriendAddPendencyList | 被通过或者被拒绝的好友列表
 
 ## 用户资料变更系统通知
 

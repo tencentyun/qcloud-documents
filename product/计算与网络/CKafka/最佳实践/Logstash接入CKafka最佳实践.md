@@ -37,18 +37,17 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 具体参数配置可见 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html)。
 ### 准备工作
-- Java 版本：java 8
+- Java 版本：Java 8
 - Logstash 版本：5.5.2 （August 17, 2017）
 - Ckafka 实例，并且创建相应 topic
 
 #### CKafka 创建
 1. 拥有实例后，可从控制台中可以看到自己的实例信息。
-![](https://mc.qcloudimg.com/static/img/67f19ef17a73e768fba188d58ae08f9a/44.png)
+![](https://main.qcloudimg.com/raw/1905d1d7ceb8e3b729af31e1ac7f52ca.png)
 2. 单击实例名称可以看到实例分配的具体信息。
-![](https://mc.qcloudimg.com/static/img/3841d4eb19ad992d35e60196b38498ce/55.png)
+![](https://main.qcloudimg.com/raw/9c35869416313690ceff5fa9b9fb6c15.png)
 3. 单击 topic管理，创建 topic，此处名字为**logstash_test**。
-![](https://mc.qcloudimg.com/static/img/30a006c20b8a9ba0a644336d5ddc501a/66.png)
-
+![](https://main.qcloudimg.com/raw/2b43cdf1d5c2310d56bfd3837c524877.png)
 至此，CKafka 相关的工作环境完成。
 
 ### CKafka 作为 inputs 接入
@@ -64,7 +63,7 @@ input {
         group_id => "logstash_group"  // ckafka groupid 名称
         topics => ["logstash_test"] // ckafka topic 名字
         consumer_threads => 3 // 消费线程数，一般跟 ckafka 分区数一致
-        auto_offset_rest => "earliest"
+        auto_offset_reset => "earliest"
     }
 }
 output {
@@ -88,7 +87,7 @@ output {
 3. 启动 Logstash，进行消息生产。
 ![](https://mc.qcloudimg.com/static/img/c95bbc69c3f0ca36fa42efbb911b0a36/99.png)
 
-4. 校验刚刚的生产数据。
+4. 校验上一步的生产数据。
 ![](https://mc.qcloudimg.com/static/img/ae85758a90a497235a90511770f959d2/10.png)
 
 关于 Kafka 作为 output 的配置更多参数请参考 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html)。

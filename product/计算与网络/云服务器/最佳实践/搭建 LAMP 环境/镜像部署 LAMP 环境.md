@@ -16,14 +16,15 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 LAMP 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px">。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 LAMP 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
 >?
 >- 本文以下图所示 LAMP 环境系统镜像为例，您可根据实际需求进行选择。
 >- 单击镜像名可查看镜像详情。
 >
-![](https://main.qcloudimg.com/raw/118eddcc7c8f93b57cf3e40d033c7cd8.png)
+<img src="https://main.qcloudimg.com/raw/af2e8d4ae22fa5b6805195c78def93c1.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
@@ -37,7 +38,7 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 http://云服务器实例的公网 IP/phpmyadmin
 ```
 2. 输入数据库账户名及密码，并单击【执行】。如下图所示：
-账户名为 `root`，默认密码为 `123456`。
+账户名为 `root`，密码随机生成，请前往 [云市场](https://market.cloud.tencent.com/) 提供的 LAMP 环境系统镜像详情页获取。
 ![](https://main.qcloudimg.com/raw/3d944937e2474f1167f16d291fe8a7ae.png)
 3. 在 phpMyAdmin 管理页面，单击【修改密码】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8a59eedcfa52cb62af7d7476b324d7fe.png)

@@ -95,7 +95,7 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 出于用户隐私的考虑，在微信切到后台以后，小程序希望停止摄像头的画面采集。但是对于另一端的用户而言，画面会变成黑屏或者冻屏（停留在最后一帧），这种体验是非常差的。为了解决这个问题，我们引入了 waiting-image 属性，您可以设置一张有 “稍候” 含义的图片（waiting-image 是该图片的 URL，waiting-image-hash 则是该图片对应的 md5 校验值）。当微信切到后台以后，小程序会使用该图片作为摄像头画面的替代，以极低的流量占用维持视频流3分钟时间。
 
 - **debug**
- 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
+ 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946) 中有详细说明。
 
 ## 参数设置
 这么多参数，具体要怎样设置才比较合适呢？我们给出如下建议值：
@@ -115,7 +115,7 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 ## 对象操作
 - **wx.createLivePusherContext()**
 通过 wx.createLivePusherContext() 可以将 &lt;live-pusher&gt; 标签和 javascript 对象关联起来，之后即可操作该对象。
-
+<span id="start_push"></span>
 - **start** 
 开始推流，如果 &lt;live-pusher&gt; 的 autopush 属性设置为 false（默认值），那么就可以使用 start 来手动开始推流。
 
@@ -170,7 +170,7 @@ pusher.start({
 | -1304 |PUSH_ERR_AUDIO_ENCODE_FAIL  | 音频编码失败|
 | -1305 |PUSH_ERR_UNSUPPORTED_RESOLUTION  |不支持的视频分辨率|
 | -1306 |PUSH_ERR_UNSUPPORTED_SAMPLERATE | 不支持的音频采样率|
-| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请自行重启推流|
+| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请 [自行重启推流](#start_push)|
 
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，例如：

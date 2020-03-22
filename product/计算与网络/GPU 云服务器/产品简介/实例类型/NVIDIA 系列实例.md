@@ -19,19 +19,24 @@
 
 ## 硬件规格
 基本硬件规格如下图所示：
-![](https://main.qcloudimg.com/raw/5922b2fdea3e96b8be383a9a22e56780.jpg)
 
-**规格说明**：
+####  前一代GPU实例
+![](https://main.qcloudimg.com/raw/46f47774418cef9bb5d722ede16b3a4a.jpg)
+#### 新一代GPU实例
+![](https://main.qcloudimg.com/raw/fbc126897a340fb8391e32f73288b1ed.jpg)
 
-- GPU 性能：主要指标为 GPU 的浮点运行能力，TF 代表 T Flops，SP 代表 single-precision 单精度浮点运算，DP 代表 double-precision 双精度浮点运算，INT8 代表 INT8 整数运算，DL 代表 Tensor Core 的深度学习加速能力（仅适用 V100）。
-- 存储/网络：存储列表展示了当前实例所支持购买的存储类型，增强型 SSD 云盘目前在内测阶段；网络带宽是指该类型实例所在物理机的网络带宽，某一类型具实例所分配的网络带宽详见购买页。
-- vGPU：GN10X，GN7 实例簇提供支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API，不支持 DirectX 和 OpenGL 等图形 API。
+#### 规格说明
+
+- **GPU 性能**：主要指标为 GPU 的浮点运行能力，TF 代表 T Flops，SP 代表 single-precision 单精度浮点运算，DP 代表 double-precision 双精度浮点运算，INT8 代表 INT8 整数运算，DL 代表 Tensor Core 的深度学习加速能力（仅适用 V100）。
+- **存储/网络**：存储列表展示了当前实例所支持购买的存储类型，增强型 SSD 云盘目前在内测阶段；网络带宽是指该类型实例所在物理机的网络带宽，某一类型具实例所分配的网络带宽详见购买页。
+- **vGPU**：GN10X，GN7 实例簇提供支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API，不支持 DirectX 和 OpenGL 等图形 API。
+- **可用区**：北四代表北京四区，新一代表新加坡一区，依此类推。
 >!GN2，GN8 实例提供基于 SSD 的本地存储（GN2 实例的存储默认强制选择固定容量的 SSD 本地磁盘，详见购买页）。采用本地存储时，这些实例的系统盘和数据盘只在实例生命周期内存在；当实例到期或您主动销毁实例时，将擦除其实例存储中的应用程序和数据。我们建议您定期备份存储在实例存储中的数据。
 
 ## 选型推荐
 腾讯云提供了类型丰富的 GPU 计算实例，满足不同业务应用场景的需求。如何结合实际需求选择合适的计算实例，可参考 [选型推荐](https://cloud.tencent.com/document/product/560/30130)。
 
 ## 支持范围
-- 支持 [包年包月](https://cloud.tencent.com/document/product/213/2180#1.-.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) 和 [按量计费](https://cloud.tencent.com/document/product/213/2180#2.-.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9) 。
-- 支持在基础网络和 [私有网络](https://cloud.tencent.com/document/product/213/5227) 中启动。
+- 支持 [包年包月](https://cloud.tencent.com/document/product/213/2180#.E5.8C.85.E5.B9.B4.E5.8C.85.E6.9C.88) 和 [按量计费](https://cloud.tencent.com/document/product/213/2180#.E6.8C.89.E9.87.8F.E8.AE.A1.E8.B4.B9) 。
+- 支持在 [私有网络](https://cloud.tencent.com/document/product/213/5227) 中启动。
 - 支持 [负载均衡](https://cloud.tencent.com/document/product/214/524) 等的业务对接，不增加额外的管理和运维成本，内网流量免费。

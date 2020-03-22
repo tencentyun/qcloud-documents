@@ -21,7 +21,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 1. 选择一个应用并进入详情页面，如果还没有应用就创建一个。
 2. 进入**应用管理**页面，单击【查看密钥】按钮即可获得加密密钥。
 
-![](https://main.qcloudimg.com/raw/1b2fd401578d46323614b00c7e1b51ce.png)
+![](https://main.qcloudimg.com/raw/25b8e1f2b91da8a6a9edbf5f134f234c.png)
 
 <h3 id="Client">客户端计算</h3>
 
@@ -30,10 +30,10 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
 | Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/Debug/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
+| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
-![](https://main.qcloudimg.com/raw/97a74943e3175f5e8a7c823864bfb1af.png)
+![](https://main.qcloudimg.com/raw/9f2bd1709904f3fd8601f6077d7b7a28.png)
 
 
 >! 该方案仅适用于调试，如果产品要正式上线，**不推荐**采用这种方案，因为客户端代码（尤其是 Web 端）中的 SECRETKEY 很容易被反编译逆向破解。一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量。
@@ -52,7 +52,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 6. 腾讯云校验 UserSig，确认合法性。
 7. 校验通过后，会向 TRTCSDK 提供实时音视频服务。
 
-![](https://main.qcloudimg.com/raw/60c419d6b977fa3cc158c57c8f3f7315.png)
+![](https://main.qcloudimg.com/raw/b719c46de62ee634a85ab97281c294c6.png)
 
 为了简化您的实现过程，我们提供了多个语言版本的 UserSig 计算源代码：
 
