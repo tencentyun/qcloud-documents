@@ -16,7 +16,7 @@
    ![](https://main.qcloudimg.com/raw/48a97e242246c30a5eeb85cafc1b589e.png)
 	 ![](https://main.qcloudimg.com/raw/57502dd5c2cdc004d9efc0f1ea710e14.jpg)
 
-## 调用云 API 将角色绑定到指定的实例
+## 角色绑定实例
 
 当角色创建完成，即可调用 [云 API](https://console.cloud.tencent.com/api/explorer)，将角色绑定到指定的云服务器 CVM 或黑石物理服务器 CPM 实例上。下面介绍 CVM 和 CPM 的绑定操作。
 
@@ -31,7 +31,7 @@
 
 #### 验证角色绑定结果
 
-1. 登录刚才申请的黑石物理服务器。
+1. 登录上述步骤申请的 [黑石物理服务器 CPM](https://console.cloud.tencent.com/cpm/cpm?rid=1)。
 2. 执行`curl http://bm.metadata.tencentyun.com/meta-data/cam/security-credentials/$RoleName`，若返回如下结果，则说明绑定成功。如果绑定失败，通常会返回`404`错误。
 ![](https://main.qcloudimg.com/raw/319eb1e0dc7a2aa2983aaf0640338d2e.jpg)
 
@@ -39,12 +39,14 @@
 
 目前云服务器 CVM 还未正式对外发布角色绑定的 API 和控制台，因此在附件中提供了一个 CVM 角色绑定的 Python 脚本。用户依次填入鉴权密钥、实例 ID 以及角色名即可完成绑定。
 
-1. 登录 CVM 服务器。
+#### 验证角色绑定结果
+
+1. 登录 [云服务器 CVM](https://console.cloud.tencent.com/cvm/instance/index?rid=1)。
 2. 执行`curl http://metadata.tencentyun.com/meta-data/cam/security-credentials/$RoleName`，如果正常返回密钥信息，则说明绑定成功。否则，返回`404`错误。
 
-## Hadoop-COS 使用实例绑定的角色获取访问 COS 的证书
+## Hadoop-COS 访问 COS 证书
 
-在已经绑定了角色的集群节点上，指定 hadoop-cos 的`fs.cosn.credentials.provider`的配置选项为：`org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider`或`org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider`，即可使得 Hadoop 在运行期间可以通过 CVM 或 CPM 绑定的角色来获取访问 COS 的证书信息，而无需再显式地指定明文密钥，配置如下所示。
+此步骤介绍 Hadoop-COS 使用实例绑定的角色获取访问 COS 的证书。在已经绑定了角色的集群节点上，指定 hadoop-cos 的`fs.cosn.credentials.provider`的配置选项为：`org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider`或`org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider`，即可使得 Hadoop 在运行期间可以通过 CVM 或 CPM 绑定的角色来获取访问 COS 的证书信息，而无需再显式地指定明文密钥，配置如下所示。
 
 ```xml
 ...
