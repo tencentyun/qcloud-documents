@@ -278,16 +278,14 @@ packagingOptions {
 
 ### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
 
-1. 检查移动直播 Licence 的有效期`TXLiveBase.getInstance().getLicenceInfo(mContext)`。
-2. 检查优图实验室 Licence 有效期（购买时通过商务获取）。
-3. 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
->? 移动直播只有企业版支持 AI 特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）。
-4. 检查您下载的 SDK 版本和购买的 License 版本是否匹配。
-	调用接口时发现不生效，请查看 Logcat 是否存在 log 为：`support EnterPrise above!!!`；**如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。**
+1. 请检查移动直播 Licence 的有效期`TXLiveBase.getInstance().getLicenceInfo(mContext)`。
+2. 请检查优图实验室 Licence 有效期（购买时通过商务获取）。
+3. 请检查您下载的 SDK 版本是否为企业版 SDK（移动直播只有企业版支持 AI 特效）。
+	如果您调用接口时发现不生效，请查看 Logcat 是否存在 log 为：`support EnterPrise above!!!`；如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。
 
->! 
->- 美颜动效请使用最新接口`TXLivePusher getBeautyManager()`。
-- [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 Mac 上使用，后续会开放其他查询方式。
+>! 美颜动效请使用最新接口`TXLivePusher getBeautyManager()`。
+
+[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 Mac 上使用，后续会开放其他查询方式。
 
 ### 采用动态加载 jar + so 方式集成注意事项
 ```
