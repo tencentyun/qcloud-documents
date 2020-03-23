@@ -6,7 +6,7 @@
 
 ### 1. 申请企业版 License
 
-登录进入 [美颜特效 SDK（优图美视）介绍页](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
+登录腾讯云，进入[美颜特效服务开通申请页](https://cloud.tencent.com/product/x-magic)，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
 ![](https://main.qcloudimg.com/raw/db664311438d0449ef167776b9afcb42.png)
 
