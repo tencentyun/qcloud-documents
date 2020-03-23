@@ -9,7 +9,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
 |---------|---------|---------|---------|
 | meetingId | 是 | String| 有效的会议 ID。  |
-| userid | 是 | String| 调用 API 的用户 ID。  |
+| userid | 是 | String| 调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。  |
 | instanceid | 是 | Integer| 用户的终端设备类型。  |
 
 ## 输出参数
