@@ -290,12 +290,6 @@ packagingOptions {
 - [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 Mac 上使用，后续会开放其他查询方式。
 
 ### 采用动态加载 jar + so 方式集成注意事项
-1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath)`，设置 so 包地址。
->! 不可以部分放到本地，部分动态下发，只能全部动态下发或全部本地集成。
-2. jar + so 方式解压开资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放到本地，不可以动态下发，`asset-dynamic`需要保证动态下发跟 so 同一个目录下。
-3. SDK 6.8 以后，不要自己通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
-
-**如果您出现如下问题，请检查以上几点：**
 ```
 YTFaceDetectorBase: (GLThread 5316)
 com.tencent.ttpic.util.youtu.YTFaceDetectorBase(54)[c]: nativeInitCommon, ret = -2
@@ -303,3 +297,8 @@ YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBa
 YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(26)[a]: initCommon, ret = -1001
 YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(28)[a]: initCommon failed, ret = -1001
 ```
+**若您出现以上问题，请检查如下几点：**
+1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath)`，设置 so 包地址。
+>! 不可以部分放到本地，部分动态下发，只能全部动态下发或全部本地集成。
+2. jar + so 方式解压开资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放到本地，不可以动态下发，`asset-dynamic`需要保证动态下发跟 so 同一个目录下。
+3. SDK 6.8 以后，不要自己通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
