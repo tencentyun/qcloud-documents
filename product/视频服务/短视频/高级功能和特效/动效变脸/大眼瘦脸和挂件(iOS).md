@@ -28,7 +28,7 @@
 
 ### 3. 添加动效资源
 
-将 SDK/Resource 下所有文件添加到工程中, 文件列表如下：
+请检查是否添加动效资源：将 SDK/Resource 下的文件以 groups的形式添加到工程中, 文件列表如下：
 
 > - AECore.metallib
 > - FilterEngine.bundle
