@@ -1,5 +1,5 @@
 ### 1、Android 下如何获取 package name？
-您可在 Android 工程下的 Mainfest.xml 文件中获取，如下所示：
+您可在 Android 工程下的`Mainfest.xml`文件中获取，如下所示：
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
@@ -9,7 +9,7 @@
 ```
 
 ### 2、iOS 下如何获取 boundle？
-iOS 可在工程配置中的 General->Identity 中获取，如下图所示：
+iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 ![](https://main.qcloudimg.com/raw/56571d560da04bf6563ccae91d32b75a.png)
 
 ### 3、测试版 License 到期后是否可以延期？
