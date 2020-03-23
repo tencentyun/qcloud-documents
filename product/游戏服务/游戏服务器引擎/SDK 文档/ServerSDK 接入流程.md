@@ -1,7 +1,7 @@
 
 
 ### 集成 ServerSDK
-请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请 ServerSDK 下载链接。
+请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请 ServerSDK 下载链接，我们会派专人联系您，并为您提供下载链接。
 
 ```
 导入头文件
