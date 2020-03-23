@@ -37,7 +37,7 @@
 
 2. 把解压后的 assets 文件夹下的所有资源拷贝到工程的 assets 目录下，包括 asset 根目录下的文件和 camera 文件夹下的文件。
 
-### 导入 licence 文件
+### 导入 Licence 文件
 
 商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
 得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
