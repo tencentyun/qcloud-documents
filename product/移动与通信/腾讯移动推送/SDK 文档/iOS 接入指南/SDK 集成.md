@@ -114,7 +114,7 @@ pod install //安装SDK
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 调用头文件中的配置 `HOST` 接口：
  - 如需接入新加坡集群则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
- - 如需接入香港集群则将 `HOST` 设置为`https://api.tpns.hk.tencent.com`, `PORT `设置为0。
+ - 如需接入中国香港集群则将 `HOST` 设置为`https://api.tpns.hk.tencent.com`, `PORT `设置为0。
  
 **示例**
 ``` object-c
