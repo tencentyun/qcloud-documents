@@ -39,6 +39,7 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [移动应用安全](https://cloud.tencent.com/document/api/283/17742) | Mobile  Security，MS                                         | ms           |
 | [云点播](https://cloud.tencent.com/document/api/266/31753)   | Video on  Demand，VOD                                        | vod          |
 | [云直播](https://cloud.tencent.com/document/api/267/20456)   | Cloud  Streaming Services，CSS                               | live         |
+| [小程序 · 云直播](https://cloud.tencent.com/document/api/1078/35028) | Mini Program  Live，MPL                                      | bizlive      |
 | [实时音视频](https://cloud.tencent.com/document/api/647/37078) | Tencent  Real-Time Communication，TRTC                       | trtc         |
 | [弹性 MapReduce](https://cloud.tencent.com/document/api/589/33971) | Elastic  MapReduce，EMR                                      | emr          |
 | [腾讯云搜](https://cloud.tencent.com/document/api/270/42321) | Tencent  Cloud Search，TCS                                   | yunsou       |
