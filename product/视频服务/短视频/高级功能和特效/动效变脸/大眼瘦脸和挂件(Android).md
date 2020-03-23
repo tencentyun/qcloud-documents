@@ -56,6 +56,7 @@
 #### 示例
 
 <img src="https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png" width="450">
+
 一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数以和文件大小也不尽相同。
 Demo 中的示例代码是从后台下载动效资源，再统一解压到 sdcard。您可以在 Demo 代码中找到动效资源的下载地址，格式如下
 > ```
