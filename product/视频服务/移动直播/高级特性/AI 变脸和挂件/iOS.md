@@ -283,7 +283,7 @@ Metal.framework
 - 检查工程是否已配置 -ObjC。
 - 检查 Metal API Validation 是否被设置为 Disabled。
 
-如果您出现如下提示，请检查以上配置
+如果您出现如下提示，请检查以上配置：
 ```
 [UIDevice wmcUniqueGlobalDeviceIdentifier]: unrecognized selector sent to instance
 ```
