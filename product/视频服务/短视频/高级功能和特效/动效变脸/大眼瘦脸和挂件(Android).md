@@ -146,7 +146,7 @@ public void setGreenScreenFile(String path);
 ```
 
 ## 问题排查              
-### Licence 是否正常使用中？
+### 1. Licence 是否正常使用中？
 Licence 设置成功后（需等待一段时间，具体时间视网络情况而定），SDK 会下载 Licence 文件到手机。可以通过 TXUGCBase 的 getLicenceInfo() 方法查看 Licence 信息，包含 Licence 的生效和过期时间，绑定的 app package name 信息等。
 
 ```java
@@ -170,7 +170,7 @@ public void onCreate() {
 
 若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的 [技术支持](https://cloud.tencent.com/document/product/584/9374)。
 
-### 集成遇到异常怎么解决？
+### 2. 集成遇到异常怎么解决？
 ```
 java.lang.UnsatisfiedLinkError: No implementation found for void com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(boolean) (tried Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine and Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine__Z)
         at com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(Native Method)
@@ -190,7 +190,7 @@ packagingOptions {
 
 添加配置后，请 clean 工程后再重新 build。
 
-### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
+### 3. 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
 - 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`。
 - 检查优图实验室 Licence 有效期（购买时通过商务获取）。
 - 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
@@ -198,18 +198,18 @@ packagingOptions {
 移动直播只有 [企业版](https://cloud.tencent.com/product/x-magic) 支持 AI 特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）。
 
 如果您调用接口发现不生效，请查看 Logcat 是否存在 log：`support EnterPrise above!!!`。如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。
->!美颜动效请使用最新接口`TXUGCRecord getBeautyManager()`
+>!美颜动效请使用最新接口`TXUGCRecord getBeautyManager()`。
 
 [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 可以查询 Licence 的有效期，是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
 
-### 采用动态加载 jar + so 方式集成需要注意什么？
+### 4. 采用动态加载 jar + so 方式集成需要注意什么？
 
-- 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址
+- 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址。
 >!不可以一部分放在本地，一部分动态下发，只能全部动态下发或全部本地集成。
 - jar + so 方式解压后的资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放在本地，不可以动态下发，`asset-dynamic`需要保证动态下发，跟 so 同一个目录下。
 - SDK6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
 
-如果您出现以下问题，请按上述3点进行检查。
+如果您出现以下问题，请按上述几点进行检查。
 
 ```
 YTFaceDetectorBase: (GLThread 5316)
