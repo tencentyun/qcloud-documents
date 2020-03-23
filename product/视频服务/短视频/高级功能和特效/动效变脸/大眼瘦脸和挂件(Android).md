@@ -191,9 +191,9 @@ packagingOptions {
 添加配置后，请 clean 工程后再重新 build。
 
 ### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
-1. 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`。
-2. 检查优图实验室 Licence 有效期（购买时通过商务获取）。
-3. 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
+- 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`。
+- 检查优图实验室 Licence 有效期（购买时通过商务获取）。
+- 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
 
 移动直播只有 [企业版](https://cloud.tencent.com/product/x-magic) 支持 AI 特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）。
 
