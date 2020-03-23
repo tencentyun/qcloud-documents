@@ -254,3 +254,58 @@ public void onCreate() {
 ```
 
 若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的技术支持。
+
+### 集成遇到异常怎么解决？
+
+```
+java.lang.UnsatisfiedLinkError: No implementation found for void com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(boolean) (tried Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine and Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine__Z)
+        at com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(Native Method)
+```
+
+请检查build.gradle中是否存在如下配置，如果您的项目存在多层module结构，例如app module引用了lvb module，lvb module中引用了腾讯云SDK，那么您需要在app module 和 lvb 的module中都添加如下配置。
+
+```
+packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
+
+添加配置后，请先clean工程再重新build
+
+### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
+
+1. 检查移动直播 Licence 的有效期`TXLiveBase.getInstance().getLicenceInfo(mContext)`
+2. 检查优图实验室 Licence 有效期（购买时通过商务获取）
+3. 请检查您下载的 SDK 版本和 购买的 SDK 版本是否一致
+
+​ 移动直播只有企业版支持AI特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）
+
+​ 如果您调用接口发现不生效，请查看Logcat是否存在log为：`support EnterPrise above!!!`如果存在说明下载的SDK版本和您使用的Licence版本不匹配。
+
+注意：美颜动效请使用最新接口`TXLivePusher getBeautyManager()`
+
+[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
+
+### 采用动态加载jar + so方式集成注意事项
+
+1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过 `TXLiveBase.setLibraryPath(soPath);` 设置 so 包地址
+
+​ 注意：不可以部分放到本地，部分动态下发，只能全部动态下发或全部本地集成。
+
+2. jar + so 方式解压开资源分为  `assets-static ` 和  `assets-dynamic`  两类，其中 `assets-static` 只能放到本地，不可以动态下发，`asset-dynamic` 需要保证动态下发跟 so 同一个目录下
+
+3. SDK 6.8 以后，不要自己通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序
+
+如果您出现如下问题，请检查以上几点
+
+```
+YTFaceDetectorBase: (GLThread 5316)
+com.tencent.ttpic.util.youtu.YTFaceDetectorBase(54)[c]: nativeInitCommon, ret = -2
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(57)[c]: nativeInitCommon failed, ret = -1001
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(26)[a]: initCommon, ret = -1001
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(28)[a]: initCommon failed, ret = -1001
+```
