@@ -147,7 +147,7 @@ public void setGreenScreenFile(String path);
 
 ## 问题排查              
 ### Licence 是否正常使用中？
-License 设置成功后（需稍等一段时间，具体时间长短视网络情况而定），SDK 会下载 License 文件到手机。可以通过 TXUGCBase 的 getLicenceInfo() 方法查看 License 信息，包含 Licence 的生效和过期时间，绑定的 app package name 信息等。
+Licence 设置成功后（需等待一段时间，具体时间视网络情况而定），SDK 会下载 Licence 文件到手机。可以通过 TXUGCBase 的 getLicenceInfo() 方法查看 Licence 信息，包含 Licence 的生效和过期时间，绑定的 app package name 信息等。
 
 ```java
 public void onCreate() {
@@ -168,7 +168,7 @@ public void onCreate() {
 
 ```
 
-若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的技术支持。
+若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的 [技术支持](https://cloud.tencent.com/document/product/584/9374)。
 
 ### 集成遇到异常怎么解决？
 ```
@@ -176,7 +176,7 @@ java.lang.UnsatisfiedLinkError: No implementation found for void com.tencent.ttp
         at com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(Native Method)
 ```
 
-请检查build.gradle中是否存在如下配置，如果您的项目存在多层module结构，例如app module引用了 ugckit module，ugckit module中引用了腾讯云SDK，那么您需要在app module 和 ugckit 的module中都添加如下配置。
+请检查项目 build.gradle 中是否存在多层 module 结构。例如，app module 引用了 ugckit module，ugckit module 引用了腾讯云 SDK，则您需要在 app module 和 ugckit 的 module 中添加如下配置：
 
 ```
 packagingOptions {
@@ -188,32 +188,28 @@ packagingOptions {
 }
 ```
 
-添加配置后，请先clean工程再重新build
+添加配置后，请 clean 工程后再重新 build。
 
 ### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
-1. 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`
-2. 检查优图实验室 Licence 有效期（购买时通过商务获取）
-3. 请检查您下载的 SDK 版本和 购买的 SDK 版本是否一致
+1. 检查移动直播 Licence 的有效期`TXUGCBase.getInstance().getLicenceInfo(mContext)`。
+2. 检查优图实验室 Licence 有效期（购买时通过商务获取）。
+3. 检查您下载的 SDK 版本和购买的 SDK 版本是否一致。
 
-​       移动直播只有企业版支持AI特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）
+移动直播只有 [企业版](https://cloud.tencent.com/product/x-magic) 支持 AI 特效（大眼瘦脸、V 脸隆鼻、动效贴纸、绿幕抠图）。
 
-​      如果您调用接口发现不生效，请查看Logcat是否存在log为：`support EnterPrise above!!!`如果存在说明下载的SDK版本和您使用的Licence版本不匹配。
+如果您调用接口发现不生效，请查看 Logcat 是否存在 log：`support EnterPrise above!!!`。如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。
+>!美颜动效请使用最新接口`TXUGCRecord getBeautyManager()`
 
-注意：美颜动效请使用最新接口`TXUGCRecord getBeautyManager()`
+[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 可以查询 Licence 的有效期，是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
 
-[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 mac 上使用，后续会开放其他查询方式。
+### 采用动态加载 jar + so 方式集成需要注意什么？
 
-### 采用动态加载jar + so方式集成注意事项
+1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址
+>!不可以一部分放在本地，一部分动态下发，只能全部动态下发或全部本地集成。
+2. jar + so 方式解压后的资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放在本地，不可以动态下发，`asset-dynamic`需要保证动态下发，跟 so 同一个目录下。
+3. SDK6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
 
-1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过 `TXLiveBase.setLibraryPath(soPath);` 设置 so 包地址
-
-​       注意：不可以部分放到本地，部分动态下发，只能全部动态下发或全部本地集成。
-
-2. jar + so 方式解压开资源分为  `assets-static ` 和  `assets-dynamic`  两类，其中 `assets-static` 只能放到本地，不可以动态下发，`asset-dynamic` 需要保证动态下发跟 so 同一个目录下
-
-3. SDK 6.8 以后，不要自己通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序
-
-如果您出现如下问题，请检查以上几点
+如果您出现以下问题，请按上述3点进行检查。
 
 ```
 YTFaceDetectorBase: (GLThread 5316)
