@@ -24,12 +24,12 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |---------|---------|---------|
 |subject  |String | 会议主题。  |
 |meeting_id   |String| 会议的唯一标示 。  |
-|meeting_code    |String| 会议 APP 的呼入号码。  |
+|meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
-|start_time  |String | 会议开始时间戳(单位秒) 。 |
-|end_time  |String | 会议结束时间戳(单位秒) 。  |
+|start_time  |String | 会议开始时间戳（单位秒）。 |
+|end_time  |String | 会议结束时间戳（单位秒）。 ） |
 |settings   |会议媒体参数对象 |会议的配置，可为缺省配置 。|
 
 会议媒体参数对象
