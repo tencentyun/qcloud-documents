@@ -283,6 +283,10 @@ Metal.framework
 - 检查工程是否已配置 -ObjC。
 - 检查 Metal API Validation 是否被设置为 Disabled。
 
+如果您出现如下提示，请检查以上配置
+```
+[UIDevice wmcUniqueGlobalDeviceIdentifier]: unrecognized selector sent to instance
+```
 ### 工程特效不生效？  
 - 检查是否已调用`+[TXLiveBase setLicenceURL:key:]`方法，以及参数是否正确。
 - 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含`pituLicense`字段。
