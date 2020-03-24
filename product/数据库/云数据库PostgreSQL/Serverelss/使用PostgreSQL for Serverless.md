@@ -1,3 +1,19 @@
+## 使用限制
+PostgreSQL for Serverless 不支持如下操作：
+- 创建数据库
+- 访问系统库 postgres
+- 查看数据库参数
+- SET/RESET 语句
+- LOAD 语句
+- PRESERVE/DELETE ROWS temp tables+
+- LISTEN/NOTIFY
+- WITH HOLD CURSOR
+- PREPARE / DEALLOCATE
+- 内测版本限制单用户支持最大 QPS 40000/s
+- 当前仅支持通过云 API 进行创建实例 ServerlessDB
+- 当前仅开放北京一区、上海二区、广州二区
+
+
 ## 创建实例
 目前可通过云 API 创建 PostgreSQL for Serverless（ServerlessDB）实例，接口名：[CreateServerlessDBInstance](https://cloud.tencent.com/document/product/409/42762)。
 
