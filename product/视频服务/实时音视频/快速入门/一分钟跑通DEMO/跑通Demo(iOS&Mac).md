@@ -56,7 +56,8 @@
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要在【[实时音视频控制台](https://console.cloud.tencent.com/trtc)】-【应用管理】-【快速上手】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+![](https://main.qcloudimg.com/raw/df9b7e468ee9b71e572fb017d5139bc3.png)
 
 ### 2. 两台手机同时运行 Demo，为什么看不到彼此的画面？
 请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
