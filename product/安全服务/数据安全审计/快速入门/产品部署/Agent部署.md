@@ -10,12 +10,12 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 
 1. 通过 sysadmin 账号登录数据安全审计管理页面后（默认密码在购买时将通过站内信发送），在左侧导航中，选择【Agent 管理】>【Agent 配置】，在 Agent 配置页面单击【配置 Agent】，进入编辑 Agent 配置页面。
 ![](https://main.qcloudimg.com/raw/3268da84fb9a7b4b14b04f45624ca699.png)
-2. 在编辑 Agent 配置页面，编辑审计服务 IP，审计服务 IP 指定了 Agent 数据安全审计实例的 IP 地址。
+2. 在编辑 Agent 配置页面，编辑审计服务 IP及审计端口，审计服务 IP 指定了 Agent 数据安全审计实例的 IP 地址。
  - 若您仅有一个数据安全审计且与被审计数据库在同一个地域，则只填写数据安全审计实例内网 IP 地址即可。
  - 若您有多个数据安全审计实例，请设置与被审计数据库同一地域的数据安全审计实例内网 IP。
  >!我们不推荐您在设置 Agent 连接 IP 时，选择数据安全审计实例公网 IP，如不得不进行此项配置时，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=728&radio_title=%E5%8A%9F%E8%83%BD%E5%92%A8%E8%AF%A2&queue=3&scene_code=17783&step=2) 联系我们。
  >
- ![](https://main.qcloudimg.com/raw/2254c9a2d143259d127f99df7f06dbc8.png)
+ ![](https://main.qcloudimg.com/raw/d1b9d13f6a23526322bba0609bfe962c.png)
 3. 在编辑 Agent 配置页面设置数据库信息，数据库信息帮助 Agent 准确识别流量中与数据库访问相关的会话，数据库信息提供 IP 列表和自动检测两种输入方式。
 	- **IP 列表**：IP 列表需要管理员输入完整的数据库 IP 和开发端口，因此 Agent 无论安装在数据库服务器还是应用服务器上，都能够准确定位数据库访问流量。
 >!Agent 将只对填入的 IP 和端口进行审计，若漏填 IP 将导致审计日志缺失。
