@@ -184,4 +184,10 @@ public final class StrUtils {
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-
+### 安卓是否支持设置通知角标？
+通知角标目前都是遵从各厂商的默认逻辑，其中：
+- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
+- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档]
+(https://developer.huawei.com/consumer/cn/doc/30802 )
+- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
+- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  
