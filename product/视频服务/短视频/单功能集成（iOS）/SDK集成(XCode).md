@@ -78,8 +78,9 @@ SDK 支持 iOS 8.0 以上系统。
 
 > 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
 
-## 快速接入功能模块
-[资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的SDK 压缩包附带了 UGCKit，UGCKit 是在腾讯云短视频SDK基础上构建的一套UI组建库。
+### 快速接入功能模块
+为了方便您快速集成 SDK 各项功能，我们提供了 UGCKit。UGCKit 是在腾讯云短视频SDK基础上构建的一套UI组件库。
+您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。
 UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
 UGCKit 的开发环境要求如下:
@@ -87,9 +88,9 @@ UGCKit 的开发环境要求如下:
 - Xcode 10 及以上
 - iOS 9.0 及以上
 
-### 接入步骤
+#### 接入步骤
 
-#### 集成 UGCKit 
+##### 集成 UGCKit 
 1. 导入 UGCKit 
    将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将UGCKit中的UGCKit.xcodeproj拖拽到工程中。
    <img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
@@ -114,7 +115,7 @@ UGCKit 的开发环境要求如下:
 
    <img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
 
-#### 使用 UGCKit
+##### 使用 UGCKit
 
 1. 录制
    `UGCKitRecordViewController` 提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
@@ -217,7 +218,7 @@ UGCKit 的开发环境要求如下:
    
 
 ### 详细介绍
-以下为各模块的详细说明：
+以下为 SDK 各模块的详细说明：
 
 - [视频录制](https://cloud.tencent.com/document/product/584/9367)
 - [视频编辑](https://cloud.tencent.com/document/product/584/9375)
