@@ -245,10 +245,18 @@ public TIMMessageOfflinePushSettings setIosSettings(IOSSettings iosSettings)
 public String getTitle()
 
 /**
- * 设置通知标题（可选，发送消息时设置）
+ * 设置离线 Push 展示标题
+ 
  * @param title 通知标题
  */
 public AndroidSettings setTitle(String title)
+
+/**
+ * 设置离线 Push 展示自定义文本
+ *
+ * @param desc 通知显示内容
+ */
+public AndroidSettings setDesc(String desc)
 
 /**
  * 获取当前消息在 Android 设备上的离线推送提示声音 URI
