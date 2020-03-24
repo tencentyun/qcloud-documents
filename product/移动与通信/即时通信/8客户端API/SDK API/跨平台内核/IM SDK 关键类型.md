@@ -323,16 +323,16 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMImageElemFormat | int | 读写（必填） | 发送图片格式 |
 | kTIMImageElemOrigId | string | 只读 | 原图的 UUID |
 | kTIMImageElemOrigPicHeight | int | 只读 | 原图的图片高度 |
-| kTIMImageElemOrigPicWidth | int | 只读 | 原图的图片高度 |
-| kTIMImageElemOrigPicSize | int | 只读 | 原图的图片高度 |
+| kTIMImageElemOrigPicWidth | int | 只读 | 原图的图片宽度 |
+| kTIMImageElemOrigPicSize | int | 只读 | 原图的图片大小 |
 | kTIMImageElemThumbId | string | 只读 | 略缩图 UUID |
 | kTIMImageElemThumbPicHeight | int | 只读 | 略缩图的图片高度 |
-| kTIMImageElemThumbPicWidth | int | 只读 | 略缩图的图片高度 |
-| kTIMImageElemThumbPicSize | int | 只读 | 略缩图的图片高度 |
+| kTIMImageElemThumbPicWidth | int | 只读 | 略缩图的图片宽度 |
+| kTIMImageElemThumbPicSize | int | 只读 | 略缩图的图片大小 |
 | kTIMImageElemLargeId | string | 只读 | 大图片 UUID |
 | kTIMImageElemLargePicHeight | int | 只读 | 大图片的图片高度 |
-| kTIMImageElemLargePicWidth | int | 只读 | 大图片的图片高度 |
-| kTIMImageElemLargePicSize | int | 只读 | 大图片的图片高度 |
+| kTIMImageElemLargePicWidth | int | 只读 | 大图片的图片宽度 |
+| kTIMImageElemLargePicSize | int | 只读 | 大图片的图片大小 |
 | kTIMImageElemOrigUrl | string | 只读 | 原图 URL |
 | kTIMImageElemThumbUrl | string | 只读 | 略缩图 URL |
 | kTIMImageElemLargeUrl | string | 只读 | 大图片 URL |
