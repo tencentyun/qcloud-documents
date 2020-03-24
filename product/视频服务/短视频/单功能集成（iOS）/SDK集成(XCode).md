@@ -79,250 +79,142 @@ SDK 支持 iOS 8.0 以上系统。
 > 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
 
 ## 快速接入功能模块
+[资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的SDK 压缩包附带了 UGCKit，UGCKit 是在腾讯云短视频SDK基础上构建的一套UI组建库。
+UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
-下面讲述了如何集成短视频 SDK 的录制、编辑、拼接的功能。
+UGCKit 的开发环境要求如下:
 
-文中所需要的代码及资源文件均在 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中 SDK 的压缩包中提供。
+- Xcode 10 及以上
+- iOS 9.0 及以上
 
 ### 接入步骤
 
-1. 拷贝以下文件夹并拖动到项目里  
-   - Demo/TXLiteAVDemo/Common/UGC
-   - Demo/TXLiteAVDemo/Common/BeautySettingPanel
-   - Demo/TXLiteAVDemo/Common/Category
-   - Demo/TXLiteAVDemo/Common/Color
-   - Demo/TXLiteAVDemo/Common/Resource
-   - Demo/TXLiteAVDemo/Common/SmallButton
-   - Demo/TXLiteAVDemo/Third/Masonry
-   - Demo/TXLiteAVDemo/Third/AFNetworking
-   - Demo/TXLiteAVDemo/Third/MBProgressHUD
-   - Demo/TXLiteAVDemo/Third/QBImagePicker
-   - Demo/TXLiteAVDemo/Third/V8HorizontalPickerView
-   - Demo/TXLiteAVDemo/UGC
-   - SDK/TXLiteAVSDK_*.framework
+#### 集成 UGCKit 
+1. 导入 UGCKit 
+   将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将UGCKit中的UGCKit.xcodeproj拖拽到工程中。
+   <img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
+2. 配置依赖关系   
+   点击工程的Target, 选择 Build Phase 标签，在 Dependencies 中点击加号，选择UGCKit.framework 和 UGCKitResources，点击 Add。
+   <img src="https://main.qcloudimg.com/raw/eadf4d86b3dd62067417d4d449127348.jpg" width=800px />
    
-2. 打开`ViewController.m`, 在`viewDidLoad`中添加三个按钮作为功能入口：
+3. 链接 UGCKit.framework 和 SDK
+   点击工程的Target, 选择 Build Phase 标签， 在 Link Binary With Libraries 中点击加号，选择UGCKit.framework。
+   <img src="https://main.qcloudimg.com/raw/f58b5a64a5074b334b2c97ec010800fc.jpg" width=800px />
+   在Finder中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中。
+   <img src="https://main.qcloudimg.com/raw/217de0d27d3fc67152a71d2a1e800647.jpg" width=800px />
+   将 SDK 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
+   
+4. 导入资源
+   点击工程的Target, 选择 Build Phase 标签， 展开 Copy Bundle Resources。然后在左侧目录中依次展开UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中。
+   <img src="https://main.qcloudimg.com/raw/fbca78b281f8e87cbbaa036c4f208725.jpg" width=800px />
 
-    ```
-    - (void)viewDidLoad {
-        [super viewDidLoad];
-        self.view.backgroundColor = [UIColor grayColor];
-        UIButton *editButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [editButton setTitle:@"编辑" forState:UIControlStateNormal];
-        [editButton addTarget:self action:@selector(onEdit:) forControlEvents:UIControlEventTouchUpInside];
-    
-        UIButton *recordButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [recordButton setTitle:@"录制" forState:UIControlStateNormal];
-        [recordButton addTarget:self action:@selector(onRecord:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UIButton *joinButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [joinButton setTitle:@"拼接" forState:UIControlStateNormal];
-        [joinButton addTarget:self action:@selector(onJoin:) forControlEvents:UIControlEventTouchUpInside];
-        
-        CGPoint center = CGPointMake(CGRectGetMidX(self.view.bounds), 150);
-        editButton.center = center;
-        
-        center.y += 80;
-        recordButton.center = center;
-        
-        center.y += 80;
-        joinButton.center = center;
-        
-        for (UIButton *button in @[editButton, recordButton, joinButton]) {
-            button.bounds = CGRectMake(0, 0, 100, 30);
-            [self.view addSubview:button];
-        }
-    }
-    ```
+5. 导入商业版资源（仅用于商业版）
+   将商业版 SDK zip包中SDK/Resouce 拖动到工程中，选择“Create groups"并勾选您的Target，点击Finish。
+   <img src="https://main.qcloudimg.com/raw/5ae899aff95984bf34839653ad2c4b51.jpg" width=800px />
 
-3. 接下来在 ViewController 中添加几个按钮的事件处理方法：
-    这里要用到 Demo 中的一些控制器， 先要在 ViewController.m 的头部导入头文件：
-    ```
-    #import "QBImagePickerController.h"
-    #import "VideoRecordConfigViewController.h"
-    #import "VideoRecordViewController.h"
-    #import "VideoEditViewController.h"
-    #import "VideoJoinerController.h"
-    #import "VideoPreviewViewController.h"
-    #import "VideoLoadingController.h"
-    ```
-    另外需要在 ViewController 中增加一个变量记录视频选择的上下文：
-    ```
-    @interface ViewController ()
-    {
-        ComposeMode _composeMode;
-    }
-    ```
-    然后添加以下按钮事件处理方法：
+   <img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
 
-    ```
-    // 选择视频并进入编辑
-    - (void)onEdit:(id)sender {
-        QBImagePickerController *videoPicker = [[QBImagePickerController alloc] init];
-        videoPicker.delegate = self;
-        videoPicker.mediaType = QBImagePickerMediaTypeVideo;
-        _composeMode = ComposeMode_Edit;
-        [self presentViewController:videoPicker animated:YES completion:nil];
-    }
-    
-    - (void)onRecord:(id)sender {
-        // 实例化录制设置界面
-        VideoRecordConfigViewController *configViewController = [[VideoRecordConfigViewController alloc] init];
-        
-        __weak VideoRecordConfigViewController *weakConfigVC = configViewController;
-        // 设置界面中点击开始录制的回调
-        configViewController.onTapStart = ^(VideoRecordConfig *configure) {
-            VideoRecordViewController *recordVC = [[VideoRecordViewController alloc] initWithConfigure:configure];
-            
-            // 设置录制完成回调
-            recordVC.onRecordCompleted = ^(TXUGCRecordResult *result) {
-                
-                // 实例化预览视图控制器
-                VideoPreviewViewController* previewController = [[VideoPreviewViewController alloc] initWithCoverImage:result.coverImage videoPath:result.videoPath renderMode:RENDER_MODE_FILL_EDGE showEditButton:YES];
-                
-                // 设置预览界面点击编辑回调
-                previewController.onTapEdit = ^(VideoPreviewViewController *previewVC){
-                    // 实例化编辑视图控制器
-                    VideoEditViewController *editVC = [[VideoEditViewController alloc] init];
-                    // 设置要编辑的视频路径
-                    [editVC setVideoPath:result.videoPath];
-                    
-                    // 推入界面
-                    [previewVC.navigationController pushViewController:editVC animated:YES];
-                };
-                
-                UINavigationController* nav = [[UINavigationController alloc] initWithRootViewController:previewController];
-                [weakConfigVC.navigationController presentViewController:nav animated:YES completion:nil];
-            };
-            [weakConfigVC.navigationController pushViewController:recordVC animated:YES];
-        };
-        self.navigationController.navigationBar.hidden = YES;
-        [self.navigationController pushViewController:configViewController animated:YES];
-    }
-    
-    // 选择视频并进入拼接
-    - (void)onJoin:(id)sender {
-        QBImagePickerController *videoPicker = [[QBImagePickerController alloc] init];
-        videoPicker.delegate = self;
-        videoPicker.allowsMultipleSelection = YES;
-        videoPicker.mediaType = QBImagePickerMediaTypeVideo;
-        _composeMode = ComposeMode_Join;
-        [self presentViewController:videoPicker animated:YES completion:nil];
-    }
+#### 使用 UGCKit
 
-    // 录制参数设置界面会隐藏导航条，这里恢复导航的显示
-    - (void)viewWillAppear:(BOOL)animated
-    {
-        [super viewWillAppear:animated];
-        self.navigationController.navigationBar.hidden = NO;
-    }
-    ```
+1. 录制
+   `UGCKitRecordViewController` 提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
+   ```
+   UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController alloc] initWithConfig:nil theme:nil];
+   [self.navigationController pushViewController:recordViewController]
+   ```
+   录制后的结果将通过 completion block 回调，示例如下：
+   ```
+   recordViewController.completion = ^(TCUGCResult *result) {
+       if (result.error) {
+           // 录制出错
+       		[self showAlertWithError:error];
+       } else {
+           if (result.cancelled) {
+               // 用户取消录制，退出录制界面
+               [self.navigationController popViewControllerAnimated:YES];
+   	      } else {
+               // 录制成功, 用结果进行下一步处理
+               [self processRecordedVideo:result.media];
+           }
+       }
+   };
+   ```
+   
+2. 编辑
+   `UGCKitEditViewController` 提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
+   ```
+   - (void)processRecordedVideo:(UGCKitMedia *)media {
+       // 实例化编辑控制器
+       UGCKitEditViewController *editViewController = [[UKEditViewController alloc] initWithMedia:media conifg:nil theme:nil];
+       // 展示编辑控制器
+       [self.navigationController pushViewController:editViewController animated:YES];
+   ```
+   编辑后的结果将通过 completion block 回调，示例如下：
+   ```
+       editViewController.completion = ^(TCUGCResult *result) {
+       if (result.error) {
+           // 出错
+       		[self showAlertWithError:error];
+       } else {
+           if (result.cancelled) {
+               // 用户取消录制，退出编辑界面
+               [self.navigationController popViewControllerAnimated:YES];
+   	      } else {
+               // 编辑保存成功, 用结果进行下一步处理
+               [self processEditedVideo:result.path];
+           }
+       }
+   }
+   ```
+   
+3. 从相册中选择视频或图片
+   `UGCKitMediaPickerViewController`用来处理媒体的选择与合并，当选择多个视频时，将会返回拼接后的视频。示例如下:
+   
+   ```
+   // 初始化配置
+   UGCKitMediaPickerConfig *config = [[UGCKitMediaPickerConfig alloc] init];
+   config.mediaType = UGCKitMediaTypeVideo;//选则视频
+   config.maxItemCount = 5;                //最多选5个
 
-4. 添加点选照片的回调处理方法：
-    先声明 ViewController 实现了 QBImagePicker 的委托方法, 将 ViewController.m 的前面修改为：
-
-    ```
-    @interface ViewController () <QBImagePickerControllerDelegate>
-    @end
-    ```
-
-    然后增加以下方法：
-
-    ```
-    - (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
-    
-    - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets {
-        VideoLoadingController *loadvc = [[VideoLoadingController alloc] init];
-        loadvc.composeMode = _composeMode;
-        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loadvc];
-        [self dismissViewControllerAnimated:YES completion:^{
-            [self presentViewController:nav animated:YES completion:nil];        
-            [loadvc exportAssetList:assets assetType: AssetType_Video];
-        }];
-    }
-    ```
-
-5. 打开 AppDelegate, 在`application:didFinishLaunchingWithOptions:`中添加 license 的设置，license 的申请方法请参见 License 介绍：
-     ```objc
-     - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-         // 如果没有 license 可以先传两个空的字符串, 以下为示例，请填写实际申请下来的信息。
-         [TXUGCBase setLicenceURL:@"https://license.vod2.myqcloud.com/xxxxxxxxxxx/TXUgcSDK.licence" key:@"xxxxxxxxxxx"];
-         return YES;
+   // 实例化媒体选择器
+   UGCKitMediaPickerViewController *mediaPickerViewController = [[UGCKitMediaPickerViewController alloc] initWithConfig:config theme:nil];
+   // 展示媒体选择器
+   [self presentViewController:mediaPickerViewController animated:YES completion:nil];
+   ```
+   选择的结果将通过 completion block 回调，示例如下：
+   ```
+   mediaPickerViewController.completion = ^(UGCKitResult *result) {
+     if (result.error) {
+         // 出错
+         [self showAlertWithError:error];
+     } else {
+          if (result.cancelled) {
+               // 用户取消录制，退出选择器界面
+               [self dismissViewControllerAnimated:YES completion:nil];
+   	      } else {
+               // 编辑保存成功, 用结果进行下一步处理
+               [self processEditedVideo:result.media];
+          }
      }
-     ```
-
-6. 运行项目。
-
-
-### 相关文件简介
-
-#### 主功能的类及图片资源
-
-UGC 中各界面的类如下所示：
-
-```
-UGC
-├── Edit (视频编辑)
-│   ├── Resources (贴纸等资源)
-│   ├── VideoEditViewController (编辑主界面)
-│   ├── VideoEditor.xcassets (编辑界面图片资源)
-│   ├── VideoPasterViewController (贴纸编辑)
-│   ├── VideoTextViewController (字幕编辑)
-│   └── Views
-│       ├── BottomTabBar 编辑界面底部工具菜单
-│       ├── EffectSelectView 效果选择工具栏
-│       ├── FilterSettingView 编辑滤镜选择工具栏
-│       ├── MusicCollectionCell 音乐选择 cell
-│       ├── MusicMixView        背景音乐设置工具栏界面
-│       ├── PasterAddView       贴纸设置工具栏界面“贴纸选项”
-│       ├── PasterSelectView    贴纸选择界面
-│       ├── TXCVEFColorPalette  颜色板，用于给不同特效的时间线及按钮设定一个颜色
-│       ├── TextAddView         字幕添加界面
-│       ├── TextCollectionCell  字幕背景 cell
-│       ├── TimeSelectView      字幕背设置工具栏界面
-│       ├── TransitionView      图片转场设置界面
-│       ├── VideoCutView        带缩略图的视频裁剪界面，包含了视频裁剪、按时间片段染色等功能
-│       ├── VideoPasterView     贴纸输入组件，包含动态/静态贴纸输入、贴纸拖动、放大、旋转、删除等功能，用于 VideoPasterViewController
-│       └── VideoRangeSlider    用于 VideoCutView, 显示缩图、给时间段染色
-├── Join
-│   ├── VideoEditPrevController (视频拼接预览界面)
-│   ├── VideoJoiner.xcassets     (视频拼接图片资源)
-│   └── VideoJoinerController    (视频列表界面)
-├── Preview
-│   ├── VideoPreview.xcassets   (视频预览界面图片资源)
-│   └── VideoPreviewViewController  (视频预览界面)
-├── Record
-│   ├── VideoRecord.xcassets  (录制界面图片资源)
-│   ├── VideoRecordConfigViewController  (录制参数设置界面)
-│   └── VideoRecordViewController (录制界面)
-└── VideoLoading (用于从 iCloud 下载图片)
-```
-
-#### 使用到的公有模块
-Demo 中使用到的公有模块及第三方库如下所示：
-
-```
-Common
-├── BeautySettingPanel (美颜设置控件)
-├── Catetory (UIKit 扩展)
-├── ForEnterprise (企业版 AI 动效资源)
-├── Resource
-│   ├── Common.xcassets (返回按钮等公用资源)
-│   └── Filter (滤镜资源包)
-├── TCHttpUtil (视频上传)
-└── UGC (短视频各子模块的公有类)
-
-Third
-├── AFNetworking (HTTP 网络封装，企业版用于下载动态贴纸资源)
-├── MBProgressHUD (界面 Toast 提示)
-├── Masonry (自动布局)
-├── QBImagePicker (图片选取)
-├── V8HorizontalPickerView (水平滚动界面，用于编辑界面滤镜选则)
-└── ZipArchive (zip 封装，企业版中用于解压动态贴纸资源)
-```
-
+   }
+   ```
+   
+4. 裁剪
+   `UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在completion中处理剪辑结果即可。
+   示例:
+   ```
+   UGCKitMedia *media = [UGCKitMedia mediaWithVideoPath:@"<#视频路径#>"];
+   UGCKitCutViewController *cutViewController = [[UGCKitCutViewController alloc] initWithMedia:media theme:nil];
+   cutViewController.completion = ^(UGCKitResult *result) {
+        if (!result.cancelled && !result.error) {
+             [self editVideo:result.media];
+        } else {
+             [self.navigationController popViewControllerAnimated:YES];
+        }
+   }
+   [self.navigationController pushViewController: cutViewController]
+   ```
+   
 
 ### 详细介绍
 以下为各模块的详细说明：
