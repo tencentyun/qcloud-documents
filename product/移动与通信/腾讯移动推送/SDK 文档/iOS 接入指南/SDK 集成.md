@@ -154,10 +154,10 @@ pod install //安装SDK
  @brief 注册推送服务回调
  
  @param deviceToken APNs 生成的 Device Token
- @param tpnsToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与APNs 的 Device Token的映射关系
+ @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
  @param error 错误信息，若 error 为 nil 则注册推送服务成功
  */
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken tpnsToken:(nullable NSString *)tpnsToken error:(nullable NSError *)error;
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 ```
 
 #### 观察日志
