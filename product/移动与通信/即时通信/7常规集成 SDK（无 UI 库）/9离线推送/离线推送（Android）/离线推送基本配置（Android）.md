@@ -313,27 +313,31 @@ public IOSSettings setDesc(String desc)
 
 /**
  * 获取当前消息在 iOS 设备上的离线推送提示声音
+ 
  * @return 声音文件路径，没有设置则返回 null
  */
 public String getSound()
 
 /**
  * 设置当前消息在 iOS 设备上的离线推送提示声音（可选，发送消息时设置）
+ 
  * @param sound 声音文件路径，当设置为{@see IOSSettings#NO_SOUND_NO_VIBRATION}时表示无提示音无振动
  */
 public void setSound(String sound)
 
 /**
  * 获取当前消息是否开启 Badge 计数
+ 
  * @return true 表示当前消息开启 Badge 计数
  */
 public boolean isBadgeEnabled()
 
 /**
  * 设置当前消息是否开启 Badge 计数，默认开启（可选，发送消息时设置）
+ 
  * @param badgeEnabled 否开启 Badge 计数
  */
-public void setBadgeEnabled(boolean badgeEnabled)
+public IOSSettings setBadgeEnabled(boolean badgeEnabled)
 ```
 
 **示例：**
