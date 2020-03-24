@@ -82,5 +82,7 @@
 |终端连接|实现私有网络内实例通过内网与基础网络内非云服务器实例通信的功能。|<li>支持连接的基础网络产品包括：CLB、MySQL、Memcached、Redis、MongoDB。</li><li>终端连接不支持跨地域、跨账号，如您有建立终端连接的需要，请提交 <a href="https://console.cloud.tencent.com/workorder/category" target="_blank">工单申请</a>。</li>|
 
 ## 后续操作
-- 如何实现通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等访问公网（Internet），详情请参见 [连接公网](https://cloud.tencent.com/document/product/215/36697)。
-- 如何实现连接其他 VPC，详情请参见 [连接其它 VPC](https://cloud.tencent.com/document/product/215/36698)。
+- 如何通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等实现访问公网（Internet），详情请参见 [连接公网](https://cloud.tencent.com/document/product/215/36697)。
+- 如何通过对等连接、云联网实现连接不同的 VPC，详情请参见 [连接其它 VPC](https://cloud.tencent.com/document/product/215/36698)。
+- 如何通过 VPN 连接、专线接入、云联网实现 VPC 与本地数据中心的通信，详情请参见 [连接本地数据中心](https://cloud.tencent.com/document/product/215/36699)。
+- 如何通过基础网络互通实现 VPC 与基础网络通信，详情请参见 [与基础网络通信](https://cloud.tencent.com/document/product/215/38124)。

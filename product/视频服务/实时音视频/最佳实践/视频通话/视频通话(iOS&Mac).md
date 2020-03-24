@@ -49,7 +49,7 @@ pod install
 | Key | Value |
 |---------|---------|
 | Privacy - Camera Usage Description | 描述使用摄像头权限的原因，例如，需要访问您的相机权限，开启后视频聊天才会有画面 |
-| Privacy - Microphone Usage Description | 描述使用麦克风权限的原因，例如如：需要访问您的麦克风权限，开启后聊天才会有声音 |
+| Privacy - Microphone Usage Description | 描述使用麦克风权限的原因，例如，需要访问您的麦克风权限，开启后聊天才会有声音 |
 
 <span id="step3"> </span>
 ### 步骤3：初始化 SDK 实例并监听事件回调
