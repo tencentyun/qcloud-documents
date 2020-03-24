@@ -15,7 +15,7 @@
 | delegate | id< TEduBoardDelegate > | 事件回调监听  |
 
 #### 警告
-建议在Init之前调用该方法以支持错误处理 
+建议在 Init 之前调用该方法以支持错误处理 
 
 
 ### removeDelegate:
@@ -43,7 +43,7 @@
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | TEduBoardAuthParam * | 授权参数  |
-| roomId | UInt32 | 课堂ID  |
+| roomId | UInt32 | 课堂 ID  |
 | initParam | TEduBoardInitParam * | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -51,6 +51,15 @@
 
 #### 介绍
 可用 initParam.timSync 指定是否使用腾讯云IMSDK进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
+
+
+### unInit
+反初始化白板 
+``` Objective-C
+- (void)unInit
+```
+#### 警告
+调用反初始化接口后会释放内部资源，白板功能将失效。 
 
 
 ### getBoardRenderView
@@ -138,10 +147,10 @@
 + (NSString *)getVersion
 ```
 #### 返回
-SDK版本号
+SDK 版本号
 
 #### 介绍
-获取SDK版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
+获取 SDK 版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 
@@ -535,7 +544,7 @@ SDK版本号
 | boardId | NSString * | 要删除的白板 ID，为 nullptr 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### prevStep
@@ -633,15 +642,15 @@ SDK版本号
 
 
 ### getCurrentBoard
-获取当前白板页ID 
+获取当前白板页 ID 
 ``` Objective-C
 - (NSString *)getCurrentBoard
 ```
 #### 返回
-当前白板页ID
+当前白板页 ID
 
 #### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### getBoardList
@@ -689,7 +698,7 @@ SDK版本号
 | scale | UInt32 | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale/100 
+支持范围: [100，300]，实际缩放比为: scale / 100 
 
 
 ### getBoardScale
@@ -698,7 +707,7 @@ SDK版本号
 - (UInt32)getBoardScale
 ```
 #### 返回
-白板缩放比例，格式与SetBoardScale接口参数格式一致 
+白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
 
 ### setBoardContentFitMode:
@@ -723,6 +732,42 @@ SDK版本号
 ```
 #### 返回
 白板内容自适应模式 
+
+
+### addImageElement:
+添加图片资源 
+``` Objective-C
+- (void)addImageElement:(NSString *)url 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | NSString * | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
+
+
+### setHandwritingEnable:
+设置白板是否开启笔锋 
+``` Objective-C
+- (void)setHandwritingEnable:(BOOL)enable 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 【必填】是否开启，true 表示开启，false 表示关闭 |
+
+#### 介绍
+白板创建后默认为关闭 
+
+
+### isHandwritingEnable
+获取白板是否开启笔锋 
+``` Objective-C
+- (BOOL)isHandwritingEnable
+```
+#### 返回
+是否开启笔锋 
 
 
 
@@ -784,7 +829,9 @@ SDK版本号
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+TEduBoardTranscodeFileResult 的字段信息主要来自：
+1. 使用客户端 ApplyFileTranscode 转码，直接将转码结果用于调用此接口
+2. （推荐）使用服务端 REST API 转码，只需传入转码回调结果的四个字段（title，resolution，url，pages），其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages [转码文档](https://cloud.tencent.com/document/product/1137/40260)
 
 
 ### deleteFile:
@@ -939,10 +986,10 @@ SDK版本号
 | url | NSString * | 文件播放地址  |
 
 #### 返回
-文件ID
+文件 ID
 
 #### 介绍
-移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+支持 mp4/m3u8/hls，触发状态改变回调 onTEBVideoStatusChanged 
 
 
 ### showVideoControl:
@@ -981,7 +1028,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
+触发状态改变回调 onTEBVideoStatusChanged，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
 
 
 ### seekVideo:
@@ -999,7 +1046,7 @@ SDK版本号
 只对当前文件有效
 
 #### 介绍
-触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+触发状态改变回调 onTEBVideoStatusChanged，一般在使用自定义视频控制栏时使用 
 
 
 ### setSyncVideoStatusEnable:
@@ -1048,7 +1095,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 
 
 ### addH5File:
-添加H5页面 
+添加 H5 页面 
 ``` Objective-C
 - (NSString *)addH5File:(NSString *)url 
 ```
@@ -1065,6 +1112,17 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 只支持展示，不支持互动 
 
 
+### addImagesFile:
+批量导入图片到白板 
+``` Objective-C
+- (NSString *)addImagesFile:(NSArray< NSString * > *)urls 
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| urls | NSArray< NSString * > * | 要使用的背景图片 URL 列表，编码格式为 UTF8  |
 
+#### 返回
+新增加文件Id 
 

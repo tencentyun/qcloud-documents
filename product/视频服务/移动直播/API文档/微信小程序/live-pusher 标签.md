@@ -115,7 +115,7 @@ SD、HD 和 FHD 主要用于直播类场景，例如赛事直播、在线教育�
 ## 对象操作
 - **wx.createLivePusherContext()**
 通过 wx.createLivePusherContext() 可以将 &lt;live-pusher&gt; 标签和 javascript 对象关联起来，之后即可操作该对象。
-
+<span id="start_push"></span>
 - **start** 
 开始推流，如果 &lt;live-pusher&gt; 的 autopush 属性设置为 false（默认值），那么就可以使用 start 来手动开始推流。
 
@@ -170,7 +170,7 @@ pusher.start({
 | -1304 |PUSH_ERR_AUDIO_ENCODE_FAIL  | 音频编码失败|
 | -1305 |PUSH_ERR_UNSUPPORTED_RESOLUTION  |不支持的视频分辨率|
 | -1306 |PUSH_ERR_UNSUPPORTED_SAMPLERATE | 不支持的音频采样率|
-| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请自行重启推流|
+| -1307 |PUSH_ERR_NET_DISCONNECT       |网络断连，且经三次重连无效，可以放弃，更多重试请 [自行重启推流](#start_push)|
 
 #### 3. 警告事件
 内部警告并非不可恢复的错误，小程序内部的音视频 SDK 会启动相应的恢复措施，警告的目的主要用于提示开发者或者最终用户，例如：

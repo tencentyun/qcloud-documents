@@ -20,11 +20,17 @@
 您只需要在您的 Web 页面中添加如下代码即可：
 
 ```html
-<!-- Axios SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/thirdpart/axios/axios.min.js"></script>
+<!-- axios SDK -->
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/axios/axios.min.js"></script>
 <!-- COS SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/thirdpart/cos/5.1.0/cos.min.js"></script>
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/2.3.7/TEduBoard.min.js"></script>
+<script src="https://resources-tiw.qcloudtrtc.com/board/2.4.4/TEduBoard.min.js"></script>
+```
+
+如果您需要添加视频文件还需要添加以下代码：
+```html
+<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
 ```
 

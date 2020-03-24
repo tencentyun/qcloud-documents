@@ -3,7 +3,7 @@ iOS SDK 接入请观看视频：
 
 ##  接入准备
 ###  SDK 获取
-实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://client-sdk-1255628450.cos.ap-shanghai.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)。
+实时语音识别的 iOS SDK 以及 Demo 的下载地址：[iOS SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_iOS.zip)。
 
 ###  接入须知
 
@@ -286,5 +286,3 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 
 ```
 
-## 视频讲解
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-12769?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

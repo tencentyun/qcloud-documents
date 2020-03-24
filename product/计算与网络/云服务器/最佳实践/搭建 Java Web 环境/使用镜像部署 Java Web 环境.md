@@ -17,12 +17,12 @@
 >! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
 >
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 Java 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0;">。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 Java 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0;">。如下图所示：
 >?
 > - 本文以下图所示 Java 多版本运行环境系统镜像为例，您可根据实际需求进行选择。
 > - 单击镜像名可查看镜像详情。
 > 
-![](https://main.qcloudimg.com/raw/36bf7e7e662d6266c0e19354dbf50f0c.png)
+<img src="https://main.qcloudimg.com/raw/98d67bcccaa892b3ead016c690614a58.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 

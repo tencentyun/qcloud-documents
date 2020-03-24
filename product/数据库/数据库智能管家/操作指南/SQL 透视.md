@@ -1,18 +1,20 @@
 ## 操作场景
-SQL 透视对数据库实例进行深层次的 SQL 分析，以数据库一段时间内产生的审计日志为基础，对全量的 SQL 以及执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、抽样、聚合。
+审计日志分析（原 SQL 透视）对数据库实例进行深层次的 SQL 分析，以数据库一段时间内产生的审计日志为基础，对全量的 SQL 以及执行信息（来源信息、次数、执行时间、返回集合、扫描集合等）进行统计、抽样、聚合。
 
 针对聚合后的 SQL 语句，根据其执行计划的结果，综合资源消耗、扫描和返回集合大小、索引使用合理性等，对 SQL 的性能进行分析，并针对低质量 SQL 结合索引情况、库表设计，给出优化建议。本文将介绍如何进行全量 SQL 分析，及查看分析详情。
->?SQL 透视目前仅支持云数据库 MySQL 主实例。
+>?审计日志分析目前仅支持云数据库 MySQL（不含基础版）。
 
 ## 前提条件
 实例需要开通 [数据库审计](https://cloud.tencent.com/document/product/672/14403) 功能。如未开通，则在创建 SQL 透视任务时会报如下错误，可单击【一键开通】，完成数据库 SQL 审计的开通和配置。
 ![](https://main.qcloudimg.com/raw/fc001ac870f1bed1cb301c29baaca47f.png)
 
+通过如下视频，您可以了解 DBbrain 审计日志分析功能的详细操作：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1915-22594?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作步骤
 ### SQL 视图
-登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【SQL 透视】页，透视视图可选择 QPS 或慢查询次数维度。
-![](https://main.qcloudimg.com/raw/70bb3e2700f4c239c1738fe6822f064f.png)
+登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/slow-sql)，在左侧导航选择【诊断优化】，在上方选择【审计日志分析】页，透视视图可选择 QPS 或慢查询次数维度。
+![](https://main.qcloudimg.com/raw/21b1e34c82b6c0ef06e5f4e7bf2673cc.png)
 
 ### 创建任务
 1. 选择所需时间段，单击视图右上角的【创建审计任务】。

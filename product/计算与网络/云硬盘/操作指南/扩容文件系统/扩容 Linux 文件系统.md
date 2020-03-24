@@ -382,9 +382,12 @@ umount <挂载点>
 ```
 umount /data
 ```
->? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR) 。
-<span id="Step4MBR"></span>
-4. 执行以下命令，新建一个新分区。
+>? 请将云硬盘上所有分区的文件系统都解挂，再执行 [步骤4](#Step4MBR) 操作。可执行以下命令，确认该硬盘上所有分区的文件系统都已解挂。
+```
+mount | grep '<磁盘路径>'
+```
+如返回结果为空，则云硬盘上所有的分区文件系统均已解挂。
+4. <span id="Step4MBR"></span>执行以下命令，新建一个新分区。
 ```
 fdisk <硬盘路径>
 ```
@@ -447,3 +450,8 @@ cat /etc/fstab
 
 ## 相关操作
 [扩展分区及文件系统（Windows）](https://cloud.tencent.com/document/product/362/6737)
+
+## 常见问题
+如果您在使用云硬盘过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
+-  [使用相关问题](https://cloud.tencent.com/document/product/362/17819)
+-  [功能相关问题](https://cloud.tencent.com/document/product/362/17818)

@@ -25,7 +25,7 @@ EDUSDK_API TEduBoardController* CreateTEduBoardController(bool disableCefInit=fa
 > 2. 按下面说明，在您的 Render 进程内调用 SDK 的 RenderProcessHandler
 > 	- Render 进程启动后调用接口获取一个 sdkHandler 实例，CefRefPtr<CefRenderProcessHandler> sdkHandler = (CefRenderProcessHandler*)GetTEduBoardRenderProcessHandler();
 > 	- 在 Render 进程的 CefApp 中重写 GetRenderProcessHandler 方法，每次都返回以上 sdkHandler
-> 	- 若您需要自定义 CefRenderProcessHandler，步骤B可返回自定义 Handler，然后在自定义 Handler 的下面几个方法中，调用 sdkHandler 的对应方法
+> 	- 若您需要自定义 CefRenderProcessHandler，第二步可返回自定义 Handler，然后在自定义 Handler 的下面几个方法中，调用 sdkHandler 的对应方法
 > 		- OnBrowserCreated
 > 		- OnBrowserDestroyed
 > 		- OnContextCreated 
@@ -70,7 +70,7 @@ EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8编码，为空或 nullptr 表示使用默认路径  |
+| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8 编码，为空或 nullptr 表示使用默认路径  |
 
 #### 返回
 设置白板日志文件路径是否成功 
@@ -80,8 +80,8 @@ EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
 
 #### 介绍
 
-- 默认路径，Windows下为："%AppData%\\..\\Local\TIC\\teduboard.log"
-- 默认路径，Linux下为："~/TIC/teduboard.log" 
+- 默认路径，Windows下为："%AppData%/../Local/TEduBoard/teduboard.log"
+- 默认路径，Linux下为："~/TEduBoard/teduboard.log" 
 
 
 
@@ -100,6 +100,18 @@ EDUSDK_API bool EnableTEduBoardOffscreenRender()
 
 #### 介绍
 启用离屏渲染时，SDK 不再创建白板 VIEW，而是通过 onTEBOffscreenPaint 回调接口将白板离屏渲染的像素数据抛出 
+
+
+### DisableTEduBoardCrashReport
+禁用白板 Crash 上报 
+``` C++
+EDUSDK_API bool DisableTEduBoardCrashReport()
+```
+#### 返回
+禁用白板 Crash 上报是否成功 
+
+#### 警告
+该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败 
 
 
 ### GetTEduBoardRenderProcessHandler
@@ -160,14 +172,14 @@ virtual void Init(const TEduBoardAuthParam &authParam, uint32_t roomId, const TE
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | const TEduBoardAuthParam & | 授权参数  |
-| roomId | uint32_t | 课堂ID  |
+| roomId | uint32_t | 课堂 ID  |
 | initParam | const TEduBoardInitParam & | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
-使用腾讯云IMSDK进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
+使用腾讯云 IMSDK 进行实时数据同步时，只支持一个白板实例，创建多个白板实例可能导致涂鸦状态异常
 
 #### 介绍
-可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持IMSDK 4.3.118及以上版本 
+可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
 
 
 ### GetBoardRenderView
@@ -176,7 +188,7 @@ virtual void Init(const TEduBoardAuthParam &authParam, uint32_t roomId, const TE
 virtual WINDOW_HANDLE GetBoardRenderView()=0
 ```
 #### 返回
-白板渲染View 
+白板渲染 View 
 
 
 ### AddSyncData
@@ -228,7 +240,7 @@ virtual void Reset()=0
 
 
 ### SetBoardRenderViewPos
-设置白板渲染 View 的位置和大小 
+设置白板渲染View的位置和大小 
 ``` C++
 virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_t height)=0
 ```
@@ -236,8 +248,8 @@ virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| x | int32_t | 要设置的白板渲染 View 的位置X分量  |
-| y | int32_t | 要设置的白板渲染 View 的位置Y分量  |
+| x | int32_t | 要设置的白板渲染 View 的位置 X 分量  |
+| y | int32_t | 要设置的白板渲染 View 的位置 Y 分量  |
 | width | uint32_t | 要设置的白板渲染 View 的宽度  |
 | height | uint32_t | 要设置的白板渲染 View 的高度 |
 
@@ -279,7 +291,7 @@ virtual const char* CallExperimentalAPI(const char *apiExp)=0
 | apiExp | const char * | 要执行的白板相关 JS 代码  |
 
 #### 返回
-JS执行后的返回值转换而来的字符串 
+JS 执行后的返回值转换而来的字符串 
 
 
 
@@ -319,7 +331,7 @@ virtual void SetAccessibleUsers(const char **users, uint32_t userCount)=0
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | users | const char ** | 指定允许操作的用户集，为 nullptr 表示不加限制  |
-| userCount | uint32_t | 指定users参数包含的用户个数 |
+| userCount | uint32_t | 指定 users 参数包含的用户个数 |
 
 #### 介绍
 该接口会产生以下影响：
@@ -365,7 +377,7 @@ virtual void SetBackgroundColor(const TEduBoardColor &color)=0
 | color | const TEduBoardColor & | 要设置的背景色 |
 
 #### 介绍
-白板页创建以后的默认背景色由SetDefaultBackgroundColor接口设定 
+白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
 
 
 ### GetBackgroundColor
@@ -592,15 +604,15 @@ virtual void SetBackgroundImage(const char *url, TEduBoardImageFitMode mode)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 要设置的背景图片URL，编码格式为UTF8  |
+| url | const char * | 要设置的背景图片 URL，编码格式为 UTF8  |
 | mode | TEduBoardImageFitMode | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当URL是一个有效的本地文件地址时，该文件会被自动上传到COS 
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
 
 
 ### SetBackgroundH5
-设置当前白板页的背景H5页面 
+设置当前白板页的背景 H5 页面 
 ``` C++
 virtual void SetBackgroundH5(const char *url)=0
 ```
@@ -608,10 +620,10 @@ virtual void SetBackgroundH5(const char *url)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 要设置的背景H5页面URL |
+| url | const char * | 要设置的背景 H5 页面 URL |
 
 #### 介绍
-该接口与SetBackgroundImage接口互斥 
+该接口与 SetBackgroundImage 接口互斥 
 
 
 ### Undo
@@ -638,16 +650,28 @@ virtual const char* AddBoard(const char *url=nullptr)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | const char * | 要使用的背景图片URL，编码格式为UTF8，为nullptr表示不指定背景图片  |
+| url | const char * | 要使用的背景图片 URL，编码格式为 UTF8，为 nullptr 表示不指定背景图片  |
 
 #### 返回
-白板ID 
+白板 ID 
 
 #### 警告
-白板页会被添加到默认文件（文件ID为::DEFAULT)，自行上传的文件无法添加白板页
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页
 
 #### 介绍
 返回值内存由SDK内部管理，用户不需要自己释放 
+
+
+### AddImageElement
+添加图片资源 
+``` C++
+virtual void AddImageElement(const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 要添加的图片元素 URL 地址，编码格式为 UTF8  |
 
 
 ### DeleteBoard
@@ -659,14 +683,14 @@ virtual void DeleteBoard(const char *boardId=nullptr)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 要删除的白板ID，为nullptr表示删除当前页  |
+| boardId | const char * | 要删除的白板 ID，为 nullptr 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### PrevStep
-上一步 每个Step对应PPT的一个动画效果，若当前没有已展示的动画效果，则该接口调用会导致向前翻页 
+上一步 每个 Step 对应 PPT 的一个动画效果，若当前没有已展示的动画效果，则该接口调用会导致向前翻页 
 ``` C++
 virtual void PrevStep()=0
 ```
@@ -677,7 +701,7 @@ virtual void PrevStep()=0
 virtual void NextStep()=0
 ```
 #### 介绍
-每个Step对应PPT的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
+每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
 
 ### PrevBoard
@@ -689,7 +713,7 @@ virtual void PrevBoard(bool resetStep=false)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| resetStep | bool | 指定翻到指定页以后是否重置PPT动画步数 |
+| resetStep | bool | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 若当前白板页为当前文件的第一页，则该接口调用无效 
@@ -704,7 +728,7 @@ virtual void NextBoard(bool resetStep=false)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| resetStep | bool | 指定翻到指定页以后是否重置PPT动画步数 |
+| resetStep | bool | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 若当前白板页为当前文件的最后一页，则该接口调用无效 
@@ -719,23 +743,23 @@ virtual void GotoBoard(const char *boardId, bool resetStep=false)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | const char * | 要跳转到的白板页ID  |
-| resetStep | bool | 指定翻到指定页以后是否重置PPT动画步数 |
+| boardId | const char * | 要跳转到的白板页 ID  |
+| resetStep | bool | 指定翻到指定页以后是否重置 PPT 动画步数 |
 
 #### 介绍
 允许跳转到任意文件的白板页 
 
 
 ### GetCurrentBoard
-获取当前白板页ID 
+获取当前白板页 ID 
 ``` C++
 virtual const char* GetCurrentBoard()=0
 ```
 #### 返回
-当前白板页ID
+当前白板页 ID
 
 #### 介绍
-返回值内存由SDK内部管理，用户不需要自己释放 
+返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
 ### GetBoardList
@@ -747,7 +771,7 @@ virtual TEduBoardStringList* GetBoardList()=0
 所有文件的白板列表 
 
 #### 警告
-返回值不再使用时不需要自行delete，但是务必调用其release方法以释放内存占用 
+返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
 
 
 ### SetBoardRatio
@@ -795,7 +819,7 @@ virtual void SetBoardScale(uint32_t scale)=0
 virtual uint32_t GetBoardScale()=0
 ```
 #### 返回
-白板缩放比例，格式与SetBoardScale接口参数格式一致 
+白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
 
 ### SetBoardContentFitMode
@@ -841,7 +865,7 @@ virtual void ApplyFileTranscode(const char *path, const TEduBoardTranscodeConfig
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起 
 
 #### 介绍
-支持 PPT、PDF、Word 文件转码 PPT 文档默认转为H5动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+支持 PPT、PDF、Word 文件转码 PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### GetFileTranscodeProgress
@@ -874,14 +898,151 @@ virtual const char* AddTranscodeFile(const TEduBoardTranscodeFileResult &result)
 | result | const TEduBoardTranscodeFileResult & | 文件转码结果  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 当传入文件的 URL 重复时，文件 ID 返回为空字符串 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段，调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+
+
+### AddVideoFile
+添加视频文件 
+``` C++
+virtual const char* AddVideoFile(const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 文件播放地址  |
+
+#### 返回
+文件 ID
+
+#### 介绍
+移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+
+
+### ShowVideoControl
+显示或隐藏视频控制栏 
+``` C++
+virtual void ShowVideoControl(bool show)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| show | bool | 是否显示  |
+
+#### 警告
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面UI样式不同 
+
+
+### PlayVideo
+播放视频 
+``` C++
+virtual void PlayVideo()=0
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+
+
+### PauseVideo
+暂停视频 
+``` C++
+virtual void PauseVideo()=0
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+
+
+### SeekVideo
+跳转（仅支持点播视频） 
+``` C++
+virtual void SeekVideo(double time)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| time | double | 播放进度，单位秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+
+
+### SetSyncVideoStatusEnable
+是否同步本地视频操作到远端 
+``` C++
+virtual void SetSyncVideoStatusEnable(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效
+
+#### 介绍
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
+
+
+### StartSyncVideoStatus
+内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
+``` C++
+virtual void StartSyncVideoStatus(uint32_t interval)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| interval | uint32_t | 同步间隔，例如设置5秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+一般在老师端视频加载完成后调用，切换文件后内部自动销毁定时器， 
+
+
+### StopSyncVideoStatus
+停止同步视频状态 
+``` C++
+virtual void StopSyncVideoStatus()=0
+```
+#### 警告
+只对当前文件有效 
+
+
+### AddH5File
+添加 H5 页面 
+``` C++
+virtual const char* AddH5File(const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | const char * | 网页地址  |
+
+#### 返回
+文件 ID 
+
+>? 只支持展示，不支持互动 
 
 
 ### DeleteFile
@@ -969,7 +1130,7 @@ virtual TEduBoardStringList* GetFileBoardList(const char *fileId)=0
 | fileId | const char * | 文件 ID  |
 
 #### 返回
-白板ID列表 
+白板 ID 列表 
 
 #### 警告
 返回值不再使用时不需要自行 delete，但是务必调用其 release 方法以释放内存占用 
@@ -984,10 +1145,10 @@ virtual TEduBoardStringList* GetThumbnailImages(const char *fileId)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | const char * | 文件ID  |
+| fileId | const char * | 文件 ID  |
 
 #### 返回
-缩略图URL列表 
+缩略图 URL 列表 
 
 >? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 

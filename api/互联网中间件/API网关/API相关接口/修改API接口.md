@@ -40,7 +40,7 @@
 | constantParameters.n.defaultValue        | 否    | String  | 常量参数默认值。只有 serviceType 是 HTTP 才会用到此参数。       |
 | serviceMockReturnMessage                 | 否    | String  | API 的后端 Mock 返回信息。如果 serviceType 是 Mock，则此参数必传。 |
 | serviceScfFunctionName                   | 否    | String  | API 的后端 SCF 函数名称。如果 serviceType 是 SCF，则此参数必传。  |
-| serviceScfFunctionName                   | 否    | String  | API 的后端 SCF 函数名称。如果 serviceType 是 SCF，则此参数必传。  |
+| serviceScfFunctionQualifier              | 否    | String  | API 的后端 SCF 函数版本。如果 serviceType 是 SCF，则此参数必传。  |
 | responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持 HTML、JSON、TEST、BINARY、XML。 |
 | responseSuccessExample                   | 否    | String  | 自定义响应配置成功响应示例。                           |
 | responseFailExample                      | 否    | String  | 自定义响应配置失败响应示例。                           |

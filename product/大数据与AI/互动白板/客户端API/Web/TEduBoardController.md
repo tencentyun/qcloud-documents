@@ -65,7 +65,7 @@ void addSyncData(Object data)
 | data | Object | 【必填】接收到的房间内其他人发送的同步数据 |
 
 #### 介绍
-该接口用于多个白板间的数据同步，使用内置IM作为信令通道时，不需要调用该接口 
+该接口用于多个白板间的数据同步，使用内置 IM 作为信令通道时，不需要调用该接口 
 
 
 ### getVersion
@@ -128,7 +128,7 @@ void syncRemoteTime(String userId, Number timestamp)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| userId | String | 【必填】远端用户ID  |
+| userId | String | 【必填】远端用户 ID  |
 | timestamp | Number | 【必填】远端用户毫秒级同步时间戳  |
 
 
@@ -441,15 +441,14 @@ void setBackgroundImage(String url, TEduBoardImageFitMode mode)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | String | 【必填】要设置的背景图片 URL，编码格式为UTF8  |
+| url | String | 【必填】要设置的背景图片URL，编码格式为 UTF8  |
 | mode | TEduBoardImageFitMode | 【可选】要使用的图片填充对齐模式 |
 
 #### 介绍
 除了设置一个在线图片为背景外，您也可以选择上传一个本地图片作为背景，此时 url 参数可以传一个 Object 类型，格式如下： 
 ``` 
 {
-   data: document.getElementById('uploadFile').files[0], //取自input标签的fileObject对象
-   name: 'xxx.jpg', //文件名
+   data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
    userData: 'xxx' //透传数据，会在文件上传进度回调中带回
 }
 ```
@@ -465,7 +464,7 @@ void setBackgroundH5(String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | String | 【必填】要设置的背景H5页面 URL |
+| url | String | 【必填】要设置的背景 H5 页面 URL |
 
 #### 介绍
 该接口与 SetBackgroundImage 接口互斥 
@@ -505,10 +504,10 @@ String addBoard(String url, TEduBoardImageFitMode mode)
 | mode | TEduBoardImageFitMode | 【可选】要使用的图片填充对齐模式  |
 
 #### 返回
-白板ID 
+白板 ID 
 
 #### 警告
-白板页会被添加到默认文件（文件ID为::DEFAULT)，自行上传的文件无法添加白板页 
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页 
 
 
 ### deleteBoard
@@ -520,10 +519,10 @@ void deleteBoard(String boardId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| boardId | String | 【可选】要删除的白板 ID，为n ull 表示删除当前页  |
+| boardId | String | 【可选】要删除的白板 ID，为 null 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### prevStep
@@ -705,8 +704,8 @@ fileObj参数格式如下：
 ```
 
 - 本接口支持支持 PPT、PDF、Word 文件转码
-- PPT文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片
-- PPT动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页
+- PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片
+- PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页
 - 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
@@ -725,10 +724,10 @@ void getFileTranscodeProgress(Object data)
 该接口仅用于特殊业务场景下主动查询文件转码进度，调用 applyFileTranscode 后，SDK 内部将会自动定期触发 TEB_TRANSCODEPROGRESS 回调，正常情况下您不需要主动调用此接口
 
 #### 介绍
-data参数格式如下： 
+data 参数格式如下： 
 ``` 
 {
-    taskId: "xxxxx" //从TEB_TRANSCODEPROGRESS回调拿到的taskId
+    taskId: "xxxxx" //从 TEB_TRANSCODEPROGRESS 回调拿到的 taskId
 }
 ```
  转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
@@ -737,13 +736,14 @@ data参数格式如下：
 ### addTranscodeFile
 添加转码文件 
 ``` Javascript
-String addTranscodeFile(TEduBoardTranscodeFileResult result)
+String addTranscodeFile(TEduBoardTranscodeFileResult result, bool needSwitch)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| result | TEduBoardTranscodeFileResult | 【必填】文件转码结果  |
+| result | TEduBoardTranscodeFileResult | 文件转码结果  |
+| needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
 文件ID 
@@ -753,22 +753,25 @@ String addTranscodeFile(TEduBoardTranscodeFileResult result)
 在收到对应的 TEB_TRANSCODEPROGRESS 回调前，无法用返回的文件 ID 查询到文件信息
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+TEduBoardTranscodeFileResult 的字段信息主要来自：
+1. 使用客户端 ApplyFileTranscode 转码，直接将转码结果用于调用此接口
+2. 使用服务端 REST API 转码，只需传入转码回调结果的四个字段，其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
 
 
-### deleteFile
-删除文件 
+### addImagesFile
+批量导入图片到白板 
 ``` Javascript
-void deleteFile(String fileId)
+String addImagesFile(String urls, bool needSwitch)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 【可选】要删除的文件ID |
+| urls | String | 要使用的背景图片URL列表，编码格式为 UTF8  |
+| needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
-#### 介绍
-文件ID为null时表示当前文件，默认文件无法删除 
+#### 返回
+新增加文件Id 
 
 
 ### switchFile
@@ -791,12 +794,12 @@ void switchFile(String fileId, String boardId, Number stepIndex)
 
 
 ### getCurrentFile
-获取当前文件ID 
+获取当前文件 ID 
 ``` Javascript
 String getCurrentFile()
 ```
 #### 返回
-当前文件ID 
+当前文件 ID 
 
 
 ### getFileInfo
@@ -824,7 +827,7 @@ Array getFileInfoList()
 
 
 ### getFileBoardList
-获取指定文件的白板ID列表 
+获取指定文件的白板 ID 列表 
 ``` Javascript
 Array getFileBoardList(String fileId)
 ```
@@ -835,7 +838,7 @@ Array getFileBoardList(String fileId)
 | fileId | String | 【必填】文件 ID  |
 
 #### 返回
-白板ID列表 
+白板 ID 列表 
 
 
 ### getThumbnailImages
@@ -847,7 +850,7 @@ Array getThumbnailImages(String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 【必填】文件ID  |
+| fileId | String | 【必填】文件 ID  |
 
 #### 返回
 缩略图URL列表 
@@ -865,6 +868,266 @@ void clearFileDraws(String fileId)
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | fileId | String | 【必填】文件 ID  |
+
+
+### hasVideoPermission
+是否授权视频文件播放 
+``` Javascript
+boolean hasVideoPermission()
+```
+#### 返回
+是否授权 
+
+#### 警告
+手机端如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
+
+
+### applyVideoPermission
+授权视频文件播放 
+``` Javascript
+String applyVideoPermission()
+```
+#### 警告
+手机端h5如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
+
+
+### addVideoFile
+添加视频文件 
+``` Javascript
+String addVideoFile(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】文件地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+需要引入以下 js 文件 
+``` 
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
+<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
+```
+ 
+
+>? 支持 mp4/m3u8/hls；触发状态改变回调 TEB_VIDEO_STATUS_CHANGED。 
+
+
+### addVODFile
+添加视频文件（内部接口） 
+``` Javascript
+String addVODFile(String appId, String vodId, String extParam)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| appId | String | 点播应用ID  |
+| vodId | String | 点播文件ID  |
+| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603)  |
+
+#### 返回
+白板文件 ID 
+
+#### 警告
+需要引入以下 css 或 js 文件 
+``` 
+<link href="https://imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.css" rel="stylesheet">
+<script src="https://imgcache.qq.com/open/qcloud/video/tcplayer/libs/hls.min.0.12.4.js"></script>
+<script src="https://imgcache.qq.com/open/qcloud/video/tcplayer/tcplayer.min.js"></script>
+```
+ 
+
+>? 仅支持腾讯云点播系统文件 
+
+
+### setVODExtParam
+设置点播视频的额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603) 
+``` Javascript
+String setVODExtParam(String fileId, Object extParam)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | String | 白板文件 ID  |
+| extParam | Object | 点播视频额外参数  |
+
+#### 警告
+在收到 TEB_VODEXTPARAM 回调后调用 
+
+
+### showVideoControl
+隐藏和显示默认视频控制栏 
+``` Javascript
+void showVideoControl(bool show)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| show | bool | 是否显示  |
+
+#### 警告
+全局控制项，对所有视频文件有效 @info 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
+
+
+### playVideo
+播放 
+``` Javascript
+void playVideo()
+```
+#### 警告
+只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
+
+
+### pauseVideo
+暂停 
+``` Javascript
+void pauseVideo()
+```
+#### 警告
+只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
+
+
+### seekVideo
+跳转（仅支持点播视频） 
+``` Javascript
+void seekVideo(float time)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| time | float | 播放进度，单位秒  |
+
+#### 警告
+只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
+
+
+### muteVideo
+静音 
+``` Javascript
+void muteVideo(boolean muted)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| muted | boolean | 是否静音  |
+
+#### 警告
+只对当前文件有效，静音不会影响远端 @info 由于用户隐私政策限制，微信浏览器以及手机浏览器默认静音播放 
+
+
+### setSyncVideoStatusEnable
+是否同步本地视频操作状态到远端 
+``` Javascript
+void setSyncVideoStatusEnable(bool enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 【必填】是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效 
+
+>? videoPlay/videoPause/videoSeek 接口以及控制栏事件触发是否影响远端，默认为 true 
+
+
+### startSyncVideoStatus
+内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
+``` Javascript
+void startSyncVideoStatus(int interval)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| interval | int | 【选填】同步间隔  |
+
+#### 警告
+只对当前文件有效 
+
+>? 一般在老师端视频加载完成后调用，切换文件后自动销毁定时器， 
+
+
+### stopSyncVideoStatus
+停止同步视频状态 
+``` Javascript
+void stopSyncVideoStatus()
+```
+#### 警告
+只对当前文件有效 
+
+
+### addH5File
+添加 H5 页面 
+``` Javascript
+String addH5File(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】网页地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+只支持展示，不支持互动 
+
+
+### addImageElement
+添加图片元素 
+``` Javascript
+void addImageElement(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】要设置的图片元素 URL，编码格式为 UTF8 |
+
+#### 介绍
+除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时 url参数可以传一个 Object 类型，格式如下： 
+``` 
+{
+   data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
+   userData: 'xxx' //透传数据，会在文件上传进度回调中带回
+}
+```
+ 
+
+
+### setHandwritingEnable
+设置白板是否开启笔锋 
+``` Javascript
+void setHandwritingEnable(Boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | Boolean | 【必填】是否开启，true 表示开启，false 表示关闭 |
+
+#### 介绍
+白板创建后默认为关闭 
+
+
+### isHandwritingEnable
+获取白板是否开启笔锋 
+``` Javascript
+Boolean isHandwritingEnable()
+```
+#### 返回
+是否开启笔锋 
 
 
 

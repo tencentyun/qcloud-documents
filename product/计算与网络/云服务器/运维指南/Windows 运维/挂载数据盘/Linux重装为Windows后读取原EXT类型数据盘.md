@@ -1,7 +1,9 @@
 
 ## 操作场景
+Windows 文件系统格式通常是 NTFS 或 FAT32 ，Linux 文件系统格式通常是 EXT 系列。当操作系统从 Linux 重装为 Windows，操作系统类型虽然发生了变化，但数据盘仍然是原来的格式。重装后的系统可能出现无法访问数据盘文件系统的情况，此时，您需要格式转换软件对原有的数据进行读取。
+
 本文档介绍 Linux [重装系统](https://cloud.tencent.com/document/product/213/4933) 为 Windows 后，在云服务器上读取原 Linux 系统下数据盘数据的操作方法。
-Windows 文件系统格式通常是 NTFS 或 FAT32 ，而 Linux 文件系统格式通常是 EXT 系列。当操作系统从 Linux 重装为 Windows 后，操作系统类型发生了变化，而数据盘仍然是原来的格式，重装后的系统可能出现无法访问数据盘文件系统的情况。需要格式转换软件对原有的数据进行读取。
+
 
 ## 前提条件
 - 已在重装为 Windows 的云服务器上安装 DiskInternals Linux Reader 软件。

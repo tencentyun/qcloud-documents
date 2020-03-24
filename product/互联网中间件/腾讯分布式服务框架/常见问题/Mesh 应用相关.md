@@ -80,7 +80,7 @@ admin commands are:
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/health
 {"envoy":{"status":"UP"},"mesh-dns":{"status":"UP"},"status":"UP"}
 ```
-如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 
 #### 4. 调用 clusters 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地 cluster（格式为 in#port#serviceName）是否存在或者健康状态是否 healthy。
@@ -115,7 +115,7 @@ in#8080#reporttimeb::9.77.7.132:8080::sub_zone::
 in#8080#reporttimeb::9.77.7.132:8080::canary::false
 in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 ```
-- 如果 cluster 不存在，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+- 如果 cluster 不存在，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 - 如果状态不为 healthy，则执行后续步骤。
 
 

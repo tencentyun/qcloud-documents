@@ -98,3 +98,12 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 ### iOS13 在的开发环境下，注册偶现不返回 DeviceToken？
 此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决，详情请参见 [文档](https://stackoverflow.com/questions/58264338/not-getting-apns-device-token-on-ios-13) 。
+
+
+### iOS 如何在测试设备有限的情况下扩大测试规模？
+1. 企业级证书签名
+申请企业级签名证书和企业级推送证书，发布方式如下：
+使用企业级签名证书构建并发布App，体验者可以通过企业内部开放的渠道下载安装App。
+2. AppStore 发布证书签名
+使用当前 AppStore 的发布签名证书，发布方式如下：
+TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。

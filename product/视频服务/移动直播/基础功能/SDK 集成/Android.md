@@ -10,7 +10,7 @@
 ### 方法一：自动加载（aar）
 LiteAVSDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
 
-只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改 `app/build.gradle` 文件，就可以完成 SDK 集成：
+只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改`app/build.gradle`文件，就可以完成 SDK 集成：
 
 ![](https://main.qcloudimg.com/raw/eb6bcb3cb1dff43f459245ed9045e685.png)
 
@@ -22,12 +22,11 @@ dependencies {
 }
 ```
  或
- 
  ```
 dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
 }
- ```
+```
 - **第二步：指定 App 使用架构**
   在 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）。
 ```
@@ -45,9 +44,9 @@ defaultConfig {
 
 - **第一步：下载 LiteAVSDK**
    下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
-  
+ 
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
-  将下载解压缩之后 `SDK` 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
+  将下载解压缩之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
   
 - **第三步：指定本地仓库路径**
@@ -59,7 +58,7 @@ defaultConfig {
   ![](https://main.qcloudimg.com/raw/2333ec86f332907e7bf45b6cf83ee7b3.png)
   
 - **第五步：指定 App 使用架构**
-  在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a）  。
+  在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、armeabi-v7a 和 arm64-v8a）。
 ```
 defaultConfig {
         ndk {
@@ -75,7 +74,7 @@ defaultConfig {
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
 
 - **第一步：下载解压 LiteAVSDK**
-  下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。在 `SDK` 目录下找到 LiteAVSDK_Smart_xxx.zip（其中 xxx 为 LiteAVSDK 的版本号）：
+  下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。在 SDK 目录下找到 `LiteAVSDK_Smart_xxx.zip`（其中 xxx 为 LiteAVSDK 的版本号）：
 
   ![](https://main.qcloudimg.com/raw/aae5879bccd31e8c082eebc24aa4ff7c.png)
 
@@ -88,11 +87,18 @@ defaultConfig {
 
 - **第三步：引用 jar 库**
   在 app/build.gradle 中，添加引用 jar 库的代码。
-  ![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
+![](https://main.qcloudimg.com/raw/695520309d9a01b19ce2f50439a42890.png)			
+```
+dependencies{
+		implementation fileTree(dir:'libs',include:['*.jar'])
+}
+```
+
 
 - **第四步：引用 so 库**
   在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
+
 
 - **第五步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
@@ -109,6 +115,16 @@ defaultConfig {
 
 ## 配置 App 打包参数
 ![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+
+```
+    packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+    } 
+```
 
 ## 配置 App 权限
 在 AndroidManifest.xml 中配置 App 的权限，LiteAVSDK 需要以下权限：
