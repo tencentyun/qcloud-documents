@@ -166,10 +166,18 @@ public TIMMessageOfflinePushSettings getOfflinePushSettings()
 
 ```java
 /**
- * 设置当前消息在对方收到离线推送时候展示内容（可选，发送消息时设置）
+ * 离线 Push 展示标题，针对 iOS 和 Android 平台都生效，如果您需要分平台单独设置，请设置 IOSSettings -> title 和 AndroidSettings -> title
+ *
+ * @param title 通知栏标题
+ * @return
+ */
+public TIMMessageOfflinePushSettings setTitle(String title)
+
+/**
+ * 离线 Push 展示文本，针对 iOS 和 Android 平台都生效，如果您需要分平台单独设置，请设置 IOSSettings -> desc 和 AndroidSettings -> desc
  * @param descr 正文内容
  */
-public void setDescr(String descr)
+public TIMMessageOfflinePushSettings setDescr(String descr)
 
 /**
  * 获取当前消息的离线推送展示正文内容
@@ -181,7 +189,7 @@ public String getDescr()
  * 设置当前消息的扩展字段（可选，发送消息的时候设置）
  * @param ext 扩展字段内容
  */
-public void setExt(byte[] ext)
+public TIMMessageOfflinePushSettings setExt(byte[] ext)
 
 /**
  * 获取当前消息的扩展字段
@@ -193,7 +201,7 @@ public byte[] getExt()
  * 设置当前消息是否允许离线推送，默认允许推送（可选，发送消息时设置）
  * @param enabled true 表示允许离线推送， false 表示不允许离线推送
  */
-public void setEnabled(boolean enabled)
+public TIMMessageOfflinePushSettings setEnabled(boolean enabled)
 
 /**
  * 获取当前消息是否允许推送
@@ -211,7 +219,7 @@ public AndroidSettings getAndroidSettings()
  * 设置当前消息在 Android 设备上的离线推送配置（可选，发送消息时设置）
  * @param androidSettings 当前消息在 Android 设备上的离线推送配置
  */
-public void setAndroidSettings(AndroidSettings androidSettings)
+public TIMMessageOfflinePushSettings setAndroidSettings(AndroidSettings androidSettings)
 
 /**
  * 获取当前消息在 iOS 设备上的离线推送配置
@@ -223,7 +231,7 @@ public IOSSettings getIosSettings()
  * 设置当前消息在 iOS 设备上的离线推送配置（可选，发送消息时设置）
  * @param iosSettings 当前消息在 iOS 设备上的离线推送配置
  */
-public void setIosSettings(IOSSettings iosSettings)
+public TIMMessageOfflinePushSettings setIosSettings(IOSSettings iosSettings)
 
 ```
 
@@ -240,7 +248,7 @@ public String getTitle()
  * 设置通知标题（可选，发送消息时设置）
  * @param title 通知标题
  */
-public void setTitle(String title)
+public AndroidSettings setTitle(String title)
 
 /**
  * 获取当前消息在 Android 设备上的离线推送提示声音 URI
@@ -252,7 +260,7 @@ public Uri getSound()
  * 设置当前消息在 Android 设备上的离线推送提示声音（可选，发送消息时设置）
  * @param sound 声音 URI，仅支持应用内部的声音资源文件
  */
-public void setSound(Uri sound)
+public AndroidSettings setSound(Uri sound)
 
 /**
  * 获取当前消息的通知模式
@@ -261,11 +269,11 @@ public void setSound(Uri sound)
 public NotifyMode getNotifyMode()
 
 /**
- * 设置当前消息在对方收到离线推送时候的通知模式（可选，发送消息时设置）。
- * NotifyMode 只是针对第三方离线推送进行设置的，例如小米、华为的离线推送。
+ * 设置当前消息在对方收到离线推送时候的通知模式（待废弃，可以不设置）。
+ * 
  * @param mode 通知模式，默认为普通通知栏消息模式
  */
-public void setNotifyMode(NotifyMode mode)
+public AndroidSettings setNotifyMode(NotifyMode mode)
 ```
 
 **TIMMessageOfflinePushSettings.NotifyMode：**
@@ -281,6 +289,20 @@ NotifyMode.Normal
 **TIMMessageOfflinePushSettings.IOSSettings：**
 
 ```java
+/**
+ * 设置离线 Push 展示标题
+ *
+ * @param title 通知标题
+ */
+public IOSSettings setTitle(String title)
+
+/**
+ * 设置离线 Push 展示自定义文本
+ *
+ * @param desc
+ */
+public IOSSettings setDesc(String desc)
+
 /**
  * 获取当前消息在 iOS 设备上的离线推送提示声音
  * @return 声音文件路径，没有设置则返回 null
@@ -309,10 +331,10 @@ public void setBadgeEnabled(boolean badgeEnabled)
 **示例：**
 
 ```java
-//构造一条消息
+// 构造一条消息
 TIMMessage msg = new TIMMessage();
 
-//添加文本内容
+// 添加文本内容
 TIMTextElem elem = new TIMTextElem();
 elem.setText("a new msg from " + selfId);
 if(msg.addElement(elem) != 0) {
@@ -320,11 +342,13 @@ if(msg.addElement(elem) != 0) {
     return;
 }
 
-//设置当前消息的离线推送配置
+// 设置当前消息的离线推送配置
 TIMMessageOfflinePushSettings settings = new TIMMessageOfflinePushSettings();
 settings.setEnabled(true);
+// 设置 iOS 和 Android 通知栏消息的标题和内容。如果想要两个平台通知栏展示的标题和内容不同，可以通过 AndroidSettings 和 IOSSettings 分别设置。
+settings.setTitle("I'm title");
 settings.setDescr("I'm description");
-//设置离线推送扩展信息
+// 设置离线推送扩展信息
 JSONObject object = new JSONObject();
 try {
     object.put("level", 15);
@@ -336,14 +360,14 @@ try {
     e.printStackTrace();
 }
 
-//设置在 Android 设备上收到消息时的离线配置
+// 设置在 Android 设备上收到消息时的离线配置
 TIMMessageOfflinePushSettings.AndroidSettings androidSettings = new TIMMessageOfflinePushSettings.AndroidSettings();
-//IM SDK 2.5.3之前的构造方式
-//TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
-androidSettings.setTitle("I'm title");
-//推送自定义通知栏消息，接收方收到消息后单击通知栏消息会给应用回调（针对小米、华为离线推送）
-androidSettings.setNotifyMode(TIMMessageOfflinePushSettings.NotifyMode.Normal);
-//设置 Android 设备收到消息时的提示音，声音文件需要放置到 raw 文件夹
+// IM SDK 2.5.3之前的构造方式
+// TIMMessageOfflinePushSettings.AndroidSettings androidSettings = settings.new AndroidSettings();
+// 设置 Android 通知栏消息的标题和内容
+// androidSettings.setTitle("I'm title for android");
+// androidSettings.setDesc("I'm desc for android");
+// 设置 Android 设备收到消息时的提示音，声音文件需要放置到 raw 文件夹
 androidSettings.setSound(Uri.parse("android.resource://" + getPackageName() + "/" +R.raw.hualala));
 settings.setAndroidSettings(androidSettings);
 
@@ -351,27 +375,30 @@ settings.setAndroidSettings(androidSettings);
 TIMMessageOfflinePushSettings.IOSSettings iosSettings = new TIMMessageOfflinePushSettings.IOSSettings();
 //IM SDK 2.5.3之前的构造方式
 //TIMMessageOfflinePushSettings.IOSSettings iosSettings = settings.new IOSSettings();
+// 设置 iOS 通知栏消息的标题和内容
+// iosSettings.setTitle("I'm title for iOS");
+// iosSettings.setDesc("I'm desc for iOS");
 
-//开启 Badge 计数
+// 开启 Badge 计数
 iosSettings.setBadgeEnabled(true);  
-//设置 iOS 收到消息时没有提示音且不振动（IM SDK 2.5.3新增特性）
+// 设置 iOS 收到消息时没有提示音且不振动（IM SDK 2.5.3新增特性）
 //iosSettings.setSound(TIMMessageOfflinePushSettings.IOSSettings.NO_SOUND_NO_VIBRATION);
-//设置 iOS 设备收到离线消息时的提示音
+// 设置 iOS 设备收到离线消息时的提示音
 iosSettings.setSound("/path/to/sound/file");
 
 msg.setOfflinePushSettings(settings);
 
-//获取一个单聊会话
+// 获取一个单聊会话
 TIMConversation conversation = TIMManager.getInstance().getConversation(
-        TIMConversationType.C2C,    //会话类型：单聊
-        peer); 						//会话对方用户帐号
+        TIMConversationType.C2C,    // 会话类型：单聊
+        peer); 						// 会话对方用户帐号
 
-//发送消息
-conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {//发送消息回调
+// 发送消息
+conversation.sendMessage(msg, new TIMValueCallBack<TIMMessage>() {// 发送消息回调
     @Override
-    public void onError(int code, String desc) {//发送消息失败
-        //错误码 code 和错误描述 desc，可用于定位请求失败原因
-        //错误码 code 列表请参见错误码表
+    public void onError(int code, String desc) {// 发送消息失败
+        // 错误码 code 和错误描述 desc，可用于定位请求失败原因
+        // 错误码 code 列表请参见错误码表
         Log.e(tag, "send message failed. code: " + code + " errmsg: " + desc);
     }
 
