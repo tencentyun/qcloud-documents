@@ -1,28 +1,26 @@
-
-## 工程配置
-### 支持平台
+## 支持平台
 
 SDK 支持 iOS 8.0 以上系统。
 
-### 开发环境
+## 开发环境
 
-+ Xcode 9 或更高版本；
-+ OS X 10.10 或更高版本；
++ Xcode 9 或更高版本。
++ OS X 10.10 或更高版本。
 
-### 设置步骤
+## 设置步骤
 
-#### 1.链接 SDK 及系统库
+### 步骤1：链接 SDK 及系统库
 1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中 TXLiteAVSDK\_ 开头的 framework（如 TXLiteAVSDK_UGC.framework）复制到工程所在文件夹，并拖动到工程当中。
 2. 选中工程的 Target，添加以下系统库：
-	1. Accelerate.framework
-	2. SystemConfiguration.framework
-	3. libc++.tbd
-	4. libsqlite3.tbd
+	- Accelerate.framework
+	- SystemConfiguration.framework
+	- libc++.tbd
+	- libsqlite3.tbd
 添加完毕后，工程库依赖如下图所示：
 ![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 3. 选中工程的 Target，在 Build Settings 中搜索 bitcode，将 Enable Bitcode 设置为 NO。
 
-#### 2. 配置 App 权限
+### 步骤2：配置 App 权限
 应用会需要相册及相册的访问权限，需要在 Info.plist 中添加对应项，可以通过在 Info.plist 中右键选 Open as / Source Code 粘贴并修改以下内容进行配置。
 ```
 <key>NSAppleMusicUsageDescription</key> 
@@ -37,7 +35,7 @@ SDK 支持 iOS 8.0 以上系统。
 <string>视频云工具包需要访问您的相册权限，开启后才能编辑视频文件</string> 
 ```
 
-#### 3. SDK License 设置与基本信息获取
+### 步骤3：SDK License 设置与基本信息获取
 通过 [License 申请](https://cloud.tencent.com/document/product/584/20333) 的指引申请 License 后，从 [控制台](https://console.cloud.tencent.com/vod/license) 复制 key 和 url，见下图。
 ![](https://main.qcloudimg.com/raw/a4c1de10918d04b0b425febe9d0a009b.png)
 在您的应用中使用短视频功能之前，建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中进行如下设置：
@@ -54,11 +52,12 @@ SDK 支持 iOS 8.0 以上系统。
 @end
 ```
 
-- 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的**切换到新版 License**按钮生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
+>?
+- 对于使用4.7版本 License 的用户，如果您升级了 SDK 到4.9版本，您可以登录控制台，单击下图的【切换到新版License】生成对应的 key 和 url，切换后的 License 必须使用4.9及更高的版本，切换后按照上述操作集成即可。
 ![](https://main.qcloudimg.com/raw/c877efe3f57e853615e68a35e20fd8b9.png)
 - 企业版请参考 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。
 
-#### 4. Log 配置
+### 步骤4：Log 配置
 在  TXLiveBase 中可以设置 log 是否在控制台打印以及 log 的级别，相关接口如下：
 - **setConsoleEnabled**
 设置是否在 xcode 的控制台打印 SDK 的相关输出。
@@ -70,61 +69,58 @@ SDK 支持 iOS 8.0 以上系统。
 ```	objc
   [TXLiveBase setConsoleEnabled:YES];
   [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
-  ```
+```
 
-#### 5. 编译运行
+### 步骤5：编译运行
 
-如果前面各个步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息：
+如果前面各步骤都操作正确的话，HelloSDK 工程就可以顺利编译通过。在 Debug 模式下运行 App，Xcode 的 Console 窗格会打印出 SDK 的版本信息：
+```
+2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
+```
 
-> 2017-09-26 16:16:15.767 HelloSDK[17929:7488566] SDK Version = 5.2.5541
+## 快速接入功能模块
+为了方便您快速集成 SDK 各项功能，我们提供了 UGCKit。UGCKit 是在短视频 SDK 基础上构建的一套 UI 组件库。
 
-### 快速接入功能模块
-为了方便您快速集成 SDK 各项功能，我们提供了 UGCKit。UGCKit 是在腾讯云短视频SDK基础上构建的一套UI组件库。
-您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。
-UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
+您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
-UGCKit 的开发环境要求如下:
+UGCKit 的开发环境要求如下：
 
-- Xcode 10 及以上
-- iOS 9.0 及以上
+- Xcode 10 及以上。
+- iOS 9.0 及以上。
 
-#### 接入步骤
+### 接入步骤
 
-##### 集成 UGCKit 
-1. 导入 UGCKit 
-   将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将UGCKit中的UGCKit.xcodeproj拖拽到工程中。
-   <img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
-2. 配置依赖关系   
-   点击工程的Target, 选择 Build Phase 标签，在 Dependencies 中点击加号，选择UGCKit.framework 和 UGCKitResources，点击 Add。
-   <img src="https://main.qcloudimg.com/raw/eadf4d86b3dd62067417d4d449127348.jpg" width=800px />
-   
-3. 链接 UGCKit.framework 和 SDK
-   点击工程的Target, 选择 Build Phase 标签， 在 Link Binary With Libraries 中点击加号，选择UGCKit.framework。
-   <img src="https://main.qcloudimg.com/raw/f58b5a64a5074b334b2c97ec010800fc.jpg" width=800px />
-   在Finder中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中。
-   <img src="https://main.qcloudimg.com/raw/217de0d27d3fc67152a71d2a1e800647.jpg" width=800px />
-   将 SDK 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
-   
-4. 导入资源
-   点击工程的Target, 选择 Build Phase 标签， 展开 Copy Bundle Resources。然后在左侧目录中依次展开UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中。
-   <img src="https://main.qcloudimg.com/raw/fbca78b281f8e87cbbaa036c4f208725.jpg" width=800px />
+#### 步骤1：集成 UGCKit 
+1. **导入 UGCKit**
+将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将 UGCKit 中的 UGCKit.xcodeproj 拖拽到工程中。
+<img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
+2. **配置依赖关系**   
+单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 UGCKit.framework 和 UGCKitResources，单击【Add】。
+<img src="https://main.qcloudimg.com/raw/eadf4d86b3dd62067417d4d449127348.jpg" width=800px /> 
+3. **链接 UGCKit.framework 和 SDK**
+	1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 UGCKit.framework。
+<img src="https://main.qcloudimg.com/raw/f58b5a64a5074b334b2c97ec010800fc.jpg" width=800px />
+	2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中。
+<img src="https://main.qcloudimg.com/raw/217de0d27d3fc67152a71d2a1e800647.jpg" width=800px />
+	3. 将 SDK 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
+4. **导入资源**
+单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。然后在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中。
+<img src="https://main.qcloudimg.com/raw/fbca78b281f8e87cbbaa036c4f208725.jpg" width=800px />
+5. **导入商业版资源（仅用于商业版）**
+将商业版 SDK zip 包中 SDK/Resouce 拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
+<img src="https://main.qcloudimg.com/raw/5ae899aff95984bf34839653ad2c4b51.jpg" width=800px />
+<img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
 
-5. 导入商业版资源（仅用于商业版）
-   将商业版 SDK zip包中SDK/Resouce 拖动到工程中，选择“Create groups"并勾选您的Target，点击Finish。
-   <img src="https://main.qcloudimg.com/raw/5ae899aff95984bf34839653ad2c4b51.jpg" width=800px />
+#### 步骤2：使用 UGCKit
 
-   <img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
-
-##### 使用 UGCKit
-
-1. 录制
-   `UGCKitRecordViewController` 提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
-   ```
-   UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController alloc] initWithConfig:nil theme:nil];
-   [self.navigationController pushViewController:recordViewController]
-   ```
-   录制后的结果将通过 completion block 回调，示例如下：
-   ```
+1. **录制**
+`UGCKitRecordViewController`提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
+```
+UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController alloc] initWithConfig:nil theme:nil];
+[self.navigationController pushViewController:recordViewController]
+```
+录制后的结果将通过 completion block 回调，示例如下：
+```
    recordViewController.completion = ^(TCUGCResult *result) {
        if (result.error) {
            // 录制出错
@@ -139,19 +135,18 @@ UGCKit 的开发环境要求如下:
            }
        }
    };
-   ```
-   
-2. 编辑
-   `UGCKitEditViewController` 提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
-   ```
+```
+2. **编辑**
+`UGCKitEditViewController`提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
+```
    - (void)processRecordedVideo:(UGCKitMedia *)media {
        // 实例化编辑控制器
        UGCKitEditViewController *editViewController = [[UKEditViewController alloc] initWithMedia:media conifg:nil theme:nil];
        // 展示编辑控制器
        [self.navigationController pushViewController:editViewController animated:YES];
-   ```
-   编辑后的结果将通过 completion block 回调，示例如下：
-   ```
+```
+编辑后的结果将通过 completion block 回调，示例如下：
+```
        editViewController.completion = ^(TCUGCResult *result) {
        if (result.error) {
            // 出错
@@ -166,12 +161,10 @@ UGCKit 的开发环境要求如下:
            }
        }
    }
-   ```
-   
-3. 从相册中选择视频或图片
-   `UGCKitMediaPickerViewController`用来处理媒体的选择与合并，当选择多个视频时，将会返回拼接后的视频。示例如下:
-   
-   ```
+```
+3. **从相册中选择视频或图片**
+`UGCKitMediaPickerViewController`用来处理媒体的选择与合并，当选择多个视频时，将会返回拼接后的视频。示例如下：
+```
    // 初始化配置
    UGCKitMediaPickerConfig *config = [[UGCKitMediaPickerConfig alloc] init];
    config.mediaType = UGCKitMediaTypeVideo;//选则视频
@@ -198,12 +191,10 @@ UGCKit 的开发环境要求如下:
           }
      }
    }
-   ```
-   
-4. 裁剪
-   `UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在completion中处理剪辑结果即可。
-   示例:
-   ```
+```
+4. **裁剪**
+`UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在 completion 中处理剪辑结果即可。示例如下：
+```
    UGCKitMedia *media = [UGCKitMedia mediaWithVideoPath:@"<#视频路径#>"];
    UGCKitCutViewController *cutViewController = [[UGCKitCutViewController alloc] initWithMedia:media theme:nil];
    cutViewController.completion = ^(UGCKitResult *result) {
@@ -214,10 +205,10 @@ UGCKit 的开发环境要求如下:
         }
    }
    [self.navigationController pushViewController: cutViewController]
-   ```
+```
    
 
-### 详细介绍
+## 详细介绍
 以下为 SDK 各模块的详细说明：
 
 - [视频录制](https://cloud.tencent.com/document/product/584/9367)
