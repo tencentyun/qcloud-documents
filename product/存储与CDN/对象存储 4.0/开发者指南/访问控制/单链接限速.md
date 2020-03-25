@@ -4,7 +4,7 @@ COS 支持上传、下载文件时进行流量控制，以保证您其他应用�
 
 ## 使用说明
 
-- 用户在 Object、PostObject、GetObject、UploadPart 请求时携带 x-cos-traffic-limit 参数来指定本次请求的限速值，该参数可以设置到 header、请求参数中，或者使用表单上传接口时在表单域中。
+- 用户在 PutObject、PostObject、GetObject、UploadPart 请求时携带 x-cos-traffic-limit 参数来指定本次请求的限速值，该参数可以设置到 header、请求参数中，或者使用表单上传接口时在表单域中。
 - x-cos-traffic-limit 参数的值必须为数字，单位默认为 bit/s。
 - 限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误。
 
