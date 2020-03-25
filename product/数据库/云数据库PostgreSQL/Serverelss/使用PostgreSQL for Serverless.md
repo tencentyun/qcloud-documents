@@ -1,4 +1,8 @@
 ## 使用限制
+- 内测版本限制单用户支持最大 QPS 40000/s
+- 当前仅支持通过云 API 进行创建实例 ServerlessDB
+- 当前仅开放北京一区、上海二区、广州二区
+
 PostgreSQL for Serverless 不支持如下操作：
 - 创建数据库
 - 访问系统库 postgres
@@ -9,9 +13,6 @@ PostgreSQL for Serverless 不支持如下操作：
 - LISTEN/NOTIFY
 - WITH HOLD CURSOR
 - PREPARE / DEALLOCATE
-- 内测版本限制单用户支持最大 QPS 40000/s
-- 当前仅支持通过云 API 进行创建实例 ServerlessDB
-- 当前仅开放北京一区、上海二区、广州二区
 
 
 ## 创建实例
@@ -44,7 +45,7 @@ PostgreSQL for Serverless 不支持如下操作：
 通过 [OpenServerlessDBExtranetAccess](https://cloud.tencent.com/document/product/409/42759) 和 [CloseServerlessDBExtranetAccess](https://cloud.tencent.com/document/product/409/42763) 接口可开启或关闭 PostgreSQL for Serverless 的外网连接功能，用户可通过外网连接访问数据库。
 >?开启外网功能后，外部可以连接访问数据库，导致数据库存在安全隐患，请尽量使用私有网络进行实例访问。
 
-## 访问实例
+## 连接实例
 1. 通过 [DescribeServerlessDBInstances](https://cloud.tencent.com/document/product/409/42760) 接口查看所有创建的 PostgreSQL for Serverless 实例信息。获取实例的 IP 地址、端口、数据库用户和初始密码。
 ```
 {
@@ -104,4 +105,6 @@ psql -U 数据库用户 -h IP地址 -p 端口
 
 
 ## 销毁实例
+>!实例销毁后，数据无法恢复，请谨慎操作。
+>
 通过 [DeleteServerlessDBInstance](https://cloud.tencent.com/document/product/409/42761) 接口可销毁 PostgreSQL for Serverless 实例。
