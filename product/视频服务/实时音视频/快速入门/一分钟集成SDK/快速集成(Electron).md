@@ -51,6 +51,19 @@ this.rtcCloud = new TRTCCloud();
 this.rtcCloud.getSDKVersion();
 ```
 
+从v7.0.149起，TRTC Electron SDK 增加了 trtc.d.ts 文件，方便使用 typescript 的开发者
+
+```javascript
+// 开启了 ES Module 融合模式 (esModuleInterop=true)
+import * as trtc_namespace from 'trtc-electron-sdk';
+
+const TRTCCloud = require('trtc-electron-sdk');
+
+const rtcCloud: trtc_namespace.TRTCCloud = new TRTCCloud();
+// 获取 SDK 版本号
+rtcCloud.getSDKVersion();
+```
+
 ## 常见问题
 
 ### 1. 防火墙有什么限制？
