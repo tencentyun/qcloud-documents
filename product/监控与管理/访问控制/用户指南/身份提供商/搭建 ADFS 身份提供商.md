@@ -36,7 +36,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 2. 在控制台1-[控制台根节点]页面，单击【文件】>【添加/删除管理单元】，在弹出的窗口中选择证书，单击【添加】>【完成】。如下图所示：
 ![](https://main.qcloudimg.com/raw/18ff77b7fa95202761a4a0aa5cae1ac8.png)
 
-3. 单击【证书】，在展开的目录中，右键单击【个人】，单击【所有任务】>【高级操作】>【创建自定义请求】。如下图所示：
+3. 单击【证书】，<span id="step3">在展开的目录中，右键单击【个人】，单击【所有任务】>【高级操作】>【创建自定义请求】。如下图所示：
 ![](https://main.qcloudimg.com/raw/313fe9dad2800ad49175a5079cd31655.png)
 
 4. 保持页面默认信息，一直单击【下一步】，进入证书注册页面，单击【不使用注册策略继续】，如下图所示：
@@ -80,15 +80,15 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/e7df649fe3184e9e9a046f19fafe29d4.png)
 4. 将申请证书保存的证书文件内容复制之后补充至以下输入框，证书模板选择 Web 服务器，单击【提交】。如下图所示：
 ![](https://main.qcloudimg.com/raw/14c4b4690d0b760a3ebae699533851c7.png)
-5. 申请成功，单击【下载】（两种格式均需下载）。如下图所示：
+5. 申请成功，单击【下载】（两种格式均需下载）<span id="step5">。如下图所示：
 ![](https://main.qcloudimg.com/raw/b3579f3cdfd49db5ead182a6c27e44f6.png)
  
-6. 参考申请证书的第 3 步，右键单击【个人】，单击【所有任务】>【导入】。如下图所示：
+6. 参考申请证书的 [步骤 3](#step3)，右键单击【个人】，单击【所有任务】>【导入】。如下图所示：
 ![](https://main.qcloudimg.com/raw/72ca12debb15a4122d5f7ba72bcc2a7e.png)
-7. 选择第 5 步保存的证书文件，保持页面默认信息，一直单击【下一步】>【完成】。
-8. 参考申请证书的第 3 步，右键单击【个人】，单击【所有任务】>【导出】。如下图所示：
+7. 选择 [步骤 5](#step5) 保存的证书文件，保持页面默认信息，一直单击【下一步】>【完成】。
+8. 参考申请证书的 [步骤 3](#step3)，右键单击【个人】，单击【所有任务】>【导出】。如下图所示：
 ![](https://main.qcloudimg.com/raw/460d0c31c83acc14e4b80a708bf994e4.png)
-9.在证书导出想到页面，选择“是，导出私钥”，勾选“组或用户名名（建议）”，单击下一步，完成导出保存文件。<span id="step1">如下图所示：
+9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
 
@@ -98,7 +98,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 2. 保持页面默认信息，一直单击【下一步】>【完成】，在结果页面，单击【在此服务器上配置联合身份验证服务】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a68753820c34fef24ab06c1ced2ac729.png)
 3. 保持页面默认信息，一直单击【下一步】，进入指定服务属性页面，填写导入以下信息
-SSL 证书：导入生成 SSL 证书中 [步骤 9](#step9) 保存的证书文件。
+SSL 证书：导入在生成 SSL 证书中 [步骤 9](#step9) 保存的证书文件。
 联合身份服务名称：与右上角信息保持一致。
 联合身份验证服务显示名称：用户在登录时看到显示名称。
 如下图所示：
@@ -120,14 +120,15 @@ https://域名/federationmetadata/2007-06/federationmetadata.xml
 https://域名/adfs/ls/idpinitiatedSignOn.htm
 ```
 7. 输入 [步骤4](#step4) 中的账号名称、密码登录，登录成功如下图所示：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318222316599.png)
+![](https://main.qcloudimg.com/raw/a032933d0f3bedbfe31d1cea75459d5c.png)
 
 8.单击服务器管理器-ADFS 页面右上角【工具】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0a1b8c8556dcf41f02e48c530326df82.png)
 9. 选择 ADFS 管理，单击【添加信赖方】，如下图所示：
 ![](https://main.qcloudimg.com/raw/f4f59f90d2b90974428faa31cb4c6df6.png)
-10.在添加先来访新人想到页面，选择“声明感知”，单击【启动】。如下图所示：
+10.在添加信赖方信任向导页面，选择“声明感知”，单击【启动】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a90385d09c006b220c22d0fa342bca1b.png)
+
 11.访问以下链接下载腾讯云身份提供商的 XML 文件。
 
 ```
@@ -139,10 +140,18 @@ https://cloud.tencent.com/saml.xml
 14.单击【信赖方信任】>【添加规则】>【编辑声明颁发策略】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
 15.在选择规则模板页面，单击【选择规则类型】>【下一步】。如下图所示：
+>?
+>```
+<Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">
+                <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
+</AttributeValue>
+            </Attribute>
+            <Attribute Name="键名">
+                <AttributeValue>RoleName</AttributeValue>
+            </Attribute>
+```
 ![](https://main.qcloudimg.com/raw/8909284cac7bc78f80a35bd677f5701c.png)
 ![](https://main.qcloudimg.com/raw/f69d20624306819ddb282c38956037c7.png)
-![](https://main.qcloudimg.com/raw/79c8d72f4fa0551808db43dc2874a74b.png)
-![](https://main.qcloudimg.com/raw/8bdbe90b204c8129ced9e2783da58c28.png)
 
 ### 在腾讯云创建身份提供商
 >?您可以通过本步骤配置 ADFS 和腾讯云之间的信任关系使之相互信任。

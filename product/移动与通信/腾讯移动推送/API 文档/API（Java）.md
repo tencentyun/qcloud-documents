@@ -32,14 +32,14 @@ Maven  依赖引用方式：
 | proxy | Proxy | 否 | Proxy.NO\_PROXY | 如果需要设置代理可以设定该参数 |
 | connectTimeOut | int | 否 | 10s | 链接超时时间设置 |
 | readTimeOut | int | 否 | 10s | 请求超时时间设置 |
-| domainUrl | String | 否 | https://openapi.xg.qq.com | 请求接口服务域名地址默认请求 TPNS 免费集群接口地址，使用时需要更改为 https://api.tpns.tencent.com|
+| domainUrl | String | 否 | https://openapi.xg.qq.com/ | 请求接口服务域名地址默认请求 TPNS 免费集群接口地址，使用时需要更改为 https://api.tpns.tencent.com/|
 
 ### 示例
 ``` java
 XingeApp xingeApp = new XingeApp.Builder()
         .appId(appid)
         .secretKey(secretKey)
-        .domainUrl(“https://api.tpns.tencent.com”)    
+        .domainUrl(“https://api.tpns.tencent.com/”)    
         .build();
 
 PushAppRequest pushAppRequest = new PushAppRequest();

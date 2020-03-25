@@ -9,12 +9,15 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 - **代理机**
 该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求，单位时长计费较低。
 
-在直播模式下，TRTC 引入了角色的概念，用户被分成“主播”和“观众”两种角色，“主播”会被分配到接口机上，"观众"则被分配在代理机，同一个房间的观众人数上限为10万人。
-如果”观众“要上麦，需要先切换角色（switchRole）为”主播”才能发言。切换角色的过程也伴随着用户从代理机到接口机的迁移，TRTC 特有的低延时观看技术和平滑上下麦切换技术，可以让整个切换时间变得非常短暂。
+在直播模式下，TRTC 引入了角色的概念，用户被分成“主播”和“观众”两种角色，“主播”会被分配到接口机上，“观众”则被分配在代理机，同一个房间的观众人数上限为10万人。
+如果“观众”要上麦，需要先切换角色（switchRole）为“主播”才能发言。切换角色的过程也伴随着用户从代理机到接口机的迁移，TRTC 特有的低延时观看技术和平滑上下麦切换技术，可以让整个切换时间变得非常短暂。
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCSimpleDemo) 获取本文档相关的示例代码。
+![](https://main.qcloudimg.com/raw/6604e9db461b459916f8fb5f7e0760d4.png)
+
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)。
 
 ## 操作步骤
 <span id="step1"> </span>

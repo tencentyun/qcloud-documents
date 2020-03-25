@@ -14,6 +14,9 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 
 ## 示例代码
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo) 获取本文档相关的示例代码。
+![](https://main.qcloudimg.com/raw/6baf3fba222db297fa4763d45b57b981.png)
+
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
 ## 操作步骤
 <span id="step1"> </span>
@@ -46,7 +49,7 @@ pod install
 | Key | Value |
 |---------|---------|
 | Privacy - Camera Usage Description | 描述使用摄像头权限的原因，例如，需要访问您的相机权限，开启后视频聊天才会有画面 |
-| Privacy - Microphone Usage Description | 描述使用麦克风权限的原因，例如如：需要访问您的麦克风权限，开启后聊天才会有声音 |
+| Privacy - Microphone Usage Description | 描述使用麦克风权限的原因，例如，需要访问您的麦克风权限，开启后聊天才会有声音 |
 
 <span id="step3"> </span>
 ### 步骤3：初始化 SDK 实例并监听事件回调

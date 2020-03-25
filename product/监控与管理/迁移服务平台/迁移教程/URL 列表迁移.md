@@ -31,9 +31,7 @@
 任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 3. 设置要迁移的文件来源。
 此处迁移源服务提供商应选择 URL 列表。MSP 支持本地上传 URL 列表文件和添加 URL 列表文件下载地址两种方式。如果文件记录数较多，URL 列表文件较大，浏览器上传可能会超时，建议先将 URL 列表文件保存到 COS，选择【提供 URL 列表文件下载地址】，填写此文件的 COS URL 访问地址。文件列表请在 txt 文件中请按行列出。
-例如：
-`http://xxx.xxx.xxx/xxx/l.jpg`
-`http://xxx.xxx.xxx/xxx/xxx/xxxxxx/test.mp4`
+例如：选择“提供 URL 列表文件下载地址”的使用方式，下载地址为`http://xxx.xxx.xxx/url.txt`，其中`url.txt`包含 URL `http://xxx.xxx.xxx/xxx/l.jpg`和`http://xxx.xxx.xxx/xxx/xxx/xxxxxx/test.mp4`，那么届时迁移服务平台将会对`l.jpg`和`test.mp4`进行迁移。
 ![](https://main.qcloudimg.com/raw/afa00a5039e915355b1f2e1270edbfb3.jpg)
 4. 设置任务执行时间。
 数据迁移会占用源厂商的网络资源，您可以根据自身业务情况，在此处灵活设置迁移任务的开始执行时间。

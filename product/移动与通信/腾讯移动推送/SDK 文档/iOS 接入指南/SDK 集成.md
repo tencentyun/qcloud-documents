@@ -114,7 +114,7 @@ pod install //安装SDK
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 调用头文件中的配置 `HOST` 接口：
  - 如需接入新加坡集群则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
- - 如需接入香港集群则将 `HOST` 设置为`https://api.tpns.hk.tencent.com`, `PORT `设置为0。
+ - 如需接入中国香港集群则将 `HOST` 设置为`https://api.tpns.hk.tencent.com`, `PORT `设置为0。
  
 **示例**
 ``` object-c
@@ -143,7 +143,7 @@ pod install //安装SDK
 
 ```objective-c
 /**
- @brief 监控腾讯移动推送服务地启动情况
+ @brief 监控腾讯移动推送服务地启动情况（已废弃）
 
  @param isSuccess 腾讯移动推送是否启动成功
  @param error 腾讯移动推送启动错误的信息
@@ -151,12 +151,13 @@ pod install //安装SDK
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
 
 /**
- @brief 向腾讯移动推送服务器注册设备token的回调
+ @brief 注册推送服务回调
  
- @param deviceToken 当前设备的token
- @param error 错误信息
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
-
+ @param deviceToken APNs 生成的 Device Token
+ @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
+ @param error 错误信息，若 error 为 nil 则注册推送服务成功
+ */
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 ```
 
 #### 观察日志

@@ -1,4 +1,4 @@
-腾讯云移动直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包，即送移动直播基础版 License 1年使用权限，资源包与 SDK License 版本对应关系请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
+移动直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包，即送移动直播基础版 License 1年使用权限，资源包与 SDK License 版本对应关系请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 
 
 ## 测试版 License
