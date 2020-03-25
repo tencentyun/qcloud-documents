@@ -46,7 +46,7 @@ dependencies {
 
 }
 ```
-
+4. 境外集群接入方法请参考下文 [境外集群接入方法](https://cloud.tencent.com/document/product/548/36652#JWjieru)。
 
 >!
 - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
