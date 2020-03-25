@@ -39,7 +39,7 @@ Maven  依赖引用方式：
 XingeApp xingeApp = new XingeApp.Builder()
         .appId(appid)
         .secretKey(secretKey)
-        .domainUrl(“https://api.tpns.tencent.com”)    
+        .domainUrl(“https://api.tpns.tencent.com/”)    
         .build();
 
 PushAppRequest pushAppRequest = new PushAppRequest();
