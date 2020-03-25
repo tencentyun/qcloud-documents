@@ -18,7 +18,7 @@ PostgreSQL for Serverless 不支持如下操作：
 ## 创建实例
 目前可通过云 API 创建 PostgreSQL for Serverless（ServerlessDB）实例，接口名：[CreateServerlessDBInstance](https://cloud.tencent.com/document/product/409/42762)。
 
-下表为输入参数：
+下表描述了部分重要的输入参数，详情请参见 [创建 ServerlessDB 实例](https://cloud.tencent.com/document/product/409/42762)：
 
 | 参数名         | 必填项 | 类型   | 介绍                                                        |
 | -------------- | ------ | ------ | ----------------------------------------------------------- |
@@ -97,7 +97,14 @@ PostgreSQL for Serverless 不支持如下操作：
 }
 ```
 
-2. 通过客户端执行如下命令访问数据库。
+2. 安装客户端，本文以 CentOS 7.2 64 位系统的云服务器为例，执行如下命令安装 PostgreSQL 客户端：
+```
+yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
+yum install postgresql10 postgresql10.x86_64
+```
+3. 执行如下命令连接数据库。
+>?内网连接时，需使用 [云服务器 CVM](https://cloud.tencent.com/document/product/213/2936#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) 访问云数据库的内网地址，CVM 和数据库须是同一账号，且同一个 VPC 内（保障同一个地域）。
+>
 ```
 psql -U 数据库用户 -h IP地址 -p 端口
 ```
