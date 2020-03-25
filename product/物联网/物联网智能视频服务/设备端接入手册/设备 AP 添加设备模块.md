@@ -149,5 +149,5 @@ typedef struct iv_ad_ap_get_wifi_info_s
 成员名称 | 描述 | 取值
 ---|---|---
 u32EncryptType  | 加密类型| iv_cm_wifi_enc_type_e
-u8Ssid  | WiFi SSID | -
+u8Ssid  | Wi-Fi SSID | -
 u8Password  | Wi-Fi 密码 | -
