@@ -25,7 +25,7 @@
 - 如果您需要一直使用此功能，但误删除了【cosCkafka_QCSRole】角色，将会影响消息存储到 COS，请及时重新创建角色。
 
 具体创建步骤如下：
-1. 主账号登录【[访问管理控制台](https://console.cloud.tencent.com/cam/overview)】，在左侧导航栏中选择【角色】>【新建角色】>【腾讯云账号】，填写其他账号 ID：91000000031。
+1. 主账号登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，在左侧导航栏中选择【角色】>【新建角色】>【腾讯云账号】，填写其他账号 ID：91000000031。
 ![](https://main.qcloudimg.com/raw/c4b83be38d3393224c5aed37008a1c02.png)
 2. 搜索策略：QcloudCOSAccessForCkafkaRole，选中后单击【下一步】。
 ![](https://main.qcloudimg.com/raw/787c4bde85226c5f62596aa92a9ff235.png)
@@ -38,9 +38,10 @@
 5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
 ![](https://main.qcloudimg.com/raw/d956ce9ec5f09e3dd5d8e2fd6b6f39ec.png)
 
->? 注意
-子账号创建的实例或者Topic使用消息存储到 COS，主帐号需要授权子帐号可以传递指定角色（Pass Role）给腾讯云CKafka服务（如果没有此步骤，则子帐号无法通过CKafka服务访问 COS 资源）。
-您可以创建自定义策略并授权子账号，PassRole 策略语法如下
+>!子账号创建的实例或者 Topic 使用消息存储到 COS，主帐号需要授权子帐号可以传递指定角色（Pass Role）给腾讯云 CKafka 服务（如果没有此步骤，则子帐号无法通过 CKafka 服务访问 COS 资源）。
+
+您可以创建自定义策略并授权子账号，PassRole 策略语法如下：
+```
 {
     "version": "2.0",
     "statement": [
@@ -51,6 +52,7 @@
         }
     ]
 }
+```
 
 <span id="limit"></span>
 ## 产品限制和费用计算
