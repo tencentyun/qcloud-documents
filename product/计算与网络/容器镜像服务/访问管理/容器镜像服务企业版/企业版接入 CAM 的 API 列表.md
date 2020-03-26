@@ -38,10 +38,6 @@
 <td align="left"><code>qcs::tcr:$region:$account:instance/*</code>  <code>qcs::tcr:$region:$account:instance/$instanceid</code></td>
 </tr>
 <tr>
-<td align="left"><a href="https://cloud.tencent.com/document/product/1141/41570">DescribeInstanceStatus</a><br>查询实例状态</td>
-<td align="left">instance</td>
-<td align="left"><code>qcs::tcr:$region:$account:instance/$instanceid</code></td>
-</tr>
 <tr>
 <td align="left"><a href="https://cloud.tencent.com/document/product/1141/42910">ModifyInstanceToken</a><br>更新实例长期访问凭证</td>
 <td align="left">instance</td>
