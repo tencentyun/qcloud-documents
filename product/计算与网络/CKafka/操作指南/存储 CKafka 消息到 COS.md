@@ -38,7 +38,7 @@
 5. 在 CKafka 控制台中，观察 Consumer Group 数据消费是否正常。
 ![](https://main.qcloudimg.com/raw/d956ce9ec5f09e3dd5d8e2fd6b6f39ec.png)
 
->!子账号创建的实例或者 Topic 使用消息存储到 COS，主帐号需要授权子帐号可以传递指定角色（Pass Role）给腾讯云 CKafka 服务（如果没有此步骤，则子帐号无法通过 CKafka 服务访问 COS 资源）。
+>!子账号创建的实例或者 topic 使用消息存储到 COS，主帐号需要授权子帐号可以传递指定角色（Pass Role）给腾讯云 CKafka 服务（如果没有此步骤，则子帐号无法通过 CKafka 服务访问 COS 资源）。
 
 您可以创建自定义策略并授权子账号，PassRole 策略语法如下：
 ```
