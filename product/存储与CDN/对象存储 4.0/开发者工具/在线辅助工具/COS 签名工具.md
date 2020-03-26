@@ -38,8 +38,8 @@ API 密钥中的信息均为必填项。
 - **HttpURI：**必填项。HTTP 请求 URI 部分，即您需要发起请求的对象名称。
 - **HttpParameters：**可选项。HTTP 请求参数。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行 URLEncode，多个 key 以字典排序。
  例如，“prefix=abc” 代表指定访问对象前缀为 abc 的对象。
-- **HttpHeaders：**可选项。HTTP 请求头部。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行URLEncode，多个 key 以字典排序。
- 例如，“Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com ”代表该签名可访问账户 1254000000 的存储桶 bucket1 下的指定文件。
+- **HttpHeaders：**可选项。HTTP 请求头部。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行 URLEncode，多个 key 以字典排序。
+ 例如，`Host:bucket1-1254000000.cos.ap-beijing.myqcloud.com`代表该签名可访问账户 1254000000 的存储桶 bucket1 下的指定文件，对应的 HttpHeaders 为`host=bucket1-1254000000.cos.ap-beijing.myqcloud.com`。
 
 相关 HTTP 请求参数的详细描述，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E6.AD.A5.E9.AA.A47.EF.BC.9A.E7.94.9F.E6.88.90-signature)。
 

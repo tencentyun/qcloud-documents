@@ -195,7 +195,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| To_Account | Array | 必填 |需要拉取这些 Identifier 的资料  |
+| To_Account | Array | 必填 |需要拉取这些 UserID 的资料  |
 | TagList | Array | 必填 |指定要拉取的资料对象的名称，支持标配资料和自定义资料的拉取，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5),自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |
 
 
@@ -414,7 +414,7 @@ getProfilePortrait: function(options, cbOk, cbErr) {},
 | 字段 | 类型 | 说明 |
 |---------|---------|---------|
 | UserProfileItem | Array | 返回的用户资料结构化信息 |
-| To_Account | String |返回的用户的 Identifier  |
+| To_Account | String |返回的用户的 UserID  |
 | ProfileItem | Array | 返回的用户的资料对象数组，数组中每一个对象都包含了 Tag 和 Value |
 | Tag | String | 返回的资料对象的名称，标配资料的相关信息参见：[标配资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E6.A0.87.E9.85.8D.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5),自定义资料的相关信息参见：[自定义资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5) |
 | Value | String | 拉取的资料对象的值，详情可参见：[资料字段](http://cloud.tencent.com/doc/product/269/%E8%B5%84%E6%96%99%E7%B3%BB%E7%BB%9F#.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)  |

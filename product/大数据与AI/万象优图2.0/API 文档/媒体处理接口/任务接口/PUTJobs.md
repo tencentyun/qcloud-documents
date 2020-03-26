@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于取消一个任务。
+CancelMediaJob 接口用于取消一个任务。
 
 ## 请求
 
@@ -58,6 +58,5 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
-
 ```
 

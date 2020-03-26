@@ -96,8 +96,8 @@ ITMGContext -(int)InitEngine:(NSString*)sdkAppID openID:(NSString*)openId
 
 |返回值|处理|
 |----|----|
-|QAVError.OK|初始化 SDK 成功|
-|7015 AV_ERR_SDK_NOT_FULL_UPDATE|检查 SDK 文件是否完整，建议删除后重新导入 SDK|
+|QAV_OK= 0|初始化 SDK 成功|
+|QAV_ERR_SDK_NOT_FULL_UPDATE= 7015|检查 SDK 文件是否完整，建议删除后重新导入 SDK|
 
 ####  示例代码 
 
@@ -242,13 +242,13 @@ ITMGContext   -(int)EnterRoom:(NSString*) roomId roomType:(int*)roomType authBuf
 | ITMG_MAIN_EVENT_TYPE_ENTER_ROOM    				|result; error_info					|{"error_info":"","result":0}|
 
 #### 错误码
-|错误码名称|错误码值|原因及建议方案|
-|--------|-------|------------|
-|AV_ERR_AUTH_FIALD         |7006|鉴权失败 有以下几个原因：1、AppID 不存在或者错误，2、authbuff 鉴权错误，3、鉴权过期 4、openID不符合规范。|
-|AV_ERR_IN_OTHER_ROOM      |7007|已经在其它房间。|
-|AV_ERR_REPEATED_OPERATION  |1001   |已经在进房过程中，然后又重复了此操作。建议在进房回调返回之前不要再调用进房接口。|
-|AV_ERR_HAS_IN_THE_STATE    |1003   |已经进房了在房间中，又调用一次进房接口。|
-|AV_ERR_CONTEXT_NOT_EXIST   |1101   |确保已经初始化 SDK，或者确保在同一线程调用接口，以及确保 Poll 接口正常调用。|
+|错误码值|原因及建议方案|
+|-------|------------|
+|7006|鉴权失败 有以下几个原因：1、AppID 不存在或者错误，2、authbuff 鉴权错误，3、鉴权过期 4、openID不符合规范。|
+|7007|已经在其它房间。|
+|1001   |已经在进房过程中，然后又重复了此操作。建议在进房回调返回之前不要再调用进房接口。|
+|1003   |已经进房了在房间中，又调用一次进房接口。|
+|1101   |确保已经初始化 SDK，或者确保在同一线程调用接口，以及确保 Poll 接口正常调用。|
 
 ### 判断是否已经进入房间
 通过调用此接口可以判断是否已经进入房间，返回值为 bool 类型。

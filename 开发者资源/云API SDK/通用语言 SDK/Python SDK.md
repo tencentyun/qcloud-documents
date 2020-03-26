@@ -191,6 +191,13 @@ except TencentCloudSDKException as err:
     print(err)
 ```
 
+## 相关配置
+### 代理
+在有代理的环境下，需要设置系统环境变量 `https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+
+### 证书问题
+在 Mac 操作系统下，Python 不再使用系统默认的证书，且本身也不提供证书，在进行 HTTPS 请求时，需要使用 certifi 库提供的证书，但 SDK 不支持指定。
+因此在 Mac 操作系统安装 Python 3.6 或以上版本时，您需要使用`/Applications/Python 3.6/Install Certificates.command`命令安装证书，以防出现证书错误`Error: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1056).`。
 
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请参考 [旧版 Python SDK ](https://github.com/QcloudApi/qcloudapi-sdk-python)，但不再维护更新，推荐使用新版 SDK。

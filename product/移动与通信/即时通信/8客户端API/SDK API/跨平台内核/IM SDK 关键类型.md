@@ -173,8 +173,8 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
-| kTIMSetConfigLogLevel |  uint [TIMLogLevel](#timloglevel)  | 只写（选填） | 输出到日志文件的日子级别 |
-| kTIMSetConfigCackBackLogLevel |  uint [TIMLogLevel](#timloglevel)  | 只写（选填） | 日子回调的日志级别 |
+| kTIMSetConfigLogLevel |  uint [TIMLogLevel](#timloglevel)  | 只写（选填） | 输出到日志文件的日志级别 |
+| kTIMSetConfigCackBackLogLevel |  uint [TIMLogLevel](#timloglevel)  | 只写（选填） | 日志回调的日志级别 |
 | kTIMSetConfigIsLogOutputConsole | bool | 只写（选填） | 是否输出到控制台 |
 | kTIMSetConfigUserConfig |  object [UserConfig](#userconfig)  | 只写（选填） | 用户配置 |
 | kTIMSetConfigUserDefineData | string | 只写（选填） | 自定义数据，如果需要，初始化前设置 |

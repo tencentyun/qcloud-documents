@@ -23,7 +23,7 @@ Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.co
 
 
 ### 配置推送通道
-为兼容 OPPO 手机安卓10以上的通道配置，用户需在 OPPO 管理台上，创建一个 TPNS 推送的默认通道。详情请参见 [OPPO 官方文档](https://open.oppomobile.com/wiki/doc/#id=10198)。
+为兼容安卓8.0及以上版本的 OPPO 手机的通道配置，用户需在 OPPO 管理台上，创建一个 TPNS 推送的默认通道。详情请参见 [OPPO 官方文档](https://open.oppomobile.com/wiki/doc/#id=10198)。
 具体内容为：
 - “通道 ID”：“default_message”
 - “通道名称”：“默认通知”

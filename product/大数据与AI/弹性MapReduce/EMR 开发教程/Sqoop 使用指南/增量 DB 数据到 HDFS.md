@@ -53,7 +53,8 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
 其中 $mysqlIP 为您的 MySQL 数据库的内网地址。
 
 执行命令会需要您输入数据库的密码，默认为您创建 EMR 集群时设置的密码。比普通的 sqoop-import 命令多出一些参数，其中 --check-column 为导入时参照的数据，--incremental 为导入的模式，在此例中为 append，--last-value 为参考数据的参考值，比该值更新的数据都会导入到 HDFS 中。
-执行成功之后，可以查看 HDFS 相应目录下更新后的数据：
+
+执行成功后，可以查看 HDFS 相应目录下更新后的数据：
 ```
 [hadoop@172 sqoop]$ hadoop fs -cat /sqoop/*
 1, first, 2018-07-03 15:29:37.0,hdfs
@@ -72,7 +73,7 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
   <value>ture</value>
 </property>
 ```
-然后在bin目录下启动 sqoop-metastore 服务：
+然后在 bin 目录下启动 sqoop-metastore 服务：
 ```
 ./sqoop-metastore &
 ```
@@ -108,7 +109,6 @@ Mysql> select * from sqoop_test;
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --exec job1
 ```
-
 执行该命令会让您输入 MySQL 的密码。执行成功后，可以查看 HDFS 相应目录下更新后的数据：
 ```
 [hadoop@172 sqoop]$ hadoop fs -cat /sqoop/*
@@ -128,7 +128,7 @@ mysql> select max(time) from sqoop_test;
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --create job2 -- import --connect jdbc:mysql://$mysqlIP/test --username root -P --table sqoop_test --check-column time --incremental lastmodified --merge-key id --last-value '2018-07-03 16:02:29' --target-dir /sqoop
 ```
-其中 $mysqlIP 为您的 MySQL 的内网地址。新增了几个参数，--check-column 必须使用 timestamp，--incremental 模式选择 lastmodified，--merge-key 选择 ID，--last-value 为我们查询到的表中的最后更新时间。在这个时间之后做出的更新都会被同步到 HDFS 中去，而 Sqoop job 每次会自动保存和更新该值。
+其中 $mysqlIP 为您的 MySQL 的内网地址。新增了几个参数，--check-column 必须使用 timestamp，--incremental 模式选择 lastmodified，--merge-key 选择 ID，--last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
 
 对 MySQL 中的 sqoop_test 表添加数据并做出更改：
 ```
@@ -156,7 +156,6 @@ Mysql> select * from sqoop_test;
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --exec job2
 ```
-
 执行该命令会让您输入 MySQL 的密码。执行成功后，可以查看 HDFS 相应目录下更新后的数据：
 ```
 [hadoop@172 sqoop]$ hdfs dfs -cat /sqoop/*

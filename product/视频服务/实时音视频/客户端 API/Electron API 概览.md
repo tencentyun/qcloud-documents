@@ -32,18 +32,18 @@ subscribeEvents(this.rtcCloud);
 
 | API | 描述 |
 |-----|-----|
-| [getTRTCShareInstance](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，获取 [ITRTCCloud](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html) 对象指针。 |
-| [destroyTRTCShareInstance](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [ITRTCCloud](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html) 单例对象。 |
+| [getTRTCShareInstance](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#.getTRTCShareInstance) | 用于动态加载 dll 时，创建 [ITRTCCloud](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html) 对象单例。 |
+| [destroyTRTCShareInstance](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#.destroyTRTCShareInstance) | 释放 [ITRTCCloud](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html) 单例对象并清理资源。 |
 
 ### 房间相关接口函数
 
 | API | 描述 |
 |-----|-----|
 | [enterRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#enterRoom) | 进入房间。 |
-| [exitRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#exitRoom) | 离开房间。 |
-| [switchRole](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#switchRole) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE）。 |
-| [connectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#connectOtherRoom) | 请求跨房通话（主播 PK）。 |
-| [disconnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#disconnectOtherRoom)| 关闭跨房连麦。 |
+| [exitRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#exitRoom) | 退出房间。 |
+| [switchRole](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#switchRole) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
+| [connectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#connectOtherRoom) | 请求跨房连麦（主播跨房 PK）。 |
+| [disconnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#disconnectOtherRoom)| 关闭跨房连麦（主播跨房 PK）。 |
 
 
 ### CDN 相关接口函数
@@ -52,8 +52,8 @@ subscribeEvents(this.rtcCloud);
 |-----|-----|
 | [startPublishing](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPublishing) | 开始向腾讯云的直播 CDN 推流。 |
 | [stopPublishing](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPublishing) | 停止向腾讯云的直播 CDN 推流。 |
-| [startPublishCDNStream](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPublishCDNStream) | 开始向友商云的直播 CDN 转推。 |
-| [stopPublishCDNStream](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPublishCDNStream) | 停止向非腾讯云地址转推。 |
+| [startPublishCDNStream](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPublishCDNStream) | 开始向非腾讯云的直播 CDN 转推。|
+| [stopPublishCDNStream](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPublishCDNStream) | 停止向非腾讯云的直播 CDN 推流。 |
 | [setMixTranscodingConfig](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMixTranscodingConfig) | 设置云端的混流转码参数。 |
 
 
@@ -61,8 +61,8 @@ subscribeEvents(this.rtcCloud);
 
 | API | 描述 |
 |-----|-----|
-| [startLocalPreview](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startLocalPreview) | 开启本地视频的预览画面。 |
-| [stopLocalPreview](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopLocalPreview) | 停止本地视频采集及预览。 |
+| [startLocalPreview](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startLocalPreview) | 启动本地摄像头采集和预览。 |
+| [stopLocalPreview](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopLocalPreview) | 停止本地摄像头采集和预览。 |
 | [muteLocalVideo](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#muteLocalVideo) | 是否屏蔽自己的视频画面。 |
 | [startRemoteView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startRemoteView) | 开始显示远端视频画面。 |
 | [stopRemoteView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopRemoteView) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
@@ -106,7 +106,7 @@ subscribeEvents(this.rtcCloud);
 | API | 描述 |
 |-----|-----|
 | [getCameraDevicesList](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCameraDevicesList) | 获取摄像头设备列表。 |
-| [setCurrentCameraDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentCameraDevice) | 设置需要使用的摄像头。 |
+| [setCurrentCameraDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentCameraDevice) | 设置要使用的摄像头。 |
 | [getCurrentCameraDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentCameraDevice) | 获取当前使用的摄像头。 |
 
 
@@ -121,7 +121,7 @@ subscribeEvents(this.rtcCloud);
 | [setCurrentMicDeviceVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentMicDeviceVolume) | 设置系统当前麦克风设备的音量。 |
 | [getSpeakerDevicesList](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getSpeakerDevicesList) | 获取扬声器设备列表。 |
 | [getCurrentSpeakerDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerDevice) | 获取当前的扬声器设备。 |
-| [setCurrentSpeakerDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDevice) | 设置需要使用的扬声器。 |
+| [setCurrentSpeakerDevice](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDevice) | 设置要使用的扬声器。 |
 | [getCurrentSpeakerVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerVolume) | 获取系统当前扬声器设备音量。 |
 | [setCurrentSpeakerVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerVolume) | 设置系统当前扬声器设备音量。 |
 
@@ -138,18 +138,18 @@ subscribeEvents(this.rtcCloud);
 
 | API | 描述 |
 |-----|-----|
-| [startRemoteSubStreamView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startRemoteSubStreamView) | 开始渲染远端用户辅流画面。 |
-| [stopRemoteSubStreamView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopRemoteSubStreamView) | 停止显示远端用户的屏幕分享画面。 |
-| [setRemoteSubStreamViewFillMode](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteSubStreamViewFillMode) | 设置辅流画面的渲染模式。 |
-| [setRemoteSubStreamViewRotation](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteSubStreamViewRotation) | 设置屏幕分享画面的顺时针旋转角度。 |
-| [getScreenCaptureSources](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getScreenCaptureSources) | 枚举可共享的窗口列表，。 |
+| [startRemoteSubStreamView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startRemoteSubStreamView) | 开始渲染远端用户的辅流（屏幕分享）画面。 |
+| [stopRemoteSubStreamView](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopRemoteSubStreamView) | 停止渲染远端用户的辅流（屏幕分享）画面。 |
+| [setRemoteSubStreamViewFillMode](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteSubStreamViewFillMode) | 设置辅流（屏幕分享）画面的渲染模式。 |
+| [setRemoteSubStreamViewRotation](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteSubStreamViewRotation) | 设置辅流（屏幕分享）画面的顺时针旋转角度。 |
+| [getScreenCaptureSources](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getScreenCaptureSources) | 枚举可共享的窗口列表。 |
 | [selectScreenCaptureTarget](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#selectScreenCaptureTarget) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
 | [startScreenCapture](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startScreenCapture) | 启动屏幕分享。 |
 | [pauseScreenCapture](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#pauseScreenCapture) | 暂停屏幕分享。 |
 | [resumeScreenCapture](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#resumeScreenCapture) | 恢复屏幕分享。 |
-| [stopScreenCapture](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopScreenCapture) | 停止屏幕采集。 |
-| [setSubStreamEncoderParam](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSubStreamEncoderParam) | 设置屏幕分享的编码器参数。 |
-| [setSubStreamMixVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSubStreamMixVolume) | 设置辅流的混音音量大小。 |
+| [stopScreenCapture](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopScreenCapture) | 停止屏幕分享。 |
+| [setSubStreamEncoderParam](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSubStreamEncoderParam) | 设置辅流（屏幕分享）的编码器参数。 |
+| [setSubStreamMixVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSubStreamMixVolume) | 设置辅流（屏幕分享）的混音音量大小。 |
 
 
 ### 自定义采集和渲染
@@ -175,14 +175,14 @@ subscribeEvents(this.rtcCloud);
 | [stopBGM](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopBGM) | 停止播放背景音乐。 |
 | [pauseBGM](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#pauseBGM) | 暂停播放背景音乐。 |
 | [resumeBGM](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#resumeBGM) | 继续播放背景音乐。 |
-| [getBGMDuration](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getBGMDuration) | 获取音乐文件总时长，单位毫秒。 |
-| [setBGMPosition](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPosition) | 设置 BGM 播放进度。 |
+| [getBGMDuration](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getBGMDuration) | 获取背景音乐文件总时长，单位毫秒。 |
+| [setBGMPosition](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPosition) | 设置背景音乐播放进度。 |
 | [setBGMVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMVolume) | 设置背景音乐播放音量的大小。 |
 | [setBGMPlayoutVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPlayoutVolume) | 设置背景音乐本地播放音量的大小。 |
 | [setBGMPublishVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPublishVolume) | 设置背景音乐远端播放音量的大小。 |
-| [startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback) | 打开系统声音采集（64位 SDK 尚不支持系统混音能力）。 |
-| [stopSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSystemAudioLoopback) | 关闭系统声音采集。 |
-| [setSystemAudioLoopbackVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSystemAudioLoopbackVolume) | 设置系统声音采集的音量。 |
+| [startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback) | 打开系统声音采集（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
+| [stopSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSystemAudioLoopback) | 关闭系统声音采集（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
+| [setSystemAudioLoopbackVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSystemAudioLoopbackVolume) | 设置系统声音采集的音量（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
 
 
 ### 音效相关接口函数
@@ -206,9 +206,9 @@ subscribeEvents(this.rtcCloud);
 | [stopSpeedTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSpeedTest) | 停止网络测速。 |
 | [startCameraDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startCameraDeviceTest) | 开始进行摄像头测试。 |
 | [stopCameraDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopCameraDeviceTest) | 停止摄像头测试。 |
-| [startMicDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startMicDeviceTest) | 开启麦克风测试。 |
+| [startMicDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startMicDeviceTest) | 开始进行麦克风测试。 |
 | [stopMicDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopMicDeviceTest) | 停止麦克风测试。 |
-| [startSpeakerDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSpeakerDeviceTest) | 开启扬声器测试。 |
+| [startSpeakerDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSpeakerDeviceTest) | 开始进行扬声器测试。 |
 | [stopSpeakerDeviceTest](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSpeakerDeviceTest) | 停止扬声器测试。 |
 
 
@@ -249,10 +249,10 @@ subscribeEvents(this.rtcCloud);
 | API | 描述 |
 |-----|-----|
 | [onEnterRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onEnterRoom) | 已加入房间的回调。 |
-| [onExitRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onExitRoom) | 离开房间的事件回调。 |
+| [onExitRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onExitRoom) | 退出房间的事件回调。 |
 | [onSwitchRole](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSwitchRole) | 切换角色的事件回调。 |
-| [onConnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onConnectOtherRoom) | 请求跨房通话（主播 PK）的结果回调。 |
-| [onDisconnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onDisconnectOtherRoom) | 结束跨房通话（主播 PK）的结果回调。 |
+| [onConnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onConnectOtherRoom) | 请求跨房连麦（主播跨房 PK）的结果回调。 |
+| [onDisconnectOtherRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onDisconnectOtherRoom) | 关闭跨房连麦（主播跨房 PK）的结果回调。 |
 
 
 ### 成员事件回调
@@ -337,7 +337,7 @@ subscribeEvents(this.rtcCloud);
 | [onScreenCaptureStarted](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onScreenCaptureStarted) | 当屏幕分享开始时，SDK 会通过此回调通知。 |
 | [onScreenCapturePaused](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onScreenCapturePaused) | 当屏幕分享暂停时，SDK 会通过此回调通知。 |
 | [onScreenCaptureResumed](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onScreenCaptureResumed) | 当屏幕分享恢复时，SDK 会通过此回调通知。 |
-| [onScreenCaptureStoped](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onScreenCaptureStoped) | 当屏幕分享停止时，SDK 会通过此回调通知。 |
+| [onScreenCaptureStopped](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onScreenCaptureStopped) | 当屏幕分享停止时，SDK 会通过此回调通知。 |
 
 
 ### 背景混音事件回调

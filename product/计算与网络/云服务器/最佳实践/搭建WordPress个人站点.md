@@ -113,9 +113,9 @@ vim wp-config.php
 4. 修改完成后，按“**Esc**”，输入“**:wq**”，保存文件返回。
 
 ### 步骤6：验证 WordPress 安装
-1. 在浏览器地址栏输入云服务器实例的公网 IP 加上 wordpress 文件夹，例如：
+1. 在浏览器地址栏输入`http://域名或云服务器实例的公网 IP/wordpress 文件夹`，例如：
 ```
-http://192.xxx.xxx.xx /wordpress
+http://192.xxx.xxx.xx/wordpress
 ```
 转至 WordPress 安装页，开始配置 WordPress。
 ![配置WP1](https://main.qcloudimg.com/raw/c79c35b3d75f763561d7024f46983611.png)

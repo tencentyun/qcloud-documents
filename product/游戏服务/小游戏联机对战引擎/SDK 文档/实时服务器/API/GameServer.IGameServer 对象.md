@@ -75,7 +75,8 @@ IPlayerInfo 定义如下：
 
 GameData 默认为 object 类型，开发者可以根据需要进行自定义。
 
->? onInitGameData 方法是在 onCreateRoom 之后，收到 onRecvFromClient 广播时检查 gameData：如果 gameData 为空，先执行 onInitGameData 再执行 onRecvFromClient；如果 gameData 不为空，只执行 onRecvFromClient。
+
+>?onInitGameData 方法是在收到任意广播时检查 gameData，如果 gameData 为空，先执行 onInitGameData 再执行广播回调函数。
 
 **使用示例**
 

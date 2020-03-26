@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于获取媒体文件的信息。
+GenerateMediainfo 接口用于获取媒体文件的信息。
 
 ## 请求
 
@@ -243,7 +243,7 @@ Content-Type: application/xml
 
 <Request>
   <Input>
-    <Object>/video-for-test.mp4</Object>
+    <Object>video-for-test.mp4</Object>
   </Input>
 </Request>
 ```

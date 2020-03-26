@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于拉取符合条件的任务列表。
+DescribeMediaJobs 用于拉取符合条件的任务。
 
 ## 请求
 
@@ -66,7 +66,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息，同 PostJobs 接口中的 Response.JobsDetail 节点 | Container |
+| JobsDetail         | Response | 任务的详细信息，同 CreateMediaJobs 接口中的 Response.JobsDetail 节点 | Container |
 | NextToken          | Response | 翻页的上下文 Token                                           | String    |
 
 #### 错误码

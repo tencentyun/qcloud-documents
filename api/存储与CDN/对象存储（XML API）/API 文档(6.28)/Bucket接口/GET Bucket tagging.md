@@ -1,6 +1,6 @@
 ## 功能描述
 
-COS 支持为已存在的 Bucket 设置标签（Tag）。GET Bucket tagging 接口用于查询指定存储桶下已有的存储桶标签。
+COS 支持为已存在的 Bucket 查询标签（Tag）。GET Bucket tagging 接口用于查询指定存储桶下已有的存储桶标签。
 
 > ?若您使用子账号调用此项接口，请确保您已经在主账号处获取了 GET Bucket tagging 这个接口的权限。
 

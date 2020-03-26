@@ -2,8 +2,8 @@
 
 ## 环境要求
 - 最低兼容 Android 4.1（SDK API Level 16），建议使用 Android 5.0 （SDK API Level 21）及以上版本
-- Android Studio 2.0 及以上版本
-- App 要求 Android 4.1 及以上设备
+- Android Studio 3.5及以上版本
+- App 要求 Android 4.1及以上设备
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -24,7 +24,7 @@
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开`Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/debug/GenerateTestUserSig.java`文件。
+2. 找到并打开`Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java`文件。
 3. 设置`GenerateTestUserSig.java`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -36,7 +36,7 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤4：编译运行
-使用 Android Studio（3.2 以上的版本）打开源码工程`TRTCDemo`，单击【运行】即可。
+使用 Android Studio（3.5及以上的版本）打开源码工程`TRTCDemo`，单击【运行】即可。
 
 ## 常见问题
 
