@@ -25,7 +25,7 @@ java -version
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
 | Windows  | 将字符串“;C:\Program Files\Java\jdk1.6.0_21\bin”添加到系统变量“Path”的末尾 |
-| Linux    | export PATH=PATH:JAVA_HOME/bin/                              |
+| Linux    | export PATH=$PATH:$JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
 使用上面提到的 **java -version** 命令验证 Java 安装。
