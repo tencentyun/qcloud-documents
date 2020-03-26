@@ -1,9 +1,7 @@
 ### WAF 支持哪些非标端口？
-- WAF 高级版默认⽀持 HTTP（80/8080）和 HTTPS（443/8443）标准端口防护。
-- 企业版和旗舰版⽀持更多的⾮标端口防护。
+WAF 高级版默认⽀持 HTTP（80/8080）和 HTTPS（443/8443）标准端口防护。
 >?
-	- WAF 套餐非标端口支持情况，可以在控制台进行查看，一个域名最多可配置5个端口。登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config) ，在左侧导航中选择【Web 应用防火墙】>【防护设置】，在防护设置页面，单击【添加域名】，在域名配置的服务器配置中，选择对应的协议进行查看。
-	- 负载均衡型 WAF 无非标端口限制。
+- WAF 套餐非标端口支持情况，可以在控制台进行查看。登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config) ，在左侧导航中选择【Web 应用防火墙】>【防护设置】，在防护设置页面，单击【添加域名】，在域名配置的服务器配置中，选择对应的协议进行查看，一个域名最多可配置5个端口。
 
 企业版和旗舰版套餐中支持的非标端口如下：
 <style>
@@ -17,5 +15,5 @@ table th:first-of-type {
 |HTTPS 协议|443、4443、5100、5200、5443、6443、7443、8084、8085、8091、8442、8443、8553、8663、9443、9550、9553、9663、10803、18980|
 
 >?
-- 针对旗舰版用户，如果您需要防护的端口不在所支持的 HTTP 协议或 HTTPS 协议列表中，WAF 支持为您提供非标端口定制服务，套餐内所有域名非标端口定制总数不多于5个，如有需要可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=141&level2_id=642&source=0&data_title=T-Sec-Web%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99&level3_id=866&radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5&queue=15&scene_code=31044&step=2) 联系我们。
+- 针对旗舰版用户，如果您需要防护的端口不在所支持的 HTTP 协议或 HTTPS 协议列表中，WAF 支持为您提供非标端口定制服务（范围为1 - 65535），套餐内所有域名非标端口定制总数不多于5个，如有需要可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=141&level2_id=642&source=0&data_title=T-Sec-Web%E5%BA%94%E7%94%A8%E9%98%B2%E7%81%AB%E5%A2%99&level3_id=866&radio_title=%E8%87%AA%E5%AE%9A%E4%B9%89%E9%98%B2%E6%8A%A4%E7%AD%96%E7%95%A5&queue=15&scene_code=31044&step=2) 联系我们。
 - 已在 HTTP 协议或 HTTPS 协议列表中的端口不支持跨协议定制。
