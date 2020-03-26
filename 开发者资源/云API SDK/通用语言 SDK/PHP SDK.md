@@ -1,6 +1,6 @@
 
-本文主要介绍适用于 PHP 的腾讯云开发工具包（SDK），并提供首次使用开发工具包的简单示例，让 PHP 开发者快速掌握如何调试和接入腾讯云产品 API。
-支持 SDK 3.0版本的云产品列表请参见 [SDK 简介](https://cloud.tencent.com/document/product/494/42698)。
+本文主要介绍适用于 PHP 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例，让 PHP 开发者快速掌握如何调试和接入腾讯云产品 API。
+支持 SDK 3.0 版本的云产品列表请参见 [SDK 简介](https://cloud.tencent.com/document/product/494/42698)。
 
 ## 依赖环境
 - PHP 5.6.33 版本及以上。
