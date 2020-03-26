@@ -26,7 +26,7 @@
 	
 >?
 >- 在播放器列表中，只有一个播放器可以被设置为默认播放器。
->- 如果所选择的播放器与视频文件存在关联，则无法删除播放器，需要在 [媒资管理](https://console.cloud.tencent.com/vod/media) 中修改已关联的播放器解除关联，即可删除，相关文档请参见 [Web 播放器代码生成步骤](https://cloud.tencent.com/document/product/266/36452#web-.E6.92.AD.E6.94.BE.E5.99.A8.E4.BB.A3.E7.A0.81.E7.94.9F.E6.88.90.E6.AD.A5.E9.AA.A4)。
+>- 如果所选择的播放器与视频文件存在关联，则无法删除播放器，需要在 [媒资管理](https://console.cloud.tencent.com/vod/media) 中修改已关联的播放器解除关联，即可删除，相关文档请参见 [Web 播放器代码生成](https://cloud.tencent.com/document/product/266/36452#web-.E6.92.AD.E6.94.BE.E5.99.A8.E4.BB.A3.E7.A0.81.E7.94.9F.E6.88.90)。
 
 
 
