@@ -207,7 +207,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
     <!-- MQTT END-->
 
-    <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+    <!-- 【必须】 请修改为 APP 的 AccessId，“15”开头的10位数字，中间没空格 -->
     <meta-data
         android:name="XG_V2_ACCESS_ID"
         android:value="APP的AccessId" />
