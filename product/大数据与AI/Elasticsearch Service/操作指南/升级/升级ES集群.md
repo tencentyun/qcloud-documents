@@ -131,7 +131,7 @@ Elasticsearch 版本升级，需要先进行升级检查、数据备份两个步
 >  - 若升级过程涉及 ES 集群用户登录认证从关闭到开启，集群需要全量重启，期间集群会停服，服务不可访问，请谨慎选择。
 >  
 
-![升级高级特性](https://main.qcloudimg.com/raw/3f1d08c54e11dd03328ac9207e9114d7.png) 
+ ![升级高级特性](https://main.qcloudimg.com/raw/3f1d08c54e11dd03328ac9207e9114d7.png) 
 
 4. 开始升级后，可以在集群详情页的【集群变更记录】中查看升级进度。
     ![](https://main.qcloudimg.com/raw/541878aa568db9d88b1fc6fce5b01127.png)
