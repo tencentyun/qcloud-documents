@@ -10,13 +10,42 @@ Java 开发的 SCF 云函数的代码形态一般如下所示：
 package example;
 
 public class Hello {
-    public String mainHandler(String name) {
+    public String mainHandler(KeyValueClass kv) {
         System.out.println("Hello world!");
-        return String.format("Hello %s.", name);
+	System.out.println(String.format("key1 = %s", kv.getKey1()));
+	System.out.println(String.format("key2 = %s", kv.getKey2()));
+	return String.format("Hello World");
     }
 }
 ```
+建立参数KeyValueClass类:
+```java
+package example;
 
+public class KeyValueClass {
+    String key1;
+    String key2;
+    
+    public String getKey1() {
+        return this.key1;
+    }   
+
+    public void setKey1(String key1) {
+        this.key1 = key1;
+    }   
+
+    public String getKey2() {
+        return this.key2;
+    }   
+
+    public void setKey2(String key2) {
+        this.key2 = key2;
+    }   
+    
+    public KeyValueClass() {
+    }   
+}
+```
 ## 执行方法
 由于 Java 包含有包的概念，因此执行方法和其他语言有所不同，需要带有包信息。代码例子中对应的执行方法为 `example.Hello::mainHandler`，此处 `example` 标识为 Java package，`Hello` 标识为类，`mainHandler` 标识为类方法。
 
@@ -41,7 +70,12 @@ public class Hello {
 ```java
 System.out.println("Hello world!");
 ```
-
+也可以使用 java.util.logging.Logger作为日志输出:
+```java
+Logger logger = Logger.getLogger("AnyLoggerName");
+logger.setLevel(Level.INFO);
+logger.info("logging message here!");
+```
 输出内容您可以在函数日志中的 `log` 位置查看。
 
 ## 测试
