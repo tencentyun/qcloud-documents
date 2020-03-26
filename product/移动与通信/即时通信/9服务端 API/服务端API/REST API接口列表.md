@@ -3,12 +3,20 @@
 | 功能说明  | 接口 |
 |---------|---------|
 | 导入单个帐号 | [v4/im_open_login_svc/account_import](https://cloud.tencent.com/document/product/269/1608) |
-| 导入批量帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
-| 帐号删除  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
-| 帐号检查  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
+| 导入多个帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
+| 删除帐号  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 查询帐号  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
 
+## 单聊消息
 
+| 功能说明  | 接口 |
+|---------|---------|
+| 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
+| 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
+| 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
+| 查询单聊消息 | [v4/openim/admin_getroammsg](https://cloud.tencent.com/document/product/269/42794) |
+| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 ## 在线状态
 
@@ -41,14 +49,7 @@
 | 添加分组 | [v4/sns/group_add](https://cloud.tencent.com/document/product/269/10107) |
 | 删除分组 | [v4/sns/group_delete](https://cloud.tencent.com/document/product/269/10108) |
 
-## 单聊消息
 
-| 功能说明  | 接口 |
-|---------|---------|
-| 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
-| 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
-| 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
-| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 ## 群组管理
 
