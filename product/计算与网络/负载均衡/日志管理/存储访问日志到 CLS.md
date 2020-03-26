@@ -43,7 +43,7 @@
 
 ## 日志变量说明
 <table class="table"><thead><tr><th>变量名</th><th>说明</th></tr></thead>
-<tbody>
+<tbody><tr><td>stgw_request_id</td><td> 请求 ID。 </td></tr>
 <tr><td>time_local</td><td> 访问的时间与时区，例如，“01/Jul/2019:11:11:00 +0800”，最后的“+0800”表示所处时区为 UTC 之后的8小时，即为北京时间。</td></tr>
 <tr><td>protocol_type</td><td> 协议类型（HTTP/HTTPS/SPDY/HTTP2/WS/WSS）。</td></tr>
 <tr><td>server_addr</td><td> 请求的目的 IP。 </td></tr>
