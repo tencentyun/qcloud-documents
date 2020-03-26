@@ -17,13 +17,13 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 选择支持 IPv6 的地域，在 VPC 所在行的操作栏下，单击【编辑 CIDR】。
 3. 在弹框中的 IPv6 CIDR 单击【获取】并确认操作，系统将为 VPC 分配一个`/56`的 IPv6 地址段，您可以在列表里看到 IPv6 地址段的详细信息。
-![](https://main.qcloudimg.com/raw/06cc0c14dc28e511492d5f1b5cb01f32.png)
+![](https://main.qcloudimg.com/raw/4ac306328f5b5549a340b0dde56f143a.png)
 
 ### <span id="step2" />步骤二：为子网分配 IPv6 CIDR
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【子网】，进入管理页面。
 3. 在 [步骤一](#step1) 中的 VPC 所属子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作，系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
-![](https://main.qcloudimg.com/raw/d3d8fcaa9c336dac11485d5f7ed95a92.png)
+![](https://main.qcloudimg.com/raw/9b32564f2bc5df09ec198716b46f7cc2.png)
 
 ### <span id="step3" />步骤三：购买云服务器并配置云服务器的 IPv6
 为 VPC 和子网分配 IPv6 CIDR 后，您可在该子网下创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。因为 IPv6 地址目前还不支持自动下发到网卡，所以从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
@@ -35,7 +35,7 @@
  - IPv6 地址：勾选【免费分配 IPv6 地址】。
 4. 完成云服务器各种配置操作后，核对购买的云服务器信息，并进行支付。
 5. 云服务器购买成功后，即可在 [云服务器实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1)  查看到 IPv6 地址信息。
-![](https://main.qcloudimg.com/raw/02ce609ddc0d97fd1b6e82a2e165df7f.png)
+![](https://main.qcloudimg.com/raw/a427545faa7aa68ae6d5f6d80a93aa9e.png)
 >?
 >- 如果云服务器在购买时未分配 IPv6 地址，可在对应云服务器实例所在行的操作栏下，选择【更多】>【IP 和网卡】>【管理 IPv6】，为主网卡分配 IPv6 地址。
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
@@ -66,12 +66,16 @@
 ![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
 
 ### 步骤六：测试 IPv6 的连通性
+>?
+>- 如果是测试公网连通性，请确保已经开通公网。
+>- 如果是未开通公网使用 ssh 或远程桌面测试 IPv6 的连通性，可使用另一台处于同一私有网络的云服务器 ssh 或远程桌面被测试的云服务器。
+>
 #### Linux 云服务器
-- 如果云服务器的 IPv6 地址已开通公网，可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
- - **步骤1：**通过 Ping 进行测试，操作如下：
- 在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
+- Linux 云服务器可通过 Ping 或 ssh 等操作来测试 IPv6 的连通性。
+ - **方式1：**通过 Ping 进行测试，操作如下：
+ 在云服务器中执行 `ping6 IPv6地址`进行测试，例如，`ping6 240c::6666` 、 `ping6 www.qq.com`、`ping6 同一私有网络下的 IPv6 地址`，成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/de0f8028e1ab3c670428ce65e47c7c63.png)
- - **步骤2：**通过 IPv6 地址 ssh 云服务器，操作如下：
+ - **方式2：**通过 IPv6 地址 ssh 云服务器，操作如下：
 执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 ssh 到云服务器。
 ```
 ifconfig
@@ -79,15 +83,14 @@ ifconfig
 ![](https://main.qcloudimg.com/raw/16838301e15e59ec20f8d3ffb1dd5a69.png)
 成功结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
-- 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试。
+
 
 #### Windows 云服务器
-- 如果云服务器的 IPv6 地址已开通公网，可通过 Ping 和远程桌面测试 IPv6 连通性。
- - **步骤1**：通过 Ping 进行测试，操作如下：
-在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行`ping -6 240c::6666`进行测试，如下图所示：
+Windows 云服务器可通过 Ping 或远程桌面测试 IPv6 连通性。
+ - **方式1**：通过 Ping 进行测试，操作如下：
+在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行`ping -6 IPv6 地址`进行测试，例如，`ping -6 240c::6666`或`ping -6 同一私有网络下的 IPv6 地址`，成功如下图所示：
 ![](https://main.qcloudimg.com/raw/51c8b10298aa8cdca15b4f67ff54396c.png)
- - **步骤2**：通过 IPv6 地址进行远程桌面，远程桌面操作详情请参见 [使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
-- 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试。
+ - **方式2**：通过 IPv6 地址进行远程桌面，远程桌面操作详情请参见 [使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/213/35703)。
 
 ## 附录
 ### Linux 云服务器配置 IPv6
@@ -108,13 +111,13 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </tr>
 <tr style="text-align:center;">
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
-<td>2019-06-31前购买</td>
+<td>2019-06-30前购买</td>
 <td>否</td>
 <td >
 <a href="#unopen">enable_ipv6 工具</a>
 </td>
-<td rowspan="4">
-目前暂时仅列举了如下四种手动配置操作方法，如不符合您的实际需求，请选择工具配置进行配置：
+<td rowspan="6">
+如下列举了四种常用镜像的操作方法，若不满足您的需求，请提交 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">工单申请</a>：
 <li><a href="#新购CentOS7.5/CentOS7.6">新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6</a></li>
 <li><a href="#CentOS6.8">CentOS 6.8 配置 IPv6</a></li>
 <li><a href="#CentOS7.3">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6</a></li>
@@ -122,7 +125,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 </td>
 </tr>
 <tr style="text-align:center;">
-<td>2019-06-31后购买</td>
+<td>2019-06-30后购买</td>
 <td>是</td>
 <td >
 <a href="#open">config_ipv6 工具</a>
@@ -147,12 +150,19 @@ Tencent Linux<br>
 <td >
 <a href="#open">config_ipv6 工具</a>
 </td>
+<tr style="text-align:center;">
+<td rowspan="2" >FreeBSD、Suse、Ubuntu18
+</td>
+<td>2019-11-13 01:00前购买</td>
+<td>否</td>
+<td rowspan="2">不支持</td>
 </tr>
+<tr style="text-align:center;">
+<td>2019-11-13 01:00后购买</td>
+<td>是</td>
 </tbody></table>
 
 #### 工具配置
->? 不支持工具配置的操作系统：FreeBSD、Suse、Ubuntu18。
->
 请根据云服务器是否已开启 IPv6 选择对应的配置方式：
 - 未开启 IPv6 的云服务器：[enable_ipv6 工具配置](#unopen)。
 - 已开启 IPv6 的云服务器：[config_ipv6 工具配置](#open)。
@@ -225,15 +235,15 @@ $install_path eth0
 
 
 #### 手动配置
-如下列举了四种典型的 Linux 云服务器的操作方法：
+如下列举了四种常用的 Linux 云服务器的操作方法：
 - [新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6](#新购CentOS7.5/CentOS7.6)
 - [CentOS 6.8 配置 IPv6](#CentOS6.8)
 - [CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6](#CentOS7.3)
 - [Debian 8.2 配置 IPv6](#Debian8.2)
 
 >?
->- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月31日**后**购买的云服务器。
->- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月31日**前**购买的云服务器。
+>- 新购 CentOS 7.5/新购 CentOS 7.6 指2019年06月30日**后**购买的云服务器。
+>- 存量 CentOS 7.5/存量 CentOS 7.6 指2019年06月30日**前**购买的云服务器。
 >
 <span id="新购CentOS7.5/CentOS7.6"/>
 
@@ -252,11 +262,11 @@ DHCPV6C=yes
 4. 按 “Esc”，输入 “:wq”，保存文件并返回。
 5. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/25ccd3b27744ad0f056de14a39465724.png)
-
 6. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
@@ -277,7 +287,7 @@ netstat -tupln
 <span id="CentOS6.8"/>
 
 #### CentOS 6.8 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6
@@ -335,7 +345,8 @@ sysctl -a | grep ipv6 | grep disable
 ![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
 17. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
@@ -359,7 +370,7 @@ netstat -tupln
 <span id="CentOS7.3"/>
 
 #### CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6
@@ -418,7 +429,8 @@ systemctl restart network
 ```
 15. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
@@ -441,7 +453,7 @@ netstat -tupln
 <span id="Debian8.2"/>
 
 #### Debian 8.2 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [连接 Linux 实例](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 服务，执行如下命令：
 ```
 ip addr | grep inet6
@@ -466,7 +478,8 @@ sysctl -p
 ```
 7. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
-dhclient -6
+# 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
+dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
@@ -479,22 +492,6 @@ netstat -tupln
 ```
 ip -6 route add default dev eth0
 ```
-
-#### <span id="test-Linux" />测试 Linux 云服务器 IPv6 的连通性
-可通过 Ping 和 ssh 等操作来测试 Linux 云服务器 IPv6 的连通性。
-- **步骤1：**通过 Ping 进行测试，操作如下：
- - 如果云服务器的 IPv6 地址已开通公网，则可在云服务器中执行 `ping6 240c::6666` 或 `ping6 www.qq.com`进行测试，如下图所示：
-![](https://main.qcloudimg.com/raw/6202b3ebe7e946884d0342d6ec2ca16d.png)
- - 如果云服务器的 IPv6 地址未开通公网，则可在云服务器中 Ping 同一私有网络下的另一台云服务器的 IPv6 地址进行测试，如下图所示：
-![](https://main.qcloudimg.com/raw/da1521a5885aeb8ddbe7f593033aae56.png)
-- **步骤2：**从公网 IPv6 地址 ssh 云服务器，操作如下：
-执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 ssh 到云服务器。
-```
-ifconfig
-```
-![](https://main.qcloudimg.com/raw/16838301e15e59ec20f8d3ffb1dd5a69.png)
-成功结果如下图所示：
-![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
 
 ### Windows 云服务器配置 IPv6
 如下操作以 Windows 2012 为例： 

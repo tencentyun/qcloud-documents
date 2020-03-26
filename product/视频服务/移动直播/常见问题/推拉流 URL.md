@@ -1,5 +1,4 @@
-<h3 id="PushURL">如何生成推流 URL？ </h3>	
-
+### <span id="PushURL">如何生成推流 URL？ </span>	
 
 #### 方法1：手动生成	
 1. 开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。	
@@ -19,8 +18,9 @@
 - **txSecret（防盗链签名）：**防止攻击者伪造您的后台生成推流 URL，计算方法参见 [最佳实践 - 防盗链计算](https://cloud.tencent.com/document/product/267/32735)。	
 - **示例代码：**登录云直播控制台选择[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中之前配置的推流域名，在【管理】中选择【推流配置】，“推流配置”页面的下半部分有【推流地址示例代码】（PHP 和 Java 两个版本），示例代码演示了如何生成防盗链地址。	
 
-<h3 id="PlayURL">如何生成拉流 URL？ </h3>	
 
+### <span id="PlayURL">如何生成拉流 URL？ </span>	
+拉流地址（又称播放地址），您可通过进入云直播控制台的【辅助工具】>【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】生成，具体操作可参见 [直播播放](https://cloud.tencent.com/document/product/267/32733#.E8.8E.B7.E5.8F.96.E6.92.AD.E6.94.BE.E5.9C.B0.E5.9D.80)。
 腾讯云播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成。例如：	
 ```	
 http://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txTime=hex(time) 	

@@ -18,9 +18,9 @@
 5. 导入 SDK：
  -  **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
- ``` 
+``` 
  pod 'TPNS-iOS' 
- ```
+```
  >?
     - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中设置账号和密码，然后在 Terminal 输入对应的账号和密码。后续即可正常使用，当前 PC 不需要再次登录。
     - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库确认版本：
@@ -29,14 +29,17 @@ pod repo update
 pod search TPNS-iOS
 pod install //安装SDK 
 ```  
- - **方式二：carthage 导入**
+
+ -  **方式二：carthage 导入**
  在 Cartfile 文件中指明依赖的第三方库：
- ```
+```
  github "xingePush/carthage-TPNS-iOS"
- ```
+```
+ 
  - **方式三：手动导入**
 进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
-6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+
+6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 7. 在 Build Phases 下，添加以下 Framework：
 ```
  * XGMTACloud.framework
@@ -53,7 +56,7 @@ pod install //安装SDK
 ![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
 9. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
-10. 添加编译参数 ```-ObjC``` 。
+10. 添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
@@ -105,10 +108,19 @@ pod install //安装SDK
 		}
 		#endif
 	```
-12. 新加坡集群切换方法（可选）：
- 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
- 2. 调用头文件中的配置 HOST 接口，设置 HOST 为：`https://api.tpns.sgp.tencent.comport`、PORT 设置为0。
-  >!客户端切换为新加坡集群后，设备只能接收到新加坡集群推送的通知。
+
+
+#### 境外集群接入方法
+1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
+2. 调用头文件中的配置 `HOST` 接口：
+ - 如需接入新加坡集群则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
+ - 如需接入中国香港集群则将 `HOST` 设置为`https://api.tpns.hk.tencent.com`, `PORT `设置为0。
+ 
+**示例**
+``` object-c
+[[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0]
+```
+>?配置 `HOST` 接口需要在 `startXGWithAppID` 方法之前调用。
 
 
 
@@ -127,11 +139,11 @@ pod install //安装SDK
 
 #### 实现 ```XGPushDelegate``` 协议
 
-在调试阶段，建议实现协议中的以下两个方法，即可获取更详细的调试信息：
+在调试阶段，建议实现协议中的第二个方法，即可获取更详细的调试信息：
 
 ```objective-c
 /**
- @brief 监控腾讯移动推送服务地启动情况
+ @brief 监控腾讯移动推送服务地启动情况（已废弃）
 
  @param isSuccess 腾讯移动推送是否启动成功
  @param error 腾讯移动推送启动错误的信息
@@ -139,12 +151,13 @@ pod install //安装SDK
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
 
 /**
- @brief 向腾讯移动推送服务器注册设备token的回调
+ @brief 注册推送服务回调
  
- @param deviceToken 当前设备的token
- @param error 错误信息
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
-
+ @param deviceToken APNs 生成的 Device Token
+ @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
+ @param error 错误信息，若 error 为 nil 则注册推送服务成功
+ */
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 ```
 
 #### 观察日志

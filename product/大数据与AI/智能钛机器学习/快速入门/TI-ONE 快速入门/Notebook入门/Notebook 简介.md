@@ -1,7 +1,7 @@
 为了方便您有效地使用智能钛机器学习平台的 Notebook，本文档为您提供入门指导。
 
 ## 概述
-Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交互式开发工具，您可以在智能钛 Notebook 中完成数据准备、数据预处理、算法调试与模型训练，无需多平台切换。智能钛 Notebook 提供了多种内核供您选择，同时也支持自行安装第三方库。使用过程中，您仅需为运行 Notebook 时所消耗的资源付费，没有最低费用，也不需要前期承诺。
+Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交互式开发工具，您可以在智能钛 Notebook 中完成数据准备、数据预处理、算法调试与模型训练，无需多平台切换。智能钛 Notebook 提供了多种内核供您选择，同时也支持自行安装第三方库。使用过程中，您仅需为运行 Notebook 时所消耗的算力及存储资源付费，没有最低费用，也不需要前期承诺。
 
 ## 操作界面
 智能钛机器学习平台的 Notebook 整体操作界面如下，右侧为 Notebook 内容展示区域，左栏主要为文件管理和各类功能键。
@@ -52,9 +52,9 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 ## 使用说明
 
 在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
-- 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) ，[管理实例](新文档链接)， [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+- 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) ，[管理实例](https://cloud.tencent.com/document/product/851/41626)， [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 - 您可以参考**最佳实践** [用 Notebook 实现手写数字识别](https://cloud.tencent.com/document/product/851/38030)，体验使用 Notebook 建模的完整流程。
-- 您可以通过**操作指南**，进一步了解如何 [设置内核](新文档链接)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传与下载](新文档链接) 等操作。
+- 您可以通过**操作指南**，进一步了解如何 [设置内核](https://cloud.tencent.com/document/product/851/41627)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传与下载](https://cloud.tencent.com/document/product/851/40143) 等操作。
 - 如果您在使用过程中遇到问题，请查看常见问题。
 
 

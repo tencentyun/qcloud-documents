@@ -1,5 +1,3 @@
-本文描述互动课堂 SaaS 组件使用方法，可以依照 [开通指南](https://cloud.tencent.com/document/product/680/41461) 开通互动课堂。
-
 ## 如何加入课堂
 ### 下载 SaaS 客户端
 - Mac 平台下载地址：[单击下载](http://dldir1.qq.com/hudongzhibo/Saas/TClass_Saas.dmg)。
@@ -175,6 +173,8 @@ h| 清空 | 清空内容大屏白板
 
 ###  如何使用屏幕分享
 ![](https://main.qcloudimg.com/raw/67472ab94c4b03c50d8d5ef57ec7cc8c.png)
+>!屏幕分享会走 trtc 的辅流，请确认 trtc 对应的收费。
+>
 1. 单击标题栏中功能区域的屏幕分享菜单（a）。
 2. 开始屏幕分享。开始屏幕分享后，学生端可以看到老师端的屏幕观看。
 3. 关闭屏幕分享。不需要分享屏幕时，可通过单击标题栏中功能区域的菜单（a）关闭。

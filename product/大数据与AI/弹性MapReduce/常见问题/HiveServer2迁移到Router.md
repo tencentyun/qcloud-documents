@@ -1,6 +1,8 @@
 ### HiveServer2 迁移到 Router 的方法是什么？
-1. 登录 EMR 控制台，在左侧菜单栏选择【云硬件管理】，然后单击【新增router节点】进入新增 Router 节点页面，选择安装【hive 2.1.1】组件。
-![](https://main.qcloudimg.com/raw/d6f24f0d76260c53e9e5fbffadc98f9e.png)
+1. 登录 EMR 控制台，在左侧菜单栏选择【云硬件管理】，进入云硬件管理页面，单击【扩容】进入集群扩容页面。
+![](https://main.qcloudimg.com/raw/99fad8a62167c445a99746b9ab60a60b.png)
+在集群扩容页面中，选择【扩容节点类型】为【Router 节点】，【扩容组件】为【Hive-2.3.3】，其他选项可根据需要自行选择。
+![](https://main.qcloudimg.com/raw/913d22f0354e2a913f74291a135c10c6.png)
 2. 登录 router 节点，修改`hive-site.xml`配置文件。
  ![](https://main.qcloudimg.com/raw/0a9fdf9401f68f799db530bee95d34c0.png)
 3. 关闭 master 上的 hive 服务。

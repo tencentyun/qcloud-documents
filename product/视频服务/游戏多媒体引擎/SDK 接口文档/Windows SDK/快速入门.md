@@ -51,10 +51,6 @@ ITMGContext virtual int Init(const char* sdkAppId, const char* openId)
 | openId    	|char*   	|OpenID 只支持 Int64 类型（转为 char* 传入），数值必须大于 10000，用于标识用户 	|
 
 
-|返回值|处理|
-|----|----|
-|QAVError.OK|初始化 SDK 成功|
-|7015 AV_ERR_SDK_NOT_FULL_UPDATE|检查 SDK 文件是否完整，建议删除后重新导入 SDK|
 
 ####  示例代码 
 

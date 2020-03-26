@@ -6,6 +6,9 @@
 - 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
 - (可选) 安装并启动 Docker（使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需要）。
+-  请确保您当前使用的账户已完成了以下授权操作：
+ 1. 参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 完成 SCF 默认角色配置。
+ 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 完成预设策略关联。
 
 
 
@@ -221,8 +224,8 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
->![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
->更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
+![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 
 ### 配置告警

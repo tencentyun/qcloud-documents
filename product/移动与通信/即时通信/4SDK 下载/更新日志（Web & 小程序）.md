@@ -1,3 +1,44 @@
+### 2.5.2 @2020.3.13
+
+**变更**
+
+[searchGroupByID](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#searchGroupByID) 失败时日志级别降为 Warning，并修改提示文案。
+
+**修复**
+
+- 匿名用户（或游客）加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组失败及统计问题。
+- 其它已知问题。
+
+### 2.5.1 @2020.3.5
+
+**变更**
+
+[login](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某账号已登录后重复登录的情况。
+
+**修复**
+
+音视频聊天室（AVChatRoom）接收侧收到的消息优先级与发送侧设置的消息优先级不一致。
+
+### 2.5.0 @2020.2.28
+**新增**
+- 网络状态变更事件 [TIM.EVENT.NET_STATE_CHANGE](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.NET_STATE_CHANGE)，接入侧可根据此事件做相关的提示和引导。
+- 支持在微信小程序插件环境运行。
+
+**变更**
+减少优化 [错误码](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html)。
+
+**修复**
+- 在 [控制台](https://console.cloud.tencent.com/im) 创建音视频聊天室（AVChatRoom）并指定群主，群主加入此群后，群内其他人发的信息在群主侧重复。
+- 在 [控制台](https://console.cloud.tencent.com/im) 或者用 REST API 频繁创建销毁群组，SDK 没有派发 [TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 事件。
+- [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 偶发拉不到群消息列表。
+
+
+### 2.4.2 @2020.2.7
+
+**新增**
+群组消息支持设置 [消息优先级](https://cloud.tencent.com/document/product/269/3663#.E7.BE.A4.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7)，[枚举值](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.MSG_PRIORITY_HIGH)，[使用示例](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)。
+
+
 ### 2.4.1 @2020.1.14
 
 **变更**

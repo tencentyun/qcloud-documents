@@ -47,9 +47,9 @@ lsmod | grep toa
 modprobe toa
 ```		
 6. 可用下面的命令开启自动加载 toa 模块。
-```
-echo “modprobe toa” >> /etc/rc.d/rc.local
-```
+<pre >
+echo "modprobe toa" >> /etc/rc.d/rc.local
+</pre>
 			
 ####  Ubuntu 16.04
 1. 下载安装包：
@@ -62,9 +62,9 @@ dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
 Headers 包可不装，如需要做相关开发则安装。
 3. 安装完成之后重启主机，然后` lsmod | grep toa `检查 toa 模块是否加载 没有加载的话 `modprobe toa` 开启。
 可用下面的命令开启加载 toa 模块：
-```
-echo “modprobe toa” >> /etc/rc.d/rc.local
-```
+<pre >
+echo "modprobe toa" >> /etc/rc.d/rc.local
+</pre >
 		 
 #### Debian 8
 1. 下载安装包：

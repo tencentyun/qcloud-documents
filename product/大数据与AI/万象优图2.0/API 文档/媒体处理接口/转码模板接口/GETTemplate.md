@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于搜索转码模板。
+DescribeMediaTemplates 接口用于搜索转码模板。
 
 ## 请求
 
@@ -13,14 +13,13 @@ Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
-
 ```
 
 > ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -79,7 +78,7 @@ Content-Type: application/xml
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
 
 #### 响应体
 
@@ -92,53 +91,39 @@ Content-Type: application/xml
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
     <TemplateList>
-            <TemplateID>A</TemplateID>
-            <Name>Template Name</Name>
-            <Tag>Animation</Tag>
-            <TransTpl>
-                <Container>
-                    <Format>mp4</Format>
-                </Container>
-                <Video>
-                    <Codec>GIF</Codec>
-                    <Profile>high</Profile>
-                    <Bitrate>10-50000</Bitrate>
-                    <Crf>0-51</Crf>
-                    <Width>128-4096</Width>
-                    <Height>128-4096</Height>
-                    <Fps>1-60</Fps>
-                    <Gop>1-100000</Gop>
-                    <Preset>fast</Preset>
-                    <ScanMode>interlaced</ScanMode>
-                    <Bufsize>1000-128000</Bufsize>
-                    <Maxrate>10-50000</Maxrate>
-                    <PixFmt>yuv420p</PixFmt>
-                    <Remove>false</Remove>
-                    <Crop>border</Crop>
-                    <Pad></Pad>
-                    <LongShortMode>false</LongShortMode>
-                </Video>
-                <Audio>
-                    <Codec>AAC</Codec>
-                    <Profile>aac_he</Profile>
-                    <Samplerate>44100</Samplerate>
-                    <Bitrate>8</Bitrate>
-                    <Channels>2</Channels>
-                    <Remove>false</Remove>
-                </Audio>
-                <TransConfig>
-                    <TransMode>onepass</TransMode>
-                    <IsCheckReso>true</IsCheckReso>
-                    <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-                    <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-                </TransConfig>
-                <TimeInterval>
-                    <Start></Start>
-                    <Duration></Duration>
-                </TimeInterval>
-            </TransTpl>
-            <CreateTime></CreateTime>
-            <UpdateTime></UpdateTime>
+        <TemplateID>A</TemplateID>
+        <Name>Template Name</Name>
+        <Tag>Animation</Tag>
+        <TransTpl>
+            <Container>
+                <Format>mp4</Format>
+            </Container>
+            <Video>
+                <Codec>GIF</Codec>
+                <Profile>high</Profile>
+                <Bitrate>10-50000</Bitrate>
+                <Crf>0-51</Crf>
+                <Width>128-4096</Width>
+                <Height>128-4096</Height>
+                <Fps>1-60</Fps>
+                <Gop>1-100000</Gop>
+                <Preset>fast</Preset>
+                <ScanMode>interlaced</ScanMode>
+                <Bufsize>1000-128000</Bufsize>
+                <Maxrate>10-50000</Maxrate>
+                <PixFmt>yuv420p</PixFmt>
+                <Remove>false</Remove>
+                <Crop>border</Crop>
+                <Pad></Pad>
+                <LongShortMode>false</LongShortMode>
+            </Video>
+            <TimeInterval>
+                <Start></Start>
+                <Duration></Duration>
+            </TimeInterval>
+        </TransTpl>
+        <CreateTime></CreateTime>
+        <UpdateTime></UpdateTime>
     </TemplateList>
 </Response>
 ```
@@ -170,22 +155,20 @@ Container 节点 TemplateList 的内容：
 | Tag                | Response.TemplateList | 模版类型，Snapshot 或者 Animation                            | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| Snapshot           | Response.TemplateList | Tag 为 Snapshot 时存在，其详细的模版参数，同 POSTTemplate 中的 Request.Snapshot | Container |
+| Snapshot           | Response.TemplateList | Tag 为 Snapshot 时存在，其详细的模版参数，同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Snapshot | Container |
 | TransTpl           | Response.TemplateList | Tag 为 Animation 时存在，其详细的模版参数                    | Container |
 
 Container 节点 TransTpl 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                      | 类型      |
 | :----------------- | :----------------------------- | :---------------------------------------- | :-------- |
-| TimeInterval       | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.TimeInterval | Container |
-| Container          | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Container    | Container |
-| Video              | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Video        | Container |
-| Audio              | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.Audio        | Container |
-| TransConfig        | Response.TemplateList.TransTpl | 同 POSTTemplate 中的 Request.TransConfig  | Container |
+| TimeInterval       | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.TimeInterval | Container |
+| Container          | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Container    | Container |
+| Video              | Response.TemplateList.TransTpl | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Video        | Container |
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
@@ -194,7 +177,7 @@ Container 节点 TransTpl 的内容：
 #### 请求
 
 ```shell
-GET /template?templateIds=A,B,C HTTP/1.1
+GET /template?ids=A,B,C HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
@@ -241,20 +224,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Pad></Pad>
                 <LongShortMode>false</LongShortMode>
             </Video>
-            <Audio>
-                <Codec>AAC</Codec>
-                <Profile>aac_he</Profile>
-                <Samplerate>44100</Samplerate>
-                <Bitrate>8</Bitrate>
-                <Channels>2</Channels>
-                <Remove>false</Remove>
-            </Audio>
-            <TransConfig>
-                <TransMode>onepass</TransMode>
-                <IsCheckReso>true</IsCheckReso>
-                <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-                <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-            </TransConfig>
             <TimeInterval>
                 <Start></Start>
                 <Duration></Duration>
@@ -326,20 +295,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Pad></Pad>
                 <LongShortMode>false</LongShortMode>
             </Video>
-            <Audio>
-                <Codec>AAC</Codec>
-                <Profile>aac_he</Profile>
-                <Samplerate>44100</Samplerate>
-                <Bitrate>8</Bitrate>
-                <Channels>2</Channels>
-                <Remove>false</Remove>
-            </Audio>
-            <TransConfig>
-                <TransMode>onepass</TransMode>
-                <IsCheckReso>true</IsCheckReso>
-                <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-                <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-            </TransConfig>
             <TimeInterval>
                 <Start></Start>
                 <Duration></Duration>
@@ -375,20 +330,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                 <Pad></Pad>
                 <LongShortMode>false</LongShortMode>
             </Video>
-            <Audio>
-                <Codec>AAC</Codec>
-                <Profile>aac_he</Profile>
-                <Samplerate>44100</Samplerate>
-                <Bitrate>8</Bitrate>
-                <Channels>2</Channels>
-                <Remove>false</Remove>
-            </Audio>
-            <TransConfig>
-                <TransMode>onepass</TransMode>
-                <IsCheckReso>true</IsCheckReso>
-                <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-                <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-            </TransConfig>
             <TimeInterval>
                 <Start></Start>
                 <Duration></Duration>

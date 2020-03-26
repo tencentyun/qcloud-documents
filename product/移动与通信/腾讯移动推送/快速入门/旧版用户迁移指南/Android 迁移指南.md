@@ -162,6 +162,16 @@ implementation 'com.tencent.tpns:tpns:[VERSION]-release'
 ```
 2. 请参见新版本 [SDK 集成](https://cloud.tencent.com/document/product/548/36652) 重新添加组件和权限。
 
+## 注销免费版本推送服务
+
+如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。如需要在免费版本和 TPNS 版本都做推送的话，则 TPNS 版本需要增加以下配置：
+
+- 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写免费版本的 accessId
+```xml
+  <meta-data
+      android:name="XG_OLD_ACCESS_ID"
+      android:value="免费版本应用的accessid" />
+```
 
 <span id="jkbg"></span>
 ## 接口变更

@@ -46,7 +46,7 @@ dependencies {
 
 }
 ```
-
+4. 境外集群接入方法请参考下文 [境外集群接入方法](https://cloud.tencent.com/document/product/548/36652#JWjieru)。
 
 >!
 - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
@@ -238,7 +238,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 <hr>
 
-
+<span id="JWjieru"></span>
 #### 境外集群接入方法
 如需将推送集群切换为新加坡或者中国香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
@@ -246,20 +246,18 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         // 其他安卓组件
         <meta-data
             android:name="XG_GUID_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer" /> 
-        //中国香港地区设置为https://api.tpns.sgp.tencent.com/guid/api/GetGuidAndMqttServer  
-        
+            android:value="境外域名/guid/api/GetGuidAndMqttServer" />           
         <meta-data
             android:name="XG_STAT_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/log/statistics/push" /> 
-        //中国香港地区请设置为 https://api.tpns.hk.tencent.com/log/statistics/push  
-        
+            android:value="境外域名/log/statistics/push" />        
         <meta-data
             android:name="XG_LOG_SERVER"
-            android:value="https://api.tpns.sgp.tencent.com/v3/mobile/log/upload" /> 
-        //中国香港地区请设置为https://api.tpns.hk.tencent.com/v3/mobile/log/upload  
+            android:value="境外域名/v3/mobile/log/upload" /> 
 </application>
 ```
+**境外域名如下：**
+中国香港：`https://api.tpns.hk.tencent.com`
+新加坡：`https://api.tpns.sgp.tencent.com`
 
 #### 音视频富媒体使用方法（可选）
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。

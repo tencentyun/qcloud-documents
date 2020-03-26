@@ -842,16 +842,16 @@ promise.then(function(imResponse) {
 ## 群系统通知
 
 当有用户申请加群等事件发生时，管理员会收到申请加群等系统消息。管理员同意或拒绝加群申请，IM SDK 会将相应的消息通过群系统通知消息发送给接入侧，由接入侧展示给用户。
-群系统通知消息有多种类型，详细描述请参见 [Message.GroupSystemNoticePayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
+群系统通知消息有多种类型，详细描述请参见 [群系统通知类型常量及含义](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
 
-```javascript
+<pre>
 let onGroupSystemNoticeReceived = function(event) {
-  const type = event.data.type; // 群系统通知的类型，详见 群系统通知类型常量及含义 
-  const message = event.data.message; // 群系统通知的消息实例，详见 Message
+  const type = event.data.type; // 群系统通知的类型，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">Message.GroupSystemNoticePayload</a> 
+  const message = event.data.message; // 群系统通知的消息实例，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
   console.log(message.payload); // 消息内容. 群系统通知 payload 结构描述
 };
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, onGroupSystemNoticeReceived);
-```
+</pre>
 
 
 

@@ -15,7 +15,7 @@ php composer create-project --prefer-dist laravel/laravel serverless-laravel
 $app->useStoragePath($_ENV['APP_STORAGE'] ?? $app->storagePath());
 ```
 
-然后在跟目录下的 `.env` 文件中新增如下配置：
+然后在根目录下的 `.env` 文件中新增如下配置：
 ```dotenv
 # 视图文件编译路径
 VIEW_COMPILED_PATH=/tmp/storage/framework/views
@@ -113,7 +113,7 @@ $ sls --debug
 
 #### 移除
 
-通过以下命令移除部署的 API 网关和云函数：
+通过以下命令移除部署的服务：
 ```shell
 $ sls remove --debug
 

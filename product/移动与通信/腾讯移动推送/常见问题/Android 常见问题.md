@@ -122,7 +122,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 启动 logcat，观察 tag 为 PushService 的日志，查看是否有错误信息。
 
 #### 华为通道排查路径
-- 检查腾讯移动推送 SDK 版本是否为V3.2.0以上版本以及华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
+- 检查华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
 - 检查是否为签名包。
 - 华为官网是否配置 SHA256 证书指纹。
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
@@ -143,7 +143,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 
 ### 集成华为推送通道时遇到组件依赖冲突如何解决?
-项目使用了华为游戏、支付、账号等其他服务组件，集成华为推送通道时遇到组件依赖冲突时，请按照以下步骤集成华为厂商推送服务：
+项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
 1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
 2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
 3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
@@ -170,35 +170,7 @@ public final class StrUtils {
     }
 }
 ```
-4. 新增继承自华为推送回调广播 PushReceiver 的广播接收者类 HWPushMessageReceiver.java，并按如下方式重写接口 onToken，以存储华为 token 至本地，供 TPNS 调用：
-```java
-public class HWPushMessageReceiver extends PushReceiver {
-    @Override
-    public void onToken(Context context, String token, Bundle extras) {
-        if(token != null && token.length() != 0) {
-            SharedPreferences sp = context.getApplicationContext().getSharedPreferences("tpush.vip.shareprefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putString("huawei_token", token);
-            editor.commit();
-        }
-    }
-}
-```
-5. 在 AndroidManifest.xml 增加 HWPushMessageReceiver 配置， 配置如下：
-```xml
-<receiver android:name="com.tencent.android.hwpush.HWPushMessageReceiver" >
-  <intent-filter>
-       <!-- 必须,用于接收TOKEN -->
-       <action android:name="com.huawei.android.push.intent.REGISTRATION" />
-       <!-- 必须，用于接收消息 -->
-       <action android:name="com.huawei.android.push.intent.RECEIVE" />
-       <!-- 可选，用于点击通知栏或通知栏上的按钮后触发onEvent回调 -->
-       <action android:name="com.huawei.android.push.intent.CLICK" />
-       <!-- 可选，查看PUSH通道是否连接，不查看则不需要 -->
-       <action android:name="com.huawei.intent.action.PUSH_STATE" />
-  </intent-filter>
-</receiver>
-``` 
+
 
 ### 使用控制台快速集成时出现异常，如何解决？
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
@@ -212,4 +184,9 @@ public class HWPushMessageReceiver extends PushReceiver {
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-
+### Android 是否支持设置通知角标？
+通知角标目前都是遵从各厂商的默认逻辑，其中：
+- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
+- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
+- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
+- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  

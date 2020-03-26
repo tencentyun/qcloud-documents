@@ -38,7 +38,7 @@ LAMP 环境是指在 Linux 系统下，由 Apache Web 服务器软件 + MySql �
 http://云服务器实例的公网 IP/phpmyadmin
 ```
 2. 输入数据库账户名及密码，并单击【执行】。如下图所示：
-账户名为 `root`，默认密码为 `123456`。
+账户名为 `root`，密码随机生成，请前往 [云市场](https://market.cloud.tencent.com/) 提供的 LAMP 环境系统镜像详情页获取。
 ![](https://main.qcloudimg.com/raw/3d944937e2474f1167f16d291fe8a7ae.png)
 3. 在 phpMyAdmin 管理页面，单击【修改密码】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8a59eedcfa52cb62af7d7476b324d7fe.png)

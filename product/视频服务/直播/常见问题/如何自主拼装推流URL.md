@@ -1,6 +1,6 @@
 
-云直播控制台的 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 工具可自助生成推流地址和播放地址，当直播间较多时，可通过服务器自行拼接推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
-![](https://main.qcloudimg.com/raw/f94876b78d22d9d90570cac9d4d61eb2.png)
+云直播控制台的 [地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 工具可自助生成推流地址和播放地址。但在实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
+![](https://main.qcloudimg.com/raw/ba3d2ecdade0c3bc72917436d1307a62.png)
 - **Domain**
 推流域名，可使用腾讯云直播提供的默认推流域名，亦可使用自有推流域名。
 - **AppName**
