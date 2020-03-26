@@ -23,6 +23,8 @@ dependencies {
 | TXGatewayClient      | 实现网关设备根据数据模板连接物联网开发平台   |
 | TXGatewaySubdev      | 实现网关子设备根据数据模板连接物联网开发平台 |
 
+![](https://main.qcloudimg.com/raw/0b10d226a5465bc7da5ef9429552233e.png)
+
 
 ## SDK API 说明
 
