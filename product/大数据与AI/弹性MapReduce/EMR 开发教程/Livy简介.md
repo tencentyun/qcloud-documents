@@ -6,7 +6,9 @@ Apache Livy 是一个可以通过 REST 接口与 Spark 集群进行交互的服�
 - 可以同时管理多个 Spark 上下文，并且 Spark 上下文运行在群集（YARN/Mesos）而不是 Livy 服务器，以实现良好的容错性和并发性。
 - 作业可以作为预编译的 jar，代码片段或通过 java/scala 客户端 API 提交。
 - 通过安全的认证通信确保安全。
- 
+
+![](https://main.qcloudimg.com/raw/4dc71e49b36d1790760e97cdd54543b6.png)
+
 ## 使用 Livy
 1.	访问`http://IP:8998/ui` 可以进入 Livy 的 UI 页面（**IP 为外网 IP，请自行为安装有 Livy 的机器申请外网 IP 并开通对应的安全组策略来进行访问**）。
 2.	创建一个交互式会话。
