@@ -1052,8 +1052,8 @@ UUID 类型。
 |-----|-----|-----|
 | kTIMProfileAddPermission_Unknown | 0 | 未知 |
 | kTIMProfileAddPermission_AllowAny | 1 | 允许任何人添加好友 |
-| kTIMProfileAddPermission_NeedConfirm | 2 | 拒绝任何人添加好友 |
-| kTIMProfileAddPermission_DenyAny | 3 | 添加好友需要验证 |
+| kTIMProfileAddPermission_NeedConfirm | 2 | 添加好友需要验证 |
+| kTIMProfileAddPermission_DenyAny | 3 | 拒绝任何人添加好友 |
 
 ### UserProfileCustemStringInfo
 用户自定义资料字段，字符串。
