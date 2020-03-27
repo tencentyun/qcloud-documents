@@ -6,7 +6,7 @@
 - 已创建 API 网关服务（参考 [创建服务](https://cloud.tencent.com/document/product/628/11787)）。
 
 ## 操作步骤
-### 步骤一：在云服务器侧安全组放通API网关内网网段
+### 步骤一：放通 API 网关内网网段
 1. 登录 [云服务器 CVM 控制台](https://console.cloud.tencent.com/cvm)，在左侧导航栏单击【安全组】，进入安全组列表。
 2. 选择地域后，单击【+新建】，在弹出的对话框中填写内容，创建一个安全组。
 ![](https://main.qcloudimg.com/raw/74f7a1fa3ef65485befc8d0c39a69c24.png)
@@ -24,7 +24,7 @@
 5. 将 TCP 监听器绑定到 CVM2，端口选择后端服务监听的端口（这里的端口为5001-5006）。
 ![](https://main.qcloudimg.com/raw/03990a0970ccf30543a3daefb23443e7.png)
 
-### 步骤三：在 API 网关侧配置后端对接 VPC 内的 CLB 资源
+### 步骤三：配置后端对接 VPC 内的 CLB 资源
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏单击【服务】，进入服务列表。
 2. 选择地域后，在服务列表中单击服务名称，进入服务详情页；在服务详情页单击【管理API】，在管理 API 页单击【新建】，进入 API 创建页面。
 3. 在 API 创建页面依次填写前端配置、后端配置、响应配置后单击【完成】，完成 API 的创建。
