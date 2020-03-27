@@ -51,7 +51,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 ### 创建项目和产品
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【新建项目】。
 2. 在新建项目页面，填写项目基本信息后，单击【保存】
- - 项目名称：输入"RAK 环境监测演示"或其他名称。
+ - 项目名称：输入“RAK 环境监测演示”或其他名称。
  - 项目描述：按照实际需求填写项目描述。
  ![](https://main.qcloudimg.com/raw/440cc15b137ecba7e11d1031acaf5a31.png)
 
@@ -76,8 +76,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 1. 单击产品名称，进入产品配置页，在【自定义功能】配置项下，可以单击【新建功能】，自定义产品功能。
 2. 您也可在【标准功能】配置项下，单击右上角【导入 JSON】，导入数据模板。
 ![](https://main.qcloudimg.com/raw/dd557e776a223b871b7515e004571506.png)
-3. 打开 [文件](https://github.com/RAKWireless/RUI_LoRa_node_payload_decoder/blob/master/tencent/RAK5205.json) 并复制文件里的内容到上图对应的本文框，单击【导入】。
-
+3. 打开 [文件](https://github.com/RAKWireless/RUI_LoRa_node_payload_decoder/blob/master/tencent/RAK5205.json)， 并复制文件里的内容至上图对应的本文框，单击【导入】。
 导入成功后，结果如下图：
 ![](https://main.qcloudimg.com/raw/eafb6e7eaad5a75c8b3f2282035953a5.png)
 
@@ -96,7 +95,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
  - fPort：设备上报的 LoRaWAN 协议数据的 FPort 字段。 
  - bytes：设备上报的 LoRaWAN协议数据的 FRMPayload 字段。
 脚本主函数的出参为产品数据模版协议格式的对象。
-2. 打开 [文件](https://github.com/RAKWireless/RUI_LoRa_node_payload_decoder/blob/master/tencent/RAK5205SensorDataDecoder_for_tencent.js)，并复制文件内容到"上行数据解析"文本框里覆盖原有内容，并提交。
+2. 打开 [文件](https://github.com/RAKWireless/RUI_LoRa_node_payload_decoder/blob/master/tencent/RAK5205SensorDataDecoder_for_tencent.js)，复制文件内容至“上行数据解析”文本框，覆盖原有内容，并提交。
 
 
 
