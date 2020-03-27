@@ -73,16 +73,19 @@ kubectl logs <pod-name> [-c <container-name>]
 	<td><code>ErrImagePull</code></td>	<td>通用的拉取镜像出错。</td>
 	</tr>
 	<tr>
-	<td>CreateContainerConfigError<code></code></td>	<td>不能创建 Kubelet 使用的容器配置。</td>
+	<td><code>CreateContainerConfigError</code></td>	<td>不能创建 Kubelet 使用的容器配置。</td>
 	</tr>
 	<tr>
-	<td>CreateContainerError<code></code></td>	<td>创建容器失败。</td>
+	<td><code>CreateContainerError</code></td>	<td>创建容器失败。</td>
 	</tr>
 	<tr>
 	<td><code>RunContainerError</code></td>	<td>启动容器失败。</td>
 	</tr>
 	<tr>
 	<td><code>PreStartHookError</code></td>	<td>执行 preStart hook 报错。</td>
+	</tr>
+	<tr>
+	<td><code>PostStartHookError</code></td>	<td>执行 postStart hook 报错。</td>
 	</tr>
 	<tr>
 	<td><code>ContainersNotInitialized</code></td>	<td>容器没有初始化完毕。</td>
@@ -105,7 +108,7 @@ kubectl logs <pod-name> [-c <container-name>]
 </table>
 
 
-## 问题导航
+## 问题定位
 您可根据 Pod 的异常状态，选择对应参考文档进一步定位异常原因：
 - [Pod 一直处于 ContainerCreating 或 Waiting 状态]()
 - [Pod 一直处于 Error 状态]()
