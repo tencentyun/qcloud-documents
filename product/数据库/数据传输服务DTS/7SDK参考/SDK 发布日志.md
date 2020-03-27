@@ -1,3 +1,6 @@
+### Version 2.9.1 
+1. bugix 版本。
+
 ### Version 2.9.0 
 1. 支持 MySQL 5.7。
 2. 支持 utf8 以外的其它编码。
