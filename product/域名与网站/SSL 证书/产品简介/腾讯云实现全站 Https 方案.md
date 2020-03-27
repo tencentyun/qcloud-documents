@@ -5,7 +5,7 @@
 
 ## 步骤1：获取证书
 
-腾讯云 SSL 证书服务支持域名型（DV） SSL 证书的免费申请。**企业型（OV）、企业增强型（EV）等付费证书目前支持线下选购申请**。
+腾讯云 SSL 证书服务支持域名型（DV） SSL 证书的免费申请。**企业型（OV）、企业增强型（EV）等付费证书支持线上选购申请**。
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl) ，单击【申请免费证书】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0957a3c2d374c8edf34501c7bd834f62.png)
 2. 填写申请域名，例如`qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。单击【下一步】。如下图所示：
