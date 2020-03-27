@@ -6,19 +6,18 @@
 2. 检查是否配置了正确的容器参数。
 
 ## 挂载 Volume 失败
-Volume 挂载失败的诱因存在多种可能，以下列出其中的两种已知情况：
+Volume 挂载失败的诱因存在多种可能，以下列出其中两种已知情况：
 
-### 1. Pod 漂移没有正常解挂之前的磁盘
+### 1. Pod 漂移没有正常解挂磁盘
 #### Pod 漂移
-在云托管的 K8S 服务环境下，默认挂载的 Volume 通常为一块存储类型的云硬盘。如果某个节点出现故障，kubelet 无法正常运行或与 apiserver 通信，则到达时间阀值后就会触发节点驱逐，自动在其它节点上启动相同的 Pod。
+在云托管的 K8S 服务环境下，默认挂载的 Volume 通常为一块存储类型的云硬盘。如果某个节点出现故障，kubelet 无法正常运行或与 apiserver 通信，则到达时间阈值后就会触发节点驱逐，自动在其它节点上启动相同的 Pod。
 
 #### 影响
-由于被驱逐的节点无法正常运行，无法确定被驱逐状态，导致该节点未正常解挂 Volume。
-由于无法正常运行，节点并不会发现自己已被驱逐，也就不会正常执行磁盘解挂。此外，cloud-controller-manager 也需要在节点成功执行磁盘解挂操作后，再去调用云厂商的接口从而将磁盘真正从节点上解挂。通常，经过一个时间阀值后，cloud-controller-manager 将会强制解挂云盘，并将其挂载到 Pod 最新调度到的节点上，**这种情况会导致 ContainerCreating 的时间相对较长**，但通常**最终是可以启动成功的**。
+由于被驱逐的节点无法正常运行，无法确定被驱逐状态，导致该节点未正常解挂 Volume。而节点并不会发现自己已被驱逐，也就不会正常执行磁盘解挂。此外，cloud-controller-manager 也需要在节点成功执行磁盘解挂操作后，再去调用云厂商的接口从而将磁盘真正从节点上解挂。通常，经过一个时间阈值后，cloud-controller-manager 将会强制解挂云盘，并将其挂载到 Pod 最新调度到的节点上，**这种情况会导致 ContainerCreating 的时间相对较长**，**但通常最终是可以启动成功的**。
 
 ### 2. 命中 K8S 挂载 configmap/secret 时 subpath 的 bug
 
-实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，并且 Pod 里的容器又进行了原地重启操作（例如，存活检查失败被 kill 后重启拉起），就会触发 K8S 挂载 configmap/secret 时 subpath 的 bug。针对此 bug，详情请参见 [PR82784](https://github.com/kubernetes/kubernetes/pull/82784)。
+实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，并且 Pod 里的容器又进行了原地重启操作时（例如，存活检查失败被 kill 后重启拉起），就会触发 K8S 挂载 configmap/secret 时 subpath 的 bug。针对此 bug 提交的 PR 请参见 [PR82784](https://github.com/kubernetes/kubernetes/pull/82784)。
 
 如果出现了以上情况，容器将会一直启动不成功。报错示例如下：
 ``` bash
@@ -37,7 +36,7 @@ caused \\\"no such file or directory\\\"\"": unknown'
 ```
 
 ## 磁盘空间不足
-启动 Pod 时会调 CRI 接口创建容器，容器运行时组件创建容器时通常会在数据目录下为新建的容器创建一些目录和文件。如果数据目录所在的磁盘空间不足，就会导致容器创建失败。此种情况，通常会显示以下报错信息：
+启动 Pod 时会调 CRI 接口创建容器，容器运行时组件创建容器时通常会在数据目录下为新建的容器创建一些目录和文件。如果数据目录所在的磁盘空间不足，将会导致容器创建失败。此种情况，通常会显示以下报错信息：
 ```bash
 Events:
   Type     Reason                  Age                  From                   Message
@@ -51,8 +50,8 @@ Events:
 ## 节点内存碎片化
 如果节点上内存碎片化严重，缺少大页内存，此时尽管总体剩余内存较多，但仍会出现申请内存失败的情况。请参考 [内存碎片化]() 解决异常。
 
-## limit 设置太小或者单位不对
-当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态。通常可能是 memory limit 单位设置错误引起的，**正确单位设置应使用 `Mi` 或 `M`**，但如果误将 memory limit 单位设置为小写字母 `m`，该单位将会被 K8S 识别成 Byte。
+## Limit 设置过小或单位错误
+当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态。通常是 memory limit 单位设置错误引起的，**正确单位设置应使用 `Mi` 或 `M`**，如果误将 memory limit 单位设置为小写字母 `m`，该单位将会被 K8S 识别成 Byte。
 
 例如，memory limit 设置为1024m ，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
 
@@ -66,7 +65,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 ```
 
 ## 拉取镜像失败
-镜像拉取失败也分很多情况，本文列举如下情况：
+引起镜像拉取失败原因较多，本文列举如下情况：
 - 配置了错误的镜像。
 * Kubelet 无法访问镜像仓库。例如，默认 pause 镜像在 gcr.io 上，而国内环境访问需要特殊处理。
 * 拉取私有镜像的 imagePullSecret 没有配置或配置有误。
