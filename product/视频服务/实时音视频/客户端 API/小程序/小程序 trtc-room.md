@@ -47,7 +47,7 @@
 | [subscribeRemoteVideo(params)](#subscriberemotevideo(params)) | 订阅远端用户的视频流并进行播放。|
 | [unsubscribeRemoteVideo(params)](#unsubscriberemotevideo(params)) | 取消订阅远端用户的视频并停止播放。|
 | [subscribeRemoteAudio(params)](#subscriberemoteaudio(params)) | 订阅远端用户的音频并进行播放。|
-| [unsubscribeRemoteAudio(params)](#unsubscriberemoteaudio(params)) | 取消订阅远端用户的音频并且进行播放。|
+| [unsubscribeRemoteAudio(params)](#unsubscriberemoteaudio(params)) | 取消订阅远端用户的音频并且停止播放。|
 | [getRemoteUserList()](#getremoteuserlist()) | 获取远端用户列表。|
 
 **视图控制**
