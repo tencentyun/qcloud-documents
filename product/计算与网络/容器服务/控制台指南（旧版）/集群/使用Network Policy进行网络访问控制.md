@@ -324,7 +324,7 @@ spec:
 
 ### 性能曲线
 
-![kube-router.png](https://ask.qcloudimg.com/draft/982360/c2dvr6rprd.png)
+![kube-router.png](https://main.qcloudimg.com/raw/ea25a9a3bfa7b840b0fbf70bcceb34a4.png)
 
 X轴：ab 并发数
 

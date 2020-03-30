@@ -88,7 +88,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 7. 选择 [步骤 5](#step5) 保存的证书文件，保持页面默认信息，一直单击【下一步】>【完成】。
 8. 参考申请证书的 [步骤 3](#step3)，右键单击【个人】，单击【所有任务】>【导出】。如下图所示：
 ![](https://main.qcloudimg.com/raw/460d0c31c83acc14e4b80a708bf994e4.png)
-9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
+9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
 
@@ -120,7 +120,7 @@ https://域名/federationmetadata/2007-06/federationmetadata.xml
 https://域名/adfs/ls/idpinitiatedSignOn.htm
 ```
 7. 输入 [步骤4](#step4) 中的账号名称、密码登录，登录成功如下图所示：
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200318222316599.png)
+![](https://main.qcloudimg.com/raw/a032933d0f3bedbfe31d1cea75459d5c.png)
 
 8.单击服务器管理器-ADFS 页面右上角【工具】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0a1b8c8556dcf41f02e48c530326df82.png)

@@ -22,8 +22,8 @@ pod init
 ```
 
 #### 3. 编辑 Podfile 文件
-编辑 Podfile 文件，有如下有两种设置方式：
-- 方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
+编辑 Podfile 文件，并根据需要选择合适的 SDK 版本：
+- [精简版](https://cloud.tencent.com/document/product/647/32689#TRTC)：安装包体积增量最小，但仅支持 TRTC 和 CDN 播放（TXLivePlayer）功能。
 ```
   platform :ios, '8.0'
   
@@ -32,7 +32,16 @@ pod init
   end
 ```
 
-- 方式二：使用 CocoaPod 官方源，支持选择版本号。
+- [专业版](https://cloud.tencent.com/document/product/647/32689#Professional)：除了 TRTC，还包含 RTMP 推流（TXLivePusher）、CDN 播放（TXLivePlayer）、点播播放（TXVodPlayer）以及短视频（UGSV）等多种功能。
+```
+  platform :ios, '8.0'
+  
+  target 'App' do
+  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+  end
+```
+
+您也可以使用 CocoaPod 官方源，但下载速度可能较慢：
 ```
    platform :ios, '8.0'
    source 'https://github.com/CocoaPods/Specs.git'
