@@ -3,7 +3,7 @@ Logstash 是一个开源的日志处理工具，可以从多个源头收集数�
 
 Logstash 灵活性强，拥有强大的语法分析功能，插件丰富，支持多种输入和输出源。Logstash 作为水平可伸缩的数据管道，与 Elasticsearch 和 Kibana 配合，在日志收集检索方面功能强大。
 
-### Logstash 工作原理
+#### Logstash 工作原理
 Logstash 数据处理可以分为三个阶段：inputs → filters → outputs。
 1. inputs：产生数据来源，例如文件、syslog、redis 和 beats 此类来源。
 2. filters：修改过滤数据， 在 Logstash 数据管道中属于中间环节，可以根据条件去对事件进行更改。一些常见的过滤器包括：grok、mutate、drop 和 clone 等。
