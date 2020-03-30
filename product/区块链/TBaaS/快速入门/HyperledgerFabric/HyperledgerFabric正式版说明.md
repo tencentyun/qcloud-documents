@@ -6,7 +6,7 @@
 1. 前往 [区块链服务TBaaS-Fabric](https://buy.cloud.tencent.com/tbaas_blockchain?engine=0) 购买页面，按照以下信息设置基本信息、组织与节点配置。
 主要参数信息如下：
  - **联盟**：选择一个已创建或已加入的联盟。
- 如果您是联盟初创者，请参考 [创建联盟](https://cloud.tencent.com/document/product/663/38470#.E5.88.9B.E5.BB.BA.E8.81.94.E7.9B.9F) 完成创建。其他参与组织可前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面的【我待办的】页签中，接受邀请并加入联盟。
+ 如果您是联盟初创者，请参考 [创建联盟](https://cloud.tencent.com/document/product/663/38470#.E5.88.9B.E5.BB.BA.E8.81.94.E7.9B.9F) 完成创建。其他参与组织可前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入联盟】，接受邀请并加入联盟。
  - **区块链网络名称**：自定义名称，长度为4 - 60个字符，不可与当前您已加入的区块链网络名称重复。
  - **节点配置**：您可根据实际需求选择高级配置，请谨慎选择以匹配后续业务需要。
 2. 选择【下一步】进入邀请组织步骤，可根据实际需求选择组织或单击【跳过】。
@@ -23,8 +23,7 @@
  - **成员名称**：被邀请者的腾讯云账号昵称。
  - **账号 ID**：被邀请者的账号 ID，腾讯云的唯一标识。
  - **APPID**：被邀请者腾讯云账号的 APPID。
- 以上信息，可前往“[账号信息](https://console.cloud.tencent.com/developer)”页面获取。
-4. 被邀组织需前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入联盟】接受或拒绝邀请。
+ 以上信息，可前往“[账号信息](https://console.cloud.tencent.com/developer)”页面获取。被邀组织需前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入联盟】接受或拒绝邀请。
 
 ### 邀请其他组织加入网络
 1. 选择左侧导航栏中的【Fabric】>【[区块链网络](https://console.cloud.tencent.com/tbaas/fabric/deploy)】，进入“区块链网络”列表页面。
@@ -32,7 +31,7 @@
 >?需确保被邀请组织已成为该网络所属联盟成员。
 >
 ![](https://main.qcloudimg.com/raw/7939b857d87da9f46fb36a647b688da1.png)
-3. 被邀组织需前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入网络】接受或拒绝邀请。
+被邀组织需前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入网络】接受或拒绝邀请。
 
 ## 步骤3：创建业务通道
 当您成功组建区块链网络，并成功邀请组织加入网络后，可参考以下步骤新建业务通道并邀请组织加入。
