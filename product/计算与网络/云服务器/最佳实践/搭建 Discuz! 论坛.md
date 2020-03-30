@@ -13,7 +13,7 @@ Discuz! 是全球成熟度最高、覆盖率最大的论坛网站软件系统之
 - Apache：Web 服务器，本文以 Apache 2.4.15 为例。
 - MariaDB：数据库，本文以 MariaDB 5.5.60 为例。
 - PHP：脚本语言，本文以 PHP 5.4.16 为例。
-- Discuz!：论坛网站软件，本文以 Discuz! X3.2 为例。
+- Discuz!：论坛网站软件，本文以 Discuz! X3.4 为例。
 
 
 ## 操作步骤
@@ -47,7 +47,7 @@ systemctl start php-fpm
 3. <span id="step3"></span>执行以下命令，设定 root 帐户密码及基础配置，使 root 用户可以访问数据库。
 >!
 >- 针对首次登录 MariaDB 前执行以下命令进入用户密码及基础设置。
->- 提示输入 root 密码后按 **Enter** 直接进入 root 密码设置步骤，设置 root 密码时界面默认不显示，并再次输入确认。通过界面上的提示完成基础配置。
+>- 首次提示输入 root 密码后按 **Enter** 直接进入 root 密码设置步骤，设置 root 密码时界面默认不显示，并再次输入确认。通过界面上的提示完成基础配置。
 > 
 ```
 mysql_secure_installation
