@@ -1,3 +1,6 @@
+以下视频将为您介绍 TSF 应用开发环境中，SDK 安装的基本流程和步骤：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2039-24415?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 开发前准备
 在执行安装脚本之前，请确保您的机器上已经安装了 Java 和 Maven。
 
@@ -25,7 +28,7 @@ java -version
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
 | Windows  | 将字符串“;C:\Program Files\Java\jdk1.6.0_21\bin”添加到系统变量“Path”的末尾 |
-| Linux    | export PATH=PATH:JAVA_HOME/bin/                              |
+| Linux    | export PATH=$PATH:$JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
 使用上面提到的 **java -version** 命令验证 Java 安装。
@@ -137,7 +140,7 @@ java -version
 ## 安装 SDK
 通过 Maven 获取 TSF SDK。在 [Demo 工程](https://cloud.tencent.com/document/product/649/20261)  中，`pom.xml`所在目录执行`mvn clean package`即可下载 TSF SDK。
 
-最新 SDK 版本请参考 [SDK 更新日志]( https://cloud.tencent.com/document/product/649/20230)。
+最新 SDK 版本请参考 [SDK 更新日志](https://cloud.tencent.com/document/product/649/38983)。
 
 >!如果无法下载相关依赖，请检查网络是否有防火墙限制。
 

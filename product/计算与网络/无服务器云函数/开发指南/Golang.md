@@ -84,7 +84,6 @@ func hello(ctx context.Context, event DefineEvent)
 
 ```
 func hello()()
-func hello()(string, error)
 func hello()(error)
 func hello()(string, error)
 ```
@@ -93,7 +92,7 @@ func hello()(string, error)
 
 自定义返回值可以为 Golang 自带基础数据结构，例如 string，int，也可以为自定义的数据结构。在使用自定义的数据结构时，需要确定数据结构可以兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal 操作，否则在返回至外部接口时会因为异常转换而出错。
 
-自定义数据结构对应的 JSON 结构，通常会在函数调用完成返回时，在平台内转换为对应的 JSON 数据结构，作为运行响应传递给调用方数。
+自定义数据结构对应的 JSON 结构，通常会在函数调用完成返回时，在平台内转换为对应的 JSON 数据结构，作为运行响应传递给调用方函数。
 
 ## 日志
 
@@ -104,24 +103,24 @@ func hello()(string, error)
 
 ## 编译打包
 
-Golang 环境的云函数，仅支持 zip 包上传，可以选择使用本地上传 zip 包或通过 COS 对象存储引用 zip 包。zip 包内包含的应该是编译后的可执行二进制文件。
+Golang 环境的云函数，仅支持 zip 包上传，您可以选择使用本地上传 zip 包或通过 COS 对象存储引用 zip 包。zip 包内包含的应该是编译后的可执行二进制文件。
 
 Golang 编译可以在任意平台上通过制定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
 
-在 Linux 或 MacOS 下通过如下方法完成编译及打包：
-
+- 在 Linux 或 MacOS 的终端通过如下方法完成编译及打包：
 ```
 GOOS=linux GOARCH=amd64 go build -o main main.go
 zip main.zip main
 ```
-
-在 Windows 下可使用如下命令编译，然后使用打包工具对输出的二进制文件进行打包，二进制文件需要在 zip 包根目录。
-
+- 在 Windows 下，请按照以下步骤进行编译打包：
+  1. 按 **Windows + R** 打开运行窗口，输入 **cmd** 后按 **Enter**。
+  2. 执行以下命令，进行编译。 
 ```
 set GOOS=linux
 set GOARCH=amd64
 go build -o main main.go
 ```
+  3. 使用打包工具对输出的二进制文件进行打包，二进制文件需要在 zip 包根目录。
 
 ## 创建函数
 
@@ -139,3 +138,10 @@ Golang 开发语言仅支持通过使用 本地 zip 文件上传、COS 上传等
 ## 测试函数
 
 通过控制台右上角的测试按钮，可以打开测试界面，同步触发云函数并查看运行结果。针对代码例子，由于入参是 `DefineEvent` 数据结构，对应的 JSON 结构类似为 `{"key1":"value1"," key2":"value2"}`，因此在使用调试界面进行触发运行时，可以输入的测试模板为类似 `{"key1":"value1"," key2":"value2"}` 的数据结构。如需使用其他数据结构测试函数，或函数入参为自定义的其他数据结构，则在函数入参数据结构与测试模板 JSON 数据结构对应时，才可运行成功。
+
+
+## 更多指引
+您可参考以下文档，使用相关功能：
+- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
+- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
+- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)

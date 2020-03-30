@@ -25,7 +25,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 
 ## 对接攻略
-
+<span id="step_1"></span>
 ### step 1: 添加 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入如下一段代码：
 ```xml
@@ -69,7 +69,7 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 ### step 4: 画面调整
 
 - **view：大小和位置**
-如需修改画面的大小及位置，直接调整 step1 中添加的 “video_view” 控件的大小和位置即可。
+如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
 
@@ -92,7 +92,7 @@ mLivePlayer.setRenderMode(TXLiveConstants.RENDER_MODE_ADJUST_RESOLUTION);
 mLivePlayer.setRenderRotation(TXLiveConstants.RENDER_ROTATION_LANDSCAPE);
 ```
 
-![](//mc.qcloudimg.com/static/img/ef948faaf1d62e8ae69e3fe94ab433dc/image.png)
+![](https://main.qcloudimg.com/raw/89e7b5b2b6b944fe8377cf9f2bcff573.jpg)
 
 
 ### step 5: 暂停播放
@@ -160,9 +160,7 @@ stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”�
 
 ### step 8: 屏幕截图
 通过调用 **snapshot** 您可以截取当前直播画面为一帧屏幕，此功能只会截取当前直播流的视频画面，如果您需要截取当前的整个 UI 界面，请调用 Android 的系统 API 来实现。
-
-![](//mc.qcloudimg.com/static/img/f63830d29c16ce90d8bdc7440623b0be/image.jpg)
-
+![](https://main.qcloudimg.com/raw/1439eff8e2b9629abf92960e1b784f56.jpg)
 ```java
 mLivePlayer.snapshot(new ITXSnapshotListener() {
     @Override
@@ -176,8 +174,7 @@ mLivePlayer.snapshot(new ITXSnapshotListener() {
 
 ### step 9: 截流录制
 截流录制是直播播放场景下的一种扩展功能：观众在观看直播时，可以通过单击录制按钮把一段直播的内容录制下来，并通过视频分发平台（例如腾讯云的点播系统）发布出去，这样就可以在微信朋友圈等社交平台上以 UGC 消息的形式进行传播。
-
-![](//mc.qcloudimg.com/static/img/2963b8f0af228976c9c7f2b11a514744/image.png)
+![](https://main.qcloudimg.com/raw/c5277659170dccb7e317f4386e75c265.png)
 
 ```java
 //指定一个 ITXVideoRecordListener 用于同步录制的进度和结果
@@ -226,7 +223,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 1. 录制：配置时移时长、时移储存时长。
 2. 播放：时移获取元数据。
 
-时移功能处于公测申请阶段，如您需要可提交工单申请使用。
+时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
 
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
@@ -274,13 +271,15 @@ mLivePlayer.setConfig(mPlayConfig);
 该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
-播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [直播播放（播放防盗链）](https://cloud.tencent.com/document/product/267/32733#.E6.92.AD.E6.94.BE.E9.98.B2.E7.9B.97.E9.93.BE)。
+播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
-![](https://main.qcloudimg.com/raw/521bdb80c4fedfe8c140d47793dd9013/bizid.png)
+![](https://main.qcloudimg.com/raw/d4bae92945f16569ab5446d320fcf663.png)
 如果您的防盗链地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34`
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`
+
+>?这里的防盗链计算要用推流防盗链Key
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。

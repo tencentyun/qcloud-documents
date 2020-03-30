@@ -9,13 +9,13 @@
 2. 进入产品列表页面，单击【创建新产品】。
 3. 在弹出的添加新产品页面中，选择节点类型和产品类型，输入产品名称，选择认证方式和数据格式，并输入产品描述，
 然后单击【确定】。（对于普通直连设备，可按下图选择）
-![](https://main.qcloudimg.com/raw/67d49c04d49002071a8fb80ff1f23f46.png)
+![](https://main.qcloudimg.com/raw/1c76747cd324aa3b25810f055cd1bf1a.jpg)
 4. 产品创建完成后，在生成的产品页面下，单击【设备列表】。
 5. 在设备列表页面，单击【添加新设备】。
- - 如果产品认证方式为证书认证，输入设备名称成功后，切记单击弹窗中的【下载】，下载所得包中的设备密钥文件和设备证书用于设备连接物联网通信的鉴权。
-![](https://main.qcloudimg.com/raw/89ee977d4b80c350c86261cb0d46f964.png)
+ - 如果产品认证方式为证书认证，输入设备名称成功后，切记单击弹窗中的【下载按钮】，下载所得包中的设备密钥文件和设备证书用于设备连接物联网通信的鉴权。
+![](https://main.qcloudimg.com/raw/d49979433cab6852b2919f049e818a5c.png)
  - 如果产品认证方式为密钥认证，输入设备名称成功后，会在弹窗中显示新添加设备的密钥。
-![](https://main.qcloudimg.com/raw/d5f72dd239593315fc81171637d5809e.png)
+![](https://main.qcloudimg.com/raw/b544ebdd175993147a71a4dfe2af2b80.jpg)
 
 
 
@@ -24,8 +24,8 @@
 ### 创建 Topic
 1. 在生成的产品页面下，单击【权限列表】。
 2. 进入权限列表页面，单击【添加 Topic 权限】。
-3. 在弹出的 Topic 权限页面中，输入 data，并设置操作权限为**发布和订阅**，单击【创建】
-![](https://main.qcloudimg.com/raw/15b0ee60510c823b9da7e391d68d8dc0.png)
+3. 在弹出的 Topic 权限页面中，输入 data，并设置操作权限为**发布和订阅**，单击【确定】
+![](https://main.qcloudimg.com/raw/1a7fdffc12b9154e6455e7c2cbdecc22.jpg)
 4. 随后将会创建出`productID/\${deviceName}/data`的 Topic，在产品页面的权限列表中即可查看该产品的所有权限。
 
 
@@ -100,7 +100,7 @@ INF|2019-09-12 21:28:21|mqtt_sample.c|on_message_callback(195): Receive Message 
 ```
 
 #### 6. 观察控制台日志
-登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击该产品名称，单击左侧菜单【云日志】，即可查看刚上报的消息。
-![](https://main.qcloudimg.com/raw/f589691c7e007b59a5426ede6dc17ddb.png)
+登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击该产品名称，单击上方菜单【云日志】，即可查看刚上报的消息。
+![](https://main.qcloudimg.com/raw/c6f7b9b71a96a1efc7611f38871c0ea0.jpg)
 
 

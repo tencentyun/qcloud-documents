@@ -12,18 +12,17 @@
 - JDK：Java 开发工具包，本文以 JDK 1.8.0_221 为例。
 
 
-
-
-
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
 
-### 步骤二：安装 JDK
+### 步骤2：安装 JDK
 1. 下载 JDK 源码包，您可前往 [Java SE 下载](https://www.oracle.com/technetwork/java/javase/downloads/index.html) 页面选择需要的版本。
 >?请先将 JDK 源码包下载到本地，再上传至云服务器，否则会出现解压错误。
 > - 若您使用机器为 Windows 操作系统，可通过 [WinSCP 上传文件](https://cloud.tencent.com/document/product/213/2131)。
@@ -61,7 +60,7 @@ java -version
 返回如下信息，则表示安装成功。
 ![](https://main.qcloudimg.com/raw/f12cfeed5d8aa15cccb9836637e9555f.png)
 
-### 步骤三：安装 Tomcat
+### 步骤3：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
 >?本文使用 Apache 官网提供下载网址，您可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
 >
@@ -72,9 +71,9 @@ wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.47/bin/apac
 ```
 tar xzf apache-tomcat-8.5.47.tar.gz
 ```
-3. 执行以下命令，将解压后的源码包移动到 `/usr/local/tomcat/` 目录下。
+3. 执行以下命令，将解压后的文件夹下的文件移动到 `/usr/local/tomcat/` 目录下。
 ```
-mv apache-tomcat-8.5.47.tar.gz /usr/local/tomcat/
+mv apache-tomcat-8.5.47 /usr/local/tomcat/
 ```
 4. 执行以下命令，打开 `server.xml` 文件。
 ```
@@ -101,7 +100,7 @@ JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Df
 显示结果如下，则成功启动。
 ![](https://main.qcloudimg.com/raw/64bdd25e734db46464655f15acae4c2f.png)
 
-### 环境配置验证
+## 验证环境配置
 1. 执行以下命令，创建测试文件。
 ```
 echo Hello World! > /usr/local/tomcat/webapps/ROOT/index.jsp

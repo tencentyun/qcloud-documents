@@ -40,6 +40,7 @@ Authorization: Auth String
 ```shell
 <AccelerateConfiguration xmlns="cos xmlns/"> 
   <Status>Enabled</Status> 
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 
@@ -49,7 +50,7 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ---------------------------------------------------- | --------- |
 | AccelerateConfiguration | 无                      | 全球加速的具体信息                                   | Container |
 | Status                  | AccelerateConfiguration | 说明全球加速功能是否开启，枚举值：Suspended、Enabled | Enum      |
-| Type                    | AccelerateConfiguration | 指定全球加速功能的类型，枚举值：Suspended、Enabled   | Enum      |
+| Type                    | AccelerateConfiguration | 指定全球加速功能的类型，枚举值：COS  | Enum      |
 
 #### 错误码
 
@@ -80,6 +81,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 <AccelerateConfiguration>
   <Status>Enabled</Status>
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 
@@ -96,6 +98,7 @@ x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
 
 <AccelerateConfiguration>
   <Status>Disabled</Status>
+  <Type>COS</Type>
 </AccelerateConfiguration>
 ```
 

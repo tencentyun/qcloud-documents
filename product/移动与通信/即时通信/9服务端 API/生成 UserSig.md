@@ -5,9 +5,9 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
  >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
-2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
-3. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
-4. 单击【查看密钥】，拷贝并保存密钥信息。
+2. 单击目标应用卡片，进入应用的基础配置页面。
+3. 在【基本信息】区域，单击【密钥】右侧的【显示密钥】。
+4. 单击【复制】即可复制并储存密钥信息。
  >!请妥善保管密钥信息，谨防泄露。
 
 ## 客户端计算 UserSig
@@ -41,11 +41,13 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 | C++ | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
 
+
+<span id="ECDSA-SHA256"></span>
 ## 老版本算法
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256。 2019.07.19以后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
-如果您的 SDKAppID 是2019.07.19之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
+如果您的 SDKAppID 是2019.07.19之前创建的，建议升级为 [HMAC-SHA256 算法](#GeneratingdynamicUserSig)。您也可以继续使用老版本的签名算法，ECDSA-SHA256 算法的源码下载链接如下：
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|

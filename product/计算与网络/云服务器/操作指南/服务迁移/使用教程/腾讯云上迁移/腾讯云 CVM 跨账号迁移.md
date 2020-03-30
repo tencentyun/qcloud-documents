@@ -1,4 +1,4 @@
-在线迁移工具支持腾讯云两个不同主机之间的迁移。跨账号迁移是指两个不同账号下的主机之间的迁移。
+在线迁移工具支持腾讯云云服务器跨账号迁移数据。跨账号迁移数据是指两个不同账号下的主机之间的数据迁移。
 
 ## 1. 获取迁移工具  
  [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
@@ -8,7 +8,7 @@
 目前迁移工具支持默认模式和内网迁移模式。其中，内网迁移模式细分为3种场景。不同迁移模式/场景，对源端主机和目标云服务器的网络要求不一致。如果源端主机和目标云服务器均可以访问公网，则可以直接进行默认模式迁移。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移。
 
 ## 3. 备份数据
-可以选择创建快照等方式备份数据。
+可以选择 [创建快照](https://cloud.tencent.com/document/product/362/5755) 等方式备份数据。
 
 ## 4. 迁移前的检查
 迁移前，需要分别检查源端主机和目标云服务器。源端主机和目标云服务器需要检查的内容如下：

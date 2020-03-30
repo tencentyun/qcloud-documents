@@ -48,7 +48,7 @@ TCWebCodesSDK.framework
 }];
 ```
 
-至此，验证码客户端接入已完成，您可以继续完成 [后台 API 接入]() 。
+至此，验证码客户端接入已完成，您可以继续完成 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 。
 ## API 解析
 1. 返回单例。
 ```

@@ -11,7 +11,7 @@ ls: Failed on local exception: java.io.IOException: javax.security.sasl.SaslExce
 ```
 
 ### 获取 ticket
-前提：hadoop@EMR的principal 已添加。
+前提：hadoop@EMR 的 principal 已添加。
 ```
 kinit -kt /var/krb5kdc/emr.keytab hadoop@EMR
 ```

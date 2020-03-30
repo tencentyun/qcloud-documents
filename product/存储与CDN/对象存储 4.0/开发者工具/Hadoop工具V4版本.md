@@ -1,3 +1,7 @@
+
+>!您目前查阅的是旧版 Hadoop 文档，已不再维护和更新，建议您查阅新版 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
+
+
 ## 功能说明
 Hadoop cosn 插件实现了以腾讯云 COS 作为底层存储文件系统运行上层计算任务的功能，使用 Hadoop 大数据处理引擎，如 MapReduce，Hive、Spark、Tez 等，可以处理存储在腾讯云对象存储 COS 上的数据。  
 

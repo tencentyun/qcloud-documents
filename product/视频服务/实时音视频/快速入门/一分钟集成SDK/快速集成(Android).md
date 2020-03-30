@@ -127,6 +127,7 @@ dependencies {
 ```
 -keep class com.tencent.** { *; }
 ```
-
+## 设置 App 打包参数
+![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
 
 

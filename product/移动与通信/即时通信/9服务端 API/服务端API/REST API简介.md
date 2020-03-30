@@ -5,7 +5,7 @@ REST API 是即时通信 IM 提供给 App 后台的 HTTP 管理接口，其主�
 ## 前提条件
 要调用 REST API，您必须已完成：
 1. 在即时通信 IM 控制台创建 App，具体方法参见 [应用接入指引](https://cloud.tencent.com/document/product/269/32577)。
-2. 为您的 App 指定管理员帐号，具体方法参见 [基础配置](https://cloud.tencent.com/document/product/269/32578#.E5.9F.BA.E7.A1.80.E9.85.8D.E7.BD.AE) 的帐号体系集成。
+2. 为您的 App 指定管理员帐号，具体方法参见 [基础配置](https://cloud.tencent.com/document/product/269/32578) 的帐号体系集成。
 
 >!调用 REST API 时请务必使用 App 管理员帐号，否则会导致不必要的调用错误。
 

@@ -1,6 +1,6 @@
 ## 功能描述
 
-COS 支持为已存在的 Bucket 设置标签（Tag）。GET Bucket tagging 接口用于查询指定存储桶下已有的存储桶标签。
+COS 支持为已存在的 Bucket 查询标签（Tag）。GET Bucket tagging 接口用于查询指定存储桶下已有的存储桶标签。
 
 > ?若您使用子账号调用此项接口，请确保您已经在主账号处获取了 GET Bucket tagging 这个接口的权限。
 
@@ -15,7 +15,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 文档。

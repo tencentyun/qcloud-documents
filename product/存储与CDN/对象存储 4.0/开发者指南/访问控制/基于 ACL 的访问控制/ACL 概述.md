@@ -82,7 +82,7 @@
 | public-read               | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限                     |
 | authenticated-read        | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限                  |
 | bucket-owner-read         | 创建者具备 FULL_CONTROL 权限，存储桶拥有者具备 READ 权限                   |
-| bucket-owner-full-control | 创建者和和存储桶拥有者都具备 FULL_CONTROL 权限                             |
+| bucket-owner-full-control | 创建者和存储桶拥有者都具备 FULL_CONTROL 权限                             |
 
 >?对象不支持授予 public-read-write 权限。
 

@@ -1,8 +1,10 @@
-腾讯云为您提供 DockerHub 加速器以方便您快速稳定拉取 DockerHub 平台上的容器镜像，该加速器地址为：
+腾讯云为您提供如下 DockerHub 加速器，以方便您快速拉取 DockerHub 平台上的容器镜像。
+此加速器地址需在腾讯云云服务器中配置才可生效，请勿通过浏览器直接访问，请参照以下教程进行配置。
 ```
 https://mirror.ccs.tencentyun.com
 ```
-请参照以下教程在 CVM 实例中配置该加速器地址，重新启动 Dokcker 服务并确认该配置已生效。
+
+
 ## TKE 集群内 CVM 实例配置
 TKE 集群内 CVM 实例无需手动配置，集群在创建节点时会自动安装 Docker 服务，并配置 Mirror 镜像。默认配置项如下：
 ```shell
@@ -14,7 +16,7 @@ LOG_LEVEL="--log-level=warn"
 REGISTRY_MIRROR="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```
 ## CVM 实例通用配置
-### Liunx 
+### Linux 
 >?本文以 Ubuntu 16.04+、Debian 8+、CentOS 7 的配置为例，其他版本请结合实际情况进行配置。
 >
 1. 创建或修改 `/etc/docker/daemon.json` 文件，并写入以下内容：
@@ -31,6 +33,7 @@ $ sudo systemctl daemon-reload
 ```
 ```
 $ sudo systemctl restart docker
+# Ubuntu16.04 请执行 sudo systemctl restart dockerd 命令
 ```
 
 ### Windows 10

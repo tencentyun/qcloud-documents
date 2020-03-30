@@ -3,18 +3,23 @@
 | 功能说明  | 接口 |
 |---------|---------|
 | 导入单个帐号 | [v4/im_open_login_svc/account_import](https://cloud.tencent.com/document/product/269/1608) |
-| 导入批量帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
-| 帐号删除  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
-| 帐号校验  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
+| 导入多个帐号 | [v4/im_open_login_svc/multiaccount_import](https://cloud.tencent.com/document/product/269/4919) |
+| 删除帐号  | [v4/im_open_login_svc/account_delete](https://cloud.tencent.com/document/product/269/36443) |
+| 查询帐号  | [v4/im_open_login_svc/account_check](https://cloud.tencent.com/document/product/269/38417)  | 
 | 失效帐号登录态  | [v4/im_open_login_svc/kick](https://cloud.tencent.com/document/product/269/3853) |
+| 查询帐号在线状态 | [ v4/openim/querystate](https://cloud.tencent.com/document/product/269/2566) |
+
+## 单聊消息
+
+| 功能说明  | 接口 |
+|---------|---------|
+| 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
+| 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
+| 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
+| 查询单聊消息 | [v4/openim/admin_getroammsg](https://cloud.tencent.com/document/product/269/42794) |
+| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 
-
-## 在线状态
-
-| 功能说明         | 接口                                                       |
-| ---------------- | ---------------------------------------------------------- |
-| 获取用户在线状态 | [ v4/openim/querystate](https://cloud.tencent.com/document/product/269/2566) |
 
 ## 资料管理
 
@@ -41,20 +46,13 @@
 | 添加分组 | [v4/sns/group_add](https://cloud.tencent.com/document/product/269/10107) |
 | 删除分组 | [v4/sns/group_delete](https://cloud.tencent.com/document/product/269/10108) |
 
-## 单聊消息
 
-| 功能说明  | 接口 |
-|---------|---------|
-| 单发单聊消息 | [v4/openim/sendmsg](https://cloud.tencent.com/document/product/269/2282) |
-| 批量发单聊消息 | [v4/openim/batchsendmsg](https://cloud.tencent.com/document/product/269/1612) |
-| 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
-| 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
 ## 群组管理
 
 | 功能说明               | 接口                                                         |
 | ---------------------- | ------------------------------------------------------------ |
-| 获取APP中的所有群组    | [v4/group_open_http_svc/get_appid_group_list](https://cloud.tencent.com/document/product/269/1614) |
+| 获取 App 中的所有群组    | [v4/group_open_http_svc/get_appid_group_list](https://cloud.tencent.com/document/product/269/1614) |
 | 创建群组               | [v4/group_open_http_svc/create_group](https://cloud.tencent.com/document/product/269/1615) |
 | 获取群组详细资料       | [v4/group_open_http_svc/get_group_info](https://cloud.tencent.com/document/product/269/1616) |
 | 获取群成员详细资料     | [v4/group_open_http_svc/get_group_member_info](https://cloud.tencent.com/document/product/269/1617) |

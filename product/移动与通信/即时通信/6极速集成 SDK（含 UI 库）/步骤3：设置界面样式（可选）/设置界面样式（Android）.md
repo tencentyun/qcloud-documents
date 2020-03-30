@@ -115,13 +115,13 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 
 ```java
 /**
- * 获取聊天窗口 Message 区域 Layout
+ * 获取聊天窗口 Notice 区域 Layout
  * @return
  */
 NoticeLayout getNoticeLayout();
 
 /**
- * 获取聊天窗口 Notice 区域 Layout
+ * 获取聊天窗口 Message 区域 Layout
  * @return
  */
 MessageLayout getMessageLayout();

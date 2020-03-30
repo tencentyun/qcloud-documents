@@ -33,15 +33,8 @@ Request 成员说明：
 
 使用永久密钥生成一个带签名的下载链接，示例代码如下：
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```java
-// 初始化永久密钥信息
-String secretId = "COS_SECRETID";
-String secretKey = "COS_SECRETKEY";
-COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
-Region region = new Region("ap-guangzhou");
-ClientConfig clientConfig = new ClientConfig(region);
-// 生成 cos 客户端。
-COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
 String key = "exampleobject";
@@ -53,25 +46,14 @@ Date expirationDate = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 req.setExpiration(expirationDate);
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
-cosClient.shutdown();
 ```
 
 #### 示例2
 
 使用临时密钥生成一个带签名的下载链接，并设置覆盖要返回的一些公共头部（例如 content-type，content-language），示例代码如下：
 
+[//]: # (.cssg-snippet-get-presign-download-url-override-headers)
 ```java
-// 传入获取到的临时密钥 (tmpSecretId, tmpSecretKey, sessionToken)
-String tmpSecretId = "COS_SECRETID";
-String tmpSecretKey = "COS_SECRETKEY";
-String sessionToken = "COS_TOKEN";
-COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, sessionToken);
-// 设置 bucket 的区域, COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
-// clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
-Region region = new Region("ap-guangzhou");
-ClientConfig clientConfig = new ClientConfig(region);
-// 生成 cos 客户端
-COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 
 String bucketName = "examplebucket-1250000000";
 String key = "exampleobject";
@@ -97,21 +79,14 @@ Date expirationDate = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 req.setExpiration(expirationDate);
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
-cosClient.shutdown();
 ```
 
 #### 示例3
 
 生成公有读 Bucket（匿名可读），不需要签名的链接，示例代码如下：
 
+[//]: # (.cssg-snippet-get-presign-download-url-public)
 ```java
-// 生成匿名的请求签名，需要重新初始化一个匿名的 cosClient
-// 初始化用户身份信息, 匿名身份不用传入 SecretId、SecretKey 等密钥信息
-COSCredentials cred = new AnonymousCOSCredentials();
-// 设置 bucket 的区域，COS 地域的简称请参照 https://cloud.tencent.com/document/product/436/6224
-ClientConfig clientConfig = new ClientConfig(new Region("ap-beijing"));
-// 生成 cos 客户端
-COSClient cosClient = new COSClient(cred, clientConfig);
 // bucket 名需包含 appid
 String bucketName = "examplebucket-1250000000";
 
@@ -120,13 +95,13 @@ GeneratePresignedUrlRequest req =
         new GeneratePresignedUrlRequest(bucketName, key, HttpMethodName.GET);
 URL url = cosClient.generatePresignedUrl(req);
 System.out.println(url.toString());
-cosClient.shutdown();
 ```
 
 #### 示例4
 
 生成一些预签名的上传链接，可直接分发给客户端进行文件的上传，示例代码如下：
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
@@ -136,7 +111,6 @@ String key = "exampleobject";
 Date expirationTime = new Date(System.currentTimeMillis() + 30L * 60L * 1000L);
 URL url = cosClient.generatePresignedUrl(bucketName, key, expirationTime, HttpMethodName.PUT);
 System.out.println(url.toString());
-cosClient.shutdown();
 ```
 
 ## 生成签名
@@ -175,6 +149,7 @@ public String buildAuthorizationStr(HttpMethodName methodName, String resouce_pa
 
 #### 示例1：生成一个上传签名
 
+[//]: # (.cssg-snippet-get-authorization-for-upload)
 ```java
 String secretId = "COS_SECRETID";
 String secretKey = "COS_SECRETKEY";
@@ -189,6 +164,7 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.PUT, key, cred, expire
 
 #### 示例2：生成一个下载签名
 
+[//]: # (.cssg-snippet-get-authorization-for-download)
 ```java
 String secretId = "COS_SECRETID";
 String secretKey = "COS_SECRETKEY";
@@ -203,6 +179,7 @@ String sign = signer.buildAuthorizationStr(HttpMethodName.GET, key, cred, expire
 
 #### 示例3：生成一个删除签名
 
+[//]: # (.cssg-snippet-get-authorization-for-delete)
 ```java
 String secretId = "COS_SECRETID";
 String secretKey = "COS_SECRETKEY";

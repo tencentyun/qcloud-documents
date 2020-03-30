@@ -9,7 +9,7 @@
 | 接口名 | Action | 功能描述 |
 |---------|---------| ---------|
 | [购买负载均衡](https://cloud.tencent.com/document/api/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
-| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPrice | 查询负载均衡实例的价格。|
+| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
 | [查询负载均衡实例列表](https://cloud.tencent.com/document/api/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
 |  [修改负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改负载均衡的名称。|
 | [删除负载均衡实例](https://cloud.tencent.com/document/api/214/1257)| DeleteLoadBalancers | 删除负载均衡实例。|
@@ -98,7 +98,7 @@
 |---------| ---------| ---------|
 | [绑定后端服务器到负载均衡](https://cloud.tencent.com/document/api/214/1265) | RegisterInstancesWithLoadBalancer | 将用户指定的一组云服务器关联到用户指定的负载均衡实例上。|
 | [获取负载均衡绑定的后端服务器列表](https://cloud.tencent.com/document/api/214/1259) | DescribeLoadBalancerBackends | 获取用户输入的 *LoadBalanceId* 这个负载均衡实例上关联的云服务器列表。| 
-|  [修改负载均衡后端服务器权重](https://cloud.tencent.com/document/api/214/1264) | ModifyLoadBalancerBackends | 修改关联到负载均衡实例的一组 [云服务器的权重](https://cloud.tencent.com/doc/product/214/%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D#1.3.-.E5.90.8E.E7.AB.AF.E6.9C.8D.E5.8A.A1.E5.99.A8.E6.9D.83.E9.87.8D.E9.85.8D.E7.BD.AE)。
+|  [修改负载均衡后端服务器权重](https://cloud.tencent.com/document/api/214/1264) | ModifyLoadBalancerBackends | 修改关联到负载均衡实例的一组云服务器的权重。
 |  [解绑后端服务器](https://cloud.tencent.com/document/api/214/1258) | DeregisterInstancesFromLoadBalancer | 将关联到负载均衡实例的云服务器进行解绑操作。|
 
 ### 健康检查相关接口

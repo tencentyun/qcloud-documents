@@ -2,11 +2,13 @@
 如果您需要在云函数中使用关系型数据库，您可使用连接池或云函数团队提供的 SDK 来连接关系型数据库。连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接，造成连接不可用的情况。
 
 ## 注意事项
-由于云函数单实例同时处理的请求数均为1，以及为了防止连接数设置过大导致高并发下数据库连接耗尽，在使用连接池时，建议将最大连接数设置为1。
+由于云函数单实例同时处理的请求数均为1， 详情请参见 [函数并发量](https://cloud.tencent.com/document/product/583/9694#.E5.87.BD.E6.95.B0.E5.B9.B6.E5.8F.91.E9.87.8F)。以及为了防止连接数设置过大导致高并发下数据库连接耗尽，在使用连接池时，建议将最大连接数设置为1。
 
 ## 前提条件
 已创建数据库。
->?此最佳实践适用于 [MySQL](https://cloud.tencent.com/document/product/236/5160)，[CynosDB](https://cloud.tencent.com/document/product/1003/30505)，[TDSQL](https://cloud.tencent.com/document/product/557/10236)。推荐使用腾讯云提供的 Serverless 数据库（CynosDB）。
+>?本文档提供了 SCF 连接 [MySQL](https://cloud.tencent.com/document/product/236/5160)、[CynosDB](https://cloud.tencent.com/document/product/1003/30505) 及 [TDSQL](https://cloud.tencent.com/document/product/557/10236) 三种关系型数据库的示例，推荐您使用腾讯云提供的 Serverless 数据库（CynosDB）。
+
+
 
 
 
@@ -155,7 +157,7 @@ Maven 依赖如下：
     <dependency>
         <groupId>com.tencentcloudapi</groupId>
         <artifactId>scf-java-events</artifactId>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
     </dependency>
     <dependency>
         <groupId>com.zaxxer</groupId>
@@ -176,7 +178,8 @@ Maven 依赖如下：
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，单击已创建的 MySQL 数据库 ID。
 2. 在数据库详情页，获取该数据库的**内网地址**、**所属网络**。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
-> 如果您使用自建的MySQL实例，请根据实际情况填写**内网地址**、**所属网络**。
+>!如果您使用自建的MySQL实例，请根据实际情况填写**内网地址**、**所属网络**。
+>
 3. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 4. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**参考以下表格填写。如下图所示：
@@ -269,6 +272,9 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
+>?Node.js 已知 Bug 需要在函数返回前自行释放连接，在函数结束时调用 `connection.close()`，此 Bug 将在下一个版本修复。
+
+
 ### Python SDK
 ```Python
 from serverless_db_sdk import database
@@ -292,9 +298,10 @@ def main_handler(event, context):
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
-	>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
-	>- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
-	>
+>!
+>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
+>- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
+>
 <table>
 <tr>
 <th>key</th>

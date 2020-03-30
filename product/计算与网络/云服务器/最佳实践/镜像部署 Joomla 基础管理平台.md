@@ -4,21 +4,22 @@
 Joomla 是使用 PHP 语言及 MySQL 数据库开发的开源内容管理系统，您可通过 Joomla 建立个人网站或功能强大的在线应用。本文介绍如何在腾讯云云服务器（CVM）上通过镜像部署 Joomla 基础管理平台。
 
 ## 操作步骤
-### 创建云服务器时使用 Joomla 镜像
->!如果您想使用已购买的云服务器部署 Joomla，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
+### 步骤1：创建云服务器时使用 Joomla 镜像
+>!如果您想使用已购买的云服务器部署 Joomla，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您使用其他地域云服务器进行搭建。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 Joomla 并单击<img src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px">。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 Joomla 并单击 <img src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px">。如下图所示：
 >?单击镜像名可查看镜像详情，本文使用镜像为 [LNMP环境（CentOS7.6 Nginx PHP7.2 内置Joomla）](https://market.cloud.tencent.com/products/16472?productId=16472&_ga=1.121836424.2093467297.1571788865)。
 >
-![](https://main.qcloudimg.com/raw/2ccf94a1fb9ab33816b260820b8d257f.png)
+<img src="https://main.qcloudimg.com/raw/0491f528a88ebfbaa95bebe862bea6d5.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
-### 修改数据库密码
+### 步骤2：修改数据库密码
 >!镜像中已设置默认数据库密码，为提高数据库安全性，建议执行此步骤修改默认密码。
 >
 1. 在实例的管理页面，找到已创建的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
@@ -37,7 +38,7 @@ http://云服务器实例的公网 IP/tools/phpMyAdmin
 >
 ![](https://main.qcloudimg.com/raw/9a30d91a7ab835f009294f0049899c1e.png)
 
-### 安装配置 Joomla
+### 步骤3：安装配置 Joomla
 1. 在本地浏览器中访问以下地址，即可进入 Joomla 安装页面。
 ```
 http://云服务器实例的公网 IP

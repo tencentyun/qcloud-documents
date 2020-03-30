@@ -1,8 +1,11 @@
+Android SDK 接入请观看视频：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20717?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 开发准备
 
 ### SDK 下载
 
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudOneSentenceSDK_Android.zip)
+录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/QCloudOneSentenceSDK_Android.zip)
 
 ### 开发前
 

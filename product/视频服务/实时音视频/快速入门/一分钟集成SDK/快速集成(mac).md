@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云 TRTC SDK(mac) 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
+本文主要介绍如何快速地将腾讯云 TRTC SDK（Mac）集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
 
 ## 开发环境要求
@@ -58,22 +58,15 @@ pod update
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 手动集成
-1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的 Mac 版本 。
-
+1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的 Mac 版本。
 2. 打开您的 Xcode 工程项目，将第一步中下载的 framework 导入到您的工程。
-
 3. 选择要运行的 target，选中 Build Phases 项。
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
-
-4. 单击 **Link Binary with Libraries** 项展开，单击底下的 + 号图标去添加依赖库。
+4. 单击 **Link Binary with Libraries** 项展开，单击底下的+号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/17046154417930f9d31b6452782df55d.jpg)
-
-5. 依次添加所下载的 SDK Framework 及其所需依赖库：
-    - `AudioUnit.framework` 
-    - `libc++.tbd`
-    
- 添加后如下图所示：
-![](https://main.qcloudimg.com/raw/7bddb832347a971f3e69238480fa3e8d.jpg)
+5. 依次添加所下载的 SDK Framework 及其所需依赖库：`AudioUnit.framework`和`libc++.tbd`。  
+   添加后如下图所示：
+  ![](https://main.qcloudimg.com/raw/7bddb832347a971f3e69238480fa3e8d.jpg)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
@@ -89,7 +82,6 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ```
 @import TXLiteAVSDK_TRTC_Mac;
 ```
-
 - 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
 #import TXLiteAVSDK_TRTC_Mac/TRTCCloud.h

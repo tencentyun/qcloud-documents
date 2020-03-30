@@ -2,16 +2,16 @@
 
 ## 接口描述
 
-**GetCdnStatTop**用于查询多域名/项目指定时间区间请求数TOP 1000 URL列表、省份TOP排名、运营商TOP排名。
+**GetCdnStatTop** 用于查询多域名 / 项目指定时间区间请求数 TOP 1000 URL 列表、省份 TOP 排名、运营商 TOP 排名
 
 请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 >!
-+ 可一次提交多个域名，查询整体请求数TOP1000 URL、请求数省份TOP排名、请求数运营商TOP排名，需填充对应projectId
-+ 可一次提交多个项目，查询整体请求数TOP1000 URL、请求数省份TOP排名、请求数运营商TOP排名
-+ TOP 数据从日志中计算获取，数据延迟约 30 分钟
-+ 支持查询 90天内的TOP数据
-+ 调用频次限制为 100次/分钟
++ 可一次提交多个域名，查询整体请求数 TOP1000 URL、请求数省份 TOP 排名、请求数运营商 TOP 排名，需填充对应 projectId
++ 可一次提交多个项目，查询整体请求数 TOP1000 URL、请求数省份 TOP 排名、请求数运营商 TOP 排名
++ TOP 数据从日志中计算获取，数据延迟约30分钟
++ 支持查询90天内的 TOP 数据
++ 调用频次限制为 100次 / 分钟
 + 接口已支持子账号调用，权限配置可参考权限 [配置示例](https://cloud.tencent.com/document/product/228/14867)
 
 [查看调用示例](https://cloud.tencent.com/document/product/228/1734)

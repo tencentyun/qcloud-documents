@@ -21,7 +21,7 @@
 
 #### 输入
 ```shell
-tccli kms Encrypt --KeyId 6xxxxxx-xxxx-xxxx-xxxx-5xxxxxxxxx5 --Plaintext 'VGhpcyBleGFtcGxlIGlzIHVzZWQgZm9yIHRlc3Rpbmc='
+tccli kms Encrypt --KeyId 6xxxxxx-xxxx-xxxx-xxxx-5xxxxxxxxx5 --Plaintext "VGhpcyBleGFtcGxlIGlzIHVzZWQgZm9yIHRlc3Rpbmc="
 ```
 
 #### 输出
@@ -40,7 +40,7 @@ tccli kms Encrypt --KeyId 6xxxxxx-xxxx-xxxx-xxxx-5xxxxxxxxx5 --Plaintext 'VGhpcy
 现在我们来针对加密数据进行解密。其中示例流程中的 CMK 以上述创建的 CMK 为例。
 #### 输入
 ```shell
-tccli kms Decrypt --CiphertextBlob 'Rrnqz5fthTxcSdCYIw5pBoEWLvrdqYNZ0oXKOmvYx/1Oo2R+DqEFPjjfVA1n1RE8PmVITaxuJwu9ZANK9uK3WA==-k-fKVP3WIlGpg8m9LMW4jEkQ==-k-mFM/5PEiMJsKC6fagEOfdlocOyC+a1n8PqaTOlBLT+rqjyKLVHUVtqamMQ3ERsYIe0wYoAMszR/FBrCJZ3a3B7f+8Xg='
+tccli kms Decrypt --CiphertextBlob "Rrnqz5fthTxcSdCYIw5pBoEWLvrdqYNZ0oXKOmvYx/1Oo2R+DqEFPjjfVA1n1RE8PmVITaxuJwu9ZANK9uK3WA==-k-fKVP3WIlGpg8m9LMW4jEkQ==-k-mFM/5PEiMJsKC6fagEOfdlocOyC+a1n8PqaTOlBLT+rqjyKLVHUVtqamMQ3ERsYIe0wYoAMszR/FBrCJZ3a3B7f+8Xg="
 ```
 
 #### 输出
