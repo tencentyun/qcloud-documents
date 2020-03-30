@@ -79,7 +79,7 @@
 <tr>
 	<td>2020-01-13</td>
 	<td>v1.12.4-tke.16</td>
-	<td><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新 assumed pod 的调度。</li></td>
+	<td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新 assumed pod 的调度。</li></ul></td>
 </tr>
 <tr>
 	<td>2019-12-23</td>
@@ -162,17 +162,7 @@
 <tbody><tr>
 	<td>2020-01-13</td>
 	<td>v1.10.5-tke.14</td>
-	<td><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新assumed pod 的调度。</li></td>
-</tr>
-<tr>
-	<td>2019-12-23</td>
-	<td>v1.12.4-tke.15</td>
-	<td>revert <a href="https://github.com/kubernetes/kubernetes/pull/79036" target="_blank">pr79036</a> 解决当开启 cpumanager 时，如果 Pod 的 QoS 为 Guaranteed ，则关闭 cpu quota。</td>
-</tr>
-<tr>
-	<td>2019-12-17</td>
-	<td>v1.12.4-tke.14</td>
-	<td><ul class="params"> <li>metadata 增加缓存和超时。</li> <li> Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复。 </li><li> kubelet 重启避免 readiness 的 pod not ready。 </li></ul></td>
+	<td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新assumed pod 的调度。</li></ul></td>
 </tr>
 <tr>
 	<td>2019-12-23</td>

@@ -39,8 +39,10 @@ public:
     virtual void onWarning(TXLiteAVWarning warningCode, const char* warningMsg, void* arg);
     virtual void onEnterRoom(uint64_t elapsed);
     virtual void onExitRoom(int reason);
-    virtual void onUserEnter(const char* userId);
-    virtual void onUserExit(const char* userId, int reason);
+    virtual void onRemoteUserEnterRoom(const char* userId);
+    virtual void onRemoteUserLeaveRoom(const char* userId, int reason);
+    virtual void onUserVideoAvailable(const char* userId, bool available);
+    virtual void onUserAudioAvailable(const char* userId, bool available);
 ...
 private:
 	ITRTCCloud * m_pTRTCSDK = NULL；

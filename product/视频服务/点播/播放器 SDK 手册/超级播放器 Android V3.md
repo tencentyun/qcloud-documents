@@ -84,7 +84,7 @@ mSuperPlayerView.playWithMode(model);
 
 ## 缩略图与打点
 
-在播放视频时，进度条上的“缩略图”和“打点信息”，有助于观众找到感兴趣的点。缩略图通过 [雪碧图](https://cloud.tencent.com/document/product/266/8101) 实现，视频打点需要 [修改媒资中的打点信息](https://cloud.tencent.com/document/product/266/31762#.E7.A4.BA.E4.BE.8B3-.E4.BF.AE.E6.94.B9.E5.AA.92.E4.BD.93.E6.96.87.E4.BB.B6.E8.A7.86.E9.A2.91.E6.89.93.E7.82.B9.E4.BF.A1.E6.81.AF)。
+在播放视频时，进度条上的“缩略图”和“打点信息”，有助于观众找到感兴趣的点。缩略图通过 [雪碧图](https://cloud.tencent.com/document/product/266/8101) 实现，视频打点需要 [修改媒资中的打点信息](https://cloud.tencent.com/document/product/266/31762#.E7.A4.BA.E4.BE.8B4-.E4.BF.AE.E6.94.B9.E5.AA.92.E4.BD.93.E6.96.87.E4.BB.B6.E8.A7.86.E9.A2.91.E6.89.93.E7.82.B9.E4.BF.A1.E6.81.AF)。
 
 为视频截取雪碧图，并添加打点信息后，播放器的界面会增加新的元素。
 <img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">

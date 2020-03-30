@@ -33,27 +33,27 @@
 - 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Windows 云服务器且已创建文件系统。
 - 已 [登录](https://cloud.tencent.com/document/product/213/5435) 待扩展分区及文件系统的 Windows 云服务器。
->?本文以 Windows Server 2008 操作系统的云服务器，且云硬盘已挂载至该云服务器为例，不同操作系统的扩容操作可能不同，本文仅供参考。
+>?本文以 Windows Server 2012 R2 操作系统的云服务器为例，不同操作系统的扩容操作可能略有不同，本文仅供参考。
 >
 
 ## 操作步骤
 
 <span id="Scaning"></span>
-### （可选）重新扫描磁盘
-
-1. 打开【计算机管理】。
-2. 在左侧导航栏中，选择【存储】>【磁盘管理】。
+### 重新扫描磁盘
+1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【计算机管理】。
+2. 在“计算机管理”窗口的左侧导航栏中，选择【存储】>【磁盘管理】。
 3. 右键单击 【磁盘管理】，选择 【重新扫描磁盘】。如下图所示：
-![](https://main.qcloudimg.com/raw/08bc972c1461a316300ab5b21ffb452b.png)
+![](https://main.qcloudimg.com/raw/e86a6974b7a49108a4d12a300ffc4c87.png)
 4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的10GB扩容到了50GB）。如下图所示：
-![](https://main.qcloudimg.com/raw/f1846bb0f53f025bc781eacc2706d7ed.png)
+![](https://main.qcloudimg.com/raw/9612c8f95826b401d3a7c111fe632b05.png)
 
 <span id="Extending"></span>
 ### 扩展卷
 
 1. 右键单击磁盘空间的任一空白处，选择【扩展卷】。
-2. 根据扩展卷向导的指引完成扩展卷操作。完成后新增的数据盘空间将会合入原有卷中。如下图所示：
-![](https://main.qcloudimg.com/raw/f2be002e959f6b309ff3b674dee9078f.png)
+2. 根据扩展卷向导的指引完成扩展卷操作。
+完成后新增的数据盘空间将会合入原有卷中。如下图所示：
+![](https://main.qcloudimg.com/raw/6cbe03c130898c4ad905d27edc315af4.png)
 
 ## 相关操作
 [扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)

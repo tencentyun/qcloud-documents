@@ -46,7 +46,7 @@ dependencies {
 
 }
 ```
-
+4. 境外集群接入方法请参考下文 [境外集群接入方法](https://cloud.tencent.com/document/product/548/36652#JWjieru)。
 
 >!
 - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
@@ -207,7 +207,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
     <!-- MQTT END-->
 
-    <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+    <!-- 【必须】 请修改为 APP 的 AccessId，“15”开头的10位数字，中间没空格 -->
     <meta-data
         android:name="XG_V2_ACCESS_ID"
         android:value="APP的AccessId" />
@@ -238,7 +238,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 <hr>
 
-
+<span id="JWjieru"></span>
 #### 境外集群接入方法
 如需将推送集群切换为新加坡或者中国香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
 ```

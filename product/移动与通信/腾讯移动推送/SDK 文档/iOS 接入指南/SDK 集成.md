@@ -139,11 +139,11 @@ pod install //安装SDK
 
 #### 实现 ```XGPushDelegate``` 协议
 
-在调试阶段，建议实现协议中的以下两个方法，即可获取更详细的调试信息：
+在调试阶段，建议实现协议中的第二个方法，即可获取更详细的调试信息：
 
 ```objective-c
 /**
- @brief 监控腾讯移动推送服务地启动情况
+ @brief 监控腾讯移动推送服务地启动情况（已废弃）
 
  @param isSuccess 腾讯移动推送是否启动成功
  @param error 腾讯移动推送启动错误的信息
@@ -151,12 +151,13 @@ pod install //安装SDK
 - (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
 
 /**
- @brief 向腾讯移动推送服务器注册设备token的回调
+ @brief 注册推送服务回调
  
- @param deviceToken 当前设备的token
- @param error 错误信息
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
-
+ @param deviceToken APNs 生成的 Device Token
+ @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
+ @param error 错误信息，若 error 为 nil 则注册推送服务成功
+ */
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 ```
 
 #### 观察日志
