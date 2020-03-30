@@ -119,7 +119,7 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择上文 “控制台操作 LoRa 节点” 中对应的项目。
 2. 在左侧工具列表中，选择【服务中心】>【LoRa 网关管理】。
 3. 进入 LoRa 网关管理页面，选择【添加网关】。
-![](https://main.qcloudimg.com/raw/3b890f0808be53222386fc16e5e9ed13.png)
+![](https://main.qcloudimg.com/raw/92cf582c64511029e9d8086c28cba3e6.png)
 4. 在新建网关页面，填写网关基本信息。
     - 网关名称：本示例中填写 GW1。
     - GwEUI：为网关唯一 ID。本例中根据 ST NUCLEO LoRa GW 背部的 MAC 地址，将6字节 MAC 地址的中间补足 0xffff。  
