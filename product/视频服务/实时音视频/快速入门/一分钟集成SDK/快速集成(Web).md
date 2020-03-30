@@ -1,25 +1,29 @@
-本文主要介绍如何快速地将腾讯云 TRTC Web SDK 集成到您的项目中。
+本文主要介绍如何快速地将腾讯云 TRTC Web 版 SDK 集成到您的项目中。
 
 ## 支持的平台
 
-在 Web 端实现实时音视频通话，需要浏览器完整支持 WebRTC 能力，目前已知支持 WebRTC 的浏览器如下表所示：
+WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（比如 Android 平台的浏览器）支持情况均比较差。
+- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/32183) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
+- 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大而弱网络恢复能力。
 
-| 操作系统平台 | 浏览器/webview | 版本要求 | 备注                                                                                                                              |
-| ------------ | -------------- | -------- | ------------------------------------ |
-| iOS          | Safari         | 11.1.2   | 由于苹果 Safari 仍有偶现的 bug，产品化方案建议先规避，待苹果解决后再使用，<br > 因此对于 iOS 推荐使用兼容性更好的小程序解决方案。 |
-| Android      | TBS            | 43600    | 微信和手机 QQ 默认内置的浏览器内核为 [TBS](http://x5.tencent.com/)。    |
-| Android      | Chrome         | 60+      | 需要支持 H264 编解码。    |
-| Mac          | Chrome         | 47+      | - |
-| Mac          | Safari         | 11+      | - |
-| Windows(PC)  | Chrome         | 52+      | - |
-| Windows(PC)  | QQ 浏览器      | 10.2     | - |
+| 操作系统 | 浏览器类型 | 最低版本要求 | 接收（播放）| 发送（上麦）|
+|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Mac OS  | 桌面版 Safari 浏览器 |  11+ | 支持 | 支持 | 
+| Mac OS  | 桌面版 Chrome 浏览器 |  47+ | 支持 | 支持 | 
+| Windows  | 桌面版 Chrome 浏览器|  52+ | 支持 | 支持 | 
+| Windows  | 桌面版 QQ 浏览器 |  10.2 | 支持 | 支持 | 
+| iOS | 移动版 Safari 浏览器 | 11.1.2 | 支持 | 支持 | 
+| iOS | 微信内嵌网页| 12.1.4 | 支持 | 不支持 | 
+| Android | 移动版 QQ 浏览器| - | 不支持 | 不支持 | 
+| Android | 移动版 UC 浏览器| - | 不支持 | 不支持 | 
+| Android | 微信内嵌网页| - | 不支持 | 不支持 | 
 
-> ?基于 TBS 内核的 WebView，需满足版本 ≥ 43600。
-> 可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
-> 华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器不支持 H264 编码。
+> ! 
+> - 您可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
+> - 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 的 Web 版SDK 的正常运行。
 
 
-## 环境要求
+## 防火墙限制
 TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单。
 - TCP 端口：8687
 - UDP 端口：8000，8800，843，443
@@ -51,7 +55,7 @@ import TRTC from 'trtc-js-sdk';
 
 ## 相关资源
 
-SDK 下载地址：[单击下载](https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip)
+SDK 下载地址：[单击下载](https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip)。
 
 更详细的初始化流程和 API 使用介绍请参见以下指引：
 
