@@ -55,7 +55,7 @@
 
 #### 创建测试设备
 在设备调试页面中，单击【新建设备】，设备名为 dev001。
-![img](https://main.qcloudimg.com/raw/4144b444c2d034a278d24847f45f9ad3.png)
+![img](https://main.qcloudimg.com/raw/d9910d3eaa5a130454e25708e5e05355.png)
 
 
 
