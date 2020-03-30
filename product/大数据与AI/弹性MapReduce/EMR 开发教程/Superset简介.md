@@ -30,11 +30,11 @@ EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Drui
 
 | **名称** | **SQLAlchemy   URI**                                         | **备注**                                                     |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| Mysql    | `mysql+pymysql://<mysqlname>:<password>@<mysql_ip>:<mysql_port>/<your_database>` | <li>mysqlname：连接 mysql 使用的用户名，<li>password：mysql 密码，<li>your_database：需要连接的 mysql 数据库 |
+| Mysql    | `mysql+pymysql://<mysqlname>:<password>@<mysql_ip>:<mysql_port>/<your_database>` | <li>mysqlname：连接 mysql 使用的用户名<li>password：mysql 密码<li>your_database：需要连接的 mysql 数据库 |
 		| Hive     | `hive://hadoop@<master_ip>:7001/default?auth=NONE`             | Master_ip：EMR 集群的 master_ip          |
-| presto   | `presto://hive@<master_ip>:9000/hive/<hive_db_name>`           | <li>Master_ip：EMR 集群的 master_ip，<li>hive_db_name：hive 中的数据库名称，不填默认为 default |
+| presto   | `presto://hive@<master_ip>:9000/hive/<hive_db_name>`           | <li>Master_ip：EMR 集群的 master_ip<li>hive_db_name：hive 中的数据库名称，不填默认为 default |
 | impala   | `impala://<core_ip>:27000`                                     | core_ip：EMR 集群中的 core ip     |
-| kylin    | `kylin://<kylin_user>:<password>@<master_ip>:16500/<kylin_project>` | <li>kylin_user：kylin 的用户名，<li>password：kylin 的密码，<li>master_ip：EMR 集群的 master_ip，<li>kylin_project：kylin 的项目 |
+| kylin    | `kylin://<kylin_user>:<password>@<master_ip>:16500/<kylin_project>` | <li>kylin_user：kylin 的用户名<li>password：kylin 的密码<li>master_ip：EMR 集群的 master_ip<li>kylin_project：kylin 的项目 |
 
 
 <h2> 自行添加新 Database</h2>
