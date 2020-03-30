@@ -61,10 +61,10 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ###  MacOS 系统使用 RDP 登录
 
 >?
->- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。
+>- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 [HockeyApp](https://appcenter.ms/apps) 进行 Beta 版本的发布。
 >- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。
 >
-1. 下载 [Microsoft Remote Desktop for Mac](https://www.techspot.com/downloads/4698-microsoft-remote-desktop-for-mac.html) 并在本地进行安装。
+1. 下载 Microsoft Remote Desktop for Mac 并在本地进行安装。
 2. 启动 MRD，并单击【Add Desktop】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e69528d10e9a17dfa26119a090766c49.png)
 3. 弹出的 “Add Desktop” 窗口，按以下步骤创建连接。如下图所示：
