@@ -4,13 +4,13 @@ PostgreSQL for Serverless（ServerlessDB）是一款基于 PostgreSQL 数据库�
 通过 PostgreSQL ServerlessDB 组件，您可以快速方便的创建、配置和管理腾讯云的 PostgreSQL 实例。
 
 ## 操作步骤
-#### 安装
+### 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 ```shell
 $ npm install -g serverless
 ```
 
-#### 配置
+### 配置
 在项目根目录创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
@@ -34,7 +34,7 @@ MyPostgreSQL:
 
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-postgresql/tree/master/docs/configure.md)
 
-#### 部署
+### 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
@@ -46,13 +46,13 @@ $ sls --debug
 ```
 
 
-#### 移除
+### 移除
 通过以下命令移除部署的 DB 实例：
 ```bash
 $ sls remove --debug
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```bash
 $ touch .env # 腾讯云的配置信息
@@ -68,5 +68,5 @@ TENCENT_SECRET_KEY=123
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 
-#### 更多组件
+### 更多组件
 您可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
