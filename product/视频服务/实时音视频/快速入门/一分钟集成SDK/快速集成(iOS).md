@@ -23,7 +23,7 @@ pod init
 
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，并根据需要选择合适的 SDK 版本：
-- [精简版](https://cloud.tencent.com/document/product/647/32689#TRTC)：安装包体积增量最小，但仅支持 TRTC 和 CDN播放（TXLivePlayer）功能。
+- [精简版](https://cloud.tencent.com/document/product/647/32689#TRTC)：安装包体积增量最小，但仅支持 TRTC 和 CDN 播放（TXLivePlayer）功能。
 ```
   platform :ios, '8.0'
   
@@ -32,7 +32,7 @@ pod init
   end
 ```
 
--  [专业版](https://cloud.tencent.com/document/product/647/32689#Professional)：除了 TRTC，还包含有 RTMP 推流（TXLivePusher）、CDN播放（TXLivePlayer）、点播播放（TXVodPlayer）以及短视频（UGSV）等多种功能。
+- [专业版](https://cloud.tencent.com/document/product/647/32689#Professional)：除了 TRTC，还包含 RTMP 推流（TXLivePusher）、CDN 播放（TXLivePlayer）、点播播放（TXVodPlayer）以及短视频（UGSV）等多种功能。
 ```
   platform :ios, '8.0'
   
@@ -41,7 +41,7 @@ pod init
   end
 ```
 
-您也可以使用 CocoaPod 官方源，但下载速度可能比腾讯云镜像的下载速度要慢：
+您也可以使用 CocoaPod 官方源，但下载速度可能较慢：
 ```
    platform :ios, '8.0'
    source 'https://github.com/CocoaPods/Specs.git'
