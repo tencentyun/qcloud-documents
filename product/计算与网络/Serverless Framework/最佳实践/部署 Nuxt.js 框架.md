@@ -61,6 +61,7 @@ $ npm run build
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
 通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
+>?`sls`是`serverless`命令的简写。
 ```bash：
 $ sls --debug
 
@@ -78,7 +79,6 @@ $ sls --debug
   DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-guangzhou-code]. sls-cloudfunction-default-nuxtjs-function-1584350378.zip
   DEBUG ─ Uploaded package successful /Users/yugasun/Desktop/Develop/serverless/tencent-nuxtjs/example/.serverless/nuxtjs-function.zip
   DEBUG ─ Creating function nuxtjs-function
-  nuxtjs-function [████████████████████████████████████████] 100% | ETA: 0s | Speed: 1502.16k/s
   DEBUG ─ Created function nuxtjs-function successful
   DEBUG ─ Setting tags for function nuxtjs-function
   DEBUG ─ Creating trigger for function nuxtjs-function
@@ -109,7 +109,7 @@ $ sls --debug
   38s › NuxtjsFunc › done
 ```
 
->?`sls`是`serverless`命令的简写。
+
 
 ### 移除
 通过以下命令移除部署的 Nuxjs 服务，包括云函数和 API 网关：
@@ -125,7 +125,7 @@ $ sls remove --debug
 ```
 
 ### 账号配置（可选）
-当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
+当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```bash
 $ touch .env # 腾讯云的配置信息
 ```
@@ -140,7 +140,7 @@ TENCENT_SECRET_KEY=123
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取  SecretId 和 SecretKey。
 
-## 更多组件
+### 更多组件
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
 
 #### FAQ（待删，补充在常见问题中）
