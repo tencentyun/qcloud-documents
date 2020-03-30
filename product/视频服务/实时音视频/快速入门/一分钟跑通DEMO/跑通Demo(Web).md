@@ -1,7 +1,26 @@
 本文主要介绍如何快速运行腾讯云 TRTC Web SDK Demo。
 
->?TRTC Web SDK Demo 主要面向开发者，如您想快速体验 TRTC Web SDK 功能，可直接访问 [官网体验 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html)。
-在开始体验之前，建议您先了解 [TRTC Web SDK API 概览](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 和 [基础音视频通话教程](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)。
+## 支持的平台
+
+WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差。
+- 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/32399) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
+- 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大而弱网络恢复能力。
+
+| 操作系统 | 浏览器类型 | 最低版本要求 | 接收（播放）| 发送（上麦）|
+|:-------:|:-------:|:-------:|:-------:|:-------:|
+| Mac OS  | 桌面版 Safari 浏览器 |  11+ | 支持 | 支持 | 
+| Mac OS  | 桌面版 Chrome 浏览器 |  47+ | 支持 | 支持 | 
+| Windows  | 桌面版 Chrome 浏览器|  52+ | 支持 | 支持 | 
+| Windows  | 桌面版 QQ 浏览器 |  10.2 | 支持 | 支持 | 
+| iOS | 移动版 Safari 浏览器 | 11.1.2 | 支持 | 支持 | 
+| iOS | 微信内嵌网页| 12.1.4 | 支持 | 不支持 | 
+| Android | 移动版 QQ 浏览器| - | 不支持 | 不支持 | 
+| Android | 移动版 UC 浏览器| - | 不支持 | 不支持 | 
+| Android | 微信内嵌网页| - | 不支持 | 不支持 | 
+
+>! 
+>- 您可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
+>- 由于 H264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 的 Web 版 SDK 的正常运行。
 
 <span id="requirements"></span>
 ## 环境要求
