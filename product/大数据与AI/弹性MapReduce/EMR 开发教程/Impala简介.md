@@ -4,11 +4,11 @@ Impala 不同于 hive，hive 底层执行使用的是 MapReduce 引擎，仍然�
 
 Impala 与 Apache Hive 数据库集成，在两个组件之间共享数据库和表。通过与 Hive 的高度集成，以及与 HiveQL 语法的兼容性，您可以使用 Impala 或 Hive 创建表、发起查询、加载数据等。
 
-## 1. 开发准备
+## 前提条件
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Impala 组件。
 - Impala 安装在路径 EMR 云服务器的`/data/`路径下（`/data/Impala`）。
 
-## 2. 准备数据
+## 准备数据
 
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
@@ -42,7 +42,7 @@ done
 ```
 
 
-## 3. Impala 基础操作
+## Impala 基础操作
 
 ### 连接 Impala
 
