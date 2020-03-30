@@ -24,12 +24,12 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 #### inputs
 官网版本兼容性说明如下：
 
-| Kafka Client Version | Logstash Version | Plugin Version | Why? |
-|---------|---------|---------|---------|
-| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  Legacy, 0.8 is still popular |
-| 0.9 | 2.0.0 - 2.3.x | 3.x.x | Works with the old Ruby Event API(event['product']['price'] = 10) |
-| 0.9 | 2.4.x - 5.x.x | 4.x.x | Works with the new getter/setter APIs(event.set('[product][price]', 10)) |
-| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x | Not compatible with the <= 0.9 broker |
+| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 | 
+|---------|---------|---------|
+| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  
+| 0.9 | 2.0.0 - 2.3.x | 3.x.x | 
+| 0.9 | 2.4.x - 5.x.x | 4.x.x | 
+| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x | 
 
 当前最新版本为 v5.1.8 ，其使用 0.10 版本的 Consumer API 进行数据读取。
 
@@ -38,12 +38,12 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 #### outputs
 官网版本兼容性说明如下：
 
-| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 | Why? |
-|---------|---------|---------|---------|
-| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  Legacy, 0.8 is still popular |
-| 0.9 | 2.0.0 - 2.3.x | 3.x.x  | Works with the old Ruby Event API(event['product']['price'] = 10) |
-| 0.9 | 2.4.x - 5.x.x | 4.x.x | Works with the new getter/setter APIs(event.set('[product][price]', 10)) |
-| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x  | 与 0.9以下的 broker 不兼容 |
+| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 |
+|---------|---------|---------|
+| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  
+| 0.9 | 2.0.0 - 2.3.x | 3.x.x  | 
+| 0.9 | 2.4.x - 5.x.x | 4.x.x | 
+| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x  | 
  
 当前最新版本为 v5.1.7，其使用 0.10 版本的 Producer API 进行数据生产。
 
