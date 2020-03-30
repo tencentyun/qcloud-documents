@@ -1,4 +1,4 @@
-您可通过本文快速开始使用 Hyperledger Fabric 正式版。
+您可通过本文快速开始使用 Hyperledger Fabric 正式版，同时可前往 [Hyperledger Fabric](https://tcloud-doc.isd.com/document/product/663/30124) 了解相关信息。
 
 ## 步骤1：组建区块链网络
 >?一个腾讯云账号可购买一个区块链组织及所需的多个节点资源。
