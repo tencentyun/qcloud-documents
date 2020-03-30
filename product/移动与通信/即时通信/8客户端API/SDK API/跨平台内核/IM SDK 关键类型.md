@@ -213,7 +213,7 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 |-----|-----|-----|-----|
 | kTIMIOSOfflinePushConfigTitle | string | 读写 | 通知标题 |
 | kTIMIOSOfflinePushConfigSound | string | 读写 | 当前消息在 iOS 设备上的离线推送提示声音 URL。当设置为 push。no_sound 时表示无提示音无振动 |
-| kTIMIOSOfflinePushConfigIgnoreBadge | bool | 读写 | 是否忽略 badge 计数。若为 true，在 iOS 接收端，这条消息不会使 APP 的应用图标未读计数增加 |
+| kTIMIOSOfflinePushConfigIgnoreBadge | bool | 读写 | 是否忽略 badge 计数。若为 true，在 iOS 接收端，这条消息不会使 App 的应用图标未读计数增加 |
 
 ### TIMAndroidOfflinePushNotifyMode
 
