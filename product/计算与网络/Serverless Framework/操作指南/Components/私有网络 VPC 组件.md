@@ -2,14 +2,14 @@
 腾讯云 VPC 组件支持通过`serverless.yml`配置，快速创建指定名称的私有网络和子网，并输出 VPCID 和 SubnetID，便于配置其他组件所需的网络信息。
 
 ## 操作步骤
-#### 安装
+### 安装
 
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 ```shell
 $ npm install -g serverless
 ```
 
-#### 配置
+### 配置
 在项目根目录创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
@@ -28,7 +28,7 @@ MyVpc:
 
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-vpc/tree/master/docs/configure.md)
 
-#### 部署
+### 部署
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
 通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
@@ -60,7 +60,7 @@ $ sls --debug
   5s › MyVpc › done
 ```
 
-#### 移除
+### 移除
 
 通过以下命令移除部署的 VPC：
 ```bash
@@ -75,7 +75,7 @@ $ sls remove --debug
   7s › MyVpc › done
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```bash
 $ touch .env # 腾讯云的配置信息
