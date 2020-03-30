@@ -3,13 +3,13 @@
 
 
 ## 操作步骤
-#### 安装
+### 安装
 通过 npm 全局安装 Serverless：
 ```console
 $ npm install -g serverless
 ```
 
-#### 配置
+### 配置
 本地创建`serverless.yml`文件：
 ```console
 $ touch serverless.yml
@@ -33,7 +33,7 @@ SSLTest:
 - 对于腾讯云解析的域名，该组件支持对证书进行自动 DNS 验证；对于非腾讯云解析域名，证书申请完毕后，需要进行验证才可使用，参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
 
 
-#### 部署
+### 部署
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
 通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
@@ -61,7 +61,7 @@ $ sls --debug
   1s › SSLTest › done
 ```
 
-#### 移除
+### 移除
 ```console
 $ sls remove --debug
 
@@ -72,7 +72,7 @@ $ sls remove --debug
   3s › SSLTest › done
 ```
 
-####  账号配置（可选）
+###  账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```console
 $ touch .env # 腾讯云的配置信息
@@ -89,5 +89,5 @@ TENCENT_SECRET_KEY=123
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，可以在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 
-#### 更多组件
+### 更多组件
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
