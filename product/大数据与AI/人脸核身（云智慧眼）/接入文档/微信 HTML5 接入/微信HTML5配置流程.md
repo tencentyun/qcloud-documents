@@ -8,5 +8,4 @@
 4. 用户完成人脸核身后，页面会跳转回核身鉴权 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 中参数 RedirectUrl 传入的地址，地址中会传递此次验证流程使用的 BizToken，客户后端即可凭借参数中提供的 BizToken 调用获取实名核身结果信息  [GetDetectInfo](https://cloud.tencent.com/document/api/1007/31331) 接口去获取本次核身的详细信息。
 
 ### 接入流程示例图
-![](https://main.qcloudimg.com/raw/e6140897733e231526aae3c5aae4a701.png)
-
+![](https://main.qcloudimg.com/raw/8fd02af070e1d6fbbace09bc0839fb2c.png)
