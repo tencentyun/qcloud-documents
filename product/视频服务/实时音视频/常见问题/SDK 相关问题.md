@@ -100,8 +100,8 @@
 | mic           | 是否开启麦克风                                               |
 | switch camera | 摄像头位置（front / back）                                       |
 | Room          | 进房，退房，退房并返回上一界面操作                           |
-| user count    | 房间内人数以及 user 信息<br/>userID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
-| stream count  | 房间内流的数量以及流信息<br/>userID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
+| user count    | 房间内人数以及 user 信息<br/>userID：用户 ID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
+| stream count  | 房间内流的数量以及流信息<br/>userID用户 ID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
 
 ### 运行 Web 端时，出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
 出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
