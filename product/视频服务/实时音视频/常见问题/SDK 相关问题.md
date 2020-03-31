@@ -11,7 +11,7 @@
 能进入，实时音视频支持全平台互通。
 
 ### TRTC SDK 是否支持 iOS 后台运行？
-支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture**即可实现后台运行，详情如下图所示：
+支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** 即可实现后台运行，详情如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
 
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
@@ -42,10 +42,11 @@
 - 如有更多需求，或希望深度合作，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 或致电95716联系我们。
 
 ### &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签使用及错误码参考：
--  [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html) 
--  [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html) 
--  [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html) 
--  [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+- [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html)
+- [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html)
+- [livePusherContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)
+- [livePlayerContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)
+
 
 ### 调试时为什么要开启调试模式？
 
