@@ -95,4 +95,4 @@ TENCENT_SECRET_KEY=123
 
 ### 更多组件
 
-您可以在 [Serverless Components](https://github.com/serverless/components) repo 中，查询更多组件的信息。
+您可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
