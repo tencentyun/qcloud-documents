@@ -1,16 +1,14 @@
 ## 操作场景
-该任务指导您通过 Serverless Framework Component，在腾讯云上快速创建、配置和部署一个云函数 + API 网关的服务。
-
+通过该指南您可以通过 Serverless Framework Component 在腾讯云上快速创建、配置和部署一个云函数 + API 网关的服务。
 
 >?
 >- 通过 Serverless Framework 创建的资源，您可以在资源自身的控制台进行查看和管理，例如 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)、[API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) 等。
->- 预计2020年4月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
+>- 预计 2020 年 4 月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
 
 ## 前提条件
-在使用之前，请确保已经 [安装 Serverless Framework 1.57.0 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+在使用之前，请确保已经[安装 Serverless Framework 1.57.0 以上版本](链接是另外一篇快速入门)
 
-## 操作步骤
-### 创建服务
+## 创建服务
 
 1. 创建并进入目录：
 ```bash
@@ -29,7 +27,7 @@ exports.main_handler = async (event, context, callback) => {
 };
 ```
 
-### 配置服务
+## 配置服务
 在本地创建`serverless.yml`文件，
 ```bash
 $ touch serverless.yml
@@ -62,7 +60,7 @@ myFunction:
 >?您可以通过 [详细配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)，查看`serverless.yml`中所有可用属性的属性列表。
 
 
-### 部署服务
+## 部署服务
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以在运行该命令后，直接用**微信**扫描命令中弹出的二维码，对云账户进行授权登录和注册。
 
 通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
@@ -110,13 +108,13 @@ Login successful for TencentCloud.
   22s › myFunction › done
 ```
 
-### 测试服务
+## 测试服务
 在浏览器中打开输出链接，或替换如下命令中的链接地址，通过 curl 对其进行测试，该链接可以在`sls`命令执行后获取得到。
 ```bash
 $ curl -X GET http://service-qs0cud0s-1300862921.gz.apigw.tencentcs.com/release
 ```
 
-### 移除服务
+## 移除服务
 如果您不再需要此服务，可以通过如下命令一键移除服务，该命令会清理相应函数和触发器资源。
 ```sh
 serverless remove --debug
@@ -130,10 +128,10 @@ serverless remove --debug
   9s › myFunction1 › done
 ```
 
-### 配置账户信息（可选）
+## 配置账户信息（可选）
 当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](需要改成最新的配置账号链接) 文档。
 
-### 更多应用
+## 更多应用
 
 如果您希望通过 Serverless Framework Component 部署更多 Serverless 应用，可以参考下列最佳实践：
 

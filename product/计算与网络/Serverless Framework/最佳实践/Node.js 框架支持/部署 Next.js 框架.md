@@ -3,12 +3,14 @@
 
 ## 前提条件
 #### 初始化 Next.js 项目
+
 ```bash
 $ npm init next-app
 ```
 
 #### 新增初始化文件
 在项目根目录下新建`sls.js`文件，内容如下：
+
 ```js
 const express = require('express')
 const next = require('next')
@@ -52,10 +54,13 @@ $ npm install -g serverless
 #### 配置
 
 1. 在项目根目录创建`serverless.yml`文件：
+
 ```bash
 $ touch serverless.yml
 ```
+
 2. 在`serverless.yml`中进行如下配置：
+
 ```yml
 # serverless.yml
 NextjsFunc:
