@@ -1,11 +1,24 @@
 ## 前提条件
 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
 
+## 组建区块链网络
+参考 [FISCO BCOS 购买页说明](https://cloud.tencent.com/document/product/663/38266) 创建 FISCO BCOS 区块链网络。
 
 ## 查看区块链信息
 1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
 2. 单击需查看信息的网络资源 ID，即可进入该网络的概览页。
 您可通过区块链网络的概览页查看信息，其中包含该网络区块、节点、交易和已部署合约数量、最近7天的交易数量和区块列表。
+
+## 邀请组织加入联盟
+1. 登录 TBaaS 控制台，选择左侧导航栏中的【[联盟](https://console.cloud.tencent.com/tbaas/alliance)】。
+2. 在“联盟”列表页面，选择需邀请组织联盟所在行右侧的【邀请成员】。如下图所示：
+![](https://main.qcloudimg.com/raw/74553f05e8b9cbf8ce1cbdeb1b9500a6.png)
+3. 在弹出的“邀请成员”窗口中，按照以下信息填写受邀成员信息，并单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/a501920eafa120f426d9fd8cea6e6475.png)
+	- **成员名称**：被邀请者的腾讯云账号昵称。
+	- **账号 ID**：被邀请者的账号 ID，腾讯云的唯一标识。
+	- **APPID**：被邀请者腾讯云账号的 APPID。
+以上信息，可前往“[账号信息](https://console.cloud.tencent.com/developer)”页面获取。被邀组织需前往“[事件中心](https://console.cloud.tencent.com/tbaas/event)”页面，选择【我待办的】>【邀请加入联盟】接受或拒绝邀请。
 
 ## 新建合约
 1. 选择左侧导航中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】。
