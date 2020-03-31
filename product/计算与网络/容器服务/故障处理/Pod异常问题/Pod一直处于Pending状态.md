@@ -1,3 +1,5 @@
+本文档介绍可能导致 Pod 一直处于 Pending 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。若确认检查项无误后 Pod 仍处于异常状态，请及时 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。
+
 
 当 Pod 一直处于 Pending 状态时，说明该 Pod 还未被调度到某个节点上。需查看 Pod 分析问题原因。例如，节点资源不足时，获取到的事件信息如下：
 ``` bash
@@ -8,10 +10,6 @@ Events:
   ----     ------            ----                ----               -------
   Warning  FailedScheduling  3m (x106 over 33m)  default-scheduler  0/4 nodes are available: 1 node(s) had no available volume zone, 2 Insufficient cpu, 3 Insufficient memory.
 ```
-
-
-本文档介绍可能导致 Pod 一直处于 Pending 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。若确认检查项无误后 Pod 仍处于异常状态，请及时 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。
-
 
 ## 节点资源不足
 
@@ -41,9 +39,9 @@ kubectl describe node <node-name>
 * `podAffinity`：Pod 亲和性，用于将一系列有关联的 Pod 调度到同一个地方，即同一个节点或同一个可用区的节点等。
 * `podAntiAffinity`：Pod 反亲和性，防止某一类 Pod 调度到同一个地方，可以有效避免单点故障。例如，将集群 DNS 服务的 Pod 副本分别调度到不同节点，避免因一个节点出现故障而造成整个集群 DNS 解析失败，甚至使业务中断。
 
-### Node 存在 Pod 没有容忍的污点
+## Node 存在 Pod 没有容忍的污点
 
-假如节点上存在污点（Taints），Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 describe node 查看 Node 已设置了哪些污点 。示例如下：
+假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 describe node 查看 Node 已设置了哪些污点 。示例如下：
 
 ``` bash
 $ kubectl describe nodes host1
@@ -65,7 +63,7 @@ node "host1" tainted
 
 ### 自动添加污点
 
-节点运行状态异常时，可能会自动添加污点。从 v1.12 开始，`TaintNodesByCondition` 特性进入 Beta 默认开启，controller manager 将会检查 Node 的 Condition，如果命中条件就会自动为 Node 加上相应的污点。其中 Condition 与污点 的对应关系如下：
+节点运行状态异常时，可能会自动添加污点。从 v1.12 开始，`TaintNodesByCondition` 特性进入 Beta 默认开启，controller manager 将会检查 Node 的 Condition，如果命中条件就会自动为 Node 加上相应的污点。其中 Condition 与污点的对应关系如下：
 
 ``` txt
 Conditon               Value       Taints
@@ -89,7 +87,8 @@ NetworkUnavailable     True        node.kubernetes.io/network-unavailable
 * `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
 * `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其它 Pod 正常通信。
 
->?上述情况一般属于被动自动添加污点，但在容器服务中，存在一个主动自动添加/移出污点的过程：在新增节点时，首先为该节点添加`node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到没初始化好的节点上。
+>?上述情况一般属于被动自动添加污点，但在容器服务中，存在一个主动自动添加/移出污点的过程：
+>在新增节点时，首先为该节点添加`node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到没初始化好的节点上。
 
 ## 低版本 kube-scheduler 的 bug
 
@@ -103,7 +102,7 @@ Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导�
 
 服务部署成功且正在运行时，若此时节点突发故障，就会触发 Pod 驱逐，并创建新的 Pod 副本调度到其它节点上。
 
-对于已挂载了磁盘的 Pod，它通常需要被调度到与当前故障节点和挂载磁盘所处同一个可用区的新的节点上。此时，当集群中同一个可用区内不具备满足可调度条件的节点时，即使其它可用区内具有满足条件的节点，此类 Pod 仍不会调度。
+对于已挂载了磁盘的 Pod，通常需要被调度到与当前故障节点和挂载磁盘所处同一个可用区的新的节点上。此时，当集群中同一个可用区内不具备满足可调度条件的节点时，即使其它可用区内具有满足条件的节点，此类 Pod 仍不会调度。
 
 限制已挂载磁盘的 Pod 不能漂移到其它可用区的节点的原因如下：
 云上磁盘允许被动态挂载到同一个数据中心上的不同机器，但通常不允许跨数据中心挂载磁盘设备，可以有效避免网络时延极大地降低 IO 速率。
