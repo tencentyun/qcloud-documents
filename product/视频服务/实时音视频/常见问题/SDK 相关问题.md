@@ -10,6 +10,10 @@
 ### 实时音视频在小程序端创建了一个房间，手机端（Andriod/iOS）能否进入该房间？
 能进入，实时音视频支持全平台互通。
 
+### TRTC SDK 是否支持 iOS 后台运行？
+支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture**即可实现后台运行，详情如下图所示：
+![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
+
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
 
 - 创建腾讯云实时音视频应用，购买相应的套餐，并获取到 SDKAppID。
