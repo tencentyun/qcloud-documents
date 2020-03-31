@@ -53,14 +53,12 @@ $ npm install -g serverless
 
 #### 配置
 
-1. 在项目根目录创建`serverless.yml`文件：
-
+1.在项目根目录创建`serverless.yml`文件：
 ```bash
 $ touch serverless.yml
 ```
 
-2. 在`serverless.yml`中进行如下配置：
-
+2.在`serverless.yml`中进行如下配置：
 ```yml
 # serverless.yml
 NextjsFunc:

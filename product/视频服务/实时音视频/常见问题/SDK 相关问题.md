@@ -10,6 +10,10 @@
 ### 实时音视频在小程序端创建了一个房间，手机端（Andriod/iOS）能否进入该房间？
 能进入，实时音视频支持全平台互通。
 
+### TRTC SDK 是否支持 iOS 后台运行？
+支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** 即可实现后台运行，详情如下图所示：
+![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
+
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
 
 - 创建腾讯云实时音视频应用，购买相应的套餐，并获取到 SDKAppID。
@@ -38,10 +42,11 @@
 - 如有更多需求，或希望深度合作，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 或致电95716联系我们。
 
 ### &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签使用及错误码参考：
--  [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html) 
--  [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html) 
--  [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html) 
--  [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+- [live-pusher&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html)
+- [live-player&错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html)
+- [livePusherContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)
+- [livePlayerContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)
+
 
 ### 调试时为什么要开启调试模式？
 
@@ -95,8 +100,8 @@
 | mic           | 是否开启麦克风                                               |
 | switch camera | 摄像头位置（front / back）                                       |
 | Room          | 进房，退房，退房并返回上一界面操作                           |
-| user count    | 房间内人数以及 user 信息<br/>userID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
-| stream count  | 房间内流的数量以及流信息<br/>userID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
+| user count    | 房间内人数以及 user 信息<br/>userID：用户 ID<br/>mainV：该用户是否有主路视频<br/>mainA：该用户是否有主路音频<br/>auxV：该用户是否有辅路视频 |
+| stream count  | 房间内流的数量以及流信息<br/>userID：用户 ID<br/>SubV：是否订阅此路流的视频<br />SubA：是否订阅此路流的音频 |
 
 ### 运行 Web 端时，出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
 出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请检查防火墙配置。TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
