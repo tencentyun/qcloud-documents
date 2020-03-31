@@ -30,7 +30,7 @@
 1. 前往 [Helm 应用控制台](https://console.cloud.tencent.com/tke2/helm)，进入 “Helm列表”页面。
 2. 在 “Helm应用” 列表中，选择需更新的 Helm 应用所在行右侧的【更新应用】。
 3. 在弹出的 “更新Helm应用” 窗口中，重新输入 “Chart_Url”，并根据业务需求填写自定义参数。如下图所示：
-![](https://main.qcloudimg.com/raw/893864368ab1a0fcfe3b11d9538e46b5.png)
+![](https://main.qcloudimg.com/raw/3c26cea1635755c096170676d0b43fe8.png)
 4. 单击【确认】即可完成更新。
 
 ### 回滚 Helm 应用
@@ -46,5 +46,5 @@
 1. 前往 [Helm 应用控制台](https://console.cloud.tencent.com/tke2/helm)，进入 “Helm列表”页面。
 2. 在 “Helm应用” 列表中，选择需要删除的 Helm 应用所在行右侧的【删除】。
 3. 在弹出的提示框中，单击【确认】即可。如下图所示：
-![](https://main.qcloudimg.com/raw/370712b6fa9ba7ff51337a26ed37c408.png)
+![](https://main.qcloudimg.com/raw/0ddd2a8730af43235c3429dd2371f41c.png)
 
