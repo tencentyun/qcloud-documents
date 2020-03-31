@@ -182,7 +182,6 @@
  | 服务                                                       | 授权粒度   | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ----------------------------------------------------------- | ------ | --------| ----- |  ---- |	 ---- |
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589)   | 操作级 | &#10003;  | -   |  &#10003;  |	 [访问管理指南](https://cloud.tencent.com/document/product/589/14625) |
-| [云数据仓库套件 Sparkling](https://cloud.tencent.com/document/product/1002)  | 资源级  | &#10003; | -  | &#10003;    |	 - |
 | [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | 操作级  | &#10003;  | - |  - | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
 | [流计算服务](https://cloud.tencent.com/document/product/849)  | 服务级   | &#10003;     | -  | &#10003;  | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)  | 操作级   | &#10003; | -   |  -  |	 [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
@@ -310,7 +309,7 @@
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086)   | 服务级 | &#10003;   | -  |  - | -  |
 | [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023)   | 服务级 | &#10003;  | -  |  -  | -  |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081)   | 服务级 | &#10003;  | -  |  -  | -  |
-| [ 物联网智能视频服务](https://cloud.tencent.com/document/product/1131)   | -  | -  | -  |  &#10003;  | -  |
+| [ 物联网智能视频服务](https://cloud.tencent.com/document/product/1131)   | 服务级  | &#10003;  | -  |  &#10003;  | -  |
 
 ## 区块链	
 
