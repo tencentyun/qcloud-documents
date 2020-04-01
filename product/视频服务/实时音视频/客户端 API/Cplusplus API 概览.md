@@ -118,8 +118,8 @@
 | [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a11a2965ee1192569afd1482cfce6816e) | 设置屏幕分享画面的顺时针旋转角度。 |
 | [getScreenCaptureSources](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3777e1506f1aa806bee116e7117993b5) | 枚举可共享的窗口列表。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa5c3c7ed12993c155de77fb43ba0cf3b) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af83efff2a1020580bcb0bb89a8ffe4b0) | 启动屏幕分享。 |
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af83efff2a1020580bcb0bb89a8ffe4b02) | 启动屏幕分享（高级接口），支持选择使用主路还是辅路进行屏幕分享。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7016802ed8651901c97dfefccafbbd9b) | 启动屏幕分享。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af83efff2a1020580bcb0bb89a8ffe4b0) | 启动屏幕分享（高级接口），支持选择使用主路还是辅路进行屏幕分享。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0dcd89ed2e23706239db98b55dd806d4) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a9dc10db068b9d8c6a0fcb8b085359f33) | 恢复屏幕分享。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0e09090fe4281c0e78d8eb38496a8ed0) | 停止屏幕采集。 |
