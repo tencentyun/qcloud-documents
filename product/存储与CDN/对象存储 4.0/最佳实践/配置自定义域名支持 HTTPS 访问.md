@@ -11,7 +11,7 @@
 #### 1. 绑定自定义域名。
 将存储桶绑定到您的自有域名，开启 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/36637) 文档中的配置自定义域名部分。
 #### 2. 配置 HTTPS 访问。
-在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/6295)。
+在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 加速配置指南](https://cloud.tencent.com/document/product/228/41687)。
 
 
 
