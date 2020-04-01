@@ -47,7 +47,7 @@ ssl_certificate /usr/local/nginx/conf/server.crt;
 ssl_certificate_key /usr/local/nginx/conf/server.key;
 ```
 #### 3. 解析域名到服务器。
-在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云云解析，请前往 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，将域名`test.cos.com`解析到步骤2中的服务器的 IP 上，详细指引请参见 [域名解析](https://cloud.tencent.com/document/product/302/3446)。
+在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云 DNS 解析，请前往 [DNS 解析控制台](https://console.cloud.tencent.com/cns/domains)，将域名`test.cos.com`解析到步骤2中的服务器的 IP 上，详细指引请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 
 #### 进阶配置
 #### 通过浏览器直接打开网页
