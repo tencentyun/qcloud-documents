@@ -1,5 +1,5 @@
 ## 操作场景
-您可通过本文快速开始使用 Tencent TrustSQL 区块链网络，同时可前往 [Tencent TrustSQL](https://cloud.tencent.com/document/product/663/38243) 了解更多信息。
+您可通过本文快速开始使用 Tencent TrustSQL 区块链网络，同时可前往 [Tencent TrustSQL](https://cloud.tencent.com/document/product/663/38487) 了解更多信息。
 
 ## 前提条件
 已登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)。
