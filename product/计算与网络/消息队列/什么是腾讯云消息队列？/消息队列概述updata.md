@@ -6,17 +6,17 @@ CMQ 已经正式商用，目前在腾讯云全球多个地域提供了高可用�
 CMQ 目前提供 HTTP(S)、TCP 协议的接入。提供 PHP、Java、Python 等丰富语言的 SDK 接入。
 
 
-
 | 接入方式 |     HTTP(S) 接入|  TCP 接入| 
 | :-------- | :--------| :------ |
 | **面向场景**    |  提供基于 HTTP(S) 协议的同步接入方式，支持 Restful API 和多语言的 SDK 简单方便接入。|  提供 TCP 同步/异步接入方式，支持多语言 SDK，提高生产端和消费端的效率，提供更高性能的消息队列服务。| 
 | **亮点能力**    |  消息无限堆积、水平扩展金融级消息高可靠，消息实时落盘。 |  TCP 异步非阻塞方式收发消息，提升效率。消息无限堆积、水平扩展金融级消息高可靠，消息实时落盘。| 
 
 >?
->- CMQ TCP 接入方式，正在内测中，欢迎工单联系售后工程师，将有专人为您开通内测服务。
->- CMQ 支持私有化部署，欢迎工单联系售后工程师，将有专人为您开通内测服务。
+>- CMQ TCP 接入方式正在内测中，欢迎 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=947&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20CMQ&step=1) 联系售后工程师，将有专人为您开通内测服务。
+>- CMQ 支持私有化部署，欢迎 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=947&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20CMQ&step=1) 联系售后工程师，将有专人为您开通内测服务。
 
-
+以下视频将为您介绍 CMQ 消息异步通信和安全可靠的特点：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1628-11588?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 应用场景概述
 
