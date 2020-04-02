@@ -40,7 +40,7 @@
 | Gzip 压缩 | 默认启用 | 已开启 |
 
 选择需要创建转发规则的 HTTPS 监听器，单击右侧【+】进行创建，具体基本配置如下图所示：
-![](https://main.qcloudimg.com/raw/2d4fc6bf7e98c62ad123c880c9a91c8d.png)
+![](https://main.qcloudimg.com/raw/7c84f79fee81817becdfd466fee47f1b.png)
 
 #### 3. 健康检查
 | 健康检查配置    | 说明                    | 示例                                |
