@@ -3,7 +3,6 @@
 
 ## 操作步骤
 ### 安装
-通过 npm 全局安装 Serverless：
 
 通过 npm 全局安装 serverless
 
