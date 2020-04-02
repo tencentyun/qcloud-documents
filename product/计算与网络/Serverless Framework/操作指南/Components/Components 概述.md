@@ -19,25 +19,25 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - [部署 Hexo 静态博客](https://cloud.tencent.com/document/product/1154/40217)
 通过 Serverless Website 组件快速构建一个 Serverless Hexo 站点：
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-hexo-blog
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-hexo-blog
 ```
 
 - [快速构建 REST API](https://cloud.tencent.com/document/product/1154/40216)
 通过 Serverless SCF 组件快速构建一个 REST API 应用，实现 GET/PUT 操作。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-python-rest-api
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-python-rest-api
 ```
 
 - [部署 Serverless 全栈 Web 应用（React.js）](https://cloud.tencent.com/document/product/1154/40218)
 本示例以 React 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-react-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-react-application
 ```
 
 - [部署 Serverless 全栈 Web 应用（Vue.js）](https://cloud.tencent.com/document/product/1154/39272)
 本示例以 Vue 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-vue-application
 ```
 
 ### Serverless Components 支持列表
