@@ -23,11 +23,9 @@
 - 内网负载均衡（CLB） / 云数据库（TencentDB）不支持修改内网 IP。
 
 ### VPC 内的云服务器或数据库能否切换到其它 VPC？
-- 目前支持云服务器、云数据库 MySQL 和云数据库 Redis 的迁移，暂不支持其他数据库的迁移。
+- 目前支持云服务器、云数据库 MySQL的迁移，暂不支持其他数据库的迁移。
 - 云服务器可从当前 VPC 迁移至同账户下的其他 VPC 内，详细操作步骤和注意事项，请参见 [切换私有网络服务](https://cloud.tencent.com/document/product/213/20278#.E7.A7.81.E6.9C.89.E7.BD.91.E7.BB.9C.E4.B9.8B.E9.97.B4.E5.88.87.E6.8D.A2)。
 - 云数据库 MySQL 可从当前 VPC 迁移至同账户下的其他 VPC 内，详细操作步骤和注意事项，请参见 [切换网络](https://cloud.tencent.com/document/product/236/35671)。
-- 云数据库 Redis 可从当前 VPC 迁移至同账户下的其他 VPC 内，详细操作步骤和注意事项，请参见 [更换 Redis 网络
-](https://cloud.tencent.com/document/product/239/30910#.E6.9B.B4.E6.8D.A2-redis-.E7.BD.91.E7.BB.9C)。
 
 ### 弹性公网 IP 有什么作用？
 弹性公网 IP 适用于以下场景：
