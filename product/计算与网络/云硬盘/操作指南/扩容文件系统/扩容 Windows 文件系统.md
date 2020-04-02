@@ -1,30 +1,12 @@
 ## 操作场景
 
 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
-如果您在 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，云服务器及云硬盘状态符合下表中的情形，请执行对应操作：
-<table>
-	<tr>
-	<th>云服务器状态</th><th>云硬盘状态</th><th>需执行操作</th>
-	</tr>
-	<tr>
-	<td>正常运行状态</td>
-	<td>已挂载</td>
-	<td><a href="https://cloud.tencent.com/document/product/213/4928">重启实例</a> 或  <a href="Scaning">重新扫描磁盘</a> 待识别扩容后的云硬盘空间后再 <a href="Extending">扩展卷</a>。</td>
-	</tr>
-	<tr>
-	<td rowspan=2>关机状态</td>
-	<td>待挂载</td>
-	<td>扩容后的硬盘空间将自动识别，请 <a href="https://cloud.tencent.com/document/product/362/32402">挂载</a> 后 <a href="https://cloud.tencent.com/document/product/362/32403">初始化云硬盘</a>。</td>
-	</tr>
-	<tr>
-	<td>已挂载</td>
-	<td>扩容后的硬盘空间将自动识别，云服务器开机后及可正常使用。</td>
-	</tr>
-</table>
+- 若您在云硬盘连接在云服务器上并且该云服务为正常运行状态时执行了硬盘扩容操作，需要先执行【重新扫描磁盘】操作来识别扩容后的硬盘空间。
+- 若您在硬盘待挂载状态/硬盘挂载但服务器已经关机执行了扩容操作，扩容后的硬盘空间将自动识别。
 
 >!
 >- 扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
->- 扩容文件系统需要 [重启实例](https://cloud.tencent.com/document/product/213/4928) 或进行重新扫描磁盘及扩展卷操作，将导致一定时间的业务中断，建议您选择合适的时间谨慎操作。
+>- 扩容文件系统需要 [重启实例](https://cloud.tencent.com/document/product/213/4928) 或重新扫描磁盘，将导致一定时间的业务中断，建议您选择合适的时间谨慎操作。
 >
 
 
@@ -37,9 +19,12 @@
 >
 
 ## 操作步骤
+>?
+>- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩展卷](#Extending)。
+>- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩展卷](#Extending) 即可。
 
 <span id="Scaning"></span>
-### 重新扫描磁盘
+### （可选）重新扫描磁盘
 1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【计算机管理】。
 2. 在“计算机管理”窗口的左侧导航栏中，选择【存储】>【磁盘管理】。
 3. 右键单击 【磁盘管理】，选择 【重新扫描磁盘】。如下图所示：
