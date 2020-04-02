@@ -67,15 +67,14 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 > - 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
 Demo 运行界面如图所示：
-![](https://main.qcloudimg.com/raw/d261de9f7d9a467afcbd26cf273149a4.png)
+![](https://main.qcloudimg.com/raw/e989c968446e6e3bdcc19c58e40e2b86.png)
 - 单击【加入房间】加入音视频通话房间并且发布本地音视频流。
  您可以打开多个页面，每个页面都单击 【加入房间】，正常情况下可以看到多个画面并模拟实时音视频通话。
-- 单击【离开房间】退出音视频通话。
-- 单击【开始推流】发布本地音视频流。
-- 单击【停止推流】停止发布本地音视频流。
+- 单击摄像头图标可以选择摄像头设备。
+- 单击麦克风图表可以选择麦克风设备。
 
 >?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】。
-![](https://main.qcloudimg.com/raw/2f595dc976970c5398efd993ade5b22b.png)
+> ![](https://main.qcloudimg.com/raw/1a2c1e7036720b11f921f8ee1829762a.png)
 
 ## 常见问题
 
