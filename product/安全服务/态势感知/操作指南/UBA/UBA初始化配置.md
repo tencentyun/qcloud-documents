@@ -20,6 +20,9 @@ UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https:
 		![](https://main.qcloudimg.com/raw/20886eb9186bc026a41fc7a378e6e81a.png)
 3. 填写对象存储桶 ID。在填写对象存储桶 ID 页面，填写 [第四步](#fuzhi) 中复制的存储桶名称（即存储桶 ID），填写完成后，单击【完成】即可。
 	![](https://main.qcloudimg.com/raw/75b314613318e730c9e13a9432cbb9d6.png)
+6. 修改存储桶 ID。初始化完成后，如您需要修改存储桶 ID，可登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/setting)，在左侧导航中单击【产品设置】，进入产品设置页面，选择【通用设置】>【UBA 初始化配置】，重新填写存储桶 ID。
+>!新存储桶 ID 保存成功后，新存储桶对应的 UBA 数据更新可能会延迟6小时，数据更新速度受数据量的影响。
+
 
 ## 后续操作
 UBA 初始化配置完成后，进入 [UBA 概览](https://cloud.tencent.com/document/product/664/41791) 及 [UBA 列表](https://cloud.tencent.com/document/product/664/41792) 进行操作。
