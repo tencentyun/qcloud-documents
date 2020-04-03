@@ -31,8 +31,8 @@ $ flutter pub get
 ### 步骤4： 初始化环境并调用匿名登录
 在项目的 `lib/main.dart` 文件中初始化环境并进行匿名登录。
 ```
-import 'package:cloudbase_auth/cloudbase_core.dart';
-import 'package:cloudbase_core/cloudbase_auth.dart';
+import 'package:cloudbase_core/cloudbase_core.dart';
+import 'package:cloudbase_auth/cloudbase_auth.dart';
 import 'package:cloudbase_function/cloudbase_function.dart';
 
 // 初始化 CloudBase
