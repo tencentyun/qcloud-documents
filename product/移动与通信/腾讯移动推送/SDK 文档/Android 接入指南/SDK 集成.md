@@ -330,14 +330,6 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
 
-### 注销免费版本推送服务
-如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。如需要在免费版本和 TPNS 版本都做推送的话，则 TPNS 版本需要增加以下配置：
-在 AndroidManifest 上添加的 application 节点内添加以下配置，填写免费版本的 accessId：
-```xml
-  <meta-data
-      android:name="XG_OLD_ACCESS_ID"
-      android:value="免费版本应用的accessid" />
-```
 
 ### 集成建议
 <span id="HQToken"></span>
