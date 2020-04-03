@@ -1,7 +1,10 @@
 
 ## 简介
 本文档提供关于 SDK 的接入以及开启推送服务的示例代码。（SDK 版本：V1.0+ 版本）
->!如果您是从免费版本信鸽（xg.qq.com）迁移至腾讯移动推送，请务必实现 [注销免费服务接口](#zhuxiao)，其它变更请参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610) 调整集成配置。
+>!如果您是从信鸽平台（https:// xg.qq.com）迁移至腾讯移动推送平台，请务必:
+1.实现 [注销信鸽平台推送服务接口](#zhuxiao)。
+2.参考 [iOS迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
+3.完成下述文档的集成工作。
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -206,9 +209,9 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 	```
 
 <span id="zhuxiao"></span>
-## 注销免费服务
+## 注销信鸽平台推送服务
 
-如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。因此需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册，从而使得在两个集群同时推送时，避免出现重复消息。
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册。
 
 #### 接口
 
@@ -220,15 +223,13 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 #### 用法
 
 - 引入头文件: `XGForFreeVersion.h` 
-
 - 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
-
-
+>!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 ## 集成建议
 #### 通知服务扩展功能（必选）
