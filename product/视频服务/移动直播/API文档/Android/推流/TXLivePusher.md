@@ -293,12 +293,12 @@ __介绍__
 
 <pre>
 // 竖屏推流（HOME 键在下）
-_config.homeOrientation = HOME_ORIENTATION_DOWN;
+_config.homeOrientation = TXLiveConstants.VIDEO_ANGLE_HOME_DOWN;
 [_txLivePublisher setConfig:_config];
 [_txLivePublisher setRenderRotation:0];</pre>
 
 <pre>// 横屏推流（HOME 键在右）
-_config.homeOrientation = HOME_ORIENTATION_RIGHT;
+_config.homeOrientation = TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
 [_txLivePublisher setConfig:_config];
 [_txLivePublisher setRenderRotation:90];
 </pre>
