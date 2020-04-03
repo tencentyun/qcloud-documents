@@ -4,8 +4,8 @@
 
 ### 迁移腾讯移动推送付费版本初期，做全量推送是否需要在2个平台操作？
 因免费版和付费版是两个独立平台，当升级付费版后，若您的 App 没有强制升级策略，App 覆盖需要一定时间，在新版本 App 覆盖量不足时，做全量推送，需要在免费版和付费版两个平台上都操作一次，为了避免重复推送，请您按照以下方法配置：
-1. 接入 Android V1.1.5.4 及以上版本，并 [注销 Android 免费版本推送服务](https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E5.85.8D.E8.B4.B9.E7.89.88.E6.9C.AC.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1)。
-2. 接入 iOS V1.2.5.3 及以上版本，并 [注销 iOS 免费版本推送服务](https://cloud.tencent.com/document/product/548/41610#.E6.B3.A8.E9.94.80.E5.85.8D.E8.B4.B9.E6.9C.8D.E5.8A.A1)。
+1. 接入 Android V1.1.5.4 及以上版本，并 [注销 Android 信鸽平台推送服务](https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1)。
+2. 接入 iOS V1.2.5.3 及以上版本，并 [注销 iOS 信鸽平台推送服务](https://cloud.tencent.com/document/product/548/41610#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1)。
 
 
 ### 如何预估日联网设备月峰值？
