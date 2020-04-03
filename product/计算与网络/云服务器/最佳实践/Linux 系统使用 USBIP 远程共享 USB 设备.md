@@ -28,21 +28,33 @@ $ usbip list --local
 busid 1-1.3(096e:031b)
 Feitian Technologies, Inc.: unknown product(096e:031b)
 ```
-3. 记录 busid 的值（即`1-1.3`），并执行以下命令，启动进程，共享 USB 设备。
+3. 记录 busid 的值，并依次执行以下命令，启动监听服务，指定 USB/IP 端口号，共享 USB 设备。
 ```
-sudo usbipd -D
+sudo usbipd -D --tcp-port [port]
+sudo usbip bind -b [busid]
+```
+例如，USB/IP 指定端口号为3240端口（即 USB/IP 的默认端口），busid 为 `1-1.3`，则执行以下命令：
+```
+sudo usbipd -D --tcp-port 3240
 sudo usbip bind -b 1-1.3
 ```
-4. 执行以下命令，创建 SSH 隧道，并使用端口监听。
->? 默认端口为3240端口，如有指定端口号，请修改。
+4. （可选）执行以下命令，创建 SSH 隧道，并使用端口监听。
+>? 没有公网 IP 的本地计算机，请执行此步骤。如您的本地计算机有公网 IP，请跳过此步骤。
 >
 ```
-ssh -Nf -R 3240:localhost:3240 root@your_host
+ssh -Nf -R USB/IP指定端口号:localhost:USB/IP指定端口号 root@your_host
 ```
 `your_host` 表示云服务器的 IP 地址。
+例如，USB/IP 的端口号为3240端口，云服务器的 IP 地址为192.168.15.24，则执行以下命令：
+```
+ssh -Nf -R 3240:localhost:3240 root@192.168.15.24
+```
 
 
 ### 配置 USB Client
+
+>? 以下操作步骤以本地计算机没有公网 IP 为例，如您的本地计算机有公网 IP，请将步骤中的`127.0.0.1`修改为本地计算机的公网 IP 地址。
+>
 
 1. [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 依次执行以下命令，下载 USB/IP 源。
