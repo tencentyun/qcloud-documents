@@ -9,7 +9,7 @@ COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属
 目前支持 CRC64 的 API 如下：
 
 - 简单上传接口
-	- PUT Object 和 POST Object：用户可在返回的响应体中获得文件 CRC64校验值。
+	- PUT Object 和 POST Object：用户可在返回的响应体中获得文件 CRC64 校验值。
 - 分块上传接口
 	- Upload Part：用户可以根据 COS 返回的 CRC64 值与本地计算的数值进行比较验证。
 	- Complete Multipart Upload：如果每个分块都有 CRC64 属性，则会返回整个对象的 CRC64 值，如果某些分块不具备 CRC64 值，则不返回。
