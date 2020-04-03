@@ -2,15 +2,7 @@ Serverless Components 是支持多个云资源编排和组织的场景化解决�
 
 详细介绍可以参考 [Github 上的 Serverless Components 项目](https://github.com/serverless/components/blob/master/README_CN.md)。
 
-## Components 和 Framework CLI 的区别
-
-
-| 对比项 | 功能描述 | 配置说明 | 支持的语言 |
-|---------|---------|---------|---------|
-| Serverless Framework | 覆盖了测试/部署等步骤的工作流框架 | 主要围绕云函数 SCF 及其触发器进行配置 | 支持云函数平台的除 Java 外所有开发语言（Node.js、Python、PHP、Go 等） |
-| Serverless Components | 面向客户实现场景，支持对云上的多种资源进行部署和编排（COS、API 网关、CAM、DB 等） | 支持客户自定义对应资源的配置| Component 本身由 Node.js 开发，但使用时支持多种语言及开发框架  |
-
-## 优势特性
+### Serverless Components 优势
 
 - **简便易用**
 Serverless Components 更多的围绕客户场景进行构建，如网站、博客系统、支付服务、图像处理场景等。通过抽象了底层的基础设施配置信息，开发者可以通过十分简单的配置实现场景。
@@ -19,49 +11,55 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - **秒级部署**
 大多数 Serverless Components 比传统的配置工具部署快20倍左右，Components 可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
-## 最佳实践
+
+### Serverless  Components 最佳实践
  
 以下为常用的用例模板：
 
 - [部署 Hexo 静态博客](https://cloud.tencent.com/document/product/1154/40217)
 通过 Serverless Website 组件快速构建一个 Serverless Hexo 站点：
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-hexo-blog
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-hexo-blog
 ```
 
 - [快速构建 REST API](https://cloud.tencent.com/document/product/1154/40216)
 通过 Serverless SCF 组件快速构建一个 REST API 应用，实现 GET/PUT 操作。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-python-rest-api
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-python-rest-api
 ```
 
 - [部署 Serverless 全栈 Web 应用（React.js）](https://cloud.tencent.com/document/product/1154/40218)
 本示例以 React 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-react-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-react-application
 ```
 
 - [部署 Serverless 全栈 Web 应用（Vue.js）](https://cloud.tencent.com/document/product/1154/39272)
 本示例以 Vue 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-vue-application
 ```
 
-## Serverless Components 支持列表
+### Serverless Components 支持列表
 
-当前 Serverless Components 支持丰富的多语言开发框架和应用，如下所示：
-![](https://main.qcloudimg.com/raw/fb863fbfe72526360c0cd7fc4caa1d98.png)
+当前 Serverless Components 支持丰富的多语言开发框架和应用，具体如下：
 
-基础组件：
-- [@serverless/tencent-apigateway](https://cloud.tencent.com/document/product/1154/39268) - 腾讯云 API 网关组件
-- [@serverless/tencent-cos](https://cloud.tencent.com/document/product/1154/39273) - 腾讯云对象存储组件
-- [@serverless/tencent-scf](https://cloud.tencent.com/document/product/1154/39271) - 腾讯云云函数组件
-- [@serverless/tencent-cdn](https://cloud.tencent.com/document/product/1154/40491) - 腾讯云 CDN 组件
-- [@serverless/tencent-cam-role](https://cloud.tencent.com/document/product/1154/39275) - 腾讯云 CAM 角色组件
-- [@serverless/tencent-cam-policy](https://cloud.tencent.com/document/product/1154/39274) - 腾讯云 CAM 策略组件
+**基础组件**：
+- [@serverless/tencent-postgresql](https://github.com/serverless-components/tencent-postgresql) - 腾讯云 PG DB Serverless 数据库组件
+- [@serverless/tencent-apigateway](https://github.com/serverless-components/tencent-apigateway) - 腾讯云 API 网关组件
+- [@serverless/tencent-cos](https://github.com/serverless-components/tencent-cos) - 腾讯云对象存储组件
+- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf) - 腾讯云云函数组件
+- [@serverless/tencent-cdn](https://github.com/serverless-components/tencent-cdn) - 腾讯云 CDN 组件
+- [@serverless/tencent-cam-role](https://github.com/serverless-components/tencent-cam-role) - 腾讯云 CAM 角色组件
+- [@serverless/tencent-cam-policy](https://github.com/serverless-components/tencent-cam-policy) - 腾讯云 CAM 策略组件
+- [@serverless/tencent-vpc](https://github.com/serverless-components/tencent-vpc) - 腾讯云 VPC 私有网络组件
+- [@serverless/tencent-ssl](https://github.com/serverless-tencent/tencent-ssl) - 腾讯云 SSL 证书组件
 
-高阶组件：
+
+
+**高阶组件**：
 - [@serverless/tencent-nextjs](https://github.com/serverless-components/tencent-nextjs) - 快速部署基于 Next.js 框架到腾讯云函数的组件
+- [@serverless/tencent-nuxtjs](https://github.com/serverless-components/tencent-nuxtjs) - 快速部署基于 Nuxt.js 框架到腾讯云函数的组件
 - [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-egg](https://github.com/serverless-components/tencent-egg) - 快速部署基于 Egg.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-koa](https://github.com/serverless-components/tencent-koa) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
@@ -70,13 +68,15 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@serverless/tencent-tornado](https://github.com/serverless-tencent/tencent-tornado) - 腾讯云 Python Tornado RESTful API 组件
 - [@serverless/tencent-pyramid](https://github.com/serverless-tencent/tencent-pyramid) - 腾讯云 Python Pyramid RESTful API 组件
 - [@serverless/tencent-bottle](https://github.com/serverless-tencent/tencent-bottle) - 腾讯云 Python Bottle RESTful API 组件
-- [@serverless/tencent-laravel](https://github.com/serverless-components/tencent-laravel) - 腾讯云 PHP Laravel RESTful API 组件（任何支持 WSGI 的 Python 服务端框架都可以基于该组件进行部署，例如 Falcon 框架等）
+- [@serverless/tencent-laravel](https://github.com/serverless-components/tencent-laravel) - 腾讯云 PHP Laravel RESTful API 组件
+- [@serverless/tencent-thinkphp](https://github.com/serverless-components/tencent-thinkphp) - 腾讯云 ThinkPHP RESTful API 组件
 - [@serverless/tencent-website](https://github.com/serverless-components/tencent-website) - 快速部署静态网站到腾讯云的组件
 - [@serverless/serverless-global](https://github.com/serverless-tencent/serverless-global) - 管理全局变量的组件
 
-第三方贡献：
+**第三方贡献**：
 - [@authing/serverless-oidc](https://github.com/Authing/serverless-oidc) - 快速部署基于 Authing 的身份认证组件
 - [@twn39/tencent-fastify](https://github.com/twn39/tencent-fastify) - 快速部署基于 fastify.js 的后端服务到腾讯云函数的组件
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
-此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components/) 中查看。
+此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components?q=tencent) 中查看。
+![](https://main.qcloudimg.com/raw/b6310fa4290e6fed60b137ff95f4b577.png)

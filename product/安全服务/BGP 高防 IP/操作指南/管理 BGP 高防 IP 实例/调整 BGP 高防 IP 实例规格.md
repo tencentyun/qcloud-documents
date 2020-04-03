@@ -9,7 +9,7 @@
 1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)。
 2. 选择【DDoS 高防 IP】>【资产列表】。
 3. 单击目标 DDoS 高防 IP 实例所在行的【升级】。
- ![](https://main.qcloudimg.com/raw/9c0afe7942d155ec9ffe6e1dfe023053.png)
+ ![](https://main.qcloudimg.com/raw/7b295c5c0c34905fef6bc955a4e005e0.png)
 4. 根据实际需求设置【升级保底防护】、【升级业务带宽】以及【升级转发规则数】。
  ![](https://main.qcloudimg.com/raw/3c020956e782d5cc3518ffc1dbf1d041.png)
 5. 单击【立即升级】，进入【核对信息】页面。

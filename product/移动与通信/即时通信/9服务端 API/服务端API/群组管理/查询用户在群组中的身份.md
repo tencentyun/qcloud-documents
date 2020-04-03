@@ -90,7 +90,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_role_in_group?sdkappid=888
 | ActionStatus | String | 请求处理的结果，OK 表示处理成功，FAIL 表示失败 |
 | ErrorCode|	Integer	|错误码，0表示成功，非0表示失败 |
 | ErrorInfo | String | 错误信息  |
-| UserIdList | Array | 拉取到的成员在群内的身份信息，可能的身份包括 `Owner/Admin/Member/NotMember`    |
+| UserIdList | Array | 拉取到的成员在群内的身份信息，可能的身份包括：Owner：群主，Admin：群管理员，Member：群成员，NotMember：非群成员    |
 
 ## 错误码说明
 

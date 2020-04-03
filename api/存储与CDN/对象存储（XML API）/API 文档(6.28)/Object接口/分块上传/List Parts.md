@@ -51,11 +51,11 @@ Authorization: Auth String
     <UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
     <Initiator>
         <ID>1250000000</ID>
-        <DisplyName>1250000000</DisplyName>
+        <DisplayName>1250000000</DisplayName>
     </Initiator>
     <Owner>
         <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-        <DisplyName>100000000001</DisplyName>
+        <DisplayName>100000000001</DisplayName>
     </Owner>
     <PartNumberMarker>0</PartNumberMarker>
     <Part>
@@ -122,10 +122,11 @@ Container 节点 Part 的内容：
 #### 请求
 
 ```shell
-GET /exampleobject?uploadId=14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0&max-parts=1 HTTP/1.1
-Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed，18 Jan 2017 16:17:03 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484643123;1484646723&q-key-time=1484643123;1484646723&q-header-list=host&q-url-param-list=max-parts;uploadid&q-signature=b8b4055724e64c9ad848190a2f7625fd3f9d3e87
+GET /exampleobject?uploadId=1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361 HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 25 Mar 2020 10:07:25 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1585130845;1585138045&q-key-time=1585130845;1585138045&q-header-list=date;host&q-url-param-list=uploadid&q-signature=ba8d97cefa396d804524a38d7b5412fb0261****
+Connection: close
 ```
 
 #### 响应
@@ -133,34 +134,46 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 661
-Connection: keep-alive
-Date: Wed，18 Jan 2017 16:17:03 GMT
-x-cos-request-id: NTg3ZGRiMzhfMmM4OGY3XzdhY2NfYw==
+Content-Length: 1119
+Connection: close
+Date: Wed, 25 Mar 2020 10:07:25 GMT
+Server: tencent-cos
+x-cos-request-id: NWU3YjJkNWRfMjNhZjJhMDlfNWY5Ml8zMmUy****
 
 <ListPartsResult>
-    <Bucket>examplebucket-1250000000</Bucket>
-    <Encoding-type/>
-    <Key>exampleobject</Key>
-    <UploadId>14846420620b1f381e5d7b057692e131dd8d72dfa28f2633cfbbe4d0a9e8bd0719933545b0</UploadId>
-    <Initiator>
-        <ID>1250000000</ID>
-        <DisplyName>1250000000</DisplyName>
-    </Initiator>
-    <Owner>
-        <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-        <DisplyName>100000000001</DisplyName>
-    </Owner>
-    <PartNumberMarker>0</PartNumberMarker>
-    <Part>
-        <PartNumber>1</PartNumber>
-        <LastModified>Tue Jan 17 16:43:37 2017</LastModified>
-        <ETag>"a1f8e5e4d63ac6970a0062a6277e191fe09a1382"</ETag>
-        <Size>5242880</Size>
-    </Part>
-    <NextPartNumberMarker>1</NextPartNumberMarker>
-    <StorageClass>STANDARD</StorageClass>
-    <MaxParts>1</MaxParts>
-    <IsTruncated>true</IsTruncated>
+	<Bucket>examplebucket-1250000000</Bucket>
+	<EncodingType/>
+	<Key>exampleobject</Key>
+	<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
+	<Owner>
+		<ID>1250000000</ID>
+		<DisplayName>1250000000</DisplayName>
+	</Owner>
+	<PartNumberMarker>0</PartNumberMarker>
+	<Initiator>
+		<ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
+		<DisplayName>100000000011</DisplayName>
+	</Initiator>
+	<Part>
+		<PartNumber>1</PartNumber>
+		<LastModified>2020-03-25T10:07:14.000Z</LastModified>
+		<ETag>&quot;39270a968a357d24207e9911162507eb&quot;</ETag>
+		<Size>1048576</Size>
+	</Part>
+	<Part>
+		<PartNumber>2</PartNumber>
+		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+		<ETag>&quot;d899fbd1e06109ea2e4550f5751c88d6&quot;</ETag>
+		<Size>1048576</Size>
+	</Part>
+	<Part>
+		<PartNumber>3</PartNumber>
+		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+		<ETag>&quot;762890d6c9a871b7bd136037cb2260cd&quot;</ETag>
+		<Size>1048576</Size>
+	</Part>
+	<StorageClass>Standard</StorageClass>
+	<MaxParts>1000</MaxParts>
+	<IsTruncated>false</IsTruncated>
 </ListPartsResult>
 ```

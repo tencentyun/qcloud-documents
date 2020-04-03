@@ -13,8 +13,10 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 - 支持各类资源灵活切换，降低使用成本。
 - 内置TI SDK，用户可以在 Notebook 中向 TI 提交训练任务。
 - 内置多种内核环境，支持自定义安装第三方库。
-- 开放 Root 权限，支持自由选择是否使用 Root 权限访问 Notebook。
-- 支持自由选择配置自有的 VPC 网络，支持访问外网。
+- 支持生命周期脚本，用户可以自定义初始化 Notebook，在创建/重启 Notebook 实例时可运行用户预设的 shell 脚本。
+- 支持与 Git 存储库对接，避免误删的数据丢失，方便协同开发与版本控制，用户还可以下载公开库里的 Notebook 文件进行学习与编辑。
+
+
 
 ## 资源规格
 
@@ -54,7 +56,7 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 - 您可以通过**快速入门**，了解如何在 Notebook 中 [创建实例](https://cloud.tencent.com/document/product/851/40073) ，[管理实例](https://cloud.tencent.com/document/product/851/41626)， [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 - 您可以参考**最佳实践** [用 Notebook 实现手写数字识别](https://cloud.tencent.com/document/product/851/38030)，体验使用 Notebook 建模的完整流程。
-- 您可以通过**操作指南**，进一步了解如何 [设置内核](https://cloud.tencent.com/document/product/851/41627)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传与下载](https://cloud.tencent.com/document/product/851/40143) 等操作。
+- 您可以通过**操作指南**，进一步了解如何 [设置内核](https://cloud.tencent.com/document/product/851/41627)，[安装第三方库](https://cloud.tencent.com/document/product/851/40119)，进行 [数据的上传下载](https://cloud.tencent.com/document/product/851/40143)，以及使用生命周期脚本配置 Notebook 实例（链接），关联 Git 存储库与 Notebook（链接） 等操作。
 - 如果您在使用过程中遇到问题，请查看常见问题。
 
 
