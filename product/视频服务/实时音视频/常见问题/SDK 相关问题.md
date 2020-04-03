@@ -11,6 +11,16 @@
 支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture**即可实现后台运行，详情如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
 
+### 如何创建房间？
+房间由腾讯云后台自动创建，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
+[iOS & Mac > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
+[Android > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
+[Windows（C++） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
+[Windows（C#） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
+[Electron > enterRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html?_ga=1.212321108.1562552652.1542703643#enterRoom)
+[桌面浏览器 > join](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html?_ga=1.256770123.1562552652.1542703643#join)
+[小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
+
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
 
 1. 创建腾讯云实时音视频应用，购买相应的套餐，并获取到 SDKAppID。
