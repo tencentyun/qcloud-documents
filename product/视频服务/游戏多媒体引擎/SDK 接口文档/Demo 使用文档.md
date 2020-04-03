@@ -9,7 +9,8 @@ Sample Code 实时语音界面截图如下所示：
 
 ### 设置账号及 openID
 修改实时语音界面中对应的 Appid、Key 及 OpenID 参数，然后单击【Init】。（初始化 SDK 前）
-![](https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png)
+<img src="https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png" width="60%">
+
 
 参数的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782#5..E9.89.B4.E6.9D.83.E4.BF.A1.E6.81.AF.E6.A8.A1.E5.9D.97.EF.BC.8C.E5.8F.AF.E8.8E.B7.E5.8F.96.E5.BA.94.E7.94.A8.E7.9B.B8.E5.BA.94.E7.9A.84.E9.89.B4.E6.9D.83.E3.80.82)。
 
@@ -37,7 +38,7 @@ Sample Code 实时语音界面截图如下所示：
 
 ### 更改房间音频类型
 1. 进房前，您可以对音频类型进行选择，具体效果请参见 [音质选择](https://cloud.tencent.com/document/product/607/18522)。
-![](https://main.qcloudimg.com/raw/25929745d76d6e1de3adc16055729d0e/iosSimpleCode_2.png)
+<img src="https://main.qcloudimg.com/raw/25929745d76d6e1de3adc16055729d0e/iosSimpleCode_2.png" width="60%">
 2. 进房后，可以单击【ChangeRoomType】，进行房间音频类型的更改。
 
 
@@ -45,7 +46,7 @@ Sample Code 实时语音界面截图如下所示：
 进房后，拖动滑动条可以设置音量。
 - 左边的滑动条设置的是采集设备音量，将影响采集到的声音的音量。
 - 右边的滑动条设置的是播放设备的音量，影响的是本机播放设备输出的音量。
-![](https://main.qcloudimg.com/raw/be4a7063f30e264ac8adf45e95d08598/iosSimpleCode_3.png)
+<img src="https://main.qcloudimg.com/raw/be4a7063f30e264ac8adf45e95d08598/iosSimpleCode_3.png" width="60%">
 
 ### 其他设置
 #### 设置是否耳返
