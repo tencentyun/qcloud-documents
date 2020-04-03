@@ -1,4 +1,4 @@
-本文介绍如何使用 Systemtap 工具定位 Pod 异常退出原因。
+本文介绍如何使用 Systemtap 工具定位 Pod 异常问题原因。
 
 ## 准备工作
 请对应您使用节点的操作系统，按照以下步骤进行相关软件包安装：
@@ -34,7 +34,7 @@ apt install -y linux-headers-4.4.0-104-generic
     
     sudo apt-get update
 ```
-4. 配置好源后，再次运行以下命令。
+4. 配置好软件源后，再次运行以下命令。
 ```
 stap-prep
 ```
@@ -56,7 +56,7 @@ apt install -y linux-headers-4.4.0-104-generic
 ```bash
 yum install -y systemtap
 ```
-2. 本文以默认未安装 `debuginfo` 为例，向软件源 `/etc/yum.repos.d/CentOS-Debug.repo` 配置文件中输入以下内容并保存。
+2. 向软件源 `/etc/yum.repos.d/CentOS-Debug.repo` 配置文件中输入以下内容并保存，本文以默认未安装 `debuginfo` 为例。
 ```bash
 [debuginfo]
 name=CentOS-$releasever - DebugInfo
@@ -99,7 +99,7 @@ rpm -e kernel-devel-3.10.0-327.el7.x86_64 kernel-devel-3.10.0-514.26.2.el7.x86_6
 
 ## 处理步骤
 
-### 步骤1：定位异常 Pod 中重新自动重启的容器 pid
+### 步骤1：获取异常 Pod 中重新自动重启的容器 pid
 1. 执行以下命令，获取容器 ID。
 ```
 kubectl describe pod <pod name>
@@ -115,7 +115,7 @@ Last State:     Terminated
 	Started:      Thu, 05 Sep 2019 19:22:30 +0800
 	Finished:     Thu, 05 Sep 2019 19:33:44 +0800
 ```
-2. <span is="getPid"></span>执行以下命令，通过获取到的 Container ID 反查容器主进程的 pid。
+2. <span id="getPid"></span>执行以下命令，通过获取到的 Container ID 反查容器主进程的 pid。
 ```bash
 docker inspect -f "{{.State.Pid}}" 5fb8adf9ee62afc6d3f6f3d9590041818750b392dff015d7091eaaf99cf1c945
 ```
@@ -148,7 +148,7 @@ probe signal.send{
 ```bash
 stap sg.stp
 ```
-3. 当容器进程因异常停止时，脚本可捕捉到事件，并执行输出如下：
+当容器进程因异常停止时，脚本可捕捉到事件，并执行输出如下：
 ```yaml
 pkill(23549) send SIGKILL to server(7942)
 parent of sender: bash(23495)
