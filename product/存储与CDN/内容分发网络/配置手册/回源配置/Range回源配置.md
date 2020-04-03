@@ -3,7 +3,7 @@
 
 开启 Range 回源配置，若用户请求的部分文件已过期，CDN 会根据用户请求进行分片回源，仅拉取用户需要的部分文件进行缓存，同时返回给用户；关闭 Range 回源配置，即便用户请求的是部分文件，CDN 在回源时仍会拉取整个文件，而后进行缓存，并响应给用户其要求的部分文件。
 
-开启 Range 回源配置能够有效提高大文件分发效率，提升响应速度，降低源站压力。以下视频将为您介绍 Range 回源配置：
+开启 Range 回源配置能够有效提高大文件分发效率，提升响应速度，降低源站压力。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2209-31085?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 > ?开启 Range 回源配置后，资源在节点上分片缓存，但所有分片的缓存过期时间保持一致，按照用户指定的缓存过期规则。
