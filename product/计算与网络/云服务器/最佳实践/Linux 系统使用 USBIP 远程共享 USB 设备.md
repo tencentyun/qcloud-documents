@@ -2,7 +2,7 @@
 
 [USB/IP](http://usbip.sourceforge.net/) 是一个开源项目，已合入 Kernel，在 Linux 环境下可以通过使用 USB/IP 远程共享 USB 设备。本文档以如下环境版本为例，为您演示如何使用 USB/IP 远程共享 USB 设备：
 USB Client：CentOS 7.6 操作系统的云服务器
-USB Server：基于 Debian 的 Raspbian 操作系统的本地计算机
+USB Server：Debian 操作系统的本地计算机
 
 ## 注意事项
 不同发行版的 Linux 操作系统安装 USB/IP 的方式，以及内核模块名称略有不同。请确认您当前使用的 Linux 系统是否支持 USB/IP 功能。
