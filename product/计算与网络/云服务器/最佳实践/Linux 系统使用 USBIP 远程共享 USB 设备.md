@@ -21,7 +21,7 @@ sudo modprobe usbip_host
 ```
 2. 插入 USB 设备，并执行以下命令，查询可用的 USB 设备。
 ```
-$ usbip list --local
+usbip list --local
 ```
 例如，在本地计算机上插入一个 Feitian 的优 Key，返回如下结果：
 ```
@@ -30,12 +30,12 @@ Feitian Technologies, Inc.: unknown product(096e:031b)
 ```
 3. 记录 busid 的值，并依次执行以下命令，启动监听服务，指定 USB/IP 端口号，共享 USB 设备。
 ```
-sudo usbipd -D --tcp-port [port]
+sudo usbipd -D [--tcp-port PORT]
 sudo usbip bind -b [busid]
 ```
 例如，USB/IP 指定端口号为3240端口（即 USB/IP 的默认端口），busid 为 `1-1.3`，则执行以下命令：
 ```
-sudo usbipd -D --tcp-port 3240
+sudo usbipd -D
 sudo usbip bind -b 1-1.3
 ```
 4. （可选）执行以下命令，创建 SSH 隧道，并使用端口监听。
