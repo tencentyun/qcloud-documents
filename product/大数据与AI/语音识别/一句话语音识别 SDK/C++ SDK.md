@@ -72,7 +72,7 @@ sudo make install
 ### <span id="开发流程">开发流程介绍</span>
 **配置用户信息**
 
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 ```
 //需要配置成用户账号信息 c++_sentence_asr_sdk/src/TCloudSASR.h
