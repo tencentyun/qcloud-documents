@@ -216,7 +216,7 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 #### 接口
 
 ```objective-c
-// 免费集群的 accessId(支持免费 SDK V2、V3版本)
+// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
 @property uint32_t freeAccessId;
 ```
 
