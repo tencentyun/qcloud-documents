@@ -1,14 +1,13 @@
 本文介绍如何使用 Systemtap 工具定位 Pod 异常退出原因。
 
 ## 准备工作
-请对应您使用节点的操作系统，对应以下步骤进行相关软件包安装：
+请对应您使用节点的操作系统，按照以下步骤进行相关软件包安装：
 
 ### Ubuntu 操作系统
 1. 执行以下命令，安装 Systemtap。
 ```bash
 apt install -y systemtap
 ```
-
 2. 执行以下命令，检查所需待安装项。
 ```
 stap-prep
@@ -35,7 +34,7 @@ apt install -y linux-headers-4.4.0-104-generic
     
     sudo apt-get update
 ```
-4. 配置好源后，再次运行以下命令。如下：
+4. 配置好源后，再次运行以下命令。
 ```
 stap-prep
 ```
@@ -57,7 +56,7 @@ apt install -y linux-headers-4.4.0-104-generic
 ```bash
 yum install -y systemtap
 ```
-2. 本文以默认未安装 `debuginfo` 为例，向软件源 `/etc/yum.repos.d/CentOS-Debug.repo` 配置文件中输入以下内容。
+2. 本文以默认未安装 `debuginfo` 为例，向软件源 `/etc/yum.repos.d/CentOS-Debug.repo` 配置文件中输入以下内容并保存。
 ```bash
 [debuginfo]
 name=CentOS-$releasever - DebugInfo
@@ -83,7 +82,7 @@ kernel-devel-3.10.0-327.el7.x86_64
 kernel-devel-3.10.0-514.26.2.el7.x86_64
 kernel-devel-3.10.0-862.9.1.el7.x86_64
 ```
-若存在多个版本，需确保仅保留保本与当前内核版本相同。假设当前内核版本为 `3.10.0-862.9.1.el7.x86_64`，则结合上述返回结果需执行以下命令删除多余版本。
+若存在多个版本，则需确认仅保留版本与当前内核版本相同。假设当前内核版本为 `3.10.0-862.9.1.el7.x86_64`，结合上述返回结果需执行以下命令删除多余版本。
 >!
 >- 可通过执行 `uname -r` 命令查看内核版本。 
 >- 需确保 `kernel-debuginfo` 和 `kernel-devel` 均已安装并且版本与当前内核版本相同。
@@ -94,7 +93,7 @@ rpm -e kernel-devel-3.10.0-327.el7.x86_64 kernel-devel-3.10.0-514.26.2.el7.x86_6
 
 
 ## 问题分析
-若 Pod 因无法定位异常退出时，可以使用 Systemtap 来监视进程的信号发送进行问题定位。该过程工作原理如下：
+若 Pod 因异常被停止时，可以使用 Systemtap 来监视进程的信号发送进行问题定位。该过程工作原理如下：
 1. Systemtap 将脚本翻译成 C 语言代码，然后调用 gcc 将其编译成 Linux 内核模块并通过 `modprobe` 加载到内核。
 2. 根据脚本内容在内核进行 hook。此时即可通过 hook 信号的发送，找出容器进程停止的真正原因。
 
@@ -116,7 +115,7 @@ Last State:     Terminated
 	Started:      Thu, 05 Sep 2019 19:22:30 +0800
 	Finished:     Thu, 05 Sep 2019 19:33:44 +0800
 ```
-2. 执行以下命令，通过获取到的容器 ID 反查容器主进程的 pid。
+2. <span is="getPid"></span>执行以下命令，通过获取到的 Container ID 反查容器主进程的 pid。
 ```bash
 docker inspect -f "{{.State.Pid}}" 5fb8adf9ee62afc6d3f6f3d9590041818750b392dff015d7091eaaf99cf1c945
 ```
@@ -127,11 +126,11 @@ docker inspect -f "{{.State.Pid}}" 5fb8adf9ee62afc6d3f6f3d9590041818750b392dff01
 
 ### 步骤2：根据容器退出状态码缩小排查范围
 通过步骤1中返回信息中的 `Exit Code` 可以获取容器上次退出的状态码。本文以137为例，进行以下分析：
-- 如果进程是被外界中断信号杀死的，则退出状态码将在129 - 255之间。
-- 退出状态码为 137 则表示进程是被 SIGKILL 信号杀死的，但是并不能确定是被谁杀死的。
+- 如果进程是被外界中断信号停止的，则退出状态码将在129 - 255之间。
+- 退出状态码为137则表示进程是被 SIGKILL 信号停止的，但此时仍不能进行问题准确定位。
 
 ### 步骤3：使用 Systemtap 脚本定位异常原因
-假设引发异常的问题可复现，则可以使用 Systemtap 脚本监视容器是被谁杀死的。
+假设引发异常的问题可复现，则可以使用 Systemtap 脚本监视容器停止原因。
 1. 创建 `sg.stp` 文件，输入以下 Systemtap 脚本内容并保存。
 ```bash
 global target_pid = 7942
@@ -143,9 +142,9 @@ probe signal.send{
 	}
 }
 ```
->!变量 `pid` 的值需替换为查到的容器主进程 pid。
+>!变量 `pid` 的值需替换为 [步骤2](#getPid) 中获取的容器主进程 pid，本为以7942为例。
 >
-2. 执行以下命令，运行脚本：
+2. 执行以下命令，运行脚本。
 ```bash
 stap sg.stp
 ```
@@ -157,5 +156,5 @@ task_ancestry:swapper/0(0m0.000000000s)=>systemd(0m0.080000000s)=>vGhyM0(19491m2
 ```
  
 ### 结论
-通过观察 `task_ancestry` ，可以看到杀死进程的所有父进程。例如，此处可以看到一个名为 `vGhyM0` 的奇怪进程，该现象通常表明程序中了木马，需要进行相关病毒清理工作以确保容器正常运行。
+通过观察 `task_ancestry` ，可以看到停止进程的所有父进程。例如，此处可以看到一个名为 `vGhyM0` 的异常进程，该现象通常表明程序中存在木马病毒，需要进行相关病毒清理工作以确保容器正常运行。
 
