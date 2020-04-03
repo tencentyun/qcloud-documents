@@ -62,18 +62,20 @@ pod install //安装SDK
 
 11. 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
 	1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
-	```objective-c
-	@interface AppDelegate () <XGPushDelegate>
-	@param appID  通过TPNS管理台申请的AccessID
-	@param appkey  通过 TPNS 管理台申请的AccssKey
-	@param delegate 回调对象
-	@end 
- -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+```Objective-C
+@interface AppDelegate () <XGPushDelegate>
+@end 
+/**
+@param appID  通过 TPNS 管理台申请的 AccessID
+@param appkey  通过 TPNS 管理台申请的 AccessKey
+@param delegate 回调对象
+**/
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
 [[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
-     return YES;
+return YES;
 }
-    ```
+```
 	2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
 	```objective-c
 		/**
