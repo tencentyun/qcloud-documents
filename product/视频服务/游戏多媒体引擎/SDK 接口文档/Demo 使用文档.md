@@ -4,15 +4,16 @@
 
 ## 操作步骤
 Sample Code 实时语音界面截图如下所示：
-<img src="https://main.qcloudimg.com/raw/2d449a408d4efe39cf13c161ef3d742c.jpg" width="40%">
+<img src="https://main.qcloudimg.com/raw/1a65f3e7fe35da963bd48ab5a0f8bb4a.jpg" width="40%">
 
 
 ### 设置账号及 openID
 修改实时语音界面中对应的 Appid、Key 及 OpenID 参数，然后单击【Init】。（初始化 SDK 前）
+![](https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png)
 
 参数的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782#5..E9.89.B4.E6.9D.83.E4.BF.A1.E6.81.AF.E6.A8.A1.E5.9D.97.EF.BC.8C.E5.8F.AF.E8.8E.B7.E5.8F.96.E5.BA.94.E7.94.A8.E7.9B.B8.E5.BA.94.E7.9A.84.E9.89.B4.E6.9D.83.E3.80.82)。
 
-![](https://main.qcloudimg.com/raw/3694b25f16bd8d3a93385294c1f3332d/iosSimpleCode_1.png)
+
 
 >?此步可以忽略，默认使用 GME 提供的测试账号进行体验。
 
