@@ -38,7 +38,7 @@ Sample Code 实时语音界面截图如下所示：
 
 ### 更改房间音频类型
 1. 进房前，您可以对音频类型进行选择，具体效果请参见 [音质选择](https://cloud.tencent.com/document/product/607/18522)。
-<img src="https://main.qcloudimg.com/raw/25929745d76d6e1de3adc16055729d0e/iosSimpleCode_2.png" width="40%">
+<img src="https://main.qcloudimg.com/raw/25929745d76d6e1de3adc16055729d0e/iosSimpleCode_2.png" width="20%">
 2. 进房后，可以单击【ChangeRoomType】，进行房间音频类型的更改。
 
 
@@ -46,6 +46,7 @@ Sample Code 实时语音界面截图如下所示：
 进房后，拖动滑动条可以设置音量。
 - 左边的滑动条设置的是采集设备音量，将影响采集到的声音的音量。
 - 右边的滑动条设置的是播放设备的音量，影响的是本机播放设备输出的音量。
+
 <img src="https://main.qcloudimg.com/raw/be4a7063f30e264ac8adf45e95d08598/iosSimpleCode_3.png" width="40%">
 
 ### 其他设置
