@@ -289,14 +289,13 @@
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 
-## 注销免费服务
-
-如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。因此需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册，从而使得在两个集群同时推送时，避免出现重复消息。
+## 注销信鸽平台推送服务
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册。
 
 #### 接口
 
 ```objective-c
-// 免费集群的 accessId(支持免费 SDK V2、V3版本)
+// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
 @property uint32_t freeAccessId;
 ```
 
@@ -310,3 +309,4 @@
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
+>! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
