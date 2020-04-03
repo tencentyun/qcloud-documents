@@ -1,7 +1,7 @@
 
 ## 简介
 本文档提供关于 SDK 的接入以及开启推送服务的示例代码。（SDK 版本：V1.0+ 版本）
->!如果您是从免费版本信鸽（xg.qq.com）迁移至腾讯移动推送，请务必实现 [注销免费服务接口](https://tcloud-doc.isd.com/document/product/548/36663?!preview&!editLang=zh#.E6.B3.A8.E9.94.80.E5.85.8D.E8.B4.B9.E6.9C.8D.E5.8A.A1)，其它变更请参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610) 调整集成配置。
+>!如果您是从免费版本信鸽（xg.qq.com）迁移至腾讯移动推送，请务必实现 [注销免费服务接口](https://cloud.tencent.com/document/product/548/36663#.E6.B3.A8.E9.94.80.E5.85.8D.E8.B4.B9.E6.9C.8D.E5.8A.A1)，其它变更请参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610) 调整集成配置。
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
