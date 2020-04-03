@@ -2,7 +2,7 @@
 
 ## 操作场景
 Android SDK 是腾讯移动推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
->!如果您是从免费版本信鸽（xg.qq.com）迁移至腾讯移动推送，请使用 [Android迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+>!如果您是从免费版本信鸽（xg.qq.com）迁移至腾讯移动推送，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
 
 
 ## 操作步骤
