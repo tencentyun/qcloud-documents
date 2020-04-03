@@ -67,12 +67,12 @@ pod install //安装SDK
 @end 
 /**
 @param appID  通过 TPNS 管理台申请的 AccessID
-@param appkey  通过 TPNS 管理台申请的 AccessKey
+@param appKey  通过 TPNS 管理台申请的 AccessKey
 @param delegate 回调对象
 **/
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-[[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
+[[XGPush defaultManager] startXGWithAppID:<#your appID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
 return YES;
 }
 ```
