@@ -90,7 +90,7 @@ EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
 ### EnableTEduBoardOffscreenRender
 启用白板离屏渲染 
 ``` C++
-EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps=30)
+EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps = 30)
 ```
 #### 参数
 
@@ -353,8 +353,8 @@ virtual void SendMouseWheelEvent(const TEduBoardMouseEvent &event, int deltaX, i
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | event | const TEduBoardMouseEvent & | 要发送的鼠标事件  |
-| deltaX | int | 滚轮在X方向的移动增量  |
-| deltaY | int | 滚轮在Y方向的移动增量  |
+| deltaX | int | 滚轮在 X 方向的移动增量  |
+| deltaY | int | 滚轮在 Y 方向的移动增量  |
 
 
 ### SendTouchEvent
@@ -1018,8 +1018,8 @@ virtual const char* AddImagesFile(const char **urls, uint32_t urlCount)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | const char ** | 要使用的图片URL列表，编码格式为UTF8，不允许为nullptr  |
-| urlCount | uint32_t | 图片URL个数  |
+| urls | const char ** | 要使用的图片 UR L列表，编码格式为 UTF8，不允许为 nullptr  |
+| urlCount | uint32_t | 图片 URL 个数  |
 
 #### 返回
 文件 ID 
