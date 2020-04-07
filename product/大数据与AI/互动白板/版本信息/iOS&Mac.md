@@ -1,5 +1,3 @@
-## Release Notes - iOS & macOS
-
 ### 2.4.6.1 @ 2020.04.02
 
 - 新增回调
