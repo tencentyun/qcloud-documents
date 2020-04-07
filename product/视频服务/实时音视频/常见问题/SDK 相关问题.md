@@ -52,8 +52,8 @@
 ### &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签使用及错误码参考：
 -  [live-pusher 错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html) 
 -  [live-player 错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html) 
--  [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html) 
--  [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+- [livePusherContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)
+- [livePlayerContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)
 
 ### 调试时为什么要开启调试模式？
 开启调试后，可以略过把“request 合法域名”加入小程序白名单的操作，避免遇到登录失败，通话无法连接的问题。
