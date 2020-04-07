@@ -4,7 +4,7 @@
 - TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包。用户可以使用 TI SDK 提交机器学习和深度学习训练任务到 TI-ONE。
 - TI-ONE 支持 CPU、GPU 等多种算力类型，利用对象存储 COS、容器服务 TKE、日志服务 CLS、云监控 Monitor 等腾讯云上成熟的组件作为支撑，帮助用户在云上快速搭建自己的机器学习和深度学习训练任务。
 - TI-ONE 内置了深度优化过的 Tensorflow、PyTorch 等多种流行的机器学习框架，用户只需要少量的适配即可使用 TI Python SDK 提交运行自己的训练代码。
-- 目前您可以在智能钛的 Notebook 内使用 TI SDK，后续将提供开源版本，您可以在本地环境使用。
+- 目前您可以在智能钛的 Notebook 内使用 TI SDK，也可以在本地环境使用 TI SDK，单击下载 [TI SDK](https://ti-ap-guangzhou-1300268737.cos.ap-guangzhou.myqcloud.com/%20ti-python-sdk/ti_sdk_python-1.3.0-py3-none-any.whl) 。
 
 ## 使用说明
 在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)，开通【广州】地域。
