@@ -1,7 +1,7 @@
 >?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
 ![](https://main.qcloudimg.com/raw/7a85f3c087c32fdd5a78a8a9b9c4b02d.jpg)
 
-短视频 SDK 提供3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用请参见 [功能说明文档]()。
+短视频 SDK 提供3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用请参见 [功能说明文档](https://cloud.tencent.com/document/product/584/43161)。
 
 <h2 id="Smart">基础版（UGC）</h2>
 
