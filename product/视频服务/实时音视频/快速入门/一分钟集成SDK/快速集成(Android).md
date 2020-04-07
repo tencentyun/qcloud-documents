@@ -18,22 +18,22 @@ TRTC SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载
 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
-		implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+	implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
-		compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+	compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
 2. **指定 App 使用架构**
 在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
 defaultConfig {
-		ndk {
-				abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-		}
+	ndk {
+		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+	}
 }
 ```
 3. **同步 SDK**
@@ -59,9 +59,9 @@ defaultConfig {
 在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
 ```
 defaultConfig {
-		ndk {
-				abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-		}
+	ndk {
+		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+	}
 }
 ```
 6. **同步 SDK**
@@ -76,7 +76,7 @@ defaultConfig {
 ![](https://main.qcloudimg.com/raw/2b86451ae24230e64618c9fe92520185.png)
 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
 ![](https://main.qcloudimg.com/raw/551cf48a700f6190aecc2078c40aae27.png)
-2. **=拷贝 SDK 文件到工程目录**
+2. **拷贝 SDK 文件到工程目录**
 将解压得到的 jar 文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/5bf82ca89b3a14cca470fcedc048d7fa.png)
 3. **引用 jar 库**
@@ -86,9 +86,9 @@ defaultConfig {
 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
-		main {
-				jniLibs.srcDirs = ['libs']
-		}
+	main {
+		jniLibs.srcDirs = ['libs']
+	}
 }
 ```
 ![](https://main.qcloudimg.com/raw/299eeb5b3e8961e816f3ce17b97b4339.png)
@@ -96,9 +96,9 @@ sourceSets {
 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a) 。 
 ```
 defaultConfig {
-		ndk {
-				abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-		}
+	ndk {
+		abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+	}
 }
 ```
 6. **同步 SDK**
@@ -134,11 +134,11 @@ defaultConfig {
 
 ```
 packagingOptions {
-		pickFirst '**/libc++_shared.so'
-		doNotStrip "*/armeabi/libYTCommon.so"
-		doNotStrip "*/armeabi-v7a/libYTCommon.so"
-		doNotStrip "*/x86/libYTCommon.so"
-		doNotStrip "*/arm64-v8a/libYTCommon.so"
+	pickFirst '**/libc++_shared.so'
+	doNotStrip "*/armeabi/libYTCommon.so"
+	doNotStrip "*/armeabi-v7a/libYTCommon.so"
+	doNotStrip "*/x86/libYTCommon.so"
+	doNotStrip "*/arm64-v8a/libYTCommon.so"
 }
 ```
 ![](https://main.qcloudimg.com/raw/e40d5c294a59d56a1f89f20960c7e4c1.png)
