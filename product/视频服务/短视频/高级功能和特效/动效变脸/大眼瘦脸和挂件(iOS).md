@@ -99,7 +99,7 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3. 美妆美容
+### 3. 高级美颜接口
 
 您可以通过 TXUGCRecord 的 getBeautyManager 方法获取 TXBeautyManager 对象来进行设置各项美颜参数，其方法如下。
 
