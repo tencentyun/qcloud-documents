@@ -20,7 +20,7 @@ You need package linux-image-4.4.0-104-generic-dbgsym but it does not seem to be
  Follow https://wiki.ubuntu.com/DebuggingProgramCrash to add this repository
 apt install -y linux-headers-4.4.0-104-generic
 ```
-3. 根据上述返回结果可知目前需要 dbgsym 包，但已有软件源中并不包含，需使用第三方软件源安装。dbgsym 安装方法如下所示：
+3. 根据上述返回结果可知目前需要 dbgsym 包，但已有软件源中并不包含，需使用第三方软件源安装。 请执行以下命令，安装 dbgsym。
 ```bash
     sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys C8CAB6595FDFF622
     
@@ -94,10 +94,10 @@ rpm -e kernel-devel-3.10.0-327.el7.x86_64 kernel-devel-3.10.0-514.26.2.el7.x86_6
 
 ## 问题分析
 若 Pod 因异常被停止时，可以使用 Systemtap 来监视进程的信号发送进行问题定位。该过程工作原理如下：
-1. Systemtap 将脚本翻译成 C 语言代码，然后调用 gcc 将其编译成 Linux 内核模块并通过 `modprobe` 加载到内核。
+1. Systemtap 将脚本转换为 C 语言代码，调用 gcc 将其编译成 Linux 内核模块并通过 `modprobe` 加载到内核。
 2. 根据脚本内容在内核进行 hook。此时即可通过 hook 信号的发送，找出容器进程停止的真正原因。
 
-## 处理步骤
+## 问题定位
 
 ### 步骤1：获取异常 Pod 中重新自动重启的容器 pid
 1. 执行以下命令，获取容器 ID。
@@ -127,7 +127,7 @@ docker inspect -f "{{.State.Pid}}" 5fb8adf9ee62afc6d3f6f3d9590041818750b392dff01
 ### 步骤2：根据容器退出状态码缩小排查范围
 通过步骤1中返回信息中的 `Exit Code` 可以获取容器上次退出的状态码。本文以137为例，进行以下分析：
 - 如果进程是被外界中断信号停止的，则退出状态码将在129 - 255之间。
-- 退出状态码为137则表示进程是被 SIGKILL 信号停止的，但此时仍不能进行问题准确定位。
+- 退出状态码为137则表示进程是被 `SIGKILL` 信号停止的，但此时仍不能确定进程停止原因。
 
 ### 步骤3：使用 Systemtap 脚本定位异常原因
 假设引发异常的问题可复现，则可以使用 Systemtap 脚本监视容器停止原因。
@@ -155,6 +155,6 @@ parent of sender: bash(23495)
 task_ancestry:swapper/0(0m0.000000000s)=>systemd(0m0.080000000s)=>vGhyM0(19491m2.579563677s)=>sh(33473m38.074571885s)=>bash(33473m38.077072025s)=>bash(33473m38.081028267s)=>bash(33475m4.817798337s)=>pkill(33475m5.202486630s)
 ```
  
-### 结论
+## 解决方法
 通过观察 `task_ancestry` ，可以看到停止进程的所有父进程。例如，此处可以看到一个名为 `vGhyM0` 的异常进程，该现象通常表明程序中存在木马病毒，需要进行相关病毒清理工作以确保容器正常运行。
 
