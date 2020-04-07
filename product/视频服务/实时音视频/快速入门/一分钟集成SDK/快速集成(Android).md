@@ -51,9 +51,9 @@ defaultConfig {
 5.在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
-      ndk {
-          abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-      }
+       ndk {
+           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+       }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
