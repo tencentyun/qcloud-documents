@@ -23,7 +23,7 @@ SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 
 ## 详细流程
 #### 一、数据与代码准备
-本案例代码取自 TensorFlow  [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started) ，您可通过链接下载，或直接拷贝以下代码。
+本案例代码取自 TensorFlow 官方项目。
 
 ```python
 #  Copyright 2016 The TensorFlow Authors. All Rights Reserved.
