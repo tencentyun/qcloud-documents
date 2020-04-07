@@ -6,6 +6,10 @@ COS 支持为已存在的对象设置标签。PUT Object tagging 接口通过为
 
 > !目前对象标签功能最多支持一个对象下设置10个不同的标签，如果超出设置上限，COS 将覆盖已有的对象标签为新的对象标签。
 
+#### 版本控制
+
+如果您的存储桶开启了版本控制，并且需要对指定版本的对象添加标签，可以在发起请求时携带 VersionId 参数，对象标签将添加到指定的对象版本中。
+
 ## 请求
 
 #### 请求示例
@@ -18,8 +22,13 @@ Authorization: Auth String
 ```
 
 > ?
-> - Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
-> - 如果您的存储桶开启了版本控制，并且需要对指定版本的对象添加标签，可以在发起请求时携带 VersionId 参数，对象标签将添加在指定的对象版本下。
+> Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+#### 请求参数
+
+| 名称      | 描述                                                         | 类型   | 是否必选 |
+| :-------- | :----------------------------------------------------------- | :----- | :------- |
+| versionId | 当启用版本控制时，指定要操作的对象版本 ID，如不指定则将添加标签到最新版本的对象。 | string | 否       |
 
 #### 请求头
 
@@ -47,7 +56,7 @@ Authorization: Auth String
 | ------------------ | ------------------ | ------------------------------------------------------------ | ---------- | -------- |
 | Tagging            | 无                 | 标签集合                                                     | Container  | 是       |
 | TagSet             | Tagging            | 标签集合                                                     | Container  | 是       |
-| Tag                | Tagging.TagSet     | 标签集合，最多支持10个标签                                 | Containers | 是       |
+| Tag                | Tagging.TagSet     | 标签集合，最多支持10个标签                                   | Containers | 是       |
 | Key                | Tagging.TagSet.Tag | 标签键，长度不超过128字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
 | Value              | Tagging.TagSet.Tag | 标签值，长度不超过256字节，支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是       |
 
@@ -63,15 +72,15 @@ Authorization: Auth String
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+以下描述此请求可能会发生的一些特殊的且常见的错误情况，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 | 错误码                | 描述                                                         | HTTP 状态码     |
 | --------------------- | ------------------------------------------------------------ | --------------- |
 | SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码                           | 403 Forbidden   |
 | NoSuchObject          | 如果对象不存在，则无法添加对象标签，将返回该错误码           | 404 Not Found   |
 | MalformedXML          | XML 格式不合法，请跟 Restful API 文档仔细比对                | 400 Bad Request |
-| BadRequest            | 超过了一个对象允许设置标签数量的最大值，目前最多支持10个标签 | 400 Bad Request |
-| InvalidTag            | Tag 的 key 和 value 中包含了保留字符串 `cos:`或者 `Project`。 | 400 Bad Request |
+| BadRequest            | 超过了一个对象设置标签数量允许的最大值，目前最多支持10个标签 | 400 Bad Request |
+| InvalidTag            | Tag 的 key 和 value 中包含了保留字符串`cos:`或者`Project` | 400 Bad Request |
 
 ## 实际案例
 
