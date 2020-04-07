@@ -59,7 +59,7 @@ var teduBoard = new TEduBoard(initParams);
  - 监听事件 TEduBoard.EVENT.TEB_SYNCDATA
 
 ```
-// 1. 监听操作白板参数的数据，并将回调的数据通过im发送到接收者
+// 1. 监听操作白板参数的数据，并将回调的数据通过 im 发送到接收者
 teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
   let message = this.tim.createCustomMessage({
     to: '课堂号',
@@ -77,10 +77,10 @@ teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
   });
 });
 ```
- - 将收到的数据添加到白板中addSyncData
+ - 将收到的数据添加到白板中 addSyncData
 
 ```
-// 2. 接收者通过监听im消息回调，将收到的数据添加到白板中
+// 2. 接收者通过监听 im 消息回调，将收到的数据添加到白板中
 this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
   let messages = event.data;
   messages.forEach((message) => {
@@ -120,5 +120,5 @@ teduBoard.addSyncData(data);
 ```
 
 > 以下两种情况，实时录制功能可不可用：
-- 实时录制功能在使用腾讯云IMSDK同步数据时，自定义消息中的extension不等于'TXWhiteBoardExt'时不可用。
+- 实时录制功能在使用腾讯云 IMSDK 同步数据时，自定义消息中的 extension 不等于'TXWhiteBoardExt'时不可用。
 - 实时录制功能在自定义数据通道模式下不可用。
