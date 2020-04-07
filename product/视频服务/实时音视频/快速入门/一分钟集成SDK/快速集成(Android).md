@@ -29,9 +29,9 @@ dependencies {
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
-    ndk {
-        abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-    }
+      ndk {
+          abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+      }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
@@ -51,9 +51,9 @@ defaultConfig {
 5.在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
-       ndk {
-           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-       }
+     ndk {
+         abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+     }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
@@ -73,18 +73,18 @@ defaultConfig {
 5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
-    main {
-        jniLibs.srcDirs = ['libs']
-    }
+      main {
+          jniLibs.srcDirs = ['libs']
+      }
 }
 ```
 ![](https://main.qcloudimg.com/raw/299eeb5b3e8961e816f3ce17b97b4339.png)
 6. 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构。 
 ```
 defaultConfig {
-    ndk {
-        abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-    }
+      ndk {
+          abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+      }
 }
 ```
 >?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
