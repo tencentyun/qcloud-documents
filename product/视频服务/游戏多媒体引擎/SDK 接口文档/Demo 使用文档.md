@@ -12,7 +12,7 @@ Sample Code 实时语音界面截图如下所示：
 <img src="https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png" width="60%">
 
 
-参数的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782#5..E9.89.B4.E6.9D.83.E4.BF.A1.E6.81.AF.E6.A8.A1.E5.9D.97.EF.BC.8C.E5.8F.AF.E8.8E.B7.E5.8F.96.E5.BA.94.E7.94.A8.E7.9B.B8.E5.BA.94.E7.9A.84.E9.89.B4.E6.9D.83.E3.80.82)。
+参数的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。
 
 
 
