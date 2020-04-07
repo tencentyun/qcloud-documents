@@ -1,6 +1,6 @@
-为满足一定的业务需求，用户往往需要对容器服务集群进行一系列复杂的自定义配置。而当集群中的 Pod 出现某种异常时，可能一时无法直接通过异常状态定位异常原因。
+为满足一定的业务需求，用户往往需要对容器服务集群进行一系列复杂的自定义配置。而当集群中的 Pod 出现某种异常时，可能一时无法直接通过异常状态准确定位异常原因。
 
-基于以上现象，该系列文档具体介绍容器服务集群下可能会发生的 Pod 异常问题，并提供对应的排查思路。当遇到 Pod 异常问题时，建议您首先对应文档中的步骤进行排查，若确认检查项无误后 Pod 仍不能恢复正常，请您及时 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=容器服务TKE&step=1) 与我们联系。
+基于以上现象，该系列文档具体介绍容器服务集群下可能会发生的 Pod 异常问题，并提供对应的排查思路。当遇到 Pod 异常问题时，建议您首先对应文档中的步骤进行排查。
 
 ## 常用命令
 
@@ -16,7 +16,7 @@ kubectl get pod <pod-name> -o yaml
 ```
 * 查看 Pod 事件：
 ```
-kubectl describe pod <pod-name>\
+kubectl describe pod <pod-name>
 ```
 * 查看容器日志：
 ```
@@ -110,13 +110,9 @@ kubectl logs <pod-name> [-c <container-name>]
 
 ## 问题定位
 您可根据 Pod 的异常状态，选择对应参考文档进一步定位异常原因：
-- [Pod 一直处于 ContainerCreating 或 Waiting 状态]()
-- [Pod 一直处于 Error 状态]()
-- [Pod 一直处于 ImageInspectError 状态]()
-- [Pod 一直处于 ImagePullBackOff 状态]()
-- [Pod 一直处于 Pending 状态]()
-- [Pod 一直处于 Terminating 状态]()
-- [Pod 一直处于 Unknown 状态]()
-- [Pod 健康检查失败]()
-- [Pod 处于 CrashLoopBackOff 状态]()
-- [容器进程主动退出]()
+- [Pod 一直处于 ContainerCreating 或 Waiting 状态](https://cloud.tencent.com/document/product/457/42946)
+- [Pod 一直处于 ImagePullBackOff 状态](https://cloud.tencent.com/document/product/457/42947)
+- [Pod 一直处于 Pending 状态](https://cloud.tencent.com/document/product/457/42948)
+- [Pod 健康检查失败](https://cloud.tencent.com/document/product/457/43129)
+- [Pod 处于 CrashLoopBackOff 状态](https://cloud.tencent.com/document/product/457/43130)
+- [容器进程主动退出](https://cloud.tencent.com/document/product/457/43148)
