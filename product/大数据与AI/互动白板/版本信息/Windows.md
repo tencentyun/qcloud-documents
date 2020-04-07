@@ -1,5 +1,3 @@
-## Release Notes - Windows
-
 ### 2.4.6.94 @ 2020.04.02
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
