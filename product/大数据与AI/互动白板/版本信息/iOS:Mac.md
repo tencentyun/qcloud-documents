@@ -1,6 +1,6 @@
-# Release Notes - iOS & macOS
+## Release Notes - iOS & macOS
 
-## 2.4.6.1 @ 2020.04.02
+### 2.4.6.1 @ 2020.04.02
 
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
@@ -13,21 +13,21 @@
         - progressEnable 启用加载图标
         - progressBarUrl 自定义加载图标
         - imageTimeout 图片加载超时
-- BUG修复
+- BUG 修复
     - 修复加载相同图片没有回调问题
-    - 修复addTranscodeFIle接口title转义错误导致添加失败问题
+    - 修复 addTranscodeFIle 接口 title 转义错误导致添加失败问题
     
 
-## 2.4.4.2 @ 2020.03.14
+### 2.4.4.2 @ 2020.03.14
 
-- BUG修复
+- BUG 修复
     - 白板中播放视频时，学生端自动播放的问题
-    - 批量导入图片组时，对URL字符串长度进行限制(总长7K)，超长时同步返回空串，同时回调错误TEDU_BOARD_ERROR_DATA_TOO_LARGE
-    - 去掉onGotoBoard多余回调，在一页PPT内有多个步时，只在最后一步/最前一步时才回调
+    - 批量导入图片组时，对 URL 字符串长度进行限制(总长7K)，超长时同步返回空串，同时回调错误 TEDU_BOARD_ERROR_DATA_TOO_LARGE
+    - 去掉 onGotoBoard 多余回调，在一页 PPT 内有多个步时，只在最后一步/最前一步时才回调
 
-## 2.4.4.1 @ 2020.03.09
+### 2.4.4.1 @ 2020.03.09
 
-- 替换内部mp4播放器为videojs
+- 替换内部 mp4 播放器为 videojs
 - 新增接口
     - addImagesFile 批量导入图片到白板
     - setHandwritingEnable 开启或关闭笔锋功能
@@ -42,21 +42,21 @@
     - TEduBoardWarningCode 新增 TEDU_BOARD_WARNING_IMAGESFILE_ALREADY_EXISTS
     - TEDU_BOARD_VIDEO_STATUS_PLAYING 变更为 TEDU_BOARD_VIDEO_STATUS_TIMEUPDATE
 
-## 2.4.1.2 @ 2020.02.19
+### 2.4.1.2 @ 2020.02.19
 
 - 内部日志优化
     
-## 2.4.1.1 @ 2020.01.08
+### 2.4.1.1 @ 2020.01.08
 
 - 回调变更
-    - onTEBFileUploadProgress回调参数fileId变更为path
-    - onTEBFileUploadStatus回调参数fileId变更为path
+    - onTEBFileUploadProgress 回调参数 fileId 变更为 path
+    - onTEBFileUploadStatus 回调参数 fileId 变更为 path
 - 接口变更
-    - addImageElement支持添加本地图片
+    - addImageElement 支持添加本地图片
 - 增加接口
-    - 增加添加图片元素回调onTEBAddImageElement
+    - 增加添加图片元素回调 onTEBAddImageElement
 
-## 2.4.0 @ 2019.12.06
+### 2.4.0 @ 2019.12.06
 
 **注意：2.4.0或以下版本必须使用 IM 4.5.11或以下版本，否则导致白板无法同步消息。**
 
@@ -69,19 +69,19 @@
     - 是否同步本地视频操作到远端 - (void)setSyncVideoStatusEnable:(BOOL)enable;
     - 定时同步视频状态到远端 - (void)startSyncVideoStatus:(NSInteger)interval;
     - 停止同步视频状态 - (void)stopSyncVideoStatus;
-- 增加接口支持H5页面展示功能
-    - 添加H5页面 - (NSString *)addH5File:(NSString *)url;
+- 增加接口支持 H5 页面展示功能
+    - 添加 H5 页面 - (NSString *)addH5File:(NSString *)url;
 - 增加接口支持图片元素功能
     - 添加图片资源 - (void)addImageElement:(NSString *)url;
 
-## 2.3.7 @ 2019.11.21
+### 2.3.7 @ 2019.11.21
 
 - 增加接口
-    - setAccessibleUsers设置允许操作特定用户绘制的图形
-    - clearBackground:andSelected删除选中涂鸦
+    - setAccessibleUsers 设置允许操作特定用户绘制的图形
+    - clearBackground:andSelected 删除选中涂鸦
     - setCursorIcon:cursorIcon;自定义鼠标样式
 
-## 2.3.6 @ 2019.11.18
+### 2.3.6 @ 2019.11.18
 
 - 删除接口
     - -(NSString *)addFile:(NSString *)path
@@ -97,29 +97,29 @@
     - -(void)onTEBFileTranscodeProgress:(TEduBoardTranscodeFileResult *)result path:(NSString *)path errorCode:(NSString *)errorCode errorMsg:(NSString *)errorMsg
 
 
-## 2.3.5 @ 2019.10.30
+### 2.3.5 @ 2019.10.30
 
-- 新增接口getThumbnailImages获取文件缩略图
-- 新增步数回调onTEBGotoStep
+- 新增接口 getThumbnailImages 获取文件缩略图
+- 新增步数回调 onTEBGotoStep
 - 修复白板放大到一定比例，涂鸦失效问题
 - 修复白板放大后精度丢失各端画面不对齐的问题
 
-## 2.3.4 @ 2019.09.25
+### 2.3.4 @ 2019.09.25
 
 - 涂鸦屏蔽多指触摸
-- ppt点击事件透传
-- 移动端ppt翻页交互支持左右滑动翻页
+- ppt 点击事件透传
+- 移动端 ppt 翻页交互支持左右滑动翻页
 
-## 2.3.3 @ 2019.08.19
+### 2.3.3 @ 2019.08.19
 
 - 增加接口
-    - (uint64_t)getSyncTime支持大房间方案获取对时时间戳
-    - (void)syncRemoteTime:(NSString *)userId timestamp:(uint64_t)timestamp设置远程时间戳
+    - (uint64_t)getSyncTime 支持大房间方案获取对时时间戳
+    - (void)syncRemoteTime:(NSString *)userId timestamp:(uint64_t)timestamp 设置远程时间戳
     
-- bug修复
-    - 修复getFileInfo返回错误的问题
+- bug 修复
+    - 修复 getFileInfo 返回错误的问题
 
-## 2.3.2 @ 2019.08.07
+### 2.3.2 @ 2019.08.07
 
 - 废弃接口
     - addFile
@@ -139,110 +139,110 @@
 - 增加回调
     - onTEBAddTranscodeFile 添加转码文件回调
 
-## 2.3.1 @ 2019.08.01
+### 2.3.1 @ 2019.08.01
 - 激光笔优化
-- 修复iOS8背景图片白板涂鸦闪屏问题
-- 修复iOS8背景图片和H5背景切换放大问题
-- 增加html资源加载重试逻辑
+- 修复 iOS8 背景图片白板涂鸦闪屏问题
+- 修复 iOS8 背景图片和H5背景切换放大问题
+- 增加 html 资源加载重试逻辑
 
-## 2.3.0 @ 2019.07.18
+### 2.3.0 @ 2019.07.18
 性能优化
 - 首屏渲染优化
 
-## 2.2.2 @ 2019.07.04
+### 2.2.2 @ 2019.07.04
 接口修改
-- addFile/addH5PPTFile返回文件Id
-- onTEBFileUploadProgress/onTEBFileUploadStatus回调接口修改
+- addFile/addH5PPTFile 返回文件 Id
+- onTEBFileUploadProgress/onTEBFileUploadStatus 回调接口修改
 功能更新
 - 支持画出白板再画入
 
-## 2.2.1 @ 2019.06.21
+### 2.2.1 @ 2019.06.21
 回调接口修改
-- onTEBAddBoard回调boardId数组
-- onTEBDeleteBoard回调boardId数组
+- onTEBAddBoard 回调 boardId 数组
+- onTEBDeleteBoard 回调 boardId数组
 
-## 2.2.0 @ 2019.06.20
+### 2.2.0 @ 2019.06.20
 新增接口
 - 支持白板上下页跳转是否重置步数
-- 支持获取指定文件id的文件信息
-- TEduBoardErrorCode增加错误码
+- 支持获取指定文件 id 的文件信息
+- TEduBoardErrorCode 增加错误码
     - TEDU_BOARD_ERROR_TIM_HISTORYDATA  同步历史数据失败
     - TEDU_BOARD_ERROR_RUNTIME  白板运行错误
 
-## 2.1.0 @ 2019.05.29
+### 2.1.0 @ 2019.05.29
 新增功能
-- 支持静态PPT页面预加载
+- 支持静态 PPT 页面预加载
 - 笔迹优化（铅笔工具曲线平滑）
 - 支持禁止数据同步（不将本地数据同步到远端）
 - 橡皮擦工具支持滑动擦除
-- 添加的H5PPT已存在时抛出警告
+- 添加的 H5PPT 已存在时抛出警告
 - 支持独立设置每个白板宽高比
 - 支持白板缩放及拖动查看
 
-修复bug
-- 修复macOS文本工具兼容性问题
-- 修复iOS ES6兼容性问题
-- 修复iOS H5PPT兼容性问题
+修复 bug
+- 修复 macOS 文本工具兼容性问题
+- 修复 iOS ES6 兼容性问题
+- 修复 iOS H5PPT 兼容性问题
 
-## 2.0.0.5 @ 2019.05.24
+### 2.0.0.5 @ 2019.05.24
 
-修复bug
-- 替换web board为2.0.0.2版本修复iOS h5ppt显示兼容问题
+修复 bug
+- 替换 web board为2.0.0.2版本修复 iOS h5ppt 显示兼容问题
 
 
-## 2.0.0.4 @ 2019.05.22
+### 2.0.0.4 @ 2019.05.22
 
-修复bug
-- 修复iOS8.4白板创建没有`onTEBInit`回调的问题
-- 修复iOS9.3/8.4白板创建返回Javascript错误的问题
-- 修复macOS文本工具不可用问题
+修复 bug
+- 修复 iOS8.4白板创建没有`onTEBInit`回调的问题
+- 修复 iOS9.3/8.4白板创建返回 Javascript 错误的问题
+- 修复 macOS 文本工具不可用问题
 
-## 2.0.0.2 @ 2019.05.17
+### 2.0.0.2 @ 2019.05.17
 
-修复bug
-- 修复iOS12.1白板创建没有`onTEBInit`回调的问题
+修复 bug
+- 修复 iOS12.1白板创建没有`onTEBInit`回调的问题
 - 调整`TEduBoardErrorCode`错误码`TEDU_BOARD_ERROR_LOAD`和`TEDU_BOARD_ERROR_AUTH`顺序
 
 
-## 2.0.0.1 @ 2019.05.15
+### 2.0.0.1 @ 2019.05.15
 
  新增功能
 - 新增鼠标工具类型`TEDU_BOARD_TOOL_TYPE_MOUSE`
-- 支持设置H5背景
+- 支持设置 H5 背景
 - 白板支持并发文件上传
 
- bug修复
-- 修复RC3版本白板数据同步失败问题
+ bug 修复
+- 修复 RC3 版本白板数据同步失败问题
 
 
 
 
-## 2.0.0_RC3 @ 2019.05.10
+### 2.0.0_RC3 @ 2019.05.10
 
 新增功能
 - 支持设置文本样式及字体属性
 - 初始化接口支持传入所有属性初始值
 - 初始化支持设置白板宽高比
-- `AddFile` 接口支持传入COS转码URL
+- `AddFile` 接口支持传入 COS 转码 URL
 
 
-## 2.0.0_RC2 @ 2019.05.08
+### 2.0.0_RC2 @ 2019.05.08
 
 新增功能
-- macOS平台支持
-- PPT动画展示
+- macOS 平台支持
+- PPT 动画展示
 
-修复bug
-- 拼写错误修正：TIC的`getTRTCClound`接口改名为`getTRTCCloud`
+修复 bug
+- 拼写错误修正：TIC 的`getTRTCClound`接口改名为`getTRTCCloud`
 
 
-## 2.0.0_RC1 @ 2019.04.26
+### 2.0.0_RC1 @ 2019.04.26
 
 新增功能
 - 音视频通信
     - 实时音视频通信
     - 屏幕分享/播片（可与摄像头画面并存）
-- 云通信
+- 即时通信 IM
     - 消息
     - 群组
     - 关系链管理
