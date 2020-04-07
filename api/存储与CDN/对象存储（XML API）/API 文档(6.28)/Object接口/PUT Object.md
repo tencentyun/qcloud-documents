@@ -81,6 +81,7 @@ Authorization: Auth String
 
 | 名称             | 描述          | 类型   |
 | ---------------- | ------------- | ------ |
+| x-cos-hash-crc64ecma | 对象的 CRC64 值，详情请参阅 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
 | x-cos-version-id | 对象的版本 ID | string |
 
 **服务端加密（SSE）相关头部**
@@ -123,6 +124,7 @@ Connection: close
 Date: Fri, 21 Jun 2019 09:24:28 GMT
 ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQwY2EyNGNfYThjMDBiMDlfMTA0ZmVfYTJm****
 ```
 
@@ -156,6 +158,7 @@ Connection: close
 Date: Fri, 21 Jun 2019 09:24:32 GMT
 ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQwY2EyNGZfN2ViMTJhMDlfYmYxN185MjA2****
 ```
 
@@ -186,6 +189,7 @@ Connection: close
 Date: Fri, 21 Jun 2019 09:24:35 GMT
 ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQwY2EyNTNfN2JiMTJhMDlfNDM2ZF85OTA1****
 x-cos-server-side-encryption: AES256
 ```
@@ -219,6 +223,7 @@ Connection: close
 Date: Wed, 25 Dec 2019 09:01:19 GMT
 ETag: "fa8a7921998a9b9ed489d7ad39d35c91"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWUwMzI1NWZfN2RjODJhMDlfMzUyMDhfMWZm****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
@@ -254,6 +259,7 @@ Connection: close
 Date: Fri, 21 Jun 2019 09:24:38 GMT
 ETag: "492b458ec33eaf0a824e7dd1bdd403b3"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQwY2EyNTZfZjBhODBiMDlfMTJiOTJfOWY0****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
@@ -287,6 +293,7 @@ Connection: close
 Date: Fri, 21 Jun 2019 09:24:45 GMT
 ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQwY2EyNWRfYThjMDBiMDlfMTA1MDlfYTQ1****
 x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
 ```
@@ -317,6 +324,7 @@ Connection: close
 Date: Wed, 24 Jul 2019 02:51:28 GMT
 ETag: "b62e10bcab55a88240bd9c436cffdcf9"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 14316141774525398218
 x-cos-request-id: NWQzN2M3YjBfN2ViMTJhMDlfYTkxMl9iY2Fj****
 ```
 
@@ -355,5 +363,6 @@ Connection: close
 Date: Thu, 08 Aug 2019 09:15:29 GMT
 ETag: "aa488bb80185a6be87f4a7b936a80752"
 Server: tencent-cos
+x-cos-hash-crc64ecma: 7188322482464764960
 x-cos-request-id: NWQ0YmU4MzFfNzFiNDBiMDlfMWJhYTlfMTY2Njll****
 ```
