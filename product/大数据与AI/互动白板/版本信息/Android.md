@@ -1,4 +1,3 @@
-## Release Notes - Android
 ### 2.4.6.20 @ 2020.04.02
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
