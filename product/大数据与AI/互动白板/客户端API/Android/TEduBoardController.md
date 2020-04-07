@@ -462,7 +462,7 @@ void setLineStyle(TEduBoardLineStyle style)
 | style | TEduBoardLineStyle | 要设置的直线样式  |
 
 #### 警告
-虚线样式在android4.4及以上版本支持，在4.4以下版本设置虚线样式将使用实线代替 
+虚线样式在 Android 4.4及以上版本支持，在4.4以下版本设置虚线样式将使用实线代替 
 
 
 ### getLineStyle
