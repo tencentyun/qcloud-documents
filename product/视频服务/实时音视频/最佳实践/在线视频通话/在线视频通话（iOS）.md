@@ -14,7 +14,7 @@
 要快速实现视频通话功能，您可以直接在我们 Demo 的基础上进行修改，或者基于我们 TRTCVideoCall 组件实现自己的 UI 界面。
 
 <span id="ui"> </span>
-## 复用我们的 UI 界面
+## 复用 Demo 的 UI 界面
 如果我们 Demo 中的 UI 交付能满足您的大致需求，仅需优化和调整，您可以考虑直接复用我们的 Demo 代码。
 
 <span id="ui.step1"></span>
