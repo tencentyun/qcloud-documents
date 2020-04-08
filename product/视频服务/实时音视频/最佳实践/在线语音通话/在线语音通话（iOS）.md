@@ -11,11 +11,10 @@
 </tr>
 </table>
 
-要快速实现语音通话功能，您可以直接在我们 Demo 的基础上进行修改，或者基于我们 TRTCAudioCall 组件实现自己的 UI 界面。
+如需快速实现语音通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCAudioCall 组件并实现自定义 UI 界面。
 
 <span id="ui"> </span>
-## 复用我们的 UI 界面
-如果我们 Demo 中的 UI 交付能满足您的大致需求，仅需优化和调整，您可以考虑直接复用我们的 Demo 代码。
+## 复用 Demo 的 UI 界面
 
 <span id="ui.step1"></span>
 ### 步骤1：创建新的应用
@@ -59,7 +58,7 @@
 | AudioCallViewController+Data.swift | 用于通话过程中用户画面的渲染和排布逻辑。 | 
 
 <span id="model"> </span>
-## 实现自己的 UI 界面
+## 实现自定义 UI 界面
 源码文件夹 `TRTCAudioCallDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCAudioCall，您可以在  `ITRTCAudioCallInterface.swift `  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/1a75796f96e4d715372f68338d5651c9.jpg)
 您可以使用开源组件 TRTCAudioCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
