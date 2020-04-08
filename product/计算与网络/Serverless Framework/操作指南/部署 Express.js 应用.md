@@ -2,13 +2,13 @@
 **腾讯云 Express 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署您的 Express 应用，Express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。[点击查看 Express.js 官网 >>](http://serverless.com)
 
 Express.js 特性介绍：
-- **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费
-- **"0"配置** - 只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
-- **极速部署** - 仅需几秒，部署您的整个 express 应用。
-- **实时日志** - 通过实时日志的输出查看业务状态，便于直接在云端开发应用。
-- **云端调试** - 针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
-- **便捷协作** - 通过云端的状态信息和部署日志，方便的进行多人协作开发。
-- **自定义域名** - 支持配置自定义域名及 HTTPS 访问
+- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费
+- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
+- **极速部署**：仅需几秒，部署您的整个 express 应用。
+- **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
+- **云端调试**：针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
+- **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
+- **自定义域名**：支持配置自定义域名及 HTTPS 访问
 
 <br/>
 <img align="right" width="400" src="https://scf-dev-tools-1253665819.cos.ap-guangzhou.myqcloud.com/express_demo_light_sm_resize.gif" />
@@ -134,11 +134,11 @@ $ serverless remove
 
 Express 组件将在腾讯云账户中使用到如下 Serverless 服务：
 
-- **API 网关** - API 网关将会接收外部请求并且转发到 SCF 云函数中。
-- **SCF 云函数** - 云函数将承载 Express.js 应用。
-- **CAM 访问控制** - 该组件会创建默认 CAM 角色用于授权访问关联资源。
-- **COS 对象存储** - 为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中。
-- **SSL 证书服务** - 如果您在 yaml 文件中配置了 `domain` 字段，需要做自定义域名绑定并开启 HTTPS 时，也会用到证书管理服务和域名服务。Serverless Framework 会根据已经备案的域名自动申请并配置 SSL 证书。
+- **API 网关**：API 网关将会接收外部请求并且转发到 SCF 云函数中。
+- **SCF 云函数**：云函数将承载 Express.js 应用。
+- **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。
+- **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中。
+- **SSL 证书服务**：如果您在 yaml 文件中配置了 `domain` 字段，需要做自定义域名绑定并开启 HTTPS 时，也会用到证书管理服务和域名服务。Serverless Framework 会根据已经备案的域名自动申请并配置 SSL 证书。
 
 ## 账号配置
 
