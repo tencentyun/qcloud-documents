@@ -2,7 +2,7 @@
 **腾讯云 Express 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署您的 Express 应用，Express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。[点击查看 Express.js 官网 >>](http://serverless.com)
 
 Express.js 特性介绍：
-- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费
+- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
 - **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
 - **极速部署**：仅需几秒，部署您的整个 express 应用。
 - **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
