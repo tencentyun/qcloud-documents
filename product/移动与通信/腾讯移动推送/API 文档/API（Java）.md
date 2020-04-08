@@ -14,11 +14,11 @@ Maven  依赖引用方式：
 
 依赖配置
 ```
-   <dependency>
-     <groupId>com.github.xingePush</groupId>
-        <artifactId>xinge</artifactId>
-        <version>1.2.2-SNAPSHOT</version>
-    </dependency>
+<dependency>
+            <groupId>com.github.xingePush</groupId>
+            <artifactId>xinge</artifactId>
+            <version>1.2.2</version>
+</dependency>
 ```
 
 ## 使用方法
