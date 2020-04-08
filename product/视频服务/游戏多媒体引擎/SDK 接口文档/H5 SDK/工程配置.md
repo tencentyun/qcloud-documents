@@ -70,8 +70,9 @@
 #### 2. 引入前端库文件
 参考以下代码，在工程中引入 WebRTCAPI.min.js。 
 ```
-html
-<script src="https://sqimg.qq.com/expert_qq/webrtc/3.0/WebRTCAPI.min.js"></script>
+<head>
+    <script src="../dist/WebRTCService.min.js"></script>
+</head>
 ```
 
 

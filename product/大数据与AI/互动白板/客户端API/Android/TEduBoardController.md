@@ -74,7 +74,7 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 void uninit()
 ```
 #### 警告
-用户退出课堂时，记得调用此接口。 
+此接口与结束计费相关，用户退出课堂时，记得一定调用此接口。 
 
 #### 介绍
 在销毁白板对象后，将会结束计费。 
@@ -461,6 +461,9 @@ void setLineStyle(TEduBoardLineStyle style)
 | --- | --- | --- |
 | style | TEduBoardLineStyle | 要设置的直线样式  |
 
+#### 警告
+虚线样式在 Android 4.4及以上版本支持，在4.4以下版本设置虚线样式将使用实线代替 
+
 
 ### getLineStyle
 获取直线样式 
@@ -794,7 +797,7 @@ String addImagesFile(List< String > urls)
 | urls | List< String > | 要使用的图片URL列表，编码格式为 UTF8  |
 
 #### 返回
-新增加文件Id 
+新增加文件 Id 
 
 
 ### applyFileTranscode

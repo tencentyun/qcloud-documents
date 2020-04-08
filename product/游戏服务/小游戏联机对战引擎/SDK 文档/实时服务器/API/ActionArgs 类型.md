@@ -38,7 +38,7 @@ export interface ActionArgs<T> {
 
 ### actionData 属性
 **描述**
-该属性在 gameServer 不同回调中的类型不同，表示该回调的响应数据。例如，在 gameServer.onRecvFromClient 中表示玩家发送给实时服务器的数据；在 onJoinRoom 表示加房广播数据；在 onLeaveRoom 中表示玩家退房广播数据。
+该属性在 gameServer 不同回调中的类型不同，表示该回调的响应数据。例如，在 gameServer.onCreateRoom 中表示玩家发送给实时服务器的数据；在 onJoinRoom 表示加房广播数据；在 onLeaveRoom 中表示玩家退房广播数据。
 
 ### gameData 属性
 

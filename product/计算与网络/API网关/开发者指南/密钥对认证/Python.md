@@ -14,10 +14,10 @@
 Python 2.7版本。
 
 ## 注意事项
->- 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
->- Date Header 的值为格林威治时间(GMT)格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
->- X-Date Header 的值为格林威治时间(GMT)格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。15分钟超时。
->- 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加，Demo中默认添加了这两个字段。
+- 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
+- Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
+- X-Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。X-Date Header 里的时间和当前时间的差值不能超过15分钟。
+- 如果是微服务 API，Header 中需要添加 “X-NameSpace-Code” 和 “X-MicroService-Name” 两个字段，通用 API 不需要添加，Demo 中默认添加了这两个字段。
 
 <span id="example"></span>
 ## 示例代码

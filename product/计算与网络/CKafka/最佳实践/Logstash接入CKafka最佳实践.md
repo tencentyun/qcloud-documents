@@ -3,7 +3,7 @@ Logstash 是一个开源的日志处理工具，可以从多个源头收集数�
 
 Logstash 灵活性强，拥有强大的语法分析功能，插件丰富，支持多种输入和输出源。Logstash 作为水平可伸缩的数据管道，与 Elasticsearch 和 Kibana 配合，在日志收集检索方面功能强大。
 
-### Logstash 工作原理
+#### Logstash 工作原理
 Logstash 数据处理可以分为三个阶段：inputs → filters → outputs。
 1. inputs：产生数据来源，例如文件、syslog、redis 和 beats 此类来源。
 2. filters：修改过滤数据， 在 Logstash 数据管道中属于中间环节，可以根据条件去对事件进行更改。一些常见的过滤器包括：grok、mutate、drop 和 clone 等。
@@ -24,12 +24,12 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 #### inputs
 官网版本兼容性说明如下：
 
-| Kafka Client Version | Logstash Version | Plugin Version | Why? |
-|---------|---------|---------|---------|
-| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  Legacy, 0.8 is still popular |
-| 0.9 | 2.0.0 - 2.3.x | 3.x.x | Works with the old Ruby Event API(event['product']['price'] = 10) |
-| 0.9 | 2.4.x - 5.x.x | 4.x.x | Works with the new getter/setter APIs(event.set('[product][price]', 10)) |
-| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x | Not compatible with the <= 0.9 broker |
+| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 | 
+|---------|---------|---------|
+| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  
+| 0.9 | 2.0.0 - 2.3.x | 3.x.x | 
+| 0.9 | 2.4.x - 5.x.x | 4.x.x | 
+| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x | 
 
 当前最新版本为 v5.1.8 ，其使用 0.10 版本的 Consumer API 进行数据读取。
 
@@ -38,12 +38,12 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 #### outputs
 官网版本兼容性说明如下：
 
-| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 | Why? |
-|---------|---------|---------|---------|
-| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  Legacy, 0.8 is still popular |
-| 0.9 | 2.0.0 - 2.3.x | 3.x.x  | Works with the old Ruby Event API(event['product']['price'] = 10) |
-| 0.9 | 2.4.x - 5.x.x | 4.x.x | Works with the new getter/setter APIs(event.set('[product][price]', 10)) |
-| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x  | 与 0.9以下的 broker 不兼容 |
+| Kafka 客户端版本 | Logstash 版本 | Plugin 版本 |
+|---------|---------|---------|
+| 0.8 | 2.0.0 - 2.x.x | < 3.0.0 |  
+| 0.9 | 2.0.0 - 2.3.x | 3.x.x  | 
+| 0.9 | 2.4.x - 5.x.x | 4.x.x | 
+| 0.10.0.x | 2.4.x - 5.x.x | 5.x.x  | 
  
 当前最新版本为 v5.1.7，其使用 0.10 版本的 Producer API 进行数据生产。
 
@@ -55,7 +55,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 - Ckafka 实例，并且创建相应 topic
 
 #### 创建 CKafka
-1. 拥有实例后，可从控制台中可以看到自己的实例信息。
+1. 拥有实例后，可以从 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 中看到自己的实例信息。
 ![](https://main.qcloudimg.com/raw/1905d1d7ceb8e3b729af31e1ac7f52ca.png)
 2. 单击实例名称可以看到实例分配的具体信息。
 ![](https://main.qcloudimg.com/raw/9c35869416313690ceff5fa9b9fb6c15.png)
@@ -87,7 +87,6 @@ output {
 ![](https://mc.qcloudimg.com/static/img/5c58f08f2fd0fff052cab655d00d4133/input3.png)
 可以看到刚才 topic 中的数据现在被消费出来。
 
-关于 Kafka 作为 output 的配置更多参数请参考 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-kafka.html#plugins-inputs-kafka-auto_offset_reset)。
 
 ### CKafka 作为 outputs 接入
 1. 执行 bin/logstash-plugin list，查看已经支持的插件是否含有 logstash-output-kafka。
@@ -103,7 +102,6 @@ output {
 4. 校验上一步的生产数据。
 ![](https://mc.qcloudimg.com/static/img/ae85758a90a497235a90511770f959d2/10.png)
 
-关于 Kafka 作为 output 的配置更多参数请参考 [Kafka output plugin](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-kafka.html)。
 
 
 

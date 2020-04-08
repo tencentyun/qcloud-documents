@@ -353,7 +353,7 @@ typedef void (*TIMConvEventCallback)(enum TIMConvEvent conv_event, const char* j
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| conv_event | enum TIMConvEvent | 会话事件类型，请参考 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent)  |
+| conv_event | enum TIMConvEvent | 会话事件类型，请参考 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent) |
 | json_conv_array | const char\* | 会话信息列表 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -398,8 +398,8 @@ typedef void (*TIMNetworkStatusListenerCallback)(enum TIMNetworkStatus status, i
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| status | enum TIMNetworkStatus | 网络状态，请参考 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus)  |
-| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| status | enum TIMNetworkStatus | 网络状态，请参考 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus) |
+| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) |
 | desc | const char\* | 错误描述字符串 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -586,8 +586,8 @@ typedef void (*TIMLogCallback)(enum TIMLogLevel level, const char* log, const vo
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | enum TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  |
-| log | const char\* |日志字符串 |
+| level | enum TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel) |
+| log | const char\* | 日志字符串 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
 ### TIMMsgUpdateCallback
@@ -627,7 +627,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) |
 | desc | const char\* | 错误描述字符串 |
 | json_params | const char\* | JSON 字符串，不同的接口，JSON 字符串不一样 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
@@ -1191,7 +1191,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十一、接口 [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) 的回调 TIMCommCallback 参数 json_params 的 JSON**
+**示例二十一、接口 [TIMFriendshipGetPendencyList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetpendencylist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [PendencyPage](https://cloud.tencent.com/document/product/269/33553#pendencypage)**
 
 ```c
 {
@@ -1225,7 +1225,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十三、接口 [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) 的回调 TIMCommCallback 参数 json_params 的 JSON**
+**示例二十三、接口 [TIMFriendshipCheckFriendType](https://cloud.tencent.com/document/product/269/37662#timfriendshipcheckfriendtype) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendshipCheckFriendTypeResult](https://cloud.tencent.com/document/product/269/33553#friendshipcheckfriendtyperesult)**
 
 ```c
 [
@@ -1257,7 +1257,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 ```
 
 
-**示例二十五、接口 [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) 的回调 TIMCommCallback 参数 json_params 的 JSON**
+**示例二十五、接口 [TIMFriendshipGetFriendGroupList](https://cloud.tencent.com/document/product/269/37662#timfriendshipgetfriendgrouplist) 的回调 TIMCommCallback 参数 json_params 的 JSON。JSON Key 请参考 [FriendGroupInfo](https://cloud.tencent.com/document/product/269/33553#friendgroupinfo)**
 
 ```c
 [

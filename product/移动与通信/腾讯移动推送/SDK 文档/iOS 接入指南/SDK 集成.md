@@ -1,8 +1,10 @@
 
 ## 简介
 本文档提供关于 SDK 的接入以及开启推送服务的示例代码。（SDK 版本：V1.0+ 版本）
-
-
+>!如果您是从信鸽平台（https:// xg.qq.com）迁移至腾讯移动推送平台，请务必：
+1.实现 [注销信鸽平台推送服务接口](#zhuxiao)。
+2.参考 [iOS迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
+3.完成下述文档的集成工作。
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -61,19 +63,23 @@ pod install //安装SDK
 
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
-11. 调用启动腾讯移动推送的 API，并根据需要实现 ```XGPushDelegate``` 协议中的方法，开启推送服务。
-	1. 启动腾讯移动推送服务， ```AppDelegate``` 示例如下：
-	```objective-c
-		 @interface AppDelegate () <XGPushDelegate>
-		 @end
-
-		 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-				 {
-						 [[XGPush defaultManager] startXGWithAppID:<#your AppID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
-			return YES;
-				 }
-	 ```
-	2. 在 ```AppDelegate``` 中，选择实现 ```XGPushDelegate ``` 协议中的方法：
+11. 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
+	1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
+```Objective-C
+@interface AppDelegate () <XGPushDelegate>
+@end 
+/**
+@param appID  通过 TPNS 管理台申请的 AccessID
+@param appKey  通过 TPNS 管理台申请的 AccessKey
+@param delegate 回调对象
+**/
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+{
+[[XGPush defaultManager] startXGWithAppID:<#your appID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
+return YES;
+}
+```
+	2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
 	```objective-c
 		/**
 		 收到推送的回调
@@ -169,11 +175,66 @@ pod install //安装SDK
 ```
 >?在推送单个目标设备时请使用 XG 36位的 Token。
 
+## 自定义响应消息内容
+
+iOS 设备收到一条推送消息，用户点击推送消息打开应用时，应用程序根据状态不同进行处理：
+
+- 若 App 状态为未运行，此函数将被调用。
+ - 若 launchOptions 包含 UIApplicationLaunchOptionsRemoteNotificationKey ，表示用户点击推送消息导致 App 被启动运行。
+ - 若不含有对应键值，则表示 App 不是因点击消息而被启动，可能为直接点击 icon 启动或其他。
+ ```objective-c
+	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
+	{
+			// 消息内容获取
+			NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+			// 然后根据消息内容进行逻辑处理
+	}
+ ```
+- 若 App 状态为正在前台或者是在后台但仍处于 Active 状态。
+ - 基于 iOS 7.0+ 系统版本，如果是使用 Remote Notification 特性，那么处理函数需要使用如下代码：
+	```objective-c
+	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+	```
+ - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
+	```objective-c
+	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
+		NSLog(@"[XGDemo] click notification");
+		completionHandler();
+	}
+
+	// App 在前台弹推送消息需要调用这个接口
+	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
+		completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
+	}
+	```
+
+<span id="zhuxiao"></span>
+## 注销信鸽平台推送服务
+
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
+
+#### 接口
+
+```objective-c
+// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
+@property uint32_t freeAccessId;
+```
+
+#### 用法
+
+- 引入头文件: `XGForFreeVersion.h` 
+- 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
+
+```objective-c
+[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
+[[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
+```
+>!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 ## 集成建议
 #### 通知服务扩展功能（必选）
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息，强烈建议您实现此接口，接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
-
+>!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 
 <span id="QHToken"></span>
 #### 获取 Token （非必选）

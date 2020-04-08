@@ -1,6 +1,11 @@
+>? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
+>![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
+
+移动直播 SDK 提供了3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
+
 <h2 id="Smart">直播基础版（Smart）</h2>
 
-精简版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。
+基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。
 
 <table>
    <tr>
@@ -41,9 +46,6 @@
    </tr>
 </table>
 
->?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
-> ![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
-
 <h2 id="Professional">专业版（Professional）</h2>
 
 专业版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
@@ -76,13 +78,15 @@
 </table>
 
 >? 根据您具体使用的服务，使用专业版需先购买对应产品授权，您可按需选购：
->1. 使用移动直播请购买  [移动直播 License](https://cloud.tencent.com/document/product/454/34750#buy)。
->1. 使用短视频请购买 [短视频 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
->1. 使用实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
+>
+>1. 使用其中的移动直播请购买  [移动直播基础版 License](https://cloud.tencent.com/document/product/454/34750#buy)。
+>1. 使用其中的短视频请购买 [短视频精简版/基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+>1. 使用其中的实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
-企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 获取。
+企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力。
+下载企业版 SDK 后需要解压密码和授权 License 才能运行，解压密码和企业版 License 先[申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
 
 <table>
    <tr>
@@ -108,7 +112,10 @@
    </tr>
 </table>
 
+>! 动效贴纸、AI抠图、美妆特效和手势动作特效需要通过额外的素材解锁功能。
+
 ## 各版本差异对照表
+
 ![](https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png)
 
 <table>

@@ -225,6 +225,12 @@ function TEB_GOTOSTEP(Number currentStep, Number totalStep)
 | totalStep | Number | 当前白板页动画总步数  |
 
 
+### TEB_RECTSELECTED
+框选工具选中回调，只有框选中涂鸦或图片元素后触发回调 
+``` C++
+function TEB_RECTSELECTED()
+```
+
 
 ## 文件操作回调
 

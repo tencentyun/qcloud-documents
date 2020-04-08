@@ -148,7 +148,7 @@
 
 
 
-## 白板页操作回调
+## 白板操作回调
 
 ### onTEBAddBoard:fileId:
 增加白板页回调 
@@ -200,6 +200,15 @@
 | --- | --- | --- |
 | currentStep | uint32_t | 当前白板页动画步数，取值范围 [0, totalStep)  |
 | totalStep | uint32_t | 当前白板页动画总步数  |
+
+
+### onTEBRectSelected
+框选工具选中回调 
+``` Objective-C
+- (void)onTEBRectSelected
+```
+#### 介绍
+只有框选中涂鸦或图片元素后触发回调 
 
 
 

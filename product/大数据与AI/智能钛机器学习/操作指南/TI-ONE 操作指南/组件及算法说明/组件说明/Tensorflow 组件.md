@@ -18,7 +18,7 @@ pip.main(['install', "package_name"])
  从左侧菜单栏中，选择【框架】>【深度学习】列表下的【Tensorflow 】节点，并将其拖拽至画布中。
 2. **配置参数**
  - 脚本及依赖包文件上传 ：
-    将任务脚本上传至 程序脚本 框。如果需要依赖文件，则压缩为zip文件后通过 依赖包文件 框上传。
+    将任务脚本上传至程序脚本框。如果需要依赖文件，则压缩为 zip 文件后通过 依赖包文件 框上传。
  - 程序依赖：
     指定位于 COS 中的用户依赖文件路径，指定内容将被拷贝到程序脚本同一级目录下。支持目录或者文件依赖，若存在多个文件则以英文逗号分隔 。
  - 程序参数：
@@ -37,7 +37,7 @@ pip.main(['install', "package_name"])
 
 ## 案例说明
 本案例提供一段代码，向您演示如何利用 TensorFlow 框架运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。
-代码修改自 Tensorflow [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
+本案例代码修改自 TensorFlow 的官方项目。
 ![](https://main.qcloudimg.com/raw/699578068afaa722ce193bb8c9c7d621.png)
 
 1. 程序的入口脚本为 premade_estimator.py。单击【Tensorflow 框架】的【程序脚本】输入框，选择premade_estimator.py 脚本文件上传。
