@@ -6,7 +6,7 @@
 - 启动脚本：每次启动 Notebook 实例时都会运行的脚本，包括第一次创建时。
 - 每个脚本 BASE64 编码后不能超过16384个字符。
 - 每个脚本将以 root 用户的角色运行。
-- 每个脚本的 $PATH 环境变量为 `/opt/conda/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
+- 每个脚本的 $PATH 环境变量为 `/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin`
 - 每个脚本最长运行时间为5分钟，超过5分钟 Notebook 将启动失败，请避免在脚本中安装大型依赖包。可在详情页中查看失败原因如 “启动脚本超时”。
 - 如果脚本出错，Notebook 也将启动失败，可在详情页中查看具体失败原因。
 - 如果脚本是从自己的编辑器复制到 TIONE 网页上的，请确保编辑脚本的编辑器使用 Unix 风格的编排。
@@ -24,13 +24,13 @@
   sudo -u tione -i <<'EOF'
   
   # This will affect only the Jupyter kernel called "conda_python3".
-  source activate python3
+  source /opt/conda/bin/activate python3
   
   # Replace myPackage with the name of the package you want to install.
   pip install fire
   # You can also perform "conda install" here as well.
   
-  source deactivate
+  source /opt/conda/bin/deactivate
   
   EOF
 ```
@@ -44,7 +44,7 @@
   # Note that "base" is special environment name, include it there as well.
   
   for env in base /opt/conda/envs/*; do
-      source activate $(basename "$env")
+      source /opt/conda/bin/activate $(basename "$env")
   
       # Installing packages in the Jupyter system environment can affect stability of your tione
       # Notebook Instance.  You can remove this check if you'd like to install Jupyter extensions, etc.
@@ -56,14 +56,8 @@
       pip install fire
       # You can also perform "conda install" here as well.
   
-      source deactivate
+      source /opt/conda/bin/deactivate
   done
   
   EOF
 ```
-
-  
-
-  
-
-  
