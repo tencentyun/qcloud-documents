@@ -411,7 +411,7 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
             Log.d(TAG, "收到来自" + userInfo.userName + "的弹幕消息:" + message);
         } else if ("CMD_LIKE".equals(cmd)) {
             // 收到点赞消息
-            Log.d(TAG, userInfo.userName + "给你点了个赞！");
+            Log.d(TAG, userInfo.userName + "给您点了个赞！");
         }
     }
 });
