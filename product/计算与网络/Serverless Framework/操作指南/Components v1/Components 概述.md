@@ -1,6 +1,6 @@
 Serverless Components 是支持多个云资源编排和组织的场景化解决方案，主要基于客户的具体场景，如 Express 框架支持、网站部署等。Serverless Components 可以有效简化云资源的配置和管理，将网关、COS 和 CAM 等产品联动起来，让客户更多关注场景和业务。
 
-详细介绍可以参考 [Github 上的 Serverless Components 项目](https://github.com/serverless/components/blob/master/README_CN.md)。
+详细介绍可以参考 [Github 上的 Serverless Components 项目](https://github.com/serverless/components/blob/master/README_cn.md)。
 
 ### Serverless Components 优势
 
@@ -11,8 +11,13 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - **秒级部署**
 大多数 Serverless Components 比传统的配置工具部署快20倍左右，Components 可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
+### Serverless Framework Components 最佳实践
 
-### Serverless  Components 最佳实践
+- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/v2/) - 腾讯云云函数组件
+- [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/v2/) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
+- [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/v2/) - 快速部署静态网站到腾讯云的组件
+
+<!-- ### Serverless Components v1 最佳实践
  
 以下为常用的用例模板：
 
@@ -40,7 +45,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
 ```
 
-### Serverless Components 支持列表
+### Serverless Components v1 支持列表
 
 当前 Serverless Components 支持丰富的多语言开发框架和应用，具体如下：
 
@@ -79,4 +84,4 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
 此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components?q=tencent) 中查看。
-![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png)
+![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png) -->
