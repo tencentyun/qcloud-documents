@@ -139,6 +139,129 @@
  #endif
 ```
 
+## 消息格式变更
+与免费版本对比，终端收到消息格式变更如下：
+
+### 通知消息
+
+变更前：
+```
+{
+	aps =     {
+        alert =         {
+            body = "通知内容";
+            subtitle = "通知副标题";
+            title = "通知标题";
+        };
+        badge = 1;
+        category = "iOS通知category";
+        "mutable-content" = 1;  // 开启后，推送详情中会有「抵达」和「点击」数据上报
+        sound = "自定义通知音效.mp3";
+    };
+    custom1 = bar; // 自定义下发的参数string/JSON
+    custom2 =     {
+        bang = whiz;
+    };  // 自定义下发的参数string/JSON
+    xg =     {
+        bid = 0;
+        guid = 16625039711;
+        msgid = 2273893660;
+        token = c0999df7375868b9742de4b35387e49332b8c43b682482a7261278f1292eda95;
+        ts = 1585709566;
+    };
+    "xg_media_resources" = "富媒体链接如(https://img2.woyaogexing.com/2018/01/24/5248092370629ca4!400x400_big.jpg)";
+}
+```
+
+变更后：
+```
+{
+    aps =     {
+        alert =         {
+            body = "通知内容";
+            "launch-image" = "";
+            "loc-args" = "<null>";
+            "loc-key" = "";
+            subtitle = "通知副标题";
+            "subtitle-loc-args" = "<null>";
+            "subtitle-loc-key" = "";
+            title = "通知标题";
+            "title-loc-args" = "<null>";
+            "title-loc-key" = "";
+        };
+        "badge_type" = "-1";  // 角标类型，-1不变，-2自动加一，也可以自定义为大于0的值
+        category = "iOS通知category";
+        "mutable-content" = 1;  // 开启后，推送详情中会有「抵达」和「点击」数据上报
+        sound = "自定义通知音效.mp3";
+        "thread-id" = "";
+    };
+    custom = "{\"附加参数key1\":\"附加参数value1\",\"附加参数key2\":\"附加参数value2\"}";  // 可用于应用业务逻辑处理
+    xg =     {
+        bid = 390178628;
+        groupId = "pt:tpns_20200401";
+        guid = 338502;
+        msgid = 390178628;
+        msgtype = 1;
+        pushTime = 1585716731;
+        source = 1;
+        targettype = 2;
+        ts = 1585716731;
+        xgToken = 00c30e0aeddff1270d8816ddc594606dc184;
+    };
+    "xg_media_resources" = "富媒体链接如(https://img2.woyaogexing.com/2018/01/24/5248092370629ca4!400x400_big.jpg)";
+}
+```
+### 静默消息
+
+变更前：
+```
+{
+	aps =     {
+        content = "内容";
+        "content-available" = 1;
+        title = "标题";
+    };
+    custom1 = bar1;  // 自定义下发的参数string/JSON
+    custom2 =     (
+        bang,
+        whizfgg
+    );  // 自定义下发的参数string/JSON
+    xg =     {
+        bid = 0;
+        guid = 16625039711;
+        msgid = 2274434534;
+        token = c0999df7375868b9742de4b35387e49332b8c43b682482a7261278f1292eda95;
+        ts = 1585709604;
+    };
+}
+```
+变更后：
+```
+{
+    aps =     {
+        alert = "<null>";
+        "badge_type" = 0;
+        category = "";
+        "content-available" = 1;
+        sound = "";
+        "thread-id" = "";
+    };
+    custom = "{\"附加参数key1\":\"附加参数value1\",\"附加参数key2\":\"附加参数value2\"}";  // 可用于应用业务逻辑处理
+    xg =     {
+        bid = 389886288;
+        groupId = "pt:tpns_20200331";
+        guid = 338502;
+        msgid = 389886288;
+        msgtype = 2;
+        pushTime = 1585644263;
+        source = 1;
+        targettype = 2;
+        ts = 1585644263;
+        xgToken = 00c30e0aeddff1270d8816ddc594606dc184;
+    };
+}
+```
+
 
 ## 抵达数据上报集成
 
@@ -166,14 +289,13 @@
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 
-## 注销免费服务
-
-如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。因此需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册，从而使得在两个集群同时推送时，避免出现重复消息。
+## 注销信鸽平台推送服务
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册。
 
 #### 接口
 
 ```objective-c
-// 免费集群的 accessId(支持免费 SDK V2、V3版本)
+// 信鸽平台的 accessId(支持信鸽 SDK V2、V3版本)
 @property uint32_t freeAccessId;
 ```
 
@@ -187,3 +309,4 @@
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
+>! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。

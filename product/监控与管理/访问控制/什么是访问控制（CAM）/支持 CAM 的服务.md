@@ -58,8 +58,9 @@
 | 服务                                                      | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |	
 | ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	---- |	
 | [全球应用加速](https://cloud.tencent.com/document/product/608)  | 资源级 | &#10003;  |  -   |  -  |-  |
-| [全站加速网络](https://cloud.tencent.com/document/product/570)  | 服务级 | &#10003;  |  - | -  |-  |
-| [内容分发网络](https://cloud.tencent.com/document/product/228)| 资源级 | &#10003;   |  -   | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/228/12722)  |
+| [全站加速网络](https://cloud.tencent.com/document/product/570)  | 资源级 | &#10003;  |  - | -  |[访问管理指南](https://cloud.tencent.com/document/product/570/42271)  |
+| [内容分发网络](https://cloud.tencent.com/document/product/228)<sup>1</sup>| 资源级 | &#10003;   |  -   | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/228/12722)  |
+> ?<sup>1</sup> 内容分发网络中 [安全加速](https://cloud.tencent.com/product/scdn) 已支持使用 CAM。
 
 ## 数据库	
 
@@ -130,11 +131,16 @@
 | [密钥管理系统](https://cloud.tencent.com/document/product/573) | 资源级   | &#10003;  | -  |  -     |[访问管理指南](https://cloud.tencent.com/document/product/573/10126) |	
 | [凭据管理系统](https://cloud.tencent.com/document/product/1140)    | 资源级  | &#10003; | -   | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1140/40869)|
 
-## 内容安全
+## 业务安全
 
  | 服务 | 授权粒度  | 控制台  | 根据标签进行授权 |  服务角色 | 参考文档 |
-| ------------------------------------------------------------ | ------ | -------- | ------- | ---- |  ---- | 
-| [内容安全](https://cloud.tencent.com/document/product/669)    | 服务级  | &#10003; | -   |  - | - |
+| ------------------------------------------------------------ | ------ | -------- | ------- | ---- |  ---- |
+| [借贷反欺诈](https://cloud.tencent.com/document/product/668)  | 服务级  | &#10003; | -   |  - | - |
+| [定制建模](https://cloud.tencent.com/document/product/1029)  | 服务级  | &#10003; | -   |  - | - |
+| [天御业务安全防护](https://cloud.tencent.com/document/product/295)<sup>1</sup>    | 服务级  | &#10003; | -   |  - | - |
+| [内容安全](https://cloud.tencent.com/document/product/669) <sup>2</sup>   | 服务级  | &#10003; | -   |  - | - |
+> ?<sup>1</sup> 天御业务安全防护中活动防刷、登录保护、注册保护、行业风险评估、置信度评分均已支持使用 CAM。
+> <sup>2</sup> 内容安全中  [图片内容安全](https://cloud.tencent.com/document/product/1125)、 [文本内容安全](https://cloud.tencent.com/document/product/1124) 均已支持使用 CAM。
 
 ## 营销风控
 

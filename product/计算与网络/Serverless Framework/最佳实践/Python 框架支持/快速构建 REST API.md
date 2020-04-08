@@ -11,7 +11,7 @@ $ npm install -g serverless
 ####  配置
 通过如下命令直接下载示例：
 ```
-$ serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-python-rest-api
+$ serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-python-rest-api
 ```
 目录结构如下：
 ```

@@ -1,7 +1,7 @@
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择地域，单击【申请】。
 3. 在弹出的窗口中，请按照您的账户类型，分别进行如下操作：
->? 您可参见 [区分账户类型](https://cloud.tencent.com/document/product/684/39903) 判断账户类型。
+>? 如何判断账户类型，请参见 [区分账户类型](https://cloud.tencent.com/document/product/684/39903)。
 >
  - **非带宽上移账户**
 <table>

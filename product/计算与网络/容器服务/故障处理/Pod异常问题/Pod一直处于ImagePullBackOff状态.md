@@ -1,4 +1,4 @@
-本文档介绍可能导致 Pod 一直处于 ImagePullBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。若确认检查项无误后 Pod 仍处于异常状态，请及时 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。
+本文档介绍可能导致 Pod 一直处于 ImagePullBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。
 
 ## HTTP 类型 Registry，地址未加入 insecure-registry
 
@@ -17,11 +17,11 @@ Dockerd 默认从 HTTPS 类型的 Registry 拉取镜像。当您使用 HTTP 类�
 Registry 进行认证时，Pod 未配置 imagePullSecret、配置的 Secret 不存在或者有误都会认证失败。
 
 ## 镜像文件损坏
-Push 的镜像文件损坏，导致下载成功后也不能正常使用，此时则需要重新 push 镜像文件。
+Push 的镜像文件损坏，导致下载成功后也不能正常使用，需要重新 push 镜像文件。
 
 ## 镜像拉取超时
 
-当节点上同时启动大量 Pod 时，可能会导致容器镜像下载需要排队。假设下载队列靠前位置已有许多大容量镜像需较长的下载时间，则会导致排在队列靠后的 Pod 拉取超时。
+当节点上同时启动大量 Pod 时，可能会导致容器镜像下载需要排队。假设下载队列靠前位置已有许多大容量镜像且需较长的下载时间，则会导致排在队列靠后的 Pod 拉取超时。
 
 默认情况下，kubelet 支持串行下载镜像。如下所示：
 ``` txt

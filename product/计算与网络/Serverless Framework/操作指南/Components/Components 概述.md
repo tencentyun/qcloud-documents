@@ -19,25 +19,25 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - [部署 Hexo 静态博客](https://cloud.tencent.com/document/product/1154/40217)
 通过 Serverless Website 组件快速构建一个 Serverless Hexo 站点：
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-hexo-blog
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-hexo-blog
 ```
 
 - [快速构建 REST API](https://cloud.tencent.com/document/product/1154/40216)
 通过 Serverless SCF 组件快速构建一个 REST API 应用，实现 GET/PUT 操作。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-python-rest-api
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-python-rest-api
 ```
 
 - [部署 Serverless 全栈 Web 应用（React.js）](https://cloud.tencent.com/document/product/1154/40218)
 本示例以 React 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-react-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-react-application
 ```
 
 - [部署 Serverless 全栈 Web 应用（Vue.js）](https://cloud.tencent.com/document/product/1154/39272)
 本示例以 Vue 为前端，Express 框架作为后端，通过多个 Serverless Components 部署 Serverless 全栈应用程序。
 ```shell
-serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
+serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-vue-application
 ```
 
 ### Serverless Components 支持列表
@@ -79,4 +79,4 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
 此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components?q=tencent) 中查看。
-![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png)
+![](https://main.qcloudimg.com/raw/b6310fa4290e6fed60b137ff95f4b577.png)

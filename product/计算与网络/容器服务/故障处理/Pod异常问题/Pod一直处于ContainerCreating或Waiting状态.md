@@ -1,4 +1,4 @@
-本文档介绍可能导致 Pod 一直处于 ContainerCreating 或 Waiting 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。若确认检查项无误后 Pod 仍处于异常状态，请及时 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系我们。
+本文档介绍可能导致 Pod 一直处于 ContainerCreating 或 Waiting 状态的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。
 
 
 ## Pod 配置错误
@@ -13,13 +13,13 @@ Volume 挂载失败的诱因存在多种可能，以下列出其中两种已知�
 在云托管的 K8S 服务环境下，默认挂载的 Volume 通常为一块存储类型的云硬盘。如果某个节点出现故障，kubelet 无法正常运行或与 apiserver 通信，则到达时间阈值后就会触发节点驱逐，自动在其它节点上启动相同的 Pod。
 
 #### 影响
-由于被驱逐的节点无法正常运行，无法确定被驱逐状态，导致该节点未正常解挂 Volume。而节点并不会发现自己已被驱逐，也就不会正常执行磁盘解挂。此外，cloud-controller-manager 也需要在节点成功执行磁盘解挂操作后，再去调用云厂商的接口从而将磁盘真正从节点上解挂。通常，经过一个时间阈值后，cloud-controller-manager 将会强制解挂云盘，并将其挂载到 Pod 最新调度到的节点上，**这种情况会导致 ContainerCreating 的时间相对较长**，**但通常最终是可以启动成功的**。
+由于被驱逐的节点无法正常运行，无法确定被驱逐状态，导致该节点未正常解挂 Volume。此外，cloud-controller-manager 也需要在节点成功执行磁盘解挂操作后，再去调用云厂商的接口从而将磁盘真正从节点上解挂。通常，经过一个时间阈值后，cloud-controller-manager 将会强制解挂云盘，并将其挂载到 Pod 最新调度到的节点上，**这种情况会导致 ContainerCreating 的时间相对较长**，**但通常最终是可以启动成功的**。
 
 ### 2. 命中 K8S 挂载 configmap/secret 时 subpath 的 bug
 
-实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，并且 Pod 里的容器又进行了原地重启操作时（例如，存活检查失败被 kill 后重启拉起），就会触发 K8S 挂载 configmap/secret 时 subpath 的 bug。针对此 bug 提交的 PR 请参见 [PR82784](https://github.com/kubernetes/kubernetes/pull/82784)。
+实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，并且 Pod 中容器又进行了原地重启操作时（例如，存活检查失败被 kill 后重启拉起），就会触发 K8S 挂载 configmap/secret 时 subpath 的 bug。针对此 bug 提交的 PR 请参见 [PR82784](https://github.com/kubernetes/kubernetes/pull/82784)。
 
-如果出现了以上情况，容器将会一直启动不成功。报错示例如下：
+如果出现了以上情况，容器将会持续启动不成功。报错示例如下：
 ``` bash
 $ kubectl -n prod get pod -o yaml manage-5bd487cf9d-bqmvm
 ...
@@ -44,11 +44,11 @@ Events:
   Warning  FailedCreatePodSandBox  2m (x4307 over 16h)  kubelet, 10.179.80.31  (combined from similar events): Failed create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "apigateway-6dc48bf8b6-l8xrw": Error response from daemon: mkdir /var/lib/docker/aufs/mnt/1f09d6c1c9f24e8daaea5bf33a4230de7dbc758e3b22785e8ee21e3e3d921214-init: no space left on device
 ```
 
-解决步骤及更多信息请参见 [磁盘爆满]()。
+解决步骤及更多信息请参见 [磁盘爆满](https://cloud.tencent.com/document/product/457/43126)。
 
 
 ## 节点内存碎片化
-如果节点上内存碎片化严重，缺少大页内存，此时尽管总体剩余内存较多，但仍会出现申请内存失败的情况。请参考 [内存碎片化]() 解决异常。
+如果节点上内存碎片化严重，缺少大页内存，此时尽管总体剩余内存较多，但仍会出现申请内存失败的情况。解决步骤及更多信息请参见 [内存碎片化](https://cloud.tencent.com/document/product/457/43128)。
 
 ## Limit 设置过小或单位错误
 当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态。通常是 memory limit 单位设置错误引起的，**正确单位设置应使用 `Mi` 或 `M`**，如果误将 memory limit 单位设置为小写字母 `m`，该单位将会被 K8S 识别成 Byte。

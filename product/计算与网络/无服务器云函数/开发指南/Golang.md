@@ -39,7 +39,7 @@ func main() {
 代码开发时，请注意以下几点：
 
 - 需要使用 package main 包含 main 函数。
-- 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库。
+- 引用 `github.com/tencentyun/scf-go-lib/events` 库。
 - 入口函数入参可选0 - 2参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明请参见 [入参](#Participation)。
 - 入口函数返回值可选0 - 2参数，如包含参数，需返回内容在前，error 错误信息在后，返回值组合有 （），（ret），（error），（ret，error），具体说明请参见 [返回值](#ReturnValue)。
 - 入参 event 和返回值 ret，均需要能够兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal。
@@ -52,7 +52,7 @@ func main() {
 
 在使用 Golang 开发云函数时，需要确保 main 函数位于 main package 中。在 main 函数中，通过使用 cloudfunction 包中的 Start 函数，启动实际处理业务的入口函数。
 
-通过 `import "github.com/tencentyun/scf-go-lib/cloudfunction" `，可以在 main 函数中使用包内的 Start 函数。
+通过 `import "github.com/tencentyun/scf-go-lib/events"`，可以在 main 函数中使用包内的 Start 函数。
 
 ### 入口函数
 
@@ -75,7 +75,7 @@ func hello(ctx context.Context, event DefineEvent)
 
 自定义数据结构对应的 JSON 结构，通常与函数执行时的入参对应。在函数调用时，入参的 JSON 数据结构将会转换为自定义数据结构变量并传递和入口函数。
 
->! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-go-lib/tree/master/cloudevents/scf) 获取 golang 的库并使用。通过在代码中引用 `import "github.com/tencentyun/scf-go-lib/cloudevents/scf"` 来直接使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-go-lib/issues/new) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 说明。
+>! 部分触发器传递的入参事件结构目前已有一部分已定义，可直接使用。您可通过 [cloud event 定义](https://github.com/tencentyun/scf-go-lib/tree/master/events) 获取 golang 的库并使用。通过在代码中引用 `import "github.com/tencentyun/scf-go-lib/events"` 来直接使用。如果使用过程中发现问题，可以通过 [提交 issue ](https://github.com/tencentyun/scf-go-lib/issues/new) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 说明。
 
 
 #### 返回值<span id="ReturnValue"></span>

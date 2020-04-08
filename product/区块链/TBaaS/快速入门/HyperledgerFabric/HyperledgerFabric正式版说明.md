@@ -1,4 +1,4 @@
-您可通过本文快速开始使用 Hyperledger Fabric 正式版，同时可前往 [Hyperledger Fabric](https://tcloud-doc.isd.com/document/product/663/30124) 了解相关信息。
+您可通过本文快速开始使用 Hyperledger Fabric 正式版，同时可前往 [Hyperledger Fabric](https://cloud.tencent.com/document/product/663/38473) 了解相关信息。
 
 ## 步骤1：组建区块链网络
 >?一个腾讯云账号可购买一个区块链组织及所需的多个节点资源。
@@ -11,11 +11,11 @@
  - **节点配置**：您可根据实际需求选择高级配置，请谨慎选择以匹配后续业务需要。
 2. 选择【下一步】进入邀请组织步骤，可根据实际需求选择组织或单击【跳过】。
 3. 支付完成后即可组建区块链网络。
-成功组建区块链网络后，可登录 TBaaS 控制台，选择左侧导航栏中的【Fabric】>【[区块链网络](https://console.cloud.tencent.com/tbaas/fabric/deploy)】，在“区块链网络”列表页面查看网络信息。
+成功组建区块链网络后，可登录  [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的【Fabric】>【[区块链网络](https://console.cloud.tencent.com/tbaas/fabric/deploy)】，在“区块链网络”列表页面查看网络信息。
 
 ## 步骤2：邀请组织加入联盟及网络
 ### 邀请其他组织加入联盟
-1. 登录 TBaaS 控制台，选择左侧导航栏中的【[联盟](https://console.cloud.tencent.com/tbaas/alliance)】。
+1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas)，选择左侧导航栏中的【[联盟](https://console.cloud.tencent.com/tbaas/alliance)】。
 2. 在“联盟”列表页面，选择需邀请组织联盟所在行右侧的【邀请成员】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8396a9f7d502664b493779b800f786a0.png)
 3. 在弹出的“邀请成员”窗口中，按照以下信息填写受邀成员信息，并单击【确定】。如下图所示：

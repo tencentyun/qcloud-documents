@@ -19,7 +19,7 @@ $ npm i -g serverless
 ```
 2. 新建一个空的文件夹，使用`create --template-url`安装相关 template。
 ```
-$ serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-react-application
+$ serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-fullstack-react-application
 ```
 3. 使用`cd`命令，进入`templates\tencent-fullstack-react-application` 文件夹，可以查看到如下目录结构：
 ```
