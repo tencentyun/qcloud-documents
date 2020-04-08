@@ -1,12 +1,12 @@
-为保障迁移后的正常使用，请您升级至 Android V1.1.5.5 及以上版本，以下是针对从信鸽免费版本 4.x 版本迁移到腾讯云 Android V1.1.5.5 及以上版本的变更说明。
+为保障迁移后的正常使用，请您升级至 Android V1.1.5.5 及以上版本，以下是针对从信鸽平台 4.x 版本迁移到腾讯移动推送平台 Android V1.1.5.5 及以上版本的变更说明。
 
 ## 注销信鸽平台推送服务
 如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台，TPNS 版本需要增加以下配置：
-- 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写免费版本的 accessId
+- 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写信鸽平台的 ACCESS ID
 ```xml
 <meta-data
     android:name="XG_OLD_ACCESS_ID"
-    android:value="免费版本应用的accessid" />
+    android:value="信鸽平台应用的ACCESS ID" />
 ```
 >! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
