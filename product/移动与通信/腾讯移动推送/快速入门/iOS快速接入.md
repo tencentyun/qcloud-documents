@@ -1,8 +1,8 @@
 ## 简介
-在您完成创建产品和 iOS 应用之后，可在 [控制台](https://console.cloud.tencent.com/tpns)【配置管理】下快速接入工具接入SDK，简化接入流程，集成更便捷快速。
+在您完成创建产品和 iOS 应用之后，可在 [控制台](https://console.cloud.tencent.com/tpns) >【配置管理】下快速接入工具接入SDK，简化接入流程，集成更便捷快速。
 
 ## 接入前准备
-1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和iOS应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
 2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，申请试用或者购买推送服务。
 3. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
 ![](https://main.qcloudimg.com/raw/471856c5330cda61528e7842e98947a3.png)
