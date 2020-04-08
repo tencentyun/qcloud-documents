@@ -25,7 +25,7 @@
 
 <h2 id="Professional">专业版（Professional）</h2>
 
-专业版包含短视频在内的多个音视频相关的核心功能，分别为 [实时音视频（TRTC）](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player)和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv)等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困扰。
+专业版包含短视频在内的多个音视频相关的核心功能，分别为 [实时音视频（TRTC）](https://cloud.tencent.com/product/trtc)、[播放器 SDK（Player+）](https://cloud.tencent.com/product/player)和 [移动直播（MLVB）](https://cloud.tencent.com/product/mlvb)等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困扰。
 
 <table>
    <tr>
@@ -96,7 +96,7 @@
   <tr>
     <th width="100px" style="text-align:center">功能模块</th>
     <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center"><a href="#Smart">直播基础版</a><br>LiteAV_Smart</th>
+    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/7873#Smart">直播基础版</a><br>LiteAV_Smart</th>
     <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC 版</a><br>LiteAV_TRTC</th>
     <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
