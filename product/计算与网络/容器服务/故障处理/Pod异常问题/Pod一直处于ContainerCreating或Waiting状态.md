@@ -77,7 +77,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 * 无法配置 Pod 网络。
 * 无法分配 Pod IP。
 
-## controller-manager 异常
+### controller-manager 异常
 查看 Master 上 kube-controller-manager 状态，异常时尝试重启。
 
 ### 安装 docker 时未完全删除旧版本
@@ -85,7 +85,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 ```
 yum install -y docker
 ```
-由于重复安装的 docker 版本不一致，组件间不完全兼容。将会导致 dockerd 持续无法成功创建容器，致使 Pod 状态一直 ContainerCreating。查看 event 报错信息如下：
+由于重复安装的 docker 版本不一致，组件间不完全兼容，导致 dockerd 持续无法成功创建容器，使 Pod 状态一直 ContainerCreating。查看 event 报错信息如下：
 ```
   Type     Reason                  Age                     From                  Message
   ----     ------                  ----                    ----                  -------
