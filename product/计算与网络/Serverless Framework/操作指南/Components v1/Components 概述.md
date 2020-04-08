@@ -1,24 +1,8 @@
-Serverless Framework 是业界非常受欢迎的无服务器应用框架，开发者无需关心底层资源即可部署完整可用的 Serverless 应用架构。Serverless Framework 具有资源编排、自动伸缩、事件驱动等能力，覆盖编码、调试、测试、部署等全生命周期，帮助开发者通过联动云资源，迅速构建 Serverless 应用。
-
-Serverless Framework 是一个 标准化、组件化 的 Serverless 应用开发产品，如下图所示：
-![Serverless Framework 架构图](https://main.qcloudimg.com/raw/2c5d24285f2ea19151635d0352dc2a20.png)
-
-## 产品功能
-#### 应用级框架
-Serverless Framework 提供贴合应用场景的框架，开发者根据实际需求选择对应框架后，只需专注于业务逻辑的开发，无需关注底层资源。
-
-#### 便捷部署
-开发者部署应用时，Serverless Framework 会根据应用特性，自动完成云函数、API 网关、COS 等基础资源的部署和配置，无需再手动部署配置每一项基础资源。
-
-#### 一站式体验
-通过 Serverless Framework，您可以快速创建 Serverless 应用，并完成应用的调试和部署，监控已发布应用运行状态并快速排障。
-
-## Serverless Framework Components
 Serverless Components 是支持多个云资源编排和组织的场景化解决方案，主要基于客户的具体场景，如 Express 框架支持、网站部署等。Serverless Components 可以有效简化云资源的配置和管理，将网关、COS 和 CAM 等产品联动起来，让客户更多关注场景和业务。
 
-详细介绍可以参考 [Github 上的 Serverless Components 项目](https://github.com/serverless/components/blob/master/README.cn.md)。
+详细介绍可以参考 [Github 上的 Serverless Components 项目](https://github.com/serverless/components/blob/master/README_CN.md)。
 
-### 优势特性
+### Serverless Components 优势
 
 - **简便易用**
 Serverless Components 更多的围绕客户场景进行构建，如网站、博客系统、支付服务、图像处理场景等。通过抽象了底层的基础设施配置信息，开发者可以通过十分简单的配置实现场景。
@@ -27,7 +11,8 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - **秒级部署**
 大多数 Serverless Components 比传统的配置工具部署快20倍左右，Components 可以通过快速的部署和远端验证，有效减少本地模拟和调试的环节。
 
-### Serverless Framework Components v1 最佳实践
+
+### Serverless  Components 最佳实践
  
 以下为常用的用例模板：
 
@@ -55,12 +40,11 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
 ```
 
-### Serverless Components v1 支持列表
+### Serverless Components 支持列表
 
-当前 Serverless Components 支持丰富的多语言开发框架和应用，如下所示：
-![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png)
+当前 Serverless Components 支持丰富的多语言开发框架和应用，具体如下：
 
-基础组件：
+**基础组件**：
 - [@serverless/tencent-postgresql](https://github.com/serverless-components/tencent-postgresql) - 腾讯云 PG DB Serverless 数据库组件
 - [@serverless/tencent-apigateway](https://github.com/serverless-components/tencent-apigateway) - 腾讯云 API 网关组件
 - [@serverless/tencent-cos](https://github.com/serverless-components/tencent-cos) - 腾讯云对象存储组件
@@ -73,7 +57,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 
 
 
-高阶组件：
+**高阶组件**：
 - [@serverless/tencent-nextjs](https://github.com/serverless-components/tencent-nextjs) - 快速部署基于 Next.js 框架到腾讯云函数的组件
 - [@serverless/tencent-nuxtjs](https://github.com/serverless-components/tencent-nuxtjs) - 快速部署基于 Nuxt.js 框架到腾讯云函数的组件
 - [@serverless/tencent-express](https://github.com/serverless-components/tencent-express) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
@@ -89,9 +73,10 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@serverless/tencent-website](https://github.com/serverless-components/tencent-website) - 快速部署静态网站到腾讯云的组件
 - [@serverless/serverless-global](https://github.com/serverless-tencent/serverless-global) - 管理全局变量的组件
 
-第三方贡献：
+**第三方贡献**：
 - [@authing/serverless-oidc](https://github.com/Authing/serverless-oidc) - 快速部署基于 Authing 的身份认证组件
 - [@twn39/tencent-fastify](https://github.com/twn39/tencent-fastify) - 快速部署基于 fastify.js 的后端服务到腾讯云函数的组件
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
 此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components?q=tencent) 中查看。
+![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png)
