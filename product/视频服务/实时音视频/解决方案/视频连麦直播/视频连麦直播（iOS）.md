@@ -324,7 +324,7 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onRecvRoomCustomMsg c
 		debugPrint("收到来自\(user.userName)的弹幕消息:\(message)")
 	} else if "CMD_LIKE" == command {
 		// 收到点赞消息
-		debugPrint("\(user.userName)给你点了个赞！")
+		debugPrint("\(user.userName)给您点了个赞！")
 	}
 }
 ```
