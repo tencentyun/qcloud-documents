@@ -1,5 +1,5 @@
 ## 操作场景
-**腾讯云 Express 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署您的 Express 应用，Express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。[点击查看 Express.js 官网 >>](http://serverless.com)
+**腾讯云 Express 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如网关、云函数等），实现“0”配置，便捷开发，极速部署您的 Express 应用，Express 组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的 Experss 项目开发/托管能力。
 
 Express.js 特性介绍：
 - **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
@@ -10,9 +10,6 @@ Express.js 特性介绍：
 - **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
 - **自定义域名**：支持配置自定义域名及 HTTPS 访问
 
-<br/>
-<img align="right" width="400" src="https://scf-dev-tools-1253665819.cos.ap-guangzhou.myqcloud.com/express_demo_light_sm_resize.gif" />
-<br>
 
 
 ## 操作步骤
