@@ -55,7 +55,7 @@ Events:
 
 例如，memory limit 设置为1024m，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
 
-此问题通常报出如下 event 信息：
+执行 `kubectl describe pod <pod-name>` 命令，查看 event 报错信息如下：
 ``` txt
 Pod sandbox changed, it will be killed and re-created。
 ```
@@ -85,7 +85,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 ```
 yum install -y docker
 ```
-由于重复安装的 docker 版本不一致，组件间不完全兼容，导致 dockerd 持续无法成功创建容器，使 Pod 状态一直 ContainerCreating。查看 event 报错信息如下：
+由于重复安装的 docker 版本不一致，组件间不完全兼容，导致 dockerd 持续无法成功创建容器，使 Pod 状态一直 ContainerCreating。执行 `kubectl describe pod <pod-name>` 命令，查看 event 报错信息如下：
 ```
   Type     Reason                  Age                     From                  Message
   ----     ------                  ----                    ----                  -------
@@ -95,8 +95,10 @@ yum install -y docker
 
 ### 存在同名容器
 
-当节点上已存在同名容器时，则创建 sandbox 时会失败。查看 event 报错信息如下：
+当节点上已存在同名容器时，则创建 sandbox 时会失败。执行 `kubectl describe pod <pod-name>` 命令，查看 event 报错信息如下：
 ```
   Warning  FailedCreatePodSandBox  2m                kubelet, 10.205.8.91  Failed create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "lomp-ext-d8c8b8c46-4v8tl": operation timeout: context deadline exceeded
   Warning  FailedCreatePodSandBox  3s (x12 over 2m)  kubelet, 10.205.8.91  Failed create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "lomp-ext-d8c8b8c46-4v8tl": Error response from daemon: Conflict. The container name "/k8s_POD_lomp-ext-d8c8b8c46-4v8tl_default_65046a06-f795-11e9-9bb6-b67fb7a70bad_0" is already in use by container "30aa3f5847e0ce89e9d411e76783ba14accba7eb7743e605a10a9a862a72c1e2". You have to remove (or rename) that container to be able to reuse that name.
 ```
+
+
