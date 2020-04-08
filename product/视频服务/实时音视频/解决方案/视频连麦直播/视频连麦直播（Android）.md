@@ -15,7 +15,7 @@
 如需快速接入视频互动直播功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCLiveRoom 组件并实现自定义 UI 界面。
 
 <span id="DemoUI"> </span>
-## 方案一：复用 Demo 的 UI 界面
+## 复用 Demo 的 UI 界面
 
 <span id="ui.step1"></span>
 ### 步骤1：创建新的应用
