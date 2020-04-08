@@ -5,7 +5,7 @@
 1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
 2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，申请试用或者购买推送服务。
 3. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
-![](https://main.qcloudimg.com/raw/471856c5330cda61528e7842e98947a3.png)
+![](https://main.qcloudimg.com/raw/1bdc3f67b1b8a4276dfb0b9ae12faf00.png)
 4. 完成以上步骤后，单击快速接入，下载快速集成工具。
 ![](https://main.qcloudimg.com/raw/aa9a57a97c61698aaad0c779840ff383.png)
 5. 解压缩文件包，双击TPNS Smart Tool。
