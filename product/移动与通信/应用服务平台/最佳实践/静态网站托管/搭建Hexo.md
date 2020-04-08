@@ -1,4 +1,4 @@
-﻿### 步骤1：安装 CloudBase CLI 以及本地部署 Hexo
+### 步骤1：安装 CloudBase CLI 以及本地部署 Hexo
 1. 在本地安装 Node.js：如果未安装则前往 [NodeJS官网](https://nodejs.org) 下载安装。确保 Node.js 安装成功。
 2. 打开命令提示符，执行如下命令：
 ```
