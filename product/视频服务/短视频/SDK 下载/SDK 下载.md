@@ -25,7 +25,7 @@
 
 <h2 id="Professional">专业版（Professional）</h2>
 
-专业版包含移动直播在内的多个音视频相关的核心功能，分别为 [实时音视频（TRTC）](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player)和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv)等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困扰。
+专业版包含短视频在内的多个音视频相关的核心功能，分别为 [实时音视频（TRTC）](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player)和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv)等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困扰。
 
 <table>
    <tr>
@@ -55,8 +55,8 @@
 </table>
 
 >? 根据您具体使用的服务，使用专业版需先购买对应的产品授权，您可按需选购：
->- 使用移动直播请购买  [移动直播 License](https://cloud.tencent.com/document/product/454/34750#buy)。
->- 使用短视频请购买 [短视频 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+>- 使用移动直播请购买  [移动直播基础版 License](https://cloud.tencent.com/document/product/454/34750#buy)。
+>- 使用短视频请购买 [短视频精简版或基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 >- 使用实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
