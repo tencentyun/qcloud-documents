@@ -166,7 +166,10 @@ src/main/java/com/tencent/liteav/liveroom/model
 </tr>
 <tr>
 <td>config</td>
-<td>全局配置信息，请在登录时初始化，登录之后不可变更。</td>
+<td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
+<li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li>
+<li>CDNPlayDomin 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
+</ul></td>
 </tr>
 <tr>
 <td>callback</td>
@@ -202,11 +205,13 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
 ![](https://main.qcloudimg.com/raw/754450346c831a792a0cc7a06b2c7d31.png)
 
 ```java
-// 1.开播前预览
+// 1.主播设置昵称和头像
+mLiveRoom.setSelfProfile("A", "your_face_url", null);
+
+// 2.主播开播前预览并设置美颜参数
 TXCloudVideoView view = new TXCloudVideoView(context);
 parentView.add(view);
 mLiveRoom.startCameraPreview(true, view, null);
-// 2.主播设置美颜参数
 mLiveRoom.getBeautyManager().setBeautyStyle(1);
 mLiveRoom.getBeautyManager().setBeautyLevel(6);
 
