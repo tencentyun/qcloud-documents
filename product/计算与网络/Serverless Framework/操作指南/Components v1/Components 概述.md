@@ -17,8 +17,7 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 - [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/v2/) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/v2/) - 快速部署静态网站到腾讯云的组件
 
-<!-- ### Serverless Components v1 最佳实践
- 
+
 以下为常用的用例模板：
 
 - [部署 Hexo 静态博客](https://cloud.tencent.com/document/product/1154/40217)
@@ -45,7 +44,7 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 serverless create --template-url https://github.com/serverless/components/tree/master/templates/tencent-fullstack-vue-application
 ```
 
-### Serverless Components v1 支持列表
+### Serverless Components 支持列表
 
 当前 Serverless Components 支持丰富的多语言开发框架和应用，具体如下：
 
@@ -84,4 +83,4 @@ serverless create --template-url https://github.com/serverless/components/tree/m
 - [@twn39/tencent-php-slim](https://github.com/twn39/tencent-php-slim) - 快速部署基于 Slim PHP 微框架的后端服务到腾讯云函数的组件
 
 此外，所有的 Serverless Components 均可在 [Github 仓库](https://github.com/serverless-components?q=tencent) 中查看。
-![](https://img.serverlesscloud.cn/2020326/1585215378777-components.png) -->
+![](https://main.qcloudimg.com/raw/8d30e522c8a8d3e46a8b057eaa161a13.png)
