@@ -156,14 +156,14 @@ mLiveRoom.login(SDKAPPID, userID, userSig, config) { (code, error) in
 
 ```swift
 // 1.主播设置昵称和头像
-mLiveRoom.setSelfProfile("A", "your_face_url", null);
+mLiveRoom.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
 // 2.主播开播前预览并设置美颜参数
-TXCloudVideoView view = new TXCloudVideoView(context);
-parentView.add(view);
-mLiveRoom.startCameraPreview(true, view, null);
-mLiveRoom.getBeautyManager().setBeautyStyle(1);
-mLiveRoom.getBeautyManager().setBeautyLevel(6);
+let view = UIView()
+parentView.add(view)
+mLiveRoom.startCameraPreview(frontCamera: true, view: view, callback: nil)
+mLiveRoom.getBeautyManager().setBeautyStyle(.nature)
+mLiveRoom.getBeautyManager().setBeautyLevel(6)
 
 // 3.主播创建房间
 let param = TRTCCreateRoomParam(roomName: "测试房间", coverUrl: "")
