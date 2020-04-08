@@ -8,7 +8,7 @@
 ![](https://main.qcloudimg.com/raw/3f93f315d5b8b987c20371caf6191423.png)
 4. 完成以上步骤后，单击快速接入，下载快速集成工具。
 ![](https://main.qcloudimg.com/raw/aa9a57a97c61698aaad0c779840ff383.png)
-5. 解压缩文件包，双击TPNS Smart Tool。
+5. 解压缩文件包，双击 TPNS Smart Tool。
 ![](https://main.qcloudimg.com/raw/b900deaadd11180abd6918e400ed55b6.png)
 6. 此时会提示"无法打开TPNS Smart Tool"。
 ![](https://main.qcloudimg.com/raw/67334a5258eb5d879c54663d158029ee.png)
@@ -36,6 +36,7 @@
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
 ```
 [xgpush]Current device token is 80ba1c251161a397692a107f0433d7fd9eb59991583a925030f1b913625a9dab
-[xgpush]Current XG token is 05da87c0ae5973bd2dfa9e08d884aada5bb2```
-若未搜索到token，请查看注册接口返回的错误码，根据[错误码对照表](https://cloud.tencent.com/document/product/548/36669)排查。
+[xgpush]Current XG token is 05da87c0ae5973bd2dfa9e08d884aada5bb2
 ```
+若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36669) 排查。
+
