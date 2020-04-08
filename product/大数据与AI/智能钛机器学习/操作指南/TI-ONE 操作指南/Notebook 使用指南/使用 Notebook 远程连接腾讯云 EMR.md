@@ -1,4 +1,4 @@
-﻿## 操作场景
+## 操作场景
 弹性 MapReduce（EMR）是云端托管的弹性开源 Hadoop 服务，支持 Spark、Hbase、Presto 等大数据框架。本文档将向您介绍如何使用 Notebook 远程连接腾讯云的 EMR。
 
 ## 操作详情
