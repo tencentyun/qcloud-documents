@@ -1,6 +1,6 @@
 ## 版本迁移指南
-如您接入的免费版2.x的版本，请参考 [SDK集成文档](https://cloud.tencent.com/document/product/548/36663) 接入。
-为保障迁移后的正常使用，请您升级至 iOS V1.2.5.3 及以上版本，以下是针对从信鸽免费版本 3.x 迁移到腾讯云 TPNS iOS V1.2.5.3 及以上版本的变更说明：
+如您接入的是信鸽平台的2.x的版本，请参考 [SDK集成文档](https://cloud.tencent.com/document/product/548/36663) 接入。
+为保障迁移后的正常使用，请您升级至 iOS V1.2.5.3 及以上版本，以下是针对从信鸽平台的 3.x 版本迁移到腾讯移动推送 TPNS iOS V1.2.5.3 及以上版本的变更说明：
 
 ## 自动集成方式
 ### Pod名称变更
@@ -59,7 +59,7 @@
 ```
 ## 接口变更
 
-与免费版本对比，部分 API 接口做了以下变更：
+与信鸽版本对比，部分 API 接口做了以下变更：
 
 不推荐再调用 reportXGNotification* 数据统计上报接口，SDK 已内部自动处理。
 
@@ -140,7 +140,7 @@
 ```
 
 ## 消息格式变更
-与免费版本对比，终端收到消息格式变更如下：
+与信鸽版本对比，终端收到消息格式变更如下：
 
 ### 通知消息
 
@@ -275,14 +275,14 @@
 
 变更前：
 
-免费版本使用 Device Token(长度为64位)对指定设备进行推送，获取 Device Token 代码示例:
+信鸽平台使用 Device Token(长度为64位)对指定设备进行推送，获取 Device Token 代码示例:
 
 ```objective-c
 //获取 APNS 生成的 Token
  [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 ```
 变更后：
-腾讯云版本使用 TPNS Token(长度为36位)对指定设备进行推送，获取 TPNS Token 代码示例：
+腾讯移动推送平台使用 TPNS Token(长度为36位)对指定设备进行推送，获取 TPNS Token 代码示例：
 
 ```objective-c
 //获取 TPNS 生成的 Token
@@ -290,7 +290,7 @@
 ```
 
 ## 注销信鸽平台推送服务
-如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在免费集群中进行反注册。
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
 
 #### 接口
 
