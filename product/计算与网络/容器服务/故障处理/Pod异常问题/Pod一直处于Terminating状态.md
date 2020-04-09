@@ -63,6 +63,16 @@ K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是�
 ### Dockerd 与 containerd 状态不同步
 
 #### 现象描述
+目前发现 docker 在 aufs 存储驱动下如果磁盘爆满，则可能发生内核 panic ，报错信息如下：
+``` txt
+aufs au_opts_verify:1597:dockerd[5347]: dirperm1 breaks the protection by the permission bits on the lower branch
+```
+若磁盘曾爆满过，dockerd 日志通常会有以下类似记录，且后续可能发生状态不同步问题。
+``` log
+Sep 18 10:19:49 VM-1-33-ubuntu dockerd[4822]: time="2019-09-18T10:19:49.903943652+08:00" level=error msg="Failed to log msg \"\" for logger json-file: write /opt/docker/containers/54922ec8b1863bcc504f6dac41e40139047f7a84ff09175d2800100aaccbad1f/54922ec8b1863bcc504f6dac41e40139047f7a84ff09175d2800100aaccbad1f-json.log: no space left on device"
+```
+
+#### 问题分析
 判断 dockerd 与 containerd 的某个容器状态是否同步，可采用以下几种方法：
 * 首先通过 `describe pod` 获取容器 ID，再通过 `docker ps` 查看容器状态是否为 dockerd 中所保存的状态。
 * 通过 `docker-container-ctr` 查看容器在 containerd 中的状态。示例如下：
@@ -73,14 +83,7 @@ K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是�
 
 若 containerd 中容器状态是 stopped 或者已经无记录，而 docker 中容器状态却是 running，则说明 dockerd 与 containerd 之间容器状态同步存在问题。
 
-目前 docker 在 aufs 存储驱动下如果磁盘爆满，则可能发生内核 panic ，报错信息如下：
-``` txt
-aufs au_opts_verify:1597:dockerd[5347]: dirperm1 breaks the protection by the permission bits on the lower branch
-```
-若磁盘曾爆满过，dockerd 日志通常会有以下类似记录，且后续可能发生状态不同步问题。
-``` log
-Sep 18 10:19:49 VM-1-33-ubuntu dockerd[4822]: time="2019-09-18T10:19:49.903943652+08:00" level=error msg="Failed to log msg \"\" for logger json-file: write /opt/docker/containers/54922ec8b1863bcc504f6dac41e40139047f7a84ff09175d2800100aaccbad1f/54922ec8b1863bcc504f6dac41e40139047f7a84ff09175d2800100aaccbad1f-json.log: no space left on device"
-```
+
 
 
 #### 解决方法
@@ -88,8 +91,7 @@ Sep 18 10:19:49 VM-1-33-ubuntu dockerd[4822]: time="2019-09-18T10:19:49.90394365
 * 长期规避方法：运行时推荐直接使用 containerd，绕过 dockerd 避免 Docker 本身的 Bug。
 
 ### Daemonset Controller Bug
-K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。
-是由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组做了排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。此外，Daemonset Controller 又会为 rollingUpdate 类型的 Daemonset 计算 hash（使用 spec），用于版本控制。
+K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。是由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组做了排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。此外，Daemonset Controller 又会为 rollingUpdate 类型的 Daemonset 计算 hash（使用 spec），用于版本控制。
 上述传递过程造成的前后参数不一致问题，导致了 Pod 陷入持续启动和停止的循环。
 
 #### 解决方法
