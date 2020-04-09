@@ -93,7 +93,7 @@ namespace TencentCloudExamples
                 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
-                // 代理服务器，当你的环境下有代理服务器时设定
+                // 代理服务器，当您的环境下有代理服务器时设定
                 httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
@@ -196,7 +196,7 @@ namespace TencentCloudExamples
                /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
-                // 代理服务器，当你的环境下有代理服务器时设定
+                // 代理服务器，当您的环境下有代理服务器时设定
                 httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
@@ -305,7 +305,7 @@ namespace TencentCloudExamples
                 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
-                // 代理服务器，当你的环境下有代理服务器时设定
+                // 代理服务器，当您的环境下有代理服务器时设定
                 httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
@@ -398,7 +398,7 @@ namespace TencentCloudExamples
                 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
                * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
-                // 代理服务器，当你的环境下有代理服务器时设定
+                // 代理服务器，当您的环境下有代理服务器时设定
                 httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
