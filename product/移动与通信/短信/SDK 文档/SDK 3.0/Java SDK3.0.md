@@ -35,13 +35,13 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
         <version>3.0.8</version><!-- 注：此处仅为示例版本号，请访问 https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java 获取最新版本号并替换 -->
 </dependency>
 ```
-3. 引用方法可参考 [示例](#example)。
+3. 引用方法可参考 [示例代码](#example)。
 
 #### 通过源码包安装
 1. [下载](https://github.com/tencentcloud/tencentcloud-sdk-java) 源码压缩包。
 2. 解压源码包到您项目中合适的位置。
 3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
-4. 引用方法可参考 [示例](#example)。
+4. 引用方法可参考 [示例代码](#example)。
 
 <span id="example"></span>
 ### 示例代码
