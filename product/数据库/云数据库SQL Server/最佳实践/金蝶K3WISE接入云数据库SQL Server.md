@@ -2,7 +2,7 @@
 
 解决方案主要分为如下三个步骤：
 1. 迁移数据至云数据库 SQL Server，即将本地金蝶K/3 WISE 的账套数据库的全量数据备份恢复至云数据库 SQL Server 中。
-2. 设置允许执行分布式事务，即调整云数据库 SQL Server、云服务器 CVM，本地 Windows 系统的访问设置，确保端口畅通，可以执行分布式事务。
+2. 设置允许执行分布式事务，即调整云数据库 SQL Server、云服务器 CVM（Windows 系统）的访问设置，确保端口畅通，可以执行分布式事务。
 3. 替换账套管理工具，以便兼容云数据库 SQL Server。
 
 >?
@@ -25,14 +25,15 @@
 调整云数据库 SQL Server 的访问设置，确保可以执行分布式事务的操作，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯工程师协助处理。
 
 ### 设置云服务器
+#### 设置安全组
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance)，选择实例所在地域，单击实例 ID，进入管理页面。
 2. 选择【安全组】页，编辑规则，设置如下规则：
- - 允许访问来源可以访问该云服务器的1433、135、1024-65535端口。
- - 允许云服务器访问访问来源的1433、135、1024-65535端口。
->?上述访问来源的来源 IP 信息可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取。
-  
-### 设置本地 Windows 系统
-1. 登录本地 Windows 系统。
+ - “来源”的 IP 信息，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取。
+ - 入站规则和出站规则的“协议端口”，须开通1433、135、1024-65535端口。
+
+
+#### 设置 Windows 系统
+1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
 2. 打开 hosts 文件，路径为`C:\Windows\System32\drivers\etc\hosts`。
 3. 将云数据库 SQL Server 提供的 VIP 和 host 信息（该信息可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取），填写至 hosts 文件的结尾处，并保存 hosts 文件。
 ![](https://main.qcloudimg.com/raw/b93ce2e5b6db9f1a67df7d73b522d1b3.png)
