@@ -128,7 +128,7 @@ WebSocket 服务端搭建完成后，此时，服务是暴露在公网的，可�
 服务端使用记录下来的 secretKey 与传入的参数计算签名，将计算结果与接收到的签名做对比，判断是否相同，相同则为合法。NodeJs 计算签名方法：
 ```
 function isSignatureOK(body) {
-  const secretKey = 'xrck1Mgi0IxVjS08B3xxxxxxxxxxxxxx'
+  const secretKey = 'xrck1Mgi0IxVjS08B3HsECajO01RYfGW'
   const receivedSignature = body.TcvSignature
   // TcvSignature 不参与签名
   delete body.TcvSignature
@@ -198,7 +198,7 @@ function randomNumber(max) {
   return parseInt(Math.random() * max, 10)
 }
 function isSignatureOK(body) {
-  const secretKey = 'xrck1Mgi0IxVjS08B3xxxxxxxxxxxxxx'
+  const secretKey = 'xrck1Mgi0IxVjS08B3HsECajO01RYfGW'
   const receivedSignature = body.TcvSignature
   // TcvSignature 不参与签名
   delete body.TcvSignature
