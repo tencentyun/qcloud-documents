@@ -1,10 +1,10 @@
-本文档介绍可能导致 Pod 处于 CrashLoopBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。请对应实际异常情况按照以下步骤依次进行排查直至能够定位引发异常原因，定位问题后恢复正确配置即可。
+本文档介绍可能导致 Pod 处于 CrashLoopBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
 ## 现象描述
 
 Pod 处于 `CrashLoopBackOff` 状态，说明该 Pod 在正常启动过后异常退出过，此时只要 Pod 的 [restartPolicy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy) 不是 Never 就可能会被重启拉起，此状态下 Pod 的 `RestartCounts` 通常大于0。可参考 [通过 Exit Code 定位 Pod 异常退出原因](https://cloud.tencent.com/document/product/457/43125) 查看对应容器进程的退出状态码获取更多异常信息。
 
-## 排查步骤
+## 可能原因及排查步骤
 
 ### 容器进程主动退出
 
@@ -21,7 +21,7 @@ Out of memory: Kill process ...
 节点上所有 Pod 的实际内存占用总量不会超过  `/sys/fs/cgroup/memory/kubepods` 中 cgroup 的限制，该限制值等于 `capacity - "kube-reserved" - "system-reserved"`。通常情况下，如果预留空间设置合理，且节点上其它非容器进程（非 kubelet、dockerd、kube-proxy 及 sshd 等）内存占用没有超过 kubelet 配置的预留空间，是不会发生系统 OOM 的。为确保不再发生此类问题，您可以根据实际需求对预留空间进行合理的调整。
 
 ### cgroup OOM
-如果是 cgrou OOM 停止的进程，可查看 Pod 事件下 `Reason` 为 `OOMKilled`，说明容器实际占用的内存已超过 limit，同时内核日志会报 `Memory cgroup out of memory`，此时可以根据需求调整 limit。
+如果是 cgroup OOM 停止的进程，可查看 Pod 事件下 `Reason` 为 `OOMKilled`，说明容器实际占用的内存已超过 limit，同时内核日志会报 `Memory cgroup out of memory`，此时可以根据需求调整 limit。
 
 ### 节点内存碎片化
 如果出现节点内存碎片化严重、缺少大页内存问题，将会导致即便剩余总内存较多，但仍会申请内存失败，请参考 [内存碎片化](https://cloud.tencent.com/document/product/457/43128) 进行处理。
