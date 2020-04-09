@@ -79,25 +79,25 @@ public class AddSmsTemplate
     {
         try {
             /* 必要步骤：
-             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey。
-             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值。
-             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人。
+             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
+             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
+             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
              * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi*/
             Credential cred = new Credential("secretId", "secretKey");
 
-            // 实例化一个 http 选项，可选，无特殊需求时可以跳过。
+            // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
             httpProfile.setProxyHost("host");
             httpProfile.setProxyPort(port);
-            /* SDK 默认使用 POST 方法。
+            /* SDK 默认使用 POST 方法
              * 如需使用 GET 方法，可以在此处设置，但 GET 方法无法处理较大的请求 */
             httpProfile.setReqMethod("POST");
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名。通常无需指定域名，但如需访问金融区的服务
-             * 则必须手动指定域名，例如 sms 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
+             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -150,7 +150,7 @@ public class AddSmsTemplate
             // 输出 JSON 格式的字符串回包
             System.out.println(AddSmsTemplateResponse.toJsonString(res));
 
-            // 也可以取出单个值，您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
+            // 可以取出单个值，您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
             System.out.println(res.getRequestId());
 
         } catch (TencentCloudSDKException e) {
@@ -190,13 +190,13 @@ public class SendSms
     {
         try {
             /* 必要步骤：
-             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey。
-             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值。
-             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人。
+             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
+             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
+             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
              * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi*/
             Credential cred = new Credential("secretId", "secretKey");
 
-            // 实例化一个 http 选项，可选，无特殊需求时可以跳过。
+            // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
             httpProfile.setProxyHost("host");
@@ -207,8 +207,8 @@ public class SendSms
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名。通常无需指定域名，但如需访问金融区的服务
-             * 则必须手动指定域名，例如 sms 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
+             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -238,7 +238,7 @@ public class SendSms
             String appid = "1400009099";
             req.setSmsSdkAppid(appid);
 
-            /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
+            /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息 */
             String sign = "签名内容";
             req.setSign(sign);
 
@@ -254,12 +254,12 @@ public class SendSms
             String extendcode = "xxx";
             req.setExtendCode(extendcode);
 
-            /* 模板 ID: 必须填写已审核通过的模板 ID。模板 ID 可登录 [短信控制台] 查看 */
+            /* 模板 ID: 必须填写已审核通过的模板 ID，可登录 [短信控制台] 查看模板 ID */
             String templateID = "400000";
             req.setTemplateID(templateID);
 
             /* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
-             * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
+             * 例如+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
             String[] phoneNumbers = {"+8621212313123", "+8612345678902", "+8612345678903"};
             req.setPhoneNumberSet(phoneNumbers);
 
@@ -274,7 +274,7 @@ public class SendSms
             // 输出 JSON 格式的字符串回包
             System.out.println(SendSmsResponse.toJsonString(res));
 
-            // 也可以取出单个值，您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
+            // 可以取出单个值，您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
             System.out.println(res.getRequestId());
 
         } catch (TencentCloudSDKException e) {
@@ -313,9 +313,9 @@ public class PullSmsSendStatus {
     public static void main(String[] args) {
         try {
             /* 必要步骤：
-             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey。
-             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值。
-             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人。
+             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
+             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
+             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
              * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi */
             Credential cred = new Credential("secretId", "secretKey");
 
@@ -330,8 +330,8 @@ public class PullSmsSendStatus {
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名。通常无需指定域名，但如需访问金融区的服务
-             * 则必须手动指定域名，例如 sms 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
+             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -407,13 +407,13 @@ public class SendStatusStatistics {
     public static void main(String[] args) {
         try {
             /* 必要步骤：
-             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey。
-             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值。
-             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人。
+             * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
+             * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
+             * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
              * CAM 密匙查询: https://console.cloud.tencent.com/cam/capi */
             Credential cred = new Credential("secretId", "secretKey");
 
-            // 实例化一个 http 选项，可选，无特殊需求时可以跳过。
+            // 实例化一个 http 选项，可选，无特殊需求时可以跳过
             HttpProfile httpProfile = new HttpProfile();
             // 设置代理
             httpProfile.setProxyHost("host");
@@ -424,8 +424,8 @@ public class SendStatusStatistics {
             /* SDK 有默认的超时时间，非必要请不要进行调整
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
-            /* SDK 会自动指定域名。通常无需指定域名，但如需访问金融区的服务
-             * 则必须手动指定域名，例如 sms 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+            /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
+             * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("sms.tencentcloudapi.com");
 
             /* 非必要步骤:
