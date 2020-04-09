@@ -13,7 +13,7 @@
 
 ### 通过 pip 安装（推荐）
 1. 下载并安装 [pip](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o)。
-2. 执行以下命令：
+2. 执行以下命令安装。
 ```bash
 pip install tencentcloud-sdk-python
 ```
