@@ -7,18 +7,19 @@
 
 ![](https://main.qcloudimg.com/raw/78ac01a937d3f11d644ea6146d73a57d.png)
 ## 配置工程文件
-1. 在【配置管理】页面中，点击【快速接入】按钮。
+1. 在【配置管理】页面中，单击【快速接入】按钮。
 ![](https://main.qcloudimg.com/raw/2966b56bb7b6ed808ce34bd19a3c1e4b.png)
 2.按照接入指引的操作顺序完成配置，然后点击验证按钮。
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 
-3.若出现以下提示，则表示SDK接入成功 。
+3.若出现以下提示，则表示 SDK 接入成功 。
 ![](https://main.qcloudimg.com/raw/393d62182039f2164517d18b86cdb52a.png)
-- 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
+ - 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
 ![](https://main.qcloudimg.com/raw/3c4f5f962bcb07d1383d5b114b8ac15b.png)
-
-- 若出现以下提示，请确认App是否成功注册推送服务，可参考（## 集成结果验证排查）。
+ - 若出现以下提示，请确认 App 是否成功注册推送服务，可参考下文 [集成结果验证](#jichengyanzheng) 排查。
 ![](https://main.qcloudimg.com/raw/ca917f75ce29160e549df5c50876ee00.png)
+
+<span id="jichengyanzheng"></span>
 ## 集成结果验证
 1. 运行 App，过滤"TPush"关键字，查看相关日志：
 ![](https://main.qcloudimg.com/raw/3534e6c05ab9f6959e6e19d4272dc48b.png)
