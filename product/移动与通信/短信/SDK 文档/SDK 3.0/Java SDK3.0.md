@@ -22,6 +22,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
 - 下载 SDK 源码请访问 [Java SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-java)。
 
+
 ## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
@@ -60,7 +61,7 @@ import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
 
-// 导入对应 SMS 模块的 client
+// 导入 SMS 模块的 client
 import com.tencentcloudapi.sms.v20190711.SmsClient;
 
 // 导入要请求接口对应的 request response 类
@@ -171,7 +172,7 @@ import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
 
-// 导入对应 SMS 模块的 client
+// 导入 SMS 模块的 client
 import com.tencentcloudapi.sms.v20190711.SmsClient;
 
 // 导入要请求接口对应的 request response 类
@@ -296,7 +297,7 @@ import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
 
-// 导入对应 SMS 模块的 client
+// 导入 SMS 模块的 client
 import com.tencentcloudapi.sms.v20190711.SmsClient;
 
 // 导入要请求接口对应的 request response 类
@@ -390,7 +391,7 @@ import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 import com.tencentcloudapi.common.profile.ClientProfile;
 import com.tencentcloudapi.common.profile.HttpProfile;
 
-// 导入对应 SMS 模块的 client
+// 导入 SMS 模块的 client
 import com.tencentcloudapi.sms.v20190711.SmsClient;
 
 // 导入要请求接口对应的 request response 类
