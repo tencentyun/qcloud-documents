@@ -81,7 +81,7 @@ try {
 	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
 	 * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
 	 * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-	 * CAM 密钥查询: https://console.cloud.tencent.com/cam/capi */
+	 * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
     
 		$cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -107,8 +107,8 @@ try {
      * 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
      * 基本类型的设置:
 	   * 帮助链接：
-	   * 短信控制台: https://console.cloud.tencent.com/smsv2
-  	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+	   * 短信控制台：https://console.cloud.tencent.com/smsv2
+  	   * sms helper：https://cloud.tencent.com/document/product/382/3773 */
 	
 	/* 模板名称 */
 	$req->TemplateName = "腾讯云";
@@ -157,7 +157,7 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询: https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -183,8 +183,8 @@ try {
      * 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
      * 基本类型的设置:
        * 帮助链接：
-       * 短信控制台: https://console.cloud.tencent.com/smsv2
-       * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+       * 短信控制台：https://console.cloud.tencent.com/smsv2
+       * sms helper：https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SDKAppID，例如1400006666 */
     $req->SmsSdkAppid = "1400787878";
@@ -240,7 +240,7 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询: https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -266,8 +266,8 @@ try {
      * 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
      * 基本类型的设置:
        * 帮助链接：
-       * 短信控制台: https://console.cloud.tencent.com/smsv2
-       * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+       * 短信控制台：https://console.cloud.tencent.com/smsv2
+       * sms helper：https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SDKAppID，例如1400006666 */
     $req->SmsSdkAppid = "1400787878";
@@ -290,7 +290,7 @@ catch(TencentCloudSDKException $e) {
 ```
 
 
-### 发送短信数据统计
+### 统计短信发送数据
 
 ```
 <?php
@@ -310,7 +310,7 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询: https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -336,8 +336,8 @@ try {
      * 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
      * 基本类型的设置:
        * 帮助链接：
-       * 短信控制台: https://console.cloud.tencent.com/smsv2
-       * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+       * 短信控制台：https://console.cloud.tencent.com/smsv2
+       * sms helper：https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SDKAppID，例如1400006666 */
     $req->SmsSdkAppid = "1400787878";
