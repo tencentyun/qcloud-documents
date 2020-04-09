@@ -1,4 +1,4 @@
-本文档介绍可能导致 Pod 健康检查失败的几种情形，以及如何通过排查步骤定位异常原因。在确定引发 Pod 异常的原因后，您可调整对应配置进行解决。
+本文档介绍可能导致 Pod 健康检查失败的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
 
 ## 现象描述
@@ -9,17 +9,17 @@ Kubernetes 健康检查包含就绪检查（readinessProbe）和存活检查（l
 健康检查失败的次生现象通常一致，但导致其发生的诱因种类较多。例如，业务程序存在某个 Bug 导致其不能响应健康检查从而使得 Pod 处于 Unhealthy 状态。除此之外，还有几种可能会导致 Pod 健康检查失败的情况，接下来您可按照以下方式进行排查。
 
 
-## 可能原因及解决思路
+## 可能原因及排查步骤
 ### 健康检查配置不合理
 
-如果容器启动完成后首次探测的时间 `initialDelaySeconds` 设置过短。当容器启动较慢时，就可能会导致容器还没完全启动就开始探测。同时，若 `successThreshold` 默认值设置为1，则 Pod 健康检查失败一次就会被停止，那么 Pod 将会一直这样被停止并重启。
+如果容器启动完成后首次探测的时间 `initialDelaySeconds` 设置过短。当容器启动较慢时，就可能会导致容器还没完全启动就开始探测。同时，若 `successThreshold` 默认值设置为1，则 Pod 健康检查失败一次就会被停止，那么 Pod 将会持续被停止并重启。
 
 ### 节点负载过高
 CPU 占用高（例如跑满）将导致进程无法正常发包收包，通常会出现 timeout，导致 kubelet 认为 Pod 不健康。解决方法及更多信息请参见 [高负载](https://cloud.tencent.com/document/product/457/43127)。
 
 ### 容器进程被木马进程停止
 
-请参考 [使用 Systemtap 定位 Pod 异常退出原因](https://cloud.tencent.com/document/product/457/43111) 进行进一步问题定位。
+请参考 [使用 Systemtap 定位 Pod 异常退出原因](https://cloud.tencent.com/document/product/457/43111) 进行问题进一步定位。
 
 ### 容器内进程端口监听故障
 可以使用 `netstat -tunlp` 检查端口监听是否还存在。通过抓包可以发现，当端口监听不存在时，健康检查探测的连接将会被直接 reset 掉。抓包示例如下：
@@ -36,4 +36,4 @@ CPU 占用高（例如跑满）将导致进程无法正常发包收包，通常�
 
 SYN backlog 大小即 SYN 队列大小，如果短时间内新建连接比较多，而 SYN backlog 设置过小，就会导致新建连接失败，通过 `netstat -s | grep TCPBacklogDrop` 可查看由于 backlog 满了导致丢弃的新连接数量。
 
-如果确认是 backlog 满了导致的丢包，建议调高 backlog 值，相关内核参数为 `net.ipv4.tcp_max_syn_backlog`。
+如果已确认由于 backlog 满了导致的丢包，则建议调高 backlog 值，相关内核参数为 `net.ipv4.tcp_max_syn_backlog`。

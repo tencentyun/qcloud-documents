@@ -2,7 +2,7 @@
 本文档通过一个完整的 DEMO，指导您如何通过 Cocos 引擎使用小游戏联机对战引擎。
 
 ## 前提条件
-已 [下载并安装 Cocos Creator](https://www.cocos.com/products#CocosCreator)。
+已 [下载并安装 Cocos Creator](https://www.cocos.com/products#CocosCreator)（V2.1.0以上版本）。
 
 ## 操作步骤
 1. 打开 Cocos Creator，新建一个“腾讯云联机对战游戏范例”工程。（您也可下载 [游戏范例工程代码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cocos-mgobe.zip)，自行导入工程）
