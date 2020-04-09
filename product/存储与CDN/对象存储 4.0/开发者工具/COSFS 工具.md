@@ -150,7 +150,7 @@ cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oal
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于 XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
 - -oallow_other 允许非挂载用户访问挂载文件夹。
 
