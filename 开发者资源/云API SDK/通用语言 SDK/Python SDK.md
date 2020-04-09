@@ -13,14 +13,14 @@
 
 ### 通过 pip 安装（推荐）
 1. 下载并安装 [pip](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o)。
-2. 执行以下命令安装。
+2. 执行以下命令安装 SDK。
 ```bash
 pip install tencentcloud-sdk-python
 ```
 
 ### 通过源码包安装
 1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码。
-2. 解压后依次执行以下命令安装。
+2. 解压后依次执行以下命令安装 SDK。
 ```
     $ cd tencentcloud-sdk-python
     $ python setup.py install
