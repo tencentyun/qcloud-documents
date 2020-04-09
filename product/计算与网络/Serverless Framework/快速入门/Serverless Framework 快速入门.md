@@ -82,3 +82,9 @@ Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 ### 配置账户信息（可选）
 
 当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/43006) 文档。
+
+### FAQ
+
+>?如您的环境配置了代理，可能会导致输入 `serverless` 时没有默认弹出中文引导， 此时可以进行如下配置：
+
+在 `.env` 文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可

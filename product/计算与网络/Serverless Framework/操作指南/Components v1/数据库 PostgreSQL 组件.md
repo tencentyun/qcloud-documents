@@ -71,5 +71,10 @@ $ sls --debug
 $ sls remove --debug
 ```
 
+### 最佳实践
+
+部署 PG Serverless DB 之后，您可以参考最佳实践[部署全栈数据库应用](https://cloud.tencent.com/document/product/1154/43009)使用该 DB 实例。
+
 ### 更多组件
 您可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
+
