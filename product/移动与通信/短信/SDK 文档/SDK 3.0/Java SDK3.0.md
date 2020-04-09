@@ -19,10 +19,10 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
-各个接口及其参数的详情介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
+- 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
+- 下载 SDK 源码请访问 [Java SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-java)。
 
-
-## 配置 SDK
+## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
 [Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
