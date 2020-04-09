@@ -93,7 +93,7 @@ try:
     req = models.AddSmsTemplateRequest()
 
     # 基本类型的设置:
-    # SDK 采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+    # SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值
     # SDK 提供对基本类型的指针引用封装函数
     # 帮助链接：
     # 短信控制台: https://console.cloud.tencent.com/smsv2
@@ -172,7 +172,7 @@ try:
     req = models.SendSmsRequest()
 
     # 基本类型的设置:
-    # SDK 采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+    # SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值
     # SDK 提供对基本类型的指针引用封装函数
     # 帮助链接：
     # 短信控制台: https://console.cloud.tencent.com/smsv2
@@ -258,7 +258,7 @@ try:
     req = models.PullSmsSendStatusRequest()
 
     # 基本类型的设置:
-    # SDK 采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+    # SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值
     # SDK 提供对基本类型的指针引用封装函数
     # 帮助链接：
     # 短信控制台: https://console.cloud.tencent.com/smsv2
@@ -330,7 +330,7 @@ try:
     req = models.SendStatusStatisticsRequest()
 
     # 基本类型的设置:
-    # SDK 采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+    # SDK 采用的是指针风格指定参数，即使对于基本类型也需要用指针来对参数赋值
     # SDK 提供对基本类型的指针引用封装函数
     # 帮助链接：
     # 短信控制台: https://console.cloud.tencent.com/smsv2
