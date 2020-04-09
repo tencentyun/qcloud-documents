@@ -113,6 +113,7 @@ kubectl logs <pod-name> [-c <container-name>]
 - [Pod 一直处于 ContainerCreating 或 Waiting 状态](https://cloud.tencent.com/document/product/457/42946)
 - [Pod 一直处于 ImagePullBackOff 状态](https://cloud.tencent.com/document/product/457/42947)
 - [Pod 一直处于 Pending 状态](https://cloud.tencent.com/document/product/457/42948)
+- [Pod 一直处于 Terminating 状态](https://cloud.tencent.com/document/product/457/43238)
 - [Pod 健康检查失败](https://cloud.tencent.com/document/product/457/43129)
 - [Pod 处于 CrashLoopBackOff 状态](https://cloud.tencent.com/document/product/457/43130)
 - [容器进程主动退出](https://cloud.tencent.com/document/product/457/43148)
