@@ -1,3 +1,7 @@
+本文档介绍可能导致 Pod 一直处于 Pending 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
+
+
+## 现象描述
 当 Pod 一直处于 Pending 状态时，说明该 Pod 还未被调度到某个节点上，需查看 Pod 分析问题原因。例如执行 `kubectl describe pod <pod-name>` 命令，则获取到的事件信息如下：
 ``` bash
 $ kubectl describe pod tikv-0
@@ -8,11 +12,7 @@ Events:
   Warning  FailedScheduling  3m (x106 over 33m)  default-scheduler  0/4 nodes are available: 1 node(s) had no available volume zone, 2 Insufficient cpu, 3 Insufficient memory.
 ```
 
-
-本文档介绍可能导致 Pod 一直处于 Pending 状态的几种情形，以及如何通过排查步骤定位异常原因。请对应实际异常情况按照以下步骤依次进行排查直至能够定位引发异常原因，定位问题后恢复正确配置即可。
-
-
-## 现象描述及排查步骤
+## 可能原因及排查步骤
 ### 节点资源不足
 节点资源不足有以下几种情况：
 * CPU 负载过高。
@@ -27,7 +27,7 @@ kubectl describe node <node-name>
 * `Allocatable`：表示此节点能够申请的资源总和。
 * `Allocated resources`：表示此节点已分配的资源（Allocatable 减去节点上所有 Pod 总的 Request）。
 
-前者与后者相减，即可得出剩余可申请的资源大小。如果这个值小于 Pod 的 Request，则不满足 Pod 的资源要求，Scheduler 在 Predicates（预选）阶段就会剔除掉该 Node，不会调度 Pod 到该 Node。
+前者与后者相减，即可得出剩余可申请的资源大小。如果该值小于 Pod 的 Request，则不满足 Pod 的资源要求，Scheduler 在 Predicates（预选）阶段就会剔除掉该 Node，不会调度 Pod 到该 Node。
 
 
 ### 不满足 nodeSelector 与 affinity
@@ -58,7 +58,7 @@ Taints:             special=true:NoSchedule
 $ kubectl taint node host1 special=true:NoSchedule
 node "host1" tainted
 ```
-在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
+>?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
 
 #### 自动添加污点
 
@@ -96,7 +96,7 @@ Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导�
 ### kube-scheduler 未正常运行
 请注意时检查 Maser 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
 
-### 驱逐后其它可用节点与当前节点的有状态应用不在同一个可用区
+### 驱逐后其它可用节点与当前节点的有状态应用不在相同可用区
 
 服务部署成功且正在运行时，若此时节点突发故障，就会触发 Pod 驱逐，并创建新的 Pod 副本调度到其它节点上。
 
