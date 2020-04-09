@@ -1,9 +1,9 @@
 ## 简介
-在您完成创建产品和 iOS 应用之后，可在 [控制台](https://console.cloud.tencent.com/tpns) >【配置管理】下快速接入工具接入SDK，简化接入流程，集成更便捷快速。
+在您完成创建产品和 iOS 应用之后，可在 [控制台](https://console.cloud.tencent.com/tpns) >【配置管理】下快速接入工具接入SDK，无需手动添加任何代码，简化接入流程，一键为您的App配置推送功能。
 
 ## 接入前准备
 1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，申请试用或者购买推送服务。
+2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为您的应用申请试用或者购买推送服务。
 3. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
 ![](https://main.qcloudimg.com/raw/3f93f315d5b8b987c20371caf6191423.png)
 4. 完成以上步骤后，单击快速接入，下载快速集成工具。
@@ -22,7 +22,8 @@
 安装并打开"TPNS Smart Tool"，执行以下操作：
 1. 单击开始集成。
 ![](https://main.qcloudimg.com/raw/58d48d69704b096ce35e89ba54be73d5.png)
-2. 输入当前应用的 AccessID 与 AccessKey。
+2. 输入当前应用的 AccessID 与 AccessKey（可在[产品管理](https://console.cloud.tencent.com/tpns)页面点击进入此应用的【配置管理】页面获取）。
+![](https://main.qcloudimg.com/raw/d652815a91c5e8b1a8ff6fff1fcc3624.png)
 3. 选择您的 Xcode 工程使用的开发语言（Objective-C/Swift）。
 4. 上传您的 Xcode 工程文件（.xcodeproj）。
  ![](https://main.qcloudimg.com/raw/079ae5fdc1d2ec8c7c30b6dcf99e1dd8.png)
@@ -32,6 +33,8 @@
  - 当开发语言选择为`Swift`时若出现以下提示，则表示集成成功。
 ![](https://main.qcloudimg.com/raw/fa3e2d52ce2fdf21d4c2afaa28f1e8a6.png)
 
+6.打开App工程配置，查看当前工程证书是否支持push，如不支持，则需要按照xcode的提示处理证书。
+![](https://main.qcloudimg.com/raw/6eca69b3e10f2525d87cd3b58c9e59c3.png)
 ## 集成结果验证
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
 ```
