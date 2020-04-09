@@ -26,7 +26,8 @@
 ![](https://main.qcloudimg.com/raw/d652815a91c5e8b1a8ff6fff1fcc3624.png)
 3. 选择您的 Xcode 工程使用的开发语言（Objective-C/Swift）。
 4. 上传您的 Xcode 工程文件（.xcodeproj）。
- ![](https://main.qcloudimg.com/raw/079ae5fdc1d2ec8c7c30b6dcf99e1dd8.png)
+![](https://main.qcloudimg.com/raw/b5412fb81f27ed1e503364651caa528f.png)
+
 5. 单击【一键集成】按钮，等待集成结果：
  - 当开发语言选择为`Objective-C`时若出现以下提示，则表示集成成功。
 ![](https://main.qcloudimg.com/raw/9b1cbab5e061eb36240a08619673f639.png)
