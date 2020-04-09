@@ -158,12 +158,12 @@ cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oal
 
 ```shell
 mkdir -p /mnt/cosfs
-cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr  -oallow_other
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
 >!v1.0.5 之前版本 COSFS 的挂载命令如下：
 ```shell
-cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName>  -oallow_other
+cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
 ```
 v1.0.5 之前版本 COSFS 的配置文件格式是：
 ```shell
