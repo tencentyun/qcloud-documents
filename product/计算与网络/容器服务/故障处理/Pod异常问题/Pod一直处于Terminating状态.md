@@ -1,6 +1,6 @@
-本文档将为您展示可能导致 Pod 一直处于 Terminating 状态的几种情形，以及如何通过排查步骤定位异常原因。请对应实际异常情况按照以下步骤依次进行排查直至能够定位引发异常原因，定位问题后恢复正确配置即可。
+本文档将为您展示可能导致 Pod 一直处于 Terminating 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
-## 现象描述及排查步骤
+## 可能原因及排查步骤
 ### 磁盘空间不足
 当 Docker 的数据目录所在磁盘被写满时，Docker 将无法正常运行，甚至无法进行删除和创建操作。kubelet 调用 Docker 删除容器时将无响应，执行 `kubectl describe pod <pod-name>` 命令，查看 event 通常返回信息如下：
 ```bash
@@ -13,9 +13,7 @@ Normal  Killing  39s (x735 over 15h)  kubelet, 10.179.80.31  Killing container w
 #### 现象描述
 “i” 文件属性描述可通过 `man chattr` 进行查看，描述示例如下：
 ``` txt
-       A file with the 'i' attribute cannot be modified: it cannot be deleted or renamed, no
-link can be created to this file and no data can be written to the file.  Only the superuser
-or a process possessing the CAP_LINUX_IMMUTABLE capability can set or clear this attribute.
+       A file with the 'i' attribute cannot be modified: it cannot be deleted or renamed, no link can be created to this file and no data can be written to the file.  Only the superuser or a process possessing the CAP_LINUX_IMMUTABLE capability can set or clear this attribute.
 ```
 >!如果容器镜像本身或者容器启动后写入的文件存在 “i” 文件属性，此文件将无法被修改或删除。 
 >
@@ -49,7 +47,7 @@ Warning FailedSync 3m (x408 over 1h) kubelet, 10.179.80.31 error determining sta
 
 ### 存在 Finalizers
 
-K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是由某个程序创建的，该资源的 `finalizers` 中也会添加一个专属于该程序的标识。例如，Rancher 创建的一些资源就会写入 `finalizers` 标识。
+K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是由某个程序创建的，该 `finalizers` 中也会添加一个专属于该程序的标识。例如，Rancher 创建的一些资源就会写入 `finalizers` 标识。
 
 若想要删除该程序所创建的资源时，则需要由创建该资源的程序进行删除前的清理，且只有清理完成并将标识从该资源的 `finalizers` 中移除，才可以彻底删除资源。
 
