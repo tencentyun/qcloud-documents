@@ -284,7 +284,7 @@ client.PullSmsSendStatus(req, function (err, response) {
 });
 ```
 
-### 发送短信数据统计
+### 统计短信发送数据
 
 ```
 const tencentcloud = require("../../../../tencentcloud-sdk-nodejs");
