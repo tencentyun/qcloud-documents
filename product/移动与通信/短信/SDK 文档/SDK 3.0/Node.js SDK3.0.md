@@ -88,7 +88,7 @@ let client = new smsClient(cred, "ap-guangzhou", clientProfile);
 /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
  * 您可以直接查询 SDK 源码确定 SendSmsRequest 有哪些属性可以设置
  * 属性可能是基本类型，也可能引用了另一个数据结构
- * 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+ * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
 let req = new models.AddSmsTemplateRequest();
 
 /* 基本类型的设置:
@@ -170,7 +170,7 @@ let client = new smsClient(cred, "ap-guangzhou", clientProfile);
 /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
  * 您可以直接查询 SDK 源码确定 SendSmsRequest 有哪些属性可以设置
  * 属性可能是基本类型，也可能引用了另一个数据结构
- * 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+ * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
 let req = new models.SendSmsRequest();
 
 /* 基本类型的设置:
@@ -257,7 +257,7 @@ let client = new smsClient(cred, "ap-guangzhou", clientProfile);
 /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
  * 您可以直接查询 SDK 源码确定 SendSmsRequest 有哪些属性可以设置
  * 属性可能是基本类型，也可能引用了另一个数据结构
- * 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+ * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
 let req = new models.PullSmsSendStatusRequest();
 
 /* 基本类型的设置:
@@ -331,7 +331,7 @@ let client = new smsClient(cred, "ap-guangzhou", clientProfile);
 /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
  * 您可以直接查询 SDK 源码确定 SendSmsRequest 有哪些属性可以设置
  * 属性可能是基本类型，也可能引用了另一个数据结构
- * 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+ * 推荐使用 IDE 进行开发，可以方便地跳转查阅各个接口和数据结构的文档说明 */
 let req = new models.SendStatusStatisticsRequest();
 
 /* 基本类型的设置:
