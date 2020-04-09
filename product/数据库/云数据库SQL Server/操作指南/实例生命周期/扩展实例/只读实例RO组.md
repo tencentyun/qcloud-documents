@@ -63,10 +63,6 @@
     <th>权重</th>
   </tr>
   <tr>
-		<td>内存1000MB</td>
-		<td>1</td>
-  </tr>
-  <tr>
 		<td>内存2000MB</td>
 		<td>1</td>
   </tr>
