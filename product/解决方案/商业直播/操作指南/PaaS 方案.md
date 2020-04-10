@@ -1,12 +1,11 @@
 在正式接入前，请先阅读微信小程序提供的 [插件文档](https://developers.weixin.qq.com/miniprogram/dev/framework/plugin/)，了解插件的使用范围和限制。
 
 ### 准备工作
-
-1. 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序，并按照实际场景选择类目。
-2. 注册 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)，完成 [企业实名认证](https://cloud.tencent.com/document/product/378/10496)，并开通小程序·云直播插件权限。
-3. 添加小程序直播域名，配置推拉流地址。
+1. 在 [微信公众平台](https://mp.weixin.qq.com) 注册并登录小程序。
+2. 符合接入要求，申请插件并购买小程序·云直播服务，详见 [服务开通](https://cloud.tencent.com/document/product/1078/42916)。
+3. 开通小程序·云直播服务后，登录 [云直播控制台](https://console.cloud.tencent.com/live)，在【域名管理】中添加小程序直播域名，然后 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)。
 4. 下载并安装最新版本的 [微信开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html)，使用小程序绑定的微信号扫码登录开发者工具。
- ![](https://main.qcloudimg.com/raw/366e52aa9cc84949271b87a4678da636.png)
+![](https://main.qcloudimg.com/raw/366e52aa9cc84949271b87a4678da636.png)
 
 ### 在小程序中引入插件代码
 
