@@ -45,7 +45,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（9.0 以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（10.2以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
 
 ### 步骤5：修改 Demo 源代码
 源码文件夹 `TRTCAudioCallDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件架中均为界面代码：
