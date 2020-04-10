@@ -70,10 +70,10 @@ mSuperPlayerView.playWithModel(model);
 
 ## 多清晰度
 
-上面的示例代码只有一种清晰度，如果要添加多个清晰度，也非常简单。以直播为例，打开 [直播控制台](https://console.cloud.tencent.com/live/livemanage)，找到需要播放的直播流，进入详情。
-![](https://main.qcloudimg.com/raw/dbb76ea89261f17ec7aeab7282e87b9d.png)
+上面的示例代码只有一种清晰度，如果要添加多个清晰度，以直播为例：
+在云直播控制台 [创建转码模板](https://cloud.tencent.com/document/product/267/20385) 后，播放域名 [绑定转码模板](https://cloud.tencent.com/document/product/267/32834)，然后在原 StreamName（流 id）的基础上加上"_模板名称"，重新生成播放地址，即可播放指定的码率或分辨率的直播流，详情请参见 [直播转码](https://cloud.tencent.com/document/product/267/32736#.E8.BD.AC.E7.A0.81.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
 
-这里有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
+例如，你有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
 ```java
 SuperPlayerModel model = new SuperPlayerModel();
@@ -111,7 +111,7 @@ playerModel.appId = 1252463788;
 设置清晰度除了填写 url 外，更简单的使用方式是采用 fileId 播放。fileId 在一般是在视频上传后，由服务器返回：
 
 1. 在 [腾讯云官网](https://cloud.tencent.com/) 注册腾讯云账号，然后开通点播服务。
-2. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/9369) 到客户端。
+2. 客户端视频发布后，服务器会返回 [fileId](https://cloud.tencent.com/document/product/584/15535) 到客户端。
 3. 服务端视频上传，在 [确认上传](https://cloud.tencent.com/document/product/266/9757) 的通知中包含对应的 fileId。
 
 
@@ -120,21 +120,28 @@ playerModel.appId = 1252463788;
 播放 fileId 的代码如下：
 
 ```java
+//不开防盗链
 SuperPlayerModel model = new SuperPlayerModel();
-model.appId = 1252463788;// 配置 AppId
+model.appId = 1400329073;// 配置 AppId
 model.videoId = new SuperPlayerVideoId();
-model.videoId.fileId = "5285890781763144364"; // 配置 FileId
+model.videoId.fileId = "5285890799710670616"; // 配置 FileId
+mSuperPlayerView.playWithModel(model);
+
+//开启防盗链，需填写 psign， psign 签名介绍和生成方式参见链接：https://cloud.tencent.com/document/product/266/42436
+SuperPlayerModel model = new SuperPlayerModel();
+model.appId = 1400329071;// 配置 AppId
+model.videoId = new SuperPlayerVideoId();
+model.videoId.fileId = "5285890799710173650"; // 配置 FileId
+mSuperPlayerView.playWithModel(model);
+model.videoId.pSign = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMyOTA3MSwiZmlsZUlkIjoiNTI4NTg5MDc5OTcxMDE3MzY1MCIsImN1cnJlbnRUaW1lU3RhbXAiOjEsImV4cGlyZVRpbWVTdGFtcCI6MjE0NzQ4MzY0NywidXJsQWNjZXNzSW5mbyI6eyJ0IjoiN2ZmZmZmZmYifSwiZHJtTGljZW5zZUluZm8iOnsiZXhwaXJlVGltZVN0YW1wIjoyMTQ3NDgzNjQ3fX0.yJxpnQ2Evp5KZQFfuBBK05BoPpQAzYAWo6liXws-LzU"; 
 mSuperPlayerView.playWithModel(model);
 ```
 
 视频在上传后，后台会自动转码（所有转码格式请参考 [转码模板](https://cloud.tencent.com/document/product/266/33478#.3Cspan-id-.3D-.22zm.22-.3E.3C.2Fspan.3E.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF)）。转码完成后，播放器会自动显示多个清晰度。关于使用防盗链内容，您可以参考文档：[点播超级播放器使用文档 - Key 防盗链](https://cloud.tencent.com/document/product/266/14424#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
-## 雪碧图和打点信息
+## 打点信息
 
-在播放长视频时，雪碧图和打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。
-
-- [截取雪碧图](https://cloud.tencent.com/document/product/266/8101)
-- [增加打点信息](https://cloud.tencent.com/document/product/266/14190)
+在播放长视频时，打点信息有助于观众找到该兴趣的点。使用腾讯云服务 API，能快速对视频处理。详情请参见 [增加打点信息](https://cloud.tencent.com/document/product/266/14190)。
 
 任务执行成功后，播放器的界面会增加新的元素。
 <img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="670"/>
