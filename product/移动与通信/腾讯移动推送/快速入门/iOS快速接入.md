@@ -26,7 +26,7 @@
 安装并打开"TPNS Smart Tool"，执行以下操作：
 1. 单击开始集成。
 ![](https://main.qcloudimg.com/raw/58d48d69704b096ce35e89ba54be73d5.png)
-2. 输入当前应用的 AccessID 与 AccessKey（可在[产品管理](https://console.cloud.tencent.com/tpns)页面点击进入此应用的【配置管理】页面获取）。
+2. 输入当前应用的 AccessID 与 AccessKey（可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面点击进入此应用的【配置管理】页面获取）。
 ![](https://main.qcloudimg.com/raw/d652815a91c5e8b1a8ff6fff1fcc3624.png)
 3. 选择您的 Xcode 工程使用的开发语言（Objective-C/Swift）。
 4. 上传您的 Xcode 工程文件（.xcodeproj）。
@@ -37,7 +37,7 @@
  - 当开发语言选择为`Swift`时若出现以下提示，则表示集成成功。
 ![](https://main.qcloudimg.com/raw/fa3e2d52ce2fdf21d4c2afaa28f1e8a6.png)
 
-6.打开App工程配置，查看当前工程证书是否支持push，如不支持，则需要按照xcode的提示处理证书。
+6.打开App工程配置，查看当前工程证书是否支持push，如不支持，则需要按照 Xcode 的提示处理证书。
 ![](https://main.qcloudimg.com/raw/6eca69b3e10f2525d87cd3b58c9e59c3.png)
 ## 接入结果验证
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
