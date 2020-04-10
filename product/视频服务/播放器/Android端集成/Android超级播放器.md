@@ -71,7 +71,8 @@ mSuperPlayerView.playWithModel(model);
 ## 多清晰度
 
 上面的示例代码只有一种清晰度，如果要添加多个清晰度，以直播为例：
-在云直播控制台 [创建转码模板](https://cloud.tencent.com/document/product/267/20385) 后，播放域名 [绑定转码模板](https://cloud.tencent.com/document/product/267/32834)，然后在原 StreamName（流 id）的基础上加上"_模板名称"，重新生成播放地址，即可播放指定的码率或分辨率的直播流，详情请参见 [直播转码](https://cloud.tencent.com/document/product/267/32736#.E8.BD.AC.E7.A0.81.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
+
+在云直播控制台 [创建转码模板](https://cloud.tencent.com/document/product/267/20385) 后，播放域名 [绑定转码模板](https://cloud.tencent.com/document/product/267/32834)，然后在原 StreamName（流 id）的基础上加上"\_模板名称"，重新生成播放地址，即可播放指定的码率或分辨率的直播流，详情请参见 [直播转码](https://cloud.tencent.com/document/product/267/32736#.E8.BD.AC.E7.A0.81.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
 
 例如，你有不同清晰度、不同格式的播放地址。推荐使用 FLV 地址播放，代码如下：
 
