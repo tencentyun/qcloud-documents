@@ -10,7 +10,7 @@
 
 ## 开始接入
 1.在【配置管理】页面中，点击【快速接入】按钮。
-![](https://main.qcloudimg.com/raw/2966b56bb7b6ed808ce34bd19a3c1e4b.png)
+![](https://main.qcloudimg.com/raw/26118ca32c232eae530cd290f9aa2195.png)
 2.按照接入指引的操作顺序完成配置，然后点击验证按钮。
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 3.若出现以下提示，则表示SDK接入成功 。
@@ -18,11 +18,9 @@
 - 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
 ![](https://main.qcloudimg.com/raw/0be6c16b6421faf7855c13f2bd670a19.png)
 可在[产品管理](https://console.cloud.tencent.com/tpns)页面查看当前应用服务状态，在您申请试用或购买后30分钟内可开通服务。
-![](https://main.qcloudimg.com/raw/7a2bf2d898a34240b1de53f7b87af903.png)
-
-- 若出现以下提示，请确认App是否成功注册推送服务，可参考 [接入结果验证](#jierujieguo)。
+![](https://main.qcloudimg.com/raw/058b0ef8a861acb3986aee92adc63e8e.png)
+- 若出现以下提示，请确认App是否成功注册推送服务，可参考[接入结果验证](#jierujieguo)。
 ![](https://main.qcloudimg.com/raw/b234996ccd14cd5681bda3c5afcb5f30.png)
-
 
 <span id="jierujieguo"></span>
 ## 接入结果验证
@@ -38,8 +36,8 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 
 ## 厂商通道快速接入
 1.在配置管理页面打开厂商推送通道开关并配置好应用的AppId、SecretKey等信息，申请方式可点击查看各厂商通道的说明文档。
-![](https://main.qcloudimg.com/raw/264b677769728b1f174c83eaa06b960d.png)
-2.配置完成后再次点击【快速接入】按钮，按照右侧接入指引的操作顺序完成配置。
+![](https://main.qcloudimg.com/raw/f357a18e6615782c54839f9777e7c97b.png)
+2.配置完成后点击页面上方的【配置文件下载】按钮，覆盖工程文件中旧的配置文件即可。
 
 ## 问题排查指引
 1. 插件日志
