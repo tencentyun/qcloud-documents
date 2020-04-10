@@ -1,7 +1,7 @@
-本文档介绍可能导致 Pod 一直处于 ImagePullBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。请对应实际异常情况按照以下步骤依次进行排查直至能够定位引发异常原因，定位问题后恢复正确配置即可。
+本文档介绍可能导致 Pod 一直处于 ImagePullBackOff 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
 
-## 现象描述及排查步骤
+## 可能原因及排查步骤
 ### HTTP 类型 Registry 地址未加入 insecure-registry
 
 Dockerd 默认从 HTTPS 类型的 Registry 拉取镜像。当您使用 HTTP 类型的 Registry 时，请确保已将其地址添加到 insecure-registry 参数中，并重启或 reload Dockerd 使其生效。

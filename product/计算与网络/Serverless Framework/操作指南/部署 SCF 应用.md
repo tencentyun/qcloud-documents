@@ -65,8 +65,8 @@ stage: dev # (可选) 用于区分环境信息，默认值是 dev
 inputs:
   name: scfFunctionName
   src: ./src
-  runtime: Python3.6 # Node.js 8.9
-  region: ap-shanghai
+  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、PHP5、PHP7、Golang1、Java8。
+  region: ap-guangzhou
   handler: index.main_handler
   events:
     - apigw:
@@ -83,7 +83,7 @@ inputs:
               method: GET
 ```
 
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/v2/docs/configure.md)
+查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)
 
 当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 
@@ -129,6 +129,6 @@ $ touch .env # 腾讯云的配置信息
 TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
->
-- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>?
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。

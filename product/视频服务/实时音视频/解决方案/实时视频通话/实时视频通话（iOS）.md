@@ -33,7 +33,7 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `iOS/trtcScenesDemo/trtcScenes/debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为占位符，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为占位符，请设置为实际的密钥信息。</li></ul> 
@@ -46,7 +46,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（9.0 以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码

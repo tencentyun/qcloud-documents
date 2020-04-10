@@ -1,7 +1,7 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（iOS&Mac）。
 
 ## 环境要求
-- Xcode 9.0及以上版本
+- Xcode 11.0及以上版本
 - 请确保您的项目已设置有效的开发者签名
 
 ## 前提条件
@@ -32,11 +32,11 @@
   </tr>
 <tr>
       <td>iOS</td>
-<td>iOS/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+<td>iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h</td>
   </tr>
 <tr>
     <td>Mac</td>
-    <td>Mac/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+    <td>Mac/TRTCScenesDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
   </tr></table>
 3. 设置`GenerateTestUserSig.h`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
@@ -51,7 +51,7 @@
 ### 步骤4：编译运行
 1. 在终端窗口进入 TRTCSDK iOS/Mac Demo Podfile 文件所在目录。
 2. 执行`pod install`命令安装 TRTC SDK，或者执行`pod update`命令，更新本地库版本。
-3. 使用 XCode（9.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
+3. 使用 XCode（11.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
 

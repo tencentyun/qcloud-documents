@@ -360,6 +360,7 @@
 | [云支付](https://cloud.tencent.com/document/product/569)  | 服务级 | &#10003;   | -  |  - | - |
 | [商业直播](https://cloud.tencent.com/document/product/1078)  | 操作级 | &#10003;   | -  |  - | - |
 | [企业微信云](https://cloud.tencent.com/document/product/1119)  | 资源级 | &#10003;   | -  |  - |[访问管理指南](https://cloud.tencent.com/document/product/1119/38419) |
+| [数字版权管理解决方案](https://cloud.tencent.com/document/product/1000)  | 操作级 | -  | -  |  - |- |
 
 ## 开发者工具
 

@@ -57,8 +57,8 @@
 | anchor | 主播端相关 UI 的实现代码。 |
 | audience | 观众端相关 UI 的实现代码。 |
 | common | 通用的 UI 组件实现代码。 |
-| liveroomlist | 房间列表页实现代码 |
-| widget | 通用控件 |
+| liveroomlist | 房间列表页实现代码。 |
+| widget | 通用控件。 |
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
