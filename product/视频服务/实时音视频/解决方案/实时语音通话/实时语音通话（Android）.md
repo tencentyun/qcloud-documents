@@ -119,7 +119,7 @@ defaultConfig {
 ```
 
 在 proguard-rules.pro 文件，将 SDK 相关类加入不混淆名单：
-```
+```java
 -keep class com.tencent.** { *; }
 ```
 
