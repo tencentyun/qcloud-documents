@@ -11,7 +11,7 @@
 调用 GSE 包含4个步骤：
 1. 集成 ServerSDK。
 2. 发布并集成 ServerSDK 的程序。
-3. 调用云 API 请求服务地址，快速创建游戏服务器会话和玩家会话.
+3. 调用云 API 请求服务地址，快速创建游戏服务器会话和玩家会话。
 4. 访问服务。
 
 ## 操作步骤
@@ -61,11 +61,11 @@
 1. 选择【快捷实验】>【部署示范包】，连续再单击5次【创建游戏服务器会话】，从而共创建6个游戏服务器会话。
 ![](https://main.qcloudimg.com/raw/569510c2d9de270bd785bb57e177a9b7.png)
 2. 单击左侧菜单[【服务器舰队】](https://console.cloud.tencent.com/gse/fleet)，选择刚一键创建的服务器舰队 ID，进入舰队详情，选择【示例列表】。在其页面观察服务实例数量，2分钟后，您将发现服务器被扩容至2台。
-![](https://main.qcloudimg.com/raw/7f11e71ad1876b51682820b9465ed616.png)
+![](https://main.qcloudimg.com/raw/2788ac8033205adf171005938179365a.png)
 
 
 #### 结束游戏服务器会话，触发缩容
 1. 选择【快捷实验】>【部署示范包】，进入客户端页面，单击【结束游戏会话】，即可结束5个游戏服务器会话。
-![](https://main.qcloudimg.com/raw/a4027419e14e7ddf46703ce69320f6be.png)
+![](https://main.qcloudimg.com/raw/7f11e71ad1876b51682820b9465ed616.png)
 2. 单击左侧菜单[【服务器舰队】](https://console.cloud.tencent.com/gse/fleet)，选择刚一键创建的服务器舰队 ID，进入舰队详情，选择【示例列表】。在其页面观察服务实例数量，2分钟后，您将发现服务器被缩容至1台。
-![](https://main.qcloudimg.com/raw/c152d7fc2efd892c9aa0cd6d35b9da65.png)
+![](https://main.qcloudimg.com/raw/65104c873e5e606e3b79a45b9ab17c2b.png)
