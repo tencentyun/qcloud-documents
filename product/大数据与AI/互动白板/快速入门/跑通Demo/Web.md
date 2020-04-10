@@ -7,7 +7,7 @@
 
 #### 1. 安装 live-server
 
-> 假设您已经安装了 npm，如果还没有安装 npm，请自行 google 安装 npm。
+假设您已经安装了 npm，如果还没有安装 npm，请自行 google 安装 npm。
 
 ```
 npm install -g live-server
@@ -15,12 +15,12 @@ npm install -g live-server
 
 #### 2. 在 Demo 目录下执行 live-server 命令
 
-> 命令运行完成后，会自动在浏览器中打开 Demo 首页
+命令运行完成后，会自动在浏览器中打开 Demo 首页
 ```
 live-server
 ```
 
-> 您也可以使用其他 Web 服务器搭建环境。
+您也可以使用其他 Web 服务器搭建环境。
 
 ### 账号配置
 
