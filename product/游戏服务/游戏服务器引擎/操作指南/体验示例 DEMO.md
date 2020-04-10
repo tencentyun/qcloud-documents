@@ -22,7 +22,7 @@
 1. 登录 [游戏服务器引擎控制台](https://console.cloud.tencent.com/gse)，选择左侧菜单【快捷实验】>【示范 DEMO】。
 2. 选择左上侧服务区域，单击【一键上传示范包】，提示创建成功后，进入【下一步】。
 ![](https://main.qcloudimg.com/raw/7cb6102e553e388cbd3abc0f5febd188.png)
->?这此步骤为开发者的代码集成 ServerSDK，请将代码和依赖上传，GSE 为您提供示范包，并可一键上传。
+>?此步骤为开发者的代码集成 ServerSDK，请将代码和依赖上传，GSE 为您提供示范包，并可一键上传。
 3. 单击【一键创建服务器舰队】，提示创建成功后，进入【下一步】。
 ![](https://main.qcloudimg.com/raw/a0b0b580ccb3a47843bb8d9f22a08a89.png)
 4. 单击【创建游戏服务器会话】，提示创建游戏服务器会话成功。
