@@ -57,7 +57,7 @@
 | ChatRoom | 文字聊天室以及弹幕消息的 UI 实现代码。 | 
 | Common | 可复用的一些 UI 组件的实现代码。 | 
 | StatusView | 状态浮层，会覆盖在视频画面上面，用于显示日志信息和视频加载动画。 | 
-| LiveRoomMainViewController.swift | 视频互动直播主页面 UI | 
+| LiveRoomMainViewController.swift | 视频互动直播主页面 UI。 | 
 
 
 <span id="model"> </span>
