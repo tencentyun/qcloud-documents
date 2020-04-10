@@ -20,9 +20,11 @@
 可在[产品管理](https://console.cloud.tencent.com/tpns)页面查看当前应用服务状态，在您申请试用或购买后30分钟内可开通服务。
 ![](https://main.qcloudimg.com/raw/7a2bf2d898a34240b1de53f7b87af903.png)
 
-- 若出现以下提示，请确认App是否成功注册推送服务，可参考（# 接入结果验证）。
+- 若出现以下提示，请确认App是否成功注册推送服务，可参考 [接入结果验证](#jierujieguo)。
 ![](https://main.qcloudimg.com/raw/b234996ccd14cd5681bda3c5afcb5f30.png)
 
+
+<span id="jierujieguo"></span>
 ## 接入结果验证
 1. 运行 App，过滤"TPush"关键字，查看相关日志：
 ![](https://main.qcloudimg.com/raw/3534e6c05ab9f6959e6e19d4272dc48b.png)
