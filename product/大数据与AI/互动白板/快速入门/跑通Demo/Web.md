@@ -38,7 +38,7 @@ Demo 集成了实时音视频 TRTC SDK，为保证音视频功能的正常使用
 
 #### 2. 创建即时通讯应用
 
-在`创建音视频引用`后，会默认创建相同 SDKAppID 的即时通讯应用。
+在`创建音视频应用`后，会默认创建相同 SDKAppID 的即时通讯应用。
 
 步骤一：登录 [即时通讯控制台](https://console.cloud.tencent.com/im)，单击 SDKAppID 对应的应用。
 
