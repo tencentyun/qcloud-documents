@@ -47,7 +47,7 @@ PHP 环境下的入参包括 $event 、$context。
 
 ## 已安装扩展
 
-如下列出目前已安装的 PHP 扩展供参考：
+如下列出目前已安装的 PHP 扩展：
 - date
 - libxml
 - openssl
