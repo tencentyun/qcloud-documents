@@ -263,8 +263,8 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```shell
 GET /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 10 Apr 2020 09:36:56 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511416;1586518616&q-key-time=1586511416;1586518616&q-header-list=date;host&q-url-param-list=&q-signature=87bcf52788f1d961bfe57d65694bc9df3c72****
+Date: Fri, 10 Apr 2020 12:30:02 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586521802;1586529002&q-key-time=1586521802;1586529002&q-header-list=date;host&q-url-param-list=&q-signature=51b3c33f4cfae5d7b31ad61a974db7374f39****
 Connection: close
 ```
 
@@ -273,18 +273,18 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: image/jpeg
-Content-Length: 15
+Content-Length: 26
 Connection: close
 Accept-Ranges: bytes
-Date: Fri, 10 Apr 2020 09:36:56 GMT
-ETag: "60c7644eb1ae8918a7fe7e13a352712c"
-Last-Modified: Fri, 10 Apr 2020 09:36:46 GMT
+Date: Fri, 10 Apr 2020 12:30:02 GMT
+ETag: "22e024392de860289f0baa7d6cf8a549"
+Last-Modified: Fri, 10 Apr 2020 12:29:52 GMT
 Server: tencent-cos
-x-cos-hash-crc64ecma: 3708565842843338344
-x-cos-request-id: NWU5MDNlMzhfNjhjODJhMDlfMTQwMTNfMTUw****
-x-cos-version-id: MTg0NDUxNTc1NjIzMDMwOTY2OTQ
+x-cos-hash-crc64ecma: 11596229263574363878
+x-cos-request-id: NWU5MDY2Y2FfMzFiYjBiMDlfMjE2NzVfMTgz****
+x-cos-version-id: MTg0NDUxNTc1NTE5MTc1NjM4MDA
 
-exampleobject-2
+[Object Content Version 2]
 ```
 
 #### 案例七：下载对象指定版本（启用版本控制）
@@ -325,9 +325,9 @@ x-cos-version-id: MTg0NDUxNTc1NjIzMTQ1MDAwODg
 ```shell
 GET /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 10 Apr 2020 09:35:16 GMT
-Range: bytes=2-4
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511316;1586518516&q-key-time=1586511316;1586518516&q-header-list=date;host;range&q-url-param-list=&q-signature=ae17d22c6c6d7b8f13c97ab5053e0943834f****
+Date: Fri, 10 Apr 2020 12:32:37 GMT
+Range: bytes=8-14
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586521957;1586529157&q-key-time=1586521957;1586529157&q-header-list=date;host;range&q-url-param-list=&q-signature=719273479357f4b4b4c7d4f5ceb631753101****
 Connection: close
 ```
 
@@ -336,18 +336,18 @@ Connection: close
 ```shell
 HTTP/1.1 206 Partial Content
 Content-Type: image/jpeg
-Content-Length: 3
+Content-Length: 7
 Connection: close
 Accept-Ranges: bytes
-Content-Range: bytes 2-4/16
-Date: Fri, 10 Apr 2020 09:35:17 GMT
+Content-Range: bytes 8-14/16
+Date: Fri, 10 Apr 2020 12:32:37 GMT
 ETag: "ee8de918d05640145b18f70f4c3aa602"
-Last-Modified: Fri, 10 Apr 2020 09:35:05 GMT
+Last-Modified: Fri, 10 Apr 2020 12:32:25 GMT
 Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
-x-cos-request-id: NWU5MDNkZDRfN2JiMTJhMDlfMjM0YV8xZTk0****
+x-cos-request-id: NWU5MDY3NjVfY2VjODJhMDlfOWVlZl8xNmMy****
 
-bje
+Content
 ```
 
 #### 案例九：下载未经恢复的归档（ARCHIVE）存储类型的对象
