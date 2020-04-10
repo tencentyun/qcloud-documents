@@ -6,7 +6,7 @@
 3. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，选择生成类型为**推流域名**，选择对应的域名，填写自定义的流名称 StreamName，选择地址过期时间单击【生成地址】即可。其中`rtmp://domain/live/test?xxx`即为推流 URL。
 ![](https://main.qcloudimg.com/raw/b92179a1020d676d5e93e7ea4bfd6c37.png)
  >? 
- >- AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。若要自定义须 [提交工单](https://console.cloud.tencent.com/workorder/category) 开通配置，AppName 仅支持英文字母、数字和符号。
+ >- AppName 为区分同一个域名下多个 App 的地址路径，默认为 live，可自定义。AppName 仅支持英文字母、数字和符号。
  >- 除上述方法，您还可以在云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中，选择推流域名单击【管理】，选择【推流配置】，输入推流地址的过期时间和自定义的流名称 StreamName，单击【生成推流地址】即可生成推流地址。
 
 #### 方法2：自动拼装	
