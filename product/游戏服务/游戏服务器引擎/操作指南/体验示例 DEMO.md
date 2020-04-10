@@ -32,7 +32,7 @@
 ![](https://main.qcloudimg.com/raw/41335db73cd7e32e5850dbcfeb9c3d30.png)
 6. 单击【跳转至客户端网页】，进入客户端连接游戏服务器页面，单击【连接】，提示服务器：连接成功。
 ![](https://main.qcloudimg.com/raw/9d9e0fc4ffd3d8dd89e42f988f244483.png)
->?此步骤为开发者通过上一步调用云 API 返回的 IP、port 连接游戏服务器进程，这里模拟了整个连接过程。 
+>?此步骤为开发者通过上一步调用云 API 返回的 IP、port 连接游戏服务器进程，此步骤模拟了整个连接过程。 
 
 
 
