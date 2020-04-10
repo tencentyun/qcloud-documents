@@ -44,7 +44,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（10.2以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
