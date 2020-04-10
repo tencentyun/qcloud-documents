@@ -17,5 +17,5 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 
 ### 如何提高大量文件情况下的传输速度？
 
-以 Windows COSBrowser 工具为例，可通过调整【高级设置】中，【上传】、【下载】的文件并发数和分块数来提高传输速度。
+以 Windows COSBrowser 工具为例，可进入【高级设置】，调整【上传】、【下载】的文件并发数和分块数来提高传输速度。
 ![](https://main.qcloudimg.com/raw/ad8be3a2089d5af1734b4784d546cfdb.jpg)
