@@ -1,5 +1,5 @@
 ## 简介
-本文档提供腾讯移动推送 Android应用快速接入指引。只需四步，即可在您的Android应用上面使用腾讯移动推送服务。
+本文档提供腾讯移动推送 Android 应用快速接入指引。只需四步，即可在您的 Android 应用上面使用腾讯移动推送服务。
 ## 接入前准备
 1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
  ![](https://main.qcloudimg.com/raw/968f59dd893bd3cb2bf9a7ffc03a0dd3.png)
@@ -37,7 +37,8 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ## 厂商通道快速接入
 1.在配置管理页面打开厂商推送通道开关并配置好应用的AppId、SecretKey等信息，申请方式可点击查看各厂商通道的说明文档。
 ![](https://main.qcloudimg.com/raw/f357a18e6615782c54839f9777e7c97b.png)
-2.配置完成后点击页面上方的【配置文件下载】按钮，覆盖工程文件中旧的配置文件即可。
+2.厂商通道信息配置完成后，页面上方【配置文件下载】按钮，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
+![](https://main.qcloudimg.com/raw/4dfa37ac471c1c3b18cc559d5780a6be.png)
 
 ## 问题排查指引
 1. 插件日志
