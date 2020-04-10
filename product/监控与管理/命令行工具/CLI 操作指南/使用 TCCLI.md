@@ -5,7 +5,7 @@
 - 通过`tccli cbs DescribeDisks`命令查看有 CBS 盘列表。
 
 ## 操作示例
->!请注意 demo 中非简单类型的参数必须为标准 json 格式。
+>! demo 中非简单类型的参数必须为标准 json 格式。
 
 以创建一台 CVM 为例，执行以下命令。
 ```bash
