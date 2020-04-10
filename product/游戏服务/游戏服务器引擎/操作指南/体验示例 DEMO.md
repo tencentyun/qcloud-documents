@@ -67,5 +67,5 @@
 #### 结束游戏服务器会话，触发缩容
 1. 选择【快捷实验】>【部署示范包】，进入客户端页面，单击【结束游戏会话】，即可结束5个游戏服务器会话。
 ![](https://main.qcloudimg.com/raw/7f11e71ad1876b51682820b9465ed616.png)
-2. 单击左侧菜单[【服务器舰队】](https://console.cloud.tencent.com/gse/fleet)，选择刚一键创建的服务器舰队 ID，进入舰队详情，选择【示例列表】。在其页面观察服务实例数量，2分钟后，您将发现服务器被缩容至1台。
+2. 单击左侧菜单[【服务器舰队】](https://console.cloud.tencent.com/gse/fleet)，选择刚一键创建的服务器舰队 ID，进入舰队详情，选择【实例列表】。在其页面观察服务实例数量，2分钟后，您将发现服务器被缩容至1台。
 ![](https://main.qcloudimg.com/raw/65104c873e5e606e3b79a45b9ab17c2b.png)
