@@ -1,8 +1,7 @@
 ## 操作场景
 该任务指导您在 API 网关控制台通过导入 OpenAPI 来创建 API。
 
->?
->- 导入 API 功能正在内测中，您可以在 [腾讯云API网关导入API功能内测申请](https://cloud.tencent.com/apply/p/v5h6086wvtp) 提交内测申请，我们会第一时间进行处理。
+>?导入 API 功能正在内测中，如需使用请提交 [腾讯云 API 网关导入 API 功能内测申请](https://cloud.tencent.com/apply/p/v5h6086wvtp)，我们会在5个工作日内完成审核。
 
 ## 前提条件
 - 已完成 [服务创建](https://cloud.tencent.com/document/product/628/11787)。
