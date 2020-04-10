@@ -13,7 +13,7 @@
 - 安装 docker 时未完全删除旧版本
 - 存在同名容器
 
-## 排查步骤
+## 排查方法
 ### 检查 Pod 配置
 1. 检查是否打包了正确的镜像。
 2. 检查是否配置了正确的容器参数。
@@ -23,14 +23,15 @@
 
 #### 1. Pod 漂移导致未正常解挂磁盘
 **问题分析**
-在云托管的 K8S 服务环境下，默认挂载的 Volume 通常为一块存储类型的云硬盘。如果某个节点出现故障，kubelet 无法正常运行或与 apiserver 通信，则到达时间阈值后就会触发节点驱逐，自动在其它节点上启动相同的 Pod。
+在云托管的 K8S 服务环境下，默认挂载的 Volume 通常为一块存储类型的云硬盘。如果某个节点出现故障，导致 kubelet 无法正常运行或无法与 apiserver 通信，则到达时间阈值后就会触发该节点驱逐，自动在其它节点上启动相同的 Pod（Pod 漂移）。
+由于被驱逐的节点无法正常运行及确定自身状态，故该节点的 Volume 也未正确执行解挂操作。而 cloud-controller-manager 需等待 Volume 正确解挂后，再调用云厂商接口将磁盘从节点上解挂。Pod 漂移将导致 cloud-controller-manager 在达到一个时间阈值后，强制解挂 Volume 并挂载到 Pod 最新调度的节点上。
 
 **造成影响**
-被驱逐的节点无法正常运行及确定自身状态，故该节点的 Volume 也未正确执行解挂操作。而 cloud-controller-manager 需等待 Volume 正确解挂后，再调用云厂商接口真正解挂 Volume。Pod 漂移将导致 cloud-controller-manager 在达到一个时间阈值后，强制解挂 Volume 并挂载到 Pod 最新调度的节点上。**最终导致 ContainerCreating 的时间相对较长**，**但通常是可以启动成功的**。
+最终导致 ContainerCreating 的时间相对较长，但通常是可以启动成功的。
 
 #### 2. 命中 K8S 挂载 configmap/secret 时 subpath 的 bug
 
-实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，并且 Pod 中容器又进行了原地重启操作时（例如，存活检查失败被 kill 后重启拉起），就会触发该 bug。
+实践发现，当修改了 Pod 已挂载的 configmap 或 secret 的内容，Pod 中容器又进行了原地重启操作（例如，存活检查失败被 kill 后重启拉起），就会触发该 bug。
 
 如果出现了以上情况，容器将会持续启动不成功。报错示例如下：
 ``` bash
@@ -71,20 +72,20 @@ Events:
 ``` txt
 Pod sandbox changed, it will be killed and re-created。
 ```
-kubelet 报错如下：
+Kubelet 报错如下：
 ``` txt
 to start sandbox container for pod ... Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "process_linux.go:301: running exec setns process for init caused \"signal: killed\"": unknown
 ```
 
 #### 解决思路
-当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态。通常是由于 memory limit 单位设置错误引起的，如果误将 memory limit 单位设置为小写字母 `m`，则该单位将会被 K8S 识别成 Byte，**正确单位设置应为 `Mi` 或 `M`**。
+当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态，通常是由于 memory limit 单位设置错误引起的。
 
-例如，memory limit 设置为1024m，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
+如果误将 memory limit 单位设置为小写字母 `m`，则该单位将会被 K8S 识别成 Byte，**正确单位设置应为 `Mi` 或 `M`**。例如，memory limit 设置为1024m，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
 
 
 
 ### 检查拉取镜像是否失败
-拉取镜像失败也会引起 Pod 发生该问题，镜像拉取失败原因较多，本文列举如下情况：
+拉取镜像失败也会引起 Pod 发生该问题，镜像拉取失败原因较多，常见原因如下：
 - 配置了错误的镜像。
 * Kubelet 无法访问镜像仓库。例如，默认 pause 镜像在 gcr.io 上，而国内环境访问需要特殊处理。
 * 拉取私有镜像的 imagePullSecret 没有配置或配置有误。
@@ -93,7 +94,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 针对上述情况调整配置后，请再次拉取镜像并查看 Pod 状态。
 
 ### 检查 CNI 网络是否错误
-检查网络插件的配置和运行状态。没有正确配置或无法正常运行通常表现为：
+检查网络插件的配置是否正确，以及运行状态是否正常。当网络插件配置错误或无法正常运行时，会出现以下提示：
 * 无法配置 Pod 网络。
 * 无法分配 Pod IP。
 
@@ -114,15 +115,15 @@ yum install -y docker
   Normal   SandboxChanged          3m12s (x4420 over 83m)  kubelet, 192.168.4.5  Pod sandbox changed, it will be killed and re-created.
 ```
 
-若符合实际异常情况，请选择保留 docker 版本，并完全卸载其余版本 docker。  
+请选择保留 docker 版本，并完全卸载其余版本 docker。  
 
 ### 检查是否存在同名容器
 
-当节点上已存在同名容器时，则创建 sandbox 时会失败，可能会引发 Pod 出现该问题。
+节点上存在同名容器会导致创建 sandbox 时失败，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态。
 执行 `kubectl describe pod <pod-name>` 命令，查看 event 报错信息如下：
 ```
   Warning  FailedCreatePodSandBox  2m                kubelet, 10.205.8.91  Failed create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "lomp-ext-d8c8b8c46-4v8tl": operation timeout: context deadline exceeded
   Warning  FailedCreatePodSandBox  3s (x12 over 2m)  kubelet, 10.205.8.91  Failed create pod sandbox: rpc error: code = Unknown desc = failed to create a sandbox for pod "lomp-ext-d8c8b8c46-4v8tl": Error response from daemon: Conflict. The container name "/k8s_POD_lomp-ext-d8c8b8c46-4v8tl_default_65046a06-f795-11e9-9bb6-b67fb7a70bad_0" is already in use by container "30aa3f5847e0ce89e9d411e76783ba14accba7eb7743e605a10a9a862a72c1e2". You have to remove (or rename) that container to be able to reuse that name.
 ```
 
-若符合实际异常情况，请修改容器名确保节点上不存在同名容器。
+请修改容器名，确保节点上不存在同名容器。
