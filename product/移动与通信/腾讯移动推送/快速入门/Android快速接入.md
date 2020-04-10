@@ -9,7 +9,7 @@
 ![](https://main.qcloudimg.com/raw/bb9646ff16123b2bb5b7634976489e7b.png)
 
 ## 开始接入
-1.在【配置管理】页面中，点击【快速接入】按钮。
+1.在【配置管理】页面中， 单击【快速接入】按钮。
 ![](https://main.qcloudimg.com/raw/26118ca32c232eae530cd290f9aa2195.png)
 2.按照接入指引的操作顺序完成配置，然后点击验证按钮。
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
@@ -35,18 +35,18 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36660) 排查。
 
 ## 厂商通道快速接入
-1.在配置管理页面打开厂商推送通道开关并配置好应用的AppId、SecretKey等信息，申请方式可点击查看各厂商通道的说明文档。
+1.在配置管理页面打开厂商推送通道开关并配置好应用的 AppId、SecretKey 等信息，申请方式可单击查看各厂商通道的说明文档。
 ![](https://main.qcloudimg.com/raw/f357a18e6615782c54839f9777e7c97b.png)
-2.厂商通道信息配置完成后，页面上方【配置文件下载】按钮，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
+2.厂商通道信息配置完成后，单击页面上方【配置文件下载】按钮，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
 ![](https://main.qcloudimg.com/raw/4dfa37ac471c1c3b18cc559d5780a6be.png)
 
 ## 问题排查指引
 1. 插件日志
-如果集成出现异常，则将 tpns-configs.json 文件中的  "debug" 字段置为 true，运行命令： 
+如果集成出现异常，则将 tpns-configs.json 文件中的 "debug" 字段置为 true，运行命令： 
 ```
 ./gradlew --rerun-tasks :app:processReleaseManifest 
 ```
-并通过 "TpnsPlugin" 关键字进行分析
+并通过 "TpnsPlugin" 关键字进行分析。
 2. sync projects。
 ![](https://main.qcloudimg.com/raw/30368ed3cb4a25f3c33be46e3c1f2f5d.png)
 3. 在项目的 External Libraries 中查看是否有相关依赖。
