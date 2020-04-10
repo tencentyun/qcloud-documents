@@ -105,11 +105,11 @@ Authorization: Auth String
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 21 Jun 2019 09:24:28 GMT
+Date: Fri, 10 Apr 2020 09:35:05 GMT
 Content-Type: image/jpeg
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109068;1561116268&q-key-time=1561109068;1561116268&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=998bfc8836fc205d09e455c14e3d7e623bd2****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511305;1586518505&q-key-time=1586511305;1586518505&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=c4147d4d457869a49b13e8e936c06a12c809****
 Connection: close
 
 [Object Content]
@@ -121,11 +121,11 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Fri, 21 Jun 2019 09:24:28 GMT
-ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Date: Fri, 10 Apr 2020 09:35:05 GMT
+ETag: "ee8de918d05640145b18f70f4c3aa602"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQwY2EyNGNfYThjMDBiMDlfMTA0ZmVfYTJm****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNkYzlfNjRiODJhMDlfMzFmYzhfMTFm****
 ```
 
 #### 案例二：使用请求头部指定元数据和 ACL
@@ -135,15 +135,15 @@ x-cos-request-id: NWQwY2EyNGNfYThjMDBiMDlfMTA0ZmVfYTJm****
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 21 Jun 2019 09:24:31 GMT
+Date: Fri, 10 Apr 2020 09:35:28 GMT
 Content-Type: image/jpeg
 Cache-Control: max-age=86400
 Content-Disposition: attachment; filename=example.jpg
 x-cos-meta-example-field: example-value
 x-cos-acl: public-read
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109071;1561116271&q-key-time=1561109071;1561116271&q-header-list=cache-control;content-disposition;content-length;content-md5;content-type;date;host;x-cos-acl;x-cos-meta-example-field&q-url-param-list=&q-signature=da483c6b1c2506142a128aba8e6d35781dd1****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511328;1586518528&q-key-time=1586511328;1586518528&q-header-list=cache-control;content-disposition;content-length;content-md5;content-type;date;host;x-cos-acl;x-cos-meta-example-field&q-url-param-list=&q-signature=20d0cd79060cec8c560ebd239738626726f4****
 Connection: close
 
 [Object Content]
@@ -155,11 +155,11 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Fri, 21 Jun 2019 09:24:32 GMT
-ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Date: Fri, 10 Apr 2020 09:35:28 GMT
+ETag: "ee8de918d05640145b18f70f4c3aa602"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQwY2EyNGZfN2ViMTJhMDlfYmYxN185MjA2****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNkZTBfZjhjMDBiMDlfNzdmN18xMGFi****
 ```
 
 #### 案例三：使用服务端加密 SSE-COS
@@ -169,12 +169,12 @@ x-cos-request-id: NWQwY2EyNGZfN2ViMTJhMDlfYmYxN185MjA2****
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 21 Jun 2019 09:24:35 GMT
+Date: Fri, 10 Apr 2020 09:35:49 GMT
 Content-Type: image/jpeg
 x-cos-server-side-encryption: AES256
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109075;1561116275&q-key-time=1561109075;1561116275&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption&q-url-param-list=&q-signature=3e21f7fba71e04d5c7f3aee7ff39753b240a****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511349;1586518549&q-key-time=1586511349;1586518549&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption&q-url-param-list=&q-signature=35145bc61ae490c4959b58bc6d27b3258bf7****
 Connection: close
 
 [Object Content]
@@ -186,11 +186,11 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Fri, 21 Jun 2019 09:24:35 GMT
-ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Date: Fri, 10 Apr 2020 09:35:49 GMT
+ETag: "ee8de918d05640145b18f70f4c3aa602"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQwY2EyNTNfN2JiMTJhMDlfNDM2ZF85OTA1****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNkZjVfYzVjNzJhMDlfMjVhNzNfMWMy****
 x-cos-server-side-encryption: AES256
 ```
 
@@ -201,14 +201,14 @@ x-cos-server-side-encryption: AES256
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 25 Dec 2019 09:01:19 GMT
+Date: Fri, 10 Apr 2020 09:36:00 GMT
 Content-Type: image/jpeg
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 x-cos-server-side-encryption-context: eyJhdXRob3IiOiJmeXNudGlhbiIsImNvbXBhbnkiOiJUZW5jZW50In0=
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577264479;1577271679&q-key-time=1577264479;1577271679&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=e6974082ffeeadb5f462a30fe4f016bc7484****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511360;1586518560&q-key-time=1586511360;1586518560&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=6cb5d6f0137bb1d87f5afe98c5289b0de375****
 Connection: close
 
 [Object Content]
@@ -220,11 +220,11 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Wed, 25 Dec 2019 09:01:19 GMT
-ETag: "fa8a7921998a9b9ed489d7ad39d35c91"
+Date: Fri, 10 Apr 2020 09:36:01 GMT
+ETag: "840af7c921f4b3230049af8663145bd0"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWUwMzI1NWZfN2RjODJhMDlfMzUyMDhfMWZm****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNlMDFfOThjMjJhMDlfMjhhMl8xNTlm****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 ```
@@ -236,18 +236,17 @@ x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085***
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 21 Jun 2019 09:24:38 GMT
+Date: Fri, 10 Apr 2020 09:36:12 GMT
 Content-Type: image/jpeg
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109078;1561116278&q-key-time=1561109078;1561116278&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=d04a5d70af5f08c7db4f89a91628a7eacf90****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511372;1586518572&q-key-time=1586511372;1586518572&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=4f6f9f0a6700930f70bff31e3a2b2e622711****
 Connection: close
 
 [Object Content]
-
 ```
 
 #### 响应
@@ -256,14 +255,13 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Fri, 21 Jun 2019 09:24:38 GMT
-ETag: "492b458ec33eaf0a824e7dd1bdd403b3"
+Date: Fri, 10 Apr 2020 09:36:13 GMT
+ETag: "582d9105f71525f3c161984bc005efb5"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQwY2EyNTZfZjBhODBiMDlfMTJiOTJfOWY0****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNlMGNfZTFjODJhMDlfMzVlMDFfZTk1****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
-
 ```
 
 #### 案例六：启用版本控制
@@ -273,15 +271,14 @@ x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 21 Jun 2019 09:24:45 GMT
+Date: Fri, 10 Apr 2020 09:36:34 GMT
 Content-Type: image/jpeg
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1561109085;1561116285&q-key-time=1561109085;1561116285&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=20c8b3f8f887cab343124b2330e280486e1f****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511394;1586518594&q-key-time=1586511394;1586518594&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=371f555ec81751e1dbf38927e568af4cc67a****
 Connection: close
 
 [Object Content]
-
 ```
 
 #### 响应
@@ -290,12 +287,12 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Fri, 21 Jun 2019 09:24:45 GMT
-ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Date: Fri, 10 Apr 2020 09:36:35 GMT
+ETag: "ee8de918d05640145b18f70f4c3aa602"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQwY2EyNWRfYThjMDBiMDlfMTA1MDlfYTQ1****
-x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNlMjNfMThiODJhMDlfNGQ1OF8xMWY4****
+x-cos-version-id: MTg0NDUxNTc1NjIzMTQ1MDAwODg
 ```
 
 #### 案例七：暂停版本控制
@@ -305,11 +302,11 @@ x-cos-version-id: MTg0NDUxODI5NjQ2MjM5OTMyNzM
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 24 Jul 2019 02:51:28 GMT
+Date: Fri, 10 Apr 2020 09:37:07 GMT
 Content-Type: image/jpeg
-Content-Length: 13
-Content-MD5: ti4QvKtVqIJAvZxDbP/c+Q==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1563936688;1563943888&q-key-time=1563936688;1563943888&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=aab4bfeb62a7a86725da58d4ad06deb5cba1****
+Content-Length: 16
+Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511427;1586518627&q-key-time=1586511427;1586518627&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=0747f6508fca37dfb5c91bbe3fa01f91b326****
 Connection: close
 
 [Object Content]
@@ -321,11 +318,11 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Wed, 24 Jul 2019 02:51:28 GMT
-ETag: "b62e10bcab55a88240bd9c436cffdcf9"
+Date: Fri, 10 Apr 2020 09:37:07 GMT
+ETag: "ee8de918d05640145b18f70f4c3aa602"
 Server: tencent-cos
-x-cos-hash-crc64ecma: 14316141774525398218
-x-cos-request-id: NWQzN2M3YjBfN2ViMTJhMDlfYTkxMl9iY2Fj****
+x-cos-hash-crc64ecma: 16749565679157681890
+x-cos-request-id: NWU5MDNlNDNfZTZjNzJhMDlfMmYwMDlfMTVi****
 ```
 
 #### 案例八：使用 chunked 传输编码分块传输
