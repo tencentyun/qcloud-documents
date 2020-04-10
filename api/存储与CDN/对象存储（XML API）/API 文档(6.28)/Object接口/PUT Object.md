@@ -81,7 +81,7 @@ Authorization: Auth String
 
 | 名称             | 描述          | 类型   |
 | ---------------- | ------------- | ------ |
-| x-cos-hash-crc64ecma | 对象的 CRC64 值，详情请参阅 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
+| x-cos-hash-crc64ecma | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
 | x-cos-version-id | 对象的版本 ID | string |
 
 **服务端加密（SSE）相关头部**
