@@ -448,10 +448,10 @@ x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 06 Sep 2019 10:37:46 GMT
-x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc
+Date: Sat, 11 Apr 2020 17:51:35 GMT
+x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.jpg?versionId=MTg0NDUxNTc0NDYyMjQ2MzUzMjQ
 Content-Length: 0
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1567766266;1567773466&q-key-time=1567766266;1567773466&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=f96755976307797611d58bbacd7571d939e8****
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627495;1586634695&q-key-time=1586627495;1586634695&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=da80bd079b2c1fdb0dd961dea8568ee8d998****
 Connection: close
 ```
 
@@ -460,17 +460,18 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 181
+Content-Length: 219
 Connection: close
-Date: Fri, 06 Sep 2019 10:37:47 GMT
+Date: Sat, 11 Apr 2020 17:51:35 GMT
 Server: tencent-cos
-x-cos-copy-source-version-id: MTg0NDUxNzYzMDc0NDMzNDExOTc
-x-cos-request-id: NWQ3MjM2ZmFfZjhjMDBiMDlfOTliZF9mYmNi****
+x-cos-copy-source-version-id: MTg0NDUxNTc0NDYyMjQ2MzUzMjQ
+x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"5603c4d142301f2a802d68e2078ed615"</ETag>
-	<LastModified>2019-09-06T10:37:48Z</LastModified>
+	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+	<CRC64>16749565679157681890</CRC64>
+	<LastModified>2020-04-11T17:51:35Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -481,10 +482,10 @@ x-cos-request-id: NWQ3MjM2ZmFfZjhjMDBiMDlfOTliZF9mYmNi****
 ```shell
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 06 Sep 2019 10:42:45 GMT
-x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg
+Date: Sat, 11 Apr 2020 17:51:56 GMT
+x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.jpg
 Content-Length: 0
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1567766565;1567773765&q-key-time=1567766565;1567773765&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=ae50af4c3a7aeea72452035e617701f21c27****
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627516;1586634716&q-key-time=1586627516;1586634716&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=2c79d63b6078ace6fc9430fb6533b9a9ade1****
 Connection: close
 ```
 
@@ -493,16 +494,17 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 234
+Content-Length: 272
 Connection: close
-Date: Fri, 06 Sep 2019 10:42:46 GMT
+Date: Sat, 11 Apr 2020 17:51:56 GMT
 Server: tencent-cos
-x-cos-request-id: NWQ3MjM4MjVfN2RiZTBiMDlfNmI0ZF9mOTA2****
+x-cos-request-id: NWU5MjAzYmNfNjRiMDJhMDlfOTE3N18yYWI4****
 
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<LastModified>2019-09-06T10:42:50Z</LastModified>
-	<VersionId>MTg0NDUxNzYzMDcxNDM2MDk2MzA</VersionId>
+	<ETag>"22e024392de860289f0baa7d6cf8a549"</ETag>
+	<CRC64>11596229263574363878</CRC64>
+	<LastModified>2020-04-11T17:51:56Z</LastModified>
+	<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
 </CopyObjectResult>
 ```
