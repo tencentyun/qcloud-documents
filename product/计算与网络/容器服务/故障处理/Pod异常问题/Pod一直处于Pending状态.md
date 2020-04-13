@@ -40,7 +40,7 @@ kubectl describe node <node-name>
 前者与后者相减，即可得出剩余可申请的资源大小。如果该值小于 Pod 的 Request，则不满足 Pod 的资源要求，Scheduler 在 Predicates（预选）阶段就会剔除掉该 Node，不会调度 Pod 到该 Node。
 
 
-### 检查是否不满足 nodeSelector 与 affinity
+### 检查 nodeSelector 及 affinity 的配置
 
 假设 Pod 中 nodeSelector 指定了节点 Label，则调度器将只考虑调度 Pod 到包含该 Label 的 Node 上。当不存在符合该条件的 Node 时，Pod 将无法被调度。更多相关信息可前往 [Kubernetes 官方网站](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) 进行查看。
 
@@ -72,7 +72,7 @@ node "host1" tainted
 >?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
 
 - **自动添加污点**
-节点运行状态异常时，可能会自动添加污点。从 v1.12 开始，`TaintNodesByCondition` 特性在 Beta 中默认开启，controller manager 将会检查 Node 的 Condition，如果命中条件就会自动给 Node 加上相应的污点。其中 Condition 与污点的对应关系如下：
+从 v1.12 开始，`TaintNodesByCondition` 特性在 Beta 中默认开启，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，如果命中条件就会自动给 Node 加上相应的污点。其中 Condition 与污点的对应关系如下：
 ```
 Conditon               Value       Taints
  --------               -----       ------
