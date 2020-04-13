@@ -71,11 +71,11 @@
 ![](https://main.qcloudimg.com/raw/da45ac2c8ef8eae6a32b31a2502919b6.png)
 
 完成步骤1到步骤3之后，HTTP 监听器规则已配置完毕，配置详情如下图所示：
-![](https://main.qcloudimg.com/raw/52150fde0ac149fa34c58f89bfc5d37a.png)
+![](https://main.qcloudimg.com/raw/49bc1c0431598a5cb426a82338a750dd.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
 如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【修改】或【删除】完成操作。
-![](https://main.qcloudimg.com/raw/94df509ce8533a6934bc8587acd99bdf.png)
+![](https://main.qcloudimg.com/raw/13876fedc94dde11f3aef72cf782ec73.png)
