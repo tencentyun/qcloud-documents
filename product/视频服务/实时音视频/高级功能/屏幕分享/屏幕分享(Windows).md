@@ -106,7 +106,8 @@ void CTRTCCloudSDK::onUserSubStreamAvailable(const char * userId, bool available
 目前一个 TRTC 音视频房间只能有一路屏幕分享。
 
  **指定窗口分享（SourceTypeWindow），当窗口大小变化时，视频流的分辨率会不会也跟着变化？**
-不会跟着变化，当窗口大小变化时，窗口画面会被等比例缩放到目标分辨率上。
+默认情况下，SDK 内部会自动根据分享的窗口大小进行编码参数的调整。
+如需固定分辨率，需调用 setSubStreamEncoderParam 接口设置屏幕分享的编码参数，或在调用 startScreenCapture 时指定对应的编码参数。
 
 
 
