@@ -51,7 +51,6 @@ kubectl describe node <node-name>
 * `podAntiAffinity`：Pod 反亲和性，防止某一类 Pod 调度到同一个地方，可以有效避免单点故障。例如，将集群 DNS 服务的 Pod 副本分别调度到不同节点，可避免因一个节点出现故障而造成整个集群 DNS 解析失败，甚至使业务中断。
 
 ### 检查 Node 是否存在 Pod 没有容忍的污点
-
 假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
 ``` bash
 $ kubectl describe nodes host1
@@ -60,9 +59,10 @@ Taints:             special=true:NoSchedule
 ...
 ```
 
+#### 解决方法
 污点可通过手动或自动的方式添加：
 
-#### 手动添加污点
+- **手动添加污点**
 通过以下或类似方式，可以手动为节点添加指定污点：
 ``` bash
 $ kubectl taint node host1 special=true:NoSchedule
@@ -70,13 +70,11 @@ node "host1" tainted
 ```
 >?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
 
-#### 自动添加污点
-
+- **自动添加污点**
 节点运行状态异常时，可能会自动添加污点。从 v1.12 开始，`TaintNodesByCondition` 特性在 Beta 中默认开启，controller manager 将会检查 Node 的 Condition，如果命中条件就会自动给 Node 加上相应的污点。其中 Condition 与污点的对应关系如下：
-
-``` txt
+```
 Conditon               Value       Taints
---------               -----       ------
+ --------               -----       ------
 OutOfDisk              True        node.kubernetes.io/out-of-disk
 Ready                  False       node.kubernetes.io/not-ready
 Ready                  Unknown     node.kubernetes.io/unreachable
@@ -85,17 +83,14 @@ PIDPressure            True        node.kubernetes.io/pid-pressure
 DiskPressure           True        node.kubernetes.io/disk-pressure
 NetworkUnavailable     True        node.kubernetes.io/network-unavailable
 ```
-
 当每种 Condition 取特定的值时，将表示以下含义：
-
-* `OutOfDisk` 为 True，表示节点磁盘空间不足。
-* `Ready` 为 False，表示节点不健康。
-* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
-* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
-* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
-* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
-* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其它 Pod 正常通信。
-
+	* `OutOfDisk` 为 True，表示节点磁盘空间不足。
+	* `Ready` 为 False，表示节点不健康。
+	* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
+	* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
+	* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
+	* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
+	* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其它 Pod 正常通信。
 >?上述情况一般属于被动添加污点，但在容器服务中，存在一个主动添加/移出污点的过程：
 >在新增节点时，首先为该节点添加 `node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到未初始化好的节点。
 
