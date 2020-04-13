@@ -33,7 +33,7 @@
 |-----|-----|
 | [on(EventCode, handler, context)](#on(eventcode.2C-handler.2C-context)) | 用于监听组件派发的事件，详细事件请参考 [事件表](#Event)。 |
 | [off(EventCode, handler)](#off(eventcode.2C-handler))|取消事件监听。|
-| [enterRoom(params)](#enterroom(params)) | 进入房间。|
+| [enterRoom(params)](#enterroom(params)) | 进入房间，若房间不存在，系统将自动创建一个新房间。|
 | [exitRoom()](#exitroom()) | 停止推流和取消订阅所有远端音视频，并退出房间。|
 
 **发布订阅**
