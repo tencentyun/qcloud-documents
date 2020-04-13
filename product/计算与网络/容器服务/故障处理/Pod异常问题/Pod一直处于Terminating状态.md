@@ -1,7 +1,16 @@
 本文档将为您展示可能导致 Pod 一直处于 Terminating 状态的几种情形，以及如何通过排查步骤定位异常原因。请按照以下步骤依次进行排查，定位问题后恢复正确配置即可。
 
-## 可能原因及排查步骤
-### 磁盘空间不足
+## 可能原因
+- 磁盘空间不足
+- 存在 “i” 文件属性
+- Docker 17 版本 bug
+- 存在 Finalizers
+- 低版本 kubelet list-watch 的 bug
+- Dockerd 与 containerd 状态不同步
+- Daemonset Controller Bug
+
+## 排查方法
+### 检查磁盘空间是否不足
 当 Docker 的数据目录所在磁盘被写满时，Docker 将无法正常运行，甚至无法进行删除和创建操作。kubelet 调用 Docker 删除容器时将无响应，执行 `kubectl describe pod <pod-name>` 命令，查看 event 通常返回信息如下：
 ```bash
 Normal  Killing  39s (x735 over 15h)  kubelet, 10.179.80.31  Killing container with id docker://apigateway:Need to kill Pod
@@ -9,7 +18,7 @@ Normal  Killing  39s (x735 over 15h)  kubelet, 10.179.80.31  Killing container w
 
 解决方法及更多信息请参考 [磁盘爆满](https://cloud.tencent.com/document/product/457/43126)。
 
-### 存在 “i” 文件属性
+### 检查是否存在 “i” 文件属性
 #### 现象描述
 “i” 文件属性描述可通过 `man chattr` 进行查看，描述示例如下：
 ``` txt
@@ -32,8 +41,8 @@ Sep 27 14:37:21 VM_0_7_centos kubelet[14109]: E0927 14:37:21.923027   14109 kube
 ```
  2. 等待 kubelet 自动重试，Pod 即可自动删除。
 
-### Docker 17 版本 bug
-
+### 检查是否存在 Docker 17 版本 bug
+#### 现象描述
 Docker hang 住，没有任何响应。执行 `kubectl describe pod <pod-name>` 命令查看 event 显示如下：
 ```bash
 Warning FailedSync 3m (x408 over 1h) kubelet, 10.179.80.31 error determining status: rpc error: code = DeadlineExceeded desc = context deadline exceeded
@@ -45,9 +54,9 @@ Warning FailedSync 3m (x408 over 1h) kubelet, 10.179.80.31 error determining sta
 升级 Docker 版本至18，该版本使用了新的 containerd，针对很多已有 bug 进行了修复。
 若 Pod 仍出现 Terminating 状态，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 联系工程师进行排查。**不建议直接强行删除**，可能会导致业务出现问题。
 
-### 存在 Finalizers
-
-K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是由某个程序创建的，该 `finalizers` 中也会添加一个专属于该程序的标识。例如，Rancher 创建的一些资源就会写入 `finalizers` 标识。
+### 检查是否存在 Finalizers
+#### 现象描述
+K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是由某个程序创建的，`finalizers` 中也会添加一个专属于该程序的标识。例如，Rancher 创建的一些资源就会写入 `finalizers` 标识。
 
 若想要删除该程序所创建的资源时，则需要由创建该资源的程序进行删除前的清理，且只有清理完成并将标识从该资源的 `finalizers` 中移除，才可以彻底删除资源。
 
@@ -55,8 +64,10 @@ K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是�
 使用 `kubectl edit` 命令手动编辑资源定义，删除 `finalizers`，删除资源便不会再受阻。
 
 
-### 低版本 kubelet list-watch 的 bug
+### 检查是否存在低版本 kubelet list-watch 的 bug
 历史排查异常过程中发现，使用  v1.8.13 版本的 K8S 时，kubelet 会出现 list-watch 异常的情况。该问题会导致在删除 Pod 后，kubelet 未获取相关事件，并未真正删除，使 Pod 一直处 Terminating 状态。
+
+请参考文档[ 升级集群 ](https://cloud.tencent.com/document/product/457/32192)步骤进行集群 Kubernetes 版本升级。
 
 ### Dockerd 与 containerd 状态不同步
 
@@ -89,7 +100,7 @@ Sep 18 10:19:49 VM-1-33-ubuntu dockerd[4822]: time="2019-09-18T10:19:49.90394365
 * 长期规避方法：运行时推荐直接使用 containerd，绕过 dockerd 避免 Docker 本身的 Bug。
 
 ### Daemonset Controller Bug
-K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。是由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组做了排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。此外，Daemonset Controller 又会为 rollingUpdate 类型的 Daemonset 计算 hash（使用 spec），用于版本控制。
+K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。是由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组做了排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。Daemonset Controller 又会为 rollingUpdate 类型的 Daemonset 计算 hash（使用 spec），用于版本控制。
 上述传递过程造成的前后参数不一致问题，导致了 Pod 陷入持续启动和停止的循环。
 
 #### 解决方法
