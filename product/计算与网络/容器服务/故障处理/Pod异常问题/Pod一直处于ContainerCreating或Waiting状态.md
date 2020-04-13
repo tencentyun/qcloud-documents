@@ -68,11 +68,11 @@ Warning FailedCreatePodSandBox 2m (x4307 over 16h) kubelet, 10.179.80.31 (combin
 
 ### 检查 limit 设置
 #### 现象描述
-执行 `kubectl describe pod ` 命令，查看 event 报错信息如下：
+- 执行 `kubectl describe pod ` 命令，查看 event 报错信息如下：
 ``` txt
 Pod sandbox changed, it will be killed and re-created。
 ```
-Kubelet 报错如下：
+- Kubelet 报错如下：
 ``` txt
 to start sandbox container for pod ... Error response from daemon: OCI runtime create failed: container_linux.go:348: starting container process caused "process_linux.go:301: running exec setns process for init caused \"signal: killed\"": unknown
 ```
