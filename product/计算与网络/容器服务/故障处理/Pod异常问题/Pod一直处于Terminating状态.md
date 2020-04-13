@@ -72,7 +72,7 @@ K8S 资源的 metadata 中如果存在 `finalizers`，通常说明该资源是�
 ### Dockerd 与 containerd 状态不同步
 
 #### 现象描述
-目前发现 docker 在 aufs 存储驱动下如果磁盘爆满，则可能发生内核 panic ，报错信息如下：
+docker 在 aufs 存储驱动下如果磁盘爆满，则可能发生内核 panic ，报错信息如下：
 ``` txt
 aufs au_opts_verify:1597:dockerd[5347]: dirperm1 breaks the protection by the permission bits on the lower branch
 ```
@@ -97,12 +97,13 @@ Sep 18 10:19:49 VM-1-33-ubuntu dockerd[4822]: time="2019-09-18T10:19:49.90394365
 
 #### 解决方法
 * 临时解决方法：执行 `docker container prune` 命令或重启 dockerd。
-* 长期规避方法：运行时推荐直接使用 containerd，绕过 dockerd 避免 Docker 本身的 Bug。
+* 彻底解决方法：运行时推荐直接使用 containerd，绕过 dockerd 避免 Docker 本身的 Bug。
 
 ### Daemonset Controller Bug
-K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。是由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组做了排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。Daemonset Controller 又会为 rollingUpdate 类型的 Daemonset 计算 hash（使用 spec），用于版本控制。
+
+K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.10 和 1.11 版本受此影响。由于 Daemonset Controller 复用 scheduler 的 predicates 逻辑，将 nodeAffinity 的 nodeSelector 数组进行排序（传递的指针参数），导致 spec 与 apiserver 中的值不一致。为了版本控制，Daemonset Controller 又使用了 spec 为 rollingUpdate 类型的 Daemonset 计算 hash。
 上述传递过程造成的前后参数不一致问题，导致了 Pod 陷入持续启动和停止的循环。
 
 #### 解决方法
 - 彻底解决方法：参考文档[ 升级集群 ](https://cloud.tencent.com/document/product/457/32192)步骤将集群 Kubernetes 版本升级至 1.12。
-- 临时规避方法：确保 rollingUpdate 类型 Daemonset 使用 nodeSelector 而不使用 nodeAffinity。
+- 临时解决方法：确保 rollingUpdate 类型 Daemonset 使用 nodeSelector 而不使用 nodeAffinity。
