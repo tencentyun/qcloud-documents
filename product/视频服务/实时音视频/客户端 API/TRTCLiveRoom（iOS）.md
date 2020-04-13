@@ -869,7 +869,7 @@ Log 回调。
 
 ### onKickoutJoinAnchor
 
-连麦观众收到被踢出连麦的通知。连麦观众收到被主播踢除连麦的消息，您需要调用 `TRTCLiveRoom` 的 `stopPublish` 来退出连麦。
+连麦观众收到被踢出连麦的通知。连麦观众收到被主播踢除连麦的消息，您需要调用 `TRTCLiveRoom` 的 `stopPublish` 退出连麦。
 ```swift
 @objc optional func trtcLiveRoomOnKickoutJoinAnchor(_ trtcLiveRoom: TRTCLiveRoomImpl)
 ```
@@ -966,8 +966,8 @@ Log 回调。
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | url | String | 背景音乐文件路径。 |
-| progress | (_ progressMs: Int, _ duration: Int) -> Void | 进度回调，返回当前已播放的时间，和总的bgm时长，单位是毫秒(ms)。 |
-| completion | (_ code: Int, _ message: String?) -> Void | Bgm播放结束回调。 |
+| progress | (_ progressMs: Int, _ duration: Int) -> Void | 进度回调，返回当前已播放的时间，和总的 BGN 时长，单位为毫秒（ms）。 |
+| completion | (_ code: Int, _ message: String?) -> Void | BGM 播放结束回调。 |
 
 
 
@@ -999,7 +999,7 @@ Log 回调。
 
 ### setBGMVolume
 
-设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
+设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音的音量大小。
 ```swift
 @objc func setBGMVolume(volume: Int)
 ```
@@ -1008,7 +1008,7 @@ Log 回调。
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | Int | 音量大小，100为正常音量，取值范围为0 - 100；默认值：100。 |
+| volume | Int | 音量大小，100表示正常音量，取值范围为0 - 100；默认值：100。 |
 
 
 
