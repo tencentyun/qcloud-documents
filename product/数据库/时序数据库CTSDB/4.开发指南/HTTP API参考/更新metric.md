@@ -37,7 +37,7 @@ options 属性如下：
 ## CURL 示例说明
 请求：
 ```
-	curl -u root:le201909 -X PUT 172.16.345.14:9201/_metric/ctsdb_test/update -d'
+	curl -u root:le201909 -H 'Content-Type:application/json' -X PUT 172.16.345.14:9201/_metric/ctsdb_test/update -d'
 	{
 		"tags":{
 			"set":"string"
