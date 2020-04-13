@@ -83,7 +83,8 @@
 | 属性                      | 类型        | 默认值     | 必填 | 说明                                                         |
 | :------------------------ | :---------- | :--------- | :--- | :----------------------------------------------------------- |
 | liveAppID                 | Number      | 0          | 是   | 用户的腾讯云 AppID                                           |
-| playUrl                   | String      | ""         | 是   | 通过使用`https://bizlive.myqcloud.com/tools/address.html?bizname=bizname`工具页面获取 |
+| playUrl                   | String      | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见[自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)       |
+| version                   | Number      | 1          | 否   | 直播控制台购买插件即为新版本，此处必填值为：2<br>旧方案接入：1 或不填                |
 | mode                      | String      | "live"     | 否   | live（直播），RTC（实时通话，该模式延时更低）                |
 | orientation               | String      | "vertical" | 否   | 画面方向，可选值有 vertical、horizontal                      |
 | objectFit                 | String      | "contain"  | 否   | 填充模式，可选值有 contain、fillCrop                         |
@@ -111,7 +112,8 @@
 | 属性              | 类型        | 默认值     | 必填 | 说明                                                         |
 | :---------------- | :---------- | :--------- | :--- | :----------------------------------------------------------- |
 | liveAppID         | Number      | 0          | 是   | 直播 AppID                                                   |
-| pushUrl           | String      | ""         | 是   | 直播推流地址                                                 |
+| pushUrl                   | String      | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720)       |
+| version                   | Number      | 1          | 否   | 直播控制台购买插件即为新版本，此处必填值为：2<br>旧方案接入：1 或不填    |
 | orientation       | String      | "vertical" | 否   | 推流画面方向，可选值有 vertical、horizontal                  |
 | muted             | Boolean     | false      | 否   | 是否静音                                                     |
 | mode              | String      | "SD"       | 否   | 清晰度，可选值：SD（标清）、HD（高清）、FHD（超清）、RTC（实时通话） |
