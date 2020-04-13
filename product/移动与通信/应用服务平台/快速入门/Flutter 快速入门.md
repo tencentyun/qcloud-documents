@@ -7,7 +7,7 @@
 
 ### 步骤1： 开启匿名登录
 在腾讯云控制台 - 云开发 - [环境设置页面](https://console.cloud.tencent.com/tcb/env/setting) 中，单击“登录方式”，然后启用匿名登录：
-![](https://main.qcloudimg.com/raw/86195b1e5e4cc7220a09be45105b68d8.png)
+![](https://main.qcloudimg.com/raw/00fc7e367e87a28f488c8b2e247cac90.png)
 
 ### 步骤2： 创建 Flutter 项目
 ```
