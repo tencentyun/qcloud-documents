@@ -72,7 +72,7 @@ node "host1" tainted
 >?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
 
 - **自动添加污点**
-从 v1.12 开始，`TaintNodesByCondition` 特性在 Beta 中默认开启，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，如果命中条件就会自动给 Node 加上相应的污点。其中 Condition 与污点的对应关系如下：
+从 v1.12 开始，`TaintNodesByCondition` 特性在 Beta 中默认开启，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，如果命中条件就会自动给 Node 加上相应的污点。例如，检查 Condition 为 `OutOfDisk` 且 Value 为 `True`，则 Node 会自动添加 `node.kubernetes.io/out-of-disk` 污点。Condition 与污点的对应关系如下：
 ```
 Conditon               Value       Taints
  --------               -----       ------
