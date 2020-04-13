@@ -51,6 +51,7 @@ kubectl describe node <node-name>
 * `podAntiAffinity`：Pod 反亲和性，防止某一类 Pod 调度到同一个地方，可以有效避免单点故障。例如，将集群 DNS 服务的 Pod 副本分别调度到不同节点，可避免因一个节点出现故障而造成整个集群 DNS 解析失败，甚至使业务中断。
 
 ### 检查 Node 是否存在 Pod 没有容忍的污点
+#### 问题分析
 假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
 ``` bash
 $ kubectl describe nodes host1
