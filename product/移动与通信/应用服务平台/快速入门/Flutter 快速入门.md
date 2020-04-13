@@ -6,7 +6,7 @@
 3. 参考 [Flutter 官网](https://flutter.cn/docs/get-started/install) 开发文档安装 Flutter。
 
 ### 步骤1： 开启匿名登录
-在腾讯云控制台 - 云开发 - [环境设置页面](https://console.cloud.tencent.com/tcb/env/setting) 中，单击“登录设置”，然后启用匿名登录：
+在腾讯云控制台 - 云开发 - [环境设置页面](https://console.cloud.tencent.com/tcb/env/setting) 中，单击“登录方式”，然后启用匿名登录：
 ![](https://main.qcloudimg.com/raw/86195b1e5e4cc7220a09be45105b68d8.png)
 
 ### 步骤2： 创建 Flutter 项目
@@ -16,7 +16,7 @@ $ cd cloudbase_demo
 ```
 
 ### 步骤3： 添加 CloudBase 插件依赖
-在项目的 pubspec.yaml 文件中添加 dependencies 。
+在项目的 pubspec.yaml 文件中添加 dependencies。
 ```
 dependencies:
   cloudbase_core: ^0.0.4
@@ -36,7 +36,7 @@ import 'package:cloudbase_auth/cloudbase_auth.dart';
 
 // 初始化 CloudBase
 CloudBaseCore core = CloudBaseCore.init({
-    // 填写你的云开发 env
+    // 填写您的云开发 env
     'env': 'your-env-id'
 });
 
