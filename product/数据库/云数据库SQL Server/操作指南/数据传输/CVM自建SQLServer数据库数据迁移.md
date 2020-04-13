@@ -10,12 +10,13 @@
 1. 登录 [SQL Server 控制台](https://console.cloud.tencent.com/sqlserver)，在左侧栏选择【数据传输】页。
 2. 单击【创建任务】，填写任务名称、源库信息、目标库信息，源实例类型选择【云服务器自建SQL Server数据库】。
 ![](https://main.qcloudimg.com/raw/da77fa7fe6ed5dc4c493861d1850ee3d.png)
-3. 单击【下一步】后，需先对 [源 SQL Server 实例进行相关配置](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E6.BA.90-sql-server-.E5.AE.9E.E4.BE.8B) 再继续 [配置迁移任务](https://cloud.tencent.com/document/product/238/32585#.E9.85.8D.E7.BD.AE.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
+3. 单击【下一步】后，需先对 [源 SQL Server 实例进行相关配置](#step2) 再继续 [配置迁移任务](#step3)。
 >?若出现报错信息为 “源实例信息校验不通过！” ，请检查以下几项进行排查：
 >- 源 SQL Server 实例 sa 账号是否存在。
 >- 源 SQL Server 实例 sa 账号密码是否正确。
 >- 源 SQL Server 实例 IP 和 PORT 连通性是否正常。
 
+<span id = "step2"></span>
 ### 步骤二：配置源 SQL Server 实例
 1. 源 SQL Server 实例开启 sa 账户。
 2. 在【连接】里选择【允许远程连接到此服务器】，并设置合理的远程查询超时值。
@@ -37,6 +38,7 @@
  ![](https://main.qcloudimg.com/raw/9d8658d6f44517e7554c3416780f0a58.png)
  7.  使用 D:\dbbackup\（**此路径不可改变**）为 SQL Server 迁移中使用的备份文件夹，选择【SFTP】选项，并将此路径配置到“SFTP home path”中。
 
+<span id = "step3"></span>
 ### 步骤三：配置迁移任务
 选择迁移类型、设置数据库（选择需要迁移的库表），单击【保存并校验】，如校验不通过可按错误提示完成修复。
 ![](https://main.qcloudimg.com/raw/6ea9a3c3c3496a3c3782037e0e988ff3.png)
