@@ -187,7 +187,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| sdkAppID | Int | 您可以在实时音视频控制台 > 【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
+| sdkAppID | Int | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | userID | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 | config | TRTCLiveRoomConfig | 全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;"><li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li><li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li></ul> |
@@ -237,11 +237,11 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | UInt32 | 房间标识，需要由您分配并进行统一管理。多个 roomid 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
+| roomID | UInt32 | 房间标识，需要由您分配并进行统一管理。多个 roomID 可以汇总成一个直播间列表，腾讯云暂不提供直播间列表的管理服务，请自行管理您的直播间列表。 |
 | roomParam | TRTCCreateRoomParam | 房间信息，用于房间描述的信息，例如房间名称，封面信息等。如果房间列表和房间信息都由您自行管理，可忽略该参数。 |
 | callback | (_ code: Int, _ message: String?) -> Void | 创建房间的结果回调，成功时 code 为0。 |
 
-主播开播的正常调用流程是： 
+主播开播的正常调用流程如下： 
 1.【主播】调用 `startCameraPreview()` 打开摄像头预览，此时可以调整美颜参数。 
 2.【主播】调用 `createRoom` 创建直播间，房间创建成功与否会通过 callback 通知给主播。
 3.【主播】调用 `starPublish()` 开始推流。
@@ -277,8 +277,8 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 
 
-观众观看直播的正常调用流程是： 
-1.【观众】向您的服务端获取最新的直播间列表，可能包含多个直播间的 roomid 和房间信息。
+观众观看直播的正常调用流程如下： 
+1.【观众】向您的服务端获取最新的直播间列表，可能包含多个直播间的 roomID 和房间信息。
 2.【观众】观众选择一个直播间，并调用 `enterRoom()` 进入该房间。
 3.【观众】调用`startPlay`并传入主播的 userId 开始播放。
  - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay(userId)` 即可开始播放。
@@ -312,7 +312,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomIDs | [UInt32] | 房间号列表 |
+| roomIDs | [UInt32] | 房间号列表。 |
 | callback | (_ code: Int, _ message: String?, _ roomList: [TRTCLiveRoomInfo]) -> Void | 房间详细信息回调。 |
 
 
