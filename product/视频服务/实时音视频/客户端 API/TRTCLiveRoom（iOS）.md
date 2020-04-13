@@ -175,7 +175,6 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 >?delegate 是 TRTCLiveRoom 的代理回调。
 
-***
 
 ### login
 
@@ -429,7 +428,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 **直播连麦场景**
 发起连麦后，主播会收到来自 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 回调，此时使用回调中的 userId 调用 `startPlay(userId)` 即可播放连麦画面。
 
-***
+
 
 ### stopPlay
 
