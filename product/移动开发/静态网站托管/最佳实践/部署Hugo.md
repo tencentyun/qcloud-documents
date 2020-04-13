@@ -89,9 +89,9 @@ tcb login
 ![](https://main.qcloudimg.com/raw/1daf46247dee75d63d86e017b6e3b3a1.png)
 6. 在 hugo-site 中将 public 目录中的文件给部署上去：
 ```
-cloudbase hosting:deploy ./public  -e EndId
+cloudbase hosting:deploy ./public  -e EnvID
 ```
-这里的 EndId 替换为刚创建好的环境 ID。
+这里的 EnvID 替换为刚创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
 
 7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的的域名，单击域名，就可以看到您刚刚部署的 Hexo。
