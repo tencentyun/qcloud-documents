@@ -68,7 +68,7 @@ TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index
 | --- | --- |
 | [setProxyServer](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#setProxyServer) | 设置代理服务器。该方法适用于企业自己部署代理服务器，如 ngnix+coturn 方案。 |
 | [setTurnServer](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#setTurnServer) | 设置 TURN 服务器。该方法配合 [setProxyServer()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#setProxyServer) 使用，适用于企业自己部署代理服务器和 TURN 中转。 |
-| [join](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) | 加入一个音视频通话房间。进房代表开始一个音视频通话会话。 |
+| [join](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) | 加入一个音视频通话房间，进房代表开始一个音视频通话会话。若房间不存在，系统将自动创建一个新房间。 |
 | [leave](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#leave) | 退出当前音视频通话房间，结束一次音视频通话会话。 |
 | [publish](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#publish) | 发布本地音视频流。该方法需要在 [join()](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#join) 进房后调用，一次音视频会话中只能发布一个本地流。|
 | [unpublish](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html#unpublish) | 取消发布本地流。 |
