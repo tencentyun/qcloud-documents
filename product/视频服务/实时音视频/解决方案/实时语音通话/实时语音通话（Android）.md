@@ -44,7 +44,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Android Studio（3.2 以上的版本）打开源码工程 `TRTCDemo`，单击【运行】即可开始调试本 Demo。
+使用 Android Studio（3.5 以上的版本）打开源码工程 `TRTCDemo`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
