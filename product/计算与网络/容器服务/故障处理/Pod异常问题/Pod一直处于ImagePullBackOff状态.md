@@ -23,7 +23,7 @@ Dockerd 默认从 HTTPS 类型的 Registry 拉取镜像。当您使用 HTTP 类�
 ```
 
 ### 检查私有镜像仓库配置
-若 Pod 未配置 imagePullSecret、配置的 Secret 不存在或者有误都会造成 Registry 认证失败，使 Pod 一直处于 ImagePullBackOff 状态
+若 Pod 未配置 imagePullSecret、配置的 Secret 不存在或者有误都会造成 Registry 认证失败，使 Pod 一直处于 ImagePullBackOff 状态。
 
 ### 检查镜像文件是否损坏
 若 Push 的镜像文件损坏，下载成功后也不能正常使用，则需要重新 push 镜像文件。
