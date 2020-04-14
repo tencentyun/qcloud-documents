@@ -66,7 +66,7 @@ REDIRECT   tcp  --  0.0.0.0/0            0.0.0.0/0            redir ports 15001
 
 ## 本地接口
 如果在本地调用`netstat -lntp | grep 127.0.0.1`，会出现以下三个 listen 服务，分别是各个本地组件提供的运维接口的 IP 和 port。
-```
+```plaintext
 tcp        0      0 127.0.0.1:15020         0.0.0.0:*               LISTEN      5168/pilot-agent    
 tcp        0      0 127.0.0.1:15021         0.0.0.0:*               LISTEN      5261/mesh-dns       
 tcp        0      0 127.0.0.1:15000         0.0.0.0:*               LISTEN      5266/envoy
