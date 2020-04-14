@@ -75,3 +75,5 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 - 支付成功后，进入控制台，待机器创建启动完毕，即可登录机器。
 
 ![支付成功](https://main.qcloudimg.com/raw/7ceaabfd0cd0521140ca9eb5145a8cdd.png)
+
+

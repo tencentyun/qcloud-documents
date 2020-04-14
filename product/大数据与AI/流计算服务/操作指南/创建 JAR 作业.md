@@ -9,7 +9,7 @@
 
 ### 1. 创建 JAR 作业
 
-登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/scs)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
+登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，单击左侧菜单栏【流计算】下的【作业管理】，进入作业管理页面。单击【新建JAR作业】，进入【新建作业】，选择您的独享集群，单击【下一步】。
 > ? 如果这一步您没有可选的独享集群，请参见 [创建和管理集群](https://cloud.tencent.com/document/product/849/38380) 创建独享集群。
 
 ![新建JAR作业步骤1](https://main.qcloudimg.com/raw/97acd63eec13dcb9f12a3835263df950.png)
@@ -27,7 +27,7 @@
 在【作业管理】页面单击某个作业名称打开【作业详情】页，单击【分析开发】，在未授权时，弹出访问授权对话框如下。单击【前往授权】，授权流计算作业访问您的 CKafka、TencentDB 等资源。
 ![角色授权弹框](https://main.qcloudimg.com/raw/0810024f6f10d6fb8a4ce689a274537f.png)
 
-> ? 此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38288)。
+> ? 此授权的详细说明参见 [流计算服务委托授权](https://cloud.tencent.com/document/product/849/38290)。
 
 ### 3. JAR 作业开发和发布
 

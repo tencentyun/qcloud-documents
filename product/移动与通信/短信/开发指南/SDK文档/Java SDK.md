@@ -46,7 +46,7 @@ libraryDependencies += "com.github.qcloudsms" % "sms" % "1.0.6"
 
  - 方法1
  将 [源代码](https://github.com/qcloudsms/qcloudsms_java/tree/master/src) 直接引入到项目工程中。
- >?由于 qcloudsms_java 依赖四个依赖项目 library： [org.json](http://central.maven.org/maven2/org/json/json/20170516/json-20170516.jar)，[httpclient](http://central.maven.org/maven2/org/apache/httpcomponents/httpclient/4.5.3/httpclient-4.5.3.jar)，[httpcore](http://central.maven.org/maven2/org/apache/httpcomponents/httpcore/4.4.7/httpcore-4.4.7.jar) 和 [httpmime](http://central.maven.org/maven2/org/apache/httpcomponents/httpmime/4.5.3/httpmime-4.5.3.jar)。若采用方法1，需要将以上四个 jar 包一并导入工程。
+ >?由于 qcloudsms_java 依赖四个依赖项目 library： org.json，httpclient，httpcore 和 httpmime。若采用方法1，需要将以上四个 jar 包一并导入工程。
 
  - 方法2
  将 [JAR 包](https://github.com/qcloudsms/qcloudsms_java/releases) 直接引入到您的工程中。
@@ -69,8 +69,7 @@ int templateId = 7839; // NOTE: 这里的模板 ID`7839`只是示例，真实的
 String smsSign = "腾讯云"; // NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台申请
 ```
 
-
-<a id="指定模板单发短信"></a>
+<span id="指定模板单发短信"></span>
 - **指定模板 ID 单发短信**
 ```java
 import com.github.qcloudsms.SmsSingleSender;
@@ -96,7 +95,7 @@ try {
 }
 ```
 
-<a id="指定模板群发短信" ></a>
+<span id="指定模板群发短信"></span>
 - **指定模板 ID 群发短信**
 ```java
 import com.github.qcloudsms.SmsMultiSender;
@@ -122,7 +121,7 @@ try {
 }
 ```
 
-<a id="拉取短信回执" > </a>
+<span id="拉取短信回执"></span>
 - **拉取短信回执以及回复**
 ```java
 import com.github.qcloudsms.SmsStatusPuller;

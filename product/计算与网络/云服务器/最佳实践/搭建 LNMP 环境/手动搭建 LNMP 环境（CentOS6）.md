@@ -19,10 +19,12 @@ PHP：脚本语言，本文以 PHP 7.1.32 为例。
 
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
-### 步骤二：安装 Nginx
+### 步骤2：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
 vi /etc/yum.repos.d/nginx.repo
@@ -45,9 +47,7 @@ yum install -y nginx
 vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
-   用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
->
+7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
 	listen       80;
@@ -76,19 +76,21 @@ server {
 	}
 }
 ```
-7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-8. 执行以下命令，启动 Nginx。
+若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方进行添加。如下图所示：
+![](https://main.qcloudimg.com/raw/d438c6aa947a30441e3a86cfb3d9867c.png)
+8. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+9. 执行以下命令，启动 Nginx。
 ```
 service nginx start
 ```
-9. 依次执行以下命令，设置 Nginx 为开机自启动。
+10. 依次执行以下命令，设置 Nginx 为开机自启动。
 ```bash
 chkconfig --add nginx
 ```
 ```
 chkconfig  nginx on
 ```
-10. 在本地浏览器中访问以下地址，查看 Nginx 服务是否正常运行。
+11. 在本地浏览器中访问以下地址，查看 Nginx 服务是否正常运行。
 ```
 http://云服务器实例的公网 IP
 ```
@@ -96,7 +98,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
-### 步骤三：安装数据库
+### 步骤3：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MySQL。
 ```
 rpm -qa | grep -i mysql
@@ -134,10 +136,7 @@ mysql
 \q
 ```
 
-
-
-
-### 步骤四：安装配置 PHP
+### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-6.noarch.rpm
@@ -162,10 +161,7 @@ chkconfig php-fpm on
 ```
 
 
-
-
-
-### 验证环境配置是否成功
+## 验证环境配置
 1. 执行以下命令，创建测试文件。
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php

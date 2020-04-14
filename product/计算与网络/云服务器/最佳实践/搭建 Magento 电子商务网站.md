@@ -6,24 +6,25 @@ Magento 是使用 PHP 语言开发的开源电子商务平台，是国际电子�
 
 ## 操作步骤
 
-### 步骤一：创建云服务器时使用 Magento 镜像
->!如果您想使用已购买的云服务器部署 Magento 个人网站，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。
+### 步骤1：创建云服务器时使用 Magento 镜像
+>!如果您想使用已购买的云服务器部署 Magento 个人网站，您可通过 [重装系统](https://cloud.tencent.com/document/product/213/4933)，并选择服务市场中对应的镜像完成环境部署。部分境外地域的云服务器暂不支持通过服务市场重装系统，建议您使用其他地域云服务器进行搭建。
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的【新建】。
 2. 根据页面提示选择机型，并在“镜像”中选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
+>! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
+>
 ![](https://main.qcloudimg.com/raw/079615fcf41610885b6462a478cab823.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入 Magento 并单击<image src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" style="margin:-3px 0px"/>。如下图所示：
+3. 在“镜像市场”窗口的搜索框中，输入 Magento 并单击 <image src="https://main.qcloudimg.com/raw/70c20e0ff30f88eef20d6b540d6ef804.png" style="margin:-3px 0px"/>。如下图所示：
 >?
 >- 本文以下图所示的 Magento开源电子商务系统为例，您可根据实际需求进行选择。
 >- 单击镜像名可查看镜像详情。
 >
-![](https://main.qcloudimg.com/raw/7adadb8a4f4f2d99a5803535b3e4dbbd.png)
+<img src="https://main.qcloudimg.com/raw/fffcdcd863e85aaee62faecad688fcc4.png" style="width: 88%;"></img>
 4. 单击【免费使用】。
 5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 CVM 的购买。
 
 
-### 步骤二：修改数据库密码
+### 步骤2：修改数据库密码
 >!镜像中默认数据库密码较为简单，为提高数据库安全性，建议执行此步骤修改默认密码。
 >
 1. 在实例的管理页面，找到已创建的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
@@ -40,9 +41,9 @@ http://云服务器实例的公网 IP/phpmyadmin
 5. <span id="password"></span>在弹出的“修改密码”窗口中，选择自行设置或自动生成密码，并单击【执行】。如下图所示：
 >?本文使用自动生成密码，请记录您的数据库密码。
 >
-![](https://main.qcloudimg.com/raw/287a33f4b12b74a4c12d655096addc09.png)
+![](https://main.qcloudimg.com/raw/f7f4e146148fb8e3c6866ff996fce235.png)
 
-### 步骤三：配置 Magento 客户端
+### 步骤3：配置 Magento 客户端
 1. 在本地浏览器访问以下地址，进入 Magento 配置页面。
 ```
 http://云服务器实例的公网 IP
@@ -67,13 +68,13 @@ http://云服务器实例的公网 IP
 9. 单击【Install Now】进行安装。
 10. 成功安装后请记录页面上的信息，并单击【Launch Magento Admin】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a5d9c2fbe7f17c454a0cbae30217390b.png)
-11. 进入管理员登录页面，输入 [步骤8](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
+11. 进入管理员登录页面，输入 [步骤6](#admin) 设置的管理员账号及密码，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/d196f04eec071c0ab27895698c75c88b.png)
 12. 登录成功后，即可进入管理员页面配置个人商务网站。如下图所示：
 ![](https://main.qcloudimg.com/raw/897866cc646521b0d32ce09515dc4efc.png)
 
 
-### 步骤四：验证配置
+### 步骤4：验证配置
 使用本地浏览器访问下列地址，查看 Magento 客户端是否安装成功。
 ```
 http://云服务器实例的公网 IP

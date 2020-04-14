@@ -1,39 +1,7 @@
 ## 数据订阅 SDK 下载
-单击下载 [数据订阅 SDK Version 2.8.2](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/binlogsdk-2.8.2-jar-with-dependencies.jar)。
-
-## 发布日志
-### Version 2.8.2
-1. 优化了 SDK 的内存占用。
-2. SDK 支持 VPC 内网鉴权，不再依赖公网。
-
-### Version 2.8.0
-1. 优化了内部鉴权逻辑。
-2. 减少用户参数设置。
-
-### Version 2.7.2
-1. 在 DDL 语句返回值中填充 db 值。
-
-### Version 2.7.0
-1. 数据订阅通道后台的 HA 功能，秒级切换。
-2. 添加 SDK 监控指标上报。
-
-### Version 2.6.0
-1. 支持单 SDK 订阅多个通道。
-2. 支持订阅 Client 的 stop、start 等操作。
-3. 支持 DataMessage.Record 的序列化。
-4. 优化 SDK 的性能，降低资源消耗。
-
-### Version 2.5.0
-1. 修复高并发情况下小概率出现的 bug。
-2. 支持事务中记录的全局唯一自增的 ID。
-
-### Version 2.4.0
-1. 配合后台优化了订阅的逻辑，可以精确显示 SDK 当前的消费时间点。
-2. 修复了后台的少数特殊字符的编码问题。
-3. **修复了多项兼容性问题，建议更老版本用户尽快升级至此版本**。
+单击下载 [数据订阅 SDK Version 2.9.1](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/binlogsdk-2.9.1-jar-with-dependencies.jar)。
 
 ## 运行原理
-
 ### 拉取
 SDK 的拉取和确认消息是两个异步的线程同时在做的，拉取是按顺序拉取的，两个线程的执行分别独立是严格有序，但这两个线程之间是异步的。
 
@@ -70,14 +38,14 @@ public class Main {
         //用户 secretId、secretKey
         context.setSecretId("AKID-522dabxxxxxxxxxxxxxxxxxx");
         context.setSecretKey("AKEY-0ff4cxxxxxxxxxxxxxxxxxxxx");
-        // 设置 channel 所在的 region，2.8.0以后的 SDK 必须设置 region 参数
+        // 设置 channel 所在的 region，2.8.0 以后的 SDK 必须设置 region 参数
         // region 值参照：https://cloud.tencent.com/document/product/236/15833#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8
         context.setRegion("ap-chongqing");
         // 订阅的 serviceIp 和 servicePort
         // 注意：2.8.0以前的 SDK 需要设置 IP 和 Port 两个参数，2.8.0以后的版本如果设置了 region 参数则可以省略
         // context.setServiceIp("10.108.112.24");
         // context.setServicePort(50120);
-        
+
         // 如果运行 SDK 的 CVM 不能访问外网，设置网络环境为内网;默认为外网。
         context.setNetworkEnv(NetworkEnv.LAN);
         //创建客户端
@@ -88,15 +56,34 @@ public class Main {
             public void notify(List<ClusterMessage> messages) throws Exception {
                 //消费订阅到的数据
                 for(ClusterMessage m:messages){
-                    for(DataMessage.Record.Field f:m.getRecord().getFieldList()){
-                        if(f.getFieldname().equals("id")){
-                            System.out.println("seq:"+f.getValue());
-                        }
-                        DataMessage.Record record  = m.getRecord();
-                    }
-                    //消费完之后，确认消费
-                    m.ackAsConsumed();
-                }
+                  for(DataMessage.Record.Field f:m.getRecord().getFieldList()){
+
+                      if (f.getType().equals(DataMessage.Record.Field.Type.BLOB)){
+                          System.out.println("["+f.getType()+"]["+f.getFieldname()+"] the original value:");
+                          byte[] theRawBytesValue = f.getValueAsBytes();
+                      }if(f.getType().equals(DataMessage.Record.Field.Type.INT8)){
+                          // 如果该值为 null，f.getValueAsInteger() 返回 null
+                          System.out.println(f.getValueAsInteger());
+                      }if(f.getType().equals(DataMessage.Record.Field.Type.JSON)){
+                          // 源实例为 mysql5.7 才可能返回 JSON 类型的数据
+                          System.out.println(f.getValueAsString());
+                      }if(f.getType().equals(DataMessage.Record.Field.Type.STRING)){
+                          // 如果该值为 null，f.getValueAsString() 返回 null
+                          System.out.println(f.getValueAsString());
+                          // 字段原始的编码
+                          System.out.println(f.getFieldEnc());
+                      }
+                      else{
+                          // f.getValue() 方法即将废弃
+                          String value = f.getValue() == null ? "Null": f.getValue();
+                          String msg = "["+f.getType()+"]"+f.getFieldname()+"[encoding:"+f.getFieldEnc()+"]"+"[value:"+value+"]";
+                          System.out.println(msg);
+                      }
+
+                  }
+                  //消费完之后，确认消费
+                  m.ackAsConsumed();
+              }
             }
             @Override
             public void onException(Exception e){
@@ -125,8 +112,7 @@ public class Main {
 >?`serviceIp`即数据订阅控制台【服务地址】里的 IP、`servicePort`即【服务地址】里的端口号、`channelId`即【通道ID】。
 
 
-## SDK说明
-
+## SDK 说明
 ### SubscribeContext 类
 #### 类说明
 主要用于设置用户 SDK 的配置信息，其中包括安全凭证 secretId、secretKey、订阅服务的 IP 和端口。

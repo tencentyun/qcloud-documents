@@ -40,7 +40,7 @@ Authorization: Auth String
 | ----------------------- | ----------------------- | ---------------------------------------------------- | --------- |
 | AccelerateConfiguration | 无                      | 全球加速的具体信息                                   | Container |
 | Status                  | AccelerateConfiguration | 说明全球加速功能是否开启，枚举值：Suspended、Enabled | Enum      |
-| Type                    | AccelerateConfiguration | 指定全球加速功能的类型，枚举值：Suspended、Enabled   | Enum      |
+
 
 ## 响应
 
@@ -58,7 +58,7 @@ Authorization: Auth String
 
 | 错误码          | HTTP状态码      | 描述                                                         |
 | --------------- | --------------- | ------------------------------------------------------------ |
-| InvalidArgument | 400 Bad Request | 1.如果请求的 xml body 为空，将返回 InvalidArgument。<br>2. 开启全球加速的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，会返回 InvalidArgument。 |
+| InvalidArgument | 400 Bad Request | 1. 如果请求的 xml body 为空，将返回 InvalidArgument。<br>2. 开启全球加速的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，会返回 InvalidArgument。 |
 | InvalidDigest   | 400 Bad Request | 携带的 Content-MD5 和服务端计算的请求 body 的不一致。        |
 
 ## 实际案例
@@ -73,9 +73,9 @@ Authorization: authorization string
 Content-Type: text/plain
 Content-Length: 83
 
-<VersioningConfiguration>
+<AccelerateConfiguration>
     <Status>Enabled</Status>
-</VersioningConfiguration>
+</AccelerateConfiguration>
 ```
 
 #### 响应

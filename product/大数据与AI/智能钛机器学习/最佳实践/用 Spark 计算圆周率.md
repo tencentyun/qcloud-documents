@@ -1,4 +1,4 @@
-## 场景背景
+## 案例背景
 Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用程序并编译打包成 jar 包后，可通过智能钛机器学习平台提供的 Spark 框架运行自定义代码。本案例以利用 Spark 计算圆周率为例，向用户介绍：如何在智能钛机器学习平台上使用 Spark 框架，如何上传 jar 包，如何通过工作流页面向自定义代码传参，在自定义代码中如何读取 COS 上的文件，以及如何查看代码日志/报错信息。整个工作流运行耗时约几十秒。
 
 ## 整体流程
@@ -8,7 +8,7 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
 3. 查看工作流运行状态和结果。
 
 整体工作流如下：
-![](https://main.qcloudimg.com/raw/5cc167dabb65b8fe99abb866934b105d.png)
+<img src="https://main.qcloudimg.com/raw/cc3b3d871a4fd1e5eeac3da1a23f04a6.png" style="zoom:50%;" />
 
 ## 详细流程
 #### 一、本地准备
@@ -66,10 +66,9 @@ object SparkPi {
 
 #### 二、利用 Spark 框架完成圆周率计算
 1. 在智能钛控制台的左侧导航栏，选择【框架】>【机器学习】>【Spark】，并拖入画布中。
-![](https://main.qcloudimg.com/raw/764a232d6c49113d1d978b1be7ece94c.png)
 2. 配置组件参数
 >?Spark 框架需用户上传自己的 jar 包，PySpark 框架需用户上传 Python 文件。
- 
+
  -  在右侧弹出的配置栏中，单击【作业 jar 包】：上传用户在本地编译源代码后打的 jar 包：[pi-1.0.jar](https://csy-classification-1256633383.cos.ap-shanghai.myqcloud.com/pi-1.0.jar)（您也可以直接下载我们打好的 jar 包进行体验）。
  - 主类名：org.apache.spark.examples.SparkPi （填写格式与代码名保持一致，即：包名+类名）。
 ![](https://main.qcloudimg.com/raw/2a9ebb2aab9571d58cd8003dcc4c6ac5.png)
@@ -78,21 +77,17 @@ object SparkPi {
  - 配置文件：此案例中无需配置文件（该参数代表的资源文件在代码中可通过 getResourceAsStream('xxx.txt') 获取）。
 
 3. 配置资源参数（用户可根据自身代码调整分配资源）
- - num-executors：1（spark executor 的数量） 
- - driver-memory：1（spark driver 的内存大小，单位 G）
- - executor-cores：2（spark executor 的 CPU 核数）
- - executor-memory：1（spark executor 的内存大小，单位 G）
+ - drver节点资源类型：TI.SMALL2.1core2g
+ - executor节点资源类型：TI.SMALL2.1core2g
+ - num-executors：1
  - spark-conf：本案例中可不填（spark 的配置参数，例如 spark.shuffle.service.enabled=false，用空格或者回车分割多个 conf）
-![](https://main.qcloudimg.com/raw/f186c28228adc9a16196ac6a195f96a8.png)
 4. 运行工作流
 单击右键【Spark】，选择起点运行，待运行成功（耗时约20s）。
-![](https://main.qcloudimg.com/raw/747d9f84ee19f8fb24d5eefd6753c199.png)
+<img src="https://main.qcloudimg.com/raw/fdb71ce371ae1bb1415e9a4010a7c3c3.png" style="zoom:67%;" />
 
 #### 三、查看工作流运行状态和结果
-1. 单击右键【Spark】，选择【日志信息】>【Spark 控制台】可查看该工作流运行相关日志。
-![](https://main.qcloudimg.com/raw/8b27c540eabfdcefdd82a97ac5c4ae5c.png)
->?右键【Spark】>【日志信息】>【查看日志】/【历史日志】是任务提交的后台日志，一般不用关注。
+1. 单击右键【Spark】，单击【Spark 控制台】可查看该工作流运行相关日志。
+2. 单击【stdout】 即可在日志中查看圆周率 PI 的计算结果。
+![](https://main.qcloudimg.com/raw/5247942cf3191e8ae317babf3d0e6872.png)
 
-2. 单击【driver.log】 即可在日志中查看圆周率 PI 的计算结果。
-![](https://main.qcloudimg.com/raw/c1a21f988bb1dc78bbc473800d3c28e7.png)
 

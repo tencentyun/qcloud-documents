@@ -6,6 +6,7 @@
 - CDN 节点检查视频 URL 中的参数和签名，对视频播放请求进行控制。如果请求检查不通过，则返回403响应码。
 - 支持的文件类型：MP4、TS、M3U8、FLV、AAC、MOV、WMV、AVI、MP3、RMVB、MKV、MPG、3GP、WEBM、M4V、ASF、F4V、WAV、MPEG、VOB、RM、WMA、DAT、M4A、MPD、M4S。
 
+>?开启 Key 防盗链请参见 [设置防盗链](https://cloud.tencent.com/document/product/266/33469#key-.E9.98.B2.E7.9B.97.E9.93.BE)。
 
 ## 防盗链 URL 生成方式
 - 开发者在云点播中的视频均存在**视频原始 URL**。未开启防盗链时，使用视频原始 URL 即可播放视频。

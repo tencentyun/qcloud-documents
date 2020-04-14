@@ -7,7 +7,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 ## 示例软件版本
 本文搭建的 LNMP 环境软件组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Nginx：Web 服务器，本文以  Nginx 1.17.5 为例。
+- Nginx：Web 服务器，本文以  Nginx 1.17.7 为例。
 - MariaDB：数据库，本文以 MariaDB 10.4.8 为例。
 - PHP：脚本语言，本文以 PHP 7.2.22 为例。
 
@@ -18,10 +18,12 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 
 ## 操作步骤
 
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
-### 步骤二：安装 Nginx
+### 步骤2：安装 Nginx
 1. 执行以下命令，在 `/etc/yum.repos.d/` 下创建 `nginx.repo` 文件。
 ```
 vi /etc/yum.repos.d/nginx.repo
@@ -44,8 +46,8 @@ yum install -y nginx
 vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
-用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->?找到 `nginx.conf` 文件中的 `#gzip on;`，另起一行并输入以下内容。
+7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
+>? 您可使用 `Ctrl+F` 向下翻页、`Ctrl+B`向上翻页查看文件。
 >
 ```
 server {
@@ -75,6 +77,8 @@ server {
 	}
 }
 ```
+若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方进行添加。如下图所示：
+![](https://main.qcloudimg.com/raw/901a3957ccd992c2fb345287271c4bef.png)
 7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 8. 执行以下命令启动 Nginx。
 ```
@@ -92,7 +96,7 @@ http://云服务器实例的公网 IP
 ![](https://main.qcloudimg.com/raw/fdc40877928729679d392eb304a3f12c.png)
 
 
-### 步骤三：安装数据库
+### 步骤3：安装数据库
 1. 执行以下命令，查看系统中是否已安装 MariaDB。 
 ```
 rpm -qa | grep -i mariadb
@@ -108,7 +112,9 @@ yum -y remove 包名
 ```
 vi /etc/yum.repos.d/MariaDB.repo
 ```
-3. 按 “**i**” 切换至编辑模式，写入以下内容。
+3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
+>? 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
@@ -118,7 +124,6 @@ baseurl = http://yum.mariadb.org/10.4/centos7-amd64
 gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
->?您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的安装信息。
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 5. 执行以下命令，安装 MariaDB。
 ```
@@ -144,7 +149,7 @@ mysql
 ```
 
 
-### 步骤四：安装配置 PHP
+### 步骤4：安装配置 PHP
 1. 依次执行以下命令，更新 yum 中 PHP 的软件源。
 ```
 rpm -Uvh https://mirrors.cloud.tencent.com/epel/epel-release-latest-7.noarch.rpm
@@ -165,10 +170,7 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-
-
-
-### 验证环境配置是否成功
+## 验证环境配置
 当您完成环境配置后，可以通过以下验证 LNMP 环境是否搭建成功。
 1. 执行以下命令，创建测试文件。
 ```

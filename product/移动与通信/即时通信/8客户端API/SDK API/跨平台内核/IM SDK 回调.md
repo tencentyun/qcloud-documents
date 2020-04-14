@@ -353,7 +353,7 @@ typedef void (*TIMConvEventCallback)(enum TIMConvEvent conv_event, const char* j
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| conv_event | enum TIMConvEvent | 会话事件类型，请参考 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent)  |
+| conv_event | enum TIMConvEvent | 会话事件类型，请参考 [TIMConvEvent](https://cloud.tencent.com/document/product/269/33553#timconvevent) |
 | json_conv_array | const char\* | 会话信息列表 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -398,8 +398,8 @@ typedef void (*TIMNetworkStatusListenerCallback)(enum TIMNetworkStatus status, i
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| status | enum TIMNetworkStatus | 网络状态，请参考 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus)  |
-| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| status | enum TIMNetworkStatus | 网络状态，请参考 [TIMNetworkStatus](https://cloud.tencent.com/document/product/269/33553#timnetworkstatus) |
+| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) |
 | desc | const char\* | 错误描述字符串 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
@@ -586,8 +586,8 @@ typedef void (*TIMLogCallback)(enum TIMLogLevel level, const char* log, const vo
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| level | enum TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel)  |
-| log | const char\* | 日子字符串 |
+| level | enum TIMLogLevel | 日志级别，请参考 [TIMLogLevel](https://cloud.tencent.com/document/product/269/33553#timloglevel) |
+| log | const char\* | 日志字符串 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |
 
 ### TIMMsgUpdateCallback
@@ -615,7 +615,7 @@ typedef void (*TIMMsgUpdateCallback)(const char* json_msg_array, const void* use
 
 ### TIMCommCallback
 
-接口回调定义。
+接口通用回调的定义。
 
 **原型**
 
@@ -627,7 +627,7 @@ typedef void (*TIMCommCallback)(int32_t code, const char* desc, const char* json
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671)  |
+| code | int32_t | 值为 ERR_SUCC 表示成功，其他值表示失败。详情请参考 [错误码](https://cloud.tencent.com/document/product/269/1671) |
 | desc | const char\* | 错误描述字符串 |
 | json_params | const char\* | JSON 字符串，不同的接口，JSON 字符串不一样 |
 | user_data | const void\* | IM SDK 负责透传的用户自定义数据，未做任何处理 |

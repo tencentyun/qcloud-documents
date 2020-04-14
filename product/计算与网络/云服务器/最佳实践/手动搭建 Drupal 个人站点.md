@@ -12,20 +12,20 @@ Drupal 是使用 PHP 语言编写的开源内容管理框架（CMF），由内�
 - Drupal：网站内容管理框架，本文以 Drupal 8.1.1 为例。
 
 
-
-
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 
 ## 操作步骤
-### 步骤一：登录 Linux 实例
-登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。请参考 [使用标准方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 完成登录操作，并记录云服务器实例的公网 IP。
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 
-### 步骤二：搭建 LAMP 环境
+### 步骤2：搭建 LAMP 环境
 当您登录 Linux 云服务器后，请完成 LAMP 环境的搭建。详情请参考 [手动搭建 LAMP 环境](https://cloud.tencent.com/document/product/213/38402)。
 
-### 步骤三：下载 Drupal
+### 步骤3：下载 Drupal
 1. 依次执行以下命令，进入网站根目录并下载 Drupal 安装包。
 ```
 cd /var/www/html
@@ -48,7 +48,7 @@ cd drupal/
 wget -P sites/default/files/translations https://ftp.drupal.org/files/translations/8.x/drupal/drupal-8.7.8.zh-hans.po
 ```
 
-### 步骤四：配置 Drupal 
+### 步骤4：配置 Drupal 
 1. 执行以下命令，打开 Apache 配置文件。
 ```
 vi /etc/httpd/conf/httpd.conf
@@ -68,7 +68,6 @@ chown -R apache:apache /var/www/html
 ```
 systemctl restart httpd
 ```
-
 
 #### 配置 Drupal 数据库<span id="database"></span>
 >!根据 MariaDB 版本，设置用户身份验证方式有一定区别，具体步骤请参见 [MariaDB 官网](https://downloads.mariadb.org/)。
@@ -114,7 +113,7 @@ ALTER USER root@localhost IDENTIFIED VIA mysql_native_password USING PASSWORD('�
 \q
 ```
 
-### 步骤五：安装配置 Drupal
+### 步骤5：安装配置 Drupal
 1. 使用本地浏览器访问以下地址，进行 Drupal 安装。
 ```
 http://云服务器公网IP/drupal

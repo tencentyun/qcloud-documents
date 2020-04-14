@@ -6,7 +6,9 @@ COS Select 功能目前支持检索以 CSV、JSON 格式存储的对象，支持
 
 您可以使用 COS SDK、API、COSCMD 或 COS 控制台等方式执行 SQL 查询。需要注意，使用 COS 控制台进行文件检索存在一定限制：最大支持检索128M文件，返回的数据量限定为40MB。若需检索更多数据，请使用其他方式进行。
 
->?COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
+>?
+>- COS Select 所支持的数据类型和当前的保留字段，请参见 [数据类型](https://cloud.tencent.com/document/product/436/37639) 和 [保留字段](https://cloud.tencent.com/document/product/436/37638) 了解详情。
+>- 目前检索功能仅支持中国大陆公有云地域，其他地域暂不支持此功能。
 
 ## 使用限制
 

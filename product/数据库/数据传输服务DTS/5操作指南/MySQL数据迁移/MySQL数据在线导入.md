@@ -8,11 +8,11 @@
  如 lower_case_table_name 在迁移校验任务会检查源和目标的此项配置是否一致，不一致报错，会提前避免   lower_case_table_name 引起的重启问题。 
 - 整实例迁移
  -  迁移配置，如源实例一些必须要重启的参数（如 lower_case_table_name）与目标实例不同，设置需要重启目标实例。 
- -  导入冷备，阿里云迁移重建主从， 需要重启目标实例。
+ -  导入全量备份后，需要重启目标实例。
 - 部分场景需要具有源实例的 super 权限。
 
 ### 源实例 super 权限
-大部分场景对源实例无 super 权限要求，仅以下场景中需具有源实例的 super 权限（考虑到账号安全性等因素，TencentDB 暂不支持 super 自助提权服务，如有需要请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请）。
+大部分场景对源实例无 super 权限要求，仅以下场景中需具有源实例的 super 权限。
 - 用户在“数据一致性检测”中选择了“全量检测”校验模式。
 - 若在 binlog 同步过程中，用户在源实例创建了 Event，且这个 Event 指定了非用于 DTS 数据迁移的账号做 DEFINER，此时不具备 super 权限将会报错。
 
@@ -23,7 +23,7 @@
 
 ### 预先检查项
 1. 检查目标 TencentDB 实例是否有同名库表，避免冲突。
-2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 TencentDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 TencentDB for MySQL 5.5。
+2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 TencentDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 TencentDB for MySQL 5.5。当然您也可以选择使用 DTS 数据迁移工具直接从本地 MySQL 5.1 迁移至腾讯云 TencentDB for MySQL 5.5。
 3. 检查目标 TencentDB 实例容量必须大于源实例。
 4. 在源 MySQL 数据库上创建迁移账号（若有已授权可用于数据迁移的账号，也可不创建）。
 ```  	
