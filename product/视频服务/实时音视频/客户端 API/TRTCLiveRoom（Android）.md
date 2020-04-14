@@ -285,9 +285,9 @@ public abstract void createRoom(int roomId, TRTCLiveRoomDef.TRTCCreateRoomParam 
 | callback | ActionCallback | 创建房间的结果回调，成功时 code 为0。 |
 
 主播开播的正常调用流程如下： 
-1.【主播】调用 `startCameraPreview()` 打开摄像头预览，此时可以调整美颜参数。 
-2.【主播】调用 `createRoom` 创建直播间，房间创建成功与否会通过 ActionCallback 通知给主播。
-3.【主播】调用 `starPublish()` 开始推流。
+1. 【主播】调用 `startCameraPreview()` 打开摄像头预览，此时可以调整美颜参数。 
+2. 【主播】调用 `createRoom` 创建直播间，房间创建成功与否会通过 ActionCallback 通知给主播。
+3. 【主播】调用 `starPublish()` 开始推流。
 
    
 
@@ -321,9 +321,9 @@ public abstract void enterRoom(int roomId, TRTCLiveRoomCallback.ActionCallback c
 
 
 观众观看直播的正常调用流程如下： 
-1.【观众】向您的服务端获取最新的直播间列表，可能包含多个直播间的 roomID 和房间信息。
-2.【观众】观众选择一个直播间，并调用 `enterRoom()` 进入该房间。
-3.【观众】调用`startPlay`并传入主播的 userId 开始播放。
+1. 【观众】向您的服务端获取最新的直播间列表，可能包含多个直播间的 roomID 和房间信息。
+2. 【观众】观众选择一个直播间，并调用 `enterRoom()` 进入该房间。
+3. 【观众】调用`startPlay`并传入主播的 userId 开始播放。
  - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay(userId)` 即可开始播放。
  - 若在进房前暂未获取主播的 userId，观众端在进房后会收到 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 的事件回调，该回调中携带主播的 userId 信息，再调用`startPlay(userId)`即可播放。 
 
