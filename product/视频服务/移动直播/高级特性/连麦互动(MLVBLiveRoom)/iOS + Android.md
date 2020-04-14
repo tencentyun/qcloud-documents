@@ -60,6 +60,8 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 - [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
 
+>? 购买非体验包的正式套餐包进行服务开通，超出部分会按照后付费日结计费，开通后可以继续购买套餐包抵扣或者按照后付费进行结算。
+
 ### Step4. 在应用管理中添加一个新的应用
 进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
