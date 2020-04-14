@@ -76,7 +76,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanager)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。|
 
 ### 美颜滤镜相关接口函数
 
@@ -103,48 +103,48 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [onError](#onError) | 错误回调。|
-| [onWarning](#onWarning) | 警告回调。|
-| [onDebugLog](#onDebugLog) | Log 回调。|
+| [onError](#onerror) | 错误回调。|
+| [onWarning](#onwarning) | 警告回调。|
+| [onDebugLog](#ondebuglog) | Log 回调。|
 
 ### 房间事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onRoomDestroy](#onRoomDestroy) | 房间被销毁的回调。|
-| [onRoomInfoChange](#onRoomInfoChange) | 直播房间信息变更回调。|
+| [onRoomDestroy](#onroomdestroy) | 房间被销毁的回调。|
+| [onRoomInfoChange](#onroominfochange) | 直播房间信息变更回调。|
 
-### 主播和观众的进出事件回调
+### 主播和观众进出事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onAnchorEnter](#onAnchorEnter) | 收到新主播进房通知。|
-| [onAnchorExit](#onAnchorExit) | 收到主播退房通知。|
-| [onAudienceEnter](#onAudienceEnter) | 收到观众进房通知。|
-| [onAudienceExit](#onAudienceExit) | 收到观众退房通知。|
+| [onAnchorEnter](#onanchorenter) | 收到新主播进房通知。|
+| [onAnchorExit](#onanchorexit) | 收到主播退房通知。|
+| [onAudienceEnter](#onaudienceenter) | 收到观众进房通知。|
+| [onAudienceExit](#onaudienceexit) | 收到观众退房通知。|
 
 ### 主播和观众连麦事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onRequestJoinAnchor](#onRequestJoinAnchor) | 主播收到观众连麦请求时的回调。|
-| [onKickoutJoinAnchor](#onKickoutJoinAnchor) | 连麦观众收到被踢出连麦的通知。|
+| [onRequestJoinAnchor](#onrequestjoinanchor) | 主播收到观众连麦请求时的回调。|
+| [onKickoutJoinAnchor](#onkickoutjoinanchor) | 连麦观众收到被踢出连麦的通知。|
 
 ### 主播 PK 事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onRequestRoomPK](#onRequestRoomPK) | 收到请求跨房 PK 通知。|
-| [onQuitRoomPK](#onQuitRoomPK) | 收到断开跨房 PK 通知。|
+| [onRequestRoomPK](#onrequestroompk) | 收到请求跨房 PK 通知。|
+| [onQuitRoomPK](#onquitroompk) | 收到断开跨房 PK 通知。|
 
 ### 消息事件回调
 
 | API | 描述 |
 |-----|-----|
-| [onRecvRoomTextMsg](#onRecvRoomTextMsg) | 收到文本消息。|
-| [onRecvRoomCustomMsg](#onRecvRoomCustomMsg) | 收到自定义消息。|
+| [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
+| [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
-<h2 id="TRTCAudioEffectManager">TRTCAudioEffectManager API 概览</h2>
+<h2 id="trtcaudioeffectmanagerapi">TRTCAudioEffectManager API 概览</h2>
 
 | API | 描述 |
 |-----|-----|
@@ -689,7 +689,7 @@ public abstract void muteAllRemoteAudio(boolean mute);
 ## 背景音乐音效相关接口函数
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TRTCAudioEffectManagerImpl](#TRTCAudioEffectManager)。
+获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。
 ```java
 public abstract TRTCAudioEffectManager getAudioEffectManager();
 ```
