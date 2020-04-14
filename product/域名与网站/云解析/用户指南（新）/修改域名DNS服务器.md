@@ -1,3 +1,7 @@
+
+以下视频将为您进一步介绍如何修改域名 DNS 服务器：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2303-33501"></iframe></div>
+
 ## 操作场景
 
 若您的 DNS 服务器不正确，需将域名 DNS 修改为提示的 DNS 地址，解析方可生效。
