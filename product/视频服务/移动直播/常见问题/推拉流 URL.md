@@ -12,6 +12,7 @@
  >? 
  >- AppName 可自定义，仅支持英文字母、数字和符号。
  >- 除上述方法，您还可以在云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中，选择推流域名单击【管理】，选择【推流配置】，输入推流地址的过期时间和自定义的流名称 StreamName，单击【生成推流地址】即可生成推流地址。
+ >- 播放地址主要由播放前缀、播放域名（domain）、应用名称（AppName）、流名称（StreamName）、播放协议后缀、鉴权参数以及其他自定义参数组成，详情可参见 [播放地址由什么组成？](https://cloud.tencent.com/document/product/454/7937#Que6)
 
 
 ### 如何自主拼装直播 URL？
