@@ -74,7 +74,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanager)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。|
 
 ### 美颜滤镜相关接口函数
 
@@ -112,7 +112,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | [onRoomDestroy](#onroomdestroy) | 房间被销毁的回调。|
 | [onRoomInfoChange](#onroominfochange) | 直播房间信息变更回调。|
 
-### 主播和观众的进出事件回调
+### 主播和观众进出事件回调
 
 | API | 描述 |
 |-----|-----|
@@ -142,7 +142,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
-<h2 id="TRTCAudioEffectManager">TRTCAudioEffectManager API 概览</h2>
+<h2 id="trtcaudioeffectmanagerapi">TRTCAudioEffectManager API 概览</h2>
 
 | API | 描述 |
 |-----|-----|
@@ -629,7 +629,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 ## 背景音乐音效相关接口函数
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TRTCAudioEffectManagerImpl](#trtcaudioeffectmanager)。
+获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。
 ```swift
 @objc func getAudioEffectManager() -> TRTCAudioEffectManagerImpl
 ```
