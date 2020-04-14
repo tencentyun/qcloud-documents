@@ -39,7 +39,7 @@ const config = {
     reconnectInterval: 1000,
     resendInterval: 1000,
     resendTimeout: 10000,
-    autoRequestFrame: true,
+    isAutoRequestFrame: true,
 };
 
 // 初始化 Listener

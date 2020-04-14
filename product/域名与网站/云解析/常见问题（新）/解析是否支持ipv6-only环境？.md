@@ -1,4 +1,4 @@
-### 腾讯云解析是否支持 IPv6-only 环境？  
+### 腾讯云 DNS 解析是否支持 IPv6-only 环境？  
 腾讯云 DNSPod 域名解析支持 IPv6-only 网络环境，并且在境内外均验证解析成功。
 
 ### 提交 App Store 的 iOS 在本地环境测试通过，却在 App Store 审核时被拒是什么原因？  

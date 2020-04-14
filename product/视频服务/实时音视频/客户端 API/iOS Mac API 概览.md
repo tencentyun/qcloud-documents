@@ -14,7 +14,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) | 进入房间。 |
+| [enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) | 进入房间，若房间不存在，系统将自动创建一个新房间。 |
 | [exitRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) | 离开房间。 |
 | [switchRole](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5f4598c59a9c1e66938be9bfbb51589c) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a062bc48550b479a6b7c1662836b8c4a5) | 请求跨房通话（主播 PK）。 |
@@ -140,6 +140,7 @@
 | [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 枚举可分享的屏幕窗口。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
 | [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f) | 启动屏幕分享。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc972) | 启动屏幕分享（高级接口），支持选择使用主路还是辅路进行屏幕分享。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15) | 恢复屏幕分享。 |
@@ -305,7 +306,7 @@
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aaa74021e5fd2564afb2df50e25eedeff) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#afdac7dee94451913a4dc9982badc8035) | 麦克风准备就绪。 |
 | [onAudioRouteChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a1859305732dfd03de63c9b780f99d513) | 音频路由发生变化（仅 iOS），音频路由即声音由哪里输出（扬声器或听筒）。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7775c3fbd84b8da3b7a75bdea27ed5c5) | 提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7775c3fbd84b8da3b7a75bdea27ed5c5) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDevice](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a0152908c497bd5ee5225251d9e93e500) | 本地设备通断回调。 |
 
 

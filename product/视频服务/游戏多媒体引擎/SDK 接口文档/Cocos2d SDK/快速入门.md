@@ -51,11 +51,6 @@ ITMGContext virtual int Init(const char* sdkAppId, const char* openID)
 | openId    	|char*   	|OpenID 只支持 Int64 类型（转为 char* 传入），数值必须大于 10000，用于标识用户 	|
 
 
-|返回值|处理|
-|----|----|
-|QAVError.OK|初始化 SDK 成功|
-|7015 AV_ERR_SDK_NOT_FULL_UPDATE|检查 SDK 文件是否完整，建议删除后重新导入 SDK|
-
 ####  示例代码 
 
 
@@ -152,14 +147,6 @@ void TMGTestScene::OnEvent(ITMG_MAIN_EVENT_TYPE eventType,const char* data){
 }
 ```
 
-#### 错误码
-|错误码名称|错误码值|原因及建议方案|
-|--------|-------|------------|
-|AV_ERR_AUTH_FIALD         |7006|鉴权失败 有以下几个原因：1、AppID 不存在或者错误，2、authbuff 鉴权错误，3、鉴权过期 4、openID不符合规范。|
-|AV_ERR_IN_OTHER_ROOM      |7007|已经在其它房间。|
-|AV_ERR_REPEATED_OPERATION  |1001   |已经在进房过程中，然后又重复了此操作。建议在进房回调返回之前不要再调用进房接口。|
-|AV_ERR_HAS_IN_THE_STATE    |1003   |已经进房了在房间中，又调用一次进房接口。|
-|AV_ERR_CONTEXT_NOT_EXIST   |1101   |确保已经初始化 SDK，或者确保在同一线程调用接口，以及确保 Poll 接口正常调用。|
 
 ### 7、开启关闭麦克风
 此接口用来开启关闭麦克风。加入房间默认不打开麦克风及扬声器。

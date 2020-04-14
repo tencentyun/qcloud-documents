@@ -45,7 +45,7 @@ useradd ftpuser
 passwd ftpuser
 ```
 输入密码后请按 **Enter** 确认设置，密码默认不显示，本文以 `tf7295TFY` 为例。
-3. 执行以下命令，创建 FTP 服务使用的文件目录，本为以 `/var/ftp/test` 为例。
+3. 执行以下命令，创建 FTP 服务使用的文件目录，本文以 `/var/ftp/test` 为例。
 ```
 mkdir /var/ftp/test
 ```

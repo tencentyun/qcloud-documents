@@ -47,7 +47,7 @@
     - **白名单**：限制名单外的域名访问存储桶的默认访问地址，若**名单外**的域名访问存储桶的默认访问地址，则返回403。
  - **Referer** ：设置域名支持最多十条域名且为前缀匹配，支持域名、IP 和通配符`*`等形式的地址。一个地址占一行，多个地址请换行。配置规则说明和示例如下：
     - 支持带端口的域名和 IP，如`example.com:8080`、`10.10.10.10:8080`等地址。
-    - 配置`example.com`，可命中如`example.com/123`、`example.com.cn`等以`example.com`为前缀的地址。
+    - 配置`example.com`，可命中如`example.com/123`等以`example.com`为前缀的地址。
     - 配置`example.com`，可命中如`https://example.com`和`http://example.com`为前缀的地址。
     - 配置`example.com`，可命中它的带端口域名`example.com:8080`。 
     - 配置`example.com:8080`，不会命中域名`example.com`。

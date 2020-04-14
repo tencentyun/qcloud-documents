@@ -242,7 +242,7 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 | [elemCount](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#elemcount) | 获取 Elem 数量。 |
 | [setBusinessCmd](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setbusinesscmd) | 设置业务命令字。 |
 | [status](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#status) | 查询消息状态。 |
-| [isSelf](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#isself) | 确认自己是为否发送方。 |
+| [isSelf](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#isself) | 确认自己是否为发送方。 |
 | [sender](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#sender) | 获取消息的发送方。 |
 | [msgId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#msgid) | 获取消息 ID。 |
 | [uniqueId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#uniqueid) | 获取消息 uniqueId。 |

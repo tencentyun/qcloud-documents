@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于提交一个新任务。
+CreateMediaJobs 接口用于提交一个任务。
 
 ## 请求
 
@@ -21,7 +21,7 @@ Content-Type: application/xml
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -77,7 +77,7 @@ Container 类型 Request 的具体数据描述如下：
    <tr>
       <td>Tag</td>
       <td>Request</td>
-      <td>创建任务的 Tag：Animation 或者 Snapshot 或者 SmartCover。</td>
+      <td>创建任务的 Tag：Animation 或者 Snapshot 或者 SmartCover</td>
       <td>String</td>
       <td>是</td>
    </tr>
@@ -126,30 +126,30 @@ Container 类型 Input 的具体数据描述如下：
 Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| Animation          | Request.Operation | 当 Tag 为 Animation 时有效，指定该任务的参数                 | Container | 否   |
-| Snapshot           | Request.Operation | 当 Tag 为 Snapshot 时有效，指定该任务的参数，同 POSTTemplate 中的 Request.Snapshot | Container | 否   |
-| SmartCover         | Request.Operation | 当 Tag 为 SmartCover 时有效，目前为空。                      | Container | 否   |
-| TemplateId         | Request.Operation | 指定的模版 ID                                                | String    | 否   |
-| Output             | Request.Operation | 结果输出地址                                                 | Container | 是   |
+| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | -------- |
+| Animation          | Request.Operation | 当 Tag 为 Animation 时有效，指定该任务的参数                 | Container | 否       |
+| Snapshot           | Request.Operation | 当 Tag 为 Snapshot 时有效，指定该任务的参数，同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Snapshot | Container | 否       |
+| SmartCover         | Request.Operation | 当 Tag 为 SmartCover 时有效，目前为空                    | Container | 否       |
+| TemplateId         | Request.Operation | 指定的模版 ID                                                | String    | 否       |
+| Output             | Request.Operation | 结果输出地址                                                 | Container | 是       |
 
 > !优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
 
 Container 类型 Animation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                      | 类型      | 是否必选 |
-| ------------------ | :-------------------------- | ----------------------------------------- | --------- | ---- |
-| Container          | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Container    | Container | 否   |
-| Video              | Request.Operation.Animation | 同 POSTTemplate 中的 Request.Video        | Container | 否   |
-| TimeInterval       | Request.Operation.Animation | 同 POSTTemplate 中的 Request.TimeInterval | Container | 否   |
+| ------------------ | :-------------------------- | ----------------------------------------- | --------- | -------- |
+| Container          | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Container    | Container | 否       |
+| Video              | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.Video        | Container | 否       |
+| TimeInterval       | Request.Operation.Animation | 同 [CreateMediaTemplate](https://cloud.tencent.com/document/product/460/38932) 中的 Request.TimeInterval | Container | 否       |
 
 Container 类型 Output 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
-| ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| Region             | Request.Operation.Output | 存储桶的地域                                                 | String | 是   |
-| Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是   |
-| Object             | Request.Operation.Output | 结果文件的名字。<br/>**当任务类型为 Snapshot或者SmartCover时，必须包含 ${Number} 参数。**<br/>如Object为 my-new-cover-${Number}.jpg，对应实际3张输出结果时，分别为<br/>my-new-cover-0.jpg<br/>my-new-cover-1.jpg<br/>my-new-cover-2.jpg | String | 是   |
+| ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
+| Region             | Request.Operation.Output | 存储桶的地域                                                 | String | 是       |
+| Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是       |
+| Object             | Request.Operation.Output | 结果文件的名字。<br/>**当任务类型为 Snapshot或者SmartCover时，必须包含 ${Number} 参数。**<br/>例如，Object 为 my-new-cover-${Number}.jpg，对应实际3张输出结果时，分别为<br/>my-new-cover-0.jpg<br/>my-new-cover-1.jpg<br/>my-new-cover-2.jpg | String | 是       |
 
 
 
@@ -157,7 +157,7 @@ Container 类型 Output 的具体数据描述如下：
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 响应体
 
@@ -209,7 +209,7 @@ Container 节点 JobsDetail 的内容：
 | Code               | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义                        | String    |
 | Message            | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义                      | String    |
 | JobId              | Response.JobsDetail | 新创建任务的 ID                                              | String    |
-| Tag                | Response.JobsDetail | 新创建任务的 Tag：Animation 或者 Snapshot。                  | String    |
+| Tag                | Response.JobsDetail | 新创建任务的 Tag：Animation 或者 Snapshot 或者 SmartCover    | String    |
 | State              | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 | String    |
 | CreationTime       | Response.JobsDetail | 任务的创建时间                                               | String    |
 | QueueId            | Response.JobsDetail | 任务所属的队列 ID                                            | String    |
@@ -235,7 +235,7 @@ Container 节点 MediaInfo 的内容：
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 

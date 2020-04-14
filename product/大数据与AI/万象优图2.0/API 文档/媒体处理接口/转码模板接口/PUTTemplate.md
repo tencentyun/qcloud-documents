@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于更新转码模板。
+UpdateMediaTemplate 接口用于更新转码模板。
 
 ## 请求
 
@@ -17,11 +17,11 @@ Content-Type: application/xml
 <body>
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -54,20 +54,6 @@ Content-Type: application/xml
         <Pad></Pad>
         <LongShortMode>false</LongShortMode>
     </Video>
-    <Audio>
-        <Codec>AAC</Codec>
-        <Profile>aac_he</Profile>
-        <Samplerate>44100</Samplerate>
-        <Bitrate>8</Bitrate>
-        <Channels>2</Channels>
-        <Remove>false</Remove>
-    </Audio>
-    <TransConfig>
-        <TransMode>onepass</TransMode>
-        <IsCheckReso>true</IsCheckReso>
-        <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-        <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-    </TransConfig>
     <TimeInterval>
         <Start></Start>
         <Duration></Duration>
@@ -90,15 +76,15 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                         | 类型      | 必选 |
-| :----------------- | :----- | :------------------------------------------- | :-------- | ---- |
-| Request            | 无     | 保存请求的容器，同 POSTTemplate 中的 Request | Container | 是   |
+| 节点名称（关键字） | 父节点 | 描述                                                | 类型      | 必选 |
+| :----------------- | :----- | :-------------------------------------------------- | :-------- | ---- |
+| Request            | 无     | 保存请求的容器，同 CreateMediaTemplate 中的 Request | Container | 是   |
 
 ## 响应
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
 
 #### 响应体
 
@@ -132,20 +118,6 @@ Content-Type: application/xml
          <Pad></Pad>
          <LongShortMode>false</LongShortMode>
       </Video>
-      <Audio>
-         <Codec>AAC</Codec>
-         <Profile>aac_he</Profile>
-         <Samplerate>44100</Samplerate>
-         <Bitrate>8</Bitrate>
-         <Channels>2</Channels>
-         <Remove>false</Remove>
-      </Audio>
-      <TransConfig>
-         <TransMode>onepass</TransMode>
-         <IsCheckReso>true</IsCheckReso>
-         <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-         <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
@@ -173,13 +145,13 @@ Content-Type: application/xml
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                          | 类型      |
-| :----------------- | :----- | :-------------------------------------------- | :-------- |
-| Response           | 无     | 保存结果的容器，同 POSTTemplate 中的 Response | Container |
+| 节点名称（关键字） | 父节点 | 描述                                                 | 类型      |
+| :----------------- | :----- | :--------------------------------------------------- | :-------- |
+| Response           | 无     | 保存结果的容器，同 CreateMediaTemplate 中的 Response | Container |
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
@@ -218,20 +190,6 @@ Content-Type: application/xml
         <Pad></Pad>
         <LongShortMode>false</LongShortMode>
     </Video>
-    <Audio>
-        <Codec>AAC</Codec>
-        <Profile>aac_he</Profile>
-        <Samplerate>44100</Samplerate>
-        <Bitrate>8</Bitrate>
-        <Channels>2</Channels>
-        <Remove>false</Remove>
-    </Audio>
-    <TransConfig>
-        <TransMode>onepass</TransMode>
-        <IsCheckReso>true</IsCheckReso>
-        <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-        <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-    </TransConfig>
     <TimeInterval>
         <Start></Start>
         <Duration></Duration>
@@ -277,20 +235,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
          <Pad></Pad>
          <LongShortMode>false</LongShortMode>
       </Video>
-      <Audio>
-         <Codec>AAC</Codec>
-         <Profile>aac_he</Profile>
-         <Samplerate>44100</Samplerate>
-         <Bitrate>8</Bitrate>
-         <Channels>2</Channels>
-         <Remove>false</Remove>
-      </Audio>
-      <TransConfig>
-         <TransMode>onepass</TransMode>
-         <IsCheckReso>true</IsCheckReso>
-         <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-         <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
