@@ -286,7 +286,7 @@ public abstract void createRoom(int roomId, TRTCLiveRoomDef.TRTCCreateRoomParam 
 
 主播开播的正常调用流程如下： 
 1. 【主播】调用 `startCameraPreview()` 打开摄像头预览，此时可以调整美颜参数。 
-2. 【主播】调用 `createRoom` 创建直播间，房间创建成功与否会通过 ActionCallback 通知给主播。
+2. 【主播】调用 `createRoom()` 创建直播间，房间创建成功与否会通过 ActionCallback 通知给主播。
 3. 【主播】调用 `starPublish()` 开始推流。
 
    
@@ -316,14 +316,14 @@ public abstract void enterRoom(int roomId, TRTCLiveRoomCallback.ActionCallback c
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomID | UInt32 | 房间标识。 |
-| callback | (_ code: Int, _ message: String?) -> Void | 进入房间的结果回调，成功时 code 为0。 |
+| roomId | int | 房间标识。 |
+| callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
 
 
 观众观看直播的正常调用流程如下： 
 1. 【观众】向您的服务端获取最新的直播间列表，可能包含多个直播间的 roomID 和房间信息。
 2. 【观众】观众选择一个直播间，并调用 `enterRoom()` 进入该房间。
-3. 【观众】调用`startPlay`并传入主播的 userId 开始播放。
+3. 【观众】调用`startPlay(userId)`并传入主播的 userId 开始播放。
  - 若直播间列表已包含主播端的 userId 信息，观众端可直接调用 `startPlay(userId)` 即可开始播放。
  - 若在进房前暂未获取主播的 userId，观众端在进房后会收到 `TRTCLiveRoomDelegate` 中的 `onAnchorEnter(userId)` 的事件回调，该回调中携带主播的 userId 信息，再调用`startPlay(userId)`即可播放。 
 
@@ -484,7 +484,7 @@ public abstract void startPlay(String userId, TXCloudVideoView view, TRTCLiveRoo
 
 ### stopPlay
 
-停止渲染远端视频画面。需在 `onAnchorExit` 回调时，调用该接口。
+停止渲染远端视频画面。需在 `onAnchorExit()` 回调时，调用该接口。
 ```java
 public abstract void stopPlay(String userId, TRTCLiveRoomCallback.ActionCallback callback);
 ```
@@ -515,12 +515,12 @@ public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.Actio
 
 主播和观众的连麦流程如下：
 1. 【观众】调用 `requestJoinAnchor()` 向主播发起连麦请求。
-2. 【主播】会收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor` 回调通知。
+2. 【主播】会收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调通知。
 3. 【主播】调用 `responseJoinAnchor()` 决定是否接受来自观众的连麦请求。
 4. 【观众】会收到 responseCallback  回调通知，该通知会携带主播的处理结果。
 5. 【观众】如果请求被同意，则调用 `startCameraPreview()` 开启本地摄像头。
 6. 【观众】然后调用 `startPublish()` 正式进入推流状态。
-7. 【主播】一旦观众进入连麦状态，主播会收到 `TRTCLiveRoomDelegate` 的 `onAnchorEnter` 通知。
+7. 【主播】一旦观众进入连麦状态，主播会收到 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知。
 8. 【主播】主播调用 `startPlay()` 即可看到连麦观众的视频画面。
 9. 【观众】如果直播间里已有其他观众正在跟主播连麦，新加入的连麦观众会收到 `onAnchorEnter()` 通知，调用 `startPlay()` 播放其他连麦者的视频画面。
 
@@ -528,7 +528,7 @@ public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.Actio
 
 ### responseJoinAnchor
 
-主播处理连麦请求。主播在收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor` 回调后需要调用此接口来处理观众的连麦请求。
+主播处理连麦请求。主播在收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调后需要调用此接口来处理观众的连麦请求。
 ```java
 public abstract void responseJoinAnchor(String userId, boolean agree, String reason);
 ```
@@ -544,7 +544,7 @@ public abstract void responseJoinAnchor(String userId, boolean agree, String rea
 
 ### kickoutJoinAnchor
 
-主播踢除连麦观众。主播调用此接口踢除连麦观众后，被踢连麦观众会收到 `TRTCLiveRoomDelegate` 的 `onKickoutJoinAnchor` 回调通知。
+主播踢除连麦观众。主播调用此接口踢除连麦观众后，被踢连麦观众会收到 `TRTCLiveRoomDelegate` 的 `onKickoutJoinAnchor()` 回调通知。
 
 ```java
 public abstract void kickoutJoinAnchor(String userId, TRTCLiveRoomCallback.ActionCallback callback);
@@ -577,11 +577,11 @@ public abstract void requestRoomPK(int roomId, String userId, TRTCLiveRoomCallba
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B 之间的跨房 PK 流程如下：
 1. 【主播 A】调用 requestRoomPK() 向主播 B 发起连麦请求。
-2. 【主播 B】会收到 `TRTCLiveRoomDelegate` 的 `onRequestRoomPK` 回调通知。
+2. 【主播 B】会收到 `TRTCLiveRoomDelegate` 的 `onRequestRoomPK()` 回调通知。
 3. 【主播 B】调用 `responseRoomPK()` 决定是否接受主播 A 的 PK 请求。
-4. 【主播 B】如果接受主播 A 的要求，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter` 通知，然后调用 `startPlay()` 来显示主播 A 的视频画面。
+4. 【主播 B】如果接受主播 A 的要求，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来显示主播 A 的视频画面。
 5. 【主播 A】会收到 `responseCallback` 回调通知，该通知会携带来自主播 B 的处理结果。
-6. 【主播 A】如果请求被同意，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter` 通知，然后调用 `startPlay()` 显示主播 B 的视频画面。
+6. 【主播 A】如果请求被同意，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 显示主播 B 的视频画面。
 
    
 
@@ -603,7 +603,7 @@ public abstract void responseRoomPK(String userId, boolean agree, String reason)
 
 ### quitRoomPK
 
-退出跨房 PK。PK 中的任何一个主播退出跨房 PK 状态后，另一个主播会收到 `TRTCLiveRoomDelegate` 的 `trtcLiveRoomOnQuitRoomPK` 回调通知。
+退出跨房 PK。PK 中的任何一个主播退出跨房 PK 状态后，另一个主播会收到 `TRTCLiveRoomDelegate` 的 `onQuitRoomPk()` 回调通知。
 ```java
 public abstract void quitRoomPK(TRTCLiveRoomCallback.ActionCallback callback);
 ```
@@ -667,7 +667,7 @@ public abstract void muteRemoteAudio(String userId, boolean mute);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 远端的用户 ID。 |
-| mute | Bool | true：开启静音；false：关闭静音。|
+| mute | boolean | true：开启静音；false：关闭静音。|
 
    
 
@@ -850,7 +850,7 @@ void onRoomInfoChange(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo);
 ## 主播和观众进出事件回调
 ### onAnchorEnter
 
-收到新主播进房通知。连麦观众和跨房 PK 主播进房后观众会收到新主播的进房事件，您可以调用 `TRTCLiveRoom` 的 `startPlay` 显示该主播的视频画面。
+收到新主播进房通知。连麦观众和跨房 PK 主播进房后观众会收到新主播的进房事件，您可以调用 `TRTCLiveRoom` 的 `startPlay()` 显示该主播的视频画面。
 ```java
 void onAnchorEnter(String userId);
 ```
@@ -864,7 +864,7 @@ void onAnchorEnter(String userId);
 
 ### onAnchorExit
 
-收到主播退房通知。房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 `TRTCLiveRoom` 的 `stopPlay` 关闭该主播的视频画面。
+收到主播退房通知。房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 `TRTCLiveRoom` 的 `stopPlay()` 关闭该主播的视频画面。
 ```java
 void onAnchorExit(String userId);
 ```
@@ -927,7 +927,7 @@ void onRequestJoinAnchor(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo, String reaso
 
 ### onKickoutJoinAnchor
 
-连麦观众收到被踢出连麦的通知。连麦观众收到被主播踢除连麦的消息，您需要调用 `TRTCLiveRoom` 的 `stopPublish` 退出连麦。
+连麦观众收到被踢出连麦的通知。连麦观众收到被主播踢除连麦的消息，您需要调用 `TRTCLiveRoom` 的 `stopPublish()` 退出连麦。
 ```java
 void onKickoutJoinAnchor();
 ```
@@ -937,7 +937,7 @@ void onKickoutJoinAnchor();
 ## 主播 PK 事件回调
 ### onRequestRoomPK
 
-收到请求跨房 PK 通知。主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter` 通知，然后调用 `startPlay()` 来播放邀约主播的流。
+收到请求跨房 PK 通知。主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来播放邀约主播的流。
 ```java
 void onRequestRoomPK(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo, int timeout);
 ```
