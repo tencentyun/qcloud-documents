@@ -517,7 +517,7 @@ public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.Actio
 1. 【观众】调用 `requestJoinAnchor()` 向主播发起连麦请求。
 2. 【主播】会收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调通知。
 3. 【主播】调用 `responseJoinAnchor()` 决定是否接受来自观众的连麦请求。
-4. 【观众】会收到 responseCallback  回调通知，该通知会携带主播的处理结果。
+4. 【观众】会收到 responseCallback 回调通知，该通知会携带主播的处理结果。
 5. 【观众】如果请求被同意，则调用 `startCameraPreview()` 开启本地摄像头。
 6. 【观众】然后调用 `startPublish()` 正式进入推流状态。
 7. 【主播】一旦观众进入连麦状态，主播会收到 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知。
@@ -576,7 +576,7 @@ public abstract void requestRoomPK(int roomId, String userId, TRTCLiveRoomCallba
 | responseCallback | ActionCallback | 请求跨房 PK 的结果回调。 |
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B 之间的跨房 PK 流程如下：
-1. 【主播 A】调用 requestRoomPK() 向主播 B 发起连麦请求。
+1. 【主播 A】调用 `requestRoomPK()` 向主播 B 发起连麦请求。
 2. 【主播 B】会收到 `TRTCLiveRoomDelegate` 的 `onRequestRoomPK()` 回调通知。
 3. 【主播 B】调用 `responseRoomPK()` 决定是否接受主播 A 的 PK 请求。
 4. 【主播 B】如果接受主播 A 的要求，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来显示主播 A 的视频画面。
