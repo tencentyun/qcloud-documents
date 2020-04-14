@@ -38,7 +38,7 @@ $result = $manager->executeBulkWrite('tsdb.table1', $bulk);
 // 查询
 $filter = ['_id' => $_id1];
 $query = new MongoDB\Driver\Query($filter);
-$rows = $manager->executeQuery('tsdb.table1', $query); // 也可以选择优先从从库读哦，具体请参阅文档
+$rows = $manager->executeQuery('tsdb.table1', $query); // 也可选择优先从从库读
 foreach($rows as $r){
    print_r($r);
 }

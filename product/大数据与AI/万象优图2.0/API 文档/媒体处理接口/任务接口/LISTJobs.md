@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于拉取符合条件的任务列表。
+DescribeMediaJobs 用于拉取符合条件的任务。
 
 ## 请求
 
@@ -18,7 +18,7 @@ Authorization: <Auth String>
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -43,7 +43,7 @@ Authorization: <Auth String>
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
 
 #### 响应体
 
@@ -66,12 +66,12 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息，同 PostJobs 接口中的 Response.JobsDetail 节点 | Container |
+| JobsDetail         | Response | 任务的详细信息，同 CreateMediaJobs 接口中的 Response.JobsDetail 节点 | Container |
 | NextToken          | Response | 翻页的上下文 Token                                           | String    |
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 

@@ -1,4 +1,4 @@
-您的域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以 .liveplay.myqcloud.com 为后缀)。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。播放域名和推流域名均需完成 CNAME 解析。
+您的域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀)。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。播放域名和推流域名均需完成 CNAME 解析。
 
 ## 注意事项
 - 请前往您的域名解析服务商处配置 CNAME 记录，具体操作请咨询您的域名解析服务提供商。
@@ -14,10 +14,10 @@
 2. 选择您需添加 CNAME 的域名，单击【解析】。
 3. 进入指定域名的域名解析页，单击【添加记录】
 4. 在该新增列填写域名前缀为主机记录，选择记录类型为 CNAME，填写 CNAME 域名为记录值。
-	- 记录类型：选择 `CNAME`。
-	- 主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 `play`；若需要直接解析主域名 myqloud.com，则输入`@`；若需要解析泛域名，则输入`\*`。
-	- 解析路线：建议选择“默认”。
-	- 记录值：填写腾讯云控制台[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)域名对应的 CNAME 值，格式为 `domain.livecdn.liveplay.myqcloud.com`。
+	- 记录类型：选择`CNAME`。
+	- 主机记录：填写子域名的前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
+	- 解析路线：建议选择`默认`。
+	- 记录值：填写腾讯云控制台[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
 	- TTL：建议填写10分钟。
 5. 单击【保存】即可。
 ![](https://main.qcloudimg.com/raw/e6efcdbf6b973e84f217968bdb3653d9.png)
@@ -31,9 +31,9 @@
 2. 选择您需添加 CNAME 的域名，单击【解析设置】。
 3. 选择【添加记录】，在添加记录页进行如下设置：
 	-  记录类型：选择 `CNAME`。
-	-  主机记录：填写子域名的前缀。若播放域名为 play.myqcloud.com，则添加 `play`；若需要直接解析主域名 myqloud.com，则输入`@`；若需要解析泛域名，则输入`\*`。
+	-  主机记录：填写子域名的前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
 	-  解析路线：建议选择`默认`。
-	-  记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为 `domain.livecdn.liveplay.myqcloud.com`。
+	-  记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
 	-  TTL：建议填写`10分钟`。
 4. 单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/c1c1966aa54b0eb263e057ed2534965b.png)
@@ -46,10 +46,10 @@
 1. 登录百度云控制台，选择[【域名管理】](https://console.bce.baidu.com/bcd/?_=1550137564099#/bcd/manage/list)，进入域名管理列表页。
 2. 选择云直播添加的域名，在操作列单击【解析】进入 DNS 解析页面。
 3. 添加解析记录，在该页面进行如下配置：
- - 主机记录：填写二级域名，即域名前缀。若播放域名为 play.myqcloud.com，则添加 `play`；若需要直接解析主域名myqloud.com，则输入`@`；若需要解析泛域名，则输入`\*`。
+ - 主机记录：填写二级域名，即域名前缀。若播放域名为`play.myqcloud.com`，则添加`play`；若需要直接解析主域名`myqloud.com`，则输入`@`；若需要解析泛域名，则输入`\*`。
  - 记录类型：选择 `CNAME 记录`。
  - 解析路线：建议选择`默认`。
- - 记录值：云直播控制台域名管理页域名对应的 CNAME 值，格式为 `domain.livecdn.liveplay.myqcloud.com`。
+ - 记录值：云直播控制台域名管理页域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
  - TTL：建议填写`10分钟`。
 4. 单击【确定】提交即可。
 ![](https://main.qcloudimg.com/raw/7ed00d812a79bb472c6d5395ea5c8783.png)
@@ -74,5 +74,5 @@
 
 
 ## 验证 CNAME 是否生效
-不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 dig 或 nslookup 命令来查询 CNAME 是否生效，如果查询到后缀为 .myqcloud.com 的域名表示域名 CNAME 已生效。
+不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您也可以通过命令行中的 dig 或 nslookup 命令来查询 CNAME 是否生效，如果查询到后缀为`.myqcloud.com`的域名表示域名 CNAME 已生效。
 ![](https://main.qcloudimg.com/raw/8684b716b879c5d8ad519b5f220b520e.png)

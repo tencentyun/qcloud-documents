@@ -6,5 +6,5 @@
 
 ## 登录系统
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，单击【云产品】>【数据安全】>【堡垒机】，进入堡垒机系统。
-2. 在登录界面输入用户名和 AD 口令，完成认证即可登录系统。
-![](https://main.qcloudimg.com/raw/7c740b4aaed0f88ef0aa0d63da1a5a87.jpg)
+2. 在登录界面输入用户名、静态口令和AD 口令，完成认证即可登录系统。
+

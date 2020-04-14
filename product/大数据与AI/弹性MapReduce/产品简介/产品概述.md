@@ -1,5 +1,5 @@
 ## 简介
-弹性 MapReduce（EMR）是腾讯云提供的云上 Hadoop 托管服务，提供了便捷的 Hadoop 集群部署、软件安装、配置修改、监控告警、弹性伸缩等功能，为企业及用户提供安全稳定的大数据处理解决方案。
+弹性 MapReduce（EMR）结合云技术和 Hadoop、Hive、Spark、Hbase、Presto、Storm 等社区开源技术，提供安全、低成本、高可靠、可弹性伸缩的云端托管 Hadoop 服务。您可以在数分钟内创建安全可靠的专属 Hadoop 集群，以分析位于集群内数据节点或对象存储 COS 上的 PB 级海量数据。
 
 ## 功能特性
 - 弹性 MapReduce 的软件完全源于开源社区中的 Hadoop 软件，您可以将现有的大数据集群无缝平滑迁移至腾讯云上。弹性 MapReduce 产品中集成了社区中常见的热门组件，包括但不限于 Hive、Hbase、Spark、Presto、Sqoop、Hue 等，可以满足您对大数据的离线处理、流式计算等全方位需求。

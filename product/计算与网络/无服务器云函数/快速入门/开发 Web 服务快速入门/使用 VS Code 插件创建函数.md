@@ -10,10 +10,12 @@ Tencent Serverless Toolkit for VS Code 是腾讯云 Serverless 产品的 VS Code
 - 上传函数代码到云端，更新函数配置。
 
 ## 前提条件
-Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
-- 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
-- VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
-
+- Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverless 之前，需要确保系统中已有以下组件/信息：
+	- 已注册腾讯云帐户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
+	- VS Code ：在 [VS Code下载页面](https://code.visualstudio.com/) 下载对应的 IDE 并安装，其**版本要求为 v1.33.0 +**。
+- 请确保您当前使用的腾讯云账户已完成了以下授权操作：
+ 1. 参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 完成 SCF 默认角色配置。
+ 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 完成预设策略关联。
 
 
 ## 操作步骤
@@ -87,7 +89,9 @@ Tencent Serverless 可在 Windows， MacOS 中安装。在安装 Tencent Serverl
 ![](https://main.qcloudimg.com/raw/a112a7af7dd57e7f7a4e1de20f7c4db3.png)
 
 #### 设置调试模版
-单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。新建调试配置文件，**并选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）**。如下图所示：
+1. 单击左侧导航栏顶部的<img src="https://main.qcloudimg.com/raw/f51801927eb766c828e721b193539e9e.png" style="margin:-3px 0;">，进入调试页面（或 `Ctrl+Shift+D`）。
+2. 选择【create a launch.json file】，新建调试配置文件。
+3. 选择 SCF Debugger For Python 调试模板（Node 项目请选择 SCF Debugger For Node）。如下图所示：
 >!不同的 runtime 须选择对应的调试模板，可根据您当前的调试文件类型，区分选择 Python 和 Node.js。     
 >
 ![](https://main.qcloudimg.com/raw/ab797f48bd2f835c24a99e18aa958b64.png) 

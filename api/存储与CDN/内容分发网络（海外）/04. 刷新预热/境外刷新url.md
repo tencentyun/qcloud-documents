@@ -13,14 +13,10 @@
 | ------ | ---- | ------ | ---------------------- |
 | urls.n | 是    | String | 需要刷新的 URL，支持刷新一个或多个 URL |
 
-
-
 >!
->+ 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考： ```urls.0=http://www.abc.com/1.jpg&urls.1=http://www.abc.com/2.jpg```
-+ 注意 URL 必须以 'http://' 或 'https://' 开头，否则会报错。
-+ 每日刷新数量不超过10000个，每次提交的 URL 数量不超过1000个
-
-
+>+ 支持刷新一个或多个 URL，刷新多个URL时，参数传入方式可参考： ```urls.0=http://cloud.tencent.com/1.jpg&urls.1=http://cloud.tencent.com/2.jpg```。
+>+ 注意 URL 必须以 'http://' 或 'https://' 开头，否则会报错。
+>+ 每日刷新数量不超过10000个，每次提交的 URL 数量不超过1000个。
 
 
 ## 3. 输出参数
@@ -32,7 +28,7 @@
 | codeDesc | String | 英文错误信息，或业务侧错误码。                          |
 | data     | Array  | 详细说明见下文                                  |
 
-**data字段说明：**
+**data 字段说明：**
 
 | 参数名称  | 类型   | 描述           |
 | ----- | ---- | ------------ |
@@ -46,7 +42,7 @@
 ### 4.1 输入示例
 
 ```
-urls.0: https://www.test.com/1.jpg
+urls.0: https://www.example.com/1.jpg
 ```
 
 
@@ -62,7 +58,7 @@ Action=RefreshCdnOverSeaUrl
 &Timestamp=1462521223
 &Nonce=123456789
 &Signature=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-&urls.0=https%3A%2F%2www.test.com%2F1.jpg
+&urls.0=https://www.example.com/1.jpg
 ```
 
 
@@ -84,7 +80,7 @@ array (
   'Timestamp' => 1462864833,
   'Nonce' => 1149033341,
   'Signature' => 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXX',
-  'urls.0' => 'https://www.test.com/1.jpg'
+  'urls.0' => 'https://www.example.com/1.jpg'
 )
 ```
 

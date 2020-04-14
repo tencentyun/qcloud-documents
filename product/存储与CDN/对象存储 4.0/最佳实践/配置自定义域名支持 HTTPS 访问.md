@@ -11,7 +11,7 @@
 #### 1. 绑定自定义域名。
 将存储桶绑定到您的自有域名，开启 CDN 加速，详细操作指引请参见 [域名管理](https://cloud.tencent.com/document/product/436/36637) 文档中的配置自定义域名部分。
 #### 2. 配置 HTTPS 访问。
-在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/6295)。
+在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 加速配置指南](https://cloud.tencent.com/document/product/228/41687)。
 
 
 
@@ -47,7 +47,7 @@ ssl_certificate /usr/local/nginx/conf/server.crt;
 ssl_certificate_key /usr/local/nginx/conf/server.key;
 ```
 #### 3. 解析域名到服务器。
-在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云云解析，请前往 [云解析控制台](https://console.cloud.tencent.com/cns/domains)，将域名`test.cos.com`解析到步骤2中的服务器的 IP 上，详细指引请参见 [域名解析](https://cloud.tencent.com/document/product/302/3446)。
+在您域名的 DNS 解析服务商处解析您的域名。若您使用的是腾讯云 DNS 解析，请前往 [DNS 解析控制台](https://console.cloud.tencent.com/cns/domains)，将域名`test.cos.com`解析到步骤2中的服务器的 IP 上，详细指引请参见 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
 
 #### 进阶配置
 #### 通过浏览器直接打开网页

@@ -28,7 +28,7 @@
 
 ### 3. 添加动效资源
 
-将 SDK/Resource 下所有文件添加到工程中, 文件列表如下：
+请检查是否添加动效资源：将 SDK/Resource 下的文件以 groups 的形式添加到工程中，文件列表如下：
 
 > - AECore.metallib
 > - FilterEngine.bundle
@@ -57,11 +57,11 @@
 
 ### 1. 动效贴纸
 
-示例：
+#### 示例
 
-![](https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png)
+<img src="https://mc.qcloudimg.com/static/img/a320624ee8d3a82ee07feb05969e5290/A8B81CB6-DBD3-4111-9BF0-90BD02779BFC.png" width="450">
 
-一个动效模版是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
+一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
 
 短视频中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在短视频代码中找到动效资源和动效缩略图的下载地址，格式如下：
 
@@ -83,9 +83,9 @@
 ```
 ### 2. AI 抠背
 
-示例：
+#### 示例
 
-![](https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png)
+<img src="https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png" width="450">
 
 需要下载 AI 抠背的资源，接口跟动效接口相同
 
@@ -99,7 +99,7 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3. 美妆美容
+### 3. 高级美颜接口（大眼、瘦脸等）
 
 您可以通过 TXUGCRecord 的 getBeautyManager 方法获取 TXBeautyManager 对象来进行设置各项美颜参数，其方法如下。
 

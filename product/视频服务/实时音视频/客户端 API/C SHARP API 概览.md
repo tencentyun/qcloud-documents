@@ -20,7 +20,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间。 |
+| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间，若房间不存在，系统将自动创建一个新房间。 |
 | [exitRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a715f5b669ad1d7587ae19733d66954f3) | 离开房间。 |
 | [switchRole](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a94ab2e8a7df0c120def9d4b0c7658d84) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa29407e4c40f2bf61777bbe054f6bf0f) | 请求跨房通话（主播 PK）。 |
@@ -36,7 +36,7 @@
 | [stopPublishing](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#afc00ba747be5299cd7235928a628339e) | 停止向腾讯云的直播 CDN 推流。 |
 | [startPublishCDNStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adf6a56b335c9860c3ea1a090cad9bf7b) | 开始向友商云的直播 CDN 转推。 |
 | [stopPublishCDNStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5d8a86795b8a2d7eaf9be7157dd9b8dd) | 停止向非腾讯云地址转推。 |
-| [setMixTranscodingConfig](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9a92140403d83a22f4334c0002f71d8d) | 启动（更新）云端的混流转码，通过腾讯云的转码服务，将房间里的多路画面叠加到一路画面上。 |
+| [setMixTranscodingConfig](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9a92140403d83a22f4334c0002f71d8d) | 设置云端的混流转码参数。 |
 
 
 ### 视频相关接口函数
@@ -229,7 +229,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
+| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
 | [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2e4c89560e538402907c1aa8fa6b68d1) | 警告回调，用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
 
 

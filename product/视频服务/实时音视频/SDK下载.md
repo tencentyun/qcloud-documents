@@ -1,4 +1,5 @@
 <h2 id="TRTC">精简版（TRTC）</h2>
+
 精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
 
 <table>
@@ -18,7 +19,7 @@
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32173">DOC</a></td>
-      <td style="text-align:center">1.90M（arm64）</td>
+      <td style="text-align:center">2.9M（arm64）</td>
    </tr>
      <tr>
       <td style="text-align:center">Android</td>

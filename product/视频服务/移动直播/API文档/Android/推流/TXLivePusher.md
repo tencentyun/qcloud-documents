@@ -231,7 +231,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。 请参见 [设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：false；adjustResolution：false。 请参见 [设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
@@ -268,7 +268,6 @@ __介绍__
 由于前置摄像头采集的画面是取自手机的观察视角，如果将采集到的画面直接展示给观众，是完全没有问题的。 但如果将采集到的画面也直接显示给主播，则会跟主播照镜子时的体验完全相反，会让主播感觉到很奇怪。 因此，SDK 会默认开启本地摄像头预览画面的镜像效果，让主播直播时跟照镜子时保持一个体验效果。
 setMirror 所影响的则是观众端看到的视频效果，如果想要保持观众端看到的效果跟主播端保持一致，需要开启镜像； 如果想要让观众端看到正常的未经处理过的画面（例如主播弹吉他的时候有类似需求），则可以关闭镜像。
 
->?仅当前使用前置摄像头时，setMirror 接口才会生效，在使用后置摄像头时此接口无效。
 
 
 ***
@@ -293,12 +292,12 @@ __介绍__
 
 <pre>
 // 竖屏推流（HOME 键在下）
-_config.homeOrientation = HOME_ORIENTATION_DOWN;
+_config.homeOrientation = TXLiveConstants.VIDEO_ANGLE_HOME_DOWN;
 [_txLivePublisher setConfig:_config];
 [_txLivePublisher setRenderRotation:0];</pre>
 
 <pre>// 横屏推流（HOME 键在右）
-_config.homeOrientation = HOME_ORIENTATION_RIGHT;
+_config.homeOrientation = TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT;
 [_txLivePublisher setConfig:_config];
 [_txLivePublisher setRenderRotation:90];
 </pre>

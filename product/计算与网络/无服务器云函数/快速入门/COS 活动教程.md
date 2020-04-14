@@ -5,9 +5,12 @@
 
 
 ## 前提条件
-已完成 SCF CLI 的 [安装及配置](https://cloud.tencent.com/document/product/583/33449)。您可依次执行以下命令进行验证：
-1. 执行 `scf --version` 命令，确认是否安装。 
-2. 执行 `scf configure get` 命令，确认是否已完成配置。
+- 请确保您当前使用的账户已完成了以下授权操作：
+ 1. 参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 完成 SCF 默认角色配置。
+ 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 完成预设策略关联。
+- 已完成 SCF CLI 的 [安装及配置](https://cloud.tencent.com/document/product/583/33449)。您可依次执行以下命令进行验证：
+ 1. 执行 `scf --version` 命令，确认是否安装。 
+ 2. 执行 `scf configure get` 命令，确认是否已完成配置。
 
 
 

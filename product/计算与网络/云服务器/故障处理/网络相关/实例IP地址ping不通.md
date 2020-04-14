@@ -62,7 +62,7 @@ cat /proc/sys/net/ipv4/icmp_echo_ignore_all
  - 若返回结果为1，表示系统禁止所有的 ICMP Echo 请求，请执行 [步骤3](#Linux_step03)。
 3. <span id="Linux_step03">执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
 ```
-echo "1" >/proc/sys/net/ipv4/icmp_echo_ignore_all
+echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 
 <span id="CheckLinuxFirewall"></span>

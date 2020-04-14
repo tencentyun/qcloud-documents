@@ -1,6 +1,6 @@
 ## 功能描述
 
-用于获取媒体文件某个时间的截图，输出的截图统一为 jpeg 格式。
+GenerateSnapshot 接口用于获取媒体文件某个时间的截图，输出的截图统一为 jpeg 格式。
 
 ## 请求
 
@@ -21,7 +21,7 @@ Content-type: application/xml
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -33,6 +33,11 @@ Content-type: application/xml
     <Object></Object>
   </Input>
   <Time></Time>
+  <Width></Width>
+  <Height></Height>
+  <Mode></Mode>
+  <Rotate></Rotate>
+  <Format></Format>
   <Output>
     <Region></Region>
     <Bucket></Bucket>
@@ -49,11 +54,16 @@ Content-type: application/xml
 
 Container 节点 Request 的内容：
 
-| 节点名称（关键字） | 父节点  | 描述                           | 类型      | 是否必选 |
-| :----------------- | :------ | :----------------------------- | :-------- | :------- |
-| Input              | Request | 媒体文件的位置信息             | Container | 是       |
-| Time               | Request | 截取哪个时间点的内容，单位为秒 | Float     | 是       |
-| Output             | Request | 截图保存的位置信息             | Container | 是       |
+| 节点名称（关键字） | 父节点  | 描述                                                         | 类型      | 是否必选 |
+| :----------------- | :------ | :----------------------------------------------------------- | :-------- | :------- |
+| Input              | Request | 媒体文件的位置信息                                           | Container | 是       |
+| Time               | Request | 截取哪个时间点的内容，单位为秒                               | Float     | 是       |
+| Output             | Request | 截图保存的位置信息                                           | Container | 是       |
+| Width              | Request | 截图的宽。默认为0                                          | Int       | 否       |
+| Height             | Request | 截图的高。默认为0。<br/>Width 和 Height 都为0时，表示使用视频的宽高。如果单个为0，则以另外一个值按视频宽高比例自动适应。 | Int       | 否       |
+| Format             | Request | 截图的格式，支持 jpg 和 png，默认 jpg                     | String    | 否       |
+| Mode               | Request | 截帧方式：<br><li>keyframe：截取指定时间点之前的最近的一个关键帧<br><li>exactframe：截取指定时间点的帧<br/>默认值为 exactframe | String    | 否       |
+| Rotate             | Request | 图片旋转方式。<br><li>auto：按视频旋转信息进行自动旋转<br><li>off：不旋转<br/>默认值为 auto | String    | 否       |
 
 Container 节点 Input 的内容：
 
@@ -73,7 +83,7 @@ Container 节点 Output 的内容：
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 响应体
 
@@ -111,7 +121,7 @@ Container 节点 Output 的内容：
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
@@ -127,13 +137,13 @@ Content-Type: application/xml
 
 <Request>
   <Input>
-    <Object>/video-for-test.mp4</Object>
+    <Object>video-for-test.mp4</Object>
   </Input>
   <Time>10</Time>
   <Output>
     <Region>ap-beijing</Region>
     <Bucket>ci-output-1250000000</Bucket>
-    <Object>/snapshot/video-for-test-snapshot.jpg</Object>
+    <Object>snapshot/video-for-test-snapshot.jpg</Object>
   </Output>
 </Request>
 ```
@@ -153,7 +163,7 @@ x-ci-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZm****
   <Output>
     <Region>ap-beijing</Region>
     <Bucket>ci-output-1250000000</Bucket>
-    <Object>/snapshot/video-for-test-snapshot.jpg</Object>
+    <Object>snapshot/video-for-test-snapshot.jpg</Object>
   </Output>
 </Response>
 ```

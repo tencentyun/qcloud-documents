@@ -56,7 +56,7 @@ public class MApplication extends Application {
 // 一般情况下不需要修改 config 的默认配置	 // 一般情况下不需要
  mLivePusher.setConfig(mLivePushConfig);	
 ```
-
+<span id="step4"></span>
 ### 4. 开启摄像头预览	
 
 欲展示摄像头的预览画面，您需要先给 SDK 提供一个用于显示视频画面的`TXCloudVideoView`对象，由于`TXCloudVideoView`是继承自 Android 中的`FrameLayout`，所以您可以直接在 xml 文件中添加一个视频渲染控件：	
@@ -105,7 +105,7 @@ mLivePusher.stopCameraPreview(true); //如果已经启动了摄像头预览，�
 
 ### 6. 纯音频推流	
 
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行第 4 步中的操作，取而代之的是开启 TXLivePushConfig 中的`enablePureAudioPush`配置。	
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第 4 步](#step4) 中的操作，取而代之的是开启 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771) 中的`enablePureAudioPush`配置。	
 
 ```java   	
 TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();     	
@@ -122,7 +122,7 @@ mLivePusher.startPusher(rtmpURL.trim());
 
 ### 7. 设定画面清晰度	
 
-调用 TXLivePusher 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。	
+调用 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772) 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参见 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。	
 ![](https://main.qcloudimg.com/raw/0c058cb8c8aa1033c99e6d551f3df1aa.png)	
 
 ### 8. 美颜美白和红润特效	
@@ -193,7 +193,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
 
 ### 12. 横屏推流	
 
-大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 x 540 这样的分辨率），如下图所示：	
+大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 × 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 × 540 这样的分辨率），如下图所示：	
 ![](https://main.qcloudimg.com/raw/b1e58275542aac52fb861745d95246cc.png)	
 
 TXLivePusher 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：	
@@ -217,7 +217,7 @@ public void onOrientationChange(boolean isPortrait) {
 ```
 
 >! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参见	
->[CameraPusherActivity.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)  中的`setRotationForActivity`以及相关示例代码。	
+>[CameraPusherActivity.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/camerapush/CameraPusherActivity.java)  中的`setRotationForActivity`以及相关示例代码。	
 >![](https://main.qcloudimg.com/raw/f72f665590b6676989dfa4187ef8e15d.png)	
 
 ### 13. 隐私模式（垫片推流）	
