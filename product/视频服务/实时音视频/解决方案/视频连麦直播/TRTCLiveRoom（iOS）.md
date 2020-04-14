@@ -523,7 +523,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | responseCallback | (_ agreed: Bool, _ reason: String?) -> Void | 请求跨房 PK 的结果回调。 |
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B 之间的跨房 PK 流程如下：
-1. 【主播 A】调用 requestRoomPK() 向主播 B 发起连麦请求。
+1. 【主播 A】调用 `requestRoomPK()` 向主播 B 发起连麦请求。
 2. 【主播 B】会收到 `TRTCLiveRoomDelegate` 的 `onRequestRoomPK()` 回调通知。
 3. 【主播 B】调用 `responseRoomPK()` 决定是否接受主播 A 的 PK 请求。
 4. 【主播 B】如果接受主播 A 的请求，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来显示主播 A 的视频画面。
