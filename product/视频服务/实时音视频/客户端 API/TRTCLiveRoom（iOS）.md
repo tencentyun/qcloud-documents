@@ -12,7 +12,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 
 
-<h2 id="API">TRTCLiveRoom API 概览</h2>
+<h2 id="TRTCLiveRoom">TRTCLiveRoom API 概览</h2>
 
 ### SDK 基础函数
 
@@ -76,7 +76,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManagerImpl](#TRTCAudioEffectManager)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanager)。|
 
 ### 美颜滤镜相关接口函数
 
@@ -97,7 +97,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 |-----|-----|
 | [showVideoDebugLog](#showvideodebuglog) | 是否在界面中展示debug信息。|
 
-<h2 id="API">TRTCLiveRoomDelegate API 概览</h2>
+<h2 id="TRTCLiveRoomDelegate">TRTCLiveRoomDelegate API 概览</h2>
 
 ### 通用事件回调
 
@@ -144,7 +144,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
-<h2 id="API">TRTCAudioEffectManager API 概览</h2>
+<h2 id="TRTCAudioEffectManager">TRTCAudioEffectManager API 概览</h2>
 
 | API | 描述 |
 |-----|-----|
@@ -785,7 +785,7 @@ Log 回调。
 
 
 
-## 主播和观众的进出事件回调
+## 主播和观众进出事件回调
 ### onAnchorEnter
 
 收到新主播进房通知。连麦观众和跨房 PK 主播进房后观众会收到新主播的进房事件，您可以调用 `TRTCLiveRoom` 的 `startPlay` 显示该主播的视频画面。

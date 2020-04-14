@@ -9,95 +9,95 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
 
 
-<h2 id="API">TRTCLiveRoom API 概览</h2>
+<h2 id="TRTCLiveRoom">TRTCLiveRoom API 概览</h2>
 
 ### SDK 基础函数
 
 | API | 描述 |
 |-----|-----|
-| [sharedInstance](#sharedInstance) | 获取单例对象。 |
-| [destroySharedInstance](#destroySharedInstance) | 销毁单例对象。 |
-| [setDelegate](#setDelegate) | 设置事件回调。|
-| [setDelegateHandler](#setDelegateHandler) | 设置事件回调所在的线程。 |
+| [sharedInstance](#sharedinstance) | 获取单例对象。 |
+| [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。 |
+| [setDelegate](#setdelegate) | 设置事件回调。|
+| [setDelegateHandler](#setdelegatehandler) | 设置事件回调所在的线程。 |
 | [login](#login) | 登录。|
 | [logout](#logout) | 登出。|
-| [setSelfProfile](#setSelfProfile) | 修改个人信息。|
+| [setSelfProfile](#setselfprofile) | 修改个人信息。|
 
 ### 房间相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [createRoom](#createRoom) | 创建房间（主播调用）。|
-| [destroyRoom](#destroyRoom) | 销毁房间（主播调用）。|
-| [enterRoom](#enterRoom) | 进入房间（观众调用）。|
-| [exitRoom](#exitRoom) | 离开房间（观众调用）。|
-| [getRoomInfos](#getRoomInfos) | 获取房间列表的详细信息。|
-| [getAnchorList](#getAnchorList) | 获取房间内所有的主播列表，enterRoom() 成功后调用才有效。|
-| [getAudienceList](#getAudienceList) | 获取房间内所有的观众信息，enterRoom() 成功后调用才有效。|
+| [createRoom](#createroom) | 创建房间（主播调用），若房间不存在，系统将自动创建一个新房间。|
+| [destroyRoom](#destroyroom) | 销毁房间（主播调用）。|
+| [enterRoom](#enterroom) | 进入房间（观众调用）。|
+| [exitRoom](#exitroom) | 离开房间（观众调用）。|
+| [getRoomInfos](#getroominfos) | 获取房间列表的详细信息。|
+| [getAnchorList](#getanchorlist) | 获取房间内所有的主播列表，enterRoom() 成功后调用才有效。|
+| [getAudienceList](#getaudiencelist) | 获取房间内所有的观众信息，enterRoom() 成功后调用才有效。|
 
 ### 推拉流相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [startCameraPreview](#startCameraPreview) | 开启本地视频的预览画面。|
-| [stopCameraPreview](#stopCameraPreview) | 停止本地视频采集及预览。|
-| [startPublish](#startPublish) | 开始直播（推流）。|
-| [stopPublish](#stopPublish) | 停止直播（推流）。|
-| [startPlay](#startPlay) | 播放远端视频画面，可以在普通观看和连麦场景中调用。|
-| [stopPlay](#stopPlay) | 停止渲染远端视频画面。|
+| [startCameraPreview](#startcamerapreview) | 开启本地视频的预览画面。|
+| [stopCameraPreview](#stopcamerapreview) | 停止本地视频采集及预览。|
+| [startPublish](#startpublish) | 开始直播（推流）。|
+| [stopPublish](#stoppublish) | 停止直播（推流）。|
+| [startPlay](#startplay) | 播放远端视频画面，可以在普通观看和连麦场景中调用。|
+| [stopPlay](#stopplay) | 停止渲染远端视频画面。|
 
 ### 主播和观众连麦
 
 | API | 描述 |
 |-----|-----|
-| [requestJoinAnchor](#requestJoinAnchor) | 观众请求连麦。|
-| [responseJoinAnchor](#responseJoinAnchor) | 主播处理连麦请求。|
-| [kickoutJoinAnchor](#kickoutJoinAnchor) | 主播踢除连麦观众。|
+| [requestJoinAnchor](#requestjoinanchor) | 观众请求连麦。|
+| [responseJoinAnchor](#responsejoinanchor) | 主播处理连麦请求。|
+| [kickoutJoinAnchor](#kickoutjoinanchor) | 主播踢除连麦观众。|
 
 ### 主播跨房间 PK
 
 | API | 描述 |
 |-----|-----|
-| [requestRoomPK](#requestRoomPK) | 主播请求跨房 PK。|
-| [responseRoomPK](#responseRoomPK) | 主播响应跨房 PK 请求。|
-| [quitRoomPK](#quitRoomPK) | 退出跨房 PK。|
+| [requestRoomPK](#requestroompk) | 主播请求跨房 PK。|
+| [responseRoomPK](#responseroompk) | 主播响应跨房 PK 请求。|
+| [quitRoomPK](#quitroompk) | 退出跨房 PK。|
 
 ### 音视频控制相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [switchCamera](#switchCamera) | 切换前后摄像头。|
-| [setMirror](#setMirror) | 设置是否镜像展示。|
-| [muteLocalAudio](#muteLocalAudio) | 静音本地音频。|
-| [muteRemoteAudio](#muteRemoteAudio) | 静音远端音频。|
-| [muteAllRemoteAudio](#muteAllRemoteAudio) | 静音所有远端音频。|
+| [switchCamera](#switchcamera) | 切换前后摄像头。|
+| [setMirror](#setmirror) | 设置是否镜像展示。|
+| [muteLocalAudio](#mutelocalaudio) | 静音本地音频。|
+| [muteRemoteAudio](#muteremoteaudio) | 静音远端音频。|
+| [muteAllRemoteAudio](#muteallremoteaudio) | 静音所有远端音频。|
 
 ### 背景音乐音效相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getAudioEffectManager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#TRTCAudioEffectManager)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanager)。|
 
 ### 美颜滤镜相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [getBeautyManager](#getBeautyManager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
 
 ### 消息发送相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [sendRoomTextMsg](#sendRoomTextMsg) | 在房间中广播文本消息，一般用于弹幕聊天。|
-| [sendRoomCustomMsg](#sendRoomCustomMsg) | 发送自定义文本消息。|
+| [sendRoomTextMsg](#sendroomtextmsg) | 在房间中广播文本消息，一般用于弹幕聊天。|
+| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义文本消息。|
 
 ### 调试相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [showVideoDebugLog](#showVideoDebugLog) | 是否在界面中展示 debug 信息。|
+| [showVideoDebugLog](#showvideodebuglog) | 是否在界面中展示 debug 信息。|
 
-<h2 id="API">TRTCLiveRoomDelegate API 概览</h2>
+<h2 id="TRTCLiveRoomDelegate">TRTCLiveRoomDelegate API 概览</h2>
 
 ### 通用事件回调
 
@@ -144,26 +144,26 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | [onRecvRoomTextMsg](#onRecvRoomTextMsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onRecvRoomCustomMsg) | 收到自定义消息。|
 
-<h2 id="API">TRTCAudioEffectManager API 概览</h2>
+<h2 id="TRTCAudioEffectManager">TRTCAudioEffectManager API 概览</h2>
 
 | API | 描述 |
 |-----|-----|
-| [playBGM](#playBGM) | 播放背景音乐。|
-| [stopBGM](#stopBGM) | 停止播放背景音乐。|
-| [pauseBGM](#pauseBGM) | 暂停背景音乐。|
-| [resumeBGM](#resumeBGM) | 继续播放背景音乐。|
-| [setBGMVolume](#setBGMVolume) | 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。|
-| [setBGMPosition](#setBGMPosition) | 设置背景音乐播放进度。|
-| [setMicVolume](#setMicVolume) | 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。|
-| [setReverbType](#setReverbType) | 设置混响效果。|
-| [setVoiceChangerType](#setVoiceChangerType) | 设置变声类型。|
-| [playAudioEffect](#playAudioEffect) | 播放音效，每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。支持 aac、mp3 以及 m4a 格式。|
-| [pauseAudioEffect](#pauseAudioEffect) | 暂停音效播放。|
-| [resumeAudioEffect](#resumeAudioEffect) | 恢复音效播放。|
-| [stopAudioEffect](#stopAudioEffect) | 停止音效播放。|
-| [stopAllAudioEffects](#pauseAudioEffect) | 停止全部音效播放。|
-| [setAudioEffectVolume](#setAudioEffectVolume) | 设置音效音量。|
-| [setAllAudioEffectsVolume](#setAllAudioEffectsVolume) | 设置所有音效的音量。|
+| [playBGM](#playbgm) | 播放背景音乐。|
+| [stopBGM](#stopbgm) | 停止播放背景音乐。|
+| [pauseBGM](#pausebgm) | 暂停背景音乐。|
+| [resumeBGM](#resumebgm) | 继续播放背景音乐。|
+| [setBGMVolume](#setbgmvolume) | 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。|
+| [setBGMPosition](#setbgmposition) | 设置背景音乐播放进度。|
+| [setMicVolume](#setmicvolume) | 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。|
+| [setReverbType](#setreverbtype) | 设置混响效果。|
+| [setVoiceChangerType](#setvoicechangertype) | 设置变声类型。|
+| [playAudioEffect](#playaudioeffect) | 播放音效，每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。支持 aac、mp3 以及 m4a 格式。|
+| [pauseAudioEffect](#pauseaudioeffect) | 暂停音效播放。|
+| [resumeAudioEffect](#resumeaudioeffect) | 恢复音效播放。|
+| [stopAudioEffect](#stopaudioeffect) | 停止音效播放。|
+| [stopAllAudioEffects](#pauseaudioeffect) | 停止全部音效播放。|
+| [setAudioEffectVolume](#setaudioeffectvolume) | 设置音效音量。|
+| [setAllAudioEffectsVolume](#setallaudioeffectsvolume) | 设置所有音效的音量。|
 
 ## SDK 基础函数
 
@@ -847,7 +847,7 @@ void onRoomInfoChange(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo);
    
 
 
-## 主播和观众的进出事件回调
+## 主播和观众进出事件回调
 ### onAnchorEnter
 
 收到新主播进房通知。连麦观众和跨房 PK 主播进房后观众会收到新主播的进房事件，您可以调用 `TRTCLiveRoom` 的 `startPlay` 显示该主播的视频画面。
