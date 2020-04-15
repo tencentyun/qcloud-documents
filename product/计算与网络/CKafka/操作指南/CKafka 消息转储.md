@@ -4,7 +4,6 @@
 ## 前提条件
 该功能目前依赖云函数 SCF，使用时需开通 SCF 产品功能。
 
-<span id="postconditions"></span>
 
 ## 操作步骤
 
@@ -24,7 +23,6 @@
 
 >?如果您还未创建对象存储的 Bucket，请在 [新建 Bucket](https://console.cloud.tencent.com/cos/bucket) 后选取相应的存储位置。
 
-<span id="postconditions"></span>
 ### Ckafka 转储通用模板
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
