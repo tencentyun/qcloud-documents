@@ -66,7 +66,7 @@
 您可以使用开源组件 TRTCVideoCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCVideoCall 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
