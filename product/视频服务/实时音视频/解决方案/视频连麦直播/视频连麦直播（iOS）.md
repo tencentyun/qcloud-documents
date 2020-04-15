@@ -67,7 +67,7 @@
 
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 cocoapods 仓库依赖**
