@@ -1,25 +1,7 @@
 ### 前提条件
 - 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
-- 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
-- 成功配置 [域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
-
-### 如何手动生成直播 URL？
-1. 登录云直播控制台。
-2. 选择【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
-	1. 按需选择生成类型。
-	2. 选择您已添加到域名管理里对应的域名。
-	3. 按需编辑 AppName。AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
-	3. 填写自定义的流名称 StreamName。
-	4. 选择地址过期时间。
-3.  单击【生成地址】即可生成您需要的推流/播放地址。
-![](https://main.qcloudimg.com/raw/b92179a1020d676d5e93e7ea4bfd6c37.png)
- >? 
- >- AppName 可自定义，仅支持英文字母、数字和符号。
- >- 除上述方法，您还可以在云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中，选择推流域名单击【管理】，选择【推流配置】，输入推流地址的过期时间和自定义的流名称 StreamName，单击【生成推流地址】即可生成推流地址。
-
-### 如何查看推流查看示例代码？
-进入【云直播控制台】>[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，【管理】>【推流配置】页面下半部分有【推流地址示例代码】（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
+- 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，并 CNAME 成功。详细操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 
 ### 如何自主拼装推流 URL？
 实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
