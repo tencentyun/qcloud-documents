@@ -1,5 +1,7 @@
+
 ## 新建库表
-1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏选择【新建】>【新建库】>【新增数据库】或【新建】>【新建表】。
+1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在上方导航栏选择【新建】>【新建库】>【新增数据库】或【新建】>【新建表】。
+![](https://main.qcloudimg.com/raw/2bf11d0a3459f1b7cac625b7b9f6a418.png)
 2. 在弹出的对话框中，用户可以对新建的库表进行配置，配置完成后单击【提交】即可。
  - 新建库对话框：
 ![](https://main.qcloudimg.com/raw/258605b4ac20f2136672bab0381e0f3f.png)
@@ -39,3 +41,4 @@ MySQL Status Information|  InnoDB Row Operation |   Thread   |Network
 
 ## DBbrain 智能优化
 在导航栏单击【DBbrain智能优化】可进入 DBbrain 控制台。
+
