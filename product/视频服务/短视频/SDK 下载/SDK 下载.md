@@ -9,8 +9,8 @@
 
 <table>
    <tr>
-      <th>所属平台</td>
-      <th>ZIP 包</td>
+      <th style="text-align:center">所属平台</td>
+      <th style="text-align:center">ZIP 包</td>
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
