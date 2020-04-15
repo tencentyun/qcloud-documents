@@ -21,3 +21,7 @@
 - 单次不能同时导入超过10个API。
 - 上传 API 描述文件时，文件后缀名必须为 .yaml 或 .json；单次上传的 API 描述文件不能超过 100KB；上传的描述文件会覆盖代码编辑器里的内容。
 - 创建成功的 API 将不会自动发布，需要您手动发布后方可生效。
+
+>?
+>- OpenAPI 规范和 API 网关的映射关系请参见[定义 API](https://cloud.tencent.com/document/product/628/43135)。
+>- 导入 API 的完整示例请参见 [导入 API 示例](https://cloud.tencent.com/document/product/628/43136)。
