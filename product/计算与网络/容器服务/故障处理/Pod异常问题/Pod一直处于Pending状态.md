@@ -51,7 +51,7 @@ kubectl describe node <node-name>
 * `podAntiAffinity`：Pod 反亲和性，防止某一类 Pod 调度到同一个地方，可以有效避免单点故障。例如，将集群 DNS 服务的 Pod 副本分别调度到不同节点，可避免因一个节点出现故障而造成整个集群 DNS 解析失败，甚至使业务中断。
 
 ### 检查 Node 是否存在 Pod 没有容忍的污点
-
+#### 问题分析
 假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
 ``` bash
 $ kubectl describe nodes host1
@@ -59,10 +59,45 @@ $ kubectl describe nodes host1
 Taints:             special=true:NoSchedule
 ...
 ```
+Node 上已设置的污点可通过手动或自动的方式添加，详情请参见 [添加污点](#addTaints)。
 
-污点可通过手动或自动的方式添加：
+#### 解决方法
 
-- **手动添加污点**
+本文提供以下两种方法，通常选择方法2解决该问题：
+- 方法1：删除污点
+执行以下命令，删除污点 `special`。
+```
+kubectl taint nodes host1 special-
+```
+- 方法2：在 Pod 上增加污点容忍
+可在 PodSpec 中为 Pod 设置容忍。例如，增加 `special` 污点的容忍：
+```yaml
+	tolerations:
+	- key: "special"
+	  operator: "Equal"
+	  value: "true"
+	  effect: "NoSchedule"
+```
+
+### 检查是否存在低版本 kube-scheduler 的 bug
+
+Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导致的，该情况可以通过升级调度器版本进行解决。
+
+### 检查 kube-scheduler 是否正常运行
+请注意时检查 Maser 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
+
+### 检查驱逐后其他可用节点与当前节点的有状态应用是否不在相同可用区
+
+服务部署成功且正在运行时，若此时节点突发故障，就会触发 Pod 驱逐，并创建新的 Pod 副本调度到其他节点上。对于已挂载了磁盘的 Pod，通常需要被调度到与当前故障节点和挂载磁盘所处同一个可用区的新的节点上。若集群中同一个可用区内不具备满足可调度条件的节点时，即使其他可用区内具有满足条件的节点，此类 Pod 仍不会调度。
+
+
+限制已挂载磁盘的 Pod 不能调度到其他可用区的节点的原因如下：
+云上磁盘允许被动态挂载到同一个数据中心上的不同机器，为了有效避免网络时延极大地降低 IO 速率，通常不允许跨数据中心挂载磁盘设备。
+
+
+## 相关操作
+### 添加污点<span id="addTaints"></span>
+#### 手动添加污点
 通过以下或类似方式，可以手动为节点添加指定污点：
 ``` bash
 $ kubectl taint node host1 special=true:NoSchedule
@@ -70,7 +105,7 @@ node "host1" tainted
 ```
 >?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
 
-- **自动添加污点**
+#### 自动添加污点
 从 v1.12 开始，Beta 默认开启 `TaintNodesByCondition` 特性，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，当检查的 Condition 符合如下条件（即符合 Condition 与 Taints 的对应关系），将自动给 Node 加上相应的污点。
 例如，检查 Condition 为 `OutOfDisk` 且 Value 为 `True`，则 Node 会自动添加 `node.kubernetes.io/out-of-disk` 污点。
 Condition 与污点的对应关系如下：
@@ -95,18 +130,3 @@ NetworkUnavailable     True        node.kubernetes.io/network-unavailable
 	* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其他 Pod 正常通信。
 >?上述情况一般属于被动添加污点，但在容器服务中，存在一个主动添加/移出污点的过程：
 >在新增节点时，首先为该节点添加 `node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到未初始化好的节点。
-
-### 检查是否存在低版本 kube-scheduler 的 bug
-
-Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导致的，该情况可以通过升级调度器版本进行解决。
-
-### 检查 kube-scheduler 是否正常运行
-请注意时检查 Maser 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
-
-### 检查驱逐后其他可用节点与当前节点的有状态应用是否不在相同可用区
-
-服务部署成功且正在运行时，若此时节点突发故障，就会触发 Pod 驱逐，并创建新的 Pod 副本调度到其他节点上。对于已挂载了磁盘的 Pod，通常需要被调度到与当前故障节点和挂载磁盘所处同一个可用区的新的节点上。若集群中同一个可用区内不具备满足可调度条件的节点时，即使其他可用区内具有满足条件的节点，此类 Pod 仍不会调度。
-
-
-限制已挂载磁盘的 Pod 不能调度到其他可用区的节点的原因如下：
-云上磁盘允许被动态挂载到同一个数据中心上的不同机器，为了有效避免网络时延极大地降低 IO 速率，通常不允许跨数据中心挂载磁盘设备。
