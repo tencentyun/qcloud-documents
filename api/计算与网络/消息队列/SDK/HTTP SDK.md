@@ -10,7 +10,7 @@
 
 ## 下载地址
 
-#### GitHub 地址
+不同语言版本 SDK 的 GitHub 地址如下：
 - [Java SDK](https://github.com/tencentyun/cmq-java-sdk)
 - [Python SDK](https://github.com/tencentyun/cmq-python-sdk)（默认为 Python2 SDK，您可切换至 Python3 分支中查看 Python3 SDK ）
 - [PHP SDK](https://github.com/tencentyun/cmq-php-sdk)
