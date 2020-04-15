@@ -70,7 +70,12 @@ Node 上已设置的污点可通过手动或自动的方式添加，详情请参
 kubectl taint nodes host1 special-
 ```
 - 方法2：在 Pod 上增加污点容忍
-可在 PodSpec 中为 Pod 设置容忍。例如，增加 `special` 污点的容忍：
+  1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+  2. 在“集群管理”列表页面，选择集群 ID 进入集群 “Deployment” 页面。
+  >?本文以向 Deployment 中添加容忍为例。
+  >
+  3. 选择 Deployment 所在行右侧的【更多】>【编辑YAML】。
+  4. 在 Yaml 编辑页面添加污点容忍。例如，增加 `special` 污点的容忍：
 ```yaml
 	tolerations:
 	- key: "special"
@@ -78,6 +83,7 @@ kubectl taint nodes host1 special-
 	  value: "true"
 	  effect: "NoSchedule"
 ```
+  5. 单击【完成】即可。
 
 ### 检查是否存在低版本 kube-scheduler 的 bug
 
@@ -121,12 +127,12 @@ DiskPressure           True        node.kubernetes.io/disk-pressure
 NetworkUnavailable     True        node.kubernetes.io/network-unavailable
 ```
 当每种 Condition 取特定的值时，将表示以下含义：
-	* `OutOfDisk` 为 True，表示节点磁盘空间不足。
-	* `Ready` 为 False，表示节点不健康。
-	* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
-	* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
-	* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
-	* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
-	* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其他 Pod 正常通信。
+* `OutOfDisk` 为 True，表示节点磁盘空间不足。
+* `Ready` 为 False，表示节点不健康。
+* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
+* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
+* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
+* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
+* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其他 Pod 正常通信。
 >?上述情况一般属于被动添加污点，但在容器服务中，存在一个主动添加/移出污点的过程：
 >在新增节点时，首先为该节点添加 `node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到未初始化好的节点。
