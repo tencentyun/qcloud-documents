@@ -50,3 +50,55 @@ void addEventListener(std::function<void(std::string, std::string)> fn);
      */
     std::list<DeviceInfo> getLanDevice();
 ```
+
+
+
+### IoT Write Request 类接口函数
+
+**消息请求对象构造**
+```
+ /**
+    @\brief 消息请求构造
+    @\param devid 设备id
+    @\param objLeaf 物模型类型
+    @\param jData   物模型设置参数
+*/
+IoTWriteRequest(const std::string& devid,const std::string& objLeaf, const std::string& jData);
+
+```
+
+**发送消息**
+```
+/**
+    @\brief 发送消息
+
+*/
+IoTWriteRequest& IotSend();
+```
+
+**设置超时回调函数**
+```
+/**
+    @\brief 设置超时回调函数
+    @\param fn 第一个参数超时错误信息
+*/
+IoTWriteRequest& IoTTimeout(std::function<void(std::string)> fn);
+```
+
+**设置错误回调函数**
+```
+/**
+    @\brief 设置错误回调函数
+    @\param fn 第一个参数：错误信息，第二个参数：错误码
+*/
+IoTWriteRequest& IoTError(std::function<void(std::string,int err)> fn);
+```
+
+**设置成功回调函数**
+```
+/**
+    @\brief 设置成功回调函数
+    @\param fn 第一个参数：成功返回信息
+*/
+IoTWriteRequest& IoTSuccess(std::function<void(std::string)> fn);
+```
