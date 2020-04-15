@@ -43,9 +43,12 @@ OV 证书颁发等待时间为3 - 5个工作日，EV 证书颁发等待时间为
  
 <span id="certificate"></span>
 ## 证书安装相关文档
+证书颁发成功后，您需要重新安装证书，您可以根据您搭建的服务器类型进行证书安装。
 - [Apache 服务器证书安装](https://cloud.tencent.com/document/product/400/35243)。
 - [Nginx 服务器证书安装](https://cloud.tencent.com/document/product/400/35244)。
 - [IIS 服务器安装证书](https://cloud.tencent.com/document/product/400/35225)。
 - [Tomcat 服务器证书安装](https://cloud.tencent.com/document/product/400/35224)。
+
+>?如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
 
 
