@@ -70,12 +70,14 @@ Node 上已设置的污点可通过手动或自动的方式添加，详情请参
 kubectl taint nodes host1 special-
 ```
 - 方法2：在 Pod 上增加污点容忍
-  1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
-  2. 在“集群管理”列表页面，选择集群 ID 进入集群 “Deployment” 页面。
-  >?本文以向 Deployment 中添加容忍为例。
+  >?本文以向 Deployment 中已创建的 Pod（名称为 `nginx`）添加容忍为例。
   >
-  3. 选择 Deployment 所在行右侧的【更多】>【编辑YAML】。
-  4. 在 Yaml 编辑页面添加污点容忍。例如，增加 `special` 污点的容忍：
+  1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录已创建 Deployment 所在的云服务器。 
+  4. 执行以下命令，编辑 Yaml。
+  ```
+	kubectl edit deployment nginx
+	```
+  4. 编辑 PodSpec 以添加容忍。例如，增加已存在 `special` 污点的容忍：
 ```yaml
 	tolerations:
 	- key: "special"
@@ -83,7 +85,9 @@ kubectl taint nodes host1 special-
 	  value: "true"
 	  effect: "NoSchedule"
 ```
-  5. 单击【完成】即可。
+添加完成后如下图所示：
+![](https://main.qcloudimg.com/raw/3184c715c03a8d8aae249f4c052f87b6.png)
+  5. 保存并退出编辑即可成功创建容忍。
 
 ### 检查是否存在低版本 kube-scheduler 的 bug
 
