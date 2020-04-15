@@ -3,11 +3,10 @@
 <table>
 <thead>
 <tr>
-<th>场景</th>
-<th>产品</th>
-<th>功能</th>
-<th>特点</th>
-<th>限制</th>
+<th width="16%">场景</th>
+<th width="20%">产品</th>
+<th width="34%">功能</th>
+<th width="30%">特点</th>
 </tr>
 </thead>
 <tbody>
