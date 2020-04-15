@@ -1,19 +1,18 @@
 ### 前提条件
-- 已注册腾讯云账号。
+- 已注册腾讯云账号，并开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
 - 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
-- 配置 [域名 CNAME](https://cloud.tencent.com/document/product/267/19908) 成功。
+- 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
 
 ### 如何手动生成直播 URL？
-1. 开通 [腾讯云直播服务](https://cloud.tencent.com/product/lvb)。	
-2. 前往【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】，添加您已备案完成的域名。
-3. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进入如下配置：
+1. 登录云直播控制台。	
+2. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进入如下配置：
 	1. 按需选择生成类型。
 	2. 选择您已添加到域名管理里对应的域名。
 	3. 按需编辑 AppName。AppName 为区分同一个域名下多个 App 的地址路径，默认为 live。
 	3. 填写自定义的流名称 StreamName。
 	4. 选择地址过期时间。
-4. 单击【生成地址】即可生成您需要的推流/播放地址。
+3. 单击【生成地址】即可生成您需要的推流/播放地址。
 ![](https://main.qcloudimg.com/raw/b92179a1020d676d5e93e7ea4bfd6c37.png)
  >? 
  >- AppName 可自定义，仅支持英文字母、数字和符号。
