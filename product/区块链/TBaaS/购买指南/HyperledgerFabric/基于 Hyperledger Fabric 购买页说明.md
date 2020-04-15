@@ -10,7 +10,7 @@
 ## 操作步骤
 1. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
 2. 单击【新建】，进入 “[区块链服务TBaaS-Fabric](https://buy.cloud.tencent.com/tbaas_blockchain?engine=0)” 购买页面，按照页面提示填写基本信息、组织及节点配置。如下图所示：
-![](https://main.qcloudimg.com/raw/fa12ace92b2dc12b1c95b1da4d57235c.png)
+![](https://main.qcloudimg.com/raw/af493babf2328528e44a26a791fb25ac.png)
 主要参数信息如下：
 	- **联盟**：选择所属联盟。需建立联盟后才可以购买区块链网络，网络建立后联盟不可更换。
 	- **区块链网络名称**：长度为4 - 60个字符，不可与当前您已加入的区块链网络名称重复。
