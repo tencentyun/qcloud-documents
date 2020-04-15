@@ -62,7 +62,7 @@ https://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txT
     </tr><tr>
         <td>HTTP-FLV </td>
 				<td><code>http://</code> 或 <code>https://</code> </td>
-        <td>推荐，秒开效果差，支持超高并发。</td>
+        <td>推荐，秒开效果好，支持超高并发。</td>
     </tr><tr>
         <td>HLS（m3u8）</td>
         <td><code>http://</code>  或 <code>https://</code> </td>
