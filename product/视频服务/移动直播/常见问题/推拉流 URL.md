@@ -23,7 +23,7 @@
 进入【云直播控制台】>[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选中事先配置的推流域名，【管理】>【推流配置】页面下半部分有【推流地址示例代码】（PHP 和 Java 两个版本）演示如何生成防盗链地址。更多详情操作请参见 [推流配置](https://cloud.tencent.com/document/product/267/32833#.E6.8E.A8.E6.B5.81.E5.9C.B0.E5.9D.80.E7.A4.BA.E4.BE.8B.E4.BB.A3.E7.A0.81)。
 
 ### 如何自主拼装推流 URL？
-实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的直播 URL，它由四个部分组成：
+实际产品中，当直播间较多时，您不可能为每一个主播手工创建推流和播放 URL，您可通过服务器**自行拼装**推流和播放地址，只要符合腾讯云标准规范的 URL 就可以用来推流，如下是一条标准的推流 URL，它由四个部分组成：
 ![](https://main.qcloudimg.com/raw/095b7c120b62ac8a171603d4fff67cb2.png)
 - **Domain**
 推流域名，可使用腾讯云直播提供的默认推流域名，也可以用自有已备案且 CNAME 配置成功的推流域名。
@@ -53,9 +53,22 @@ https://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txT
 ```
 
 - **播放前缀**	
- - RTMP 播放协议：`rtmp://`。	
- - HTTP - FLV 播放协议：`http://` 或者 `https://`。	
- - HLS（m3u8） 播放协议：`http://` 或者 `https://`。	
+<table>
+    <tr><th>播放协议</th><th>播放前缀</th><th>备注</th></tr>
+    <tr>
+        <td>RTMP</td>
+        <td><code>rtmp://</code> </td>
+        <td>不推荐，秒开效果差，不支持高并发</td>
+    </tr><tr>
+        <td>HTTP-FLV </td>
+				<td><code>http://</code> 或 <code>https://</code> </td>
+        <td>推荐，秒开效果差，支持超高并发。</td>
+    </tr><tr>
+        <td>HLS（m3u8）</td>
+        <td><code>http://</code>  或 <code>https://</code> </td>
+        <td>手机端和 Mac safari 浏览器推荐的播放协议。</td>
+    </tr>
+</table>
 - **Domain**	
 	播放域名，自有已备案且 CNAME 配置成功的播放域名。
 - **AppName**	
@@ -67,4 +80,3 @@ https://domain/AppName/StreamName.flv?txSecret=Md5(key+StreamName+hex(time))&txT
 开启播放鉴权后需使用包含鉴权 Key 的 URL 进行播放。若未开启播放鉴权，则播放地址中无需 “?” 及其后内容。
  - **txTime（地址有效期）：** 表示何时该 URL 会过期，格式支持十六进制的 UNIX 时间戳。
  - **txSecret（防盗链签名）：**用以防止攻击者伪造您的后台生成播放 URL，计算方法参见 [最佳实践-防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
-
