@@ -25,7 +25,7 @@
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/61eafae9c540f795019c431ab94f9ffd.png)
+ ![](https://main.qcloudimg.com/raw/c7835c66e2650eaa1cbdf97a0bc97033.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 
@@ -36,7 +36,7 @@
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/9b58a20fa406469aa3dd9f4f82e83a66.png">
+  <img src="https://main.qcloudimg.com/raw/0ae7a197ad22784384f1b6e111eabb22.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
@@ -67,8 +67,12 @@
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，该如何获取密钥？
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
 
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先单击【第二步 获取签发UserSig的密钥】区域的【点此升级】升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+升级操作：
+ 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
+ 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
+ 3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】。
 
 ### 2. 防火墙有什么限制？
 

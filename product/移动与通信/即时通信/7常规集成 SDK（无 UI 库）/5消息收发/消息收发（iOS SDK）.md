@@ -1390,7 +1390,7 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 ### 获取所有会话
 
 ```
-@interface TIMMessage : NSObject
+@interface TIMManager : NSObject
 
 /**
  *  获取会话（TIMConversation*）列表

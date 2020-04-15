@@ -6,7 +6,7 @@
 ![](https://main.qcloudimg.com/raw/2368a0969c19cd1884ef28de153d5039.png)
 
 ## 购买正式版 License
-当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 创建正式 License。当您购买流量资源包10T、流量资源包50T、流量资源包200T中的任意一种点播都会赠送一个License，License需在控制台和流量资源包绑定后才可以创建成功，且该License的有效期和资源包的有效期一致，支持对License进行升级、续期、变更。
+当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 创建正式 License。当您购买流量资源包10T、流量资源包50T、流量资源包200T中的任意一种，云点播都会赠送一个 License，License 需在控制台和流量资源包绑定后才可以创建成功，且该 License 的有效期和资源包的有效期一致，支持对 License 进行升级、续期、变更。
 
 SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 
@@ -17,7 +17,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 | [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 
->!**购买点播套餐包并绑定License后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License信息不能再做修改。**
+>!**购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 信息不能再做修改。**
 
 
 ## 新增短视频 License
@@ -36,14 +36,15 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 2. 选择当前账户可绑定的资源包，**License 有效时间和对应的绑定资源包有效时间一致**。
 3. 单击【确认续期】即可。
 ![](https://main.qcloudimg.com/raw/6c61b4b84baa02a45a5e8d96eaba7fe2.png)
-**示例：**
-用户于2019年2月2日购买流量资源包50TB（有效期：2019.02.02-2020.02.01）赠送 基础版 License，则 License 的有效期为2019.02.02-2020.02.01，若用户需要进行续期，续期流量资源包-200TB（2019.07.02-2020.07.01），则License的有效期为2019.07.02-2020.07.01。
+
+#### 示例
+用户于2019年02月02日购买流量资源包50TB（有效期：2019.02.02 - 2020.02.01），赠送基础版 License，则 License 的有效期为2019.02.02 - 2020.02.01，若用户需要进行续期，续期流量资源包-200TB（2019.07.02 - 2020.07.01），则License 的有效期为2019.07.02 - 2020.07.01。
 
 ## 升级短视频 License
 目前及支持短视频 License 由精简版升级至基础版,升级的 License 为对应的资源包赠送的 License 规格。
 
-**示例：**
-用户购买流量资源包10TB（赠送精简版license），如需升级至基础版 License 则控制台需要存在50TB或200TB资源包。
+#### 示例
+用户购买流量资源包10TB（赠送精简版 License），如需升级至基础版 License，则控制台需要存在50TB或200TB资源包。
 
 ## License 使用方法
 在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
@@ -70,7 +71,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 ```
 
 
-<span id=“enterpriseli”></span>
+<span id="enterpriseli"></span>
 ## 关于企业版本 License
 
 使用企业版本 License 可以开启优图实验室的 AI 功能，License 设置方法同上, 工程需要额外进行配置，具体配置请参见 [动效变脸](https://cloud.tencent.com/document/product/584/13509)。

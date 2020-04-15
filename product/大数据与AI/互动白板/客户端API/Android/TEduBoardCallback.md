@@ -202,6 +202,15 @@ void onTEBGotoStep(int currentStep, int totalStep)
 | totalStep | int | 当前白板页动画总步数  |
 
 
+### onTEBRectSelected
+框选工具选中回调 
+``` Java
+void onTEBRectSelected()
+```
+#### 警告
+只有框选中涂鸦或图片元素后触发回调 
+
+
 
 ## 文件操作回调
 
@@ -301,6 +310,21 @@ void onTEBH5FileStatusChanged(String fileId, int status)
 | --- | --- | --- |
 | fileId | String | 文件 ID  |
 | status | int | 文件状态  |
+
+
+### onTEBAddImagesFile
+增加批量图片文件回调 
+``` Java
+void onTEBAddImagesFile(String fileId)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | String | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后才会触发该回调 
 
 
 ### onTEBVideoStatusChanged

@@ -1416,8 +1416,7 @@ con.getLocalMessage(10, //获取此会话最近的 10 条消息
         for(TIMMessage msg : msgs) {
             lastMsg = msg;
             //可以通过 timestamp()获得消息的时间戳, isSelf()是否为自己发送的消息
-            Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.msg.seq());
-
+            Log.e(tag, "get msg: " + msg.timestamp() + " self: " + msg.isSelf() + " seq: " + msg.getSeq());
         }
     }
 });

@@ -8,8 +8,9 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
 ![](https://main.qcloudimg.com/raw/64c61ada3fcc439dc3d3bf9b151b17b7.png)
 
 ## 产品功能
-* **通用的应用托管平台**
-  支持南北向 Web 框架（如 Express、Koa）和东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
+
+* **微服务的应用托管平台**
+  主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
 
 * **精益成本，不为闲置资源付费**
   无需提前为业务峰值准备资源，按需使用、按量计费，无需为闲置资源付费。
@@ -19,10 +20,12 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
 
 ## 应用场景
 
-* **Web 服务**
-  TSF Serverless 和其他腾讯云云服务紧密结合，开发者能够轻松构建可弹性扩展的移动或 Web 应用程序、小程序应用、BFF（Backend For Frontend）应用。
-![](https://main.qcloudimg.com/raw/1e662dd67ad987c5aae9607029ea0afa.svg)
-
 * **分布式系统**
   TSF Serverless 帮助用户屏蔽底层资源购买和运维细节，低门槛部署微服务应用，让企业聚焦核心业务本身。
 ![](https://main.qcloudimg.com/raw/d2448b5f9428021cb38dd2109d442af1.svg)
+
+* **应用发布和管理**
+传统的应用发布需要运维人员登录到每一台服务器进行发布和部署，TSF Serverless 针对分布式系统的应用发布和管理，提供了简单易用的可视化控制台。用户可以通过控制台发布应用（包括创建、部署、启动应用），并可以查看应用的部署状态，无需关心底层机器。
+  ![](https://mc.qcloudimg.com/static/img/a538773e2fdc97105b2fb1841c22e74b/image.png)
+  
+  

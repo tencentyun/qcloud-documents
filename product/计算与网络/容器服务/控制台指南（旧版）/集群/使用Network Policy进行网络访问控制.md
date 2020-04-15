@@ -15,7 +15,7 @@ kube-router 的三大功能：
 - IPVS/LVS based service proxy  
 - Network Policy Controller 
 
-在腾讯云 TKE 上，Pod Networking 的功能由基于 IAAS 层 VPC 的高性能容器网络实现，service proxy 功能由 kube-proxy 所支持的 ipvs/iptalbes 两种模式来提供。建议在 TKE 上，只使用 kube-router 的 Network Policy 功能。
+在腾讯云 TKE 上，Pod Networking 的功能由基于 IAAS 层 VPC 的高性能容器网络实现，service proxy 功能由 kube-proxy 所支持的 ipvs/iptables 两种模式来提供。建议在 TKE 上，只使用 kube-router 的 Network Policy 功能。
 
 ## 在 TKE 上部署 kube-router
 
@@ -32,7 +32,7 @@ kube-router 的三大功能：
 
 Daemonset yaml 文件：[#kube-router-firewall-daemonset.yaml.zip#](https://ask.qcloudimg.com/draft/982360/90i1a7pucf.zip)
 
-在 **能访问公网**，也能访问 TKE 集群 apiserver 的机器上，执行以下命令即可完成 kube-router 部署。
+在**能访问公网**，也能访问 TKE 集群 apiserver 的机器上，执行以下命令即可完成 kube-router 部署。
 
 如果集群节点开通了公网 IP，则可以直接在集群节点上执行以下命令。
 
@@ -153,10 +153,10 @@ spec:
 
 args 说明：
 
-1. "--run-router=false", "--run-firewall=true", "--run-service-proxy=false"：只加载 firewall 模块；
-2. kubeconfig：用于指定 master 信息，映射到主机上的 kubectl 配置目录`/root/.kube/config`；
-3. --iptables-sync-period=1s：指定同步 iptables 规则的间隔时间，根据实时性的要求设置，默认 5 m；
-4. --cache-sync-timeout=5m：指定启动时将 k8s 资源做缓存的超时时间，默认 5 m；
+1. "--run-router=false", "--run-firewall=true", "--run-service-proxy=false"：只加载 firewall 模块。
+2. kubeconfig：用于指定 master 信息，映射到主机上的 kubectl 配置目录 `/root/.kube/config`。
+3. --iptables-sync-period=1s：指定同步 iptables 规则的间隔时间，根据实时性的要求设置，默认1s。
+4. --cache-sync-timeout=5m：指定启动时将 k8s 资源做缓存的超时时间，默认5m。
 
 ## NetworkPolicy 配置示例
 
@@ -175,7 +175,6 @@ spec:
   policyTypes:
   - Ingress
 ```
-
 2. nsa namespace 下的 pod 不能被任何 pod 访问。
 ```
 apiVersion: extensions/v1beta1
@@ -188,8 +187,7 @@ spec:
   policyTypes:
   - Ingress
 ```
-
-3. nsa namespace 下的 pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespac e 下的 pod 访问，而不能被其它任何 pod 访问。
+3. nsa namespace 下的 pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespace 下的 pod 访问，而不能被其它任何 pod 访问。
 ```
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
@@ -209,7 +207,6 @@ spec:
   policyTypes:
   - Ingress
 ```
-
 4. nsa namespace 下的 pod 可以访问 CIDR 为 14.215.0.0/16 的 network endpoint 的5978/TCP 端口，而不能访问其它任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。
 ```
 apiVersion: extensions/v1beta1
@@ -229,7 +226,6 @@ spec:
   policyTypes:
   - Egress
 ```
-
 5. default namespace 下的 pod 只在 80/TCP 端口可以被 CIDR 为 14.215.0.0/16 的 network endpoint 访问，而不能被其它任何 network endpoints 访问。
 ```
 apiVersion: extensions/v1beta1
@@ -272,22 +268,16 @@ spec:
 
 ### 测试环境
 
-VM 数量: 100
-
-VM 配置: 2 核 4 G
-
-VM OS: ubuntu
-
-k8s: 1.10.5
-
-kube-router version: 0.2.0 
+- VM 数量：100
+- VM 配置：2核4G
+- VM OS：ubuntu
+- k8s：1.10.5
+- kube-router version：0.2.0 
 
 ### 测试流程
 
-1. 部署 1 个 service，对应两个 pod（Nginx），作为测试组；
-
-2. 部署 1000 个 service，每个分别对应 2/6/8 个 pod（Nginx），作为干扰组；
-
+1. 部署 1 个 service，对应两个 pod（Nginx），作为测试组。
+2. 部署 1000 个 service，每个分别对应 2/6/8 个 pod（Nginx），作为干扰组。
 3. 部署 NetworkPolicy 规则，使得所有 pod 都被选中，以便产生足够数量的 iptables 规则：
 ```
 apiVersion: extensions/v1beta1
@@ -319,12 +309,11 @@ spec:
   policyTypes:
   - Ingress
 ```
-
-4. 使用 ab 压测测试组的服务，记录 QPS.
+4. 使用 ab 压测测试组的服务，记录 QPS。
 
 ### 性能曲线
 
-![kube-router.png](https://ask.qcloudimg.com/draft/982360/c2dvr6rprd.png)
+![kube-router.png](https://main.qcloudimg.com/raw/ea25a9a3bfa7b840b0fbf70bcceb34a4.png)
 
 X轴：ab 并发数
 
@@ -332,4 +321,4 @@ Y轴：QPS
 
 ### 测试结论
 
-pod 数量从 2000 到 8000，开启 kube-router 时的性能比不开启时要下降 10%-20%。
+pod 数量从2000到8000，开启 kube-router 时的性能比不开启时要下降10% - 20%。

@@ -4,7 +4,7 @@
 本文以鸢尾花分类任务为例，向用户演示，如何利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码，如何通过工作流页面向自定义代码传参，如何查看代码日志/报错信息等。整个工作流运行耗时仅几十秒。
 
 ## 数据集介绍
-本案例代码修改自 Tensorflow [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started)。
+本案例代码修改自 Tensorflow 官方项目。
 本案例使用公共的鸢尾花（iris）数据集训练模型，该数据集包含四个特征，分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，我们根据这四个特征将鸢尾花分成三种物种。
 
 ```python
@@ -23,7 +23,7 @@ SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 
 ## 详细流程
 #### 一、数据与代码准备
-本案例代码取自 TensorFlow  [官方项目](https://github.com/tensorflow/models/tree/master/samples/core/get_started) ，您可通过链接下载，或直接拷贝以下代码。
+本案例代码取自 TensorFlow 官方项目。
 
 ```python
 #  Copyright 2016 The TensorFlow Authors. All Rights Reserved.

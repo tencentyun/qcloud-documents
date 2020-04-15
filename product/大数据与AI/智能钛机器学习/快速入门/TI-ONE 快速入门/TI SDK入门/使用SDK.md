@@ -94,7 +94,6 @@ GPU 算力（V100）
 - `base_job_name`：str fit()方法启动的训练任务名称前缀，如果没有指定，会使用镜像名和时间戳生成默认任务名。
 - `output_path`：用于保存模型和输出文件的 COS 路径，如果未指定，会生成默认的存储桶。
 - `subnet_id`：str 子网 ID，如果未指定，将在没有 VPC 配置的情况下创建任务。
-- `security_group_ids`：（list [ str ]）安全组 ID 列表，如果未指定，将在没有 VPC 配置的情况下创建任务。
 
 更多的参数意义请参考 EstimatorBase 类 （ ti-python-sdk/src/ti/EstimatorBase.py）。
 
@@ -107,8 +106,8 @@ fit 方法会创建并启动一个训练任务
 - `inputs`： 存储训练数据集的 COS 路径，可以采用以下两种数据结构。
   - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
   - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集
-- `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行，后面仍可通过 attach 方法附加。
-- `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在 wait 为 True 时才生效。
+- `logs (bool)`：默认为 False，是否打印训练任务产生的日志。如果设置为 True，将输出训练的任务日志。
+- `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
 

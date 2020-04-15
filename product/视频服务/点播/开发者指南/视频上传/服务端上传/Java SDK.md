@@ -23,7 +23,7 @@
 | vod_api-2.1.2.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
-| tencentcloud-sdk-java-3.0.58.jar             | 腾讯云 API SDK。                        |
+| tencentcloud-sdk-java-3.1.2.jar             | 腾讯云 API SDK。                        |
 | commons-codec-1.10.jar,commons-logging-1.2.jar,log4j-1.2.17.jar,slf4j-api-1.7.21.jar,slf4j-log4j12-1.7.21.jar           | 开源日志相关库。    |
 | httpclient-4.5.3.jar,httpcore-4.4.6.jar,okhttp-2.5.0.jar,okio-1.6.0.jar | 开源的 HTTP 处理库。                            |
 | joda-time-2.9.9.jar | 开源时间处理库。                            |

@@ -53,10 +53,10 @@ mLivePusher.startScreenCapture();
 
 要实现这样功能，您可以按如下步骤进行对接：
 - **4.1) 设置 pauseImg**
-在开始推流前，使用 TXLivePushConfig 的 setPauseImg 接口设置一张等待图片，例如“主播把画面切走一会儿...”。
+在开始推流前，使用 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771) 的 setPauseImg 接口设置一张等待图片，例如“主播把画面切走一会儿...”。
 
 - **4.2) 隐私模式开关**
-在用于工具条的悬浮窗口上增加一个用于开关隐私模式的按钮，打开隐私模式的响应逻辑为对 TXLivePusher##pausePush 接口函数的调用，关闭隐私模式的响应逻辑为对 TXLivePusher##resumePush 接口函数的调用。
+在用于工具条的悬浮窗口上增加一个用于开关隐私模式的按钮，打开隐私模式的响应逻辑为对 TXLivePusher##pausePush 接口函数的调用，关闭隐私模式的响应逻辑为对 [TXLivePusher##resumePush](https://cloud.tencent.com/document/product/454/34772#resumepusher) 接口函数的调用。
 ```java
 public void triggerPrivateMode() {
         if (mInPrivacy) {
@@ -96,11 +96,11 @@ mLivePusher.setConfig(mLivePushConfig);
 ### 步骤 6：推荐的清晰度
 影响画质的主要因素有：**分辨率**、**帧率**和**码率**。
 - **分辨率**
-手机录屏直播提供了三个级别的分辨率可供选择：360\*640，540\*960，720\*1280，设置接口为 TXLivePushConfig 中的 setVideoResolution。
+手机录屏直播提供了三个级别的分辨率可供选择：360\*640，540\*960，720\*1280，设置接口为 TXLivePushConfig 中的 [setVideoResolution](https://cloud.tencent.com/document/product/454/34771#setvideoresolution)。
 - **帧率**
-FPS <=10 会明显感觉到卡顿，手机录屏直播推荐设置20FPS - 25FPS 的帧率，设置接口为TXLivePushConfig 中的 setVideoFPS。
+FPS <=10 会明显感觉到卡顿，手机录屏直播推荐设置20FPS - 25FPS 的帧率，设置接口为TXLivePushConfig 中的 [setVideoFPS](https://cloud.tencent.com/document/product/454/34771#setvideofps)。
 - **码率**
-编码器每秒编出的数据大小，单位是kbps，例如800kbps代表编码器每秒产生800kb（或100KB）的数据。设置接口为 TXLivePushConfig 中的 setVideoBitrate。
+编码器每秒编出的数据大小，单位是kbps，例如800kbps代表编码器每秒产生800kb（或100KB）的数据。设置接口为 TXLivePushConfig 中的 [setVideoBitrate](https://cloud.tencent.com/document/product/454/34771#setvideobitrate )。
 
 相比于摄像头直播，录屏直播的不确定性会大很多，其中一个最大的不确定性因素就是录屏的场景。
 -  一种极端就是手机屏幕停在一个界面保持不动，例如桌面，这个时候编码器可以用很小的码率输出就能完成任务。
@@ -132,9 +132,10 @@ _config.audioChannels   = 1;
 ```
 之后，调用 **sendCustomPCMData** 向 SDK 塞入您自己的 PCM 数据即可。
 
+<span id="step10"></span>
 ### 步骤 10：事件处理
 ####  事件监听
-RTMP SDK 通过 ITXLivePushListener 代理来监听推流相关的事件，注意 ITXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
+RTMP SDK 通过 [ITXLivePushListener](https://cloud.tencent.com/document/product/454/34770) 代理来监听推流相关的事件，注意 ITXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
 
 ####  常规事件 
 一次成功的推流都会通知的事件，例如收到1003就意味着摄像头的画面会开始渲染了。
@@ -162,7 +163,7 @@ SDK 发现了一些严重问题，推流无法继续了，例如，用户禁用�
 SDK 发现了一些问题，但这并不意味着无法解决，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”。
 
 - PUSH_WARNING_NET_BUSY
-主播网络不给力，如果您需要 UI 提示，这个 WARNING 相对比较有用（步骤10）。
+主播网络不给力，如果您需要 UI 提示，这个 WARNING 相对比较有用（[步骤10](#step10)）。
 
 - PUSH_WARNING_SERVER_DISCONNECT
 推流请求被后台拒绝了，会触发有限次数的重试逻辑，有可能可以在某一次重试中推流成功。但实际上，大部分场景中都是推流地址里的 txSecret 计算错了，或者被其他人占用了测试地址，所以这个 WARNING 对您的调试帮助意义更大。

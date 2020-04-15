@@ -1,4 +1,4 @@
->?目前共享带宽包处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/act/apply/bwp_apply)。
+>?目前共享带宽包处于内测阶段，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8)。
 >
 创建共享带宽实例后，您需要将使用该共享带宽的 EIP 添加到共享带宽实例中。
 

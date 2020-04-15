@@ -1,3 +1,6 @@
+以下视频将为您介绍 TSF 应用开发环境中，SDK 安装的基本流程和步骤：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2039-24415?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 开发前准备
 在执行安装脚本之前，请确保您的机器上已经安装了 Java 和 Maven。
 
@@ -25,7 +28,7 @@ java -version
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
 | Windows  | 将字符串“;C:\Program Files\Java\jdk1.6.0_21\bin”添加到系统变量“Path”的末尾 |
-| Linux    | export PATH=PATH:JAVA_HOME/bin/                              |
+| Linux    | export PATH=$PATH:$JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
 使用上面提到的 **java -version** 命令验证 Java 安装。

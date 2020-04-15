@@ -38,3 +38,5 @@
 4. 在 API 密钥管理页面，单击操作列的【删除】，完成删除 API 密钥操作。
 > ?API 密钥删除后无法恢复，请您谨慎操作。
 
+## 关联文档
+如果您想了解如何通过访问密钥的 SecretId 查询子账号信息，请参阅 [通过搜索框找到子用户](https://cloud.tencent.com/document/product/598/36258)、[通过搜索框找到协作者](https://cloud.tencent.com/document/product/598/36623)。

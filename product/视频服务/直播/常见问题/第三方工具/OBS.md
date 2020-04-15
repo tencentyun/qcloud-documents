@@ -1,9 +1,10 @@
 ## 方案背景
 Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序直播流媒体内容制作软件，为用户提供免费使用，它可支持 OS X、Windows、Linux 操作系统，适用多种直播场景，满足大部分直播行为的操作需求，您可以到 [OBS 官网下载](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 最新版本软件。
-该任务指导您在安装 OBS 工具后，如何在 PC 端进行推流配置操作。
+以下视频将指导您在安装 OBS 工具后，如何在 PC 端进行推流配置操作。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2300-33494?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 准备工作
-- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，并生成推流地址，详情可参见 [推流配置](https://cloud.tencent.com/document/product/267/32833)。
+- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，并生成推流地址，详情请参见 [直播推流](https://cloud.tencent.com/document/product/267/32732)。
 - 安装 [OBS](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 工具。
 
 ## 操作步骤
@@ -19,7 +20,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 URL：rtmp://push.livetest.myqcloud.com/live/
 流名称：StreamName?txSecret=xxxxx&txTime=5C1E5F7F
 ```
-推流地址获取请参见如何 [快速获得推流地址](https://cloud.tencent.com/document/product/267/32833)。
+推流地址获取请参见 [最佳实践-直播推流](https://cloud.tencent.com/document/product/267/32732)。
 
  2. **<span id="step2">进行推流引导设置</span>**
 在底部工具栏的【来源】框处，单击【+】选择输入源，此时如无需进行其他如码率、录像等配置，则直接单击工具栏的【控件】>【开始推流】，即可将视频流推送到设置的推流地址。

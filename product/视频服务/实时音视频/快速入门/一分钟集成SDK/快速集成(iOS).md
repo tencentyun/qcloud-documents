@@ -22,8 +22,8 @@ pod init
 ```
 
 #### 3. 编辑 Podfile 文件
-编辑 Podfile 文件，有如下有两种设置方式：
--  方式一：使用腾讯云 LiteAV SDK 的 podspec 文件路径。
+编辑 Podfile 文件，并根据需要选择合适的 SDK 版本：
+- [精简版](https://cloud.tencent.com/document/product/647/32689#TRTC)：安装包体积增量最小，但仅支持 TRTC 和 CDN 播放（TXLivePlayer）功能。
 ```
   platform :ios, '8.0'
   
@@ -32,7 +32,16 @@ pod init
   end
 ```
 
--  方式二：使用 CocoaPod 官方源，支持选择版本号。
+- [专业版](https://cloud.tencent.com/document/product/647/32689#Professional)：除了 TRTC，还包含 RTMP 推流（TXLivePusher）、CDN 播放（TXLivePlayer）、点播播放（TXVodPlayer）以及短视频（UGSV）等多种功能。
+```
+  platform :ios, '8.0'
+  
+  target 'App' do
+  pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
+  end
+```
+
+您也可以使用 CocoaPod 官方源，但下载速度可能较慢：
 ```
    platform :ios, '8.0'
    source 'https://github.com/CocoaPods/Specs.git'
@@ -41,7 +50,7 @@ pod init
    pod 'TXLiteAVSDK_TRTC'
    end
 ```
-  
+
 #### 4. 更新并安装 SDK
 在终端窗口中输入如下命令以更新本地库文件，并安装 TRTC SDK：
 ```
@@ -58,11 +67,11 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 手动集成
 1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
-![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
+ ![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
-![](https://main.qcloudimg.com/raw/2e3b382fccadb0fe9e1038fffa1ef12f.jpg)
+ ![](https://main.qcloudimg.com/raw/2e3b382fccadb0fe9e1038fffa1ef12f.jpg)
 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++** 。
-![](https://main.qcloudimg.com/raw/0327c1ab6562e0f6e7f17b2e0fbe96dd.jpg)
+ ![](https://main.qcloudimg.com/raw/0327c1ab6562e0f6e7f17b2e0fbe96dd.jpg)
 
 
 ## 授权摄像头和麦克风使用权限
@@ -89,7 +98,3 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 1. TRTC SDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 打开为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
-
-### 2. TRTC SDK 是否支持开启 Bitcode？
-支持 Bitcode， App 项目可根据具体需要，在 **Build Settings** 下启用或禁用 Bitcode，如下图所示：
-![](https://main.qcloudimg.com/raw/c429a3a559018c661e273421fa299d9a.jpg)

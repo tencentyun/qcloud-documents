@@ -122,7 +122,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 启动 logcat，观察 tag 为 PushService 的日志，查看是否有错误信息。
 
 #### 华为通道排查路径
-- 检查腾讯移动推送 SDK 版本是否为V3.2.0以上版本以及华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
+- 检查华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
 - 检查是否为签名包。
 - 华为官网是否配置 SHA256 证书指纹。
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
@@ -139,5 +139,54 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 
 
 ### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果安卓 SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
 
+
+### 集成华为推送通道时遇到组件依赖冲突如何解决?
+项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
+1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
+2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
+3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
+修改前：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
+    }
+}
+```
+修改后：
+```java
+package com.huawei.android.hms.agent.common;
+public final class StrUtils {
+    public static String objDesc(Object object) {
+        String s = "";
+        try {
+            s = Integer.toHexString(object.hashCode());
+        } catch (Throwable e) {
+        }
+        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
+    }
+}
+```
+
+
+### 使用控制台快速集成时出现异常，如何解决？
+1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
+```
+./gradlew --rerun-tasks :app:processReleaseManifest 
+```
+并通过` "TpnsPlugin" `关键字进行分析。
+2. 点击 sync projects。
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+
+3. 在项目的 External Libraries 中查看是否有相关依赖。
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
+### Android 是否支持设置通知角标？
+通知角标目前都是遵从各厂商的默认逻辑，其中：
+- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
+- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
+- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
+- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  

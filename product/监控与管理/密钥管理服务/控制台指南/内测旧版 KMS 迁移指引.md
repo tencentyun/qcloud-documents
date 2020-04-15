@@ -4,7 +4,7 @@
 官网已正式上线全新 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2 ) 做服务替换。新版密钥管理系统 KMS 完全满足合规标准，提供了更为丰富的密钥管理功能，且大大提高了可靠性设计。
 
 >!
->- 内测版密钥管理系统系统将永久维护，此次变更不影响您的正常业务使用。
+>- 内测版密钥管理系统将永久维护，此次变更不影响您的正常业务使用。
 >- 内测版密钥管理系统采用 [API/SDK 2017](https://cloud.tencent.com/document/product/573/8899) 接口提供服务。若需确认您是否正在使用内测版密钥管理系统，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 与我们联系。
 
 ## 价格说明

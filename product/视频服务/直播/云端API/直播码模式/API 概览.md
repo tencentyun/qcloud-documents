@@ -1,4 +1,5 @@
 腾讯云提供了一组直播码管理 API，包括状态查询和状态管理等功能，供您的后台服务器调用。
+>? 云直播 API 已升级到 3.0 版本，建议您使用 [API 3.0](https://cloud.tencent.com/document/product/267/20456) 接入腾讯云产品。
 
 ### API 列表
 
@@ -12,8 +13,8 @@
 | [Live_Channel_GetChannelList](https://cloud.tencent.com/document/product/267/7997)|查询频道列表|
 | [Live_Channel_GetLiveChannelList](https://cloud.tencent.com/document/product/267/8862)|查询直播中频道列表|
 | [mix_streamv2.start_mix_stream_advanced](https://cloud.tencent.com/document/product/267/8832)|云端混流操作接口|
-| [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复 - 可针对某路流禁止推流|
-| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务 - 可实现定时录制任务或者实时视频录制|
+| [channel_manager](https://cloud.tencent.com/document/product/267/9500)|暂停并延迟恢复，可针对某路流禁止推流|
+| [Live_Tape_Start](https://cloud.tencent.com/document/product/267/9567)|创建录制任务，可实现定时录制任务或者实时视频录制|
 | [Live_Tape_Stop](https://cloud.tencent.com/document/product/267/9568)|结束录制任务|
 
 ### 错误码

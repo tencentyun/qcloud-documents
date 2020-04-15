@@ -18,13 +18,35 @@
 
 多 AZ 存储和非多 AZ 存储的规格限制对比如下：
 
-| 对比项         | 多 AZ 存储           | 非多 AZ 存储                                                 |
-| -------------- | -------------------- | ------------------------------------------------------------ |
-| 数据设计持久性 | 99.9999999999%  （12个9）     | 99.999999999%（11个9）                                                |
-| 服务设计可用性 | 99.995%              | 99.99%                                                       |
-| 支持的地域     | 广州地域             | 所有地域，详见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档 |
-| 支持的存储类型 | 标准（MAZ-STANDARD） | 标准（STANDARD）、低频（STANDARD-IA）、归档（ARCHIVE）       |
-
+<table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>多 AZ 存储</th>
+<th>非多 AZ 存储</th>
+</tr>
+</thead>
+<tbody><tr>
+<td nowrap="nowrap">数据设计持久性</td>
+<td nowrap="nowrap">99.9999999999%  （12个9）</td>
+<td>99.999999999%（11个9）</td>
+</tr>
+<tr>
+<td>服务设计可用性</td>
+<td>99.995%</td>
+<td>99.99%</td>
+</tr>
+<tr>
+<td>支持的地域</td>
+<td>广州地域</td>
+<td>所有地域，详见 <a href="https://cloud.tencent.com/document/product/436/6224">地域和访问域名</a> 文档</td>
+</tr>
+<tr>
+<td nowrap="nowrap">支持的存储类型</td>
+<td>标准（MAZ-STANDARD）</td>
+<td>标准（STANDARD）<br>低频（STANDARD-IA）<br>归档（ARCHIVE）</td>
+</tr>
+</tbody></table>
 
 
 ## 使用方法

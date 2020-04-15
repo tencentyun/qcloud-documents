@@ -220,4 +220,4 @@ content-length: 9897
 <binary payload...>
 ```
 
-**云函数配置 HTTP 触发后，可以很轻松地托管 Node.js 服务端程序，详情请查看文档 [托管 NodeJS Server](https://tencentcloudbase.github.io/2019-09-03-hosting-nodejs-server/#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)。**
+**云函数配置 HTTP 触发后，可以很轻松地托管 Node.js 服务端程序，详情请查看文档 [托管 NodeJS Server](https://cloud.tencent.com/document/product/876/41777)。**

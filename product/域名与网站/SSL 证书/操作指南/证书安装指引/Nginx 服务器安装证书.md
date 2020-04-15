@@ -91,7 +91,7 @@ server {
  - 在页面中添加 JS 脚本。
  - 在后端程序中添加重定向。
  - 通过 Web 服务器实现跳转。
- - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `rewrite ^(.*) https://$host$1 permanent;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
+ - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
 ```
 server {
    listen 443 ssl;
@@ -117,7 +117,7 @@ server {
 	#填写绑定证书的域名
     server_name www.domain.com; 
 	#把http的域名请求转成https
-    rewrite ^(.*)$ https://$host$1 permanent; 
+    return 301 https://$host$request_uri; 
 }
 ``` 
 >?未添加注释的配置语句，您按照上述配置即可。

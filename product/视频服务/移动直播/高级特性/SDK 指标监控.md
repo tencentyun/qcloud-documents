@@ -11,12 +11,12 @@ TXLivePushListener 的 onNetStatus 回调，会每隔1秒 - 2秒会将 SDK 内�
 |  推流状态                 |  含义说明                  |
 | :------------------------  |  :------------------------ |
 | NET_STATUS_CPU_USAGE     |当前进程的 CPU 使用率和本机总体的 CPU 使用率。|
-| NET_STATUS_VIDEO_WIDTH  |当前视频的宽度（单位：像素值）。    |
-| NET_STATUS_VIDEO_HEIGHT|当前视频的高度（单位：像素值）。    |
-|    NET_STATUS_NET_SPEED     | 当前的发送速度（单位：kbps）。|
+| NET_STATUS_VIDEO_WIDTH  |当前视频的宽度，单位：像素值。    |
+| NET_STATUS_VIDEO_HEIGHT|当前视频的高度，单位：像素值。    |
+|    NET_STATUS_NET_SPEED     | 当前的发送速度，单位：kbps。|
 |    NET_STATUS_VIDEO_BITRATE | 当前视频编码器输出的比特率，也就是编码器每秒生产了多少视频数据，单位：kbps。|
 |    NET_STATUS_AUDIO_BITRATE | 当前音频编码器输出的比特率，也就是编码器每秒生产了多少音频数据，单位：kbps。|
-|    NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面|
+|    NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面。|
 |    NET_STATUS_VIDEO_CACHE    | 视频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的视频数据。|
 |    NET_STATUS_AUDIO_CACHE    | 音频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的音频数据。|
 |    NET_STATUS_VIDEO_DROP  |视频全局丢帧次数，为了避免延迟持续恶性堆积，SDK 在数据积压超过警戒线以后会主动丢帧，丢帧次数越多，说明网络问题越严重。|
