@@ -182,7 +182,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
  TXLivePusher mLivePusher = new TXLivePusher(this); 	
  	
  //开启手动曝光（需要 API 14 以上的 Android 系统才能支持）	
- mLivePushConfig.setTouchFocus(ture);	
+ mLivePushConfig.setTouchFocus(true);	
  mLivePusher.setConfig(mLivePushConfig);	
 ```
 
