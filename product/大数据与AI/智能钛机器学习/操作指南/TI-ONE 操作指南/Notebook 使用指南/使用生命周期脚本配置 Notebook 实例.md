@@ -26,7 +26,7 @@
   # This will affect only the Jupyter kernel called "conda_python3".
   source /opt/conda/bin/activate python3
   
-  # Replace myPackage with the name of the package you want to install.
+  # Replace fire with the name of the package you want to install.
   pip install fire
   # You can also perform "conda install" here as well.
   
