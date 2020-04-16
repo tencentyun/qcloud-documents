@@ -24,6 +24,6 @@ DMC 提供 kill 会话的功能，方便用户对会话进行管理。
 - SQL 结果导出
 ![](https://main.qcloudimg.com/raw/feca011fc52d88d5ab989b2453a04c0e.png)
 
-### 表数据可视化编辑
+## 表数据可视化编辑
 新版 DMC for MySQL 增加了对数据增删改的支持。用户可在左侧栏单击“数据表”，对表数据进行批量的增、删、改操作，修改完成后，在“快捷操作”栏单击【确定】预览本次修改的 SQL 语句，二次确认后将批量执行修改。
 ![](https://main.qcloudimg.com/raw/d0d9b40bc3a6344c4259f6131bc3179a.png)
