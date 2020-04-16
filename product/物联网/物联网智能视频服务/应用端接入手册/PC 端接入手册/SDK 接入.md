@@ -36,7 +36,7 @@ void addModelDataListener(std::function<void(std::string, std::string)> fn);
 */
 void addEventListener(std::function<void(std::string, std::string)> fn);
 ```
-**获取 SDK 版本号 **
+**获取 SDK 版本号**
 ```
     /**
      * @brief getSdkVersion 获取SDK版本号
