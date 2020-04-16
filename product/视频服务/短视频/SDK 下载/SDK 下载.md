@@ -1,5 +1,4 @@
->?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
-![](https://main.qcloudimg.com/raw/7a85f3c087c32fdd5a78a8a9b9c4b02d.jpg)
+
 
 短视频 SDK 提供3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用请参见 [功能说明文档](https://cloud.tencent.com/document/product/584/43161)。
 
@@ -310,6 +309,39 @@
     <td style="text-align:center">&#10003</td>
   </tr>
 </table>
+
+>?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
+![](https://main.qcloudimg.com/raw/7a85f3c087c32fdd5a78a8a9b9c4b02d.jpg)
+
+## 全功能小视频 App（Demo）源代码
+
+<table width="850px">
+  <tr>
+    <th width="140px">操作系统</th>
+    <th width="120px">下载链接</th>
+    <th width="70px">Github</th>
+    <th width="50px">Gitee</th>
+  </tr>
+  <tr>
+    <td>iOS 端源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+  </tr>
+  <tr>
+    <td>Android 端源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+  </tr>
+  <tr>
+    <td>后台源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaoshipin/vod-xiaoshipin-server-master.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
+    <td><a href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a></td>
+  </tr>
+</table>
+
 
 
 <script>
