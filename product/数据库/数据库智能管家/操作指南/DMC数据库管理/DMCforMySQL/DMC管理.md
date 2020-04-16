@@ -1,3 +1,4 @@
+>?在 DMC 上方导航栏单击【前往新版】，可前往新版 DMC 控制台。
 
 ## 新建库表
 1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在上方导航栏选择【新建】>【新建库】>【新增数据库】或【新建】>【新建表】。
