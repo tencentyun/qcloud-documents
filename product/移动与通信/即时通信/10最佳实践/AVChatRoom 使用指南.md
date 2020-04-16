@@ -94,7 +94,7 @@ tim.setLogLevel(0) // 普通级别，日志量较多，接入时建议使用
 tim.on(TIM.EVENT.SDK_READY, function (event) {
   // SDK ready 后接入侧才可以调用 sendMessage 等需要鉴权的接口，否则会提示失败！
   // event.name - TIM.EVENT.SDK_READY
-}）
+})
 
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
