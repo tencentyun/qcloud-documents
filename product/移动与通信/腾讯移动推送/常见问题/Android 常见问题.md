@@ -29,10 +29,8 @@
 
 
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
-
-
-**使用 Intent 来跳转指定页面**
+TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持点击事件，触发后打开主界面，如果在 onNotifactionClickedResult 设置跳转操作会与管理台/API中指定的自定义跳转冲突，导致自定义的跳转失效）。
+**使用 Intent 方式跳转指引：**
 在客户端 App 的 manifest 上，配置需要跳转的页面：
  - 如要跳转 AboutActivity 指定页面，示例代码如下：
 ```
