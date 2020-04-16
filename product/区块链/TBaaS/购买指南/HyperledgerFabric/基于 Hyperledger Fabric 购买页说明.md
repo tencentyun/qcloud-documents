@@ -23,5 +23,4 @@
 	- **状态数据库类型**：支持 LevelDB 状态数据库和 CouchDB 状态数据库，默认为LevelDB 状态数据库。
 3. 单击【下一步】，选择要邀请的组织，也可以直接跳过该步骤。
 4. 单击【立即购买】即可成功部署 Fabric 网络。
->?如需购买私有链，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&step=1)。私有链中单一账号可分配组织，详情请参见 [组织管理](https://cloud.tencent.com/document/product/663/38482)。
->
+
