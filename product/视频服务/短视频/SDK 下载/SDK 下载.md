@@ -13,11 +13,11 @@
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_ios_ugc&quot;)" href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_iOS_latest.zip" target="_blank">DOWNLOAD</a></td>
    </tr>
      <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick="MtaH5.clickStat(&quot;ugc_sdk_download_android_ugc&quot;)" href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_Android_latest.zip" target="_blank">DOWNLOAD</a></td>
    </tr>
 
 </table>
