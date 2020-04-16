@@ -1,5 +1,4 @@
->? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
->![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
+
 
 移动直播 SDK 提供了3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
 
@@ -45,6 +44,10 @@
       <td style="text-align:center">N/A</td>
    </tr>
 </table>
+
+>? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
+>![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
+
 
 <h2 id="Professional">专业版（Professional）</h2>
 
