@@ -51,7 +51,7 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 
 ### 如何通过 API 修改对象的存储类型？
 
-用户可通过调用 PUT  Object - Copy 接口，修改 storageClass 参数实现修改对象的存储类型，详情请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881)。
+用户可通过调用 PUT  Object - Copy 接口，修改 x-cos-storage-class 参数实现修改对象的存储类型，详情请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881)。
 
 ### 对象存储怎么设置签名永久有效？
 
