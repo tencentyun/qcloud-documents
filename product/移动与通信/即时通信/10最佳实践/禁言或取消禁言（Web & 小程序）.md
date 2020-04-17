@@ -74,6 +74,14 @@ let promise = tim.setGroupMemberMuteTime({
 >!使用该功能需将 SDK 升级至2.6.2及以上版本。全体禁言或取消全体禁言，暂无相关的群提示消息下发。
  
 App 管理员或群主调用 [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 接口可禁言/取消禁言指定群的全体管理员和普通成员。
+请求参数如下表所示。
+
+| 名称      | 类型     | 描述    |
+| --------- | ------- | --------|
+| groupID  | String | 群 ID|
+| muteAllMembers | Boolean | 设置禁言，true 表示全体禁言，false 表示取消全体禁言|
+
+请求示例如下：
 ```javascript
 let promise = tim.updateGroupProfile({
   groupID: 'group1',
@@ -86,12 +94,7 @@ promise.then(function(imResponse) {
 });
 ```
 
-**请求参数**
 
-| 名称      | 类型     | 描述    |
-| --------- | ------- | --------|
-| groupID  | String | 群 ID|
-| muteAllMembers | Boolean | 设置禁言，true 表示全体禁言，false 表示取消全体禁言|
 
 ### 步骤3：监听处理 TIM.EVENT.MESSAGE_RECEIVED 事件
 禁言后，该群成员收到的被禁言 [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)，可通过遍历 event.data 获取相关数据并渲染到页面。
