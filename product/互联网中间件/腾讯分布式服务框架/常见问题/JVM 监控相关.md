@@ -4,7 +4,7 @@
 - VM 场景：您需要把实例移出集群后，再重新移入集群，重新部署服务实例。
 - 容器场景：您需重新编写 dockerfile，生成新的镜像后重新部署服务实例，详情请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007)。
 
-另外， JVM 监控功能依赖 javaagent，dk1.5 以后才引入了 javaagent 技术，所以您需使用 jdk1.6 及以上版本，建议您使用 jdk1.8。
+另外， JVM 监控功能依赖 javaagent，jdk1.5 以后才引入了 javaagent 技术，所以您需使用 jdk1.6 及以上版本，建议您使用 jdk1.8。
 >!apm-agent 监听39411端口，java-agent 监听11339端口，请注意避免冲突。
 
 ### 火焰图采集失败如何处理？
