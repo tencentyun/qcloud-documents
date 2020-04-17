@@ -5,7 +5,7 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 
 ## 操作界面
 智能钛机器学习平台的 Notebook 整体操作界面如下，右侧为 Notebook 内容展示区域，左栏主要为文件管理和各类功能键。
-![](https://main.qcloudimg.com/raw/fd2c462ac8501edb3e77f4e6c5d559d8.png)
+<img src="https://main.qcloudimg.com/raw/c61b58ae80989dce6704be2328a86fb9.png" style="zoom:50%;" />
 
 ## 核心特性
 - 提供多种资源规格供用户自由选择。

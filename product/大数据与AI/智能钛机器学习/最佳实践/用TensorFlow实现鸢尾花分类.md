@@ -20,8 +20,10 @@ SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 工作流示意图如下：
 ![](https://main.qcloudimg.com/raw/4b326182a9123aad246122ec0f747e57.png)
 
+> ?注意：您可以按需自行配置资源参数，不同资源实例类型对应的价格不同。选择资源时，您可以参看资源参数右上角的**计费说明**。
 
 ## 详细流程
+
 #### 一、数据与代码准备
 本案例代码取自 TensorFlow 官方项目。
 
@@ -167,13 +169,13 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
     - 在本文中，内容为上文代码。您可以单击上传本地文件，或选择【新建脚本】，贴入上段代码，将其命名为premade_estimator.py
 ![](https://main.qcloudimg.com/raw/1cb32b866c8ea97f996930ab8b368173.png)
 上传完成后如下图展示：
-![](https://main.qcloudimg.com/raw/5aafdb0b029c2cbfc42e4071dbac9be1.png) 
+![](https://main.qcloudimg.com/raw/25f17c0e4c96a7145d52e8884fa21b2a.png) 
  - 依赖包文件：
      - 如果入口脚本需要 import 项目中的其它自己编写的模块，需要将其它模块的代码上传至此。多个.py文件需要压缩成 zip 包上传，该 zip 包会被添加到 Python 的 path 中。
      - 在本文中，我们将 iris_data.py 和 estimator_test.py 两个文件压缩成 iris.zip，您可通过此 [链接](https://jenny-1256633383.cos.ap-chengdu.myqcloud.com/iris.zip) 下载文件，并上传至【依赖包文件】中。
 ![](https://main.qcloudimg.com/raw/7c9964be5b6b54304590f71ec0127423.png)
 上传完成后如下图展示：
-![](https://main.qcloudimg.com/raw/e6ffc297777ab6d4aad4f6aa2c5586c9.png)
+![](https://main.qcloudimg.com/raw/ed7ff9fa04a89ec26409c5bb45d0e2d1.png)
  - 程序参数：此处填入用户自定义参数，自定义参数将会传递给入口 py 文件。用户可以在自己的 COS 存储桶中先新建一个文件夹，命名为tf_model，模型将会存储至该路径中，以便后续导入模型时查找。
 			--train_path ${ai_dataset_lib}/demo/other/iris_training.csv
 			--test_path ${ai_dataset_lib}/demo/other/iris_test.csv
