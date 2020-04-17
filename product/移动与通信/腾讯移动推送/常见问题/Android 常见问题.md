@@ -126,7 +126,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
 - 在腾讯移动推送注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
 - App 的包名和华为推送官网、腾讯移动推送管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
+- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的 [错误码](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_huaweipush_api_reference_errorcode ) 查找原因。
 - cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
   adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
 
