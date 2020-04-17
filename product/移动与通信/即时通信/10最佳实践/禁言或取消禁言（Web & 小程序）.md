@@ -1,4 +1,4 @@
-您可以禁止群组内的指定成员发言并配置禁言时长，在禁言期间该群成员不能发送消息，该操作只针对当前群组有效。禁言期间，被禁言的群成员退群后重新入该群禁言依旧有效，直至禁言时间结束。
+您可以禁止群组内的指定成员发言并配置禁言时长，在禁言期间该群成员不能发送消息，该操作只针对当前群组有效。禁言期间，被禁言的群成员退群后重新加入该群禁言依旧有效，直至禁言时间结束。
 本文主要介绍 Web 和小程序端 SDK 中如何对群成员禁言/取消禁言。
 
 ## 使用限制
@@ -48,7 +48,7 @@
 1. 调用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 接口查看所在群的类型，确认是否支持禁言/取消禁言操作。
  >!若为 Private（私有群）则不支持禁言。
  >
-2. 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口查看在当前群的成员角色，确认是否有权限进行禁言/取消禁言操作。
+2. 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口查看指定的 userID 在当前群的成员角色，确认是否有权限进行禁言/取消禁言操作。
 
 ### 步骤2：禁言/取消禁言群成员
 #### 禁言/取消禁言单个用户
@@ -95,10 +95,9 @@ promise.then(function(imResponse) {
 
 ### 步骤3：监听处理 TIM.EVENT.MESSAGE_RECEIVED 事件
 禁言后，该群成员收到的被禁言 [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)，可通过遍历 event.data 获取相关数据并渲染到页面。
->?建议您自行实现在收到禁言/取消禁言的相关通知时，disable/enable 输入框或输入区域的状态。
+>?在收到禁言/取消禁言的相关通知时，建议您自行实现 disable/enable 输入框或输入区域的状态。
 
-<pre>
-<code class="language-javascript">
+<pre><code class="language-javascript">
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
   // event.name - TIM.EVENT.MESSAGE_RECEIVED
