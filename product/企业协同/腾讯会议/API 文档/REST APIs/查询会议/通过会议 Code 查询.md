@@ -42,7 +42,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 #### 输入示例
 
 ```
-GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667?userid=tester1&instanceid=1
+GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1&instanceid=1
 ```
 
 #### 输出示例

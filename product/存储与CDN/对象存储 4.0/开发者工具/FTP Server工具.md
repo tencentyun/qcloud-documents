@@ -83,8 +83,8 @@ cos_protocol = https
 home_dir = /home/user0
 ftp_login_user_name=user0   #替换为用户自定义的账号
 ftp_login_user_password=pass0   #替换为用户自定义的密码
-authority=RW
-delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)，false 为禁止该用户进行删除操作
+authority=RW                # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
+delete_enable=true		 # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
 
 [COS_ACCOUNT_1]
 cos_secretid = COS_SECRETID    # 替换为您的 SECRETID
@@ -96,8 +96,8 @@ cos_protocol = https
 home_dir = /home/user1
 ftp_login_user_name=user1   #替换为用户自定义的账号
 ftp_login_user_password=pass1   #替换为用户自定义的密码
-authority=RW
-delete_enable=false
+authority=RW               # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
+delete_enable=false        # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
 
 [NETWORK]
 # 如果 FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP

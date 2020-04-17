@@ -1,3 +1,6 @@
+您可通过如下视频了解 VPC 连接 Internet 的相关信息。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35383?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 腾讯云为您提供了丰富接入公网的方式，您可以通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等访问公网（Internet）。 
 
 ## 普通公网 IP

@@ -62,10 +62,9 @@ void addSyncData(Object data)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| data | Object | 【必填】接收到的房间内其他人发送的同步数据 |
+| data | Object | 【必填】接收到的房间内其他人发送的同步数据  |
 
-#### 介绍
-该接口用于多个白板间的数据同步，使用内置 IM 作为信令通道时，不需要调用该接口 
+>? 该接口用于多个白板间的数据同步 
 
 
 ### getVersion
@@ -456,7 +455,7 @@ void setBackgroundImage(String url, TEduBoardImageFitMode mode)
 
 
 ### setBackgroundH5
-设置当前白板页的背景H5页面 
+设置当前白板页的背景 H5 页面 
 ``` Javascript
 void setBackgroundH5(String url)
 ```
@@ -746,7 +745,7 @@ String addTranscodeFile(TEduBoardTranscodeFileResult result, bool needSwitch)
 | needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 当传入文件的 URL 重复时，文件 ID 返回为空字符串 
@@ -771,7 +770,21 @@ String addImagesFile(String urls, bool needSwitch)
 | needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
-新增加文件Id 
+新增加文件 Id 
+
+
+### deleteFile
+删除文件 
+``` Javascript
+void deleteFile(String fileId)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | String | 【可选】要删除的文件 ID  |
+
+>? 文件 ID 为 null 时表示当前文件，默认文件无法删除 
 
 
 ### switchFile
@@ -783,7 +796,7 @@ void switchFile(String fileId, String boardId, Number stepIndex)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 【必填】要切换到的文件ID  |
+| fileId | String | 【必填】要切换到的文件 ID  |
 | boardId | String | 【可选】切换文件并跳转到这个白板页  |
 | stepIndex | Number | 【可选】跳转到白板页并切换到这个动画  |
 

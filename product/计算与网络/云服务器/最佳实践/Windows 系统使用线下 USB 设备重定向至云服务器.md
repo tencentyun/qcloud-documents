@@ -37,9 +37,6 @@ RemoteFx 是 Windows RDP 桌面协议升级版，RDP 8.0起可以使用 RemoteFx
 ![](https://main.qcloudimg.com/raw/e9f02b468e39d2b78365514f91cb13d1.png)
 17. 重启云服务器。
 
->! 远程桌面会话主机（Remote Desktop Session Host，RDSH）仅支持 Windows 服务器版，包括 Windows Server 2012 和 Windows Server 2016。如果您的应用程序必须运行在 Windows 桌面版（如 Windows 7/Windows10 等）上，可以通过连接两台 Windows 实例来实现。一台 Windows 服务器版实例作为 RDSH，一台 Windows 桌面版实例作为 VDI（Virtual Desktop Infrastructure，虚拟桌面基础架构），然后再将作为 VDI 的实例加入至作为 RDSH 的实例中。
->
-
 
 ### 配置客户端
 

@@ -29,10 +29,8 @@
 
 
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
-
-
-**使用 Intent 来跳转指定页面**
+TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持点击事件，触发后打开主界面，如果在 onNotifactionClickedResult 设置跳转操作会与管理台/API中指定的自定义跳转冲突，导致自定义的跳转失效）。
+**使用 Intent 方式跳转指引：**
 在客户端 App 的 manifest 上，配置需要跳转的页面：
  - 如要跳转 AboutActivity 指定页面，示例代码如下：
 ```
@@ -128,7 +126,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
 - 在腾讯移动推送注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
 - App 的包名和华为推送官网、腾讯移动推送管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
+- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的 [错误码](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_huaweipush_api_reference_errorcode ) 查找原因。
 - cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
   adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
 

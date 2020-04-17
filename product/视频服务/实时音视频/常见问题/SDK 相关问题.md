@@ -1,5 +1,5 @@
 ### 实时音视频 TRTC 可以与 iLiveSDK 通信吗？
-不可以，建议更新 iLiveSDK 方案到 TRTC ，具体操作请参考 [旧版本（iLiveSDK）升级方案](https://cloud.tencent.com/document/product/647/32281)。
+不可以，建议更新 iLiveSDK 方案到 TRTC ，具体操作请参考 [iLiveSDK 迁移方案](https://cloud.tencent.com/document/product/647/32281)。
 
 ### 实时音视频的小程序端、Web 端、PC 端是不是同步的？
 是的，实时音视频支持全平台互通。
@@ -10,6 +10,16 @@
 ### TRTC SDK 是否支持 iOS 后台运行？
 支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture**即可实现后台运行，详情如下图所示：
 ![](https://main.qcloudimg.com/raw/d960dfec88388936abce2d4cb77ac766.jpg)
+
+### 如何创建房间？
+房间是由腾讯云后台在客户端进房时自动创建的，您无需手动创建房间，只需调用客户端的相关接口“进入房间”即可：
+- [iOS & Mac > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d)
+- [Android > enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c)
+- [Windows（C++） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ac73c4ad51eda05cd2bcec820c847e84f)
+- [Windows（C#） > enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b)
+- [Electron > enterRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html?_ga=1.212321108.1562552652.1542703643#enterRoom)
+- [桌面浏览器 > join](https://trtc-1252463788.file.myqcloud.com/web/docs/Client.html?_ga=1.256770123.1562552652.1542703643#join)
+- [小程序 > enterRoom](https://cloud.tencent.com/document/product/647/17018#enterroom(params))
 
 ### 小程序端集成实时音视频 SDK 前需要做哪些准备工作？
 
@@ -42,8 +52,8 @@
 ### &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签使用及错误码参考：
 -  [live-pusher 错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-pusher.html) 
 -  [live-player 错误码](https://mp.weixin.qq.com/debug/wxadoc/dev/component/live-player.html) 
--  [livePusherContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-pusher.html) 
--  [livePlayerContext](https://mp.weixin.qq.com/debug/wxadoc/dev/api/api-live-player.html)
+- [livePusherContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)
+- [livePlayerContext](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)
 
 ### 调试时为什么要开启调试模式？
 开启调试后，可以略过把“request 合法域名”加入小程序白名单的操作，避免遇到登录失败，通话无法连接的问题。

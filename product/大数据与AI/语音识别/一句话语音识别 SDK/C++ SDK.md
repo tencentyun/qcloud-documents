@@ -52,7 +52,7 @@ sudo make install
 
 + **openssl**  
 
-本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 并执行以下命令：
+本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码](https://www.openssl.org/source/old/1.0.2/openssl-1.0.2.tar.gz) 并执行以下命令：
 
 ```
 1. 更新 zlib
@@ -72,7 +72,7 @@ sudo make install
 ### <span id="开发流程">开发流程介绍</span>
 **配置用户信息**
 
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 ```
 //需要配置成用户账号信息 c++_sentence_asr_sdk/src/TCloudSASR.h

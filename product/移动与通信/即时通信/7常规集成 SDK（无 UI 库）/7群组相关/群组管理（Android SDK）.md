@@ -690,12 +690,6 @@ public TIMMessage getLastMsg()
 public Map<String, byte[]> getCustom()
 
 /**
- * 获取在线群成员数（需要通过填写工单申请开通才会返回有效值，其中音视频直播大群无法申请开通）
- * @return  在线群成员数
- */
-public long getOnlineMemberNum()
-
-/**
  * 获取此群组是否被设置了全员禁言
  * @return true - 群组被设置了全员禁言
  * @since 3.1.1
