@@ -338,54 +338,6 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 >- 添加美妆。
 >- 进行手势识别。
 
-***
-
-### setFilter
-
-设置指定素材滤镜特效。
-```
-- (void)setFilter:(TXImage *)image 
-```
-
->?滤镜图片一定要用 png 格式，Demo 用到的滤镜查找表图片位于 TXLiteAVDemo/Resource/Beauty/filter/FilterResource.bundle 中。
-
-***
-
-### setSpecialRatio
-
-设置滤镜浓度。
-```
-- (void)setSpecialRatio:(float)specialValue 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| specialValue | float | 取值范围0 - 1的浮点型数字，取值越大滤镜效果越明显，默认取值0.5。 |
-
-__介绍__
-
-在美女秀场等应用场景里，滤镜浓度的要求会比较高，以便更加突显主播的差异。 我们默认的滤镜浓度是0.5，如果您觉得滤镜效果不明显，可以使用下面的接口进行调节。
-
-***
-
-### setGreenScreenFile
-
-设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setGreenScreenFile:(NSURL *)file 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4；nil 表示关闭特效。 |
-
-__介绍__
-
-此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
 ***
 ## 音频相关接口
