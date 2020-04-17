@@ -5,6 +5,8 @@
 1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在上方导航栏选择【新建】>【新建库】>【新增数据库】或【新建】>【新建表】。
 ![](https://main.qcloudimg.com/raw/d2784ca44212c731d5f78efda799556c.png)
 2. 在弹出的对话框中，用户可以对新建的库表进行配置，配置完成后单击【提交】即可。
+>?字符集、排序规则介绍可参见 [MySQL 官方文档](https://dev.mysql.com/doc/)。
+>
  - 新建库对话框：
 ![](https://main.qcloudimg.com/raw/258605b4ac20f2136672bab0381e0f3f.png)
  - 新建表对话框：
