@@ -60,6 +60,12 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 - [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)
 - [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
 
+>? 
+>- 默认开通连麦服务需要先购买正式的连麦套餐包（非体验包），开通后可选择继续购买套餐包进行消费抵扣，也可以按照后付费日结计费进行结算。
+>- 若您购买的套餐包为体验包，用尽后次日会自动停止连麦服务，超出部分仍会按照后付费计费。
+
+
+
 ### Step4. 在应用管理中添加一个新的应用
 进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
@@ -79,7 +85,9 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 | userAvatar | 字符串 | 用户头像的 URL 地址。                                       |
 | userSig    | 字符串 | 登录签名，计算方法请参见 [计算 UserSig](https://cloud.tencent.com/document/product/454/14548)。 |
 
->?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
+>?
+>- 由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
+>- 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 ### Step6. 获取房间列表（非必需）
 >? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。

@@ -1,3 +1,7 @@
+>?
+>- TSF Serverless 是微服务的应用托管平台，主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
+>- Web 服务（Express、Koa）推荐使用 [Serverless Framework](https://cloud.tencent.com/product/sls)。
+
 ## 创建 Nodejs Express 项目
 1. 根据实际需求，选择目录路径，并在该路径下创建新的目录，用作于项目目录。
    例如，创建一个名称为 helloexpress 的项目目录。

@@ -146,29 +146,29 @@ REPORT RequestId: 2f258903-95d0-4992-9321-0d720867a383 Duration: 0 ms Billed Dur
     由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
 ```yaml
 Resources:
-  default:
-    Type: TencentCloud::Serverless::Namespace
-    hello_world:
-      Type: TencentCloud::Serverless::Function
-      Properties:
-        CodeUri: ./
-        Type: Event
-        Description: This is a template function
-        Environment:
-          Variables:
-            ENV_FIRST: env1
-            ENV_SECOND: env2
-        Handler: index.main_handler
-        MemorySize: 128
-        Runtime: Python2.7
-        Timeout: 3
-        Events:
-           hello_world_apigw:  # ${FunctionName} + '_apigw'
-             Type: APIGW
-             Properties:
-             StageName: release
-             ServiceId: 
-             HttpMethod: ANY
+     default:
+       Type: TencentCloud::Serverless::Namespace
+       hello_world:
+         Type: TencentCloud::Serverless::Function
+         Properties:
+           CodeUri: ./
+           Type: Event
+           Description: This is a template function
+           Environment:
+             Variables:
+               ENV_FIRST: env1
+               ENV_SECOND: env2
+           Handler: index.main_handler
+           MemorySize: 128
+           Runtime: Python2.7
+           Timeout: 3
+           Events:
+               hello_world_apigw:  # ${FunctionName} + '_apigw'
+                   Type: APIGW
+                   Properties:
+                       StageName: release
+                       ServiceId: 
+                       HttpMethod: ANY
 ```
 更多模板文件规范请参阅 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。
 2. 在项目目录下执行命令`scf deploy`，将本地代码包及函数配置部署到云端。

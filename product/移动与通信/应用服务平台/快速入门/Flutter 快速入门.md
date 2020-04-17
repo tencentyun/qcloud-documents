@@ -6,8 +6,8 @@
 3. 参考 [Flutter 官网](https://flutter.cn/docs/get-started/install) 开发文档安装 Flutter。
 
 ### 步骤1： 开启匿名登录
-在腾讯云控制台 - 云开发 - [用户管理页面](https://console.cloud.tencent.com/tcb/user) 中，单击“登录设置”，然后启用匿名登录：
-![](https://main.qcloudimg.com/raw/7b5ec9d10ec892c7997920b07c6239b1.png)
+在腾讯云控制台 - 云开发 - [环境设置页面](https://console.cloud.tencent.com/tcb/env/setting) 中，单击“登录方式”，然后启用匿名登录：
+![](https://main.qcloudimg.com/raw/00fc7e367e87a28f488c8b2e247cac90.png)
 
 ### 步骤2： 创建 Flutter 项目
 ```
@@ -16,11 +16,11 @@ $ cd cloudbase_demo
 ```
 
 ### 步骤3： 添加 CloudBase 插件依赖
-在项目的 pubspec.yaml 文件中添加 dependencies 。
+在项目的 pubspec.yaml 文件中添加 dependencies。
 ```
 dependencies:
-  cloudbase_core: ^0.0.2
-  cloudbase_auth: ^0.0.2
+  cloudbase_core: ^0.0.4
+  cloudbase_auth: ^0.0.4
 ```
 
 从 pub 安装依赖。
@@ -31,17 +31,17 @@ $ flutter pub get
 ### 步骤4： 初始化环境并调用匿名登录
 在项目的 `lib/main.dart` 文件中初始化环境并进行匿名登录。
 ```
-import 'package:cloudbase_auth/cloudbase_core.dart';
-import 'package:cloudbase_core/cloudbase_autj.dart';
-import 'package:cloudbase_function/cloudbase_function.dart';
+import 'package:cloudbase_core/cloudbase_core.dart';
+import 'package:cloudbase_auth/cloudbase_auth.dart';
 
 // 初始化 CloudBase
 CloudBaseCore core = CloudBaseCore.init({
-    // 填写您的云开发环境 ID env
+    // 填写您的云开发 env
     'env': 'your-env-id'
 });
 
 // 获取登录状态
+CloudBaseAuth auth = CloudBaseAuth(core);
 CloudBaseAuthState authState = await auth.getAuthState();
 
 // 唤起匿名登录
@@ -60,5 +60,6 @@ if (authState == null) {
 
 - [登录授权](https://cloud.tencent.com/document/product/876/41618)。
 - [云函数](https://cloud.tencent.com/document/product/876/41619)。
+- [数据库](https://cloud.tencent.com/document/product/876/43487)。
 - [文件存储](https://cloud.tencent.com/document/product/876/41620)。
 

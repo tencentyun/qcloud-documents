@@ -43,8 +43,7 @@ helm plugin install https://github.com/chartmuseum/helm-push
 				
 ### 添加 Helm 仓库
 1. 登录 [容器镜像服务控制台](https://console.cloud.tencent.com/tcr)，在“实例列表”页面选择实例名称，进入实例详情页。
-2. <span id="Step2"></span>选择【访问凭证】页签，获取用户名及临时密码，与 Docker Login 使用的凭证一致。如下图所示：
-![](https://main.qcloudimg.com/raw/cf2d7e34d98baeda628de7f473e4b310.png)
+2. <span id="Step2"></span>参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829) 获取用户名及登录密码。
 3. 在节点上执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
 >!执行命令的机器需确保已在对应实例的公网白名单中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)。
 >
@@ -54,7 +53,7 @@ helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrep
  - `$instance-$namespace`：为 helm repo 名称，建议使用**实例名称+命名空间名称**组合的方式命名，以便于区分各个实例及命名空间。
  - `https://$instance.tencentcloudcr.com/chartrepo/$namesapce`：为 helm repo 的远端地址。
     - `$username`：为 [步骤2](#Step2) 中已获取的用户名。
-    - `$instance-token`：为 [步骤2](#Step2) 中已获取的临时密码。
+    - `$instance-token`：为 [步骤2](#Step2) 中已获取的登录密码。
 如添加成功将提示以下信息。
 ```
 "$instance-$namespace" has been added to your repositories

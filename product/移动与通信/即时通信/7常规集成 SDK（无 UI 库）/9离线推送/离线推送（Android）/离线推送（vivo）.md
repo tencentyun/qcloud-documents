@@ -311,7 +311,7 @@ public class ThirdPushTokenMgr {
 		android:windowSoftInputMode="adjustResize|stateHidden">
 		   
 		<intent-filter>
-			<action android:name="android.intent.action.View" />
+			<action android:name="android.intent.action.VIEW" />
 			<data
 				android:host="com.tencent.qcloud.tim"
 				android:path="/detail"

@@ -16,6 +16,8 @@
 
 请检查删除的文件路径，文件路径不需要以`/`开头。
 
+
+
 ### 通过 JSON API 创建的存储桶和上传的对象，是否可以使用 XML API 管理？
 
 可以，XML API 是基于 COS 底层架构，可以通过 XML API 操作由 JSON API 产生的数据。
@@ -46,6 +48,14 @@ JSON API 接口即从2016年9月起用户接入 COS 使用的 API，上传域名
 ### SDK 能否使用 CDN 加速域名进行访问？
 
 支持，请根据您所使用的编程语言，并参见对应的 [SDK 文档](https://cloud.tencent.com/document/sdk) 进行操作。
+
+### 如何通过 API 修改对象的存储类型？
+
+用户可通过调用 PUT  Object - Copy 接口，修改 x-cos-storage-class 参数实现修改对象的存储类型，详情请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881)。
+
+### 对象存储怎么设置签名永久有效？
+
+对象存储的签名是使用时间戳来判断请求是否过期，并不能设置永久有效。如果用户想达到长期有效的目的，可以设置一个较为长久的时间戳，例如过期时间为当前时间+50年。
 
 ## 小程序 SDK 类问题
 
