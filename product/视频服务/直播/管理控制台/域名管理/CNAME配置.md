@@ -59,10 +59,11 @@
     </tr>
 </table>
 5. 单击【保存】，配置 CNAME 完毕。
+![](https://main.qcloudimg.com/raw/ede56d6523c4351102ec80d51b30ebae.png)
 
-![](https://main.qcloudimg.com/raw/96b01e603fdc047fb27930110b3404dc.png)
-
->! 域名解析各种记录类型之间是有优先级差异的，在主机记录相同的情况下，同一条线路有几种不同的记录类型不能共存，否则将会提示冲突。CNAME 记录与除 CNAME 记录以外的任何记录类型都冲突，需要先删除掉其他记录，再进行配置。详情请参见 [为什么添加解析记录的时候提示 "记录有冲突" ](https://cloud.tencent.com/document/product/302/3468#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.B7.BB.E5.8A.A0.E8.A7.A3.E6.9E.90.E8.AE.B0.E5.BD.95.E7.9A.84.E6.97.B6.E5.80.99.E6.8F.90.E7.A4.BA-.26quot.3B.E8.AE.B0.E5.BD.95.E6.9C.89.E5.86.B2.E7.AA.81.26quot.3B-.EF.BC.9F)。
+>! 
+>- 更多域名解析记录相关问题，请参见 [主机记录和记录值](https://cloud.tencent.com/document/product/302/3468)。
+>- 域名解析各种记录类型之间是有优先级差异的，在主机记录相同的情况下，同一条线路有几种不同的记录类型不能共存，否则将会提示冲突。CNAME 记录与除 CNAME 记录以外的任何记录类型都冲突，需要先删除掉其他记录，再进行配置。详情请参见 [为什么添加解析记录的时候提示 "记录有冲突" ](https://cloud.tencent.com/document/product/302/3468#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.B7.BB.E5.8A.A0.E8.A7.A3.E6.9E.90.E8.AE.B0.E5.BD.95.E7.9A.84.E6.97.B6.E5.80.99.E6.8F.90.E7.A4.BA-.26quot.3B.E8.AE.B0.E5.BD.95.E6.9C.89.E5.86.B2.E7.AA.81.26quot.3B-.EF.BC.9F)。
 
 ### 阿里云设置方法<span id="ali"></span>
 若您的 DNS 服务商为阿里云，且已完成域名备案，可参考下述步骤进行 CNAME 设置。
@@ -76,8 +77,9 @@
 	-  记录值：填写腾讯云控制台域名管理页域名对应的 CNAME 值，格式为`domain.livecdn.liveplay.myqcloud.com`。
 	-  TTL：建议填写`10分钟`。
 4. 单击【确定】即可。
-![](https://main.qcloudimg.com/raw/c1c1966aa54b0eb263e057ed2534965b.png)
-4. 验证 CNAME 生效。CNAME 设置完成后约15分钟生效，当云直播 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 中域名对应 CNAME 值显示![](https://main.qcloudimg.com/raw/ca12667bfcfd9716639c27d51f3beed3.png)则 CNAME 成功。若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
+
+![](https://main.qcloudimg.com/raw/8c9d4b75c7f863c1b40fc8cf59160b45.png)
+
 
 
 ### 百度云设置方法<span id="baidu"></span>
@@ -128,11 +130,11 @@
 
 ## 验证 CNAME 是否生效<span id="check"></span>
 不同的 DNS 服务商，CNAME 生效的时间略有不同，一般会在半个小时之内生效。您可通过以下方式查询 CNAME 是否配置生效。
-- **方法1：**进入云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)。
+- **方法1：**进入云直播控制台的【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】查询后缀为`.myqcloud.com`的域名状态符号是否变成![](https://main.qcloudimg.com/raw/0fc346399ae095d69113d4944e511a20.png)表明 CNAME 已成功。
 ![](https://main.qcloudimg.com/raw/b5150f5442f48a38bf9a972a84f43122.png)
-- **方法2：**Linux/Mac 系统下，通过 dig 命令查看，命令格式为：`dig 自有域名`。若第一行显示解析到云直播提供的目标域名，则表明 CNAME 已成功。 
+- **方法2：**Linux/Mac 系统下，通过 dig 命令查看，命令格式为：`dig 自有域名`。若第一行显示解析到云直播提供的目标域名，表明 CNAME 已成功。 
 ![](https://main.qcloudimg.com/raw/49aa30e1edc3884c2ae93ec5fdeeb1fb.png)
-- **方法3：**Windows 系统，可通过【开始】→【运行】→输入 cmd 并回车，在命令行模式下输入：`nslookup 自有域名`。若已解析至云直播提供的目标域名，则表明 CNAME 已成功。
+- **方法3：**Windows 系统，可通过【开始】→【运行】→输入 cmd 并回车，在命令行模式下输入：`nslookup 自有域名`。若已解析至云直播提供的目标域名，表明 CNAME 已成功。
 ![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
 
 
