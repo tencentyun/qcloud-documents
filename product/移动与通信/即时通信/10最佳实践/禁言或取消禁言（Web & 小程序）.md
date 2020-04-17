@@ -97,7 +97,7 @@ promise.then(function(imResponse) {
 禁言后，该群成员收到的被禁言 [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)，可通过遍历 event.data 获取相关数据并渲染到页面。
 >?在收到禁言/取消禁言的相关通知时，建议您自行实现 disable/enable 输入框或输入区域的状态。
 
-<pre><code class="language-javascript">
+<pre>
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
   // event.name - TIM.EVENT.MESSAGE_RECEIVED
@@ -139,7 +139,7 @@ _handleGroupTip(message) {
 	  break;
   }
 }
-</code></pre>
+</pre>
 
 ### 步骤4：判断禁言状态
 
