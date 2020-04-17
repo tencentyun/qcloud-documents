@@ -18,7 +18,7 @@ Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys)
   Website app 
 Serverless: 请输入项目名称 express-app
 
-tinatest 项目已成功创建！
+express-app 项目已成功创建！
 Serverless: 是否希望立即将该项目部署到云端？ (Y/n) y
 Please scan QR code login from wechat. 
 Wait login...
@@ -59,7 +59,7 @@ $ sls info
 通过运行`sls dev`命令，可以开启部署的实时日志，该能力会自动监测本地代码的更新，并自动部署同步到云端，同时实时输出调用日志。针对 Node.js 10 的应用，还可以启用云端调试能力。详情参考 [Node.js 云端调试](https://cloud.tencent.com/document/product/1154/43220)。
 
 ```
-$ cd tinatest
+$ cd express-app
 $ sls dev
 ```
 
