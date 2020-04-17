@@ -6,7 +6,7 @@
 
 <span id="que2"></span>
 ### 移动直播 License 有单独购买入口吗？
-不可以单独购买的。
+不支持单独购买。
 - 移动直播基础版 SDK License ：需购买云直播10TB及以上 [流量资源包](https://cloud.tencent.com/document/product/267/34174) 获取一年使用授权。
 - 移动直播企业版 SDK License：需 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 申请。
 
