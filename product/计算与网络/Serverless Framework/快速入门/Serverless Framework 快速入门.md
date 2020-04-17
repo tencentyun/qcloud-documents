@@ -16,7 +16,7 @@ Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys)
 ❯ Express.js app 
   SCF Function 
   Website app 
-Serverless: 请输入项目名称 tinatest
+Serverless: 请输入项目名称 express-app
 
 tinatest 项目已成功创建！
 Serverless: 是否希望立即将该项目部署到云端？ (Y/n) y
@@ -49,7 +49,7 @@ Triggers:
 如果希望再次查看应用的部署状态和资源，可以进入到部署成功的文件夹，运行如下命令，查看对应信息：
 
 ```
-$ cd tinatest
+$ cd express-app #进入项目目录
 $ sls info
 ```
 >?sls 是 serverless 命令的简写。
@@ -68,7 +68,7 @@ $ sls dev
 通过`sls remove`命令可以移除云端部署的所有资源，如下所示：
 
 ```
-$ cd tinatest
+$ cd express-app #进入项目目录
 $ sls remove
 
 serverless ⚡ framework
