@@ -33,3 +33,19 @@ TypeC 所需配置如下：
 `http://DomainName/md5hash/timestamp/FileName`
 
 鉴权通过后，未命中 CDN 节点，节点会发起回源请求，**回源请求会去掉路径中的 md5hash 及 timestamp 路径**，源站无需做特殊处理。
+
+## 示例代码
+### python
+```python
+def sign(miyao,path,domain):
+    timestamp = hex(int(time.time())).replace('0x', '')
+    string = miyao + pedath + str(timestamp)
+    m = hashlib.md5()
+    m.update(string.encode())
+    signed_url = domain+ m.hexdigest() + '/' + str(timestamp) + path
+    return signed_url
+```
+**说明**
+- miyao：自定义密钥
+- path：文件路径
+- domain：加速域名（**要带协议** 如：http://cloud.tencent.com/）
