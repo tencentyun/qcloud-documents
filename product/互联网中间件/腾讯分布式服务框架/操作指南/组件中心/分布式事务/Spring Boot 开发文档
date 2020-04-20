@@ -1,17 +1,11 @@
+##  准备工作
+- 在 [分布式事务控制台中](https://console.cloud.tencent.com/tsf/transaction) 创建一个事务分组（参考 [分布式事务-控制台基本操作](https://cloud.tencent.com/document/product/649/31208)）。
+- 获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
+- 需要能够连接到 Maven。
 
-## 1 MT（TCC）事务
 
-手动事务，即TCC。需要用户自行编写Try，Confirm，Cancel接口的实现，并保证三个方法的`幂等性`。
-
-### 1.1 准备工作
-
-- 需要在`分布式事务控制台`中创建一个`事务分组`。
-- 需要获取账号的`SecretID`和`SecretKey`。（该账号能够在控制台中查询到事务分组即可）
-- 需要能够连接到Maven。
-
----
-
-### 1.2 引入DTS SDK
+## 开发步骤
+### 1. 引入 DTS SDK
 
 通过以下方式引入Spring Boot版本的DTS SDK。
 
@@ -23,11 +17,11 @@
 &lt;/dependency&gt;
 ```
 
-> 注：version填写Release Note中最新版本的即可。
+>version填写Release Note中最新版本的即可。
 
----
 
-### 1.3 客户端配置
+
+### 2. 客户端配置
 
 在客户端中，支持以下配置自定义
 
@@ -49,11 +43,10 @@ dts:
 | dts.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云SecretKey                                        |
 | dts.env.groups.server    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
 
-> 注：通常情况下，仅需要在dts.env.groups下配置一个事务分组。
+> 通常情况下，仅需要在dts.env.groups下配置一个事务分组。
 
----
 
-### 1.4 启用分布式事务服务
+### 3. 启用分布式事务服务
 
 在@SpringBootApplication注解处增加@EnableDTS来启用分布式事务服务。
 
@@ -68,11 +61,10 @@ public class OrderApplication {
 }
 ```
 
-> 注：通常建议同时启用本地事务管理：@EnableTransactionManagement
+>通常建议同时启用本地事务管理：@EnableTransactionManagement
 
----
 
-### 1.5 开启主事务
+### 4. 开启主事务
 
 通过以下注解开启主事务。
 
@@ -95,9 +87,8 @@ public Boolean order(@RequestBody Order order) {
 | timeout | Integer  | 否   | 60 * 1000                                      | 事务超时时间（所有Try阶段），单位：毫秒 |
 | groupId | String   | 否   | dts.env.groups仅配置了一个事务分组时，使用该值 | 主事务的事务分组ID                      |
 
----
 
-### 1.6 开启分支事务
+### 5. 开启分支事务
 
 通过以下注解开启分支事务。
 
@@ -120,9 +111,9 @@ public boolean order(Long txId, Long branchId, Order order);
 | cancelClass   | String   | 否   | @DtsMT注解所在Class                         | cancel操作类名                 |
 | cancelMethod  | String   | 否   | cancel前缀 + @DtsMT注解方法名名称首字母大写 | cancel操作方法名               |
 
----
 
-### 1.7 Confirm和Cancel操作
+
+### 6. Confirm 和 Cancel 操作
 
 一个分支事务中，需要包含Try，Confirm，Cancel三个部分。可以使用1.6中的默认值简化配置。
 
@@ -154,11 +145,11 @@ public interface IOrderService {
 }
 ```
 
----
 
-### 1.8 远程请求
 
-#### 1.8.1 使用RestTemplate + Spring MVC切点
+### 7. 远程请求
+
+#### 方式一： 使用 RestTemplate + Spring MVC切点
 
 使用RestTemplate访问下游服务（也使用了DTS SDK）的Controller。DTS SDK框架托管了全局事务传递的处理。
 
@@ -171,7 +162,7 @@ public RestTemplate restTemplate() {
 }
 ```
 
-#### 1.8.2 自行处理
+#### 方式二：自行处理
 
 `上游处理：`
 
