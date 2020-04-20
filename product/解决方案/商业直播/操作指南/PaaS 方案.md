@@ -17,7 +17,7 @@
   ……
   "plugins": {
       "liveRoomPlugin": {
-          "version": "1.1.8",
+          "version": "1.2.1",
           "provider": "wx95a7d2b78cf30f98"
       }
   }
