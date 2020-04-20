@@ -1,6 +1,3 @@
-tags:clickhouse,mysql
-本文介绍了 MySQL 数据库中数据导入 ClickHouse 集群的步骤。
-
 ## 概述
 在生产环境中，经常遇到将数据库中的数据写入 ClickHouse 集群中。本文介绍两种将 MySQL 数据库中的数据导入到 ClickHouse 集群的方案。
 
