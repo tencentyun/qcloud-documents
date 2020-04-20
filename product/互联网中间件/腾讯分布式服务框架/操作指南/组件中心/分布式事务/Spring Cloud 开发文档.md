@@ -4,7 +4,7 @@
 - 需要能够连接到 Maven。
 
 
-## 操作步骤
+## 开发步骤
 ### 1. 引入 DTS SDK
 通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中最新版本的即可。
 ``` xml
