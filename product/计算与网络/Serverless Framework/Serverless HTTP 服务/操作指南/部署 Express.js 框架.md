@@ -40,8 +40,8 @@ $ cd src && npm install
 安装完毕后，目录结构如下所示：
 ```
 |- src
-|   ├── sls.js
-|   ├── node_modules
+|   ├── app.js
+|   ├──node_modules
 |   └── package.json
 └──  serverless.yml
 ```
