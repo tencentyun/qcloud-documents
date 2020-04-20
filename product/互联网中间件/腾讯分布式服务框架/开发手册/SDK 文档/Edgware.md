@@ -1,5 +1,20 @@
 基于 Spring Cloud Edgware 版本 SDK，支持 Spring Boot 1.5.x。
 
+### 1.21.0-Edgware-RELEASE (2020-04-20)
+#### 新特性
+- 全链路灰度发布
+- 增加熔断状态变更事件上报
+#### Bug 修复
+- spring-cloud-tsf-swagger 修复@ApiParam注解Example属性解析异常问题。
+- 修复Tag在AsyncRestTemplate下不传递的问题。
+- 修复Feign无法使用绝对URL请求的问题
+- spring-cloud-tsf-gateway:
+  - 修复Tag标签插件未在调用中透传的问题
+  - 修复当绑定网关插件后造成Query参数未透传的问题
+
+#### 优化
+支持swagger自动扫描包多路径特性。
+
 ### 1.20.0-Edgware-RELEASE（2020-03-02）
 
 #### 新特性
