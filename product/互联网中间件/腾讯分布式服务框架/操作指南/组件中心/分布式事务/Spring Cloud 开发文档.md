@@ -6,7 +6,9 @@
 
 ## 开发步骤
 ### 1. 引入 DTS SDK
-通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中最新版本的即可。
+通过以下方式引入 Spring Cloud 版本的 DTS SDK。
+version 填写 Release Note 中的最新版本即可。
+
 ``` xml
 <dependency>
     <groupId>com.tencent.cloud</groupId>
@@ -44,6 +46,7 @@ dts:
 ### 3. 启用分布式事务服务
 
 在 @SpringBootApplication 注解处增加 @EnableDTS 来启用分布式事务服务。
+
 ``` java
 @SpringBootApplication
 @EnableDTS
@@ -54,7 +57,7 @@ public class OrderApplication {
     }
 }
 ```
->?通常建议同时启用本地事务管理 @EnableTransactionManagement。
+>?建议同时启用本地事务管理 @EnableTransactionManagement。
 
 ### 4. 开启主事务
 
@@ -79,7 +82,6 @@ public Boolean order(@RequestBody Order order) {
 ### 5. 开启分支事务
 
 通过以下注解开启分支事务：
->?
 - 分支事务通常标记在 Service上。可以标记在`接口`或`实现类`上。
 - 分支事务最好被 Spring的@Transactional 注解管理。
 
@@ -98,7 +100,6 @@ public boolean order(Long txId, Long branchId, Order order);
 | cancelClass   | String   | 否   | @DtsMT 注解所在Class                         | Cancel 操作类名                 |
 | cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名名称首字母大写 | Cancel 操作方法名               |
 
----
 
 ### 6. Confirm 和 Cancel 操作
 
@@ -109,18 +110,18 @@ public boolean order(Long txId, Long branchId, Order order);
 - 分支事务的 Try、Confirm、Cancel 方法的前两个参数固定为`Long txId`和`Long branchId`。
 
 #### Try 方法
-  - 本地调用Try方法时`txId`和`branchId`参数传`null`，其他参数正常传递。
-  - 返回值为`业务逻辑`需要的返回值。
+ - 本地调用 Try 方法时`txId`和`branchId`参数传`null`，其他参数正常传递。
+ - 返回值为`业务逻辑`需要的返回值。
 
 #### Confirm 方法
-  - 返回值固定为`boolean`类型。
-  - 仅在返回`ture`时视为分支事务`Confirm成功`。
-  - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
+ - 返回值固定为`boolean`类型。
+ - 仅在返回`ture`时视为分支事务`Confirm成功`。
+ - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
 
 #### Cancel 方法
-  - 返回值固定为`boolean`类型。
-  - 仅在返回`ture`时视为分支事务`Cancel成功`。
-  - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
+ - 返回值固定为`boolean`类型。
+ - 仅在返回`ture`时视为分支事务`Cancel成功`。
+ - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
 
 ``` java
 public interface IOrderService {
@@ -133,16 +134,13 @@ public interface IOrderService {
 }
 ```
 
----
 
 ### 7. 远程请求
 
-#### 方式一：使用RestTemplate + Spring MVC 切点
+#### 使用 RestTemplate + Spring MVC 切点
 
-使用RestTemplate访问下游服务（也使用了DTS SDK）的Controller。DTS SDK框架托管了全局事务传递的处理。
-
+使用 RestTemplate 访问下游服务（也使用了 DTS SDK）的 Controller。DTS SDK 框架托管了全局事务传递的处理。
 使用以下方式进行常规注入即可。
-
 ``` java
 @Bean
 public RestTemplate restTemplate() {
@@ -150,10 +148,9 @@ public RestTemplate restTemplate() {
 }
 ```
 
-####  方式二：使用 Feign
+####  使用 Feign
 
-需要引入openfeign依赖
-
+需要引入 openfeign 依赖：
 ``` xml
 &lt;dependency&gt;
     &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
@@ -161,8 +158,7 @@ public RestTemplate restTemplate() {
 &lt;/dependency&gt;
 ```
 
-然后按照正常方式使用feign即可
-
+然后按照正常方式使用 feign 即可：
 ``` java
 @FeignClient("spring-cloud-payment")
 public interface PaymentProxy {
@@ -171,50 +167,42 @@ public interface PaymentProxy {
 }
 ```
 
-####  方式三：自行处理
+####  自行处理
 
-`上游处理：`
-
-需要从上下文中提取`txId`,`groupId`,`lastBranchId`三个内容传递到下游。
-
+- 上游处理：
+需要从上下文中提取`txId`、`groupId`、`lastBranchId`三个内容传递到下游。
 ``` properties
 txId: DtsContextHolder.get().getTxId();
 groupId: DtsContextHolder.get().getGroupId();
 lastBranchId: DtsContextHolder.get().getBranchIdStack().peek();
 ```
-
-> 建议放到下列Header的key中，下游可以通过DTS SDK自行注入。
-
+建议放到下列 Header 的 key 中，下游可以通过 DTS SDK 自行注入。
 ``` properties
 ClientConstant.HTTP_HEADER.TX_ID: txId
 ClientConstant.HTTP_HEADER.GROUP_ID: groupId
 ClientConstant.HTTP_HEADER.LAST_BRANCH_ID: lastBranchId
 ```
 
-`下游处理：`
-
+- 下游处理：
 下游可以使用以下方法将从上游传递的三个变量绑定到本地，重新开启全局事务。
-
 ``` java
 DtsTransaction.bind(txId, lastBranchId, groupId);
 ```
 
 ### 8. 与 TSF 结合使用
 
-直接正常使用TSF即可，引入依赖。
-
-> 目前仅支持G版本TSF SDK。
+直接正常使用 TSF 即可，引入依赖。
+>!目前仅支持 G 版本 TSF SDK。
 
 ``` xml
-&lt;!-- TSF 启动器 --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;com.tencent.tsf&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-tsf-starter&lt;/artifactId&gt;
-&lt;/dependency&gt;
+<!-- TSF 启动器 -->
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+</dependency>
 ```
 
-启用TSF
-
+启用 TSF：
 ``` java
 @SpringBootApplication
 @EnableDTS
