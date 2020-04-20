@@ -7,14 +7,14 @@
 ## 开发步骤
 ### 1. 引入 DTS SDK
 
-通过以下方式引入Spring Boot版本的DTS SDK。
+通过以下方式引入 Spring Boot 版本的 DTS SDK。
 
 ``` xml
-&lt;dependency&gt;
-    &lt;groupId&gt;com.tencent.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-dts&lt;/artifactId&gt;
-    &lt;version&gt;0.0.1-RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
+<dependency>
+    <groupId>com.tencent.cloud</groupId>
+    <artifactId>spring-boot-dts</artifactId>
+    <version>0.0.1-RELEASE</version>
+</dependency>
 ```
 
 >version填写Release Note中最新版本的即可。
@@ -122,14 +122,16 @@ public boolean order(Long txId, Long branchId, Order order);
 - 分支事务的Try，Confirm，Cancel方法的参数`保持一致`。
 - 分支事务的Try，Confirm，Cancel方法的前两个参数固定为`Long txId`和`Long branchId`。
 
-- Try方法：
+#### Try方法：
   - 本地调用Try方法时`txId`和`branchId`参数传`null`，其他参数正常传递。
   - 返回值为`业务逻辑`需要的返回值。
-- Confirm方法：
+
+#### Confirm方法：
   - 返回值固定为`boolean`类型。
   - 仅在返回`ture`时视为分支事务`Confirm成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
-- Cancel方法：
+
+#### Cancel方法：
   - 返回值固定为`boolean`类型。
   - 仅在返回`ture`时视为分支事务`Cancel成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
