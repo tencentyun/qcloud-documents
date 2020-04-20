@@ -19,7 +19,7 @@
 ![](https://main.qcloudimg.com/raw/c7990910028acc9fb863bf77704ba9be.png)
 3. 在 “基本信息” 栏中，单击 “DNS 服务器” 的【修改】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f5926d507764039315a0c6f48c44738c.png)
-4. 在弹出的 “修改 DNS 服务器” 窗口中，填写指定的 DNS 服务器地址，单击【提交】，完成修改。如下图所示：
+4. 在弹出的 “修改 DNS 服务器” 窗口中，填写您套餐对应的 DNS 服务器地址，单击【提交】，完成修改。如下图所示：
 >?需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
 >
 ![](https://main.qcloudimg.com/raw/af9eeb25f7a08d7db424b7d7b347057d.png)
