@@ -2,7 +2,7 @@
 本文介绍在 Windows 云服务器中通过 SQL Server Management Studio（SSMS）连接到 SQL Server 实例，并运行简单查询的操作。
 >?
 >- 建议云服务器和云数据库是在同一账号，且同一个 VPC 内（保障同一个地域，不限可用区）。
->- 处于相同地域，且在同一个 VPC 时，云服务器和云数据库可直接通过内网 IP 互通。
+>- 处于相同地域，且在同一个 VPC 时，不同可用区间云服务器和云数据库可直接通过内网 IP 互通。
 >- 处于不同地域、不同 VPC 或跨账号时，也可通过 [对等连接](https://cloud.tencent.com/document/product/553/18836)/[云联网](https://cloud.tencent.com/document/product/877/18768)  互通。
 
 ## 操作步骤
