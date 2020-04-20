@@ -61,9 +61,11 @@ public class OrderApplication {
 
 ### 4. 开启主事务
 
-通过以下注解开启主事务。
-主事务通常在入口 Controller 处开启。一般建议标记在`实现类`上。注解所在的方法所在的类需要注入为 Bean。
-主事务注解方法正常返回时提交主事务，在抛出异常时进行回滚。
+通过以下注解开启主事务：
+>?
+>- 主事务通常在入口 Controller 处开启。一般建议标记在`实现类`上。注解所在的方法所在的类需要注入为 Bean。
+>- 主事务注解方法正常返回时提交主事务，在抛出异常时进行回滚。
+
 ``` java
 @DtsTransactional
 @RequestMapping("/order")
@@ -82,8 +84,9 @@ public Boolean order(@RequestBody Order order) {
 ### 5. 开启分支事务
 
 通过以下注解开启分支事务：
-- 分支事务通常标记在 Service上。可以标记在`接口`或`实现类`上。
-- 分支事务最好被 Spring的@Transactional 注解管理。
+>?
+>- 分支事务通常标记在 Service上。可以标记在`接口`或`实现类`上。
+>- 分支事务最好被 Spring的@Transactional 注解管理。
 
 ``` java
 @DtsMT
