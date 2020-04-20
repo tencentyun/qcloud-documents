@@ -159,7 +159,7 @@
    </tr>
    <tr>
       <td>绿幕抠像</td>
-      <td>将画面中的绿色元素(例如纯绿背景)抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
+      <td>将画面中的绿色元素（例如纯绿背景）抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">×</td>
