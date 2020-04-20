@@ -35,9 +35,9 @@ dts:
 | 配置项                   | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
 | ------------------------ | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
 | dts.env.groups.{groupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项     |
-| dts.env.groups.secretId  | String   | 是   | 无                                       | 用户的腾讯云SecretID                                         |
-| dts.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云SecretKey                                        |
-| dts.env.groups.server    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
+| dts.env.groups.secretId  | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
+| dts.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
+| dts.env.groups.server    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
 
 >?通常情况下，仅需要在 dts.env.groups 下配置一个事务分组。
 
