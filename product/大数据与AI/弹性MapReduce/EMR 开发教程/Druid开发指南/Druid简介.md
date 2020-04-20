@@ -18,7 +18,7 @@ Druid 最常用的场景就是大数据背景下、灵活快速的多维 OLAP �
 Druid 是一个基于微服务的架构。Druid 中的每个核心服务均可以单独或联合部署在不同硬件上。
 ![](https://main.qcloudimg.com/raw/867fb4aa8801276454d87c07e14f5152.png)
 
-### EMR 增强型 Druid
+**EMR 增强型 Druid**
 EMR Druid 基于 Apache Druid 做了大量的改进，包括与 EMR Hadoop 和云周边生态的集成、方便的监控与运维支持、易用的产品接口等，做到了即买即用和免运维。
 
 EMR Druid 目前支持的特性如下所示：
