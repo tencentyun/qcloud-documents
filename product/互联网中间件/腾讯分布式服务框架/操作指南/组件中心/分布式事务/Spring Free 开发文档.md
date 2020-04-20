@@ -100,7 +100,7 @@ Long branchId1 = DtsMTBranch.begin("name", new Object[] {null, null, this.to, th
 | 参数     | 数据类型            | 必填 | 默认值 | 描述                           |
 | -------- | ------------------- | ---- | ------ | ------------------------------ |
 | name     | String              | 否   | 无     | 分支事务名称，请在同一事务分组 |
-| 参数列表 | Array\n<String\n> | 否   | 无     | 参数列表，前两个参数固定为 null |
+| 参数列表 | Array&lt;String&gt; | 否   | 无     | 参数列表，前两个参数固定为 null |
 
 
 ### 7. Confirm 和 Cancel 操作
