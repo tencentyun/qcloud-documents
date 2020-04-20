@@ -109,10 +109,10 @@ public boolean order(Long txId, Long branchId, Order order);
 
 ### 6. Confirm 和 Cancel 操作
 
-一个分支事务中，需要包含 Try、Confirm、Cancel 三个部分。可以使用1.6中的默认值简化配置。
+一个分支事务中，需要包含 Try、Confirm、Cancel 三个部分。可以使用步骤5中的默认值简化配置。
 
 - 分支事务的 Try、Confirm、Cancel 方法所在的类需要被`注入为Bean`。
-- 分支事务的 Try、Confirm、Cancel 方法最好被Spring的@Transactional注解管理
+- 分支事务的 Try、Confirm、Cancel 方法最好被 Spring 的 @Transactional 注解管理
 - 分支事务的 Try、Confirm、Cancel 方法的参数`保持一致`。
 - 分支事务的 Try、Confirm、Cancel 方法的前两个参数固定为`Long txId`和`Long branchId`。
 
