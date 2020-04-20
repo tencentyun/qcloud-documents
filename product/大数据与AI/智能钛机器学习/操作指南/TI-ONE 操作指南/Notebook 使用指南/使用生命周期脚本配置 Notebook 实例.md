@@ -15,7 +15,7 @@
 ## 生命周期脚本最佳实践
 以下是使用生命周期配置的一个实践案例：
 - 生命周期脚本以 root 用户权限运行，Notebook 进程以 tione 用户运行。如果需要切换用户，可以在脚本中运行 sudo -u tione 切换到 tione 用户。
--  Notebook 使用 conda 管理多内核，可以激活 conda env 来为不同的内核安装依赖包。
+- Notebook 使用 conda 管理多内核，可以激活 conda env 来为不同的内核安装依赖包。
 
 例如：在 conda_python3 的内核中安装 Python 依赖包 fire，可以编写如下启动脚本：
 
@@ -26,7 +26,7 @@
   # This will affect only the Jupyter kernel called "conda_python3".
   source /opt/conda/bin/activate python3
   
-  # Replace myPackage with the name of the package you want to install.
+  # Replace fire with the name of the package you want to install.
   pip install fire
   # You can also perform "conda install" here as well.
   

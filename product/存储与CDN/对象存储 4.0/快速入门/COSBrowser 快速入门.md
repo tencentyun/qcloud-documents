@@ -86,7 +86,6 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 
 
-
 ## 更多功能
 
 除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [COSBrowser 桌面端](https://cloud.tencent.com/document/product/436/11366#cosbrowser-.E6.A1.8C.E9.9D.A2.E7.AB.AF) 文档。
@@ -94,8 +93,7 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 
 ## 遇到问题？
 
-非常抱歉您在使用时遇到问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
-
+非常抱歉您在使用时遇到问题，您可以通过 [智能客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 及时寻找答案或通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们。
 
 ## 相关文档
 

@@ -16,9 +16,9 @@ Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys)
 ❯ Express.js app 
   SCF Function 
   Website app 
-Serverless: 请输入项目名称 tinatest
+Serverless: 请输入项目名称 express-app
 
-tinatest 项目已成功创建！
+express-app 项目已成功创建！
 Serverless: 是否希望立即将该项目部署到云端？ (Y/n) y
 Please scan QR code login from wechat. 
 Wait login...
@@ -49,7 +49,7 @@ Triggers:
 如果希望再次查看应用的部署状态和资源，可以进入到部署成功的文件夹，运行如下命令，查看对应信息：
 
 ```
-$ cd tinatest
+$ cd express-app #进入项目目录
 $ sls info
 ```
 >?sls 是 serverless 命令的简写。
@@ -59,7 +59,7 @@ $ sls info
 通过运行`sls dev`命令，可以开启部署的实时日志，该能力会自动监测本地代码的更新，并自动部署同步到云端，同时实时输出调用日志。针对 Node.js 10 的应用，还可以启用云端调试能力。详情参考 [Node.js 云端调试](https://cloud.tencent.com/document/product/1154/43220)。
 
 ```
-$ cd tinatest
+$ cd express-app
 $ sls dev
 ```
 
@@ -68,7 +68,7 @@ $ sls dev
 通过`sls remove`命令可以移除云端部署的所有资源，如下所示：
 
 ```
-$ cd tinatest
+$ cd express-app #进入项目目录
 $ sls remove
 
 serverless ⚡ framework
@@ -83,8 +83,7 @@ Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 
 当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/43006) 文档。
 
-### FAQ
+## 常见问题
+如您的环境配置了代理，可能会导致输入`serverless`时没有默认弹出中文引导， 此时可以进行如下配置：
 
->?如您的环境配置了代理，可能会导致输入 `serverless` 时没有默认弹出中文引导， 此时可以进行如下配置：
-
-在 `.env` 文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可
+在`.env`文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。

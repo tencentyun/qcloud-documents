@@ -8,9 +8,18 @@
 
 支持。COS 在所有 [可用地域](https://cloud.tencent.com/document/product/436/6224) 的访问节点都提供了 SSL 传输的支持，且在 SDK 和控制台都默认启用 HTTPS。**COS 强烈建议您使用 HTTPS 保护传输的数据链路，使用不加密的 HTTP 连接将可能面临链路被监听或数据被窃取的风险。**
 
+### COS 如何开通 CDN？
+
+详情请参见 [开启默认 CDN 加速域名](https://cloud.tencent.com/document/product/436/36636) 和 [开启自定义 CDN 加速域名](https://cloud.tencent.com/document/product/436/36637)。
+
 ### COS 是否支持 CDN HTTPS 回源 COS？
 
 支持。具体操作方法请参见 [设置回源](https://cloud.tencent.com/document/product/436/13310) 文档。
+
+### 自定义域名如何配置 HTTPS 访问？
+
+可将存储桶绑定到自有域名，开启 CDN 加速，在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 进行 HTTPS 配置，详细操作指引请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/41687)；
+若不使用 CDN，您也可以通过为域名配置反向代理，将域名解析到服务器的方式实现，详细操作可参见 [配置自定义域名支持 HTTPS 访问](https://cloud.tencent.com/document/product/436/11142)。
 
 ### 如何对 COS 中的文件生成一个临时 URL？
 

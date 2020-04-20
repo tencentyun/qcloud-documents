@@ -56,7 +56,7 @@ $ cd example
 ```yml
 # serverless.yml
 
-component: tencent-scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
+component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
 name: scfdemo # (必填) 该组件创建的实例名称
 org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: scfApp # (可选) 该 SCF 应用名称

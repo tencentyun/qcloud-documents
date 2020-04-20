@@ -34,7 +34,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 ```
 
 ### step 2: 创建 Player

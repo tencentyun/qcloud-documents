@@ -1,5 +1,5 @@
 ### 实时音视频 TRTC 可以与 iLiveSDK 通信吗？
-不可以，建议更新 iLiveSDK 方案到 TRTC ，具体操作请参考 [旧版本（iLiveSDK）升级方案](https://cloud.tencent.com/document/product/647/32281)。
+不可以，建议更新 iLiveSDK 方案到 TRTC ，具体操作请参考 [iLiveSDK 迁移方案](https://cloud.tencent.com/document/product/647/32281)。
 
 ### 实时音视频的小程序端、Web 端、PC 端是不是同步的？
 是的，实时音视频支持全平台互通。
