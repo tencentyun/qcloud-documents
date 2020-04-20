@@ -28,7 +28,7 @@
    - 资源选择：TI.MEDIUM4.2core4g
    - 卷大小：10
    - Root权限：允许
-- 生命周期配置：无
+   - 生命周期配置：无
    - Git 存储：无
    - VPC：无VPC
 2. 待 Notebook 实例创建完成后状态为：运行中，单击【打开】进入 Notebook 操作页面
