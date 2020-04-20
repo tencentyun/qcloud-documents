@@ -4,10 +4,10 @@
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
       <th width="0px"  style="text-align:center">功能简介</td>
-      <th width="92px" style="text-align:center">精简版</td>
-      <th width="92px" style="text-align:center">基础版</td>
-      <th width="92px" style="text-align:center">企业版</td>
-      <th width="92px" style="text-align:center">企业版 Pro</td>
+      <th width="92px" style="text-align:center">精简版 License</td>
+      <th width="92px" style="text-align:center">基础版 License</td>
+      <th width="92px" style="text-align:center">企业版 License</td>
+      <th width="92px" style="text-align:center">企业版 Pro License</td>
    </tr>
    <tr>
       <td>界面</td>
