@@ -1,36 +1,25 @@
+## 准备工作
+- 在 [分布式事务控制台中](https://console.cloud.tencent.com/tsf/transaction) 创建一个事务分组（参考 [分布式事务-控制台基本操作](https://cloud.tencent.com/document/product/649/31208)）。
+- 获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
+- 需要能够连接到 Maven。
 
-## 1 MT（TCC）事务
 
-手动事务，即TCC。需要用户自行编写Try，Confirm，Cancel接口的实现，并保证三个方法的`幂等性`。
-
-### 1.1 准备工作
-
-- 需要在`分布式事务控制台`中创建一个`事务分组`。
-- 需要获取账号的`SecretID`和`SecretKey`。（该账号能够在控制台中查询到事务分组即可）
-- 需要能够连接到Maven。
-
----
-
-### 1.2 引入DTS SDK
-
-通过以下方式引入Spring Cloud版本的DTS SDK。
-
+## 操作步骤
+### 1. 引入 DTS SDK
+通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中最新版本的即可。
 ``` xml
-&lt;dependency&gt;
-    &lt;groupId&gt;com.tencent.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-dts&lt;/artifactId&gt;
-    &lt;version&gt;0.0.1-RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
+<dependency>
+    <groupId>com.tencent.cloud</groupId>
+    <artifactId>spring-cloud-dts</artifactId>
+    <version>0.0.1-RELEASE</version>
+</dependency>
 ```
 
-> 注：version填写Release Note中最新版本的即可。
 
----
 
-### 1.3 客户端配置
+### 2. 客户端配置
 
-在客户端中，支持以下配置自定义
-
+在客户端中，支持以下配置自定义：
 ``` yml
 dts:
   env:
@@ -44,19 +33,17 @@ dts:
 
 | 配置项                   | 数据类型 | 必填 | 默认值                                   | 描述                                                         |
 | ------------------------ | -------- | ---- | ---------------------------------------- | ------------------------------------------------------------ |
-| dts.env.groups.{groupId} | String   | 是   | 共享集群TC列表，如果是独占集群则需要填写 | 用户的事务分组ID，单客户端使用多个事务分组时可以配置多项     |
-| dts.env.groups.secretId  | String   | 是   | 无                                       | 用户的腾讯云SecretID                                         |
-| dts.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云SecretKey                                        |
+| dts.env.groups.{groupId} | String   | 是   | 共享集群 TC 列表，如果是独占集群则需要填写 | 用户的事务分组 ID，单客户端使用多个事务分组时可以配置多项     |
+| dts.env.groups.secretId  | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
+| dts.env.groups.secretKey | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
 | dts.env.groups.server    | String   | 是   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
 
-> 注：通常情况下，仅需要在dts.env.groups下配置一个事务分组。
+>?通常情况下，仅需要在 dts.env.groups 下配置一个事务分组。
 
----
 
-### 1.4 启用分布式事务服务
+### 3. 启用分布式事务服务
 
-在@SpringBootApplication注解处增加@EnableDTS来启用分布式事务服务。
-
+在 @SpringBootApplication 注解处增加 @EnableDTS 来启用分布式事务服务。
 ``` java
 @SpringBootApplication
 @EnableDTS
@@ -67,19 +54,13 @@ public class OrderApplication {
     }
 }
 ```
+>?通常建议同时启用本地事务管理 @EnableTransactionManagement。
 
-> 注：通常建议同时启用本地事务管理：@EnableTransactionManagement
-
----
-
-### 1.5 开启主事务
+### 4. 开启主事务
 
 通过以下注解开启主事务。
-
-> 主事务通常在入口Controller处开启。一般建议标记在`实现类`上。注解所在的方法所在的类需要注入为Bean。
-
+主事务通常在入口 Controller 处开启。一般建议标记在`实现类`上。注解所在的方法所在的类需要注入为 Bean。
 主事务注解方法正常返回时提交主事务，在抛出异常时进行回滚。
-
 ``` java
 @DtsTransactional
 @RequestMapping("/order")
@@ -88,57 +69,55 @@ public Boolean order(@RequestBody Order order) {
 }
 ```
 
-主事务注解支持的能力包括
+主事务注解支持的能力包括：
 
 | 参数    | 数据类型 | 必填 | 默认值                                         | 描述                                    |
 | ------- | -------- | ---- | ---------------------------------------------- | --------------------------------------- |
-| timeout | Integer  | 否   | 60 * 1000                                      | 事务超时时间（所有Try阶段），单位：毫秒 |
-| groupId | String   | 否   | dts.env.groups仅配置了一个事务分组时，使用该值 | 主事务的事务分组ID                      |
+| timeout | Integer  | 否   | 60 * 1000                                      | 事务超时时间（所有 Try 阶段），单位：毫秒 |
+| groupId | String   | 否   | dts.env.groups仅配置了一个事务分组时，使用该值 | 主事务的事务分组 ID                      |
 
----
+### 5. 开启分支事务
 
-### 1.6 开启分支事务
-
-通过以下注解开启分支事务。
-
-> 分支事务通常标记在Service上。可以标记在`接口`或`实现类`上。
->
-> 分支事务最好被Spring的@Transactional注解管理
+通过以下注解开启分支事务：
+>?
+- 分支事务通常标记在 Service上。可以标记在`接口`或`实现类`上。
+- 分支事务最好被 Spring的@Transactional 注解管理。
 
 ``` java
 @DtsMT
 public boolean order(Long txId, Long branchId, Order order);
 ```
 
-分支事务注解支持的参数包括
+分支事务注解支持的参数包括：
 
 | 参数          | 数据类型 | 必填 | 默认值                                      | 描述                           |
 | ------------- | -------- | ---- | ------------------------------------------- | ------------------------------ |
-| name          | String   | 否   | @DtsMT方法名+方法签名Hash                   | 分支事务名称，请在同一事务分组 |
-| confirmClass  | String   | 否   | @DtsMT注解所在Class                         | confirm操作类名                |
-| confirmMethod | String   | 否   | confirm前缀 + @DtsMT注解方法名首字母大写    | confirm操作方法名              |
-| cancelClass   | String   | 否   | @DtsMT注解所在Class                         | cancel操作类名                 |
-| cancelMethod  | String   | 否   | cancel前缀 + @DtsMT注解方法名名称首字母大写 | cancel操作方法名               |
+| name          | String   | 否   | @DtsMT方法名 + 方法签名 Hash                   | 分支事务名称，请在同一事务分组 |
+| confirmClass  | String   | 否   | @DtsMT 注解所在 Class                         | Confirm 操作类名                |
+| confirmMethod | String   | 否   | confirm 前缀 + @DtsMT 注解方法名首字母大写    | Confirm 操作方法名              |
+| cancelClass   | String   | 否   | @DtsMT 注解所在Class                         | Cancel 操作类名                 |
+| cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名名称首字母大写 | Cancel 操作方法名               |
 
 ---
 
-### 1.7 Confirm和Cancel操作
+### 6. Confirm 和 Cancel 操作
 
-一个分支事务中，需要包含Try，Confirm，Cancel三个部分。可以使用1.6中的默认值简化配置。
+一个分支事务中，需要包含 Try、Confirm、Cancel 三个部分。可以使用步骤6中的默认值简化配置。
+- 分支事务的 Try、Confirm、Cancel 方法所在的类需要被`注入为Bean`。
+- 分支事务的 Try、Confirm、Cancel 方法最好被 Spring 的 @Transactional 注解管理。
+- 分支事务的 Try、Confirm、Cancel 方法的参数`保持一致`。
+- 分支事务的 Try、Confirm、Cancel 方法的前两个参数固定为`Long txId`和`Long branchId`。
 
-- 分支事务的Try，Confirm，Cancel方法所在的类需要被`注入为Bean`。
-- 分支事务的Try，Confirm，Cancel方法最好被Spring的@Transactional注解管理
-- 分支事务的Try，Confirm，Cancel方法的参数`保持一致`。
-- 分支事务的Try，Confirm，Cancel方法的前两个参数固定为`Long txId`和`Long branchId`。
-
-- Try方法：
+#### Try 方法
   - 本地调用Try方法时`txId`和`branchId`参数传`null`，其他参数正常传递。
   - 返回值为`业务逻辑`需要的返回值。
-- Confirm方法：
+
+#### Confirm 方法
   - 返回值固定为`boolean`类型。
   - 仅在返回`ture`时视为分支事务`Confirm成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
-- Cancel方法：
+
+#### Cancel 方法
   - 返回值固定为`boolean`类型。
   - 仅在返回`ture`时视为分支事务`Cancel成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
@@ -156,9 +135,9 @@ public interface IOrderService {
 
 ---
 
-### 1.8 远程请求
+### 7. 远程请求
 
-#### 1.8.1 使用RestTemplate + Spring MVC切点
+#### 方式一：使用RestTemplate + Spring MVC 切点
 
 使用RestTemplate访问下游服务（也使用了DTS SDK）的Controller。DTS SDK框架托管了全局事务传递的处理。
 
@@ -171,7 +150,7 @@ public RestTemplate restTemplate() {
 }
 ```
 
-#### 1.8.2 使用Feign
+####  方式二：使用 Feign
 
 需要引入openfeign依赖
 
@@ -192,7 +171,7 @@ public interface PaymentProxy {
 }
 ```
 
-#### 1.8.3 自行处理
+####  方式三：自行处理
 
 `上游处理：`
 
@@ -220,7 +199,7 @@ ClientConstant.HTTP_HEADER.LAST_BRANCH_ID: lastBranchId
 DtsTransaction.bind(txId, lastBranchId, groupId);
 ```
 
-### 1.9 与TSF结合使用
+### 8. 与 TSF 结合使用
 
 直接正常使用TSF即可，引入依赖。
 
