@@ -1,16 +1,16 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 Spring Boot 2.1.6。
 
-### 1.21.0-Greenwich-RELEASE (2020-04-20)
+### 1.21.0-Greenwich-RELEASE（2020-04-20）
 #### 新特性
-- 全链路灰度发布
-- 增加熔断状态变更事件上报
+- 全链路灰度发布。
+- 增加熔断状态变更事件上报。
 
 #### Bug 修复
-- 修复Feign无法使用绝对URL请求的问题
-- 修复spring-cloud-tsf-swagger包中@ApiParam注解Example属性解析异常问题。
+- 修复 Feign 无法使用绝对 URL 请求的问题。
+- 修复 spring-cloud-tsf-swagger 包中 @ApiParam 注解 Example 属性解析异常问题。
 
 #### 优化
-支持swagger自动扫描包多路径特性。
+支持 swagger 自动扫描包多路径特性。
 
 ### 1.20.0-Greenwich-RELEASE（2020-03-02）
 
