@@ -34,72 +34,69 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 示例 JSON 如下：
 ```json
 {
-    "job": {
-        "setting": {
-            "speed": {
-                "byte":10485760
-            },
-            "errorLimit": {
-                "record": 0,
-                "percentage": 0.02
-            }
-        },
-        "content": [
-            {
-                "reader": {
-                    "name": "hdfsreader",
-                    "parameter": {
-                        "path":"testfile",
-                        "defaultFS":"cosn://examplebucket-1250000000/",
-                        "column" : ["*"],
-                        "fileType": "text",
-                        "encoding": "UTF-8",
-                        "hadoopConfig":{
-                                "fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
-                                "fs.cosn.userinfo.region": "ap-beijing",
-                                "fs.cosn.tmp.dir: "/tmp/hadoop_cos",
-                                "fs.cosn.userinfo.secretId": "COS_SECRETID",
-                                "fs.cosn.userinfo.secretKey": "COS_SECRETKEY"                               
-                        },
-                        "fieldDelimiter": ","
-                    },
-                },
-                "writer": {
-                    "name": "hdfswriter",
-                    "parameter": {
-                        "path":"/user/hadoop/",
-                        "fileName":"testfile1",
-                        "defaultFS":"cosn://examplebucket-1250000000/",
-                        "column" : [
-                            {
-                                "name":"col",
-                                "type":"string"
-                            },
-                            {
-                                "name":"col1",
-                                "type":"string"
-                            },
-                            {
-                                "name":"col2",
-                                "type":"string"
-                            }
-                        ],
-                        "fileType": "text",
-                        "encoding": "UTF-8",
-                        "hadoopConfig":{
-                                "fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
-                                "fs.cosn.userinfo.region": "ap-beijing",
-                                "fs.cosn.tmp.dir: "/tmp/hadoop_cos",
-                                "fs.cosn.userinfo.secretId": "COS_SECRETID",
-                                "fs.cosn.userinfo.secretKey": "COS_SECRETKEY"  
-                        },
-                        "fieldDelimiter": ":",
-                        "writeMode": "append"
-                    }
-                }
-            }
-        ]
-    }
+	"job": {
+		"setting": {
+			"speed": {
+				"byte": 10485760
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "hdfsreader",
+				"parameter": {
+					"path": "testfile",
+					"defaultFS": "cosn://examplebucket-1250000000/",
+					"column": ["*"],
+					"fileType": "text",
+					"encoding": "UTF-8",
+					"hadoopConfig": {
+						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
+						"fs.cosn.userinfo.region": "ap-beijing",
+						"fs.cosn.tmp.dir": "/ tmp/ hadoop_cos ",
+						"fs.cosn.userinfo.secretId": "COS_SECRETID",
+						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
+					},
+					"fieldDelimiter": ","
+				}
+			},
+			"writer": {
+				"name": "hdfswriter",
+				"parameter": {
+					"path": "/user/hadoop/",
+					"fileName": "testfile1",
+					"defaultFS": "cosn://examplebucket-1250000000/",
+					"column": [{
+							"name": "col",
+							"type": "string"
+						},
+						{
+							"name": "col1",
+							"type": "string"
+						},
+						{
+							"name": "col2",
+							"type": "string"
+						}
+					],
+					"fileType": "text",
+					"encoding": "UTF-8",
+					"hadoopConfig": {
+						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
+						"fs.cosn.userinfo.region": "ap-beijing",
+						"fs.cosn.tmp.dir": "/ tmp/ hadoop_cos ",
+						"fs.cosn.userinfo.secretId": "COS_SECRETID",
+						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
+					},
+					"fieldDelimiter": ":",
+					"writeMode": "append"
+				}
+			}
+		}]
+	}
 }
 ```
 
