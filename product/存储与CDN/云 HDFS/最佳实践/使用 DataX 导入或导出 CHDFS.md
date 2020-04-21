@@ -35,70 +35,67 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 
 ```json
 {
-    "job": {
-        "setting": {
-            "speed": {
-                "byte":10485760
-            },
-            "errorLimit": {
-                "record": 0,
-                "percentage": 0.02
-            }
-        },
-        "content": [
-            {
-                "reader": {
-                    "name": "hdfsreader",
-                    "parameter": {
-                        "path":"testfile",
-                        "defaultFS":"ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
-                        "column" : ["*"],
-                        "fileType": "text",
-                        "encoding": "UTF-8",
-                        "hadoopConfig":{
-                                "fs.AbstractFileSystem.ofs.impl": "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter",
-                                "fs.ofs.impl": "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter",
-                                "fs.ofs.tmp.cache.dir": "/data/chdfs_tmp_cache",
-                                "fs.ofs.user.appid": "1250000000",
-                        },
-                        "fieldDelimiter": ","
-                    },
-                },
-                "writer": {
-                    "name": "hdfswriter",
-                    "parameter": {
-                        "path":"/user/hadoop/",
-                        "fileName":"testfile1",
-                        "defaultFS":"ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
-                        "column" : [
-                            {
-                                "name":"col",
-                                "type":"string"
-                            },
-                            {
-                                "name":"col1",
-                                "type":"string"
-                            },
-                            {
-                                "name":"col2",
-                                "type":"string"
-                            }
-                        ],
-                        "fileType": "text",
-                        "encoding": "UTF-8",
-                        "hadoopConfig":{
-                                "fs.AbstractFileSystem.ofs.impl": "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter",
-                                "fs.ofs.impl": "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter",
-                                "fs.ofs.tmp.cache.dir": "/data/chdfs_tmp_cache",
-                                "fs.ofs.user.appid": "1250000000",
-                        },
-                        "fieldDelimiter": ":",
-                        "writeMode": "append"
-                    }
-                }
-            }
-        ]
-    }
+	"job": {
+		"setting": {
+			"speed": {
+				"byte": 10485760
+			},
+			"errorLimit": {
+				"record": 0,
+				"percentage": 0.02
+			}
+		},
+		"content": [{
+			"reader": {
+				"name": "hdfsreader",
+				"parameter": {
+					"path": "testfile",
+					"defaultFS": "ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
+					"column": ["*"],
+					"fileType": "text",
+					"encoding": "UTF-8",
+					"hadoopConfig": {
+						"fs.AbstractFileSystem.ofs.impl": "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter",
+						"fs.ofs.impl": "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter",
+						"fs.ofs.tmp.cache.dir": "/data/chdfs_tmp_cache",
+						"fs.ofs.user.appid": "1250000000"
+					},
+					"fieldDelimiter": ","
+				}
+			},
+			"writer": {
+				"name": "hdfswriter",
+				"parameter": {
+					"path": "/user/hadoop/",
+					"fileName": "testfile1",
+					"defaultFS": "ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
+					"column": [{
+							"name": "col",
+							"type": "string"
+						},
+						{
+							"name": "col1",
+							"type": "string"
+						},
+						{
+							"name": "col2",
+							"type": "string"
+						}
+					],
+					"fileType": "text",
+					"encoding": "UTF-8",
+					"hadoopConfig": {
+						"fs.AbstractFileSystem.ofs.impl": "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter",
+						"fs.ofs.impl": "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter",
+						"fs.ofs.tmp.cache.dir": "/data/chdfs_tmp_cache",
+						"fs.ofs.user.appid": "1250000000"
+					},
+					"fieldDelimiter": ":",
+					"writeMode": "append"
+				}
+			}
+		}]
+	}
 }
 ```
 
