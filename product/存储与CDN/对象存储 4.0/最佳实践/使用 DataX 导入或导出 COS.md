@@ -56,7 +56,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 					"hadoopConfig": {
 						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
 						"fs.cosn.userinfo.region": "ap-beijing",
-						"fs.cosn.tmp.dir": "/tmp/hadoop_cos ",
+						"fs.cosn.tmp.dir": "/tmp/hadoop_cos",
 						"fs.cosn.userinfo.secretId": "COS_SECRETID",
 						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
 					},
@@ -87,7 +87,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 					"hadoopConfig": {
 						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
 						"fs.cosn.userinfo.region": "ap-beijing",
-						"fs.cosn.tmp.dir": "/tmp/hadoop_cos ",
+						"fs.cosn.tmp.dir": "/tmp/hadoop_cos",
 						"fs.cosn.userinfo.secretId": "COS_SECRETID",
 						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
 					},
