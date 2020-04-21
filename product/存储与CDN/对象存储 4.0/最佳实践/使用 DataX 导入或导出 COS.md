@@ -56,7 +56,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 					"hadoopConfig": {
 						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
 						"fs.cosn.userinfo.region": "ap-beijing",
-						"fs.cosn.tmp.dir": "/ tmp/ hadoop_cos ",
+						"fs.cosn.tmp.dir": "/tmp/hadoop_cos ",
 						"fs.cosn.userinfo.secretId": "COS_SECRETID",
 						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
 					},
@@ -87,7 +87,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 					"hadoopConfig": {
 						"fs.cosn.impl": "org.apache.hadoop.fs.CosFileSystem",
 						"fs.cosn.userinfo.region": "ap-beijing",
-						"fs.cosn.tmp.dir": "/ tmp/ hadoop_cos ",
+						"fs.cosn.tmp.dir": "/tmp/hadoop_cos ",
 						"fs.cosn.userinfo.secretId": "COS_SECRETID",
 						"fs.cosn.userinfo.secretKey": "COS_SECRETKEY"
 					},
@@ -103,14 +103,14 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 配置说明如下：
 - hadoopConfig 配置为 cosn 所需要的配置。
 - defaultFS 填写为 cosn 的路径，例如`cosn://examplebucket-1250000000/`。
-- fs.cosn.userinfo.region 修改为存储桶所在的地域，例如`ap-beijing`。
+- fs.cosn.userinfo.region 修改为存储桶所在的地域，例如`ap-beijing`，详情请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
 - COS_SECRETID 和 COS_SECRETKEY 修改为 COS 密钥。
 
 其他配置同 hdfs 配置项即可。
 
 ### 执行数据迁移
 
-将配置文件保存为 hdfs_job.json, 存放到 job 目录下，执行以下命令行：
+将配置文件保存为 hdfs_job.json，存放到 job 目录下，执行以下命令行：
 
 ```bash
 bin/datax.py job/hdfs_job.json
