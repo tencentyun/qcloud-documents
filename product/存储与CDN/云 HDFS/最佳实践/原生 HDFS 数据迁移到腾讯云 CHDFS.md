@@ -1,7 +1,7 @@
 ## 准备工作
 
 1. 在腾讯云官网创建 CHDFS 文件系统和 CHDFS 挂载点，配置好权限信息。
-2. 通过腾讯云 VPC 环境的 CVM 机器访问创建好的 CHDFS，详情请参见 [CHDFS 官方操作指南](https://cloud.tencent.com/document/product/1105/37234)。
+2. 通过腾讯云 VPC 环境的 CVM 机器访问创建好的 CHDFS，详情请参见 [创建 CHDFS](https://cloud.tencent.com/document/product/1105/37234)。
 3. 当挂载成功后，打开 hadoop 命令行工具，执行以下命令，验证 CHDFS 功能是否正常。
 ```bash
 hadoop fs -ls ofs://f4xxxxxxxxxxxxxxx.chdfs.ap-beijing.myqcloud.com/
@@ -15,7 +15,7 @@ hadoop fs -ls ofs://f4xxxxxxxxxxxxxxx.chdfs.ap-beijing.myqcloud.com/
 
 #### 注意事项
 
-在 hadoop distcp 工具中，提供了一些 CHDFS 不兼容的参数。如果指定如下表格中的一些参数会不生效。
+在 hadoop distcp 工具中，提供了一些 CHDFS 不兼容的参数。如果指定如下表格中的一些参数，则不生效。
 
 | 参数| 描述                                        | 状态 |
 | -------- | ----------------------------------------------- | -------- |
