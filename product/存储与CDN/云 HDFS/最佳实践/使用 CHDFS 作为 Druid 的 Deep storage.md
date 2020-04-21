@@ -18,7 +18,7 @@
 
 #### 配置修改
 
-1. 修改 Druid 安装路径的`conf/druid/_common/common.runtime.properties`文件，将 hdfs 的 extension 加入到`druid.extensions.loadList`中，同时指定 hdfs 为 Druid 的 deep storage，而路径则填写为 chdfs 的路径：
+1. 修改 Druid 安装路径的`conf/druid/_common/common.runtime.properties`文件，将 hdfs 的 extension 加入到`druid.extensions.loadList`中，同时指定 hdfs 为 Druid 的 deep storage，而路径则填写为 CHDFS 的路径：
 ```plaintext
 properties
 druid.extensions.loadList=["druid-hdfs-storage"]
