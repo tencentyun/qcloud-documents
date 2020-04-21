@@ -1,6 +1,6 @@
 尊敬的腾讯云用户，您好！
 
-CLB 配置访问日志到 COS 的功能将逐步下线，具体计划为：
+CLB 配置访问日志到 COS 的功能将逐步下线，具体计划如下：
 <table class="table"><thead><tr><th>时间</th><th>下线计划</th></tr></thead>
 <tbody><tr><td>2020年4月26日 </td><td><strong>广州</strong>地域无法新增 CLB 访问日志到 COS，存量已配置的 COS 日志不受影响。</td></tr>
 <tr><td>2020年5月15日 </td><td> <strong>北京、上海、香港、上海金融、深圳金融</strong>地域无法新增 CLB 访问日志到 COS，存量已配置的 COS 日志不受影响。 </td></tr>
