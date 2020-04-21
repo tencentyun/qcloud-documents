@@ -1,9 +1,9 @@
-TRTCAudioCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持 1v1 和 多人视频通话。TRTCAudioCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时语音通话（iOS）](https://cloud.tencent.com/document/product/647/42046)。
-- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音频通话组件。
+TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持 1v1 和 多人视频通话。TRTCVideoCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（iOS）](https://cloud.tencent.com/document/product/647/42044)。
+- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
 
-<h2 id="TRTCAudioCall">TRTCAudioCall API 概览</h2>
+<h2 id="TRTCVideoCall">TRTCVideoCall API 概览</h2>
 
 ### SDK 基础函数
 
@@ -27,14 +27,23 @@ TRTCAudioCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 | [reject](#reject) | 拒绝当前通话。|
 | [hangup](#hangup) | 结束当前通话。|
 
-### 音频控制相关接口函数
+### 推拉流相关接口函数
+| API | 描述 |
+|-----|-----|
+| [startRemoteView](#startremoteview) | 远端用户的摄像头数据渲染到指定的 UIView 中。|
+| [stopRemoteView](#stopremoteview) | 停止渲染远端数据。|
+
+### 音视频控制相关接口函数
 
 | API | 描述 |
 |-----|-----|
+| [openCamera](#opencamera) | 开启摄像头，并渲染在指定的 UIView 中。|
+| [switchCamera](#switchcamera) | 切换前后摄像头。|
+| [closeCamara](#closecamara) | 关闭摄像头。|
 | [setMicMute](#setmicmute) | 静音远端音频。|
 | [setHandsFree](#sethandsfree) | 设置免提。|
 
-<h2 id="TRTCAudioCallDelegate">TRTCAudioCallDelegate API 概览</h2>
+<h2 id="TRTCVideoCallDelegate">TRTCVideoCallDelegate API 概览</h2>
 
 ### 通用事件回调
 
@@ -66,25 +75,26 @@ TRTCAudioCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 | [onUserEnter](#onuserenter) | 用户进入通话回调。|
 | [onUserLeave](#onuserleave) | 用户离开通话回调。|
 | [onUserAudioAvailable](#onuseraudioavailable) | 用户是否开启音频上行回调。|
+| [onUserVideoAvailable](#onuservideoavailable) | 用户是否开启视频上行回调。|
 | [onUserVoiceVolume](#onuservoicevolume) | 用户通话音量回调。|
 | [onCallEnd](#oncallend) | 通话结束回调。|
 
 ## SDK 基础函数
 ### shared
-shared 是 TRTCAudioCall 的组件单例。
-
+shared 是 TRTCVideoCall 的组件单例。
 ```swift
-@objc public static let shared = TRTCAudioCall()
+@objc public static let shared = TRTCVideoCall()
 ```
+
 
 ### delegate
 
-[TRTCAudioCall](https://cloud.tencent.com/document/product/647/42046) 事件回调，您可以通过 TRTCAudioCallDelegate 获得 [TRTCAudioCall](https://cloud.tencent.com/document/product/647/42046) 的各种状态通知。
+[TRTCVideoCall](https://cloud.tencent.com/document/product/647/42044) 事件回调，您可以通过 TRTCVideoCallDelegate 获得 [TRTCVideoCall](https://cloud.tencent.com/document/product/647/42044) 的各种状态通知。
 ```swift
-@objc public weak var delegate: TRTCAudioCallDelegate?
+@objc public weak var delegate: TRTCVideoCallDelegate?
 ```
 
->?delegate 是 TRTCAudioCall 的代理回调。
+>?delegate 是 TRTCVideoCall 的代理回调。
 
 ### setup
 
@@ -92,7 +102,6 @@ shared 是 TRTCAudioCall 的组件单例。
 ```swift
 @objc public func setup()
 ```
-
 ### destroy
 
 销毁函数，如果无需再运行该实例，请调用该接口。
@@ -118,7 +127,7 @@ shared 是 TRTCAudioCall 的组件单例。
 | sdkAppID | UInt32 | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | user | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| success | (() -> Void) | 登录成功回调。 |
+| success | (() -> Void) | 登录成功回调 |
 | failed | ((_ code: Int, _ message: String) -> Void) | 登录失败回调。 |
 
 ### logout
@@ -133,7 +142,7 @@ shared 是 TRTCAudioCall 的组件单例。
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| success | (() -> Void) | 登出成功回调。 |
+| success | (() -> Void) | 登出成功回调 |
 | failed | ((_ code: Int, _ message: String) -> Void) | 登出失败回调。 |
 
 
@@ -154,8 +163,7 @@ shared 是 TRTCAudioCall 的组件单例。
 
 ### groupCall
 
-IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当前处于通话中，可以继续调用该函数继续邀请他人进入通话，同时正在通话的用户会收到 `onGroupCallInviteeListUpdate()` 回调。
-
+IM 群组邀请通话，被邀请方会收到 `onInvited()` 回调。如果当前处于通话中，可以继续调用该函数继续邀请他人进入通话，同时正在通话的用户会收到 `onGroupCallInviteeListUpdate()` 回调。
 ```swift
 @objc func groupCall(userIDs: [String], groupID: String)
 ```
@@ -185,6 +193,8 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 @objc func reject()
 ```
 
+
+
 ### hangup
 
 挂断当前通话。当您处于通话中，可以调用该函数结束通话。
@@ -193,7 +203,71 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 @objc func hangup()
 ```
 
-## 音频控制相关接口函数
+
+## 推拉流相关接口函数
+### startRemoteView
+
+远端用户的摄像头数据渲染到指定的 UIView 中。
+```swift
+@objc func startRemoteView(userId: String, view: UIView)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 远端用户 ID。 |
+| view | UIView | 承载视频画面的控件。 |
+
+
+### stopRemoteView
+
+停止渲染远端数据。
+```swift
+@objc func stopRemoteView(userId: String)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 远端用户 ID。 |
+
+## 音视频控制相关接口函数
+### openCamera
+
+开启摄像头，并渲染在指定的 UIView 中。
+```swift
+@objc func openCamera(frontCamera: Bool, view: UIView)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frontCamera | Bool | true：开启前置摄像头，false：开启后置摄像头。 |
+| view | UIView | 承载视频画面的控件。 |
+
+### switchCamera
+
+切换前后摄像头。
+```swift
+@objc func switchCamera(frontCamera: Bool)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| frontCamera | Bool | true：切换到前置摄像头，false：切换到后置摄像头。 |
+
+### closeCamara
+
+关闭摄像头。
+```swift
+@objc func closeCamara()
+```
+
 ### setMicMute
 
 静音远端音频。
@@ -220,7 +294,7 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 |-----|-----|-----|
 | isHandsFree | Bool | true：开启免提，false：关闭免提。 |
 
-## TRTCAudioCallDelegate事件回调
+## TRTCVideoCallDelegate事件回调
 
 ## 通用事件回调
 ### onError
@@ -280,7 +354,6 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 |-----|-----|-----|
 | uid | String | 忙线用户的 ID。|
 
-
 ## 被邀请方回调
 ### onInvited
 
@@ -303,6 +376,8 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 ```swift
 @objc optional func onCallingCancel()
 ```
+
+
 
 ### onCallingTimeOut
 
@@ -364,6 +439,21 @@ IM 群聊通话邀请，被邀请方会收到 `onInvited()` 回调。如果当�
 |-----|-----|-----|
 | uid | String | 通话用户 ID。|
 | available | Bool | 用户音频是否可用。|
+
+### onUserVideoAvailable
+
+用户是否开启视频上行回调。收到通知后，用户可调用 `startRemoteView` 渲染远端视频。
+```swift
+@objc optional func onUserVideoAvailable(uid: String, available: Bool)
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| uid | String | 通话用户 ID。|
+| available | Bool | 用户视频是否可用。|
+
 
 ### onUserVoiceVolume
 
