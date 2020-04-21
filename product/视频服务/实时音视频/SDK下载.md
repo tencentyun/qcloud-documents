@@ -58,7 +58,7 @@
       <td style="text-align:center">2.05M（arm64）</td>
    </tr>
      <tr>
-      <td style="text-align:center">Web</td>
+      <td style="text-align:center">桌面浏览器</td>
       <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
@@ -102,7 +102,9 @@
       <th width="0px" style="text-align:center">所属平台</td>
       <th width="0px" style="text-align:center">ZIP 包</td>
       <th width="0px"  style="text-align:center">Github</td>
-      <th width="0px" style="text-align:center">64位支持</td>
+      <th width="0px" style="text-align:center">64位支持</td>			
+      <th width="0px" style="text-align:center">Demo 运行说明</td>
+      <th width="0px" style="text-align:center">SDK 集成指引</td>
       <th width="0px" style="text-align:center">安装包增量</td>
       <th width="0px" style="text-align:center">安装包瘦身</td>
    </tr>
@@ -119,6 +121,8 @@
       <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android">Github</a></td>
       <td style="text-align:center">支持</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32166">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32175">DOC</a></td>
       <td style="text-align:center">jar：1.5M<br> so(armeabi)：6.5M<br> so(armv7)：6.1M<br>so(arm64)：7.3M</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
@@ -138,6 +142,8 @@
       <th width="0px" style="text-align:center">所属平台</td>
       <th width="0px" style="text-align:center">ZIP 包</td>
       <th width="0px" style="text-align:center">64位支持</td>
+      <th width="0px" style="text-align:center">Demo 运行说明</td>
+      <th width="0px" style="text-align:center">SDK 集成指引</td>
       <th width="0px" style="text-align:center">安装包增量</td>
       <th width="0px" style="text-align:center">安装包瘦身</td>
    </tr>
@@ -145,6 +151,8 @@
       <td style="text-align:center">iOS</td>
       <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32173">DOC</a></td>
       <td style="text-align:center"> 6.15M（arm64）</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
@@ -152,6 +160,8 @@
       <td style="text-align:center">Android</td>
       <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32166">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32175">DOC</a></td>
       <td style="text-align:center"> jar：2.3M<br>so(armeabi)：20.4M</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
