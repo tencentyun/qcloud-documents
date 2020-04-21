@@ -50,7 +50,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 				"name": "hdfsreader",
 				"parameter": {
 					"path": "testfile",
-					"defaultFS": "ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
+					"defaultFS": "ofs://f4xxxxxxxxx-hxT9.chdfs.ap-beijing.myqcloud.com/",
 					"column": ["*"],
 					"fileType": "text",
 					"encoding": "UTF-8",
@@ -68,7 +68,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 				"parameter": {
 					"path": "/user/hadoop/",
 					"fileName": "testfile1",
-					"defaultFS": "ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/",
+					"defaultFS": "ofs://f4xxxxxxxxx-hxT9.chdfs.ap-beijing.myqcloud.com/",
 					"column": [{
 							"name": "col",
 							"type": "string"
@@ -99,7 +99,7 @@ CLASS_PATH = ("%s/lib/*:%s/plugin/reader/hdfsreader/libs/*:%s/plugin/writer/hdfs
 }
 ```
 
-其中，hadoopConfig 配置为 CHDFS 所需要的配置，defaultFS 填写为 CHDFS 的路径。例如`ofs://f4mmqkahjzh-hxT9.chdfs.ap-beijing.myqcloud.com/`，其他配置同 hdfs 配置项即可。
+其中，hadoopConfig 配置为 CHDFS 所需要的配置，defaultFS 填写为 CHDFS 的路径。例如`ofs://f4xxxxxxxxx-hxT9.chdfs.ap-beijing.myqcloud.com/`，其他配置同 hdfs 配置项即可。
 
 ### 执行数据迁移
 
