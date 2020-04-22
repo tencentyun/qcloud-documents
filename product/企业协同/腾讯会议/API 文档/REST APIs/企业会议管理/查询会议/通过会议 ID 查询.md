@@ -1,9 +1,8 @@
 ## 接口描述
 描述：通过会议 ID 查询会议详情。
-接口请求域名：
-```
-https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}
-```
+接口请求域名：`https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}`
+
+
 ## 输入参数
 
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
@@ -18,7 +17,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  | Array | 会议列表。  |
 
-会议对象
+**会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
@@ -32,7 +31,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |会议媒体参数对象 |会议的配置，可为缺省配置 。|
 
-会议媒体参数对象
+**会议媒体参数对象**
 
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
