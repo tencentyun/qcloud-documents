@@ -12,7 +12,7 @@ CLB 配置访问日志到 COS 的升级版 —— [配置访问日志到 CLS](ht
 - 分钟级粒度的实时日志，全文、键值、模糊关键字等多样化的在线检索。
 - 多地域覆盖等能力，更加适合在生产环境大规模使用。
 
-由于 COS 和 CLS 服务模式不同，我们无法帮您直接迁移，因此我们强烈建议您在2020年6月30日前将现有的 COS 日志迁移到 CLS 日志中，具体操作请参见 [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379) ，如有疑惑请参见 [常见问题 - 访问日志相关](https://cloud.tencent.com/document/product/214/43658)，对您造成的不便我们深感抱歉。
+由于 COS 和 CLS 服务模式不同，我们无法帮您直接配置，因此我们建议您在2020年6月30日前将现有的配置访问日志到 COS 改为配置到 CLS 中，具体操作请参见 [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379) ，如有疑惑请参见 [常见问题 - 访问日志相关](https://cloud.tencent.com/document/product/214/43658)，对您造成的不便我们深感抱歉。
 
 如您已经迁移，请忽略此通知，再次感谢您的理解与信任！
 
