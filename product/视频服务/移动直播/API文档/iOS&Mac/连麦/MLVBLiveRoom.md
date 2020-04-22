@@ -2,9 +2,7 @@
 
 腾讯云移动直播 - 连麦直播间。
 
-> 注意：
->
-> 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
+>! 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 **介绍**
 
@@ -22,7 +20,7 @@
 
 请参见 [直播连麦（LiveRoom）](https://cloud.tencent.com/document/product/454/14606)。
 
-##  **MLVBLiveRoom**  API 概览
+## MLVBLiveRoom  API 概览
 
 ### SDK 基础函数
 
@@ -36,7 +34,7 @@
 | [logout](#logout)                               | 登出                        |
 | [setSelfProfile](#setSelfProfile)               | 修改个人信息                |
 
-###  **房间相关接口函数** 
+### 房间相关接口函数
 
 | API                                       | 描述             |
 | ----------------------------------------- | ---------------- |
@@ -46,7 +44,7 @@
 | [quitJoinAnchor](#quitJoinAnchor)         | 观众退出连麦     |
 | [kickoutJoinAnchor](#kickoutJoinAnchor)   | 主播踢除连麦观众 |
 
-###  **主播跨房间 PK** 
+### 主播跨房间 PK
 
 | API                               | 描述             |
 | --------------------------------- | ---------------- |
@@ -54,7 +52,7 @@
 | [responseRoomPK](#responseRoomPK) | 响应跨房 PK 请求 |
 | [quitRoomPK](#quitRoomPK)         | 退出跨房 PK      |
 
-###  **视频相关接口函数** 
+### 视频相关接口函数
 
 | API                                     | 描述                   |
 | --------------------------------------- | ---------------------- |
@@ -64,7 +62,7 @@
 | [stopRemoteView](#stopRemoteView)       | 停止渲染远端视频画面   |
 | [setMirror](#setMirror)                 | 设置观众端镜像效果     |
 
-###  **音频相关接口函数** 
+### 音频相关接口函数
 
 | API                                       | 描述                     |
 | ----------------------------------------- | ------------------------ |
@@ -72,7 +70,7 @@
 | [muteRemoteAudio](#muteRemoteAudio)       | 设置指定用户是否静音     |
 | [muteAllRemoteAudio](#muteAllRemoteAudio) | 设置所有远端用户是否静音 |
 
-###  **摄像头相关接口函数** 
+### 摄像头相关接口函数
 
 | API                                       | 描述                                 |
 | ----------------------------------------- | ------------------------------------ |
@@ -82,7 +80,7 @@
 | [enableTorch](#enableTorch)               | 打开闪光灯                           |
 | [setFocusPosition](#setFocusPosition)     | 设置手动对焦区域                     |
 
-###  **美颜滤镜相关接口函数** 
+### 美颜滤镜相关接口函数
 
 | API                                       | 描述                                       |
 | ----------------------------------------- | ------------------------------------------ |
@@ -106,7 +104,7 @@
 | [sendRoomTextMsg](#sendRoomTextMsg)     | 发送文本消息       |
 | [sendRoomCustomMsg](#sendRoomCustomMsg) | 发送自定义文本消息 |
 
-###  **背景混音相关接口函数** 
+### 背景混音相关接口函数
 
 | API                                         | 描述                   |
 | ------------------------------------------- | ---------------------- |
@@ -123,7 +121,7 @@
 | [setReverbType](#setReverbType)             | 设置混响效果           |
 | [setVoiceChangerType](#setVoiceChangerType) | 设置变声类型           |
 
-###  **背景混音相关接口函数** 
+### 背景混音相关接口函数
 
 | API                                     | 描述                                               |
 | --------------------------------------- | -------------------------------------------------- |
@@ -141,9 +139,7 @@ MLVBLiveRoom 事件回调，您可以通过 [MLVBLiveRoomDelegate](https://cloud
 @property (nonatomic, weak) id< MLVBLiveRoomDelegate > delegate
 ```
 
-> 说明：
->
-> 默认是在 Main Queue 中回调，如果需要自定义回调线程，可使用 delegateQueue。
+>?默认是在 Main Queue 中回调，如果需要自定义回调线程，可使用 delegateQueue。
 
 ------
 
@@ -169,9 +165,7 @@ MLVBLiveRoom 事件回调，您可以通过 [MLVBLiveRoomDelegate](https://cloud
 
 MLVBLiveRoom 实例。
 
-> 说明：
->
-> 可以调用 [MLVBLiveRoom.destroySharedInstance]( https://cloud.tencent.com/document/product/454/34764#destroySharedInstance) 销毁单例对象。
+>?可以调用 [MLVBLiveRoom.destroySharedInstance]( https://cloud.tencent.com/document/product/454/34764#destroySharedInstance) 销毁单例对象。
 
 ------
 
@@ -183,9 +177,7 @@ MLVBLiveRoom 实例。
 + (void)destorySharedInstance
 ```
 
-> 说明：
->
-> 销毁实例后，外部缓存的 MLVBLiveRoom 实例不能再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
+>?销毁实例后，外部缓存的 MLVBLiveRoom 实例不能再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
 ------
 
@@ -266,6 +258,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)getAudienceList:(NSString *)roomID completion:(void(^)(int errCode, NSString *errMsg, NSArray< MLVBAudienceInfo * > *audienceInfoArray))completion 
+
 ```
 
 **参数**
@@ -279,9 +272,7 @@ MLVBLiveRoom 实例。
 
 当有观众进房时，后台会将其信息加入到指定房间的观众列表中，调入该函数即可返回指定房间的观众列表。
 
-> 说明：
->
-> 观众列表最多只保存30人，因为对于常规的 UI 展示来说这已经足够，保存更多除了浪费存储空间，也会拖慢列表返回的速度。
+>?观众列表最多只保存30人，因为对于常规的 UI 展示来说这已经足够，保存更多除了浪费存储空间，也会拖慢列表返回的速度。
 
 ------
 
@@ -291,6 +282,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)createRoom:(NSString *)roomID roomInfo:(NSString *)roomInfo completion:(void(^)(int errCode, NSString *errMsg))completion 
+
 ```
 
 **参数**
@@ -316,6 +308,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)enterRoom:(NSString *)roomID view:(UIView *)view completion:(void(^)(int errCode, NSString *errMsg))completion 
+
 
 ```
 
@@ -343,6 +336,7 @@ MLVBLiveRoom 实例。
 ```
 - (void)exitRoom:(void(^)(int errCode, NSString *errMsg))completion 
 
+
 ```
 
 **参数**
@@ -359,6 +353,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void(^)(int errCode, NSString *custom))completion 
+
 
 ```
 
@@ -379,9 +374,7 @@ MLVBLiveRoom 实例。
 - INC：增加，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
 - DEC：减少，value 只能是整数，如“点赞人数”，“人气指数”等，都可以使用该操作接口。
 
-> 说明：
->
-> op 为 MLVBCustomFieldOpSet 或者 MLVBCustomFieldOpDec 时，value 需要是一个数字。
+>?op 为 MLVBCustomFieldOpSet 或者 MLVBCustomFieldOpDec 时，value 需要是一个数字。
 
 ------
 
@@ -428,7 +421,7 @@ MLVBLiveRoom 实例。
 4. 观众会收到 requestJoinAnchor 传入的回调通知，可以得知请求是否被同意。
 5. 观众如果请求被同意，则调用 [startLocalPreview](#startLocalPreview ) 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 观众然后调用 [joinAnchor](#joinAnchor ) 正式进入连麦状态。
-7. 主播一旦观众进入连麦状态，主播就会收到 [MLVBLiveRoomDelegate.onAnchorEnter](https://cloud.tencent.com/document/product/454/34764 #onAnchorEnter) 通知。
+7. 主播一旦观众进入连麦状态，主播就会收到 [MLVBLiveRoomDelegate.onAnchorEnter](https://cloud.tencent.com/document/product/454/34764#onAnchorEnter) 通知。
 8. 主播调用 [startRemoteView](#startRemoteView) 就可以看到连麦观众的视频画面。
 9. 观众如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 [MLVBLiveRoomDelegate.onAnchorJoin](https://cloud.tencent.com/document/product/454/34764#onAnchorEnter) 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
@@ -440,6 +433,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)responseJoinAnchor:(NSString *)userID agree:(BOOL)agree reason:(NSString *)reason 
+
 ```
 
 **参数**
@@ -462,6 +456,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)joinAnchor:(void(^)(int errCode, NSString *errMsg))completion 
+
 ```
 
 **参数**
@@ -482,6 +477,7 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)quitJoinAnchor:(void(^)(int errCode, NSString *errMsg))completion 
+
 ```
 
 **参数**
@@ -562,7 +558,7 @@ MLVBLiveRoom 实例。
 
 **介绍**
 
-主播响应其他房间主播的 PK 请求，发起 PK 请求的主播会收到 MLVBLiveRoomDelegate.onRequestRoomPK 回调通知。
+主播响应其他房间主播的 PK 请求，发起 PK 请求的主播会收到 [MLVBLiveRoomDelegate.onRequestRoomPK](https://cloud.tencent.com/document/product/454/34764#onRequestRoomPK) 回调通知。
 
 ------
 
@@ -631,9 +627,7 @@ MLVBLiveRoom 实例。
 | onPlayError | IPlayError       | 播放出错回调。       |
 | onPlayEvent | IPlayEventBlock  | 其它播放事件回调。   |
 
-> 说明：
->
-> 在 [onUserVideoAvailable](#onUserVideoAvailable) 回调时，调用这个接口。
+>?在 [onUserVideoAvailable](#onUserVideoAvailable) 回调时，调用这个接口。
 
 ------
 
@@ -672,9 +666,7 @@ MLVBLiveRoom 实例。
 由于前置摄像头采集的画面是取自手机的观察视角，将采集到的画面直接展示给观众是没有问题的，但如果将采集到的画面也直接显示给主播，会让主播感受到和照镜子时完全相反的体验，主播会感到很奇怪。 因此，SDK 会默认开启本地摄像头预览画面的镜像效果，让主播直播时感受到和照镜子一样的体验效果。
 setMirror 所影响的是观众端看到的视频效果，如果想要保持观众端看到的效果跟主播端保持一致，需要开启镜像； 如果想要让观众端看到正常的未经处理过的画面（如主播弹吉他的时候有类似需求），则可以关闭镜像。
 
-> 说明：
->
-> 仅当前使用前置摄像头时，setMirror 接口才会生效，**在使用后置摄像头时此接口无效**。
+>?仅当前使用前置摄像头时，setMirror 接口才会生效，**在使用后置摄像头时此接口无效**。
 
 ## 音频相关接口函数
 
@@ -771,9 +763,7 @@ setMirror 所影响的是观众端看到的视频效果，如果想要保持观�
 | :------- | :------ | :-------------------------- |
 | distance | CGFloat | 焦距大小，取值范围：1 - 5。 |
 
-> 说明：
->
-> 当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清。
+>?当为1的时候为最远视角（正常镜头），当为5的时候为最近视角（放大镜头），这里最大值推荐为5，超过5后视频数据会变得模糊不清。
 
 ------
 
@@ -860,6 +850,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 ```
 - (void)setFilter:(UIImage *)image 
+
 ```
 
 **参数**
@@ -868,9 +859,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 | :---- | :-------- | :--------------------------- |
 | image | UIImage * | 指定素材，即颜色查找表图片。 |
 
-> 说明：
->
-> 滤镜素材请使用 png 格式，不能使用 jpg 格式。友情提示：Windows 里直接改文件的后缀名不能改变图片的格式，需要用 Photoshop 进行转换。
+>?滤镜素材请使用 png 格式，不能使用 jpg 格式。友情提示：Windows 里直接改文件的后缀名不能改变图片的格式，需要用 Photoshop 进行转换。
 
 ------
 
@@ -1000,9 +989,7 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 | :--- | :------ | :----------------------------------------- |
 | file | NSURL * | 视频文件路径。支持 MP4；nil 表示关闭特效。 |
 
-> 说明：
->
-> 此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
+>?此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
 
 ------
 
