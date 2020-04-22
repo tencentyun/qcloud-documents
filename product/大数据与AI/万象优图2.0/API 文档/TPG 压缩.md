@@ -30,6 +30,5 @@ download_url?imageMogr2/format/<Format>
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/tpg
 ```
 
-转换为 TPG 格式后，图片大小为97KB，如下图所示。
+转换为 TPG 格式后，图片大小为97KB，减少39%。
 
-![](https://main.qcloudimg.com/raw/3d18c3eaf8720d3913f46d441ebc20ac.jpg)
