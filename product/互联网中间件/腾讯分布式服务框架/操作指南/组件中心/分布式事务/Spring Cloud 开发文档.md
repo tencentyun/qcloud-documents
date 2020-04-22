@@ -99,8 +99,8 @@ public boolean order(Long txId, Long branchId, Order order);
 | name          | String   | 否   | @DtsMT方法名 + 方法签名 Hash                   | 分支事务名称，请在同一事务分组 |
 | confirmClass  | String   | 否   | @DtsMT 注解所在 Class                         | Confirm 操作类名                |
 | confirmMethod | String   | 否   | confirm 前缀 + @DtsMT 注解方法名首字母大写    | Confirm 操作方法名              |
-| cancelClass   | String   | 否   | @DtsMT 注解所在Class                         | Cancel 操作类名                 |
-| cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名名称首字母大写 | Cancel 操作方法名               |
+| cancelClass   | String   | 否   | @DtsMT 注解所在 Class                         | Cancel 操作类名                 |
+| cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名首字母大写 | Cancel 操作方法名               |
 
 
 ### 6. Confirm 和 Cancel 操作
