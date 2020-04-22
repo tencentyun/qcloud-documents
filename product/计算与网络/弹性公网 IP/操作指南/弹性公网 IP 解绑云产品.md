@@ -1,3 +1,6 @@
+若您不再需要 EIP 为云资源提供公网通信服务时，可将云资源与 EIP 解绑。EIP 解绑后，请及时释放，节省 IP 资源费。
+
+## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择需要解绑云资源的 EIP，单击【更多】>【解绑】。
 3. 在弹出的窗口中，确认解绑信息，单击【确定】。
@@ -7,3 +10,6 @@
 >
 ![](https://main.qcloudimg.com/raw/98aa3b6a8fc2b735959e45eebc744b6b.png)
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的解绑。
+
+## 后续步骤
+- 若需要释放处于闲置（未绑定）状态的 EIP，请参见 [释放 EIP](https://cloud.tencent.com/document/product/1199/41704)。
