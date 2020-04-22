@@ -933,7 +933,7 @@ trtcRoomContext.sendC2CCustomMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                     |
 |:--------|:-------|:-------|:-----------------------|
-| roomID  | String | -      | 必填参数，房间 ID。    |
+| roomID  | Number | -      | 必填参数，房间 ID。    |
 | message | String | -      | 必填参数，需要发送的文本消息。  |
 
 **返回值：**
@@ -958,7 +958,7 @@ trtcRoomContext.sendGroupTextMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                  |
 |:--------|:-------|:-------|:--------------------|
-| roomID  | String | -      | 必填参数，房间 ID。  |
+| roomID  | Number | -      | 必填参数，房间 ID。  |
 | payload | Object | -      | 必填参数，自定义消息的载体。 |
 
 payload 支持三个参数：
