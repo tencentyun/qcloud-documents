@@ -35,7 +35,7 @@ AS SELECT * FROM s3(
   'CSV', 'column1 UInt32, column2 String, column3 String');
 ```
 
-### 参考资料
+## 参考资料
 
 - [clickhouse sql](https://clickhouse.tech/docs/en/query_language/create/)
 - [clickhouse issue](https://github.com/ClickHouse/ClickHouse/issues/1394)
