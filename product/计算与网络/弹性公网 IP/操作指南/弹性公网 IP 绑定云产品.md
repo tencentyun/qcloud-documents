@@ -51,3 +51,8 @@
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/2e33d2036ca79f08fc2e3c7992cfe977.png" />
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的绑定。
+
+## 后续步骤
+- 若需要为 EIP 解绑云资源，请参见 [EIP 解绑云资源](https://cloud.tencent.com/document/product/1199/41703)。
+- 若需要调整 EIP 的带宽峰值，请参见 [调整带宽](https://cloud.tencent.com/document/product/1199/41705)。
+- 若需要监控 EIP 的流量波动情况，请参见 [查看监控数据](https://cloud.tencent.com/document/product/1199/42105)。
