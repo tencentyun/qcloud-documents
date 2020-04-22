@@ -27,7 +27,7 @@ download_url?imageMogr2/format/<Format>
 然后将原图转换为 TPG 格式，URL 地址如下。
 
 ```http
-http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpg?imageMogr2/format/tpg
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/tpg
 ```
 
 转换为 TPG 格式后，图片大小为97KB，如下图所示。
