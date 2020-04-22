@@ -1,6 +1,9 @@
 若需在您的 App 中集成 IM SDK 达到如下图所示效果，仅仅需要三步：
 ![](https://main.qcloudimg.com/raw/8e62583eda69db2f6f1baade7ab8540a.png)
 
+以下视频将帮助您快速了解如何快速集成 IM SDK：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2334-34826?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 步骤1：体验 Demo
 
 您可以扫码 [下载并体验 Demo](https://cloud.tencent.com/document/product/269/36852)。
