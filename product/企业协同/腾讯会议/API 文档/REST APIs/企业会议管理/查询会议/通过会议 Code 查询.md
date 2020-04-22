@@ -1,10 +1,9 @@
 ## 接口描述
 描述：用于会议 Code 查询会议详情。
-接口请求域名：
-```
-https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instantceid}
-```
+接口请求域名：`https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instantceid}`
+
 ## 输入参数
+
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meetingCode | 是 | String |有效的9位数字会议号码。|
@@ -12,12 +11,13 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |instanceid | 是 | Integer |用户的终端设备类型。|
 
 ## 输出参数
+
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
 |meeting_info_list  | Array | 会议列表。  |
 
-会议对象
+**会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
