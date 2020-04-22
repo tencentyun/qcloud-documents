@@ -1,5 +1,6 @@
 ## 接口描述
 描述：通过会议 ID 查询会议详情。
+调用方式：GET
 接口请求域名：`https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={instanceid}`
 
 
