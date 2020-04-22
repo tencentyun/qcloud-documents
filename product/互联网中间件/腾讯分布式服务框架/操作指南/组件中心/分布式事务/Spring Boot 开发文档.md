@@ -80,7 +80,7 @@ public Boolean order(@RequestBody Order order) {
 | 参数    | 数据类型 | 必填 | 默认值                                         | 描述                                    |
 | ------- | -------- | ---- | ---------------------------------------------- | --------------------------------------- |
 | timeout | Integer  | 否   | 60 * 1000                                      | 事务超时时间（所有 Try 阶段），单位：毫秒 |
-| groupId | String   | 否   | dts.env.groups仅配置了一个事务分组时，使用该值 | 主事务的事务分组 ID                      |
+| groupId | String   | 否   | dts.env.groups 仅配置了一个事务分组时，使用该值 | 主事务的事务分组 ID                      |
 
 
 ### 5. 开启分支事务
@@ -100,10 +100,10 @@ public boolean order(Long txId, Long branchId, Order order);
 | 参数          | 数据类型 | 必填 | 默认值                                      | 描述                           |
 | ------------- | -------- | ---- | ------------------------------------------- | ------------------------------ |
 | name          | String   | 否   | @DtsMT 方法名 + 方法签 Hash                   | 分支事务名称，请在同一事务分组 |
-| confirmClass  | String   | 否   | @DtsMT 注解所在 Class                         | confirm操作类名                |
+| confirmClass  | String   | 否   | @DtsMT 注解所在 Class                         | confirm 操作类名                |
 | confirmMethod | String   | 否   | confirm 前缀 + @DtsMT 注解方法名首字母大写    | confirm 操作方法名              |
 | cancelClass   | String   | 否   | @DtsMT 注解所在 Class                         | cancel 操作类名                 |
-| cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名名称首字母大写 | cancel 操作方法名               |
+| cancelMethod  | String   | 否   | cancel 前缀 + @DtsMT 注解方法名首字母大写 | cancel 操作方法名               |
 
 
 
