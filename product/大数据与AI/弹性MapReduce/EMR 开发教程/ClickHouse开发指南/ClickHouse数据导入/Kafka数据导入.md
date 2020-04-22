@@ -1,6 +1,3 @@
-本文介绍了 Kafka 数据导入 ClickHouse 集群的步骤。
-
-## 概述
 >?想获取更多关于 ClickHouse 技术交流，可 [提交工单](https://console.cloud.tencent.com/workorder/category)，我们将您拉入 ClickHouse 技术交流群。
 
 在生产环境中，经常会将数据从消息队列 Kafka 写入到 ClickHouse 集群中。本文介绍如何将 Kafka 中的数据导入到 ClickHouse 集群的方案。
