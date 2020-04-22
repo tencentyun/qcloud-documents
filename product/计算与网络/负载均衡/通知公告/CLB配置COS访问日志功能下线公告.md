@@ -8,7 +8,7 @@ CLB 配置访问日志到 COS 的功能将逐步下线，具体计划如下：
 
 
 
-CLB 配置访问日志到 COS 的升级版—— [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41378) 已正式上线，相比于直接配置访问日志到 COS，配置访问日志到 CLS 可以提供：
+CLB 配置访问日志到 COS 的升级版 —— [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41378) 已正式上线，相比于直接配置访问日志到 COS，配置访问日志到 CLS 可以提供：
 - 分钟级粒度的实时日志，全文、键值、模糊关键字等多样化的在线检索。
 - 多地域覆盖等能力，更加适合在生产环境大规模使用。
 
