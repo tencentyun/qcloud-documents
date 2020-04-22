@@ -39,12 +39,12 @@
 |-----|-----|
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) | 开启本地视频的预览画面。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#af6ee50bf2c4c592294061077fc727505) | 停止本地视频采集及预览。 |
-| [muteLocalVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a13a2e406bffafecb96bfeac48d82746b) | 是否停止推送本地的视频数据。 |
+| [muteLocalVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a13a2e406bffafecb96bfeac48d82746b) | 暂停/恢复推送本地的视频数据。 |
 | [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) | 开始显示远端视频画面。 |
 | [stopRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8f3e86bc219090d0e8f2d5c2fab4467a) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
 | [stopAllRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#addaac0786ac0bd6e73a5f35c038df127) | 停止显示所有远端视频画面，同时不再拉取远端用户的视频数据流。 |
-| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a79f78532789dc6bbf67b128d004fab6a) | 暂停接收指定的远端视频流。 |
-| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2d8a7b74068026a85158262cc9aedd66) | 停止接收所有远端视频流。 |
+| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a79f78532789dc6bbf67b128d004fab6a) | 暂停/恢复接收指定的远端视频流。 |
+| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2d8a7b74068026a85158262cc9aedd66) | 暂停/恢复接收所有远端视频流。 |
 | [setVideoEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) | 设置视频编码器相关参数。 |
 | [setNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a02631a5e4251657875535c38ab319239) | 设置网络流控相关参数。 |
 | [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) | 设置本地图像的渲染模式。 |
@@ -67,10 +67,10 @@
 |-----|-----|
 | [startLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) | 开启本地音频的采集和上行。 |
 | [stopLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a272bba21d046347ac42d76069ba5972c) | 关闭本地音频的采集和上行。 |
-| [muteLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) | 静音本地的音频。 |
+| [muteLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) | 静音/取消静音本地的音频。 |
 | [setAudioRoute](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a4a3dda74823afa597b42b981257e9e22) | 设置音频路由。 |
-| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8d8b8edf120036d4049cc3639a1ce81f) | 静音某一个用户的声音，同时不再拉取该远端用户的音频数据流。 |
-| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5b63c0796404b80323ae67aafe0384ba) | 静音所有用户的声音，同时不再拉取远端用户的音频数据流。 |
+| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8d8b8edf120036d4049cc3639a1ce81f) | 静音/取消静音指定的远端用户的声音。 |
+| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5b63c0796404b80323ae67aafe0384ba) | 静音/取消静音所有用户的声音。 |
 | [setAudioCaptureVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a6af5e2c4819a683042f382688aff41e9) | 设置 SDK 采集音量。 |
 | [getAudioCaptureVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a81037b960fb2b3501b1e8e60f2b5f9f3) | 获取 SDK 采集音量。 |
 | [setAudioPlayoutVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b20e1eec637c82190c5264d78d686af) | 设置 SDK 播放音量。 |
@@ -101,16 +101,17 @@
 | API | 描述 |
 |-----|-----|
 | [getBeautyManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) | 获取美颜管理对象。 |
-| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效。 |
-| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度。 |
 | [setWatermark](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a1083aaf0441e3d90ce6641d278a97a63) | 添加水印。 |
-| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aef56a36b901d5e525ee539e7d5642063) | 设置绿幕背景视频，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 
 
 ### 辅流相关接口函数
 
 | API | 描述 |
 |-----|-----|
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa643c448da33d5c9f40b4442a2691f4d) | 启动屏幕分享。 |
+| [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab6c3014f6f88c775aa91fccea19ce8a4) | 停止屏幕采集。 |
+| [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a56af9ada2d43cfb497fe44fa6d4b99cf) | 暂停屏幕分享。 |
+| [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a155ed7b6bcf2edf3259d26b8f8fdfe7e) | 恢复屏幕分享。 |
 | [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#acdbe3829d20f58cedd5a0c2f49ea24dc) | 开始显示远端用户的屏幕分享画面。 |
 | [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae5f540d795425046c9166b0a2361a8de) | 停止显示远端用户的屏幕分享画面。 |
 | [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a73f66e66ffee44e19ebb4d8c56c89718) | 设置屏幕分享画面的显示模式。 |
@@ -206,6 +207,9 @@
 | [setNoseSlimLevel](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3f806534b2596d7e29ea0ea6c070b591) | 设置瘦鼻级别，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [selectMotionTmpl](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a521a0446d0922d480a1eec4b86f1ecb2) | 选择使用哪一款 AI 动效挂件，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [setMotionMute](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a066cbf8f4f6c1cd23fe9451b82c5a073) | 设置动效静音，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
+| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效。 |
+| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度。 |
+| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aef56a36b901d5e525ee539e7d5642063) | 设置绿幕背景视频（企业版有效，其它版本设置此参数无效）。 |
 
 
 ### 播放背景音乐的回调接口
@@ -315,6 +319,16 @@
 | [onAudioEffectFinished](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#abe967d855abae66836877fe0dacf8b5f) | 播放音效结束回调。 |
 
 
+### 屏幕分享回调
+
+| API | 描述 |
+|-----|-----|
+| [onScreenCaptureStarted](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a7d15537d26fb001045ff95157d59ed3f) | 当屏幕分享开始时，SDK 会通过此回调通知。 |
+| [onScreenCapturePaused](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a12c57991389e32f04a56774df5d1ce76) | 当屏幕分享调用 [TRTCCloud.pauseScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a56af9ada2d43cfb497fe44fa6d4b99cf) 暂停时，SDK 会通过此回调通知。 |
+| [onScreenCaptureResumed](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ade88963a254d297d3be1993e8a599f6e) | 当屏幕分享调用 [TRTCCloud.resumeScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a155ed7b6bcf2edf3259d26b8f8fdfe7e) 恢复时，SDK 会通过此回调通知。 |
+| [onScreenCaptureStopped](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a6c09b21b733da7d314d1db2cb03c8bcb) | 当屏幕分享停止时，SDK 会通过此回调通知。 |
+
+
 ### 视频数据帧的自定义渲染回调
 
 | API | 描述 |
@@ -360,7 +374,7 @@
 | [TRTCVolumeInfo](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCVolumeInfo) | 音量大小。 |
 | [TRTCSpeedTestResult](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCSpeedTestResult) | 网络测速结果。 |
 | [TRTCMixUser](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#afe6b433091e7b7219c4e55194855612e) | 云端混流中每一路子画面的位置信息。 |
-| [TRTCTranscodingConfig](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCTranscodingConfig) | 云端混流（转码）配置。 |
+| [TRTCTranscodingConfig](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a6066a5537ad8c1bc6158d43e8a4765db) | 云端混流（转码）配置。 |
 | [TRTCPublishCDNParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCPublishCDNParam) | 旁路推流参数。 |
 | [TRTCAudioRecordingParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) | 录音参数。 |
 | [TRTCAudioEffectParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#ad82a59c2209c0596dabaee1152820494) | 音效。 |
