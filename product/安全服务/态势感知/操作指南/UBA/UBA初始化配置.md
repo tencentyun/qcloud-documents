@@ -10,6 +10,8 @@ UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https:
 	2. 在云审计控制台，左侧导航栏中，单击【跟踪集】，在跟踪集页面，单击【创建】，打开创建跟踪集页面。
 		![](https://main.qcloudimg.com/raw/98ab88c79330a5c33c54608ec4ae4c49.png)
 	3. 在创建跟踪集页面，填写跟踪集名称、管理事件（选择全部，包含只读和只写）及 cos 存储桶位置，填写完成后，单击【完成创建】即可。
+	>?请选择 [云审计](https://console.cloud.tencent.com/cloudaudit/audit) 支持的区域创建跟踪集存储桶。
+	>
 		![](https://main.qcloudimg.com/raw/9ba869f1ec824f953369a9e39b2cd7fd.png)
 	<span id="fuzhi"></span>
 2. 查看跟踪集存储桶 ID
