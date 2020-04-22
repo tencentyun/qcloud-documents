@@ -216,7 +216,7 @@ trtcRoomContext.off(trtcRoomContext.EVENT.LOCAL_JOIN, onLocalJoin)
 
 | 参数名 | 类型   | 默认值 | 说明                                         |
 |:-------|:-------|:-------|:-------------------------------------------|
-| roomID | String | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
+| roomID | Number | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
 
 **返回值：**
 Promise
