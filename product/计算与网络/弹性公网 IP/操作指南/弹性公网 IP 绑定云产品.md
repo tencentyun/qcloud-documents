@@ -13,11 +13,20 @@
 <tbody>
 <tr>
 <td>CVM 实例</td>
-<td><ul><li>EIP 与 CVM 实例绑定，CVM 实例当前的普通公网 IP 会被释放。</li><li>使用 EIP 作为公网 IP，当 CVM 实例发生故障时，可解绑重新绑定到健康的 CVM 实例上，帮助快速恢复服务。</li></ul></td>
+<td><ul>
+<li>非带宽上移账户的 EIP 与 CVM 实例绑定，该 CVM 实例需未绑定其他 EIP ，若已有普通公网 IP，则绑定后会被释放。</li>
+<li>带宽上移账户的 EIP 与 CVM 实例绑定，该 CVM 实例需未绑定其他 EIP 和未分配普通公网 IP。</li>
+<li>EIP 与 CVM 实例需处于相同地域才可进行绑定。</li>
+<li>CVM 实例仅可绑定一个 EIP。</li>
+<li>使用 EIP 作为公网 IP，当 CVM 实例发生故障时，可解绑重新绑定到健康的 CVM 实例上，帮助快速恢复服务。</li>
+</ul></td>
 </tr>
 <tr>
 <td>NAT 网关</td>
-<td><ul><li>EIP 与 NAT 网关绑定，利用 EIP 配置端口转发，使得云服务器上的资源可被公网访问。</li><li>当 NAT 网关绑定多个 EIP 时，系统会自动做负载均衡。</li></ul></td>
+<td><ul><li>EIP 与 NAT 网关绑定，利用 EIP 配置端口转发，使得云服务器上的资源可被公网访问。</li>
+<li>EIP 与 NAT 网关需处于相同地域才可进行绑定。</li>
+<li>一个 NAT 网关最多可绑定10个 EIP。</li>
+<li>当 NAT 网关绑定多个 EIP 时，系统会自动做负载均衡。</li></ul></td>
 </tr>
 <tr>
 <td>弹性网卡</td>
