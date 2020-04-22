@@ -74,7 +74,7 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 参数
 - `role`：str 用户在云控制台创建的角色，需要传递角色给 TI，授权 TI 服务访问用户的云资源。
 - `train_instance_count`：int 创建的算力实例数量。
-- `train_instance_type`：str 创建的算力类型，目前支持的类型有。
+- `train_instance_type`：str 创建的算力类型，目前支持的类型有：
 
 CPU 算力
 
