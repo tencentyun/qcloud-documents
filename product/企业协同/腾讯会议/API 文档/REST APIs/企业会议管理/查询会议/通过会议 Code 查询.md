@@ -42,7 +42,7 @@
 ## 示例
 #### 输入示例
 
-```
+```http
 GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1&instanceid=1
 ```
 
