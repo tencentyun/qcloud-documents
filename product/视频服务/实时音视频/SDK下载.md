@@ -145,7 +145,6 @@
       <th width="0px" style="text-align:center">Demo 运行说明</td>
       <th width="0px" style="text-align:center">SDK 集成指引</td>
       <th width="0px" style="text-align:center">安装包增量</td>
-      <th width="0px" style="text-align:center">安装包瘦身</td>
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
@@ -154,7 +153,6 @@
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32396">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32173">DOC</a></td>
       <td style="text-align:center"> 6.15M（arm64）</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
    <tr>
       <td style="text-align:center">Android</td>
@@ -163,7 +161,6 @@
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32166">DOC</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32175">DOC</a></td>
       <td style="text-align:center"> jar：2.3M<br>so(armeabi)：20.4M</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
 </table>
 
