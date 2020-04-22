@@ -1,4 +1,4 @@
->!配置访问日志到 COS 将于2020年5月15日关闭新增（其中广州地域将于2020年4月26日关闭新增），整体将于2020年6月30日下线，详情请参见 [CLB 配置访问日志到 COS 功能下线公告](https://cloud.tencent.com/document/product/214/43659)，请使用升级版功能：[配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。
+>!配置访问日志到 COS 将于2020年5月15日关闭新增（其中广州地域将于2020年4月26日关闭新增），所有地域将于2020年6月30日正式下线该功能，详情请参见 [CLB 配置访问日志到 COS 功能下线公告](https://cloud.tencent.com/document/product/214/43659)，请使用升级版功能：[配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。
 
 负载均衡支持配置七层（HTTP/HTTPS）访问日志（Access Log），访问日志可以帮助您了解客户端请求、辅助排查问题、分析梳理访问数据等。当前访问日志支持存储到 COS 中下载分析，支持的地域包括广州、上海、北京、香港、上海金融和深圳金融。
 
