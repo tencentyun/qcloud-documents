@@ -272,9 +272,9 @@
 |-----|-----|
 | [onRemoteUserEnterRoom](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a390831928a4d2a7977c4c1572da8be58) | 有用户加入当前房间。 |
 | [onRemoteUserLeaveRoom](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28) | 有用户离开当前房间。 |
-| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) | 用户是否开启摄像头视频。 |
-| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ac45fb0751f7dbd2466a35c8828c9911b) | 用户是否开启屏幕分享。 |
-| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) | 用户是否开启音频上行。 |
+| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) | 远端用户是否存在可播放的主路画面（一般用于摄像头）。 |
+| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ac45fb0751f7dbd2466a35c8828c9911b) | 远端用户是否存在可播放的辅路画面（一般用于屏幕分享）。 |
+| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) | 远端用户是否存在可播放的音频数据。 |
 | [onFirstVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7fc7fd0144af2bc4ce0797f9de530d96) | 开始渲染本地或远程用户的首帧画面。 |
 | [onFirstAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aafc4536f552199368e48c8527783c410) | 开始播放远程用户的首帧音频（本地声音暂不通知）。 |
 | [onSendFirstLocalVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a17567554f413629a80b5970bdffdff7b) | 首帧本地视频数据已经被送出。 |
