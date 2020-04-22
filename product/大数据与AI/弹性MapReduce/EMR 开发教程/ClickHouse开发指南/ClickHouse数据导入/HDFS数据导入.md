@@ -12,8 +12,7 @@
 - 在 ClickHouse 中创建普通表（通常是 MergeTree 系列）存储 HDFS 中的数据。
 - 从外表中 SELECT 数据 INSERT 到普通表，完成数据导入。
 
-
-1. 创建 HDFS Engine 外表
+#### **步骤1：创建 HDFS Engine 外表**
 ```
 CREATE TABLE source
 (
@@ -23,16 +22,21 @@ CREATE TABLE source
 )
 ENGINE = HDFS('hdfs://172.30.1.146:4007/clickhouse/globs/*.csv', 'CSV')
 ```
+
 HDFS Engine 使用方法`ENGINE = HDFS(URI, format)`，可参考 [Table Engine HDFS](https://clickhouse.tech/docs/en/operations/table_engines/hdfs/)。
 
- `URI`为 HDFS 路径，如果包含通配符，则表是只读的。通配符的文件匹配在查询时执行，而不是在创建表时。也就是说，如果两次查询之间匹配的文件数目或者内容有变化，两次查询的结果能够体现这种差异。支持的通配符如下：
- - `*`匹配除路径分隔符`/`外的任意数量的字符，包括空字符串。
- - `?`匹配一个字符。
- - `{some_string,another_string,yet_another_one}`匹配`some_string`、`another_string`或者`yet_another_one`。
- - `{N..M}`匹配 N 到 M 的数字，包括 N 和 M，例如`{1..3}`匹配1、2、3。
+`URI`为 HDFS 路径，如果包含通配符，则表是只读的。通配符的文件匹配在查询时执行，而不是在创建表时。也就是说，如果两次查询之间匹配的文件数目或者内容有变化，两次查询的结果能够体现这种差异。支持的通配符如下：
+- `*`匹配除路径分隔符`/`外的任意数量的字符，包括空字符串。
+- `?`匹配一个字符。
+- `{some_string,another_string,yet_another_one}`匹配`some_string`、`another_string`或者`yet_another_one`。
+- `{N..M}`匹配 N 到 M 的数字，包括 N 和 M，例如`{1..3}`匹配1、2、3。
+
 
  `format`支持的格式，详见 [Formats for Input and Output Data](https://clickhouse.tech/docs/en/interfaces/formats/#formats)。
-2. 创建普通表
+
+
+
+#### **步骤2：创建普通表**
 ```
 CREATE TABLE dest
 (
@@ -43,12 +47,14 @@ CREATE TABLE dest
 ENGINE = MergeTree()
 ORDER BY id
 ```
-3. 导入数据
+
+#### 步骤3：导入数据
 ```
 INSERT INTO dest SELECT *
 FROM source
 ```
-4. 查询数据
+
+#### 步骤4：查询数据
 ```
 SELECT *
 FROM dest
@@ -60,9 +66,9 @@ ClickHouse 提供了 JDBC 的访问方式，并提供了官方的 Driver，此�
 
 ClickHouse 与 Hadoop/Spark 等大数据生态紧密结合，通过开发 Spark 或者 MapReduce 应用，利用大数据平台的并发处理能力，可以将 HDFS 上的大批量数据的快速导入 ClickHouse。Spark 还支持 Hive 等其他数据源，因此这种方式也可实现 Hive 等其他数据源的导入。
 
-下面举例说明 Spark Python 并发导入数据。
+**下面举例说明 Spark Python 并发导入数据：**
 
-1. 创建普通表
+#### 步骤1：创建普通表
 
 ```
 CREATE TABLE default.hdfs_loader_table
@@ -76,7 +82,7 @@ PARTITION BY id
 ORDER BY id
 ```
 
-2. 开发 Spark Python 应用
+#### 步骤2：开发 Spark Python 应用
 
 ```
 #!/usr/bin/env python
@@ -123,7 +129,7 @@ properties 中的部分参数含义如下：
 - `numPartitions`数据写入并行度，也决定了 JDBC 并发连接数。`batchsize`和`numPartitions`可参考 [JDBC To Other Databases](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html)。
 
 
-1. 提交 Spark 任务
+#### 步骤3：提交 Spark 任务
 
 ```
 #!/usr/bin/env bash
@@ -136,7 +142,7 @@ spark-submit \
 
 Spark Python 需要注意`clickhouse-jdbc-0.2.4.jar`依赖的 jar 版本，可以解压该 jar 文件，查看 pom.xml 里的配置，对比 Spark 环境的 jar 包是否版本匹配。版本不匹配时可能会出现错误 [Could not initialize class ru.yandex.clickhouse.ClickHouseUtil](https://github.com/ClickHouse/clickhouse-jdbc/issues/138)。这时需要下载正确版本的 jar 包，通过 spark-submit 命令行参数`--jars`提交。
 
-1. 查询数据
+#### 步骤4：查询数据
 
 ```
 SELECT *
@@ -144,29 +150,24 @@ FROM hdfs_loader_table
 LIMIT 2
 ```
 
-## 3. 补充阅读
+## 补充阅读
 
 下面介绍两种直接读写 HDFS 的方式，一般用作从 HDFS 导入数据到 ClickHouse。这两方式的读写速度比较慢，且不支持如下功能，可参考 [Table Engine HDFS](https://clickhouse.tech/docs/en/operations/table_engines/hdfs/)：
 - `ALTER`、`SELECT...SAMPLE`操作
 - 索引（Indexes）
 - 复制（Replication）
 
-### 3.1 Table Engine
+### Table Engine
 
 1. 创建表
-
 ```
 CREATE TABLE hdfs_engine_table(id UInt32, name String, comment String) ENGINE=HDFS('hdfs://172.30.1.146:4007/clickhouse/hdfs_engine_table', 'CSV')
 ```
-
 1. Insert 测试数据
-
 ```
 INSERT INTO hdfs_engine_table VALUES(1, 'zhangsan', 'hello zhangsan'),(2, 'lisi', 'hello lisi')
 ```
-
 1. 查询
-
 ```
 SELECT * FROM hdfs_engine_table
 ┌─id─┬─name─────┬─comment────────┐
@@ -174,9 +175,7 @@ SELECT * FROM hdfs_engine_table
 │  2 │ lisi     │ hello lisi     │
 └────┴──────────┴────────────────┘
 ```
-
 1. 查看 HDFS 文件
-
 ```
 hadoop fs -cat /clickhouse/hdfs_engine_table
 1,"zhangsan","hello zhangsan"
@@ -185,8 +184,7 @@ hadoop fs -cat /clickhouse/hdfs_engine_table
 
 ### Table Function
 
-在使用上与 Table Engine 方式的区别仅是创建表语法有点差异，示例如下：
-
+在使用上与 Table Engine 方式的区别仅是创建表语法稍有差异，示例如下：
 ```
 CREATE TABLE hdfs_function_table AS hdfs('hdfs://172.30.1.146:4007/clickhouse/hdfs_function_table', 'CSV', 'id UInt32, name String, comment String')
 ```
@@ -196,8 +194,8 @@ CREATE TABLE hdfs_function_table AS hdfs('hdfs://172.30.1.146:4007/clickhouse/hd
 
 - [ClickHouse Documentation - Table Engine HDFS](https://clickhouse.tech/docs/en/operations/table_engines/hdfs/)
 - [ClickHouse Documentation - Table Function hdfs](https://clickhouse.tech/docs/en/query_language/table_functions/hdfs/)
-- [如何从HDFS导入数据到ClickHouse](https://blog.csdn.net/yangzhaohui168/article/details/88583489)
-- [How to import my data from hdfs？ #1614](https://github.com/ClickHouse/ClickHouse/issues/1614)
+- [如何从 HDFS 导入数据到 ClickHouse](https://blog.csdn.net/yangzhaohui168/article/details/88583489)
+- [How to import my data from hdfs？](https://github.com/ClickHouse/ClickHouse/issues/1614)
 - [ClickHouse Documentation - JDBC Driver](https://clickhouse.tech/docs/en/interfaces/jdbc/)
 - [Spark JDBC 写 clickhouse      操作总结](https://toutiao.io/posts/m63yw89/preview)
-- [将数据通过spark从hive导入到Clickhouse](https://wchch.github.io/2018/12/20/将数据通过spark从hive导入到Clickhouse/)
+- [将数据通过 spark 从 hive 导入到 Clickhouse](https://wchch.github.io/2018/12/20/将数据通过spark从hive导入到Clickhouse/)
