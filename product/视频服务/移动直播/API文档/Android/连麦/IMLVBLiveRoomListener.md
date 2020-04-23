@@ -1,6 +1,6 @@
 **功能**
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 事件回调。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh) 事件回调。
 
 **介绍**
 
@@ -163,9 +163,10 @@
 
 ###   **获取自定义信息回调接口** 
 
-| API                                       | 描述       |
-| ----------------------------------------- | ---------- |
-| [onError](#GetCustomInfoCallback_onError) | 错误回调。 |
+| API                                       | 描述                   |
+| ----------------------------------------- | ---------------------- |
+| [onError](#GetCustomInfoCallback_onError) | 错误回调。             |
+| [onGetCustomInfo](#onGetCustomInfo)       | 获取自定义信息的回调。 |
 
 
 
@@ -247,9 +248,11 @@ void onAnchorEnter(AnchorInfo anchorInfo)
 
 **介绍**
 
-房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 [MLVBLiveRoom.startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startRemoteView) 显示该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的进房事件，您可以调用 [MLVBLiveRoom.startRemoteView(AnchorInfo， TXCloudVideoView， PlayCallback)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#startRemoteView) 显示该主播的视频画面。
 
->? 直播间里的普通观众不会收到主播加入和退出的通知。
+> 说明：
+>
+> 直播间里的普通观众不会收到主播加入和退出的通知。
 
 ------
 
@@ -269,9 +272,11 @@ void onAnchorExit(AnchorInfo anchorInfo)
 
 **介绍**
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom.stopRemoteView(AnchorInfo)](https://cloud.tencent.com/document/product/454/34776#stopremoteview) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom.stopRemoteView(AnchorInfo)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#stopremoteview) 关闭该主播的视频画面。
 
->? 直播间里的普通观众不会收到主播加入和退出的通知。
+> 说明：
+>
+> 直播间里的普通观众不会收到主播加入和退出的通知。
 
 ------
 
@@ -336,7 +341,7 @@ void onKickoutJoinAnchor()
 
 **介绍**
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776#kickoutjoinanchor) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#kickoutjoinanchor) 来退出连麦。
 
 ## 主播 PK 事件回调
 
@@ -356,7 +361,7 @@ void onRequestRoomPK(AnchorInfo anchorInfo)
 
 **介绍**
 
-主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView(AnchorInfo , TXCloudVideoView , PlayCallback)](https://cloud.tencent.com/document/product/454/34776#startremoteview) 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView(AnchorInfo , TXCloudVideoView , PlayCallback)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#startremoteview) 接口播放邀约主播的流。
 
 ------
 
@@ -1027,3 +1032,12 @@ void onError(int errCode, String errInfo)
 | :------ | :----- | :--------- |
 | errCode | int    | 错误码。   |
 | errInfo | String | 错误信息。 |
+
+<h3 id="onGetCustomInfo">onGetCustomInfo</h3>
+
+错误回调。
+
+```
+void onGetCustomInfo(Map<String, Object> customInfo)
+```
+
