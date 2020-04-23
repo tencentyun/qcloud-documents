@@ -2,8 +2,6 @@
 消息队列 CKafka 支持用户存储消息的能力，您可以将消息存储到 COS 中，并下载分析。
 >?该白名单功能即将下线，您可以使用新版的 [消息转储](https://cloud.tencent.com/document/product/597/43448)，将消息转储在 COS 中 。
 
-## 前提条件
-
 <span id="operation"></span>
 ## 操作步骤
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
