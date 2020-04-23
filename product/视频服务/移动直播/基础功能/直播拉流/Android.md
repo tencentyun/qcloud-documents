@@ -267,9 +267,6 @@ mLivePlayer.setConfig(mPlayConfig);
 
 支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
-- **该功能是不需要开通的**
-该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
-
 - **播放地址需要带防盗链**
 播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
 bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/live/domainmanage) 页面，在默认域名中出现的第一个数字即为 bizid，如图所示：
@@ -279,7 +276,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`
 
->?这里的防盗链计算要用推流防盗链Key
+>? 防盗链计算默认使用推流防盗链Key，如果有自定义播放防盗链key则需要使用播放防盗链key。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
@@ -307,15 +304,15 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做 loading，会需要它 | 
 | PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，说明错用成了 TXVodPlayer |
 | PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
-| PLAY_EVT_PLAY_LOADING	|  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
-| PLAY_EVT_START_VIDEO_DECODER	|  2008| 视频解码器开始启动（2.0 版本以后新增） |  
-| PLAY_EVT_CHANGE_RESOLUTION	|  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
-| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_GET_MESSAGE	|  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
-| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
+| PLAY_EVT_PLAY_LOADING |  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
+| PLAY_EVT_START_VIDEO_DECODER  |  2008| 视频解码器开始启动（2.0 版本以后新增） |  
+| PLAY_EVT_CHANGE_RESOLUTION    |  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
+| PLAY_EVT_GET_PLAYINFO_SUCC    |  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_CHANGE_ROTATION  |  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
+| PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
 >**不要在收到 PLAY_LOADING 后隐藏播放画面**
 >因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
@@ -368,10 +365,10 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | NET_STATUS_CPU_USAGE     | 当前瞬时 CPU 使用率 | 
 | NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
 | NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为0，说明离卡顿就不远了|
+|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 
