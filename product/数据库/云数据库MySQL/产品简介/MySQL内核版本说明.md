@@ -3,7 +3,7 @@
 #### 新特性：
 - 支持 binlog 文件损坏时跳过继续解析的功能，在主实例及 binlog 均损坏的场景下，可最大程度在备库中恢复数据并提供使用。
 - 支持非 GTID 模式到 GTID 模式的数据同步。
-- 支持用户通过 show full processlist 查询“用户线程内存使用信息”，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持用户通过 show full processlist 查询“用户线程内存使用信息”。
 - 支持表快速加列功能，不拷贝数据，不占用磁盘空间和磁盘 I/O，业务高峰期可以实时变更，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持自增值持久化。
 
@@ -33,7 +33,7 @@
 ### 20190203版本
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 支持 CATS 锁调度方式，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持 CATS 锁调度方式。
 - GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持隐式主键，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
