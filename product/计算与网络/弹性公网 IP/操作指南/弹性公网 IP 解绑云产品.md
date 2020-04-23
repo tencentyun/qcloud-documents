@@ -16,5 +16,5 @@
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的解绑。
 
 ## 后续步骤
-- 若需要为解绑云资源的 EIP 重新绑定其他云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
+- 若需要为已解绑云资源的 EIP 重新绑定其他云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
 - 若需要释放处于闲置（未绑定）状态的 EIP，请参见 [释放 EIP](https://cloud.tencent.com/document/product/1199/41704)。
