@@ -34,8 +34,9 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf09xxxxxxxxxxxx -region ap-xxxxxx
 ```
 
-初始化命令中 **-secretid**、**-secretkey**、**-region**、**-network** 为需要自主填写的参数，详细介绍请见如下 [参数说明](#parameterdescription)。
+>?初始化命令中 **-secretid**、**-secretkey**、**-region**、**-network** 为需要自主填写的参数，详细介绍请见如下 [参数说明](#parameterdescription)。
 
+<span id="parameterdescription"></span>
 
 #### 参数说明
 
