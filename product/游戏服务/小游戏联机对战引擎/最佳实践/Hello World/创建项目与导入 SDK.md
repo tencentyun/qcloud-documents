@@ -21,7 +21,7 @@
 ### 导入 MGOBE SDK
 1. 将 MGOBE.js 添加到项目根目录。
 2. 在 game.js 中添加如下代码，完成导入 MGOBE SDK。
-```
+```http
 // 导入 MGOBE.js
 import "./MGOBE.js";
 // 获取 Room、Listener 对象
