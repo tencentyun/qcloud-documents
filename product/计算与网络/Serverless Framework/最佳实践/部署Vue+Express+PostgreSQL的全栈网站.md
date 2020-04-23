@@ -71,11 +71,13 @@ $ npm run bootstrap
 
 ### 部署
 1.执行以下命令进行部署.
+
 ```console
 $ npm run deploy
 ```
 
 2.执行npm run info查看部署信息，该项目部署的信息分三部分：db、api、frontend（前端网站）。
+
 ```console
 $ npm run info
 fullstack-serverless-db-v2@1.0.0 info /root/tencent-fullstack/fullstack-serverless-db
@@ -147,3 +149,10 @@ website: https://fullstack-serverless-db-1259787414.cos-website.ap-guangzhou.myq
 
 fullstack-frontend-v2 › Info successfully loaded
 ```
+
+3.执行npm run remove，可移除项目。
+
+```console
+$ npm run remove
+```
+
