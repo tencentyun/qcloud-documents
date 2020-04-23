@@ -29,12 +29,22 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ### 2. 初始化 LogListener
 
-在`loglistener/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务）。初始化命令如下：
+在`loglistener/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务），初始化命令如下：
 ```shell
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf09xxxxxxxxxxxx -region ap-xxxxxx
 ```
->?初始化命令中 **-secretid**、**-secretkey**、**-region**、**-network** 为需要自主填写的参数，详细介绍请参见 [参数说明](#parameterdescription)。
 
+初始化命令中 **-secretid**、**-secretkey**、**-region**、**-network** 为需要自主填写的参数，详细介绍请见如下 [参数说明](#parameterdescription)。
+
+
+#### 参数说明
+
+| 参数名    | 类型描述                                                     |
+| --------- | ------------------------------------------------------------ |
+| secretid  | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretId 用于标识 API 调用者身份 |
+| secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
+| region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
+| network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
 
 默认使用内网域名：
 
@@ -48,22 +58,12 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ![](https://main.qcloudimg.com/raw/653ebe0400dca5b21b3e25d01f93cb5b.png)
 
-<span id="parameterdescription"></span>
 
-#### 参数说明
-
-| 参数名    | 类型描述                                                     |
-| --------- | ------------------------------------------------------------ |
-| secretid  | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretId 用于标识 API 调用者身份 |
-| secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
-| region    | region 日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940) |
-| network   | 表示 loglistener 通过哪种方式访问服务域名，取值： intra 内网访问（默认）， internet 外网访问 |
 
 > ?
->
 > - 建议使用协作者密钥，需要主账号授权协作者于日志服务的读写权限。
 > - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
-> - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。
+> - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
 
 ### 3. 启动 LogListener
 
@@ -109,7 +109,6 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ```shell
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf09xxxxxxxxxxxx -region ap-xxxxxx
-
 ```
 
 #### 卸载 LogListener
@@ -118,14 +117,12 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ```shell
 ./loglistener.sh uninstall
-
 ```
 
 #### 查看 LogListener 进程状态
 
 ```shell
 /etc/init.d/loglistenerd status 
-
 ```
 
 LogListener 正常情况会运行三个进程：
@@ -136,16 +133,16 @@ LogListener 正常情况会运行三个进程：
 
 ```shell
 /etc/init.d/loglistenerd check
-
 ```
 
 ![](https://main.qcloudimg.com/raw/82430a9cb1aa364d2abfbc47ebae5ef5.png)
+
 
 ## 手动更新 LogListener
 
 #### 复用断点文件（不会重复采集日志）：
 1. 使用停止命令停止运行旧版本的 LogListener。
-2. 备份旧版本中的断点文件目录（`loglistener/data`）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
+2. 备份旧版本中的断点文件目录（loglistener/data）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
 ```shell
 cp -r loglistener-2.2.3/data /tmp/loglistener-backup/
 ```
@@ -157,9 +154,7 @@ cp -r /tmp/loglistener-backup/data loglistener-2.2.8/
 ```
 6. 使用启动命令启动运行新版本 LogListener。
 
-
 #### 不复用断点文件（可能会重复采集日志）：
-
 1. 使用停止命令停止运行旧版本的 LogListener。
 2. 使用卸载命令卸载旧版本的 LogListener。
 3. 下载最新版本的 LogListener，并使用相关命令安装和初始化新版本 LogListener。
