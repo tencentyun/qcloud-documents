@@ -108,7 +108,7 @@
 | [setWaterMark](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a4a1c376670ff4f3fdac8cf30bec78576) | 设置水印。 |
 
 
-### 屏幕共享相关接口函数
+### 屏幕分享相关接口函数
 
 | API | 描述 |
 |-----|-----|
