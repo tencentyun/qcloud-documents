@@ -111,6 +111,8 @@ fullstack-frontend-v2:
 50s › tencent-fullstack › Success
 ```
 
+部署成功后，您可以使用浏览器访问项目产生的website链接，就可以看到生成的网站了。 
+
 2.执行npm run info查看部署信息，该项目部署的信息分三部分：db、api、frontend（前端网站）。
 
 ```console
@@ -186,7 +188,7 @@ website: https://fullstack-serverless-db-123456789.cos-website.ap-guangzhou.myqc
 fullstack-frontend-v2 › Info successfully loaded
 ```
 
-3.执行npm run remove，可移除项目。
+3.执行sls remove --all，可移除项目。
 
 ```console
 $  sls remove --all
