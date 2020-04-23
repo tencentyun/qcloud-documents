@@ -103,8 +103,6 @@ const TLSSigAPIv2 = require('tls-sig-api-v2'); // 计算 userSig
 // ------------ Web 服务 ------------
 var app = express();
 // Token 需在【订阅号管理后台】>【基本配置】设置
-// https://mp.weixin.qq.com/advanced/advanced?action=dev&t=advanced/dev&token=700984162&lang=zh_CN
-var myToken = '';
 
 // 处理所有进入80端口的 get 请求
 app.get('/', function(req, res) {
