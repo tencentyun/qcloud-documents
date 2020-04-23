@@ -166,7 +166,7 @@ apigw:
   serviceId:   service-1000000
   subDomain:   service-1000000-123456789.gz.apigw.tencentcs.com
   environment: release
-  url:         https://service-cir8kome-123456789.gz.apigw.tencentcs.com/release/
+  url:         https://service-100000-123456789.gz.apigw.tencentcs.com/release/
 scf: 
   functionName: fullstack-api-v2
   runtime:      Nodejs10.15
