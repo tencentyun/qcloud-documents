@@ -1,6 +1,6 @@
 **功能**
 
-[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763) 事件回调。
+[MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview) 事件回调。
 
 **介绍**
 
@@ -150,7 +150,7 @@ Log 回调。
 
 **介绍**
 
-房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 [MLVBLiveRoom startRemoteView](https://cloud.tencent.com/document/product/454/34763#startRemoteView) 显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 [MLVBLiveRoom startRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#startRemoteView) 显示该主播的视频画面。
 
 > 说明：
 >
@@ -174,7 +174,7 @@ Log 回调。
 
 **介绍**
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763#stopRemoteView) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#stopRemoteView) 关闭该主播的视频画面。
 
 > 说明：
 >
@@ -220,6 +220,7 @@ Log 回调。
 
 ```
 - (void)onRequestJoinAnchor:(MLVBAnchorInfo *)anchorInfo reason:(NSString *)reason 
+
 ```
 
 **参数**
@@ -237,11 +238,12 @@ Log 回调。
 
 ```
 - (void)onKickoutJoinAnchor
+
 ```
 
 **介绍**
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763#kickoutJoinAnchor ) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#kickoutJoinAnchor ) 来退出连麦。
 
 ## 主播 PK 事件回调
 
@@ -251,6 +253,7 @@ Log 回调。
 
 ```
 - (void)onRequestRoomPK:(MLVBAnchorInfo *)anchorInfo 
+
 ```
 
 **参数**
@@ -261,7 +264,7 @@ Log 回调。
 
 **介绍**
 
-主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView](https://cloud.tencent.com/document/product/454/34763#startRemoteView) 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#startRemoteView) 接口播放邀约主播的流。
 
 ------
 
@@ -271,6 +274,7 @@ Log 回调。
 
 ```
 - (void)onQuitRoomPK
+
 ```
 
 ## 消息事件回调
@@ -281,6 +285,7 @@ Log 回调。
 
 ```
 - (void)onRecvRoomTextMsg:(NSString *)roomID userID:(NSString *)userID userName:(NSString *)userName userAvatar:(NSString *)userAvatar message:(NSString *)message 
+
 ```
 
 **参数**
@@ -301,6 +306,7 @@ Log 回调。
 
 ```
 - (void)onRecvRoomCustomMsg:(NSString *)roomID userID:(NSString *)userID userName:(NSString *)userName userAvatar:(NSString *)userAvatar cmd:(NSString *)cmd message:(NSString *)message 
+
 ```
 
 **参数**
