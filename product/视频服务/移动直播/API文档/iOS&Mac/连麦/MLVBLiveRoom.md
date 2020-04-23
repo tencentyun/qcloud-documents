@@ -36,6 +36,18 @@
 
 ### 房间相关接口函数
 
+| API                                 | 描述                       |
+| ----------------------------------- | -------------------------- |
+| [getRoomList](#getRoomList)         | 获取房间列表               |
+| [getAudienceList](#getAudienceList) | 获取观众列表               |
+| [createRoom](#createRoom)           | 创建房间（主播调用）       |
+| [enterRoom](#enterRoom)             | 进入房间（观众调用）       |
+| [exitRoom](#exitRoom)               | 离开房间                   |
+| [setCustomInfo](#setCustomInfo)     | 设置当前房间的扩展信息字段 |
+| [getCustomInfo](#getCustomInfo)     | 获取当前房间的扩展信息字段 |
+
+### 主播和观众连麦
+
 | API                                       | 描述             |
 | ----------------------------------------- | ---------------- |
 | [requestJoinAnchor](#requestJoinAnchor)   | 观众请求连麦     |
@@ -82,20 +94,20 @@
 
 ### 美颜滤镜相关接口函数
 
-| API                                       | 描述                                       |
-| ----------------------------------------- | ------------------------------------------ |
-| [getBeautyManager](#getBeautyManager)     | 获取美颜管理对象 TXBeautyManager           |
-| [setBeautyStyle](#setBeautyStyle)         | 设置美颜、美白、红润效果级别               |
-| [setFilter](#setFilter)                   | 设置指定素材滤镜特效                       |
-| [setSpecialRatio](#setSpecialRatio)       | 设置滤镜浓度                               |
-| [setEyeScaleLevel](#setEyeScaleLevel)     | 设置大眼级别（仅企业版有效）               |
-| [setFaceScaleLevel](#setFaceScaleLevel)   | 设置瘦脸级别（仅企业版有效）               |
-| [setFaceVLevel](#setFaceVLevel)           | 设置 V 脸级别（仅企业版有效）              |
-| [setChinLevel](#setChinLevel)             | 设置下巴拉伸或收缩（仅企业版有效）         |
-| [setFaceShortLevel](#setFaceShortLevel)   | 设置短脸级别（仅企业版有效）               |
-| [setNoseSlimLevel](#setNoseSlimLevel)     | 设置瘦鼻级别（仅企业版有效）               |
-| [setGreenScreenFile](#setGreenScreenFile) | 设置绿幕背景视频（仅企业版有效）           |
-| [selectMotionTmpl](#selectMotionTmpl)     | 选择使用哪一款 AI 动效挂件（仅企业版有效） |
+| API                                       | 描述                                                         |
+| ----------------------------------------- | ------------------------------------------------------------ |
+| [getBeautyManager](#getBeautyManager)     | 获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/34753#TXBeautyManager) |
+| [setBeautyStyle](#setBeautyStyle)         | 设置美颜、美白、红润效果级别                                 |
+| [setFilter](#setFilter)                   | 设置指定素材滤镜特效                                         |
+| [setSpecialRatio](#setSpecialRatio)       | 设置滤镜浓度                                                 |
+| [setEyeScaleLevel](#setEyeScaleLevel)     | 设置大眼级别（仅企业版有效）                                 |
+| [setFaceScaleLevel](#setFaceScaleLevel)   | 设置瘦脸级别（仅企业版有效）                                 |
+| [setFaceVLevel](#setFaceVLevel)           | 设置 V 脸级别（仅企业版有效）                                |
+| [setChinLevel](#setChinLevel)             | 设置下巴拉伸或收缩（仅企业版有效）                           |
+| [setFaceShortLevel](#setFaceShortLevel)   | 设置短脸级别（仅企业版有效）                                 |
+| [setNoseSlimLevel](#setNoseSlimLevel)     | 设置瘦鼻级别（仅企业版有效）                                 |
+| [setGreenScreenFile](#setGreenScreenFile) | 设置绿幕背景视频（仅企业版有效）                             |
+| [selectMotionTmpl](#selectMotionTmpl)     | 选择使用哪一款 AI 动效挂件（仅企业版有效）                   |
 
  ###  消息发送接口函数
 
@@ -258,7 +270,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)getAudienceList:(NSString *)roomID completion:(void(^)(int errCode, NSString *errMsg, NSArray< MLVBAudienceInfo * > *audienceInfoArray))completion 
-
 ```
 
 **参数**
@@ -282,7 +293,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)createRoom:(NSString *)roomID roomInfo:(NSString *)roomInfo completion:(void(^)(int errCode, NSString *errMsg))completion 
-
 ```
 
 **参数**
@@ -308,7 +318,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)enterRoom:(NSString *)roomID view:(UIView *)view completion:(void(^)(int errCode, NSString *errMsg))completion 
-
 
 ```
 
@@ -336,7 +345,6 @@ MLVBLiveRoom 实例。
 ```
 - (void)exitRoom:(void(^)(int errCode, NSString *errMsg))completion 
 
-
 ```
 
 **参数**
@@ -353,7 +361,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)setCustomInfo:(MLVBCustomFieldOp)op key:(NSString *)key value:(id)value completion:(void(^)(int errCode, NSString *custom))completion 
-
 
 ```
 
@@ -433,7 +440,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)responseJoinAnchor:(NSString *)userID agree:(BOOL)agree reason:(NSString *)reason 
-
 ```
 
 **参数**
@@ -456,7 +462,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)joinAnchor:(void(^)(int errCode, NSString *errMsg))completion 
-
 ```
 
 **参数**
@@ -477,7 +482,6 @@ MLVBLiveRoom 实例。
 
 ```
 - (void)quitJoinAnchor:(void(^)(int errCode, NSString *errMsg))completion 
-
 ```
 
 **参数**
@@ -850,7 +854,6 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 ```
 - (void)setFilter:(UIImage *)image 
-
 ```
 
 **参数**
