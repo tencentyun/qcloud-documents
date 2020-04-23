@@ -126,17 +126,17 @@
 | [setWatermark](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ad0bedbddf415d26cff8242d5842a0908) | 添加水印。 |
 
 
-### 屏幕共享相关接口函数
+### 屏幕分享相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f) | 启动屏幕分享（iOS）。 |
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f2) | 启动屏幕分享（Mac）。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a70dc159fd4fb6a2dce6e7d8afd5c67de) | 启动屏幕分享（iOS）。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97) | 启动屏幕分享（Mac）。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15) | 恢复屏幕分享。 |
 | [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 枚举可分享的屏幕窗口，仅支持 Mac OS 平台，建议在 startScreenCapture 之前调用。 |
-| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕共享参数，仅支持 Mac OS 平台，该方法在屏幕共享过程中也可以调用。 |
+| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕分享参数，仅支持 Mac OS 平台，该方法在屏幕分享过程中也可以调用。 |
 | [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) | 开始显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
 | [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#acab6e31898857af876af66e779216203) | 停止显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
 | [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a487b3cd9a6b41581d4b45c752c5ede4c) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的显示模式。 |
