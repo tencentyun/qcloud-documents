@@ -78,9 +78,9 @@ AT+TCSAP="ESP8266-SAP","12345678"
 
 | 代码 | 设计说明 | 
 |---------|---------|
-| qcloud_wifi_config.c | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 | 
-|wifi_config_esp.c|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
-|wifi_config_error_handle.c|设备错误日志处理，主要依赖于 FreeRTOS。|
+| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 | 
+|`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
+|`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS。|
 
 
 
