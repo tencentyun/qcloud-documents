@@ -37,6 +37,7 @@
 - GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持隐式主键，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持企业级加密函数，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 
 #### 修复：
 - 修复 binlog 缓存文件空间不足时造成复制中断的问题。
