@@ -13,9 +13,15 @@
 ## 环境依赖
 Python 2.7版本。
 
+## 注意事项
+- 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
+- Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
+- X-Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。X-Date Header 里的时间和当前时间的差值不能超过15分钟。
+- 如果是微服务 API，Header 中需要添加 “X-NameSpace-Code” 和 “X-MicroService-Name” 两个字段，通用 API 不需要添加，Demo 中默认添加了这两个字段。
+
 <span id="example"></span>
 ## 示例代码
-```
+```python
 # -*- coding: utf-8 -*-
 import requests
 import datetime
@@ -36,12 +42,12 @@ def getSimpleSign(source, SecretId, SecretKey) :
     sign = auth + sign + "\""
     return sign, dateTime
 
-SecretId = 'your SecretId' // 密钥对的 SecretId
-SecretKey = 'your SecretKey' // 密钥对的 SecretKey
-url = 'http://service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/xxx' // 用户 API 的访问路径
+SecretId = 'your SecretId' # 密钥对的 SecretId
+SecretKey = 'your SecretKey' # 密钥对的 SecretKey
+url = 'http://service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/xxx' # 用户 API 的访问路径
 
 #header = {}
-header = { 'Host':'service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', // 用户 API 所在服务的域名
+header = { 'Host':'service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', # 用户 API 所在服务的域名
             'Accept': 'text/html, */*; q=0.01',
             'X-Requested-With': 'XMLHttpRequest',
             'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36',
@@ -49,13 +55,13 @@ header = { 'Host':'service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.co
             'Accept-Language': 'zh-CN,zh;q=0.8,ja;q=0.6'
 }
 
-Source = 'xxxxxx' // 签名水印值，可填写任意值
+Source = 'xxxxxx' # 签名水印值，可填写任意值
 sign, dateTime = getSimpleSign(Source, SecretId, SecretKey)
 header['Authorization'] = sign
 header['Date'] = dateTime
 header['Source'] = Source
 
-// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
+# 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
 header['X-NameSpace-Code'] = 'testmic'
 header['X-MicroService-Name'] = 'provider-demo'
 

@@ -1,5 +1,5 @@
 本文主要介绍适用于 Python 的腾讯云开发工具包，并提供首次使用开发工具包的简单示例，让 Python 开发者快速掌握如何调试和接入腾讯云产品 API。
-
+支持 SDK 3.0 版本的云产品列表请参见 [SDK 简介](https://cloud.tencent.com/document/product/494/42698)。
 
 ## 依赖环境
 - 依赖环境：Python 2.7 到 3.6 版本。
@@ -12,14 +12,15 @@
 ## 获取安装
 
 ### 通过 pip 安装（推荐）
-您可以通过 pip 安装方式将腾讯云 API Python SDK 安装到您的项目中，如果您的项目环境尚未安装 pip，请详细参见 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 安装。
-通过 pip 方式安装请在命令行中执行以下命令：
+1. 下载并安装 [pip](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o)。
+2. 执行以下命令安装 SDK。
 ```bash
 pip install tencentcloud-sdk-python
 ```
+
 ### 通过源码包安装
 1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码。
-2. 解压后依次执行以下命令安装。
+2. 解压后依次执行以下命令安装 SDK。
 ```
     $ cd tencentcloud-sdk-python
     $ python setup.py install

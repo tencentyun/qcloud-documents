@@ -259,7 +259,7 @@ get_bucket_acl(Bucket, **kwargs)
 [//]: # (.cssg-snippet-get-bucket-acl)
 ```python
 response = client.get_bucket_acl(
-    Bucket='examplebucket-1250000000',
+    Bucket='examplebucket-1250000000'
 )
 ```
 #### 参数说明

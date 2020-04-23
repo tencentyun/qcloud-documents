@@ -39,7 +39,7 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 create database wordpress;
 ```
 4. 在 WordPress 的解压安装路径下，找到并复制 `wp-config-sample.php` 文件，并将该文件重命名为 `wp-config.php`。
-5. 使用文本编辑器打开 `wp-config.php` 文件，并将相关配置信息修改为 [步骤4：搭建 MySQL 数据库](#Step04) 的内容。如下图所示：
+5. 使用文本编辑器打开 `wp-config.php` 文件，并将相关配置信息修改为 [步骤3：安装 MySQL 数据库](https://cloud.tencent.com/document/product/213/10190) 的内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed808064e32f8c6c133e74472c934c0b.png)
 6. 保存 `wp-config.php` 文件。
 7. 单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;">，打开服务器管理器。

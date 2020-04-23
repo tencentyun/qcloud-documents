@@ -77,7 +77,7 @@ server {
 	}
 }
 ```
-若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方进行添加。如下图所示：
+若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加以上的 `server{...}` 配置内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/901a3957ccd992c2fb345287271c4bef.png)
 7. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 8. 执行以下命令启动 Nginx。

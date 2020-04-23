@@ -51,7 +51,7 @@
 }
 ```
 3.web 网站：使用浏览器可访问  `https://${custom_env}.service.tcloudbase.com/tcb_hello_world`  ；
-4.微信小程序：访问 [Hello World](https://developers.weixin.qq.com/s/4Lj90qmS76fS) 获取代码片段，一键导入代码到微信开发者IDE中（不要配置 `AppID`）；在项目  `app.js`  中更新如下配置：
+4.微信小程序：访问 [Hello World](https://developers.weixin.qq.com/s/Gddfw8mr7egW) 获取代码片段，一键导入代码到微信开发者IDE中（不要配置 `AppID`）；在项目  `app.js`  中更新如下配置：
 ```javascript
 const cloud = tcb.init({
     env: "${custom_env}", // 当前环境的ID
@@ -63,3 +63,5 @@ const cloud = tcb.init({
 });
 ```
 5.在 web 或小程序中拖动数字，即可在另一端看到相同的变化。
+
+>!该扩展为示例 Demo，请按照使用指引来完成配置。注册安全来源时要以 `touristappid`来注册；在小程序中体验时，不需要配置 `AppID`，填入`touristappid`对应的版本及凭证信息即可。

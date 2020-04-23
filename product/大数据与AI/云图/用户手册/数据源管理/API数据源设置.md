@@ -150,7 +150,7 @@ function isSignatureOK(receivedSignature, query) {
     return 0
   })
   // 生成签名字符串
-  const signStr = params.map(kv => kv.join('=')).join('&amp;')
+  const signStr = params.map(kv => kv.join('=')).join('&')
   console.log(signStr)
   // 计算签名
   const signature = crypto.createHmac('sha256', secretKey).update(signStr).digest().toString('base64')

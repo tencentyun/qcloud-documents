@@ -267,7 +267,6 @@ dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
 ![](https://main.qcloudimg.com/raw/25ccd3b27744ad0f056de14a39465724.png)
-
 6. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config

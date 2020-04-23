@@ -1,3 +1,37 @@
+### 2.6.2 @2020.4.16
+
+**新增**
+
+- [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 支持全体禁言和取消全体禁言。
+- [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 支持拉取群成员禁言截止时间戳（[muteUntil](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)）。
+
+**修复**
+
+群最新的消息是群提示消息时导致的未读计数无法清零。
+
+### 2.6.1 @2020.4.8
+
+**修复**
+
+偶发 COS 上传签名失效后未及时更新导致无法上传文件。
+
+
+### 2.6.0 @2020.3.30
+
+**新增**
+- Web 端支持创建发送视频消息 [createVideoMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)，最大支持发送100MB的视频文件。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `nick` 和 `avatar` 属性，用于展示音视频聊天室（AVChatRoom）内消息发送者的昵称和头像地址（需提前调用 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置）。
+- Web 端多实例登录时，C2C 消息的撤回通知可在各实例同步。
+- 调用 [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 修改群自定义字段成功后，群成员能收到群提示消息，且能获取到相关内容：[Message.payload.newGroupProfile.groupCustomField](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)。
+
+**变更**
+
+[TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 已废弃，请使用 [MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 代替。
+
+**修复**
+
+调用 [getGroupList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupList) 接口偶发报错问题。
+
 ### 2.5.2 @2020.3.13
 
 **变更**

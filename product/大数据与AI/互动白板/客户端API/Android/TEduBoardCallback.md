@@ -202,6 +202,15 @@ void onTEBGotoStep(int currentStep, int totalStep)
 | totalStep | int | 当前白板页动画总步数  |
 
 
+### onTEBRectSelected
+框选工具选中回调 
+``` Java
+void onTEBRectSelected()
+```
+#### 警告
+只有框选中涂鸦或图片元素后触发回调 
+
+
 
 ## 文件操作回调
 

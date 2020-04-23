@@ -29,10 +29,8 @@
 
 
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
-
-
-**使用 Intent 来跳转指定页面**
+TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持点击事件，触发后打开主界面，如果在 onNotifactionClickedResult 设置跳转操作会与管理台/API中指定的自定义跳转冲突，导致自定义的跳转失效）。
+**使用 Intent 方式跳转指引：**
 在客户端 App 的 manifest 上，配置需要跳转的页面：
  - 如要跳转 AboutActivity 指定页面，示例代码如下：
 ```
@@ -122,13 +120,13 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 启动 logcat，观察 tag 为 PushService 的日志，查看是否有错误信息。
 
 #### 华为通道排查路径
-- 检查腾讯移动推送 SDK 版本是否为V3.2.0以上版本以及华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
+- 检查华为手机中【设置】>【应用管理】>【华为移动服务】的版本信息是否大于2.5.3。
 - 检查是否为签名包。
 - 华为官网是否配置 SHA256 证书指纹。
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
 - 在腾讯移动推送注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
 - App 的包名和华为推送官网、腾讯移动推送管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
+- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的 [错误码](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_huaweipush_api_reference_errorcode ) 查找原因。
 - cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
   adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
 
@@ -184,4 +182,9 @@ public final class StrUtils {
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-
+### Android 是否支持设置通知角标？
+通知角标目前都是遵从各厂商的默认逻辑，其中：
+- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
+- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
+- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
+- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  
