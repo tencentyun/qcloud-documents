@@ -15,7 +15,7 @@
 
 连麦直播间（MLVBLiveRoom）是一个开源的 Class，依赖两个腾讯云的闭源 SDK：
 
-- LiteAVSDK：使用了其中的 [TXLivePusher](https://cloud.tencent.com/document/product/454/34766#TXLivePusher) 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34766#TXLivePlayer) 两个组件，前者用于推流，后者用于拉流。
+- LiteAVSDK：使用了其中的 [TXLivePusher](https://cloud.tencent.com/document/product/454/34766?!preview&!editLang=zh#TXLivePusher) 和 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34766?!preview&!editLang=zh#TXLivePlayer) 两个组件，前者用于推流，后者用于拉流。
 - IM SDK：使用 IM SDK 的 AVChatroom 用于实现直播聊天室的功能，同时，主播间的连麦流程也是依靠 IM 消息串联起来的。
 
 参考文档：[直播连麦](https://cloud.tencent.com/document/product/454/14606)。
@@ -195,7 +195,7 @@ void destroySharedInstance()
 
 **介绍**
 
-您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777) 获得 MLVBLiveRoom 的各种状态通知。
+您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh) 获得 MLVBLiveRoom 的各种状态通知。
 
 >? 默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [setListenerHandler(Handler)](setListenerHandler)。
 
@@ -230,7 +230,7 @@ void destroySharedInstance()
 | 参数      | 类型                                                         | 含义           |
 | :-------- | :----------------------------------------------------------- | :------------- |
 | loginInfo | final LoginInfo                                              | 登录信息。     |
-| callback  | final [IMLVBLiveRoomListener.LoginCallback](https://cloud.tencent.com/document/product/454/34777#LoginCallback) | 登录结果回调。 |
+| callback  | final [IMLVBLiveRoomListener.LoginCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#LoginCallback) | 登录结果回调。 |
 
 ------
 
@@ -277,7 +277,7 @@ void destroySharedInstance()
 | :------- | :----------------------------------------------------------- | :-------------------------- |
 | index    | int                                                          | 房间开始索引，从0开始计算。 |
 | count    | int                                                          | 希望后台返回的房间个数。    |
-| callback | final [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777#GetRoomListCallback) | 获取房间列表的结果回调。    |
+| callback | final [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#GetRoomListCallback) | 获取房间列表的结果回调。    |
 
 **介绍**
 
@@ -294,14 +294,13 @@ void destroySharedInstance()
 
 ```
 - void getAudienceList(IMLVBLiveRoomListener.GetAudienceListCallback callback)
-
 ```
 
 **参数**
 
 | 参数     | 类型                                                         | 含义                     |
 | :------- | :----------------------------------------------------------- | :----------------------- |
-| callback | [IMLVBLiveRoomListener.GetAudienceListCallback](https://cloud.tencent.com/document/product/454/34777#GetAudienceListCallback) | 获取观众列表的结果回调。 |
+| callback | [IMLVBLiveRoomListener.GetAudienceListCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#GetAudienceListCallback) | 获取观众列表的结果回调。 |
 
 **介绍**
 
@@ -317,7 +316,6 @@ void destroySharedInstance()
 
 ```
 - void createRoom(final String roomID, final String roomInfo, finalIMLVBLiveRoomListener.CreateRoomCallback callback)
-
 ```
 
 **参数**
@@ -326,7 +324,7 @@ void destroySharedInstance()
 | :------- | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | roomID   | final String                                                 | 房间标识，推荐做法是用主播的 userID 作为房间的 roomID，可省去后台映射的成本。roomID 可以填空，此时由后台生成。 |
 | roomInfo | final String                                                 | 房间信息（非必填），用于房间描述的信息，如房间名称，允许使用 JSON 格式作为房间信息。 |
-| callback | final [IMLVBLiveRoomListener.CreateRoomCallback](https://cloud.tencent.com/document/product/454/34777#CreateRoomCallback) | 创建房间的结果回调。                                         |
+| callback | final [IMLVBLiveRoomListener.CreateRoomCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#CreateRoomCallback) | 创建房间的结果回调。                                         |
 
 **介绍**
 
@@ -343,7 +341,6 @@ void destroySharedInstance()
 
 ```
 - void enterRoom(final String roomID, final TXCloudVideoView view, finalIMLVBLiveRoomListener.EnterRoomCallback callback)
-
 ```
 
 **参数**
@@ -358,7 +355,7 @@ void destroySharedInstance()
 
 观众观看直播的正常调用流程是：
 
-1. 观众调用 getRoomList() 刷新最新的直播房间列表，并通过 [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777#GetRoomListCallback) 回调拿到房间列表。
+1. 观众调用 getRoomList() 刷新最新的直播房间列表，并通过 [IMLVBLiveRoomListener.GetRoomListCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#GetRoomListCallback) 回调拿到房间列表。
 2. 观众选择一个直播间以后，调用 enterRoom() 进入该房间。
 
 ------
@@ -369,7 +366,6 @@ void destroySharedInstance()
 
 ```
 - void exitRoom(IMLVBLiveRoomListener.ExitRoomCallback callback)
-
 ```
 
 **参数**
@@ -386,7 +382,6 @@ void destroySharedInstance()
 
 ```
 - void setCustomInfo(final MLVBCommonDef.CustomFieldOp op, final String key, final Object value, finalIMLVBLiveRoomListener.SetCustomInfoCallback callback)
-
 ```
 
 **参数**
@@ -396,7 +391,7 @@ void destroySharedInstance()
 | op       | final MLVBCommonDef.CustomFieldOp                            | 执行动作，定义请查看 MLVBCommonDef.CustomFieldOp。 |
 | key      | final String                                                 | 自定义键。                                         |
 | value    | final Object                                                 | 数值。                                             |
-| callback | final [IMLVBLiveRoomListener.SetCustomInfoCallback](https://cloud.tencent.com/document/product/454/34777#SetCustomInfoCallback) | 设置自定义信息完成的回调。                         |
+| callback | final [IMLVBLiveRoomListener.SetCustomInfoCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#SetCustomInfoCallback) | 设置自定义信息完成的回调。                         |
 
 **介绍**
 
@@ -416,14 +411,13 @@ void destroySharedInstance()
 
 ```
 - void getCustomInfo(finalIMLVBLiveRoomListener.GetCustomInfoCallback callback)
-
 ```
 
 **参数**
 
 | 参数     | 类型                                                         | 含义                 |
 | :------- | :----------------------------------------------------------- | :------------------- |
-| callback | final [IMLVBLiveRoomListener.GetCustomInfoCallback](https://cloud.tencent.com/document/product/454/34777#GetCustomInfoCallback) | 获取自定义信息回调。 |
+| callback | final [IMLVBLiveRoomListener.GetCustomInfoCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#GetCustomInfoCallback) | 获取自定义信息回调。 |
 
 ------
 
@@ -435,7 +429,6 @@ void destroySharedInstance()
 
 ```
 - void requestJoinAnchor(String reason,IMLVBLiveRoomListener.RequestJoinAnchorCallback callback)
-
 ```
 
 **参数**
@@ -443,19 +436,19 @@ void destroySharedInstance()
 | 参数     | 类型                                                         | 含义             |
 | :------- | :----------------------------------------------------------- | :--------------- |
 | reason   | String                                                       | 连麦原因。       |
-| callback | [IMLVBLiveRoomListener.RequestJoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777#RequestJoinAnchorCallback) | 请求连麦的回调。 |
+| callback | [IMLVBLiveRoomListener.RequestJoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#RequestJoinAnchorCallback) | 请求连麦的回调。 |
 
 **介绍**
 
 主播和观众的连麦流程可以简单描述为如下几个步骤：
 
 1. 【观众】调用 requestJoinAnchor() 向主播发起连麦请求。
-2. 【主播】会收到 [IMLVBLiveRoomListener.onRequestJoinAnchor(AnchorInfo, String)](https://cloud.tencent.com/document/product/454/34777#onRequestJoinAnchor) 的回调通知。
+2. 【主播】会收到 [IMLVBLiveRoomListener.onRequestJoinAnchor(AnchorInfo, String)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onRequestJoinAnchor) 的回调通知。
 3. 【主播】调用 responseJoinAnchor() 确定是否接受观众的连麦请求。
 4. 【观众】会收到IMLVBLiveRoomListener.RequestJoinAnchorCallback 回调通知，可以得知请求是否被同意。
 5. 【观众】如果请求被同意，则调用 startLocalPreview() 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示。
 6. 【观众】然后调用 joinAnchor() 正式进入连麦状态。
-7. 【主播】一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener.onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onAnchorEnter) 通知。
+7. 【主播】一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener.onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onAnchorEnter) 通知。
 8. 【主播】主播调用 startRemoteView() 就可以看到连麦观众的视频画面。
 9. 【观众】如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 [onAnchorJoin()](#onAnchorJoin) 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
@@ -467,7 +460,6 @@ void destroySharedInstance()
 
 ```
 - int responseJoinAnchor(String userID, boolean agree, String reason)
-
 ```
 
 **参数**
@@ -484,7 +476,7 @@ void destroySharedInstance()
 
 **介绍**
 
-主播在收到 [IMLVBLiveRoomListener.onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777#onRequestJoinAnchor) 回调之后会需要调用此接口来处理观众的连麦请求。
+主播在收到 [IMLVBLiveRoomListener.onRequestJoinAnchor(AnchorInfo， String)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onRequestJoinAnchor) 回调之后会需要调用此接口来处理观众的连麦请求。
 
 ------
 
@@ -494,18 +486,17 @@ void destroySharedInstance()
 
 ```
 - void joinAnchor(finalIMLVBLiveRoomListener.JoinAnchorCallback callback)
-
 ```
 
 **参数**
 
 | 参数     | 类型                                                         | 含义                 |
 | :------- | :----------------------------------------------------------- | :------------------- |
-| callback | [finalIMLVBLiveRoomListener.JoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777#joinanchorcallback) | 进入连麦的结果回调。 |
+| callback | [finalIMLVBLiveRoomListener.JoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#joinanchorcallback) | 进入连麦的结果回调。 |
 
 **介绍**
 
-进入连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener.onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onAnchorEnter) 通知。
+进入连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener.onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onAnchorEnter) 通知。
 
 ------
 
@@ -515,18 +506,17 @@ void destroySharedInstance()
 
 ```
 - void quitJoinAnchor(finalIMLVBLiveRoomListener.QuitAnchorCallback callback)
-
 ```
 
 **参数**
 
 | 参数     | 类型                                                         | 含义                 |
 | :------- | :----------------------------------------------------------- | :------------------- |
-| callback | final [IMLVBLiveRoomListener.QuitAnchorCallback](https://cloud.tencent.com/document/product/454/34777#QuitAnchorCallback) | 退出连麦的结果回调。 |
+| callback | final [IMLVBLiveRoomListener.QuitAnchorCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#QuitAnchorCallback) | 退出连麦的结果回调。 |
 
 **介绍**
 
-退出连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener.onAnchorExit(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onAnchorExit) 通知。
+退出连麦成功后，主播和其他连麦观众会收到 [IMLVBLiveRoomListener.onAnchorExit(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onAnchorExit) 通知。
 
 ------
 
@@ -536,7 +526,6 @@ void destroySharedInstance()
 
 ```
 - void kickoutJoinAnchor(String userID)
-
 ```
 
 **参数**
@@ -547,7 +536,7 @@ void destroySharedInstance()
 
 **介绍**
 
-主播调用此接口踢除连麦观众后，被踢连麦观众会收到 [IMLVBLiveRoomListener.onKickoutJoinAnchor()](https://cloud.tencent.com/document/product/454/34777#onKickoutJoinAnchor) 回调通知。
+主播调用此接口踢除连麦观众后，被踢连麦观众会收到 [IMLVBLiveRoomListener.onKickoutJoinAnchor()](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onKickoutJoinAnchor) 回调通知。
 
 ## 主播跨房间 PK
 
@@ -557,7 +546,6 @@ void destroySharedInstance()
 
 ```
 - void requestRoomPK(String userID, finalIMLVBLiveRoomListener.RequestRoomPKCallback callback)
-
 ```
 
 **参数**
@@ -565,17 +553,17 @@ void destroySharedInstance()
 | 参数     | 类型                                                         | 含义                     |
 | :------- | :----------------------------------------------------------- | :----------------------- |
 | userID   | String                                                       | 被邀约主播 ID。          |
-| callback | final [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#RequestRoomPKCallback) | 请求跨房 PK 的结果回调。 |
+| callback | final [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#RequestRoomPKCallback) | 请求跨房 PK 的结果回调。 |
 
 **介绍**
 
 主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B，他们之间的跨房 PK 流程如下：
 
 1. 主播 A 调用 requestRoomPK() 向主播 B 发起连麦请求。
-2. 主播 B 会收到 [IMLVBLiveRoomListener.onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onRequestRoomPK) 回调通知。
+2. 主播 B 会收到 [IMLVBLiveRoomListener.onRequestRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onRequestRoomPK) 回调通知。
 3. 主播 B 调用 responseRoomPK() 确定是否接受主播 A 的 PK 请求。
 4. 主播 B 如果接受了主播 A 的要求，可以直接调用 [startRemoteView()](#startRemoteView) 来显示主播 A 的视频画面。
-5. 主播 A 会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#RequestRoomPKCallback) 回调通知，可以得知请求是否被同意。
+5. 主播 A 会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#RequestRoomPKCallback) 回调通知，可以得知请求是否被同意。
 6. 主播 A 如果请求被同意，则可以调用 startRemoteView() 显示主播 B 的视频画面。
 
 ------
@@ -586,7 +574,6 @@ void destroySharedInstance()
 
 ```
 - int responseRoomPK(String userID, boolean agree, String reason)
-
 ```
 
 **参数**
@@ -603,7 +590,7 @@ void destroySharedInstance()
 
 **介绍**
 
-主播响应其他房间主播的 PK 请求，发起 PK 请求的主播会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777#RequestRoomPKCallback) 回调通知。
+主播响应其他房间主播的 PK 请求，发起 PK 请求的主播会收到 [IMLVBLiveRoomListener.RequestRoomPKCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#RequestRoomPKCallback) 回调通知。
 
 ------
 
@@ -613,7 +600,6 @@ void destroySharedInstance()
 
 ```
 - void quitRoomPK(finalIMLVBLiveRoomListener.QuitRoomPKCallback callback)
-
 ```
 
 **参数**
@@ -624,7 +610,7 @@ void destroySharedInstance()
 
 **介绍**
 
-当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 [IMLVBLiveRoomListener.onQuitRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777#onQuitRoomPK) 回调通知。
+当两个主播中的任何一个退出跨房 PK 状态后，另一个主播会收到 [IMLVBLiveRoomListener.onQuitRoomPK(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onQuitRoomPK) 回调通知。
 
 ## 视频相关接口函数
 
@@ -634,7 +620,6 @@ void destroySharedInstance()
 
 ```
 - void startLocalPreview(boolean frontCamera, TXCloudVideoView view)
-
 ```
 
 **参数**
@@ -652,7 +637,6 @@ void destroySharedInstance()
 
 ```
 - void stopLocalPreview()
-
 ```
 
 ------
@@ -663,7 +647,6 @@ void destroySharedInstance()
 
 ```
 - void startRemoteView(final AnchorInfo anchorInfo, final TXCloudVideoView view, finalIMLVBLiveRoomListener.PlayCallback callback)
-
 ```
 
 **参数**
@@ -684,7 +667,6 @@ void destroySharedInstance()
 
 ```
 - void stopRemoteView(final AnchorInfo anchorInfo)
-
 ```
 
 **参数**
@@ -703,7 +685,6 @@ void destroySharedInstance()
 - void startScreenCapture()
 
 
-
 ```
 
 ------
@@ -714,7 +695,6 @@ void destroySharedInstance()
 
 ```
 - void stopScreenCapture()
-
 ```
 
 ------
@@ -727,7 +707,6 @@ void destroySharedInstance()
 
 ```
 - void muteLocalAudio(boolean mute)
-
 ```
 
 **参数**
@@ -744,7 +723,6 @@ void destroySharedInstance()
 
 ```
 - void muteRemoteAudio(String userID, boolean mute)
-
 ```
 
 **参数**
@@ -762,7 +740,6 @@ void destroySharedInstance()
 
 ```
 - void muteAllRemoteAudio(boolean mute)
-
 ```
 
 **参数**
@@ -781,7 +758,6 @@ void destroySharedInstance()
 
 ```
 - void switchCamera()
-
 ```
 
 ------
@@ -792,7 +768,6 @@ void destroySharedInstance()
 
 ```
 - boolean setZoom(int distance)
-
 ```
 
 **参数**
@@ -809,7 +784,6 @@ void destroySharedInstance()
 
 ```
 - boolean enableTorch(boolean enable)
-
 ```
 
 **参数**
@@ -826,7 +800,6 @@ void destroySharedInstance()
 
 ```
 - void setCameraMuteImage(Bitmap bitmap)
-
 ```
 
 **参数**
@@ -847,7 +820,6 @@ void destroySharedInstance()
 
 ```
 - void setCameraMuteImage(final int id)
-
 ```
 
 **参数**
@@ -868,7 +840,6 @@ void destroySharedInstance()
 
 ```
 public TXBeautyManager getBeautyManager()
-
 ```
 
 **介绍**
@@ -889,7 +860,6 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void setWatermark(Bitmap image, float x, float y, float width)
-
 ```
 
 **参数**
@@ -911,7 +881,6 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void setExposureCompensation(float value)
-
 ```
 
 **参数**
@@ -930,7 +899,6 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomTextMsg(String message, finalIMLVBLiveRoomListener.SendRoomTextMsgCallback callback)
-
 ```
 
 **参数**
@@ -948,7 +916,6 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomCustomMsg(String cmd, String message, finalIMLVBLiveRoomListener.SendRoomCustomMsgCallback callback)
-
 ```
 
 **参数**
@@ -969,7 +936,6 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - boolean playBGM(String path)
-
 ```
 
 **参数**
@@ -990,7 +956,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBGMNofify(TXLivePusher.OnBGMNotify notify)
-
 ```
 
 **参数**
@@ -1007,7 +972,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void stopBGM()
-
 ```
 
 ------
@@ -1018,7 +982,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void pauseBGM()
-
 ```
 
 ------
@@ -1029,7 +992,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void resumeBGM()
-
 ```
 
 ------
@@ -1040,7 +1002,6 @@ true：播放成功；false：播放失败。
 
 ```
 - int getBGMDuration(String path)
-
 ```
 
 **参数**
@@ -1061,7 +1022,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMicVolumeOnMixing(int volume)
-
 ```
 
 **参数**
@@ -1078,7 +1038,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBGMVolume(int volume)
-
 ```
 
 **参数**
@@ -1095,7 +1054,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setReverbType(int reverbType)
-
 ```
 
 **参数**
@@ -1112,14 +1070,13 @@ true：播放成功；false：播放失败。
 
 ```
 - void setVoiceChangerType(int voiceChangerType)
-
 ```
 
 **参数**
 
 | 参数             | 类型 | 含义                                |
 | :--------------- | :--- | :---------------------------------- |
-| voiceChangerType | int  | 变声类型，详见 TXVoiceChangerType。 |
+| voiceChangerType | int  | 变声类型，具体值请参考见 {@link TXLiveConstants} 中的 VOICECHANGER_TYPE_X 定义。 |
 
 ------
 
@@ -1129,7 +1086,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBgmPitch(float pitch)
-
 ```
 
 **参数**
@@ -1150,7 +1106,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setVoiceChangerType(int voiceChangerType)
-
 ```
 
 **参数**
@@ -1173,7 +1128,6 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setBeautyStyle(int beautyStyle , int beautyLevel, int whitenessLevel, int ruddinessLevel)
-
 ```
 
 **参数**
@@ -1193,7 +1147,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilter(Bitmap image)
-
 ```
 
 **参数**
@@ -1210,7 +1163,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilterConcentration(float concentration)
-
 ```
 
 **参数**
@@ -1227,7 +1179,6 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMotionTmpl(String filePaht)
-
 ```
 
 **参数**
@@ -1244,7 +1195,6 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setGreenScreenFile(String file)
-
 ```
 
 **参数**
@@ -1271,7 +1221,6 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
-
 ```
 
 **参数**
@@ -1288,7 +1237,6 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
-
 ```
 
 **参数**
@@ -1305,7 +1253,6 @@ false：调用失败；true：调用成功。
 
 ```
 - void setFaceSlimLevel(int level)
-
 ```
 
 **参数**
@@ -1322,7 +1269,6 @@ false：调用失败；true：调用成功。
 
 ```
 - void setChinLevel(int chinLevel)
-
 ```
 
 **参数**
@@ -1339,7 +1285,6 @@ false：调用失败；true：调用成功。
 
 ```
 - void setNoseSlimLevel(int noseSlimLevel)
-
 ```
 
 **参数**
