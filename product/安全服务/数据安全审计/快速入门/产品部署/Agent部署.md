@@ -47,24 +47,20 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 ### Windows 版本
 >!数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。
 >
-1. 依赖项安装
- 1. Python
- 下载并安装 Python 3.5.3 版本，且需在系统变量中添加 Python 的安装目录：
-![8](https://main.qcloudimg.com/raw/d9c978ee9b9be89c6ecb89e5a3a964a1.png)
- 2. Npcap
-打开 CapAgent/thirdparty 目录，双击运行 npcap-0.99-r7.exe 进行安装，选择如下图所示选项：
-![9](https://main.qcloudimg.com/raw/909cd18c9bdb6e73e1ebf199ba8724cd.png)
-2. CapAgent 安装
- 1. 下载 Windows 版本 Agent 后，解压到安装目录，进入 CapAgent/conf 目录，修改 device 配置为本机访问数据库网卡的 IP，如下图所示：
- ![10](https://main.qcloudimg.com/raw/70d470fdd5f9c8fedac5e3678d6fa250.png)
- 2. 进入 CapAgent/bin 目录，执行 start.bat。执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
- ![11](https://main.qcloudimg.com/raw/f76b41e5297ea67ca4c511dde30b3bcb.png)
- 3. 打开 CapAgent/log 目录，查看是否存在文件名包含 ERROR 关键字的文件。如有，请查看该文件，若出现如下图错误提示，则进行下一步操作：
- ![12](https://main.qcloudimg.com/raw/fb1387634b9489d0d19b9e61b46fe087.png)
- 4. 在 CapAgent/conf 目录下的 config.ini 中，增加如下语句：
- ![13](https://main.qcloudimg.com/raw/72c1a9236c916ed5ac94845ca97107c1.png)
- 5. 在 CapAgent/bin 目录下，执行 stop.bat，再执行 start.bat。
-3. Agent 停止
+1. 下载 Windows 版本 Agent 后，解压到安装目录，进入 “CapAgent/conf” 目录，修改 config.ini 中 device 配置为本机访问数据库网卡的 IP（一般为内网 IP），如下图所示：
+![](https://main.qcloudimg.com/raw/6bdcb038c6f9362390828c93fe81b023.png)
+2. 进入 CapAgent_win 目录，执行文件夹中 AuditCapAgentSteup.exe 程序依次安装 Python3.8 环境、npcap0.9984、执行 CapAgent_win。 
+![](https://main.qcloudimg.com/raw/8a8c6a51f86f56957a06d4958739ccfa.png)
+  1. 安装 Python3.8 环境，单击【下一步】，选择 Python3.8 安装的位置，单击【安装】。
+  ![](https://main.qcloudimg.com/raw/4a8f10fe38a4b235d0c7002aece4ca96.png)
+ 2. 安装 Npcap0.9984，勾选全部，单击【Install】。
+ ![](https://main.qcloudimg.com/raw/8c8caa52b579fd3bed6505337d6c721c.png)
+3. 执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
+![](https://main.qcloudimg.com/raw/92974ca82bfbdca31856679bd96e9c68.png)
+4. 检查 CapAgent_win 成功启动并连接审计服务成功。
+	- 在任务管理器中确认 CapAgent_win 进程已运行，
+![](https://main.qcloudimg.com/raw/80a15aaa41765a8fd6cc5d6b90e47e2c.png)
+	- 在 cmd 控制台，执行`netstat -ano | findstr 7000`，如下图即确认连接成功。
+	![](https://main.qcloudimg.com/raw/7ddc1fc5c52c35ad938418e14b12dd43.png)
+5. Agent 停止。
 在 CapAgent_win/bin 目录下执行 stop.bat 即可。
-
-
