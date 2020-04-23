@@ -197,7 +197,7 @@ void destroySharedInstance()
 
 您可以通过 [IMLVBLiveRoomListener](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh) 获得 MLVBLiveRoom 的各种状态通知。
 
->? 默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [setListenerHandler(Handler)](setListenerHandler)。
+>? 默认是在 Main Thread 中回调，如果需要自定义回调线程，可使用 [setListenerHandler(Handler)](#setListenerHandler)。
 
 ------
 
@@ -331,7 +331,7 @@ void destroySharedInstance()
 主播开播的正常调用流程是：
 
 1. 主播调用 startLocalPreview() 打开摄像头预览，此时可以调整美颜参数。
-2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过IMLVBLiveRoomListener.CreateRoomCallback 通知给主播。
+2. 主播调用 createRoom 创建直播间，房间创建成功与否会通过 IMLVBLiveRoomListener.CreateRoomCallback 通知给主播。
 
 ------
 
