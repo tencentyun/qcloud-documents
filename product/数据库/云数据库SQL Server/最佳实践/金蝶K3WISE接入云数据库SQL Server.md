@@ -1,4 +1,4 @@
-本文为您介绍金蝶K/3 WISE 15.0/15.1 如何接入云数据库 SQL Server，实现在 SQL Server 实例和服务器之间执行分布式事务。
+本文为您介绍金蝶K/3 WISE 15.0/15.1 如何接入云数据库 SQL Server，实现在 SQL Server 实例和 Windows 云服务器之间执行分布式事务。
 
 解决方案主要分为如下三个步骤：
 1. 迁移数据至云数据库 SQL Server，即将本地金蝶K/3 WISE 的账套数据库的全量数据备份恢复至云数据库 SQL Server 中。
@@ -7,11 +7,10 @@
 
 >?
 >- 由于支持分布式事务配置需要额外资源，故仅支持实例规格在“1核4GB”以上的实例进行配置，在接入前请完成规格升级。
->- 调整云数据库 SQL Server 访问设置，确保可以执行分布式事务的操作，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯工程师协助处理。
->- 提交工单前，请确保完整浏览完本文档，并已完成“迁移数据至云数据库 SQL Server”操作，可提高处理效率。
+>- 调整云数据库 SQL Server 访问设置，确保可以执行分布式事务的操作，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯工程师协助处理。提交工单前，请确保完整浏览完本文档，并已完成“迁移数据至云数据库 SQL Server”操作，可提高处理效率。
 
 
-## 迁移数据至云数据库 SQL Server
+## 步骤一：迁移数据至云数据库 SQL Server
 前提条件：已备份本地金蝶K/3 WISE 账套数据库文件的全量数据备份。
 
 1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) ，安装金蝶K/3 WISE。
@@ -20,7 +19,7 @@
 3. 上传全量备份文件并完成数据恢复，详细步骤可参见 [上传备份至 COS](https://cloud.tencent.com/document/product/238/19103#.E4.B8.8A.E4.BC.A0.E5.A4.87.E4.BB.BD.E8.87.B3-cos) 和 [通过 COS 源文件迁移数据](https://cloud.tencent.com/document/product/238/19103#.E9.80.9A.E8.BF.87-cos-.E6.BA.90.E6.96.87.E4.BB.B6.E8.BF.81.E7.A7.BB.E6.95.B0.E6.8D.AE)。
 4. 创建云数据库 SQL Server 帐号并授权，可参见 [创建帐号](https://cloud.tencent.com/document/product/238/7521)。
 
-## 设置允许执行分布式事务
+## 步骤二：设置允许执行分布式事务
 ### 设置云数据库 SQL Server
 调整云数据库 SQL Server 的访问设置，确保可以执行分布式事务的操作，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯工程师协助处理。
 
@@ -46,13 +45,13 @@
 8. 在弹出的 MSDTC 服务对话框中，单击【是】，等待 MSDTC 服务重新启动完成。
  
 
-## 初始化账套管理
+## 步骤三：初始化账套管理
 1. 下载对应的账套管理工具：金蝶K/3 WISE 15.1、金蝶K/3 WISE 15.0。
 >?不同金蝶K/3 WISE 版本需要的账套管理工具不同。
 2. 解压替换到金蝶的安装目录`K3ERP\KDSYSTEM\KDCOM`。
 3. 打开金蝶K/3 WISE 软件。
 4. 在弹出的账套管理数据库设置页面，设置相关身份验证信息和数据服务器。
->?数据服务器填写云数据库 SQL Server 实例的内网地址。
+>?数据服务器填写云数据库 SQL Server 实例的内网地址，内网地址可至 [控制台](https://console.cloud.tencent.com/sqlserver) 查看。
 >
 ![](https://main.qcloudimg.com/raw/11f12e1aeda96505216e4a711779f43d.png)
 5. 在“系统”的下拉菜单里单击【预设连接】，设置预设连接，方便使用。
@@ -62,7 +61,7 @@
 7. 选择对应的数据库，并单击【所有】。
 ![](https://main.qcloudimg.com/raw/fdce092177841854b886823e51c1f68a.png)
  
-## 登录使用金蝶K/3 WISE
+## 步骤四：登录使用金蝶K/3 WISE
 全部设置完成后，云服务器 CVM 和云数据库 SQL Server 之间就能够支持分布式事务，您也可以正常登录并使用金蝶K/3 WISE。
 
 若在登入时遇到如下报错信息：

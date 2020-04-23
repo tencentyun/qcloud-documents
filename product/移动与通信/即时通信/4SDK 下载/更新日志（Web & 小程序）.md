@@ -1,3 +1,14 @@
+### 2.6.2 @2020.4.16
+
+**新增**
+
+- [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 支持全体禁言和取消全体禁言。
+- [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 支持拉取群成员禁言截止时间戳（[muteUntil](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)）。
+
+**修复**
+
+群最新的消息是群提示消息时导致的未读计数无法清零。
+
 ### 2.6.1 @2020.4.8
 
 **修复**

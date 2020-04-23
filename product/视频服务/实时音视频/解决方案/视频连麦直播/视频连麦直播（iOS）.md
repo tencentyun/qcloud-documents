@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
 
 <table>
 <tr>
@@ -67,7 +67,7 @@
 
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 cocoapods 仓库依赖**
@@ -100,7 +100,7 @@ pod 'TXLiteAVSDK_TRTC'
  - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
  - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
 3. 调用`login`函数完成组件的登录，请参考下表填写关键参数：
-<table>
+<table>	
 <tr>
 <th>参数名</th>
 <th>作用</th>
@@ -256,7 +256,7 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID:
 1. 主播 A 调用`requestRoomPK`向主播 B 发起 PK 请求。
 2. 主播 B 会收到`TRTCLiveRoomDelegate onRequestRoomPK`回调通知。
 3. 主播 B 调用`responseRoomPK`决定是否接受主播 A 的 PK 请求。
-4. 主播 B 接受主播 A 的要求，等待`TRTCLiveRoomDelegate onAnchorEnter`通知，调用`startPlay`显示主播 A。
+4. 主播 B 接受主播 A 的请求，等待`TRTCLiveRoomDelegate onAnchorEnter`通知，调用`startPlay`显示主播 A。
 5. 主播 A 收到`responseCallback`回调通知，PK 请求是否被同意。
 6. 主播 A 请求被同意，等待`TRTCLiveRoomDelegate onAnchorEnter`通知，调用`startPlay`显示主播 B。
 

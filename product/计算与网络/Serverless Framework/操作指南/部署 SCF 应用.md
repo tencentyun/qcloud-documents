@@ -56,7 +56,7 @@ $ cd example
 ```yml
 # serverless.yml
 
-component: tencent-scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
+component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
 name: scfdemo # (必填) 该组件创建的实例名称
 org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: scfApp # (可选) 该 SCF 应用名称
@@ -83,7 +83,7 @@ inputs:
               method: GET
 ```
 
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)
+查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/v2/doc/serverless.yaml)
 
 当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 

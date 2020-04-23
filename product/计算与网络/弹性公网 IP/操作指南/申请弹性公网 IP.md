@@ -1,5 +1,8 @@
+EIP 是可以独立购买和持有的公网 IP 地址资源，您可根据如下操作申请 EIP。
+
+## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在 EIP 管理页面，选择地域，单击【申请】。
+2. 在 EIP 管理页面，选择【地域】，单击【申请】。
 3. 在弹出的窗口中，请按照您的账户类型，分别进行如下操作：
 >? 如何判断账户类型，请参见 [区分账户类型](https://cloud.tencent.com/document/product/684/39903)。
 >
@@ -64,4 +67,9 @@
 </tbody></table>
 4. 单击【确定】，完成 EIP 的申请。
 5. 在列表中，即可查看已申请的 EIP，此时处于未绑定状态。
+>?建议您及时为处于未绑定状态的 EIP 绑定云资源，保障 IP 资源的合理利用，节省 IP 资源费，IP 资源费按小时计费，精确到秒级，不足一小时，按闲置时间占比收取费用。
+>
 ![](https://main.qcloudimg.com/raw/9492216f61d10704015dac0cf217bd01.png)
+
+## 后续步骤
+- 若需要为 EIP 绑定云资源，请参见 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。

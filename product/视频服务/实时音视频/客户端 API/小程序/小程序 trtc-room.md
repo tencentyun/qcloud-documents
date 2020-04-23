@@ -33,7 +33,7 @@
 |-----|-----|
 | [on(EventCode, handler, context)](#on(eventcode.2C-handler.2C-context)) | 用于监听组件派发的事件，详细事件请参考 [事件表](#Event)。 |
 | [off(EventCode, handler)](#off(eventcode.2C-handler))|取消事件监听。|
-| [enterRoom(params)](#enterroom(params)) | 进入房间。|
+| [enterRoom(params)](#enterroom(params)) | 进入房间，若房间不存在，系统将自动创建一个新房间。|
 | [exitRoom()](#exitroom()) | 停止推流和取消订阅所有远端音视频，并退出房间。|
 
 **发布订阅**
@@ -216,7 +216,7 @@ trtcRoomContext.off(trtcRoomContext.EVENT.LOCAL_JOIN, onLocalJoin)
 
 | 参数名 | 类型   | 默认值 | 说明                                         |
 |:-------|:-------|:-------|:-------------------------------------------|
-| roomID | String | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
+| roomID | Number | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
 
 **返回值：**
 Promise
@@ -933,7 +933,7 @@ trtcRoomContext.sendC2CCustomMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                     |
 |:--------|:-------|:-------|:-----------------------|
-| roomID  | String | -      | 必填参数，房间 ID。    |
+| roomID  | Number | -      | 必填参数，房间 ID。    |
 | message | String | -      | 必填参数，需要发送的文本消息。  |
 
 **返回值：**
@@ -958,7 +958,7 @@ trtcRoomContext.sendGroupTextMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                  |
 |:--------|:-------|:-------|:--------------------|
-| roomID  | String | -      | 必填参数，房间 ID。  |
+| roomID  | Number | -      | 必填参数，房间 ID。  |
 | payload | Object | -      | 必填参数，自定义消息的载体。 |
 
 payload 支持三个参数：

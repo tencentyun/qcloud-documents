@@ -113,7 +113,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
  - 视频通话，请设置为`TRTC_APP_SCENE_VIDEOCALL`。
  - 语音通话，请设置为`TRTC_APP_SCENE_AUDIOCALL`。
-3. 进房成功后，SDK 会回调`onEnterRoom（result）`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+3. 进房成功后，SDK 会回调`onEnterRoom(result)`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
 ```
 public void enterRoom() {

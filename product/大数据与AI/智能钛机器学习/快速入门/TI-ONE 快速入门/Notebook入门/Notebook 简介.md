@@ -5,12 +5,12 @@ Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交�
 
 ## 操作界面
 智能钛机器学习平台的 Notebook 整体操作界面如下，右侧为 Notebook 内容展示区域，左栏主要为文件管理和各类功能键。
-![](https://main.qcloudimg.com/raw/fd2c462ac8501edb3e77f4e6c5d559d8.png)
+<img src="https://main.qcloudimg.com/raw/c61b58ae80989dce6704be2328a86fb9.png" style="zoom:50%;" />
 
 ## 核心特性
 - 提供多种资源规格供用户自由选择。
 - 支持各类资源灵活切换，降低使用成本。
-- 内置TI SDK，用户可以在 Notebook 中向 TI 提交训练任务。
+- 内置 TI SDK，用户可以在 Notebook 中向 TI 提交训练任务。
 - 内置多种内核环境，支持自定义安装第三方库。
 - 支持生命周期脚本，用户可以自定义初始化 Notebook，在创建/重启 Notebook 实例时可运行用户预设的 shell 脚本。
 - 支持与 Git 存储库对接，避免误删的数据丢失，方便协同开发与版本控制，用户还可以下载公开库里的 Notebook 文件进行学习与编辑。

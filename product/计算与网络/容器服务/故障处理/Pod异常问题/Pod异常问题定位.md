@@ -37,7 +37,7 @@ kubectl logs <pod-name> [-c <container-name>]
 	<td><code>NodeLost</code></td>	<td>Pod 所在节点失联。</td>
 	</tr>
 	<tr>
-	<td><code>Unkown</code></td>	<td>Pod 所在节点失联或其它未知异常。</td>
+	<td><code>Unkown</code></td>	<td>Pod 所在节点失联或其他未知异常。</td>
 	</tr>
 	<tr>
 	<td><code>Waiting</code></td>	<td> Pod 等待启动。</td>

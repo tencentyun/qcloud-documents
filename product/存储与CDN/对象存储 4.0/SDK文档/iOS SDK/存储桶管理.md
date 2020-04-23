@@ -763,7 +763,7 @@ QCloudBucketReplicationDestination 参数说明
 
 | 参数名称     | 描述                                                         | 类型                                                         |
 | ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| bucket       | 资源标识符，注意与存储桶不同<br>格式为：`qcs:id/0:cos:[region]:appid/[AppId]:[bucketname]` | NSString *                                                   |
+| bucket       | 资源标识符，注意与存储桶不同<br>格式为：`qcs::cos:[region]:appid/[AppId]:[bucketname]` | NSString *                                                   |
 | storageClass | 用来标注具体 Rule 的名称                                     | QCloudCOSStorageStandard<br>QCloudCOSStorageStandardIA<br>QCloudCOSStorageARCHIVE |
 
 #### 返回错误码说明

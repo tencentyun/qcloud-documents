@@ -8,7 +8,7 @@ Express.js 特性介绍：
 - **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
 - **云端调试**：针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
 - **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
-- **自定义域名**：支持配置自定义域名及 HTTPS 访问
+- **自定义域名**：支持配置自定义域名及 HTTPS 访问。
 
 
 
@@ -40,8 +40,8 @@ $ cd src && npm install
 安装完毕后，目录结构如下所示：
 ```
 |- src
-|   ├── app.js
-|   ├──node_modules
+|   ├── sls.js
+|   ├── node_modules
 |   └── package.json
 └──  serverless.yml
 ```
@@ -64,7 +64,7 @@ Express 组件支持“0”配置部署，也就是可以直接通过配置文�
 ```yml
 # serverless.yml
 
-component: express-tencent # (必填) 引用 component 的名称，当前用到的是 express-tencent 组件
+component: express # (必填) 引用 component 的名称，当前用到的是 express-tencent 组件
 name: express-api # (必填) 该 express 组件创建的实例名称
 org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: expressApp # (可选) 该 express 应用名称
