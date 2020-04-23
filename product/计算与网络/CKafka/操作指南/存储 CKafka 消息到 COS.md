@@ -1,8 +1,7 @@
 ## 操作场景
-消息队列 CKafka 支持用户存储消息的能力，您可以将消息存储到 COS 中，并下载分析。
+消息队列 CKafka 支持用户存储消息的能力，您可以将消息存储到 COS 中，并下载分析。该白名单功能即将下线,正式功能查看[消息转储](https://cloud.tencent.com/document/product/597/43448)
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过[ 提交内测申请](https://cloud.tencent.com/apply/p/cdp2ygatv8b) 的方式开通白名单。
 
 <span id="operation"></span>
 ## 操作步骤
@@ -68,3 +67,49 @@
 - 开启转 COS 的操作人必须对目标 COS Bucket 具备写权限。
 - 开启转发前，积压 Ckafka 消息不会被转存到 COS。
 - 实例到期后转发 COS 也会中断，实例续费后会自动恢复转发。
+
+## 旧版COS转储能力迁移说明
+为提供更好的服务并全面支持更多Ckafka相关转储能力，我们将在近日对旧版白名单COS转储功能进行下线处理，并正式推出全新商业化COS转储能力。请及时做好相关迁移工作：
+
+新版正式商业化COS转储能力有以下优势：
+- 灵活转储：新版COS转储功能提供更加灵活的转储配置，创建完成后可在云函数控制台自定义较为特殊的转储逻辑，如设置特殊换行符，日志过滤等。亦可快捷方便的使用默认配置。
+- 消费能力：新版转储消费能力相较旧版COS转储消费能力提升50%，是自建单节点 logstash 消费能力的15倍。
+- 文件存储：新版 Ckafka 转储 COS 的单个文件最大500MB，如超过该数值，会自动分包上传。相较于之前旧版 20MB 分包，新版单包大小聚合能力提升25倍。
+- 功能特性：新版 Ckafka 转储 COS 新增 "起始位置"特性，用户可自行选择历史消息的处理方式，更加方便的使用 to COS 转储功能。
+- 更多支持：新版转储能力新增"通用转储"，可支持并自定义 Elasticsearch、MySQL、PostgreSQL 等通用场景的转储能力。
+
+关于旧版COS转储能力迁移，您需要关注以下几点：
+
+- 存储路径：为保证转储文件的可读性，新版COS转储存储路径将修改为 instance-id/topic-id/date/timestamp 。
+> 说明：如相关路径如无法满足业务需要，请创建完成后在云函数控制台修改 CkafkaToCosConsumer 函数，参考下文迁移步骤。
+-  时间聚合：新版Ckafka 转储 COS 为了保证转储服务的可用性防止消息堆积，故支持 1-15 分钟粒度。
+-  费用相关：新版转储功能基于云函数 SCF 服务提供。SCF 为用户提供了一定量 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
+
+更多说明参考  [消息转储文档](https://cloud.tencent.com/document/product/597/43448) 。
+
+### 迁移步骤
+
+1. 创建新版 消息转储
+![](https://main.qcloudimg.com/raw/edf5b4726e84b0612df8a7dbd8ce2b3d.png)
+
+2. 设置时间粒度，选择与之前相同的 Bucket 信息
+![](https://main.qcloudimg.com/raw/b942d6e09a545493413c54e4def8f243.png)
+
+> 注意：新版 COS 转储新增“起始位置”，可根据迁移需求自行选择 Topic 消费位置。
+
+3. 如新版相关存储路径无法满足业务需要，可点击函数管理内的 CkafkaToCosConsumer 函数进行修改
+![](https://main.qcloudimg.com/raw/2581f23de103e24279cbaf699eb2faaf.png)
+![](https://main.qcloudimg.com/raw/cba941837c732f250599ca36b9734531.png)
+将 CkafkaToCosConsumer 函数第49行 -56行内容替换为如下代码，点击保存即可与旧版存储路径保持一致
+```
+    # Generating file name. 生成写入文件名
+    def object_key_generate(self):
+        logger.info("start to generate key name")
+        file_name = str(int(round(time.time())))
+        dir_name = "{}/{}".format(str(self.kafka_instance_id), str(self.topic_id))
+        object_key = '{}/{}'.format(dir_name, file_name)
+        return object_key
+```
+
+4. 为避免重复存储数据，请关闭旧版COS转储功能
+![](https://main.qcloudimg.com/raw/834c509f374f85f4326f450f97b6671b.png)
