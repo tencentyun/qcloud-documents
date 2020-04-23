@@ -130,7 +130,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a70dc159fd4fb6a2dce6e7d8afd5c67de) | 启动屏幕分享（iOS）。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a31146b5e41a451b6259c9d357e01113f) | 启动屏幕分享（iOS）。 |
 | [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97) | 启动屏幕分享（Mac）。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享。 |
