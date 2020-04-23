@@ -661,7 +661,6 @@ msgs | 新消息列表，注意这里可能同时会有多条消息抛出，相�
 - (void)onNewMessage:(NSArray*) msg;
 @end
 @implementation TIMMessageListenerImpl
-@synthesize onMessage;
 - (void)onNewMessage:(NSArray*) msgs {
     NSLog(@"NewMessages: %@", msgs);
 }
