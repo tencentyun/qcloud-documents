@@ -142,7 +142,7 @@ LogListener 正常情况会运行三个进程：
 
 #### 复用断点文件（不会重复采集日志）：
 1. 使用停止命令停止运行旧版本的 LogListener。
-2. 备份旧版本中的断点文件目录（loglistener/data）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
+2. 备份旧版本中的断点文件目录（`loglistener/data`）。例如，将旧版的断点文件备份至`/tmp/loglistener-backup`目录下。
 ```shell
 cp -r loglistener-2.2.3/data /tmp/loglistener-backup/
 ```
