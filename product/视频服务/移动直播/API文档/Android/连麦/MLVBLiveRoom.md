@@ -58,11 +58,11 @@
 
 ###   **主播跨房间 PK**  
 
-| API                              | 描述             |
-| -------------------------------- | ---------------- |
-| [requestRoomPK](#requestRoomPK)  | 请求跨房 PK      |
-| [responseRoomPK](responseRoomPK) | 响应跨房 PK 请求 |
-| [quitRoomPK](#quitRoomPK)        | 退出跨房 PK      |
+| API                               | 描述             |
+| --------------------------------- | ---------------- |
+| [requestRoomPK](#requestRoomPK)   | 请求跨房 PK      |
+| [responseRoomPK](#responseRoomPK) | 响应跨房 PK 请求 |
+| [quitRoomPK](#quitRoomPK)         | 退出跨房 PK      |
 
 ###   **视频相关接口函数**  
 
@@ -294,6 +294,7 @@ void destroySharedInstance()
 
 ```
 - void getAudienceList(IMLVBLiveRoomListener.GetAudienceListCallback callback)
+
 ```
 
 **参数**
@@ -316,6 +317,7 @@ void destroySharedInstance()
 
 ```
 - void createRoom(final String roomID, final String roomInfo, finalIMLVBLiveRoomListener.CreateRoomCallback callback)
+
 ```
 
 **参数**
@@ -341,6 +343,7 @@ void destroySharedInstance()
 
 ```
 - void enterRoom(final String roomID, final TXCloudVideoView view, finalIMLVBLiveRoomListener.EnterRoomCallback callback)
+
 ```
 
 **参数**
@@ -366,6 +369,7 @@ void destroySharedInstance()
 
 ```
 - void exitRoom(IMLVBLiveRoomListener.ExitRoomCallback callback)
+
 ```
 
 **参数**
@@ -382,6 +386,7 @@ void destroySharedInstance()
 
 ```
 - void setCustomInfo(final MLVBCommonDef.CustomFieldOp op, final String key, final Object value, finalIMLVBLiveRoomListener.SetCustomInfoCallback callback)
+
 ```
 
 **参数**
@@ -411,6 +416,7 @@ void destroySharedInstance()
 
 ```
 - void getCustomInfo(finalIMLVBLiveRoomListener.GetCustomInfoCallback callback)
+
 ```
 
 **参数**
@@ -429,6 +435,7 @@ void destroySharedInstance()
 
 ```
 - void requestJoinAnchor(String reason,IMLVBLiveRoomListener.RequestJoinAnchorCallback callback)
+
 ```
 
 **参数**
@@ -460,6 +467,7 @@ void destroySharedInstance()
 
 ```
 - int responseJoinAnchor(String userID, boolean agree, String reason)
+
 ```
 
 **参数**
@@ -486,6 +494,7 @@ void destroySharedInstance()
 
 ```
 - void joinAnchor(finalIMLVBLiveRoomListener.JoinAnchorCallback callback)
+
 ```
 
 **参数**
@@ -506,6 +515,7 @@ void destroySharedInstance()
 
 ```
 - void quitJoinAnchor(finalIMLVBLiveRoomListener.QuitAnchorCallback callback)
+
 ```
 
 **参数**
@@ -526,6 +536,7 @@ void destroySharedInstance()
 
 ```
 - void kickoutJoinAnchor(String userID)
+
 ```
 
 **参数**
@@ -546,6 +557,7 @@ void destroySharedInstance()
 
 ```
 - void requestRoomPK(String userID, finalIMLVBLiveRoomListener.RequestRoomPKCallback callback)
+
 ```
 
 **参数**
@@ -574,6 +586,7 @@ void destroySharedInstance()
 
 ```
 - int responseRoomPK(String userID, boolean agree, String reason)
+
 ```
 
 **参数**
@@ -600,6 +613,7 @@ void destroySharedInstance()
 
 ```
 - void quitRoomPK(finalIMLVBLiveRoomListener.QuitRoomPKCallback callback)
+
 ```
 
 **参数**
@@ -620,6 +634,7 @@ void destroySharedInstance()
 
 ```
 - void startLocalPreview(boolean frontCamera, TXCloudVideoView view)
+
 ```
 
 **参数**
@@ -637,6 +652,7 @@ void destroySharedInstance()
 
 ```
 - void stopLocalPreview()
+
 ```
 
 ------
@@ -728,6 +744,7 @@ void destroySharedInstance()
 
 ```
 - void muteRemoteAudio(String userID, boolean mute)
+
 ```
 
 **参数**
@@ -745,6 +762,7 @@ void destroySharedInstance()
 
 ```
 - void muteAllRemoteAudio(boolean mute)
+
 ```
 
 **参数**
@@ -763,6 +781,7 @@ void destroySharedInstance()
 
 ```
 - void switchCamera()
+
 ```
 
 ------
@@ -773,6 +792,7 @@ void destroySharedInstance()
 
 ```
 - boolean setZoom(int distance)
+
 ```
 
 **参数**
@@ -891,6 +911,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void setExposureCompensation(float value)
+
 ```
 
 **参数**
@@ -909,6 +930,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomTextMsg(String message, finalIMLVBLiveRoomListener.SendRoomTextMsgCallback callback)
+
 ```
 
 **参数**
@@ -926,6 +948,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomCustomMsg(String cmd, String message, finalIMLVBLiveRoomListener.SendRoomCustomMsgCallback callback)
+
 ```
 
 **参数**
@@ -1038,6 +1061,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMicVolumeOnMixing(int volume)
+
 ```
 
 **参数**
@@ -1054,6 +1078,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBGMVolume(int volume)
+
 ```
 
 **参数**
@@ -1070,6 +1095,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setReverbType(int reverbType)
+
 ```
 
 **参数**
@@ -1124,6 +1150,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setVoiceChangerType(int voiceChangerType)
+
 ```
 
 **参数**
@@ -1146,6 +1173,7 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setBeautyStyle(int beautyStyle , int beautyLevel, int whitenessLevel, int ruddinessLevel)
+
 ```
 
 **参数**
@@ -1165,6 +1193,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilter(Bitmap image)
+
 ```
 
 **参数**
@@ -1181,6 +1210,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilterConcentration(float concentration)
+
 ```
 
 **参数**
@@ -1197,6 +1227,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMotionTmpl(String filePaht)
+
 ```
 
 **参数**
@@ -1213,6 +1244,7 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setGreenScreenFile(String file)
+
 ```
 
 **参数**
@@ -1239,6 +1271,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
+
 ```
 
 **参数**
@@ -1255,6 +1288,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
+
 ```
 
 **参数**
@@ -1271,6 +1305,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setFaceSlimLevel(int level)
+
 ```
 
 **参数**
@@ -1287,6 +1322,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setChinLevel(int chinLevel)
+
 ```
 
 **参数**
@@ -1303,6 +1339,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setNoseSlimLevel(int noseSlimLevel)
+
 ```
 
 **参数**
