@@ -69,7 +69,7 @@ __参数__
 
 __介绍__
 
-启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush  才能真正开始推流。
+启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush 才能真正开始推流。
 
 ***
 
@@ -103,8 +103,7 @@ __介绍__
 
 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 
->?
->-5 返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750) 校验通过才能工作。
+>?-5返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750)校验通过才能工作。
 
 
 ***
