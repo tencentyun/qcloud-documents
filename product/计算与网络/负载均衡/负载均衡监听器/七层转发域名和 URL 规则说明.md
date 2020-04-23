@@ -56,7 +56,7 @@
 例如，依照上图配置转发规则及转发组后，如下请求将依次被匹配到不同的转发组中：
  1. `example.qloud.com/test1/image/index1.html` 精确匹配转发规则1设置的 URL 规则，则该请求将被转发到转发规则1所关联的后端云服务器中，即图中 CVM1 和 CVM2 的80端口。
  2. `example.qloud.com/test1/image/hello.html` 无精确匹配，按最长前缀将匹配到转发规则2，因此该请求将被转发到转发规则2所关联的后端云服务器中，即图中 CVM2 和 CVM3 的81端口。
- 3. `example.qloud.com/test2/video/mp4/` 无精确匹配，按最长前缀将匹配到转发规则3，因此该请求将被转发到转发规则3所关联的后端云服务器中，即图中 RS4 的90端口。 
+ 3. `example.qloud.com/test2/video/mp4/` 无精确匹配，按最长前缀将匹配到转发规则3，因此该请求将被转发到转发规则3所关联的后端云服务器中，即图中 CVM4 的90端口。 
  4. `example.qloud.com/test3/hello/index.html` 无精确匹配，按最长前缀将匹配到根目录 Default URL，这时是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），Tomcat（jsp），Nginx 作为反向代理服务器存在。
  5. `example.qloud.com/test2/`  无精确匹配，按最长前缀将匹配到根目录 Default URL。
 2. 如果用户设置的 URL 规则中，服务不能正常运行，则匹配成功后，不会重定向到其他页面。
