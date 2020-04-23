@@ -1,4 +1,4 @@
-TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持 1v1 和 多人视频通话。TRTCVideoCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（iOS）](https://cloud.tencent.com/document/product/647/42044)。
+TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频通话。TRTCVideoCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（iOS）](https://cloud.tencent.com/document/product/647/42044)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
@@ -127,7 +127,7 @@ shared 是 TRTCVideoCall 的组件单例。
 | sdkAppID | UInt32 | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | user | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| success | (() -> Void) | 登录成功回调 |
+| success | (() -> Void) | 登录成功回调。 |
 | failed | ((_ code: Int, _ message: String) -> Void) | 登录失败回调。 |
 
 ### logout
@@ -142,7 +142,7 @@ shared 是 TRTCVideoCall 的组件单例。
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| success | (() -> Void) | 登出成功回调 |
+| success | (() -> Void) | 登出成功回调。 |
 | failed | ((_ code: Int, _ message: String) -> Void) | 登出失败回调。 |
 
 
