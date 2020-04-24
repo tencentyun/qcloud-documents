@@ -528,7 +528,7 @@ void onSuccess(ArrayList< AudienceInfo > audienceInfoList)
 
 ------
 
-<h2 id="CreateRoomCallback_onError">CreateRoomCallback</h2>
+<h2 id="CreateRoomCallback">CreateRoomCallback</h2>
 
 **功能**
 
