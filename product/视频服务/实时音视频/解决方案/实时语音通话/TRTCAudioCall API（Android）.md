@@ -131,7 +131,7 @@ void login( int sdkAppId,
 | sdkAppID | UInt32 | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | user | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| callback | ActionCallBack | 登录回调，`onSuccess`代表登录成功 |
+| callback | ActionCallBack | 登录回调，`onSuccess`表示登录成功。 |
 
 ### logout
 
@@ -144,7 +144,7 @@ void logout(final ActionCallBack callBack);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callBack | ActionCallBack | 登出回调，`onSuccess`代表登出成功 |
+| callBack | ActionCallBack | 登出回调，`onSuccess`表示登出成功。 |
 
 
 ## 通话操作相关接口函数
@@ -215,7 +215,7 @@ void setMicMute(boolean isMute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isMute | boolean | true：麦克风关闭，false：麦克风打开。 |
+| isMute | boolean | true表示麦克风关闭，false表示麦克风打开。 |
 
 ### setHandsFree
 
@@ -228,7 +228,7 @@ void setHandsFree(boolean isHandsFree);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isHandsFree | boolean | true：开启免提，false：关闭免提。 |
+| isHandsFree | boolean | true表示开启免提，false表示关闭免提。 |
 
 ## TRTCAudioCallListener 事件回调
 
@@ -305,7 +305,7 @@ void onInvited(String sponsor, List<String> userIdList, boolean isFromGroup, int
 | sponsor | String | 发起方的 ID。|
 | userIds | List<String> | 除自己外被邀请 ID 列表。|
 | isFromGroup | boolean | 是否多人通话邀请。|
-| type | int | `1` 代表语音通话，`2`代表视频通话 |
+| type | int | 1表示语音通话，2表示视频通话。 |
 
 ### onCallingCancel
 
@@ -388,7 +388,7 @@ void onUserVoiceVolume(Map<String, Integer> volumeMap);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | Map<String, Integer> | 音量表，根据每个userid可以获取对应的音量大小，音量最小值0，音量最大值100 |
+| volumeMap | Map<String, Integer> | 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100。 |
 
 ### onCallEnd
 
