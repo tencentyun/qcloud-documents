@@ -29,7 +29,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 
 **解决方法**
 在 Mac 的终端中执行以下命令行：
-```bash
+```plaintext
 sudo chown $USER ~/Library/Caches/com.tencent.cosbrowser.ShipIt/
 ```
 
