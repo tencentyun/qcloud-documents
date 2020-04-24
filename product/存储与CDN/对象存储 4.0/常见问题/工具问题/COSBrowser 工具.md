@@ -24,6 +24,8 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 ### 为什么我的 Mac COSBrowser 会弹出提示“更新失败，权限被拒绝”？
 ![](https://main.qcloudimg.com/raw/92e858abfde48fd0738459bd31c8da7f.png)
 
+**出错原因**
+在 /Users/username/Library/Caches/ 目录下，有 `com.tencent.cosbrowser` 和 `com.tencent.cosbrowser.ShipIt` 两个文件。当这两个文件的所有者分别为 root 用户和 user 用户时，会因为权限问题导致更新失败。
 
 **解决方法**
 在 Mac 的终端中执行以下命令行：
