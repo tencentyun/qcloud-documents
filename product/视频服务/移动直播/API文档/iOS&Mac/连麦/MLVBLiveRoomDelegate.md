@@ -150,7 +150,7 @@ Log 回调。
 
 **介绍**
 
-房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 [MLVBLiveRoom startRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#startRemoteView) 显示该主播的视频画面。
+房间内的主播和连麦中的观众会收到新主播的进房事件，您可以调用 [MLVBLiveRoom.startRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#startRemoteView) 显示该主播的视频画面。
 
 >? 直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -172,7 +172,7 @@ Log 回调。
 
 **介绍**
 
-房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom stopRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#stopRemoteView) 关闭该主播的视频画面。
+房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 [MLVBLiveRoom.stopRemoteView](https://cloud.tencent.com/document/product/454/34763?!editLang=zh&!preview#stopRemoteView) 关闭该主播的视频画面。
 
 >? 直播间里的普通观众不会收到主播加入和推出的通知。
 
@@ -302,7 +302,6 @@ Log 回调。
 
 ```
 - (void)onRecvRoomCustomMsg:(NSString *)roomID userID:(NSString *)userID userName:(NSString *)userName userAvatar:(NSString *)userAvatar cmd:(NSString *)cmd message:(NSString *)message 
-
 ```
 
 **参数**
@@ -315,4 +314,3 @@ Log 回调。
 | userAvatar | NSString * | 发送者头像。     |
 | cmd        | NSString * | 自定义 cmd。     |
 | message    | NSString * | 自定义消息内容。 |
-
