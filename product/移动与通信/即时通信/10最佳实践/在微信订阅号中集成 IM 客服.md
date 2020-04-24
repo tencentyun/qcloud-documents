@@ -24,7 +24,7 @@
 - [注册](https://mp.weixin.qq.com/cgi-bin/registermidpage?action=index&lang=zh_CN&token=) 微信订阅号或服务号。
 - 详细阅读 [微信公众平台开发文档](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html)。
 - 已 [创建即时通信 IM 应用](https://cloud.tencent.com/document/product/269/32577)。
-- 需提前 [逐个导入](https://cloud.tencent.com/document/product/269/1608) 或 [批量导入](https://cloud.tencent.com/document/product/269/4919) 即时通信 IM 用户帐号，例如 user0 和 user0。
+- 需提前 [逐个导入](https://cloud.tencent.com/document/product/269/1608) 或 [批量导入](https://cloud.tencent.com/document/product/269/4919) 即时通信 IM 用户帐号，例如 user0 和 user1。
 
 ## 参考文档
 
