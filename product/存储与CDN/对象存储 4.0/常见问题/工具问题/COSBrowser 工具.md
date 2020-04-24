@@ -25,7 +25,7 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 ![](https://main.qcloudimg.com/raw/92e858abfde48fd0738459bd31c8da7f.png)
 
 **出错原因**
-在 /Users/username/Library/Caches/ 目录下，有 `com.tencent.cosbrowser` 和 `com.tencent.cosbrowser.ShipIt` 两个文件。当这两个文件的所有者分别为 root 用户和 user 用户时，会因为权限问题导致更新失败。
+在`/Users/username/Library/Caches/`目录下，有`com.tencent.cosbrowser`和`com.tencent.cosbrowser.ShipIt`两个文件。当这两个文件的所有者分别为 root 用户和 user 用户时，会因为权限问题导致更新失败。
 
 **解决方法**
 在 Mac 的终端中执行以下命令行：
@@ -45,5 +45,5 @@ sudo chown $USER ~/Library/Caches/com.tencent.cosbrowser.ShipIt/
 这是由于之前安装过 COSBrowser，在系统中已存在这个应用，而后面手动删除应用但是没有清除系统痕迹，再次执行安装时，程序发现了有遗留痕迹却又没有实际的应用，便会中止安装。
 
 **解决办法**
-手动清除或使用一些清理工具（如腾讯安全管家中的软件管理）去卸载清除 cosbrowser  应用的安装痕迹。
+手动清除或使用一些清理工具（例如腾讯安全管家中的软件管理）去卸载清除 COSBrowser 应用的安装痕迹。
 
