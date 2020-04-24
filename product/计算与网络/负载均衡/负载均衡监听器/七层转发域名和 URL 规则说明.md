@@ -64,13 +64,13 @@
 3. 建议用户设置 Default URL，将其指向服务稳定的页面（如静态页面、首页等），并绑定所有后端云服务器。此时，如果所有规则均没有匹配成功时，系统会将请求指向 Default URL 所在的页面，否则可能会出现404的问题。
 4. 如果用户未设置 Default URL，且所有转发规则都不匹配时，此时访问服务，会返回404。
 5. 七层 URL 路径末尾斜杠的说明：当用户设置的 URL 是以`/`结尾，但客户端访问时并没有带`/`，那么该请求会被重定向到以`/`结尾的规则（301重定向）。
-例如，`HTTP:80`监听器下，配置的域名是 `www.example.com`。
+例如，`HTTP:80` 监听器下，配置的域名是 `www.example.com`。
  1. 该域名下设置的 URL 为`/abc/`：
-     - 客户端访问 `www.example.com/abc`时，会被重定向到`www.example.com/abc/`。
-     - 客户端访问`www.example.com/abc/`时，会匹配到`www.example.com/abc/`。
+     - 客户端访问 `www.example.com/abc` 时，会被重定向到 `www.example.com/abc/`。
+     - 客户端访问 `www.example.com/abc/` 时，会匹配到 `www.example.com/abc/`。
  2. 该域名下设置的 URL 为`/abc`：
-     - 客户端访问`www.example.com/abc`时，会匹配到`www.example.com/abc`。
-     - 客户端访问`www.example.com/abc/`时，也会匹配到`www.example.com/abc`。
+     - 客户端访问 `www.example.com/abc` 时，会匹配到 `www.example.com/abc`。
+     - 客户端访问 `www.example.com/abc/` 时，也会匹配到 `www.example.com/abc`。
 
 ## 七层健康检查配置说明
 ### 健康检查域名配置规则
