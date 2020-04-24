@@ -57,12 +57,20 @@
  1. `example.qloud.com/test1/image/index1.html` 精确匹配转发规则1设置的 URL 规则，则该请求将被转发到转发规则1所关联的后端云服务器中，即图中 CVM1 和 CVM2 的80端口。
  2. `example.qloud.com/test1/image/hello.html` 无精确匹配，按最长前缀将匹配到转发规则2，因此该请求将被转发到转发规则2所关联的后端云服务器中，即图中 CVM2 和 CVM3 的81端口。
  3. `example.qloud.com/test2/video/mp4/` 无精确匹配，按最长前缀将匹配到转发规则3，因此该请求将被转发到转发规则3所关联的后端云服务器中，即图中 CVM4 的90端口。 
- 4. `example.qloud.com/test3/hello/index.html` 无精确匹配，按最长前缀将匹配到根目录 Default URL，这时是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），Tomcat（jsp），Nginx 作为反向代理服务器存在。
- 5. `example.qloud.com/test2/`  无精确匹配，按最长前缀将匹配到根目录 Default URL。
+ 4. `example.qloud.com/test3/hello/index.html` 无精确匹配，按最长前缀将匹配到根目录 Default URL：`example.qloud.com/`，这时是 Nginx 转发请求给后端应用服务器，如 FastCGI（php），Tomcat（jsp），Nginx 作为反向代理服务器存在。
+ 5. `example.qloud.com/test2/`  无精确匹配，按最长前缀将匹配到根目录 Default URL：`example.qloud.com/`。
 2. 如果用户设置的 URL 规则中，服务不能正常运行，则匹配成功后，不会重定向到其他页面。
 例如，客户端请求 `example.qloud.com/test1/image/index1.html` 匹配了转发规则1，但此时转发规则1的后端服务器运行异常，出现404的页面时，用户进行访问时页面则会显示404，不会重定向到其他页面。
 3. 建议用户设置 Default URL，将其指向服务稳定的页面（如静态页面、首页等），并绑定所有后端云服务器。此时，如果所有规则均没有匹配成功时，系统会将请求指向 Default URL 所在的页面，否则可能会出现404的问题。
 4. 如果用户未设置 Default URL，且所有转发规则都不匹配时，此时访问服务，会返回404。
+5. 七层 URL 路径末尾斜杠的说明：当用户设置的 URL 是以`/`结尾，但客户端访问时并没有带`/`，那么该请求会被重定向到以`/`结尾的规则（301重定向）。
+例如，`HTTP:80`监听器下，配置的域名是 `www.example.com`。
+ 1. 该域名下设置的 URL 为`/abc/`：
+     - 客户端访问 `www.example.com/abc`时，会被重定向到`www.example.com/abc/`。
+     - 客户端访问`www.example.com/abc/`时，会匹配到`www.example.com/abc/`。
+ 2. 该域名下设置的 URL 为`/abc`：
+     - 客户端访问`www.example.com/abc`时，会匹配到`www.example.com/abc`。
+     - 客户端访问`www.example.com/abc/`时，也会匹配到`www.example.com/abc`。
 
 ## 七层健康检查配置说明
 ### 健康检查域名配置规则
