@@ -154,7 +154,7 @@ void logout(final ActionCallBack callBack);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| callBack | ActionCallBack | 登出回调，`onSuccess`代表登出成功 |
+| callBack | ActionCallBack | 登出回调，`onSuccess`表示登出成功。 |
 
 ## 通话操作相关接口函数
 ### call
@@ -170,7 +170,7 @@ void call(String userId, int type);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 呼叫用户 ID。 |
-| type | int | `1` 代表语音通话，`2`代表视频通话 |
+| type | int | 1表示语音通话，2表示视频通话。 |
 
 ### groupCall
 
@@ -184,7 +184,7 @@ void groupCall(List<String> userIdList, int type, String groupId);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userIdList | List<String> | 邀请 ID 列表。 |
-| type | int | `1` 代表语音通话，`2`代表视频通话 |
+| type | int | 1表示语音通话，2表示视频通话。 |
 | groupId | String | 群 ID。 |
 
 
@@ -257,7 +257,7 @@ void openCamera(boolean isFrontCamera, TXCloudVideoView txCloudVideoView);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isFrontCamera | boolean | true：开启前置摄像头，false：开启后置摄像头。 |
+| isFrontCamera | boolean | true 表示开启前置摄像头，false 表示开启后置摄像头。 |
 | view | TXCloudVideoView | 承载视频画面的控件。 |
 
 ### switchCamera
@@ -271,7 +271,7 @@ void switchCamera(boolean isFrontCamera);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isFrontCamera | boolean | true：切换到前置摄像头，false：切换到后置摄像头。 |
+| isFrontCamera | boolean | true 表示切换到前置摄像头，false 表示切换到后置摄像头。 |
 
 ### closeCamara
 
@@ -291,7 +291,7 @@ void setMicMute(boolean isMute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isMute | boolean | true：麦克风关闭，false：麦克风打开。 |
+| isMute | boolean | true 表示麦克风关闭，false 表示麦克风打开。 |
 
 ### setHandsFree
 
@@ -304,7 +304,7 @@ void setHandsFree(boolean isHandsFree);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| isHandsFree | boolean | true：开启免提，false：关闭免提。 |
+| isHandsFree | boolean | true 表示开启免提，false 表示关闭免提。 |
 
 ## TRTCVideoCallListener 事件回调
 
@@ -381,7 +381,7 @@ void onInvited(String sponsor, List<String> userIdList, boolean isFromGroup, int
 | sponsor | String | 发起方的 ID。|
 | userIds | List<String> | 除自己外被邀请 ID 列表。|
 | isFromGroup | boolean | 是否多人通话邀请。|
-| type | int | `1` 代表语音通话，`2`代表视频通话 |
+| type | int | 1表示语音通话，2表示视频通话。 |
 
 ### onCallingCancel
 
@@ -479,7 +479,7 @@ void onUserVoiceVolume(Map<String, Integer> volumeMap);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volumeMap | Map<String, Integer> | 音量表，根据每个userid可以获取对应的音量大小，音量最小值0，音量最大值100 |
+| volumeMap | Map<String, Integer> | 音量表，根据每个 userid 可以获取对应的音量大小，音量最小值为0，音量最大值为100 |
 
 ### onCallEnd
 
