@@ -88,8 +88,7 @@ return YES;
 		/// notification消息对象说明：有2种类型NSDictionary和UNNotification具体解析参考示例代码
 		- (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler{
 		/// code
-		}
-		- 
+		} 
 		#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
 		/// iOS 10 新增 API
 		/// iOS 10 会走新 API, iOS 10 以前会走到老 API
