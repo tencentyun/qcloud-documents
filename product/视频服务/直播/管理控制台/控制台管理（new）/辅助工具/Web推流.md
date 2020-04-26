@@ -16,7 +16,7 @@
 3. 单击【开始推流】，授权允许调用摄像头，即可开始推流。
 ![](https://main.qcloudimg.com/raw/78e97e9e63f7142852b159da19628363.png)
 4. 若您在【域名管理】中已添加播放域名，即可在下方查看对应生成的播放地址。
->? 默认会选择[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)中的第一个域名生成播放地址，如需其他域名播放，可通过地址生成器填入相同的流 ID 来生成新的播放地址。
+>? 默认会选择[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)中的第一个播放域名生成播放地址，如需其他域名播放，可通过地址生成器填入相同的流 ID 来生成新的播放地址。
 >
 其中，播放地址由以下4部分组成：
 ![](https://main.qcloudimg.com/raw/72989c8f55fe7f2ed596bd09882f5a09.png)
