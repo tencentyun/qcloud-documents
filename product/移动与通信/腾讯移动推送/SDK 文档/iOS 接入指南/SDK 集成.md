@@ -131,20 +131,11 @@ return YES;
 
 
 
-#### 实现 ```XGPushDelegate``` 协议
+#### 实现 `XGPushDelegate` 协议
 
-在调试阶段，建议实现协议中的第二个方法，即可获取更详细的调试信息：
+在调试阶段，建议实现协议中的此方法，即可获取更详细的调试信息：
 
 ```objective-c
-/**
- @brief 监控腾讯移动推送服务地启动情况（已废弃）
-
- @param isSuccess 腾讯移动推送是否启动成功
- @param error 腾讯移动推送启动错误的信息
- */
-- (void)xgPushDidFinishStart:(BOOL)isSuccess error:(nullable NSError *)error;
-
-/**
  @brief 注册推送服务回调
  
  @param deviceToken APNs 生成的 Device Token
