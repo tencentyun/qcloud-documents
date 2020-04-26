@@ -15,10 +15,7 @@
 	- 编辑 AppName，用于区分同一个域名下多个 App 的地址路径，默认值为 live。
 3. 单击【开始推流】，授权允许调用摄像头，即可开始推流。
 ![](https://main.qcloudimg.com/raw/78e97e9e63f7142852b159da19628363.png)
-4. 若您在【域名管理】中已添加播放域名，即可在下方查看对应生成的播放地址。
->? 默认会选择[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)中的第一个域名生成播放地址，如需其他域名播放，可通过地址生成器填入相同的流 ID 来生成新的播放地址。
->
-其中，播放地址由以下4部分组成：
+4. 若您在【域名管理】中已添加播放域名，即可在下方查看对应生成的播放地址。其中，播放地址由以下4部分组成：
 ![](https://main.qcloudimg.com/raw/72989c8f55fe7f2ed596bd09882f5a09.png)
 支持 RTMP、FLV 和 HLS 协议，可以单击播放地址后的二维码，通过 [精简版 Demo](https://cloud.tencent.com/document/product/454/6555#.E7.B2.BE.E7.AE.80.E7.89.88-demo) 扫码查看播放地址：
 ![](https://main.qcloudimg.com/raw/fa0e65dfabf31a889aeec64a16de7f34.png)
