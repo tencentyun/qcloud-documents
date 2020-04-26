@@ -3,8 +3,8 @@
 - 专线网关：关联网络类型为云联网，且开启 Community 属性传递。
 - 专用通道：开启 Community 属性传递（功能灰度中，如有需要，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=664&source=0&data_title=专线接入&step=1)）。
 - 支持传递 Community 属性的路由：从云端通过专线网关发送给 IDC 侧的 VPC 子网的路由条目（从 IDC 侧发送给专线网关的路由，不支持传递 Community 属性）。
-- 支持地域： 北京、上海、广州、中国香港、弗吉尼亚、硅谷、东京、新加坡。
-- Community 属性值如下表所示，不支持修改和删除。
+- 支持传递 Community 属性的专线网关地域： 北京、上海、广州、中国香港、弗吉尼亚、硅谷、东京、新加坡。
+- 支持传递的 Community 属性值如下表所示，不支持修改和删除。
 <table style="width:40%">
 <thead>
 <tr>

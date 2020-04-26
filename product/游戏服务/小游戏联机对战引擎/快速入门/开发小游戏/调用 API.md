@@ -7,7 +7,7 @@
 		gameId: "xxxxxxxx",
 		// 玩家 openId
 		openId: 'openid_123_test',
-		// 替换 为控制台上的“密钥”
+		// 替换 为控制台上的“游戏Key”
 		secretKey: 'BjU3QBZLFxxxxxxxxxxxxxxxxxx',
 	};
 

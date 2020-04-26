@@ -1,5 +1,5 @@
 本文主要介绍屏幕分享的使用方法。
->!屏幕分享只支持 Chrome M72+。
+>!屏幕分享仅支持 Chrome M72+。
 
 ## 创建和发布屏幕分享流
 
@@ -61,13 +61,13 @@ localStream.initialize().then(() => {
 一个 {@link Client Client} 至多只能同时推送一路音频和一路视频，若想同时推送摄像头视频和屏幕分享，建议创建另外一个独立的 Client 专门负责推送屏幕分享。
 
 ```
-// 使用一个独立的用户ID进行推送屏幕分享
+// 使用一个独立的用户 ID 进行推送屏幕分享
 const shareId = 'share-userId';
-const shareClient = TRTC.createClient({ mode: 'videoCall', sdkAppId, userId: shareId, userSig });
+const shareClient = TRTC.createClient({ mode: 'videoCall', sdkAppId, userId, shareId, userSig });
 
 // 指明该 shareClient 默认不接收任何远端流 （它只负责发送屏幕分享流）
 shareClient.setDefaultMuteRemoteStreams(true);
-shareClient.join().then(() => {
+shareClient.join({ roomId }).then(() => {
   console.log('shareClient join success');
   // 创建屏幕分享流
   const localStream = TRTC.createStream({ audio: false, screen: true });

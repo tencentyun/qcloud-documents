@@ -45,7 +45,7 @@ systemctl enable nginx
 vim /etc/nginx/nginx.conf
 ```
 4. 按 “**i**” 切换至编辑模式。
-5. 找到 server{...} 并其替换成以下内容。
+5. 找到 server{...} 并将其替换成以下内容。
 ```
 server {
 	listen       80;

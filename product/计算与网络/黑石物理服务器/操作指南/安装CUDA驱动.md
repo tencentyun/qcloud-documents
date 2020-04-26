@@ -34,7 +34,7 @@ Toolkit:  Installed in /usr/local/cuda-10.0
 ## Windows 系列安装指引
 本教程适用于以下条件下的安装：
 - 机型：PG103v2
-- 操作系统版本： Windwos SERVER 2012 R2
+- 操作系统版本： Windows Server 2012 R2
 - CUDA 版本：CUDA_9.1.85
 
 其他条件下的安装请参考 [Nvdia 官网](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)。  

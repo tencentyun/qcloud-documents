@@ -81,8 +81,8 @@ AWSServiceConfiguration* configuration = [[AWSServiceConfiguration alloc]
 var AWS = require('aws-sdk');
 
 AWS.config.update({
-    accessKeyId: "<腾讯云的 SecretID>",
-    secretAccessKey: "<腾讯云的 SecretKey>",
+    accessKeyId: "COS_SECRETID",
+    secretAccessKey: "COS_SECRETKEY",
     region: "ap-guangzhou",
     endpoint: 'https://cos.ap-guangzhou.myqcloud.com',
 });
@@ -109,8 +109,8 @@ addressing_style = virtual
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
-aws_access_key_id = [腾讯云的 SecretID]  
-aws_secret_access_key = [腾讯云的 SecretKey] 
+aws_access_key_id = [COS_SECRETID]  
+aws_secret_access_key = [COS_SECRETKEY] 
 ```
 
 #### 2. 代码中设置 Endpoint
@@ -144,8 +144,8 @@ s3 =
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
-aws_access_key_id = [腾讯云的 SecretID]  
-aws_secret_access_key = [腾讯云的 SecretKey] 
+aws_access_key_id = [COS_SECRETID]  
+aws_secret_access_key = [COS_SECRETKEY] 
 ```
 
 #### 2. 代码中设置 Endpoint
@@ -175,8 +175,8 @@ addressing_style = virtual
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
-aws_access_key_id = [腾讯云的 SecretID]  
-aws_secret_access_key = [腾讯云的 SecretKey] 
+aws_access_key_id = [COS_SECRETID]  
+aws_secret_access_key = [COS_SECRETKEY] 
 ```
 
 #### 2. 代码中设置 Endpoint
@@ -199,8 +199,8 @@ $S3Client = new S3Client([
 初始化实例时设置腾讯云密钥和 Endpoint，以存储桶所在地域是`ap-guangzhou`为例：
 
 ```
-string sAccessKeyId = "<腾讯云的 SecretID>";
-string sAccessKeySecret = "<腾讯云的 SecretKey>";
+string sAccessKeyId = "COS_SECRETID";
+string sAccessKeySecret = "COS_SECRETKEY";
 string region = "ap-guangzhou";
   
 var config = new AmazonS3Config() { ServiceURL = "https://cos." + region + ".myqcloud.com" };
@@ -217,7 +217,7 @@ var client = new AmazonS3Client(sAccessKeyId, sAccessKeySecret, config);
 以存储桶所在地域是`ap-guangzhou`为例：
 ```golang
 func newSession() (*session.Session, error) {
-	creds := credentials.NewStaticCredentials("<腾讯云的 SecretID>", "<腾讯云的 SecretKey>", "")
+	creds := credentials.NewStaticCredentials("COS_SECRETID", "COS_SECRETKEY", "")
 	region := "ap-guangzhou"
 	endpoint := "http://cos.ap-guangzhou.myqcloud.com"
 	config := &aws.Config{
@@ -237,15 +237,15 @@ sess, _ := newSession()
 service := s3.New(sess)
 
 // 以上传文件为例
-fp, _ := os.Open("s3_test.go")
+fp, _ := os.Open("yourLocalFilePath")
 defer fp.Close()
 
 ctx, cancel := context.WithTimeout(context.Background(), time.Duration(30)*time.Second)
 defer cancel()
 
 service.PutObjectWithContext(ctx, &s3.PutObjectInput{
-	Bucket: aws.String("alangz-1250000000"),
-	Key:    aws.String("test/s3_test.go"),
+	Bucket: aws.String("examplebucket-1250000000"),
+	Key:    aws.String("exampleobject"),
 	Body:   fp,
 })
 ```
@@ -269,8 +269,8 @@ addressing_style = virtual
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
 [default]  
-aws_access_key_id = [腾讯云的 SecretID]  
-aws_secret_access_key = [腾讯云的 SecretKey] 
+aws_access_key_id = [COS_SECRETID]  
+aws_secret_access_key = [COS_SECRETKEY] 
 ```
 
 #### 2. 代码中设置 Endpoint

@@ -43,7 +43,7 @@
 <span id="step4_1_3"></span>
 3. 输入或选择新平台，单击【确定】。
  ![](https://main.qcloudimg.com/raw/75f07143f2c6a83a4d22e3f95f8f3864.png)
-4. 根据实际需求重复 [步骤2](step4_1_2) - [步骤3](step4_1_3)  新建需要支持的解决方案平台。
+4. 根据实际需求重复 [步骤2](#step4_1_2) - [步骤3](#step4_1_3)  新建需要支持的解决方案平台。
  ![](https://main.qcloudimg.com/raw/e7d906cbc18d32848a25cce38f50d20c.png)
 5. 打开 TRTCCSharpDemo 项目所在的文件夹，并用文本编辑器编辑`TRTCCSharpDemo.csproj`文件。
 6. 在`TRTCCSharpDemo.csproj`文件中的标签 `<itemGroup>`下添加以下内容：

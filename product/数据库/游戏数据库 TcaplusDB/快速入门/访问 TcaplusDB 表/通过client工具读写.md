@@ -1,17 +1,17 @@
 
 本文为您介绍通过 client 工具访问 TcaplusDB 表的操作。
 
-tcaplus_client 是在 TcaplusServiceAPI 发布包 bin 目录中的一个 TcaplusDB 表访问工具，它本身也是 TcaplusServiceAPI 的一个应用程序。
+tcaplus_client 是在 TcaplusServiceAPI 发布包 bin 目录中的一个 TcaplusDB 表访问工具，它本身也是 TcaplusServiceAPI 的一个集群程序。
 
 Linux x86_64 平台的 TcaplusServiceAPI 发布包将包含64位 Linux 版本的 tcaplus_client 工具，Windows x64 平台的 TcaplusServiceAPI 发布包将包含64位 Windows 版本的 tcaplus_client 工具，本文示例基于 Linux x86_64 版本的工具进行。
 
->?相关操作需要在用户腾讯云账号下申请的云服务器 CVM 中进行。
+>?相关操作需要在用户腾讯云账号下申请的云服务器 CVM 中进行。下文示例中 zone 代表表格组。
 
-本例中，访问点信息如下，并且在部署单元ID为1的部署单元中创建了表 tb_online。
+本例中，访问点信息如下，并且在表格组ID为1的表格组中创建了表 tb_online。
 - 接入ID：2
 - 连接密码：3aa84dd773826cd655e9f24a249d68bb
 - 内网地址:内网端口：10.125.32.21:9999
-- 部署单元ID：1
+- 表格组ID：1
 
 ## 权限操作
 首先需要给 tcaplus_client 工具赋予可执行权限，当直接执行 ./tcaplus_client 不带任何参数时，会打印连接所需的参数信息，用户可以根据自己的游戏业务进行填写。

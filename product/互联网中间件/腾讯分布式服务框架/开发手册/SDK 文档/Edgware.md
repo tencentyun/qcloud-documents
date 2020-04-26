@@ -1,4 +1,86 @@
-基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+基于 Spring Cloud Edgware 版本 SDK，支持 Spring Boot 1.5.x。
+
+### 1.21.0-Edgware-RELEASE（2020-04-20）
+#### 新特性
+- 全链路灰度发布。
+- 增加熔断状态变更事件上报。
+
+#### Bug 修复
+- spring-cloud-tsf-swagger 修复 @ApiParam 注解 Example 属性解析异常问题。
+- 修复 Tag 在 AsyncRestTemplate 下不传递的问题。
+- 修复 Feign 无法使用绝对 URL 请求的问题。
+- spring-cloud-tsf-gateway：
+  - 修复 Tag 标签插件未在调用中透传的问题。
+  - 修复当绑定网关插件后造成 Query 参数未透传的问题。
+
+#### 优化
+支持 swagger 自动扫描包多路径特性。
+
+### 1.20.0-Edgware-RELEASE（2020-03-02）
+
+#### 新特性
+
+新增分布式任务调度功能。
+
+#### Bug 修复
+
+- spring-cloud-tsf-gateway 修复 tag plugin 中 header 类型取值大小写敏感的问题。
+- 处理 tomcat 组件开源漏洞风险。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.51版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.51版本。
+  - 升级 org.apache.tomcat.tomcat-annotations-api 到8.5.51版本。
+- 修复 application/x-www-form-urlencoded 类型请求，通过 zuul 网关代理访问 provider 时，服务端获取不到请求参数的问题。  
+
+#### 优化
+
+spring-cloud-tsf-gateway 新增 tag plugin 中 path 类型取值。
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
+
+### 1.19.0-Edgware-RELEASE（2020-01-16）
+
+#### 新特性
+
+新增服务熔断、容错功能。
+
+#### 版本建议
+
+支持向后兼容，建议全量升级。
+
+### 1.18.1-Edgware-RELEASE（2020-01-14）
+
+#### Bug 修复
+- spring-cloud-tsf-route 修复路由权重不准的问题。
+- spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
+### 1.18.0-Edgware-RELEASE（2019-12-25）
+
+#### 新特性
+- 服务治理支持全局命名空间。
+- 新增 spring-cloud-tsf-gateway 微服务网关（zuul1 版）SDK，基于此 SDK 二次研发，无缝集成 TSF 平台服务治理能力。
+- 新增自定义日志配置需要的 Converter 和 Layout 类，支持用户使用自定义 logback\log4j\log4j2 日志配置。
+
+#### 优化
+spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler JDBC 代理过程 SDK 内部异常处理逻辑：非代理异常、非 SDK 产生的异常，直接抛出；代理异常或 SDK 产生的异常，直接调用服务不经过调用链逻辑。
+
+#### Bug 修复
+- spring-cloud-tsf-sleuth 修复 JDBC 代理过程 NPE Bug 问题。
+- spring-cloud-tsf-route 修复路由系统标签匹配的问题。
+
+#### 版本建议
+支持向后兼容，建议全量升级。
+
+### 1.16.1-Edgware-RELEASE（2019-12-03）
+
+#### Bug 修复
+API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
 
 
 ### 1.16.0-Edgware-RELEASE（2019-10-11）

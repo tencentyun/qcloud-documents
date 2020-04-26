@@ -8,7 +8,7 @@
 
 | 参数           | 是否必选 | 参数类型 | 参数描述                                                     |
 | ------------------ | --------- | -------- | ------------------------------------------------------------ |
-| accountType        | 是      | Uint     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li>|
+| accountType        | 是      | Uint     | 用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，则需要 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=141&level2_id=645&source=0&data_title=%E6%B4%BB%E5%8A%A8%E9%98%B2%E5%88%B7AA&level3_id=654&radio_title=%E5%BC%80%E9%80%9A%E7%94%B3%E8%AF%B7&queue=1&scene_code=16590&step=2) 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li>|
 | uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。     |
 | userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
 | postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
@@ -37,7 +37,7 @@
 | businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
 | wxSubType  | 否      | int      |<li>1：微信公众号。</li><li>2：微信小程序。</li>                                |
 | randNum        | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
-| wxToken       | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256 签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| wxToken       | 否      | String   | <li>wxSubType = 2：微信小程序场景，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（ hmac_sha256 签名算法）。</li><li>wxSubType = 1：微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)），而且获取网页版本的 access_token 时，scope 字段必需填写 snsapi_userinfo。</li> |
 | checkDevice  | 否      | Int      | 是否识别设备异常：<li>0：不识别。</li><li>1：识别。</li>                             |
 
 ## 输出参数

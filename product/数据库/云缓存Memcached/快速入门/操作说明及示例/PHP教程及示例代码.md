@@ -3,8 +3,8 @@
 
 依赖: 安装[[PHP-Memcache-3.0.6+](http://php.net/manual/zh/book.memcache.php)]或者[[PHP-Memcached-1.0.2+](http://php.net/manual/zh/book.memcached.php)]扩展.
 
-[[php-memcache GitHub源码](https://github.com/tricky/php-memcache)]
-[[php-memcached GitHub源码](https://github.com/php-memcached-dev/php-memcached)]
+[[PHP-memcache GitHub源码](https://github.com/tricky/php-memcache)]
+[[PHP-memcached GitHub源码](https://github.com/php-memcached-dev/php-memcached)]
 ## 2 使用步骤
 
 在腾讯云 CVM 上部署好 Apache+PHP 环境并安装好 PHP-Memcache 或者 PHP-Memcached 扩展。

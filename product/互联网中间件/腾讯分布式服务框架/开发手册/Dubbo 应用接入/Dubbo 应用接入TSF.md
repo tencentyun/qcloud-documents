@@ -63,5 +63,5 @@ TSF Demo（**注册中心地址使用注册中心IP和端口替换**）：
   <groupId>io.zipkin.brave</groupId>
   <artifactId>brave</artifactId>
   <version>5.4.3</version>
-</dependency>s
+</dependency>
 ```

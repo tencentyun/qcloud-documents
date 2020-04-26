@@ -16,7 +16,7 @@ COS 签名工具是腾讯云对象存储为用户提供的 Web 工具，可用�
 1. 单击 [COS 签名工具](https://cos5.cloud.tencent.com/static/cos-sign/)，进入 “COS 签名工具” 页面。
 2. 在 “基础信息” 栏中，选择 API 版本，填写签名有效时间。
 	- API 版本：选择 XML 版本 API。
-	- 签名有效时间：签名的有效时间。您可以单击【获取（60分钟有效期）】，即可获取一个有效时长为60分钟的签名。也可以自行输入一个有效的起止时间用于复现在该起止时间下的签名结果。相关签名有效时间的介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E7.AD.BE.E5.90.8D.E5.86.85.E5.AE.B9)。
+	- 签名有效时间：签名的有效时间。您可以单击【获取（60分钟有效期）】，即可获取一个有效时长为60分钟的签名。也可以自行输入一个有效的起止时间用于复现在该起止时间下的签名结果。相关签名有效时间的介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E7.94.9F.E6.88.90-keytime)。
 ![avatar](https://main.qcloudimg.com/raw/6855a2f6b18779037090e0769303bbc7.png)
 >?基础信息中的参数均为必填项。
 
@@ -38,15 +38,15 @@ API 密钥中的信息均为必填项。
 - **HttpURI：**必填项。HTTP 请求 URI 部分，即您需要发起请求的对象名称。
 - **HttpParameters：**可选项。HTTP 请求参数。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行 URLEncode，多个 key 以字典排序。
  例如，“prefix=abc” 代表指定访问对象前缀为 abc 的对象。
-- **HttpHeaders：**可选项。HTTP 请求头部。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行URLEncode，多个 key 以字典排序。
- 例如，“Host: bucket1-1254000000.cos.ap-beijing.myqcloud.com ”代表该签名可访问账户 1254000000 的存储桶 bucket1 下的指定文件。
+- **HttpHeaders：**可选项。HTTP 请求头部。当您需验证 url 参数时可填写该参数。其中，key 小写，value 需要进行 URLEncode，多个 key 以字典排序。
+ 例如，`Host:bucket1-1254000000.cos.ap-beijing.myqcloud.com`代表该签名可访问账户 1254000000 的存储桶 bucket1 下的指定文件，对应的 HttpHeaders 为`host=bucket1-1254000000.cos.ap-beijing.myqcloud.com`。
 
-相关 HTTP 请求参数的详细描述，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#signature-.E8.AE.A1.E7.AE.97)。
+相关 HTTP 请求参数的详细描述，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E6.AD.A5.E9.AA.A47.EF.BC.9A.E7.94.9F.E6.88.90-signature)。
 
 #### 生成签名及查阅过程参数
 
 单击【生成签名】，即可在右侧的 “结果反馈” 中，查看请求签名结果。如下图所示：
-COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#signature-.E8.AE.A1.E7.AE.97)。
+COS 签名工具将分别展示生成的最终签名及计算签名过程中的过程参数。相关过程参数的详细介绍，请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778#.E6.AD.A5.E9.AA.A47.EF.BC.9A.E7.94.9F.E6.88.90-signature)。
 
 ![avatar](https://main.qcloudimg.com/raw/4e5d3164848078e4ac2dc0b9b767ca00.png)
 

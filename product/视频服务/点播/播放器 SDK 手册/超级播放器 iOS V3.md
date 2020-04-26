@@ -25,7 +25,7 @@ pod 'SuperPlayer'
 ### 准备视频
 
 登录 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，单击左侧菜单栏的【媒资管理】，在“**已上传**”栏的视频列表中，将看到上传完成的视频，以及视频对应的 ID（即 FileId）。如果您还没有视频，请先单击【上传视频】，上传一个视频。
-![](https://main.qcloudimg.com/raw/69b347af5d260d31ed9eb16617388a3b.png)
+![](https://main.qcloudimg.com/raw/f80e23558bee2bd33b1f29a522fe8da9.png)
 
 通过 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) ，对上传的视频发起 [转自适应码流](https://cloud.tencent.com/document/product/266/34071) 任务：
 API 参数中的`MediaProcessTask.AdaptiveDynamicStreamingTaskSet.Definition`建议填10，表示转 HLS 格式的自适应码流。
@@ -56,14 +56,14 @@ playerModel.videoId = video;
 代码中的`appId`是您的 AppId，`fileId`是您要播放的视频 ID，`playDefinition`是您播放时使用的 [播放模板](https://cloud.tencent.com/document/product/266/34101#.E6.92.AD.E6.94.BE.E6.A8.A1.E6.9D.BF) ID，`version`固定填`SuperPlayerVideoId.FILE_ID_V3`。
 
 运行代码，可以看到视频在手机上播放，并且界面上大部分功能都处于可用状态。
-![](https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png)
+<img src="https://main.qcloudimg.com/raw/128c45edfc77b319475868c21caec2de.png" width="550">
 
 ## 缩略图与打点
 
 在播放视频时，进度条上的“缩略图”和“打点信息”，有助于观众找到感兴趣的点。缩略图通过 [雪碧图](https://cloud.tencent.com/document/product/266/8101) 实现，视频打点需要 [修改媒资中的打点信息](https://cloud.tencent.com/document/product/266/31762#.E7.A4.BA.E4.BE.8B3-.E4.BF.AE.E6.94.B9.E5.AA.92.E4.BD.93.E6.96.87.E4.BB.B6.E8.A7.86.E9.A2.91.E6.89.93.E7.82.B9.E4.BF.A1.E6.81.AF)。
 
 为视频截取雪碧图，并添加打点信息后，播放器的界面会增加新的元素。
-![](https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png)
+<img src="https://main.qcloudimg.com/raw/55ebce6d0c703dafa1ac131e1852e025.png" width="550">
 
 ## 播放 DRM 加密的视频
 
@@ -105,7 +105,7 @@ model.certificate = fairplay_cer; // FairPlay的certificate，从本地文件读
 [SuperPlayerWindow sharedInstance].backController = self;  // 设置返回的view controller
 [[SuperPlayerWindow sharedInstance] show]; // 悬浮显示
 ```
-![](https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg)
+<img src="https://main.qcloudimg.com/raw/e2ee64230af1b9c3a79cad935afa8b6a.jpeg" width="300">
 
 ## 退出播放
 
@@ -117,4 +117,4 @@ model.certificate = fairplay_cer; // FairPlay的certificate，从本地文件读
 ## 更多功能
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
-![iOS二维码下载](https://main.qcloudimg.com/raw/b670e99ddb3f0d828798520e19f40fa7.png)
+<img src="https://main.qcloudimg.com/raw/b670e99ddb3f0d828798520e19f40fa7.png" width="150">

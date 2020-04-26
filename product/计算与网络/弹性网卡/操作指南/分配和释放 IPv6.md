@@ -1,4 +1,4 @@
->? 弹性公网 IPv6 即将开启内测，敬请期待。
+>?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) 。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。
@@ -9,6 +9,6 @@
 ![](https://main.qcloudimg.com/raw/5c842277924dc62f3d0d92e4804fd6bc.png)
 6. 在“IPv6 地址管理”标签页中，您可看到系统已为弹性网卡分配一个 IPv6 地址。
 7. 您可以通过单击操作栏下的【释放】，释放 IPv6 地址。
->?释放前，请先关闭该 IPv6 地址的公网（即公网带宽设置为0）。
+>?释放前，请先关闭该 IPv6 地址的公网。
 >
 ![](https://main.qcloudimg.com/raw/40198bee694fefdc5b557ac6cb62df8d.png)

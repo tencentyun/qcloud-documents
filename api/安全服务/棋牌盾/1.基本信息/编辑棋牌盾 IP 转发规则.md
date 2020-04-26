@@ -13,7 +13,7 @@
 | protocol | 是 | String | 转发协议</br>目前固定为 TCP |
 | virtualPort | 是  | Integer | 转发端口                         |
 | sourcePort  | 是  | Integer | 源站端口                         |
-| ipList      | 是  | String  | 源站 IP 列表</br>每个 IP 以**“;”**分隔隔</br>源站 IP 最多为20个 |
+| ipList      | 是  | String  | 源站 IP 列表</br>每个 IP 以**“;”**分隔</br>源站 IP 最多为20个 |
 
 ## 响应参数
 无。
