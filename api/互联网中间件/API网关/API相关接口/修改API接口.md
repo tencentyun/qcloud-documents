@@ -24,7 +24,7 @@
 | requestParameters.n.defaultValue         | 否    | String  | API 的前端参数默认值。                             |
 | requestParameters.n.required             | 否    | Boolean | API 的前端参数是否必填，TRUE：表示必填，FALSE：表示可选。       |
 | requestParameters.n.desc                 | 否    | String  | API 的前端参数备注。                              |
-| serviceType                              | 否    | String | API 的后端服务类型，现在支持三种：HTTP，MOCK 和 SCF。         |
+| serviceType                              | 否    | String | API 的后端服务类型，现在支持三种：HTTP、MOCK 和 SCF。         |
 | serviceTimeout                           | 否    | Int     | API 的后端服务超时时间，单位是秒。                       |
 | serviceConfig.url                        | 否    | String  | API 的后端服务url。如果serviceType是HTTP，则此参数必传。   |
 | serviceConfig.path                       | 否    | String  | API 的后端服务路径，如 /path。如果 serviceType 是 HTTP，则此参数必传。前后端路径可不同。 | 
