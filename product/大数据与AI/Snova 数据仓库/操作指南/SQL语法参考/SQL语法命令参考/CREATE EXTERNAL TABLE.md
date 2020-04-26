@@ -67,7 +67,7 @@ CREATE WRITABLE EXTERNAL TABLE 或 CREATE WRITABLE EXTERNAL WEB TABLE 在数据�
 
 该 FORMAT 子句用于描述外部表格文件的格式。有效的文件格式是分隔文本（TEXT）逗号分隔值（CSV）格式，与 PostgreSQL 可用的格式化选项类似 **COPY** 命令。如果文件中的数据不使用默认列分隔符、转义字符、空字符串等，则必须指定其他格式选项，以便外部文件中的数据被数据库正确读取。有关使用自定义格式的信息，请参阅“数据库管理员指南中”的“装载和卸载数据”。
 
-在创建写入或从 COS 存储区中读取的外部表之前，必须配置数据库以支持协议。COS 外部表可以使用 CSV 或文本格式的文件可写的 COS 外部表仅支持插入操作。请参见**COS 协议配置**。
+在创建写入或从 COS 存储区中读取的外部表之前，必须配置数据库以支持协议。COS 外部表可以使用 CSV 或文本格式的文件可写的 COS 外部表仅支持插入操作。请参见 **COS 协议配置**。
 
 ## 参数
 
@@ -87,7 +87,7 @@ data_type
 列的数据类型。
 
 LOCATION ('protocol://host[:port]/path/file' [, ...])
-对于可读外部表，指定用于填充外部表或 Web 表的外部数据源的 URI。常规可读外部表允许 gpfdist 或文件协议。外部 Web 表允许 http 协议。如果端口被省略，端口8080被假定为 http 和 gpfdist 协议，端口9000为 gphdfs 协议。如果使用 gpfdist 协议，the 路径是相对于 gpfdist 服务文件的目录（启动 gpfdistgpfdist 程序时指定的目录)。此外，gpfdist 使用通配符或其他 C-style 模式匹配（例如：空格符为 [[:space:]]）表示目录中的多个文件。例如：
+对于可读外部表，指定用于填充外部表或 Web 表的外部数据源的 URI。常规可读外部表允许 gpfdist 或文件协议。外部 Web 表允许 http 协议。如果端口被省略，端口8080被假定为 http 和 gpfdist 协议，端口9000为 gphdfs 协议。如果使用 gpfdist 协议，the 路径是相对于 gpfdist 服务文件的目录（启动 gpfdistgpfdist 程序时指定的目录）。此外，gpfdist 使用通配符或其他 C-style 模式匹配（例如：空格符为 [[:space:]]）表示目录中的多个文件。例如：
 
 ```sql
 'gpfdist://filehost:8081/*'
@@ -105,7 +105,7 @@ EXECUTE 'command' [ON ...]
 允许只读可读外部 Web 表或可写外部表。对于可读取的外部 Web 表，要指定由 Segment 实例执行的 OS 命令。该命令可以是单个 OS 命令或脚本。ON 子句用于指定哪些 Segment 实例将执行给定的命令。
 
 FORMAT 'TEXT | CSV | AVRO | PARQUET' (options)
-指定外部或Web表格数据的格式，纯文本（TEXT）或逗号分隔值（CSV）格式。
+指定外部或 Web 表格数据的格式，纯文本（TEXT）或逗号分隔值（CSV）格式。
 仅使用 gphdfs 协议支持 AVRO 和 PARQUET 格式。
 
 FORMAT 'CUSTOM' (formatter=formatter_specification)
@@ -133,6 +133,7 @@ NEWLINE
 
 HEADER
 对于可读外部表，指定数据文件中的第一行是标题行（包含表列的名称），不应作为表的数据包含。 如果使用多个数据源文件，则所有文件必须有标题行。
+
 对于 s3 协议，标题行中的列名不能包含换行符 (\n) 或回车符 (\r)。
 
 QUOTE
@@ -148,7 +149,7 @@ FILL MISSING FIELDS
 在可读外部表的 TEXT 和 CSV 模式下，指定 FILL MISSING FIELDS 时，当一行数据在行或行的末尾缺少数据字段时，将丢失尾字段值设置为 NULL（而不是报告错误）。空行，具有 NOT NULL 约束的字段和行上的尾随分隔符仍然会报告错误。
 
 ENCODING 'encoding'
-字符集编码用于外部表。指定一个字符串常量 (如 'SQL_ASCII')，一个整数编码号或者 DEFAULT 来使用默认的客户端编码。 
+字符集编码用于外部表。指定一个字符串常量（如 'SQL_ASCII'），一个整数编码号或者 DEFAULT 来使用默认的客户端编码。 
 
 LOG ERRORS
 这是一个可选的子句，可以在 SEGMENT REJECT LIMIT 子句之前记录有关具有格式错误的行的信息。错误日志信息在内部存储，并使用数据库内置 SQL 函数 gp_read_error_log() 访问。
@@ -179,9 +180,9 @@ FORMAT 'csv';
 ```sql
 SELECT * from gp_read_error_log('ext_expenses');
 ```
-如果 table_name不存在，该函数返回 FALSE。
+如果 table_name 不存在，该函数返回 FALSE。
 - 如果指定的表存在错误日志数据，新的错误日志数据将附加到现有的错误日志数据。错误日志信息不会复制到镜像 Segment。
-- 使用内置的 SQL 函数 gp_truncate_error_log('table_name') 删除 table_name的错误日志数据。它需要表所有者权限，此示例删除将数据移动到表中时捕获的错误日志信息 ext_expenses：
+- 使用内置的 SQL 函数 gp_truncate_error_log('table_name') 删除 table_name 的错误日志数据。它需要表所有者权限，此示例删除将数据移动到表中时捕获的错误日志信息 ext_expenses：
 ```sql
 SELECT gp_truncate_error_log('ext_expenses'); 
 ```
@@ -216,7 +217,7 @@ REGION：cos 支持的地域，需要和实例在相同地域，可选值参考 
 BUCKET：cos 桶名称。
 PREFIX：cos 对象名称前缀。prefix 可以为空，可以包括多个斜杠。
 
-在定义只读表场景下，prefix 指定需要读取的对象名前缀，如果 prefix 为空，读取 bucket 下所有文件；如果 prefix 以斜杠(/)结尾，则匹配改文件夹下面的所有文件及子文件夹中的文件；否则，读取前缀匹配的所有文件夹及子文件夹中的文件。例如 cos 对象包括：
+在定义只读表场景下，prefix 指定需要读取的对象名前缀，如果 prefix 为空，读取 bucket 下所有文件；如果 prefix 以斜杠（/）结尾，则匹配改文件夹下面的所有文件及子文件夹中的文件；否则，读取前缀匹配的所有文件夹及子文件夹中的文件。例如 cos 对象包括：
 read-bucket/simple/a.csv
 read-bucket/simple/b.csv
 read-bucket/simple/dir/c.csv
