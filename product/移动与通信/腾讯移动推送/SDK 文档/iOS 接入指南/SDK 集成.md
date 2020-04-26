@@ -81,7 +81,7 @@ return YES;
    ```
 	2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
 		```objective-c
-		///统一收到通知消息的回调
+		/// 统一收到通知消息的回调
 		/// @param notification 消息对象
 		/// @param completionHandler 完成回调
 		/// 区分消息类型说明：xg字段里的msgtype为1则代表通知消息msgtype为2则代表静默消息
