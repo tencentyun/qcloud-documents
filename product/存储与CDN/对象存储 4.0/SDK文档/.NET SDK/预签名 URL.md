@@ -28,8 +28,8 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 | preSignatureStruct | PreSignatureStruct           | 预签名 URL 实例                 |
 | method             | string                       | HTTP 请求方法                   |
 | path               | string                       | HTTP 请求路径，即对象键         |
-| headers            | `Dictionary<string, string>` | 签名是否校验 header             |
-| queryParameters    | `Dictionary<string, string>` | 签名是否校验请求 url 中查询参数 |
+| headers            | `Dictionary<string, string>` | 签名的请求头             |
+| queryParameters    | `Dictionary<string, string>` | 签名的请求参数 |
 | signDurationSecond | long                         | 签名有效期时长（单位为秒），例如签名有效时期为1分钟：60          |
 
 #### PreSignatureStruct 结构体说明
@@ -44,8 +44,8 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 | method             | string                       | HTTP 请求方法                      |
 | isHttps            | bool                         | <li>true：HTTPS 请求<br><li>false：HTTP 请求 |
 | key                | string                       | 对象键                             |
-| headers            | `Dictionary<string, string>` | 签名是否校验 header                |
-| queryParameters    | `Dictionary<string, string>` | 签名是否校验请求 url 中查询参数    |
+| headers            | `Dictionary<string, string>` | 签名的请求头                |
+| queryParameters    | `Dictionary<string, string>` | 签名的请求参数    |
 | signDurationSecond | long                         | 签名有效期时长（单位为秒），例如签名有效时期为1分钟：60               |
 
 ## 请求示例
@@ -59,7 +59,7 @@ CosXmlConfig config = new CosXmlConfig.Builder()
   .SetReadWriteTimeoutMs(40000)  //设置读写超时时间，单位毫秒，默认45000ms
   .IsHttps(true)  //设置默认 HTTPS 请求
   .SetAppid("1250000000") //设置腾讯云账户的账户标识 APPID
-  .SetRegion("ap-guangzhou") //设置一个默认的存储桶地域
+  .SetRegion("COS_REGION") //设置一个默认的存储桶地域
   .Build();
 
 string secretId = "COS_SECRETID";   //云 API 密钥 SecretId
@@ -74,7 +74,7 @@ try
 {
   PreSignatureStruct preSignatureStruct = new PreSignatureStruct();
   preSignatureStruct.appid = "1250000000";//腾讯云账号 APPID
-  preSignatureStruct.region = "ap-guangzhou"; //存储桶地域
+  preSignatureStruct.region = "COS_REGION"; //存储桶地域
   preSignatureStruct.bucket = "examplebucket-1250000000"; //存储桶
   preSignatureStruct.key = "exampleobject"; //对象键
   preSignatureStruct.httpMethod = "PUT"; //HTTP 请求方法
@@ -83,7 +83,7 @@ try
   preSignatureStruct.headers = null;//签名中需要校验的 header
   preSignatureStruct.queryParameters = null; //签名中需要校验的 URL 中请求参数
 
-  //上传预签名 URL (使用永久密钥方式计算的签名 URL )
+  //上传预签名 URL (使用永久密钥方式计算的签名 URL)
   string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct);
 
   string srcPath = @"temp-source-file";//本地文件绝地路径
@@ -121,7 +121,7 @@ CosXmlConfig config = new CosXmlConfig.Builder()
   .SetReadWriteTimeoutMs(40000)  //设置读写超时时间，单位毫秒，默认45000ms
   .IsHttps(true)  //设置默认 HTTPS 请求
   .SetAppid("1250000000") //设置腾讯云账户的账户标识 APPID
-  .SetRegion("ap-guangzhou") //设置一个默认的存储桶地域
+  .SetRegion("COS_REGION") //设置一个默认的存储桶地域
   .Build();
 
 string secretId = "COS_SECRETID";   //云 API 密钥 SecretId
@@ -136,7 +136,7 @@ try
 {
   PreSignatureStruct preSignatureStruct = new PreSignatureStruct();
   preSignatureStruct.appid = "1250000000";//腾讯云账号 APPID
-  preSignatureStruct.region = "ap-guangzhou"; //存储桶地域
+  preSignatureStruct.region = "COS_REGION"; //存储桶地域
   preSignatureStruct.bucket = "examplebucket-1250000000"; //存储桶
   preSignatureStruct.key = "exampleobject"; //对象键
   preSignatureStruct.httpMethod = "GET"; //HTTP 请求方法
@@ -147,7 +147,7 @@ try
 
   string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct); 
 
-  //载请求预签名 URL (使用永久密钥方式计算的签名 URL )
+  //下载请求预签名 URL (使用永久密钥方式计算的签名 URL)
   string localDir = System.IO.Path.GetTempPath();//本地文件夹
   string localFileName = "my-local-temp-file"; //指定本地保存的文件名
   GetObjectRequest request = new GetObjectRequest(null, null, localDir, localFileName);

@@ -37,7 +37,7 @@ Request body
 ```
 
 > ?
-> - Authorization: Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 请求参数中 select 和 select-type=2 参数均为必填参数，其中 select 代表发起 select 请求，select-type=2 代表这一接口的版本信息。
 
 #### 请求头

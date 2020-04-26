@@ -18,7 +18,7 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 from tencentcloud.asr.v20190614 import asr_client, models 
 import base64
 
-//通过语音 URL 方式调用
+#通过语音 URL 方式调用
 try: 
     #重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息
     #请参考接口说明中的使用步骤1进行获取。
@@ -54,7 +54,7 @@ from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentClo
 from tencentcloud.asr.v20190614 import asr_client, models 
 import base64
 
-//通过本地语音上传方式调用    
+#通过本地语音上传方式调用    
 try: 
     
     #重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息

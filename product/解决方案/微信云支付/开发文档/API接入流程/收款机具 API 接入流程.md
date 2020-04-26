@@ -87,7 +87,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 6. **邮件发送加密文件**
 将加密文件发送到 [5.1 申请初始资源](#5.1-.E7.94.B3.E8.AF.B7.E5.88.9D.E5.A7.8B.E8.B5.84.E6.BA.90) 所述的接收加密文件的邮箱地址， 需要发送的文件有`sn_init_key.txt.encrypted`和`encrypt_key.txt.encrypted`。如果要将文件打包进行发送，则必须使用 zip 来压缩。邮件发送时，抄送人需添加厂商相关管理人员。
 7. **其它说明**
-以上所有文件都以 UTF-8 编码，发送前请先确认不能有可见/不可见的特殊字符。
+以上所有文件都以 UTF-8 无 BOM 编码，发送前请先确认不能有可见/不可见的特殊字符。
 邮件发送完成后，销毁`encrypt_key.txt`和`sn_init_key.txt`（无用时销毁）文件，同时需保管好`public.key`文件，这些文件禁止外泄。
 
 ## 7. 机具绑定相关流程说明
@@ -896,7 +896,7 @@ return w.write(request);
 | mem_in_use              | 否   | Int            | 4          | 当前已用内存 KB。                                    |
 | disk_max                | 否   | Int            | 4          | 最大硬盘 KB。                                        |
 | disk_in_use             | 否   | Int            | 4          | 当前已用硬盘 KB。                                    |
-| network_type            | 是   | String         |   -         | 支付所使用的网络类型：Wi-Fi	、2G、3G、4G 等。          |
+| network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g 等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
 | mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |

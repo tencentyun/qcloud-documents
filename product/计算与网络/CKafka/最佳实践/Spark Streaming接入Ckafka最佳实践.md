@@ -1,10 +1,8 @@
 ## Spark Streaming 简介
 Spark Streaming 是 Spark Core 的一个扩展，用于高吞吐且容错地处理持续性的数据，目前支持的外部输入有 Kafka、Flume、HDFS/S3、Kinesis、Twitter 和 TCP socket。
- 
 ![Alt text](https://mc.qcloudimg.com/static/img/b95ad071d2273bde7b9d8b64894c7ce6/111.png)
 
 Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 DStream 由一系列连续的 RDD（弹性分布式数据集）组成，每个 RDD 是一定时间间隔内产生的数据。使用函数对 DStream 进行处理其实即为对这些 RDD 进行处理。
-
 ![Alt text](https://mc.qcloudimg.com/static/img/f6f2869bc18bffc9a8e4e807276dd5a6/222.png)
 
 使用 Spark Streaming 作为 Kafka 的数据输入时，可支持 Kafka 稳定版本与实验版本：
@@ -28,15 +26,14 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 ## Spark Streaming 接入 CKafka
 
 ### 申请 Ckafka 实例
-登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931#.E5.88.9B.E5.BB.BA.E5.AE.9E.E4.BE.8B)）。
+登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
 >?确认网络类型是否与当前使用网络相符。
 
-![Alt text](https://mc.qcloudimg.com/static/img/d7ee601da4d342cb2651d6a39db99e45/1501596501359.png)
-
+![](https://main.qcloudimg.com/raw/41cdd13de9e1fe2f602f9e66daf46da7.png)
 
 ### 创建 Topic
-在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/30931#.E5.88.9B.E5.BB.BA-topic)）。
-![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
+在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)）。
+![](https://main.qcloudimg.com/raw/175cc4f3defcb58ef5e7166d07b929f5.png)
 内网 IP 与端口：是生产消费需要用到的 bootstrap-server。
 这里创建了一个名为 spark_test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
 

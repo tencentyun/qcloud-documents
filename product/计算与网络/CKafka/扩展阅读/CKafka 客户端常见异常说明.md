@@ -26,6 +26,8 @@
 | NetworkException | 客户端连接被服务器端关闭。| 网络异常或连接数超过限制。 |
 | NotEnoughReplicasException | ISR 数量不够。| 在写入数据时 Partition 的 ISR 数量小于 Topic 配置的 min.insync.replicas，可能由于 ISR 抖动导致。 |
 | NotEnoughReplicasAfterAppendException | 数据写入 Broker 本地后，发生 ISR 抖动导致无法满足 min.insync.replicas。 | - | 
+| BrokerNotAvailableError |  未找到该分区的 Leader。 | 由于客户端会缓存 Topic 的 Metadata，所以当 Partition 的 Leader 切换时，生产或消费请求可能仍然发送到旧 Leader 上，此时会返回该错误给客户端。客户端会自动更新 Metadata 信息，在 Leader 切换后，新生产的请求发送到老的 Leader 报错应该后会自动调整到新的 Leader 上，理论上不会影响数据写入消费的完整性。 |
+| NotLeaderForPartitionError | 未找到该分区的 Leader。  | 由于客户端会缓存 Topic 的 Metadata，所以当 Partition 的 Leader 切换时，生产或消费请求可能仍然发送到旧 Leader 上，此时会返回此错误给客户端，客户端会自动更新 Metadata 信息，在 Leader 切换后，新生产的请求发送到老的 Leader 报错应该后会自动调整到新的 Leader 上，理论上不会影响数据写入消费的完整性。 |
 
 #### 以下异常在日志配置为 DEBUG 级别会出现，客户端会自动处理。 
 

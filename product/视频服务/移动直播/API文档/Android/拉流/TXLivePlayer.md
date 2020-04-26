@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
+| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
 
 ***
 
@@ -355,7 +355,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXAudioVolumeEvaluationListener](#ITXAudioVolumeEvaluationListener) | 音量大小回调接口。 |
+| listener | [ITXAudioVolumeEvaluationListener](#itxaudiovolumeevaluationlistener) | 音量大小回调接口。 |
 
 ***
 
@@ -374,7 +374,7 @@ __参数__
 
 __介绍__
 
-开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估
+开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估。
 
 ***
 
@@ -599,7 +599,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 TXVodPlayer 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
 
 ***
 
@@ -618,7 +618,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 TXVodPlayer 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
 
 ***
 

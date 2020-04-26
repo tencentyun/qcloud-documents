@@ -29,7 +29,7 @@ __介绍__
 接口说明：
 - 默认值：HOME_ORIENTATION_DOWN（竖屏推流）。
 - 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。
-- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 setRenderRotation 进行矫正。
+- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34775#setrenderrotation) 进行矫正。
 
 ***
 

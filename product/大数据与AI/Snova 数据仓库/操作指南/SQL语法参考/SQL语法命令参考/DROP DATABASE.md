@@ -7,7 +7,7 @@ DROP DATABASE [IF EXISTS] name
 ```
 
 ## 描述
-注意：DROP DATABASE 不能被撤销，请小心使用。
+>!DROP DATABASE 不能被撤销，请小心使用。
 
 DROP DATABASE 删除了一个数据库。它删除了数据的目录条目并且删除了包含该数据的目录。它只能被拥有该数据库的用户执行。另外，当用户或者是其他用户正连接到该数据库时候，是不能执行删除该数据库操作的（连接到 postgres 或其他数据库来发出此命令）。
 
@@ -34,7 +34,7 @@ DROP DATABASE testdb;
 
 ## 兼容性
 
-SQL标准中没有 DROP DATABASE 语句。
+SQL 标准中没有 DROP DATABASE 语句。
 
 ## 另见
 

@@ -177,7 +177,7 @@ TIMSetRecvNewMsgCallback([](const char* json_msg_array, const void* user_data) {
 }, user_data);
 ```
 
-更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timsetrecvnewmsgcallback)。
+更多消息收发操作请参考 [消息发送](https://cloud.tencent.com/document/product/269/33549) 和 [消息接收](https://cloud.tencent.com/document/product/269/33551#timaddrecvnewmsgcallback)。
 
 ## 群组管理
 

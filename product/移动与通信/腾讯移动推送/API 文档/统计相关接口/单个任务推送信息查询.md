@@ -35,7 +35,7 @@ https://api.tpns.tencent.com/v3/statistics/get_push_record
 | environment      | string             | 推送环境               | <li>product //生产环境<li>dev //开发环境                         |
 | expireTime       | uint32             | 过期时间               | 单位 s                                                       |
 | xgMediaResources | string             | 富媒体信息             | -                                                            |
-| multiPkg         | bool               | 是否多包名推送         | -                                                            |
+| multiPkg         | bool               | 是否多包名推送         | <li>true //开启多包名推送<li>false //关闭多包名推送                                                             |
 | targetList       | jsonArrary(string) | 推送账号或推送设备列表 | pushType 为 token_list 或 account_list 时有效                     |
 | tagSet           | JsonObject         | 标签设置               | pushType 为 tag 时有效<br>数据结构：<br><code>{<br>"op":"OR", //标签间逻辑操作<br>"tagWithType":[<br>{ "tagTypeName":"xg_user_define", //标签类型<br>"tagValue":"test68" //标签值}<br>]<br>} </code>|
 | uploadId         | uint32             | 号码包 ID               | pushType 为 package_account_push 时有效                         |
@@ -46,88 +46,85 @@ https://api.tpns.tencent.com/v3/statistics/get_push_record
 #### Android 推送配置信息
 
 ```json
-"android":{
- "ring":1, //响铃
- "vibrate":0, //震动
- "lights":1, //呼吸灯
- "clearable":1, //是否可清除
- "action":{
- // 动作类型，1，打开activity或app本身；2，打开浏览器；3，打开Intent
- "action_type":1
- },
- "custom_content":"{}" //自定义参数
-}
-```
-
+"android": {
+        "ring": 1, //响铃     
+        "vibrate": 1,//震动
+        "lights": 1,//呼吸灯
+        "clearable": 1, //是否可清除     
+        "action": {
+            "action_type": 3,// 动作类型，1，打开activity或app本身；2，打开浏览器；3，打开Intent         
+            "intent": "" //SDK版本需要大于等于1.0.9，然后在客户端的intent配置data标签，并设置scheme属性
+        },
+      "custom_content":"{}"
+    }
+	```
 #### iOS 推送配置信息
 
 ```json
 "ios":{
- "aps": {
- "alert": {
- "subtitle": "my subtitle"
- },
- "badge_type": 5, //App显示的角标数(可选) -2 自增，-1 不变，
- "sound":"通知音效", //缺省代表默认音效
- "category": "INVITE_CATEGORY",
- "mutable-content" : 1
- }
-}
+        "aps": {
+            "alert": {
+                "subtitle": "my subtitle"
+            },
+            "badge_type": 5, //App显示的角标数(可选) -2 自增，-1 不变，
+            "category": "INVITE_CATEGORY",
+            "sound":"default",//缺省代表默认音效
+            "mutable-content":1
+        },
 ```
-
 
 ## 示例说明
 #### 请求示例
 ```json
 {
- "pushId": "133703"
+    "pushId": "133703"
 }
 ```
 
 #### 应答示例
 ```json
 {
- "retCode": 0,
- "errMsg": "NO_ERROR",
- "pushRecordData": [
- {
- "date": "2019-07-25 20:06:28",
- "pushId": 133703,
- "title": "1",
- "content": "2",
- "status": "PUSH_FINISHED"
- "pushType":"tag",
- "targetList":null,
- "tagSet":{
- "op":"OR",
- "tagWithType":[
- {
- "tagTypeName":"xg_user_define",
- "tagValue":"test68"
- }
- ]
- },
- "uploadId":0,
- "expireTime":86400,
- "messageType":"notify",
- "xgMediaResources":"",
- "environment":"product",
- "pushConfig":{
- "android":{
- "ring":1,
- "vibrate":0,
- "lights":1,
- "clearable":1,
- "action":{
- "action_type":1
- },
- "custom_content":"{}"
- },
- "ios":null,
- },
- "multiPkg":false
- }
- ]
+    "retCode": 0,
+    "errMsg": "NO_ERROR",
+    "pushRecordData": [
+        {
+            "date": "2019-07-25 20:06:28",
+            "pushId": 133703,
+            "title": "1",
+            "content": "2",
+            "status": "PUSH_FINISHED",
+            "pushType": "tag",
+            "targetList": null,
+            "tagSet": {
+                "op": "OR",
+                "tagWithType": [
+                    {
+                        "tagTypeName": "xg_user_define",
+                        "tagValue": "test68"
+                    }
+                ]
+            },
+            "uploadId": 0,
+            "expireTime": 86400,
+            "messageType": "notify",
+            "xgMediaResources": "",
+            "environment": "product",
+            "pushConfig": {
+                "android": {
+                    "ring": 1,
+                    "vibrate": 0,
+                    "lights": 1,
+                    "clearable": 1,
+                    "action": {
+                        "action_type": 1
+                    },
+                    "custom_content": "{}"
+                },
+                "ios": null
+            },
+            "multiPkg": false
+        }
+    ]
 }
 ```
 

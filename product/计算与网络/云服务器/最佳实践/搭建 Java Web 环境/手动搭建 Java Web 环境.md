@@ -12,9 +12,6 @@
 - JDK：Java 开发工具包，本文以 JDK 1.8.0_221 为例。
 
 
-
-
-
 ## 前提条件
 已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
@@ -74,9 +71,9 @@ wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.47/bin/apac
 ```
 tar xzf apache-tomcat-8.5.47.tar.gz
 ```
-3. 执行以下命令，将解压后的源码包移动到 `/usr/local/tomcat/` 目录下。
+3. 执行以下命令，将解压后的文件夹下的文件移动到 `/usr/local/tomcat/` 目录下。
 ```
-mv apache-tomcat-8.5.47.tar.gz /usr/local/tomcat/
+mv apache-tomcat-8.5.47 /usr/local/tomcat/
 ```
 4. 执行以下命令，打开 `server.xml` 文件。
 ```

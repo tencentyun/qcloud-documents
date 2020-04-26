@@ -47,8 +47,8 @@ mTIMSdkConfig.setLogListener(new TIMLogListener() {
 在权限允许的情况下，IM SDK 的日志默认会写到日志文件中。通过 `TIMSdkConfig` 中的 `setLogLevel` 接口修改 IM SDK 内部写日志级别可以控制 IM SDK 的文件日志输出。
 
 >!
-> * 设置写日志等级， **必须在 IM SDK 初始化之前调用**，在 IM SDK 初始化之后设置无效。
-> * 可以通过设置日志级别为 `TIMLogLevel.OFF` 来关闭 IM SDK 的文件日志输出，提升性能，建议在开发期间打开日志，方便排查问题。
+>- 设置写日志等级， **必须在 IM SDK 初始化之前调用**，在 IM SDK 初始化之后设置无效。
+>- 可以通过设置日志级别为 TIMLogLevel.OFF 来关闭 IM SDK 的文件日志输出，建议打开日志，方便排查问题。
 
 **原型：**
 
@@ -276,11 +276,10 @@ public interface TIMUserStatusListener {
 
 用户在线情况下的互踢情况如下图所示。用户在设备 1 登录，保持在线状态下，该用户又在设备 2 登录，这时用户会在设备 1 上强制下线，收到 `onForceOffline` 回调。用户在设备 1 上收到回调后，提示用户，可继续调用 `login` 上线，强制设备 2 下线。这里是在线情况下互踢过程。
 
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151015021645_19906.png)
+![](https://main.qcloudimg.com/raw/5f4091568e3bae2b625112add7ae60fe.png)
 
 用户离线状态互踢如下图所示。用户在设备 1 登录，没有进行 `logout` 情况下杀掉应用进程。该用户在设备 2 登录，此时由于应用进程已不在了，设备 1 无法感知此事件，为了显式提醒用户，避免无感知的互踢，用户重新在设备 1 登录时，会返回（`ERR_IMSDK_KICKED_BY_OTHERS：6208`）错误码，表明之前被踢，是否需要把对方踢下线。如果需要，则再次调用`login`强制上线，设备2的登录的实例将会收到 `onForceOffline` 回调。
-
-![](//avc.qcloud.com/wiki2.0/im/imgs/20151015021702_68733.png)
+![](https://main.qcloudimg.com/raw/4fb97b610d233d87c0057031f91cf683.png)
 
 ### 用户票据过期通知
 

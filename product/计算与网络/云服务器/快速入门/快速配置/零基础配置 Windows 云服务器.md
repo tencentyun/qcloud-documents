@@ -1,6 +1,8 @@
 本文主要介绍如何从零开始，以最简单的方式搭建一个 Windows 云服务器。
 
-如果您之前没有搭建云服务器的经验，建议您按照本文介绍的方式来购买和配置您的第一台云服务器。
+如果您之前没有搭建云服务器的经验，建议您按照以下视频及文档，购买和配置您的第一台云服务器。
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2027-24330?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 本文是搭建 Windows 云服务器入门教程。若想了解搭建 Linux 云服务器的入门教程，可以参考 <a href="https://cloud.tencent.com/document/product/213/2936" hotrep="document.guide.2764.link1">快速配置 Linux 云服务器</a>。
 

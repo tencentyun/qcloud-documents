@@ -1,3 +1,6 @@
+以下视频将为您介绍 CMQ 和开源消息队列的优势对比：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1628-11592?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 对比 RabbitMQ 的优势
 - **CMQ-QPS 优势：**在保证高可靠前提下，同等物理设备，CMQ 的吞吐量优于 RabbitMQ 四倍以上。单集群 QPS 超过10万。
 

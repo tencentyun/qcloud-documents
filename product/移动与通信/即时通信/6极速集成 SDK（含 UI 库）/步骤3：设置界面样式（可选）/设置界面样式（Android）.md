@@ -56,7 +56,7 @@ public static void customizeConversation(final ConversationLayout layout) {
     listLayout.setItemTopTextSize(16); // 设置 item 中 top 文字大小
     listLayout.setItemBottomTextSize(12);// 设置 item 中 bottom 文字大小
     listLayout.setItemDateTextSize(10);// 设置 item 中 timeline 文字大小
-    listLayout.enableItemRoundIcon(true);// 设置 item 头像是否显示圆角，默认是方形
+    listLayout.setItemAvatarRadius(5); // 设置 adapter item 头像圆角大小
     listLayout.disableItemUnreadDot(false);// 设置 item 是否不显示未读红点，默认显示
     // 长按弹出菜单
     listLayout.setOnItemLongClickListener(new ConversationListLayout.OnItemLongClickListener() {
@@ -115,13 +115,13 @@ if (!TextUtils.isEmpty(conversation.getIconUrl())) {
 
 ```java
 /**
- * 获取聊天窗口 Message 区域 Layout
+ * 获取聊天窗口 Notice 区域 Layout
  * @return
  */
 NoticeLayout getNoticeLayout();
 
 /**
- * 获取聊天窗口 Notice 区域 Layout
+ * 获取聊天窗口 Message 区域 Layout
  * @return
  */
 MessageLayout getMessageLayout();
