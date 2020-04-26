@@ -56,7 +56,7 @@ spec:
   - name: user # 服务名
     ports:     	
     - targetPort: 8091 # 服务监听端口 
-      protocol: http # 目前仅支持 http
+      protocol: http # 目前支持 http 和 http2，您可使用 http2 部署gRPC服务
     healthCheck:
       path: /health # 健康检查 URL
 ```
