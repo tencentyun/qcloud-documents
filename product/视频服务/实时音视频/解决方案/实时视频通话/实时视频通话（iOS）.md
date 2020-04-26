@@ -119,7 +119,7 @@ iOS/trtcScenesDemo/trtcScenes/TRTCVideoCallDemo/model
 </tr>
 <tr>
 <td>sdkAppID</td>
-<td>您可以在实时音视频控制台 > 【<a href="https://console.cloud.tencent.com/trtc/app">应用管理</a>】中查看 SDKAppID。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>user</td>
