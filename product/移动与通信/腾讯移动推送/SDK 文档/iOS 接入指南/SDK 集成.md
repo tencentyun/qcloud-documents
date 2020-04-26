@@ -136,8 +136,8 @@ return YES;
 在调试阶段，建议实现协议中的此方法，即可获取更详细的调试信息：
 
 ```objective-c
+/**
  @brief 注册推送服务回调
- 
  @param deviceToken APNs 生成的 Device Token
  @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
  @param error 错误信息，若 error 为 nil 则注册推送服务成功
@@ -154,7 +154,6 @@ return YES;
 ```
 >?在推送单个目标设备时请使用 XG 36位的 Token。
 
-## 自定义响应消息内容
 ## 统一接收消息及点击消息回调说明
 
 - 高于iOS 10.0 的系统版本，点击消息，此函数将被调用.
