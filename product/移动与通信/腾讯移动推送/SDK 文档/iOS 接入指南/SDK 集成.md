@@ -158,8 +158,8 @@ return YES;
 如果 Xcode 控制台，显示如下相似日志，表明客户端已经正确集成 SDK。
 
 ```javascript
-[xgpush]Current device token is 80ba1c251161a397692a107f0433d7fd9eb59991583a925030f1b913625a9dab
-[xgpush]Current XG token is 05da87c0ae5973bd2dfa9e08d884aada5bb2
+[TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
+[TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184  
 ```
 >?在推送单个目标设备时请使用 XG 36位的 Token。
 
