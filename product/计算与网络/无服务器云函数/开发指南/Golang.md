@@ -13,7 +13,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/tencentyun/scf-go-lib/cloudfunction"
+	"github.com/tencentyun/scf-go-lib/events"
 )
 
 type DefineEvent struct {
