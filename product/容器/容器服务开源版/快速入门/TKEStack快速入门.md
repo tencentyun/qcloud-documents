@@ -2,7 +2,30 @@
 腾讯云容器服务开源版（Tencent Kubernetes Engine Stack，TKE Stack）是面向私有化环境的开源容器编排引擎。您可参考本文安装并创建容器服务开源版控制台，并通过控制台创建和管理容器集群，在集群内快速、弹性地部署服务。
 
 ## 前提条件
-已具备2个可使用节点，其中1个节点机型至少配置8核16G内存。另1个节点无特殊要求，作为 installer 节点使用。本文均以操作系统为 CentOS 7.6 的腾讯云云服务器为例。详情请参见 [创建实例](https://tcloud-doc.isd.com/document/product/213/4855)。
+已具备4个可用节点，详细配置见下表。本文均以操作系统为 CentOS 7.6 的腾讯云云服务器为例，节点创建请参见 [创建实例](https://tcloud-doc.isd.com/document/product/213/4855)。
+
+<table>
+<tr>
+<th>集群描述</th> <th>节点/集群</th> <th>CPU 核数</th>
+<th>内存</th> <th>系统盘</th> <th>数量</th>
+</tr>
+<tr>
+<td rowspan=2>Global 集群</td><td>Installer 节点</td><td>1</td>
+<td>2G</td><td>50G</td><td>1</td>
+</tr>
+<tr>
+<td>Global 集群</td><td>8</td>
+<td>16G</td><td>100G</td><td>1</td>
+</tr>
+<tr>
+<td rowspan=2>业务集群</td><td>Master & etcd</td><td>4</td>
+<td>8G</td><td>100G</td><td>1</td>
+</tr>
+<tr>
+<td>Node</td><td>8</td>
+<td>16G</td><td>100G</td><td>1</td>
+</tr>
+</table>
 
 
 ## 步骤1：控制台安装
