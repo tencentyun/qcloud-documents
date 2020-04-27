@@ -1,15 +1,13 @@
 ## 概述
-在生产环境中，经常遇到将数据库中的数据写入 ClickHouse 集群中。本文介绍两种将 MySQL 数据库中的数据导入到 ClickHouse 集群的方案。
-
+本文介绍两种将 MySQL 数据库中的数据导入到 ClickHouse 集群的方案。
 - 利用 ClickHouse 支持 MySQL 外表的特性来实现。
-- 使用 Altinity 提供的`clickhouse-mysql-data-reader` 工具来实现数据导入。
+- 使用 Altinity 提供的`clickhouse-mysql-data-reader`工具来实现数据导入。
 
 本文示例中，将 MySQL 数据表 test.clickhouse_test 中的数据导入到 ClickHouse 集群中，该表的 Schema 如下：
 ![](https://main.qcloudimg.com/raw/7403cab1c8f0a68fa2fe3ce0227225ab.jpg)
                          
 
 ## 基于 MySQL 表引擎来实现数据导入（简易方案）
-
 ClickHouse 的 MySQL 表引擎可以对存储在远程 MySQL 服务器上的数据执行 SELECT 查询。基于这样能力，利用`CREATE ... SELECT * FROM`或者`INSERT INTO ... SELECT * FROM`语句即可完成数据导入。
 
 **具体步骤：**

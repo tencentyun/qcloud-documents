@@ -43,7 +43,7 @@
 ```xml
 <view class="container-box">
 <view class="player-view">
-  <live-room-play liveAppID="1258550678" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
+  <live-room-play version={{version} liveAppID="{{liveAppID}}" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
     minCache="{{minCache}}" maxCache="{{maxCache}}" mode="{{mode}}" muted="{{muted}}" debug="{{debug}}" bindPlayEvent="onPlayEvent" >
   </live-room-play>
 </view>
@@ -65,7 +65,7 @@
 在 page 的`.wxml`文件加载上一步引入的`live-room-push`组件。
 
 ```xml
-<live-room-push liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
+<live-room-push version={{version} liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
   debug="{{debug}}" autoFocus="{{autoFocus}}" aspect="{{aspect}}" minBitrate="{{minBitrate}}" maxBitrate="{{maxBitrate}}" zoom="{{zoom}}" devicePosition="{{devicePosition}}" sdkAppID="{{sdkAppID}}" accountType="{{accountType}}" userID="{{userID}}" userSig="{{userSig}}"
   roomID="{{roomID}}" nickName="{{nickName}}" avatar="{{avatar}}" bindPushEvent="onPushEvent" bindIMEvent="onIMEvent">
 ```
@@ -173,65 +173,51 @@ var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 
 ### live-room-play 组件提供如下接口
 
-- 可参考微信小程序组件[LivePlayerContext方法](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)。
-
+- 可参考微信小程序组件 [LivePlayerContext 方法](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePlayerContext.html)。
 - start
   开始播放。调用之后会启动播放。在开始播放之前，`playUrl`也要保证已经设置到组件属性中。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.start();
 ```
-
 - stop
   结束播放。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.stop();
 ```
-
 - requestFullScreen
   全屏播放。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.requestFullScreen(true);        //全屏播放
 //liveRoomComponent.requestFullScreen(false);    //退出全屏
 ```
-
 - pause
   暂停播放。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.pause();        //暂停播放
 ```
-
 - resume
   恢复播放。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.resume();        //恢复播放
 ```
-
 - mute
   静音。
-
 ```
 // 获取live-room-play组件实例
 var liveRoomComponent = plugin.instance.getLiveRoomInstance();
 liveRoomComponent.mute();        //静音
 ```
-
 - 如果小程序需要后台播放纯音频流，可以使用纯音频的转码流进行播放，示例代码如下：
-
 ```
 this.audio = wx.getBackgroundAudioManager();
 this.audio.protocol = 'hls';// 这个属性设置为hls才支持m3u8类型的直播流
@@ -243,29 +229,23 @@ this.audio.src = "http://domain/live/streamName_pureAudio.m3u8?txSecret=xxxx&txT
 
 ### live-room-push 组件提供如下接口
 
-- 可参考微信小程序组件[LivePusherContext方法](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)。
-
+- 可参考微信小程序组件 [LivePusherContext 方法](https://developers.weixin.qq.com/miniprogram/dev/api/media/live/LivePusherContext.html)。
 - start
   开始推流。调用之后会启动推流。在开始推流之前，`pushUrl`也要保证已经设置到组件属性中。
-
 ```
 // 获取live-room-push组件实例
 var liveRoomPushComponent = plugin.instance.getLiveRoomPushInstance();
 liveRoomPushComponent.start();
 ```
-
 - stop
   结束推流。
-
 ```
 // 获取live-room-push组件实例
 var liveRoomPushComponent = plugin.instance.getLiveRoomPushInstance();
 liveRoomPushComponent.stop();
 ```
-
 - snapshot
   截图。
-
 ```
 liveRoomPushComponent.snapshot({
     success: function (res){
@@ -277,24 +257,18 @@ liveRoomPushComponent.snapshot({
     }
 });
 ```
-
 - switchCamera
   切换前后摄像头。
-
 ```
 liveRoomComponent.switchCamera();
 ```
-
 - toggleTorch
   打开/关闭手电筒。
-
 ```
 liveRoomComponent.toggleTorch();
 ```
-
 - playBGM
   播放背景音乐。
-
 ```
 liveRoomComponent.playBGM({
     url: media_url,
@@ -303,31 +277,23 @@ liveRoomComponent.playBGM({
     complete: function(res){}
 });
 ```
-
 - stopBGM
   停止背景音乐。
-
 ```
 liveRoomComponent.stopBGM();
 ```
-
 - pauseBGM
   暂停背景音乐。
-
 ```
 liveRoomComponent.pauseBGM();
 ```
-
 - resumeBGM
   恢复背景音乐。
-
 ```
 liveRoomComponent.resumeBGM();
 ```
-
 - setBGMVolume
   设置背景音量。
-
 ```
 liveRoomComponent.setBGMVolume({
     volume: "0.5",// 0-1之间的浮点数字符串
@@ -336,17 +302,13 @@ liveRoomComponent.setBGMVolume({
     complete: function(res){}
 });
 ```
-
 - startPreview
   开启摄像头预览。
-
 ```
 liveRoomComponent.startPreview();
 ```
-
 - stopPreview
   关闭摄像头预览。
-
 ```
 liveRoomComponent.stopPreview();
 ```
