@@ -49,7 +49,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 	- Request Signature Version：Signature Version 2。
 		![](https://main.qcloudimg.com/raw/2f148ce6ad147b286dbad49c5991bf03.png)
 5. 单击【Add Destination】确定备份媒介。
-6. 等待软件完成网络请求，在随后的界面中选择【Use existing bucket】，并选择上文创建的存储桶，为【backups-1250000000】。
+6. 等待软件完成网络请求，在随后的界面中选择【Use existing bucket】，并选择上文创建的存储桶，例如【backups-1250000000】。
 	 ![](https://main.qcloudimg.com/raw/ac47c16ceb1d9726de4a019bcc8f5f96.png)
 7. 单击【Add】完成添加，随后 Arq 会提示要进行的下一步操作，单击【Set Up Backups】，开始进行备份。
    ![](https://main.qcloudimg.com/raw/b4fbec94ea2fa1bf65fd59ecd79aa8f4.png)
