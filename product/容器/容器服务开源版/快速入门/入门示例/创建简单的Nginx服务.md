@@ -3,9 +3,9 @@
 
 
 ## 前提条件
-- 已部署 TKE Stack 控制台，详情请参见 [控制台安装]()。
-- 已创建集群，详情请参见 [创建集群]()。
-- 由于 Master 节点的预设置，请参考 [添加节点]() 步骤，向集群中增加节点后再创建服务。
+- 已部署 TKE Stack 控制台，详情请参见 [控制台安装](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.89.E8.A3.85)。
+- 已创建集群，详情请参见 [新建独立集群](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.96.B0.E5.BB.BA.E7.8B.AC.E7.AB.8B.E9.9B.86.E7.BE.A4)。
+- 由于 Master 节点的预设置，请参考 [添加节点](https://cloud.tencent.com/document/product/1205/43828#addNode) 步骤，向集群中增加节点后再创建服务。
 
 ## 操作步骤
 
