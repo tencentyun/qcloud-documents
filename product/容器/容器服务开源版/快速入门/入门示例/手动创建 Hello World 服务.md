@@ -13,12 +13,12 @@
 ## 操作步骤
 ### 编写代码制作镜像
 #### 编写应用程序
-1. 依次执行以下命令，创建并进入 hellonode 的文件夹。
+1. 依次执行以下命令，创建并进入 helloworld 的文件夹。
 ```shell
-mkdir hellonode
+mkdir helloworld
 ```
 ```
-cd hellonode/
+cd helloworld/
 ```
 2. 执行以下命令，新建并打开 server.js 文件。
 ```
@@ -53,9 +53,9 @@ curl 127.0.0.1:80
 
 
 #### 创建 Docker 镜像
-1. 依次执行以下命令，在 hellonode 文件夹下，创建 Dockerfile 文件。
+1. 依次执行以下命令，在 helloworld 文件夹下，创建 Dockerfile 文件。
 ```
-cd /hellonode
+cd /helloworld
 ```
 ```
 vim Dockerfile
@@ -70,15 +70,14 @@ CMD node server.js
 按 **Esc**，输入 **:wq**，保存文件并返回。
 3. 执行以下命令，构建镜像。
 ```shell
-docker build -t hello-node:v1 .
+docker build -t helloworld:v1 .
 ```
-4. <span id="search">执行以下命令，查看构建好的 hello-node 镜像。</span>
+4. <span id="search">执行以下命令，查看构建好的 helloworld 镜像。</span>
 ```
-docker images 
+docker images | grep ^helloworld
 ```
-显示结果如下，则说明 hello-node 镜像已成功构建，记录其 IMAGE ID。如下图所示：
-![](https://main.qcloudimg.com/raw/58274bb13777b327725c9473380f526a.png)
-
+显示结果如下，则说明 helloworld 镜像已成功构建，记录其 IMAGE ID。如下图所示：
+![](https://main.qcloudimg.com/raw/209f1971dea72af32ce0a1747bfb0522.png)
 
 #### 上传镜像到镜像仓库
 >!请参考 [创建命名空间](#createNamespace) 及 [创建访问凭证](#accessCredentials)，准备可用的镜像仓库。
@@ -98,7 +97,7 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
 	- 请将命令中的 IMAGEID 替换为 [查看镜像](#search) 中已获取的 IMAGE ID。
 	- 请将命令中的“命名空间”替换为已创建的命名空间。
 显示以下结果，则说明镜像上传成功。
-![](https://main.qcloudimg.com/raw/e3d51209fd0c3aa0a1408461a71fe653.png)
+![](https://main.qcloudimg.com/raw/d43bddd9198a6deb62581b4f099076a9.png)
 
 
 
@@ -124,14 +123,12 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
  - **类型**：根据实际需求进行选择。
  - **数据卷**：根据实需求设置工作负载的挂载卷。
 5. 在“实例内容器”中，参考以下信息进行设置。如下图所示：
-![](https://main.qcloudimg.com/raw/fa0ef85248f55823d89295a6eb5471a3.png)
+![](https://main.qcloudimg.com/raw/0289030b9ac4006b4cdff5d3ab9bf7ad.png)
 主要参数信息如下：
 	- **名称**：输入 helloworld。
-	- **镜像**：输入 hello-node。
+	- **镜像**：输入 `default.registry.tke.com/[命名空间]/helloworld`。本文以 `default.registry.tke.com/test/helloworld` 为例。
 	- **镜像版本（Tag）**：输入 v1。
-6. 单击“实例内容器”下方的【显示高级设置】，高级设置中“镜像拉取策略”选择【ifNotPresent（镜像不存在时拉取）】。如下图所示：
 其余选项请保持默认设置。
-![](https://main.qcloudimg.com/raw/8071fea020a85fe39e3bc62087e67071.png)
 7. 在“实例数量”中，参考以下信息设置服务的实例数量。如下图所示：
 ![](https://main.qcloudimg.com/raw/24fd3b152d94f5ca2f7170dc06e3eeda.png)
  - **手动调节**：设定实例数量，本文实例数量设置为1。可单击`+`或`-`控制实例数量。
