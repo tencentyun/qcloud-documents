@@ -1,5 +1,5 @@
 <head><link rel="stylesheet" href="https://doc-archer-1255486055.cos.ap-nanjing.myqcloud.com/archer.css"></head>
-您可将 EIP 绑定到 CVM 实例、NAT 网关等云资源上，利用 EIP 灵活地容灾与提供公网通信服务等。
+您可将弹性公网 IP（EIP）绑定到 CVM 实例、NAT 网关等云资源上，利用 EIP 灵活地容灾与提供公网通信服务等。
 
 ## 操作场景
 - EIP 与 CVM 实例绑定，EIP 作为 CVM 实例的公网 IP，当 CVM 实例发生故障时，可解绑重新绑定到健康的 CVM 实例上，帮助快速恢复服务。
