@@ -5,7 +5,7 @@
  - 单个账号单个地域申请找回 IP 不超过3次/月。
  
 ## 操作步骤
-1. 登录 [弹性公网 IP 控制台](https://console.cloud.tencent.com/cvm/eip)。
+1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，单击【找回IP】。
 3. 在弹出的“找回IP”窗口中，输入公网 IP 地址，单击【查询】，检测 IP 是否可以申请找回。
  - 若显示该 IP 可申请，单击【立即申请】。
