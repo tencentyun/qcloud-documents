@@ -1,145 +1,121 @@
 ## 操作场景
+**腾讯云 SCF 云函数组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（云函数及触发器等），实现“0”配置，便捷开发，极速部署您的第一个云函数，该组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的云函数的开发、配置及部署能力。
 
-云函数 SCF 组件是 serverless-tencent 组件库中的基础组件之一。通过云函数 SCF 组件，可以快速切方便地创建、配置和管理腾讯云的云函数 SCF。
+SCF 组件特性介绍：
+
+- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
+- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
+- **极速部署**：仅需几秒，部署您的整个云函数应用。
+- **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
+- **云端调试**：针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
+- **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
 
 ## 操作步骤
+#### 1. 安装
 
-通过 SCF 组件，您可以对一个云函数进行完整的创建、配置、部署和删除等操作。支持命令如下：
-
-#### 安装
-
-通过 npm 安装 Serverless：
-```console
+通过 npm 安装最新版本的 Serverless Framework：
+```
 $ npm install -g serverless
 ```
 
-#### 创建
-```
-$ mkdir my-function
-$ cd my-function
-```
-目录内容如下：
+#### 2. 创建
 
+创建并进入一个全新目录：
 ```
-|- code
-  |- index.js
-|- serverless.yml
-```
- 
-对于该例子可以使用以下 Demo，作为 index.js：
-```javascript
-'use strict';
-exports.main_handler = async (event, context, callback) => {
-    console.log("%j", event);
-    return "hello world"
-};
-
+$ mkdir tencent-scf && cd tencent-scf
 ```
 
-#### 配置
-
-本地创建`serverless.yml`文件：
-
-```console
-$ touch serverless.yml
+通过如下命令和模板链接，快速创建一个 SCF 应用：
 ```
-在`serverless.yml`中进行如下配置：
-```yml
-# serverless.yml
-myFunction1:
-  component: "@serverless/tencent-scf"
-  inputs:
-    name: myFunction1
-    codeUri: ./code       # 代码目录
-    handler: index.main_handler
-    runtime: Nodejs8.9
-    region: ap-guangzhou
-    description: My Serverless Function
-    memorySize: 128
-    timeout: 20
-    # 打包 zip 时希望忽略的文件或者目录配置（可选）
-    exclude:
-      - .gitignore
-      - .git/**
-      - node_modules/**
-      - .serverless
-      - .env
-    include:
-          - /Users/dfounderliu/Desktop/temp/.serverless/myFunction1.zip
-    environment:
-      variables:
-        TEST: vale
-    vpcConfig:
-      subnetId: ''
-      vpcId: ''
-
-myFunction2:
-  component: "@serverless/tencent-scf"
-  inputs:
-    name: myFunction2
-    codeUri: ./code
-
+$ serverless create --template-url https://github.com/serverless-components/tencent-scf/tree/v2/example
+$ cd example
 ```
->?您可以通过 [详细配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)，查看`serverless.yml`中所有可用属性的属性列表。
 
+下载完毕后，目录结构如下所示：
+```
+|- src
+|   └── index.py
+└──  serverless.yml
+```
 
-#### 部署
+#### 3. 部署
+
+在`serverless.yml`文件下的目录中运行`serverless deploy`进行云函数的部署部署完毕后，您可以在命令行的输出中查看到对应云函数的网关触发器提供的 URL 地址，点击地址即可查看云函数的部署效果。
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
+如果希望查看更多部署过程的信息，可以通过`sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
 
-```console
-$ sls --debug
 
-  DEBUG ─ Resolving the template's static variables.
-  DEBUG ─ Collecting components from the template.
-  DEBUG ─ Downloading any NPM components found in the template.
-  DEBUG ─ Analyzing the template's components dependencies.
-  DEBUG ─ Creating the template's components graph.
-  DEBUG ─ Syncing template state.
-  DEBUG ─ Starting Website Removal.
-  DEBUG ─ Removing Website bucket.
-  DEBUG ─ Removing files from the "my-bucket-1300415943" bucket.
-  DEBUG ─ Removing "my-bucket-1300415943" bucket from the "ap-guangzhou" region.
-  DEBUG ─ "my-bucket-1300415943" bucket was successfully removed from the "ap-guangzhou" region.
-  DEBUG ─ Finished Website Removal.
-  DEBUG ─ Executing the template's components graph.
-  DEBUG ─ Compressing function myFunction file to /Users/dfounderliu/Desktop/temp/code/.serverless/myFunction.zip.
-  DEBUG ─ Compressed function myFunction file successful
-  DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-guangzhou-code]. sls-cloudfunction-default-myFunction-1572519895.zip
-  DEBUG ─ Uploaded package successful /Users/dfounderliu/Desktop/temp/code/.serverless/myFunction.zip
-  DEBUG ─ Creating function myFunction
-  DEBUG ─ Created function myFunction successful
+#### 4. 配置
 
-  myFunction: 
-    Name:        myFunction
-    Runtime:     Nodejs8.9
-    Handler:     index.main_handler
-    MemorySize:  128
-    Timeout:     3
-    Region:      ap-guangzhou
-    Role:        QCS_SCFExcuteRole
-    Description: This is a template function
-    UsingCos:    true
+腾讯云 SCF 组件支持“0”配置部署，也就是可以直接通过配置文件中的默认值进行部署。但您依然可以修改更多可选配置来进一步开发该项目。
 
-  6s › myFunction › done
+以下是腾讯云 SCF 组件的`serverless.yml`完整配置说明：
 
+```yml
+# serverless.yml
+
+component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
+name: scfdemo # (必填) 该组件创建的实例名称
+org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
+app: scfApp # (可选) 该 SCF 应用名称
+stage: dev # (可选) 用于区分环境信息，默认值是 dev
+
+inputs:
+  name: scfFunctionName
+  src: ./src
+  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、PHP5、PHP7、Golang1、Java8。
+  region: ap-guangzhou
+  handler: index.main_handler
+  events:
+    - apigw:
+        name: serverless_api
+        parameters:
+          protocols:
+            - http
+            - https
+          serviceName:
+          description: The service of Serverless Framework
+          environment: release
+          endpoints:
+            - path: /index
+              method: GET
 ```
 
-#### 移除
+查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/v2/doc/serverless.yaml)
 
-```console
-$ sls remove --debug
+当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 
-  DEBUG ─ Flushing template state and removing all components.
-  DEBUG ─ Removed function myFunction successful
+#### 5. 开发调试
 
-  1s › myFunction › done
+部署了该云函数 SCF 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。您可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
+
+可以通过在 `serverless.yml`文件所在的目录下运行 `serverless dev` 命令开启开发调试能力。
+
+`serverless dev` 同时支持实时输出云端日志，每次部署完毕后，对项目进行访问，即可在命令行中实时输出调用日志，便于查看业务情况和排障。
+
+除了实时日志输出之外，针对 Node.js 应用，当前也支持云端调试能力。在开启 `serverless dev` 命令之后，将会自动监听远端端口，并将函数的超时时间临时配置为 900s。此时您可以通过访问 chrome://inspect/#devices 查找远端的调试路径，并直接对云端代码进行断点等调试。在调试模式结束后，需要再次部署从而将代码更新并将超时时间设置为原来的值。详情请参考 [开发模式和云端调试](https://cloud.tencent.com/document/product/1154/43220)。
+
+#### 6. 查看状态
+
+在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
 ```
+$ serverless info
+```
 
-####  账号配置（可选）
+#### 7. 移除
+
+在`serverless.yml`文件所在的目录下，通过以下命令移除部署 SCF 应用。移除后该组件会对应删除云上部署时所创建的所有相关资源。
+
+```
+$ serverless remove
+```
+
+和部署类似，支持通过 `sls remove --debug` 命令查看移除过程中的实时日志信息，`sls`是 `serverless` 命令的缩写。
+
+## 账号配置
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
@@ -147,13 +123,12 @@ $ sls remove --debug
 $ touch .env # 腾讯云的配置信息
 ```
 
-在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存。
+在`.env`文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存：
 ```
 # .env
 TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
 >?
-> - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API 密钥管理
-](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
