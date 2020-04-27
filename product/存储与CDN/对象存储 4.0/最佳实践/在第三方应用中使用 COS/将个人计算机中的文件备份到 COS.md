@@ -22,10 +22,10 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 
 ## 准备腾讯云对象存储
 
-1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+1. [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通 COS。
 >?若您目前已经在使用 COS，请忽略1 - 2步骤。
-3. 在对象存储 COS 控制台中， 单击左侧导航栏的【存储桶列表】，而后单击【创建存储桶】，配置项说明如下：
+3. 在对象存储 COS 控制台中， 单击左侧导航栏的【存储桶列表】，而后单击【创建存储桶】，开始创建存储桶：
  - 名称：存储桶名称，例如 “backups”。
  - 所属地域：可以根据您所在地就近选择，但是请不要选择有“金融”字样的金融专区，目前我们对于西南地区有价格上的优惠，因此也可以选择“成都”或“重庆”享受更优惠的价格。
   ![](https://main.qcloudimg.com/raw/c2acd4b17d722b3f63cdb50833bdf713.png)
@@ -49,7 +49,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 	- Request Signature Version：Signature Version 2。
 		![](https://main.qcloudimg.com/raw/2f148ce6ad147b286dbad49c5991bf03.png)
 5. 单击【Add Destination】确定备份媒介。
-6. 等待软件完成网络请求，在随后的界面中选择【Use existing bucket】，并选择上文创建的存储桶，如【backups-1250000000】。
+6. 等待软件完成网络请求，在随后的界面中选择【Use existing bucket】，并选择上文创建的存储桶，为【backups-1250000000】。
 	 ![](https://main.qcloudimg.com/raw/ac47c16ceb1d9726de4a019bcc8f5f96.png)
 7. 单击【Add】完成添加，随后 Arq 会提示要进行的下一步操作，单击【Set Up Backups】，开始进行备份。
    ![](https://main.qcloudimg.com/raw/b4fbec94ea2fa1bf65fd59ecd79aa8f4.png)
@@ -66,7 +66,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 
 1. 在主界面左侧列表中，展开【RESTORE FILES】，选择【From cos.xxx.myqcloud.com】（其中 xxx 根据存储桶所在地域有所不同），等待软件完成扫描。由于 Arq® Backup 支持将多台计算机中的文件备份至同一存储桶，因此在随后的子项目中会列出所有备份至该存储桶的计算机名，继续展开要恢复的文件所在的计算机、待恢复的目录。Arq® Backup 根据设置的备份频率周期自动执行备份，而旧的备份并不会被新的备份所覆盖，因此您可以恢复文件的历史版本。在最后单击要恢复的文件对应的时间点，此时在右侧将列出该备份时间点所包含的文件。
    ![](https://main.qcloudimg.com/raw/ff29abab8c7163da17675792d7a31d88.png)
-2. 在右侧文件列表选择要恢复的文件或目录，单击右下角【Restore】，在弹出的界面中指定一个目录用于存放恢复出来的文件。等待下方界面提示恢复完成即可到刚刚指定的目录中查看恢复的文件。
+2. 在右侧文件列表选择要恢复的文件或目录，单击右下角【Restore】，在弹出的界面中指定一个目录用于存放恢复出来的文件。等待下方界面提示恢复完成，即可到刚刚指定的目录中查看恢复的文件。
    ![](https://main.qcloudimg.com/raw/bd4bb13dc4c220e8164d05ff70ed6974.png)
 
 ## 补充说明
