@@ -5,9 +5,9 @@
 
 ## 前提条件
 
-- 已部署 TKE Stack 控制台，详情请参见 [控制台安装]()。
-- 已创建集群，详情请参见 [创建集群]()。
-- 由于 Master 节点的预设置，请参考 [添加节点]() 步骤，向集群中增加节点后再创建服务。
+- 已部署 TKE Stack 控制台，详情请参见 [控制台安装](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.89.E8.A3.85)。
+- 已创建集群，详情请参见 [新建独立集群](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.96.B0.E5.BB.BA.E7.8B.AC.E7.AB.8B.E9.9B.86.E7.BE.A4)。
+- 由于 Master 节点的预设置，请参考 [添加节点](https://cloud.tencent.com/document/product/1205/43828#addNode) 步骤，向集群中增加节点后再创建服务。
 - 已登录节点，且该节点已安装 Node.js。
 
 ## 操作步骤
@@ -40,8 +40,8 @@ www.listen(80);
 ```shell
 node server.js
 ```
-以下提供两种方式，测试 Hello World 程序。
- - 再次登录节点，执行以下命令。或在浏览器以 IP 地址：端口的形式访问，端口为80 。
+可通过以下两种方式，测试 Hello World 程序。
+ - 再次登录节点，执行以下命令。
 ```shell
 curl 127.0.0.1:80
 ```
@@ -80,12 +80,12 @@ docker images
 ![](https://main.qcloudimg.com/raw/58274bb13777b327725c9473380f526a.png)
 
 
-#### 上传该镜像到镜像仓库
+#### 上传镜像到镜像仓库
 >!请参考 [创建命名空间](#createNamespace) 及 [创建访问凭证](#accessCredentials)，准备可用的镜像仓库。
 >
 1. 执行以下命令，登录镜像仓库。
 ```
-sudo sudo docker login -u tkestack -p 访问凭证 default.registry.tke.com
+sudo docker login -u tkestack -p 访问凭证 default.registry.tke.com
 ```
 请将命令中的“访问凭证”替换为您已获取的访问凭证。
 2. 依次执行以下命令，上传镜像到仓库。
