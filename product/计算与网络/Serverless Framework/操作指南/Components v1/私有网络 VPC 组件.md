@@ -4,61 +4,82 @@
 ## 操作步骤
 ### 安装
 
-通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
+ 通过 npm 安装最新版本的 Serverless Framework： 
 
 ```shell
 $ npm install -g serverless
 ```
 
 ### 配置
-在项目根目录创建`serverless.yml`文件：
+新建一个目录vpcDemo，在vpcDemo下创建`serverless.yml`文件：
 
 ```shell
+$ mkdir vpcDemo && cd vpcDemo
 $ touch serverless.yml
 ```
 在`serverless.yml`中进行如下配置：
 ```yml
 # serverless.yml
-MyVpc:
-  component: '@serverless/tencent-vpc'
-  inputs:
-    region: ap-guangzhou
-    zone: ap-guangzhou-2
-    vpcName: serverless
-    subnetName: serverless
+org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid.
+app: appDemo # (可选) 该VPC应用名称.
+stage: dev # (可选) 用于区分环境信息，默认值是 dev.
+
+component: vpc #  (必填) 引用 component 的名称，当前用到的是 tencent-vpc 组件.
+name: vpcDemo # (必填) 该组件创建的实例名称.
+
+inputs:
+  region: ap-guangzhou
+  zone: ap-guangzhou-2
+  vpcName: serverless
+  subnetName: serverless
 ```
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-vpc/tree/master/docs/configure.md)
+[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-vpc/blob/v2/docs/configure.md )
 
 ### 部署
-如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
->?`sls`是`serverless`命令的简写。
+运行 sls deploy 进行部署：
 
 ```bash
-$ sls --debug
+$ sls deploy
+serverless ⚡ framework
+Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "vpcDemo"
 
-  DEBUG ─ Resolving the template's static variables.
-  DEBUG ─ Collecting components from the template.
-  DEBUG ─ Downloading any NPM components found in the template.
-  DEBUG ─ Analyzing the template's components dependencies.
-  DEBUG ─ Creating the template's components graph.
-  DEBUG ─ Syncing template state.
-  DEBUG ─ Executing the template's components graph.
-  DEBUG ─ Creating vpc serverless...
-  DEBUG ─ Create vpc serverless success.
-  DEBUG ─ Creating subnet serverless...
-  DEBUG ─ Create subnet serverless success.
+region:     ap-guangzhou
+zone:       ap-guangzhou-2
+vpcId:      vpc-xxxxxxxx
+vpcName:    serverless
+subnetId:   subnet-xxxxxxxx
+subnetName: serverless
 
-  MyVpc:
-    region:     ap-guangzhou
-    zone:       ap-guangzhou-2
-    vpcName:    serverless
-    subnetName: serverless
-    subnetId:   subnet-kwtsloz4
-    vpcId:      vpc-hqydtuy1
 
-  5s › MyVpc › done
+3s › vpcDemo › Success
+```
+
+如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
+
+>?`sls`是`serverless`命令的简写。
+
+### 查看信息
+
+运行sls info进行查看部署成功的信息：
+
+```bash
+$ sls info
+
+serverless ⚡ framework
+
+Status:       active
+Last Action:  deploy (5 minutes ago)
+Deployments:  2
+
+region:     ap-guangzhou
+zone:       ap-guangzhou-2
+vpcId:      vpc-xxxxxxx
+vpcName:    serverless
+subnetId:   subnet-xxxxxxx
+subnetName: serverless
+
+vpcDemo › Info successfully loaded
 ```
 
 
@@ -67,15 +88,12 @@ $ sls --debug
 通过以下命令移除部署的 VPC：
 
 ```bash
-$ sls remove --debug
+$ sls remove
 
-  DEBUG ─ Flushing template state and removing all components.
-  DEBUG ─ Start removing subnet subnet-kwtsloz4
-  DEBUG ─ Removed subnet subnet-kwtsloz4
-  DEBUG ─ Start removing vpc vpc-hqydtuy1
-  DEBUG ─ Removed vpc vpc-hqydtuy1
+serverless ⚡ framework
+Action: "remove" - Stage: "dev" - App: "appDemo" - Instance: "vpcDemo"
 
-  7s › MyVpc › done
+6s › vpcDemo › Success
 ```
 
 ### 账号配置（可选）
