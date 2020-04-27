@@ -8,7 +8,7 @@ DDoS 高防包支持联动 Web 应用防火墙，为用户提供全方位安全�
 ### 配置 Web 应用防火墙
 如需快速接入 Web 应用防火墙，详情请参见 [ Web 应用防火墙快速入门](https://cloud.tencent.com/document/product/627/18635)。
 ### 配置 DDoS 高防包
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，前往【高防包】。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/package)，前往【高防包】。
 2. 选择目的高防包实例所在地域，单击目的高防包实例所在行的操作项【管理防护对象】。
 ![](https://main.qcloudimg.com/raw/648442ef2abb4a46860a294313b3ebdc.png)
 
