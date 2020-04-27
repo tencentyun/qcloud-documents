@@ -32,10 +32,10 @@
 1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录已准备好的 installer 节点。
 2. 执行以下命令，下载 tke-installer 安装器至 `/data` 目录下。
 ```
-version=v1.2.3 && wget https://tke-release-1251707795.cos.ap-guangzhou.myqcloud.com/tke-installer-x86_64-$version.run{,.sha256} && sha256sum --check --status tke-installer-x86_64-$version.run.sha256 && chmod +x tke-installer-x86_64-$version.run
+version=vx.x.x && wget https://tke-release-1251707795.cos.ap-guangzhou.myqcloud.com/tke-installer-x86_64-$version.run{,.sha256} && sha256sum --check --status tke-installer-x86_64-$version.run.sha256 && chmod +x tke-installer-x86_64-$version.run
 ```
 >?
->- 您可查看 TKE Stack [Release](https://github.com/tkestack/tke/releases) 按需选择版本进行安装，本文以 v1.2.3 版本为例，建议您安装最新版本。
+>- 例如，使用 v1.2.3 版本时进行安装时，则对应命令为 `version=v1.2.3`。您可查看 TKEStack [Release](https://github.com/tkestack/tke/releases) 按需选择版本进行安装，建议安装最新版本。
 >- tke-installer 约为5GB，包含安装所需资源，请确保节点具备足够空间。
 >
 3. 执行以下命令，安装 tke-installer。
@@ -46,10 +46,10 @@ version=v1.2.3 && wget https://tke-release-1251707795.cos.ap-guangzhou.myqcloud.
 ```
 http://xxx.xxx.xx.xx:8080/index.html
 ```
-1. 在 TKE Stacke “基本设置”页面，参考以下提示进行设置，并单击【下一步】。如下图所示：
+1. 在 TKEStack “基本设置”页面，参考以下提示进行设置，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c157649f5b2cd04290db5a2b9264d6b7.png)
-	- **用户名**：TKE Stack 控制台管理员名称。
-	- **密码**：TKE Stack 控制台管理员密码。
+	- **用户名**：TKEStack 控制台管理员名称。
+	- **密码**：TKEStack 控制台管理员密码。
 	- **高可用设置**：请按需进行配置，本文以【不设置】为例。
 		- **TKE提供**：在所有 master 节点额外安装 Keepalived 完成 VIP 的配置与连接。
 		- **使用已有**：对接已配置好的外部负载均衡实例。
@@ -70,7 +70,7 @@ http://xxx.xxx.xx.xx:8080/index.html
 	 - **访问地址**：Master 节点的内网 IP，**请配置至少8核16G内存及以上的机型**。
 	 - **SSH端口**：请确保目标机器安全组开放22端口和 ICMP 协议，否则无法远程登录和 PING 通。
 	- **高级设置**：请按需自定义 Global 集群的 Docker、kube-apiserver、kube-controller-manager、kube-scheduler、kubelet 运行参数。
-3. 在“认证设置”页面，参考以下提示选择 TKE Stack 控制台认证信息，并单击【下一步】。如下图所示：
+3. 在“认证设置”页面，参考以下提示选择 TKEStack 控制台认证信息，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c838f9b7580fe8d98fcd05de65aa7b8e.png)
 	- **认证方式**：请按需选择，本文以【TKE提供】为例。
 		- **TKE提供**：使用 TKE 自带的认证方式。
@@ -79,8 +79,8 @@ http://xxx.xxx.xx.xx:8080/index.html
 ![](https://main.qcloudimg.com/raw/1413a363eb8b50b0120c0aa13cef87c1.png)
 	- **镜像仓库类型**：请按需设置，本文以【TKE提供】为例。
 		- **TKE提供**：使用 TKE 自带的镜像仓库。
-		- **第三方仓库**：已配置好的外部镜像仓库。若选择【第三方仓库】，TKE Stack 将不会再安装镜像仓库，而是使用您提供的镜像仓库作为默认镜像仓库服务。
-5. 在“业务设置”页面，选择是否开启 TKE Stack 控制台业务模块，建议开启。
+		- **第三方仓库**：已配置好的外部镜像仓库。若选择【第三方仓库】，TKEStack 将不会再安装镜像仓库，而是使用您提供的镜像仓库作为默认镜像仓库服务。
+5. 在“业务设置”页面，选择是否开启 TKEStack 控制台业务模块，建议开启。
 6. 在“监控设置”页面，参考以下提示进行设置，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7236c01103b3fe9b02bc971b10e652b4.png)
 	- **监控存储类型**：请按需设置，本文以【TKE提供】为例。
@@ -93,14 +93,14 @@ http://xxx.xxx.xx.xx:8080/index.html
 	- **证书类型**：请按需选择，本文以【自签名证书】为例。
 		- **自签名证书**：使用 TKE 带有的自签名证书。
 		- **指定服务端证书**：填写已备案域名的服务器证书。
-7. 在“配置预览”页面，确认 TKE Stack 控制台所有配置正确后单击【安装】。
+7. 在“配置预览”页面，确认 TKEStack 控制台所有配置正确后单击【安装】。
 安装成功将返回如下信息：
 ![](https://main.qcloudimg.com/raw/83eee3292843650f62fae194d415671c.png)
-8. 单击【查看指引】，根据弹出的“操作指引”窗口中的步骤配置域名，访问 TKE Stack 控制台。
+8. 单击【查看指引】，根据弹出的“操作指引”窗口中的步骤配置域名，访问 TKEStack 控制台。
 
 ## 步骤2：新建独立集群
 
-1. 登录 TKE Stack 控制台，选择左侧导航栏中的【集群管理】。
+1. 登录 TKEStack 控制台，选择左侧导航栏中的【集群管理】。
 2. 在“集群管理”列表页面，单击【新建独立集群】。
 3. 在“新建独立集群”页面，参考以下提示设置集群基本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b333a31986c55cb4492d9f34cc6bdb25.png)
@@ -143,7 +143,7 @@ http://xxx.xxx.xx.xx:8080/index.html
 4. 单击【提交】即可在“集群管理”页面查看进度。
 
 ## 步骤4：创建业务
-1. 登录 TKE Stack 控制台，选择左侧导航栏中的【业务管理】。
+1. 登录 TKEStack 控制台，选择左侧导航栏中的【业务管理】。
 2. 在“业务管理”列表页面，单击【新建业务】。
 3. 在“新建业务”页面，参考以下提示设置业务信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/acdeddc50f4840da9fdccaea25f86569.png)
@@ -211,7 +211,7 @@ http://xxx.xxx.xx.xx:8080/index.html
 
 ## 相关操作
 ### 添加节点<span id="addNode"></span>
-1. 登录 TKE Stack 控制台，选择左侧导航栏中的【集群管理】。
+1. 登录 TKEStack 控制台，选择左侧导航栏中的【集群管理】。
 2. 选择需创建服务的集群 ID，进入该集群 “Deployment” 页面。
 3. 选择左侧菜单栏中的【节点管理】>【节点】，进入“节点列表”页面。
 4. 在“节点列表”页面，选择【添加节点】。如下图所示：
@@ -231,7 +231,7 @@ http://xxx.xxx.xx.xx:8080/index.html
 ![](https://main.qcloudimg.com/raw/ad3bcb295cc717980b9aecfa86914985.png)
 
 ### 删除服务
-1. 登录 TKE Stack 控制台，选择左侧导航栏中的【集群管理】。
+1. 登录 TKEStack 控制台，选择左侧导航栏中的【集群管理】。
 2. 在“集群管理”页面，选择需删除服务的集群 ID。
 3. 在 “Deployment” 页面，选择左侧菜单栏中的【服务】>【Service】。
 4. 在 “Service” 页面，选择需删除服务所在行右侧的【删除】。如下图所示：
