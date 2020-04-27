@@ -5,10 +5,10 @@ PostgreSQL for Serverless（ServerlessDB）是一款基于 PostgreSQL 数据库�
 
 特性介绍：
 
-- [x] **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费。
-- [x] **"0"配置** - 默认配置将由 Serverless 完成。
-- [x] **极速部署** - 仅需几秒，创建或更新您的数据库。
-- [x] **便捷协作** - 通过云端数据库的状态信息和部署日志，方便的进行多人协作开发。
+- **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费。
+- **"0"配置** - 默认配置将由 Serverless 完成。
+- **极速部署** - 仅需几秒，创建或更新您的数据库。
+- **便捷协作** - 通过云端数据库的状态信息和部署日志，方便的进行多人协作开发。
 
 ## 操作步骤
 #### 安装
@@ -40,7 +40,6 @@ TENCENT_SECRET_KEY=123
 #### 配置
 
 创建并进入一个全新目录：
-
 ```
 $ mkdir tencent-postgreSQL && cd tencent-postgreSQL
 ```
@@ -68,11 +67,11 @@ inputs:
     subnetId: subnet-xxxxxx
   extranetAccess: false
 ```
-PostgreSQL 组件支持 0 配置部署，也就是可以直接通过配置文件中的默认值进行部署。但你依然可以修改更多可选配置来进一步开发该项目。
+PostgreSQL 组件支持0配置部署，您可以直接通过配置文件中的默认值进行部署。您依然可以修改更多可选配置来进一步开发该项目。
 
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-postgresql/blob/v2/docs/configure.md)
 
-> 注：当前 PGSQL for Serverless 仅支持 `北京三区，广州二区，上海二区` 三个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
+>!当前 PGSQL for Serverless 仅支持**北京三区**，**广州二区**，**上海二区**三个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
 
 #### 部署
 
