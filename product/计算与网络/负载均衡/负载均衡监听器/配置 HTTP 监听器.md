@@ -29,13 +29,14 @@
 | 转发规则基本配置    | 说明                    | 示例                              |
 | ------- | ------------------------ | ---------------------------------------- |
 | 域名 | 转发域名：<ul style="margin-bottom:0px;"><li>长度限制：1 - 80个字符。</li><li>不能以 `_` 开头。</li><li>支持精准域名和通配域名。</li><li>支持正则表达式。</li><li>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发域名配置规则</a>。</li></ul> | www.example.com |
+| 默认域名   | <li>当监听器中所有域名均没有匹配成功时，系统会将请求指向默认访问域名，让默认访问可控。</li><li>一个监听器下仅能配置一个默认域名。</li>| 开启 |
 | URL 路径 | 转发 URL 路径：<ul style="margin-bottom:0px;"><li>长度限制：1 - 200个字符。</li><li>支持正则表达式。</li><li>具体配置规则，详情请参见 <a href="https://cloud.tencent.com/document/product/214/9032#.E8.BD.AC.E5.8F.91-url-.E8.B7.AF.E5.BE.84.E9.85.8D.E7.BD.AE.E8.A7.84.E5.88.99">转发 URL 路径配置规则</a>。</li></ul>| /index |
 | 均衡方式 | HTTP 监听器中，负载均衡支持加权轮询（WRR）、加权最小连接数（WLC）和 IP Hash 三种调度算法：<ul style="margin-bottom:0px;"> <li>加权轮询算法：根据后端服务器的权重，按依次将请求分发给不同的服务器。加权轮询算法根据**新建连接数**来调度，权值高的服务器被轮询到的次数（概率）越高，相同权值的服务器处理相同数目的连接数。</li><li>加权最少连接数：根据服务器当前活跃的连接数来估计服务器的负载情况，加权最小连接数根据服务器负载和权重来综合调度，当权重值相同时，当前连接数越小的后端服务器被轮询到的次数（概率）也越高。</li><li>IP Hash：根据请求的源 IP 地址，使用散列键（Hash Key）从静态分配的散列表找出对应的服务器，若该服务器为可用且未超载状态，则请求发送到该服务器，反之则返回空。</li></ul>| 加权轮询 |
 | 获取客户端 IP | 默认启用 | 已开启 |
 | Gzip 压缩 | 默认启用 | 已开启 |
 
 选择需要创建转发规则的 HTTP 监听器，单击右侧【+】进行创建，具体基本配置如下图所示：
-![](https://main.qcloudimg.com/raw/ca73b8816fd88ab76b0cd17a5f7b911e.png)
+![](https://main.qcloudimg.com/raw/143553a69542f50707c3bcdfdeea461d.png)
 
 #### 3. 健康检查
 | 健康检查配置    | 说明                    | 示例                                |
@@ -67,14 +68,13 @@
 2. 单击【绑定】，在弹出框中选择需绑定的后端服务器，并配置服务端口和权重。
  1. 添加端口功能：在右侧“已选择”的云服务器框内，单击【添加端口】，即可给同一个云服务器添加多个端口，如同时添加 CVM 的 80、81、82 三个端口。
  2. 默认端口功能：先填写“默认端口”，再选择云服务器，每台云服务器的端口均为默认端口。
-![](https://main.qcloudimg.com/raw/da45ac2c8ef8eae6a32b31a2502919b6.png)
-
+![](https://main.qcloudimg.com/raw/2c02b0aa4813b7a3f6cf4150c333dbcc.png)
 完成步骤1到步骤3之后，HTTP 监听器规则已配置完毕，配置详情如下图所示：
-![](https://main.qcloudimg.com/raw/52150fde0ac149fa34c58f89bfc5d37a.png)
+![](https://main.qcloudimg.com/raw/49bc1c0431598a5cb426a82338a750dd.png)
 
 ### 步骤4：安全组（可选）
 您可以配置负载均衡的安全组来进行公网流量的隔离，详情请参见 [配置负载均衡安全组](https://cloud.tencent.com/document/product/214/14733)。
 
 ### 步骤5：修改/删除监听器（可选）
 如果您需要修改或删除已创建的监听器，请在“监听器管理”页面，单击已创建完毕的监听器/域名/URL 路径，选择【修改】或【删除】完成操作。
-![](https://main.qcloudimg.com/raw/94df509ce8533a6934bc8587acd99bdf.png)
+![](https://main.qcloudimg.com/raw/13876fedc94dde11f3aef72cf782ec73.png)

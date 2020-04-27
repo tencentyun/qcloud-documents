@@ -1,7 +1,31 @@
 ## 操作场景
 本文档向您介绍如何使用 TI SDK 训练模型。
 
-在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+### 在 Notebook 中使用 TI SDK
+我们在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+
+### 在本地环境使用 TI SDK
+若您的 TI SDK 环境为非腾讯云 Jupyter Notebook 环境时，您需要先配置 TI SDK 环境。
+TI SDK 配置的环境目录为 ~/.ti/config.yaml，用户需要提供的配置信息如下：
+1. region：训练任务提交的腾讯云资源的地域，目前支持 ap-guangzhou，ap-shanghai
+2. uin：腾讯云账号 ID，可在腾讯云控制台-账号信息中查看
+3. app_id：腾讯云账号 AppID，可在腾讯云控制台-账号信息中查看
+4. secret_id：腾讯云账号 API 密钥 ID，可在腾讯云控制台 > 访问管理 > 用户详情中查看
+5. secret_key：腾讯云账号 API 密钥 KEY，可在腾讯云控制台 > 访问管理 > 用户详情中查看
+
+示例如下：
+
+```python
+# ~/.ti/config.yaml的内容格式如下：
+basic:
+    region: 你的腾讯云地域
+    uin: 你的uin
+    app_id:  你的appid
+    secret_id:  你的secret_id
+    secret_key:  你的secret_key
+```
+
+
 
 ## 操作步骤
 TI SDK 使用以下几个核心类实现 TI 的模型训练
@@ -50,7 +74,7 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 参数
 - `role`：str 用户在云控制台创建的角色，需要传递角色给 TI，授权 TI 服务访问用户的云资源。
 - `train_instance_count`：int 创建的算力实例数量。
-- `train_instance_type`：str 创建的算力类型，目前支持的类型有。
+- `train_instance_type`：str 创建的算力类型，目前支持的类型有：
 
 CPU 算力
 
@@ -94,7 +118,6 @@ GPU 算力（V100）
 - `base_job_name`：str fit()方法启动的训练任务名称前缀，如果没有指定，会使用镜像名和时间戳生成默认任务名。
 - `output_path`：用于保存模型和输出文件的 COS 路径，如果未指定，会生成默认的存储桶。
 - `subnet_id`：str 子网 ID，如果未指定，将在没有 VPC 配置的情况下创建任务。
-- `security_group_ids`：（list [ str ]）安全组 ID 列表，如果未指定，将在没有 VPC 配置的情况下创建任务。
 
 更多的参数意义请参考 EstimatorBase 类 （ ti-python-sdk/src/ti/EstimatorBase.py）。
 
@@ -107,8 +130,8 @@ fit 方法会创建并启动一个训练任务
 - `inputs`： 存储训练数据集的 COS 路径，可以采用以下两种数据结构。
   - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
   - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集
-- `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行，后面仍可通过 attach 方法附加。
-- `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在 wait 为 True 时才生效。
+- `logs (bool)`：默认为 False，是否打印训练任务产生的日志。如果设置为 True，将输出训练的任务日志。
+- `wait (bool)`：默认为 True，是否等待直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
 

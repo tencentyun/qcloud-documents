@@ -24,11 +24,12 @@
 | 上海金融 | ap-shanghai-fsi  | ap-shanghai-fsi.cls.tencentyun.com  | ap-shanghai-fsi.cls.tencentcs.com  |
 | 中国香港 | ap-hongkong      | ap-hongkong.cls.tencentyun.com      | ap-hongkong.cls.tencentcs.com      |
 | 硅谷     | na-siliconvalley | na-siliconvalley.cls.tencentyun.com | na-siliconvalley.cls.tencentcs.com |
-| 多伦多   | na-toronto       | na-toronto.cls.tencentyun.com       | na-toronto.cls.tencentcs.com       |
 | 新加坡   | ap-singapore     | ap-singapore.cls.tencentyun.com     | ap-singapore.cls.tencentcs.com     |
+| 孟买     | ap-mumbai        | ap-mumbai.cls.tencentyun.com        | ap-mumbai.cls.tencentcs.com        |
 
 
 
 ## 注意事项
 
-如果日志服务中接入了其他云产品，请您尽量选择与其他云产品相同地域的日志集。相同地域的云产品之间通过内网读写数据，能有效降低延迟和提高访问速度。
+1. 如果日志服务中接入了其他云产品，请您尽量选择与其他云产品相同地域的日志集。相同地域的云产品之间通过内网读写数据，能有效降低延迟和提高访问速度。
+2. 基础网络不支持通过内网方式访问 CLS。

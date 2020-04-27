@@ -40,7 +40,7 @@ SELECT * INTO films_recent FROM films WHERE date_prod >=
 ```
 
 ## 兼容性
-SQL 标准使用 SELECT INTO 表示把值选择到一个宿主程序的标量变量中，而不是创建一个新表。数据库使用 SELECT INTO 来表示创建是由历史原因的。最好在新的应用中使用 CREATE TABLE AS 来实现该目的。
+SQL 标准使用 SELECT INTO 表示把值选择到一个宿主程序的标量变量中，而不是创建一个新表。数据库使用 SELECT INTO 来表示创建是有历史原因的。最好在新的应用中使用 CREATE TABLE AS 来实现该目的。
 
 ## 另见
 SELECT、CREATE TABLE AS

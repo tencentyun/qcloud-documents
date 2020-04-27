@@ -28,7 +28,7 @@
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway)，在左侧导航栏单击【服务】，进入服务列表。
 2. 选择地域后，在服务列表中单击服务名称，进入服务详情页；在服务详情页单击【管理API】，在管理 API 页单击【新建】，进入 API 创建页面。
 3. 在 API 创建页面依次填写前端配置、后端配置、响应配置后单击【完成】，完成 API 的创建。
-这里需要注意填写后端配置时，后端类型选择“HTTP”，VPC 信息选择 CVM2 所在的 VPC，VPC内资源选择“CLB”，后端域名选择刚才在负载均衡内创建的监听器。
+这里需要注意填写后端配置时，后端类型选择“HTTP”，VPC 信息选择 CVM2 所在的 VPC，VPC 内资源选择“CLB”，后端域名选择刚才在负载均衡内创建的监听器。
  ![](https://main.qcloudimg.com/raw/a017e4a99b82ced78ff24c604fdd18fa.png)
  
 ### 步骤四：配置 Nginx 并测试

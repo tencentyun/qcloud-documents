@@ -9,13 +9,14 @@
 | 公网自建 | 用户在外网环境下部署的 Redis 服务。 | 
 
 ## 迁移支持说明
+>?单机版迁移集群版兼容性问题请参见 [单机版迁移集群版说明](https://cloud.tencent.com/document/product/239/43697)。
 
 #### 支持功能
 - 数据迁移：DTS 迁移服务支持一次性将数据迁移到云上。
 - 数据同步：DTS 迁移服务支持全量迁移 + 增量同步的方式将数据实时同步到云上。
 
 #### 支持版本
-- DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0。
+- DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0。
 - 支持的架构包括单节点、redis cluster、codis、tewmproxy。
 - 迁移权限要求：DTS 迁移数据需要源实例支持 SYNC 或者 PSYNC 命令。
 
@@ -31,16 +32,20 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <caption></caption>
     <tr>
 <th style ="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top" ><div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th>
-            </div>
-        </th>
+    </div>
+    </th>
     <th style="background-color:#f2f2f2;">2.8标准版</th>
     <th style="background-color:#f2f2f2;">4.0标准版</th>
     <th style="background-color:#f2f2f2;">4.0集群版</th>
+		<th style="background-color:#f2f2f2;">5.0标准版</th>
+    <th style="background-color:#f2f2f2;">5.0集群版</th>
     </tr>
     <tr>
     <td style="background-color:#f2f2f2;">2.8标准版</td>
     <td>✓</td>
     <td>✓</td>
+    <td>✓</td>
+		<td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
@@ -48,11 +53,31 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
     <td>x</td>
     <td>✓</td>
     <td>✓</td>
+		<td>✓</td>
+    <td>✓</td>
     </tr>
     <tr>
     <td style="background-color:#f2f2f2;">4.0集群版</td>
     <td>x</td>
     <td>✓</td>
+    <td>✓</td>
+		<td>✓</td>
+    <td>✓</td>
+    </tr>
+	<tr>
+    <td style="background-color:#f2f2f2;">5.0标准版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
+	 <td>✓</td>
+    <td>✓</td>
+    </tr>
+    <tr>
+    <td style="background-color:#f2f2f2;">5.0集群版</td>
+    <td>x</td>
+    <td>✓</td>
+    <td>✓</td>
+		<td>✓</td>
     <td>✓</td>
     </tr>
     </table>

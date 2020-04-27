@@ -57,7 +57,7 @@ mysql_secure_installation
 mysql -u root -p
 ``` 
 若输入刚设定的密码可以登录到 MariaDB 中，则说明配置正确。如下图所示：
-![](https://main.qcloudimg.com/raw/e22b91cc30bf4155436ab398ee44502a.png)
+![](https://main.qcloudimg.com/raw/18c54971e141db38c3f483161fefe251.png)
 
 5. 执行以下命令，退出 MariaDB 数据库。
 ```

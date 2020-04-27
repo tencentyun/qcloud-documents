@@ -91,7 +91,7 @@ public void setMotionTmpl(String tmplPath);
 public void setMotionTmpl(String tmplPath);
 ```
 
-### 3. 美妆美容
+### 3. 高级美颜接口（大眼、瘦脸等）
 
 ```
 // 大眼效果 0~9

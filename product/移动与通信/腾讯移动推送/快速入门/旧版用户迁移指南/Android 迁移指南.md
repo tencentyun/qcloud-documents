@@ -1,4 +1,20 @@
-为保障迁移后的正常使用，请您升级至 Android V1.1.5.4 及以上版本，以下是针对从信鸽免费版本 4.x 版本迁移到腾讯云 Android V1.1.5.4 及以上版本的变更说明。
+为保障迁移后的正常使用，请您升级至 Android V1.1.5.5 及以上版本，以下是针对从信鸽平台 4.x 版本迁移到腾讯移动推送平台 Android V1.1.5.5 及以上版本的变更说明。
+
+## 注销信鸽平台推送服务
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台，TPNS 版本需要增加以下配置：
+- 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写信鸽平台的 ACCESS ID
+```xml
+<meta-data
+    android:name="XG_OLD_ACCESS_ID"
+    android:value="信鸽平台应用的ACCESS ID" />
+```
+>! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
+
+- 在应用首次覆盖安装时，如您在logcat中看到如下日志打印，即说明 SDK 已成功获取信鸽版本的推送信息，将在推送注册时一并向服务器上报：
+```
+D/TPush: [PushServiceNetworkHandler] FreeVersionInfo ->  AccessId:2100168750, token:0e3baa5e895d47f94e21840a231a0e6b651b7f47, channel:huawei
+```
+
 
 ## 自动集成方式
 #### 依赖变更
@@ -162,17 +178,6 @@ implementation 'com.tencent.tpns:tpns:[VERSION]-release'
 ```
 2. 请参见新版本 [SDK 集成](https://cloud.tencent.com/document/product/548/36652) 重新添加组件和权限。
 
-## 注销免费版本推送服务
-
-如果 App 的推送服务是从免费集群迁移到付费集群，在两个集群同时推送，可能会出现重复消息。如需要在免费版本和 TPNS 版本都做推送的话，则 TPNS 版本需要增加以下配置：
-
-- 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写免费版本的 accessId
-```xml
-  <meta-data
-      android:name="XG_OLD_ACCESS_ID"
-      android:value="免费版本应用的accessid" />
-```
-
 <span id="jkbg"></span>
 ## 接口变更
 与 4.x 对比，部分 API 接口做了以下变更。
@@ -231,7 +236,7 @@ implementation 'com.tencent.tpns:huawei:[VERSION]-release'
 //fcm
 implementation 'com.tencent.tpns:fcm:[VERSION]-release'
 implementation  'com.google.firebase:firebase-messaging:17.6.0'
-```     
+```
 - 手动集成的方式需要替换 .jar 文件
 前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、并解压目录 Other-Push-jar 下，找到对应厂商通道所需 .jar 文件，替换信鸽 4.x 版本使用的厂商通道 .jar 文件。
 

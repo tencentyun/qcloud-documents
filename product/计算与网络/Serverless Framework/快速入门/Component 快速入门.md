@@ -1,7 +1,6 @@
 ## 操作场景
 该任务指导您通过 Serverless Framework Component，在腾讯云上快速创建、配置和部署一个云函数 + API 网关的服务。
 
-
 >?
 >- 通过 Serverless Framework 创建的资源，您可以在资源自身的控制台进行查看和管理，例如 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)、[API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) 等。
 >- 预计2020年4月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
@@ -131,7 +130,7 @@ serverless remove --debug
 ```
 
 ### 配置账户信息（可选）
-当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](需要改成最新的配置账号链接) 文档。
+当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/43006) 文档。
 
 ### 更多应用
 
