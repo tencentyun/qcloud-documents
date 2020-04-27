@@ -3,6 +3,13 @@ PostgreSQL for Serverless（ServerlessDB）是一款基于 PostgreSQL 数据库�
 
 通过 PostgreSQL ServerlessDB 组件，您可以快速方便地创建、配置和管理腾讯云的 PostgreSQL 实例。
 
+特性介绍：
+
+- [x] **按需付费** - 按照请求的使用量进行收费，没有请求时无需付费。
+- [x] **"0"配置** - 默认配置将由 Serverless 完成。
+- [x] **极速部署** - 仅需几秒，创建或更新您的数据库。
+- [x] **便捷协作** - 通过云端数据库的状态信息和部署日志，方便的进行多人协作开发。
+
 ## 操作步骤
 #### 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
@@ -11,7 +18,7 @@ PostgreSQL for Serverless（ServerlessDB）是一款基于 PostgreSQL 数据库�
 $ npm install -g serverless
 ```
 
-#### 配置
+#### 账号配置
 
 本地创建`.env`文件：
 
@@ -30,7 +37,15 @@ TENCENT_SECRET_KEY=123
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 
-在项目根目录创建`serverless.yml`文件：
+#### 配置
+
+创建并进入一个全新目录：
+
+```
+$ mkdir tencent-postgreSQL && cd tencent-postgreSQL
+```
+
+在新目录创建`serverless.yml`文件：
 
 ```shell
 $ touch serverless.yml
@@ -38,20 +53,26 @@ $ touch serverless.yml
 在`serverless.yml`中进行如下配置：
 ```yml
 # serverless.yml
-MyPostgreSQL:
-  component: '@serverless/tencent-postgresql'
-  inputs:
-    region: ap-guangzhou
-    zone: ap-guangzhou-3
-    dBInstanceName: serverlessDb
-    dBVersion: 10.4
-    dBCharset: UTF8
-    vpcConfig:
-      vpcId: 123
-      subnetId: 123
-    extranetAccess: false
+component: postgresql #(必填) 引用 component 的名称，当前用到的是 postgresql 组件
+name: serverlessDB # (必填) 该 postgresql 组件创建的实例名称
+org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
+app: serverlessDB # (可选) 该 sql 应用名称
+stage: dev # (可选) 用于区分环境信息，默认值是 dev
+
+inputs:
+  region: ap-guangzhou  # 可选 ap-guangzhou, ap-shanghai, ap-beijing
+  zone: ap-guangzhou-2  # 可选 ap-guangzhou-2, ap-shanghai-2, ap-beijing-3
+  dBInstanceName: serverlessDB
+  vpcConfig:
+    vpcId: vpc-xxxxxxx
+    subnetId: subnet-xxxxxx
+  extranetAccess: false
 ```
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-postgresql/tree/master/docs/configure.md)
+PostgreSQL 组件支持 0 配置部署，也就是可以直接通过配置文件中的默认值进行部署。但你依然可以修改更多可选配置来进一步开发该项目。
+
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-postgresql/blob/v2/docs/configure.md)
+
+> 注：当前 PGSQL for Serverless 仅支持 `北京三区，广州二区，上海二区` 三个地域的创建和部署，因此在填写 yaml 中的地域可用区时需要注意填写为正确的地域和对应的 VPC 子网信息。
 
 #### 部署
 
@@ -61,14 +82,14 @@ MyPostgreSQL:
 >?`sls`是`serverless`命令的简写。
 
 ```bash
-$ sls --debug
+$ sls deploy
 ```
 
 #### 移除
 通过以下命令移除部署的 DB 实例：
 
 ```bash
-$ sls remove --debug
+$ sls remove
 ```
 
 ## 最佳实践
