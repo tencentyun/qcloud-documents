@@ -25,7 +25,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 1. [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5)，按照提示开通 COS。
 >?若您目前已经在使用 COS，可忽略1 - 2步骤。
-3. 在对象存储 COS 控制台中，[创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+3. 在对象存储 COS 控制台中， [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
  - 名称：存储桶名称，例如 “backups”。
  - 所属地域：可以根据您所在地就近选择，但是请不要选择有“金融”字样的金融专区，目前我们对于西南地区有价格上的优惠，因此也可以选择“成都”或“重庆”享受更优惠的价格。
   ![](https://main.qcloudimg.com/raw/c2acd4b17d722b3f63cdb50833bdf713.png)
@@ -40,9 +40,9 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 1. 从 [Arq® Backup 官网](https://www.arqbackup.com/) 下载软件。
 2. 按提示完成软件安装，安装完成后软件会自动启动，首次启动时会提示登录，先单击【Cancel】跳过，随后软件会弹出窗口要求选择备份媒介类型。
    ![](https://main.qcloudimg.com/raw/a094270a7f9c23fc68b136c92c18b26b.png)
-3. 选择 Other S3-Compatible Service，单击【Continue】。
+3. 选择【Other S3-Compatible Service】，单击【Continue】。
 4. 按照以下说明进行配置：
-	- S3-Compatible Server URL：上文记录的请求域名中从 cos 开始的部分，并在前面加上 `https://`，例如 `https://cos.ap-chengdu.myqcloud.com`，请注意这里不包含存储桶名称。
+	- S3-Compatible Server URL：上文记录的请求域名中从 cos 开始的部分，并在前面加上`https://`，例如 `https://cos.ap-chengdu.myqcloud.com`，请注意这里不包含存储桶名称。
 	- Access Key ID：上文记录的密钥信息中的SecretId。
 	- Secret Access Key：上文记录的密钥信息中的SecretKey。
 	- Request Signature Version：Signature Version 2。
@@ -50,20 +50,20 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可在自�
 5. 单击【Add Destination】确定备份媒介。
 6. 等待软件完成网络请求，在随后的界面中选择【Use existing bucket】，并选择上文创建的存储桶，如【backups-1250000000】。
 	 ![](https://main.qcloudimg.com/raw/ac47c16ceb1d9726de4a019bcc8f5f96.png)
-7. 单击【Add】完成添加，随后会提示要做什么，单击【Set Up Backups】。
+7. 单击【Add】完成添加，随后 Arq 会提示要进行的下一步操作，单击【Set Up Backups】，开始进行备份。
    ![](https://main.qcloudimg.com/raw/b4fbec94ea2fa1bf65fd59ecd79aa8f4.png)
 8. 在开始备份前，软件会要求输入用于加密备份文件的密码。输入两次用于加密备份文件的密码，并单击【Continue】。**注意请牢记备份密码，否则将无法从备份恢复文件！**在随后的弹框中单击【确定】。
    ![](https://main.qcloudimg.com/raw/a275c88371abf0de9a6ec1d1a43b0457.png)
-9. 等待软件完成扫描后，会提示自动每小时备份 C 盘，单击【确定】关闭，在主界面左侧列表中，展开 CONFIGURE BACKUPS，选择 To cos.xxx.myqcloud.com（其中xxx根据存储桶所在地域有所不同）。
+9. 等待软件完成扫描后，会提示自动每小时备份 C 盘，单击【确定】关闭，在主界面左侧列表中，展开【CONFIGURE BACKUPS】，选择【To cos.xxx.myqcloud.com】（其中 xxx 根据存储桶所在地域有所不同）。
    ![](https://main.qcloudimg.com/raw/6b5ec789cb7fc5f6f8d77229c5e56e97.png)
-10. 单击右侧【Add a Folder to Backups ...】，在弹出的界面中选择其他要备份的目录，如 D:\Pictures，单击【OK】确认。
+10. 单击右侧【Add a Folder to Backups ...】，在弹出的界面中选择其他要备份的目录，例如 D:\Pictures，单击【OK】确认。
     ![](https://main.qcloudimg.com/raw/d81843dcb0bc477a187508b93bfb14e9.png)
 11. 至此您已经完成备份的基本配置，软件默认将在下一个整点小时开始执行备份作业，您也可以单击 Backups 菜单中的【Back Up Now】立即开始首次备份。
     ![](https://main.qcloudimg.com/raw/2de7d08435cdfc101c5d037b88129358.png)
 
 ## 从备份中恢复文件
 
-1. 在主界面左侧列表中，展开 RESTORE FILES，选择 From cos.xxx.myqcloud.com（其中 xxx 根据存储桶所在地域有所不同），等待软件完成扫描。由于 Arq® Backup 支持将多台计算机中的文件备份至同一存储桶，因此在随后的子项目中会列出所有备份至该存储桶的计算机名，继续展开要恢复的文件所在的计算机、待恢复的目录。Arq® Backup 根据设置的备份频率周期自动执行备份，而旧的备份并不会被新的备份所覆盖，因此您可以恢复文件的历史版本。在最后单击要恢复的文件对应的时间点，此时在右侧将列出该备份时间点所包含的文件。
+1. 在主界面左侧列表中，展开【RESTORE FILES】，选择【From cos.xxx.myqcloud.com】（其中 xxx 根据存储桶所在地域有所不同），等待软件完成扫描。由于 Arq® Backup 支持将多台计算机中的文件备份至同一存储桶，因此在随后的子项目中会列出所有备份至该存储桶的计算机名，继续展开要恢复的文件所在的计算机、待恢复的目录。Arq® Backup 根据设置的备份频率周期自动执行备份，而旧的备份并不会被新的备份所覆盖，因此您可以恢复文件的历史版本。在最后单击要恢复的文件对应的时间点，此时在右侧将列出该备份时间点所包含的文件。
    ![](https://main.qcloudimg.com/raw/ff29abab8c7163da17675792d7a31d88.png)
 2. 在右侧文件列表选择要恢复的文件或目录，单击右下角【Restore】，在弹出的界面中指定一个目录用于存放恢复出来的文件。等待下方界面提示恢复完成即可到刚刚指定的目录中查看恢复的文件。
    ![](https://main.qcloudimg.com/raw/bd4bb13dc4c220e8164d05ff70ed6974.png)
