@@ -336,7 +336,7 @@ void onKickoutJoinAnchor()
 
 **介绍**
 
-连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#kickoutjoinanchor) 来退出连麦。
+连麦观众收到被主播踢除连麦的消息，您需要调用 [MLVBLiveRoom.kickoutJoinAnchor(String)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#kickoutJoinAnchor) 来退出连麦。
 
 ## 主播 PK 事件回调
 
@@ -356,7 +356,7 @@ void onRequestRoomPK(AnchorInfo anchorInfo)
 
 **介绍**
 
-主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView(AnchorInfo , TXCloudVideoView , PlayCallback)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#startremoteview) 接口播放邀约主播的流。
+主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要调用 [MLVBLiveRoom.startRemoteView(AnchorInfo , TXCloudVideoView , PlayCallback)](https://cloud.tencent.com/document/product/454/34776?!preview&!editLang=zh#startRemoteView) 接口播放邀约主播的流。
 
 ------
 

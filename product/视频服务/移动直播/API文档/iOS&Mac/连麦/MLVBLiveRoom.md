@@ -177,7 +177,7 @@ MLVBLiveRoom 事件回调，您可以通过 [MLVBLiveRoomDelegate](https://cloud
 
 MLVBLiveRoom 实例。
 
->? 可以调用 destroySharedInstance 销毁单例对象。
+>? 可以调用 [destroySharedInstance](#destorySharedInstance) 销毁单例对象。
 
 ------
 

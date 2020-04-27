@@ -154,10 +154,10 @@ public RestTemplate restTemplate() {
 
 需要引入 openfeign 依赖：
 ``` xml
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-&lt;/dependency&gt;
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
 ```
 
 然后按照正常方式使用 feign 即可：

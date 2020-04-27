@@ -8,7 +8,7 @@
 >- 由于配置访问日志到 COS 功能于2020-06-30 00:00:00正式下线，建议您使用 CLS 存储负载均衡访问日志。
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡访问日志无需额外付费，您仅需要支付日志服务（CLS）的费用。
-- 当前配置访问日志到 CLS 支持的地域包括：广州、成都、多伦多，可直接在控制台使用或通过 API 配置；上海、南京、北京、重庆、香港、硅谷、新加坡灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+- 当前配置访问日志到 CLS 支持的地域包括：广州、上海、成都、上海金融、深圳金融、香港、多伦多，可直接在控制台使用或通过 API 配置；南京、北京、重庆、新加坡、硅谷灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 - 目前 [日志服务（CLS）](https://cloud.tencent.com/document/product/614) 处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
 
 ## 开启访问日志

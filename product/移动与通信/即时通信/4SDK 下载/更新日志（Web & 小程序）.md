@@ -1,3 +1,12 @@
+### 2.6.3 @2020.4.26
+
+**修复**
+
+- [createCustomMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage) 的 payload.data payload.extension 类型传入不正确导致的消息内容丢失问题。
+- 单次请求回包多条消息时可能存在的乱序问题。
+- 偶发 C2C 会话未读数溢出导致的上报已读后未读计数无法清零。
+- 偶发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) event.data.code 和 event.data.undefined 为 undefined。
+
 ### 2.6.2 @2020.4.16
 
 **新增**
