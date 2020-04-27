@@ -126,7 +126,7 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
 ![](https://main.qcloudimg.com/raw/0289030b9ac4006b4cdff5d3ab9bf7ad.png)
 主要参数信息如下：
 	- **名称**：输入 helloworld。
-	- **镜像**：输入 `default.registry.tke.com/[命名空间]/helloworld`。本文以 `default.registry.tke.com/test/helloworld` 为例。
+	- **镜像**：输入 default.registry.tke.com/[命名空间]/helloworld。本文以 default.registry.tke.com/test/helloworld 为例。
 	- **镜像版本（Tag）**：输入 v1。
 其余选项请保持默认设置。
 7. 在“实例数量”中，参考以下信息设置服务的实例数量。如下图所示：
