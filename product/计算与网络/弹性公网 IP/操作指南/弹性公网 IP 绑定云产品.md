@@ -23,8 +23,8 @@
 <table>
 <thead>
 <tr>
-<th width="15%">绑定的云资源</th>
-<th width="85%">说明</th>
+<th width="17%">绑定的云资源</th>
+<th width="83%">说明</th>
 </tr>
 </thead>
 <tbody>
