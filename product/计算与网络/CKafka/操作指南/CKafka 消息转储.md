@@ -12,7 +12,7 @@
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，选择转储类型为对象存储（COS），填写以下信息：
-![](https://main.qcloudimg.com/raw/47341a0f76425641a0c4b20f513912fd.png)
+![](https://main.qcloudimg.com/raw/70b2c5723525f7ac985206c5b1693e84.png)
  - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
  - 时间粒度：根据消息量的大小，选取汇聚消息的时间间隔，时间间隔为5 - 60分钟不等。为保证转储性能，聚合文件数量与 Partition 数量，partition_max 设置数值有关，具体详见文档底部产品限制说明。
  - 存放 Bucket：对不同的 topic，选取相应的 COS 中 Bucket，则请求消息会自动在 Bucket 下创建  instance-id/topic-id/date/timestamp 为名称的文件路径进行存储。相关路径如无法满足业务需要，请创建完成后在云函数 CkafkaToCosConsumer 下自行修改。
@@ -28,7 +28,7 @@
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，选择转储类型为通用模板，填写以下信息：
-![](https://main.qcloudimg.com/raw/97cb7d280c9939166964e282c5417d86.png)
+![](https://main.qcloudimg.com/raw/0a2f7a50491852fbac020f489d684ff0.png)
   - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
   - 起始位置：转储时历史消息的处理方式，topic offset 设置。
   - 角色授权：使用 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
@@ -38,6 +38,28 @@
 >?
 >- 通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 [SCF通用模板](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaTriggerTemplate) 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
 >- 通用转储模板常见的转储应用场景有 [Elasticsearch Service](https://cloud.tencent.com/product/es)、[MySQL](https://cloud.tencent.com/product/cdb)、[PostgreSQL](https://cloud.tencent.com/product/postgres) 等。
+
+### Ckafka 转储角色授权指引
+
+**COS转储角色授权：**
+1. 点击新建运行角色
+![](https://main.qcloudimg.com/raw/d7429489a4a5db0ae3b02d05f28b7eec.png)
+2. 在跳转后的新页面选择角色载体信息，COS转储推荐添加角色载体为 云函数（SCF）：
+![](https://main.qcloudimg.com/raw/dbb946312efc2945d27ee6ff20f55458.png)
+3. 配置角色策略，COS转储推荐添加如下策略：
+```
+QcloudSCFFullAccess
+QcloudCOSFullAccess
+QcloudCKafkaFullAccess
+```
+![](https://main.qcloudimg.com/raw/82f06fa42d2bdac4294f49471c372a24.png)
+4. 定义角色名称，点击完成
+![](https://main.qcloudimg.com/raw/80280dca27f0121cca6658bd1863759f.png)
+5. Ckafka转储控制台刷新并选择相应角色
+![](https://main.qcloudimg.com/raw/9a507e31c47142e47161db6bc1810d41.png)
+
+**通用转储角色授权：**
+在通用转储模板中授权函数访问其他的云服务，如果不访问任何云服务，则不用提供运行角色。操作流程同上
 
 <span id="postconditions"></span>
 ## 产品限制和费用计算
