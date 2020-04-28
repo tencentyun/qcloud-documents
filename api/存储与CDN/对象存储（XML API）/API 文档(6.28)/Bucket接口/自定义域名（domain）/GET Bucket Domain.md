@@ -80,7 +80,7 @@ Authorization: Auth String
 
 #### 响应
 
-上述请求后，COS 返回如下响应，表明已查询到自定义域名配置。该存储桶绑定了一个名为`www.examplecustomdomain.com`的自定义域名，选择的源站类型为默认源站。
+上述请求后，COS 返回如下响应，表明已查询到自定义域名配置。该存储桶绑定了一个名为`www.tencent.com`的自定义域名，选择的源站类型为默认源站。
 
 ```plaintext
 HTTP/1.1 200 OK
@@ -93,7 +93,7 @@ x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 <DomainConfiguration>
   <DomainRule>
     <Status>ENABLED</Status>
-    <Name>www.examplecustomdomain.com</Name>
+    <Name>www.tencent.com</Name>
     <Type>REST</Type>
     <ForcedReplacement>CNAME</ForcedReplacement>
   </DomainRule>
