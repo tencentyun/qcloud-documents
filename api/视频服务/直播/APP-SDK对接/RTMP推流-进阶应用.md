@@ -11,7 +11,7 @@
 
 - **step4 - 推流主循环：**直播推流是一个持续的过程，受 SDK 内部一个主循环引擎的驱动，只有在用 stopPush 主动停止或者遭遇不可恢复的错误时才会跳出主循环。
 
-![SDK内部原理](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/tencent_cloud_rtmp_sdk_pusher_status_14.jpg)
+![SDK内部原理](https://main.qcloudimg.com/raw/482fdfcc034ff71eeea7717c30462670.jpg)
 
 ## 2. 了解 SDK 推流质量
 RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是个黑盒是我们所不希望看到的情况，所以我们提供了一种**状态反馈机制**：每1秒 - 2秒就会将内部各种状态参数反馈出来。
@@ -30,15 +30,15 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 |	NET_STATUS_AUDIO_BITRATE | 当前音频编码器输出的比特率，也就是编码器每秒生产了多少音频数据，单位： kbps|
 |	NET_STATUS_VIDEO_FPS     | 当前视频帧率，也就是视频编码器每条生产了多少帧画面|
 |	NET_STATUS_CACHE_SIZE    | 音视频数据堆积情况，这个数字超过个位数，即说明当前上行带宽不足以消费掉已经生产的音视频数据|
-|	NET_STATUS_CODEC_DROP_CNT  |全局丢包次数，为了避免延迟持续恶性堆积，SDK 在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重。|
+|	NET_STATUS_CODEC_DROP_CNT  |全局丢包次数，为了避免延迟持续恶性堆积，SDK 在数据积压超过警戒线以后会主动丢包，丢包次数越多，说明网络问题越严重|
 | NET_STATUS_SERVER_IP     | 连接的推流服务器的 IP |
 |	NET_STATUS_NET_JITTER    | 网络抖动情况（指导作用很小，不推荐参考）|
 
 ### 2.1 推流质量的判断
-有了上面这些状态信息，但怎么判断推流质量是否OK呢？下面几条是我们常用的质量判断指标，**强烈推荐您了解一下**：
+有了上面这些状态信息，但怎么判断推流质量是否 OK 呢？下面几条是我们常用的质量判断指标，**强烈推荐您了解一下**：
 
 **1. BITRATE 与 NET_SPEED 的关系**
->BITRATE（ = VIDEO_BITRATE + AUDIO_BITRATE）指的是编码器每秒产生了多少音视频数据要推出去，NET_SPEED 指的是每秒钟实际推出了多少数据，所以如果 BITRATE == NET_SPEED 的情况是常态，则推流质量会非常良好；
+>BITRATE（ = VIDEO_BITRATE + AUDIO_BITRATE）指的是编码器每秒产生了多少音视频数据要推出去，NET_SPEED 指的是每秒钟实际推出了多少数据，所以如果 BITRATE == NET_SPEED 的情况是常态，则推流质量会非常良好。
 >
 >而如果 BITRATE >= NET_SPEED 这种情况的持续时间比较长，推流质量就很难有什么保障。
 
@@ -55,7 +55,7 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 >
 >然而，一个直播 App 中使用 CPU 的不可能只有 RTMP SDK，弹幕、飘星、文本消息互动等等，都有可能会消耗一定的 CPU，这些都是不可避免的。
 >
->但是，如果系统的整体 CPU 使用率超过 80%，那么视频的采集和编码都有可能会有影响；如果 CP U使用率达到 100%，那么主播端本身就已经卡的一塌糊涂了，观众端要有流畅的观看体验显然是不可能的。
+>但是，如果系统的整体 CPU 使用率超过 80%，那么视频的采集和编码都有可能会有影响；如果 CPU 使用率达到 100%，那么主播端本身就已经卡的一塌糊涂了，观众端要有流畅的观看体验显然是不可能的。
 
 **4. SERVER_IP 的 ping 值**
 >如果主播到 SERVER_IP 给出的 IP 地址的 ping 值很高（例如超过 500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化之。
@@ -73,13 +73,13 @@ RTMP SDK 在设计之初就尽量避免过于封闭，让您觉得 SDK 完全是
 | audioSampleRate|   音频采样率：录音设备在一秒钟内对声音信号的采集次数   |  44100   |  
 | enableNAS          |   噪声抑制：开启后可以滤掉背景杂音（32000以下采样率有效） |  关闭     |
 | enableHWAcceleration|   视频硬编码：开启后最高可支持720p， 30fps视频采集   |  开启   |  
-| videoFPS     |   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分机器性能不足以支持30FPS以上的编码，推荐您设置FPS为20           |  20      |
+| videoFPS     |   视频帧率：即视频编码器每秒生产出多少帧画面，注意由于大部分机器性能不足以支持30FPS以上的编码，推荐您设置 FPS 为20           |  20      |
 | videoResolution|   视频分辨率：目前提供四种16：9分辨率可供您选择      |  640 * 360 |
 | videoBitratePIN |   视频比特率：即视频编码器每秒生产出多少数据，单位 kbps |  800|
 | enableAutoBitrate |   带宽自适应：该功能会根据当前网络情况，自动调整视频比特率 |   关闭|
 | videoBitrateMax| 最大输出码率：只有开启自适应码率, 该设置项才能启作用 |   1200|
 | videoBitrateMin| 最小输出码率：只有开启自适应码率, 该设置项才能启作用 |   800|
-| videoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个I帧 | 3s |
+| videoEncodeGop | 关键帧间隔（单位：秒）即多少秒出一个 I 帧 | 3s |
 | homeOrientation| 设置视频图像旋转角度，例如是否要横屏推流  |   home在右边（0）home在下面（1）home在左面（2）home在上面（3）   |
 | beautyFilterDepth| 美颜级别：支持1~9 共9个级别，级别越高，效果越明显。0表示关闭  |   关闭   |
 | frontCamera | 默认是前置还是后置摄像头 | 前置 |
@@ -114,7 +114,7 @@ _config.customModeType |= CUSTOM_MODE_VIDEO_PREPROCESS;
 _config.pVideoFuncPtr = MyHookVideoFunc;
 ```
 
-这里的 pVideoFuncPtr 是一个函数指针，在您指定了 CustomMode为VIDEO_PREPROCESS 之后，SDK 不会再自己对采集到的视频做预处理，而是转而调用传给他的 YUV 处理函数（示例代码中的MyHookVideoFunc），其中 pVideoFuncPtr 应当遵循如下的函数声明：
+这里的 pVideoFuncPtr 是一个函数指针，在您指定了 CustomMode为VIDEO_PREPROCESS 之后，SDK 不会再自己对采集到的视频做预处理，而是转而调用传给他的 YUV 处理函数（示例代码中的 MyHookVideoFunc），其中 pVideoFuncPtr 应当遵循如下的函数声明：
 ```C
 /* @brief 客户自定义的视频预处理函数原型
  * @param yuv_buffer：视频YUV数据，格式固定是YUV420 Planar
@@ -141,7 +141,7 @@ _config.customModeType |= CUSTOM_MODE_AUDIO_PREPROCESS;
 //（2）设置自定义视频数据的函数 MyHookAudioFunc
 _config.pAudioFuncPtr = MyHookAudioFunc;
 ```
-其中pAudioFuncPtr应当遵循如下的函数声明：
+其中 pAudioFuncPtr 应当遵循如下的函数声明：
 ```C
 /* @brief 客户自定义的音频预处理函数原型
  * @param pcm_buffer：   音频PCM数据
@@ -200,4 +200,4 @@ _config.customModeType |= CUSTOM_MODE_AUDIO_CAPTURE;
 _config.audioSampleRate = 44100;
 _config.audioChannels   = 1;
 ```
-之后，调用**sendCustomPCMData**向 SDK 塞入您自己的 PCM 数据即可。
+之后，调用 **sendCustomPCMData** 向 SDK 塞入您自己的 PCM 数据即可。

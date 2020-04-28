@@ -1,14 +1,24 @@
 ## 操作场景
-LNMP 环境代表 Linux 系统下 Nginx + MySQL + PHP 网站服务器架构。本文档介绍 openSUSE42.3 下的 LNMP 环境搭建。
+LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的网站服务器架构。本文档介绍如何在腾讯云云服务器（CVM）上手动搭建 LNMP 环境。
 本文档包含软件安装内容，请确保您已熟悉软件安装方法，请参见  [openSUSE 环境下通过 zypper 安装软件](https://cloud.tencent.com/document/product/213/2047)。
-LNMP 组成及使用版本说明：
-- Linux：Linux 系统，本文使用 openSUSE42.3
-- Nginx：Web 服务器程序，用来解析 Web 程序，本文使用 Nginx1.14.2
-- MySQL：一个数据库管理系统，本文使用 MySQL5.6.43
-- PHP：Web 服务器生成网页的程序，本文使用 PHP7.0.7
+
+## 示例软件版本
+本文搭建的 LNMP 环境软件组成版本及说明如下：
+- Linux：Linux 系统，本文以 openSUSE 42.3 为例。
+- Nginx：Web 服务器程序，用来解析 Web 程序，本文以 Nginx1.14.2 为例。
+- MySQL：一个数据库管理系统，本文以 MySQL5.6.43 为例。
+- PHP：Web 服务器生成网页的程序，本文以 PHP7.0.7 为例。
+
+## 前提条件
+已购买 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 
 ## 操作步骤
-### 配置镜像源
+### 步骤1：登录 Linux 实例
+[使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
+- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
+
+### 步骤2：配置镜像源
 1. 登录云服务器。
 2. 执行以下命令，添加镜像源。
 ```
@@ -20,7 +30,7 @@ zypper ar https://mirrors.cloud.tencent.com/opensuse/distribution/leap/42.3/repo
 zypper ref
 ```
 
-### 安装配置 Nginx
+### 步骤3：安装配置 Nginx
 1. 执行以下命令，安装 Nginx。
 ``` 
 zypper install -y nginx
@@ -34,26 +44,23 @@ systemctl enable nginx
 ```
 vim /etc/nginx/nginx.conf
 ```
-4. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
-5. 找到 server{...} 并其替换成以下内容。
+4. 按 “**i**” 切换至编辑模式。
+5. 找到 server{...} 并将其替换成以下内容。
 ```
 server {
 	listen       80;
 	server_name  localhost;
-
 	#access_log  /var/log/nginx/host.access.log  main;
 	location / {
 			root   /srv/www/htdocs/;
 			index  index.php index.html index.htm;
 	}
-
 	#error_page  404              /404.html;
 	# redirect server error pages to the static page /50x.html
 	error_page   500 502 503 504  /50x.html;
 	location = /50x.html {
 			root   /srv/www/htdocs/;
 	}
-
 	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     location ~ \.php$ {
 			root           /srv/www/htdocs/;
@@ -73,7 +80,7 @@ systemctl restart nginx
 ```
 vi /srv/www/htdocs/index.html
 ```
-10. 按 “**i**” 或 “**Insert**” 切换至编辑模式，输入以下内容：
+10. 按 “**i**” 切换至编辑模式，输入以下内容：
 ```html
 <p> hello world!</p>
 ```
@@ -82,7 +89,7 @@ vi /srv/www/htdocs/index.html
 如下图所示，则说明 Nginx 安装配置成功。
 ![](https://main.qcloudimg.com/raw/df09d1fe6baed50cebd89ef7402db4b2.png)
 
-### 安装配置 MySQL
+### 步骤4：安装配置 MySQL
 1. 执行以下命令，安装 MySQL。
 ```
 zypper install -y mysql-community-server mysql-community-server-tools
@@ -92,7 +99,6 @@ zypper install -y mysql-community-server mysql-community-server-tools
 systemctl start mysql 
 systemctl enable mysql
 ```
-
 3. 执行以下命令，首次登录 MySQL。
 >? 首次登录 MySQL 时，系统将提示输入密码，若不进行输入密码的操作，可直接按 “**Enter**” 进入 MySQL。
 >
@@ -114,13 +120,13 @@ flush privileges;
 \q
 ```
 
-### 安装配置 PHP
+### 步骤5：安装配置 PHP
 执行以下命令，安装 PHP。
 ```
 zypper install -y php7 php7-fpm php7-mysql
 ```
 
-### Nginx 与 PHP-FPM 集成
+### 步骤6：Nginx 与 PHP-FPM 集成
 1. 依次执行以下命令，进入 `/etc/php7/fpm` 目录，将 `php-fpm.conf.default` 文件复制并重命名为 `php-fpm.conf` 文件。
 ```
 cd /etc/php7/fpm
@@ -137,12 +143,12 @@ systemctl start php-fpm
 systemctl enable php-fpm
 ```
 
-## 环境配置验证
+## 验证环境配置
 1. 执行以下命令，创建测试文件 index.php。
 ```
 vim /srv/www/htdocs/index.php
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式，写入如下内容：
+2. 按 “**i**” 切换至编辑模式，写入如下内容：
 ```
 <?php
 	echo "hello new world!";
@@ -152,4 +158,15 @@ vim /srv/www/htdocs/index.php
 4. 在浏览器中，访问 openSUSE 云服务器公网 IP。
 如下图所示，则 LNMP 环境搭建成功。
 ![](https://main.qcloudimg.com/raw/0adc6168e7407931c597228520b35413.png)
+
+## 相关操作
+在完成了 LNMP 环境搭建之后，您可在此基础上进行[ 手动搭建 Wordpress 个人站点](https://cloud.tencent.com/document/product/213/8044) 实践，了解并掌握更多关于云服务器的相关功能。
+
+## 常见问题
+如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：
+云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
+云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
+
+
 

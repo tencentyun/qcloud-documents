@@ -1,11 +1,9 @@
 ## 背景
-
-Alluxio 通过文件系统接口提供对数据的访问。Alluxio 中的文件提供一次写入语义：它们在被完整写下之后不可变，在完成之前不可读。Alluxio 提供了两种不同的文件系统 API：Alluxio API 和 Hadoop 兼容的 API。Alluxio API 提供了额外的功能，而 Hadoop 兼容的 API 为用户提供了无需修改现有代码使用 Hadoop 的 API 灵活性。
+Alluxio 通过文件系统接口提供对数据的访问。Alluxio 中的文件提供一次写入语义：它们在被完整写下之后不可变，在完成之前不可读。Alluxio 提供了两种不同的文件系统 API：Alluxio API 和 Hadoop 兼容的 API。Alluxio API 提供了额外的功能，而 Hadoop 兼容的 API 为用户提供了无需修改现有代码使用 Hadoop API 的灵活性。
 
 所有使用 Alluxio Java API 的资源都是通过 AlluxioURI 指定的路径实现。
 
 ## 获取文件系统客户端
-
 要使用 Java 代码获取 Alluxio 文件系统客户端，请使用：
 ```
 FileSystem fs = FileSystem.Factory.get();
@@ -38,7 +36,6 @@ FileOutStream out = fs.createFile(path, options);
 ```
 
 ## IO 选项
-
 Alluxio 使用两种不同的存储类型：Alluxio 管理存储和底层存储。Alluxio 管理存储是分配给 Alluxio worker 的内存 SSD 或 HDD。底层存储是由在最下层的存储系统（如 S3、Swift 或 HDFS）管理的资源。用户可以指定通过 ReadType 和 WriteType 与 Alluxio 管理的存储交互。ReadType 指定读取文件时的数据读取行为。WriteType 指定数据编写新文件时写入行为，例如，数据是否应该写入 Alluxio Storage。
 
 下面是 ReadType 的预期行为表。读取总是偏好 Alluxio 存储优先于底层存储。
@@ -61,7 +58,9 @@ Alluxio 使用两种不同的存储类型：Alluxio 管理存储和底层存储�
 ## 位置策略
 
 Alluxio 提供了位置策略来选择要存储文件块到哪一个 worker。
+
 使用 Alluxio 的 Java API，用户可以设置策略在 CreateFileOptions 中向 Alluxio 写入文件和在 OpenFileOptions 中读取文件。
+
 用户可以轻松地覆盖默认的策略类配置文件中的属性`alluxio.user.file.write.location.policy.class`。内置的策略包括：
 - LocalFirstPolicy (alluxio.client.file.policy.LocalFirstPolicy) 
 首先返回本地主机，如果本地 worker 没有足够的块容量，它从活动 worker 列表中随机选择一名 worker。这是默认的策略。
@@ -76,10 +75,12 @@ Alluxio 支持自定义策略，所以您也可以通过实现接口`alluxio.cli
 >!默认策略必须有一个空的构造函数。并使用 ASYNC_THROUGH 写入类型，所有块的文件必须写入同一个 worker。
 
 Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏好。目前这种策略偏好只适用于本地 worker 而不是远程 worker；远程 worker 会写到最高层。
+
 默认情况下，数据被写入顶层。用户可以通过`alluxio.user.file.write.tier.default`配置项修改默认设置，或通过`FileSystem#createFile(AlluxioURI)API`调用覆盖它。
+
 对现有文件或目录的所有操作都要求用户指定 AlluxioURI。使用 AlluxioURI，用户可以使用 FileSystem 中的任何方法来访问资源。
-AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。
-例如，要读取一个文件：
+
+AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。例如，要读取一个文件：
 ```
 FileSystem fs = FileSystem.Factory.get();
 AlluxioURI path = new AlluxioURI("/myFile");

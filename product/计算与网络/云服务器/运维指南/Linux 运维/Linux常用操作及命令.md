@@ -9,11 +9,11 @@ procinfo 工具安装请参考 Linux 环境下安装软件的相关文档。
 
 ## 3. 服务器负载高怎么办？
 
-服务器负载（Load/Load Average）是根据进程队列的长度来显示的。当服务器出现负载高的现象时（建议以15分钟平均值为参考），可能由于 CPU 资源不足，I/O 读写瓶颈，内存资源不足，CPU 正在进行密集型计算等原因造成。建议使用 `vmstat -x`，`iostat`，`top` 命令判断负载过高的原因，并找到具体占用大量资源的进程进行优化处理。 
+服务器负载（Load/Load Average）是根据进程队列的长度来显示的。当服务器出现负载高的现象时（建议以15分钟平均值为参考），可能由于 CPU 资源不足，I/O 读写瓶颈，内存资源不足，CPU 正在进行密集型计算等原因造成。建议使用 `vmstat`，`iostat`，`top` 命令判断负载过高的原因，并找到具体占用大量资源的进程进行优化处理。 
 
 ## 4. 如何查看服务器内存使用率？
 
-您可以通过执行 `free`，`top`（执行后可通过 `shitf+m` 对内存排序），`vmstat`，`procinfo` 命令，或者访问 `/proc/meminfo` 文件进行查看。 
+您可以通过执行 `free`，`top`（执行后可通过 `shift+m` 对内存排序），`vmstat`，`procinfo` 命令，或者访问 `/proc/meminfo` 文件进行查看。 
 
 ## 5. 如何查看单个进程占用的内存大小？
 
@@ -144,7 +144,7 @@ Linux 内核启动顺序为：
 1. 执行 `df` 命令，查看磁盘分区使用情况，例如 df -m。
 2. 执行 `du` 命令，查看具体文件夹的大小。例如 du -sh ./\*，du -h --max-depth=1|head -10。
 3. 执行 `ls` 命令，列出文件和文件大小，例如 ls -lSh。
-您也可以通过 `find` 命令直接查看特定目录下的文件大小，例如 find / -type f -size +10M -exec ls -lrt {} \;。
+您也可以通过 `find` 命令直接查看特定目录下的文件大小，例如 find / -type f -size +10M -exec ls -lrt {} \。
 
 ## 17. 如何查看服务器操作系统版本？
 
@@ -161,9 +161,9 @@ Linux 内核启动顺序为：
 ## 19. 如何设置通过 SecureCRT 连接云服务器的超时时间？
 
 当 SecureCRT 连接云服务器时，您可以通过以下设置不断开连接：
-1. 打开 SecureCRT 选项（Options）。
-2. 选择会话选项（Session Opetions），单击终端（Terminal）。
-3. 在右侧反空闲（Anti-idle）的框中，勾选发送协议 NO-OP（Send protocol NO-OP），并将时间设置为每120秒(every 120 seconds)。 
+1. 打开【SecureCRT 选项（Options）】。
+2. 选择【会话选项（Session Opetions）】，单击【终端（Terminal）】。
+3. 在右侧反空闲（Anti-idle）的框中，勾选【发送协议 NO-OP（Send protocol NO-OP）】，并将时间设置为每120秒(every 120 seconds)。 
 
 ## 20. 为什么删除 Linux 服务器上的文件，硬盘空间不释放？
 

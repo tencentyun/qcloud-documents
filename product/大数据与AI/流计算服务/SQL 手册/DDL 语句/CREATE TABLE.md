@@ -50,14 +50,15 @@ CREATE TABLE KafkaSource1 (
 | instanceId     | CKafka 的 Instance ID，可在产品列表页查看，例如`'ckafka-cky18a42'`。 | 是        |
 | encoding       | 可以为`'json'`或`'csv'`，如果选择`'csv'`则需要同时指定 fieldDelimiter。 | 是            |
 | topic          | Ckafka 指定 instanceId 下的 topic，表示要消费的 Kafka 主题。 |是             |
- | timestampMode  | 可选项，用于指定数据源或数据目的表中 TIMESTAMP 字段时间戳的处理格式，默认值为 'AUTO'。<br>1. 对于数据源（Source）表，默认将根据输入数据的格式自动判断（仅适用于数字格式的时间戳，大于99999999999则视为`MILLISECOND`，小于等于99999999999则视为`SECOND`）。<br>2. 对于数据目的（Sink）表，默认按`MILLISECOND`格式输出时间戳类型的字段。<br>3. 若显式设定值为`'MILLISECOND'`，表示采用毫秒为单位的 Unix 时间戳。<br>4. 若显式设定值为`'SECOND'`表示采用秒为单位的 Unix 时间戳。<br>5. 如果需要自定义时间戳格式，则可以输入与 Java SimpleDateFormat 兼容的格式化字符串，例如`'yyyy-MM-dd HH:mm:SS'`可以解析为`2019-10-09 15:37:21`这样的时间戳字符串。<br>**由于默认的 AUTO 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。** | 否             |
+| timestampMode  | 可选项，用于指定数据源或数据目的表中 TIMESTAMP 字段时间戳的处理格式，默认值为 'AUTO'。<br>1. 对于数据源（Source）表，默认将根据输入数据的格式自动判断（仅适用于数字格式的时间戳，大于99999999999则视为`MILLISECOND`，小于等于99999999999则视为`SECOND`）。<br>2. 对于数据目的（Sink）表，默认按`MILLISECOND`格式输出时间戳类型的字段。<br>3. 若显式设定值为`'MILLISECOND'`，表示采用毫秒为单位的 Unix 时间戳。<br>4. 若显式设定值为`'SECOND'`表示采用秒为单位的 Unix 时间戳。<br>5. 如果需要自定义时间戳格式，则可以输入与 Java SimpleDateFormat 兼容的格式化字符串，例如`'yyyy-MM-dd HH:mm:SS'`可以解析为`2019-10-09 15:37:21`这样的时间戳字符串。<br>**由于默认的 AUTO 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。** | 否             |
 | fieldDelimiter | encoding 为 CSV 时可选，指定 CSV 各字段的分隔符。默认以逗号（,）分隔。**分隔符只允许填入一个半角字符，不允许多个字符作为分隔符使用；分隔符也不能为分号（;）。** | 否         |
 | startMode      | 可选项，值可以为`EARLIEST`（从最早 Offset 读取）、`LATEST`（从最新 Offset 读取），也可以设置为`T+毫秒单位的 Unix 时间戳`，例如`T1560510495355`表示从2019年6月14日晚上7点08分开始读取数据。 |否        |
 | ignoreErrors | 可选项，默认为 true，表示跳过错误的行，如果设为 false 则遇到错误数据会导致程序直接终止。|否|
 
 >!
-> - 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号(“”) 来替换每个出现的双引号。
-> - CKafka 只支持 Append 类型流的写入，不支持 Upsert 流。如需写入 Upsert 流，请使用【云数据库 MySQL】、【云数据库 PostgreSQL】以及【Elasticsearch Service】等支持 Upsert 数据流的腾讯云服务作为 Sink。
+>- 如果数据中包含与分隔符相同的字符，则系统会自动使用双引号将该字符引起来以避免歧义。如果数据本身存在双引号，则会使用两个双引号（“”）来替换每个出现的双引号。
+>- CKafka 只支持 Append 类型流的写入，不支持 Upsert 流。如需写入 Upsert 流，请使用【云数据库 MySQL】、【云数据库 PostgreSQL】以及【Elasticsearch Service】等支持 Upsert 数据流的腾讯云服务作为 Sink。
+>- CKafka Sink 表单条数据的限制为 5MB（5242880 Byte）。单条数据超出此大小时，数据会被丢弃。如果有特殊需求，请联系我们。
 
 ### 云数据库 TencentDB
 
@@ -69,11 +70,15 @@ CREATE TABLE KafkaSource1 (
 | instanceId       | TencentDB 的实例 ID，大小写敏感。例如 MySQL 的`'cdb-xxxxxxxx'`，或者 PostgreSQL 的`'postgres-xxxxxxxx'`。 | 是                  |
 | database         | 数据库名，大小写敏感。                                   |是                 |
 | *schema*         | PostgreSQL 专用，模式（Schema）名，大小写敏感。          | PostgreSQL 必选      |
-| table            | 表名，大小写敏感。                                       | 是               |
+| table            | 表名，大小写敏感。 | 是               |
 | user             | 用户名，大小写敏感。                                     | 是               |
 | password         | 密码，大小写敏感。                                       | 是                  |
 | maxRecordBatch   | 可选参数，大于1则启用分批写入功能，即每若干条作为一批次写入数据库。启用后，可能极大的增加吞吐量。 | 否           |
 | maxRecordLatency | 可选参数，表示每批次最多等待的时间（毫秒）。如果提前达到了 maxRecordBatch 参数指定的条数，则会提前输出；如果超过本参数指定的时间，则即使该批次未达到 maxRecordBatch 参数指定的条数，也会向下游数据库发送数据。 | 否          |
+
+> ! 
+>-  如果将 MySQL 数据库用作**数据源**（例如使用 QUERY_DB_STR 函数），则流计算作业中 CREATE TABLE 所定义的表名，必须和数据库中的实际表名（WITH 参数的 table 字段）保持严格一致，否则语法检查会报错。
+> - 如果将 MySQL 数据库用作数据目的，则 CREATE TABLE 所定义的表名不受限制。
 
 数据流分为 Tuple 和 Upsert 两类。Upsert 是 Update OR Insert 的简写，即对于一条数据，如果之前输出过与其同主键的记录，则更新该记录；否则插入新的数据。
 - Tuple 类型数据流，只能写入不设主键（即没有 PRIMARY KEY 语句）的数据表。

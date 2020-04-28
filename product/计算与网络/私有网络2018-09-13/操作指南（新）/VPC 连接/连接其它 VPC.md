@@ -1,4 +1,6 @@
-您可以通过对等连接、云联网连接不同的 VPC。
+您可以通过对等连接、云联网连接不同的 VPC。您可通过如下视频了解 VPC 连接其它 VPC 的相关信息。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35384?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 对等连接
 您可以通过 [对等连接](https://cloud.tencent.com/document/product/553) 实现两个 VPC 间互通，对等连接支持同账号 VPC 互通和跨账号 VPC 互通。
 - [同账号创建对等连接通信](https://cloud.tencent.com/document/product/553/18836)

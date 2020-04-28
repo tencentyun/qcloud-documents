@@ -15,11 +15,11 @@
 ## 使用限制
 - 仅支持 Linux 实例。
 - 腾讯云不会保管您的私钥信息，用户需要在创建 SSH 密钥10分钟内单击 “下载” 获取私钥，并且妥善保管。
-- 一个 Linux 实例只能绑定一个 SSH 密钥。如果您的实例已绑定密钥，绑定新的密钥会替换原来的密钥。
 - 基于数据安全考虑，加载密钥需要在关机状态下进行。
 
 
 ## 使用场景
-
-
-请参考 [SSH 密钥操作指南](https://cloud.tencent.com/document/product/213/16691)。
+- 关于如何创建、绑定/解绑、删除密钥，请参考 [管理 SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
+- 关于如何使用 SSH 密钥远程登录云服务器实例，请参考：
+ - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699#.E4.BD.BF.E7.94.A8.E5.AF.86.E9.92.A5.E7.99.BB.E5.BD.95)
+ - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700#.E4.BD.BF.E7.94.A8.E5.AF.86.E9.92.A5.E7.99.BB.E5.BD.95)

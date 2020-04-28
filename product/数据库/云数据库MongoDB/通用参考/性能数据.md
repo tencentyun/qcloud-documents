@@ -1,7 +1,7 @@
-### 测试工具
+## 测试工具
 [Yahoo! Cloud Serving Benchmark](https://github.com/brianfrankcooper/YCSB)。
 
-### 测试方法
+## 测试方法
 1、单条数据大小为 1KB。
 2、将实例使用容量灌至 80%，例：100GB 容量的实例，灌入 80GB 的数据。
 3、进行 50% 读和 50% 更新操作，得到 QPS（每秒操作率）数据。

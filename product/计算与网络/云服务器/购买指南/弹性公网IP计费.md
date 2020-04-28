@@ -1,7 +1,7 @@
 ## 计费说明
 
 弹性公网 IP 的费用由两部分组成：IP 资源费用、公网网络费用。
-![](https://main.qcloudimg.com/raw/e2b90344fee7a09ccbfa03937592c4ef.png)
+<img src="https://main.qcloudimg.com/raw/e2b90344fee7a09ccbfa03937592c4ef.png" style="width: 75%;"></img>
 
 ### IP 资源费用
 腾讯云会对弹性公网 IP 收取 IP 资源费用，当您将弹性公网 IP 与云服务器或 NAT 网关绑定时，**可减免资源占用费**。
@@ -36,7 +36,7 @@
 	<tr><th>欠费时长</th><th>说明</th></tr>
 	<tr><td>2小时内</td><td>可继续使用，且会扣费。</td></tr>
 	<tr><td> 2小时 - 24小时</td><td>资源保留，但停止服务且不可操作。</td></tr>
-	<tr><td>24小时后</td><td>未绑定资源的弹性公网 IP 将被释放。</td></tr>
+	<tr><td>24小时后</td><td>未绑定资源的弹性公网 IP 将被释放，已绑定资源的弹性公网 IP 不受影响。</td></tr>
 </table>
 
 ### 绑定的云资源欠费

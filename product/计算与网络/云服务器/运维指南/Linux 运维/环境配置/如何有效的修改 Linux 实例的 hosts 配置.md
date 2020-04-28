@@ -40,7 +40,7 @@ hosts 模版文件如下图所示：
 ```
 vim /etc/cloud/templates/hosts.redhat.tmpl
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+2. 按 “**i**” 切换至编辑模式。
 3. 在文件末尾输入以下内容。
 ```
 127.0.0.1 test test
@@ -52,7 +52,7 @@ vim /etc/cloud/templates/hosts.redhat.tmpl
 ```
 vim /etc/hosts
 ```
-2. 按 “**i**” 或 “**Insert**” 切换至编辑模式。
+2. 按 “**i**” 切换至编辑模式。
 3. 在文件末尾输入以下内容。
 ```
 127.0.0.1 test test

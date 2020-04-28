@@ -14,7 +14,7 @@
 ```
 vi /etc/hosts
 ```
-2. 按 **i** 或 **Insert** 切换至编辑模式，按照【云服务器 IP + SSH 端口号 + 帐号 + 旧密码 + 新密码】格式，将需要修改的云服务器信息添加到 `hosts.txt` 文件内。如下所示：
+2. 按 **i** 切换至编辑模式，按照【云服务器 IP + SSH 端口号 + 帐号 + 旧密码 + 新密码】格式，将需要修改的云服务器信息添加到 `hosts.txt` 文件内。如下所示：
 ```
 10.0.0.1 22 root old_passwd new_passwd 
 10.0.0.2 22 root old_passwd new_passwd
@@ -54,7 +54,7 @@ logout
 ```
 sudo gedit /etc/hosts
 ```
-2. 按 **i** 或 **Insert** 切换至编辑模式，按照【云服务器 IP + SSH 端口号 + 帐号 + 旧密码 + 新密码】格式，将需要修改的云服务器信息添加到 `hosts.txt` 文件内。如下所示：
+2. 按 **i** 切换至编辑模式，按照【云服务器 IP + SSH 端口号 + 帐号 + 旧密码 + 新密码】格式，将需要修改的云服务器信息添加到 `hosts.txt` 文件内。如下所示：
 ```
 10.0.0.1 22 root old_passwd new_passwd 
 10.0.0.2 22 root old_passwd new_passwd

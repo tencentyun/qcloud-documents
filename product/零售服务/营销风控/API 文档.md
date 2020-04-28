@@ -1,5 +1,5 @@
 ## 接口描述
-协议：HTTPS POST
+协议：HTTPS GET/POST
 域名：`csec.api.qcloud.com`
 接口名：IntelligentQRCode
 
@@ -125,7 +125,7 @@
       <td>loginSource</td>
       <td>可选</td>
       <td>UInt</td>
-      <td>登录来源：<li>0：其他 。</li><li>1：PC网页。</li><li>2：移动页面。</li><li>3：APP。</li><li>4：微信公众号。</li></td>
+      <td>登录来源：<li>0：其他 。</li><li>1：PC 网页。</li><li>2：移动页面。</li><li>3：App。</li><li>4：微信公众号。</li></td>
    </tr>
    <tr>
       <td>wxSubType</td>

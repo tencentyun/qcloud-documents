@@ -8,7 +8,7 @@ NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进�
  - 使用 `systemctl is-active ntpd.service` 命令，可查看 NTPD 是否正在运行。
  - 使用 `systemctl is-enabled ntpd.service` 命令，可查看 NTPD 是否开机自启动。
 - NTP 服务的通信端口为 UDP 123，设置 NTP 服务之前，请确保您已经开放 UDP 123 端口。
-若未开放该端口，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 进行放行。
+若未开放该端口，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 进行放行。
 
 ## 操作步骤
 ### 安装 NTPD
@@ -30,7 +30,7 @@ NTPD 默认为客户端运行方式。
 ```
 vi /etc/ntp.conf
 ```
-2. 按 **i** 或者 **Insert** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器，并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
+2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器，并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
 ![server设置](https://main.qcloudimg.com/raw/643dc5bbd2a42307ec10b5d38f756dda.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 
@@ -90,7 +90,7 @@ systemctl enable ntpd.service
 systemctl is-enabled chronyd.service
 ```
 如果 chrony 被设置为开机启动，请执行以下命令，将 chrony 从开机启动中移除。
-chrony 与 NTPD 冲突，可能引起 NTPD 开启启动失败。
+chrony 与 NTPD 冲突，可能引起 NTPD 开机启动失败。
 ```
 systemctl disable chronyd.service
 ```
