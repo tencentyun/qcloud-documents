@@ -60,5 +60,6 @@ if (authState == null) {
 
 - [登录授权](https://cloud.tencent.com/document/product/876/41618)。
 - [云函数](https://cloud.tencent.com/document/product/876/41619)。
+- [数据库](https://cloud.tencent.com/document/product/876/43487)。
 - [文件存储](https://cloud.tencent.com/document/product/876/41620)。
 

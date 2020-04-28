@@ -2,22 +2,16 @@ PySpark 包含标准 Spark 的功能，同时支持上传 Python 脚本、实时
 
 ## 版本说明
 PySpark 框架中使用的 Python 版本和支持的第三方模块版本信息如下：
- - Python 2.7.5
+ - Python 2.7/3.5
  - SciPy 0.12.1
  - NumPy 1.7.1
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装。
-python2 安装示例如下，其中 tqdm 是示例包名，您可以替换成自己需要的包。
+python2 /python3 安装示例如下，您需要将 package_name 换成自己的包名。
 
-```
+```python
 from pip._internal import main
-main(['install', '-i', 'http://mirrors.tencentyun.com/pypi/simple', '--trusted-host', 'mirrors.tencentyun.com', 'tqdm'])
-```
-
-python3 安装示例如下。
-```
-import pip
-pip.main(['install', '-i', 'http://mirrors.tencentyun.com/pypi/simple', '--trusted-host', 'mirrors.tencentyun.com', 'tqdm'])
+main(['install', "package_name"])
 ```
 
 ## 操作步骤

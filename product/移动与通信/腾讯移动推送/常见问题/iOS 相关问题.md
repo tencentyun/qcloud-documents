@@ -111,3 +111,27 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 2. AppStore 发布证书签名
 使用当前 AppStore 的发布签名证书，发布方式如下：
 TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
+
+
+### iOS 如何只更改角标而不弹出信息？
+可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
+示例如下：
+```
+{
+    "platform": "ios",
+    "audience_type": "token",
+    "environment":"dev",
+        "token_list": [
+    "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
+    "message_type":"notify",
+    "message":{
+    "ios":{
+        "aps": {
+            "badge_type":-2
+        }
+    }
+ }
+}
+```
+
+

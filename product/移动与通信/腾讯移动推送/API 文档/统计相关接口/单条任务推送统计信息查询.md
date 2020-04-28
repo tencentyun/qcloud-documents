@@ -21,9 +21,9 @@ https://api.tpns.tencent.com/v3/statistics/get_push_task_stat_channel
 | --------------- | ------ | ------------------------------------------------------------ |
 | retCode         | int    | 返回状态码                                                   |
 | errMsg          | string | 错误信息                                                     |
-| pushStatDataAll | Json   | 返回结果：由 channel 和 pushStat 组成，channel 是通道名。PushStatDataAll 结构变量见下表 |
+| pushStatDataAll | Json   | 返回结果：单个元素由 channel 和 pushState 组成，channel 是通道名。pushState 结构变量见下表 |
 
-#### PushStatDataAll（Android）
+#### PushState（Android）
 
 | 参数名称     | 类型   | 说明     |
 | ------------ | ------ | -------- |
@@ -35,7 +35,13 @@ https://api.tpns.tencent.com/v3/statistics/get_push_task_stat_channel
 | clickUv      | int    | 点击     |
 | cleanupUv    | int    | 清除     |
 
-#### PushStatOverviewData（iOS&macOS）
+>说明
+>数组中“all” 通道对应汇总统计数据。
+>
+>-  汇总数据中verifySvcUv（抵达设备），verifyUv（展示），clickUv（点击），cleanupUv（清除）指标只汇总计算了TPNS通道数据和ROG通道数据。
+>-  汇总数据中pushActiveUv（计划发送）, pushOnlineUv（实际发送）汇总计算了 TPNS 通道 + 厂商通道的数据。
+>-  汇总数据中callbackVerifySvcUv（厂商通道抵达回执）汇总计算了 TPNS 通道verifySvcUv（抵达设备） + 厂商通道callbackVerifySvcUv（厂商通道抵达回执）数据。
+#### pushState（iOS&macOS）
 
 | 参数名称     | 类型   | 说明         |
 | ------------ | ------ | ------------ |
@@ -44,103 +50,131 @@ https://api.tpns.tencent.com/v3/statistics/get_push_task_stat_channel
 | verifySvcUv  | int    | 抵达 |
 | clickUv      | int    | 点击         |
 
-
-
 ## 示例说明
 #### 请求示例
 
 ```json
 {
- "pushId": "130248"
+   "pushId": "130248"
 }
 ```
 
 #### 应答示例
 
 ```json
-
 {
- "retCode": 0,
- "errMsg": "NO_ERROR",
- "pushStatDataAll": [
- {
- "channel": "mz",
- "pushState": {
- "pushActiveUv": 11,
- "pushOnlineUv": 0,
- "verifySvcUv": 0,
- "verifyUv": 0,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "oppo",
- "pushState": {
- "pushActiveUv": 3,
- "pushOnlineUv": 2,
- "verifySvcUv": 2,
- "verifyUv": 2,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "rog",
- "pushState": {
- "pushActiveUv": 3,
- "pushOnlineUv": 2,
- "verifySvcUv": 1,
- "verifyUv": 1,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "oppo",
- "pushState": {
- "pushActiveUv": 1,
- "pushOnlineUv": 0,
- "verifySvcUv": 0,
- "verifyUv": 0,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "xg",
- "pushState": {
- "pushActiveUv": 3,
- "pushOnlineUv": 2,
- "verifySvcUv": 1,
- "verifyUv": 1,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "xm",
- "pushState": {
- "pushActiveUv": 7,
- "pushOnlineUv": 0,
- "verifySvcUv": 0,
- "verifyUv": 0,
- "clickUv": 0,
- "cleanupUv": 0
- }
- },
- {
- "channel": "all",
- "pushState": {
- "pushActiveUv": 28,
- "pushOnlineUv": 6,
- "verifySvcUv": 1,
- "verifyUv": 1,
- "clickUv": 0,
- "cleanupUv": 0
- }
- }
- ]
+    "retCode": 0,
+    "errMsg": "NO_ERROR",
+    "pushStatDataAll": [
+        {
+            "channel": "xm",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 1000,
+                "verifySvcUv": 1000,
+                "callbackVerifySvcUv": 800,
+                "verifyUv": 1000,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "mz",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 1000,
+                "verifySvcUv": 1000,
+                "callbackVerifySvcUv": 800,
+                "verifyUv": 1000,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "vivo",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 1000,
+                "verifySvcUv": 1000,
+                "callbackVerifySvcUv": 800,
+                "verifyUv": 1000,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "hw",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 1000,
+                "verifySvcUv": 1000,
+                "callbackVerifySvcUv": 800,
+                "verifyUv": 1000,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "xg",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 800,
+                "verifySvcUv": 800,
+                "callbackVerifySvcUv": 0,
+                "verifyUv": 800,
+                "clickUv": 300,
+                "cleanupUv": 500
+            }
+        },
+        {
+            "channel": "oppo",
+            "pushState": {
+                "pushActiveUv": 1000,
+                "pushOnlineUv": 1000,
+                "verifySvcUv": 1000,
+                "callbackVerifySvcUv": 800,
+                "verifyUv": 1000,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "fcm",
+            "pushState": {
+                "pushActiveUv": 0,
+                "pushOnlineUv": 0,
+                "verifySvcUv": 0,
+                "callbackVerifySvcUv": 0,
+                "verifyUv": 0,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "rog",
+            "pushState": {
+                "pushActiveUv": 0,
+                "pushOnlineUv": 0,
+                "verifySvcUv": 0,
+                "callbackVerifySvcUv": 0,
+                "verifyUv": 0,
+                "clickUv": 0,
+                "cleanupUv": 0
+            }
+        },
+        {
+            "channel": "all",
+            "pushState": {
+                "pushActiveUv": 6000,
+                "pushOnlineUv": 5800,
+                "verifySvcUv": 5800,
+                "callbackVerifySvcUv": 4000,
+                "verifyUv": 5800,
+                "clickUv": 300,
+                "cleanupUv": 500
+            }
+        }
+    ]
 }
 ```
 

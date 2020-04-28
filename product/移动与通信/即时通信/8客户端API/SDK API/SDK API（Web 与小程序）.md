@@ -1,3 +1,7 @@
+
+以下视频将帮助您快速了解 Web 和小程序端 SDK API：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2298-33477?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## TIM
 
 TIM 是 IM Web SDK 的命名空间，提供了创建 SDK 实例的静态方法 [create()](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/TIM.html#.create) ，以及事件常量 [EVENT](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html)，类型常量 [TYPES](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html)。

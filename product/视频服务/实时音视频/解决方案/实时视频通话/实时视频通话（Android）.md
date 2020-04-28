@@ -44,7 +44,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Android Studio（3.2 以上的版本）打开源码工程 `TRTCDemo`，单击【运行】即可开始调试本 Demo。
+使用 Android Studio（3.5 以上的版本）打开源码工程 `TRTCDemo`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
@@ -66,7 +66,7 @@
 您可以使用开源组件 TRTCVideoCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCVideoCall 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
@@ -146,7 +146,7 @@ trtcvideocalldemo/src/main/java/com/tencent/liteav/trtcvideocalldemo/model
 </tr>
 <tr>
 <td>SDKAppID</td>
-<td>您可以在实时音视频控制台 > 【<a href="https://console.cloud.tencent.com/trtc/app">应用管理</a>】> 应用信息中查看 SDKAppID。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>

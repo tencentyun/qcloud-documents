@@ -64,7 +64,7 @@
 您可以使用开源组件 TRTCAudioCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 语音通话组件 TRTCAudioCall 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 - **方法一：通过 cocoapods 仓库依赖**
 ```
@@ -115,8 +115,8 @@ iOS/trtcScenesDemo/trtcScenes/TRTCAudioCallDemo/model
 <th>作用</th>
 </tr>
 <tr>
-<td>SDKAppID</td>
-<td>您可以在实时音视频控制台 > 【<a href="https://console.cloud.tencent.com/trtc/app">应用管理</a>】>  应用信息中查看 SDKAppID。</td>
+<td>sdkAppID</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>user</td>

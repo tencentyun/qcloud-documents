@@ -55,6 +55,7 @@ git clone https://github.com/tencentcloud/tencentcloud-sdk-php
 require_once '../TCloudAutoLoader.php';
 ```
 
+<span id="example"></span>
 ## 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
@@ -194,7 +195,7 @@ try {
     $req->ExtendCode = "0";
     /* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
 	   * 例如+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
-    $req->PhoneNumberSet = array("+8613711112222");
+    $req->PhoneNumberSet = array("+8613711112222", "+8613711333222", "+8613711144422");
     /* 国际/港澳台短信 senderid: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
     $req->SenderId = "xxx";
     /* 用户的 session 内容: 可以携带用户侧 ID 等上下文信息，server 会原样返回 */

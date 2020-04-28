@@ -53,7 +53,7 @@ public class MApplication extends Application {
  TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();     
  TXLivePusher mLivePusher = new TXLivePusher(this); 
  
-// 一般情况下不需要修改 config 的默认配置	 // 一般情况下不需要
+// 一般情况下不需要修改 config 的默认配置	 
  mLivePusher.setConfig(mLivePushConfig);	
 ```
 <span id="step4"></span>
@@ -182,7 +182,7 @@ TXLivePusher 提供了一组 API 用户控制摄像头的行为：
  TXLivePusher mLivePusher = new TXLivePusher(this); 	
  	
  //开启手动曝光（需要 API 14 以上的 Android 系统才能支持）	
- mLivePushConfig.setTouchFocus(ture);	
+ mLivePushConfig.setTouchFocus(true);	
  mLivePusher.setConfig(mLivePushConfig);	
 ```
 

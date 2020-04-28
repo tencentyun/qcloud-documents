@@ -2,7 +2,7 @@
 
 ## 现象描述
 
-Pod 处于 `CrashLoopBackOff` 状态，说明该 Pod 在正常启动过后异常退出过。此时只要 Pod 的 [restartPolicy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy) 不是 Never 就可能会被重启拉起，此状态下 Pod 的 `RestartCounts` 通常大于0。可首先参考 [通过 Exit Code 定位 Pod 异常退出原因](https://cloud.tencent.com/document/product/457/43125) 查看对应容器进程的退出状态码，缩小异常问题范围。
+Pod 处于 `CrashLoopBackOff` 状态，说明该 Pod 在正常启动过后异常退出过，此状态下 Pod 的 [restartPolicy](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#restart-policy) 如果不是 Never 就可能会被重启拉起，且 Pod 的 `RestartCounts` 通常大于0。可首先参考 [通过 Exit Code 定位 Pod 异常退出原因](https://cloud.tencent.com/document/product/457/43125) 查看对应容器进程的退出状态码，缩小异常问题范围。
 
 ## 可能原因
 - 容器进程主动退出
@@ -15,7 +15,8 @@ Pod 处于 `CrashLoopBackOff` 状态，说明该 Pod 在正常启动过后异常
 
 ### 检查容器进程是否主动退出
 
-容器进程主动退出时，退出状态码通常在0 - 128之间，导致异常的原因可能是业务程序 Bug，也可能是其它原因。请参考 [容器进程主动退出](https://cloud.tencent.com/document/product/457/43148) 进一步定位异常问题。
+容器进程主动退出时，退出状态码通常在0 - 128之间，导致异常的原因可能是业务程序 Bug，也可能是
+原因。请参考 [容器进程主动退出](https://cloud.tencent.com/document/product/457/43148) 进一步定位异常问题。
 
 ### 检查是否发生系统 OOM
 #### 问题分析
@@ -23,9 +24,8 @@ Pod 处于 `CrashLoopBackOff` 状态，说明该 Pod 在正常启动过后异常
 ```
 Out of memory: Kill process ...
 ```
-该异常大概率是由于节点上部署了其它非 K8S 管理的进程消耗了较多的内存，或者 kubelet 的 `--kube-reserved` 和 `--system-reserved` 所分配的内存太小以至于没有足够的空间运行其它非容器进程。
-
-节点上所有 Pod 的实际内存占用总量不会超过  `/sys/fs/cgroup/memory/kubepods` 中 cgroup 的限制，该限制值等于 `capacity - "kube-reserved" - "system-reserved"`。通常情况下，如果预留空间设置合理，且节点上其它非容器进程（非 kubelet、dockerd、kube-proxy 及 sshd 等）内存占用没有超过 kubelet 配置的预留空间，是不会发生系统 OOM 的。
+该异常是由于节点上部署了其他非 K8S 管理的进程消耗了较多的内存，或是 kubelet 的 `--kube-reserved` 和 `--system-reserved` 所分配的内存太小，没有足够的空间运行其他非容器进程。
+>?节点上所有 Pod 的实际内存占用总量不会超过 `/sys/fs/cgroup/memory/kubepods` 中的 cgroup 值（ `cgroup = capacity - "kube-reserved" - "system-reserved"`）。通常情况下，如果预留空间设置合理，且节点上其他非容器进程（例如 kubelet、dockerd、kube-proxy 及 sshd 等）内存占用没有超过 kubelet 配置的预留空间，是不会发生系统 OOM 的。
 
 #### 解决方法
 为确保不再发生此类问题，您可以根据实际需求对预留空间进行合理的调整。

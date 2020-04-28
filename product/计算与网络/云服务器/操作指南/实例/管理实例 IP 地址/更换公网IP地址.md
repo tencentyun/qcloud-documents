@@ -35,7 +35,7 @@
 #### 更换弹性公网 IP
 1. 在实例的管理页面，选择待转换 IP 的云服务器行，单击<img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: 0;"></img>。如下图所示：
 ![](https://main.qcloudimg.com/raw/37c7718c0e50992ac6b4d26b3cf7205d.png)
-2. 在弹出的 “转换为弹性公网IP” 窗口中，单击【确定转换】。
+2. 在弹出的 “转换为弹性公网IP” 窗口中，单击【确定】。
 
 #### 解绑弹性公网 IP
 1. 待完成转换后，在该云服务器行单击【更多】>【IP/网卡】>【解绑弹性IP】。如下图所示：
