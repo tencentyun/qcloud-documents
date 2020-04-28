@@ -5,7 +5,7 @@
 
 ## 前提条件
 
-- 已部署 TKE Stack 控制台，详情请参见 [控制台安装](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.89.E8.A3.85)。
+- 已部署 TKEStack 控制台，详情请参见 [控制台安装](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.89.E8.A3.85)。
 - 已创建集群，详情请参见 [新建独立集群](https://cloud.tencent.com/document/product/1205/43828#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E6.96.B0.E5.BB.BA.E7.8B.AC.E7.AB.8B.E9.9B.86.E7.BE.A4)。
 - 由于 Master 节点的预设置，请参考 [添加节点](https://cloud.tencent.com/document/product/1205/43828#addNode) 步骤，向集群中增加节点后再创建服务。
 - 已登录节点，且该节点已安装 Node.js。
@@ -102,7 +102,7 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
 
 
 #### 在镜像仓库命名空间中进行确认
-1. 登录 TKE Stack 控制台，选择左侧导航栏中的【组织资源】>【镜像仓库管理】。
+1. 登录 TKEStack 控制台，选择左侧导航栏中的【组织资源】>【镜像仓库管理】。
 2. 在“命名空间”页面，选择命名空间名称。
 3. 在该命名空间的“镜像列表”下，可查看已成功上传的镜像。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e367c0cb9c7c0c41edb435af71925b3.png)
@@ -162,7 +162,7 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
 
 ## 相关操作
 ### 创建命名空间<span id="createNamespace"></span>
-1. 选择 TKE Stack 控制台左侧导航栏中的【组织资源】>【镜像仓库管理】。
+1. 选择 TKEStack 控制台左侧导航栏中的【组织资源】>【镜像仓库管理】。
 2. 在“命名空间”页面，单击【新建】。
 3. 在打开的“新建命名空间”页面，参考以下信息进行填写。如下图所示：
 >?命名空间将用于分类容器镜像，也是您创建的私人镜像地址的前缀。
@@ -174,7 +174,7 @@ sudo docker push default.registry.tke.com/[命名空间]/helloworld:v1
 
 
 ### 创建访问凭证<span id="accessCredentials"></span>
-1. 选择 TKE Stack 控制台左侧导航栏中的【组织资源】>【访问凭证】。
+1. 选择 TKEStack 控制台左侧导航栏中的【组织资源】>【访问凭证】。
 2. 在“访问凭证”页面，单击【新建】。
 3. 在打开的“创建访问凭证”页面，按需选择凭证有效时间，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8065813ccaca5060aca3c4bd79a027b2.png)
