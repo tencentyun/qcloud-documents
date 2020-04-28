@@ -79,7 +79,6 @@ param.userId = 'test_user_001';
 ### 步骤5：创建并进入房间
 
 1. 调用  [enterRoom()](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#enterRoom)  即可加入 `TRTCParams` 参数中 `roomId` 代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段 `roomId` 的值为房间号的新房间。
-
 2. 请根据应用场景设置合适的  `appScene`  参数，使用错误可能会导致卡顿率或画面清晰度不达预期，关于 `TRTCAppScene` 的详细介绍，请参见 [TRTCAppScene ](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/global.html#TRTCAppScene)。
    - 视频通话，请设置为`TRTCAppScene.TRTCAppSceneVideoCall`。
    - 语音通话，请设置为`TRTCAppScene.TRTCAppSceneAudioCall`。
