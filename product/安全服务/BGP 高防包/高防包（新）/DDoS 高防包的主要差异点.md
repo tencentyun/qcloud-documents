@@ -14,7 +14,6 @@
 - [购买指引](https://cloud.tencent.com/document/product/1021/43894)
 - [快速入门](https://cloud.tencent.com/document/product/1021/43898)
 - [使用限制](https://cloud.tencent.com/document/product/1021/43899)
-- [操作指南](https://cloud.tencent.com/document/product/1021/43940)
 
 #### 旧版 DDoS 高防包
 - [产品概述](https://cloud.tencent.com/document/product/1021/31469)
@@ -22,4 +21,3 @@
 - [购买指引](https://cloud.tencent.com/document/product/1021/31479)
 - [快速入门](https://cloud.tencent.com/document/product/1021/31463)
 - [使用限制](https://cloud.tencent.com/document/product/1021/31484)
-- [操作指南](https://cloud.tencent.com/document/product/1021/31483)
