@@ -159,9 +159,9 @@ trtcCloud.on('onEnterRoom', onEnterRoom);
 
 let param = new TRTCParams();
 param.sdkAppId = 1400000123;
-param.userSig = 'eJyrVareCeYrSy1SslI...';
 param.roomId = 29834;
 param.userId = 'test_user_001';
+param.userSig = 'eJyrVareCeYrSy1SslI...';
 param.role = TRTCRoleType.TRTCRoleAnchor;
 trtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
 
