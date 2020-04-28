@@ -175,7 +175,35 @@ _handleGroupSystemNotice(message) {
 </pre>
 
 <span id="Step5"></span>
-### 步骤5：加入群组
+### 步骤5：登录 SDK
+
+```javascript
+let promise = tim.login({userID: 'your userID', userSig: 'your userSig'});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 登录成功
+}).catch(function(imError) {
+  console.warn('login error:', imError); // 登录失败的相关信息
+});
+```
+
+<span id="Step6"></span>
+### 步骤6：调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）
+```javascript
+// 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示，前提您需要先调用 updateMyProfile 设置个人资料。
+// 修改个人标配资料
+let promise = tim.updateMyProfile({
+  nick: '我的昵称',
+  avatar: 'http(s)://url/to/image.jpg'
+});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 更新资料成功
+}).catch(function(imError) {
+  console.warn('updateMyProfile error:', imError); // 更新资料失败的相关信息
+});
+```
+
+<span id="Step7"></span>
+### 步骤7：加入群组
 ```javascript
 // 匿名用户加入（无需登录，入群后仅能接收消息）
 let promise = tim.joinGroup({ groupID: 'avchatroom_groupID'});
@@ -196,20 +224,7 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step6"></span>
-### 步骤6：登录 SDK
-
-
-```javascript
-let promise = tim.login({userID: 'your userID', userSig: 'your userSig'});
-promise.then(function(imResponse) {
-  console.log(imResponse.data); // 登录成功
-}).catch(function(imError) {
-  console.warn('login error:', imError); // 登录失败的相关信息
-});
-```
-
-### 步骤7：创建消息实例并发送
+### 步骤8：创建消息实例并发送
 本文以发送文本消息为例。
 
 <pre>
