@@ -5,7 +5,7 @@
 </head>  
 
 <body>  
-<img style="display: block;" src="https://main.qcloudimg.com/raw/32eded59f8437b3fccd0253ff51dbc29.png">
+<img style="display: block;" src="https://main.qcloudimg.com/raw/593174eed88a16cdfcc2f81741c288ec.png">
 <img onclick="window.open('https://cloud.tencent.com/document/product/382/13299')" style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/8665bf6b1b7353838381449b9bc4691c.png" >
 <img onclick="window.open('https://console.cloud.tencent.com/smsv2')" style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/4fc51cc75303214873b8aaf12dcff617.png" >
 <img onclick="window.open('https://cloud.tencent.com/document/product/382/39022')" style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/e15acc13666928774d8e217dbb258528.png" >
