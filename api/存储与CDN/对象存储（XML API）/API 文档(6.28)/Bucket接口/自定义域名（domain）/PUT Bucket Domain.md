@@ -52,7 +52,7 @@ Authorization: Auth String
 | DomainConfiguration | 域名管理配置                                                 | Container | 是       |
 | CustomDomainRule    | 单条自定义域名配置<Br/>父节点：DomainConfiguration           | Container | 否       |
 | Status              | 是否生效，枚举值：`Enabled`，`Disabled`<Br/>父节点：CustomDomainRule | String    | 否       |
-| Type                | 源站类型，枚举值：`REST`，`WEBSITE`，`ACCELERATE`<Br/>父节点：CustomDomainRule | String    |          |
+| Type                | 源站类型，枚举值：`REST`，`WEBSITE`，`ACCELERATE`<Br/>父节点：CustomDomainRule | String    |  是        |
 | Domain              | 自定义域名<Br/>父节点：CustomDomainRule                      | String    | 否       |
 
 ## 响应
