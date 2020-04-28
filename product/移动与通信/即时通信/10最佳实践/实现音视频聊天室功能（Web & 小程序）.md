@@ -187,7 +187,9 @@ promise.then(function(imResponse) {
 ```
 
 <span id="Step6"></span>
-### 步骤6：调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）
+### 步骤6：设置自己的昵称和头像
+2.6.2及以上版本 SDK，AVChatRoom 内的群聊消息和群提示消息（例如进群退群等），都增加了 nick（昵称） 和 avatar（头像URL） 属性，您可以调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）。
+
 ```javascript
 // 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示，前提您需要先调用 updateMyProfile 设置个人资料。
 // 修改个人标配资料
