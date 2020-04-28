@@ -41,25 +41,25 @@
 
 ### Ckafka 转储角色授权指引
 
-**COS转储角色授权：**
-1. 点击新建运行角色
+**COS 转储角色授权：**
+1. 在 CKafka 控制台的消息转储页，单击【新建运行角色】。
 ![](https://main.qcloudimg.com/raw/d7429489a4a5db0ae3b02d05f28b7eec.png)
-2. 在跳转后的新页面选择角色载体信息，COS转储推荐添加角色载体为 云函数（SCF）：
+2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
 ![](https://main.qcloudimg.com/raw/dbb946312efc2945d27ee6ff20f55458.png)
-3. 配置角色策略，COS转储推荐添加如下策略：
+3. 配置角色策略，COS 转储推荐添加如下策略：
 ```
 QcloudSCFFullAccess
 QcloudCOSFullAccess
 QcloudCKafkaFullAccess
 ```
 ![](https://main.qcloudimg.com/raw/82f06fa42d2bdac4294f49471c372a24.png)
-4. 定义角色名称，点击完成
+4. 定义角色名称，单击【完成】。
 ![](https://main.qcloudimg.com/raw/80280dca27f0121cca6658bd1863759f.png)
-5. Ckafka转储控制台刷新并选择相应角色
+5. 在 Ckafka 控制台，刷新消息转储页面并选择相应角色。
 ![](https://main.qcloudimg.com/raw/9a507e31c47142e47161db6bc1810d41.png)
 
 **通用转储角色授权：**
-在通用转储模板中授权函数访问其他的云服务，如果不访问任何云服务，则不用提供运行角色。操作流程同上
+在通用转储模板中授权函数访问其他的云服务，如果不访问任何云服务，则不用提供运行角色。操作流程同上。
 
 <span id="postconditions"></span>
 ## 产品限制和费用计算
