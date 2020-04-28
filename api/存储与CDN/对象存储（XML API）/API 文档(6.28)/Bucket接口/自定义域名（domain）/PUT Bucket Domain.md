@@ -3,10 +3,9 @@
 PUT Bucket Domain 请求用于设置存储桶的域名访问。
 
 > !
->
 > - 目前最多支持用户添加20条自定义域名，如需添加更多自定义域名，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们的技术服务团队。
 > - 自定义域名支持默认源站、静态网站源站、全球加速源站三种源站类型，如果需要使用静态网站源站，需要 [开启静态网站](https://cloud.tencent.com/document/product/436/14984)；如果需要使用全球加速源站，需要 [开启全球加速](https://cloud.tencent.com/document/product/436/38864)。
-> - 主账号默认拥有添加存储桶域名的权限，子账号添加存储桶自定义域名，需要主账号在[访问管理控制台](https://console.cloud.tencent.com/cam/overview)授予`PUT Bucket Domain`接口的权限。
+> - 主账号默认拥有添加存储桶域名的权限，子账号添加存储桶自定义域名，需要主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`PUT Bucket Domain`接口的权限。
 
 ## 请求
 
@@ -24,7 +23,7 @@ Authorization: Auth String
 
 > ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求参数
+#### 请求参数
 
 此接口无请求参数。
 
@@ -66,7 +65,7 @@ Authorization: Auth String
 
 该请求的响应体返回为空。
 
-### 错误码
+#### 错误码
 
 该请求可能会发生的一些常见的特殊错误如下，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
@@ -78,9 +77,9 @@ Authorization: Auth String
 
 ## 实际案例
 
-### 请求
+#### 请求
 
-该请求表示在南京地域存储桶`examplebucket-1250000000`中添加一个名为`www.examplecustomdomain.com`的自定义域名，选择的源站类型为默认源站。
+该请求表示在南京地域存储桶`examplebucket-1250000000`中添加一个名为`www.tencent.com`的自定义域名，选择的源站类型为默认源站。
 
 ```plaintext
 PUT /?domain HTTP 1.1
@@ -92,14 +91,14 @@ Authorization: Auth String
 <DomainConfiguration>
   <DomainRule>
     <Status>ENABLED</Status>
-    <Name>www.exampleCustomDomain.com</Name>
+    <Name>www.tencent.com</Name>
     <Type>REST</Type>
     <ForcedReplacement>CNAME</ForcedReplacement>
   </DomainRule>
 </DomainConfiguration>
 ```
 
-### 响应
+#### 响应
 
 上述请求后，COS 返回如下响应，表明自定义域名已完成设置。
 
