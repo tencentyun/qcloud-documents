@@ -59,7 +59,7 @@ FLUSH PRIVILEGES;
 ```
 
 
-### 步骤5：安装和配置 WordPress
+### 步骤4：安装和配置 WordPress
 #### 下载 WordPress
 >? WordPress 可从 WordPress 官方网站下载 WordPress 最新中文版本并安装，本教程采用 WordPress 中文版本。
 >
@@ -108,7 +108,7 @@ vim wp-config.php
 ```
 4. 修改完成后，按 **Esc**，输入 **:wq**，保存文件返回。
 
-### 步骤6：验证 WordPress 安装
+### 步骤5：验证 WordPress 安装
 1. 在浏览器地址栏输入`http://域名或云服务器实例的公网 IP/wordpress 文件夹`，例如：
 ```
 http://192.xxx.xxx.xx/wordpress
