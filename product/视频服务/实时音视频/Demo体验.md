@@ -4,7 +4,7 @@
     <th width="150px">Android</th>
     <th width="150px">Mac OS</th>
     <th width="150px">Windows</th>
-    <th width="150px">Web</th>
+    <th width="150px">桌面浏览器</th>
     <th width="150px">微信小程序</th>
   </tr>
   <tr>
@@ -23,16 +23,15 @@
 **Android**
 ![](https://main.qcloudimg.com/raw/c840f483bfef5cc1b05eff87fc3d3e70.jpg)
 
-
 **Mac OS**
 ![](https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg)
 
 **Windows** 
 ![](https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg)
 
+**桌面浏览器**
+![](https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg)
+
 **微信小程序**
 ![](https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg)
-
-**Web**
-![](https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg)
 

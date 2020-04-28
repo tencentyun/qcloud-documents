@@ -10,11 +10,10 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 
 1. 已完成 [控制台登录](https://cloud.tencent.com/document/product/856/17381) 操作后，通过 sysadmin 账号登录数据安全审计管理页面（默认密码在购买时将通过站内信发送），在左侧导航中，选择【Agent 管理】>【Agent 配置】，在 Agent 配置页面单击【配置 Agent】，进入编辑 Agent 配置页面。
 ![](https://main.qcloudimg.com/raw/3268da84fb9a7b4b14b04f45624ca699.png)
+<span id="ip"></span>
 2. 在编辑 Agent 配置页面，编辑审计服务 IP及审计端口，审计服务 IP 指定了 Agent 数据安全审计实例的 IP 地址。
  - 若您仅有一个数据安全审计且与被审计数据库在同一个地域，则只填写数据安全审计实例内网 IP 地址即可。
  - 若您有多个数据安全审计实例，请设置与被审计数据库同一地域的数据安全审计实例内网 IP。
- >!我们不推荐您在设置 Agent 连接 IP 时，选择数据安全审计实例公网 IP，如不得不进行此项配置时，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=728&radio_title=%E5%8A%9F%E8%83%BD%E5%92%A8%E8%AF%A2&queue=3&scene_code=17783&step=2) 联系我们。
- >
  ![](https://main.qcloudimg.com/raw/d1b9d13f6a23526322bba0609bfe962c.png)
 3. 在编辑 Agent 配置页面设置数据库信息，数据库信息帮助 Agent 准确识别流量中与数据库访问相关的会话，数据库信息提供 IP 列表和自动检测两种输入方式。
 	- **IP 列表**：IP 列表需要管理员输入完整的数据库 IP 和开发端口，因此 Agent 无论安装在数据库服务器还是应用服务器上，都能够准确定位数据库访问流量。
@@ -39,34 +38,34 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 - 如果您使用的是云服务器 + 自建数据库模式，则建议您将 Agent 安装在数据库服务器上。
 - 如果您使用的是 TencentDB，则需要在连接数据库的应用服务器上安装 Agent。
 
+部署前确认 Agent 部署的机器和审计服务网络是否连通，使用 telnet 审计服务 IP 7000  （审计服务 IP 为 Agent 配置时审计服务 [分配的 IP](#ip)），如下图所示，表示网络已经连通，如有问题请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=729&radio_title=%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5&queue=3232&scene_code=17784&step=2) 联系我们。
+![](https://main.qcloudimg.com/raw/eab4cefe9c9c88c22e53de7b79254cba.png)
 ### Linux 版本
 1.  将 CapAgent_xxx.zip 安装包上传到需要安装的机器上，如 /data 目录。
 2.  使用`unzip CapAgent_xxx.zip`命令进行解压，得到 /data/CapAgent 目录。
 3.  执行命令`chmod -R 755 CapAgent`。
 4. 执行`cd CapAgent/bin`，再执行`./start.sh`，结果如下，如未得到以下结果，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=728&radio_title=%E5%8A%9F%E8%83%BD%E5%92%A8%E8%AF%A2&queue=3&scene_code=17783&step=2) 联系我们。
  ![7](https://main.qcloudimg.com/raw/2a2d4a87638c95f01da0df14a7fa053a.png)
- 
+5. 在命令行，执行`netstat -ano | grep 7000`如下图即确认连接成功。
+![](https://main.qcloudimg.com/raw/a7762658df48cbf24ddccdadc913003b.png)
+
 ### Windows 版本
 >!数据安全审计 Agent Windows 版本只支持 Windows vista/2008 及以上版本。
 >
-1. 依赖项安装
- 1. Python
- 下载并安装 Python 3.5.3 版本，且需在系统变量中添加 Python 的安装目录：
-![8](https://main.qcloudimg.com/raw/d9c978ee9b9be89c6ecb89e5a3a964a1.png)
- 2. Npcap
-打开 CapAgent/thirdparty 目录，双击运行 npcap-0.99-r7.exe 进行安装，选择如下图所示选项：
-![9](https://main.qcloudimg.com/raw/909cd18c9bdb6e73e1ebf199ba8724cd.png)
-2. CapAgent 安装
- 1. 下载 Windows 版本 Agent 后，解压到安装目录，进入 CapAgent/conf 目录，修改 device 配置为本机访问数据库网卡的 IP，如下图所示：
- ![10](https://main.qcloudimg.com/raw/70d470fdd5f9c8fedac5e3678d6fa250.png)
- 2. 进入 CapAgent/bin 目录，执行 start.bat。执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
- ![11](https://main.qcloudimg.com/raw/f76b41e5297ea67ca4c511dde30b3bcb.png)
- 3. 打开 CapAgent/log 目录，查看是否存在文件名包含 ERROR 关键字的文件。如有，请查看该文件，若出现如下图错误提示，则进行下一步操作：
- ![12](https://main.qcloudimg.com/raw/fb1387634b9489d0d19b9e61b46fe087.png)
- 4. 在 CapAgent/conf 目录下的 config.ini 中，增加如下语句：
- ![13](https://main.qcloudimg.com/raw/72c1a9236c916ed5ac94845ca97107c1.png)
- 5. 在 CapAgent/bin 目录下，执行 stop.bat，再执行 start.bat。
-3. Agent 停止
+1. 下载 Windows 版本 Agent 后，解压到安装目录，进入 “CapAgent/conf” 目录，修改 config.ini 中 device 配置为本机访问数据库网卡的 IP（一般为内网 IP），如下图所示：
+![](https://main.qcloudimg.com/raw/6bdcb038c6f9362390828c93fe81b023.png)
+2. 进入 CapAgent_win 目录，执行文件夹中 AuditCapAgentSteup.exe 程序依次安装 Python3.8 环境、npcap0.9984、执行 CapAgent_win。 
+![](https://main.qcloudimg.com/raw/8a8c6a51f86f56957a06d4958739ccfa.png)
+  1. 安装 Python3.8 环境，单击【下一步】，选择 Python3.8 安装的位置，单击【安装】。
+  ![](https://main.qcloudimg.com/raw/4a8f10fe38a4b235d0c7002aece4ca96.png)
+ 2. 安装 Npcap0.9984，勾选全部，单击【Install】。
+ ![](https://main.qcloudimg.com/raw/8c8caa52b579fd3bed6505337d6c721c.png)
+3. 执行成功后，Console 显示结果如下图所示。同时，可以在任务管理器中，看到 CapAgentForWin.exe 进程。
+![](https://main.qcloudimg.com/raw/92974ca82bfbdca31856679bd96e9c68.png)
+4. 检查 CapAgent_win 成功启动并连接审计服务成功。
+	- 在任务管理器中确认 CapAgent_win 进程已运行，
+![](https://main.qcloudimg.com/raw/80a15aaa41765a8fd6cc5d6b90e47e2c.png)
+	- 在 cmd 控制台，执行`netstat -ano | findstr 7000`，如下图即确认连接成功。
+	![](https://main.qcloudimg.com/raw/7ddc1fc5c52c35ad938418e14b12dd43.png)
+5. Agent 停止。
 在 CapAgent_win/bin 目录下执行 stop.bat 即可。
-
-

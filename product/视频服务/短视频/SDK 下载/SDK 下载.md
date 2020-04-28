@@ -1,315 +1,369 @@
->?扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
-![](https://main.qcloudimg.com/raw/7a85f3c087c32fdd5a78a8a9b9c4b02d.jpg)
-
-短视频 SDK 提供3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用请参见 [功能说明文档](https://cloud.tencent.com/document/product/584/43161)。
-
-<h2 id="Smart">基础版（UGC）</h2>
-
-基础版仅包含短视频采集、编辑和点播播放功能，对 App 的安装包体积增量最小，适合仅使用短视频相关功能的客户。
-
+## 短视频 SDK 各版本下载
 <table>
    <tr>
-      <th>所属平台</td>
-      <th>ZIP 包</td>
+      <th width="85px" style="text-align:center">功能模块</td>
+      <th width="85px" style="text-align:center">功能项</td>
+      <th width="0px"  style="text-align:center">功能简介</td>
+      <th width="92px" style="text-align:center">精简版 License</td>
+      <th width="92px" style="text-align:center">基础版 License</td>
+      <th width="92px" style="text-align:center">企业版 License</td>
+      <th width="92px" style="text-align:center">企业版 Pro License</td>
    </tr>
    <tr>
-      <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_iOS_latest.zip">DOWNLOAD</a></td>
+      <td>界面</td>
+      <td>自定义 UI</td>
+	    <td>开发者自定义 UI。小视频 App 提供了一套完整的 UI 交互源码，可复用或自定义。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
    </tr>
-     <tr>
-      <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_Android_latest.zip">DOWNLOAD</a></td>
+   <tr>
+      <td rowspan='18'>采集拍摄</td>
+      <td>屏比</td>
+      <td>支持16:9，4:3，1:1多种屏比拍摄。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
    </tr>
-
+   <tr>
+      <td>清晰度</td>
+      <td>支持标清、高清、超清拍摄，支持自定义码率、帧率、gop。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>拍摄控制</td>
+      <td>拍摄前后摄像头切换、灯光的控制。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+	 <tr>
+	    <td>时长设置</td>
+      <td>自定义拍摄的最短和最长时长。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+	 <tr>
+      <td>水印</td>
+      <td>拍摄支持添加水印。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>焦距</td>
+      <td>拍摄支持调节焦距。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+	    <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>对焦模式</td>
+      <td>支持手动对焦和自动对焦。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>分段录制</td>
+      <td>拍摄过程中可以暂停分段并且可以回删。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>拍照</td>
+      <td>支持拍摄照片。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>变速录制</td>
+      <td>拍摄时支持慢速和快速录制。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>背景音乐</td>
+      <td>拍摄前可以选择本地的 MP3 作为背景音。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>变声和混响</td>
+      <td>拍摄前对录制的声音变声（如萝莉、大叔）和混响效果（如 KTV、会堂）。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   
+   <tr>
+      <td>滤镜</td>
+      <td>支持实时预览滑动切换滤镜的效果，支持自定义滤镜及设置滤镜程度。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   
+   <tr>
+      <td>基础美颜</td>
+      <td>拍摄设置人脸的磨皮、美白、红润，并调节强度。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>高级美颜</td>
+      <td>拍摄设置大眼、瘦脸、V 脸、下巴调整、短脸、小鼻效果，并支持调节强度。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>动效贴纸</td>
+      <td>人脸识别，然后添加变形、覆盖贴纸挂件等效果。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>AI 抠图</td>
+      <td>识别出人的轮廓，把背景抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>绿幕抠像</td>
+      <td>将画面中的绿色元素（例如纯绿背景）抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+  
+   <tr>
+      <td rowspan='12'>特效编辑</td>
+      <td>快速导入</td>
+      <td>Android 支持快速导入视频。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>视频裁剪</td>
+      <td>按照给定的时间范围精确裁剪视频。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>码率设置</td>
+      <td>可以指定码率生成视频。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>获取封面</td>
+      <td>根据时间获取帧图像。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>按帧预览</td>
+      <td>移动时间线时，在预览窗口显示基准游标停留的帧图像。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>滤镜</td>
+      <td>给视频添加滤镜，并支持设置滤镜的强度。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>时间特效</td>
+      <td>给视频添加倒放、反复、慢动作的时间特效。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>滤镜特效</td>
+      <td>给视频添加灵魂出窍、动感光波、分裂、幻影等特效。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>背景音乐</td>
+      <td>选择自带声音文件或用户手机本地的 MP3 作为背景音，支持背景音乐的裁剪和设置音量大小。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>动态或者静态贴纸</td>
+      <td>添加动态或者静态贴纸，支持设置在视频画面中显示位置和起始时间。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>字幕</td>
+      <td>添加字幕，可以选择字幕边框背景的样式，例如气泡等，支持设置在视频画面中显示位置和起始时间。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>图片转场</td>
+      <td>导入多张图片，并选择旋转、淡入淡出等转场效果，并生成视频。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td rowspan='2'>视频拼接</td>
+      <td>多视频拼接</td>
+      <td>支持多视频前后拼接。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td>跟拍</td>
+      <td>支持根据播放的视频进行跟拍，生成双画面视频。</td>
+      <td style="text-align:center">×</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   
+   <tr>
+      <td rowspan='1'>视频上传</td>
+      <td>上传到云点播</td>
+      <td>云点播支持媒资管理、内容审核等功能。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   
+   <tr>
+      <td rowspan='1'>点播播放</td>
+      <td>超级播放器</td>
+      <td>基于点播播放器实现的集视频信息拉取、横竖屏切换、清晰度选择、弹幕、直播时移等功能于一体的解决方案，且完全开源。</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+      <td style="text-align:center">&#10003;</td>
+   </tr>
+   <tr>
+      <td rowspan='2' id = "sdk">SDK 下载</td>
+      <td>Android</td>
+	  <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
+          <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_Android_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+	  <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">企业版 SDK DOWNLOAD</a> </td>
+   </tr>
+   <tr>
+      <td>iOS</td>
+      <td>短视频 SDK（LiteAVSDK）+ 基础功能 Demo 源代码。</td>
+     <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_ugc") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_UGC_iOS_latest.zip">基础版 SDK DOWNLOAD</a> </td>
+      <td colspan="2" style="text-align:center"> <a onclick=MtaH5.clickStat("ugc_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">企业版 SDK DOWNLOAD</a> </td>
+   </tr>
+   
+   <tr>
+      <td rowspan='2'>License</td>
+      <td>License 申请</td>
+      <td>不同版本 SDK 需要搭配不同版本的 License 才能使用。</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">精简版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license">基础版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 License</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/584/20333#.E5.85.B3.E4.BA.8E.E4.BC.81.E4.B8.9A.E7.89.88.E6.9C.AC-license">企业版 Pro License</a></td>
+   </tr>
+   <tr>
+      <td>套餐价格</td>
+      <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
+      <td style="text-align:center">￥1699元/年</td>
+      <td style="text-align:center">￥8399元/年</td>
+      <td style="text-align:center">￥15W/年 </td>
+      <td style="text-align:center">￥50W/年 </td>
+   </tr>
 </table>
 
-<h2 id="Professional">专业版（Professional）</h2>
+**如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)**。
 
-专业版包含短视频在内的多个音视频相关的核心功能，分别为 [实时音视频（TRTC）](https://cloud.tencent.com/product/trtc)、[播放器 SDK（Player+）](https://cloud.tencent.com/product/player)和 [移动直播（MLVB）](https://cloud.tencent.com/product/mlvb)等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困扰。
+## 全功能小视频 App（Demo）源代码
 
-<table>
-   <tr>
-      <th width="0px" style="text-align:center">所属平台</td>
-      <th width="0px" style="text-align:center">ZIP 包</td>
-      <th width="0px"  style="text-align:center">Github</td>
-      <th width="0px" style="text-align:center">64位支持</td>
-      <th width="0px" style="text-align:center">安装包增量</td>
-      <th width="0px" style="text-align:center">安装包瘦身</td>
-   </tr>
-   <tr>
-      <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_iOS_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS">Github</a></td>
-      <td style="text-align:center">支持</td>
-      <td style="text-align:center">4.08M（arm64）</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
-   </tr>
-   <tr>
-      <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android">Github</a></td>
-      <td style="text-align:center">支持</td>
-      <td style="text-align:center">jar：1.5M<br> so(armeabi)：6.5M<br> so(armv7)：6.1M<br>so(arm64)：7.3M</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
-   </tr>
+<table width="850px">
+  <tr>
+    <th width="140px">操作系统</th>
+    <th width="120px">下载链接</th>
+    <th width="70px">Github</th>
+    <th width="50px">Gitee</th>
+  </tr>
+  <tr>
+    <td>iOS 端源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_ios_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/TXXiaoShiPinDemo_ios.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+  </tr>
+  <tr>
+    <td>Android 端源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="http://download-1252463788.file.myqcloud.com/xiaoshipin/XiaoShiPin_Professional_Android.zip">DOWNLOAD</a></td>
+    <td><a href="https://github.com/tencentyun/UGSVSDK">Github</a></td>
+    <td><a href="https://gitee.com/cloudtencent/UGSVSDK">Gitee</a></td>
+  </tr>
+  <tr>
+    <td>后台源代码</td>
+    <td><a onclick=MtaH5.clickStat("ugc_sdk_download_android_xsp_src_code") href="https://download-1252463788.cos.ap-shanghai.myqcloud.com/xiaoshipin/vod-xiaoshipin-server-master.zip">DOWNLOAD</a></td>
+    <td><a onclick=MtaH5.clickStat("ugc_xiaoshipin_server_xsp_src_code") href="https://github.com/tencentyun/vod-xiaoshipin-server">GitHub</a></td>
+    <td><a href="https://gitee.com/cloudtencent/vod-xiaoshipin-server">Gitee</a></td>
+  </tr>
 </table>
 
->? 根据您具体使用的服务，使用专业版需先购买对应的产品授权，您可按需选购：
->- 使用移动直播请购买  [移动直播基础版 License](https://cloud.tencent.com/document/product/454/34750#buy)。
->- 使用短视频请购买 [短视频精简版或基础版 License](https://cloud.tencent.com/document/product/584/20333#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
->- 使用实时音视频请购买 [实时音视频套餐包](https://cloud.tencent.com/document/product/647/37097)。
-
-<h2 id="Enterprise">企业版（Enterprise）</h2>
-
-企业版不仅包含专业版的所有功能，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力，下载后需要解压密码和授权 License 才能运行，解码密码和授权 License 请联系 [腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 获取。
-
-<table>
-   <tr>
-      <th width="0px" style="text-align:center">所属平台</td>
-      <th width="0px" style="text-align:center">ZIP 包</td>
-      <th width="0px" style="text-align:center">64位支持</td>
-      <th width="0px" style="text-align:center">安装包增量</td>
-      <th width="0px" style="text-align:center">安装包瘦身</td>
-   </tr>
-   <tr>
-      <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center">支持</td>
-      <td style="text-align:center"> 6.15M（arm64）</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
-   </tr>
-   <tr>
-      <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
-      <td style="text-align:center">支持</td>
-      <td style="text-align:center"> jar：2.3M<br>so(armeabi)：20.4M</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
-   </tr>
-</table>
-
->! 动效贴纸、AI 抠图、美妆特效和手势动作特效需要通过额外的素材解锁功能。
-
-## 各版本差异对照表
-<img src="https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png" width="1100">
-
-<table>
-  <tr>
-    <th width="100px" style="text-align:center">功能模块</th>
-    <th width="100px" style="text-align:center">功能项</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/7873#Smart">直播基础版</a><br>LiteAV_Smart</th>
-    <th width="100px" style="text-align:center">短视频版<br>LiteAV_UGC</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32689">TRTC 版</a><br>LiteAV_TRTC</th>
-    <th width="100px" style="text-align:center"><a href="https://cloud.tencent.com/document/product/881/20205">播放器版</a><br>LiteAV_Player</th>
-    <th width="100px" style="text-align:center"><a href="#Professional">专业版</a><br>Professional</th>
-    <th width="100px" style="text-align:center"><a href="#Enterprise">企业版</a><br>Enterprise</th>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">直播推流</td>
-    <td style="text-align:center">摄像头推流</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">录屏推流</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='3' style="text-align:center">直播播放</td>
-    <td style="text-align:center">RTMP 协议</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">HTTP - FLV</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">HLS(m3u8)</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='3' style="text-align:center">点播播放</td>
-    <td style="text-align:center">MP4 格式</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">HLS(m3u8)</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-   <tr>
-    <td style="text-align:center">DRM 加密</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">美颜滤镜</td>
-    <td style="text-align:center">基础美颜</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">基础滤镜</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">直播连麦</td>
-    <td style="text-align:center">连麦互动</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">跨房 PK</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='2' style="text-align:center">视频通话</td>
-    <td style="text-align:center">双人通话</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">视频会议</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='4' style="text-align:center">短视频</td>
-    <td style="text-align:center">录制和拍摄</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">裁剪拼接</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">“抖音”特效</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">视频上传</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td rowspan='4' style="text-align:center">AI 特效</td>
-    <td style="text-align:center">大眼瘦脸</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">V 脸隆鼻</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">动效贴纸</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-  <tr>
-    <td style="text-align:center">绿幕抠图</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">-</td>
-    <td style="text-align:center">&#10003</td>
-  </tr>
-</table>
 
 
 <script>
@@ -324,5 +378,3 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
-
-

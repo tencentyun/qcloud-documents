@@ -6,9 +6,9 @@ PyTorch 组件中使用的 Python 版本和支持的第三方模块版本信息�
 - NumPy 1.14.3
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
-```
-import pip
-pip.main(['install', "package_name"])
+```python
+from pip._internal import main
+main(['install', "package_name"])
 ```
 
 ## 操作步骤

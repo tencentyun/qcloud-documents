@@ -138,7 +138,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 <tr><td>URL 重复比</td><td>会话请求中 URL 重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低为疑似异常（根据实际情况进行判断）。</td></tr>
 <tr><td>URL 种类</td><td>会话请求中 URL 去重后条目数。</td></tr>
 <tr><td>请求最多的参数</td><td>会话请求出现最多的参数，包括 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）。</td></tr>
-<tr><td>参数重复比</td><td>会话请求中 GET 请求参数（Query 内容）或 POST 请求参数（Body内容）重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高疑似异常（根据实际情况进行判断）。</td></tr>
+<tr><td>参数重复比</td><td>会话请求中 GET 请求参数（Query 内容）或 POST 请求参数（Body 内容）重复比例，取值范围0 - 1，根据实际业务情况，进行参数配置，过高或过低疑似异常（根据实际情况进行判断）。</td></tr>
 <tr><td rowspan="6">COOKIE</td><td>COOKIE 存在性</td><td>会话请求中，判断 HTTP 头部字段是否存在 COOKIE。</td></tr>
 <tr><td>请求最多的 COOKIE</td><td>会话请求中， 出现最多的 COOKIE。</td></tr>
 <tr><td>COOKIE 重复比</td><td>会话请求中 COOKIE 的重复比例，取值范围0 - 1。</td></tr>

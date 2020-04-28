@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
 
 
 <table>
@@ -46,7 +46,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Android Studio（3.2以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
@@ -67,7 +67,7 @@
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
@@ -154,7 +154,7 @@ src/main/java/com/tencent/liteav/liveroom/model
 </tr>
 <tr>
 <td>sdkAppId</td>
-<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">控制台</a> >【应用管理】>【应用信息】中查找到。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>

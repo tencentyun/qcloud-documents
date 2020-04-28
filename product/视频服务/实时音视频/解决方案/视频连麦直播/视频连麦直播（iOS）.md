@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
 
 <table>
 <tr>
@@ -67,7 +67,7 @@
 
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 cocoapods 仓库依赖**
@@ -107,7 +107,7 @@ pod 'TXLiteAVSDK_TRTC'
 </tr>
 <tr>
 <td>sdkAppId</td>
-<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">控制台</a> >【应用管理】>【应用信息】中查找到。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>

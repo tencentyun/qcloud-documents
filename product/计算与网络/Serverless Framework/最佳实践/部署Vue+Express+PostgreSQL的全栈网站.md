@@ -11,8 +11,7 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用
-  Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
 
 ## 操作步骤
 
@@ -51,7 +50,7 @@ $ serverless create --template-url https://github.com/serverless-components/tenc
 ```
 
 2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云
-SecretId 和 SecretKey 信息、地域可用区及子网等信息。
+SecretId 、SecretKey 、地域和可用区信息。
 
 ```text
 # .env
@@ -67,8 +66,7 @@ ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指DB部署所在的�
 
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。 您可以
-  在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId
-  和 SecretKey。
+  在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId和 SecretKey。
 - ZONE 目前只支持 ap-beijing-3 、ap-guangzhou-2、ap-shanghai-2。
 
   3.通过执行以下命令，安装所需依赖：

@@ -4,7 +4,7 @@
 - 支持 binlog 文件损坏时跳过继续解析的功能，在主实例及 binlog 均损坏的场景下，可最大程度在备库中恢复数据并提供使用。
 - 支持非 GTID 模式到 GTID 模式的数据同步。
 - 支持用户通过 show full processlist 查询“用户线程内存使用信息”。
-- 支持表快速加列功能，不拷贝数据，不占用磁盘空间和磁盘 I/O，业务高峰期可以实时变更。
+- 支持表 [快速加列功能](https://cloud.tencent.com/document/product/236/43732)，不拷贝数据，不占用磁盘空间和磁盘 I/O，业务高峰期可以实时变更。
 - 支持自增值持久化。
 
 #### 修复：
@@ -32,11 +32,12 @@
 
 ### 20190203版本
 #### 新特性：
-- 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况。
+- 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持 CATS 锁调度方式。
-- GTID 开启时，支持事务中创建和删除临时表和 CTS 语法。
-- 支持隐式主键。
-- 支持普通用户 kill 其他普通用户会话的功能。
+- GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持隐式主键，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持企业级加密函数，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 
 #### 修复：
 - 修复 binlog 缓存文件空间不足时造成复制中断的问题。
@@ -46,7 +47,7 @@
 
 ### 20180918版本
 #### 新特性：
-- 支持自动 kill 空闲任务，减少资源冲突。
+- 支持自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - Memory 引擎自动转换为 InnoDB 引擎：如果全局变量 cdb_convert_memory_to_innodb 为 ON，则创建/修改表时会将表引擎从 Memory 转换为 InnoDB。
 - 支持隐藏索引功能。
 - 支持 Jemalloc 内存管理，替换 jlibc 内存管理模块，降低内存占用，提高内存分配效率。
@@ -64,7 +65,7 @@
 ### 20180530版本
 #### 新特性：
 - 支持 SQL 审计功能。
-- 支持表级别的并行复制。
+- 支持表级别的并行复制，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
    
 #### 性能优化：
 - slave 实例的锁优化，提高 slave 实例同步性能。   
@@ -78,8 +79,8 @@
 ### 20171130版本
 #### 新特性：
 - 支持 information_schema.metadata_locks 视图，查询当前实例中的 MDL 授予和等待状态。
-- 支持语法 ALTER TABLE NO_WAIT | TIMEOUT，给 DDL 操作赋予等待超时。
-- 支持线程池功能。
+- 支持语法 ALTER TABLE NO_WAIT | TIMEOUT，给 DDL 操作赋予等待超时，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持线程池功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 
 #### 修复：
 - 根据 bytes_data 计算 innodb_buffer_pool_pages_data，避免该参数溢出。
@@ -89,7 +90,7 @@
 ## MySQL 5.6
 ### 20190930版本
 #### 新特性：
-- 用户可通过 show full processlist 查询“用户线程内存使用信息”。  
+- 用户可通过 show full processlist 查询“用户线程内存使用信息”，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。  
 
 #### 修复：
 - 修复备库 replication filter 所引起的 gtid 空洞的问题。
@@ -109,9 +110,9 @@
 
 ### 20190203版本
 #### 新特性：
-- 异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况。
-- 支持普通用户 kill 其他普通用户会话的功能。
-- GTID 开启时，支持事务中创建和删除临时表和 CTS 语法。
+- 异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
    
 #### 性能优化：   
 - 分区表的复制回放优化，进而提升分区表的回放速度。
@@ -124,7 +125,7 @@
 ### 20180915版本
 #### 新特性：
 - MEMORY  引擎自动转换为 InnoDB 引擎：如果全局变量 cdb_convert_memory_to_innodb 为 ON，则创建、修改表时会将表引擎从 MEMORY 转换为 InnoDB。
-- 自动 kill 空闲任务，减少资源冲突。
+- 自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
    
 #### 修复：
 - 修复 REPLAY LOG RECORD 所导致 crash 的问题。
@@ -133,7 +134,7 @@
 
 ### 20180130版本
 #### 新特性：
-- 支持线程池功能。
+- 支持线程池功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - slave 节点支持动态修改复制过滤条件。
 
 #### 性能优化：
@@ -152,14 +153,12 @@
 - 修复复制时 slave 机 crash 问题。
 	
 ### 20170830版本
-
 #### 修复：
 - 修复异步模式下 binlog 限速失效的问题。
 - 修复 buffer_pool 状态异常的问题。
 - 修复 SEQUENCE 与隐含主键冲突的问题。
    
 ### 20170228版本
-
 #### 修复：
 - 修复 drop table 中的字符编码 bug。
 - 修复 replicate-wild-do-table 无法正确过滤 db 或者 table 中含有小数点等特殊字符的问题。

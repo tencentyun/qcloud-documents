@@ -7,7 +7,7 @@
 - 目前您可以在智能钛的 Notebook 内使用 TI SDK，也可以在本地环境使用 TI SDK，单击下载 [TI SDK](https://ti-ap-guangzhou-1300268737.cos.ap-guangzhou.myqcloud.com/%20ti-python-sdk/ti_sdk_python-1.3.0-py3-none-any.whl) 。
 
 ## 使用说明
-在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)，开通【广州】地域。
+在体验之前，您需要完成 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 - 您可以通过**快速入门**，了解如何使用 TI SDK，以及查看日志及监控的办法。
 - 您可以通过**操作指南**，进一步了解如何使用 [Tensorflow 训练模型](https://cloud.tencent.com/document/product/851/40123)、[PyTorch 训练模型](https://cloud.tencent.com/document/product/851/40125)，[使用自定义镜像训练模型](https://cloud.tencent.com/document/product/851/40126) 等。
 - 如果您在使用过程中遇到问题，请查看常见问题。
