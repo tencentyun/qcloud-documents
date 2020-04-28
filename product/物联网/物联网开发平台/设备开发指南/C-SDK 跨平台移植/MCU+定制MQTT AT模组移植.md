@@ -30,7 +30,7 @@
 
 ## 移植指导
 
-根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 HAL 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。详细操作可参考基于 STM32+FreeRTOS 的 AT-SDK [移植示例](http://git.code.oa.com/iotcloud_teamIII/tc-iot-at-sdk-stm32-freertos-based-example.git)。
+根据所选的嵌入式平台，适配 hal_export.h 头文件对应的 HAL 层 API 的移植实现。主要有串口收发（中断接收）、模组开关机、任务/线程创建、动态内存申请/释放、时延、打印等 API。详细操作可参考基于 STM32+FreeRTOS 的 AT-SDK [移植示例](https://github.com/tencentyun/tc-iot-at-sdk-stm32-freertos-based-example)。
 
  **1. hal_export.h**
 HAL 层对外的 API 接口及 HAL 层宏开关控制。

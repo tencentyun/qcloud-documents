@@ -36,8 +36,7 @@
 	- 登录 Windows 时自动运行 Xagent（可选）：勾选时随 Windows 系统自启服务。
 	- 确认 SSH 代理转发（可选）：勾选时使用单点登录需要确认弹出框提示使用 SSH 转发。
  <img src="https://main.qcloudimg.com/raw/47cd5f9daf3ed620d8e4c5bf8ac5c3b2.png"  width="70%">
-5. 设置完成后开启状态为：正在端口5435中运作，即为 Xagent 服务开启（5435为Xagent 服务默认端口。
+5. 设置完成后开启状态为：正在端口5435中运作，即为 Xagent 服务开启（5435为Xagent 服务默认端口）。
  <img src="https://main.qcloudimg.com/raw/a338bb9a3f2364da4ca12472fb7ede36.png"  width="70%">
 6. 配置完成后即可进行 Xshell 单点登录。打开浏览器，登录堡垒机。在登录界面，账号选择 tom，登录工具选择 Xshell，单击【连接】，即可调用 Xshell 实现单点登录。
-
  <img src="https://main.qcloudimg.com/raw/0f2cf78920eb78f780a3f27300746e6d.png"  width="70%">

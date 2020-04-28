@@ -66,10 +66,10 @@ Authorization: Auth String
 
 **请求**
 
-以下示例表示给存储桶 examplebucket-1250000000设置 SSE-COS 加密。
+以下示例表示给存储桶 examplebucket-1250000000 设置 SSE-COS 加密。
 
 ```sh
-GET /?encryption HTTP 1.1
+PUT /?encryption HTTP 1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Mon, 17 Jun 2019 08:37:35 GMT
 Authorization: signatureValue

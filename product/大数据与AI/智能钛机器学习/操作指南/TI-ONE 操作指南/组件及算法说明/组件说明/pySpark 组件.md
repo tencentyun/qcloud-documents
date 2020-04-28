@@ -2,14 +2,16 @@ PySpark 包含标准 Spark 的功能，同时支持上传 Python 脚本、实时
 
 ## 版本说明
 PySpark 框架中使用的 Python 版本和支持的第三方模块版本信息如下：
- - Python 2.7.5
+ - Python 2.7/3.5
  - SciPy 0.12.1
  - NumPy 1.7.1
 
-如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
-```
-import pip
-pip.main(['install', "package_name"])
+如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装。
+python2 /python3 安装示例如下，您需要将 package_name 换成自己的包名。
+
+```python
+from pip._internal import main
+main(['install', "package_name"])
 ```
 
 ## 操作步骤
@@ -21,19 +23,15 @@ pip.main(['install', "package_name"])
  - 算法参数：指定您的 PySpark 应用程序所需的参数，即传给 PySpark 脚本的参数，可选项。
  - 配置资源：指定您的 PySpark 应用程序用到的配置文件，可选项。
 3. **配置资源**
-  在【资源参数】列表框配置任务的资源参数。
- - num-executors：指定分配的计算节点数目。
- - driver-memory：指定主节点内存大小，上限为14GB。
- - executor-cores：指定每个子节点分配的 CPU Core 数，推荐2 - 3。
- - executor-memory：指定每个子节点分配的内存大小，上限为55GB，推荐单个 core 分配2 - 3GB。
- - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。例如 spark.cores.max=1000。 
+在【资源参数】列表框配置任务的资源参数。
+ - drver 节点资源类型：请选择合适的 drive 节点机型。
+ - executor 节点资源类型：请选择合适的 executor 节点机型。
+ - num-executors：分配计算节点数目。
+ - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。
 4. **运行**
-  单击【保存】并运行工作流。
-
+单击【保存】并运行工作流。
 5. **查看 PySpark 控制台和日志**
 在 PySpark 节点上单击右键菜单，可查看任务状态和详细日志。
-
-
 
 
 ## 使用建议

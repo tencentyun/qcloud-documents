@@ -6,10 +6,10 @@
 
 | 功能       | XML Android SDK         | JSON Android SDK                         |
 | -------- | :------------: | :------------------:    |
-| 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分片上传<br>简单上传最大支持20MB<br>分片上传最大支持64GB |
+| 文件上传 | 支持本地文件、字节流、输入流上传<br>默认覆盖上传<br>智能判断上传模式<br>简单上传最大支持5GB<br>分块上传最大支持48.82TB（50,000GB） | 只支持本地文件上传<br>可选择是否覆盖<br>需要手动选择是简单还是分块上传<br>简单上传最大支持20MB<br>分块上传最大支持64GB |
 | 文件删除 | 支持批量删除 | 只支持单文件删除 |
 | 存储桶基本操作 | 创建存储桶<br>获取存储桶<br>删除存储桶   | 不支持 |
-| 存储桶ACL操作 | 设置存储桶ACL<br>获取设置存储桶ACL<br>删除设置存储桶ACL   | 不支持 |
+| 存储桶 ACL 操作 | 设置存储桶 ACL<br>获取设置存储桶 ACL<br>删除设置存储桶 ACL   | 不支持 |
 | 存储桶生命周期 | 创建存储桶生命周期<br>获取存储桶生命周期<br>删除存储桶生命周期 | 不支持 |
 | 目录操作 | 不单独提供接口   | 创建目录<br>查询目录<br>删除目录 |
 
@@ -70,15 +70,13 @@ String region = "COS_REGION";
 
 CosXmlServiceConfig serviceConfig = new CosXmlServiceConfig.Builder()
         .setRegion(region)
-     .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
+        .isHttps(true) // 使用 HTTPS 请求，默认为 HTTP 请求
         .builder();
 
-/**
- * 获取授权服务的 URL 地址
- */
-URL url = null; // 后台授权服务的 URL 地址
+URL url = null;
 try {
-    url = new URL("your_auth_server_url");
+    // URL 是后台临时密钥服务的地址，如何搭建服务请参考（https://cloud.tencent.com/document/product/436/14048）
+    url = new URL("https://your_auth_server_url");
 } catch (MalformedURLException e) {
     e.printStackTrace();
     return;
@@ -173,7 +171,7 @@ API 变化有以下三点：
 在 XML SDK 中，我们封装了上传、下载和复制操作，命名为`TransferManager`，同时对 API 设计和传输性能都做了优化，建议您直接使用。`TransferManager`的主要特性有：
 
 * 支持上传下载过程的暂停和恢复。
-* 支持根据文件大小智能选择简单上传还是分片上传，您可以设置该判断临界。
+* 支持根据文件大小智能选择简单上传还是分块上传，您可以设置该判断临界。
 * 支持任务状态的监听。
 
 使用`TransferManager`上传的示例代码：
@@ -202,53 +200,51 @@ String uploadId = null; //若存在初始化分块上传的 UploadId，则赋值
 COSXMLUploadTask cosxmlUploadTask = transferManager.upload(bucket, cosPath, srcPath, uploadId);
 
 /**
-* 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
-* byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
-* cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
-*/
+ * 若是上传字节数组，则可调用 TransferManager 的 upload(string, string, byte[]) 方法实现;
+ * byte[] bytes = "this is a test".getBytes(Charset.forName("UTF-8"));
+ * cosxmlUploadTask = transferManager.upload(bucket, cosPath, bytes);
+ */
 
 /**
-* 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
-* InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
-* cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
-*/
+ * 若是上传字节流，则可调用 TransferManager 的 upload(String, String, InputStream) 方法实现；
+ * InputStream inputStream = new ByteArrayInputStream("this is a test".getBytes(Charset.forName("UTF-8")));
+ * cosxmlUploadTask = transferManager.upload(bucket, cosPath, inputStream);
+ */
 
 //设置上传进度回调
 cosxmlUploadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
-            @Override
-            public void onProgress(long complete, long target) {
-                float progress = 1.0f * complete / target * 100;
-                Log.d("TEST",  String.format("progress = %d%%", (int)progress));
-            }
-        });
+    @Override
+    public void onProgress(long complete, long target) {
+        // todo Do something to update progress...
+    }
+});
 //设置返回结果回调
 cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
-            @Override
-            public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-    COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTask.COSXMLUploadTaskResult)result;
-                Log.d("TEST",  "Success: " + cOSXMLUploadTaskResult.printResult());
-            }
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        COSXMLUploadTask.COSXMLUploadTaskResult cOSXMLUploadTaskResult = (COSXMLUploadTask.COSXMLUploadTaskResult) result;
+    }
 
-            @Override
-            public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
-                Log.d("TEST",  "Failed: " + (exception == null ? serviceException.getMessage() : exception.toString()));
-            }
-        });
+    @Override
+    public void onFail(CosXmlRequest request, CosXmlClientException exception, CosXmlServiceException serviceException) {
+        // todo Upload failed because of CosXmlClientException or CosXmlServiceException...
+    }
+});
 //设置任务状态回调, 可以查看任务过程
 cosxmlUploadTask.setTransferStateListener(new TransferStateListener() {
-            @Override
-            public void onStateChanged(TransferState state) {
-                Log.d("TEST", "Task state:" + state.name());
-            }
-        });
+    @Override
+    public void onStateChanged(TransferState state) {
+        // todo notify transfer state
+    }
+});
 
 /**
-若有特殊要求，则可以如下操作：
+ 若有特殊要求，则可以如下操作：
  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, srcPath);
  putObjectRequest.setRegion(region); //设置存储桶所在的地域
  putObjectRequest.setNeedMD5(true); //是否启用 Md5 校验
  COSXMLUploadTask cosxmlUploadTask = transferManager.upload(putObjectRequest, uploadId);
-*/
+ */
 
 //取消上传
 cosxmlUploadTask.cancel();
@@ -259,7 +255,6 @@ cosxmlUploadTask.pause();
 
 //恢复上传
 cosxmlUploadTask.resume();
-
 ```
 
 **（3）新增 API**

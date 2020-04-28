@@ -2,6 +2,8 @@
 
 ## 操作场景
 Android SDK 是腾讯移动推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
+>!如果您是从信鸽平台（https://xg.qq.com）迁移至腾讯移动推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+
 
 ## 操作步骤
 ### 集成方法
@@ -46,13 +48,13 @@ dependencies {
 
 }
 ```
-
+4. 境外集群接入方法请参考下文 [境外集群接入方法](https://cloud.tencent.com/document/product/548/36652#JWjieru)。
 
 >!
 - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
-NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin。  则在 Project 根目录的 gradle.properties 文件中添加  android.useDeprecatedNdk=true。
-- 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容：
-    ```xml
+NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin。则在 Project 根目录的 gradle.properties 文件中添加  android.useDeprecatedNdk=true。
+- 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
+```xml
     <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
             <intent-filter>
                 <!-- 接收消息透传 -->
@@ -61,7 +63,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
                 <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
             </intent-filter>
         </receiver>
-    ```
+```
 - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
 ```
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
@@ -78,6 +80,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 2. 将腾讯移动推送 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
 3. .so 文件是腾讯移动推送必须的组件，支持armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
 4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+
 
 **权限配置**
 腾讯移动推送 SDK 正常运行所需要的权限。示例代码如下：
@@ -158,12 +161,13 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         android:process=":xg_vip_service"></service>
 
     <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
-    <service android:name="com.tencent.android.tpush.rpc.XGRemoteService">
-        <intent-filter>
-            <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
-            <action android:name="应用包名.XGVIP_PUSH_ACTION" />
-        </intent-filter>
-    </service>
+        <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
+            android:exported="false">
+            <intent-filter>
+                <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
+                <action android:name="应用包名.XGVIP_PUSH_ACTION" />
+            </intent-filter>
+        </service>
 
     <!-- 【必须】 【注意】authorities修改为 包名.XGVIP_PUSH_AUTH -->
     <provider
@@ -205,7 +209,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
     <!-- MQTT END-->
 
-    <!-- 【必须】 请修改为APP的AccessId，“21”开头的10位数字，中间没空格 -->
+    <!-- 【必须】 请修改为 APP 的 AccessId，“15”开头的10位数字，中间没空格 -->
     <meta-data
         android:name="XG_V2_ACCESS_ID"
         android:value="APP的AccessId" />
@@ -236,7 +240,26 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 <hr>
 
-
+<span id="JWjieru"></span>
+#### 境外集群接入方法
+如需将推送集群切换为新加坡或者中国香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
+```
+<application>
+        // 其他安卓组件
+        <meta-data
+            android:name="XG_GUID_SERVER"
+            android:value="境外域名/guid/api/GetGuidAndMqttServer" />           
+        <meta-data
+            android:name="XG_STAT_SERVER"
+            android:value="境外域名/log/statistics/push" />        
+        <meta-data
+            android:name="XG_LOG_SERVER"
+            android:value="境外域名/v3/mobile/log/upload" /> 
+</application>
+```
+**境外域名如下：**
+中国香港：`https://api.tpns.hk.tencent.com`
+新加坡：`https://api.tpns.sgp.tencent.com`
 
 #### 音视频富媒体使用方法（可选）
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
@@ -306,7 +329,6 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
-
 
 
 ### 集成建议

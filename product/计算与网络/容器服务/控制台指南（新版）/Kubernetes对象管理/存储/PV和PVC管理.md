@@ -52,8 +52,7 @@ PersistentVolumeClaim（PVC）：集群内的存储请求。例如，PV 是 Pod 
 1.  登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2.  单击需要部署 Workload 的集群 ID，进入待部署 Workload 的集群管理页面。
 3. 在 “工作负载” 下，任意选择 Workload 类型，进入对应的信息页面。
-例如，选择 【工作负载】> 【DaemonSet】，进入 DaemonSet 信息页面。如下图所示：   
-![](https://main.qcloudimg.com/raw/fa2c19971b0bd65c599b21edcb190ff9.png)
+![](https://main.qcloudimg.com/raw/087db7a85311be56aaf4b0bfbf60c886.png)
 4. 单击【新建】，进入 “新建Workload” 页面。
 5. 根据页面信息，设置工作负载名、命名空间等信息。并在 “数据卷” 中，单击【添加数据卷】，添加数据卷。如下图所示：
 ![](https://main.qcloudimg.com/raw/0101415b23de720a356aa43e4a910b1f.png)

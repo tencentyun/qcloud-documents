@@ -59,6 +59,12 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // event.data - 存储 Message 对象的数组 - [Message]
 });
 
+tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
+  // 收到消息被撤回的通知
+  // event.name - TIM.EVENT.MESSAGE_REVOKED
+  // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
+});
+
 tim.on(TIM.EVENT.CONVERSATION_LIST_UPDATED, function(event) {
   // 收到会话列表更新通知，可通过遍历 event.data 获取会话列表数据并渲染到页面
   // event.name - TIM.EVENT.CONVERSATION_LIST_UPDATED
@@ -105,7 +111,10 @@ tim.on(TIM.EVENT.SDK_NOT_READY, function(event) {
 tim.on(TIM.EVENT.KICKED_OUT, function(event) {
   // 收到被踢下线通知
   // event.name - TIM.EVENT.KICKED_OUT
-  // event.data.type - 被踢下线的原因，例如 TIM.TYPES.KICKED_OUT_MULT_ACCOUNT 多账号登录被踢
+  // event.data.type - 被踢下线的原因，例如:
+  //    - TIM.TYPES.KICKED_OUT_MULT_ACCOUNT 多实例登录被踢
+  //    - TIM.TYPES.KICKED_OUT_MULT_DEVICE 多终端登录被踢
+  //    - TIM.TYPES.KICKED_OUT_USERSIG_EXPIRED 签名过期被踢
 });
 </pre>
 

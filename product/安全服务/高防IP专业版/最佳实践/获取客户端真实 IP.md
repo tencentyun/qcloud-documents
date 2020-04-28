@@ -45,8 +45,10 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
     
 			modprobe toa
 6. 可用下面的命令开启自动加载 toa 模块
-
-			echo “modprobe toa” >> /etc/rc.d/rc.local
+<pre>
+		echo "modprobe toa" >> /etc/rc.d/rc.local
+</pre>
+			
 			
 ###  Ubuntu 16.04
 下载安装包：
@@ -58,9 +60,10 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 Headers 包可不装，如需要做相关开发则安装。
 安装完成之后重启主机，然后` lsmod | grep toa `检查 toa 模块是否加载 没有加载的话 `modprobe toa` 开启。
 可用下面的命令开启加载 toa 模块
-		
-		echo “modprobe toa” >> /etc/rc.d/rc.local
-		 
+	<pre>	
+		echo "modprobe toa" >> /etc/rc.d/rc.local
+	</pre> 
+	
 ### Debian 8
 
 (1) [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
@@ -119,11 +122,11 @@ Headers 包可不装，如需要做相关开发则安装。
 			~/rpmbuild/SOURCES/toa.patch
 8. 编辑 kernel.spec
 
-    vim ~/rpmbuild/SPECS/kernel.spec
+			vim ~/rpmbuild/SPECS/kernel.spec
 在ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名） 
 
 			Patch999999: toa.patch
-    ApplyOptionalPatch toa.patch
+			ApplyOptionalPatch toa.patch
 9. 制作 rpm 包
 
 			rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec

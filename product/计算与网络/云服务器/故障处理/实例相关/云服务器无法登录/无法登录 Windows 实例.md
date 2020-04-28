@@ -14,8 +14,8 @@
 
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题导致无法连接 Windows 实例。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
 1. 单击 [自助诊断](https://console.cloud.tencent.com/workorder/check)，打开自助诊断工具。
-2. 输入需要诊断的云服务器 instance-id，单击【开始诊断】。如下图所示：
-![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
+2. 根据工具界面提示，选择需要诊断的云服务器，单击【开始检测】。如下图所示：
+![](https://main.qcloudimg.com/raw/169825c8602f00f5cc867e8f73db269c.png)
 
 如果您的问题无法通过故障排查工具检查，建议您 [通过 VNC 的方式登录](#VNC) 云服务器逐步排查故障。
 

@@ -2,25 +2,37 @@
 
 ## 简单视频上传
 
-#### 如何引入 SDK
+### 引入 SDK
 
-- **script 引入**
-未使用 webpack 的情况下，可通过 script 标签方式引入。该方式会暴露全局的`TcVod`变量。
+#### script 引入方式
+未使用 webpack 的情况下，可通过 script 标签方式引入，该方式会暴露全局的`TcVod`变量。script 引入有下面两种方式：
+- **下载到本地**
+	下载 [SDK 源码](https://github.com/tencentyun/vod-js-sdk-v6) 到本地，然后按以下方式引入：
 ```html
-<script src="//unpkg.com/vod-js-sdk-v6"></script>
+<script src="./vod-js-sdk-v6.js"></script>
 ```
-请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/)，查看 script 方式引入的 Demo。请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html)，查看 Demo 源码。
-- **npm 引入**
-使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入。
+>?引入路径请自行调整为您本地保存的路径。
+- **使用 CDN 资源**
+	使用 CDN 资源，可直接按以下方式引入：
+```html
+<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
+```
+
+请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
+
+#### npm 引入方式
+使用 webpack 的情况下（如使用 Vue 或者 React），可通过 npm 引入：
 ```js
 // npm install vod-js-sdk-v6 之后，在页面中直接 import 引入
 import TcVod from 'vod-js-sdk-v6'
 ```
-请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo)，查看 npm 方式引入的 Demo 源码。
 
->? SDK 依赖 Promise，请在低版本浏览器中自行引入。
+请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/tree/master/docs/import-demo) 查看 npm 方式引入的 Demo 源码。
 
-####  定义获取上传签名的函数
+>!SDK 依赖 Promise，请在低版本浏览器中自行引入。
+
+
+###  定义获取上传签名的函数
 
 ```js
 function getSignature() {
@@ -30,10 +42,10 @@ function getSignature() {
 };
 ```
 
->? `url`是您派发签名服务的 URL，详细请参见 [客户端上传指引](/document/product/266/9219)。
+>? `url`是您派发签名服务的 URL，更多相关信息请参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
 > `signature`计算规则请参见 [客户端上传签名](/document/product/266/9221)。
 
-####  上传视频示例
+###  上传视频示例
 
 
 
@@ -76,7 +88,7 @@ uploader.done().then(function (doneResult) {
 
 ## 高级功能
 
-#### 同时上传视频和封面
+### 同时上传视频和封面
 
 ```js
 const uploader = tcVod.upload({
@@ -89,7 +101,7 @@ uploader.done().then(function (doneResult) {
 })
 ```
 
-#### 获取上传进度
+### 获取上传进度
 
 SDK 支持以回调的形式展示当前的上传进度：
 
@@ -122,7 +134,7 @@ uploader.done().then(function (doneResult) {
 
 `xxx_upload`与`xxx_progress`的回调值请参见 [分块上传/复制任务操作]( https://cloud.tencent.com/document/product/436/35649#.E4.B8.8A.E4.BC.A0.E5.88.86.E5.9D.97)。
 
-#### 取消上传
+### 取消上传
 
 SDK 支持取消正在上传的视频或封面：
 
@@ -135,13 +147,13 @@ const uploader = tcVod.upload({
 uploader.cancel()
 ```
 
-#### 断点续传
+### 断点续传
 
 SDK 支持自动断点续传功能，无需做额外操作。当上传意外终止时（如浏览器关闭、网络中断等），您再次上传该文件，可以从中断处继续上传，减少重复上传时间。
 
 ## 接口描述
 
-#### TcVod
+### TcVod
 
 | 参数名称         | 必填   | 类型       | 参数描述      |
 | ------------ | ---- | -------- | --------- |
@@ -149,7 +161,7 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 | appId    | 否    | number     | 填入后，内置的统计上报会自动带上。  |
 | reportId    | 否    | number     | 填入后，内置的统计上报会自动带上。  |
 
-#### TcVod.upload
+### TcVod.upload
 
 | 参数名称         | 必填   | 类型       | 参数描述      |
 | ------------ | ---- | -------- | --------- |
@@ -159,7 +171,7 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 | fileId    | 否    | string     | 当修改封面时传入。  |
 | reportId    | 否    | number     | 填入后，内置的统计上报会自动带上。会覆盖构造函数中的设置。  |
 
-#### 事件
+### 事件
 
 | 事件名称         | 必填   |  事件描述      |
 | ------------ | ---- |  --------- |

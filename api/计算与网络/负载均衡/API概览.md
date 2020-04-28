@@ -9,7 +9,7 @@
 | 接口名 | Action | 功能描述 |
 |---------|---------| ---------|
 | [购买负载均衡](https://cloud.tencent.com/document/api/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
-| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPrice | 查询负载均衡实例的价格。|
+| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
 | [查询负载均衡实例列表](https://cloud.tencent.com/document/api/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
 |  [修改负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改负载均衡的名称。|
 | [删除负载均衡实例](https://cloud.tencent.com/document/api/214/1257)| DeleteLoadBalancers | 删除负载均衡实例。|

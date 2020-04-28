@@ -101,8 +101,8 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@“sh”];
     credential.secretID = @"COS_SECRETID";
     credential.secretKey = @"COS_SECRETKEY";
     /*强烈建议返回服务器时间作为签名的开始时间，用来避免由于用户手机本地时间偏差过大导致的签名不正确 */
-    credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"start-time"];
-    credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expire-time"];
+    credential.startDate = [[[NSDateFormatter alloc] init] dateFromString:@"startTime"]; // 单位是秒
+    credential.experationDate = [[[NSDateFormatter alloc] init] dateFromString:@"expiredTime"];
     credential.token = @"COS_TOKEN";
     QCloudAuthentationV5Creator* creator = [[QCloudAuthentationV5Creator alloc]
         initWithCredential:credential];
@@ -215,6 +215,10 @@ put.initMultipleUploadFinishBlock = ^(QCloudInitiateMultipartUploadResult * mult
 }];
 
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
+//舍弃一个分块上传并删除已上传的块
+[put abort:^(id outputObject, NSError *error) {
+//
+}];
 
 //•••在完成了初始化，并且上传没有完成前
 NSError* error;

@@ -28,7 +28,7 @@ CREATE USER name [ [WITH] option [ ... ] ]
 ## 描述
 作为数据库2.2发行版，CREATE USER 已经由 **CREATE ROLE** 所替代，尽管为了向后兼容，它仍然被接受实用。
 
-在 CREATE ROLE 和 CREATE USER 之间仅有的区别是 LOGIN 权限默认和 CREATE USER一起创建，然而 NOLOGIN 权限默认和 CREATE ROLE一起创建。
+在 CREATE ROLE 和 CREATE USER 之间仅有的区别是 LOGIN 权限默认和 CREATE USER 一起创建，然而 NOLOGIN 权限默认和 CREATE ROLE 一起创建。
 
 ## 兼容性
 

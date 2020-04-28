@@ -1,8 +1,11 @@
+iOS SDK 接入请观看视频： 
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-12774?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 开发准备
 
 ### SDK 获取
 
-录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](http://client-sdk-1255628450.cossh.myqcloud.com/asr%20sdk/QCloudSDK_iOS.zip)
+录音文件识别的 iOS SDK 以及 Demo 的下载地址：[QCloud SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/QCloudSDK_iOS.zip)
 
 ### 使用须知
 

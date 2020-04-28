@@ -50,15 +50,17 @@ list_objects(Bucket, Delimiter="", Marker="", MaxKeys=1000, Prefix="", EncodingT
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket)
 ```python
 response = client.list_objects(
     Bucket='examplebucket-1250000000',
-    Prefix='string'
+    Prefix='folder1'
 )
 ```
 
 #### 全部参数请求示例
 
+[//]: # (.cssg-snippet-get-bucket-comp)
 ```python
 response = client.list_objects(
     Bucket='examplebucket-1250000000',
@@ -123,7 +125,7 @@ response = client.list_objects(
 | Marker   |  默认以 UTF-8 二进制顺序列出条目，标记返回对象的 list 的起点位置  | String  |
 | NextMarker|  当 IsTruncated 为 true 时，标记下一次返回对象的 list 的起点位置  | String  |
 | Name   | 存储桶名称，由 BucketName-APPID 构成  | String  | 
-| IsTruncated   |  表示返回的对象否被截断  | String|
+| IsTruncated   |  表示返回的对象是否被截断  | String|
 | EncodingType   | 默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
 |Contents |包含所有对象元数据的 list，包括 'ETag'，'StorageClass'，'Key'，'Owner'，'LastModified'，'Size' 等信息|List|
 |CommonPrefixes |所有以 Prefix 开头，以 Delimiter 结尾的对象被归到同一类|List|
@@ -141,6 +143,7 @@ list_objects_versions(Bucket, Prefix="", Delimiter="", KeyMarker="", VersionIdMa
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-list-object-versioning)
 ```python
 response = client.list_objects_versions(
     Bucket='examplebucket-1250000000',
@@ -150,6 +153,7 @@ response = client.list_objects_versions(
 
 #### 全部参数请求示例
 
+[//]: # (.cssg-snippet-list-object-versioning-comp)
 ```python
 response = client.list_objects_versions(
     Bucket='examplebucket-1250000000',
@@ -234,7 +238,7 @@ response = client.list_objects_versions(
 | NextMarker|  当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 Key 的起点位置  | String  |
 | NextVersionIdMarker | 当 IsTruncated 为 true 时，标记下一次返回对象的 list 的 VersionId 的起点位置  | String  |
 | Name   | 存储桶名称，由 BucketName-APPID 构成  | String  | 
-| IsTruncated   |  表示返回的对象否被截断  | String|
+| IsTruncated   |  表示返回的对象是否被截断  | String|
 | EncodingType   | 默认不编码，规定返回值的编码方式，可选值：url  | String  | 否|
 |Version |包含所有多个版本对象元数据的 list，包括 'ETag'，'StorageClass'，'Key'，'VersionId'，'IsLatest'，'Owner'，'LastModified'，'Size' 等信息|List|
 |DeleteMarker|包含所有delete marker 对象元数据的 list，包括 'Key'，'VersionId'，'IsLatest'，'Owner'，'LastModified' 等信息|List|
@@ -253,15 +257,18 @@ put_object(Bucket, Body, Key, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-object)
 ```python
 response = client.put_object(
     Bucket='examplebucket-1250000000',
-    Body=b'bytes'|file,
+    Body=b'bytes',
     Key='exampleobject',
     EnableMD5=False
 )
 ```
+
 #### 全部参数请求示例
+[//]: # (.cssg-snippet-put-object-comp)
 ```python
 response = client.put_object(
     Bucket='examplebucket-1250000000',
@@ -340,6 +347,15 @@ head_object(Bucket, Key, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-head-object)
+```python
+response = client.head_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+#### 全部请求参数示例
+
 ```python
 response = client.head_object(
     Bucket='examplebucket-1250000000',
@@ -406,7 +422,17 @@ response = client.head_object(
  get_object(Bucket, Key, **kwargs)
 ```
 #### 请求示例
+```python
+response = client.get_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
 
+response['Body'].get_stream_to_file('exampleobject')
+```
+#### 全部参数请求示例
+
+[//]: # (.cssg-snippet-get-object)
 ```python
 response = client.get_object(
     Bucket='examplebucket-1250000000',
@@ -561,15 +587,29 @@ copy_object(Bucket, Key, CopySource, CopyStatus='Copy', **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-copy-object)
 ```python
 response = client.copy_object(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
     CopySource={
-        'Bucket': 'examplebucket-1250000000', 
+        'Bucket': 'sourcebucket-1250000000', 
+        'Key': 'exampleobject', 
+        'Region': 'ap-guangzhou'
+    }
+)
+```
+#### 全部参数请求示例
+
+```python
+response = client.copy_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    CopySource={
+        'Bucket': 'sourcebucket-1250000000', 
         'Key': 'exampleobject', 
         'Region': 'ap-guangzhou',
-        'VersionId': 'string'
+        'VesionId': 'string'
     },
     CopyStatus='Copy'|'Replaced',
     ACL='private'|'public-read',
@@ -642,6 +682,15 @@ delete_object(Bucket, Key, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-delete-object)
+```python
+response = client.delete_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject'
+)
+```
+#### 全部参数请求示例
+
 ```python
 response = client.delete_object(
     Bucket='examplebucket-1250000000',
@@ -658,7 +707,8 @@ response = client.delete_object(
  | VersionId   | 开启版本控制后，指定对象的具体版本  | String  | 否 | 
 
 #### 返回结果说明
-删除对象的信息，类型为dict
+
+删除对象的信息，类型为 dict：
 
 ```python
 {
@@ -670,7 +720,7 @@ response = client.delete_object(
 | 参数名称   | 参数描述   |类型 | 
 | -------------- | -------------- |---------- | 
 | x-cos-version-id | 删除对象的版本号 | String |
-| x-cos-delete-marker | 标识删除的对象是否为delete marker | String | 
+| x-cos-delete-marker | 标识删除的对象是否为 delete marker | String | 
 
 ### 删除多个对象
 
@@ -684,6 +734,24 @@ response = client.delete_object(
 delete_objects(Bucket, Delete={}, **kwargs)
 ```
 #### 请求示例
+
+[//]: # (.cssg-snippet-delete-multi-object)
+```python
+response = client.delete_objects(
+    Bucket='examplebucket-1250000000',
+    Delete={
+        'Object': [
+            {
+                'Key': 'exampleobject1'
+            },
+            {
+                'Key': 'exampleobject2'
+            }
+        ]
+    }
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.delete_objects(
@@ -774,6 +842,15 @@ list_multipart_uploads(Bucket, Prefix="", Delimiter="", KeyMarker="", UploadIdMa
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-list-multi-upload)
+```python
+response = client.list_multipart_uploads(
+    Bucket='examplebucket-1250000000',
+    Prefix='dir'
+)
+```
+#### 全部参数请求示例
+
 ```python
 response = client.list_multipart_uploads(
     Bucket='examplebucket-1250000000',
@@ -843,11 +920,11 @@ response = client.list_multipart_uploads(
 | Prefix   |  默认为空，对分块上传的 key 进行筛选，匹配 prefix 为前缀的分块上传  | String  |
 | Delimiter   |   默认为空，设置分隔符| String|
 | KeyMarker   |  和 UploadIdMarker 一起使用，指明列出分块上传的 key 起始位置  | String  |
-| UploadIdMarker   |  和 KeyMarker 一起使用，指明列出分块上传的 uploadid 起始位置。如果未指定 KeyMarker，UploadIdMarker 将被忽略| String  |
+| UploadIdMarker   |  和 KeyMarker 一起使用，指明列出分块上传的 uploadId 起始位置。如果未指定 KeyMarker，UploadIdMarker 将被忽略| String  |
 | NextKeyMarker   |  当 IsTruncated 为 true 时，指明下一次列出分块上传的 key 的起始位置  | String  |
-| NextUploadIdMarker   |  当 IsTruncated 为 true 时，指明下一次列出分块上传的 uploadid 的起始位置| String  |
+| NextUploadIdMarker   |  当 IsTruncated 为 true 时，指明下一次列出分块上传的 uploadId 的起始位置| String  |
 | MaxUploads   | 最多返回的分块上传的数量，默认为最大的1000  | Int  |
-| IsTruncated   |  表示返回的分块上传否被截断  | String|
+| IsTruncated   |  表示返回的分块上传是否被截断  | String|
 | EncodingType   |   默认不编码，规定返回值的编码方式，可选值：url  | String  |
 |Upload |包含所有分块上传的 list，包括 'UploadId'，'StorageClass'，'Key'，'Owner'，'Initiator'，'Initiated' 等信息|List|
 |CommonPrefixes |所有以 Prefix 开头，以 Delimiter 结尾的 Key 被归到同一类|List|
@@ -865,6 +942,16 @@ response = client.list_multipart_uploads(
 create_multipart_upload(Bucket, Key, **kwargs):
 ```
 #### 请求示例
+
+[//]: # (.cssg-snippet-init-multi-upload)
+```python
+response = client.create_multipart_upload(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    StorageClass='STANDARD'
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.create_multipart_upload(
@@ -936,6 +1023,19 @@ upload_part(Bucket, Key, Body, PartNumber, UploadId, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-upload-part)
+```python
+# 注意，上传分块的块数最多10000块
+response = client.upload_part(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    Body=b'b'*1024*1024,
+    PartNumber=1,
+    UploadId='exampleUploadId'
+)
+```
+#### 全部参数请求示例
+
 ```python
 # 注意，上传分块的块数最多10000块
 response = client.upload_part(
@@ -985,8 +1085,23 @@ response = client.upload_part(
 ```
 upload_part_copy(Bucket, Key, PartNumber, UploadId, CopySource, CopySourceRange='', **kwargs)
 ```
-
 #### 请求示例
+
+[//]: # (.cssg-snippet-upload-part-copy)
+```python
+response = client.upload_part_copy(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    PartNumber=1,
+    UploadId='exampleUploadId',
+    CopySource={
+        'Bucket': 'sourcebucket-1250000000', 
+        'Key': 'exampleobject', 
+        'Region': 'ap-guangzhou'
+    }
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.upload_part_copy(
@@ -995,9 +1110,9 @@ response = client.upload_part_copy(
     PartNumber=100,
     UploadId='string',
     CopySource={
-        'Bucket': 'examplebucket-1250000000', 
-        'Key': 'exampleobject', 
-        'Region': 'ap-guangzhou',
+        'Bucket': 'sourcebucket-1250000000', 
+        'Key': 'sourceObject', 
+        'Region': 'COS_REGION', #替换为源存储桶的 Region
         'VersionId': 'string'
     },
     CopySourceRange='string',
@@ -1052,6 +1167,16 @@ response = client.upload_part_copy(
 list_parts(Bucket, Key, UploadId, MaxParts=1000, PartNumberMarker=0, EncodingType='', **kwargs)
 ```
 #### 请求示例
+
+[//]: # (.cssg-snippet-list-parts)
+```python
+response = client.list_parts(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    UploadId='exampleUploadId'
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.list_parts(
@@ -1138,11 +1263,12 @@ complete_multipart_upload(Bucket, Key, UploadId, MultipartUpload={}, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-complete-multi-upload)
 ```python
 response = client.complete_multipart_upload(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    UploadId=uploadid,
+    UploadId='exampleUploadId',
     MultipartUpload={
         'Part': [
             {
@@ -1201,11 +1327,12 @@ abort_multipart_upload(Bucket, Key, UploadId, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-abort-multi-upload)
 ```python
 response = client.abort_multipart_upload(
     Bucket='examplebucket-1250000000',
     Key='exampleobject',
-    UploadId=uploadid
+    UploadId='exampleUploadId'
 )
 ```
 #### 参数说明
@@ -1233,6 +1360,21 @@ response = client.abort_multipart_upload(
 restore_object(Bucket, Key, RestoreRequest={}, **kwargs)
 ```
 #### 请求示例
+
+[//]: # (.cssg-snippet-restore-object)
+```python
+response = client.restore_object(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    RestoreRequest={
+        'Days': 100,
+        'CASJobParameters': {
+            'Tier': 'Standard'
+        }
+    }
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.restore_object(
@@ -1273,6 +1415,16 @@ response = client.restore_object(
 put_object_acl(Bucket, Key, AccessControlPolicy={}, **kwargs)
 ```
 #### 请求示例
+
+[//]: # (.cssg-snippet-put-object-acl)
+```python
+response = client.put_object_acl(
+    Bucket='examplebucket-1250000000',
+    Key='exampleobject',
+    ACL='public-read'
+)
+```
+#### 全部参数请求示例
 
 ```python
 response = client.put_object_acl(
@@ -1331,6 +1483,7 @@ get_object_acl(Bucket, Key, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-object-acl)
 ```python
 response = client.get_object_acl(
     Bucket='examplebucket-1250000000',
@@ -1394,6 +1547,7 @@ upload_file(Bucket, Key, LocalFilePath, PartSize=1, MAXThread=5, **kwargs)
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-transfer-upload-object)
 ```python
 response = client.upload_file(
     Bucket='examplebucket-1250000000',

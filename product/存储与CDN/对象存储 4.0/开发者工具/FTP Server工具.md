@@ -21,6 +21,7 @@ COS FTP Server 支持通过 FTP 协议直接操作 COS 中的对象和目录，�
 #### 系统环境
 
 - 操作系统：Linux，推荐使用腾讯 CentOS 系列 [云服务器](https://cloud.tencent.com/document/product/213)，暂时不支持 Windows 系统。
+- psutil 依赖的 Linux 系统包：python-devel（或 python-dev，依据不同的 Linux 发行版名字不同），通过 Linux 下的包管理工具添加，例如`yum install python-devel`或`aptitude install python-dev`。
 - Python 解释器版本：Python 2.7，请参见 [Python 安装与配置](https://cloud.tencent.com/document/product/436/10866) 进行安装与配置。
 - 依赖包：
  - [cos-python-sdk-v5](https://pypi.org/project/cos-python-sdk-v5/) （≥1.6.5）
@@ -82,8 +83,8 @@ cos_protocol = https
 home_dir = /home/user0
 ftp_login_user_name=user0   #替换为用户自定义的账号
 ftp_login_user_password=pass0   #替换为用户自定义的密码
-authority=RW
-delete_enable=true					# true 为允许该 ftp 用户进行删除操作(默认)，false 为禁止该用户进行删除操作
+authority=RW                # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
+delete_enable=true		 # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
 
 [COS_ACCOUNT_1]
 cos_secretid = COS_SECRETID    # 替换为您的 SECRETID
@@ -95,8 +96,8 @@ cos_protocol = https
 home_dir = /home/user1
 ftp_login_user_name=user1   #替换为用户自定义的账号
 ftp_login_user_password=pass1   #替换为用户自定义的密码
-authority=RW
-delete_enable=false
+authority=RW               # 设置该用户的读写权限，R 表示读权限，W 表示写权限，RW 表示同时具备读写权限
+delete_enable=false        # true 为允许该 ftp 用户进行删除操作（默认），false 为禁止该用户进行删除操作
 
 [NETWORK]
 # 如果 FTP Server 处于某个网关或 NAT 后，可以通过该配置项将网关的 IP 地址或域名指定给 FTP

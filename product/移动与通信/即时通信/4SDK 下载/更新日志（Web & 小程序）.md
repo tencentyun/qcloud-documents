@@ -1,3 +1,119 @@
+### 2.6.3 @2020.4.26
+
+**修复**
+
+- [createCustomMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage) 的 payload.data payload.extension 类型传入不正确导致的消息内容丢失问题。
+- 单次请求回包多条消息时可能存在的乱序问题。
+- 偶发 C2C 会话未读数溢出导致的上报已读后未读计数无法清零。
+- 偶发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) event.data.code 和 event.data.undefined 为 undefined。
+
+### 2.6.2 @2020.4.16
+
+**新增**
+
+- [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 支持全体禁言和取消全体禁言。
+- [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 支持拉取群成员禁言截止时间戳（[muteUntil](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)）。
+
+**修复**
+
+群最新的消息是群提示消息时导致的未读计数无法清零。
+
+### 2.6.1 @2020.4.8
+
+**修复**
+
+偶发 COS 上传签名失效后未及时更新导致无法上传文件。
+
+
+### 2.6.0 @2020.3.30
+
+**新增**
+- Web 端支持创建发送视频消息 [createVideoMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createVideoMessage)，最大支持发送100MB的视频文件。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `nick` 和 `avatar` 属性，用于展示音视频聊天室（AVChatRoom）内消息发送者的昵称和头像地址（需提前调用 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置）。
+- Web 端多实例登录时，C2C 消息的撤回通知可在各实例同步。
+- 调用 [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 修改群自定义字段成功后，群成员能收到群提示消息，且能获取到相关内容：[Message.payload.newGroupProfile.groupCustomField](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)。
+
+**变更**
+
+[TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 已废弃，请使用 [MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 代替。
+
+**修复**
+
+调用 [getGroupList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupList) 接口偶发报错问题。
+
+### 2.5.2 @2020.3.13
+
+**变更**
+
+[searchGroupByID](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#searchGroupByID) 失败时日志级别降为 Warning，并修改提示文案。
+
+**修复**
+
+- 匿名用户（或游客）加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组失败及统计问题。
+- 其它已知问题。
+
+### 2.5.1 @2020.3.5
+
+**变更**
+
+[login](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#login) 成功时的回调对象 `imResponse.data` 新增 `repeatLogin: true` 键值对，用于标识某账号已登录后重复登录的情况。
+
+**修复**
+
+音视频聊天室（AVChatRoom）接收侧收到的消息优先级与发送侧设置的消息优先级不一致。
+
+### 2.5.0 @2020.2.28
+**新增**
+- 网络状态变更事件 [TIM.EVENT.NET_STATE_CHANGE](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.NET_STATE_CHANGE)，接入侧可根据此事件做相关的提示和引导。
+- 支持在微信小程序插件环境运行。
+
+**变更**
+减少优化 [错误码](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html)。
+
+**修复**
+- 在 [控制台](https://console.cloud.tencent.com/im) 创建音视频聊天室（AVChatRoom）并指定群主，群主加入此群后，群内其他人发的信息在群主侧重复。
+- 在 [控制台](https://console.cloud.tencent.com/im) 或者用 REST API 频繁创建销毁群组，SDK 没有派发 [TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECEIVED) 事件。
+- [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 偶发拉不到群消息列表。
+
+
+### 2.4.2 @2020.2.7
+
+**新增**
+群组消息支持设置 [消息优先级](https://cloud.tencent.com/document/product/269/3663#.E7.BE.A4.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7)，[枚举值](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.MSG_PRIORITY_HIGH)，[使用示例](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)。
+
+
+### 2.4.1 @2020.1.14
+
+**变更**
+匿名用户（或游客）只允许加入 [TIM.TYPES.GRP_AVCHATROOM](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.GRP_AVCHATROOM) 类型的群组。
+
+**修复**
+- 偶发拉取在线消息缺失。
+- 收到 AVChatRoom 的群系统通知未派发 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED) 事件。
+- 部分场景下撤回群聊消息结果不准确。
+- 其它已知问题。
+
+### 2.4.0 @2020.1.3
+**新增**
+- 撤回消息 [revokeMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#revokeMessage)。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `isRevoked` 属性，值为 `true` 时标识被撤回的消息。
+- 消息被撤回的事件通知 [TIM.EVENT.MESSAGE_REVOKED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_REVOKED)。
+- 被踢下线的事件通知 [TIM.EVENT.KICKED_OUT](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.KICKED_OUT) 增加被踢下线类型：[多终端登录被踢](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.KICKED_OUT_MULT_ACCOUNT) 和 [UserSig 失效被踢](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.KICKED_OUT_USERSIG_EXPIRED)。
+
+**变更**
+- [createFileMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage) 上传文件大小由20M调整为100M。
+- [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload) 的 `msgMemberInfo` 和 `shutupTime` 即将废弃，请使用 `memberList` 和 `muteTime` 代替。
+- 控制台新增 [IM 智能客服入口](https://cloud.tencent.com/act/event/smarty-service?from=im-doc)。
+
+**修复**
+- 调用 [off](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#off) 接口无法取消监听事件。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 的 `isRead` 属性值和类型不准确。
+- 发送视频消息，视频文件超过最大限制后的错误码和错误信息有误。
+- 偶现更新自定义字段后字段内容不准确。
+- 登录后加入音视频聊天室类型的群组偶现 [JOIN_STATUS_ALREADY_IN_GROUP](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-TYPES.html#.JOIN_STATUS_ALREADY_IN_GROUP)。
+- core-js 导致的潜在性能问题。
+
+
 ### 2.3.2 @2019.12.18
 **变更**
 [getUserProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getUserProfile) 和 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 支持 [自定义资料字段](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。

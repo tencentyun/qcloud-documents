@@ -20,7 +20,11 @@ Authorization: Auth String
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口除使用公共请求头部外，还支持以下必选请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+
+|名称	|描述	|类型|	是否必选|
+|---|---|----|----|
+|Content-MD5|	RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化   |	string	|  是 |
 
 
 #### 请求体
@@ -86,12 +90,13 @@ Container 节点 CORSRule 的内容：
 
 ```sh
 PUT /?cors HTTP/1.1
-Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Fri, 10 Mar 2017 09:45:46 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484814927;32557710927&q-key-time=1484814927;32557710927&q-header-list=host&q-url-param-list=cors&q-signature=8b9f05dabce2578f3a79d732386e7cbade9033e3
+Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
+Content-MD5: q+xJ56ypmuOSKbkohlpZIg==
 Content-Type: application/xml
-Content-Length: 280
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDVMyLTL4B8rVt52LTozzPZBYffPs9****&q-sign-time=1578385303;1578392503&q-key-time=1578385303;1578392503&q-header-list=content-md5;content-type;host&q-url-param-list=cors&q-signature=730a82c7afed2a6c051870d54895193235e8****
+Content-Length: 385
 
+<?xml version="1.0" encoding="UTF-8" ?>
 <CORSConfiguration>
     <CORSRule>
         <ID>1234</ID>
@@ -108,11 +113,10 @@ Content-Length: 280
 
 ```sh
 HTTP/1.1 200 OK
-Content-Type: application/xml
-Content-Length: 0
-Connection: keep-alive
-Date: Fri, 10 Mar 2017 09:45:46 GMT
-Server: tencent-cos
-x-cos-request-id: NTg4MDdiZWRfOWExZjRlXzQ2OWVfZGY0
+content-length: 0
+connection: close
+date: Tue, 07 Jan 2020 08:21:44 GMT
+server: tencent-cos
+x-cos-request-id: NWUxNDNmOThfNWFiMjU4NjRfMWIxYl9lYWY1****
 ```
 

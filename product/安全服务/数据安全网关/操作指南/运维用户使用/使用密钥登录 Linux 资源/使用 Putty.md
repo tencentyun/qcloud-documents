@@ -10,7 +10,7 @@
 1. 打开 PuTTY 安装目录，双击运行 puttygen.exe。
 2. 打开后，选择密钥对类型及长度，选择 Generate 生成密钥对。
 <img src="https://main.qcloudimg.com/raw/8f6073ef798ed32011db3e9cb048c668.png"  width="70%">
-3. 生成密钥对后，可选择保存公钥和保存密钥。（Putty 工具生成速度较慢，请耐心等候）
+3. 生成密钥对后，可选择保存公钥和保存密钥。（PuTTY 工具生成速度较慢，请耐心等候）
 <img src="https://main.qcloudimg.com/raw/e60edc9ee4a419b6cfb0657ca651878d.png"  width="70%">
 
 
@@ -24,7 +24,7 @@
  <img src="https://main.qcloudimg.com/raw/e0b3f575f35421d93807821542466a2e.png"  width="70%">
  - 方式2：运行 PuTTY 安装目录下 pageant.exe， 选择【Add Key】，将私钥导入该服务。
 <img src="https://main.qcloudimg.com/raw/d63caf6d5ea167baf5b5aea06075a0c4.png"  width="70%"> 
->?pageant 程序导入的私钥需使用特定格式的文件，其他格式文件会出现错误，如需转换格式请参见 [格式转换](#step4)。）
+>?pageant 程序导入的私钥需使用特定格式的文件，其他格式文件会出现错误，如需转换格式请参见 [格式转换](#step4)。
 4. 至此，您就可以使用 Putty 实现密钥直连登录。
 
 ### 步骤3：实现密钥单点登录

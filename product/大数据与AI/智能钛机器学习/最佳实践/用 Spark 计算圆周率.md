@@ -8,9 +8,12 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
 3. 查看工作流运行状态和结果。
 
 整体工作流如下：
-![](https://main.qcloudimg.com/raw/5cc167dabb65b8fe99abb866934b105d.png)
+<img src="https://main.qcloudimg.com/raw/cc3b3d871a4fd1e5eeac3da1a23f04a6.png" style="zoom:50%;" />
+
+>!您可以按需自行配置资源参数，不同资源实例类型对应的价格不同。选择资源时，您可以参看资源参数右上角的**计费说明**。
 
 ## 详细流程
+
 #### 一、本地准备
 1. 下载代码
 本案例使用的计算圆周率代码来自 Spark 官方：[利用 Spark 框架计算圆周率](https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/SparkPi.scala)，您也可通过链接下载，或直接拷贝以下代码到本地进行编译。
@@ -88,5 +91,6 @@ object SparkPi {
 #### 三、查看工作流运行状态和结果
 1. 单击右键【Spark】，单击【Spark 控制台】可查看该工作流运行相关日志。
 2. 单击【stdout】 即可在日志中查看圆周率 PI 的计算结果。
-<img src="https://main.qcloudimg.com/raw/ee99b227a300a3eda7769f8b9d8f15fc.png" style="zoom:50%;" />
+![](https://main.qcloudimg.com/raw/5247942cf3191e8ae317babf3d0e6872.png)
+
 

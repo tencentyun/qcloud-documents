@@ -505,6 +505,8 @@ tim.getGroupMemberList(options);
 
 ### 获取群成员资料
 
+>! 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+
 **接口名**
 
 ```js
@@ -683,6 +685,7 @@ let promise = tim.setGroupMemberMuteTime({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberMuteTime error:', imError); // 禁言失败的相关信息
 });
@@ -726,6 +729,7 @@ let promise = tim.setGroupMemberRole({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberRole error:', imError); // 错误信息
 });
@@ -768,6 +772,7 @@ tim.setGroupMemberNameCard(options)
 let promise = tim.setGroupMemberNameCard({ groupID: 'group1', userID: 'user1', nameCard: '用户名片' });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberNameCard error:', imError); // 设置群成员名片失败的相关信息
 });
@@ -814,6 +819,7 @@ tim.setGroupMemberCustomField(options)
 let promise = tim.setGroupMemberCustomField({ groupID: 'group1', memberCustomField: [{key: 'group_member_test', value: 'test'}]});
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberCustomField error:', imError); // 设置群成员自定义字段失败的相关信息
 });
@@ -836,16 +842,16 @@ promise.then(function(imResponse) {
 ## 群系统通知
 
 当有用户申请加群等事件发生时，管理员会收到申请加群等系统消息。管理员同意或拒绝加群申请，IM SDK 会将相应的消息通过群系统通知消息发送给接入侧，由接入侧展示给用户。
-群系统通知消息有多种类型，详细描述请参见 [Message.GroupSystemNoticePayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
+群系统通知消息有多种类型，详细描述请参见 [群系统通知类型常量及含义](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
 
-```javascript
+<pre>
 let onGroupSystemNoticeReceived = function(event) {
-  const type = event.data.type; // 群系统通知的类型，详见 群系统通知类型常量及含义 
-  const message = event.data.message; // 群系统通知的消息实例，详见 Message
+  const type = event.data.type; // 群系统通知的类型，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">Message.GroupSystemNoticePayload</a> 
+  const message = event.data.message; // 群系统通知的消息实例，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
   console.log(message.payload); // 消息内容. 群系统通知 payload 结构描述
 };
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, onGroupSystemNoticeReceived);
-```
+</pre>
 
 
 

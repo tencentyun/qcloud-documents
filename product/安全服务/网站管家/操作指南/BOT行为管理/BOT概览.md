@@ -5,6 +5,9 @@ WAF 的 BOT 行为管理能够对友好及恶意机器人程序进行甄别分�
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 概览】，查看 BOT 行为概况。
 2. 概览页默认提供 TOP5 域名的 BOT 记录概览，如用户需要查看更多域名概览，可以在页面右上角单击排名下拉框，查看 TOP10 的 BOT 记录概览。
 ![](https://main.qcloudimg.com/raw/668fadc23e7d3b23e7ba23fb55c25800.png)
+**统计项说明：**
+	- **BOT 记录数：**统计 WAF 检测出该域名的 BOT 数，以访问源 IP 作为统计维度，包括未知类型、自定义类型和公开类型的 BOT 数量。
+	- **排名：**默认提供 TOP5 BOT 记录数域名排名，最多可以查看 TOP10 排名，如需查看更多域名，可到 [BOT 详情页](https://console.cloud.tencent.com/guanjia/bot2/record/overview) 进行查看。
 3. 查看单个域名概览。BOT 概览最多提供 BOT 记录数 TOP10 域名的微缩图统计，可以快速查看域名的 BOT 类型、BOT 动作和 BOT 请求趋势信息。单击左上角的域名可以查看该域名的更多统计信息。
 ![](https://main.qcloudimg.com/raw/f756062a30ca4ab09be19bc371255536.png)
 **统计项说明：**

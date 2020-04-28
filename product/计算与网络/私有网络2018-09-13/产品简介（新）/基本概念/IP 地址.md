@@ -1,4 +1,19 @@
-腾讯云有两类 IP 地址，公网 IP 地址和内网 IP 地址。
+IP 地址是访问 CVM 实例或者从外部访问部署在 CVM 实例上的服务的主要方式。腾讯云有两类 IP 地址，公网 IP 地址和内网 IP 地址。如果您不主动做解绑、更换操作，公网 IP 和内网 IP 都不会改变。
+
+
+## 内网 IP 地址
+内网 IP 地址是腾讯云内网服务的实现形式，无法通过 Internet 访问。每个云服务器实例都具有分配内网 IP 的默认网络接口（即 eth0 ），内网 IP 地址可由系统自动分配，在私有网络环境下，内网 IP 地址也可由用户自定义。
+
+### 属性
+- 内网服务具有用户属性，不同用户间相互隔离，即默认无法经由内网访问另一个用户的云服务。
+- 内网服务具有地域属性，不同地域间相互隔离，即默认无法经由内网访问同账户下不同地域的云服务。
+
+### 适用场景
+内网 IP 可以用于负载均衡与云服务器实例之间内网互访、云服务器实例与其他云服务（如 TencentDB）之间内网互访。
+
+### 相关操作
+- 获取实例的内网 IP 地址和设置 DNS，请参见 [获取内网 IP 地址和设置 DNS](https://cloud.tencent.com/document/product/213/17941)。
+- 修改私有网络中云服务器实例的内网 IP，请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
 
 ## 公网 IP 地址
 公网 IP 地址是 Internet 上的非保留地址，有公网 IP 地址的云服务器可以和 Internet 上的其他计算机互相访问。
@@ -46,7 +61,7 @@
 <tr>
 <td rowspan="4" >操作</td>
 <td>转换 IP</td>
-<td>可转换，详情请参见 <a href="https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip" target="_blank"> 普通公网 IP 转换为弹性公网 IP</a>。</td>
+<td>可转换，详情请参见 <a href="https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip" target="_blank"> 普通公网 IP 转换为弹性公网 IP</a>。<br>普通公网 IP 转换为弹性公网 IP 后，仅 IP 属性改变，IP 地址不变。</td>
 <td>弹性公网 IP 不可转换为普通公网 IP。</td>
 </tr>
 <tr>
@@ -65,17 +80,3 @@
 <td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 找回公网 IP 地址</a>。</td>
 </tr>
 </tbody></table>
-
-## 内网 IP 地址
-内网 IP 地址是腾讯云内网服务的实现形式，无法通过 Internet 访问。每个云服务器实例都具有分配内网 IP 的默认网络接口（即 eth0 ），内网 IP 地址可由系统自动分配，在私有网络环境下，内网 IP 地址也可由用户自定义。
-
-### 属性
-- 内网服务具有用户属性，不同用户间相互隔离，即默认无法经由内网访问另一个用户的云服务。
-- 内网服务具有地域属性，不同地域间相互隔离，即默认无法经由内网访问同账户下不同地域的云服务。
-
-### 适用场景
-内网 IP 可以用于负载均衡与云服务器实例之间内网互访、云服务器实例与其他云服务（如 TencentDB）之间内网互访。
-
-### 相关操作
-- 获取实例的内网 IP 地址和设置 DNS，请参见 [获取内网 IP 地址和设置 DNS](https://cloud.tencent.com/document/product/213/17941)。
-- 修改私有网络中云服务器实例的内网 IP，请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
