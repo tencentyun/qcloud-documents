@@ -75,6 +75,11 @@
    <div>                      
       <div class="header center" style="padding: 10px">高级使用</div>
          <div style="display:flex;align-items: center;padding: 10px;">
+				             <div class="list-group">
+               <div>最佳实践 <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
+               </div>
+               <div class="folder">
+                  <div class="list-item" onclick="window.open('/63797.html')">最佳实践1</div><div class="list-item" onclick="window.open('/63797.html')">最佳实践2</div></div></div>
          <div class="list-group">
                <div>
                   API 参考<svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
@@ -83,11 +88,6 @@
                   <div class="list-item" onclick="window.open('/63797.html')">API 文档</div>
                  </div>
             </div>
-            <div class="list-group">
-               <div>最佳实践 <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
-               </div>
-               <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">最佳实践1</div><div class="list-item" onclick="window.open('/63797.html')">最佳实践2</div></div></div>
             <div class="list-group">
                <div>
                   常见问题 <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
