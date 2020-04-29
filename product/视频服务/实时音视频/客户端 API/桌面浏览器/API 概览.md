@@ -34,14 +34,14 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 ## TRTC
 
->!本文适用于4.x.x版本的 TRTC Web SDK。
+>!本文适用于4.x.x版本的 TRTC 桌面浏览器 SDK。
 
-TRTC 是 [TRTC Web SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象（Client）和本地音视频流对象（Stream）。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
+TRTC 是 [TRTC 桌面浏览器 SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/index.html) 的主入口，通过 TRTC 方法可以创建一个实时音视频通信的客户端对象（Client）和本地音视频流对象（Stream）。TRTC 方法还可以检测浏览器的兼容性，是否支持屏幕分享，以及设置日志级别及日志上传。
 
 | API | 描述 |
 | --- | --- |
-| [VERSION](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.VERSION) | TRTC Web SDK 版本号。 |
-| [checkSystemRequirements](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.checkSystemRequirements) | 检测浏览器是否兼容 TRTC Web SDK。若当前浏览器不兼容 TRTC Web SDK，建议引导用户去下载最新版本的 Chrome 浏览器。 |
+| [VERSION](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.VERSION) | TRTC 桌面浏览器 SDK 版本号。 |
+| [checkSystemRequirements](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.checkSystemRequirements) | 检测浏览器是否兼容 TRTC 桌面浏览器 SDK。若当前浏览器不兼容 TRTC 桌面浏览器 SDK，建议引导用户去下载最新版本的 Chrome 浏览器。 |
 | [isScreenShareSupported](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.isScreenShareSupported) | 检测浏览器是否支持屏幕分享。在创建屏幕分享流之前请调用该方法检查当前浏览器是否支持屏幕分享。 |
 | [getDevices](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.getDevices) | 返回媒体输入输出设备列表。 |
 | [getCameras](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html#.getCameras) | 返回摄像头设备列表。 |
