@@ -122,12 +122,12 @@ public boolean order(Long txId, Long branchId, Order order);
 
 #### Confirm方法：
   - 返回值固定为`boolean`类型。
-  - 仅在返回`ture`时视为分支事务`Confirm 成功`。
+  - 仅在返回`true`时视为分支事务`Confirm 成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Confirm 失败`。
 
 #### Cancel方法：
   - 返回值固定为`boolean`类型。
-  - 仅在返回`ture`时视为分支事务`Cancel成功`。
+  - 仅在返回`true`时视为分支事务`Cancel成功`。
   - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
 
 ``` java
