@@ -324,7 +324,7 @@ __介绍__
 
 ### switchStream
 
-多清晰度切换。
+FLV 多清晰度切换。
 ```
 int switchStream(String playUrl)
 ```
@@ -747,5 +747,4 @@ __参数__
 |-----|-----|-----|
 | volume | int | 音量大小, 取值范围 [0，100]。 |
 
-***
 

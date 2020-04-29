@@ -146,6 +146,7 @@ trtcCloud.setBeautyStyle(TRTCBeautyStyle.TRTCBeautyStyleNature, 5, 5, 5);
     关于 `TRTCAppScene` 的详细介绍，请点击查看：[TRTCAppScene ](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/global.html#TRTCAppScene)。
 3.  房间创建成功后，主播端开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onEnterRoom) 事件，参数 `result` 大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当 `result` 小于0时表示进房失败，具体数值为进房失败的错误码。
 
+
 ```javascript
 let onEnterRoom = function (result) {
   if (result > 0) {
@@ -159,12 +160,11 @@ trtcCloud.on('onEnterRoom', onEnterRoom);
 
 let param = new TRTCParams();
 param.sdkAppId = 1400000123;
-param.userSig = 'eJyrVareCeYrSy1SslI...';
 param.roomId = 29834;
 param.userId = 'test_user_001';
+param.userSig = 'eJyrVareCeYrSy1SslI...';
 param.role = TRTCRoleType.TRTCRoleAnchor;
 trtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
-
 ```
 
 
@@ -225,7 +225,7 @@ trtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
   param.sdkAppId = 1400000123;
   param.roomId = roomId;
   param.userId = 'test_user_001';
-	param.userSig = 'eJyrVareCeYrSy1SslI...';
+  param.userSig = 'eJyrVareCeYrSy1SslI...';
   param.role = TRTCRoleType.TRTCRoleAudience; // 设置角色为“观众”
   trtcCloud.enterRoom(param, TRTCAppScene.TRTCAppSceneLIVE);
 </script>
