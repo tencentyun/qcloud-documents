@@ -1,5 +1,3 @@
-## APP 签名哈希值获取方法
-
 ### iOS 获取 DEVELOPMENT_TEAM 的方法
 - 方法1：cd 到 项目 aaa.xcodeproj 文件同目录下，执行 grep-h-r--include *.pbxproj DEVELOPMENT_TEAM . | uniq 
 - 方法2：在 Xcode 直接去查看 DEVELOPMENT_TEAM
