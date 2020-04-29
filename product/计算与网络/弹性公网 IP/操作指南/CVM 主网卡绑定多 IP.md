@@ -73,7 +73,7 @@ ip addr
 ```
 
 ### 步骤三：结果验证
-登录其他服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
+登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
 >?若执行命令未得到以下结果，请检查 CVM 安全组配置。
 >
 ![](https://main.qcloudimg.com/raw/b95843022195567bba1ce835c3f41bbf.png)
@@ -149,7 +149,7 @@ ipconfig /all
 ![](https://main.qcloudimg.com/raw/172cb1189fe0886d6b0b6483a924f8cd.png)
 
 ### 步骤三：结果验证
-登录其他服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
+登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
 >?若执行命令未得到以下结果，请检查 CVM 安全组配置。
 >
 ![](https://main.qcloudimg.com/raw/b95843022195567bba1ce835c3f41bbf.png)
