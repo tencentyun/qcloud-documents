@@ -29,7 +29,7 @@ content-type: application/json
   "RequestId": "f92406b3-5a9a-4fe8-bc43-45e3d794bb68"
 }
 ```
-**输出示例 成功**
+**输出示例：成功**
 ```json
 {
   "Response": {
@@ -39,7 +39,7 @@ content-type: application/json
   }
 }
 ```
-**输出示例 失败**
+**输出示例：失败**
 ```json
 {
   "Response": {
