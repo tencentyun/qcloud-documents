@@ -46,7 +46,7 @@
 2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
 ![](https://main.qcloudimg.com/raw/dbb946312efc2945d27ee6ff20f55458.png)
 3. 配置角色策略，COS 转储推荐添加如下策略：
-```
+```plaintext
 QcloudSCFFullAccess
 QcloudCOSFullAccess
 QcloudCKafkaFullAccess
