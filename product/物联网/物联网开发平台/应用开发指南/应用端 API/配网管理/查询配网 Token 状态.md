@@ -30,7 +30,7 @@ content-type: application/json
 }
 ```
 
-**输出示例 成功**
+**输出示例：成功**
 ```json
 {
   "Response": {
@@ -41,7 +41,7 @@ content-type: application/json
 }
 ```
 
-**输出示例 失败**
+**输出示例：失败**
 ```json
 {
   "Response": {
