@@ -97,7 +97,7 @@ ip addr
 
 ### 步骤二：配置网卡
 1. 登录 Windows 2012 云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
-2. <span id="step1" />执行如下步骤，查找云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
+2. <span id="step2" />执行如下步骤，查找云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
  1. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行如下命令：
 ```
 ipconfig /all
@@ -119,23 +119,23 @@ ipconfig /all
 </thead>
 <tbody><tr>
 <td>IP 地址</td>
-<td>上述 <a href="#step1">步骤1</a> 中的 IPv4 地址。</td>
+<td>上述 <a href="#step2">步骤1</a> 中的 IPv4 地址。</td>
 </tr>
 <tr>
 <td>子网掩码</td>
-<td>上述 <a href="#step1">步骤1</a> 中的子网掩码。</td>
+<td>上述 <a href="#step2">步骤1</a> 中的子网掩码。</td>
 </tr>
 <tr>
 <td>默认网关</td>
-<td>上述 <a href="#step1">步骤1</a> 中的默认网关地址。</td>
+<td>上述 <a href="#step2">步骤1</a> 中的默认网关地址。</td>
 </tr>
 <tr>
 <td>首选 DNS 服务器</td>
-<td>上述 <a href="#step1">步骤1</a> 中的 DNS 服务器。</td>
+<td>上述 <a href="#step2">步骤1</a> 中的 DNS 服务器。</td>
 </tr>
 <tr>
 <td>备用 DNS 服务器</td>
-<td>上述 <a href="#step1">步骤1</a> 中的备用 DNS 服务器。如果未列出备用 DNS 服务器，则无需填写此参数。</td>
+<td>上述 <a href="#step2">步骤1</a> 中的备用 DNS 服务器。如果未列出备用 DNS 服务器，则无需填写此参数。</td>
 </tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/26fca0d8901235e7be62234c3e684e17.png" />
