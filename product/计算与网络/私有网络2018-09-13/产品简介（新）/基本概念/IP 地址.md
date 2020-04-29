@@ -88,3 +88,6 @@ IP 地址是访问 CVM 实例或者从外部访问部署在 CVM 实例上的服�
 <td colspan="2">您可以找回您使用过、且未被其它用户使用的普通公网 IP/弹性公网 IP，详情请参见 <a href="https://cloud.tencent.com/document/product/213/34376" target="_blank"> 找回公网 IP 地址</a>。</td>
 </tr>
 </tbody></table>
+
+### 计费方式
+腾讯云对使用公网 IP 地址访问公网的云资源产生的公网网络流量，将收取公网网络费用。更多详细信息，请参见 [公网网络计费](https://buy.cloud.tencent.com/price/idc)。
