@@ -44,16 +44,16 @@
 1. 在 CKafka 控制台的消息转储页，单击【新建运行角色】。
 ![](https://main.qcloudimg.com/raw/4e20b8cec1c096bc37a0ec7fa8ae09a0.png)
 2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
-![](https://main.qcloudimg.com/raw/dbb946312efc2945d27ee6ff20f55458.png)
+![](https://main.qcloudimg.com/raw/4f49a17a1ec0e9eb9fa675c2040532d9.png)
 3. 配置角色策略，COS 转储推荐添加如下策略：
 ```plaintext
 QcloudSCFFullAccess
 QcloudCOSFullAccess
 QcloudCKafkaFullAccess
 ```
-![](https://main.qcloudimg.com/raw/82f06fa42d2bdac4294f49471c372a24.png)
+![](https://main.qcloudimg.com/raw/2451d801066745525d6abd7a12d49708.png)
 4. 定义角色名称，单击【完成】。
-![](https://main.qcloudimg.com/raw/80280dca27f0121cca6658bd1863759f.png)
+![](https://main.qcloudimg.com/raw/db5cc3a45df0db69d8a0afea1c550ec4.png)
 5. 在 Ckafka 控制台，刷新消息转储页面并选择相应角色。
 ![](https://main.qcloudimg.com/raw/f19a5d0276be1a82df98e773ee120af5.png)
 
