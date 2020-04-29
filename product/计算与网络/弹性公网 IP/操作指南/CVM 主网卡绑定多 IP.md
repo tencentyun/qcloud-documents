@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 您已购买 CentOS 7 云服务器或 Windows 2012 云服务器，并且所属安全组开放了 ICMP 协议。
-- 请确保您的公网 IP 在限额数内，具体限额请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41648)
+- 请确保您的公网 IP 在限额数内，具体限额请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41648)。
 
 ## CentOS 7 服务器绑定多 IP
 ### 步骤一：绑定 EIP
