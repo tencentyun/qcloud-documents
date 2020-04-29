@@ -38,7 +38,7 @@ version=vx.x.x && wget https://tke-release-1251707795.cos.ap-guangzhou.myqcloud.
 >- 例如，使用 v1.2.3 版本时进行安装时，则对应命令为 `version=v1.2.3`。您可查看 TKEStack [Release](https://github.com/tkestack/tke/releases) 按需选择版本进行安装，建议安装最新版本。
 >- tke-installer 约为5GB，包含安装所需资源，请确保节点具备足够空间。
 >
-3. 执行以下命令，安装 tke-installer。
+3. 执行以下命令，安装 tke-installer，请耐心等待安装完毕。
 ```
 ./tke-installer-x86_64-$version.run
 ```
@@ -80,7 +80,7 @@ http://xxx.xxx.xx.xx:8080/index.html
 	- **镜像仓库类型**：请按需设置，本文以【TKE提供】为例。
 		- **TKE提供**：使用 TKE 自带的镜像仓库。
 		- **第三方仓库**：已配置好的外部镜像仓库。若选择【第三方仓库】，TKEStack 将不会再安装镜像仓库，而是使用您提供的镜像仓库作为默认镜像仓库服务。
-5. 在“业务设置”页面，选择是否开启 TKEStack 控制台业务模块，建议开启。
+5. 在“业务设置”页面，选择是否开启 TKEStack 控制台业务模块，建议开启，并单击【下一步】。
 6. 在“监控设置”页面，参考以下提示进行设置，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7236c01103b3fe9b02bc971b10e652b4.png)
 	- **监控存储类型**：请按需设置，本文以【TKE提供】为例。
