@@ -15,11 +15,11 @@ Hadoop-cos-DistChecker 是一个校验迁移目录完整性的工具。用户在
 
 - **源文件列表**
 源文件路径列表是用户执行以下命令，导出的待检查的子目录和文件列表。
-```
+```plaintext
 hadoop fs -ls -R hdfs://host:port/{source_dir} | awk '{print $8}' > check_list.txt
 ```
 示例格式如下：
-```txt
+```plaintext
 /benchmarks/TestDFSIO
 /benchmarks/TestDFSIO/io_control
 /benchmarks/TestDFSIO/io_control/in_file_test_io_0
@@ -33,7 +33,7 @@ hadoop fs -ls -R hdfs://host:port/{source_dir} | awk '{print $8}' > check_list.t
 ```
 
 - **源目录**：指源文件列表所在的目录，这个目录通常也是`distcp`命令进行数据迁移时的源路径。如下所示，`hdfs://host:port/source_dir`为源目录。
-```
+```plaintext
 hadoop distcp hdfs://host:port/source_dir cosn://examplebucket-appid/dest_dir
 ```
 此外，这个路径也是**源文件路径列表**中公共父目录，例如上述的源文件列表的公共父目录就是：`/benchmarks`。
@@ -43,20 +43,18 @@ hadoop distcp hdfs://host:port/source_dir cosn://examplebucket-appid/dest_dir
 
 Hadoop-cos-DistChecker 是一个 MapReduce 作业程序，按照 MapReduce 作业的提交流程即可：
 
-```shell
+```plaintext
 hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.distchecker.App <源文件列表的绝对路径> <源目录的绝对路径表示> <目标目录的绝对路径表示> [optional parameters]
 ```
 
->?
->- Optional parameters 表示 Hadoop 可选参数。
->- 
+>? Optional parameters 表示 Hadoop 可选参数。
 
 ### 使用步骤
 
 下面以校验` hdfs://10.0.0.3:9000/benchmarks`和`cosn://hdfs-test-1250000000/benchmarks`为例，介绍工具的使用步骤。
 
 首先，执行以下命令。
-```
+```plaintext
 hadoop fs -ls -R hdfs://10.0.0.3:9000/benchmarks | awk '{print $8}' > check_list.txt
 ```
 ![](https://main.qcloudimg.com/raw/a2a853be2646b6558983303de805c04e.png)
@@ -64,14 +62,14 @@ hadoop fs -ls -R hdfs://10.0.0.3:9000/benchmarks | awk '{print $8}' > check_list
 ![](https://main.qcloudimg.com/raw/216d90b20d383e233e50f497e83c24c3.png)
 
 然后，将 check_list.txt 放入到 HDFS 中，执行如下。
-```
+```plaintext
 hadoop fs -put check_list.txt hdfs://10.0.0.3:9000/
 ```
 
 ![](https://main.qcloudimg.com/raw/e5b79519dfeac808b64f29e04c35e9a4.png)
 
 
-最后，执行 Hadoop-cos-DistChecker，将`hdfs://10.0.0.3:9000/benchmarks`和 `cosn://hdfs-test-1250000000/benchmarks`进行对比，然后输出结果保存到`cosn://hdfs-test-1250000000/check_result`路径下，命令格式如下：
+最后，执行 Hadoop-cos-DistChecker，将`hdfs://10.0.0.3:9000/benchmarks`和`cosn://hdfs-test-1250000000/benchmarks`进行对比，然后输出结果保存到`cosn://hdfs-test-1250000000/check_result`路径下，命令格式如下：
 
 ```shell
 hadoop jar hadoop-cos-distchecker-2.8.5-1.0-SNAPSHOT.jar com.qcloud.cos.hadoop.distchecker.App hdfs://10.0.0.3:9000/check_list.txt hdfs://10.0.0.3:9000/benchmarks cosn://hdfs-test-1250000000/benchmarks cosn://hdfs-test-1250000000/check_result
@@ -85,7 +83,7 @@ Hadoop-cos-DistChecker 会读取源文件列表和源目录执行 MapReduce 作�
 
 检查报告如下：
 
-```text
+```plaintext
 hdfs://10.0.0.3:9000/benchmarks/TestDFSIO       hdfs://10.0.0.3:9000/benchmarks/TestDFSIO,cosn://hdfs-test-1250000000/benchmarks/TestDFSIO,None,None,None,SUCCESS,'The source file and the target file are the same.'
 hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_control    hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_control,cosn://hdfs-test-1250000000/benchmarks/TestDFSIO/io_control,None,None,None,SUCCESS,'The source file and the target file are the same.'
 hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_control/in_file_test_io_0  hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_control/in_file_test_io_0,cosn://hdfs-test-1250000000/benchmarks/TestDFSIO/io_control/in_file_test_io_0,CRC64,1566310986176587838,1566310986176587838,SUCCESS,'The source file and the target file are the same.'
@@ -104,7 +102,7 @@ hdfs://10.0.0.3:9000/benchmarks/TestDFSIO/io_write/part-00000   hdfs://10.0.0.3:
 
 检查报告是以如下格式展示：
 
-```TEXT
+```plaintext
 check_list.txt中的源文件路径 源文件绝对路径,目标文件绝对路径,Checksum算法,源文件的checksum值,目标文件的checksum值,检查结果,检查结果描述
 ```
 
