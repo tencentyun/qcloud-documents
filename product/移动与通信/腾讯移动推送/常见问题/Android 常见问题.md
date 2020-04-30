@@ -1,3 +1,23 @@
+### 如何关闭TPNS的保活功能？
+如果需要关闭TPNS的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+ 
+```xml
+   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->
+   
+   <!-- 关闭旧版信鸽推送服务的应用拉活功能，请配置 -->
+   <provider
+       android:name="com.tencent.android.tpush.XGVipPushKAProvider"
+       android:authorities="应用包名.xxx.AUTH_XGPUSH_KEEPALIVE"
+       tools:replace="android:authorities"
+       android:exported="true" />
+       
+   <!-- 关闭旧版信鸽以及 TPNS 的拉活功能，请配置 -->
+   <provider
+       android:name="com.tencent.android.tpush.XGPushProvider"
+       tools:replace="android:authorities"
+       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+       android:exported="false" />    
+```
 
 ### 推送消息为何收不到？
 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
