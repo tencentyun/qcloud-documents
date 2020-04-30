@@ -36,7 +36,7 @@
 - 支持 CATS 锁调度方式。
 - GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持隐式主键，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持普通用户 kill 其他普通用户会话的功能。
 - 支持企业级加密函数，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 
 #### 修复：
