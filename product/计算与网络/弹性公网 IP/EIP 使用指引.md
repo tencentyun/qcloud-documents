@@ -58,7 +58,7 @@
                <div class="folder">
                   <div class="list-item" onclick="window.open('/63797.html')">EIP 直通</div><div class="list-item" onclick="window.open('/63797.html')">调整带宽</div>
                  <div class="list-item" onclick="window.open('/63797.html')">管理 EIP 计费</div>
-                 <div class="list-item" onclick="window.open('/63797.html')">查看监控数</div>
+                 <div class="list-item" onclick="window.open('/63797.html')">查看监控数据</div>
                </div>
             </div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
            <div class="list-group">
