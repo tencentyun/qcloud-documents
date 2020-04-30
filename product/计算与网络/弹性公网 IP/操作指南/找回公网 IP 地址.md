@@ -2,7 +2,7 @@
 
 ## 背景信息 
  - EIP 总数不得超过产品总配额，详情请参见 [配额限制](https://cloud.tencent.com/document/product/1199/41648?!#.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
- - 单个账号单个地域申请找回 IP 不超过3次/月。
+ - 每个账号单个地域申请找回 IP 不超过3次/月。
  
 ## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
