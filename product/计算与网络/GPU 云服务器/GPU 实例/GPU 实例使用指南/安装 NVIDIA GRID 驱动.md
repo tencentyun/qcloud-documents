@@ -36,10 +36,10 @@
 >
 4. 选择页面右上角的【Additional Software】，单击所需下载的 License Server 软件。本文以下载【2019.11 64-bit License Manager for Windows】为例，如下图所示：
 ![](https://main.qcloudimg.com/raw/ac53951a67c2ead8fbd31162c906ff97.png)
-5. <span id="stepEleven"></span>将 License Server 软件安装至 [步骤3](#step3) 创建的云服务器，详情请参见 [License Server User Guide](https://docs.nvidia.com/grid/ls/2019.11/grid-license-server-user-guide/index.html)。在完成安装后获取该 License 服务器的 MAC 地址。
+5. <span id="step5"></span>将 License Server 软件安装至 [步骤3](#step3) 创建的云服务器，详情请参见 [License Server User Guide](https://docs.nvidia.com/grid/ls/2019.11/grid-license-server-user-guide/index.html)。在完成安装后获取该 License 服务器的 MAC 地址。
 6. 选择左侧导航栏中的【LICENSE SERVERS】，进入 “License Servers” 页面。
 7. 选择右上角的【CREATE LICENSE SERVER】，在弹出的 “Create License Server” 窗口中填写相关信息注册新的 License Server。
-其中 MAC Address 请填写 [步骤11](#stepEleven) 获取的 License 服务器 MAC 地址。
+其中 MAC Address 请填写 [步骤5](#step5) 获取的 License 服务器 MAC 地址。
 8. 成功创建后，在 “License Servers” 页面选择该项下的<image src="https://main.qcloudimg.com/raw/ef09b35b77fa2e046f6f072467d47b8f.png" style="margin:-3px 0px"/>，添加多个特性。如下图所示：
 ![](https://main.qcloudimg.com/raw/9db8abf9839528846cb9881ce1203230.png)
 9. 在弹出的 “Add Features” 页面，选择您试用的 License Feature，填写该 License 服务器的 License 数量，并单击【ADD】。如下图所示：
