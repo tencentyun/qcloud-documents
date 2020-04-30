@@ -46,7 +46,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可以在�
    ![](https://main.qcloudimg.com/raw/397c1b77f1a3871644ef9eec63ebda7e.png)
 4. 在跳转界面，选择需要备份的目录，可以选择所有硬盘或指定目录。
    ![](https://main.qcloudimg.com/raw/410a0f1728cda892f375c89103b46531.png)
-5. 添加备份存储位置，如下图所示。
+5. 单击【Add storage location】，添加备份存储位置，如下图所示。
    ![](https://main.qcloudimg.com/raw/a8d33f582c5600eec6c67893f2ee3c46.png)
 6. 此处我们选择【S3-Compatible Service】。
    ![](https://main.qcloudimg.com/raw/9d515b8ef332dc00a4f7a9277b70eef1.png)
@@ -72,7 +72,7 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可以在�
    ![](https://main.qcloudimg.com/raw/844349292e7fd2d89441fe37c789349e.png)
 2. 如果按照上面第9步设置了加密备份数据，则需要输入密码。
    ![](https://main.qcloudimg.com/raw/41360bd0dbaa4b131a42d56d43d1eae5.png)
-3. 选择要恢复的目录或文件，以及保存恢复目录或文件的位置，点击 Restore 开始恢复。
+3. 选择要恢复的目录或文件，以及保存恢复目录或文件的位置，单击【Restore】开始恢复。
    ![](https://main.qcloudimg.com/raw/513d4c1f317834a55d7ad1f1f93a3d80.png)
 4. 恢复操作默认是从最新的备份中恢复，如果有需要，可以从快照中找到历史版本的备份，并从历史版本的备份中恢复。单击【Snapshots】查看历史快照。
    ![](https://main.qcloudimg.com/raw/6c37ee6a7450dbf8ad1a7198b43ec247.png)
