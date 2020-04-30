@@ -33,7 +33,6 @@
 <td><ul>
 <li>EIP 与 CVM 实例绑定，该 CVM 实例需未绑定其他 EIP ，若已有普通公网 IP，则绑定 EIP 后会释放当前 CVM 实例的普通公网 IP。</li>
 <li>EIP 与 CVM 实例需处于相同地域才可进行绑定。</li>
-<li>CVM 实例仅可绑定一个 EIP。</li>
 </ul></td>
 </tr>
 <tr>
@@ -71,7 +70,6 @@
 <td><ul>
 <li>EIP 与 CVM 实例绑定，该 CVM 实例需未绑定其他 EIP 和未分配普通公网 IP。</li>
 <li>EIP 与 CVM 实例需处于相同地域才可进行绑定。</li>
-<li>CVM 实例仅可绑定一个 EIP。</li>
 </ul></td>
 </tr>
 <tr>
