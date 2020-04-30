@@ -130,7 +130,7 @@ spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
 
 ### Bug 修复
 
-- spring-cloud-tsf-sleuth bug fixed：
+spring-cloud-tsf-sleuth bug fixed：
   - 修复 application/x-www-form-urlencoded 类型请求，通过 zuul 网关代理访问 provider 时，服务端不到请求参数的问题。
   - 处理 Custom Metadata 设置接口不兼容。
   - 调用链输出用户自定义 Tag 和 Metadata。
