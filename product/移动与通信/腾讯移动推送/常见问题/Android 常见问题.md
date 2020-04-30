@@ -1,3 +1,20 @@
+### 如何关闭TPNS的保活功能？
+
+TPNS默认开启联合保活能力，请在应用初始化的时候，如Application或LauncherActivity 的onCreate中 调用如下接口，并传递 false 值:
+```java
+XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
+```
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+ 
+```xml
+   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+   <provider
+       android:name="com.tencent.android.tpush.XGPushProvider"
+       tools:replace="android:authorities"
+       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+       android:exported="false" />    
+```
 
 ### 推送消息为何收不到？
 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
@@ -182,9 +199,3 @@ public final class StrUtils {
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-### Android 是否支持设置通知角标？
-通知角标目前都是遵从各厂商的默认逻辑，其中：
-- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
-- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
-- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
-- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  
