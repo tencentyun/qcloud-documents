@@ -4,7 +4,7 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
 
 ## 操作步骤
 1. **添加组件**
- 从左侧菜单栏中，选择【框架】>【机器学习】列表下的【Spark on Angel 】节点，并将其拖拽至画布中。
+ 从左侧菜单栏中，选择【框架】>【机器学习】列表下的【Spark on Angel】节点，并将其拖拽至画布中。
 2. **配置参数**
  - 作业 Jar 包：通过该配置框上传您的 Spark on Angel 应用程序 Jar 包，必填项。
  - 主类名：指定您的 Spark on Angel 应用程序的入口类，即 main 函数所在的类，必填项。
@@ -31,7 +31,9 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
 本案例向您阐述如何在智能钛机器学习平台使用 Spark on Angel 组件离线训练自己实现的算法模型。
 
 ### 示例代码
-代码取自官方example，[LogisticRegression on Spark on Angel](https://github.com/Angel-ML/angel/blob/branch-2.3.1/spark-on-angel/examples/src/main/scala/com/tencent/angel/spark/examples/cluster/OfflineRunner.scala)
+平台内置的 Spark on Angel 版本是 2.3.1，所以用户在本地打包时请引入 Spark on Angel 2.3.1 相关的依赖。使用  maven 作为打包工具，此时打包后的 jar 包我们命名为 spark-on-angel-examples.jar。
+
+代码取自官方 example，[LogisticRegression on Spark on Angel](https://github.com/Angel-ML/angel/blob/branch-2.3.1/spark-on-angel/examples/src/main/scala/com/tencent/angel/spark/examples/cluster/OfflineRunner.scala)。
 
 ```scala
 /*
@@ -122,12 +124,11 @@ object OfflineRunner {
 }
 ```
 
-平台内置的 Spark on Angel 版本是 2.3.1，所以用户在本地打包时请引入 Spark on Angel 2.3.1 相关的依赖。使用 maven 作为打包工具，此时打包后的 jar 包我们命名为 spark-on-angel-examples.jar。
 
 ### 平台配置
-#### 1. 添加组件
-从左侧菜单栏中，选择【框架】>【机器学习】列表下的  Spark on Angel节点，并将其拖拽至画布中。
-#### 2. 配置参数
+**1. 添加组件**
+从左侧菜单栏中，选择【框架】>【机器学习】列表下的  Spark on Angel 节点，并将其拖拽至画布中。
+**2. 配置参数**
  - 作业 Jar 包：通过该配置框上传本地编译后的 spark-on-angel-examples.jar。
  - 主类名：指定您的 Spark on Angel 应用程序的入口类，即 main 函数所在的类。
  - 程序参数：您的 Spark on Angel 应用程序所需的参数，即传给 main 函数的参数。
@@ -140,9 +141,9 @@ object OfflineRunner {
 单击【保存】并运行工作流。
 
 ### 查看 Spark 控制台
-在 Spark on Angel节点上单击右键菜单【Spark控制台】，可查看任务状态。
+在 Spark on Angel 节点上单击右键菜单【Spark 控制台】，可查看任务状态。
 
 ### 运行结果
-运行成功后，在用户指定的模型保存目录下会有模型文件生成
+运行成功后，在用户指定的模型保存目录下会有模型文件生成。
 ![](https://main.qcloudimg.com/raw/0c8fa269de5a0cf3cf31aec4d7456019.png)
 
