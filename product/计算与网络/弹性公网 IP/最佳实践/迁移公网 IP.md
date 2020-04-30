@@ -7,8 +7,10 @@
 单个账户单个地域弹性公网 IP（EIP）配额数为20个。
 
 ## 操作步骤
-### 步骤一：将云服务器 A 上的公网 IP 转换为 EIP
-EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务器 A 上的公网 IP 为 普通公网 IP，需转换为 EIP，利用 EIP 的能力进行公网 IP 的迁移；若云服务器 A 上的公网 IP 已是 EIP，请跳过此步骤，执行 [步骤二：云服务器 A 解绑 EIP](#step2)。
+### 步骤一：将云服务器 A 上的普通公网 IP 转换为 EIP
+>?若云服务器 A 上的公网 IP 已是 EIP，请跳过此步骤，执行 [步骤二：云服务器 A 解绑 EIP](#step2)。
+>
+EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务器 A 上的公网 IP 为普通公网 IP，需转换为 EIP，利用 EIP 的能力进行公网 IP 的迁移。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1)。
 2. 在实例的管理页面，选择云服务器 A 的地域，并在所在行单击<img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px 0;"></img>。
 ![](https://main.qcloudimg.com/raw/93689324c72948a9746a4ab90223dd12.png)
