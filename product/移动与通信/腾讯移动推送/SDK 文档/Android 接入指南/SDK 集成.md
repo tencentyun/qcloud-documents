@@ -289,14 +289,14 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```xml
    <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->
    
-   <!-- 不想被其他集成免费版信鸽推送服务的应用拉起，请配置 -->
+   <!-- 关闭旧版信鸽推送服务的应用拉活功能，请配置 -->
    <provider
        android:name="com.tencent.android.tpush.XGVipPushKAProvider"
        android:authorities="应用包名.xxx.AUTH_XGPUSH_KEEPALIVE"
        tools:replace="android:authorities"
        android:exported="true" />
        
-   <!-- 不想被其他集成免费版信鸽以及 TPNS 推送服务的应用拉起，请配置 -->
+   <!-- 关闭旧版信鸽以及 TPNS 的拉活功能，请配置 -->
    <provider
        android:name="com.tencent.android.tpush.XGPushProvider"
        tools:replace="android:authorities"
