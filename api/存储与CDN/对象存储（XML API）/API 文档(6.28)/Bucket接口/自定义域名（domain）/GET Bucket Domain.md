@@ -1,22 +1,21 @@
 ## 功能描述
 
-GET Bucket Domain 请求用于查询存储桶的自定义域名配置。
+GET Bucket domain 请求用于查询存储桶的自定义域名配置。
 
-> !主账号默认拥有查询存储桶自定义域名的权限，子账号查询存储桶自定义域名，需要通过主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`GET Bucket Domain`接口的权限。
+> !主账号默认拥有查询存储桶自定义域名的权限，子账号如需查询存储桶自定义域名，需要通过主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`GetBucketDomain`接口的权限。
 
 ## 请求
 
 #### 请求示例
 
 ```plaintext
-GET /?domain HTTP 1.1
+GET /?domain HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
-Content-MD5: MD5
 Authorization: Auth String
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -38,64 +37,81 @@ Authorization: Auth String
 
 #### 响应体
 
-```XML
+查询成功，返回 **application/xml** 数据，包含完整的存储桶自定义域名信息。
+
+```xml
 <DomainConfiguration>
-  <CustomDomainRule>
-    <Status>ENABLED</Status>
-    <Name>DomainName</Name>
-    <Type>REST|WEBSITE|ACCELERATE</Type>
-    <ForcedReplacement>CNAME</ForcedReplacement>
-  </CustomDomainRule>
-  ...
+	<DomainRule>
+		<Status>Enum</Status>
+		<Name>string</Name>
+		<Type>Enum</Type>
+	</DomainRule>
+	<DomainRule>
+		<Status>Enum</Status>
+		<Name>string</Name>
+		<Type>Enum</Type>
+	</DomainRule>
 </DomainConfiguration>
 ```
 
-| 名称                | 描述                                                         | 类型      |
-| ------------------- | ------------------------------------------------------------ | --------- |
-| DomainConfiguration | 域名管理配置                                                 | Container |
-| CustomDomainRule    | 单条自定义域名配置<Br/>父节点：DomainConfiguration           | Container |
-| Status              | 是否生效，枚举值：`Enabled`，`Disabled`<Br/>父节点：CustomDomainRule | String    |
-| Type                | 源站类型，枚举值：`REST`，`WEBSITE`，`ACCELERATE`<Br/>父节点：CustomDomainRule | String    |
-| Domain              | 自定义域名<Br/>父节点：CustomDomainRule                      | String    |
+具体的节点描述如下：
+
+| 节点名称（关键字）  | 父节点 | 描述                                  | 类型      |
+| ------------------- | ------ | ------------------------------------- | --------- |
+| DomainConfiguration | 无     | 保存 GET Bucket domain 结果的所有信息 | Container |
+
+**Container 节点 DomainConfiguration 的内容：**
+
+| 节点名称（关键字） | 父节点              | 描述     | 类型      |
+| ------------------ | ------------------- | -------- | --------- |
+| DomainRule         | DomainConfiguration | 域名条目 | Container |
+
+**Container 节点 DomainRule 的内容：**
+
+| 节点名称（关键字） | 父节点                         | 描述                                                         | 类型   |
+| ------------------ | ------------------------------ | ------------------------------------------------------------ | ------ |
+| Status             | DomainConfiguration.DomainRule | 是否启用。枚举值：<br><li>ENABLED：启用<li>DISABLED：禁用    | Enum   |
+| Name               | DomainConfiguration.DomainRule | 完整域名                                                     | string |
+| Type               | DomainConfiguration.DomainRule | 源站类型。枚举值：<br><li>REST：默认源站<li>WEBSITE：静态源站源站<li>ACCELERATE：全球加速源站 | Enum   |
 
 #### 错误码
 
-该请求无特殊错误码，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-
-
 #### 请求
 
-该请求表示查询南京地域存储桶`examplebucket-1250000000`中绑定的自定义域名。
-
 ```plaintext
-GET /?domain HTTP 1.1
-Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
-Date: GMT Date
-Content-MD5: MD5
-Authorization: Auth String
+GET /?domain HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 29 Apr 2020 09:16:26 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1588151786;1588158986&q-key-time=1588151786;1588158986&q-header-list=date;host&q-url-param-list=domain&q-signature=b5f4a4b7bd7bca2ade21503b8f64d512ef69****
+Connection: close
 ```
 
 #### 响应
 
-上述请求后，COS 返回如下响应，表明已查询到自定义域名配置。该存储桶绑定了一个名为`www.tencent.com`的自定义域名，选择的源站类型为默认源站。
-
 ```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 0
-Date: Fri, 24 Apr 2020 02:53:38 GMT
+Content-Length: 277
+Connection: close
+Date: Wed, 29 Apr 2020 09:16:26 GMT
 Server: tencent-cos
-x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
+x-cos-domain-txt-verification: tencent-cloud-cos-verification=673029e5ff8e4d2b5723d58f73aab232
+x-cos-request-id: NWVhOTQ1ZWFfN2ViMTJhMDlfMjU5Zl8xMzQ1****
 
 <DomainConfiguration>
-  <DomainRule>
-    <Status>ENABLED</Status>
-    <Name>www.tencent.com</Name>
-    <Type>REST</Type>
-    <ForcedReplacement>CNAME</ForcedReplacement>
-  </DomainRule>
+	<DomainRule>
+		<Status>ENABLED</Status>
+		<Name>cos.cloud.tencent.com</Name>
+		<Type>REST</Type>
+	</DomainRule>
+	<DomainRule>
+		<Status>ENABLED</Status>
+		<Name>www.cos.cloud.tencent.com</Name>
+		<Type>WEBSITE</Type>
+	</DomainRule>
 </DomainConfiguration>
 ```
