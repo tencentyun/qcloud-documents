@@ -144,5 +144,5 @@ TENCENT_SECRET_KEY=123
 
 ### 常见问题
 **为什么不需要入口文件了？**
-在上一个版本中，使用此组件，用户需要在项目根目录新增 sls.js 文件，现在组件帮忙处理了，所以不需要用户单独处理。具体请参考 [GitHub 文档](https://github.com/serverless-components/tencent-nuxtjs/issues/1))。
+在上一个版本中，使用此组件，用户需要在项目根目录新增 sls.js 文件，现在组件帮忙处理了，所以不需要用户单独处理。具体请参考 [GitHub 文档](https://github.com/serverless-components/tencent-nuxtjs/issues/1)。
 
