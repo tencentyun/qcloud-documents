@@ -1,27 +1,29 @@
 ## 功能描述
 
-PUT Bucket Domain 请求用于设置存储桶的域名访问。
+PUT Bucket domain 请求用于设置存储桶的自定义域名。
 
 > !
 > - 目前最多支持用户添加20条自定义域名，如需添加更多自定义域名，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们的技术服务团队。
 > - 自定义域名支持默认源站、静态网站源站、全球加速源站三种源站类型，如果需要使用静态网站源站，需要 [开启静态网站](https://cloud.tencent.com/document/product/436/14984)；如果需要使用全球加速源站，需要 [开启全球加速](https://cloud.tencent.com/document/product/436/38864)。
-> - 主账号默认拥有添加存储桶域名的权限，子账号添加存储桶自定义域名，需要主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`PUT Bucket Domain`接口的权限。
+> - 主账号默认拥有添加存储桶域名的权限，子账号如需添加存储桶自定义域名，需要主账号在 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 授予`PutBucketDomain`接口的权限。
 
 ## 请求
 
 #### 请求示例
 
 ```plaintext
-PUT /?domain HTTP 1.1
+PUT /?domain HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
+Content-Type: application/xml
+Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
-<Request body>
+[Request Body]
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -33,27 +35,43 @@ Authorization: Auth String
 
 #### 请求体
 
-```XML
+提交 **application/xml** 请求数据，包含完整的存储桶自定义域名信息。
+
+```xml
 <DomainConfiguration>
-  <DomainRule>
-    <Status>ENABLED</Status>
-    <Name>DomainName</Name>
-    <Type>REST|WEBSITE|ACCELERATE</Type>
-    <ForcedReplacement>CNAME</ForcedReplacement>
-  </DomainRule>
-  ...
+	<DomainRule>
+		<Status>Enum</Status>
+		<Name>string</Name>
+		<Type>Enum</Type>
+	</DomainRule>
+	<DomainRule>
+		<Status>Enum</Status>
+		<Name>string</Name>
+		<Type>Enum</Type>
+	</DomainRule>
 </DomainConfiguration>
 ```
 
-具体内容描述如下：
+具体的节点描述如下：
 
-| 名称                | 描述                                                         | 类型      | 是否必选 |
-| ------------------- | ------------------------------------------------------------ | --------- | -------- |
-| DomainConfiguration | 域名管理配置                                                 | Container | 是       |
-| CustomDomainRule    | 单条自定义域名配置<Br/>父节点：DomainConfiguration           | Container | 否       |
-| Status              | 是否生效，枚举值：`Enabled`，`Disabled`<Br/>父节点：CustomDomainRule | String    | 否       |
-| Type                | 源站类型，枚举值：`REST`，`WEBSITE`，`ACCELERATE`<Br/>父节点：CustomDomainRule | String    |  是        |
-| Domain              | 自定义域名<Br/>父节点：CustomDomainRule                      | String    | 否       |
+| 节点名称（关键字）  | 父节点 | 描述                                      | 类型      | 是否必选 |
+| ------------------- | ------ | ----------------------------------------- | --------- | -------- |
+| DomainConfiguration | 无     | 包含 PUT Bucket domain 操作的所有请求信息 | Container | 否       |
+
+**Container 节点 DomainConfiguration 的内容：**
+
+| 节点名称（关键字） | 父节点              | 描述     | 类型      | 是否必选 |
+| ------------------ | ------------------- | -------- | --------- | -------- |
+| DomainRule         | DomainConfiguration | 域名条目 | Container | 是       |
+
+**Container 节点 DomainRule 的内容：**
+
+| 节点名称（关键字） | 父节点                         | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | ------------------------------ | ------------------------------------------------------------ | ------ | -------- |
+| Status             | DomainConfiguration.DomainRule | 是否启用。枚举值：<br><li>ENABLED：启用<li>DISABLED：禁用    | Enum   | 是       |
+| Name               | DomainConfiguration.DomainRule | 完整域名                                                     | string | 是       |
+| Type               | DomainConfiguration.DomainRule | 源站类型。枚举值：<br><li>REST：默认源站<li>WEBSITE：静态源站源站<li>ACCELERATE：全球加速源站 | Enum   | 是       |
+| ForcedReplacement  | DomainConfiguration.DomainRule | 如果指定域名已经作为其他存储桶的自定义域名，那么可以指定该元素强制将该域名作为当前存储桶的自定义域名。当前只支持 CNAME，代表您需要先将该域名的 CNAME 指向当前存储桶的源站域名（根据 Type 元素的不同对应为默认源站、静态网站源站或全球加速源站）后才能通过该接口设置自定义域名。 | Enum   | 否       |
 
 ## 响应
 
@@ -63,50 +81,47 @@ Authorization: Auth String
 
 #### 响应体
 
-该请求的响应体返回为空。
+此接口响应体为空。
 
 #### 错误码
 
-该请求可能会发生的一些常见的特殊错误如下，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码               | 描述                                         | 状态码               |
-| :------------------- | :------------------------------------------- | :------------------- |
-| InvalidArgument      | 不合法的参数值                               | HTTP 400 Bad Request |
-| TooManyCustomDomains | 自定义域名已经达到20条的上限                 | HTTP 400 Bad Request |
-| AccessDenied         | 未授权的访问。您可能不具备访问该存储桶的权限 | HTTP 403 Forbidden   |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 #### 请求
 
-该请求表示在南京地域存储桶`examplebucket-1250000000`中添加一个名为`www.tencent.com`的自定义域名，选择的源站类型为默认源站。
-
 ```plaintext
-PUT /?domain HTTP 1.1
-Host: examplebucket-1250000000.cos.ap-nanjing.myqcloud.com
-Date: GMT Date
-Content-MD5: MD5 String
-Authorization: Auth String
+PUT /?domain HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 29 Apr 2020 09:16:14 GMT
+Content-Type: application/xml
+Content-Length: 288
+Content-MD5: WHjVNjOz7lW82VThLKf4Lg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1588151774;1588158974&q-key-time=1588151774;1588158974&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=domain&q-signature=5cd58e4c68125ee6c78d626089d12c41376a****
+Connection: close
 
 <DomainConfiguration>
-  <DomainRule>
-    <Status>ENABLED</Status>
-    <Name>www.tencent.com</Name>
-    <Type>REST</Type>
-    <ForcedReplacement>CNAME</ForcedReplacement>
-  </DomainRule>
+	<DomainRule>
+		<Status>ENABLED</Status>
+		<Name>cos.cloud.tencent.com</Name>
+		<Type>REST</Type>
+	</DomainRule>
+	<DomainRule>
+		<Status>ENABLED</Status>
+		<Name>www.cos.cloud.tencent.com</Name>
+		<Type>WEBSITE</Type>
+	</DomainRule>
 </DomainConfiguration>
 ```
 
 #### 响应
 
-上述请求后，COS 返回如下响应，表明自定义域名已完成设置。
-
 ```plaintext
 HTTP/1.1 200 OK
-Content-Type: application/xml
 Content-Length: 0
-Date: Fri, 24 Apr 2020 02:53:38 GMT
+Connection: close
+Date: Wed, 29 Apr 2020 09:16:15 GMT
 Server: tencent-cos
-x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
+x-cos-request-id: NWVhOTQ1ZGVfZTViOTJhMDlfMzA0MjJfMTEwMmJi****
 ```
