@@ -111,7 +111,7 @@
 ### 20190203版本
 #### 新特性：
 - 异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 支持普通用户 kill 其他普通用户会话的功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持普通用户 kill 其他普通用户会话的功能。
 - GTID 开启时，支持事务中创建和删除临时表和 CTS 语法，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
    
 #### 性能优化：   
