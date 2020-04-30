@@ -8,7 +8,7 @@
 
 ### 步骤二：获取存储桶内文件下载路径
 在 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket) 创建一个新存储桶或选择一个已有的存储桶，进入存储桶文件管理页。
->?这里新建或已有存储桶访问权限，强烈建议选择私有读写，这样数据安全性更高，详细信息请参见 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。
+>?这里新建或已有存储桶访问权限，强烈建议选择私有读写，这样数据安全性高，详细信息请参见 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。
 >
 EMR 控制台自助开启 COS 时需要提供一个测试验证地址，用于检测 SecretId 和 SecretKey 的正确性，因此应该保证填写的 SecretId 和 SecretKey 对应账号下存在至少一个可下载的真实文件。
 
