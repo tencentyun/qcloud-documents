@@ -4,7 +4,9 @@
 - 安装 GRID Driver 并且配置相关的 License 服务器，可开启 GPU 的 OpenGL 或 DirectX 图形加速能力。
 
 使用 Tesla 系列 GPU 用作图形图像处理，需要向 NVIDIA 或其代理商购买对应的 License。此外，NVIDIA 也提供了90天试用 License 的申请。本文将介绍申请试用 License，并配置 License 服务器和安装 GRID driver。
->?如在申请过程中遇到问题，则请与 NVIDIA 联系，本文仅供参考。您也可直接使用腾讯云 GN7vw 服务器，免除申请 vDWS License 申请及搭建服务器步骤。
+>?
+>- 如在申请过程中遇到问题，则请与 NVIDIA 联系，本文仅供参考。
+>- 您也可直接使用腾讯云 GN7vw 服务器，免除 vDWS License 申请及搭建服务器步骤。腾讯云 GN7vw 服务器目前在试用阶段，您可 [联系我们](https://cloud.tencent.com/act/event/connect-service) 申请试用。 
 >
 
 ## 操作步骤
