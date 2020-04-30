@@ -124,7 +124,7 @@ spring-cloud-tsf-sleuth 优化 TraceStatementProxyHandler  JDBC 代理过程 SDK
 
 ### Bug 修复
 
-- spring-cloud-tsf-sleuth bug fixed：
+spring-cloud-tsf-sleuth bug fixed：
   - 处理 Custom Metadata 设置接口不兼容。
   - 调用链输出用户自定义 Tag和Metadata。
   - 修复 druid 连接池事务兼容问题。
