@@ -41,7 +41,7 @@ Web 上传 Demo 服务的部署和运行过程需要使用到开发者的 API �
 
 ### 步骤4：部署业务后台和 Web 页面
 
-登录步骤1中的 CVM（登录方法请参考 [操作指南-登录 Linux](https://cloud.tencent.com/document/product/213/5436)），在远程终端输入以下命令（请将 SECRET_ID 和 SECRET_KEY 赋值为步骤3中获得的 API 密钥）并运行：
+登录步骤1中的 CVM（登录方法请参考 [操作指南-登录 Linux](https://cloud.tencent.com/document/product/213/5436)），在远程终端输入以下命令（请将 SECRET_ID、SECRET_KEY 和 APPID 赋值为步骤3中获得的内容）并运行：
 
 ```
 ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECRET_KEY=xxxxxxxxxxxxxxxxxxxxx;export APPID=125xxxxxxx;git clone https://github.com/tencentyun/vod-server-demo.git ~/vod-server-demo; bash ~/vod-server-demo/installer/web_upload_scf.sh
