@@ -4,7 +4,7 @@
 >!
 >- 如果不指定安全组，则 Pod 会默认绑定同地域的 `default` 安全组。请确保 `default` 安全组的网络策略不影响该 Pod 正常工作。
 >- 如需分配 GPU 资源，则必须填写 `eks.tke.cloud.tencent.com/gpu-type`。
->- 下表中4个资源分配相关的 annotation 均为非必填，如填写则请确保正确性。
+>- 下表中除 `eks.tke.cloud.tencent.com/gpu-type` 外，其余4个资源分配相关的 annotation 均为非必填，如填写则请确保正确性。
 > - 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。
 > - 如需分配 GPU 资源，则必须同时填写 `cpu`、`mem`、`gpu-type` 及 `gpu-count` 4个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 GPU 规格。
 
@@ -26,16 +26,16 @@
 	<li>网络策略按安全组顺序生效。</li>
 	</ul>
 </td>
-<td> 否。如不填写，则默认关联工作负载绑定同地域的 <code>default</code> 安全组。<br>如填写请确保同地域已存在该安全组 ID。</td></tr>
+<td> 否。如不填写，则默认关联工作负载绑定同地域的 <code>default</code> 安全组。<br>如填写，请确保同地域已存在该安全组 ID。</td></tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu</td>
 <td>Pod 所需的 CPU 核数，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写。默认单位为核，无需再次注明。</td>
-<td>否。如填写请确保为支持的规格，且需完整填写 <code>cpu</code> 和 <code>mem</code> 两个参数。</td>
+<td>否。如填写，请确保为支持的规格，且需完整填写 <code>cpu</code> 和 <code>mem</code> 两个参数。</td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/mem</td>
 <td>Pod 所需的内存数量，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写，需注明单位。例如，512Mi、0.5Gi、1Gi。</td>
-<td>否。如填写请确保为支持的规格，且需完整填写 <code>cpu</code> 和 <code>mem</code> 两个参数。</td>
+<td>否。如填写，请确保为支持的规格，且需完整填写 <code>cpu</code> 和 <code>mem</code> 两个参数。</td>
 <tr>
 <td>eks.tke.cloud.tencent.com/gpu-type</td>
 <td>Pod 所需的 GPU 资源型号，目前支持型号如下：
@@ -48,12 +48,12 @@
 <li>T4</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
-<td>如需 GPU 则必须填写，否则无法确定所需的 GPU 型号。<br>如填写请确保为支持的 GPU 型号。</td>
+<td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/gpu-count</td>
 <td>Pod 所需的 GPU 数量，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写，默认单位为卡，无需再次注明</td>
-<td>否。如填写请确保为支持的规格。</td>
+<td>否。如填写，请确保为支持的规格。</td>
 </tr>
 </tr>
 </tbody></table>
