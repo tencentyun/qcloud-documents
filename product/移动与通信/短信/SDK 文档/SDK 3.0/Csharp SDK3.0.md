@@ -1,4 +1,4 @@
-SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/38764)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
+﻿SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/38764)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送短信相关接口
 >一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
@@ -127,9 +127,9 @@ namespace TencentCloudExamples
                 /* 模板备注：例如申请原因，使用场景等 */
                 req.Remark = "xxx";
             
-                // 通过 client 对象调用 AddSmsTemplateRequest 方法发起请求，注意请求方法名与请求对象是对应的
+                // 通过 client 对象调用 AddSmsTemplate 方法发起请求，注意请求方法名与请求对象是对应的
                 // 返回的 resp 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应
-                AddSmsTemplateResponse resp = client.AddSmsTemplateRequest(req);
+                AddSmsTemplateResponse resp = client.AddSmsTemplate(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -235,9 +235,9 @@ namespace TencentCloudExamples
                 req.TemplateParamSet = new String[] {"666"};
 
 
-                // 通过 client 对象调用 AddSmsTemplateRequest 方法发起请求，注意请求方法名与请求对象是对应的
-                // 返回的 resp 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应
-                SendSmsResponse resp = client.SendSmsRequest(req);
+                // 通过 client 对象调用 SendSms 方法发起请求，注意请求方法名与请求对象是对应的
+                // 返回的 resp 是一个 SendSmsResponse 类的实例，与请求对象对应
+                SendSmsResponse resp = client.SendSms(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -331,9 +331,9 @@ namespace TencentCloudExamples
                 /* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SDKAppID，例如1400006666 */
                 req.SmsSdkAppid = "1400009099";
 
-                // 通过 client 对象调用 AddSmsTemplateRequest 方法发起请求，注意请求方法名与请求对象是对应的
-                // 返回的 resp 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应
-                PullSmsSendStatusResponse resp = client.PullSmsSendStatusRequest(req);
+                // 通过 client 对象调用 PullSmsSendStatus 方法发起请求，注意请求方法名与请求对象是对应的
+                // 返回的 resp 是一个 PullSmsSendStatusResponse 类的实例，与请求对象对应
+                PullSmsSendStatusResponse resp = client.PullSmsSendStatus(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -431,9 +431,9 @@ namespace TencentCloudExamples
 				 * 注：EndDataTime 必须大于 StartDateTime */
 				req.EndDataTime = "2019071123";
 
-                // 通过 client 对象调用 AddSmsTemplateRequest 方法发起请求，注意请求方法名与请求对象是对应的
-                // 返回的 resp 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应
-                SendStatusStatisticsResponse resp = client.SendStatusStatisticsRequest(req);
+                // 通过 client 对象调用 SendStatusStatistics 方法发起请求，注意请求方法名与请求对象是对应的
+                // 返回的 resp 是一个 SendStatusStatisticsResponse 类的实例，与请求对象对应
+                SendStatusStatisticsResponse resp = client.SendStatusStatistics(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -447,5 +447,4 @@ namespace TencentCloudExamples
     }
 }
 ```
-
 
