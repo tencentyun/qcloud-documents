@@ -48,10 +48,10 @@ Arq® Backup 商业授权为49.99美元每个用户，用户购买后可以在�
    ![](https://main.qcloudimg.com/raw/410a0f1728cda892f375c89103b46531.png)
 5. 单击【Add storage location】，添加备份存储位置，如下图所示。
    ![](https://main.qcloudimg.com/raw/a8d33f582c5600eec6c67893f2ee3c46.png)
-6. 此处我们选择【S3-Compatible Service】。
+6. 此处我们选择【S3-Compatible Server】。
    ![](https://main.qcloudimg.com/raw/9d515b8ef332dc00a4f7a9277b70eef1.png)
 7. 在跳转界面中按照以下说明进行配置。配置完毕后，单击【Continue】。
-   - Server URL：输入上文记录的部分请求域名，即从 cos 开始的部分，并在前面加上`https://`，例如 `https://cos.ap-chengdu.myqcloud.com`，请注意这里不包含存储桶名称。
+   - Server URL：输入上文记录的请求域名中，从`cos`开始的部分，并在前面加上`https://`，例如 `https://cos.ap-chengdu.myqcloud.com`，请注意这里不包含存储桶名称。
    - Access Key ID：上文记录的密钥信息中的 SecretId。
    - Secret Access Key：上文记录的密钥信息中的 SecretKey。
      ![](https://main.qcloudimg.com/raw/bfe1454b37d756068a61050d4585e451.png)
