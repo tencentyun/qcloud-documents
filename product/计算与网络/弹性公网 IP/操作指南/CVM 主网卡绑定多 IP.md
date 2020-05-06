@@ -37,7 +37,7 @@
  - **子网掩码：**如下图所示，所属子网的 CIDR 位数为/24，即子网掩码为 `255.255.255.0`。
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
-4. 登录 CentOS 7 云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://tcloud-doc.isd.com/document/product/213/5436)。
+4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://tcloud-doc.isd.com/document/product/213/5436)。
 5. 执行如下命令，备份网卡信息。
 ```
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
@@ -93,7 +93,7 @@ ip address
 
 #### <span id="Win" />Windows 云服务器
 如下操作以 Windows 2012 云服务器为例：
-1. 登录 Windows 2012 云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
+1. 登录云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
 2. <span id="step2" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
  1. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行如下命令：
 ```
