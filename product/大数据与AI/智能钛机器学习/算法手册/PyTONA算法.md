@@ -6,7 +6,7 @@ LogisticRegression（LR）算法是一种常见的分类算法，因其模型简
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -68,7 +68,7 @@ FactorizationMachine（FM）是一种基于矩阵分解的机器学习算法，�
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -126,7 +126,7 @@ DeepFM 算法是在 FM（Factorization machine）的基础上加入深度层构�
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -183,7 +183,7 @@ DeepAndWide 算法是将 Embedding 的结果直接输入 DNN 进一步提取高�
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -240,7 +240,7 @@ DCN 由两个结构组成，一个是 cross network，一个是很基础的 deep
 
 ### 参数说明
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -301,7 +301,7 @@ Attention 给模型赋予了区分辨别的能力，例如，在机器翻译、�
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -362,7 +362,7 @@ AttentionFM（Attentional Factorization Machine），和 NFM 是同一个作者�
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -424,7 +424,7 @@ python attention_fm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --attent
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
@@ -484,7 +484,7 @@ PNN（Product-Based Neural Networks）算法是在 Embedding 的基础上，对 
 ### 参数说明
 
 - **输入数据格式**
-目前支持“libsvm”、“libffm”两种数据格式，分别如下所示：
+目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
 ```
 libsvm格式: label index:value index:value index:value ......
