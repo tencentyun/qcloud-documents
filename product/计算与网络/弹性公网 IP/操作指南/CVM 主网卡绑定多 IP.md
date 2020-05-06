@@ -25,7 +25,11 @@
 ![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
 
 ### 步骤二：配置网卡
-#### Linux 云服务器
+请根据您的云服务器操作系统类型，选择对应的配置网卡操作：
+- [Linux 云服务器](#Linux)
+- [Windows 云服务器](#Win)
+
+#### <span id="Linux" />Linux 云服务器
 如下操作以 CentOS 7 云服务器为例：
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中单击您的 CVM ID，在详细信息页面，选择【弹性网卡】。
@@ -87,7 +91,7 @@ ip address
 ```
 ![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
 
-#### Windows 云服务器
+#### <span id="Win" />Windows 云服务器
 如下操作以 Windows 2012 云服务器为例：
 1. 登录 Windows 2012 云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
 2. <span id="step2" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
