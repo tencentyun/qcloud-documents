@@ -12,7 +12,8 @@
 ## 配置指引
 
 #### 导入 SDK 文件
-将 libs 目录下的 mobilepb.jar、tmgsdk.jar 和 wup-1.0.0-SNAPSHOT.jar 复制到 Android 工程的 libs 目录（如果工程无 libs 目录，请自行创建，如果没有 armeabi 及 armeabi-v7a，也一并复制进去 libs 目录中）中。
+1. 将 libs 目录下的 gmesdk.jar 文件复制到 Android 工程的 libs 目录下。
+2. 按照工程需求复制相应架构的库文件，例如工程需要 armeabi-v7a 架构，请将 armeabi-v7a 目录下的库文件拷贝至工程中的 armeabi-v7a 目录下（如果工程没有 armeabi-v7a 目录，请自行创建）。
 
 #### 工程配置
 在工程 App 目录下的 build.gradle 中，添加引用库的代码。  
