@@ -3,7 +3,7 @@
 - [密码登录](https://cloud.tencent.com/document/product/213/6093)
 - SSH 密钥对登录。
 
-本文档介绍 SSH 密钥对登录实例相关的常见操内容。
+本文档介绍 SSH 密钥对登录实例相关的常见操作内容。
 
 ## 操作步骤
 
