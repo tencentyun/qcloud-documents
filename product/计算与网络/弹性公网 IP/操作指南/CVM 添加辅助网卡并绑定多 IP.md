@@ -106,6 +106,7 @@ systemctl restart network.service
 ip address
 ```
 ![](https://main.qcloudimg.com/raw/96250722974a05786034ca559fedec80.png)
+
 #### <span id="Win" />Windows 云服务器
 如下操作以 Windows 2012 云服务器为例：
 1. 登录云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
