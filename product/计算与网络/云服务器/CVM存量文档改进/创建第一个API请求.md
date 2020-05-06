@@ -15,7 +15,7 @@
 >! 部分 API 操作会产生费用，如创建实例、创建镜像等。建议在进行 API 请求操作前，先了解其产品的计费规则。
 >
 
-1. 打开 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12)，进入API Explorer 操作界面。
+1. 打开 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12)，进入 API Explorer 操作界面。
 2. 在左侧导航栏中，选择【云服务器】>【地域相关接口】>【查询地域列表】，进入查询地域列表的 API 操作界面。
 ![](https://main.qcloudimg.com/raw/4ef3e12723042eef43413bb8c3cbb34a.png)
 3. 在“个人密钥”中，填写已获取的 SecretId 和 SecretKey。
