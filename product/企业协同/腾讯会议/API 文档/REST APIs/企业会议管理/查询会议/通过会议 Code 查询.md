@@ -5,6 +5,8 @@
 
 ## 输入参数
 
+以下请求参数列表仅列出了接口请求参数，HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
+
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meetingCode | 是 | String |有效的9位数字会议号码。|
@@ -26,6 +28,7 @@
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID<br>  MEETING_STATE_INIT<br>  MEETING_STATE_CANCELLED  <br> MEETING_STATE_STARTED<br>MEETING_STATE_ENDED<br>MEETING_STATE_ABOUT_TO_START|
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |

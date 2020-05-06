@@ -43,7 +43,7 @@
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
  >?如果您已有应用，请记录其 SDKAppID，并执行 [步骤2](#Step2)。
- >同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.E5.BA.94.E7.94.A8) 并删除无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+ >同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
  >
 2. 单击【+添加新应用】。
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
@@ -175,7 +175,37 @@ _handleGroupSystemNotice(message) {
 </pre>
 
 <span id="Step5"></span>
-### 步骤5：加入群组
+### 步骤5：登录 SDK
+
+```javascript
+let promise = tim.login({userID: 'your userID', userSig: 'your userSig'});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 登录成功
+}).catch(function(imError) {
+  console.warn('login error:', imError); // 登录失败的相关信息
+});
+```
+
+<span id="Step6"></span>
+### 步骤6：设置自己的昵称和头像
+2.6.2及以上版本 SDK，AVChatRoom 内的群聊消息和群提示消息（例如进群退群等），都增加了 nick（昵称） 和 avatar（头像URL） 属性，您可以调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）。
+
+```javascript
+// 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示，前提您需要先调用 updateMyProfile 设置个人资料。
+// 修改个人标配资料
+let promise = tim.updateMyProfile({
+  nick: '我的昵称',
+  avatar: 'http(s)://url/to/image.jpg'
+});
+promise.then(function(imResponse) {
+  console.log(imResponse.data); // 更新资料成功
+}).catch(function(imError) {
+  console.warn('updateMyProfile error:', imError); // 更新资料失败的相关信息
+});
+```
+
+<span id="Step7"></span>
+### 步骤7：加入群组
 ```javascript
 // 匿名用户加入（无需登录，入群后仅能接收消息）
 let promise = tim.joinGroup({ groupID: 'avchatroom_groupID'});
@@ -196,46 +226,31 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step6"></span>
-### 步骤6：登录 SDK
-
-
-```javascript
-let promise = tim.login({userID: 'your userID', userSig: 'your userSig'});
-promise.then(function(imResponse) {
-  console.log(imResponse.data); // 登录成功
-}).catch(function(imError) {
-  console.warn('login error:', imError); // 登录失败的相关信息
-});
-```
-
-### 步骤7：创建消息实例并发送
+### 步骤8：创建消息实例并发送
 本文以发送文本消息为例。
 
-<pre>
-// 发送文本消息，Web 端与小程序端相同
-// 1. 创建消息实例，接口返回的实例可以上屏
-let message = tim.createTextMessage({
-  to: 'avchatroom_groupID',
-  conversationType: TIM.TYPES.CONV_GROUP,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a>
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
-  payload: {
-    text: 'Hello world!'
+<pre><code class="language-javascript"><span class="hljs-comment">// 发送文本消息，Web 端与小程序端相同</span>
+<span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = tim.createTextMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'avchatroom_groupID'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_GROUP,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-attr">priority</span>: TIM.TYPES.MSG_PRIORITY_NORMAL,
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">text</span>: <span class="hljs-string">'Hello world!'</span>
   }
 })
 
-// 2. 发送消息
-let promise = tim.sendMessage(message)
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse)
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError)
-})
-</pre>
+<span class="hljs-comment">// 2. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message)
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse)
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError)
+})</code></pre>
 
 
 

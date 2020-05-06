@@ -117,12 +117,12 @@ public boolean order(Long txId, Long branchId, Order order);
 
 #### Confirm 方法
  - 返回值固定为`boolean`类型。
- - 仅在返回`ture`时视为分支事务`Confirm成功`。
+ - 仅在返回`true`时视为分支事务`Confirm成功`。
  - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
 
 #### Cancel 方法
  - 返回值固定为`boolean`类型。
- - 仅在返回`ture`时视为分支事务`Cancel成功`。
+ - 仅在返回`true`时视为分支事务`Cancel成功`。
  - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
 
 ``` java
@@ -154,10 +154,10 @@ public RestTemplate restTemplate() {
 
 需要引入 openfeign 依赖：
 ``` xml
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-&lt;/dependency&gt;
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
 ```
 
 然后按照正常方式使用 feign 即可：

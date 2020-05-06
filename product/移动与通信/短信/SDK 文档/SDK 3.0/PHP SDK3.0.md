@@ -55,6 +55,7 @@ git clone https://github.com/tencentcloud/tencentcloud-sdk-php
 require_once '../TCloudAutoLoader.php';
 ```
 
+<span id="example"></span>
 ## 示例代码
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
