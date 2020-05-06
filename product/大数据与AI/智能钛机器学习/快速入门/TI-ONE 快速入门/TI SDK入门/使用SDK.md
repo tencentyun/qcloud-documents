@@ -135,5 +135,45 @@ fit 方法会创建并启动一个训练任务
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
 
+使用 TI SDK 训练模型需要以下三个步骤：
+1. 准备一个训练脚本。
+2. 上传训练数据集。
+2. 构造一个 Estimator。
+4. 调用 Estimator 的 fit 方法。
+![](https://main.qcloudimg.com/raw/efee7f6db8a738320914c45e953e4d36.png)
 
+#### 上传训练数据集
+TI SDK 任务采用 COS 对象存储数据源或 CFS 文件存储数据源作为训练脚本的输入源。
+当您采用 CFS 文件存储数据源作为输入源时，您需要提前将数据集拷贝至文件系统目录，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053) 。
+当您采用 COS 对象存储数据源作为输入源时，您需要将本地数据集上传至目标 COS 中。
 
+以下例子展示了一个简单的本地数据上传 COS 的使用：
+```
+from ti import session
+ti_session = session.Session()
+
+bucket = "your bucket"
+key_prefix = "train-data"
+path = "train-data"
+
+inputs = ti_session.upload_data(bucket=bucket, path=path, key_prefix=key_prefix)
+```
+
+参数
+- `bucket`：str 用户 COS 对象存储桶名称。
+- `path`：str 用户数据集的本地目录路径。
+- `key_prefix`：str COS 桶下的用户数据集存储路径。
+
+![](https://main.qcloudimg.com/raw/b1e71273fde09564da78ff8ccbd2e9f7.png)
+tf_estimator.fit(inputs)
+![](https://main.qcloudimg.com/raw/cef5b851be5811cfaec94276e5124c7c.png)
+- `entry_point`：str 训练任务的执行入口点名称。例如下面的代码路径中，mnist.py 为训练任务执行入口点，而 np_convert.py 和 image_convert.py 分别为依赖的代码。
+```
+├── code
+│   ├── np_convert.py
+│   ├── image_convert.py
+│   └── mnist.py
+```
+- `source_dir`：str 训练任务的代码路径，将会统一压缩代码路径并上传至用户 COS 中。
+- `image_name`：str 训练任务镜像名称，用户可传入TKE镜像仓库中自定义训练镜像。
+![](https://main.qcloudimg.com/raw/5a81897887633dcff7597f35ae362e10.png)
