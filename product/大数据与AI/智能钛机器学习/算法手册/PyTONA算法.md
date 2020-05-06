@@ -1,9 +1,9 @@
 ## [Angel]LR on PyTONA
 
-### 算法简介
+#### 算法简介
 LogisticRegression（LR）算法是一种常见的分类算法，因其模型简单、可解释性强等特点在工程领域得到广泛应用。本算子是 LR 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -60,12 +60,12 @@ python lr.py --input_dim 148
 
 ## [Angel]FM on PyTONA
 
-### 算法简介
+#### 算法简介
 FactorizationMachine（FM）是一种基于矩阵分解的机器学习算法，它可对任意的实值向量进行预测。其主要优点包括：
 （1）可用于高度稀疏数据场景。
 （2）具有线性的计算复杂度。本算子是 FM 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -120,10 +120,10 @@ python fm.py --input_dim 148 --embedding_dim 10
 
 ## [Angel]DeepFM on PyTONA
 
-### 算法简介
+#### 算法简介
 DeepFM 算法是在 FM（Factorization machine）的基础上加入深度层构成。 与 PNN，NFM 算法相比，它保留了 FM 的二阶隐式特征交叉的同时，又用深度网络来获取高阶特征交叉。本算子是 DeepFM 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -177,10 +177,10 @@ python deepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 5
 
 ## [Angel]DeepAndWide on PyTONA 
 
-### 算法简介
+#### 算法简介
 DeepAndWide 算法是将 Embedding 的结果直接输入 DNN 进一步提取高阶特特交叉, 最后将一阶特征与高阶特征组合起来进行预测，本算子是 DeepAndWide 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -235,10 +235,10 @@ python deepandwide.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims
 
 ## [Angel]DCN on PyTONA 
 
-### 算法简介
+#### 算法简介
 DCN 由两个结构组成，一个是 cross network，一个是很基础的 deep network，而 stack layer 只是简单的拼接了 cross network 和  deep network 的输出结果。本算子是 DCN 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
 
@@ -294,11 +294,11 @@ python dcn.py --input_dim 148 --n_fields 13 --embedding_dim 10 --cross_depth 3 -
 
 ## [Angel]AttentionNet on PyTONA
 
-### 算法简介
+#### 算法简介
 
 Attention 给模型赋予了区分辨别的能力，例如，在机器翻译、语音识别应用中，为句子中的每个词赋予不同的权重，使神经网络模型的学习变得更加灵活（soft）本算子是 AttentionNet 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -355,11 +355,11 @@ python attention_net.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_di
 
 ## [Angel]AttentionFM on PyTONA 
 
-### 算法简介
+#### 算法简介
 AttentionFM（Attentional Factorization Machine），和 NFM 是同一个作者。AFM 是在 FM 上的改进，它最大的特点就是使用一个 attention network 来学习不同组合特征的重要性
 本算子是 AttentionFM 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -416,12 +416,12 @@ python attention_fm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --attent
 
 ## [Angel]xDeepFM on PyTONA
 
-### 算法简介
+#### 算法简介
 
 为了实现自动学习显式的高阶特征交互，同时使得交互发生在向量级上，xDeepFM 提出了一种新的名为压缩交互网络（Compressed Interaction Network，简称 CIN）的神经模型。
 本算子是 xDeepFM 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
@@ -478,10 +478,10 @@ python xdeepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 
 
 ## [Angel]PNN on PyTONA
 
-### 算法简介
+#### 算法简介
 PNN（Product-Based Neural Networks）算法是在 Embedding 的基础上，对 Embedding 的结果进行两两内积或外积，然后将内/外积结果与原始的 Embedding 结果拼接起来输入 DNN 进一步提取高阶特特交叉，值得注意的是，PNN 并没有放弃一阶特征，最后将一阶特征与高阶特征组合起来进行预测，本算子是 PNN 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
-### 参数说明
+#### 参数说明
 
 - **输入数据格式**
 目前支持 libsvm、libffm 两种数据格式，分别如下所示：
