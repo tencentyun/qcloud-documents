@@ -5,9 +5,9 @@
       <li class="list-group">
          <div class="header center">认识 EIP</div>
          <div class="flex">
-            <div class="list-item" onclick="window.open('/94819.html')">产品概述</div>
-            <div class="list-item" onclick="window.open('/94833.html')">应用场景</div>
-            <div class="list-item" onclick="window.open('/42966.html')">使用限制</div>
+            <div class="list-item" onclick="window.open('/94819.html')" title="产品概述">产品概述</div>
+            <div class="list-item" onclick="window.open('/94833.html')" title="应用场景">应用场景</div>
+            <div class="list-item" onclick="window.open('/42966.html')" title="使用限制">使用限制</div>
          </div>
       </li>
    </ul>
@@ -19,10 +19,10 @@
       <li class="list-group">
          <div class="header center">初级使用</div>
          <div class="flex">
-            <div class="list-item" onclick="window.open('/94819.html')"> 申请 EIP</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>     
-            <div class="list-item" onclick="window.open('/94833.html')">EIP 绑定云资源</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>  
-            <div class="list-item" onclick="window.open('/42966.html')">解绑 EIP</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
-            <div class="list-item" onclick="window.open('/42966.html')">释放 EIP</div>
+            <div class="list-item" onclick="window.open('/94819.html')" title="申请 EIP">申请 EIP</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>     
+            <div class="list-item" onclick="window.open('/94833.html')" title="EIP 绑定云资源">EIP 绑定云资源</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>  
+            <div class="list-item" onclick="window.open('/42966.html')" title="解绑 EIP">解绑 EIP</div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
+            <div class="list-item" onclick="window.open('/42966.html')" title="释放 EIP">释放 EIP</div>
          </div>
       </li>
    </ul>
@@ -38,17 +38,16 @@
                   获取 EIP <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">找回 EIP</div>
-                  <div class="list-item" onclick="window.open('/102783.html')">普通公网转 EIP</div></div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="找回 EIP">找回 EIP</div>
+                  <div class="list-item" onclick="window.open('/102783.html')" title="普通公网转 EIP">普通公网转 EIP</div></div>
             </div>
             <svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
             <div class="list-group">
                <div>绑定 EIP <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">EIP 加入共享带宽包</div>
-									<div class="list-item" onclick="window.open('/63797.html')">CVM 主网卡绑定多 IP</div>
-									<div class="list-item" onclick="window.open('/63797.html')">CVM 添加辅助网卡并绑定多 IP</div>
+									<div class="list-item" onclick="window.open('/63797.html')" title="CVM 主网卡绑定多 IP">CVM 主网卡绑定多 IP</div>
+									<div class="list-item" onclick="window.open('/63797.html')" title="CVM 添加辅助网卡并绑定多 IP">CVM 添加辅助网卡并绑定多 IP</div>
 							</div>
             </div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
             <div class="list-group">
@@ -56,9 +55,10 @@
                   管理 EIP <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">EIP 直通</div><div class="list-item" onclick="window.open('/63797.html')">调整带宽</div>
-                 <div class="list-item" onclick="window.open('/63797.html')">管理 EIP 计费</div>
-                 <div class="list-item" onclick="window.open('/63797.html')">查看监控数据</div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="EIP 直通">EIP 直通</div><div class="list-item" onclick="window.open('/63797.html')" title="调整带宽">调整带宽</div>
+									<div class="list-item" onclick="window.open('/63797.html')" title="EIP 加入共享带宽包">EIP 加入共享带宽包</div>
+                 <div class="list-item" onclick="window.open('/63797.html')" title="管理 EIP 计费">管理 EIP 计费</div>
+                 <div class="list-item" onclick="window.open('/63797.html')" title="查看监控数据">查看监控数据</div>
                </div>
             </div><svg t="1587976706705" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5317" width="20" height="20"><path d="M552.18 353.31H65.583v325.46H552.18v183.778L960.744 512.06 552.18 161.576V353.31z m0 0" p-id="5318" fill="#4CA4F1"></path></svg>
            <div class="list-group">
@@ -66,9 +66,9 @@
                   解绑/释放<svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">解绑 EIP</div>
-									<div class="list-item" onclick="window.open('/63797.html')">EIP 移除共享带宽包</div>
-									<div class="list-item" onclick="window.open('/63797.html')">释放 EIP</div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="解绑 EIP">解绑 EIP</div>
+									<div class="list-item" onclick="window.open('/63797.html')" title="EIP 移除共享带宽包">EIP 移除共享带宽包</div>
+									<div class="list-item" onclick="window.open('/63797.html')" title="释放 EIP">释放 EIP</div>
                </div>
             </div>
       </div>
@@ -84,13 +84,13 @@
                <div>最佳实践 <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">迁移公网 IP</div><div class="list-item" onclick="window.open('/63797.html')">更换公网 IP</div></div></div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="迁移公网 IP">迁移公网 IP</div><div class="list-item" onclick="window.open('/63797.html')" title="更换公网 IP">更换公网 IP</div></div></div>
          <div class="list-group">
                <div>
                   API 参考<svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">API 文档</div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="API 文档">API 文档</div>
                  </div>
             </div>
             <div class="list-group">
@@ -98,7 +98,7 @@
                   常见问题 <svg t="1587987432169" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="8247" width="20" height="20"><path d="M512 734.9c-8.5 0-16.6-3.4-22.6-9.4L107.7 343.7c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l359 359.2 359.1-359.2c12.5-12.5 32.8-12.5 45.3 0s12.5 32.8 0 45.3L534.6 725.5c-6 6-14.1 9.4-22.6 9.4z" p-id="8248" fill="#4CA4F1"></path></svg>
                </div>
                <div class="folder">
-                  <div class="list-item" onclick="window.open('/63797.html')">功能类</div><div class="list-item" onclick="window.open('/63797.html')">计费类</div>
+                  <div class="list-item" onclick="window.open('/63797.html')" title="功能类">功能类</div><div class="list-item" onclick="window.open('/63797.html')" title="计费类">计费类</div>
                </div>
             </div>
       </div>
