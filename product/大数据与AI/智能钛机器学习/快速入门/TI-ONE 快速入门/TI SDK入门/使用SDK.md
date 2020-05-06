@@ -34,8 +34,9 @@ TI SDK 使用以下几个核心类实现 TI 的模型训练
 
 使用 TI SDK 训练模型需要以下三个步骤：
 1. 准备一个训练脚本。
-2. 构造一个 Estimator。
-3. 调用 Estimator 的 fit 方法。
+2. 上传训练数据集。
+3. 构造一个 Estimator。
+4. 调用 Estimator 的 fit 方法。
 
 #### 准备训练脚本
 训练脚本必须在 Python2.7 或3.6环境下执行。TI 提供了很高的兼容性，只需要少部分改动就可以将外部环境运行的训练脚本适配到 TI 中，同时 TI 提供了许多环境变量定义训练环境各种资源和参数，在训练脚本中可以直接访问这些环境变量获取相关属性，包括：
@@ -53,12 +54,38 @@ TI SDK 使用以下几个核心类实现 TI 的模型训练
 
 TI 会运行用户的训练脚本，建议将启动训练的入口代码放到 main 方法中（`if__name__== '__main__'`）
 
+#### 上传训练数据集
+
+TI SDK任务采用COS对象存储数据源或CFS文件存储数据源作为训练脚本的输入源；
+
+当您采用CFS文件存储数据源作为输入源时，您需要提前将数据集拷贝至文件系统目录，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053) ；
+当您采用COS对象存储数据源作为输入源时，您需要将本地数据集上传至目标COS中。
+
+以下例子展示了一个简单的本地数据上传 COS 的使用：
+
+```python
+from ti import session
+ti_session = session.Session()
+
+bucket = "your bucket"
+key_prefix = "train-data"
+path = "train-data"
+
+inputs = ti_session.upload_data(bucket=bucket, path=path, key_prefix=key_prefix)
+```
+
+参数
+
+- `bucket`：str 用户COS对象存储桶名称。
+- `path`：str 用户数据集的本地目录路径。
+- `key_prefix`：str 用户数据集COS桶下的存储路径。
+
 #### 使用 Estimator 提交训练任务
 Estimator 是对一个训练任务的高级抽象，包含训练镜像、算力资源、安全权限、算法参数、输入输出等一次训练依赖的所有参数。TI 针对 Tensorflow、PyTorch 等多种流行的机器学习框架分别封装了 Estimator 的具体实现。
 
 以下例子展示了一个简单的 Tensorflow Estimator 使用：
 
-```
+```python
 tf_estimator = TensorFlow(role=role,
                           train_instance_count=1,
                           train_instance_type='TI.SMALL2.1core2g',
@@ -68,7 +95,7 @@ tf_estimator = TensorFlow(role=role,
                           entry_point='train.py',
                           source_dir='gpu/code')
 
-tf_estimator.fit('cos://bucket/path/to/training/data')
+tf_estimator.fit(inputs)
 ```
 
 参数
@@ -112,12 +139,25 @@ GPU 算力（V100）
 | TI.GN10X.18XLARGE320.8xV100 |
 
 - `train_volume_size`：int 附加的云硬盘大小，单位 GB。
+
+- `entry_point`：str 训练任务的执行入口点名称。例如下面的代码路径中，mnist.py为训练任务执行入口点，而np_convert.py和image_convert.py分别为依赖的代码。
+
+```
+├── code
+│   ├── np_convert.py
+│   ├── image_convert.py
+│   └── mnist.py
+```
+
+- `source_dir`：str 训练任务的代码路径，将会统一压缩代码路径上传至用户COS中。
+
 - `hyperparameters`：dict 超级参数，将传递到训练容器中。
 - `train_max_run`：int 最大运行时间，单位秒，超过设定时间若训练未完成，TI 会终止训练任务（默认值：24 * 60 * 60）。
 - `input_mode`：输入类型，默认 File。
 - `base_job_name`：str fit()方法启动的训练任务名称前缀，如果没有指定，会使用镜像名和时间戳生成默认任务名。
 - `output_path`：用于保存模型和输出文件的 COS 路径，如果未指定，会生成默认的存储桶。
 - `subnet_id`：str 子网 ID，如果未指定，将在没有 VPC 配置的情况下创建任务。
+- `image_name`：str 训练任务镜像名称，用户可传入TKE镜像仓库中自定义训练镜像。
 
 更多的参数意义请参考 EstimatorBase 类 （ ti-python-sdk/src/ti/EstimatorBase.py）。
 
@@ -127,9 +167,13 @@ GPU 算力（V100）
 fit 方法会创建并启动一个训练任务
 
 参数
-- `inputs`： 存储训练数据集的 COS 路径，可以采用以下两种数据结构。
+
+- `inputs`： 存储训练数据集的 COS 路径或CFS文件系统信息，可以采用以下多种数据结构。
   - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
-  - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集
+  - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
+  - `FileSystemInput`：表示 CFS 数据集的数据结构，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053)。
+  - `dict[str, FileSystemInput]`：例如{'train': TrainFileSystemInput, 'test': TestFileSystemInput}，可以指定多个 CFS 数据集的字典结构。
+
 - `logs (bool)`：默认为 False，是否打印训练任务产生的日志。如果设置为 True，将输出训练的任务日志。
 - `wait (bool)`：默认为 True，是否等待直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
