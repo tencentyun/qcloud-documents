@@ -75,7 +75,7 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 2. 在云服务器列表中，选择所配置的云服务器的所在地域，单击云服务器 ID，进入详情页。
 3. 选择【弹性网卡】标签页，单击【绑定弹性网卡】，新建一个与主网卡同一子网的辅助网卡。
 ![](https://main.qcloudimg.com/raw/db30871822a0e38ca5cb6fbca142960b.png)
-4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，所属子网保持默认选项，可选泽自动分配 IP 或手动填写，单击【确定】。
+4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，选择所属子网，可选泽自动分配 IP 或手动填写，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 #### 步骤三：配置主网卡 EIP 直通
