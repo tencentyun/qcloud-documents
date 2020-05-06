@@ -27,7 +27,7 @@
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，选择转储类型为通用模板，填写以下信息：
-![](https://main.qcloudimg.com/raw/0a2f7a50491852fbac020f489d684ff0.png)
+![](https://main.qcloudimg.com/raw/8a5b2057bef4e548dd0ca90b43678222.png)
   - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
   - 起始位置：转储时历史消息的处理方式，topic offset 设置。
   - 角色授权：使用 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
@@ -44,6 +44,7 @@
 1. 在 CKafka 控制台的消息转储页，单击【新建运行角色】。
 ![](https://main.qcloudimg.com/raw/4e20b8cec1c096bc37a0ec7fa8ae09a0.png)
 2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
+（支持角色的服务列表动态更新，SCF 在列表中的具体位置以控制台显示为准）
 ![](https://main.qcloudimg.com/raw/4f49a17a1ec0e9eb9fa675c2040532d9.png)
 3. 配置角色策略，COS 转储推荐添加如下策略：
 ```plaintext
