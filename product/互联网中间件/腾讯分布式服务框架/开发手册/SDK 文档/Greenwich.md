@@ -1,6 +1,16 @@
 
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.22.1-Greenwich-RELEASE (2020-05-06)
+
+### 优化
+
+- 优化TSF MSGW scg 使用，用户无需显示配置全局路由。
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ## 1.22.0-Greenwich-RELEASE（2020-04-29）
 
 ### 新特性
