@@ -16,19 +16,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务 。  
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务 。  
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装 Pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 lr.py，执行如下命令：
 
@@ -78,21 +78,21 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
-用户需在自己本地安装 pytorch(1.3.1版本)，然后到[python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation)下载算法文件 fm.py，执行如下命令：
+用户需在自己本地安装 pytorch(1.3.1版本)，然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 fm.py，执行如下命令：
 
 ```
 python fm.py --input_dim 148 --embedding_dim 10
@@ -136,19 +136,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的, 以空格分隔；libffm 格式的 field 是从0开始的
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye为predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye为predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装 Pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 deepfm.py，执行如下命令：
 
@@ -193,19 +193,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装 Pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 deepandwide.py，执行如下命令：
 
@@ -250,19 +250,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装 pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 dcn.py，执行如下命令：
 
@@ -311,20 +311,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
-
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。   
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。   
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 attention_net.py，执行如下命令：
 
@@ -357,8 +356,7 @@ python attention_net.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_di
 ## [Angel]AttentionFM on PyTONA 
 
 ### 算法简介
-
-AttentionFM 全称是 Attentional Factorization Machine，和 NFM 是同一个作者。AFM 是在 FM 上的改进，它最大的特点就是使用一个 attention network 来学习不同组合特征的重要性
+AttentionFM（Attentional Factorization Machine），和 NFM 是同一个作者。AFM 是在 FM 上的改进，它最大的特点就是使用一个 attention network 来学习不同组合特征的重要性
 本算子是 AttentionFM 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
 ### 参数说明
@@ -374,19 +372,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。 
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。 
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
       
 用户需在自己本地安装 pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 attention_fm.py，执行如下命令：
 
@@ -436,19 +434,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的, 以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数
-    - batchSize：训练用的 mini batch 大小
-    - actionType：训练或者预测任务   
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型
+- 算法参数  
+   - numEpoch：训练总的迭代轮数
+   - batchSize：训练用的 mini batch 大小
+   - actionType：训练或者预测任务   
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型
 
 用户需在自己本地安装 pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 xdeepfm.py，执行如下命令生成可用于分布式训练的 Pytorch 模型文件：
 
@@ -496,19 +494,19 @@ libffm格式: label field:index:value field:index:value field:index:value ......
 >!index 是从1开始的，以空格分隔；libffm 格式的 field 是从0开始的。
 
 - **节点**
-  - 算法 IO 参数
-    - 数据输入路径：训练数据输入路径。
-    - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
-    - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
-    - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
-    - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
-    - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
+- 算法 IO 参数
+   - 数据输入路径：训练数据输入路径。
+   - 验证数据输入路径：actionTpye 为 train 时，该参数生效。
+   - 模型保存路径：训练完后 angel 模型保存路径，可用于批量预测或增量训练。
+   - 模型加载路径：actionTpye 为 train 时，表示增量训练预加载的模型路径，为 predict 是表示预测模型加载路径。
+   - 预测结果输出路径：actionTpye 为 predict 时该参数生效，表示预测结果存储路径。
+   - PyTorch 模型文件保存路径：训练好的 Pytorch 模型保存路径，可用于在线 serving。
 
-  - 算法参数  
-    - numEpoch：训练总的迭代轮数。
-    - batchSize：训练用的 mini batch 大小。
-    - actionType：训练或者预测任务。   
-    - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
+- 算法参数  
+   - numEpoch：训练总的迭代轮数。
+   - batchSize：训练用的 mini batch 大小。
+   - actionType：训练或者预测任务。   
+   - PyTorch 模型文件：用户使用 Python 脚本生成的 Pytorch 脚本模型。
 
 用户需在自己本地安装 pytorch（1.3.1版本），然后到 [python/recommendation](https://github.com/Angel-ML/PyTorch-On-Angel/tree/branch-0.2.0/python/recommendation) 下载算法文件 pnn.py，执行如下命令：
 
