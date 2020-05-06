@@ -22,7 +22,7 @@
 
 3. 单击右侧 “在线调用” 并 “发送请求”，可以在响应结果中看到您第一个API请求（查询云服务器实例）的返回结果，正常的返回结果会显示所有云服务器的可用地域，以及您对应的RequestID。请求结果的结构可以对照 [查询地域列表(输出参数)](https://cloud.tencent.com/document/product/213/15708#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0) 查看。
 
-   ![image-20200506132347464](/Users/reneewang/Library/Application Support/typora-user-images/image-20200506132347464.png)
+   ![](https://main.qcloudimg.com/raw/8b33b27803cd7236e30daf806109c73f.png)
 
 4. 如果您的返回结果正常，您就成功的完成了第一次API请求。
 
