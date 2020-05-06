@@ -100,7 +100,7 @@ ip address
 ipconfig /all
 ```
  2. 记录输出的网络接口信息中的 IPv4 地址、子网掩码、默认网关和 DNS 服务器值。
-![](https://main.qcloudimg.com/raw/7d5a769aa3b8b9fb383be04bab612b7a.png)
+![](https://main.qcloudimg.com/raw/da1c82fdda00049668802559b8271799.png)
 3. 进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
 ![](https://main.qcloudimg.com/raw/56b44bec57750b8e86a9c7f7aba40041.png)
 4. 在“以太网状态”弹窗中，单击【属性】。
