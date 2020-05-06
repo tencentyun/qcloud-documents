@@ -38,7 +38,7 @@
 您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理扩展。
 
 ## 使用扩展
-1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境，单击左侧菜单栏【环境设置】页进入环境设置页：
+1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境（下文以 `custom_env` 指代对应的环境ID），单击左侧菜单栏【环境设置】页进入环境设置页：
  - 单击【登录方式】，打开【匿名登录】开关，允许应用中可以使用匿名登录的方式访问云开发；
  ![](https://main.qcloudimg.com/raw/9f68de3676967d2bc54d3f0efd926968.png)
  - 单击【安全配置】，单击**WEB 安全域名**下的【添加域名】，添加云函数 HTTP 触发当前环境默认域名： ${custom_env}.service.tcloudbase.com ，允许在该域名的页面下调用 web 云开发；然后在【移动应用安全来源】中注册 touristappid，添加成功后获取凭证信息备用；
