@@ -4,6 +4,7 @@
 
 ## 前提条件
 在使用之前，请确保已经 [安装 Serverless Framework 1.67.2 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+如果您的腾讯云账号为主账号，则可以继续进行部署；如果您的账户未子账号，可以参考[账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)获得授权后再进行部署。
 
 ## 操作步骤
 
