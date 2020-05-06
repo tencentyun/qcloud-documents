@@ -84,8 +84,8 @@ cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressiontype=[none
 - BUCKET：COS 存储桶名称。可参见 [存储桶列表](https://console.cloud.tencent.com/cos5/bucket)，**此处名称为不包含 APPID 的名称**，如您在存储桶列表中看到存储桶名称为“test-123123123”，此处填写“test”即可。
 - PREFIX：COS 对象名称前缀。prefix 可以为空，可以包括多个斜杠。
  - 在只读表场景下，prefix 指定需要读取的对象名前缀。
-prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时，则匹配该文件夹下面的所有文件及子文件夹中的文件；否则，读取前缀匹配的所有文件夹及子文件夹中的文件。 例如，COS 对象包括：read-bucket/simple/a.csv、read-bucket/simple/b.csv、read-bucket/simple/dir/c.csv、read-bucket/simple_prefix/d.csv。
-   - prefix 指定 simple 则读取所有文件， 包括目录名称前缀匹配的 simple_prefix，对象列表：
+prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时，则匹配该文件夹下面的所有文件及子文件夹中的文件；否则，读取前缀匹配的所有文件夹及子文件夹中的文件。例如，COS 对象包括：read-bucket/simple/a.csv、read-bucket/simple/b.csv、read-bucket/simple/dir/c.csv、read-bucket/simple_prefix/d.csv。
+   - prefix 指定 simple 则读取所有文件，包括目录名称前缀匹配的 simple_prefix，对象列表：
     read-bucket/simple/a.csv
     read-bucket/simple/b.csv
     read-bucket/simple/dir/c.csv
@@ -95,7 +95,7 @@ prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时
     read-bucket/simple/b.csv
     read-bucket/simple/dir/c.csv
  - 在只写表场景下，prefix 指定输出文件前缀。
-不指定 prefix 时，文件写入到 bucket 下；prefix 以斜杠（/）结尾时，文件写入到 prefix 指定的目录下，否则以给定的 prefix 作为文件前缀。例如：需要创建的文件包括：a.csv、b.csv、c.csv
+不指定 prefix 时，文件写入到 bucket 下；prefix 以斜杠（/）结尾时，文件写入到 prefix 指定的目录下，否则以给定的 prefix 作为文件前缀。例如：需要创建的文件包括：a.csv、b.csv、c.csv。
    - 指定 prefix 为 simple/ 则生成的对象为：
     read-bucket/simple/a.csv
     read-bucket/simple/b.csv
