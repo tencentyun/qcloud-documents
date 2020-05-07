@@ -177,7 +177,7 @@ MLVBLiveRoom 事件回调，您可以通过 [MLVBLiveRoomDelegate](https://cloud
 
 MLVBLiveRoom 实例。
 
->? 可以调用 [MLVBLiveRoom.destroySharedInstance]( https://cloud.tencent.com/document/product/454/34764?!editLang=zh&!preview#destroySharedInstance) 销毁单例对象。
+>? 可以调用 [destroySharedInstance](#destorySharedInstance) 销毁单例对象。
 
 ------
 
@@ -648,7 +648,7 @@ MLVBLiveRoom 实例。
 | onPlayError | IPlayError       | 播放出错回调。       |
 | onPlayEvent | IPlayEventBlock  | 其它播放事件回调。   |
 
->? 在 [onUserVideoAvailable](#onUserVideoAvailable) 回调时，调用这个接口。
+>? 在 onUserVideoAvailable 回调时，调用这个接口。
 
 ------
 

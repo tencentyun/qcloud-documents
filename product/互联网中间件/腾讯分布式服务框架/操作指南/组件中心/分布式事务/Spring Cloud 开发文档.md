@@ -1,12 +1,15 @@
 ## 准备工作
 - 在 [分布式事务控制台中](https://console.cloud.tencent.com/tsf/transaction) 创建一个事务分组（参考 [分布式事务-控制台基本操作](https://cloud.tencent.com/document/product/649/31208)）。
-- 获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
-- 需要能够连接到 Maven。
+- 在 [访问密钥](https://console.cloud.tencent.com/cam/capi) 中获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
+若您还没有创建密钥，单击【新建密钥】即可完成创建。直接复制 SecretID 和 SecretKey 即可。 
+- 需要能够连接到 Maven（请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)，安装相关依赖）。
+- 下载 Demo（[Demo 地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/dtf-demo/dts-demo.zip)）。
+- 创建数据库（参考 Demo 文件中的 sql 文件），并自行修改各 application.yml 中的数据库对应信息。
 
 
 ## 开发步骤
 ### 1. 引入 DTS SDK
-通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中的最新版本即可。
+通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中的最新版本即可。请在 pom.xml 中修改。
 
 ``` xml
 <dependency>
@@ -20,7 +23,7 @@
 
 ### 2. 客户端配置
 
-在客户端中，支持以下配置自定义：
+在客户端中，支持以下配置自定义 ，请在工程中的 application.yml 中配置。
 ``` yml
 dts:
   env:
@@ -117,12 +120,12 @@ public boolean order(Long txId, Long branchId, Order order);
 
 #### Confirm 方法
  - 返回值固定为`boolean`类型。
- - 仅在返回`ture`时视为分支事务`Confirm成功`。
+ - 仅在返回`true`时视为分支事务`Confirm成功`。
  - 返回`false`或`抛出异常`时，视为分支事务`Confirm失败`。
 
 #### Cancel 方法
  - 返回值固定为`boolean`类型。
- - 仅在返回`ture`时视为分支事务`Cancel成功`。
+ - 仅在返回`true`时视为分支事务`Cancel成功`。
  - 返回`false`或`抛出异常`时，视为分支事务`Cancel失败`。
 
 ``` java
@@ -154,10 +157,10 @@ public RestTemplate restTemplate() {
 
 需要引入 openfeign 依赖：
 ``` xml
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;
-&lt;/dependency&gt;
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-openfeign</artifactId>
+</dependency>
 ```
 
 然后按照正常方式使用 feign 即可：

@@ -7,16 +7,28 @@
 4. 参考 [安装 CLI 工具](https://cloud.tencent.com/document/product/876/41392)  安装 Cloudbase CLI。
 
 ### 步骤1： 创建初始项目
-创建目录 my-cloudbase-app：
-```
-$ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloudbaserc.json
+
+#### MacOS或Linux
+
+使用命令行创建目录 my-cloudbase-app，和其下的两个文件。
+
+```shell
+mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloudbaserc.json
 ```
 
-该目录下存在两个文件：index.html 与 cloudbaserc.json。
+该目录下存在两个文件：`index.html` 与 `cloudbaserc.json`
+
 ```
 ├── cloudbaserc.json
 └── index.html
 ```
+
+#### Windows
+
+1. 创建 `my-cloudbase-app` 文件夹
+2. 在此文件夹下，创建两个空白文件 `index.html` 与 `cloudbaserc.json`
+
+#### 填充文件内容
 
 以下是 index.html 内容，我们尝试登录云开发，如果成功，那么产生一个弹窗：
 ```
@@ -49,9 +61,10 @@ $ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch clo
 
 
 ### 步骤2： 添加安全域名
-登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)单击对应的环境 ID，进入环境管理页面，选择【用户管理】>【登录设置】>【Web 安全域名】，单击【添加域名】，在弹窗中输入您的域名，单击【确定】。
+登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需要配置的环境，选择左侧菜单栏【环境】>【环境设置】，单击【安全配置】，将域名添加到【Web安全域名】中。
 例如：把 `localhost:5000` 加入到安全域名中，让此域名下的页面可以使用 SDK 访问云开发服务。
-![](https://main.qcloudimg.com/raw/e285a0b05ca207e76b339723a491a873.png)
+
+![](https://main.qcloudimg.com/raw/0ef6eeaccb59ae6091081c7e2dd4f6e5.png)
 
 
 ### 步骤3：开启匿名登录

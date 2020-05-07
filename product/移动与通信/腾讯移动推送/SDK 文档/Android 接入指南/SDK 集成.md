@@ -284,6 +284,20 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 
 
+#### 关闭联合保活
+
+如果需要关闭TPNS的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+
+```xml
+   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->
+   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+   <provider
+       android:name="com.tencent.android.tpush.XGPushProvider"
+       tools:replace="android:authorities"
+       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+       android:exported="false" />    
+```
+
 ### 调试及设备注册
 
 **开启 Debug 日志数据**

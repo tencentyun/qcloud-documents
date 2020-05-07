@@ -25,8 +25,8 @@
 
 | 功能说明 | 接口                                                         |
 | -------- | ------------------------------------------------------------ |
-| 拉取资料 | [v4/profile/portrait_get](https://cloud.tencent.com/document/product/269/1639) |
 | 设置资料 | [v4/profile/portrait_set](https://cloud.tencent.com/document/product/269/1640 ) |
+| 拉取资料 | [v4/profile/portrait_get](https://cloud.tencent.com/document/product/269/1639) |
 
 ## 关系链管理
 

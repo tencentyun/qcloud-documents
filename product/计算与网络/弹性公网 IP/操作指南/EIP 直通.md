@@ -37,11 +37,11 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 #### 步骤二：配置 EIP 直通
 在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
-2. 找到对应主网卡绑定的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
+2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，单击【更多】>【直通】即可。
 
 #### 步骤三：运行 EIP 直通脚本
 为主网卡配置 EIP 直通后，需要登录云服务器，运行 EIP 直通脚本。
-1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) ，并登录需要 EIP 直通的云服务器。
+1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) ，选择需要 EIP 直通的云服务器所在地域，并登录该云服务器。
 2. 运行 EIP 直通脚本。具体方法：
  1. 执行如下命令，添加执行权限。
 ```
@@ -72,16 +72,16 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 #### 步骤二：配置辅助网卡
 由于 Windows 脚本针对的场景为辅助网卡走内网流量，因此，需为云服务器配置辅助网卡。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/overview)。
-2. 在云服务器列表中，单击所配置的云服务器 ID，进入详情页。
+2. 在云服务器列表中，选择所配置的云服务器的所在地域，单击云服务器 ID，进入详情页。
 3. 选择【弹性网卡】标签页，单击【绑定弹性网卡】，新建一个与主网卡同一子网的辅助网卡。
 ![](https://main.qcloudimg.com/raw/db30871822a0e38ca5cb6fbca142960b.png)
-4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，所属子网保持默认选项，选泽自动分配 IP ，单击【确定】。
+4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，选择所属子网，可选泽自动分配 IP 或手动填写，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 #### 步骤三：配置主网卡 EIP 直通
 完成辅助网卡的配置后，在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
-2. 找到对应主网卡绑定的 EIP 所在行，在右侧操作栏中，单击【更多】>【直通】即可。
+2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，单击【更多】>【直通】即可。
 
 #### 步骤四：云服务器内配置 EIP
  在 EIP 控制台中为主网卡配置 EIP 直通后，需要登录云服务器配置 EIP。

@@ -132,7 +132,7 @@ WebGMEAPI.fn.EnterRoom = function (roomId, roomType, authBuffer) {...}
         {
             //进房成功
         }
-        else if (eventType === gmeAPI.event.ITMG_MAIN_EVNET_TYPE_USER_UPDATE)
+        else if (eventType === gmeAPI.event.ITMG_MAIN_EVENT_TYPE_USER_UPDATE)
         {
             app._data.downStreamInfoList = result.PeerInfo;//接收的对端的信息 ,参见下表
             app._data.brSend = result.UploadBRSend;//上传语音数据的码率

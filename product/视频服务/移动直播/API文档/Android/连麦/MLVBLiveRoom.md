@@ -450,7 +450,7 @@ void destroySharedInstance()
 6. 【观众】然后调用 joinAnchor() 正式进入连麦状态。
 7. 【主播】一旦观众进入连麦状态，主播就会收到 [IMLVBLiveRoomListener.onAnchorEnter(AnchorInfo)](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#onAnchorEnter) 通知。
 8. 【主播】主播调用 startRemoteView() 就可以看到连麦观众的视频画面。
-9. 【观众】如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 [onAnchorJoin()](#onAnchorJoin) 通知，用于展示（startRemoteView）其他连麦者的视频画面。
+9. 【观众】如果直播间里已经有其他观众正在跟主播进行连麦，那么新加入的这位连麦观众也会收到 onAnchorJoin() 通知，用于展示（startRemoteView）其他连麦者的视频画面。
 
 ------
 
@@ -492,7 +492,7 @@ void destroySharedInstance()
 
 | 参数     | 类型                                                         | 含义                 |
 | :------- | :----------------------------------------------------------- | :------------------- |
-| callback | [finalIMLVBLiveRoomListener.JoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#joinanchorcallback) | 进入连麦的结果回调。 |
+| callback | [IMLVBLiveRoomListener.JoinAnchorCallback](https://cloud.tencent.com/document/product/454/34777?!preview&!editLang=zh#JoinAnchorCallback) | 进入连麦的结果回调。 |
 
 **介绍**
 
@@ -546,6 +546,7 @@ void destroySharedInstance()
 
 ```
 - void requestRoomPK(String userID, finalIMLVBLiveRoomListener.RequestRoomPKCallback callback)
+
 ```
 
 **参数**
@@ -574,6 +575,7 @@ void destroySharedInstance()
 
 ```
 - int responseRoomPK(String userID, boolean agree, String reason)
+
 ```
 
 **参数**
@@ -600,6 +602,7 @@ void destroySharedInstance()
 
 ```
 - void quitRoomPK(finalIMLVBLiveRoomListener.QuitRoomPKCallback callback)
+
 ```
 
 **参数**
@@ -620,6 +623,7 @@ void destroySharedInstance()
 
 ```
 - void startLocalPreview(boolean frontCamera, TXCloudVideoView view)
+
 ```
 
 **参数**
@@ -637,6 +641,7 @@ void destroySharedInstance()
 
 ```
 - void stopLocalPreview()
+
 ```
 
 ------
@@ -647,6 +652,7 @@ void destroySharedInstance()
 
 ```
 - void startRemoteView(final AnchorInfo anchorInfo, final TXCloudVideoView view, finalIMLVBLiveRoomListener.PlayCallback callback)
+
 ```
 
 **参数**
@@ -667,6 +673,7 @@ void destroySharedInstance()
 
 ```
 - void stopRemoteView(final AnchorInfo anchorInfo)
+
 ```
 
 **参数**
@@ -685,6 +692,7 @@ void destroySharedInstance()
 - void startScreenCapture()
 
 
+
 ```
 
 ------
@@ -695,6 +703,7 @@ void destroySharedInstance()
 
 ```
 - void stopScreenCapture()
+
 ```
 
 ------
@@ -707,6 +716,7 @@ void destroySharedInstance()
 
 ```
 - void muteLocalAudio(boolean mute)
+
 ```
 
 **参数**
@@ -723,6 +733,7 @@ void destroySharedInstance()
 
 ```
 - void muteRemoteAudio(String userID, boolean mute)
+
 ```
 
 **参数**
@@ -740,6 +751,7 @@ void destroySharedInstance()
 
 ```
 - void muteAllRemoteAudio(boolean mute)
+
 ```
 
 **参数**
@@ -758,6 +770,7 @@ void destroySharedInstance()
 
 ```
 - void switchCamera()
+
 ```
 
 ------
@@ -768,6 +781,7 @@ void destroySharedInstance()
 
 ```
 - boolean setZoom(int distance)
+
 ```
 
 **参数**
@@ -784,6 +798,7 @@ void destroySharedInstance()
 
 ```
 - boolean enableTorch(boolean enable)
+
 ```
 
 **参数**
@@ -800,6 +815,7 @@ void destroySharedInstance()
 
 ```
 - void setCameraMuteImage(Bitmap bitmap)
+
 ```
 
 **参数**
@@ -820,6 +836,7 @@ void destroySharedInstance()
 
 ```
 - void setCameraMuteImage(final int id)
+
 ```
 
 **参数**
@@ -840,6 +857,7 @@ void destroySharedInstance()
 
 ```
 public TXBeautyManager getBeautyManager()
+
 ```
 
 **介绍**
@@ -860,6 +878,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void setWatermark(Bitmap image, float x, float y, float width)
+
 ```
 
 **参数**
@@ -881,6 +900,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void setExposureCompensation(float value)
+
 ```
 
 **参数**
@@ -899,6 +919,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomTextMsg(String message, finalIMLVBLiveRoomListener.SendRoomTextMsgCallback callback)
+
 ```
 
 **参数**
@@ -916,6 +937,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - void sendRoomCustomMsg(String cmd, String message, finalIMLVBLiveRoomListener.SendRoomCustomMsgCallback callback)
+
 ```
 
 **参数**
@@ -936,6 +958,7 @@ public TXBeautyManager getBeautyManager()
 
 ```
 - boolean playBGM(String path)
+
 ```
 
 **参数**
@@ -956,6 +979,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBGMNofify(TXLivePusher.OnBGMNotify notify)
+
 ```
 
 **参数**
@@ -972,6 +996,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void stopBGM()
+
 ```
 
 ------
@@ -982,6 +1007,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void pauseBGM()
+
 ```
 
 ------
@@ -992,6 +1018,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void resumeBGM()
+
 ```
 
 ------
@@ -1002,6 +1029,7 @@ true：播放成功；false：播放失败。
 
 ```
 - int getBGMDuration(String path)
+
 ```
 
 **参数**
@@ -1022,6 +1050,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMicVolumeOnMixing(int volume)
+
 ```
 
 **参数**
@@ -1038,6 +1067,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBGMVolume(int volume)
+
 ```
 
 **参数**
@@ -1054,6 +1084,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setReverbType(int reverbType)
+
 ```
 
 **参数**
@@ -1070,12 +1101,13 @@ true：播放成功；false：播放失败。
 
 ```
 - void setVoiceChangerType(int voiceChangerType)
+
 ```
 
 **参数**
 
-| 参数             | 类型 | 含义                                |
-| :--------------- | :--- | :---------------------------------- |
+| 参数             | 类型 | 含义                                                         |
+| :--------------- | :--- | :----------------------------------------------------------- |
 | voiceChangerType | int  | 变声类型，具体值请参考见 {@link TXLiveConstants} 中的 VOICECHANGER_TYPE_X 定义。 |
 
 ------
@@ -1086,6 +1118,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setBgmPitch(float pitch)
+
 ```
 
 **参数**
@@ -1106,6 +1139,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setVoiceChangerType(int voiceChangerType)
+
 ```
 
 **参数**
@@ -1128,6 +1162,7 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setBeautyStyle(int beautyStyle , int beautyLevel, int whitenessLevel, int ruddinessLevel)
+
 ```
 
 **参数**
@@ -1147,6 +1182,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilter(Bitmap image)
+
 ```
 
 **参数**
@@ -1163,6 +1199,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setFilterConcentration(float concentration)
+
 ```
 
 **参数**
@@ -1179,6 +1216,7 @@ true：播放成功；false：播放失败。
 
 ```
 - void setMotionTmpl(String filePaht)
+
 ```
 
 **参数**
@@ -1195,6 +1233,7 @@ true：播放成功；false：播放失败。
 
 ```
 - boolean setGreenScreenFile(String file)
+
 ```
 
 **参数**
@@ -1221,6 +1260,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
+
 ```
 
 **参数**
@@ -1237,6 +1277,7 @@ false：调用失败；true：调用成功。
 
 ```
 - void setEyeScaleLevel(int level)
+
 ```
 
 **参数**

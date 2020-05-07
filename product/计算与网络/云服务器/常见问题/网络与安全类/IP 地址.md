@@ -45,5 +45,5 @@
 具体操作，请参考 [获取实例的内网 IP 地址](https://cloud.tencent.com/document/product/213/17941#.E8.8E.B7.E5.8F.96.E5.AE.9E.E4.BE.8B.E7.9A.84.E5.86.85.E7.BD.91-ip-.E5.9C.B0.E5.9D.80)。
 
 ### 除了更换公网 IP 地址，我可以更换内网 IP 地址吗？
-可以。详细步骤，请参见 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
+可以。具体操作，请参考 [修改内网 IP 地址](https://cloud.tencent.com/document/product/213/16561)。
 

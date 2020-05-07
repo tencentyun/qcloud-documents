@@ -2,17 +2,17 @@
 
 ## 背景信息
 公网 IP 地址是 Internet 上的非保留地址，有公网 IP 地址的云服务器可以和 Internet 上的其他计算机互相访问。
-腾讯云公网 IP 地址有两类，普通公网 IP 和弹性公网 IP（EIP），二者都可以为云服务器提供访问公网和被公网访问的能力。
+腾讯云公网 IP 地址有两类，普通公网 IP 和 EIP，二者都可以为云服务器提供访问公网和被公网访问的能力。
 - 普通公网 IP：仅能在云服务器购买时分配且无法与云服务器解绑，如购买时未分配，则无法获得。
-- 弹性公网 IP（EIP）：可以独立购买和持有的公网 IP 地址资源，可随时与云服务器、NAT 网关等云资源绑定、解绑。
+- EIP：可以独立购买和持有的公网 IP 地址资源，可随时与云服务器、NAT 网关等云资源绑定、解绑。
 
-与云服务器的普通公网 IP 相比，弹性公网 IP 提供更灵活管理方式，如下表所示：
+与云服务器的普通公网 IP 相比，EIP 提供更灵活的管理方式，如下表所示：
 <table>
 <thead>
 <tr>
 <th>对比项</th>
 <th>普通公网 IP</th>
-<th>弹性公网 IP</th>
+<th>EIP</th>
 </tr>
 </thead>
 <tbody><tr>
@@ -55,9 +55,9 @@
 ## 操作步骤
 您可根据如下操作步骤，将普通公网 IP 转成 EIP：
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-2. 在实例管理页面，找到选择需转换的实例，单击对应的普通公网 IP 右侧的 <img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px;"></img>。
+2. 在实例管理页面，选择需转换的实例所在地域，单击对应实例的普通公网 IP 右侧的 <img src="https://main.qcloudimg.com/raw/25e8c0e37b73c12da900301f03e57dbc.png" style="margin: -3px;"></img>。
 ![](https://main.qcloudimg.com/raw/aee823ae6b8f5f977cb3c42549eaf090.png)
-3. 在弹出的窗口中，单击【确定】即可。
+3. 在弹出的“转换为弹性公网IP”窗口中，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/29b368e16bcf388067be3f869ee3935a.png)
 
 ## 后续步骤

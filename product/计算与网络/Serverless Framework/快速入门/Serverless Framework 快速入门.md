@@ -3,7 +3,8 @@
 >?预计2020年4月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
 
 ## 前提条件
-在使用之前，请确保已经 [安装 Serverless Framework 1.67.2 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+- 在使用之前，请确保已经 [安装 Serverless Framework 1.67.2 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+- 如果您的腾讯云账号为主账号，则可以继续进行部署；如果您的账户未子账号，请参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 获得授权后再进行部署。
 
 ## 操作步骤
 

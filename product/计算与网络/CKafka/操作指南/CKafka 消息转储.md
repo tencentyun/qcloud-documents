@@ -4,7 +4,6 @@
 ## 前提条件
 该功能目前依赖云函数 SCF，使用时需开通 SCF 产品功能。
 
-
 ## 操作步骤
 
 ### Ckafka 转储对象存储（COS）
@@ -12,7 +11,7 @@
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，选择转储类型为对象存储（COS），填写以下信息：
-![](https://main.qcloudimg.com/raw/47341a0f76425641a0c4b20f513912fd.png)
+![](https://main.qcloudimg.com/raw/1512b39abf6ff11d9760c926ecb43679.png)
  - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
  - 时间粒度：根据消息量的大小，选取汇聚消息的时间间隔，时间间隔为5 - 60分钟不等。为保证转储性能，聚合文件数量与 Partition 数量，partition_max 设置数值有关，具体详见文档底部产品限制说明。
  - 存放 Bucket：对不同的 topic，选取相应的 COS 中 Bucket，则请求消息会自动在 Bucket 下创建  instance-id/topic-id/date/timestamp 为名称的文件路径进行存储。相关路径如无法满足业务需要，请创建完成后在云函数 CkafkaToCosConsumer 下自行修改。
@@ -28,7 +27,7 @@
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，选择转储类型为通用模板，填写以下信息：
-![](https://main.qcloudimg.com/raw/97cb7d280c9939166964e282c5417d86.png)
+![](https://main.qcloudimg.com/raw/65729e352a07ec0c57beb1c15ef3d21d.png)
   - 转储类型：选择希望转储的函数模板，支持 COS 和通用模板两种转储类型。
   - 起始位置：转储时历史消息的处理方式，topic offset 设置。
   - 角色授权：使用 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
@@ -38,6 +37,29 @@
 >?
 >- 通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 [SCF通用模板](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaTriggerTemplate) 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
 >- 通用转储模板常见的转储应用场景有 [Elasticsearch Service](https://cloud.tencent.com/product/es)、[MySQL](https://cloud.tencent.com/product/cdb)、[PostgreSQL](https://cloud.tencent.com/product/postgres) 等。
+
+### Ckafka 转储角色授权指引
+
+**COS 转储角色授权：**
+1. 在 CKafka 控制台的消息转储页，单击【新建运行角色】。
+![](https://main.qcloudimg.com/raw/4e20b8cec1c096bc37a0ec7fa8ae09a0.png)
+2. 在跳转后的新页面选择角色载体信息，COS 转储推荐添加角色载体为云函数（SCF）：
+（支持角色的服务列表动态更新，SCF 在列表中的具体位置以控制台显示为准）
+![](https://main.qcloudimg.com/raw/4f49a17a1ec0e9eb9fa675c2040532d9.png)
+3. 配置角色策略，COS 转储推荐添加如下策略：
+```plaintext
+QcloudSCFFullAccess
+QcloudCOSFullAccess
+QcloudCKafkaFullAccess
+```
+![](https://main.qcloudimg.com/raw/2451d801066745525d6abd7a12d49708.png)
+4. 定义角色名称，单击【完成】。
+![](https://main.qcloudimg.com/raw/db5cc3a45df0db69d8a0afea1c550ec4.png)
+5. 在 Ckafka 控制台，刷新消息转储页面并选择相应角色。
+![](https://main.qcloudimg.com/raw/f19a5d0276be1a82df98e773ee120af5.png)
+
+**通用转储角色授权：**
+在通用转储模板中授权函数访问其他的云服务，如果不访问任何云服务，则不用提供运行角色。操作流程同上。
 
 <span id="postconditions"></span>
 ## 产品限制和费用计算
