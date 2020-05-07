@@ -4,7 +4,7 @@
 
 
 
-## 准备工作
+## 前提条件
 >!使用对象存储之前需要为集群安装对象存储的 COS-CSI 的扩展组件。使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >
 
