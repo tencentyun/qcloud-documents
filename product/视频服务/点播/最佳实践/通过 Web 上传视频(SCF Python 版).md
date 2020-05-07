@@ -85,8 +85,8 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 	4. 单击【开始上传】即可上传视频。
 <img src="https://main.qcloudimg.com/raw/57969d70fbe061d6135cbe38e3b9aeb9.png" width="700">
 3. 上传完成后，页面下方会展示视频和封面的点播媒体 ID（即 fileId）和 URL 等信息。如下图所示：
-<img src="https://main.qcloudimg.com/raw/502e1cd4eeeeca33d63680d40e4d614e.png" width="750">
-<br>您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/media) 上查看刚上传的视频。如下图所示：
+<img src="https://main.qcloudimg.com/raw/502e1cd4eeeeca33d63680d40e4d614e.png" width="750"></span>
+您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/media) 上查看刚上传的视频。如下图所示：
 <img src="https://main.qcloudimg.com/raw/819f7638028b6e51e36646da0f396b6c.png" width="750">
 
 >?您可根据页面提示，对上传页面的其它功能进行体验。
@@ -138,25 +138,50 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
 ### 上传签名派发代码解读
 
 1. `main_handler()`为入口函数。
-
 2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [客户端上传签名参数](https://cloud.tencent.com/document/product/266/9221#.3Cspan-id-.3D.22p2.22.3E.3C.2Fspan.3E.E7.AD.BE.E5.90.8D.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)）：
-
-| 字段             | 数据类型 | 功能                                                         |
-| ---------------- | -------- | ------------------------------------------------------------ |
-| secret_id        | String   | API 密钥                                              |
-| secret_key       | String   | API 密钥                                                  |
-| sign_expire_time | Integer  | 签名有效时间，单位：秒                                       |
-| class_id         | Integer  | 视频上传完成后的分类 ID，0表示默认分类                     |
-| otp              | Integer  | 签名是否单次有效                                         |
-| subappid         | Integer  | 是否上传到 [云点播子应用](https://cloud.tencent.com/document/product/266/14574) |
-
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>数据类型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>secret_id</td>
+<td>String</td>
+<td>API 密钥</td>
+</tr>
+<tr>
+<td>secret_key</td>
+<td>String</td>
+<td>API 密钥</td>
+</tr>
+<tr>
+<td>sign_expire_time</td>
+<td>Integer</td>
+<td>签名有效时间，单位：秒</td>
+</tr>
+<tr>
+<td>class_id</td>
+<td>Integer</td>
+<td>视频上传完成后的分类 ID，0表示默认分类</td>
+</tr>
+<tr>
+<td>otp</td>
+<td>Integer</td>
+<td>签名是否单次有效</td>
+</tr>
+<tr>
+<td>subappid</td>
+<td>Integer</td>
+<td>是否上传到 <a href="https://cloud.tencent.com/document/product/266/14574" target="_blank">云点播子应用</a></td>
+</tr>
+</tbody></table>
 3. 调用`parse_source_context()`，从请求 Body 中解析`sourceContext`字段，用于在 [上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 中透传给事件通知接收服务（本 Demo 暂未使用事件通知）。
 >?在上传过程中该字段是可选的，如果您无需使用该功能，则可以忽略这部分代码。
-
 4. 调用`generate_sign()`函数计算签名，详细算法请参见 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
-
 5. 返回签名。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
-
   ```
       return {
           "isBase64Encoded": False,
@@ -171,36 +196,42 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
 ### 上传页面代码解读
 
 1. `main_handler()`为入口函数。
-
 2. 读取`web_upload.html`文件的内容，即上传页面内容。
 ```
 		html_file = open(HTML_FILE, encoding='utf-8')
 		html = html_file.read()
 ```
-
 3. 从`config.json`中读取配置项。配置项是指您在编写 SCF 服务时无法预知，并且需要在部署过程中才能确定的内容。这些内容由部署脚本在部署上传页面服务之前实时写入到`config.json`中。
 ```
 		conf_file = open(CONF_FILE, encoding='utf-8')
 		conf = conf_file.read()
 		conf_json = json.loads(conf)
 ```
-
 4. 调用`render_template`，根据上一步得到的配置信息对上传页面内容进行修改。配置项在`config.json`文件中以`"变量名": "取值"`的形式来表示；在`web_upload.html`文件中以`{变量名}`的形式来表示，**修改时请替换为具体取值**。详情如下：
-
-| 变量名                 | 含义                   | 取值类型 | 取值来源                                                     |
-| ---------------------- | ---------------------- | -------- | ------------------------------------------------------------ |
-| UGC_UPLOAD_SIGN_SERVER | 上传签名派发服务的 URL | String   | 上传签名派发服务部署完成后，由 SCF 命令行工具 [scf](https://cloud.tencent.com/document/product/583/33445) 输出 |
-
- ```
+```
   def render_template(html, keys):
       """将 HTML 中的变量（形式为 ${变量名}）替换为具体内容。"""
       for key, value in keys.items():
           html = html.replace("${" + key + "}", value)
       return html
  ```
-
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>含义</th>
+<th>取值类型</th>
+<th>取值来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UGC_UPLOAD_SIGN_SERVER</td>
+<td>上传签名派发服务的 URL</td>
+<td>String</td>
+<td>上传签名派发服务部署完成后，由 SCF 命令行工具 <a href="https://cloud.tencent.com/document/product/583/33445" target="_blank">scf</a> 输出</td>
+</tr>
+</tbody></table>
 5. 将修改后的上传页面内容返回。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
-
   ```
       return {
           "isBase64Encoded": False,
