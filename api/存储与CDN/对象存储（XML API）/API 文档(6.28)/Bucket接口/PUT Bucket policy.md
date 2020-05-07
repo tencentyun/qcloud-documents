@@ -3,7 +3,7 @@ PUT Bucket policy 请求可以向 Bucket 写入权限策略，当 Bucket 已存�
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
 ```shell
 PUT /?policy HTTP/1.1
@@ -14,20 +14,20 @@ Content-MD5:MD5
 Authorization: Auth String
 ```
 
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
-### 请求头
+#### 请求头
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求参数
 无特殊请求参数。
 
-### 请求体
-下面的示例表示给主账号100000000001下的子账号100000000011授权以允许访问存储桶名为 examplebucket-1250000000 中的对象列表。关于访问策略中的元素介绍，请参阅 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023)，以及授权策略示例请参阅 [COS API 授权策略使用指引](https://cloud.tencent.com/document/product/436/31923)。
+#### 请求体
+下面的示例表示给主账号100000000001下的子账号100000000011授权，以允许访问存储桶名为 examplebucket-1250000000 中的对象列表。关于访问策略中的元素介绍，请参见 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023)，以及授权策略示例请参见 [COS API 授权策略使用指引](https://cloud.tencent.com/document/product/436/31923)。
 
 ```shell
 {
@@ -54,24 +54,24 @@ Authorization: Auth String
 
 ## 响应
 
-### 响应头
+#### 响应头
 #### 公共响应头
 
-该响应使用公共响应头，了解公共响应头详情，请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
 该请求操作无特殊的响应头部信息。
 
-### 响应体
+#### 响应体
 该请求响应体为空。
 
-### 错误码
+#### 错误码
 
-无返回特殊错误码。一般常见错误码，请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+无返回特殊错误码。一般常见错误码，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
-### 请求
+#### 请求
 
 ```shell
 PUT /?policy HTTP/1.1
@@ -101,7 +101,7 @@ Content-Length: 233
 }
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 204 No Content

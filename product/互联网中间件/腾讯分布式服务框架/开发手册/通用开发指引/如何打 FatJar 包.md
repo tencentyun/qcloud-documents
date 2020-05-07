@@ -1,4 +1,4 @@
-FatJar 是一种可执行的 Jar 包(Executable Jar)。FatJar 和普通的 Jar 不同在于它包含了依赖的 Jar 包。
+FatJar 是一种可执行的 Jar 包（Executable Jar）。FatJar 和普通的 Jar 不同在于它包含了依赖的 Jar 包。
 
 
 ##  添加 FatJar 打包方式

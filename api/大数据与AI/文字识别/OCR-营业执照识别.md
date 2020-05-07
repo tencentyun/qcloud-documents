@@ -1,7 +1,11 @@
+>!
+- 营业执照识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版营业执照识别](https://cloud.tencent.com/document/product/866/36215)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[营业执照识别](https://console.cloud.tencent.com/ai/ocr/bizlicense)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版营业执照识别](https://cloud.tencent.com/document/product/866/36215)，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/bizlicense`
 本接口（bizlicense）用于识别用户上传的营业执照图像，返回注册号、法定代表人、公司名字、地址、营业期限这5个字段信息。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 
@@ -19,7 +23,7 @@
 | 参数名   | 必选 | 类型           | 参数说明                                     |
 | ----- | ---- | ------------ | ---------------------------------------- |
 | appid | 是   | String       | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                    |
-| image | 否   |  Binary/String | 图片文件 或 图片 base64。图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image | 否   |  Binary/String | 图片文件 或 图片 base64。图片需指定 filename，filename 的值为可为空，响应 HTTP body 中会返回用户设置的 filename 值。 |
 | url   | 否   | String       | 图片 url 和 image 同时赋值时，则以 url 指定的图像作为输入。|
 
 

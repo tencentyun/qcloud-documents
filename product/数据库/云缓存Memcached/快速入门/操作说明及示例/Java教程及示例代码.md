@@ -6,9 +6,9 @@
 
 ## 2 使用步骤
 
-在本地电脑新建Java工程, 并导入下载好的Memcached-Java-Client.2.5.1源码.
+在本地电脑新建Java工程, 并导入下载好的Memcached-Java-Client.2.5.1源码。
 
-编写源码并导出为Jar包.
+编写源码并导出为Jar包。
 
 将导出的Jar包上传到腾讯云CVM服务器上并运行java -jar ***.jar. (注意: 只有在CVM服务器上才能访问内网的NoSQL服务器)
 

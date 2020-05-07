@@ -16,7 +16,7 @@
 | 测试城市   | 全部                                          |
 | 测试运营商 | 中国联通, 中国电信, 中国移动                  |
 | 源站链接   | http://*/simptab-wallpaper-20190520181120.png |
-| CDN 链接    | http://*/simptab-wallpaper-20190520181120.png |
+| CDN 链接   | http://*/simptab-wallpaper-20190520181120.png |
 
 ## 结果分析
 
@@ -312,7 +312,7 @@
       <td> 94</td>
    </tr>
    <tr>
-      <td>平均/汇总</td>
+      <td>平均 / 汇总</td>
       <td>  0.196</td>
       <td> 99.996</td>
       <td>2235</td>

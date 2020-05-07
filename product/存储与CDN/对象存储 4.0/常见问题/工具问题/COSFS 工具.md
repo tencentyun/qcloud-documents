@@ -1,4 +1,5 @@
 ## 功能咨询
+
 ### 如何使用临时密钥挂载存储桶？
 
 使用临时密钥（STS）挂载存储桶，需要执行如下两个步骤：
@@ -105,7 +106,7 @@ umount -l /path/to/mnt_dir
 cosfs examplebucket-1250000000:/my-dir /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info
 ```
 
-如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您按照本文 [编译和安装 COSFS](https://cloud.tencent.com/document/product/436/6883#compile) 部分更新 fuse 版本或安装最新版本的 COSFS。
+如果 COSFS 进程不是由于误操作挂掉，可以检查机器上的 fuse 版本是否低于 2.9.4，libfuse 在低于 2.9.4 版本的情况下可能会导致 COSFS 进程异常退出。此时，建议您参见 [COSFS 工具](https://cloud.tencent.com/document/product/436/6883#.E5.AE.89.E8.A3.85.E5.92.8C.E4.BD.BF.E7.94.A8) 文档更新 fuse 版本或安装最新版本的 COSFS。
 
 ### 通过 COSFS 上传的文件 Content-Type 被变为 "application/octet-stream"怎么办？
 
@@ -135,6 +136,7 @@ image/jpx                                       jpx jpf
 
 1. 请检查机器是否能正常访问 COS 的域名。
 2. 检查账号是否配置正确。 
+3. 如果您使用 cp 命令进行拷贝，并且携带了 -p 或 -a 参数，建议您去掉该参数后执行该命令。
 
 确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云技术支持，协助您解决问题。
 
@@ -173,3 +175,46 @@ cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud
 
 ### 使用 docker 挂载 COSFS 时，报错显示：fuse: failed to open /dev/fuse: Operation not permitted，该如何处理？
 启动 docker 镜像时，您需要添加参数 --privileged。
+
+### 是否可以使用某一个目录，作为多个挂载点的共用缓存目录？
+不建议多个挂载点共用缓存目录，缓存目录中包含 COSFS 使用的元信息，共用可能会导致 COSFS 使用的元信息混乱。
+
+### 使用 COSFS 挂载时出现报错 /bin/mount:unrecognized option --no-canonicalize，该如何处理？
+
+较低版本的 mount 不支持 `--no-canonicalize` 选项，请更新 mount 工具（推荐版本为 v2.17，[前往下载](https://cdn.kernel.org/pub//linux/utils/util-linux/v2.17/)），更新后重新挂载。安装命令如下。
+
+```shell
+tar -jxvf util-linux-ng-2.17.tar.bz2
+cd util-linux-ng-2.17
+./configure --prefix=/usr/local/util-linux-ng
+make && make install
+mv /bin/mount{,.off}
+ln -s /usr/local/util-linux-ng/bin/mount /bin
+```
+
+### 挂载失败该如何处理？
+
+步骤一：根据日志文件和提示信息，检查挂载命令、密钥配置文件内容是否正确，以及网络是否可以访问 COS 服务。
+
+步骤二：使用 date 命令，检查机器时间是否正确，如果不正确 ，用 date 命令修正时间后，重新挂载。例如：`date -s '2014-12-25 12:34:56'`。
+
+### 使用 `ls -l --time-style=long-iso` 命令，挂载目录的时间变为1970-01-01 08:00，是否正常？
+
+挂载目录时间变为1970-01-01 08:00是正常的，当您卸载挂载点后，挂载目录的时间会恢复为挂载前的时间。
+
+ ### 挂载目录能否为非空？
+ 
+可以使用`-ononempty`参数挂载到非空目录，但不建议您挂载到非空目录，当挂载点中和原目录中存在相同路径的文件时，可能出现问题。
+
+### 在 COSFS 的目录中执行 ls 命令，为什么命令返回需要很久的时间？
+在挂载目录中有很多文件的情况下，执行 ls 命令需要对目录中的每一个文件执行 HEAD 操作，因此，会耗费较多时间读取目录系统调用才会返回。
+>!建议您不要开启 IO hung，导致不必要的重启。
+
+
+### 使用 info 级别的日志，生成的系统日志文件，占用大量存储空间，该怎么处理？
+您可以定期清理生成的系统日志文件，或者调高日志级别，例如使用`-odbglevel=crit`挂载。
+
+### COSFS 适用于哪些场景，读取和写入性能如何？
+COSFS 读取和写入都经过磁盘中转，适用于要求 POSIX 语义访问 COS 的场景，例如共享数据集的机器学习算法读取共享数据，简单的日志备份等。COSFS 会使用多线程并发上传、下载进行加速，同地域走内网顺序读取一个6GB的文件，约耗时80s左右。顺序写入一个6GB的文件，约耗时160s左右。通常，您可通过 SDK 和多线程等技术，实现更好的性能。
+
+

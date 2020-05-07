@@ -4,7 +4,7 @@ Tencent Cloud VOD product is billed based on the following three parts:
 - **Video transcoding:** The source video files stored in Tencent Cloud VOD are charged by the specification and length of target files during transcoding.
 - **Video acceleration:** Fees generated when CDN is used for acceleration during video playback are charged based on the downstream traffic.
 
-You can view the actual usage of Tencent Cloud VOD via the [console](https://console.cloud.tencent.com/video).
+You can view the actual usage of Tencent Cloud VOD via the [console](https://console.cloud.tencent.com/vod).
 
 ### Video Storage
 #### Billing Item

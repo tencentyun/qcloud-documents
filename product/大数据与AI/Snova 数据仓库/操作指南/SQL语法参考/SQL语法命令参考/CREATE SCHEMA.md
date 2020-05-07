@@ -20,13 +20,13 @@ CREATE SCHEMA 将新的方案输入到当前的数据库中。方案名称必须
 ## 参数
 
 schema_name
-创建方案的名称，如果省略，则用户名被用作方案名。该名字不能以 pg_开头，因为这些名字是为系统目录方案保存的。
+创建方案的名称，如果省略，则用户名被用作方案名。该名字不能以 pg_ 开头，因为这些名字是为系统目录方案保存的。
 
 rolename
 拥有该方案的角色的名称。如果省略，默认为执行该命令的角色。只有超级用户可以创建属于其他角色的方案，除了他们自己。
 
 schema_element
-定义在方案中创建对象的 SQL 语句。目前只有 CREATE TABLE，CREATE VIEW，CREATE INDEX，CREATE SEQUENCE，CREATE TRIGGER 和 GRANT 被认作为 CREATE SCHEMA 中的子句。其他对象可能在方案创建之后以单独的命令来创建。
+定义在方案中创建对象的 SQL 语句。目前只有 CREATE TABLE、CREATE VIEW、CREATE INDEX、CREATE SEQUENCE、CREATE TRIGGER 和 GRANT 被认作为 CREATE SCHEMA 中的子句。其他对象可能在方案创建之后以单独的命令来创建。
 
 注意：数据库不支持触发器。
 

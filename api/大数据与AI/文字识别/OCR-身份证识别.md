@@ -1,12 +1,12 @@
->! 
-- 身份证识别全面升级接口，算法更强、性能更优，欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
-- 新老版本的接口计费模式相同，且共享计费阶梯，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
-- 老版本接口我们仍继续维护，但建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。
+>!
+- 身份证识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。
 
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
 本接口（idcard）用于识别身份证上的姓名、证件号、地址等信息。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 ## 请求头 header
 
@@ -174,7 +174,7 @@ Content-Type: "application/json"
 | --------- | ---- | ------------ | ---------------------------------------- |
 | appid     | 是    | String         | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看            |
 | card_type | 否    | Int          | 0为身份证有照片的一面，1为身份证有国徽的一面；如果未指定，默认为0。     |
-| image     | 是    | Binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 http body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 http body 中会返回用户设置的 filename 值。 |
+| image     | 是    | Binary | 图片文件，支持多个：<br>1. 参数名须为 “image[0]”、“image[1]”等 image 开头的字符串。响应 HTTP body 中会按照该字符串的字典序排列。<br>2. 每张图片需指定 filename，filename 的值为可为空，响应 HTTP body 中会返回用户设置的 filename 值。 |
 
 ### 输出参数
 

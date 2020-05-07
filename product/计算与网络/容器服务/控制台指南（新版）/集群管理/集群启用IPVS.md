@@ -13,6 +13,6 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 参考 [创建集群](https://cloud.tencent.com/document/product/457/32189)，在 “创建集群” 页面中，将 “Kubernetes版本” 设置为高于1.10的 Kubernetes 版本，并单击【高级设置】，开启 “ipvs 支持”。如下图所示：
-![开启IPVS](https://main.qcloudimg.com/raw/a625e2d1b7ef313a65e04aab25832e18.png)
+![](https://main.qcloudimg.com/raw/53956b0e0a93d1af29e153b4b0556095.png)
 3. 按照页面提示逐步操作，完成集群的创建。
 

@@ -19,7 +19,7 @@ ListAudits 用于拉取跟踪集列表。
 |Name|String|跟踪集名称|
 |bucketName|String|COS Bucket 名称|
 |prefix|String|日志前缀|
-|status|Number|Audit 状态，0 代表关闭，1 代表开启|
+|status|Number|Audit 状态，0代表关闭，1代表开启|
 |IsMultiRegionAudit|Number|是否开启多地域采集，0：否，1：是|
 
 ## 实际案例

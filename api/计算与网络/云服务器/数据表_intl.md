@@ -20,7 +20,7 @@
 |---------|---------|
 | ap-guangzhou | Guangzhou |
 | ap-shanghai | Shanghai |
-| ap-hongkong | Hong Kong |
+| ap-hongkong | Hong Kong (China) |
 | na-toronto | North America |
 | ap-shanghai-fsi | Shanghai Finance |
 | ap-beijing | Beijing |

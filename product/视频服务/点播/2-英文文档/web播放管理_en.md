@@ -1,7 +1,7 @@
 With the Web player management feature, you can easily define the player styles by using Tencent Cloud's video player feature, and then reference the player code in your web pages to present these custom styles. The specific operation steps are as follows:
 
 ### Managing Player
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), click [Web Player Management] in the left menu bar to go to the **Web Player Management** page. On this page, you can see a player list, which is used to manage all the players. You can create and maintain a maximum of 10 custom players, with one of the players (initial player) as the default player. When all the video files are published, the configuration of the default player is used to generate the player code in the Web player code window, unless otherwise indicated.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), click [Web Player Management] in the left menu bar to go to the **Web Player Management** page. On this page, you can see a player list, which is used to manage all the players. You can create and maintain a maximum of 10 custom players, with one of the players (initial player) as the default player. When all the video files are published, the configuration of the default player is used to generate the player code in the Web player code window, unless otherwise indicated.
 ![](https://mc.qcloudimg.com/static/img/fa1d79bea04647fa2ffe084f86c571b5/image.png)
 You can add a preview player and edit it, or perform the following operations on an existing player:
 

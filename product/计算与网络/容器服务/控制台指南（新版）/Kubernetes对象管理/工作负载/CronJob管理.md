@@ -1,6 +1,6 @@
 ## 简介
 
-一个 CronJob 对象类似于 crontab（cron table）文件中的一行。它根据指定的预定计划周期性地运行一个 Job。
+一个 CronJob 对象类似于 crontab（cron table）文件中的一行。它根据指定的预定计划周期性地运行一个 Job，格式可以参考 Cron。
 Cron 格式说明如下：
 ```
 # 文件格式说明
@@ -8,7 +8,7 @@ Cron 格式说明如下：
 # |  ——小时（0 - 23）
 # | |  ——日（1 - 31）
 # | | |  ——月（1 - 12）
-# | | | |  ——星期（0 - 7，星期日=0或7）
+# | | | |  ——星期（0 - 6）
 # | | | | |
 # * * * * *
 ```
@@ -32,7 +32,7 @@ Cron 格式说明如下：
  - Job设置
     - 重复次数：Job 管理的 Pod 需要重复执行的次数。
     - 并行度：Job 并行执行的 Pod 数量。
-    - 失败重启策略：Pod下容器异常退出后的重启策略。
+    - 失败重启策略：Pod下容器异常推出后的重启策略。
         - Never：不重启容器，直至 Pod 下所有容器退出。
         - OnFailure：Pod 继续运行，容器将重新启动。
  - 实例内容器：根据实际需求，为 CronJob 的一个 Pod 设置一个或多个不同的容器。
@@ -77,8 +77,8 @@ spec:
             - date; echo Hello from the Kubernetes cluster
           restartPolicy: OnFailure
 ```
-- kind: 标识 CronJob 资源类型.
-- metadata：CronJob 的名称、Label 等基本信息。
+- kind：标识 CronJob 资源类型。
+- metadata：CronJob 的名称、Label等基本信息。
 - metadata.annotations：对 CronJob 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
 - spec.schedule：CronJob 执行的 Cron 的策略。
 - spec.jobTemplate：Cron 执行的 Job 模板。
@@ -86,7 +86,6 @@ spec:
 ### 创建 CronJob
 
 #### 方法一
-
 1. 参考 [YAML 示例](#YAMLSample)，准备 CronJob YAML 文件。
 2. 安装 Kubectl，并连接集群。操作详情请参考 [通过 Kubectl 连接集群](https://cloud.tencent.com/document/product/457/8438)。
 3. 执行以下命令，创建 CronJob YAML 文件。
@@ -99,7 +98,6 @@ kubectl create -f cronjob.yaml
 ```
 
 #### 方法二
-
 1. 通过执行`kubectl run`命令，快速创建一个 CronJob。
 例如，快速创建一个不需要写完整配置信息的 CronJob，则执行以下命令：
 ```shell
@@ -120,8 +118,10 @@ cronjob   * * * * *   False     0         <none>          15s
 > - 执行此删除命令前，请确认是否存在正在创建的 Job，否则执行该命令将终止正在创建的 Job。
 > - 执行此删除命令时，已创建的 Job 和已完成的 Job 均不会被终止或删除。
 > -  如需删除 CronJob 创建的 Job，请手动删除。
-
+> 
 执行以下命令，删除 CronJob。
 ```
 kubectl delete cronjob [NAME]
 ```
+
+

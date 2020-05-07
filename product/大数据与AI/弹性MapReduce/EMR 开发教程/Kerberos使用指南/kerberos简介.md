@@ -1,7 +1,6 @@
+当前仅 EMR-V2.1.0 版本支持创建安全类型集群，即集群中的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
 
-EMR 2.1.0 版本开始支持创建安全类型的集群，即集群中的开源组件以 Kerberos 的安全模式启动，在这种安全环境下只有经过认证的客户端（Client）才能访问集群的服务（Service，例如 HDFS）。
-
-目前 EMR 版本中支持的 Kerberos 的组件列表如下所示：
+当前 EMR-V2.1.0 版本支持的 Kerderos 的组件列表如下所示：
 
 | 组件名称 | 组件版本|
 |---------|---------|
@@ -55,4 +54,4 @@ client 访问 server 的过程中，想确保 client 和 server 都是可靠的�
 1. client 向 kerberos 服务请求，希望获取访问 server 的权限。kerberos 首先判断 client 是否可信赖，通过在 AD 中存储黑名单和白名单来区分 client。成功后，AS 返回 TGT 给 client。
 2. client 得到了 TGT 后，继续向 kerberos 请求，希望获取访问 server 的权限。kerberos 通过 client 消息中的 TGT，判断 client 拥有权限，给 client 访问 server 的权限 ticket。
 3. client 得到 ticket 后，就可以访问 server 了，但这个 ticket 只是针对这个 server，访问其他 server 需要重新向 TGS 申请。
-![](https://main.qcloudimg.com/raw/adc3c42dc551068ceecb86abdac2c52e.png)
+![](https://main.qcloudimg.com/raw/0878d19a08a979608c84d1f4b759b683.png)

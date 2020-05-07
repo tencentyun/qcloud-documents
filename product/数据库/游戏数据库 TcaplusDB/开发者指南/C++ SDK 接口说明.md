@@ -1,6 +1,7 @@
 ## 简介
 TcaplusDB 服务化 API 是应用访问游戏数据库 TcaplusDB 的数据访问入口，是应用存取游戏数据库 TcaplusDB 中业务数据的编程接口。当前 TcaplusDB 主要使用基于 Google Protocol Buffer（Protobuf） 做通讯和数据元定义协议。
 
+
 ## 流程
 您在控制台开通业务创建完表后，控制台配置信息页会提供 AppId，AppKey，内网接入地址，以及 Protobuf 表管理页显示已经创建的表名称和部署单元 ID（ZoneId） 等信息。其中，前三项是应用申请接入游戏存储服务成功后得到的，后两项是业务在游戏存储管理页面上创建表结构时确定下来的。使用游戏存储服务化 API，应用可以操作属于 AppId 的多个数据表。
 

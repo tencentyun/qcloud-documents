@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 ModifySubnetDhcpRelayFlag 用于修改子网的DHCP RELAY属性。
 
@@ -51,7 +54,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ModifySubnetDhcpRelayFlag
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。| Int |
+| code | 公共错误码, 0表示成功，其他值表示失败。| Int |
 | message |  模块错误信息描述，与接口相关。| String |
 | subnetSet.n |子网信息，同时添加了子网时才会返回。| Array | 
 | subnetSet.n.subnetId | 系统分配的子网ID，示例:gz_subnet_8949。| String |

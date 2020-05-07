@@ -122,7 +122,7 @@ For more information on how to implement recording feature on iOS, please see [N
 
 Videos recorded through audio/video communication SDK are stored in VOD service.
 
-(1) You can manage recorded files by logging in to [Management Console](http://console.cloud.tencent.com/video).<br/>
+(1) You can manage recorded files by logging in to [Management Console](http://console.cloud.tencent.com/vod).<br/>
 (2) You can also manage recorded filed through APIs provided by VOD. For more information, please see [API Overview](https://cloud.tencent.com/document/product/266/7788).<br/>
 (3) DescribeVodPlayInfo obtains the download address of the recorded file based on the file name entered in the recording parameters of the API "Start Recording".
  For more information, please see [relevant document](https://cloud.tencent.com/document/product/266/8586).

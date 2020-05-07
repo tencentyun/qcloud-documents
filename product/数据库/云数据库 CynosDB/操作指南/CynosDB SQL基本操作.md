@@ -1,13 +1,46 @@
-CynosDB（兼容 PostgreSQL 版 10）SQL 基本操作如下：
+## CynosDB（兼容 MySQL 版）SQL 基本操作
+### 查询版本
+方法一：
+```
+MySQL [(none)]> SELECT CYNOS_VERSION();
++------------------------+
+| CYNOS_VERSION() |
++------------------------+
+| 5.7.mysql_cynos.1.3.10 |
++------------------------+
+1 row in set (0.00 sec)
+```
+方法二：
+```
+MySQL [(none)]> SELECT @@CYNOS_VERSION;
++------------------------+
+| @@CYNOS_VERSION |
++------------------------+
+| 5.7.mysql_cynos.1.3.10 |
++------------------------+
+1 row in set (0.00 sec)
+```
+方法三：
+```
+MySQL [(none)]> SHOW VARIABLES LIKE 'CYNOS_VERSION'; 
++---------------+------------------------+
+| Variable_name | Value |
++---------------+------------------------+
+| cynos_version | 5.7.mysql_cynos.1.3.10 |
++---------------+------------------------+
+1 row in set (0.01 sec)
+```
+
+## CynosDB（兼容 PostgreSQL 版）SQL 基本操作
+
 ### 查询版本
 ```
-postgres=# select cynosdb_version();
-
-cynosdb_version
+postgres=# select cynosdb_version(); cynosdb_version
 ————————
  CynosDB 1.0
 (1 row)
 ```
+
 
 ### 建表使用
 ```
@@ -45,18 +78,8 @@ postgres=# select * from x;
 (1 row)
 ```
 
-### 查询 cynosdb 元数据 IP
-```
-postgres=# show cynosdb_filesystem_endpoint ;
-
- cynosdb_filesystem_endpoint
-——————————————
- 100.121.151.14:2379
-(1 row)
-```
-
 ### 系统表
-CynosDB 完全支持 PG10 系统表，例如：pg_class, pg_proc 等。
+CynosDB 完全支持 PG10 系统表，例如 pg_class, pg_proc 等。
 
 ### GUC 参数
 CynosDB 兼容 PG10 的 GUC 参数，使用 SHOW 或者 SET 命令可以显示和设置 GUC 参数。
@@ -86,8 +109,9 @@ CREATE INDEX
 ```
 
 ### 表达式索引
-与 PG10 兼容，CynosDB 支持表达式索引
+与 PG10 兼容，CynosDB 支持表达式索引。
 ```
 postgres=# CREATE INDEX test2_expr ON test2 ((major + minor));
-```
 CREATE INDEX
+```
+
