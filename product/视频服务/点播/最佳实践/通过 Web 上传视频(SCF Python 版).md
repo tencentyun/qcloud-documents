@@ -1,5 +1,3 @@
-
-
 本文将指导您如何搭建自己的 Web 上传服务。在搭建服务之前，请仔细阅读本章节。
 
 ## 使用须知
@@ -96,7 +94,7 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 ### 系统框架
 
 Web 上传主要涉及四个组成部分：浏览器、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，如下图所示：
-![整体框架](https://main.qcloudimg.com/raw/e008b376ef5dd668873d701cc288b294.png)
+<img src="https://main.qcloudimg.com/raw/ec886cea3098ad0256869ccdab22acb3.png" width="550">
 
 ### 接口协议及测试
 
