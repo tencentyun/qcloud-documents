@@ -116,7 +116,7 @@ Web 上传主要涉及四个组成部分：浏览器、API 网关、云函数和
 >- 控制台上需要选择对应地域和命名空间才能看到部署好的云函数。
 
 单击函数名，在左侧选择【触发管理】，右侧【访问路径】即是上传页面的 URL。单击【API服务名】即可跳转到对应的 API 网关页面。如下图所示：
-<img src="https://main.qcloudimg.com/raw/5d49059b909629d9629230704a4a2c9a.png" width="750">
+<img src="https://main.qcloudimg.com/raw/eaf30a8f73e3f9d4247690ee1830b24c.png" width="750">
 测试该服务的方法为：在浏览器上直接访问页面 URL，正常情况下能看到上传页面。
 
 #### 上传签名派发
@@ -124,7 +124,7 @@ Web 上传主要涉及四个组成部分：浏览器、API 网关、云函数和
 您可以访问 [SCF 服务列表](https://console.cloud.tencent.com/scf/list) 来查看上传签名派发服务的详细信息（查看方法同 [上传页面](#p6)）。
 
 单击函数名，在左侧选择【触发管理】，右侧【访问路径】即是该服务的 URL。单击【API服务名】即可跳转到对应的 API 网关页面。如下图所示：
-<img src="https://main.qcloudimg.com/raw/7a9d8d1f9fa2167b7ce8d29628f97c12.png" width="750">
+<img src="https://main.qcloudimg.com/raw/2507cd4953a24bbf670af4e3659eeed5.png" width="750">
 测试该服务的方法为：选择手动发送 HTTP 请求的方式，在一台有外网的 Linux 或者 Mac 上执行以下命令（请根据实际情况修改服务 URL）：
 ```
 curl -d '' https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/ugc_upload_sign
@@ -134,6 +134,55 @@ curl -d '' https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/ug
 VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZa0xPM1UmY3VycmVudFRpbWVTdGFtcD0xNTg4NTg4MDIzJmV4cGlyZVRpbWU9MTU4ODU4ODYyMyZyYW5kb209MTUwNzc4JmNsYXNzSWQ9MCZvbmVUaW1lVmFsaWQ9MCZ2b2RTdWJBcHBJZD0w
 ```
 您也可以使用 Postman 等第三方工具来发送 HTTP 请求，具体用法请自行搜索。 
+
+### 上传页面代码解读
+
+1. `main_handler()`为入口函数。
+2. 读取`web_upload.html`文件的内容，即上传页面内容。
+```
+		html_file = open(HTML_FILE, encoding='utf-8')
+		html = html_file.read()
+```
+3. 从`config.json`中读取配置项。配置项是指您在编写 SCF 服务时无法预知，并且需要在部署过程中才能确定的内容。这些内容由部署脚本在部署上传页面服务之前实时写入到`config.json`中。
+```
+		conf_file = open(CONF_FILE, encoding='utf-8')
+		conf = conf_file.read()
+		conf_json = json.loads(conf)
+```
+4. 调用`render_template`，根据上一步得到的配置信息对上传页面内容进行修改。配置项在`config.json`文件中以`"变量名": "取值"`的形式来表示；在`web_upload.html`文件中以`{变量名}`的形式来表示，**修改时请替换为具体取值**。详情如下：
+```
+  def render_template(html, keys):
+      """将 HTML 中的变量（形式为 ${变量名}）替换为具体内容。"""
+      for key, value in keys.items():
+          html = html.replace("${" + key + "}", value)
+      return html
+ ```
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>含义</th>
+<th>取值类型</th>
+<th>取值来源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UGC_UPLOAD_SIGN_SERVER</td>
+<td>上传签名派发服务的 URL</td>
+<td>String</td>
+<td>上传签名派发服务部署完成后，由 SCF 命令行工具 <a href="https://cloud.tencent.com/document/product/583/33445" target="_blank">scf</a> 输出</td>
+</tr>
+</tbody></table>
+5. 将修改后的上传页面内容返回。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
+  ```
+      return {
+          "isBase64Encoded": False,
+          "statusCode": 200,
+          "headers": {'Content-Type': 'text/html'},
+          "body": html
+      }
+  ```
+
 
 ### 上传签名派发代码解读
 
@@ -190,54 +239,6 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
                       "Access-Control-Allow-Origin": "*",
                       "Access-Control-Allow-Methods": "POST,OPTIONS"},
           "body": str(signature, 'utf-8')
-      }
-  ```
-
-### 上传页面代码解读
-
-1. `main_handler()`为入口函数。
-2. 读取`web_upload.html`文件的内容，即上传页面内容。
-```
-		html_file = open(HTML_FILE, encoding='utf-8')
-		html = html_file.read()
-```
-3. 从`config.json`中读取配置项。配置项是指您在编写 SCF 服务时无法预知，并且需要在部署过程中才能确定的内容。这些内容由部署脚本在部署上传页面服务之前实时写入到`config.json`中。
-```
-		conf_file = open(CONF_FILE, encoding='utf-8')
-		conf = conf_file.read()
-		conf_json = json.loads(conf)
-```
-4. 调用`render_template`，根据上一步得到的配置信息对上传页面内容进行修改。配置项在`config.json`文件中以`"变量名": "取值"`的形式来表示；在`web_upload.html`文件中以`{变量名}`的形式来表示，**修改时请替换为具体取值**。详情如下：
-```
-  def render_template(html, keys):
-      """将 HTML 中的变量（形式为 ${变量名}）替换为具体内容。"""
-      for key, value in keys.items():
-          html = html.replace("${" + key + "}", value)
-      return html
- ```
-<table>
-<thead>
-<tr>
-<th>变量名</th>
-<th>含义</th>
-<th>取值类型</th>
-<th>取值来源</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>UGC_UPLOAD_SIGN_SERVER</td>
-<td>上传签名派发服务的 URL</td>
-<td>String</td>
-<td>上传签名派发服务部署完成后，由 SCF 命令行工具 <a href="https://cloud.tencent.com/document/product/583/33445" target="_blank">scf</a> 输出</td>
-</tr>
-</tbody></table>
-5. 将修改后的上传页面内容返回。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
-  ```
-      return {
-          "isBase64Encoded": False,
-          "statusCode": 200,
-          "headers": {'Content-Type': 'text/html'},
-          "body": html
       }
   ```
 
