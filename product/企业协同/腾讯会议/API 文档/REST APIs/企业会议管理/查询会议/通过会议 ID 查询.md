@@ -29,7 +29,7 @@
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID<br>  MEETING_STATE_INIT<br>  MEETING_STATE_CANCELLED  <br> MEETING_STATE_STARTED<br>MEETING_STATE_ENDED<br>MEETING_STATE_ABOUT_TO_START|
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束|
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
