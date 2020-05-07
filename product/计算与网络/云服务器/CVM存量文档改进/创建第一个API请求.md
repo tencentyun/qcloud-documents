@@ -12,20 +12,20 @@
 ## 完成第一次 API 请求
 
 下面以“查询地域列表”为例，介绍如何通过 API Explorer 工具创建第一个 API 请求。
->! 部分 API 操作会产生费用，如创建实例、创建镜像等。建议在进行 API 请求操作前，先了解其产品的计费规则。
->
 
 1. 打开 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=cvm&Version=2017-03-12)，进入 API Explorer 操作界面。
 2. 在左侧导航栏中，选择【云服务器】>【地域相关接口】>【查询地域列表】，进入查询地域列表的 API 操作界面。
 ![](https://main.qcloudimg.com/raw/4ef3e12723042eef43413bb8c3cbb34a.png)
-3. 在“个人密钥”中，填写已获取的 SecretId 和 SecretKey。
-4. 在“输入参数”中，设置 Region 参数。
+ - **个人密钥**：填写已获取的 SecretId 和 SecretKey。
+ - **输入参数**，设置 Region 参数。
 Region 参数为可选参数，若保持默认值（即设置为空），在调用 API 请求时将查询所有示例地域。
 更多详情请参考 [查询地域列表](https://cloud.tencent.com/document/product/213/15708) 文档。
-5. 在右侧的页签栏中，选择【在线调用】页签，并单击【发送请求】，即可在响应结果中看到您第一个 API 请求（查询地域列表）的返回结果。
-![](https://main.qcloudimg.com/raw/471f9692416341c701a3659da4346f5a.png)
-以 Region 参数保持默认值（即设置为空）为例，正常的返回结果会显示所有云服务器的可用地域，以及您对应的 RequestID。具体的请求结构，您可以对照 [查询地域列表（输出参数）](https://cloud.tencent.com/document/product/213/15708#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0) 查看。
-</br>如果您的返回结果正常，即表示您成功的完成了第一次 API 请求。
+ - 在右侧的页签栏中，选择【在线调用】页签，并单击【发送请求】，即可在响应结果中看到您第一个 API 请求（查询地域列表）的返回结果。
+
+3. 以 Region 参数保持默认值（即设置为空）为例，正常的返回结果会显示所有云服务器的可用地域，以及您对应的 RequestID。具体的请求结构，您可以对照 [查询地域列表（输出参数）](https://cloud.tencent.com/document/product/213/15708#3.-.E8.BE.93.E5.87.BA.E5.8F.82.E6.95.B0) 查看。。
+
+ >! 此查询操作不涉及费用。但部分 API 操作会产生费用，如创建实例、创建镜像等。建议在进行 API 请求操作前，先了解其产品的计费规则。
+ >
 
 ## API Explorer工具
 
