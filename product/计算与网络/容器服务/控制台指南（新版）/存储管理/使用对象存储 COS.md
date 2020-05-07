@@ -1,6 +1,6 @@
 
 ## 操作场景
-腾讯云容器服务 TKE 支持通过 PV/PVC 为工作负载挂载云硬盘的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
+腾讯云容器服务 TKE 支持通过创建 PV/PVC，并为工作负载挂载云硬盘的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
 
 >!使用对象存储之前需要为集群安装对象存储的 COS-CSI 的扩展组件。使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
@@ -13,7 +13,7 @@
 
 
 ## 操作步骤
-### 通过控制台使用
+### 通过控制台使用对象存储
 
 #### 步骤1：创建可以访问对象存储的 Secret<span id="StepOne"></span>
 
@@ -45,7 +45,7 @@
 	- **Secret**：选择已在[ 步骤1 ](#StepOne)创建的 Secret，本文以 “cos-secret” 为例。
 	- **存储桶列表**：用于保存对象存储中的对象，按需选择可用存储桶即可。
 	- **域名**：展示为默认域名，您可以使用该域名对存储桶进行访问。
-	- **挂载选项**：COSFS 工具支持将存储桶挂载到本地，挂在后可直接操作对象存储中的对象，此项用于设置相关限制条件。本例中挂载选项 `-oensure_diskfree=20480` 表示当缓存文件所在磁盘剩余空间不足20480MB时，COSFS 运行将尽量减少使用磁盘空间。
+	- **挂载选项**：COSFS 工具支持将存储桶挂载到本地，挂载后可直接操作对象存储中的对象，此项用于设置相关限制条件。本例中挂载选项 `-oensure_diskfree=20480` 表示当缓存文件所在磁盘剩余空间不足20480MB时，COSFS 运行将尽量减少使用磁盘空间。
 >?不同的挂载项请以空格进行间隔，更多挂载选项请参见[ 常用挂载选项文档 ](https://cloud.tencent.com/document/product/436/6883#.E5.B8.B8.E7.94.A8.E6.8C.82.E8.BD.BD.E9.80.89.E9.A1.B9)。
 3. 单击【创建PersistentVolume】即可。
 
@@ -60,7 +60,7 @@
 	- **命名空间**：选择为 “kube-system”。
 	- **Provisioner**：选择【对象存储COS】。
 	- **读写权限**：对象存储仅支持多机读写。
-	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 中“cos-pv” 为例。
+	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 中 “cos-pv” 为例。
 3. 单击【创建PersistentVolumeClaim】即可。
 
 #### 步骤4：创建 Pod 使用的 PVC
@@ -79,11 +79,11 @@
       - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 3. 单击【创建Workload】即可。
 
-### 通过 YAML 文件使用
+### 通过 YAML 文件使用对象存储
 
 #### 步骤1：创建可以访问对象存储的 Secret<span id="StepOne"></span>
 
-您可以通过 YAML 创建可以访问对象存储的 Secret，模版如下：
+可通过 YAML 创建可以访问对象存储的 Secret，模版如下：
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -100,8 +100,8 @@ data:
 ```
 
 #### 步骤2：创建支持 COS-CSI 动态配置的 PV<span id="StepTwo"></span>
-您可以通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
-```
+可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
+```yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -130,8 +130,8 @@ spec:
 
 #### 步骤3：创建 PVC 绑定 PV
 
-您可以通过 YAML 创建绑定上述 PV 的 PVC，模版如下：
-```
+可通过 YAML 创建绑定上述 PV 的 PVC，模版如下：
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -150,7 +150,7 @@ spec:
 
 #### 步骤4：创建 Pod 使用 PVC
 您可以通过 YAML 创建 Pod，模版如下：
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -175,14 +175,14 @@ spec:
 ```
 
 ## 相关信息
-更多关于使用对象存储的信息请参见 [README_COSFS.md](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_COSFS.md)。
+更多关于如何使用对象存储的信息请参见 [README_COSFS.md](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_COSFS.md)。
 
 ## 相关操作
 
 ### 创建访问密钥<span id="CreatAccessKey"></span>
 >!
 > - 为避免主账号密钥泄露造成您的云上资产损失，强烈建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
-> - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户 ](https://cloud.tencent.com/document/product/598/13674#.E5.85.B3.E8.81.94.E6.96.87.E6.A1.A3)。
+> - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674#.E5.85.B3.E8.81.94.E6.96.87.E6.A1.A3)。
 > 
 1. 使用子账号用户登录[ 访问管理控制台 ](https://console.cloud.tencent.com/cam/overview)，单击左侧导航栏中的【访问管理】>【API密钥管理】，进入 “API密钥管理”管理界面。
 2. 单击【新建密钥】等待新建完成即可。
@@ -201,10 +201,10 @@ spec:
    - **所属地域**：请选择本文中目标集群所在地域，设置后不可修改。详情请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
    - **多AZ特性**：开启多 AZ 特性后，可提供同地域多个数据中心的容灾。
    - **访问权限**：存储桶默认提供【私有读写】、【公有读私有写】和【公有读写】三种访问权限，设置后仍可修改。
-      - **私有读写**：仅该存储桶的创建者及有授权的账号具备该存储桶的对象的读写权限。存储桶访问权限默认为私有读写，推荐使用。
-      - **公有读私有写**：任何人（包括匿名访问者）对该存储桶中的对象具备读权限，但仅有存储桶创建者及有授权的账号才对该存储桶中的对象有写权限。
-      - **公有读写**：任何人（包括匿名访问者）都对该存储桶中的对象具备读权限和写权限，不推荐使用。
-   - **存储桶标签**：存储桶标签是一个键值对（key = value），是用于管理存储桶的标识，使用标签便于分组管理存储桶。详情请参见 [设置存储桶标签](https://cloud.tencent.com/document/product/436/34830)。
-   - **服务端加密**：支持【不加密】和【SSE-COS】加密（即由对象存储托管密钥的服务端加密）两种方式。
+      - **私有读写**：仅该存储桶的创建者及有授权的账号具备该存储桶对象的读写权限。存储桶访问权限默认为私有读写，推荐使用。
+      - **公有读私有写**：任何人（包括匿名访问者）都具备该存储桶对象的读权限，但仅有存储桶创建者及有授权的账号才具备该存储桶对象的写权限。
+      - **公有读写**：任何人（包括匿名访问者）都具备该存储桶对象的读权限和写权限，不推荐使用。
+   - **存储桶标签**：存储桶标签是一个键值对（key = value），用于管理存储桶的标识，便于分组管理存储桶。详情请参见 [设置存储桶标签](https://cloud.tencent.com/document/product/436/34830)。
+   - **服务端加密**：支持【不加密】和【SSE-COS 加密】（即由对象存储托管密钥的服务端加密）两种方式。
       - **SSE-COS加密**：对象存储托管密钥的服务端加密，由对象存储托管主密钥和管理数据，用户可通过对象存储直接对数据进行管理和加密。详情请参见 [服务端加密概述](https://cloud.tencent.com/document/product/436/18145)。
-3. 确认信息无误后单击【确定】即可。创建完成后，即可在存储列表中进行查看。
+3. 确认信息无误后单击【确定】即可。创建完成后，即可在存储桶列表中进行查看。
