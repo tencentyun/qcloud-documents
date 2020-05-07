@@ -178,7 +178,7 @@ python deepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 5
 ## [Angel]DeepAndWide on PyTONA 
 
 #### 算法简介
-DeepAndWide 算法是将 Embedding 的结果直接输入 DNN 进一步提取高阶特特交叉, 最后将一阶特征与高阶特征组合起来进行预测，本算子是 DeepAndWide 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
+DeepAndWide 算法是将 Embedding 的结果直接输入 DNN 进一步提取高阶特交叉，最后将一阶特征与高阶特征组合起来进行预测，本算子是 DeepAndWide 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
 #### 参数说明
 
@@ -479,7 +479,7 @@ python xdeepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 
 ## [Angel]PNN on PyTONA
 
 #### 算法简介
-PNN（Product-Based Neural Networks）算法是在 Embedding 的基础上，对 Embedding 的结果进行两两内积或外积，然后将内/外积结果与原始的 Embedding 结果拼接起来输入 DNN 进一步提取高阶特特交叉，值得注意的是，PNN 并没有放弃一阶特征，最后将一阶特征与高阶特征组合起来进行预测，本算子是 PNN 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
+PNN（Product-Based Neural Networks）算法是在 Embedding 的基础上，对 Embedding 的结果进行两两内积或外积，然后将内/外积结果与原始的 Embedding 结果拼接起来输入 DNN 进一步提取高阶特交叉，值得注意的是，PNN 并没有放弃一阶特征，最后将一阶特征与高阶特征组合起来进行预测，本算子是 PNN 算法在 [Pyorch on Angel](https://github.com/Angel-ML/PyTorch-On-Angel) 的实现。
 
 #### 参数说明
 
