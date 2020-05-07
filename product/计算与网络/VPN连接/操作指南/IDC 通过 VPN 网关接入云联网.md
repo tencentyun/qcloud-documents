@@ -1,3 +1,5 @@
+>?VPN 网关接入云联网灰度中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN连接】>【VPN网关】，进入管理页。
 3. 选择地域，如示例中的广州，单击【+新建】。
