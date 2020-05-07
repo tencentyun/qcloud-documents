@@ -47,7 +47,8 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 chmod +x eip_direct.sh
 ```
- 2. 执行如下命令，执行脚本，其中，XX.XX.XX.XX为 EIP 地址，可选填，如不填写，请直接执行`./eip_direct.sh install`即可。
+ 2. 执行如下命令，执行脚本。
+ 其中，XX.XX.XX.XX为 EIP 地址，可选填，如不填写，请直接执行`./eip_direct.sh install`即可。
 ```
 ./eip_direct.sh install XX.XX.XX.XX
 ```
