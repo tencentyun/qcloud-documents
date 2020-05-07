@@ -2,10 +2,12 @@
 ## 操作场景
 腾讯云容器服务 TKE 支持通过创建 PV/PVC，并为工作负载挂载云硬盘的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
 
->!使用对象存储之前需要为集群安装对象存储的 COS-CSI 的扩展组件。使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 
 
 ## 准备工作
+>!使用对象存储之前需要为集群安装对象存储的 COS-CSI 的扩展组件。使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>
+
 ### 安装对象存储扩展组件
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方选择需使用对象存储扩展组件的集群及其所在地域，并单击【新建】。
