@@ -4,14 +4,14 @@ StorageClass 用于描述存储的类型，集群管理员可以为集群定义�
 
 本文介绍通过控制台、Kubectl 两种方式创建文件存储类型的 StorageClass，自定义文件存储 CFS 使用所需的模板。
 
-## 准备工作
+## 前提条件
 >!首次使用文件存储之前需要为集群安装文件存储的 CFS-CSI 的扩展组件。使用扩展组件功能需[ 提交工单 ](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)进行申请。
 
 ### 安装文件存储扩展组件
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
 3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
-4. 
+
 
 ### 创建子网
 创建 StorageClass 过程中，需设置文件存储归属子网，为确保文件存储所处私有网络下每一个可用区均拥有合适子网，建议您提前进行子网创建。
@@ -68,13 +68,6 @@ parameters:
 provisioner: com.tencent.cloud.csi. CFS 
 ```
 支持参数如下：
-- **vpcid**： 必传， 创建的 CFS 所在的私有网络 ID。
-- **subnetid**：必传， 创建的 CFS 所在的子网 ID。
-- **zone**：可选，设置 CFS 所在的地域。
-- **pgroupid**：可选，设置 CFS 所归属的权限组。
-- **storagetype**：可选，默认为标准存储 SD，可取值为 SD 或 HP。其中 SD 表示为标准型存储， HP 表示为性能存储。
-
-
 <table>
 <tr>
 <th>参数</th> <th>是否可选</th> <th>描述</th>
