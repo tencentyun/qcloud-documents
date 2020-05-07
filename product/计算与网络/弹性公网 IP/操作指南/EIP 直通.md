@@ -47,7 +47,8 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 chmod +x eip_direct.sh
 ```
- 2. 执行如下命令，执行脚本，其中，XX.XX.XX.XX为 EIP 地址，可选填，如不填写，请直接执行`./eip_direct.sh install`即可。
+ 2. 执行如下命令，执行脚本。
+ 其中，XX.XX.XX.XX为 EIP 地址，可选填，如不填写，请直接执行`./eip_direct.sh install`即可。
 ```
 ./eip_direct.sh install XX.XX.XX.XX
 ```
@@ -93,6 +94,8 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 ![](https://main.qcloudimg.com/raw/473ffef834aa17f5f6d239354a7919e6.png)
 5. 双击 [步骤一](#step1) 中下载的脚本即可执行，输入主网卡绑定的 EIP 地址，连续回车两次即可。 
 6.  在 “Windows PowerShell” 窗口中输入`ipconfig`按回车，可看到主网卡上的 IPv4 地址变成 EIP 地址。
-![](https://main.qcloudimg.com/raw/8260d92c5b99aa53cb774ec367a784e8.png)
 >!直通成功后请勿给主网卡再配内网 IP，如果配置会导致云服务器无法访问公网。
+>
+![](https://main.qcloudimg.com/raw/8260d92c5b99aa53cb774ec367a784e8.png)
+
 
