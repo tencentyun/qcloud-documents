@@ -14,7 +14,7 @@
 ## 操作步骤
 
 >?
->- 使用对象存储之前需要为集群安装对象存储的 COS-CSI 的扩展组件。使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>- 使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >- 若您的集群已安装 COS-CSI 扩展组件，则请跳过此步骤。
 >
 ### 安装对象存储扩展组件
