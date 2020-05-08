@@ -4,10 +4,13 @@ StorageClass 用于描述存储的类型，集群管理员可以为集群定义�
 
 本文介绍通过控制台、Kubectl 两种方式创建文件存储类型的 StorageClass，自定义文件存储 CFS 使用所需的模板。
 
-## 前提条件
->!首次使用文件存储之前需要为集群安装文件存储的 CFS-CSI 的扩展组件。使用扩展组件功能需[ 提交工单 ](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)进行申请。
 
+## 操作步骤
 ### 安装文件存储扩展组件
+>?
+>- 使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
 2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
 3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
@@ -31,7 +34,8 @@ StorageClass 用于描述存储的类型，集群管理员可以为集群定义�
 4. 单击该权限组 ID，进入其详情页，可进行权限组规则的添加、编辑或删除操作。如果权限组中没有添加规则，则会允许全部。详情请参见[ 添加权限组规则](https://cloud.tencent.com/document/product/582/10951#.E6.B7.BB.E5.8A.A0.E6.9D.83.E9.99.90.E7.BB.84.E8.A7.84.E5.88.99)。
 
 
-## 操作指引
+
+
 
 ### 通过控制台创建 StorageClass 
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
