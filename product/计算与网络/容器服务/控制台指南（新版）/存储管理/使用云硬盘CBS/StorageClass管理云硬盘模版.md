@@ -1,6 +1,6 @@
 ## 操作场景
 
-StorageClass 描述存储的类型，集群管理员可以为集群定义不同的存储类别。腾讯云容器服务默认提供块存储类型的 StorageClass，通过 StorageClass 配合 PersistentVolumeClaim 可以动态创建需要的存储资源。
+集群管理员可使用 StorageClass 为容器服务集群定义不同的存储类型。容器服务已默认提供块存储类型的 StorageClass，您可通过 StorageClass 配合 PersistentVolumeClaim 动态创建需要的存储资源。
 
 本文介绍通过控制台、Kubectl 两种方式创建云硬盘 CBS 类型的 StorageClass，自定义云硬盘使用所需的模板。
 
@@ -25,7 +25,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 >
 	- **云盘类型**：通常提供【普通云硬盘】、【高性能云硬盘】、【SSD云硬盘】三种类型，不同可用区下提供情况有一定差异，详情请参见 [云硬盘类型说明 ](https://cloud.tencent.com/document/product/213/32811)并结合控制台提示进行选择。
 	- **回收策略**：云盘的回收策略，通常提供【删除】和【保留】两种回收策略，具体选择情况与所选计费模式相关。出于数据安全考虑，推荐使用保留回收策略。
-5. 单击【新建 StorageClass 】即可完成创建。
+5. 单击【新建StorageClass 】即可完成创建。
 
 #### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
 1. 在“集群管理”页面，选择需创建 PVC 的集群 ID。
@@ -58,7 +58,7 @@ StorageClass 描述存储的类型，集群管理员可以为集群定义不同�
 4. 单击【创建Workload】，即可完成创建。
 
 ### Kubectl 操作 StorageClass 指引
-您可参考本文提供的示例模板，按需通过 Kubectl 进行创建操作。
+您可参考本文提供的示例模板，使用 Kubectl 进行创建操作。
 
 
 #### 创建 StorageClass
@@ -89,7 +89,7 @@ parameters:
 <td>type</td> <td>StorageClass 的类型，包括 <code>CLOUD_BASIC</code>、<code>CLOUD_PREMIUM</code> 和 <code>CLOUD_SSD</code>。</td>
 </tr>
 <tr>
-<td>zone</td> <td>用于指定可用区。如果指定，则云盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
+<td>zone</td> <td>用于指定可用区。如果指定，则云硬盘将创建到此可用区。如果不指定，则拉取所有 Node 的可用区信息，进行随机选取。 腾讯云各地域标识符请参见 <a href="https://cloud.tencent.com/document/product/213/6091">地域和可用区</a>。</td>
 </tr>
 <tr>
 <td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
