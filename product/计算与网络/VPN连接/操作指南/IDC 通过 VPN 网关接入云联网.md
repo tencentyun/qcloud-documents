@@ -1,4 +1,4 @@
-> ?CCN 型 VPN 网关灰度中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+> ?CCN 型 VPN 网关及相关功能灰度中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 > 
 CCN 型 VPN 网关可以关联至云联网，实现 IDC 与云联网间的加密通信。本文介绍如何将 CCN 型 VPN 网关关联至云联网。
 
