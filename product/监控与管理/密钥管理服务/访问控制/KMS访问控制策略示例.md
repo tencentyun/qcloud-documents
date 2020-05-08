@@ -1,12 +1,16 @@
 ## 可授权的资源类型
-- 资源级权限是能够指定用户对哪些资源具有执行操作的能力。密钥管理系统部分接口支持使用资源级权限对密钥进行操作，可控制允许用户何时执行操作或是否允许用户使用特定资源。
-- 密钥管理系统目前可授权的资源类型如下：
-	- 当前主账号下的所有的密钥资源：`qcs::kms:$region:$account:key/*`。
-	- 当前子账号下的所有密钥资源：`qcs::kms:$region:$account:key/$creatorAccount/*` 。
-	- 某个特定的密钥资源：`qcs::kms:$region:$account:key/$creatorAccount/$keyId`。
+资源级权限是能够指定用户对哪些资源具有执行操作的能力。密钥管理系统部分接口支持使用资源级权限对密钥进行操作，可控制允许用户何时执行操作或是否允许用户使用特定资源。密钥管理系统目前可授权的资源类型如下：
+
+| 资源类型 | 授权策略中资源描述方法 |
+|---------|---------|
+| 当前主账号下的所有的密钥资源 | `qcs::kms:$region:$account:key/*` | 
+|当前子账号下的所有密钥资源|`qcs::kms:$region:$account:key/$creatorAccount/*`|
+|某个特定的密钥资源|`qcs::kms:$region:$account:key/$creatorAccount/$keyId`|
+
+
 
 ## 支持资源进授权的 API 列表
-密钥管理系统部分接口支持资源级授权，您可以指定子账号拥有特定资源的接口权限，详情可参见 [API 概览](https://cloud.tencent.com/document/product/573/34403)。
+密钥管理系统部分接口支持资源级授权，您可以指定子账号拥有特定资源的接口权限。
 
 | API 接口 | 描述信息 | 
 |---------|---------|
@@ -18,9 +22,9 @@
 |EncryptByWhiteBox |使用白盒密钥进行加密|
 |DescribeWhiteBoxDecryptKey| 获取白盒解密密钥|
 |DisableWhiteBoxKey|禁用白盒密钥|
-|AsymmetricSm2Decrypt |非对称密钥Sm2解密|
-|AsymmetricRsaDecrypt| 非对称密钥RSA解密|
-|GetPublicKey |获取非对称密钥的公钥||
+|AsymmetricSm2Decrypt |非对称密钥 Sm2 解密|
+|AsymmetricRsaDecrypt| 非对称密钥 RSA 解密|
+|GetPublicKey |获取非对称密钥的公钥|
 |EnableKey| 启动主密钥|
 |DisableKey| 禁用主密钥|
 |GetKeyRotationStatus| 查询密钥轮换状态|
@@ -30,12 +34,12 @@
 |UpdateAlias |	修改别名|
 |DisableKeyRotation| 禁止密钥轮换|
 |EnableKeyRotation |开启密钥轮换|
-|EnableKeys 批量启动主密钥
+|EnableKeys| 批量启动主密钥|
 |DisableKeys| 批量禁用主密钥|
 |DescribeKey |获取主密钥属性|
 |DescribeKeys |获取多个主密钥属性|
-|CancelKeyDeletion| 取消CMK计划删除操作|
-|ScheduleKeyDeletion |	CMK计划删除接口|
+|CancelKeyDeletion| 取消 CMK 计划删除操作|
+|ScheduleKeyDeletion |	CMK 计划删除接口|
 |DeleteImportedKeyMaterial |删除导入的密钥材料|
 |ImportKeyMaterial |导入密钥材料|
 |GetParametersForImport |获取导入主密钥（CMK）材料的参数|
