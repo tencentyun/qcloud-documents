@@ -17,7 +17,7 @@
 
 可通过 `TIMConversation` 的 `getUnReadMessageNum` 方法获取当前会话中未读消息的数量。对于聊天室，Server 不保存未读计数，每次登录后跟 Server 同步未读计数后将会清零。
 
-**原型： **
+**原型：**
 
 ```
 @interface TIMConversation : NSObject
@@ -36,7 +36,7 @@ TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TI
 
 当用户阅读某个会话的数据后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。 
 
-**原型： **
+**原型：**
 
 ```
 @interface TIMConversation : NSObject
@@ -62,7 +62,8 @@ readed | 为当前会话中最后一条读过的消息，IM SDK 会把比 readed
 succ | 成功回调
 fail | 失败回调
 
-以下示例设置 C2C（单聊）会话内的所有消息为已读。 ** 示例：**
+以下示例设置 C2C（单聊）会话内的所有消息为已读。 
+**示例：**
 
 ```
 TIMConversation * conversation = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"iOS_002"];
