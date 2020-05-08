@@ -8,7 +8,7 @@
 
 ### 安装文件存储扩展组件
 >?
->- 使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
@@ -26,7 +26,7 @@
 ![](https://main.qcloudimg.com/raw/27e35d96a2978626231f2f81743451e7.png)
 	- **名称**：自定义，本文以 `cfs-test` 为例。
 	- **地域**：选择所需要创建文件系统的地域，需确保与集群在同一地域。
-	- **可用区**：选择所需要创建文件系统的可用区，请按需选择。
+	- **可用区**：选择所需要创建文件系统的可用区。
 	- **存储类型**：提供【标准存储】和【性能存储】两种类型，不同可用区支持类型有一定差异，详情请参见[ 可用地域](https://cloud.tencent.com/document/product/582/43623)。
 	- **文件服务协议**：选择文件系统的协议类型，【NFS】或【CIFS/SMB】。
 		- NFS 协议：更适合于 Linux/Unix 客户端。
@@ -42,7 +42,7 @@
 
 ### 获取文件系统子目录<span id="getPath"></span>
 1. 在“文件系统”页面，单击需获取子目标路径的文件系统 ID，进入该文件系统详情页。
-2. 选择【挂载点信息】页面，查看 “Linux下挂载” 即可获取该文件系统子目录路径 `/subfolder`。如下图所示：
+2. 选择【挂载点信息】页签，从 “Linux下挂载” 获取该文件系统子目录路径 `/subfolder`。如下图所示：
 ![](https://main.qcloudimg.com/raw/78949f471b9b57b2ee10fc3652bad017.png)
 	-  `localfolder`：指用户本地自己创建的目录。
 	-  `subfolder`：指用户在文件存储的文件系统里创建的子目录，则该文件系统子目录路径即为 `/subfolder`。
@@ -64,7 +64,7 @@
 	- **Provisioner**：选择【文件存储CFS】。
 	- **读写权限**：文件存储仅支持多机读写。
 	- **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
-	- **选择CFS**：需确保文件存储与当前集群处于同一私有网络下，本文中以选择在 [创建文件存储](#createCFS) 步骤中创建的 `cfs-test` 为例。
+	- **选择CFS**：需确保文件存储与当前集群处于同一私有网络下，本文以选择在 [创建文件存储](#createCFS) 步骤中创建的 `cfs-test` 为例。
 	- **CFS子目录**：填写已在步骤 [获取文件系统子目录](#getPath) 中获取的文件系统子路径，本文以 `/subfolder` 为例。
 5. 单击【创建PersistentVolume】，即可完成创建。
 
@@ -94,8 +94,8 @@
 		- **数据卷名称**：自定义，本文以 `cfs-vol` 为例。
 		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cfs-pvc”。
 	- **实例内容器**：单击【添加挂载点】，进行挂载点设置。
-       - **数据卷**：选择为该步骤中所添加的数据卷“cfs-vol”。
+       - **数据卷**：选择该步骤中已添加的数据卷“cfs-vol”。
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击【创建Workload】，完成创建。
- > ! 使用 PVC 挂载模式，数据卷只能挂载到一台 Node 主机上。
+ > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
