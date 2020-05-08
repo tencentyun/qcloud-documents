@@ -42,8 +42,8 @@ admin_server = backup_kdc
 host/active_kdc@REALM
 host/backup_kdc@REALM
 ```
-2. 两个 kdc server 上有生成`/etc/krb5.keyta`
-3. 两个 kdc server 上都会启动 kprop 服务
+2. 执行`/var/kerberos/krb5kdc/kpropd.acl`文件
+执行默认配置文件`/var/kerberos/krb5kdc/kpropd.acl`后，两个 kdc server 上会生成`/etc/krb5.keyta`文件。同时，两个 kdc server 也会启动 kprop 服务。
 ```
 [root@10 krb5kdc]# service kprop status 
 Redirecting to /bin/systemctl status kprop.service
