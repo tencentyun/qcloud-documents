@@ -81,7 +81,7 @@
 <td>微信登录态无效</td><td>104</td><td>检查 wxtoken 参数，是否已经失效。</td>
 </tr>
 <tr>
-<td rowspan=4>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
+<td rowspan=2>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
 </tr>
 <tr>
 <td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>
