@@ -1,4 +1,4 @@
->?VPN 网关接入云联网灰度中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?VPN 网关连接云联网灰度中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN连接】>【VPN网关】，进入管理页。
@@ -21,7 +21,7 @@
 8. 在创建 VPN 通道过程中，会设置 SPD 策略，SPD 策略中的对端网段可以加入云联网中，具体操作如下：
  1. 在完成 VPN 通道创建后，单击云联网型 VPN 网关 ID，进入 VPN 网关详情页。
 ![](https://main.qcloudimg.com/raw/6a63fef0d1e854e3e7ba2520fe2008f6.png)
- 2. 选择【IDC网段】标签页，在该页面启用或停用需要加入到云联网的 IDC 网段。
+ 2. 选择【IDC网段】标签页，在该页面启用需要加入到云联网的 IDC 网段。
 ![](https://main.qcloudimg.com/raw/a89ee3e76a107910127c9a1d959930bb.png)
  3. 启用 IDC 网段后，IDC 网段将加入云联网中，云联网中路由表指向该 IDC 网段的下一跳为该云联网型 VPN 网关。
 12. 完成如上配置后，IDC 通过 VPN 网关接入云联网的配置完成。
