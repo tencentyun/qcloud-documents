@@ -6,7 +6,7 @@
 - 已购买腾讯云 EMR 高可用集群。
 - 购买集群时，已选择开启 Kerberos 认证。
 
-## KDC 高可用配置
+## KDC 高可用配置介绍
 
 配置`/etc/krb5.conf`文件，设置如下：
 >!示例中配置了两个 KDC 地址，active kdc 和 backup kdc，这样能保证当其中任意一个 KDC 服务异常时，仍可以对集群提供正常的 KDC 服务。
