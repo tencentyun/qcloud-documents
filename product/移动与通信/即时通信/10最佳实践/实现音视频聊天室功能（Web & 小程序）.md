@@ -83,8 +83,7 @@ npm config set registry http://r.cnpmjs.org/
 
 <span id="Step4"></span>
 ### 步骤4：创建 SDK 实例
-
-<code><span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
+<pre><code><span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
 <span class="hljs-keyword">let</span> options = {
   SDKAppID: <span class="hljs-number">0</span> <span class="hljs-comment">// 接入时需要将0替换为您的即时通信应用的 SDKAppID</span>
 }
@@ -170,7 +169,7 @@ _handleGroupSystemNotice(message) {
   <span class="hljs-comment">// 详细数据结构请参考 &lt;a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload"&gt;GroupSystemNoticePayload 接口的说明&lt;/a&gt;</span>
   console.log(message.payload.userDefinedField) <span class="hljs-comment">// 用户自定义字段。使用 RESTAPI 发送群系统通知时，可在该属性值中拿到自定义通知的内容。</span>
   <span class="hljs-comment">// 用 REST API 发送群系统通知请参考 &lt;a href="https://cloud.tencent.com/document/product/269/1630"&gt;在群组中发送系统通知 API&lt;/a&gt;</span>
-}</code>
+}</code></pre>
 
 <span id="Step5"></span>
 ### 步骤5：登录 SDK
