@@ -1,14 +1,13 @@
 ## 操作场景
+集群管理员可使用 StorageClass 为容器服务集群定义不同的存储类型。容器服务已默认提供块存储类型的 StorageClass，您可通过 StorageClass 配合 PersistentVolumeClaim 动态创建需要的存储资源。
 
-StorageClass 用于描述存储的类型，集群管理员可以为集群定义不同的存储类别。腾讯云容器服务默认提供块存储类型的 StorageClass，通过 StorageClass 配合 PersistentVolumeClaim 可以动态创建需要的存储资源。
-
-本文介绍通过控制台、Kubectl 两种方式创建文件存储类型的 StorageClass，自定义文件存储 CFS 使用所需的模板。
+本文介绍通过控制台、Kubectl 两种方式创建文件存储 CFS 类型的 StorageClass，自定义文件存储使用所需的模板。
 
 
 ## 操作步骤
 ### 安装文件存储扩展组件
 >?
->- 使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
@@ -48,7 +47,7 @@ StorageClass 用于描述存储的类型，集群管理员可以为集群定义�
 	- **名称**：自定义，本文以 `cfs-storageclass` 为例。
 	- **Provisioner**：选择【文件存储 CFS】。
 	- **可用区**：表示当前地域下支持使用文件存储的可用区，每个地域下不同可用区所适用的存储类型不完全一致，请参考[ 可用地域 ](https://cloud.tencent.com/document/product/582/43623)进行选择。
-	-  **CFS 归属子网**：设置当前可用区下文件系统的所属子网范围，请按需选择。
+	-  **CFS归属子网**：设置当前可用区下文件系统的所属子网范围，请按需选择。
 	- **存储类型**：文件存储提供【标准存储】和【性能存储】两种类型的文件系统，每个地域下不同可用区所适用的存储类型不完全一致，请结合控制台实际情况进行选择。
 		- **标准存储**：低成本、大容量，适用于成本敏感及大容量的业务。例如数据备份、文件共享、日志存储等场景。
 		- **性能存储**：高吞吐、高 IOPS，适用于 IO 密集型工作负载。例如高性能计算、媒资渲染、机器学习、DevOps、办公 OA 等场景。

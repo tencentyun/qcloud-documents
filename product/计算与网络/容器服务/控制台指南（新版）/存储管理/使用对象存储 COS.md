@@ -11,7 +11,7 @@
 
 ### 安装对象存储扩展组件
 >?
->- 使用扩展组件功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+>- 使用扩展组件功前能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
 >- 若您的集群已安装 COS-CSI 扩展组件，则请跳过此步骤。
 >
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
@@ -21,7 +21,7 @@
 
 ### 通过控制台使用对象存储
 
-#### 步骤1：创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
 
 1. 单击左侧导航栏中的【集群】，进入集群管理界面。
 2. 选择目标集群 ID，进入集群详情页面。
@@ -37,7 +37,7 @@
 5. 单击【创建 Secret】即可。
 
 
-#### 步骤2：创建支持 COS-CSI 动态配置的 PV <span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV <span id="StepTwo"></span>
 >!本步骤需使用存储桶，若当前地域无可用存储桶，则请参考 [创建存储桶](#CreatBucket) 进行创建。
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
@@ -56,7 +56,7 @@
 3. 单击【创建PersistentVolume】即可。
 
 
-#### 步骤3：创建 PVC 绑定 PV<span id="StepThree"></span>
+#### 创建 PVC 绑定 PV<span id="StepThree"></span>
 >!请勿绑定状态为 Bound 的 PV。
 >
 1. 在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。
@@ -69,7 +69,7 @@
 	- **PersistentVolume**：选择在[ 步骤2 ](#StepTwo)中已创建的 PV，本文以 中 “cos-pv” 为例。
 3. 单击【创建PersistentVolumeClaim】即可。
 
-#### 步骤4：创建 Pod 使用的 PVC
+#### 创建 Pod 使用的 PVC
 >?本步骤以创建工作负载 Deployment 为例。
 >
 1. 在目标集群详情页，选择左侧菜单栏中的【工作负载】>【Deployment】，进入 “Deployment” 页面。
@@ -87,7 +87,7 @@
 
 ### 通过 YAML 文件使用对象存储
 
-#### 步骤1：创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
 
 可通过 YAML 创建可以访问对象存储的 Secret，模版如下：
 ```yaml
@@ -105,7 +105,7 @@ data:
   SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
 ```
 
-#### 步骤2：创建支持 COS-CSI 动态配置的 PV<span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV<span id="StepTwo"></span>
 可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
 ```yaml
 apiVersion: v1
@@ -134,7 +134,7 @@ spec:
       namespace: kube-system
 ```
 
-#### 步骤3：创建 PVC 绑定 PV
+#### 创建 PVC 绑定 PV
 
 可通过 YAML 创建绑定上述 PV 的 PVC，模版如下：
 ```yaml
@@ -154,7 +154,7 @@ spec:
   storageClassName: ""
 ```
 
-#### 步骤4：创建 Pod 使用 PVC
+#### 创建 Pod 使用 PVC
 可通过 YAML 创建 Pod，模版如下：
 ```yaml
 apiVersion: v1

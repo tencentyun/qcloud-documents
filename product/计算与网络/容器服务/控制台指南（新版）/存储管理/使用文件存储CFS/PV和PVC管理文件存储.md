@@ -81,7 +81,7 @@
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
 3. 单击【创建PersistentVolumeClaim】，即可完成创建。
-> ? 若已有 PV 不足，系统将自动创建新的 PV。
+> ? 系统在创建 PVC 时，若发现已有 PV 不足，则将自动创建新的 PV。
 
 ### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。
