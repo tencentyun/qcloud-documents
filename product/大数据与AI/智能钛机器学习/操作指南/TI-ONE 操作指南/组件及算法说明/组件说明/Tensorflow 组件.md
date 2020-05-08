@@ -25,7 +25,6 @@ main(['install', "package_name"])
     指定运行任务脚本的参数。
  - TensorBoard 目录：
     指定 Tensorboard 保存路径。
- - Python 版本：指定 Tensorflow 运行的 Python 版本，支持 Python 2.7 和 Python 3.5 两个版本。
 3. **配置资源**
 在【资源参数】列表框配置任务的资源参数。
 4. **运行**
