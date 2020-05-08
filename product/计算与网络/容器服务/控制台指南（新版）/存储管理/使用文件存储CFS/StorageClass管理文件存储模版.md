@@ -2,7 +2,7 @@
 
 StorageClass 用于描述存储的类型，集群管理员可以为集群定义不同的存储类别。腾讯云容器服务默认提供块存储类型的 StorageClass，通过 StorageClass 配合 PersistentVolumeClaim 可以动态创建需要的存储资源。
 
-本文介绍通过控制台、Kubectl 两种方式创建文件存储类型的 StorageClass，自定义文件存储 CFS 使用所需的模板。
+本文介绍通过控制台、Kubectl 两种方式创建文件存储 CFS 类型的 StorageClass，自定义文件存储使用所需的模板。
 
 
 ## 操作步骤
