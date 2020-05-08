@@ -84,12 +84,6 @@
 <td rowspan=4>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
 </tr>
 <tr>
-<td>JS 上报异常</td><td>202</td><td>需要用户在前端部署 JS 方有效。</td>
-</tr>
-<tr>
-<td>撞库</td><td>203</td><td>该账号有过“撞库”的历史行为。</td>
-</tr>
-<tr>
 <td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>
 </tr>
 </table>
