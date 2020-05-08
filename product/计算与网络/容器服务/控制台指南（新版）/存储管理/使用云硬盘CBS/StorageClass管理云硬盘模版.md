@@ -5,7 +5,7 @@
 本文介绍通过控制台、Kubectl 两种方式创建云硬盘 CBS 类型的 StorageClass，自定义云硬盘使用所需的模板。
 
 ## 操作步骤
-### StorageClass 控制台操作指引
+### 控制台操作指引
 
 #### 创建 StorageClass<span id="create"></span>
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的【集群】，进入“集群管理”界面。
@@ -57,8 +57,8 @@
 		- **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 4. 单击【创建Workload】，即可完成创建。
 
-### Kubectl 操作 StorageClass 指引
-您可参考本文提供的示例模板，使用 Kubectl 进行创建操作。
+### Kubectl 操作指引
+您可参考本文提供的示例模板，使用 Kubectl 进行 StorageClass 创建操作。
 
 
 #### 创建 StorageClass
