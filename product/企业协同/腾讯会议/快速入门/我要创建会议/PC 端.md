@@ -5,7 +5,7 @@
 
 ## 步骤二：注册/登录
 注册并登录您的腾讯会议账号。如果您已注册，请直接登录。您可以使用以下方式进行登录。
-<img src="https://main.qcloudimg.com/raw/94157793f12495b2bc54bd6e8adcc08f.jpg" width="40%">
+<img src="https://main.qcloudimg.com/raw/18587e4283680ef754a8b0d3413851a7.png" width="40%">
 
 
 #### 使用验证码登录
