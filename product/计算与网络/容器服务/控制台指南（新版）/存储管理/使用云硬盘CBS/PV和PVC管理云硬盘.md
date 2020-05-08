@@ -50,7 +50,7 @@
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
    - **容量**：根据实际需求进行设置。云硬盘容量最小值由云硬盘产品规格决定，详情请参见 [云硬盘类型](https://cloud.tencent.com/product/cbs/types)。
 6. 单击【创建PersistentVolumeClaim】，即可完成创建。
-> ? 由于 PVC 可动态创建 PV，若已有 PV 不足时，系统将自动创建新的 PV。
+> ? 系统在创建 PVC 时，若发现已有 PV 不足，则将自动创建新的 PV。
 
 #### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。
