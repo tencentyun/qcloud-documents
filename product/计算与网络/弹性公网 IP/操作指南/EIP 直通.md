@@ -9,7 +9,6 @@ NAT 模式能满足大部分需求，但对于云服务器内需要查看公网 
 
 ## 使用限制
 - 目前 EIP 直通仅支持 VPC 内的设备，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
-- NAT 网关可绑定开通直通模式的 EIP，但无直通效果。
 - 云服务器的 EIP 直通不能与 NAT 网关同时使用。如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能；您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
 
 ## 操作步骤
@@ -21,7 +20,7 @@ Linux 脚本针对的场景为：内网 IP 和公网 IP 均在主网卡（eth0�
 >?
 >- Linux 脚本支持系统版本 CentOS 6 及以上和 Ubuntu。
 >- Linux 脚本仅支持主网卡（eth0），暂不支持辅助网卡。
-- 如果主网卡绑定的公网 IP 不是弹性公网 IP，需要先转换为弹性公网 IP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
+>
 
 #### 步骤一：下载 EIP 直通脚本
 由于 EIP 直通过程会导致网络中断，需先获取 EIP 直通脚本到云服务器中。您选择如下任意一种方式获取：
@@ -35,6 +34,8 @@ wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 
 #### 步骤二：配置 EIP 直通
+>?如果主网卡绑定的公网 IP 不是 EIP，需要转换为 EIP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
+>
 在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，单击【更多】>【直通】即可。
@@ -59,9 +60,9 @@ chmod +x eip_direct.sh
 ### 在 Windows 云服务器中配置 EIP 直通
 Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内网流量。
 >?
->- Windows 系统的 EIP 直通，需要内网 IP 和外网 IP 各一张网卡，仅需主网卡配公网 IP，辅助网卡仅需配内网 IP 即可。
+>- Windows 系统的 EIP 直通，需要内网 IP 和外网 IP 各一张网卡，因此公网 IP 需在主网卡上，辅助网卡仅需有内网 IP 即可。
 >- Windows 设置直通过程中，外网会中断，建议采用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)。
-- 如果主网卡绑定的公网 IP 不是弹性公网 IP，需要先转换为弹性公网 IP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
+>
 
 #### 步骤一：下载 EIP 直通脚本 <span id="step1" />
 由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中。
@@ -76,10 +77,12 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 2. 在云服务器列表中，选择所配置的云服务器的所在地域，单击云服务器 ID，进入详情页。
 3. 选择【弹性网卡】标签页，单击【绑定弹性网卡】，新建一个与主网卡同一子网的辅助网卡。
 ![](https://main.qcloudimg.com/raw/db30871822a0e38ca5cb6fbca142960b.png)
-4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，选择所属子网，可选泽自动分配 IP 或手动填写，单击【确定】。
+4. 在弹框中，选择【新建弹性网卡并绑定】，填写名称，选择云服务器所属子网，可选泽自动分配 IP 或手动填写，单击【确定】。
 ![](https://main.qcloudimg.com/raw/f82b4a03d6b6034a414de5010e9ca0c2.png)
 
 #### 步骤三：配置主网卡 EIP 直通
+>?如果主网卡绑定的公网 IP 不是 EIP，需要转换为 EIP，详情请参见 [普通公网 IP 转 EIP]( https://cloud.tencent.com/document/product/1199/41706)。
+>
 完成辅助网卡的配置后，在 EIP 控制台中为主网卡配置 EIP 直通。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器主网卡绑定的 EIP 的地域，并在对应 EIP 的右侧操作栏中，单击【更多】>【直通】即可。
