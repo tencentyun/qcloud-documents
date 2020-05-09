@@ -60,7 +60,7 @@ chmod +x eip_direct.sh
 ### 在 Windows 云服务器中配置 EIP 直通
 Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内网流量。
 >?
->- Windows 系统的 EIP 直通，需要内网 IP 和外网 IP 各一张网卡，因此公网 IP 需在主网卡上，辅助网卡仅需有内网 IP 即可。
+>- Windows 系统的 EIP 直通，需要内网 IP 和外网 IP 各一张网卡，公网 IP 需在主网卡上，辅助网卡仅需有内网 IP 即可。
 >- Windows 设置直通过程中，外网会中断，建议采用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704)。
 >
 
