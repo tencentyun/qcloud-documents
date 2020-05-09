@@ -62,4 +62,4 @@
 
 添加域名成功后，在**域名管理**页面，可以查看到 CDN 为您的域名分配的加速 CNAME，您需要前往接入域名的 DNS 服务商（如 Dnspod）处，为此域名添加一条 CNAME 记录，待 **DNS 配置生效后**，即可进行加速服务。详情请参见 [CNAME 配置](https://cloud.tencent.com/doc/product/228/3121)。
 
-> !根据有关部门规定，源站为腾讯云 CVM 的加速域名，回源 HOST 配置的域名需要在腾讯云备案。更多详细内容请参见 [回源 HOST 配置](https://cloud.tencent.com/document/product/228/6293)。
+> !根据有关部门规定，源站为腾讯云 CVM 的加速域名，回源 HOST 配置的域名需要在腾讯云备案。更多详细内容请参见 [回源 HOST 配置](https://cloud.tencent.com/document/product/228/41334)。
