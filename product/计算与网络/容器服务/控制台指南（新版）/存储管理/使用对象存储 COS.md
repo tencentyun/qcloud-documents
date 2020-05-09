@@ -7,8 +7,8 @@
 - **PersistentVolume（PV）**：集群内的存储资源。PV 独立于 Pod 的生命周期，可根据不同的 StorageClass 类型创建不同类型的 PV。
 - **PersistentVolumeClaim（PVC）**：集群内的存储请求。例如，PV 是 Pod 使用的节点资源，PVC 则声明使用 PV 资源。当 PV 资源不足时，PVC 可动态创建 PV。
 
-## 操作步骤
 
+## 准备工作
 ### 安装对象存储扩展组件
 >?
 >- 使用扩展组件功前能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
@@ -18,6 +18,8 @@
 2. 在“扩展组件”管理页面上方选择需使用对象存储扩展组件的集群及其所在地域，并单击【新建】。
 3. 在“新建扩展组件”页面，选择【COS 腾讯云对象存储】并单击【完成】即可。
 
+
+## 操作步骤
 
 ### 通过控制台使用对象存储
 
