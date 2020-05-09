@@ -97,7 +97,7 @@ https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 ![](https://main.qcloudimg.com/raw/6525a0f3bc8e1e679ceb28894e059222.png)
 4. 在“专用网络设置”和“公用网络设置”模块中分别选择【关闭 Windows 防火墙】，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/473ffef834aa17f5f6d239354a7919e6.png)
-5. 双击 [步骤一](#step1) 中下载的脚本即可执行，输入步骤三中已配置直通的 EIP（可在 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1) 中进行查看），连续回车两次即可。 
+5. 双击 [步骤一](#step1) 中下载的脚本即可执行，输入步骤三中已配置直通的 EIP 地址（可在 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1) 中进行查看），连续回车两次即可。 
 6.  在 “Windows PowerShell” 窗口中输入`ipconfig`按回车，可看到主网卡上的 IPv4 地址变成 EIP 地址。
 >!直通成功后请勿给主网卡再配内网 IP，如果配置会导致云服务器无法访问公网。
 >
