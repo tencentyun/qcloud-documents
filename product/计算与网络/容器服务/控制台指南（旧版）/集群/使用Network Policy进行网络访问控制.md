@@ -177,7 +177,7 @@ spec:
 args 说明：
 - "--run-router=false"，"--run-firewall=true"，"--run-service-proxy=false"：只加载 firewall 模块。
 - --iptables-sync-period=5m：指定定期同步 iptables 规则的间隔时间，根据准确性的要求设置，默认5m。
-- --cache-sync-timeout=3m：指定启动时将 k8s 资源做缓存的超时时间，默认1m。
+- --cache-sync-timeout=3m：指定启动时将 k8s 资源做缓存的超时时间，默认1m。鉴于一些资源对象较多的集群缓存同步时间可能较长，该值推荐设置为3m。
 
 
 
