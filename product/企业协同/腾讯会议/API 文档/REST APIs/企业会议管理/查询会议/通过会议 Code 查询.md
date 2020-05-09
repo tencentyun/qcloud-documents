@@ -35,7 +35,7 @@
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。 |
-|settings   |[会议媒体参数对象](settings) |会议的配置，可为缺省配置 。|
+|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
 
 <span id="settings"></span>
 **会议媒体参数对象**
