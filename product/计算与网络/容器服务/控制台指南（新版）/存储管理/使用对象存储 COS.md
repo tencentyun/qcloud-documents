@@ -1,6 +1,6 @@
 
 ## 操作场景
-腾讯云容器服务 TKE 支持通过创建 PersistentVolume（PV）/PersistentVolumeClaim（PVC），并为工作负载挂载云硬盘的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
+腾讯云容器服务 TKE 支持通过创建 PersistentVolume（PV）/PersistentVolumeClaim（PVC），并为工作负载挂载数据卷的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
 
 
 ## 相关概念
