@@ -17,12 +17,7 @@ HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端�
 ![](https://main.qcloudimg.com/raw/c5e8ff7861cc4e00baa0e886d7f783c4.png)
 
 
-----
-<div style="color:red;font-size:32px">以下为新添常见问题：</div>
-
-----
-
-## 配置了 CDN，HTTPS 无法访问？
+### 配置了 CDN，HTTPS 无法访问？
 
 要把网站的 HTTPS 证书上传到 CDN，操作如下：
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的 【域名管理】 进入域名管理页面。单击域名右侧【管理】按钮，进入管理页面。
