@@ -87,7 +87,7 @@ from qcloud_cos_v4 import UploadFileRequest
 您可以在 [这里](https://wiki.python.org/moin/Python2orPython3) 查看 Python 官方对 Python 2 或 Python 3 语言选择的建议。
 
 Python 3 云端运行时已支持的库如下表：
->?若您需要使用表中尚未支持的库，请在本地安装并打包上传后使用。
+>?若您需要使用表中尚未支持的库，请在本地安装并打包上传后使用。详情请参见 [安装依赖库](https://cloud.tencent.com/document/product/583/39780#python-.E8.BF.90.E8.A1.8C.E6.97.B6)。
 >
 
 |库名称|版本|
