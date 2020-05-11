@@ -5,6 +5,16 @@
 </thead>
 <tbody>
 <tr>
+    <td>2020.04.20</td>	
+    <td>v1.16.3-tke.5</td>	
+    <td>合入<a href="https://github.com/kubernetes/kubernetes/pull/69047"> pr69047</a>，解决向后兼容 <code>node.Spec.Unschedulable</code> 的问题（此修复在合入 in-tree cbs 代码时被覆盖了）。</td>
+</tr>
+<tr>
+    <td>2020.04.14</td>
+    <td>v1.16.3-tke.4</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为 18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
+</tr>
+<tr>
 	<td>2020-03-11</td>
 	<td>v1.16.3-tke.3</td>
 	<td><ul class="params"><li>cbs intree 解决磁盘不存在时继续卸载磁盘，导致大量无效请求的问题。</li> <li>metadata 增加本地缓存。</li></ul></td>
