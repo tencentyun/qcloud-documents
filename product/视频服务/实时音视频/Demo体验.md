@@ -30,8 +30,8 @@
 ![](https://main.qcloudimg.com/raw/00ec3ebc86902044c51a5487c18dcd0c.jpg)
 
 **桌面浏览器**
-![](https://main.qcloudimg.com/raw/56e2bbc928a11bac85e5b78ac171b3bc.jpg)
+![](https://main.qcloudimg.com/raw/1bb86eba5bd12b42955ad9dac725f6de.png)
 
 **微信小程序**
-![](https://main.qcloudimg.com/raw/a7ffaded9aa5ff3eb971a707e0c07cbd.jpg)
+![](https://main.qcloudimg.com/raw/2b0c525274f52cf195769bc6d3dc37dc.png)
 
