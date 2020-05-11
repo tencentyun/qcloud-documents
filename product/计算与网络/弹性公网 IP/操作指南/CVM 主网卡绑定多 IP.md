@@ -18,10 +18,11 @@
 ![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
 5. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
 ![](https://main.qcloudimg.com/raw/ffa35df2be28027b390413f0d54176e4.png)
-6. 在分配的辅助 IP 的“已绑定公网 IP”栏下，单击【绑定】。
-7. 在弹出的“绑定弹性IP”窗口中：
+6. 在分配的类型为辅助 IP 的内网 IP 所在行，单击“已绑定公网 IP”栏下的【绑定】。
+7. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的弹性公网 IP，选中并单击【确定】即可。
  - 若无可选的弹性公网 IP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的弹性公网 IP，选中并单击【确定】即可。
+![](https://main.qcloudimg.com/raw/ac5172d56f2dc436a5b0c16d1be5ece1.png)
 8. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
 ![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
 
