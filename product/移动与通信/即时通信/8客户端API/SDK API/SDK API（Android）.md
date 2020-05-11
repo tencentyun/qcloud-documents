@@ -230,6 +230,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [isSelf](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#isself) | 确认自己是否为发送方。 |
 | [getSender](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方。 |
 | [getSenderNickname](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方昵称。 |
+| [getSenderFaceUrl](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方头像 url。 |
 | [getMsgId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getmsgid) | 获取消息 ID。 |
 | [getMsgUniqueId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getmsguniqueid) | 获取消息 uniqueId。 |
 | [timestamp](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#timestamp) | 获取当前消息的时间戳。 |
