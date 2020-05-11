@@ -43,7 +43,7 @@
     <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
 </tr>
 <tr>
-    <td>2020.03.11</td>
+    <td>2020.04.14</td>
     <td>v1.14.3-tke.10</td>
     <td>cbs intree 解决磁盘不存在时继续卸载磁盘导致大量无效请求的问题。</td>
 </tr>
