@@ -7,17 +7,9 @@ Hadoop-cos-DistChecker 是一个校验迁移目录完整性的工具。用户在
 - [hadoop-cos-2.x.x-shaded.jar](https://github.com/tencentyun/hadoop-cos/tree/master/dep)
 - Hadooop MapReduce 的运行环境
 
->!# 如果是自建Hadoop集群，则hadoop-cos依赖需要选择最新版本（GitHub Tag为5.8.2以上）才能支持CRC64校验码的获取。如果是使用腾讯云EMR套件，则2020年5月8日后创建的集群都包含该Hadoop-cos版本。否则，需要提工单处理。
+>!# 如果是自建Hadoop集群，则hadoop-cos依赖需要选择最新版本（GitHub Tag为5.8.2以上）才能支持CRC64校验码的获取。如果是使用腾讯云EMR套件，则2020年5月8日后创建的集群才包含该Hadoop-cos版本，早于这个时间创建的集群，需要提工单处理。
 
-
-
-## 功能说明
-
-
-
-Hadoop-cos-DistChecker 是一个在使用`hadoop distcp`命令从HDFS迁移数据到COS上后，用于校验迁移目录完整性的工具。基于MapReduce的并行能力，可以快速地进行迁移源目录和目的目录的校验比对。
-
-
+GitHub地址：https://github.com/tencentyun/hadoop-cos-distchecker
 
 ## 前置依赖
 
