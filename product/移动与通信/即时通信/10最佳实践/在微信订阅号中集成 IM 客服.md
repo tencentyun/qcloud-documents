@@ -58,27 +58,25 @@ npm i tls-sig-api-v2@latest --save
 
 ### 步骤2：填入 IM 应用信息并计算 UserSig
 
-<pre>
-// ------------ IM ------------
-const IMAxios = axios.create({
-  timeout: 10000,
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+<pre><code><span class="hljs-comment">// ------------ IM ------------</span>
+<span class="hljs-keyword">const</span> IMAxios = axios.create({
+  <span class="hljs-attr">timeout</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded;charset=UTF-8'</span>,
   },
 });
 
-// 已导入 IM 帐号系统的用户 ID 映射表，非持久化存储，作 Demo 快速检索用，生产环境请用别的技术方案
-const importedAccountMap = new Map();
-// IM 应用及 App 管理员信息，请登录 <a href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a> 获取
-const SDKAppID = 0; // 填入 IM 应用的 SDKAppID
-const secrectKey = ''; // 填入 IM 应用的密钥
-const AppAdmin = 'user0'; // 设置 user0 为 App 管理员帐号
-const kfAccount1 = 'user1'; // 设置 user1 为一个坐席客服帐号
-// 计算 UserSig，调用 REST API 时需要用到，详细操作请参考 <a href="https://github.com/tencentyun/tls-sig-api-v2-node">Github</a>
-const api = new TLSSigAPIv2.Api(SDKAppID, secrectKey);
-const userSig = api.genSig(AppAdmin, 86400*180);
-console.log('userSig:', userSig);
-</pre>
+<span class="hljs-comment">// 已导入 IM 帐号系统的用户 ID 映射表，非持久化存储，作 Demo 快速检索用，生产环境请用别的技术方案</span>
+<span class="hljs-keyword">const</span> importedAccountMap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+<span class="hljs-comment">// IM 应用及 App 管理员信息，请登录 <a href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a> 获取</span>
+<span class="hljs-keyword">const</span> SDKAppID = <span class="hljs-number">0</span>; <span class="hljs-comment">// 填入 IM 应用的 SDKAppID</span>
+<span class="hljs-keyword">const</span> secrectKey = <span class="hljs-string">''</span>; <span class="hljs-comment">// 填入 IM 应用的密钥</span>
+<span class="hljs-keyword">const</span> AppAdmin = <span class="hljs-string">'user0'</span>; <span class="hljs-comment">// 设置 user0 为 App 管理员帐号</span>
+<span class="hljs-keyword">const</span> kfAccount1 = <span class="hljs-string">'user1'</span>; <span class="hljs-comment">// 设置 user1 为一个坐席客服帐号</span>
+<span class="hljs-comment">// 计算 UserSig，调用 REST API 时需要用到，详细操作请参考 <a href="https://github.com/tencentyun/tls-sig-api-v2-node">Github</a></span>
+<span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> TLSSigAPIv2.Api(SDKAppID, secrectKey);
+<span class="hljs-keyword">const</span> userSig = api.genSig(AppAdmin, <span class="hljs-number">86400</span>*<span class="hljs-number">180</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'userSig:'</span>, userSig);</code></pre>
 
 ### 步骤3：配置 URL 和 Token
 >?此指引文档是直接参考微信公众平台开发指南所写，若有变动，请以 [接入指南](https://mp.weixin.qq.com/wiki) 为准。
@@ -92,48 +90,46 @@ console.log('userSig:', userSig);
 
 ### 步骤4：启动 Web 服务监听端口，并正确响应微信发送的 Token 验证
 
-<pre>
-const express = require('express'); // express 框架 
-const crypto =  require('crypto'); // 加密模块
-const util = require('util');
-const xml2js = require('xml2js'); // 解析 xml
-const axios = require('axios'); // 发起 http 请求
-const TLSSigAPIv2 = require('tls-sig-api-v2'); // 计算 userSig
+<pre><code><span class="hljs-keyword">const</span> express = <span class="hljs-keyword">require</span>(<span class="hljs-string">'express'</span>); <span class="hljs-comment">// express 框架 </span>
+<span class="hljs-keyword">const</span> crypto =  <span class="hljs-keyword">require</span>(<span class="hljs-string">'crypto'</span>); <span class="hljs-comment">// 加密模块</span>
+<span class="hljs-keyword">const</span> util = <span class="hljs-keyword">require</span>(<span class="hljs-string">'util'</span>);
+<span class="hljs-keyword">const</span> xml2js = <span class="hljs-keyword">require</span>(<span class="hljs-string">'xml2js'</span>); <span class="hljs-comment">// 解析 xml</span>
+<span class="hljs-keyword">const</span> axios = <span class="hljs-keyword">require</span>(<span class="hljs-string">'axios'</span>); <span class="hljs-comment">// 发起 http 请求</span>
+<span class="hljs-keyword">const</span> TLSSigAPIv2 = <span class="hljs-keyword">require</span>(<span class="hljs-string">'tls-sig-api-v2'</span>); <span class="hljs-comment">// 计算 userSig</span>
 
-// ------------ Web 服务 ------------
-var app = express();
-// Token 需在【订阅号管理后台】>【基本配置】设置
+<span class="hljs-comment">// ------------ Web 服务 ------------</span>
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-comment">// Token 需在【订阅号管理后台】&gt;【基本配置】设置</span>
 
-// 处理所有进入80端口的 get 请求
-app.get('/', function(req, res) {
-  // ------------ 接入微信公众平台 ------------
-  // 详细请参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overvie">微信官方文档</a> 
-  // 获取微信服务器 Get 请求的参数 signature、timestamp、nonce、echostr
-  var signature = req.query.signature; // 微信加密签名
-  var timestamp = req.query.timestamp; // 时间戳
-  var nonce = req.query.nonce; // 随机数
-  var echostr = req.query.echostr; // 随机字符串
+<span class="hljs-comment">// 处理所有进入80端口的 get 请求</span>
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> </span>{
+  <span class="hljs-comment">// ------------ 接入微信公众平台 ------------</span>
+  <span class="hljs-comment">// 详细请参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html">微信官方文档</a> </span>
+  <span class="hljs-comment">// 获取微信服务器 Get 请求的参数 signature、timestamp、nonce、echostr</span>
+  <span class="hljs-keyword">var</span> signature = req.query.signature; <span class="hljs-comment">// 微信加密签名</span>
+  <span class="hljs-keyword">var</span> timestamp = req.query.timestamp; <span class="hljs-comment">// 时间戳</span>
+  <span class="hljs-keyword">var</span> nonce = req.query.nonce; <span class="hljs-comment">// 随机数</span>
+  <span class="hljs-keyword">var</span> echostr = req.query.echostr; <span class="hljs-comment">// 随机字符串</span>
 
-  // 将 token、timestamp、nonce 三个参数进行字典序排序
-  var array = [myToken, timestamp, nonce];
-  array.sort();
+  <span class="hljs-comment">// 将 token、timestamp、nonce 三个参数进行字典序排序</span>
+  <span class="hljs-keyword">var</span> <span class="hljs-keyword">array</span> = [myToken, timestamp, nonce];
+  <span class="hljs-keyword">array</span>.sort();
 
-  // 将三个参数字符串拼接成一个字符串进行 sha1 加密
-  var tempStr = array.join('');
-  const hashCode = crypto.createHash('sha1'); // 创建加密类型 
-  var resultCode = hashCode.update(tempStr,'utf8').digest('hex'); // 对传入的字符串进行加密
+  <span class="hljs-comment">// 将三个参数字符串拼接成一个字符串进行 sha1 加密</span>
+  <span class="hljs-keyword">var</span> tempStr = <span class="hljs-keyword">array</span>.join(<span class="hljs-string">''</span>);
+  <span class="hljs-keyword">const</span> hashCode = crypto.createHash(<span class="hljs-string">'sha1'</span>); <span class="hljs-comment">// 创建加密类型 </span>
+  <span class="hljs-keyword">var</span> resultCode = hashCode.update(tempStr,<span class="hljs-string">'utf8'</span>).digest(<span class="hljs-string">'hex'</span>); <span class="hljs-comment">// 对传入的字符串进行加密</span>
 
-  // 开发者获得加密后的字符串可与 signature 对比，标识该请求来源于微信
-  if (resultCode === signature) {
+  <span class="hljs-comment">// 开发者获得加密后的字符串可与 signature 对比，标识该请求来源于微信</span>
+  <span class="hljs-keyword">if</span> (resultCode === signature) {
     res.send(echostr);
-  } else {
-    res.send('404 not found');
+  } <span class="hljs-keyword">else</span> {
+    res.send(<span class="hljs-string">'404 not found'</span>);
   }
 });
 
-// 监听80端口
-app.listen(80);
-</pre>
+<span class="hljs-comment">// 监听80端口</span>
+app.listen(<span class="hljs-number">80</span>);</code></pre>
 
 ### 步骤5：实现开发者服务器侧业务逻辑
 
@@ -343,30 +339,28 @@ app.post('/', function(req, res) {
 
 ### 步骤6：注册并处理 IM 第三方回调
 
-<pre>
-// 处理 IM 第三方回调的 post 请求
-app.post('/imcallback', function(req, res) {
-  var buffer = [];
-  // 监听 data 事件 用于接收数据
-  req.on('data', function(data) {
+<pre><code><span class="hljs-comment">// 处理 IM 第三方回调的 post 请求</span>
+app.post(<span class="hljs-string">'/imcallback'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+  <span class="hljs-keyword">var</span> buffer = [];
+  <span class="hljs-comment">// 监听 data 事件 用于接收数据</span>
+  req.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
     buffer.push(data);
   });
-  // 监听 end 事件 用于处理接收完成的数据
-  req.on('end', function() {
-    const tmpStr = Buffer.concat(buffer).toString('utf-8');
-    console.log('imcallback', tmpStr);
-    const imData = JSON.parse(tmpStr);
-    // kfAccount1 发的消息推送给客户
-    if (imData.From_Account === kfAccount1) {
-      // 组包消息，并通过微信的【客服消息】接口，向指定的用户推送消息
-      // 注意！个人注册的订阅号不支持使用此接口，详情请参见 <a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Service_Center_messages.html">客服消息</a> 
+  <span class="hljs-comment">// 监听 end 事件 用于处理接收完成的数据</span>
+  req.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> tmpStr = Buffer.concat(buffer).toString(<span class="hljs-string">'utf-8'</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'imcallback'</span>, tmpStr);
+    <span class="hljs-keyword">const</span> imData = <span class="hljs-built_in">JSON</span>.parse(tmpStr);
+    <span class="hljs-comment">// kfAccount1 发的消息推送给客户</span>
+    <span class="hljs-keyword">if</span> (imData.From_Account === kfAccount1) {
+      <span class="hljs-comment">// 组包消息，并通过微信的【客服消息】接口，向指定的用户推送消息</span>
+      <span class="hljs-comment">// 注意！个人注册的订阅号不支持使用此接口，详情请参见 <a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Service_Center_messages.html">客服消息</a></span>
     }
 
     res.send({
-      "ActionStatus": "OK",
-      "ErrorInfo": "",
-      "ErrorCode": 0 // 0表示允许发言，1表示拒绝发言
+      <span class="hljs-string">"ActionStatus"</span>: <span class="hljs-string">"OK"</span>,
+      <span class="hljs-string">"ErrorInfo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-string">"ErrorCode"</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// 0表示允许发言，1表示拒绝发言</span>
     });
   });
-});
-</pre>
+});</code></pre>
