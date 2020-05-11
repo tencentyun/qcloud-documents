@@ -207,7 +207,8 @@ func main() {
 	request.TemplateID = common.StringPtr("449739")
 	/* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
 	 * 例如+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
-	request.PhoneNumberSet = common.StringPtrs([]string{"+8613711112222"})
+	request.PhoneNumberSet = common.StringPtrs([]string{"+8613711112222", "+8613711333222", "+8613711144422"})
+
 
 	// 通过 client 对象调用想要访问的接口，需要传入请求对象
 	response, err := client.SendSms(request)

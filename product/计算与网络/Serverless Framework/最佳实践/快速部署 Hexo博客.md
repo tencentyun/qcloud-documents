@@ -73,13 +73,13 @@ myWebsite:
 ```
 .
 ├── .serverless
-├── hexo
-|   ├── public
-|   ├── ...
-|   ├── _config.yml
-|   ├── ...
-|   └── source
-└── serverless.yml
+└── hexo
+    ├── public
+    ├── ...
+    ├── serverless.yml 
+    ├── ...
+    └── source
+
 ```
 
 #### 部署

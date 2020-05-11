@@ -1,3 +1,6 @@
+以下视频将为您介绍如何设置 A 记录：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2304-33503?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 通过添加 A 记录可将域名指向一个 IP 地址（外网地址），本文档指导您如何添加 A 记录。
 

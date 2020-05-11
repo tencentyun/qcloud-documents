@@ -474,12 +474,12 @@ TIMValueCallBack<List<TIMGroupBaseInfo>> cb = new TIMValueCallBack<List<TIMGroup
     public void onError(int code, String desc) {
         //错误码 code 和错误描述 desc，可用于定位请求失败原因
         //错误码 code 含义请参见错误码表
-        Log.e(tag, "get gruop list failed: " + code + " desc");
+        Log.e(tag, "get group list failed: " + code + " desc");
     }
 
     @Override
     public void onSuccess(List<TIMGroupBaseInfo> timGroupInfos) {//参数返回各群组基本信息
-        Log.d(tag, "get gruop list succ");
+        Log.d(tag, "get group list succ");
 
         for(TIMGroupBaseInfo info : timGroupInfos) {
             Log.d(tag, "group id: " + info.getGroupId() +
@@ -688,12 +688,6 @@ public TIMMessage getLastMsg()
  * @return 群组自定义字段 map
  */
 public Map<String, byte[]> getCustom()
-
-/**
- * 获取在线群成员数（需要通过填写工单申请开通才会返回有效值，其中音视频直播大群无法申请开通）
- * @return  在线群成员数
- */
-public long getOnlineMemberNum()
 
 /**
  * 获取此群组是否被设置了全员禁言

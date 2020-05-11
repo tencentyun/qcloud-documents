@@ -32,16 +32,25 @@ https://api.tpns.tencent.com/v3/device/account/query
 - 批量查询 Account 绑定的 Token 关系
 ```json
 {
-"operator_type":1,
-"account_list":
-[{"account":"account1"},{"account":"account2"}]
+    "operator_type": 1,
+    "account_list": [
+        {
+            "account": "account1"
+        },
+        {
+            "account": "account2"
+        }
+    ]
 }
 ```
 - 批量查询 Token 绑定的 Account 关系
 ```json
 {
-"operator_type":2,
-"token_list":["token1","token2"]
+    "operator_type": 2,
+    "token_list": [
+        "token1",
+        "token2"
+    ]
 }
 ```
 
@@ -49,23 +58,63 @@ https://api.tpns.tencent.com/v3/device/account/query
 - 批量查询 Account 绑定的 Token
 ```json
 {
-"retCode":0,
-"errMsg":"ok",
-"result": ["0","0"],
-"account_tokens":
-[{"account":"account1","token_list":["token1","token2"]},
-{"account":"account2","token_list":["token2","token3"]}]
+    "retCode": 0,
+    "errMsg": "ok",
+    "result": [
+        "0",
+        "0"
+    ],
+    "account_tokens": [
+        {
+            "account": "account1",
+            "token_list": [
+                "token1",
+                "token2"
+            ]
+        },
+        {
+            "account": "account2",
+            "token_list": [
+                "token2",
+                "token3"
+            ]
+        }
+    ]
 }
 ```
 - 批量查询 Token 绑定的 Account
 ```json
 {
-"retCode":0,
-"errMsg":"ok",
-"result": ["0","0"],
-"token_accounts":
-[{"token":"token1","account_list":[{"account":"926@126.com"},{"account":"1527000000"}]},
-{"token":"token2","account_list":[{"account":"926@163.com"},{"account":"1527000001"}]}]
+    "retCode": 0,
+    "errMsg": "ok",
+    "result": [
+        "0",
+        "0"
+    ],
+    "token_accounts": [
+        {
+            "token": "token1",
+            "account_list": [
+                {
+                    "account": "926@126.com"
+                },
+                {
+                    "account": "1527000000"
+                }
+            ]
+        },
+        {
+            "token": "token2",
+            "account_list": [
+                {
+                    "account": "926@163.com"
+                },
+                {
+                    "account": "1527000001"
+                }
+            ]
+        }
+    ]
 }
 ```
 

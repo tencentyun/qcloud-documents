@@ -125,4 +125,4 @@ Access-Control-Allow-Methods: POST
 （2）telnet console.tim.qq.com 443 确认能否连接服务端口。
 （3）使用 curl -G https://console.tim.qq.com 简单测试确认能够收到响应。
 （4）确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 IP 所在地域运营商一致。
-（5）建议业务调用方使用“长连接+连接池”模式；
+（5）建议业务调用方使用“长连接+连接池”模式。

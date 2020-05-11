@@ -1,6 +1,4 @@
 
-
-
 ## 接口说明
 **请求方式**：POST。
 **调用频率限制**：200次/小时。
@@ -12,10 +10,10 @@ https://api.tpns.tencent.com/v3/statistics/get_device_stat_overview
 ## 参数说明
 #### 请求参数
 
-| 参数名称  | 必选 | 类型   | 描述         | 备注                                            |
-| --------- | ---- | ------ | ------------ | ----------------------------------------------- |
-| startDate | 是   | string | 查询起始日期 | startDate 查询限制：只能查询最近3个月内的数据 |
-| endDate   | 是   | string | 查询截止日期 | -                                               |
+| 参数名称  | 必选 | 类型   | 描述                                                         |
+| --------- | ---- | ------ | ------------------------------------------------------------ |
+| startDate | 是   | string | 查询开始日期<li>格式：YYYYMMDD<li>限制：只能查询最近3个月内的数据 |
+| endDate   | 是   | string | 查询截止日期，格式：YYYYMMDD                                 |
 
 #### 应答参数
 
@@ -39,35 +37,35 @@ https://api.tpns.tencent.com/v3/statistics/get_device_stat_overview
 #### 请求示例
 ```json
 {
- "startDate": "20190724",
- "endDate": "20190726"
+    "startDate": "20190724",
+    "endDate": "20190726"
 }
 ```
 #### 应答示例
 ```json
 {
- "retCode": 0,
- "errMsg": "",
- "getDeviceStatOverviewData": [
- {
- "date": 20190724,
- "accuUv": 0,
- "newUv": 0,
- "activeUv": 0
- },
- {
- "date": 20190725,
- "accuUv": 0,
- "newUv": 5,
- "activeUv": 0
- },
- {
- "date": 20190726,
- "accuUv": 5,
- "newUv": 0,
- "activeUv": 2
- }
- ]
+    "retCode": 0,
+    "errMsg": "",
+    "getDeviceStatOverviewData": [
+        {
+            "date": 20190724,
+            "accuUv": 0,
+            "newUv": 0,
+            "activeUv": 0
+        },
+        {
+            "date": 20190725,
+            "accuUv": 0,
+            "newUv": 5,
+            "activeUv": 0
+        },
+        {
+            "date": 20190726,
+            "accuUv": 5,
+            "newUv": 0,
+            "activeUv": 2
+        }
+    ]
 }
 ```
 

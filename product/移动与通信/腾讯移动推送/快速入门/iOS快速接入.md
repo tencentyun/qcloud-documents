@@ -43,8 +43,8 @@
 ## 接入结果验证
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
 ```
-[xgpush]Current device token is 80ba1c251161a397692a107f0433d7fd9eb59******85030f1b913625a9dab
-[xgpush]Current XG token is 05da87c0ae597******a9e08d884aada5bb2
+[TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
+[TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184
 ```
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36669) 排查。
 

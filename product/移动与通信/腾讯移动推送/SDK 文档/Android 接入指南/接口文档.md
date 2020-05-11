@@ -728,6 +728,17 @@ XGPushManager.cleanTags(getApplicationContext(), "cleanTags:" + System.currentTi
 
 所有的配置相关接口在 XGPushConfig 类中，为了使配置及时生效，开发者需要保证配置接口在启动或注册腾讯移动推送之前被调用。
 
+### 关闭联合保活能力(1.1.6.1+)
+
+TPNS默认开启联合保活能力，若需要关闭联合保活能力，请在应用初始化的时候，如Application或LauncherActivity 的onCreate中 调用如下接口，并传递 false。
+
+```java
+XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
+```
+#### 参数说明
+- context：应用上下文
+- pullUp：true（开启联合保活）；false（关闭联合保活）
+
 ### Debug 模式
 
 #### 接口说明

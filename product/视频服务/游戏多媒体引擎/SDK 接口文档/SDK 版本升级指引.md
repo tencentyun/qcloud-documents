@@ -1,22 +1,23 @@
 
-本文主要介绍适用于开发的接口升级技术文档（GME 2.2 升级 GME 2.3.5）。方便您调试和接入腾讯云游戏多媒体引擎 API。
+本文主要介绍适用于开发的接口升级技术文档。方便您调试和接入腾讯云游戏多媒体引擎 API。
 
 
 
-## SDK 变更
-#### 新增功能
+## GME 2.2 升级 GME 2.3.5 
+### SDK 更新动态
+**新增功能**
 - 支持实时语音过程中使用离线语音。
 - 支持实时语音过滤，可识别暴恐、涉黄、涉政等信息。
 - 支持 H5 实时语音，实现全平台实时语音互通。
 - 新增 Android v8a 架构支持。
 - Android 低延时采集播放适配。
 
-#### 优化能力
+**优化能力**
 - 优化 SDK 的范围语音功能接口，降低接入门槛。
 - 语音降噪效果优化。
 - 大幅降低 SDK 内存消耗。
 
-## 主要接口变更
+### 主要接口变更
 #### EnterRoom 
 进房操作由同步改为异步调用，返回值为0时的，表示异步投递成功，等待回调函数进行处理，若返回值不为0时，则表示异步投递失败。
 
@@ -33,14 +34,14 @@ public abstract int EnterRoom();
 public abstract int ExitRoom();
 ```
 
-## 错误码变更
+### 错误码变更
 - 如需对所有错误码统一处理，请使用 !AV_OK。 
 - 如需单独处理每一类错误，请关注接口返回的错误类型。
 
 >?错误码“1”没有明确含义，且2.3.5以后版本不再返回，故删除。
 
 
-## 其他接口变更
+### 其他接口变更
 #### PauseAudio/ResumeAudio 
 
 ```
@@ -85,3 +86,33 @@ ITMGContext virtual void SetLogLevel(ITMG_LOG_LEVEL levelWrite, ITMG_LOG_LEVEL l
 |TMG_LOG_LEVEL_INFO=2			|打印提示日志		|
 |TMG_LOG_LEVEL_DEBUG=3		|打印开发调试日志	|
 |TMG_LOG_LEVEL_VERBOSE=4		|打印高频日志		|
+
+## GME 2.3.5 升级 GME 2.5.1 
+### 增加接口
+#### GetSendStreamLevel 
+此接口用于获取音频上行实时音量，返回值为 int 类型，取值范围为0到100。
+
+```
+ITMGContextGetInstance()->GetAudioCtrl()->GetSendStreamLevel();
+```
+
+#### GetRecvStreamLevel 
+此接口用于获取房间内其他成员下行实时音量，返回值为 int 类型，取值范围为0到100。
+
+```
+iter->second.level = ITMGContextGetInstance()->GetAudioCtrl()->GetRecvStreamLevel(iter->second.openid.c_str());
+```
+
+### 接口变更
+#### 语音消息及转文字接口变更返回值
+
+以下接口返回值修改为 int 类型。
+
+```
+StartRecording
+UploadRecordedFile
+DownloadRecordedFile
+PlayRecordedFile
+SpeechToText
+```
+

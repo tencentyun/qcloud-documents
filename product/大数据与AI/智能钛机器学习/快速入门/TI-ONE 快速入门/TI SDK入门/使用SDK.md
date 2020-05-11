@@ -1,21 +1,17 @@
 ## 操作场景
 本文档向您介绍如何使用 TI SDK 训练模型。
 
-- **在 Notebook 中使用 TI SDK**
-
+### 在 Notebook 中使用 TI SDK
 我们在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
 
-- **在本地环境使用 TI SDK**
-
+### 在本地环境使用 TI SDK
 若您的 TI SDK 环境为非腾讯云 Jupyter Notebook 环境时，您需要先配置 TI SDK 环境。
-
 TI SDK 配置的环境目录为 ~/.ti/config.yaml，用户需要提供的配置信息如下：
-
-1. region: 训练任务提交的腾讯云资源的地域，目前支持 ap-guangzhou,ap-shanghai
-2. uin: 腾讯云账号 ID，可在腾讯云控制台-账号信息中查看
-3. app_id: 腾讯云账号 APPID，可在腾讯云控制台-账号信息中查看
-4. secret_id：腾讯云账号 API 密钥 ID，可在腾讯云控制台-访问管理-用户详情中查看
-5. secret_key: 腾讯云账号 API 密钥 KEY，可在腾讯云控制台-访问管理-用户详情中查看
+1. region：训练任务提交的腾讯云资源的地域，目前支持 ap-guangzhou，ap-shanghai
+2. uin：腾讯云账号 ID，可在腾讯云控制台-账号信息中查看
+3. app_id：腾讯云账号 AppID，可在腾讯云控制台-账号信息中查看
+4. secret_id：腾讯云账号 API 密钥 ID，可在腾讯云控制台 > 访问管理 > 用户详情中查看
+5. secret_key：腾讯云账号 API 密钥 KEY，可在腾讯云控制台 > 访问管理 > 用户详情中查看
 
 示例如下：
 
@@ -36,7 +32,7 @@ TI SDK 使用以下几个核心类实现 TI 的模型训练
 - Estimators： 对训练任务的抽象。
 - Session：使用 TI 资源的方法集合。
 
-使用 TI SDK 训练模型需要以下三个步骤：
+使用 TI SDK 训练模型需要以下四个步骤：
 1. 准备一个训练脚本。
 2. 上传训练数据集。
 3. 构造一个 Estimator。
@@ -60,10 +56,9 @@ TI 会运行用户的训练脚本，建议将启动训练的入口代码放到 m
 
 #### 上传训练数据集
 
-TI SDK任务采用COS对象存储数据源或CFS文件存储数据源作为训练脚本的输入源；
-
-当您采用CFS文件存储数据源作为输入源时，您需要提前将数据集拷贝至文件系统目录，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053) ；
-当您采用COS对象存储数据源作为输入源时，您需要将本地数据集上传至目标COS中。
+- TI SDK 任务采用 COS 对象存储数据源或 CFS 文件存储数据源作为训练脚本的输入源。
+- 当您采用 CFS 文件存储数据源作为输入源时，您需要提前将数据集拷贝至文件系统目录，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053)。
+- 当您采用 COS 对象存储数据源作为输入源时，您需要将本地数据集上传至目标 COS 中。
 
 以下例子展示了一个简单的本地数据上传 COS 的使用：
 
@@ -80,9 +75,9 @@ inputs = ti_session.upload_data(bucket=bucket, path=path, key_prefix=key_prefix)
 
 参数
 
-- `bucket`：str 用户COS对象存储桶名称。
+- `bucket`：str 用户 COS 对象存储桶名称。
 - `path`：str 用户数据集的本地目录路径。
-- `key_prefix`：str 用户数据集COS桶下的存储路径。
+- `key_prefix`：str 用户数据集 COS 桶下的存储路径。
 
 #### 使用 Estimator 提交训练任务
 Estimator 是对一个训练任务的高级抽象，包含训练镜像、算力资源、安全权限、算法参数、输入输出等一次训练依赖的所有参数。TI 针对 Tensorflow、PyTorch 等多种流行的机器学习框架分别封装了 Estimator 的具体实现。
@@ -105,7 +100,7 @@ tf_estimator.fit(inputs)
 参数
 - `role`：str 用户在云控制台创建的角色，需要传递角色给 TI，授权 TI 服务访问用户的云资源。
 - `train_instance_count`：int 创建的算力实例数量。
-- `train_instance_type`：str 创建的算力类型，目前支持的类型有。
+- `train_instance_type`：str 创建的算力类型，目前支持的类型有：
 
 CPU 算力
 
@@ -144,7 +139,7 @@ GPU 算力（V100）
 
 - `train_volume_size`：int 附加的云硬盘大小，单位 GB。
 
-- `entry_point`：str 训练任务的执行入口点名称。例如下面的代码路径中，mnist.py为训练任务执行入口点，而np_convert.py和image_convert.py分别为依赖的代码。
+- `entry_point`：str 训练任务的执行入口点名称。例如下面的代码路径中，mnist.py 为训练任务执行入口点，而 np_convert.py 和 image_convert.py 分别为依赖的代码。
 
 ```
 ├── code
@@ -153,7 +148,7 @@ GPU 算力（V100）
 │   └── mnist.py
 ```
 
-- `source_dir`：str 训练任务的代码路径，将会统一压缩代码路径上传至用户COS中。
+- `source_dir`：str 训练任务的代码路径，将会统一压缩代码路径上传至用户 COS 中。
 
 - `hyperparameters`：dict 超级参数，将传递到训练容器中。
 - `train_max_run`：int 最大运行时间，单位秒，超过设定时间若训练未完成，TI 会终止训练任务（默认值：24 * 60 * 60）。
@@ -181,7 +176,5 @@ fit 方法会创建并启动一个训练任务
 - `logs (bool)`：默认为 False，是否打印训练任务产生的日志。如果设置为 True，将输出训练的任务日志。
 - `wait (bool)`：默认为 True，是否等待直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
-
-
 
 

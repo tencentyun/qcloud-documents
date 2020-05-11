@@ -14,7 +14,10 @@ CFS 服务监控插件目前**支持通过 NFS 协议挂载的客户端监控（
       <th>版本</th>
    </tr>
    <tr>
-      <td rowspan=7>CentOS</td>
+      <td rowspan=8>CentOS</td>
+      <td>CentOS 7.6 64位</td>
+   </tr>
+	   <tr>
       <td>CentOS 7.5 64位</td>
    </tr>
    <tr>

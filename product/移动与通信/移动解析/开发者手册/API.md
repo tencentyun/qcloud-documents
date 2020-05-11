@@ -5,10 +5,10 @@
 http://119.29.29.29/d?dn=www.dnspod.cn.&ip=1.1.1.1
 ```
 其中，`dn` 表示要查询的域名；
-`ip` 表示用户 IP，当 `ip` 为内网 IP 或非法 IP，默认取 HTTP 报文的源 IP 为用户 IP，此时 HttpDNS 会按照用户设置的默认线路进行解析。
+`ip` 表示用户 IP，当 `ip` 为内网 IP 或非法 IP，默认取 HTTP 报文的源 IP 为用户 IP，此时 HTTPDNS 会按照用户设置的默认线路进行解析。
 
 ### 域名存在
-如果 HttpDNS 能查询到最终的 IP 指向，则直接返回 IP。
+如果 HTTPDNS 能查询到最终的 IP 指向，则直接返回 IP。
 以下列请求为例：
 ```
 http://119.29.29.29/d?dn=www.dnspod.cn.&ip=1.1.1.1
@@ -20,7 +20,7 @@ http://119.29.29.29/d?dn=www.dnspod.cn.&ip=1.1.1.1
 ![返回值一](https://main.qcloudimg.com/raw/8ee0fc1e70b755d078e153ac55cf1202.png)
 
 ### 域名不存在
-如果域名不存在，HttpDNS 无法查询到最终的IP指向，则返回空。
+如果域名不存在，HTTPDNS 无法查询到最终的IP指向，则返回空。
 以下列请求为例：
 ```
 http://119.29.29.29/d?dn=www.dnspod2.cn.&ip=1.1.1.1

@@ -5,8 +5,9 @@
 ### 准备内容
 **1. 经典深度学习 inception 模型：**[inception_model.zip](http://ti-ems-1255502019.cosbj.myqcloud.com/tfserving/inception/inception_model.zip)
 >我们已经为您准备好了上述 inception 模型的 COS 访问地址：`cos://ti-ems-1255502019.cos.ap-beijing.myqcloud.com/models/tfserving/inception/`。您可以输入该 COS 地址，也可以将模型文件夹下载下来，解压上传到自己的 COS 存储桶中，并在【创建模型服务配置】页面选择相应的模型文件夹。
+
 **2. 测试图片：** 
-**牛津花卉图片**我们已经为您准备好了测试数据集。您可以直接下载 [花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)。
+我们已经为您准备好了测试数据集。您可以直接下载 [花卉数据集](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/tfserving_data/flowers.zip)。
 **base64 编码**
 将上述测试花朵图片按照 inception 模型定义的 JSON 数据格式`{"instances":[{"b64": "图片 base64 编码"}]}`进行编码，将 jpg 转换成 base64。`flowers.json`为经过编码的测试图片数据，或者您可以直接下载已经编码完成的 JSON 文件 [flowers.json](http://ti-ems-1255502019.cosbj.myqcloud.com/test-data/flowers.json)，跳过该图片编码步骤，直接进行下一步。
 ### 步骤1：创建模型服务配置
@@ -22,7 +23,7 @@
 ![](https://main.qcloudimg.com/raw/c0d901d0b2278d0fa997d2125d34c29c.png)
 
 ### 步骤2：购买创建专用资源组
-此步骤为可选步骤，如已有可用资源组可跳过本步骤，模型服务可部署在专用资源组和公共资源组，公共资源组需要通过白名单 [申请](https://cloud.tencent.com/apply/p/nx0bbybrhuf) 开通，专用资源组可直接购买创建。
+此步骤为可选步骤，如已有可用资源组可跳过本步骤，模型服务可部署在专用资源组和公共资源组，公共资源组和专用资源组的计费方式请详见 [计费概述](https://cloud.tencent.com/document/product/1120/38717)。
 
 1. 在【资源组管理】页面单击【新建资源组】，进入【TI-EMS 资源组】购买页面。
 2. **选择地域**：地域与模型文件夹所在 COS 地域保持一致。
