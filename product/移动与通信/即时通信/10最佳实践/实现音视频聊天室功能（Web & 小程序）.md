@@ -84,95 +84,93 @@ npm config set registry http://r.cnpmjs.org/
 <span id="Step4"></span>
 ### 步骤4：创建 SDK 实例
 
-<pre>
-// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例
-let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的即时通信应用的 SDKAppID
+<pre><code><span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
+<span class="hljs-keyword">let</span> options = {
+  SDKAppID: <span class="hljs-number">0</span> <span class="hljs-comment">// 接入时需要将0替换为您的即时通信应用的 SDKAppID</span>
 }
-let tim = TIM.create(options) // SDK 实例通常用 tim 表示
-// 设置 SDK 日志输出级别，详细分级请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html?_ga=1.43970405.1562552652.1542703643#setLogLevel">setLogLevel 接口的说明</a>
-tim.setLogLevel(0) // 普通级别，日志量较多，接入时建议使用
+<span class="hljs-keyword">let</span> tim = TIM.create(options) <span class="hljs-comment">// SDK 实例通常用 tim 表示</span>
+<span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html?_ga=1.43970405.1562552652.1542703643#setLogLevel">setLogLevel 接口的说明</a></span>
+tim.setLogLevel(<span class="hljs-number">0</span>) <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
 
-tim.on(TIM.EVENT.SDK_READY, function (event) {
-  // SDK ready 后接入侧才可以调用 sendMessage 等需要鉴权的接口，否则会提示失败！
-  // event.name - TIM.EVENT.SDK_READY
+tim.<span class="hljs-keyword">on</span>(TIM.EVENT.SDK_READY, function (<span class="hljs-keyword">event</span>) {
+  <span class="hljs-comment">// SDK ready 后接入侧才可以调用 sendMessage 等需要鉴权的接口，否则会提示失败！</span>
+  <span class="hljs-comment">// event.name - TIM.EVENT.SDK_READY</span>
 })
 
-tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
-  // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
-  // event.name - TIM.EVENT.MESSAGE_RECEIVED
-  // event.data - 存储 Message 对象的数组 - [Message]
-  const length = event.data.length
-  let message
-  for (let i = 0; i < length; i++) {
-    // Message 实例的详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
-    // 其中 type 和 payload 属性需要重点关注
-    // 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示
-    // 前提您需要先调用 updateMyProfile 设置自己的 nick（昵称） 和 avatar（头像URL），请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile">updateMyProfile 接口的说明</a>
-    message = event.data[i]
-    switch (message.type) {
-      case TIM.TYPES.MSG_TEXT:
-        // 收到了文本消息
-        this._handleTextMsg(message)
-        break
-      case TIM.TYPES.MSG_CUSTOM
-        // 收到了自定义消息
-        this._handleCustomMsg(message)
-        break
-      case TIM.TYPES.MSG_GRP_TIP:
-        // 收到了群提示消息，如成员进群、群成员退群
-        this._handleGroupTip(message) 
-        break
-      case TIM.TYPES.MSG_GRP_SYS_NOTICE:
-        // 收到了群系统通知，通过 REST API 在群组中发送的系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a>
-        this._handleGroupSystemNotice(message)
-        break
-      default:
-         break
+tim.<span class="hljs-keyword">on</span>(TIM.EVENT.MESSAGE_RECEIVED, function(<span class="hljs-keyword">event</span>) {
+  <span class="hljs-comment">// 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面</span>
+  <span class="hljs-comment">// event.name - TIM.EVENT.MESSAGE_RECEIVED</span>
+  <span class="hljs-comment">// event.data - 存储 Message 对象的数组 - [Message]</span>
+  <span class="hljs-keyword">const</span> length = <span class="hljs-keyword">event</span>.data.<span class="hljs-function">length
+  <span class="hljs-keyword">let</span> message
+  <span class="hljs-title">for</span> (<span class="hljs-params"><span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; length; i++</span>)</span> {
+    <span class="hljs-comment">// Message 实例的详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a></span>
+    <span class="hljs-comment">// 其中 type 和 payload 属性需要重点关注</span>
+    <span class="hljs-comment">// 从v2.6.0起，AVChatRoom 内的群聊消息，进群退群等群提示消息，增加了 nick（昵称） 和 avatar（头像URL） 属性，便于接入侧做体验更好的展示</span>
+    <span class="hljs-comment">// 前提您需要先调用 updateMyProfile 设置自己的 nick（昵称） 和 avatar（头像 URL），请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile">updateMyProfile 接口的说明</a></span>
+    message = <span class="hljs-keyword">event</span>.data[i]
+    <span class="hljs-keyword">switch</span> (message.type) {
+      <span class="hljs-keyword">case</span> TIM.TYPES.MSG_TEXT:
+        <span class="hljs-comment">// 收到了文本消息</span>
+        <span class="hljs-keyword">this</span>._handleTextMsg(message)
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> TIM.TYPES.MSG_CUSTOM:
+        <span class="hljs-comment">// 收到了自定义消息</span>
+        <span class="hljs-keyword">this</span>._handleCustomMsg(message)
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> TIM.TYPES.MSG_GRP_TIP:
+        <span class="hljs-comment">// 收到了群提示消息，如成员进群、群成员退群</span>
+        <span class="hljs-keyword">this</span>._handleGroupTip(message) 
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">case</span> TIM.TYPES.MSG_GRP_SYS_NOTICE:
+        <span class="hljs-comment">// 收到了群系统通知，通过 REST API 在群组中发送的系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a></span>
+        <span class="hljs-keyword">this</span>._handleGroupSystemNotice(message)
+        <span class="hljs-keyword">break</span>
+      <span class="hljs-keyword">default</span>:
+         <span class="hljs-keyword">break</span>
     }
   }
 })
 
 _handleTextMsg(message) {
-  // 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.TextPayload">TextPayload 接口的说明</a>
-  console.log(message.payload.text) // 文本消息内容
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.TextPayload">TextPayload 接口的说明</a></span>
+  console.log(message.payload.text) <span class="hljs-comment">// 文本消息内容</span>
 }
 
 _handleCustomMsg(message) {
-  // 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.CustomPayload">CustomPayload 接口的说明</a>
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.CustomPayload">CustomPayload 接口的说明</a></span>
   console.log(message.payload)
 }
 
 _handleGroupTip(message) {
-  // 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload">GroupTipPayload 接口的说明</a>
-  switch (message.payload.operationType) {
-    case TIM.TYPES.GRP_TIP_MBR_JOIN: // 有成员加群
-      break
-    case TIM.TYPES.GRP_TIP_MBR_QUIT: // 有群成员退群
-      break
-    case TIM.TYPES.GRP_TIP_MBR_KICKED_OUT: // 有群成员被踢出群
-      break
-    case TIM.TYPES.GRP_TIP_MBR_SET_ADMIN: // 有群成员被设为管理员
-      break
-    case TIM.TYPES.GRP_TIP_MBR_CANCELED_ADMIN: // 有群成员被撤销管理员
-      break
-    case TIM.TYPES.GRP_TIP_GRP_PROFILE_UPDATED: // 群组资料变更
-      //从v2.6.0起支持群组自定义字段变更内容
-      // message.payload.newGroupProfile.groupCustomField 
-      break
-    case TIM.TYPES.GRP_TIP_MBR_PROFILE_UPDATED: // 群成员资料变更，例如群成员被禁言
-      break
-    default:
-      break
+  <span class="hljs-comment">// 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload">GroupTipPayload 接口的说明</a></span>
+  <span class="hljs-keyword">switch</span> (message.payload.operationType) {
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_JOIN: <span class="hljs-comment">// 有成员加群</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_QUIT: <span class="hljs-comment">// 有群成员退群</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_KICKED_OUT: <span class="hljs-comment">// 有群成员被踢出群</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_SET_ADMIN: <span class="hljs-comment">// 有群成员被设为管理员</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_CANCELED_ADMIN: <span class="hljs-comment">// 有群成员被撤销管理员</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_GRP_PROFILE_UPDATED: <span class="hljs-comment">// 群组资料变更</span>
+      <span class="hljs-comment">//从v2.6.0起支持群组自定义字段变更内容</span>
+      <span class="hljs-comment">// message.payload.newGroupProfile.groupCustomField </span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">case</span> TIM.TYPES.GRP_TIP_MBR_PROFILE_UPDATED: <span class="hljs-comment">// 群成员资料变更，例如群成员被禁言</span>
+      <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">default</span>:
+      <span class="hljs-keyword">break</span>
   }
 }
 
 _handleGroupSystemNotice(message) {
-  // 详细数据结构请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">GroupSystemNoticePayload 接口的说明</a>
-  console.log(message.payload.userDefinedField) // 用户自定义字段。使用 RESTAPI 发送群系统通知时，可在该属性值中拿到自定义通知的内容。
-  // 用 REST API 发送群系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a>
-}
-</pre>
+  <span class="hljs-comment">// 详细数据结构请参考  <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">GroupSystemNoticePayload 接口的说明</a></span>
+  console.log(message.payload.userDefinedField) <span class="hljs-comment">// 用户自定义字段。使用 RESTAPI 发送群系统通知时，可在该属性值中拿到自定义通知的内容。</span>
+  <span class="hljs-comment">// 用 REST API 发送群系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a></span>
+}</code></pre>
 
 <span id="Step5"></span>
 ### 步骤5：登录 SDK

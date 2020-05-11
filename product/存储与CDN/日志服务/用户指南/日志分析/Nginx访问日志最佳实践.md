@@ -43,7 +43,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 >?推荐使用日志服务采集器采集 Nginx 服务集群的日志，采集器下载安装请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
 
 （1）在控制台左侧导航栏中单击【机器组管理】，进入到机器组管理页面。
-（2）在页面顶部选择合适的地域，单击【创建机器组】，创建一个名为 nginx_group 的机器组（一个机器组可以填入多个机器 IP 地址（每行一个 IP 地址），若是腾讯云服务器 CVM，直接填写内网 IP 地址即可，更多信息请参见 [机器组管理](https://cloud.tencent.com/document/product/614/17412)。
+（2）在页面顶部选择合适的地域，单击【创建机器组】，创建一个名为 nginx_group 的机器组，一个机器组可以填入多个机器 IP 地址（每行一个 IP 地址），若是腾讯云服务器 CVM，直接填写内网 IP 地址即可，更多信息请参见 [机器组管理](https://cloud.tencent.com/document/product/614/17412)。
 
 
 #### 3. 配置采集规则

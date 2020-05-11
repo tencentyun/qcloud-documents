@@ -7,7 +7,7 @@
 
 
 
-下面分别介绍如何从 Windows 云服务器或 Linux 云服务器登录，以内外网两种不同的方式访问云数据库 MySQL。
+下面示例分别介绍如何从 Windows 云服务器或 Linux 云服务器登录，以内外网两种不同的方式访问云数据库 MySQL。
 ## 从 Windows 云服务器访问
 1. 登录到 Windows 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">快速配置 Windows 云服务器</a>。
 2. 下载一个标准的 SQL 客户端。

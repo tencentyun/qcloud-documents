@@ -15,7 +15,9 @@
 ![](https://main.qcloudimg.com/raw/f061808a219448b145ea52462d388014.png)
 4. 在选择目标数据库页，选择目标数据库，单击【下一步】。
 5. 在确认页，确认导入数据无误后，输入帐号密码，单击【导入】。
->!导入操作不可回滚，请确认好导入信息。
->
+>!
+>- 导入操作不可回滚，请确认好导入信息。
+>- 如忘记帐号密码，可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 修改密码。
+> 
 ![](https://main.qcloudimg.com/raw/cbe0749c62745d320884c3d1517b43c9.png)
 
