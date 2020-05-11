@@ -34,7 +34,7 @@
 
 #### 步骤二：解绑弹性公网 IP
 1. 待完成转换后，在对应云服务器所在行，单击【更多】>【IP/网卡】>【解绑弹性IP】。如下图所示：
-  ![](https://main.qcloudimg.com/raw/bb96cccdb32772523bb3b5e33041884f.png)
+ ![](https://main.qcloudimg.com/raw/37523cff19b08fb8431881a3bf6aab4e.png)
 2. 在弹出的 “解绑弹性公网IP” 窗口中，勾选【解绑后免费分配公网IP】，单击【确定】。如下图所示：
   ![](https://main.qcloudimg.com/raw/8197e4ea54bb8c99abd69bd64c2e97b1.png)
 3. 在弹出的提示框中，单击【确定】，即可完成更换。
