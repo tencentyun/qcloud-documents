@@ -11,9 +11,8 @@ Next.js 特性介绍：
 
 
 ## 前提条件
-
-#### 初始化 Next.js 项目
-在本地创建一个 Next.js 项目并初始化：
+- 已安装 Node.js（参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
+- 在本地创建一个 Next.js 项目并初始化：
 ```bash
 $ mkdir serverless-next && cd serverless-next
 $ npm init next-app src
