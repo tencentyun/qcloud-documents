@@ -99,7 +99,7 @@
 <tr>
     <td>2020.04.14</td>	
     <td>v1.12.4-tke.18</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669">pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> 容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> 容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
     <td>2020.02.14</td>	
@@ -198,7 +198,7 @@
 <tr>
     <td>2020.04.14</td>
     <td>v1.10.5-tke.16</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619">pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a herf="https://github.com/kubernetes/kubernetes/pull/87669">pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
     <td>2020.02.14</td>	
