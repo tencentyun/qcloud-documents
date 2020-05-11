@@ -153,7 +153,7 @@ aws_secret_access_key = [COS_SECRETKEY]
 以存储桶所在地域是`ap-guangzhou`为例：
 
 ```
-client = boto3.client('s3', endpoint_url='"https://cos.ap-guangzhou.myqcloud.com"')
+client = boto3.client('s3', endpoint_url='https://cos.ap-guangzhou.myqcloud.com')
 ```
 
 ## PHP
