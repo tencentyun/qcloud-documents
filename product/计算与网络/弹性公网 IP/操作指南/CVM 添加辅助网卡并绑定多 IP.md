@@ -18,7 +18,8 @@
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.7` 为主 IP，`10.0.0.8`为辅助 IP 为例。
 >
 ![](https://main.qcloudimg.com/raw/99c25b7fd0708218cd385fd06a459643.png)
-5. 在“弹性网卡”页面，单击<img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">展开绑定的辅助网卡信息。
+5. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开绑定的辅助网卡信息。
+![](https://main.qcloudimg.com/raw/5032fdfa89ef927aadf89ef03fe997ba.png)
 6. 在分配的 IP 的“已绑定公网 IP”栏下，单击【绑定】。
 7. 在弹出的“绑定弹性IP”窗口中：
  - 若有可选的弹性公网 IP，选中并单击【确定】即可。
