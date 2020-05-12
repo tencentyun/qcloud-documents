@@ -20,4 +20,7 @@ coscmd config -m 30
 
 ### COSCMD 工具是否支持使用 \* 号指定特定前缀对象的下载?
 
-不支持。
+不支持。需要按照以下命令格式下载：
+```plaintext
+coscmd download prefix/ localpath/ -r
+```
