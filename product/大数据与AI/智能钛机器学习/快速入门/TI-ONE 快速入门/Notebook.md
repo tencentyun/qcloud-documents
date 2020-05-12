@@ -7,7 +7,7 @@
 
 <img src="https://main.qcloudimg.com/raw/5b65a338fd2f65574ea9975e7eb971dc.png" style="zoom:50%;" />
 
-### 步骤一：创建实例
+### 步骤1：创建实例
 1. 登录智能钛机器学习平台控制台 ，单击**菜单栏**的【Notebook】，页面将跳转至 Notebook 的实例列表页面，此页面将罗列用户创建的所有 Notebook 实例。
 2. 在 Notebook 实例列表页，单击左上角【新增实例】，跳转至创建 Notebook 实例的设置页面。填写说明如下：
    - **地区**：此字段不可修改，将自动显示平台选择的地区。
@@ -24,7 +24,7 @@
 
 
 
-### 步骤二：数据导入
+### 步骤2：数据导入
 
 本案例代码来自 Tensorflow 官方项目。我们使用公共的鸢尾花（iris）数据集训练模型，该数据集包含四个特征，分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，我们根据这四个特征将鸢尾花分成三种物种。
 
@@ -51,7 +51,7 @@ for fileM in zFile.namelist():
 zFile.close();
 ```
 
-### 步骤三：模型训练
+### 步骤3：模型训练
 您可以自行编写代码进行模型构建、模型训练、模型评估。
 
 ```python
@@ -170,7 +170,7 @@ def main():
 main()
 ```
 
-### 步骤四：结果保存
+### 步骤4：结果保存
 #### 1. 结果文件路径
 您可以自行指定结果保存的 COS 路径。
 
@@ -186,7 +186,5 @@ inputs = ti_session.upload_data(path="result_file", bucket="demo-project-ap-guan
 
 #### 2. 结果文件查看
 您可以到 COS 中您指定的路径下查看结果文件。此外，您可以自行下载文件，单击【详情】，还可在详情页面获取【对象地址】。
-
 ![](https://main.qcloudimg.com/raw/4386d90ad0f6a9016dd5fc4cde7fe8df.png)
-
 至此，我们完成了使用智能钛机器学习平台的 Notebook 训练模型的流程。
