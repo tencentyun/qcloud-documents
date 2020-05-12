@@ -29,7 +29,7 @@
 4. 转发规则中配置域名，并在转发组中配置模糊匹配的 URL。使用前缀匹配，可在最后加入通配符 $ 进行完整匹配。
 例如，用户通过配置转发组 `URL ~* \.(gif|jpg|bmp)$`，希望匹配任何以 `gif`、 `jpg` 或 `bmp` 结尾的文件。
 
-#### 转发域名中的默认域名策略
+#### <span id="default" />转发域名中的默认域名策略
 当客户端请求没有匹配本监听器的任何域名时，CLB 会将请求转发给默认域名（Default Server），让默认规则可控，每个监听器下只能配置一个默认域名。
 例如，在 CLB1 的 `HTTP:80` 监听器下配置了2个域名：`www.test1.com`，`www.test2.com`，其中  `www.test1.com` 是默认域名。当用户访问 `www.example.com` 时，由于没有匹配到任何一个域名，CLB会将该请求转发给默认域名 `www.test1.com`。
 ![](https://main.qcloudimg.com/raw/925984cd1e0e473987dcb1fd9834d85e.png)
