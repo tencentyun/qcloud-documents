@@ -39,14 +39,14 @@
 当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
 
 ## 创建的资源
--  __Type:__  Cloud Function
+-  __Type:__  Cloud Function<br>
  __Description:__  <br>tcb-ext-cms-auth：该函数提供登录鉴权功能，用户在 CMS 管理界面通过通过用户名和密码来进行登录时，会通过 HTTP 来请求该函数；<br>tcb-ext-cms-api：提供 API 接口功能，所有对内容的操作和管理都会经过此函数调用，内容操作会根据用户权限来进行数据库操作；<br>tcb-ext-cms-init：提供初始化应用功能，安装扩展后，会通过该函数来进行静态资源的部署和密码的生成和设置，修改账号密码或者部署路径等扩展参数都会再次执行该函数来进行更新。
--  __Type:__  Cloud DB
+-  __Type:__  Cloud DB<br>
  __Description:__  <br>tcb-ext-cms-contents：CMS 系统内容配置数据，CMS 所有的系统内容类型配置、字段配置等信息都存储在该集合内；<br>tcb-ext-cms-users：CMS 系统用户数据，存储 CMS 的用户信息，包括管理员和运营者的账号信息，包括角色信息，用户，加密存储的密码等；<br>tcb-ext-cms-webhooks：CMS 系统 webhook 集合，存储 CMS 系统的回调接口配置，CMS 系统数据的变更可以通过回调来进行同步。
--  __Type:__  Cloud Storage
+-  __Type:__  Cloud Storage<br>
  __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
--  __Type:__  Static Store
-__Description:__  CMS 系统前端界面，基于 React 开发，通过 TCB JS SDK 访问 CMS 的函数、数据库和存储等资源。
+-  __Type:__  Static Store<br>
+ __Description:__  CMS 系统前端界面，基于 React 开发，通过 TCB JS SDK 访问 CMS 的函数、数据库和存储等资源。
 ## 权限授予
 ### 主账户
 该扩展能力使用云开发自有资源即可完成，无需再授予其他权限。
