@@ -97,7 +97,7 @@ tf_estimator.fit(inputs)
 
 ### 查看输出模型
 如果训练任务完成有模型输出，那么 TI 会将模型上传到 cos 上。
-你可以通过`output_path='cos://'`指定模型存储的 cos 路径。如果没指定，TI 会按以下格式创建存储桶`ti-[region]-[uin]-[appid]`，最终模型会放在`#{bucket}/#{job_name}/output/`目录下。
+您可以通过`output_path='cos://'`指定模型存储的 cos 路径。如果没指定，TI 会按以下格式创建存储桶`ti-[region]-[uin]-[appid]`，最终模型会放在`#{bucket}/#{job_name}/output/`目录下。
 
 ### 查看训练日志
 - TI 训练过程中会把日志上传到 [腾讯云日志服务](https://cloud.tencent.com/product/cls) 中，使用腾讯云日志服务需要先进行开通，计费详情请参考 [CLS 购买指南](https://cloud.tencent.com/document/product/614/11323 )。
@@ -112,6 +112,6 @@ job: #{job_name}
 更多日志检索语法请参考 [开启索引](https://cloud.tencent.com/document/product/614/16981) 文档。
 
 ### 查看提交历史和监控
-您可以在 TI 产品控制台上的【任务列表】>【SDK任务】中查看您提交的 SDK 任务历史，单击【任务名称】列中的任务名可以看到任务的详细信息，在列表的右侧【监控】可以查看任务运行的资源监控图表
+您可以在 TI 产品控制台上的【任务列表】>【SDK 任务】中查看您提交的 SDK 任务历史，单击【任务名称】列中的任务名可以看到任务的详细信息，在列表的右侧【监控】可以查看任务运行的资源监控图表
 
 至此，我们完成了使用智能钛机器学习平台的 TI SDK 训练模型的流程。
