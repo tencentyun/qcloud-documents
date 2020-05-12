@@ -13,4 +13,3 @@ TcaplusDB 接入层用于处理用户请求，与存储层数据节点交互，�
 TcaplusDB逻辑结构由集群，表格组，表格组成，其关系入下图所示：
 ![](https://main.qcloudimg.com/raw/d2f155b5f7edbe6ac6dd1a45d67500ee.png)
 
-
