@@ -97,8 +97,7 @@ tf_estimator.fit(inputs)
 
 ### 查看输出模型
 如果训练任务完成有模型输出，那么 TI 会将模型上传到 cos 上。
-你可以通过`output_path='cos://'`指定模型存储的 cos 路径。如果没指定，TI 会按以下格式创建存储通
-`ti-[region]-[uin]-[appid]`，最终模型会放在`#{bucket}/#{job_name}/output/`目录下。
+你可以通过`output_path='cos://'`指定模型存储的 cos 路径。如果没指定，TI 会按以下格式创建存储桶`ti-[region]-[uin]-[appid]`，最终模型会放在`#{bucket}/#{job_name}/output/`目录下。
 
 ### 查看训练日志
 - TI 训练过程中会把日志上传到 [腾讯云日志服务](https://cloud.tencent.com/product/cls) 中，使用腾讯云日志服务需要先进行开通，计费详情请参考 [CLS 购买指南](https://cloud.tencent.com/document/product/614/11323 )。
