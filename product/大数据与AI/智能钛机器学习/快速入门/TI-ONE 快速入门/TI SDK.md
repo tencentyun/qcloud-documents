@@ -1,17 +1,14 @@
 ## 操作背景
-
 - TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包。用户可以使用 TI SDK 提交机器学习和深度学习训练任务到 TI-ONE，更多详情请见 [TI SDK 简介](新链接)。
 - 为了方便您有效地使用智能钛机器学习平台的 TI SDK，本文档将通过一个分类案例向您演示使用流程。
-- 在使用之前，请确保您已经完成了[注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
+- 在使用之前，请确保您已经完成了 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 
 ## 操作步骤
 
 ### 数据说明
-
-本案例训练数据已经存放在上海地域的cos中，[点击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者 Notebook 中试用。请在上海地域执行例子中的代码，训练代码路径在code文件夹中。
+本案例训练数据已经存放在上海地域的 COS 中 [单击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者 Notebook 中试用。请在上海地域执行例子中的代码，训练代码路径在 code 文件夹中。
 
 ### 引入依赖
-
 
 ```python
 from __future__ import absolute_import, print_function
@@ -21,7 +18,6 @@ from ti.tensorflow import TensorFlow
 ```
 
 ### 初始化参数
-
 
 ```python
 # 初始化session
@@ -38,7 +34,6 @@ role = "TIONE_QCSRole"
 
 ### 构建训练任务
 
-
 ```python
 # 创建一个Tensorflow Estimator
 tf_estimator = TensorFlow(role=role,
@@ -53,7 +48,6 @@ tf_estimator = TensorFlow(role=role,
 ```
 
 ### 提交任务，开始训练
-
 
 ```python
 # 提交Tensorflow训练任务
@@ -102,30 +96,23 @@ tf_estimator.fit(inputs)
 
 
 ### 查看输出模型
-
-如果训练任务完成有模型输出，那么TI会将模型上传到cos上。
-你可以通过**output_path='cos://'**指定模型存储的cos路径。如果没指定，TI会按以下格式创建存储通
-**ti-[region]-[uin]-[appid]**，最终模型会放在 #{bucket}/#{job_name}/output/目录下。
+如果训练任务完成有模型输出，那么 TI 会将模型上传到 cos 上。
+你可以通过`output_path='cos://'`指定模型存储的 cos 路径。如果没指定，TI 会按以下格式创建存储通
+`ti-[region]-[uin]-[appid]`，最终模型会放在`#{bucket}/#{job_name}/output/`目录下。
 
 ### 查看训练日志
-
-TI训练过程中会把日志上传到 [腾讯云日志服务](https://cloud.tencent.com/product/cls)中，使用腾讯云日志服务需要先进行开通，计费详情请参考[CLS 购买指南](https://cloud.tencent.com/document/product/614/11323 )。
-
-TI会针对训练任务创建TiOne日志集和TrainingJob日志主题，通过日志检索功能可以搜索对应训练任务的日志。
-
-
-目前TI会默认创建一个日志集(TI)和日志主题(TrainingJob)
-
-TI内置了任务名称(job)关键词，可以通过以下条件过滤指定任务的日志
+- TI 训练过程中会把日志上传到 [腾讯云日志服务](https://cloud.tencent.com/product/cls) 中，使用腾讯云日志服务需要先进行开通，计费详情请参考 [CLS 购买指南](https://cloud.tencent.com/document/product/614/11323 )。
+- TI 会针对训练任务创建 TiOne 日志集和 TrainingJob 日志主题，通过日志检索功能可以搜索对应训练任务的日志。
+- 目前 TI 会默认创建一个日志集（TI）和日志主题（TrainingJob）。
+- TI 内置了任务名称（job）关键词，可以通过以下条件过滤指定任务的日志：
 
 ```
 job: #{job_name}
 ```
 
-更多日志检索语法请参考https://cloud.tencent.com/document/product/614/16981
+更多日志检索语法请参考 [开启索引](https://cloud.tencent.com/document/product/614/16981) 文档。
 
 ### 查看提交历史和监控
-
-您可以在TI产品控制台上的【任务列表】-【SDK任务】中查看您提交的SDK任务历史，点击【任务名称】列中的任务名可以看到任务的详细信息，在列表的右侧【监控】可以查看任务运行的资源监控图表
+您可以在 TI 产品控制台上的【任务列表】>【SDK任务】中查看您提交的 SDK 任务历史，单击【任务名称】列中的任务名可以看到任务的详细信息，在列表的右侧【监控】可以查看任务运行的资源监控图表
 
 至此，我们完成了使用智能钛机器学习平台的 TI SDK 训练模型的流程。
