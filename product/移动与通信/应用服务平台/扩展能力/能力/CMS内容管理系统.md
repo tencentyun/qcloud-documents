@@ -54,7 +54,7 @@
 ### 子账户
 如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
 
--  __策略:__  QcloudAccessForTCBRole
+-  __策略:__  QcloudAccessForTCBRole<br>
  __描述:__  云开发（TCB）对云资源的访问权限。
 
 ## 安装扩展
