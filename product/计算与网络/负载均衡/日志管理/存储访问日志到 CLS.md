@@ -25,6 +25,16 @@
 ## 查询访问日志
 ### 步骤1：配置日志主题的索引
 >?日志主题必须配置索引，否则检索不到日志。
+>
+建议配置的索引如下：
+
+| 键值索引    | 字段类型 | 分词符 |
+| :---------- | :------- | :----- |
+| server_addr | text     | 无     |
+| server_name | text     | 无     |
+| http_host   | text     | 无     |
+| status      | long     | 无     |
+| vip_vpcid   | long     | 无     |
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航中，选择【日志集管理】，进入“日志集管理”列表页。
