@@ -8,12 +8,9 @@
 
 <img src="https://main.qcloudimg.com/raw/5b65a338fd2f65574ea9975e7eb971dc.png" style="zoom:50%;" />
 
-### 一、创建实例
-
+### 步骤一：创建实例
 1. 登录智能钛机器学习平台控制台 ，单击**菜单栏**的【Notebook】，页面将跳转至 Notebook 的实例列表页面，此页面将罗列用户创建的所有 Notebook 实例。
-
 2. 在 Notebook 实例列表页，单击左上角【新增实例】，跳转至创建 Notebook 实例的设置页面。填写说明如下：
-
    - **地区**：此字段不可修改，将自动显示平台选择的地区。
    - **Notebook 名称**：设置此 Notebook 实例的名称。
    - **资源选择**：选择此实例需要配置的资源。（注意：只要 Notebook 实例处于运行中，都将对配置的资源进行按时收费。 ）
@@ -22,16 +19,13 @@
    - **VPC**：用户可以选择配置自有的 VPC 网络。
    - **配置价格**：平台根据您选择的资源配置显示相关价格。
    - **CLS日志服务**：用户可以自行选择是否开通CLS日志服务。
-
 3. 单击【创建】，Notebook 列表中将新增一条实例记录，请用户自行刷新页面，当实例状态由【创建中】变为【运行中】时，单击【打开】进入 Notebook 实例内部。
-
 4. 进入实例内部后，您可以根据需要设置内核环境。本案例使用conda_tensorflow_py3。
-
 ![](https://main.qcloudimg.com/raw/7c929ad851ef6d243634647ac54de279.png)
 
 
 
-### 二、数据导入
+### 步骤二：数据导入
 
 本案例代码来自 Tensorflow 官方项目。我们使用公共的鸢尾花（iris）数据集训练模型，该数据集包含四个特征，分别是花萼长度、花萼宽度、花瓣长度、花瓣宽度，我们根据这四个特征将鸢尾花分成三种物种。
 
@@ -40,7 +34,7 @@ CSV_COLUMN_NAMES = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'S
 SPECIES = ['Setosa', 'Versicolor', 'Virginica']
 ```
 
-本测试数据存储在 COS 广州地域，您可[点击查看](https://tesla-ap-guangzhou-1256322946.cos.ap-guangzhou.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，在Notebook中导入所需数据。
+本测试数据存储在 COS 广州地域，您可[单击查看](https://tesla-ap-guangzhou-1256322946.cos.ap-guangzhou.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，在 Notebook 中导入所需数据。
 
 ```python
 !pip install wget
@@ -58,7 +52,7 @@ for fileM in zFile.namelist():
 zFile.close();
 ```
 
-### 三、模型训练
+### 步骤三：模型训练
 
 您可以自行编写代码进行模型构建、模型训练、模型评估。
 
@@ -178,17 +172,13 @@ def main():
 main()
 ```
 
-### 四、结果保存
-
+### 步骤四：结果保存
 #### 1. 结果文件路径
-
 您可以自行指定结果保存的 COS 路径。
 
-path：结果文件的路径
-
+path：结果文件的路径。
 bucket：指定存储桶。
-
-key_prefix：存储桶下cos路径的。
+key_prefix：存储桶下 COS 路径的。
 
 ```python
 from ti import session
@@ -197,11 +187,8 @@ inputs = ti_session.upload_data(path="result_file", bucket="demo-project-ap-guan
 ```
 
 #### 2. 结果文件查看
-
-您可以到 COS 中您指定的路径下查看结果文件。此外，您可以自行下载文件，点击【详情】，还可在详情页面获取【对象地址】。
+您可以到 COS 中您指定的路径下查看结果文件。此外，您可以自行下载文件，单击【详情】，还可在详情页面获取【对象地址】。
 
 ![](https://main.qcloudimg.com/raw/4386d90ad0f6a9016dd5fc4cde7fe8df.png)
-
-
 
 至此，我们完成了使用智能钛机器学习平台的 Notebook 训练模型的流程。
