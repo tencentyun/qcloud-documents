@@ -1,0 +1,52 @@
+方便开发人员和内容运营者，随时随地管理小程序/Web 等多端云开发内容数据，支持 PC/移动端浏览器访问，支持文本、富文本、图片、文件、关联类型等多种内容类型的可视化编辑。
+## 扩展工作模式
+当您使用这个扩展时：
+1. 云函数渲染 CMS 页面。
+2. 通过静态托管、云数据库、云存储为您存储内容。
+
+## 前置要求
+已经开通云开发。
+## 扩展配置信息
+您可以通过以下配置参数：
+- 管理员账号：CMS内容管理系统的管理员账号。
+- 管理员密码：CMS内容管理系统的管理员密码。
+- 运营者账号：CMS内容管理系统的运营者账号。
+- 运营者密码：CMS内容管理系统的运营者密码。
+- 自定义登录密钥：云开发自定义登录密钥。
+- 部署路径：CMS内容管理系统的部署路径。
+
+## 计费
+此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
+
+- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 云存储（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 静态托管（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+
+当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
+
+## 创建的资源
+-  __Type:__  Cloud Function
+ __Description:__  tcb-ext-cms-auth：该函数提供登录鉴权功能，用户在 CMS 管理界面通过通过用户名和密码来进行登录时，会通过 HTTP 来请求该函数；tcb-ext-cms-api：提供 API 接口功能，所有对内容的操作和管理都会经过此函数调用，内容操作会根据用户权限来进行数据库操作；tcb-ext-cms-init：提供初始化应用功能，安装扩展后，会通过该函数来进行静态资源的部署和密码的生成和设置，修改账号密码或者部署路径等扩展参数都会再次执行该函数来进行更新。
+-  __Type:__  Cloud DB
+ __Description:__  tcb-ext-cms-contents：CMS 系统内容配置数据，CMS 所有的系统内容类型配置、字段配置等信息都存储在该集合内；tcb-ext-cms-users：CMS 系统用户数据，存储 CMS 的用户信息，包括管理员和运营者的账号信息，包括角色信息，用户，加密存储的密码等；tcb-ext-cms-webhooks：CMS 系统 webhook 集合，存储 CMS 系统的回调接口配置，CMS 系统数据的变更可以通过回调来进行同步。
+-  __Type:__  Cloud Storage
+ __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
+-  __Type:__  Static Store
+__Description:__  CMS 系统前端界面，基于 React 开发，通过 TCB JS SDK 访问 CMS 的函数、数据库和存储等资源。
+## 权限授予
+### 主账户
+该扩展能力使用云开发自有资源即可完成，无需再授予其他权限。
+
+### 子账户
+如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
+
+-  __策略:__  QcloudAccessForTCBRole
+ __描述:__  云开发（TCB）对云资源的访问权限。
+
+## 安装扩展
+您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理扩展。
+
+## 使用扩展
+请先完成【CMS内容管理系统】的安装，然后访问管理页，在【扩展运行方式】Tab 查看使用指引，依照文档完成CMS的使用。
+
