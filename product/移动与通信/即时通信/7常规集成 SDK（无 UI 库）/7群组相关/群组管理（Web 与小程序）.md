@@ -230,6 +230,7 @@ let promise = tim.updateGroupProfile({
   groupID: 'group1',
   name: 'new name', // 修改群名称
   introduction: 'this is introduction.', // 修改群公告
+  // v2.6.0 起，群成员能收到群自定义字段变更的群提示消息，且能获取到相关的内容，详见 Message.payload.newGroupProfile.groupCustomField
   groupCustomField: [{ key: 'group_level', value: 'high'}] // 修改群组维度自定义字段
 });
 promise.then(function(imResponse) {
@@ -480,6 +481,10 @@ promise.then(function(imResponse) {
 
 ### 获取群成员列表
 
+ 注意1：从v2.6.2起，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
+在低于v2.6.2的版本，该接口获取的群成员列表中的资料是不完整的（仅包括头像、昵称等，能够满足群成员列表的渲染需求），若要查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用：[getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)
+注意2：该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用：[getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 
+
 **接口名**
 
 ```js
@@ -503,9 +508,35 @@ tim.getGroupMemberList(options);
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
+**示例**
+
+```javascript
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+}).catch(function(imError) {
+  console.warn('getGroupMemberList error:', imError);
+});
+// 从v2.6.2 起，该接口支持拉取群成员禁言截止时间戳。
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+  for (let groupMember of imResponse.data.memberList) {
+    if (groupMember.muteUntil * 1000  > Date.now()) {
+      console.log(`${groupMember.userID} 禁言中`);
+    } else {
+      console.log(`${groupMember.userID} 未被禁言`);
+    }
+  }
+}).catch(function(imError) {
+    console.warn('getGroupMemberProfile error:', imError);
+});
+```
+
 ### 获取群成员资料
 
->! 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+>注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
+>注意2：每次查询的用户数上限是50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
 
 **接口名**
 
@@ -534,9 +565,9 @@ tim.getGroupMemberProfile(options);
 
 详细规则如下：
 
-- 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
-- 公开群/聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
-- 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+-  TIM.TYPES.GRP_PRIVATE （私有群）：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
 
 **接口名**
 
@@ -557,34 +588,40 @@ tim.addGroupMember(options);
 
 该接口返回`Promise`对象：
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`属性值如下表所示：
-	<table>
+	
+  <table>
      <tr>
          <th nowrap="nowrap">名称</th>  
          <th>类型</th>  
          <th  nowrap="nowrap">含义</th>  
-     </tr>
-	 <tr>      
-         <td>successUserIDList</td>   
+	   </tr>
+   <tr>      
+	       <td>successUserIDList</td>   
 	     <td>Array&#60;String&#62;</td>   
-	     <td>添加成功的 userID 列表</td>   
-     </tr> 
-	 <tr>      
-         <td>failureUserIDList</td>   
+       <td>添加成功的 userID 列表</td>   
+	   </tr> 
+   <tr>      
+	       <td>failureUserIDList</td>   
 	     <td>Array&#60;String&#62;</td>   
-	     <td>添加失败的 userID 列表</td>   
-     </tr> 
-	 <tr>      
-         <td>existedUserIDList</td>   
+       <td>添加失败的 userID 列表</td>   
+	   </tr> 
+   <tr>      
+	       <td>existedUserIDList</td>   
 	     <td>Array&#60;String&#62;</td>   
-	     <td>已在群中的 userID 列表</td>   
-     </tr> 
-	 <tr>      
-         <td>group</td>   
+       <td>已在群中的 userID 列表</td>   
+	   </tr> 
+   <tr>      
+	       <td>group</td>   
 	     <td><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html">Group</a></td>   
-	     <td>接口调用后的群组资料</td>   
-     </tr> 
-</table>
-
+       <td>接口调用后的群组资料</td>   
+   </tr> 
+    <tr>      
+	       <td>userIDList</td>   
+	     <td>Array&#60;String&#62;</td>   
+	     <td>待添加的群成员 ID 数组。单次最多添加500个成员</td>   
+	   </tr> 
+	</table>
+	
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**

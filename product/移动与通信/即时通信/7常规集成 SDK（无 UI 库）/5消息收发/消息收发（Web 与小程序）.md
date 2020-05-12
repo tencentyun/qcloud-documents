@@ -145,9 +145,12 @@ wx.chooseImage({
 
 
 ### 创建音频消息
-创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 createAudioMessage 只支持在微信小程序环境使用。
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 
 
->!全平台互通音频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
+注意2：createVideoMessage 支持在微信小程序环境使用，从v2.6.0起，支持在 Web 环境使用。
+注意3：微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，sdk 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
+注意4：全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。 
 
 **接口**
 
@@ -262,6 +265,9 @@ tim.createFileMessage(options)
 let message = createFileMessage({
   to: 'user1',
   conversationType: TIM.TYPES.CONV_C2C,
+  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
+  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
+  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
   payload: {
     file: document.getElementById('filePicker'),
   },
@@ -277,6 +283,62 @@ promise.then(function(imResponse) {
   console.warn('sendMessage error:', imError);
 });
 ```
+
+ // Web 端发送文件消息示例2- 传入 File 对象 
+
+// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /> document.getElementById('testPasteInput').addEventListener('paste', function(e) { 
+
+​		 let clipboardData = e.clipboardData; 
+
+ 		let file; 
+
+ 		let fileCopy;  
+
+if (clipboardData && clipboardData.files && clipboardData.files.length > 0) { 
+
+   file = clipboardData.files[0];  
+
+  // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据    
+
+​	fileCopy = file.slice(); 
+
+ }  
+
+ if (typeof file === 'undefined') {  
+
+  console.warn('file 是 undefined，请检查代码或浏览器兼容性！');    
+
+return; 
+
+ }  
+
+ // 1. 创建消息实例，接口返回的实例可以上屏 
+
+ let message = tim.createFileMessage({   
+
+ to: 'user1',  
+
+  conversationType: TIM.TYPES.CONV_C2C,    
+
+payload: {      file: file    },  
+
+  onProgress: function(event) { console.log('file uploading:', event) }  });  
+
+ // 2. 发送消息
+
+  let promise = tim.sendMessage(message); 
+
+ promise.then(function(imResponse) {  
+
+  // 发送成功  
+
+  console.log(imResponse);  
+
+}).catch(function(imError) {   
+
+ // 发送失败   
+
+ console.warn('sendMessage error:', imError);  }); }); 
 
 **返回**
 
@@ -327,6 +389,9 @@ function random(min, max) {
 let message = tim.createCustomMessage({
   to: 'user1',
   conversationType: TIM.TYPES.CONV_C2C,
+  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
+  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
+  // priority: TIM.TYPES.MSG_PRIORITY_HIGH,
   payload: {
     data: 'dice', // 用于标识该消息是骰子类型消息
     description: String(random(1,6)), // 获取骰子点数
@@ -355,6 +420,7 @@ promise.then(function(imResponse) {
 
 >!
 >! 全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
+>
 >- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
 
 **接口**
@@ -482,9 +548,8 @@ promise.then(function(imResponse) {
 - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
 - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
 
-
 接收推送的单聊、群聊、群提示、群系统通知的新消息，需监听事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。
-本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。同帐号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)
+本实例发送的消息，不会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED)。同帐号从其他端（或通过 REST API）发送的消息，会触发事件 [TIM.EVENT.MESSAGE_RECEIVED](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED), 离线推送仅适用于终端（Android 或 iOS)，Web 和 微信小程序不支持。 
 
 **接口**
 
@@ -503,17 +568,33 @@ tim.sendMessage(options)
 **示例**
 
 ```javascript
-// 发送文本消息，Web 端与小程序端相同
-// 1. 将生成的 Message 实例发送
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。离线推送的标题和内容使用默认值。
+// 离线推送的说明请参考 https://cloud.tencent.com/document/product/269/3604
+tim.sendMessage(message);
+// v2.6.4起支持消息发送选项
+tim.sendMessage(message, {
+  onlineUserOnly: true // 如果接收方不在线，则消息不存入漫游，且不会进行离线推送
+});
+// v2.6.4起支持消息发送选项
+tim.sendMessage(message, {
+  offlinePushInfo: {
+    disablePush: true // 如果接收方不在线，则消息将存入漫游，但不进行离线推送
+  }
+});
+// v2.6.4起支持消息发送选项
+tim.sendMessage(message, {
+  // 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。接入侧可自定义离线推送的标题及内容
+  offlinePushInfo: {
+    title: '', // 离线推送标题
+    description: '', // 离线推送内容
+    androidOPPOChannelID: '' // 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID
+  }
 });
 ```
+
+
+
+
 
 **返回**
 
@@ -860,6 +941,9 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 ### 获取会话列表
 
 获取会话列表的接口，该接口拉取最近的100条会话，当需要刷新会话列表时调用该接口。
+
+ 注意1：该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，可参考：[getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)
+注意2：会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
 
 **接口**
 
