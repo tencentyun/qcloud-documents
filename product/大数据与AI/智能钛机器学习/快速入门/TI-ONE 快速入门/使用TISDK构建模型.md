@@ -1,5 +1,5 @@
 ## 操作背景
-- TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包。用户可以使用 TI SDK 提交机器学习和深度学习训练任务到 TI-ONE，更多详情请见 [TI SDK 简介](新链接)。
+- TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包。用户可以使用 TI SDK 提交机器学习和深度学习训练任务到 TI-ONE，更多详情请见 [TI SDK 简介](https://cloud.tencent.com/document/product/851/44454)。
 - 为了方便您有效地使用智能钛机器学习平台的 TI SDK，本文档将通过一个分类案例向您演示使用流程。
 - 在使用之前，请确保您已经完成了 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 
