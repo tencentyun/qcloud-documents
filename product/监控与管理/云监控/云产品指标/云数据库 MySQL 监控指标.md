@@ -88,4 +88,4 @@ Namespace=QCE/CDB
   | Instances.N.Dimensions.0.Name  | InstanceId   | 数据库实例 ID                                                | 输入 String 类型维度名称，例如 topicId      |
   | Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体 ID                                               | 输入具体实例ID，例如 topic-i4p4k0u0      |
   | Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入 String 类型维度名称，例如 InstanceType |
-  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据时 | 输入实例类型，默认取值为1                |
+  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据 | 输入实例类型，默认取值为1                |
