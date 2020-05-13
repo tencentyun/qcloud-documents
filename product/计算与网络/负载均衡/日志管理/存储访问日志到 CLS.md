@@ -30,9 +30,9 @@
 
 | 键值索引    | 字段类型 | 分词符 |
 | :---------- | :------- | :----- |
-| server_addr | text     | 保持默认     |
-| server_name | text     | 保持默认     |
-| http_host   | text     | 保持默认     |
+| server_addr | text     | 不分词，删除分词符内容     |
+| server_name | text     | 不分词，删除分词符内容     |
+| http_host   | text     | 不分词，删除分词符内容     |
 | status      | long     | -     |
 | vip_vpcid   | long     | -     |
 
@@ -43,9 +43,9 @@
 4. 在日志集详情页，单击日志主题 ID，进入日志主题详情页。
 ![](https://main.qcloudimg.com/raw/2ac7b3725bf4a598a4f9668ed3c80c1c.png)
 5. 在日志主题详情页，选择【索引配置】选项卡，您可以在日志变量中选取部分变量，按需配置索引字段，配置说明请参见 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
-![](https://main.qcloudimg.com/raw/d5f8b8e3ba0d6c4f9bedb1c8bd5aa906.png)
+![](https://main.qcloudimg.com/raw/59262eff6c7f55929aa2b6ad652ec60c.png)
 6. 索引配置完成后结果如下图所示。
-![](https://main.qcloudimg.com/raw/e27ec908adebe4dd19307193e7c7a8e2.png)
+![](https://main.qcloudimg.com/raw/191ba6e00fa17439094f61504433b84f.png)
 
 ### 步骤2：检索访问日志
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
