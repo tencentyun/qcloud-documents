@@ -5,8 +5,6 @@
 
 ## 操作步骤
 
-<img src="https://main.qcloudimg.com/raw/5b65a338fd2f65574ea9975e7eb971dc.png" style="zoom:50%;" />
-
 ### 步骤1：创建实例
 1. 登录智能钛机器学习平台控制台 ，单击**菜单栏**的【Notebook】，页面将跳转至 Notebook 的实例列表页面，此页面将罗列用户创建的所有 Notebook 实例。
 2. 在 Notebook 实例列表页，单击左上角【新增实例】，跳转至创建 Notebook 实例的设置页面。填写说明如下：
