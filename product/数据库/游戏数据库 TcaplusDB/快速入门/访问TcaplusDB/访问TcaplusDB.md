@@ -1,6 +1,6 @@
 TcaplusDB 数据可以通过多种方式进行访问读取，如客户端工具、各语言 SDK 工具包、RESTFul 接口。
 
-## 通过 client 工具访问 TcaplusDB 表
+## 通过 client 工具访问 TcaplusDB 数据
 tcaplus_client 是一个 TcaplusDB 表访问的客户端工具，可通过下表中的下载链接进行下载。
 
 Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tcaplus_client 工具：
