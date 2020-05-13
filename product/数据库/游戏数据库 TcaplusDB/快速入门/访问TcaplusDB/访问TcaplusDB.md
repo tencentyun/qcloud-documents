@@ -145,7 +145,7 @@ tcaplus>load hehe from test1;
 因为安全原因，当前客户端工具不支持直接清除表数据。如需清空整张表数据，请通过控制台 [清理表](https://console.cloud.tencent.com/tcaplusdb/table) 功能进行。
 
 
-## 通过 C++ SDK 接口 访问 TcaplusDB 数据
+## 通过 C++ SDK 接口访问 TcaplusDB 数据
 SDK 工具支持 C++ 以及 Java 两种语言，[C++ SDK 接口说明](https://cloud.tencent.com/document/product/596/31665)
 
 ## 通过 RESTFul API 接口访问 TcaplusDB 数据
