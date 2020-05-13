@@ -83,7 +83,7 @@ inputs:
               method: GET
 ```
 
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/v2/doc/serverless.yaml)
+查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/v2/doc/configure.md)
 
 当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 

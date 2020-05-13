@@ -1,4 +1,4 @@
-一个云服务器（CVM）可以绑定不超过限额数的公网 IP（含普通公网 IP 和 EIP），本文将为您介绍如何为 Linux 云服务器和 Windows 云服务器绑定多个公网 IP。
+单个 CVM 可以绑定不超过限额数的公网 IP（含普通公网 IP 和 EIP），以实现流量转移，提高 CVM 的利用率。本文将为您介绍如何为 Linux 云服务器和 Windows 云服务器绑定多个 EIP。
 
 ## 前提条件
 - 您已购买 Linux 云服务器和 Windows 云服务器，并且所属安全组开放了 ICMP 协议。
@@ -16,11 +16,13 @@
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.3` 为例。
 >
 ![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
-5. 在“弹性网卡”页面，单击<img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">展开主网卡信息。
-6. 在分配的辅助 IP 的“已绑定公网 IP”栏下，单击【绑定】。
-7. 在弹出的“绑定弹性IP”窗口中：
- - 若有可选的弹性公网 IP，选中并单击【确定】即可。
- - 若无可选的弹性公网 IP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的弹性公网 IP，选中并单击【确定】即可。
+5. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
+![](https://main.qcloudimg.com/raw/ffa35df2be28027b390413f0d54176e4.png)
+6. 在分配的类型为辅助 IP 的内网 IP 所在行，单击“已绑定公网 IP”栏下的【绑定】。
+7. 在弹出的“绑定弹性公网IP”窗口中：
+ - 若有可选的 EIP，选中并单击【确定】即可。
+ - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
+![](https://main.qcloudimg.com/raw/ac5172d56f2dc436a5b0c16d1be5ece1.png)
 8. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
 ![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
 
@@ -147,7 +149,7 @@ ipconfig /all
 
 ### 步骤三：结果验证
 登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
->?若执行命令未得到以下结果，请检查 CVM 安全组配置。
+>?若执行命令未得到以下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
 >
 ![](https://main.qcloudimg.com/raw/b95843022195567bba1ce835c3f41bbf.png)
 

@@ -34,6 +34,8 @@ python # 进入python命令行
 ```
 yum install python-devel
 yum install mysql-devel
+yum -y install mysql-devel libxml2 libxml2-dev libxslt* zlib gcc openssl
+yum install gcc libffi-devel python-devel openssl-devel
 pip install MySQL-python
 ```
 
