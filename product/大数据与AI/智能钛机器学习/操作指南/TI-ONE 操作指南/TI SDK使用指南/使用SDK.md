@@ -156,7 +156,7 @@ GPU 算力（V100）
 - `base_job_name`：str fit()方法启动的训练任务名称前缀，如果没有指定，会使用镜像名和时间戳生成默认任务名。
 - `output_path`：用于保存模型和输出文件的 COS 路径，如果未指定，会生成默认的存储桶。
 - `subnet_id`：str 子网 ID，如果未指定，将在没有 VPC 配置的情况下创建任务。
-- `image_name`：str 训练任务镜像名称，用户可传入TKE镜像仓库中自定义训练镜像。
+- `image_name`：str 训练任务镜像名称，用户可传入 TKE 镜像仓库中自定义训练镜像。
 
 更多的参数意义请参考 EstimatorBase 类 （ ti-python-sdk/src/ti/EstimatorBase.py）。
 
@@ -167,7 +167,7 @@ fit 方法会创建并启动一个训练任务
 
 参数
 
-- `inputs`： 存储训练数据集的 COS 路径或CFS文件系统信息，可以采用以下多种数据结构。
+- `inputs`： 存储训练数据集的 COS 路径或 CFS 文件系统信息，可以采用以下多种数据结构。
   - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
   - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
   - `FileSystemInput`：表示 CFS 数据集的数据结构，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053)。
