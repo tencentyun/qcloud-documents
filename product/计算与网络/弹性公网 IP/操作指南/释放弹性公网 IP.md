@@ -10,11 +10,10 @@
 ## 操作步骤
 
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
-2. 在 EIP 管理页面，选择需要被释放的 EIP 的地域，并在对应 EIP 所在行的操作栏下，选择【更多】>【释放】。
-3. 在弹出的“确定释放所选弹性公网IP”窗口中，勾选【确定释放以上IP】，单击【释放】。
-   ![](https://main.qcloudimg.com/raw/628d18674ff0344f22ef96e28d0bc260.png)
+2. 在 EIP 管理页面，选择需要释放的 EIP 地域，并在对应 EIP 所在行的操作栏下，选择【更多】>【释放】。
+3. 在弹出的“确定释放所选EIP”窗口中，勾选【确定释放以上IP】，单击【释放】。
+![](https://main.qcloudimg.com/raw/23eac37af5e7368b9429fac24c9686ee.png)
 
 ## 后续步骤
-
 - [找回公网 IP 地址](https://cloud.tencent.com/document/product/1199/41708)
 
