@@ -241,3 +241,7 @@ TRTCAudioCall 组件的 API 接口列表如下：
 | hangup | 结束通话 |
 | setMicMute | 是否静音 mic |
 | setHandsFree | 是否开启免提 |
+
+## 学习视频
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2328-34109?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
