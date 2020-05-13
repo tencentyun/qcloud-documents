@@ -4,13 +4,20 @@ COS_EXT 是访问 COS 文件的外部数据访问插件，通过 DDL 定义外�
 - 作为外表，将结果导出到 COS。
 - 作为外表，执行简单分析功能，分析 COS 数据。
 
+### 注意事项
+1. 支持CSV等文本格式文件，以及GZIP压缩格式文件。
+2. 只能读取本地域的COS数据，比如广州四区的集群只能读取广州地域的COS数据。
+3. 只能读取用户自己的COS数据（这里用户是指创建集群的用户）。
+4. 只写外表只能用于INSERT语句，不能用于UPDATE/DELETE语句，不能用于SELECT查询语句。
+5. 删除外表，不会删除COS上的数据。
+
 ### 使用步骤
 1. 定义 cos_ext 插件。
->!COS 外表插件的作用域为表。
+>!COS 外表插件的作用域为库。
 >
  - 创建命令如下：
 ```
-CREATE EXTENSION IF NOT EXISTS cos_ext;
+CREATE EXTENSION IF NOT EXISTS cos_ext SCHEMA public;
 ```
  - 删除命令如下：
 ```
@@ -109,7 +116,7 @@ prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时
 ### 导入 COS 数据
 1. 定义 COS 扩展。  
 ```
-CREATE EXTENSION IF NOT EXISTS cos_ext; 
+CREATE EXTENSION IF NOT EXISTS cos_ext SCHEMA public; 
 ```
 2. 定义只读 COS 外表和本地表。
 本地表：
@@ -150,7 +157,7 @@ SELECT count(1) FROM cos_tbl;
 ### 数据导出到 COS
 1. 定义 COS 扩展。
 ```
-CREATE EXTENSION IF NOT EXISTS cos_ext;
+CREATE EXTENSION IF NOT EXISTS cos_ext SCHEMA public;
 ```
 2. 定义只写 COS 外表。
 本地表：
@@ -189,7 +196,7 @@ INSERT INTO cos_tbl_wr SELECT * FROM cos_local_tbl;
 
 1. 定义 COS 扩展。
 ```
-CREATE EXTENSION IF NOT EXISTS cos_ext;
+CREATE EXTENSION IF NOT EXISTS cos_ext SCHEMA public;
 ```
 2. 准备数据。
 将文件上传到 simple-bucket 的 for-dml 目录下，文件内容：
@@ -214,3 +221,6 @@ FORMAT ‘csv’;
 ```
 SELECT c2, sum(c1) FROM cos_tbl GROUP BY c2;
 ```
+
+## 使用经验
+对于COS外表的使用盲点，以及一些技巧可以参见云+社区文章 [CDW云数仓COS使用经验](https://cloud.tencent.com/developer/article/1359016)
