@@ -62,7 +62,7 @@
 4. 单击【新建】进入“新建Secret” 页面，根据以下信息进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/ae126ccc936ac209fcb33234fd607a28.png)
 	- **名称**：自定义，本文以 `cos-secret` 为例。
-	- **Secret类型**：选择【Opaque】，该类型适用于保存秘钥证书和配置文件，Value 将以 Base64 格式编码。
+	- **Secret类型**：选择【Opaque】，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
 	- **生效范围**：选择【指定命名空间】，其中命名空间 `kube-system` 必选。
 	- **内容**：此处用于设置 Secret 访问存储桶（Bucket）所需的访问密钥，需包含变量名 `SecretId` 和 `SecretKey` 及其分别所对应的变量值。
 	请参考[ 创建访问密钥 ](#CreatAccessKey) 完成创建，并前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取访问密钥。
