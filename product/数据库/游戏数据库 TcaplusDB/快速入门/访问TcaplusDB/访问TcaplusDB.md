@@ -1,10 +1,4 @@
-TcaplusDB 数据可以通过多种方式进行访问读取，如各语言 SDK 工具包、RESTFul 接口、客户端工具。
-
-## 通过 C++ SDK 接口 访问 TcaplusDB 数据
-SDK 工具支持 C++ 以及 Java 两种语言，[C++ SDK 接口说明](https://cloud.tencent.com/document/product/596/31665)
-
-## 通过 RESTFul API 接口访问 TcaplusDB 数据
-[RESTFul API 接口说明](https://cloud.tencent.com/document/product/596/31664)
+TcaplusDB 数据可以通过多种方式进行访问读取，如客户端工具、各语言 SDK 工具包、RESTFul 接口。
 
 ## 通过 client 工具访问 TcaplusDB 表
 tcaplus_client 是一个 TcaplusDB 表访问的客户端工具，可通过下表中的下载链接进行下载。
@@ -149,3 +143,10 @@ tcaplus>load hehe from test1;
 
 #### 清空表数据
 因为安全原因，当前客户端工具不支持直接清除表数据。如需清空整张表数据，请通过控制台 [清理表](https://console.cloud.tencent.com/tcaplusdb/table) 功能进行。
+
+
+## 通过 C++ SDK 接口 访问 TcaplusDB 数据
+SDK 工具支持 C++ 以及 Java 两种语言，[C++ SDK 接口说明](https://cloud.tencent.com/document/product/596/31665)
+
+## 通过 RESTFul API 接口访问 TcaplusDB 数据
+[RESTFul API 接口说明](https://cloud.tencent.com/document/product/596/31664)
