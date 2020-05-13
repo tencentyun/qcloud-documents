@@ -70,7 +70,6 @@ Authorization: Auth String
 | Content-Encoding                                             | RFC 2616 中定义的编码格式，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
 | Content-Range                                                | RFC 2616 中定义的返回内容的字节范围，仅当请求中指定了 Range 请求头部时才会返回该头部 | string |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
-| x-cos-hash-crc64ecma                                         | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
 | x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 

@@ -111,7 +111,7 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群<br/>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
