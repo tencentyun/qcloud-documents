@@ -1,4 +1,3 @@
-
 ## 简介
 为方便您接入游戏数据库 TcaplusDB，本文为您介绍 TcaplusDB SDK 的下载指引。
 
@@ -10,7 +9,7 @@
 
 |版本  | 更新时间        |SDK 下载|
 |-------------| ------------- | ------------- |
-|3.34.0.191456|2019/04/21|[下载](https://main.qcloudimg.com/raw/fb1bd50af1eac68b19193d018beeafac/TcaplusPbApi3.34.0.191456.x86_64_release_20190421.tar.gz)|
+|3.36.0.192960|2020/04/21|[下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz)|
 
 ## Windows C++ SDK 下载
 

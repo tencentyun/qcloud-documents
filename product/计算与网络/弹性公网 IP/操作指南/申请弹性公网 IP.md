@@ -4,8 +4,8 @@
 ## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择【地域】，单击【申请】。
-3. 在弹出的“申请弹性公网IP”窗口中，请按照您的账户类型，分别进行如下操作：
->? 如何判断账户类型，请参见 [区分账户类型](https://cloud.tencent.com/document/product/684/39903)。
+3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
+>? 若您无法确定账户类型，请参见 [如何判断账户类型](https://cloud.tencent.com/document/product/1199/41692#judge)。
 >
 <div class="codetab">
  <input type="radio" name="tabs3" id="tab31" class="tab-switch" checked="">
@@ -22,7 +22,7 @@
  <div id="tab-content32" class="tab-content" style="padding:0 10px;">
 <p><ul>
 <li>IP 地址类型：请选择常规 IP。</li>
-<li>计费模式：支持按流量、包月带宽、按小时带宽三种计费模式，详情请参见 <a href="https://buy.cloud.tencent.com/price/idc">公网网络计费</a>。	</li>
+<li>计费模式：支持按流量、包月带宽、按小时带宽三种计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#net">公网网络计费</a>。	</li>
 <li>带宽上限：请按需设置带宽上限，合理分配带宽资源。</li>
 <li>包月时长：该选项仅适用计费模式为包月带宽的 EIP，请按需选择包月带宽的购买时长。</li>
 <li>自动续费：该选项仅适用计费模式为包月带宽的 EIP，若勾选此选项，账户余额足够时，EIP 到期后将按月自动续费。</li>
