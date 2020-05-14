@@ -38,5 +38,5 @@
 ![](https://main.qcloudimg.com/raw/23eac37af5e7368b9429fac24c9686ee.png)
 
 ## 后续步骤
-- 您可以找回使用过、且当前未分配给其他用户的公网 IP 地址，详情请参见 [找回公网 IP 地址](https://cloud.tencent.com/document/product/1199/41708)。
+- 若需要找回使用过、且当前未分配给其他用户的公网 IP 地址，请参见 [找回公网 IP 地址](https://cloud.tencent.com/document/product/1199/41708)。
 
