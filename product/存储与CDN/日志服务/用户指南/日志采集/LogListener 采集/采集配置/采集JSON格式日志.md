@@ -38,7 +38,7 @@ xff: -
 ### 2. 新建 LogListener 采集
 
 选择目标日志集，单击【新建日志主题】，输入日志主题名称：test-json ，单击 【确定】。 
-![](https://main.qcloudimg.com/raw/26ea3416512e4cae85350b289f916ce6.png)
+![](https://main.qcloudimg.com/raw/e1b3e742cf92518ad6882c7f0d587d43.jpg)
 
 ### 3. 配置 LogListener 采集
 
