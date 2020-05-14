@@ -30,9 +30,9 @@
 
 | 键值索引    | 字段类型 | 分词符 |
 | :---------- | :------- | :----- |
-| server_addr | text     | 不分词，删除分词符内容     |
-| server_name | text     | 不分词，删除分词符内容     |
-| http_host   | text     | 不分词，删除分词符内容     |
+| server_addr | text     | 无需配置分词符     |
+| server_name | text     | 无需配置分词符     |
+| http_host   | text     | 无需配置分词符     |
 | status      | long     | -     |
 | vip_vpcid   | long     | -     |
 
