@@ -2,14 +2,34 @@
 您可将弹性公网 IP（EIP）绑定到 CVM 实例、NAT 网关等云资源上，利用 EIP 灵活地容灾与提供公网通信服务等。
 
 ## 费用说明
-将 EIP 绑定云资源后，不同类型账户和计费模式下的费用说明如下：
-
-| 账户类型       |                           计费模式                           | 计费说明                                                     |
-| -------------- | :----------------------------------------------------------: | ------------------------------------------------------------ |
-| 非带宽上移账户 |                              -                               | EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/213/10578" target="_blank">公网网络费用</a>。 |
-| 带宽上移账户   | <a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a> | EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net">公网网络费用</a>。 |
-| 带宽上移账户   | <a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a> | EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net">公网网络费用</a>。 |
-| 带宽上移账户   | <a href="https://cloud.tencent.com/document/product/1199/41692#3" target="_blank">包月带宽</a> | EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net">公网网络费用</a>。 |
+将 EIP 绑定云资源后，不同类型账户下的费用说明如下：
+<table>
+<thead>
+<tr>
+<th>账户类型</th>
+<th align="center">计费模式</th>
+<th>计费说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非带宽上移账户</td>
+<td align="center">-</td>
+<td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/213/10578" target="_blank">公网网络费用</a>。</td>
+</tr>
+<tr>
+<td rowspan="3">带宽上移账户</td>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#3" target="_blank">包月带宽</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
+</tbody></table>
 
 ## 操作场景
 - EIP 与 CVM 实例绑定，EIP 作为 CVM 实例的公网 IP，当 CVM 实例发生故障时，可解绑重新绑定到健康的 CVM 实例上，帮助快速恢复服务。
