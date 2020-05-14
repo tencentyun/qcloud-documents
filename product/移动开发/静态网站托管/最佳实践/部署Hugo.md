@@ -11,7 +11,7 @@ Hugo 是一个用 Go 编写的静态站点生成器，由于具有丰富的主�
 ```
 brew install hugo
 ```
->? windows 的用户可以去 Hugo 的 githubc 仓库上下载安装 hugo 的可执行程序进行安装，具体安装流程请参阅 [Hugo官方操作文档](https://www.gohugo.org/doc/tutorials/installing-on-windows/)。
+>? Windows 的用户可以去 Hugo 的 githubc 仓库上下载安装 hugo 的可执行程序进行安装，具体安装流程请参阅 [Hugo官方操作文档](https://www.gohugo.org/doc/tutorials/installing-on-windows/)。
 
 2. 用 hugo 创建一个 blog 项目：
 ```
