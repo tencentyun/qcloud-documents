@@ -16,7 +16,7 @@ systemctl start containerd
 ``` sh
 ctr version
 ```
-返回结果如下，可通过查看 Version，确认节点 Containerd 已从 v1.2.7 升级到 v1.2.7-1-g020228e6，表示升级成功。
+返回结果如下，通过查看 Version，可确认节点 Containerd 已从 v1.2.7 升级到 v1.2.7-1-g020228e6，表示升级成功。
 ```
 Client:
      Version: v1.2.7-1-g020228e6
