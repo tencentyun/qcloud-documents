@@ -49,7 +49,6 @@ vuepress dev
 
  当您看到这样的界面时，就说明已经开通好了。
 ![](https://main.qcloudimg.com/raw/64f31f5655bfcce0506262c3f7f9163c.png)
-![](9.png)
 
  您现在可以通过上传文件手动上传一个文件测试，稍后，我们将会用云开发 CLI 来完成上传。
 
