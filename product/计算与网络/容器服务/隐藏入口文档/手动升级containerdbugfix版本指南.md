@@ -31,7 +31,7 @@ Server:
 ## 故障处理
 
 ### Pod 卡在 Terminating 状态
-如果 Pod 长时间（2 - 5分钟）卡在 Terminating 状态时，可通过 `journalctl -u containerd ` 命令查看日志。若包含类似如下信息，则可确认是 Containerd 引起的问题。
+如果 Pod 长时间（2 - 5分钟）卡在 Terminating 状态时，可通过 `journalctl -u containerd ` 命令查看日志。若包含类似如下信息，则可确认该问题是由 Containerd 引起。
 ```
 runc did not terminate sucessfully: container "8076897365b9a6ec9f371180b8fa93aa41bc83fb01bdf903542bb470eefcf47a" does not exist
 ``` 
