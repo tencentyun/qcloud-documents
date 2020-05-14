@@ -1,4 +1,4 @@
-本文介绍如何手动升级 Containerd bugfix 版本及升级过程中可能会遇到的问题和解决方法。
+本文介绍如何手动升级 Containerd bugfix 版本，和升级过程中可能会遇到的 Pod 长时间卡在 Terminating 状态的问题及其解决方法。
 
 ## 存量节点升级步骤
 1. 对于存量节点，可通过依次执行以下命令，升级 Containerd 到 bugfix 版本。
@@ -30,8 +30,11 @@ Server:
 
 ## 故障处理
 
-### Pod 卡在 Terminating 修复状态
-如果 Pod 长时间（2 - 5分钟）卡在 Terminating 状态时，可通过 `journalctl -u containerd ` 命令查看日志。若包含类似 `runc did not terminate sucessfully: container "8076897365b9a6ec9f371180b8fa93aa41bc83fb01bdf903542bb470eefcf47a" does not exist` 的信息，则可确认是 Containerd 引起的问题。
+### Pod 卡在 Terminating 状态
+如果 Pod 长时间（2 - 5分钟）卡在 Terminating 状态时，可通过 `journalctl -u containerd ` 命令查看日志。若包含类似如下信息，则可确认是 Containerd 引起的问题。
+```
+runc did not terminate sucessfully: container "8076897365b9a6ec9f371180b8fa93aa41bc83fb01bdf903542bb470eefcf47a" does not exist
+``` 
 
 ### 处理步骤
 1. 执行以下命令，查看卡住的容器。
