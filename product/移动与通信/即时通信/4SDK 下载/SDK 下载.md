@@ -80,3 +80,13 @@
   		s.parentNode.insertBefore(mta, s);
   	})();
 </script>
+
+## 直播电商解决方案
+
+| 所属平台   | Github下载地址                        | 集成指引       |
+| ---------- | ------------------------------------- | -------------- |
+| 微信小程序 | [Github](https://github.com/tencentyun/TIMSDK/) | 待新增文档发布 |
+| Web        | [Github](https://github.com/tencentyun/TIMSDK/)| 待新           |
+
+
+

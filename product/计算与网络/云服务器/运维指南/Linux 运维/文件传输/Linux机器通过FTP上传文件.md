@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-已在云服务器中 [搭建 FTP 服务](https://cloud.tencent.com/document/product/213/39128)。
+已在云服务器中 [搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912)。
 
 ## 操作步骤
 
