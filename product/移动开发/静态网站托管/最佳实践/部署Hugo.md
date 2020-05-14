@@ -94,5 +94,5 @@ cloudbase hosting:deploy ./public  -e EnvID
 这里的 EnvID 替换为刚创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
 
-7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的的域名，单击域名，就可以看到您刚刚部署的 Hexo。
+7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hexo。
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
