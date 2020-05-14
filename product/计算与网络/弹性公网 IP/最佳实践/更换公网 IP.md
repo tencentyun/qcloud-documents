@@ -11,7 +11,7 @@
 如果您选择**先更换为弹性公网 IP，再解绑弹性公网 IP**，请注意以下事项：
 - 弹性 IP 地址与云服务器实例绑定时，实例的当前公网 IP 地址会被释放。
 - 每个账户单个地域弹性公网 IP 配额数为20个。
-- 为保证 IP 资源有效利用，未绑定实例的弹性公网 IP，将按小时收取 [IP 资源费](https://cloud.tencent.com/document/product/1199/41692#ip)。
+- 为保证 IP 资源有效利用，未绑定实例的弹性公网 IP，将按小时收取 [IP 资源费用](https://cloud.tencent.com/document/product/1199/41692#ip)。
 
 ## 操作步骤
 <span id="ReplacementPublicIP"></span>
