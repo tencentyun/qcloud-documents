@@ -3,8 +3,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -26,8 +26,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -43,8 +43,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -66,8 +66,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -83,8 +83,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -100,8 +100,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -135,8 +135,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -176,8 +176,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -193,8 +193,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -210,8 +210,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
@@ -245,8 +245,8 @@
 <table>
 <tr>
     <th width=20%>动态名称</th>
-    <th width=50%>动态描述</th>
-    <th width=10%>发布时间</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
     <tr>
