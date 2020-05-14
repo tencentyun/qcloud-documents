@@ -5,8 +5,8 @@
 <table>
 <thead>
 <tr>
-<th>账户类型</th>
-<th align="center">计费模式</th>
+<th width="20%">账户类型</th>
+<th width="15%" align="center">计费模式</th>
 <th>计费说明</th>
 </tr>
 </thead>
