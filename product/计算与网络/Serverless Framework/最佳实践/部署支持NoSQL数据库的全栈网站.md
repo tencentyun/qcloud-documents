@@ -38,15 +38,7 @@
    $ serverless create --template-url https://github.com/serverless-components/tencent-mongodb/tree/master/example/fullstack-demo
    ```
    
-   2.在项目根目录下中创建`.env`文件，在其中配置对应的腾讯云 SecretId 和 SecretKey 信息：
-    
-   ```text
-   # .env
-   TENCENT_SECRET_ID=123
-   TENCENT_SECRET_KEY=123
-   ```
-    
-   找到**function->serverless.yaml**文件，填入自己的 SecretId 和 SecretKey。
+   2.在项目目录中找到**function->serverless.yaml**文件，填入自己的 SecretId 和 SecretKey。
    
    >说明:
    > 1. 如果没有腾讯云账号，请先[注册新账号](https://cloud.tencent.com/register)。
@@ -105,5 +97,21 @@
    $ sls remove --debug
    ```
    
+   #### 权限配置
+   tcb组件支持扫码一键授权，您也可通过本地配置.env文件完成权限配置，具体步骤如下：
+   
+   在项目根目录下中创建`.env`文件，在其中配置对应的腾讯云 SecretId 和 SecretKey 信息：
+    
+   ```text
+   # .env
+   TENCENT_SECRET_ID=123
+   TENCENT_SECRET_KEY=123
+   ```
+        
    #### 更多组件
    您可在[Serverless Component Repo](https://github.com/serverless/components)中查看更多组件信息
+   
+   #### Q&A
+   **报错 "EnvId is invalid"是什么原因？**
+   
+   TCB DB组件目前默认为用户创建一个免费的TCB环境，如果您已有免费环境，通过serverless component再次创建会失败报错，您可删去db文件夹，通过配置demo目录中**function->serverless.yaml**中的**MongoId**参数，输入您已有TCB环境的ID，完成项目的部署。
