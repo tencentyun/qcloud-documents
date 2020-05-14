@@ -6,13 +6,13 @@ JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 
 
 假设您的一条 JSON 日志原始数据为：
 
-```shell
+```plaintext
 {"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
 ```
 
 经过日志服务结构化处理后，该条日志将变为如下：
 
-```shell
+```plaintext
 agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0
 body_sent: 23
 http_host: 127.0.0.1
@@ -42,8 +42,10 @@ xff: -
 
 ### 3. 配置 LogListener 采集
 
-单击 LogListener 采集的日志主题，在采集配置界面中单击右上角【编辑】按钮，进入到编辑模式，开启【采集状态】和【使用 LogListener】。
-![](https://main.qcloudimg.com/raw/0d02833b9ee198a584dadd68f9c6de9c.png)
+1. 选择 LogListener 采集的日志主题，进入日志主题管理页面。
+2. 单击【采集配置】页签，并单击采集状态开关，进入到采集配置编辑模式。
+3. 在 LogListener 采集配置项中，单击【添加配置】，进入 Agent 配置页面。
+![](https://main.qcloudimg.com/raw/ac204af7c182c165a5f5fec43193007b.jpg)
 
 ### 4. 配置日志文件采集路径
 
@@ -69,6 +71,9 @@ xff: -
 | 2.   | /var/log/nginx | \*.log       | 此例中，日志路径配置为`/var/log/nginx/**/*.log`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`.log`结尾的日志文件 |
 | 3.   | /var/log/nginx | error\*      | 此例中，日志路径配置为`/var/log/nginx/**/error*`，LogListener 将会监听`/var/log/nginx`前缀路径下所有子目录中以`error`开头命名的日志文件 |
 
+![](https://main.qcloudimg.com/raw/dd2b32786507f13aa08fcb7f3d5b00ff.jpg)
+
+
 >!
 >1. 多层目录和通配符配置方式依赖2.2.2及以上版本的 loglistener，为兼容低版本 loglistener 路径配置修改方式，用户可切换旧配置进行历史修改，旧采集路径方式不支持多目录采集。
 >2. 一个日志文件只能被一个日志主题采集。
@@ -77,12 +82,14 @@ xff: -
 ### 5. 关联机器组
 
 从机器组列表中选择目标机器组，将其与当前日志主题进行关联，值得注意的是，关联的机器组与日志主题所在的地域需保持一致。操作详情请参阅 [如何创建机器组](https://cloud.tencent.com/document/product/614/17412#.E5.88.9B.E5.BB.BA.E6.9C.BA.E5.99.A8.E7.BB.84) 文档。
-![](https://main.qcloudimg.com/raw/3bca76c93bfa640563bef85f6aa6dbf9.png)
+![](https://main.qcloudimg.com/raw/11e7b2781bbfbc096ca0b08e31d5ec38.jpg)
+
 
 ### 6. JSON 模式选择
 
-键值提取模式选择 **JSON**。
-![](https://main.qcloudimg.com/raw/c4e8d572fc070dd6085ab82bb0d1545c.png)
+1. 单击【下一步】，配置日志解析方式。
+2. 【提取模式】，请选择【JSON】，如下图所示：
+![](https://main.qcloudimg.com/raw/9aef589e8d939cdf6ca32e146572ea9e.jpg)
 
 ### 7. 采集时间配置
 
