@@ -38,32 +38,34 @@ pod install //安装SDK
  github "xingePush/carthage-TPNS-iOS"
 ```
  
- - **方式三：手动导入**
+  - **方式三：手动导入**
 进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
-
-6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
-7. 在 Build Phases 下，添加以下 Framework：
-```
- * XGMTACloud.framework
- * CoreTelephony.framework
- * SystemConfiguration.framework
- * UserNotifications.framework
- * libXG-SDK-Cloud.a 
- * libz.tbd
- * CoreData.framework
- * CFNetwork.framework
- * libc++.tbd
-```
-8. 添加完成后，库的引用如下：
+ - 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+ - 在 Build Phases 下，添加以下 Framework：
+ 
+        ```
+                * XGMTACloud.framework
+                * CoreTelephony.framework
+                * SystemConfiguration.framework
+                * UserNotifications.framework
+                * libXG-SDK-Cloud.a 
+                * libz.tbd
+                * CoreData.framework
+                * CFNetwork.framework
+                * libc++.tbd
+        ```
+  - 添加完成后，库的引用如下：
 ![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
-9. 在工程配置和后台模式中打开推送，如下图所示：
+
+### 工程配置
+1.在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
-10. 添加编译参数 `-ObjC` 。
+2.添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
-
-11. 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
+### 接入示例
+调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
 	1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
    ```Objective-C
 @interface AppDelegate () <XGPushDelegate>
@@ -103,7 +105,7 @@ return YES;
 			 ```
 
 
-#### 境外集群接入方法
+### 境外集群接入方法
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 调用头文件中的配置 `HOST` 接口：
  - 如需接入新加坡集群则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
@@ -130,7 +132,7 @@ return YES;
 
 
 
-#### 实现 `XGPushDelegate` 协议
+### 实现 `XGPushDelegate` 协议
 
 在调试阶段，建议实现协议中的此方法，即可获取更详细的调试信息：
 
@@ -197,12 +199,12 @@ return YES;
 >!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 ## 集成建议
-#### 通知服务扩展功能（必选）
+### 通知服务扩展功能（抵达数据上报）
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息，强烈建议您实现此接口，接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
 >!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 
 <span id="QHToken"></span>
-#### 获取 Token （非必选）
+### 获取 Token 
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 
 #### 示例代码
