@@ -2,12 +2,12 @@
 设备通过 softAP 方式创建一个 Wi-Fi 热点，手机连接该热点，再通过数据通道例如 TCP/UDP 通讯，将目标 Wi-Fi 路由器的 SSID/PSW 传递该设备，设备获取后，即可连接 Wi-Fi 路由器从而连接互联网。同时，为了对设备进行绑定，手机 App 可以利用该 TCP/UDP 数据通道，将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。本文档主要指导您如何使用softAP 方式配网开发。
 
 基于 Token 的 softAP 方式配网及设备绑定的示例流程图，如下图所示：
-<img src="https://main.qcloudimg.com/raw/a146b79d88299a59507d81eaad99137c.jpg" width="80%">
+<img src="https://main.qcloudimg.com/raw/a146b79d88299a59507d81eaad99137c.jpg" width="90%">
 
 
 
 ## 操作步骤
-#### softAP 配网协议示例 
+### softAP 配网协议示例 
 本示例基于 ESP8266 腾讯云定制模组配合腾讯连连小程序。
 
 1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。
@@ -30,7 +30,9 @@
     payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6ab82618a9d529a2ee777bf6e528a0fd"}}
 ```
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
-9. 在以上5 - 7步骤中，如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
+9. 在以上5 - 7步骤中，需观察以下情况：
+  - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
+  - 如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
 错误日志 JSON 格式，示例如下：
 ```
 {"cmdType":2,"deviceReply":"Current_Error","log":"ESP WIFI connect error! (10, 2)"} 
@@ -40,7 +42,7 @@
 
 >!UDP 相比 TCP 是不可靠的通讯，存在丢包的可能，特别在比较嘈杂的无线 Wi-Fi 环境中，丢包率会比较大。为了保证小程序和设备之间的数据交互是可靠的，需要在应用层设计一些应答以及超时重发的机制。
 
-## 后续操作
+
 ### ESP8266 使用 softAP 配网接口
 #### 腾讯云 IoT AT 指令 ESP8266 定制固件
 如果 ESP8266 烧写了腾讯云 IoT AT 指令 ESP8266 定制固件，则只要通过指令 AT+TCDEVINFOSET 配置好设备信息，再通过下面的指令启动 softAP 配网即可。
@@ -76,9 +78,9 @@ AT+TCSAP="ESP8266-SAP","12345678"
 
 | 代码 | 设计说明 | 
 |---------|---------|
-| qcloud_wifi_config.c | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 | 
-|wifi_config_esp.c|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
-|wifi_config_error_handle.c|设备错误日志处理，主要依赖于 FreeRTOS。|
+| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 | 
+|`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
+|`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS。|
 
 
 

@@ -27,6 +27,7 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [autoLogin](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#autologin) | 自动登录。 |
 | [logout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#logout) | 登出。 |
 | [getLoginUser](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#getloginuser) | 获取当前登录的用户。 |
+| [getLoginStatus](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMManager.html#getLoginStatus) | 获取当前登录状态。 |
 
 
 ### 会话管理器
@@ -228,6 +229,8 @@ IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以�
 | [status](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#status) | 查询消息状态。 |
 | [isSelf](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#isself) | 确认自己是否为发送方。 |
 | [getSender](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方。 |
+| [getSenderNickname](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方昵称。 |
+| [getSenderFaceUrl](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getsender) | 获取消息的发送方头像 URL。 |
 | [getMsgId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getmsgid) | 获取消息 ID。 |
 | [getMsgUniqueId](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#getmsguniqueid) | 获取消息 uniqueId。 |
 | [timestamp](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/ImSDK/com/tencent/imsdk/TIMMessage.html#timestamp) | 获取当前消息的时间戳。 |

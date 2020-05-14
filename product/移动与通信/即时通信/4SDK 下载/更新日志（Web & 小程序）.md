@@ -1,3 +1,18 @@
+### 2.6.4 @2020.5.8
+
+**新增**
+
+[sendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口增加发送选项，支持发送在线消息（即不存离线和漫游，AVChatRoom 和 BChatRoom 不允许使用）和配置 [离线推送](https://cloud.tencent.com/document/product/269/3604)。
+
+### 2.6.3 @2020.4.26
+
+**修复**
+
+- [createCustomMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage) 的 payload.data payload.extension 类型传入不正确导致的消息内容丢失问题。
+- 单次请求回包多条消息时可能存在的乱序问题。
+- 偶发 C2C 会话未读数溢出导致的上报已读后未读计数无法清零。
+- 偶发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) event.data.code 和 event.data.undefined 为 undefined。
+
 ### 2.6.2 @2020.4.16
 
 **新增**

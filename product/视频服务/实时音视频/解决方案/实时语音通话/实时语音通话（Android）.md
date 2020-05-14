@@ -144,7 +144,7 @@ trtcaudiocalldemo/src/main/java/com/tencent/liteav/trtcaudiocalldemo/model
 </tr>
 <tr>
 <td>SDKAppID</td>
-<td>您可以在实时音视频控制台 > 【<a href="https://console.cloud.tencent.com/trtc/app">应用管理</a>】>  应用信息中查看 SDKAppID。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>
@@ -241,3 +241,7 @@ TRTCAudioCall 组件的 API 接口列表如下：
 | hangup | 结束通话 |
 | setMicMute | 是否静音 mic |
 | setHandsFree | 是否开启免提 |
+
+## 学习视频
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2328-34109?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+

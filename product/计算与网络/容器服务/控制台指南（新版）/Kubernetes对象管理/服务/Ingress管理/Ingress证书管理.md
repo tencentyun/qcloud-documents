@@ -19,7 +19,7 @@
 
 1. 登录负载均衡控制台，选择左侧导航栏中的 [【证书管理】](https://console.cloud.tencent.com/clb/cert)，在“证书管理”页面新建证书。
 2. 参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建。
-其中监听端口勾选【Http:443】，并选择合适的服务器证书。
+其中监听端口勾选【Https:443】，并选择合适的服务器证书。
 
 >?
 > -  当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，然后在 Ingress 中使用并监听该 Secret。
