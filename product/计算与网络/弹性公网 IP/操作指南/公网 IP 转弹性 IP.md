@@ -42,8 +42,6 @@
 </tr>
 </tbody></table>
 
-更多对比详情，请参见 [公网 IP 地址](https://cloud.tencent.com/document/product/215/38109#.E5.85.AC.E7.BD.91-ip-.E5.9C.B0.E5.9D.80)。
-
 ## 操作说明
 - 普通公网 IP 转成 EIP 前，请确保 EIP 总数未超过产品总配额，详情请参见 [配额限制](https://cloud.tencent.com/document/product/1199/41648?!#.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
 - 普通公网 IP 转成 EIP 过程中，不影响云服务器的访问公网和被公网访问的能力。
