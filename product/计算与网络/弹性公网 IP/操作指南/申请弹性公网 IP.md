@@ -23,11 +23,11 @@
 </tr>
  <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#3" target="_blank">包月带宽</a></td>
-<td>EIP 不收取 IP 资源费用，仍收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr> 
 <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
-<td>EIP 不收取 IP 资源费用，仍收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a> 。</td>
+<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a> 。</td>
 </tr>
 </tbody></table>
 
