@@ -34,6 +34,7 @@
 | -------- | ------------------------------------------------------------ |
 | 添加好友 | [v4/sns/friend_add](https://cloud.tencent.com/document/product/269/1643) |
 | 导入好友 | [v4/sns/friend_import](https://cloud.tencent.com/document/product/269/8301) |
+| 更新好友 | [v4/sns/friend_update](https://cloud.tencent.com/document/product/269/12525) |
 | 删除好友 | [v4/sns/friend_delete](https://cloud.tencent.com/document/product/269/1644) |
 | 删除所有好友 | [v4/sns/friend_delete_all](https://cloud.tencent.com/document/product/269/1645) |
 | 校验好友 | [v4/sns/friend_check](https://cloud.tencent.com/document/product/269/1646) |
@@ -67,7 +68,7 @@
 | 在群组中发送普通消息   | [v4/group_open_http_svc/send_group_msg](https://cloud.tencent.com/document/product/269/1629) |
 | 在群组中发送系统通知   | [v4/group_open_http_svc/send_group_system_notification](https://cloud.tencent.com/document/product/269/1630) |
 | 群组消息撤回           | [v4/group_open_http_svc/group_msg_recall](https://cloud.tencent.com/document/product/269/12341) |
-| 转让群组               | [v4/group_open_http_svc/change_group_owner](https://cloud.tencent.com/document/product/269/1633) |
+| 转让群主               | [v4/group_open_http_svc/change_group_owner](https://cloud.tencent.com/document/product/269/1633) |
 | 导入群基础资料         | [v4/group_open_http_svc/import_group](https://cloud.tencent.com/document/product/269/1634) |
 | 导入群消息             | [v4/group_open_http_svc/import_group_msg ](https://cloud.tencent.com/document/product/269/1635) |
 | 导入群成员             | [v4/group_open_http_svc/import_group_member](https://cloud.tencent.com/document/product/269/1636) |
@@ -88,5 +89,5 @@
 
 | 功能说明 |接口 |
 |---------|---------|
-| 下载消息记录  |[v4/open_msg_svc/get_history](https://cloud.tencent.com/document/product/269/1650) |
 | 拉取运营数据  |[v4/openconfigsvr/getappinfo](https://cloud.tencent.com/document/product/269/4193) |
+| 下载消息记录  |[v4/open_msg_svc/get_history](https://cloud.tencent.com/document/product/269/1650) |

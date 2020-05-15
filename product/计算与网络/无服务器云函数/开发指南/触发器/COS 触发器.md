@@ -75,7 +75,7 @@ COS 触发器具有以下特点：
 					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
 				}
 			},
-			"eventQueue": "qcs:0:lambda:cd:appid/1253970026:default.printevent.$LATEST",
+			"eventQueue": "qcs:0:scf:cd:appid/1253970026:default.printevent.$LATEST",
 			"reservedInfo": "",
 			"reqid": 179398952
 		}

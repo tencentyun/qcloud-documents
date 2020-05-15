@@ -1,8 +1,8 @@
 ## 发送消息
 
 ### 创建文本消息
-创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
+创建文本消息的接口，此接口返回一个消息实例，可以在需要发送文本消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 **接口名**
 
@@ -59,6 +59,7 @@ promise.then(function(imResponse) {
 
 
 ### 创建图片消息
+
 创建图片消息的接口，此接口返回一个消息实例，可以在需要发送图片消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 >! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
@@ -74,17 +75,17 @@ tim.createImageMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                            |
-| ------------------ | -------- | ------------------------------------------------------ |
-| `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                         |
-| `onProgress` | `function` | 获取上传进度的回调函数 |
+| Name               | Type       | Description                                                |
+| ------------------ | ---------- | ---------------------------------------------------------- |
+| `to`               | `String`   | 消息的接收方                                               |
+| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object`   | 消息内容的容器                                             |
+| `onProgress`       | `function` | 获取上传进度的回调函数                                     |
 
 `paylaod`的描述如下表所示：
 
-| Name | Type                        | Description                                                  |
-| ---- | --------------------------- | ------------------------------------------------------------ |
+| Name | Type                         | Description                                                  |
+| ---- | ---------------------------- | ------------------------------------------------------------ |
 | file | `HTMLInputElement 或 Object` | 用于选择图片的 DOM 节点（Web）或者 File 对象（Web）或者微信小程序 `wx.chooseImage` 接口的 `success` 回调参数。SDK 会读取其中的数据并上传图片 |
 
 **Web 示例**
@@ -187,6 +188,10 @@ wx.chooseImage({
 
 
 ### 创建音频消息
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 >  创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
 
 **接口**
@@ -199,16 +204,16 @@ tim.createAudioMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                            |
-| ------------------ | -------- | --------------------- |
-| `to`               | `String` | 消息的接收方                                           |
+| Name               | Type     | Description                                                |
+| ------------------ | -------- | ---------------------------------------------------------- |
+| `to`               | `String` | 消息的接收方                                               |
 | `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                         |
+| `payload`          | `Object` | 消息内容的容器                                             |
 
 `paylaod`的描述如下表所示：
 
-| Name | Type                        | Description                                                  |
-| ---- | --------------------------- | ------------ |
+| Name | Type     | Description          |
+| ---- | -------- | -------------------- |
 | file | `Object` | 录音后得到的文件信息 |
 
 **小程序示例**
@@ -217,6 +222,7 @@ tim.createAudioMessage(options)
 // 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a>
 // 1. 获取全局唯一的录音管理器 RecorderManager
 const recorderManager = wx.getRecorderManager();
+
 
 // 录音部分参数
 const recordOptions = {
@@ -264,6 +270,7 @@ recorderManager.start(recordOptions);
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
 ### 创建文件消息
+
 创建文件消息的接口，此接口返回一个消息实例，可以在需要发送文件消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。
 
 >!
@@ -281,17 +288,26 @@ tim.createFileMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
+<<<<<<< HEAD
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
 | `to`               | `String` | 消息接收方的 userID 或 groupID |
 | `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
 | `payload`          | `Object` | 消息内容的容器 |
 | `onProgress`          | `function` | 获取上传进度的回调函数 |
+=======
+| Name               | Type       | Description                                                  |
+| ------------------ | ---------- | ------------------------------------------------------------ |
+| `to`               | `String`   | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
+| `payload`          | `Object`   | 消息内容的容器                                               |
+| `onProgress`       | `function` | 获取上传进度的回调函数                                       |
+>>>>>>> upstream/master
 
 `payload`的描述如下表所示：
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
+| Name   | Type               | Description                                                  |
+| ------ | ------------------ | ------------------------------------------------------------ |
 | `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点（Web）或者 File 对象（Web），SDK 会读取其中的数据并上传文件。 |
 
 **示例**
@@ -393,6 +409,7 @@ payload: {      file: file    },
 
 ```javascript
 tim.createCustomMessage(options)
+
 ```
 
 **参数**
@@ -407,11 +424,11 @@ tim.createCustomMessage(options)
 
 `payload`的描述如下表所示：
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
-| `data` | `String` | 自定义消息的数据字段 |
+| Name          | Type     | Description          |
+| ------------- | -------- | -------------------- |
+| `data`        | `String` | 自定义消息的数据字段 |
 | `description` | `String` | 自定义消息的数据字段 |
-| `extension` | `String` | 自定义消息的数据字段 |
+| `extension`   | `String` | 自定义消息的数据字段 |
 
 
 **示例**
@@ -444,6 +461,7 @@ promise.then(function(imResponse) {
   // 发送失败
   console.warn('sendMessage error:', imError);
 });
+
 ```
 
 **返回**
@@ -464,6 +482,7 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.createVideoMessage(options)
+
 ```
 
 **参数**
@@ -533,6 +552,10 @@ promise.then(function(imResponse) {
   // 发送失败
   console.warn('sendMessage error:', imError);
 });
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
 ```
 
 返回**
@@ -549,6 +572,7 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.createFaceMessage(options)
+
 ```
 
 **参数**
@@ -563,10 +587,10 @@ tim.createFaceMessage(options)
 
 `payload`的描述如下表所示：
 
-| Name   | Type     | Description  |
-| ------ | -------- | ------------ |
+| Name    | Type     | Description          |
+| ------- | -------- | -------------------- |
 | `index` | `Number` | 表情索引，用户自定义 |
-| `data` | `String` | 额外数据 |
+| `data`  | `String` | 额外数据             |
 
 **示例**
 
@@ -593,6 +617,7 @@ promise.then(function(imResponse) {
   // 发送失败
   console.warn('sendMessage error:', imError);
 });
+
 ```
 
 **返回**
@@ -603,6 +628,7 @@ promise.then(function(imResponse) {
 ### 发送消息
 
 发送消息的接口，需先调用下列的创建消息实例的接口获取消息实例后，再调用该接口发送消息实例。
+
 - [创建文本消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage)
 - [创建图片消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createImageMessage)
 - [创建音频消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createAudioMessage)
@@ -612,6 +638,7 @@ promise.then(function(imResponse) {
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 
 >!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
+
 - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
 - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
 
@@ -622,16 +649,24 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.sendMessage(options)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
+<<<<<<< HEAD
 | Name               | Type     | **Attributes** | Description    |
 | ------------------ | -------- | -------------- | -------------- |
 | `message`               | `Message` |  | 消息实例   |
 | `options` | `Object` | `optional` | 消息发送选项（消息内容的容器） |
+=======
+| Name      | Type      | **Attributes** | Description                    |
+| --------- | --------- | -------------- | ------------------------------ |
+| `message` | `Message` |                | 消息实例                       |
+| `options` | `Object`  | `optional`     | 消息发送选项（消息内容的容器） |
+>>>>>>> upstream/master
 
 `options`的描述如下表所示：
 
@@ -676,6 +711,7 @@ tim.sendMessage(message, {
     androidOPPOChannelID: '' // 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID
   }
 });
+
 ```
 
 
@@ -691,6 +727,7 @@ tim.sendMessage(message, {
 撤回单聊消息或者群聊消息。撤回成功后，消息对象的 `isRevoked` 属性值为 `true`。
 
 >!
+>
 >- 使用该接口前，需要将 SDK 版本升级至v2.4.0或以上。
 >- 消息可撤回时间默认为2分钟。可通过 [控制台](https://console.cloud.tencent.com/im-detail/login-message) 调整消息可撤回时间。
 >- 被撤回的消息，可以调用 [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
@@ -700,15 +737,16 @@ tim.sendMessage(message, {
 
 ```javascript
 tim.revokeMessage(options)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description    |
-| ------------------ | -------- | -------------- |
-| `message`               | `Message` | 消息实例   |
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| `message` | `Message` | 消息实例    |
 
 **示例**
 
@@ -721,6 +759,7 @@ promise.then(function(imResponse) {
   // 消息撤回失败
   console.warn('revokeMessage error:', imError);
 });
+
 ```
 
 ```javascript
@@ -729,6 +768,7 @@ tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
   // event.name - TIM.EVENT.MESSAGE_REVOKED
   // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
 });
+
 ```
 
 ```javascript
@@ -744,6 +784,7 @@ promise.then(function(imResponse) {
     }
   });
 });
+
 ```
 
 **返回**
@@ -758,15 +799,16 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.resendMessage(options)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description    |
-| ------------------ | -------- | -------------- |
-| `message`               | `Message` | 消息实例   |
+| Name      | Type      | Description |
+| --------- | --------- | ----------- |
+| `message` | `Message` | 消息实例    |
 
 **示例**
 
@@ -780,11 +822,13 @@ promise.then(function(imResponse) {
   // 重发失败
   console.warn('resendMessage error:', imError);
 });
+
 ```
 
 **返回**
 
 该接口返回 `Promise` 对象：
+
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
@@ -805,6 +849,7 @@ let onMessageReceived = function(event) {
   // event.data - 存储 Message 对象的数组 - [Message]
 };
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
+
 ```
 
 
@@ -814,6 +859,7 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
 <ul><li><b>简单版</b><br>
  如果您的文本消息只含有文字，则可以直接在 UI 上渲染出`'xxxxxxx'`文字。</li>
 <li><b>含有 [呲牙] 内容需要解析为<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">的文本</b>
+
 
 ```javascript
 const emojiMap = {         // 根据[呲牙]可匹配的路径地址
@@ -880,7 +926,9 @@ function parseText (payload) {
 
 // 最后的 renderDom 结构为[{name: 'text', text: 'XXX'}, {name: 'img', src: 'http://xxx'}......]
 // 渲染当前数组即可得到想要的 UI 结果，如：XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX<img src="https://main.qcloudimg.com/raw/6be88c30a4552b5eb93d8eec243b6593.png"  style="margin:0;">XXX[呲牙XXX]
+
 ```
+
 </li></ul>
 
 
@@ -915,6 +963,7 @@ function parseGroupSystemNotice (payload) {
       return '自定义群系统通知'
   }
 }
+
 ```
 
 
@@ -938,6 +987,7 @@ function parseGroupTipContent (payload) {
       return '[群提示消息]'
   }
 }
+
 ```
 
 
@@ -954,6 +1004,7 @@ function parseGroupTipContent (payload) {
 
 ```javascript
 tim.getMessageList(options)
+
 ```
 
 >!该接口可用于"拉取历史消息"。
@@ -962,11 +1013,11 @@ tim.getMessageList(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Attributes | Default | Description    |
-| ------------------ | -------- | -------------- | -------------- | -------------- |
-| `conversationID`   | `String` |      -     |    -       | 会话 ID          |
-| `nextReqMessageID`   | `String` |       -    |     -      | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可          |
-| `count`   | `Number` | `<optional>` | 15       | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息         |
+| Name               | Type     | Attributes   | Default | Description                                                  |
+| ------------------ | -------- | ------------ | ------- | ------------------------------------------------------------ |
+| `conversationID`   | `String` | -            | -       | 会话 ID                                                      |
+| `nextReqMessageID` | `String` | -            | -       | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
+| `count`            | `Number` | `<optional>` | 15      | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
 
 **示例**
 
@@ -978,6 +1029,7 @@ promise.then(function(imResponse) {
   const nextReqMessageID = imResponse.data.nextReqMessageID; // 用于续拉，分页续拉时需传入该字段。
   const isCompleted = imResponse.data.isCompleted; // 表示是否已经拉完所有消息。
 });
+
 ```
 
 ```javascript
@@ -989,11 +1041,13 @@ promise.then(function(imResponse) {
   const nextReqMessageID = imResponse.data.nextReqMessageID; // 用于续拉，分页续拉时需传入该字段。
   const isCompleted = imResponse.data.isCompleted; // 表示是否已经拉完所有消息。
 });
+
 ```
 
 **返回**
 
 该接口返回 `Promise` 对象：
+
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
@@ -1005,14 +1059,20 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.setMessageRead(options)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
+<<<<<<< HEAD
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
+=======
+| Name             | Type     | Description                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+>>>>>>> upstream/master
 | `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
@@ -1020,6 +1080,7 @@ tim.setMessageRead(options)
 ```javascript
 // 将某会话下所有未读消息已读上报
 tim.setMessageRead({conversationID: 'C2Cexample'});
+
 ```
 
 
@@ -1035,6 +1096,7 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 
 ```javascript
 tim.getConversationList()
+
 ```
 
 **示例**
@@ -1047,11 +1109,13 @@ promise.then(function(imResponse) {
 }).catch(function(imError) {
   console.warn('getConversationList error:', imError); // 获取会话列表失败的相关信息
 });
+
 ```
 
 **返回**
 
 该接口返回 `Promise` 对象：
+
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
@@ -1065,14 +1129,20 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.getConversationProfile(conversationID)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
+<<<<<<< HEAD
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
+=======
+| Name             | Type     | Description                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+>>>>>>> upstream/master
 | `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
@@ -1085,11 +1155,13 @@ promise.then(function(imResponse) {
 }).catch(function(imError) {
   console.warn('getConversationProfile error:', imError); // 获取会话资料失败的相关信息
 });
+
 ```
 
 **返回**
 
 该接口返回 `Promise` 对象：
+
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
@@ -1103,14 +1175,20 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.deleteConversation(conversationID)
+
 ```
 
 **参数**
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
+<<<<<<< HEAD
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
+=======
+| Name             | Type     | Description                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+>>>>>>> upstream/master
 | `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
@@ -1123,10 +1201,12 @@ promise.then(function(imResponse) {
 }).catch(function(imError) {
   console.warn('deleteConversation error:', imError); // 删除会话失败的相关信息
 });
+
 ```
 
 **返回**
 
 该接口返回 `Promise` 对象：
+
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。

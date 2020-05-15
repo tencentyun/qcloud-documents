@@ -1,10 +1,40 @@
 <head><link rel="stylesheet" href="https://doc-archer-1255486055.cos.ap-nanjing.myqcloud.com/archer.css"></head>
 弹性公网 IP（EIP）是可以独立购买和持有的公网 IP 地址资源，您可根据如下操作申请 EIP。
 
+## 费用说明
+申请 EIP 后，不同类型账户的费用说明如下：
+<table>
+<thead>
+<tr>
+<th>账户类型</th>
+<th align="center">计费模式</th>
+<th>计费说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>非带宽上移账户</td>
+<td align="center">-</td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</td>
+</tr>
+<tr>
+<td rowspan="3">带宽上移账户</td>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank"> IP 资源费用</a>。</td>
+</tr>
+ <tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#3" target="_blank">包月带宽</a></td>
+<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr> 
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
+<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a> 。</td>
+</tr>
+</tbody></table>
+
 ## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择【地域】，单击【申请】。
-3. 在弹出的“申请弹性公网IP”窗口中，请按照您的账户类型，分别进行如下操作：
+3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
 >? 若您无法确定账户类型，请参见 [如何判断账户类型](https://cloud.tencent.com/document/product/1199/41692#judge)。
 >
 <div class="codetab">

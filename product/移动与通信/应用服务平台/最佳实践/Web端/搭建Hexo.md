@@ -40,7 +40,7 @@ hexo s
 ```
 cloudbase login
 ```
-2. 将拉起浏览器授权，登录刚刚创建云开发环境的账号
+2. 将拉起浏览器授权，登录刚创建云开发环境的账号
 ![](https://main.qcloudimg.com/raw/026ba161e5820db9efa889c3b0d0c367.png)
 
 
