@@ -11,6 +11,7 @@
 | 数据源兼容   | 支持管理小程序/ Web / 移动端的云开发数据，支持管理已有数据集合，也可以在 CMS 后台创建新的内容和数据集合 |
 | 部署简单     | 可在云开发控制台扩展管理界面一键部署和升级                   |
 
+### CMS示例 DEMO
 ![CMS](https://main.qcloudimg.com/raw/d9261d6f06846dbbef939b441fa7c3fa/article-list.png)
 ## 扩展工作模式
 当您使用这个扩展时：
@@ -18,8 +19,21 @@
 2. 通过静态托管、云数据库、云存储为您存储内容。
 
 ## 前置要求
-已经开通云开发，并创建后付费环境（该扩展只能安装在后付费环境）。
-## 扩展配置信息
+- 微信小程序开发者：已经开通云开发，并创建按量计费环境（该扩展只能安装在按量计费环境，预付费环境可在微信开发者IDE将付费方式切换为按量计费）；
+- 腾讯云开发者：已经开通云开发，并创建按量计费环境（该扩展只能安装在按量计费环境，预付费环境可在云开发控制台将付费方式切换为按量计费）。
+
+## 安装扩展
+>! 微信小程序开发者请使用【其他登录方式】-【微信公众号登录】登录，再选择关联的小程序账户登录。
+
+- 打开 [云开发控制台](https://console.cloud.tencent.com/tcb/add)；
+- 选择目标按量计费环境 `CustomEnv` 后，在更多扩展能力下单击【安装】【CMS内容管理系统】扩展，并按提示完成扩展安装。
+![安装示例](https://main.qcloudimg.com/raw/4e19184dd90965783a267754440cfd93.png)
+## 使用扩展
+请先完成【CMS内容管理系统】的安装，然后访问该扩展的管理页，在【扩展运行方式】Tab 查看使用指引，依照文档完成CMS的使用。
+![运行方式](https://main.qcloudimg.com/raw/67360e4c5f2e362c309bd874070b19d0.png)
+
+## 其他
+### 扩展配置信息
 您可以配置以下参数：
 - 管理员账号：CMS内容管理系统的管理员账号。
 - 管理员密码：CMS内容管理系统的管理员密码。
@@ -28,17 +42,15 @@
 - 自定义登录密钥：云开发自定义登录密钥。
 - 部署路径：CMS内容管理系统的部署路径。
 
-## 计费
+### 计费
 此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
 
-- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-- 云存储（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 云开发（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
 - 静态托管（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
 
 当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
 
-## 创建的资源
+### 创建的资源
 -  __Type:__  Cloud Function<br>
  __Description:__  <br>tcb-ext-cms-auth：该函数提供登录鉴权功能，用户在 CMS 管理界面通过通过用户名和密码来进行登录时，会通过 HTTP 来请求该函数；<br>tcb-ext-cms-api：提供 API 接口功能，所有对内容的操作和管理都会经过此函数调用，内容操作会根据用户权限来进行数据库操作；<br>tcb-ext-cms-init：提供初始化应用功能，安装扩展后，会通过该函数来进行静态资源的部署和密码的生成和设置，修改账号密码或者部署路径等扩展参数都会再次执行该函数来进行更新。
 -  __Type:__  Cloud DB<br>
@@ -47,20 +59,14 @@
  __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
 -  __Type:__  Static Store<br>
  __Description:__  CMS 系统前端界面，基于 React 开发，通过 TCB JS SDK 访问 CMS 的函数、数据库和存储等资源。
-## 权限授予
-### 主账户
+### 权限授予
+#### 主账户
 该扩展能力使用云开发自有资源即可完成，无需再授予其他权限。
 
-### 子账户
+#### 子账户
 如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
 
 -  __策略:__  QcloudAccessForTCBRole<br>
  __描述:__  云开发（TCB）对云资源的访问权限。
 
-## 安装扩展
-您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理扩展。
->! 该扩展只能安装在后付费环境下，请确保已经创建后付费环境。
-
-## 使用扩展
-请先完成【CMS内容管理系统】的安装，然后访问该扩展的管理页，在【扩展运行方式】Tab 查看使用指引，依照文档完成CMS的使用。
 
