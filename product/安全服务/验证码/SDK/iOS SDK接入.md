@@ -1,4 +1,4 @@
->!目前验证码的 iOS SDK 接入方式已暂停维护，仅支持部分老用户使用，若您需接入验证码服务，请参见  [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841)。
+>!目前验证码的 iOS SDK 接入方式已暂停维护，仅支持部分存量用户使用，若您需接入验证码服务，请参见  [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841)。
 
 ## 前提条件
 ### 准备 AppID
