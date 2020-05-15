@@ -70,6 +70,7 @@
 <td>NAT 网关</td>
 <td><ul>
 <li>EIP 与 NAT 网关需处于<strong>相同地域</strong>才可进行绑定。</li>
+<li>仅按流量和共享带宽包计费模式的 EIP 可与 NAT 网关进行绑定。</li>
 <li>一个 NAT 网关最多可绑定10个 EIP。</li>
 <li>当 NAT 网关绑定多个 EIP 时，系统会自动做负载均衡。</li></ul></td>
 </tr>
