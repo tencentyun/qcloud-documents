@@ -9,7 +9,7 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 
 ## 使用步骤
 1. 创建函数
-【运行环境】选择“Python3.6”，【模糊搜索】关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，如下图所示：
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择【函数服务】>【新建】，在“新建函数”页面中选择【运行环境】为“Python3.6”，【模糊搜索】中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，如下图所示：
 ![](https://main.qcloudimg.com/raw/70e55179550b09935832dd996dbac934.png)
 2. 配置函数
 函数配置过程，如下图所示：
