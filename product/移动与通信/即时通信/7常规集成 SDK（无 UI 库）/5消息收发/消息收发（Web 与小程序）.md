@@ -14,19 +14,17 @@ tim.createTextMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                            |
-| ------------------ | -------- | ------------------------------------------------------ |
-| `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                         |
+| Name               | Type     | Description                                                  |
+| ------------------ | -------- | ------------------------------------------------------------ |
+| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
+| `payload`          | `Object` | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
 | Name   | Type     | Description  |
 | ------ | -------- | ------------ |
 | `text` | `String` | 消息文本内容 |
-
-
 
 **示例**
 
@@ -36,6 +34,9 @@ tim.createTextMessage(options)
 let message = tim.createTextMessage({
   to: 'user1',
   conversationType: TIM.TYPES.CONV_C2C,
+  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
+  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
+  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
   payload: {
     text: 'Hello world!'
   }
@@ -89,11 +90,14 @@ tim.createImageMessage(options)
 **Web 示例**
 
 ```javascript
-// Web 端发送图片消息
+// Web 端发送图片消息示例1 - 传入 DOM 节点
 // 1. 创建消息实例，接口返回的实例可以上屏
 let message = tim.createImageMessage({
   to: 'user1',
   conversationType: TIM.TYPES.CONV_C2C,
+  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
+  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
+  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
   payload: {
     file: document.getElementById('imagePicker'),
   },
@@ -107,6 +111,44 @@ promise.then(function(imResponse) {
 }).catch(function(imError) {
   // 发送失败
   console.warn('sendMessage error:', imError);
+});
+
+// Web 端发送图片消息示例2- 传入 File 对象
+// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" />
+document.getElementById('testPasteInput').addEventListener('paste', function(e) {
+  let clipboardData = e.clipboardData;
+  let file;
+  let fileCopy;
+  if (clipboardData && clipboardData.files && clipboardData.files.length > 0) {
+    file = clipboardData.files[0];
+    // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据
+    fileCopy = file.slice();
+  }
+
+  if (typeof file === 'undefined') {
+    console.warn('file 是 undefined，请检查代码或浏览器兼容性！');
+    return;
+  }
+
+  // 1. 创建消息实例，接口返回的实例可以上屏
+  let message = tim.createImageMessage({
+    to: 'user1',
+    conversationType: TIM.TYPES.CONV_C2C,
+    payload: {
+      file: file
+    },
+    onProgress: function(event) { console.log('file uploading:', event) }
+  });
+
+  // 2. 发送消息
+  let promise = tim.sendMessage(message);
+  promise.then(function(imResponse) {
+    // 发送成功
+    console.log(imResponse);
+  }).catch(function(imError) {
+    // 发送失败
+    console.warn('sendMessage error:', imError);
+  });
 });
 ```
 
@@ -145,12 +187,7 @@ wx.chooseImage({
 
 
 ### 创建音频消息
-创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 
-
-注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
-注意2：createVideoMessage 支持在微信小程序环境使用，从v2.6.0起，支持在 Web 环境使用。
-注意3：微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，sdk 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
-注意4：全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。 
+>  创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
 
 **接口**
 
@@ -246,8 +283,8 @@ tim.createFileMessage(options)
 
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
-| `to`               | `String` | 消息的接收方   |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `to`               | `String` | 消息接收方的 userID 或 groupID |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
 | `payload`          | `Object` | 消息内容的容器 |
 | `onProgress`          | `function` | 获取上传进度的回调函数 |
 
@@ -260,7 +297,7 @@ tim.createFileMessage(options)
 **示例**
 
 ```javascript
-// 发送文件消息
+// Web 端发送文件消息示例1 - 传入 DOM 节点
 // 1. 创建文件消息实例，接口返回的实例可以上屏
 let message = createFileMessage({
   to: 'user1',
@@ -362,11 +399,11 @@ tim.createCustomMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                            |
-| ------------------ | -------- | ------------------------------------------------------ |
-| `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                         |
+| Name               | Type     | Description                                                  |
+| ------------------ | -------- | ------------------------------------------------------------ |
+| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`(端到端会话) 或 `TIM.TYPES.CONV_GROUP`(群组会话) |
+| `payload`          | `Object` | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -416,12 +453,12 @@ promise.then(function(imResponse) {
 
 ### 创建视频消息
 
-创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息实例。 目前 `createVideoMessage` 只支持在微信小程序环境使用。微信小程序录制视频或从相册选择视频文件，不会返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染时忽略缩图相关信息，自主处理。
+创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
 
->!
->! 全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。
->
->- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+> 注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
+> 注意2：createVideoMessage 支持在微信小程序环境使用，从v2.6.0起，支持在 Web 环境使用。
+> 注意3：微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，sdk 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
+> 注意4：全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。  
 
 **接口**
 
@@ -433,16 +470,22 @@ tim.createVideoMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type       | Description                                                |
-| ------------------ | ---------- | ---------------------------------------------------------- |
-| `to`               | `String`   | 消息的接收方                                               |
-| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object`   | 录制或从相册选择的视频文件                               |
-| `onProgress`       | `function` | 获取上传进度的回调函数                                     |
+| Name               | Type     | Description                                                |
+| ------------------ | -------- | ---------------------------------------------------------- |
+| `to`               | `String` | 消息的接收方                                               |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `payload`          | `Object` | 消息内容的容器                                             |
+
+`payload`的描述如下表所示：
+
+| Name   | Type                               | Description                                                  |
+| ------ | ---------------------------------- | ------------------------------------------------------------ |
+| `text` | `HTMLInputElement | File | Object` | 用于选择视频文件的 DOM 节点（Web）或者 File 对象（Web），或微信小程序录制或者从相册选择的视频文件。SDK 会读取其中的数据并上传 |
 
 **示例**
 
 ```javascript
+// 小程序端发送视频消息示例：
 // 1. 调用小程序接口选择视频，接口详情请查阅 https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseVideo.html
 wx.chooseVideo({
   sourceType: ['album', 'camera'], // 来源相册或者拍摄
@@ -469,9 +512,30 @@ wx.chooseVideo({
     });
   }
 })
+
+// web 端发送视频消息示例（v2.6.0起支持）：
+// 1. 获取视频：传入 DOM 节点
+// 2. 创建消息实例
+const message = tim.createVideoMessage({
+  to: 'user1',
+  conversationType: TIM.TYPES.CONV_C2C,
+  payload: {
+    file: document.getElementById('videoPicker') // 或者用event.target
+  },
+  onProgress: function(event) { console.log('file uploading:', event) }
+});
+// 3. 发送消息
+let promise = tim.sendMessage(message);
+promise.then(function(imResponse) {
+  // 发送成功
+  console.log(imResponse);
+}).catch(function(imError) {
+  // 发送失败
+  console.warn('sendMessage error:', imError);
+});
 ```
 
-**返回**
+返回**
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
@@ -491,11 +555,11 @@ tim.createFaceMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                            |
-| ------------------ | -------- | ------------------------------------------------------ |
-| `to`               | `String` | 消息的接收方                                           |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                         |
+| Name               | Type     | Description                                                  |
+| ------------------ | -------- | ------------------------------------------------------------ |
+| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`(端到端会话) 或 `TIM.TYPES.CONV_GROUP`(群组会话) |
+| `payload`          | `Object` | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -512,6 +576,9 @@ tim.createFaceMessage(options)
 let message = tim.createFaceMessage({
   to: 'user1',
   conversationType: TIM.TYPES.CONV_C2C,
+  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
+  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
+  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
   payload: {
     index: 1, // Number 表情索引，用户自定义
     data: 'tt00' // String 额外数据
@@ -561,9 +628,28 @@ tim.sendMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description    |
-| ------------------ | -------- | -------------- |
-| `message`               | `Message` | 消息实例   |
+| Name               | Type     | **Attributes** | Description    |
+| ------------------ | -------- | -------------- | -------------- |
+| `message`               | `Message` |  | 消息实例   |
+| `options` | `Object` | `optional` | 消息发送选项（消息内容的容器） |
+
+`options`的描述如下表所示：
+
+| Name              | Type      | **Attributes** | Description                                                  |
+| ----------------- | --------- | -------------- | ------------------------------------------------------------ |
+| `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持。消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项。 |
+| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604)配置。（消息内容的容器） |
+
+`offlinePushInfo`的描述如下表所示：
+
+| Name                   | Type      | **Attributes** | Description                                                  |
+| ---------------------- | --------- | -------------- | ------------------------------------------------------------ |
+| `disablePush`          | `Boolean` | `optional`     | true 关闭离线推送；false 开启离线推送（默认）                |
+| `title`                | `String`  | `optional`     | 离线推送标题。该字段为 iOS 和 Android 共用                   |
+| `description`          | `String`  | `optional`     | 离线推送内容。该字段会覆盖消息实例的离线推送展示文本。若发送的是自定义消息，该 description 字段会覆盖 message.payload.description。如果 description 和 message.payload.description 字段都不填，接收方将收不到该自定义消息的离线推送 |
+| `extension`            | `String`  | `optional`     | 离线推送透传内容                                             |
+| `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 APP 的应用图标未读计数增加 |
+| `androidOPPOChannelID` | `String`  | `optional`     | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID               |
 
 **示例**
 
@@ -638,8 +724,8 @@ promise.then(function(imResponse) {
 ```
 
 ```javascript
-// 收到消息被撤回的通知
 tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
+  // 收到消息被撤回的通知。使用前需要将SDK版本升级至v2.4.0或以上。
   // event.name - TIM.EVENT.MESSAGE_REVOKED
   // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
 });
@@ -927,7 +1013,7 @@ tim.setMessageRead(options)
 
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
-| `conversationID` | `String` | 会话 ID |
+| `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
 
@@ -987,7 +1073,7 @@ tim.getConversationProfile(conversationID)
 
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
-| `conversationID` | `String` | 会话 ID |
+| `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
 
@@ -1025,7 +1111,7 @@ tim.deleteConversation(conversationID)
 
 | Name               | Type     | Description    |
 | ------------------ | -------- | -------------- |
-| `conversationID` | `String` | 会话 ID |
+| `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
 
