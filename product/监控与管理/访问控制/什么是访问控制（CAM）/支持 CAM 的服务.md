@@ -85,7 +85,7 @@
 | 服务                                                      | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |	
 | ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	---- |	
 | [云函数](https://cloud.tencent.com/document/product/583)  | 资源级 | &#10003;        |  -  | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/583/9203)  |	
-| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | - |  -   |  &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
+| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | &#10003; |  -   |  &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
 
 
 ## 中间件	
@@ -280,7 +280,7 @@
 
  | 服务                                                          | 授权粒度| 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ---------------------------------------------------------| ------ | -------- | ------ | ---- |	 ---- |	
-| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851)  | -  | -   | -   |   &#10003;   |	  - |
+| [腾讯智能钛机器学习平台](https://cloud.tencent.com/document/product/851)  | 操作级  | &#10003;   | -   |   &#10003;   |	  - |
 | [ 智能钛弹性模型服务 ](https://cloud.tencent.com/document/product/1120)  | 服务级  | &#10003;   | -   |   &#10003;   |	  - |
 | [智能对话平台 ](https://cloud.tencent.com/document/product/1060)  | 服务级  | &#10003;   | -   |  -  |	  - |
 
