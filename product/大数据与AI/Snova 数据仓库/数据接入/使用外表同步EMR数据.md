@@ -35,7 +35,7 @@ CREATE READABLE EXTERNAL TABLE  snova_cos_table (c1 int, c2 varchar(32), c3 int,
 LOCATION('cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX} secretKey=**** secretId=***')
 FORMAT 'csv';
 ```
-详细内容可以参见 [使用外表](https://cloud.tencent.com/document/product/878/20068)。
+详细内容可以参见 [使用外表高速导入或导出 COS 数据](https://cloud.tencent.com/document/product/878/34875)。
 6. 在 CDW 侧创建本地表并导入数据
 ```
 create table snova_local_table(c1 int, c2 text, c3 int, c4 text);
