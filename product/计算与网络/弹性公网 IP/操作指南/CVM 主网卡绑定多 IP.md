@@ -78,10 +78,12 @@ GATEWAY=10.0.0.1 # 步骤3中所记录的网关，请根据实际填写
 #
 NM_CONTROLLED=no
 ONBOOT=yes
+PERSISTENT_DHCLIENT=yes
 TYPE=Ethernet
 USERCTL=no
-PERSISTENT_DHCLIENT=yes
 ```
+修改后，示例如下：
+![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
 8. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 9. 执行如下命令，重启网络服务。
 ```
