@@ -290,6 +290,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- |  ---- |	 ---- |	
 | [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038)  | 资源级  | &#10003; | -   | &#10003;   | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760)   |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)  | 资源级 | &#10003;| -   |  -    |	 -   |
+| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165)  | 服务级 | &#10003;| -   |  &#10003;    |	 -   |
 
 ## 教育服务	
 
