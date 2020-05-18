@@ -147,7 +147,7 @@ tim.on(TIM.EVENT.KICKED_OUT, function(event) {
 
 | Name       | Type     | Description             |
 | ---------- | -------- | ----------------------- |
-| `SDKAppID` | `Number` | 云通信应用的 `SDKAppID` |
+| `SDKAppID` | `Number` | 即时通信 IM 应用的 `SDKAppID` |
 
 更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
 
