@@ -629,7 +629,7 @@ tim.sendMessage(options)
 | `title`                | `String`  | `optional`     | 离线推送标题，该字段为 iOS 和 Android 共用                   |
 | `description`          | `String`  | `optional`     | 离线推送内容，该字段会覆盖消息实例的离线推送展示文本。若发送的是自定义消息，该 description 字段会覆盖 message.payload.description。如果 description 和 message.payload.description 字段都不填，接收方将收不到该自定义消息的离线推送 |
 | `extension`            | `String`  | `optional`     | 离线推送透传内容                                             |
-| `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 APP 的应用图标未读计数增加 |
+| `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 App 的应用图标未读计数增加 |
 | `androidOPPOChannelID` | `String`  | `optional`     | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID               |
 
 **示例**
