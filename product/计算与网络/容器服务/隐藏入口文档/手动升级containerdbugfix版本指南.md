@@ -1,4 +1,4 @@
-本文介绍如何手动升级存量节点 Containerd 到新的 bugfix 版本，以及存量 Pod 长时间卡在 Terminating 状态的问题及其解决方法。
+本文介绍如何手动升级存量节点 Containerd 到新的 bugfix 版本，以及存量 Pod 长时间卡在 Terminating 状态的解决方法。
 
 
 
