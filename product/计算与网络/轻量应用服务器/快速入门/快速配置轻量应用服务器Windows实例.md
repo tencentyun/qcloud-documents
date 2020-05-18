@@ -24,7 +24,7 @@
 ## 步骤3：重置轻量应用服务器 Windows 实例密码
 完成轻量应用服务器创建后，您需要为轻量应用服务器的管理员用户名（Administrator）设置密码。  
 进入实例详情页，点击【重置密码】，在弹窗中输入并确认密码。
-1. 在 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)的服务器列表中，找到并进入刚购买的服务器详情页。
+1. 在 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的服务器列表中，找到并进入刚购买的服务器详情页。
 2. 在“实例信息”栏中，单击【重置密码】。
 3. 在弹出的窗口中，根据界面提示，输入并确认密码，完成重置密码操作。
 >? 重置密码需要在实例关机状态下操作，建议您先将实例关机再执行重置密码的操作。如果您选择在开机状态下重置密码，则需要勾选“同意强制关机”才能执行操作。
@@ -32,6 +32,6 @@
 
 ## 步骤4：登录轻量应用服务器 Windows 实例
 
-在 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)的服务器列表中，找到刚购买的服务器，单击【登录】。
+在 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的服务器列表中，找到刚购买的服务器，单击【登录】。
 Windows 实例将通过 VNC 终端登录，您只需输入用户名（Administrator）和密码即可登录该实例。
 此外，您也可以使用本地的 RDP 工具（如 Windows 自带的 MSTSC）远程连接 Windows 实例。
