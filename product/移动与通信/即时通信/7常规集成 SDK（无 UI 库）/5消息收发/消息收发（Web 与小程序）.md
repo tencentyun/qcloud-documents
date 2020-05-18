@@ -335,63 +335,42 @@ promise.then(function(imResponse) {
   // 发送失败
   console.warn('sendMessage error:', imError);
 });
+
+// Web 端发送文件消息示例2- 传入 File 对象
+// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" />
+document.getElementById('testPasteInput').addEventListener('paste', function(e) {
+  let clipboardData = e.clipboardData;
+  let file;
+  let fileCopy;
+  if (clipboardData && clipboardData.files && clipboardData.files.length > 0) {
+    file = clipboardData.files[0];
+    // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据
+    fileCopy = file.slice();
+  }
+  if (typeof file === 'undefined') {
+    console.warn('file 是 undefined，请检查代码或浏览器兼容性！');
+    return;
+  }
+  // 1. 创建消息实例，接口返回的实例可以上屏
+  let message = tim.createFileMessage({
+    to: 'user1',
+    conversationType: TIM.TYPES.CONV_C2C,
+    payload: {
+      file: file
+    },
+    onProgress: function(event) { console.log('file uploading:', event) }
+  });
+  // 2. 发送消息
+  let promise = tim.sendMessage(message);
+  promise.then(function(imResponse) {
+    // 发送成功
+    console.log(imResponse);
+  }).catch(function(imError) {
+    // 发送失败
+    console.warn('sendMessage error:', imError);
+  });
+});
 ```
-
- // Web 端发送文件消息示例2- 传入 File 对象 
-
-// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /> document.getElementById('testPasteInput').addEventListener('paste', function(e) { 
-
-​		 let clipboardData = e.clipboardData; 
-
- 		let file; 
-
- 		let fileCopy;  
-
-if (clipboardData && clipboardData.files && clipboardData.files.length > 0) { 
-
-   file = clipboardData.files[0];  
-
-  // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据    
-
-​	fileCopy = file.slice(); 
-
- }  
-
- if (typeof file === 'undefined') {  
-
-  console.warn('file 是 undefined，请检查代码或浏览器兼容性！');    
-
-return; 
-
- }  
-
- // 1. 创建消息实例，接口返回的实例可以上屏 
-
- let message = tim.createFileMessage({   
-
- to: 'user1',  
-
-  conversationType: TIM.TYPES.CONV_C2C,    
-
-payload: {      file: file    },  
-
-  onProgress: function(event) { console.log('file uploading:', event) }  });  
-
- // 2. 发送消息
-
-  let promise = tim.sendMessage(message); 
-
- promise.then(function(imResponse) {  
-
-  // 发送成功  
-
-  console.log(imResponse);  
-
-}).catch(function(imError) {   
-
- // 发送失败   
-
- console.warn('sendMessage error:', imError);  }); }); 
 
 **返回**
 
@@ -683,7 +662,7 @@ tim.sendMessage(options)
 | `title`                | `String`  | `optional`     | 离线推送标题。该字段为 iOS 和 Android 共用                   |
 | `description`          | `String`  | `optional`     | 离线推送内容。该字段会覆盖消息实例的离线推送展示文本。若发送的是自定义消息，该 description 字段会覆盖 message.payload.description。如果 description 和 message.payload.description 字段都不填，接收方将收不到该自定义消息的离线推送 |
 | `extension`            | `String`  | `optional`     | 离线推送透传内容                                             |
-| `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 APP 的应用图标未读计数增加 |
+| `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 App 的应用图标未读计数增加 |
 | `androidOPPOChannelID` | `String`  | `optional`     | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID               |
 
 **示例**
@@ -713,10 +692,6 @@ tim.sendMessage(message, {
 });
 
 ```
-
-
-
-
 
 **返回**
 
