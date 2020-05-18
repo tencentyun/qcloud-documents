@@ -4,7 +4,7 @@
 
 **通用变更点**
 
-- iOS 和 Android 支持 ipv6
+- iOS 和 Android 支持 IPv6
 - 直播群（AVChatRoom） 支持群成员列表动态更新
 - 修复 xlog 日志崩溃问题
 
@@ -15,7 +15,7 @@
 
 **Android 平台**
 
-- IM SDK 支持AndroidX
+- IM SDK 支持 AndroidX
 - 修复 Android 设备由于网络权限问题导致的崩溃
 
 ## 4.8.1 @2020.04.30

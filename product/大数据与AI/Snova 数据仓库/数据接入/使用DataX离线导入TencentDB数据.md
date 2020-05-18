@@ -1,7 +1,3 @@
-## 使用 kettle 导入 TencentDB 的数据
-Kettle 是一款开源的 ETL 工具，纯 Java 编写，可以在 Windows、Linux、Unix 上运行，数据抽取高效稳定。
-
-## 使用 DataX 工具导入 TencentDB 的数据
 DataX 是一个开源的命令行工具，支持将 TencentDB 中全量或增量数据导入到 CDW 中。工具采用 Java 开发，用 JDBC 连接源数据库与目标数据库，可在 Windows 与 Linux 下运行，使用前需安装 Java 运行环境。
 
 **DataX 工具安装：**
