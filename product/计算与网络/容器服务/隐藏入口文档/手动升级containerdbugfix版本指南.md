@@ -41,7 +41,7 @@ runc did not terminate sucessfully: container "8076897365b9a6ec9f371180b8fa93aa4
 ``` shell
 ctr -n k8s.io task ls
 ```
-返回结果如下所示：
+返回结果如下所示，其中 STATUS 为 STOPPED 的容器即为故障容器。
 ```
 TASK                                PID   STATUS
 8e5bb8aa3c1d8c574ae772090e7e96aba54827352c118a1ad548c4780a471eac  16440  RUNNING
