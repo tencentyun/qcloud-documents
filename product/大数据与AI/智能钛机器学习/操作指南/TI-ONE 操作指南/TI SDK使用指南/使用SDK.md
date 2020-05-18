@@ -173,7 +173,7 @@ fit 方法会创建并启动一个训练任务
   - `FileSystemInput`：表示 CFS 数据集的数据结构，详见 [使用文件系统提交训练任务](https://cloud.tencent.com/document/product/851/41053)。
   - `dict[str, FileSystemInput]`：例如{'train': TrainFileSystemInput, 'test': TestFileSystemInput}，可以指定多个 CFS 数据集的字典结构。
 
-- `logs (bool)`：默认为 False，是否打印训练任务产生的日志。如果设置为 True，将输出训练的任务日志。
+- `logs (bool)`：认为 False，是否打印训练任务产生的日志。如果设置为 True，将开通 CLS 日志服务，并输出训练的任务日志。CLS 会为您创建名为 TrainingJob 的 topic ，以保存您所有训练任务的日志。
 - `wait (bool)`：默认为 True，是否等待直到训练完成。如果设置为 False，fit 立即返回，训练任务后台异步执行。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
