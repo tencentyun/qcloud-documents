@@ -90,68 +90,66 @@ tim.createImageMessage(options)
 
 **Web 示例**
 
-```javascript
-// Web 端发送图片消息示例1 - 传入 DOM 节点
-// 1. 创建消息实例，接口返回的实例可以上屏
-let message = tim.createImageMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
-  payload: {
-    file: document.getElementById('imagePicker'),
+<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送图片消息示例1 - 传入 DOM 节点</span>
+<span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = tim.createImageMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-comment">// priority: TIM.TYPES.MSG_PRIORITY_NORMAL,</span>
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'imagePicker'</span>),
   },
-  onProgress: function(event) { console.log('file uploading:', event) }
+  <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
 });
-// 2. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 2. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
 
-// Web 端发送图片消息示例2- 传入 File 对象
-// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" />
-document.getElementById('testPasteInput').addEventListener('paste', function(e) {
-  let clipboardData = e.clipboardData;
-  let file;
-  let fileCopy;
-  if (clipboardData && clipboardData.files && clipboardData.files.length > 0) {
-    file = clipboardData.files[0];
-    // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据
+<span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
+<span class="hljs-comment">// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
+  <span class="hljs-keyword">let</span> file;
+  <span class="hljs-keyword">let</span> fileCopy;
+  <span class="hljs-keyword">if</span> (clipboardData &amp;&amp; clipboardData.files &amp;&amp; clipboardData.files.length &gt; <span class="hljs-number">0</span>) {
+    file = clipboardData.files[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据</span>
     fileCopy = file.slice();
   }
 
-  if (typeof file === 'undefined') {
-    console.warn('file 是 undefined，请检查代码或浏览器兼容性！');
-    return;
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> file === <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'file 是 undefined，请检查代码或浏览器兼容性！'</span>);
+    <span class="hljs-keyword">return</span>;
   }
 
-  // 1. 创建消息实例，接口返回的实例可以上屏
-  let message = tim.createImageMessage({
-    to: 'user1',
-    conversationType: TIM.TYPES.CONV_C2C,
-    payload: {
-      file: file
+  <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+  <span class="hljs-keyword">let</span> message = tim.createImageMessage({
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+    <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+    <span class="hljs-attr">payload</span>: {
+      <span class="hljs-attr">file</span>: file
     },
-    onProgress: function(event) { console.log('file uploading:', event) }
+    <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
   });
 
-  // 2. 发送消息
-  let promise = tim.sendMessage(message);
-  promise.then(function(imResponse) {
-    // 发送成功
-    console.log(imResponse);
-  }).catch(function(imError) {
-    // 发送失败
-    console.warn('sendMessage error:', imError);
+  <span class="hljs-comment">// 2. 发送消息</span>
+  <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+  promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+    <span class="hljs-comment">// 发送成功</span>
+    <span class="hljs-built_in">console</span>.log(imResponse);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+    <span class="hljs-comment">// 发送失败</span>
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
   });
-});
-```
+});</code></pre>
 
 **小程序示例**
 
@@ -191,8 +189,12 @@ wx.chooseImage({
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 >>>>>>> upstream/master
 >  创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
+=======
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
+>>>>>>> 9ffe8a35a3b28fba8a7144e9d3550be88f291715
 
 **接口**
 
@@ -218,52 +220,51 @@ tim.createAudioMessage(options)
 
 **小程序示例**
 
-<pre>
-// 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a>
-// 1. 获取全局唯一的录音管理器 RecorderManager
-const recorderManager = wx.getRecorderManager();
+
+<pre><code><span class="hljs-comment">// 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a></span>
+<span class="hljs-comment">// 1. 获取全局唯一的录音管理器 RecorderManager</span>
+<span class="hljs-keyword">const</span> recorderManager = wx.getRecorderManager();
 
 
-// 录音部分参数
-const recordOptions = {
-  duration: 60000, // 录音的时长，单位 ms，最大值 600000（10 分钟）
-  sampleRate: 44100, // 采样率
-  numberOfChannels: 1, // 录音通道数
-  encodeBitRate: 192000, // 编码码率
-  format: 'aac' // 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和 Web）互通
+<span class="hljs-comment">// 录音部分参数</span>
+<span class="hljs-keyword">const</span> recordOptions = {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">60000</span>, <span class="hljs-comment">// 录音的时长，单位 ms，最大值 600000（10 分钟）</span>
+  <span class="hljs-attr">sampleRate</span>: <span class="hljs-number">44100</span>, <span class="hljs-comment">// 采样率</span>
+  <span class="hljs-attr">numberOfChannels</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 录音通道数</span>
+  <span class="hljs-attr">encodeBitRate</span>: <span class="hljs-number">192000</span>, <span class="hljs-comment">// 编码码率</span>
+  <span class="hljs-attr">format</span>: <span class="hljs-string">'aac'</span> <span class="hljs-comment">// 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和 Web）互通</span>
 };
 
-// 2.1 监听录音错误事件
-recorderManager.onError(function(errMsg) {
-  console.warn('recorder error:', errMsg);
+<span class="hljs-comment">// 2.1 监听录音错误事件</span>
+recorderManager.onError(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errMsg</span>) </span>{
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'recorder error:'</span>, errMsg);
 });
-// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例
-recorderManager.onStop(function(res) {
-  console.log('recorder stop', res);
+<span class="hljs-comment">// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例</span>
+recorderManager.onStop(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'recorder stop'</span>, res);
 
-  // 4. 创建消息实例，接口返回的实例可以上屏
-  const message = tim.createAudioMessage({
-    to: 'user1',
-    conversationType: TIM.TYPES.CONV_C2C,
-    payload: {
-      file: res
+  <span class="hljs-comment">// 4. 创建消息实例，接口返回的实例可以上屏</span>
+  <span class="hljs-keyword">const</span> message = tim.createAudioMessage({
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+    <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+    <span class="hljs-attr">payload</span>: {
+      <span class="hljs-attr">file</span>: res
     }
   });
 
-  // 5. 发送消息
-  let promise = tim.sendMessage(message);
-  promise.then(function(imResponse) {
-    // 发送成功
-    console.log(imResponse);
-  }).catch(function(imError) {
-    // 发送失败
-    console.warn('sendMessage error:', imError);
+  <span class="hljs-comment">// 5. 发送消息</span>
+  <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+  promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+    <span class="hljs-comment">// 发送成功</span>
+    <span class="hljs-built_in">console</span>.log(imResponse);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+    <span class="hljs-comment">// 发送失败</span>
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
   });
 });
 
-// 3. 开始录音
-recorderManager.start(recordOptions);
-</pre>
+<span class="hljs-comment">// 3. 开始录音</span>
+recorderManager.start(recordOptions);</code></pre>
 
 **返回**
 
@@ -275,7 +276,7 @@ recorderManager.start(recordOptions);
 
 >!
 >! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
->! v2.4.0版本起，上传文件大小最大值调整为100M。
+>! v2.4.0版本起，上传文件大小最大值调整为100MB。
 >! 微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
 
 **接口**
@@ -412,36 +413,34 @@ tim.createCustomMessage(options)
 
 **示例**
 
-```javascript
-// 示例：利用自定义消息实现投骰子功能
-// 1. 定义随机函数
-function random(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+<pre><code class="language-javascript"><span class="hljs-comment">// 示例：利用自定义消息实现投骰子功能</span>
+<span class="hljs-comment">// 1. 定义随机函数</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">random</span>(<span class="hljs-params">min, max</span>) </span>{
+  <span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.floor(<span class="hljs-built_in">Math</span>.random() * (max - min + <span class="hljs-number">1</span>) + min);
 }
-// 2. 创建消息实例，接口返回的实例可以上屏
-let message = tim.createCustomMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  // priority: TIM.TYPES.MSG_PRIORITY_HIGH,
-  payload: {
-    data: 'dice', // 用于标识该消息是骰子类型消息
-    description: String(random(1,6)), // 获取骰子点数
-    extension: ''
+<span class="hljs-comment">// 2. 创建消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = tim.createCustomMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-comment">// priority: TIM.TYPES.MSG_PRIORITY_HIGH,</span>
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'dice'</span>, <span class="hljs-comment">// 用于标识该消息是骰子类型消息</span>
+    <span class="hljs-attr">description</span>: <span class="hljs-built_in">String</span>(random(<span class="hljs-number">1</span>,<span class="hljs-number">6</span>)), <span class="hljs-comment">// 获取骰子点数</span>
+    <span class="hljs-attr">extension</span>: <span class="hljs-string">''</span>
   }
 });
-// 3. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 3. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
-
-```
+</code></pre>
 
 **返回**
 
@@ -452,10 +451,11 @@ promise.then(function(imResponse) {
 
 创建视频消息实例的接口，此接口返回一个消息实例，可以在需要发送视频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
 
-> 注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
-> 注意2：createVideoMessage 支持在微信小程序环境使用，从v2.6.0起，支持在 Web 环境使用。
-> 注意3：微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，sdk 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
-> 注意4：全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。  
+>!
+>- 使用该接口前，需要将SDK版本升级至v2.2.0或以上。
+>- createVideoMessage 支持在微信小程序环境使用，从v2.6.0起，支持在 Web 环境使用。
+>- 微信小程序录制视频，或者从相册选择视频文件，没有返回视频缩略图信息。为了更好的体验，SDK 在创建视频消息时会设置默认的缩略图信息。如果接入侧不想展示默认的缩略图，可在渲染的时候忽略缩图相关信息，自主处理。
+>- 全平台互通视频消息，移动端请升级使用 [最新的 TUIKit 或 SDK](https://cloud.tencent.com/document/product/269/36887)。  
 
 **接口**
 
@@ -482,55 +482,56 @@ tim.createVideoMessage(options)
 
 **示例**
 
-```javascript
-// 小程序端发送视频消息示例：
-// 1. 调用小程序接口选择视频，接口详情请查阅 https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseVideo.html
+
+<pre><code class="language-javascript"><span class="hljs-comment">// 小程序端发送视频消息示例 <a href="https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseVideo.html">wx.chooseVideo</a></span>
+<span class="hljs-comment">// 1. 调用小程序接口选择视频，接口详情请查阅 </span>
 wx.chooseVideo({
-  sourceType: ['album', 'camera'], // 来源相册或者拍摄
-  maxDuration: 60, // 设置最长时间60s
-  camera: 'back', // 后置摄像头
+  <span class="hljs-attr">sourceType</span>: [<span class="hljs-string">'album'</span>, <span class="hljs-string">'camera'</span>], <span class="hljs-comment">// 来源相册或者拍摄</span>
+  <span class="hljs-attr">maxDuration</span>: <span class="hljs-number">60</span>, <span class="hljs-comment">// 设置最长时间60s</span>
+  <span class="hljs-attr">camera</span>: <span class="hljs-string">'back'</span>, <span class="hljs-comment">// 后置摄像头</span>
   success (res) {
-    // 2. 创建消息实例，接口返回的实例可以上屏
-    let message = tim.createVideoMessage({
-      to: 'user1',
-      conversationType: TIM.TYPES.CONV_C2C,
-      payload: {
-        file: res
+    <span class="hljs-comment">// 2. 创建消息实例，接口返回的实例可以上屏</span>
+    <span class="hljs-keyword">let</span> message = tim.createVideoMessage({
+      <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+      <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+      <span class="hljs-attr">payload</span>: {
+        <span class="hljs-attr">file</span>: res
       },
-      onProgress: function(event) { console.log('video uploading:', event) }
+      <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'video uploading:'</span>, event) }
     })
-    // 3. 发送消息
-    let promise = tim.sendMessage(message);
-    promise.then(function(imResponse) {
-      // 发送成功
-      console.log(imResponse);
-    }).catch(function(imError) {
-      // 发送失败
-      console.warn('sendMessage error:', imError);
+    <span class="hljs-comment">// 3. 发送消息</span>
+    <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+    promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+      <span class="hljs-comment">// 发送成功</span>
+      <span class="hljs-built_in">console</span>.log(imResponse);
+    }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+      <span class="hljs-comment">// 发送失败</span>
+      <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
     });
   }
 })
 
-// web 端发送视频消息示例（v2.6.0起支持）：
-// 1. 获取视频：传入 DOM 节点
-// 2. 创建消息实例
-const message = tim.createVideoMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  payload: {
-    file: document.getElementById('videoPicker') // 或者用event.target
+<span class="hljs-comment">// web 端发送视频消息示例（v2.6.0起支持）：</span>
+<span class="hljs-comment">// 1. 获取视频：传入 DOM 节点</span>
+<span class="hljs-comment">// 2. 创建消息实例</span>
+<span class="hljs-keyword">const</span> message = tim.createVideoMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'videoPicker'</span>) <span class="hljs-comment">// 或者用event.target</span>
   },
-  onProgress: function(event) { console.log('file uploading:', event) }
+  <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
 });
-// 3. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 3. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -538,6 +539,11 @@ promise.then(function(imResponse) {
 ```
 
 返回**
+=======
+</code></pre>
+
+**返回**
+>>>>>>> 9ffe8a35a3b28fba8a7144e9d3550be88f291715
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
 
@@ -545,7 +551,7 @@ promise.then(function(imResponse) {
 
 创建表情消息实例的接口，此接口返回一个消息实例，可以在需要发送表情消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。
 
->! 使用该接口前，需要将 SDK 版本升级至v2.3.1或以上。
+>!使用该接口前，需要将 SDK 版本升级至v2.3.1或以上。
 
 **接口**
 
@@ -573,31 +579,29 @@ tim.createFaceMessage(options)
 
 **示例**
 
-```javascript
-// 发送表情消息，Web端与小程序端相同。
-// 1. 创建消息实例，接口返回的实例可以上屏
-let message = tim.createFaceMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
-  payload: {
-    index: 1, // Number 表情索引，用户自定义
-    data: 'tt00' // String 额外数据
+<pre><code class="language-javascript"><span class="hljs-comment">// 发送表情消息，Web端与小程序端相同。</span>
+<span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = tim.createFaceMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-comment">// priority: TIM.TYPES.MSG_PRIORITY_NORMAL,</span>
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">index</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// Number 表情索引，用户自定义</span>
+    <span class="hljs-attr">data</span>: <span class="hljs-string">'tt00'</span> <span class="hljs-comment">// String 额外数据</span>
   }
 });
-// 2. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 2. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
-
-```
+</code></pre>
 
 **返回**
 
@@ -617,7 +621,6 @@ promise.then(function(imResponse) {
 - [创建文件消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createFileMessage)
 
 >!调用该接口发送消息实例，需要 SDK 处于 ready 状态，否则将无法发送消息实例。SDK 状态，可通过监听以下事件得到：
-
 - [TIM.EVENT.SDK_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_READY)：SDK 处于 ready 状态时触发。
 - [TIM.EVENT.SDK_NOT_READY](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY)：SDK 处于 not ready 状态时触发。
 
@@ -652,7 +655,7 @@ tim.sendMessage(options)
 | Name              | Type      | **Attributes** | Description                                                  |
 | ----------------- | --------- | -------------- | ------------------------------------------------------------ |
 | `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持。消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项。 |
-| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604)配置。（消息内容的容器） |
+| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604) 配置。（消息内容的容器） |
 
 `offlinePushInfo`的描述如下表所示：
 
@@ -702,7 +705,6 @@ tim.sendMessage(message, {
 撤回单聊消息或者群聊消息。撤回成功后，消息对象的 `isRevoked` 属性值为 `true`。
 
 >!
->
 >- 使用该接口前，需要将 SDK 版本升级至v2.4.0或以上。
 >- 消息可撤回时间默认为2分钟。可通过 [控制台](https://console.cloud.tencent.com/im-detail/login-message) 调整消息可撤回时间。
 >- 被撤回的消息，可以调用 [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 接口从单聊或者群聊消息漫游中拉取到。接入侧需根据消息对象的 isRevoked 属性妥善处理被撤回消息的展示。例如，单聊会话内可展示为 "对方撤回了一条消息"，群聊会话内可展示为 "张三撤回了一条消息"。
@@ -1064,8 +1066,9 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 
 获取会话列表的接口，该接口拉取最近的100条会话，当需要刷新会话列表时调用该接口。
 
- 注意1：该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，可参考：[getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)
-注意2：会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
+>!
+>-该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，可参考：[getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
+>- 会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
 
 **接口**
 
