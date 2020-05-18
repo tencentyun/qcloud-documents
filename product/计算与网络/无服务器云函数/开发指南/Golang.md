@@ -13,7 +13,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/tencentyun/scf-go-lib/events"
+	"github.com/tencentyun/scf-go-lib/cloudfunction"
 )
 
 type DefineEvent struct {
@@ -39,7 +39,7 @@ func main() {
 代码开发时，请注意以下几点：
 
 - 需要使用 package main 包含 main 函数。
-- 引用 `github.com/tencentyun/scf-go-lib/events` 库。
+- 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库。
 - 入口函数入参可选0 - 2参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明请参见 [入参](#Participation)。
 - 入口函数返回值可选0 - 2参数，如包含参数，需返回内容在前，error 错误信息在后，返回值组合有 （），（ret），（error），（ret，error），具体说明请参见 [返回值](#ReturnValue)。
 - 入参 event 和返回值 ret，均需要能够兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal。
@@ -52,7 +52,7 @@ func main() {
 
 在使用 Golang 开发云函数时，需要确保 main 函数位于 main package 中。在 main 函数中，通过使用 cloudfunction 包中的 Start 函数，启动实际处理业务的入口函数。
 
-通过 `import "github.com/tencentyun/scf-go-lib/events"`，可以在 main 函数中使用包内的 Start 函数。
+通过 `import "github.com/tencentyun/scf-go-lib/cloudfunction"`，可以在 main 函数中使用包内的 Start 函数。
 
 ### 入口函数
 
