@@ -481,16 +481,16 @@ promise.then(function(imResponse) {
 
 ### 获取群成员列表
 
-<<<<<<< HEAD
- 注意1：从v2.6.2起，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
-在低于v2.6.2的版本，该接口获取的群成员列表中的资料是不完整的（仅包括头像、昵称等，能够满足群成员列表的渲染需求），若要查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用：[getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)
-注意2：该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用：[getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 
-=======
 >!
 >- 从v2.6.2版本开始，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
+>
 >- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
+>
 >- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 。
->>>>>>> upstream/master
+>
+>  See:
+>
+>  - [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)
 
 **接口名**
 
@@ -542,14 +542,14 @@ promise.then(function(imResponse) {
 
 ### 获取群成员资料
 
-<<<<<<< HEAD
->注意1：使用该接口前，需要将SDK版本升级至v2.2.0或以上。
->注意2：每次查询的用户数上限是50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
-=======
 >!
 >- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+>
 >- 每次查询的用户数上限为50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
->>>>>>> upstream/master
+>
+>  See:
+>
+>  - [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)
 
 **接口名**
 
@@ -577,14 +577,14 @@ tim.getGroupMemberProfile(options);
 ### 添加群成员
 
 详细规则如下：
-<<<<<<< HEAD
 
--  TIM.TYPES.GRP_PRIVATE （私有群）：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
-=======
--  TIM.TYPES.GRP_PRIVATE 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
->>>>>>> upstream/master
--  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
--  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+- TIM.TYPES.GRP_PRIVATE（私有群）：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
+- TIM.TYPES.GRP_PUBLIC（公开群）/ TIM.TYPES.GRP_CHATROOM（聊天室）：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
+- TIM.TYPES.GRP_AVCHATROOM（音视频聊天室）：不允许任何人邀请他人入群（包括 App 管理员）。
+
+- See:
+
+  [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)[群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)
 
 **接口名**
 
