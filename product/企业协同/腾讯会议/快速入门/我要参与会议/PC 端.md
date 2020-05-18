@@ -42,9 +42,9 @@ SSO（SingleSignOn）指单点登录，是支持用户使用统一账号访问�
 ## 步骤三：加入会议
 
 1. 打开腾讯会议 App，单击界面【加入会议】。
-2. 输入9位数会议号，并输入您的姓名。
-3. 默认关闭摄像头和麦克风。
-![](https://main.qcloudimg.com/raw/59b224f0b389a4970d677c5742721d1b.jpg)
+2. 输入9位数会议号，并输入您的名称。
+3. 默认关闭摄像头和自动连接音频。
+![](https://main.qcloudimg.com/raw/652805743cd6c716a969bbffeffb0506.jpg)
 4. 单击【加入会议】。
 5. 当您进入会议中后，会提示您选择音频接入方式。如下图：
 ![](https://main.qcloudimg.com/raw/38f4e917e8a8747a31323867f3db36fd.png)
