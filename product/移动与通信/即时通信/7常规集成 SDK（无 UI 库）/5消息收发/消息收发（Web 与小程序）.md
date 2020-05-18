@@ -742,7 +742,6 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.resendMessage(options)
-
 ```
 
 **参数**
@@ -792,7 +791,6 @@ let onMessageReceived = function(event) {
   // event.data - 存储 Message 对象的数组 - [Message]
 };
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
-
 ```
 
 
@@ -947,7 +945,6 @@ function parseGroupTipContent (payload) {
 
 ```javascript
 tim.getMessageList(options)
-
 ```
 
 >!该接口可用于"拉取历史消息"。
@@ -1042,7 +1039,6 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 
 ```javascript
 tim.getConversationList()
-
 ```
 
 **示例**
@@ -1123,7 +1119,9 @@ tim.deleteConversation(conversationID)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
->>
+| Name             | Type     | Description                                                  |
+| ---------------- | -------- | ------------------------------------------------------------ |
+| `conversationID` | `String` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
 
 **示例**
 
