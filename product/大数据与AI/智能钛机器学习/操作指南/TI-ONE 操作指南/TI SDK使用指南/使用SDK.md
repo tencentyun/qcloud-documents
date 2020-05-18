@@ -2,7 +2,7 @@
 本文档向您介绍如何使用 TI SDK 训练模型。
 
 ### 在 Notebook 中使用 TI SDK
-我们在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/40074)。
+我们在 Notebook 中内置了 TI SDK 的案例，您可以通过典型案例快速上手，详情请参考 [使用内置案例](https://cloud.tencent.com/document/product/851/44452)。
 
 ### 在本地环境使用 TI SDK
 若您的 TI SDK 环境为非腾讯云 Jupyter Notebook 环境时，您需要先配置 TI SDK 环境。
