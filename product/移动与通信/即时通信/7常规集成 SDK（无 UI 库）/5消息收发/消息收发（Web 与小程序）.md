@@ -297,86 +297,62 @@ tim.createFileMessage(options)
 
 **示例**
 
-```javascript
-// Web 端发送文件消息示例1 - 传入 DOM 节点
-// 1. 创建文件消息实例，接口返回的实例可以上屏
-let message = createFileMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
-  payload: {
-    file: document.getElementById('filePicker'),
+<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送文件消息示例1 - 传入 DOM 节点</span>
+<span class="hljs-comment">// 1. 创建文件消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = createFileMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-comment">// priority: TIM.TYPES.MSG_PRIORITY_NORMAL,</span>
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'filePicker'</span>),
   },
-  onProgress: function(event) { console.log('file uploading:', event) }
+  <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
 });
-// 2. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 2. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
-```
-
- // Web 端发送文件消息示例2- 传入 File 对象 
-
-// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /> document.getElementById('testPasteInput').addEventListener('paste', function(e) { 
-
-​		 let clipboardData = e.clipboardData; 
-
- 		let file; 
-
- 		let fileCopy;  
-
-if (clipboardData && clipboardData.files && clipboardData.files.length > 0) { 
-
-   file = clipboardData.files[0];  
-
-  // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据    
-
-​	fileCopy = file.slice(); 
-
- }  
-
- if (typeof file === 'undefined') {  
-
-  console.warn('file 是 undefined，请检查代码或浏览器兼容性！');    
-
-return; 
-
- }  
-
- // 1. 创建消息实例，接口返回的实例可以上屏 
-
- let message = tim.createFileMessage({   
-
- to: 'user1',  
-
-  conversationType: TIM.TYPES.CONV_C2C,    
-
-payload: {      file: file    },  
-
-  onProgress: function(event) { console.log('file uploading:', event) }  });  
-
- // 2. 发送消息
-
-  let promise = tim.sendMessage(message); 
-
- promise.then(function(imResponse) {  
-
-  // 发送成功  
-
-  console.log(imResponse);  
-
-}).catch(function(imError) {   
-
- // 发送失败   
-
- console.warn('sendMessage error:', imError);  }); }); 
+<span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
+<span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
+  <span class="hljs-keyword">let</span> file;
+  <span class="hljs-keyword">let</span> fileCopy;
+  <span class="hljs-keyword">if</span> (clipboardData &amp;&amp; clipboardData.files &amp;&amp; clipboardData.files.length &gt; <span class="hljs-number">0</span>) {
+    file = clipboardData.files[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据</span>
+    fileCopy = file.slice();
+  }
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> file === <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'file 是 undefined，请检查代码或浏览器兼容性！'</span>);
+    <span class="hljs-keyword">return</span>;
+  }
+  <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+  <span class="hljs-keyword">let</span> message = tim.createFileMessage({
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+    <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+    <span class="hljs-attr">payload</span>: {
+      <span class="hljs-attr">file</span>: file
+    },
+    <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
+  });
+  <span class="hljs-comment">// 2. 发送消息</span>
+  <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+  promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+    <span class="hljs-comment">// 发送成功</span>
+    <span class="hljs-built_in">console</span>.log(imResponse);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+    <span class="hljs-comment">// 发送失败</span>
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
+  });
+});</code></pre>
 
 **返回**
 
@@ -574,7 +550,7 @@ tim.createFaceMessage(options)
 
 **示例**
 
-<pre><code class="language-javascript"><span class="hljs-comment">// 发送表情消息，Web端与小程序端相同。</span>
+<pre><code class="language-javascript"><span class="hljs-comment">// 发送表情消息，Web 端与小程序端相同。</span>
 <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
 <span class="hljs-keyword">let</span> message = tim.createFaceMessage({
   <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
@@ -635,57 +611,52 @@ tim.sendMessage(options)
 
 | Name      | Type      | **Attributes** | Description                    |
 | --------- | --------- | -------------- | ------------------------------ |
-| `message` | `Message` |                | 消息实例                       |
+| `message` | `Message` | -              | 消息实例                       |
 | `options` | `Object`  | `optional`     | 消息发送选项（消息内容的容器） |
 
 `options`的描述如下表所示：
 
 | Name              | Type      | **Attributes** | Description                                                  |
 | ----------------- | --------- | -------------- | ------------------------------------------------------------ |
-| `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持。消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项。 |
-| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604) 配置。（消息内容的容器） |
+| `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持。消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项 |
+| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604) 配置 |
 
 `offlinePushInfo`的描述如下表所示：
 
 | Name                   | Type      | **Attributes** | Description                                                  |
 | ---------------------- | --------- | -------------- | ------------------------------------------------------------ |
 | `disablePush`          | `Boolean` | `optional`     | true 关闭离线推送；false 开启离线推送（默认）                |
-| `title`                | `String`  | `optional`     | 离线推送标题。该字段为 iOS 和 Android 共用                   |
-| `description`          | `String`  | `optional`     | 离线推送内容。该字段会覆盖消息实例的离线推送展示文本。若发送的是自定义消息，该 description 字段会覆盖 message.payload.description。如果 description 和 message.payload.description 字段都不填，接收方将收不到该自定义消息的离线推送 |
+| `title`                | `String`  | `optional`     | 离线推送标题，该字段为 iOS 和 Android 共用                   |
+| `description`          | `String`  | `optional`     | 离线推送内容，该字段会覆盖消息实例的离线推送展示文本。若发送的是自定义消息，该 description 字段会覆盖 message.payload.description。如果 description 和 message.payload.description 字段都不填，接收方将收不到该自定义消息的离线推送 |
 | `extension`            | `String`  | `optional`     | 离线推送透传内容                                             |
 | `ignoreIOSBadge`       | `Boolean` | `optional`     | 离线推送忽略 badge 计数（仅对 iOS 生效），如果设置为 true，在 iOS 接收端，这条消息不会使 APP 的应用图标未读计数增加 |
 | `androidOPPOChannelID` | `String`  | `optional`     | 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID               |
 
 **示例**
 
-```javascript
-// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。离线推送的标题和内容使用默认值。
-// 离线推送的说明请参考 https://cloud.tencent.com/document/product/269/3604
+<pre><code class="language-javascript"><span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。离线推送的标题和内容使用默认值。</span>
+<span class="hljs-comment">// 离线推送的说明请参考 <a href="https://cloud.tencent.com/document/product/269/3604">离线推送</a></span>
 tim.sendMessage(message);
-// v2.6.4起支持消息发送选项
+<span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
 tim.sendMessage(message, {
-  onlineUserOnly: true // 如果接收方不在线，则消息不存入漫游，且不会进行离线推送
+  <span class="hljs-attr">onlineUserOnly</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 如果接收方不在线，则消息不存入漫游，且不会进行离线推送</span>
 });
-// v2.6.4起支持消息发送选项
+<span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
 tim.sendMessage(message, {
-  offlinePushInfo: {
-    disablePush: true // 如果接收方不在线，则消息将存入漫游，但不进行离线推送
+  <span class="hljs-attr">offlinePushInfo</span>: {
+    <span class="hljs-attr">disablePush</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，但不进行离线推送</span>
   }
 });
-// v2.6.4起支持消息发送选项
+<span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
 tim.sendMessage(message, {
-  // 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。接入侧可自定义离线推送的标题及内容
-  offlinePushInfo: {
-    title: '', // 离线推送标题
-    description: '', // 离线推送内容
-    androidOPPOChannelID: '' // 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID
+  <span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。接入侧可自定义离线推送的标题及内容</span>
+  <span class="hljs-attr">offlinePushInfo</span>: {
+    <span class="hljs-attr">title</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送标题</span>
+    <span class="hljs-attr">description</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送内容</span>
+    <span class="hljs-attr">androidOPPOChannelID</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID</span>
   }
 });
-
-```
-
-
-
+</code></pre>
 
 
 **返回**
@@ -733,7 +704,7 @@ promise.then(function(imResponse) {
 
 ```javascript
 tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
-  // 收到消息被撤回的通知。使用前需要将SDK版本升级至v2.4.0或以上。
+  // 收到消息被撤回的通知。使用前需要将 SDK 版本升级至v2.4.0或以上。
   // event.name - TIM.EVENT.MESSAGE_REVOKED
   // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
 });
@@ -791,7 +762,6 @@ promise.then(function(imResponse) {
   // 重发失败
   console.warn('resendMessage error:', imError);
 });
-
 ```
 
 **返回**
@@ -818,7 +788,6 @@ let onMessageReceived = function(event) {
   // event.data - 存储 Message 对象的数组 - [Message]
 };
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, onMessageReceived);
-
 ```
 
 
