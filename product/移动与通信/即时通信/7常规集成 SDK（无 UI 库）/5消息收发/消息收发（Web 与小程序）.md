@@ -90,68 +90,66 @@ tim.createImageMessage(options)
 
 **Web 示例**
 
-```javascript
-// Web 端发送图片消息示例1 - 传入 DOM 节点
-// 1. 创建消息实例，接口返回的实例可以上屏
-let message = tim.createImageMessage({
-  to: 'user1',
-  conversationType: TIM.TYPES.CONV_C2C,
-  // 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考：https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6)
-  // 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST
-  // priority: TIM.TYPES.MSG_PRIORITY_NORMAL,
-  payload: {
-    file: document.getElementById('imagePicker'),
+<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送图片消息示例1 - 传入 DOM 节点</span>
+<span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+<span class="hljs-keyword">let</span> message = tim.createImageMessage({
+  <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+  <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+  <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>
+  <span class="hljs-comment">// 支持的枚举值：TIM.TYPES.MSG_PRIORITY_HIGH, TIM.TYPES.MSG_PRIORITY_NORMAL（默认）, TIM.TYPES.MSG_PRIORITY_LOW, TIM.TYPES.MSG_PRIORITY_LOWEST</span>
+  <span class="hljs-comment">// priority: TIM.TYPES.MSG_PRIORITY_NORMAL,</span>
+  <span class="hljs-attr">payload</span>: {
+    <span class="hljs-attr">file</span>: <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'imagePicker'</span>),
   },
-  onProgress: function(event) { console.log('file uploading:', event) }
+  <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
 });
-// 2. 发送消息
-let promise = tim.sendMessage(message);
-promise.then(function(imResponse) {
-  // 发送成功
-  console.log(imResponse);
-}).catch(function(imError) {
-  // 发送失败
-  console.warn('sendMessage error:', imError);
+<span class="hljs-comment">// 2. 发送消息</span>
+<span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+  <span class="hljs-comment">// 发送成功</span>
+  <span class="hljs-built_in">console</span>.log(imResponse);
+}).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+  <span class="hljs-comment">// 发送失败</span>
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
 
-// Web 端发送图片消息示例2- 传入 File 对象
-// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" />
-document.getElementById('testPasteInput').addEventListener('paste', function(e) {
-  let clipboardData = e.clipboardData;
-  let file;
-  let fileCopy;
-  if (clipboardData && clipboardData.files && clipboardData.files.length > 0) {
-    file = clipboardData.files[0];
-    // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据
+<span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
+<span class="hljs-comment">// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
+  <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
+  <span class="hljs-keyword">let</span> file;
+  <span class="hljs-keyword">let</span> fileCopy;
+  <span class="hljs-keyword">if</span> (clipboardData &amp;&amp; clipboardData.files &amp;&amp; clipboardData.files.length &gt; <span class="hljs-number">0</span>) {
+    file = clipboardData.files[<span class="hljs-number">0</span>];
+    <span class="hljs-comment">// 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据</span>
     fileCopy = file.slice();
   }
 
-  if (typeof file === 'undefined') {
-    console.warn('file 是 undefined，请检查代码或浏览器兼容性！');
-    return;
+  <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> file === <span class="hljs-string">'undefined'</span>) {
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'file 是 undefined，请检查代码或浏览器兼容性！'</span>);
+    <span class="hljs-keyword">return</span>;
   }
 
-  // 1. 创建消息实例，接口返回的实例可以上屏
-  let message = tim.createImageMessage({
-    to: 'user1',
-    conversationType: TIM.TYPES.CONV_C2C,
-    payload: {
-      file: file
+  <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+  <span class="hljs-keyword">let</span> message = tim.createImageMessage({
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+    <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+    <span class="hljs-attr">payload</span>: {
+      <span class="hljs-attr">file</span>: file
     },
-    onProgress: function(event) { console.log('file uploading:', event) }
+    <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
   });
 
-  // 2. 发送消息
-  let promise = tim.sendMessage(message);
-  promise.then(function(imResponse) {
-    // 发送成功
-    console.log(imResponse);
-  }).catch(function(imError) {
-    // 发送失败
-    console.warn('sendMessage error:', imError);
+  <span class="hljs-comment">// 2. 发送消息</span>
+  <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+  promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+    <span class="hljs-comment">// 发送成功</span>
+    <span class="hljs-built_in">console</span>.log(imResponse);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+    <span class="hljs-comment">// 发送失败</span>
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
   });
-});
-```
+});</code></pre>
 
 **小程序示例**
 
@@ -189,7 +187,7 @@ wx.chooseImage({
 
 ### 创建音频消息
 
->  创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
+创建音频消息实例的接口，此接口返回一个消息实例，可以在需要发送音频消息时调用 [发送消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口发送消息。 目前 createAudioMessage 只支持在微信小程序环境使用。 
 
 **接口**
 
@@ -272,7 +270,7 @@ recorderManager.start(recordOptions);
 
 >!
 >! v2.3.1版本开始支持传入 File 对象，使用前需要将 SDK 升级至v2.3.1或以上。
->! v2.4.0版本起，上传文件大小最大值调整为100M。
+>! v2.4.0版本起，上传文件大小最大值调整为100MB。
 >! 微信小程序目前不支持选择文件的功能，故该接口暂不支持微信小程序端。
 
 **接口**
