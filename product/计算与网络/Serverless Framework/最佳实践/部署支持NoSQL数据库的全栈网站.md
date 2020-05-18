@@ -111,4 +111,3 @@ TENCENT_SECRET_KEY=123
 **报错 "EnvId is invalid"是什么原因？**
    
 TCB DB 组件目前默认为用户创建一个免费的 TCB 环境，如果您已有免费环境，通过 Serverless Component 再次创建会失败报错，您可删去 db 文件夹，通过配置  demo 目录中 **function->serverless.yaml** 中的 **MongoId** 参数，输入您已有 TCB 环境的 ID，完成项目的部署。
-
