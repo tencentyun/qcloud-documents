@@ -293,7 +293,7 @@ tim.createFileMessage(options)
 
 | Name   | Type               | Description                                                  |
 | ------ | ------------------ | ------------------------------------------------------------ |
-| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点（Web）或者 File 对象（Web），SDK 会读取其中的数据并上传文件。 |
+| `file` | `HTMLInputElement` | 用于选择文件的 DOM 节点（Web）或者 File 对象（Web），SDK 会读取其中的数据并上传文件 |
 
 **示例**
 
@@ -618,8 +618,8 @@ tim.sendMessage(options)
 
 | Name              | Type      | **Attributes** | Description                                                  |
 | ----------------- | --------- | -------------- | ------------------------------------------------------------ |
-| `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持。消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项 |
-| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持。[离线推送](https://cloud.tencent.com/document/product/269/3604) 配置 |
+| `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持，消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项 |
+| `offlinePushInfo` | `Object`  | `optional`     | v2.6.4起支持，[离线推送](https://cloud.tencent.com/document/product/269/3604) 配置 |
 
 `offlinePushInfo`的描述如下表所示：
 
@@ -634,29 +634,28 @@ tim.sendMessage(options)
 
 **示例**
 
-<pre><code class="language-javascript"><span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。离线推送的标题和内容使用默认值。</span>
+<pre><code><span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。离线推送的标题和内容使用默认值。</span>
 <span class="hljs-comment">// 离线推送的说明请参考 <a href="https://cloud.tencent.com/document/product/269/3604">离线推送</a></span>
-tim.sendMessage(message);
+<span class="hljs-selector-tag">tim</span><span class="hljs-selector-class">.sendMessage</span>(message);
 <span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
-tim.sendMessage(message, {
-  <span class="hljs-attr">onlineUserOnly</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 如果接收方不在线，则消息不存入漫游，且不会进行离线推送</span>
+<span class="hljs-selector-tag">tim</span><span class="hljs-selector-class">.sendMessage</span>(message, {
+<span class="hljs-attribute">onlineUserOnly</span>: true<span class="hljs-comment">// 如果接收方不在线，则消息不存入漫游，且不会进行离线推送</span>
 });
 <span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
-tim.sendMessage(message, {
-  <span class="hljs-attr">offlinePushInfo</span>: {
-    <span class="hljs-attr">disablePush</span>: <span class="hljs-literal">true</span> <span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，但不进行离线推送</span>
+<span class="hljs-selector-tag">tim</span><span class="hljs-selector-class">.sendMessage</span>(message, {
+  <span class="hljs-attribute">offlinePushInfo</span>: {
+    <span class="hljs-attribute">disablePush</span>: true <span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，但不进行离线推送</span>
   }
 });
 <span class="hljs-comment">// v2.6.4起支持消息发送选项</span>
-tim.sendMessage(message, {
+<span class="hljs-selector-tag">tim</span><span class="hljs-selector-class">.sendMessage</span>(message, {
   <span class="hljs-comment">// 如果接收方不在线，则消息将存入漫游，且进行离线推送（在接收方 App 退后台或者进程被 kill 的情况下）。接入侧可自定义离线推送的标题及内容</span>
-  <span class="hljs-attr">offlinePushInfo</span>: {
-    <span class="hljs-attr">title</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送标题</span>
-    <span class="hljs-attr">description</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送内容</span>
-    <span class="hljs-attr">androidOPPOChannelID</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID</span>
+  <span class="hljs-attribute">offlinePushInfo</span>: {
+    <span class="hljs-attribute">title</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送标题</span>
+    <span class="hljs-attribute">description</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送内容</span>
+    <span class="hljs-attribute">androidOPPOChannelID</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID</span>
   }
-});
-</code></pre>
+});</code></pre>
 
 
 **返回**
@@ -1023,7 +1022,7 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 获取会话列表的接口，该接口拉取最近的100条会话，当需要刷新会话列表时调用该接口。
 
 >!
->-该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，可参考：[getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
+>- 该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，请参考 [getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
 >- 会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
 
 **接口**
