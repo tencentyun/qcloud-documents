@@ -13,9 +13,9 @@
 4. 单击【添加消息转储】，选择转储类型为通用模板
 ![](https://main.qcloudimg.com/raw/97cb7d280c9939166964e282c5417d86.png)
  起始位置：转储时历史消息的处理方式，topic offset 设置。
-5. 创建完成后单击【函数管理】链接，进入函数控制台进行下一步操作。
+5. 创建完成后单击【函数管理】链接，进入云函数控制台进行下一步操作。
 ![](https://main.qcloudimg.com/raw/c0a47a3ed0d59d92af8f80f7f74d8ec1.png)
-6. 在函数控制台上传 CkafkaToElasticsearch 模板代码 [Github下载地址](https://github.com/canmengfly/scf-demo-repo/tree/master/Python2.7-CkafkaToElasticsearch)，并进行相关参数修改。
+6. 在云函数控制台上传 CkafkaToElasticsearch 模板代码 [Github下载地址](https://github.com/canmengfly/scf-demo-repo/tree/master/Python2.7-CkafkaToElasticsearch)，并进行相关参数修改。
 ![](https://main.qcloudimg.com/raw/41dce628f44c633eb8ff83a2197f97e8.png)
 上传完毕后，在 index.py 文件中，将 Elasticsearch 的相关信息进行修改并保存。esIndex 索引需自行创建后填入。
 ![](https://main.qcloudimg.com/raw/3a7756a68cb7ea2b09384e275b1a74c6.png)
