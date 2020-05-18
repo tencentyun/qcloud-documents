@@ -213,52 +213,51 @@ tim.createAudioMessage(options)
 
 **小程序示例**
 
-<pre>
-// 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a>
-// 1. 获取全局唯一的录音管理器 RecorderManager
-const recorderManager = wx.getRecorderManager();
+
+<pre><code><span class="hljs-comment">// 示例：使用微信官方的 RecorderManager 进行录音，参考 <a href="https://developers.weixin.qq.com/minigame/dev/api/media/recorder/RecorderManager.start.html">RecorderManager.start(Object object)</a></span>
+<span class="hljs-comment">// 1. 获取全局唯一的录音管理器 RecorderManager</span>
+<span class="hljs-keyword">const</span> recorderManager = wx.getRecorderManager();
 
 
-// 录音部分参数
-const recordOptions = {
-  duration: 60000, // 录音的时长，单位 ms，最大值 600000（10 分钟）
-  sampleRate: 44100, // 采样率
-  numberOfChannels: 1, // 录音通道数
-  encodeBitRate: 192000, // 编码码率
-  format: 'aac' // 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和 Web）互通
+<span class="hljs-comment">// 录音部分参数</span>
+<span class="hljs-keyword">const</span> recordOptions = {
+  <span class="hljs-attr">duration</span>: <span class="hljs-number">60000</span>, <span class="hljs-comment">// 录音的时长，单位 ms，最大值 600000（10 分钟）</span>
+  <span class="hljs-attr">sampleRate</span>: <span class="hljs-number">44100</span>, <span class="hljs-comment">// 采样率</span>
+  <span class="hljs-attr">numberOfChannels</span>: <span class="hljs-number">1</span>, <span class="hljs-comment">// 录音通道数</span>
+  <span class="hljs-attr">encodeBitRate</span>: <span class="hljs-number">192000</span>, <span class="hljs-comment">// 编码码率</span>
+  <span class="hljs-attr">format</span>: <span class="hljs-string">'aac'</span> <span class="hljs-comment">// 音频格式，选择此格式创建的音频消息，可以在即时通信 IM 全平台（Android、iOS、微信小程序和 Web）互通</span>
 };
 
-// 2.1 监听录音错误事件
-recorderManager.onError(function(errMsg) {
-  console.warn('recorder error:', errMsg);
+<span class="hljs-comment">// 2.1 监听录音错误事件</span>
+recorderManager.onError(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">errMsg</span>) </span>{
+  <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'recorder error:'</span>, errMsg);
 });
-// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例
-recorderManager.onStop(function(res) {
-  console.log('recorder stop', res);
+<span class="hljs-comment">// 2.2 监听录音结束事件，录音结束后，调用 createAudioMessage 创建音频消息实例</span>
+recorderManager.onStop(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">res</span>) </span>{
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'recorder stop'</span>, res);
 
-  // 4. 创建消息实例，接口返回的实例可以上屏
-  const message = tim.createAudioMessage({
-    to: 'user1',
-    conversationType: TIM.TYPES.CONV_C2C,
-    payload: {
-      file: res
+  <span class="hljs-comment">// 4. 创建消息实例，接口返回的实例可以上屏</span>
+  <span class="hljs-keyword">const</span> message = tim.createAudioMessage({
+    <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
+    <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
+    <span class="hljs-attr">payload</span>: {
+      <span class="hljs-attr">file</span>: res
     }
   });
 
-  // 5. 发送消息
-  let promise = tim.sendMessage(message);
-  promise.then(function(imResponse) {
-    // 发送成功
-    console.log(imResponse);
-  }).catch(function(imError) {
-    // 发送失败
-    console.warn('sendMessage error:', imError);
+  <span class="hljs-comment">// 5. 发送消息</span>
+  <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
+  promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
+    <span class="hljs-comment">// 发送成功</span>
+    <span class="hljs-built_in">console</span>.log(imResponse);
+  }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
+    <span class="hljs-comment">// 发送失败</span>
+    <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
   });
 });
 
-// 3. 开始录音
-recorderManager.start(recordOptions);
-</pre>
+<span class="hljs-comment">// 3. 开始录音</span>
+recorderManager.start(recordOptions);</code></pre>
 
 **返回**
 
