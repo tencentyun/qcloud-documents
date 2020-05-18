@@ -169,7 +169,9 @@ return YES;
 	- (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
 
->!应用在前台收到消息不管点不点击消息都会走xgPushDidReceiveRemoteNotification统一接收消息回调 
+>!
+- 应用在前台收到消息不管点不点击消息都会走xgPushDidReceiveRemoteNotification统一接收消息回调 
+- 不建议自行实现接口application:didReceiveRemoteNotification:fetchCompletionHandler ，SDK内部已处理
 
 <span id="zhuxiao"></span>
 ## 注销信鸽平台推送服务

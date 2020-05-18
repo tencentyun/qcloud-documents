@@ -1,6 +1,11 @@
+
+以下视频将为您介绍修改 DNS 服务器地址的相关操作：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2303-33501?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 
 若您的 DNS 服务器不正确，需将域名 DNS 修改为提示的 DNS 地址，解析方可生效。
+>!新注册的域名 DNS 服务器地址默认为免费套餐对应的 DNS 服务器地址，若您不需要升级套餐，则无需调整 DNS 服务器地址。
 
 ## 操作步骤
 

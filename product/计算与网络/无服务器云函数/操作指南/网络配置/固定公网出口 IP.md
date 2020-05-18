@@ -54,17 +54,12 @@
 	</tr>
 </table>
 
-
-
-## 前提条件
-- 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
-- 已 [创建云函数](https://cloud.tencent.com/document/product/583/37509)。
-- 由于 EIP 资源比较稀缺，请通过 [白名单申请](https://cloud.tencent.com/apply/p/lvesun64a7f) 获取设置固定公网出口 IP 功能。
-
-
-
-
 ## 操作步骤
+>!
+>- 已注册腾讯云账户。若未注册，请前往 [注册页面](https://cloud.tencent.com/register)。
+>- 已 [创建云函数](https://cloud.tencent.com/document/product/583/37509)。
+>- 由于 EIP 资源比较稀缺，请通过 [白名单申请](https://cloud.tencent.com/apply/p/lvesun64a7f) 获取设置固定公网出口 IP 功能。
+>
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=19)，单击左侧导航栏中的【函数服务】。
 2. 在页面上方选择云函数所在地域，单击函数名。
 3. 进入“函数配置”页面，单击右上角的【编辑】。如下图所示：

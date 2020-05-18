@@ -147,7 +147,7 @@
   connectionTimeout="20000"
   redirectPort="443" />
 ```
->? 此修改操作可将非 SSL 的 connector 可以跳转到 SSL 的 connector 中。
+>? 此修改操作可将非 SSL 的 connector 跳转到 SSL 的 connector 中。
 >
 4. 在` /usr/*/bin` 目录下执行以下命令，关闭 Tomcat 服务器。
 ```

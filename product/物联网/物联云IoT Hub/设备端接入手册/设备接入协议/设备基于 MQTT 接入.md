@@ -36,7 +36,7 @@ username字段的格式为：
  - devicename： 设备名称。
  - sdkappid：固定填12010126。
  - connid ：一个随机字符串。
- - 过期时间 ：表示签名的有效期， 从1970年1月1日00:00:00 UTC 时间至今秒数的 UTF8 字符串。
+ - expiry ：表示签名的有效期， 从1970年1月1日00:00:00 UTC 时间至今秒数的 UTF8 字符串。
 3. 用 base64 对设备私钥进行解码得到原始密钥 raw_key。
 4. 用第3步生成的 raw_key，通过 HMAC-SHA1 或者 HMAC-SHA256 算法对 username 生成一串摘要，简称 token。
 5. 按照物联网通信约束生成 password 字段，password 字段格式为：

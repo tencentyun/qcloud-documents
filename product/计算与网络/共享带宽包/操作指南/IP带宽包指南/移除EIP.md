@@ -6,4 +6,4 @@
 2. 单击左侧导航的【共享带宽包】。
 3. 选择地域，在列表中找到目标共享带宽包实例，单击实例 ID 进入详情页。
 4. 在详情页的“带宽包资源”模块，选择您要移出带宽包的 EIP，单击【移除资源】，并确认操作即可。
-![](https://main.qcloudimg.com/raw/cc95861a9884f409e58b592165ba8760.png)
+![](https://main.qcloudimg.com/raw/549abce805f064ab4dd602f0f6f00aa1.png)
