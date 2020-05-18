@@ -117,7 +117,7 @@ Uri uri = getIntent().getData();
 ### 在调试过程中遇到 otherpushToken = null 的问题，如何解决？
 #### 小米通道排查路径
 - 检查 App 包名是否和小米开放推送平台的包名一致。
-- 检查是否在小米小米开放推送平台开启消息推送服务。
+- 检查是否在小米开放推送平台开启消息推送服务。
 - 如果是手动接入的方式请根据开发文档检查 manifest 文件配置，尤其是需要修改包名的地方是否修改：
 ```
 <permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
