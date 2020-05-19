@@ -36,6 +36,8 @@ Hue 的 beeswax app 提供了友好方便的 Hive 查询功能，可以选择不
 ![](https://main.qcloudimg.com/raw/0dc7e232a81e8900c06adb277b8eaf93.png)
 
 ## Oozie 任务调度
+>!本文以安装 Hive 版本为 Hive1 为例，配置参数为 HiveServer1。与其他 Hive 版本混合部署时（即配置其他版本的配置参数时），会报错。
+
 1. **准备工作流数据**
 Hue 的任务调度基于工作流，先创建一个包含 Hive script 脚本的工作流，Hive script 脚本的内容如下：
 ```
