@@ -1,12 +1,12 @@
-﻿## 简介
+## 简介
 本文将为您介绍云服务器“ ping 命令不可达“的排查方法和解决方案。
+
 ## 故障原因
 
 本地主机 ping 不通实例可能由以下问题导致：
+
 - 目标云服务器的设置不正确
-
 - 域名没有正确解析
-
 - 链路故障
 
   
@@ -25,6 +25,7 @@
 ## 处理步骤
 
 <span id="isConfigurePublicIP"></span>
+
 ### 检查实例是否配置公网 IP
 
 >? 实例必须具备公网 IP 才能与 Internet 上的其他计算机相互访问。若实例没有公网 IP，内网 IP 外部则无法直接 ping 通实例。
@@ -64,13 +65,13 @@
 
 1. 登录实例。
 2. 执行以下命令，查看系统 icmp_echo_ignore_all 设置。
-```
+```plaintext
 cat /proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
  - 若返回结果为0，表示系统允许所有的 ICMP Echo 请求，请 [检查防火墙设置](#CheckLinuxFirewall)。
  - 若返回结果为1，表示系统禁止所有的 ICMP Echo 请求，请执行 [步骤3](#Linux_step03)。
 3. <span id="Linux_step03">执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
-```
+```plaintext
 echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 
@@ -78,11 +79,11 @@ echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ##### 检查防火墙设置
 
 执行以下命令，查看当前云服务器的防火墙规则以及 ICMP 对应规则是否被禁止。
-```
+```plaintext
 iptables -L
 ```
 - 若返回如下结果，表示 ICMP 对应规则未被禁止，请 [检查域名是否备案](#CheckDomainRegistration)。
-```
+```plaintext
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         
 ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
@@ -93,7 +94,7 @@ target     prot opt source               destination
 ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
 ```
 - 若返回结果 ICMP 对应规则被禁止，请执行以下命令，启用对应规则。
-```
+```plaintext
 #Chain INPUT
 iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
 #Chain OUTPUT
@@ -117,7 +118,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 ### 检查域名是否备案
 
 >? 如果您可以 ping 通公网 IP，而 ping 不通域名，可能是域名没有备案或者域名解析的问题导致。
->
+
 国家工信部规定，对未取得许可或者未履行备案手续的网站不得从事互联网信息服务，否则就属于违法行为。为不影响网站长久正常运行，如需开办网站，建议您先办理网站备案，待备案成功取得通信管理局下发的 ICP 备案号后，才开通访问。
 - 如果您的域名没有备案，请先进行 [域名备案](https://console.cloud.tencent.com/beian)。
 - 如果您使用的是腾讯云的域名服务，您可以登录 [域名服务控制台](https://console.cloud.tencent.com/domain) 查看相应的域名情况。
