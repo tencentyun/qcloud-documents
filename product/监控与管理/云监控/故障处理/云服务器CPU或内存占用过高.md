@@ -125,7 +125,7 @@ Load average 是 CPU 负载的评估，其值越高，说明其任务队列越�
 #### 处理办法
 
 执行以下命令，查看进程状态，并检查是否存在 D 状态进程。如下图所示：
-```
+```plaintext
 ps -axjf
 ```
 ![](//mc.qcloudimg.com/static/img/32420d3fe022b57d85120c941705dbf6/image.png)
