@@ -8,7 +8,7 @@
 
 ## 步骤2：购买轻量应用服务器 Linux 实例
 
-1. 登录 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
 ![](https://main.qcloudimg.com/raw/69a2a306c68abeac8713d9b1f5bfbb76.png)
  - 地域：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
