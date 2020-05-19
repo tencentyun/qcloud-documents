@@ -15,19 +15,19 @@
 <td rowspan="2"><a href="#vpcConn">连接其他 VPC</a></td>
 <td><a href="https://cloud.tencent.com/document/product/877" target="_blank">云联网</a><br>（推荐使用）</td>
 <td>用于两个或多个 VPC 间内网通信。</td>
-<td><li>CIDR 限制缩小到子网范围。</li><li>配置简单，路由自动下发。</li><li>一次加入，所有实例默认互通，支持路由开启和关闭。</li><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li></td>
+<td><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li><li>两个子网或多个子网间的 CIDR 不能重叠。</li><li>一次加入，路由自动下发，所有实例默认互通，支持路由开启和关闭，配置简单。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/553" target="_blank">对等连接</a></td>
 <td>用于两个 VPC 或多个 VPC 间内网通信。</td>
-<td><li>两个 VPC 或多个 VPC 间的 CIDR 不能重叠。</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 间的互通。</li><li>多个 VPC 间的互通，需创建多个对等连接实例，配置繁琐。</li></td>
+<td><li>支持不同账号、不同地域下 VPC 间的互通。</li><li>两个 VPC 或多个 VPC 间的 CIDR 不能重叠。</li> <li>多个 VPC 间的互通，需创建多个对等连接实例，且需手动配置路由，配置繁琐。</li></td>
 </tr>
 </tr>
 <tr>
 <td rowspan="3"><a href="#vpcIDC">连接本地数据中心</a></td>
 <td><a href="https://cloud.tencent.com/document/product/877" target="_blank">云联网</a> + <a href="https://cloud.tencent.com/document/product/216" target="_blank">专线接入</a><br>（推荐使用）</td>
 <td>通过创建一个专线接入的专用通道连接云联网的专线网关，然后把专线网关加载到云联网，即可实现云联网内的多个网络实例间全互通。</td>
-<td><li>配置简单、路由自动下发。</li><li>一次加入，可与多个 VPC、数据中心互通，支持路由开启和关闭。</li><li>同地域实例互通免费。</li></td>
+<td>一次加入，路由自动下发，可与多个 VPC、数据中心互通，支持路由开启和关闭,配置简单。</td>
 </tr><tr>
 <td><a href="https://cloud.tencent.com/document/product/554" target="_blank">VPN 连接</a></td>
 <td>通过 VPN 连接帮您在 Internet 上快速构建一条安全、可靠的加密通道，连接 VPC 和本地数据中心。</td>
@@ -43,7 +43,7 @@
 <td rowspan="3"><a href="#moreConn">连接多方网络</a></td>
 <td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 连接</a> + <a href="https://cloud.tencent.com/document/product/877" target="_blank">云联网</a>（推荐使用）</td>
 <td>通过组合使用 VPN 连接和云联网，实现多方网络互连。</td>
-<td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li><li>CIDR 限制缩小到子网范围。</li><li>配置简单，路由自动下发。</li><li>一次加入，所有实例默认互通，支持路由开启和关闭。</li><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li></td>
+<td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li><li>支持不同账号、不同地域下 VPC 的互通，同时支持 VPC 与数据中心互通。</li><li>两个子网或多个子网间的 CIDR 不能重叠。</li><li>一次加入，路由自动下发，所有实例默认互通，支持路由开启和关闭，配置简单。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 连接</a></td>
@@ -53,7 +53,7 @@
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/554/19276#vpn-.E7.BD.91.E5.85.B3" target="_blank">VPN 连接</a> + <a href="https://cloud.tencent.com/document/product/553" target="_blank">对等连接</a></td>
 <td>通过组合使用 VPN 连接和对等连接，实现多方网络互连。</td>
-<td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li><li>两个 VPC 的 CIDR 不能重叠。</li> <li>需要手动配置路由。</li><li>支持不同账号、不同地域下 VPC 的互通。</li><li>多个 VPC 间的互通，需创建多个对等连接实例，配置繁琐。</li></td>
+<td><li>网络质量依赖于公网。</li><li>网络传输基于 IKE 协议的预共享密钥加密。</li><li>支持不同账号、不同地域下 VPC 间的互通。</li><li>两个 VPC 或多个 VPC 间的 CIDR 不能重叠。</li> <li>多个 VPC 间的互通，需创建多个对等连接实例，且需手动配置路由，配置繁琐。</li></td>
 </tr>
 <tr>
 <td ><a href="#moreConn">连接远程客户端</a></td>
