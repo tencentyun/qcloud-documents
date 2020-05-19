@@ -17,7 +17,7 @@ Window，Linux 或者 Mac OS
 
 ## 操作步骤
 
-1. 登录 [Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
  - 在服务器列表中的实例卡片上，单击【登录】。
  ![](https://main.qcloudimg.com/raw/23a570b8338bc47038b8cee67d440e11.png)
