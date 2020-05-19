@@ -1,3 +1,5 @@
+**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44498) 。**
+
 ## TIMManager
 
 IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以及管理推送等功能。
