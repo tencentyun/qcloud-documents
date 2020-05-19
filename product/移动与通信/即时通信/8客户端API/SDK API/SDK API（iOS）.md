@@ -1,4 +1,4 @@
-**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499) 。**
+**新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44499)。**
 
 ## TIMManager
 
