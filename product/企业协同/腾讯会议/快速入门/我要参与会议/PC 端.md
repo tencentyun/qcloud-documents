@@ -1,6 +1,8 @@
 ## 步骤一：下载安装
-- [Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004)。
-- [macOS 客户端下载](https://meeting.tencent.com/download-mac.html?from=1004)。
+
+| Windows | macOS | 
+|---------|---------|
+| [Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004) | [macOS 客户端下载](https://meeting.tencent.com/download-mac.html?from=1004) | 
 
 
 ## 步骤二：注册/登录
