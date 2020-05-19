@@ -53,7 +53,7 @@ public class MApplication extends Application {
  TXLivePushConfig mLivePushConfig  = new TXLivePushConfig();     
  TXLivePusher mLivePusher = new TXLivePusher(this); 
  
-// 一般情况下不需要修改 config 的默认配置	 // 一般情况下不需要
+// 一般情况下不需要修改 config 的默认配置	 
  mLivePusher.setConfig(mLivePushConfig);	
 ```
 <span id="step4"></span>

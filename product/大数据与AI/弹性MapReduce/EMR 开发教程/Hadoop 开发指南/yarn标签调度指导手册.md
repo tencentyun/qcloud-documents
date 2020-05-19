@@ -88,7 +88,7 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 ### 在 Capacity-Scheduler.xml 中配置 Node Label 与队列的映射关系和占比
 1. 创建存储节点标签的 HDFS 目录。
 ![](https://main.qcloudimg.com/raw/5fadfe11a03a36a7022c3041f80be43a.png)
-2. 在`core-site.xml`中获取 RM 的 IP 和 Port。
+2. 在`core-site.xml`中获取 NN 的 IP 和 Port。
 ![](https://main.qcloudimg.com/raw/80adfada78e73691ad073b97cd28a7ad.png)
 3. 在 master 节点`yarn-site.xml`中新建配置项后，重启 ResourceManager。
 ![](https://main.qcloudimg.com/raw/6f145550bfb6c5613ab952e80b791f7a.png)

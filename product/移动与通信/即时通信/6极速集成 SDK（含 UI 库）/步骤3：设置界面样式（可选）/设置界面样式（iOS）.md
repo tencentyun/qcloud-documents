@@ -42,14 +42,11 @@ config.avatarCornerRadius = 5.f;
 聊天界面 View 的组合方式如下图所示：
 ![](https://main.qcloudimg.com/raw/391d26b927660d99eec807ec1fe84c3b.png)
 
+### 设置聊天窗口背景
 ```objectivec
 TUIChatController *vc = ...; // 获取聊天窗口对象
 vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
-
-显示效果下图所示：
-![](https://main.qcloudimg.com/raw/57f1dde542ca2df17308451f6c518374.png)
-
 
 ### 配置消息
 

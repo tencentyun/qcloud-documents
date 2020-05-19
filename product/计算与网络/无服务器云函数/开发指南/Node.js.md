@@ -157,7 +157,7 @@ exports.callback_handler = function(event, context, callback) {
 
 ## 如何安装依赖
 
-请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780)。
+请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780) 及 [在线依赖安装](https://cloud.tencent.com/document/product/583/37920)。
 
 ## 已包含的库及使用方法
 

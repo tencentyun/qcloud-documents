@@ -7,7 +7,7 @@
 ## 前置要求
 已经开通云开发。
 ## 扩展配置信息
-您可以通过以下配置参数：
+您可以配置以下参数：
 - 环境 ID：选择要部署的环境，在哪个环境下使用。
 
 ## 计费
@@ -31,17 +31,20 @@
 ### 子账户
 如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
 
--  __策略:__  QcloudTCBFullAccess
- __描述:__  云开发全读写访问权限。
+-  __策略:__  QcloudAccessForTCBRole
+ __描述:__  云开发（TCB）对云资源的访问权限。
 
 ## 安装扩展
 您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理扩展。
 
 ## 使用扩展
-1.进入扩展安装环境（以下 custom_env 替代）的管理页，打开【用户管理】，进入【登录设置】 tab 页：
-- 打开【匿名登录】开关，允许应用中可以使用匿名登录的方式访问云开发；
-- 在【WEB 安全域名】中添加云函数 HTTP 触发当前环境默认域名： `${custom_env}.service.tcloudbase.com` ，允许在该域名的页面下调用 web 云开发；
-- 在【移动应用安全来源】中注册 `touristappid`，添加成功后获取凭证信息备用；
+1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境（下文以 `custom_env` 指代对应的环境ID），单击左侧菜单栏【环境设置】页进入环境设置页：
+ - 1.1 单击【登录方式】，打开【匿名登录】开关，允许应用中可以使用匿名登录的方式访问云开发；
+ ![](https://main.qcloudimg.com/raw/9f68de3676967d2bc54d3f0efd926968.png)
+ - 1.2 单击【安全配置】，单击**WEB 安全域名**下的【添加域名】，添加云函数 HTTP 触发当前环境默认域名： ${custom_env}.service.tcloudbase.com （该域名是云开发为开发者分配的 HTTP 触发云函数的域名，详情可以参考 [HTTP 触发](https://cloud.tencent.com/document/product/876/41136)），允许在该域名的页面下调用 web 云开发；
+ ![](https://main.qcloudimg.com/raw/da4aebbd743007aa6130bdbef1f68e36.png)
+ - 1.3 访问【安全配置】，然后在【移动应用安全来源】中注册 `touristappid`，添加成功后获取凭证信息备用；
+ ![](https://main.qcloudimg.com/raw/f1a067ba43e1cfee76e02cf5542887f6.png)
 
 2.打开 custom_env 环境下的【云数据库】，找到 `tcb_hello_world` 集合进入详情，进入【权限设置】 tab 页，点击【切换到安全规则】，输入：
 ```json
@@ -57,8 +60,8 @@ const cloud = tcb.init({
     env: "${custom_env}", // 当前环境的ID
     appSign: "touristappid",
     appSecret: {
-    	appAccessKeyId: "移动应用安全来源 版本", // 步骤1.3中获取的版本
-    	appAccessKey: "移动应用安全来源 凭证" // 步骤1.3中获取的凭证
+    	appAccessKeyId: "移动应用安全来源 版本", // 步骤1.3中获取的移动应用安全来源版本
+    	appAccessKey: "移动应用安全来源 凭证" // 步骤1.3中获取的移动应用安全来源凭证
     }
 });
 ```

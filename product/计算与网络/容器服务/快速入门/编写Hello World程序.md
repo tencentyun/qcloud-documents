@@ -145,7 +145,7 @@ sudo docker push ccr.ccs.tencentyun.com/命名空间/helloworld:v1
 #### 通过负载均衡 IP 访问 Hello World 服务
 1. 单击左侧导航栏中【[集群](https://console.cloud.tencent.com/tke2/cluster)】，进入 “集群管理” 页面。
 2. 单击 Hello World 服务所在的集群 ID，选择【服务】>【Service】。
-3. 在服务管理页面，复制 Nginx 服务的负载均衡 IP，如下图所示：
+3. 在服务管理页面，复制 helloworld 服务的负载均衡 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/3b570e8ab6180118c1ecba68349efe5b.png)
 
 #### 通过服务名称访问 Hello World 服务

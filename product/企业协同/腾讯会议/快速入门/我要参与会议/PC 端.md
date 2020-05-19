@@ -1,36 +1,19 @@
 ## 步骤一：下载安装
-- [Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004)。
-- [macOS 客户端下载](https://meeting.tencent.com/download-mac.html?from=1004)。
+
+| Windows | macOS | 
+|---------|---------|
+| [Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004) | [macOS 客户端下载](https://meeting.tencent.com/download-mac.html?from=1004) | 
 
 
 ## 步骤二：注册/登录
-注册并登录您的腾讯会议账号。如果您已注册，请直接登录。您可以使用验证码或账号密码两种方式进行登录。
-<img src="https://main.qcloudimg.com/raw/94157793f12495b2bc54bd6e8adcc08f.jpg" width="40%">
-
-
-#### 使用验证码登录
-1. 打开腾讯会议 App，认真阅读服务协议和隐私政策后，单击【同意】。（首次登录）
-2. 单击【注册/登录】，输入您的手机号（中国大陆号码），并单击【获取验证码】。
-3. 正确输入短信接收的6位数验证码后，单击【登录】。
-
->?如果您是第一次使用，则会要求您填写名称和设置密码（密码长度为8 - 16位，必须包含大小写字母和数字），并默认为您创建账号。
-
-
-#### 使用账号密码登录
-1. 打开腾讯会议 App，认真阅读服务协议和隐私政策后，单击【同意】。（首次登录）
-2. 单击【注册/登录】，输入您的手机号（中国大陆号码）。
-3. 输入密码后，单击【登录】。
-
-
-#### 其他方式登录
-单击下方微信图标，使用微信扫码快速登录。
+### [点击查看注册登录](https://cloud.tencent.com/document/product/1095/41296)
 
 ## 步骤三：加入会议
 
 1. 打开腾讯会议 App，单击界面【加入会议】。
-2. 输入9位数会议号，并输入您的姓名。
-3. 默认关闭摄像头和麦克风。
-![](https://main.qcloudimg.com/raw/59b224f0b389a4970d677c5742721d1b.jpg)
+2. 输入9位数会议号，并输入您的名称。
+3. 默认关闭摄像头和自动连接音频。
+![](https://main.qcloudimg.com/raw/652805743cd6c716a969bbffeffb0506.jpg)
 4. 单击【加入会议】。
 5. 当您进入会议中后，会提示您选择音频接入方式。如下图：
 ![](https://main.qcloudimg.com/raw/38f4e917e8a8747a31323867f3db36fd.png)
