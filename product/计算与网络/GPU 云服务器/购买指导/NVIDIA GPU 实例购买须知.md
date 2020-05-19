@@ -11,7 +11,7 @@
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/?tab=custom&regionId=1&zoneId=100003&instanceType=GN10.2XLARGE40" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>
 
 
-### 步骤2：选择计费模式，网络，地域与机型
+### 步骤2：选择计费模式、网络、地域与机型
 进入购买页后，选择计费模式、网络、地域及机型。如下图所示：
 ![](https://main.qcloudimg.com/raw/33e3c5019149d461bf8ad881cc2a1ee7.png)
  - **计费模式**：【包年包月】或【按量计费】。
