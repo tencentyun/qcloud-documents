@@ -1,5 +1,4 @@
 ##  购买须知
-购买之前需注意：
 - 在购买腾讯云 GPU 云服务器前，请确保已了解 [腾讯云 GPU 云服务器](https://cloud.tencent.com/document/product/560/8015)，且已了解 [配置与价格](https://cloud.tencent.com/document/product/560/8025)，并根据实际需求购买。
 - 确保了解所选 GPU 实例所在可用区，可用区信息请参考 [NVIDIA GPU 实例类型介绍](https://cloud.tencent.com/document/product/560/19700)。
 
@@ -9,7 +8,7 @@
 
 
 ### 步骤1：登录购买页面
-<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/?tab=custom&regionId=1&zoneId=100003&instanceType=GN10.2XLARGE40" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入快速购买页面</a></div>
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/?tab=custom&regionId=1&zoneId=100003&instanceType=GN10.2XLARGE40" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>
 
 
 ### 步骤2：选择计费模式，网络，地域与机型
@@ -56,8 +55,8 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 ### 步骤6：确认配置信息
 1. 请在“确认配置信息”步骤中核对以下内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/0887252d692c6016a733af7785391f61.png)
-- 确认实例规格、镜像选择、存储和带宽选择以及安全组等配置项是否符合预期。
-- 可选择或核对购买数量和购买时长。
+	- 确认实例规格、镜像选择、存储和带宽选择以及安全组等配置项是否符合预期。
+	- 可选择或核对购买数量和购买时长。
 2. 阅读并勾选“同意《腾讯云服务协议》和《退款规则》”，并单击【立即购买】。
 
 
