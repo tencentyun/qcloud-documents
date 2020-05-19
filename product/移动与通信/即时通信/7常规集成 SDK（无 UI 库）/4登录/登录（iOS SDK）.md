@@ -63,7 +63,7 @@ login_param.userSig = @"usersig";
 //appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
 login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
-    NSLog(@"Login Succ");
+    NSLog(@"Login succ");
 } fail:^(int code, NSString * err) {
     NSLog(@"Login Failed: %d->%@", code, err);
 }];
