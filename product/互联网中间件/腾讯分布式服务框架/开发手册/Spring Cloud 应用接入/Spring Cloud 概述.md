@@ -13,7 +13,7 @@ TSF 目前支持 Spring Cloud Edgware、Spring Cloud Finchley、Spring Cloud Gre
  
 [SDK 版本更新日志 >>](https://cloud.tencent.com/document/product/649/38983) 
 
->!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复（社区 Edgware 版本于2019年8月停止更新)。
+>!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新)。
 
 ## 兼容性说明
 Spring Cloud 功能 、开源实现及 TSF 兼容性如下表所示：
