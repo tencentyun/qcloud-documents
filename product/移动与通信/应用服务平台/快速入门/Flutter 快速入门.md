@@ -28,7 +28,7 @@ dependencies:
 flutter pub get
 ```
 
-### 第 3 步: 创建移动应用安全来源的凭证
+### 第 3 步：创建移动应用安全来源的凭证
 
 打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/setting?tab=safetyConfig)中，在移动应用安全来源里**添加应用**. 
 
