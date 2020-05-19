@@ -9,16 +9,12 @@
 </tr>
     <tr>
         <td>SDK 1.2.6.1版本发布</td>
-        <td><li> 提升稳定性，修复已知问题</li></td>
+        <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增TPNS通道，支持TPNS通道下发消息</li><li>优化数据统计</li></td>
         <td>2020-05-06</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></td>
+        <td><li> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></li><li>  <a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></li></td>
     </tr>
     <tr>
-        <td>SDK 1.2.6.0版本发布</td>
-        <td><li> 优化接入，新增注册回调方法</li><li>新增TPNS通道，支持TPNS通道下发消息</li><li>优化数据统计</li><li>修复已知问题</li></td>
-        <td>2020-05-06</td>
-        <td><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></td>
-    </tr>
+        
 </table>
 
 ## 2020年4月
@@ -222,13 +218,7 @@
     </tr>
     <tr>
         <td>SDK 1.2.1.2版本发布</td>
-        <td><li> 修复点击数据统计问题</li></td>
-        <td>2019-08-19</td>
-        <td>-</td>
-    </tr>
-    <tr>
-        <td>SDK 1.2.1.1版本发布</td>
-        <td><li> 修复标签绑定接口在网络连接状态变化时存在的问题</li></td>
+        <td><li> 修复点击数据统计问题</li><li> 修复标签绑定接口在网络连接状态变化时存在的问题</li></td>
         <td>2019-08-19</td>
         <td>-</td>
     </tr>
