@@ -114,13 +114,13 @@ return YES;
 ## 通知服务扩展插件集成
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
 ### 接入方式
-**方式一：Cocoapods 导入**
+#### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 
 ``` 
 pod 'TPNS-iOS-Extension' 
 ```
-#### 使用说明：
+**使用说明：**
 1. 创建类型为`Application Extension`的`Notification Service Extension`TARGET，例如`XXServiceExtension`。
 2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
 
@@ -133,6 +133,11 @@ Podfile中增加配置项目后展示效果
 ```
 >? 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用。
 
+
+#### 方式二：手动导入
+接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
+
+>!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 
 #### 境外集群接入方法
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
@@ -147,8 +152,6 @@ Podfile中增加配置项目后展示效果
 >?配置 `HOST` 接口需要在 `startXGWithAppID` 方法之前调用。
 
 
-
-
 ## 调试方法
 #### 开启 Debug 模式
 打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
@@ -158,8 +161,6 @@ Podfile中增加配置项目后展示效果
 //打开debug开关
 [[XGPush defaultManager] setEnableDebug:YES];
 ```
-
-
 
 #### 实现 `XGPushDelegate` 协议
 
@@ -228,10 +229,6 @@ Podfile中增加配置项目后展示效果
 >!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 
-**方式二：手动导入**
-接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
-
->!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 
 ## 集成建议
 <span id="QHToken"></span>
