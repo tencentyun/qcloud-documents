@@ -129,7 +129,7 @@ Podfile中增加配置项目后展示效果
 ```
      target ‘XXServiceExtension'do
      pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
- end
+     end
 ```
 >? 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用。
 
