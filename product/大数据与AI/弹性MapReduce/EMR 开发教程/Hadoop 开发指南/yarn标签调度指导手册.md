@@ -79,10 +79,10 @@ Capacity Scheduler 将集群资源粗略的分配给不同的队列，不能指�
 2. 检查 YARN 组件配置
 在“集群服务”页面中，选择 YARN 组件进入组件管理界面，然后切换至配置管理标签页，修改`yarn-site.xml`中相关参数，保存并重启所有 YARN 组件。在角色管理标签页确认 ResourceManager 服务所在节点 IP，之后切换至配置管理标签页修改`yarn-site.xml`中相关参数，保存并重启所有 YARN 组件。
  - 在集群列表中单击集群示例 ID，进入集群信息页面，然后单击左侧菜单栏【集群服务】，选择 YARN 组件管理中【操作】>【配置管理】。
-![](https://main.qcloudimg.com/raw/07b49afea71d2830d6c43d18f2bbdd76.png)
+![](https://main.qcloudimg.com/raw/c5c79e5a9c57bb1d1521df0979a18597.png)
  - 确认 RM 的 IP 地址。
- - 修改 RM 所在节点`yarn-site.xml`的`yarn.resourcemanager.scheduler.class`参数为`org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler`。
-![](https://main.qcloudimg.com/raw/bd5d654c051a0e145b9d1ebf7ba82d2f.png)
+ - 在 YARN 组件“配置管理”页面，选择【维度范围】为主机维度，选择【主机】为 RM 的 IP 地址，单击【修改配置】修改 RM 所在节点`yarn-site.xml`的`yarn.resourcemanager.scheduler.class`参数为`org.apache.hadoop.yarn.server.resourcemanager.scheduler.capacity.CapacityScheduler`。
+![](https://main.qcloudimg.com/raw/3bf97b90c8e06b1617cd73cf1337d67e.png)
 
 ### 在 Capacity-Scheduler.xml 中配置 Node Label 与队列的映射关系和占比
 1. 创建存储节点标签的 HDFS 目录。
