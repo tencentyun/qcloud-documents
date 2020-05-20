@@ -465,7 +465,7 @@ TIMMsgDownloadElemToPath(download_param.toStyledString().c_str(), (path_ + "\\" 
 
 ## TIMMsgBatchSend
 
-群发消息。
+群发消息，该接口不支持向群组发送消息。
 
 **原型**
 
