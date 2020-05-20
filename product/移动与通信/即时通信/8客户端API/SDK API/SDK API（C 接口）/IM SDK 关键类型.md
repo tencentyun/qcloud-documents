@@ -1,8 +1,5 @@
 ## 常用宏和基础配置选项
-
-
 ### TIMResult
-
 调用接口的返回值。
 
 | 名称 | 值 | 含义 |
@@ -19,7 +16,6 @@
 
 
 ### TIMLogLevel
-
 日志级别。
 
 | 名称 | 值 | 含义 |
@@ -33,7 +29,6 @@
 | kTIMLog_Assert | 6 | 断言日志 |
 
 ### TIMNetworkStatus
-
 连接事件类型。
 
 | 名称 | 值 | 含义 |
@@ -44,7 +39,6 @@
 | kTIMConnectFailed | 3 | 连接失败 |
 
 ### TIMConvEvent
-
 会话事件类型。
 
 | 名称 | 值 | 含义 |
@@ -54,7 +48,6 @@
 | kTIMConvEvent_Update | 2 | 会话更新，会话内消息的未读计数变化和收到新消息时触发 |
 
 ### TIMConvType
-
 会话类型。
 
 | 名称 | 值 | 含义 |
@@ -65,7 +58,6 @@
 | kTIMConv_System | 3 | 系统会话 |
 
 ### SdKConfig
-
 初始化 IM SDK 的配置。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -75,7 +67,6 @@
 | kTIMSdkConfigJavaVM | uint64 | 只写（选填） | 配置 Android 平台的 Java 虚拟机指针 |
 
 ### TIMGroupMemberInfoFlag
-
 群组成员信息标识。
 
 | 名称 | 值 | 含义 |
@@ -89,7 +80,6 @@
 | kTIMGroupMemberInfoFlag_NameCard | 0x01 << 5 | 群名片 |
 
 ### TIMGroupMemberRoleFlag
-
 群组成员角色标识。
 
 | 名称 | 值 | 含义 |
@@ -100,7 +90,6 @@
 | kTIMGroupMemberRoleFlag_Member | 0x01 << 2 | 获取普通群成员，不包括群主和管理员 |
 
 ### GroupMemberGetInfoOption
-
 获取群组成员信息的选项。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -110,7 +99,6 @@
 | kTIMGroupMemberGetInfoOptionCustomArray | array string | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### TIMGroupGetInfoFlag
-
 群组成员信息标识。
 
 | 名称 | 值 | 含义 |
@@ -138,7 +126,6 @@
 | kTIMGroupInfoFlag_ShutupAll | 0x01 << 19 | 群组是否全禁言 |
 
 ### GroupGetInfoOption
-
 获取群组信息的选项。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -147,7 +134,6 @@
 | kTIMGroupGetInfoOptionCustomArray | array string | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### UserConfig
-
 用于配置信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -160,7 +146,6 @@
 | kTIMUserConfigGroupMemberGetInfoOption | object [GroupMemberGetInfoOption](#groupmembergetinfooption) | 只写（选填） | 获取群组成员信息默认选项 |
 
 ### HttpProxyInfo
-
 HTTP 代理信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -169,7 +154,6 @@ HTTP 代理信息。
 | kTIMHttpProxyInfoPort | int | 只写（必填） | 代理的端口 |
 
 ### Socks5ProxyInfo
-
 SOCKS5 代理信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -180,7 +164,6 @@ SOCKS5 代理信息。
 | kTIMSocks5ProxyInfoPassword | string | 只写（选填） | 认证的密码 |
 
 ### SetConfig
-
 **更新配置**
 
 - 自定义数据。
@@ -202,11 +185,9 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMSetConfigSocks5ProxyInfo | object [Socks5ProxyInfo](#socks5proxyinfo) | 只写（选填） | 设置 SOCKS5 代理，如果需要，初始化前设置 |
 
 ## 消息关键类型
-
 消息相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### IOSOfflinePushConfig
-
 消息在 iOS 系统上的离线推送配置。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -216,7 +197,6 @@ SOCKS5 代理需要在初始化之前设置。设置之后 IM SDK 发送的所�
 | kTIMIOSOfflinePushConfigIgnoreBadge | bool | 读写 | 是否忽略 badge 计数。若为 true，在 iOS 接收端，这条消息不会使 App 的应用图标未读计数增加 |
 
 ### TIMAndroidOfflinePushNotifyMode
-
 Android 离线推送模式。
 
 | 名称 | 值 | 含义 |
@@ -225,7 +205,6 @@ Android 离线推送模式。
 | kTIMAndroidOfflinePushNotifyMode_Custom | 1 | 自定义消息模式，离线消息下发后，点击通知栏消息会给应用进行回调 |
 
 ### AndroidOfflinePushConfig
-
 消息在 Android 系统上的离线推送配置。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -240,7 +219,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### TIMOfflinePushFlag
-
 推送规则。
 
 | 名称 | 值 | 含义 |
@@ -249,7 +227,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMOfflinePushFlag_NoPush | 1 | 不进行推送 |
 
 ### OfflinePushConfig
-
 消息离线推送配置。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -261,7 +238,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMOfflinePushConfigAndroidConfig | object [AndroidOfflinePushConfig](#androidofflinepushconfig) | 读写 | Android 离线推送配置 |
 
 ### TIMMsgStatus
-
 消息当前状态定义。
 
 | 名称 | 值 | 含义 |
@@ -274,7 +250,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsg_Revoked | 6 | 消息撤回状态 |
 
 ### TIMMsgPriority
-
 标识消息的优先级，数字越大优先级越低。
 
 | 名称 | 值 | 含义 |
@@ -285,7 +260,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgPriority_Lowest | 3 | 优先级最低，一般为成员进退群通知（后台下发） |
 
 ### Message
-
 消息 JSON Keys。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -328,7 +302,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### MessageReceipt
-
 消息已读回执。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -338,7 +311,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgReceiptTimeStamp | uint64 | 只读 | 时间戳 |
 
 ### TIMElemType
-
 元素的类型。
 
 | 名称 | 值 | 含义 |
@@ -358,7 +330,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMElem_ProfileChange | 12   | 资料变更消息元素   |
 
 ### Elem
-
 元素的类型。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -366,7 +337,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMElemType | uint [TIMElemType](#timelemtype) | 读写（必填） | 元素类型 |
 
 ### TextElem
-
 文本元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -374,7 +344,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMTextElemContent | string | 读写（必填） | 文本内容 |
 
 ### FaceElem
-
 表情元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -386,7 +355,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### LocationElem
-
 位置元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -396,7 +364,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMLocationElemlatitude | double | 读写（必填） | 纬度 |
 
 ### TIMImageLevel
-
 图片质量级别。
 
 | 名称 | 值 | 含义 |
@@ -406,7 +373,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMImageLevel_HD | 2 | 高清图发送（图片较大） |
 
 ### ImageElem
-
 图片元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -443,7 +409,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### SoundElem
-
 声音元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -463,7 +428,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### CustomElem
-
 自定义元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -477,7 +441,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### FileElem
-
 文件元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -495,7 +458,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 
 ### VideoElem
-
 视频元素。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -519,7 +481,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMVideoElemTaskId | uint | 只读 | 任务 ID |
 
 ### TIMGroupTipGroupChangeFlag
-
 群组信息修改的类型。
 
 | 名称 | 值 | 含义 |
@@ -531,7 +492,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupTipChangeFlag_Owner | 14 | 修改群所有者 |
 
 ### GroupTipGroupChangeInfo
-
 群组系统消息-群组信息修改。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -540,7 +500,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupTipGroupChangeInfoValue | string | 只读 | 修改的后值，不同的`info_flag`字段，具有不同的含义 |
 
 ### GroupTipMemberChangeInfo
-
 群组系统消息-群组成员禁言。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -549,7 +508,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupTipMemberChangeInfoShutupTime | uint | 只读 | 禁言时间 |
 
 ### TIMGroupTipType
-
 群组系统消息类型。
 
 | 名称 | 值 | 含义 |
@@ -564,7 +522,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupTip_MemberInfoChange | 7 | 群成员信息修改提示 |
 
 ### GroupTipsElem
-
 群组系统消息元素（针对所有群成员）。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -585,7 +542,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupTipsElemPlatform | string | 只读 | 操作方平台信息 |
 
 ### TIMGroupReportType
-
 群组系统通知类型。
 
 | 名称 | 值 | 含义 |
@@ -609,7 +565,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMGroupReport_UserDefine | 16 | 用户自定义通知（默认全员接收） |
 
 ### GroupReportElem
-
 群组系统通知元素（针对个人）。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -681,7 +636,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMFriendChangeElemFriendGroupModifyIdentifierArray | array string | 只读 | 修改的好友分组名称列表，只有当`change_type`为`kTIMFriendChange_FriendGroupModify`时有效 |
 
 ### MsgBatchSendParam
-
 消息群发接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -690,7 +644,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgBatchSendParamMsg | object [Message](#message) | 只写（必填） | 群发的消息 |
 
 ### MsgBatchSendResult
-
 消息群发接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -701,7 +654,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgBatchSendResultMsg | object [Message](#message) | 只读 | 发送的消息 |
 
 ### MsgLocator
-
 消息定位符。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -716,7 +668,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgLocatorUniqueId | uint64 | 读写（必填） | 要查找的消息的唯一标识 |
 
 ### MsgGetMsgListParam
-
 消息获取接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -727,7 +678,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgGetMsgListParamIsForward | bool | 只写（选填） | 是否向前排序 |
 
 ### MsgDeleteParam
-
 消息删除接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -736,7 +686,6 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 | kTIMMsgDeleteParamIsRamble | bool | 只写（选填） | 是否删除本地/漫游所有消息。true 删除漫游消息，false 删除本地消息，默认值 false |
 
 ### TIMDownloadType
-
 UUID 类型。
 
 | 名称 | 值 | 含义 |
@@ -747,7 +696,6 @@ UUID 类型。
 | kTIMDownload_Sound | 3 | 声音 |
 
 ### DownloadElemParam
-
 下载元素接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -759,7 +707,6 @@ UUID 类型。
 | kTIMMsgDownloadElemParamUrl | string | 只写 | 从消息元素里面取出来，元素 URL |
 
 ### MsgDownloadElemResult
-
 下载元素接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -768,11 +715,9 @@ UUID 类型。
 | kTIMMsgDownloadElemResultTotalSize | uint | 只读 | 需要下载的文件总大小 |
 
 ## 会话关键类型
-
 会话相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### Draft
-
 草稿信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -782,7 +727,6 @@ UUID 类型。
 | kTIMDraftEditTime | uint | 只读 | 草稿最新编辑时间 |
 
 ### ConvInfo
-
 会话信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -798,11 +742,9 @@ UUID 类型。
 | kTIMConvDraft | object [Draft](#draft) | 只读（选填） | 会话草稿 |
 
 ## 群组关键类型
-
 群组相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### TIMGroupAddOption
-
 群组加群选项。
 
 | 名称 | 值 | 含义 |
@@ -812,7 +754,6 @@ UUID 类型。
 | kTIMGroupAddOpt_Any | 2 | 任何人都可以加群 |
 
 ### TIMGroupType
-
 群组类型。
 
 | 名称 | 值 | 含义 |
@@ -824,7 +765,6 @@ UUID 类型。
 | kTIMGroup_AVChatRoom | 4 | 互动直播聊天室 |
 
 ### TIMGroupMemberRole
-
 群组成员角色类型。
 
 | 名称 | 值 | 含义 |
@@ -842,7 +782,6 @@ UUID 类型。
 | kTIMGroupMemberInfoCustemStringInfoValue | string | 只写 | 自定义字段的 value |
 
 ### GroupMemberInfo
-
 群组成员信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -864,7 +803,6 @@ UUID 类型。
 | kTIMGroupInfoCustemStringInfoValue | string | 只写 | 自定义字段的 value |
 
 ### CreateGroupParam
-
 创建群组接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -873,15 +811,14 @@ UUID 类型。
 | kTIMCreateGroupParamGroupId | string | 只写（选填） | 群组 ID，不填时创建成功回调会返回一个后台分配的群 ID |
 | kTIMCreateGroupParamGroupType | uint [TIMGroupType](#timgrouptype) | 只写（选填） | 群组类型，默认为 Public |
 | kTIMCreateGroupParamGroupMemberArray | array [GroupMemberInfo](#groupmemberinfo) | 只写（选填） | 群组初始成员数组 |
-| kTIMCreateGroupParamNotification | string | 只写（选填） | 群组公告， |
-| kTIMCreateGroupParamIntroduction | string | 只写（选填） | 群组简介， |
+| kTIMCreateGroupParamNotification | string | 只写（选填） | 群组公告 |
+| kTIMCreateGroupParamIntroduction | string | 只写（选填） | 群组简介 |
 | kTIMCreateGroupParamFaceUrl | string | 只写（选填） | 群组头像 URL |
 | kTIMCreateGroupParamAddOption | uint [TIMGroupAddOption](#timgroupaddoption) | 只写（选填） | 加群选项，默认为 Any |
 | kTIMCreateGroupParamMaxMemberCount | uint | 只写（选填） | 群组最大成员数 |
 | kTIMCreateGroupParamCustomInfo | array [GroupInfoCustemString](#groupinfocustemstring) | 只读（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### CreateGroupResult
-
 创建群组接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -889,7 +826,6 @@ UUID 类型。
 | kTIMCreateGroupResultGroupId | string | 只读 | 创建的群 ID |
 
 ### GroupInviteMemberParam
-
 邀请成员接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -899,7 +835,6 @@ UUID 类型。
 | kTIMGroupInviteMemberParamUserData | string | 只写（选填） | 用于自定义数据 |
 
 ### HandleGroupMemberResult
-
 群组基础信息。
 
 | 名称 | 值 | 含义 |
@@ -910,7 +845,6 @@ UUID 类型。
 | kTIMGroupMember_Invited | 3 | 已发送邀请 |
 
 ### GroupInviteMemberResult
-
 邀请成员接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -919,7 +853,6 @@ UUID 类型。
 | kTIMGroupInviteMemberResultResult | uint [HandleGroupMemberResult](#handlegroupmemberresult) | 只读 | 邀请结果 |
 
 ### GroupDeleteMemberParam
-
 删除成员接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -929,7 +862,6 @@ UUID 类型。
 | kTIMGroupDeleteMemberParamUserData | string | 只写（选填） | 用于自定义数据 |
 
 ### GroupDeleteMemberResult
-
 删除成员接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -938,7 +870,6 @@ UUID 类型。
 | kTIMGroupDeleteMemberResultResult | uint [HandleGroupMemberResult](#handlegroupmemberresult) | 只读 | 删除结果 |
 
 ### TIMGroupReceiveMessageOpt
-
 群组消息接收选项。
 
 | 名称 | 值 | 含义 |
@@ -948,7 +879,6 @@ UUID 类型。
 | kTIMRecvGroupMsgOpt_ReceiveNotNotify | 2 | 接收群消息，不提示 |
 
 ### GroupSelfInfo
-
 群组内本人的信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -959,7 +889,6 @@ UUID 类型。
 | kTIMGroupSelfInfoMsgFlag | uint [TIMGroupReceiveMessageOpt](#timgroupreceivemessageopt) | 只读 | 群消息接收选项 |
 
 ### GroupBaseInfo
-
 获取已加入群组列表接口的返回（群组基础信息）。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -976,7 +905,6 @@ UUID 类型。
 | kTIMGroupBaseInfoSelfInfo | object [GroupSelfInfo](#groupselfinfo) | 只读 | 用户所在群的个人信息 |
 
 ### GroupDetailInfo
-
 群组详细信息。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1003,7 +931,6 @@ UUID 类型。
 | kTIMGroupDetialInfoCustomInfo | array [GroupInfoCustemString](#groupinfocustemstring) | 只读 | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### GetGroupInfoResult
-
 获取群组信息列表接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1013,26 +940,24 @@ UUID 类型。
 | kTIMGetGroupInfoResultInfo | object [GroupDetailInfo](#groupdetailinfo) | 只读 | 群组详细信息 |
 
 ### TIMGroupModifyInfoFlag
-
 设置（修改）群组信息的类型。
 
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
 | kTIMGroupModifyInfoFlag_None | 0x00 | - |
 | kTIMGroupModifyInfoFlag_Name | 0x01 | 修改群组名称， |
-| kTIMGroupModifyInfoFlag_Notification | 0x01 << 1 | 修改群公告， |
+| kTIMGroupModifyInfoFlag_Notification | 0x01 << 1 | 修改群公告 |
 | kTIMGroupModifyInfoFlag_Introduction | 0x01 << 2 | 修改群简介 |
 | kTIMGroupModifyInfoFlag_FaceUrl | 0x01 << 3 | 修改群头像 URL |
-| kTIMGroupModifyInfoFlag_AddOption | 0x01 << 4 | 修改群组添加选项， |
-| kTIMGroupModifyInfoFlag_MaxMmeberNum | 0x01 << 5 | 修改群最大成员数， |
-| kTIMGroupModifyInfoFlag_Visible | 0x01 << 6 | 修改群是否可见， |
-| kTIMGroupModifyInfoFlag_Searchable | 0x01 << 7 | 修改群是否被搜索， |
-| kTIMGroupModifyInfoFlag_ShutupAll | 0x01 << 8 | 修改群是否全体禁言， |
+| kTIMGroupModifyInfoFlag_AddOption | 0x01 << 4 | 修改群组添加选项 |
+| kTIMGroupModifyInfoFlag_MaxMmeberNum | 0x01 << 5 | 修改群最大成员数 |
+| kTIMGroupModifyInfoFlag_Visible | 0x01 << 6 | 修改群是否可见 |
+| kTIMGroupModifyInfoFlag_Searchable | 0x01 << 7 | 修改群是否被搜索 |
+| kTIMGroupModifyInfoFlag_ShutupAll | 0x01 << 8 | 修改群是否全体禁言 |
 | kTIMGroupModifyInfoFlag_Custom | 0x01 << 9 | 修改群自定义信息 |
 | kTIMGroupModifyInfoFlag_Owner | 0x01 << 31 | 修改群主 |
 
 ### GroupModifyInfoParam
-
 设置群信息接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1052,7 +977,6 @@ UUID 类型。
 | kTIMGroupModifyInfoParamCustomInfo | array [GroupInfoCustemString](#groupinfocustemstring) | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### GroupGetMemberInfoListParam
-
 获取群成员列表接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1063,7 +987,6 @@ UUID 类型。
 | kTIMGroupGetMemberInfoListParamNextSeq | uint64 | 只写（选填） | 分页拉取标志，第一次拉取填0，回调成功如果不为零，需要分页，调用接口传入再次拉取，直至为0 |
 
 ### GroupGetMemberInfoListResult
-
 获取群成员列表接口的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1072,7 +995,6 @@ UUID 类型。
 | kTIMGroupGetMemberInfoListResultInfoArray | array [GroupMemberInfo](#groupmemberinfo) | 只读 | 成员信息列表 |
 
 ### TIMGroupMemberModifyInfoFlag
-
 设置（修改）群成员信息的类型。
 
 | 名称 | 值 | 含义 |
@@ -1085,7 +1007,6 @@ UUID 类型。
 | kTIMGroupMemberModifyFlag_Custom | 0x01 << 4 | 修改群成员自定义信息 |
 
 ### GroupModifyMemberInfoParam
-
 设置群成员信息接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1100,7 +1021,6 @@ UUID 类型。
 | kTIMGroupModifyMemberInfoParamCustomInfo | array [GroupMemberInfoCustemString](#groupmemberinfocustemstring) | 只写（选填） | 请参考 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 ### GroupPendencyOption
-
 获取群未决信息列表的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1109,7 +1029,6 @@ UUID 类型。
 | kTIMGroupPendencyOptionMaxLimited | uint | 只写（选填） | 拉取的建议数量，server 可根据需要返回或多或少，不能作为完成与否的标志 |
 
 ### TIMGroupPendencyType
-
 未决请求类型。
 
 | 名称 | 值 | 含义 |
@@ -1119,7 +1038,6 @@ UUID 类型。
 | kTIMGroupPendency_ReqAndInvite | 2 | 邀请和请求的 |
 
 ### TIMGroupPendencyHandle
-
 群未决处理状态。
 
 | 名称 | 值 | 含义 |
@@ -1129,7 +1047,6 @@ UUID 类型。
 | kTIMGroupPendency_OperatorHandle | 2 | 操作方处理 |
 
 ### TIMGroupPendencyHandleResult
-
 群未决处理操作类型。
 
 | 名称 | 值 | 含义 |
@@ -1138,14 +1055,13 @@ UUID 类型。
 | kTIMGroupPendency_Accept | 1 | 同意 |
 
 ### GroupPendency
-
 群未决信息定义。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyGroupId | string | 读写 | 群组 ID |
-| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID，例如：请求加群：请求者，邀请加群：邀请人。 |
-| kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，请求加群：""，邀请加群：被邀请人。 |
+| kTIMGroupPendencyFromIdentifier | string | 读写 | 请求者的 ID，例如：请求加群：请求者，邀请加群：邀请人 |
+| kTIMGroupPendencyToIdentifier | string | 读写 | 判决者的 ID，请求加群：""，邀请加群：被邀请人 |
 | kTIMGroupPendencyAddTime | uint64 | 只读 | 未决信息添加时间 |
 | kTIMGroupPendencyPendencyType | uint [TIMGroupPendencyType](#timgrouppendencytype) | 只读 | 未决请求类型 |
 | kTIMGroupPendencyHandled | uint [TIMGroupPendencyHandle](#timgrouppendencyhandle) | 只读 | 群未决处理状态 |
@@ -1159,18 +1075,16 @@ UUID 类型。
 | kTIMGroupPendencySelfIdentifier | string | 只读 | 自己的 ID |
 
 ### GroupPendencyResult
-
 获取群未决信息列表的返回。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
 |-----|-----|-----|-----|
 | kTIMGroupPendencyResultNextStartTime | uint64 | 只读 | 下一次拉取的起始时戳，server 返回0表示没有更多的数据，否则在下次获取数据时以这个时间戳作为开始时间戳 |
 | kTIMGroupPendencyResultReadTimeSeq | uint64 | 只读 | 已读上报的时间戳 |
-| kTIMGroupPendencyResultUnReadNum | uint | 只读 | 未决请求的未读数？ |
+| kTIMGroupPendencyResultUnReadNum | uint | 只读 | 未决请求的未读数 |
 | kTIMGroupPendencyResultPendencyArray | array [GroupPendency](#grouppendency) | 只读 | 群未决信息列表 |
 
 ### GroupHandlePendencyParam
-
 处理群未决消息接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1180,11 +1094,9 @@ UUID 类型。
 | kTIMGroupHandlePendencyParamPendency | object [GroupPendency](#grouppendency) | 只写（必填） | 未决信息详情 |
 
 ## 关系链和资料关键类型
-
 关系链和资料相关宏定义，以及相关结构成员存取 JSON Key 定义。
 
 ### FriendShipGetProfileListParam
-
 处理群未决消息接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1193,7 +1105,6 @@ UUID 类型。
 | kTIMFriendShipGetProfileListParamForceUpdate | bool | 只写 | 是否强制更新。false 表示优先从本地缓存获取，获取不到则去网络上拉取。true 表示直接去网络上拉取资料。默认为 false |
 
 ### TIMGenderType
-
 用户性别类型。
 
 | 名称 | 值 | 含义 |
@@ -1203,7 +1114,6 @@ UUID 类型。
 | kTIMGenderType_Female | 2 | 性别女 |
 
 ### TIMProfileAddPermission
-
 用户加好友的选项。
 
 | 名称 | 值 | 含义 |
@@ -1214,7 +1124,6 @@ UUID 类型。
 | kTIMProfileAddPermission_DenyAny | 3 | 拒绝任何人添加好友 |
 
 ### UserProfileCustemStringInfo
-
 用户自定义资料字段，字符串。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1223,7 +1132,6 @@ UUID 类型。
 | kTIMUserProfileCustemStringInfoValue | string | 只写 | 该字段对应的字符串值 |
 
 >?字符串长度不得超过500字节。
-
 
 ### UserProfile
 
@@ -1266,7 +1174,6 @@ UUID 类型。
 | kTIMFriendProfileCustemStringInfoValue | string | 只写 | 好友自定义资料字段 value |
 
 ### FriendProfile
-
 好友资料。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
@@ -1296,7 +1203,6 @@ UUID 类型。
 | FriendTypeBoth | 1 | 双向好友：用户 A 的好友表中有用户 B，B 的好友表中也有 A |
 
 ### FriendshipAddFriendParam
-
 添加好友接口的参数。
 
 | JSON 键 | 值类型 | 属性 | 含义 |
