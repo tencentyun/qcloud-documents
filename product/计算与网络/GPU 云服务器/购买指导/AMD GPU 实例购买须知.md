@@ -3,7 +3,7 @@
 - 确保了解所选 GPU 实例所在可用区，可用区信息请参考 [AMD GPU 实例类型介绍](https://cloud.tencent.com/document/product/560/19701)。
 
 ##  购买步骤
-本文以渲染型 **GA2 实例**为例，您可根据以下步骤快速购买一台 GPU 云服务器。
+本文以渲染型 **GA2 实例**为例，指导您按照以下步骤快速购买一台 GPU 云服务器。
 >?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/act/apply/ga2)。
 
 ### 步骤1：登录购买页面
