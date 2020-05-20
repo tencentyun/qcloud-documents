@@ -60,6 +60,9 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
 配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
-10. 单击【Open】，发起登录请求。
+10. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
+11. 在 “login as” 后输入用户名，如 `root`，按 **Enter**。如下图所示：
+![](https://main.qcloudimg.com/raw/2a3db2fed5e901ce11f87e8583e182a0.png)
+
 
 
