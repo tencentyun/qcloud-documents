@@ -22,6 +22,8 @@
  ![](https://main.qcloudimg.com/raw/a00e9000d53aa4a3ccb0294ef9e719de.png)
 ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 
+4. 证书上传完成后，在应用信息一栏中，获取应用Access ID 和 Access KEY。
+
 ### 导入 SDK
  -  **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
@@ -108,6 +110,26 @@ return YES;
 	}
 	#endif
 			 ```
+## 通知服务扩展插件集成
+为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
+### 接入方式
+**方式一：Cocoapods 导入**
+通过 Cocoapods 下载地址：
+
+``` 
+pod 'TPNS-iOS-Extension' 
+```
+#### 使用说明：
+1、创建类型为```Application Extension``` 的```Notification Service Extension```TARGET，例如 ```XXServiceExtension```
+2、在Podfile  新增XXServiceExtension的配置栏目
+**示例**
+Podfile中增加配置项目后展示效果
+```
+     target ‘XXServiceExtension'do
+     pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
+ end
+```
+> 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用
 
 
 #### 境外集群接入方法
@@ -203,26 +225,6 @@ return YES;
 ```
 >!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
-## 通知服务扩展插件集成
-为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
-### 接入方式
-**方式一：Cocoapods 导入**
-通过 Cocoapods 下载地址：
-
-``` 
-pod 'TPNS-iOS-Extension' 
-```
-#### 使用说明：
-1、创建类型为```Application Extension``` 的```Notification Service Extension```TARGET，例如 ```XXServiceExtension```
-2、在Podfile  新增XXServiceExtension的配置栏目
-**示例**
-Podfile中增加配置项目后展示效果
-```
-     target ‘XXServiceExtension'do
-     pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
- end
-```
-> 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用
 
 **方式二：手动导入**
 接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
