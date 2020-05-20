@@ -1105,7 +1105,7 @@ END [WORK | TRANSACTION]
 ```
 
 ### 执行
-执行一个已经准备好的SQL语句。
+执行一个已经准备好的 SQL 语句。
 
 ```sql
 EXECUTE name [ (parameter [, ...] ) ]
@@ -1220,7 +1220,7 @@ REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 ```
 
 ### 释放SAVEPOINT
-销毁一个之前定义过的savepoint。
+销毁一个之前定义过的 savepoint。
 
 ```sql
 RELEASE [SAVEPOINT] savepoint_name
@@ -1292,14 +1292,14 @@ ROLLBACK [WORK | TRANSACTION]
 ```
 
 ### 回滚到SAVEPOINT
-将当前事务回滚到某个savepoint。
+将当前事务回滚到某个 savepoint。
 
 ```sql
 ROLLBACK [WORK | TRANSACTION] TO [SAVEPOINT] savepoint_name
 ```
 
 ### SAVEPOINT
-在当前事务定义一个新的savepoint。
+在当前事务定义一个新的 savepoint。
 
 ```sql
 SAVEPOINT savepoint_name

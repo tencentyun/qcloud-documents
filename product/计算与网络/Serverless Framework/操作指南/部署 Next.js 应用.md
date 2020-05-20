@@ -11,9 +11,8 @@ Next.js 特性介绍：
 
 
 ## 前提条件
-
-#### 初始化 Next.js 项目
-在本地创建一个 Next.js 项目并初始化：
+- 已安装 Node.js（参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
+- 在本地创建一个 Next.js 项目并初始化：
 ```bash
 $ mkdir serverless-next && cd serverless-next
 $ npm init next-app src
@@ -84,7 +83,7 @@ $ serverless info
 ```
 
 ### 6. 移除
-在 `serverless.yml` 文件所在的目录下，通过以下命令移除部署通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
+在 `serverless.yml` 文件所在的目录下，通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
 ```bash
 $ sls remove
 ```

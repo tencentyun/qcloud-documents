@@ -43,7 +43,7 @@
 ```xml
 <view class="container-box">
 <view class="player-view">
-  <live-room-play liveAppID="1258550678" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
+  <live-room-play version={{version} liveAppID="{{liveAppID}}" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
     minCache="{{minCache}}" maxCache="{{maxCache}}" mode="{{mode}}" muted="{{muted}}" debug="{{debug}}" bindPlayEvent="onPlayEvent" >
   </live-room-play>
 </view>
@@ -65,7 +65,7 @@
 在 page 的`.wxml`文件加载上一步引入的`live-room-push`组件。
 
 ```xml
-<live-room-push liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
+<live-room-push version={{version} liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
   debug="{{debug}}" autoFocus="{{autoFocus}}" aspect="{{aspect}}" minBitrate="{{minBitrate}}" maxBitrate="{{maxBitrate}}" zoom="{{zoom}}" devicePosition="{{devicePosition}}" sdkAppID="{{sdkAppID}}" accountType="{{accountType}}" userID="{{userID}}" userSig="{{userSig}}"
   roomID="{{roomID}}" nickName="{{nickName}}" avatar="{{avatar}}" bindPushEvent="onPushEvent" bindIMEvent="onIMEvent">
 ```
@@ -77,7 +77,7 @@
 | 属性                      | 类型        | 默认值     | 必填 | 说明                                                         |
 | :------------------------ | :---------- | :--------- | :--- | :----------------------------------------------------------- |
 | liveAppID                 | Number      | 0          | 是   | 用户的腾讯云 AppID                                           |
-| playUrl                   | String      | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720) |
+| playUrl                   | String      | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720#.E5.A6.82.E4.BD.95.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85.E6.92.AD.E6.94.BE-url.EF.BC.9F) |
 | version                   | Number      | 1          | 否   | 直播控制台购买插件即为新版本，此处必填值为：2<br>旧方案接入：1 或不填 |
 | mode                      | String      | "live"     | 否   | live（直播），RTC（实时通话，该模式延时更低）                |
 | orientation               | String      | "vertical" | 否   | 画面方向，可选值有 vertical、horizontal                      |
