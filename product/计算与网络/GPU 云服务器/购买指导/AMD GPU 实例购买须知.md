@@ -4,7 +4,7 @@
 
 ##  购买步骤
 本文以渲染型 **GA2 实例**为例，您可根据以下步骤快速购买一台 GPU 云服务器。
->?GPU 渲染型 GA2 现处于内测阶段，如需申请，请前往 [内测申请](https://cloud.tencent.com/act/apply/ga2)。
+>?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/act/apply/ga2)。
 
 ### 步骤1：登录购买页面
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>
@@ -26,7 +26,7 @@ GPU 渲染型 GA2 支持四种镜像类型：公共镜像、自定义镜像、�
 ![](https://main.qcloudimg.com/raw/3eca7d75defa296316eb976a4881cf59.png)
 >!GA2 搭载了 AMD S7150 GPU，主机内需要安装对应的驱动程序才可正常使用。若选择了【公有镜像】，则需安装 GPU 驱动程序。
 >
-请请从 http://mirrors.tencentyun.com/install/windows/s7150_guest_driver.7z 下载驱动。（腾讯云内网链接，需要在服务器内访问）然后执行 Setup.exe 进行安装即可。安装完成后，查看设备管理器，如下图所示则表明安装成功。
+请从 `http://mirrors.tencentyun.com/install/windows/s7150_guest_driver.7z` 下载驱动。（腾讯云内网链接，需要在服务器内访问）然后执行 Setup.exe 进行安装即可。安装完成后，查看设备管理器，如下图所示则表明安装成功。
 ![设备管理器](//mc.qcloudimg.com/static/img/831923fe6942f4cb03640cffdb5883fd/image.png)
 
 ### 步骤4：选择存储与网络
