@@ -31,8 +31,8 @@
  pod 'TPNS-iOS' 
 ```
  >?
-    - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中[设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)，然后在 Terminal 输入对应的用户名和密码。后续即可正常使用，当前 PC 不需要再次登录。
-    - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库确认版本：
+  - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中[设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)，然后在 Terminal 输入对应的用户名和密码。后续即可正常使用，当前 PC 不需要再次登录。
+  - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库确认版本：
 ``` 
 pod repo update
 pod search TPNS-iOS
@@ -46,8 +46,8 @@ pod install //安装SDK
 ```
  -  **方式三：手动导入**
 进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
- - 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
- - 在 Build Phases 下，添加以下 Framework：
+  - 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+  - 在 Build Phases 下，添加以下 Framework：
  
         ```
                 * XGMTACloud.framework
@@ -64,16 +64,15 @@ pod install //安装SDK
 ![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
 
 ### 工程配置
-1.在工程配置和后台模式中打开推送，如下图所示：
+1. 在工程配置和后台模式中打开推送，如下图所示：
 ![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
-2.添加编译参数 `-ObjC` 。
+2. 添加编译参数 `-ObjC` 。
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
-
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
 ### 接入样例
 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
-	1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
+1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
    ```Objective-C
 @interface AppDelegate () <XGPushDelegate>
 @end 
@@ -87,9 +86,9 @@ pod install //安装SDK
 [[XGPush defaultManager] startXGWithAppID:<#your appID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
 return YES;
 }
-   ```
-	2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
-		```objective-c
+ ```
+2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
+ ```objective-c
 		/// 统一收到通知消息的回调
 		/// @param notification 消息对象
 		/// @param completionHandler 完成回调
@@ -109,7 +108,9 @@ return YES;
                                                          /// code
 	}
 	#endif
-			 ```
+  ```
+
+
 ## 通知服务扩展插件集成
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
 ### 接入方式
@@ -120,8 +121,9 @@ return YES;
 pod 'TPNS-iOS-Extension' 
 ```
 #### 使用说明：
-1、创建类型为```Application Extension``` 的```Notification Service Extension```TARGET，例如 ```XXServiceExtension```
-2、在Podfile  新增XXServiceExtension的配置栏目
+1. 创建类型为`Application Extension`的`Notification Service Extension`TARGET，例如`XXServiceExtension`。
+2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
+
 **示例**
 Podfile中增加配置项目后展示效果
 ```
@@ -129,7 +131,7 @@ Podfile中增加配置项目后展示效果
      pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
  end
 ```
-> 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用
+>? 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用。
 
 
 #### 境外集群接入方法
