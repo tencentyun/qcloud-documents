@@ -3,14 +3,14 @@
 TPG 压缩是腾讯云数据万象提供的高级图片压缩功能。通过该功能，您可将JPG/ PNG/ GIF/WEBP等格式图片转码为 TPG 格式，大幅减小图片大小，从而显著降低图片流量，提升页面加载速度。
 
 >！
-- TPG 压缩是付费服务，具体费用可查看 [购买指南](https://cloud.tencent.com/doc/product/460/6970)。
-- 使用 TPG 压缩时，需在相应存储桶配置页中开通服务，具体操作请参见 [设置 TPG 压缩](xxx)。
-- TPG 是腾讯自研的图片格式，如需使用请确认图片加载环境支持 TPG 解码，腾讯云音视频实验室提供集成 TPG 解码器的 iOS、Android、Windows 终端 SDK，可帮助您快速接入和使用 TPG，详见 [SDK 下载](https://cloud.tencent.com/document/product/875/18366)。
+- TPG 压缩为付费服务，具体费用可查看 [计费与定价](https://cloud.tencent.com/doc/product/460/6970)。
+- 使用 TPG 压缩时，需在相应存储桶配置页中开通服务，具体操作请参见 [设置 TPG 压缩](https://cloud.tencent.com/document/product/460/44763)。
+- TPG 是腾讯自研的图片格式，如需使用，请确认图片加载环境支持 TPG 解码，腾讯云音视频实验室提供集成 TPG 解码器的 iOS、Android、Windows 终端 SDK，可帮助您快速接入和使用 TPG，详见 [SDK 下载](https://cloud.tencent.com/document/product/875/18366)。
 
 
 ## 接口形式
 
-```shell
+```plaintext
 download_url?imageMogr2/format/<Format>
 ```
 
@@ -29,7 +29,7 @@ download_url?imageMogr2/format/<Format>
 
 然后将原图转换为 TPG 格式，URL 地址如下。
 
-```http
+```plaintext
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/format/tpg
 ```
 
