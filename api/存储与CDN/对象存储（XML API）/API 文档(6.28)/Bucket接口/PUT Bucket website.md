@@ -78,13 +78,7 @@ Authorization: Auth String
 | IndexDocument | WebsiteConfiguration | 索引文档配置 | Container | 是 |
 | RedirectAllRequestsTo | WebsiteConfiguration | 重定向所有请求配置 | Container | 否 |
 | ErrorDocument | WebsiteConfiguration | 错误文档配置 | Container | 否 |
-| RoutingRules | WebsiteConfiguration | 重定向规则配置，最多设置100条 RoutingRule | Container | 否 |
-
-**Container 节点 ErrorDocument 的内容：**
-
-| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- | --- |
-| Key | WebsiteConfiguration.ErrorDocument | 指定通用错误文档的对象键，当发生错误且未命中重定向规则中的错误码重定向时，将返回该对象键的内容。 | string | 是 |
+| RoutingRules | WebsiteConfiguration | 重定向规则配置，最多设置100条 RoutingRule。 | Container | 否 |
 
 **Container 节点 IndexDocument 的内容：**
 
@@ -96,7 +90,13 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Protocol | WebsiteConfiguration.RedirectAllRequestsTo | 指定重定向所有请求的目标协议，只能设置为 https | string | 是 |
+| Protocol | WebsiteConfiguration.RedirectAllRequestsTo | 指定重定向所有请求的目标协议，只能设置为 https。 | string | 是 |
+
+**Container 节点 ErrorDocument 的内容：**
+
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| Key | WebsiteConfiguration.ErrorDocument | 指定通用错误文档的对象键，当发生错误且未命中重定向规则中的错误码重定向时，将返回该对象键的内容。 | string | 是 |
 
 **Container 节点 RoutingRules 的内容：**
 
@@ -116,14 +116,14 @@ Authorization: Auth String
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
 | HttpErrorCodeReturnedEquals | WebsiteConfiguration.RoutingRules.RoutingRule.Condition | 指定重定向规则的错误码匹配条件，只支持配置4XX返回码，如403或404。 | integer | 否 |
-| KeyPrefixEquals | WebsiteConfiguration.RoutingRules.RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件。 | string | 否 |
+| KeyPrefixEquals | WebsiteConfiguration.RoutingRules.RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | string | 否 |
 
 **Container 节点 RoutingRules.RoutingRule.Redirect 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
 | ReplaceKeyWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键。 | string | 否 |
-| Protocol | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https | string | 否 |
+| Protocol | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https。 | string | 否 |
 | ReplaceKeyPrefixWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置。 | string | 否 |
 
 ## 响应
