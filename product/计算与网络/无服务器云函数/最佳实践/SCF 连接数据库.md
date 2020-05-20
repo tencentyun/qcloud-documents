@@ -276,7 +276,7 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
->Node.js SDK 具体使用方法 [请参考最新文档](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)
+>?Node.js SDK 具体使用方法请参考 [云函数 Serverless DB Node SDK](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
 
 
 ### Python SDK
