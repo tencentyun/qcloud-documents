@@ -98,7 +98,7 @@ net.ipv4.conf.eth1.rp_filter = 0
 ```
 修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/e52fbce871fe92ac5756f6af640c352e.png)
-11. 完成修改后，按 **Esc**，输入 **wq!** 并回车，保存配置并返回。
+11. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 12. 执行如下命令，使配置文件生效。
 ```
 sysctl -p
