@@ -32,14 +32,14 @@ cd example
 ```
 serverless deploy
 ```
-2. 使用**微信**扫描命令行中的二维码，进行腾讯云授权登录和注册。如需配置持久账号密钥，请参见 [账号配置](#accountConfiguration)。
+2. 使用**微信**扫描命令行中的二维码，进行腾讯云授权登录和注册。如需配置持久的环境变量或密钥信息，请参见 [账号配置](#accountConfiguration)。
 函数部署完成后，您可在命令行的输出中查看对应云函数的网关触发器提供的 URL 地址，使用浏览器访问该地址即可查看函数的部署效果。
->?如需查看更多部署过程的相关信息，可执行 `sls deploy --debug` 命令查看部署过程中的实时日志信息。（`sls` 是 `serverless` 命令的缩写）。
+>?如需查看部署过程的更多信息，可执行 `sls deploy --debug` 命令查看部署过程中的实时日志信息。（`sls` 是 `serverless` 命令的缩写）。
 >
 
 
 ### 配置部署
-云函数组件支持“0”配置部署，即您可直接使用配置文件中的默认值进行部署。同时也支持您根据自身需求，修改可选配置来进一步开发徐部署的项目。
+云函数组件支持“0”配置部署，即您可直接使用配置文件中的默认值进行部署。同时也支持您根据自身需求，修改可选配置来进一步开发需部署的项目。
 
 以下是云函数组件配置文件 `serverless.yml` 的说明，详情请参见 [全量配置及配置说明](https://github.com/serverless-components/tencent-scf/blob/v2/doc/serverless.yaml)。
 ```yml
@@ -72,7 +72,7 @@ inputs:
 当您更新配置文件的字段后，再次运行 `serverless deploy` 或者 `serverless`  命令即可更新配置到云端。
 
 ### 开发与调试
-完成该云函数的部署后，可通过组件提供的开发调试能力对该项目进行二次开发，从而开发一个生产应用。
+完成云函数的部署后，可通过组件提供的开发调试能力对该项目进行二次开发，从而开发一个生产应用。
 
 #### 开发模式
 在 `serverless.yml` 文件所在的目录下，执行以下命令，进入开发模式。
@@ -104,8 +104,8 @@ serverless remove
 
 ## 相关操作
 ### 账号配置<span id="accountConfiguration"></span>
-
-1. 目前默认支持 CLI 扫描二维码登录，如需配置持久的环境变量/密钥信息，可执行以下命令，在本地创建 `.env` 文件。
+目前默认支持 CLI 扫描二维码登录，如需配置持久的环境变量/密钥信息，可通过以下步骤进行配置：
+1. 执行以下命令，在本地创建 `.env` 文件。
 ```console
 touch .env # 腾讯云的配置信息
 ```
@@ -117,4 +117,4 @@ TENCENT_SECRET_KEY=123
 ```
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>- 如果已有腾讯云账号，可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取 SecretId 和 SecretKey。
