@@ -24,7 +24,7 @@ shell > mysql -h hostname -P port -u username -p < bak_pathname
 ### 迁移数据（Windows 系统）
 1. 使用 Windows 系统的 mysqldump 工具生成待导入的 SQL 文件，具体请参考 [命令行工具迁移数据](#AA) 中的描述。
 2. 进入命令提示符，通过 MySQL 命令行工具导入数据至目标数据库。
-![](https://main.qcloudimg.com/raw/0d9caa9bbccfa840a88222fe31af980e.png)
+![](https://main.qcloudimg.com/raw/82fece0fed5c61437215836a6a5fdc54.png)
 3. [登录目标 MySQL 数据库](https://dev.mysql.com/doc/refman/5.7/en/connecting.html)，执行`show databases;`命令，可查看到备份的数据库已导入至目标数据库。
 ![](https://main.qcloudimg.com/raw/ac73c7b6cd2dd6682dffce3cb696a3dd.png)
 

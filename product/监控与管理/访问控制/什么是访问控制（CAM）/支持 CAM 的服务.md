@@ -85,7 +85,7 @@
 | 服务                                                      | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |	
 | ------------------------------------------------------------| ------ | -------- | -------- |  ---- |	---- |	
 | [云函数](https://cloud.tencent.com/document/product/583)  | 资源级 | &#10003;        |  -  | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/583/9203)  |	
-| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | - |  -   |  &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
+| [Serverless Framework](https://cloud.tencent.com/document/product/1154)  | 资源级 | &#10003; |  -   |  &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/1154/41936)   |
 
 
 ## 中间件	
@@ -280,7 +280,7 @@
 
  | 服务                                                          | 授权粒度| 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ---------------------------------------------------------| ------ | -------- | ------ | ---- |	 ---- |	
-| [腾讯智能钛机器学习](https://cloud.tencent.com/document/product/851)  | -  | -   | -   |   &#10003;   |	  - |
+| [智能钛机器学习平台](https://cloud.tencent.com/document/product/851)  | 操作级  | &#10003;   | -   |   &#10003;   |	  - |
 | [ 智能钛弹性模型服务 ](https://cloud.tencent.com/document/product/1120)  | 服务级  | &#10003;   | -   |   &#10003;   |	  - |
 | [智能对话平台 ](https://cloud.tencent.com/document/product/1060)  | 服务级  | &#10003;   | -   |  -  |	  - |
 
@@ -290,6 +290,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- |  ---- |	 ---- |	
 | [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038)  | 资源级  | &#10003; | -   | &#10003;   | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760)   |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)  | 资源级 | &#10003;| -   |  -    |	 -   |
+| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165)  | 服务级 | &#10003;| -   |  &#10003;    |	 -   |
 
 ## 教育服务	
 
@@ -298,7 +299,7 @@
 | [智聆口语评测](https://cloud.tencent.com/document/product/884)   | 操作级 | &#10003;  | -   |  -  |	-  |	
 | [ 数学作业批改](https://cloud.tencent.com/document/product/1004)   | 操作级 | &#10003; | -   |  -  |	-  |	
 | [题目结构化归档](https://cloud.tencent.com/document/product/1085)   | 操作级 | - | -   |  -  |	-  |	
-| [互动白板](https://cloud.tencent.com/document/product/1137)   | 操作级 | - | -   |  -  |	-  |	
+| [互动白板](https://cloud.tencent.com/document/product/1137)   | 操作级 | &#10003; | -   |  &#10003;   |	-  |	
 
 ## 移动服务	
 

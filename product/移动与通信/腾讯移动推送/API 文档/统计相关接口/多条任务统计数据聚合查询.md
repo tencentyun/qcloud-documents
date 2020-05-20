@@ -1,9 +1,22 @@
 ## 接口说明
 **请求方式**：POST。
 **调用频率限制**：200次/小时。
+
+接口请求地址与服务接入点一一对应，请选择与您的应用服务接入点对应的请求地址。
+
+广州服务接入点：
 ```shell
 https://api.tpns.tencent.com/v3/statistics/get_push_group_stat_channel
 ```
+中国香港服务接入点:
+```shell
+https://api.tpns.hk.tencent.com/v3/statistics/get_push_group_stat_channel
+```
+新加坡服务接入点:
+```shell
+https://api.tpns.sgp.tencent.com/v3/statistics/get_push_group_stat_channel
+```
+
 **接口功能**：可根据 GroupID 来查询**最近7天内相同 GroupID** 的所有已推送任务的分推送渠道的聚合统计数据。
 
 

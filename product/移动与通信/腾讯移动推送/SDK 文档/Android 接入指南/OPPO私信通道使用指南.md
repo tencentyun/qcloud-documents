@@ -43,7 +43,7 @@ XX应用申请接入 OPush 公私信公测，并承诺遵守运营规则，不�
 （1）使用 Android API 创建通知渠道，详见 Android 官方文档 [创建和管理通知渠道](https://developer.android.google.cn/training/notify-user/channels)。
 （2）使用 TPNS SDK(1.1.5.4及以上的版本)创建通知渠道，详见文档 [创建通知渠道](https://cloud.tencent.com/document/product/548/36659#.E5.88.9B.E5.BB.BA.E9.80.9A.E7.9F.A5.E6.B8.A0.E9.81.93)。
 2. Rest API 推送
-在 Rest API 请求参数 Android 结构体中设置 `n_ch_id`、`n_ch_name` 参数，可实现根据通知渠道下发，具体参考 [PushAPI 参数说明](https://cloud.tencent.com/document/product/548/39064#.E8.AF.B7.E6.B1.82.E5.8F.82.E6.95.B0)。
+在 Rest API 请求参数 Android 结构体中设置 `n_ch_id`、`n_ch_name` 参数，可实现根据通知渠道下发，具体参考 [PushAPI 参数说明](https://cloud.tencent.com/document/product/548/39064#android-.E6.99.AE.E9.80.9A.E6.B6.88.E6.81.AF)。
 >!目前 OPPO 私信通道通知只能通过 Rest API 进行下发，控制台暂不支持。
 
 推送示例如下：
