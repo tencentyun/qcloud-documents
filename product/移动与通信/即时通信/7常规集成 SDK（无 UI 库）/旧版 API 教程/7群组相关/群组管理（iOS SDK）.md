@@ -1943,7 +1943,40 @@ shutupTime | 被禁言的时间
  *
  *  @param elem  群 tips 消息
  */
-- (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem;
+- (void)onGroupTipsEvent:(TIMGroupTipsElem*)elem {
+    // 群组 ID
+    NSString *groupID = elem.group;
+    // 操作者
+    NSString *opUser = elem.opUser;
+    // 被操作者
+    NSArray *userList = elem.userList;
+    switch (elem.type) {
+        case TIM_GROUP_TIPS_TYPE_INVITE:
+            // userList 加入群组，如果是私有群（Private），可以展示为 "opUser 邀请 userList 入群"。
+            // 如果是其他群组类型，可以展示为 "userList 加入群组"
+            break;
+        case TIM_GROUP_TIPS_TYPE_QUIT_GRP:
+            // opUser 退出群组
+            break;
+        case TIM_GROUP_TIPS_TYPE_KICKED:
+            // opUser 把 userList 踢出群组
+            break;
+        case TIM_GROUP_TIPS_TYPE_SET_ADMIN:
+            // opUser 设置 userList 为管理员
+            break;
+        case TIM_GROUP_TIPS_TYPE_CANCEL_ADMIN:
+            // opUser 取消 userList 管理员身份
+            break;
+        case TIM_GROUP_TIPS_TYPE_INFO_CHANGE:
+            // groupID 群信息发生了变化
+            break;
+        case TIM_GROUP_TIPS_TYPE_MEMBER_INFO_CHANGE:
+            // groupID 群成员群信息发生了变化
+            break;
+        default:
+            break;
+    }
+}
 @end
 ```
 
