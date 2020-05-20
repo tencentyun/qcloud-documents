@@ -296,7 +296,6 @@
 | IncrementalBlockReportsNumOps           | 次/s     | BLOCK 增量汇报的 OPS                       |
 | CacheReportsNumOps                      | 次/s     | 缓存汇报的 OPS                             |
 | PacketAckRoundTripTimeNanosNumOps       | 次/s     | 每秒处理 ACK ROUND TRIP 次数               |
-| FsyncNanosOps                           | 次/s     | FSYNC 次数                                 |
 | FlushNanosNumOps                        | 次/s     | 每秒处理 Flush 操作次数                    |
 | ReadBlockOpAvgTime                      | ms       | 读取 Block 操作平均时间                    |
 | WriteBlockOpAvgTime                     | ms       | 写 Blcok 操作平均时间                      |
