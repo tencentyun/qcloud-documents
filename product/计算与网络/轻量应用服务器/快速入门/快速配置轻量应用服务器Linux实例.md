@@ -25,5 +25,5 @@
 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在服务器列表中找到刚购买的服务器，单击【登录】。
 Linux 实例将通过 Webshell 终端并以免密方式登录。
 ![](https://main.qcloudimg.com/raw/71162a6e915198b66810b7919dfcdb66.png)
->? 如果您需要使用本地的 SSH 工具远程连接 Linux 实例，请先重置密码或设置密钥。
+>? 如果您需要使用 SSH 或者远程登录软件连接 Linux 实例，请先 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [设置密钥](https://cloud.tencent.com/document/product/1207/44573)。
 >
