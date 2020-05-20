@@ -49,6 +49,7 @@ Authorization: Auth String
 				<HttpErrorCodeReturnedEquals>integer</HttpErrorCodeReturnedEquals>
 			</Condition>
 			<Redirect>
+				<Protocol>string</Protocol>
 				<ReplaceKeyWith>string</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
@@ -122,8 +123,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| ReplaceKeyWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键。 | string | 否 |
 | Protocol | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https。 | string | 否 |
+| ReplaceKeyWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键。 | string | 否 |
 | ReplaceKeyPrefixWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置。 | string | 否 |
 
 ## 响应
@@ -147,11 +148,11 @@ Authorization: Auth String
 ```plaintext
 PUT /?website HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Tue, 19 May 2020 14:20:13 GMT
+Date: Wed, 20 May 2020 09:33:38 GMT
 Content-Type: application/xml
 Content-Length: 1209
-Content-MD5: YtomiRIueuh4ZPpjIR68Qw==
-Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1589898013;1589905213&q-key-time=1589898013;1589905213&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=website&q-signature=695fe011ce842bfe0f9e50088602bb8b4731****
+Content-MD5: VHzj4Uwb++HLyCJp7jUzWg==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1589967218;1589974418&q-key-time=1589967218;1589974418&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=website&q-signature=4666493555640e834a879c78afaa4fd9b16a****
 Connection: close
 
 <WebsiteConfiguration>
@@ -170,6 +171,7 @@ Connection: close
 				<HttpErrorCodeReturnedEquals>403</HttpErrorCodeReturnedEquals>
 			</Condition>
 			<Redirect>
+				<Protocol>https</Protocol>
 				<ReplaceKeyWith>pages/403.html</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
@@ -186,7 +188,6 @@ Connection: close
 				<KeyPrefixEquals>assets/</KeyPrefixEquals>
 			</Condition>
 			<Redirect>
-				<Protocol>https</Protocol>
 				<ReplaceKeyWith>index.html</ReplaceKeyWith>
 			</Redirect>
 		</RoutingRule>
@@ -209,7 +210,7 @@ Connection: close
 HTTP/1.1 200 OK
 Content-Length: 0
 Connection: close
-Date: Tue, 19 May 2020 14:20:13 GMT
+Date: Wed, 20 May 2020 09:33:38 GMT
 Server: tencent-cos
-x-cos-request-id: NWVjM2ViMWRfMjRiODJhMDlfMWIwY2JfMjMyMDg5****
+x-cos-request-id: NWVjNGY5NzJfOThjMjJhMDlfMjg5Ml8yYzNi****
 ```
