@@ -32,5 +32,4 @@ Namespace=QCE/ECM
 | ------------------------------ | -------- | -------- | ------------------------------------------------------- |
 | Instances.N.Dimensions.0.Name  | UUID     | 实例 UUID | 输入 String 类型维度名称，例如 uuid                      |
 | Instances.N.Dimensions.0.Value | UUID     | 实例 UUID | 输入具体 UUID，例如 4ef19d31-3117-455c-ae8e-2029a07d8999 |
-| Instances.N.Dimensions.1.Name  | diskId   | 磁盘 ID   | 输入String 类型维度名称，例如 diskid                    |
-| Instances.N.Dimensions.1.Value | diskId   | 磁盘 ID   | 输入具体 diskid，例如 diskid-12345678                     |
+
