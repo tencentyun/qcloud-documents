@@ -33,12 +33,12 @@
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
 |status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束|
-|type|Integer|会议类型：<br>0: 预约会议类型<br>1: 快速会议类型|
+|type|Integer|会议类型：<br>0：预约会议类型<br>1： 快速会议类型|
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
-|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置 。|
+|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
 
 
 <span id="settings"></span>
