@@ -3,7 +3,7 @@
 - 在 [访问密钥](https://console.cloud.tencent.com/cam/capi) 中获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
 若您还没有创建密钥，单击【新建密钥】即可完成创建。直接复制 SecretID 和 SecretKey 即可。 
 - 需要能够连接到 Maven（请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)，安装相关依赖）。
-- 下载 Demo（[Demo 地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/dtf-demo/dts-demo.zip)）。
+- 下载 Demo（[Demo 地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/dtf-demo/dts-demo-release_0.0.1.zip)）。
 - 创建数据库（参考 Demo 文件中的 sql 文件），并自行修改各 application.yml 中的数据库对应信息。
 
 

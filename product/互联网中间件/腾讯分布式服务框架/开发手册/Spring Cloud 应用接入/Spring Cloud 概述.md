@@ -37,7 +37,7 @@ table th:nth-of-type(3) {
 | 分布式配置     | <li>Spring Cloud Config</li><li>Consul Config</li> | 兼容       | 支持通过控制台管理配置，发布配置和查看配置发布历史           |
 | 消息驱动        | Kafka                  | 兼容       | 提供调用链传递到腾讯云消息队列 CMQ、Ckafka、开源 Kafka       |
 | 安全              | Spring Cloud Security         | 兼容       | -                                                           |
-| 微服务网关    | <li>Spring Cloud Gateway</li><li>NetflixZuul</li> | 兼容 Zuul、Spring Cloud Gateway（近期发布） | -                           |
+| 微服务网关    | <li>Spring Cloud Gateway</li><li>NetflixZuul</li> | 兼容 Zuul、Spring Cloud Gateway | -                           |
 | 熔断降级       |Spring Cloud Hystrix                   | 兼容       | -                                           |
 
 

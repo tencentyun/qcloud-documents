@@ -20,10 +20,10 @@ Window，Linux 或者 Mac OS
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
  - 在服务器列表中的实例卡片上，单击【登录】。
- ![](https://main.qcloudimg.com/raw/23a570b8338bc47038b8cee67d440e11.png)
+ ![](https://main.qcloudimg.com/raw/e602c0a49c11017ca20dd3f1d4cf0508.png)
  - 进入服务器详情页，选择【概要】，单击“应用信息”栏的【登录】。
- ![](https://main.qcloudimg.com/raw/1787344e5d1aae6d6fa1c7d16e5f0514.png)
+ ![](https://main.qcloudimg.com/raw/eed7a9841c84ecb38094e5ceefc83afc.png)
  - 进入服务器详情页，选择【应用管理】，单击“应用信息”栏的【登录】。
-![](https://main.qcloudimg.com/raw/d14bbc28d32228ff3a65a8fcfae7b546.png)
+ ![](https://main.qcloudimg.com/raw/325f55b5085138fe2b238ae002e55a36.png)
 
 

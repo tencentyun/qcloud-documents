@@ -866,7 +866,7 @@ __参数__
 ## 更多实用接口
 ### sendMessageEx
 
-发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(EVT_PLAY_GET_MESSAGE) 来接收该消息。
+发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(PLAY_EVT_GET_MESSAGE) 来接收该消息。
 ```
 boolean sendMessageEx(byte [] msg)
 ```

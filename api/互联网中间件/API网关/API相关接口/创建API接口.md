@@ -13,6 +13,7 @@
 | apiName                                  | 否    | String  | 用户自定义的 API 名称。                             |
 | apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
 | apiType                                  | 否    | String  | API 接口类型，当前只有 NORMAL，后续还会增加其他类型的 API。       |
+| authType | 否 | String  | 鉴权类型，可选值为 SECRET（密钥对鉴权）、NONE（免鉴权）。默认为 NONE。|
 | authRequired                             | 否    | String  | 是否需要签名认证，TRUE表示需要，FALSE 表示不需要。默认为 TRUE。如果需要开放在云市场的 API，必须选择 TRUE。 |
 | enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。默认为 FALSE。    |
 | requestConfig.path                       | 是    | String  | API的前端路径，如/path。                         |

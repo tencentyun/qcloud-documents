@@ -8,7 +8,7 @@
 	android:versionName="1.0">
 ```
 
-### 2、iOS 下如何获取 boundle？
+### 2、iOS 下如何获取 Bundle ID？
 iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 ![](https://main.qcloudimg.com/raw/56571d560da04bf6563ccae91d32b75a.png)
 
