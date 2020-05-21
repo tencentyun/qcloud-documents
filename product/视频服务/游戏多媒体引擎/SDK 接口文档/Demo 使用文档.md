@@ -2,23 +2,14 @@
 为方便开发者调试和接入腾讯云游戏多媒体引擎产品 API，本文主要为您介绍 GME Native Sample Code 的使用文档。
 
 
-## 操作步骤
-Sample Code 实时语音界面截图如下所示：
+
+
+## 基本流程表格
+Sample Code 实时语音界面截图如下所示（下图为 iOS Demo 界面截图）：
+
 <img src="https://main.qcloudimg.com/raw/1a65f3e7fe35da963bd48ab5a0f8bb4a.jpg" width="40%">
 
-
-### 设置账号及 openID
-修改实时语音界面中对应的 Appid、Key 及 OpenID 参数，然后单击【Init】。（初始化 SDK 前）
-<img src="https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png" width="60%">
-
-
-参数的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。
-
-
-
->?此步可以忽略，默认使用 GME 提供的测试账号进行体验。
-
-#### 使用实时语音的基本流程如下表格
+**以下步骤适用于各个平台：**
 
 |步骤|按钮名称|相应功能|
 |----|----|---|
@@ -35,21 +26,50 @@ Sample Code 实时语音界面截图如下所示：
 - 步骤3和步骤5属于硬件操作，具有一定耗时。
 - 步骤3和步骤4需同时为开启状态，才有音频上行。同理，步骤5及步骤6需同时为开启状态才能播放声音。
 
+## 操作步骤
 
-### 更改房间音频类型
-1. 进房前，您可以对音频类型进行选择，具体效果请参见 [音质选择](https://cloud.tencent.com/document/product/607/18522)。
+#### 1. 设置账号及 openID
+>?此步可以忽略，默认使用 GME 提供的测试账号进行体验。
+
+初始化 SDK 前，修改实时语音界面中对应的 Appid、Key 及 OpenID 参数，然后单击【Init】。
+<img src="https://main.qcloudimg.com/raw/2498f0fc3c90eeea5b0cefccaf591f39.png" width="60%">
+
+
+参数 Appid、Key 的来源，请参见 [接入指引](https://cloud.tencent.com/document/product/607/10782)。
+参数 OpenID 数值必须大于10000，用于标记本端使用者。
+
+#### 2. 点击  Init 按钮进行初始化
+设置完账号及 openID 之后，点击 Init 按钮进行初始化 SDK。初始化 SDK 之后才可以进行其他操作。
+
+
+#### 3. 点击 EnterRoom 
+点击 EnterRoom 按钮进入实时语音房间，进入实时语音房间后才可以进行设备操作。RoomId为此次进房的房间号。在相同房间号下的成员才可互相通话交流。
+
+#### 4. 操作设备
+操作设备，如果房间里面有其他成员，可互相交流。
+测试时，可以使用另一台设备，相同的 Appid，不同 OpenID，进相同的房间，开启麦克风和扬声器之后，可以互相交流。
+
+|按钮名称|相应功能|
+|----|---|
+|Capture|开启采集设备|
+|Send|开启音频上行（此时已经能发送音频。同房间的人可以收到实时语音音频）|
+|Play|开启播放设备|
+|Rec|开启音频下行（此时若同个房间内其他用户有音频上行，则能听到相应的实时语音音频）|
+
+## 高级操作
+#### 更改房间音频类型
+- 进房前，您可以对音频类型进行选择，具体效果请参见 [音质选择](https://cloud.tencent.com/document/product/607/18522)。
 <img src="https://main.qcloudimg.com/raw/25929745d76d6e1de3adc16055729d0e/iosSimpleCode_2.png" width="20%">
-2. 进房后，可以单击【ChangeRoomType】，进行房间音频类型的更改。
+- 进房后，可以单击【ChangeRoomType】，进行房间音频类型的更改。
 
 
-###  设置音量
+####  设置音量
 进房后，拖动滑动条可以设置音量。
 - 左边的滑动条设置的是采集设备音量，将影响采集到的声音的音量。
 - 右边的滑动条设置的是播放设备的音量，影响的是本机播放设备输出的音量。
 
 <img src="https://main.qcloudimg.com/raw/be4a7063f30e264ac8adf45e95d08598/iosSimpleCode_3.png" width="40%">
 
-### 其他设置
 #### 设置是否耳返
 单击 Loopback 旁边的按钮，如果开启，将在播放设备听到自己的声音。
 
@@ -67,7 +87,7 @@ Sample Code 实时语音界面截图如下所示：
 |3	|嘻哈			|
 |4	|舞曲			|
 |5	|空灵			|
-|6	|语音合成			|
+|6	|语音合成		|
 
 #### 设置变声效果
 在 ChangeVoiceType 按钮旁边的输入框输入相应的参数，点击 ChangeVoiceType 按钮，则发送的实时音频声音会有相应的变声效果。效果对应的参数如下：
@@ -89,7 +109,7 @@ Sample Code 实时语音界面截图如下所示：
 |12	|小黄人			|
 
 
-### 特殊说明
+## 特殊说明
 Demo 中使用了一些特殊接口，用于测试 SDK，请用户不要调用。
 ```
 SetAppVersion
@@ -98,5 +118,4 @@ SetAdvanceParams
 SetTestEnv
 SetRecvMixStreamCount
 ```
-
 

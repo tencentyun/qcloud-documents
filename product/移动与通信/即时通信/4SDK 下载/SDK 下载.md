@@ -86,8 +86,8 @@
 
 | 所属平台   | Github下载地址                        | 集成指引       |
 | ---------- | ------------------------------------- | -------------- |
-| 微信小程序 | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live) | [在直播中集成 IM 用于电商带货](https://cloud.tencent.com/document/product/269/44527) |
-| Web        | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live)|  [在直播中集成 IM 用于电商带货](https://cloud.tencent.com/document/product/269/44527)           |
+| 微信小程序 | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live) | [集成 IM 实现直播带货](https://cloud.tencent.com/document/product/269/44527) |
+| Web        | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live)|  [集成 IM 实现直播带货](https://cloud.tencent.com/document/product/269/44527)           |
 
 
 

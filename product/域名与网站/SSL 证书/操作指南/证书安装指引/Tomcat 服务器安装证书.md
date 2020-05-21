@@ -141,7 +141,7 @@
     </user-data-constraint>
     </security-constraint>
 ```
-3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即8443端口修改为443端口。如下所示：
+3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
 <Connector port="80" protocol="HTTP/1.1"
   connectionTimeout="20000"

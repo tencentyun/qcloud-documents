@@ -25,7 +25,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 3. 在 PuTTY Configuration 窗口中，输入以下内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ac87da9721ef7d64fe8cac81a3dab33.png)
 参数举例说明如下：
- - Host Name（or IP address）：轻量应用服务器的公网 IP（登录 [ Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，可在服务器列表页中获取公网 IP）。
+ - Host Name（or IP address）：轻量应用服务器的公网 IP（登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，可在服务器列表页中获取公网 IP）。
  - Port：轻量应用服务器的连接端口，必须设置为22。
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
@@ -55,11 +55,14 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 ![](https://main.qcloudimg.com/raw/61993f3977ff681b8b2d78beac55f2ca.png)
 9. 切换至 Session 配置界面，配置服务器的 IP、端口，以及连接类型。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddfd58429288ce0e195e86a6cb1c9cd6.png)
- - Host Name (IP address)：轻量应用服务器的公网 IP（登录 [ Lighthouse 控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，可在服务器列表页中获取公网 IP）。
+ - Host Name (IP address)：轻量应用服务器的公网 IP（登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，可在服务器列表页中获取公网 IP）。
  - Port：轻量应用服务器的连接端口，必须设置为22。
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
 配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
-10. 单击【Open】，发起登录请求。
+10. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
+11. 在 “login as” 后输入用户名，如 `root`，按 **Enter**。如下图所示：
+![](https://main.qcloudimg.com/raw/2a3db2fed5e901ce11f87e8583e182a0.png)
+
 
 

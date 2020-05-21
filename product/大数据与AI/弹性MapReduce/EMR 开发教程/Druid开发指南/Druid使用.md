@@ -7,7 +7,7 @@ EMR 支持将 E-MapReduce Druid 集群作为单独的集群类型，主要基于
 
 在创建 EMR 集群时选择 Druid 集群类型即可。Druid 集群自带了Hadoop HDFS 和 YARN 服务，并已经和 Druid 集群完成集成。但是建议仅用于测试，**对于线上生产环境，强烈推荐您采用专门的 Hadoop 集群**。
 
-如果需要关闭 Druid 集群自带的 Hadoop 相关服务，可以到 EMR 控制台 [组件管理](https://console.cloud.tencent.com/emr/static/component/) 中选择暂停对应的服务。
+如果需要关闭 Druid 集群自带的 Hadoop 相关服务，可以到 EMR 控制台 [集群服务](https://console.cloud.tencent.com/emr/static/framework/emr-4qjbxdca?type=clusterservice&regionId=1) 中选择暂停对应的服务。
 
 ## Hadoop 和 Druid 集群连通配置
 

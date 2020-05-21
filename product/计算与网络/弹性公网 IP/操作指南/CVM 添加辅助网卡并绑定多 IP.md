@@ -81,7 +81,7 @@ PERSISTENT_DHCLIENT=yes
 ```
 修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/14c849d0031c859e2f65abc1f7862d02.png)
-8. 完成修改后，按 **Esc**，输入 **wq!** 并回车，保存配置并返回。
+8. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 9. 执行如下命令，打开`/etc/sysctl.conf`文件。
 ```
 vim /etc/sysctl.conf
@@ -98,7 +98,7 @@ net.ipv4.conf.eth1.rp_filter = 0
 ```
 修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/e52fbce871fe92ac5756f6af640c352e.png)
-11. 完成修改后，按 **Esc**，输入 **wq!** 并回车，保存配置并返回。
+11. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 12. 执行如下命令，使配置文件生效。
 ```
 sysctl -p
