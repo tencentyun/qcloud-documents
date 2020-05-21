@@ -26,7 +26,7 @@ $ npm install -g serverless
 ```
 
 ### 2. 配置
-在项目根目录（此例中为serverless-next）下创建 `serverless.yml` 文件：
+在项目根目录（此例中为 serverless-next）下创建 `serverless.yml` 文件：
 ```bash
 $ touch serverless.yml
 ```
@@ -66,7 +66,7 @@ $ cd src && npm run build
 ```
 
 #### 3.2 部署到云端
-回到在 serverless.yml 文件所在的项目根目录，运行以下指令进行部署：
+回到 serverless.yml 文件所在的项目根目录，运行以下指令进行部署：
 ```bash
 $ sls deploy
 ```
