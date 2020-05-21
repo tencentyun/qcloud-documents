@@ -1,5 +1,8 @@
 ## 操作场景
 本文介绍如何通过 Serverless Framework 提供的云函数 SCF 组件快速创建与部署一个云函数项目。如需了解更多组件及其使用方法，可前往 [Components 概述](https://cloud.tencent.com/document/product/1154/39270)。
+>?SCF CLI 命令行工具于2020年2月起已不再进行维护，建议您使用功能更丰富及便捷的 Serverless Framework CLI 命令行工具进行项目开发。
+>
+
 
 ## 操作步骤
 ### 安装 Serverless Framework
