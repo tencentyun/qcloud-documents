@@ -56,17 +56,17 @@ Namespace=QCE/TXMR_HDFS
 | HdfsNnPort4007Connections<br>Numopenconnections              | 当前连接数<br/> _NumOpenConnections                          | 个       | 当前链接数量                                         | InstanceId、CoreIp |
 | HdfsNnPort4007Queue<br>LenCallqueuelength                    | RPC 处理队列长度<br/>_CallQueueLength                        | 个       | 当前 RPC 处理队列长度                                | InstanceId、CoreIp |
 | HdfsNnJvmMemMemnonheapusedm                                  | JVM 内存<br/> _MemNonHeapUsedM                               | MB       | JVM 当前已经使用的 NonHeapMemory 的大小              | InstanceId、CoreIp |
-| HdfsNnJvmMemMemnon<br>heapcommittedm                         | JVM 内存<br/> _MemNonHeapCommittedM                          | MB       | JVM 内存                                             | InstanceId、CoreIp |
-| HdfsNnJvmMemMemheapusedm                                     | JVM 内存<br/> _MemHeapUsedM                                  | MB       | JVM 当前已经使用的 HeapMemory 的大小                 | InstanceId、CoreIp |
-| HdfsNnJvmMem<br>Memheapcommittedm                            | JVM 内存<br/> _MemHeapCommittedM                             | MB       | JVM HeapMemory 提交大小                              | InstanceId、CoreIp |
-| HdfsNnJvmMemMemheapmaxm                                      | JVM 内存<br/> _MemHeapMaxM                                   | MB       | JVM 配置的 HeapMemory 的大小                         | InstanceId、CoreIp |
-| HdfsNnJvmMemMemmaxm                                          | JVM 内存<br/>_MemMaxM                                        | MB       | JVM 运行时的可以使用的最大的内存的大小               | InstanceId、CoreIp |
+| HdfsNnJvmMemMemnon<br>heapcommittedm                         | JVM 内存<br/>  _MemNonHeapCommittedM                         | MB       | JVM 内存                                             | InstanceId、CoreIp |
+| HdfsNnJvmMemMemheapusedm                                     | JVM 内存 _MemHeapUsedM                                       | MB       | JVM 当前已经使用的 HeapMemory 的大小                 | InstanceId、CoreIp |
+| HdfsNnJvmMem<br>Memheapcommittedm                            | JVM 内存  _MemHeapCommittedM                                 | MB       | JVM HeapMemory 提交大小                              | InstanceId、CoreIp |
+| HdfsNnJvmMemMemheapmaxm                                      | JVM 内存  _MemHeapMaxM                                       | MB       | JVM 配置的 HeapMemory 的大小                         | InstanceId、CoreIp |
+| HdfsNnJvmMemMemmaxm                                          | JVM 内存 _MemMaxM                                            | MB       | JVM 运行时的可以使用的最大的内存的大小               | InstanceId、CoreIp |
 | HdfsNnBlockReportRt<br>Blockreportavgtime                    | 数据块汇报延迟<br/>_BlockReportAvgTime                       | 次/s     | 每秒处理 DataNode Blcok 平均延迟                     | InstanceId、CoreIp |
-| HdfsNnGcUtilGcCountFgc                                       | GC 次数<br/>_FGC                                             | 次/s     | Full GC 次数                                         | InstanceId、CoreIp |
-| HdfsNnGcUtilGcCountYgc                                       | C 次数<br/> _YGC                                             | 2次/s    | Young GC 次数                                        | InstanceId、CoreIp |
-| HdfsNnGcUtilGcTimeYgct                                       | GC 时间<br/> _YGCT                                           | ms       | Young GC 消耗时间                                    | InstanceId、CoreIp |
-| HdfsNnGcUtilGcTimeFgct                                       | GC 时间<br/>_FGCT                                            | ms       | Full GC 消耗时间                                     | InstanceId、CoreIp |
-| HdfsNnGcUtilGcTimeGct                                        | GC 时间<br/>_GCT                                             | ms       | 垃圾回收时间消耗                                     | InstanceId、CoreIp |
+| HdfsNnGcUtilGcCountFgc                                       | GC 次数 _FGC                                                 | 次/s     | Full GC 次数                                         | InstanceId、CoreIp |
+| HdfsNnGcUtilGcCountYgc                                       | C 次数  _YGC                                                 | 2次/s    | Young GC 次数                                        | InstanceId、CoreIp |
+| HdfsNnGcUtilGcTimeYgct                                       | GC 时间  _YGCT                                               | ms       | Young GC 消耗时间                                    | InstanceId、CoreIp |
+| HdfsNnGcUtilGcTimeFgct                                       | GC 时间 _FGCT                                                | ms       | Full GC 消耗时间                                     | InstanceId、CoreIp |
+| HdfsNnGcUtilGcTimeGct                                        | GC 时间 _GCT                                                 | ms       | 垃圾回收时间消耗                                     | InstanceId、CoreIp |
 | HdfsNnJvmJavaThreadsThreadsnew                               | JVM 线程数量<br/> _ThreadsNew                                | 个       | 处于新建状态的线程数量                               | InstanceId、CoreIp |
 | HdfsNnJvmJavaThreads<br>Threadsrunnable                      | JVM 线程数量<br/> _ThreadsRunnable                           | 个       | 处于可运行状态的线程数量                             | InstanceId、CoreIp |
 | HdfsNnJvmJavaThreads<br>Threadsblocked                       | JVM 线程数量<br/> _ThreadsBlocked                            | 个       | 处于阻塞状态的线程数量                               | InstanceId、CoreIp |
