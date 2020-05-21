@@ -1,14 +1,20 @@
+
+
 ## 命名空间
 
 Namespace=QCE/TXMR_HDFS
 
 ## 监控指标
 
+弹性 MapReduce（HDFS）提供 [HDFS-Overview、HDFS-OverviewAggregation](#hdfs-overview.E3.80.81hdfs-overviewaggregation)、[HDFS-NameNode](#hdfs-namenode)、[HDFS-DataNode](#hdfs-datanode)、[HDFS-Journal Node](#hdfs-journal-node) 和 [HDFS-ZKFC](#hdfs-zkfc) 指标。
+
+>?维度对应参数，请单击 [各维度对应参数总览](#.E5.90.84.E7.BB.B4.E5.BA.A6.E5.AF.B9.E5.BA.94.E5.8F.82.E6.95.B0.E6.80.BB.E8.A7.88) 查看。
+
 ### HDFS-Overview、HDFS-OverviewAggregation 
 
 > ?
-> 1.查询 HDFS-Overview 的指标时，需加上前缀“EmrHdfsOverview”。
-> 2.查询 HDFS-OverviewAggregation 的指标时，需加上前缀“EmrHdfsOverviewAggregation”。
+> 1. 查询 HDFS-Overview 的指标时，需加上前缀“EmrHdfsOverview”。
+> 2. 查询 HDFS-OverviewAggregation 的指标时，需加上前缀“EmrHdfsOverviewAggregation”。
 
 | 指标英文名                                  | 指标中文名                               | 单位 | 指标含义                                      | 维度               |
 | ------------------------------------------- | ---------------------------------------- | ---- | --------------------------------------------- | ------------------ |
