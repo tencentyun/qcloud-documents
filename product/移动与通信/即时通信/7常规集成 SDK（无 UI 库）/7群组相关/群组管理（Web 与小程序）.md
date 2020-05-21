@@ -111,7 +111,7 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群<br/>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
@@ -230,6 +230,7 @@ let promise = tim.updateGroupProfile({
   groupID: 'group1',
   name: 'new name', // 修改群名称
   introduction: 'this is introduction.', // 修改群公告
+  // v2.6.0 起，群成员能收到群自定义字段变更的群提示消息，且能获取到相关的内容，详见 Message.payload.newGroupProfile.groupCustomField
   groupCustomField: [{ key: 'group_level', value: 'high'}] // 修改群组维度自定义字段
 });
 promise.then(function(imResponse) {
@@ -480,6 +481,13 @@ promise.then(function(imResponse) {
 
 ### 获取群成员列表
 
+>!
+>- 从v2.6.2版本开始，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
+>- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
+>- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 。
+
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+
 **接口名**
 
 ```js
@@ -503,9 +511,38 @@ tim.getGroupMemberList(options);
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
+**示例**
+
+```javascript
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+}).catch(function(imError) {
+  console.warn('getGroupMemberList error:', imError);
+});
+// 从v2.6.2 起，该接口支持拉取群成员禁言截止时间戳。
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+  for (let groupMember of imResponse.data.memberList) {
+    if (groupMember.muteUntil * 1000  > Date.now()) {
+      console.log(`${groupMember.userID} 禁言中`);
+    } else {
+      console.log(`${groupMember.userID} 未被禁言`);
+    }
+  }
+}).catch(function(imError) {
+    console.warn('getGroupMemberProfile error:', imError);
+});
+```
+
 ### 获取群成员资料
 
->! 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+>!
+>- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+>- 每次查询的用户数上限为50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
+
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 
 **接口名**
 
@@ -533,10 +570,11 @@ tim.getGroupMemberProfile(options);
 ### 添加群成员
 
 详细规则如下：
+-  TIM.TYPES.GRP_PRIVATE 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
 
-- 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
-- 公开群/聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
-- 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 和 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
 
 **接口名**
 

@@ -1,5 +1,5 @@
 ## HTTPS 监听器简介
-您可以在负载均衡实例上添加一个 HTTPS 监听转发来自客户端的 HTTPS 协议请求。HTTPS 协议适用于需要加密传输的 HTTP 应用。
+您可以在负载均衡实例上添加一个 HTTPS 监听器转发来自客户端的 HTTPS 协议请求。HTTPS 协议适用于需要加密传输的 HTTP 应用。
 
 ## 前提条件
 您需要 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。

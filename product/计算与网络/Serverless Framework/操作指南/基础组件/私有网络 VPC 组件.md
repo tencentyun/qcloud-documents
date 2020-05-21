@@ -11,7 +11,7 @@ $ npm install -g serverless
 ```
 
 ### 配置
-新建一个目录vpcDemo，在vpcDemo下创建`serverless.yml`文件：
+新建一个目录 vpcDemo，在 vpcDemo下创建`serverless.yml`文件：
 
 ```shell
 $ mkdir vpcDemo && cd vpcDemo
@@ -33,7 +33,7 @@ inputs:
   vpcName: serverless
   subnetName: serverless
 ```
-[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-vpc/blob/v2/docs/configure.md )
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-vpc/blob/v2/docs/configure.md )
 
 ### 部署
 
@@ -61,7 +61,7 @@ subnetName: serverless
 
 ### 查看信息
 
-运行sls info进行查看部署成功的信息：
+运行 `sls info` 进行查看部署成功的信息：
 
 ```bash
 $ sls info

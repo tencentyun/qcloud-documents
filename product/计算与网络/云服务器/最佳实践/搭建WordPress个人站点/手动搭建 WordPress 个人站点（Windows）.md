@@ -57,7 +57,7 @@ create database wordpress;
 13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，并修改以下内容。
  1. 根据 PHP 版本不同，修改相应的配置参数：
      - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，删除前面的`;`。
-     - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，删除前面的`;`。
+     - 针对 PHP 版本为7.X版本，找到`extension=mysqli` ，删除前面的`;`。
  2. 找到`extension_dir = "ext"`，删除前面的`;`。
 14. 保存 `php.ini` 文件。
 

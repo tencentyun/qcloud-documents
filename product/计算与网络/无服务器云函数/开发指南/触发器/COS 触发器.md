@@ -17,7 +17,7 @@ COS 触发器具有以下特点：
 | `cos:ObjectCreated:Post`      |  使用 Post Object 接口创建文件时触发云函数。  |
 | `cos:ObjectCreated:Copy`      |  使用 Put Object - Copy 接口创建文件时触发云函数。  |
 | `cos:ObjectCreated:CompleteMultipartUpload` |  使用 CompleteMultipartUpload 接口创建文件时触发云函数。  |
-| `cos:ObjectCreated:Origin` | 发生 CDN 回源时触发云函数。 | 
+| `cos:ObjectCreated:Origin` | 发生 CDN 回源时触发云函数。 |
 | `cos:ObjectCreated:Replication` | 通过跨区域复制创建对象时触发云函数。 |
 | `cos:ObjectRemove:*`          | 以下提到的所有删除事件均可触发云函数。 |
 | `cos:ObjectRemove:Delete`     | 在未开启版本管理的 Bucket 下使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数。  |
@@ -50,7 +50,8 @@ COS 触发器具有以下特点：
 				"url": "http://testpic-1253970026.cos.ap-chengdu.myqcloud.com/testfile",
 				"meta": {
 					"x-cos-request-id": "NWMxOWY4MGFfMjViMjU4NjRfMTUyMV8yNzhhZjM=",
-					"Content-Type": ""
+					"Content-Type": "",
+					"x-cos-meta-mykey": "myvalue"
 				},
 				"vid": "",
 				"key": "/1253970026/testpic/testfile",
@@ -74,7 +75,7 @@ COS 触发器具有以下特点：
 					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
 				}
 			},
-			"eventQueue": "qcs:0:lambda:cd:appid/1253970026:default.printevent.$LATEST",
+			"eventQueue": "qcs:0:scf:cd:appid/1253970026:default.printevent.$LATEST",
 			"reservedInfo": "",
 			"reqid": 179398952
 		}

@@ -234,6 +234,8 @@ trtcRoomContext.enterRoom({roomID: 2233}).catch((error)=>{
 
 停止推流和取消订阅所有远端音视频，并退出房间。
 
+>! 由于微信最新版本小程序引擎限制，请勿在 onHide() 回调函数中调用 exitRoom()，会导致各种状态紊乱的 bug。
+
 **参数：**
 
 无

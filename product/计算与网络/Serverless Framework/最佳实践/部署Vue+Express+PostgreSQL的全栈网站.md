@@ -17,8 +17,7 @@
 
 ### 安装
 
-通过 npm 全局安装
-[Serverless Framework](https://github.com/serverless/serverless)：
+通过 npm 全局安装 [Serverless Framework](https://github.com/serverless/serverless)：
 
 ```shell
 $ npm install -g serverless
@@ -30,8 +29,7 @@ $ npm install -g serverless
 $ npm update -g serverless
 ```
 
-安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，
-确保版本信息不低于以下版本：
+安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本：
 
 ```shell
 $ serverless –v
@@ -49,27 +47,25 @@ Components: 2.30.1
 $ serverless create --template-url https://github.com/serverless-components/tencent-fullstack
 ```
 
-2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云
-SecretId 、SecretKey 、地域和可用区信息。
+2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
 
 ```text
 # .env
-TENCENT_SECRET_ID=xxx  // 您账号的SecretId
-TENCENT_SECRET_KEY=xxx // 您账号的SecretKey
+TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
+TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
 
 # 地域可用区配置
 REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
-ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指DB部署所在的可用区
+ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
 ```
 
-> 说明：
-
+>?
 - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 - 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。 您可以
-  在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId和 SecretKey。
+  在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 - ZONE 目前只支持 ap-beijing-3 、ap-guangzhou-2、ap-shanghai-2。
 
-  3.通过执行以下命令，安装所需依赖：
+3.通过执行以下命令，安装所需依赖：
 
 ```bash
 $ npm run bootstrap
@@ -77,7 +73,7 @@ $ npm run bootstrap
 
 ### 部署
 
-1.执行以下命令进行部署.
+1.执行以下命令进行部署：
 
 ```console
 $ sls deploy --all
@@ -126,14 +122,11 @@ fullstack-frontend:
 50s › tencent-fullstack › Success 
 ```
 
-部署成功后，您可以使用浏览器访问项目产生的website链接，就可以看到生成的网站了。
+部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
 
-> 说明：
+>?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
-- 本项目云函数因VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
-
-2.执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（
-前端网站）。
+2.执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。
 
 ```bash
 $ npm run info
@@ -229,7 +222,7 @@ fullstack-frontend › Info successfully loaded
 ```
 
 
-3.执行 sls remove --all，可移除项目。
+3.执行 `sls remove --all`，可移除项目。
 
 ```bash
 $  sls remove --all

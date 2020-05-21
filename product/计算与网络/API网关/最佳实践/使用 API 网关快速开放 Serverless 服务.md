@@ -1,5 +1,5 @@
 ## 操作场景
-Serverless 是近些年来比较流行的架构，通过 Serverless 函数计算平台，您无需购买和管理服务器，只需要关注业务的核心逻辑，就能够便捷地运行代码。在 Serverless 模式下，使用 API 网关可以对外开放服务，并能实现安全防护、流量控制、日志监控、上架云市场、自动生成SDK和文档等高级功能。
+Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平台，您无需购买和管理服务器，只需要关注业务的核心逻辑，就能够便捷地运行代码。在 Serverless 模式下，使用 API 网关可以对外开放服务，并能实现安全防护、流量控制、日志监控、上架云市场、自动生成 SDK 和文档等高级功能。
 
 腾讯云 API 网关与腾讯云云函数 SCF 高度整合，本文展示了以 API 网关为入口，通过 [云函数 SCF](https://cloud.tencent.com/document/product/583) 实现动态接口、 [对象存储 COS](https://cloud.tencent.com/document/product/628/11787) 存储静态资源，快速搭建 Web 站点。
 
