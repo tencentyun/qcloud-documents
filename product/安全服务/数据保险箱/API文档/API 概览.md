@@ -20,7 +20,7 @@
 接口名称 | 接口功能
 ----- | ---
 [PUT Coffer Lifecycle](https://cloud.tencent.com/document/product/1232/44732) | 创建生命周期|
-[Get Coffer Lifecycle](https://cloud.tencent.com/document/product/1232/44790) | 获取生命周期配置|
+[GET Coffer Lifecycle](https://cloud.tencent.com/document/product/1232/44790) | 获取生命周期配置|
 
 
 ## 访问策略
