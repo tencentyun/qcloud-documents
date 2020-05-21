@@ -116,5 +116,5 @@ TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
 >?
->- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果已有腾讯云账号，可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取 SecretId 和 SecretKey。
+>- 如果您没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果您已有腾讯云账号，可前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取 SecretId 和 SecretKey。
