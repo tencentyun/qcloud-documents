@@ -43,13 +43,7 @@
 >? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
 >
 3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击【确定】。
-<div class="codetab">
- <input type="radio" name="tabs" id="tab1" class="tab-switch" checked>
-<label for="tab1" class="tab-label">非带宽上移账户</label>
-<input type="radio" name="tabs" id="tab2" class="tab-switch">
- <label for="tab2" class="tab-label">带宽上移账户</label>
-<div id="tab-content1" class="tab-content" style="padding:0 10px;">
-<p>
+ - **非带宽上移账户**
 <table>
 <thead>
 <tr>
@@ -85,10 +79,8 @@
 <td>EIP 与高可用虚拟 IP 绑定，为高可用虚拟 IP 提供了与公网通信的能力。</td>
 </tr>
 </tbody></table>
-</p>
-</div>
- <div id="tab-content2" class="tab-content" style="padding:0 10px;">
-<p><table>
+ - **带宽上移账户**
+<table>
 <thead>
 <tr>
 <th width="15%">绑定的云资源</th>
@@ -124,8 +116,6 @@
 <td>EIP 与高可用虚拟 IP 绑定，为高可用虚拟 IP 提供了与公网通信的能力。</td>
 </tr>
 </tbody></table>
-</p></div>
-</div>
 <img src="https://main.qcloudimg.com/raw/a68a2aa1e681dd3bed4c054942aba27a.png" />
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的绑定。
 
