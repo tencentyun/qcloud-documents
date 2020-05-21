@@ -69,9 +69,10 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "password": "1111",      
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
-      "end_time": "1572089400",      
-      "hosts": [        
-        "tester"      
+      "end_time": "1572089400", 
+      "type": 1,     
+      "hosts": [  
+        "tester" 
       ],      
       "participants": [        
         "test1"      
@@ -84,5 +85,4 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
     }  
   ]
 }
-
 ```
