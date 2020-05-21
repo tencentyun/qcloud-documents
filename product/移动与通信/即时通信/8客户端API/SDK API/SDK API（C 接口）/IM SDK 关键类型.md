@@ -315,19 +315,19 @@ Android8。0系统以上通知栏消息增加了 channelid 的设置，目前 op
 
 | 名称 | 值 | 含义 |
 |-----|-----|-----|
-| kTIMElem_Invalid       | 0    | 未知元素           |
-| kTIMElem_Text          | 1    | 文本元素           |
-| kTIMElem_Image         | 2    | 图片元素           |
-| kTIMElem_Sound         | 3    | 声音元素           |
-| kTIMElem_Custom        | 4    | 自定义元素         |
-| kTIMElem_File          | 5    | 文件元素           |
-| kTIMElem_GroupTips     | 6    | 群组系统消息元素   |
-| kTIMElem_Face          | 7    | 表情元素           |
-| kTIMElem_Location      | 8    | 位置元素           |
-| kTIMElem_GroupReport   | 9    | 群组系统通知元素   |
-| kTIMElem_Video         | 10   | 视频元素           |
-| kTIMElem_FriendChange  | 11   | 关系链变更消息元素 |
-| kTIMElem_ProfileChange | 12   | 资料变更消息元素   |
+| kTIMElem_Text          | 0    | 文本元素           |
+| kTIMElem_Image         | 1    | 图片元素           |
+| kTIMElem_Sound         | 2    | 声音元素           |
+| kTIMElem_Custom        | 3    | 自定义元素         |
+| kTIMElem_File          | 4    | 文件元素           |
+| kTIMElem_GroupTips     | 5    | 群组系统消息元素   |
+| kTIMElem_Face          | 6    | 表情元素           |
+| kTIMElem_Location      | 7    | 位置元素           |
+| kTIMElem_GroupReport   | 8    | 群组系统通知元素   |
+| kTIMElem_Video         | 9   | 视频元素           |
+| kTIMElem_FriendChange  | 10   | 关系链变更消息元素 |
+| kTIMElem_ProfileChange | 11   | 资料变更消息元素   |
+| kTIMElem_Invalid       | -1    | 未知元素           |
 
 ### Elem
 元素的类型。
