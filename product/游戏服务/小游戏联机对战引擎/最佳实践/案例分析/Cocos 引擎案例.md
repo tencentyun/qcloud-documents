@@ -1,5 +1,5 @@
 ## 案例说明
-本文档通过一个完整的 DEMO，指导您如何通过 Cocos 引擎使用小游戏联机对战引擎。
+本文档通过一个完整的 DEMO，指导您如何通过 Cocos 引擎使用游戏联机对战引擎。
 
 ## 前提条件
 已 [下载并安装 Cocos Creator](https://www.cocos.com/products#CocosCreator)（V2.1.0以上版本）。
