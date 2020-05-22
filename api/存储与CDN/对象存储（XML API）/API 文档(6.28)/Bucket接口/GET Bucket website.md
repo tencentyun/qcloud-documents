@@ -121,7 +121,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| HttpErrorCodeReturnedEquals | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Condition | 指定重定向规则的错误码匹配条件 | integer |
+| HttpErrorCodeReturnedEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的错误码匹配条件 | integer |
 | KeyPrefixEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | string |
 
 **Container 节点 RoutingRules.RoutingRule.Redirect 的内容：**
@@ -129,8 +129,8 @@ Authorization: Auth String
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
 | Protocol | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议 | string |
-| ReplaceKeyWith | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | string |
-| ReplaceKeyPrefixWith | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分 | string |
+| ReplaceKeyWith | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | string |
+| ReplaceKeyPrefixWith | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分 | string |
 
 #### 错误码
 
