@@ -1,4 +1,4 @@
-CUDA（Compute Unified Device Architecture）是显卡厂商 NVIDIA 推出的运算平台。 CUDA™ 是一种由 NVIDIA 推出的通用并行计算架构，该架构使 GPU 能够解决复杂的计算问题。 它包含了 CUDA 指令集架构（ISA）以及 GPU 内部的并行计算引擎。 开发人员现在可以使用 C 语言, C++ , FORTRAN 来为 CUDA™ 架构编写程序，所编写出的程序可以在支持 CUDA™ 的处理器上以超高性能运行。
+CUDA（Compute Unified Device Architecture）是显卡厂商 NVIDIA 推出的运算平台。 CUDA™ 是一种由 NVIDIA 推出的通用并行计算架构，该架构使 GPU 能够解决复杂的计算问题。 它包含了 CUDA 指令集架构（ISA）以及 GPU 内部的并行计算引擎。 开发人员现在可以使用 C 语言、 C++、FORTRAN 来为 CUDA™ 架构编写程序，所编写出的程序可以在支持 CUDA™ 的处理器上以超高性能运行。
 GPU 云服务器采用 NVIDIA 显卡，需要安装 CUDA 开发运行环境。以目前最常用的 CUDA 7.5 为例，可参照以下步骤进行安装。
 
 ## Linux 系统指引
@@ -39,6 +39,3 @@ sudo yum install cuda
 ![](//mc.qcloudimg.com/static/img/525b743130bda690a7223cbd5533ec75/image.jpg)
 3. 启动安装程序，按提示进行安装，如果最后出现完成对话框，则安装成功。
 ![](//mc.qcloudimg.com/static/img/52aef97b2d048f884c467d8446fed003/image.jpg)
-
-
-
