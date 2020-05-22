@@ -2,11 +2,11 @@
 消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储至云数据库MySQL（CDB）便于对筛选数据做持久化存储。
 
 ## 前提条件
-该功能目前依赖 SCF，CDB 服务。使用时需提前开通云函数 SCF ，云数据库MySQL等相关服务及功能。
+该功能目前依赖云函数（SCF）、云数据库（CDB）服务。使用时需提前开通云函数 SCF ，云数据库MySQL 等相关服务及功能。
 
 ## 操作步骤
 
-转储 MySQL 数据库的方案将使用SCF的Ckafka触发器进行，通过Ckafka触发器消息转储到 MySQL 数据库。
+转储 MySQL 数据库的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器消息转储到  MySQL 数据库。
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
@@ -16,8 +16,8 @@
 5. 创建完成后单击【函数管理】链接，进入云函数控制台进行下一步操作。
 ![](https://main.qcloudimg.com/raw/c0a47a3ed0d59d92af8f80f7f74d8ec1.png)
 6. 在云函数控制台上传 CkafkaToMysql 模板代码 [Github下载地址](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaToMysql)
-![](https://main.qcloudimg.com/raw/41dce628f44c633eb8ff83a2197f97e8.png)
-7. 在云函数的【函数配置】中添加如下环境变量
+![](https://main.qcloudimg.com/raw/41dce628f44c633eb8ff83a2197f97e8.png)。
+7. 在云函数的【函数配置】中添加如下环境变量。
 ![](https://main.qcloudimg.com/raw/a909865f3c7f3564505ab4d5e4ef240e.png)
 ```
 dbhost=172.16.0.59 // 数据库VPC HOST地址
@@ -28,14 +28,14 @@ dbtable=123321 // 数据表名
 ```
 8. 在云函数的【函数配置】中修改 VPC 网络，将云函数 VPC 网络与云数据库 VPC 网络设为一致即可。
 ![](https://main.qcloudimg.com/raw/d31e7ff8e6204845ab7c1e885dc81b8a.png)
-9. 在云数据库 MySQL [DMC控制台](https://gz-dmc.cloud.tencent.com/v2/)添加相关数据库与数据表与表结构
-创建数据库，与环境变量中的数据库名相同
+9. 在云数据库 MySQL [DMC控制台](https://gz-dmc.cloud.tencent.com/v2/) 添加相关数据库与数据表与表结构。
+ 1. 创建数据库，与环境变量中的数据库名相同：
 ![](https://main.qcloudimg.com/raw/6484600b6b921d650d04e9f98c9835ec.png)
-创建数据表，与环境变量中的数据库表相同
+ 2. 创建数据表，与环境变量中的数据库表相同：
 ![](https://main.qcloudimg.com/raw/7016f3759b1af5eb80e7d6c006daace5.png)
-创建表结构，与函数代码中的插入结构相同，默认插入offset，Megs列，可在 index.py 文件的33行修改相关插入结构
+ 3. 创建表结构，与函数代码中的插入结构相同，默认插入 offset、Megs 列，可在 index.py 文件的33行修改相关插入结构：
 ![](https://main.qcloudimg.com/raw/d303ec0ac0dda1641e120ac5c8a65868.png)
-注意：数据表与数据结构创建亦可直接通过MySQL命令直接创建：
+数据表与数据结构创建亦可直接通过 MySQL 命令直接创建：
 ```
 CREATE TABLE `test_table` ( `offset` VARCHAR(255) NOT NULL , `Megs` LONGTEXT NOT NULL ) ENGINE = InnoDB;
 ```
