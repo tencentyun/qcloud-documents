@@ -30,7 +30,6 @@
 - 云服务器实例已关机，并设置了关机不收费。
 - 云服务器更换过公网 IP。
 
-如仍有更换公网 IP 的需求，可 [先更换为弹性公网 IP，再解绑弹性公网 IP](https://cloud.tencent.com/document/product/213/16642#ReplacementEIP)。
 
 ### 创建实例时未分配独立公网 IP（IPv4），创建成功后该如何获取公网 IP 地址？
 您可以通过申请和绑定弹性公网 IP 方式进行获取。详细步骤，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/213/16586)。
