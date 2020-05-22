@@ -12,7 +12,7 @@
 
 > ?
 >
-> - 请保证本地字符格式为 UTF-8，否则操作中文文件会出现异常。
+> - 请保证本地字符格式为 UTF-8，否则操作中文件会出现异常。
 > - 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
 
 #### 软件依赖
@@ -81,7 +81,7 @@ pip install coscmd --no-index -f coscmd-packages
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
 
 ```shell
-coscmd -h  //查看当面版本信息
+coscmd -h  //查看当前版本信息
 ```
 
 help 信息如下所示：
@@ -263,7 +263,6 @@ coscmd upload /data/exampleobject data/
 coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-storage-class':'Archive'}"
 #设置 meta 元属性
 coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-meta-example':'example'}"
-
 ```
 
 - 上传文件夹命令如下：
@@ -273,22 +272,21 @@ coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-meta-example':'
 coscmd upload -r <localpath> <cospath>
 #操作示例
 coscmd upload -r /data/examplefolder data/examplefolder
-coscmd upload -r /data/examplefolder data/examplefolder
 #cos上的存储路径为 examplefolder2/examplefolder
 coscmd upload -r /data/examplefolder examplefolder2/
 #上传到 bucket 根目录
 coscmd upload -r /data/examplefolder/ /
-#同步上传，跳过md5相同的文件
+#同步上传，跳过 md5 相同的文件
 coscmd upload -rs /data/examplefolder data/examplefolder
+#同步上传，删除本地已经删除的文件
+coscmd upload -rs --delete /data/examplefolder data/examplefolder
 #忽略 .txt 和 .doc 的后缀文件
 coscmd upload -rs /data/examplefolder data/examplefolder --ignore *.txt,*.doc
-
 ```
 
  请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
 
 > !
->
 > - 上传文件时需要将 COS 上的路径包括文件（文件夹）的名字补全（参考例子）。
 > - COSCMD 支持大文件断点上传功能；当分片上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
@@ -323,9 +321,10 @@ coscmd download -r data/examplefolder/ /data/
 coscmd download -rf / /data/examplefolder
 #同步下载当前 bucket 根目录下所有的文件，跳过 md5校验相同的文件
 coscmd download -rs / /data/examplefolder
+#同步下载当前 bucket 根目录下所有的文件，同时删除云上删除但本地未删除的文件
+coscmd download -rs --delete / /data/examplefolder
 #忽略 .txt 和 .doc 的后缀文件
-coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc 
-
+coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc
 ```
 
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
@@ -416,7 +415,6 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 请将"<>"中的参数替换为您需要复制的 COS 上文件的路径（sourcepath），和您需要复制到 COS 上文件的路径（cospath）。
 
 > ?
->
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 > - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
@@ -520,7 +518,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 ### Debug 模式执行命令
 
-在各命令前加上`-d`或者`-debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
+在各命令前加上`-d`或者`--debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
 
 ```shell
 #显示 upload 的详细操作信息，命令格式：

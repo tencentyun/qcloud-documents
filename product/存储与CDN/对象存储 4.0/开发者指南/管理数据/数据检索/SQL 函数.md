@@ -196,7 +196,7 @@ TO_STRING ( timestamp time_format_pattern )
 | y             | 4位数年份                                                    | 1998                            |
 | yyyy           | 固定4位数年份，不足的以0填充                                 | 0199                            |
 | M              | 月份                                                         | 1                              |
-| MM             | 固定4位数月份，不足的以0填充                                 | 01                              |
+| MM             | 固定2位数月份，不足的以0填充                                 | 01                              |
 | MMM            | 月份的英文缩写                                               | Jan                             |
 | MMMM           | 月份的英文全称                                               | January                         |
 | MMMMM          | 月份的首字母缩写                                             | J（不适用于 to_timestamp 函数） |

@@ -1,13 +1,15 @@
+>!您目前查阅的是历史版本 SDK 文档，已不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474)。
+
 ## 开发准备
 
 ### 相关资源
 
-[cos php sdk v4 github项目](https://github.com/tencentyun/cos-php-sdk-v4)（本版本SDK基于JSON API封装组成）
+[COS PHP SDK V4 GitHub 项目](https://github.com/tencentyun/cos-php-sdk-v4)（本版本 SDK 基于 JSON API 封装组成）。
 
 
 ### 开发环境
 
-依赖环境：PHP 5.3.0 版本及以上
+依赖环境：PHP 5.3.0 版本及以上。
 
 ### SDK 配置
 
@@ -243,7 +245,7 @@ public function listFolder($bucketName, $path, $num = 20, $context = null);
 $result = $cosApi->listFolder($bucketName, $path, 20, 'eListBoth',0);
 ```
 
-### 列举目录下指定前缀文件&目录
+### 列举目录下指定前缀文件/目录
 
 接口说明：用于列举目录下指定前缀的文件和目录，可以通过此接口查询目录下的指定前缀的文件和目录信息。
 
@@ -263,7 +265,7 @@ $context = null);
 | num        | 要查询的目录/文件数量                              |int    | 否      | 
 | context    | 透传字段，查看第一页，则传空字符串。<br>若需要翻页，需要将前一页返回值中的context透传到参数中|String | 否      | 
 
-#### 返回值说明(json)
+#### 返回值说明（JSON）
 
 | 参数名 | 参数描述                                 |类型 | 必带 | 
 | ------- | ------ | ------ | ---------------------------------------- |

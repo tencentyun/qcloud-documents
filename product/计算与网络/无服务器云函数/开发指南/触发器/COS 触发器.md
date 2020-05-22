@@ -12,26 +12,26 @@ COS 触发器具有以下特点：
 
 |    事件类型    | 描述 |
 | ---------- | --- |
-| cos:ObjectCreated:*         |  以下提到的所有上传事件均可触发云函数 |
-| cos:ObjectCreated:Put       |  使用 Put Object 接口创建文件时触发云函数 |
-| cos:ObjectCreated:Post      |  使用 Post Object 接口创建文件时触发云函数  |
-| cos:ObjectCreated:Copy      |  使用 Put Object - Copy 接口创建文件时触发云函数  |
-| cos:ObjectCreated:CompleteMultipartUpload |  使用 CompleteMultipartUploadt 接口创建文件时触发云函数  |
-| cos:ObjectCreated:Origin | 发生 CDN 回源时触发云函数 | 
-| cos:ObjectCreated:Replication | 通过跨区域复制创建对象时触发云函数 |
-| cos:ObjectRemove:*          | 以下提到的所有删除事件均可触发云函数 |
-| cos:ObjectRemove:Delete     | 在未开启版本管理的 Bucket 下使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数  |
-| cos:ObjectRemove:DeleteMarkerCreated | 在开启或者暂停版本管理的 Bucket 下使用 Delete Object 接口删除的 Object 时触发云函数|
-| cos:ObjectRestore:Post | 创建了归档恢复的任务时触发云函数 |
-| cos:ObjectRestore:Completed | 完成归档恢复任务时触发云函数 |
+| `cos:ObjectCreated:*`         |  以下提到的所有上传事件均可触发云函数。 |
+| `cos:ObjectCreated:Put`       |  使用 Put Object 接口创建文件时触发云函数。 |
+| `cos:ObjectCreated:Post`      |  使用 Post Object 接口创建文件时触发云函数。  |
+| `cos:ObjectCreated:Copy`      |  使用 Put Object - Copy 接口创建文件时触发云函数。  |
+| `cos:ObjectCreated:CompleteMultipartUpload` |  使用 CompleteMultipartUpload 接口创建文件时触发云函数。  |
+| `cos:ObjectCreated:Origin` | 发生 CDN 回源时触发云函数。 |
+| `cos:ObjectCreated:Replication` | 通过跨区域复制创建对象时触发云函数。 |
+| `cos:ObjectRemove:*`          | 以下提到的所有删除事件均可触发云函数。 |
+| `cos:ObjectRemove:Delete`     | 在未开启版本管理的 Bucket 下使用 Delete Object 接口删除的 Object，或者使用 versionid 删除指定版本的 Object 时触发云函数。  |
+| `cos:ObjectRemove:DeleteMarkerCreated` | 在开启或者暂停版本管理的 Bucket 下使用 Delete Object 接口删除的 Object 时触发云函数。|
+| `cos:ObjectRestore:Post` | 创建了归档恢复的任务时触发云函数。 |
+| `cos:ObjectRestore:Completed` | 完成归档恢复任务时触发云函数。 |
 
 
-
-- 前后缀过滤（可选）：您可以将通知配置为按对象名称的前缀和后缀进行筛选。例如，您可以设置 “上传事件” 加前缀规则为 “.jpg”，当有以 “.jpg” 为扩展名的文件添加到存储桶时会触发 SCF 函数。
+- 前缀过滤（可选）：前缀过滤通常用于过滤指定目录下的文件事件。例如，前缀过滤为 `test/`，则仅 `test/` 目录下的文件事件才可以触发函数，`hello/` 目录下的文件事件不触发函数。
+- 后缀过滤（可选）：后缀过滤通常用于过滤指定类型或后缀的文件事件。例如，后缀过滤为 `.jpg`，则仅 `.jpg` 结尾的文件的事件才可以触发函数，`.png` 结尾的文件事件不触发函数。
 
 ## COS 触发器使用限制
 
-- 为了避免 COS 的事件生产投递出现错误，COS 针对每个 Bucket 的每个事件（如文件上传/文件删除等）和前后缀过滤的组合，限制同一组规则只能绑定一个可触发的函数。因此，在您创建 COS 触发器时，请不要针对同一个 COS Bucket 配置相同的规则。例如，您可以为函数 A 配置 test Bucket 的 “Created: * ” 事件触发（未配置过滤规则），那么该 test Bucket 的上传事件不能再绑定到其他函数，这些事件包含（Created:Put、Created:Post等），但是您可以为 函数 B 配置 test Bucket 的 “ObjectRemove” 事件触发。
+- 为了避免 COS 的事件生产投递出现错误，COS 针对每个 Bucket 的每个事件（如文件上传/文件删除等）和前后缀过滤的组合，限制同一组规则只能绑定一个可触发的函数。因此，在您创建 COS 触发器时，请不要针对同一个 COS Bucket 配置相同的规则。例如，您可以为函数 A 配置 test Bucket 的 “Created: * ” 事件触发（未配置过滤规则），那么该 test Bucket 的上传事件不能再绑定到其他函数，这些事件包含（Created:Put、Created:Post等），但是您可以为函数 B 配置 test Bucket 的 “ObjectRemove” 事件触发。
 
 - 当使用前后缀过滤规则时，为了保证同一个 Bucket 触发事件的唯一性，需要注意同一 Bucket 无法使用重叠前缀、重叠后缀或前缀和后缀的重叠组合为相同的事件类型定义筛选规则。例如，当您给函数 A 配置了 test Bucket 的 “Created: * ” 和前缀过滤为 “Log” 的事件触发，那么该 test Bucket下就不能再创建 “Created: * ” 和前缀过滤为 “Lo” 的事件触发。
 
@@ -50,7 +50,8 @@ COS 触发器具有以下特点：
 				"url": "http://testpic-1253970026.cos.ap-chengdu.myqcloud.com/testfile",
 				"meta": {
 					"x-cos-request-id": "NWMxOWY4MGFfMjViMjU4NjRfMTUyMV8yNzhhZjM=",
-					"Content-Type": ""
+					"Content-Type": "",
+					"x-cos-meta-mykey": "myvalue"
 				},
 				"vid": "",
 				"key": "/1253970026/testpic/testfile",
@@ -74,7 +75,7 @@ COS 触发器具有以下特点：
 					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
 				}
 			},
-			"eventQueue": "qcs:0:lambda:cd:appid/1253970026:default.printevent.$LATEST",
+			"eventQueue": "qcs:0:scf:cd:appid/1253970026:default.printevent.$LATEST",
 			"reservedInfo": "",
 			"reqid": 179398952
 		}
@@ -86,11 +87,11 @@ COS 触发器具有以下特点：
 
 |    结构名    | 内容 |
 | ---------- | --- |
-| Records |  列表结构，可能有多条消息合并在列表中 |
-| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 ID |
-| cos | 记录事件对应的 COS 信息 |
-| cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称，地域，所属用户 APPID |
-| cosObject |  记录具体事件发生的对象，包含对象文件路径，大小，自定义元数据，访问 URL  |
+| Records |  列表结构，可能有多条消息合并在列表中。 |
+| event       |  记录事件信息，包括事件版本、事件源、事件名称、时间、队列信息、请求参数、请求 ID。 |
+| cos | 记录事件对应的 COS 信息。 |
+| cosBucket |  记录具体事件发生的 Bucket，包含 Bucket 名称、地域、所属用户 APPID。 |
+| cosObject |  记录具体事件发生的对象，包含对象文件路径、大小、自定义元数据、访问 URL。  |
 
 ## 相关示例
 以下为 Java 语言的 COS 触发器示例，您可参考示例进行使用：

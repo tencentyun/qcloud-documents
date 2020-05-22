@@ -1,6 +1,6 @@
 ## 功能描述
 
-Initiate Multipart Upload 请求实现初始化分段上传，此请求将返回一个 Upload Id 用以后续分段上传，此 Upload Id 有效期24小时。
+Initiate Multipart Upload 请求实现初始化分段上传，此请求将返回一个 Upload ID 用以后续分段上传，此 Upload ID 有效期24小时。
 
 每次分段上传的段大小要求一致（除了最后一个段），且必须为1MB乘以2的幂次
 
@@ -16,10 +16,10 @@ Authorization: Auth
 x-cas-archive-description: ArchiveDescription
 x-cas-part-size: PartSize
 ```
-
+。
 #### 请求参数
 
-无特殊请求参数
+无特殊请求参数。
 
 #### 请求头部
 

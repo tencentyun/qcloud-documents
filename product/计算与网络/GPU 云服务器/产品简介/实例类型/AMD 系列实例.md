@@ -1,5 +1,5 @@
 ## 实例概述
-**AMD 系列 GPU 实例 GA2** 适用于 GPU 传统图形图像处理（3D 渲染）应用场景。腾讯云以和 **[云服务器CVM](https://cloud.tencent.com/product/cvm) 一致的管理方式**，提供快速、稳定、弹性的计算服务。
+**AMD 系列 GPU 实例 GA2** 适用于 GPU 传统图形图像处理（3D 渲染）应用场景。腾讯云以和 **[云服务器 CVM](https://cloud.tencent.com/product/cvm) 一致的管理方式**，提供快速、稳定、弹性的计算服务。
 
 ## 适用场景
 适用于高性能图形处理，3D 渲染。例如：

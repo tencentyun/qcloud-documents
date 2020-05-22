@@ -102,6 +102,7 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
 {
 	self = [super init];
 	// 初始化
+    TIMConversation *conv = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"test"];
 	chat = [[TUIChatController alloc] initWithConversation:conv];
     [self addChildViewController:chat]; // 将聊天界面加到内部
     chat.delegate = self;	// 设置回调

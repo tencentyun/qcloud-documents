@@ -1,14 +1,14 @@
 ## 概述
 
-总的来说，HttpDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
+总的来说，HTTPDNS 作为移动互联网时代 DNS 优化的一个通用解决方案，主要解决了以下几类问题：
 - LocalDNS 劫持/故障
 - LocalDNS 调度不准确
 
-HttpDNS 的 Android SDK，主要提供了基于 HttpDNS 服务的域名解析和缓存管理能力：
-- SDK 在进行域名解析时，优先通过 HttpDNS 服务得到域名解析结果，极端情况下如果 HttpDNS 服务不可用，则使用LocalDNS 解析结果。
-- HttpDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HttpDNS 解析结果的缓存管理。
+HTTPDNS 的 Android SDK，主要提供了基于 HTTPDNS 服务的域名解析和缓存管理能力：
+- SDK 在进行域名解析时，优先通过 HTTPDNS 服务得到域名解析结果，极端情况下如果 HTTPDNS 服务不可用，则使用LocalDNS 解析结果。
+- HTTPDNS 服务返回的域名解析结果会携带相关的 TTL 信息，SDK 会使用该信息进行 HTTPDNS 解析结果的缓存管理。
 
-HttpDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HttpDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
+HTTPDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思路-HTTPDNS 服务详解](https://cloud.tencent.com/developer/article/1035562)。
 智营解析 Android SDK 的获取方式：[点此获取](https://github.com/tencentyun/httpdns-android-sdk)
 
 ## 接入
@@ -30,7 +30,7 @@ HttpDNS 服务的详细介绍可以参见文章 [全局精确流量调度新思�
 ### 网络安全配置兼容
 
 App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP 网络请求，详细信息参见 [Opt out of cleartext traffic](https://developer.android.com/training/articles/security-config#Opt%20out%20of%20cleartext%20traffic)。
-这种情况下，业务侧需要将HttpDNS请求使用的 IP 配置到域名白名单中：
+这种情况下，业务侧需要将 HTTPDNS 请求使用的 IP 配置到域名白名单中：
 - AndroidManifest 文件中配置
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -52,7 +52,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 </network-security-config>
 ```
 
-### 接入HttpDNS
+### 接入 HTTPDNS
 - 将 HttpDNSLibs\HttpDNS_xxxx.jar 拷贝至应用 libs 相应位置。
 - 将 HttpDNSLibs/*/libhttpdns.so 拷贝至应用 jniLibs 相应位置。
 
@@ -61,7 +61,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 将 HttpDNSLibs\beacon_android_xxxx.jar 拷贝至应用 libs 相应位置。
  >! 
  >- 若您已经接入了腾讯灯塔（beacon）组件的应用，请忽略此步骤。
- >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+ >- 灯塔（beacon）SDK 是由腾讯灯塔团队开发，用于移动应用统计分析，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 
 ### 接口调用
 
@@ -76,12 +76,12 @@ try {
 }
 
 /**
- * 初始化HttpDNS：如果接入了MSDK，建议初始化MSDK后再初始化HttpDNS
+ * 初始化HTTPDNS：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
  *
  * @param context 应用上下文，最好传入ApplicationContext
- * @param appkey 业务appkey，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于上报
- * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于域名解析鉴权
- * @param dnskey dns解析key，即授权id对应的key(加密密钥)，腾讯云官网（https://console.cloud.tencent.com/HttpDNS）申请获得，用于域名解析鉴权
+ * @param appkey 业务appkey，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+ * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的key(加密密钥)，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
@@ -95,7 +95,7 @@ MSDKDnsResolver.getInstance().init(MainActivity.this, appkey, dnsid, dnskey, deb
 MSDKDnsResolver.getInstance().WGSetDnsOpenId("10000");
 
 /**
- * HttpDNS同步解析接口
+ * HTTPDNS同步解析接口
  * 首先查询缓存，若存在则返回结果，若不存在则进行同步域名解析请求
  * 解析完成返回最新解析结果
  * 返回值字符串以“;”分隔，“;”前为解析得到的IPv4地址（解析失败填“0”），“;”后为解析得到的IPv6地址（解析失败填“0”）
@@ -108,31 +108,31 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 
 ### 接入验证
 
-当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HttpDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
+当 init 接口中 debug 参数传入 true，过滤 TAG 为 “WGGetHostByName” 的日志，并查看到 LocalDns（日志上为 ldns_ip）和 HTTPDNS（日志上为 hdns_ip）相关日志时，可以确认接入无误。
 
 ### 注意事项
 
 - getAddrByName 是耗时同步接口，应当在子线程调用。
-- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HttpDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
+- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
   - 以 URLConnection 为例：
  ```Java
 URL oldUrl = new URL(url);
 URLConnection connection = oldUrl.openConnection();
-// 获取HttpDNS域名解析结果 
+// 获取HTTPDNS域名解析结果 
 String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
 String[] ipArr = ips.split(";");
-if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
     String ip = ipArr[0];
     String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
     connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
     connection.setRequestProperty("Host", oldUrl.getHost());
 }
 ```
- - 以 curl 为例，假设您想要访问 www.qq.com，通过 HttpDNS 解析出来的 IP 为192.168.0.111，那么您可以这么访问：
+ - 以 curl 为例，假设您想要访问 www.qq.com，通过 HTTPDNS 解析出来的 IP 为192.168.0.111，那么您可以这么访问：
    ```shell
    curl -H "Host:www.qq.com" http://192.168.0.111/aaa.txt
 ```
-- 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用** HttpDNS 做域名解析。示例如下：
+- 检测本地是否使用了 HTTP 代理。如果使用了 HTTP 代理，建议**不要使用** HTTPDNS 做域名解析。示例如下：
   ```Java
 String host = System.getProperty("http.proxyHost");
 String port= System.getProperty("http.proxyPort");
@@ -145,7 +145,7 @@ if (null != host && null != port) {
 
 ### OkHttp
 
-OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HttpDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
+OkHttp 提供了 DNS 接口，用于向 OkHttp 注入 DNS 实现。得益于 OkHttp 的良好设计，使用 OkHttp 进行网络访问时，实现 DNS 接口即可接入 HTTPDNS 进行域名解析，在较复杂场景（HTTP/HTTPS + SNI）下也不需要做额外处理，侵入性极小。示例如下：
 
 ```Java
 mOkHttpClient =
@@ -177,10 +177,10 @@ mOkHttpClient =
         .build();
 ```
 
->! 实现 DNS 接口，即表示所有经由当前 OkHttpClient 实例处理的网络请求都会经过 HttpDNS。如果您只有少部分域名是需要通过 HttpDNS 进行解析，建议您在调用 HttpDNS 域名解析接口之前先进行过滤。
+>! 实现 DNS 接口，即表示所有经由当前 OkHttpClient 实例处理的网络请求都会经过 HTTPDNS。如果您只有少部分域名是需要通过 HTTPDNS 进行解析，建议您在调用 HTTPDNS 域名解析接口之前先进行过滤。
 
 ### Retrofit + OkHttp
-Retrofit 实际上是一个基于 OkHttp，对接口做了一层封装桥接的 lib。因此只需要仿 OkHttp 的接入方式，定制 Retrofit 中的 OkHttpClient，即可方便地接入 HttpDNS。示例如下：
+Retrofit 实际上是一个基于 OkHttp，对接口做了一层封装桥接的 lib。因此只需要仿 OkHttp 的接入方式，定制 Retrofit 中的 OkHttpClient，即可方便地接入 HTTPDNS。示例如下：
 ```Java
 mRetrofit =
     new Retrofit.Builder()
@@ -191,7 +191,7 @@ mRetrofit =
 
 ### WebView
 
-Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HttpDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
+Android 系统提供了 API 以实现 WebView 中的网络请求拦截与自定义逻辑注入。我们可以通过该 API 拦截 WebView 的各类网络请求，截取 URL 请求的 HOST，调用 HTTPDNS 解析该 HOST，通过得到的 IP 组成新的 URL 来进行网络请求。示例如下：
 ```Java
 mWebView.setWebViewClient(new WebViewClient() {
     // API 21及之后使用此方法
@@ -202,16 +202,16 @@ mWebView.setWebViewClient(new WebViewClient() {
             String scheme = request.getUrl().getScheme().trim();
             String url = request.getUrl().toString();
             Log.d(TAG, "url:" + url);
-            // HttpDNS解析css文件的网络请求及图片请求
+            // HTTPDNS解析css文件的网络请求及图片请求
             if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
             && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url .endsWith(".gif"))) {
                 try {
                     URL oldUrl = new URL(url);
                     URLConnection connection = oldUrl.openConnection();
-                    // 获取HttpDNS域名解析结果
+                    // 获取HTTPDNS域名解析结果
                     String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
                     String[] ipArr = ips.split(";");
-                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
                         String ip = ipArr[0];
                         String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
                         connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
@@ -234,16 +234,16 @@ mWebView.setWebViewClient(new WebViewClient() {
         if (!TextUtils.isEmpty(url) && Uri.parse(url).getScheme() != null) {
             String scheme = Uri.parse(url).getScheme().trim();
             Log.d(TAG, "url:" + url);
-            // HttpDNS解析css文件的网络请求及图片请求
+            // HTTPDNS解析css文件的网络请求及图片请求
             if ((scheme.equalsIgnoreCase("http") || scheme.equalsIgnoreCase("https"))
             && (url.contains(".css") || url.endsWith(".png") || url.endsWith(".jpg") || url.endsWith(".gif"))) {
                 try {
                     URL oldUrl = new URL(url);
                     URLConnection connection = oldUrl.openConnection();
-                    // 获取HttpDNS域名解析结果
+                    // 获取HTTPDNS域名解析结果
                     String ips = MSDKDnsResolver.getInstance().getAddrByName(oldUrl.getHost());
                     String[] ipArr = ips.split(";");
-                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HttpDNS获取IP成功，进行URL替换和HOST头设置
+                    if (2 == ipArr.length && !"0".equals(ipArr[0])) { // 通过HTTPDNS获取IP成功，进行URL替换和HOST头设置
                         String ip = ipArr[0];
                         String newUrl = url.replaceFirst(oldUrl.getHost(), ip);
                         connection = (HttpURLConnection) new URL(newUrl).openConnection(); // 设置HTTP请求头Host域名
@@ -267,7 +267,7 @@ mWebView.loadUrl(targetUrl);
 
 - HTTPS 示例如下：
     ```Java
- // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
+ // 以域名为www.qq.com，HTTPDNS解析得到的IP为192.168.0.1为例
 String url = "https://192.168.0.1/"; // 业务自己的请求连接
  HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
  connection.setRequestProperty("Host", "www.qq.com");
@@ -284,7 +284,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 - HTTPS + SNI 示例如下：
 	```Java
  // 以域名为www.qq.com，HttpDNS解析得到的IP为192.168.0.1为例
- String url = "https://192.168.0.1/"; // 用HttpDNS解析得到的IP封装业务的请求URL
+ String url = "https://192.168.0.1/"; // 用HTTPDNS解析得到的IP封装业务的请求URL
  HttpsURLConnection sniConn = null;
  try {
  	sniConn = (HttpsURLConnection) new URL(url).openConnection();
@@ -396,7 +396,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
 
 ### Unity
 
-- 初始化 HttpDNS 和灯塔接口
+- 初始化 HTTPDNS 和灯塔接口
 	>! 若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
 	>
 	示例如下：
@@ -412,7 +412,7 @@ String url = "https://192.168.0.1/"; // 业务自己的请求连接
  		return;
  	}
  	AndroidJavaObject contextObj = activityObj.Call<AndroidJavaObject>("getApplicationContext");
- 	// 初始化HttpDNS
+ 	// 初始化HTTPDNS
  	AndroidJavaObject httpDnsClass = new AndroidJavaObject("com.tencent.msdk.dns.MSDKDnsResolver");
  	if (httpDnsClass == null) {
  		return;
@@ -442,3 +442,4 @@ public static string GetHttpDnsIP(string url) {
 	return ip;
 }
   ```
+	

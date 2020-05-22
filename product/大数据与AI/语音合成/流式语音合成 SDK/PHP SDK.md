@@ -6,7 +6,7 @@
 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 此版本 SDK 适用于 PHP5.4.16 及以上版本。
 **下载 SDK**
-流式语音合成 PHP SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/php_stream_tts_sdk.tar.gz )。
+流式语音合成 PHP SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/php_stream_tts_sdk.zip)。
 
 **安装 SDK**
 源码安装。
@@ -43,7 +43,7 @@ static $APPID = 1255*********;
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
+| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
 | Codec | 否 | String | 返回音频格式：pcm：返回二进制 pcm 音频，使用简单，但数据量大。|

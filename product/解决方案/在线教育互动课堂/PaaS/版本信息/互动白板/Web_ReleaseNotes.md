@@ -1,5 +1,38 @@
 # Release Notes - Web
 
+## 2.3.6 @ 2019.11.12
+
+- 转码资源全部接入CDN，请务必升级。
+- 废弃addFile，addH5PPTFile接口，废弃TEB_ADDFILE，TEB_ADDH5PPTFILE事件。
+- 新增applyFileTranscode，getFileTranscodeProgress，新增TEB_TRANSCODEPROGRESS事件。
+- 切换文件支持切换到指定页和指定步
+
+
+## 2.3.5 @ 2019.10.30
+
+- 新增接口getThumbnailImages获取文件缩略图
+- 新增步数回调TEB_GOTOSTEP
+- 修复白板放大到一定比例，涂鸦失效问题
+- 修复白板放大后精度丢失各端画面不对齐的问题
+
+## 2.3.4 @ 2019.09.25
+
+- 涂鸦屏蔽多指触摸
+- ppt点击事件透传
+- 移动端ppt翻页交互支持左右滑动翻页
+
+## 2.3.3 @ 2019.08.07
+1. 白板
+    - 增加资源文件失败上报
+    - 支持大班课
+
+## 2.3.2 @ 2019.08.07
+1. 白板
+    - 直线支持设置样式，包括实线，虚线，箭头
+    - 圆和椭圆支持固定圆心
+    - 新增addTranscodeFile接口支持restapi转码结果
+    - 废弃setTextFontFamily(设置文字输入字体)和getTextFontFamily(获取文字输入字体)接口
+
 ## 2.3.1 @ 2019.08.01
 1. 白板
     - 修复文本框选不精确问题；

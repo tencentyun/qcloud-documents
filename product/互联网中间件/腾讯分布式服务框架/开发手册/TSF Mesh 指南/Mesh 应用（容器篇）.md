@@ -1,7 +1,9 @@
+<span id="zb"></span>
 ## 准备工作
-1. 下载 TSF 提供的 Demo（该步骤预计耗时1min）。
-2. 在 TSF 控制台上已创建容器集群并添加节点，详情参考 [集群](https://cloud.tencent.com/document/product/649/13684) （对于未创建容器集群和添加节点的用户，该步骤预计耗时10min）。
-3. 用户的开发机上已安装`docker`环境（用于推送镜像到镜像仓库。对于本地无`docker`环境的用户，该步骤预计耗时20min）。
+1. 下载 TSF 提供的 Python Mesh Demo（docker）（该步骤预计耗时1min）。
+2. 解压 Demo 压缩包，分别进入二级目录（如 `demo-mesh-promotion` 目录），执行 `docker build` 命令制作容器镜像。
+3. 在 TSF 控制台上已创建容器集群并添加节点，详情参考 [集群](https://cloud.tencent.com/document/product/649/13684) （对于未创建容器集群和添加节点的用户，该步骤预计耗时10min）。
+4. 用户的开发机上已安装`docker`环境（用于推送镜像到镜像仓库。对于本地无`docker`环境的用户，该步骤预计耗时20min）。
 
 ## 一、创建并部署 Mesh 应用
 ### 1. 创建应用
@@ -15,10 +17,11 @@
 1.4 单击【提交】，完成应用创建。
 
 <span id="步骤2"></span>
+
 ### 2. 将镜像推送到仓库
 
 2.1  在左侧导航，单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】，进入镜像列表页。首次使用时，您需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像（参考 [准备工作](#zb) 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
 
 
 
@@ -35,7 +38,7 @@
 
 3.3 设置访问设置、更新方式、日志配置项。
    - 网络访问方式：NodePort
-   - 端口协议：协议选择 TCP，容器端口和服务端口都填写8089
+   - 端口协议：协议选择 TCP，容器端口和服务端口填写相同的数值（user：8089，shop：8090，promotion：8091）
    - 更新方式：快速更新
    - 日志配置项：选择无
 
@@ -68,10 +71,10 @@
 
 - **负载均衡 IP + 服务端口**：如果部署组在部署时，选择了公网访问方式，可以通过**负载均衡 IP + 服务端口**来访问`user`服务的`/api/v6/user/account/query`接口。
 
-- **节点IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过**节点IP + NodePort**来访问`user`服务的`/api/v6/user/account/query`接口。其中`节点IP`为集群中任一节点的内网IP，`NodePort`可以在部署组的基本信息页面被查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
+- **云主机 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过**云主机 IP + NodePort**来访问`user`服务的`/api/v6/user/account/query`接口。其中`云主机 IP`为集群中任一云主机的内网 IP，`NodePort`可以在部署组的基本信息页面被查看。用户首先登录到集群所在 VPC 的机器，然后执行如下命令：
 
 ```
-curl -XGET <节点IP>:<NodePort>/api/v6/user/account/query
+curl -XGET <云主机 IP>:<NodePort>/api/v6/user/account/query
 ```
 
 - **API 网关**：用户可以通过在 API 网关配置微服务 API 来调用 user 服务的接口。关于如何配置微服务 API 网关，可参考文档 [API 网关作为请求入口](https://cloud.tencent.com/document/product/649/17644)。

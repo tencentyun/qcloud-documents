@@ -1,7 +1,7 @@
 
 
 ## 操作场景
-FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Service 框架的手机上，能够实现无需打开应用，即可收到推送消息。
+FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Service 框架的手机上，鉴于其较宽松的后台进程管理方式，在应用进程未被强制停止的情况下，可以收到推送消息。
 
 ## 操作步骤
 ### 获取密钥
@@ -19,7 +19,7 @@ classpath 'com.google.gms:google-services:4.2.0'
 
   2. 在应用级的 build.gradle 文件中，添加依赖：
 	```xml
-	    implementation 'com.tencent.tpns:fcm:1.1.0.2-release' // fcm 推送
+	    implementation 'com.tencent.tpns:fcm:[VERSION]-release' // fcm 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
         implementation  'com.google.firebase:firebase-messaging:17.6.0'
 
 	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进您应用model的根路径下

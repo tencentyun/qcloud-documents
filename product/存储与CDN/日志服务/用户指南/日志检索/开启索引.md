@@ -45,10 +45,10 @@
 
 | 全文分词符 | 精准搜索                                                     | 模糊搜索                  |
 | ---------- | ------------------------------------------------------------ | ------------------------- |
-| 设置为空   | 输入 “10002345987;write;error;code=400;topic does not exist;” | 输入"10002345987*"        |
-| ;          | 输入“code=400” 或 “topic does not exist”                     | 输入"code=40?" 或 "code*" |
-| ;=         | 输入"code" 或 "400" 或 “code=400”均可                        | 输入"topic*" 或 "40?”     |
-| ;  =       | 输入 “topic"或 "does" 或 "not" 或 "exist”                    | 输入 "do*"                |
+| 设置为空   | 输入“10002345987;write;error;code=400;topic does not exist;” | 输入“10002345987*”       |
+| ;          | 输入“code=400” 或 “topic does not exist”                     | 输入“code=40?”或 "code*" |
+| ;=         | 输入“code”或“400”或“code=400”均可                        | 输入“topic*”或“40?”     |
+| ;  =       | 输入 “topic”或“does”或“not”或“exist”                    | 输入“do*”                |
 
 ### 键值索引
 

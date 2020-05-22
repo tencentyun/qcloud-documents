@@ -13,6 +13,14 @@
 tim.getGroupList();
 ```
 
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称                    | 类型           | 属性 | 描述                                                         |
+| :---------------------- | :------------- | :--- | :----------------------------------------------------------- |
+| `groupProfileFilter` | `Array<String>` |`<optional>`  | 群资料过滤器。除默认拉取的群资料外，指定需要额外拉取的群资料，支持的值如下：<br/>TIM.TYPES.GRP_PROFILE_OWNER_ID：群主 ID<br/>TIM.TYPES.GRP_PROFILE_CREATE_TIME：群创建时间<br/>TIM.TYPES.GRP_PROFILE_LAST_INFO_TIME：最后一次群资料变更时间<br/>TIM.TYPES.GRP_PROFILE_MEMBER_NUM：群成员数量<br/>TIM.TYPES.GRP_PROFILE_MAX_MEMBER_NUM：最大群成员数量<br/>TIM.TYPES.GRP_PROFILE_JOIN_OPTION：申请加群选项<br/>TIM.TYPES.GRP_PROFILE_INTRODUCTION：群介绍<br/>TIM.TYPES.GRP_PROFILE_NOTIFICATION：群公告 |
+
 **返回值**
 
 该接口返回`Promise`对象：
@@ -20,9 +28,22 @@ tim.getGroupList();
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**
-
+- 默认拉取：
 ```js
+// 该接口默认只拉取这些资料：群类型、群名称、群头像以及最后一条消息的时间。
 let promise = tim.getGroupList();
+promise.then(function(imResponse) {
+  console.log(imResponse.data.groupList); // 群组列表
+}).catch(function(imError) {
+  console.warn('getGroupList error:', imError); // 获取群组列表失败的相关信息
+});
+```
+- 拉取其他资料：
+```js
+// 若默认拉取的字段不满足需求，可以参考下述代码，拉取额外的资料字段。
+let promise = tim.getGroupList({
+   groupProfileFilter: [TIM.TYPES.GRP_PROFILE_OWNER_ID],
+});
 promise.then(function(imResponse) {
   console.log(imResponse.data.groupList); // 群组列表
 }).catch(function(imError) {
@@ -48,7 +69,6 @@ tim.getGroupProfile(options);
 | :---------------------- | :------------- | :--- | :----------------------------------------------------------- |
 | `groupID  `               | `String`         |-  | 群组 ID                                                       |
 | `groupCustomFieldFilter`  | `Array<String>` | `<optional>` | 群组的自定义字段过滤器，指定需要获取的群组的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
-| `memberCustomFieldFilter` | `Array<String>` | `<optional>` | 群成员的自定义字段过滤器，指定需要获取的群成员的自定义字段，详情请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 **返回值**
 
@@ -61,8 +81,7 @@ tim.getGroupProfile(options);
 ```js
 let promise = tim.getGroupProfile({
   groupID: 'group1',
-  groupCustomFieldFilter: ['key1','key2'],
-  memberCustomFieldFilter: ['key1', 'key2']
+  groupCustomFieldFilter: ['key1','key2']
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group);
@@ -77,6 +96,8 @@ promise.then(function(imResponse) {
 
 更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
 
+>!该接口创建 TIM.TYPES.GRP_AVCHATROOM（音视频聊天室） 后，需调用 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
+
 **接口名**
 
 ```js
@@ -90,7 +111,7 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群<br/>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
@@ -100,12 +121,12 @@ tim.createGroup(options);
 | `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建音视频聊天室时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                     -                 | 群组维度的自定义字段，默认没有自定义字段，如需开通请参见 [群成员资料](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
-<span id="memberList"></span>
+<span id="memberList"></span>
 `memberList` 参数说明
 
 | 名称                | 类型           | 属性 | 描述                                                  |
 | :------------------ | :------------- | :--------- | :----------------------------------------------------------- |
-| `userID    `        | `String`         |            | 必填，群成员的 userID                                        |
+| `userID    `        | `String`         |      -      | 必填，群成员的 UserID                                        |
 | `role  `            | `String`         | `<optional>` | 成员身份，可选值只有 Admin，表示添加该成员并设置为管理员      |
 | `memberCustomField` | `Array<Object>` | `<optional>` | 群成员维度的自定义字段，默认没有自定义字段，如需开通请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
@@ -179,7 +200,7 @@ tim.updateGroupProfile(options);
 
 | 名称               | 类型           | 属性       | Default                              | 描述                                                         |
 | :----------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
-| `groupID`          | `Object`         |       -     |                    -                  |                                                              |
+| `groupID`          | `Object`         |       -     |                    -                  |   群组 ID                                                      |
 | `name`             | `Object`         | `<optional>` |                -                      | 群名称，最长30字节                                           |
 | `avatar`           | `Object`         | `<optional>` |                -                      | 群头像 URL，最长100字节                                       |
 | `introduction`     | `Object`         | `<optional>` |                       -               | 群简介，最长240字节                                          |
@@ -188,7 +209,7 @@ tim.updateGroupProfile(options);
 | `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br>**修改私有群/聊天室/音视频聊天室的群资料时不能设置该字段**，私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                 -                     | 群自定义字段，详情请参见下方[`groupCustomField`参数说明](#groupCustomField)<br>默认没有自定义字段，如需开通请参见  [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
-<span id="groupCustomField"></span>
+<span id="groupCustomField"></span>
 `groupCustomField`参数说明
 
 | 名称    | 类型   | 描述              |
@@ -209,6 +230,7 @@ let promise = tim.updateGroupProfile({
   groupID: 'group1',
   name: 'new name', // 修改群名称
   introduction: 'this is introduction.', // 修改群公告
+  // v2.6.0 起，群成员能收到群自定义字段变更的群提示消息，且能获取到相关的内容，详见 Message.payload.newGroupProfile.groupCustomField
   groupCustomField: [{ key: 'group_level', value: 'high'}] // 修改群组维度自定义字段
 });
 promise.then(function(imResponse) {
@@ -236,7 +258,7 @@ tim.joinGroup(options);
 | :------------- | :----- | :--------- | :----------------------------------------------------------- |
 | `groupID`      | `String` |     -       |                       -                                       |
 | `applyMessage` | `String` |    -        | 附言                                                         |
-| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入音视频聊天室时该字段必填。可选值：<br/>TIM.TYPES.GRP_PUBLIC (公开群)<br/>TIM.TYPES.GRP_CHATROOM (聊天室)<br/>TIM.TYPES.GRP_AVCHATROOM (音视频聊天室) |
+| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入音视频聊天室时该字段必填。可选值：<br/><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：音视频聊天室</li> |
 
 **返回值**
 
@@ -249,7 +271,7 @@ tim.joinGroup(options);
      </tr>
 	 <tr>
 	     <td>status</td>   
-	     <td>加群的状态。包括：<li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li> </td>   
+	     <td>加群的状态。包括：<ul><li>TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL：等待管理员审核</li><li>TIM.TYPES.JOIN_STATUS_SUCCESS：加群成功</li><li>TIM.TYPES.JOIN_STATUS_ALREADY_IN_GROUP：已在群中</li></ul></td>
      </tr> 
 	 <tr>
 	     <td>group</td>   
@@ -395,10 +417,10 @@ tim.handleGroupApplication(options);
 参数`options`为`Object`类型，包含的属性值如下：
 
 | 名称            | 类型                                             | 属性       | 描述                                                         |
-| :-------------- | :-------------------------------------- | :--------- | :----------------------------------------------------------- |
+| :-------------- | :--------------------- | :--------- | :----------------------------------------------- |
 | `handleAction`  | `String `               |       -     | 处理结果 Agree（同意） / Reject（拒绝）                          |
 | `handleMessage` | `String`                       | `<optional>` | 附言                                                         |
-| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |            | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
+| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |      -      | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
 
 **返回值**
 
@@ -456,7 +478,15 @@ promise.then(function(imResponse) {
 ```
 
 ## 群成员管理
+
 ### 获取群成员列表
+
+>!
+>- 从v2.6.2版本开始，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
+>- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
+>- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 。
+
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
 
 **接口名**
 
@@ -469,8 +499,8 @@ tim.getGroupMemberList(options);
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
 | 名称      | 类型     | 属性          | 默认值 | 描述                                                         |
-| :-------- | :------- | :------------ | :----- | :----------------------------------------------------------- |
-| `groupID` | `String` |               |        | 群组的 ID                                                    |
+| :-------- | :------- | :------------ | :----- | :--------------------------- |
+| `groupID` | `String` |      -         |   -     | 群组的 ID                                                    |
 | `count`   | `Number` | `<optional> ` | `15`   | 需要拉取的数量。最大值为100，避免回包过大导致请求失败。若传入超过100，则只拉取前100个 |
 | `offset`  | `Number` | `<optional> ` | `0`    | 偏移量，默认从0开始拉取                                      |
 
@@ -479,16 +509,72 @@ tim.getGroupMemberList(options);
 该接口返回`Promise`对象：
 
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
-- `catch`的回调函数参数为 [IMError](
-https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+
+**示例**
+
+```javascript
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+}).catch(function(imError) {
+  console.warn('getGroupMemberList error:', imError);
+});
+// 从v2.6.2 起，该接口支持拉取群成员禁言截止时间戳。
+let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
+promise.then(function(imResponse) {
+  console.log(imResponse.data.memberList); // 群成员列表
+  for (let groupMember of imResponse.data.memberList) {
+    if (groupMember.muteUntil * 1000  > Date.now()) {
+      console.log(`${groupMember.userID} 禁言中`);
+    } else {
+      console.log(`${groupMember.userID} 未被禁言`);
+    }
+  }
+}).catch(function(imError) {
+    console.warn('getGroupMemberProfile error:', imError);
+});
+```
+
+### 获取群成员资料
+
+>!
+>- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
+>- 每次查询的用户数上限为50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
+
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+
+**接口名**
+
+```js
+tim.getGroupMemberProfile(options);
+```
+
+**请求参数**
+
+参数`options`为`Object`类型，包含的属性值如下表所示：
+
+| 名称                      | 类型             | 属性          | 描述                                                         |
+| :------------------------ | :--------------- | :------------ | :----------------------------------------------------------- |
+| `groupID`                 | `String`         |         -     | 群组的 ID                                                    |
+| `userIDList`              | `Array.<String>` |         -     | 要查询的群成员用户 ID 列表                                   |
+| `memberCustomFieldFilter` | `Array.<String>` | `<optional> ` | 群成员自定义字段筛选。可选，若不填，则默认查询所有群成员自定义字段 |
+
+**返回值**
+
+该接口返回`Promise`对象：
+
+- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为查询成功的群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 ### 添加群成员
 
 详细规则如下：
+-  TIM.TYPES.GRP_PRIVATE 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
 
-- 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
-- 公开群/聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
-- 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 和 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
 
 **接口名**
 
@@ -637,6 +723,7 @@ let promise = tim.setGroupMemberMuteTime({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberMuteTime error:', imError); // 禁言失败的相关信息
 });
@@ -680,6 +767,7 @@ let promise = tim.setGroupMemberRole({
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 修改后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberRole error:', imError); // 错误信息
 });
@@ -722,6 +810,7 @@ tim.setGroupMemberNameCard(options)
 let promise = tim.setGroupMemberNameCard({ groupID: 'group1', userID: 'user1', nameCard: '用户名片' });
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberNameCard error:', imError); // 设置群成员名片失败的相关信息
 });
@@ -768,6 +857,7 @@ tim.setGroupMemberCustomField(options)
 let promise = tim.setGroupMemberCustomField({ groupID: 'group1', memberCustomField: [{key: 'group_member_test', value: 'test'}]});
 promise.then(function(imResponse) {
   console.log(imResponse.data.group); // 设置后的群资料
+  console.log(imResponse.data.member); // 修改后的群成员资料
 }).catch(function(imError) {
   console.warn('setGroupMemberCustomField error:', imError); // 设置群成员自定义字段失败的相关信息
 });
@@ -790,16 +880,16 @@ promise.then(function(imResponse) {
 ## 群系统通知
 
 当有用户申请加群等事件发生时，管理员会收到申请加群等系统消息。管理员同意或拒绝加群申请，IM SDK 会将相应的消息通过群系统通知消息发送给接入侧，由接入侧展示给用户。
-群系统通知消息有多种类型，详细描述请参见 [Message.GroupSystemNoticePayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
+群系统通知消息有多种类型，详细描述请参见 [群系统通知类型常量及含义](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
 
-```javascript
+<pre>
 let onGroupSystemNoticeReceived = function(event) {
-  const type = event.data.type; // 群系统通知的类型，详见 群系统通知类型常量及含义 
-  const message = event.data.message; // 群系统通知的消息实例，详见 Message
+  const type = event.data.type; // 群系统通知的类型，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">Message.GroupSystemNoticePayload</a> 
+  const message = event.data.message; // 群系统通知的消息实例，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
   console.log(message.payload); // 消息内容. 群系统通知 payload 结构描述
 };
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, onGroupSystemNoticeReceived);
-```
+</pre>
 
 
 

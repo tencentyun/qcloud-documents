@@ -1,4 +1,4 @@
->!gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [小游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe) 中获取。
+>!gameInfo.gameId、gameInfo.secretKey、config.url 均需前往 [游戏联机对战引擎控制台](https://console.cloud.tencent.com/mgobe) 中获取。
 
 1. 在 game.js 中输入以下代码，完成 SDK 初始化，获得 room 实例。
 	```
@@ -7,7 +7,7 @@
 		gameId: "xxxxxxxx",
 		// 玩家 openId
 		openId: 'openid_123_test',
-		// 替换 为控制台上的“密钥”
+		// 替换 为控制台上的“游戏Key”
 		secretKey: 'BjU3QBZLFxxxxxxxxxxxxxxxxxx',
 	};
 

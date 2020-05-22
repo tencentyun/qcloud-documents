@@ -2,17 +2,15 @@ Hive 是一个建立在 Hadoop 文件系统上的数据仓库架构，它为数�
 
 Hive 使用 Hadoop 的 HDFS 作为文件的存储系统，很容易扩展自己的存储能力和计算能力，可以达到 Hadoop 所能达到的横向扩展能力，数千台服务器的集群已不难做到，是为海量数据做数据挖掘而设计，不过实时性比较差。
 
-这里主要介绍 Hive 的内部表和外部表。内部表实际上是将 hdfs 的文件映射成 table，然后 Hive 的数据仓库会生成对应的目录，EMR 中默认的仓库路径为：usr/hive/warehouse/$tablename，注意这个路径在 hdfs 上面，其中 $tablename 是您创建的表名。这时只要将符合 table 定义的文件加载到该目录便可通过 Hql（Hive-SQL）对整个目录的文件进行查询了。
-
-Hive 中的外部表和表很类似，但是其数据不是放在自己表所属的目录中，而是存放到别处，这样的好处是如果您要删除这个外部表，该外部表所指向的数据是不会被删除的，它只会删除外部表对应的元数据；而如果您要删除内部表，该表对应的所有数据包括元数据都会被删除。
+这里主要介绍 Hive 的内部表和外部表。
+- 内部表实际上是将 hdfs 的文件映射成 table，然后 Hive 的数据仓库会生成对应的目录，EMR 中默认的仓库路径为`usr/hive/warehouse/$tablename`，**这个路径在 hdfs 上面**，其中`$tablename`是您创建的表名。这时只要将符合 table 定义的文件加载到此目录中，即可通过 Hql（Hive-SQL）对整个目录的文件进行查询。
+- Hive 中的外部表和表很类似，但是其数据不是放在自己表所属的目录中，而是存放到其他地方。这样的好处是如果您要删除这个外部表，此外部表所指向的数据是不会被删除的，它只会删除外部表对应的元数据。而如果您要删除内部表，该表对应的所有数据包括元数据都会被删除。
 
 Hive 基础操作演示了如何在 EMR 集群上创建表以及通过 Hive 查询表。
 
 ## 1. 开发准备
-- 因为任务中需要访问腾讯云对象存储（COS），所以需要在 COS 中先 [创建一个存储桶（Bucket）](https://cloud.tencent.com/document/product/436/6232)。
-
+- 任务中要访问腾讯云对象存储 COS，所以需要先在 COS 中创建一个存储桶（Bucket），具体可参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Hive 组件，并且在基础配置页面勾选“开启 COS”，在下方填写自己的 SecretId 和 SecretKey。SecretId 和 SecretKey 可以在 [API 密钥管理界面](https://console.cloud.tencent.com/cam/capi) 查看。如果还没有密钥，请单击【新建密钥】建立一个新的密钥。
-
 - Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
 ## 2. 准备数据
@@ -64,7 +62,7 @@ done
 [hadoop@172 bin]$ hive
 ```
 用户也可以使用`-h`参数来获取 Hive 指令的基本信息。
-也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中，获得 hive server2 的连接端口 $port 和 host 地址 $hos：
+也可以使用 beeline 模式连接数据库，同样需要登录 EMR的Master 节点，切换到 Hadoop 用户并且进入 Hive 目录，在`conf/hive-site.xml`配置文件中，获得 hive server2 的连接端口 $port 和 host 地址 $host：
 
 ```
 <property>

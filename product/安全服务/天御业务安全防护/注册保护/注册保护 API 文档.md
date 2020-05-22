@@ -11,7 +11,7 @@
 | uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | registerTime       | 是      | UInt     | 注册时间戳，单位：秒。                                         |
 | accountType        | 是      | UInt     | 用户账号类型（QQ 开放帐号、微信开放账号需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li> |
-| appId              | 否      | String     | accountType   是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给给网站或应用的 AppID，用来唯一标识网站或应用。 |
+| appId              | 否      | String     | accountType   是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
 | associateAccount   | 否      | String   | accountType   是 QQ 或微信开放账号时，用于标识 QQ 或微信用户登录后关联业务自身的账号 ID。 |
 | nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
 | phoneNumber        | 否      | String   | 手机号：国家代码-手机号， 如0086-15912345687（0086前不需要+号）。 |
@@ -81,13 +81,7 @@
 <td>微信登录态无效</td><td>104</td><td>检查 wxtoken 参数，是否已经失效。</td>
 </tr>
 <tr>
-<td rowspan=4>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
-</tr>
-<tr>
-<td>JS 上报异常</td><td>202</td><td>需要用户在前端部署 JS 方有效。</td>
-</tr>
-<tr>
-<td>撞库</td><td>203</td><td>该账号有过“撞库”的历史行为。</td>
+<td rowspan=2>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
 </tr>
 <tr>
 <td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>

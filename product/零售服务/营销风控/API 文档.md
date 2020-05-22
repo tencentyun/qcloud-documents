@@ -1,5 +1,5 @@
 ## 接口描述
-协议：HTTPS POST
+协议：HTTPS GET/POST
 域名：`csec.api.qcloud.com`
 接口名：IntelligentQRCode
 
@@ -125,7 +125,7 @@
       <td>loginSource</td>
       <td>可选</td>
       <td>UInt</td>
-      <td>登录来源：<li>0：其他 。</li><li>1：PC网页。</li><li>2：移动页面。</li><li>3：APP。</li><li>4：微信公众号。</li></td>
+      <td>登录来源：<li>0：其他 。</li><li>1：PC 网页。</li><li>2：移动页面。</li><li>3：App。</li><li>4：微信公众号。</li></td>
    </tr>
    <tr>
       <td>wxSubType</td>
@@ -264,20 +264,10 @@
       <td>检查 wxtoken 参数，是否已经失效。</td>
    </tr>
    <tr>
-      <td rowspan="4">环境风险</td>
+      <td rowspan="2">环境风险</td>
       <td>环境异常</td>
       <td>201</td>
       <td>操作 IP、设备、环境存在异常。如当前 IP 为非常用 IP 或恶意 IP 段。</td>
-   </tr>
-   <tr>
-      <td>JS 上报异常</td>
-      <td>202</td>
-      <td>需用户在前端部署 JS 方有效。</td>
-   </tr>
-   <tr>
-      <td>撞库</td>
-      <td>203</td>
-      <td>有过撞库记录。</td>
    </tr>
    <tr>
       <td>非公网有效 IP</td>

@@ -1,3 +1,5 @@
+>!目前验证码服务仅支持 Web 前端接入，网页、App 及小程序皆可使用 Web 前端方式进行接入。
+
 ## 前提条件
 接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
 ## 接入步骤
@@ -97,6 +99,7 @@ new TencentCaptcha(
 |ticket|String|验证成功的票据，当且仅当 ret = 0 时 ticket 有值。|
 |appid|String|场景 ID。|
 |bizState|Any|自定义透传参数。|
+|randstr|String|本次验证的随机串，请求后台接口时需带上。|
 
 ### 实例方法
 TencentCaptcha 的实例提供一些操作验证码的常用方法：

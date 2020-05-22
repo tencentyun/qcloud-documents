@@ -62,6 +62,8 @@
   clientAuth="false"/>
 ```
 详细 `server.xml` 文件请参考如下内容：
+>!不建议您直接复制 server.xml 文件内容，避免格式有误。
+>
 ```
  <?xml version="1.0" encoding="UTF-8"?>
   <Server port="8005" shutdown="SHUTDOWN">
@@ -85,12 +87,12 @@
                 keystoreFile="/usr/*/conf/www.domain.com.jks"
                 keystorePass="******" />
     <Connector port="8009" protocol="AJP/1.3" redirectPort="8443" />
-   <Engine name="Catalina" defaultHost=“www.domain.com">
+   <Engine name="Catalina" defaultHost="www.domain.com">
       <Realm className="org.apache.catalina.realm.LockOutRealm">
         <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
                resourceName="UserDatabase"/>
       </Realm>
-    <Host name=“www.domain.com"  appBase="webapps" 
+    <Host name="www.domain.com"  appBase="webapps" 
         unpackWARs="true" autoDeploy="true" >
         <Context path="" docBase ="Knews" />
     <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
@@ -139,13 +141,13 @@
     </user-data-constraint>
     </security-constraint>
 ```
-3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即8443端口修改为443端口。如下所示：
+3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
 <Connector port="80" protocol="HTTP/1.1"
   connectionTimeout="20000"
   redirectPort="443" />
 ```
->? 此修改操作可将非 SSL 的 connector 可以跳转到 SSL 的 connector 中。
+>? 此修改操作可将非 SSL 的 connector 跳转到 SSL 的 connector 中。
 >
 4. 在` /usr/*/bin` 目录下执行以下命令，关闭 Tomcat 服务器。
 ```
@@ -163,3 +165,4 @@
 ```
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+

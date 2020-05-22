@@ -8,7 +8,7 @@
 4. 实践部分主要介绍 keepalived 的 VRRP Instance 配置为单播 VRRP 报文的用法。
 
 ## 基本原理
-通常高可用主备集群包含2台服务器，一台主服务器处于某种业务的激活状态（即 Active 状态），另一台备服务器处于该业务的备用状态（即 Standby 状态)，它们共享同一个 VIP（Virtual IP）。同一时刻，VIP 只在一台主设备上生效，当主服务器出现问题，备用服务器接管 VIP 继续提供服务。高可用主备模式有着广泛的应用，例如，MySQL 主备切换、Nginx Web 接入。
+通常高可用主备集群包含2台服务器，一台主服务器处于某种业务的激活状态（即 Active 状态），另一台备服务器处于该业务的备用状态（即 Standby 状态），它们共享同一个 VIP（Virtual IP）。同一时刻，VIP 只在一台主设备上生效，当主服务器出现问题，备用服务器接管 VIP 继续提供服务。高可用主备模式有着广泛的应用，例如，MySQL 主备切换、Nginx Web 接入。
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 
 ## 与物理网络的区别
@@ -20,7 +20,7 @@
  
 ## 本文步骤预览
 1.  申请 VIP，该 VIP 仅支持在子网内迁移（因此需要保证主备服务器位于同一个子网）。
-2.  主备服务器安装及配置 keepalived (**1.2.24版本及以上**)，并修改配置文件。
+2.  主备服务器安装及配置 keepalived (**1.2.24版本及以上**），并修改配置文件。
 3.  编辑使用 keepalived  的 notify 机制，借助 notify_action.sh 进行简单的日志记录。
 4.  验证主备倒换时 VIP 是否正常切换。
         
@@ -31,7 +31,7 @@
 ### 步骤2：主备子机安装 keepalived（1.2.24版本及以上）
 以 CentOS 为例：
 - yum 安装方式
-  `yum list keepalived` 查看版本号是否符合要求。若是，下一步。若否，用源码包安装方式`yum –y install keepalived`。
+  `yum list keepalived` 查看版本号是否符合要求。若是，下一步。若否，用 yum 指令安装软件包 `yum –y install keepalived`。
 - 源码包安装方式
 ```
 tar zxvf keepalived-1.2.24.tar.gz

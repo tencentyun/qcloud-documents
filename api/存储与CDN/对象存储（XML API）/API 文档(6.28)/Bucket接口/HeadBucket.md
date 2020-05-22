@@ -1,6 +1,7 @@
 ## 功能描述
 
 HEAD Bucket 请求可以确认该存储桶是否存在，是否有权限访问。有以下几种情况：
+
 - 存储桶存在且有读取权限，返回 HTTP 状态码为200。
 - 无存储桶读取权限，返回 HTTP 状态码为403。
 - 存储桶不存在，返回 HTTP 状态码为404。
@@ -16,7 +17,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -36,9 +37,10 @@ Authorization: Auth String
 
 此接口除返回公共响应头部外，还返回以下响应头部，了解公共响应头部详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-| 名称 | 描述 | 类型 |
-| --- | --- | --- |
-| x-cos-bucket-region | 存储桶所在地域。枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum |
+| 名称                 | 描述                                                         | 类型 |
+| -------------------- | ------------------------------------------------------------ | ---- |
+| x-cos-bucket-region  | 存储桶所在地域。枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 文档，例如 ap-beijing，ap-hongkong，eu-frankfurt 等 | Enum |
+| x-cos-bucket-az-type | 标准存储（多 AZ）类型，当存储桶配置了多 AZ，则返回此头部     | Enum |
 
 #### 响应体
 

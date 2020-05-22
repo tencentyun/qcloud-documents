@@ -1,4 +1,5 @@
-腾讯云为您提供了丰富接入公网的方式，您可以通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等访问公网（Internet）。 
+腾讯云为您提供了丰富接入公网的方式，您可以通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等访问公网（Internet）。您可通过如下视频了解 VPC 连接 Internet 的相关信息。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35383?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 普通公网 IP
 创建云服务器实例时，您可以选择为实例分配普通公网 IP，系统会为您的云服务器分配一个 IP 地址，使其可以访问公网和被公网访问。 
@@ -36,4 +37,4 @@ CLB 依靠大禹分布式防御系统能够防御绝大多数网络攻击（如�
 
 ## 公网网关
 公网网关是开启了转发功能的云服务器。私有网络内没有外网 IP 的云服务器，可通过位于不同子网的公网网关访问 Internet。公网网关服务器将对公网流量进行源地址转换，其它所有云服务器访问 Internet 的流量经过公网网关后，IP 都被转换为公网网关服务器的 IP 地址。
-公网网关的相关配置操作，请参见 [公网网关](https://cloud.tencent.com/document/product/215/37875)。
+公网网关的相关配置操作，请参见 [配置公网网关](https://cloud.tencent.com/document/product/215/38616)。

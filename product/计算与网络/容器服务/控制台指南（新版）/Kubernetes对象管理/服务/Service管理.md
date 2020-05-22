@@ -1,25 +1,69 @@
-## 简介
+## 简介<span id="Introduction"></span>
+Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 IP。您可以在 Service 中通过设置来访问后端的 Pod，不同访问方式的服务可提供不同网络能力。
+腾讯云容器服务（TKE）提供以下四种服务访问方式：
 
-Service 定义访问后端 Pod 的访问策略，提供固定的虚拟访问 IP。您可以通过 Service 负载均衡地访问到后端的 Pod。
-Service 支持以下类型：
+<table>
+<tr>
+<th width="15%">访问方式</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>提供公网访问</td>
+<td>
+<ul class="params">
+<li>使用 Service 的 Loadbalance 模式，公网 IP 可直接访问到后端的 Pod，适用于 Web 前台类的服务。</li>
+<li>创建完成后的服务在集群外可通过<b>负载均衡域名或 IP + 服务端口</b>访问服务，集群内可通过<b>服务名 + 服务端口</b>访问服务。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>仅在集群内访问</td>
+<td>
+<ul class="params">
+<li>使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。数据库类等服务如 MySQL 可以选择集群内访问，以保证服务网络隔离。</li>
+<li>创建完成后的服务可以通过<b>服务名 + 服务端口</b>访问服务。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>VPC  内网访问</td>
+<td>
+<ul class="params">
+<li>使用 Service 的 Loadbalance 模式，指定 <code>annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx</code>，即可通过内网 IP 直接访问到后端的 Pod。</li>
+<li>创建完成后的服务在集群外可通过<b>负载均衡域名或 IP + 服务端口</b>访问服务，集群内可通过<b>服务名 + 服务端口</b>访问服务。</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td>主机端口访问</td>
+<td>
+<ul class="params">
+<li>提供一个主机端口映射到容器的访问方式，支持 TCP、UDP、Ingress。可用于业务定制上层 LB 转发到 Node。</li>
+<li>创建完成后的服务可以通过<b>云服务器 IP+主机端口</b>或<b>服务名 + 服务端口</b>访问服务。</li>
+</ul>
+</td>
+</tr>
+</table>
 
-- 公网访问： 使用 Service 的 Loadbalance 模式，自动创建公网 CLB。 公网 IP 可直接访问到后端的 Pod。
-- VPC 内网访问：使用 Service 的 Loadbalance 模式，自动创建内网 CLB。指定 `annotations:service.kubernetes.io/qcloud-loadbalancer-internal-subnetid: subnet-xxxxxxxx`，VPC 内网即可通过内网 IP 直接访问到后端的 Pod。
-- 集群内访问：使用 Service 的 ClusterIP 模式，自动分配 Service 网段中的 IP，用于集群内访问。
+>?集群内进行 Service 访问时，建议不要通过负载均衡 IP 进行访问，以避免出现访问不通的情况。
 
-## Service 控制台操作指引
+一般情况下，4层负载均衡（LB）会绑定多台 Node 作为 real server（rs） ，使用时需要限制 client 和 rs 不能存在于同一台云服务器上，否则会有一定概率导致报文回环出不去。
+当 Pod 去访问 LB 时，Pod 就是源 IP，当其传输到内网时 LB 也不会做 snat 处理将源 IP 转化成 Node IP，那么 LB 收到报文也就不能判断是从哪个 Node 发送的，LB 的避免回环策略也就不会生效，所有的 rs 都可能被转发。当转发到 client 所在的 Node 上时，LB 就无法收到回包，从而导致访问不通。
 
-### 注意事项
-
-- 建议您的容器业务不要和 CVM 业务共用一个 CLB。
-- 建议您不要在 CLB 控制台直接操作 TKE 自动管理的 CLB。
+## 注意事项<span id="annotations"></span>
+- 确保您的容器业务不和 CVM 业务共用一个 CLB。
+- 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
 - 使用已有的 CLB 时：
   - 只能使用通过 CLB 控制台创建的负载均衡器，不支持复用由 TKE 自动创建的 CLB。
   - 复用 CLB 的 Service 端口不能冲突
   - 不支持跨集群 Service 复用 CLB
   - 复用 CLB 的 Service 不支持开启 local 访问。
-  - 删除 Service, 复用 CLB 绑定的后端云主机需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx 需自行清理
-- TKE 会自动覆盖和更新名称为 TKE_Dedicated_Listener 的监听器，其他监听器不覆盖。
+  - 删除 Service，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
+
+
+## Service 控制台操作指引
+
+
 
 ### 创建 Service
 
@@ -27,14 +71,13 @@ Service 支持以下类型：
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
 3. 单击需要创建 Service 的集群 ID，进入待创建 Service 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
-![Service](https://main.qcloudimg.com/raw/d42865b5fc802688b365cb2c8409e811.png)
+![](https://main.qcloudimg.com/raw/3628305bd167fca1f3e2eaa2a4e1d615.png)
 5. 单击【新建】，进入 “新建Service” 页面。如下图所示：
-![新建Service](https://main.qcloudimg.com/raw/beb261a208c44327e4d5381f29ac0724.png)
+![](https://main.qcloudimg.com/raw/be05e7133d8c205a42dbb03a1b1de3a5.png)
 6. 根据实际需求，设置 Service 参数。关键参数信息如下：
    - 服务名称：自定义。
    - 命名空间：根据实际需求进行选择。
-   - 服务访问方式：根据实际需求，选择对应的访问方式。
-   - 端口映射：根据实际需求进行设置。
+   - 访问设置：请参考 [简介](#Introduction) 并根据实际需求进行设置。
 7. 单击【创建服务】，完成创建。
 
 ### 更新 Service
@@ -45,7 +88,7 @@ Service 支持以下类型：
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
 3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
 4. 选择 “服务” > “Service”，进入 Service 信息页面。如下图所示：
-![Service](https://main.qcloudimg.com/raw/d42865b5fc802688b365cb2c8409e811.png)
+![](https://main.qcloudimg.com/raw/77224c6dc76ded174f4188c6e184cc90.png)
 5. 在需要更新 YAML 的 Service 行中，单击【编辑YAML】，进入更新 Service 页面。
 6. 在 “更新Service” 页面，编辑 YAML，单击【完成】，即可更新 YAML。
 
@@ -81,14 +124,9 @@ spec:
 
 #### annotations: 使用已有负载均衡器创建公网/内网访问的 Service
 
-如果您已有的传统型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，或期望在集群内使用相同的CLB，您可以通过以下 annotations 进行设置：
->! 
-> - 只能使用通过CLB控制台创建的负载均衡器，不支持复用由TKE自动创建的CLB。
-> - 复用CLB的Service端口不能冲突
-> - 不支持跨集群Service复用CLB
-> - 复用CLB的Service不支持开启local访问。
-> - 删除Service, 复用CLB绑定的后端云主机需要自行解绑，同时会保留一个tag tke-clusterId: cls-xxxx 需自行清理。
-
+如果您已有的应用型 CLB 为空闲状态，需要提供给 TKE 创建的 Service 使用，或期望在集群内使用相同的CLB，您可以通过以下 annotations 进行设置：
+>?请了解 [注意事项](#annotations) 后开始使用。
+>
 ```Yaml
 metadata:
   annotations:
@@ -141,7 +179,7 @@ kubectl create -f Service YAML 文件名称
 例如，创建一个文件名为 my-service.yaml 的 Service YAML 文件，则执行以下命令：
  ```shell
 kubectl create -f my-service.yaml
-```
+ ```
 4. 执行以下命令，验证创建是否成功。
 ```shell
 kubectl get services
@@ -172,3 +210,7 @@ kubectl create/apply
 ```
 kubectl delete service [NAME]
 ```
+
+<style>
+	.params{margin-bottom:0px !important;}
+</style>

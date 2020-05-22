@@ -1,3 +1,4 @@
+>!目前验证码的 Android SDK 接入方式已暂停维护，仅支持部分存量用户使用，若您需接入验证码服务，请参见  [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841)。
 ## 前提条件
 ### 准备 AppID
 验证码接入前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret，注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
@@ -82,7 +83,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     if(requestCode == 1 && data != null) {
         switch(resultCode) {
             case Activity.RESULT_OK: {
-                JSONObject jsonObject = new JSONObject(data,getStringExtra("retJson"));
+                JSONObject jsonObject = new JSONObject(data.getStringExtra("retJson"));
                 int ret = jsonObject.getInt("ret");
                 if(ret == 0) {
                     //验证成功回调，此时ret=0，

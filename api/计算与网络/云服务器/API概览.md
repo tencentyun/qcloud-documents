@@ -34,7 +34,7 @@
 | 修改实例的属性 | [ModifyInstancesAttribute](/document/api/213/9381) | 用于修改实例的属性。
 | 调整实例带宽上限 | [ResetInstancesInternetMaxBandwidth](/document/api/213/9393) | 用于调整实例公网带宽上限。
 | 修改实例所属项目 | [ModifyInstancesProject](/document/api/213/9380) | 用于修改实例所属项目。
-| 修改实例vpc属性 | [UpdateInstanceVpcConfig](/document/api/213/9379) | 用于修改实例vpc属性，如私有网络ip。
+| 修改实例vpc属性 | [UpdateInstanceVpcConfig](/document/api/213/9379) | 用于修改实例VPC属性，如私有网络IP。
 | 重置实例密码 | [ResetInstancesPassword](/document/api/213/9397) | 用于将实例操作系统的密码重置为用户指定的密码。
 | 查询实例带宽配置 | [DescribeInstanceInternetBandwidthConfigs](/document/api/213/9390) | 用于查询实例带宽配置。
 

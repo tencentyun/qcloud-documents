@@ -5,7 +5,7 @@ TID 查询页面包含搜索条件区与结果显示区。搜索条件区支持�
 
 ## 操作步骤
 ### TID 结果列表
-1. 登录 [物联网设备身份认证控制台](https://console.cloud.tencent.com/iottid)，选择左侧菜单栏【TID 查询】。
+1. 登录物联网设备身份认证控制台，选择左侧菜单栏[【TID 查询】](https://console.cloud.tencent.com/iottid/utids)。
 2. 进入TID 查询页面，根据您实际需求进行查询即可。
  - TID：IoT TID 认证服务平台空发给您产品的 TID。
  - 产品名称：您的产品名称。

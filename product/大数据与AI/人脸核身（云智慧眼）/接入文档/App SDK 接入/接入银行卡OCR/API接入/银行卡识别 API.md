@@ -29,3 +29,5 @@
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
 |multiWarningCode | String | 多重告警码，含义请参考 [错误码](https://cloud.tencent.com/document/product/1007/31082) |
 | clarity       | String | 图片清晰度                |
+
+>?success：false 无意义，合作伙伴可忽略，无需处理。

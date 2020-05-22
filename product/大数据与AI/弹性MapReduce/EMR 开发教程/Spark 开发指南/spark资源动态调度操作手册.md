@@ -10,22 +10,19 @@ Spark 安装在 EMR 云服务器的`/usr/local/service`路径下（`/usr/local/s
 
 ### 方法一：SSH 控制台操作
 
-1. 在左侧菜单栏【组件管理】中单击【YARN】组件，进入 YARN 组件管理界面。
-![](https://main.qcloudimg.com/raw/d353e4d7e378bf3cbcc172f24b2ee1a5.png)
-2. 在 YARN 组件管理界面，选择【角色管理】，确定 NodeManager 所在节点 IP。
-![](https://main.qcloudimg.com/raw/c4940eed80d09a9f85b0c8dbd1c3d285.png)
-3. 依次登录每个 NodeManager 所在节点。
+1. 在【集群服务】>【YARN】组件中，选择【操作】>【角色管理】，确定 NodeManager 所在节点 IP。
+![](https://main.qcloudimg.com/raw/57a68801574c926d085c90de16dbdc3c.png)
+2. 依次登录每个 NodeManager 所在节点。
  - 首先，需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，这里我们可以使用 XShell 登录 Master 节点。
- - 使用 SSH 登录到其他 NodeManager 所在节点。指令为`ssh $user@$ip`，$user 为登录的用户名，$ip 为远程主机 IP（即步骤2中确定的 IP 地址）。
+ - 使用 SSH 登录到其他 NodeManager 所在节点。指令为`ssh $user@$ip`，$user 为登录的用户名，$ip 为远程主机 IP（即步骤1中确定的 IP 地址）。
 ![](https://main.qcloudimg.com/raw/d83d844103c4a6050a83700fadaf79dd.png)
  - 验证已经成功切换。
 ![](https://main.qcloudimg.com/raw/30f0578b2cc19daebbdd82df8d95c13e.png)
-
-4. 搜索`spark-<version>-yarn-shuffle.jar`文件路径。
+3. 搜索`spark-<version>-yarn-shuffle.jar`文件路径。
 ![](https://main.qcloudimg.com/raw/4927797f6ff300662f14dd3d0ae3b22a.png)
-5. 将`spark-<version>-yarn-shuffle.jar`拷贝到`/usr/local/service/hadoop/share/hadoop/yarn/lib`下。
+4. 将`spark-<version>-yarn-shuffle.jar`拷贝到`/usr/local/service/hadoop/share/hadoop/yarn/lib`下。
 ![](https://main.qcloudimg.com/raw/fab8b0abf34de2f4608924e9982f28ac.png)
-6. 退出登录，并切换其余节点。
+5. 退出登录，并切换其余节点。
 ![](https://main.qcloudimg.com/raw/a9d4b368807a974b618202af0173357c.png)
 
 ### 方法二：批量部署脚本
@@ -73,7 +70,7 @@ done
 ```
 
 ## 修改 Yarn 配置
-1. 在 Yarn 组件管理界面，选择配置管理。选中配置文件`yarn-site.xml`，维度范围选择集群维度（集群维度的配置项修改将应用到所有节点）。
+1. 在【集群服务】>【YARN】组件中，选择【操作】>【配置管理】。选中配置文件`yarn-site.xml`，【维度范围】选择“集群维度”（集群维度的配置项修改将应用到所有节点）。
 ![](https://main.qcloudimg.com/raw/3368002c167223724cfa46acfb46e53b.png)
 2. 修改配置项`yarn.nodemanager.aux-services`，添加 spark_shuffle。
 ![](https://main.qcloudimg.com/raw/596df73363cdc6a05258412f6e794669.png)
@@ -84,8 +81,7 @@ done
 5. 保存设置并下发，重启 YARN 组件使得配置生效。
 
 ##  修改 Spark 配置
-1. 在【组件管理】中找到 Spark 组件，选择【操作】>【配置】。
-![](https://main.qcloudimg.com/raw/285b3305d926c0e06a6dd84a9baeae45.png)
+1. 在【集群服务】>【SPARK】组件中，选择【操作】>【配置管理】。
 2. 选中配置文件【spark-defaults.conf】，单击【修改配置】。新建配置项如下：
 ![](https://main.qcloudimg.com/raw/211d6d4a6504be660546a0a4b6b33821.png)
 <table>

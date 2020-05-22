@@ -14,7 +14,10 @@ CFS 服务监控插件目前**支持通过 NFS 协议挂载的客户端监控（
       <th>版本</th>
    </tr>
    <tr>
-      <td rowspan=7>CentOS</td>
+      <td rowspan=8>CentOS</td>
+      <td>CentOS 7.6 64位</td>
+   </tr>
+	   <tr>
       <td>CentOS 7.5 64位</td>
    </tr>
    <tr>
@@ -50,7 +53,7 @@ CFS 服务监控插件目前**支持通过 NFS 协议挂载的客户端监控（
 
 ## Linux 安装指引
 
-您在登录 Linux 实例后，可以按照以下步骤 [下载插件](#step1) > [修改插件格式](#step2) > [安装插件](#step3) 来获取并安装 CFS 服务监控插件。
+您在登录 Linux 实例后，可以按照以下步骤 [下载插件](#step1) > [赋予安装程序可执行权限](#step2) > [安装插件](#step3) 来获取并安装 CFS 服务监控插件。
 
 <span id="step1"></span>
 #### 下载插件
@@ -62,11 +65,11 @@ wget http://mirrors.tencentyun.com/install/cfs/cfs_barad_plugin_installer_releas
 ```
 
 <span id="step2"></span>
-#### 修改插件格式
-通过以下命令，将 CFS 服务监控插件修改为可执行类型。
+#### 赋予安装程序可执行权限
+通过以下命令，赋予 CFS 服务监控插件安装程序可执行权限：
 
 ```sh
-## 修改文件类型
+## 赋予安装程序可执行权限
 chmod +x cfs_barad_plugin_installer_release_v11
 ```
 
