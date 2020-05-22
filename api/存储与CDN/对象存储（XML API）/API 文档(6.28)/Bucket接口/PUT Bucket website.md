@@ -124,7 +124,7 @@ Authorization: Auth String
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
 | Protocol | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议，只能设置为 https | string | 否 |
-| ReplaceKeyWith | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | string | 否 |
+| ReplaceKeyWith | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | string | 否 |
 | ReplaceKeyPrefixWith | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分，仅可在 Condition 为 KeyPrefixEquals 时设置 | string | 否 |
 
 ## 响应
