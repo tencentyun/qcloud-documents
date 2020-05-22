@@ -1,5 +1,5 @@
 ## 操作场景
-腾讯云容器服务开源版（Tencent Kubernetes Engine Stack，TKE Stack）是腾讯内部多个团队联合打造的一款集强壮性和易用性于一身的企业级开源容器编排引擎。您可参考本文创建容器服务开源版控制台，并通过控制台创建和管理容器集群，在集群内快速、弹性地部署服务。
+腾讯云容器服务开源版（Tencent Kubernetes Engine Stack，TKEStack）是腾讯内部多个团队联合打造的一款集强壮性和易用性于一身的企业级开源容器编排引擎。您可参考本文创建容器服务开源版控制台，并通过控制台创建和管理容器集群，在集群内快速、弹性地部署服务。
 
 ## 前提条件
 已具备4个可用节点，详细配置见下表。关于部署要求的更多信息请参见 [部署环境要求](https://github.com/tkestack/tke/blob/master/docs/guide/zh-CN/installation/installation-requirement.md)。
