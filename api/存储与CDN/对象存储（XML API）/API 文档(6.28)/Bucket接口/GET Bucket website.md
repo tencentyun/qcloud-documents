@@ -90,7 +90,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| Suffix | WebsiteConfiguration.IndexDocument | 指定索引文档的对象键后缀。例如指定为 `index.html`，那么当访问到存储桶的根目录时，会自动返回 index.html 的内容，或者当访问到 `article/` 目录时，会自动返回 `article/index.html` 的内容。 | string |
+| Suffix | WebsiteConfiguration.IndexDocument | 指定索引文档的对象键后缀。例如指定为`index.html`，那么当访问到存储桶的根目录时，会自动返回 index.html 的内容，或者当访问到`article/`目录时，会自动返回`article/index.html`的内容 | string |
 
 **Container 节点 RedirectAllRequestsTo 的内容：**
 
@@ -121,16 +121,16 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| HttpErrorCodeReturnedEquals | WebsiteConfiguration.RoutingRules.RoutingRule.Condition | 指定重定向规则的错误码匹配条件 | integer |
-| KeyPrefixEquals | WebsiteConfiguration.RoutingRules.RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | string |
+| HttpErrorCodeReturnedEquals | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Condition | 指定重定向规则的错误码匹配条件 | integer |
+| KeyPrefixEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | string |
 
 **Container 节点 RoutingRules.RoutingRule.Redirect 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| Protocol | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的目标协议 | string |
-| ReplaceKeyWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键。 | string |
-| ReplaceKeyPrefixWith | WebsiteConfiguration.RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分。 | string |
+| Protocol | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Redirect | 指定重定向规则的目标协议 | string |
+| ReplaceKeyWith | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换整个原始请求的对象键 | string |
+| ReplaceKeyPrefixWith | WebsiteConfiguration.<br>RoutingRules.RoutingRule.Redirect | 指定重定向规则的具体重定向目标的对象键，替换方式为替换原始请求中所匹配到的前缀部分 | string |
 
 #### 错误码
 
