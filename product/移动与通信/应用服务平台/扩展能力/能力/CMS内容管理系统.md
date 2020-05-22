@@ -64,7 +64,11 @@ CMS 扩展还可以用来配合开发网站应用和小程序应用，提升开�
 
 ##### 开通并创建按量付费环境
 
-点击进入控制台[创建环境](https://console.cloud.tencent.com/tcb/env/index?action=CreateEnv)
+- 注册腾讯云账号，并完成实名认证
+
+- 进入[云开发控制台](https://console.cloud.tencent.com/tcb)，授权开通云开发
+
+- 点击进入控制台[创建按量计费环境](https://console.cloud.tencent.com/tcb/env/index?action=CreateEnv)（温馨提示，无资源消耗时，按量计费不产生任何费用）
 
 ##### 切换包年包月计费方式为按量计费
 
