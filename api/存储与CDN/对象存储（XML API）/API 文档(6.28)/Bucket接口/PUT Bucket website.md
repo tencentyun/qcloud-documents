@@ -116,7 +116,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| HttpErrorCode<br>ReturnedEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的错误码匹配条件，只支持配置4XX返回码，例如403或404 | integer | 否 |
+| HttpErrorCodeReturnedEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的错误码匹配条件，只支持配置4XX返回码，例如403或404 | integer | 否 |
 | KeyPrefixEquals | WebsiteConfiguration.RoutingRules.<br>RoutingRule.Condition | 指定重定向规则的对象键前缀匹配条件 | string | 否 |
 
 **Container 节点 RoutingRules.RoutingRule.Redirect 的内容：**
