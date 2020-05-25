@@ -19,8 +19,8 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
  - 类型：选择消息类型，包括：普通、全局顺序、局部顺序、事务（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）
  - 分区数：全局顺序只有1个分区，其他为1-128个分区
  - 说明：填写 Topic 的说明信息，不超过128字符
-![](https://main.qcloudimg.com/raw/3a53fe8fa4ae2e0e1307b8fccf2afc8f.png)
 4. 单击【提交】，在 Topic 列表中即可看见创建好的 Topic。
+![](https://main.qcloudimg.com/raw/3a53fe8fa4ae2e0e1307b8fccf2afc8f.png)
 
 ### 查询 Topic
 
