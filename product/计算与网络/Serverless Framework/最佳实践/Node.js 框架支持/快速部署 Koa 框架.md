@@ -22,20 +22,25 @@ $ touch serverless.yml
 npm init              # 创建后持续回车
 npm i --save koa  # 安装 koa
 ```
-3. 创建一个 `app.js`文件，
+3. 创建一个 `sls.js`文件
 ```console
 $ touch app.js
 ```
 4. 在 `app.js` 文件中创建您的 Koa App：
 ```js
-const koa = require('koa');
-const app = new koa();
+const koa = require('koa')
+const app = new koa()
+
 app.use(async (ctx, next) => {
-  if (ctx.path !== '/') return next();
-  ctx.body = 'Hello from Koa';
-});
+  if (ctx.path !== '/') return next()
+  ctx.body = 'Hello from Koa'
+})
+
+// set binary types
+// app.binaryTypes = [*/*];
+
 // don't forget to export!
-module.exports = app;
+module.exports = app
 ```
 
 #### 配置
@@ -44,43 +49,36 @@ module.exports = app;
 ```yml
 # serverless.yml
 
-koa:
-  component: '@serverless/tencent-koa'
-  inputs:
-    region: ap-shanghai
+org: orgDemo # (optional) serverless dashboard org. default is the first org you created during signup.
+app: appDemo # (optional) serverless dashboard app. default is the same as the name property.
+stage: dev # (optional) serverless dashboard stage. default is dev.
+component: koa # (required) name of the component. In that case, it's koa.
+name: koaDemo # (required) name of your koa component instance.
+
+inputs:
+  src:
+    src: ./src # (optional) path to the source folder. default is a hello world app.
+    exclude:
+      - .env
+  region: ap-guangzhou
+  runtime: Nodejs10.15
+  apigatewayConf:
+    protocols:
+      - http
+      - https
+    environment: release
 ```
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-koa/blob/v2/docs/configure.md)
 
 #### 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
+通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
 >?`sls`命令是`serverless`命令的缩写
 
 ```
-$ sls --debug
-
-  DEBUG ─ Resolving the template's static variables.
-  DEBUG ─ Collecting components from the template.
-  DEBUG ─ Downloading any NPM components found in the template.
-  DEBUG ─ Analyzing the template's components dependencies.
-  DEBUG ─ Creating the template's components graph.
-  DEBUG ─ Syncing template state.
-  DEBUG ─ Executing the template's components graph.
-  DEBUG ─ Compressing function KoaComponent_7xRrrd file to /Users/dfounderliu/Desktop/temp/code/.serverless/KoaComponent_7xRrrd.zip.
-  DEBUG ─ Compressed function KoaComponent_7xRrrd file successful
-  DEBUG ─ Uploading service package to cos[sls-cloudfunction-ap-shanghai-code]. sls-cloudfunction-default-KoaComponent_7xRrrd-1572512568.zip
-  DEBUG ─ Uploaded package successful /Users/dfounderliu/Desktop/temp/code/.serverless/KoaComponent_7xRrrd.zip
-  DEBUG ─ Creating function KoaComponent_7xRrrd
-  DEBUG ─ Created function KoaComponent_7xRrrd successful
-  DEBUG ─ Starting API-Gateway deployment with name koa.TencentApiGateway in the ap-shanghai region
-  DEBUG ─ Using last time deploy service id service-n0vs2ohb
-  DEBUG ─ Updating service with serviceId service-n0vs2ohb.
-  DEBUG ─ Endpoint ANY / already exists with id api-9z60urs4.
-  DEBUG ─ Updating api with api id api-9z60urs4.
-  DEBUG ─ Service with id api-9z60urs4 updated.
-  DEBUG ─ Deploying service with id service-n0vs2ohb.
-  DEBUG ─ Deployment successful for the api named koa.TencentApiGateway in the ap-shanghai region.
+$ sls deploy
 
   koa:
     region:              ap-shanghai
@@ -124,3 +122,6 @@ TENCENT_SECRET_KEY=123
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 SecretId 和 SecretKey。
+
+####更多组件
+可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
