@@ -30,7 +30,7 @@ EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务
 将云服务器 A 解绑的 EIP 绑定到云服务器 B 上，完成公网 IP 的迁移。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
 2. 选择云服务器 A 所在地域，并在列表中找到云服务器 A 解绑的 EIP 所在行，单击操作栏下的【更多】>【绑定】。
-![](https://main.qcloudimg.com/raw/aea04248e9b25983029661918b0e780c.png)
+![](https://main.qcloudimg.com/raw/e244a688e8787c2daeffd13af05b8ad1.png)
 3. 在弹出的“绑定资源”窗口中，资源类型选择【CVM实例】，选择需迁移 EIP 的目的云服务器 B，单击【确定】。
 ![](https://main.qcloudimg.com/raw/e6424cd51bf47208d62ac9414672048f.png)
 4. 在弹出的提示框中，单击【确定】。
@@ -44,5 +44,5 @@ EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务
 - **EIP 列表页**
  1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip?rid=1)。
  2. 选择云服务器 B 所在地域，并在列表中找到迁移的 EIP 所在行，即可查看到该 EIP 已成功绑定云服务器 B。
-![](https://main.qcloudimg.com/raw/66fcb2d346e5caec9acc847e33adddeb.png)
+![](https://main.qcloudimg.com/raw/ecae8e7a7e67b1d95dc3713e1e9cff62.png)
 
