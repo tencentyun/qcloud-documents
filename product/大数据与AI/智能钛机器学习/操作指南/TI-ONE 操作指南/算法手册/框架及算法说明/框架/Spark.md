@@ -11,7 +11,7 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
  - 配置文件：指定您的 Spark 应用程序用到的配置文件，可选项。
 3. **配置资源**
   在资源参数列表配置任务的资源参数。
- - drver 节点资源类型：请选择合适的 drive 节点机型。
+ - driver 节点资源类型：请选择合适的 drive 节点机型。
  - executor 节点资源类型：请选择合适的 executor 节点机型。
  - num-executors：分配计算节点数目。
  - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。

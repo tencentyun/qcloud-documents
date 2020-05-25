@@ -24,7 +24,7 @@ main(['install', "package_name"])
  - 配置资源：指定您的 PySpark 应用程序用到的配置文件，可选项。
 3. **配置资源**
 在【资源参数】列表框配置任务的资源参数。
- - drver 节点资源类型：请选择合适的 drive 节点机型。
+ - driver 节点资源类型：请选择合适的 drive 节点机型。
  - executor 节点资源类型：请选择合适的 executor 节点机型。
  - num-executors：分配计算节点数目。
  - spark-conf：指定 Spark 常用参数配置，如压缩、序列化、网络等。
