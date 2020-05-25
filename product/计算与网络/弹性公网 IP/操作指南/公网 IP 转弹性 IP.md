@@ -6,7 +6,7 @@
 - 普通公网 IP：仅能在云服务器购买时分配且无法与云服务器解绑，如购买时未分配，则无法获得。
 - EIP：可以独立购买和持有的公网 IP 地址资源，可随时与云服务器、NAT 网关等云资源绑定、解绑。
 
-与云服务器的普通公网 IP 相比，EIP 提供更灵活的管理方式，如下表所示，详情请参见 <a href="https://cloud.tencent.com/document/product/215/38109#.E5.85.AC.E7.BD.91-ip-.E5.9C.B0.E5.9D.80">公网 IP 地址</a>。
+与云服务器的普通公网 IP 相比，EIP 提供更灵活的管理方式，如下表所示，详情请参见 <a href="https://cloud.tencent.com/document/product/215/38109#.E5.85.AC.E7.BD.91-ipv4-.E5.9C.B0.E5.9D.80">公网 IPv4 地址</a>。
 <table>
 <thead>
 <tr>
