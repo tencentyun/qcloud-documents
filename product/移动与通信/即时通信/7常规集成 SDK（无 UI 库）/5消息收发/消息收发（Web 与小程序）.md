@@ -425,8 +425,8 @@ tim.createCustomMessage(options)
 | Name          | Type     | Description          |
 | ------------- | -------- | -------------------- |
 | `data`        | `String` | 自定义消息的数据字段 |
-| `description` | `String` | 自定义消息的数据字段 |
-| `extension`   | `String` | 自定义消息的数据字段 |
+| `description` | `String` | 自定义消息的说明字段 |
+| `extension`   | `String` | 自定义消息的扩展字段 |
 
 
 **示例**
@@ -648,20 +648,12 @@ tim.sendMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-<<<<<<< HEAD
+
 | Name               | Type     | **Attributes** | Description    |
 | ------------------ | -------- | -------------- | -------------- |
 | `message`               | `Message` |  | 消息实例   |
 | `options` | `Object` | `optional` | 消息发送选项（消息内容的容器） |
-=======
-| Name      | Type      | **Attributes** | Description                    |
-| --------- | --------- | -------------- | ------------------------------ |
-| `message` | `Message` | -              | 消息实例                       |
-| `options` | `Object`  | `optional`     | 消息发送选项（消息内容的容器） |
-
->>>>>>> c7ed2445cbf2bb363dee78ff4c23a09b716eb52a
-`options`的描述如下表所示：
-
+ `options`的描述如下表所示： 
 | Name              | Type      | **Attributes** | Description                                                  |
 | ----------------- | --------- | -------------- | ------------------------------------------------------------ |
 | `onlineUserOnly`  | `Boolean` | `optional`     | v2.6.4起支持，消息是否仅发送给在线用户的标识，默认值为 false；设置为 true，则消息既不存漫游，也不会计入未读，也不会离线推送给接收方。适合用于发送广播通知等不重要的提示消息场景。在 AVChatRoom 发送消息不支持此选项 |
@@ -1000,11 +992,11 @@ tim.getMessageList(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Attributes   | Default | Description                                                  |
-| ------------------ | -------- | ------------ | ------- | ------------------------------------------------------------ |
-| `conversationID`   | `String` | -            | -       | 会话 ID                                                      |
-| `nextReqMessageID` | `String` | -            | -       | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
-| `count`            | `Number` | `<optional>` | 15      | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
+| Name               | Type     | Attributes   | Description                                                  |
+| ------------------ | -------- | ------------ | ------------------------------------------------------------ |
+| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
+| `nextReqMessageID` | `String` | `<optional>` | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
+| `count`            | `Number` | `<optional>` | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
 
 **示例**
 
@@ -1078,13 +1070,8 @@ tim.setMessageRead({conversationID: 'C2Cexample'});
 获取会话列表的接口，该接口拉取最近的100条会话，当需要刷新会话列表时调用该接口。
 
 >!
-><<<<<<< HEAD
->-该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，可参考：[getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
 >
->=======
 >- 该接口获取的会话列表中的资料是不完整的（仅包括头像、昵称等，能够满足会话列表的渲染需求），若要查询详细会话资料，请参考 [getConversationProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationProfile)。
->>>>>>> c7ed2445cbf2bb363dee78ff4c23a09b716eb52a
->
 >- 会话保存时长跟会话最后一条消息保存时间一致，消息默认保存7天，即会话默认保存7天。 
 
 **接口**

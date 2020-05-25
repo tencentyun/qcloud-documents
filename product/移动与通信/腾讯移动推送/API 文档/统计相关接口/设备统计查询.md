@@ -2,8 +2,20 @@
 ## 接口说明
 **请求方式**：POST。
 **调用频率限制**：200次/小时。
+
+接口请求地址与服务接入点一一对应，请选择与您的应用服务接入点对应的请求地址。
+
+广州服务接入点：
 ```shell
 https://api.tpns.tencent.com/v3/statistics/get_device_stat_overview
+```
+中国香港服务接入点:
+```shell
+https://api.tpns.hk.tencent.com/v3/statistics/get_device_stat_overview
+```
+新加坡服务接入点:
+```shell
+https://api.tpns.sgp.tencent.com/v3/statistics/get_device_stat_overview
 ```
 **接口功能**：查询应用某个时间段内每天的“日新增设备数”、“日联网设备数”和“历史累计设备数”。
 

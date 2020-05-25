@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍如何快速创建一个基于容器服务开源版（TKE Stack）集群内的 Node.js 版的 Hello World 服务。
+本文档介绍如何快速创建一个基于容器服务开源版（TKEStack）集群内的 Node.js 版的 Hello World 服务。
 
 
 

@@ -96,10 +96,10 @@ pip install Django -t ./ -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
+通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
 
 ```shell
-$ sls --debug
+$ sls deploy --debug
 ```
 
 #### 移除

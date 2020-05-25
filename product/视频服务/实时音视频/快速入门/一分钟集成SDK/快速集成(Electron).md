@@ -38,7 +38,7 @@ $ brew update
 在您的 Electron 项目中使用 npm 命令安装 SDK 包：
 
 ```
-npm install trtc-electron-sdk@latest --save-dev
+npm install trtc-electron-sdk@latest --save
 ```
 
 在项目目录下的 package.json 中检查 SDK 是否安装成功：
