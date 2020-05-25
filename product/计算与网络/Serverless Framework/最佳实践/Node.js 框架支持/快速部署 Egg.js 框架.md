@@ -119,5 +119,5 @@ TENCENT_SECRET_KEY=123
 
 通常初始化的 egg 项目，会自动创建 app/public 目录。但是在打包压缩时，如果该目录为空，则部署后，该目录不会存在。所以 egg 项目启动时会自动创建，但是云函数是没有操作权限的，建议可以在 app/public 目录下创建一个空文件 .gitkeep，来解决此问题。
 
-####更多组件
+#### 更多组件
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。
