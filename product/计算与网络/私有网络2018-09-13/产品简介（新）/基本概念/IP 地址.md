@@ -56,7 +56,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td colspan="2" >IP 费用</td>
 <td>普通公网 IP 可免费使用。</td>
 <td><li>绑定：有绑定资源（如云服务器、NAT 网关）时，不收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</li>
-<li>未绑定：收取资源占用费。</li>
+<li>未绑定：收取 IP 资源费用。</li>
 <li>释放：不再收取任何费用。</li>
 </td>
 </tr>
