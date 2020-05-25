@@ -22,6 +22,9 @@ Linux 驱动安装有2种方式：
 ![](https://main.qcloudimg.com/raw/95ada99ab6bcc84decfef4caf1905f62.png)
 4. 再次跳转后，如有填写个人信息的页面可选择直接跳过，出现下面页面时，右击【AGREE&DOWNLOAD】，右键菜单里复制链接地址。
 ![](https://main.qcloudimg.com/raw/e343c0276071797f3bc1051e430758f5.png)
+4. 参考 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录 GPU 实例。您也可以根据实际操作习惯，选择其他不同的登录方式：
+ - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
+ - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
 5. 登录 GPU 实例，使用 `wget` 命令， 粘贴上述步骤复制的链接地址下载安装包。或通过在本地系统下载 NVIDIA 安装包，再上传到 GPU 实例的服务器。
 ![](https://main.qcloudimg.com/raw/e8648c2802a0c31bf557b056ce084911.png)
 下载完成后，您可通过 `ls` 命令查看已下载的安装包名。
