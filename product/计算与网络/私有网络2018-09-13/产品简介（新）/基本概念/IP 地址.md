@@ -53,12 +53,9 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td><li>独立享有的 IP 资源，可随时与云服务器、NAT 网关等绑定、解绑。</li><li>不再需要时可以释放。</li></td>
 </tr>
 <tr>
-<td colspan="2" >IP 费用</td>
+<td colspan="2" >IP 资源费用</td>
 <td>普通公网 IP 可免费使用。</td>
-<td><li>绑定：有绑定资源（如云服务器、NAT 网关）时，不收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</li>
-<li>未绑定：收取 IP 资源费用。</li>
-<li>释放：不再收取任何费用。</li>
-</td>
+<td>IP 资源费用是弹性公网 IP 费用组成的一部分，根据非带宽上移和带宽上移不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">配额</td>
