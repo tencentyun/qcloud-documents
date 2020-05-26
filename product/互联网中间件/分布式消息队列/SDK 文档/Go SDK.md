@@ -7,8 +7,8 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 ### 准备 Demo 环境
 
-1. 安装 IDE（怎么安装？？？）
-您可以安装 GoLand 或其它的 Go IDE 来运行这个 Demo，本文以 Go Land 为例。
+1. 安装 IDE
+您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo，本文以 Go Land 为例。
 
 2. 下载 Demo工程
  下载 TDMQ 的 Demo 工程到本地。
