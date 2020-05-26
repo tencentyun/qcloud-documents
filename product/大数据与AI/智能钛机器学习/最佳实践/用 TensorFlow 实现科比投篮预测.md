@@ -71,10 +71,9 @@
 #### 二. 数据清洗
 此数据清洗功能由【案例相关材料】中的清洗代码 data_cleaning.py 提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】。 
-2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
+2. 将【TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
 3. 填写参数： 
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。 
- - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
 
 <img src="https://main.qcloudimg.com/raw/2a022e929416c1e031f3d3dc431afbd4.png" style="zoom:50%;" />
@@ -85,7 +84,6 @@
 2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。 
- - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
 
 <img src="https://main.qcloudimg.com/raw/5cebb60df22010b6611f3a37cc1e3832.png" style="zoom:50%;" />
@@ -96,7 +94,6 @@
 2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。 
- - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
 
 <img src="https://main.qcloudimg.com/raw/ed656a7d739db690b1449b3840db4b47.png" style="zoom:50%;" />
@@ -108,7 +105,6 @@
 2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `classifier.py` 详见【案例相关材料】。 
- - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
 
 <img src="https://main.qcloudimg.com/raw/b0bee0859c870ab74c477281e02ebb46.png" style="zoom:50%;" />
