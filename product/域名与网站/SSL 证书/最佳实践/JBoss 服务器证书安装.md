@@ -38,7 +38,7 @@
 
 
 ## 操作步骤
-1. 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
  - **文件夹名称**：Tomcat
  - **文件夹内容**：
@@ -49,7 +49,7 @@
 2. 远程登录 JBoss 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 3. 进入部署证书步骤，在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
 4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 JBoss 服务器，将已获取到的 `www.domain.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
-5. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下内容：
+5. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下所示：
  - 第一部分：
 ```
 <interfaces>
@@ -86,7 +86,7 @@
     - **开启远程访问**：将 `${jboss.bind.address:127.0.0.1}` 调整为 `${jboss.bind.address:0.0.0.0}`。
     - **修改 http 端口**：将8080端口调整为80。
     - **修改 https 端口**：将8443端口调整为443。
- - 第二部分：
+ - 第二部分：添加证书相关配置。
 ```
 <subsystem xmlns="urn:jboss:domain:web:1.1" default-virtual-server="default-host" native="false">
             <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
