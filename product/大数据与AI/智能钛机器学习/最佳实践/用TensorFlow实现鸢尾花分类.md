@@ -181,8 +181,7 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
 			--test_path ${ai_dataset_lib}/demo/other/iris_test.csv
 			--export_dir ${cos}/tf_model
  - TensorBoard 目录：指定 Tensorboard 保存路径。本案例此处无需填写。
- - 程序依赖：指定存储于cos上的依赖文件的路径，指定内容将被拷贝到程序脚本同一级目录下。本案例此处无需填写。
- - Python 版本：3.5
+ - 程序依赖：指定存储于 cos 上的依赖文件的路径，指定内容将被拷贝到程序脚本同一级目录下。本案例此处无需填写。
  - 资源类型：您可按需选择，如 TI.GN10X.2XLARGE40.1xV100
 
 #### 三、运行调度及评估效果查看
