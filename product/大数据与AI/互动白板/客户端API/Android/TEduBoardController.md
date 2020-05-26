@@ -948,7 +948,7 @@ TEduBoardFileInfo getFileInfo(String fid)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fid | String |  |
+| fid | String | 获取白板中指定文件的文件信息 |
 
 #### 返回
 文件信息 
