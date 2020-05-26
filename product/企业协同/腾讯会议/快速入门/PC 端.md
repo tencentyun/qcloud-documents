@@ -1,13 +1,12 @@
 ## 步骤一：下载安装
 
- [Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004) 
+[Windows 客户端下载](https://meeting.tencent.com/download-win.html?from=1004) 
 [macOS 客户端下载](https://meeting.tencent.com/download-mac.html?from=1004) 
 
 
 ## 步骤二：注册/登录
 #### [点击查看注册登录](https://cloud.tencent.com/document/product/1095/41296)
 
-## 步骤三：创建会议
 
 
 
