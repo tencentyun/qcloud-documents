@@ -1,10 +1,10 @@
 ## 操作场景
-消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息进行转储以便于对数据进行分析与下载等操作，常见转储场景有 COS、ES、SQL 等。
+消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储至 COS 以便于对数据进行分析与下载等操作。
+处理流程及架构如下：
+![](https://main.qcloudimg.com/raw/7dd98365a907a200053d323191d6101a.png)
 
 ## 前提条件
-该功能目前依赖 SCF，使用时需开通云函数 SCF 相关功能。
-
-
+该功能目前依赖云函数（SCF）、对象存储（COS）等产品，使用时需开通相关产品功能。
 
 ## 操作步骤
 
@@ -23,30 +23,25 @@
 
 如果您还未创建对象存储的 Bucket，请在 [新建 Bucket](https://console.cloud.tencent.com/cos/bucket) 后选取相应的存储位置。
 
+## 方案对比
+
+| 对比项 | 自建服务 | Serverless方案 |
+|---------|---------|---------|
+| 基础设施 | 需要用户采购和管理 | 只需要专注业务逻辑的开发,在控制台自行部署服务即可 |
+| 项目上线周期 | 在具体业务逻辑外耗费大量的时间和人力成本，保守估计大约 30 人天，包括硬件采购、软件和环境配置、系统开发、测试、监控报警、灰度发布系统等| 预计 3 人天， 开发调试（2人天）+ 压测观察（1 人天） |
+| 学习上手成本 | 除了编程语言开发能力和熟悉 Connector 以外，可能使用 K8S 或弹性伸缩，需要了解更多的产品、名词和参数的意义| 预计 3 人天， 开发调试（2人天）+ 压测观察（1 人天） |
+| 压测性能 | 传统 Logstash 消费能力：200+MB/分钟| Serverless 方案消费能力：6000+MB/分钟 |
 
 
-### Ckafka 转储通用模板
-1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
-2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
-3. 在 topic 管理标签页，单击操作列的【消息转储】。
-4. 单击添加消息转储，选择转储类型为通用模板
-![](https://main.qcloudimg.com/raw/97cb7d280c9939166964e282c5417d86.png)
-  - 转储类型：选择希望转储的函数模板，支持对象存储（COS），通用模板两种转储类型
- - 起始位置：转储时历史消息的处理方式，topic offset 设置。
- - 角色授权：使用云函数 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
- - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
+## 价格相关
 
-通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 [SCF 通用模板](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaTriggerTemplate) 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
+该功能基于云函数 SCF 服务提供。SCF为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
+转储方案价格与 Ckafka Partition 数有关，当前 Partition 个数与函数并发个数保持一致。若需修改函数并发个数请检查 schedule 函数逻辑。
 
-通用转储模板常见转储应用场景有 [Elasticsearch](https://cloud.tencent.com/product/es)、[MySQL](https://cloud.tencent.com/product/cdb)、[PostgreSQL](https://cloud.tencent.com/product/postgres) 等。
-
-
-
-## 产品限制和费用计算
-- 转储速度与 Ckafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 Ckafka 实例的峰值带宽。
+## 相关问题
+- 转储速度与 Ckafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 Ckafka 实例的峰值带宽或增加 Ckafka partition 数。
 - 转储速度与 Ckafka 单个文件最大500M，如超过该数值，会自动分包上传。
 - 当前仅支持和 CKafka 实例同个地域的 COS 进行消息存储，为保证延时，不支持跨地域存储。
 - 使用COS消息转储，文件内容是 CKafka 消息里的 value 用 utf-8 String 序列化拼接而成，暂不支持二进制的数据格式。
 - 开启转 COS 的操作账号必须对目标 COS Bucket 具备写权限。
 - 使用 COS 消息转储必须至少拥有一个 VPC 网络环境，如在创建时选择基础网络请参考 [路由接入方式](https://cloud.tencent.com/document/product/597/36348)  绑定 VPC 网络。
-- 该功能基于云函数 SCF 服务提供。SCF为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
