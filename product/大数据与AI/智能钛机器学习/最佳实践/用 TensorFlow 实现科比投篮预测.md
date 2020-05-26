@@ -49,7 +49,7 @@
 
 ## 整体流程 
 该 Demo 的整体流程如下： 
-![](https://main.qcloudimg.com/raw/c00fd14e7e4d2f5f14d7147b830deba9.png)
+<img src="https://main.qcloudimg.com/raw/2d53e3facc1f39457fd33196853e5b4d.png" style="zoom:50%;" />
 
 >!您可以按需自行配置资源参数，不同资源实例类型对应的价格不同。选择资源时，您可以参看资源参数右上角的**计费说明**。
 
